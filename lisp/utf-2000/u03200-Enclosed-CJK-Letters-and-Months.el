@@ -265,7 +265,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E00 #x0029)
-    (=gb2312		. #x2265)	; ø»„ˆ¦
+    (chinese-gb2312	. #x2265)	; ø»„ˆ¦
     (=ucs		. #x3220)	; ãˆ 
     ))
 (define-char
@@ -274,7 +274,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E8C #x0029)
-    (=gb2312		. #x2266)	; ø»„ˆ§
+    (chinese-gb2312	. #x2266)	; ø»„ˆ§
     (=ucs		. #x3221)	; ãˆ¡
     ))
 (define-char
@@ -283,7 +283,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E09 #x0029)
-    (=gb2312		. #x2267)	; ø»„ˆ¨
+    (chinese-gb2312	. #x2267)	; ø»„ˆ¨
     (=ucs		. #x3222)	; ãˆ¢
     ))
 (define-char
@@ -292,7 +292,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x56DB #x0029)
-    (=gb2312		. #x2268)	; ø»„ˆ©
+    (chinese-gb2312	. #x2268)	; ø»„ˆ©
     (=ucs		. #x3223)	; ãˆ£
     ))
 (define-char
@@ -301,7 +301,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E94 #x0029)
-    (=gb2312		. #x2269)	; ø»„ˆª
+    (chinese-gb2312	. #x2269)	; ø»„ˆª
     (=ucs		. #x3224)	; ãˆ¤
     ))
 (define-char
@@ -310,7 +310,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516D #x0029)
-    (=gb2312		. #x226A)	; ø»„ˆ«
+    (chinese-gb2312	. #x226A)	; ø»„ˆ«
     (=ucs		. #x3225)	; ãˆ¥
     ))
 (define-char
@@ -319,7 +319,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E03 #x0029)
-    (=gb2312		. #x226B)	; ø»„ˆ¬
+    (chinese-gb2312	. #x226B)	; ø»„ˆ¬
     (=ucs		. #x3226)	; ãˆ¦
     ))
 (define-char
@@ -328,7 +328,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516B #x0029)
-    (=gb2312		. #x226C)	; ø»„ˆ­
+    (chinese-gb2312	. #x226C)	; ø»„ˆ­
     (=ucs		. #x3227)	; ãˆ§
     ))
 (define-char
@@ -337,7 +337,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E5D #x0029)
-    (=gb2312		. #x226D)	; ø»„ˆ®
+    (chinese-gb2312	. #x226D)	; ø»„ˆ®
     (=ucs		. #x3228)	; ãˆ¨
     ))
 (define-char
@@ -346,7 +346,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5341 #x0029)
-    (=gb2312		. #x226E)	; ø»„ˆ¯
+    (chinese-gb2312	. #x226E)	; ø»„ˆ¯
     (=ucs		. #x3229)	; ãˆ©
     ))
 (define-char
@@ -1214,8 +1214,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
-    (=cns11643-1	. #x2221)	; ø»‘ƒº
-    (=big5		. #xA1C0)	; ý¢€Š‡€
+    (chinese-cns11643-1 . #x2221)	; ø»‘ƒº
+    (chinese-big5	. #xA1C0)	; ý¢€Š‡€
     (=ucs		. #x32A3)	; ãŠ£
     ))
 (define-char

@@ -26,14 +26,9 @@
 ;;; Code:
 
 (define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208-1978)
-(define-charset-alias 'chinese-gb2312		'=gb2312)
 (define-charset-alias 'japanese-jisx0208	'=jis-x0208-1983)
 (define-charset-alias 'korean-ksc5601		'=ks-x1001)
 (define-charset-alias 'japanese-jisx0212	'=jis-x0212)
-(define-charset-alias 'chinese-cns11643-1	'=cns11643-1)
-(define-charset-alias 'chinese-cns11643-2	'=cns11643-2)
-(define-charset-alias 'chinese-gb12345		'=gb12345)
-(define-charset-alias 'chinese-big5		'=big5)
 
 ;; PinYin-ZhuYin
 (make-charset 'sisheng "PinYin-ZhuYin"
@@ -73,26 +68,15 @@
 ;; ISO-IR-165 (CCITT Extended GB)
 ;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
 ;;    GB 8565-88 table A4 + 293 characters.
-(if (featurep 'utf-2000)
-    (progn
-      (make-charset '=iso-ir165
-		    "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
-		    '(iso-ir 165
-			     dimension 2
-			     chars 94
-			     mother =gb2312
-			     final ?E
-			     registry "isoir165"
-			     graphic 0))
-      (define-charset-alias 'chinese-isoir165 '=iso-ir165))
-  (make-charset 'chinese-isoir165
-		"ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
-		'(iso-ir 165
-			 dimension 2
-			 chars 94
-			 final ?E
-			 registry "isoir165"
-			 graphic 0)))
+(make-charset '=iso-ir165
+	      "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
+	      '(iso-ir 165
+		       dimension 2
+		       chars 94
+		       final ?E
+		       registry "isoir165"
+		       graphic 0))
+(define-charset-alias 'chinese-isoir165 '=iso-ir165)
 
 ;; CNS11643 Plane3 thru Plane7
 ;; These represent more and more obscure Chinese characters.
@@ -113,16 +97,11 @@
 	 final ,final
 	 graphic 0))
       ))
-  (make-chinese-cns11643-charset '=cns11643-3 183 "3" ?I)
-  (make-chinese-cns11643-charset '=cns11643-4 184 "4" ?J)
-  (make-chinese-cns11643-charset '=cns11643-5 185 "5" ?K)
-  (make-chinese-cns11643-charset '=cns11643-6 186 "6" ?L)
-  (make-chinese-cns11643-charset '=cns11643-7 187 "7" ?M)
-  (define-charset-alias 'chinese-cns11643-3	'=cns11643-3)
-  (define-charset-alias 'chinese-cns11643-4	'=cns11643-4)
-  (define-charset-alias 'chinese-cns11643-5	'=cns11643-5)
-  (define-charset-alias 'chinese-cns11643-6	'=cns11643-6)
-  (define-charset-alias 'chinese-cns11643-7	'=cns11643-7)
+  (make-chinese-cns11643-charset 'chinese-cns11643-3 183 "3" ?I)
+  (make-chinese-cns11643-charset 'chinese-cns11643-4 184 "4" ?J)
+  (make-chinese-cns11643-charset 'chinese-cns11643-5 185 "5" ?K)
+  (make-chinese-cns11643-charset 'chinese-cns11643-6 186 "6" ?L)
+  (make-chinese-cns11643-charset 'chinese-cns11643-7 187 "7" ?M)
   )
 
 ;; JIS X 0213:2000
@@ -242,7 +221,7 @@
 		  mother	=ucs))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
 
-  (make-charset '=daikanwa
+  (make-charset 'ideograph-daikanwa
 		"Daikanwa"
 		`(long-name	"Daikanwa dictionary (revised version 2)"
 		  chars		256
@@ -254,7 +233,6 @@
 		  min-code	#xE00000
 		  max-code	,(+ #xE00000 50100)
 		  code-offset	#xE00000))
-  (define-charset-alias 'ideograph-daikanwa '=daikanwa)
 
   (make-charset '=daikanwa-rev1
 		"Daikanwa Rev."
