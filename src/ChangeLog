@@ -1,3 +1,56 @@
+1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modified for character
+	representation change.
+	(Vutf_2000_version): New variable.
+	(leading_code_private_11): New variable.
+	(syms_of_mule_charset): Add new variables `utf-2000-version' and
+	`leading-code-private-11'.
+
+	* mule-charset.h (LEADING_BYTE_CHINESE_CCITT_GB): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to 0x96 temporally.
+	(LEADING_BYTE_CHINESE_CNS11643_1): Changed to 0x97.
+	(LEADING_BYTE_CHINESE_CNS11643_2): Changed to 0x98.
+	(LEADING_BYTE_CHINESE_CNS11643_3): New macro.
+	(LEADING_BYTE_CHINESE_CNS11643_4): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_5): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_6): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_7): Likewise [but not used].
+	(LEADING_BYTE_CHINESE_BIG5_2): Changed to 0x9D temporally.
+	(LEADING_BYTE_KOREAN_KPS9566): New macro [but not used].
+	(CHAR_FIELD1_MASK): Changed to (0x7F << 14).
+	(MIN_CHAR_GREEK): New macro.
+	(MAX_CHAR_GREEK): New macro.
+	(MIN_CHAR_CYRILLIC): New macro.
+	(MAX_CHAR_CYRILLIC): New macro.
+	(MIN_CHAR_HEBREW): New macro.
+	(MAX_CHAR_HEBREW): New macro.
+	(MIN_CHAR_THAI): New macro.
+	(MAX_CHAR_THAI): New macro.
+	(MIN_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(MAX_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(CHAR_FIELD2_INTERNAL): New macro [renamed from `CHAR_FIELD2'.
+	(CHAR_FIELD3_INTERNAL): New macro [renamed from `CHAR_FIELD3'.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Changed to 0xc0.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Changed to 0x50.
+	(CHAR_FIELD2): New inline function.
+	(CHAR_FIELD3): New inline function.
+	(MULE_CHAR_PRIVATE_OFFSET): New macro.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Shifted to `MULE_CHAR_PRIVATE_OFFSET'.
+	(MIN_CHAR_PRIVATE_TYPE9N): Likewise.
+	(MIN_CHAR_PRIVATE_TYPE9NX9N): Likewise.
+	(MIN_CHAR_OFFICIAL_TYPE9NX9N): Likewise.
+	(MIN_CHAR_COMPOSITION): Likewise.
+	(CHAR_LEADING_BYTE): Modified for character representation change.
+	(MAKE_CHAR): Likewise.
+
+	* lisp.h (Vcharset_latin_iso8859_1): New variable.
+	(Vcharset_greek_iso8859_7): Likewise.
+	(Vcharset_cyrillic_iso8859_5): Likewise.
+	(Vcharset_hebrew_iso8859_8): Likewise.
+	(Vcharset_thai_tis620): Likewise.
+	(Vcharset_katakana_jisx0201): Likewise.
+
 1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (coding_system_from_mask): Use `raw-text' instead
