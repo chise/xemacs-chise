@@ -33,7 +33,8 @@
     (japanese-jisx0208		. #x216E)	; ø»†‘•
     (korean-ksc5601		. #x2149)	; ø»ˆš´
     (chinese-cns11643-1		. #x226A)	; ø»‘…ƒ
-    (japanese-jisx0208-1990	. #x216E)	; â„ƒ
+    (japanese-jisx0208-1990	. #x216E)	; ø½‰·‰
+    (chinese-big5		. #xA24A)	; øºŸ§
     (ucs			. #x2103)	; â„ƒ
     ))
 (define-char
@@ -50,6 +51,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
     (chinese-cns11643-1 . #x2222)	; ø»‘ƒ»
+    (chinese-big5	. #xA1C1)	; øºŸœŸ
     (ucs		. #x2105)	; â„…
     ))
 (define-char
@@ -83,6 +85,7 @@
     (->decomposition	compat #x00B0 #x0046)
     (korean-ksc5601	. #x2235)	; ø»ˆ›¾
     (chinese-cns11643-1 . #x226B)	; ø»‘…„
+    (chinese-big5	. #xA24B)	; øºŸ¨
     (ucs		. #x2109)	; â„‰
     ))
 (define-char
@@ -131,7 +134,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0127)
-    (japanese-jisx0213-1	. #x235D)	; â„
+    (japanese-jisx0213-1	. #x235D)	; ø»¢–´
     (ucs			. #x210F)	; â„
     ))
 (define-char
@@ -165,7 +168,7 @@
     (mirrored		. nil)
     (->decomposition	font #x006C)
     (korean-ksc5601		. #x2724)	; ø»ˆ£ƒ
-    (japanese-jisx0213-1	. #x235F)	; â„“
+    (japanese-jisx0213-1	. #x235F)	; ø»¢–¶
     (ucs			. #x2113)	; â„“
     ))
 (define-char
@@ -192,7 +195,7 @@
     (chinese-gb2312		. #x216D)	; ø»„‡
     (korean-ksc5601		. #x2260)	; ø»ˆœ©
     (japanese-jisx0212		. #x2271)	; ø»Š¦¾
-    (japanese-jisx0213-1	. #x2D62)	; â„–
+    (japanese-jisx0213-1	. #x2D62)	; ø»¢¥¥
     (ucs			. #x2116)	; â„–
     ))
 (define-char
@@ -287,7 +290,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
     (korean-ksc5601		. #x2265)	; ø»ˆœ®
-    (japanese-jisx0213-1	. #x2D64)	; â„¡
+    (japanese-jisx0213-1	. #x2D64)	; ø»¢¥§
     (ucs			. #x2121)	; â„¡
     ))
 (define-char
@@ -337,7 +340,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2360)	; â„§
+    (japanese-jisx0213-1	. #x2360)	; ø»¢–·
     (ucs			. #x2127)	; â„§
     ))
 (define-char
@@ -373,7 +376,7 @@
     (->lowercase	#x00E5)
     (japanese-jisx0208		. #x2272)	; ø»†’·
     (korean-ksc5601		. #x214A)	; ø»ˆšµ
-    (japanese-jisx0208-1990	. #x2272)	; â„«
+    (japanese-jisx0208-1990	. #x2272)	; ø½‰¸«
     (ucs			. #x212B)	; â„«
     ))
 (define-char
@@ -452,7 +455,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
-    (japanese-jisx0213-1	. #x235C)	; â„µ
+    (japanese-jisx0213-1	. #x235C)	; ø»¢–³
     (ucs			. #x2135)	; â„µ
     ))
 (define-char
