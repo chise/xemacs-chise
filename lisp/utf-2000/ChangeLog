@@ -1,5 +1,9 @@
 2004-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R087-Claw.el (U-00024514): Use `->subsumptive'; use
+	`->ancient' instead of `->ancient-ideograph'.
+	(U-00024515): Use `->subsumptive'.
+
 	* Ideograph-R213-Turtle.el (U+9F9D): Use `->subsumptive';
 	integrate C3-5E47 instead of using `->same'.
 
