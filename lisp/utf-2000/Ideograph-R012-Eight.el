@@ -1381,11 +1381,14 @@
     (=daikanwa		. 01499)	; &I-M-01499;
     ))
 (define-char
-  '((ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 12)
+  '((ideographic-radical@ucs . 12)	; ⼋
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@daikanwa . 28)	; ⼛
+    (ideographic-strokes@daikanwa . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 253 2)
     (=ucs		. #x20532)	; 𠔲
+    (=daikanwa		. 03111)	; &I-M-03111;
     (=hanziku-1		. #xDA5B)	; &I-HZK01-DA5B;
     ))
 (define-char
