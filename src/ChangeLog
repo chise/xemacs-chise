@@ -1,3 +1,12 @@
+2004-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* fns.c (simplify_char_spec): Don't allocate new character-object
+	if specified char_spec does not have any CCS-features.
+
+	* chartab.h: Add EXFUN for Fdefine_char.
+
+	* chartab.c: Delete EXFUN for Fdefine_char.
+
 2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* fns.c (simplify_char_spec): Use Fdefine_char instead of
