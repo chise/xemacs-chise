@@ -3591,11 +3591,8 @@
     ))
 (define-char
   '((korean-ksc5601	. #x3950)	; ø»ˆ¾‹
-    (ucs		. #xBC00)	; ë°€
-    ))
-(define-char
-  '((ucs		. #xBC00)	; ë°€
     (china3-jef		. #x8BFE)	; øºˆ¯¾
+    (ucs		. #xBC00)	; ë°€
     ))
 (define-char
   '((korean-ksc5601	. #x3951)	; ø»ˆ¾Œ
@@ -8752,11 +8749,8 @@
     ))
 (define-char
   '((korean-ksc5601	. #x472E)	; ø»‰’
-    (ucs		. #xD480)	; í’€
-    ))
-(define-char
-  '((ucs		. #xD480)	; í’€
     (china3-jef		. #x8CAF)	; øºˆ²¯
+    (ucs		. #xD480)	; í’€
     ))
 (define-char
   '((korean-ksc5601	. #x472F)	; ø»‰’Ž
