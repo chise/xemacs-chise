@@ -1653,6 +1653,7 @@
     (chinese-isoir165		. #x306F)	; ø»…¤
     (japanese-jisx0213-2	. #x2876)	; ø»¤¨§
     (ideograph-daikanwa		. 08900)	; ø¸‚‹„
+    (china3-jef			. #x4BFC)	; øº„¯¼
     (ucs			. #x5E2E)	; å¸®
     ))
 (define-char
