@@ -522,7 +522,7 @@ Store character's ATTRIBUTES.
 		  continue;
 		}
 	      character = make_char (code);
-	      break;
+	      goto setup_attributes;
 	    }
 	  rest = Fcdr (rest);
 	}
@@ -533,6 +533,7 @@ Store character's ATTRIBUTES.
   else
     character = make_char (XINT (code));
 
+ setup_attributes:
   rest = attributes;
   while (CONSP (rest))
     {
