@@ -18,7 +18,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (=gb2312		. #x4239)	; ø»„¶º
-    (=iso-ir165		. #x4239)	; ø»ŸŠ
     (=ucs		. #x9E7F)	; é¹¿
     ))
 (define-char
@@ -54,7 +53,6 @@
     (total-strokes	 . 13)
     (=gb2312		. #x7764)	; ø»†…›
     (=jis-x0212		. #x6C5D)	; ø»Œ“–
-    (=iso-ir165		. #x7764)	; ø»Ž­«
     (=cns11643-1	. #x676E)	; ø»’ª
     (=daikanwa		. 47589)	; ø¸‹§¥
     (=ucs		. #x9E82)	; éº‚
@@ -263,7 +261,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
     (=gb2312		. #x7765)	; ø»†…œ
-    (=iso-ir165		. #x7765)	; ø»Ž­¬
     (=cns11643-2	. #x5C3D)	; ø»”£¦
     (=ucs		. #x9E87)	; éº‡
     ))
@@ -307,7 +304,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
     (=gb2312		. #x7766)	; ø»†…
-    (=iso-ir165		. #x7766)	; ø»Ž­­
     (=cns11643-2	. #x5C3B)	; ø»”£¤
     (=ucs		. #x9E88)	; éºˆ
     ))
@@ -389,7 +385,6 @@
     (shinjigen-2	. 9778)
     (=gb2312		. #x7767)	; ø»†…ž
     (=jis-x0208		. #x7348)	; ø½‹®¿
-    (=iso-ir165		. #x7767)	; ø»Ž­®
     (=cns11643-1	. #x7633)	; ø»’¿¤
     (=daikanwa		. 47625)	; ø¸‹¨‰
     (=ucs		. #x9E8B)	; éº‹
@@ -655,7 +650,6 @@
     (=gb2312		. #x7768)	; ø»†…Ÿ
     (=jis-x0208		. #x734A)	; ø½‹¯
     (=ks-x1001		. #x514B)	; ø»‰¡–
-    (=iso-ir165		. #x7768)	; ø»Ž­¯
     (=cns11643-1	. #x795D)	; ø»“„¨
     (=daikanwa		. 47657)	; ø¸‹¨©
     (=ucs		. #x9E92)	; éº’
@@ -667,7 +661,6 @@
     (=gb2312		. #x4234)	; ø»„¶µ
     (=jis-x0208		. #x4F3C)	; ø½Š¹»
     (=ks-x1001		. #x5664)	; ø»‰©…
-    (=iso-ir165		. #x4234)	; ø»Ÿ…
     (=cns11643-1	. #x795F)	; ø»“„ª
     (=daikanwa		. 47658)	; ø¸‹¨ª
     (=ucs		. #x9E93)	; éº“
@@ -949,7 +942,6 @@
     (=gb2312		. #x776A)	; ø»†…¡
     (=jis-x0208		. #x734D)	; ø½‹¯„
     (=ks-x1001		. #x5E7A)	; ø»‰µ‹
-    (=iso-ir165		. #x776A)	; ø»Ž­±
     (=cns11643-1	. #x7B51)	; ø»“‡˜
     (=daikanwa		. 47682)	; ø¸‹©‚
     (=ucs		. #x9E9D)	; éº
@@ -1057,7 +1049,6 @@
 		 )
       ))
     (=gb2312		. #x776B)	; ø»†…¢
-    (=iso-ir165		. #x776B)	; ø»Ž­²
     (=daikanwa		. 47690)	; ø¸‹©Š
     (=ucs		. #x9E9F)	; éºŸ
     ))

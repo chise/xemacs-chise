@@ -4,7 +4,6 @@
     (total-strokes	 . 3)
     (=gb2312		. #x5E43)	; ø»… Œ
     (=jis-x0208		. #x5730)	; ø½‹…Ÿ
-    (=iso-ir165		. #x5E43)	; ø»Žˆœ
     (=cns11643-1	. #x445C)	; ø»‘¶±
     (=gt-pj-1		. #x5730)	; ý¡€‚¼­
     (=big5		. #xA47B)	; ý¢€Š‘»
@@ -42,7 +41,6 @@
     (total-strokes	 . 4)
     (=gb2312		. #x5825)	; ø»…–º
     (=jis-x0208		. #x467B)	; ø½Š­¬
-    (=iso-ir165		. #x5825)	; ø»¿Š
     (=cns11643-1	. #x453D)	; ø»‘·°
     (=gt-pj-1		. #x467B)	; ý¡€‚¼°
     (=big5		. #xA4DC)	; ý¢€Š“œ
@@ -74,7 +72,6 @@
      jis-x0213-2000/b)
     (total-strokes	 . 4)
     (=gb2312		. #x3F2A)	; ø»„²‘
-    (=iso-ir165		. #x3F2A)	; ø»š¡
     (=cns11643-4	. #x214D)	; ø»—¡”
     (=jis-x0213-1-2000	. #x7431)	; ø»¤†
     (=big5-cdp		. #x8B6F)	; ý¢€ˆ­¯
@@ -88,7 +85,6 @@
     (=gb2312		. #x5B4D)	; ø»…›¼
     (=jis-x0208		. #x4A5B)	; ø½Š³„
     (=ks-x1001		. #x5C27)	; ø»‰°¼
-    (=iso-ir165		. #x5B4D)	; ø»Ž„Œ
     (=cns11643-1	. #x464F)	; ø»‘¹ 
     (=gt-pj-1		. #x4A5B)	; ý¡€‚¼´
     (=big5		. #xA5AF)	; ý¢€Š–¯
@@ -117,7 +113,6 @@
     (total-strokes	 . 6)
     (=gb2312		. #x526C)	; ø»…
     (=jis-x0212		. #x3C5C)	; ø»‹Œµ
-    (=iso-ir165		. #x526C)	; ø»·
     (=cns11643-2	. #x223D)	; ø»“Žš
     (=jis-x0213-1-2000	. #x7432)	; ø»¤‡
     (=big5		. #xC9DD)	; ý¢€Œ§
@@ -193,7 +188,6 @@
      ((=ucs		  . #x5F01)	; å¼
       ))
     (=gb2312		. #x467A)	; ø»„½³
-    (=iso-ir165		. #x467A)	; ø»¦ƒ
     (=cns11643-3	. #x256F)	; ø»•ª
     (=ucs		. #x5F03)	; å¼ƒ
     ))
@@ -213,7 +207,6 @@
     (=gb2312		. #x452A)	; ø»„»…
     (=jis-x0208		. #x4F2E)	; ø½Š¹­
     (=ks-x1001		. #x5667)	; ø»‰©ˆ
-    (=iso-ir165		. #x452A)	; ø»£•
     (=cns11643-1	. #x4A2D)	; ø»‘¾¶
     (=gt-pj-1		. #x4F2E)	; ý¡€‚½„
     (=big5		. #xA7CB)	; ý¢€ŠŸ‹
@@ -428,7 +421,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=gb2312		. #x5E44)	; ø»… 
-    (=iso-ir165		. #x5E44)	; ø»Žˆ
     (=cns11643-1	. #x507B)	; ø»’ˆ¸
     (=ucs		. #x5F08)	; å¼ˆ
     ))
@@ -836,7 +828,6 @@
     (total-strokes	 . 14)
     (=gb2312		. #x3157)	; ø»„žš
     (=jis-x0208		. #x4A40)	; ø½Š²©
-    (=iso-ir165		. #x3157)	; ø»†ª
     (=cns11643-1	. #x6862)	; ø»’«¯
     (=gt-pj-1		. #x4A40)	; ý¡€‚½·
     (=gt-k		. 11949)	; ý¡„‚º­
