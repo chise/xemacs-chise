@@ -960,6 +960,7 @@
       ))
     (chinese-big5-cdp	. #x8C49)	; ý¢€ˆ±‰
     (china3-jef		. #x73FC)	; øº‡¼
+    (ucs		. #x2099D)	; ð ¦
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
