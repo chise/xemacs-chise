@@ -1821,14 +1821,15 @@ With argument, insert value in current buffer after the form."
 		  (if (eq (point) (point-max))
 		      (if (and (featurep 'utf-2000)
 			       (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
-			  'utf-8-unix
+			  'utf-8-mcs-unix
 			'binary))))
 	(setq ces 'binary))
       (if (eq ces 'binary)
 	  (setq buffer-file-coding-system 'binary)
-	(cond ((eq ces 'utf-8-unix)
-	       (insert "(require 'mule)\n;;;###coding system: utf-8-unix\n")
-	       (setq buffer-file-coding-system 'utf-8-unix)
+	(cond ((eq ces 'utf-8-mcs-unix)
+	       (insert
+		"(require 'mule)\n;;;###coding system: utf-8-mcs-unix\n")
+	       (setq buffer-file-coding-system 'utf-8-mcs-unix)
 	       )
 	      (t
 	       (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
