@@ -1328,7 +1328,9 @@
 (define-char
   '((ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 5)
-    (ucs		. #x663F)	; æ˜¿
+    (total-strokes	 . 9)
+    (japanese-jisx0208-1990	. #x5B26)	; ø½‹‹
+    (ucs			. #x663F)	; æ˜¿
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡
