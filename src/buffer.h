@@ -1251,20 +1251,20 @@ void set_buffer_point (struct buffer *buf, Bufpos pos, Bytind bipos);
 void find_charsets_in_bufbyte_string (Charset_ID *charsets,
 				      const Bufbyte *str,
 				      Bytecount len);
-void find_charsets_in_emchar_string (Charset_ID *charsets,
-				     const Emchar *str,
-				     Charcount len);
+void find_charsets_in_charc_string (Charset_ID *charsets,
+				    const Charc *str,
+				    Charcount len);
 int bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len);
-int emchar_string_displayed_columns (const Emchar *str, Charcount len);
-void convert_bufbyte_string_into_emchar_dynarr (const Bufbyte *str,
-						Bytecount len,
-						Emchar_dynarr *dyn);
+int charc_string_displayed_columns (const Charc *str, Charcount len);
+void convert_bufbyte_string_into_charc_dynarr (const Bufbyte *str,
+					       Bytecount len,
+					       Charc_dynarr *dyn);
 Charcount convert_bufbyte_string_into_emchar_string (const Bufbyte *str,
 						     Bytecount len,
 						     Emchar *arr);
-void convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,
-						Bufbyte_dynarr *dyn);
-Bufbyte *convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
+void convert_charc_string_into_bufbyte_dynarr (Charc *arr, int nels,
+					       Bufbyte_dynarr *dyn);
+Bufbyte *convert_charc_string_into_malloced_string (Charc *arr, int nels,
 						    Bytecount *len_out);
 /* from marker.c */
 void init_buffer_markers (struct buffer *b);
