@@ -1,3 +1,32 @@
+1998-10-12  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-ccl.el (ccl-compile-if): If there's no false-cmds, set
+	unconditional-jump to nil.
+	(ccl-compile-read-multibyte-character): Return nil.
+	(ccl-compile-write-multibyte-character): Likewise.
+
+1998-09-06  Bill Richter  <richter@math.nwu.edu>
+
+	* mule/mule-ccl.el: Doc fixes.
+
+1998-04-20  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-ccl.el (declare-ccl-program): New optional arg VECTOR.
+	(check-ccl-program): New macro.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-ccl.el: Comment about CCL syntax modified.
+	(ccl-command-table): Add read-multibyte-character and
+	write-multibyte-character.
+	(ccl-code-table): Add ex-cmd.
+	(ccl-extended-code-table): New variable.
+	(ccl-embed-extended-command): New function.
+	(ccl-compile-read-multibyte-character,
+	ccl-compile-write-multibyte-character) New functions.
+	(ccl-dump-ex-cmd, ccl-dump-read-multibyte-character,
+	ccl-dump-write-multibyte-character): New functions.
+
 1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-category.el (word-combining-categories): Set up new
