@@ -87,6 +87,9 @@
 (let (preloaded-file-list site-load-packages need-to-dump dumped-exe)
   (load (expand-file-name "../lisp/dumped-lisp.el"))
 
+  (when (featurep 'utf-2000)
+    (load (expand-file-name "../lisp/utf-2000/dumped-chars.el")))
+
   (setq dumped-exe
 	(cond ((file-exists-p "../src/xemacs.exe") "../src/xemacs.exe")
 	      ((file-exists-p "../src/xemacs") "../src/xemacs")
@@ -106,6 +109,8 @@
   (setq preloaded-file-list
 	(append packages-hardcoded-lisp
 		preloaded-file-list
+		(if (featurep 'utf-2000)
+		    system-char-db-source-file-list)
 		packages-useful-lisp
 		site-load-packages))
   (while preloaded-file-list

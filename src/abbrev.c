@@ -1,5 +1,6 @@
 /* Primitives for word-abbrev mode.
    Copyright (C) 1985, 1986, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -157,7 +158,11 @@ abbrev_match (struct buffer *buf, Lisp_Object obarray)
   closure.buf = buf;
   closure.point = BUF_PT (buf);
   closure.maxlen = closure.point - BUF_BEGV (buf);
+#ifdef UTF2000
+  closure.chartab = XCHAR_TABLE (buf->syntax_table);
+#else
   closure.chartab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   closure.found = 0;
 
   map_obarray (obarray, abbrev_match_mapper, &closure);
@@ -385,8 +390,14 @@ If no abbrev matched, but `pre-abbrev-expand-hook' changed the buffer,
       Bufpos pos = abbrev_start;
       /* Find the initial.  */
       while (pos < point
+#ifdef UTF2000
+	     && !WORD_SYNTAX_P (XCHAR_TABLE (buf->syntax_table),
+				BUF_FETCH_CHAR (buf, pos))
+#else
 	     && !WORD_SYNTAX_P (XCHAR_TABLE (buf->mirror_syntax_table),
-				BUF_FETCH_CHAR (buf, pos)))
+				BUF_FETCH_CHAR (buf, pos))
+#endif
+	     )
 	pos++;
       /* Change just that.  */
       Fupcase_initials_region (make_int (pos), make_int (pos + 1),
