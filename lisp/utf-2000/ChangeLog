@@ -1,3 +1,22 @@
+2002-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (JX1-793F): Delete `ucs-jis'.
+	(J0-3252): Separate C1-697E.
+
+	* Ideograph-R181-Leaf.el (JX1-7D7B): Delete `ucs-jis'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JSP-6674): Delete
+	`ucs-jis'.
+	(JX1-7D63): Delete `ucs-jis'.
+
+	* Ideograph-R162-Walk.el (JX1-7C59): Delete `ucs-jis'.
+
+	* Ideograph-R154-Shell.el (JX1-7C38): Delete `ucs-jis'.
+
+	* Ideograph-R061-Heart.el (JX1-745C): Delete `ucs-jis'.
+
+	* Ideograph-R044-Corpse.el (JX1-4F61): Delete `ucs-jis'.
+
 2002-12-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u02000-General-Punctuation.el,
