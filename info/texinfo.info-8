@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -169,7 +169,7 @@ you can use `??' as shell wildcards and give the command in this form:
 
 This command will run `texindex' on all the unsorted index files,
 including any that you have defined yourself using `@defindex' or
-`@defcodeindex'.  (You may execute `texindex foo.??'  even if there are
+`@defcodeindex'.  (You may execute `texindex foo.??' even if there are
 similarly named files with two letter extensions that are not index
 files, such as `foo.el'.  The `texindex' command reports but otherwise
 ignores such files.)
@@ -177,7 +177,7 @@ ignores such files.)
   For each file specified, `texindex' generates a sorted index file
 whose name is made by appending `s' to the input file name.  The
 `@printindex' command knows to look for a file of that name (*note
-Printing Indices & Menus::.).  `texindex' does not alter the raw index
+Printing Indices & Menus::).  `texindex' does not alter the raw index
 output file.
 
   After you have sorted the indices, you need to rerun the `tex'
@@ -454,7 +454,7 @@ and TeX will find it there.
   Also, you should install `epsf.tex' in the same place as
 `texinfo.tex', if it is not already installed from another
 distribution.  This file is needed to support the `@image' command
-(*note Images::.).
+(*note Images::).
 
   Optionally, you may create an additional `texinfo.cnf', and install
 it as well.  This file is read by TeX at the `@setfilename' command
@@ -462,7 +462,7 @@ it as well.  This file is read by TeX at the `@setfilename' command
 like there according to local site-wide conventions, and they will be
 read by TeX when processing any Texinfo document.  For example, if
 `texinfo.cnf' contains the a single line `@afourpaper' (*note A4
-Paper::.), then all Texinfo documents will be processed with that page
+Paper::), then all Texinfo documents will be processed with that page
 size in effect.  If you have nothing to put in `texinfo.cnf', you do
 not need to create it.
 
@@ -555,7 +555,7 @@ but it came to be called the `@smallbook' command by comparison to the
   If you write the `@smallbook' command between the start-of-header and
 end-of-header lines, the Texinfo mode TeX region formatting command,
 `texinfo-tex-region', will format the region in "small" book size
-(*note Start of Header::.).
+(*note Start of Header::).
 
   The Free Software Foundation distributes printed copies of `The GNU
 Emacs Manual' and other manuals in the "small" book size.  *Note
@@ -565,7 +565,7 @@ a smaller manual.
 
   Alternatively, to avoid embedding this physical paper size in your
 document, use `texi2dvi' to format your document (*note Format with
-texi2dvi::.), and supply `-t @smallbook' as an argument.  Then other
+texi2dvi::), and supply `-t @smallbook' as an argument.  Then other
 people do not have to change the document source file to format it
 differently.
 
@@ -594,7 +594,7 @@ the Texinfo file, before the title page:
 
   Alternatively, to avoid embedding this physical paper size in your
 document, use `texi2dvi' to format your document (*note Format with
-texi2dvi::.), and supply `-t @afourpaper' as an argument.  Then other
+texi2dvi::), and supply `-t @afourpaper' as an argument.  Then other
 people do not have to change the document source file to format it
 differently.
 
@@ -630,9 +630,9 @@ spirit of adventure.  You may have to redefine the command in the
   You can attempt to direct TeX to typeset pages larger or smaller than
 usual with the `\mag' TeX command.  Everything that is typeset is
 scaled proportionally larger or smaller.  (`\mag' stands for
-"magnification".)  This is *not* a Texinfo @-command, but is a plain
+"magnification".)  This is _not_ a Texinfo @-command, but is a plain
 TeX command that is prefixed with a backslash.  You have to write this
-command between `@tex' and `@end tex' (*note Raw Formatter Commands::.).
+command between `@tex' and `@end tex' (*note Raw Formatter Commands::).
 
   Follow the `\mag' command with an `=' and then a number that is 1000
 times the magnification you desire.  For example, to print pages at 1.2
@@ -748,7 +748,7 @@ and would also set the fill column to 70.
 
 `-D VAR'
      Cause the variable VAR to be defined.  This is equivalent to `@set
-     VAR' in the Texinfo file (*note set clear value::.).
+     VAR' in the Texinfo file (*note set clear value::).
 
 `--error-limit=LIMIT'
      Set the maximum number of errors that `makeinfo' will report
@@ -767,7 +767,7 @@ and would also set the fill column to 70.
      Set the footnote style to STYLE, either `end' for the end node
      style (the default) or `separate' for the separate node style.
      The value set by this option overrides the value set in a Texinfo
-     file by an `@footnotestyle' command (*note Footnotes::.).  When the
+     file by an `@footnotestyle' command (*note Footnotes::).  When the
      footnote style is `separate', `makeinfo' makes a new node
      containing the footnotes found in the current node.  When the
      footnote style is `end', `makeinfo' places the footnote references
@@ -806,7 +806,7 @@ and would also set the fill column to 70.
      Pointer Validation::.
 
 `--no-warn'
-     Suppress warning messages (but *not* error messages).  You might
+     Suppress warning messages (but _not_ error messages).  You might
      want this if the file you are creating has examples of Texinfo
      cross references within it, and the nodes that are referenced do
      not actually exist.
@@ -820,8 +820,8 @@ and would also set the fill column to 70.
 `-o FILE'
      Specify that the output should be directed to FILE and not to the
      file name specified in the `@setfilename' command found in the
-     Texinfo source (*note setfilename::.).  If FILE is `-', output
-     goes to standard output and `--no-split' is implied.
+     Texinfo source (*note setfilename::).  If FILE is `-', output goes
+     to standard output and `--no-split' is implied.
 
 `-P DIR'
      Prepend `dir' to the directory search list for `@include'.  See
@@ -830,7 +830,7 @@ and would also set the fill column to 70.
 `--paragraph-indent=INDENT'
      Set the paragraph indentation style to INDENT.  The value set by
      this option overrides the value set in a Texinfo file by an
-     `@paragraphindent' command (*note paragraphindent::.).  The value
+     `@paragraphindent' command (*note paragraphindent::).  The value
      of INDENT is interpreted as follows:
 
     `asis'
@@ -850,7 +850,7 @@ and would also set the fill column to 70.
 
 `-U VAR'
      Cause VAR to be undefined.  This is equivalent to `@clear VAR' in
-     the Texinfo file (*note set clear value::.).
+     the Texinfo file (*note set clear value::).
 
 `--verbose'
      Cause `makeinfo' to display messages saying what it is doing.
@@ -987,7 +987,7 @@ provide you with some error checking, and other functions can provide
 you with further help in finding formatting errors.  These procedures
 are described in an appendix; see *Note Catching Mistakes::.  However,
 the `makeinfo' program is often faster and provides better error
-checking (*note makeinfo in Emacs::.).
+checking (*note makeinfo in Emacs::).
 
 
 File: texinfo.info,  Node: Batch Formatting,  Next: Tag and Split Files,  Prev: texinfo-format commands,  Up: Create an Info File

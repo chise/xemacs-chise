@@ -9,8 +9,10 @@ Real Real Quickstart FAQ
 ------------------------
 
 Q. Do I need to have the packages to compile XEmacs?
-A. If you want to compile with MULE, you need the mule-base package installed.
-   Otherwise, no package is required before compilation.
+A. No, XEmacs will build and install just fine without any packages
+   installed.  However, only the most basic editing functions will be
+   available with no packages installed, so installing packages is an
+   essential part of making your installed XEmacs _useful_.
 
 Q. I really liked the old way that packages were bundled and do not
    want to mess with packages at all.
@@ -20,11 +22,11 @@ A. You can grab all the packages at once like you used to with old
 A note of caution
 -----------------
 
-The XEmacs package system is still in its infancy. Please expect a few 
-minor hurdles on the way. Also neither the interface nor the structure is 
+The XEmacs package system is still in its infancy. Please expect a few
+minor hurdles on the way. Also neither the interface nor the structure is
 set in stone. The XEmacs maintainers reserve the right to sacrifice
 backwards compatibility as quirks are worked out over the coming
-releases. 
+releases.
 
 Some Package Theory
 -------------------
@@ -35,7 +37,7 @@ have been unbundled. They have been replaced by the package system.
 Each elisp add-on (or groups of them when they are small) now comes
 in its own tarball that contains a small search hierarchy.
 
-You select just the ones you need. Install them by untarring them into 
+You select just the ones you need. Install them by untarring them into
 the right place. On startup XEmacs will find them, set up the load
 path correctly, install autoloads, etc, etc.
 
@@ -60,7 +62,7 @@ Where to get the packages
 -------------------------
 
 Packages are available from ftp://ftp.xemacs.org/pub/xemacs/packages
-and its mirror.
+and its mirrors.
 
 How to install the packages
 ---------------------------
@@ -73,14 +75,14 @@ The Sumo Tarball
 ----------------
 
 Those with little time, cheap connections and plenty of disk space can
-install all packages at once using the sumo tarballs.
+install all the packages at once using the sumo tarballs.
 Download the file
 
-xemacs-sumo-<date>.tar.gz 
+xemacs-sumo.tar.gz
 
 For an XEmacs compiled with Mule you also need
 
-xemacs-mule-sumo-<date>.tar.gz
+xemacs-mule-sumo.tar.gz
 
 N.B. They are called 'Sumo Tarballs' for good reason. They are
 currently about 15MB and 2.3MB (gzipped) respectively.
@@ -120,8 +122,8 @@ XEmacs comes with some tools to make the periodic updating and
 installing easier. It will notice if new packages or versions are
 available and will fetch them from the ftp site.
 
-Unfortunately this requires that a few packages are already in place. 
-You will have to install them by hand as above or use a SUMO tarball. 
+Unfortunately this requires that a few packages are already in place.
+You will have to install them by hand as above or use a SUMO tarball.
 This requirement will hopefully go away in the future. The packages
 you need are:
 
@@ -132,7 +134,7 @@ and optionally:
 
    mailcrypt    - If you have PGP installed and want to verify the
                   signature of the index file.
-   mule-base    - Needed if you want to compile XEmacs with MULE.
+   mule-base    - Needed if you want to use XEmacs with MULE.
 
 After installing these by hand, you can start XEmacs. (It is a good
 idea to use 'xemacs -vanilla' here as your startup files might need
@@ -164,7 +166,7 @@ things now moved to packages.)
 -  When you are finished choosing packages, invoke
    'Packages->Install/Remove Select' from the menu or type 'x' to
    begin installing packages.
-    
+
 After Installation
 ------------------
 
@@ -173,7 +175,7 @@ New packages can only be used by XEmacs after a restart.
 Note to MULE users
 ------------------
 
-Unlike all other packages the mule-base package is used at build/dump 
+Unlike all other packages the mule-base package is used at build/dump
 time. This means that you need this available before compiling XEmacs
 with MULE. Also it is a good idea to keep packages that are
 MULE-only separate by putting them in the mule-packages hierarchy.
@@ -200,7 +202,7 @@ Upgrading/Removing Packages
 ---------------------------
 
 As the exact files and their locations contained in a package may
-change it is recommend to remove a package first before installing a
+change it is recommended to remove a package first before installing a
 new version. In order to facilitate removal each package contains an
 pgkinfo/MANIFEST.pkgname file which list all the files belong to the
 package. M-x package-admin-delete-binary-package RET can be used to
@@ -230,7 +232,7 @@ Finding the right packages
 
 If you want to find out which package contains the functionality you
 are looking for, use M-x package-get-package-provider, and give it a
-symbol that is likely to be in that package.  eg, if some code you
-want to use has a (require 'thingatpt) in it, try doing
+symbol that is likely to be in that package.  For example, if some
+code you want to use has a (require 'thingatpt) in it, try doing
 M-x package-get-package-provider RET thingatpt , which will return
 something like: (fsf-compat "1.06").

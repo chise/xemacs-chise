@@ -1,5 +1,5 @@
-This is Info file ../info/standards.info, produced by Makeinfo version
-1.68 from the input file standards.texi.
+This is ../info/standards.info, produced by makeinfo version 4.0 from
+standards.texi.
 
 START-INFO-DIR-ENTRY
 * Standards: (standards).        GNU coding standards.
@@ -78,9 +78,9 @@ function itself would be off the bottom of the screen.
 
    Every `#endif' should have a comment, except in the case of short
 conditionals (just a few lines) that are not nested.  The comment should
-state the condition of the conditional that is ending, *including its
-sense*.  `#else' should have a comment describing the condition *and
-sense* of the code that follows.  For example:
+state the condition of the conditional that is ending, _including its
+sense_.  `#else' should have a comment describing the condition _and
+sense_ of the code that follows.  For example:
 
      #ifdef foo
        ...
@@ -331,7 +331,7 @@ that pass their arguments along to `printf' and friends:
 
 In practice, this works on all machines, since a pointer is generally
 the widest possible kind of argument, and it is much simpler than any
-"correct" alternative.  Be sure *not* to use a prototype for such
+"correct" alternative.  Be sure _not_ to use a prototype for such
 functions.
 
    However, avoid casting pointers to integers unless you really need
@@ -604,7 +604,7 @@ have its own manual.  That would be following the structure of the
 implementation, rather than the structure that helps the user
 understand.
 
-   Instead, each manual should cover a coherent *topic*.  For example,
+   Instead, each manual should cover a coherent _topic_.  For example,
 instead of a manual for `diff' and a manual for `diff3', we have one
 manual for "comparison of files" which covers both of those programs,
 as well as `cmp'.  By documenting these programs together, we can make
@@ -629,8 +629,8 @@ what we mean.
 logical breakdown of its topic, but order the sections, and write their
 text, so that reading the chapter straight through makes sense.  Do
 likewise when structuring the book into chapters, and when structuring a
-section into paragraphs.  The watchword is, *at each point, address the
-most fundamental and important issue raised by the preceding text.*
+section into paragraphs.  The watchword is, _at each point, address the
+most fundamental and important issue raised by the preceding text._
 
    If necessary, add extra chapters at the beginning of the manual which
 are purely tutorial and cover the basics of the subject.  These provide
@@ -644,7 +644,7 @@ course exceptions.)  Also Unix man pages use a particular format which
 is different from what we use in GNU manuals.
 
    Please include an email address in the manual for where to report
-bugs *in the manual*.
+bugs _in the manual_.
 
    Please do not use the term "pathname" that is used in Unix
 documentation; use "file name" (two words) instead.  We use the term
@@ -872,7 +872,7 @@ are contained in a `#ifdef HAVE_LIBNCURSES' conditional:
      * dispnew.c (init_display) [HAVE_LIBNCURSES]: If X, call tgetent.
 
    Here is an entry for a change that takes affect only when a certain
-macro is *not* defined:
+macro is _not_ defined:
 
      (gethostname) [!HAVE_SOCKETS]: Replace with winsock version.
 
@@ -963,12 +963,12 @@ they affect compilation.
 
    One way to do this is to make a link from a standard name such as
 `config.h' to the proper configuration file for the chosen system.  If
-you use this technique, the distribution should *not* contain a file
+you use this technique, the distribution should _not_ contain a file
 named `config.h'.  This is so that people won't be able to build the
 program without configuring it first.
 
    Another thing that `configure' can do is to edit the Makefile.  If
-you do this, the distribution should *not* contain a file named
+you do this, the distribution should _not_ contain a file named
 `Makefile'.  Instead, it should include a file `Makefile.in' which
 contains the input used for editing.  Once again, this is so that people
 won't be able to build the program without configuring it first.

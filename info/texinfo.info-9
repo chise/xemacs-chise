@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -160,6 +160,7 @@ File: texinfo.info,  Node: Command List,  Next: Tips,  Prev: Install an Info Fil
 brackets, [ ], indicate optional arguments; an ellipsis, `...',
 indicates repeated text.
 
+
 `@WHITESPACE'
      An `@' followed by a space, tab, or newline produces a normal,
      stretchable, interword space.  *Note Multiple Spaces::.
@@ -172,7 +173,7 @@ indicates repeated text.
 `@"'
 `@''
      Generate an umlaut or acute accent, respectively, over the next
-     character, as in "o and 'o.  *Note Inserting Accents::.
+     character, as in o" and o'.  *Note Inserting Accents::.
 
 `@*'
      Force a line break. Do not end a paragraph that uses `@*' with an
@@ -198,7 +199,7 @@ indicates repeated text.
      *Note Not Ending a Sentence::.
 
 `@='
-     Generate a macro (bar) accent over the next character, as in =o.
+     Generate a macro (bar) accent over the next character, as in o=.
      *Note Inserting Accents::.
 
 `@?'
@@ -213,7 +214,7 @@ indicates repeated text.
 `@^'
 `@`'
      Generate a circumflex (hat) or grave accent, respectively, over
-     the next character, as in ^o.  *Note Inserting Accents::.
+     the next character, as in o^.  *Note Inserting Accents::.
 
 `@{'
      Stands for a left brace, `{'.  *Note Inserting @ and braces:
@@ -224,7 +225,7 @@ indicates repeated text.
      *Note Inserting @ and braces: Braces Atsigns.
 
 `@='
-     Generate a tilde accent over the next character, as in ~N.  *Note
+     Generate a tilde accent over the next character, as in N~.  *Note
      Inserting Accents::.
 
 `@AA{}'
@@ -504,7 +505,7 @@ indicates repeated text.
      space before DIMENSION.  No effect in Info.  *Note `@dmn': dmn.
 
 `@dotaccent{C}'
-     Generate a dot accent over the character C, as in .oo.  *Note
+     Generate a dot accent over the character C, as in oo..  *Note
      Inserting Accents::.
 
 `@dots{}'
@@ -514,7 +515,7 @@ indicates repeated text.
      Indicate an electronic mail address.  *Note `@email': email.
 
 `@emph{TEXT}'
-     Highlight TEXT; text is displayed in *italics* in printed output,
+     Highlight TEXT; text is displayed in _italics_ in printed output,
      and surrounded by asterisks in Info.  *Note Emphasizing Text:
      Emphasis.
 
@@ -613,7 +614,7 @@ indicates repeated text.
      `@end group'.  Not relevant to Info.  *Note `@group': group.
 
 `@H{C}'
-     Generate the long Hungarian umlaut accent over C, as in ''o.
+     Generate the long Hungarian umlaut accent over C, as in o''.
 
 `@heading TITLE'
      Print an unnumbered section-like heading in the text, but not in
@@ -725,7 +726,7 @@ indicates repeated text.
 `@L{}'
 `@l{}'
      Generate the uppercase and lowercase Polish suppressed-L letters,
-     respectively: L/, l/.
+     respectively: /L, /l.
 
 `@lisp'
      Begin an example of Lisp code.  Indent text, do not fill, and
@@ -779,7 +780,7 @@ indicates repeated text.
 `@O{}'
 `@o{}'
      Generate the uppercase and lowercase O-with-slash letters,
-     respectively: O/, o/.
+     respectively: /O, /o.
 
 `@oddfooting [LEFT] @| [CENTER] @| [RIGHT]'
 `@oddheading [LEFT] @| [CENTER] @| [RIGHT]'
@@ -861,7 +862,7 @@ indicates repeated text.
      glyph: `=>'.  *Note `@result': result.
 
 `@ringaccent{C}'
-     Generate a ring accent over the next character, as in *o.  *Note
+     Generate a ring accent over the next character, as in o*.  *Note
      Inserting Accents::.
 
 `@samp{TEXT}'
@@ -1020,7 +1021,7 @@ indicates repeated text.
 
 `@tieaccent{CC}'
      Generate a tie-after accent over the next two characters CC, as in
-     `[oo'.  *Note Inserting Accents::.
+     `oo['.  *Note Inserting Accents::.
 
 `@tindex ENTRY'
      Add ENTRY to the index of data types.  *Note Defining the Entries
@@ -1063,7 +1064,7 @@ indicates repeated text.
 `@ubaraccent{C}'
 `@udotaccent{C}'
      Generate a breve, underbar, or underdot accent, respectively, over
-     or under the character C, as in (o, o_, o-..  *Note Inserting
+     or under the character C, as in o(, o_, .o.  *Note Inserting
      Accents::.
 
 `@unnumbered TITLE'
@@ -1101,7 +1102,7 @@ indicates repeated text.
      Web.  *Note `@url': url.
 
 `@v{C}'
-     Generate check accent over the character C, as in <o.  *Note
+     Generate check accent over the character C, as in o<.  *Note
      Inserting Accents::.
 
 `@value{FLAG}'

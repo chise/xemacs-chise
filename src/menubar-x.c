@@ -94,14 +94,11 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
      prohibits GC. */
   /* !!#### This function has not been Mule-ized */
   int menubar_root_p = (menu_type == MENUBAR_TYPE && depth == 0);
-  widget_value *wv;
-  Lisp_Object wv_closure;
   int count = specpdl_depth ();
   int partition_seen = 0;
+  widget_value *wv = xmalloc_widget_value ();
+  Lisp_Object wv_closure = make_opaque_ptr (wv);
 
-  wv = xmalloc_widget_value ();
-
-  wv_closure = make_opaque_ptr (wv);
   record_unwind_protect (widget_value_unwind, wv_closure);
 
   if (STRINGP (desc))
@@ -363,7 +360,7 @@ int in_menu_callback;
 static Lisp_Object
 restore_in_menu_callback (Lisp_Object val)
 {
-    in_menu_callback = XINT(val);
+    in_menu_callback = XINT (val);
     return Qnil;
 }
 #endif /* LWLIB_MENUBARS_LUCID || LWLIB_MENUBARS_MOTIF */
@@ -514,24 +511,21 @@ pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 static widget_value *
 compute_menubar_data (struct frame *f, Lisp_Object menubar, int deep_p)
 {
-  widget_value *data;
-
   if (NILP (menubar))
-    data = 0;
+    return 0;
   else
     {
-      Lisp_Object old_buffer;
+      widget_value *data;
       int count = specpdl_depth ();
 
-      old_buffer = Fcurrent_buffer ();
-      record_unwind_protect (Fset_buffer, old_buffer);
-      Fset_buffer ( XWINDOW (FRAME_SELECTED_WINDOW (f))->buffer);
+      record_unwind_protect (Fset_buffer, Fcurrent_buffer ());
+      Fset_buffer (XWINDOW (FRAME_SELECTED_WINDOW (f))->buffer);
       data = menu_item_descriptor_to_widget_value (menubar, MENUBAR_TYPE,
 						   deep_p, 0);
-      Fset_buffer (old_buffer);
       unbind_to (count, Qnil);
+
+      return data;
     }
-  return data;
 }
 
 static int
@@ -541,7 +535,7 @@ set_frame_menubar (struct frame *f, int deep_p, int first_time_p)
   Lisp_Object menubar;
   int menubar_visible;
   long id;
-  /* As for the toolbar, the minibuffer does not have its own menubar. */
+  /* As with the toolbar, the minibuffer does not have its own menubar. */
   struct window *w = XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f));
 
   if (! FRAME_X_P (f))
@@ -693,7 +687,7 @@ make_dummy_xbutton_event (XEvent *dummy,
 	XtSetArg (al [1], XtNy, &shelly);
 	XtGetValues (shell, al, 2);
       }
-#endif      
+#endif
       XtSetArg (al [0], XtNx, &framex);
       XtSetArg (al [1], XtNy, &framey);
       XtGetValues (daddy, al, 2);

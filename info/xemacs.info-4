@@ -30,34 +30,36 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
-File: xemacs.info,  Node: Completion,  Next: Repetition,  Prev: Minibuffer Edit,  Up: Minibuffer
+File: xemacs.info,  Node: Completion,  Next: Minibuffer History,  Prev: Minibuffer Edit,  Up: Minibuffer
 
 Completion
 ==========
 
-   When appropriate, the minibuffer provides a "completion" facility.
-You type the beginning of an argument and one of the completion keys,
-and Emacs visibly fills in the rest, depending on what you have already
-typed.
+   For certain kinds of arguments, you can use "completion" to enter
+the argument value.  Completion means that you type part of the
+argument, then XEmacs visibly fills in the rest, or as much as can be
+determined from the part you have typed.
 
    When completion is available, certain keys--<TAB>, <RET>, and
-<SPC>--are redefined to complete an abbreviation present in the
-minibuffer into a longer string that it stands for, by matching it
-against a set of "completion alternatives" provided by the command
-reading the argument.  `?' is defined to display a list of possible
-completions of what you have inserted.
+<SPC>--are rebound to complete the text present in the minibuffer into
+a longer string that it stands for, by matching it against a set of
+"completion alternatives" provided by the command reading the argument.
+`?' is defined to display a list of possible completions of what you
+have inserted.
 
-   For example, when the minibuffer is being used by `Meta-x' to read
-the name of a command, it is given a list of all available Emacs command
-names to complete against.  The completion keys match the text in the
-minibuffer against all the command names, find any additional
-characters of the name that are implied by the ones already present in
-the minibuffer, and add those characters to the ones you have given.
+   For example, when `M-x' uses the minibuffer to read the name of a
+command, it provides a list of all available XEmacs command names to
+complete against.  The completion keys match the text in the minibuffer
+against all the command names, find any additional name characters
+implied by the ones already present in the minibuffer, and add those
+characters to the ones you have given.  This is what makes it possible
+to type `M-x inse <SPC> b <RET>' instead of `M-x insert-buffer <RET>'
+(for example).
 
    Case is normally significant in completion because it is significant
-in most of the names that you can complete (buffer names, file names,
-and command names).  Thus, `fo' will not complete to `Foo'.  When you
-are completing a name in which case does not matter, case may be ignored
+in most of the names that you can complete (buffer names, file names and
+command names).  Thus, `fo' does not complete to `Foo'.  When you are
+completing a name in which case does not matter, case may be ignored
 for completion's sake if specified by program.
 
    When a completion list is displayed, the completions will highlight
@@ -65,40 +67,53 @@ as you move the mouse over them.  Clicking the middle mouse button on
 any highlighted completion will "select" it just as if you had typed it
 in and hit <RET>.
 
-A Completion Example
---------------------
+* Menu:
 
-   Consider the following example.  If you type `Meta-x au <TAB>',
+* Example: Completion Example.
+* Commands: Completion Commands.
+* Strict Completion::
+* Options: Completion Options.
+
+
+File: xemacs.info,  Node: Completion Example,  Next: Completion Commands,  Prev: Completion,  Up: Completion
+
+Completion Example
+------------------
+
+   A concrete example may help here.  If you type `M-x au <TAB>', the
 <TAB> looks for alternatives (in this case, command names) that start
-with `au'.  There are only two commands: `auto-fill-mode' and
-`auto-save-mode'.  They are the same as far as `auto-', so the `au' in
-the minibuffer changes to `auto-'.
+with `au'.  There are several, including `auto-fill-mode' and
+`auto-save-mode'--but they are all the same as far as `auto', so the
+`au' in the minibuffer changes to `auto'.
 
-   If you type <TAB> again immediately, there are multiple possibilities
-for the very next character--it could be `s' or `f'--so no more
-characters are added; but a list of all possible completions is
-displayed in another window.
+   If you type <TAB> again immediately, there are multiple
+possibilities for the very next character--it could be any of `c-'--so
+no more characters are added; instead, <TAB> displays a list of all
+possible completions in another window.
 
    If you go on to type `f <TAB>', this <TAB> sees `auto-f'.  The only
-command name starting this way is `auto-fill-mode', so completion
-inserts the rest of that command.  You now have `auto-fill-mode' in the
-minibuffer after typing just `au <TAB> f <TAB>'.  Note that <TAB> has
-this effect because in the minibuffer it is bound to the function
-`minibuffer-complete' when completion is supposed to be done.
+command name starting this way is `auto-fill-mode', so completion fills
+in the rest of that.  You now have `auto-fill-mode' in the minibuffer
+after typing just `au <TAB> f <TAB>'.  Note that <TAB> has this effect
+because in the minibuffer it is bound to the command
+`minibuffer-complete' when completion is available.
+
+
+File: xemacs.info,  Node: Completion Commands,  Next: Strict Completion,  Prev: Completion Example,  Up: Completion
 
 Completion Commands
 -------------------
 
-   Here is a list of all the completion commands defined in the
-minibuffer when completion is available.
+   Here is a list of the completion commands defined in the minibuffer
+when completion is available.
 
 `<TAB>'
      Complete the text in the minibuffer as much as possible
      (`minibuffer-complete').
 
 `<SPC>'
-     Complete the text in the minibuffer but don't add or fill out more
-     than one word (`minibuffer-complete-word').
+     Complete the minibuffer text, but don't go beyond one word
+     (`minibuffer-complete-word').
 
 `<RET>'
      Submit the text in the minibuffer as the argument, possibly
@@ -117,13 +132,48 @@ minibuffer when completion is available.
      Clicking <button2> will select the highlighted completion and exit
      the minibuffer.  (`minibuf-select-highlighted-completion').
 
-   <SPC> completes in a way that is similar to <TAB>, but it never goes
-beyond the next hyphen or space.  If you have `auto-f' in the
-minibuffer and type <SPC>, it finds that the completion is
-`auto-fill-mode', but it stops completing after `fill-'.  The result is
-`auto-fill-'. Another <SPC> at this point completes all the way to
-`auto-fill-mode'.  <SPC> in the minibuffer runs the function
-`minibuffer-complete-word' when completion is available.
+   <SPC> completes much like <TAB>, but never goes beyond the next
+hyphen or space.  If you have `auto-f' in the minibuffer and type
+<SPC>, it finds that the completion is `auto-fill-mode', but it stops
+completing after `fill-'.  This gives `auto-fill-'.  Another <SPC> at
+this point completes all the way to `auto-fill-mode'.  <SPC> in the
+minibuffer when completion is available runs the command
+`minibuffer-complete-word'.
+
+   Here are some commands you can use to choose a completion from a
+window that displays a list of completions:
+
+`button2up'
+     Clicking mouse button 2 on a completion in the list of possible
+     completions chooses that completion (`mouse-choose-completion').
+     You normally use this command while point is in the minibuffer;
+     but you must click in the list of completions, not in the
+     minibuffer itself.
+
+`<RET>'
+     Typing <RET> *in the completion list buffer* chooses the
+     completion that point is in or next to (`choose-completion').  To
+     use this command, you must first switch windows to the window that
+     shows the list of completions.
+
+`<RIGHT>'
+`<TAB>'
+`C-f'
+     Typing the right-arrow key <RIGHT>, <TAB> or `C-f' *in the
+     completion list buffer* moves point to the following completion
+     (`next-list-mode-item').
+
+`<LEFT>'
+`C-b'
+     Typing the left-arrow key <LEFT> or `C-b' *in the completion list
+     buffer* moves point toward the beginning of the buffer, to the
+     previous completion (`previous-list-mode-item').
+
+
+File: xemacs.info,  Node: Strict Completion,  Next: Completion Options,  Prev: Completion Commands,  Up: Completion
+
+Strict Completion
+-----------------
 
    There are three different ways that <RET> can work in completing
 minibuffers, depending on how the argument will be used.
@@ -144,27 +194,35 @@ minibuffers, depending on how the argument will be used.
      Cautious completion is used for reading file names for files that
      must already exist.
 
-   * "Permissive" completion is used when any string is meaningful, and
-     the list of completion alternatives is just a guide.  For example,
-     when `C-x C-f' reads the name of a file to visit, any file name is
-     allowed, in case you want to create a file.  In permissive
-     completion, <RET> takes the text in the minibuffer exactly as
-     given, without completing it.
+   * "Permissive" completion is used when any string whatever is
+     meaningful, and the list of completion alternatives is just a
+     guide.  For example, when `C-x C-f' reads the name of a file to
+     visit, any file name is allowed, in case you want to create a
+     file.  In permissive completion, <RET> takes the text in the
+     minibuffer exactly as given, without completing it.
 
-   The completion commands display a list of all possible completions
-in a window whenever there is more than one possibility for the very
-next character.  Typing `?' explicitly requests such a list.  The list
-of completions counts as help text, so `C-M-v' typed in the minibuffer
-scrolls the list.
+   The completion commands display a list of all possible completions in
+a window whenever there is more than one possibility for the very next
+character.  Also, typing `?' explicitly requests such a list.  If the
+list of completions is long, you can scroll it with `C-M-v' (*note
+Other Window::.).
+
+
+File: xemacs.info,  Node: Completion Options,  Prev: Strict Completion,  Up: Completion
+
+Completion Options
+------------------
 
    When completion is done on file names, certain file names are usually
 ignored.  The variable `completion-ignored-extensions' contains a list
 of strings; a file whose name ends in any of those strings is ignored
 as a possible completion.  The standard value of this variable has
 several elements including `".o"', `".elc"', `".dvi"' and `"~"'.  The
-effect is that, for example, `foo' completes to `foo.c' even though
-`foo.o' exists as well.  If the only possible completions are files
-that end in "ignored" strings, they are not ignored.
+effect is that, for example, `foo' can complete to `foo.c' even though
+`foo.o' exists as well.  However, if *all* the possible completions end
+in "ignored" strings, then they are not ignored.  Ignored extensions do
+not apply to lists of completions--those always mention all possible
+completions.
 
    If a completion command finds the next character is undetermined, it
 automatically displays a list of all possible completions.  If the
@@ -177,20 +235,89 @@ completions, an extra <RET> must be typed to confirm the response.
 This is helpful for catching typos.
 
 
-File: xemacs.info,  Node: Repetition,  Prev: Completion,  Up: Minibuffer
+File: xemacs.info,  Node: Minibuffer History,  Next: Repetition,  Prev: Completion,  Up: Minibuffer
+
+Minibuffer History
+==================
+
+   Every argument that you enter with the minibuffer is saved on a
+"minibuffer history list" so that you can use it again later in another
+argument.  Special commands load the text of an earlier argument in the
+minibuffer.  They discard the old minibuffer contents, so you can think
+of them as moving through the history of previous arguments.
+
+`<UP>'
+`M-p'
+     Move to the next earlier argument string saved in the minibuffer
+     history (`previous-history-element').
+
+`<DOWN>'
+`M-n'
+     Move to the next later argument string saved in the minibuffer
+     history (`next-history-element').
+
+`M-r REGEXP <RET>'
+     Move to an earlier saved argument in the minibuffer history that
+     has a match for REGEXP (`previous-matching-history-element').
+
+`M-s REGEXP <RET>'
+     Move to a later saved argument in the minibuffer history that has a
+     match for REGEXP (`next-matching-history-element').
+
+   The simplest way to reuse the saved arguments in the history list is
+to move through the history list one element at a time.  While in the
+minibuffer, use `M-p' or up-arrow (`previous-history-element') to "move
+to" the next earlier minibuffer input, and use `M-n' or down-arrow
+(`next-history-element') to "move to" the next later input.
+
+   The previous input that you fetch from the history entirely replaces
+the contents of the minibuffer.  To use it as the argument, exit the
+minibuffer as usual with <RET>.  You can also edit the text before you
+reuse it; this does not change the history element that you "moved" to,
+but your new argument does go at the end of the history list in its own
+right.
+
+   For many minibuffer arguments there is a "default" value.  In some
+cases, the minibuffer history commands know the default value.  Then you
+can insert the default value into the minibuffer as text by using `M-n'
+to move "into the future" in the history.
+
+   There are also commands to search forward or backward through the
+history; they search for history elements that match a regular
+expression that you specify with the minibuffer.  `M-r'
+(`previous-matching-history-element') searches older elements in the
+history, while `M-s' (`next-matching-history-element') searches newer
+elements.  By special dispensation, these commands can use the
+minibuffer to read their arguments even though you are already in the
+minibuffer when you issue them.  As with incremental searching, an
+uppercase letter in the regular expression makes the search
+case-sensitive (*note Search Case::.).
+
+   All uses of the minibuffer record your input on a history list, but
+there are separate history lists for different kinds of arguments.  For
+example, there is a list for file names, used by all the commands that
+read file names.
+
+   There are several other very specific history lists, including one
+for command names read by `M-x', one for buffer names, one for arguments
+of commands like `query-replace', and one for compilation commands read
+by `compile'.  Finally, there is one "miscellaneous" history list that
+most minibuffer arguments use.
+
+
+File: xemacs.info,  Node: Repetition,  Prev: Minibuffer History,  Up: Minibuffer
 
 Repeating Minibuffer Commands
 =============================
 
    Every command that uses the minibuffer at least once is recorded on a
-special history list, together with the values of the minibuffer
-arguments, so that you can repeat the command easily.  In particular,
-every use of `Meta-x' is recorded, since `M-x' uses the minibuffer to
-read the command name.
+special history list, together with the values of its arguments, so that
+you can repeat the entire command.  In particular, every use of `M-x'
+is recorded there, since `M-x' uses the minibuffer to read the command
+name.
 
-`C-x <ESC>'
-     Re-execute a recent minibuffer command
-     (`repeat-complex-command').
+`C-x <ESC> <ESC>'
+     Re-execute a recent minibuffer command (`repeat-complex-command').
 
 `M-p'
      Within `C-x <ESC>', move to previous recorded command
@@ -202,36 +329,37 @@ read the command name.
 
 `M-x list-command-history'
      Display the entire command history, showing all the commands `C-x
-     <ESC>' can repeat, most recent first.
+     <ESC> <ESC>' can repeat, most recent first.
 
-   `C-x <ESC>' is used to re-execute a recent command that used the
-minibuffer. With no argument, it repeats the last command.  A numeric
-argument specifies which command to repeat; 1 means the last one, and
-larger numbers specify earlier commands.
+   `C-x <ESC> <ESC>' is used to re-execute a recent minibuffer-using
+command.  With no argument, it repeats the last such command.  A
+numeric argument specifies which command to repeat; one means the last
+one, and larger numbers specify earlier ones.
 
-   `C-x <ESC>' works by turning the previous command into a Lisp
+   `C-x <ESC> <ESC>' works by turning the previous command into a Lisp
 expression and then entering a minibuffer initialized with the text for
 that expression.  If you type just <RET>, the command is repeated as
-before.  You can also change the command by editing the Lisp expression.
-The expression you finally submit will be executed.  The repeated
-command is added to the front of the command history unless it is
-identical to the most recently executed command already there.
+before.  You can also change the command by editing the Lisp
+expression.  Whatever expression you finally submit is what will be
+executed.  The repeated command is added to the front of the command
+history unless it is identical to the most recently executed command
+already there.
 
    Even if you don't understand Lisp syntax, it will probably be obvious
 which command is displayed for repetition.  If you do not change the
 text, you can be sure the command will repeat exactly as before.
 
-   If you are in the minibuffer for `C-x <ESC>' and the command shown
-to you is not the one you want to repeat, you can move around the list
-of previous commands using `M-n' and `M-p'.  `M-p' replaces the
+   If you are in the minibuffer for `C-x <ESC> <ESC>' and the command
+shown to you is not the one you want to repeat, you can move around the
+list of previous commands using `M-n' and `M-p'.  `M-p' replaces the
 contents of the minibuffer with the next earlier recorded command, and
 `M-n' replaces it with the next later command.  After finding the
 desired previous command, you can edit its expression and then resubmit
 it by typing <RET>.  Any editing you have done on the command to be
 repeated is lost if you use `M-n' or `M-p'.
 
-   `M-n' and `M-p' are specially defined within `C-x <ESC>' to run the
-commands `previous-history-element' and `next-history-element'.
+   `M-n' and `M-p' are specially defined within `C-x <ESC> <ESC>' to
+run the commands `previous-history-element' and `next-history-element'.
 
    The list of previous commands using the minibuffer is stored as a
 Lisp list in the variable `command-history'.  Each element of the list
@@ -1011,210 +1139,4 @@ and the text of the selection is deleted.
 `mouse-track' command on <button1>, except that point is not moved; the
 selected text is immediately inserted after being selected; and the
 selection is immediately disowned afterwards.
-
-
-File: xemacs.info,  Node: Killing,  Next: Yanking,  Prev: Additional Mouse Operations,  Up: Top
-
-Deletion and Killing
-====================
-
-   Most commands that erase text from the buffer save it. You can get
-the text back if you change your mind, or you can move or copy it to
-other parts of the buffer.  Commands which erase text and save it in the
-kill ring are known as "kill" commands.  Some other commands erase text
-but do not save it; they are known as "delete" commands.  (This
-distinction is made only for erasing text in the buffer.)
-
-   The commands' names and individual descriptions use the words `kill'
-and `delete' to indicate what they do.  If you perform a kill or delete
-command by mistake, use the `C-x u' (`undo') command to undo it (*note
-Undo::.). The delete commands include `C-d' (`delete-char') and <DEL>
-(`delete-backward-char'), which delete only one character at a time,
-and those commands that delete only spaces or newlines.  Commands that
-can destroy significant amounts of nontrivial data usually kill.
-
-Deletion
---------
-
-`C-d'
-     Delete next character (`delete-char').
-
-`<DEL>'
-     Delete previous character (`delete-backward-char').
-
-`M-\'
-     Delete spaces and tabs around point (`delete-horizontal-space').
-
-`M-<SPC>'
-     Delete spaces and tabs around point, leaving one space
-     (`just-one-space').
-
-`C-x C-o'
-     Delete blank lines around the current line (`delete-blank-lines').
-
-`M-^'
-     Join two lines by deleting the intervening newline, and any
-     indentation following it (`delete-indentation').
-
-   The most basic delete commands are `C-d' (`delete-char') and <DEL>
-(`delete-backward-char').  `C-d' deletes the character after point, the
-one the cursor is "on top of".  Point doesn't move.  <DEL> deletes the
-character before the cursor, and moves point back.  You can delete
-newlines like any other characters in the buffer; deleting a newline
-joins two lines.  Actually, `C-d' and <DEL> aren't always delete
-commands; if you give them an argument, they kill instead, since they
-can erase more than one character this way.
-
-   The other delete commands delete only formatting characters: spaces,
-tabs and newlines.  `M-\' (`delete-horizontal-space') deletes all
-spaces and tab characters before and after point.  `M-<SPC>'
-(`just-one-space') does the same but leaves a single space after point,
-regardless of the number of spaces that existed previously (even zero).
-
-   `C-x C-o' (`delete-blank-lines') deletes all blank lines after the
-current line. If the current line is blank, it deletes all blank lines
-preceding the current line as well as leaving one blank line, the
-current line.  `M-^' (`delete-indentation') joins the current line and
-the previous line, or, if given an argument, joins the current line and
-the next line by deleting a newline and all surrounding spaces, possibly
-leaving a single space.  *Note M-^: Indentation.
-
-Killing by Lines
-----------------
-
-`C-k'
-     Kill rest of line or one or more lines (`kill-line').
-
-   The simplest kill command is `C-k'.  If given at the beginning of a
-line, it kills all the text on the line, leaving the line blank.  If
-given on a blank line, the blank line disappears.  As a consequence, a
-line disappears completely if you go to the front of a non-blank line
-and type `C-k' twice.
-
-   More generally, `C-k' kills from point up to the end of the line,
-unless it is at the end of a line.  In that case, it kills the newline
-following the line, thus merging the next line into the current one.
-Emacs ignores invisible spaces and tabs at the end of the line when
-deciding which case applies: if point appears to be at the end of the
-line, you can be sure the newline will be killed.
-
-   If you give `C-k' a positive argument, it kills that many lines and
-the newlines that follow them (however, text on the current line before
-point is not killed).  With a negative argument, `C-k' kills back to a
-number of line beginnings.  An argument of -2 means kill back to the
-second line beginning.  If point is at the beginning of a line, that
-line beginning doesn't count, so `C-u - 2 C-k' with point at the front
-of a line kills the two previous lines.
-
-   `C-k' with an argument of zero kills all the text before point on the
-current line.
-
-Other Kill Commands
--------------------
-
-`C-w'
-     Kill region (from point to the mark) (`kill-region').  *Note
-     Words::.
-
-`M-d'
-     Kill word (`kill-word').
-
-`M-<DEL>'
-     Kill word backwards (`backward-kill-word').
-
-`C-x <DEL>'
-     Kill back to beginning of sentence (`backward-kill-sentence').
-     *Note Sentences::.
-
-`M-k'
-     Kill to end of sentence (`kill-sentence').
-
-`C-M-k'
-     Kill sexp (`kill-sexp').  *Note Lists::.
-
-`M-z CHAR'
-     Kill up to next occurrence of CHAR (`zap-to-char').
-
-   `C-w' (`kill-region') is a very general kill command; it kills
-everything between point and the mark. You can use this command to kill
-any contiguous sequence of characters by first setting the mark at one
-end of a sequence of characters, then going to the other end and typing
-`C-w'.
-
-   A convenient way of killing is combined with searching: `M-z'
-(`zap-to-char') reads a character and kills from point up to (but not
-including) the next occurrence of that character in the buffer.  If
-there is no next occurrence, killing goes to the end of the buffer.  A
-numeric argument acts as a repeat count.  A negative argument means to
-search backward and kill text before point.
-
-   Other syntactic units can be killed: words, with `M-<DEL>' and `M-d'
-(*note Words::.); sexps, with `C-M-k' (*note Lists::.); and sentences,
-with `C-x <DEL>' and `M-k' (*note Sentences::.).
-
-
-File: xemacs.info,  Node: Yanking,  Next: Using X Selections,  Prev: Killing,  Up: Top
-
-Yanking
-=======
-
-   "Yanking" means getting back text which was killed. Some systems
-call this "pasting".  The usual way to move or copy text is to kill it
-and then yank it one or more times.
-
-`C-y'
-     Yank last killed text (`yank').
-
-`M-y'
-     Replace re-inserted killed text with the previously killed text
-     (`yank-pop').
-
-`M-w'
-     Save region as last killed text without actually killing it
-     (`copy-region-as-kill').
-
-`C-M-w'
-     Append next kill to last batch of killed text (`append-next-kill').
-
-* Menu:
-
-* Kill Ring::       Where killed text is stored.  Basic yanking.
-* Appending Kills:: Several kills in a row all yank together.
-* Earlier Kills::   Yanking something killed some time ago.
-
-
-File: xemacs.info,  Node: Kill Ring,  Next: Appending Kills,  Prev: Yanking,  Up: Yanking
-
-The Kill Ring
--------------
-
-   All killed text is recorded in the "kill ring", a list of blocks of
-text that have been killed.  There is only one kill ring, used in all
-buffers, so you can kill text in one buffer and yank it in another
-buffer.  This is the usual way to move text from one file to another.
-(*Note Accumulating Text::, for some other ways.)
-
-   If you have two separate Emacs processes, you cannot use the kill
-ring to move text. If you are using XEmacs under X, however, you can
-use the X selection mechanism to move text from one to another.
-
-   If you are using XEmacs under X and have one Emacs process with
-multiple frames, they do share the same kill ring.  You can kill or
-copy text in one Emacs frame, then yank it in the other frame belonging
-to the same process.
-
-   The command `C-y' (`yank') reinserts the text of the most recent
-kill.  It leaves the cursor at the end of the text and sets the mark at
-the beginning of the text.  *Note Mark::.
-
-   `C-u C-y' yanks the text, leaves the cursor in front of the text,
-and sets the mark after it, if the argument is with just a `C-u'.  Any
-other argument, including `C-u' and digits, has different results,
-described below, under "Yanking Earlier Kills".
-
-   To copy a block of text, you can also use `M-w'
-(`copy-region-as-kill'), which copies the region into the kill ring
-without removing it from the buffer. `M-w' is similar to `C-w' followed
-by `C-y' but does not mark the buffer as "modified" and does not
-actually cut anything.
 

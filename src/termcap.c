@@ -26,18 +26,9 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h" /* For encapsulated open, close, read */
 #include "device.h" /* For DEVICE_BAUD_RATE */
 #else /* not emacs */
-#if defined(USG) || defined(STDC_HEADERS)
-#define memcpy(d, s, n) memcpy ((d), (s), (n))
-#endif
 
-#ifdef STDC_HEADERS
 #include <stdlib.h>
 #include <string.h>
-#else
-char *getenv ();
-char *malloc ();
-char *realloc ();
-#endif
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -337,8 +328,6 @@ static int name_match ();
 
    If BP is zero, space is dynamically allocated.  */
 
-extern char *getenv ();
-
 int
 tgetent (bp, name)
      char *bp;
@@ -365,7 +354,7 @@ tgetent (bp, name)
      it is the entry itself, but only if
      the name the caller requested matches the TERM variable.  */
 
-  if (tem && !IS_DIRECTORY_SEP (*tem) && !strcmp (name, (char *) getenv ("TERM")))
+  if (tem && !IS_DIRECTORY_SEP (*tem) && !strcmp (name, getenv ("TERM")))
     {
       indirect = tgetst1 (find_capability (tem, "tc"), 0);
       if (!indirect)

@@ -1,3 +1,17 @@
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+1999-12-24  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* automated/syntax-tests.el: New file.
+	Add test for scan_words using forward-word and backword-word.
+
+2000-01-08  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: 
+	Test resizing of small and big (> 8k bytes) strings.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

@@ -136,6 +136,21 @@ The only thing selection doesn't do is set the clipboard automatically
 as this would break the MS-Windows model.  If you want this behaviour
 then set `selection-sets-clipboard' to t
 
+** Mail spool locking now works correctly.
+XEmacs has always come with a little auxiliary program, movemail,
+which moves mail out of the system's spool area into user storage.  To
+coordinate between XEmacs, the mail delivery agent, and other mail
+user agents, movemail needs to properly lock the spool file before
+moving it.  Movemail now correctly respects the --mail-locking option
+to configure.  Moreover, movemail's locking behavior can be specified
+at run-time, via a new command-line option -m to movemail, or through
+the environment variable EMACSLOCKMETHOD.
+
+When installing XEmacs, make sure you configure it according to your
+environment's mail spool locking conventions.  When you're using a
+binary kit, set the `mail-lock-method' variable at startup, or the
+EMACSLOCKMETHOD environment variable.
+
 ** New command-line switches -user-init-file and -user-init-directory.
 These can be used to specify alternate locations for what is normally
 ~/.emacs and ~/.xemacs.
@@ -143,6 +158,10 @@ These can be used to specify alternate locations for what is normally
 Moreover, -user <user> (which used to only work in unpredictable ways)
 is now equivalent to
 -user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
+
+** New variable `mswindows-meta-activates-menu'.
+If you set this variable to nil then pressing the Alt key under
+MS-Windows will no longer activate the menubar. The default is t.
 
 ** Etags changes.
 

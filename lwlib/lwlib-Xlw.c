@@ -536,6 +536,9 @@ xlw_update_one_widget (widget_instance* instance, Widget widget,
 		       widget_value* val, Boolean deep_p)
 {
   WidgetClass class = XtClass (widget);
+  /* Update up global arg values. */
+  if (val->args && val->args->nargs)
+    XtSetValues (widget, val->args->args, val->args->nargs);
 
   if (0)
     ;

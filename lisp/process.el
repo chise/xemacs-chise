@@ -321,7 +321,7 @@ Ouput via `process-send-string' and input via buffer or filter (see
 `set-process-filter') are stream-oriented.  That means UDP datagrams are
 not guaranteed to be sent and received in discrete packets. (But small
 datagrams around 500 bytes that are not truncated by `process-send-string'
-are usually fine.)  Note further that UDP protocol does not guard against 
+are usually fine.)  Note further that UDP protocol does not guard against
 lost packets."
   (open-network-stream-internal name buffer host service protocol))
 
@@ -342,13 +342,11 @@ lost packets."
 		start (1+ end)))
 	(concat result (substring argument start))))))
 
-(defun exec-to-string (command)
-  "Execute COMMAND as an external process and return the output of that
-process as a string"
-  ;; by "William G. Dubuque" <wgd@zurich.ai.mit.edu>
+(defun shell-command-to-string (command)
+  "Execute shell command COMMAND and return its output as a string."
   (with-output-to-string
     (call-process shell-file-name nil t nil shell-command-switch command)))
 
-(defalias 'shell-command-to-string 'exec-to-string)
+(defalias 'exec-to-string 'shell-command-to-string)
 
 ;;; process.el ends here

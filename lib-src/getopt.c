@@ -31,7 +31,7 @@ USA.  */
 #endif
 
 #ifdef HAVE_CONFIG_H
-#include <../src/config.h>
+#include <config.h>
 #endif
 
 #include <stdio.h>
@@ -201,11 +201,6 @@ static char *posixly_correct;
 #include <string.h>
 #define	my_index	strchr
 #else
-
-/* Avoid depending on library functions or files
-   whose names are inconsistent.  */
-
-char *getenv ();
 
 static char *
 my_index (const char *str, int chr)

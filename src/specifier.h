@@ -281,6 +281,15 @@ error_check_##type##_specifier_data (struct Lisp_Specifier *sp)		\
   assert (SPECIFIER_TYPE_P (sp, type));					\
   return (struct type##_specifier *) sp->data;				\
 }									\
+INLINE struct Lisp_Specifier *						\
+error_check_##type##_specifier_type (Lisp_Object obj);			\
+INLINE struct Lisp_Specifier *						\
+error_check_##type##_specifier_type (Lisp_Object obj)			\
+{									\
+  struct Lisp_Specifier *sp = XSPECIFIER (obj);				\
+  assert (SPECIFIER_TYPE_P (sp, type));					\
+  return sp;								\
+}									\
 DECLARE_NOTHING
 #else
 #define DECLARE_SPECIFIER_TYPE(type)				\
@@ -343,10 +352,19 @@ do {									\
      : (sp)->data))
 #endif
 
-/* #### Need to create ERROR_CHECKING versions of these. */
+#ifdef ERROR_CHECK_TYPECHECK
+# define XSPECIFIER_TYPE(x, type)	\
+   error_check_##type##_specifier_type (x)
+# define XSETSPECIFIER_TYPE(x, p, type)	do		\
+{							\
+  XSETSPECIFIER (x, p);					\
+  assert (SPECIFIER_TYPEP (XSPECIFIER(x), type));	\
+} while (0)
+#else
+# define XSPECIFIER_TYPE(x, type) XSPECIFIER (x)
+# define XSETSPECIFIER_TYPE(x, p, type) XSETSPECIFIER (x, p)
+#endif /* ERROR_CHECK_TYPE_CHECK */
 
-#define XSPECIFIER_TYPE(x, type) XSPECIFIER (x)
-#define XSETSPECIFIER_TYPE(x, p, type) XSETSPECIFIER (x, p)
 #define SPECIFIER_TYPEP(x, type)				\
   (SPECIFIERP (x) && SPECIFIER_TYPE_P (XSPECIFIER (x), type))
 #define CHECK_SPECIFIER_TYPE(x, type) do {		\

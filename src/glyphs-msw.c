@@ -1,5 +1,5 @@
 /* mswindows-specific glyph objects.
-   Copyright (C) 1998, 1999 Andy Piper.
+   Copyright (C) 1998, 1999, 2000 Andy Piper.
 
 This file is part of XEmacs.
 
@@ -439,18 +439,18 @@ static void set_mono_pixel ( unsigned char* bits,
 			     int bpline, int height,
 			     int x, int y, int white )
 {
-  int index;
+  int i;
   unsigned char    bitnum;
   /* Find the byte on which this scanline begins */
-  index = (height - y - 1) * bpline;
+  i = (height - y - 1) * bpline;
   /* Find the byte containing this pixel */
-  index += (x >> 3);
+  i += (x >> 3);
   /* Which bit is it? */
   bitnum = (unsigned char)( 7 - (x % 8) );
   if( white )         /* Turn it on */
-    bits[index] |= (1<<bitnum);
+    bits[i] |= (1<<bitnum);
   else         /* Turn it off */
-    bits[index] &= ~(1<<bitnum);
+    bits[i] &= ~(1<<bitnum);
 }
 
 static void
@@ -1330,15 +1330,6 @@ check_valid_resource_id (Lisp_Object data)
     signal_simple_error ("invalid resource identifier", data);
 }
 
-void
-check_valid_string_or_int (Lisp_Object data)
-{
-  if (!INTP (data))
-    CHECK_STRING (data);
-  else
-    CHECK_INT (data);
-}
-
 /**********************************************************************
  *                             XBM                                    *
  **********************************************************************/
@@ -1628,7 +1619,7 @@ static int flip_table[] =
    padded to a multiple of 16.  Scan lines are stored in increasing
    byte order from left to right, big-endian within a byte.  0 =
    black, 1 = white.  */
-HBITMAP
+static HBITMAP
 xbm_create_bitmap_from_data (HDC hdc, char *data,
 			     unsigned int width, unsigned int height,
 			     int mask, COLORREF fg, COLORREF bg)
@@ -2106,6 +2097,7 @@ static void
 mswindows_map_subwindow (struct Lisp_Image_Instance *p, int x, int y,
 			 struct display_glyph_area* dga)
 {
+      SetFocus (GetParent (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
   /* move the window before mapping it ... */
   SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
 		NULL,
@@ -2144,6 +2136,7 @@ mswindows_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
 static void
 mswindows_update_subwindow (struct Lisp_Image_Instance *p)
 {
+  /* Now do widget specific updates. */
   if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
     {
       /* buttons checked or otherwise */
@@ -2161,10 +2154,10 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		   WM_SETFONT,
 		   (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
-		   (XFONT_INSTANCE (widget_face_font_info
-				    (IMAGE_INSTANCE_SUBWINDOW_FRAME (p),
+		   (XFONT_INSTANCE (query_string_font 
+				    (IMAGE_INSTANCE_WIDGET_TEXT (p),
 				     IMAGE_INSTANCE_WIDGET_FACE (p),
-				     0, 0))),
+				     IMAGE_INSTANCE_SUBWINDOW_FRAME (p)))),
 		   MAKELPARAM (TRUE, 0));
     }
 }
@@ -2344,9 +2337,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     {
       id = mswindows_register_widget_instance (image_instance, domain);
     }
-  /* have to set the type this late in case there is no device
-     instantiation for a widget */
-  IMAGE_INSTANCE_TYPE (ii) = IMAGE_WIDGET;
+
   if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
     GET_C_STRING_OS_DATA_ALLOCA (IMAGE_INSTANCE_WIDGET_TEXT (ii), nm);
 
@@ -2355,7 +2346,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
   if ((IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (ii)
        = CreateWindowEx(
-			0,		/* EX flags */
+			WS_EX_CONTROLPARENT,	/* EX flags */
 			XEMACS_CONTROL_CLASS,
 			0,		/* text */
 			WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_CHILD,
@@ -2396,17 +2387,17 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   /* set the widget font from the widget face */
   SendMessage (wnd, WM_SETFONT,
 	       (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
-	       (XFONT_INSTANCE (widget_face_font_info
-				(domain,
+	       (XFONT_INSTANCE (query_string_font
+				(IMAGE_INSTANCE_WIDGET_TEXT (ii),
 				 IMAGE_INSTANCE_WIDGET_FACE (ii),
-				 0, 0))),
+				 domain))),
 	       MAKELPARAM (TRUE, 0));
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
    particular to a frame since they need to have a parent. It's not
    like images where you just select the image into the context you
-   want to display it in and BitBlt it. So images instances can have a
+   want to display it in and BitBlt it. So image instances can have a
    many-to-one relationship with things you see, whereas widgets can
    only be one-to-one (i.e. per frame) */
 static void
@@ -2417,14 +2408,13 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   /* this function can call lisp */
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HWND wnd;
-  int flags = BS_NOTIFY;
+  int flags = WS_TABSTOP;/* BS_NOTIFY #### is needed to get exotic feedback
+			    only. Since we seem to want nothing beyond BN_CLICK,
+			    the style is perhaps not necessary -- kkm */
   Lisp_Object style;
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
   struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
-
-  if (!gui_item_active_p (gui))
-    flags |= WS_DISABLED;
 
   if (!NILP (glyph))
     {
@@ -2438,6 +2428,8 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
   style = pgui->style;
 
+  /* #### consider using the default face for radio and toggle
+     buttons. */
   if (EQ (style, Qradio))
     {
       flags |= BS_RADIOBUTTON;
@@ -2447,11 +2439,13 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
       flags |= BS_AUTOCHECKBOX;
     }
   else
-    flags |= BS_DEFPUSHBUTTON;
+    {
+      flags |= BS_DEFPUSHBUTTON;
+    }
 
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "BUTTON", flags,
-				WS_EX_CONTROLPARENT);
+				pointer_bg, dest_mask, domain, "BUTTON", 
+				flags, 0);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* set the checked state */
@@ -2465,9 +2459,9 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
       SendMessage (wnd, BM_SETIMAGE,
 		   (WPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
 			     IMAGE_BITMAP : IMAGE_ICON),
-		   (LPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
-			     XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) :
-			     XIMAGE_INSTANCE_MSWINDOWS_ICON (glyph)));
+		   (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
+		    (LPARAM) XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) :
+		    (LPARAM) XIMAGE_INSTANCE_MSWINDOWS_ICON (glyph)));
     }
 }
 
@@ -2480,8 +2474,7 @@ mswindows_edit_field_instantiate (Lisp_Object image_instance, Lisp_Object instan
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, "EDIT",
 				ES_LEFT | ES_AUTOHSCROLL | WS_TABSTOP
-				| WS_BORDER,
-				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+				| WS_BORDER, WS_EX_CLIENTEDGE);
 }
 
 /* instantiate a progress gauge */
@@ -2494,8 +2487,7 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, PROGRESS_CLASS,
-				WS_TABSTOP | WS_BORDER | PBS_SMOOTH,
-				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+				WS_BORDER | PBS_SMOOTH, WS_EX_CLIENTEDGE);
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* set the colors */
 #ifdef PBS_SETBKCOLOR
@@ -2579,7 +2571,7 @@ mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instant
 				pointer_bg, dest_mask, domain, WC_TREEVIEW,
 				WS_TABSTOP | WS_BORDER | PBS_SMOOTH
 				| TVS_HASLINES | TVS_HASBUTTONS,
-				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+				WS_EX_CLIENTEDGE);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
 
@@ -2602,7 +2594,7 @@ mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instant
 /* instantiate a tab control */
 static TC_ITEM* add_tab_item (Lisp_Object image_instance,
 			     HWND wnd, Lisp_Object item,
-			     Lisp_Object domain, int index)
+			     Lisp_Object domain, int i)
 {
   TC_ITEM tvitem, *ret;
 
@@ -2624,7 +2616,7 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
   tvitem.cchTextMax = strlen (tvitem.pszText);
 
   if ((ret = (TC_ITEM*)SendMessage (wnd, TCM_INSERTITEM,
-				    index, (LPARAM)&tvitem)) < 0)
+				    i, (LPARAM)&tvitem)) < 0)
     signal_simple_error ("error adding tab entry", item);
 
   return ret;
@@ -2637,20 +2629,31 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
 {
   Lisp_Object rest;
   HWND wnd;
-  int index = 0;
+  int i = 0;
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object orient = find_keyword_in_vector (instantiator, Q_orientation);
+  unsigned int flags = WS_TABSTOP;
+
+  if (EQ (orient, Qleft) || EQ (orient, Qright))
+    {
+      flags |= TCS_VERTICAL | TCS_MULTILINE;
+    }
+  if (EQ (orient, Qright) || EQ (orient, Qbottom))
+    {
+      flags |= TCS_BOTTOM;
+    }
+
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, WC_TABCONTROL,
 				/* borders don't suit tabs so well */
-				WS_TABSTOP,
-				WS_EX_CONTROLPARENT);
+				flags, 0);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* add items to the tab */
   LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
     {
-      add_tab_item (image_instance, wnd, XCAR (rest), domain, index);
-      index++;
+      add_tab_item (image_instance, wnd, XCAR (rest), domain, i);
+      i++;
     }
 }
 
@@ -2664,7 +2667,7 @@ mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop
   if (EQ (prop, Q_items))
     {
       HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
-      int index = 0;
+      int i = 0;
       Lisp_Object rest;
       check_valid_item_list_1 (val);
 
@@ -2679,8 +2682,8 @@ mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop
       LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
 	{
 	  add_tab_item (image_instance, wnd, XCAR (rest),
-			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), index);
-	  index++;
+			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), i);
+	  i++;
 	}
 
       return Qt;
@@ -2707,8 +2710,7 @@ mswindows_scrollbar_instantiate (Lisp_Object image_instance, Lisp_Object instant
 {
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, "SCROLLBAR",
-				0,
-				WS_EX_CLIENTEDGE );
+				WS_TABSTOP, WS_EX_CLIENTEDGE);
 }
 
 /* instantiate a combo control */
@@ -2722,8 +2724,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
   Lisp_Object rest;
   Lisp_Object data = Fplist_get (find_keyword_in_vector (instantiator, Q_properties),
 				 Q_items, Qnil);
-  int len;
-  GET_LIST_LENGTH (data, len);
+  int len, height;
 
   /* Maybe ought to generalise this more but it may be very windows
      specific. In windows the window height of a combo box is the
@@ -2731,19 +2732,29 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
      before creating the window and then reset it to a single line
      after the window is created so that redisplay does the right
      thing. */
-  widget_instantiate_1 (image_instance, instantiator, pointer_fg,
-			pointer_bg, dest_mask, domain, len + 1, 0, 0);
+  widget_instantiate (image_instance, instantiator, pointer_fg,
+		      pointer_bg, dest_mask, domain);
 
+  /* We now have everything right apart from the height. */
+  default_face_font_info (domain, 0, 0, &height, 0, 0);
+  GET_LIST_LENGTH (data, len);
+
+  height = (height + WIDGET_BORDER_HEIGHT * 2 ) * len;
+  IMAGE_INSTANCE_HEIGHT (ii) = height;
+  
+  /* Now create the widget. */
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, "COMBOBOX",
 				WS_BORDER | WS_TABSTOP | CBS_DROPDOWN
 				| CBS_AUTOHSCROLL
 				| CBS_HASSTRINGS | WS_VSCROLL,
-				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
-  /* reset the height */
-  widget_text_to_pixel_conversion (domain,
-				   IMAGE_INSTANCE_WIDGET_FACE (ii), 1, 0,
-				   &IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii), 0);
+				WS_EX_CLIENTEDGE);
+  /* Reset the height. layout will probably do this safely, but better make sure. */
+  image_instance_layout (image_instance, 
+			 IMAGE_UNSPECIFIED_GEOMETRY,
+			 IMAGE_UNSPECIFIED_GEOMETRY,
+			 domain);
+
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* add items to the combo box */
   SendMessage (wnd, CB_RESETCONTENT, 0, 0);
@@ -2823,7 +2834,8 @@ mswindows_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
       GET_C_STRING_OS_DATA_ALLOCA (val, lparam);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
 		   WM_SETTEXT, 0, (LPARAM)lparam);
-      return Qt;
+      /* We don't return Qt here so that other widget methods can be
+         called afterwards. */
     }
   return Qunbound;
 }
@@ -2846,10 +2858,10 @@ mswindows_progress_gauge_set_property (Lisp_Object image_instance, Lisp_Object p
 }
 
 LRESULT WINAPI
-mswindows_control_wnd_proc (HWND hwnd, UINT message,
+mswindows_control_wnd_proc (HWND hwnd, UINT msg,
 			    WPARAM wParam, LPARAM lParam)
 {
-  switch (message)
+  switch (msg)
     {
     case WM_NOTIFY:
     case WM_COMMAND:
@@ -2859,9 +2871,9 @@ mswindows_control_wnd_proc (HWND hwnd, UINT message,
     case WM_CTLCOLORSTATIC:
     case WM_CTLCOLORSCROLLBAR:
 
-      return mswindows_wnd_proc (GetParent (hwnd), message, wParam, lParam);
+      return mswindows_wnd_proc (GetParent (hwnd), msg, wParam, lParam);
     default:
-      return DefWindowProc (hwnd, message, wParam, lParam);
+      return DefWindowProc (hwnd, msg, wParam, lParam);
     }
 }
 

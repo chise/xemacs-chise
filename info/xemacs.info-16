@@ -30,6 +30,218 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Minor Modes,  Next: Variables,  Up: Customization
+
+Minor Modes
+===========
+
+   Minor modes are options which you can use or not.  For example, Auto
+Fill mode is a minor mode in which <SPC> breaks lines between words as
+you type.  All the minor modes are independent of each other and of the
+selected major mode.  Most minor modes inform you in the mode line when
+they are on; for example, `Fill' in the mode line means that Auto Fill
+mode is on.
+
+   Append `-mode' to the name of a minor mode to get the name of a
+command function that turns the mode on or off.  Thus, the command to
+enable or disable Auto Fill mode is called `M-x auto-fill-mode'.  These
+commands are usually invoked with `M-x', but you can bind keys to them
+if you wish.  With no argument, the function turns the mode on if it was
+off and off if it was on.  This is known as "toggling".  A positive
+argument always turns the mode on, and an explicit zero argument or a
+negative argument always turns it off.
+
+   Auto Fill mode allows you to enter filled text without breaking lines
+explicitly.  Emacs inserts newlines as necessary to prevent lines from
+becoming too long.  *Note Filling::.
+
+   Overwrite mode causes ordinary printing characters to replace
+existing text instead of moving it to the right.  For example, if point
+is in front of the `B' in `FOOBAR', and you type a `G' in Overwrite
+mode, it changes to `FOOGAR', instead of `FOOGBAR'.
+
+   Abbrev mode allows you to define abbreviations that automatically
+expand as you type them.  For example, `amd' might expand to `abbrev
+mode'.  *Note Abbrevs::, for full information.
+
+
+File: xemacs.info,  Node: Variables,  Next: Keyboard Macros,  Prev: Minor Modes,  Up: Customization
+
+Variables
+=========
+
+   A "variable" is a Lisp symbol which has a value.  Variable names can
+contain any characters, but by convention they are words separated by
+hyphens.  A variable can also have a documentation string, which
+describes what kind of value it should have and how the value will be
+used.
+
+   Lisp allows any variable to have any kind of value, but most
+variables that Emacs uses require a value of a certain type.  Often the
+value has to be a string or a number.  Sometimes we say that a certain
+feature is turned on if a variable is "non-`nil'," meaning that if the
+variable's value is `nil', the feature is off, but the feature is on
+for any other value.  The conventional value to turn on the
+feature--since you have to pick one particular value when you set the
+variable--is `t'.
+
+   Emacs uses many Lisp variables for internal recordkeeping, as any
+Lisp program must, but the most interesting variables for you are the
+ones that exist for the sake of customization.  Emacs does not
+(usually) change the values of these variables; instead, you set the
+values, and thereby alter and control the behavior of certain Emacs
+commands.  These variables are called "options".  Most options are
+documented in this manual and appear in the Variable Index (*note
+Variable Index::.).
+
+   One example of a variable which is an option is `fill-column', which
+specifies the position of the right margin (as a number of characters
+from the left margin) to be used by the fill commands (*note
+Filling::.).
+
+* Menu:
+
+* Examining::           Examining or setting one variable's value.
+* Easy Customization::  Convenient and easy customization of variables.
+* Edit Options::        Examining or editing list of all variables' values.
+* Locals::              Per-buffer values of variables.
+* File Variables::      How files can specify variable values.
+
+
+File: xemacs.info,  Node: Examining,  Next: Easy Customization,  Up: Variables
+
+Examining and Setting Variables
+-------------------------------
+
+`C-h v'
+`M-x describe-variable'
+     Print the value and documentation of a variable.
+
+`M-x set-variable'
+     Change the value of a variable.
+
+   To examine the value of a single variable, use `C-h v'
+(`describe-variable'), which reads a variable name using the
+minibuffer, with completion.  It prints both the value and the
+documentation of the variable.
+
+     C-h v fill-column <RET>
+
+prints something like:
+
+     fill-column's value is 75
+     
+     Documentation:
+     *Column beyond which automatic line-wrapping should happen.
+     Automatically becomes local when set in any fashion.
+
+The star at the beginning of the documentation indicates that this
+variable is an option.  `C-h v' is not restricted to options; it allows
+any variable name.
+
+   If you know which option you want to set, you can use `M-x
+set-variable' to set it.  This prompts for the variable name in the
+minibuffer (with completion), and then prompts for a Lisp expression
+for the new value using the minibuffer a second time.  For example,
+
+     M-x set-variable <RET> fill-column <RET> 75 <RET>
+
+sets `fill-column' to 75, as if you had executed the Lisp expression
+`(setq fill-column 75)'.
+
+   Setting variables in this way, like all means of customizing Emacs
+except where explicitly stated, affects only the current Emacs session.
+
+
+File: xemacs.info,  Node: Easy Customization,  Next: Edit Options,  Prev: Examining,  Up: Variables
+
+Easy Customization Interface
+----------------------------
+
+   A convenient way to find the user option variables that you want to
+change, and then change them, is with `M-x customize'.  This command
+creates a "customization buffer" with which you can browse through the
+Emacs user options in a logically organized structure, then edit and
+set their values.  You can also use the customization buffer to save
+settings permanently.  (Not all Emacs user options are included in this
+structure as of yet, but we are adding the rest.)
+
+* Menu:
+
+* Groups: Customization Groups.
+                             How options are classified in a structure.
+* Changing an Option::       How to edit a value and set an option.
+* Face Customization::       How to edit the attributes of a face.
+* Specific Customization::   Making a customization buffer for specific
+                                options, faces, or groups.
+
+
+File: xemacs.info,  Node: Customization Groups,  Next: Changing an Option,  Up: Easy Customization
+
+Customization Groups
+....................
+
+   For customization purposes, user options are organized into "groups"
+to help you find them.  Groups are collected into bigger groups, all
+the way up to a master group called `Emacs'.
+
+   `M-x customize' creates a customization buffer that shows the
+top-level `Emacs' group and the second-level groups immediately under
+it.  It looks like this, in part:
+
+     /- Emacs group: ---------------------------------------------------\
+           [State]: visible group members are all at standard settings.
+        Customization of the One True Editor.
+        See also [Manual].
+     
+      [Open] Editing group
+     Basic text editing facilities.
+     
+      [Open] External group
+     Interfacing to external utilities.
+     
+     MORE SECOND-LEVEL GROUPS
+     
+     \- Emacs group end ------------------------------------------------/
+
+This says that the buffer displays the contents of the `Emacs' group.
+The other groups are listed because they are its contents.  But they
+are listed differently, without indentation and dashes, because *their*
+contents are not included.  Each group has a single-line documentation
+string; the `Emacs' group also has a `[State]' line.
+
+   Most of the text in the customization buffer is read-only, but it
+typically includes some "editable fields" that you can edit.  There are
+also "active fields"; this means a field that does something when you
+"invoke" it.  To invoke an active field, either click on it with
+`Mouse-1', or move point to it and type <RET>.
+
+   For example, the phrase `[Open]' that appears in a second-level
+group is an active field.  Invoking the `[Open]' field for a group
+opens up a new customization buffer, which shows that group and its
+contents.  This field is a kind of hypertext link to another group.
+
+   The `Emacs' group does not include any user options itself, but
+other groups do.  By examining various groups, you will eventually find
+the options and faces that belong to the feature you are interested in
+customizing.  Then you can use the customization buffer to set them.
+
+   You can view the structure of customization groups on a larger scale
+with `M-x customize-browse'.  This command creates a special kind of
+customization buffer which shows only the names of the groups (and
+options and faces), and their structure.
+
+   In this buffer, you can show the contents of a group by invoking
+`[+]'.  When the group contents are visible, this button changes to
+`[-]'; invoking that hides the group contents.
+
+   Each group, option or face name in this buffer has an active field
+which says `[Group]', `[Option]' or `[Face]'.  Invoking that active
+field creates an ordinary customization buffer showing just that group
+and its contents, just that option, or just that face.  This is the way
+to set values in it.
+
+
 File: xemacs.info,  Node: Changing an Option,  Next: Face Customization,  Prev: Customization Groups,  Up: Easy Customization
 
 Changing an Option
@@ -783,9 +995,9 @@ local map, which affects all buffers using the same major mode.
 
 * Menu:
 
-* Interactive Rebinding::     Changing Key Bindings Interactively
-* Programmatic Rebinding::    Changing Key Bindings Programmatically
-* Key Bindings Using Strings::Using Strings for Changing Key Bindings
+* Interactive Rebinding::      Changing Key Bindings Interactively
+* Programmatic Rebinding::     Changing Key Bindings Programmatically
+* Key Bindings Using Strings:: Using Strings for Changing Key Bindings
 
 
 File: xemacs.info,  Node: Interactive Rebinding,  Next: Programmatic Rebinding,  Up: Rebinding
@@ -967,227 +1179,4 @@ fashion:
              control j      linefeed
              control [      escape
              control @      control space
-
-
-File: xemacs.info,  Node: Disabling,  Prev: Rebinding,  Up: Key Bindings
-
-Disabling Commands
-------------------
-
-   Disabling a command marks it as requiring confirmation before it can
-be executed.  The purpose of disabling a command is to prevent
-beginning users from executing it by accident and being confused.
-
-   The direct mechanism for disabling a command is to have a non-`nil'
-`disabled' property on the Lisp symbol for the command.  These
-properties are normally set by the user's `.emacs' file with Lisp
-expressions such as:
-
-     (put 'delete-region 'disabled t)
-
-   If the value of the `disabled' property is a string, that string is
-included in the message printed when the command is used:
-
-     (put 'delete-region 'disabled
-          "Text deleted this way cannot be yanked back!\n")
-
-   You can disable a command either by editing the `.emacs' file
-directly or with the command `M-x disable-command', which edits the
-`.emacs' file for you.  *Note Init File::.
-
-   When you attempt to invoke a disabled command interactively in Emacs,
-a window is displayed containing the command's name, its documentation,
-and some instructions on what to do next; then Emacs asks for input
-saying whether to execute the command as requested, enable it and
-execute, or cancel it.  If you decide to enable the command, you are
-asked whether to do this permanently or just for the current session.
-Enabling permanently works by automatically editing your `.emacs' file.
-You can use `M-x enable-command' at any time to enable any command
-permanently.
-
-   Whether a command is disabled is independent of what key is used to
-invoke it; it also applies if the command is invoked using `M-x'.
-Disabling a command has no effect on calling it as a function from Lisp
-programs.
-
-
-File: xemacs.info,  Node: Syntax,  Next: Init File,  Prev: Key Bindings,  Up: Customization
-
-The Syntax Table
-================
-
-   All the Emacs commands which parse words or balance parentheses are
-controlled by the "syntax table".  The syntax table specifies which
-characters are opening delimiters, which are parts of words, which are
-string quotes, and so on.  Actually, each major mode has its own syntax
-table (though sometimes related major modes use the same one) which it
-installs in each buffer that uses that major mode.  The syntax table
-installed in the current buffer is the one that all commands use, so we
-call it "the" syntax table.  A syntax table is a Lisp object, a vector
-of length 256 whose elements are numbers.
-
-* Menu:
-
-* Entry: Syntax Entry.    What the syntax table records for each character.
-* Change: Syntax Change.  How to change the information.
-
-
-File: xemacs.info,  Node: Syntax Entry,  Next: Syntax Change,  Up: Syntax
-
-Information About Each Character
---------------------------------
-
-   The syntax table entry for a character is a number that encodes six
-pieces of information:
-
-   * The syntactic class of the character, represented as a small
-     integer
-
-   * The matching delimiter, for delimiter characters only (the
-     matching delimiter of `(' is `)', and vice versa)
-
-   * A flag saying whether the character is the first character of a
-     two-character comment starting sequence
-
-   * A flag saying whether the character is the second character of a
-     two-character comment starting sequence
-
-   * A flag saying whether the character is the first character of a
-     two-character comment ending sequence
-
-   * A flag saying whether the character is the second character of a
-     two-character comment ending sequence
-
-   The syntactic classes are stored internally as small integers, but
-are usually described to or by the user with characters.  For example,
-`(' is used to specify the syntactic class of opening delimiters.  Here
-is a table of syntactic classes, with the characters that specify them.
-
-` '
-     The class of whitespace characters.
-
-`w'
-     The class of word-constituent characters.
-
-`_'
-     The class of characters that are part of symbol names but not
-     words.  This class is represented by `_' because the character `_'
-     has this class in both C and Lisp.
-
-`.'
-     The class of punctuation characters that do not fit into any other
-     special class.
-
-`('
-     The class of opening delimiters.
-
-`)'
-     The class of closing delimiters.
-
-`''
-     The class of expression-adhering characters.  These characters are
-     part of a symbol if found within or adjacent to one, and are part
-     of a following expression if immediately preceding one, but are
-     like whitespace if surrounded by whitespace.
-
-`"'
-     The class of string-quote characters.  They match each other in
-     pairs, and the characters within the pair all lose their syntactic
-     significance except for the `\' and `/' classes of escape
-     characters, which can be used to include a string-quote inside the
-     string.
-
-`$'
-     The class of self-matching delimiters.  This is intended for TeX's
-     `$', which is used both to enter and leave math mode.  Thus, a
-     pair of matching `$' characters surround each piece of math mode
-     TeX input.  A pair of adjacent `$' characters act like a single
-     one for purposes of matching.
-
-`/'
-     The class of escape characters that always just deny the following
-     character its special syntactic significance.  The character after
-     one of these escapes is always treated as alphabetic.
-
-`\'
-     The class of C-style escape characters.  In practice, these are
-     treated just like `/'-class characters, because the extra
-     possibilities for C escapes (such as being followed by digits)
-     have no effect on where the containing expression ends.
-
-`<'
-     The class of comment-starting characters.  Only single-character
-     comment starters (such as `;' in Lisp mode) are represented this
-     way.
-
-`>'
-     The class of comment-ending characters.  Newline has this syntax in
-     Lisp mode.
-
-   The characters flagged as part of two-character comment delimiters
-can have other syntactic functions most of the time.  For example, `/'
-and `*' in C code, when found separately, have nothing to do with
-comments.  The comment-delimiter significance overrides when the pair of
-characters occur together in the proper order.  Only the list and sexp
-commands use the syntax table to find comments; the commands
-specifically for comments have other variables that tell them where to
-find comments.  Moreover, the list and sexp commands notice comments
-only if `parse-sexp-ignore-comments' is non-`nil'.  This variable is set
-to `nil' in modes where comment-terminator sequences are liable to
-appear where there is no comment, for example, in Lisp mode where the
-comment terminator is a newline but not every newline ends a comment.
-
-
-File: xemacs.info,  Node: Syntax Change,  Prev: Syntax Entry,  Up: Syntax
-
-Altering Syntax Information
----------------------------
-
-   It is possible to alter a character's syntax table entry by storing
-a new number in the appropriate element of the syntax table, but it
-would be hard to determine what number to use.  Emacs therefore
-provides a command that allows you to specify the syntactic properties
-of a character in a convenient way.
-
-   `M-x modify-syntax-entry' is the command to change a character's
-syntax.  It can be used interactively and is also used by major modes
-to initialize their own syntax tables.  Its first argument is the
-character to change.  The second argument is a string that specifies the
-new syntax.  When called from Lisp code, there is a third, optional
-argument, which specifies the syntax table in which to make the change.
-If not supplied, or if this command is called interactively, the third
-argument defaults to the current buffer's syntax table.
-
-  1. The first character in the string specifies the syntactic class.
-     It is one of the characters in the previous table (*note Syntax
-     Entry::.).
-
-  2. The second character is the matching delimiter.  For a character
-     that is not an opening or closing delimiter, this should be a
-     space, and may be omitted if no following characters are needed.
-
-  3. The remaining characters are flags.  The flag characters allowed
-     are:
-
-    `1'
-          Flag this character as the first of a two-character comment
-          starting sequence.
-
-    `2'
-          Flag this character as the second of a two-character comment
-          starting sequence.
-
-    `3'
-          Flag this character as the first of a two-character comment
-          ending sequence.
-
-    `4'
-          Flag this character as the second of a two-character comment
-          ending sequence.
-
-   Use `C-h s' (`describe-syntax') to display a description of the
-contents of the current syntax table.  The description of each
-character includes both the string you have to pass to
-`modify-syntax-entry' to set up that character's current syntax, and
-some English to explain that string if necessary.
 

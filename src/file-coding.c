@@ -428,7 +428,7 @@ finalize_coding_system (void *header, int for_disksave)
     }
 }
 
-static enum eol_type
+static eol_type_t
 symbol_to_eol_type (Lisp_Object symbol)
 {
   CHECK_SYMBOL (symbol);
@@ -442,7 +442,7 @@ symbol_to_eol_type (Lisp_Object symbol)
 }
 
 static Lisp_Object
-eol_type_to_symbol (enum eol_type type)
+eol_type_to_symbol (eol_type_t type)
 {
   switch (type)
     {
@@ -1063,7 +1063,7 @@ Define symbol ALIAS as an alias for coding system CODING-SYSTEM.
 }
 
 static Lisp_Object
-subsidiary_coding_system (Lisp_Object coding_system, enum eol_type type)
+subsidiary_coding_system (Lisp_Object coding_system, eol_type_t type)
 {
   Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
   Lisp_Object new_coding_system;
@@ -1404,7 +1404,7 @@ Return the coding system associated with a coding category.
 
 struct detection_state
 {
-  enum eol_type eol_type;
+  eol_type_t eol_type;
   int seen_non_ascii;
   int mask;
 #ifdef MULE
@@ -1485,7 +1485,7 @@ mask_has_at_most_one_bit_p (int mask)
   return (mask & (mask - 1)) == 0;
 }
 
-static enum eol_type
+static eol_type_t
 detect_eol_type (struct detection_state *st, CONST unsigned char *src,
 		 unsigned int n)
 {
@@ -1647,7 +1647,7 @@ coding_system_from_mask (int mask)
 
 void
 determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
-			      enum eol_type *eol_type_in_out)
+			      eol_type_t *eol_type_in_out)
 {
   struct detection_state decst;
 
@@ -2007,7 +2007,7 @@ struct decoding_stream
      EOL type stored in CODESYS because the latter might indicate
      automatic EOL-type detection while the former will always
      indicate a particular EOL type. */
-  enum eol_type eol_type;
+  eol_type_t eol_type;
 #ifdef MULE
   /* Additional ISO2022 information.  We define the structure above
      because it's also needed by the detection routines. */

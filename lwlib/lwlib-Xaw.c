@@ -146,7 +146,7 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
       }
 #endif /* LWLIB_DIALOGS_ATHENA */
 #ifdef LWLIB_WIDGETS_ATHENA
-  else if (XtIsSubclass (widget, labelWidgetClass))
+  else if (XtClass (widget) == labelWidgetClass)
       {
 	Arg al [1];
 	XtSetArg (al [0], XtNlabel, val->value);

@@ -1160,6 +1160,7 @@ run `normal-mode' explicitly."
     ("\\.m\\(?:[mes]\\|an\\)\\'" . nroff-mode)
     ("\\.icn\\'" . icon-mode)
     ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
+    ("\\.pro\\'" . idlwave-mode)
     ;; #### Unix-specific!
     ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
     ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)

@@ -1058,18 +1058,18 @@ File: xemacs.info,  Node: Minibuffer,  Next: M-x,  Prev: Undo,  Up: Top
 The Minibuffer
 **************
 
-   Emacs commands use the "minibuffer" to read arguments more
-complicated than a single number.  Minibuffer arguments can be file
-names, buffer names, Lisp function names, Emacs command names, Lisp
-expressions, and many other things, depending on the command reading the
-argument.  To edit the argument in the minibuffer, you can use Emacs
-editing commands.
+   The "minibuffer" is the facility used by XEmacs commands to read
+arguments more complicated than a single number.  Minibuffer arguments
+can be file names, buffer names, Lisp function names, XEmacs command
+names, Lisp expressions, and many other things, depending on the command
+reading the argument.  You can use the usual XEmacs editing commands in
+the minibuffer to edit the argument text.
 
    When the minibuffer is in use, it appears in the echo area, and the
 cursor moves there.  The beginning of the minibuffer line displays a
-"prompt" indicating what kind of input you should supply and how it
-will be used.  The prompt is often derived from the name of the command
-the argument is for.  The prompt normally ends with a colon.
+"prompt" which says what kind of input you should supply and how it
+will be used.  Often this prompt is derived from the name of the command
+that the argument is for.  The prompt normally ends with a colon.
 
    Sometimes a "default argument" appears in parentheses after the
 colon; it, too, is part of the prompt.  The default is used as the
@@ -1078,13 +1078,14 @@ argument value if you enter an empty argument (e.g., by just typing
 default, which is the name of the buffer that will be used if you type
 just <RET>.
 
-   The simplest way to give a minibuffer argument is to type the text
-you want, terminated by <RET> to exit the minibuffer.  To get out of
-the minibuffer and cancel the command that it was for, type `C-g'.
+   The simplest way to enter a minibuffer argument is to type the text
+you want, terminated by <RET> which exits the minibuffer.  You can
+cancel the command that wants the argument, and get out of the
+minibuffer, by typing `C-g'.
 
    Since the minibuffer uses the screen space of the echo area, it can
-conflict with other ways Emacs customarily uses the echo area.  Here is
-how Emacs handles such conflicts:
+conflict with other ways XEmacs customarily uses the echo area.  Here is
+how XEmacs handles such conflicts:
 
    * If a command gets an error while you are in the minibuffer, this
      does not cancel the minibuffer.  However, the echo area is needed
@@ -1092,10 +1093,10 @@ how Emacs handles such conflicts:
      hidden for a while.  It comes back after a few seconds, or as soon
      as you type anything.
 
-   * If you use a command in the minibuffer whose purpose is to print a
-     message in the echo area (for example `C-x =') the message is
-     displayed normally, and the minibuffer is hidden for a while.  It
-     comes back after a few seconds, or as soon as you type anything.
+   * If in the minibuffer you use a command whose purpose is to print a
+     message in the echo area, such as `C-x =', the message is printed
+     normally, and the minibuffer is hidden for a while.  It comes back
+     after a few seconds, or as soon as you type anything.
 
    * Echoing of keystrokes does not take place while the minibuffer is
      in use.
@@ -1105,6 +1106,7 @@ how Emacs handles such conflicts:
 * File: Minibuffer File.  Entering file names with the minibuffer.
 * Edit: Minibuffer Edit.  How to edit in the minibuffer.
 * Completion::		  An abbreviation facility for minibuffer input.
+* Minibuffer History::    Reusing recent minibuffer arguments.
 * Repetition::		  Re-executing commands that used the minibuffer.
 
 
@@ -1115,30 +1117,32 @@ Minibuffers for File Names
 
    Sometimes the minibuffer starts out with text in it.  For example,
 when you are supposed to give a file name, the minibuffer starts out
-containing the "default directory", which ends with a slash.  This
-informs you in which directory the file will be looked for if you do
-not specify a different one. For example, the minibuffer might start
-out with:
+containing the "default directory", which ends with a slash.  This is
+to inform you which directory the file will be found in if you do not
+specify a directory.
+
+   For example, the minibuffer might start out with these contents:
 
      Find File: /u2/emacs/src/
 
-where `Find File: ' is the prompt.  Typing `buffer.c' specifies the file
-`/u2/emacs/src/buffer.c'.  To find files in nearby directories, use
-`..'; thus, if you type `../lisp/simple.el', the file that you visit
-will be the one named
-`/u2/emacs/lisp/simple.el'.  Alternatively, you can use  `M-<DEL>' to
-kill directory names you don't want (*note Words::.).
+where `Find File: ' is the prompt.  Typing `buffer.c' specifies the
+file `/u2/emacs/src/buffer.c'.  To find files in nearby directories,
+use `..'; thus, if you type `../lisp/simple.el', you will get the file
+named `/u2/emacs/lisp/simple.el'.  Alternatively, you can kill with
+`M-<DEL>' the directory names you don't want (*note Words::.).
 
-   You can also type an absolute file name, one starting with a slash
-or a tilde, ignoring the default directory.  For example, to find the
-file `/etc/termcap', just type the name, giving:
+   If you don't want any of the default, you can kill it with `C-a
+C-k'.  But you don't need to kill the default; you can simply ignore it.
+Insert an absolute file name, one starting with a slash or a tilde,
+after the default directory.  For example, to specify the file
+`/etc/termcap', just insert that name, giving these minibuffer contents:
 
      Find File: /u2/emacs/src//etc/termcap
 
-Two slashes in a row are not normally meaningful in Unix file names, but
-they are allowed in XEmacs.  They mean, "ignore everything before the
-second slash in the pair."  Thus, `/u2/emacs/src/' is ignored, and you
-get the file `/etc/termcap'.
+XEmacs gives a special meaning to a double slash (which is not normally
+a useful thing to write): it means, "ignore everything before the
+second slash in the pair."  Thus, `/u2/emacs/src/' is ignored in the
+example above, and you get the file `/etc/termcap'.
 
    If you set `insert-default-directory' to `nil', the default
 directory is not inserted in the minibuffer.  This way, the minibuffer
@@ -1151,50 +1155,53 @@ File: xemacs.info,  Node: Minibuffer Edit,  Next: Completion,  Prev: Minibuffer 
 Editing in the Minibuffer
 =========================
 
-   The minibuffer is an Emacs buffer (albeit a peculiar one), and the
-usual Emacs commands are available for editing the text of an argument
+   The minibuffer is an XEmacs buffer (albeit a peculiar one), and the
+usual XEmacs commands are available for editing the text of an argument
 you are entering.
 
    Since <RET> in the minibuffer is defined to exit the minibuffer, you
-must use `C-o' or `C-q <LFD>' to insert a newline into the minibuffer.
-(Recall that a newline is really the <LFD> character.)
+can't use it to insert a newline in the minibuffer.  To do that, type
+`C-o' or `C-q C-j'.  (Recall that a newline is really the character
+control-J.)
 
-   The minibuffer has its own window, which always has space on the
+   The minibuffer has its own window which always has space on the
 screen but acts as if it were not there when the minibuffer is not in
-use.  The minibuffer window is just like the others; you can switch to
-another window with `C-x o', edit text in other windows, and perhaps
-even visit more files before returning to the minibuffer to submit the
-argument.  You can kill text in another window, return to the minibuffer
-window, and then yank the text to use it in the argument.  *Note
-Windows::.
+use.  When the minibuffer is in use, its window is just like the
+others; you can switch to another window with `C-x o', edit text in
+other windows and perhaps even visit more files, before returning to the
+minibuffer to submit the argument.  You can kill text in another window,
+return to the minibuffer window, and then yank the text to use it in the
+argument.  *Note Windows::.
 
-   There are, however, some restrictions on the use of the minibuffer
-window.  You cannot switch buffers in it--the minibuffer and its window
-are permanently attached.  You also cannot split or kill the minibuffer
-window, but you can make it taller with `C-x ^'.
+   There are some restrictions on the use of the minibuffer window,
+however.  You cannot switch buffers in it--the minibuffer and its
+window are permanently attached.  Also, you cannot split or kill the
+minibuffer window. But you can make it taller in the normal fashion with
+`C-x ^'.
 
-   If you are in the minibuffer and issue a command that displays help
-text in another window, that window will be scrolled if you type
-`M-C-v' while in the minibuffer until you exit the minibuffer.  This
-feature is helpful if a completing minibuffer gives you a long list of
-possible completions.
+   If while in the minibuffer you issue a command that displays help
+text of any sort in another window, you can use the `C-M-v' command
+while in the minibuffer to scroll the help text.  This lasts until you
+exit the minibuffer.  This feature is especially useful if a completing
+minibuffer gives you a list of possible completions.  *Note Other
+Window::.
 
    If the variable `minibuffer-confirm-incomplete' is `t', you are
 asked for confirmation if there is no known completion for the text you
 typed. For example, if you attempted to visit a non-existent file, the
 minibuffer might read:
-             Find File:chocolate_bar.c [no completions, confirm]
+             Find File: chocolate_bar.c [no completions, confirm]
    If you press `Return' again, that confirms the filename. Otherwise,
 you can continue editing it.
 
-   Emacs supports recursive use of the minibuffer.  However, it is easy
-to do this by accident (because of autorepeating keyboards, for
-example) and get confused.  Therefore, most Emacs commands that use the
+   XEmacs supports recursive use of the minibuffer.  However, it is easy
+to do this by accident (because of autorepeating keyboards, for example)
+and get confused.  Therefore, most XEmacs commands that use the
 minibuffer refuse to operate if the minibuffer window is selected.  If
 the minibuffer is active but you have switched to a different window,
 recursive use of the minibuffer is allowed--if you know enough to try
 to do this, you probably will not get confused.
 
-   If you set the variable `enable-recursive-minibuffers' to be
+   If you set the variable `enable-recursive-minibuffers' to a
 non-`nil', recursive use of the minibuffer is always allowed.
 

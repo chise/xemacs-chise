@@ -30,6 +30,204 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Sunrise/Sunset,  Next: Lunar Phases,  Prev: Holidays,  Up: Calendar/Diary
+
+Times of Sunrise and Sunset
+---------------------------
+
+   Special calendar commands can tell you, to within a minute or two,
+the times of sunrise and sunset for any date.
+
+`S'
+     Display times of sunrise and sunset for the selected date
+     (`calendar-sunrise-sunset').
+
+`Button2 Sunrise/Sunset'
+     Display times of sunrise and sunset for the date you click on.
+
+`M-x sunrise-sunset'
+     Display times of sunrise and sunset for today's date.
+
+`C-u M-x sunrise-sunset'
+     Display times of sunrise and sunset for a specified date.
+
+   Within the calendar, to display the *local times* of sunrise and
+sunset in the echo area, move point to the date you want, and type `S'.
+Alternatively, click `Button2' on the date, then choose
+`Sunrise/Sunset' from the menu that appears.  The command `M-x
+sunrise-sunset' is available outside the calendar to display this
+information for today's date or a specified date.  To specify a date
+other than today, use `C-u M-x sunrise-sunset', which prompts for the
+year, month, and day.
+
+   You can display the times of sunrise and sunset for any location and
+any date with `C-u C-u M-x sunrise-sunset'.  This asks you for a
+longitude, latitude, number of minutes difference from Coordinated
+Universal Time, and date, and then tells you the times of sunrise and
+sunset for that location on that date.
+
+   Because the times of sunrise and sunset depend on the location on
+earth, you need to tell Emacs your latitude, longitude, and location
+name before using these commands.  Here is an example of what to set:
+
+     (setq calendar-latitude 40.1)
+     (setq calendar-longitude -88.2)
+     (setq calendar-location-name "Urbana, IL")
+
+Use one decimal place in the values of `calendar-latitude' and
+`calendar-longitude'.
+
+   Your time zone also affects the local time of sunrise and sunset.
+Emacs usually gets time zone information from the operating system, but
+if these values are not what you want (or if the operating system does
+not supply them), you must set them yourself.  Here is an example:
+
+     (setq calendar-time-zone -360)
+     (setq calendar-standard-time-zone-name "CST")
+     (setq calendar-daylight-time-zone-name "CDT")
+
+The value of `calendar-time-zone' is the number of minutes difference
+between your local standard time and Coordinated Universal Time
+(Greenwich time).  The values of `calendar-standard-time-zone-name' and
+`calendar-daylight-time-zone-name' are the abbreviations used in your
+time zone.  Emacs displays the times of sunrise and sunset *corrected
+for daylight savings time*.  *Note Daylight Savings::, for how daylight
+savings time is determined.
+
+   As a user, you might find it convenient to set the calendar location
+variables for your usual physical location in your `.emacs' file.  And
+when you install Emacs on a machine, you can create a `default.el' file
+which sets them properly for the typical location of most users of that
+machine.  *Note Init File::.
+
+
+File: xemacs.info,  Node: Lunar Phases,  Next: Other Calendars,  Prev: Sunrise/Sunset,  Up: Calendar/Diary
+
+Phases of the Moon
+------------------
+
+   These calendar commands display the dates and times of the phases of
+the moon (new moon, first quarter, full moon, last quarter).  This
+feature is useful for debugging problems that "depend on the phase of
+the moon."
+
+`M'
+     Display the dates and times for all the quarters of the moon for
+     the three-month period shown (`calendar-phases-of-moon').
+
+`M-x phases-of-moon'
+     Display dates and times of the quarters of the moon for three
+     months around today's date.
+
+   Within the calendar, use the `M' command to display a separate
+buffer of the phases of the moon for the current three-month range.  The
+dates and times listed are accurate to within a few minutes.
+
+   Outside the calendar, use the command `M-x phases-of-moon' to
+display the list of the phases of the moon for the current month and the
+preceding and succeeding months.  For information about a different
+month, use `C-u M-x phases-of-moon', which prompts for the month and
+year.
+
+   The dates and times given for the phases of the moon are given in
+local time (corrected for daylight savings, when appropriate); but if
+the variable `calendar-time-zone' is void, Coordinated Universal Time
+(the Greenwich time zone) is used.  *Note Daylight Savings::.
+
+
+File: xemacs.info,  Node: Other Calendars,  Next: Calendar Systems,  Prev: Lunar Phases,  Up: Calendar/Diary
+
+Conversion To and From Other Calendars
+--------------------------------------
+
+   The Emacs calendar displayed is *always* the Gregorian calendar,
+sometimes called the "new style" calendar, which is used in most of the
+world today.  However, this calendar did not exist before the sixteenth
+century and was not widely used before the eighteenth century; it did
+not fully displace the Julian calendar and gain universal acceptance
+until the early twentieth century.  The Emacs calendar can display any
+month since January, year 1 of the current era, but the calendar
+displayed is the Gregorian, even for a date at which the Gregorian
+calendar did not exist.
+
+   While Emacs cannot display other calendars, it can convert dates to
+and from several other calendars.
+
+* Menu:
+
+* Calendar Systems::      The calendars Emacs understands
+                            (aside from Gregorian).
+* To Other Calendar::     Converting the selected date to various calendars.
+* From Other Calendar::   Moving to a date specified in another calendar.
+* Mayan Calendar::        Moving to a date specified in a Mayan calendar.
+
+   If you are interested in these calendars, you can convert dates one
+at a time.  Put point on the desired date of the Gregorian calendar and
+press the appropriate keys.  The `p' is a mnemonic for "print" since
+Emacs "prints' the equivalent date in the echo area.
+
+
+File: xemacs.info,  Node: Calendar Systems,  Next: To Other Calendar,  Prev: Other Calendars,  Up: Other Calendars
+
+Supported Calendar Systems
+==========================
+
+   The ISO commercial calendar is used largely in Europe.
+
+   The Julian calendar, named after Julius Caesar, was the one used in
+Europe throughout medieval times, and in many countries up until the
+nineteenth century.
+
+   Astronomers use a simple counting of days elapsed since noon, Monday,
+January 1, 4713 B.C. on the Julian calendar.  The number of days elapsed
+is called the *Julian day number* or the *Astronomical day number*.
+
+   The Hebrew calendar is used by tradition in the Jewish religion.  The
+Emacs calendar program uses the Hebrew calendar to determine the dates
+of Jewish holidays.  Hebrew calendar dates begin and end at sunset.
+
+   The Islamic calendar is used in many predominantly Islamic countries.
+Emacs uses it to determine the dates of Islamic holidays.  There is no
+universal agreement in the Islamic world about the calendar; Emacs uses
+a widely accepted version, but the precise dates of Islamic holidays
+often depend on proclamation by religious authorities, not on
+calculations.  As a consequence, the actual dates of observance can vary
+slightly from the dates computed by Emacs.  Islamic calendar dates begin
+and end at sunset.
+
+   The French Revolutionary calendar was created by the Jacobins after
+the 1789 revolution, to represent a more secular and nature-based view
+of the annual cycle, and to install a 10-day week in a rationalization
+measure similar to the metric system.  The French government officially
+abandoned this calendar at the end of 1805.
+
+   The Maya of Central America used three separate, overlapping calendar
+systems, the *long count*, the *tzolkin*, and the *haab*.  Emacs knows
+about all three of these calendars.  Experts dispute the exact
+correlation between the Mayan calendar and our calendar; Emacs uses the
+Goodman-Martinez-Thompson correlation in its calculations.
+
+   The Copts use a calendar based on the ancient Egyptian solar
+calendar.  Their calendar consists of twelve 30-day months followed by
+an extra five-day period.  Once every fourth year they add a leap day
+to this extra period to make it six days.  The Ethiopic calendar is
+identical in structure, but has different year numbers and month names.
+
+   The Persians use a solar calendar based on a design of Omar Khayyam.
+Their calendar consists of twelve months of which the first six have 31
+days, the next five have 30 days, and the last has 29 in ordinary years
+and 30 in leap years.  Leap years occur in a complicated pattern every
+four or five years.
+
+   The Chinese calendar is a complicated system of lunar months arranged
+into solar years.  The years go in cycles of sixty, each year containing
+either twelve months in an ordinary year or thirteen months in a leap
+year; each month has either 29 or 30 days.  Years, ordinary months, and
+days are named by combining one of ten "celestial stems" with one of
+twelve "terrestrial branches" for a total of sixty names that are
+repeated in a cycle of sixty.
+
+
 File: xemacs.info,  Node: To Other Calendar,  Next: From Other Calendar,  Prev: Calendar Systems,  Up: Other Calendars
 
 Converting To Other Calendars
@@ -1010,177 +1208,4 @@ minutes.  The value for Cambridge, Massachusetts is 60.
 after midnight local time when the transition to and from daylight
 savings time should occur.  For Cambridge, Massachusetts both variables'
 values are 120.
-
-
-File: xemacs.info,  Node: Diary Customizing,  Next: Hebrew/Islamic Entries,  Prev: Daylight Savings,  Up: Calendar Customization
-
-Customizing the Diary
-.....................
-
-   Ordinarily, the mode line of the diary buffer window indicates any
-holidays that fall on the date of the diary entries.  The process of
-checking for holidays can take several seconds, so including holiday
-information delays the display of the diary buffer noticeably.  If you'd
-prefer to have a faster display of the diary buffer but without the
-holiday information, set the variable `holidays-in-diary-buffer' to
-`nil'.
-
-   The variable `number-of-diary-entries' controls the number of days
-of diary entries to be displayed at one time.  It affects the initial
-display when `view-diary-entries-initially' is `t', as well as the
-command `M-x diary'.  For example, the default value is 1, which says
-to display only the current day's diary entries.  If the value is 2,
-both the current day's and the next day's entries are displayed.  The
-value can also be a vector of seven elements: for example, if the value
-is `[0 2 2 2 2 4 1]' then no diary entries appear on Sunday, the
-current date's and the next day's diary entries appear Monday through
-Thursday, Friday through Monday's entries appear on Friday, while on
-Saturday only that day's entries appear.
-
-   The variable `print-diary-entries-hook' is a normal hook run after
-preparation of a temporary buffer containing just the diary entries
-currently visible in the diary buffer.  (The other, irrelevant diary
-entries are really absent from the temporary buffer; in the diary
-buffer, they are merely hidden.)  The default value of this hook does
-the printing with the command `lpr-buffer'.  If you want to use a
-different command to do the printing, just change the value of this
-hook.  Other uses might include, for example, rearranging the lines into
-order by day and time.
-
-   You can customize the form of dates in your diary file, if neither
-the standard American nor European styles suits your needs, by setting
-the variable `diary-date-forms'.  This variable is a list of patterns
-for recognizing a date.  Each date pattern is a list whose elements may
-be regular expressions (*note Regexps::.) or the symbols `month',
-`day', `year', `monthname', and `dayname'.  All these elements serve as
-patterns that match certain kinds of text in the diary file.  In order
-for the date pattern, as a whole, to match, all of its elements must
-match consecutively.
-
-   A regular expression in a date pattern matches in its usual fashion,
-using the standard syntax table altered so that `*' is a word
-constituent.
-
-   The symbols `month', `day', `year', `monthname', and `dayname' match
-the month number, day number, year number, month name, and day name of
-the date being considered.  The symbols that match numbers allow
-leading zeros; those that match names allow three-letter abbreviations
-and capitalization.  All the symbols can match `*'; since `*' in a
-diary entry means "any day", "any month", and so on, it should match
-regardless of the date being considered.
-
-   The default value of `diary-date-forms' in the American style is
-this:
-
-     ((month "/" day "[^/0-9]")
-      (month "/" day "/" year "[^0-9]")
-      (monthname " *" day "[^,0-9]")
-      (monthname " *" day ", *" year "[^0-9]")
-      (dayname "\\W"))
-
-Emacs matches of the diary entries with the date forms is done with the
-standard syntax table from Fundamental mode (*note Syntax Tables:
-(lispref)Syntax Tables.), but with the `*' changed so that it is a word
-constituent.
-
-   The date patterns in the list must be *mutually exclusive* and must
-not match any portion of the diary entry itself, just the date and one
-character of whitespace.  If, to be mutually exclusive, the pattern
-must match a portion of the diary entry text--beyond the whitespace
-that ends the date--then the first element of the date pattern *must*
-be `backup'.  This causes the date recognizer to back up to the
-beginning of the current word of the diary entry, after finishing the
-match.  Even if you use `backup', the date pattern must absolutely not
-match more than a portion of the first word of the diary entry.  The
-default value of `diary-date-forms' in the European style is this list:
-
-     ((day "/" month "[^/0-9]")
-      (day "/" month "/" year "[^0-9]")
-      (backup day " *" monthname "\\W+\\<[^*0-9]")
-      (day " *" monthname " *" year "[^0-9]")
-      (dayname "\\W"))
-
-Notice the use of `backup' in the third pattern, because it needs to
-match part of a word beyond the date itself to distinguish it from the
-fourth pattern.
-
-
-File: xemacs.info,  Node: Hebrew/Islamic Entries,  Next: Fancy Diary Display,  Prev: Diary Customizing,  Up: Calendar Customization
-
-Hebrew- and Islamic-Date Diary Entries
-......................................
-
-   Your diary file can have entries based on Hebrew or Islamic dates, as
-well as entries based on the world-standard Gregorian calendar.
-However, because recognition of such entries is time-consuming and most
-people don't use them, you must explicitly enable their use.  If you
-want the diary to recognize Hebrew-date diary entries, for example, you
-must do this:
-
-     (add-hook 'nongregorian-diary-listing-hook 'list-hebrew-diary-entries)
-     (add-hook 'nongregorian-diary-marking-hook 'mark-hebrew-diary-entries)
-
-If you want Islamic-date entries, do this:
-
-     (add-hook 'nongregorian-diary-listing-hook 'list-islamic-diary-entries)
-     (add-hook 'nongregorian-diary-marking-hook 'mark-islamic-diary-entries)
-
-   Hebrew- and Islamic-date diary entries have the same formats as
-Gregorian-date diary entries, except that `H' precedes a Hebrew date
-and `I' precedes an Islamic date.  Moreover, because the Hebrew and
-Islamic month names are not uniquely specified by the first three
-letters, you may not abbreviate them.  For example, a diary entry for
-the Hebrew date Heshvan 25 could look like this:
-
-     HHeshvan 25 Happy Hebrew birthday!
-
-and would appear in the diary for any date that corresponds to Heshvan
-25 on the Hebrew calendar.  And here is  Islamic-date diary entry  that
-matches Dhu al-Qada 25:
-
-     IDhu al-Qada 25 Happy Islamic birthday!
-
-and would appear in the diary for any date that corresponds to Dhu
-al-Qada 25 on the Islamic calendar.
-
-   As with Gregorian-date diary entries, Hebrew- and Islamic-date
-entries are nonmarking if they are preceded with an ampersand (`&').
-
-   Here is a table of commands used in the calendar to create diary
-entries that match the selected date and other dates that are similar
-in the Hebrew or Islamic calendar:
-
-`i h d'
-     Add a diary entry for the Hebrew date corresponding to the
-     selected date (`insert-hebrew-diary-entry').
-
-`i h m'
-     Add a diary entry for the day of the Hebrew month corresponding to
-     the selected date (`insert-monthly-hebrew-diary-entry').  This
-     diary entry matches any date that has the same Hebrew
-     day-within-month as the selected date.
-
-`i h y'
-     Add a diary entry for the day of the Hebrew year corresponding to
-     the selected date (`insert-yearly-hebrew-diary-entry').  This diary
-     entry matches any date which has the same Hebrew month and
-     day-within-month as the selected date.
-
-`i i d'
-     Add a diary entry for the Islamic date corresponding to the
-     selected date (`insert-islamic-diary-entry').
-
-`i i m'
-     Add a diary entry for the day of the Islamic month corresponding
-     to the selected date (`insert-monthly-islamic-diary-entry').
-
-`i i y'
-     Add a diary entry for the day of the Islamic year corresponding to
-     the selected date (`insert-yearly-islamic-diary-entry').
-
-   These commands work much like the corresponding commands for ordinary
-diary entries: they apply to the date that point is on in the calendar
-window, and what they do is insert just the date portion of a diary
-entry at the end of your diary file.  You must then insert the rest of
-the diary entry.
 

@@ -93,17 +93,17 @@
 		    (or buffer-undo-list pending-undo-list))
        :suffix (if (or (eq last-command 'undo)
 		       (eq last-command 'advertised-undo))
-		       "More" "")]
+		   "More" "")]
       ["Redo" redo
        :included (fboundp 'redo)
        :active (not (or (eq buffer-undo-list t)
-			 (eq last-buffer-undo-list nil)
-			 (not (or (eq last-buffer-undo-list buffer-undo-list)
-				  (and (null (car-safe buffer-undo-list))
-				       (eq last-buffer-undo-list
-					   (cdr-safe buffer-undo-list)))))
-			 (or (eq buffer-undo-list pending-undo-list)
-			     (eq (cdr buffer-undo-list) pending-undo-list))))
+			(eq last-buffer-undo-list nil)
+			(not (or (eq last-buffer-undo-list buffer-undo-list)
+				 (and (null (car-safe buffer-undo-list))
+				      (eq last-buffer-undo-list
+					  (cdr-safe buffer-undo-list)))))
+			(or (eq buffer-undo-list pending-undo-list)
+			    (eq (cdr buffer-undo-list) pending-undo-list))))
        :suffix (if (eq last-command 'redo) "More" "")]
       ["Cut" kill-primary-selection
        :active (selection-owner-p)]
@@ -634,24 +634,24 @@
 	  (force-cursor-redisplay))
 	:style radio
 	:selected (eq bar-cursor t)]
-	["Bar cursor (2 pixels)"
-	 (progn
-	   (customize-set-variable 'bar-cursor 2)
-	   (force-cursor-redisplay))
-	 :style radio
-	 :selected (and bar-cursor (not (eq bar-cursor t)))]
-	"------"
-	["Line Numbers"
-	 (progn
-	   (customize-set-variable 'line-number-mode (not line-number-mode))
-	   (redraw-modeline))
-	 :style toggle :selected line-number-mode]
-	["Column Numbers"
-	 (progn
-	   (customize-set-variable 'column-number-mode
-				   (not column-number-mode))
-	   (redraw-modeline))
-	 :style toggle :selected column-number-mode]
+       ["Bar cursor (2 pixels)"
+	(progn
+	  (customize-set-variable 'bar-cursor 2)
+	  (force-cursor-redisplay))
+	:style radio
+	:selected (and bar-cursor (not (eq bar-cursor t)))]
+       "------"
+       ["Line Numbers"
+	(progn
+	  (customize-set-variable 'line-number-mode (not line-number-mode))
+	  (redraw-modeline))
+	:style toggle :selected line-number-mode]
+       ["Column Numbers"
+	(progn
+	  (customize-set-variable 'column-number-mode
+				  (not column-number-mode))
+	  (redraw-modeline))
+	:style toggle :selected column-number-mode]
        )
       ("Menubar Appearance"
        ["Buffers Menu Length..."
@@ -1142,11 +1142,16 @@ Sorts the buffers in alphabetical order by name, but puts buffers beginning
 with a star at the end of the list."
   (let* ((nam1 (buffer-name buf1))
 	 (nam2 (buffer-name buf2))
+	 (inv1p (not (null (string-match "\\` " nam1))))
+	 (inv2p (not (null (string-match "\\` " nam2))))
 	 (star1p (not (null (string-match "\\`*" nam1))))
 	 (star2p (not (null (string-match "\\`*" nam2)))))
-    (if (not (eq star1p star2p))
-	(not star1p)
-      (string-lessp nam1 nam2))))
+    (cond ((not (eq inv1p inv2p))
+	   (not inv1p))
+	  ((not (eq star1p star2p))
+	   (not star1p))
+	  (t
+	   (string-lessp nam1 nam2)))))
 
 (defun sort-buffers-menu-by-mode-then-alphabetically (buf1 buf2)
   "For use as a value of `buffers-menu-sort-function'.
@@ -1154,15 +1159,23 @@ Sorts first by major mode and then alphabetically by name, but puts buffers
 beginning with a star at the end of the list."
   (let* ((nam1 (buffer-name buf1))
 	 (nam2 (buffer-name buf2))
+	 (inv1p (not (null (string-match "\\` " nam1))))
+	 (inv2p (not (null (string-match "\\` " nam2))))
 	 (star1p (not (null (string-match "\\`*" nam1))))
 	 (star2p (not (null (string-match "\\`*" nam2))))
 	 (mode1 (symbol-value-in-buffer 'major-mode buf1))
 	 (mode2 (symbol-value-in-buffer 'major-mode buf2)))
-    (cond ((not (eq star1p star2p)) (not star1p))
+    (cond ((not (eq inv1p inv2p))
+	   (not inv1p))
+	  ((not (eq star1p star2p))
+	   (not star1p))
 	  ((and star1p star2p (string-lessp nam1 nam2)))
-	  ((string-lessp mode1 mode2) t)
-	  ((string-lessp mode2 mode1) nil)
-	  (t (string-lessp nam1 nam2)))))
+	  ((string-lessp mode1 mode2)
+	   t)
+	  ((string-lessp mode2 mode1)
+	   nil)
+	  (t
+	   (string-lessp nam1 nam2)))))
 
 ;; this version is too slow on some machines.
 (defun slow-format-buffers-menu-line (buffer)
@@ -1544,4 +1557,4 @@ The menu is computed by combining `global-popup-menu' and `mode-popup-menu'."
 (provide 'x-menubar)
 (provide 'menubar-items)
 
-;;; x-menubar.el ends here.
+;;; menubar-items.el ends here.

@@ -1234,8 +1234,8 @@ redisplay_output_layout (struct window *w,
 
   XSETWINDOW (window, w);
 
-  layout_height = glyph_height (image_instance, Qnil, findex, window);
-  layout_width = glyph_width (image_instance, Qnil, findex, window);
+  layout_height = glyph_height (image_instance, window);
+  layout_width = glyph_width (image_instance, window);
 
   dga->height = layout_height;
   dga->width = layout_width;
@@ -1319,8 +1319,8 @@ redisplay_output_layout (struct window *w,
 	  struct display_glyph_area cdga;
 	  cdga.xoffset  = IMAGE_INSTANCE_XOFFSET (childii) - dga->xoffset;
 	  cdga.yoffset = IMAGE_INSTANCE_YOFFSET (childii) - dga->yoffset;
-	  cdga.width = glyph_width (child, Qnil, findex, window);
-	  cdga.height = glyph_height (child, Qnil, findex, window);
+	  cdga.width = glyph_width (child, window);
+	  cdga.height = glyph_height (child, window);
 
 	  /* Although normalization is done by the output routines
 	     we have to do it here so that they don't try and
@@ -1362,9 +1362,9 @@ redisplay_output_layout (struct window *w,
 			xzero (dl);
 			/* Munge boxes into display lines. */
 			dl.ypos = (cdb.ypos - cdga.yoffset)
-			  + glyph_ascent (child, Qnil, findex, window);
-			dl.ascent = glyph_ascent (child, Qnil, findex, window);
-			dl.descent = glyph_descent (child, Qnil, findex, window);
+			  + glyph_ascent (child, window);
+			dl.ascent = glyph_ascent (child, window);
+			dl.descent = glyph_descent (child, window);
 			dl.top_clip = cdga.yoffset;
 			dl.clip = (dl.ypos + dl.descent) - (cdb.ypos + cdb.height);
 			/* output_string doesn't understand offsets in

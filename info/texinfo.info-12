@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -42,39 +42,43 @@ Concept Index
 
 * !:                                     Inserting Accents.
 * (dir) as Up node of Top node:          First Node.
+* --delete:                              Invoking install-info.
+* --dir-file=NAME:                       Invoking install-info.
+* --entry=TEXT:                          Invoking install-info.
+* --error-limit=LIMIT:                   makeinfo options.
+* --fill-column=WIDTH:                   makeinfo options.
+* --footnote-style=STYLE:                makeinfo options.
+* --force:                               makeinfo options.
+* --help <1>:                            Invoking install-info.
+* --help:                                makeinfo options.
+* --info-dir=DIR:                        Invoking install-info.
+* --info-file=FILE:                      Invoking install-info.
+* --item=TEXT:                           Invoking install-info.
+* --no-headers:                          makeinfo options.
+* --no-number-footnotes:                 makeinfo options.
+* --no-pointer-validate:                 makeinfo options.
+* --no-split:                            makeinfo options.
+* --no-validate:                         makeinfo options.
+* --no-warn:                             makeinfo options.
+* --output=FILE:                         makeinfo options.
+* --paragraph-indent=INDENT:             makeinfo options.
+* --quiet:                               Invoking install-info.
+* --reference-limit=LIMIT:               makeinfo options.
+* --remove:                              Invoking install-info.
+* --section=SEC:                         Invoking install-info.
+* --verbose:                             makeinfo options.
+* --version <1>:                         Invoking install-info.
+* --version:                             makeinfo options.
 * -D VAR:                                makeinfo options.
-* -delete:                               Invoking install-info.
-* -dir-file=NAME:                        Invoking install-info.
-* -entry=TEXT:                           Invoking install-info.
-* -error-limit=LIMIT:                    makeinfo options.
-* -fill-column=WIDTH:                    makeinfo options.
-* -footnote-style=STYLE:                 makeinfo options.
-* -force:                                makeinfo options.
-* -help <1>:                             Invoking install-info.
-* -help:                                 makeinfo options.
 * -I DIR:                                makeinfo options.
-* -info-dir=DIR:                         Invoking install-info.
-* -info-file=FILE:                       Invoking install-info.
-* -item=TEXT:                            Invoking install-info.
-* -no-headers:                           makeinfo options.
-* -no-number-footnotes:                  makeinfo options.
-* -no-pointer-validate:                  makeinfo options.
-* -no-split:                             makeinfo options.
-* -no-validate:                          makeinfo options.
-* -no-warn:                              makeinfo options.
 * -o FILE:                               makeinfo options.
-* -output=FILE:                          makeinfo options.
 * -P DIR:                                makeinfo options.
-* -paragraph-indent=INDENT:              makeinfo options.
-* -quiet:                                Invoking install-info.
-* -reference-limit=LIMIT:                makeinfo options.
-* -remove:                               Invoking install-info.
-* -section=SEC:                          Invoking install-info.
-* -verbose:                              makeinfo options.
-* -version <1>:                          Invoking install-info.
-* -version:                              makeinfo options.
 * .cshrc initialization file:            Preparing for TeX.
 * .profile initialization file:          Preparing for TeX.
+* /L:                                    Inserting Accents.
+* /l:                                    Inserting Accents.
+* /O:                                    Inserting Accents.
+* /o:                                    Inserting Accents.
 * ?:                                     Inserting Accents.
 * @-command in nodename:                 Node Line Requirements.
 * @-command list:                        Command List.
@@ -182,7 +186,7 @@ Concept Index
 * Definition template:                   Def Cmd Template.
 * Definitions grouped together:          deffnx.
 * Description for menu, start:           Inserting.
-* Did^ot points:                         Images.
+* Dido^t points:                         Images.
 * Different cross reference commands:    Cross Reference Commands.
 * Dimension formatting:                  dmn.
 * Dimensions and image sizes:            Images.
@@ -344,8 +348,6 @@ Concept Index
 * keyboard input:                        kbd.
 * Keys, recommended names:               key.
 * Knuth, Donald:                         Printed Books.
-* L/:                                    Inserting Accents.
-* l/:                                    Inserting Accents.
 * Larger or smaller pages:               Cropmarks and Magnification.
 * Less cluttered menu entry:             Less Cluttered Menu Entry.
 * License agreement:                     Software Copying Permissions.
@@ -424,8 +426,6 @@ Concept Index
 * Nodes, catching mistakes:              Catching Mistakes.
 * Nodes, checking for badly referenced:  Running Info-Validate.
 * Not ending a sentence:                 Not Ending a Sentence.
-* O/:                                    Inserting Accents.
-* o/:                                    Inserting Accents.
 * Obtaining TeX:                         Obtaining TeX.
 * Occurrences, listing with @occur:      Using occur.
 * OE:                                    Inserting Accents.

@@ -777,4 +777,6 @@ int is_surrogate_for_selected_frame (struct frame *f);
 void update_frame_icon (struct frame *f);
 void invalidate_vertical_divider_cache_in_frame (struct frame *f);
 
+void init_frame (void);
+
 #endif /* _XEMACS_FRAME_H_ */

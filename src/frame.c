@@ -116,6 +116,10 @@ Lisp_Object Vframe_being_created;
 Lisp_Object Qframe_being_created;
 
 static void store_minibuf_frame_prop (struct frame *f, Lisp_Object val);
+static struct display_line title_string_display_line;
+/* Used by generate_title_string. Global because they get used so much that
+   the dynamic allocation time adds up. */
+static Emchar_dynarr *title_string_emchar_dynarr;
 
 EXFUN (Fset_frame_properties, 2);
 
@@ -2674,8 +2678,8 @@ frame_conversion_internal (struct frame *f, int pixel_to_char,
 
   window = FRAME_SELECTED_WINDOW (f);
 
-  egw = max (glyph_width (Vcontinuation_glyph, Vdefault_face, 0, window),
-	     glyph_width (Vtruncation_glyph, Vdefault_face, 0, window));
+  egw = max (glyph_width (Vcontinuation_glyph, window),
+	     glyph_width (Vtruncation_glyph, window));
   egw = max (egw, cpw);
   bdr = 2 * f->internal_border_width;
   obw = FRAME_SCROLLBAR_WIDTH (f) + FRAME_THEORETICAL_LEFT_TOOLBAR_WIDTH (f) +
@@ -2850,9 +2854,9 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
   {
     int adjustment, trunc_width, cont_width;
 
-    trunc_width = glyph_width (Vtruncation_glyph, Vdefault_face, 0,
+    trunc_width = glyph_width (Vtruncation_glyph, 
 			       FRAME_SELECTED_WINDOW (f));
-    cont_width = glyph_width (Vcontinuation_glyph, Vdefault_face, 0,
+    cont_width = glyph_width (Vcontinuation_glyph, 
 			      FRAME_SELECTED_WINDOW (f));
     adjustment = max (trunc_width, cont_width);
     adjustment = max (adjustment, font_width);
@@ -2967,6 +2971,37 @@ change_frame_size (struct frame *f, int newheight, int newwidth, int delay)
 }
 
 
+/* The caller is responsible for freeing the returned string. */
+static Bufbyte *
+generate_title_string (struct window *w, Lisp_Object format_str,
+		       face_index findex, int type)
+{
+  struct display_line *dl;
+  struct display_block *db;
+  int elt = 0;
+
+  dl = &title_string_display_line;
+  db = get_display_block_from_line (dl, TEXT);
+  Dynarr_reset (db->runes);
+
+  generate_formatted_string_db (format_str, Qnil, w, dl, db, findex, 0,
+                                -1, type);
+
+  Dynarr_reset (title_string_emchar_dynarr);
+  while (elt < Dynarr_length (db->runes))
+    {
+      if (Dynarr_atp (db->runes, elt)->type == RUNE_CHAR)
+	Dynarr_add (title_string_emchar_dynarr,
+		    Dynarr_atp (db->runes, elt)->object.chr.ch);
+      elt++;
+    }
+
+  return
+    convert_emchar_string_into_malloced_string
+    (Dynarr_atp (title_string_emchar_dynarr, 0),
+     Dynarr_length (title_string_emchar_dynarr), 0);
+}
+
 void
 update_frame_title (struct frame *f)
 {
@@ -2990,8 +3025,8 @@ update_frame_title (struct frame *f)
 
   if (HAS_FRAMEMETH_P (f, set_title_from_bufbyte))
     {
-      title = generate_formatted_string (w, title_format, Qnil,
-                                         DEFAULT_INDEX, CURRENT_DISP);
+      title = generate_title_string (w, title_format,
+				     DEFAULT_INDEX, CURRENT_DISP);
       FRAMEMETH (f, set_title_from_bufbyte, (f, title));
     }
 
@@ -3002,8 +3037,8 @@ update_frame_title (struct frame *f)
 	  if (title)
 	    xfree (title);
 
-	  title = generate_formatted_string (w, icon_format, Qnil,
-                                             DEFAULT_INDEX, CURRENT_DISP);
+	  title = generate_title_string (w, icon_format,
+					 DEFAULT_INDEX, CURRENT_DISP);
 	}
       FRAMEMETH (f, set_icon_name_from_bufbyte, (f, title));
     }
@@ -3062,6 +3097,24 @@ icon_glyph_changed (Lisp_Object glyph, Lisp_Object property,
 }
 
 
+/***************************************************************************/
+/*									   */
+/*                              initialization                             */
+/*									   */
+/***************************************************************************/
+
+void
+init_frame (void)
+{
+#ifndef PDUMP
+  if (!initialized)
+#endif
+    {
+      title_string_emchar_dynarr = Dynarr_new (Emchar);
+      xzero (title_string_display_line);
+    }
+}
+
 void
 syms_of_frame (void)
 {

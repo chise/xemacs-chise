@@ -482,7 +482,7 @@ md5_coding_system (Lisp_Object object, Lisp_Object coding, Lisp_Object istream,
 	{
 	  /* Attempt to autodetect the coding of the string.  This is
              VERY hit-and-miss.  */
-	  enum eol_type eol = EOL_AUTODETECT;
+	  eol_type_t eol = EOL_AUTODETECT;
 	  coding_system = Fget_coding_system (Qundecided);
 	  determine_real_coding_system (XLSTREAM (istream),
 					&coding_system, &eol);

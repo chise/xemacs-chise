@@ -1339,8 +1339,8 @@ handle_focus_event_1 (struct frame *f, int in_p)
      is mandatory. Weirdly you get a FocusOut event when you click in
      a widget-glyph but you don't get a correspondng FocusIn when you
      click in the frame. Why is this?  */
-  if (in_p 
-#if XtSpecificationRelease > 5      
+  if (in_p
+#if XtSpecificationRelease > 5
       && FRAME_X_TEXT_WIDGET (f) != focus_widget
 #endif
       )
@@ -2011,22 +2011,24 @@ static void
 Xt_process_to_emacs_event (struct Lisp_Event *emacs_event)
 {
   int i;
-  Lisp_Object process;
 
   assert (process_events_occurred > 0);
+
   for (i = 0; i < MAXDESC; i++)
     {
-      process = filedesc_with_input[i];
+      Lisp_Object process = filedesc_with_input[i];
       if (PROCESSP (process))
-	break;
+	{
+	  filedesc_with_input[i] = Qnil;
+	  process_events_occurred--;
+	  /* process events have nil as channel */
+	  emacs_event->event_type = process_event;
+	  emacs_event->timestamp  = 0; /* #### */
+	  emacs_event->event.process.process = process;
+	  return;
+	}
     }
-  assert (i < MAXDESC);
-  filedesc_with_input[i] = Qnil;
-  process_events_occurred--;
-  /* process events have nil as channel */
-  emacs_event->event_type = process_event;
-  emacs_event->timestamp  = 0; /* #### */
-  emacs_event->event.process.process = process;
+  abort ();
 }
 
 static void

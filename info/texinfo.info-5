@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -43,7 +43,7 @@ of text refers to.  For example, metasyntactic variables are marked by
 `@var', and code by `@code'.  Since the pieces of text are labelled by
 commands that tell what kind of object they are, it is easy to change
 the way the Texinfo formatters prepare such text.  (Texinfo is an
-*intentional* formatting language rather than a *typesetting*
+_intentional_ formatting language rather than a _typesetting_
 formatting language.)
 
   For example, in a printed manual, code is usually illustrated in a
@@ -523,7 +523,7 @@ File: texinfo.info,  Node: emph & strong,  Next: Smallcaps,  Prev: Emphasis,  Up
 ---------------------------------
 
   The `@emph' and `@strong' commands are for emphasis; `@strong' is
-stronger.  In printed output, `@emph' produces *italics* and `@strong'
+stronger.  In printed output, `@emph' produces _italics_ and `@strong'
 produces *bold*.
 
   For example,
@@ -631,7 +631,7 @@ work only with TeX.
 `@end ifinfo' to define commands for Info with the same names as new
 commands for TeX.  `@definfoenclose' creates new commands for Info that
 mark text by enclosing it in strings that precede and follow the text.
-(1) (*note Customized Highlighting-Footnotes::)
+(1) (*note Customized Highlighting-Footnote-1::)
 
   Here is how to create a new @-command called `@phoo' that causes TeX
 to typeset its argument in italics and causes Info to display the
@@ -920,7 +920,7 @@ line, and neither does the `@end example' line.
 
   Do not put braces after an `@noindent' command; they are not
 necessary, since `@noindent' is a command used outside of paragraphs
-(*note Command Syntax::.).
+(*note Command Syntax::).
 
 
 File: texinfo.info,  Node: Lisp Example,  Next: smallexample & smalllisp,  Prev: noindent,  Up: Quotations and Examples
@@ -938,7 +938,7 @@ File: texinfo.info,  Node: Lisp Example,  Next: smallexample & smalllisp,  Prev:
 the nature of the example.  This is useful, for example, if you write a
 function that evaluates only and all the Lisp code in a Texinfo file.
 Then you can use the Texinfo file as a Lisp library.(1) (*note Lisp
-Example-Footnotes::)
+Example-Footnote-1::)
 
   Mark the end of `@lisp' with `@end lisp' on a line by itself.
 
@@ -1165,6 +1165,7 @@ itemize' command.
 
   Precede each element of a list with an `@item' or `@itemx' command.
 
+
 Here is an itemized list of the different kinds of table and lists:
 
    * Itemized lists with and without bullets.
@@ -1173,6 +1174,7 @@ Here is an itemized list of the different kinds of table and lists:
 
    * Two-column tables with highlighting.
 
+
 Here is an enumerated list with the same items:
 
   1. Itemized lists with and without bullets.
@@ -1180,6 +1182,7 @@ Here is an enumerated list with the same items:
   2. Enumerated lists, using numbers or letters.
 
   3. Two-column tables with highlighting.
+
 
 And here is a two-column table with the same items and their @-commands:
 
@@ -1313,7 +1316,10 @@ This produces:
 
   2. Proximate causes.
 
+
+
   Here is an example with an argument of `3':
+
 
      @enumerate 3
      @item
@@ -1334,8 +1340,11 @@ This produces:
 
   5. Perpetuating causes.
 
+
+
   Here is a brief summary of the alternatives.  The summary is
 constructed using `@enumerate' with an argument of `a'.
+
 
   a. `@enumerate'
 
@@ -1389,7 +1398,7 @@ Using the `@table' Command
   Write the `@table' command at the beginning of a line and follow it
 on the same line with an argument that is a Texinfo "indicating"
 command such as `@code', `@samp', `@var', or `@kbd' (*note
-Indicating::.).  Although these commands are usually followed by
+Indicating::).  Although these commands are usually followed by
 arguments in braces, in this case you use the command name without an
 argument because `@item' will supply the argument.  This command will
 be applied to the text that goes into the first column of each item and

@@ -1,6 +1,6 @@
 ;;; cus-edit.el --- Tools for customizating Emacs and Lisp packages.
 ;;
-;; Copyright (C) 1996, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 1996, 1997, 2000 Free Software Foundation, Inc.
 ;;
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>
 ;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
@@ -2272,7 +2272,7 @@ Optional EVENT is the location for the menu."
   :format "%t: %v"
   :tag "Attributes"
   :extra-offset 12
-  :button-args '(:help-echo "Control whether this attribute have any effect")
+  :button-args '(:help-echo "Control whether this attribute has any effect")
   :args (mapcar (lambda (att)
 		  (list 'group
 			:inline t
@@ -2756,7 +2756,7 @@ Optional EVENT is the location for the menu."
   :tag "Hook")
 
 (defun custom-hook-convert-widget (widget)
-  ;; Handle `:custom-options'.
+  ;; Handle `:options'.
   (let* ((options (widget-get widget :options))
 	 (other `(editable-list :inline t
 				:entry-format "%i %d%v"

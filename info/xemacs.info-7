@@ -30,6 +30,346 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Visiting,  Next: Saving,  Prev: File Names,  Up: Files
+
+Visiting Files
+==============
+
+`C-x C-f'
+     Visit a file (`find-file').
+
+`C-x C-v'
+     Visit a different file instead of the one visited last
+     (`find-alternate-file').
+
+`C-x 4 C-f'
+     Visit a file, in another window (`find-file-other-window').  Don't
+     change this window.
+
+`C-x 5 C-f'
+     Visit a file, in another frame (`find-file-other-frame').  Don't
+     change this window or frame.
+
+   "Visiting" a file means copying its contents into an Emacs buffer so
+you can edit it.  Emacs creates a new buffer for each file you visit.
+We say that the buffer is visiting the file that it was created to
+hold.  Emacs constructs the buffer name from the file name by throwing
+away the directory and keeping just the file name.  For example, a file
+named `/usr/rms/emacs.tex' is displayed in a buffer named `emacs.tex'.
+If a buffer with that name exists, a unique name is constructed by
+appending `<2>', `<3>',and so on, using the lowest number that makes a
+name that is not already in use.
+
+   Each window's mode line shows the name of the buffer that is being
+displayed in that window, so you can always tell what buffer you are
+editing.
+
+   The changes you make with Emacs are made in the Emacs buffer.  They
+do not take effect in the file that you visit, or any other permanent
+place, until you "save" the buffer.  Saving the buffer means that Emacs
+writes the current contents of the buffer into its visited file.  *Note
+Saving::.
+
+   If a buffer contains changes that have not been saved, the buffer is
+said to be "modified".  This is important because it implies that some
+changes will be lost if the buffer is not saved.  The mode line displays
+two stars near the left margin if the buffer is modified.
+
+   To visit a file, use the command `C-x C-f' (`find-file').  Follow
+the command with the name of the file you wish to visit, terminated by a
+<RET>.  If you are using XEmacs under X, you can also use the Open...
+command from the File menu bar item.
+
+   The file name is read using the minibuffer (*note Minibuffer::.),
+with defaulting and completion in the standard manner (*note File
+Names::.).  While in the minibuffer, you can abort `C-x C-f' by typing
+`C-g'.
+
+   `C-x C-f' has completed successfully when text appears on the screen
+and a new buffer name appears in the mode line.  If the specified file
+does not exist and could not be created or cannot be read, an error
+results.  The error message is printed in the echo area, and includes
+the name of the file that Emacs was trying to visit.
+
+   If you visit a file that is already in Emacs, `C-x C-f' does not make
+another copy.  It selects the existing buffer containing that file.
+However, before doing so, it checks that the file itself has not changed
+since you visited or saved it last.  If the file has changed, Emacs
+prints a warning message.  *Note Simultaneous Editing: Interlocking.
+
+   You can switch to a specific file called out in the current buffer by
+calling the function `find-this-file'. By providing a prefix argument,
+this function calls `filename-at-point' and switches to a buffer
+visiting the file FILENAME. It creates one if none already exists. You
+can use this function to edit the file mentioned in the buffer you are
+working in or to test if the file exists. You can do that by using the
+minibuffer completion after snatching the all or part of the filename.
+
+   If the variable `find-file-use-truenames''s value is non-`nil', a
+buffer's visited filename will always be traced back to the real file.
+The filename will never be a symbolic link, and there will never be a
+symbolic link anywhere in its directory path. In other words, the
+`buffer-file-name' and `buffer-file-truename' will be equal.
+
+   If the variable `find-file-compare-truenames' value is non-`nil',
+the `find-file' command will check the `buffer-file-truename' of all
+visited files when deciding whether a given file is already in a
+buffer, instead of just `buffer-file-name'.  If you attempt to visit
+another file which is a hard-link or symbolic-link to a file that is
+already in a buffer, the existing buffer will be found instead of a
+newly created one.
+
+   If you want to create a file, just visit it.  Emacs prints `(New
+File)' in the echo area, but in other respects behaves as if you had
+visited an existing empty file.  If you make any changes and save them,
+the file is created.
+
+   If you visit a nonexistent file unintentionally (because you typed
+the wrong file name), use the `C-x C-v' (`find-alternate-file') command
+to visit the file you wanted.  `C-x C-v' is similar to `C-x C-f', but
+it kills the current buffer (after first offering to save it if it is
+modified).  `C-x C-v' is allowed even if the current buffer is not
+visiting a file.
+
+   If the file you specify is actually a directory, Dired is called on
+that directory (*note Dired::.).  To inhibit this, set the variable
+`find-file-run-dired' to `nil'; then it is an error to try to visit a
+directory.
+
+   `C-x 4 f' (`find-file-other-window') is like `C-x C-f' except that
+the buffer containing the specified file is selected in another window.
+The window that was selected before `C-x 4 f' continues to show the
+same buffer it was already showing.  If you use this command when only
+one window is being displayed, that window is split in two, with one
+window showing the same buffer as before, and the other one showing the
+newly requested file.  *Note Windows::.
+
+   `C-x 5 C-f' (`find-file-other-frame') is like `C-x C-f' except that
+it creates a new frame in which the file is displayed.
+
+   Use the function `find-this-file-other-window' to edit a file
+mentioned in the buffer you are editing or to test if that file exists.
+To do this, use the minibuffer completion after snatching the part or
+all of the filename. By providing a prefix argument, the function calls
+`filename-at-point' and switches you to a buffer visiting the file
+FILENAME in another window. The function creates a buffer if none
+already exists. This function is similar to `find-file-other-window'.
+
+   There are two hook variables that allow extensions to modify the
+operation of visiting files.  Visiting a file that does not exist runs
+the functions in the list `find-file-not-found-hooks'; the value of this
+variable is expected to be a list of functions which are called one by
+one until one of them returns non-`nil'.  Any visiting of a file,
+whether extant or not, expects `find-file-hooks' to contain list of
+functions and calls them all, one by one.  In both cases the functions
+receive no arguments.  Visiting a nonexistent file runs the
+`find-file-not-found-hooks' first.
+
+
+File: xemacs.info,  Node: Saving,  Next: Reverting,  Prev: Visiting,  Up: Files
+
+Saving Files
+============
+
+   "Saving" a buffer in Emacs means writing its contents back into the
+file that was visited in the buffer.
+
+`C-x C-s'
+     Save the current buffer in its visited file (`save-buffer').
+
+`C-x s'
+     Save any or all buffers in their visited files
+     (`save-some-buffers').
+
+`M-~'
+     Forget that the current buffer has been changed (`not-modified').
+
+`C-x C-w'
+     Save the current buffer in a specified file, and record that file
+     as the one visited in the buffer (`write-file').
+
+`M-x set-visited-file-name'
+     Change file the name under which the current buffer will be saved.
+
+   To save a file and make your changes permanent, type `C-x C-s'
+(`save-buffer').  After saving is finished, `C-x C-s' prints a message
+such as:
+
+     Wrote /u/rms/gnu/gnu.tasks
+
+If the selected buffer is not modified (no changes have been made in it
+since the buffer was created or last saved), Emacs does not save it
+because it would have no effect.  Instead, `C-x C-s' prints a message
+in the echo area saying:
+
+     (No changes need to be saved)
+
+   The command `C-x s' (`save-some-buffers') can save any or all
+modified buffers.  First it asks, for each modified buffer, whether to
+save it.  The questions should be answered with `y' or `n'.  `C-x C-c',
+the key that kills Emacs, invokes `save-some-buffers' and therefore
+asks the same questions.
+
+   If you have changed a buffer and do not want the changes to be saved,
+you should take some action to prevent it.  Otherwise, you are liable to
+save it by mistake each time you use `save-some-buffers' or a related
+command.  One thing you can do is type `M-~' (`not-modified'), which
+removes the indication that the buffer is modified.  If you do this,
+none of the save commands will believe that the buffer needs to be
+saved.  (`~' is often used as a mathematical symbol for `not'; thus
+`Meta-~' is `not', metafied.)  You could also use
+`set-visited-file-name' (see below) to mark the buffer as visiting a
+different file name, not in use for anything important.
+
+   You can also undo all the changes made since the file was visited or
+saved, by reading the text from the file again.  This is called
+"reverting".  *Note Reverting::.  Alternatively, you can undo all the
+changes by repeating the undo command `C-x u'; but this only works if
+you have not made more changes than the undo mechanism can remember.
+
+   `M-x set-visited-file-name' alters the name of the file that the
+current buffer is visiting.  It prompts you for the new file name in the
+minibuffer.  You can also use `set-visited-file-name' on a buffer that
+is not visiting a file.  The buffer's name is changed to correspond to
+the file it is now visiting unless the new name is already used by a
+different buffer; in that case, the buffer name is not changed.
+`set-visited-file-name' does not save the buffer in the newly visited
+file; it just alters the records inside Emacs so that it will save the
+buffer in that file.  It also marks the buffer as "modified" so that
+`C-x C-s' will save.
+
+   If you wish to mark a buffer as visiting a different file and save it
+right away, use `C-x C-w' (`write-file').  It is precisely equivalent
+to `set-visited-file-name' followed by `C-x C-s'.  `C-x C-s' used on a
+buffer that is not visiting  a file has the same effect as `C-x C-w';
+that is, it reads a file name, marks the buffer as visiting that file,
+and saves it there.  The default file name in a buffer that is not
+visiting a file is made by combining the buffer name with the buffer's
+default directory.
+
+   If Emacs is about to save a file and sees that the date of the latest
+version on disk does not match what Emacs last read or wrote, Emacs
+notifies you of this fact, because it probably indicates a problem
+caused by simultaneous editing and requires your immediate attention.
+*Note Simultaneous Editing: Interlocking.
+
+   If the variable `require-final-newline' is non-`nil', Emacs puts a
+newline at the end of any file that doesn't already end in one, every
+time a file is saved or written.
+
+   Use the hook variable `write-file-hooks' to implement other ways to
+write files, and specify things to be done before files are written.
+The value of this variable should be a list of Lisp functions.  When a
+file is to be written, the functions in the list are called, one by
+one, with no arguments.  If one of them returns a non-`nil' value, Emacs
+takes this to mean that the file has been written in some suitable
+fashion; the rest of the functions are not called, and normal writing is
+not done. Use the hook variable `after-save-hook' to list all the
+functions to be called after writing out a buffer to a file.
+
+* Menu:
+
+* Backup::       How Emacs saves the old version of your file.
+* Interlocking:: How Emacs protects against simultaneous editing
+                  of one file by two users.
+
+
+File: xemacs.info,  Node: Backup,  Next: Interlocking,  Prev: Saving,  Up: Saving
+
+Backup Files
+------------
+
+   Because Unix does not provide version numbers in file names,
+rewriting a file in Unix automatically destroys all record of what the
+file used to contain.  Thus, saving a file from Emacs throws away the
+old contents of the file--or it would, except that Emacs carefully
+copies the old contents to another file, called the "backup" file,
+before actually saving.  (Make sure that the variable
+`make-backup-files' is non-`nil'.  Backup files are not written if this
+variable is `nil').
+
+   At your option, Emacs can keep either a single backup file or a
+series of numbered backup files for each file you edit.
+
+   Emacs makes a backup for a file only the first time a file is saved
+from one buffer.  No matter how many times you save a file, its backup
+file continues to contain the contents from before the file was visited.
+Normally this means that the backup file contains the contents from
+before the current editing session; however, if you kill the buffer and
+then visit the file again, a new backup file is made by the next save.
+
+* Menu:
+
+* Names: Backup Names.		How backup files are named;
+				Choosing single or numbered backup files.
+* Deletion: Backup Deletion.	Emacs deletes excess numbered backups.
+* Copying: Backup Copying.	Backups can be made by copying or renaming.
+
+
+File: xemacs.info,  Node: Backup Names,  Next: Backup Deletion,  Prev: Backup,  Up: Backup
+
+Single or Numbered Backups
+..........................
+
+   If you choose to have a single backup file (the default), the backup
+file's name is constructed by appending `~' to the file name being
+edited; thus, the backup file for `eval.c' is `eval.c~'.
+
+   If you choose to have a series of numbered backup files, backup file
+names are made by appending `.~', the number, and another `~' to the
+original file name.  Thus, the backup files of `eval.c' would be called
+`eval.c.~1~', `eval.c.~2~', and so on, through names like
+`eval.c.~259~' and beyond.
+
+   If protection stops you from writing backup files under the usual
+names, the backup file is written as `%backup%~' in your home directory.
+Only one such file can exist, so only the most recently made backup is
+available.
+
+   The choice of single backup or numbered backups is controlled by the
+variable `version-control'.  Its possible values are:
+
+`t'
+     Make numbered backups.
+
+`nil'
+     Make numbered backups for files that have numbered backups already.
+     Otherwise, make single backups.
+
+`never'
+     Never make numbered backups; always make single backups.
+
+`version-control' may be set locally in an individual buffer to control
+the making of backups for that buffer's file.  For example, Rmail mode
+locally sets `version-control' to `never' to make sure that there is
+only one backup for an Rmail file.  *Note Locals::.
+
+
+File: xemacs.info,  Node: Backup Deletion,  Next: Backup Copying,  Prev: Backup Names,  Up: Backup
+
+Automatic Deletion of Backups
+.............................
+
+   To prevent unlimited consumption of disk space, Emacs can delete
+numbered backup versions automatically.  Generally Emacs keeps the
+first few backups and the latest few backups, deleting any in between.
+This happens every time a new backup is made.  The two variables that
+control the deletion are `kept-old-versions' and `kept-new-versions'.
+Their values are, respectively the number of oldest (lowest-numbered)
+backups to keep and the number of newest (highest-numbered) ones to
+keep, each time a new backup is made.  The values are used just after a
+new backup version is made; that newly made backup is included in the
+count in `kept-new-versions'.  By default, both variables are 2.
+
+   If `trim-versions-without-asking' is non-`nil',  excess middle
+versions are deleted without notification.  If it is `nil', the
+default, you are asked whether the excess middle versions should really
+be deleted.
+
+   You can also use Dired's `.' (Period) command to delete old versions.
+*Note Dired::.
+
+
 File: xemacs.info,  Node: Backup Copying,  Prev: Backup Deletion,  Up: Backup
 
 Copying vs. Renaming
@@ -767,372 +1107,4 @@ that is ready for distribution to users.
 
 * Making Snapshots::		The snapshot facilities.
 * Snapshot Caveats::		Things to be careful of when using snapshots.
-
-
-File: xemacs.info,  Node: Making Snapshots,  Next: Snapshot Caveats,  Prev: Snapshots,  Up: Snapshots
-
-Making and Using Snapshots
-..........................
-
-   There are two basic commands for snapshots; one makes a snapshot
-with a given name, the other retrieves a named snapshot.
-
-`C-x v s NAME <RET>'
-     Define the last saved versions of every registered file in or
-     under the current directory as a snapshot named NAME
-     (`vc-create-snapshot').
-
-`C-x v r NAME <RET>'
-     Check out all registered files at or below the current directory
-     level using whatever versions correspond to the snapshot NAME
-     (`vc-retrieve-snapshot').
-
-     This command reports an error if any files are locked at or below
-     the current directory, without changing anything; this is to avoid
-     overwriting work in progress.
-
-   A snapshot uses a very small amount of resources--just enough to
-record the list of file names and which version belongs to the
-snapshot.  Thus, you need not hesitate to create snapshots whenever
-they are useful.
-
-   You can give a snapshot name as an argument to `C-x v =' or `C-x v
-~' (*note Old Versions::.).  Thus, you can use it to compare a snapshot
-against the current files, or two snapshots against each other, or a
-snapshot against a named version.
-
-
-File: xemacs.info,  Node: Snapshot Caveats,  Prev: Making Snapshots,  Up: Snapshots
-
-Snapshot Caveats
-................
-
-   VC's snapshot facilities are modeled on RCS's named-configuration
-support.  They use RCS's native facilities for this, so under VC
-snapshots made using RCS are visible even when you bypass VC.
-
-   For SCCS, VC implements snapshots itself.  The files it uses contain
-name/file/version-number triples.  These snapshots are visible only
-through VC.
-
-   A snapshot is a set of checked-in versions.  So make sure that all
-the files are checked in and not locked when you make a snapshot.
-
-   File renaming and deletion can create some difficulties with
-snapshots.  This is not a VC-specific problem, but a general design
-issue in version control systems that no one has solved very well yet.
-
-   If you rename a registered file, you need to rename its master along
-with it (the command `vc-rename-file' does this automatically).  If you
-are using SCCS, you must also update the records of the snapshot, to
-mention the file by its new name (`vc-rename-file' does this, too).  An
-old snapshot that refers to a master file that no longer exists under
-the recorded name is invalid; VC can no longer retrieve it.  It would
-be beyond the scope of this manual to explain enough about RCS and SCCS
-to explain how to update the snapshots by hand.
-
-   Using `vc-rename-file' makes the snapshot remain valid for
-retrieval, but it does not solve all problems.  For example, some of the
-files in the program probably refer to others by name.  At the very
-least, the makefile probably mentions the file that you renamed.  If you
-retrieve an old snapshot, the renamed file is retrieved under its new
-name, which is not the name that the makefile expects.  So the program
-won't really work as retrieved.
-
-
-File: xemacs.info,  Node: Version Headers,  Prev: Snapshots,  Up: Version Control
-
-Inserting Version Control Headers
----------------------------------
-
-   Sometimes it is convenient to put version identification strings
-directly into working files.  Certain special strings called "version
-headers" are replaced in each successive version by the number of that
-version.
-
-   You can use the `C-x v h' command (`vc-insert-headers') to insert a
-suitable header string.
-
-`C-x v h'
-     Insert headers in a file for use with your version-control system.
-
-   The default header string is `\$Id\$' for RCS and `\%W\%' for SCCS.
-(The actual strings inserted do not have the backslashes in them.  They
-were placed in the Info source file so that the strings don't get
-interpreted as version-control headers when the Info source files are
-maintained under version control.) You can specify other headers to
-insert by setting the variable `vc-header-alist'.  Its value is a list
-of elements of the form `(PROGRAM . STRING)' where PROGRAM is `RCS' or
-`SCCS' and STRING is the string to use.
-
-   Instead of a single string, you can specify a list of strings; then
-each string in the list is inserted as a separate header on a line of
-its own.
-
-   It is often necessary to use "superfluous" backslashes when writing
-the strings that you put in this variable.  This is to prevent the
-string in the constant from being interpreted as a header itself if the
-Emacs Lisp file containing it is maintained with version control.
-
-   Each header is inserted surrounded by tabs, inside comment
-delimiters, on a new line at the start of the buffer.  Normally the
-ordinary comment start and comment end strings of the current mode are
-used, but for certain modes, there are special comment delimiters for
-this purpose; the variable `vc-comment-alist' specifies them.  Each
-element of this list has the form `(MODE STARTER ENDER)'.
-
-   The variable `vc-static-header-alist' specifies further strings to
-add based on the name of the buffer.  Its value should be a list of
-elements of the form `(REGEXP . FORMAT)'.  Whenever REGEXP matches the
-buffer name, FORMAT is inserted as part of the header.  A header line
-is inserted for each element that matches the buffer name, and for each
-string specified by `vc-header-alist'.  The header line is made by
-processing the string from `vc-header-alist' with the format taken from
-the element.  The default value for `vc-static-header-alist' is:
-
-     (("\\.c$" .
-       "\n#ifndef lint\nstatic char vcid[] = \"\%s\";\n\
-     #endif /* lint */\n"))
-
-which specifies insertion of a string of this form:
-
-
-     #ifndef lint
-     static char vcid[] = "STRING";
-     #endif /* lint */
-
-
-File: xemacs.info,  Node: ListDir,  Next: Comparing Files,  Prev: Version Control,  Up: Files
-
-Listing a File Directory
-========================
-
-   Files are organized by Unix into "directories".  A "directory
-listing" is a list of all the files in a directory.  Emacs provides
-directory listings in brief format (file names only) and verbose format
-(sizes, dates, and authors included).
-
-`C-x C-d DIR-OR-PATTERN'
-     Print a brief directory listing (`list-directory').
-
-`C-u C-x C-d DIR-OR-PATTERN'
-     Print a verbose directory listing.
-
-   To print a directory listing, use `C-x C-d' (`list-directory').
-This command prompts in the minibuffer for a file name which is either
-a  directory to be listed or pattern containing wildcards for the files
-to be listed.  For example,
-
-     C-x C-d /u2/emacs/etc <RET>
-
-lists all the files in directory `/u2/emacs/etc'.  An example of
-specifying a file name pattern is:
-
-     C-x C-d /u2/emacs/src/*.c <RET>
-
-   Normally, `C-x C-d' prints a brief directory listing containing just
-file names.  A numeric argument (regardless of value) tells it to print
-a verbose listing (like `ls -l').
-
-   Emacs obtains the text of a directory listing by running `ls' in an
-inferior process.  Two Emacs variables control the switches passed to
-`ls': `list-directory-brief-switches' is a string giving the switches
-to use in brief listings (`"-CF"' by default).
-`list-directory-verbose-switches' is a string giving the switches to
-use in a verbose listing (`"-l"' by default).
-
-   The variable `directory-abbrev-alist' is an alist of abbreviations
-for file directories.  The list consists of elements of the form `(FROM
-.  TO)', each meaning to replace `FROM' with `TO' when it appears in a
-directory name.  This replacement is done when setting up the default
-directory of a newly visited file.  Every `FROM' string should start
-with ``^''.
-
-   Use this feature when you have directories which you normally refer
-to via absolute symbolic links.  Make `TO' the name of the link, and
-`FROM' the name it is linked to.
-
-
-File: xemacs.info,  Node: Comparing Files,  Next: Dired,  Prev: ListDir,  Up: Files
-
-Comparing Files
-===============
-
-   The command `M-x diff' compares two files, displaying the
-differences in an Emacs buffer named `*Diff*'.  It works by running the
-`diff' program, using options taken from the variable `diff-switches',
-whose value should be a string.
-
-   The buffer `*Diff*' has Compilation mode as its major mode, so you
-can use `C-x `' to visit successive changed locations in the two source
-files.  You can also move to a particular hunk of changes and type `C-c
-C-c' to find the corresponding source location.  You can also use the
-other special commands of Compilation mode: <SPC> and <DEL> for
-scrolling, and `M-p' and `M-n' for cursor motion.  *Note Compilation::.
-
-   The command `M-x diff-backup' compares a specified file with its most
-recent backup.  If you specify the name of a backup file, `diff-backup'
-compares it with the source file that it is a backup of.
-
-   The command `M-x compare-windows' compares the text in the current
-window with that in the next window.  Comparison starts at point in each
-window.  Point moves forward in each window, a character at a time in
-each window, until the next characters in the two windows are
-different.  Then the command is finished.  For more information about
-windows in Emacs, *Note Windows::.
-
-   With a numeric argument, `compare-windows' ignores changes in
-whitespace.  If the variable `compare-ignore-case' is non-`nil', it
-ignores differences in case as well.
-
-
-File: xemacs.info,  Node: Dired,  Next: Misc File Ops,  Prev: Comparing Files,  Up: Files
-
-Dired, the Directory Editor
-===========================
-
-   Dired makes it easy to delete or visit many of the files in a single
-directory at once.  It creates an Emacs buffer containing a listing of
-the directory.  You can use the normal Emacs commands to move around in
-this buffer and special Dired commands to operate on the files.
-
-* Menu:
-
-* Enter: Dired Enter.         How to invoke Dired.
-* Edit: Dired Edit.           Editing the Dired buffer.
-* Deletion: Dired Deletion.   Deleting files with Dired.
-* Immed: Dired Immed.         Other file operations through Dired.
-
-
-File: xemacs.info,  Node: Dired Enter,  Next: Dired Edit,  Prev: Dired,  Up: Dired
-
-Entering Dired
---------------
-
-   To invoke dired, type `C-x d' or `M-x dired'.  The command reads a
-directory name or wildcard file name pattern as a minibuffer argument
-just like the `list-directory' command, `C-x C-d'.  Where `dired'
-differs from `list-directory' is in naming the buffer after the
-directory name or the wildcard pattern used for the listing, and putting
-the buffer into Dired mode so that the special commands of Dired are
-available in it.  The variable `dired-listing-switches' is a string
-used as an argument to `ls' in making the directory; this string must
-contain `-l'.
-
-   To display the Dired buffer in another window rather than in the
-selected window, use `C-x 4 d' (`dired-other-window)' instead of `C-x
-d'.
-
-
-File: xemacs.info,  Node: Dired Edit,  Next: Dired Deletion,  Prev: Dired Enter,  Up: Dired
-
-Editing in Dired
-----------------
-
-   Once the Dired buffer exists, you can switch freely between it and
-other Emacs buffers.  Whenever the Dired buffer is selected, certain
-special commands are provided that operate on files that are listed.
-The Dired buffer is "read-only", and inserting text in it is not
-useful, so ordinary printing characters such as `d' and `x' are used
-for Dired commands.  Most Dired commands operate on the file described
-by the line that point is on.  Some commands perform operations
-immediately; others "flag" a file to be operated on later.
-
-   Most Dired commands that operate on the current line's file also
-treat a numeric argument as a repeat count, meaning to act on the files
-of the next few lines.  A negative argument means to operate on the
-files of the preceding lines, and leave point on the first of those
-lines.
-
-   All the usual Emacs cursor motion commands are available in Dired
-buffers.  Some special purpose commands are also provided.  The keys
-`C-n' and `C-p' are redefined so that they try to position the cursor
-at the beginning of the filename on the line, rather than at the
-beginning of the line.
-
-   For extra convenience, <SPC> and `n' in Dired are equivalent to
-`C-n'.  `p' is equivalent to `C-p'.  Moving by lines is done so often
-in Dired that it deserves to be easy to type.  <DEL> (move up and
-unflag) is often useful simply for moving up.
-
-   The `g' command in Dired runs `revert-buffer' to reinitialize the
-buffer from the actual disk directory and show any changes made in the
-directory by programs other than Dired.  All deletion flags in the Dired
-buffer are lost when this is done.
-
-
-File: xemacs.info,  Node: Dired Deletion,  Next: Dired Immed,  Prev: Dired Edit,  Up: Dired
-
-Deleting Files With Dired
--------------------------
-
-   The primary use of Dired is to flag files for deletion and then
-delete them.
-
-`d'
-     Flag this file for deletion.
-
-`u'
-     Remove deletion-flag on this line.
-
-`<DEL>'
-     Remove deletion-flag on previous line, moving point to that line.
-
-`x'
-     Delete the files that are flagged for deletion.
-
-`#'
-     Flag all auto-save files (files whose names start and end with `#')
-     for deletion (*note Auto Save::.).
-
-`~'
-     Flag all backup files (files whose names end with `~') for deletion
-     (*note Backup::.).
-
-`. (Period)'
-     Flag excess numeric backup files for deletion.  The oldest and
-     newest few backup files of any one file are exempt; the middle
-     ones are flagged.
-
-   You can flag a file for deletion by moving to the line describing the
-file and typing `d' or `C-d'.  The deletion flag is visible as a `D' at
-the beginning of the line.  Point is moved to the beginning of the next
-line, so that repeated `d' commands flag successive files.
-
-   The files are flagged for deletion rather than deleted immediately to
-avoid the danger of deleting a file accidentally.  Until you direct
-Dired to delete the flagged files, you can remove deletion flags using
-the commands `u' and <DEL>.  `u' works just like `d', but removes flags
-rather than making flags.  <DEL> moves upward, removing flags; it is
-like `u' with numeric argument automatically negated.
-
-   To delete the flagged files, type `x'.  This command first displays a
-list of all the file names flagged for deletion, and requests
-confirmation with `yes'.  Once you confirm, all the flagged files are
-deleted, and their lines are deleted from the text of the Dired buffer.
-The shortened Dired buffer remains selected.  If you answer `no' or
-quit with `C-g', you return immediately to Dired, with the deletion
-flags still present and no files actually deleted.
-
-   The `#', `~', and `.' commands flag many files for deletion, based
-on their names.  These commands are useful precisely because they do
-not actually delete any files; you can remove the deletion flags from
-any flagged files that you really wish to keep.
-
-   `#' flags for deletion all files that appear to have been made by
-auto-saving (that is, files whose names begin and end with `#').  `~'
-flags for deletion all files that appear to have been made as backups
-for files that were edited (that is, files whose names end with `~').
-
-   `.' (Period) flags just some of the backup files for deletion: only
-numeric backups that are not among the oldest few nor the newest few
-backups of any one file.  Normally `dired-kept-versions' (not
-`kept-new-versions'; that applies only when saving) specifies the
-number of newest versions of each file to keep, and `kept-old-versions'
-specifies the number of oldest versions to keep.  Period with a
-positive numeric argument, as in `C-u 3 .', specifies the number of
-newest versions to keep, overriding `dired-kept-versions'.  A negative
-numeric argument overrides `kept-old-versions', using minus the value
-of the argument to specify the number of oldest versions of each file
-to keep.
 

@@ -680,7 +680,7 @@ xm_update_menu (widget_instance* instance, Widget widget, widget_value* val,
 static void
 xm_update_text (widget_instance* instance, Widget widget, widget_value* val)
 {
-  XmTextSetString (widget, val->value ? val->value : "");
+  XmTextSetString (widget, val->value ? val->value : (char *) "");
   XtRemoveAllCallbacks (widget, XmNactivateCallback);
   XtAddCallback (widget, XmNactivateCallback, xm_generic_callback, instance);
   XtRemoveAllCallbacks (widget, XmNvalueChangedCallback);
@@ -692,7 +692,7 @@ static void
 xm_update_text_field (widget_instance* instance, Widget widget,
 		      widget_value* val)
 {
-  XmTextFieldSetString (widget, val->value ? val->value : "");
+  XmTextFieldSetString (widget, val->value ? val->value : (char *) "");
   XtRemoveAllCallbacks (widget, XmNactivateCallback);
   XtAddCallback (widget, XmNactivateCallback, xm_generic_callback, instance);
   XtRemoveAllCallbacks (widget, XmNvalueChangedCallback);

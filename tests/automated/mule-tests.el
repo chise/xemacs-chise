@@ -103,4 +103,61 @@ the Assert macro checks for correctness."
     (aset string 0 (make-char 'latin-iso8859-2 42))
     (Assert (eq (aref string 1) (make-char 'latin-iso8859-2 69))))
 
+  ;; Test strings waxing and waning across the 8k BIG_STRING limit (see alloc.c)
+  (defun charset-char-string (charset)
+    (let (lo hi string n)
+      (if (= (charset-chars charset) 94)
+	  (setq lo 33 hi 126)
+	(setq lo 32 hi 127))
+      (if (= (charset-dimension charset) 1)
+	  (progn
+	    (setq string (make-string (1+ (- hi lo)) ??))
+	    (setq n 0)
+	    (loop for j from lo to hi do
+	      (progn
+		(aset string n (make-char charset j))
+		(incf n)))
+	    string)
+	(progn
+	  (setq string (make-string (* (1+ (- hi lo)) (1+ (- hi lo))) ??))
+	  (setq n 0)
+	  (loop for j from lo to hi do
+	    (loop for k from lo to hi do
+	      (progn
+		(aset string n (make-char charset j k))
+		(incf n))))
+	  string))))
+
+  ;; The following two used to crash xemacs!
+  (Assert (charset-char-string 'japanese-jisx0208))
+  (aset (make-string 9003 ??) 1 (make-char 'latin-iso8859-1 77))
+
+  (let ((greek-string (charset-char-string 'greek-iso8859-7))
+	(string (make-string (* 96 60) ??)))
+    (loop for j from 0 below (length string) do
+      (aset string j (aref greek-string (mod j 96))))
+    (loop for k in '(0 1 58 59) do
+      (Assert (equal (substring string (* 96 k) (* 96 (1+ k))) greek-string))))
+
+  (let ((greek-string (charset-char-string 'greek-iso8859-7))
+	(string (make-string (* 96 60) ??)))
+   (loop for j from (1- (length string)) downto 0 do
+     (aset string j (aref greek-string (mod j 96))))
+   (loop for k in '(0 1 58 59) do
+     (Assert (equal (substring string (* 96 k) (* 96 (1+ k))) greek-string))))
+
+  (let ((ascii-string (charset-char-string 'ascii))
+	(string (make-string (* 94 60) (make-char 'greek-iso8859-7 57))))
+   (loop for j from 0 below (length string) do
+      (aset string j (aref ascii-string (mod j 94))))
+    (loop for k in '(0 1 58 59) do
+      (Assert (equal (substring string (* 94 k) (+ 94 (* 94 k))) ascii-string))))
+
+  (let ((ascii-string (charset-char-string 'ascii))
+	(string (make-string (* 94 60) (make-char 'greek-iso8859-7 57))))
+    (loop for j from (1- (length string)) downto 0 do
+      (aset string j (aref ascii-string (mod j 94))))
+    (loop for k in '(0 1 58 59) do
+      (Assert (equal (substring string (* 94 k) (* 94 (1+ k))) ascii-string))))
+
   )

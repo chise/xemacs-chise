@@ -2650,8 +2650,8 @@ Unfortunately, Emacs Lisp is slow, and is going to stay slow.  Function
 calls in elisp are especially expensive.  Iterating over a long list is
 going to be 30 times faster implemented in C than in Elisp.
 
-To get started debugging XEmacs, take a look at the @file{gdbinit} and
-@file{dbxrc} files in the @file{src} directory.
+To get started debugging XEmacs, take a look at the @file{.gdbinit} and
+@file{.dbxrc} files in the @file{src} directory.
 @xref{Q2.1.15 - How to Debug an XEmacs problem with a debugger,,,
 xemacs-faq, XEmacs FAQ}.
 
@@ -4993,7 +4993,7 @@ The first thing that is checked while marking an object is whether the
 object is a real Lisp object @code{Lisp_Type_Record} or just an integer
 or a character. Integers and characters are the only two types that are
 stored directly - without another level of indirection, and therefore they
-don´t have to be marked and collected. 
+don't have to be marked and collected. 
 @xref{How Lisp Objects Are Represented in C}.
 
 The second case is the one we have to handle. It is the one when we are
@@ -5033,7 +5033,7 @@ bulkier objects are allocated and handled using that scheme of
 @code{lcrecords}. Each object is @code{malloc}ed separately
 instead of placing it in one of the contiguous frob blocks. All types
 that are currently stored 
-using @code{lcrecords}´s  @code{alloc_lcrecord} and
+using @code{lcrecords}'s  @code{alloc_lcrecord} and
 @code{make_lcrecord_list} are the types: vectors, buffers,
 char-table, char-table-entry, console, weak-list, database, device,
 ldap, hash-table, command-builder, extent-auxiliary, extent-info, face,

@@ -36,6 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #include "console.h"
 #include "process.h"
 #include "redisplay.h"
+#include "frame.h"
 #include "sysdep.h"
 
 #include "syssignal.h" /* Always include before systty.h */
@@ -155,6 +156,7 @@ Lisp_Object Vconfigure_info_directory;
 Lisp_Object Vsite_directory, Vconfigure_site_directory;
 Lisp_Object Vconfigure_info_path;
 Lisp_Object Vinternal_error_checking;
+Lisp_Object Vmail_lock_methods, Vconfigure_mail_lock_method;
 Lisp_Object Vpath_separator;
 
 /* The default base directory XEmacs is installed under. */
@@ -1711,7 +1713,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       reinit_vars_of_lread ();
       reinit_vars_of_lstream ();
       reinit_vars_of_minibuf ();
+#ifdef HAVE_SHLIB
       reinit_vars_of_module ();
+#endif
       reinit_vars_of_objects ();
       reinit_vars_of_print ();
       reinit_vars_of_redisplay ();
@@ -1726,6 +1730,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_X_WINDOWS
       reinit_vars_of_device_x ();
+#endif
+#ifdef HAVE_SCROLLBARS
+      reinit_vars_of_scrollbar_x ();
 #ifdef HAVE_MENUBARS
       reinit_vars_of_menubar_x ();
 #endif
@@ -1800,6 +1807,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
   init_redisplay ();      /* Determine terminal type.
 			     init_sys_modes uses results */
+  init_frame ();
   init_event_stream (); /* Set up so we can get user input. */
   init_macros (); /* set up so we can run macros. */
   init_editfns (); /* Determine the name of the user we're running as */
@@ -3085,6 +3093,46 @@ bufpos		- check buffer positions.
   Vinternal_error_checking = Fcons (intern ("bufpos"),
 				    Vinternal_error_checking);
 #endif
+
+  DEFVAR_CONST_LISP ("mail-lock-methods", &Vmail_lock_methods /*
+Mail spool locking methods supported by this instance of XEmacs.
+This is a list of symbols.  Each of the symbols is one of the
+following: dot, lockf, flock, locking, mmdf.
+*/ );
+  {
+    Vmail_lock_methods = Qnil;
+    Vmail_lock_methods = Fcons (intern ("dot"), Vmail_lock_methods);
+#ifdef HAVE_LOCKF
+    Vmail_lock_methods = Fcons (intern ("lockf"), Vmail_lock_methods);
+#endif
+#ifdef HAVE_FLOCK
+    Vmail_lock_methods = Fcons (intern ("flock"), Vmail_lock_methods);
+#endif
+#ifdef HAVE_MMDF
+    Vmail_lock_methods = Fcons (intern ("mmdf"), Vmail_lock_methods);
+#endif
+#ifdef HAVE_LOCKING
+    Vmail_lock_methods = Fcons (intern ("locking"), Vmail_lock_methods);
+#endif
+  }
+  
+  DEFVAR_CONST_LISP ("configure-mail-lock-method", &Vconfigure_mail_lock_method /*
+Mail spool locking method suggested by configure.  This is one
+of the symbols in MAIL-LOCK-METHODS.
+*/ );
+  {
+#if defined(MAIL_LOCK_FLOCK) && defined(HAVE_FLOCK)
+    Vconfigure_mail_lock_method = intern("flock");
+#elif defined(MAIL_LOCK_LOCKF) && defined(HAVE_LOCKF)
+    Vconfigure_mail_lock_method = intern("lockf");
+#elif defined(MAIL_LOCK_MMDF) && defined(HAVE_MMDF)
+    Vconfigure_mail_lock_method = intern("mmdf");
+#elif defined(MAIL_LOCK_LOCKING) && defined(HAVE_LOCKING)
+    Vconfigure_mail_lock_method = intern("locking");
+#else
+    Vconfigure_mail_lock_method = intern("dot");
+#endif
+  }
 
   DEFVAR_LISP ("path-separator", &Vpath_separator /*
 The directory separator in search paths, as a string.

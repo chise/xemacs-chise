@@ -1207,6 +1207,151 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* process.el (shell-command-to-string): Use the FSF docstring.
+	Make shell-command-to-string the standard function, and
+	exec-to-string the (deprecated) alias.
+
+	* startup.el: typo fix.
+
+2000-01-16  Martin Buchholz  <martin@xemacs.org>
+
+	* mule/mule-misc.el (char-octet): Move back into mule-charset.c.
+
+2000-01-14  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* menubar-items.el (sort-buffers-menu-alphabetically): Put invisible
+	buffers	after visible buffers.
+	(sort-buffers-menu-by-mode-then-alphabetically): Ditto.
+
+2000-01-17  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* info.el (Info-extract-menu-node-name): Stop at a dot
+	followed by whitespace or right parenthesis.
+
+2000-01-15  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* info.el (Info-directory-list): Warn against using Customize with
+	Info-directory-list.
+
+2000-01-15  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* minibuf.el (read-file-name): doc fix.
+
+	* autoload.el (update-file-autoloads): doc fix.
+
+	* about.el (about-hackers): Change my E-mail address.
+
+2000-01-13  Martin Buchholz  <martin@xemacs.org>
+
+	* info.el (Info-visit-file): Just use the `f' interactive spec to
+	read a filename in the standard way.
+
+2000-01-13  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (gutter-buffers-tab-orientation): new variable.
+	(gutter-buffers-tab-extent): new variable.
+	(update-tab-in-gutter): call add-tab-to-gutter again if the
+	orientation has changed.
+	(add-tab-to-gutter): cope with different orientations.
+
+2000-01-11  Didier Verna  <didier@xemacs.org>
+
+	* info.el (Info-following-node-name): backward-skip dots as well
+	as spaces (dots at the end of a node name aren't part of it).
+	(Info-extract-menu-node-name): don't skip dots. There could be
+	some in the node name.
+	(Info-index): allow dots to be part of a node name.
+
+2000-01-12  Andreas Jaeger  <aj@suse.de>
+
+	* files.el (auto-mode-alist): Added idlwave-mode.
+	Patch by Carsten Dominik <dominik@astro.uva.nl>.
+
+1999-12-22  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* info.el (Info-search): Show default value.
+
+1999-12-20  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* info.el (Info-read-node-completion-table): New variable.
+	(Info-read-node-name-1): New function.
+	(Info-read-node-name): Use it.
+	(Info-follow-reference): Use DEFAULT argument of completing-read.
+	(Info-menu): Ditto.
+
+1999-12-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* hyper-apropos.el (hyper-describe-key-briefly): Save
+	window configuration.
+	(hyper-describe-face): Use DEFAULT of completing-read.
+	(hyper-apropos-read-variable-symbol): Ditto.
+	(hyper-apropos-read-function-symbol): Ditto.
+
+1999-12-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule/mule-cmds.el (set-default-coding-system): Set
+	comint-exec-hook to use coding-system-for-read and
+	coding-system-for-write so that C-x RET c works.
+
+1999-12-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (minibuffer-confirm-incomplete): Customize.
+	(previous-matching-history-element): Increment
+	minibuffer-max-depth by 1.
+	(next-matching-history-element): Ditto.
+
+2000-01-11  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (buffers-tab): Create a new face for the buffers
+	tab.
+	(buffers-tab-face): use it.
+
+2000-01-10  Didier Verna  <didier@xemacs.org>
+
+	* modeline.el (modeline-scrolling-method): change modeline X
+	cursor appearance according to the value.
+
+2000-01-07  Andreas Jaeger  <aj@suse.de>
+
+	* about.el (about-hackers): Moved my entry to contributor list.
+	(xemacs-hackers): Added myself.
+	(about-maintainer-info): Added description of myself.
+
+
+2000-01-07  Didier Verna  <didier@xemacs.org>
+
+	* modeline.el (modeline-scrolling-method): new variable.
+	(mouse-drag-modeline): add reference to it in the docstring.
+	(mouse-drag-modeline): handle it.
+
+2000-01-08  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): remove resize-subwindow
+	calls.
+	(remove-buffer-from-gutter-tab): ditto.
+
+2000-01-06  Per Abrahamsen  <abraham@dina.kvl.dk>
+
+	* cus-edit.el (custom-hook-convert-widget): Fix comment.
+	(custom-face-edit): Fix grammatical error in help message.
+
+2000-01-03  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* movemail.el: Added.
+
+	* dumped-lisp.el (preloaded-file-list): Added movemail.el.
+
+2000-01-03  Didier Verna  <didier@xemacs.org>
+
+	* modeline.el (mouse-drag-modeline): remove the code related to
+	the modeline horizontal scrolling facility.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.
@@ -1242,7 +1387,7 @@
 
 1999-12-21  Martin Buchholz  <martin@xemacs.org>
 
-	* byte-optimize.el (byte-optimize-plus): 
+	* byte-optimize.el (byte-optimize-plus):
 	Optimize (+ 1) to 1 instead of (1+ nil).
 
 	* files.el (basic-save-buffer): Rewrite for clarity.  Use (char-before).
@@ -1273,7 +1418,7 @@
 
 1999-12-13  Charles G Waldman  <cgw@alum.mit.edu>
 
-	* gnuserv.el (gnuserv-process-filter):  don't call 
+	* gnuserv.el (gnuserv-process-filter):  don't call
 	gnuserv-write-to-client when gnuserv-current-client is nil
 
 1999-12-14  Martin Buchholz <martin@xemacs.org>
@@ -1475,7 +1620,7 @@
 
 1999-10-06  Andy Piper  <andy@xemacs.org>
 
-	* files.el (recover-file): Don't use ls under windows for revert buffer. 
+	* files.el (recover-file): Don't use ls under windows for revert buffer.
 
 1999-09-25  Adrian Aichner  <adrian@xemacs.org>
 
@@ -1494,8 +1639,8 @@
 
 1999-09-27  Martin Buchholz  <martin@xemacs.org>
 
-	* modeline.el (modeline-format): 
-	Only purecopy the strings.  Else 
+	* modeline.el (modeline-format):
+	Only purecopy the strings.  Else
 	(nsublis '(("%p" . "%P")) (default-value 'modeline-format) :test 'equal)
 	barfs.
 
@@ -1560,13 +1705,13 @@
 
 1999-08-30  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
-	* obsolete.el (init-file-user): 
-	* startup.el: 
-	* packages.el (packages-compute-package-locations): 
-	* package-get.el (package-get-user-index-filename): 
-	* menubar-items.el (maybe-add-init-button): 
-	* info.el (Info-annotations-path): 
-	* dump-paths.el: 
+	* obsolete.el (init-file-user):
+	* startup.el:
+	* packages.el (packages-compute-package-locations):
+	* package-get.el (package-get-user-index-filename):
+	* menubar-items.el (maybe-add-init-button):
+	* info.el (Info-annotations-path):
+	* dump-paths.el:
 	Change `user-init-directory' to be an absolute path.
 	Use `user-init-directory' where appropriate.
 	Zap `init-file-user' and its uses.
@@ -1629,7 +1774,7 @@
 
 1999-09-03  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* obsolete.el (isearch-yank-x-clipboard): Define it as an obsolete 
+	* obsolete.el (isearch-yank-x-clipboard): Define it as an obsolete
 	alias.
 
 	* isearch-mode.el (isearch-top-state): Restore isearch-word.
@@ -1703,7 +1848,7 @@
 	(isearch-update-ring): New function.
 	(isearch-done): Call it.
 	(isearch-done): New argument EDIT.
-	(isearch-repeat): If search string is empty, look up at the car of 
+	(isearch-repeat): If search string is empty, look up at the car of
 	the search ring; ignore the yank pointer.
 	(isearch-abort): Call isearch-done with NOPUSH.
 	(isearch-cancel): New function.
@@ -1733,7 +1878,7 @@
 	need to check isearch-fixed-case.
 	(isearch-toggle-case-fold): Update highlighting of all matches
 	before the pause.
-	(isearch-edit-string): 
+	(isearch-edit-string):
 
 1999-09-01  Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -1817,7 +1962,7 @@
 
 	* faces.el (isearch-secondary): Create face here.
 
-	* isearch-mode.el: Rewrote the "lazy highlighting" code not to use 
+	* isearch-mode.el: Rewrote the "lazy highlighting" code not to use
 	timers.
 
 1999-08-27  Hrvoje Niksic  <hniksic@srce.hr>

@@ -111,7 +111,7 @@ malloc_widget_value (void)
     }
   if (wv)
     {
-      memset (wv, 0, sizeof (widget_value));
+      memset (wv, '\0', sizeof (widget_value));
     }
   return wv;
 }
@@ -188,7 +188,7 @@ copy_scrollbar_values (widget_value *val, widget_value *copy)
   if (val->scrollbar_data)
     *copy->scrollbar_data = *val->scrollbar_data;
   else
-    memset (copy->scrollbar_data, 0, sizeof (scrollbar_values));
+    memset (copy->scrollbar_data, '\0', sizeof (scrollbar_values));
 }
 
 /*
@@ -358,7 +358,7 @@ free_widget_info (widget_info *info)
   safe_free_str (info->type);
   safe_free_str (info->name);
   free_widget_value_tree (info->val);
-  memset ((void*)info, 0xDEADBEEF, sizeof (widget_info));
+  memset (info, '\0', sizeof (widget_info));
   free (info);
 }
 
@@ -393,7 +393,7 @@ allocate_widget_instance (widget_info *info, Widget parent, Boolean pop_up_p)
 static void
 free_widget_instance (widget_instance *instance)
 {
-  memset ((void *) instance, 0xDEADBEEF, sizeof (widget_instance));
+  memset (instance, '\0', sizeof (widget_instance));
   free (instance);
 }
 
@@ -1368,11 +1368,11 @@ void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
   if (!wv->args)
     {
       wv->args = (widget_args *) malloc (sizeof (widget_args));
-      memset (wv->args, 0, sizeof (widget_args));
+      memset (wv->args, '\0', sizeof (widget_args));
       wv->args->ref_count = 1;
       wv->args->nargs = 0;
       wv->args->args = (ArgList) malloc (sizeof (Arg) * 10);
-      memset (wv->args->args, 0, sizeof (Arg) * 10);
+      memset (wv->args->args, '\0', sizeof (Arg) * 10);
     }
   
   if (wv->args->nargs > 10)

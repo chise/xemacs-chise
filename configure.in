@@ -675,9 +675,10 @@ The default is to autodetect all sound support."])
 	  case "$val" in
 	    lockf )	val=lockf ;;
 	    flock )	val=flock ;;
-	    file )	val=file  ;;
+	    file | dot ) val=file  ;;
+	    locking )	val=locking  ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lockf', \`flock', or \`file'."]) ;;
+  \`lockf', \`flock', \`file', \`locking', or \`mmdf'."]) ;;
 	  esac
           eval "$opt=\"$val\""
         ;;
@@ -908,7 +909,7 @@ dnl is still relative.  We do not symlink lock because someone may
 dnl have stuck the source on a read-only partition.  Instead we
 dnl create it as an actual directory later on if it does not already
 dnl exist.
-for dir in lisp etc man info; do
+for dir in lisp etc man info tests; do
   if test ! -d "$dir" ; then
     echo Making symbolic link to "$srcdir/$dir"
     ${LN_S} "$srcdir/$dir" "$dir"
@@ -1771,8 +1772,10 @@ configure___ start_files=START_FILES
 CPP_boolean_to_sh(ORDINARY_LINK, ordinary_link)
 CPP_boolean_to_sh(SYSTEM_MALLOC, system_malloc)
 CPP_boolean_to_sh(TERMINFO, have_terminfo)
+dnl The MAIL_USE_xxx variables come from the s&m headers
 CPP_boolean_to_sh(MAIL_USE_FLOCK, mail_use_flock)
 CPP_boolean_to_sh(MAIL_USE_LOCKF, mail_use_lockf)
+CPP_boolean_to_sh(MAIL_USE_LOCKING, mail_use_locking)
 CPP_boolean_to_sh(HAVE_WIN32_PROCESSES, win32_processes)
 EOF
 
@@ -1794,6 +1797,13 @@ test "$extra_verbose" = "yes" && \
   ld_switch_machine ld_switch_system unexec ld_switch_shared
   ld lib_gcc ld_text_start_addr start_files ordinary_link
   have_terminfo mail_use_flock mail_use_lockf) && echo ""
+
+dnl Pick up mingw32 include path
+case "$opsys" in mingw*) mingw_include=`eval "gcc -print-file-name=libc.a"` ;
+	mingw_include=`eval "dirname $mingw_include"` ;
+	mingw_include="-I$mingw_include/../include/mingw32" ;
+	XE_APPEND($mingw_include, c_switch_system) ;;
+esac
 
 dnl Non-ordinary link usually requires -lc
 test "$ordinary_link" = "no" -a -z "$libs_standard" && libs_standard="-lc"
@@ -2257,12 +2267,22 @@ AC_TRY_LINK([#include <math.h>],
 
 dnl Determine type of mail locking from configure args and s&m headers
 AC_CHECKING(type of mail spool file locking)
+AC_CHECK_FUNCS(lockf flock)
+dnl The mail_use_xxx variables are set according to the s&m headers.
 test -z "$mail_locking" -a "$mail_use_flock" = "yes" && mail_locking=flock
 test -z "$mail_locking" -a "$mail_use_lockf" = "yes" && mail_locking=lockf
-if   test "$mail_locking" = "lockf"; then AC_DEFINE(REAL_MAIL_USE_LOCKF)
-elif test "$mail_locking" = "flock"; then AC_DEFINE(REAL_MAIL_USE_FLOCK)
-else mail_locking="dot-locking"
+test -z "$mail_locking" -a "$mail_use_locking" = "yes" && mail_locking=locking
+if   test "$mail_locking" = "lockf"; then AC_DEFINE(MAIL_LOCK_LOCKF)
+elif test "$mail_locking" = "flock"; then AC_DEFINE(MAIL_LOCK_FLOCK)
+elif test "$mail_locking" = "locking"; then AC_DEFINE(MAIL_LOCK_LOCKING)
+else mail_locking="dot-locking"; AC_DEFINE(MAIL_LOCK_DOT)
 fi
+test "$mail_locking" = "lockf" -a "$ac_cv_func_lockf" != "yes" && \
+  XE_DIE("lockf mail locking requested but not available.")
+test "$mail_locking" = "flock" -a "$ac_cv_func_flock" != "yes" && \
+  XE_DIE("flock mail locking requested but not available.")
+test "$mail_locking" = "locking" -a "$ac_cv_func_locking" != "yes" && \
+  XE_DIE("locking mail locking requested but not available.")
 
 case "$opsys" in decosf*)
   AC_CHECK_LIB(pthreads, cma_open)
@@ -2901,7 +2921,7 @@ if test "$with_x11" = "yes"; then
 
   dnl What in heck did the user actually want?
   case "$with_athena" in
-    dnl This is the default, old fashioned flat Athena. 
+    dnl This is the default, old fashioned flat Athena.
     "xaw" | "")	athena_variant=Xaw	athena_3d=no  ;;
     "3d")	athena_variant=Xaw3d	athena_3d=yes ;;
     "next")	athena_variant=neXtaw	athena_3d=yes ;;
@@ -2912,22 +2932,22 @@ if test "$with_x11" = "yes"; then
 
   dnl Search for the Athena library...
   if test "$athena_3d" = "no"; then
-    AC_CHECK_LIB($athena_variant, XawScrollbarSetThumb, 
+    AC_CHECK_LIB($athena_variant, XawScrollbarSetThumb,
       [
         dnl Must not be a 3d library...
-        AC_CHECK_LIB($athena_variant, threeDClassRec, 
+        AC_CHECK_LIB($athena_variant, threeDClassRec,
           AC_MSG_WARN("Could not find a non-3d Athena widget library."),
           athena_lib=$athena_variant)
-      ], 
+      ],
       AC_MSG_WARN("Could not find an Athena widget library."))
   else
     dnl The real configuration, need 3d library
     AC_CHECK_LIB($athena_variant, threeDClassRec, athena_lib=$athena_variant,
       dnl OK, couldn't find it with a proper name, try the standard Athena lib
       dnl If that is 3d, presume the user asked for what they have installed.
-      AC_CHECK_LIB(Xaw, threeDClassRec, 
+      AC_CHECK_LIB(Xaw, threeDClassRec,
         [
-          athena_lib=Xaw; 
+          athena_lib=Xaw;
           AC_MSG_WARN("Assuming that libXaw is actually $athena_variant.");
         ],
         AC_MSG_WARN("Could not find a 3d Athena widget library that looked like $athena_variant.")))
@@ -3255,7 +3275,7 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
 
 dnl realpath is buggy on linux, decosf and aix4
 
@@ -3926,15 +3946,32 @@ if test "$extra_verbose" = "yes"; then
   echo ""
 fi
 
-dnl Create some auxiliary files
-if test -f $srcdir/src/gdbinit -a ! -f src/gdbinit ; then
-  echo "creating src/gdbinit"; echo ""
-  echo "source $srcdir/src/gdbinit" > src/gdbinit
+dnl ----------------------------------------------
+dnl Create some auxiliary files for developers.
+dnl ----------------------------------------------
+
+dnl Create a .gdbinit useful for debugging XEmacs
+if test -f "$srcdir/src/.gdbinit" -a ! -f "src/.gdbinit"; then
+  test "$extra_verbose" = "yes" && echo "creating src/.gdbinit"
+  echo "source $srcdir/src/.gdbinit" > "src/.gdbinit"
+fi
+
+dnl Create a .dbxrc useful for debugging XEmacs
+if test -f "$srcdir/src/.dbxrc" -a ! -f "src/.dbxrc"; then
+  test "$extra_verbose" = "yes" && echo "creating src/.dbxrc"
+  echo ". $srcdir/src/.dbxrc" > "src/.dbxrc"
+fi
+
+dnl Create a useful TAGS file
+if test -f "$srcdir/TAGS" -a ! -f "TAGS"; then
+  test "$extra_verbose" = "yes" && echo "creating TAGS"
+  echo "
+$srcdir/TAGS,include" > "TAGS"
 fi
 
 dnl Create top level .sbinit for Sun compilers
 if test "$__SUNPRO_C" = "yes"; then
-  echo "creating .sbinit"; echo ""
+  test "$extra_verbose" = "yes" && echo "creating .sbinit"
   ( echo "# For use with Sun WorkShop's Source browser."
     echo "# See sbquery(1) and sbinit(4) for more information"
     for dir in $MAKE_SUBDIR; do echo "import $dir"; done
@@ -4253,6 +4290,10 @@ fi
 if test -n "$runpath"; then
   echo "  Runtime library search path:                            $runpath"
 fi
+if test "$have_xaw" = "yes"; then
+  echo "  Athena library to link:                                 $athena_lib"
+  echo "  Athena header include path:                             $athena_h_path"
+fi
 test "$with_dnet"  = yes && echo "  Compiling in support for DNET."
 test "$with_socks" = yes && echo "  Compiling in support for SOCKS."
 test "$with_xauth" = yes && echo "  Compiling in support for XAUTH."
@@ -4338,13 +4379,11 @@ case "$with_scrollbars" in
   lucid    ) echo "  Using Lucid scrollbars."     ;;
   motif    ) echo "  Using Motif scrollbars."     ;;
   athena   ) echo "  Using Athena scrollbars."    ;;
-  athena3d ) echo "  Using Athena-3d scrollbars." ;;
   msw ) echo "  Using MS-Windows scrollbars." ;;
 esac
 case "$with_widgets" in
   motif    ) echo "  Using Motif native widgets."     ;;
   athena   ) echo "  Using Athena native widgets."    ;;
-  athena3d ) echo "  Using Athena-3d native widgets." ;;
   msw ) echo "  Using MS-Windows native widgets." ;;
 esac
 case "$with_dialogs" in
@@ -4358,7 +4397,6 @@ case "$with_dialogs" in
     fi; fi
     ;;
   athena   ) echo "  Using Athena dialog boxes."    ;;
-  athena3d ) echo "  Using Athena-3d dialog boxes." ;;
   msw ) echo "  Using MS-Windows dialog boxes." ;;
 esac
 test "$with_modules" = "yes" && echo "  Compiling in dynamic shared object module support."

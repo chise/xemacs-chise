@@ -128,9 +128,9 @@ static const struct struct_description charset_lookup_description = {
    rep_bytes_by_first_byte(c) is more efficient than the equivalent
    canonical computation:
 
-   (BYTE_ASCII_P (c) ? 1 : XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (c))) */
+   XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (c)) */
 
-Bytecount rep_bytes_by_first_byte[0xA0] =
+const Bytecount rep_bytes_by_first_byte[0xA0] =
 { /* 0x00 - 0x7f are for straight ASCII */
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -1276,7 +1276,6 @@ DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
                                mark_charset, print_charset, 0, 0, 0,
 			       charset_description,
 			       struct Lisp_Charset);
-
 /* Make a new charset. */
 
 static Lisp_Object
@@ -1381,11 +1380,6 @@ make_charset (Charset_ID id, Lisp_Object name,
 
   assert (NILP (chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE]));
   chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE] = obj;
-#ifndef UTF2000
-  if (id < 0xA0)
-    /* official leading byte */
-    rep_bytes_by_first_byte[id] = CHARSET_REP_BYTES (cs);
-#endif
 
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
@@ -2352,6 +2346,27 @@ Return the character set of char CH.
   return XCHARSET_NAME (CHAR_CHARSET (XCHAR (ch)));
 }
 
+DEFUN ("char-octet", Fchar_octet, 1, 2, 0, /*
+Return the octet numbered N (should be 0 or 1) of char CH.
+N defaults to 0 if omitted.
+*/
+       (ch, n))
+{
+  Lisp_Object charset;
+  int octet0, octet1;
+
+  CHECK_CHAR_COERCE_INT (ch);
+
+  BREAKUP_CHAR (XCHAR (ch), charset, octet0, octet1);
+
+  if (NILP (n) || EQ (n, Qzero))
+    return make_int (octet0);
+  else if (EQ (n, make_int (1)))
+    return make_int (octet1);
+  else
+    signal_simple_error ("Octet number must be 0 or 1", n);
+}
+
 DEFUN ("split-char", Fsplit_char, 1, 1, 0, /*
 Return list of charset and one or two position-codes of CHAR.
 */
@@ -2389,6 +2404,7 @@ Return list of charset and one or two position-codes of CHAR.
       rc = list2 (XCHARSET_NAME (charset), make_int (c1));
     }
   UNGCPRO;
+
   return rc;
 #endif
 }
@@ -2506,6 +2522,7 @@ syms_of_mule_charset (void)
 
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
+  DEFSUBR (Fchar_octet);
   DEFSUBR (Fsplit_char);
 
 #ifdef ENABLE_COMPOSITE_CHARS

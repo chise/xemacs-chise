@@ -80,7 +80,7 @@
 	"text-mode"
 	"fill"
 	"auto-save"		; Added for 20.4
-
+	"movemail"              ; Added for 21.2
 	(when-feature windows-nt "winnt")
 	(when-feature lisp-float-type "float-sup")
 	"itimer"		; for vars auto-save-timeout and

@@ -529,6 +529,7 @@ Index
 * cdr-safe:                              List Elements.
 * ceiling:                               Numeric Conversions.
 * centering point:                       Vertical Scrolling.
+* cerror:                                Signaling Errors.
 * change hooks:                          Change Hooks.
 * change-major-mode-hook:                Major Mode Conventions.
 * changing key bindings:                 Changing Key Bindings.
@@ -580,6 +581,7 @@ Index
 * charset-registry:                      Charset Property Functions.
 * charset-reverse-direction-charset:     Basic Charset Functions.
 * charsetp:                              Charsets.
+* check-argument-type:                   Signaling Errors.
 * check-toolbar-button-syntax:           Toolbar Descriptor Format.
 * check-valid-char-table-value:          Working With Char Tables.
 * check-valid-inst-list:                 Specifier Validation Functions.
@@ -593,7 +595,6 @@ Index
 * CL note---default optional arg:        Argument List.
 * CL note---integers vrs eq:             Comparison of Numbers.
 * CL note---lack union, set:             Sets And Lists.
-* CL note---no continuable errors:       Signaling Errors.
 * CL note---only throw in Emacs:         Catch and Throw.
 * CL note---rplaca vrs setcar:           Modifying Lists.
 * CL note---set local:                   Setting Variables.
@@ -824,6 +825,7 @@ Index
 * debug-on-next-call:                    Internals of Debugger.
 * debug-on-quit:                         Infinite Loops.
 * debug-on-signal:                       Error Debugging.
+* debug-on-signal use:                   Handling Errors.
 * debugger <1>:                          Internals of Debugger.
 * debugger:                              Debugger.
 * debugger command list:                 Debugger Commands.
@@ -879,6 +881,7 @@ Index
 * define-abbrev:                         Defining Abbrevs.
 * define-abbrev-table:                   Abbrev Tables.
 * define-derived-mode:                   Derived Modes.
+* define-error:                          Error Symbols.
 * define-function:                       Defining Functions.
 * define-key:                            Changing Key Bindings.
 * define-logical-name:                   Changing File Attributes.
@@ -998,6 +1001,7 @@ Index
 * display-buffer:                        Choosing Window.
 * display-buffer-function:               Choosing Window.
 * display-completion-list:               Completion Commands.
+* display-error:                         Processing of Errors.
 * display-message:                       The Echo Area.
 * display-warning:                       Warnings.
 * display-warning-minimum-level:         Warnings.
@@ -1145,6 +1149,7 @@ Index
 * error name:                            Error Symbols.
 * error symbol:                          Error Symbols.
 * error-conditions:                      Error Symbols.
+* error-message-string:                  Processing of Errors.
 * errors:                                Errors.
 * esc-map:                               Prefix Keys.
 * ESC-prefix:                            Prefix Keys.
@@ -2302,7 +2307,6 @@ Index
 * PATH environment variable:             Subprocess Creation.
 * path-separator:                        System Environment.
 * pausing:                               Waiting.
-* peculiar error:                        Error Symbols.
 * peeking at input:                      Peeking and Discarding.
 * percent symbol in modeline:            Modeline Data.
 * perform-replace:                       Search and Replace.
@@ -2809,6 +2813,7 @@ Index
 * shrink-window-pixels:                  Resizing Windows.
 * side effect:                           Intro Eval.
 * signal:                                Signaling Errors.
+* signal-error:                          Signaling Errors.
 * signal-process:                        Signals to Processes.
 * signaling errors:                      Signaling Errors.
 * signals:                               Signals to Processes.

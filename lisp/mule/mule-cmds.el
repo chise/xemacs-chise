@@ -168,11 +168,15 @@ This sets the following coding systems:
   ;;(setq default-keyboard-coding-system coding-system)
   (setq keyboard-coding-system coding-system)
   ;;(setq default-process-coding-system (cons coding-system coding-system))
+  ;; Refer to coding-system-for-read and coding-system-for-write
+  ;; so that C-x RET c works.
   (add-hook 'comint-exec-hook
 	    `(lambda ()
 	       (let ((proc (get-buffer-process (current-buffer))))
-		 (set-process-input-coding-system  proc ',coding-system)
-		 (set-process-output-coding-system proc ',coding-system)))
+		 (set-process-input-coding-system
+		  proc (or coding-system-for-read ',coding-system))
+		 (set-process-output-coding-system
+		  proc (or coding-system-for-write ',coding-system))))
 	    'append)
   (setq file-name-coding-system coding-system))
 

@@ -116,13 +116,11 @@ void *xmalloc_and_zero (size_t size);
 void *xrealloc (void *, size_t size);
 char *xstrdup (CONST char *);
 /* generally useful */
-#define countof(x) ((int) (sizeof(x)/sizeof(x[0])))
-#define slot_offset(type, slot_name) \
-  ((unsigned) (((char *) (&(((type *)0)->slot_name))) - ((char *)0)))
+#define countof(x) ((int) (sizeof(x)/sizeof((x)[0])))
 #define xnew(type) ((type *) xmalloc (sizeof (type)))
 #define xnew_array(type, len) ((type *) xmalloc ((len) * sizeof (type)))
 #define xnew_and_zero(type) ((type *) xmalloc_and_zero (sizeof (type)))
-#define xzero(lvalue) ((void) memset (&(lvalue), 0, sizeof (lvalue)))
+#define xzero(lvalue) ((void) memset (&(lvalue), '\0', sizeof (lvalue)))
 #define xnew_array_and_zero(type, len) ((type *) xmalloc_and_zero ((len) * sizeof (type)))
 #define XREALLOC_ARRAY(ptr, type, len) ((void) (ptr = (type *) xrealloc (ptr, (len) * sizeof (type))))
 #define alloca_array(type, len) ((type *) alloca ((len) * sizeof (type)))
@@ -156,7 +154,6 @@ void xfree_1 (void *);
 } while (0)
 #else
 void xfree (void *);
-#define xfree_1 xfree
 #endif /* ERROR_CHECK_MALLOC */
 
 #ifndef PRINTF_ARGS
@@ -195,7 +192,7 @@ void xfree (void *);
 
 #ifndef ALIGNOF
 # if defined (__GNUC__) && (__GNUC__ >= 2)
-#  define ALIGNOF(x) __alignof (x)
+#  define ALIGNOF(x) __alignof__ (x)
 # else
 #  define ALIGNOF(x) sizeof (x)
 # endif

@@ -452,7 +452,7 @@ static void gpm_next_event_cb (struct Lisp_Event *event)
 		return;
 	}
 
-	return (orig_next_event_cb (event));
+	orig_next_event_cb (event);
 }
 
 static void hook_event_callbacks_once (void)

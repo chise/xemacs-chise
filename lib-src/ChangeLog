@@ -7,6 +7,50 @@
 
 	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
 
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* ootags.c: Ansify.
+	* etags.c:
+	* getopt.c:
+	* cvtmail.c:
+	Remove declarations of ANSI errno, getenv(), malloc().
+
+2000-01-13  Martin Buchholz  <martin@xemacs.org>
+
+	* movemail.c (main): 
+	* make-docfile.c (write_c_args): 
+	Simple compiler warning fixes.
+
+2000-01-09  Martin Buchholz  <martin@xemacs.org>
+
+	* *.[ch]: Change <../src/config.h> to <config.h>
+	* ellcc.c: Always use <...> to #include files not in `.'
+	* Makefile.in.in: Use safer -I paths.
+	Use $(top_srcdir) instead of $(srcdir)/../src
+	Add warning comment.
+
+2000-01-08  Martin Buchholz  <martin@xemacs.org>
+
+	* movemail.c: Warning removal.
+
+2000-01-06  Norbert Koch  <norbert@s.netic.de>
+
+	* movemail.c: Typo fix.
+
+2000-01-03  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* movemail.c: Overhaul of the locking code.
+
+2000-01-03  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c (etags_strrchr): Ansify.
+	(etags_strchr): Ansify.
+	(get_compressor_from_suffix): Remove warning, make code cleaner.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

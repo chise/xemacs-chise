@@ -77,10 +77,12 @@ t means to return a list of all possible completions of STRING.
 (defvar minibuffer-completion-confirm nil
   "Non-nil => demand confirmation of completion before exiting minibuffer.")
 
-(defvar minibuffer-confirm-incomplete nil
+(defcustom minibuffer-confirm-incomplete nil
   "If true, then in contexts where completing-read allows answers which
 are not valid completions, an extra RET must be typed to confirm the
-response.  This is helpful for catching typos, etc.")
+response.  This is helpful for catching typos, etc."
+  :type 'boolean
+  :group 'minibuffer)
 
 (defcustom completion-auto-help t
   "*Non-nil means automatically provide help for invalid completion input."
@@ -1248,7 +1250,9 @@ With prefix argument N, search for Nth previous match.
 If N is negative, find the next or Nth next match."
   (interactive
    (let ((enable-recursive-minibuffers t)
-	 (minibuffer-history-sexp-flag nil))
+	 (minibuffer-history-sexp-flag nil)
+	 (minibuffer-max-depth (and minibuffer-max-depth
+				    (1+ minibuffer-max-depth))))
      (if (eq 't (symbol-value minibuffer-history-variable))
 	 (error "History is not being recorded in this context"))
      (list (read-from-minibuffer "Previous element matching (regexp): "
@@ -1296,7 +1300,9 @@ With prefix argument N, search for Nth next match.
 If N is negative, find the previous or Nth previous match."
   (interactive
    (let ((enable-recursive-minibuffers t)
-	 (minibuffer-history-sexp-flag nil))
+	 (minibuffer-history-sexp-flag nil)
+	 (minibuffer-max-depth (and minibuffer-max-depth
+				    (1+ minibuffer-max-depth))))
      (if (eq t (symbol-value minibuffer-history-variable))
 	 (error "History is not being recorded in this context"))
      (list (read-from-minibuffer "Next element matching (regexp): "
@@ -1646,7 +1652,7 @@ only existing buffer names are allowed."
 This will prompt with a dialog box if appropriate, according to
  `should-use-dialog-box-p'.
 Value is not expanded---you must call `expand-file-name' yourself.
-Value is subject to interpreted by substitute-in-file-name however.
+Value is subject to interpretation by `substitute-in-file-name' however.
 Default name to DEFAULT if user enters a null string.
  (If DEFAULT is omitted, the visited file name is used,
   except that if INITIAL-CONTENTS is specified, that combined with DIR is

@@ -40,6 +40,7 @@ Tweaked 26-Feb-94 by Shawn Carey for use with FreeBSD-1.1 shared libraries.
 #include <sys/types.h>
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
 #include <a.out.h>
 #include <unistd.h>
 #include <ctype.h>
@@ -95,7 +96,6 @@ int run_time_remap (char *dummy);
 /********************** Variables **********************************/
 
 /* for reporting error messages from system calls */
-extern int errno;
 extern int _DYNAMIC;
 extern char **environ;             
 

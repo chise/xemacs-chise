@@ -1,3 +1,23 @@
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* minitar.c: Errno.h --> errno.h.  Remove errno declaration.
+
+2000-01-13  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak: Added USE_PORTABLE_DUMPER make command line macro.
+	(temacs:) Added dependency for lastfile.lib so that 'make temacs'
+	builds it first.
+
+1999-12-28  Scott Blachowicz  <Scott.Blachowicz@seaslug.org>
+
+	* minitar.mak: Add vars to allow building from main xemacs.mak.
+
+	* xemacs.mak: Add rules to build & install minitar.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

@@ -43,7 +43,7 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #define NO_SHORTNAMES
 /* gnuserv should not be compiled using SOCKS */
 #define DO_NOT_SOCKSIFY
-#include <../src/config.h>
+#include <config.h>
 #undef read
 #undef write
 #undef open

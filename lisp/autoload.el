@@ -359,7 +359,7 @@ Unless you are an XEmacs maintainr, it is probably unwise to change this.")
 (defun update-file-autoloads (file)
   "Update the autoloads for FILE in `generated-autoload-file'
 \(which FILE might bind in its local variables).
-This functions refuses to update autoloads files."
+This function refuses to update autoloads files."
   (interactive "fUpdate autoloads for file: ")
   (setq file (expand-file-name file))
   (when (and (file-newer-than-file-p file generated-autoload-file)

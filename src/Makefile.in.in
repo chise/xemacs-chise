@@ -502,7 +502,7 @@ debug-temacs: temacs
 ## Purify
 PURIFY_PROG  = purify
 PURIFY_FLAGS = -chain-length=32 -ignore-signals=SIGPOLL -threads=yes \
- -cache-dir=./purecache -always-use-cache-dir=yes -pointer-mask=0x0fffffff
+ -cache-dir=./purecache -always-use-cache-dir=yes
 PURIFY_LIBS  = -lpthread
 puremacs: $(temacs_deps)
 	$(PURIFY_PROG) $(PURIFY_FLAGS) $(LD) $(temacs_link_args) $(PURIFY_LIBS)
