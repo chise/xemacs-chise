@@ -1085,13 +1085,9 @@
 (define-char
   '((ideographic-radical . 91)	; â½š
     (ideographic-strokes . 11)
-    (ucs		. #x7257)	; ç‰—
-    ))
-(define-char
-  '((ideographic-radical . 91)	; â½š
-    (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (chinese-cns11643-3 . #x4D2D)	; ø»–—˜
+    (ucs		. #x7257)	; ç‰—
     ))
 (define-char
   '((ideographic-radical . 91)	; â½š
