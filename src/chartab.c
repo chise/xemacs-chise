@@ -3403,13 +3403,7 @@ load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
     db_dir = build_string ("../lib-src");
 
   db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
   db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
   db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
