@@ -174,6 +174,7 @@
     (japanese-jisx0213-1	. #x2E6F)	; ø»¢§
     (chinese-big5		. #xA564)	; øºŸ¥˜
     (ideograph-daikanwa		. 02781)	; ø¸€«
+    (china3-jef			. #x82B5)	; øºˆŠµ
     (ucs			. #x5361)	; å¡
     ))
 (define-char
@@ -473,12 +474,9 @@
 (define-char
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 6)
-    (kangxi-radical	 . 131)	; â¾‚
-    (kangxi-strokes	 . 2)
     (total-strokes	 . 8)
     (chinese-gb2312		. #x4E54)	; ø»…ˆ½
     (chinese-isoir165		. #x4E54)	; ø»±
-    (chinese-cns11643-3		. #x2A5C)	; ø»•¤­
     (japanese-jisx0213-2	. #x2354)	; ø»¤ ¯
     (ideograph-daikanwa		. 02808)	; ø¸€«¸
     (ucs			. #x5367)	; å§
