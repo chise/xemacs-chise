@@ -32,11 +32,16 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x72AE)	; 犮
-    (=jis-x0212		. #x4A6E)	; &I-JSP-4A6E; [42-78]
-    (=cns11643-2	. #x2164)	; &I-C2-2164; [01-68]
-    (=jis-x0213-2-2000	. #x703B)	; &I-JX2-703B; [80-27]
-    (=big5		. #xC9A5)	; &I-B-C9A5;
-    (=daikanwa		. 20236)	; &I-M-20236;
+    (->subsumptive
+     ((=jis-x0212	  . #x4A6E)	; &M-20236; [42-78]
+      (=cns11643-2	  . #x2164)	; &I-C2-2164; [01-68]
+      (=jis-x0213-2-2000  . #x703B)	; &I-JX2-703B; [80-27]
+      (=big5		  . #xC9A5)	; &I-B-C9A5;
+      (=daikanwa	  . 20236)	; &I-M-20236;
+      (=ucs@jis		  . #x72AE)	; &M-20236;
+      )
+     ((=ucs@unicode	  . #x72AE)	; &UU+72AE;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -3877,60 +3882,53 @@
     (=ucs		. #x7335)	; 猵
     ))
 (define-char
-  '((=>ucs		. #x7336)	; 猶
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ks-x1001		. #x6B22)	; &M-20557; [75-02]
-    (=big5		. #xB553)	; &I-B-B553;
-    (=daikanwa		. 20557)	; &I-M-20557;
-    (=jef-china3	. #x58F0)	; &I-JC3-58F0;
-    ))
-(define-char
-  '((=>ucs		. #x7336)	; 猶
-    (morohashi-daikanwa	20557 0 2)
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=jis-x0208		. #x4D31)	; &GT-26324; [45-17]
-    (=gt		. 26324)	; &I-GT-26324;
-    (=gt-k		. 09152)	; &I-GT-K09152;
-    (=gt-pj-1		. #x4D31)	; &I-GT-26324; [45-17]
-    (=ucs@jis		. #x7336)	; &GT-26324;
-    ))
-(define-char
-  '((morohashi-daikanwa	20557 0 3)
-    (ideographic-radical . 94)	; ⽝
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x7336)	; 猶
-    (=cns11643-1	. #x6059)	; &I-C1-6059; [64-57]
-    (=gb12345		. #x534C)	; 猶 [51-44]
+    (=big5		. #xB553)	; &I-B-B553;
+    (->subsumptive
+     ((=daikanwa	  . 20557)	; &M-20557;
+      )
+     ((=ks-x1001	  . #x6B22)	; &K0-6B22; [75-02]
+      (=jef-china3	  . #x58F0)	; &I-JC3-58F0;
+      )
+     ((=cns11643-1	  . #x6059)	; &C1-6059; [64-57]
+      )
+     ((=jis-x0208	  . #x4D31)	; &GT-26324; [45-17]
+      (=gt		  . 26324)	; &I-GT-26324;
+      (=gt-k		  . 09152)	; &I-GT-K09152;
+      (=gt-pj-1		  . #x4D31)	; &I-GT-26324; [45-17]
+      (=ucs@jis		  . #x7336)	; &GT-26324;
+      )
+     ((=gb12345		  . #x534C)	; &UU+7336; [51-44]
+      (=ucs@unicode	  . #x7336)	; &UU+7336;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x7337)	; 猷
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=jis-x0208-1978	. #x4D32)	; &M-20558; [45-18]
-    (=ks-x1001		. #x6B23)	; &I-K0-6B23; [75-03]
-    (=big5		. #xB7DF)	; &I-B-B7DF;
-    (=daikanwa		. 20558)	; &I-M-20558;
-    ))
-(define-char
-  '((morohashi-daikanwa	20558 0 2)
-    (ideographic-radical . 94)	; ⽝
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x7337)	; 猷
-    (=gb2312		. #x6960)	; &I-G0-6960; [73-64]
-    (=jis-x0208-1983	. #x4D32)	; &I-J83-4D32; [45-18]
-    (=jis-x0208-1990	. #x4D32)	; &I-J90-4D32; [45-18]
-    (=cns11643-1	. #x6527)	; &I-C1-6527; [69-07]
-    (=gt		. 26390)	; &I-GT-26390;
-    (=gt-k		. 10277)	; &I-GT-K10277;
-    (=gt-pj-1		. #x4D32)	; &I-GT-26390; [45-18]
-    (=jef-china3	. #x58F9)	; &I-JC3-58F9;
+    (=big5		. #xB7DF)	; &I-B-B7DF;
+    (->subsumptive
+     ((=jis-x0208@1978	  . #x4D32)	; &M-20558; [45-18]
+      (=ks-x1001	  . #x6B23)	; &I-K0-6B23; [75-03]
+      (=daikanwa	  . 20558)	; &I-M-20558;
+      )
+     ((=cns11643-1	  . #x6527)	; &C1-6527; [69-07]
+      )
+     ((=jis-x0208@1983	  . #x4D32)	; &J90-4D32; [45-18]
+      (=jis-x0208@1990	  . #x4D32)	; &I-J90-4D32; [45-18]
+      (=ucs@jis		  . #x7337)	; &J90-4D32;
+      )
+     ((=gb2312		  . #x6960)	; &GT-26390; [73-64]
+      (=gt		  . 26390)	; &I-GT-26390;
+      (=gt-k		  . 10277)	; &I-GT-K10277;
+      (=gt-pj-1		  . #x4D32)	; &I-GT-26390; [45-18]
+      (=jef-china3	  . #x58F9)	; &I-JC3-58F9;
+      (=ucs@unicode	  . #x7337)	; &GT-26390;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
