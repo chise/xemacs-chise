@@ -1,3 +1,11 @@
+2003-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,
+	Ideograph-R157-Foot.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
+	* Ideograph-R119-Rice.el (JX1-7978): Unify CB00857.
+
 2003-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el, Ideograph-R156-Run.el: Add some mappings
