@@ -303,9 +303,9 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B54)	; 
+     ((chinese-big5-cdp	  . #x88EE)	; 
       )
-     ((ucs		  . #x5140)	; 兀
+     ((ucs		  . #x513F)	; 儿
       ))
     (shinjigen-1	. 451)
     (shinjigen-2	. 451)
