@@ -62,20 +62,28 @@
   '((ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (<-same@jiyun
-     ((=daikanwa	  . 29262)	; &M-29262;
-      ))
-    (<-same@jiyun*sources
-     jiyun daikanwa)
-    (<-same@zihui
-     ((=gb12345		  . #x484D)	; &M-43109; [40-45]
-      (=daikanwa	  . 43109)	; &M-43109;
-      ))
-    (<-same@zihui*sources
-     jiyun zihui daikanwa)
     (=ucs		. #x976D)	; 靭
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 3)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x976D)	; 靭
+      ))
     (->subsumptive
-     ((=jis-x0208-1978	  . #x7057)	; &GT-57333; [80-55]
+     ((<-same@jiyun
+       ((=daikanwa	    . 29262)	; &M-29262;
+	))
+      (<-same@jiyun*sources
+       jiyun daikanwa)
+      (<-same@zihui
+       ((=gb12345	    . #x484D)	; &M-43109; [40-45]
+	(=daikanwa	    . 43109)	; &M-43109;
+	))
+      (<-same@zihui*sources
+       jiyun zihui daikanwa)
+      (=jis-x0208@1978	  . #x7057)	; &GT-57333; [80-55]
       (=ks-x1001	  . #x6C65)	; &I-K0-6C65; [76-69]
       (=gt		  . 57333)	; &I-GT-57333;
       (=gt-pj-8		  . #x386F)	; &I-GT-57333; [24-79]
@@ -83,13 +91,25 @@
       (=ucs@unicode	  . #x976D)	; &GT-57333;
       )
      ((=cns11643-3	  . #x4024)	; &C3-4024; [32-04]
-      )
-     ((=jis-x0208-1983	  . #x3F59)	; &GT-57334; [31-57]
-      (=jis-x0208-1990	  . #x3F59)	; &I-J90-3F59; [31-57]
-      (=gt		  . 57334)	; &I-GT-57334;
-      (=gt-pj-1		  . #x3F59)	; &I-GT-57334; [31-57]
-      (=ucs@jis		  . #x976D)	; &GT-57334;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 3)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x976D)	; 靭
+      ))
+    (<-simplified@JP
+     ((=jis-x0208@1978	  . #x7057)	; &GT-57333; [80-55]
+      (=ks-x1001	  . #x6C65)	; &I-K0-6C65; [76-69]
+      (=daikanwa	  . 42715)	; &I-M-42715;
+      ))
+    (=jis-x0208@1983	. #x3F59)	; &GT-57334; [31-57]
+    (=jis-x0208@1990	. #x3F59)	; &I-J90-3F59; [31-57]
+    (=gt		. 57334)	; &I-GT-57334;
+    (=gt-pj-1		. #x3F59)	; &I-GT-57334; [31-57]
+    (=ucs@jis		. #x976D)	; &GT-57334;
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
@@ -177,15 +197,15 @@
 	))
       (<-vulgar@tongwen-tongkao*sources
        tongwen-tongkao daikanwa)
-      (=jis-x0208-1990	  . #x7057)	; &GT-57335; [80-55]
+      (=jis-x0208@1990	  . #x7057)	; &GT-57335; [80-55]
       (=gt		  . 57335)	; &I-GT-57335;
       (=gt-pj-1		  . #x7057)	; &I-GT-57335; [80-55]
       (=ucs@jis		  . #x9771)	; &GT-57335;
       )
-     ((=jis-x0208-1983	  . #x7057)	; &J83-7057; [80-55]
+     ((=jis-x0208@1983	  . #x7057)	; &J83-7057; [80-55]
       (=ucs@unicode	  . #x9771)	; &J83-7057;
       )
-     ((=jis-x0208-1978	  . #x3F59)	; &J78-3F59; [31-57]
+     ((=jis-x0208@1978	  . #x3F59)	; &J78-3F59; [31-57]
       ))
     ))
 (define-char
@@ -257,22 +277,23 @@
     (=ucs		. #x9774)	; 靴
     (->subsumptive
      ((shinjigen-2	  . 9052)
-      (=jis-x0208-1978	  . #x3724)	; &GT-57341; [23-04]
+      (=jis-x0208@1978	  . #x3724)	; &GT-57341; [23-04]
       (=gb2312		  . #x5125)	; &I-G0-5125; [49-05]
       (=gt		  . 57341)	; &I-GT-57341;
       (=gt-pj-9		  . #x4C49)	; &I-GT-57341; [44-41]
       (=daikanwa	  . 42729)	; &I-M-42729;
       (=ucs@unicode	  . #x9774)	; &GT-57341;
       )
-     ((=jis-x0208-1983	  . #x3724)	; &GT-57340; [23-04]
+     ((=jis-x0208@1983	  . #x3724)	; &GT-57340; [23-04]
       (=ks-x1001	  . #x7C28)	; &I-K0-7C28; [92-08]
-      (=jis-x0208-1990	  . #x3724)	; &I-J90-3724; [23-04]
-      (=cns11643-1	  . #x675D)	; &I-C1-675D; [71-61]
+      (=jis-x0208@1990	  . #x3724)	; &I-J90-3724; [23-04]
       (=gt		  . 57340)	; &I-GT-57340;
       (=gt-k		  . 10201)	; &I-GT-K10201;
       (=gt-pj-1		  . #x3724)	; &I-GT-57340; [23-04]
       (=jef-china3	  . #x6CCB)	; &I-JC3-6CCB;
       (=ucs@jis		  . #x9774)	; &GT-57340;
+      )
+     ((=cns11643-1	  . #x675D)	; &C1-675D; [71-61]
       ))
     ))
 (define-char
@@ -692,21 +713,34 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=ucs		. #x9784)	; 鞄
-    (->subsumptive
-     ((=jis-x0208-1978	  . #x3373)	; &GT-57409; [19-83]
-      (=cns11643-2	  . #x4F2E)	; &I-C2-4F2E; [47-14]
-      (=gt		  . 57409)	; &I-GT-57409;
-      (=gt-pj-8		  . #x394E)	; &I-GT-57409; [25-46]
-      (=daikanwa	  . 42781)	; &I-M-42781;
-      (=ucs@unicode	  . #x9784)	; &GT-57409;
-      )
-     ((=jis-x0208-1983	  . #x3373)	; &GT-57412; [19-83]
-      (=jis-x0208-1990	  . #x3373)	; &I-J90-3373; [19-83]
-      (=gt		  . 57412)	; &I-GT-57412;
-      (=gt-pj-1		  . #x3373)	; &I-GT-57412; [19-83]
-      (=jef-china3	  . #x6CCA)	; &I-JC3-6CCA;
-      (=ucs@jis		  . #x9784)	; &GT-57412;
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x9784)	; 鞄
       ))
+    (=jis-x0208@1978	. #x3373)	; &GT-57409; [19-83]
+    (=cns11643-2	. #x4F2E)	; &I-C2-4F2E; [47-14]
+    (=gt		. 57409)	; &I-GT-57409;
+    (=gt-pj-8		. #x394E)	; &I-GT-57409; [25-46]
+    (=daikanwa		. 42781)	; &I-M-42781;
+    (=ucs@unicode	. #x9784)	; &GT-57409;
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x9784)	; 鞄
+      ))
+    (=jis-x0208@1983	. #x3373)	; &GT-57412; [19-83]
+    (=jis-x0208@1990	. #x3373)	; &I-J90-3373; [19-83]
+    (=gt		. 57412)	; &I-GT-57412;
+    (=gt-pj-1		. #x3373)	; &I-GT-57412; [19-83]
+    (=jef-china3	. #x6CCA)	; &I-JC3-6CCA;
+    (=ucs@jis		. #x9784)	; &GT-57412;
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
@@ -1217,10 +1251,30 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
     (=ucs		. #x9796)	; 鞖
-    (=jis-x0212		. #x6745)	; &I-JSP-6745; [71-37]
-    (=cns11643-4	. #x5467)	; &I-C4-5467; [52-71]
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x9796)	; 鞖
+      ))
+    (=jis-x0212		. #x6745)	; &M-42845; [71-37]
     (=jis-x0213-2-2000	. #x7C24)	; &I-JX2-7C24; [92-04]
     (=daikanwa		. 42845)	; &I-M-42845;
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x9796)	; 鞖
+      ))
+    (->subsumptive
+     ((=ucs@unicode	  . #x9796)	; &UU+9796;
+      )
+     ((=cns11643-4	  . #x5467)	; &C4-5467; [52-71]
+      ))
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
@@ -1264,15 +1318,30 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
     (=ucs		. #x9798)	; 鞘
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x9798)	; 鞘
+      ))
+    (=jis-x0208@1978	. #x3E64)	; &GT-57472; [30-68]
+    (=gt		. 57472)	; &I-GT-57472;
+    (=gt-pj-8		. #x3A2F)	; &I-GT-57472; [26-15]
+    (=daikanwa		. 42850)	; &I-M-42850;
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x9798)	; 鞘
+      ))
     (->subsumptive
-     ((=jis-x0208-1978	  . #x3E64)	; &GT-57472; [30-68]
-      (=gt		  . 57472)	; &I-GT-57472;
-      (=gt-pj-8		  . #x3A2F)	; &I-GT-57472; [26-15]
-      (=daikanwa	  . 42850)	; &I-M-42850;
-      )
      ((=gb2312		  . #x474A)	; &GT-57473; [39-42]
-      (=jis-x0208-1983	  . #x3E64)	; &I-J83-3E64; [30-68]
-      (=jis-x0208-1990	  . #x3E64)	; &I-J90-3E64; [30-68]
+      (=jis-x0208@1983	  . #x3E64)	; &I-J83-3E64; [30-68]
+      (=jis-x0208@1990	  . #x3E64)	; &I-J90-3E64; [30-68]
       (=gt		  . 57473)	; &I-GT-57473;
       (=gt-pj-1		  . #x3E64)	; &I-GT-57473; [30-68]
       (=jef-china3	  . #x6CCC)	; &I-JC3-6CCC;
@@ -1299,8 +1368,12 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
     (=ucs		. #x4A67)	; 䩧
-    (=cns11643-3	. #x5352)	; &I-C3-5352; [51-50]
-    (=daikanwa		. 42852)	; &I-M-42852;
+    (->subsumptive
+     ((=daikanwa	  . 42852)	; &M-42852;
+      )
+     ((=cns11643-3	  . #x5352)	; &C3-5352; [51-50]
+      (=ucs@unicode	  . #x4A67)	; &C3-5352;
+      ))
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
