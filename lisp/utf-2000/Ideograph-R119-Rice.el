@@ -207,6 +207,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 26853)	; ø¸†£¥
+    (china3-jef		. #x5EC9)	; øº…»‰
     (ucs		. #x7C7E)	; ç±¾
     ))
 (define-char
