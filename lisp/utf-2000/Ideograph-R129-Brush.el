@@ -120,6 +120,7 @@
     (korean-ksc5601		. #x625C)	; ø»‰º¥
     (chinese-cns11643-1		. #x6148)	; ø»’¡ƒ
     (japanese-jisx0208-1990	. #x6669)	; ø½‹œš
+    (chinese-gb12345		. #x4B60)	; è‚…
     (ideograph-daikanwa		. 29225)	; ø¸‡ˆ©
     (ucs			. #x8085)	; è‚…
     ))
