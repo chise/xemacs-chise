@@ -113,7 +113,7 @@
    ((symbolp kb)
     nil)))
 
-(defun insert-char-data (char)
+(defun insert-char-data (char &optional readable)
   (let ((data (char-attribute-alist char))
 	cell ret has-long-ccs-name rest
 	radical strokes)
@@ -338,7 +338,11 @@
 				       (cond ((symbolp code)
 					      (symbol-name code))
 					     ((characterp code)
-					      (format "%S" code))
+					      (if readable
+						  (format "%S" code)
+						(format "#x%04X"
+							(char-int code))
+						))
 					     ((integerp code)
 					      (format "#x%04X" code))
 					     (t
@@ -532,8 +536,8 @@
 	    (insert (format "\t; %c" char)))
 	  )))))
 
-(defun insert-char-data-with-variant (char &optional script)
-  (insert-char-data char)
+(defun insert-char-data-with-variant (char &optional script printable)
+  (insert-char-data char printable)
   (let ((variants (or (char-variants char)
 		      (let ((ucs (get-char-attribute char '->ucs)))
 			(if ucs
@@ -544,7 +548,7 @@
       (if (or (null script)
 	      (null (setq vs (get-char-attribute variant 'script)))
 	      (memq script vs))
-	  (insert-char-data variant))
+	  (insert-char-data variant printable))
       (setq variants (cdr variants))
       )))
 
@@ -578,7 +582,7 @@
     (erase-buffer)
     (condition-case err
 	(progn
-	  (insert-char-data-with-variant char)
+	  (insert-char-data-with-variant char nil 'printable)
           ;; (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
