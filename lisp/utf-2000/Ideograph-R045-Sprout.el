@@ -1,33 +1,45 @@
 (define-char
-  '((ideographic-radical . 45)	; â¼¬
+  '((=>ucs*		. #x5C6E)	; å±®
+    (ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=gb2312		. #x6578)	; ø»…«“
     (=iso-ir165		. #x6578)	; ø»Ž“£
     (=cns11643-2	. #x212B)	; ø»“Œª
     (=jis-x0213-1-2000	. #x4F62)	; ø»£—¡
+    (=gt-pj-k1		. #x3A6F)	; ï¨¼
     (=big5		. #xC94B)	; ý¢€Œ¥‹
     (=daikanwa		. 07825)	; ø¸º‘
-    (=ucs@jis		. #xFA3C)	; å±®
-    (=ucs		. #x5C6E)	; å±®
+    (=gt-k		. 00269)	; ý¡„€„
+    (=ucs@gb		. #x5C6E)	; ï¨¼
+    (=ucs@cns		. #x5C6E)	; ï¨¼
+    (=ucs@big5		. #x5C6E)	; ï¨¼
+    (=ucs		. #xFA3C)	; ï¨¼
     ))
 (define-char
-  '((=>ucs*		. #x5C6E)	; å±®
-    (morohashi-daikanwa	7825 0 0)
+  '((morohashi-daikanwa	7825 0 0)
     (ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=ucs		. #xFA3C)	; ï¨¼
+    (->identical
+     ((=ucs		  . #xFA3C)	; ï¨¼
+      ))
+    (=ucs		. #x5C6E)	; å±®
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (->mistakable
+     ((=daikanwa	  . 07825)	; ø¸º‘
+      ))
+    (->mistakable*sources
+     daikanwa)
     (->synonyms
-     (:char	((=daikanwa	     . 08720)	; ø¸‚ˆ
-		 )
-      :sources	(shuowen morohashi-daikanwa)))
-    (comment		. "M-07825 is a different char.")
+     ((=daikanwa	  . 08720)	; ø¸‚ˆ
+      ))
+    (->synonyms*sources
+     shuowen daikanwa)
     (=jis-x0208		. #x5625)	; ø½‹ƒ¶
     (=cns11643-4	. #x2135)	; ø»— ¼
     (=gt-pj-1		. #x5625)	; ý¡€‚™º
