@@ -1,3 +1,13 @@
+2005-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el, Ideograph-R131-Minister.el: Add
+	mappings for Big5 code points.
+
+	* Ideograph-R123-Sheep.el (U-000263F0): Use `->subsumptive'.
+
+	* Ideograph-R050-Turban.el (U+5E4B): Use `->subsumptive'.
+	(U-00022110): Likewise.
+
 2005-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R020-Wrap.el (U+5311): Use `->subsumptive'.
