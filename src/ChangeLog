@@ -1,3 +1,8 @@
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Setup byte_offset for
+	{94|96}^n-set.
+
 1999-11-09  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule-charset.c (Fdefine_char): Fix problem with non-UCS
