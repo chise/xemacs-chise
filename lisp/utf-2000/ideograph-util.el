@@ -128,6 +128,16 @@
 	     t
 	   (int-list< a b)))))
 
+;; (defun nil=-int< (a b)
+;;   (cond ((null a) nil)
+;;         ((null b) nil)
+;;         (t (< a b))))
+
+;; (defun nil>-int< (a b)
+;;   (cond ((null a) nil)
+;;         ((null b) t)
+;;         (t (< a b))))
+
 (defun char-representative-of-daikanwa (char)
   (if (get-char-attribute char 'ideograph-daikanwa)
       char
@@ -146,60 +156,64 @@
 				    'morohashi-daikanwa))))
 	  char))))
 
+(defun char-attributes-poly< (c1 c2 accessors testers defaulters)
+  (catch 'tag
+    (let (a1 a2 accessor tester dm)
+      (while (and accessors testers)
+	(setq accessor (car accessors)
+	      tester (car testers)
+	      dm (car defaulters))
+	(when (and accessor tester)
+	  (setq a1 (funcall accessor c1)
+		a2 (funcall accessor c2))
+	  (cond ((null a1)
+		 (if a2
+		     (cond ((eq dm '<)
+			    (throw 'tag t))
+			   ((eq dm '>)
+			    (throw 'tag nil)))))
+		((null a2)
+		 (cond ((eq dm '<)
+			(throw 'tag nil))
+		       ((eq dm '>)
+			(throw 'tag t))))
+		(t
+		 (cond ((funcall tester a1 a2)
+			(throw 'tag t))
+		       ((funcall tester a2 a1)
+			(throw 'tag nil))))))
+	(setq accessors (cdr accessors)
+	      testers (cdr testers)
+	      defaulters (cdr defaulters))))))
+
+(defun char-daikanwa-strokes (char)
+  (let ((drc (char-representative-of-daikanwa char)))
+    (char-ideographic-strokes
+     (if (= (get-char-attribute drc 'ideographic-radical)
+	    (get-char-attribute char 'ideographic-radical))
+	 drc
+       char))))
+
+;;;###autoload
+(defun char-daikanwa (char)
+  (or (get-char-attribute char 'ideograph-daikanwa)
+      (get-char-attribute char 'morohashi-daikanwa)))
+
+;;;###autoload
+(defun char-ucs (char)
+  (or (get-char-attribute char 'ucs)
+      (get-char-attribute char '=>ucs)
+      (get-char-attribute char '->ucs)))
+
+(defun char-id (char)
+  (logand (char-int char) #x3FFFFFFF))
+
 (defun ideograph-char< (a b)
-  (let (a-m b-m a-s b-s a-u b-u ret)
-    (setq ret (char-representative-of-daikanwa a))
-    (setq a-s (char-ideographic-strokes
-	       (if (= (get-char-attribute ret 'ideographic-radical)
-		      (get-char-attribute a 'ideographic-radical))
-		   ret
-		 a)))
-    (setq ret (char-representative-of-daikanwa b))
-    (setq b-s (char-ideographic-strokes
-	       (if (= (get-char-attribute ret 'ideographic-radical)
-		      (get-char-attribute b 'ideographic-radical))
-		   ret
-		 b)))
-    (if a-s
-	(if b-s
-	    (if (= a-s b-s)
-		(if (setq a-m (or (get-char-attribute a 'ideograph-daikanwa)
-				  (get-char-attribute a 'morohashi-daikanwa)))
-		    (if (setq b-m
-			      (or (get-char-attribute b 'ideograph-daikanwa)
-				  (get-char-attribute b 'morohashi-daikanwa)))
-			(morohashi-daikanwa< a-m b-m)
-		      t)
-		  (if (setq b-m
-			    (or (get-char-attribute b 'ideograph-daikanwa)
-				(get-char-attribute b 'morohashi-daikanwa)))
-		      nil
-		    (setq a-u (get-char-attribute a 'ucs)
-			  b-u (get-char-attribute b 'ucs))
-		    (if a-u
-			(if b-u
-			    (< a-u b-u)
-			  (setq b-u (or (get-char-attribute b '=>ucs)
-					(get-char-attribute b '->ucs)))
-			  (if b-u
-			      (<= a-u b-u)
-			    t))
-		      (setq a-u (or (get-char-attribute a '=>ucs)
-				    (get-char-attribute a '->ucs)))
-		      (if a-u
-			  (if b-u
-			      (< a-u b-u)
-			    (setq b-u (or (get-char-attribute b '=>ucs)
-					  (get-char-attribute b '->ucs)))
-			    (if b-u
-				(< a-u b-u)
-			      t))
-			(if (or b-u (or (get-char-attribute b '=>ucs)
-					(get-char-attribute b '->ucs)))
-			    nil
-			  (< (char-int a)(char-int b)))))))
-	      (< a-s b-s))
-	  t))))
+  (char-attributes-poly<
+   a b
+   '(char-daikanwa-strokes char-daikanwa char-ucs char-id)
+   '(< morohashi-daikanwa< < <)
+   '(> > > >)))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
