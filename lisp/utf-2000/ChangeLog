@@ -1,3 +1,75 @@
+2004-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (U+9F9C): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R145-Clothes.el: Rename `<-original-ideograph' to
+	`<-original'.
+	(U+461A): Use `->subsumptive'; use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R111-Arrow.el (U+77E6): Use `->subsumptive'.
+
+	* Ideograph-R109-Eye.el: Rename `<-original-ideograph' to
+	`<-original'.
+	(U+7714): Use `->subsumptive'.
+
+2004-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+66B1): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+2004-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el, Ideograph-R120-Silk.el: Rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R077-Stop.el (U+3C55): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R061-Heart.el (U+39A4): Use `->same' and
+	`->same*sources' instead of `->synonyms' with char-ref for
+	M-11501; use `<-original' and `<-original*sources' instead of
+	`<-original-ideograph' with char-ref.
+
+	* Ideograph-R063-Door.el: Rename `<-original-ideograph' to
+	`<-original'.
+
+	* Ideograph-R057-Bow.el (U-000223A3): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R040-Roof.el (U+5B90): Use `->subsumptive'.
+	(JSP-3A4C): Moved into U+5B90; rename `<-original-ideograph' to
+	`<-original'.
+	(C4-225B): Add `<-denotational' for U+5B90.
+
+	* Ideograph-R045-Sprout.el, Ideograph-R032-Earth.el: Rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R030-Mouth.el (U+5412): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R028-Private.el (U+53BA): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R024-Ten.el (U-00020983): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R018-Knife.el (U-000206F0): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R009-Man.el, Ideograph-R003-Dot.el,
+	Ideograph-R015-Ice.el, Ideograph-R007-Two.el,
+	Ideograph-R004-Slash.el: Rename `<-original-ideograph' to
+	`<-original'.
+
 2004-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el (U+514D): Unify B-A74B.
