@@ -136,11 +136,11 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-original-ideograph
+    (<-original
      ((shinjigen-1	  . 75)
       (=daikanwa	  . 00252)	; &I-M-00252;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 5 1)
     (ideographic-structure
