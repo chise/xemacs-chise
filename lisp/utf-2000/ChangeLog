@@ -1,3 +1,41 @@
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (J78-3939): Separate G0-387C, C1-4A55,
+	J90-3939 and U+66F4.
+	(U+66F4): Unify G0-387C, C1-4A55 and J90-3939.
+	(M-14298): Separate C1-5937 and moved it to
+	Ideograph-R029-Again.el; delete `cns-radical'.
+	(U+66FC): Delete `kangxi-radical'; unify J90-5258.
+
+2001-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (J90-436B): Unify J78-436B and J83-436B.
+	(J83-5A70): Delete `daikanwa-radical' and `daikanwa-strokes';
+	separate G0-6A49, C2-2F56, J90-5A70 and U+665F; add
+	`ideographic-variants' for M-01546.
+	(J83-5A73): Unify J78-5A73 and J90-5A73; add comment.
+
+	* Ideograph-R071-Not.el (J90-5A5B): Unify J78-5A5B and J83-5A5B.
+	(J90-5A5C): Unify J73-5A5C and J83-5A5C.
+
+	* Ideograph-R070-Square.el (J90-4A7D): Unify J78-4A7D and
+	J83-4A7D.
+	(J90-3B5C): Unify J78-3B5C and J83-3B5C.
+	(J90-5A55): Unify J78-5A55 and J83-5A55.
+	(J90-5A53): Unify J78-5A53 and J83-5A53.
+	(J90-5A56): Unify J78-5A56 and J83-5A56.
+	(M-13644): Separate J90-4E39.
+	(J90-4E39): Unify J78-4E39 and J83-4E39.
+	(J90-5A54): Unify J78-5A54 and J83-5A54.
+	(J90-407B): Unify J78-407B and J83-407B.
+	(J90-5A57): Unify J78-5A57 and J83-5A57.
+	(J90-4232): Unify J78-4232 and J83-4232.
+	(J90-5A58): Unify J78-5A58 and J83-5A58.
+	(J90-5A59): Unify J78-5A59 and J83-5A59.
+
+	* Ideograph-R013-Down-Box.el (M-01546): Separate C5-2B78; relate
+	to U+665F.
+
 2001-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R069-Axe.el (M-13535): Separate C1-4658; unify
