@@ -310,8 +310,10 @@ sorted-doc: ${srcdir}/sorted-doc.c
 b2m: ${srcdir}/b2m.c ../src/config.h
 	$(CC) $(cflags) ${srcdir}/b2m.c $(ldflags) -o $@
 
-movemail: ${srcdir}/movemail.c ${srcdir}/pop.c ${srcdir}/pop.h ../src/config.h
-	$(CC) $(cflags) ${MOVE_FLAGS} ${srcdir}/movemail.c ${srcdir}/pop.c $(ldflags) ${MOVE_LIBS} -o $@
+movemail: ${srcdir}/movemail.c ${srcdir}/pop.c ${srcdir}/pop.h $(GETOPTDEPS) regex.o \
+	../src/config.h
+	$(CC) $(cflags) ${MOVE_FLAGS} ${srcdir}/movemail.c ${srcdir}/pop.c \
+	$(GETOPTOBJS) regex.o $(ldflags) ${MOVE_LIBS} -o $@
 
 cvtmail: ${srcdir}/cvtmail.c
 	$(CC) $(cflags) ${srcdir}/cvtmail.c $(ldflags) -o $@
