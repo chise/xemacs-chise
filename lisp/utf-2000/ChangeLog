@@ -1,3 +1,22 @@
+2000-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (M-31339): Moved from
+	Ideograph-R114-Track.el.
+	(M-31341): Separate C3-4431.
+	(M-31342): Separate J{78|83|90}-6857.
+	(M-31343): Separate U+842F.
+
+	* Ideograph-R084-Steam.el (M-17043): Add J{78|83}-5D63.
+	(M-17048): Add J{78|83}-5D64.
+	(M-17059): Add J{78|83}-5D66.
+	(M-17060): Add J{78|83}-5D65.
+
+2000-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2000-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R106-White.el: Resorted; add some missing Morohashi's
