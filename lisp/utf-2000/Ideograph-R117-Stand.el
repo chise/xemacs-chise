@@ -21,6 +21,16 @@
     (ucs		. #x7ACB)	; ç«‹
     ))
 (define-char
+  '((ideographic-radical . 117)	; â½´
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-simplified-ideograph
+     ((ideograph-daikanwa . 25761)	; ø¸†’¡
+      ))
+    (chinese-big5-cdp	. #x8BAE)	; ý¢€ˆ®®
+    (mojikyo		. 072621)	; ý €‘®­
+    ))
+(define-char
   '((->ucs		. #x41C2)	; ä‡‚
     (ideographic-radical . 117)	; â½´
     (ideographic-strokes . 1)
