@@ -1,3 +1,7 @@
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* GT-RS.txt: Add information about GT-053994 .. GT-066773.
+
 2003-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-82E4): Delete mapping for U+AD6C.
