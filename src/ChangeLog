@@ -1,5 +1,13 @@
 2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (decode_builtin_char): Change semantics of
+	code-offset of coded-charset.
+	(charset_code_point): Likewise.
+	(range_charset_code_point): Likewise.
+	(complex_vars_of_mule_charset): Modify for the change.
+
+2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Fencode_char): Reverse arguments.
 
 	* mule-charset.c (charset_code_point): Fixed.
