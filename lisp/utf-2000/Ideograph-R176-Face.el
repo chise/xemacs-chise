@@ -667,10 +667,18 @@
     (shinjigen-2	. 9043)
     (japanese-jisx0208-1978	. #x7054)	; ø»ƒ°µ
     (japanese-jisx0208		. #x7054)	; ø»ˆ„½
-    (chinese-cns11643-1		. #x7C4E)	; ø»“ˆ³
     (japanese-jisx0208-1990	. #x7054)	; ø½‹ª±
+    (chinese-gb12345		. #x584C)	; é¨
     (ideograph-daikanwa		. 42698)	; ø¸Š›Š
     (ucs			. #x9768)	; é¨
+    ))
+(define-char
+  '((=>ucs		. #x9768)	; é¨
+    (morohashi-daikanwa	42698 0 0)
+    (ideographic-radical . 176)	; â¾¯
+    (ideographic-strokes . 14)
+    (total-strokes	 . 23)
+    (chinese-cns11643-1 . #x7C4E)	; ø»“ˆ³
     ))
 (define-char
   '((ideographic-radical . 176)	; â¾¯
