@@ -193,12 +193,12 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-original-ideograph
-     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 890)
-		 (=daikanwa	     . 03070)	; &I-M-03070;
-		 )
+    (<-original
+     ((shinjigen-1	  . 890)
+      (=daikanwa	  . 03070)	; &I-M-03070;
       ))
+    (<-original*sources
+     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 385 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
