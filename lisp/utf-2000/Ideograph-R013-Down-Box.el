@@ -357,6 +357,7 @@
     (chinese-cns11643-3		. #x2177)	; ø»•—º
     (japanese-jisx0208-1990	. #x5145)	; ø½Š½€
     (ideograph-daikanwa		. 01521)	; ø¸€—±
+    (ideograph-hanziku-2	. #xE47C)	; ý¢€®‘¼
     (ucs			. #x56D8)	; å›˜
     ))
 (define-char
@@ -623,6 +624,7 @@
     (japanese-jisx0208		. #x666E)	; ø»‡¶«
     (japanese-jisx0208-1990	. #x666E)	; ø½‹œŸ
     (ideograph-daikanwa		. 01534)	; ø¸€—¾
+    (ideograph-hanziku-4	. #xDCEE)	; ý¢³®
     (mojikyo			. 001534)	; ý €€—¾
     (ucs			. #x5190)	; å†
     ))
