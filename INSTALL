@@ -80,7 +80,7 @@ system using Mule and Wnn6 from OMRON corporation would be the
 packages `mule-base' and `egg-its'.  By default, packages will be
 searched for in the path
 
-~/.xemacs::$prefix/lib/xemacs-${version}/mule-packages:$prefix/lib/xemacs/mule-packages:$prefix/lib/xemacs-${version}/packages:$prefix/lib/xemacs/packages
+~/.xemacs::$prefix/lib/xemacs-${version}/mule-packages:$prefix/lib/xemacs/mule-packages:$prefix/lib/xemacs-${version}/xemacs-packages:$prefix/lib/xemacs/xemacs-packages
 
 This may be changed by specifying a different value with the
 --package-path configuration option.

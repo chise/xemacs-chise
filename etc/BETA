@@ -197,7 +197,7 @@ Then type `make' and you should have a working XEmacs.
 
 After you have verified that you have a functional editor, fire up
 your favorite mail program and send a build report to
-xemacs-beta@xemacs.org.  The build report should include
+xemacs-build-reports@xemacs.org.  The build report should include
 
 1. Your hardware configuration (OS version, etc.)
 
