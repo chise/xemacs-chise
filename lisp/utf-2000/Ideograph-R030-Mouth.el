@@ -1544,12 +1544,12 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 1074)
-		 (=daikanwa	     . 03533)	; &I-M-03533;
-		 )
+    (<-original
+     ((shinjigen-1	  . 1074)
+      (=daikanwa	  . 03533)	; &I-M-03533;
       ))
+    (<-original*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
