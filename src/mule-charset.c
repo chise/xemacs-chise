@@ -63,6 +63,7 @@ Lisp_Object Vcharset_chinese_cns11643_4;
 Lisp_Object Vcharset_chinese_cns11643_5;
 Lisp_Object Vcharset_chinese_cns11643_6;
 Lisp_Object Vcharset_chinese_cns11643_7;
+Lisp_Object Vcharset_ucs_bmp;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
 Lisp_Object Vcharset_chinese_big5_2;
@@ -85,7 +86,11 @@ static int composite_char_col_next;
 Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
 /* Table of charsets indexed by type/final-byte/direction. */
+#ifdef UTF2000
+Lisp_Object charset_by_attributes[4][128];
+#else
 Lisp_Object charset_by_attributes[4][128][2];
+#endif
 
 #ifndef UTF2000
 /* Table of number of bytes in the string representation of a character
@@ -119,9 +124,406 @@ Bytecount rep_bytes_by_first_byte[0xA0] =
 };
 #endif
 
-Lisp_Object Vutf_2000_version;
+#ifdef UTF2000
+Charset_ID latin_a_char_to_charset[128] = {
+  /* U+0100 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0101 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0102 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0103 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0104 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0105 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0106 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0107 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0108 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0109 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+010A */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+010B */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+010C */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+010D */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+010E */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+010F */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0110 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0111 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0112 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0113 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0114 */ LEADING_BYTE_UCS_BMP,
+  /* U+0115 */ LEADING_BYTE_UCS_BMP,
+  /* U+0116 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0117 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0118 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0119 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+011A */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+011B */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+011C */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+011D */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+011E */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+011F */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0120 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0121 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0122 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0123 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0124 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0125 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0126 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0127 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0128 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0129 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+012A */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+012B */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+012C */ LEADING_BYTE_UCS_BMP,
+  /* U+012D */ LEADING_BYTE_UCS_BMP,
+  /* U+012E */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+012F */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0130 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0131 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0132 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0133 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0134 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0135 */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+0136 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0137 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0138 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0139 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+013A */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+013B */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+013C */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+013D */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+013E */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+013F */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0140 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0141 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0142 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0143 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0144 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0145 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0146 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0147 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0148 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0149 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+014A */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+014B */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+014C */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+014D */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+014E */ LEADING_BYTE_UCS_BMP,
+  /* U+014F */ LEADING_BYTE_UCS_BMP,
+  /* U+0150 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0151 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0152 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0153 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0154 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0155 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0156 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0157 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0158 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0159 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+015A */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+015B */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+015C */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+015D */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+015E */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+015F */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0160 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0161 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0162 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0163 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0164 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0165 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0166 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0167 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0168 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0169 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+016A */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+016B */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+016C */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+016D */ LEADING_BYTE_LATIN_ISO8859_3,
+  /* U+016E */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+016F */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0170 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0171 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+0172 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0173 */ LEADING_BYTE_LATIN_ISO8859_4,
+  /* U+0174 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0175 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0176 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0177 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0178 */ LEADING_BYTE_JAPANESE_JISX0212,
+  /* U+0179 */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017A */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017B */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017C */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017D */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017E */ LEADING_BYTE_LATIN_ISO8859_2,
+  /* U+017F */ LEADING_BYTE_UCS_BMP
+};
 
+unsigned char latin_a_char_to_byte1[128] = {
+  /* U+0100 */ 0xC0 - 0x80,
+  /* U+0101 */ 0xE0 - 0x80,
+  /* U+0102 */ 0xC3 - 0x80,
+  /* U+0103 */ 0xE3 - 0x80,
+  /* U+0104 */ 0xA1 - 0x80,
+  /* U+0105 */ 0xB1 - 0x80,
+  /* U+0106 */ 0xC6 - 0x80,
+  /* U+0107 */ 0xE6 - 0x80,
+  /* U+0108 */ 0xC6 - 0x80,
+  /* U+0109 */ 0xE6 - 0x80,
+  /* U+010A */ 0xC5 - 0x80,
+  /* U+010B */ 0xE5 - 0x80,
+  /* U+010C */ 0xC8 - 0x80,
+  /* U+010D */ 0xE8 - 0x80,
+  /* U+010E */ 0xCF - 0x80,
+  /* U+010F */ 0xEF - 0x80,
+  /* U+0110 */ 0xD0 - 0x80,
+  /* U+0111 */ 0xF0 - 0x80,
+  /* U+0112 */ 0xAA - 0x80,
+  /* U+0113 */ 0xBA - 0x80,
+  /* U+0114 */ 0x01,
+  /* U+0115 */ 0x01,
+  /* U+0116 */ 0xCC - 0x80,
+  /* U+0117 */ 0xEC - 0x80,
+  /* U+0118 */ 0xCA - 0x80,
+  /* U+0119 */ 0xEA - 0x80,
+  /* U+011A */ 0xCC - 0x80,
+  /* U+011B */ 0xEC - 0x80,
+  /* U+011C */ 0xD8 - 0x80,
+  /* U+011D */ 0xF8 - 0x80,
+  /* U+011E */ 0xAB - 0x80,
+  /* U+011F */ 0xBB - 0x80,
+  /* U+0120 */ 0xD5 - 0x80,
+  /* U+0121 */ 0xF5 - 0x80,
+  /* U+0122 */ 0xAB - 0x80,
+  /* U+0123 */ 0xBB - 0x80,
+  /* U+0124 */ 0xA6 - 0x80,
+  /* U+0125 */ 0xB6 - 0x80,
+  /* U+0126 */ 0xA1 - 0x80,
+  /* U+0127 */ 0xB1 - 0x80,
+  /* U+0128 */ 0xA5 - 0x80,
+  /* U+0129 */ 0xB5 - 0x80,
+  /* U+012A */ 0xCF - 0x80,
+  /* U+012B */ 0xEF - 0x80,
+  /* U+012C */ 0x01,
+  /* U+012D */ 0x01,
+  /* U+012E */ 0xC7 - 0x80,
+  /* U+012F */ 0xE7 - 0x80,
+  /* U+0130 */ 0xA9 - 0x80,
+  /* U+0131 */ 0xB9 - 0x80,
+  /* U+0132 */ 0x29,
+  /* U+0133 */ 0x29,
+  /* U+0134 */ 0xAC - 0x80,
+  /* U+0135 */ 0xBC - 0x80,
+  /* U+0136 */ 0xD3 - 0x80,
+  /* U+0137 */ 0xF3 - 0x80,
+  /* U+0138 */ 0xA2 - 0x80,
+  /* U+0139 */ 0xC5 - 0x80,
+  /* U+013A */ 0xE5 - 0x80,
+  /* U+013B */ 0xA6 - 0x80,
+  /* U+013C */ 0xB6 - 0x80,
+  /* U+013D */ 0xA5 - 0x80,
+  /* U+013E */ 0xB5 - 0x80,
+  /* U+013F */ 0x29,
+  /* U+0140 */ 0x29,
+  /* U+0141 */ 0xA3 - 0x80,
+  /* U+0142 */ 0xB3 - 0x80,
+  /* U+0143 */ 0xD1 - 0x80,
+  /* U+0144 */ 0xF1 - 0x80,
+  /* U+0145 */ 0xD1 - 0x80,
+  /* U+0146 */ 0xF1 - 0x80,
+  /* U+0147 */ 0xD2 - 0x80,
+  /* U+0148 */ 0xF2 - 0x80,
+  /* U+0149 */ 0x29,
+  /* U+014A */ 0xBD - 0x80,
+  /* U+014B */ 0xBF - 0x80,
+  /* U+014C */ 0xD2 - 0x80,
+  /* U+014D */ 0xF2 - 0x80,
+  /* U+014E */ 0x01,
+  /* U+014F */ 0x01,
+  /* U+0150 */ 0xD5 - 0x80,
+  /* U+0151 */ 0xF5 - 0x80,
+  /* U+0152 */ 0x29,
+  /* U+0153 */ 0x29,
+  /* U+0154 */ 0xC0 - 0x80,
+  /* U+0155 */ 0xE0 - 0x80,
+  /* U+0156 */ 0xA3 - 0x80,
+  /* U+0157 */ 0xB3 - 0x80,
+  /* U+0158 */ 0xD8 - 0x80,
+  /* U+0159 */ 0xF8 - 0x80,
+  /* U+015A */ 0xA6 - 0x80,
+  /* U+015B */ 0xB6 - 0x80,
+  /* U+015C */ 0xDE - 0x80,
+  /* U+015D */ 0xFE - 0x80,
+  /* U+015E */ 0xAA - 0x80,
+  /* U+015F */ 0xBA - 0x80,
+  /* U+0160 */ 0xA9 - 0x80,
+  /* U+0161 */ 0xB9 - 0x80,
+  /* U+0162 */ 0xDE - 0x80,
+  /* U+0163 */ 0xFE - 0x80,
+  /* U+0164 */ 0xAB - 0x80,
+  /* U+0165 */ 0xBB - 0x80,
+  /* U+0166 */ 0xAC - 0x80,
+  /* U+0167 */ 0xBC - 0x80,
+  /* U+0168 */ 0xDD - 0x80,
+  /* U+0169 */ 0xFD - 0x80,
+  /* U+016A */ 0xDE - 0x80,
+  /* U+016B */ 0xFE - 0x80,
+  /* U+016C */ 0xDD - 0x80,
+  /* U+016D */ 0xFD - 0x80,
+  /* U+016E */ 0xD9 - 0x80,
+  /* U+016F */ 0xF9 - 0x80,
+  /* U+0170 */ 0xDB - 0x80,
+  /* U+0171 */ 0xFB - 0x80,
+  /* U+0172 */ 0xD9 - 0x80,
+  /* U+0173 */ 0xF9 - 0x80,
+  /* U+0174 */ 0x2A,
+  /* U+0175 */ 0x2B,
+  /* U+0176 */ 0x2A,
+  /* U+0177 */ 0x2B,
+  /* U+0178 */ 0x2A,
+  /* U+0179 */ 0xAC - 0x80,
+  /* U+017A */ 0xBC - 0x80,
+  /* U+017B */ 0xAF - 0x80,
+  /* U+017C */ 0xBF - 0x80,
+  /* U+017D */ 0xAE - 0x80,
+  /* U+017E */ 0xBE - 0x80,
+  /* U+017F */ 0x01
+};
+
+unsigned char latin_a_char_to_byte2[128] = {
+  /* U+0100 */ 0x00,
+  /* U+0101 */ 0x00,
+  /* U+0102 */ 0x00,
+  /* U+0103 */ 0x00,
+  /* U+0104 */ 0x00,
+  /* U+0105 */ 0x00,
+  /* U+0106 */ 0x00,
+  /* U+0107 */ 0x00,
+  /* U+0108 */ 0x00,
+  /* U+0109 */ 0x00,
+  /* U+010A */ 0x00,
+  /* U+010B */ 0x00,
+  /* U+010C */ 0x00,
+  /* U+010D */ 0x00,
+  /* U+010E */ 0x00,
+  /* U+010F */ 0x00,
+  /* U+0110 */ 0x00,
+  /* U+0111 */ 0x00,
+  /* U+0112 */ 0x00,
+  /* U+0113 */ 0x00,
+  /* U+0114 */ 0x14,
+  /* U+0115 */ 0x15,
+  /* U+0116 */ 0x00,
+  /* U+0117 */ 0x00,
+  /* U+0118 */ 0x00,
+  /* U+0119 */ 0x00,
+  /* U+011A */ 0x00,
+  /* U+011B */ 0x00,
+  /* U+011C */ 0x00,
+  /* U+011D */ 0x00,
+  /* U+011E */ 0x00,
+  /* U+011F */ 0x00,
+  /* U+0120 */ 0x00,
+  /* U+0121 */ 0x00,
+  /* U+0122 */ 0x00,
+  /* U+0123 */ 0x00,
+  /* U+0124 */ 0x00,
+  /* U+0125 */ 0x00,
+  /* U+0126 */ 0x00,
+  /* U+0127 */ 0x00,
+  /* U+0128 */ 0x00,
+  /* U+0129 */ 0x00,
+  /* U+012A */ 0x00,
+  /* U+012B */ 0x00,
+  /* U+012C */ 0x2C,
+  /* U+012D */ 0x2D,
+  /* U+012E */ 0x00,
+  /* U+012F */ 0x00,
+  /* U+0130 */ 0x00,
+  /* U+0131 */ 0x00,
+  /* U+0132 */ 0x26,
+  /* U+0133 */ 0x46,
+  /* U+0134 */ 0x00,
+  /* U+0135 */ 0x00,
+  /* U+0136 */ 0x00,
+  /* U+0137 */ 0x00,
+  /* U+0138 */ 0x00,
+  /* U+0139 */ 0x00,
+  /* U+013A */ 0x00,
+  /* U+013B */ 0x00,
+  /* U+013C */ 0x00,
+  /* U+013D */ 0x00,
+  /* U+013E */ 0x00,
+  /* U+013F */ 0x29,
+  /* U+0140 */ 0x49,
+  /* U+0141 */ 0x00,
+  /* U+0142 */ 0x00,
+  /* U+0143 */ 0x00,
+  /* U+0144 */ 0x00,
+  /* U+0145 */ 0x00,
+  /* U+0146 */ 0x00,
+  /* U+0147 */ 0x00,
+  /* U+0148 */ 0x00,
+  /* U+0149 */ 0x4A,
+  /* U+014A */ 0x00,
+  /* U+014B */ 0x00,
+  /* U+014C */ 0x00,
+  /* U+014D */ 0x00,
+  /* U+014E */ 0x4E,
+  /* U+014F */ 0x4F,
+  /* U+0150 */ 0x00,
+  /* U+0151 */ 0x00,
+  /* U+0152 */ 0x2D,
+  /* U+0153 */ 0x4D,
+  /* U+0154 */ 0x00,
+  /* U+0155 */ 0x00,
+  /* U+0156 */ 0x00,
+  /* U+0157 */ 0x00,
+  /* U+0158 */ 0x00,
+  /* U+0159 */ 0x00,
+  /* U+015A */ 0x00,
+  /* U+015B */ 0x00,
+  /* U+015C */ 0x00,
+  /* U+015D */ 0x00,
+  /* U+015E */ 0x00,
+  /* U+015F */ 0x00,
+  /* U+0160 */ 0x00,
+  /* U+0161 */ 0x00,
+  /* U+0162 */ 0x00,
+  /* U+0163 */ 0x00,
+  /* U+0164 */ 0x00,
+  /* U+0165 */ 0x00,
+  /* U+0166 */ 0x00,
+  /* U+0167 */ 0x00,
+  /* U+0168 */ 0x00,
+  /* U+0169 */ 0x00,
+  /* U+016A */ 0x00,
+  /* U+016B */ 0x00,
+  /* U+016C */ 0x00,
+  /* U+016D */ 0x00,
+  /* U+016E */ 0x00,
+  /* U+016F */ 0x00,
+  /* U+0170 */ 0x00,
+  /* U+0171 */ 0x00,
+  /* U+0172 */ 0x00,
+  /* U+0173 */ 0x00,
+  /* U+0174 */ 0x71,
+  /* U+0175 */ 0x71,
+  /* U+0176 */ 0x74,
+  /* U+0177 */ 0x74,
+  /* U+0178 */ 0x73,
+  /* U+0179 */ 0x00,
+  /* U+017A */ 0x00,
+  /* U+017B */ 0x00,
+  /* U+017C */ 0x00,
+  /* U+017D */ 0x00,
+  /* U+017E */ 0x00,
+  /* U+017F */ 0x7F
+};
+
+Lisp_Object Vutf_2000_version;
+#endif
+
+#ifndef UTF2000
 int leading_code_private_11;
+#endif
 
 Lisp_Object Qcharsetp;
 
@@ -159,6 +561,7 @@ Lisp_Object Qascii,
   Qchinese_cns11643_5,
   Qchinese_cns11643_6,
   Qchinese_cns11643_7,
+  Qucs_bmp,
 #endif
   Qchinese_big5_1,
   Qchinese_big5_2,
@@ -168,8 +571,8 @@ Lisp_Object Ql2r, Qr2l;
 
 Lisp_Object Vcharset_hash_table;
 
-static Bufbyte next_allocated_1_byte_leading_byte;
-static Bufbyte next_allocated_2_byte_leading_byte;
+static Charset_ID next_allocated_1_byte_leading_byte;
+static Charset_ID next_allocated_2_byte_leading_byte;
 
 /* Composite characters are characters constructed by overstriking two
    or more regular characters.
@@ -215,7 +618,7 @@ non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
 {
   Bufbyte *p;
 #ifndef UTF2000
-  Bufbyte lb;
+  Charset_ID lb;
   int c1, c2;
   Lisp_Object charset;
 #endif
@@ -579,7 +982,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
 /* Make a new charset. */
 
 static Lisp_Object
-make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
+make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
 	      unsigned char type, unsigned char columns, unsigned char graphic,
 	      Bufbyte final, unsigned char direction,  Lisp_Object short_name,
 	      Lisp_Object long_name, Lisp_Object doc,
@@ -605,18 +1008,48 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 
-  CHARSET_DIMENSION     (cs) = (CHARSET_TYPE (cs) == CHARSET_TYPE_94 ||
-				CHARSET_TYPE (cs) == CHARSET_TYPE_96) ? 1 : 2;
-  CHARSET_CHARS         (cs) = (CHARSET_TYPE (cs) == CHARSET_TYPE_94 ||
-				CHARSET_TYPE (cs) == CHARSET_TYPE_94X94) ? 94 : 96;
+  switch ( CHARSET_TYPE (cs) )
+    {
+    case CHARSET_TYPE_94:
+      CHARSET_DIMENSION (cs) = 1;
+      CHARSET_CHARS (cs) = 94;
+      break;
+    case CHARSET_TYPE_96:
+      CHARSET_DIMENSION (cs) = 1;
+      CHARSET_CHARS (cs) = 96;
+      break;
+    case CHARSET_TYPE_94X94:
+      CHARSET_DIMENSION (cs) = 2;
+      CHARSET_CHARS (cs) = 94;
+      break;
+    case CHARSET_TYPE_96X96:
+      CHARSET_DIMENSION (cs) = 2;
+      CHARSET_CHARS (cs) = 96;
+      break;
+#ifdef UTF2000
+    case CHARSET_TYPE_128X128:
+      CHARSET_DIMENSION (cs) = 2;
+      CHARSET_CHARS (cs) = 128;
+      break;
+    case CHARSET_TYPE_256X256:
+      CHARSET_DIMENSION (cs) = 2;
+      CHARSET_CHARS (cs) = 256;
+      break;
+#endif
+    }
 
   if (final)
     {
       /* some charsets do not have final characters.  This includes
 	 ASCII, Control-1, Composite, and the two faux private
 	 charsets. */
+#if UTF2000
+      assert (NILP (charset_by_attributes[type][final]));
+      charset_by_attributes[type][final] = obj;
+#else
       assert (NILP (charset_by_attributes[type][final][direction]));
       charset_by_attributes[type][final][direction] = obj;
+#endif
     }
 
   assert (NILP (charset_by_leading_byte[id - MIN_LEADING_BYTE]));
@@ -637,7 +1070,7 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
 static int
 get_unallocated_leading_byte (int dimension)
 {
-  int lb;
+  Charset_ID lb;
 
   if (dimension == 1)
     {
@@ -914,7 +1347,45 @@ character set.  Recognized properties are:
     error
       ("Character set already defined for this DIMENSION/CHARS/FINAL combo");
 
+#ifdef UTF2000
+  if (dimension == 1)
+    {
+      if (chars == 94)
+	{
+	  /* id = CHARSET_ID_OFFSET_94 + final; */
+	  id = get_unallocated_leading_byte (dimension);
+	}
+      else if (chars == 96)
+	{
+	  id = get_unallocated_leading_byte (dimension);
+	}
+      else
+	{
+	  abort ();
+	}
+    }
+  else if (dimension == 2)
+    {
+      if (chars == 94)
+	{
+	  id = get_unallocated_leading_byte (dimension);
+	}
+      else if (chars == 96)
+	{
+	  id = get_unallocated_leading_byte (dimension);
+	}
+      else
+	{
+	  abort ();
+	}
+    }
+  else
+    {
+      abort ();
+    }
+#else
   id = get_unallocated_leading_byte (dimension);
+#endif
 
   if (NILP (doc_string))
     doc_string = build_string ("");
@@ -1235,8 +1706,7 @@ Return the character set of char CH.
 {
   CHECK_CHAR_COERCE_INT (ch);
 
-  return XCHARSET_NAME (CHARSET_BY_LEADING_BYTE
-			(CHAR_LEADING_BYTE (XCHAR (ch))));
+  return XCHARSET_NAME (CHAR_CHARSET (XCHAR (ch)));
 }
 
 DEFUN ("split-char", Fsplit_char, 1, 1, 0, /*
@@ -1418,34 +1888,38 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_5,	"chinese-cns11643-5");
   defsymbol (&Qchinese_cns11643_6,	"chinese-cns11643-6");
   defsymbol (&Qchinese_cns11643_7,	"chinese-cns11643-7");
+  defsymbol (&Qucs_bmp,			"ucs-bmp");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
 
   defsymbol (&Qcomposite,		"composite");
-
-#ifdef UTF2000
-  Vutf_2000_version = build_string("0.4 (Shin-Imamiya)");
-  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
-Version number of UTF-2000.
-*/ );
-#endif
 }
 
 void
 vars_of_mule_charset (void)
 {
-  int i, j, k;
+  int i, j;
+#ifndef UTF2000
+  int k;
+#endif
 
   /* Table of charsets indexed by leading byte. */
   for (i = 0; i < countof (charset_by_leading_byte); i++)
     charset_by_leading_byte[i] = Qnil;
 
+#ifdef UTF2000
+  /* Table of charsets indexed by type/final-byte. */
+  for (i = 0; i < countof (charset_by_attributes); i++)
+    for (j = 0; j < countof (charset_by_attributes[0]); j++)
+	charset_by_attributes[i][j] = Qnil;
+#else
   /* Table of charsets indexed by type/final-byte/direction. */
   for (i = 0; i < countof (charset_by_attributes); i++)
     for (j = 0; j < countof (charset_by_attributes[0]); j++)
       for (k = 0; k < countof (charset_by_attributes[0][0]); k++)
 	charset_by_attributes[i][j][k] = Qnil;
+#endif
 
   next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
 #ifdef UTF2000
@@ -1454,11 +1928,20 @@ vars_of_mule_charset (void)
   next_allocated_2_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_2;
 #endif
 
+#ifndef UTF2000
   leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
   DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
 Leading-code of private TYPE9N charset of column-width 1.
 */ );
   leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
+#endif
+
+#ifdef UTF2000
+  Vutf_2000_version = build_string("0.5 (Tennōji)");
+  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
+Version number of UTF-2000.
+*/ );
+#endif
 }
 
 void
@@ -1471,6 +1954,16 @@ complex_vars_of_mule_charset (void)
   /* Predefined character sets.  We store them into variables for
      ease of access. */
 
+#ifdef UTF2000
+  Vcharset_ucs_bmp =
+    make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 1,
+		  CHARSET_TYPE_256X256, 1, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("BMP"),
+		  build_string ("BMP"),
+		  build_string ("BMP"),
+		  build_string (""));
+#endif
   Vcharset_ascii =
     make_charset (LEADING_BYTE_ASCII, Qascii, 1,
 		  CHARSET_TYPE_94, 1, 0, 'B',
