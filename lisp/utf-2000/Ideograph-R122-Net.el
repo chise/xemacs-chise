@@ -55,6 +55,7 @@
       (ucs		  . #x2FF4)	; â¿´
       )
      ((ideograph-gt-pj-k1 . #x3D6D)	; ý¡„€
+      (=gt-k		  . 00079)	; ý¡„€
       )
      ((ucs		  . #x3405)	; ã…
       ))
