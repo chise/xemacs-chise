@@ -1629,25 +1629,25 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
 	{
 	  unsigned char *cp = random_buffer;
 
-	  while (cp < random_buffer + 4096)
+	  while (cp < random_buffer + nread)
 	    {
-	      if ((*cp++ == 'c') && (cp < random_buffer + 4096) &&
-		  (*cp++ == 'o') && (cp < random_buffer + 4096) &&
-		  (*cp++ == 'd') && (cp < random_buffer + 4096) &&
-		  (*cp++ == 'i') && (cp < random_buffer + 4096) &&
-		  (*cp++ == 'n') && (cp < random_buffer + 4096) &&
-		  (*cp++ == 'g') && (cp < random_buffer + 4096) &&
-		  (*cp++ == ':') && (cp < random_buffer + 4096))
+	      if ((*cp++ == 'c') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'o') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'd') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'i') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'n') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'g') && (cp < random_buffer + nread) &&
+		  (*cp++ == ':') && (cp < random_buffer + nread))
 		{
 		  unsigned char coding_system_name[4096 - 6];
 		  unsigned char *np = coding_system_name;
 
-		  while ( (cp < random_buffer + 4096)
+		  while ( (cp < random_buffer + nread)
 			  && ((*cp == ' ') || (*cp == '\t')) )
 		    {
 		      cp++;
 		    }
-		  while ( (cp < random_buffer + 4096) &&
+		  while ( (cp < random_buffer + nread) &&
 			  (*cp != ' ') && (*cp != '\t') && (*cp != ';') )
 		    {
 		      *np++ = *cp++;
