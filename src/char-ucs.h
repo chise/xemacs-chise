@@ -393,13 +393,21 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
   else if (XCHARSET_UCS_MAX (charset))
-    return (XCHARSET_DIMENSION (charset) == 1
-	    ?
-	    c1 - XCHARSET_BYTE_OFFSET (charset)
-	    :
-	    (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
-	    + c2  - XCHARSET_BYTE_OFFSET (charset))
-      - XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
+    {
+      Emchar code
+	= (XCHARSET_DIMENSION (charset) == 1
+	   ?
+	   c1 - XCHARSET_BYTE_OFFSET (charset)
+	   :
+	   (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
+	   + c2  - XCHARSET_BYTE_OFFSET (charset))
+	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
+      if ((code < XCHARSET_UCS_MIN (charset))
+	  || (XCHARSET_UCS_MAX (charset) < code))
+	signal_simple_error ("Arguments makes invalid character",
+			     make_char (code));
+      return code;
+    }
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
       switch (XCHARSET_CHARS (charset))
