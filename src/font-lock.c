@@ -1,6 +1,7 @@
 /* Routines to compute the current syntactic context, for font-lock mode.
    Copyright (C) 1992, 1993, 1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -414,7 +415,11 @@ static void
 find_context (struct buffer *buf, Bufpos pt)
 {
   /* This function can GC */
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   Lisp_Object syntaxtab = buf->syntax_table;
   Emchar prev_c, c;
   Bufpos target = pt;
