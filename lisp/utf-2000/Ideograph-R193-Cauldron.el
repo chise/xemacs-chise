@@ -47,8 +47,8 @@
       )
      ((->subsumptive
        ((sources	    bos=A016374-00004)
-	(=ucs@unicode	    . #x29C2C)	; øº€Š
 	(=ruimoku-v6	    . #xE00A)	; øº€Š
+	(=ucs@unicode	    . #x29C2C)	; øº€Š
 	)
        ((=cns11643-6	    . #x5A4E)	; ø»‰‹
 	))
