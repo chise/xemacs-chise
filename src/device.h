@@ -167,6 +167,7 @@ struct device
   unsigned int faces_changed :1;
   unsigned int frame_changed :1;
   unsigned int glyphs_changed :1;
+  unsigned int subwindows_changed :1;
   unsigned int icon_changed :1;
   unsigned int menubar_changed :1;
   unsigned int modeline_changed :1;
@@ -342,6 +343,9 @@ int valid_device_class_p (Lisp_Object class);
 
 #define MARK_DEVICE_GLYPHS_CHANGED(d)			\
   ((void) (glyphs_changed = (d)->glyphs_changed = 1))
+
+#define MARK_DEVICE_SUBWINDOWS_CHANGED(d)			\
+  ((void) (subwindows_changed = (d)->subwindows_changed = 1))
 
 #define MARK_DEVICE_TOOLBARS_CHANGED(d)			\
   ((void) (toolbar_changed = (d)->toolbar_changed = 1))

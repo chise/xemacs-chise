@@ -74,33 +74,28 @@ struct x_image_instance_data
 #define XIMAGE_INSTANCE_X_NPIXELS(i) \
   IMAGE_INSTANCE_X_NPIXELS (XIMAGE_INSTANCE (i))
 
-/* Set to 1 if you wish to implement this feature */
-# define HAVE_SUBWINDOWS 0
-# if HAVE_SUBWINDOWS
 /****************************************************************************
  *                            Subwindow Object                              *
  ****************************************************************************/
 
-DECLARE_LRECORD (subwindow, struct Lisp_Subwindow);
-#define XSUBWINDOW(x) XRECORD (x, subwindow, struct Lisp_Subwindow)
-#define XSETSUBWINDOW(x, p) XSETRECORD (x, p, subwindow)
-#define SUBWINDOWP(x) RECORDP (x, subwindow)
-#define GC_SUBWINDOWP(x) GC_RECORDP (x, subwindow)
-#define CHECK_SUBWINDOW(x) CHECK_RECORD (x, subwindow)
-
-struct Lisp_Subwindow
+struct x_subwindow_data
 {
-  struct lcrecord_header header;
-  Lisp_Object frame;
   Screen *xscreen;
   Window parent_window;
-
-  unsigned int width, height;
-  Window subwindow;
-
-  int being_displayed;		/* used to detect when needs to be unmapped */
 };
-# endif
+
+#define X_SUBWINDOW_INSTANCE_DATA(i) ((struct x_subwindow_data *) (i)->data)
+
+#define IMAGE_INSTANCE_X_SUBWINDOW_SCREEN(i) \
+  (X_SUBWINDOW_INSTANCE_DATA (i)->xscreen)
+#define IMAGE_INSTANCE_X_SUBWINDOW_PARENT(i) \
+  (X_SUBWINDOW_INSTANCE_DATA (i)->parent_window)
+#define XIMAGE_INSTANCE_X_SUBWINDOW_PARENT(i) \
+  IMAGE_INSTANCE_X_SUBWINDOW_PARENT (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_X_SUBWINDOW_SCREEN(i) \
+  IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (XIMAGE_INSTANCE (i))
+#define IMAGE_INSTANCE_X_SUBWINDOW_ID(i) \
+  ((Window) IMAGE_INSTANCE_SUBWINDOW_ID (i))
 
 #endif /* HAVE_X_WINDOWS */
 #endif /* _XEMACS_GLYPHS_X_H_ */

@@ -47,9 +47,9 @@ that your "home" directory is, in order of preference:
 
 ** XEmacs can't find any packages
 
-The directory tree under which XEmacs looks for your packages is set
-at compile-time, and defaults to C:\Program Files\XEmacs\Packages. The
-variable configure-package-path holds the actual value that was
+XEmacs looks for your packages in subdirectories of a directory which
+is set at compile-time, and defaults to C:\Program Files\XEmacs. The
+variable configure-package-path holds the actual path that was
 compiled into your copy of XEmacs.
 
 The compile-time default location can be overridden by the

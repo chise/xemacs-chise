@@ -3,6 +3,7 @@
    Copyright (C) 1995 Tinker Systems
    Copyright (C) 1995, 1996 Ben Wing
    Copyright (C) 1995 Sun Microsystems
+   Copyright (C) 1998 Andy Piper
 
 This file is part of XEmacs.
 
@@ -34,10 +35,13 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "insdel.h"
-#include "glyphs.h"
+#include "opaque.h"
 #include "objects.h"
 #include "redisplay.h"
 #include "window.h"
+#include "frame.h"
+#include "chartab.h"
+#include "rangetab.h"
 
 #ifdef HAVE_XPM
 #include <X11/xpm.h>
@@ -52,11 +56,11 @@ Lisp_Object Qmono_pixmap_image_instance_p;
 Lisp_Object Qcolor_pixmap_image_instance_p;
 Lisp_Object Qpointer_image_instance_p;
 Lisp_Object Qsubwindow_image_instance_p;
+Lisp_Object Qwidget_image_instance_p;
 Lisp_Object Qconst_glyph_variable;
 Lisp_Object Qmono_pixmap, Qcolor_pixmap, Qsubwindow;
-Lisp_Object Q_file, Q_data, Q_face;
+Lisp_Object Q_file, Q_data, Q_face, Q_pixel_width, Q_pixel_height;
 Lisp_Object Qformatted_string;
-
 Lisp_Object Vcurrent_display_table;
 Lisp_Object Vtruncation_glyph, Vcontinuation_glyph, Voctal_escape_glyph;
 Lisp_Object Vcontrol_arrow_glyph, Vinvisible_text_glyph, Vhscroll_glyph;
@@ -70,6 +74,7 @@ DEFINE_IMAGE_INSTANTIATOR_FORMAT (nothing);
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (inherit);
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (string);
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (subwindow);
 
 #ifdef HAVE_WINDOW_SYSTEM
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (xbm);
@@ -95,6 +100,7 @@ typedef struct image_instantiator_format_entry image_instantiator_format_entry;
 struct image_instantiator_format_entry
 {
   Lisp_Object symbol;
+  Lisp_Object device;
   struct image_instantiator_methods *meths;
 };
 
@@ -119,8 +125,9 @@ EXFUN (Fglyph_type, 1);
  *                          Image Instantiators                             *
  ****************************************************************************/
 
-static struct image_instantiator_methods *
-decode_image_instantiator_format (Lisp_Object format, Error_behavior errb)
+struct image_instantiator_methods *
+decode_device_ii_format (Lisp_Object device, Lisp_Object format,
+			 Error_behavior errb)
 {
   int i;
 
@@ -134,16 +141,31 @@ decode_image_instantiator_format (Lisp_Object format, Error_behavior errb)
   for (i = 0; i < Dynarr_length (the_image_instantiator_format_entry_dynarr);
        i++)
     {
-      if (EQ (format,
-	      Dynarr_at (the_image_instantiator_format_entry_dynarr, i).
-	      symbol))
-	return Dynarr_at (the_image_instantiator_format_entry_dynarr, i).meths;
+      if ( EQ (format,
+	       Dynarr_at (the_image_instantiator_format_entry_dynarr, i).
+	       symbol) )
+	{
+	  Lisp_Object d = Dynarr_at (the_image_instantiator_format_entry_dynarr, i).
+	    device;
+	  if ((NILP (d) && NILP (device))
+	      ||
+	      (!NILP (device) &&
+	       EQ (CONSOLE_TYPE (XCONSOLE 
+				 (DEVICE_CONSOLE (XDEVICE (device)))), d)))
+	    return Dynarr_at (the_image_instantiator_format_entry_dynarr, i).meths;
+	}
     }
 
   maybe_signal_simple_error ("Invalid image-instantiator format", format,
 			     Qimage, errb);
 
   return 0;
+}
+
+struct image_instantiator_methods *
+decode_image_instantiator_format (Lisp_Object format, Error_behavior errb)
+{
+  return decode_device_ii_format (Qnil, format, errb);
 }
 
 static int
@@ -157,7 +179,7 @@ DEFUN ("valid-image-instantiator-format-p", Fvalid_image_instantiator_format_p,
 Given an IMAGE-INSTANTIATOR-FORMAT, return non-nil if it is valid.
 Valid formats are some subset of 'nothing, 'string, 'formatted-string,
 'xpm, 'xbm, 'xface, 'gif, 'jpeg, 'png, 'tiff, 'cursor-font, 'font,
-'autodetect, and 'subwindow, depending on how XEmacs was compiled.
+'autodetect, 'widget and 'subwindow, depending on how XEmacs was compiled.
 */
        (image_instantiator_format))
 {
@@ -175,17 +197,25 @@ Return a list of valid image-instantiator formats.
 }
 
 void
-add_entry_to_image_instantiator_format_list (Lisp_Object symbol,
-					     struct
-					     image_instantiator_methods *meths)
+add_entry_to_device_ii_format_list (Lisp_Object device, Lisp_Object symbol,
+				    struct image_instantiator_methods *meths)
 {
   struct image_instantiator_format_entry entry;
 
   entry.symbol = symbol;
+  entry.device = device;
   entry.meths = meths;
   Dynarr_add (the_image_instantiator_format_entry_dynarr, entry);
   Vimage_instantiator_format_list =
     Fcons (symbol, Vimage_instantiator_format_list);
+}
+
+void
+add_entry_to_image_instantiator_format_list (Lisp_Object symbol,
+					     struct
+					     image_instantiator_methods *meths)
+{
+  add_entry_to_device_ii_format_list (Qnil, symbol, meths);
 }
 
 static Lisp_Object *
@@ -355,7 +385,13 @@ check_valid_string (Lisp_Object data)
   CHECK_STRING (data);
 }
 
-static void
+void
+check_valid_vector (Lisp_Object data)
+{
+  CHECK_VECTOR (data);
+}
+
+void
 check_valid_face (Lisp_Object data)
 {
   Fget_face (data);
@@ -481,12 +517,16 @@ normalize_image_instantiator (Lisp_Object instantiator,
      longer exist (e.g. w3 pixmaps are almost always from temporary
      files). */
   {
-    struct image_instantiator_methods * meths =
-      decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
-					ERROR_ME);
-    return IIFORMAT_METH_OR_GIVEN (meths, normalize,
-				   (instantiator, contype),
-				   instantiator);
+    struct gcpro gcpro1;
+    struct image_instantiator_methods *meths;
+
+    GCPRO1 (instantiator);
+    
+    meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
+					      ERROR_ME);
+    RETURN_UNGCPRO (IIFORMAT_METH_OR_GIVEN (meths, normalize,
+					    (instantiator, contype),
+					    instantiator));
   }
 }
 
@@ -499,16 +539,25 @@ instantiate_image_instantiator (Lisp_Object device, Lisp_Object domain,
   Lisp_Object ii = allocate_image_instance (device);
   struct image_instantiator_methods *meths;
   struct gcpro gcpro1;
+  int  methp = 0;
 
   GCPRO1 (ii);
   meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
 					    ERROR_ME);
-  if (!HAS_IIFORMAT_METH_P (meths, instantiate))
+  methp = (int)HAS_IIFORMAT_METH_P (meths, instantiate);
+  MAYBE_IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
+					    pointer_bg, dest_mask, domain));
+  
+  /* now do device specific instantiation */
+  meths = decode_device_ii_format (device, XVECTOR_DATA (instantiator)[0],
+				   ERROR_ME_NOT);
+
+  if (!methp && (!meths || !HAS_IIFORMAT_METH_P (meths, instantiate)))
     signal_simple_error
       ("Don't know how to instantiate this image instantiator?",
        instantiator);
-  IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
-				      pointer_bg, dest_mask, domain));
+  MAYBE_IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
+					    pointer_bg, dest_mask, domain));
   UNGCPRO;
 
   return ii;
@@ -541,9 +590,16 @@ mark_image_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
       markobj (IMAGE_INSTANCE_PIXMAP_FG (i));
       markobj (IMAGE_INSTANCE_PIXMAP_BG (i));
       break;
+
+    case IMAGE_WIDGET:
+      markobj (IMAGE_INSTANCE_WIDGET_TYPE (i));
+      markobj (IMAGE_INSTANCE_WIDGET_PROPS (i));
+      markobj (IMAGE_INSTANCE_WIDGET_FACE (i));
+      mark_gui_item (&IMAGE_INSTANCE_WIDGET_ITEM (i), markobj);
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
+      markobj (IMAGE_INSTANCE_SUBWINDOW_FRAME (i));
       break;
+
     default:
       break;
     }
@@ -645,8 +701,48 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
 	}
       break;
 
+    case IMAGE_WIDGET:
+      if (!NILP (IMAGE_INSTANCE_WIDGET_CALLBACK (ii)))
+	{
+	  print_internal (IMAGE_INSTANCE_WIDGET_CALLBACK (ii), printcharfun, 0);
+	  write_c_string (", ", printcharfun);
+	}
+      if (!NILP (IMAGE_INSTANCE_WIDGET_FACE (ii)))
+	{
+	  write_c_string (" (", printcharfun);
+	  print_internal
+	    (IMAGE_INSTANCE_WIDGET_FACE (ii), printcharfun, 0);
+	  write_c_string (")", printcharfun);
+	}
+
+      if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
+	print_internal (IMAGE_INSTANCE_WIDGET_TEXT (ii), printcharfun, 0);
+
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
+      sprintf (buf, " %dx%d", IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii),
+	       IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii));
+      write_c_string (buf, printcharfun);
+
+      /* This is stolen from frame.c.  Subwindows are strange in that they
+	 are specific to a particular frame so we want to print in their
+	 description what that frame is. */
+
+      write_c_string (" on #<", printcharfun);
+      {
+	struct frame* f  = XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+	
+	if (!FRAME_LIVE_P (f))
+	  write_c_string ("dead", printcharfun);
+	else 
+	  write_c_string (DEVICE_TYPE_NAME (XDEVICE (FRAME_DEVICE (f))),
+			  printcharfun);
+
+	write_c_string ("-frame ", printcharfun);
+      }
+      write_c_string (">", printcharfun);
+      sprintf (buf, " 0x%p", IMAGE_INSTANCE_SUBWINDOW_ID (ii));
+      write_c_string (buf, printcharfun);
+      
       break;
 
     default:
@@ -668,6 +764,15 @@ finalize_image_instance (void *header, int for_disksave)
     /* objects like this exist at dump time, so don't bomb out. */
     return;
   if (for_disksave) finalose (i);
+
+  /* do this so that the cachels get reset */
+  if (IMAGE_INSTANCE_TYPE (i) == IMAGE_WIDGET
+      ||
+      IMAGE_INSTANCE_TYPE (i) == IMAGE_SUBWINDOW)
+    {
+      MARK_FRAME_GLYPHS_CHANGED 
+	(XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (i)));
+    }
 
   MAYBE_DEVMETH (XDEVICE (i->device), finalize_image_instance, (i));
 }
@@ -722,8 +827,26 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	return 0;
       break;
 
+    case IMAGE_WIDGET:
+      if (!(EQ (IMAGE_INSTANCE_WIDGET_TYPE (i1),
+		IMAGE_INSTANCE_WIDGET_TYPE (i2)) &&
+	    EQ (IMAGE_INSTANCE_WIDGET_CALLBACK (i1),
+		IMAGE_INSTANCE_WIDGET_CALLBACK (i2))
+	    && internal_equal (IMAGE_INSTANCE_WIDGET_PROPS (i1),
+			       IMAGE_INSTANCE_WIDGET_PROPS (i2),
+			       depth + 1)
+	    && internal_equal (IMAGE_INSTANCE_WIDGET_TEXT (i1),
+			       IMAGE_INSTANCE_WIDGET_TEXT (i2),
+			       depth + 1)))
+	return 0;
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
+      if (!(IMAGE_INSTANCE_SUBWINDOW_WIDTH (i1) ==
+	    IMAGE_INSTANCE_SUBWINDOW_WIDTH (i2) &&
+	    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (i1) ==
+	    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (i2) &&
+	    IMAGE_INSTANCE_SUBWINDOW_ID (i1) ==
+	    IMAGE_INSTANCE_SUBWINDOW_ID (i2)))
+	return 0;
       break;
 
     default:
@@ -760,8 +883,15 @@ image_instance_hash (Lisp_Object obj, int depth)
 				   depth + 1));
       break;
 
+    case IMAGE_WIDGET:
+      hash = HASH4 (hash, 
+		    internal_hash (IMAGE_INSTANCE_WIDGET_TYPE (i), depth + 1),
+		    internal_hash (IMAGE_INSTANCE_WIDGET_PROPS (i), depth + 1),
+		    internal_hash (IMAGE_INSTANCE_WIDGET_CALLBACK (i), depth + 1));
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
+      hash = HASH4 (hash, IMAGE_INSTANCE_SUBWINDOW_WIDTH (i),
+		    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (i),
+		    (int) IMAGE_INSTANCE_SUBWINDOW_ID (i));
       break;
 
     default:
@@ -805,6 +935,7 @@ decode_image_instance_type (Lisp_Object type, Error_behavior errb)
   if (EQ (type, Qcolor_pixmap)) return IMAGE_COLOR_PIXMAP;
   if (EQ (type, Qpointer))      return IMAGE_POINTER;
   if (EQ (type, Qsubwindow))    return IMAGE_SUBWINDOW;
+  if (EQ (type, Qwidget))    return IMAGE_WIDGET;
 
   maybe_signal_simple_error ("Invalid image-instance type", type,
 			     Qimage, errb);
@@ -823,6 +954,7 @@ encode_image_instance_type (enum image_instance_type type)
     case IMAGE_COLOR_PIXMAP: return Qcolor_pixmap;
     case IMAGE_POINTER:      return Qpointer;
     case IMAGE_SUBWINDOW:    return Qsubwindow;
+    case IMAGE_WIDGET:    return Qwidget;
     default:
       abort ();
     }
@@ -1069,15 +1201,92 @@ Return the name of the given image instance.
 
 DEFUN ("image-instance-string", Fimage_instance_string, 1, 1, 0, /*
 Return the string of the given image instance.
-This will only be non-nil for text image instances.
+This will only be non-nil for text image instances and widgets.
 */
        (image_instance))
 {
   CHECK_IMAGE_INSTANCE (image_instance);
   if (XIMAGE_INSTANCE_TYPE (image_instance) == IMAGE_TEXT)
     return XIMAGE_INSTANCE_TEXT_STRING (image_instance);
+  else if (XIMAGE_INSTANCE_TYPE (image_instance) == IMAGE_WIDGET)
+    return XIMAGE_INSTANCE_WIDGET_TEXT (image_instance);
   else
     return Qnil;
+}
+
+DEFUN ("image-instance-property", Fimage_instance_property, 2, 2, 0, /*
+Return the given property of the given image instance.  
+Returns nil if the property or the property method do not exist for
+the image instance in the domain.  
+*/
+       (image_instance, prop))
+{
+  struct Lisp_Image_Instance* ii;
+  Lisp_Object type, ret;
+  struct image_instantiator_methods* meths;
+
+  CHECK_IMAGE_INSTANCE (image_instance);
+  CHECK_SYMBOL (prop);
+  ii = XIMAGE_INSTANCE (image_instance);
+
+  /* ... then try device specific methods ... */
+  type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
+  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii), 
+				   type, ERROR_ME_NOT);
+  if (meths && HAS_IIFORMAT_METH_P (meths, property)
+      && 
+      !UNBOUNDP (ret =  IIFORMAT_METH (meths, property, (image_instance, prop))))
+    {
+      return ret;
+    }
+  /* ... then format specific methods ... */
+  meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
+  if (meths && HAS_IIFORMAT_METH_P (meths, property)
+      &&
+      !UNBOUNDP (ret = IIFORMAT_METH (meths, property, (image_instance, prop))))
+    {
+      return ret;
+    }
+  /* ... then fail */
+  return Qnil;
+}
+
+DEFUN ("set-image-instance-property", Fset_image_instance_property, 3, 3, 0, /*
+Set the given property of the given image instance.  
+Does nothing if the property or the property method do not exist for
+the image instance in the domain.
+*/
+       (image_instance, prop, val))
+{
+  struct Lisp_Image_Instance* ii;
+  Lisp_Object type, ret;
+  struct image_instantiator_methods* meths;
+
+  CHECK_IMAGE_INSTANCE (image_instance);
+  CHECK_SYMBOL (prop);
+  ii = XIMAGE_INSTANCE (image_instance);
+  type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
+  /* try device specific methods first ... */
+  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii), 
+				   type, ERROR_ME_NOT);
+  if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
+      &&
+      !UNBOUNDP (ret = 
+		 IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
+    {
+      return ret;
+    }
+  /* ... then format specific methods ... */
+  meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
+  if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
+      &&
+      !UNBOUNDP (ret = 
+		 IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
+    {
+      return ret;
+    }
+
+  return val;
 }
 
 DEFUN ("image-instance-file-name", Fimage_instance_file_name, 1, 1, 0, /*
@@ -1152,6 +1361,10 @@ Return the height of the image instance, in pixels.
     case IMAGE_POINTER:
       return make_int (XIMAGE_INSTANCE_PIXMAP_HEIGHT (image_instance));
 
+    case IMAGE_SUBWINDOW:
+    case IMAGE_WIDGET:
+      return make_int (XIMAGE_INSTANCE_SUBWINDOW_HEIGHT (image_instance));
+
     default:
       return Qnil;
     }
@@ -1170,6 +1383,10 @@ Return the width of the image instance, in pixels.
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
       return make_int (XIMAGE_INSTANCE_PIXMAP_WIDTH (image_instance));
+
+    case IMAGE_SUBWINDOW:
+    case IMAGE_WIDGET:
+      return make_int (XIMAGE_INSTANCE_SUBWINDOW_WIDTH (image_instance));
 
     default:
       return Qnil;
@@ -1240,6 +1457,12 @@ colorized mono pixmaps and for pointers.)
     case IMAGE_POINTER:
       return XIMAGE_INSTANCE_PIXMAP_FG (image_instance);
 
+    case IMAGE_WIDGET:
+      return FACE_FOREGROUND (
+			      XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+			      XIMAGE_INSTANCE_SUBWINDOW_FRAME 
+			      (image_instance));
+
     default:
       return Qnil;
     }
@@ -1260,6 +1483,12 @@ colorized mono pixmaps and for pointers.)
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
       return XIMAGE_INSTANCE_PIXMAP_BG (image_instance);
+
+    case IMAGE_WIDGET:
+      return FACE_BACKGROUND (
+			      XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+			      XIMAGE_INSTANCE_SUBWINDOW_FRAME 
+			      (image_instance));
 
     default:
       return Qnil;
@@ -1769,19 +1998,6 @@ xbm_possible_dest_types (void)
     IMAGE_POINTER_MASK;
 }
 
-static void
-xbm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
-		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
-		 int dest_mask, Lisp_Object domain)
-{
-  Lisp_Object device= IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (image_instance));
-
-  MAYBE_DEVMETH (XDEVICE (device),
-		 xbm_instantiate,
-		 (image_instance, instantiator, pointer_fg,
-		  pointer_bg, dest_mask, domain));
-}
-
 #endif
 
 
@@ -1796,8 +2012,10 @@ pixmap_to_lisp_data (Lisp_Object name, int ok_if_data_invalid)
 {
   char **data;
   int result;
-
-  result = XpmReadFileToData ((char *) XSTRING_DATA (name), &data);
+  char *fname = 0;
+  
+  GET_C_STRING_FILENAME_DATA_ALLOCA (name, fname);
+  result = XpmReadFileToData (fname, &data);
 
   if (result == XpmSuccess)
     {
@@ -1994,19 +2212,6 @@ xpm_possible_dest_types (void)
     IMAGE_POINTER_MASK;
 }
 
-static void
-xpm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
-		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
-		 int dest_mask, Lisp_Object domain)
-{
-  Lisp_Object device= IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (image_instance));
-
-  MAYBE_DEVMETH (XDEVICE (device),
-		 xpm_instantiate,
-		 (image_instance, instantiator, pointer_fg,
-		  pointer_bg, dest_mask, domain));
-}
-
 #endif /* HAVE_XPM */
 
 
@@ -2109,7 +2314,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	  /* For the image instance cache, we do comparisons with EQ rather
 	     than with EQUAL, as we do for color and font names.
 	     The reasons are:
-
+	     
 	     1) pixmap data can be very long, and thus the hashing and
 	     comparing will take awhile.
 	     2) It's not so likely that we'll run into things that are EQUAL
@@ -2133,8 +2338,28 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	  instance = Qunbound;
 	}
       else
-	instance = Fgethash (pointerp ? ls3 : instantiator,
-			     subtable, Qunbound);
+	{
+	  instance = Fgethash (pointerp ? ls3 : instantiator,
+			       subtable, Qunbound);
+	  /* subwindows have a per-window cache and have to be treated
+	     differently.  dest_mask can be a bitwise OR of all image
+	     types so we will only catch someone possibly trying to
+	     instantiate a subwindow type thing. Unfortunately, this
+	     will occur most of the time so this probably slows things
+	     down. But with the current design I don't see anyway
+	     round it. */
+	  if (UNBOUNDP (instance)
+	      &&
+	      dest_mask & (IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK))
+	    {
+	      if (!WINDOWP (domain))
+		signal_simple_error ("Can't instantiate subwindow outside a window",
+				     instantiator);
+	      instance = Fgethash (instantiator, 
+				   XWINDOW (domain)->subwindow_instance_cache, 
+				   Qunbound);
+	    }
+	}
 
       if (UNBOUNDP (instance))
 	{
@@ -2143,7 +2368,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 			  noseeum_cons (pointerp ? ls3 : instantiator,
 					subtable));
 	  int speccount = specpdl_depth ();
-
+	  
 	  /* make sure we cache the failures, too.
 	     Use an unwind-protect to catch such errors.
 	     If we fail, the unwind-protect records nil in
@@ -2157,7 +2382,21 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 						     instantiator,
 						     pointer_fg, pointer_bg,
 						     dest_mask);
+	  
 	  Fsetcar (locative, instance);
+	  /* only after the image has been instantiated do we know
+             whether we need to put it in the per-window image instance
+             cache. */
+	  if (image_instance_type_to_mask (XIMAGE_INSTANCE_TYPE (instance))
+	      &
+	      (IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK))
+	    {
+	      if (!WINDOWP (domain))
+		signal_simple_error ("Can't instantiate subwindow outside a window",
+				     instantiator);
+	      
+	      Fsetcdr (XCDR (locative), XWINDOW (domain)->subwindow_instance_cache );
+ 	    }
 	  unbind_to (speccount, Qnil);
 	}
       else
@@ -2357,7 +2596,7 @@ pairs.  FORMAT should be one of
   (Display this image as a text string, with replaceable fields;
   not currently implemented.)
 'xbm
-  (An X bitmap; only if X support was compiled into this XEmacs.
+  (An X bitmap; only if X or Windows support was compiled into this XEmacs.
    Can be instanced as `mono-pixmap', `color-pixmap', or `pointer'.)
 'xpm
   (An XPM pixmap; only if XPM support was compiled into this XEmacs.
@@ -2393,6 +2632,8 @@ pairs.  FORMAT should be one of
    probably be fixed.)
 'subwindow
   (An embedded X window; not currently implemented.)
+'widget
+  (A widget control, for instance text field or radio button.)
 'autodetect
   (XEmacs tries to guess what format the data is in.  If X support
   exists, the data string will be checked to see if it names a filename.
@@ -2423,7 +2664,7 @@ The valid keywords are:
   `cursor-font', `font', `autodetect', and `inherit'.)
 :foreground
 :background
-  (For `xbm', `xface', `cursor-font', and `font'.  These keywords
+  (For `xbm', `xface', `cursor-font', `widget' and `font'.  These keywords
   allow you to explicitly specify foreground and background colors.
   The argument should be anything acceptable to `make-color-instance'.
   This will cause what would be a `mono-pixmap' to instead be colorized
@@ -2628,8 +2869,9 @@ allocate_glyph (enum glyph_type type,
     {
     case GLYPH_BUFFER:
       XIMAGE_SPECIFIER_ALLOWED (g->image) =
-	IMAGE_NOTHING_MASK | IMAGE_TEXT_MASK | IMAGE_MONO_PIXMAP_MASK |
-	  IMAGE_COLOR_PIXMAP_MASK | IMAGE_SUBWINDOW_MASK;
+	IMAGE_NOTHING_MASK | IMAGE_TEXT_MASK 
+	| IMAGE_MONO_PIXMAP_MASK | IMAGE_COLOR_PIXMAP_MASK 
+	| IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK;
       break;
     case GLYPH_POINTER:
       XIMAGE_SPECIFIER_ALLOWED (g->image) =
@@ -2825,8 +3067,8 @@ glyph_width (Lisp_Object glyph, Lisp_Object frame_face,
       return 0;
 
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
-      return 0;
+    case IMAGE_WIDGET:
+      return XIMAGE_INSTANCE_SUBWINDOW_WIDTH (instance);
 
     default:
       abort ();
@@ -2929,8 +3171,12 @@ glyph_height_internal (Lisp_Object glyph, Lisp_Object frame_face,
       return 0;
 
     case IMAGE_SUBWINDOW:
-      /* #### implement me */
-      return 0;
+    case IMAGE_WIDGET:
+      /* #### Ugh ugh ugh -- temporary crap */
+      if (function == RETURN_ASCENT || function == RETURN_HEIGHT)
+	return XIMAGE_INSTANCE_SUBWINDOW_HEIGHT (instance);
+      else
+	return 0;
 
     default:
       abort ();
@@ -3200,36 +3446,399 @@ compute_glyph_cachel_usage (glyph_cachel_dynarr *glyph_cachels,
 
 #endif /* MEMORY_USAGE_STATS */
 
+
+
+/*****************************************************************************
+ *                     subwindow cachel functions                         	     *
+ *****************************************************************************/
+/* subwindows are curious in that you have to physically unmap them to
+   not display them. It is problematic deciding what to do in
+   redisplay. We have two caches - a per-window instance cache that
+   keeps track of subwindows on a window, these are linked to their
+   instantiator in the hashtable and when the instantiator goes away
+   we want the instance to go away also. However we also have a
+   per-frame instance cache that we use to determine if a subwindow is
+   obscuring an area that we want to clear. We need to be able to flip
+   through this quickly so a hashtable is not suitable hence the
+   subwindow_cachels. The question is should we just not mark
+   instances in the subwindow_cachelsnor should we try and invalidate
+   the cache at suitable points in redisplay? If we don't invalidate
+   the cache it will fill up with crud that will only get removed when
+   the frame is deleted. So invalidation is good, the question is when
+   and whether we mark as well. Go for the simple option - don't mark,
+   MARK_SUBWINDOWS_CHANGED when a subwindow gets deleted. */
+
+void
+mark_subwindow_cachels (subwindow_cachel_dynarr *elements,
+			void (*markobj) (Lisp_Object))
+{
+  int elt;
+
+  if (!elements)
+    return;
+
+  for (elt = 0; elt < Dynarr_length (elements); elt++)
+    {
+      struct subwindow_cachel *cachel = Dynarr_atp (elements, elt);
+      markobj (cachel->subwindow);
+    }
+}
+
+static void
+update_subwindow_cachel_data (struct frame *f, Lisp_Object subwindow,
+			  struct subwindow_cachel *cachel)
+{
+  if (NILP (cachel->subwindow) || !EQ (cachel->subwindow, subwindow))
+    {
+      cachel->subwindow   = subwindow;
+      cachel->width   = XIMAGE_INSTANCE_SUBWINDOW_WIDTH (subwindow);
+      cachel->height   = XIMAGE_INSTANCE_SUBWINDOW_HEIGHT (subwindow);
+    }
+
+  cachel->updated = 1;
+}
+
+static void
+add_subwindow_cachel (struct frame *f, Lisp_Object subwindow)
+{
+  struct subwindow_cachel new_cachel;
+
+  xzero (new_cachel);
+  new_cachel.subwindow = Qnil;
+  new_cachel.x=0;
+  new_cachel.y=0;
+  new_cachel.being_displayed=0;
+
+  update_subwindow_cachel_data (f, subwindow, &new_cachel);
+  Dynarr_add (f->subwindow_cachels, new_cachel);
+}
+
+static int
+get_subwindow_cachel_index (struct frame *f, Lisp_Object subwindow)
+{
+  int elt;
+
+  if (noninteractive)
+    return 0;
+
+  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+    {
+      struct subwindow_cachel *cachel =
+	Dynarr_atp (f->subwindow_cachels, elt);
+
+      if (EQ (cachel->subwindow, subwindow) && !NILP (subwindow))
+	{
+	  if (!cachel->updated)
+	    update_subwindow_cachel_data (f, subwindow, cachel);
+	  return elt;
+	}
+    }
+
+  /* If we didn't find the glyph, add it and then return its index. */
+  add_subwindow_cachel (f, subwindow);
+  return elt;
+}
+
+void
+reset_subwindow_cachels (struct frame *f)
+{
+  Dynarr_reset (f->subwindow_cachels);
+}
+
+void
+mark_subwindow_cachels_as_not_updated (struct frame *f)
+{
+  int elt;
+
+  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+    Dynarr_atp (f->subwindow_cachels, elt)->updated = 0;
+}
+
+
+/*****************************************************************************
+ *                              subwindow functions                          *
+ *****************************************************************************/
+
+/* update the displayed characteristics of a subwindow */
+static void
+update_subwindow (Lisp_Object subwindow)
+{
+  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+
+  if (!IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
+      ||
+      NILP (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii)))
+    return;
+
+  MAYBE_DEVMETH (XDEVICE (ii->device), update_subwindow, (ii));
+}
+
+void
+update_frame_subwindows (struct frame *f)
+{
+  int elt;
+
+  if (f->subwindows_changed || f->glyphs_changed)
+    for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+      {
+	struct subwindow_cachel *cachel =
+	  Dynarr_atp (f->subwindow_cachels, elt);
+	
+	if (cachel->being_displayed)
+	  {
+	    update_subwindow (cachel->subwindow);
+	  }
+      }
+}
+
+/* remove a subwindow from its frame */
+void unmap_subwindow (Lisp_Object subwindow)
+{
+  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  int elt;
+  struct subwindow_cachel* cachel;
+  struct frame* f;
+
+  if (!(IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
+	||
+	IMAGE_INSTANCE_TYPE (ii) == IMAGE_SUBWINDOW)
+      ||
+      NILP (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii)))
+    return;
+
+  f = XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+  elt = get_subwindow_cachel_index (f, subwindow);
+  cachel = Dynarr_atp (f->subwindow_cachels, elt);
+
+  cachel->x = -1;
+  cachel->y = -1;
+  cachel->being_displayed = 0;
+  IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii) = 0;
+
+  MAYBE_DEVMETH (XDEVICE (ii->device), unmap_subwindow, (ii));
+}
+
+/* show a subwindow in its frame */
+void map_subwindow (Lisp_Object subwindow, int x, int y)
+{
+  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  int elt; 
+  struct subwindow_cachel* cachel;
+  struct frame* f;
+
+  if (!(IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
+	||
+	IMAGE_INSTANCE_TYPE (ii) == IMAGE_SUBWINDOW)
+      ||
+      NILP (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii)))
+    return;
+
+  f = XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+  IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii) = 1;
+  elt = get_subwindow_cachel_index (f, subwindow);
+  cachel = Dynarr_atp (f->subwindow_cachels, elt);
+  cachel->x = x;
+  cachel->y = y;
+  cachel->being_displayed = 1;
+
+  MAYBE_DEVMETH (XDEVICE (ii->device), map_subwindow, (ii, x, y));
+}
+
+static int
+subwindow_possible_dest_types (void)
+{
+  return IMAGE_SUBWINDOW_MASK;
+}
+
+/* Partially instantiate a subwindow. */
+void
+subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+		       Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+		       int dest_mask, Lisp_Object domain)
+{
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
+  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object width = find_keyword_in_vector (instantiator, Q_pixel_width);
+  Lisp_Object height = find_keyword_in_vector (instantiator, Q_pixel_height);
+
+  if (NILP (frame))
+    signal_simple_error ("No selected frame", device);
+  
+  if (!(dest_mask & IMAGE_SUBWINDOW_MASK))
+    incompatible_image_types (instantiator, dest_mask, IMAGE_SUBWINDOW_MASK);
+
+  ii->data = 0;
+  IMAGE_INSTANCE_SUBWINDOW_ID (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii) = Qnil;
+  IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii) = frame;
+
+  /* this stuff may get overidden by the widget code */
+  if (NILP (width))
+    IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = 20;
+  else
+    {
+      int w = 1;
+      CHECK_INT (width);
+      if (XINT (width) > 1)
+	w = XINT (width);
+      IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = w;
+    }
+  if (NILP (height))
+    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = 20;
+  else
+    {
+      int h = 1;
+      CHECK_INT (height);
+      if (XINT (height) > 1)
+	h = XINT (height);
+      IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = h;
+    }
+}
+
+DEFUN ("subwindowp", Fsubwindowp, 1, 1, 0, /*
+Return non-nil if OBJECT is a subwindow.
+*/
+       (object))
+{
+  CHECK_IMAGE_INSTANCE (object);
+  return (XIMAGE_INSTANCE_TYPE (object) == IMAGE_SUBWINDOW) ? Qt : Qnil;
+}
+
+DEFUN ("image-instance-subwindow-id", Fimage_instance_subwindow_id, 1, 1, 0, /*
+Return the window id of SUBWINDOW as a number.
+*/
+       (subwindow))
+{
+  CHECK_SUBWINDOW_IMAGE_INSTANCE (subwindow);
+  return make_int ((int) (XIMAGE_INSTANCE_SUBWINDOW_ID (subwindow)));
+}
+
+DEFUN ("resize-subwindow", Fresize_subwindow, 1, 3, 0, /*
+Resize SUBWINDOW to WIDTH x HEIGHT.
+If a value is nil that parameter is not changed.
+*/
+       (subwindow, width, height))
+{
+  int neww, newh;
+
+  CHECK_SUBWINDOW_IMAGE_INSTANCE (subwindow);
+
+  if (NILP (width))
+    neww = XIMAGE_INSTANCE_SUBWINDOW_WIDTH (subwindow);
+  else
+    neww = XINT (width);
+
+  if (NILP (height))
+    newh = XIMAGE_INSTANCE_SUBWINDOW_HEIGHT (subwindow);
+  else
+    newh = XINT (height);
+
+  
+  MAYBE_DEVMETH (XDEVICE (XIMAGE_INSTANCE_DEVICE (subwindow)), 
+		 resize_subwindow, (XIMAGE_INSTANCE (subwindow), neww, newh));
+
+  XIMAGE_INSTANCE_SUBWINDOW_HEIGHT (subwindow) = newh;
+  XIMAGE_INSTANCE_SUBWINDOW_WIDTH (subwindow) = neww;
+
+  return subwindow;
+}
+
+DEFUN ("force-subwindow-map", Fforce_subwindow_map, 1, 1, 0, /*
+Generate a Map event for SUBWINDOW.
+*/
+       (subwindow))
+{
+  CHECK_SUBWINDOW_IMAGE_INSTANCE (subwindow);
+
+  map_subwindow (subwindow, 0, 0);
+
+  return subwindow;
+}
+
 
 /*****************************************************************************
  *                              display tables                               *
  *****************************************************************************/
 
-/* Get the display table for use currently on window W with face FACE.
-   Precedence:
+/* Get the display tables for use currently on window W with face
+   FACE.  #### This will have to be redone.  */
 
-   -- FACE's display table
-   -- W's display table (comes from specifier `current-display-table')
-
-   Ignore the specified tables if they are not valid;
-   if no valid table is specified, return 0.  */
-
-struct Lisp_Vector *
-get_display_table (struct window *w, face_index findex)
+void
+get_display_tables (struct window *w, face_index findex,
+		    Lisp_Object *face_table, Lisp_Object *window_table)
 {
   Lisp_Object tem;
-
   tem = WINDOW_FACE_CACHEL_DISPLAY_TABLE (w, findex);
-  if (VECTORP (tem) && XVECTOR_LENGTH (tem) == DISP_TABLE_SIZE)
-    return XVECTOR (tem);
-
+  if (UNBOUNDP (tem))
+    tem = Qnil;
+  if (!LISTP (tem))
+    tem = noseeum_cons (tem, Qnil);
+  *face_table = tem;
   tem = w->display_table;
-  if (VECTORP (tem) && XVECTOR_LENGTH (tem) == DISP_TABLE_SIZE)
-    return XVECTOR (tem);
-
-  return 0;
+  if (UNBOUNDP (tem))
+    tem = Qnil;
+  if (!LISTP (tem))
+    tem = noseeum_cons (tem, Qnil);
+  *window_table = tem;
 }
 
+Lisp_Object
+display_table_entry (Emchar ch, Lisp_Object face_table,
+		     Lisp_Object window_table)
+{
+  Lisp_Object tail;
+
+  /* Loop over FACE_TABLE, and then over WINDOW_TABLE. */
+  for (tail = face_table; 1; tail = XCDR (tail))
+    {
+      Lisp_Object table;
+      if (NILP (tail))
+	{
+	  if (!NILP (window_table))
+	    {
+	      tail = window_table;
+	      window_table = Qnil;
+	    }
+	  else
+	    return Qnil;
+	}
+      table = XCAR (tail);
+
+      if (VECTORP (table))
+	{
+	  if (ch < XVECTOR_LENGTH (table) && !NILP (XVECTOR_DATA (table)[ch]))
+	    return XVECTOR_DATA (table)[ch];
+	  else
+	    continue;
+	}
+      else if (CHAR_TABLEP (table)
+	       && XCHAR_TABLE_TYPE (table) == CHAR_TABLE_TYPE_CHAR)
+	{
+	  return get_char_table (ch, XCHAR_TABLE (table));
+	}
+      else if (CHAR_TABLEP (table)
+	       && XCHAR_TABLE_TYPE (table) == CHAR_TABLE_TYPE_GENERIC)
+	{
+	  Lisp_Object gotit = get_char_table (ch, XCHAR_TABLE (table));
+	  if (!NILP (gotit))
+	    return gotit;
+	  else
+	    continue;
+	}
+      else if (RANGE_TABLEP (table))
+	{
+	  Lisp_Object gotit = Fget_range_table (make_char (ch), table, Qnil);
+	  if (!NILP (gotit))
+	    return gotit;
+	  else
+	    continue;
+	}
+      else
+	abort ();
+    }
+}
 
 /*****************************************************************************
  *                              initialization                               *
@@ -3248,6 +3857,8 @@ syms_of_glyphs (void)
   defkeyword (&Q_file, ":file");
   defkeyword (&Q_data, ":data");
   defkeyword (&Q_face, ":face");
+  defkeyword (&Q_pixel_height, ":pixel-height");
+  defkeyword (&Q_pixel_width, ":pixel-width");
 
 #ifdef HAVE_XPM
   defkeyword (&Q_color_symbols, ":color-symbols");
@@ -3274,6 +3885,7 @@ syms_of_glyphs (void)
   defsymbol (&Qmono_pixmap_image_instance_p, "mono-pixmap-image-instance-p");
   defsymbol (&Qcolor_pixmap_image_instance_p, "color-pixmap-image-instance-p");
   defsymbol (&Qpointer_image_instance_p, "pointer-image-instance-p");
+  defsymbol (&Qwidget_image_instance_p, "widget-image-instance-p");
   defsymbol (&Qsubwindow_image_instance_p, "subwindow-image-instance-p");
 
   DEFSUBR (Fmake_image_instance);
@@ -3292,7 +3904,14 @@ syms_of_glyphs (void)
   DEFSUBR (Fimage_instance_hotspot_y);
   DEFSUBR (Fimage_instance_foreground);
   DEFSUBR (Fimage_instance_background);
+  DEFSUBR (Fimage_instance_property);
+  DEFSUBR (Fset_image_instance_property);
   DEFSUBR (Fcolorize_image_instance);
+  /* subwindows */
+  DEFSUBR (Fsubwindowp);
+  DEFSUBR (Fimage_instance_subwindow_id);
+  DEFSUBR (Fresize_subwindow);
+  DEFSUBR (Fforce_subwindow_map);
 
   /* Qnothing defined as part of the "nothing" image-instantiator
      type. */
@@ -3300,7 +3919,6 @@ syms_of_glyphs (void)
   defsymbol (&Qmono_pixmap, "mono-pixmap");
   defsymbol (&Qcolor_pixmap, "color-pixmap");
   /* Qpointer defined in general.c */
-  defsymbol (&Qsubwindow, "subwindow");
 
   /* glyphs */
 
@@ -3390,13 +4008,19 @@ image_instantiator_format_create (void)
 
   IIFORMAT_VALID_KEYWORD (formatted_string, Q_data, check_valid_string);
 
+  /* subwindows */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (subwindow, "subwindow");
+  IIFORMAT_HAS_METHOD (subwindow, possible_dest_types);
+  IIFORMAT_HAS_METHOD (subwindow, instantiate);
+  IIFORMAT_VALID_KEYWORD (subwindow, Q_pixel_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (subwindow, Q_pixel_height, check_valid_int);
+
 #ifdef HAVE_WINDOW_SYSTEM
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (xbm, "xbm");
 
   IIFORMAT_HAS_METHOD (xbm, validate);
   IIFORMAT_HAS_METHOD (xbm, normalize);
   IIFORMAT_HAS_METHOD (xbm, possible_dest_types);
-  IIFORMAT_HAS_METHOD (xbm, instantiate);
 
   IIFORMAT_VALID_KEYWORD (xbm, Q_data, check_valid_xbm_inline);
   IIFORMAT_VALID_KEYWORD (xbm, Q_file, check_valid_string);
@@ -3414,7 +4038,6 @@ image_instantiator_format_create (void)
   IIFORMAT_HAS_METHOD (xpm, validate);
   IIFORMAT_HAS_METHOD (xpm, normalize);
   IIFORMAT_HAS_METHOD (xpm, possible_dest_types);
-  IIFORMAT_HAS_METHOD (xpm, instantiate);
 
   IIFORMAT_VALID_KEYWORD (xpm, Q_data, check_valid_string);
   IIFORMAT_VALID_KEYWORD (xpm, Q_file, check_valid_string);
@@ -3430,8 +4053,9 @@ vars_of_glyphs (void)
 
   /* image instances */
 
-  Vimage_instance_type_list = list6 (Qnothing, Qtext, Qmono_pixmap,
-				     Qcolor_pixmap, Qpointer, Qsubwindow);
+  Vimage_instance_type_list = Fcons (Qnothing, 
+				     list6 (Qtext, Qmono_pixmap, Qcolor_pixmap, 
+					    Qpointer, Qsubwindow, Qwidget));
   staticpro (&Vimage_instance_type_list);
 
   /* glyphs */
@@ -3467,7 +4091,9 @@ Normally this is three dots ("...").
 What to display at the beginning of horizontally scrolled lines.
 */);
   Vhscroll_glyph = allocate_glyph (GLYPH_BUFFER, redisplay_glyph_changed);
-
+#ifdef HAVE_WINDOW_SYSTEM
+  Fprovide (Qxbm);
+#endif
 #ifdef HAVE_XPM
   Fprovide (Qxpm);
 

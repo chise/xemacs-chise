@@ -432,13 +432,12 @@ static void
 clear_left_border (struct window *w, int y, int height)
 {
   struct frame *f = XFRAME (w->frame);
-  struct device *d = XDEVICE (f->device);
   Lisp_Object window;
 
   XSETWINDOW (window, w);
-  DEVMETH (d, clear_region, (window, DEFAULT_INDEX,
-			     FRAME_LEFT_BORDER_START (f), y,
-			     FRAME_BORDER_WIDTH (f), height));
+  redisplay_clear_region (window, DEFAULT_INDEX,
+		FRAME_LEFT_BORDER_START (f), y,
+		FRAME_BORDER_WIDTH (f), height);
 }
 
 /*****************************************************************************
@@ -450,13 +449,12 @@ static void
 clear_right_border (struct window *w, int y, int height)
 {
   struct frame *f = XFRAME (w->frame);
-  struct device *d = XDEVICE (f->device);
   Lisp_Object window;
 
   XSETWINDOW (window, w);
-  DEVMETH (d, clear_region, (window, DEFAULT_INDEX,
-			     FRAME_RIGHT_BORDER_START (f),
-			     y, FRAME_BORDER_WIDTH (f), height));
+  redisplay_clear_region (window, DEFAULT_INDEX,
+		FRAME_RIGHT_BORDER_START (f),
+		y, FRAME_BORDER_WIDTH (f), height);
 }
 
 /*****************************************************************************
@@ -617,10 +615,8 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 		      XSETWINDOW (window, w);
 
 		      /* Clear the empty area. */
-		      DEVMETH (d, clear_region,
-			       (window, get_builtin_face_cache_index (w,
-								      face),
-				x, y, width, height));
+		      redisplay_clear_region (window, get_builtin_face_cache_index (w, face),
+				    x, y, width, height);
 
 		      /* Mark that we should clear the border.  This is
 			 necessary because italic fonts may leave
@@ -985,6 +981,208 @@ redisplay_redraw_cursor (struct frame *f, int run_end_begin_meths)
   redraw_cursor_in_window (XWINDOW (window), run_end_begin_meths);
 }
 
+/****************************************************************************
+ redisplay_unmap_subwindows
+
+ Remove subwindows from the area in the box defined by the given
+ parameters.
+ ****************************************************************************/
+static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width, int height)
+{
+  int elt;
+
+  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+    {
+      struct subwindow_cachel *cachel =
+	Dynarr_atp (f->subwindow_cachels, elt);
+
+      if (cachel->being_displayed
+	  &&
+	  cachel->x + cachel->width > x && cachel->x < x + width
+	  &&
+	  cachel->y + cachel->height > y && cachel->y < y + height)
+	{
+	  unmap_subwindow (cachel->subwindow);
+	}
+    }
+}
+
+/****************************************************************************
+ redisplay_output_subwindow
+
+
+ output a subwindow.  This code borrows heavily from the pixmap stuff,
+ although is much simpler not needing to account for partial
+ pixmaps, backgrounds etc.
+ ****************************************************************************/
+void
+redisplay_output_subwindow (struct window *w, struct display_line *dl,
+			    Lisp_Object image_instance, int xpos, int xoffset,
+			    int start_pixpos, int width, face_index findex,
+			    int cursor_start, int cursor_width, int cursor_height)
+{
+  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object window;
+
+  int lheight = dl->ascent + dl->descent - dl->clip;
+  int pheight = ((int) IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p) > lheight ? lheight :
+		 IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p));
+
+  XSETWINDOW (window, w);
+
+  /* Clear the area the subwindow is going into.  The subwindow itself
+     will always take care of the full width.  We don't want to clear
+     where it is going to go in order to avoid flicker.  So, all we
+     have to take care of is any area above or below the subwindow. Of
+     course this is rubbish if the subwindow has transparent areas
+     (for instance with frames). */
+  /* #### We take a shortcut for now.  We know that since we have
+     subwindow_offset hardwired to 0 that the subwindow is against the top
+     edge so all we have to worry about is below it. */
+  if ((int) (dl->ypos - dl->ascent + pheight) <
+      (int) (dl->ypos + dl->descent - dl->clip))
+    {
+      int clear_x, clear_width;
+
+      int clear_y = dl->ypos - dl->ascent + pheight;
+      int clear_height = lheight - pheight;
+
+      if (start_pixpos >= 0 && start_pixpos > xpos)
+	{
+	  clear_x = start_pixpos;
+	  clear_width = xpos + width - start_pixpos;
+	}
+      else
+	{
+	  clear_x = xpos;
+	  clear_width = width;
+	}
+
+      redisplay_clear_region (window, findex, clear_x, clear_y,
+			      clear_width, clear_height);
+    }
+#if 0
+  redisplay_clear_region (window, findex, xpos - xoffset, dl->ypos - dl->ascent,
+			  width, lheight);
+#endif
+  /* if we can't view the whole window we can't view any of it */
+  if (IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p) > lheight
+      ||
+      IMAGE_INSTANCE_SUBWINDOW_WIDTH (p) > width)
+    {
+      redisplay_clear_region (window, findex, xpos - xoffset, dl->ypos - dl->ascent,
+			      width, lheight);
+      unmap_subwindow (image_instance);
+    }
+  else
+    map_subwindow (image_instance, xpos - xoffset, dl->ypos - dl->ascent);
+}
+
+/****************************************************************************
+ redisplay_clear_region
+
+ Clear the area in the box defined by the given parameters using the
+ given face. This has been generalised so that subwindows can be
+ coped with effectively.
+ ****************************************************************************/
+void
+redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
+			int width, int height)
+{
+  struct window *w = NULL;
+  struct frame *f = NULL;
+  struct device *d;
+  Lisp_Object background_pixmap = Qunbound;
+  Lisp_Object fcolor = Qnil, bcolor = Qnil;
+
+  if (!width || !height)
+     return;
+
+  if (WINDOWP (locale))
+    {
+      w = XWINDOW (locale);
+      f = XFRAME (w->frame);
+    }
+  else if (FRAMEP (locale))
+    {
+      w = NULL;
+      f = XFRAME (locale);
+    }
+  else
+    abort ();
+
+  d = XDEVICE (f->device);
+
+  /* if we have subwindows in the region we have to unmap them */
+  if (Dynarr_length (FRAME_SUBWINDOW_CACHE (f)))
+    {
+      redisplay_unmap_subwindows (f, x, y, width, height);
+    }
+
+  /* #### This isn't quite right for when this function is called
+     from the toolbar code. */
+  
+  /* Don't use a backing pixmap in the border area */
+  if (x >= FRAME_LEFT_BORDER_END (f)
+      && x < FRAME_RIGHT_BORDER_START (f)
+      && y >= FRAME_TOP_BORDER_END (f)
+      && y < FRAME_BOTTOM_BORDER_START (f))
+    {
+      Lisp_Object temp;
+      
+      if (w)
+	{
+	  temp = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, findex);
+	  
+	  if (IMAGE_INSTANCEP (temp)
+	      && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
+	    {
+	      /* #### maybe we could implement such that a string
+		 can be a background pixmap? */
+	      background_pixmap = temp;
+	    }
+	}
+      else
+	{
+	  temp = FACE_BACKGROUND_PIXMAP (Vdefault_face, locale);
+	  
+	  if (IMAGE_INSTANCEP (temp)
+	      && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
+	    {
+	      background_pixmap = temp;
+	    }
+	}
+    }      
+
+  if (!UNBOUNDP (background_pixmap) &&
+      XIMAGE_INSTANCE_PIXMAP_DEPTH (background_pixmap) == 0)
+    {
+      if (w)
+	{
+	  fcolor = WINDOW_FACE_CACHEL_FOREGROUND (w, findex);
+	  bcolor = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
+	}
+      else
+	{
+	  fcolor = FACE_FOREGROUND (Vdefault_face, locale);
+	  bcolor = FACE_BACKGROUND (Vdefault_face, locale);
+	}
+    }
+  else
+    {
+      fcolor = (w ?
+		WINDOW_FACE_CACHEL_BACKGROUND (w, findex) :
+		FACE_BACKGROUND (Vdefault_face, locale));
+      
+    }
+  
+  if (UNBOUNDP (background_pixmap))
+    background_pixmap = Qnil;
+  
+  DEVMETH (d, clear_region, 
+	   (locale, d, f, findex, x, y, width, height, fcolor, bcolor, background_pixmap));
+}
+
 /*****************************************************************************
  redisplay_clear_top_of_window
 
@@ -999,7 +1197,6 @@ redisplay_clear_top_of_window (struct window *w)
   if (!NILP (Fwindow_highest_p (window)))
     {
       struct frame *f = XFRAME (w->frame);
-      struct device *d = XDEVICE (f->device);
       int x, y, width, height;
 
       x = w->pixel_left;
@@ -1016,7 +1213,7 @@ redisplay_clear_top_of_window (struct window *w)
       y = FRAME_TOP_BORDER_START (f) - 1;
       height = FRAME_BORDER_HEIGHT (f) + 1;
 
-      DEVMETH (d, clear_region, (window, DEFAULT_INDEX, x, y, width, height));
+      redisplay_clear_region (window, DEFAULT_INDEX, x, y, width, height);
     }
 }
 

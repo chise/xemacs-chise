@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #include "device.h"
+#include "glyphs.h"
 
 #define FRAME_TYPE_NAME(f) ((f)->framemeths->name)
 #define FRAME_TYPE(f) ((f)->framemeths->symbol)
@@ -88,6 +89,9 @@ struct frame
   struct window_mirror *root_mirror;
 
   int modiff;
+
+  /* subwindow cache elements for this frame */
+  subwindow_cachel_dynarr *subwindow_cachels;
 
 #ifdef HAVE_SCROLLBARS
   /* frame-local scrollbar information.  See scrollbar.c. */
@@ -163,6 +167,7 @@ Value : Emacs meaning                           :f-v-p : X meaning
   unsigned int extents_changed :1;
   unsigned int faces_changed :1;
   unsigned int frame_changed :1;
+  unsigned int subwindows_changed :1;
   unsigned int glyphs_changed :1;
   unsigned int icon_changed :1;
   unsigned int menubar_changed :1;
@@ -311,6 +316,19 @@ extern int frame_changed;
     glyphs_changed = 1;					\
 } while (0)
 
+#define MARK_FRAME_SUBWINDOWS_CHANGED(f) do {		\
+  struct frame *mfgc_f = (f);				\
+  mfgc_f->subwindows_changed = 1;				\
+  mfgc_f->modiff++;					\
+  if (!NILP (mfgc_f->device))				\
+    {							\
+      struct device *mfgc_d = XDEVICE (mfgc_f->device);	\
+      MARK_DEVICE_SUBWINDOWS_CHANGED (mfgc_d);		\
+    }							\
+  else							\
+    subwindows_changed = 1;					\
+} while (0)
+
 #define MARK_FRAME_TOOLBARS_CHANGED(f) do {		\
   struct frame *mftc_f = (f);				\
   mftc_f->toolbar_changed = 1;				\
@@ -422,6 +440,11 @@ extern int frame_changed;
 #define FRAME_SCROLLBAR_HEIGHT(f) 0
 #endif
 
+#define FW_FRAME(obj)					\
+   (WINDOWP (obj) ? WINDOW_FRAME (XWINDOW (obj))	\
+ : (FRAMEP  (obj) ? obj						\
+ : Qnil))
+
 #define FRAME_NEW_HEIGHT(f) ((f)->new_height)
 #define FRAME_NEW_WIDTH(f) ((f)->new_width)
 #define FRAME_CURSOR_X(f) ((f)->cursor_x)
@@ -439,6 +462,7 @@ extern int frame_changed;
   NON_LVALUE ((f)->last_nonminibuf_window)
 #define FRAME_SB_VCACHE(f) ((f)->sb_vcache)
 #define FRAME_SB_HCACHE(f) ((f)->sb_hcache)
+#define FRAME_SUBWINDOW_CACHE(f) ((f)->subwindow_cachels)
 
 #if 0 /* FSFmacs */
 

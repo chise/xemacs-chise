@@ -128,6 +128,8 @@ mark_frame (Lisp_Object obj, void (*markobj) (Lisp_Object))
 #define MARKED_SLOT(x) ((void) (markobj (f->x)));
 #include "frameslots.h"
 
+  mark_subwindow_cachels (f->subwindow_cachels, markobj);
+
   if (FRAME_LIVE_P (f)) /* device is nil for a dead frame */
     MAYBE_FRAMEMETH (f, mark_frame, (f, markobj));
 
@@ -202,6 +204,9 @@ allocate_frame_core (Lisp_Object device)
   f->root_window = root_window;
   f->selected_window = root_window;
   f->last_nonminibuf_window = root_window;
+
+  /* cache of subwindows visible on frame */
+  f->subwindow_cachels    = Dynarr_new (subwindow_cachel);
 
   /* Choose a buffer for the frame's root window.  */
   XWINDOW (root_window)->buffer = Qt;
@@ -451,9 +456,9 @@ See `set-frame-properties', `default-x-frame-plist', and
 	 things. */
       init_frame_toolbars (f);
 #endif
-
       reset_face_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
       reset_glyph_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
+      reset_subwindow_cachels (f);
       change_frame_size (f, f->height, f->width, 0);
     }
 
@@ -1530,6 +1535,13 @@ delete_frame_internal (struct frame *f, int force,
      remove the reference to them.  */
   delete_all_subwindows (XWINDOW (f->root_window));
   f->root_window = Qnil;
+
+  /* clear out the cached glyph information */
+  if (f->subwindow_cachels)
+    {
+      Dynarr_free (f->subwindow_cachels);
+      f->subwindow_cachels = 0;
+    }
 
   /* Remove the frame now from the list.  This way, any events generated
      on this frame by the maneuvers below will disperse themselves. */

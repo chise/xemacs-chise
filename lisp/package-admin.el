@@ -324,7 +324,7 @@ is the top-level directory under which the package was installed."
 	start err-list
 	)
     (setq pkg-dir (package-admin-get-install-dir 'unknown pkg-dir))
-    ;; Insure that the current directory doesn't change
+    ;; Ensure that the current directory doesn't change
     (save-excursion
       (set-buffer buf)
       ;; This is not really needed
@@ -437,8 +437,7 @@ PACKAGE is a symbol, not a string."
 	    ;; Delete empty directories.
 	    (if dirs
 		(let ( (orig-default-directory default-directory)
-;		       directory files file
-		       )
+		       directory files file )
 		  ;; Make sure we preserve the existing `default-directory'.
 		  ;; JV, why does this change the default directory? Does it indeed?
 		  (unwind-protect

@@ -725,3 +725,54 @@
 (Assert (eq (type-of "42") 'string))
 (Assert (eq (type-of 'foo) 'symbol))
 (Assert (eq (type-of (selected-device)) 'device))
+
+;;-----------------------------------------------------
+;; Test mapping functions
+;;-----------------------------------------------------
+(Check-Error wrong-type-argument (mapcar #'identity (current-buffer)))
+(Assert (equal (mapcar #'identity load-path) load-path))
+(Assert (equal (mapcar #'identity '(1 2 3)) '(1 2 3)))
+(Assert (equal (mapcar #'identity "123") '(?1 ?2 ?3)))
+(Assert (equal (mapcar #'identity [1 2 3]) '(1 2 3)))
+(Assert (equal (mapcar #'identity #*010) '(0 1 0)))
+
+(let ((z 0) (list (make-list 1000 1)))
+  (mapc (lambda (x) (incf z x)) list)
+  (Assert (eq 1000 z)))
+
+(Check-Error wrong-type-argument (mapvector #'identity (current-buffer)))
+(Assert (equal (mapvector #'identity '(1 2 3)) [1 2 3]))
+(Assert (equal (mapvector #'identity "123") [?1 ?2 ?3]))
+(Assert (equal (mapvector #'identity [1 2 3]) [1 2 3]))
+(Assert (equal (mapvector #'identity #*010) [0 1 0]))
+
+(Check-Error wrong-type-argument (mapconcat #'identity (current-buffer) "foo"))
+(Assert (equal (mapconcat #'identity '("1" "2" "3") "|") "1|2|3"))
+(Assert (equal (mapconcat #'identity ["1" "2" "3"]  "|") "1|2|3"))
+
+;;-----------------------------------------------------
+;; Test vector functions
+;;-----------------------------------------------------
+(Assert (equal [1 2 3] [1 2 3]))
+(Assert (equal [] []))
+(Assert (not (equal [1 2 3] [])))
+(Assert (not (equal [1 2 3] [1 2 4])))
+(Assert (not (equal [0 2 3] [1 2 3])))
+(Assert (not (equal [1 2 3] [1 2 3 4])))
+(Assert (not (equal [1 2 3 4] [1 2 3])))
+(Assert (equal (vector 1 2 3) [1 2 3]))
+(Assert (equal (make-vector 3 1) [1 1 1]))
+
+;;-----------------------------------------------------
+;; Test bit-vector functions
+;;-----------------------------------------------------
+(Assert (equal #*010 #*010))
+(Assert (equal #* #*))
+(Assert (not (equal #*010 #*011)))
+(Assert (not (equal #*010 #*)))
+(Assert (not (equal #*110 #*010)))
+(Assert (not (equal #*010 #*0100)))
+(Assert (not (equal #*0101 #*010)))
+(Assert (equal (bit-vector 0 1 0) #*010))
+(Assert (equal (make-bit-vector 3 1) #*111))
+(Assert (equal (make-bit-vector 3 0) #*000))

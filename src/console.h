@@ -139,7 +139,9 @@ struct console_methods
   int (*eol_cursor_width_method) (void);
   void (*output_vertical_divider_method) (struct window *, int);
   void (*clear_to_window_end_method) (struct window *, int, int);
-  void (*clear_region_method) (Lisp_Object, face_index, int, int, int, int);
+  void (*clear_region_method) (Lisp_Object, struct device*, struct frame*, face_index,
+			       int, int, int, int,
+			       Lisp_Object, Lisp_Object, Lisp_Object);
   void (*clear_frame_method) (struct frame *);
   void (*output_begin_method) (struct device *);
   void (*output_end_method) (struct device *);
@@ -202,6 +204,10 @@ struct console_methods
 				       Lisp_Object printcharfun,
 				       int escapeflag);
   void (*finalize_image_instance_method) (struct Lisp_Image_Instance *);
+  void (*unmap_subwindow_method) (struct Lisp_Image_Instance *);
+  void (*map_subwindow_method) (struct Lisp_Image_Instance *, int x, int y);
+  void (*resize_subwindow_method) (struct Lisp_Image_Instance *, int w, int h);
+  void (*update_subwindow_method) (struct Lisp_Image_Instance *);
   int (*image_instance_equal_method) (struct Lisp_Image_Instance *,
 				      struct Lisp_Image_Instance *,
 				      int depth);
@@ -216,22 +222,6 @@ struct console_methods
   Lisp_Object (*locate_pixmap_file_method) (Lisp_Object file_method);
   int (*colorize_image_instance_method) (Lisp_Object image_instance,
 					 Lisp_Object fg, Lisp_Object bg);
-#ifdef HAVE_XPM
-    /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xpm_instantiate_method)(Lisp_Object image_instance,
-				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg,
-				 Lisp_Object pointer_bg,
-				 int dest_mask, Lisp_Object domain);
-#endif
-#ifdef HAVE_WINDOW_SYSTEM
-    /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xbm_instantiate_method)(Lisp_Object image_instance,
-				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg,
-				 Lisp_Object pointer_bg,
-				 int dest_mask, Lisp_Object domain);
-#endif
   Lisp_Object image_conversion_list;
 
 #ifdef HAVE_TOOLBARS

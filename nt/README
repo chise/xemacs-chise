@@ -23,8 +23,9 @@ To get it working you will need:
 2.  Grab the latest XEmacs source from ftp.xemacs.org if necessary. All Win32
     support is in the nt\ subdirectory. You'll also need the xemacs-base
     package from the binary-packages subdirectory and you'll probably also
-    want at least the edit-utils, text-utils, cc-mode and prog-utils packages.
-    Unpack the packages into, say, "c:\Program Files\XEmacs\packages".
+    want at least the edit-utils, text-modes, fsf-compat, cc-mode,
+    prog-modes and xemacs-devel packages.
+    Unpack the packages into, say, "c:\Program Files\XEmacs\xemacs-packages".
 
 3.  At this point you can select X or Win32 native GUI support.
 
@@ -71,23 +72,24 @@ If you want to build for native GUI:
     If you want to build with GIF support, add this to the nmake command line:
 	HAVE_GIF=1
 
-7.  By default, XEmacs will look for packages in
-    "c:\Program Files\XEmacs\packages". If you want it to look elsewhere,
-    add this to the nmake command line:
-	PACKAGEPATH="x:\\location\\of\\your\\packages"
-    Note the doubled-up backslashes in that path. If you want to change the
-    package path after you've already built XEmacs, delete the file
-    .\obj\emacs.obj before rebuilding with the new value of PACKAGEPATH.
+7.  By default, XEmacs will expect to find its packages in the subdirectories
+    "site-packages", "mule-packages" and "xemacs-packages" under the package
+    prefix directory "c:\Program Files\XEmacs". If you want it to look for
+    these subdirectories elsewhere, add this to the nmake command line:
+	PACKAGE_PREFIX="x:\your\package\directory"
+    If you change your mind and want to alter the package prefix directory
+    after you've built XEmacs, delete the file .\obj\emacs.obj and rebuild with
+    the new PACKAGE_PREFIX.
 
 8.  By default, XEmacs will be installed in directories under the directory
-    "c:\Program Files\XEmacs\XEmacs-21.0". If you want to install it
-    elsewhere, add this to the nmake command line:
+    "c:\Program Files\XEmacs\XEmacs-21.0". If you want to install it elsewhere,
+    add this to the nmake command line:
 	INSTALL_DIR="x:\your\installation\directory"
 
 9.  Now you can press Enter. nmake will build temacs, the DOC file, update the
     elc's, dump xemacs and install the relevant files in the directories under
     the installation directory. Unless you set INSTALL_DIR above, the file that
-    you should run to start XEmacs will be installed as
+    you should run to start XEmacs will be installed as 
     "c:\Program Files\XEmacs\XEmacs-21.0\i386-pc-win32\runemacs.exe". You may
     want to create a shortcut to that file from your Desktop or Start Menu.
 

@@ -180,7 +180,7 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 
 	  {
 	    Lisp_Object name =
-	      make_ext_string ((Bufbyte *)dp->d_name, len, FORMAT_FILENAME);
+	      make_string ((Bufbyte *)dp->d_name, len);
 	    if (!NILP (full))
 	      name = concat2 (dirname, name);
 

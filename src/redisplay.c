@@ -256,7 +256,8 @@ static prop_block_dynarr *add_glyph_rune (pos_data *data,
 					  struct glyph_cachel *cachel);
 static Bytind create_text_block (struct window *w, struct display_line *dl,
 				 Bytind bi_start_pos, int start_col,
-				 prop_block_dynarr **prop, int type);
+				 prop_block_dynarr **prop,
+				 int type);
 static int create_overlay_glyph_block (struct window *w,
 				       struct display_line *dl);
 static void create_left_glyph_block (struct window *w,
@@ -364,6 +365,11 @@ int frame_changed;
    somewhere. */
 int glyphs_changed;
 int glyphs_changed_set;
+
+/* non-zero if any displayed subwindow is in need of updating
+   somewhere. */
+int subwindows_changed;
+int subwindows_changed_set;
 
 /* This variable is 1 if the icon has to be updated.
  It is set to 1 when `frame-icon-glyph' changes. */
@@ -681,7 +687,8 @@ calculate_display_line_boundaries (struct window *w, int modeline)
 static Bufpos
 generate_display_line (struct window *w, struct display_line *dl, int bounds,
 		       Bufpos start_pos, int start_col,
-		       prop_block_dynarr **prop, int type)
+		       prop_block_dynarr **prop,
+		       int type)
 {
   Bufpos ret_bufpos;
   int overlay_width;
@@ -1233,66 +1240,12 @@ add_control_char_runes (pos_data *data, struct buffer *b)
     }
 }
 
-/* Given a display table entry, call the appropriate functions to
-   display each element of the entry. */
-
 static prop_block_dynarr *
-add_disp_table_entry_runes (pos_data *data, Lisp_Object entry)
+add_disp_table_entry_runes_1 (pos_data *data, Lisp_Object entry)
 {
   prop_block_dynarr *prop = NULL;
 
-  if (VECTORP (entry))
-    {
-      struct Lisp_Vector *de = XVECTOR (entry);
-      long len = vector_length (de);
-      int elt;
-
-      for (elt = 0; elt < len; elt++)
-	{
-	  if (NILP (de->contents[elt]))
-	    continue;
-	  else if (STRINGP (de->contents[elt]))
-	    {
-	      prop =
-		add_bufbyte_string_runes
-		  (data,
-		   XSTRING_DATA   (de->contents[elt]),
-		   XSTRING_LENGTH (de->contents[elt]),
-		   0);
-	    }
-	  else if (GLYPHP (de->contents[elt]))
-	    {
-	      if (data->start_col)
-		data->start_col--;
-
-	      if (!data->start_col && data->bi_start_col_enabled)
-		{
-		  prop = add_hscroll_rune (data);
-		}
-	      else
-		{
-		  struct glyph_block gb;
-
-		  gb.glyph = de->contents[elt];
-		  gb.extent = Qnil;
-		  prop = add_glyph_rune (data, &gb, BEGIN_GLYPHS, 0, 0);
-		}
-	    }
-	  else if (CHAR_OR_CHAR_INTP (de->contents[elt]))
-	    {
-	      data->ch = XCHAR_OR_CHAR_INT (de->contents[elt]);
-	      prop = add_emchar_rune (data);
-	    }
-	  /* Else blow it off because someone added a bad entry and we
-             don't have any safe way of signaling an error. */
-
-	  /* #### Still need to add any remaining elements to the
-             propagation information. */
-	  if (prop)
-	    return prop;
-	}
-    }
-  else if (STRINGP (entry))
+  if (STRINGP (entry))
     {
       prop = add_bufbyte_string_runes (data,
 				       XSTRING_DATA   (entry),
@@ -1322,10 +1275,79 @@ add_disp_table_entry_runes (pos_data *data, Lisp_Object entry)
       data->ch = XCHAR_OR_CHAR_INT (entry);
       prop = add_emchar_rune (data);
     }
+  else if (CONSP (entry))
+    {
+      if (EQ (XCAR (entry), Qformat)
+	  && CONSP (XCDR (entry))
+	  && STRINGP (XCAR (XCDR (entry))))
+	{
+	  Lisp_Object format = XCAR (XCDR (entry));
+	  Bytind len = XSTRING_LENGTH (format);
+	  Bufbyte *src = XSTRING_DATA (format), *end = src + len;
+	  Bufbyte *result = alloca_array (Bufbyte, len);
+	  Bufbyte *dst = result;
+
+	  while (src < end)
+	    {
+	      Emchar c = charptr_emchar (src);
+	      INC_CHARPTR (src);
+	      if (c != '%' || src == end)
+		dst += set_charptr_emchar (dst, c);
+	      else
+		{
+		  c = charptr_emchar (src);
+		  INC_CHARPTR (src);
+		  switch (c)
+		    {
+		      /*case 'x':
+		      dst += long_to_string_base ((char *)dst, data->ch, 16);
+		      break;*/
+		    case '%':
+		      dst += set_charptr_emchar (dst, '%');
+		      break;
+		    }
+		}
+	    }
+	  prop = add_bufbyte_string_runes (data, result, dst - result, 0);
+	}
+    }
 
   /* Else blow it off because someone added a bad entry and we don't
-     have any safe way of signaling an error.  Hey, this comment
-     sounds familiar. */
+     have any safe way of signaling an error. */
+  return prop;
+}
+
+/* Given a display table entry, call the appropriate functions to
+   display each element of the entry. */
+
+static prop_block_dynarr *
+add_disp_table_entry_runes (pos_data *data, Lisp_Object entry)
+{
+  prop_block_dynarr *prop = NULL;
+  if (VECTORP (entry))
+    {
+      struct Lisp_Vector *de = XVECTOR (entry);
+      EMACS_INT len = vector_length (de);
+      int elt;
+
+      for (elt = 0; elt < len; elt++)
+	{
+	  if (NILP (vector_data (de)[elt]))
+	    continue;
+	  else
+	    prop = add_disp_table_entry_runes_1 (data, vector_data (de)[elt]);
+	  /* Else blow it off because someone added a bad entry and we
+	     don't have any safe way of signaling an error.  Hey, this
+	     comment sounds familiar. */
+
+	  /* #### Still need to add any remaining elements to the
+             propagation information. */
+	  if (prop)
+	    return prop;
+	}
+    }
+  else
+    prop = add_disp_table_entry_runes_1 (data, entry);
   return prop;
 }
 
@@ -1744,14 +1766,14 @@ add_glyph_runes (pos_data *data, int pos_type)
 static Bytind
 create_text_block (struct window *w, struct display_line *dl,
 		   Bytind bi_start_pos, int start_col,
-		   prop_block_dynarr **prop, int type)
+		   prop_block_dynarr **prop,
+		   int type)
 {
   struct frame *f = XFRAME (w->frame);
   struct buffer *b = XBUFFER (w->buffer);
   struct device *d = XDEVICE (f->device);
 
   pos_data data;
-  struct Lisp_Vector *dt = 0;
 
   /* Don't display anything in the minibuffer if this window is not on
      a selected frame.  We consider all other windows to be active
@@ -1784,45 +1806,40 @@ create_text_block (struct window *w, struct display_line *dl,
      into a more general conversion mechanism.  Ideally you
      could specify a Lisp function that converts characters,
      but this violates the Second Golden Rule and besides would
-     make things way way way way slow.  An idea I like is to
-     be able to specify multiple display tables instead of just
-     one.  Each display table can specify conversions for some
-     characters and leave others unchanged.  The way the
-     character gets displayed is determined by the first display
-     table with a binding for that character.  This way, you
-     could call a function `enable-hex-display' that adds a
-     pre-defined hex display-table (or maybe computes one if
-     you give weird parameters to the function) and adds it
-     to the list of display tables for the current buffer.
+     make things way way way way slow.
 
-     Unfortunately there are still problems dealing with Mule
-     characters.  For example, maybe I want to specify that
-     all extended characters (i.e. >= 256) are displayed in hex.
-     It's not reasonable to create a mapping for all possible
-     such characters, because there are about 2^19 of them.
-     One way of dealing with this is to extend the concept
-     of what a display table is.  Currently it's only allowed
-     to be a 256-entry vector.  Instead, it should be something
-     like:
+     So instead, we extend the display-table concept, which was
+     historically limited to 256-byte vectors, to one of the
+     following:
 
-     a) A 256-entry vector, for backward compatibility
-     b) Some sort of hash table, mapping characters to values
-     c) A list that specifies a range of values and the
-        mapping to provide for those values.
+     a) A 256-entry vector, for backward compatibility;
+     b) char-table, mapping characters to values;
+     c) range-table, mapping ranges of characters to values;
+     d) a list of the above.
 
-     Also, extend the concept of "mapping" to include a
-     printf-like spec.  Then, you could make all extended
-     characters show up as hex with a display table like
+     The (d) option allows you to specify multiple display tables
+     instead of just one.  Each display table can specify conversions
+     for some characters and leave others unchanged.  The way the
+     character gets displayed is determined by the first display table
+     with a binding for that character.  This way, you could call a
+     function `enable-hex-display' that adds a hex display-table to
+     the list of display tables for the current buffer.
 
-     ((256 . 524288) . "%x")
+     #### ...not yet implemented...  Also, we extend the concept of
+     "mapping" to include a printf-like spec.  Thus you can make all
+     extended characters show up as hex with a display table like
+     this:
+
+         #s(range-table data ((256 524288) (format "%x")))
 
      Since more than one display table is possible, you have
-     great flexibility in mapping ranges of characters.
-     */
+     great flexibility in mapping ranges of characters.  */
   Emchar printable_min = (CHAR_OR_CHAR_INTP (b->ctl_arrow)
 			  ? XCHAR_OR_CHAR_INT (b->ctl_arrow)
 			  : ((EQ (b->ctl_arrow, Qt) || EQ (b->ctl_arrow, Qnil))
 			     ? 255 : 160));
+
+  Lisp_Object face_dt, window_dt;
 
   /* The text display block for this display line. */
   struct display_block *db = get_display_block_from_line (dl, TEXT);
@@ -1962,10 +1979,10 @@ create_text_block (struct window *w, struct display_line *dl,
 	    /* Remember that the extent-fragment routines deal in Bytind's. */
 	    extent_fragment_update (w, data.ef, data.bi_bufpos);
 
+	  get_display_tables (w, data.findex, &face_dt, &window_dt);
+
 	  if (data.bi_bufpos == data.ef->end)
 	    no_more_frags = 1;
-
-	  dt = get_display_table (w, data.findex);
 	}
       initial = 0;
 
@@ -2077,16 +2094,17 @@ create_text_block (struct window *w, struct display_line *dl,
 
       else
 	{
+	  Lisp_Object entry = Qnil;
 	  /* Get the character at the current buffer position. */
 	  data.ch = BI_BUF_FETCH_CHAR (b, data.bi_bufpos);
+	  if (!NILP (face_dt) || !NILP (window_dt))
+	    entry = display_table_entry (data.ch, face_dt, window_dt);
 
 	  /* If there is a display table entry for it, hand it off to
              add_disp_table_entry_runes and let it worry about it. */
-	  if (dt && !NILP (DISP_CHAR_ENTRY (dt, data.ch)))
+	  if (!NILP (entry) && !EQ (entry, make_char (data.ch)))
 	    {
-	      *prop =
-		add_disp_table_entry_runes (&data,
-					    DISP_CHAR_ENTRY (dt, data.ch));
+	      *prop = add_disp_table_entry_runes (&data, entry);
 
 	      if (*prop)
 		goto done;
@@ -4310,7 +4328,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
     }
 
   if (prop)
-      Dynarr_free (prop);
+    Dynarr_free (prop);
 
   /* #### More not quite right, but close enough. */
   /* #### Ben sez: apparently window_end_pos[] is measured
@@ -4625,11 +4643,9 @@ regenerate_window_incrementally (struct window *w, Bufpos startp,
   /* If the changes are below the visible area then if point hasn't
      moved return success otherwise fail in order to be safe. */
   if (line > dla_end)
-    {
-      return regenerate_window_extents_only_changed (w, startp, pointm,
-						     extent_beg_unchanged,
-						     extent_end_unchanged);
-    }
+    return regenerate_window_extents_only_changed (w, startp, pointm,
+						   extent_beg_unchanged,
+						   extent_end_unchanged);
   else
     /* At this point we know what line the changes first affect.  We
        now redraw that line.  If the changes are contained within it
@@ -4753,12 +4769,9 @@ regenerate_window_incrementally (struct window *w, Bufpos startp,
 	      && extent_end_unchanged != -1
 	      && ((extent_beg_unchanged < ddl->bufpos)
 		  || (extent_end_unchanged > ddl->end_bufpos)))
-	    {
-	      return
-		regenerate_window_extents_only_changed (w, startp, pointm,
-							extent_beg_unchanged,
-							extent_end_unchanged);
-	    }
+	    return regenerate_window_extents_only_changed (w, startp, pointm,
+							   extent_beg_unchanged,
+							   extent_end_unchanged);
 	  else
 	    return 1;
 	}
@@ -5081,6 +5094,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	  && !f->extents_changed
 	  && !f->faces_changed
 	  && !f->glyphs_changed
+	  && !f->subwindows_changed
 	  && !f->point_changed
 	  && !f->windows_structure_changed)
 	{
@@ -5101,6 +5115,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	      && !f->extents_changed
 	      && !f->faces_changed
 	      && !f->glyphs_changed
+	      && !f->subwindows_changed
 	      && !f->windows_structure_changed)
 	    {
 	      if (point_visible (w, pointm, CURRENT_DISP)
@@ -5158,6 +5173,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	   && !f->clip_changed
 	   && !f->faces_changed
 	   && !f->glyphs_changed
+	   && !f->subwindows_changed
 	   && !f->windows_structure_changed
 	   && !f->frame_changed
 	   && !truncation_changed
@@ -5374,7 +5390,11 @@ redisplay_frame (struct frame *f, int preemption_check)
      being handled. */
   update_frame_menubars (f);
 #endif /* HAVE_MENUBARS */
-
+  /* widgets are similar to menus in that they can call lisp to
+     determine activation etc. Therefore update them before we get
+     into redisplay. This is primarily for connected widgets such as
+     radio buttons. */
+  update_frame_subwindows (f);
 #ifdef HAVE_TOOLBARS
   /* Update the toolbars. */
   update_frame_toolbars (f);
@@ -5412,7 +5432,20 @@ redisplay_frame (struct frame *f, int preemption_check)
 
   /* Erase the frame before outputting its contents. */
   if (f->clear)
-    DEVMETH (d, clear_frame, (f));
+    {
+      DEVMETH (d, clear_frame, (f));
+    }
+
+  /* invalidate the subwindow cache. we are going to reuse the glyphs
+     flag here to cause subwindows to get instantiated. This is
+     because subwindows changed is less strict - dealing with things
+     like the clicked state of button. */
+  if (!Dynarr_length (f->subwindow_cachels)
+      || f->glyphs_changed
+      || f->frame_changed)
+    reset_subwindow_cachels (f);
+  else
+    mark_subwindow_cachels_as_not_updated (f);
 
   /* Do the selected window first. */
   redisplay_window (FRAME_SELECTED_WINDOW (f), 0);
@@ -5434,6 +5467,7 @@ redisplay_frame (struct frame *f, int preemption_check)
   f->faces_changed    = 0;
   f->frame_changed    = 0;
   f->glyphs_changed   = 0;
+  f->subwindows_changed   = 0;
   f->icon_changed     = 0;
   f->menubar_changed  = 0;
   f->modeline_changed = 0;
@@ -5497,7 +5531,7 @@ redisplay_device (struct device *d)
 	  f->faces_changed    || f->frame_changed || f->menubar_changed ||
 	  f->modeline_changed || f->point_changed || f->size_changed    ||
 	  f->toolbar_changed  || f->windows_changed || f->size_slipped  ||
-	  f->windows_structure_changed || f->glyphs_changed)
+	  f->windows_structure_changed || f->glyphs_changed || f->subwindows_changed)
 	{
 	  preempted = redisplay_frame (f, 0);
 	}
@@ -5532,7 +5566,7 @@ redisplay_device (struct device *d)
 	      f->modeline_changed || f->point_changed || f->size_changed    ||
 	      f->toolbar_changed  || f->windows_changed ||
 	      f->windows_structure_changed ||
-	      f->glyphs_changed)
+	      f->glyphs_changed || f->subwindows_changed)
 	    {
 	      preempted = redisplay_frame (f, 0);
 	    }
@@ -5553,6 +5587,7 @@ redisplay_device (struct device *d)
   d->faces_changed    = 0;
   d->frame_changed    = 0;
   d->glyphs_changed   = 0;
+  d->subwindows_changed   = 0;
   d->icon_changed     = 0;
   d->menubar_changed  = 0;
   d->modeline_changed = 0;
@@ -5598,7 +5633,7 @@ redisplay_without_hooks (void)
       !faces_changed   && !frame_changed    && !icon_changed    &&
       !menubar_changed && !modeline_changed && !point_changed   &&
       !size_changed    && !toolbar_changed  && !windows_changed &&
-      !glyphs_changed  &&
+      !glyphs_changed  && !subwindows_changed &&
       !windows_structure_changed && !disable_preemption &&
       preemption_count < max_preempts)
     goto done;
@@ -5613,7 +5648,7 @@ redisplay_without_hooks (void)
 	  d->menubar_changed  || d->modeline_changed || d->point_changed   ||
 	  d->size_changed     || d->toolbar_changed  || d->windows_changed ||
 	  d->windows_structure_changed ||
-	  d->glyphs_changed)
+	  d->glyphs_changed || d->subwindows_changed)
 	{
 	  preempted = redisplay_device (d);
 
@@ -5637,6 +5672,7 @@ redisplay_without_hooks (void)
   extents_changed  = 0;
   frame_changed    = 0;
   glyphs_changed   = 0;
+  subwindows_changed   = 0;
   icon_changed     = 0;
   menubar_changed  = 0;
   modeline_changed = 0;

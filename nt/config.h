@@ -605,7 +605,7 @@ on various systems. */
 
 /* movemail options */
 /* Should movemail use POP3 for mail access? */
-#undef MAIL_USE_POP
+/* #undef MAIL_USE_POP */
 /* Should movemail use kerberos for POP authentication? */
 #undef KERBEROS
 /* Should movemail use hesiod for getting POP server host? */

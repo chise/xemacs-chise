@@ -28,6 +28,7 @@ Boston, MA 02111-1307, USA.  */
    Ultimately based on FSF.
    Rewritten by Ben Wing.
    Rewritten for mswindows by Jonathan Harris, November 1997 for 21.0.
+   Subprocess and modal loop support by Kirill M. Katsnelson.
  */
 
 #include <config.h>
@@ -50,6 +51,8 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "events.h"
 #include "frame.h"
+#include "buffer.h"
+#include "faces.h"
 #include "lstream.h"
 #include "process.h"
 #include "redisplay.h"
@@ -57,6 +60,7 @@ Boston, MA 02111-1307, USA.  */
 #include "syswait.h"
 #include "systime.h"
 #include "sysdep.h"
+#include "objects-msw.h"
 
 #include "events-mod.h"
 #ifdef HAVE_MSG_SELECT
@@ -84,6 +88,8 @@ extern Lisp_Object
 mswindows_get_toolbar_button_text (struct frame* f, int command_id);
 extern Lisp_Object
 mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
+extern Lisp_Object
+mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, WORD id);
 
 static Lisp_Object mswindows_find_frame (HWND hwnd);
 static Lisp_Object mswindows_find_console (HWND hwnd);
@@ -118,8 +124,13 @@ static Lisp_Object mswindows_s_dispatch_event_queue, mswindows_s_dispatch_event_
 /* List of mswindows waitable handles. */
 static HANDLE mswindows_waitable_handles[MAX_WAITABLE];
 
+#ifndef HAVE_MSG_SELECT
 /* Number of wait handles */
 static int mswindows_waitable_count=0;
+#endif /* HAVE_MSG_SELECT */
+/* Brush for painting widgets */
+static HBRUSH widget_brush = 0;
+static LONG	last_widget_brushed = 0;
 
 /* Count of quit chars currently in the queue */
 /* Incremented in WM_[SYS]KEYDOWN handler in the mswindows_wnd_proc()
@@ -470,6 +481,7 @@ struct ntpipe_shove_stream
 DEFINE_LSTREAM_IMPLEMENTATION ("ntpipe-output", lstream_ntpipe_shove,
 			       sizeof (struct ntpipe_shove_stream));
 
+#ifndef HAVE_MSG_SELECT
 static DWORD WINAPI
 shove_thread (LPVOID vparam)
 {
@@ -541,6 +553,7 @@ get_ntpipe_output_stream_param (Lstream *stream)
   struct ntpipe_shove_stream* s = NTPIPE_SHOVE_STREAM_DATA(stream);
   return s->user_data;
 }
+#endif
 
 static int
 ntpipe_shove_writer (Lstream *stream, const unsigned char *data, size_t size)
@@ -939,6 +952,13 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT message, POINTS where, DWO
     {
       event->event_type = button_press_event;
       SetCapture (hwnd);
+      /* we need this to make sure the main window regains the focus
+         from control subwindows */
+      if (GetFocus() != hwnd)
+	{
+	  SetFocus (hwnd);
+	  mswindows_enqueue_magic_event (hwnd, WM_SETFOCUS);
+	}
     }
   else
     {
@@ -997,18 +1017,18 @@ mswindows_dequeue_dispatch_event ()
 
 /*
  * Remove and return the first emacs event on the dispatch queue that matches
- * the supplied event
- * Timeout event matches if interval_id equals to that of the given event.
+ * the supplied event.
+ * Timeout event matches if interval_id is equal to that of the given event.
  * Keypress event matches if logical AND between modifiers bitmask of the
- * event in the queue and that of the given event is non-zero
- * For all other event types, this function asserts.
+ * event in the queue and that of the given event is non-zero.
+ * For all other event types, this function aborts.
  */
 
 Lisp_Object
-mswindows_cancel_dispatch_event (struct Lisp_Event* match)
+mswindows_cancel_dispatch_event (struct Lisp_Event *match)
 {
   Lisp_Object event;
-  Lisp_Object previous_event=Qnil;
+  Lisp_Object previous_event = Qnil;
   int user_p = mswindows_user_event_p (match);
   Lisp_Object* head = user_p ? &mswindows_u_dispatch_event_queue : 
     			       &mswindows_s_dispatch_event_queue;
@@ -1020,19 +1040,12 @@ mswindows_cancel_dispatch_event (struct Lisp_Event* match)
 
   EVENT_CHAIN_LOOP (event, *head)
     {
-      int found = 1;
-      if (XEVENT_TYPE (event) != match->event_type)
-	found = 0;
-      if (found && match->event_type == timeout_event
-	  && (XEVENT(event)->event.timeout.interval_id !=
-	      match->event.timeout.interval_id))
-	found = 0;
-      if (found && match->event_type == key_press_event
-	  && ((XEVENT(event)->event.key.modifiers &
-	      match->event.key.modifiers) == 0))
-	found = 0;
-
-      if (found)
+      struct Lisp_Event *e = XEVENT (event);
+      if ((e->event_type == match->event_type) &&
+	  ((e->event_type == timeout_event) ?
+	   (e->event.timeout.interval_id == match->event.timeout.interval_id) :
+	   /* Must be key_press_event */
+	   ((e->event.key.modifiers & match->event.key.modifiers) != 0)))
 	{
 	  if (NILP (previous_event))
 	    dequeue_event (head, tail);
@@ -1050,6 +1063,7 @@ mswindows_cancel_dispatch_event (struct Lisp_Event* match)
   return Qnil;
 }
 
+#ifndef HAVE_MSG_SELECT
 /************************************************************************/
 /*                     Waitable handles manipulation                    */
 /************************************************************************/
@@ -1085,6 +1099,7 @@ remove_waitable_handle (HANDLE h)
   mswindows_waitable_handles [ix] = 
     mswindows_waitable_handles [--mswindows_waitable_count];
 }
+#endif /* HAVE_MSG_SELECT */
 
 
 /************************************************************************/
@@ -1214,6 +1229,14 @@ mswindows_drain_windows_queue ()
   MSG msg;
   while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
     {
+      /* we have to translate messages that are not sent to the main
+         window. this is so that key presses work ok in things like
+         edit fields. however, we *musn't* translate message for the
+         main window as this is handled in the wnd proc. */
+      if ( GetWindowLong (msg.hwnd, GWL_STYLE) & WS_CHILD )
+	{
+	  TranslateMessage (&msg);
+	}
       DispatchMessage (&msg);
       mswindows_unmodalize_signal_maybe ();
     }
@@ -1648,7 +1671,8 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	  int quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
 	  BYTE keymap_orig[256];
-	  MSG msg = { hwnd, message, wParam, lParam, GetMessageTime(), (GetMessagePos()) };
+	  POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
+	  MSG msg = { hwnd, message, wParam, lParam, GetMessageTime(), pnt };
 
 	  /* GetKeyboardState() does not work as documented on Win95. We have
 	   * to loosely track Left and Right modifiers on behalf of the OS,
@@ -1918,7 +1942,8 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    {
 	      /* I think this is safe since the text will only go away
                  when the toolbar does...*/
-	      tttext->lpszText=XSTRING_DATA (btext);
+	      GET_C_STRING_EXT_DATA_ALLOCA (btext, FORMAT_OS, 
+					    tttext->lpszText);
 	    }
 #if 0
 	  tttext->uFlags |= TTF_DI_SETITEM;
@@ -2115,6 +2140,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
   case WM_COMMAND:
     {
       WORD id = LOWORD (wParam);
+      WORD nid = HIWORD (wParam);
       HWND cid = (HWND)lParam;
       frame = XFRAME (mswindows_find_frame (hwnd));
 
@@ -2122,16 +2148,85 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       if (!NILP (mswindows_handle_toolbar_wm_command (frame, cid, id)))
 	break;
 #endif
-
+      /* widgets in a buffer only eval a callback for suitable events.*/
+      switch (nid)
+	{
+	case BN_CLICKED:
+	case EN_CHANGE:
+	case CBN_EDITCHANGE:
+	case CBN_SELCHANGE:
+	  if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
+	    return 0;
+	default:		/* do nothing */
+	}
+      /* menubars always must come last since the hashtables do not
+         always exist*/
 #ifdef HAVE_MENUBARS
       if (!NILP (mswindows_handle_wm_command (frame, id)))
 	break;
 #endif
 
-      /* Bite me - a spurious command. This cannot happen. */
-      error ("XEMACS BUG: Cannot decode command message");
+      return DefWindowProc (hwnd, message, wParam, lParam);
+      /* Bite me - a spurious command. This used to not be able to
+         happen but with the introduction of widgets its now
+         possible. */
     }
   break;
+
+  case WM_CTLCOLORBTN:
+  case WM_CTLCOLORLISTBOX:
+  case WM_CTLCOLOREDIT:
+  case WM_CTLCOLORSTATIC:
+  case WM_CTLCOLORSCROLLBAR:
+    {
+      /* if we get an opportunity to paint a widget then do so if
+         there is an appropriate face */
+      HWND crtlwnd = (HWND)lParam;
+      LONG ii = GetWindowLong (crtlwnd, GWL_USERDATA);
+      if (ii)
+	{
+	  Lisp_Object image_instance;
+	  VOID_TO_LISP (image_instance, ii);
+	  if (IMAGE_INSTANCEP (image_instance)
+	      && 
+	      IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET)
+	      &&
+	      !NILP (XIMAGE_INSTANCE_WIDGET_FACE (image_instance)))
+	    {
+	      /* set colors for the buttons */
+	      HDC hdc = (HDC)wParam;
+	      if (last_widget_brushed != ii)
+		{
+		  if (widget_brush)
+		    DeleteObject (widget_brush);
+		  widget_brush = CreateSolidBrush 
+		    (COLOR_INSTANCE_MSWINDOWS_COLOR 
+		     (XCOLOR_INSTANCE 
+		      (FACE_BACKGROUND 
+		       (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+			XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		}
+	      last_widget_brushed = ii;
+	      SetTextColor
+		(hdc,
+		 COLOR_INSTANCE_MSWINDOWS_COLOR 
+		 (XCOLOR_INSTANCE 
+		  (FACE_FOREGROUND 
+		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+	      SetBkMode (hdc, OPAQUE);
+	      SetBkColor
+		(hdc,
+		 COLOR_INSTANCE_MSWINDOWS_COLOR 
+		 (XCOLOR_INSTANCE 
+		  (FACE_BACKGROUND 
+		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+	      return (LRESULT)widget_brush;
+	    }
+	}
+    }
+    goto defproc;
 
 #ifdef HAVE_DRAGNDROP
   case WM_DROPFILES:	/* implementation ripped-off from event-Xt.c */
@@ -2518,6 +2613,7 @@ emacs_mswindows_handle_magic_event (struct Lisp_Event *emacs_event)
     }
 }
 
+#ifndef HAVE_MSG_SELECT
 static HANDLE
 get_process_input_waitable (struct Lisp_Process *process)
 {
@@ -2567,6 +2663,7 @@ emacs_mswindows_unselect_process (struct Lisp_Process *process)
   HANDLE hev = get_process_input_waitable (process);
   remove_waitable_handle (hev);
 }
+#endif /* HAVE_MSG_SELECT */
 
 static void
 emacs_mswindows_select_console (struct console *con)
@@ -2581,14 +2678,20 @@ emacs_mswindows_unselect_console (struct console *con)
 static void
 emacs_mswindows_quit_p (void)
 {
+  MSG msg;
+
   /* Quit cannot happen in modal loop: all program
      input is dedicated to Windows. */
   if (mswindows_in_modal_loop)
     return;
 
-  /* Drain windows queue. This sets up number of quit
-     characters in in the queue */
-  mswindows_drain_windows_queue ();
+  /* Drain windows queue. This sets up number of quit characters in the queue
+   * (and also processes wm focus change, move, resize, etc messages).
+   * We don't want to process WM_PAINT messages because this function can be
+   * called from almost anywhere and the windows' states may be changing. */
+  while (PeekMessage (&msg, NULL, 0, WM_PAINT-1, PM_REMOVE) ||
+	 PeekMessage (&msg, NULL, WM_PAINT+1, WM_USER-1, PM_REMOVE))
+      DispatchMessage (&msg);
 
   if (mswindows_quit_chars_count > 0)
     {

@@ -36,6 +36,8 @@ Boston, MA 02111-1307, USA.  */
 #include "glyphs.h"
 #include "redisplay.h"
 #include "window.h"
+#include "elhash.h"
+#include "commands.h"
 
 Lisp_Object Qwindowp, Qwindow_live_p, Qwindow_configurationp;
 Lisp_Object Qscroll_up, Qscroll_down, Qdisplay_buffer;
@@ -161,6 +163,8 @@ mark_window (Lisp_Object obj, void (*markobj) (Lisp_Object))
   MARK_DISP_VARIABLE (last_facechange);
   markobj (window->line_cache_last_updated);
   markobj (window->redisplay_end_trigger);
+  markobj (window->subwindow_instance_cache);
+
   mark_face_cachels (window->face_cachels, markobj);
   mark_glyph_cachels (window->glyph_cachels, markobj);
 
@@ -273,6 +277,9 @@ allocate_window (void)
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->line_start_cache = Dynarr_new (line_start_cache);
+  p->subwindow_instance_cache = make_lisp_hash_table (10,
+						      HASH_TABLE_KEY_WEAK,
+						      HASH_TABLE_EQ);
   p->line_cache_last_updated = Qzero;
   INIT_DISP_VARIABLE (last_point_x, 0);
   INIT_DISP_VARIABLE (last_point_y, 0);

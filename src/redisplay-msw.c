@@ -58,8 +58,6 @@ Boston, MA 02111-1307, USA.  */
  */
 static void mswindows_update_dc (HDC hdc, Lisp_Object font, Lisp_Object fg,
 				 Lisp_Object bg, Lisp_Object bg_pmap);
-static void mswindows_clear_region (Lisp_Object locale, face_index findex,
-			      int x, int y, int width, int height);
 static void mswindows_output_vertical_divider (struct window *w, int clear);
 static void mswindows_redraw_exposed_windows (Lisp_Object window, int x,
 					int y, int width, int height);
@@ -351,7 +349,7 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
 {
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
-  struct face_cachel *cachel;
+  struct face_cachel *cachel=0;
   Lisp_Object font = Qnil;
   int focus = EQ (w->frame, DEVICE_FRAME_WITH_FOCUS_REAL (d));
   HDC hdc = FRAME_MSWINDOWS_DC (f);
@@ -555,7 +553,7 @@ mswindows_output_string (struct window *w, struct display_line *dl,
 	  int clear_end = min (xpos + this_width, clip_end);
 	  
 	  {
-	    mswindows_clear_region (window, findex, clear_start,
+	    redisplay_clear_region (window, findex, clear_start,
 				    dl->ypos - dl->ascent, 
 				    clear_end - clear_start,
 				    height);
@@ -794,7 +792,7 @@ mswindows_output_pixmap (struct window *w, struct display_line *dl,
 	}
 
       if (!offset_bitmap)	/* i.e. not a bg pixmap */
-	mswindows_clear_region (window, findex, clear_x, clear_y,
+	redisplay_clear_region (window, findex, clear_x, clear_y,
 				clear_width, clear_height);
     }
 
@@ -1181,7 +1179,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		  /* Clear in case a cursor was formerly here. */
 		  int height = dl->ascent + dl->descent - dl->clip;
 
-		  mswindows_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
+		  redisplay_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
 				    rb->width, height);
 		  elt++;
 		}
@@ -1262,7 +1260,14 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		    abort ();
 
 		  case IMAGE_SUBWINDOW:
-		    /* #### implement me */
+		  case IMAGE_WIDGET:
+		    redisplay_output_subwindow (w, dl, instance, xpos,
+						rb->object.dglyph.xoffset, start_pixpos,
+						rb->width, findex, cursor_start,
+						cursor_width, cursor_height);
+		    if (rb->cursor_type == CURSOR_ON)
+		      mswindows_output_cursor (w, dl, xpos, cursor_width,
+					       findex, 0, 1);
 		    break;
 
 		  case IMAGE_NOTHING:
@@ -1386,69 +1391,15 @@ mswindows_text_width (struct frame *f, struct face_cachel *cachel,
  given face.
  ****************************************************************************/
 static void
-mswindows_clear_region (Lisp_Object locale, face_index findex, int x, int y,
-		  int width, int height)
+mswindows_clear_region (Lisp_Object locale, struct device* d, struct frame* f, 
+			face_index findex, int x, int y,
+			int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
+			Lisp_Object background_pixmap)
 {
-  struct window *w;
-  struct frame *f;
-  Lisp_Object background_pixmap = Qunbound;
-  Lisp_Object temp;
   RECT rect = { x, y, x+width, y+height };
 
-  if (!(width && height))   /* We often seem to get called with width==0 */
-    return;
-
-  if (WINDOWP (locale))
+  if (!NILP (background_pixmap))
     {
-      w = XWINDOW (locale);
-      f = XFRAME (w->frame);
-    }
-  else if (FRAMEP (locale))
-    {
-      w = NULL;
-      f = XFRAME (locale);
-    }
-  else
-    abort ();
-  
-  if (w)
-    {
-      temp = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, findex);
-
-      if (IMAGE_INSTANCEP (temp)
-	  && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
-	{
-	  /* #### maybe we could implement such that a string
-	     can be a background pixmap? */
-	  background_pixmap = temp;
-	}
-    }
-  else
-    {
-      temp = FACE_BACKGROUND_PIXMAP (Vdefault_face, locale);
-
-      if (IMAGE_INSTANCEP (temp)
-	  && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
-	{
-	  background_pixmap = temp;
-	}
-    }
-
-  if (!UNBOUNDP (background_pixmap))
-    {
-      Lisp_Object fcolor, bcolor;
-      
-      if (w)
-	{
-	  fcolor = WINDOW_FACE_CACHEL_FOREGROUND (w, findex);
-	  bcolor = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
-	}
-      else
-	{
-	  fcolor = FACE_FOREGROUND (Vdefault_face, locale);
-	  bcolor = FACE_BACKGROUND (Vdefault_face, locale);
-	}
-
       mswindows_update_dc (FRAME_MSWINDOWS_DC (f),
 			   Qnil, fcolor, bcolor, background_pixmap);
 
@@ -1458,15 +1409,14 @@ mswindows_clear_region (Lisp_Object locale, face_index findex, int x, int y,
     }
   else
     {
-      Lisp_Object color = (w ? WINDOW_FACE_CACHEL_BACKGROUND (w, findex) :
-			   FACE_BACKGROUND (Vdefault_face, locale));
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, color, Qnil);
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, fcolor, Qnil);
+      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
+		  &rect, NULL, 0, NULL);
     }
 
 #ifdef HAVE_SCROLLBARS
   if (WINDOWP (locale))
-    mswindows_redisplay_deadbox_maybe (w, &rect);
+    mswindows_redisplay_deadbox_maybe (XWINDOW (locale), &rect);
 #endif
 }
 
@@ -1493,27 +1443,27 @@ mswindows_clear_to_window_end (struct window *w, int ypos1, int ypos2)
       XSETWINDOW (window, w);
 
       if (window_is_leftmost (w))
-	mswindows_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
+	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
 			  ypos1, FRAME_BORDER_WIDTH (f), height);
 
       if (bounds.left_in - bounds.left_out > 0)
-	mswindows_clear_region (window,
+	redisplay_clear_region (window,
 			  get_builtin_face_cache_index (w, Vleft_margin_face),
 			  bounds.left_out, ypos1,
 			  bounds.left_in - bounds.left_out, height);
 
       if (bounds.right_in - bounds.left_in > 0)
-	mswindows_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
+	redisplay_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
 			  bounds.right_in - bounds.left_in, height);
 
       if (bounds.right_out - bounds.right_in > 0)
-	mswindows_clear_region (window,
+	redisplay_clear_region (window,
 			  get_builtin_face_cache_index (w, Vright_margin_face),
 			  bounds.right_in, ypos1,
 			  bounds.right_out - bounds.right_in, height);
 
       if (window_is_rightmost (w))
-	mswindows_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
+	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
 			  ypos1, FRAME_BORDER_WIDTH (f), height);
     }
 

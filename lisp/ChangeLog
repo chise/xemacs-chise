@@ -1,3 +1,46 @@
+1998-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.7 is released.
+
+1998-12-07  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-ui.el (pui-list-packages): Set truncate-lines.
+
+	* package-get.el (package-get-download-menu): Use
+	`package-ui-add-site'. Add a a toggle to indicate it is in the list.
+
+	* package-ui.el (pui-help): Ditch in favor of `describe-mode'
+	(pui-help-string): idem.
+	(list-packages-mode): New major mode.
+	(pui-list-packages): Use 'list-packages-mode' in the package buffer.
+	(pui-install-selected-packages): Add suport for removing packages.
+	(pui-toggle-package-delete-key): New function.
+	(pui-popup-context-sensitive): New kludge.
+	(pui-list-packages): Add warning when `package-get-remote' is nil.
+	(package-ui-add-site): New function.
+
+1998-12-01  Didier Verna  <verna@inf.enst.fr>
+
+	* hyper-apropos.el (hyper-where-is): added the missing autoload.
+
+1998-11-29  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el: Custom-ized
+	(toplevel): Do not provide `ldap' which is provided by C level
+	LDAP code
+	(ldap-search): Docstring and stylistic fixes as suggested by Hrvoje
+
+1998-12-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-mode): Really fix keymap lossage.
+
+1998-12-17  Andy Piper  <andy@xemacs.org>
+
+	* sound.el (sound-load-list): name changed from sound-load-alist.
+	(sound-extension-list): name changed from sound-ext-list.
+	(load-default-sounds): use new names.
+	(load-sound-file): use new names.
+
 1998-12-16  Andy Piper  <andy@xemacs.org>
 
 	* XEmacs 21.2.6 is released

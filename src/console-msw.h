@@ -153,6 +153,9 @@ struct mswindows_frame
   /* Menu checksum. See menubar-msw.c */
   unsigned int menu_checksum;
 
+  /* Widget glyphs attached to this frame. See glyphs-msw.c */
+  Lisp_Object widget_hash_table;
+
   /* Frame title hash value. See frame-msw.c */
   unsigned int title_checksum;
 
@@ -181,6 +184,8 @@ struct mswindows_frame
 #define FRAME_MSWINDOWS_MENU_HASH_TABLE(f) (FRAME_MSWINDOWS_DATA (f)->menu_hash_table)
 #define FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_hash_table)
+#define FRAME_MSWINDOWS_WIDGET_HASH_TABLE(f) \
+ (FRAME_MSWINDOWS_DATA (f)->widget_hash_table)
 #define FRAME_MSWINDOWS_TOOLBAR_CHECKSUM(f,pos) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_checksum[pos])
 #define FRAME_MSWINDOWS_MENU_CHECKSUM(f)  (FRAME_MSWINDOWS_DATA (f)->menu_checksum)

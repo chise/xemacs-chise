@@ -76,7 +76,6 @@ Lisp_Object Qdevicep, Qdevice_live_p;
 Lisp_Object Qdelete_device;
 Lisp_Object Qcreate_device_hook;
 Lisp_Object Qdelete_device_hook;
-
 Lisp_Object Vdevice_class_list;
 
 
@@ -883,6 +882,7 @@ behavior cannot necessarily be determined automatically.
 	  recompute_all_cached_specifiers_in_frame (f);
 	  MARK_FRAME_FACES_CHANGED (f);
 	  MARK_FRAME_GLYPHS_CHANGED (f);
+	  MARK_FRAME_SUBWINDOWS_CHANGED (f);
 	  MARK_FRAME_TOOLBARS_CHANGED (f);
 	  f->menubar_changed = 1;
 	}

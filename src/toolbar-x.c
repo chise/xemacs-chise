@@ -504,9 +504,9 @@ x_output_toolbar (struct frame *f, enum toolbar_pos pos)
       Lisp_Object frame;
 
       XSETFRAME (frame, f);
-      DEVMETH (d, clear_region, (frame,
-				 DEFAULT_INDEX, FRAME_PIXWIDTH (f) - 1, y, 1,
-				 bar_height));
+      redisplay_clear_region (frame,
+			      DEFAULT_INDEX, FRAME_PIXWIDTH (f) - 1, y, 1,
+			      bar_height);
     }
 
   SET_TOOLBAR_WAS_VISIBLE_FLAG (f, pos, 1);
@@ -542,7 +542,7 @@ x_clear_toolbar (struct frame *f, enum toolbar_pos pos, int thickness_change)
 
   SET_TOOLBAR_WAS_VISIBLE_FLAG (f, pos, 0);
 
-  DEVMETH (d, clear_region, (frame, DEFAULT_INDEX, x, y, width, height));
+  redisplay_clear_region (frame, DEFAULT_INDEX, x, y, width, height);
   XFlush (DEVICE_X_DISPLAY (d));
 }
 

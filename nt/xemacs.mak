@@ -65,11 +65,13 @@ INSTALL_DIR=c:\Program Files\Infodock\Infodock-$(INFODOCK_VERSION_STRING)
 INSTALL_DIR=c:\Program Files\XEmacs\XEmacs-$(XEMACS_VERSION_STRING)
 ! endif
 !endif
-!if !defined(PACKAGEPATH)
-PATH_PACKAGEPATH="c:\\Program Files\\XEmacs\\packages"
-!else
-PATH_PACKAGEPATH="$(PACKAGEPATH)"
+!if !defined(PACKAGE_PATH)
+! if !defined(PACKAGE_PREFIX)
+PACKAGE_PREFIX=c:\Program Files\XEmacs
+! endif
+PACKAGE_PATH=~\.xemacs;;$(PACKAGE_PREFIX)\site-packages;$(PACKAGE_PREFIX)\mule-packages;$(PACKAGE_PREFIX)\xemacs-packages
 !endif
+PATH_PACKAGEPATH="$(PACKAGE_PATH:\=\\)"
 !if !defined(HAVE_MSW)
 HAVE_MSW=1
 !endif
@@ -222,7 +224,7 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !message XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename) configured for "$(EMACS_CONFIGURATION)".
 !message 
 !message Installation directory is "$(INSTALL_DIR)".
-!message Package path is $(PATH_PACKAGEPATH).
+!message Package path is "$(PACKAGE_PATH)".
 !message 
 !if $(INFODOCK)
 !message Building InfoDock.
@@ -504,6 +506,9 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 ETAGS_DEPS = $(LIB_SRC)/getopt.c $(LIB_SRC)/getopt1.c $(LIB_SRC)/../src/regex.c
 $(LIB_SRC)/etags.exe : $(LIB_SRC)/etags.c $(ETAGS_DEPS)
 $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
+	@cd $(LIB_SRC)
+	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) -O2 -W3 -Fe$@ $** wsock32.lib
+	@cd $(NT)
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/make-docfile.exe	\
@@ -1006,9 +1011,10 @@ temacs: $(TEMACS)
 # use this rule to install the system
 install:	all
 	@echo Installing in $(INSTALL_DIR) ...
+	@echo PlaceHolder > PlaceHolder
 	@xcopy /q PROBLEMS "$(INSTALL_DIR)\"
-	@xcopy /q README "$(INSTALL_DIR)\lock\"
-	@del "$(INSTALL_DIR)\lock\README"
+	@xcopy /q PlaceHolder "$(INSTALL_DIR)\lock\"
+	@del "$(INSTALL_DIR)\lock\PlaceHolder"
 	@xcopy /q $(LIB_SRC)\*.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
 	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(CONFIG_VALUES) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
@@ -1017,6 +1023,14 @@ install:	all
 	@xcopy /e /q $(XEMACS)\etc  "$(INSTALL_DIR)\etc\"
 	@xcopy /e /q $(XEMACS)\info "$(INSTALL_DIR)\info\"
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"
+	@echo Making skeleton package tree in $(PACKAGE_PREFIX) ...
+	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\site-packages\"
+	@del "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
+	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\mule-packages\"
+	@del "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
+	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\xemacs-packages\"
+	@del "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
+	@del PlaceHolder
 
 distclean:
 	del *.bak

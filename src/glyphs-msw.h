@@ -1,8 +1,5 @@
 /* mswindows-specific glyphs and related.
-   Copyright (C) 1993, 1994 Free Software Foundation, Inc.
-   Copyright (C) 1995 Board of Trustees, University of Illinois.
-   Copyright (C) 1995, 1996 Ben Wing
-   Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1998 Andy Piper
 
 This file is part of XEmacs.
 
@@ -74,6 +71,12 @@ mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
 void
 mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
 					  int cursor);
+
+#define WIDGET_INSTANCE_MSWINDOWS_HANDLE(i) \
+     (HWND) (IMAGE_INSTANCE_SUBWINDOW_ID (i))
+
+#define XWIDGET_INSTANCE_MSWINDOWS_HANDLE(i) \
+  WIDGET_INSTANCE_MSWINDOWS_HANDLE (XIMAGE_INSTANCE (i))
 
 #endif /* HAVE_MS_WINDOWS */
 #endif /* _XEMACS_GLYPHS_MSW_H_ */

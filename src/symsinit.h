@@ -93,6 +93,7 @@ void syms_of_free_hook (void);
 void syms_of_general (void);
 void syms_of_glyphs_x (void);
 void syms_of_glyphs_eimage (void);
+void syms_of_glyphs_widget (void);
 void syms_of_glyphs_mswindows (void);
 void syms_of_glyphs (void);
 void syms_of_gui_x (void);
@@ -192,6 +193,7 @@ void structure_type_create_hash_table (void);
 
 void image_instantiator_format_create (void);
 void image_instantiator_format_create_glyphs_eimage (void);
+void image_instantiator_format_create_glyphs_widget (void);
 void image_instantiator_format_create_glyphs_x (void);
 void image_instantiator_format_create_glyphs_mswindows (void);
 
@@ -260,6 +262,7 @@ void vars_of_frame_x (void);
 void vars_of_frame (void);
 void vars_of_glyphs_x (void);
 void vars_of_glyphs_eimage (void);
+void vars_of_glyphs_widget (void);
 void vars_of_glyphs_mswindows (void);
 void vars_of_glyphs (void);
 void vars_of_gui_x (void);

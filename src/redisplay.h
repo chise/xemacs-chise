@@ -350,6 +350,11 @@ extern int frame_changed;
 extern int glyphs_changed;
 extern int glyphs_changed_set;
 
+/* True if any displayed subwindow is in need of updating
+   somewhere. */
+extern int subwindows_changed;
+extern int subwindows_changed_set;
+
 /* True if an icon is in need of updating somewhere. */
 extern int icon_changed;
 extern int icon_changed_set;
@@ -417,6 +422,7 @@ extern int windows_structure_changed;
 #define MARK_POINT_CHANGED MARK_TYPE_CHANGED (point)
 #define MARK_TOOLBAR_CHANGED MARK_TYPE_CHANGED (toolbar)
 #define MARK_GLYPHS_CHANGED MARK_TYPE_CHANGED (glyphs)
+#define MARK_SUBWINDOWS_CHANGED MARK_TYPE_CHANGED (subwindows)
 
 /* Anytime a console, device or frame is added or deleted we need to reset
    these flags. */
@@ -431,6 +437,7 @@ extern int windows_structure_changed;
     point_changed_set = 0;		\
     toolbar_changed_set = 0;		\
     glyphs_changed_set = 0;		\
+    subwindows_changed_set = 0;		\
   } while (0)
 
 
@@ -547,6 +554,13 @@ int compute_line_start_cache_dynarr_usage (line_start_cache_dynarr *dyn,
 int get_next_display_block (layout_bounds bounds,
 			    display_block_dynarr *dba, int start_pos,
 			    int *next_start);
+void redisplay_output_subwindow (struct window *w, struct display_line *dl,
+				 Lisp_Object image_instance, int xpos,
+				 int xoffset, int start_pixpos, int width,
+				 face_index findex, int cursor_start, 
+				 int cursor_width, int cursor_height);
+void redisplay_clear_region (Lisp_Object window, face_index findex, int x,
+			     int y, int width, int height);
 void redisplay_clear_bottom_of_window (struct window *w,
 				       display_line_dynarr *ddla,
 				       int min_start, int max_end);

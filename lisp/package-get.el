@@ -254,16 +254,16 @@ When nil, updates which are not PGP signed are allowed without confirmation."
 (defvar package-get-was-current nil
   "Non-nil we did our best to fetch a current database.")
 
+
+;Shouldn't this be in package-ui?
 ;;;###autoload
 (defun package-get-download-menu ()
   "Build the `Add Download Site' menu."
   (mapcar (lambda (site)
             (vector (car site)
-                    `(push (quote ,(cdr site))
-                           package-get-remote)
-                    :style 'toggle
-                    :selected `(member (quote ,(cdr site))
-                                       package-get-remote)))
+               `(package-ui-add-site (quote ,(cdr site)))
+		    :style 'toggle :selected
+		    `(member (quote ,(cdr site)) package-get-remote)))
           package-get-download-sites))
 
 ;;;###autoload
@@ -612,6 +612,7 @@ required by PACKAGES."
                              (mapcar
                               #'(lambda (reqd)
                                   (let* ((reqd-package (package-get-package-provider reqd))
+                                         (reqd-version (cadr reqd-package))
                                          (reqd-name    (car reqd-package)))
                                     (if (null reqd-name)
                                         (error "Unable to find a provider for %s" reqd))

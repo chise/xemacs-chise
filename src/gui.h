@@ -27,7 +27,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_GUI_H_
 #define _XEMACS_GUI_H_
 
-#ifdef HAVE_POPUPS
 int separator_string_p (CONST char *s);
 void get_gui_callback (Lisp_Object, Lisp_Object *, Lisp_Object *);
 
@@ -76,12 +75,19 @@ void gui_item_add_keyval_pair (struct gui_item *pgui_item,
 			       Lisp_Object key, Lisp_Object val);
 void gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item);
 int  gui_item_active_p (CONST struct gui_item *pgui_item);
+int  gui_item_selected_p (CONST struct gui_item *pgui_item);
 int  gui_item_included_p (CONST struct gui_item *pgui_item, Lisp_Object into);
+int  gui_item_hash (Lisp_Object, struct gui_item*, int);
+Lisp_Object mark_gui_item (struct gui_item* p, void (*markobj) (Lisp_Object));
 unsigned int gui_item_display_flush_left  (CONST struct gui_item *pgui_item,
 					   char* buf, Bytecount buf_len);
 unsigned int gui_item_display_flush_right (CONST struct gui_item *pgui_item,
 					   char* buf, Bytecount buf_len);
 
-#endif /* HAVE_POPUPS */
+/* this is mswindows biased but reasonably safe I think */
+#define GUI_ITEM_ID_SLOTS 8
+#define GUI_ITEM_ID_MIN(s) (s * 0x2000)
+#define GUI_ITEM_ID_MAX(s) (0x1FFF + GUI_ITEM_ID_MIN (s))
+#define GUI_ITEM_ID_BITS(x,s) (((x) & 0x1FFF) + GUI_ITEM_ID_MIN (s))
 
 #endif /* _XEMACS_GUI_H_ */

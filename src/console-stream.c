@@ -241,8 +241,10 @@ stream_clear_to_window_end (struct window *w, int ypos1, int ypos2)
 }
 
 static void
-stream_clear_region (Lisp_Object locale, face_index findex, int x, int y,
-		       int width, int height)
+stream_clear_region (Lisp_Object window, struct device* d, struct frame * f,
+		  face_index findex, int x, int y,
+		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor, 
+		  Lisp_Object background_pixmap)
 {
 }
 

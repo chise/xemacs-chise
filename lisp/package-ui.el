@@ -62,6 +62,12 @@ Set this to `nil' to use the `default' face."
   :group 'pui
   :type 'face)
 
+(defcustom pui-deleted-package-face 'blue
+  "*The face to use for packages marked for removal.
+Set this to `nil' to use the `default' face."
+  :group 'pui
+  :type 'face)
+
 (defcustom pui-outdated-package-face 'red
   "*The face to use for outdated packages.
 Set this to `nil' to use the `default' face."
@@ -87,24 +93,31 @@ Set this to `nil' to use the `default' face."
 (defvar pui-selected-packages nil
   "The list of user-selected packages to install.")
 
+(defvar pui-deleted-packages nil
+  "The list of user-selected packages to remove.")
+
+(defvar pui-actual-package "")
+
 (defvar pui-display-keymap
   (let ((m (make-keymap)))
     (suppress-keymap m)
     (set-keymap-name m 'pui-display-keymap)
     (define-key m "q" 'pui-quit)
     (define-key m "g" 'pui-list-packages)
-    (define-key m " " 'pui-display-info)
-    (define-key m "?" 'pui-help)
+    (define-key m "i" 'pui-display-info)
+    (define-key m "?" 'describe-mode)
     (define-key m "v" 'pui-toggle-verbosity-redisplay)
-    (define-key m "d" 'pui-toggle-verbosity-redisplay)
+    (define-key m "d" 'pui-toggle-package-delete-key)
+    (define-key m "D" 'pui-toggle-package-delete-key)
     (define-key m [return] 'pui-toggle-package-key)
     (define-key m "x" 'pui-install-selected-packages)
     (define-key m "I" 'pui-install-selected-packages)
     (define-key m "r" 'pui-add-required-packages)
     (define-key m "n" 'next-line)
-    (define-key m "+" 'next-line)
+    (define-key m "+" 'pui-toggle-package-key)
     (define-key m "p" 'previous-line)
-    (define-key m "-" 'previous-line)
+    (define-key m " " 'scroll-up-command)
+    (define-key m [delete] 'scroll-down-command)
     m)
   "Keymap to use in the `pui-info-buffer' buffer")
 
@@ -113,7 +126,7 @@ Set this to `nil' to use the `default' face."
     (set-keymap-name m 'pui-package-keymap)
     (define-key m 'button2 'pui-toggle-package-event)
 ;; We use a popup menu    
-;;    (define-key m 'button3 'pui-toggle-package-event)
+    (define-key m 'button3 'pui-popup-context-sensitive)
     m)
   "Keymap to use over package names/descriptions.")
 
@@ -160,6 +173,21 @@ Set this to `nil' to use the `default' face."
     ))
 
 ;;;###autoload
+(defun package-ui-add-site (site)
+  "Add site to package-get-remote and possibly offer to update package list."
+  (let ((had-none (null package-get-remote)))
+    (push site package-get-remote)    
+    (when (and had-none package-get-was-current
+	       (y-or-n-p "Update Package list?"))
+      (setq package-get-was-current nil)
+      (package-get-require-base t)
+      (if (get-buffer pui-info-buffer)
+	  (save-window-excursion
+	    (pui-list-packages))))
+    (set-menubar-dirty-flag)))
+    
+
+;;;###autoload
 (defun pui-add-install-directory (dir)
   "Add a new package binary directory to the head of `package-get-remote'.
 Note that no provision is made for saving any changes made by this function.
@@ -198,18 +226,6 @@ disk."
   (interactive)
   (kill-buffer nil))
 
-(defun pui-help ()
-  (interactive)
-  (let ( (help-buffer (get-buffer-create "*Help*")) )
-    (display-buffer help-buffer t)
-    (save-window-excursion
-      (set-buffer help-buffer)
-      (buffer-disable-undo help-buffer)
-      (erase-buffer help-buffer)
-      (insert (pui-help-string))
-      )
-    ))
-
 (defun pui-package-symbol-char (pkg-sym version)
   (progn
     (if (package-get-info-find-package packages-package-list pkg-sym)
@@ -236,20 +252,22 @@ and whether or not it is up-to-date."
     (if (not version)
 	(setq version (package-get-info-prop (extent-property extent 'pui-info)
 					     'version)))
-    (if (member pkg-sym pui-selected-packages)
-	(progn
-	  (if pui-selected-package-face
-	      (set-extent-face extent (get-face pui-selected-package-face))
-	    (set-extent-face extent (get-face 'default)))
-	  (setq sym-char "+")
-	  )
-      (progn
-	(setq disp (pui-package-symbol-char pkg-sym version))
-	(setq sym-char (car disp))
-	(if (car (cdr disp))
-	    (set-extent-face extent (get-face (car (cdr disp))))
-	  (set-extent-face extent (get-face 'default)))
-	))
+    (cond ((member pkg-sym pui-selected-packages)
+	     (if pui-selected-package-face
+		 (set-extent-face extent (get-face pui-selected-package-face))
+	       (set-extent-face extent (get-face 'default)))
+	     (setq sym-char "+"))
+	  ((member pkg-sym pui-deleted-packages)
+	   (if pui-deleted-package-face
+		 (set-extent-face extent (get-face pui-deleted-package-face))
+	       (set-extent-face extent (get-face 'default)))
+	     (setq sym-char "D"))
+	  (t
+	   (setq disp (pui-package-symbol-char pkg-sym version))
+	   (setq sym-char (car disp))
+	   (if (car (cdr disp))
+	       (set-extent-face extent (get-face (car (cdr disp))))
+	     (set-extent-face extent (get-face 'default)))))
     (save-excursion
       (goto-char (extent-start-position extent))
       (delete-char 1)
@@ -265,7 +283,9 @@ and whether or not it is up-to-date."
 	(setq pui-selected-packages
 	      (delete pkg-sym pui-selected-packages))
       (setq pui-selected-packages
-	    (cons pkg-sym pui-selected-packages)))
+	    (cons pkg-sym pui-selected-packages))
+      (setq pui-deleted-packages
+	    (delete pkg-sym pui-deleted-packages)))
     (pui-update-package-display extent pkg-sym)
     ))
 
@@ -280,6 +300,37 @@ and whether or not it is up-to-date."
 	  )
       (error "No package under cursor!"))
     ))
+
+(defun pui-toggle-package-delete (extent)
+  (let (pkg-sym)
+    (setq pkg-sym (extent-property extent 'pui-package))
+    (if (member pkg-sym pui-deleted-packages)
+	(setq pui-deleted-packages
+	      (delete pkg-sym pui-deleted-packages))
+      (setq pui-deleted-packages
+	    (cons pkg-sym pui-deleted-packages))
+      (setq pui-seleted-packages
+	    (delete pkg-sym pui-selected-packages)))
+    (pui-update-package-display extent pkg-sym)
+    ))
+  
+
+(defun pui-toggle-package-delete-key ()
+  "Select/unselect package for removal, using the keyboard."
+  (interactive)
+  (let (extent)
+    (if (setq extent (extent-at (point) (current-buffer) 'pui))
+	(progn
+	  (pui-toggle-package-delete extent)
+	  (forward-line 1)
+	  )
+      (error "No package under cursor!"))
+    ))
+
+(defun pui-current-package ()
+  (let ((extent (extent-at (point) (current-buffer) 'pui)))
+    (if extent
+	(extent-property extent 'pui-package))))
 
 (defun pui-toggle-package-event (event)
   "Select/unselect package for installation, using the mouse."
@@ -302,6 +353,37 @@ and whether or not it is up-to-date."
 (defun pui-install-selected-packages ()
   "Install selected packages."
   (interactive)
+  (let ( (tmpbuf "*Packages-To-Remove*") do-delete)
+    (when pui-deleted-packages
+      (save-window-excursion
+	(with-output-to-temp-buffer tmpbuf
+	  (display-completion-list (sort
+				    (mapcar '(lambda (pkg)
+					       (symbol-name pkg)
+					       )
+					    pui-deleted-packages)
+					'string<)
+				       :activate-callback nil
+				       :help-string "Packages selected for removal:\n"
+				       :completion-string t
+				       ))
+	    (setq tmpbuf (get-buffer-create tmpbuf))
+	    (display-buffer tmpbuf)
+	    (setq do-delete (yes-or-no-p "Remove these packages? "))
+	    (kill-buffer tmpbuf))	    
+      (when do-delete
+	(message "Deleting selected packages ...") (sit-for 0)
+	(when (catch 'done
+		(mapcar (lambda (pkg)
+			  (if (not
+			       (package-admin-delete-binary-package
+				  pkg (package-admin-get-install-dir pkg nil)))
+				    (throw 'done nil)))
+			      pui-deleted-packages)
+		      t)
+	  (message "Packages deleted")
+	  ))))
+	 
   (let ( (tmpbuf "*Packages-To-Install*") do-install)
     (if pui-selected-packages
 	(progn
@@ -351,7 +433,9 @@ and whether or not it is up-to-date."
 	      (clear-message)
 	      )
 	  )
-      (error "No packages have been selected!"))
+      (if pui-deleted-packages
+	  (pui-list-packages)
+	(error "No packages have been selected!")))
     ))
 
 (defun pui-add-required-packages ()
@@ -434,52 +518,39 @@ attached to the extent as properties)."
 	  ))
     ))
 
-(defun pui-display-info (&optional no-error)
+(defun pui-display-info (&optional no-error event)
   "Display additional package info in the modeline.
 Designed to be called interactively (from a keypress)."
   (interactive)
   (let (extent)
     (save-excursion
       (beginning-of-line)
-      (if (setq extent (extent-at (point) (current-buffer) 'pui))
+      (if (setq extent 	(extent-at (point) (current-buffer) 'pui))
 	  (message (pui-help-echo extent t))
 	(if no-error
 	    (clear-message nil)
 	  (error "No package under cursor!")))
       )))
 
-(defun pui-help-string ()
-  "Return the help string for the package-info buffer.
-This is not a defconst because of the call to substitute-command-keys."
+;;; "Why is there no standard function to do this?"
+(defun pui-popup-context-sensitive (event)
+  (interactive "e")
   (save-excursion
-    (set-buffer (get-buffer pui-info-buffer))
-    (substitute-command-keys
-"Symbols in the leftmost column:
-
-  +	The package is marked for installation.
-  -     The package has not been installed.
-  *     The currently installed package is old, and a newer version is
-	available.
-
-Useful keys:
-
-  `\\[pui-toggle-package-key]' to select/unselect the current package for installation.
-  `\\[pui-add-required-packages]' to add any packages required by those selected.
-  `\\[pui-install-selected-packages]' to install selected packages.
-  `\\[pui-display-info]' to display additional information about the package in the modeline.
-  `\\[pui-list-packages]' to refresh the package list.
-  `\\[pui-toggle-verbosity-redisplay]' to toggle between a verbose and non-verbose display.
-  `\\[pui-quit]' to kill this buffer.
-")
-    ))
+    (set-buffer (event-buffer event))
+    (goto-char (event-point event))
+    (popup-menu pui-menu event)
+    ;; I agreee with dired.el this is seriously bogus.
+    (while (popup-menu-up-p)
+      (dispatch-event (next-event)))))
 
 (defvar pui-menu
   '("Packages"
-    ["Select" pui-toggle-package-key t]
-    ["Info" pui-display-info t]
+    ["Toggle install " pui-toggle-package-key :active (pui-current-package) :suffix (format "`%s'" (or (pui-current-package) "..."))]
+    ["Toggle delete " pui-toggle-package-delete-key :active (pui-current-package) :suffix (format "`%s'" (or (pui-current-package) "..."))]
+    ["Info on" pui-display-info  :active (pui-current-package) :suffix (format "`%s'" (or (pui-current-package) "..."))]
     "---"
     ["Add Required" pui-add-required-packages t]
-    ["Install Selected" pui-install-selected-packages t]
+    ["Install/Remove Selected" pui-install-selected-packages t]
     "---"
     ["Verbose" pui-toggle-verbosity-redisplay
      :active t :style toggle :selected pui-list-verbose]
@@ -487,6 +558,30 @@ Useful keys:
     ["Help" pui-help t]
     ["Quit" pui-quit t]))
 
+
+(defun list-packages-mode ()
+    "Symbols in the leftmost column:
+
+  +	The package is marked for installation.
+  -     The package has not been installed.
+  D     The package has been marked for deletion.
+  *     The currently installed package is old, and a newer version is
+	available.
+
+Useful keys:
+
+  `\\[pui-toggle-package-key]' to select/unselect the current package for installation.
+  `\\[pui-toggle-package-delete-key]' to select/unselect the current package for removal.
+  `\\[pui-add-required-packages]' to add any packages required by those selected.
+  `\\[pui-install-selected-packages]' to install/delete selected packages.
+  `\\[pui-display-info]' to display additional information about the package in the modeline.
+  `\\[pui-list-packages]' to refresh the package list.
+  `\\[pui-toggle-verbosity-redisplay]' to toggle between a verbose and non-verbose display.
+  `\\[pui-quit]' to kill this buffer.
+"
+  (error "You cannot enter this mode directly. Use `pui-list-packages'"))
+
+(put 'list-packages-mode 'mode-class 'special)
 
 ;;;###autoload
 (defun pui-list-packages ()
@@ -505,7 +600,19 @@ select packages for installation via the keyboard or mouse."
     (setq buffer-read-only nil)
     (buffer-disable-undo outbuf)
     (erase-buffer outbuf)
+    (kill-all-local-variables)
     (use-local-map pui-display-keymap)
+    (setq major-mode 'list-packages-mode)
+    (setq mode-name "Packages")
+    (setq truncate-lines t)
+
+    (unless package-get-remote
+      (insert "
+Warning: No download sites specified.  Package index may be out of date.
+         If you intend to install packages, specify download sites first.
+
+"))
+    
     (if pui-list-verbose
 	(insert "                 Latest Installed
   Package name   Vers.  Vers.   Description
@@ -577,13 +684,14 @@ select packages for installation via the keyboard or mouse."
 				      (symbol-name (car b)))
 			       )))
     (insert sep-string)
-    (insert (pui-help-string))
+    (insert (documentation 'list-packages-mode))
     (set-buffer-modified-p nil)
     (setq buffer-read-only t)
     (pop-to-buffer outbuf)
     (delete-other-windows)
     (goto-char start)
     (setq pui-selected-packages nil)	; Reset list
+    (setq pui-deleted-packages nil)	; Reset list
     (when (featurep 'menubar)
       (set-buffer-menubar current-menubar)
       (add-submenu '() pui-menu)
@@ -592,6 +700,8 @@ select packages for installation via the keyboard or mouse."
 ;    (message (substitute-command-keys "Press `\\[pui-help]' for help."))
     ))
 
+;;;###autoload
+(defalias 'list-packages 'pui-list-packages)
 
 (provide 'package-ui)
 

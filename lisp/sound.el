@@ -82,7 +82,7 @@
 				       (const :format "" :value :duration)
 				       (integer :tag "Duration"))))))
 
-(defcustom sound-load-alist
+(defcustom sound-load-list
   '((load-sound-file "drum-beep"	'drum)
     (load-sound-file "quiet-beep"	'quiet)
     (load-sound-file "bass-snap"	'bass 80)
@@ -105,9 +105,9 @@
   :type 'directory
   )
 
-(defcustom sound-ext (if (or (eq system-type 'cygwin32)
-			     (eq system-type 'windows-nt))
-			 ".wav:" ".au:")
+(defcustom sound-extension-list (if (or (eq system-type 'cygwin32)
+					(eq system-type 'windows-nt))
+				    ".wav:" ".au:")
   "Filename extensions to complete sound file name with. If more than one
    extension is used, they should be separated by \":\". "
   :group 'sound
@@ -144,7 +144,7 @@ nVolume (0 for default): ")
     (error "volume not an integer or nil"))
   (let (buf
 	data
-	(file (locate-file filename  default-sound-directory-list  sound-ext)))
+	(file (locate-file filename  default-sound-directory-list  sound-extension-list)))
     (unless file
       (error "Couldn't load sound file %s" filename))
     (unwind-protect
@@ -180,7 +180,7 @@ server and XEmacs has the necessary sound support compiled in."
   (message "Loading sounds...")
   (setq sound-alist nil)
   ;; this is where the calls to load-sound-file get done
-  (mapc 'eval sound-load-alist)
+  (mapc 'eval sound-load-list)
   (setq sound-alist
 	(append sound-default-alist
 		sound-alist))

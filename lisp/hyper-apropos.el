@@ -481,6 +481,7 @@ See also `hyper-apropos' and `hyper-describe-function'."
 	(setq hyper-apropos-prev-wconfig (current-window-configuration)))
     (hyper-apropos-get-doc symbol t nil this-ref-buffer)))
 
+;;;###autoload
 (defun hyper-where-is (symbol)
   "Print message listing key sequences that invoke specified command."
   (interactive (list (hyper-apropos-read-function-symbol "Where is function")))

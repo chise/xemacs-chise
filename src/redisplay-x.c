@@ -74,8 +74,6 @@ static void x_redraw_exposed_window (struct window *w, int x, int y,
 				     int width, int height);
 static void x_redraw_exposed_windows (Lisp_Object window, int x, int y,
 				      int width, int height);
-static void x_clear_region (Lisp_Object window, face_index findex, int x,
-			    int y, int width, int height);
 static void x_output_eol_cursor (struct window *w, struct display_line *dl,
 				 int xpos, face_index findex);
 static void x_clear_frame (struct frame *f);
@@ -416,7 +414,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		  /* Clear in case a cursor was formerly here. */
 		  int height = dl->ascent + dl->descent - dl->clip;
 
-		  x_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
+		  redisplay_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
 				  rb->width, height);
 		  elt++;
 		}
@@ -490,9 +488,12 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		  case IMAGE_POINTER:
 		    abort ();
 
+		  case IMAGE_WIDGET:
 		  case IMAGE_SUBWINDOW:
-		    /* #### implement me */
-		    break;
+		    redisplay_output_subwindow (w, dl, instance, xpos,
+						rb->object.dglyph.xoffset, start_pixpos,
+						rb->width, findex, cursor_start,
+						cursor_width, cursor_height);
 
 		  case IMAGE_NOTHING:
 		    /* nothing is as nothing does */
@@ -902,21 +903,21 @@ x_output_string (struct window *w, struct display_line *dl,
 
 	      if (ypos1_line < ypos1_string)
 		{
-		  x_clear_region (window, findex, clear_start, ypos1_line,
+		  redisplay_clear_region (window, findex, clear_start, ypos1_line,
 				  clear_end - clear_start,
 				  ypos1_string - ypos1_line);
 		}
 
 	      if (ypos2_line > ypos2_string)
 		{
-		  x_clear_region (window, findex, clear_start, ypos2_string,
+		  redisplay_clear_region (window, findex, clear_start, ypos2_string,
 				  clear_end - clear_start,
 				  ypos2_line - ypos2_string);
 		}
 	    }
 	  else
 	    {
-	      x_clear_region (window, findex, clear_start,
+	      redisplay_clear_region (window, findex, clear_start,
 			      dl->ypos - dl->ascent, clear_end - clear_start,
 			      height);
 	    }
@@ -1334,7 +1335,7 @@ x_output_pixmap (struct window *w, struct display_line *dl,
 	  clear_width = width;
 	}
 
-      x_clear_region (window, findex, clear_x, clear_y,
+      redisplay_clear_region (window, findex, clear_x, clear_y,
 		      clear_width, clear_height);
     }
 
@@ -1836,27 +1837,27 @@ x_clear_to_window_end (struct window *w, int ypos1, int ypos2)
       XSETWINDOW (window, w);
 
       if (window_is_leftmost (w))
-	x_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
+	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
 			ypos1, FRAME_BORDER_WIDTH (f), height);
 
       if (bounds.left_in - bounds.left_out > 0)
-	x_clear_region (window,
+	redisplay_clear_region (window,
 			get_builtin_face_cache_index (w, Vleft_margin_face),
 			bounds.left_out, ypos1,
 			bounds.left_in - bounds.left_out, height);
 
       if (bounds.right_in - bounds.left_in > 0)
-	x_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
+	redisplay_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
 			bounds.right_in - bounds.left_in, height);
 
       if (bounds.right_out - bounds.right_in > 0)
-	x_clear_region (window,
+	redisplay_clear_region (window,
 			get_builtin_face_cache_index (w, Vright_margin_face),
 			bounds.right_in, ypos1,
 			bounds.right_out - bounds.right_in, height);
 
       if (window_is_rightmost (w))
-	x_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
+	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
 			ypos1, FRAME_BORDER_WIDTH (f), height);
     }
 }
@@ -1996,110 +1997,27 @@ x_redraw_exposed_area (struct frame *f, int x, int y, int width, int height)
  given face.
  ****************************************************************************/
 static void
-x_clear_region (Lisp_Object locale, face_index findex, int x, int y,
-		int width, int height)
+x_clear_region (Lisp_Object locale, struct device* d, struct frame* f, face_index findex,
+		int x, int y,
+		int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
+		Lisp_Object background_pixmap)
 {
-  struct window *w = NULL;
-  struct frame *f = NULL;
-  struct device *d;
-  Lisp_Object background_pixmap;
-
   Display *dpy;
   Window x_win;
+  GC gc = NULL;
 
-  if (WINDOWP (locale))
-    {
-      w = XWINDOW (locale);
-      f = XFRAME (w->frame);
-    }
-  else if (FRAMEP (locale))
-    {
-      w = NULL;
-      f = XFRAME (locale);
-    }
-  else
-    abort ();
-
-  d = XDEVICE (f->device);
   dpy = DEVICE_X_DISPLAY (d);
   x_win = XtWindow (FRAME_X_TEXT_WIDGET (f));
 
-  /* #### This function is going to have to be made cursor aware. */
-  if (width && height)
+    if (!UNBOUNDP (background_pixmap))
     {
-      GC gc = NULL;
-
-      /* #### This isn't quite right for when this function is called
-         from the toolbar code. */
-      background_pixmap = Qunbound;
-
-      /* Don't use a backing pixmap in the border area */
-      if (x >= FRAME_LEFT_BORDER_END (f)
-	  && x < FRAME_RIGHT_BORDER_START (f)
-	  && y >= FRAME_TOP_BORDER_END (f)
-	  && y < FRAME_BOTTOM_BORDER_START (f))
-	{
-	  Lisp_Object temp;
-
-	  if (w)
-	    {
-	      temp = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, findex);
-
-	      if (IMAGE_INSTANCEP (temp)
-		  && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
-		{
-		  /* #### maybe we could implement such that a string
-		     can be a background pixmap? */
-		  background_pixmap = temp;
-		}
-	    }
-	  else
-	    {
-	      temp = FACE_BACKGROUND_PIXMAP (Vdefault_face, locale);
-
-	      if (IMAGE_INSTANCEP (temp)
-		  && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
-		{
-		  background_pixmap = temp;
-		}
-	    }
-
-	  if (!UNBOUNDP (background_pixmap) &&
-	      XIMAGE_INSTANCE_PIXMAP_DEPTH (background_pixmap) == 0)
-	    {
-	      Lisp_Object fcolor, bcolor;
-
-	      if (w)
-		{
-		  fcolor = WINDOW_FACE_CACHEL_FOREGROUND (w, findex);
-		  bcolor = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
-		}
-	      else
-		{
-		  fcolor = FACE_FOREGROUND (Vdefault_face, locale);
-		  bcolor = FACE_BACKGROUND (Vdefault_face, locale);
-		}
-
-	      gc = x_get_gc (d, Qnil, fcolor, bcolor, background_pixmap, Qnil);
-	    }
-	  else
-	    {
-	      Lisp_Object color = (w ?
-				   WINDOW_FACE_CACHEL_BACKGROUND (w, findex) :
-				   FACE_BACKGROUND (Vdefault_face, locale));
-
-	      if (UNBOUNDP (background_pixmap))
-		background_pixmap = Qnil;
-
-	      gc = x_get_gc (d, Qnil, color, Qnil, background_pixmap, Qnil);
-	    }
-	}
-
-      if (gc)
-	XFillRectangle (dpy, x_win, gc, x, y, width, height);
-      else
-	XClearArea (dpy, x_win, x, y, width, height, False);
+      gc = x_get_gc (d, Qnil, fcolor, bcolor, background_pixmap, Qnil);
     }
+
+  if (gc)
+    XFillRectangle (dpy, x_win, gc, x, y, width, height);
+  else
+    XClearArea (dpy, x_win, x, y, width, height, False);
 }
 
 /*****************************************************************************
@@ -2134,7 +2052,7 @@ x_output_eol_cursor (struct window *w, struct display_line *dl, int xpos,
   int defheight, defascent;
 
   XSETWINDOW (window, w);
-  x_clear_region (window, findex, x, y, width, height);
+  redisplay_clear_region (window, findex, x, y, width, height);
 
   if (NILP (w->text_cursor_visible_p))
     return;

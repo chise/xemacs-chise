@@ -3037,7 +3037,9 @@ changing the value of `foo'.
 
   while (argnum < nargs)
     {
-      Lisp_Object val = args[argnum];
+      Lisp_Object val;
+    retry:
+      val = args[argnum];
       if (CONSP (val))
 	{
 	  /* `val' is the first cons, which will be our return value.  */
@@ -3048,7 +3050,7 @@ changing the value of `foo'.
 	  for (argnum++; argnum < nargs; argnum++)
 	    {
 	      Lisp_Object next = args[argnum];
-	    retry:
+	    retry_next:
 	      if (CONSP (next) || argnum == nargs -1)
 		{
 		  /* (setcdr (last val) next) */
@@ -3073,8 +3075,8 @@ changing the value of `foo'.
 		}
 	      else
 		{
-		  next = wrong_type_argument (next, Qlistp);
-		  goto retry;
+		  next = wrong_type_argument (Qlistp, next);
+		  goto retry_next;
 		}
 	    }
 	  RETURN_UNGCPRO (val);
@@ -3084,51 +3086,67 @@ changing the value of `foo'.
       else if (argnum == nargs - 1) /* last arg? */
 	RETURN_UNGCPRO (val);
       else
-	args[argnum] = wrong_type_argument (val, Qlistp);
+	{
+	  args[argnum] = wrong_type_argument (Qlistp, val);
+	  goto retry;
+	}
     }
   RETURN_UNGCPRO (Qnil);  /* No non-nil args provided. */
 }
 
 
 /* This is the guts of all mapping functions.
- Apply fn to each element of seq, one by one,
- storing the results into elements of vals, a C vector of Lisp_Objects.
- leni is the length of vals, which should also be the length of seq.
+   Apply fn to each element of seq, one by one,
+   storing the results into elements of vals, a C vector of Lisp_Objects.
+   leni is the length of vals, which should also be the length of seq.
 
- If VALS is a null pointer, do not accumulate the results. */
+   If VALS is a null pointer, do not accumulate the results. */
 
 static void
-mapcar1 (int leni, Lisp_Object *vals, Lisp_Object fn, Lisp_Object seq)
+mapcar1 (size_t leni, Lisp_Object *vals, Lisp_Object fn, Lisp_Object seq)
 {
-  Lisp_Object tail;
-  Lisp_Object dummy = Qnil;
-  int i;
-  struct gcpro gcpro1, gcpro2, gcpro3;
   Lisp_Object result;
-
-  GCPRO3 (dummy, fn, seq);
+  Lisp_Object args[2];
+  int i;
+  struct gcpro gcpro1;
 
   if (vals)
     {
-      /* Don't let vals contain any garbage when GC happens.  */
-      for (i = 0; i < leni; i++)
-	vals[i] = Qnil;
-      gcpro1.var = vals;
-      gcpro1.nvars = leni;
+      GCPRO1 (vals[0]);
+      gcpro1.nvars = 0;
     }
 
-  /* We need not explicitly protect `tail' because it is used only on
-    lists, and 1) lists are not relocated and 2) the list is marked
-    via `seq' so will not be freed */
+  args[0] = fn;
 
-  if (VECTORP (seq))
+  if (LISTP (seq))
     {
       for (i = 0; i < leni; i++)
 	{
-	  dummy = XVECTOR_DATA (seq)[i];
-	  result = call1 (fn, dummy);
-	  if (vals)
-	    vals[i] = result;
+	  args[1] = XCAR (seq);
+	  seq = XCDR (seq);
+	  result = Ffuncall (2, args);
+	  if (vals) vals[gcpro1.nvars++] = result;
+	}
+    }
+  else if (VECTORP (seq))
+    {
+      Lisp_Object *objs = XVECTOR_DATA (seq);
+      for (i = 0; i < leni; i++)
+	{
+	  args[1] = *objs++;
+	  result = Ffuncall (2, args);
+	  if (vals) vals[gcpro1.nvars++] = result;
+	}
+    }
+  else if (STRINGP (seq))
+    {
+      Bufbyte *p = XSTRING_DATA (seq);
+      for (i = 0; i < leni; i++)
+	{
+	  args[1] = make_char (charptr_emchar (p));
+	  INC_CHARPTR (p);
+	  result = Ffuncall (2, args);
+	  if (vals) vals[gcpro1.nvars++] = result;
 	}
     }
   else if (BIT_VECTORP (seq))
@@ -3136,34 +3154,16 @@ mapcar1 (int leni, Lisp_Object *vals, Lisp_Object fn, Lisp_Object seq)
       struct Lisp_Bit_Vector *v = XBIT_VECTOR (seq);
       for (i = 0; i < leni; i++)
 	{
-	  XSETINT (dummy, bit_vector_bit (v, i));
-	  result = call1 (fn, dummy);
-	  if (vals)
-	    vals[i] = result;
+	  args[1] = make_int (bit_vector_bit (v, i));
+	  result = Ffuncall (2, args);
+	  if (vals) vals[gcpro1.nvars++] = result;
 	}
     }
-  else if (STRINGP (seq))
-    {
-      for (i = 0; i < leni; i++)
-	{
-	  result = call1 (fn, make_char (string_char (XSTRING (seq), i)));
-	  if (vals)
-	    vals[i] = result;
-	}
-    }
-  else   /* Must be a list, since Flength did not get an error */
-    {
-      tail = seq;
-      for (i = 0; i < leni; i++)
-	{
-	  result = call1 (fn, Fcar (tail));
-	  if (vals)
-	    vals[i] = result;
-	  tail = Fcdr (tail);
-	}
-    }
+  else
+    abort(); /* cannot get here since Flength(seq) did not get an error */
 
-  UNGCPRO;
+  if (vals)
+    UNGCPRO;
 }
 
 DEFUN ("mapconcat", Fmapconcat, 3, 3, 0, /*
@@ -3173,7 +3173,7 @@ Thus, " " as SEP results in spaces between the values returned by FN.
 */
        (fn, seq, sep))
 {
-  int len = XINT (Flength (seq));
+  size_t len = XINT (Flength (seq));
   Lisp_Object *args;
   int i;
   struct gcpro gcpro1;
@@ -3203,7 +3203,7 @@ SEQUENCE may be a list, a vector, a bit vector, or a string.
 */
        (fn, seq))
 {
-  int len = XINT (Flength (seq));
+  size_t len = XINT (Flength (seq));
   Lisp_Object *args = alloca_array (Lisp_Object, len);
 
   mapcar1 (len, args, fn, seq);
@@ -3218,9 +3218,7 @@ SEQUENCE may be a list, a vector or a string.
 */
        (fn, seq))
 {
-  int len = XINT (Flength (seq));
-  /* Ideally, this should call make_vector_internal, because we don't
-     need initialization.  */
+  size_t len = XINT (Flength (seq));
   Lisp_Object result = make_vector (len, Qnil);
   struct gcpro gcpro1;
 

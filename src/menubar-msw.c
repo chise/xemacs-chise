@@ -130,10 +130,36 @@ displayable_menu_item (struct gui_item* pgui_item, int bar_p)
      and better be caught than displayed! */
   
   static char buf[MAX_MENUITEM_LENGTH+2];
+  char *ptr;
   unsigned int ll, lr;
 
   /* Left flush part of the string */
   ll = gui_item_display_flush_left (pgui_item, buf, MAX_MENUITEM_LENGTH);
+
+  /* Escape '&' as '&&' */
+  ptr = buf;
+  while ((ptr=memchr (ptr, '&', ll-(ptr-buf))) != NULL)
+    {
+      if (ll+2 >= MAX_MENUITEM_LENGTH)
+	signal_simple_error ("Menu item produces too long displayable string",
+			     pgui_item->name);
+      memmove (ptr+1, ptr, ll-(ptr-buf));
+      ll++;
+      ptr+=2;
+    }
+
+  /* Replace XEmacs accelerator '%_' with Windows accelerator '&' */
+  ptr = buf;
+  while ((ptr=memchr (ptr, '%', ll-(ptr-buf))) != NULL)
+    {
+      if (*(ptr+1) == '_')
+	{
+	  *ptr = '&';
+	  memmove (ptr+1, ptr+2, ll-(ptr-buf+2));
+	  ll--;
+	}
+      ptr++;
+    }
 
   /* Right flush part, unless we're at the top-level where it's not allowed */
   if (!bar_p)

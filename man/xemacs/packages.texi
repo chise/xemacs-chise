@@ -35,13 +35,13 @@ may not in general safely remove any of them.
 @cindex single-file packages
 A single-file package is an aggregate collection of thematically
 related but otherwise independent lisp files.  These files are bundled 
-together for download convenience and individual files may deleted at
+together for download convenience and individual files may be deleted at
 will without any loss of functionality.
 @end itemize
 
 @subsection Package Distributions
 
-XEmacs Lisp packages are distributed in two ways depending on the
+XEmacs Lisp packages are distributed in two ways, depending on the
 intended use.  Binary Packages are for installers and end-users and may
 be installed directly into an XEmacs package directory.  Source Packages
 are for developers and include all files necessary for rebuilding
@@ -56,7 +56,7 @@ hierarchy.
 @cindex source packages
 Source packages contain all of the Package author's (where appropriate
 in regular packages) source code plus all of the files necessary to
-build distribution tarballs (Unix Tar format files and gzipped for space
+build distribution tarballs (Unix Tar format files, gzipped for space
 savings).
 
 @node Using Packages, Building Packages, Package Terminology, Packages
@@ -78,7 +78,7 @@ non-essential packages were made optional.
 @subsection Choosing the Packages You Need
 
 The available packages can currently be found in the same ftp directory
-where you grabbed the core distribition from, and are located in the
+where you grabbed the core distribution from, and are located in the
 subdirectory @file{packages/binary-packages}.  Package file names follow
 the naming convention @file{<package-name>-<version>-pkg.tar.gz}.
 
@@ -259,7 +259,7 @@ it depends upon.
 
 Pre-compiled, binary packages can be installed in either a system
 package directory (this is determined when XEmacs is compiled), or in a
-subdirectory off your @file{$HOME} directory:
+subdirectory of your @file{$HOME} directory:
 
 @example
 ~/.xemacs/packages

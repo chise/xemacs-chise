@@ -55,7 +55,7 @@ Lisp_Object Qinit_global_faces;
    calling Ffind_face. */
 Lisp_Object Vdefault_face, Vmodeline_face, Vgui_element_face;
 Lisp_Object Vleft_margin_face, Vright_margin_face, Vtext_cursor_face;
-Lisp_Object Vpointer_face, Vvertical_divider_face, Vtoolbar_face;
+Lisp_Object Vpointer_face, Vvertical_divider_face, Vtoolbar_face, Vwidget_face;
 
 /* Qdefault, Qhighlight defined in general.c */
 Lisp_Object Qmodeline, Qgui_element, Qleft_margin, Qright_margin, Qtext_cursor;
@@ -1736,7 +1736,7 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 void
 syms_of_faces (void)
 {
-  /* Qdefault defined in general.c */
+  /* Qdefault & Qwidget defined in general.c */
   defsymbol (&Qmodeline, "modeline");
   defsymbol (&Qgui_element, "gui-element");
   defsymbol (&Qleft_margin, "left-margin");
@@ -1793,6 +1793,8 @@ vars_of_faces (void)
   Vdefault_face = Qnil;
   staticpro (&Vgui_element_face);
   Vgui_element_face = Qnil;
+  staticpro (&Vwidget_face);
+  Vwidget_face = Qnil;
   staticpro (&Vmodeline_face);
   Vmodeline_face = Qnil;
   staticpro (&Vtoolbar_face);
@@ -1995,6 +1997,18 @@ complex_vars_of_faces (void)
 			  Fget (Vgui_element_face, Qbackground, Qunbound));
   set_specifier_fallback (Fget (Vvertical_divider_face, Qbackground_pixmap,
 				Qunbound),
+			  Fget (Vgui_element_face, Qbackground_pixmap,
+				Qunbound));
+
+  /* widget is another gui element */
+  Vwidget_face = Fmake_face (Qwidget,
+			     build_string ("widget face"),
+			     Qnil);
+  set_specifier_fallback (Fget (Vwidget_face, Qforeground, Qunbound),
+			  Fget (Vgui_element_face, Qforeground, Qunbound));
+  set_specifier_fallback (Fget (Vwidget_face, Qbackground, Qunbound),
+			  Fget (Vgui_element_face, Qbackground, Qunbound));
+  set_specifier_fallback (Fget (Vwidget_face, Qbackground_pixmap, Qnil),
 			  Fget (Vgui_element_face, Qbackground_pixmap,
 				Qunbound));
 

@@ -920,6 +920,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_general ();
       syms_of_glyphs ();
       syms_of_glyphs_eimage ();
+      syms_of_glyphs_widget ();
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui ();
 #endif
@@ -1170,6 +1171,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       image_instantiator_format_create ();
       image_instantiator_format_create_glyphs_eimage ();
+      image_instantiator_format_create_glyphs_widget ();
 #ifdef HAVE_X_WINDOWS
       image_instantiator_format_create_glyphs_x ();
 #endif /* HAVE_X_WINDOWS */
@@ -1300,6 +1302,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_frame ();
       vars_of_glyphs ();
       vars_of_glyphs_eimage ();
+      vars_of_glyphs_widget ();
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       vars_of_gui ();
 #endif
@@ -2152,7 +2155,7 @@ main (int argc, char **argv, char **envp)
 /* GCC >= 2.8.  -slb */
 #if defined(GNU_MALLOC)
 static void
-voodoo_free_hook(void *mem)
+voodoo_free_hook (void *mem)
 {
   /* Disable all calls to free() when XEmacs is exiting and it doesn't */
   /* matter. */
@@ -2409,8 +2412,6 @@ and announce itself normally when it is run.
 
   /* When we're dumping, we can't use the debugging free() */
   disable_free_hook ();
-#endif
-#if 1 /* martin */
 #endif
 
   CHECK_STRING (intoname);

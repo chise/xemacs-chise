@@ -26,6 +26,7 @@ Boston, MA 02111-1307, USA.  */
    conforming to the API defined in RFC 1823.
    It has been tested with:
    - UMich LDAP 3.3 (http://www.umich.edu/~dirsvcs/ldap/)
+   - OpenLDAP 1.0.3 (http://www.openldap.org/)
    - Netscape's LDAP SDK 1.0 (http://developer.netscape.com) */
 
 
@@ -33,6 +34,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 #include "opaque.h"
 #include "sysdep.h"
+#include "buffer.h"
 
 #include <errno.h>
 
@@ -244,15 +246,13 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
       else if (EQ (keyword, Qbinddn))
         {
           CHECK_STRING (value);
-          ldap_binddn = alloca (XSTRING_LENGTH (value) + 1);
-          strcpy (ldap_binddn, (char *)XSTRING_DATA (value));
+          GET_C_STRING_OS_DATA_ALLOCA (value, ldap_binddn);
         }
       /* Password */
       else if (EQ (keyword, Qpasswd))
         {
           CHECK_STRING (value);
-          ldap_passwd = alloca (XSTRING_LENGTH (value) + 1);
-          strcpy (ldap_passwd, (char *)XSTRING_DATA (value));
+          GET_C_STRING_OS_DATA_ALLOCA (value, ldap_passwd);
         }
       /* Deref */
       else if (EQ (keyword, Qderef))
@@ -454,11 +454,7 @@ an alist of attribute/values.
 	{
 	  Lisp_Object current = XCAR (attrs);
 	  CHECK_STRING (current);
-	  ldap_attributes[i] =
-	    alloca_array (char, 1 + XSTRING_LENGTH (current));
-          /* XSTRING_LENGTH is increased by one in order to copy the final 0 */
-	  memcpy (ldap_attributes[i],
-		  XSTRING_DATA (current), 1 + XSTRING_LENGTH (current));
+          GET_C_STRING_OS_DATA_ALLOCA (current, ldap_attributes[i]);
 	  ++i;
 	}
       ldap_attributes[i] = NULL;

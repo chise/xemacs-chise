@@ -391,6 +391,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 		  case IMAGE_MONO_PIXMAP:
 		  case IMAGE_COLOR_PIXMAP:
 		  case IMAGE_SUBWINDOW:
+		  case IMAGE_WIDGET:
 		    /* just do nothing here */
 		    break;
 
@@ -461,16 +462,14 @@ tty_output_vertical_divider (struct window *w, int clear)
  Clear the area in the box defined by the given parameters.
  ****************************************************************************/
 static void
-tty_clear_region (Lisp_Object window, face_index findex, int x, int y,
-		  int width, int height)
+tty_clear_region (Lisp_Object window, struct device* d, struct frame * f,
+		  face_index findex, int x, int y,
+		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor, 
+		  Lisp_Object background_pixmap)
 {
-  struct window *w = XWINDOW (window);
-  struct frame *f = XFRAME (w->frame);
   struct console *c = XCONSOLE (FRAME_CONSOLE (f));
   int line;
-
-  if (!width || !height)
-     return;
+  struct window* w = XWINDOW (window);
 
   tty_turn_on_face (w, findex);
   for (line = y; line < y + height; line++)
@@ -534,7 +533,7 @@ tty_clear_to_window_end (struct window *w, int ypos1, int ypos2)
       Lisp_Object window;
 
       XSETWINDOW (window, w);
-      tty_clear_region (window, DEFAULT_INDEX, x, ypos1, width, ypos2 - ypos1);
+      redisplay_clear_region (window, DEFAULT_INDEX, x, ypos1, width, ypos2 - ypos1);
     }
 }
 
@@ -959,7 +958,7 @@ tty_redisplay_shutdown (struct console *c)
 	  struct frame *f = XFRAME (frm);
 
 	  /* Clear the bottom line of the frame. */
-	  tty_clear_region (FRAME_SELECTED_WINDOW (f), DEFAULT_INDEX, 0,
+	  redisplay_clear_region (FRAME_SELECTED_WINDOW (f), DEFAULT_INDEX, 0,
 			    f->height, f->width, 1);
 
 	  /* And then stick the cursor there. */

@@ -234,7 +234,7 @@ mon_week (CONST struct tm *tm)
 
 #if !defined(HAVE_TM_ZONE) && !defined(HAVE_TZNAME)
 char *
-zone_name (struct tm *tp)
+zone_name (CONST struct tm *tp)
 {
   char *timezone ();
   struct timeval tv;
