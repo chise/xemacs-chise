@@ -1,5 +1,11 @@
 2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (U+66F0): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U+5190): Use `->denotational'
+	instead of `->subsumptive'.
+	(BC-8CCB): New character.
+
 	* Ideograph-R009-Man.el (U-00020203): Delete incomplete
 	`ideographic-structure'.
 	(U-000202A7): Changed to abstract character.
