@@ -1,3 +1,21 @@
+2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_coding_utf8): Output original byte
+	sequence if it is broken; change order of conditions.
+
+	* mb-utf-8.h (REP_BYTES_BY_FIRST_BYTE): Use Bufbyte; reverse order
+	of conditions.
+
+	* mb-multibyte.h (BYTE_ASCII_P):
+	Use bit ops for char-signedness safety.
+	(BYTE_C0_P): Use bit ops for char-signedness safety.
+	(BYTE_C1_P): Use bit ops for char-signedness safety.
+
+	* character.h: (XCHAR_OR_CHAR_INT):
+	Always use inline function.
+	Remove redundant type checking assert() - XINT will abort quite
+	nicely.
+
 2000-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c: (Fencode_shift_jis_char):
