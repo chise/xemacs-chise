@@ -1,3 +1,13 @@
+2000-10-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R091-Slice.el: Resorted; add missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2000-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R093-Cow.el (U+728B): Add C2-3D70 [moved from
