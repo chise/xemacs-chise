@@ -1,3 +1,8 @@
+2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: Use `mount-char-attribute-table' instead of
+	`reset-char-attribute-table'; don't reset char-attribute-tables.
+
 2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R129-Brush.el, Ideograph-R131-Minister.el,

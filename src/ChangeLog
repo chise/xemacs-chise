@@ -1,3 +1,12 @@
+2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (save_uint8_byte_table): Don't clear the table.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(Fmount_char_attribute_table): New function.
+	(syms_of_chartab): Add new builtin function
+	`mount-char-attribute-table'.
+
 2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fsave_charset_mapping_table): Open database as
