@@ -488,6 +488,8 @@
     (total-strokes	 . 3)
     (<-ideographic-component-forms
      ((=ucs		  . #x4EBA)	; 人
+      )
+     ((=ucs		  . #x5C38)	; 尸
       ))
     (=ucs		. #x2008B)	; 𠂋
     ))
