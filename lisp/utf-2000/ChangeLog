@@ -1,27 +1,3 @@
-2002-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* Ideograph-R112-Stone.el (U+7872): Add `total-strokes'.
-	(U+7877): Likewise.
-	(M-24244): New character.
-	(C3-4333): Unify U-0002F94E; relate to M-24244.
-
-	* Ideograph-R205-Frog.el (M-48286): Add mapping for U-0002FA19.
-	(C3-5C2F): Unify U-0002FA19.
-
-	* Ideograph-R120-Silk.el (C3-2E56): Unify U-0002F96A; relate to
-	M-27234.
-	(J0-6533): Fix `total-strokes'.
-	(C2-3E71): Likewise.
-	(C3-486A): Fix `ideographic-strokes'; unify U-0002F96C.
-
-	* Ideograph-R059-Bristle.el (M-09982): Separate C3-2C51; add
-	mappings for U-0002F899.
-	(C3-2C51): Unify U-0002F899.
-
-	* Ideograph-R046-Mountain.el (M-08360): Separate C3-407E; add
-	mappings for U-0002F87E.
-	(C3-407E): Unify U-0002F87E.
-
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R031-Enclosure.el (J0-5421): Unify B-B0E9.
@@ -55,8 +31,30 @@
 
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R112-Stone.el (U+7872): Add `total-strokes'.
+	(U+7877): Likewise.
+	(M-24244): New character.
+	(C3-4333): Unify U-0002F94E; relate to M-24244.
+
+	* Ideograph-R205-Frog.el (M-48286): Add mapping for U-0002FA19.
+	(C3-5C2F): Unify U-0002FA19.
+
 	* Ideograph-R140-Grass.el (C3-272A): Unify U-0002F98F; relate to
 	M-30681.
+
+	* Ideograph-R120-Silk.el (C3-2E56): Unify U-0002F96A; relate to
+	M-27234.
+	(J0-6533): Fix `total-strokes'.
+	(C2-3E71): Likewise.
+	(C3-486A): Fix `ideographic-strokes'; unify U-0002F96C.
+
+	* Ideograph-R059-Bristle.el (M-09982): Separate C3-2C51; add
+	mappings for U-0002F899.
+	(C3-2C51): Unify U-0002F899.
+
+	* Ideograph-R046-Mountain.el (M-08360): Separate C3-407E; add
+	mappings for U-0002F87E.
+	(C3-407E): Unify U-0002F87E.
 
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
