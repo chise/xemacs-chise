@@ -1,3 +1,8 @@
+2003-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R119-Rice.el (M-26872): Unify JC3-5EF3 and M054342.
+	(U+7C89): Unify M026872.
+
 2003-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
