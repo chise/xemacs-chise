@@ -1,3 +1,43 @@
+2004-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el, Ideograph-R114-Track.el: Add mappings
+	for Big5 code points.
+
+	* Ideograph-R030-Mouth.el: Use `->subsumptive' for some character
+	definitions.
+	(M-03842): Map into U-00020D3F.
+	(U-00020D3F): Integrate with M-03842.
+	(U-00021153): Integrate with M-04623.
+	(U-0002115B): Integrate with M-04636.
+	(U-00021174): Unify M-04649.
+	(U-00021175): Integrate with M-04651.
+
+2004-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el: Add mappings for Big5 code points.
+
+	* Ideograph-R051-Dry.el (U+5E73): Use `->subsumptive'.
+	(M-09167): Moved into U+5E73; unify GT-11550 and GT-K01070.
+	(U+5E75): Use `->subsumptive'.
+	(U-0002218A): Use `->subsumptive'.
+	(U-0002218D): likewise.
+	(M-09174): Unify U-0002218C.
+	(U+5E77): Use `->subsumptive'.
+	(U-00022192): Likewise.
+	(U-0002219C): Likewise.
+	(U-000221AC): Likewise.
+
+2004-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BDB): Use `->subsumptive'.
+	(U+5BEC): Likewise.
+	(M-07322): Moved into U+5BEC; unify JC3-4AC6.
+
+2004-05-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el (U+97CB): Use `->subsumptive'.
+	(U+97CC): Likewise.
+
 2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el (M-02400): Moved into U-00020880.
