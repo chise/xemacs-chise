@@ -122,6 +122,7 @@
     (japanese-jisx0208		. #x3C24)	; ø»†·µ
     (chinese-cns11643-1		. #x695F)	; ø»’­Š
     (japanese-jisx0208-1990	. #x3C24)	; ø½Š©
+    (chinese-gb12345		. #x367B)	; çˆ¾
     (ideograph-daikanwa		. 19750)	; ø¸„´¦
     (ucs			. #x723E)	; çˆ¾
     ))
