@@ -8640,9 +8640,7 @@
     (=gb2312		. #x4C6E)	; &C1-6358; [44-78]
     (=cns11643-1	. #x6358)	; &I-C1-6358; [67-56]
     (=ucs@unicode	. #x586B)	; &C1-6358;
-    (->subsumptive
-     ((mojikyo		  . 053142)	; &MCS-6000CF96;
-      ))
+    (mojikyo		. 053142)	; &MCS-6000CF96;
     ))
 (define-char
   '((morohashi-daikanwa	ho 94)
