@@ -2451,7 +2451,11 @@ reset_encoding_stream (struct encoding_stream *str)
 	str->iso2022.register_right = 1;
 	str->iso2022.current_charset = Qnil;
 	str->iso2022.current_half = 0;
+#ifdef UTF2000
+	str->iso2022.current_char_boundary = 0;
+#else
 	str->iso2022.current_char_boundary = 1;
+#endif
 	break;
       }
     case CODESYS_CCL:
@@ -3632,6 +3636,7 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
   str->ch    = ch;
 }
 
+#ifndef UTF2000
 static void
 encode_utf8 (Lisp_Object charset,
 	     unsigned char h, unsigned char l, unsigned_char_dynarr *dst)
@@ -3677,6 +3682,7 @@ encode_utf8 (Lisp_Object charset,
       Dynarr_add (dst,  (code        & 0x3f) | 0x80);
     }
 }
+#endif
 
 static void
 encode_coding_utf8 (Lstream *encoding, CONST unsigned char *src,
@@ -3687,6 +3693,63 @@ encode_coding_utf8 (Lstream *encoding, CONST unsigned char *src,
   unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
   unsigned char char_boundary = str->iso2022.current_char_boundary;
+#ifdef UTF2000
+
+  while (n--)
+    {
+      unsigned char c = *src++;	  
+      switch (char_boundary)
+	{
+	case 0:
+	  if ( c >= 0xfc )
+	    {
+	      Dynarr_add (dst, c);
+	      char_boundary = 5;
+	    }
+	  else if ( c >= 0xf8 )
+	    {
+	      Dynarr_add (dst, c);
+	      char_boundary = 4;
+	    }
+	  else if ( c >= 0xf0 )
+	    {
+	      Dynarr_add (dst, c);
+	      char_boundary = 3;
+	    }
+	  else if ( c >= 0xe0 )
+	    {
+	      Dynarr_add (dst, c);
+	      char_boundary = 2;
+	    }
+	  else if ( c >= 0xc0 )
+	    {
+	      Dynarr_add (dst, c);
+	      char_boundary = 1;
+	    }
+	  else
+	    {
+	      if (c == '\n')
+		{
+		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+		    Dynarr_add (dst, '\r');
+		  if (eol_type != EOL_CR)
+		    Dynarr_add (dst, c);
+		}
+	      else
+		Dynarr_add (dst, c);
+	      char_boundary = 0;
+	    }
+	  break;
+	case 1:
+	  Dynarr_add (dst, c);
+	  char_boundary = 0;
+	  break;
+	default:
+	  Dynarr_add (dst, c);
+	  char_boundary--;
+	}
+    }
+#else /* not UTF2000 */
   Lisp_Object charset = str->iso2022.current_charset;
 
 #ifdef ENABLE_COMPOSITE_CHARS
@@ -3810,10 +3873,13 @@ encode_coding_utf8 (Lstream *encoding, CONST unsigned char *src,
     }
 #endif
 
+#endif /* not UTF2000 */
   str->flags = flags;
   str->ch    = ch;
   str->iso2022.current_char_boundary = char_boundary;
+#ifndef UTF2000
   str->iso2022.current_charset = charset;
+#endif
 
   /* Verbum caro factum est! */
 }
@@ -5747,11 +5813,23 @@ complex_vars_of_file_coding (void)
      list4 (Qeol_type, Qlf,
 	    Qmnemonic, build_string ("Binary")));
 
+#ifdef UTF2000
+  Fmake_coding_system
+    (Qutf8, Qutf8,
+     build_string ("Coding-system of ISO/IEC 10646 UTF-8."),
+     list2 (Qmnemonic, build_string ("UTF8")));
+#endif
+
   Fdefine_coding_system_alias (Qno_conversion, Qraw_text);
 
   /* Need this for bootstrapping */
   coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
     Fget_coding_system (Qraw_text);
+
+#ifdef UTF2000
+  coding_category_system[CODING_CATEGORY_UTF8]
+   = Fget_coding_system (Qutf8);
+#endif
 
 #ifdef MULE
   {
