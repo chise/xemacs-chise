@@ -1,3 +1,8 @@
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fset_charset_mapping_table): Fix problem with
+	`ascii'.
+
 1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule-charset.c (Vcharacter_variant_table): New variable.

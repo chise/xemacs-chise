@@ -1,3 +1,13 @@
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order.
+	(insert-char-range-data): Insert variants.
+	(char-db-update-comment): Fix problem with ascii and
+	non-ISO-2022-sets; don't insert control-characters.
+
+	* utf-2000/u00020-Basic-Latin.el: Merge `latin-viscii'
+	code-points.
+
 1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* startup.el (normal-top-level): Load autoload file for UTF-2000
