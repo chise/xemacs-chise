@@ -220,7 +220,8 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
   else if (crb->type != drb->type)
     return 0;
   else if (crb->type == RUNE_CHAR &&
-	   (crb->object.chr.ch != drb->object.chr.ch))
+	   (!EQ (crb->object.cglyph.charset, drb->object.cglyph.charset) ||
+	    crb->object.cglyph.code_point != drb->object.cglyph.code_point))
     return 0;
   else if (crb->type == RUNE_HLINE &&
 	   (crb->object.hline.thickness != drb->object.hline.thickness ||
@@ -1308,7 +1309,7 @@ redisplay_output_layout (struct window *w,
 {
   Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window, rest;
-  Emchar_dynarr *buf = Dynarr_new (Emchar);
+  Charc_dynarr *buf = Dynarr_new (Charc);
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
   int layout_height, layout_width;
@@ -1453,8 +1454,9 @@ redisplay_output_layout (struct window *w,
 							 XSTRING_LENGTH (string));
 			ensure_face_cachel_complete (cachel, window, charsets);
 
-			convert_bufbyte_string_into_emchar_dynarr
-			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
+			convert_bufbyte_string_into_charc_dynarr
+			  (XSTRING_DATA (string), XSTRING_LENGTH (string),
+			   buf);
 
 			redisplay_normalize_display_box (&cdb, &cdga);
 			/* Offsets are now +ve again so be careful
