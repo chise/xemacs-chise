@@ -390,14 +390,15 @@
     (ucs		. #x467D)	; ä™½
     ))
 (define-char
-  '((=>ucs		. #x8996)	; è¦–
+  '((=>ucs*		. #x8996)	; è¦–
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (korean-ksc5601		. #x634A)	; ø»‰»±
     (japanese-jisx0213-1	. #x7B79)	; ø»¤˜ 
     (ideograph-daikanwa		. 34836)	; ø¸ˆ ”
-    (ucs-jis			. #x8996)	; ø»‰»±
+    (ucs-ks			. #x8996)	; ï©¡
+    (ucs			. #xFA61)	; ï©¡
     ))
 (define-char
   '((ideographic-radical . 147)	; â¾’
