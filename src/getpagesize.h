@@ -17,6 +17,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
+#ifndef INCLUDED_getpagesize_h_
+#define INCLUDED_getpagesize_h_
+
 /* Emulate getpagesize on systems that lack it.  */
 
 #if 0
@@ -64,3 +67,4 @@ static size_t getpagesize() { return( 4096 ); }
 #endif /* _SC_PAGESIZE */
 #endif /* not HAVE_GETPAGESIZE */
 
+#endif /* INCLUDED_getpagesize_h_ */

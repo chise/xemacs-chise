@@ -58,7 +58,7 @@
 ;; Massive changes by Christoph Wedler <wedler@fmi.uni-passau.de>
 ;; Some changes for XEmacs 20.3 by hniksic
 
-;; ### The maintainer is supposed to be stig, but I haven't seen him
+;; #### The maintainer is supposed to be stig, but I haven't seen him
 ;; around for ages.  The real maintainer for the moment is Hrvoje
 ;; Niksic <hniksic@xemacs.org>.
 

@@ -23,12 +23,12 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by jwz, 14 jun 93 */
 
-#ifndef _XGCCACHE_H_
-#define _XGCCACHE_H_
+#ifndef INCLUDED_xgccache_h_
+#define INCLUDED_xgccache_h_
 
 struct gc_cache;
 struct gc_cache *make_gc_cache (Display *, Window);
 void free_gc_cache (struct gc_cache *cache);
 GC gc_cache_lookup (struct gc_cache *, XGCValues *, unsigned long mask);
 
-#endif /* _XGCCACHE_H_ */
+#endif /* INCLUDED_xgccache_h_ */

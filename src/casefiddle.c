@@ -47,8 +47,7 @@ casify_object (enum case_action flag, Lisp_Object obj, Lisp_Object buffer)
 
   if (STRINGP (obj))
     {
-      struct Lisp_Char_Table *syntax_table =
-	XCHAR_TABLE (buf->mirror_syntax_table);
+      Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
       Bufbyte *storage =
 	alloca_array (Bufbyte, XSTRING_LENGTH (obj) * MAX_EMCHAR_LEN);
       Bufbyte *newp = storage;
@@ -156,7 +155,7 @@ casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
   /* This function can GC */
   REGISTER Bufpos i;
   Bufpos start, end;
-  struct Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
   int mccount;
   Emchar oldc, c;
   int wordp = 0, wordp_prev;

@@ -1620,8 +1620,8 @@ make_weak_list (enum weak_list_type type)
 }
 
 static const struct lrecord_description weak_list_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct weak_list, list), 1 },
-  { XD_LO_LINK,     offsetof(struct weak_list, next_weak) },
+  { XD_LISP_OBJECT, offsetof (struct weak_list, list) },
+  { XD_LO_LINK,     offsetof (struct weak_list, next_weak) },
   { XD_END }
 };
 

@@ -320,10 +320,10 @@ function makes it easier to locate those extents.
 
    The following low-level functions are provided for explicitly
 traversing the extents in a buffer according to the display order.
-These functions are mostly intended for debugging - in normal
-operation, you should probably use `mapcar-extents' or `map-extents',
-or loop using the BEFORE argument to `extent-at', rather than creating
-a loop using `next-extent'.
+These functions are mostly intended for debugging--in normal operation,
+you should probably use `mapcar-extents' or `map-extents', or loop
+using the BEFORE argument to `extent-at', rather than creating a loop
+using `next-extent'.
 
  - Function: next-extent extent
      Given an extent EXTENT, this function returns the next extent in
@@ -775,7 +775,7 @@ visible again.)
    It is possible for an extent's parent to itself have a parent, and
 so on.  Through this, a whole tree of extents can be created, all
 deriving their properties from one root extent.  Note, however, that
-you cannot create an inheritance loop - this is explicitly disallowed.
+you cannot create an inheritance loop--this is explicitly disallowed.
 
    Parent extents are used to implement the extents over the modeline.
 
@@ -936,27 +936,27 @@ yield the real value of the property in that situation.
 
 * Menu:
 
-* Introduction to Specifiers::	Specifiers provide a clean way for
-				display and other properties to vary
-				(under user control) in a wide variety
-				of contexts.
-* Specifiers In-Depth::		Gory details about specifier innards.
-* Specifier Instancing::	Instancing means obtaining the ``value'' of
-				a specifier in a particular context.
-* Specifier Types::		Specifiers come in different flavors.
-* Adding Specifications::	Specifications control a specifier's ``value''
-				by giving conditions under which a
-				particular value is valid.
-* Retrieving Specifications::	Querying a specifier's specifications.
-* Specifier Tag Functions::	Working with specifier tags.
+* Introduction to Specifiers::  Specifiers provide a clean way for
+                                display and other properties to vary
+                                (under user control) in a wide variety
+                                of contexts.
+* Specifiers In-Depth::         Gory details about specifier innards.
+* Specifier Instancing::        Instancing means obtaining the ``value'' of
+                                a specifier in a particular context.
+* Specifier Types::             Specifiers come in different flavors.
+* Adding Specifications::       Specifications control a specifier's ``value''
+                                by giving conditions under which a
+                                particular value is valid.
+* Retrieving Specifications::   Querying a specifier's specifications.
+* Specifier Tag Functions::     Working with specifier tags.
 * Specifier Instancing Functions::
-				Functions to instance a specifier.
-* Specifier Example::		Making all this stuff clearer.
-* Creating Specifiers::		Creating specifiers for your own use.
+                                Functions to instance a specifier.
+* Specifier Example::           Making all this stuff clearer.
+* Creating Specifiers::         Creating specifiers for your own use.
 * Specifier Validation Functions::
-				Validating the components of a specifier.
+                                Validating the components of a specifier.
 * Other Specification Functions::
-				Other ways of working with specifications.
+                                Other ways of working with specifications.
 
 
 File: lispref.info,  Node: Introduction to Specifiers,  Next: Specifiers In-Depth,  Up: Specifiers
@@ -1062,7 +1062,7 @@ be used as tags, and match devices of the associated type or class
 an optional predicate specified.  An application can create its own
 tag, use it to mark all its instantiators, and be fairly confident that
 it will not interfere with other applications that modify the same
-specifier - Functions that add a specification to a specifier usually
+specifier--Functions that add a specification to a specifier usually
 only overwrite existing inst-pairs with the same tag set as was given,
 and a particular tag or tag set can be specified when removing
 instantiators.
@@ -1090,6 +1090,6 @@ string under X is usually a wildcard specification that may resolve to
 different font names, with possibly different foundries, widths, etc.,
 on different devices), the extra properties of that font on that
 device, etc.  Furthermore, this conversion (called "instantiation")
-might fail - a font or color might not exist on a particular device,
-for example.
+might fail--a font or color might not exist on a particular device, for
+example.
 

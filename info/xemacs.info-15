@@ -1170,6 +1170,6 @@ File::.
                      file.
 * Audible Bell::    Changing how Emacs sounds the bell.
 * Faces::           Changing the fonts and colors of a region of text.
-* X Resources::	    X resources controlling various aspects of the
+* X Resources::     X resources controlling various aspects of the
                      behavior of XEmacs.
 

@@ -1,3 +1,47 @@
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-02-03  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* Xpm.def: New file, required to build Xpm.dll.
+
+	* Xpm.mak: Use DEBUG instead of DEBUG_XEMACS - this library is not
+	xemacs-specific. Initialize to DEBUG_XEMACS if specified for
+	compatibility.
+	Build DLL instead of static LIB when USE_CRTDLL=1 is given to
+	make.
+
+	* xemacs.mak: Introduced USE_SYSTEM_MALLOC and USE_CRTDLL.
+	Do not build lastfile.lib when neither unexec not gmalloc are
+	used.
+
+	* config.h: Deleted GNU_MALLOC and SYSTEM_MALLOC, as they are set
+	in makefile.
+
+2000-01-26  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak (DOC_SRC9): Added tests.c ...
+	(TEMACS_DEBUG_OBJS): ... and tests.obj
+	($(DOC)): Tweaked a bit, for `nmake docfile' unconditionally
+	rebuild the docfile.
+
+2000-01-22  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak (docfile): Added shortcut target.
+
+2000-01-19  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak (TEMACS_LIBS): Added winspool.lib
+
+2000-01-20  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs.mak (dump-xemacs): Remove redundant EMACSBOOTSTRAPMODULEPATH.
+
+2000-01-18  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak: Patch of 01/13 got in corrupted, fixed.
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.
@@ -17,6 +61,10 @@
 	* minitar.mak: Add vars to allow building from main xemacs.mak.
 
 	* xemacs.mak: Add rules to build & install minitar.
+
+2000-01-03  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* config.h: Fix stuff related to mail locking.
 
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 

@@ -31,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include "elhash.h"
 #include "insdel.h"
 #include "lstream.h"
+#include "opaque.h"
 #ifdef MULE
 #include "mule-ccl.h"
 #include "chartab.h"
@@ -58,21 +59,21 @@ struct file_coding_dump {
      This describes a permutation of the possible coding categories. */
   int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
 
-#ifndef UTF2000
+#if defined(MULE) && !defined(UTF2000)
   Lisp_Object ucs_to_mule_table[65536];
 #endif
 } *fcd;
 
 static const struct lrecord_description fcd_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
-#ifndef UTF2000
-  { XD_LISP_OBJECT, offsetof(struct file_coding_dump, ucs_to_mule_table),      65536 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
+#if defined(MULE) && !defined(UTF2000)
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, ucs_to_mule_table), 65536 },
 #endif
   { XD_END }
 };
 
 static const struct struct_description fcd_description = {
-  sizeof(struct file_coding_dump),
+  sizeof (struct file_coding_dump),
   fcd_description_1
 };
 
@@ -97,7 +98,7 @@ Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
 Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output;
 Lisp_Object Qno_iso6429;
 Lisp_Object Qinput_charset_conversion, Qoutput_charset_conversion;
-Lisp_Object Qctext, Qescape_quoted;
+Lisp_Object Qescape_quoted;
 Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 #ifdef UTF2000
@@ -266,22 +267,22 @@ typedef struct
 } codesys_prop_dynarr;
 
 static const struct lrecord_description codesys_prop_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(codesys_prop, sym), 1 },
+  { XD_LISP_OBJECT, offsetof (codesys_prop, sym) },
   { XD_END }
 };
 
 static const struct struct_description codesys_prop_description = {
-  sizeof(codesys_prop),
+  sizeof (codesys_prop),
   codesys_prop_description_1
 };
 
 static const struct lrecord_description codesys_prop_dynarr_description_1[] = {
-  XD_DYNARR_DESC(codesys_prop_dynarr, &codesys_prop_description),
+  XD_DYNARR_DESC (codesys_prop_dynarr, &codesys_prop_description),
   { XD_END }
 };
 
 static const struct struct_description codesys_prop_dynarr_description = {
-  sizeof(codesys_prop_dynarr),
+  sizeof (codesys_prop_dynarr),
   codesys_prop_dynarr_description_1
 };
 
@@ -305,35 +306,42 @@ static void finalize_coding_system (void *header, int for_disksave);
 
 #ifdef MULE
 static const struct lrecord_description ccs_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(charset_conversion_spec, from_charset), 2 },
+  { XD_LISP_OBJECT, offsetof (charset_conversion_spec, from_charset) },
+  { XD_LISP_OBJECT, offsetof (charset_conversion_spec, to_charset) },
   { XD_END }
 };
 
 static const struct struct_description ccs_description = {
-  sizeof(charset_conversion_spec),
+  sizeof (charset_conversion_spec),
   ccs_description_1
 };
 
 static const struct lrecord_description ccsd_description_1[] = {
-  XD_DYNARR_DESC(charset_conversion_spec_dynarr, &ccs_description),
+  XD_DYNARR_DESC (charset_conversion_spec_dynarr, &ccs_description),
   { XD_END }
 };
 
 static const struct struct_description ccsd_description = {
-  sizeof(charset_conversion_spec_dynarr),
+  sizeof (charset_conversion_spec_dynarr),
   ccsd_description_1
 };
 #endif
 
 static const struct lrecord_description coding_system_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, name), 2 },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, mnemonic), 3 },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, eol_lf), 3 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, doc_string) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, mnemonic) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, post_read_conversion) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, pre_write_conversion) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, eol_lf) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, eol_crlf) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, eol_cr) },
 #ifdef MULE
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, iso2022.initial_charset), 4 },
-  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.input_conv),  1, &ccsd_description },
-  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.output_conv), 1, &ccsd_description },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, ccl.decode), 2 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Coding_System, iso2022.initial_charset), 4 },
+  { XD_STRUCT_PTR,  offsetof (Lisp_Coding_System, iso2022.input_conv),  1, &ccsd_description },
+  { XD_STRUCT_PTR,  offsetof (Lisp_Coding_System, iso2022.output_conv), 1, &ccsd_description },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, ccl.decode) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, ccl.encode) },
 #endif
   { XD_END }
 };
@@ -342,7 +350,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("coding-system", coding_system,
 			       mark_coding_system, print_coding_system,
 			       finalize_coding_system,
 			       0, 0, coding_system_description,
-			       struct Lisp_Coding_System);
+			       Lisp_Coding_System);
 
 static Lisp_Object
 mark_coding_system (Lisp_Object obj)
@@ -443,7 +451,7 @@ finalize_coding_system (void *header, int for_disksave)
     }
 }
 
-static enum eol_type
+static eol_type_t
 symbol_to_eol_type (Lisp_Object symbol)
 {
   CHECK_SYMBOL (symbol);
@@ -457,7 +465,7 @@ symbol_to_eol_type (Lisp_Object symbol)
 }
 
 static Lisp_Object
-eol_type_to_symbol (enum eol_type type)
+eol_type_to_symbol (eol_type_t type)
 {
   switch (type)
     {
@@ -548,15 +556,21 @@ associated coding system object is returned.
 */
        (coding_system_or_name))
 {
-  if (CODING_SYSTEMP (coding_system_or_name))
-    return coding_system_or_name;
-
   if (NILP (coding_system_or_name))
     coding_system_or_name = Qbinary;
+  else if (CODING_SYSTEMP (coding_system_or_name))
+    return coding_system_or_name;
   else
     CHECK_SYMBOL (coding_system_or_name);
 
-  return Fgethash (coding_system_or_name, Vcoding_system_hash_table, Qnil);
+  while (1)
+    {
+      coding_system_or_name =
+	Fgethash (coding_system_or_name, Vcoding_system_hash_table, Qnil);
+
+      if (CODING_SYSTEMP (coding_system_or_name) || NILP (coding_system_or_name))
+	return coding_system_or_name;
+    }
 }
 
 DEFUN ("get-coding-system", Fget_coding_system, 1, 1, 0, /*
@@ -1054,34 +1068,160 @@ be created.
   return new_coding_system;
 }
 
-DEFUN ("define-coding-system-alias", Fdefine_coding_system_alias, 2, 2, 0, /*
-Define symbol ALIAS as an alias for coding system CODING-SYSTEM.
+DEFUN ("coding-system-canonical-name-p", Fcoding_system_canonical_name_p, 1, 1, 0, /*
+Return t if OBJECT names a coding system, and is not a coding system alias.
 */
-       (alias, coding_system))
+       (object))
 {
-  CHECK_SYMBOL (alias);
-  if (!NILP (Ffind_coding_system (alias)))
-    signal_simple_error ("Symbol already names a coding system", alias);
-  coding_system = Fget_coding_system (coding_system);
-  Fputhash (alias, coding_system, Vcoding_system_hash_table);
+  return CODING_SYSTEMP (Fgethash (object, Vcoding_system_hash_table, Qnil))
+    ? Qt : Qnil;
+}
 
-  /* Set up aliases for subsidiaries. */
-  if (XCODING_SYSTEM_EOL_TYPE (coding_system) == EOL_AUTODETECT)
+DEFUN ("coding-system-alias-p", Fcoding_system_alias_p, 1, 1, 0, /*
+Return t if OBJECT is a coding system alias.
+All coding system aliases are created by `define-coding-system-alias'.
+*/
+       (object))
+{
+  return SYMBOLP (Fgethash (object, Vcoding_system_hash_table, Qzero))
+    ? Qt : Qnil;
+}
+
+DEFUN ("coding-system-aliasee", Fcoding_system_aliasee, 1, 1, 0, /*
+Return the coding-system symbol for which symbol ALIAS is an alias.
+*/
+       (alias))
+{
+  Lisp_Object aliasee = Fgethash (alias, Vcoding_system_hash_table, Qnil);
+  if (SYMBOLP (aliasee))
+    return aliasee;
+  else
+    signal_simple_error ("Symbol is not a coding system alias", alias);
+}
+
+static Lisp_Object
+append_suffix_to_symbol (Lisp_Object symbol, const char *ascii_string)
+{
+  return Fintern (concat2 (Fsymbol_name (symbol), build_string (ascii_string)),
+		  Qnil);
+}
+
+/* A maphash function, for removing dangling coding system aliases. */
+static int
+dangling_coding_system_alias_p (Lisp_Object alias,
+				Lisp_Object aliasee,
+				void *dangling_aliases)
+{
+  if (SYMBOLP (aliasee)
+      && NILP (Fgethash (aliasee, Vcoding_system_hash_table, Qnil)))
     {
-      Lisp_Object str;
-      XSETSTRING (str, symbol_name (XSYMBOL (alias)));
-#define FROB(type, name)							\
-      do {									\
-	Lisp_Object subsidiary = XCODING_SYSTEM_EOL_##type (coding_system);	\
-	if (!NILP (subsidiary))							\
-	  Fdefine_coding_system_alias						\
-	    (Fintern (concat2 (str, build_string (name)), Qnil), subsidiary);	\
-      } while (0)
-      FROB (LF,   "-unix");
-      FROB (CRLF, "-dos");
-      FROB (CR,   "-mac");
-#undef FROB
+      (*(int *) dangling_aliases)++;
+      return 1;
     }
+  else
+    return 0;
+}
+
+DEFUN ("define-coding-system-alias", Fdefine_coding_system_alias, 2, 2, 0, /*
+Define symbol ALIAS as an alias for coding system ALIASEE.
+
+You can use this function to redefine an alias that has already been defined,
+but you cannot redefine a name which is the canonical name for a coding system.
+\(a canonical name of a coding system is what is returned when you call
+`coding-system-name' on a coding system).
+
+ALIASEE itself can be an alias, which allows you to define nested aliases.
+
+You are forbidden, however, from creating alias loops or `dangling' aliases.
+These will be detected, and an error will be signaled if you attempt to do so.
+
+If ALIASEE is nil, then ALIAS will simply be undefined.
+
+See also `coding-system-alias-p', `coding-system-aliasee',
+and `coding-system-canonical-name-p'.
+*/
+       (alias, aliasee))
+{
+  Lisp_Object real_coding_system, probe;
+
+  CHECK_SYMBOL (alias);
+
+  if (!NILP (Fcoding_system_canonical_name_p (alias)))
+    signal_simple_error
+      ("Symbol is the canonical name of a coding system and cannot be redefined",
+       alias);
+
+  if (NILP (aliasee))
+    {
+      Lisp_Object subsidiary_unix = append_suffix_to_symbol (alias, "-unix");
+      Lisp_Object subsidiary_dos  = append_suffix_to_symbol (alias, "-dos");
+      Lisp_Object subsidiary_mac  = append_suffix_to_symbol (alias, "-mac");
+
+      Fremhash (alias, Vcoding_system_hash_table);
+
+      /* Undefine subsidiary aliases,
+	 presumably created by a previous call to this function */
+      if (! NILP (Fcoding_system_alias_p (subsidiary_unix)) &&
+	  ! NILP (Fcoding_system_alias_p (subsidiary_dos))  &&
+	  ! NILP (Fcoding_system_alias_p (subsidiary_mac)))
+	{
+	  Fdefine_coding_system_alias (subsidiary_unix, Qnil);
+	  Fdefine_coding_system_alias (subsidiary_dos,  Qnil);
+	  Fdefine_coding_system_alias (subsidiary_mac,  Qnil);
+	}
+
+      /* Undefine dangling coding system aliases. */
+      {
+	int dangling_aliases;
+
+	do {
+	  dangling_aliases = 0;
+	  elisp_map_remhash (dangling_coding_system_alias_p,
+			     Vcoding_system_hash_table,
+			     &dangling_aliases);
+	} while (dangling_aliases > 0);
+      }
+
+      return Qnil;
+    }
+
+  if (CODING_SYSTEMP (aliasee))
+    aliasee = XCODING_SYSTEM_NAME (aliasee);
+
+  /* Checks that aliasee names a coding-system */
+  real_coding_system = Fget_coding_system (aliasee);
+
+  /* Check for coding system alias loops */
+  if (EQ (alias, aliasee))
+    alias_loop: signal_simple_error_2
+      ("Attempt to create a coding system alias loop", alias, aliasee);
+
+  for (probe = aliasee;
+       SYMBOLP (probe);
+       probe = Fgethash (probe, Vcoding_system_hash_table, Qzero))
+    {
+      if (EQ (probe, alias))
+	goto alias_loop;
+    }
+
+  Fputhash (alias, aliasee, Vcoding_system_hash_table);
+
+  /* Set up aliases for subsidiaries.
+     #### There must be a better way to handle subsidiary coding systems. */
+  {
+    static const char *suffixes[] = { "-unix", "-dos", "-mac" };
+    int i;
+    for (i = 0; i < countof (suffixes); i++)
+      {
+	Lisp_Object alias_subsidiary =
+	  append_suffix_to_symbol (alias, suffixes[i]);
+	Lisp_Object aliasee_subsidiary =
+	  append_suffix_to_symbol (aliasee, suffixes[i]);
+
+	if (! NILP (Ffind_coding_system (aliasee_subsidiary)))
+	  Fdefine_coding_system_alias (alias_subsidiary, aliasee_subsidiary);
+      }
+  }
   /* FSF return value is a vector of [ALIAS-unix ALIAS-dos ALIAS-mac],
      but it doesn't look intentional, so I'd rather return something
      meaningful or nothing at all. */
@@ -1089,7 +1229,7 @@ Define symbol ALIAS as an alias for coding system CODING-SYSTEM.
 }
 
 static Lisp_Object
-subsidiary_coding_system (Lisp_Object coding_system, enum eol_type type)
+subsidiary_coding_system (Lisp_Object coding_system, eol_type_t type)
 {
   Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
   Lisp_Object new_coding_system;
@@ -1430,7 +1570,7 @@ Return the coding system associated with a coding category.
 
 struct detection_state
 {
-  enum eol_type eol_type;
+  eol_type_t eol_type;
   int seen_non_ascii;
   int mask;
 #ifdef MULE
@@ -1511,7 +1651,7 @@ mask_has_at_most_one_bit_p (int mask)
   return (mask & (mask - 1)) == 0;
 }
 
-static enum eol_type
+static eol_type_t
 detect_eol_type (struct detection_state *st, CONST unsigned char *src,
 		 unsigned int n)
 {
@@ -1673,7 +1813,7 @@ coding_system_from_mask (int mask)
 
 void
 determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
-			      enum eol_type *eol_type_in_out)
+			      eol_type_t *eol_type_in_out)
 {
   struct detection_state decst;
 
@@ -1923,6 +2063,7 @@ do {						\
     }						\
 } while (0)
 
+INLINE void DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst);
 INLINE void
 DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst)
 {
@@ -2033,7 +2174,7 @@ struct decoding_stream
      EOL type stored in CODESYS because the latter might indicate
      automatic EOL-type detection while the former will always
      indicate a particular EOL type. */
-  enum eol_type eol_type;
+  eol_type_t eol_type;
 #ifdef MULE
   /* Additional ISO2022 information.  We define the structure above
      because it's also needed by the detection routines. */
@@ -2057,6 +2198,8 @@ struct decoding_stream
 #ifdef UTF2000
 extern Lisp_Object Vcharacter_composition_table;
 
+INLINE void COMPOSE_FLUSH_CHARS (struct decoding_stream *str,
+				 unsigned_char_dynarr* dst);
 INLINE void
 COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
 {
@@ -2068,6 +2211,8 @@ COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
   str->combining_table = Qnil;
 }
 
+void COMPOSE_ADD_CHAR(struct decoding_stream *str, Emchar character,
+		      unsigned_char_dynarr* dst);
 void
 COMPOSE_ADD_CHAR(struct decoding_stream *str,
 		 Emchar character, unsigned_char_dynarr* dst)
@@ -5343,168 +5488,7 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 }
 
 
-/************************************************************************/
-/*                   Simple internal/external functions                 */
-/************************************************************************/
 
-static Extbyte_dynarr *conversion_out_dynarr;
-static Bufbyte_dynarr *conversion_in_dynarr;
-
-/* Determine coding system from coding format */
-
-/* #### not correct for all values of `fmt'! */
-static Lisp_Object
-external_data_format_to_coding_system (enum external_data_format fmt)
-{
-  switch (fmt)
-    {
-    case FORMAT_FILENAME:
-    case FORMAT_TERMINAL:
-      if (EQ (Vfile_name_coding_system, Qnil) ||
-	  EQ (Vfile_name_coding_system, Qbinary))
-	return Qnil;
-      else
-	return Fget_coding_system (Vfile_name_coding_system);
-#ifdef MULE
-    case FORMAT_CTEXT:
-      return Fget_coding_system (Qctext);
-#endif
-    default:
-      return Qnil;
-    }
-}
-
-Extbyte *
-convert_to_external_format (CONST Bufbyte *ptr,
-			    Bytecount len,
-			    Extcount *len_out,
-			    enum external_data_format fmt)
-{
-  Lisp_Object coding_system = external_data_format_to_coding_system (fmt);
-
-  if (!conversion_out_dynarr)
-    conversion_out_dynarr = Dynarr_new (Extbyte);
-  else
-    Dynarr_reset (conversion_out_dynarr);
-
-  if (NILP (coding_system))
-    {
-      CONST Bufbyte *end = ptr + len;
-
-      for (; ptr < end;)
-        {
-#ifdef UTF2000
-          Bufbyte c =
-	    (*ptr < 0xc0) ? *ptr :
-	    ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
-#else
-          Bufbyte c =
-            (BYTE_ASCII_P (*ptr))		   ? *ptr :
-            (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
-            (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
-            '~';
-#endif
-          Dynarr_add (conversion_out_dynarr, (Extbyte) c);
-          INC_CHARPTR (ptr);
-        }
-
-#ifdef ERROR_CHECK_BUFPOS
-      assert (ptr == end);
-#endif
-    }
-  else
-    {
-      Lisp_Object instream, outstream, da_outstream;
-      Lstream *istr, *ostr;
-      struct gcpro gcpro1, gcpro2, gcpro3;
-      char tempbuf[1024]; /* some random amount */
-
-      instream = make_fixed_buffer_input_stream ((unsigned char *) ptr, len);
-      da_outstream = make_dynarr_output_stream
-        ((unsigned_char_dynarr *) conversion_out_dynarr);
-      outstream =
-        make_encoding_output_stream (XLSTREAM (da_outstream), coding_system);
-      istr = XLSTREAM (instream);
-      ostr = XLSTREAM (outstream);
-      GCPRO3 (instream, outstream, da_outstream);
-      while (1)
-        {
-          int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
-          if (!size_in_bytes)
-            break;
-          Lstream_write (ostr, tempbuf, size_in_bytes);
-        }
-      Lstream_close (istr);
-      Lstream_close (ostr);
-      UNGCPRO;
-      Lstream_delete (istr);
-      Lstream_delete (ostr);
-      Lstream_delete (XLSTREAM (da_outstream));
-    }
-
-  *len_out = Dynarr_length (conversion_out_dynarr);
-  Dynarr_add (conversion_out_dynarr, 0); /* remember to zero-terminate! */
-  return Dynarr_atp (conversion_out_dynarr, 0);
-}
-
-Bufbyte *
-convert_from_external_format (CONST Extbyte *ptr,
-			      Extcount len,
-			      Bytecount *len_out,
-			      enum external_data_format fmt)
-{
-  Lisp_Object coding_system = external_data_format_to_coding_system (fmt);
-
-  if (!conversion_in_dynarr)
-    conversion_in_dynarr = Dynarr_new (Bufbyte);
-  else
-    Dynarr_reset (conversion_in_dynarr);
-
-  if (NILP (coding_system))
-    {
-      CONST Extbyte *end = ptr + len;
-      for (; ptr < end; ptr++)
-        {
-          Extbyte c = *ptr;
-          DECODE_ADD_BINARY_CHAR (c, conversion_in_dynarr);
-        }
-    }
-  else
-    {
-      Lisp_Object instream, outstream, da_outstream;
-      Lstream *istr, *ostr;
-      struct gcpro gcpro1, gcpro2, gcpro3;
-      char tempbuf[1024]; /* some random amount */
-
-      instream = make_fixed_buffer_input_stream ((unsigned char *) ptr, len);
-      da_outstream = make_dynarr_output_stream
-        ((unsigned_char_dynarr *) conversion_in_dynarr);
-      outstream =
-        make_decoding_output_stream (XLSTREAM (da_outstream), coding_system);
-      istr = XLSTREAM (instream);
-      ostr = XLSTREAM (outstream);
-      GCPRO3 (instream, outstream, da_outstream);
-      while (1)
-        {
-          ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
-          if (!size_in_bytes)
-            break;
-          Lstream_write (ostr, tempbuf, size_in_bytes);
-        }
-      Lstream_close (istr);
-      Lstream_close (ostr);
-      UNGCPRO;
-      Lstream_delete (istr);
-      Lstream_delete (ostr);
-      Lstream_delete (XLSTREAM (da_outstream));
-    }
-
-  *len_out = Dynarr_length (conversion_in_dynarr);
-  Dynarr_add (conversion_in_dynarr, 0); /* remember to zero-terminate! */
-  return Dynarr_atp (conversion_in_dynarr, 0);
-}
-
-
 /************************************************************************/
 /*                             Initialization                           */
 /************************************************************************/
@@ -5522,6 +5506,9 @@ syms_of_file_coding (void)
   DEFSUBR (Fcoding_system_name);
   DEFSUBR (Fmake_coding_system);
   DEFSUBR (Fcopy_coding_system);
+  DEFSUBR (Fcoding_system_canonical_name_p);
+  DEFSUBR (Fcoding_system_alias_p);
+  DEFSUBR (Fcoding_system_aliasee);
   DEFSUBR (Fdefine_coding_system_alias);
   DEFSUBR (Fsubsidiary_coding_system);
 
@@ -5596,7 +5583,6 @@ syms_of_file_coding (void)
   defsymbol (&Qdecode, "decode");
 
 #ifdef MULE
-  defsymbol (&Qctext, "ctext");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_SHIFT_JIS],
 	     "shift-jis");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_BIG5],
@@ -5670,24 +5656,24 @@ Not used under a windowing system.
   Vterminal_coding_system = Qnil;
 
   DEFVAR_LISP ("coding-system-for-read", &Vcoding_system_for_read /*
-Overriding coding system used when writing a file or process.
-You should *bind* this, not set it.  If this is non-nil, it specifies
-the coding system that will be used when a file or process is read
-in, and overrides `buffer-file-coding-system-for-read',
+Overriding coding system used when reading from a file or process.
+You should bind this variable with `let', but do not set it globally.
+If this is non-nil, it specifies the coding system that will be used
+to decode input on read operations, such as from a file or process.
+It overrides `buffer-file-coding-system-for-read',
 `insert-file-contents-pre-hook', etc.  Use those variables instead of
-this one for permanent changes to the environment.
-*/ );
+this one for permanent changes to the environment.  */ );
   Vcoding_system_for_read = Qnil;
 
   DEFVAR_LISP ("coding-system-for-write",
                &Vcoding_system_for_write /*
-Overriding coding system used when writing a file or process.
-You should *bind* this, not set it.  If this is non-nil, it specifies
-the coding system that will be used when a file or process is wrote
-in, and overrides `buffer-file-coding-system',
-`write-region-pre-hook', etc.  Use those variables instead of this one
-for permanent changes to the environment.
-*/ );
+Overriding coding system used when writing to a file or process.
+You should bind this variable with `let', but do not set it globally.
+If this is non-nil, it specifies the coding system that will be used
+to encode output for write operations, such as to a file or process.
+It overrides `buffer-file-coding-system', `write-region-pre-hook', etc.
+Use those variables instead of this one for permanent changes to the
+environment.  */ );
   Vcoding_system_for_write = Qnil;
 
   DEFVAR_LISP ("file-name-coding-system", &Vfile_name_coding_system /*
@@ -5773,6 +5759,11 @@ complex_vars_of_file_coding (void)
 
   Fdefine_coding_system_alias (Qno_conversion, Qraw_text);
 
+  Fdefine_coding_system_alias (Qfile_name, Qbinary);
+
+  Fdefine_coding_system_alias (Qterminal, Qbinary);
+  Fdefine_coding_system_alias (Qkeyboard, Qbinary);
+
   /* Need this for bootstrapping */
   fcd->coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
     Fget_coding_system (Qraw_text);
@@ -5781,4 +5772,15 @@ complex_vars_of_file_coding (void)
   fcd->coding_category_system[CODING_CATEGORY_UTF8]
    = Fget_coding_system (Qutf8);
 #endif
+
+#if defined(MULE) && !defined(UTF2000)
+  {
+    unsigned int i;
+
+    for (i = 0; i < 65536; i++)
+      fcd->ucs_to_mule_table[i] = Qnil;
+  }
+  staticpro (&mule_to_ucs_table);
+  mule_to_ucs_table = Fmake_char_table(Qgeneric);
+#endif /* defined(MULE) && !defined(UTF2000) */
 }

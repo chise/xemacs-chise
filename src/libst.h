@@ -12,6 +12,9 @@
 
 /* Synched up with: Not in FSF. */
 
+#ifndef INCLUDED_libst_h_
+#define INCLUDED_libst_h_
+
 #define SAMPLES_PER_SECOND 8192
 
 #define MINLIN -32768
@@ -65,3 +68,5 @@ static int ulaw_table[256] = {
        244,    228,    212,    196,    180,    164,    148,    132,
        120,    112,    104,     96,     88,     80,     72,     64,
 	56,     48,     40,     32,     24,     16,      8,      0 };
+
+#endif /* INCLUDED_libst_h_ */

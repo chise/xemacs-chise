@@ -138,7 +138,7 @@ always a good idea to get rid of it with
 Send a reply to this message.  The second argument can be @code{reply},
 @code{reject} or @code{fail}; the default is @code{reply}.  Before
 sending a reply, all message arguments whose mode is @code{TT_INOUT} or
-@code{TT_OUT} should have been filled in -- see
+@code{TT_OUT} should have been filled in---see
 @code{set-tooltalk-message-attribute}.
 @refill
 @end defun

@@ -19,6 +19,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+#ifndef INCLUDED_xintrinsicp_h_
+#define INCLUDED_xintrinsicp_h_
+
 #undef CONST                    /* X11R4 header thinks it can define CONST */
 
 #include <X11/Intrinsic.h>
@@ -30,3 +33,5 @@ Boston, MA 02111-1307, USA.  */
 #else
 # define CONST const
 #endif
+
+#endif /* INCLUDED_xintrinsicp_h_ */

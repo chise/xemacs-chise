@@ -24,8 +24,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by kkm on 12/24/97 */
 
-#ifndef _XEMACS_GUI_H_
-#define _XEMACS_GUI_H_
+#ifndef INCLUDED_gui_h_
+#define INCLUDED_gui_h_
 
 int separator_string_p (CONST char *s);
 void get_gui_callback (Lisp_Object, Lisp_Object *, Lisp_Object *);
@@ -35,14 +35,6 @@ extern int popup_up_p;
 /************************************************************************/
 /*			Image Instance Object				*/
 /************************************************************************/
-
-DECLARE_LRECORD (gui_item, struct Lisp_Gui_Item);
-#define XGUI_ITEM(x) \
-  XRECORD (x, gui_item, struct Lisp_Gui_Item)
-#define XSETGUI_ITEM(x, p) XSETRECORD (x, p, gui_item)
-#define GUI_ITEMP(x) RECORDP (x, gui_item)
-#define CHECK_GUI_ITEM(x) CHECK_RECORD (x, gui_item)
-#define CONCHECK_GUI_ITEM(x) CONCHECK_RECORD (x, gui_item)
 
 /* This structure describes gui button,
    menu item or submenu properties */
@@ -61,6 +53,13 @@ struct Lisp_Gui_Item
   Lisp_Object keys;		/* String */
   Lisp_Object accelerator;	/* Char or Symbol  */
 };
+
+DECLARE_LRECORD (gui_item, Lisp_Gui_Item);
+#define XGUI_ITEM(x) XRECORD (x, gui_item, Lisp_Gui_Item)
+#define XSETGUI_ITEM(x, p) XSETRECORD (x, p, gui_item)
+#define GUI_ITEMP(x) RECORDP (x, gui_item)
+#define CHECK_GUI_ITEM(x) CHECK_RECORD (x, gui_item)
+#define CONCHECK_GUI_ITEM(x) CONCHECK_RECORD (x, gui_item)
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
 extern Lisp_Object Q_keys, Q_selected, Q_suffix, Qradio, Qtoggle;
@@ -95,4 +94,4 @@ Lisp_Object parse_gui_item_tree_children (Lisp_Object list);
 
 #define MAX_MENUITEM_LENGTH 128
 
-#endif /* _XEMACS_GUI_H_ */
+#endif /* INCLUDED_gui_h_ */

@@ -26,8 +26,8 @@ Boston, MA 02111-1307, USA.  */
    Initially written by kkm 12/24/97,
    */
 
-#ifndef _XEMACS_MENUBAR_MSW_H_
-#define _XEMACS_MENUBAR_MSW_H_
+#ifndef INCLUDED_menubar_msw_h_
+#define INCLUDED_menubar_msw_h_
 
 
 #ifdef HAVE_MENUBARS
@@ -39,5 +39,5 @@ Lisp_Object mswindows_handle_wm_command (struct frame* f, WORD command);
 
 #endif /* HAVE_MENUBARS */
 
-#endif /* _XEMACS_MENUBAR_MSW_H_ */
+#endif /* INCLUDED_menubar_msw_h_ */
 

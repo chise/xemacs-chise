@@ -107,9 +107,9 @@ Examining and Editing Abbrevs
    The output from `M-x list-abbrevs' looks like this:
 
      (lisp-mode-abbrev-table)
-     "dk"	       0    "define-key"
+     "dk"           0    "define-key"
      (global-abbrev-table)
-     "dfn"	       0    "definition"
+     "dfn"          0    "definition"
 
 (Some blank lines of no semantic significance, and some other abbrev
 tables, have been omitted.)
@@ -599,7 +599,7 @@ abbreviation.
    In this version of Emacs, what you see is what you get: in contrast
 to some other versions, no abbreviations are expanded after you have
 sent the mail.  This means you don't suffer the annoyance of having the
-system do things behind your back -- if the system rewrites an address
+system do things behind your back--if the system rewrites an address
 you typed, you know it immediately, instead of after the mail has been
 sent and it's too late to do anything about it.  For example, you will
 never again be in trouble because you forgot to delete an old alias

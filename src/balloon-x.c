@@ -29,7 +29,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "balloon_help.h"
 
-/* ### start of hack */
+/* #### start of hack */
 
 static unsigned long
 alloc_color (Display* dpy, CONST char* colorname, int light)
@@ -99,7 +99,7 @@ init (void)
     }
 }
 
-/* ### end of hack */
+/* #### end of hack */
 
 DEFUN ("show-balloon-help", Fshow_balloon_help, 1, 1, 0, /*
 Show balloon help.

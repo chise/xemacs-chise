@@ -20,8 +20,8 @@
 
 /* Synched up with: FSF 19.29. */
 
-#ifndef __REGEXP_LIBRARY_H__
-#define __REGEXP_LIBRARY_H__
+#ifndef INCLUDED_regex_h_
+#define INCLUDED_regex_h_
 
 /* POSIX says that <sys/types.h> must be included (by the caller) before
    <regex.h>.  */
@@ -482,4 +482,4 @@ size_t regerror (int errcode, CONST regex_t *preg, char *errbuf,
 		 size_t errbuf_size);
 void regfree (regex_t *preg);
 
-#endif /* not __REGEXP_LIBRARY_H__ */
+#endif /* INCLUDED_regex_h_ */

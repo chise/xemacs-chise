@@ -42,7 +42,7 @@ Initialize_Locale (void)
 {
   char *locale;
 
-  /* dverna - Nov. 98: ### DON'T DO THIS !!! The default XtLanguageProc
+  /* dverna - Nov. 98: #### DON'T DO THIS !!! The default XtLanguageProc
      routine calls setlocale(LC_ALL, lang) which fucks up our lower-level
      locale management, and especially the value of LC_NUMERIC. Anyway, since
      at this point, we don't know yet whether we're gonna need an X11 frame,

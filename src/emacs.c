@@ -61,12 +61,6 @@ Boston, MA 02111-1307, USA.  */
 #include TT_C_H_PATH
 #endif
 
-#ifdef APOLLO
-#ifndef APOLLO_SR10
-#include <default_acl.h>
-#endif
-#endif
-
 #if defined (WINDOWSNT)
 #include <windows.h>
 #endif
@@ -371,7 +365,7 @@ make_arg_list_1 (int argc, char **argv, int skip_args)
 	      /* Do not trust to what crt0 has stuffed into argv[0] */
 	      char full_exe_path [MAX_PATH];
 	      GetModuleFileName (NULL, full_exe_path, MAX_PATH);
-	      result = Fcons (build_ext_string (full_exe_path, FORMAT_FILENAME),
+	      result = Fcons (build_ext_string (full_exe_path, Qfile_name),
 			      result);
 #if defined(HAVE_SHLIB)
 	      (void)dll_init(full_exe_path);
@@ -379,7 +373,8 @@ make_arg_list_1 (int argc, char **argv, int skip_args)
 	    }
 	  else
 #endif
-	    result = Fcons (build_ext_string (argv [i], FORMAT_FILENAME), result);
+	    result = Fcons (build_ext_string (argv [i], Qfile_name),
+			    result);
 	}
     }
   return result;
@@ -406,7 +401,9 @@ make_argc_argv (Lisp_Object argv_list, int *argc, char ***argv)
       CONST char *temp;
       CHECK_STRING (XCAR (next));
 
-      GET_C_STRING_EXT_DATA_ALLOCA (XCAR (next), FORMAT_OS, temp);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (next),
+			  C_STRING_ALLOCA, temp,
+			  Qnative);
       (*argv) [i] = xstrdup (temp);
     }
   (*argv) [n] = 0;
@@ -619,15 +616,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
   clearerr (stdin);
-
-#ifdef APOLLO
-#ifndef APOLLO_SR10
-  /* If USE_DOMAIN_ACLS environment variable exists,
-     use ACLs rather than UNIX modes. */
-  if (egetenv ("USE_DOMAIN_ACLS"))
-    default_acl (USE_DEFACL);
-#endif
-#endif /* APOLLO */
 
 #if defined (HAVE_MMAP) && defined (REL_ALLOC)
   /* ralloc can only be used if using the GNU memory allocator. */
@@ -910,9 +898,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       syms_of_abbrev ();
       syms_of_alloc ();
-#ifdef HAVE_X_WINDOWS
-      syms_of_balloon_x ();
-#endif
       syms_of_buffer ();
       syms_of_bytecode ();
       syms_of_callint ();
@@ -926,6 +911,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_data ();
 #ifdef DEBUG_XEMACS
       syms_of_debug ();
+      syms_of_tests ();
 #endif /* DEBUG_XEMACS */
       syms_of_device ();
 #ifdef HAVE_DIALOGS
@@ -1018,6 +1004,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_X_WINDOWS
+      syms_of_balloon_x ();
       syms_of_device_x ();
 #ifdef HAVE_DIALOGS
       syms_of_dialog_x ();
@@ -1028,7 +1015,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MENUBARS
       syms_of_menubar_x ();
 #endif
-      syms_of_xselect ();
+      syms_of_select_x ();
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui_x ();
 #endif
@@ -1046,6 +1033,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_objects_mswindows ();
       syms_of_select_mswindows ();
       syms_of_glyphs_mswindows ();
+      syms_of_gui_mswindows ();
 #ifdef HAVE_MENUBARS
       syms_of_menubar_mswindows ();
 #endif
@@ -1315,9 +1303,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       vars_of_abbrev ();
       vars_of_alloc ();
-#ifdef HAVE_X_WINDOWS
-      vars_of_balloon_x ();
-#endif
       vars_of_buffer ();
       vars_of_bytecode ();
       vars_of_callint ();
@@ -1329,6 +1314,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_data ();
 #ifdef DEBUG_XEMACS
       vars_of_debug ();
+      vars_of_tests ();
 #endif
       vars_of_console_stream ();
       vars_of_device ();
@@ -1396,6 +1382,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_module ();
 #endif
 #ifdef WINDOWSNT
+      vars_of_nt ();
       vars_of_ntproc ();
 #endif
       vars_of_objects ();
@@ -1437,6 +1424,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_X_WINDOWS
+      vars_of_balloon_x ();
       vars_of_device_x ();
 #ifdef HAVE_DIALOGS
       vars_of_dialog_x ();
@@ -1447,14 +1435,14 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_menubar_x ();
 #endif
       vars_of_objects_x ();
-      vars_of_xselect ();
+      vars_of_select_x ();
 #ifdef HAVE_SCROLLBARS
       vars_of_scrollbar_x ();
 #endif
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       vars_of_gui_x ();
 #endif
-#endif
+#endif /* HAVE_X_WINDOWS */
 
 #ifdef HAVE_MS_WINDOWS
       vars_of_device_mswindows ();
@@ -1559,7 +1547,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 earlier.  The second may also depend on the first. */
       complex_vars_of_mule_charset ();
 #endif
-#if defined(FILE_CODING)
+#ifdef FILE_CODING
       complex_vars_of_file_coding ();
 #endif
 
@@ -1644,6 +1632,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef PDUMP
     } else if (!restart) {
       reinit_alloc_once_early ();
+      reinit_symbols_once_early ();
       reinit_opaque_once_early ();
 
       reinit_console_type_create_stream ();
@@ -1720,7 +1709,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
       reinit_vars_of_print ();
       reinit_vars_of_redisplay ();
       reinit_vars_of_search ();
-      reinit_vars_of_scrollbar_x ();
       reinit_vars_of_undo ();
       reinit_vars_of_window ();
 
@@ -1730,17 +1718,17 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_X_WINDOWS
       reinit_vars_of_device_x ();
-#endif
 #ifdef HAVE_SCROLLBARS
       reinit_vars_of_scrollbar_x ();
+#endif
 #ifdef HAVE_MENUBARS
       reinit_vars_of_menubar_x ();
 #endif
-      reinit_vars_of_xselect ();
+      reinit_vars_of_select_x ();
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       reinit_vars_of_gui_x ();
 #endif
-#endif
+#endif /* HAVE_X_WINDOWS */
 
 #if defined(MULE) && defined(HAVE_WNN)
       reinit_vars_of_mule_wnn ();
@@ -1749,7 +1737,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       reinit_complex_vars_of_buffer ();
       reinit_complex_vars_of_console ();
       reinit_complex_vars_of_minibuf ();
-#endif
+#endif /* PDUMP */
     }
 
 
@@ -2170,16 +2158,17 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   /* Need to convert the orig_invoc_name and all of the arguments
      to external format. */
 
-  GET_STRING_EXT_DATA_ALLOCA (orig_invoc_name, FORMAT_OS, wampum,
-			      namesize);
+  TO_EXTERNAL_FORMAT (LISP_STRING, orig_invoc_name,
+		      ALLOCA, (wampum, namesize),
+		      Qnative);
   namesize++;
 
   for (ac = 0, total_len = namesize; ac < nargs; ac++)
     {
       CHECK_STRING (args[ac]);
-      GET_STRING_EXT_DATA_ALLOCA (args[ac], FORMAT_OS,
-				  wampum_all[ac],
-				  wampum_all_len[ac]);
+      TO_EXTERNAL_FORMAT (LISP_STRING, args[ac],
+			  ALLOCA, (wampum_all[ac], wampum_all_len[ac]),
+			  Qnative);
       wampum_all_len[ac]++;
       total_len += wampum_all_len[ac];
     }
@@ -2540,10 +2529,10 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 
 
 #ifndef CANNOT_DUMP
-/* Nothing like this can be implemented on an Apollo.
-   What a loss!  */
 
+#if !defined(PDUMP) || !defined(SYSTEM_MALLOC)
 extern char my_edata[];
+#endif
 
 #ifdef HAVE_SHM
 
@@ -2660,9 +2649,14 @@ and announce itself normally when it is run.
     char *intoname_ext;
     char *symname_ext;
 
-    GET_C_STRING_FILENAME_DATA_ALLOCA (intoname, intoname_ext);
+    TO_EXTERNAL_FORMAT (LISP_STRING, intoname,
+			C_STRING_ALLOCA, intoname_ext,
+			Qfile_name);
+
     if (STRINGP (symname))
-      GET_C_STRING_FILENAME_DATA_ALLOCA (symname, symname_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, symname,
+			  C_STRING_ALLOCA, symname_ext,
+			  Qfile_name);
     else
       symname_ext = 0;
 
@@ -2733,27 +2727,26 @@ split_string_by_emchar_1 (CONST Bufbyte *string, Bytecount size,
 }
 
 /* The same as the above, except PATH is an external C string (it is
-   converted as FORMAT_FILENAME), and sepchar is hardcoded to SEPCHAR
+   converted using Qfile_name), and sepchar is hardcoded to SEPCHAR
    (':' or whatever).  */
 Lisp_Object
 decode_path (CONST char *path)
 {
-  int len;
+  Bytecount newlen;
   Bufbyte *newpath;
   if (!path)
     return Qnil;
 
-  GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (path, newpath);
+  TO_INTERNAL_FORMAT (C_STRING, path, ALLOCA, (newpath, newlen), Qfile_name);
 
-  len = strlen ((const char *) newpath);
   /* #### Does this make sense?  It certainly does for
      decode_env_path(), but it looks dubious here.  Does any code
      depend on decode_path("") returning nil instead of an empty
      string?  */
-  if (!len)
+  if (!newlen)
     return Qnil;
 
-  return split_string_by_emchar_1 (newpath, (Bytecount)len, SEPCHAR);
+  return split_string_by_emchar_1 (newpath, newlen, SEPCHAR);
 }
 
 Lisp_Object

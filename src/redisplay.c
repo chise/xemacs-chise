@@ -859,7 +859,7 @@ add_emchar_rune (pos_data *data)
 	  Lisp_Object font_instance =
 	    ensure_face_cachel_contains_charset (cachel, data->window,
 						 charset);
-	  struct Lisp_Font_Instance *fi;
+	  Lisp_Font_Instance *fi;
 
 	  if (EQ (font_instance, Vthe_null_font_instance))
 	    {
@@ -1341,7 +1341,7 @@ add_disp_table_entry_runes (pos_data *data, Lisp_Object entry)
   prop_block_dynarr *prop = NULL;
   if (VECTORP (entry))
     {
-      struct Lisp_Vector *de = XVECTOR (entry);
+      Lisp_Vector *de = XVECTOR (entry);
       EMACS_INT len = vector_length (de);
       int elt;
 
@@ -1523,6 +1523,10 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 		int allow_cursor, struct glyph_cachel *cachel)
 {
   struct window *w = XWINDOW (data->window);
+
+  /* If window faces changed, and glyph instance is text, then
+     glyph sizes might have changed too */
+  invalidate_glyph_geometry_maybe (gb->glyph, w);
 
   /* A nil extent indicates a special glyph (ex. truncator). */
   if (NILP (gb->extent)
@@ -3894,7 +3898,7 @@ tail_recurse:
 		    {
 		      CONST Bufbyte *tmp_str = charptr_n_addr (str, *offset);
 
-		      /* ### NOTE: I don't understand why a tmp_max is not
+		      /* #### NOTE: I don't understand why a tmp_max is not
 			 computed and used here as in the plain string case
 			 above. -- dv */
 		      pos = add_string_to_fstring_db_runes (data, tmp_str,
@@ -3940,7 +3944,7 @@ tail_recurse:
 		{
 		  CONST Bufbyte *tmp_str = charptr_n_addr (str, *offset);
 
-		  /* ### NOTE: I don't understand why a tmp_max is not
+		  /* #### NOTE: I don't understand why a tmp_max is not
 		     computed and used here as in the plain string case
 		     above. -- dv */
 		  pos = add_string_to_fstring_db_runes (data, tmp_str, pos,
@@ -4135,7 +4139,7 @@ tail_recurse:
 	    CONST Bufbyte *tmp_str =
 	      charptr_n_addr ((CONST Bufbyte *) str, *offset);
 
-	    /* ### NOTE: I don't understand why a tmp_max is not computed and
+	    /* #### NOTE: I don't understand why a tmp_max is not computed and
 	       used here as in the plain string case above. -- dv */
 	    pos = add_string_to_fstring_db_runes (data, tmp_str, pos,
 						  min_pos, max_pos);
@@ -4281,7 +4285,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
      against this case. */
   struct buffer *b = BUFFERP (w->buffer) ? XBUFFER (w->buffer) : 0;
   struct device *d = XDEVICE (f->device);
-  struct Lisp_String* s = XSTRING (disp_string);
+  Lisp_String* s = XSTRING (disp_string);
 
   /* we're working with these a lot so precalculate them */
   Bytecount slen = XSTRING_LENGTH (disp_string);
@@ -5931,7 +5935,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
      the cache purely because glyphs have changed - this is now
      handled by the dirty flag.*/
   if ((!echo_active && b != window_display_buffer (w))
-      || !Dynarr_length (w->glyph_cachels))
+      || !Dynarr_length (w->glyph_cachels) || f->faces_changed)
     reset_glyph_cachels (w);
   else
     mark_glyph_cachels_as_not_updated (w);
@@ -6422,15 +6426,26 @@ redisplay_frame (struct frame *f, int preemption_check)
   return 0;
 }
 
-/* Ensure that all frames on the given device are correctly displayed. */
+/* Ensure that all frames on the given device are correctly displayed.
+   If AUTOMATIC is non-zero, and the device implementation indicates
+   no automatic redisplay, as printers do, then the device is not
+   redisplayed. AUTOMATIC is set to zero when called from lisp
+   functions (redraw-device) and (redisplay-device), and to non-zero
+   when called from "lazy" redisplay();
+*/
 
 static int
-redisplay_device (struct device *d)
+redisplay_device (struct device *d, int automatic)
 {
   Lisp_Object frame, frmcons;
   int preempted = 0;
   int size_change_failed = 0;
   struct frame *f;
+
+  if (automatic
+      && (MAYBE_INT_DEVMETH (d, device_implementation_flags, ())
+	  & XDEVIMPF_NO_AUTO_REDISPLAY))
+    return 0;
 
   if (DEVICE_STREAM_P (d)) /* nothing to do */
     return 0;
@@ -6546,7 +6561,7 @@ redisplay_without_hooks (void)
 
       if (CLASS_REDISPLAY_FLAGS_CHANGEDP (d))
 	{
-	  preempted = redisplay_device (d);
+	  preempted = redisplay_device (d, 1);
 
 	  if (preempted)
 	    {
@@ -8918,7 +8933,7 @@ input and is guaranteed to proceed to completion.
     {
       XFRAME (XCAR (frmcons))->clear = 1;
     }
-  redisplay_device (d);
+  redisplay_device (d, 0);
 
   return unbind_to (count, Qnil);
 }
@@ -8945,7 +8960,7 @@ input and is guaranteed to proceed to completion.
       disable_preemption++;
     }
 
-  redisplay_device (d);
+  redisplay_device (d, 0);
 
   return unbind_to (count, Qnil);
 }
@@ -9125,12 +9140,18 @@ init_redisplay (void)
   if (!initialized)
 #endif
     {
-      cmotion_display_lines = Dynarr_new (display_line);
-      mode_spec_bufbyte_string = Dynarr_new (Bufbyte);
-      formatted_string_extent_dynarr = Dynarr_new (EXTENT);
-      formatted_string_extent_start_dynarr = Dynarr_new (Bytecount);
-      formatted_string_extent_end_dynarr = Dynarr_new (Bytecount);
-      internal_cache = Dynarr_new (line_start_cache);
+      if (!cmotion_display_lines)
+	cmotion_display_lines = Dynarr_new (display_line);
+      if (!mode_spec_bufbyte_string)
+	mode_spec_bufbyte_string = Dynarr_new (Bufbyte);
+      if (!formatted_string_extent_dynarr)
+	formatted_string_extent_dynarr = Dynarr_new (EXTENT);
+      if (!formatted_string_extent_start_dynarr)
+	formatted_string_extent_start_dynarr = Dynarr_new (Bytecount);
+      if (!formatted_string_extent_end_dynarr)
+	formatted_string_extent_end_dynarr = Dynarr_new (Bytecount);
+      if (!internal_cache)
+	internal_cache = Dynarr_new (line_start_cache);
     }
 
   /* window system is nil when in -batch mode */

@@ -70,7 +70,7 @@ static void
 print_bit_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   size_t i;
-  struct Lisp_Bit_Vector *v = XBIT_VECTOR (obj);
+  Lisp_Bit_Vector *v = XBIT_VECTOR (obj);
   size_t len = bit_vector_length (v);
   size_t last = len;
 
@@ -92,8 +92,8 @@ print_bit_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 bit_vector_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Bit_Vector *v1 = XBIT_VECTOR (obj1);
-  struct Lisp_Bit_Vector *v2 = XBIT_VECTOR (obj2);
+  Lisp_Bit_Vector *v1 = XBIT_VECTOR (obj1);
+  Lisp_Bit_Vector *v2 = XBIT_VECTOR (obj2);
 
   return ((bit_vector_length (v1) == bit_vector_length (v2)) &&
 	  !memcmp (v1->bits, v2->bits,
@@ -104,7 +104,7 @@ bit_vector_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 bit_vector_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Bit_Vector *v = XBIT_VECTOR (obj);
+  Lisp_Bit_Vector *v = XBIT_VECTOR (obj);
   return HASH2 (bit_vector_length (v),
 		memory_hash (v->bits,
 			     BIT_VECTOR_LONG_STORAGE (bit_vector_length (v)) *
@@ -112,7 +112,7 @@ bit_vector_hash (Lisp_Object obj, int depth)
 }
 
 static const struct lrecord_description bit_vector_description[] = {
-  { XD_LISP_OBJECT, offsetof(Lisp_Bit_Vector, next), 1 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Bit_Vector, next) },
   { XD_END }
 };
 
@@ -121,7 +121,7 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION ("bit-vector", bit_vector,
 				     mark_bit_vector, print_bit_vector, 0,
 				     bit_vector_equal, bit_vector_hash,
 				     bit_vector_description,
-				     struct Lisp_Bit_Vector);
+				     Lisp_Bit_Vector);
 
 DEFUN ("identity", Fidentity, 1, 1, 0, /*
 Return the argument unchanged.
@@ -184,7 +184,7 @@ length_with_bytecode_hack (Lisp_Object seq)
     return XINT (Flength (seq));
   else
     {
-      struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (seq);
+      Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (seq);
 
       return (f->flags.interactivep ? COMPILED_INTERACTIVE :
 	      f->flags.domainp      ? COMPILED_DOMAIN :
@@ -268,7 +268,7 @@ Symbols are also allowed; their print names are used instead.
        (s1, s2))
 {
   Bytecount len;
-  struct Lisp_String *p1, *p2;
+  Lisp_String *p1, *p2;
 
   if (SYMBOLP (s1))
     p1 = XSYMBOL (s1)->name;
@@ -315,7 +315,7 @@ may be solved.
 */
        (s1, s2))
 {
-  struct Lisp_String *p1, *p2;
+  Lisp_String *p1, *p2;
   Charcount end, len2;
   int i;
 
@@ -394,7 +394,7 @@ of the string are changed (e.g. with `aset').  It wraps around occasionally.
 */
        (string))
 {
-  struct Lisp_String *s;
+  Lisp_String *s;
 
   CHECK_STRING (string);
   s = XSTRING (string);
@@ -407,7 +407,7 @@ of the string are changed (e.g. with `aset').  It wraps around occasionally.
 void
 bump_string_modiff (Lisp_Object str)
 {
-  struct Lisp_String *s = XSTRING (str);
+  Lisp_String *s = XSTRING (str);
   Lisp_Object *ptr = &s->plist;
 
 #ifdef I18N3
@@ -2601,7 +2601,7 @@ symbol_remprop (Lisp_Object symbol, Lisp_Object propname)
 
 
 static Lisp_Object *
-string_plist_ptr (struct Lisp_String *s)
+string_plist_ptr (Lisp_String *s)
 {
   Lisp_Object *ptr = &s->plist;
 
@@ -2613,7 +2613,7 @@ string_plist_ptr (struct Lisp_String *s)
 }
 
 static Lisp_Object
-string_getprop (struct Lisp_String *s, Lisp_Object property,
+string_getprop (Lisp_String *s, Lisp_Object property,
 		Lisp_Object default_)
 {
   Lisp_Object val = external_plist_get (string_plist_ptr (s), property, 0,
@@ -2622,20 +2622,20 @@ string_getprop (struct Lisp_String *s, Lisp_Object property,
 }
 
 static void
-string_putprop (struct Lisp_String *s, Lisp_Object property,
+string_putprop (Lisp_String *s, Lisp_Object property,
 		Lisp_Object value)
 {
   external_plist_put (string_plist_ptr (s), property, value, 0, ERROR_ME);
 }
 
 static int
-string_remprop (struct Lisp_String *s, Lisp_Object property)
+string_remprop (Lisp_String *s, Lisp_Object property)
 {
   return external_remprop (string_plist_ptr (s), property, 0, ERROR_ME);
 }
 
 static Lisp_Object
-string_plist (struct Lisp_String *s)
+string_plist (Lisp_String *s)
 {
   return *string_plist_ptr (s);
 }
@@ -2872,7 +2872,7 @@ ARRAY is a vector, bit vector, or string.
  retry:
   if (STRINGP (array))
     {
-      struct Lisp_String *s = XSTRING (array);
+      Lisp_String *s = XSTRING (array);
       Bytecount old_bytecount = string_length (s);
       Bytecount new_bytecount;
       Bytecount item_bytecount;
@@ -2906,7 +2906,7 @@ ARRAY is a vector, bit vector, or string.
     }
   else if (BIT_VECTORP (array))
     {
-      struct Lisp_Bit_Vector *v = XBIT_VECTOR (array);
+      Lisp_Bit_Vector *v = XBIT_VECTOR (array);
       int len = bit_vector_length (v);
       int bit;
       CHECK_BIT (item);
@@ -3159,7 +3159,7 @@ mapcar1 (size_t leni, Lisp_Object *vals,
     }
   else if (BIT_VECTORP (sequence))
     {
-      struct Lisp_Bit_Vector *v = XBIT_VECTOR (sequence);
+      Lisp_Bit_Vector *v = XBIT_VECTOR (sequence);
       for (i = 0; i < leni; i++)
 	{
 	  args[1] = make_int (bit_vector_bit (v, i));

@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
    Rewritten for mswindows by Jonathan Harris, November 1997 for 21.0.
  */
 
-#ifndef _XEMACS_CONSOLE_MSW_H_
-#define _XEMACS_CONSOLE_MSW_H_
+#ifndef INCLUDED_console_msw_h_
+#define INCLUDED_console_msw_h_
 
 #include "console.h"
 #ifdef CONST			/* I suspect this is safe */
@@ -80,18 +80,13 @@ struct mswindows_console
   int infd, outfd;
 };
 
+DECLARE_CONSOLE_TYPE (msprinter);
 
 /*
  * Device
  */
 
 #define MSW_FONTSIZE (LF_FACESIZE*4+12)
-
-struct mswindows_font_enum
-{
-  char fontname[MSW_FONTSIZE];
-  struct mswindows_font_enum *next;
-};
 
 struct mswindows_device
 {
@@ -100,7 +95,7 @@ struct mswindows_device
   int horzres, vertres;		/* Size in pixels */
   int horzsize, vertsize;	/* Size in mm */
   int bitspixel;
-  struct mswindows_font_enum *fontlist;
+  Lisp_Object fontlist;		/* List of strings, device fonts */
 };
 
 #define DEVICE_MSWINDOWS_DATA(d) DEVICE_TYPE_DATA (d, mswindows)
@@ -115,6 +110,35 @@ struct mswindows_device
 #define DEVICE_MSWINDOWS_BITSPIXEL(d) 	(DEVICE_MSWINDOWS_DATA (d)->bitspixel)
 #define DEVICE_MSWINDOWS_FONTLIST(d) 	(DEVICE_MSWINDOWS_DATA (d)->fontlist)
 
+struct msprinter_device
+{
+  HDC hdc;
+  HANDLE hprinter;
+  Lisp_Object fontlist;
+  char* name;
+  DEVMODE *devmode, *devmode_mirror;
+  size_t devmode_size;
+};
+
+#define DEVICE_MSPRINTER_DATA(d) DEVICE_TYPE_DATA (d, msprinter)
+#define DEVICE_MSPRINTER_HDC(d) 	(DEVICE_MSPRINTER_DATA (d)->hdc)
+#define DEVICE_MSPRINTER_HPRINTER(d) 	(DEVICE_MSPRINTER_DATA (d)->hprinter)
+#define DEVICE_MSPRINTER_FONTLIST(d) 	(DEVICE_MSPRINTER_DATA (d)->fontlist)
+#define DEVICE_MSPRINTER_NAME(d) 	(DEVICE_MSPRINTER_DATA (d)->name)
+#define DEVICE_MSPRINTER_DEVMODE(d) 	(DEVICE_MSPRINTER_DATA (d)->devmode)
+#define DEVICE_MSPRINTER_DEVMODE_MIRROR(d) \
+	(DEVICE_MSPRINTER_DATA (d)->devmode_mirror)
+#define DEVICE_MSPRINTER_DEVMODE_SIZE(d) \
+	(DEVICE_MSPRINTER_DATA (d)->devmode_size)
+
+#define CONSOLE_TYPESYM_MSPRINTER_P(typesym) EQ (typesym, Qmsprinter)
+#define DEVICE_MSPRINTER_P(dev) CONSOLE_TYPESYM_MSPRINTER_P (DEVICE_TYPE (dev))
+#define CHECK_MSPRINTER_DEVICE(z) CHECK_DEVICE_TYPE (z, msprinter)
+#define CONCHECK_MSPRINTER_DEVICE(z) CONCHECK_DEVICE_TYPE (z, msprinter)
+
+/* Printer functions */
+DEVMODE* msprinter_get_devmode_copy (struct device *d);
+void msprinter_apply_devmode (struct device *d, DEVMODE *devmode);
 
 /*
  * Frame
@@ -206,6 +230,31 @@ struct mswindows_frame
 #define XWL_COUNT	1	/* Number of LONGs that we use */
 #define MSWINDOWS_WINDOW_EXTRA_BYTES	(XWL_COUNT*4)
 
+/*
+ * Printer frame, aka printer job
+ */
+
+struct msprinter_frame
+{
+  HDC hcdc;				/* Compatoble DC */
+  int left_margin, top_margin,		/* All in twips */
+    right_margin, bottom_margin;
+  int charheight, charwidth;		/* As per proplist or -1 if not gven */
+  Lisp_Object orientation, duplex;	/* nil for printer's default */
+  int job_started : 1;
+};
+
+#define FRAME_MSPRINTER_DATA(f) FRAME_TYPE_DATA (f, msprinter)
+#define FRAME_MSPRINTER_LEFT_MARGIN(f)	 (FRAME_MSPRINTER_DATA (f)->left_margin)
+#define FRAME_MSPRINTER_RIGHT_MARGIN(f)	 (FRAME_MSPRINTER_DATA (f)->top_margin)
+#define FRAME_MSPRINTER_TOP_MARGIN(f)	 (FRAME_MSPRINTER_DATA (f)->right_margin)
+#define FRAME_MSPRINTER_BOTTOM_MARGIN(f) (FRAME_MSPRINTER_DATA (f)->bottom_margin)
+#define FRAME_MSPRINTER_CDC(f)	  	 (FRAME_MSPRINTER_DATA (f)->hcdc)
+#define FRAME_MSPRINTER_JOB_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->job_started)
+#define FRAME_MSPRINTER_ORIENTATION(f)	 (FRAME_MSPRINTER_DATA (f)->orientation)
+#define FRAME_MSPRINTER_DUPLEX(f)	 (FRAME_MSPRINTER_DATA (f)->duplex)
+#define FRAME_MSPRINTER_CHARWIDTH(f)	 (FRAME_MSPRINTER_DATA (f)->charheight)
+#define FRAME_MSPRINTER_CHARHEIGHT(f)	 (FRAME_MSPRINTER_DATA (f)->charwidth)
 
 /*
  * Events
@@ -233,7 +282,7 @@ LRESULT WINAPI mswindows_control_wnd_proc (HWND hwnd,
 void mswindows_redraw_exposed_area (struct frame *f, int x, int y, 
 				    int width, int height);
 void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest);
-void mswindows_enqueue_magic_event (HWND hwnd, UINT message);
+void mswindows_enqueue_magic_event (HWND hwnd, UINT msg);
 
 /* win32 DDE management library */
 #define MSWINDOWS_DDE_ITEM_OPEN "Open"
@@ -248,19 +297,42 @@ HDDEDATA CALLBACK mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 void mswindows_enqueue_misc_user_event (Lisp_Object channel,
 					Lisp_Object function,
 					Lisp_Object object);
-Lisp_Object mswindows_cancel_dispatch_event (struct Lisp_Event* event);
+Lisp_Object mswindows_cancel_dispatch_event (Lisp_Event* event);
 Lisp_Object mswindows_pump_outstanding_events (void);
 Lisp_Object mswindows_protect_modal_loop (Lisp_Object (*bfun) (Lisp_Object barg),
 					  Lisp_Object barg);
 void mswindows_unmodalize_signal_maybe (void);
 
+#ifdef HAVE_TOOLBARS
+Lisp_Object
+mswindows_get_toolbar_button_text ( struct frame* f, int command_id );
+Lisp_Object
+mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
+#endif
+Lisp_Object
+mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id);
+COLORREF mswindows_string_to_color (CONST char *name);
+USID emacs_mswindows_create_stream_pair (void* inhandle, void* outhandle,
+					 Lisp_Object* instream,
+					 Lisp_Object* outstream,
+					 int flags);
+USID emacs_mswindows_delete_stream_pair (Lisp_Object instream,
+					 Lisp_Object outstream);
+
 #ifdef HAVE_WIN32_PROCESSES
-HANDLE get_nt_process_handle (struct Lisp_Process *p);
+HANDLE get_nt_process_handle (Lisp_Process *p);
 #endif
 
 extern Lisp_Object Vmswindows_frame_being_created;
 extern Lisp_Object mswindows_frame_being_created;
 
-void mswindows_enumerate_fonts (struct device *d);
+Lisp_Object mswindows_enumerate_fonts (HDC hdc);
 
-#endif /* _XEMACS_CONSOLE_MSW_H_ */
+Lisp_Object mswindows_get_toolbar_button_text (struct frame* f,
+					       int command_id);
+Lisp_Object mswindows_handle_toolbar_wm_command (struct frame* f,
+						 HWND ctrl, WORD id);
+Lisp_Object mswindows_handle_gui_wm_command (struct frame* f,
+					     HWND ctrl, DWORD id);
+
+#endif /* INCLUDED_console_msw_h_ */

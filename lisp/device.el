@@ -31,6 +31,18 @@
 
 ;;; Code:
 
+;;; Initialization
+
+; Specifier tag 'printer which matches printers
+(define-specifier-tag 'printer (function device-printer-p))
+
+; Specifier tag 'display which matches displays
+(define-specifier-tag 'display (function
+				(lambda (device)
+				  (not (device-printer-p device)))))
+
+;;; Functions
+
 (defun device-list ()
   "Return a list of all devices."
   (apply 'nconc (mapcar 'console-device-list (console-list))))
@@ -41,8 +53,8 @@ This is equivalent to the type of the device's console.
 Value is `tty' for a tty device (a character-only terminal),
 `x' for a device that is a screen on an X display,
 `ns' for a device that is a NeXTstep connection (not yet implemented),
-`mswindows' for a device that is a Windows or Windows NT connection,
-`pc' for a device that is a direct-write MS-DOS screen (not yet implemented),
+`mswindows' for a device that is a MS Windows workstation,
+`msprinter' for a device that is a MS Windows printer connection,
 `stream' for a stream device (which acts like a stdio stream), and
 `dead' for a deleted device."
   (or device (setq device (selected-device)))
@@ -108,7 +120,7 @@ the toolbar, glyphs, etc."
 
 (defun call-device-method (name device &rest args)
   "Call a DEVICE-specific function with the generic name NAME.
-If DEVICE is not provide the selected device is used."
+If DEVICE is not provided then the selected device is used."
   (or device (setq device (selected-device)))
   (or (symbolp name) (error "function name must be a symbol"))
   (let ((devmeth (intern (concat (symbol-name 

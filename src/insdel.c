@@ -1633,7 +1633,7 @@ static void
 adjust_markers (struct buffer *buf, Memind from, Memind to,
 		Bytecount amount)
 {
-  struct Lisp_Marker *m;
+  Lisp_Marker *m;
 
   for (m = BUF_MARKERS (buf); m; m = marker_next (m))
     m->memind = do_marker_adjustment (m->memind, from, to, amount);
@@ -1645,7 +1645,7 @@ adjust_markers (struct buffer *buf, Memind from, Memind to,
 static void
 adjust_markers_for_insert (struct buffer *buf, Memind ind, Bytecount amount)
 {
-  struct Lisp_Marker *m;
+  Lisp_Marker *m;
 
   for (m = BUF_MARKERS (buf); m; m = marker_next (m))
     {
@@ -1658,18 +1658,6 @@ adjust_markers_for_insert (struct buffer *buf, Memind ind, Bytecount amount)
 /************************************************************************/
 /*                  Routines for dealing with the gap                   */
 /************************************************************************/
-
-/* XEmacs requires an ANSI C compiler, and it damn well better have a
-   working memmove() */
-#define GAP_USE_BCOPY
-#ifdef BCOPY_UPWARD_SAFE
-# undef BCOPY_UPWARD_SAFE
-#endif
-#ifdef BCOPY_DOWNWARD_SAFE
-# undef BCOPY_DOWNWARD_SAFE
-#endif
-#define BCOPY_UPWARD_SAFE 1
-#define BCOPY_DOWNWARD_SAFE 1
 
 /* maximum amount of memory moved in a single chunk.  Increasing this
    value improves gap-motion efficiency but decreases QUIT responsiveness
@@ -1711,23 +1699,15 @@ gap_left (struct buffer *buf, Bytind pos)
       /* Move at most GAP_MOVE_CHUNK chars before checking again for a quit. */
       if (i > GAP_MOVE_CHUNK)
 	i = GAP_MOVE_CHUNK;
-#ifdef GAP_USE_BCOPY
-      if (i >= 128
-	  /* bcopy is safe if the two areas of memory do not overlap
-	     or on systems where bcopy is always safe for moving upward.  */
-	  && (BCOPY_UPWARD_SAFE
-	      || to - from >= 128))
+
+      if (i >= 128)
 	{
-	  /* If overlap is not safe, avoid it by not moving too many
-	     characters at once.  */
-	  if (!BCOPY_UPWARD_SAFE && i > to - from)
-	    i = to - from;
 	  new_s1 -= i;
-	  from -= i, to -= i;
+	  from   -= i;
+	  to     -= i;
 	  memmove (to, from, i);
 	}
       else
-#endif
 	{
 	  new_s1 -= i;
 	  while (--i >= 0)
@@ -1790,23 +1770,15 @@ gap_right (struct buffer *buf, Bytind pos)
       /* Move at most GAP_MOVE_CHUNK chars before checking again for a quit. */
       if (i > GAP_MOVE_CHUNK)
 	i = GAP_MOVE_CHUNK;
-#ifdef GAP_USE_BCOPY
-      if (i >= 128
-	  /* bcopy is safe if the two areas of memory do not overlap
-	     or on systems where bcopy is always safe for moving downward. */
-	  && (BCOPY_DOWNWARD_SAFE
-	      || from - to >= 128))
+
+      if (i >= 128)
 	{
-	  /* If overlap is not safe, avoid it by not moving too many
-	     characters at once.  */
-	  if (!BCOPY_DOWNWARD_SAFE && i > from - to)
-	    i = from - to;
 	  new_s1 += i;
 	  memmove (to, from, i);
-	  from += i, to += i;
+	  from += i;
+	  to   += i;
 	}
       else
-#endif
 	{
 	  new_s1 += i;
 	  while (--i >= 0)

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
 
-#ifndef _XEMACS_CHAR_UCS_H
-#define _XEMACS_CHAR_UCS_H
+#ifndef INCLUDED_char_ucs_h_
+#define INCLUDED_char_ucs_h_
 
 #define valid_char_p(ch) 1
 
@@ -249,7 +249,10 @@ struct Lisp_Charset
 
   int id;
   Lisp_Object name;
-  Lisp_Object doc_string, registry, short_name, long_name;
+  Lisp_Object doc_string;
+  Lisp_Object registry;
+  Lisp_Object short_name;
+  Lisp_Object long_name;
 
   Lisp_Object reverse_direction_charset;
 
@@ -286,9 +289,10 @@ struct Lisp_Charset
   /* Offset for each byte */
   Emchar byte_offset;
 };
+typedef struct Lisp_Charset Lisp_Charset;
 
-DECLARE_LRECORD (charset, struct Lisp_Charset);
-#define XCHARSET(x) XRECORD (x, charset, struct Lisp_Charset)
+DECLARE_LRECORD (charset, Lisp_Charset);
+#define XCHARSET(x) XRECORD (x, charset, Lisp_Charset)
 #define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
 #define CHARSETP(x) RECORDP (x, charset)
 #define GC_CHARSETP(x) GC_RECORDP (x, charset)
@@ -651,4 +655,4 @@ extern Lisp_Object Vcharset_chinese_big5_2;
 extern Lisp_Object Vcharset_japanese_jisx0208;
 extern Lisp_Object Vcharset_japanese_jisx0212;
 
-#endif /* _XEMACS_CHAR_UCS_H */
+#endif /* INCLUDED_char_ucs_h_ */

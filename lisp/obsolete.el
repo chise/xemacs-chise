@@ -353,7 +353,7 @@ Multibyte characters are concerned."
       (setq idx (1+ idx) i (1+ i)))
     string))
 
-;; ### This function is not compatible with FSF in some cases.  Hard
+;; #### This function is not compatible with FSF in some cases.  Hard
 ;; to fix, because it is hard to trace the logic of the FSF function.
 ;; In case we need the exact behavior, we can always copy the FSF
 ;; version, which is very long and does lots of unnecessary stuff.

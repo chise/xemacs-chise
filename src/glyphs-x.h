@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with:  Not in FSF. */
 
-#ifndef _XEMACS_GLYPHS_X_H_
-#define _XEMACS_GLYPHS_X_H_
+#ifndef INCLUDED_glyphs_x_h_
+#define INCLUDED_glyphs_x_h_
 
 #include "glyphs.h"
 
@@ -142,4 +142,4 @@ struct x_subwindow_data
   ((Widget) IMAGE_INSTANCE_SUBWINDOW_ID (i))
 
 #endif /* HAVE_X_WINDOWS */
-#endif /* _XEMACS_GLYPHS_X_H_ */
+#endif /* INCLUDED_glyphs_x_h_ */

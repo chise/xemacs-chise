@@ -325,7 +325,7 @@ xemacs-21.0 -vanilla -batch -l cus-dep \
 To bytecompile both of these files the command is:
 
 xemacs-21.0 -vanilla -batch -f batch-byte-compile \
-	lisp-utils/auto-autoloads.el lisp-utils/custom-laod.el
+	lisp-utils/auto-autoloads.el lisp-utils/custom-load.el
 
 ** Building XEmacs and XEmacs packages from scratch
 ===================================================

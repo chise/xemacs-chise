@@ -3,7 +3,7 @@ xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 END-INFO-DIR-ENTRY
 
 
@@ -329,28 +329,28 @@ Miscellaneous:
 XEmacs on MS Windows
 
 General Info:
-* Q6.0.1::	What is the status of the XEmacs port to Windows?
-* Q6.0.2::	What flavors of MS Windows are supported?
-* Q6.0.3::	Are binary kits available?
-* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+* Q6.0.1::      What is the status of the XEmacs port to Windows?
+* Q6.0.2::      What flavors of MS Windows are supported?
+* Q6.0.3::      Are binary kits available?
+* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
 
 Building XEmacs on MS Windows:
-* Q6.1.1::	I decided to run with X.  Where do I get an X server?
-* Q6.1.2::	What compiler do I need to compile XEmacs?
-* Q6.1.3::	How do I compile for the native port?
-* Q6.1.4::	How do I compile for the X port?
-* Q6.1.5::	How do I compile for Cygnus' Cygwin?
-* Q6.1.6::	What do I need for Cygwin?
+* Q6.1.1::      I decided to run with X.  Where do I get an X server?
+* Q6.1.2::      What compiler do I need to compile XEmacs?
+* Q6.1.3::      How do I compile for the native port?
+* Q6.1.4::      How do I compile for the X port?
+* Q6.1.5::      How do I compile for Cygnus' Cygwin?
+* Q6.1.6::      What do I need for Cygwin?
 
 Customization and User Interface:
-* Q6.2.1::	How will the port cope with differences in the Windows user interface?
-* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::	Where do I put my `.emacs' file?
+* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::      Where do I put my `.emacs' file?
 
 Miscellaneous:
-* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
-* Q6.3.2::	What are the differences between the various MS Windows emacsen?
-* Q6.3.3::	What is the porting team doing at the moment?
+* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::      What are the differences between the various MS Windows emacsen?
+* Q6.3.3::      What is the porting team doing at the moment?
 
 Current Events:
 
@@ -860,7 +860,7 @@ for your convenience.
      integers are the same.  Byte code compiled under any version 19
      Emacs will have all such functions mapped to their `old-'
      equivalents when the byte code is read into XEmacs 20.  This is to
-     preserve compatibility - Emacs 19 converts all constant characters
+     preserve compatibility--Emacs 19 converts all constant characters
      to the equivalent integer during byte-compilation, and thus there
      is no other way to preserve byte-code compatibility even if the
      code has specifically been written with the distinction between
@@ -870,7 +870,7 @@ for your convenience.
      code".  For example, the character `A' is represented as the
      integer 65, following the standard ASCII representation of
      characters.  If XEmacs was not compiled with MULE support, the
-     range of this integer will always be 0 to 255 - eight bits, or one
+     range of this integer will always be 0 to 255--eight bits, or one
      byte. (Integers outside this range are accepted but silently
      truncated; however, you should most decidedly _not_ rely on this,
      because it will not work under XEmacs with MULE support.)  When
@@ -922,9 +922,9 @@ currently work.  The first release of XEmacs 20 will _not_ support it.
 However, menubar localization _does_ work, even in 19.14.  To enable
 it, add to your `Emacs' file entries like this:
 
-     Emacs*XlwMenu.resourceLabels:			True
-     Emacs*XlwMenu.file.labelString:	        	Fichier
-     Emacs*XlwMenu.openInOtherWindow.labelString: 	In anderem Fenster offnen
+     Emacs*XlwMenu.resourceLabels:                   True
+     Emacs*XlwMenu.file.labelString:                 Fichier
+     Emacs*XlwMenu.openInOtherWindow.labelString:    In anderem Fenster offnen
 
    The name of the resource is derived from the non-localized entry by
 removing punctuation and capitalizing as above.
@@ -1013,12 +1013,12 @@ Q1.3.6: How do I portably code for MULE/XEmacs 20?
               (cond ((boundp 'MULE)
                      ;; for original Mule
                      )
-          	  ((string-match "XEmacs" emacs-version)
-          	   ;; for XEmacs with Mule
-          	   )
-          	  (t
-          	   ;; for next version of Emacs
-          	   ))
+                    ((string-match "XEmacs" emacs-version)
+                     ;; for XEmacs with Mule
+                     )
+                    (t
+                     ;; for next version of Emacs
+                     ))
             ;; for old emacs variants
             )
 

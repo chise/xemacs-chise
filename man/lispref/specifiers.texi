@@ -22,27 +22,27 @@ This function returns non-@code{nil} if @var{object} is a specifier.
 @end defun
 
 @menu
-* Introduction to Specifiers::	Specifiers provide a clean way for
-				display and other properties to vary
-				(under user control) in a wide variety
-				of contexts.
-* Specifiers In-Depth::		Gory details about specifier innards.
-* Specifier Instancing::	Instancing means obtaining the ``value'' of
-				a specifier in a particular context.
-* Specifier Types::		Specifiers come in different flavors.
-* Adding Specifications::	Specifications control a specifier's ``value''
-				by giving conditions under which a
-				particular value is valid.
-* Retrieving Specifications::	Querying a specifier's specifications.
-* Specifier Tag Functions::	Working with specifier tags.
+* Introduction to Specifiers::  Specifiers provide a clean way for
+                                display and other properties to vary
+                                (under user control) in a wide variety
+                                of contexts.
+* Specifiers In-Depth::         Gory details about specifier innards.
+* Specifier Instancing::        Instancing means obtaining the ``value'' of
+                                a specifier in a particular context.
+* Specifier Types::             Specifiers come in different flavors.
+* Adding Specifications::       Specifications control a specifier's ``value''
+                                by giving conditions under which a
+                                particular value is valid.
+* Retrieving Specifications::   Querying a specifier's specifications.
+* Specifier Tag Functions::     Working with specifier tags.
 * Specifier Instancing Functions::
-				Functions to instance a specifier.
-* Specifier Example::		Making all this stuff clearer.
-* Creating Specifiers::		Creating specifiers for your own use.
+                                Functions to instance a specifier.
+* Specifier Example::           Making all this stuff clearer.
+* Creating Specifiers::         Creating specifiers for your own use.
 * Specifier Validation Functions::
-				Validating the components of a specifier.
+                                Validating the components of a specifier.
 * Other Specification Functions::
-				Other ways of working with specifications.
+                                Other ways of working with specifications.
 @end menu
 
 @node Introduction to Specifiers
@@ -169,7 +169,7 @@ devices of the associated type or class (@pxref{Consoles and Devices}).
 User-defined tags may be defined, with an optional predicate specified.
 An application can create its own tag, use it to mark all its
 instantiators, and be fairly confident that it will not interfere with
-other applications that modify the same specifier -- Functions that add
+other applications that modify the same specifier---Functions that add
 a specification to a specifier usually only overwrite existing
 inst-pairs with the same tag set as was given, and a particular tag or
 tag set can be specified when removing instantiators.
@@ -196,7 +196,7 @@ under X is usually a wildcard specification that may resolve to
 different font names, with possibly different foundries, widths, etc.,
 on different devices), the extra properties of that font on that
 device, etc.  Furthermore, this conversion (called @dfn{instantiation})
-might fail -- a font or color might not exist on a particular device,
+might fail---a font or color might not exist on a particular device,
 for example.
 
 @node Specifier Instancing
@@ -861,9 +861,9 @@ First, let's retrieve the specifier:
     @result{}   ((#<buffer "device.c"> (nil . "forest green"))
                  (#<window on "Makefile" 0x8a2b> (nil . "hot pink"))
                  (#<x-frame "emacs" 0x4ac> (nil . "puke orange")
-					   (nil . "moccasin"))
+                                           (nil . "moccasin"))
                  (#<x-frame "VM" 0x4ac> (nil . "magenta"))
-		 (global ((tty) . "cyan") (nil . "white"))
+                 (global ((tty) . "cyan") (nil . "white"))
                 )
 @end example
 
@@ -890,7 +890,7 @@ The result is arrived at like this:
 @enumerate
 @item
 First, we look for a specification matching the buffer displayed in the
-window, i.e. @samp{*scratch}.  There are none, so we proceed.
+window, i.e. @samp{*scratch*}.  There are none, so we proceed.
 @item
 Then, we look for a specification matching the window itself.  Again, there
 are none.

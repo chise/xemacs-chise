@@ -9,14 +9,14 @@
 @cindex menu
 
 @menu
-* Menu Format::		Format of a menu description.
-* Menubar Format::	How to specify a menubar.
-* Menubar::		Functions for controlling the menubar.
-* Modifying Menus::	Modifying a menu description.
-* Pop-Up Menus::	Functions for specifying pop-up menus.
-* Menu Filters::	Filter functions for the default menubar.
-* Menu Accelerators::	Using and controlling menu accelerator keys
-* Buffers Menu::	The menu that displays the list of buffers.
+* Menu Format::         Format of a menu description.
+* Menubar Format::      How to specify a menubar.
+* Menubar::             Functions for controlling the menubar.
+* Modifying Menus::     Modifying a menu description.
+* Pop-Up Menus::        Functions for specifying pop-up menus.
+* Menu Filters::        Filter functions for the default menubar.
+* Menu Accelerators::   Using and controlling menu accelerator keys
+* Buffers Menu::        The menu that displays the list of buffers.
 @end menu
 
 @node Menu Format
@@ -241,9 +241,9 @@ For example:
 
 @example
  ("File"
-  :filter file-menu-filter	; file-menu-filter is a function that takes
-				; one argument (a list of menu items) and
-				; returns a list of menu items
+  :filter file-menu-filter      ; file-menu-filter is a function that takes
+                                ; one argument (a list of menu items) and
+                                ; returns a list of menu items
   [ "Save As..."    write-file]
   [ "Revert Buffer" revert-buffer :active (buffer-modified-p) ]
   [ "Read Only"     toggle-read-only :style toggle :selected buffer-read-only ]
@@ -600,10 +600,10 @@ submenu of another menu.  An accelerator key for a menu item is used to
 activate that item.
 
 @menu
-* Creating Menu Accelerators::	How to add accelerator keys to a menu.
-* Keyboard Menu Traversal::	How to use and modify the keys which are used
-				to traverse the menu structure.
-* Menu Accelerator Functions::	Functions for working with menu accelerators.
+* Creating Menu Accelerators::  How to add accelerator keys to a menu.
+* Keyboard Menu Traversal::     How to use and modify the keys which are used
+                                to traverse the menu structure.
+* Menu Accelerator Functions::  Functions for working with menu accelerators.
 @end menu
 
 @node Creating Menu Accelerators
@@ -620,9 +620,9 @@ For example, the command
 
 @example
 (add-submenu nil '("%_Test"
-		   ["One" (insert "1") :accelerator ?1 :active t]
-		   ["%_Two" (insert "2")]
-		   ["%_3" (insert "3")]))
+                   ["One" (insert "1") :accelerator ?1 :active t]
+                   ["%_Two" (insert "2")]
+                   ["%_3" (insert "3")]))
 @end example
 
 will add a new menu to the top level menubar.  The new menu can be reached
@@ -708,9 +708,9 @@ The default value is @code{nil}.
 (setq menu-accelerator-modifiers '(meta control))
 (setq menu-accelerator-enabled 'menu-force)
 (add-submenu nil '("%_Test"
-		   ["One" (insert "1") :accelerator ?1 :active t]
-		   ["%_Two" (insert "2")]
-		   ["%_3" (insert "3")]))
+                   ["One" (insert "1") :accelerator ?1 :active t]
+                   ["%_Two" (insert "2")]
+                   ["%_3" (insert "3")]))
 @end example
 
 will add the menu "Test" to the top level menubar.  Pressing C-x followed by

@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF Emacs 20.3.10 */
 
-#ifndef _CCL_H
-#define _CCL_H
+#ifndef INCLUDED_mule_ccl_h_
+#define INCLUDED_mule_ccl_h_
 
 /* Macros for exit status of CCL program.  */
 #define CCL_STAT_SUCCESS	0 /* Terminated successfully.  */
@@ -70,4 +70,4 @@ void setup_ccl_program (struct ccl_program *ccl, Lisp_Object val);
 extern Lisp_Object Vfont_ccl_encoder_alist;
 extern Lisp_Object Qccl_program;
 
-#endif /* _CCL_H */
+#endif /* INCLUDED_mule_ccl_h_ */

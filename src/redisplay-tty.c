@@ -1438,7 +1438,7 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
       char *sequence = tgetstr (keys[i].cap, address);
       if (sequence)
 	Fdefine_key (function_key_map,
-		     build_ext_string (sequence, FORMAT_BINARY),
+		     build_ext_string (sequence, Qbinary),
 		     vector1 (intern (keys[i].name)));
     }
 
@@ -1452,11 +1452,11 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
     CONST char *k0      = tgetstr ("k0", address);
 
     if (k_semi)
-      Fdefine_key (function_key_map, build_ext_string (k_semi, FORMAT_BINARY),
+      Fdefine_key (function_key_map, build_ext_string (k_semi, Qbinary),
 		   vector1 (intern ("f10")));
 
     if (k0)
-      Fdefine_key (function_key_map, build_ext_string (k0, FORMAT_BINARY),
+      Fdefine_key (function_key_map, build_ext_string (k0, Qbinary),
 		   vector1 (intern (k_semi ? "f0" : "f10")));
   }
 
@@ -1480,7 +1480,7 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
 	    {
 	      sprintf (fkey, "f%d", i);
 	      Fdefine_key (function_key_map,
-			   build_ext_string (sequence, FORMAT_BINARY),
+			   build_ext_string (sequence, Qbinary),
 			   vector1 (intern (fkey)));
 	    }
 	}
@@ -1490,15 +1490,16 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
   /*
    * Various mappings to try and get a better fit.
    */
-#define CONDITIONAL_REASSIGN(cap1, cap2, keyname)			\
-  if (!tgetstr (cap1, address))						\
-    {									\
-      char *sequence = tgetstr (cap2, address);				\
-      if (sequence)							\
-	Fdefine_key (function_key_map,					\
-		     build_ext_string (sequence, FORMAT_BINARY),	\
-		     vector1 (intern (keyname)));				\
-    }
+#define CONDITIONAL_REASSIGN(cap1, cap2, keyname) do {		\
+    if (!tgetstr (cap1, address))				\
+      {								\
+	char *sequence = tgetstr (cap2, address);		\
+	if (sequence)						\
+	  Fdefine_key (function_key_map,			\
+		       build_ext_string (sequence, Qbinary),	\
+		       vector1 (intern (keyname)));		\
+      }								\
+  } while (0)
 
   /* if there's no key_next keycap, map key_npage to `next' keysym */
   CONDITIONAL_REASSIGN ("%5", "kN", "next");

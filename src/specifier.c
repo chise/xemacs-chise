@@ -67,23 +67,23 @@ typedef struct
 static specifier_type_entry_dynarr *the_specifier_type_entry_dynarr;
 
 static const struct lrecord_description ste_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(specifier_type_entry, symbol), 1 },
-  { XD_STRUCT_PTR,  offsetof(specifier_type_entry, meths), 1, &specifier_methods_description },
+  { XD_LISP_OBJECT, offsetof (specifier_type_entry, symbol) },
+  { XD_STRUCT_PTR,  offsetof (specifier_type_entry, meths), 1, &specifier_methods_description },
   { XD_END }
 };
 
 static const struct struct_description ste_description = {
-  sizeof(specifier_type_entry),
+  sizeof (specifier_type_entry),
   ste_description_1
 };
 
 static const struct lrecord_description sted_description_1[] = {
-  XD_DYNARR_DESC(specifier_type_entry_dynarr, &ste_description),
+  XD_DYNARR_DESC (specifier_type_entry_dynarr, &ste_description),
   { XD_END }
 };
 
 static const struct struct_description sted_description = {
-  sizeof(specifier_type_entry_dynarr),
+  sizeof (specifier_type_entry_dynarr),
   sted_description_1
 };
 
@@ -162,7 +162,7 @@ cleanup_specifiers (void)
        !NILP (rest);
        rest = XSPECIFIER (rest)->next_specifier)
     {
-      struct Lisp_Specifier *sp = XSPECIFIER (rest);
+      Lisp_Specifier *sp = XSPECIFIER (rest);
       /* This effectively changes the specifier specs.
 	 However, there's no need to call
 	 recompute_cached_specifier_everywhere() or the
@@ -189,7 +189,7 @@ kill_specifier_buffer_locals (Lisp_Object buffer)
        !NILP (rest);
        rest = XSPECIFIER (rest)->next_specifier)
     {
-      struct Lisp_Specifier *sp = XSPECIFIER (rest);
+      Lisp_Specifier *sp = XSPECIFIER (rest);
 
       /* Make sure we're actually going to be changing something.
 	 Fremove_specifier() always calls
@@ -203,7 +203,7 @@ kill_specifier_buffer_locals (Lisp_Object buffer)
 static Lisp_Object
 mark_specifier (Lisp_Object obj)
 {
-  struct Lisp_Specifier *specifier = XSPECIFIER (obj);
+  Lisp_Specifier *specifier = XSPECIFIER (obj);
 
   mark_object (specifier->global_specs);
   mark_object (specifier->device_specs);
@@ -247,7 +247,7 @@ prune_specifiers (void)
     {
       if (! marked_p (rest))
 	{
-	  struct Lisp_Specifier* sp = XSPECIFIER (rest);
+	  Lisp_Specifier* sp = XSPECIFIER (rest);
 	  /* A bit of assertion that we're removing both parts of the
              magic one altogether */
 	  assert (!MAGIC_SPECIFIER_P(sp)
@@ -267,7 +267,7 @@ prune_specifiers (void)
 static void
 print_specifier (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Specifier *sp = XSPECIFIER (obj);
+  Lisp_Specifier *sp = XSPECIFIER (obj);
   char buf[100];
   int count = specpdl_depth ();
   Lisp_Object the_specs;
@@ -299,7 +299,7 @@ print_specifier (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static void
 finalize_specifier (void *header, int for_disksave)
 {
-  struct Lisp_Specifier *sp = (struct Lisp_Specifier *) header;
+  Lisp_Specifier *sp = (Lisp_Specifier *) header;
   /* don't be snafued by the disksave finalization. */
   if (!for_disksave && !GHOST_SPECIFIER_P(sp) && sp->caching)
     {
@@ -311,8 +311,8 @@ finalize_specifier (void *header, int for_disksave)
 static int
 specifier_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Specifier *s1 = XSPECIFIER (obj1);
-  struct Lisp_Specifier *s2 = XSPECIFIER (obj2);
+  Lisp_Specifier *s1 = XSPECIFIER (obj1);
+  Lisp_Specifier *s2 = XSPECIFIER (obj2);
   int retval;
   Lisp_Object old_inhibit_quit = Vinhibit_quit;
 
@@ -340,7 +340,7 @@ specifier_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 specifier_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Specifier *s = XSPECIFIER (obj);
+  Lisp_Specifier *s = XSPECIFIER (obj);
 
   /* specifier hashing is a bit problematic because there are so
      many places where data can be stored.  We pick what are perhaps
@@ -356,22 +356,22 @@ specifier_hash (Lisp_Object obj, int depth)
 static size_t
 sizeof_specifier (CONST void *header)
 {
-  if (GHOST_SPECIFIER_P ((struct Lisp_Specifier *) header))
-    return offsetof (struct Lisp_Specifier, data);
+  if (GHOST_SPECIFIER_P ((Lisp_Specifier *) header))
+    return offsetof (Lisp_Specifier, data);
   else
     {
-      CONST struct Lisp_Specifier *p = (CONST struct Lisp_Specifier *) header;
-      return offsetof (struct Lisp_Specifier, data) + p->methods->extra_data_size;
+      CONST Lisp_Specifier *p = (CONST Lisp_Specifier *) header;
+      return offsetof (Lisp_Specifier, data) + p->methods->extra_data_size;
     }
 }
 
 static const struct lrecord_description specifier_methods_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(struct specifier_methods, predicate_symbol), 1 },
+  { XD_LISP_OBJECT, offsetof (struct specifier_methods, predicate_symbol) },
   { XD_END }
 };
 
 const struct struct_description specifier_methods_description = {
-  sizeof(struct specifier_methods),
+  sizeof (struct specifier_methods),
   specifier_methods_description_1
 };
 
@@ -380,16 +380,21 @@ static const struct lrecord_description specifier_caching_description_1[] = {
 };
 
 static const struct struct_description specifier_caching_description = {
-  sizeof(struct specifier_caching),
+  sizeof (struct specifier_caching),
   specifier_caching_description_1
 };
 
 static const struct lrecord_description specifier_description[] = {
-  { XD_STRUCT_PTR,  offsetof(struct Lisp_Specifier, methods), 1, &specifier_methods_description },
-  { XD_LO_LINK,     offsetof(struct Lisp_Specifier, next_specifier) },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Specifier, global_specs), 5 },
-  { XD_STRUCT_PTR,  offsetof(struct Lisp_Specifier, caching), 1, &specifier_caching_description },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Specifier, magic_parent), 2 },
+  { XD_STRUCT_PTR,  offsetof (Lisp_Specifier, methods), 1, &specifier_methods_description },
+  { XD_LO_LINK,     offsetof (Lisp_Specifier, next_specifier) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, global_specs) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, device_specs) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, frame_specs) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, window_specs) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, buffer_specs) },
+  { XD_STRUCT_PTR,  offsetof (Lisp_Specifier, caching), 1, &specifier_caching_description },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, magic_parent) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Specifier, fallback) },
   { XD_SPECIFIER_END }
 };
 
@@ -403,7 +408,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("specifier", specifier,
 					specifier_equal, specifier_hash,
 					specifier_description,
 					sizeof_specifier,
-					struct Lisp_Specifier);
+					Lisp_Specifier);
 
 /************************************************************************/
 /*                       Creating specifiers                            */
@@ -467,9 +472,9 @@ make_specifier_internal (struct specifier_methods *spec_meths,
 			 size_t data_size, int call_create_meth)
 {
   Lisp_Object specifier;
-  struct Lisp_Specifier *sp = (struct Lisp_Specifier *)
-    alloc_lcrecord (offsetof (struct Lisp_Specifier, data) +
-		    data_size, &lrecord_specifier);
+  Lisp_Specifier *sp = (Lisp_Specifier *)
+    alloc_lcrecord (offsetof (Lisp_Specifier, data) + data_size,
+		    &lrecord_specifier);
 
   sp->methods = spec_meths;
   sp->global_specs = Qnil;
@@ -1641,7 +1646,7 @@ build_up_processed_list (Lisp_Object specifier, Lisp_Object locale,
 {
   /* The return value of this function must be GCPRO'd. */
   Lisp_Object rest, list_to_build_up = Qnil;
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   struct gcpro gcpro1;
 
   GCPRO1 (list_to_build_up);
@@ -1698,7 +1703,7 @@ static void
 specifier_add_spec (Lisp_Object specifier, Lisp_Object locale,
 		    Lisp_Object inst_list, enum spec_add_meth add_meth)
 {
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   enum spec_locale_type type = locale_type_from_locale (locale);
   Lisp_Object *orig_inst_list, tem;
   Lisp_Object list_to_build_up = Qnil;
@@ -2369,7 +2374,7 @@ See `specifier-matching-instance' for a description of matchspecs.
 void
 set_specifier_fallback (Lisp_Object specifier, Lisp_Object fallback)
 {
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   assert (SPECIFIERP (fallback) ||
 	  !NILP (Fvalid_inst_list_p (fallback, Fspecifier_type (specifier))));
   if (SPECIFIERP (fallback))
@@ -2419,7 +2424,7 @@ specifier_instance_from_inst_list (Lisp_Object specifier,
 				   Lisp_Object depth)
 {
   /* This function can GC */
-  struct Lisp_Specifier *sp;
+  Lisp_Specifier *sp;
   Lisp_Object device;
   Lisp_Object rest;
   int count = specpdl_depth ();
@@ -2502,7 +2507,7 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
   Lisp_Object device = Qnil;
   Lisp_Object tag = Qnil;
   struct device *d;
-  struct Lisp_Specifier *sp;
+  Lisp_Specifier *sp;
 
   sp = XSPECIFIER (specifier);
 
@@ -2705,7 +2710,7 @@ you should not use this function; use `specifier-instance' instead.
        (specifier, domain, inst_list, default_))
 {
   Lisp_Object val = Qunbound;
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   struct gcpro gcpro1;
   Lisp_Object built_up_list = Qnil;
 
@@ -2737,7 +2742,7 @@ works.
        (specifier, matchspec, domain, inst_list, default_))
 {
   Lisp_Object val = Qunbound;
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   struct gcpro gcpro1;
   Lisp_Object built_up_list = Qnil;
 
@@ -2777,7 +2782,7 @@ set_specifier_caching (Lisp_Object specifier, int struct_window_offset,
 		       (Lisp_Object specifier, struct frame *f,
 			Lisp_Object oldval))
 {
-  struct Lisp_Specifier *sp = XSPECIFIER (specifier);
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
   assert (!GHOST_SPECIFIER_P (sp));
 
   if (!sp->caching)

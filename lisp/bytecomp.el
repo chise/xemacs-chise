@@ -1522,11 +1522,7 @@ With prefix arg (noninteractively: 2nd arg), load the file after compiling."
 	(unless byte-compile-overwrite-file
 	  (ignore-file-errors (delete-file target-file)))
 	(if (file-writable-p target-file)
-	    (progn
-	      (when (memq system-type '(ms-dos windows-nt))
-		(defvar buffer-file-type)
-		(setq buffer-file-type t))
-	      (write-region 1 (point-max) target-file))
+	    (write-region 1 (point-max) target-file)
 	  ;; This is just to give a better error message than write-region
 	  (signal 'file-error
 		  (list "Opening output file"
@@ -1749,52 +1745,54 @@ With argument, insert value in current buffer after the form."
   ;; extended characters are output properly and distinguished properly.
   ;; Otherwise, use `binary' for maximum portability with non-Mule
   ;; Emacsen.
-  (when (featurep 'mule)
+  (when (featurep '(or mule file-coding))
     (defvar buffer-file-coding-system)
     (let (ces)
-      (save-excursion
-	(set-buffer byte-compile-inbuffer)
-	(goto-char (point-min))
-	;; mrb- There must be a better way than skip-chars-forward
-	(skip-chars-forward (concat (char-to-string 0) "-"
-				    (char-to-string 255)))
-	(if (eq (point) (point-max))
-	    (setq ces 'binary)
-	  (goto-char (point-min))
-	  (while (< (point)(point-max))
-	    (cond ((eq (char-after) ?\;)
-		   (delete-region (point)(point-at-eol))
-		   (if (eq (char-after) ?\n)
-		       (delete-char 1)
-		     (forward-char))
-		   )
-		  ((eq (char-after) ?\?)
-		   (forward-char 2)
-		   )
-		  ((eq (char-after) ?\n)
-		   (forward-char)
-		   )
-		  ((eq (char-after) ?\")
-		   (forward-char)
-		   (while (and (< (point)(point-max))
-			       (not (when (eq (char-after) ?\")
-				      (forward-char)
-				      t)))
-		     (if (eq (char-after) ?\\)
-			 (forward-char 2)
-		       (forward-char)))
-		   )
-		  (t
-		   (forward-char))))
-	  (goto-char (point-min))
-	  (skip-chars-forward (concat (char-to-string 0) "-"
-				      (char-to-string 255))))
-	(setq ces
-	      (if (eq (point) (point-max))
-		  (if (and (featurep 'utf-2000)
-			   (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
-		      'utf-8-unix
-		    'binary))))
+      (if (featurep 'mule)
+	  (save-excursion
+	    (set-buffer byte-compile-inbuffer)
+	    (goto-char (point-min))
+	    ;; mrb- There must be a better way than skip-chars-forward
+	    (skip-chars-forward (concat (char-to-string 0) "-"
+					(char-to-string 255)))
+	    (if (eq (point) (point-max))
+		(setq ces 'binary)
+	      (goto-char (point-min))
+	      (while (< (point)(point-max))
+		(cond ((eq (char-after) ?\;)
+		       (delete-region (point)(point-at-eol))
+		       (if (eq (char-after) ?\n)
+			   (delete-char 1)
+			 (forward-char))
+		       )
+		      ((eq (char-after) ?\?)
+		       (forward-char 2)
+		       )
+		      ((eq (char-after) ?\n)
+		       (forward-char)
+		       )
+		      ((eq (char-after) ?\")
+		       (forward-char)
+		       (while (and (< (point)(point-max))
+				   (not (when (eq (char-after) ?\")
+					  (forward-char)
+					  t)))
+			 (if (eq (char-after) ?\\)
+			     (forward-char 2)
+			   (forward-char)))
+		       )
+		      (t
+		       (forward-char))))
+	      (goto-char (point-min))
+	      (skip-chars-forward (concat (char-to-string 0) "-"
+					  (char-to-string 255))))
+	    (setq ces
+		  (if (eq (point) (point-max))
+		      (if (and (featurep 'utf-2000)
+			       (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
+			  'utf-8-unix
+			'binary))))
+	(setq ces 'binary))
       (if (eq ces 'binary)
 	  (setq buffer-file-coding-system 'binary)
 	(cond ((eq ces 'utf-8-unix)
@@ -2012,7 +2010,7 @@ list that represents a doc string reference.
 	       (while (if (setq form (cdr form))
 			  (byte-compile-constp (car form))))
 	       (null form)))
-	;; eval the macro autoload into the compilation enviroment
+	;; eval the macro autoload into the compilation environment
 	(eval form))
 
     (if name

@@ -2,6 +2,9 @@
 
 /* Synched up with: Not in FSF. */
 
+#ifndef INCLUDED_xmu_h_
+#define INCLUDED_xmu_h_
+
 #ifdef HAVE_XMU
 
 # include <X11/Xmu/CharSet.h>
@@ -34,5 +37,6 @@ void XmuCopyISOLatin1Lowered (char *, CONST char *);
 #define AssignMin(x, y) {if ((y) < (x)) x = (y);}
 typedef enum {XtorientHorizontal, XtorientVertical} XtOrientation;
 
-#endif
+#endif /* HAVE_XMU */
 
+#endif /* INCLUDED_xmu_h_ */

@@ -33,7 +33,7 @@
 	"events"
 	"text-props"
 	"process" ;; This is bad. network-streams may not be defined.
-	(when-feature multicast "multicast") ; #+network-streams implicitely true
+	(when-feature multicast "multicast") ; #+network-streams implicitly true
 	"frame"			; move up here cause some stuff needs it here
 	"map-ynp"
 	"simple"

@@ -74,8 +74,12 @@ Boston, MA 02111-1307, USA.  */
 #include "elhash.h"
 #include "extents.h"
 #include "faces.h"
+#ifdef FILE_CODING
+#include "file-coding.h"
+#endif
 #include "frame.h"
 #include "insdel.h"
+#include "lstream.h"
 #include "process.h"            /* for kill_buffer_processes */
 #ifdef REGION_CACHE_NEEDS_WORK
 #include "region-cache.h"
@@ -1410,7 +1414,7 @@ buffer.  See `other-buffer' for more information.
   f->buffer_alist = lynk;
 
   va_run_hook_with_args (Qrecord_buffer_hook, 1, buffer);
-  
+
   return Qnil;
 }
 
@@ -1805,6 +1809,358 @@ represents all the memory concerned.
 
 #endif /* MEMORY_USAGE_STATS */
 
+
+/************************************************************************/
+/*           Implement TO_EXTERNAL_FORMAT, TO_INTERNAL_FORMAT           */
+/************************************************************************/
+
+/* This implementation should probably be elsewhere, but it can't be
+   in file-coding.c since that file is only available if FILE_CODING
+   is defined. */
+#ifdef FILE_CODING
+static int
+coding_system_is_binary (Lisp_Object coding_system)
+{
+  Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
+  return
+    (CODING_SYSTEM_TYPE (cs) == CODESYS_NO_CONVERSION &&
+     CODING_SYSTEM_EOL_TYPE (cs) == EOL_LF &&
+     EQ (CODING_SYSTEM_POST_READ_CONVERSION (cs), Qnil) &&
+     EQ (CODING_SYSTEM_PRE_WRITE_CONVERSION (cs), Qnil));
+}
+#else
+#define coding_system_is_binary(coding_system) 1
+#endif
+
+static Extbyte_dynarr *conversion_out_dynarr;
+static Bufbyte_dynarr *conversion_in_dynarr;
+
+static int dfc_convert_to_external_format_in_use;
+static int dfc_convert_to_internal_format_in_use;
+
+static Lisp_Object
+dfc_convert_to_external_format_reset_in_use (Lisp_Object value)
+{
+  dfc_convert_to_external_format_in_use = XINT (value);
+  return Qnil;
+}
+
+static Lisp_Object
+dfc_convert_to_internal_format_reset_in_use (Lisp_Object value)
+{
+  dfc_convert_to_internal_format_in_use = XINT (value);
+  return Qnil;
+}
+
+void
+dfc_convert_to_external_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink)
+{
+  int count = specpdl_depth ();
+
+  type_checking_assert
+    (((source_type == DFC_TYPE_DATA) ||
+      (source_type == DFC_TYPE_LISP_LSTREAM && LSTREAMP (source->lisp_object)) ||
+      (source_type == DFC_TYPE_LISP_STRING && STRINGP (source->lisp_object)))
+     &&
+     ((sink_type == DFC_TYPE_DATA) ||
+      (sink_type == DFC_TYPE_LISP_LSTREAM && LSTREAMP (source->lisp_object))));
+
+  if (dfc_convert_to_external_format_in_use != 0)
+    error ("Can't call a conversion function from a conversion function");
+  else
+    dfc_convert_to_external_format_in_use = 1;
+
+  record_unwind_protect (dfc_convert_to_external_format_reset_in_use,
+			 Qzero);
+
+#ifdef FILE_CODING
+  coding_system = Fget_coding_system (coding_system);
+#endif
+
+  Dynarr_reset (conversion_out_dynarr);
+
+  /* Here we optimize in the case where the coding system does no
+     conversion. However, we don't want to optimize in case the source
+     or sink is an lstream, since writing to an lstream can cause a
+     garbage collection, and this could be problematic if the source
+     is a lisp string. */
+  if (source_type != DFC_TYPE_LISP_LSTREAM &&
+      sink_type   != DFC_TYPE_LISP_LSTREAM &&
+      coding_system_is_binary (coding_system))
+    {
+      const Bufbyte *ptr;
+      Bytecount len;
+
+      if (source_type == DFC_TYPE_LISP_STRING)
+	{
+	  ptr = XSTRING_DATA   (source->lisp_object);
+	  len = XSTRING_LENGTH (source->lisp_object);
+	}
+      else
+	{
+	  ptr = (Bufbyte *) source->data.ptr;
+	  len = source->data.len;
+	}
+
+#ifdef MULE
+      {
+	const Bufbyte *end;
+	for (end = ptr + len; ptr < end;)
+	  {
+#ifdef UTF2000
+	    Bufbyte c =
+	      (*ptr < 0xc0) ? *ptr :
+	      ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
+#else
+	    Bufbyte c =
+	      (BYTE_ASCII_P (*ptr))		   ? *ptr :
+	      (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
+	      (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
+	      '~';
+#endif
+
+	    Dynarr_add (conversion_out_dynarr, (Extbyte) c);
+	    INC_CHARPTR (ptr);
+	  }
+	bufpos_checking_assert (ptr == end);
+      }
+#else
+      Dynarr_add_many (conversion_out_dynarr, ptr, len);
+#endif
+
+    }
+  else
+    {
+      Lisp_Object streams_to_delete[3];
+      int delete_count = 0;
+      Lisp_Object instream, outstream;
+      Lstream *reader, *writer;
+      struct gcpro gcpro1, gcpro2;
+
+      if (source_type == DFC_TYPE_LISP_LSTREAM)
+	instream = source->lisp_object;
+      else if (source_type == DFC_TYPE_DATA)
+	streams_to_delete[delete_count++] = instream =
+	  make_fixed_buffer_input_stream (source->data.ptr, source->data.len);
+      else
+	{
+	  type_checking_assert (source_type == DFC_TYPE_LISP_STRING);
+	  streams_to_delete[delete_count++] = instream =
+	    make_lisp_string_input_stream (source->lisp_object, 0, -1);
+	}
+
+      if (sink_type == DFC_TYPE_LISP_LSTREAM)
+	outstream = sink->lisp_object;
+      else
+	{
+	  type_checking_assert (sink_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = outstream =
+	    make_dynarr_output_stream
+	    ((unsigned_char_dynarr *) conversion_out_dynarr);
+	}
+
+#ifdef FILE_CODING
+      streams_to_delete[delete_count++] = outstream =
+	make_encoding_output_stream (XLSTREAM (outstream), coding_system);
+#endif
+
+      reader = XLSTREAM (instream);
+      writer = XLSTREAM (outstream);
+      /* decoding_stream will gc-protect outstream */
+      GCPRO2 (instream, outstream);
+
+      while (1)
+        {
+          ssize_t size_in_bytes;
+	  char tempbuf[1024]; /* some random amount */
+
+	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));
+
+          if (size_in_bytes == 0)
+            break;
+	  else if (size_in_bytes < 0)
+	    error ("Error converting to external format");
+
+	  size_in_bytes = Lstream_write (writer, tempbuf, size_in_bytes);
+
+	  if (size_in_bytes <= 0)
+	    error ("Error converting to external format");
+        }
+
+      /* Closing writer will close any stream at the other end of writer. */
+      Lstream_close (writer);
+      Lstream_close (reader);
+      UNGCPRO;
+
+      /* The idea is that this function will create no garbage. */
+      while (delete_count)
+	Lstream_delete (XLSTREAM (streams_to_delete [--delete_count]));
+    }
+
+  unbind_to (count, Qnil);
+
+  if (sink_type != DFC_TYPE_LISP_LSTREAM)
+    {
+      sink->data.len = Dynarr_length (conversion_out_dynarr);
+      Dynarr_add (conversion_out_dynarr, 0);
+      sink->data.ptr = Dynarr_atp (conversion_out_dynarr, 0);
+    }
+}
+
+void
+dfc_convert_to_internal_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink)
+{
+  int count = specpdl_depth ();
+
+  type_checking_assert
+    ((source_type == DFC_TYPE_DATA ||
+      source_type == DFC_TYPE_LISP_LSTREAM)
+    &&
+    (sink_type   == DFC_TYPE_DATA ||
+     sink_type   == DFC_TYPE_LISP_LSTREAM));
+
+  if (dfc_convert_to_internal_format_in_use != 0)
+    error ("Can't call a conversion function from a conversion function");
+  else
+    dfc_convert_to_internal_format_in_use = 1;
+
+  record_unwind_protect (dfc_convert_to_internal_format_reset_in_use,
+			 Qzero);
+
+#ifdef FILE_CODING
+  coding_system = Fget_coding_system (coding_system);
+#endif
+
+  Dynarr_reset (conversion_in_dynarr);
+
+  if (source_type != DFC_TYPE_LISP_LSTREAM &&
+      sink_type   != DFC_TYPE_LISP_LSTREAM &&
+      coding_system_is_binary (coding_system))
+    {
+#ifdef MULE
+      const Bufbyte *ptr = (const Bufbyte *) source->data.ptr;
+      Bytecount len = source->data.len;
+      const Bufbyte *end = ptr + len;
+
+      for (; ptr < end; ptr++)
+        {
+          Extbyte c = *ptr;
+
+#ifdef UTF2000
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, (c >> 6) | 0xC0);
+	      Dynarr_add (conversion_in_dynarr, (c & 0x3F) | 0x80);
+	    }
+#else
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else if (BYTE_C1_P (c))
+	    {
+	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_CONTROL_1);
+	      Dynarr_add (conversion_in_dynarr, c + 0x20);
+	    }
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_LATIN_ISO8859_1);
+	      Dynarr_add (conversion_in_dynarr, c);
+	    }
+#endif
+        }
+#else
+      Dynarr_add_many (conversion_in_dynarr, source->data.ptr, source->data.len);
+#endif
+    }
+  else
+    {
+      Lisp_Object streams_to_delete[3];
+      int delete_count = 0;
+      Lisp_Object instream, outstream;
+      Lstream *reader, *writer;
+      struct gcpro gcpro1, gcpro2;
+
+      if (source_type == DFC_TYPE_LISP_LSTREAM)
+	instream = source->lisp_object;
+      else
+	{
+	  type_checking_assert (source_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = instream =
+	    make_fixed_buffer_input_stream (source->data.ptr, source->data.len);
+	}
+
+      if (sink_type == DFC_TYPE_LISP_LSTREAM)
+	outstream = sink->lisp_object;
+      else
+	{
+	  type_checking_assert (sink_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = outstream =
+	    make_dynarr_output_stream
+	    ((unsigned_char_dynarr *) conversion_in_dynarr);
+	}
+
+#ifdef FILE_CODING
+      streams_to_delete[delete_count++] = outstream =
+	make_decoding_output_stream (XLSTREAM (outstream), coding_system);
+#endif
+
+      reader = XLSTREAM (instream);
+      writer = XLSTREAM (outstream);
+      /* outstream will gc-protect its sink stream, if necessary */
+      GCPRO2 (instream, outstream);
+
+      while (1)
+        {
+          ssize_t size_in_bytes;
+	  char tempbuf[1024]; /* some random amount */
+
+	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));
+
+          if (size_in_bytes == 0)
+            break;
+	  else if (size_in_bytes < 0)
+	    error ("Error converting to internal format");
+
+	  size_in_bytes = Lstream_write (writer, tempbuf, size_in_bytes);
+
+	  if (size_in_bytes <= 0)
+	    error ("Error converting to internal format");
+        }
+
+      /* Closing writer will close any stream at the other end of writer. */
+      Lstream_close (writer);
+      Lstream_close (reader);
+      UNGCPRO;
+
+      /* The idea is that this function will create no garbage. */
+      while (delete_count)
+	Lstream_delete (XLSTREAM (streams_to_delete [--delete_count]));
+    }
+
+  unbind_to (count, Qnil);
+
+  if (sink_type != DFC_TYPE_LISP_LSTREAM)
+    {
+      sink->data.len = Dynarr_length (conversion_in_dynarr);
+      Dynarr_add (conversion_in_dynarr, 0); /* remember to zero-terminate! */
+      sink->data.ptr = Dynarr_atp (conversion_in_dynarr, 0);
+    }
+}
+
+
 void
 syms_of_buffer (void)
 {
@@ -1879,6 +2235,9 @@ syms_of_buffer (void)
 void
 reinit_vars_of_buffer (void)
 {
+  conversion_in_dynarr  = Dynarr_new (Bufbyte);
+  conversion_out_dynarr = Dynarr_new (Extbyte);
+
   staticpro_nodump (&Vbuffer_alist);
   Vbuffer_alist = Qnil;
   current_buffer = 0;
@@ -2233,7 +2592,7 @@ reinit_complex_vars_of_buffer (void)
 
 
 static const struct lrecord_description buffer_slots_description_1[] = {
-  { XD_LISP_OBJECT, 0, BUFFER_SLOTS_COUNT },
+  { XD_LISP_OBJECT_ARRAY, 0, BUFFER_SLOTS_COUNT },
   { XD_END }
 };
 
@@ -2255,7 +2614,7 @@ complex_vars_of_buffer (void)
   buffer_local_symbols_saved_slots = &syms->BUFFER_SLOTS_FIRST_NAME;
   dumpstruct (&buffer_defaults_saved_slots,      &buffer_slots_description);
   dumpstruct (&buffer_local_symbols_saved_slots, &buffer_slots_description);
-  
+
   DEFVAR_BUFFER_DEFAULTS ("default-modeline-format", modeline_format /*
 Default value of `modeline-format' for buffers that don't override it.
 This is the same as (default-value 'modeline-format).
@@ -2748,19 +3107,22 @@ handled:
 
 /* Is PWD another name for `.' ? */
 static int
-directory_is_current_directory (char *pwd)
+directory_is_current_directory (Extbyte *pwd)
 {
   Bufbyte *pwd_internal;
+  Bytecount pwd_internal_len;
   struct stat dotstat, pwdstat;
 
-  GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (pwd, pwd_internal);
+  TO_INTERNAL_FORMAT (DATA, (pwd, strlen ((char *)pwd) + 1),
+		      ALLOCA, (pwd_internal, pwd_internal_len),
+		      Qfile_name);
 
   return (IS_DIRECTORY_SEP (*pwd_internal)
 	  && stat ((char *) pwd_internal, &pwdstat) == 0
 	  && stat (".", &dotstat) == 0
 	  && dotstat.st_ino == pwdstat.st_ino
 	  && dotstat.st_dev == pwdstat.st_dev
-	  && (int) strlen ((char *) pwd_internal) < MAXPATHLEN);
+	  && pwd_internal_len < MAXPATHLEN);
 }
 
 void
@@ -2768,15 +3130,15 @@ init_initial_directory (void)
 {
   /* This function can GC */
 
-  char *pwd;
+  Extbyte *pwd;
 
   initial_directory[0] = 0;
 
   /* If PWD is accurate, use it instead of calling getcwd.  This is faster
      when PWD is right, and may avoid a fatal error.  */
-  if ((pwd = getenv ("PWD")) != NULL
+  if ((pwd = (Extbyte *) getenv ("PWD")) != NULL
       && directory_is_current_directory (pwd))
-    strcpy (initial_directory, pwd);
+    strcpy (initial_directory, (char *) pwd);
   else if (getcwd (initial_directory, MAXPATHLEN) == NULL)
     fatal ("`getcwd' failed: %s\n", strerror (errno));
 
@@ -2814,7 +3176,7 @@ init_buffer (void)
   Fset_buffer (Fget_buffer_create (QSscratch));
 
   current_buffer->directory =
-    build_ext_string (initial_directory, FORMAT_FILENAME);
+    build_ext_string (initial_directory, Qfile_name);
 
 #if 0 /* FSFmacs */
   /* #### is this correct? */

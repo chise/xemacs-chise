@@ -77,9 +77,9 @@ Lisp_Object Vpre_abbrev_expand_hook, Qpre_abbrev_expand_hook;
 
 struct abbrev_match_mapper_closure {
   struct buffer *buf;
-  struct Lisp_Char_Table *chartab;
+  Lisp_Char_Table *chartab;
   Charcount point, maxlen;
-  struct Lisp_Symbol *found;
+  Lisp_Symbol *found;
 };
 
 /* For use by abbrev_match(): Match SYMBOL's name against buffer text
@@ -91,8 +91,8 @@ abbrev_match_mapper (Lisp_Object symbol, void *arg)
   struct abbrev_match_mapper_closure *closure =
     (struct abbrev_match_mapper_closure *)arg;
   Charcount abbrev_length;
-  struct Lisp_Symbol *sym = XSYMBOL (symbol);
-  struct Lisp_String *abbrev;
+  Lisp_Symbol *sym = XSYMBOL (symbol);
+  Lisp_String *abbrev;
 
   /* symbol_value should be OK here, because abbrevs are not expected
      to contain any SYMBOL_MAGIC stuff.  */
@@ -147,7 +147,7 @@ abbrev_match_mapper (Lisp_Object symbol, void *arg)
 
 /* Match the buffer text against names of symbols in obarray.  Returns
    the matching symbol, or 0 if not found.  */
-static struct Lisp_Symbol *
+static Lisp_Symbol *
 abbrev_match (struct buffer *buf, Lisp_Object obarray)
 {
   struct abbrev_match_mapper_closure closure;
@@ -175,7 +175,7 @@ abbrev_match (struct buffer *buf, Lisp_Object obarray)
    This speed difference should be unnoticeable, though.  I have tested
    the degenerated cases of thousands of abbrevs being defined, and
    abbrev_match() was still fast enough for normal operation.  */
-static struct Lisp_Symbol *
+static Lisp_Symbol *
 abbrev_oblookup (struct buffer *buf, Lisp_Object obarray)
 {
   Bufpos wordstart, wordend;
@@ -282,10 +282,10 @@ If no abbrev matched, but `pre-abbrev-expand-hook' changed the buffer,
   Bufpos point;			/* position of point */
   Bufpos abbrev_start;		/* position of abbreviation beginning */
 
-  struct Lisp_Symbol *(*fun) (struct buffer *, Lisp_Object);
+  Lisp_Symbol *(*fun) (struct buffer *, Lisp_Object);
 
-  struct Lisp_Symbol *abbrev_symbol;
-  struct Lisp_String *abbrev_string;
+  Lisp_Symbol *abbrev_symbol;
+  Lisp_String *abbrev_string;
   Lisp_Object expansion, count, hook;
   Charcount abbrev_length;
   int lccount, uccount;

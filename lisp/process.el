@@ -33,9 +33,6 @@
 ;;; Code:
 
 
-(defvar binary-process-output)
-(defvar buffer-file-type)
-
 (defgroup processes nil
   "Process, subshell, compilation, and job control support."
   :group 'external
@@ -115,14 +112,10 @@ If you quit, the process is first killed with SIGINT, then with SIGKILL if
 you quit again before the process exits."
   (let ((temp
 	 (make-temp-name
-	  (concat (file-name-as-directory (temp-directory))
-		  (if (memq system-type '(ms-dos windows-nt)) "em" "emacs")))))
+	  (concat (file-name-as-directory (temp-directory)) "emacs"))))
     (unwind-protect
 	(progn
-	  (if (memq system-type '(ms-dos windows-nt))
-	      (let ((buffer-file-type binary-process-output))
-		(write-region start end temp nil 'silent))
-	    (write-region start end temp nil 'silent))
+	  (write-region start end temp nil 'silent)
 	  (if deletep (delete-region start end))
 	  (apply #'call-process program temp buffer displayp args))
       (ignore-file-errors (delete-file temp)))))
@@ -327,20 +320,17 @@ lost packets."
 
 (defun shell-quote-argument (argument)
   "Quote an argument for passing as argument to an inferior shell."
-  (if (eq system-type 'ms-dos)
-      ;; MS-DOS shells don't have quoting, so don't do any.
-      argument
-    (if (eq system-type 'windows-nt)
-	(concat "\"" argument "\"")
-      ;; Quote everything except POSIX filename characters.
-      ;; This should be safe enough even for really weird shells.
-      (let ((result "") (start 0) end)
-	(while (string-match "[^-0-9a-zA-Z_./]" argument start)
-	  (setq end (match-beginning 0)
-		result (concat result (substring argument start end)
-			       "\\" (substring argument end (1+ end)))
-		start (1+ end)))
-	(concat result (substring argument start))))))
+  (if (eq system-type 'windows-nt)
+      (nt-quote-process-args (list shell-file-name argument))
+    ;; Quote everything except POSIX filename characters.
+    ;; This should be safe enough even for really weird shells.
+    (let ((result "") (start 0) end)
+      (while (string-match "[^-0-9a-zA-Z_./]" argument start)
+	(setq end (match-beginning 0)
+	      result (concat result (substring argument start end)
+			     "\\" (substring argument end (1+ end)))
+	      start (1+ end)))
+      (concat result (substring argument start)))))
 
 (defun shell-command-to-string (command)
   "Execute shell command COMMAND and return its output as a string."

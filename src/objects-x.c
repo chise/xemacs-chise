@@ -69,7 +69,7 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 	{
 	  /* We're dealing with a TrueColor/DirectColor visual, so play games
 	     with the RGB values in the XColor struct. */
-	  /* ### JH: I'm not sure how a call to XAllocColor can fail in a
+	  /* #### JH: I'm not sure how a call to XAllocColor can fail in a
 	     TrueColor or DirectColor visual, so I will just reformat the
 	     request to match the requirements of the visual, and re-issue
 	     the request.  If this fails for anybody, I wanna know about it
@@ -118,7 +118,7 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 	  else
   	    {
   	      int rd, gr, bl;
-	      /* ### JH: I'm punting here, knowing that doing this will at
+	      /* #### JH: I'm punting here, knowing that doing this will at
 		 least draw the color correctly.  However, unless we convert
 		 all of the functions that allocate colors (graphics
 		 libraries, etc) to use this function doing this is very
@@ -232,7 +232,9 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
     CONST Extbyte *extname;
     Extcount extnamelen;
 
-    GET_CHARPTR_EXT_BINARY_DATA_ALLOCA (name, len, extname, extnamelen);
+    TO_EXTERNAL_FORMAT (DATA, (name, len),
+			ALLOCA, (extname, extnamelen),
+			Qbinary);
     result = XParseColor (dpy, cmap, (char *) extname, color);
   }
   if (!result)
@@ -253,7 +255,7 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
 }
 
 static int
-x_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object name,
+x_initialize_color_instance (Lisp_Color_Instance *c, Lisp_Object name,
 			     Lisp_Object device, Error_behavior errb)
 {
   XColor color;
@@ -279,7 +281,7 @@ x_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object name,
 }
 
 static void
-x_print_color_instance (struct Lisp_Color_Instance *c,
+x_print_color_instance (Lisp_Color_Instance *c,
 			Lisp_Object printcharfun,
 			int escapeflag)
 {
@@ -291,7 +293,7 @@ x_print_color_instance (struct Lisp_Color_Instance *c,
 }
 
 static void
-x_finalize_color_instance (struct Lisp_Color_Instance *c)
+x_finalize_color_instance (Lisp_Color_Instance *c)
 {
   if (c->data)
     {
@@ -314,8 +316,8 @@ x_finalize_color_instance (struct Lisp_Color_Instance *c)
    be comparing their names or pixel values instead. */
 
 static int
-x_color_instance_equal (struct Lisp_Color_Instance *c1,
-			struct Lisp_Color_Instance *c2,
+x_color_instance_equal (Lisp_Color_Instance *c1,
+			Lisp_Color_Instance *c2,
 			int depth)
 {
   XColor color1 = COLOR_INSTANCE_X_COLOR (c1);
@@ -326,14 +328,14 @@ x_color_instance_equal (struct Lisp_Color_Instance *c1,
 }
 
 static unsigned long
-x_color_instance_hash (struct Lisp_Color_Instance *c, int depth)
+x_color_instance_hash (Lisp_Color_Instance *c, int depth)
 {
   XColor color = COLOR_INSTANCE_X_COLOR (c);
   return HASH3 (color.red, color.green, color.blue);
 }
 
 static Lisp_Object
-x_color_instance_rgb_components (struct Lisp_Color_Instance *c)
+x_color_instance_rgb_components (Lisp_Color_Instance *c)
 {
   XColor color = COLOR_INSTANCE_X_COLOR (c);
   return (list3 (make_int (color.red),
@@ -350,10 +352,9 @@ x_valid_color_name_p (struct device *d, Lisp_Object color)
 
   CONST char *extname;
 
-  GET_C_STRING_CTEXT_DATA_ALLOCA (color, extname);
+  TO_EXTERNAL_FORMAT (LISP_STRING, color, C_STRING_ALLOCA, extname, Qctext);
 
-  return XParseColor (dpy, cmap,
-		      extname, &c);
+  return XParseColor (dpy, cmap, extname, &c);
 }
 
 
@@ -362,15 +363,14 @@ x_valid_color_name_p (struct device *d, Lisp_Object color)
 /************************************************************************/
 
 static int
-x_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
+x_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 			    Lisp_Object device, Error_behavior errb)
 {
-  Display *dpy;
+  Display *dpy = DEVICE_X_DISPLAY (XDEVICE (device));
   XFontStruct *xf;
   CONST char *extname;
 
-  dpy = DEVICE_X_DISPLAY (XDEVICE (device));
-  GET_C_STRING_CTEXT_DATA_ALLOCA (f->name, extname);
+  TO_EXTERNAL_FORMAT (LISP_STRING, f->name, C_STRING_ALLOCA, extname, Qctext);
   xf = XLoadQueryFont (dpy, extname);
 
   if (!xf)
@@ -457,13 +457,13 @@ x_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
 }
 
 static void
-x_mark_font_instance (struct Lisp_Font_Instance *f)
+x_mark_font_instance (Lisp_Font_Instance *f)
 {
   mark_object (FONT_INSTANCE_X_TRUENAME (f));
 }
 
 static void
-x_print_font_instance (struct Lisp_Font_Instance *f,
+x_print_font_instance (Lisp_Font_Instance *f,
 		       Lisp_Object printcharfun,
 		       int escapeflag)
 {
@@ -473,7 +473,7 @@ x_print_font_instance (struct Lisp_Font_Instance *f,
 }
 
 static void
-x_finalize_font_instance (struct Lisp_Font_Instance *f)
+x_finalize_font_instance (Lisp_Font_Instance *f)
 {
 
   if (f->data)
@@ -773,7 +773,7 @@ x_font_truename (Display *dpy, char *name, XFontStruct *font)
 }
 
 static Lisp_Object
-x_font_instance_truename (struct Lisp_Font_Instance *f, Error_behavior errb)
+x_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
 {
   struct device *d = XDEVICE (f->device);
 
@@ -801,7 +801,7 @@ x_font_instance_truename (struct Lisp_Font_Instance *f, Error_behavior errb)
 }
 
 static Lisp_Object
-x_font_instance_properties (struct Lisp_Font_Instance *f)
+x_font_instance_properties (Lisp_Font_Instance *f)
 {
   struct device *d = XDEVICE (f->device);
   int i;
@@ -861,12 +861,14 @@ x_list_fonts (Lisp_Object pattern, Lisp_Object device)
   Lisp_Object result = Qnil;
   CONST char *patternext;
 
-  GET_C_STRING_BINARY_DATA_ALLOCA (pattern, patternext);
+  TO_EXTERNAL_FORMAT (LISP_STRING, pattern,
+		      C_STRING_ALLOCA, patternext,
+		      Qbinary);
 
   names = XListFonts (DEVICE_X_DISPLAY (XDEVICE (device)),
 		      patternext, MAX_FONT_COUNT, &count);
   while (count--)
-    result = Fcons (build_ext_string (names [count], FORMAT_BINARY), result);
+    result = Fcons (build_ext_string (names [count], Qbinary), result);
   if (names)
     XFreeFontNames (names);
   return result;
@@ -934,20 +936,24 @@ x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
   CONST char *patternext;
   int i;
 
-  GET_C_STRING_BINARY_DATA_ALLOCA (font, patternext);
+  TO_EXTERNAL_FORMAT (LISP_STRING, font,
+		      C_STRING_ALLOCA, patternext,
+		      Qbinary);
 
   names = XListFonts (DEVICE_X_DISPLAY (XDEVICE (device)),
 		      patternext, MAX_FONT_COUNT, &count);
-  /* ### This code seems awfully bogus -- mrb */
+  /* #### This code seems awfully bogus -- mrb */
   for (i = 0; i < count; i ++)
     {
-      CONST Bufbyte *intname;
+      CONST char *intname;
 
-      GET_C_CHARPTR_INT_BINARY_DATA_ALLOCA (names[i], intname);
+      TO_INTERNAL_FORMAT (C_STRING, names[i],
+			  C_STRING_ALLOCA, intname,
+			  Qbinary);
       if (x_font_spec_matches_charset (XDEVICE (device), charset,
-				       intname, Qnil, 0, -1))
+				       (Bufbyte *) intname, Qnil, 0, -1))
 	{
-	  result = build_string ((char *) intname);
+	  result = build_string (intname);
 	  break;
 	}
     }

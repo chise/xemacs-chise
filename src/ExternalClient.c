@@ -77,24 +77,30 @@ static int (*error_old_handler)(Display *, XErrorEvent *);
 
 static XtResource resources[] = {
 #define offset(field) XtOffset(ExternalClientWidget, externalClient.field)
-  { XtNshellTimeout, XtCShellTimeout, XtRInt, sizeof(int),
-      offset(shell_timeout), XtRImmediate,(XtPointer)DEFAULT_WM_TIMEOUT},
-  { XtNdeadShell, XtCDeadShell, XtRBoolean, sizeof(Boolean),
-      offset(dead_shell), XtRImmediate, (XtPointer)False},
+  { XtNshellTimeout, XtCShellTimeout,
+    XtRInt, sizeof (int),
+    offset(shell_timeout), XtRImmediate,(XtPointer)DEFAULT_WM_TIMEOUT },
+  { XtNdeadShell, XtCDeadShell,
+    XtRBoolean, sizeof (Boolean),
+    offset(dead_shell), XtRImmediate, (XtPointer)False },
 #ifdef EXTW_USES_MOTIF
-  { XmNnavigationType, XmCNavigationType, XmRNavigationType,
-      sizeof(XmNavigationType), XtOffset(ExternalClientWidget,
-      primitive.navigation_type), XtRImmediate,
-      (XtPointer)XmTAB_GROUP},
+  { XmNnavigationType, XmCNavigationType,
+    XmRNavigationType, sizeof (XmNavigationType),
+    XtOffset (ExternalClientWidget, primitive.navigation_type),
+    XtRImmediate, (XtPointer)XmTAB_GROUP },
 #endif
-  { XtNemacsProcID, XtCEmacsProcID, XtRString, sizeof(String),
-      offset(emacs_procid), XtRImmediate, (XtPointer)NULL},
-  { XtNshellReadyCallback, XtCCallback, XtRCallback, sizeof(XtCallbackList),
-      offset(shell_ready_callback), XtRImmediate, (XtPointer)NULL},
-  { XtNshellName, XtCShellName, XtRString, sizeof(String),
-      offset(shell_name), XtRImmediate, (XtPointer)NULL},
-  { XtNuseToolTalk, XtCUseToolTalk, XtRBoolean, sizeof(Boolean),
-      offset(use_tooltalk), XtRImmediate, (XtPointer)False}
+  { XtNemacsProcID, XtCEmacsProcID,
+    XtRString, sizeof (String),
+    offset(emacs_procid), XtRImmediate, (XtPointer)NULL },
+  { XtNshellReadyCallback, XtCCallback,
+    XtRCallback, sizeof (XtCallbackList),
+    offset(shell_ready_callback), XtRImmediate, (XtPointer)NULL },
+  { XtNshellName, XtCShellName,
+    XtRString, sizeof (String),
+    offset(shell_name), XtRImmediate, (XtPointer)NULL },
+  { XtNuseToolTalk, XtCUseToolTalk,
+    XtRBoolean, sizeof (Boolean),
+    offset(use_tooltalk), XtRImmediate, (XtPointer)False }
 };
 
 static XtActionsRec actions[] = {
@@ -114,13 +120,13 @@ ExternalClientClassRec externalClientClassRec = {
     /* superclass	  */	(WidgetClass) &coreClassRec,
 #endif
     /* class_name	  */	"ExternalClient",
-    /* size		  */	sizeof(ExternalClientRec),
+    /* size		  */	sizeof (ExternalClientRec),
     /* Class Initializer  */	NULL,
     /* class_part_initialize*/	NULL, /* XtInheritClassPartInitialize, */
     /* Class init'ed ?	  */	FALSE,
     /* initialize	  */	externalClientInitialize,
     /* initialize_notify  */	NULL,
-    /* realize		  */	externalClientRealize, 
+    /* realize		  */	externalClientRealize,
     /* actions		  */	actions,
     /* num_actions	  */	XtNumber (actions),
     /* resources	  */	resources,
@@ -134,9 +140,9 @@ ExternalClientClassRec externalClientClassRec = {
     /* resize		  */	XtInheritResize,
     /* expose		  */	NULL,
     /* set_values	  */	NULL, /* XtInheritSetValues, */
-    /* set_values_hook	  */	NULL,			
-    /* set_values_almost  */	XtInheritSetValuesAlmost,  
-    /* get_values_hook	  */	NULL,			
+    /* set_values_hook	  */	NULL,
+    /* set_values_almost  */	XtInheritSetValuesAlmost,
+    /* get_values_hook	  */	NULL,
     /* accept_focus	  */	NULL,
     /* intrinsics version */	XtVersion,
     /* callback offsets	  */	NULL,
@@ -186,7 +192,7 @@ externalClientInitialize (Widget req, Widget new, ArgList args,
      -- BPW
 
   */
-    
+
   XtOverrideTranslations (new,
 			  XtParseTranslationTable ("None<Key>Tab:\n"
 						   "<FocusIn>:focusIn()\n"
@@ -195,7 +201,7 @@ externalClientInitialize (Widget req, Widget new, ArgList args,
 						   "<Leave>:leave()\n"));
 
 #endif
-  
+
   XtAddEventHandler (new, 0, TRUE, EventHandler, (XtPointer) NULL);
 
   ecw->externalClient.shell_ready = False;
@@ -214,7 +220,7 @@ static Tt_callback_action
 tt_callback(Tt_message m, Tt_pattern p)
 {
   ExternalClientWidget ecw = (ExternalClientWidget)tt_message_user (m, 0);
-  
+
   switch (tt_message_state(m))
     {
     case TT_FAILED:
@@ -226,7 +232,7 @@ tt_callback(Tt_message m, Tt_pattern p)
 			  ecw->externalClient.shell_ready_callback, NULL);
       break;
     }
-  
+
   tt_message_destroy (m);
   return TT_CALLBACK_PROCESSED;
 }
@@ -241,7 +247,7 @@ send_tooltalk_handshake (ExternalClientWidget ecw, Window win, char *name)
   tt_message_class_set (m, TT_REQUEST);
   tt_message_arg_add (m, TT_IN, "string", name);
   tt_message_iarg_add (m, TT_IN, "int", win);
-  tt_message_arg_add (m, TT_OUT, "string", NULL); 
+  tt_message_arg_add (m, TT_OUT, "string", NULL);
   tt_message_user_set (m, 0, (void *)ecw);
   tt_message_callback_add (m, tt_callback);
   if (ecw->externalClient.emacs_procid)
@@ -261,8 +267,8 @@ static void
 externalClientRealize (Widget w, XtValueMask *vm, XSetWindowAttributes *attrs)
 {
   ExternalClientWidget ecw = (ExternalClientWidget)w;
-  
-#ifdef EXTW_USES_MOTIF  
+
+#ifdef EXTW_USES_MOTIF
   (*xmPrimitiveWidgetClass->core_class.realize) (w, vm, attrs);
 #else
   (*coreWidgetClass->core_class.realize) (w, vm, attrs);
@@ -278,7 +284,7 @@ externalClientRealize (Widget w, XtValueMask *vm, XSetWindowAttributes *attrs)
       XSync (XtDisplay (w), False);
       send_tooltalk_handshake (ecw, XtWindow (w), XtName (w));
     }
-#endif  
+#endif
 }
 
 
@@ -314,7 +320,7 @@ remove_ww (Window win)
 {
   struct ww_list *w1, *w2;
   Widget wid = 0;
-  
+
   for (w1=ww_list, w2=w1->next; w2; w1=w2, w2=w2->next)
     if (w2->win == win)
       {
@@ -366,7 +372,7 @@ end_connection (ExternalClientWidget w)
   XSetWindowAttributes xswa;
   XtValueMask mask;
   Widget wid = (Widget) w;
-  
+
   w->externalClient.shell_ready = False;
   XtRemoveEventHandler (wid, w->externalClient.event_mask,
 			FALSE, MaskableEventHandler, (XtPointer) NULL);
@@ -379,7 +385,7 @@ static int
 my_error_handler (Display *display, XErrorEvent *xev)
 {
   Widget wid;
-  
+
   if (xev->error_code != BadWindow)
     goto call_old;
   wid = remove_ww (xev->resourceid);
@@ -388,7 +394,7 @@ my_error_handler (Display *display, XErrorEvent *xev)
       end_connection ((ExternalClientWidget) wid);
       return 0;
     }
-  
+
  call_old:
   return error_old_handler (display, xev);
 }
@@ -399,7 +405,7 @@ MaskableEventHandler (Widget wid, XtPointer closure, XEvent *event,
      /* closure and continue_to_dispatch unused */
 {
   ExternalClientWidget w = (ExternalClientWidget) wid;
-  
+
   if (w->externalClient.shell_ready)
     {
       if (event->type == KeyPress || event->type == KeyRelease ||
@@ -421,7 +427,7 @@ MaskableEventHandler (Widget wid, XtPointer closure, XEvent *event,
       XSync (XtDisplay (wid), 0); /* make sure that any BadWindow errors
 				     (meaning the server died) get handled
 				     before XSendEvent is called again. */
-      
+
     }
 }
 
@@ -431,7 +437,7 @@ EventHandler (Widget wid, XtPointer closure, XEvent *event,
      /* closure and continue_to_dispatch unused */
 {
   ExternalClientWidget w = (ExternalClientWidget) wid;
-  
+
   if (w->core.window != event->xany.window)
     {
       XtAppErrorMsg (XtWidgetToApplicationContext (wid),
@@ -440,41 +446,41 @@ EventHandler (Widget wid, XtPointer closure, XEvent *event,
 		     (String *)NULL, (Cardinal *)NULL);
       return;
     }
-  
+
   if (event->type == ClientMessage &&
       event->xclient.message_type == a_EXTW_NOTIFY &&
       event->xclient.data.l[0] == extw_shell_send)
     switch (event->xclient.data.l[1])
       {
-	
+
       case extw_notify_qg:
 	/* shell is alive again. */
-	
+
 	w->externalClient.dead_shell = False;
 	break;
-	
+
       case extw_notify_gm:
 	{
 	  XtWidgetGeometry xwg, xwg_return;
 	  XtGeometryResult result;
-	  
+
 	  extw_get_geometry_value (XtDisplay (wid), XtWindow (wid),
 				   a_EXTW_GEOMETRY_MANAGER, &xwg);
 	  result = XtMakeGeometryRequest (wid, &xwg, &xwg_return);
-	  
+
 	  extw_send_geometry_value (XtDisplay (wid), XtWindow (wid),
 				    a_EXTW_GEOMETRY_MANAGER, extw_notify_gm,
 				    result == XtGeometryAlmost ? &xwg_return :
 				    NULL, result);
 	  break;
 	}
-	
+
       case extw_notify_init:
 	w->externalClient.shell_ready = True;
 	w->externalClient.event_window = event->xclient.data.l[2];
 	w->externalClient.event_mask = event->xclient.data.l[3];
 	add_ww (w->externalClient.event_window, (Widget) w);
-	
+
 	XtAddEventHandler (wid, w->externalClient.event_mask,
 			   FALSE, MaskableEventHandler, (XtPointer) NULL);
 #ifdef EXTW_USES_MOTIF
@@ -487,12 +493,12 @@ EventHandler (Widget wid, XtPointer closure, XEvent *event,
 		0, 0);
 #endif
 	break;
-	
+
       case extw_notify_end:
 	end_connection (w);
 	remove_ww (w->externalClient.event_window);
 	break;
-	
+
       case extw_notify_set_focus:
 #ifdef EXTW_USES_MOTIF
 	XmProcessTraversal (wid, XmTRAVERSE_CURRENT);
@@ -500,7 +506,7 @@ EventHandler (Widget wid, XtPointer closure, XEvent *event,
 	XtSetKeyboardFocus (wid, None);
 #endif
 	break;
-	
+
       }
 }
 
@@ -508,7 +514,7 @@ static void Destroy(wid)
      Widget wid;
 {
   ExternalClientWidget w = (ExternalClientWidget)wid;
-  
+
   NOTIFY(w, extw_notify_end, 0, 0, 0);
 }
 
@@ -521,14 +527,14 @@ static XtGeometryResult QueryGeometry(gw, request, reply)
   unsigned long request_num;
   Display *display = XtDisplay(gw);
   XtWidgetGeometry req = *request; /* don't modify caller's structure */
-  
+
   if (!XtIsRealized((Widget)w) || !w->externalClient.shell_ready)
     return XtGeometryYes;
-  
+
   if (w->externalClient.dead_shell == TRUE)
     /* The shell is sick. */
     return XtGeometryNo;
-  
+
   req.sibling = None;
   req.request_mode &= ~CWSibling;
   request_num = NextRequest(display);
@@ -554,7 +560,7 @@ static void ExternalClientFocusIn (Widget w, XEvent *event, String *params,
 				Cardinal *num_params)
 {
   ExternalClientWidget ecw = (ExternalClientWidget) w;
-  
+
   if (event->xfocus.send_event && !ecw->externalClient.has_focus) {
     ecw->externalClient.has_focus = True;
     NOTIFY(ecw, extw_notify_focus_in, 0, 0, 0);
@@ -568,7 +574,7 @@ static void ExternalClientFocusOut (Widget w, XEvent *event, String *params,
 				 Cardinal *num_params)
 {
   ExternalClientWidget ecw = (ExternalClientWidget) w;
-  
+
   if (event->xfocus.send_event && ecw->externalClient.has_focus) {
     ecw->externalClient.has_focus = False;
     NOTIFY(ecw, extw_notify_focus_out, 0, 0, 0);
@@ -582,7 +588,7 @@ static void ExternalClientEnter (Widget w, XEvent *event, String *params,
 			      Cardinal *num_params)
 {
   ExternalClientWidget ecw = (ExternalClientWidget) w;
-  
+
   if (
 #ifdef EXTW_USES_MOTIF
       _XmGetFocusPolicy (w) != XmEXPLICIT &&
@@ -601,7 +607,7 @@ static void ExternalClientLeave (Widget w, XEvent *event, String *params,
 			      Cardinal *num_params)
 {
   ExternalClientWidget ecw = (ExternalClientWidget) w;
-  
+
   if (
 #ifdef EXTW_USES_MOTIF
       _XmGetFocusPolicy (w) != XmEXPLICIT &&

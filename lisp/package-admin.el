@@ -166,7 +166,7 @@ or return a location appropriate for the package otherwise."
 		 (setq autoload-dir (feature-file package-feature))
 		 (setq autoload-dir (file-name-directory autoload-dir))
 		 (member autoload-dir late-package-load-path))
-	;; Find the corresonding entry in late-package
+	;; Find the corresponding entry in late-package
 	(setq pkg-dir
 	      (car-safe (member-if (lambda (h)
 			   (string-match (concat "^" (regexp-quote h))

@@ -389,6 +389,8 @@ with_tty=""
 use_union_type="no"
 with_dnet=""
 pdump="no"
+dnl dragndrop is still experimental.  When it is stable, comment out the following line:
+with_dragndrop="no"
 
 dnl ------------------
 dnl Options Processing
@@ -1022,6 +1024,7 @@ dnl debug implies other options
 if test "${debug:=$beta}" = "yes"; then
   use_assertions=yes memory_usage_stats=yes
   XE_ADD_OBJS(debug.o)
+  XE_ADD_OBJS(tests.o)
   AC_DEFINE(DEBUG_XEMACS)
 fi
 test "$use_assertions"     = "yes" && AC_DEFINE(USE_ASSERTIONS)
@@ -1073,6 +1076,7 @@ case "$canonical" in
   alpha*-*-*       ) machine=alpha ;;
   vax-*-*          ) machine=vax ;;
   mips-dec-*       ) machine=pmax ;;
+  mips-sgi-irix6*  ) machine=iris6d ;;
   mips-sgi-*       ) machine=iris4d ;;
   mips*-linux      ) machine=mips ;;
   romp-ibm-*       ) machine=ibmrt ;;
@@ -1085,6 +1089,7 @@ case "$canonical" in
   mips-sony-*      ) machine=news-risc ;;
   clipper-*        ) machine=clipper ;;
   arm-*            ) machine=arm ;;
+  armv[34][lb]-*   ) machine=arm ;;
   ns32k-*          ) machine=ns32000 ;;
 esac
 
@@ -1818,7 +1823,7 @@ if test "$cflags_specified" = "no"; then
   dnl Following values of CFLAGS are known to work well.
   dnl Should we take debugging options into consideration?
   if   test "$GCC" = "yes"; then
-    CFLAGS="-g -O3 -Wall -Wno-switch"
+    CFLAGS="-g -O3 -Wall -Wno-switch -Wpointer-arith -Winline -Wmissing-prototypes -Wshadow"
     dnl I'm not convinced this is a good idea any more. -sb
     dnl test "$opsys $machine" = "linux intel386" && \
     dnl CFLAGS="$CFLAGS -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2"
@@ -1980,7 +1985,7 @@ dnl fi
 
 dnl Extra system-specific library directories - please add to list
 for dir in "/usr/ccs/lib"; do
-  test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_site)
+  test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_system)
 done
 
 dnl --site-runtime-libraries (multiple dirs)
@@ -1990,11 +1995,31 @@ if test -n "$site_runtime_libraries"; then
   export LD_RUN_PATH
 fi
 
+dnl Linux systems have dynamic runtime library directories listed in
+dnl /etc/ld.so.conf.  Since those are used at run time, it seems pretty
+dnl safe to use them at link time, and less controversial than forcing
+dnl the run-time to use the link-time libraries.  This also helps avoid
+dnl mismatches between the link-time and run-time libraries.
+
+dnl #### Unfortunately, there are horrible libc4 and libc5 libraries 
+dnl listed in /etc/ld.so.conf on some systems, and including them on 
+dnl the link path leads to linking in utterly broken libc's.  
+dnl There are many clever ways of approaching this problem, 
+dnl but finding out that actually works...
+
+dnl if test -z "$LD_RUN_PATH" -a -r "/etc/ld.so.conf"; then
+dnl   for dir in `cat /etc/ld.so.conf`; do
+dnl     test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_system)
+dnl   done
+dnl   add_runtime_path=no
+dnl fi
+
 dnl -------------------------------------
 dnl Compute runtime library path
 dnl -------------------------------------
 
-if   test "$dynamic" = "no"; then add_runtime_path=no
+if test -n "$add_runtime_path"; then :;
+elif test "$dynamic" = "no"; then add_runtime_path=no
 elif test -n "$LD_RUN_PATH"; then add_runtime_path=yes
 else case "$opsys" in
        sol2 | irix* | *bsd* | decosf* ) add_runtime_path=yes ;;
@@ -2539,7 +2564,7 @@ if test "$with_msw" != "no"; then
   if test "$with_msw" = "yes"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
     install_pp="$blddir/lib-src/installexe.sh"
-    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomctl32, libs_system)
+    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomctl32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
  	window_system=msw
@@ -2967,6 +2992,13 @@ if test "$with_x11" = "yes"; then
       AC_CHECK_HEADER(X11/$athena_variant/ThreeD.h,
         athena_h_path=X11/$athena_variant,))
 
+    dnl Is the variant specific header directory directly under include?
+    if test -z "$athena_h_path"; then
+      AC_CHECK_HEADER($athena_variant/XawInit.h,
+        AC_CHECK_HEADER($athena_variant/ThreeD.h,
+          athena_h_path=$athena_variant,))
+    fi
+
     dnl If we couldn't find the specific variant, try the generic Athena 3d headers
     if test -z "$athena_h_path" -a "$athena_variant" != "Xaw3d"; then
       AC_CHECK_HEADER(X11/Xaw3d/XawInit.h,
@@ -2974,6 +3006,16 @@ if test "$with_x11" = "yes"; then
           [
             AC_MSG_WARN("Assuming that X11/Xaw3d headers are suitable for $athena_variant.")
             athena_h_path=X11/Xaw3d
+          ],))
+    fi
+
+    dnl Also generic 3d headers directly under include dir
+    if test -z "$athena_h_path" -a "$athena_variant" != "Xaw3d"; then
+      AC_CHECK_HEADER(Xaw3d/XawInit.h,
+        AC_CHECK_HEADER(Xaw3d/ThreeD.h,
+          [
+            AC_MSG_WARN("Assuming that Xaw3d headers are suitable for $athena_variant.")
+            athena_h_path=Xaw3d
           ],))
     fi
 
@@ -3103,7 +3145,7 @@ test "$with_menubars"   != "no"    && AC_DEFINE(HAVE_MENUBARS)
 test "$with_scrollbars" != "no"    && AC_DEFINE(HAVE_SCROLLBARS)
 test "$with_dialogs"    != "no"    && AC_DEFINE(HAVE_DIALOGS)
 test "$with_toolbars"   != "no"    && AC_DEFINE(HAVE_TOOLBARS)
-test "$with_widgets"   != "no"    && AC_DEFINE(HAVE_WIDGETS)
+test "$with_widgets"    != "no"    && AC_DEFINE(HAVE_WIDGETS)
 
 test "$with_menubars"   = "lucid"  && AC_DEFINE(LWLIB_MENUBARS_LUCID)
 test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
@@ -3113,16 +3155,16 @@ test "$with_scrollbars" = "motif"  && AC_DEFINE(LWLIB_SCROLLBARS_MOTIF)
 test "$with_dialogs"    = "motif"  && AC_DEFINE(LWLIB_DIALOGS_MOTIF)
 test "$with_widgets"    = "motif"  && AC_DEFINE(LWLIB_WIDGETS_MOTIF)
 
-test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar.o)
-test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar.o)
-test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog.o)
-test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar.o)
+test "$with_menubars"   != "no"    && XE_ADD_OBJS(menubar.o)
+test "$with_scrollbars" != "no"    && XE_ADD_OBJS(scrollbar.o)
+test "$with_dialogs"    != "no"    && XE_ADD_OBJS(dialog.o)
+test "$with_toolbars"   != "no"    && XE_ADD_OBJS(toolbar.o)
 
 if test "$with_x11" = "yes"; then
-  test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar-x.o)
-  test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-x.o)
-  test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
-  test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
+  test "$with_menubars"   != "no"  && XE_ADD_OBJS(menubar-x.o)
+  test "$with_scrollbars" != "no"  && XE_ADD_OBJS(scrollbar-x.o)
+  test "$with_dialogs"    != "no"  && XE_ADD_OBJS(dialog-x.o)
+  test "$with_toolbars"   != "no"  && XE_ADD_OBJS(toolbar-x.o)
   test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
 fi
 
@@ -3275,25 +3317,10 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
 
-dnl realpath is buggy on linux, decosf and aix4
-
-dnl The realpath() in linux libc (4.6.27) sometimes fails with ELOOP.
-dnl The realpath in ELF linux libc's is O.K.
-dnl For example, call realpath on a file thirty-five or so directories deep
-dnl and you get ELOOP even if no symlinks at all are involved.
-dnl Reports as of 11/1997 indicate BSDi has problems too.
-dnl The realpath() in UnixWare2.1.3 could not get any pathname fragment in error condition.
-case "$opsys" in
-  linuxaout* | bsdos3* | freebsd* | decosf4-0* | aix4* ) XE_ADD_OBJS(realpath.o) ;;
-  * )
-    case "$canonical" in
-      *-*-sysv4.2uw2* ) XE_ADD_OBJS(realpath.o) ;;
-      * ) AC_CHECK_FUNCS(realpath)
-	  test "$ac_cv_func_realpath" != "yes" && XE_ADD_OBJS(realpath.o) ;;
-    esac ;;
-esac
+dnl Use our own realpath always.
+XE_ADD_OBJS(realpath.o)
 
 dnl Check whether the system provides getloadavg (Solaris 7 has it)
 AC_CHECK_FUNCS(getloadavg)

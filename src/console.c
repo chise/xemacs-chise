@@ -129,7 +129,7 @@ print_console (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   sprintf (buf, "#<%s-console", !CONSOLE_LIVE_P (con) ? "dead" :
 	   CONSOLE_TYPE_NAME (con));
   write_c_string (buf, printcharfun);
-  if (CONSOLE_LIVE_P (con))
+  if (CONSOLE_LIVE_P (con) && !NILP (CONSOLE_CONNECTION (con)))
     {
       write_c_string (" on ", printcharfun);
       print_internal (CONSOLE_CONNECTION (con), printcharfun, 1);
@@ -355,16 +355,24 @@ static Lisp_Object
 semi_canonicalize_console_connection (struct console_methods *meths,
 				      Lisp_Object name, Error_behavior errb)
 {
-  return CONTYPE_METH_OR_GIVEN (meths, semi_canonicalize_console_connection,
-				(name, errb), name);
+  if (HAS_CONTYPE_METH_P (meths, semi_canonicalize_console_connection))
+    return CONTYPE_METH (meths, semi_canonicalize_console_connection,
+			 (name, errb));
+  else
+    return CONTYPE_METH_OR_GIVEN (meths, canonicalize_console_connection,
+				  (name, errb), name);
 }
 
 static Lisp_Object
 canonicalize_console_connection (struct console_methods *meths,
 				 Lisp_Object name, Error_behavior errb)
 {
-  return CONTYPE_METH_OR_GIVEN (meths, canonicalize_console_connection,
-				(name, errb), name);
+  if (HAS_CONTYPE_METH_P (meths, canonicalize_console_connection))
+    return CONTYPE_METH (meths, canonicalize_console_connection,
+			 (name, errb));
+  else
+    return CONTYPE_METH_OR_GIVEN (meths, semi_canonicalize_console_connection,
+				  (name, errb), name);
 }
 
 static Lisp_Object
@@ -488,7 +496,7 @@ create_console (Lisp_Object name, Lisp_Object type, Lisp_Object connection,
   /* Do it this way so that the console list is in order of creation */
   Vconsole_list = nconc2 (Vconsole_list, Fcons (console, Qnil));
 
-  if (CONMETH (con, initially_selected_for_input, (con)))
+  if (CONMETH_OR_GIVEN (con, initially_selected_for_input, (con), 0))
     event_stream_select_console (con);
 
   UNGCPRO;
@@ -878,7 +886,9 @@ stuff_buffered_input (Lisp_Object stuffstring)
       Extcount count;
       Extbyte *p;
 
-      GET_STRING_EXT_DATA_ALLOCA (stuffstring, FORMAT_KEYBOARD, p, count);
+      TO_EXTERNAL_FORMAT (LISP_STRING, stuffstring,
+			  ALLOCA, (p, count),
+			  Qkeyboard);
       while (count-- > 0)
 	stuff_char (XCONSOLE (Vcontrolling_terminal), *p++);
       stuff_char (XCONSOLE (Vcontrolling_terminal), '\n');
@@ -1099,34 +1109,35 @@ syms_of_console (void)
 }
 
 static const struct lrecord_description cte_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(console_type_entry, symbol), 1 },
-  { XD_STRUCT_PTR,  offsetof(console_type_entry, meths), 1, &console_methods_description },
+  { XD_LISP_OBJECT, offsetof (console_type_entry, symbol) },
+  { XD_STRUCT_PTR,  offsetof (console_type_entry, meths), 1, &console_methods_description },
   { XD_END }
 };
 
 static const struct struct_description cte_description = {
-  sizeof(console_type_entry),
+  sizeof (console_type_entry),
   cte_description_1
 };
 
 static const struct lrecord_description cted_description_1[] = {
-  XD_DYNARR_DESC(console_type_entry_dynarr, &cte_description),
+  XD_DYNARR_DESC (console_type_entry_dynarr, &cte_description),
   { XD_END }
 };
 
 const struct struct_description cted_description = {
-  sizeof(console_type_entry_dynarr),
+  sizeof (console_type_entry_dynarr),
   cted_description_1
 };
 
 static const struct lrecord_description console_methods_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(struct console_methods, symbol), 2 },
-  { XD_LISP_OBJECT, offsetof(struct console_methods, image_conversion_list), 1 },
+  { XD_LISP_OBJECT, offsetof (struct console_methods, symbol) },
+  { XD_LISP_OBJECT, offsetof (struct console_methods, predicate_symbol) },
+  { XD_LISP_OBJECT, offsetof (struct console_methods, image_conversion_list) },
   { XD_END }
 };
 
 const struct struct_description console_methods_description = {
-  sizeof(struct console_methods),
+  sizeof (struct console_methods),
   console_methods_description_1
 };
 
@@ -1321,7 +1332,7 @@ reinit_complex_vars_of_console (void)
 
 
 static const struct lrecord_description console_slots_description_1[] = {
-  { XD_LISP_OBJECT, 0, CONSOLE_SLOTS_COUNT },
+  { XD_LISP_OBJECT_ARRAY, 0, CONSOLE_SLOTS_COUNT },
   { XD_END }
 };
 
@@ -1373,7 +1384,7 @@ were a prefix key, typing `ESC O P x' would return
 */ );
 
 #ifdef HAVE_TTY
-  /* ### Should this somehow go to TTY data?  How do we make it
+  /* #### Should this somehow go to TTY data?  How do we make it
      accessible from Lisp, then?  */
   DEFVAR_CONSOLE_LOCAL ("tty-erase-char", tty_erase_char /*
 The ERASE character as set by the user with stty.

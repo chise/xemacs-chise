@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing. */
 
-#ifndef _XEMACS_CONSOLE_H_
-#define _XEMACS_CONSOLE_H_
+#ifndef INCLUDED_console_h_
+#define INCLUDED_console_h_
 
 /* Devices and consoles are similar entities.  The idea is that
    a console represents a physical keyboard/mouse/other-input-source
@@ -55,9 +55,9 @@ enum device_metrics
   DM_font_menubar, DM_font_dialog, DM_size_cursor, DM_size_scrollbar,
   DM_size_menu, DM_size_toolbar, DM_size_toolbar_button,
   DM_size_toolbar_border, DM_size_icon, DM_size_icon_small, DM_size_device,
-  DM_size_workspace, DM_size_device_mm, DM_device_dpi, DM_num_bit_planes,
-  DM_num_color_cells, DM_mouse_buttons, DM_swap_buttons, DM_show_sounds,
-  DM_slow_device, DM_security
+  DM_size_workspace, DM_offset_workspace, DM_size_device_mm, DM_device_dpi,
+  DM_num_bit_planes, DM_num_color_cells, DM_mouse_buttons, DM_swap_buttons,
+  DM_show_sounds, DM_slow_device, DM_security
 };
 
 extern const struct struct_description cted_description;
@@ -170,37 +170,36 @@ struct console_methods
 				int cursor, int cursor_start, int cursor_width,
 				int cursor_height);
   /* color methods */
-  int (*initialize_color_instance_method) (struct Lisp_Color_Instance *,
+  int (*initialize_color_instance_method) (Lisp_Color_Instance *,
 					   Lisp_Object name,
 					   Lisp_Object device,
 					   Error_behavior errb);
-  void (*mark_color_instance_method) (struct Lisp_Color_Instance *);
-  void (*print_color_instance_method) (struct Lisp_Color_Instance *,
+  void (*mark_color_instance_method) (Lisp_Color_Instance *);
+  void (*print_color_instance_method) (Lisp_Color_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
-  void (*finalize_color_instance_method) (struct Lisp_Color_Instance *);
-  int (*color_instance_equal_method) (struct Lisp_Color_Instance *,
-				      struct Lisp_Color_Instance *,
+  void (*finalize_color_instance_method) (Lisp_Color_Instance *);
+  int (*color_instance_equal_method) (Lisp_Color_Instance *,
+				      Lisp_Color_Instance *,
 				      int depth);
-  unsigned long (*color_instance_hash_method) (struct Lisp_Color_Instance *,
+  unsigned long (*color_instance_hash_method) (Lisp_Color_Instance *,
 					       int depth);
-  Lisp_Object (*color_instance_rgb_components_method)
-    (struct Lisp_Color_Instance *);
+  Lisp_Object (*color_instance_rgb_components_method) (Lisp_Color_Instance *);
   int (*valid_color_name_p_method) (struct device *, Lisp_Object color);
 
   /* font methods */
-  int (*initialize_font_instance_method) (struct Lisp_Font_Instance *,
+  int (*initialize_font_instance_method) (Lisp_Font_Instance *,
 					  Lisp_Object name,
 					  Lisp_Object device,
 					  Error_behavior errb);
-  void (*mark_font_instance_method) (struct Lisp_Font_Instance *);
-  void (*print_font_instance_method) (struct Lisp_Font_Instance *,
+  void (*mark_font_instance_method) (Lisp_Font_Instance *);
+  void (*print_font_instance_method) (Lisp_Font_Instance *,
 				      Lisp_Object printcharfun,
 				      int escapeflag);
-  void (*finalize_font_instance_method) (struct Lisp_Font_Instance *);
-  Lisp_Object (*font_instance_truename_method) (struct Lisp_Font_Instance *,
+  void (*finalize_font_instance_method) (Lisp_Font_Instance *);
+  Lisp_Object (*font_instance_truename_method) (Lisp_Font_Instance *,
 						Error_behavior errb);
-  Lisp_Object (*font_instance_properties_method) (struct Lisp_Font_Instance *);
+  Lisp_Object (*font_instance_properties_method) (Lisp_Font_Instance *);
   Lisp_Object (*list_fonts_method) (Lisp_Object pattern,
 				    Lisp_Object device);
   Lisp_Object (*find_charset_font_method) (Lisp_Object device,
@@ -214,22 +213,22 @@ struct console_methods
 					   Bytecount length);
 
   /* image methods */
-  void (*mark_image_instance_method) (struct Lisp_Image_Instance *);
-  void (*print_image_instance_method) (struct Lisp_Image_Instance *,
+  void (*mark_image_instance_method) (Lisp_Image_Instance *);
+  void (*print_image_instance_method) (Lisp_Image_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
-  void (*finalize_image_instance_method) (struct Lisp_Image_Instance *);
-  void (*unmap_subwindow_method) (struct Lisp_Image_Instance *);
-  void (*map_subwindow_method) (struct Lisp_Image_Instance *, int x, int y,
+  void (*finalize_image_instance_method) (Lisp_Image_Instance *);
+  void (*unmap_subwindow_method) (Lisp_Image_Instance *);
+  void (*map_subwindow_method) (Lisp_Image_Instance *, int x, int y,
 				struct display_glyph_area* dga);
-  void (*resize_subwindow_method) (struct Lisp_Image_Instance *, int w, int h);
-  void (*update_subwindow_method) (struct Lisp_Image_Instance *);
-  int (*image_instance_equal_method) (struct Lisp_Image_Instance *,
-				      struct Lisp_Image_Instance *,
+  void (*resize_subwindow_method) (Lisp_Image_Instance *, int w, int h);
+  void (*update_subwindow_method) (Lisp_Image_Instance *);
+  int (*image_instance_equal_method) (Lisp_Image_Instance *,
+				      Lisp_Image_Instance *,
 				      int depth);
-  unsigned long (*image_instance_hash_method) (struct Lisp_Image_Instance *,
+  unsigned long (*image_instance_hash_method) (Lisp_Image_Instance *,
 					       int depth);
-  void (*init_image_instance_from_eimage_method) (struct Lisp_Image_Instance *ii,
+  void (*init_image_instance_from_eimage_method) (Lisp_Image_Instance *ii,
 						  int width, int height,
 						  int slices,
 						  unsigned char *eimage,
@@ -289,8 +288,18 @@ struct console_methods
 /*
  * Constants returned by device_implementation_flags_method
  */
+
 /* Set when device uses pixel-based geometry */
-#define XDEVIMPF_PIXEL_GEOMETRY	  0x00000001L
+#define XDEVIMPF_PIXEL_GEOMETRY	    0x00000001L
+
+/* Indicates that the device is a printer */
+#define XDEVIMPF_IS_A_PRINTER	    0x00000002L
+
+/* Do not automatically redisplay this device */
+#define XDEVIMPF_NO_AUTO_REDISPLAY  0x00000004L
+
+/* Do not delete the device when last frame's gone */
+#define XDEVIMPF_FRAMELESS_OK	    0x00000008L
 
 
 #define CONSOLE_TYPE_NAME(c) ((c)->conmeths->name)
@@ -374,6 +383,11 @@ struct console_methods * type##_console_methods
    initialization routines */
 #define CONSOLE_HAS_METHOD(type, m) \
   (type##_console_methods->m##_method = type##_##m)
+
+/* Declare that console-type TYPE inherits method M
+   implementation from console-type FROMTYPE */
+#define CONSOLE_INHERITS_METHOD(type, fromtype, m) \
+  (type##_console_methods->m##_method = fromtype##_##m)
 
 struct console
 {
@@ -576,4 +590,4 @@ void io_error_delete_console (Lisp_Object console);
 void set_console_last_nonminibuf_frame (struct console *con,
 					Lisp_Object frame);
 
-#endif /* _XEMACS_CONSOLE_H_ */
+#endif /* INCLUDED_console_h_ */

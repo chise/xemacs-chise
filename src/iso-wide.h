@@ -17,8 +17,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_ISO_WIDE_H
-#define _XEMACS_ISO_WIDE_H
+#ifndef INCLUDED_iso_wide_h_
+#define INCLUDED_iso_wide_h_
 
 /* The following macros are designed for SunOS 5.0 wide characters,
    in which the single byte ISO Latin-1 character 1xxxxxxx are represented
@@ -46,4 +46,4 @@ Boston, MA 02111-1307, USA.  */
 #define WIDE_TO_BYTE(c)  (IS_ISO_WIDE (c) ? ISO_WIDE_TO_BYTE (c) : (c))
 #define BYTE_TO_WIDE(c)  (IS_ISO_BYTE (c) ? ISO_BYTE_TO_WIDE (c) : (c))
 
-#endif /* _XEMACS_ISO_WIDE_H */
+#endif /* INCLUDED_iso_wide_h_ */

@@ -831,7 +831,7 @@ from Emacs Lisp.
 
 * Menu:
 
-* Property Lists::       `get*', `remprop', `getf', `remf'
+* Property Lists::       `remprop', `getf', `remf'
 * Creating Symbols::     `gensym', `gentemp'
 
 
@@ -844,15 +844,6 @@ These functions augment the standard Emacs Lisp functions `get' and
 `put' for operating on properties attached to symbols.  There are also
 functions for working with property lists as first-class data
 structures not attached to particular symbols.
-
- - Function: get* symbol property &optional default
-     This function is like `get', except that if the property is not
-     found, the DEFAULT argument provides the return value.  (The Emacs
-     Lisp `get' function always uses `nil' as the default; this
-     package's `get*' is equivalent to Common Lisp's `get'.)
-
-     The `get*' function is `setf'-able; when used in this fashion, the
-     DEFAULT argument is allowed but ignored.
 
  - Function: remprop symbol property
      This function removes the entry for PROPERTY from the property
@@ -884,10 +875,10 @@ structures not attached to particular symbols.
 
           (put sym prop val)  ==  (setf (getf (symbol-plist sym) prop) val)
 
-     The `get' and `get*' functions are also `setf'-able.  The fact
-     that `default' is ignored can sometimes be useful:
+     The `get' function is also `setf'-able.  The fact that `default'
+     is ignored can sometimes be useful:
 
-          (incf (get* 'foo 'usage-count 0))
+          (incf (get 'foo 'usage-count 0))
 
      Here, symbol `foo''s `usage-count' property is incremented if it
      exists, or set to 1 (an incremented 0) otherwise.

@@ -21,7 +21,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -182,9 +182,9 @@ Does not modify STR.  Returns the encoded string on successful conversion."
   "Return the base coding system of CODING-SYSTEM."
   (if (not (coding-system-eol-type coding-system))
       coding-system
-    (find-coding-system 
+    (find-coding-system
      (intern
-      (substring 
+      (substring
        (symbol-name (coding-system-name coding-system))
        0
        (string-match "-unix$\\|-dos$\\|-mac$"
@@ -197,11 +197,41 @@ Does not modify STR.  Returns the encoded string on successful conversion."
  "Automatic conversion."
  '(mnemonic "Auto"))
 
-;; these are so that gnus and friends work when not mule
-(or (featurep 'mule)
-    (progn
-      (copy-coding-system 'undecided 'iso-8859-1)
-      (copy-coding-system 'undecided 'iso-8859-2)))
+;;; Make certain variables equivalent to coding-system aliases
+(defun dontusethis-set-value-file-name-coding-system-handler (sym args fun harg handlers)
+  (define-coding-system-alias 'file-name (or (car args) 'binary)))
+
+(dontusethis-set-symbol-value-handler
+ 'file-name-coding-system
+ 'set-value
+ 'dontusethis-set-value-file-name-coding-system-handler)
+
+(defun dontusethis-set-value-terminal-coding-system-handler (sym args fun harg handlers)
+  (define-coding-system-alias 'terminal (or (car args) 'binary)))
+
+(dontusethis-set-symbol-value-handler
+ 'terminal-coding-system
+ 'set-value
+ 'dontusethis-set-value-terminal-coding-system-handler)
+
+(defun dontusethis-set-value-keyboard-coding-system-handler (sym args fun harg handlers)
+  (define-coding-system-alias 'keyboard (or (car args) 'binary)))
+
+(dontusethis-set-symbol-value-handler
+ 'keyboard-coding-system
+ 'set-value
+ 'dontusethis-set-value-keyboard-coding-system-handler)
+
+(unless (boundp 'file-name-coding-system)
+  (setq file-name-coding-system nil))
+
+(when (not (featurep 'mule))
+  ;; these are so that gnus and friends work when not mule
+  (copy-coding-system 'undecided 'iso-8859-1)
+  (copy-coding-system 'undecided 'iso-8859-2)
+
+  (define-coding-system-alias 'ctext 'binary))
+
 
 ;; compatibility for old XEmacsen (don't use it)
 (copy-coding-system 'undecided 'automatic-conversion)

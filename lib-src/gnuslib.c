@@ -76,10 +76,8 @@ char *tmpdir = NULL;
 
 char *progname = NULL;
 
-int make_connection(hostarg, portarg, s)
-     char *hostarg;
-     int portarg;
-     int *s;
+int
+make_connection (char *hostarg, int portarg, int *s)
 {
 #ifdef INTERNET_DOMAIN_SOCKETS
   char *ptr;
@@ -130,7 +128,8 @@ int make_connection(hostarg, portarg, s)
   connect_to_ipc_server -- establish connection with server process via SYSV IPC
   			   Returns msqid for server if successful.
 */
-static int connect_to_ipc_server (void)
+static int
+connect_to_ipc_server (void)
 {
   int s;			/* connected msqid */
   key_t key;			/* message key */
@@ -160,10 +159,8 @@ static int connect_to_ipc_server (void)
   disconnect_from_ipc_server -- inform the server that sending has finished,
                                 and wait for its reply.
 */
-void disconnect_from_ipc_server(s,msgp,echo)
-     int s;
-     struct msgbuf *msgp;
-     int echo;
+void
+disconnect_from_ipc_server (int s, struct msgbuf *msgp, int echo)
 {
   int len;			/* length of received message */
 
@@ -196,9 +193,8 @@ void disconnect_from_ipc_server(s,msgp,echo)
 /*
   send_string -- send string to socket.
 */
-void send_string(s,msg)
-     int s;
-     CONST char *msg;
+void
+send_string (int s, CONST char *msg)
 {
 #if 0
   if (send(s,msg,strlen(msg),0) < 0) {
@@ -227,7 +223,8 @@ void send_string(s,msg)
 /*
   read_line -- read a \n terminated line from a socket
 */
-int read_line(int s, char *dest)
+int
+read_line (int s, char *dest)
 {
   int length;
   int offset=0;
@@ -252,7 +249,8 @@ int read_line(int s, char *dest)
   			    domain socket. Returns socket descriptor for server
 			    if successful.
 */
-static int connect_to_unix_server (void)
+static int
+connect_to_unix_server (void)
 {
   int s;			/* connected socket descriptor */
   struct sockaddr_un server; 	/* for unix connections */
@@ -286,8 +284,8 @@ static int connect_to_unix_server (void)
   internet_addr -- return the internet addr of the hostname or
                    internet address passed. Return -1 on error.
 */
-int internet_addr(host)
-     char *host;
+int
+internet_addr (char *host)
 {
   struct hostent *hp;		/* pointer to host info for remote host */
   IN_ADDR numeric_addr;		/* host address */
@@ -314,7 +312,8 @@ static Xauth *server_xauth = NULL;
   				an internet domain socket. Returns socket
 				descriptor for server if successful.
 */
-static int connect_to_internet_server (char *serverhost, u_short port)
+static int
+connect_to_internet_server (char *serverhost, u_short port)
 {
   int s;				/* connected socket descriptor */
   struct servent *sp;			/* pointer to service information */
@@ -395,9 +394,8 @@ static int connect_to_internet_server (char *serverhost, u_short port)
   disconnect_from_server -- inform the server that sending has finished, and wait for
                             its reply.
 */
-void disconnect_from_server(s,echo)
-     int s;
-     int echo;
+void
+disconnect_from_server (int s, int echo)
 {
 #if 0
   char buffer[REPLYSIZ+1];

@@ -313,7 +313,7 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
   /* !!#### This function has not been Mule-ized */
   /* This function cannot GC because gc_currently_forbidden is set when
      it's called */
-  struct Lisp_Gui_Item* pgui = 0;
+  Lisp_Gui_Item* pgui = 0;
 
   /* degenerate case */
   if (STRINGP (gui_item))
@@ -358,7 +358,9 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
 	  CHECK_STRING (suffix2);
 	}
 
-      GET_C_STRING_FILENAME_DATA_ALLOCA (suffix2, const_bogosity);
+      TO_EXTERNAL_FORMAT (LISP_STRING, suffix2,
+			  C_STRING_ALLOCA, const_bogosity,
+			  Qfile_name);
       wv->value = (char *) const_bogosity;
       wv->value = xstrdup (wv->value);
     }
@@ -466,17 +468,17 @@ gui_items_to_widget_values_1 (Lisp_Object items, widget_value* parent,
       wv = xmalloc_widget_value();
       if (parent)
 	parent->contents = wv;
-      else 
+      else
 	prev->next = wv;
       if (!button_item_to_widget_value (items, wv, 0, 1))
 	{
 	  free_widget_value_tree (wv);
 	  if (parent)
 	    parent->contents = 0;
-	  else 
+	  else
 	    prev->next = 0;
 	}
-      else 
+      else
 	{
 	  wv->value = xstrdup (wv->name);	/* what a mess... */
 	}

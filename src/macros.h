@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_MACROS_H_
-#define _XEMACS_MACROS_H_
+#ifndef INCLUDED_macros_h_
+#define INCLUDED_macros_h_
 
 /* Index of next character to fetch from that macro */
 
@@ -35,4 +35,4 @@ EXFUN (Fexecute_kbd_macro, 2);
 
 extern Lisp_Object Vexecuting_macro;
 
-#endif /* _XEMACS_MACROS_H_ */
+#endif /* INCLUDED_macros_h_ */

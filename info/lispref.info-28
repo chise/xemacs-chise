@@ -780,7 +780,7 @@ described here.
    When `zmacs-regions' is non-`nil' (this is the default), the concept
 of an "active region" exists.  The region is active when the
 corresponding mark is active.  Note that only one active region at a
-time can exist - i.e. only one buffer's region is active at a time.
+time can exist--i.e. only one buffer's region is active at a time.
 *Note The Mark::, for more information about active regions.
 
  - User Option: zmacs-regions

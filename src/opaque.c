@@ -64,7 +64,7 @@ sizeof_opaque (CONST void *header)
    If DATA is OPAQUE_UNINIT, the object's data is uninitialized.
    Else the object's data is initialized by copying from DATA. */
 Lisp_Object
-make_opaque (size_t size, CONST void *data)
+make_opaque (CONST void *data, size_t size)
 {
   Lisp_Opaque *p = (Lisp_Opaque *)
     alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, &lrecord_opaque);

@@ -1,4 +1,4 @@
-/* GPM functions
+/* GPM (General purpose mouse) functions
    Copyright (C) 1997 William M. Perry <wmperry@gnu.org>
    Copyright (C) 1999 Free Software Foundation, Inc.
 
@@ -52,7 +52,7 @@ extern int gpm_tried;
 extern void *gpm_stack;
 
 static int (*orig_event_pending_p) (int);
-static void (*orig_next_event_cb) (struct Lisp_Event *);
+static void (*orig_next_event_cb) (Lisp_Event *);
 
 static Lisp_Object gpm_event_queue;
 static Lisp_Object gpm_event_queue_tail;
@@ -95,7 +95,7 @@ clear_gpm_state (int fd)
 }
 
 static int
-get_process_infd (struct Lisp_Process *p)
+get_process_infd (Lisp_Process *p)
 {
   Lisp_Object instr, outstr;
   get_process_streams (p, &instr, &outstr);
@@ -113,7 +113,7 @@ This function is the process handler for the GPM connection.
 	int modifiers = 0;
 	int button = 1;
 	Lisp_Object fake_event;
-	struct Lisp_Event *event = NULL;
+	Lisp_Event *event = NULL;
 	struct gcpro gcpro1;
 	static int num_events;
 
@@ -369,7 +369,7 @@ tty_get_mouse_position (struct device *d, Lisp_Object *frame, int *x, int *y)
 static void
 tty_set_mouse_position (struct window *w, int x, int y)
 {
-	/* 
+	/*
 	   #### I couldn't find any GPM functions that set the mouse position.
 	   #### Mr. Perry had left this function empty; that must be why.
 	   #### karlheg
@@ -390,14 +390,14 @@ static int gpm_event_pending_p (int user_p)
 	return (orig_event_pending_p (user_p));
 }
 
-static void gpm_next_event_cb (struct Lisp_Event *event)
+static void gpm_next_event_cb (Lisp_Event *event)
 {
 	/* #### It would be nice to preserve some sort of ordering of the
 	** #### different types of events, but that would be quite a bit
 	** #### of work, and would more than likely break the abstraction
 	** #### between the other event loops and this one.
 	*/
-	   
+
 	if (!NILP (gpm_event_queue))
 	{
 		Lisp_Object queued_event = dequeue_event (&gpm_event_queue, &gpm_event_queue_tail);
@@ -579,7 +579,7 @@ Toggle accepting of GPM mouse events.
 	** descriptor, or it can get the wrong terminal sizes, etc.
 	*/
 	gpm_consolefd = fd;
-	
+
 	/* We have to pass the virtual console manually, otherwise if you
 	** use 'gnuclient -nw' to connect to an XEmacs that is running in
 	** X, Gpm_Open() tries to use ttyname(0 | 1 | 2) to find out which

@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* #### Not properly abstracted for device-independence. */
 
-#ifndef _XEMACS_MENUBAR_H_
-#define _XEMACS_MENUBAR_H_
+#ifndef INCLUDED_menubar_h_
+#define INCLUDED_menubar_h_
 
 #ifdef HAVE_MENUBARS
 #include "gui.h"
@@ -37,4 +37,4 @@ EXFUN (Fmenu_find_real_submenu, 2);
 
 #endif /* HAVE_MENUBARS */
 
-#endif /* _XEMACS_MENUBAR_H_ */
+#endif /* INCLUDED_menubar_h_ */

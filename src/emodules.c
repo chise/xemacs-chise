@@ -213,9 +213,9 @@ find_make_module (CONST char *mod, CONST char *name, CONST char *ver, int mof)
    * not previously loaded.
    */
   if (modules == (emodules_list *)0)
-    modules = (emodules_list *)xmalloc (sizeof(emodules_list));
+    modules = (emodules_list *) xmalloc (sizeof (emodules_list));
   modnum++;
-  modules = (emodules_list *) xrealloc (modules, modnum * sizeof(emodules_list));
+  modules = (emodules_list *) xrealloc (modules, modnum * sizeof (emodules_list));
 
   fs = modnum - 1;
   memset (&modules[fs], 0, sizeof(emodules_list));
@@ -482,7 +482,7 @@ emodules_doc_subr(CONST char *symname, CONST char *doc)
 {
   Bytecount len = strlen (symname);
   Lisp_Object sym = oblookup (Vobarray, (CONST Bufbyte *)symname, len);
-  struct Lisp_Subr *subr;
+  Lisp_Subr *subr;
 
   if (SYMBOLP(sym))
     {

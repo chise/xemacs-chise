@@ -107,10 +107,11 @@ the user's init file.")
 (defvar user-init-directory-base ".xemacs"
   "Base of directory where user-installed init files may go.")
 
-(defvar user-init-file-base (cond
-			     ((eq system-type 'ms-dos) "_emacs")
-			     (t ".emacs"))
-  "Base of init file.")
+(defvar user-init-file-base-list (append
+				  '(".emacs.elc" ".emacs.el" ".emacs")
+				  (and (eq system-type 'windows-nt)
+				       '("_emacs.elc" "_emacs.el" "_emacs")))
+  "List of allowed init files.  The first one found takes precedence.")
 
 (defvar user-init-directory
   (file-name-as-directory
@@ -535,11 +536,10 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
  	    (string= arg "-user"))
 	(let* ((user (pop args))
 	       (home-user (concat "~" user)))
-	  (setq user-init-file
-		(paths-construct-path (list home-user user-init-file-base)))
-	  (setq user-init-directory
-		(file-name-as-directory
-		 (paths-construct-path (list home-user user-init-directory-base))))))
+	  (setq user-init-file (find-user-init-file home-user)
+		user-init-directory (file-name-as-directory
+				     (paths-construct-path
+				      (list home-user user-init-directory-base))))))
        ((string= arg "-debug-init")
 	(setq init-file-debug t))
        ((string= arg "-unmapped")
@@ -594,6 +594,11 @@ If this is nil, no message will be displayed.")
       ;; and deletes the stdio device.
       (frame-initialize))
 
+    ;; Reinitialize faces if necessary.  This function changes face if
+    ;; it is created during auto-autoloads loading.  Otherwise, it
+    ;; does nothing.
+    (startup-initialize-custom-faces)
+
     ;;
     ;; We have normality, I repeat, we have normality.  Anything you still
     ;; can't cope with is therefore your own problem.  (And we don't need
@@ -638,11 +643,19 @@ If this is nil, no message will be displayed.")
 	    (setq term (substring term 0 hyphend))
 	  (setq term nil))))))
 
+(defun find-user-init-file (&optional directory)
+  "Determine the user's init file."
+  (unless directory
+    (setq directory "~"))
+  (dolist (file user-init-file-base-list)
+    (let ((expanded (paths-construct-path (list directory file))))
+      (when (file-exists-p expanded)
+	(return expanded)))))
+
 (defun load-user-init-file ()
   "This function actually reads the init file, .emacs."
   (if (not user-init-file)
-      (setq user-init-file
-	    (paths-construct-path (list "~" user-init-file-base))))
+      (setq user-init-file (find-user-init-file)))
   (load user-init-file t t t)
   (unless inhibit-default-init
     (let ((inhibit-startup-message nil))
@@ -1024,7 +1037,7 @@ Copyright (C) 1996-2000 MORIOKA Tomohiko
 	      (1+ indice )))
       )))
 
-;; ### This function now returns the (possibly nil) timeout circulating the
+;; #### This function now returns the (possibly nil) timeout circulating the
 ;; splash-frame elements
 (defun display-splash-frame ()
   (let ((logo xemacs-logo)

@@ -1157,7 +1157,7 @@ redisplay_output_subwindow (struct window *w,
 			    face_index findex, int cursor_start, int cursor_width,
 			    int cursor_height)
 {
-  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
   struct display_glyph_area sdga;
 
@@ -1214,7 +1214,7 @@ redisplay_output_layout (struct window *w,
 			 face_index findex, int cursor_start, int cursor_width,
 			 int cursor_height)
 {
-  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window, rest;
   Emchar_dynarr *buf = Dynarr_new (Emchar);
   struct frame *f = XFRAME (w->frame);
@@ -1222,7 +1222,7 @@ redisplay_output_layout (struct window *w,
   int layout_height, layout_width;
   /* We bogusly don't take f->extents_changed and f->glyphs_changed
      into account. This is because if we do we always redisplay the
-     entire layout. So far I have seen no ill effects to we'll see. */
+     entire layout. So far I have seen no ill effects so we'll see. */
   int frame_really_changed = (f->buffers_changed ||
 			      f->clip_changed ||
 			      f->faces_changed    ||
@@ -1314,7 +1314,7 @@ redisplay_output_layout (struct window *w,
       /* First determine if the image is visible at all */
       if (IMAGE_INSTANCEP (child))
 	{
-	  struct Lisp_Image_Instance* childii = XIMAGE_INSTANCE (child);
+	  Lisp_Image_Instance* childii = XIMAGE_INSTANCE (child);
 	  /* The enclosing layout offsets are +ve at this point */
 	  struct display_glyph_area cdga;
 	  cdga.xoffset  = IMAGE_INSTANCE_XOFFSET (childii) - dga->xoffset;
@@ -1428,7 +1428,7 @@ redisplay_output_pixmap (struct window *w,
 {
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
-  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
   XSETWINDOW (window, w);
 

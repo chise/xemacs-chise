@@ -1,7 +1,8 @@
 ;; Copyright (C) 1999 Free Software Foundation, Inc.
 
 ;; Author: Hrvoje Niksic <hniksic@xemacs.org>
-;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
+;; Maintainers: Hrvoje Niksic <hniksic@xemacs.org>,
+;;              Martin Buchholz <martin@xemacs.org>
 ;; Created: 1999
 ;; Keywords: tests
 
@@ -102,6 +103,127 @@ the Assert macro checks for correctness."
   (let ((string (string (make-char 'ascii 69) (make-char 'latin-iso8859-2 69))))
     (aset string 0 (make-char 'latin-iso8859-2 42))
     (Assert (eq (aref string 1) (make-char 'latin-iso8859-2 69))))
+
+  ;; Test coding system functions
+
+  ;; Create alias for coding system without subsidiaries
+  (Assert (coding-system-p (find-coding-system 'binary)))
+  (Assert (coding-system-canonical-name-p 'binary))
+  (Assert (not (coding-system-alias-p 'binary)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias)))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Check-Error-Message
+   error "Symbol is the canonical name of a coding system and cannot be redefined"
+   (define-coding-system-alias 'binary 'iso8859-2))
+  (Check-Error-Message
+   error "Symbol is not a coding system alias"
+   (coding-system-aliasee 'binary))
+
+  (define-coding-system-alias 'mule-tests-alias 'binary)
+  (Assert (coding-system-alias-p 'mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Assert (eq (get-coding-system 'binary) (get-coding-system 'mule-tests-alias)))
+  (Assert (eq 'binary (coding-system-aliasee 'mule-tests-alias)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-unix)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-dos)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-mac)))
+
+  (define-coding-system-alias 'mule-tests-alias (get-coding-system 'binary))
+  (Assert (coding-system-alias-p 'mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Assert (eq (get-coding-system 'binary) (get-coding-system 'mule-tests-alias)))
+  (Assert (eq 'binary (coding-system-aliasee 'mule-tests-alias)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-unix)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-dos)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-mac)))
+
+  (define-coding-system-alias 'nested-mule-tests-alias 'mule-tests-alias)
+  (Assert (coding-system-alias-p 'nested-mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'nested-mule-tests-alias)))
+  (Assert (eq (get-coding-system 'binary) (get-coding-system 'nested-mule-tests-alias)))
+  (Assert (eq (coding-system-aliasee 'nested-mule-tests-alias) 'mule-tests-alias))
+  (Assert (eq 'mule-tests-alias (coding-system-aliasee 'nested-mule-tests-alias)))
+  (Assert (not (coding-system-alias-p 'nested-mule-tests-alias-unix)))
+  (Assert (not (coding-system-alias-p 'nested-mule-tests-alias-dos)))
+  (Assert (not (coding-system-alias-p 'nested-mule-tests-alias-mac)))
+
+  (Check-Error-Message
+   error "Attempt to create a coding system alias loop"
+   (define-coding-system-alias 'mule-tests-alias 'nested-mule-tests-alias))
+  (Check-Error-Message
+   error "No such coding system"
+   (define-coding-system-alias 'no-such-coding-system 'no-such-coding-system))
+  (Check-Error-Message
+   error "Attempt to create a coding system alias loop"
+   (define-coding-system-alias 'mule-tests-alias 'mule-tests-alias))
+
+  (define-coding-system-alias 'nested-mule-tests-alias nil)
+  (define-coding-system-alias 'mule-tests-alias nil)
+  (Assert (coding-system-p (find-coding-system 'binary)))
+  (Assert (coding-system-canonical-name-p 'binary))
+  (Assert (not (coding-system-alias-p 'binary)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias)))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Check-Error-Message
+   error "Symbol is the canonical name of a coding system and cannot be redefined"
+   (define-coding-system-alias 'binary 'iso8859-2))
+  (Check-Error-Message
+   error "Symbol is not a coding system alias"
+   (coding-system-aliasee 'binary))
+
+  (define-coding-system-alias 'nested-mule-tests-alias nil)
+  (define-coding-system-alias 'mule-tests-alias nil)
+
+  ;; Create alias for coding system with subsidiaries
+  (define-coding-system-alias 'mule-tests-alias 'iso-8859-7)
+  (Assert (coding-system-alias-p 'mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Assert (eq (get-coding-system 'iso-8859-7) (get-coding-system 'mule-tests-alias)))
+  (Assert (eq 'iso-8859-7 (coding-system-aliasee 'mule-tests-alias)))
+  (Assert (coding-system-alias-p 'mule-tests-alias-unix))
+  (Assert (coding-system-alias-p 'mule-tests-alias-dos))
+  (Assert (coding-system-alias-p 'mule-tests-alias-mac))
+
+  (define-coding-system-alias 'mule-tests-alias (get-coding-system 'iso-8859-7))
+  (Assert (coding-system-alias-p 'mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'mule-tests-alias)))
+  (Assert (eq (get-coding-system 'iso-8859-7) (get-coding-system 'mule-tests-alias)))
+  (Assert (eq 'iso-8859-7 (coding-system-aliasee 'mule-tests-alias)))
+  (Assert (coding-system-alias-p 'mule-tests-alias-unix))
+  (Assert (coding-system-alias-p 'mule-tests-alias-dos))
+  (Assert (coding-system-alias-p 'mule-tests-alias-mac))
+  (Assert (eq (find-coding-system 'mule-tests-alias-mac)
+	      (find-coding-system 'iso-8859-7-mac)))
+
+  (define-coding-system-alias 'nested-mule-tests-alias 'mule-tests-alias)
+  (Assert (coding-system-alias-p 'nested-mule-tests-alias))
+  (Assert (not (coding-system-canonical-name-p 'nested-mule-tests-alias)))
+  (Assert (eq (get-coding-system 'iso-8859-7)
+	      (get-coding-system 'nested-mule-tests-alias)))
+  (Assert (eq (coding-system-aliasee 'nested-mule-tests-alias) 'mule-tests-alias))
+  (Assert (eq 'mule-tests-alias (coding-system-aliasee 'nested-mule-tests-alias)))
+  (Assert (coding-system-alias-p 'nested-mule-tests-alias-unix))
+  (Assert (coding-system-alias-p 'nested-mule-tests-alias-dos))
+  (Assert (coding-system-alias-p 'nested-mule-tests-alias-mac))
+  (Assert (eq (find-coding-system 'nested-mule-tests-alias-unix)
+	      (find-coding-system 'iso-8859-7-unix)))
+
+  (Check-Error-Message
+   error "Attempt to create a coding system alias loop"
+   (define-coding-system-alias 'mule-tests-alias 'nested-mule-tests-alias))
+  (Check-Error-Message
+   error "No such coding system"
+   (define-coding-system-alias 'no-such-coding-system 'no-such-coding-system))
+  (Check-Error-Message
+   error "Attempt to create a coding system alias loop"
+   (define-coding-system-alias 'mule-tests-alias 'mule-tests-alias))
+
+  ;; Test dangling alias deletion
+  (define-coding-system-alias 'mule-tests-alias nil)
+  (Assert (not (coding-system-alias-p 'mule-tests-alias)))
+  (Assert (not (coding-system-alias-p 'mule-tests-alias-unix)))
+  (Assert (not (coding-system-alias-p 'nested-mule-tests-alias)))
+  (Assert (not (coding-system-alias-p 'nested-mule-tests-alias-dos)))
 
   ;; Test strings waxing and waning across the 8k BIG_STRING limit (see alloc.c)
   (defun charset-char-string (charset)

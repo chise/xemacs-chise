@@ -21,6 +21,56 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-01-27  URA Hiroshi <ura@hiru.aoba.yokohama.jp>
+	* configure.in: added getaddrinfo and getnameinfo to AC_FUNC.
+
+2000-01-26  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Backout the /etc/ld.so.conf patch of 2000-01-18.
+
+2000-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Always use our own realpath(), not the system one.
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Default Drag-N-Drop to "no"
+
+1999-12-28  Max Matveev  <max@melbourne.sgi.com>
+
+	* configure.in: add new machine type for IRIX 6.[2-5] to
+	switch from using unexelf.o to unexelfsgi.o for just those
+	versions of IRIX.
+	In the ideal world it would be handled by the s/irix6-0.h but
+	since machine config is included AFTER OS config, I had to add a
+	new machine type.
+
+2000-01-22  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: add winspool to windows libraries.
+
+2000-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Add more warnings to default gcc flags.
+
+2000-01-20  Daniel Pittman  <daniel@danann.net>
+
+	* configure.in: Find Athena headers hidden in even more obscure
+	places. That is, search Xaw3D/ as well as X11/Xaw3D/.
+
+2000-01-19  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Add support for NetWinders.
+	Patch by Sean MacLennan <seanm@netwinder.org>
+
+2000-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Use /etc/ld.so.conf at link-time, if available.
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.

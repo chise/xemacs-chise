@@ -89,7 +89,7 @@ static Lisp_Object follow_varalias_pointers (Lisp_Object symbol,
 static Lisp_Object
 mark_symbol (Lisp_Object obj)
 {
-  struct Lisp_Symbol *sym = XSYMBOL (obj);
+  Lisp_Symbol *sym = XSYMBOL (obj);
   Lisp_Object pname;
 
   mark_object (sym->value);
@@ -109,13 +109,17 @@ mark_symbol (Lisp_Object obj)
 }
 
 static const struct lrecord_description symbol_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Symbol, next), 5 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, next) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, value) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, function) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, plist) },
   { XD_END }
 };
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("symbol", symbol,
 				     mark_symbol, print_symbol, 0, 0, 0,
-				     symbol_description, struct Lisp_Symbol);
+				     symbol_description, Lisp_Symbol);
 
 
 /**********************************************************************/
@@ -173,7 +177,7 @@ it defaults to the value of `obarray'.
        (string, obarray))
 {
   Lisp_Object object, *ptr;
-  struct Lisp_Symbol *symbol;
+  Lisp_Symbol *symbol;
   Bytecount len;
 
   if (NILP (obarray)) obarray = Vobarray;
@@ -222,7 +226,7 @@ it defaults to the value of `obarray'.
   /* #### Bug!  (intern-soft "nil") returns nil.  Perhaps we should
      add a DEFAULT-IF-NOT-FOUND arg, like in get.  */
   Lisp_Object tem;
-  struct Lisp_String *string;
+  Lisp_String *string;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
@@ -252,7 +256,7 @@ OBARRAY defaults to the value of the variable `obarray'
        (name, obarray))
 {
   Lisp_Object tem;
-  struct Lisp_String *string;
+  Lisp_String *string;
   int hash;
 
   if (NILP (obarray)) obarray = Vobarray;
@@ -311,7 +315,7 @@ Lisp_Object
 oblookup (Lisp_Object obarray, CONST Bufbyte *ptr, Bytecount size)
 {
   int hash, obsize;
-  struct Lisp_Symbol *tail;
+  Lisp_Symbol *tail;
   Lisp_Object bucket;
 
   if (!VECTORP (obarray) ||
@@ -394,7 +398,7 @@ map_obarray (Lisp_Object obarray,
       if (SYMBOLP (tail))
 	while (1)
 	  {
-	    struct Lisp_Symbol *next;
+	    Lisp_Symbol *next;
 	    if ((*fn) (tail, arg))
 	      return;
 	    next = symbol_next (XSYMBOL (tail));
@@ -770,8 +774,8 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
 
    SYMVAL_CONST_SPECIFIER_FORWARD:
       (declare with DEFVAR_SPECIFIER)
-      Exactly like SYMVAL_CONST_OBJECT_FORWARD except that error message
-      you get when attempting to set the value says to use
+      Exactly like SYMVAL_CONST_OBJECT_FORWARD except that the error
+      message you get when attempting to set the value says to use
       `set-specifier' instead.
 
    SYMVAL_CURRENT_BUFFER_FORWARD:
@@ -959,18 +963,19 @@ static const struct lrecord_description symbol_value_forward_description[] = {
 };
 
 static const struct lrecord_description symbol_value_buffer_local_description[] = {
-  { XD_LISP_OBJECT,  offsetof(struct symbol_value_buffer_local, default_value), 1 },
-  { XD_LO_RESET_NIL, offsetof(struct symbol_value_buffer_local, current_value), 3 },
+  { XD_LISP_OBJECT,  offsetof (struct symbol_value_buffer_local, default_value) },
+  { XD_LO_RESET_NIL, offsetof (struct symbol_value_buffer_local, current_value), 3 },
   { XD_END }
 };
 
 static const struct lrecord_description symbol_value_lisp_magic_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct symbol_value_lisp_magic, handler), 2*MAGIC_HANDLER_MAX+1 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct symbol_value_lisp_magic, handler), 2*MAGIC_HANDLER_MAX+1 },
   { XD_END }
 };
 
 static const struct lrecord_description symbol_value_varalias_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct symbol_value_varalias, aliasee), 2 },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_varalias, aliasee) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_varalias, shadowed) },
   { XD_END }
 };
 
@@ -1619,7 +1624,7 @@ Set SYMBOL's value to NEWVAL, and return NEWVAL.
        (symbol, newval))
 {
   REGISTER Lisp_Object valcontents;
-  struct Lisp_Symbol *sym;
+  Lisp_Symbol *sym;
   /* remember, we're called by Fmakunbound() as well */
 
   CHECK_SYMBOL (symbol);
@@ -1643,23 +1648,20 @@ Set SYMBOL's value to NEWVAL, and return NEWVAL.
   reject_constant_symbols (symbol, newval, 0,
 			   UNBOUNDP (newval) ? Qmakunbound : Qset);
 
- retry_2:
-
   switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
     {
     case SYMVAL_LISP_MAGIC:
       {
-	Lisp_Object retval;
-
 	if (UNBOUNDP (newval))
-	  retval = maybe_call_magic_handler (symbol, Qmakunbound, 0);
+	  {
+	    maybe_call_magic_handler (symbol, Qmakunbound, 0);
+	    return XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed = Qunbound;
+	  }
 	else
-	  retval = maybe_call_magic_handler (symbol, Qset, 1, newval);
-	if (!UNBOUNDP (retval))
-	  return newval;
-	valcontents = XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed;
-	/* semi-change-o */
-	goto retry_2;
+	  {
+	    maybe_call_magic_handler (symbol, Qset, 1, newval);
+	    return XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed = newval;
+	  }
       }
 
     case SYMVAL_VARALIAS:
@@ -2845,7 +2847,7 @@ maybe_call_magic_handler (Lisp_Object sym, Lisp_Object funsym, int nargs, ...)
   Lisp_Object legerdemain;
   struct symbol_value_lisp_magic *bfwd;
 
-  assert (nargs >= 0 && nargs < 20);
+  assert (nargs >= 0 && nargs < countof (args));
   legerdemain = XSYMBOL (sym)->value;
   assert (SYMBOL_VALUE_LISP_MAGIC_P (legerdemain));
   bfwd = XSYMBOL_VALUE_LISP_MAGIC (legerdemain);
@@ -3111,15 +3113,7 @@ static struct symbol_value_magic guts_of_unbound_marker =
 void
 init_symbols_once_early (void)
 {
-#ifndef Qzero
-  Qzero = make_int (0);	/* Only used if Lisp_Object is a union type */
-#endif
-
-#ifndef Qnull_pointer
-  /* C guarantees that Qnull_pointer will be initialized to all 0 bits,
-     so the following is actually a no-op.  */
-  XSETOBJ (Qnull_pointer, (enum Lisp_Type) 0, 0);
-#endif
+  reinit_symbols_once_early ();
 
   /* Bootstrapping problem: Qnil isn't set when make_string_nocopy is
      called the first time. */
@@ -3165,6 +3159,20 @@ init_symbols_once_early (void)
   pdump_wire (&Qnil);
   pdump_wire (&Qunbound);
   pdump_wire (&Vquit_flag);
+}
+
+void
+reinit_symbols_once_early (void)
+{
+#ifndef Qzero
+  Qzero = make_int (0);	/* Only used if Lisp_Object is a union type */
+#endif
+
+#ifndef Qnull_pointer
+  /* C guarantees that Qnull_pointer will be initialized to all 0 bits,
+     so the following is actually a no-op.  */
+  XSETOBJ (Qnull_pointer, (enum Lisp_Type) 0, 0);
+#endif
 }
 
 void
@@ -3239,15 +3247,14 @@ check_sane_subr (Lisp_Subr *subr, Lisp_Object sym)
  * FIXME: Should newsubr be staticpro()'ed? I dont think so but I need
  * a guru to check.
  */
-#define check_module_subr()                                             \
-do {                                                                    \
-  if (initialized) {                                                    \
-    struct Lisp_Subr *newsubr;                                          \
-    newsubr = (Lisp_Subr *)xmalloc(sizeof(struct Lisp_Subr));           \
-    memcpy (newsubr, subr, sizeof(struct Lisp_Subr));                   \
-    subr->doc = (CONST char *)newsubr;                                  \
-    subr = newsubr;                                                     \
-  }                                                                     \
+#define check_module_subr()						\
+do {									\
+  if (initialized) {							\
+    Lisp_Subr *newsubr = (Lisp_Subr *) xmalloc (sizeof (Lisp_Subr));	\
+    memcpy (newsubr, subr, sizeof (Lisp_Subr));				\
+    subr->doc = (CONST char *)newsubr;					\
+    subr = newsubr;							\
+  }									\
 } while (0)
 #else /* ! HAVE_SHLIB */
 #define check_module_subr()

@@ -17,8 +17,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _HASH_H_
-#define _HASH_H_
+#ifndef INCLUDED_hash_h_
+#define INCLUDED_hash_h_
 
 typedef struct
 {
@@ -78,4 +78,4 @@ void maphash (maphash_function mf, struct hash_table *hash_table, void* arg);
 void map_remhash (remhash_predicate predicate,
 		  struct hash_table *hash_table, void *arg);
 
-#endif /* _HASH_H_ */
+#endif /* INCLUDED_hash_h_ */

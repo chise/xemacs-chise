@@ -25,8 +25,8 @@ Boston, MA 02111-1307, USA.  */
 /* Sun's standard and GCC's header files leave out prototypes for
    all sorts of functions. */
 
-#ifndef _XEMACS_BROKEN_SUN_H_
-#define _XEMACS_BROKEN_SUN_H_
+#ifndef INCLUDED_broken_sun_h_
+#define INCLUDED_broken_sun_h_
 
 #ifdef __GNUC__
 #include <stdlib.h>
@@ -164,4 +164,4 @@ int	srandom (int seed);
 
 #endif /* __GNUC__ */
 
-#endif /* _XEMACS_BROKEN_SUN_H_ */
+#endif /* INCLUDED_broken_sun_h_ */

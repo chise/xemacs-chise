@@ -108,13 +108,13 @@ List Keybindings
      for that particular buffer also. For example, if you are in
      "Texinfo" mode, part of your list will contain:
 
-          C-c C-c n	texinfo-insert-@node
-          C-c C-c o	texinfo-insert-@noindent
-          C-c C-c s	texinfo-insert-@samp
-          C-c C-c t	texinfo-insert-@table
-          C-c C-c v	texinfo-insert-@var
-          C-c C-c x	texinfo-insert-@example
-          C-c C-c {	texinfo-insert-braces
+          C-c C-c n       texinfo-insert-@node
+          C-c C-c o       texinfo-insert-@noindent
+          C-c C-c s       texinfo-insert-@samp
+          C-c C-c t       texinfo-insert-@table
+          C-c C-c v       texinfo-insert-@var
+          C-c C-c x       texinfo-insert-@example
+          C-c C-c {      texinfo-insert-braces
 
      These keybindings apply only to "Texinfo" mode. *Note Modes::, for
      more information on various modes.
@@ -325,7 +325,7 @@ font-lock-mode
      example shows how to enable the font-lock mode when the major mode
      is c-mode.
 
-          (add-hook 'c-mode-hook		'turn-on-font-lock)
+          (add-hook 'c-mode-hook          'turn-on-font-lock)
 
      *Note Other Customizations::.
 
@@ -607,7 +607,7 @@ statements do.
      (add-hook 'texinfo-mode-hook    'turn-on-font-lock)
      
      ;;; enables the font-lock mode in C Mode
-     (add-hook 'c-mode-hook		'turn-on-font-lock)
+     (add-hook 'c-mode-hook          'turn-on-font-lock)
 
    To turn on the font-lock mode in other Major Modes like emacs-lisp,
 just put the name of the mode with "-hook" appended to it as the middle

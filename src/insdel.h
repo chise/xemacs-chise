@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Mostly rewritten by Ben Wing. */
 
-#ifndef _XEMACS_INSDEL_H_
-#define _XEMACS_INSDEL_H_
+#ifndef INCLUDED_insdel_h_
+#define INCLUDED_insdel_h_
 
 /************************************************************************/
 /*                        changing a buffer's text                      */
@@ -159,4 +159,4 @@ void barf_if_buffer_read_only (struct buffer *buf, Bufpos from,
 void init_buffer_text (struct buffer *b);
 void uninit_buffer_text (struct buffer *b);
 
-#endif /* _XEMACS_INSDEL_H_ */
+#endif /* INCLUDED_insdel_h_ */

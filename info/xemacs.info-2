@@ -444,9 +444,9 @@ following:
 
    Create a file called `~/.xmodmap'.  In this file, place the lines
 
-     	remove Lock = Caps_Lock
-     	keysym Caps_Lock = Super_L
-     	add Mod2 = Super_L
+             remove Lock = Caps_Lock
+             keysym Caps_Lock = Super_L
+             add Mod2 = Super_L
 
    The first line says that the key that is currently called `Caps_Lock'
 should no longer behave as a "lock" key.  The second line says that

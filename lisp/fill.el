@@ -383,7 +383,7 @@ space does not end a sentence, so don't break a line there."
 	  (skip-chars-forward " \t")
 	  ;; Then change all newlines to spaces.
 	  ;;; 97/3/14 jhod: Kinsoku change
-	  ;; Spacing is not necessary for charcters of no word-separater.
+	  ;; Spacing is not necessary for characters of no word-separator.
 	  ;; The regexp word-across-newline is used for this check.
 	  (defvar word-across-newline)
 	  (if (not (and (featurep 'mule)

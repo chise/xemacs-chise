@@ -226,7 +226,7 @@ allocate_frame_core (Lisp_Object device)
        a space), try to find another one.  */
     if (string_char (XSTRING (Fbuffer_name (buf)), 0) == ' ')
       buf = Fother_buffer (buf, Qnil, Qnil);
-    Fset_window_buffer (root_window, buf);
+    Fset_window_buffer (root_window, buf, Qnil);
   }
 
   return f;
@@ -249,7 +249,7 @@ setup_normal_frame (struct frame *f)
   f->has_minibuffer = 1;
 
   XWINDOW (mini_window)->buffer = Qt;
-  Fset_window_buffer (mini_window, Vminibuffer_zero);
+  Fset_window_buffer (mini_window, Vminibuffer_zero, Qt);
 }
 
 /* Make a frame using a separate minibuffer window on another frame.
@@ -286,7 +286,7 @@ setup_frame_without_minibuffer (struct frame *f, Lisp_Object mini_window)
 
   /* Install the chosen minibuffer window, with proper buffer.  */
   store_minibuf_frame_prop (f, mini_window);
-  Fset_window_buffer (mini_window, Vminibuffer_zero);
+  Fset_window_buffer (mini_window, Vminibuffer_zero, Qt);
 }
 
 /* Make a frame containing only a minibuffer window.  */
@@ -316,7 +316,7 @@ setup_minibuffer_frame (struct frame *f)
 
   /* Put the proper buffer in that window.  */
 
-  Fset_window_buffer (mini_window, Vminibuffer_zero);
+  Fset_window_buffer (mini_window, Vminibuffer_zero, Qt);
 }
 
 static Lisp_Object
@@ -1322,7 +1322,9 @@ delete_frame_internal (struct frame *f, int force,
   console = DEVICE_CONSOLE (d);
   con = XCONSOLE (console);
 
-  if (!called_from_delete_device)
+  if (!called_from_delete_device &&
+      !(MAYBE_INT_DEVMETH (d, device_implementation_flags, ())
+	& XDEVIMPF_FRAMELESS_OK))
     {
       /* If we're deleting the only non-minibuffer frame on the
 	 device, delete the device. */
@@ -1508,7 +1510,7 @@ delete_frame_internal (struct frame *f, int force,
 		    next_frame_internal (frame, Qt, device,
 					 called_from_delete_device);
 		if (NILP (next_f) || EQ (next_f, frame))
-		  ;
+		  set_device_selected_frame (d, Qnil);
 		else
 		  set_device_selected_frame (d, next_f);
 	    }
@@ -1523,7 +1525,7 @@ delete_frame_internal (struct frame *f, int force,
     {
       struct frame *sel_frame = selected_frame ();
       Fset_window_buffer (sel_frame->minibuffer_window,
-			  XWINDOW (minibuf_window)->buffer);
+			  XWINDOW (minibuf_window)->buffer, Qt);
       minibuf_window = sel_frame->minibuffer_window;
 
       /* If the dying minibuffer window was selected,
@@ -1929,7 +1931,7 @@ you may do so.
   if (EQ (f->minibuffer_window, minibuf_window))
     {
       Fset_window_buffer (sel_frame->minibuffer_window,
-			  XWINDOW (minibuf_window)->buffer);
+			  XWINDOW (minibuf_window)->buffer, Qt);
       minibuf_window = sel_frame->minibuffer_window;
     }
 
@@ -1955,7 +1957,7 @@ If omitted, FRAME defaults to the currently selected frame.
   if (EQ (f->minibuffer_window, minibuf_window))
     {
       Fset_window_buffer (sel_frame->minibuffer_window,
-			  XWINDOW (minibuf_window)->buffer);
+			  XWINDOW (minibuf_window)->buffer, Qt);
       minibuf_window = sel_frame->minibuffer_window;
     }
 
@@ -2142,7 +2144,7 @@ dissect_as_face_setting (Lisp_Object sym, Lisp_Object *face_out,
 			 Lisp_Object *face_prop_out)
 {
   Lisp_Object list = Vbuilt_in_face_specifiers;
-  struct Lisp_String *s;
+  Lisp_String *s;
 
   if (!SYMBOLP (sym))
     return 0;
@@ -2152,7 +2154,7 @@ dissect_as_face_setting (Lisp_Object sym, Lisp_Object *face_out,
   while (!NILP (list))
     {
       Lisp_Object prop = Fcar (list);
-      struct Lisp_String *prop_name;
+      Lisp_String *prop_name;
 
       if (!SYMBOLP (prop))
 	continue;
@@ -2849,14 +2851,16 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     - FRAME_REAL_RIGHT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_RIGHT_TOOLBAR_BORDER_WIDTH (f);
 
+  new_pixwidth += 2 * f->internal_border_width;
+
   /* Adjust the width for the end glyph which may be a different width
      than the default character width. */
   {
     int adjustment, trunc_width, cont_width;
 
-    trunc_width = glyph_width (Vtruncation_glyph, 
+    trunc_width = glyph_width (Vtruncation_glyph,
 			       FRAME_SELECTED_WINDOW (f));
-    cont_width = glyph_width (Vcontinuation_glyph, 
+    cont_width = glyph_width (Vcontinuation_glyph,
 			      FRAME_SELECTED_WINDOW (f));
     adjustment = max (trunc_width, cont_width);
     adjustment = max (adjustment, font_width);

@@ -43,7 +43,7 @@ ways, although the basic shape will be the same.
   In some cases, the differences will be significant enough that it is
 actually possible to identify two or more distinct shapes that both
 represent the same character.  For example, the lowercase letters
-@samp{a} and @samp{g} each have two distinct possible shapes -- the
+@samp{a} and @samp{g} each have two distinct possible shapes---the
 @samp{a} can optionally have a curved tail projecting off the top, and
 the @samp{g} can be formed either of two loops, or of one loop and a
 tail hanging off the bottom.  Such distinct possible shapes of a
@@ -51,7 +51,7 @@ character are called @dfn{glyphs}.  The important characteristic of two
 glyphs making up the same character is that the choice between one or
 the other is purely stylistic and has no linguistic effect on a word
 (this is the reason why a capital @samp{A} and lowercase @samp{a}
-are different characters rather than different glyphs -- e.g.
+are different characters rather than different glyphs---e.g.
 @samp{Aspen} is a city while @samp{aspen} is a kind of tree).
 
   Note that @dfn{character} and @dfn{glyph} are used differently
@@ -74,7 +74,7 @@ particular ordering.  ASCII, for example, places letters in their
 numbers before letters, etc.  Note that for many of the Asian character
 sets, there is no natural ordering of the characters.  The actual
 orderings are based on one or more salient characteristic, of which
-there are many to choose from -- e.g. number of strokes, common
+there are many to choose from---e.g. number of strokes, common
 radicals, phonetic ordering, etc.
 
   The set of numbers assigned to any particular character are called
@@ -105,11 +105,11 @@ directly. (This is the case with ASCII, and as a result, most people do
 not understand the difference between a character set and an encoding.)
 This is not possible, however, if more than one character set is to be
 used in the encoding.  For example, printed Japanese text typically
-requires characters from multiple character sets -- ASCII, JISX0208, and
+requires characters from multiple character sets---ASCII, JISX0208, and
 JISX0212, to be specific.  Each of these is indexed using one or more
 position codes in the range 33 through 126, so the position codes could
 not be used directly or there would be no way to tell which character
-was meant.  Different Japanese encodings handle this differently -- JIS
+was meant.  Different Japanese encodings handle this differently---JIS
 uses special escape characters to denote different character sets; EUC
 sets the high bit of the position codes for JISX0208 and JISX0212, and
 puts a special extra byte before each JISX0212 character; etc. (JIS,
@@ -366,7 +366,7 @@ TTY mode) of @var{charset}.
 @end defun
 
 @defun charset-direction charset
-This function returns the display direction of @var{charset} -- either
+This function returns the display direction of @var{charset}---either
 @code{l2r} or @code{r2l}.
 @end defun
 
@@ -555,10 +555,10 @@ register of charset can be invoked into.
 
 @example
 @group
-	C0: 0x00 - 0x1F
-	GL: 0x20 - 0x7F
-	C1: 0x80 - 0x9F
-	GR: 0xA0 - 0xFF
+        C0: 0x00 - 0x1F
+        GL: 0x20 - 0x7F
+        C1: 0x80 - 0x9F
+        GR: 0xA0 - 0xFF
 @end group
 @end example
 
@@ -571,7 +571,7 @@ ISO 2022 distinguishes 7-bit environments and 8-bit environments.  In
 Charset designation is done by escape sequences of the form:
 
 @example
-	ESC [@var{I}] @var{I} @var{F}
+        ESC [@var{I}] @var{I} @var{F}
 @end example
 
 where @var{I} is an intermediate character in the range 0x20 - 0x2F, and
@@ -581,32 +581,32 @@ The meaning of intermediate characters are:
 
 @example
 @group
-	$ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
-	( [0x28]: designate to G0 a 94-charset whose final byte is @var{F}.
-	) [0x29]: designate to G1 a 94-charset whose final byte is @var{F}.
-	* [0x2A]: designate to G2 a 94-charset whose final byte is @var{F}.
-	+ [0x2B]: designate to G3 a 94-charset whose final byte is @var{F}.
-	- [0x2D]: designate to G1 a 96-charset whose final byte is @var{F}.
-	. [0x2E]: designate to G2 a 96-charset whose final byte is @var{F}.
-	/ [0x2F]: designate to G3 a 96-charset whose final byte is @var{F}.
+        $ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
+        ( [0x28]: designate to G0 a 94-charset whose final byte is @var{F}.
+        ) [0x29]: designate to G1 a 94-charset whose final byte is @var{F}.
+        * [0x2A]: designate to G2 a 94-charset whose final byte is @var{F}.
+        + [0x2B]: designate to G3 a 94-charset whose final byte is @var{F}.
+        - [0x2D]: designate to G1 a 96-charset whose final byte is @var{F}.
+        . [0x2E]: designate to G2 a 96-charset whose final byte is @var{F}.
+        / [0x2F]: designate to G3 a 96-charset whose final byte is @var{F}.
 @end group
 @end example
 
 The following rule is not allowed in ISO 2022 but can be used in Mule.
 
 @example
-	, [0x2C]: designate to G0 a 96-charset whose final byte is @var{F}.
+        , [0x2C]: designate to G0 a 96-charset whose final byte is @var{F}.
 @end example
 
 Here are examples of designations:
 
 @example
 @group
-	ESC ( B :              designate to G0 ASCII
-	ESC - A :              designate to G1 Latin-1
-	ESC $ ( A or ESC $ A : designate to G0 GB2312
-	ESC $ ( B or ESC $ B : designate to G0 JISX0208
-	ESC $ ) C :            designate to G1 KSC5601
+        ESC ( B :              designate to G0 ASCII
+        ESC - A :              designate to G1 Latin-1
+        ESC $ ( A or ESC $ A : designate to G0 GB2312
+        ESC $ ( B or ESC $ B : designate to G0 JISX0208
+        ESC $ ) C :            designate to G1 KSC5601
 @end group
 @end example
 
@@ -618,21 +618,21 @@ Single Shift (one character only).
 Locking Shift is done as follows:
 
 @example
-	LS0 or SI (0x0F): invoke G0 into GL
-	LS1 or SO (0x0E): invoke G1 into GL
-	LS2:  invoke G2 into GL
-	LS3:  invoke G3 into GL
-	LS1R: invoke G1 into GR
-	LS2R: invoke G2 into GR
-	LS3R: invoke G3 into GR
+        LS0 or SI (0x0F): invoke G0 into GL
+        LS1 or SO (0x0E): invoke G1 into GL
+        LS2:  invoke G2 into GL
+        LS3:  invoke G3 into GL
+        LS1R: invoke G1 into GR
+        LS2R: invoke G2 into GR
+        LS3R: invoke G3 into GR
 @end example
 
 Single Shift is done as follows:
 
 @example
 @group
-	SS2 or ESC N: invoke G2 into GL
-	SS3 or ESC O: invoke G3 into GL
+        SS2 or ESC N: invoke G2 into GL
+        SS3 or ESC O: invoke G3 into GL
 @end group
 @end example
 
@@ -678,51 +678,51 @@ Here are several examples:
 @example
 @group
 junet -- Coding system used in JUNET.
-	1. G0 <- ASCII, G1..3 <- never used
-	2. Yes.
-	3. Yes.
-	4. Yes.
-	5. 7-bit environment
-	6. No.
-	7. Use ASCII
-	8. Use JISX0208-1983
+        1. G0 <- ASCII, G1..3 <- never used
+        2. Yes.
+        3. Yes.
+        4. Yes.
+        5. 7-bit environment
+        6. No.
+        7. Use ASCII
+        8. Use JISX0208-1983
 @end group
 
 @group
 ctext -- Compound Text
-	1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used
-	2. No.
-	3. No.
-	4. Yes.
-	5. 8-bit environment
-	6. No.
-	7. Use ASCII
-	8. Use JISX0208-1983
+        1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used
+        2. No.
+        3. No.
+        4. Yes.
+        5. 8-bit environment
+        6. No.
+        7. Use ASCII
+        8. Use JISX0208-1983
 @end group
 
 @group
 euc-china -- Chinese EUC.  Although many people call this
 as "GB encoding", the name may cause misunderstanding.
-	1. G0 <- ASCII, G1 <- GB2312, G2,3 <- never used
-	2. No.
-	3. Yes.
-	4. Yes.
-	5. 8-bit environment
-	6. No.
-	7. Use ASCII
-	8. Use JISX0208-1983
+        1. G0 <- ASCII, G1 <- GB2312, G2,3 <- never used
+        2. No.
+        3. Yes.
+        4. Yes.
+        5. 8-bit environment
+        6. No.
+        7. Use ASCII
+        8. Use JISX0208-1983
 @end group
 
 @group
 korean-mail -- Coding system used in Korean network.
-	1. G0 <- ASCII, G1 <- KSC5601, G2,3 <- never used
-	2. No.
-	3. Yes.
-	4. Yes.
-	5. 7-bit environment
-	6. Yes.
-	7. No.
-	8. No.
+        1. G0 <- ASCII, G1 <- KSC5601, G2,3 <- never used
+        2. No.
+        3. Yes.
+        4. Yes.
+        5. 7-bit environment
+        6. Yes.
+        7. No.
+        8. No.
 @end group
 @end example
 
@@ -740,7 +740,7 @@ when it is written out to a file or process.
 
 For example, many ISO-2022-compliant coding systems (such as Compound
 Text, which is used for inter-client data under the X Window System) use
-escape sequences to switch between different charsets -- Japanese Kanji,
+escape sequences to switch between different charsets---Japanese Kanji,
 for example, is invoked with @samp{ESC $ ( B}; ASCII is invoked with
 @samp{ESC ( B}; and Cyrillic is invoked with @samp{ESC - L}.  See
 @code{make-coding-system} for more information.
@@ -1447,7 +1447,7 @@ This section is not yet written.
 
   A category table is a type of char table used for keeping track of
 categories.  Categories are used for classifying characters for use in
-regexps -- you can refer to a category rather than having to use a
+regexps---you can refer to a category rather than having to use a
 complicated [] expression (and category lookups are significantly
 faster).
 

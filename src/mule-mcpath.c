@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.  */
 Lisp_Object Qpathname_coding_system = 0;
 
 static void
-mcpath_encode_code (struct Lisp_Coding_System *cp)
+mcpath_encode_code (Lisp_Coding_System *cp)
 {
   Lisp_Object coding_system;
 
@@ -46,7 +46,7 @@ static int
 mule_encode_path_1 (unsigned char *src, unsigned int srcsize,
 		    unsigned char *dst, unsigned int dstsize)
 {
-  struct Lisp_Coding_System code;
+  Lisp_Coding_System code;
 
   mcpath_encode_code (&code);
   if (CODE_TYPE (&code) > MULE_AUTOCONV)
@@ -76,7 +76,7 @@ static unsigned char *
 mule_decode_path_1 (unsigned char *src, unsigned char *dst,
 		    unsigned int dstsize)
 {
-  struct Lisp_Coding_System code;
+  Lisp_Coding_System code;
 
   mcpath_encode_code (&code);
   if (CODE_TYPE (&code) > MULE_AUTOCONV)
@@ -239,13 +239,13 @@ unsigned char *
 mc_getwd (unsigned char path[])
 {
   unsigned char *p;
- 
+
   p = getwd (path);
   if (p)
     {
       unsigned char buffer[MC_MAXPATHLEN];
       int len;
-      
+
       len = mule_encode_path_1 (path, strlen (path) + 1, buffer, sizeof buffer);
       if (len > 0)
 	{

@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #include "systty.h"
 #include "syswait.h"
 
-Lisp_Object Qprocessp;
+Lisp_Object Qprocessp, Qprocess_live_p;
 
 /* Process methods */
 struct process_methods the_process_methods;
@@ -113,7 +113,7 @@ extern Lisp_Object Vlisp_EXEC_SUFFIXES;
 static Lisp_Object
 mark_process (Lisp_Object obj)
 {
-  struct Lisp_Process *proc = XPROCESS (obj);
+  Lisp_Process *proc = XPROCESS (obj);
   MAYBE_PROCMETH (mark_process_data, (proc));
   mark_object (proc->name);
   mark_object (proc->command);
@@ -134,7 +134,7 @@ mark_process (Lisp_Object obj)
 static void
 print_process (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Process *proc = XPROCESS (obj);
+  Lisp_Process *proc = XPROCESS (obj);
 
   if (print_readably)
     error ("printing unreadable object #<process %s>",
@@ -160,7 +160,7 @@ print_process (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 #ifdef HAVE_WINDOW_SYSTEM
-extern void debug_process_finalization (struct Lisp_Process *p);
+extern void debug_process_finalization (Lisp_Process *p);
 #endif /* HAVE_WINDOW_SYSTEM */
 
 static void
@@ -168,7 +168,7 @@ finalize_process (void *header, int for_disksave)
 {
   /* #### this probably needs to be tied into the tty event loop */
   /* #### when there is one */
-  struct Lisp_Process *p = (struct Lisp_Process *) header;
+  Lisp_Process *p = (Lisp_Process *) header;
 #ifdef HAVE_WINDOW_SYSTEM
   if (!for_disksave)
     {
@@ -186,7 +186,7 @@ finalize_process (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("process", process,
                                mark_process, print_process, finalize_process,
-                               0, 0, 0, struct Lisp_Process);
+                               0, 0, 0, Lisp_Process);
 
 /************************************************************************/
 /*                       basic process accessors                        */
@@ -196,8 +196,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("process", process,
    directly to the child process, rather than en/decoding FILE_CODING
    streams */
 void
-get_process_streams (struct Lisp_Process *p,
-		     Lisp_Object *instr, Lisp_Object *outstr)
+get_process_streams (Lisp_Process *p, Lisp_Object *instr, Lisp_Object *outstr)
 {
   assert (p);
   assert (NILP (p->pipe_instream) || LSTREAMP(p->pipe_instream));
@@ -206,7 +205,7 @@ get_process_streams (struct Lisp_Process *p,
   *outstr = p->pipe_outstream;
 }
 
-struct Lisp_Process *
+Lisp_Process *
 get_process_from_usid (USID usid)
 {
   CONST void *vval;
@@ -224,19 +223,19 @@ get_process_from_usid (USID usid)
 }
 
 int
-get_process_selected_p (struct Lisp_Process *p)
+get_process_selected_p (Lisp_Process *p)
 {
   return p->selected;
 }
 
 void
-set_process_selected_p (struct Lisp_Process *p, int selected_p)
+set_process_selected_p (Lisp_Process *p, int selected_p)
 {
   p->selected = !!selected_p;
 }
 
 int
-connected_via_filedesc_p (struct Lisp_Process *p)
+connected_via_filedesc_p (Lisp_Process *p)
 {
   return MAYBE_INT_PROCMETH (tooltalk_connection_p, (p));
 }
@@ -255,6 +254,14 @@ Return t if OBJECT is a process.
        (obj))
 {
   return PROCESSP (obj) ? Qt : Qnil;
+}
+
+DEFUN ("process-live-p", Fprocess_live_p, 1, 1, 0, /*
+Return t if OBJECT is a process that is alive.
+*/
+       (obj))
+{
+  return PROCESSP (obj) && PROCESS_LIVE_P (XPROCESS (obj)) ? Qt : Qnil;
 }
 
 DEFUN ("process-list", Fprocess_list, 0, 0, 0, /*
@@ -416,8 +423,7 @@ make_process_internal (Lisp_Object name)
 {
   Lisp_Object val, name1;
   int i;
-  struct Lisp_Process *p =
-    alloc_lcrecord_type (struct Lisp_Process, &lrecord_process);
+  Lisp_Process *p = alloc_lcrecord_type (Lisp_Process, &lrecord_process);
 
   /* If name is already in use, modify it until it is unused.  */
   name1 = name;
@@ -464,7 +470,7 @@ make_process_internal (Lisp_Object name)
 }
 
 void
-init_process_io_handles (struct Lisp_Process *p, void* in, void* out, int flags)
+init_process_io_handles (Lisp_Process *p, void* in, void* out, int flags)
 {
   USID usid = event_stream_create_stream_pair (in, out,
 					       &p->pipe_instream, &p->pipe_outstream,
@@ -499,7 +505,7 @@ static void
 create_process (Lisp_Object process, Lisp_Object *argv, int nargv,
 		Lisp_Object program, Lisp_Object cur_dir)
 {
-  struct Lisp_Process *p = XPROCESS (process);
+  Lisp_Process *p = XPROCESS (process);
   int pid;
 
   /* *_create_process may change status_symbol, if the process
@@ -510,7 +516,7 @@ create_process (Lisp_Object process, Lisp_Object *argv, int nargv,
   pid = PROCMETH (create_process, (p, argv, nargv, program, cur_dir));
 
   p->pid = make_int (pid);
-  if (!NILP(p->pipe_instream))
+  if (PROCESS_LIVE_P (p))
     event_stream_select_process (p);
 }
 
@@ -813,7 +819,7 @@ read_process_output (Lisp_Object proc)
   Bytecount nbytes, nchars;
   Bufbyte chars[1024];
   Lisp_Object outstream;
-  struct Lisp_Process *p = XPROCESS (proc);
+  Lisp_Process *p = XPROCESS (proc);
 
   /* If there is a lot of output from the subprocess, the loop in
      execute_internal_event() might call read_process_output() more
@@ -823,7 +829,7 @@ read_process_output (Lisp_Object proc)
      Really, the loop in execute_internal_event() should check itself
      for a process-filter change, like in status_notify(); but the
      struct Lisp_Process is not exported outside of this file. */
-  if (NILP(p->pipe_instream))
+  if (!PROCESS_LIVE_P (p))
     return -1; /* already closed */
 
   if (!NILP (p->filter) && (p->filter_does_read))
@@ -1032,7 +1038,7 @@ void
 set_process_filter (Lisp_Object proc, Lisp_Object filter, int filter_does_read)
 {
   CHECK_PROCESS (proc);
-  if (PROCESS_LIVE_P (proc)) {
+  if (PROCESS_LIVE_P (XPROCESS (proc))) {
     if (EQ (filter, Qt))
       event_stream_unselect_process (XPROCESS (proc));
     else
@@ -1121,6 +1127,7 @@ Return PROCESS's input coding system.
        (process))
 {
   process = get_process (process);
+  CHECK_LIVE_PROCESS (process);
   return decoding_stream_coding_system (XLSTREAM (XPROCESS (process)->coding_instream) );
 }
 
@@ -1130,6 +1137,7 @@ Return PROCESS's output coding system.
        (process))
 {
   process = get_process (process);
+  CHECK_LIVE_PROCESS (process);
   return encoding_stream_coding_system (XLSTREAM (XPROCESS (process)->coding_outstream));
 }
 
@@ -1139,6 +1147,7 @@ Return a pair of coding-system for decoding and encoding of PROCESS.
        (process))
 {
   process = get_process (process);
+  CHECK_LIVE_PROCESS (process);
   return Fcons (decoding_stream_coding_system
 		(XLSTREAM (XPROCESS (process)->coding_instream)),
 		encoding_stream_coding_system
@@ -1153,6 +1162,8 @@ Set PROCESS's input coding system to CODESYS.
 {
   codesys = Fget_coding_system (codesys);
   process = get_process (process);
+  CHECK_LIVE_PROCESS (process);
+
   set_decoding_stream_coding_system
     (XLSTREAM (XPROCESS (process)->coding_instream), codesys);
   return Qnil;
@@ -1166,6 +1177,8 @@ Set PROCESS's output coding system to CODESYS.
 {
   codesys = Fget_coding_system (codesys);
   process = get_process (process);
+  CHECK_LIVE_PROCESS (process);
+
   set_encoding_stream_coding_system
     (XLSTREAM (XPROCESS (process)->coding_outstream), codesys);
   return Qnil;
@@ -1174,6 +1187,8 @@ Set PROCESS's output coding system to CODESYS.
 DEFUN ("set-process-coding-system", Fset_process_coding_system,
        1, 3, 0, /*
 Set coding-systems of PROCESS to DECODING and ENCODING.
+DECODING will be used to decode subprocess output and ENCODING to
+encode subprocess input.
 */
        (process, decoding, encoding))
 {
@@ -1195,7 +1210,7 @@ Set coding-systems of PROCESS to DECODING and ENCODING.
 static Lisp_Object
 exec_sentinel_unwind (Lisp_Object datum)
 {
-  struct Lisp_Cons *d = XCONS (datum);
+  Lisp_Cons *d = XCONS (datum);
   XPROCESS (d->car)->sentinel = d->cdr;
   free_cons (d);
   return Qnil;
@@ -1206,7 +1221,7 @@ exec_sentinel (Lisp_Object proc, Lisp_Object reason)
 {
   /* This function can GC */
   int speccount = specpdl_depth ();
-  struct Lisp_Process *p = XPROCESS (proc);
+  Lisp_Process *p = XPROCESS (proc);
   Lisp_Object sentinel = p->sentinel;
 
   if (NILP (sentinel))
@@ -1276,7 +1291,7 @@ update_process_status (Lisp_Object p,
 /* Return a string describing a process status list.  */
 
 static Lisp_Object
-status_message (struct Lisp_Process *p)
+status_message (Lisp_Process *p)
 {
   Lisp_Object symbol = p->status_symbol;
   int code = p->exit_code;
@@ -1360,7 +1375,7 @@ status_notify (void)
   for (tail = Vprocess_list; CONSP (tail); tail = XCDR (tail))
     {
       Lisp_Object proc = XCAR (tail);
-      struct Lisp_Process *p = XPROCESS (proc);
+      Lisp_Process *p = XPROCESS (proc);
       /* p->tick is also volatile.  Same thing as above applies. */
       int this_process_tick;
 
@@ -1527,9 +1542,7 @@ process_send_signal (Lisp_Object process, int signo,
   if (network_connection_p (proc))
     error ("Network connection %s is not a subprocess",
 	   XSTRING_DATA (XPROCESS(proc)->name));
-  if (!PROCESS_LIVE_P (proc))
-    error ("Process %s is not active",
-	   XSTRING_DATA (XPROCESS(proc)->name));
+  CHECK_LIVE_PROCESS (proc);
 
   MAYBE_PROCMETH (kill_child_process, (proc, signo, current_group, nomsg));
 }
@@ -1819,7 +1832,7 @@ text to PROCESS after you call this function.
 void
 deactivate_process (Lisp_Object proc)
 {
-  struct Lisp_Process *p = XPROCESS (proc);
+  Lisp_Process *p = XPROCESS (proc);
   USID usid;
 
   /* It's possible that we got as far in the process-creation
@@ -1872,7 +1885,7 @@ PROCESS may be a process or the name of one, or a buffer name.
        (proc))
 {
   /* This function can GC */
-  struct Lisp_Process *p;
+  Lisp_Process *p;
   proc = get_process (proc);
   p = XPROCESS (proc);
   if (network_connection_p (proc))
@@ -1883,7 +1896,7 @@ PROCESS may be a process or the name of one, or a buffer name.
       p->tick++;
       process_tick++;
     }
-  else if (!NILP(p->pipe_instream))
+  else if (PROCESS_LIVE_P (p))
     {
       Fkill_process (proc, Qnil);
       /* Do this now, since remove_process will make sigchld_handler do nothing.  */
@@ -1915,7 +1928,7 @@ kill_buffer_processes (Lisp_Object buffer)
 	{
 	  if (network_connection_p (proc))
 	    Fdelete_process (proc);
-	  else if (!NILP (XPROCESS (proc)->pipe_instream))
+	  else if (PROCESS_LIVE_P (XPROCESS (proc)))
 	    process_send_signal (proc, SIGHUP, 0, 1);
 	}
     }
@@ -1978,6 +1991,7 @@ void
 syms_of_process (void)
 {
   defsymbol (&Qprocessp, "processp");
+  defsymbol (&Qprocess_live_p, "process-live-p");
   defsymbol (&Qrun, "run");
   defsymbol (&Qstop, "stop");
   defsymbol (&Qopen, "open");
@@ -1991,6 +2005,7 @@ syms_of_process (void)
 #endif
 
   DEFSUBR (Fprocessp);
+  DEFSUBR (Fprocess_live_p);
   DEFSUBR (Fget_process);
   DEFSUBR (Fget_buffer_process);
   DEFSUBR (Fdelete_process);

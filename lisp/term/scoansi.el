@@ -22,7 +22,7 @@
 
 ;; HISTORY
 ;;    jkj - Jan 18, 1993: Created.
-;;    jkj - Nov 18, 1993: Mdified to work with Emacs 19.21
+;;    jkj - Nov 18, 1993: Modified to work with Emacs 19.21
 
 ;;
 ;; First of all, the normal cursor movement keys. Some of these, if not

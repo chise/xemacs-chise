@@ -167,8 +167,8 @@ Quote EXPR if it is not self quoting.
 static Lisp_Object
 quotify_args (Lisp_Object expr)
 {
-  REGISTER Lisp_Object tail;
-  REGISTER struct Lisp_Cons *ptr;
+  Lisp_Object tail;
+  Lisp_Cons *ptr;
   for (tail = expr; CONSP (tail); tail = ptr->cdr)
     {
       ptr = XCONS (tail);

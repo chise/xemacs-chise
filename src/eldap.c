@@ -89,7 +89,7 @@ signal_ldap_error (LDAP *ld, LDAPMessage *res, int ldap_err)
 /************************************************************************/
 
 static Lisp_Object
-make_ldap (struct Lisp_LDAP *ldap)
+make_ldap (Lisp_LDAP *ldap)
 {
   Lisp_Object lisp_ldap;
   XSETLDAP (lisp_ldap, ldap);
@@ -107,7 +107,7 @@ print_ldap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   char buf[32];
 
-  struct Lisp_LDAP *ldap = XLDAP (obj);
+  Lisp_LDAP *ldap = XLDAP (obj);
 
   if (print_readably)
     error ("printing unreadable object #<ldap %s>",
@@ -121,11 +121,10 @@ print_ldap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
-static struct Lisp_LDAP *
+static Lisp_LDAP *
 allocate_ldap (void)
 {
-  struct Lisp_LDAP *ldap =
-    alloc_lcrecord_type (struct Lisp_LDAP, &lrecord_ldap);
+  Lisp_LDAP *ldap = alloc_lcrecord_type (Lisp_LDAP, &lrecord_ldap);
 
   ldap->ld = NULL;
   ldap->host = Qnil;
@@ -135,7 +134,7 @@ allocate_ldap (void)
 static void
 finalize_ldap (void *header, int for_disksave)
 {
-  struct Lisp_LDAP *ldap = (struct Lisp_LDAP *) header;
+  Lisp_LDAP *ldap = (Lisp_LDAP *) header;
 
   if (for_disksave)
     signal_simple_error ("Can't dump an emacs containing LDAP objects",
@@ -148,7 +147,7 @@ finalize_ldap (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("ldap", ldap,
                                mark_ldap, print_ldap, finalize_ldap,
-                               NULL, NULL, 0, struct Lisp_LDAP);
+                               NULL, NULL, 0, Lisp_LDAP);
 
 
 
@@ -205,7 +204,7 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
        (host, plist))
 {
   /* This function can GC */
-  struct Lisp_LDAP *ldap;
+  Lisp_LDAP *ldap;
   LDAP *ld;
   int  ldap_port = 0;
   int  ldap_auth = LDAP_AUTH_SIMPLE;
@@ -248,13 +247,17 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
       else if (EQ (keyword, Qbinddn))
         {
           CHECK_STRING (value);
-          GET_C_STRING_OS_DATA_ALLOCA (value, ldap_binddn);
+	  TO_EXTERNAL_FORMAT (LISP_STRING, value,
+			      C_STRING_ALLOCA, ldap_binddn,
+			      Qnative);
         }
       /* Password */
       else if (EQ (keyword, Qpasswd))
         {
           CHECK_STRING (value);
-          GET_C_STRING_OS_DATA_ALLOCA (value, ldap_passwd);
+	  TO_EXTERNAL_FORMAT (LISP_STRING, value,
+			      C_STRING_ALLOCA, ldap_passwd,
+			      Qnative);
         }
       /* Deref */
       else if (EQ (keyword, Qderef))
@@ -346,7 +349,7 @@ Close an LDAP connection.
 */
       (ldap))
 {
-  struct Lisp_LDAP *lldap;
+  Lisp_LDAP *lldap;
   CHECK_LIVE_LDAP (ldap);
   lldap = XLDAP (ldap);
   ldap_unbind (lldap->ld);
@@ -463,7 +466,9 @@ entry according to the value of WITHDN.
 	{
 	  Lisp_Object current = XCAR (attrs);
 	  CHECK_STRING (current);
-          GET_C_STRING_OS_DATA_ALLOCA (current, ldap_attributes[i]);
+	  TO_EXTERNAL_FORMAT (LISP_STRING, current,
+			      C_STRING_ALLOCA, ldap_attributes[i],
+			      Qnative);
 	  ++i;
 	}
       ldap_attributes[i] = NULL;
@@ -512,13 +517,13 @@ entry according to the value of WITHDN.
           dn = ldap_get_dn (ld, e);
           if (dn == NULL)
             signal_ldap_error (ld, e, 0);
-          entry = Fcons (build_ext_string (dn, FORMAT_OS), Qnil);
+          entry = Fcons (build_ext_string (dn, Qnative), Qnil);
         }
       for (a= ldap_first_attribute (ld, e, &ptr);
            a != NULL;
            a = ldap_next_attribute (ld, e, ptr) )
         {
-          list = Fcons (build_ext_string (a, FORMAT_OS), Qnil);
+          list = Fcons (build_ext_string (a, Qnative), Qnil);
           unwind.vals = ldap_get_values_len (ld, e, a);
           if (unwind.vals != NULL)
             {
@@ -526,7 +531,7 @@ entry according to the value of WITHDN.
                 {
                   list = Fcons (make_ext_string (unwind.vals[i]->bv_val,
                                                  unwind.vals[i]->bv_len,
-                                                 FORMAT_OS),
+                                                 Qnative),
                                 list);
                 }
             }

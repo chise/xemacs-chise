@@ -1,6 +1,6 @@
 ;;; wid-edit.el --- Functions for creating and using widgets.
 ;;
-;; Copyright (C) 1996, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 1996, 1997, 2000 Free Software Foundation, Inc.
 ;;
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>
 ;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
@@ -601,7 +601,7 @@ ARGS are passed as extra arguments to the function."
   ;; In WIDGET, match the start of VALS.
   (cond ((widget-get widget :inline)
 	 (widget-apply widget :match-inline vals))
-	((and vals
+	((and (listp vals)
 	      (widget-apply widget :match (car vals)))
 	 (cons (list (car vals)) (cdr vals)))
 	(t nil)))
@@ -2521,7 +2521,7 @@ when he invoked the menu."
     found))
 
 (defun widget-checklist-match-up (args vals)
-  ;; Rerturn the first type from ARGS that matches VALS.
+  ;; Return the first type from ARGS that matches VALS.
   (let (current found)
     (while (and args (null found))
       (setq current (car args)
@@ -2543,7 +2543,7 @@ when he invoked the menu."
     result))
 
 (defun widget-checklist-validate (widget)
-  ;; Ticked chilren must be valid.
+  ;; Ticked children must be valid.
   (let ((children (widget-get widget :children))
 	child button found)
     (while (and children (not found))

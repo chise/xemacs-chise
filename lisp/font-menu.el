@@ -42,7 +42,7 @@
 ;;; were always selectable, and selecting them would set the size to be the
 ;;; closest size to the current font's size.
 ;;;
-;;; This attempts to change all other faces in an analagous way to the change
+;;; This attempts to change all other faces in an analogous way to the change
 ;;; that was made to the default face; if it can't, it will skip over the face.
 ;;; However, this could leave incongruous font sizes around, which may cause
 ;;; some nonreversibility problems if further changes are made.  Perhaps it

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_SYMSINIT_H_
-#define _XEMACS_SYMSINIT_H_
+#ifndef INCLUDED_symsinit_h_
+#define INCLUDED_symsinit_h_
 
 /* Earliest environment initializations (dump-time and run-time). */
 
@@ -38,6 +38,7 @@ void init_signals_very_early (void);
 void init_alloc_once_early (void);
 void reinit_alloc_once_early (void);
 void init_symbols_once_early (void);
+void reinit_symbols_once_early (void);
 void init_errors_once_early (void);
 void reinit_opaque_once_early (void);
 void init_opaque_once_early (void);
@@ -97,6 +98,7 @@ void syms_of_glyphs_eimage (void);
 void syms_of_glyphs_widget (void);
 void syms_of_glyphs_mswindows (void);
 void syms_of_glyphs (void);
+void syms_of_gui_mswindows (void);
 void syms_of_gui_x (void);
 void syms_of_gui (void);
 void syms_of_gutter (void);
@@ -142,12 +144,13 @@ void syms_of_specifier (void);
 void syms_of_sunpro (void);
 void syms_of_symbols (void);
 void syms_of_syntax (void);
+void syms_of_tests (void);
 void syms_of_toolbar (void);
 void syms_of_tooltalk (void);
 void syms_of_undo (void);
 void syms_of_widget (void);
 void syms_of_window (void);
-void syms_of_xselect (void);
+void syms_of_select_x (void);
 void syms_of_eldap (void);
 void syms_of_gpmevent (void);
 
@@ -334,6 +337,7 @@ void vars_of_mule_ccl(void);
 void vars_of_mule_charset (void);
 void vars_of_file_coding (void);
 void vars_of_mule_wnn (void);
+void vars_of_nt (void);
 void vars_of_ntproc (void);
 void vars_of_objects (void);
 void reinit_vars_of_objects (void);
@@ -362,14 +366,15 @@ void vars_of_specifier (void);
 void vars_of_sunpro (void);
 void vars_of_symbols (void);
 void vars_of_syntax (void);
+void vars_of_tests (void);
 void vars_of_toolbar (void);
 void vars_of_tooltalk (void);
 void vars_of_undo (void);
 void reinit_vars_of_undo (void);
 void vars_of_window (void);
 void reinit_vars_of_window (void);
-void vars_of_xselect (void);
-void reinit_vars_of_xselect (void);
+void vars_of_select_x (void);
+void reinit_vars_of_select_x (void);
 void vars_of_eldap (void);
 void vars_of_gpmevent (void);
 
@@ -442,4 +447,4 @@ void init_xemacs_process (void);
 void init_redisplay (void);
 void init_sunpro (void);
 
-#endif /* _XEMACS_SYMSINIT_H_ */
+#endif /* INCLUDED_symsinit_h_ */

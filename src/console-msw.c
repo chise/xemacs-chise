@@ -31,9 +31,12 @@ Boston, MA 02111-1307, USA.  */
 
 #include "console-msw.h"
 
-
 DEFINE_CONSOLE_TYPE (mswindows);
+DEFINE_CONSOLE_TYPE (msprinter);
 
+/************************************************************************/
+/*                       mswindows console methods                      */
+/************************************************************************/
 
 static int
 mswindows_initially_selected_for_input (struct console *con)
@@ -41,7 +44,32 @@ mswindows_initially_selected_for_input (struct console *con)
   return 1;
 }
 
+static Lisp_Object
+mswindows_canonicalize_console_connection (Lisp_Object connection,
+					   Error_behavior errb)
+{
+  /* Do not allow more than one mswindows device, by explicitly
+     requiring that CONNECTION is nil, the only allowed connection in
+     Windows. */
+  if (!NILP (connection))
+    {
+      if (ERRB_EQ (errb, ERROR_ME))
+	signal_simple_error
+	  ("Invalid (non-nil) connection for mswindows device/console",
+	   connection);
+      else
+	return Qunbound;
+    }
 
+  return Qnil;
+}
+
+static Lisp_Object
+mswindows_canonicalize_device_connection (Lisp_Object connection,
+					  Error_behavior errb)
+{
+  return mswindows_canonicalize_console_connection (connection, errb);
+}
 
 
 /************************************************************************/
@@ -63,16 +91,19 @@ console_type_create_mswindows (void)
 /*  CONSOLE_HAS_METHOD (mswindows, mark_console); */
   CONSOLE_HAS_METHOD (mswindows, initially_selected_for_input);
 /*  CONSOLE_HAS_METHOD (mswindows, delete_console); */
-/*  CONSOLE_HAS_METHOD (mswindows, canonicalize_console_connection); */
-/*  CONSOLE_HAS_METHOD (mswindows, canonicalize_device_connection); */
+  CONSOLE_HAS_METHOD (mswindows, canonicalize_console_connection);
+  CONSOLE_HAS_METHOD (mswindows, canonicalize_device_connection);
 /*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_console_connection); */
 /*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_device_connection); */
+
+  INITIALIZE_CONSOLE_TYPE (msprinter, "msprinter", "console-msprinter-p");
 }
 
 void
 reinit_console_type_create_mswindows (void)
 {
   REINITIALIZE_CONSOLE_TYPE (mswindows);
+  REINITIALIZE_CONSOLE_TYPE (msprinter);
 }
 
 void
@@ -102,19 +133,19 @@ DOPAQUE_DATA (Lisp_Object obj)
   return OPAQUEP (obj) ? OPAQUE_DATA (XOPAQUE (obj)) : NULL;
 }
 
-struct Lisp_Event *
+Lisp_Event *
 DEVENT (Lisp_Object obj)
 {
   return EVENTP (obj) ? XEVENT (obj) : NULL;
 }
 
-struct Lisp_Cons *
+Lisp_Cons *
 DCONS (Lisp_Object obj)
 {
   return CONSP (obj) ? XCONS (obj) : NULL;
 }
 
-struct Lisp_Cons *
+Lisp_Cons *
 DCONSCDR (Lisp_Object obj)
 {
   return (CONSP (obj) && CONSP (XCDR (obj))) ? XCONS (XCDR (obj)) : 0;
@@ -126,13 +157,13 @@ DSTRING (Lisp_Object obj)
   return STRINGP (obj) ? XSTRING_DATA (obj) : NULL;
 }
 
-struct Lisp_Vector *
+Lisp_Vector *
 DVECTOR (Lisp_Object obj)
 {
   return VECTORP (obj) ? XVECTOR (obj) : NULL;
 }
 
-struct Lisp_Symbol *
+Lisp_Symbol *
 DSYMBOL (Lisp_Object obj)
 {
   return SYMBOLP (obj) ? XSYMBOL (obj) : NULL;
@@ -144,4 +175,4 @@ DSYMNAME (Lisp_Object obj)
   return SYMBOLP (obj) ? string_data (XSYMBOL (obj)->name) : NULL;
 }
 
-#endif
+#endif /* DEBUG_XEMACS */

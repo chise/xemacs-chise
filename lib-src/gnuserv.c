@@ -699,7 +699,7 @@ handle_internet_request (int ls)
 
   memset((char *)&peer,0,sizeof(struct sockaddr_in));
 
-  if ((s = accept(ls,(struct sockaddr *)&peer, (void *) &addrlen)) == -1)
+  if ((s = accept(ls,(struct sockaddr *)&peer, &addrlen)) == -1)
     {
       perror(progname);
       fprintf(stderr,"%s: unable to accept\n",progname);
@@ -819,7 +819,7 @@ handle_unix_request (int ls)
 
   server.sun_family = AF_UNIX;
 
-  if ((s = accept(ls,(struct sockaddr *)&server, (void *)&len)) < 0)
+  if ((s = accept(ls,(struct sockaddr *)&server, &len)) < 0)
     {
       perror(progname);
       fprintf(stderr,"%s: unable to accept\n",progname);

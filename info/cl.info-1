@@ -224,10 +224,10 @@ a `*' has been appended to the Common Lisp name to obtain the Emacs
 name:
 
      defun*        defsubst*     defmacro*     function*
-     member*       assoc*        rassoc*       get*
-     remove*       delete*       mapcar*       sort*
-     floor*        ceiling*      truncate*     round*
-     mod*          rem*          random*
+     member*       assoc*        rassoc*       remove*
+     delete*       mapcar*       sort*         floor*
+     ceiling*      truncate*     round*        mod*
+     rem*          random*
 
    Internal function and variable names in the package are prefixed by
 `cl-'.  Here is a complete list of functions _not_ prefixed by `cl-'
@@ -918,8 +918,8 @@ variables.
                nth                 rest                first .. tenth
                aref                elt                 nthcdr
                symbol-function     symbol-value        symbol-plist
-               get                 get*                getf
-               gethash             subseq
+               get                 getf                gethash
+               subseq
 
           Note that for `nthcdr' and `getf', the list argument of the
           function must itself be a valid PLACE form.  For example,

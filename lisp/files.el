@@ -794,29 +794,36 @@ If optional argument HACK-HOMEDIR is non-nil, then this also substitutes
 	  (setq tail (cdr tail))))
       (when hack-homedir
 	;; Compute and save the abbreviated homedir name.
-	;; We defer computing this until the first time it's needed, to
-	;; give time for directory-abbrev-alist to be set properly.
-	;; We include a slash at the end, to avoid spurious matches
-	;; such as `/usr/foobar' when the home dir is `/usr/foo'.
+	;; We defer computing this until the first time it's needed,
+	;; to give time for directory-abbrev-alist to be set properly.
+	;; We include the separator at the end, to avoid spurious
+	;; matches such as `/usr/foobar' when the home dir is
+	;; `/usr/foo'.
 	(or abbreviated-home-dir
 	    (setq abbreviated-home-dir
 		  (let ((abbreviated-home-dir "$foo"))
-		    (concat "\\`" (regexp-quote (abbreviate-file-name
-						 (expand-file-name "~")))
-			    "\\(/\\|\\'\\)"))))
+		    (concat "\\`"
+			    (regexp-quote
+			     (abbreviate-file-name (expand-file-name "~")))
+			    "\\("
+			    (regexp-quote (string directory-sep-char))
+			    "\\|\\'\\)"))))
 	;; If FILENAME starts with the abbreviated homedir,
 	;; make it start with `~' instead.
 	(if (and (string-match abbreviated-home-dir filename)
 		 ;; If the home dir is just /, don't change it.
-		 (not (and (= (match-end 0) 1) ;#### unix-specific
-			   (= (aref filename 0) ?/)))
-		 (not (and (memq system-type '(ms-dos windows-nt))
+		 (not (and (= (match-end 0) 1)
+			   (= (aref filename 0) directory-sep-char)))
+		 (not (and (eq system-type 'windows-nt)
 			   (save-match-data
-			     (string-match "^[a-zA-Z]:/$" filename)))))
+			     (string-match (concat "\\`[a-zA-Z]:"
+						   (regexp-quote
+						    (string directory-sep-char))
+						   "\\'")
+					   filename)))))
 	    (setq filename
 		  (concat "~"
-			  (substring filename
-				     (match-beginning 1) (match-end 1))
+			  (match-string 1 filename)
 			  (substring filename (match-end 0))))))
       filename)))
 
@@ -1315,9 +1322,15 @@ and we don't even do that unless it would come from the file name."
             (setq keep-going nil)
             (let ((alist auto-mode-alist)
                   (mode nil))
+
               ;; Find first matching alist entry.
+
+	      ;; #### This is incorrect. In NT, case sensitivity is a volume
+	      ;; property. For instance, NFS mounts *are* case sensitive.
+	      ;; Need internal function (file-name-case-sensitive f), F
+	      ;; being file or directory name. - kkm
 	      (let ((case-fold-search
-		     (memq system-type '(windows-nt))))
+		     (eq system-type 'windows-nt)))
 		(while (and (not mode) alist)
 		  (if (string-match (car (car alist)) name)
 		      (if (and (consp (cdr (car alist)))
@@ -1875,7 +1888,7 @@ of the new file to agree with the old modes."
 			(let ((delete-old-versions
 			       ;; If have old versions to maybe delete,
 			       ;; ask the user to confirm now, before doing anything.
-			       ;; But don't actually delete til later.
+			       ;; But don't actually delete till later.
 			       (and targets
 				    (or (eq delete-old-versions t)
 					(eq delete-old-versions nil))
@@ -1993,21 +2006,13 @@ the value is \"\"."
 (defun make-backup-file-name (file)
   "Create the non-numeric backup file name for FILE.
 This is a separate function so you can redefine it for customization."
-  (if (eq system-type 'ms-dos)
-      (let ((fn (file-name-nondirectory file)))
-	(concat (file-name-directory file)
-		(if (string-match "\\([^.]*\\)\\(\\..*\\)?" fn)
-		    (substring fn 0 (match-end 1)))
-		".bak"))
-    (concat file "~")))
+    (concat file "~"))
 
 (defun backup-file-name-p (file)
   "Return non-nil if FILE is a backup file name (numeric or not).
 This is a separate function so you can redefine it for customization.
 You may need to redefine `file-name-sans-versions' as well."
-  (if (eq system-type 'ms-dos)
-      (string-match "\\.bak\\'" file)
-      (string-match "~\\'" file)))
+  (string-match "~\\'" file))
 
 ;; This is used in various files.
 ;; The usage of bv-length is not very clean,
@@ -2087,7 +2092,7 @@ then it returns FILENAME."
 		       (expand-file-name (or directory default-directory))))
       ;; On Microsoft OSes, if FILENAME and DIRECTORY have different
       ;; drive names, they can't be relative, so return the absolute name.
-      (if (and (memq system-type '(ms-dos windows-nt))
+      (if (and (eq system-type 'windows-nt)
 	       (not (string-equal (substring fname  0 2)
 				  (substring directory 0 2))))
 	  filename
@@ -2688,7 +2693,7 @@ non-nil, it is called instead of rereading visited file contents."
 				      file-name)))
 	     (run-hooks 'before-revert-hook)
 	     ;; If file was backed up but has changed since,
-	     ;; we shd make another backup.
+	     ;; we should make another backup.
 	     (and (not auto-save-p)
 		  (not (verify-visited-file-modtime (current-buffer)))
 		  (setq buffer-backed-up nil))
@@ -3139,6 +3144,8 @@ If WILDCARD, it also runs the shell specified by `shell-file-name'."
 	(funcall handler 'insert-directory file switches
 		 wildcard full-directory-p)
       (cond
+       ;; #### mswindows-insert-directory should be called
+       ;; nt-insert-directory - kkm.
        ((and (fboundp 'mswindows-insert-directory)
 	     (eq system-type 'windows-nt))
 	(mswindows-insert-directory file switches wildcard full-directory-p))

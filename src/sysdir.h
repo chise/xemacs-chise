@@ -20,6 +20,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not really in FSF. */
 
+#ifndef INCLUDED_sysdir_h_
+#define INCLUDED_sysdir_h_
+
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
@@ -129,3 +132,4 @@ int sys_rmdir (CONST char *path);
 # define sys_rmdir rmdir
 #endif
 
+#endif /* INCLUDED_sysdir_h_ */

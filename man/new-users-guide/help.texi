@@ -98,13 +98,13 @@ particular buffer also. For example, if you are in "Texinfo" mode, part
 of your list will contain:
 
 @example
-C-c C-c n	texinfo-insert-@@node
-C-c C-c o	texinfo-insert-@@noindent
-C-c C-c s	texinfo-insert-@@samp
-C-c C-c t	texinfo-insert-@@table
-C-c C-c v	texinfo-insert-@@var
-C-c C-c x	texinfo-insert-@@example
-C-c C-c @{	texinfo-insert-braces
+C-c C-c n       texinfo-insert-@@node
+C-c C-c o       texinfo-insert-@@noindent
+C-c C-c s       texinfo-insert-@@samp
+C-c C-c t       texinfo-insert-@@table
+C-c C-c v       texinfo-insert-@@var
+C-c C-c x       texinfo-insert-@@example
+C-c C-c @{      texinfo-insert-braces
 @end example
 @noindent
 These keybindings apply only to "Texinfo" mode. @xref{Modes}, for more

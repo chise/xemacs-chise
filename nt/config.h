@@ -67,12 +67,6 @@ Boston, MA 02111-1307, USA.  */
    numbers. */
 #undef LISP_FLOAT_TYPE
 
-/* Define GNU_MALLOC if you want to use the *new* GNU memory allocator. */
-#define GNU_MALLOC
-
-/* Define USE_SYSTEM_MALLOC if you forcing the use of it. */
-#undef USE_SYSTEM_MALLOC
-
 /* Define HAVE_TTY if you want TTY support compiled in. */
 #undef HAVE_TTY
 
@@ -335,6 +329,20 @@ Boston, MA 02111-1307, USA.  */
 #define ERROR_CHECK_MALLOC
 
 #endif /* DEBUG_XEMACS */
+
+/* Define convenient conditionally defined assertion macros. */
+#ifdef ERROR_CHECK_TYPECHECK
+#define type_checking_assert(assertion) assert (assertion)
+#else
+#define type_checking_assert(assertion)
+#endif
+
+#ifdef ERROR_CHECK_BUFPOS
+#define bufpos_checking_assert(assertion) assert (assertion)
+#else
+#define bufpos_checking_assert(assertion)
+#endif
+
 
 /* Define MEMORY_USAGE_STATS if you want extra code compiled in to
    determine where XEmacs's memory is going. */

@@ -59,7 +59,6 @@ struct Lisp_Hash_Table
   Lisp_Object next_weak;     /* Used to chain together all of the weak
 			        hash tables.  Don't mark through this. */
 };
-typedef struct Lisp_Hash_Table Lisp_Hash_Table;
 
 #define HENTRY_CLEAR_P(hentry) ((*(EMACS_UINT*)(&((hentry)->key))) == 0)
 #define CLEAR_HENTRY(hentry)   \
@@ -374,19 +373,20 @@ finalize_hash_table (void *header, int for_disksave)
 }
 
 static const struct lrecord_description hentry_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(hentry, key), 2 },
+  { XD_LISP_OBJECT, offsetof (hentry, key) },
+  { XD_LISP_OBJECT, offsetof (hentry, value) },
   { XD_END }
 };
 
 static const struct struct_description hentry_description = {
-  sizeof(hentry),
+  sizeof (hentry),
   hentry_description_1
 };
 
 const struct lrecord_description hash_table_description[] = {
-  { XD_SIZE_T,     offsetof(Lisp_Hash_Table, size) },
-  { XD_STRUCT_PTR, offsetof(Lisp_Hash_Table, hentries), XD_INDIRECT(0, 1), &hentry_description },
-  { XD_LO_LINK,    offsetof(Lisp_Hash_Table, next_weak) },
+  { XD_SIZE_T,     offsetof (Lisp_Hash_Table, size) },
+  { XD_STRUCT_PTR, offsetof (Lisp_Hash_Table, hentries), XD_INDIRECT(0, 1), &hentry_description },
+  { XD_LO_LINK,    offsetof (Lisp_Hash_Table, next_weak) },
   { XD_END }
 };
 
@@ -883,7 +883,7 @@ The keys and values will not themselves be copied.
 static void
 resize_hash_table (Lisp_Hash_Table *ht, size_t new_size)
 {
-  hentry *old_entries, *new_entries, *old_sentinel, *new_sentinel, *e;
+  hentry *old_entries, *new_entries, *sentinel, *e;
   size_t old_size;
 
   old_size = ht->size;
@@ -891,18 +891,12 @@ resize_hash_table (Lisp_Hash_Table *ht, size_t new_size)
 
   old_entries = ht->hentries;
 
-  ht->hentries = xnew_array (hentry, new_size + 1);
+  ht->hentries = xnew_array_and_zero (hentry, new_size + 1);
   new_entries = ht->hentries;
-
-  old_sentinel = old_entries + old_size;
-  new_sentinel = new_entries + new_size;
-
-  for (e = new_entries; e <= new_sentinel; e++)
-    CLEAR_HENTRY (e);
 
   compute_hash_table_derived_values (ht);
 
-  for (e = old_entries; e < old_sentinel; e++)
+  for (e = old_entries, sentinel = e + old_size; e < sentinel; e++)
     if (!HENTRY_CLEAR_P (e))
       {
 	hentry *probe = new_entries + HASH_CODE (e->key, ht);
@@ -915,10 +909,28 @@ resize_hash_table (Lisp_Hash_Table *ht, size_t new_size)
     xfree (old_entries);
 }
 
+/* After a hash table has been saved to disk and later restored by the
+   portable dumper, it contains the same objects, but their addresses
+   and thus their HASH_CODEs have changed. */
 void
-reorganize_hash_table (Lisp_Hash_Table *ht)
+pdump_reorganize_hash_table (Lisp_Object hash_table)
 {
-  resize_hash_table (ht, ht->size);
+  CONST Lisp_Hash_Table *ht = xhash_table (hash_table);
+  hentry *new_entries = xnew_array_and_zero (hentry, ht->size + 1);
+  hentry *e, *sentinel;
+
+  for (e = ht->hentries, sentinel = e + ht->size; e < sentinel; e++)
+    if (!HENTRY_CLEAR_P (e))
+      {
+	hentry *probe = new_entries + HASH_CODE (e->key, ht);
+	LINEAR_PROBING_LOOP (probe, new_entries, ht->size)
+	  ;
+	*probe = *e;
+      }
+
+  memcpy (ht->hentries, new_entries, ht->size * sizeof (hentry));
+
+  xfree (new_entries);
 }
 
 static void

@@ -138,7 +138,7 @@ unparesseuxify_doc_string (int fd, EMACS_INT position,
     }
 
   /* #### mrb: following STILL completely broken */
-  return_me = make_ext_string ((Bufbyte *) buffer, to - buffer, FORMAT_BINARY);
+  return_me = make_ext_string ((Bufbyte *) buffer, to - buffer, Qbinary);
 
  done:
   if (buffer != buf) /* We must have allocated buffer above */
@@ -284,7 +284,7 @@ string is passed through `substitute-command-keys'.
   else if (COMPILED_FUNCTIONP (fun))
     {
       Lisp_Object tem;
-      struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+      Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
       if (! (f->flags.documentationp))
         return Qnil;
       tem = compiled_function_documentation (f);
@@ -573,8 +573,7 @@ when doc strings are referred to in the dumped Emacs.
 		    {
                       /* Compiled-Function objects sometimes have
                          slots for it.  */
-                      struct Lisp_Compiled_Function *f =
-			XCOMPILED_FUNCTION (fun);
+                      Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
 
 		      /* This compiled-function object must have a
 			 slot for the docstring, since we've found a
@@ -640,7 +639,7 @@ static int
 kludgily_ignore_lost_doc_p (Lisp_Object sym)
 {
 # define kludge_prefix "ad-Orig-"
-  struct Lisp_String *name = XSYMBOL (sym)->name;
+  Lisp_String *name = XSYMBOL (sym)->name;
   return (string_length (name) > (Bytecount) (sizeof (kludge_prefix)) &&
 	  !strncmp ((char *) string_data (name), kludge_prefix,
 		    sizeof (kludge_prefix) - 1));
@@ -684,7 +683,7 @@ verify_doc_mapper (Lisp_Object sym, void *arg)
 	}
       else if (COMPILED_FUNCTIONP (fun))
 	{
-          struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+          Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
           if (! (f->flags.documentationp))
             doc = -1;
           else
@@ -886,7 +885,7 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
 	case '{':
 	case '<':
 	  {
-	    /* ### jump to label `subst_string|subst' crosses
+	    /* #### jump to label `subst_string|subst' crosses
                initialization of `buffer|_buf' */
 	    Lisp_Object buffer;
 	    struct buffer *buf_;

@@ -97,7 +97,7 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 static Lisp_Object
 mark_char_table_entry (Lisp_Object obj)
 {
-  struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (obj);
+  Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (obj);
   int i;
 
   for (i = 0; i < 96; i++)
@@ -110,8 +110,8 @@ mark_char_table_entry (Lisp_Object obj)
 static int
 char_table_entry_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Char_Table_Entry *cte1 = XCHAR_TABLE_ENTRY (obj1);
-  struct Lisp_Char_Table_Entry *cte2 = XCHAR_TABLE_ENTRY (obj2);
+  Lisp_Char_Table_Entry *cte1 = XCHAR_TABLE_ENTRY (obj1);
+  Lisp_Char_Table_Entry *cte2 = XCHAR_TABLE_ENTRY (obj2);
   int i;
 
   for (i = 0; i < 96; i++)
@@ -124,13 +124,13 @@ char_table_entry_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 char_table_entry_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (obj);
+  Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (obj);
 
   return internal_array_hash (cte->level2, 96, depth);
 }
 
 static const struct lrecord_description char_table_entry_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table_Entry, level2), 96 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table_Entry, level2), 96 },
   { XD_END }
 };
 
@@ -139,13 +139,13 @@ DEFINE_LRECORD_IMPLEMENTATION ("char-table-entry", char_table_entry,
 			       0, char_table_entry_equal,
 			       char_table_entry_hash,
 			       char_table_entry_description,
-			       struct Lisp_Char_Table_Entry);
+			       Lisp_Char_Table_Entry);
 #endif /* MULE */
 
 static Lisp_Object
 mark_char_table (Lisp_Object obj)
 {
-  struct Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+  Lisp_Char_Table *ct = XCHAR_TABLE (obj);
   int i;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
@@ -241,7 +241,7 @@ print_chartab_range (Emchar first, Emchar last, Lisp_Object val,
 static void
 print_chartab_charset_row (Lisp_Object charset,
 			   int row,
-			   struct Lisp_Char_Table_Entry *cte,
+			   Lisp_Char_Table_Entry *cte,
 			   Lisp_Object printcharfun)
 {
   int i;
@@ -289,7 +289,7 @@ print_chartab_charset_row (Lisp_Object charset,
 
 static void
 print_chartab_two_byte_charset (Lisp_Object charset,
-				struct Lisp_Char_Table_Entry *cte,
+				Lisp_Char_Table_Entry *cte,
 				Lisp_Object printcharfun)
 {
   int i;
@@ -319,7 +319,7 @@ print_chartab_two_byte_charset (Lisp_Object charset,
 static void
 print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+  Lisp_Char_Table *ct = XCHAR_TABLE (obj);
   char buf[200];
 
   sprintf (buf, "#s(char-table type %s data (",
@@ -377,7 +377,7 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	  }
 	else
 	  {
-	    struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (ann);
+	    Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (ann);
 	    if (XCHARSET_DIMENSION (charset) == 1)
 	      print_chartab_charset_row (charset, -1, cte, printcharfun);
 	    else
@@ -393,8 +393,8 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 char_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Char_Table *ct1 = XCHAR_TABLE (obj1);
-  struct Lisp_Char_Table *ct2 = XCHAR_TABLE (obj2);
+  Lisp_Char_Table *ct1 = XCHAR_TABLE (obj1);
+  Lisp_Char_Table *ct2 = XCHAR_TABLE (obj2);
   int i;
 
   if (CHAR_TABLE_TYPE (ct1) != CHAR_TABLE_TYPE (ct2))
@@ -416,7 +416,7 @@ char_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 char_table_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+  Lisp_Char_Table *ct = XCHAR_TABLE (obj);
   unsigned long hashval = internal_array_hash (ct->ascii, NUM_ASCII_CHARS,
 					       depth);
 #ifdef MULE
@@ -427,12 +427,12 @@ char_table_hash (Lisp_Object obj, int depth)
 }
 
 static const struct lrecord_description char_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
+  { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, level1), NUM_LEADING_BYTES },
+  { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, level1), NUM_LEADING_BYTES },
 #endif
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, mirror_table), 1 },
-  { XD_LO_LINK,     offsetof(struct Lisp_Char_Table, next_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Char_Table, mirror_table) },
+  { XD_LO_LINK,     offsetof (Lisp_Char_Table, next_table) },
   { XD_END }
 };
 
@@ -440,7 +440,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("char-table", char_table,
                                mark_char_table, print_char_table, 0,
 			       char_table_equal, char_table_hash,
 			       char_table_description,
-			       struct Lisp_Char_Table);
+			       Lisp_Char_Table);
 
 DEFUN ("char-table-p", Fchar_table_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a char table.
@@ -543,7 +543,7 @@ See `valid-char-table-type-p'.
 }
 
 void
-fill_char_table (struct Lisp_Char_Table *ct, Lisp_Object value)
+fill_char_table (Lisp_Char_Table *ct, Lisp_Object value)
 {
   int i;
 
@@ -563,7 +563,7 @@ Reset a char table to its default state.
 */
        (table))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
 
   CHECK_CHAR_TABLE (table);
   ct = XCHAR_TABLE (table);
@@ -599,11 +599,11 @@ and 'syntax.  See `valid-char-table-type-p'.
 */
        (type))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
   Lisp_Object obj;
   enum char_table_type ty = symbol_to_char_table_type (type);
 
-  ct = alloc_lcrecord_type (struct Lisp_Char_Table, &lrecord_char_table);
+  ct = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ct->type = ty;
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
     {
@@ -631,9 +631,8 @@ make_char_table_entry (Lisp_Object initval)
 {
   Lisp_Object obj;
   int i;
-  struct Lisp_Char_Table_Entry *cte =
-    alloc_lcrecord_type (struct Lisp_Char_Table_Entry,
-			 &lrecord_char_table_entry);
+  Lisp_Char_Table_Entry *cte =
+    alloc_lcrecord_type (Lisp_Char_Table_Entry, &lrecord_char_table_entry);
 
   for (i = 0; i < 96; i++)
     cte->level2[i] = initval;
@@ -645,12 +644,11 @@ make_char_table_entry (Lisp_Object initval)
 static Lisp_Object
 copy_char_table_entry (Lisp_Object entry)
 {
-  struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (entry);
+  Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (entry);
   Lisp_Object obj;
   int i;
-  struct Lisp_Char_Table_Entry *ctenew =
-    alloc_lcrecord_type (struct Lisp_Char_Table_Entry,
-			 &lrecord_char_table_entry);
+  Lisp_Char_Table_Entry *ctenew =
+    alloc_lcrecord_type (Lisp_Char_Table_Entry, &lrecord_char_table_entry);
 
   for (i = 0; i < 96; i++)
     {
@@ -674,13 +672,13 @@ as OLD-TABLE.  The values will not themselves be copied.
 */
        (old_table))
 {
-  struct Lisp_Char_Table *ct, *ctnew;
+  Lisp_Char_Table *ct, *ctnew;
   Lisp_Object obj;
   int i;
 
   CHECK_CHAR_TABLE (old_table);
   ct = XCHAR_TABLE (old_table);
-  ctnew = alloc_lcrecord_type (struct Lisp_Char_Table, &lrecord_char_table);
+  ctnew = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ctnew->type = ct->type;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
@@ -735,7 +733,7 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 #else /* MULE */
   else if (VECTORP (range))
     {
-      struct Lisp_Vector *vec = XVECTOR (range);
+      Lisp_Vector *vec = XVECTOR (range);
       Lisp_Object *elts = vector_data (vec);
       if (vector_length (vec) != 2)
 	signal_simple_error ("Length of charset row vector must be 2",
@@ -777,8 +775,8 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 
 /* called from CHAR_TABLE_VALUE(). */
 Lisp_Object
-get_non_ascii_char_table_value (struct Lisp_Char_Table *ct,
-				Charset_ID leading_byte, Emchar c)
+get_non_ascii_char_table_value (Lisp_Char_Table *ct, Charset_ID leading_byte,
+			       Emchar c)
 {
   Lisp_Object val;
 #ifdef UTF2000
@@ -796,7 +794,7 @@ get_non_ascii_char_table_value (struct Lisp_Char_Table *ct,
   val = ct->level1[leading_byte - MIN_LEADING_BYTE];
   if (CHAR_TABLE_ENTRYP (val))
     {
-      struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
+      Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
       val = cte->level2[byte1 - 32];
       if (CHAR_TABLE_ENTRYP (val))
 	{
@@ -813,7 +811,7 @@ get_non_ascii_char_table_value (struct Lisp_Char_Table *ct,
 #endif /* MULE */
 
 Lisp_Object
-get_char_table (Emchar ch, struct Lisp_Char_Table *ct)
+get_char_table (Emchar ch, Lisp_Char_Table *ct)
 {
 #ifdef MULE
   {
@@ -833,7 +831,7 @@ get_char_table (Emchar ch, struct Lisp_Char_Table *ct)
 	val = ct->level1[lb];
 	if (CHAR_TABLE_ENTRYP (val))
 	  {
-	    struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
+	    Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
 	    val = cte->level2[byte1 - 32];
 	    if (CHAR_TABLE_ENTRYP (val))
 	      {
@@ -858,7 +856,7 @@ Find value for char CH in TABLE.
 */
        (ch, table))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
 
   CHECK_CHAR_TABLE (table);
   ct = XCHAR_TABLE (table);
@@ -873,7 +871,7 @@ If there is more than one value, return MULTI (defaults to nil).
 */
        (range, table, multi))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
   struct chartab_range rainj;
 
   if (CHAR_OR_CHAR_INTP (range))
@@ -1058,7 +1056,7 @@ Signal an error if VALUE is not a valid value for CHAR-TABLE-TYPE.
 /* Assign VAL to all characters in RANGE in char table CT. */
 
 void
-put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
+put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 		Lisp_Object val)
 {
   switch (range->type)
@@ -1091,7 +1089,7 @@ put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
 
     case CHARTAB_RANGE_ROW:
       {
-	struct Lisp_Char_Table_Entry *cte;
+	Lisp_Char_Table_Entry *cte;
 	int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	/* make sure that there is a separate entry for the row. */
 	if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
@@ -1115,7 +1113,7 @@ put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
 	  ct->ascii[byte1 + 128] = val;
 	else
 	  {
-	    struct Lisp_Char_Table_Entry *cte;
+	    Lisp_Char_Table_Entry *cte;
 	    int lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
 	    /* make sure that there is a separate entry for the row. */
 	    if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
@@ -1166,7 +1164,7 @@ See `valid-char-table-type-p'.
 */
        (range, val, table))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
   struct chartab_range rainj;
 
   CHECK_CHAR_TABLE (table);
@@ -1181,7 +1179,7 @@ See `valid-char-table-type-p'.
 /* Map FN over the ASCII chars in CT. */
 
 static int
-map_over_charset_ascii (struct Lisp_Char_Table *ct,
+map_over_charset_ascii (Lisp_Char_Table *ct,
 			int (*fn) (struct chartab_range *range,
 				   Lisp_Object val, void *arg),
 			void *arg)
@@ -1211,7 +1209,7 @@ map_over_charset_ascii (struct Lisp_Char_Table *ct,
 /* Map FN over the Control-1 chars in CT. */
 
 static int
-map_over_charset_control_1 (struct Lisp_Char_Table *ct,
+map_over_charset_control_1 (Lisp_Char_Table *ct,
 			    int (*fn) (struct chartab_range *range,
 				       Lisp_Object val, void *arg),
 			    void *arg)
@@ -1237,7 +1235,7 @@ map_over_charset_control_1 (struct Lisp_Char_Table *ct,
    CTE specifies the char table entry for CHARSET. */
 
 static int
-map_over_charset_row (struct Lisp_Char_Table_Entry *cte,
+map_over_charset_row (Lisp_Char_Table_Entry *cte,
 		      Lisp_Object charset, int row,
 		      int (*fn) (struct chartab_range *range,
 				 Lisp_Object val, void *arg),
@@ -1277,7 +1275,7 @@ map_over_charset_row (struct Lisp_Char_Table_Entry *cte,
 
 
 static int
-map_over_other_charset (struct Lisp_Char_Table *ct, Charset_ID lb,
+map_over_other_charset (Lisp_Char_Table *ct, Charset_ID lb,
 			int (*fn) (struct chartab_range *range,
 				   Lisp_Object val, void *arg),
 			void *arg)
@@ -1300,7 +1298,7 @@ map_over_other_charset (struct Lisp_Char_Table *ct, Charset_ID lb,
     }
 
   {
-    struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
+    Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (val);
     int charset94_p = (XCHARSET_CHARS (charset) == 94);
     int start = charset94_p ?  33 :  32;
     int stop  = charset94_p ? 127 : 128;
@@ -1334,7 +1332,7 @@ map_over_other_charset (struct Lisp_Char_Table *ct, Charset_ID lb,
    becomes the return value of map_char_table(). */
 
 int
-map_char_table (struct Lisp_Char_Table *ct,
+map_char_table (Lisp_Char_Table *ct,
 		struct chartab_range *range,
 		int (*fn) (struct chartab_range *range,
 			   Lisp_Object val, void *arg),
@@ -1462,7 +1460,7 @@ the entire table.
 */
        (function, table, range))
 {
-  struct Lisp_Char_Table *ct;
+  Lisp_Char_Table *ct;
   struct slow_map_char_table_arg slarg;
   struct gcpro gcpro1, gcpro2;
   struct chartab_range rainj;
@@ -1630,7 +1628,7 @@ check_category_char (Emchar ch, Lisp_Object table,
 		     unsigned int designator, unsigned int not)
 {
   REGISTER Lisp_Object temp;
-  struct Lisp_Char_Table *ctbl;
+  Lisp_Char_Table *ctbl;
 #ifdef ERROR_CHECK_TYPECHECK
   if (NILP (Fcategory_table_p (table)))
     signal_simple_error ("Expected category table", table);

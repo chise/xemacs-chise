@@ -36,6 +36,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Does this byte represent the first byte of a character? */
 
+INLINE int BUFBYTE_FIRST_BYTE_P(Bufbyte c);
 INLINE int
 BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 {

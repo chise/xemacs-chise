@@ -20,6 +20,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not really in FSF. */
 
+#ifndef INCLUDED_sysfile_h_
+#define INCLUDED_sysfile_h_
+
 #include <errno.h>
 
 #ifndef WINDOWSNT
@@ -478,3 +481,5 @@ int sys_execvp (CONST char *, char * CONST *);
 #if !defined (ENCAPSULATE_EXECVP) && defined (DONT_ENCAPSULATE)
 # define sys_execvp execvp
 #endif
+
+#endif /* INCLUDED_sysfile_h_ */

@@ -980,6 +980,12 @@ TabsChangeManaged(Widget w)
 	  tw->tabs.topWidget->core.being_destroyed ) )
       tw->tabs.topWidget = NULL ;
 
+    /* Check whether the highlight tab is still valid. */
+    if( tw->tabs.hilight != NULL &&
+        ( !XtIsManaged(tw->tabs.hilight) ||
+	  tw->tabs.hilight->core.being_destroyed ) )
+      tw->tabs.hilight = NULL ;
+
     GetPreferredSizes(tw) ;
     MakeSizeRequest(tw) ;
 
@@ -1255,6 +1261,7 @@ XawTabsSetTop(Widget w, Bool callCallbacks)
 	if( !XtIsRealized(w) ) {
 	  tw->tabs.topWidget = w ;
 	  tw->tabs.needs_layout = True ;
+	  tw->tabs.hilight = NULL; /* The highlight tab might disappear. */
 	  return ;
 	}
 
@@ -1265,6 +1272,14 @@ XawTabsSetTop(Widget w, Bool callCallbacks)
 #endif
 
 	tab = (TabsConstraints) w->core.constraints ;
+
+	/* Unhighlight before we start messing with the stacking order. */
+	if( tw->tabs.hilight != NULL )
+	  {
+	    DrawHighlight(tw, tw->tabs.hilight, True) ;
+	    tw->tabs.hilight = NULL;
+	  }
+
 	if( tab->tabs.row == 0 )
 	{
 	  /* Easy case; undraw current top, undraw new top, assign new
@@ -1307,8 +1322,6 @@ XawTabsSetHighlight(Widget t, Widget w)
 
 	if( XtIsRealized(t) && w != tw->tabs.hilight )
 	{
-	  if( tw->tabs.hilight != NULL )
-	    DrawHighlight(tw, tw->tabs.hilight, True) ;
 	  if( w != NULL )
 	    DrawHighlight(tw, w, False) ;
 	}

@@ -387,7 +387,7 @@ The argument given to PREDICATE is the alist element or the symbol from the obar
 	{
 	  if (!ZEROP (bucket))
 	    {
-              struct Lisp_Symbol *next;
+              Lisp_Symbol *next;
 	      if (!SYMBOLP (bucket))
 		{
 		  signal_simple_error ("Bad obarray passed to try-completions",
@@ -590,7 +590,7 @@ the symbol from the obarray.
 	{
 	  if (!ZEROP (bucket))
 	    {
-              struct Lisp_Symbol *next = symbol_next (XSYMBOL (bucket));
+              Lisp_Symbol *next = symbol_next (XSYMBOL (bucket));
 	      elt = bucket;
 	      eltstring = Fsymbol_name (elt);
               if (next)
@@ -682,7 +682,7 @@ clear_echo_area_internal (struct frame *f, Lisp_Object label, int from_print,
   else
     {
       write_string_to_stdio_stream (stderr, 0, (CONST Bufbyte *) "\n", 0, 1,
-				    FORMAT_TERMINAL);
+				    Qterminal);
       return Qnil;
     }
 }
@@ -710,6 +710,12 @@ echo_area_append (struct frame *f, CONST Bufbyte *nonreloc, Lisp_Object reloc,
   Lisp_Object obj;
   struct gcpro gcpro1;
   Lisp_Object frame;
+
+  /* There is an inlining bug in egcs-20000131 c++ that can be worked
+     around as follows:  */
+#if defined (__GNUC__) && defined (__cplusplus)
+  alloca (4);
+#endif
 
   /* some callers pass in a null string as a way of clearing the echo area.
      check for length == 0 now; if this case, neither nonreloc nor reloc
@@ -745,7 +751,7 @@ echo_area_append (struct frame *f, CONST Bufbyte *nonreloc, Lisp_Object reloc,
       if (STRINGP (reloc))
 	nonreloc = XSTRING_DATA (reloc);
       write_string_to_stdio_stream (stderr, 0, nonreloc, offset, length,
-				    FORMAT_TERMINAL);
+				    Qterminal);
     }
 }
 

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_GUTTER_H_
-#define _XEMACS_GUTTER_H_
+#ifndef INCLUDED_gutter_h_
+#define INCLUDED_gutter_h_
 
 #include "specifier.h"
 
@@ -124,4 +124,4 @@ WINDOW_GUTTER (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), pos)
 #define FRAME_RIGHT_GUTTER_BOUNDS(f) \
    WINDOW_REAL_GUTTER_BOUNDS (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), RIGHT_GUTTER)
 
-#endif /* _XEMACS_GUTTER_H_ */
+#endif /* INCLUDED_gutter_h_ */

@@ -19,8 +19,8 @@ along with XEmacs; see the file COPYING.  If not, write to the Free
 Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.  */
 
-#ifndef _SYSDLL_H
-#define _SYSDLL_H
+#ifndef INCLUDED_sysdll_h_
+#define INCLUDED_sysdll_h_
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,4 +50,4 @@ CONST char *dll_error(dll_handle);
 }
 #endif
 
-#endif /* _SYSDLL_H */
+#endif /* INCLUDED_sysdll_h_ */

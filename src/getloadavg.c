@@ -768,31 +768,6 @@ getloadavg (double loadavg[], int nelem)
     loadavg[elem++] = load_info.fifteen_minute;
 #endif /* DGUX */
 
-#if !defined (LDAV_DONE) && defined (apollo)
-#define LDAV_DONE
-/* Apollo code from lisch@mentorg.com (Ray Lischner).
-
-   This system call is not documented.  The load average is obtained as
-   three long integers, for the load average over the past minute,
-   five minutes, and fifteen minutes.  Each value is a scaled integer,
-   with 16 bits of integer part and 16 bits of fraction part.
-
-   I'm not sure which operating system first supported this system call,
-   but I know that SR10.2 supports it.  */
-
-  extern void proc1_$get_loadav ();
-  unsigned long load_ave[3];
-
-  proc1_$get_loadav (load_ave);
-
-  if (nelem > 0)
-    loadavg[elem++] = load_ave[0] / 65536.0;
-  if (nelem > 1)
-    loadavg[elem++] = load_ave[1] / 65536.0;
-  if (nelem > 2)
-    loadavg[elem++] = load_ave[2] / 65536.0;
-#endif /* apollo */
-
 #if !defined (LDAV_DONE) && defined (OSF_MIPS)
 #define LDAV_DONE
 

@@ -2055,6 +2055,7 @@ read_bit_vector (Lisp_Object readcharfun)
 {
   unsigned_char_dynarr *dyn = Dynarr_new (unsigned_char);
   Emchar c;
+  Lisp_Object val;
 
   while (1)
     {
@@ -2067,8 +2068,12 @@ read_bit_vector (Lisp_Object readcharfun)
   if (c >= 0)
     unreadchar (readcharfun, c);
 
-  return make_bit_vector_from_byte_vector (Dynarr_atp (dyn, 0),
-					   Dynarr_length (dyn));
+  val = make_bit_vector_from_byte_vector (Dynarr_atp (dyn, 0),
+					  Dynarr_length (dyn));
+
+  Dynarr_free (dyn);
+
+  return val;
 }
 
 
@@ -3016,7 +3021,7 @@ read_vector (Lisp_Object readcharfun,
        i < len;
        i++, p++)
   {
-    struct Lisp_Cons *otem = XCONS (tem);
+    Lisp_Cons *otem = XCONS (tem);
     tem = Fcar (tem);
     *p = tem;
     tem = otem->cdr;
@@ -3048,7 +3053,7 @@ read_compiled_function (Lisp_Object readcharfun, Emchar terminator)
 
   for (iii = 0; CONSP (stuff); iii++)
     {
-      struct Lisp_Cons *victim = XCONS (stuff);
+      Lisp_Cons *victim = XCONS (stuff);
       make_byte_code_args[iii] = Fcar (stuff);
       if ((purify_flag || load_force_doc_strings)
 	   && CONSP (make_byte_code_args[iii])

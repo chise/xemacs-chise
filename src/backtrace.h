@@ -30,8 +30,8 @@ Boston, MA 02111-1307, USA.  */
    Mly (probably) or JWZ: Some changes.
  */
 
-#ifndef _XEMACS_BACKTRACE_H_
-#define _XEMACS_BACKTRACE_H_
+#ifndef INCLUDED_backtrace_h_
+#define INCLUDED_backtrace_h_
 
 #include <setjmp.h>
 
@@ -158,7 +158,7 @@ extern int specpdl_size;
   Lisp_Object SB_symbol = (symbol_object);				\
   Lisp_Object SB_newval = (value_object);				\
   Lisp_Object SB_oldval;						\
-  struct Lisp_Symbol *SB_sym;						\
+  Lisp_Symbol *SB_sym;							\
 									\
   SPECPDL_RESERVE (1);							\
 									\
@@ -168,7 +168,7 @@ extern int specpdl_size;
 									\
   if (!SYMBOL_VALUE_MAGIC_P (SB_oldval) || UNBOUNDP (SB_oldval))	\
     {									\
-      /* ### the following test will go away when we have a constant	\
+      /* #### the following test will go away when we have a constant	\
          symbol magic object */						\
       if (EQ (SB_symbol, Qnil) ||					\
 	  EQ (SB_symbol, Qt)   ||					\
@@ -197,7 +197,7 @@ extern int specpdl_size;
 #define SPECBIND_FAST_UNSAFE(symbol_object, value_object) do {		\
   Lisp_Object SFU_symbol = (symbol_object);				\
   Lisp_Object SFU_newval = (value_object);				\
-  struct Lisp_Symbol *SFU_sym = XSYMBOL (SFU_symbol);			\
+  Lisp_Symbol *SFU_sym   = XSYMBOL (SFU_symbol);			\
   Lisp_Object SFU_oldval = SFU_sym->value;				\
   if (!SYMBOL_VALUE_MAGIC_P (SFU_oldval) || UNBOUNDP (SFU_oldval))	\
     {									\
@@ -230,7 +230,7 @@ extern int specpdl_size;
   int UNBIND_TO_count = (count);			\
   while (specpdl_depth_counter != UNBIND_TO_count)	\
     {							\
-      struct Lisp_Symbol *sym;				\
+      Lisp_Symbol *sym;					\
       --specpdl_ptr;					\
       --specpdl_depth_counter;				\
 							\
@@ -255,7 +255,7 @@ extern int specpdl_size;
   int UNBIND_TO_count = (count);			\
   while (specpdl_depth_counter != UNBIND_TO_count)	\
     {							\
-      struct Lisp_Symbol *sym;				\
+      Lisp_Symbol *sym;					\
       --specpdl_ptr;					\
       --specpdl_depth_counter;				\
 							\
@@ -288,7 +288,7 @@ extern int specpdl_size;
   int UNBIND_TO_count = (count);				\
   while (specpdl_depth_counter != UNBIND_TO_count)		\
     {								\
-      struct Lisp_Symbol *sym;					\
+      Lisp_Symbol *sym;						\
       --specpdl_ptr;						\
       --specpdl_depth_counter;					\
 								\
@@ -315,7 +315,7 @@ extern int specpdl_size;
 #define FSET_FAST_UNSAFE(sym, newval) do {				\
   Lisp_Object FFU_sym = (sym);						\
   Lisp_Object FFU_newval = (newval);					\
-  struct Lisp_Symbol *FFU_symbol = XSYMBOL (FFU_sym);			\
+  Lisp_Symbol *FFU_symbol = XSYMBOL (FFU_sym);				\
   Lisp_Object FFU_oldval = FFU_symbol->value;				\
   if (!SYMBOL_VALUE_MAGIC_P (FFU_oldval) || UNBOUNDP (FFU_oldval))	\
     FFU_symbol->value = FFU_newval;					\
@@ -323,4 +323,4 @@ extern int specpdl_size;
     Fset (FFU_sym, FFU_newval);						\
 } while (0)
 
-#endif /* _XEMACS_BACKTRACE_H_ */
+#endif /* INCLUDED_backtrace_h_ */

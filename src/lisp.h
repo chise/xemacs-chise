@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_LISP_H_
-#define _XEMACS_LISP_H_
+#ifndef INCLUDED_lisp_h_
+#define INCLUDED_lisp_h_
 
 /************************************************************************/
 /*			  general definitions				*/
@@ -62,7 +62,7 @@ void Dynarr_insert_many (void *d, CONST void *el, int len, int start);
 void Dynarr_delete_many (void *d, int start, int len);
 void Dynarr_free (void *d);
 
-#define Dynarr_new(type) ((type##_dynarr *) Dynarr_newf (sizeof(type)))
+#define Dynarr_new(type) ((type##_dynarr *) Dynarr_newf (sizeof (type)))
 #define Dynarr_at(d, pos) ((d)->base[pos])
 #define Dynarr_atp(d, pos) (&Dynarr_at (d, pos))
 #define Dynarr_length(d) ((d)->cur)
@@ -71,9 +71,9 @@ void Dynarr_free (void *d);
 #define Dynarr_add_many(d, el, len) Dynarr_insert_many (d, el, len, (d)->cur)
 #define Dynarr_insert_many_at_start(d, el, len)	\
   Dynarr_insert_many (d, el, len, 0)
-#define Dynarr_add_literal_string(d, s) Dynarr_add_many (d, s, sizeof(s) - 1)
+#define Dynarr_add_literal_string(d, s) Dynarr_add_many (d, s, sizeof (s) - 1)
 #define Dynarr_add_lisp_string(d, s) do {		\
-  struct Lisp_String *dyna_ls_s = XSTRING (s);		\
+  Lisp_String *dyna_ls_s = XSTRING (s);			\
   Dynarr_add_many (d, (char *) string_data (dyna_ls_s),	\
 		   string_length (dyna_ls_s));		\
 } while (0)
@@ -87,9 +87,6 @@ void Dynarr_free (void *d);
    careful.  But they can save a lot of execution time when used wisely. */
 #define Dynarr_increment(d) ((d)->cur++)
 #define Dynarr_set_size(d, n) ((d)->cur = n)
-
-/* Minimum size in elements for dynamic array when resized; default is 32 */
-extern int Dynarr_min_size;
 
 #ifdef MEMORY_USAGE_STATS
 struct overhead_stats;
@@ -340,20 +337,13 @@ struct extent;
 typedef struct extent *EXTENT;
 struct frame;			/* "frame.h" */
 struct window;                  /* "window.h" */
-struct Lisp_Event;              /* "events.h" */
-typedef struct Lisp_Event Lisp_Event;
-struct Lisp_Face;
-typedef struct Lisp_Face Lisp_Face;
-struct Lisp_Process;            /* "process.c" */
-typedef struct Lisp_Process Lisp_Process;
+typedef struct Lisp_Event Lisp_Event; /* "events.h" */
+typedef struct Lisp_Face Lisp_Face;   /* "faces.h" */
+typedef struct Lisp_Process Lisp_Process; /* "procimpl.h" */
 struct stat;                    /* <sys/stat.h> */
-struct Lisp_Color_Instance;
 typedef struct Lisp_Color_Instance Lisp_Color_Instance;
-struct Lisp_Font_Instance;
 typedef struct Lisp_Font_Instance Lisp_Font_Instance;
-struct Lisp_Image_Instance;
 typedef struct Lisp_Image_Instance Lisp_Image_Instance;
-struct Lisp_Gui_Item;
 typedef struct Lisp_Gui_Item Lisp_Gui_Item;
 struct display_line;
 struct display_glyph_area;
@@ -426,47 +416,6 @@ typedef struct
 {
   Dynarr_declare (struct console_type_entry);
 } console_type_entry_dynarr;
-
-/* Need to declare this here. */
-enum external_data_format
-{
-  /* Binary format.  This is the simplest format and is what we
-     use in the absence of a more appropriate format.  This converts
-     according to the `binary' coding system:
-
-     a) On input, bytes 0 - 255 are converted into characters 0 - 255.
-     b) On output, characters 0 - 255 are converted into bytes 0 - 255
-        and other characters are converted into `X'.
-   */
-  FORMAT_BINARY,
-
-  /* Format used for filenames.  In the original Mule, this is
-     user-definable with the `pathname-coding-system' variable.
-     For the moment, we just use the `binary' coding system. */
-  FORMAT_FILENAME,
-
-  /* Format used for output to the terminal.  This should be controlled
-     by the `terminal-coding-system' variable.  Under kterm, this will
-     be some ISO2022 system.  On some DOS machines, this is Shift-JIS. */
-  FORMAT_TERMINAL,
-
-  /* Format used for input from the terminal.  This should be controlled
-     by the `keyboard-coding-system' variable. */
-  FORMAT_KEYBOARD,
-
-  /* Format used for the external Unix environment -- argv[], stuff
-     from getenv(), stuff from the /etc/passwd file, etc.
-
-     Perhaps should be the same as FORMAT_FILENAME. */
-  FORMAT_OS,
-
-  /* Compound-text format.  This is the standard X format used for
-     data stored in properties, selections, and the like.  This is
-     an 8-bit no-lock-shift ISO2022 coding system. */
-  FORMAT_CTEXT
-};
-
-#define FORMAT_NATIVE FORMAT_FILENAME
 
 enum run_hooks_condition
 {
@@ -1116,17 +1065,17 @@ set_bit_vector_bit (Lisp_Bit_Vector *v, size_t n, int value)
 
 /*********** symbol ***********/
 
+typedef struct Lisp_Symbol Lisp_Symbol;
 struct Lisp_Symbol
 {
   struct lrecord_header lheader;
   /* next symbol in this obarray bucket */
-  struct Lisp_Symbol *next;
-  struct Lisp_String *name;
+  Lisp_Symbol *next;
+  Lisp_String *name;
   Lisp_Object value;
   Lisp_Object function;
   Lisp_Object plist;
 };
-typedef struct Lisp_Symbol Lisp_Symbol;
 
 #define SYMBOL_IS_KEYWORD(sym)						\
   ((string_byte (symbol_name (XSYMBOL (sym)), 0) == ':')		\
@@ -1177,15 +1126,16 @@ DECLARE_LRECORD (subr, Lisp_Subr);
 
 /*********** marker ***********/
 
+typedef struct Lisp_Marker Lisp_Marker;
 struct Lisp_Marker
 {
   struct lrecord_header lheader;
-  struct Lisp_Marker *next, *prev;
+  Lisp_Marker *next;
+  Lisp_Marker *prev;
   struct buffer *buffer;
   Memind memind;
   char insertion_type;
 };
-typedef struct Lisp_Marker Lisp_Marker;
 
 DECLARE_LRECORD (marker, Lisp_Marker);
 #define XMARKER(x) XRECORD (x, marker, Lisp_Marker)
@@ -1362,7 +1312,7 @@ XCHAR_OR_INT (Lisp_Object obj)
 
 
 /*********** readonly objects ***********/
-    
+
 #define CHECK_C_WRITEABLE(obj)					\
   do { if (c_readonly (obj)) c_write_error (obj); } while (0)
 
@@ -2031,11 +1981,10 @@ extern EMACS_INT gc_generation_number[1];
 int c_readonly (Lisp_Object);
 int lisp_readonly (Lisp_Object);
 Lisp_Object build_string (CONST char *);
-Lisp_Object build_ext_string (CONST char *, enum external_data_format);
+Lisp_Object build_ext_string (CONST char *, Lisp_Object);
 Lisp_Object build_translated_string (CONST char *);
 Lisp_Object make_string (CONST Bufbyte *, Bytecount);
-Lisp_Object make_ext_string (CONST Extbyte *, EMACS_INT,
-			     enum external_data_format);
+Lisp_Object make_ext_string (CONST Extbyte *, EMACS_INT, Lisp_Object);
 Lisp_Object make_uninit_string (Bytecount);
 Lisp_Object make_float (double);
 Lisp_Object make_string_nocopy (CONST Bufbyte *, Bytecount);
@@ -2125,7 +2074,7 @@ Lisp_Object emacs_doprnt_string_lisp_2 (CONST Bufbyte *, Lisp_Object,
 
 /* Defined in editfns.c */
 void uncache_home_directory (void);
-char *get_home_directory (void);
+Extbyte *get_home_directory (void);
 char *user_login_name (uid_t *);
 Bufpos bufpos_clip_to_bounds (Bufpos, Bufpos, Bufpos);
 Bytind bytind_clip_to_bounds (Bytind, Bytind, Bytind);
@@ -2286,7 +2235,6 @@ void signal_special_Xt_user_event (Lisp_Object, Lisp_Object, Lisp_Object);
 /* Defined in events.c */
 void clear_event_resource (void);
 Lisp_Object allocate_event (void);
-int event_to_character (Lisp_Event *, int, int, int);
 
 /* Defined in fileio.c */
 void record_auto_save (void);
@@ -2368,7 +2316,7 @@ Lisp_Object encode_error_behavior_flag (Error_behavior);
 /* Defined in indent.c */
 int bi_spaces_at_point (struct buffer *, Bytind);
 int column_at_point (struct buffer *, Bufpos, int);
-int string_column_at_point (struct Lisp_String *, Bufpos, int);
+int string_column_at_point (Lisp_String *, Bufpos, int);
 int current_column (struct buffer *);
 void invalidate_current_column (void);
 Bufpos vmotion (struct window *, Bufpos, int, int *);
@@ -2444,7 +2392,7 @@ void clear_message (void);
 /* Defined in print.c */
 void write_string_to_stdio_stream (FILE *, struct console *,
 				   CONST Bufbyte *, Bytecount, Bytecount,
-				   enum external_data_format);
+				   Lisp_Object);
 void debug_print (Lisp_Object);
 void debug_short_backtrace (int);
 void temp_output_buffer_setup (Lisp_Object);
@@ -2493,7 +2441,7 @@ Bufpos scan_buffer (struct buffer *, Emchar, Bufpos, Bufpos, EMACS_INT, EMACS_IN
 Bufpos find_next_newline (struct buffer *, Bufpos, int);
 Bufpos find_next_newline_no_quit (struct buffer *, Bufpos, int);
 Bytind bi_find_next_newline_no_quit (struct buffer *, Bytind, int);
-Bytind bi_find_next_emchar_in_string (struct Lisp_String*, Emchar, Bytind, EMACS_INT);
+Bytind bi_find_next_emchar_in_string (Lisp_String*, Emchar, Bytind, EMACS_INT);
 Bufpos find_before_next_newline (struct buffer *, Bufpos, Bufpos, int);
 struct re_pattern_buffer *compile_pattern (Lisp_Object, struct re_registers *,
 					   char *, int, Error_behavior);
@@ -2694,10 +2642,9 @@ EXFUN (Flength, 1);
 EXFUN (Fleq, MANY);
 EXFUN (Flist, MANY);
 EXFUN (Flistp, 1);
-#ifdef HAVE_SHLIB
 EXFUN (Flist_modules, 0);
 EXFUN (Fload_module, 3);
-#endif
+EXFUN (Flookup_key, 3);
 EXFUN (Flss, MANY);
 EXFUN (Fmake_byte_code, MANY);
 EXFUN (Fmake_coding_system, 4);
@@ -2809,8 +2756,9 @@ extern Lisp_Object Q_style, Qactually_requested, Qactivate_menubar_hook;
 extern Lisp_Object Qafter, Qall, Qand;
 extern Lisp_Object Qarith_error, Qarrayp, Qassoc, Qat, Qautodetect, Qautoload;
 extern Lisp_Object Qbackground, Qbackground_pixmap, Qbad_variable, Qbefore;
-extern Lisp_Object Qbeginning_of_buffer, Qbig5, Qbinary, Qbitmap, Qbitp, Qblinking;
-extern Lisp_Object Qboolean, Qbottom, Qbuffer;
+extern Lisp_Object Qbeginning_of_buffer, Qbig5, Qbinary;
+extern Lisp_Object Qbitmap, Qbitp, Qblinking;
+extern Lisp_Object Qboolean, Qbottom, Qbottom_margin, Qbuffer;
 extern Lisp_Object Qbuffer_glyph_p, Qbuffer_live_p, Qbuffer_read_only, Qbutton;
 extern Lisp_Object Qbyte_code, Qcall_interactively, Qcategory;
 extern Lisp_Object Qcategory_designator_p, Qcategory_table_value_p, Qccl, Qcdr;
@@ -2821,67 +2769,76 @@ extern Lisp_Object Qcoding_system_error;
 extern Lisp_Object Qcolor, Qcolor_pixmap_image_instance_p;
 extern Lisp_Object Qcolumns, Qcommand, Qcommandp, Qcompletion_ignore_case;
 extern Lisp_Object Qconsole, Qconsole_live_p, Qconst_specifier, Qcr, Qcritical;
-extern Lisp_Object Qcrlf, Qctext, Qcurrent_menubar, Qcursor;
+extern Lisp_Object Qcrlf, Qctext, Qcurrent_menubar, Qctext, Qcursor;
 extern Lisp_Object Qcyclic_variable_indirection, Qdata, Qdead, Qdecode;
 extern Lisp_Object Qdefault, Qdefun, Qdelete, Qdelq, Qdevice, Qdevice_live_p;
 extern Lisp_Object Qdim, Qdimension, Qdisabled, Qdisplay, Qdisplay_table;
-extern Lisp_Object Qdoc_string, Qdomain_error, Qdynarr_overhead;
+extern Lisp_Object Qdoc_string, Qdomain_error, Qduplex, Qdynarr_overhead;
 extern Lisp_Object Qempty, Qencode, Qend_of_buffer, Qend_of_file, Qend_open;
 extern Lisp_Object Qeol_cr, Qeol_crlf, Qeol_lf, Qeol_type, Qeq, Qeql, Qequal;
 extern Lisp_Object Qerror, Qerror_conditions, Qerror_message, Qescape_quoted;
 extern Lisp_Object Qeval, Qevent_live_p, Qexit, Qextent_live_p, Qextents;
-extern Lisp_Object Qexternal_debugging_output, Qface, Qfeaturep, Qfile_error;
+extern Lisp_Object Qexternal_debugging_output, Qface, Qfeaturep;
+extern Lisp_Object Qfile_name, Qfile_error;
 extern Lisp_Object Qfont, Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output, Qforeground;
 extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfunction, Qgap_overhead;
-extern Lisp_Object Qgeneric, Qgeometry, Qglobal, Qheight, Qhighlight, Qhorizontal, Qicon;
+extern Lisp_Object Qgeneric, Qgeometry, Qglobal, Qheight;
+extern Lisp_Object Qhighlight, Qhorizontal, Qicon;
 extern Lisp_Object Qicon_glyph_p, Qid, Qidentity, Qimage, Qinfo, Qinherit;
 extern Lisp_Object Qinhibit_quit, Qinhibit_read_only;
 extern Lisp_Object Qinput_charset_conversion, Qinteger;
 extern Lisp_Object Qinteger_char_or_marker_p, Qinteger_or_char_p;
 extern Lisp_Object Qinteger_or_marker_p, Qintegerp, Qinteractive, Qinternal;
 extern Lisp_Object Qinvalid_function, Qinvalid_read_syntax, Qio_error;
-extern Lisp_Object Qiso2022, Qkey, Qkey_assoc, Qkeymap, Qlambda, Qlayout, Qleft, Qlf;
+extern Lisp_Object Qiso2022, Qkey, Qkey_assoc, Qkeyboard, Qkeymap;
+extern Lisp_Object Qlambda, Qlayout, Qlandscape, Qleft, Qleft_margin, Qlf;
 extern Lisp_Object Qlist, Qlistp, Qload, Qlock_shift, Qmacro, Qmagic;
-extern Lisp_Object Qmalformed_list, Qmalformed_property_list;
+extern Lisp_Object Qmakunbound, Qmalformed_list, Qmalformed_property_list;
 extern Lisp_Object Qmalloc_overhead, Qmark, Qmarkers;
 extern Lisp_Object Qmax, Qmemory, Qmessage, Qminus, Qmnemonic, Qmodifiers;
 extern Lisp_Object Qmono_pixmap_image_instance_p, Qmotion;
-extern Lisp_Object Qmouse_leave_buffer_hook, Qmswindows, Qname, Qnas, Qnatnump;
+extern Lisp_Object Qmouse_leave_buffer_hook, Qmsprinter, Qmswindows;
+extern Lisp_Object Qname, Qnas, Qnatnump;
 extern Lisp_Object Qno_ascii_cntl, Qno_ascii_eol, Qno_catch;
 extern Lisp_Object Qno_conversion, Qno_iso6429, Qnone, Qnot, Qnothing;
 extern Lisp_Object Qnothing_image_instance_p, Qnotice;
 extern Lisp_Object Qnumber_char_or_marker_p, Qnumberp;
 extern Lisp_Object Qobject, Qold_assoc, Qold_delete, Qold_delq, Qold_rassoc;
-extern Lisp_Object Qold_rassq, Qonly, Qor, Qother, Qoutput_charset_conversion;
+extern Lisp_Object Qold_rassq, Qonly, Qor, Qother;
+extern Lisp_Object Qorientation, Qoutput_charset_conversion;
 extern Lisp_Object Qoverflow_error, Qpoint, Qpointer, Qpointer_glyph_p;
-extern Lisp_Object Qpointer_image_instance_p, Qpost_read_conversion;
+extern Lisp_Object Qpointer_image_instance_p, Qportrait, Qpost_read_conversion;
 extern Lisp_Object Qpre_write_conversion, Qprint, Qprint_length;
 extern Lisp_Object Qprint_string_length, Qprocess, Qprogn, Qprovide, Qquit;
 extern Lisp_Object Qquote, Qrange_error, Qrassoc, Qrassq, Qread_char;
 extern Lisp_Object Qread_from_minibuffer, Qreally_early_error_handler;
 extern Lisp_Object Qregion_beginning, Qregion_end, Qrequire, Qresource;
-extern Lisp_Object Qreturn, Qreverse, Qright, Qrun_hooks, Qsans_modifiers;
+extern Lisp_Object Qreturn, Qreverse, Qright, Qright_margin;
+extern Lisp_Object Qrun_hooks, Qsans_modifiers;
 extern Lisp_Object Qsave_buffers_kill_emacs, Qsearch, Qselected;
 extern Lisp_Object Qself_insert_command, Qself_insert_defer_undo;
-extern Lisp_Object Qsequencep, Qsetting_constant, Qseven, Qshift_jis, Qshort;
+extern Lisp_Object Qsequencep, Qset, Qsetting_constant;
+extern Lisp_Object Qseven, Qshift_jis, Qshort;
 extern Lisp_Object Qsignal, Qsimple, Qsingularity_error, Qsize, Qspace;
 extern Lisp_Object Qspecifier, Qstandard_input, Qstandard_output, Qstart_open;
 extern Lisp_Object Qstream, Qstring, Qstring_lessp, Qsubwindow;
-extern Lisp_Object Qsubwindow_image_instance_p, Qsymbol, Qsyntax, Qt, Qtest;
+extern Lisp_Object Qsubwindow_image_instance_p;
+extern Lisp_Object Qsymbol, Qsyntax, Qt, Qterminal, Qtest;
 extern Lisp_Object Qtext, Qtext_image_instance_p, Qtimeout, Qtimestamp;
-extern Lisp_Object Qtoolbar, Qtop, Qtop_level, Qtrue_list_p, Qtty, Qtype;
+extern Lisp_Object Qtoolbar, Qtop, Qtop_margin, Qtop_level;
+extern Lisp_Object Qtrue_list_p, Qtty, Qtype;
 extern Lisp_Object Qunbound, Qundecided, Qundefined, Qunderflow_error;
 extern Lisp_Object Qunderline, Qunimplemented, Quser_files_and_directories;
 extern Lisp_Object Qvalue_assoc, Qvalues;
 extern Lisp_Object Qvariable_documentation, Qvariable_domain, Qvertical;
-extern Lisp_Object Qvoid_function, Qvoid_variable, Qwarning, Qwidth, Qwidget, Qwindow;
+extern Lisp_Object Qvoid_function, Qvoid_variable, Qwarning;
+extern Lisp_Object Qwidth, Qwidget, Qwindow;
 extern Lisp_Object Qwindow_live_p, Qwindow_system, Qwrong_number_of_arguments;
 extern Lisp_Object Qwrong_type_argument, Qx, Qy, Qyes_or_no_p;
 extern Lisp_Object Vactivate_menubar_hook, Vascii_canon_table;
 extern Lisp_Object Vascii_downcase_table, Vascii_eqv_table;
-extern Lisp_Object Vascii_upcase_table, Vautoload_queue, Vbinary_process_input;
-extern Lisp_Object Vbinary_process_output, Vblank_menubar;
+extern Lisp_Object Vascii_upcase_table, Vautoload_queue, Vblank_menubar;
 extern Lisp_Object Vcharset_ascii, Vcharset_composite, Vcharset_control_1;
 extern Lisp_Object Vcharset_latin_iso8859_1, Vcharset_greek_iso8859_7;
 extern Lisp_Object Vcharset_cyrillic_iso8859_5, Vcharset_hebrew_iso8859_8;
@@ -2917,9 +2874,6 @@ extern Lisp_Object Vsite_module_directory;
 extern Lisp_Object Vstandard_input, Vstandard_output, Vstdio_str;
 extern Lisp_Object Vsynchronous_sounds, Vsystem_name, Vterminal_coding_system;
 extern Lisp_Object Vthis_command_keys, Vunread_command_event;
-extern Lisp_Object Vwin32_generate_fake_inodes, Vwin32_pipe_read_delay;
 extern Lisp_Object Vx_initial_argv_list;
 
-extern Lisp_Object Qmakunbound, Qset;
-
-#endif /* _XEMACS_LISP_H_ */
+#endif /* INCLUDED_lisp_h_ */

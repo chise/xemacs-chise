@@ -240,8 +240,8 @@ commands are invoked only when you are in XEmacs:
        ))
 
 (cond ((and (string-match "XEmacs" emacs-version)
-	    (or (> emacs-major-version 19)
-	        (>= emacs-minor-version 12)))
+            (or (> emacs-major-version 19)
+                (>= emacs-minor-version 12)))
        ;;
        ;; Code which requires XEmacs version 19.12 or newer goes here
        ;;
@@ -254,7 +254,7 @@ commands are invoked only when you are in XEmacs:
        ))
 
 (cond ((and (not (string-match "Lucid" emacs-version))
-	    (= emacs-major-version 19))
+            (= emacs-major-version 19))
        ;;
        ;; Code specific to FSF Emacs 19 (not XEmacs) goes here
        ;;
@@ -321,20 +321,20 @@ should be used.
 XEmacs has the following new default function keybindings:
 
 @table @kbd
-@item @key{HELP}	
+@item @key{HELP}
 Same as @kbd{C-h}.
 
-@item @key{UNDO}	
+@item @key{UNDO}
 Same as @kbd{M-x undo}.
 
-@item @key{CUT}  	
+@item @key{CUT}
 Same as the Cut menu item; that is, it copies the selected text to
 the X Clipboard selection.
 
-@item @key{COPY}	
+@item @key{COPY}
 Same as the Copy menu item.
 
-@item @key{PASTE}	
+@item @key{PASTE}
 Same as the Paste menu item.
 
 @item @key{PGUP}
@@ -352,7 +352,7 @@ Same as @kbd{M->}.
 @item @key{LEFT-ARROW}
 Same as the function @code{backward-char}.
 
-@item @key{RIGHT-ARROW}	
+@item @key{RIGHT-ARROW}
 Same as the function @code{forward-char}.
 
 @item @key{UP-ARROW}

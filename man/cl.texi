@@ -295,10 +295,10 @@ the Emacs name:
 
 @example
 defun*        defsubst*     defmacro*     function*
-member*       assoc*        rassoc*       get*
-remove*       delete*       mapcar*       sort*
-floor*        ceiling*      truncate*     round*
-mod*          rem*          random*
+member*       assoc*        rassoc*       remove*
+delete*       mapcar*       sort*         floor*
+ceiling*      truncate*     round*        mod*
+rem*          random*
 @end example
 
 Internal function and variable names in the package are prefixed
@@ -1084,8 +1084,8 @@ car                 cdr                 caar .. cddddr
 nth                 rest                first .. tenth
 aref                elt                 nthcdr
 symbol-function     symbol-value        symbol-plist
-get                 get*                getf
-gethash             subseq
+get                 getf                gethash
+subseq
 @end smallexample
 
 @noindent
@@ -3297,7 +3297,7 @@ This package defines several symbol-related features that were
 missing from Emacs Lisp.
 
 @menu
-* Property Lists::       `get*', `remprop', `getf', `remf'
+* Property Lists::       `remprop', `getf', `remf'
 * Creating Symbols::     `gensym', `gentemp'
 @end menu
 
@@ -3309,17 +3309,6 @@ These functions augment the standard Emacs Lisp functions @code{get}
 and @code{put} for operating on properties attached to symbols.
 There are also functions for working with property lists as
 first-class data structures not attached to particular symbols.
-
-@defun get* symbol property &optional default
-This function is like @code{get}, except that if the property is
-not found, the @var{default} argument provides the return value.
-(The Emacs Lisp @code{get} function always uses @code{nil} as
-the default; this package's @code{get*} is equivalent to Common
-Lisp's @code{get}.)
-
-The @code{get*} function is @code{setf}-able; when used in this
-fashion, the @var{default} argument is allowed but ignored.
-@end defun
 
 @defun remprop symbol property
 This function removes the entry for @var{property} from the property
@@ -3357,11 +3346,11 @@ pair onto the list if the property is not yet present.
 (put sym prop val)  @equiv{}  (setf (getf (symbol-plist sym) prop) val)
 @end example
 
-The @code{get} and @code{get*} functions are also @code{setf}-able.
-The fact that @code{default} is ignored can sometimes be useful:
+The @code{get} function is also @code{setf}-able.  The fact that
+@code{default} is ignored can sometimes be useful:
 
 @example
-(incf (get* 'foo 'usage-count 0))
+(incf (get 'foo 'usage-count 0))
 @end example
 
 Here, symbol @code{foo}'s @code{usage-count} property is incremented
@@ -4653,7 +4642,7 @@ corresponding value is changed to the stored value.  If @var{key}
 does not already exist, a new entry is added to the table and the
 table is reallocated to a larger size if necessary.  The @var{default}
 argument is allowed but ignored in this case.  The situation is
-exactly analogous to that of @code{get*}; @pxref{Property Lists}.
+exactly analogous to that of @code{get}; @pxref{Property Lists}.
 @end defun
 
 @defun remhash key table

@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
 
-#ifndef _XEMACS_MULE_CHARSET_H
-#define _XEMACS_MULE_CHARSET_H
+#ifndef INCLUDED_mule_charset_h_
+#define INCLUDED_mule_charset_h_
 
 /*
    1. Character Sets
@@ -458,7 +458,10 @@ struct Lisp_Charset
 
   int id;
   Lisp_Object name;
-  Lisp_Object doc_string, registry, short_name, long_name;
+  Lisp_Object doc_string;
+  Lisp_Object registry;
+  Lisp_Object short_name;
+  Lisp_Object long_name;
 
   Lisp_Object reverse_direction_charset;
 
@@ -491,9 +494,10 @@ struct Lisp_Charset
   /* Which half of font to be used to display this character set */
   unsigned int graphic;
 };
+typedef struct Lisp_Charset Lisp_Charset;
 
-DECLARE_LRECORD (charset, struct Lisp_Charset);
-#define XCHARSET(x) XRECORD (x, charset, struct Lisp_Charset)
+DECLARE_LRECORD (charset, Lisp_Charset);
+#define XCHARSET(x) XRECORD (x, charset, Lisp_Charset)
 #define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
 #define CHARSETP(x) RECORDP (x, charset)
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
@@ -552,7 +556,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 struct charset_lookup {
   /* Table of charsets indexed by (leading byte - MIN_LEADING_BYTE). */
   Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
-  
+
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
 };
@@ -787,4 +791,4 @@ int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
 Bytecount copy_external_to_internal (CONST unsigned char *external,
 				     int len, Bufbyte *internal);
 
-#endif /* _XEMACS_MULE_CHARSET_H */
+#endif /* INCLUDED_mule_charset_h_ */

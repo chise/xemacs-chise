@@ -106,7 +106,6 @@ Function Index
 * gcd:                                   Numerical Functions.
 * gensym:                                Creating Symbols.
 * gentemp:                               Creating Symbols.
-* get*:                                  Property Lists.
 * get-setf-method:                       Customizing Setf.
 * getf:                                  Property Lists.
 * ignore-errors:                         Assertions.

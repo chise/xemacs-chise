@@ -171,19 +171,22 @@ void ExternalShellUnrealize (Widget w);
 
 static XtResource resources[] = {
 #define offset(field) XtOffset(ExternalShellWidget, externalShell.field)
-  { XtNwindow, XtCWindow, XtRWindow, sizeof (Window),
-      offset (external_window), XtRImmediate, (XtPointer)0},
-  { XtNclientTimeout, XtCClientTimeout, XtRInt, sizeof(int),
-      offset(client_timeout), XtRImmediate,(XtPointer)DEFAULT_WM_TIMEOUT},
-  { XtNdeadClient, XtCDeadClient, XtRBoolean, sizeof(Boolean),
-      offset(dead_client), XtRImmediate, (XtPointer)False},
+  { XtNwindow, XtCWindow,
+    XtRWindow, sizeof (Window),
+    offset (external_window), XtRImmediate, (XtPointer)0 },
+  { XtNclientTimeout, XtCClientTimeout,
+    XtRInt, sizeof (int),
+    offset(client_timeout), XtRImmediate,(XtPointer)DEFAULT_WM_TIMEOUT },
+  { XtNdeadClient, XtCDeadClient,
+    XtRBoolean, sizeof (Boolean),
+    offset(dead_client), XtRImmediate, (XtPointer)False },
 };
 
 static CompositeClassExtensionRec compositeClassExtRec = {
     NULL,
     NULLQUARK,
     XtCompositeExtensionVersion,
-    sizeof(CompositeClassExtensionRec),
+    sizeof (CompositeClassExtensionRec),
     TRUE,
 };
 
@@ -191,7 +194,7 @@ static ShellClassExtensionRec shellClassExtRec = {
     NULL,
     NULLQUARK,
     XtShellExtensionVersion,
-    sizeof(ShellClassExtensionRec),
+    sizeof (ShellClassExtensionRec),
     ExternalShellRootGeometryManager
 };
 
@@ -201,7 +204,7 @@ ExternalShellClassRec externalShellClassRec = {
        */
     /* superclass	  */	(WidgetClass) &shellClassRec,
     /* class_name	  */	"ExternalShell",
-    /* size		  */	sizeof(ExternalShellRec),
+    /* size		  */	sizeof (ExternalShellRec),
     /* Class Initializer  */	NULL,
     /* class_part_initialize*/	NULL, /* XtInheritClassPartInitialize, */
     /* Class init'ed ?	  */	FALSE,
@@ -221,9 +224,9 @@ ExternalShellClassRec externalShellClassRec = {
     /* resize		  */	XtInheritResize,
     /* expose		  */	NULL,
     /* set_values	  */	NULL, /* XtInheritSetValues, */
-    /* set_values_hook	  */	NULL,			
-    /* set_values_almost  */	XtInheritSetValuesAlmost,  
-    /* get_values_hook	  */	NULL,			
+    /* set_values_hook	  */	NULL,
+    /* set_values_almost  */	XtInheritSetValuesAlmost,
+    /* get_values_hook	  */	NULL,
     /* accept_focus	  */	NULL,
     /* intrinsics version */	XtVersion,
     /* callback offsets	  */	NULL,
@@ -319,7 +322,7 @@ static void EventHandler(wid, closure, event, continue_to_dispatch)
 
     case extw_notify_focus_in: {
       XFocusChangeEvent evnt;
-      
+
       evnt.type = FocusIn;
       evnt.serial = LastKnownRequestProcessed (XtDisplay (wid));
       evnt.send_event = True;
@@ -334,10 +337,10 @@ static void EventHandler(wid, closure, event, continue_to_dispatch)
 #endif
       break;
     }
-      
+
     case extw_notify_focus_out: {
       XFocusChangeEvent evnt;
-      
+
       evnt.type = FocusOut;
       evnt.serial = LastKnownRequestProcessed (XtDisplay (wid));
       evnt.send_event = True;
@@ -368,11 +371,11 @@ GetGeometry (Widget W, Widget child)
     int x, y, win_gravity = -1, flag;
     XSizeHints hints;
     Window win = w->externalShell.external_window;
-    
+
     {
       Window dummy_root;
       unsigned int dummy_bd_width, dummy_depth, width, height;
-      
+
       /* determine the existing size of the window. */
       XGetGeometry(XtDisplay(W), win, &dummy_root, &x, &y, &width,
 		   &height, &dummy_bd_width, &dummy_depth);
@@ -466,8 +469,8 @@ static void ExternalShellRealize (Widget wid, Mask *vmask,
 			    w->core.background_pixmap =
 				(*childP)->core.background_pixmap;
 		    } else {
-			attr->background_pixel = 
-			    w->core.background_pixel = 
+			attr->background_pixel =
+			    w->core.background_pixel =
 				(*childP)->core.background_pixel;
 		    }
 		    break;

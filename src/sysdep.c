@@ -33,19 +33,19 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WINDOWSNT
 #include <direct.h>
-#ifndef __MINGW32__
+#ifdef __MINGW32__
+#include <mingw32/process.h>
+#else
 /* <process.h> should not conflict with "process.h", as per ANSI definition.
-   This is not true though with visual c though. The trick below works with
-   VC4.2b and with VC5.0. It assumes that VC is installed in a kind of
-   standard way, so include files get to what/ever/path/include.
+   This is not true with visual c though. The trick below works with
+   VC4.2b, 5.0 and 6.0. It assumes that VC is installed in a kind of
+   standard way, so include path ends with /include.
 
    Unfortunately, this must go before lisp.h, since process.h defines abort()
    which will conflict with the macro defined in lisp.h
 */
 #include <../include/process.h>
-#else
-#include <mingw32/process.h>
-#endif
+#endif /* __MINGW32__ */
 #endif /* WINDOWSNT */
 
 #include "lisp.h"
@@ -90,7 +90,6 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WINDOWSNT
 #include <sys/utime.h>
-#include <windows.h>
 #include "ntheap.h"
 #endif
 
@@ -386,7 +385,7 @@ void wait_for_termination (int pid)
 			  "failure to obtain process exit value");
 	}
     }
-  if (pHandle != NULL && !CloseHandle(pHandle)) 
+  if (pHandle != NULL && !CloseHandle(pHandle))
     {
       warn_when_safe (Qprocess, Qwarning,
 		      "failure to close unknown process");
@@ -539,7 +538,7 @@ child_setup_tty (int out)
 #endif /* no TIOCGPGRP or no TIOCGLTC or no TIOCGETC */
   s.main.c_cc[VEOL] = _POSIX_VDISABLE;
 #if defined (CBAUD)
-  /* <mdiers> ### This is not portable. ###
+  /* <mdiers> #### This is not portable. ###
      POSIX does not specify CBAUD, and 4.4BSD does not have it.
      Instead, POSIX suggests to use cfset{i,o}speed().
      [cf. D. Lewine, POSIX Programmer's Guide, Chapter 8: Terminal
@@ -1708,10 +1707,8 @@ tty_init_sys_modes_on_device (struct device *d)
 #ifdef TCXONC
   if (!TTY_FLAGS (con).flow_control) ioctl (input_fd, TCXONC, 1);
 #endif
-#ifndef APOLLO
 #ifdef TIOCSTART
   if (!TTY_FLAGS (con).flow_control) ioctl (input_fd, TIOCSTART, 0);
-#endif
 #endif
 
 #if defined (HAVE_TERMIOS) || defined (HPUX9)
@@ -2124,7 +2121,7 @@ hft_reset (struct console *con)
 /*                    limits of text/data segments                      */
 /************************************************************************/
 
-#ifndef CANNOT_DUMP
+#if !defined(CANNOT_DUMP) && !defined(PDUMP)
 #define NEED_STARTS
 #endif
 
@@ -2144,13 +2141,14 @@ hft_reset (struct console *con)
  *
  */
 
+#if !defined(HAVE_TEXT_START) && !defined(PDUMP)
+
 #ifdef __cplusplus
   extern "C" int _start (void);
 #else
   extern int _start (void);
 #endif
 
-#ifndef HAVE_TEXT_START
 char *
 start_of_text (void)
 {
@@ -2165,7 +2163,7 @@ start_of_text (void)
 #endif /* GOULD */
 #endif /* TEXT_START */
 }
-#endif /* not HAVE_TEXT_START */
+#endif /* !defined(HAVE_TEXT_START) && !defined(PDUMP) */
 
 /*
  *	Return the address of the start of the data segment prior to
@@ -2224,7 +2222,7 @@ start_of_data (void)
 }
 #endif /* NEED_STARTS (not CANNOT_DUMP or not SYSTEM_MALLOC) */
 
-#ifndef CANNOT_DUMP
+#if !defined(CANNOT_DUMP) && !defined(PDUMP)
 /* Some systems that cannot dump also cannot implement these.  */
 
 /*
@@ -2259,7 +2257,7 @@ end_of_data (void)
 #endif
 }
 
-#endif /* not CANNOT_DUMP */
+#endif /* !defined(CANNOT_DUMP) && !defined(PDUMP) */
 
 
 /************************************************************************/
@@ -2281,7 +2279,7 @@ init_system_name (void)
 {
 #if defined (WINDOWSNT)
   char hostname [MAX_COMPUTERNAME_LENGTH + 1];
-  size_t size = sizeof(hostname);
+  size_t size = sizeof (hostname);
   GetComputerName (hostname, &size);
   Vsystem_name = build_string (hostname);
 #elif !defined (HAVE_GETHOSTNAME)
@@ -2317,23 +2315,24 @@ init_system_name (void)
 #  endif /* not CANNOT_DUMP */
     if (!strchr (hostname, '.'))
       {
+#  if !(defined(HAVE_GETADDRINFO) && defined(HAVE_GETNAMEINFO))
 	struct hostent *hp = NULL;
 	int count;
-#  ifdef TRY_AGAIN
+#   ifdef TRY_AGAIN
 	for (count = 0; count < 10; count++)
 	  {
 	    h_errno = 0;
-#  endif
+#   endif
 	    /* Some systems can't handle SIGALARM/SIGIO in gethostbyname(). */
 	    stop_interrupts ();
 	    hp = gethostbyname (hostname);
 	    start_interrupts ();
-#  ifdef TRY_AGAIN
+#   ifdef TRY_AGAIN
 	    if (! (hp == 0 && h_errno == TRY_AGAIN))
 	      break;
 	    Fsleep_for (make_int (1));
 	  }
-#  endif
+#   endif
 	if (hp)
 	  {
 	    CONST char *fqdn = (CONST char *) hp->h_name;
@@ -2351,6 +2350,22 @@ init_system_name (void)
 	    hostname = (char *) alloca (strlen (fqdn) + 1);
 	    strcpy (hostname, fqdn);
 	  }
+#  else /* !(HAVE_GETADDRINFO && HAVE_GETNAMEINFO) */
+	struct addrinfo hints, *res;
+
+	xzero (hints);
+	hints.ai_flags = AI_CANONNAME;
+	hints.ai_family = AF_UNSPEC;
+	hints.ai_socktype = SOCK_STREAM;
+	hints.ai_protocol = 0;
+	if (!getaddrinfo (hostname, NULL, &hints, &res))
+	  {
+	    hostname = (char *) alloca (strlen (res->ai_canonname) + 1);
+	    strcpy (hostname, res->ai_canonname);
+
+	    freeaddrinfo (res);
+	  }
+#  endif  /* !(HAVE_GETADDRINFO && HAVE_GETNAMEINFO) */
       }
 # endif /* HAVE_SOCKETS */
   Vsystem_name = build_string (hostname);
@@ -2571,7 +2586,7 @@ mswindows_set_errno (unsigned long win32_error)
   int i;
 
   /* check the table for the OS error code */
-  for (i = 0; i < sizeof(errtable)/sizeof(errtable[0]); ++i)
+  for (i = 0; i < countof (errtable); ++i)
     {
       if (win32_error == errtable[i].oscode)
 	{
@@ -2605,7 +2620,7 @@ mswindows_set_last_errno (void)
 /************************************************************************/
 
 #define PATHNAME_CONVERT_OUT(path) \
-  GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA ((CONST Bufbyte *) path, path)
+  TO_EXTERNAL_FORMAT (C_STRING, (path), C_STRING_ALLOCA, (path), Qfile_name);
 
 /***************** low-level calls ****************/
 
@@ -2638,11 +2653,12 @@ sys_open (CONST char *path, int oflag, ...)
   mode = va_arg (ap, int);
   va_end (ap);
 
-  PATHNAME_CONVERT_OUT (path);
-#if defined (WINDOWSNT)
+#ifdef WINDOWSNT
   /* Make all handles non-inheritable */
-  return open (path, oflag | _O_NOINHERIT, mode);
-#elif defined (INTERRUPTIBLE_OPEN)
+  oflag |= _O_NOINHERIT;
+#endif
+
+#ifdef INTERRUPTIBLE_OPEN
   {
     int rtnval;
     while ((rtnval = open (path, oflag, mode)) == -1
@@ -2676,6 +2692,11 @@ interruptible_open (CONST char *path, int oflag, int mode)
   memcpy (nonreloc, path, len + 1);
 
   PATHNAME_CONVERT_OUT (nonreloc);
+
+#ifdef WINDOWSNT
+  /* Make all handles non-inheritable */
+  oflag |= _O_NOINHERIT;
+#endif
 
   for (;;)
     {
@@ -3005,9 +3026,9 @@ sys_readdir (DIR *dirp)
       Dynarr_add_many (internal_DIRENTRY, (Bufbyte *) rtnval,
                        offsetof (DIRENTRY, d_name));
 
-      internal_name =
-        convert_from_external_format (external_name, external_len,
-                                      &internal_len, FORMAT_FILENAME);
+      TO_INTERNAL_FORMAT (DATA, (external_name, external_len),
+			  ALLOCA, (internal_name, internal_len),
+			  Qfile_name);
 
       Dynarr_add_many (internal_DIRENTRY, internal_name, internal_len);
       Dynarr_add (internal_DIRENTRY, 0); /* zero-terminate */

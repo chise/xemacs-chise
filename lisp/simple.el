@@ -3630,7 +3630,7 @@ as the second argument.")
 ;;                                            --hniksic
 (defcustom log-message-ignore-regexps
   '(;; Note: adding entries to this list slows down messaging
-    ;; significantly.  Wherever possible, use message lables.
+    ;; significantly.  Wherever possible, use message labels.
 
     ;; Often-seen messages
     "\\`\\'"				; empty message

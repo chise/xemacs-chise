@@ -17,6 +17,9 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
+#ifndef INCLUDED_line_number_h_
+#define INCLUDED_line_number_h_
+
 /* Synched up with: Not in FSF. */
 
 void narrow_line_number_cache (struct buffer *);
@@ -25,3 +28,5 @@ void insert_invalidate_line_number_cache (struct buffer *, Bufpos,
 void delete_invalidate_line_number_cache (struct buffer *, Bufpos, Bufpos);
 
 EMACS_INT buffer_line_number (struct buffer *, Bufpos, int);
+
+#endif /* INCLUDED_line_number_h_ */

@@ -262,7 +262,7 @@ Keywords}.  Here is an example, from the library @file{paren.el}:
 (defcustom show-paren-mode nil
   "Toggle Show Paren mode@enddots{}"
   :set (lambda (symbol value)
-	 (show-paren-mode (or value 0)))
+         (show-paren-mode (or value 0)))
   :initialize 'custom-initialize-default
   :type 'boolean
   :group 'paren-showing

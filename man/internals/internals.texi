@@ -7,7 +7,7 @@
 @ifinfo
 @dircategory XEmacs Editor
 @direntry
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 @end direntry
 
 Copyright @copyright{} 1992 - 1996 Ben Wing.
@@ -700,7 +700,7 @@ Some of these objects (in particular windows and frames) have
 displayable representations, and XEmacs provides a function
 @code{redisplay()} that ensures that the display of all such objects
 matches their internal state.  Most of the time, a standard Lisp
-environment is in a @dfn{read-eval-print} loop -- i.e. ``read some Lisp
+environment is in a @dfn{read-eval-print} loop---i.e. ``read some Lisp
 code, execute it, and print the results''.  XEmacs has a similar loop:
 
 @itemize @bullet
@@ -875,7 +875,7 @@ a default handler, generally installed by the top-level event loop, is
 executed; this prints out the error and continues.) Routines can also
 specify cleanup code (called an @dfn{unwind-protect}) that will be
 called when control exits from a block of code, no matter how that exit
-occurs -- i.e. even if a function deeply nested below it causes a
+occurs---i.e. even if a function deeply nested below it causes a
 non-local exit back to the top level.
 
 Note that this facility has appeared in some recent vintages of C, in
@@ -889,7 +889,7 @@ call another function, that subfunction can ``see'' the local variable
 you declared.  This is actually considered a bug in Emacs Lisp and in
 all other early dialects of Lisp, and was corrected in Common Lisp. (In
 Common Lisp, you can still declare dynamically scoped variables if you
-want to -- they are sometimes useful -- but variables by default are
+want to---they are sometimes useful---but variables by default are
 @dfn{lexically scoped} as in C.)
 @end enumerate
 
@@ -1247,9 +1247,9 @@ most other data structures in Lisp.
 An object representing a single character of text; chars behave like
 integers in many ways but are logically considered text rather than
 numbers and have a different read syntax. (the read syntax for a char
-contains the char itself or some textual encoding of it -- for example,
+contains the char itself or some textual encoding of it---for example,
 a Japanese Kanji character might be encoded as @samp{^[$(B#&^[(B} using the
-ISO-2022 encoding standard -- rather than the numerical representation
+ISO-2022 encoding standard---rather than the numerical representation
 of the char; this way, if the mapping between chars and integers
 changes, which is quite possible for Kanji characters and other extended
 characters, the same character will still be created.  Note that some
@@ -1601,10 +1601,10 @@ the lower 28 bits contain the value of the integer or char; for all
 others, the lower 28 bits contain a pointer.  The mark bit is used
 during garbage-collection, and is always 0 when garbage collection is
 not happening. (The way that garbage collection works, basically, is that it
-loops over all places where Lisp objects could exist -- this includes
+loops over all places where Lisp objects could exist---this includes
 all global variables in C that contain Lisp objects [including
 @code{Vobarray}, the C equivalent of @code{obarray}; through this, all
-Lisp variables will get marked], plus various other places -- and
+Lisp variables will get marked], plus various other places---and
 recursively scans through the Lisp objects, marking each object it finds
 by setting the mark bit.  Then it goes through the lists of all objects
 allocated, freeing the ones that are not marked and turning off the mark
@@ -1718,10 +1718,10 @@ complicated definition is selected by defining
 @code{EXPLICIT_SIGN_EXTEND}.
 
 Note that when @code{ERROR_CHECK_TYPECHECK} is defined, the extractor
-macros become more complicated -- they check the tag bits and/or the
+macros become more complicated---they check the tag bits and/or the
 type field in the first four bytes of a record type to ensure that the
 object is really of the correct type.  This is great for catching places
-where an incorrect type is being dereferenced -- this typically results
+where an incorrect type is being dereferenced---this typically results
 in a pointer being dereferenced as the wrong type of structure, with
 unpredictable (and sometimes not easily traceable) results.
 
@@ -1798,6 +1798,15 @@ must always be included before any other header files (including
 system header files) to ensure that certain tricks played by various
 @file{s/} and @file{m/} files work out correctly.
 
+When including header files, always use angle brackets, not double
+quotes, except when the file to be included is in the same directory as
+the including file.  If either file is a generated file, then that is
+not likely to be the case.  In order to understand why we have this
+rule, imagine what happens when you do a build in the source directory
+using @samp{./configure} and another build in another directory using
+@samp{../work/configure}.  There will be two different @file{config.h}
+files.  Which one will be used if you @samp{#include "config.h"}?
+
 @strong{All global and static variables that are to be modifiable must
 be declared uninitialized.}  This means that you may not use the
 ``declare with initializer'' form for these variables, such as @code{int
@@ -1807,7 +1816,7 @@ segment is re-mapped so that it becomes part of the (unmodifiable) code
 segment in the dumped executable.  This allows this memory to be shared
 among multiple running XEmacs processes.  XEmacs is careful to place as
 much constant data as possible into initialized variables (in
-particular, into what's called the @dfn{pure space} -- see below) during
+particular, into what's called the @dfn{pure space}---see below) during
 the @file{temacs} phase.
 
 @cindex copy-on-write
@@ -1842,10 +1851,10 @@ The C source code makes heavy use of C preprocessor macros.  One popular
 macro style is:
 
 @example
-#define FOO(var, value) do @{		\
-  Lisp_Object FOO_value = (value);	\
-  ... /* compute using FOO_value */	\
-  (var) = bar;				\
+#define FOO(var, value) do @{           \
+  Lisp_Object FOO_value = (value);      \
+  ... /* compute using FOO_value */     \
+  (var) = bar;                          \
 @} while (0)
 @end example
 
@@ -2983,7 +2992,7 @@ the structure itself is defined elsewhere) should be placed into the
 typedefs section as necessary.
 
 @file{lrecord.h} contains the basic structures and macros that implement
-all record-type Lisp objects -- i.e. all objects whose type is a field
+all record-type Lisp objects---i.e. all objects whose type is a field
 in their C structure, which includes all objects except the few most
 basic ones.
 
@@ -3019,7 +3028,7 @@ particular types of objects using a standardized interface of
 type-specific methods.  This scheme is a fundamental principle of
 object-oriented programming and is heavily used throughout XEmacs.  The
 great advantage of this is that it allows for a clean separation of
-functionality into different modules -- new classes of Lisp objects, new
+functionality into different modules---new classes of Lisp objects, new
 event interfaces, new device types, new stream interfaces, etc. can be
 added transparently without affecting code anywhere else in XEmacs.
 Because the different subsystems are divided into general and specific
@@ -3110,7 +3119,7 @@ symeval.h
 @file{symbols.c} implements the handling of symbols, obarrays, and
 retrieving the values of symbols.  Much of the code is devoted to
 handling the special @dfn{symbol-value-magic} objects that define
-special types of variables -- this includes buffer-local variables,
+special types of variables---this includes buffer-local variables,
 variable aliases, variables that forward into C variables, etc.  This
 module is initialized extremely early (right after @file{alloc.c}),
 because it is here that the basic symbols @code{t} and @code{nil} are
@@ -3389,7 +3398,7 @@ keyboard.c
 @end example
 
 @file{keyboard.c} contains functions that implement the actual editor
-command loop -- i.e. the event loop that cyclically retrieves and
+command loop---i.e. the event loop that cyclically retrieves and
 dispatches events.  This code is also rather tricky, just like
 @file{event-stream.c}.
 
@@ -3557,7 +3566,7 @@ toolbar.h
 font-lock.c
 @end example
 
-This file provides C support for syntax highlighting -- i.e.
+This file provides C support for syntax highlighting---i.e.
 highlighting different syntactic constructs of a source file in
 different colors, for easy reading.  The C support is provided so that
 this is fast.
@@ -3862,7 +3871,7 @@ Opaque objects can also have an arbitrary @dfn{mark method} associated
 with them, in case the block of memory contains other Lisp objects that
 need to be marked for garbage-collection purposes. (If you need other
 object methods, such as a finalize method, you should just go ahead and
-create a new Lisp object type -- it's not hard.)
+create a new Lisp object type---it's not hard.)
 
 
 
@@ -4439,7 +4448,7 @@ With the exception of vectors, objects in this category are allocated in
 @dfn{frob blocks}, i.e. large blocks of memory that are subdivided into
 individual objects.  This saves a lot on malloc overhead, since there
 are typically quite a lot of these objects around, and the objects are
-small.  (A cons, for example, occupies 8 bytes on 32-bit machines -- 4
+small.  (A cons, for example, occupies 8 bytes on 32-bit machines---4
 bytes for each of the two objects it contains.) Vectors are individually
 @code{malloc()}ed since they are of variable size.  (It would be
 possible, and desirable, to allocate vectors of certain small sizes out
@@ -4629,7 +4638,7 @@ local @code{gcpro} variable pointing to the first @code{gcpro} variable
 in the next enclosing stack frame.  Each @code{GCPRO}ed thing is an
 lvalue, and the @code{struct gcpro} local variable contains a pointer to
 this lvalue.  This is why things will mess up badly if you don't pair up
-the @code{GCPRO}s and @code{UNGCPRO}s -- you will end up with
+the @code{GCPRO}s and @code{UNGCPRO}s---you will end up with
 @code{gcprolist}s containing pointers to @code{struct gcpro}s or local
 @code{Lisp_Object} variables in no-longer-active stack frames.
 
@@ -5667,8 +5676,8 @@ to fit into a string-chars block.  Such strings, called @dfn{big
 strings}, are all @code{malloc()}ed as their own block. (#### Although it
 would make more sense for the threshold for big strings to be somewhat
 lower, e.g. 1/2 or 1/4 the size of a string-chars block.  It seems that
-this was indeed the case formerly -- indeed, the threshold was set at
-1/8 -- but Mly forgot about this when rewriting things for 19.8.)
+this was indeed the case formerly---indeed, the threshold was set at
+1/8---but Mly forgot about this when rewriting things for 19.8.)
 
 Note also that the string data in string-chars blocks is padded as
 necessary so that proper alignment constraints on the @code{struct
@@ -5747,7 +5756,7 @@ which provides an abstract layer on top of the system-dependent
 nature of the most basic events that are received.  Part of the
 complex nature of the XEmacs event collection process involves
 converting from the operating-system events into the proper
-Emacs events -- there may not be a one-to-one correspondence.
+Emacs events---there may not be a one-to-one correspondence.
 
   Emacs events are documented in @file{events.h}; I'll discuss them
 later.
@@ -5772,7 +5781,7 @@ constructs full key sequences is called the @dfn{command builder}.
 This is documented elsewhere.
 
   The guts of the command loop are in @code{command_loop_1()}.  This
-function doesn't catch errors, though -- that's the job of
+function doesn't catch errors, though---that's the job of
 @code{command_loop_2()}, which is a condition-case (i.e. error-trapping)
 wrapper around @code{command_loop_1()}.  @code{command_loop_1()} never
 returns, but may get thrown out of.
@@ -7492,8 +7501,8 @@ value is -1 for EOF or error.
 @deftypefn Macro void Lstream_ungetc (Lstream *@var{stream}, int @var{c})
 Push one byte back onto the input queue.  This will be the next byte
 read from the stream.  Any number of bytes can be pushed back and will
-be read in the reverse order they were pushed back -- most recent
-first. (This is necessary for consistency -- if there are a number of
+be read in the reverse order they were pushed back---most recent
+first. (This is necessary for consistency---if there are a number of
 bytes that have been unread and I read and unread a byte, it needs to be
 the first to be read again.) This is a macro and so it is very
 efficient.  The @var{c} argument is only evaluated once but the @var{stream}
@@ -7531,7 +7540,7 @@ Close the stream.  All data will be flushed out.
 @deftypefun void Lstream_reopen (Lstream *@var{stream})
 Reopen a closed stream.  This enables I/O on it again.  This is not
 meant to be called except from a wrapper routine that reinitializes
-variables and such -- the close routine may well have freed some
+variables and such---the close routine may well have freed some
 necessary storage structures, for example.
 @end deftypefun
 
@@ -7577,7 +7586,7 @@ Rewind the stream.  If this is @code{NULL}, the stream is not seekable.
 @end deftypefn
 
 @deftypefn {Lstream Method} int seekable_p (Lstream *@var{stream})
-Indicate whether this stream is seekable -- i.e. it can be rewound.
+Indicate whether this stream is seekable---i.e. it can be rewound.
 This method is ignored if the stream does not have a rewind method.  If
 this method is not present, the result is determined by whether a rewind
 method is present.
@@ -7746,7 +7755,7 @@ means ``side-by-side'' and @dfn{vertically-arrayed} means
 @item
 Leaf windows also have markers in their @code{start} (the
 first buffer position displayed in the window) and @code{pointm}
-(the window's stashed value of @code{point} -- see above) fields,
+(the window's stashed value of @code{point}---see above) fields,
 while combination windows have nil in these fields.
 
 @item
@@ -7762,7 +7771,7 @@ does nothing except set a special @code{dead} bit to 1 and clear out the
 GC purposes.
 
 @item
-Most frames actually have two top-level windows -- one for the
+Most frames actually have two top-level windows---one for the
 minibuffer and one (the @dfn{root}) for everything else.  The modeline
 (if present) separates these two.  The @code{next} field of the root
 points to the minibuffer, and the @code{prev} field of the minibuffer
@@ -7983,7 +7992,7 @@ scrolling around viewing a buffer there is a high probability that this
 is sufficient to always provide the needed information.  The second
 thing we can do is be smart about invalidating the cache.
 
-  TODO -- Be smart about invalidating the cache.  Potential places:
+  TODO---Be smart about invalidating the cache.  Potential places:
 
 @itemize @bullet
 @item
@@ -8125,7 +8134,7 @@ all occurrences of ``display order'' and ``e-order'', ``less than'' and
   An extent-info structure consists of a list of the buffer or string's
 extents and a @dfn{stack of extents} that lists all of the extents over
 a particular position.  The stack-of-extents info is used for
-optimization purposes -- it basically caches some info that might
+optimization purposes---it basically caches some info that might
 be expensive to compute.  Certain otherwise hard computations are easy
 given the stack of extents over a particular position, and if the
 stack of extents over a nearby position is known (because it was
@@ -8327,7 +8336,7 @@ and thus is in @math{S}, and thus @math{F2 >= F}.
 
   An extent fragment is a structure that holds data about the run that
 contains a particular buffer position (if the buffer position is at the
-junction of two runs, the run after the position is used) -- the
+junction of two runs, the run after the position is used)---the
 beginning and end of the run, a list of all of the extents in that run,
 the @dfn{merged face} that results from merging all of the faces
 corresponding to those extents, the begin and end glyphs at the
@@ -8377,7 +8386,7 @@ cached on a window basis.
 Any action on a glyph first consults the cache before actually
 instantiating a widget.
 
-@section Widget-Glyphs in the MS-WIndows Environment
+@section Widget-Glyphs in the MS-Windows Environment
 
 To Do
 

@@ -3,8 +3,50 @@ xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q4.0.2,  Next: Q4.0.3,  Prev: Q4.0.1,  Up: Subsystems
+
+Q4.0.2: How do I get VM to filter mail for me?
+----------------------------------------------
+
+   One possibility is to use procmail to split your mail before it gets
+to VM.  I prefer this personally, since there are many strange and
+wonderful things one can do with procmail.  Procmail may be found at
+`ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail/'.
+
+   Also see the Mail Filtering FAQ at:
+`ftp://rtfm.mit.edu/pub/usenet/news.answers/mail/filtering-faq'.
+
+
+File: xemacs-faq.info,  Node: Q4.0.3,  Next: Q4.0.4,  Prev: Q4.0.2,  Up: Subsystems
+
+Q4.0.3: How can I get VM to automatically check for new mail?
+-------------------------------------------------------------
+
+   John Turner <turner@lanl.gov> writes:
+
+     Use the following:
+
+          (setq vm-auto-get-new-mail 60)
+
+
+File: xemacs-faq.info,  Node: Q4.0.4,  Next: Q4.0.5,  Prev: Q4.0.3,  Up: Subsystems
+
+Q4.0.4: [This question intentionally left blank]
+------------------------------------------------
+
+   Obsolete question, left blank to avoid renumbering.
+
+
+File: xemacs-faq.info,  Node: Q4.0.5,  Next: Q4.0.6,  Prev: Q4.0.4,  Up: Subsystems
+
+Q4.0.5: How do I get my outgoing mail archived?
+-----------------------------------------------
+
+     (setq mail-archive-file-name "~/outbox")
 
 
 File: xemacs-faq.info,  Node: Q4.0.6,  Next: Q4.0.7,  Prev: Q4.0.5,  Up: Subsystems
@@ -16,7 +58,7 @@ Q4.0.6: I have various addresses at which I receive mail.  How can I tell VM to 
 
      (setq vm-reply-ignored-addresses
            '("wing@nuspl@nvwls.cc.purdue.edu,netcom[0-9]*.netcom.com"
-     	"wing@netcom.com" "wing@xemacs.org"))
+             "wing@netcom.com" "wing@xemacs.org"))
 
    Note that each string is a regular expression.
 
@@ -117,7 +159,7 @@ Q4.0.10: How do I make VM stay in a single frame?
 
    John.John S Cooper <Cooper@Eng.Sun.COM> writes:
 
-          					; Don't use multiple frames
+                                                  ; Don't use multiple frames
           (setq vm-frame-per-composition nil)
           (setq vm-frame-per-folder nil)
           (setq vm-frame-per-edit nil)
@@ -132,7 +174,7 @@ Q4.0.11: How do I make VM or mh-e display graphical smilies?
    For mh-e use the following:
 
      (add-hook 'mh-show-mode-hook '(lambda ()
-     				(smiley-region (point-min)
+                                     (smiley-region (point-min)
                                                     (point-max))))
 
    WJCarpenter <bill@carpenter.ORG> writes: For VM use the following:
@@ -705,7 +747,7 @@ usually one or more of the following:
      Each package bundled with XEmacs means more work for the
      maintainers, whether they want it or not.  If you are ready to
      take over the maintenance responsibilities for the package you
-     port, be sure to say so - we will more likely include it.
+     port, be sure to say so--we will more likely include it.
 
   3. The package simply hasn't been noted by the XEmacs development.  If
      that's the case, the messages like yours are very useful for
@@ -806,8 +848,8 @@ Q5.0.1: How can I do source code highlighting using font-lock?
 turned on.  This can be done by `M-x font-lock-mode', or by having
 XEmacs automatically start it by adding lines like:
 
-     (add-hook 'emacs-lisp-mode-hook	'turn-on-font-lock)
-     (add-hook 'dired-mode-hook	'turn-on-font-lock)
+     (add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
+     (add-hook 'dired-mode-hook      'turn-on-font-lock)
 
    to your `.emacs'.  See the file `etc/sample.emacs' for more examples.
 
@@ -1222,94 +1264,4 @@ XEmacs.
        (lambda () (interactive) (cg--generate-char-event 127)))
      (global-set-key [unknown_keysym_0x4]
        (lambda () (interactive) (cg--generate-char-event 4)))
-
-
-File: xemacs-faq.info,  Node: Q5.1.3,  Next: Q5.1.4,  Prev: Q5.1.2,  Up: Miscellaneous
-
-Q5.1.3: Could you explain `read-kbd-macro' in more detail?
-----------------------------------------------------------
-
-   The `read-kbd-macro' function returns the internal Emacs
-representation of a human-readable string (which is its argument).
-Thus:
-
-     (read-kbd-macro "C-c C-a")
-     => [(control ?c) (control ?a)]
-     
-     (read-kbd-macro "C-c C-. <up>")
-     => [(control ?c) (control ?.) up]
-
-   In GNU Emacs the same forms will be evaluated to what GNU Emacs
-understands internally--the sequences `"\C-x\C-c"' and `[3 67108910
-up]', respectively.
-
-   The exact "human-readable" syntax is defined in the docstring of
-`edmacro-mode'.  I'll repeat it here, for completeness.
-
-     Format of keyboard macros during editing:
-
-     Text is divided into "words" separated by whitespace.  Except for
-     the words described below, the characters of each word go directly
-     as characters of the macro.  The whitespace that separates words is
-     ignored.  Whitespace in the macro must be written explicitly, as in
-     `foo <SPC> bar <RET>'.
-
-        * The special words `RET', `SPC', `TAB', `DEL', `LFD', `ESC',
-          and `NUL' represent special control characters.  The words
-          must be written in uppercase.
-
-        * A word in angle brackets, e.g., `<return>', `<down>', or
-          `<f1>', represents a function key.  (Note that in the standard
-          configuration, the function key `<return>' and the control key
-          <RET> are synonymous.)  You can use angle brackets on the
-          words <RET>, <SPC>, etc., but they are not required there.
-
-        * Keys can be written by their ASCII code, using a backslash
-          followed by up to six octal digits.  This is the only way to
-          represent keys with codes above \377.
-
-        * One or more prefixes `M-' (meta), `C-' (control), `S-'
-          (shift), `A-' (alt), `H-' (hyper), and `s-' (super) may
-          precede a character or key notation.  For function keys, the
-          prefixes may go inside or outside of the brackets: `C-<down>'
-          == `<C-down>'.  The prefixes may be written in any order:
-          `M-C-x' == `C-M-x'.
-
-          Prefixes are not allowed on multi-key words, e.g., `C-abc',
-          except that the Meta prefix is allowed on a sequence of
-          digits and optional minus sign: `M--123' == `M-- M-1 M-2 M-3'.
-
-        * The `^' notation for control characters also works: `^M' ==
-          `C-m'.
-
-        * Double angle brackets enclose command names: `<<next-line>>'
-          is shorthand for `M-x next-line <RET>'.
-
-        * Finally, `REM' or `;;' causes the rest of the line to be
-          ignored as a comment.
-
-     Any word may be prefixed by a multiplier in the form of a decimal
-     number and `*': `3*<right>' == `<right> <right> <right>', and
-     `10*foo' == `foofoofoofoofoofoofoofoofoofoo'.
-
-     Multiple text keys can normally be strung together to form a word,
-     but you may need to add whitespace if the word would look like one
-     of the above notations: `; ; ;' is a keyboard macro with three
-     semicolons, but `;;;' is a comment.  Likewise, `\ 1 2 3' is four
-     keys but `\123' is a single key written in octal, and `< right >'
-     is seven keys but `<right>' is a single function key.  When in
-     doubt, use whitespace.
-
-
-File: xemacs-faq.info,  Node: Q5.1.4,  Next: Q5.1.5,  Prev: Q5.1.3,  Up: Miscellaneous
-
-Q5.1.4: What is the performance hit of `let'?
----------------------------------------------
-
-   In most cases, not noticeable.  Besides, there's no avoiding
-`let'--you have to bind your local variables, after all.  Some pose a
-question whether to nest `let's, or use one `let' per function.  I
-think because of clarity and maintenance (and possible future
-implementation), `let'-s should be used (nested) in a way to provide
-the clearest code.
 

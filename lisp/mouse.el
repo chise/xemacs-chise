@@ -1383,7 +1383,7 @@ and `mode-motion-hook'."
 	 ;; vars is a list of glyph variables to check for a pointer
 	 ;; value.
 	 (vars (cond
-		;; Checking if button is non-nil is not sufficent
+		;; Checking if button is non-nil is not sufficient
 		;; since the pointer could be over a blank portion
 		;; of the toolbar.
 		((event-over-toolbar-p event)
@@ -1525,10 +1525,10 @@ other mouse buttons."
 		 (setq last-timestamp (event-timestamp event))
 		 ;; Enlarge the window, calculating change in characters
 		 ;; of default font. Do not let the window to become
-		 ;; less than alolwed minimum (not because that's critical
+		 ;; less than allowed minimum (not because that's critical
 		 ;; for the code performance, just the visual effect is
 		 ;; better: when cursor goes to the left of the next left
-		 ;; divider, the vindow being resized shrinks to minimal
+		 ;; divider, the window being resized shrinks to minimal
 		 ;; size.
 		 (enlarge-window (max (- window-min-width (window-width window))
 				      (/ (- (event-x-pixel event) old-right)
@@ -1538,7 +1538,7 @@ other mouse buttons."
 		 ;; if the change caused more than two windows to resize
 		 ;; (shifting the whole stack right is ugly), or if the
 		 ;; left window side has slipped (right side cannot be
-		 ;; moved any funrther to the right, so enlarge-window
+		 ;; moved any further to the right, so enlarge-window
 		 ;; plays bad games with the left edge.
 		 (if (or (/= (count-windows) (length old-edges-all-windows))
 			 (/= old-left (car (window-pixel-edges window)))

@@ -731,14 +731,14 @@ Menus
 
 * Menu:
 
-* Menu Format::		Format of a menu description.
-* Menubar Format::	How to specify a menubar.
-* Menubar::		Functions for controlling the menubar.
-* Modifying Menus::	Modifying a menu description.
-* Pop-Up Menus::	Functions for specifying pop-up menus.
-* Menu Filters::	Filter functions for the default menubar.
-* Menu Accelerators::	Using and controlling menu accelerator keys
-* Buffers Menu::	The menu that displays the list of buffers.
+* Menu Format::         Format of a menu description.
+* Menubar Format::      How to specify a menubar.
+* Menubar::             Functions for controlling the menubar.
+* Modifying Menus::     Modifying a menu description.
+* Pop-Up Menus::        Functions for specifying pop-up menus.
+* Menu Filters::        Filter functions for the default menubar.
+* Menu Accelerators::   Using and controlling menu accelerator keys
+* Buffers Menu::        The menu that displays the list of buffers.
 
 
 File: lispref.info,  Node: Menu Format,  Next: Menubar Format,  Up: Menus
@@ -961,9 +961,9 @@ to four keyword-value pairs, as follows:
    For example:
 
       ("File"
-       :filter file-menu-filter	; file-menu-filter is a function that takes
-     				; one argument (a list of menu items) and
-     				; returns a list of menu items
+       :filter file-menu-filter      ; file-menu-filter is a function that takes
+                                     ; one argument (a list of menu items) and
+                                     ; returns a list of menu items
        [ "Save As..."    write-file]
        [ "Revert Buffer" revert-buffer :active (buffer-modified-p) ]
        [ "Read Only"     toggle-read-only :style toggle :selected buffer-read-only ]

@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_DRAGDROP_H_
-#define _XEMACS_DRAGDROP_H_
+#ifndef INCLUDED_dragdrop_h_
+#define INCLUDED_dragdrop_h_
 
 /* Drag'n'Drop data types known by XEmacs */
 extern Lisp_Object Qdragdrop_MIME;
@@ -37,4 +37,4 @@ char *dnd_url_hexify_string (const char *s, const char *m);
 /* emacs interface */
 void syms_of_dragdrop (void);
 
-#endif /* _XEMACS_DRAGDROP_H_ */
+#endif /* INCLUDED_dragdrop_h_ */

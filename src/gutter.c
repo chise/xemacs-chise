@@ -222,12 +222,17 @@ output_gutter (struct frame *f, enum gutter_pos pos)
   struct device *d = XDEVICE (f->device);
   struct window* w = XWINDOW (window);
   int x, y, width, height, ypos;
-  int line;
-  int border_width = FRAME_GUTTER_BORDER_WIDTH (f, pos);
-  face_index findex = get_builtin_face_cache_index (w, Vgui_element_face);
+  int line, border_width;
+  face_index findex;
   display_line_dynarr* ddla, *cdla;
   struct display_line *dl;
   int cdla_len;
+
+  if (!WINDOW_LIVE_P (w))
+    return;
+
+  border_width = FRAME_GUTTER_BORDER_WIDTH (f, pos);
+  findex = get_builtin_face_cache_index (w, Vgui_element_face);
 
   if (!f->current_display_lines)
     f->current_display_lines = Dynarr_new (display_line);
@@ -984,6 +989,7 @@ See `default-gutter-height' for more information.
   fb = Fcons (Fcons (list1 (Qx), Qautodetect), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+  fb = Fcons (Fcons (list1 (Qmsprinter), Qautodetect), fb);
   fb = Fcons (Fcons (list1 (Qmswindows), Qautodetect), fb);
 #endif
   if (!NILP (fb))
@@ -997,6 +1003,7 @@ See `default-gutter-height' for more information.
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_GUTTER_WIDTH)), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+  fb = Fcons (Fcons (list1 (Qmsprinter), Qzero), fb);
   fb = Fcons (Fcons (list1 (Qmswindows), 
 		     make_int (DEFAULT_GUTTER_WIDTH)), fb);
 #endif
@@ -1093,6 +1100,7 @@ See `default-gutter-height' for more information.
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_GUTTER_BORDER_WIDTH)), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+  fb = Fcons (Fcons (list1 (Qmsprinter), Qzero), fb);
   fb = Fcons (Fcons (list1 (Qmswindows), make_int (DEFAULT_GUTTER_BORDER_WIDTH)), fb);
 #endif
   if (!NILP (fb))
@@ -1191,5 +1199,4 @@ See `default-gutter-visible-p' for more information.
   set_specifier_fallback (Vgutter_visible_p[BOTTOM_GUTTER], fb);
   set_specifier_fallback (Vgutter_visible_p[LEFT_GUTTER],   fb);
   set_specifier_fallback (Vgutter_visible_p[RIGHT_GUTTER],  fb);
-
 }

@@ -314,7 +314,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		  Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		  int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   /* It is OK for the unwind data to be local to this function,
      because the unwind-protect is always executed when this
      stack frame is still valid. */
@@ -378,7 +378,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     /* #### This is a definite problem under Mule due to the amount of
        stack data it might allocate.  Need to be able to convert and
        write out to a file. */
-    GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+    TO_EXTERNAL_FORMAT (LISP_STRING, data, ALLOCA, (bytes, len), Qbinary);
     jpeg_memory_src (&cinfo, (JOCTET *) bytes, len);
   }
 
@@ -599,7 +599,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		 int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   /* It is OK for the unwind data to be local to this function,
      because the unwind-protect is always executed when this
      stack frame is still valid. */
@@ -623,7 +623,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     assert (!NILP (data));
 
     if (!(unwind.giffile = GifSetup()))
-      signal_image_error ("Insufficent memory to instantiate GIF image", instantiator);
+      signal_image_error ("Insufficient memory to instantiate GIF image", instantiator);
 
     /* set up error facilities */
     if (setjmp(gif_err.setjmp_buffer))
@@ -636,7 +636,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       }
     GifSetErrorFunc(unwind.giffile, (Gif_error_func)gif_error_func, (VoidPtr)&gif_err);
 
-    GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+    TO_EXTERNAL_FORMAT (LISP_STRING, data, ALLOCA, (bytes, len), Qbinary);
     mem_struct.bytes = bytes;
     mem_struct.len = len;
     mem_struct.index = 0;
@@ -844,7 +844,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		 int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   struct png_unwind_data unwind;
   int speccount = specpdl_depth ();
   int height, width;
@@ -900,7 +900,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     /* #### This is a definite problem under Mule due to the amount of
        stack data it might allocate.  Need to think about using Lstreams */
-    GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+    TO_EXTERNAL_FORMAT (LISP_STRING, data, ALLOCA, (bytes, len), Qbinary);
     tbr.bytes = bytes;
     tbr.len = len;
     tbr.index = 0;
@@ -942,7 +942,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	}
       else
 	{
-	  struct Lisp_Color_Instance *c;
+	  Lisp_Color_Instance *c;
 	  Lisp_Object rgblist;
 
 	  c = XCOLOR_INSTANCE (bkgd);
@@ -1212,7 +1212,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		  Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		  int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   tiff_memory_storage mem_struct;
   /* It is OK for the unwind data to be local to this function,
      because the unwind-protect is always executed when this
@@ -1247,7 +1247,9 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     /* #### This is a definite problem under Mule due to the amount of
        stack data it might allocate.  Think about Lstreams... */
-    GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+    TO_EXTERNAL_FORMAT (LISP_STRING, data,
+			ALLOCA, (bytes, len),
+			Qbinary);
     mem_struct.bytes = bytes;
     mem_struct.len = len;
     mem_struct.index = 0;
@@ -1258,13 +1260,13 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 				  tiff_memory_seek, tiff_memory_close, tiff_memory_size,
 				  tiff_map_noop, tiff_unmap_noop);
     if (!unwind.tiff)
-      signal_image_error ("Insufficent memory to instantiate TIFF image", instantiator);
+      signal_image_error ("Insufficient memory to instantiate TIFF image", instantiator);
 
     TIFFGetField (unwind.tiff, TIFFTAG_IMAGEWIDTH, &width);
     TIFFGetField (unwind.tiff, TIFFTAG_IMAGELENGTH, &height);
     unwind.eimage = (unsigned char *) xmalloc (width * height * 3);
 
-    /* ### This is little more than proof-of-concept/function testing.
+    /* #### This is little more than proof-of-concept/function testing.
        It needs to be reimplemented via scanline reads for both memory
        compactness. */
     raster = (uint32*) _TIFFmalloc (width * height * sizeof (uint32));

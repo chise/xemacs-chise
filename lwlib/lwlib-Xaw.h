@@ -1,5 +1,5 @@
-#ifndef LWLIB_XAW_H
-#define LWLIB_XAW_H
+#ifndef INCLUDED_lwlib_Xaw_h_
+#define INCLUDED_lwlib_Xaw_h_
 
 #include "lwlib-internal.h"
 
@@ -31,4 +31,4 @@ xaw_popup_menu (Widget widget, XEvent *event);
 void
 xaw_pop_instance (widget_instance* instance, Boolean up);
 
-#endif /* LWLIB_XAW_H */
+#endif /* INCLUDED_lwlib_Xaw_h_ */

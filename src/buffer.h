@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
    Ben Wing: almost completely rewritten for Mule, 19.12.
  */
 
-#ifndef _XEMACS_BUFFER_H_
-#define _XEMACS_BUFFER_H_
+#ifndef INCLUDED_buffer_h_
+#define INCLUDED_buffer_h_
 
 #include "character.h"
 #include "multibyte.h"
@@ -169,7 +169,7 @@ struct buffer
   /* The markers that refer to this buffer.  This is actually a single
      marker -- successive elements in its marker `chain' are the other
      markers referring to this buffer */
-  struct Lisp_Marker *markers;
+  Lisp_Marker *markers;
 
   /* The buffer's extent info.  This is its own type, an extent-info
      object (done this way for ease in marking / finalizing). */
@@ -747,138 +747,270 @@ Bufpos bytind_to_bufpos (struct buffer *buf, Bytind x);
 #define BUF_CHARPTR_COPY_CHAR(buf, pos, str) \
   BI_BUF_CHARPTR_COPY_CHAR (buf, bufpos_to_bytind (buf, pos), str)
 
-
-
 
 /************************************************************************/
-/*									*/
-/*		    working with externally-formatted data		*/
-/*									*/
+/*                                                                      */
+/*         Converting between internal and external format              */
+/*                                                                      */
 /************************************************************************/
+/*
+  All client code should use only the two macros
 
-/* Sometimes strings need to be converted into one or another
-   external format, for passing to a library function. (Note
-   that we encapsulate and automatically convert the arguments
-   of some functions, but not others.) At times this conversion
-   also has to go the other way -- i.e. when we get external-
-   format strings back from a library function.
-*/
+  TO_EXTERNAL_FORMAT (source_type, source, sink_type, sink, coding_system)
+  TO_INTERNAL_FORMAT (source_type, source, sink_type, sink, coding_system)
+
+  Typical use is
+
+  TO_EXTERNAL_FORMAT (DATA, (ptr, len),
+                      LISP_BUFFER, buffer,
+		      Qfile_name);
+
+  The source or sink can be specified in one of these ways:
+
+  DATA,   (ptr, len),    // input data is a fixed buffer of size len
+  ALLOCA, (ptr, len),    // output data is in a alloca()ed buffer of size len
+  MALLOC, (ptr, len),    // output data is in a malloc()ed buffer of size len
+  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output.
+  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output.
+  C_STRING,     ptr,     // equivalent to DATA, (ptr, strlen (ptr) + 1) on input
+  LISP_STRING,  string,  // input or output is a Lisp_Object of type string
+  LISP_BUFFER,  buffer,  // output is written to (point) in lisp buffer
+  LISP_LSTREAM, lstream, // input or output is a Lisp_Object of type lstream
+  LISP_OPAQUE,  object,  // input or output is a Lisp_Object of type opaque
+
+  When specifying the sink, use lvalues, since the macro will assign to them,
+  except when the sink is an lstream or a lisp buffer.
+
+  The macros accept the kinds of sources and sinks appropriate for
+  internal and external data representation.  See the type_checking_assert
+  macros below for the actual allowed types.
+
+  Since some sources and sinks use one argument (a Lisp_Object) to
+  specify them, while others take a (pointer, length) pair, we use
+  some C preprocessor trickery to allow pair arguments to be specified
+  by parenthesizing them, as in the examples above.
+
+  Anything prefixed by dfc_ (`data format conversion') is private.
+  They are only used to implement these macros.
+
+  Using C_STRING* is appropriate for using with external APIs that take
+  null-terminated strings.  For internal data, we should try to be
+  '\0'-clean - i.e. allow arbitrary data to contain embedded '\0'.
+
+  Sometime in the future we might allow output to C_STRING_ALLOCA or
+  C_STRING_MALLOC _only_ with TO_EXTERNAL_FORMAT(), not
+  TO_INTERNAL_FORMAT().  */
+
+#define TO_EXTERNAL_FORMAT(source_type, source, sink_type, sink, coding_system)	\
+do {										\
+  dfc_conversion_type dfc_simplified_source_type;				\
+  dfc_conversion_type dfc_simplified_sink_type;					\
+  dfc_conversion_data dfc_source;						\
+  dfc_conversion_data dfc_sink;							\
+										\
+  type_checking_assert								\
+    ((DFC_TYPE_##source_type == DFC_TYPE_DATA ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_C_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_OPAQUE ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_LSTREAM)				\
+    &&										\
+     (DFC_TYPE_##sink_type == DFC_TYPE_ALLOCA ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_MALLOC ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_ALLOCA ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_MALLOC ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_LSTREAM ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_OPAQUE));				\
+										\
+  DFC_SOURCE_##source_type##_TO_ARGS (source);					\
+  DFC_SINK_##sink_type##_TO_ARGS     (sink);					\
+										\
+  DFC_CONVERT_TO_EXTERNAL_FORMAT (dfc_simplified_source_type, &dfc_source,	\
+				  coding_system,				\
+				  dfc_simplified_sink_type,   &dfc_sink);	\
+										\
+  DFC_##sink_type##_USE_CONVERTED_DATA (sink);					\
+} while (0)
+
+#define TO_INTERNAL_FORMAT(source_type, source, sink_type, sink, coding_system)	\
+do {										\
+  dfc_conversion_type dfc_simplified_source_type;				\
+  dfc_conversion_type dfc_simplified_sink_type;					\
+  dfc_conversion_data dfc_source;						\
+  dfc_conversion_data dfc_sink;							\
+										\
+  type_checking_assert								\
+    ((DFC_TYPE_##source_type == DFC_TYPE_DATA ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_C_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_OPAQUE ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_LSTREAM)				\
+     &&										\
+     (DFC_TYPE_##sink_type == DFC_TYPE_ALLOCA ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_MALLOC ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_ALLOCA ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_MALLOC ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_STRING ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_LSTREAM ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_BUFFER));				\
+										\
+  DFC_SOURCE_##source_type##_TO_ARGS (source);					\
+  DFC_SINK_##sink_type##_TO_ARGS     (sink);					\
+										\
+  DFC_CONVERT_TO_INTERNAL_FORMAT (dfc_simplified_source_type, &dfc_source,	\
+				  coding_system,				\
+				  dfc_simplified_sink_type,   &dfc_sink);	\
+										\
+  DFC_##sink_type##_USE_CONVERTED_DATA (sink);					\
+} while (0)
 
 #ifdef FILE_CODING
+#define DFC_CONVERT_TO_EXTERNAL_FORMAT dfc_convert_to_external_format
+#define DFC_CONVERT_TO_INTERNAL_FORMAT dfc_convert_to_internal_format
+#else
+/* ignore coding_system argument */
+#define DFC_CONVERT_TO_EXTERNAL_FORMAT(a, b, coding_system, c, d) \
+ dfc_convert_to_external_format (a, b, c, d)
+#define DFC_CONVERT_TO_INTERNAL_FORMAT(a, b, coding_system, c, d) \
+ dfc_convert_to_internal_format (a, b, c, d)
+#endif
+
+typedef union
+{
+  struct { const void *ptr; size_t len; } data;
+  Lisp_Object lisp_object;
+} dfc_conversion_data;
+
+enum dfc_conversion_type
+{
+  DFC_TYPE_DATA,
+  DFC_TYPE_ALLOCA,
+  DFC_TYPE_MALLOC,
+  DFC_TYPE_C_STRING,
+  DFC_TYPE_C_STRING_ALLOCA,
+  DFC_TYPE_C_STRING_MALLOC,
+  DFC_TYPE_LISP_STRING,
+  DFC_TYPE_LISP_LSTREAM,
+  DFC_TYPE_LISP_OPAQUE,
+  DFC_TYPE_LISP_BUFFER
+};
+typedef enum dfc_conversion_type dfc_conversion_type;
 
 /* WARNING: These use a static buffer.  This can lead to disaster if
-   these functions are not used *very* carefully.  Under normal
-   circumstances, do not call these functions; call the front ends
-   below. */
+   these functions are not used *very* carefully.  Another reason to only use
+   TO_EXTERNAL_FORMATf() and TO_INTERNAL_FORMAT(). */
+void
+dfc_convert_to_external_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink);
+void
+dfc_convert_to_internal_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink);
+/* CPP Trickery */
+#define DFC_CPP_CAR(x,y) (x)
+#define DFC_CPP_CDR(x,y) (y)
 
-Extbyte *convert_to_external_format (CONST Bufbyte *ptr,
-				     Bytecount len,
-				     Extcount *len_out,
-				     enum external_data_format fmt);
-Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
-				       Extcount len,
-				       Bytecount *len_out,
-				       enum external_data_format fmt);
-
-#else /* ! MULE */
-
-#define convert_to_external_format(ptr, len, len_out, fmt) \
-     (*(len_out) = (int) (len), (Extbyte *) (ptr))
-#define convert_from_external_format(ptr, len, len_out, fmt) \
-     (*(len_out) = (Bytecount) (len), (Bufbyte *) (ptr))
-
-#endif /* ! MULE */
-
-/* In all of the following macros we use the following general principles:
-
-   -- Functions that work with charptr's accept two sorts of charptr's:
-
-      a) Pointers to memory with a length specified.  The pointer will be
-         fundamentally of type `unsigned char *' (although labelled
-	 as `Bufbyte *' for internal-format data and `Extbyte *' for
-	 external-format data) and the length will be fundamentally of
-	 type `int' (although labelled as `Bytecount' for internal-format
-	 data and `Extcount' for external-format data).  The length is
-	 always a count in bytes.
-      b) Zero-terminated pointers; no length specified.  The pointer
-         is of type `char *', whether the data pointed to is internal-format
-	 or external-format.  These sorts of pointers are available for
-	 convenience in working with C library functions and literal
-	 strings.  In general you should use these sorts of pointers only
-	 to interface to library routines and not for general manipulation,
-	 as you are liable to lose embedded nulls and such.  This could
-	 be a big problem for routines that want Unicode-formatted data,
-	 which is likely to have lots of embedded nulls in it.
-	 (In the real world, though, external Unicode data will be UTF-8,
-	 which will not have embedded nulls and is ASCII-compatible - martin)
-
-   -- Functions that work with Lisp strings accept strings as Lisp Objects
-      (as opposed to the `struct Lisp_String *' for some of the other
-      string accessors).  This is for convenience in working with the
-      functions, as otherwise you will almost always have to call
-      XSTRING() on the object.
-
-   -- Functions that work with charptr's are not guaranteed to copy
-      their data into alloca()ed space.  Functions that work with
-      Lisp strings are, however.  The reason is that Lisp strings can
-      be relocated any time a GC happens, and it could happen at some
-      rather unexpected times.  The internal-external conversion is
-      rarely done in time-critical functions, and so the slight
-      extra time required for alloca() and copy is well-worth the
-      safety of knowing your string data won't be relocated out from
-      under you.
-      */
-
-
-/* Maybe convert charptr's data into ext-format and store the result in
-   alloca()'ed space.
-
-   You may wonder why this is written in this fashion and not as a
-   function call.  With a little trickery it could certainly be
-   written this way, but it won't work because of those DAMN GCC WANKERS
-   who couldn't be bothered to handle alloca() properly on the x86
-   architecture. (If you put a call to alloca() in the argument to
-   a function call, the stack space gets allocated right in the
-   middle of the arguments to the function call and you are unbelievably
-   hosed.) */
-
-#ifdef MULE
-
-#define GET_CHARPTR_EXT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
-{									\
-  Bytecount gceda_len_in = (Bytecount) (len);				\
-  Extcount  gceda_len_out;						\
-  CONST Bufbyte *gceda_ptr_in = (ptr);					\
-  Extbyte *gceda_ptr_out =						\
-    convert_to_external_format (gceda_ptr_in, gceda_len_in,		\
-				&gceda_len_out, fmt);			\
-  /* If the new string is identical to the old (will be the case most	\
-     of the time), just return the same string back.  This saves	\
-     on alloca()ing, which can be useful on C alloca() machines and	\
-     on stack-space-challenged environments. */				\
-									\
-  if (gceda_len_in == gceda_len_out &&					\
-      !memcmp (gceda_ptr_in, gceda_ptr_out, gceda_len_out))		\
-    {									\
-      (ptr_out) = (Extbyte *) gceda_ptr_in;				\
-    }									\
-  else									\
-    {									\
-      (ptr_out) = (Extbyte *) alloca (1 + gceda_len_out);		\
-      memcpy ((void *) ptr_out, gceda_ptr_out, 1 + gceda_len_out);	\
-    }									\
-  (len_out) = gceda_len_out;						\
+/* Convert `source' to args for dfc_convert_to_*_format() */
+#define DFC_SOURCE_DATA_TO_ARGS(val) do {		\
+  dfc_source.data.ptr = DFC_CPP_CAR val;		\
+  dfc_source.data.len = DFC_CPP_CDR val;		\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
+} while (0)
+#define DFC_SOURCE_C_STRING_TO_ARGS(val) do {		\
+  dfc_source.data.len =					\
+    strlen ((char *) (dfc_source.data.ptr = (val)));	\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
+} while (0)
+#define DFC_SOURCE_LISP_STRING_TO_ARGS(val) do {	\
+  Lisp_Object dfc_slsta = (val);			\
+  type_checking_assert (STRINGP (dfc_slsta));		\
+  dfc_source.lisp_object = dfc_slsta;			\
+  dfc_simplified_source_type = DFC_TYPE_LISP_STRING;	\
+} while (0)
+#define DFC_SOURCE_LISP_LSTREAM_TO_ARGS(val) do {	\
+  Lisp_Object dfc_sllta = (val);			\
+  type_checking_assert (LSTREAMP (dfc_sllta));		\
+  dfc_source.lisp_object = dfc_sllta;			\
+  dfc_simplified_source_type = DFC_TYPE_LISP_LSTREAM;	\
+} while (0)
+#define DFC_SOURCE_LISP_OPAQUE_TO_ARGS(val) do {	\
+  Lisp_Opaque *dfc_slota = XOPAQUE (val);		\
+  dfc_source.data.ptr = OPAQUE_DATA (dfc_slota);	\
+  dfc_source.data.len = OPAQUE_SIZE (dfc_slota);	\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
 } while (0)
 
-#else /* ! MULE */
-
-#define GET_CHARPTR_EXT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
-{					\
-  (ptr_out) = (Extbyte *) (ptr);	\
-  (len_out) = (Extcount) (len);		\
+/* Convert `sink' to args for dfc_convert_to_*_format() */
+#define DFC_SINK_ALLOCA_TO_ARGS(val)		\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_C_STRING_ALLOCA_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_MALLOC_TO_ARGS(val)		\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_C_STRING_MALLOC_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_STRING_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_OPAQUE_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_LSTREAM_TO_ARGS(val) do {		\
+  Lisp_Object dfc_sllta = (val);			\
+  type_checking_assert (LSTREAMP (dfc_sllta));		\
+  dfc_sink.lisp_object = dfc_sllta;			\
+  dfc_simplified_sink_type = DFC_TYPE_LISP_LSTREAM;	\
+} while (0)
+#define DFC_SINK_LISP_BUFFER_TO_ARGS(val) do {		\
+  struct buffer *dfc_slbta = XBUFFER (val);		\
+  dfc_sink.lisp_object =				\
+    make_lisp_buffer_output_stream			\
+    (dfc_slbta, BUF_PT (dfc_slbta), 0);			\
+  dfc_simplified_sink_type = DFC_TYPE_LISP_LSTREAM;	\
 } while (0)
 
-#endif /* ! MULE */
+/* Assign to the `sink' lvalue(s) using the converted data. */
+#define DFC_ALLOCA_USE_CONVERTED_DATA(sink) do {			\
+  void * dfc_sink_ret = alloca (dfc_sink.data.len + 1);			\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (DFC_CPP_CAR sink) = (unsigned char *) dfc_sink_ret;			\
+  (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
+} while (0)
+#define DFC_MALLOC_USE_CONVERTED_DATA(sink) do {			\
+  void * dfc_sink_ret = xmalloc (dfc_sink.data.len + 1);		\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (DFC_CPP_CAR sink) = (unsigned char *) dfc_sink_ret;			\
+  (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
+} while (0)
+#define DFC_C_STRING_ALLOCA_USE_CONVERTED_DATA(sink) do {		\
+  void * dfc_sink_ret = alloca (dfc_sink.data.len + 1);			\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (sink) = (char *) dfc_sink_ret;					\
+} while (0)
+#define DFC_C_STRING_MALLOC_USE_CONVERTED_DATA(sink) do {		\
+  void * dfc_sink_ret = xmalloc (dfc_sink.data.len + 1);		\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (sink) = (char *) dfc_sink_ret;					\
+} while (0)
+#define DFC_LISP_STRING_USE_CONVERTED_DATA(sink) \
+  sink = make_string ((Bufbyte *) dfc_sink.data.ptr, dfc_sink.data.len)
+#define DFC_LISP_OPAQUE_USE_CONVERTED_DATA(sink) \
+  sink = make_opaque (dfc_sink.data.ptr, dfc_sink.data.len)
+#define DFC_LISP_LSTREAM_USE_CONVERTED_DATA(sink) /* data already used */
+#define DFC_LISP_BUFFER_USE_CONVERTED_DATA(sink) \
+  Lstream_delete (XLSTREAM (dfc_sink.lisp_object))
+
+/* Someday we might want to distinguish between Qnative and Qfile_name
+   by using coding-system aliases, but for now it suffices to have
+   these be identical.  Qnative can be used as the coding_system
+   argument to TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
+#define Qnative Qfile_name
 
 #define GET_C_CHARPTR_EXT_DATA_ALLOCA(ptr, fmt, ptr_out) do	\
 {								\
@@ -1242,8 +1374,8 @@ extern struct buffer buffer_local_flags;
 
 #ifdef REL_ALLOC
 
-char *r_alloc (unsigned char **, unsigned long);
-char *r_re_alloc (unsigned char **, unsigned long);
+char *r_alloc (unsigned char **, size_t);
+char *r_re_alloc (unsigned char **, size_t);
 void r_alloc_free (unsigned char **);
 
 #define BUFFER_ALLOC(data, size) \
@@ -1382,7 +1514,7 @@ int map_over_sharing_buffers (struct buffer *buf,
   set_string_char (XSTRING (table), (Charcount) ch1, ch2)
 
 #ifdef MULE
-# define MAKE_MIRROR_TRT_TABLE() make_opaque (256, 0)
+# define MAKE_MIRROR_TRT_TABLE() make_opaque (OPAQUE_CLEAR, 256)
 # define MIRROR_TRT_TABLE_AS_STRING(table) ((Bufbyte *) XOPAQUE_DATA (table))
 # define MIRROR_TRT_TABLE_CHAR_1(table, ch) \
   ((Emchar) (MIRROR_TRT_TABLE_AS_STRING (table)[ch]))
@@ -1468,4 +1600,4 @@ UPCASE (struct buffer *buf, Emchar ch)
 
 #define DOWNCASE(buf, ch) DOWNCASE_TABLE_OF (buf, ch)
 
-#endif /* _XEMACS_BUFFER_H_ */
+#endif /* INCLUDED_buffer_h_ */

@@ -734,7 +734,7 @@ if you want to run both variants.
    Starting with XEmacs 21, XEmacs uses the class `XEmacs' if it finds
 any XEmacs resources in the resource database when the X connection is
 initialized.  Otherwise, it will use the class `Emacs' for backwards
-compatability.  The variable X-EMACS-APPLICATION-CLASS may be consulted
+compatibility.  The variable X-EMACS-APPLICATION-CLASS may be consulted
 to determine the application class being used.
 
    The examples in this section assume the application class is `Emacs'.
@@ -758,11 +758,11 @@ You can specify resources for a particular frame with the syntax:
 * Menu:
 
 * Geometry Resources::     Controlling the size and position of frames.
-* Iconic Resources::	   Controlling whether frames come up iconic.
-* Resource List::	   List of resources settable on a frame or device.
-* Face Resources::	   Controlling faces using resources.
-* Widgets::		   The widget hierarchy for XEmacs.
-* Menubar Resources::	   Specifying resources for the menubar.
+* Iconic Resources::       Controlling whether frames come up iconic.
+* Resource List::          List of resources settable on a frame or device.
+* Face Resources::         Controlling faces using resources.
+* Widgets::                The widget hierarchy for XEmacs.
+* Menubar Resources::      Specifying resources for the menubar.
 
 
 File: xemacs.info,  Node: Geometry Resources,  Next: Iconic Resources,  Up: X Resources

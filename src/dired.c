@@ -542,9 +542,7 @@ if and only if the completion returned in the car was unique.
        (user))
 {
   int uniq;
-  Lisp_Object completed;
-
-  completed = user_name_completion (user, 0, &uniq);
+  Lisp_Object completed = user_name_completion (user, 0, &uniq);
   return Fcons (completed, uniq ? Qt : Qnil);
 }
 
@@ -557,8 +555,15 @@ These are all user names which begin with USER.
   return user_name_completion (user, 1, NULL);
 }
 
-struct user_cache {
-  Bufbyte **data;
+struct user_name
+{
+  Bufbyte *ptr;
+  size_t len;
+};
+
+struct user_cache
+{
+  struct user_name *user_names;
   int length;
   int size;
   EMACS_TIME last_rebuild_time;
@@ -570,27 +575,26 @@ free_user_cache (struct user_cache *cache)
 {
   int i;
   for (i = 0; i < cache->length; i++)
-    xfree (cache->data[i]);
-  xfree (cache->data);
+    xfree (cache->user_names[i].ptr);
+  xfree (cache->user_names);
+  xzero (*cache);
 }
 
 static Lisp_Object
-user_name_completion_unwind (Lisp_Object locative)
+user_name_completion_unwind (Lisp_Object cache_incomplete_p)
 {
-  int interrupted = !NILP (XCAR (locative));
+  endpwent ();
+  speed_up_interrupts ();
 
-  if (interrupted)
-    {
-      endpwent ();
-      speed_up_interrupts ();
-      free_user_cache (&user_cache);
-    }
-  free_cons (XCONS (locative));
+  if (! NILP (XCAR (cache_incomplete_p)))
+    free_user_cache (&user_cache);
+
+  free_cons (XCONS (cache_incomplete_p));
 
   return Qnil;
 }
 
-#define  USER_CACHE_REBUILD  (24*60*60)  /* 1 day, in seconds */
+#define  USER_CACHE_TTL  (24*60*60)  /* Time to live: 1 day, in seconds */
 
 static Lisp_Object
 user_name_completion (Lisp_Object user, int all_flag, int *uniq)
@@ -599,7 +603,6 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
   int matchcount = 0;
   Lisp_Object bestmatch = Qnil;
   Charcount bestmatchsize = 0;
-  int speccount = specpdl_depth ();
   Charcount user_name_length;
   EMACS_TIME t;
   int i;
@@ -614,42 +617,42 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
   /* Cache user name lookups because it tends to be quite slow.
    * Rebuild the cache occasionally to catch changes */
   EMACS_GET_TIME (t);
-  if (user_cache.data  &&
+  if (user_cache.user_names &&
       (EMACS_SECS (t) - EMACS_SECS (user_cache.last_rebuild_time)
-       > USER_CACHE_REBUILD))
-    {
-      free_user_cache (&user_cache);
-      xzero (user_cache);
-    }
+       > USER_CACHE_TTL))
+    free_user_cache (&user_cache);
 
-  if (!user_cache.data)
+  if (!user_cache.user_names)
     {
       struct passwd *pwd;
-      Lisp_Object locative = noseeum_cons (Qt, Qnil);
+      Lisp_Object cache_incomplete_p = noseeum_cons (Qt, Qnil);
+      int speccount = specpdl_depth ();
+
       slow_down_interrupts ();
       setpwent ();
-      record_unwind_protect (user_name_completion_unwind, locative);
+      record_unwind_protect (user_name_completion_unwind, cache_incomplete_p);
       while ((pwd = getpwent ()))
         {
-	  Bufbyte *pwuser;
           QUIT;
-	  DO_REALLOC (user_cache.data, user_cache.size,
-		      user_cache.length + 1, Bufbyte *);
-	  GET_C_CHARPTR_INT_DATA_ALLOCA (pwd->pw_name, FORMAT_OS, pwuser);
-          user_cache.data[user_cache.length++] =
-	    (Bufbyte *) xstrdup ((char *) pwuser);
+	  DO_REALLOC (user_cache.user_names, user_cache.size,
+		      user_cache.length + 1, struct user_name);
+	  TO_INTERNAL_FORMAT (C_STRING, pwd->pw_name,
+			      MALLOC,
+			      (user_cache.user_names[user_cache.length].ptr,
+			       user_cache.user_names[user_cache.length].len),
+			      Qnative);
+	  user_cache.length++;
         }
-      endpwent ();
-      speed_up_interrupts ();
-      XCAR (locative) = Qnil;
-      unbind_to (speccount, Qnil); /* free locative cons */
+      XCAR (cache_incomplete_p) = Qnil;
+      unbind_to (speccount, Qnil);
+
       EMACS_GET_TIME (user_cache.last_rebuild_time);
     }
 
   for (i = 0; i < user_cache.length; i++)
     {
-      Bufbyte *u_name = user_cache.data[i];
-      Bytecount len = strlen ((char *) u_name);
+      Bufbyte *u_name = user_cache.user_names[i].ptr;
+      Bytecount len   = user_cache.user_names[i].len;
       /* scmp() works in chars, not bytes, so we have to compute this: */
       Charcount cclen = bytecount_to_charcount (u_name, len);
 

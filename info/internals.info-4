@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -204,7 +204,7 @@ automatically reclaimed.
 with them, in case the block of memory contains other Lisp objects that
 need to be marked for garbage-collection purposes. (If you need other
 object methods, such as a finalize method, you should just go ahead and
-create a new Lisp object type - it's not hard.)
+create a new Lisp object type--it's not hard.)
 
      abbrev.c
 
@@ -668,7 +668,7 @@ structure.
      memory that are subdivided into individual objects.  This saves a
      lot on malloc overhead, since there are typically quite a lot of
      these objects around, and the objects are small.  (A cons, for
-     example, occupies 8 bytes on 32-bit machines - 4 bytes for each of
+     example, occupies 8 bytes on 32-bit machines--4 bytes for each of
      the two objects it contains.) Vectors are individually
      `malloc()'ed since they are of variable size.  (It would be
      possible, and desirable, to allocate vectors of certain small
@@ -841,7 +841,7 @@ some rules, though:
      the next enclosing stack frame.  Each `GCPRO'ed thing is an
      lvalue, and the `struct gcpro' local variable contains a pointer to
      this lvalue.  This is why things will mess up badly if you don't
-     pair up the `GCPRO's and `UNGCPRO's - you will end up with
+     pair up the `GCPRO's and `UNGCPRO's--you will end up with
      `gcprolist's containing pointers to `struct gcpro's or local
      `Lisp_Object' variables in no-longer-active stack frames.
 

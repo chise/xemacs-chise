@@ -219,7 +219,7 @@ static int
 x_text_width_single_run (struct face_cachel *cachel, struct textual_run *run)
 {
   Lisp_Object font_inst = FACE_CACHEL_FONT (cachel, run->charset);
-  struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font_inst);
+  Lisp_Font_Instance *fi = XFONT_INSTANCE (font_inst);
   if (!fi->proportional_p)
     return fi->width * run->len;
   else
@@ -400,9 +400,9 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	      else if (rb->object.chr.ch == '\n')
 		{
 		  /* Clear in case a cursor was formerly here. */
-		  redisplay_clear_region (window, findex, xpos, 
+		  redisplay_clear_region (window, findex, xpos,
 					  DISPLAY_LINE_YPOS (dl),
-					  rb->width, 
+					  rb->width,
 					  DISPLAY_LINE_HEIGHT (dl));
 		  elt++;
 		}
@@ -880,7 +880,7 @@ x_output_string (struct window *w, struct display_line *dl,
   for (i = 0; i < nruns; i++)
     {
       Lisp_Object font = FACE_CACHEL_FONT (cachel, runs[i].charset);
-      struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font);
+      Lisp_Font_Instance *fi = XFONT_INSTANCE (font);
       int this_width;
       int need_clipping;
 
@@ -1166,9 +1166,9 @@ x_output_string (struct window *w, struct display_line *dl,
 }
 
 void
-x_output_x_pixmap (struct frame *f, struct Lisp_Image_Instance *p, int x,
+x_output_x_pixmap (struct frame *f, Lisp_Image_Instance *p, int x,
 		   int y, int xoffset, int yoffset,
-		   int width, int height, unsigned long fg, unsigned long bg, 
+		   int width, int height, unsigned long fg, unsigned long bg,
 		   GC override_gc)
 {
   struct device *d = XDEVICE (f->device);
@@ -1219,15 +1219,15 @@ x_output_x_pixmap (struct frame *f, struct Lisp_Image_Instance *p, int x,
      pixel values, instead of symbolic of fg/bg. */
   if (IMAGE_INSTANCE_PIXMAP_DEPTH (p) > 0)
     {
-      XCopyArea (dpy, 
-		 IMAGE_INSTANCE_X_PIXMAP_SLICE 
+      XCopyArea (dpy,
+		 IMAGE_INSTANCE_X_PIXMAP_SLICE
 		 (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)), x_win, gc, xoffset,
 		 yoffset, width,
 		 height, x, y);
     }
   else
     {
-      XCopyPlane (dpy, IMAGE_INSTANCE_X_PIXMAP_SLICE 
+      XCopyPlane (dpy, IMAGE_INSTANCE_X_PIXMAP_SLICE
 		  (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)), x_win, gc,
 		  xoffset, yoffset, width, height, x, y, 1L);
     }
@@ -1241,11 +1241,11 @@ x_output_pixmap (struct window *w, Lisp_Object image_instance,
 {
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
-  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
 
   Display *dpy = DEVICE_X_DISPLAY (d);
   Window x_win = XtWindow (FRAME_X_TEXT_WIDGET (f));
- 
+
   /* Output the pixmap. */
   {
     Lisp_Object tmp_pixel;
@@ -1430,7 +1430,7 @@ x_output_blank (struct window *w, struct display_line *dl, struct rune *rb,
     {
       int cursor_height, cursor_y;
       int focus = EQ (w->frame, DEVICE_FRAME_WITH_FOCUS_REAL (d));
-      struct Lisp_Font_Instance *fi;
+      Lisp_Font_Instance *fi;
 
       fi = XFONT_INSTANCE (FACE_CACHEL_FONT
 			   (WINDOW_FACE_CACHEL (w, rb->findex),
@@ -1920,7 +1920,7 @@ x_clear_frame_window (Lisp_Object window)
       return;
     }
 
-  redisplay_clear_to_window_end (w, WINDOW_TEXT_TOP (w), 
+  redisplay_clear_to_window_end (w, WINDOW_TEXT_TOP (w),
 				 WINDOW_TEXT_BOTTOM (w));
 }
 

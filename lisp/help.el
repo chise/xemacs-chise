@@ -1018,24 +1018,27 @@ For example:
 
 This function is used by `describe-function-1' to list function
 arguments in the standard Lisp style."
-  (let* ((fndef (indirect-function function))
+  (let* ((fnc (indirect-function function))
+	 (fndef (if (eq (car-safe fnc) 'macro)
+		    (cdr fnc)
+		  fnc))
 	 (arglist
-	 (cond ((compiled-function-p fndef)
-		(compiled-function-arglist fndef))
-	       ((eq (car-safe fndef) 'lambda)
-		(nth 1 fndef))
-	       ((subrp fndef)
-		(let* ((doc (documentation function))
-		       (args (and (string-match
-				   "[\n\t ]*\narguments: ?(\\(.*\\))\n?\\'"
-				   doc)
-				  (match-string 1 doc))))
-		  ;; If there are no arguments documented for the
-		  ;; subr, rather don't print anything.
-		  (cond ((null args) t)
-			((equal args "") nil)
-			(args))))
-	       (t t))))
+	  (cond ((compiled-function-p fndef)
+		 (compiled-function-arglist fndef))
+		((eq (car-safe fndef) 'lambda)
+		 (nth 1 fndef))
+		((subrp fndef)
+		 (let* ((doc (documentation function))
+			(args (and (string-match
+				    "[\n\t ]*\narguments: ?(\\(.*\\))\n?\\'"
+				    doc)
+				   (match-string 1 doc))))
+		   ;; If there are no arguments documented for the
+		   ;; subr, rather don't print anything.
+		   (cond ((null args) t)
+			 ((equal args "") nil)
+			 (args))))
+		(t t))))
     (cond ((listp arglist)
 	   (prin1-to-string
 	    (cons function (mapcar (lambda (arg)
@@ -1423,7 +1426,7 @@ after the listing is made.)"
 		(if cmd (princ " ")))))
 	  (terpri))))))
 
-;; Stop gap for 21.0 untill we do help-char etc properly.
+;; Stop gap for 21.0 until we do help-char etc properly.
 (defun help-keymap-with-help-key (keymap form)
   "Return a copy of KEYMAP with an help-key binding according to help-char
  invoking FORM like help-form.  An existing binding is not overridden.

@@ -869,7 +869,7 @@ This ensures that VALUE is in the proper range for the horizontal scrollbar.
 
   w = XWINDOW (window);
   wcw = window_char_width (w, 0) - 1;
-  /* ### We should be able to scroll further right as long as there is
+  /* #### We should be able to scroll further right as long as there is
      a visible truncation glyph.  This calculation for max is bogus.  */
   max_len = w->max_line_len + 2;
 

@@ -686,14 +686,14 @@ at the end of a file.
 XEmacs uses the information between them to determine what the major
 mode and variable settings should be.  For example, these are all legal:
 
-     	;;; -*- mode: emacs-lisp -*-
-     	;;; -*- mode: postscript; version-control: never -*-
-     	;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
+             ;;; -*- mode: emacs-lisp -*-
+             ;;; -*- mode: postscript; version-control: never -*-
+             ;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
 
    For historical reasons, the syntax ``-*- modename -*-'' is allowed
 as well; for example, you can use:
 
-     	;;; -*- emacs-lisp -*-
+             ;;; -*- emacs-lisp -*-
 
    The variable `enable-local-variables' controls the use of local
 variables lists in files you visit.  The value can be `t', `nil', or
@@ -1157,12 +1157,12 @@ solution XEmacs adopts is to bind both of these key sequences.
 
    After binding a command to two key sequences with a form like:
 
-     	(define-key global-map "\^X\^I" 'command-1)
+             (define-key global-map "\^X\^I" 'command-1)
 
    it is possible to redefine only one of those sequences like so:
 
-     	(define-key global-map [(control x) (control i)] 'command-2)
-     	(define-key global-map [(control x) tab] 'command-3)
+             (define-key global-map [(control x) (control i)] 'command-2)
+             (define-key global-map [(control x) tab] 'command-3)
 
    This applies only when running under a window system.  If you are
 talking to Emacs through an ASCII-only channel, you do not get any of

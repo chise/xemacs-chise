@@ -1684,7 +1684,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
 
 ;; Return the node name in the buffer following point.
 ;; ALLOWEDCHARS, if non-nil, goes within [...] to make a regexp
-;; saying which chas may appear in the node name.
+;; saying which chars may appear in the node name.
 (defun Info-following-node-name (&optional allowedchars)
   (skip-chars-forward " \t")
   (buffer-substring

@@ -186,9 +186,9 @@ Edit a list of abbrevs; you can add, alter, or remove definitions.
 
 @example
 (lisp-mode-abbrev-table)
-"dk"	       0    "define-key"
+"dk"           0    "define-key"
 (global-abbrev-table)
-"dfn"	       0    "definition"
+"dfn"          0    "definition"
 @end example
 
 @noindent

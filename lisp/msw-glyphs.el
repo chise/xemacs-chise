@@ -27,12 +27,10 @@
 
 ;;; Commentary:
 
-;; This file contains temporary definitions for 'mswindows glyphs.
-;; Since there currently is no image support, the glyps are defined
-;; TTY-style. This file has to be removed or reworked completely
-;; when we have images.
+;; Initialization code for MS Windows glyphs.
 
-;; This file is dumped with XEmacs.
+;; This file is dumped with XEmacs (when MS Windows support is
+;; compiled in).
 
 ;;; Code:
 

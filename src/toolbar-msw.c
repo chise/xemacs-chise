@@ -262,7 +262,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 	      
 	      if (IMAGE_INSTANCEP (instance))
 		{
-		  struct Lisp_Image_Instance* p = XIMAGE_INSTANCE (instance);
+		  Lisp_Image_Instance* p = XIMAGE_INSTANCE (instance);
 		  
 		  if (IMAGE_INSTANCE_PIXMAP_TYPE_P (p))
 		    {
@@ -586,7 +586,7 @@ mswindows_free_frame_toolbars (struct frame *f)
 }
 
 /* map toolbar hwnd to pos*/
-int mswindows_find_toolbar_pos(struct frame* f, HWND ctrl)
+static int mswindows_find_toolbar_pos(struct frame* f, HWND ctrl)
 {
   int id = GetDlgCtrlID(ctrl);
   return id ? id - TOOLBAR_ID_BIAS : -1;

@@ -18,8 +18,8 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-#ifndef _XEMACS_ELDAP_H_
-#define _XEMACS_ELDAP_H_
+#ifndef INCLUDED_eldap_h_
+#define INCLUDED_eldap_h_
 
 #include <lber.h>
 #include <ldap.h>
@@ -38,10 +38,11 @@ struct Lisp_LDAP
   /* Name of the host we connected to */
   Lisp_Object host;
 };
+typedef struct Lisp_LDAP Lisp_LDAP;
 
 
-DECLARE_LRECORD (ldap, struct Lisp_LDAP);
-#define XLDAP(x) XRECORD (x, ldap, struct Lisp_LDAP)
+DECLARE_LRECORD (ldap, Lisp_LDAP);
+#define XLDAP(x) XRECORD (x, ldap, Lisp_LDAP)
 #define XSETLDAP(x, p) XSETRECORD (x, p, ldap)
 #define LDAPP(x) RECORDP (x, ldap)
 #define CHECK_LDAP(x) CHECK_RECORD (x, ldap)
@@ -69,4 +70,4 @@ Lisp_Object Fldap_search_internal (Lisp_Object ldap,
                                    Lisp_Object attrsonly,
                                    Lisp_Object withdn);
 
-#endif /* _XEMACS_ELDAP_H_ */
+#endif /* INCLUDED_eldap_h_ */

@@ -134,10 +134,9 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;; `what(1)' can extract from the executable or a core file.  We don't
 ;; actually need this to be pointed to from lisp; pure objects can't
 ;; be GCed.
-(or (memq system-type '(windows-nt ms-dos))
-    (purecopy (concat "\n@" "(#)" (emacs-version)
-		      "\n@" "(#)" "Configuration: "
-		      system-configuration "\n")))
+(purecopy (concat "\n@" "(#)" (emacs-version)
+		  "\n@" "(#)" "Configuration: "
+		  system-configuration "\n"))
 
 ;;Local variables:
 ;;version-control: never

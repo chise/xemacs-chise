@@ -121,7 +121,7 @@ The categories are given by their designators."
 	  (setq a (1+ a)))
 	(nreverse list)))))
 
-;; implimented in c, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
+;; implemented in c, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
 ;(defun char-in-category-p (char category &optional table)
 ;  "Return non-nil if CHAR is in CATEGORY.
 ;TABLE defaults to the current buffer's category table.

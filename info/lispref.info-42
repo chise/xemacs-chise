@@ -50,6 +50,42 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
+
+Detection of Textual Encoding
+-----------------------------
+
+ - Function: coding-category-list
+     This function returns a list of all recognized coding categories.
+
+ - Function: set-coding-priority-list list
+     This function changes the priority order of the coding categories.
+     LIST should be a list of coding categories, in descending order of
+     priority.  Unspecified coding categories will be lower in priority
+     than all specified ones, in the same relative order they were in
+     previously.
+
+ - Function: coding-priority-list
+     This function returns a list of coding categories in descending
+     order of priority.
+
+ - Function: set-coding-category-system coding-category coding-system
+     This function changes the coding system associated with a coding
+     category.
+
+ - Function: coding-category-system coding-category
+     This function returns the coding system associated with a coding
+     category.
+
+ - Function: detect-coding-region start end &optional buffer
+     This function detects coding system of the text in the region
+     between START and END.  Returned value is a list of possible coding
+     systems ordered by priority.  If only ASCII characters are found,
+     it returns `autodetect' or one of its subsidiary coding systems
+     according to a detected end-of-line type.  Optional arg BUFFER
+     defaults to the current buffer.
+
+
 File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Prev: Detection of Textual Encoding,  Up: Coding Systems
 
 Big5 and Shift-JIS Functions
@@ -431,7 +467,7 @@ Category Tables
 
    A category table is a type of char table used for keeping track of
 categories.  Categories are used for classifying characters for use in
-regexps - you can refer to a category rather than having to use a
+regexps--you can refer to a category rather than having to use a
 complicated [] expression (and category lookups are significantly
 faster).
 

@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -59,7 +59,7 @@ key sequences is called the "command builder".  This is documented
 elsewhere.
 
    The guts of the command loop are in `command_loop_1()'.  This
-function doesn't catch errors, though - that's the job of
+function doesn't catch errors, though--that's the job of
 `command_loop_2()', which is a condition-case (i.e. error-trapping)
 wrapper around `command_loop_1()'.  `command_loop_1()' never returns,
 but may get thrown out of.

@@ -701,7 +701,7 @@ find_next_newline (struct buffer *buf, Bufpos from, int count)
 }
 
 Bytind
-bi_find_next_emchar_in_string (struct Lisp_String* str, Emchar target, Bytind st,
+bi_find_next_emchar_in_string (Lisp_String* str, Emchar target, Bytind st,
 			       EMACS_INT count)
 {
   /* This function has been Mule-ized. */
@@ -771,8 +771,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
   unsigned char fastmap[0400];
   int negate = 0;
   REGISTER int i;
-  struct Lisp_Char_Table *syntax_table =
-    XCHAR_TABLE (buf->mirror_syntax_table);
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
   Bufpos limit;
 
   if (NILP (lim))
@@ -1584,8 +1583,7 @@ wordify (Lisp_Object buffer, Lisp_Object string)
   Charcount i, len;
   EMACS_INT punct_count = 0, word_count = 0;
   struct buffer *buf = decode_buffer (buffer, 0);
-  struct Lisp_Char_Table *syntax_table =
-    XCHAR_TABLE (buf->mirror_syntax_table);
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
 
   CHECK_STRING (string);
   len = XSTRING_CHAR_LENGTH (string);
@@ -1845,7 +1843,7 @@ and you do not need to specify it.)
   Emchar c, prevc;
   Charcount inslen;
   struct buffer *buf;
-  struct Lisp_Char_Table *syntax_table;
+  Lisp_Char_Table *syntax_table;
   int mc_count;
   Lisp_Object buffer;
   int_dynarr *ul_action_dynarr = 0;

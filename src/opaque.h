@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing, October 1993. */
 
-#ifndef _XEMACS_OPAQUE_H_
-#define _XEMACS_OPAQUE_H_
+#ifndef INCLUDED_opaque_h_
+#define INCLUDED_opaque_h_
 
 typedef union {
   struct { Lisp_Object obj; } obj;
@@ -47,7 +47,7 @@ DECLARE_LRECORD (opaque, Lisp_Opaque);
    Opaque pointers should never escape to the Lisp level, so
    functions should not be doing this. */
 
-/* Alternative DATA arguments to make_opaque */
+/* Alternative DATA arguments to make_opaque() */
 #define OPAQUE_CLEAR  ((CONST void *)  0)
 #define OPAQUE_UNINIT ((CONST void *) -1)
 
@@ -58,7 +58,7 @@ DECLARE_LRECORD (opaque, Lisp_Opaque);
 #define XOPAQUE_DATA(op) OPAQUE_DATA (XOPAQUE (op))
 #define XOPAQUE_MARKFUN(op) OPAQUE_MARKFUN (XOPAQUE (op))
 
-Lisp_Object make_opaque (size_t size, CONST void *data);
+Lisp_Object make_opaque (CONST void *data, size_t size);
 
 typedef struct Lisp_Opaque_Ptr
 {
@@ -77,4 +77,4 @@ void free_opaque_ptr (Lisp_Object ptr);
 #define get_opaque_ptr(op) (XOPAQUE_PTR (op)->ptr)
 #define set_opaque_ptr(op, ptr_) (XOPAQUE_PTR (op)->ptr = (ptr_))
 
-#endif /* _XEMACS_OPAQUE_H_ */
+#endif /* INCLUDED_opaque_h_ */

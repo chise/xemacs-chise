@@ -98,14 +98,12 @@ Lisp_Object Q_resource_type, Q_resource_id;
 Lisp_Object Qmswindows_resource;
 
 static void
-mswindows_initialize_dibitmap_image_instance (struct Lisp_Image_Instance *ii,
+mswindows_initialize_dibitmap_image_instance (Lisp_Image_Instance *ii,
 					     int slices,
 					     enum image_instance_type type);
 static void
-mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
+mswindows_initialize_image_instance_mask (Lisp_Image_Instance* image,
 					  struct frame* f);
-
-COLORREF mswindows_string_to_color (CONST char *name);
 
 #define BPLINE(width) ((int)(~3UL & (unsigned long)((width) +3)))
 
@@ -259,7 +257,7 @@ mswindows_locate_pixmap_file (Lisp_Object name)
 	 (IS_DIRECTORY_SEP(XSTRING_BYTE (name, 2)))))))
     {
       if (!NILP (Ffile_readable_p (name)))
-	return name;
+	return Fexpand_file_name (name, Qnil);
       else
 	return Qnil;
     }
@@ -286,7 +284,7 @@ mswindows_locate_pixmap_file (Lisp_Object name)
    in the error message. */
 
 static void
-init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
+init_image_instance_from_dibitmap (Lisp_Image_Instance *ii,
 				   BITMAPINFO *bmp_info,
 				   int dest_mask,
 				   void *bmp_data,
@@ -360,7 +358,7 @@ init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
 }
 
 static void
-image_instance_add_dibitmap (struct Lisp_Image_Instance *ii,
+image_instance_add_dibitmap (Lisp_Image_Instance *ii,
 			     BITMAPINFO *bmp_info,
 			     void *bmp_data,
 			     int bmp_bits,
@@ -387,7 +385,7 @@ image_instance_add_dibitmap (struct Lisp_Image_Instance *ii,
 }
 
 static void
-mswindows_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
+mswindows_init_image_instance_from_eimage (Lisp_Image_Instance *ii,
 					   int width, int height,
 					   int slices,
 					   unsigned char *eimage,
@@ -454,7 +452,7 @@ static void set_mono_pixel ( unsigned char* bits,
 }
 
 static void
-mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
+mswindows_initialize_image_instance_mask (Lisp_Image_Instance* image,
 					  struct frame* f)
 {
   HBITMAP mask;
@@ -565,7 +563,7 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 }
 
 void
-mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
+mswindows_initialize_image_instance_icon (Lisp_Image_Instance* image,
 					  int cursor)
 {
   ICONINFO x_icon;
@@ -582,7 +580,7 @@ mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
 }
 
 HBITMAP
-mswindows_create_resized_bitmap (struct Lisp_Image_Instance* ii,
+mswindows_create_resized_bitmap (Lisp_Image_Instance* ii,
 				 struct frame* f,
 				 int newx, int newy)
 {
@@ -616,7 +614,7 @@ mswindows_create_resized_bitmap (struct Lisp_Image_Instance* ii,
 }
 
 HBITMAP
-mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
+mswindows_create_resized_mask (Lisp_Image_Instance* ii,
 			       struct frame* f,
 			       int newx, int newy)
 {
@@ -654,7 +652,7 @@ mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
 }
 
 int
-mswindows_resize_dibitmap_instance (struct Lisp_Image_Instance* ii,
+mswindows_resize_dibitmap_instance (Lisp_Image_Instance* ii,
 				    struct frame* f,
 				    int newx, int newy)
 {
@@ -742,7 +740,9 @@ extract_xpm_color_names (Lisp_Object device,
       colortbl[j].color =
 	COLOR_INSTANCE_MSWINDOWS_COLOR (XCOLOR_INSTANCE (XCDR (cons)));
 
-      GET_C_STRING_OS_DATA_ALLOCA (XCAR (cons), colortbl[j].name);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (cons),
+			  C_STRING_ALLOCA, colortbl[j].name,
+			  Qnative);
       colortbl[j].name = xstrdup (colortbl[j].name); /* mustn't lose this when we return */
       free_cons (XCONS (cons));
       cons = results;
@@ -906,7 +906,7 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
 			   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			   int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
   CONST Extbyte		*bytes;
   Extcount 		len;
@@ -927,7 +927,9 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
 
   assert (!NILP (data));
 
-  GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+  TO_EXTERNAL_FORMAT (LISP_STRING, data,
+		      ALLOCA, (bytes, len),
+		      Qbinary);
 
   /* in case we have color symbols */
   color_symbols = extract_xpm_color_names (device, domain,
@@ -996,7 +998,7 @@ bmp_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		 int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
   CONST Extbyte		*bytes;
   Extcount 		len;
@@ -1011,7 +1013,9 @@ bmp_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   assert (!NILP (data));
 
-  GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
+  TO_EXTERNAL_FORMAT (LISP_STRING, data,
+		      ALLOCA, (bytes, len),
+		      Qbinary);
 
   /* Then slurp the image into memory, decoding along the way.
      The result is the image in a simple one-byte-per-pixel
@@ -1185,7 +1189,9 @@ static int resource_name_to_resource (Lisp_Object name, int type)
 
   do {
     Extbyte* nm=0;
-    GET_C_STRING_OS_DATA_ALLOCA (name, nm);
+    TO_EXTERNAL_FORMAT (LISP_STRING, name,
+			C_STRING_ALLOCA, nm,
+			Qnative);
       if (!strcasecmp ((char*)res->name, nm))
       return res->resource_id;
   } while ((++res)->name);
@@ -1210,7 +1216,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 		    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		    int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   unsigned int type = 0;
   HANDLE himage = NULL;
   LPCTSTR resid=0;
@@ -1245,7 +1251,9 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
   if (!NILP (file))
     {
       Extbyte* f=0;
-      GET_C_STRING_FILENAME_DATA_ALLOCA (file, f);
+      TO_EXTERNAL_FORMAT (LISP_STRING, file,
+			  C_STRING_ALLOCA, f,
+			  Qfile_name);
 #ifdef __CYGWIN32__
       CYGWIN_WIN32_PATH (f, fname);
 #else
@@ -1262,7 +1270,9 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 							   type));
 
 	  if (!resid)
-	    GET_C_STRING_OS_DATA_ALLOCA (resource_id, resid);
+	    TO_EXTERNAL_FORMAT (LISP_STRING, resource_id,
+				C_STRING_ALLOCA, resid,
+				Qnative);
 	}
     }
   else if (!(resid = MAKEINTRESOURCE (resource_name_to_resource (resource_id,
@@ -1711,7 +1721,7 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
    image instance accordingly. */
 
 static void
-init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
+init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
 				     int width, int height,
 				     /* Note that data is in ext-format! */
 				     CONST char *bits,
@@ -1847,25 +1857,26 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Object mask_data = find_keyword_in_vector (instantiator, Q_mask_data);
   Lisp_Object mask_file = find_keyword_in_vector (instantiator, Q_mask_file);
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   struct frame* f = XFRAME (DEVICE_SELECTED_FRAME
 			    (XDEVICE (IMAGE_INSTANCE_DEVICE (ii))));
   HDC hdc = FRAME_MSWINDOWS_CDC (f);
   HBITMAP mask = 0;
-  CONST char *gcc_may_you_rot_in_hell;
 
   if (!NILP (mask_data))
     {
-      GET_C_STRING_BINARY_DATA_ALLOCA (XCAR (XCDR (XCDR (mask_data))),
-				       gcc_may_you_rot_in_hell);
-      mask =
-	xbm_create_bitmap_from_data ( hdc,
-				      (unsigned char *)
-				      gcc_may_you_rot_in_hell,
-				      XINT (XCAR (mask_data)),
-				      XINT (XCAR (XCDR (mask_data))), FALSE,
-				      PALETTERGB (0,0,0),
-				      PALETTERGB (255,255,255));
+      CONST char *ext_data;
+
+      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (XCDR (XCDR (mask_data))),
+			  C_STRING_ALLOCA, ext_data,
+			  Qbinary);
+      mask = xbm_create_bitmap_from_data (hdc,
+					  (unsigned char *) ext_data,
+					  XINT (XCAR (mask_data)),
+					  XINT (XCAR (XCDR (mask_data))),
+					  FALSE,
+					  PALETTERGB (0,0,0),
+					  PALETTERGB (255,255,255));
     }
 
   init_image_instance_from_xbm_inline (ii, width, height, bits,
@@ -1882,16 +1893,17 @@ mswindows_xbm_instantiate (Lisp_Object image_instance,
 			   int dest_mask, Lisp_Object domain)
 {
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-  CONST char *gcc_go_home;
+  CONST char *ext_data;
 
   assert (!NILP (data));
 
-  GET_C_STRING_BINARY_DATA_ALLOCA (XCAR (XCDR (XCDR (data))),
-				   gcc_go_home);
+  TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (XCDR (XCDR (data))),
+		      C_STRING_ALLOCA, ext_data,
+		      Qbinary);
 
   xbm_instantiate_1 (image_instance, instantiator, pointer_fg,
 		     pointer_bg, dest_mask, XINT (XCAR (data)),
-		     XINT (XCAR (XCDR (data))), gcc_go_home);
+		     XINT (XCAR (XCDR (data))), ext_data);
 }
 
 #ifdef HAVE_XFACE
@@ -1931,7 +1943,9 @@ mswindows_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiato
 
   assert (!NILP (data));
 
-  GET_C_STRING_BINARY_DATA_ALLOCA (data, dstring);
+  TO_EXTERNAL_FORMAT (LISP_STRING, data,
+		      C_STRING_ALLOCA, dstring,
+		      Qbinary);
 
   if ((p = strchr (dstring, ':')))
     {
@@ -1987,7 +2001,7 @@ mswindows_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiato
 /************************************************************************/
 
 static void
-mswindows_print_image_instance (struct Lisp_Image_Instance *p,
+mswindows_print_image_instance (Lisp_Image_Instance *p,
 				Lisp_Object printcharfun,
 				int escapeflag)
 {
@@ -2020,7 +2034,7 @@ extern int debug_widget_instances;
 #endif
 
 static void
-mswindows_finalize_image_instance (struct Lisp_Image_Instance *p)
+mswindows_finalize_image_instance (Lisp_Image_Instance *p)
 {
   if (DEVICE_LIVE_P (XDEVICE (p->device)))
     {
@@ -2076,10 +2090,23 @@ mswindows_finalize_image_instance (struct Lisp_Image_Instance *p)
 /*                      subwindow and widget support                      */
 /************************************************************************/
 
+static HFONT
+mswindows_widget_hfont (Lisp_Image_Instance *p,
+			Lisp_Object domain)
+{
+  Lisp_Object face = IMAGE_INSTANCE_WIDGET_FACE (p);
+  int under = FACE_UNDERLINE_P (face, domain);
+  int strike = FACE_STRIKETHRU_P (face, domain);
+  Lisp_Object font = query_string_font (IMAGE_INSTANCE_WIDGET_TEXT (p),
+					face, domain);
+
+  return mswindows_get_hfont (XFONT_INSTANCE (font), under, strike);
+}
+
 /* unmap the image if it is a widget. This is used by redisplay via
    redisplay_unmap_subwindows */
 static void
-mswindows_unmap_subwindow (struct Lisp_Image_Instance *p)
+mswindows_unmap_subwindow (Lisp_Image_Instance *p)
 {
   if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
     {
@@ -2088,16 +2115,17 @@ mswindows_unmap_subwindow (struct Lisp_Image_Instance *p)
 		    0, 0, 0, 0,
 		    SWP_HIDEWINDOW | SWP_NOMOVE | SWP_NOSIZE
 		    | SWP_NOSENDCHANGING);
+      if (GetFocus() == WIDGET_INSTANCE_MSWINDOWS_HANDLE (p))
+	SetFocus (GetParent (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
     }
 }
 
 /* map the subwindow. This is used by redisplay via
    redisplay_output_subwindow */
 static void
-mswindows_map_subwindow (struct Lisp_Image_Instance *p, int x, int y,
+mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 			 struct display_glyph_area* dga)
 {
-      SetFocus (GetParent (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
   /* move the window before mapping it ... */
   SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
 		NULL,
@@ -2121,7 +2149,7 @@ mswindows_map_subwindow (struct Lisp_Image_Instance *p, int x, int y,
 
 /* resize the subwindow instance */
 static void
-mswindows_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
+mswindows_resize_subwindow (Lisp_Image_Instance* ii, int w, int h)
 {
   /* Set the size of the control .... */
   SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
@@ -2134,7 +2162,7 @@ mswindows_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
 /* when you click on a widget you may activate another widget this
    needs to be checked and all appropriate widgets updated */
 static void
-mswindows_update_subwindow (struct Lisp_Image_Instance *p)
+mswindows_update_subwindow (Lisp_Image_Instance *p)
 {
   /* Now do widget specific updates. */
   if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
@@ -2153,11 +2181,8 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
       /* set the widget font from the widget face */
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		   WM_SETFONT,
-		   (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
-		   (XFONT_INSTANCE (query_string_font 
-				    (IMAGE_INSTANCE_WIDGET_TEXT (p),
-				     IMAGE_INSTANCE_WIDGET_FACE (p),
-				     IMAGE_INSTANCE_SUBWINDOW_FRAME (p)))),
+		   (WPARAM) mswindows_widget_hfont
+ 		   	(p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p)),
 		   MAKELPARAM (TRUE, 0));
     }
 }
@@ -2191,7 +2216,7 @@ mswindows_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instant
 				 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 				 int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
   struct device* d = XDEVICE (device);
   Lisp_Object frame = FW_FRAME (domain);
@@ -2243,8 +2268,8 @@ mswindows_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instant
 }
 
 static int
-mswindows_image_instance_equal (struct Lisp_Image_Instance *p1,
-				struct Lisp_Image_Instance *p2, int depth)
+mswindows_image_instance_equal (Lisp_Image_Instance *p1,
+				Lisp_Image_Instance *p2, int depth)
 {
   switch (IMAGE_INSTANCE_TYPE (p1))
     {
@@ -2264,7 +2289,7 @@ mswindows_image_instance_equal (struct Lisp_Image_Instance *p1,
 }
 
 static unsigned long
-mswindows_image_instance_hash (struct Lisp_Image_Instance *p, int depth)
+mswindows_image_instance_hash (Lisp_Image_Instance *p, int depth)
 {
   switch (IMAGE_INSTANCE_TYPE (p))
     {
@@ -2285,7 +2310,7 @@ mswindows_image_instance_hash (struct Lisp_Image_Instance *p, int depth)
    methods are called. */
 
 static void
-mswindows_initialize_dibitmap_image_instance (struct Lisp_Image_Instance *ii,
+mswindows_initialize_dibitmap_image_instance (Lisp_Image_Instance *ii,
 					      int slices,
 					      enum image_instance_type type)
 {
@@ -2315,7 +2340,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 			      CONST char* class, int flags, int exflags)
 {
   /* this function can call lisp */
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii), style;
   struct device* d = XDEVICE (device);
   Lisp_Object frame = FW_FRAME (domain);
@@ -2323,7 +2348,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   HWND wnd;
   int id = 0xffff;
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
+  Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
 
   if (!DEVICE_MSWINDOWS_P (d))
     signal_simple_error ("Not an mswindows device", device);
@@ -2339,7 +2364,9 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     }
 
   if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
-    GET_C_STRING_OS_DATA_ALLOCA (IMAGE_INSTANCE_WIDGET_TEXT (ii), nm);
+    TO_EXTERNAL_FORMAT (LISP_STRING, IMAGE_INSTANCE_WIDGET_TEXT (ii),
+			C_STRING_ALLOCA, nm,
+			Qnative);
 
   /* allocate space for the clip window and then allocate the clip window */
   ii->data = xnew_and_zero (struct mswindows_subwindow_data);
@@ -2386,11 +2413,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   SetWindowLong (wnd, GWL_USERDATA, (LONG)LISP_TO_VOID(image_instance));
   /* set the widget font from the widget face */
   SendMessage (wnd, WM_SETFONT,
-	       (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
-	       (XFONT_INSTANCE (query_string_font
-				(IMAGE_INSTANCE_WIDGET_TEXT (ii),
-				 IMAGE_INSTANCE_WIDGET_FACE (ii),
-				 domain))),
+	       (WPARAM) mswindows_widget_hfont (ii, domain),
 	       MAKELPARAM (TRUE, 0));
 }
 
@@ -2406,14 +2429,14 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 			      int dest_mask, Lisp_Object domain)
 {
   /* this function can call lisp */
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HWND wnd;
   int flags = WS_TABSTOP;/* BS_NOTIFY #### is needed to get exotic feedback
 			    only. Since we seem to want nothing beyond BN_CLICK,
 			    the style is perhaps not necessary -- kkm */
   Lisp_Object style;
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
+  Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
 
   if (!NILP (glyph))
@@ -2444,7 +2467,7 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     }
 
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "BUTTON", 
+				pointer_bg, dest_mask, domain, "BUTTON",
 				flags, 0);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
@@ -2454,7 +2477,9 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   else
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
   /* add the image if one was given */
-  if (!NILP (glyph) && IMAGE_INSTANCEP (glyph))
+  if (!NILP (glyph) && IMAGE_INSTANCEP (glyph)
+      &&
+      IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (glyph)))
     {
       SendMessage (wnd, BM_SETIMAGE,
 		   (WPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
@@ -2484,7 +2509,7 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
 				int dest_mask, Lisp_Object domain)
 {
   HWND wnd;
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, PROGRESS_CLASS,
 				WS_BORDER | PBS_SMOOTH, WS_EX_CLIENTEDGE);
@@ -2525,11 +2550,14 @@ static HTREEITEM add_tree_item (Lisp_Object image_instance,
     {
       tvitem.item.lParam = mswindows_register_gui_item (item, domain);
       tvitem.item.mask |= TVIF_PARAM;
-      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name,
-				   tvitem.item.pszText);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XGUI_ITEM (item)->name,
+			  C_STRING_ALLOCA, tvitem.item.pszText,
+			  Qnative);
     }
   else
-    GET_C_STRING_OS_DATA_ALLOCA (item, tvitem.item.pszText);
+    TO_EXTERNAL_FORMAT (LISP_STRING, item,
+			C_STRING_ALLOCA, tvitem.item.pszText,
+			Qnative);
 
   tvitem.item.cchTextMax = strlen (tvitem.item.pszText);
 
@@ -2566,7 +2594,7 @@ mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instant
   Lisp_Object rest;
   HWND wnd;
   HTREEITEM parent;
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, WC_TREEVIEW,
 				WS_TABSTOP | WS_BORDER | PBS_SMOOTH
@@ -2604,13 +2632,16 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
     {
       tvitem.lParam = mswindows_register_gui_item (item, domain);
       tvitem.mask |= TCIF_PARAM;
-      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name,
-				   tvitem.pszText);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XGUI_ITEM (item)->name,
+			  C_STRING_ALLOCA, tvitem.pszText,
+			  Qnative);
     }
   else
     {
       CHECK_STRING (item);
-      GET_C_STRING_OS_DATA_ALLOCA (item, tvitem.pszText);
+      TO_EXTERNAL_FORMAT (LISP_STRING, item,
+			  C_STRING_ALLOCA, tvitem.pszText,
+			  Qnative);
     }
 
   tvitem.cchTextMax = strlen (tvitem.pszText);
@@ -2630,7 +2661,7 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
   Lisp_Object rest;
   HWND wnd;
   int i = 0;
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object orient = find_keyword_in_vector (instantiator, Q_orientation);
   unsigned int flags = WS_TABSTOP;
 
@@ -2662,7 +2693,7 @@ static Lisp_Object
 mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
 				    Lisp_Object val)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   if (EQ (prop, Q_items))
     {
@@ -2719,7 +2750,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 			     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			     int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd;
   Lisp_Object rest;
   Lisp_Object data = Fplist_get (find_keyword_in_vector (instantiator, Q_properties),
@@ -2741,7 +2772,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 
   height = (height + WIDGET_BORDER_HEIGHT * 2 ) * len;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
-  
+
   /* Now create the widget. */
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, "COMBOBOX",
@@ -2750,7 +2781,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 				| CBS_HASSTRINGS | WS_VSCROLL,
 				WS_EX_CLIENTEDGE);
   /* Reset the height. layout will probably do this safely, but better make sure. */
-  image_instance_layout (image_instance, 
+  image_instance_layout (image_instance,
 			 IMAGE_UNSPECIFIED_GEOMETRY,
 			 IMAGE_UNSPECIFIED_GEOMETRY,
 			 domain);
@@ -2761,7 +2792,9 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
   LIST_LOOP (rest, Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), Q_items, Qnil))
     {
       Extbyte* lparam;
-      GET_C_STRING_OS_DATA_ALLOCA (XCAR (rest), lparam);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (rest),
+			  C_STRING_ALLOCA, lparam,
+			  Qnative);
       if (SendMessage (wnd, CB_ADDSTRING, 0, (LPARAM)lparam) == CB_ERR)
 	signal_simple_error ("error adding combo entries", instantiator);
     }
@@ -2771,7 +2804,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 static Lisp_Object
 mswindows_widget_property (Lisp_Object image_instance, Lisp_Object prop)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* get the text from a control */
   if (EQ (prop, Q_text))
@@ -2780,7 +2813,7 @@ mswindows_widget_property (Lisp_Object image_instance, Lisp_Object prop)
       Extbyte* buf =alloca (len+1);
 
       SendMessage (wnd, WM_GETTEXT, (WPARAM)len+1, (LPARAM) buf);
-      return build_ext_string (buf, FORMAT_OS);
+      return build_ext_string (buf, Qnative);
     }
   return Qunbound;
 }
@@ -2789,7 +2822,7 @@ mswindows_widget_property (Lisp_Object image_instance, Lisp_Object prop)
 static Lisp_Object
 mswindows_button_property (Lisp_Object image_instance, Lisp_Object prop)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* check the state of a button */
   if (EQ (prop, Q_selected))
@@ -2806,7 +2839,7 @@ mswindows_button_property (Lisp_Object image_instance, Lisp_Object prop)
 static Lisp_Object
 mswindows_combo_box_property (Lisp_Object image_instance, Lisp_Object prop)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* get the text from a control */
   if (EQ (prop, Q_text))
@@ -2815,7 +2848,7 @@ mswindows_combo_box_property (Lisp_Object image_instance, Lisp_Object prop)
       Extcount len = SendMessage (wnd, CB_GETLBTEXTLEN, (WPARAM)item, 0);
       Extbyte* buf = alloca (len+1);
       SendMessage (wnd, CB_GETLBTEXT, (WPARAM)item, (LPARAM)buf);
-      return build_ext_string (buf, FORMAT_OS);
+      return build_ext_string (buf, Qnative);
     }
   return Qunbound;
 }
@@ -2825,13 +2858,15 @@ static Lisp_Object
 mswindows_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
 			       Lisp_Object val)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   if (EQ (prop, Q_text))
     {
       Extbyte* lparam=0;
       CHECK_STRING (val);
-      GET_C_STRING_OS_DATA_ALLOCA (val, lparam);
+      TO_EXTERNAL_FORMAT (LISP_STRING, val,
+			  C_STRING_ALLOCA, lparam,
+			  Qnative);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
 		   WM_SETTEXT, 0, (LPARAM)lparam);
       /* We don't return Qt here so that other widget methods can be
@@ -2845,7 +2880,7 @@ static Lisp_Object
 mswindows_progress_gauge_set_property (Lisp_Object image_instance, Lisp_Object prop,
 				 Lisp_Object val)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   if (EQ (prop, Q_percent))
     {

@@ -26,8 +26,8 @@ Boston, MA 02111-1307, USA.
    Ben Wing: December 1994, for 19.12.
  */
 
-#ifndef _XEMACS_BLOCKTYPE_H_
-#define _XEMACS_BLOCKTYPE_H_
+#ifndef INCLUDED_blocktype_h_
+#define INCLUDED_blocktype_h_
 
 #define Blocktype_declare(type)                                      \
   type *free;                                                        \
@@ -42,4 +42,4 @@ void Blocktype_free (void *bbb, void *el);
   (structype *) Blocktype_newf (sizeof(*(((structype *) NULL)->free)))
 #define Blocktype_alloc(b) (Blocktype_allocf (b), (b)->tempel)
 
-#endif /* _XEMACS_BLOCKTYPE_H_ */
+#endif /* INCLUDED_blocktype_h_ */

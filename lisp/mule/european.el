@@ -27,6 +27,8 @@
 
 ;; For Europeans, five character sets ISO8859-1,2,3,4,9 are supported.
 
+;; #### latin.el would be a better name for this file.
+
 ;;; Code:
 
 ;; For syntax of Latin-1 characters.
@@ -47,6 +49,29 @@
 (modify-syntax-entry (make-char 'latin-iso8859-2 32) "w") ; no-break space
 (modify-syntax-entry ?,BW(B ".")
 (modify-syntax-entry ?,Bw(B ".")
+
+;; For syntax of Latin-3
+(loop for c in '(?,C!(B ?,C&(B ?,C)(B ?,C*(B ?,C+(B ?,C,(B ?,C/(B ?,C1(B ?,C5(B ?,C6(B ?,C:(B ?,C;(B ?,C<(B ?,C?(B)
+  do (modify-syntax-entry c "w"))
+
+(loop for c from 64 to 126
+  do (modify-syntax-entry (make-char 'latin-iso8859-3 c) "w"))
+
+(modify-syntax-entry (make-char 'latin-iso8859-3 32) "w") ; no-break space
+(modify-syntax-entry ?,CW(B ".")
+(modify-syntax-entry ?,Cw(B ".")
+
+;; For syntax of Latin-4
+(loop for c in '(?,D!(B ?,D"(B ?,D#(B ?,D%(B ?,D&(B ?,D)(B ?,D*(B ?,D+(B ?,D,(B ?,D.(B ?,D1(B ?,D3(B ?,D5(B ?,D6(B ?,D9(B ?,D:(B ?,D;(B ?,D<(B ?,D=(B ?,D>(B ?,D?(B)
+  do (modify-syntax-entry c "w"))
+
+(loop for c from 64 to 126
+  do (modify-syntax-entry (make-char 'latin-iso8859-4 c) "w"))
+
+(modify-syntax-entry (make-char 'latin-iso8859-4 32) "w") ; no-break space
+(modify-syntax-entry ?,DW(B ".")
+(modify-syntax-entry ?,Dw(B ".")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; EUROPEANS

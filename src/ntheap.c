@@ -38,38 +38,10 @@ unsigned long syspage_mask = 0;
 int edata;
 int etext;
 
-/* The major and minor versions of NT.  */
-int nt_major_version;
-int nt_minor_version;
-
-/* Distinguish between Windows NT and Windows 95.  */
-int os_subtype;
-
 /* Cache information describing the NT system for later use.  */
 void
 cache_system_info (void)
 {
-  union 
-    {
-      struct info 
-	{
-	  char  major;
-	  char  minor;
-	  short platform;
-	} info;
-      DWORD data;
-    } version;
-
-  /* Cache the version of the operating system.  */
-  version.data = GetVersion ();
-  nt_major_version = version.info.major;
-  nt_minor_version = version.info.minor;
-
-  if (version.info.platform & 0x8000)
-    os_subtype = OS_WIN95;
-  else
-    os_subtype = OS_NT;
-
   /* Cache page size, allocation unit, processor type, etc.  */
   GetSystemInfo (&sysinfo_cache);
   syspage_mask = sysinfo_cache.dwPageSize - 1;
@@ -248,7 +220,7 @@ sbrk (unsigned long increment)
   return result;
 }
 
-#if !defined (CANNOT_DUMP) && !defined(HEAP_IN_DATA)
+#if !defined (CANNOT_DUMP) && !defined(HEAP_IN_DATA) && !defined(PDUMP)
 
 /* Recreate the heap from the data that was dumped to the executable.
    EXECUTABLE_PATH tells us where to find the executable.  */

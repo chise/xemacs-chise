@@ -111,7 +111,7 @@ static int composite_char_col_next;
 struct charset_lookup *chlook;
 
 static const struct lrecord_description charset_lookup_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(struct charset_lookup, charset_by_leading_byte),
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct charset_lookup, charset_by_leading_byte),
 #ifdef UTF2000
     128+4*128
 #else
@@ -121,7 +121,7 @@ static const struct lrecord_description charset_lookup_description_1[] = {
 };
 
 static const struct struct_description charset_lookup_description = {
-  sizeof(struct charset_lookup),
+  sizeof (struct charset_lookup),
   charset_lookup_description_1
 };
 
@@ -353,6 +353,7 @@ get_char_code_table (Emchar ch, Lisp_Object table)
   return cpt->property [(unsigned char) code];
 }
 
+void put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table);
 void
 put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 {
@@ -434,6 +435,7 @@ Lisp_Object Qnarrow;
 Lisp_Object Qsmall;
 Lisp_Object Qfont;
 
+Emchar to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg);
 Emchar
 to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
 {
@@ -551,6 +553,8 @@ Return the value of CHARACTER's ATTRIBUTE.
   return Fcdr (Fassq (attribute, ret));
 }
 
+Lisp_Object put_char_attribute (Lisp_Object character,
+				Lisp_Object attribute, Lisp_Object value);
 Lisp_Object
 put_char_attribute (Lisp_Object character, Lisp_Object attribute,
 		    Lisp_Object value)
@@ -574,6 +578,8 @@ put_char_attribute (Lisp_Object character, Lisp_Object attribute,
   return ret;
 }
 
+Lisp_Object remove_char_attribute (Lisp_Object character,
+				   Lisp_Object attribute);
 Lisp_Object
 remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
 {
@@ -648,7 +654,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      rest = Fcdr (value);
 	      while (!NILP (rest))
 		{
-		  int i;
+		  int j;
 
 		  if (!CONSP (rest))
 		    signal_simple_error ("Invalid value for coded-charset",
@@ -657,10 +663,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		  if (!INTP (ret))
 		    signal_simple_error ("Invalid value for coded-charset",
 					 value);
-		  i = XINT (ret);
+		  j = XINT (ret);
 		  if (XCHARSET_GRAPHIC (ccs) == 1)
-		    i &= 0x7F;
-		  code_point = (code_point << 8) | i;
+		    j &= 0x7F;
+		  code_point = (code_point << 8) | j;
 		  rest = Fcdr (rest);
 		}
 	      value = make_int (code_point);
@@ -1361,7 +1367,7 @@ Lstream_funget_emchar (Lstream *stream, Emchar ch)
 static Lisp_Object
 mark_charset (Lisp_Object obj)
 {
-  struct Lisp_Charset *cs = XCHARSET (obj);
+  Lisp_Charset *cs = XCHARSET (obj);
 
   mark_object (cs->short_name);
   mark_object (cs->long_name);
@@ -1377,7 +1383,7 @@ mark_charset (Lisp_Object obj)
 static void
 print_charset (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Charset *cs = XCHARSET (obj);
+  Lisp_Charset *cs = XCHARSET (obj);
   char buf[200];
 
   if (print_readably)
@@ -1407,9 +1413,15 @@ print_charset (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static const struct lrecord_description charset_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Charset, name), 7 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, doc_string) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, registry) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, short_name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, long_name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, reverse_direction_charset) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, ccl_program) },
 #ifdef UTF2000
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Charset, decoding_table), 2 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, decoding_table) },
 #endif
   { XD_END }
 };
@@ -1417,7 +1429,7 @@ static const struct lrecord_description charset_description[] = {
 DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
                                mark_charset, print_charset, 0, 0, 0,
 			       charset_description,
-			       struct Lisp_Charset);
+			       Lisp_Charset);
 /* Make a new charset. */
 
 static Lisp_Object
@@ -1433,8 +1445,10 @@ make_charset (Charset_ID id, Lisp_Object name,
 {
   unsigned char type = 0;
   Lisp_Object obj;
-  struct Lisp_Charset *cs =
-    alloc_lcrecord_type (struct Lisp_Charset, &lrecord_charset);
+  Lisp_Charset *cs = alloc_lcrecord_type (Lisp_Charset, &lrecord_charset);
+
+  zero_lcrecord (cs);
+
   XSETCHARSET (obj, cs);
 
   CHARSET_ID		(cs) = id;
@@ -2165,7 +2179,7 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   int id, chars, dimension, columns, graphic, final;
   int direction;
   Lisp_Object registry, doc_string, short_name, long_name;
-  struct Lisp_Charset *cs;
+  Lisp_Charset *cs;
 
   charset = Fget_charset (charset);
   if (!NILP (XCHARSET_REVERSE_DIRECTION_CHARSET (charset)))
@@ -2334,7 +2348,7 @@ Recognized properties are those listed in `make-charset', as well as
 */
        (charset, prop))
 {
-  struct Lisp_Charset *cs;
+  Lisp_Charset *cs;
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
@@ -2540,7 +2554,7 @@ character s with caron.
 */
        (charset, arg1, arg2))
 {
-  struct Lisp_Charset *cs;
+  Lisp_Charset *cs;
   int a1, a2;
   int lowlim, highlim;
 

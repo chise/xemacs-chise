@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -833,8 +833,8 @@ Lstream Functions
  - Macro: void Lstream_ungetc (Lstream *STREAM, int C)
      Push one byte back onto the input queue.  This will be the next
      byte read from the stream.  Any number of bytes can be pushed back
-     and will be read in the reverse order they were pushed back - most
-     recent first. (This is necessary for consistency - if there are a
+     and will be read in the reverse order they were pushed back--most
+     recent first. (This is necessary for consistency--if there are a
      number of bytes that have been unread and I read and unread a
      byte, it needs to be the first to be read again.) This is a macro
      and so it is very efficient.  The C argument is only evaluated
@@ -870,7 +870,7 @@ Lstream Functions
  - Function: void Lstream_reopen (Lstream *STREAM)
      Reopen a closed stream.  This enables I/O on it again.  This is not
      meant to be called except from a wrapper routine that reinitializes
-     variables and such - the close routine may well have freed some
+     variables and such--the close routine may well have freed some
      necessary storage structures, for example.
 
  - Function: void Lstream_rewind (Lstream *STREAM)
@@ -917,7 +917,7 @@ Lstream Methods
      Rewind the stream.  If this is `NULL', the stream is not seekable.
 
  - Lstream Method: int seekable_p (Lstream *STREAM)
-     Indicate whether this stream is seekable - i.e. it can be rewound.
+     Indicate whether this stream is seekable--i.e. it can be rewound.
      This method is ignored if the stream does not have a rewind
      method.  If this method is not present, the result is determined
      by whether a rewind method is present.
@@ -1083,7 +1083,7 @@ combination window.
 
   7. Leaf windows also have markers in their `start' (the first buffer
      position displayed in the window) and `pointm' (the window's
-     stashed value of `point' - see above) fields, while combination
+     stashed value of `point'--see above) fields, while combination
      windows have nil in these fields.
 
   8. The list of children for a window is threaded through the `next'
@@ -1096,7 +1096,7 @@ combination window.
      1 and clear out the `next', `prev', `hchild', and `vchild' fields,
      for GC purposes.
 
- 10. Most frames actually have two top-level windows - one for the
+ 10. Most frames actually have two top-level windows--one for the
      minibuffer and one (the "root") for everything else.  The modeline
      (if present) separates these two.  The `next' field of the root
      points to the minibuffer, and the `prev' field of the minibuffer

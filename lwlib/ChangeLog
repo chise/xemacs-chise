@@ -1,3 +1,26 @@
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-01-25  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c (TabsChangeManaged): Make sure we unmanage the hilight
+	widget as well.
+
+2000-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwgauge.c (GaugeConvert): bcopy ==> memcpy
+
+2000-01-24  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c (XawTabsSetTop): Unhighlight before changing the
+	stacking order.
+	(XawTabsSetHighlight): Don't unhighlight here.
+
+2000-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* *.h: Use consistent C-standards-approved guard macro names.
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.

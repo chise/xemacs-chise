@@ -18,6 +18,9 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
+#ifndef INCLUDED_imgproc_h_
+#define INCLUDED_imgproc_h_
+
 /* Synched up with: Not in FSF. */
 
 /* Original author: Jareth Hein */
@@ -60,3 +63,5 @@ typedef struct {
 #define QUANT_GET_COLOR(qt,r,g,b) (qt->histogram[r>>COLOR_SHIFT][g>>COLOR_SHIFT][b>>COLOR_SHIFT])
 
 quant_table *build_EImage_quantable(unsigned char *eimage, int width, int height, int num_colors);
+
+#endif /* INCLUDED_imgproc_h_ */

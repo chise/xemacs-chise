@@ -18,8 +18,8 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-#ifndef _XEMACS_PROCESS_H_
-#define _XEMACS_PROCESS_H_
+#ifndef INCLUDED_process_h_
+#define INCLUDED_process_h_
 
 #if defined (NO_SUBPROCESSES)
 #undef XPROCESS
@@ -38,14 +38,19 @@ void wait_without_blocking (void);
 #else /* not NO_SUBPROCESSES */
 
 /* Only process.c needs to know about the guts of this */
-struct Lisp_Process;
 
-DECLARE_LRECORD (process, struct Lisp_Process);
-#define XPROCESS(x) XRECORD (x, process, struct Lisp_Process)
+DECLARE_LRECORD (process, Lisp_Process);
+#define XPROCESS(x) XRECORD (x, process, Lisp_Process)
 #define XSETPROCESS(x, p) XSETRECORD (x, p, process)
 #define PROCESSP(x) RECORDP (x, process)
 #define CHECK_PROCESS(x) CHECK_RECORD (x, process)
-#define PROCESS_LIVE_P(x) (!NILP (XPROCESS(x)->pipe_instream))
+#define PROCESS_LIVE_P(x) (!NILP ((x)->pipe_instream))
+
+#define CHECK_LIVE_PROCESS(x) do {			\
+  CHECK_PROCESS (x);					\
+  if (! PROCESS_LIVE_P (XPROCESS (x)))			\
+    dead_wrong_type_argument (Qprocess_live_p, (x));	\
+} while (0)
 
 #ifdef emacs
 
@@ -56,7 +61,7 @@ Lisp_Object connect_to_file_descriptor (Lisp_Object name,
 					Lisp_Object buffer,
 					Lisp_Object infd,
 					Lisp_Object outfd);
-int connected_via_filedesc_p (struct Lisp_Process *p);
+int connected_via_filedesc_p (Lisp_Process *p);
 void kill_buffer_processes (Lisp_Object buffer);
 void close_process_descs (void);
 
@@ -79,12 +84,12 @@ void update_process_status (Lisp_Object p,
 			    Lisp_Object status_symbol,
 			    int exit_code, int core_dumped);
 
-void get_process_streams (struct Lisp_Process *p,
+void get_process_streams (Lisp_Process *p,
 			  Lisp_Object *instr, Lisp_Object *outstr);
-int get_process_selected_p (struct Lisp_Process *p);
-void set_process_selected_p (struct Lisp_Process *p, int selected_p);
+int get_process_selected_p (Lisp_Process *p);
+void set_process_selected_p (Lisp_Process *p, int selected_p);
 
-struct Lisp_Process *get_process_from_usid (USID usid);
+Lisp_Process *get_process_from_usid (USID usid);
 
 #ifdef HAVE_SOCKETS
 int network_connection_p (Lisp_Object process);
@@ -142,4 +147,4 @@ Lisp_Object canonicalize_host_name (Lisp_Object host);
 #define PTY_TTY_NAME_SPRINTF strcpy (pty_name, ptsname (fd));
 #endif
 
-#endif /* _XEMACS_PROCESS_H_ */
+#endif /* INCLUDED_process_h_ */
