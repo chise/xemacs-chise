@@ -1,3 +1,36 @@
+2003-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-00020086): Use `ideographic-radical',
+	`ideographic-strokes@{ucs|gt}', `total-strokes@{ucs|gt}' and
+	`ideographic-strokes@ucs*sources' instead of `ideographic-'.
+	(U+53CA): Use `ideographic-{radical|strokes}@{ucs|gt}',
+	`total-strokes@{ucs|gt}' and `ideographic-radical@ucs*sources'
+	instead of `ideographic-'.
+	(M-00129): Don't use char-ref format in `->same-ideograph'; use
+	`->same-ideograph*sources' instead.
+	(U+5C39): Copied from Ideograph-R044-Corpse.el; add
+	`ideographic-{radical|strokes}@cns'.
+	(U+738D): Copied from Ideograph-R096-Jade.el; add
+	`ideographic-{radical|strokes}@cns'.
+
+2003-06-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el (M050374): Unify H6-AEFE and U-00026714.
+	(C6-5675): Map to U-00026714.
+	(U-00026714): Unify M-29745' and M050374.
+
+	* ideograph-util.el (char-ideographic-radical): Refer
+	`char-db-feature-domains'.
+	(char-ideographic-strokes): Likewise; refer `ideographic-radical'
+	as the default attribute.
+	(update-ideograph-radical-table): Refer `char-db-feature-domains'.
+
+	* char-db-util.el (char-db-feature-domains): New variable.
+	(insert-char-attributes): Insert `ideographic-radical' before
+	`ideographic-radical@DOMAIN'; refer `char-db-feature-domains';
+	support `total-strokes@DOMAIN'; support
+	`{ideographic-strokes|total-strokes}@DOMAIN*sources'.
+
 2003-06-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R029-Again.el (U+53CA): Use
