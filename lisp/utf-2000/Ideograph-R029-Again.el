@@ -148,12 +148,20 @@
     (chinese-cns11643-5		. #x2142)	; ø»™«
     (japanese-jisx0213-2	. #x235C)	; ø»¤ ·
     (ideograph-daikanwa		. 03124)	; ø¸€°´
+    (ucs			. #x20B1D)	; ð ¬
     ))
 (define-char
-  '((ideographic-radical . 29)	; â¼œ
+  '((script		JP-Jouyou Ideograph)
+    (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "[JP:Jouyou-Kanji] <vulgar character> of R172:S1-0903")
+    (<-vulgar-ideograph
+     (:sources	(inkai shinjigen-1)
+      :char	((ideographic-radical . 172)	; â¾«
+		 (shinjigen-1	     . 903)
+		 (ideograph-daikanwa . 42116)	; ø¸Š’„
+		 )
+      ))
     (shinjigen-1	. 902)
     (shinjigen-2	. 902)
     (japanese-jisx0208-1978	. #x4150)	; ø»‚«¯
