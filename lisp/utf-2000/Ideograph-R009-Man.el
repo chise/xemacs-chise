@@ -483,7 +483,6 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (hanyu-dazidian	1 105 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -506,9 +505,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 105)
-    (hanyu-dazidian-char . 5)
+    (hanyu-dazidian	1 105 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -17340,6 +17337,34 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (hanyu-dazidian	1 189 3)
+    (ideographic-structure
+     (:cdp-combinator	4)
+     ((ucs		  . #x4EBB)	; äº»
+      )
+     ((name		  . "CJK RADICAL SMALL ONE")
+      (ucs		  . #x2E8C)	; âºŒ
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      )
+     ((ucs		  . #x53E3)	; å£
+      ))
+    (ideograph-hanziku-1	. #xCD55)	; ý¢€œµ•
+    (ucs			. #x202DC)	; ð ‹œ
+    ))
+(define-char
+  '((ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	8 8 19)
     (chinese-cns11643-6		. #x3D26)	; ø»œ½
     (ideograph-hanziku-12	. #xEB6A)	; ý¢ƒŽ­ª
@@ -28998,24 +29023,41 @@
     (ucs			. #x20444)	; ð ‘„
     ))
 (define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 17)
+  '((ideographic-	(:radical	89 ; â½˜
+			 :strokes	15
+			 :sources	(morohashi-daikanwa cns-11643))
+			(:radical	9 ; â¼ˆ
+			 :strokes	17
+			 :sources	(ucs)))
     (total-strokes	 . 19)
-    (->identical
-     ((ideograph-daikanwa . 19757)	; ø¸„´­
-      ))
     (hanyu-dazidian	1 237 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; â¿»
       )
-     ((name*		  . "ideographic component person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(ucs		    . #x2FFB)	; â¿»
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	  (ucs		      . #x2FF3)	; â¿³
+	  )
+	 ((name*	      . "ideographic component person as roof")
+	  (chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	  )
+	 ((ucs		      . #x6B62)	; æ­¢
+	  )
+	 ((ideograph-gt-k     . 00305)	; ý¡„€„±
+	  ))
+	)
+       ((ucs		    . #x5182)	; å†‚
+	))
       )
-     ((ucs		  . #x6B62)	; æ­¢
-      )
-     ((chinese-big5-cdp	  . #x88D6)	; ý¢€ˆ£–
+     ((ucs		  . #x3E1A)	; ã¸š
       ))
+    (chinese-cns11643-7		. #x476F)	; ø»ž·¶
+    (ideograph-daikanwa		. 19757)	; ø¸„´­
     (ideograph-hanziku-1	. #xD6F4)	; ý¢€›´
     (ucs			. #x20442)	; ð ‘‚
     ))
@@ -30780,31 +30822,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
-    (hanyu-dazidian	1 189 3)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x4EBB)	; äº»
-      )
-     ((chinese-big5-cdp	  . #x8B54)	; ý¢€ˆ­”
-      )
-     ((ucs		  . #x4E00)	; ä¸€
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x4E00)	; ä¸€
-	)
-       ((ucs		    . #x4E00)	; ä¸€
-	))
-      )
-     ((ucs		  . #x53E3)	; å£
-      ))
-    (ideograph-hanziku-1	. #xCD55)	; ý¢€œµ•
-    (ucs			. #x202DC)	; ð ‹œ
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 191 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
@@ -31680,7 +31697,8 @@
       )
      ((chinese-big5-cdp	  . #x88B9)	; ý¢€ˆ¢¹
       )
-     ((chinese-big5-cdp	  . #x8B54)	; ý¢€ˆ­”
+     ((name		  . "CJK RADICAL SMALL ONE")
+      (ucs		  . #x2E8C)	; âºŒ
       )
      ((ucs		  . #x4E00)	; ä¸€
       ))
