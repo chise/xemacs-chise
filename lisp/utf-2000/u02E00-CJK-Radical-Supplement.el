@@ -850,7 +850,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8DB3)	; 足
+      ))
     (=ucs		. #x2ECA)	; ⻊
+    (=gt-k		. 02600)	; &I-GT-K02600;
+    (=gt-pj-k1		. #x3436)	; ⻊ [20-22]
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED CART")
