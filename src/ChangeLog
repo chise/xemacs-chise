@@ -1,3 +1,19 @@
+2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_system_char_id): New variable in XEmacs
+	CHISE.
+	(syms_of_mule_charset): Add new symbol `system-char-id' in XEmacs
+	CHISE.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`system-char-id' in XEmacs CHISE; modify `=ucs' to eliminate
+	builtin characters over 0xEFFFF.
+
+	* chartab.c (syms_of_chartab): Don't define symbol
+	`system-char-id' in every case.
+
+	* char-ucs.h (Qsystem_char_id): New extern variable.
+	(LEADING_BYTE_SYSTEM_CHAR_ID): New macro.
+
 2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (char_encode_utf8): Try to use entity-references
