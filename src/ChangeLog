@@ -1,3 +1,7 @@
+2004-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-canna.c (m2c): Fix problem with XEmacs CHISE.
+
 2004-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Qsystem_char_id): New variable.
