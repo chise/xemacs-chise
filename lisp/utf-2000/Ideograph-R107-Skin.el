@@ -648,8 +648,9 @@
   '((ideographic-radical . 107)	; â½ª
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (chinese-cns11643-3 . #x482E)	; ø»–ƒ
-    (ucs		. #x76B9)	; çš¹
+    (chinese-cns11643-3		. #x482E)	; ø»–ƒ
+    (japanese-jisx0208-1990	. #x6231)	; ø½‹•ª
+    (ucs			. #x76B9)	; çš¹
     ))
 (define-char
   '((ideographic-radical . 107)	; â½ª
