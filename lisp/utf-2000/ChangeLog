@@ -1,3 +1,8 @@
+2002-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el: Add some missing mappings between CNS
+	11643 plain 5 and UCS.
+
 2002-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el (M-16014): Add mapping for U+3C20.
