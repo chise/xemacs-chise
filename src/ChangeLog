@@ -1,3 +1,11 @@
+2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Q_ucs): Deleted.
+	(Fput_char_attribute): Don't refer `->ucs'.
+	(Fdefine_char): Likewise.
+	(Ffind_char): Likewise.
+	(syms_of_chartab): Delete `->ucs'.
+
 2003-04-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Qmap_cns11643_2): Renamed from
