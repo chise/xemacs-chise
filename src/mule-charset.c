@@ -2842,8 +2842,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5 Chinese traditional"),
 		  build_string ("big5"),
 		  Qnil,
-		  /* 0 */ MIN_CHAR_BIG5_CDP,
-		  /* 0 */ MAX_CHAR_BIG5_CDP, 0, 0);
+		  0 /* MIN_CHAR_BIG5_CDP */,
+		  0 /* MAX_CHAR_BIG5_CDP */, 0, 0);
   staticpro (&Vcharset_chinese_big5_cdp);
   Vcharset_chinese_big5_cdp =
     make_charset (LEADING_BYTE_CHINESE_BIG5_CDP, Qchinese_big5_cdp, 256, 2,
