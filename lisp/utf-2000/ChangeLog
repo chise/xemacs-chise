@@ -1,3 +1,12 @@
+2003-03-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R085-Water.el (JX1-7654): Rename `=ucs-jis-2000' to
+	`=ucs@jis-2000'.
+	(JX1-7739): Likewise.
+
+	* Ideograph-R072-Sun.el (JX1-7540): Rename `=ucs-jis-2000' to
+	`=ucs@jis-2000'.
+
 2003-03-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R072-Sun.el (JSP-4247): Rename `=ucs-jis-1990' to
