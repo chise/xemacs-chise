@@ -380,8 +380,10 @@ put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 
 Lisp_Object Vcharacter_attribute_table;
 Lisp_Object Vcharacter_composition_table;
+Lisp_Object Vcharacter_variant_table;
 
 Lisp_Object Q_decomposition;
+Lisp_Object Q_ucs;
 Lisp_Object Qwide;
 Lisp_Object Qnarrow;
 Lisp_Object Qcompat;
@@ -444,6 +446,16 @@ Return character corresponding with list.
 	signal_simple_error ("Invalid table is found with", list);
     }
   signal_simple_error ("Invalid value for composition", list);
+}
+
+DEFUN ("char-variants", Fchar_variants, 1, 1, 0, /*
+Return variants of CHARACTER.
+*/
+       (character))
+{
+  CHECK_CHAR (character);
+  return Fcopy_list (get_char_code_table (XCHAR (character),
+					  Vcharacter_variant_table));
 }
 
 DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
@@ -608,6 +620,23 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		}
 	      table = ntable;
 	    }
+	}
+    }
+  else if (EQ (attribute, Q_ucs))
+    {
+      Lisp_Object ret;
+      Emchar c;
+
+      if (!INTP (value))
+	signal_simple_error ("Invalid value for ->ucs", value);
+
+      c = XINT (value);
+
+      ret = get_char_code_table (c, Vcharacter_variant_table);
+      if (NILP (Fmemq (character, ret)))
+	{
+	  put_char_code_table (c, Fcons (character, ret),
+			       Vcharacter_variant_table);
 	}
     }
   return put_char_attribute (character, attribute, value);
@@ -2401,6 +2430,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
   DEFSUBR (Fdefine_char);
+  DEFSUBR (Fchar_variants);
   DEFSUBR (Fget_composite_char);
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
@@ -2451,6 +2481,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
+  defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qwide,			"wide");
   defsymbol (&Qnarrow,			"narrow");
@@ -2525,6 +2556,9 @@ Version number of UTF-2000.
 
   staticpro (&Vcharacter_composition_table);
   Vcharacter_composition_table = make_char_code_table (Qnil);
+
+  staticpro (&Vcharacter_variant_table);
+  Vcharacter_variant_table = make_char_code_table (Qnil);
 
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
