@@ -205,9 +205,9 @@
 		 (ucs		     . #x2FF4)	; â¿´
 		 )
       )
-     ((chinese-big5-cdp	  . #x8CC8)	; ï—
+     ((chinese-big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
       )
-     ((chinese-big5-cdp	  . #x8B49)	; ï“£
+     ((chinese-big5-cdp	  . #x8B49)	; ý¢€ˆ­‰
       ))
     (chinese-gb2312		. #x5836)	; ø»…—‹
     (japanese-jisx0212		. #x3675)	; ø»‹„š
@@ -455,7 +455,7 @@
       )
      ((ucs		  . #x56DB)	; å››
       )
-     ((chinese-big5-cdp	  . #x8BC0)	; ï”¸
+     ((chinese-big5-cdp	  . #x8BC0)	; ý¢€ˆ¯€
       ))
     (japanese-jisx0212	. #x367A)	; ø»‹„Ÿ
     (chinese-cns11643-2 . #x2348)	; ø»“ƒ
@@ -770,9 +770,9 @@
 		 (ucs		     . #x2FF4)	; â¿´
 		 )
       )
-     ((chinese-big5-cdp	  . #x8CC8)	; ï—
+     ((chinese-big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
       )
-     ((chinese-big5-cdp	  . #x89D5)	; ï“
+     ((chinese-big5-cdp	  . #x89D5)	; ý¢€ˆ§•
       ))
     (chinese-cns11643-1 . #x4959)	; ø»‘¾„
     (chinese-big5	. #xA777)	; øºŸª¥
@@ -2046,7 +2046,7 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((chinese-big5-cdp	  . #x8BEB)	; ï•£
+     ((chinese-big5-cdp	  . #x8BEB)	; ý¢€ˆ¯«
       ))
     (shinjigen-2	. 1314)
     (japanese-jisx0208-1978	. #x5426)	; ø»ƒ†¿
@@ -2071,7 +2071,7 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((chinese-big5-cdp	  . #x8BEB)	; ï•£
+     ((chinese-big5-cdp	  . #x8BEB)	; ý¢€ˆ¯«
       ))
     (chinese-gb12345	. #x4D3C)	; åœ–
     (mojikyo		. 059291)	; ý €Žž›
@@ -2298,7 +2298,7 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((chinese-big5-cdp	  . #x8BB6)	; ï”®
+     ((chinese-big5-cdp	  . #x8BB6)	; ý¢€ˆ®¶
       ))
     (shinjigen-2	. 1336)
     (japanese-jisx0208-1978	. #x5428)	; ø»ƒ‡
