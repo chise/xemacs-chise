@@ -1,3 +1,10 @@
+2004-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R183-Fly.el (C5-6A61): Use `->subsumptive'; integrate
+	U-00029677.
+	(U-0002967C): Use `->subsumptive'.
+	(C5-746D): Unify U-0002967D.
+
 2004-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el (U-00025215): Use `->subsumptive'.
