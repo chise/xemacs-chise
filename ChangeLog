@@ -1,3 +1,13 @@
+2003-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in:
+	- Add new option `--with-chise'.
+	- define `CHISE' if --with-chise is specified and/or chise.h is
+	  found.
+	- Disable Wnn support if UTF2000 is enables.
+	- Display "Multiscriptization / Multilingualization /
+	  Internationalization:" instead of "Internationalization:".
+
 2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Makefile.in.in (COPYDIR): Add ${srcdir}/lib-src/char-db if
