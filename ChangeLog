@@ -1,3 +1,7 @@
+1999-07-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/HELLO (Thai): Modify for new font.
+
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* etc/TUTORIAL.th: Change code to tis-620.
