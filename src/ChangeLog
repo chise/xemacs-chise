@@ -1,18 +1,24 @@
+1999-09-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for C0-Controls,
+	Basic-Latin, C1-Controls and Latin-1-Supplement area.
+
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* char-ucs.h (charset_get_byte1): New function.
 	(XCHARSET_GET_BYTE1): Deleted.
 	(charset_get_byte2): New function.
 	(XCHARSET_GET_BYTE2): Deleted.
-	(Vdefault_preferred_coded_charset_list): New external variable.
+	(Vdefault_coded_charset_priority_list): New external variable.
 	(breakup_char_1): Use `charset_get_byte1', `charset_get_byte2' and
 	`Vdefault_preferred_coded_charset_list'.
 
 	* mule-charset.c (charset_get_byte1): New function.
 	(charset_get_byte2): New function.
-	(Vdefault_preferred_coded_charset_list): New variable.
+	(Vdefault_coded_charset_priority_list): New variable.
 	(vars_of_mule_charset): Add new variable
-	`default-preferred-coded-charset-list'.
+	`default-coded-charset-priority-list'.
 
 1999-09-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
