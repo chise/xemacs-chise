@@ -139,8 +139,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x266D)	; ø»¢›ž
-    (ucs			. #x25B1)	; â–±
+    (=jis-x0213-1-2000	. #x266D)	; ø»¢›ž
+    (ucs		. #x25B1)	; â–±
     ))
 (define-char
   '((name		. "BLACK UP-POINTING TRIANGLE")
@@ -185,18 +185,18 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x223A)	; ø»ˆœƒ
-    (japanese-jisx0213-1	. #x2322)	; ø»¢•¹
-    (ucs			. #x25B6)	; â–¶
+    (korean-ksc5601	. #x223A)	; ø»ˆœƒ
+    (=jis-x0213-1-2000	. #x2322)	; ø»¢•¹
+    (ucs		. #x25B6)	; â–¶
     ))
 (define-char
   '((name		. "WHITE RIGHT-POINTING TRIANGLE")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2239)	; ø»ˆœ‚
-    (japanese-jisx0213-1	. #x2321)	; ø»¢•¸
-    (ucs			. #x25B7)	; â–·
+    (korean-ksc5601	. #x2239)	; ø»ˆœ‚
+    (=jis-x0213-1-2000	. #x2321)	; ø»¢•¸
+    (ucs		. #x25B7)	; â–·
     ))
 (define-char
   '((name		. "BLACK RIGHT-POINTING SMALL TRIANGLE")
@@ -267,18 +267,18 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2238)	; ø»ˆœ
-    (japanese-jisx0213-1	. #x2324)	; ø»¢•»
-    (ucs			. #x25C0)	; â—€
+    (korean-ksc5601	. #x2238)	; ø»ˆœ
+    (=jis-x0213-1-2000	. #x2324)	; ø»¢•»
+    (ucs		. #x25C0)	; â—€
     ))
 (define-char
   '((name		. "WHITE LEFT-POINTING TRIANGLE")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2237)	; ø»ˆœ€
-    (japanese-jisx0213-1	. #x2323)	; ø»¢•º
-    (ucs			. #x25C1)	; â—
+    (korean-ksc5601	. #x2237)	; ø»ˆœ€
+    (=jis-x0213-1-2000	. #x2323)	; ø»¢•º
+    (ucs		. #x25C1)	; â—
     ))
 (define-char
   '((name		. "BLACK LEFT-POINTING SMALL TRIANGLE")
@@ -345,8 +345,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x233B)	; ø»¢–’
-    (ucs			. #x25C9)	; â—‰
+    (=jis-x0213-1-2000	. #x233B)	; ø»¢–’
+    (ucs		. #x25C9)	; â—‰
     ))
 (define-char
   '((name		. "LOZENGE")
@@ -410,34 +410,34 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2244)	; ø»ˆœ
-    (japanese-jisx0213-1	. #x2867)	; ø»¢ž”
-    (ucs			. #x25D0)	; â—
+    (korean-ksc5601	. #x2244)	; ø»ˆœ
+    (=jis-x0213-1-2000	. #x2867)	; ø»¢ž”
+    (ucs		. #x25D0)	; â—
     ))
 (define-char
   '((name		. "CIRCLE WITH RIGHT HALF BLACK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2245)	; ø»ˆœŽ
-    (japanese-jisx0213-1	. #x2868)	; ø»¢ž•
-    (ucs			. #x25D1)	; â—‘
+    (korean-ksc5601	. #x2245)	; ø»ˆœŽ
+    (=jis-x0213-1-2000	. #x2868)	; ø»¢ž•
+    (ucs		. #x25D1)	; â—‘
     ))
 (define-char
   '((name		. "CIRCLE WITH LOWER HALF BLACK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2869)	; ø»¢ž–
-    (ucs			. #x25D2)	; â—’
+    (=jis-x0213-1-2000	. #x2869)	; ø»¢ž–
+    (ucs		. #x25D2)	; â—’
     ))
 (define-char
   '((name		. "CIRCLE WITH UPPER HALF BLACK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x286A)	; ø»¢ž—
-    (ucs			. #x25D3)	; â—“
+    (=jis-x0213-1-2000	. #x286A)	; ø»¢ž—
+    (ucs		. #x25D3)	; â—“
     ))
 (define-char
   '((name		. "CIRCLE WITH UPPER RIGHT QUADRANT BLACK")
@@ -578,8 +578,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x233F)	; ø»¢––
-    (ucs			. #x25E6)	; â—¦
+    (=jis-x0213-1-2000	. #x233F)	; ø»¢––
+    (ucs		. #x25E6)	; â—¦
     ))
 (define-char
   '((name		. "SQUARE WITH LEFT HALF BLACK")

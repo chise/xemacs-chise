@@ -758,7 +758,7 @@
     (->decomposition	#x004D #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter m with acute")
-      (japanese-jisx0213-1	  . #x2872)	; ø»¢žŸ
+      (=jis-x0213-1-2000  . #x2872)	; ø»¢žŸ
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
@@ -784,8 +784,8 @@
      ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
       (ucs		  . #x1E3E)	; á¸¾
       ))
-    (japanese-jisx0213-1	. #x2872)	; ø»¢žŸ
-    (ucs-jis			. #x1E3E)	; ø»¢žŸ
+    (=jis-x0213-1-2000	. #x2872)	; ø»¢žŸ
+    (ucs-jis		. #x1E3E)	; ø»¢žŸ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH ACUTE")
@@ -795,7 +795,7 @@
     (->decomposition	#x006D #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter m with acute")
-      (japanese-jisx0213-1	  . #x2873)	; ø»¢ž 
+      (=jis-x0213-1-2000  . #x2873)	; ø»¢ž 
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
@@ -821,8 +821,8 @@
      ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
       (ucs		  . #x1E3F)	; á¸¿
       ))
-    (japanese-jisx0213-1	. #x2873)	; ø»¢ž 
-    (ucs-jis			. #x1E3F)	; ø»¢ž 
+    (=jis-x0213-1-2000	. #x2873)	; ø»¢ž 
+    (ucs-jis		. #x1E3F)	; ø»¢ž 
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER M WITH DOT ABOVE")

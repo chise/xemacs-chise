@@ -55,9 +55,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x216A)	; ø»ˆ›•
-    (japanese-jisx0213-1	. #x2271)	; ø»¢•ª
-    (ucs			. #x2194)	; â†”
+    (korean-ksc5601	. #x216A)	; ø»ˆ›•
+    (=jis-x0213-1-2000	. #x2271)	; ø»¢•ª
+    (ucs		. #x2194)	; â†”
     ))
 (define-char
   '((name		. "UP DOWN ARROW")
@@ -72,44 +72,44 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2258)	; ø»ˆœ¡
-    (chinese-cns11643-1		. #x2259)	; ø»‘„²
-    (japanese-jisx0213-1	. #x2327)	; ø»¢•¾
-    (chinese-big5		. #xA1F8)	; ý¢€Š‡¸
-    (ucs			. #x2196)	; â†–
+    (korean-ksc5601	. #x2258)	; ø»ˆœ¡
+    (chinese-cns11643-1 . #x2259)	; ø»‘„²
+    (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
+    (chinese-big5	. #xA1F8)	; ý¢€Š‡¸
+    (ucs		. #x2196)	; â†–
     ))
 (define-char
   '((name		. "NORTH EAST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2256)	; ø»ˆœŸ
-    (chinese-cns11643-1		. #x225A)	; ø»‘„³
-    (japanese-jisx0213-1	. #x2325)	; ø»¢•¼
-    (chinese-big5		. #xA1F9)	; ý¢€Š‡¹
-    (ucs			. #x2197)	; â†—
+    (korean-ksc5601	. #x2256)	; ø»ˆœŸ
+    (chinese-cns11643-1 . #x225A)	; ø»‘„³
+    (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
+    (chinese-big5	. #xA1F9)	; ý¢€Š‡¹
+    (ucs		. #x2197)	; â†—
     ))
 (define-char
   '((name		. "SOUTH EAST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2259)	; ø»ˆœ¢
-    (chinese-cns11643-1		. #x225C)	; ø»‘„µ
-    (japanese-jisx0213-1	. #x2326)	; ø»¢•½
-    (chinese-big5		. #xA1FB)	; ý¢€Š‡»
-    (ucs			. #x2198)	; â†˜
+    (korean-ksc5601	. #x2259)	; ø»ˆœ¢
+    (chinese-cns11643-1 . #x225C)	; ø»‘„µ
+    (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
+    (chinese-big5	. #xA1FB)	; ý¢€Š‡»
+    (ucs		. #x2198)	; â†˜
     ))
 (define-char
   '((name		. "SOUTH WEST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		. #x2257)	; ø»ˆœ 
-    (chinese-cns11643-1		. #x225B)	; ø»‘„´
-    (japanese-jisx0213-1	. #x2328)	; ø»¢•¿
-    (chinese-big5		. #xA1FA)	; ý¢€Š‡º
-    (ucs			. #x2199)	; â†™
+    (korean-ksc5601	. #x2257)	; ø»ˆœ 
+    (chinese-cns11643-1 . #x225B)	; ø»‘„´
+    (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
+    (chinese-big5	. #xA1FA)	; ý¢€Š‡º
+    (ucs		. #x2199)	; â†™
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH STROKE")
@@ -415,8 +415,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2329)	; ø»¢–€
-    (ucs			. #x21C4)	; â‡„
+    (=jis-x0213-1-2000	. #x2329)	; ø»¢–€
+    (ucs		. #x21C4)	; â‡„
     ))
 (define-char
   '((name		. "UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW")
@@ -665,37 +665,37 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x232B)	; ø»¢–‚
-    (china3-jef			. #x76B2)	; øº‡š²
-    (ucs			. #x21E6)	; â‡¦
+    (=jis-x0213-1-2000	. #x232B)	; ø»¢–‚
+    (china3-jef		. #x76B2)	; øº‡š²
+    (ucs		. #x21E6)	; â‡¦
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x232C)	; ø»¢–ƒ
-    (chinese-big5-eten		. #xC876)	; ý¢€Œ¡¶
-    (china3-jef			. #x76B1)	; øº‡š±
-    (ucs			. #x21E7)	; â‡§
+    (=jis-x0213-1-2000	. #x232C)	; ø»¢–ƒ
+    (chinese-big5-eten	. #xC876)	; ý¢€Œ¡¶
+    (china3-jef		. #x76B1)	; øº‡š±
+    (ucs		. #x21E7)	; â‡§
     ))
 (define-char
   '((name		. "RIGHTWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x232A)	; ø»¢–
-    (china3-jef			. #x76B3)	; øº‡š³
-    (ucs			. #x21E8)	; â‡¨
+    (=jis-x0213-1-2000	. #x232A)	; ø»¢–
+    (china3-jef		. #x76B3)	; øº‡š³
+    (ucs		. #x21E8)	; â‡¨
     ))
 (define-char
   '((name		. "DOWNWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x232D)	; ø»¢–„
-    (china3-jef			. #x76B0)	; øº‡š°
-    (ucs			. #x21E9)	; â‡©
+    (=jis-x0213-1-2000	. #x232D)	; ø»¢–„
+    (china3-jef		. #x76B0)	; øº‡š°
+    (ucs		. #x21E9)	; â‡©
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW FROM BAR")

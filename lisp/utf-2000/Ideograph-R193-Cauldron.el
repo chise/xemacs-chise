@@ -126,10 +126,10 @@
     (ideographic-radical . 193)	; â¿€
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (japanese-jisx0212		. #x6A33)	; ø»Œ°
-    (japanese-jisx0213-2	. #x7D3D)	; ø»¦¤¤
-    (ideograph-daikanwa		. 45681)	; ø¸‹‰±
-    (ucs-jis			. #x9B33)	; ø»Œ°
+    (japanese-jisx0212	. #x6A33)	; ø»Œ°
+    (=jis-x0213-2-2000	. #x7D3D)	; ø»¦¤¤
+    (ideograph-daikanwa . 45681)	; ø¸‹‰±
+    (ucs-jis		. #x9B33)	; ø»Œ°
     ))
 (define-char
   '((morohashi-daikanwa	45681 0 2)

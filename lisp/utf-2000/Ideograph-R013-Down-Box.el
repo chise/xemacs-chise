@@ -51,12 +51,12 @@
       )
      ((ucs		  . #x20120)	; ð „ 
       ))
-    (japanese-jisx0212		. #x3270)	; ø»Š¾
-    (chinese-cns11643-4		. #x213E)	; ø»—¡…
-    (japanese-jisx0213-2	. #x2329)	; ø»¤ „
-    (ideograph-daikanwa		. 01508)	; ø¸€—¤
-    (chinese-big5-cdp		. #x88F3)	; ý¢€ˆ£³
-    (ucs			. #x5183)	; å†ƒ
+    (japanese-jisx0212	. #x3270)	; ø»Š¾
+    (chinese-cns11643-4 . #x213E)	; ø»—¡…
+    (=jis-x0213-2-2000	. #x2329)	; ø»¤ „
+    (ideograph-daikanwa . 01508)	; ø¸€—¤
+    (chinese-big5-cdp	. #x88F3)	; ý¢€ˆ£³
+    (ucs		. #x5183)	; å†ƒ
     ))
 (define-char
   '((name*		. "ideographic component hood")
@@ -281,13 +281,13 @@
       )
      ((ucs		  . #x53E3)	; å£
       ))
-    (japanese-jisx0212		. #x3272)	; ø»Š¾Ÿ
-    (chinese-cns11643-3		. #x2178)	; ø»•—»
-    (japanese-jisx0213-2	. #x232A)	; ø»¤ …
-    (ideograph-daikanwa		. 01517)	; ø¸€—­
-    (chinese-big5-cdp		. #x8B59)	; ý¢€ˆ­™
-    (china3-jef			. #x43EC)	; øº„¬
-    (ucs			. #x518B)	; å†‹
+    (japanese-jisx0212	. #x3272)	; ø»Š¾Ÿ
+    (chinese-cns11643-3 . #x2178)	; ø»•—»
+    (=jis-x0213-2-2000	. #x232A)	; ø»¤ …
+    (ideograph-daikanwa . 01517)	; ø¸€—­
+    (chinese-big5-cdp	. #x8B59)	; ý¢€ˆ­™
+    (china3-jef		. #x43EC)	; øº„¬
+    (ucs		. #x518B)	; å†‹
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
@@ -1007,9 +1007,9 @@
       )
      ((chinese-big5-cdp	  . #x8C62)	; ý¢€ˆ±¢
       ))
-    (japanese-jisx0213-2	. #x232B)	; ø»¤ †
-    (ideograph-daikanwa		. 01547)	; ø¸€˜‹
-    (ucs-jis			. #x34BC)	; ø»¤ †
+    (=jis-x0213-2-2000	. #x232B)	; ø»¤ †
+    (ideograph-daikanwa . 01547)	; ø¸€˜‹
+    (ucs-jis		. #x34BC)	; ø»¤ †
     ))
 (define-char
   '((morohashi-daikanwa	1547 0 0)

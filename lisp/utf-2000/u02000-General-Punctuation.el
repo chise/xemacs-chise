@@ -150,10 +150,10 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1		. #x2139)	; ø»‘‚´
-    (japanese-jisx0213-1	. #x237C)	; ø»¢—“
-    (chinese-big5		. #xA156)	; ý¢€Š…–
-    (ucs			. #x2013)	; â€“
+    (chinese-cns11643-1 . #x2139)	; ø»‘‚´
+    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
+    (chinese-big5	. #xA156)	; ý¢€Š…–
+    (ucs		. #x2013)	; â€“
     ))
 (define-char
   '((name		. "EM DASH")
@@ -303,8 +303,8 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2340)	; ø»¢–—
-    (ucs			. #x2022)	; â€¢
+    (=jis-x0213-1-2000	. #x2340)	; ø»¢–—
+    (ucs		. #x2022)	; â€¢
     ))
 (define-char
   '((name		. "TRIANGULAR BULLET")
@@ -525,8 +525,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
-    (japanese-jisx0213-1	. #x286B)	; ø»¢ž˜
-    (ucs			. #x203C)	; â€¼
+    (=jis-x0213-1-2000	. #x286B)	; ø»¢ž˜
+    (ucs		. #x203C)	; â€¼
     ))
 (define-char
   '((name		. "INTERROBANG")
@@ -606,8 +606,8 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2C7E)	; ø»¢¤£
-    (ucs			. #x2042)	; â‚
+    (=jis-x0213-1-2000	. #x2C7E)	; ø»¢¤£
+    (ucs		. #x2042)	; â‚
     ))
 (define-char
   '((name		. "HYPHEN BULLET")
@@ -640,8 +640,8 @@
     ))
 (define-char
   '((name		. "DOUBLE QUESTION MARK")
-    (japanese-jisx0213-1	. #x286C)	; ø»¢ž™
-    (ucs			. #x2047)	; â‡
+    (=jis-x0213-1-2000	. #x286C)	; ø»¢ž™
+    (ucs		. #x2047)	; â‡
     ))
 (define-char
   '((name		. "QUESTION EXCLAMATION MARK")
@@ -649,8 +649,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
-    (japanese-jisx0213-1	. #x286D)	; ø»¢žš
-    (ucs			. #x2048)	; âˆ
+    (=jis-x0213-1-2000	. #x286D)	; ø»¢žš
+    (ucs		. #x2048)	; âˆ
     ))
 (define-char
   '((name		. "EXCLAMATION QUESTION MARK")
@@ -658,8 +658,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
-    (japanese-jisx0213-1	. #x286E)	; ø»¢ž›
-    (ucs			. #x2049)	; â‰
+    (=jis-x0213-1-2000	. #x286E)	; ø»¢ž›
+    (ucs		. #x2049)	; â‰
     ))
 (define-char
   '((name		. "TIRONIAN SIGN ET")
@@ -691,8 +691,8 @@
     ))
 (define-char
   '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
-    (japanese-jisx0213-1	. #x2C7D)	; ø»¢¤¢
-    (ucs			. #x2051)	; â‘
+    (=jis-x0213-1-2000	. #x2C7D)	; ø»¢¤¢
+    (ucs		. #x2051)	; â‘
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")

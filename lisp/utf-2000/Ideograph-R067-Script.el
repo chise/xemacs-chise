@@ -171,9 +171,9 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (japanese-jisx0212		. #x4158)	; ø»‹”‡
-    (japanese-jisx0213-2	. #x2D69)	; ø»¤¯°
-    (ucs-jis			. #x658A)	; ø»‹”‡
+    (japanese-jisx0212	. #x4158)	; ø»‹”‡
+    (=jis-x0213-2-2000	. #x2D69)	; ø»¤¯°
+    (ucs-jis		. #x658A)	; ø»‹”‡
     ))
 (define-char
   '((=>ucs		. #x658A)	; æ–Š

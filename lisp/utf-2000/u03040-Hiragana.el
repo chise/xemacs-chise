@@ -1035,19 +1035,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x3046 #x3099)
-    (japanese-jisx0213-1	. #x2474)	; ø»¢˜©
-    (china3-jef			. #x78C5)	; øº‡£…
-    (ucs			. #x3094)	; ã‚”
+    (=jis-x0213-1-2000	. #x2474)	; ø»¢˜©
+    (china3-jef		. #x78C5)	; øº‡£…
+    (ucs		. #x3094)	; ã‚”
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL KA")
-    (japanese-jisx0213-1	. #x2475)	; ø»¢˜ª
-    (ucs			. #x3095)	; ã‚•
+    (=jis-x0213-1-2000	. #x2475)	; ø»¢˜ª
+    (ucs		. #x3095)	; ã‚•
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL KE")
-    (japanese-jisx0213-1	. #x2476)	; ø»¢˜«
-    (ucs			. #x3096)	; ã‚–
+    (=jis-x0213-1-2000	. #x2476)	; ø»¢˜«
+    (ucs		. #x3096)	; ã‚–
     ))
 (define-char
   '((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
@@ -1102,6 +1102,6 @@
     ))
 (define-char
   '((name		. "HIRAGANA DIGRAPH YORI")
-    (japanese-jisx0213-1	. #x2239)	; ø»¢”²
-    (ucs			. #x309F)	; ã‚Ÿ
+    (=jis-x0213-1-2000	. #x2239)	; ø»¢”²
+    (ucs		. #x309F)	; ã‚Ÿ
     ))

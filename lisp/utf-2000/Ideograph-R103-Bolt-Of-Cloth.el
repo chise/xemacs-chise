@@ -36,10 +36,10 @@
   '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (chinese-cns11643-2		. #x2835)	; ø»“—†
-    (japanese-jisx0213-2	. #x7145)	; ø»¦“„
-    (ideograph-daikanwa		. 21997)	; ø¸…—­
-    (ucs			. #x758C)	; ç–Œ
+    (chinese-cns11643-2 . #x2835)	; ø»“—†
+    (=jis-x0213-2-2000	. #x7145)	; ø»¦“„
+    (ideograph-daikanwa . 21997)	; ø¸…—­
+    (ucs		. #x758C)	; ç–Œ
     ))
 (define-char
   '((ideographic-radical . 103)	; â½¦

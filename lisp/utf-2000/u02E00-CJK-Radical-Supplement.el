@@ -637,20 +637,20 @@
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-cns11643-4		. #x2153)	; ø»—¡š
-    (japanese-jisx0213-2	. #x7575)	; ø»¦™¬
-    (ideograph-daikanwa		. 30639)	; ø¸‡ž¯
-    (chinese-big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
-    (ucs-cns			. #x8279)	; âº¿
-    (ucs			. #x2EBF)	; âº¿
+    (chinese-cns11643-4 . #x2153)	; ø»—¡š
+    (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
+    (ideograph-daikanwa . 30639)	; ø¸‡ž¯
+    (chinese-big5-cdp	. #x8AFE)	; ý¢€ˆ«¾
+    (ucs-cns		. #x8279)	; âº¿
+    (ucs		. #x2EBF)	; âº¿
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-2	. #x7574)	; ø»¦™«
-    (ucs			. #x2EC0)	; â»€
+    (=jis-x0213-2-2000	. #x7574)	; ø»¦™«
+    (ucs		. #x2EC0)	; â»€
     ))
 (define-char
   '((name		. "CJK RADICAL TIGER")
@@ -770,9 +770,9 @@
     (<-radical
      ((ucs		  . #x8FB6)	; è¾¶
       ))
-    (japanese-jisx0213-2	. #x7969)	; ø»¦Ÿ˜
-    (chinese-big5-cdp		. #x8966)	; ý¢€ˆ¥¦
-    (ucs			. #x2ECC)	; â»Œ
+    (=jis-x0213-2-2000	. #x7969)	; ø»¦Ÿ˜
+    (chinese-big5-cdp	. #x8966)	; ý¢€ˆ¥¦
+    (ucs		. #x2ECC)	; â»Œ
     ))
 (define-char
   '((name		. "CJK RADICAL WALK ONE")
@@ -783,11 +783,11 @@
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (japanese-jisx0212		. #x6134)	; ø»Œ‚£
-    (japanese-jisx0213-2	. #x796A)	; ø»¦Ÿ™
-    (ideograph-daikanwa		. 38702)	; ø¸‰œ®
-    (ucs-jis			. #x8FB6)	; â»
-    (ucs			. #x2ECD)	; â»
+    (japanese-jisx0212	. #x6134)	; ø»Œ‚£
+    (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
+    (ideograph-daikanwa . 38702)	; ø¸‰œ®
+    (ucs-jis		. #x8FB6)	; â»
+    (ucs		. #x2ECD)	; â»
     ))
 (define-char
   '((name		. "CJK RADICAL WALK TWO")

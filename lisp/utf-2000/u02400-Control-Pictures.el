@@ -281,8 +281,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x277D)	; ø»¢Œ
-    (ucs			. #x2423)	; â£
+    (=jis-x0213-1-2000	. #x277D)	; ø»¢Œ
+    (ucs		. #x2423)	; â£
     ))
 (define-char
   '((name		. "SYMBOL FOR NEWLINE")

@@ -411,10 +411,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
-    (japanese-jisx0213-1	. #x2D6A)	; ø»¢¥­
-    (chinese-big5-eten		. #xC8D1)	; ý¢€Œ£‘
-    (china3-jef			. #x78D5)	; øº‡£•
-    (ucs			. #x3231)	; ãˆ±
+    (=jis-x0213-1-2000	. #x2D6A)	; ø»¢¥­
+    (chinese-big5-eten	. #xC8D1)	; ý¢€Œ£‘
+    (china3-jef		. #x78D5)	; øº‡£•
+    (ucs		. #x3231)	; ãˆ±
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH HAVE")
@@ -422,9 +422,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x6709 #x0029)
-    (japanese-jisx0213-1	. #x2D6B)	; ø»¢¥®
-    (china3-jef			. #x78CF)	; øº‡£
-    (ucs			. #x3232)	; ãˆ²
+    (=jis-x0213-1-2000	. #x2D6B)	; ø»¢¥®
+    (china3-jef		. #x78CF)	; øº‡£
+    (ucs		. #x3232)	; ãˆ²
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SOCIETY")
@@ -484,9 +484,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4EE3 #x0029)
-    (japanese-jisx0213-1	. #x2D6C)	; ø»¢¥¯
-    (china3-jef			. #x78CB)	; øº‡£‹
-    (ucs			. #x3239)	; ãˆ¹
+    (=jis-x0213-1-2000	. #x2D6C)	; ø»¢¥¯
+    (china3-jef		. #x78CB)	; øº‡£‹
+    (ucs		. #x3239)	; ãˆ¹
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH CALL")
@@ -579,78 +579,78 @@
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY ONE")
-    (japanese-jisx0213-1	. #x2841)	; ø»¢®
-    (ucs			. #x3251)	; ã‰‘
+    (=jis-x0213-1-2000	. #x2841)	; ø»¢®
+    (ucs		. #x3251)	; ã‰‘
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY TWO")
-    (japanese-jisx0213-1	. #x2842)	; ø»¢¯
-    (ucs			. #x3252)	; ã‰’
+    (=jis-x0213-1-2000	. #x2842)	; ø»¢¯
+    (ucs		. #x3252)	; ã‰’
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY THREE")
-    (japanese-jisx0213-1	. #x2843)	; ø»¢°
-    (ucs			. #x3253)	; ã‰“
+    (=jis-x0213-1-2000	. #x2843)	; ø»¢°
+    (ucs		. #x3253)	; ã‰“
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FOUR")
-    (japanese-jisx0213-1	. #x2844)	; ø»¢±
-    (ucs			. #x3254)	; ã‰”
+    (=jis-x0213-1-2000	. #x2844)	; ø»¢±
+    (ucs		. #x3254)	; ã‰”
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FIVE")
-    (japanese-jisx0213-1	. #x2845)	; ø»¢²
-    (ucs			. #x3255)	; ã‰•
+    (=jis-x0213-1-2000	. #x2845)	; ø»¢²
+    (ucs		. #x3255)	; ã‰•
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SIX")
-    (japanese-jisx0213-1	. #x2846)	; ø»¢³
-    (ucs			. #x3256)	; ã‰–
+    (=jis-x0213-1-2000	. #x2846)	; ø»¢³
+    (ucs		. #x3256)	; ã‰–
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SEVEN")
-    (japanese-jisx0213-1	. #x2847)	; ø»¢´
-    (ucs			. #x3257)	; ã‰—
+    (=jis-x0213-1-2000	. #x2847)	; ø»¢´
+    (ucs		. #x3257)	; ã‰—
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY EIGHT")
-    (japanese-jisx0213-1	. #x2848)	; ø»¢µ
-    (ucs			. #x3258)	; ã‰˜
+    (=jis-x0213-1-2000	. #x2848)	; ø»¢µ
+    (ucs		. #x3258)	; ã‰˜
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY NINE")
-    (japanese-jisx0213-1	. #x2849)	; ø»¢¶
-    (ucs			. #x3259)	; ã‰™
+    (=jis-x0213-1-2000	. #x2849)	; ø»¢¶
+    (ucs		. #x3259)	; ã‰™
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY")
-    (japanese-jisx0213-1	. #x284A)	; ø»¢·
-    (ucs			. #x325A)	; ã‰š
+    (=jis-x0213-1-2000	. #x284A)	; ø»¢·
+    (ucs		. #x325A)	; ã‰š
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY ONE")
-    (japanese-jisx0213-1	. #x284B)	; ø»¢¸
-    (ucs			. #x325B)	; ã‰›
+    (=jis-x0213-1-2000	. #x284B)	; ø»¢¸
+    (ucs		. #x325B)	; ã‰›
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY TWO")
-    (japanese-jisx0213-1	. #x284C)	; ø»¢¹
-    (ucs			. #x325C)	; ã‰œ
+    (=jis-x0213-1-2000	. #x284C)	; ø»¢¹
+    (ucs		. #x325C)	; ã‰œ
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY THREE")
-    (japanese-jisx0213-1	. #x284D)	; ø»¢º
-    (ucs			. #x325D)	; ã‰
+    (=jis-x0213-1-2000	. #x284D)	; ø»¢º
+    (ucs		. #x325D)	; ã‰
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FOUR")
-    (japanese-jisx0213-1	. #x284E)	; ø»¢»
-    (ucs			. #x325E)	; ã‰ž
+    (=jis-x0213-1-2000	. #x284E)	; ø»¢»
+    (ucs		. #x325E)	; ã‰ž
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FIVE")
-    (japanese-jisx0213-1	. #x284F)	; ø»¢¼
-    (ucs			. #x325F)	; ã‰Ÿ
+    (=jis-x0213-1-2000	. #x284F)	; ø»¢¼
+    (ucs		. #x325F)	; ã‰Ÿ
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK")
@@ -1224,8 +1224,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E0A)
-    (japanese-jisx0213-1	. #x2D65)	; ø»¢¥¨
-    (ucs			. #x32A4)	; ãŠ¤
+    (=jis-x0213-1-2000	. #x2D65)	; ø»¢¥¨
+    (ucs		. #x32A4)	; ãŠ¤
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CENTRE")
@@ -1233,8 +1233,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E2D)
-    (japanese-jisx0213-1	. #x2D66)	; ø»¢¥©
-    (ucs			. #x32A5)	; ãŠ¥
+    (=jis-x0213-1-2000	. #x2D66)	; ø»¢¥©
+    (ucs		. #x32A5)	; ãŠ¥
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LOW")
@@ -1242,8 +1242,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E0B)
-    (japanese-jisx0213-1	. #x2D67)	; ø»¢¥ª
-    (ucs			. #x32A6)	; ãŠ¦
+    (=jis-x0213-1-2000	. #x2D67)	; ø»¢¥ª
+    (ucs		. #x32A6)	; ãŠ¦
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LEFT")
@@ -1251,8 +1251,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x5DE6)
-    (japanese-jisx0213-1	. #x2D68)	; ø»¢¥«
-    (ucs			. #x32A7)	; ãŠ§
+    (=jis-x0213-1-2000	. #x2D68)	; ø»¢¥«
+    (ucs		. #x32A7)	; ãŠ§
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RIGHT")
@@ -1260,8 +1260,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x53F3)
-    (japanese-jisx0213-1	. #x2D69)	; ø»¢¥¬
-    (ucs			. #x32A8)	; ãŠ¨
+    (=jis-x0213-1-2000	. #x2D69)	; ø»¢¥¬
+    (ucs		. #x32A8)	; ãŠ¨
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MEDICINE")
@@ -1337,78 +1337,78 @@
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SIX")
-    (japanese-jisx0213-1	. #x2850)	; ø»¢½
-    (ucs			. #x32B1)	; ãŠ±
+    (=jis-x0213-1-2000	. #x2850)	; ø»¢½
+    (ucs		. #x32B1)	; ãŠ±
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SEVEN")
-    (japanese-jisx0213-1	. #x2851)	; ø»¢¾
-    (ucs			. #x32B2)	; ãŠ²
+    (=jis-x0213-1-2000	. #x2851)	; ø»¢¾
+    (ucs		. #x32B2)	; ãŠ²
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY EIGHT")
-    (japanese-jisx0213-1	. #x2852)	; ø»¢¿
-    (ucs			. #x32B3)	; ãŠ³
+    (=jis-x0213-1-2000	. #x2852)	; ø»¢¿
+    (ucs		. #x32B3)	; ãŠ³
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY NINE")
-    (japanese-jisx0213-1	. #x2853)	; ø»¢ž€
-    (ucs			. #x32B4)	; ãŠ´
+    (=jis-x0213-1-2000	. #x2853)	; ø»¢ž€
+    (ucs		. #x32B4)	; ãŠ´
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY")
-    (japanese-jisx0213-1	. #x2854)	; ø»¢ž
-    (ucs			. #x32B5)	; ãŠµ
+    (=jis-x0213-1-2000	. #x2854)	; ø»¢ž
+    (ucs		. #x32B5)	; ãŠµ
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY ONE")
-    (japanese-jisx0213-1	. #x2855)	; ø»¢ž‚
-    (ucs			. #x32B6)	; ãŠ¶
+    (=jis-x0213-1-2000	. #x2855)	; ø»¢ž‚
+    (ucs		. #x32B6)	; ãŠ¶
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY TWO")
-    (japanese-jisx0213-1	. #x2856)	; ø»¢žƒ
-    (ucs			. #x32B7)	; ãŠ·
+    (=jis-x0213-1-2000	. #x2856)	; ø»¢žƒ
+    (ucs		. #x32B7)	; ãŠ·
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY THREE")
-    (japanese-jisx0213-1	. #x2857)	; ø»¢ž„
-    (ucs			. #x32B8)	; ãŠ¸
+    (=jis-x0213-1-2000	. #x2857)	; ø»¢ž„
+    (ucs		. #x32B8)	; ãŠ¸
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FOUR")
-    (japanese-jisx0213-1	. #x2858)	; ø»¢ž…
-    (ucs			. #x32B9)	; ãŠ¹
+    (=jis-x0213-1-2000	. #x2858)	; ø»¢ž…
+    (ucs		. #x32B9)	; ãŠ¹
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FIVE")
-    (japanese-jisx0213-1	. #x2859)	; ø»¢ž†
-    (ucs			. #x32BA)	; ãŠº
+    (=jis-x0213-1-2000	. #x2859)	; ø»¢ž†
+    (ucs		. #x32BA)	; ãŠº
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SIX")
-    (japanese-jisx0213-1	. #x285A)	; ø»¢ž‡
-    (ucs			. #x32BB)	; ãŠ»
+    (=jis-x0213-1-2000	. #x285A)	; ø»¢ž‡
+    (ucs		. #x32BB)	; ãŠ»
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SEVEN")
-    (japanese-jisx0213-1	. #x285B)	; ø»¢žˆ
-    (ucs			. #x32BC)	; ãŠ¼
+    (=jis-x0213-1-2000	. #x285B)	; ø»¢žˆ
+    (ucs		. #x32BC)	; ãŠ¼
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY EIGHT")
-    (japanese-jisx0213-1	. #x285C)	; ø»¢ž‰
-    (ucs			. #x32BD)	; ãŠ½
+    (=jis-x0213-1-2000	. #x285C)	; ø»¢ž‰
+    (ucs		. #x32BD)	; ãŠ½
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY NINE")
-    (japanese-jisx0213-1	. #x285D)	; ø»¢žŠ
-    (ucs			. #x32BE)	; ãŠ¾
+    (=jis-x0213-1-2000	. #x285D)	; ø»¢žŠ
+    (ucs		. #x32BE)	; ãŠ¾
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FIFTY")
-    (japanese-jisx0213-1	. #x285E)	; ø»¢ž‹
-    (ucs			. #x32BF)	; ãŠ¿
+    (=jis-x0213-1-2000	. #x285E)	; ø»¢ž‹
+    (ucs		. #x32BF)	; ãŠ¿
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY")
@@ -1512,8 +1512,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A2)
-    (japanese-jisx0213-1	. #x2C5B)	; ø»¢¤€
-    (ucs			. #x32D0)	; ã‹
+    (=jis-x0213-1-2000	. #x2C5B)	; ø»¢¤€
+    (ucs		. #x32D0)	; ã‹
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA I")
@@ -1521,8 +1521,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A4)
-    (japanese-jisx0213-1	. #x2C5C)	; ø»¢¤
-    (ucs			. #x32D1)	; ã‹‘
+    (=jis-x0213-1-2000	. #x2C5C)	; ø»¢¤
+    (ucs		. #x32D1)	; ã‹‘
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA U")
@@ -1530,8 +1530,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A6)
-    (japanese-jisx0213-1	. #x2C5D)	; ø»¢¤‚
-    (ucs			. #x32D2)	; ã‹’
+    (=jis-x0213-1-2000	. #x2C5D)	; ø»¢¤‚
+    (ucs		. #x32D2)	; ã‹’
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA E")
@@ -1539,8 +1539,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A8)
-    (japanese-jisx0213-1	. #x2C5E)	; ø»¢¤ƒ
-    (ucs			. #x32D3)	; ã‹“
+    (=jis-x0213-1-2000	. #x2C5E)	; ø»¢¤ƒ
+    (ucs		. #x32D3)	; ã‹“
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA O")
@@ -1548,8 +1548,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AA)
-    (japanese-jisx0213-1	. #x2C5F)	; ø»¢¤„
-    (ucs			. #x32D4)	; ã‹”
+    (=jis-x0213-1-2000	. #x2C5F)	; ø»¢¤„
+    (ucs		. #x32D4)	; ã‹”
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KA")
@@ -1557,8 +1557,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AB)
-    (japanese-jisx0213-1	. #x2C60)	; ø»¢¤…
-    (ucs			. #x32D5)	; ã‹•
+    (=jis-x0213-1-2000	. #x2C60)	; ø»¢¤…
+    (ucs		. #x32D5)	; ã‹•
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KI")
@@ -1566,8 +1566,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AD)
-    (japanese-jisx0213-1	. #x2C61)	; ø»¢¤†
-    (ucs			. #x32D6)	; ã‹–
+    (=jis-x0213-1-2000	. #x2C61)	; ø»¢¤†
+    (ucs		. #x32D6)	; ã‹–
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KU")
@@ -1575,8 +1575,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AF)
-    (japanese-jisx0213-1	. #x2C62)	; ø»¢¤‡
-    (ucs			. #x32D7)	; ã‹—
+    (=jis-x0213-1-2000	. #x2C62)	; ø»¢¤‡
+    (ucs		. #x32D7)	; ã‹—
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KE")
@@ -1584,8 +1584,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B1)
-    (japanese-jisx0213-1	. #x2C63)	; ø»¢¤ˆ
-    (ucs			. #x32D8)	; ã‹˜
+    (=jis-x0213-1-2000	. #x2C63)	; ø»¢¤ˆ
+    (ucs		. #x32D8)	; ã‹˜
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KO")
@@ -1593,8 +1593,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B3)
-    (japanese-jisx0213-1	. #x2C64)	; ø»¢¤‰
-    (ucs			. #x32D9)	; ã‹™
+    (=jis-x0213-1-2000	. #x2C64)	; ø»¢¤‰
+    (ucs		. #x32D9)	; ã‹™
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SA")
@@ -1602,8 +1602,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B5)
-    (japanese-jisx0213-1	. #x2C65)	; ø»¢¤Š
-    (ucs			. #x32DA)	; ã‹š
+    (=jis-x0213-1-2000	. #x2C65)	; ø»¢¤Š
+    (ucs		. #x32DA)	; ã‹š
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SI")
@@ -1611,8 +1611,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B7)
-    (japanese-jisx0213-1	. #x2C66)	; ø»¢¤‹
-    (ucs			. #x32DB)	; ã‹›
+    (=jis-x0213-1-2000	. #x2C66)	; ø»¢¤‹
+    (ucs		. #x32DB)	; ã‹›
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SU")
@@ -1620,8 +1620,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B9)
-    (japanese-jisx0213-1	. #x2C67)	; ø»¢¤Œ
-    (ucs			. #x32DC)	; ã‹œ
+    (=jis-x0213-1-2000	. #x2C67)	; ø»¢¤Œ
+    (ucs		. #x32DC)	; ã‹œ
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SE")
@@ -1629,8 +1629,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BB)
-    (japanese-jisx0213-1	. #x2C68)	; ø»¢¤
-    (ucs			. #x32DD)	; ã‹
+    (=jis-x0213-1-2000	. #x2C68)	; ø»¢¤
+    (ucs		. #x32DD)	; ã‹
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SO")
@@ -1638,8 +1638,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BD)
-    (japanese-jisx0213-1	. #x2C69)	; ø»¢¤Ž
-    (ucs			. #x32DE)	; ã‹ž
+    (=jis-x0213-1-2000	. #x2C69)	; ø»¢¤Ž
+    (ucs		. #x32DE)	; ã‹ž
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TA")
@@ -1647,8 +1647,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BF)
-    (japanese-jisx0213-1	. #x2C6A)	; ø»¢¤
-    (ucs			. #x32DF)	; ã‹Ÿ
+    (=jis-x0213-1-2000	. #x2C6A)	; ø»¢¤
+    (ucs		. #x32DF)	; ã‹Ÿ
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TI")
@@ -1656,8 +1656,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C1)
-    (japanese-jisx0213-1	. #x2C6B)	; ø»¢¤
-    (ucs			. #x32E0)	; ã‹ 
+    (=jis-x0213-1-2000	. #x2C6B)	; ø»¢¤
+    (ucs		. #x32E0)	; ã‹ 
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TU")
@@ -1665,8 +1665,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C4)
-    (japanese-jisx0213-1	. #x2C6C)	; ø»¢¤‘
-    (ucs			. #x32E1)	; ã‹¡
+    (=jis-x0213-1-2000	. #x2C6C)	; ø»¢¤‘
+    (ucs		. #x32E1)	; ã‹¡
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TE")
@@ -1674,8 +1674,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C6)
-    (japanese-jisx0213-1	. #x2C6D)	; ø»¢¤’
-    (ucs			. #x32E2)	; ã‹¢
+    (=jis-x0213-1-2000	. #x2C6D)	; ø»¢¤’
+    (ucs		. #x32E2)	; ã‹¢
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TO")
@@ -1683,8 +1683,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C8)
-    (japanese-jisx0213-1	. #x2C6E)	; ø»¢¤“
-    (ucs			. #x32E3)	; ã‹£
+    (=jis-x0213-1-2000	. #x2C6E)	; ø»¢¤“
+    (ucs		. #x32E3)	; ã‹£
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NA")
@@ -1700,8 +1700,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30CB)
-    (japanese-jisx0213-1	. #x2C71)	; ø»¢¤–
-    (ucs			. #x32E5)	; ã‹¥
+    (=jis-x0213-1-2000	. #x2C71)	; ø»¢¤–
+    (ucs		. #x32E5)	; ã‹¥
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NU")
@@ -1733,8 +1733,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30CF)
-    (japanese-jisx0213-1	. #x2C70)	; ø»¢¤•
-    (ucs			. #x32E9)	; ã‹©
+    (=jis-x0213-1-2000	. #x2C70)	; ø»¢¤•
+    (ucs		. #x32E9)	; ã‹©
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HI")
@@ -1758,8 +1758,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30D8)
-    (japanese-jisx0213-1	. #x2C73)	; ø»¢¤˜
-    (ucs			. #x32EC)	; ã‹¬
+    (=jis-x0213-1-2000	. #x2C73)	; ø»¢¤˜
+    (ucs		. #x32EC)	; ã‹¬
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HO")
@@ -1767,8 +1767,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30DB)
-    (japanese-jisx0213-1	. #x2C72)	; ø»¢¤—
-    (ucs			. #x32ED)	; ã‹­
+    (=jis-x0213-1-2000	. #x2C72)	; ø»¢¤—
+    (ucs		. #x32ED)	; ã‹­
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MA")
@@ -1872,8 +1872,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30ED)
-    (japanese-jisx0213-1	. #x2C6F)	; ø»¢¤”
-    (ucs			. #x32FA)	; ã‹º
+    (=jis-x0213-1-2000	. #x2C6F)	; ø»¢¤”
+    (ucs		. #x32FA)	; ã‹º
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WA")

@@ -88,11 +88,11 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (japanese-jisx0212		. #x5E63)	; ø»‹¾¸
-    (chinese-cns11643-2		. #x3950)	; ø»“°Ÿ
-    (japanese-jisx0213-2	. #x7876)	; ø»¦ž‡
-    (ideograph-daikanwa		. 36191)	; ø¸ˆµŸ
-    (ucs			. #x8C39)	; è°¹
+    (japanese-jisx0212	. #x5E63)	; ø»‹¾¸
+    (chinese-cns11643-2 . #x3950)	; ø»“°Ÿ
+    (=jis-x0213-2-2000	. #x7876)	; ø»¦ž‡
+    (ideograph-daikanwa . 36191)	; ø¸ˆµŸ
+    (ucs		. #x8C39)	; è°¹
     ))
 (define-char
   '((ideographic-radical . 150)	; â¾•
@@ -153,10 +153,10 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
-    (chinese-cns11643-4		. #x3B3A)	; ø»˜‡
-    (japanese-jisx0213-2	. #x7877)	; ø»¦žˆ
-    (ideograph-daikanwa		. 36197)	; ø¸ˆµ¥
-    (ucs			. #x27BB3)	; ð§®³
+    (chinese-cns11643-4 . #x3B3A)	; ø»˜‡
+    (=jis-x0213-2-2000	. #x7877)	; ø»¦žˆ
+    (ideograph-daikanwa . 36197)	; ø¸ˆµ¥
+    (ucs		. #x27BB3)	; ð§®³
     ))
 (define-char
   '((ideographic-radical . 150)	; â¾•
@@ -239,11 +239,11 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (japanese-jisx0212		. #x5E64)	; ø»‹¾¹
-    (chinese-cns11643-2		. #x4E38)	; ø»”Ž½
-    (japanese-jisx0213-2	. #x7878)	; ø»¦ž‰
-    (ideograph-daikanwa		. 36207)	; ø¸ˆµ¯
-    (ucs			. #x8C3D)	; è°½
+    (japanese-jisx0212	. #x5E64)	; ø»‹¾¹
+    (chinese-cns11643-2 . #x4E38)	; ø»”Ž½
+    (=jis-x0213-2-2000	. #x7878)	; ø»¦ž‰
+    (ideograph-daikanwa . 36207)	; ø¸ˆµ¯
+    (ucs		. #x8C3D)	; è°½
     ))
 (define-char
   '((ideographic-radical . 150)	; â¾•
@@ -611,10 +611,10 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 16)
     (total-strokes	 . 23)
-    (japanese-jisx0212		. #x5E66)	; ø»‹¾»
-    (japanese-jisx0213-2	. #x787B)	; ø»¦žŒ
-    (ideograph-daikanwa		. 36241)	; ø¸ˆ¶‘
-    (ucs			. #x8C45)	; è±…
+    (japanese-jisx0212	. #x5E66)	; ø»‹¾»
+    (=jis-x0213-2-2000	. #x787B)	; ø»¦žŒ
+    (ideograph-daikanwa . 36241)	; ø¸ˆ¶‘
+    (ucs		. #x8C45)	; è±…
     ))
 (define-char
   '((=>ucs		. #x8C45)	; è±…

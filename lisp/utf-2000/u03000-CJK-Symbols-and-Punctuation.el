@@ -258,34 +258,34 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x213C)	; ø»„†Ÿ
-    (japanese-jisx0213-1	. #x225A)	; ø»¢•“
-    (ucs			. #x3016)	; ã€–
+    (chinese-gb2312	. #x213C)	; ø»„†Ÿ
+    (=jis-x0213-1-2000	. #x225A)	; ø»¢•“
+    (ucs		. #x3016)	; ã€–
     ))
 (define-char
   '((name		. "RIGHT WHITE LENTICULAR BRACKET")
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x213D)	; ø»„† 
-    (japanese-jisx0213-1	. #x225B)	; ø»¢•”
-    (ucs			. #x3017)	; ã€—
+    (chinese-gb2312	. #x213D)	; ø»„† 
+    (=jis-x0213-1-2000	. #x225B)	; ø»¢•”
+    (ucs		. #x3017)	; ã€—
     ))
 (define-char
   '((name		. "LEFT WHITE TORTOISE SHELL BRACKET")
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2258)	; ø»¢•‘
-    (ucs			. #x3018)	; ã€˜
+    (=jis-x0213-1-2000	. #x2258)	; ø»¢•‘
+    (ucs		. #x3018)	; ã€˜
     ))
 (define-char
   '((name		. "RIGHT WHITE TORTOISE SHELL BRACKET")
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2259)	; ø»¢•’
-    (ucs			. #x3019)	; ã€™
+    (=jis-x0213-1-2000	. #x2259)	; ø»¢•’
+    (ucs		. #x3019)	; ã€™
     ))
 (define-char
   '((name		. "LEFT WHITE SQUARE BRACKET")
@@ -314,10 +314,10 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1		. #x2168)	; ø»‘ƒ£
-    (japanese-jisx0213-1	. #x2D60)	; ø»¢¥£
-    (chinese-big5		. #xA1A9)	; ý¢€Š†©
-    (ucs			. #x301D)	; ã€
+    (chinese-cns11643-1 . #x2168)	; ø»‘ƒ£
+    (=jis-x0213-1-2000	. #x2D60)	; ø»¢¥£
+    (chinese-big5	. #xA1A9)	; ý¢€Š†©
+    (ucs		. #x301D)	; ã€
     ))
 (define-char
   '((name		. "DOUBLE PRIME QUOTATION MARK")
@@ -333,16 +333,16 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2D61)	; ø»¢¥¤
-    (ucs			. #x301F)	; ã€Ÿ
+    (=jis-x0213-1-2000	. #x2D61)	; ø»¢¥¤
+    (ucs		. #x301F)	; ã€Ÿ
     ))
 (define-char
   '((name		. "POSTAL MARK FACE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2666)	; ø»¢›—
-    (ucs			. #x3020)	; ã€ 
+    (=jis-x0213-1-2000	. #x2666)	; ø»¢›—
+    (ucs		. #x3020)	; ã€ 
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL ONE")
@@ -502,24 +502,24 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2233)	; ø»¢”¬
-    (ucs			. #x3033)	; ã€³
+    (=jis-x0213-1-2000	. #x2233)	; ø»¢”¬
+    (ucs		. #x3033)	; ã€³
     ))
 (define-char
   '((name . "VERTICAL KANA REPEAT WITH VOICED SOUND MARK UPPER HALF")
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2234)	; ø»¢”­
-    (ucs			. #x3034)	; ã€´
+    (=jis-x0213-1-2000	. #x2234)	; ø»¢”­
+    (ucs		. #x3034)	; ã€´
     ))
 (define-char
   '((name		. "VERTICAL KANA REPEAT MARK LOWER HALF")
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2235)	; ø»¢”®
-    (ucs			. #x3035)	; ã€µ
+    (=jis-x0213-1-2000	. #x2235)	; ø»¢”®
+    (ucs		. #x3035)	; ã€µ
     ))
 (define-char
   '((name		. "CIRCLED POSTAL MARK")
@@ -571,18 +571,18 @@
     ))
 (define-char
   '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
-    (japanese-jisx0213-1	. #x2236)	; ø»¢”¯
-    (ucs			. #x303B)	; ã€»
+    (=jis-x0213-1-2000	. #x2236)	; ø»¢”¯
+    (ucs		. #x303B)	; ã€»
     ))
 (define-char
   '((name		. "MASU MARK")
-    (japanese-jisx0213-1	. #x2237)	; ø»¢”°
-    (ucs			. #x303C)	; ã€¼
+    (=jis-x0213-1-2000	. #x2237)	; ø»¢”°
+    (ucs		. #x303C)	; ã€¼
     ))
 (define-char
   '((name		. "PART ALTERNATION MARK")
-    (japanese-jisx0213-1	. #x233C)	; ø»¢–“
-    (ucs			. #x303D)	; ã€½
+    (=jis-x0213-1-2000	. #x233C)	; ø»¢–“
+    (ucs		. #x303D)	; ã€½
     ))
 (define-char
   '((name		. "IDEOGRAPHIC VARIATION INDICATOR")

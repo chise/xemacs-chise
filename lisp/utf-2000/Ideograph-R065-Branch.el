@@ -282,12 +282,12 @@
   '((ideographic-radical . 65)	; â½€
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (chinese-cns11643-2		. #x3C37)	; ø»“´ 
-    (japanese-jisx0213-2	. #x2D61)	; ø»¤¯¨
-    (chinese-big5		. #xD972)	; ý¢€¥²
-    (ideograph-daikanwa		. 13086)	; ø¸ƒŒž
-    (china3-jef			. #x50C0)	; øº…ƒ€
-    (ucs			. #x6532)	; æ”²
+    (chinese-cns11643-2 . #x3C37)	; ø»“´ 
+    (=jis-x0213-2-2000	. #x2D61)	; ø»¤¯¨
+    (chinese-big5	. #xD972)	; ý¢€¥²
+    (ideograph-daikanwa . 13086)	; ø¸ƒŒž
+    (china3-jef		. #x50C0)	; øº…ƒ€
+    (ucs		. #x6532)	; æ”²
     ))
 (define-char
   '((ideographic-radical . 65)	; â½€
