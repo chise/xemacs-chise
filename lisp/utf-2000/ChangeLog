@@ -1,4 +1,35 @@
+2005-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (U+5C3B): Add S1-1921.
+	(U+5C3C): Use `->subsumptive'.
+	(U+378B): Likewise.
+	(U+3798): Likewise.
+	(U-00021CBE): Use `->denotational' instead of `->subsumptive'.
+
 2005-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R042-Small.el (U+5C19): Use `->subsumptive'; add
+	`<-denotational' for B-A97C; delete `=big5-cdp'.
+	(B-A97C): Changed to abstract character; add J97-3E30.
+	(U+5C1A): Add `<-denotational' for B-A97C.
+	(GT-K05014): Add `<-denotational' for U+5C1A; add
+	`<-ideographic-component-forms' for U+5C1A; add
+	`ideographic-structure'.
+
+2005-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+4FEE): Copied from
+	Ideograph-R009-Man.el.
+
+	* Ideograph-R050-Turban.el (U+5E54): Use `->denotational'.
+	(C1-685F): Use `<-denotational' for U+5E54; separate J0-566F,
+	G0-6123, B0-B9F7 and GT-11412; unify GT-11411.
+	(U+5E55): Use `->denotational'.
+
+	* Ideograph-R032-Earth.el:
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+	- Add mappings for shinjigen-* numbers.
 
 	* Ideograph-R052-Short-Thread.el (C1-5E7D): Unify BC-85A6.
 
