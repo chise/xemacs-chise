@@ -1,5 +1,20 @@
 2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R134-Mortar.el (U-00026951): Unify JX2-755A.
+
+	* Ideograph-R061-Heart.el (JX2-2C57): Unify JU+60EE.
+
+	* Ideograph-R046-Mountain.el (JX2-284F): Unify JU+5D1D.
+
+	* Ideograph-R040-Roof.el (JX2-2823): Unify JU+3761.
+
+	* Ideograph-R032-Earth.el (U-00021336): Unify JX2-2474.
+
+	* Ideograph-R030-Mouth.el (CB00070): Unify JX2-2431, H2-DBF0 and
+	U-00020E95.
+
+2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R129-Brush.el (C6-3B24): Separate U+8081.
 	(U+8082): Use `ideographic-radical@cns' instead of `cns-radical';
 	use `ideographic-{radical|strokes}@ucs' instead of
