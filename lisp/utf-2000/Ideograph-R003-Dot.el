@@ -80,17 +80,22 @@
     (mojikyo		. 000095)	; ý €€Ÿ
     ))
 (define-char
-  '((=>ucs		. #x4E38)	; ä¸¸
-    (ideographic-radical . 3)	; â¼‚
+  '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (original-char-of-shinjigen-1 . 39)
+    (<-original-ideograph
+     (:sources	(chuuka-daijiten morohashi-daikanwa shinjigen-1)
+      :char	((shinjigen-1	     . 39)
+		 (ideograph-daikanwa . 00094)	; ø¸€ž
+		 )
+      ))
     (shinjigen-1	. 40)
     (chinese-cns11643-6 . #x2132)	; ø»›µ
     (ideograph-gt-pj-2	. #x306B)	; ý¡€€‚…
     (ideograph-daikanwa . 00096)	; ø¸€ 
     (ideograph-gt	. 00133)	; ý¡€€‚…
     (mojikyo		. 000096)	; ý €€ 
+    (ucs		. #x2007D)	; ð ½
     ))
 (define-char
   '((script		Ideograph)
@@ -238,6 +243,7 @@
     (ideograph-daikanwa . 00102)	; ø¸€¦
     (ideograph-gt	. 00140)	; ý¡€€‚Œ
     (mojikyo		. 000102)	; ý €€¦
+    (ucs		. #x2007F)	; ð ¿
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
@@ -255,6 +261,7 @@
     (ideograph-daikanwa . 00103)	; ø¸€§
     (ideograph-gt	. 00143)	; ý¡€€‚
     (mojikyo		. 000103)	; ý €€§
+    (ucs		. #x20082)	; ð ‚‚
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
@@ -318,4 +325,5 @@
     (ideograph-daikanwa . 00105)	; ø¸€©
     (ideograph-gt	. 00147)	; ý¡€€‚“
     (mojikyo		. 000105)	; ý €€©
+    (ucs		. #x20084)	; ð ‚„
     ))
