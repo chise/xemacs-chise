@@ -545,7 +545,7 @@ clean: FRC.clean
 ##      `make distclean' should leave only the files that were in the
 ##      distribution.
 top_distclean=\
-	$(RM) config.status config.log config-tmp-* build-install Installation ; \
+	$(RM) config.status config.log confdefs.h config-tmp-* build-install Installation ; \
 	$(RM) core .sbinit lock/* GNUmakefile Makefile Makefile.in ; \
 	$(RM) lisp/finder-inf.el* Installation.el Installation.elc ; \
 	$(RM) packages mule-packages site-lisp

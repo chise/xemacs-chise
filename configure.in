@@ -4103,12 +4103,12 @@ esac
 case "$with_dialogs" in
   motif    )
     echo "  Using Motif dialog boxes."
-    if test "$unexec" = "unexaix.o" -a `uname -v` = 4 -a `uname -r` -ge 3; then
+    if test "$unexec" = "unexaix.o"; then if test "`uname -v`" = 4 -a "`uname -r`" -ge 3; then
       echo "  *WARNING*  The Motif dialog boxes cause problems on AIX 4.3 and higher."
       echo "             We recommend using the Athena dialog boxes instead."
       echo "             Install libXaw and re-run configure with --with-dialogs='athena'."
       echo "             Read the PROBLEMS file for more information."
-    fi	
+    fi; fi
     ;;
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;

@@ -210,7 +210,7 @@ unexec (char *new_name, char *a_name,
   nhdr.aout.bsize = 0;
   if (entry_address == 0)
     {
-      extern DEFAULT_ENTRY_ADDRESS ();
+      extern int DEFAULT_ENTRY_ADDRESS (void);
       nhdr.aout.entry = (unsigned long)DEFAULT_ENTRY_ADDRESS;
     }
   else

@@ -546,7 +546,7 @@ priority over faces later in the list.  @xref{Extents and Events}.
 the extent.  This takes precedence over the @code{text-pointer-glyph}
 and @code{nontext-pointer-glyph} variables.  If for any reason this
 glyph is an invalid pointer, the standard glyphs will be used as
-fallbacks.  @xref{Mouse Pointer}
+fallbacks.  @xref{Mouse Pointer}.
 
 @item detachable
 (Boolean) Whether this extent becomes detached when all of the text it

@@ -541,9 +541,8 @@ typedef unsigned char byte;
 
 /* Round X up to a multiple of Y.  */
 
-int
-round_up (x, y)
-     int x, y;
+static int
+round_up (int x, int y)
 {
   int rem = x % y;
   if (rem == 0)
@@ -559,13 +558,12 @@ round_up (x, y)
    if NOERROR is 0; we return -1 if NOERROR is nonzero.  */
 
 static int
-find_section (name, section_names, file_name, old_file_h, old_section_h, noerror)
-     char *name;
-     char *section_names;
-     char *file_name;
-     l_Elf_Ehdr *old_file_h;
-     l_Elf_Shdr *old_section_h;
-     int noerror;
+find_section (char *name,
+	      char *section_names,
+	      char *file_name,
+	      l_Elf_Ehdr *old_file_h,
+	      l_Elf_Shdr *old_section_h,
+	      int noerror)
 {
   int idx;
 
@@ -600,9 +598,11 @@ find_section (name, section_names, file_name, old_file_h, old_section_h, noerror
  *
  */
 int
-unexec (new_name, old_name, data_start, bss_start, entry_address)
-     char *new_name, *old_name;
-     uintptr_t data_start, bss_start, entry_address;
+unexec (char *new_name,
+	char *old_name,
+	uintptr_t data_start,
+	uintptr_t bss_start,
+	uintptr_t entry_address)
 {
   extern uintptr_t bss_end;
   int new_file, old_file, new_file_size;

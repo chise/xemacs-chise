@@ -1,3 +1,46 @@
+1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.12 is released
+
+1999-03-05  SL Baur  <steve@xemacs.org>
+
+	* menubar-items.el (default-menubar): Add kfm browsing support.
+	From Neal Becker <nbecker@fred.net>
+
+1999-03-03  Steven Baur  <steve@gneiss.etl.go.jp>
+
+	* font-lock.el (font-lock-revert-cleanup): Null out to avoid repeated
+	calls to font-lock during buffer reversion.
+
+1999-02-12  Didier Verna  <verna@inf.enst.fr>
+
+	* info.el (Info-build-node-completions): unconditionally widen the
+	tag table buffer.
+
+1999-02-19  Paul Stodghill  <stodghil@cs.cornell.edu>
+
+	* x-faces.el (x-init-face-from-resources):
+	Only set fonts in the 'x locale.
+
+1999-03-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* package-ui.el (pui-install-selected-packages): Don't throw on
+	`package-admin-delete-binary-package' returning nil since it's
+	normal.  Reindent function.
+	(pui-add-required-packages): Handle case where packages selected
+	for installation have never been installed.
+
+1999-03-03  Martin Buchholz  <martin@xemacs.org>
+
+	* menubar-items.el (default-menubar): 
+	Implement the ``Mule->Set coding system of process'' menu item.
+
+1999-02-18  Martin Buchholz  <martin@xemacs.org>
+
+	* files.el (auto-mode-alist): Use c-mode for *.i pre-processed cpp 
+	files
+	- Change some `if's to `when's
+
 1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.11 is released

@@ -241,7 +241,7 @@ M-x blink-paren
 Do not add the "-mode" to it.  You can also select the @b{Paren
 Highlighting} option from the @b{Options} menu. After you enable this
 command, put your cursor on one of the left parenthesis. The other
-matching parenthesis will start blinking. @xref{Options Menu,} for more
+matching parenthesis will start blinking. @xref{Options Menu}, for more
 information on the @b{Paren Highlighting} option.
 @end table
 

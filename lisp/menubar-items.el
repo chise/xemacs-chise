@@ -137,33 +137,33 @@
       ["Show Message Log" show-message-log]
       )
 
-     ,@(if (featurep 'mule)
-	   '(("Mule"
-	      ("Describe language support")
-	      ("Set language environment")
-	      "--"
-	      ["Toggle input method" toggle-input-method]
-	      ["Select input method" select-input-method]
-	      ["Describe input method" describe-input-method]
-	      "--"
-	      ["Describe current coding systems"
-	       describe-current-coding-system]
-	      ["Set coding system of buffer file"
-	       set-buffer-file-coding-system]
-	      ;; not implemented yet
-	      ["Set coding system of terminal"
-	       set-terminal-coding-system :active nil]
-	      ;; not implemented yet
-	      ["Set coding system of keyboard"
-	       set-keyboard-coding-system :active nil]
-	      ;; not implemented yet
-	      ["Set coding system of process"
-	       set-current-process-coding-system :active nil]
-	      "--"
-	      ["Show character table" view-charset-by-menu]
-	      ;; not implemented yet
-	      ["Show diagnosis for MULE" mule-diag :active nil]
-	      ["Show many languages" view-hello-file])))
+     ,@(when (featurep 'mule)
+	 '(("Mule"
+	    ("Describe language support")
+	    ("Set language environment")
+	    "--"
+	    ["Toggle input method" toggle-input-method]
+	    ["Select input method" select-input-method]
+	    ["Describe input method" describe-input-method]
+	    "--"
+	    ["Describe current coding systems"
+	     describe-current-coding-system]
+	    ["Set coding system of buffer file"
+	     set-buffer-file-coding-system]
+	    ;; not implemented yet
+	    ["Set coding system of terminal"
+	     set-terminal-coding-system :active nil]
+	    ;; not implemented yet
+	    ["Set coding system of keyboard"
+	     set-keyboard-coding-system :active nil]
+	    ["Set coding system of process"
+	     set-buffer-process-coding-system
+	     :active (get-buffer-process (current-buffer))]
+	    "--"
+	    ["Show character table" view-charset-by-menu]
+	    ;; not implemented yet
+	    ["Show diagnosis for MULE" mule-diag :active nil]
+	    ["Show many languages" view-hello-file])))
 
      ("Apps"
       ["Read Mail (VM)..." vm
@@ -230,7 +230,7 @@
        ["Set..." customize-customized]
        ["Apropos..." customize-apropos]
        ["Browse..." customize-browse])
-      
+
       ("Manage Packages"
        ("Add Download Site"
         :filter (lambda (&rest junk)
@@ -244,18 +244,18 @@
        ["Help" (Info-goto-node "(xemacs)Packages")])
 
       "---"
-      
+
       ("Editing Options"
        ["Overstrike"
 	(progn
 	  (setq overwrite-mode (if overwrite-mode nil 'overwrite-mode-textual))
 	  (customize-set-variable 'overwrite-mode overwrite-mode))
 	:style toggle :selected overwrite-mode]
-       ["Case Sensitive Search" 
-	(customize-set-variable 'case-fold-search 
+       ["Case Sensitive Search"
+	(customize-set-variable 'case-fold-search
 				(setq case-fold-search (not case-fold-search)))
 	:style toggle :selected (not case-fold-search)]
-       ["Case Matching Replace" 
+       ["Case Matching Replace"
 	(customize-set-variable 'case-replace (not case-replace))
 	:style toggle :selected case-replace]
        ["Auto Delete Selection"
@@ -263,10 +263,10 @@
 	:style toggle
 	:selected (and (boundp 'pending-delete-mode) pending-delete-mode)
 	:active (boundp 'pending-delete-mode)]
-       ["Active Regions" 
+       ["Active Regions"
 	(customize-set-variable 'zmacs-regions (not zmacs-regions))
 	:style toggle :selected zmacs-regions]
-       ["Mouse Paste At Text Cursor" 
+       ["Mouse Paste At Text Cursor"
 	(customize-set-variable 'mouse-yank-at-point (not mouse-yank-at-point))
 	:style toggle :selected mouse-yank-at-point]
        ("Newline at end of file..."
@@ -280,20 +280,20 @@
 	 (customize-set-variable 'require-final-newline 'ask)
 	 :style radio :selected (and require-final-newline
 				     (not (eq require-final-newline t)))])
-       ["Add Newline When Moving Past End" 
-	(customize-set-variable 'next-line-add-newlines 
+       ["Add Newline When Moving Past End"
+	(customize-set-variable 'next-line-add-newlines
 				(not next-line-add-newlines))
 	:style toggle :selected next-line-add-newlines]
        )
       ("General Options"
-       ["Teach Extended Commands" 
+       ["Teach Extended Commands"
 	(customize-set-variable 'teach-extended-commands-p
 				(not teach-extended-commands-p))
 	:style toggle :selected teach-extended-commands-p]
        ["Debug On Error"
 	(customize-set-variable 'debug-on-error (not debug-on-error))
 	:style toggle :selected debug-on-error]
-       ["Debug On Quit" 
+       ["Debug On Quit"
 	(customize-set-variable 'debug-on-quit (not debug-on-quit))
 	:style toggle :selected debug-on-quit]
        )
@@ -325,7 +325,7 @@
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'statement))
 	 :active (boundp 'ps-paper-type)]
-	["Executive" 
+	["Executive"
 	 (customize-set-variable 'ps-paper-type 'executive)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'executive))
@@ -335,7 +335,7 @@
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'tabloid))
 	 :active (boundp 'ps-paper-type)]
-	["Ledger" 
+	["Ledger"
 	 (customize-set-variable 'ps-paper-type 'ledger)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'ledger))
@@ -345,22 +345,22 @@
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'a3))
 	 :active (boundp 'ps-paper-type)]
-	["A4" 
+	["A4"
 	 (customize-set-variable 'ps-paper-type 'a4)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'a4))
 	 :active (boundp 'ps-paper-type)]
-	["A4small" 
+	["A4small"
 	 (customize-set-variable 'ps-paper-type 'a4small)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'a4small))
 	 :active (boundp 'ps-paper-type)]
-	["B4" 
+	["B4"
 	 (customize-set-variable 'ps-paper-type 'b4)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'b4))
 	 :active (boundp 'ps-paper-type)]
-	["B5" 
+	["B5"
 	 (customize-set-variable 'ps-paper-type 'b5)
 	 :style radio
 	 :selected (and (boundp 'ps-paper-type) (eq ps-paper-type 'b5))
@@ -375,15 +375,15 @@
 		    (set-face-background 'default original-face-background)))
 	      (t
 	       (customize-set-variable 'ps-print-color-p t)
-	       (setq original-face-background 
+	       (setq original-face-background
 		     (face-background-instance 'default))
 	       (set-face-background 'default "white")))
-	:style toggle 
+	:style toggle
 	:selected (and (boundp 'ps-print-color-p) ps-print-color-p)
 	:active (boundp 'ps-print-color-p)])
       ("\"Other Window\" Location"
        ["Always in Same Frame"
-	(customize-set-variable 
+	(customize-set-variable
 	 'get-frame-for-buffer-default-instance-limit nil)
 	:style radio
 	:selected (null get-frame-for-buffer-default-instance-limit)]
@@ -409,7 +409,7 @@
 	:selected (eq 0 get-frame-for-buffer-default-instance-limit)]
        "-----"
        ["Temp Buffers Always in Same Frame"
-	(customize-set-variable 'temp-buffer-show-function 
+	(customize-set-variable 'temp-buffer-show-function
 				'show-temp-buffer-in-current-frame)
 	:style radio
 	:selected (eq temp-buffer-show-function
@@ -427,11 +427,11 @@
        )
       "-----"
       ("Syntax Highlighting"
-       ["In This Buffer" 
+       ["In This Buffer"
 	(progn ;; becomes buffer local
 	  (font-lock-mode)
 	  (customize-set-variable 'font-lock-mode font-lock-mode))
-	:style toggle 
+	:style toggle
 	:selected (and (boundp 'font-lock-mode) font-lock-mode)
 	:active (boundp 'font-lock-mode)]
        ["Automatic"
@@ -441,7 +441,7 @@
 	:selected (and (boundp 'font-lock-auto-fontify) font-lock-auto-fontify)
 	:active (fboundp 'font-lock-mode)]
        "-----"
-       ["Fonts" 
+       ["Fonts"
 	(progn
 	  (require 'font-lock)
 	  (font-lock-use-default-fonts)
@@ -479,7 +479,7 @@
 				(not (eq t font-lock-maximum-decoration)))
 			   (and (integerp font-lock-maximum-decoration)
 				(<= font-lock-maximum-decoration 0))))]
-       ["More" 
+       ["More"
 	(progn
 	  (require 'font-lock)
 	  (if (and (integerp font-lock-maximum-decoration)
@@ -492,7 +492,7 @@
 	:selected (and (boundp 'font-lock-maximium-decoration)
 		       (integerp font-lock-maximum-decoration)
 		       (= 1 font-lock-maximum-decoration))]
-       ["Even More" 
+       ["Even More"
 	(progn
 	  (require 'font-lock)
 	  (if (and (integerp font-lock-maximum-decoration)
@@ -529,7 +529,7 @@
 	  ;; be a redisplay bug lurking somewhere (or
 	  ;; possibly another event handler bug)
 	  (redraw-modeline))
-	:active (and (boundp 'font-lock-mode) (boundp 'lazy-shot-mode) 
+	:active (and (boundp 'font-lock-mode) (boundp 'lazy-shot-mode)
 		     font-lock-mode)
 	:style toggle
 	:selected (and (boundp 'lazy-shot-mode) lazy-shot-mode)]
@@ -549,7 +549,7 @@
       ("Paren Highlighting"
        ["None"
 	(customize-set-variable 'paren-mode nil)
-	:style radio 
+	:style radio
 	:selected (and (boundp 'paren-mode) (not paren-mode))
 	:active (boundp 'paren-mode)]
        ["Blinking Paren"
@@ -559,33 +559,33 @@
 	:active (boundp 'paren-mode)]
        ["Steady Paren"
 	(customize-set-variable 'paren-mode 'paren)
-	:style radio 
+	:style radio
 	:selected (and (boundp 'paren-mode) (eq paren-mode 'paren))
 	:active (boundp 'paren-mode)]
        ["Expression"
 	(customize-set-variable 'paren-mode 'sexp)
-	:style radio 
+	:style radio
 	:selected (and (boundp 'paren-mode) (eq paren-mode 'sexp))
 	:active (boundp 'paren-mode)]
-;;	 ["Nested Shading"	     
+;;	 ["Nested Shading"
 ;;	  (customize-set-variable 'paren-mode 'nested)
-;;	  :style radio		     
+;;	  :style radio
 ;;	  :selected (and (boundp 'paren-mode) (eq paren-mode 'nested))
 ;;	  :active (boundp 'paren-mode)]
        )
       "-----"
       ("Frame Appearance"
-       ["Frame-Local Font Menu" 
+       ["Frame-Local Font Menu"
 	(customize-set-variable 'font-menu-this-frame-only-p
 				(not font-menu-this-frame-only-p))
-	:style toggle 
+	:style toggle
 	:selected (and (boundp 'font-menu-this-frame-only-p)
 		       font-menu-this-frame-only-p)]
        ,@(if (featurep 'scrollbar)
 	     '(["Scrollbars"
 		(customize-set-variable 'scrollbars-visible-p
 					(not scrollbars-visible-p))
-		:style toggle 
+		:style toggle
 		:selected scrollbars-visible-p]))
        ;; I don't think this is of any interest. - dverna apr. 98
        ;; #### I beg to differ!  Many FSFmacs converts hate the 3D
@@ -593,14 +593,14 @@
        ;; off through the Options menu.  I would have uncommented this
        ;; source, but the code for saving options would not save the
        ;; modeline 3D-ness.  Grrr.  --hniksic
-;;	 ["3D Modeline"			   
-;;	  (progn				   
+;;	 ["3D Modeline"
+;;	  (progn
 ;;	    (if (zerop (specifier-instance modeline-shadow-thickness))
 ;;		(set-specifier modeline-shadow-thickness 2)
 ;;	      (set-specifier modeline-shadow-thickness 0))
-;;	    (redraw-modeline t))		   
-;;	  :style toggle			   
-;;	  :selected (let ((thickness	   
+;;	    (redraw-modeline t))
+;;	  :style toggle
+;;	  :selected (let ((thickness
 ;;			   (specifier-instance modeline-shadow-thickness)))
 ;;		      (and (integerp thickness)
 ;;			   (> thickness 0)))]
@@ -616,23 +616,23 @@
 	:selected (and (boundp 'blink-cursor-mode) blink-cursor-mode)
 	:active (boundp 'blink-cursor-mode)]
        "-----"
-       ["Block cursor" 
+       ["Block cursor"
 	(progn
 	  (customize-set-variable 'bar-cursor nil)
 	  (force-cursor-redisplay))
 	:style radio
 	:selected (null bar-cursor)]
-       ["Bar cursor (1 pixel)" 
+       ["Bar cursor (1 pixel)"
 	(progn
 	  (customize-set-variable 'bar-cursor t)
 	  (force-cursor-redisplay))
 	:style radio
 	:selected (eq bar-cursor t)]
-	["Bar cursor (2 pixels)" 
+	["Bar cursor (2 pixels)"
 	 (progn
 	   (customize-set-variable 'bar-cursor 2)
 	   (force-cursor-redisplay))
-	 :style radio 
+	 :style radio
 	 :selected (and bar-cursor (not (eq bar-cursor t)))]
 	"------"
 	["Line Numbers"
@@ -652,7 +652,7 @@
 	(customize-set-variable
 	 'buffers-menu-max-size
 	 ;; would it be better to open a customization buffer ?
-	 (let ((val 
+	 (let ((val
 		(read-number
 		 "Enter number of buffers to display (or 0 for unlimited): ")))
 	   (if (eq val 0) nil val)))]
@@ -678,10 +678,10 @@
 		       buffers-menu-sort-function)]
 	["By Major Mode, Then Alphabetically"
 	 (progn
-	   (customize-set-variable 
+	   (customize-set-variable
 	    'buffers-menu-sort-function
 	    'sort-buffers-menu-by-mode-then-alphabetically)
-	   (customize-set-variable 
+	   (customize-set-variable
 	    'buffers-menu-grouping-function
 	    'group-buffers-menu-by-mode-then-alphabetically))
 	 :style radio
@@ -696,18 +696,18 @@
        ["Ignore Scaled Fonts"
 	(customize-set-variable 'font-menu-ignore-scaled-fonts
 				(not font-menu-ignore-scaled-fonts))
-	:style toggle 
+	:style toggle
 	:selected (and (boundp 'font-menu-ignore-scaled-fonts)
 		       font-menu-ignore-scaled-fonts)]
        )
       ,@(if (featurep 'toolbar)
 	    '(("Toolbar Appearance"
-	       ["Visible" 
+	       ["Visible"
 		(customize-set-variable 'toolbar-visible-p
 					(not toolbar-visible-p))
 		:style toggle
 		:selected toolbar-visible-p]
-	       ["Captioned" 
+	       ["Captioned"
 		(customize-set-variable 'toolbar-captioned-p
 					(not toolbar-captioned-p))
 		:style toggle
@@ -715,9 +715,9 @@
 	       ("Default Location"
 		["Top"
 		 (customize-set-variable 'default-toolbar-position 'top)
-		 :style radio 
+		 :style radio
 		 :selected (eq default-toolbar-position 'top)]
-		["Bottom" 
+		["Bottom"
 		 (customize-set-variable 'default-toolbar-position 'bottom)
 		 :style radio
 		 :selected (eq default-toolbar-position 'bottom)]
@@ -733,7 +733,7 @@
 	       )))
       ("Mouse"
        ["Avoid Text..."
-	(customize-set-variable 'mouse-avoidance-mode 
+	(customize-set-variable 'mouse-avoidance-mode
 				(if mouse-avoidance-mode nil 'banish))
 	:style toggle
 	:selected (and (boundp 'mouse-avoidance-mode) mouse-avoidance-mode)
@@ -747,7 +747,7 @@
 		     (device-on-window-system-p))]
        )
       ("Open URLs With"
-       ["Emacs-W3" 
+       ["Emacs-W3"
 	(customize-set-variable 'browse-url-browser-function 'browse-url-w3)
 	:style radio
 	:selected (and (boundp 'browse-url-browser-function)
@@ -755,15 +755,15 @@
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-w3)
 		     (fboundp 'w3-fetch))]
-       ["Netscape" 
-	(customize-set-variable 'browse-url-browser-function 
+       ["Netscape"
+	(customize-set-variable 'browse-url-browser-function
 				'browse-url-netscape)
 	:style radio
 	:selected (and (boundp 'browse-url-browser-function)
 		       (eq browse-url-browser-function 'browse-url-netscape))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-netscape))]
-       ["Mosaic" 
+       ["Mosaic"
 	(customize-set-variable 'browse-url-browser-function
 				'browse-url-mosaic)
 	:style radio
@@ -771,22 +771,22 @@
 		       (eq browse-url-browser-function 'browse-url-mosaic))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-mosaic))]
-       ["Mosaic (CCI)" 
+       ["Mosaic (CCI)"
 	(customize-set-variable 'browse-url-browser-function 'browse-url-cci)
 	:style radio
 	:selected (and (boundp 'browse-url-browser-function)
 		       (eq browse-url-browser-function 'browse-url-cci))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-cci))]
-       ["IXI Mosaic" 
-	(customize-set-variable 'browse-url-browser-function 
+       ["IXI Mosaic"
+	(customize-set-variable 'browse-url-browser-function
 				'browse-url-iximosaic)
 	:style radio
 	:selected (and (boundp 'browse-url-browser-function)
 		       (eq browse-url-browser-function 'browse-url-iximosaic))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-iximosaic))]
-       ["Lynx (xterm)" 
+       ["Lynx (xterm)"
 	(customize-set-variable 'browse-url-browser-function
 				'browse-url-lynx-xterm)
 	:style radio
@@ -802,7 +802,7 @@
 		       (eq browse-url-browser-function 'browse-url-lynx-emacs))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-lynx-emacs))]
-       ["Grail" 
+       ["Grail"
 	(customize-set-variable 'browse-url-browser-function
 				'browse-url-grail)
 	:style radio
@@ -810,6 +810,14 @@
 		       (eq browse-url-browser-function 'browse-url-grail))
 	:active (and (boundp 'browse-url-browser-function)
 		     (fboundp 'browse-url-grail))]
+       ["Kfm" 
+	(customize-set-variable 'browse-url-browser-function
+				'browse-url-kfm)
+	:style radio
+	:selected (and (boundp 'browse-url-browser-function)
+		       (eq browse-url-browser-function 'browse-url-kfm))
+	:active (and (boundp 'browse-url-browser-function)
+		     (fboundp 'browse-url-kfm))]
        )
       "-----"
       ["Edit Faces..." (customize-face nil)]

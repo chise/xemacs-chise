@@ -311,7 +311,7 @@ mswindows_make_frame_visible (struct frame *f)
   if (f->iconified)
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_RESTORE);
   else
-    ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_SHOWNORMAL);
+    ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_SHOW);
   f->visible = 1;
   f->iconified = 0;
 }
@@ -463,7 +463,6 @@ static void
 mswindows_raise_frame (struct frame *f)
 {
   BringWindowToTop (FRAME_MSWINDOWS_HANDLE(f));
-  /* XXX Should we do SetWindowForeground too ? */
 }
 
 static void

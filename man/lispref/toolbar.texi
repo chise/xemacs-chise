@@ -180,7 +180,7 @@ These are specifiers, which means you set them with @code{set-specifier}
 and query them with @code{specifier-specs} or @code{specifier-instance}.
 You will get an error if you try to set them using @code{setq}.  The
 valid instantiators for these specifiers are toolbar descriptors, as
-described above.  @xref{Specifiers} for more information.
+described above.  @xref{Specifiers}, for more information.
 
 Most of the time, you will set @code{default-toolbar}, which allows
 the user to choose where the toolbar should go.

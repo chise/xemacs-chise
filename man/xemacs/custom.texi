@@ -2206,7 +2206,7 @@ Emacs frames accept the following resources:
 
 @table @asis
 @item @code{geometry} (class @code{Geometry}): string
-Initial geometry for the frame.  @xref{Geometry Resources} for a
+Initial geometry for the frame.  @xref{Geometry Resources}, for a
 complete discussion of how this works.
 
 @item @code{iconic} (class @code{Iconic}): boolean

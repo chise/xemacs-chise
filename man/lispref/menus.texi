@@ -518,7 +518,7 @@ undo, this is changed to @samp{Undo More}.
 @end defun
 
 @defun buffers-menu-filter menu-items
-This function sets up the Buffers menu.  @xref{Buffers Menu} for
+This function sets up the Buffers menu.  @xref{Buffers Menu}, for
 more information.
 @end defun
 

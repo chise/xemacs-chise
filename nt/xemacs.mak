@@ -94,6 +94,9 @@ HAVE_TIFF=0
 !if !defined(HAVE_JPEG)
 HAVE_JPEG=0
 !endif
+!if !defined(HAVE_XFACE)
+HAVE_XFACE=0
+!endif
 !if !defined(HAVE_GIF)
 HAVE_GIF=1
 !endif
@@ -199,6 +202,14 @@ CONFIG_ERROR=1
 !message Specified JPEG directory does not contain "$(JPEG_DIR)\libjpeg.lib"
 CONFIG_ERROR=1
 !endif
+!if $(HAVE_MSW) && $(HAVE_XFACE) && !defined(COMPFACE_DIR)
+!message Please specify root directory for your COMPFACE installation: COMPFACE_DIR=path
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_XFACE) && !exist("$(COMPFACE_DIR)\libcompface.lib")
+!message Specified COMPFACE directory does not contain "$(COMPFACE_DIR)\libcompface.lib"
+CONFIG_ERROR=1
+!endif
 !if $(HAVE_MSW) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
 !error Toolbars require XPM support
 CONFIG_ERROR=1
@@ -253,6 +264,9 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !endif
 !if $(HAVE_JPEG)
 !message Compiling in support for JPEG images.
+!endif
+!if $(HAVE_XFACE)
+!message Compiling in support for X-Face message headers.
 !endif
 !if $(HAVE_TOOLBARS)
 !message Compiling in support for toolbars.
@@ -344,6 +358,11 @@ MSW_LIBS=$(MSW_LIBS) "$(TIFF_DIR)\libtiff\libtiff.lib"
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_JPEG
 MSW_INCLUDES=$(MSW_INCLUDES) -I"$(JPEG_DIR)"
 MSW_LIBS=$(MSW_LIBS) "$(JPEG_DIR)\libjpeg.lib"
+!endif
+!if $(HAVE_XFACE)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_XFACE
+MSW_INCLUDES=$(MSW_INCLUDES) -I"$(COMPFACE_DIR)"
+MSW_LIBS=$(MSW_LIBS) "$(COMPFACE_DIR)\libcompface.lib"
 !endif
 !if $(HAVE_TOOLBARS)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_TOOLBARS

@@ -1,3 +1,23 @@
+1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.12 is released
+
+1999-03-04  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (top_distclean): Remove confdefs.h as well.
+
+1999-03-03  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	`uname -v` -> "`uname -v`":
+	backquoted expressions need additional double
+	quotes to be a single token.
+	Use separate if's to avoid extra process invocations.
+
+1999-01-05  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* PROBLEMS: Document crashes on SPARC with gcc 2.8.1. 
+
 1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.11 is released
@@ -286,7 +306,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 

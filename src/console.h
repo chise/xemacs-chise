@@ -89,7 +89,7 @@ struct console_methods
   void (*mark_device_method) (struct device *, void (*)(Lisp_Object));
   void (*asynch_device_change_method) (void);
   Lisp_Object (*device_system_metrics_method) (struct device *, enum device_metrics);
-  unsigned int (*device_implementation_flags_method) ();
+  unsigned int (*device_implementation_flags_method) (void);
 
   /* frame methods */
   Lisp_Object *device_specific_frame_props;

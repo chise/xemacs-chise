@@ -50,8 +50,6 @@ make_general_hash_table (hash_size_t size,
 			hash_table_hash_function hash_function,
 			hash_table_test_function test_function);
 
-struct hash_table *make_strings_hash_table (hash_size_t size);
-
 /* Clear HASH-TABLE. A freshly created hash table is already cleared up. */
 void clrhash (struct hash_table *hash_table);
 
@@ -73,21 +71,11 @@ typedef int (*maphash_function) (CONST void* key, void* contents, void* arg);
 typedef int (*remhash_predicate) (CONST void* key, CONST void* contents,
                                   void* arg);
 
-typedef void (*generic_hash_table_op) (struct hash_table *hash_table,
-                                      void *arg1, void *arg2, void *arg3);
-
 /* Call MF (key, contents, arg) for every entry in HASH-TABLE */
 void maphash (maphash_function mf, struct hash_table *hash_table, void* arg);
 
 /* Delete all objects from HASH-TABLE satisfying PREDICATE */
 void map_remhash (remhash_predicate predicate,
 		  struct hash_table *hash_table, void *arg);
-
-/* Copy all the entries from SRC into DEST -- DEST is modified as needed
-   so it is as big as SRC. */
-void copy_hash (struct hash_table *dest, struct hash_table *src);
-
-/* Make sure HASH-TABLE can hold at least NEEDED_SIZE entries */
-void expand_hash_table (struct hash_table *hash_table, hash_size_t needed_size);
 
 #endif /* _HASH_H_ */

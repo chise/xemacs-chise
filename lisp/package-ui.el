@@ -362,27 +362,22 @@ and whether or not it is up-to-date."
 					       (symbol-name pkg)
 					       )
 					    pui-deleted-packages)
-					'string<)
-				       :activate-callback nil
-				       :help-string "Packages selected for removal:\n"
-				       :completion-string t
-				       ))
-	    (setq tmpbuf (get-buffer-create tmpbuf))
-	    (display-buffer tmpbuf)
-	    (setq do-delete (yes-or-no-p "Remove these packages? "))
-	    (kill-buffer tmpbuf))	    
+				    'string<)
+				   :activate-callback nil
+				   :help-string "Packages selected for removal:\n"
+				   :completion-string t
+				   ))
+	(setq tmpbuf (get-buffer-create tmpbuf))
+	(display-buffer tmpbuf)
+	(setq do-delete (yes-or-no-p "Remove these packages? "))
+	(kill-buffer tmpbuf))	    
       (when do-delete
 	(message "Deleting selected packages ...") (sit-for 0)
-	(when (catch 'done
-		(mapcar (lambda (pkg)
-			  (if (not
-			       (package-admin-delete-binary-package
-				  pkg (package-admin-get-install-dir pkg nil)))
-				    (throw 'done nil)))
-			      pui-deleted-packages)
-		      t)
-	  (message "Packages deleted")
-	  ))))
+	(mapcar (lambda (pkg)
+		  (package-admin-delete-binary-package
+		   pkg (package-admin-get-install-dir pkg nil)))
+		pui-deleted-packages)
+	(message "Packages deleted"))))
 	 
   (let ( (tmpbuf "*Packages-To-Install*") do-install)
     (if pui-selected-packages
@@ -430,8 +425,8 @@ and whether or not it is up-to-date."
 		      (message "Packages installed")
 		      ))
 		)
-	      (clear-message)
-	      )
+	    (clear-message)
+	    )
 	  )
       (if pui-deleted-packages
 	  (pui-list-packages)
@@ -454,12 +449,13 @@ and whether or not it is up-to-date."
                                      (package-get-info-find-package
                                       package-get-base pkg) nil)
                                     'version)))
-                              (if (< (if (stringp installed)
+                              (if (or (null installed)
+                                     (< (if (stringp installed)
                                          (string-to-number installed)
                                        installed)
                                      (if (stringp current)
                                          (string-to-number current)
-                                       current))
+                                       current)))
                                   pkg
                                 nil)))
                           (package-get-dependencies pui-selected-packages)))))

@@ -30,6 +30,12 @@ A general advice:
 ===============================
 
 ** General
+*** Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
+without also using `-fno-schedule-insns'.
+
+gcc will generate incorrect code otherwise, typically resulting in
+crashes in the function skip-syntax-backward.
+
 *** egcs-1.1
 
 There have been reports of egcs-1.1 not compiling XEmacs correctly on

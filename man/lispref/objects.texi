@@ -1059,7 +1059,7 @@ but the newline is ignored if escaped."
   A string can hold extents and properties of the text it contains, in
 addition to the characters themselves.  This enables programs that copy
 text between strings and buffers to preserve the extents and properties
-with no special effort.  @xref{Extents}; @xref{Text Properties}.
+with no special effort.  @xref{Extents}, @xref{Text Properties}.
 
   Note that FSF GNU Emacs has a special read and print syntax for
 strings with text properties, but XEmacs does not currently implement

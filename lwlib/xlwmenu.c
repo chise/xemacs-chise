@@ -483,7 +483,8 @@ massage_resource_name (CONST char *in, char *out)
       char ch = massaged_resource_char[(unsigned char) *in++];
       if (ch)
 	{
-	  *out++ = firstp ? tolower (ch) : toupper (ch);
+	  int int_ch = (int) (unsigned char) ch;
+	  *out++ = firstp ? tolower (int_ch) : toupper (int_ch);
 	  firstp = False;
 	  while ((ch = massaged_resource_char[(unsigned char) *in++]) != '\0')
 	    *out++ = ch;
