@@ -1,3 +1,8 @@
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (K0-6B34): Unify JC3-67DB.
+	(K0-5433): Unify JC3-67DF.
+
 2003-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (C1-5775): Modify subcode of
