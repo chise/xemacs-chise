@@ -1,5 +1,21 @@
 2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el (U+913C): Use `->subsumptive'.
+	(JSP-6251): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R159-Cart.el (U+8F2C): Use `->subsumptive'.
+	(JSP-6075): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+	(U+8F41): Use `->subsumptive'.
+	(JSP-607E): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R157-Foot.el (U+8E95): Use `->subsumptive'.
+	(JSP-6046): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R140-Grass.el (U+8362): Use `->subsumptive'.
+	(JX1-7A6D): Use `=ucs@jis' instead of `=ucs@jis-2000'.
+	(U+842F): Use `->subsumptive'.
+	(JSP-584D): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
 	* Ideograph-R170-Mound.el (JSP-666E): Unify JC3-68DA; use
 	`=ucs@jis/1990' instead of `=ucs@jis-1990'.
 
