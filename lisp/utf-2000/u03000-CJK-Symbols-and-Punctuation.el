@@ -344,9 +344,7 @@
     (mirrored		. nil)
     (japanese-jisx0208-1978	. #x2141)	; ø»¼ 
     (japanese-jisx0208		. #x2141)	; ø»†¨
-    (chinese-cns11643-1		. #x2244)	; ø»‘„
     (japanese-jisx0208-1990	. #x2141)	; ø½‰¶œ
-    (chinese-big5		. #xA1E3)	; øºŸ
     (ucs			. #x301C)	; ã€œ
     ))
 (define-char
@@ -584,6 +582,7 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	compat #x5341)
+    (chinese-cns11643-1 . #x243E)	; ø»‘‡“
     (ucs		. #x3038)	; ã€¸
     ))
 (define-char
@@ -593,6 +592,7 @@
     (mirrored		. nil)
     (numeric-value	. 20)
     (->decomposition	compat #x5344)
+    (chinese-cns11643-1 . #x243F)	; ø»‘‡”
     (ucs		. #x3039)	; ã€¹
     ))
 (define-char
@@ -602,6 +602,7 @@
     (mirrored		. nil)
     (numeric-value	. 30)
     (->decomposition	compat #x5345)
+    (chinese-cns11643-1 . #x2440)	; ø»‘‡•
     (ucs		. #x303A)	; ã€º
     ))
 (define-char
