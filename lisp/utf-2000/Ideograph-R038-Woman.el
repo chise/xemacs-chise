@@ -1551,9 +1551,8 @@
     (->subsumptive
      ((=daikanwa	  . 06133)	; &M-06133;
       (=jef-china3	  . #x92E8)	; &I-JC3-92E8;
-      (->subsumptive
-       ((mojikyo	    . 006133)	; &MCS-600017F5;
-	))
+      )
+     ((mojikyo		  . 006133)	; &MCS-600017F5;
       )
      ((=big5		  . #xCC44)	; &B-CC44;
       (=ucs@unicode	  . #x59B5)	; &B-CC44;
@@ -2093,9 +2092,8 @@
       (=daikanwa	  . 06163)	; &I-M-06163;
       (=jef-china3	  . #x49AA)	; &I-JC3-49AA;
       (=ucs@jis		  . #x59C8)	; &M-06163;
-      (->subsumptive
-       ((mojikyo	    . 006163)	; &MCS-60001813;
-	))
+      )
+     ((mojikyo		  . 006163)	; &MCS-60001813;
       )
      ((=cns11643-2	  . #x2633)	; &C2-2633; [06-19]
       (=ucs@cns		  . #x59C8)	; &C2-2633;
@@ -2103,9 +2101,8 @@
       )
      ((=big5		  . #xCC52)	; &B-CC52;
       (=ucs@unicode	  . #x59C8)	; &B-CC52;
-      (->subsumptive
-       ((mojikyo	    . 059378)	; &MCS-6000E7F2;
-	))
+      )
+     ((mojikyo		  . 059378)	; &MCS-6000E7F2;
       ))
     ))
 (define-char
@@ -8072,10 +8069,11 @@
     (<-denotational
      ((=ucs		  . #x5A9B)	; 媛
       ))
-    (=jis-x0208@1978	. #x4932)	; &M-06516; [41-18]
-    (=ks-x1001		. #x6A30)	; &I-K0-6A30; [74-16]
-    (=daikanwa		. 06516)	; &I-M-06516;
     (->subsumptive
+     ((=jis-x0208@1978	  . #x4932)	; &M-06516; [41-18]
+      (=ks-x1001	  . #x6A30)	; &I-K0-6A30; [74-16]
+      (=daikanwa	  . 06516)	; &I-M-06516;
+      )
      ((mojikyo		  . 006516)	; &MCS-60001974;
       ))
     ))
