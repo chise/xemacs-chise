@@ -711,6 +711,7 @@
     (chinese-cns11643-3		. #x2452)	; ø»•›¯
     (japanese-jisx0213-1	. #x2E50)	; ø»¢¦±
     (ideograph-daikanwa		. 01358)	; ø¸€•Ž
+    (china3-jef			. #x43D5)	; øº„•
     (mojikyo			. 054447)	; ý €’¯
     ))
 (define-char
@@ -852,16 +853,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (ucs		  . #x2FF8)	; â¿¸
       )
-     ((ucs		  . #x5382)	; åŽ‚
+     ((ucs		  . #x20086)	; ð ‚†
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x4E0A)	; ä¸Š
-	)
-       ((ucs		    . #x513F)	; å„¿
-	))
+     ((ucs		  . #x20477)	; ð ‘·
       ))
     (japanese-jisx0212	. #x3267)	; ø»Š¾”
     (chinese-cns11643-4 . #x233B)	; ø»—£¾
