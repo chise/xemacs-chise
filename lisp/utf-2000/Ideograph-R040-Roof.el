@@ -2900,6 +2900,7 @@
     (total-strokes	 . 11)
     (=jis-x0213-2-2000	. #x2823)	; ø»¤§”
     (=gt-pj-9		. #x4D61)	; ý¡€‚š
+    (=ucs@jis		. #x3761)	; ø»¤§”
     (=gt		. 09050)	; ý¡€‚š
     ))
 (define-char
