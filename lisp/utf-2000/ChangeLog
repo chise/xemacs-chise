@@ -1,3 +1,10 @@
+2004-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el (GT-K01020): New character.
+	(GT-K01019): New character.
+
+	* Ideograph-R111-Arrow.el (GT-K01013): New character.
+
 2004-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el, Ideograph-R187-Horse.el: Add mappings
