@@ -478,26 +478,21 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x20509)	; 𠔉
-    (=cns11643-6	. #x2357)	; &I-C6-2357; [03-55]
-    (=daikanwa		. 48931)	; &I-M-48931;
-    ))
-(define-char
-  '((=>ucs		. #x20509)	; 𠔉
-    (morohashi-daikanwa	48931 0 0)
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=jis-x0213-2-2000	. #x2327)	; &JX2-2327; [03-07]
-    (=ucs@jis		. #x20509)	; &JX2-2327;
-    ))
-(define-char
-  '((=>ucs		. #x20509)	; 𠔉
-    (morohashi-daikanwa	48931 0 2)
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (ideograph-cdp	. -1178)
-    (=big5-cdp		. #x8BFA)	; &CDP-8BFA;
+    (->subsumptive
+     ((=cns11643-6	  . #x2357)	; &M-48931; [03-55]
+      (=daikanwa	  . 48931)	; &I-M-48931;
+      (=ucs@iso		  . #x20509)	; &M-48931;
+      )
+     ((=jis-x0213-2-2000  . #x2327)	; &GT-K01768; [03-07]
+      (=gt-k		  . 01768)	; &I-GT-K01768;
+      (=gt-pj-k1	  . #x322C)	; &GT-K01768; [18-12]
+      (=ucs@jis		  . #x20509)	; &GT-K01768;
+      )
+     ((=gt-k		  . 01769)	; &GT-K01769;
+      (=gt-pj-k1	  . #x3238)	; &GT-K01769; [18-24]
+      )
+     ((=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -839,20 +834,22 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
     (=ucs		. #x20512)	; 𠔒
-    (=daikanwa		. 01478)	; &I-M-01478;
-    ))
-(define-char
-  '((=>ucs		. #x20512)	; 𠔒
-    (morohashi-daikanwa	1478 0 0)
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 249 3)
-    (=cns11643-6	. #x2E6B)	; &HZK01-D979; [14-75]
-    (=hanziku-1		. #xD979)	; &I-HZK01-D979;
+    (->subsumptive
+     ((ideographic-strokes . 7)
+      (total-strokes	   . 9)
+      (=daikanwa	  . 01478)	; &M-01478;
+      (=ucs@iso		  . #x20512)	; &M-01478;
+      )
+     ((ideographic-strokes . 7)
+      (total-strokes	   . 9)
+      (=cns11643-6	  . #x2E6B)	; &C6-2E6B; [14-75]
+      )
+     ((ideographic-strokes . 6)
+      (total-strokes	   . 8)
+      (hanyu-dazidian	  1 249 3)
+      (=hanziku-1	  . #xD979)	; &HZK01-D979;
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
