@@ -1,3 +1,64 @@
+2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (J0-5A6E): Unify GT-17613.
+
+	* Ideograph-R211-Tooth.el: Add some GT code points.
+
+	* Ideograph-R213-Turtle.el (J90-737D): Unify GT-66712.
+	(M-48848): Use `<-original-ideograph*sources' instead of char-ref
+	in `<-original-ideograph'.
+
+	* Ideograph-R212-Dragon.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R208-Rat.el (U+9F20): Unify GT-66099.
+	(GT-66133): New character.
+
+	* Ideograph-R184-Eat.el (GT-59030): Add
+	`<-ideographic-component-forms' for U+98DF.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EAT TWO>): Add
+	`<-ideographic-component-forms' for U+98DF.
+	(GT-59030): Copied from Ideograph-R184-Eat.el.
+	(<CJK RADICAL EAT THREE>): Add `<-ideographic-component-forms' for
+	U+98DF.
+	(<CJK RADICAL C-SIMPLIFIED EAT>): Likewise.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{7366,7367,7368,736C}.
+
+	* Ideograph-R214-Flute.el (U+9FA0): Unify GT-66752.
+
+	* Ideograph-R210-Even.el: Add some GT code points.
+	(U+9F51): Add `total-strokes'.
+
+	* Ideograph-R209-Nose.el (U+9F3B): Unify GT-66224 and GT-K11266.
+	(U-0002FA1C): Unify GT-66225.
+	(U+9F3E): Unify GT-66236.
+
+	* Ideograph-R206-Tripod.el (U+9F0E): Separate C1-676F; unify
+	GT-66019.
+
+	* Ideograph-R205-Frog.el, Ideograph-R203-Black.el: Add some GT
+	code points.
+
+	* Ideograph-R207-Drum.el (U+9F13): Unify GT-66032.
+	(J0-736A): Unify GT-66045.
+
+	* Ideograph-R204-Embroidery.el, Ideograph-R202-Millet.el,
+	Ideograph-R201-Yellow.el, Ideograph-R200-Hemp.el,
+	Ideograph-R199-Wheat.el: Add some GT code points.
+
+2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R198-Deer.el, Ideograph-R196-Bird.el,
+	Ideograph-R197-Salt.el: Add some GT code points.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-733B and J90-4E6F.
+
+	* Ideograph-R195-Fish.el, Ideograph-R194-Ghost.el,
+	Ideograph-R191-Fight.el: Add some GT code points.
+
 2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
