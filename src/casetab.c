@@ -566,7 +566,8 @@ complex_vars_of_casetab (void)
     {
       unsigned char lowered = tolower (i);
 
-      SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
+      if (lowered != i)
+	SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
     }
 
 #ifdef UTF2000
@@ -585,6 +586,7 @@ complex_vars_of_casetab (void)
       unsigned char flipped = (isupper (i) ? tolower (i)
 			       : (islower (i) ? toupper (i) : i));
 
-      SET_TRT_TABLE_CHAR_1 (tem, i, flipped);
+      if (flipped != i)
+	SET_TRT_TABLE_CHAR_1 (tem, i, flipped);
     }
 }
