@@ -1,5 +1,20 @@
 2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R203-Black.el (C1-702E): Separated from U+58A8 and
+	moved from Ideograph-R032-Earth.el.
+
+	* Ideograph-R029-Again.el (JX2-235C): Unify U-00020B1D.
+	(U+53CC): Use `script' and `<-vulgar-ideograph' instead of
+	`comment'.
+
+	* Ideograph-R028-Private.el (C5-212E): Separate JX2-2359; unify
+	U-00020AD3.
+
+	* Ideograph-R019-Power.el (JX2-234A): Relate to U-000208B9.
+	(C5-5A7B): Unify U-000208B9.
+
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R030-Mouth.el (JX2-243A): Unify U-00020E64.
 
 	* Ideograph-R009-Man.el (JX2-2170): Unify U-0002032B.
