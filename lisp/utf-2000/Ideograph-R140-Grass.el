@@ -5350,16 +5350,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 248 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
-      )
-     ((chinese-big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
-      )
-     ((chinese-big5-cdp	  . #x8DF5)	; ý¢€ˆ·µ
-      )
-     ((chinese-big5-cdp	  . #x8B44)	; ý¢€ˆ­„
-      ))
     (chinese-gb2312	. #x5748)	; ø»…•¿
     (chinese-isoir165	. #x5748)	; ø»¾
     (chinese-cns11643-3 . #x2E7B)	; ø»•«„
