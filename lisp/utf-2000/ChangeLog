@@ -1,5 +1,10 @@
 2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R017-Open-Box.el, Ideograph-R015-Ice.el,
+	Ideograph-R009-Man.el: Add `=ucs@big5' features.
+
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R012-Eight.el, Ideograph-R011-Enter.el: Add
 	`=ucs@big5' features.
 
