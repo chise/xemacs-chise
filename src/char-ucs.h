@@ -417,7 +417,7 @@ extern unsigned char latin_a_char_to_byte2[128];
 unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
 unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 
-extern Lisp_Object Vdefault_preferred_coded_charset_list;
+extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
@@ -426,7 +426,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
   if (c < 0x100)
     {
-      Lisp_Object charsets = Vdefault_preferred_coded_charset_list;
+      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
 	{
 	  *charset = Ffind_charset (Fcar (charsets));
@@ -481,7 +481,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_GREEK)
     {
-      Lisp_Object charsets = Vdefault_preferred_coded_charset_list;
+      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
 	{
 	  *charset = Ffind_charset (Fcar (charsets));
@@ -542,7 +542,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_HALFWIDTH_KATAKANA)
     {
-      Lisp_Object charsets = Vdefault_preferred_coded_charset_list;
+      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
 	{
 	  *charset = Ffind_charset (Fcar (charsets));
