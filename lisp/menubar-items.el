@@ -970,12 +970,12 @@ which will not be used as accelerators."
 		      (fboundp 'browse-url-kde))]
 	["Mo%_zilla"
 	 (customize-set-variable 'browse-url-browser-function
-				 'browse-url-mozilla)
+				 'browse-url-gnome-moz)
 	 :style radio
 	 :selected (and (boundp 'browse-url-browser-function)
-			(eq browse-url-browser-function 'browse-url-mozilla))
+			(eq browse-url-browser-function 'browse-url-gnome-moz))
 	 :active (and (boundp 'browse-url-browser-function)
-		      (fboundp 'browse-url-mozilla))]
+		      (fboundp 'browse-url-gnome-moz))]
 	["G%_aleon"
 	 (customize-set-variable 'browse-url-browser-function
 				 'browse-url-galeon)

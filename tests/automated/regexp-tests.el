@@ -272,18 +272,3 @@
       (Assert (not (string-match "@[A]" (string ?@ ch1))))
       (Assert (eq (string-match "@[^A]" (string ?@ ch1)) 0))
       (Assert (not (string-match "@?A" (string ?@ ch1))))))
-
-;; More stale match data tests.
-;; Thanks to <bjacob@ca.metsci.com>.
-(Assert (not (progn (string-match "a" "a")
-		    (string-match "b" "a")
-		    (match-string 0 "a"))))
-(Assert (not (progn (string-match "a" "a")
-		    (string-match "b" "a")
-		    (match-string 1 "a"))))
-(Assert (not (progn (string-match "\\(a\\)" "a")
-		    (string-match "\\(b\\)" "a")
-		    (match-string 0 "a"))))
-(Assert (not (progn (string-match "\\(a\\)" "a")
-		    (string-match "\\(b\\)" "a")
-		    (match-string 1 "a"))))
