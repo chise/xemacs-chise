@@ -65,6 +65,7 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
+Lisp_Object Vcharset_ucs_cns;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
@@ -1608,6 +1609,7 @@ Lisp_Object Qascii,
   Qchinese_cns11643_2,
 #ifdef UTF2000
   Qucs_bmp,
+  Qucs_cns,
   Qlatin_viscii,
   Qlatin_tcvn5712,
   Qlatin_viscii_lower,
@@ -3538,6 +3540,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qfont,			"font");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
+  defsymbol (&Qucs_cns,			"ucs-cns");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_tcvn5712,		"latin-tcvn5712");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
@@ -3673,6 +3676,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
 		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0);
+  staticpro (&Vcharset_ucs_cns);
+  Vcharset_ucs_cns =
+    make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 4,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS for CNS"),
+		  build_string ("UCS for CNS 11643"),
+		  build_string ("ISO/IEC 10646 for CNS 11643"),
+		  build_string (""),
+		  Qnil, 0, 0xFFFFFFF, 0, 0);
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
