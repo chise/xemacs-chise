@@ -316,15 +316,33 @@
     (ideograph-daikanwa . 03079)	; ø¸€°‡
     ))
 (define-char
-  '((ideographic-radical . 28)	; â¼›
+  '((=>ucs		. #x53BE)	; åŽ¾
+    (ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 4)
-    (kangxi-radical	 . 5)	; â¼„
-    (kangxi-strokes	 . 5)
     (total-strokes	 . 6)
-    (chinese-isoir165	. #x2C21)	; ø»Œ¾ž
     (chinese-cns11643-3 . #x2331)	; ø»•™°
     (ideograph-daikanwa . 03080)	; ø¸€°ˆ
-    (ucs		. #x53BE)	; åŽ¾
+    ))
+(define-char
+  '((morohashi-daikanwa	3080 0 2)
+    (ideographic-radical . 28)	; â¼›
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 53)
+    (hanyu-dazidian-char . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; â¿¹
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (ucs		  . #x2E84)	; âº„
+      )
+     ((ucs		  . #x53BB)	; åŽ»
+      ))
+    (chinese-isoir165		. #x2C21)	; ø»Œ¾ž
+    (ideograph-hanziku-1	. #xAEE3)	; ý¢€š»£
+    (ucs			. #x53BE)	; åŽ¾
     ))
 (define-char
   '((=>ucs		. #x21FEE)	; ð¡¿®
@@ -540,6 +558,20 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (chinese-cns11643-3 . #x2F72)	; ø»•¬™
+    ))
+(define-char
+  '((ideographic-radical . 28)	; â¼›
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 387)
+    (hanyu-dazidian-char . 18)
+    (->identical
+     ((chinese-cns11643-6 . #x352E)	; ø»œ’•
+      (ideograph-daikanwa . 00283)	; ø¸€„›
+      ))
+    (ideograph-hanziku-1	. #xF5BE)	; ý¢€Ÿ–¾
+    (ucs			. #x20AFC)	; ð «¼
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›
