@@ -38,7 +38,7 @@ extern Lisp_Object Vcharset_latin_jisx0201;
 
 typedef short Charset_ID;
 
-#define MIN_LEADING_BYTE		-0x100
+#define MIN_LEADING_BYTE		-0x200
 #define CHARSET_ID_OFFSET		0x00
 
 /* ISO/IEC 10646 */
@@ -72,8 +72,6 @@ typedef short Charset_ID;
 
 /* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
 #define LEADING_BYTE_CHINESE_BIG5_2	(CHARSET_ID_OFFSET - 22)
-
-#define LEADING_BYTE_CHINESE_BIG5_CDP	(CHARSET_ID_OFFSET - 23)
 
 /* VISCII 1.1 */
 #define LEADING_BYTE_LATIN_VISCII	(CHARSET_ID_OFFSET - 24)
@@ -131,9 +129,22 @@ typedef short Charset_ID;
 
 #define LEADING_BYTE_CHINA3_JEF		(CHARSET_ID_OFFSET - 72)
 #define LEADING_BYTE_CBETA		(CHARSET_ID_OFFSET - 73)
+#define LEADING_BYTE_CHINESE_BIG5_CDP	(CHARSET_ID_OFFSET - 74)
+#define LEADING_BYTE_HANZIKU_1		(CHARSET_ID_OFFSET - 75)
+#define LEADING_BYTE_HANZIKU_2		(CHARSET_ID_OFFSET - 76)
+#define LEADING_BYTE_HANZIKU_3		(CHARSET_ID_OFFSET - 77)
+#define LEADING_BYTE_HANZIKU_4		(CHARSET_ID_OFFSET - 78)
+#define LEADING_BYTE_HANZIKU_5		(CHARSET_ID_OFFSET - 79)
+#define LEADING_BYTE_HANZIKU_6		(CHARSET_ID_OFFSET - 80)
+#define LEADING_BYTE_HANZIKU_7		(CHARSET_ID_OFFSET - 81)
+#define LEADING_BYTE_HANZIKU_8		(CHARSET_ID_OFFSET - 82)
+#define LEADING_BYTE_HANZIKU_9		(CHARSET_ID_OFFSET - 83)
+#define LEADING_BYTE_HANZIKU_10		(CHARSET_ID_OFFSET - 84)
+#define LEADING_BYTE_HANZIKU_11		(CHARSET_ID_OFFSET - 85)
+#define LEADING_BYTE_HANZIKU_12		(CHARSET_ID_OFFSET - 86)
 
 #define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
-#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 74)
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 87)
 
 
 /* #define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0') */
@@ -454,6 +465,32 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_MOJIKYO	(MIN_CHAR_MOJIKYO + 94 * 60 * 22)
 #define MIN_CHAR_GT		0x61000000
 #define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
+#define MIN_CHAR_BIG5_CDP	0x62000000
+#define MAX_CHAR_BIG5_CDP	0x6200FFFF
+#define MIN_CHAR_HANZIKU_1	(0x62000000 + 65536 * 1)
+#define MAX_CHAR_HANZIKU_1	(0x62000000 + 65536 * 1 + 65535)
+#define MIN_CHAR_HANZIKU_2	(0x62000000 + 65536 * 2)
+#define MAX_CHAR_HANZIKU_2	(0x62000000 + 65536 * 2 + 65535)
+#define MIN_CHAR_HANZIKU_3	(0x62000000 + 65536 * 3)
+#define MAX_CHAR_HANZIKU_3	(0x62000000 + 65536 * 3 + 65535)
+#define MIN_CHAR_HANZIKU_4	(0x62000000 + 65536 * 4)
+#define MAX_CHAR_HANZIKU_4	(0x62000000 + 65536 * 4 + 65535)
+#define MIN_CHAR_HANZIKU_5	(0x62000000 + 65536 * 5)
+#define MAX_CHAR_HANZIKU_5	(0x62000000 + 65536 * 5 + 65535)
+#define MIN_CHAR_HANZIKU_6	(0x62000000 + 65536 * 6)
+#define MAX_CHAR_HANZIKU_6	(0x62000000 + 65536 * 6 + 65535)
+#define MIN_CHAR_HANZIKU_7	(0x62000000 + 65536 * 7)
+#define MAX_CHAR_HANZIKU_7	(0x62000000 + 65536 * 7 + 65535)
+#define MIN_CHAR_HANZIKU_8	(0x62000000 + 65536 * 8)
+#define MAX_CHAR_HANZIKU_8	(0x62000000 + 65536 * 8 + 65535)
+#define MIN_CHAR_HANZIKU_9	(0x62000000 + 65536 * 9)
+#define MAX_CHAR_HANZIKU_9	(0x62000000 + 65536 * 9 + 65535)
+#define MIN_CHAR_HANZIKU_10	(0x62000000 + 65536 * 10)
+#define MAX_CHAR_HANZIKU_10	(0x62000000 + 65536 * 10 + 65535)
+#define MIN_CHAR_HANZIKU_11	(0x62000000 + 65536 * 11)
+#define MAX_CHAR_HANZIKU_11	(0x62000000 + 65536 * 11 + 65535)
+#define MIN_CHAR_HANZIKU_12	(0x62000000 + 65536 * 12)
+#define MAX_CHAR_HANZIKU_12	(0x62000000 + 65536 * 12 + 65535)
 
 Emchar decode_builtin_char (Lisp_Object charset, int code_point);
 
@@ -486,9 +523,10 @@ extern Lisp_Object Vcharset_chinese_big5;
 extern Lisp_Object Vcharset_chinese_big5_1;
 extern Lisp_Object Vcharset_chinese_big5_2;
 
-INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
-DECODE_CHAR (Lisp_Object charset, int code_point)
+DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
+INLINE_HEADER Emchar
+DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point)
 {
   int dim = XCHARSET_DIMENSION (charset);
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
@@ -512,7 +550,18 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
       else
 	break;
     }
-  if (XCHARSET_DIMENSION (charset) == 1)
+  return -1;
+}
+
+INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE_HEADER Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point)
+{
+  Emchar char_id = DECODE_DEFINED_CHAR (charset, code_point);
+
+  if (char_id >= 0)
+    return char_id;
+  else if (XCHARSET_DIMENSION (charset) == 1)
     return decode_builtin_char (charset, code_point);
   else if (EQ (charset, Vcharset_chinese_big5_1))
     {
