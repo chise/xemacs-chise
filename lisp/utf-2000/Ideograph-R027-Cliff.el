@@ -2452,7 +2452,7 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ucs@unicode	    . #x6677)	; 晷
+       ((=ucs@unicode	    . #x6677)	; &UU+6677;
 	))
       (=ucs@unicode	  . #x53AC)	; &UU+53AC;
       ))
@@ -2522,7 +2522,7 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ucs@unicode	    . #x7312)	; 猒
+       ((=ucs@unicode	    . #x7312)	; &UU+7312;
 	))
       (shinjigen-1	  . 886)
       (shinjigen-2	  . 886)
