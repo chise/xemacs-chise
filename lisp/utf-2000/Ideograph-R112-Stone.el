@@ -1312,7 +1312,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=jis-x0208-1978	. #x6268)	; ø»ƒœ¥
-    (japanese-jisx0208	. #x395C)	; ø»†´“
+    (=jis-x0208-1983	. #x395C)	; ø»†´“
     (=jis-x0208-1990	. #x395C)	; ø½Šš‡
     (mojikyo		. 054120)	; ý €¨
     (=ucs		. #x783F)	; ç ¿
@@ -1351,7 +1351,7 @@
     (total-strokes	 . 10)
     (=jis-x0208-1978	. #x626A)	; ø»ƒœ§
     (chinese-gb2312	. #x6D42)	; ø»…¶
-    (japanese-jisx0208	. #x4557)	; ø»‡…¶
+    (=jis-x0208-1983	. #x4557)	; ø»‡…¶
     (=iso-ir165		. #x6D42)	; ø»Žž
     (=jis-x0208-1990	. #x4557)	; ø½Š«ª
     (=ucs		. #x783A)	; ç º
@@ -2390,7 +2390,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=jis-x0208-1978	. #x3945)	; ø»‚Ÿ´
-    (japanese-jisx0208	. #x3945)	; ø»†³¼
+    (=jis-x0208-1983	. #x3945)	; ø»†³¼
     (korean-ksc5601	. #x4C63)	; ø»‰š˜
     (ideograph-daikanwa . 24230)	; ø¸…º¦
     (=jef-china3	. #x5CB0)	; øº…²°
@@ -2753,7 +2753,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (chinese-gb2312	. #x4570)	; ø»„¼‹
-    (japanese-jisx0208	. #x626F)	; ø»‡°´
+    (=jis-x0208-1983	. #x626F)	; ø»‡°´
     (korean-ksc5601	. #x5D5D)	; ø»‰³
     (=iso-ir165		. #x4570)	; ø»¤›
     (chinese-cns11643-1 . #x6555)	; ø»’§ˆ
@@ -4509,7 +4509,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
     (=jis-x0208-1978	. #x6279)	; ø»ƒœ¶
-    (japanese-jisx0208	. #x6279)	; ø»‡°¾
+    (=jis-x0208-1983	. #x6279)	; ø»‡°¾
     ))
 (define-char
   '((=>ucs		. #x78D4)	; ç£”
@@ -6641,7 +6641,7 @@
     (total-strokes	 . 20)
     (shinjigen-2	. 8607)
     (=jis-x0208-1978	. #x395C)	; ø»‚ ‹
-    (japanese-jisx0208	. #x6268)	; ø»‡°­
+    (=jis-x0208-1983	. #x6268)	; ø»‡°­
     (=jis-x0208-1990	. #x6268)	; ø½‹–¡
     (ideograph-daikanwa . 24564)	; ø¸…¿´
     (=ucs@jis		. #x7926)	; ø»‚ ‹
@@ -6748,7 +6748,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
     (=jis-x0208-1978	. #x4557)	; ø»‚±®
-    (japanese-jisx0208	. #x626A)	; ø»‡°¯
+    (=jis-x0208-1983	. #x626A)	; ø»‡°¯
     (korean-ksc5601	. #x556C)	; ø»‰§¯
     (=jis-x0208-1990	. #x626A)	; ø½‹–£
     (chinese-gb12345	. #x6D42)	; ç¤ª

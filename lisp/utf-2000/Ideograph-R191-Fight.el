@@ -297,7 +297,7 @@
     (ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 16)
     (total-strokes	 . 26)
-    (japanese-jisx0208	. #x722D)	; ø»ˆ‡’
+    (=jis-x0208-1983	. #x722D)	; ø»ˆ‡’
     (chinese-cns11643-2 . #x7166)	; ø»•ƒ…
     (=jis-x0208-1990	. #x722D)	; ø½‹­†
     (=ucs@jis		. #x9B2E)	; ø»ˆ‡’

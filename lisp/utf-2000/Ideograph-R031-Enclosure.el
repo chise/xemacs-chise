@@ -2559,7 +2559,7 @@
       ))
     (shinjigen-2	. 1309)
     (=jis-x0208-1978	. #x5423)	; ø»ƒ†¼
-    (japanese-jisx0208	. #x5423)	; ø»‡›„
+    (=jis-x0208-1983	. #x5423)	; ø»‡›„
     (korean-ksc5601	. #x6A4C)	; ø»Š†…
     (chinese-cns11643-1 . #x5E58)	; ø»’œ¹
     (chinese-big5	. #xB3F2)	; ý¢€‹²

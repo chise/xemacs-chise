@@ -219,7 +219,7 @@
   '((ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
-    (japanese-jisx0208	. #x3834)	; ø»†²
+    (=jis-x0208-1983	. #x3834)	; ø»†²
     (=jis-x0208-1990	. #x3834)	; ø½Š˜
     (=ucs		. #x9E78)	; é¹¸
     ))

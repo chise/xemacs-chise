@@ -1166,7 +1166,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=jis-x0208-1978	. #x3A61)	; ø»‚¡®
-    (japanese-jisx0208	. #x3A61)	; ø»†µ¶
+    (=jis-x0208-1983	. #x3A61)	; ø»†µ¶
     (ideograph-daikanwa . 28293)	; ø¸†º…
     ))
 (define-char

@@ -103,7 +103,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=jis-x0208-1978	. #x3939)	; ø»‚Ÿ¨
-    (japanese-jisx0208	. #x3939)	; ø»†³°
+    (=jis-x0208-1983	. #x3939)	; ø»†³°
     (korean-ksc5601	. #x4C5A)	; ø»‰š
     (chinese-big5	. #xA7F3)	; ý¢€ŠŸ³
     (ideograph-daikanwa . 14283)	; ø¸ƒŸ‹

@@ -2411,7 +2411,7 @@
      (:char	((ideograph-daikanwa . 01587)	; ø¸€˜³
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))
-    (japanese-jisx0208	. #x5563)	; ø»‡¢
+    (=jis-x0208-1983	. #x5563)	; ø»‡¢
     (=jis-x0208-1990	. #x5563)	; ø½‹ƒ–
     (=gt-pj-1		. #x5563)	; ø»‡¢
     (ideograph-daikanwa . 07202)	; ø¸°¢

@@ -730,7 +730,7 @@
     (ideographic-radical . 91)	; â½š
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (japanese-jisx0208	. #x4757)	; ø»‡ˆ²
+    (=jis-x0208-1983	. #x4757)	; ø»‡ˆ²
     (=jis-x0208-1990	. #x4757)	; ø½Š®¦
     (=ucs@jis		. #x724C)	; ø»‡ˆ²
     ))

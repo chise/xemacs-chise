@@ -1239,7 +1239,7 @@
       (ideograph-daikanwa . 01415)	; ø¸€–‡
       )
      ((=jis-x0208-1978	  . #x475A)	; ø»‚´­
-      (japanese-jisx0208  . #x475A)	; ø»‡ˆµ
+      (=jis-x0208-1983	  . #x475A)	; ø»‡ˆµ
       (ideograph-daikanwa . 38398)	; ø¸‰—¾
       ))
     (ideograph-daikanwa . 01448)	; ø¸€–¨

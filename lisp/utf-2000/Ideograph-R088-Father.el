@@ -4,7 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=jis-x0208-1978	. #x4963)	; ø»‚·²
-    (japanese-jisx0208	. #x4963)	; ø»‡‹º
+    (=jis-x0208-1983	. #x4963)	; ø»‡‹º
     (korean-ksc5601	. #x5D2B)	; ø»‰²ž
     (chinese-big5	. #xA4F7)	; ý¢€Š“·
     (ideograph-daikanwa . 19721)	; ø¸„´‰

@@ -773,7 +773,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x2276)	; ø»†’»
+    (=jis-x0208-1983	. #x2276)	; ø»†’»
     (korean-ksc5601	. #x225C)	; ø»ˆœ¥
     (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
     (=ucs		. #x266A)	; â™ª
@@ -800,7 +800,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x2275)	; ø»†’º
+    (=jis-x0208-1983	. #x2275)	; ø»†’º
     (korean-ksc5601	. #x225A)	; ø»ˆœ£
     (=jis-x0208-1990	. #x2275)	; ø½‰¸®
     (=ucs		. #x266D)	; â™­
@@ -818,7 +818,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x2274)	; ø»†’¹
+    (=jis-x0208-1983	. #x2274)	; ø»†’¹
     (=jis-x0208-1990	. #x2274)	; ø½‰¸­
     (=ucs		. #x266F)	; â™¯
     ))

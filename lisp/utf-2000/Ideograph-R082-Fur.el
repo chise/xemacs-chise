@@ -2643,7 +2643,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=jis-x0208-1978	. #x5D61)	; ø»ƒ•ˆ
-    (japanese-jisx0208	. #x5D61)	; ø»‡©
+    (=jis-x0208-1983	. #x5D61)	; ø»‡©
     ))
 (define-char
   '((=>ucs		. #x6C0A)	; æ°Š

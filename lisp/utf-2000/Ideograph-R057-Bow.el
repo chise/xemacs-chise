@@ -939,7 +939,7 @@
     (shinjigen-1	. 2281)
     (shinjigen-2	. 2281)
     (=jis-x0208-1978	. #x5739)	; ø»ƒ‹¬
-    (japanese-jisx0208	. #x5739)	; ø»‡Ÿ´
+    (=jis-x0208-1983	. #x5739)	; ø»‡Ÿ´
     (ideograph-daikanwa . 09768)	; ø¸‚˜¨
     ))
 (define-char

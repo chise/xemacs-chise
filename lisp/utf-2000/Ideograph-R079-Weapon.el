@@ -734,7 +734,7 @@
     (total-strokes	 . 11)
     (shinjigen-1	. 3999)
     (=jis-x0208-1978	. #x334C)	; ø»‚—‡
-    (japanese-jisx0208	. #x334C)	; ø»†«
+    (=jis-x0208-1983	. #x334C)	; ø»†«
     ))
 (define-char
   '((morohashi-daikanwa	16646 0 5)

@@ -195,7 +195,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 21)
     (=jis-x0208-1978	. #x6C5A)	; ø»ƒ«ƒ
-    (japanese-jisx0208	. #x6C5A)	; ø»‡¿‹
+    (=jis-x0208-1983	. #x6C5A)	; ø»‡¿‹
     ))
 (define-char
   '((=>ucs		. #x9F4E)	; é½Ž

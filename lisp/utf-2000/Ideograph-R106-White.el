@@ -607,7 +607,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (chinese-gb2312	. #x7029)	; ø»…ºŽ
-    (japanese-jisx0208	. #x622B)	; ø»‡¯°
+    (=jis-x0208-1983	. #x622B)	; ø»‡¯°
     (=iso-ir165		. #x7029)	; ø»Ž¢ž
     (chinese-cns11643-1 . #x6077)	; ø»’ ”
     (=jis-x0208-1990	. #x622B)	; ø½‹•¤

@@ -2536,7 +2536,7 @@
     (total-strokes	 . 20)
     (shinjigen-2	. 9228)
     (=jis-x0208-1978	. #x7129)	; ø»ƒ±¨
-    (japanese-jisx0208	. #x7129)	; ø»ˆ…°
+    (=jis-x0208-1983	. #x7129)	; ø»ˆ…°
     (ideograph-daikanwa . 43945)	; ø¸Š®©
     ))
 (define-char

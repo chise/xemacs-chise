@@ -2153,7 +2153,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 739 16)
     (=jis-x0208-1978	. #x3522)	; ø»‚™™
-    (japanese-jisx0208	. #x3522)	; ø»†­¡
+    (=jis-x0208-1983	. #x3522)	; ø»†­¡
     (ideograph-daikanwa . 08930)	; ø¸‚‹¢
     (=hanziku-2		. #xEA5C)	; ý¢€®©œ
     (=ucs		. #x5E30)	; å¸°
@@ -4518,7 +4518,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((=jis-x0208-1978	  . #x5A49)	; ø»ƒ–
-      (japanese-jisx0208  . #x5A49)	; ø»‡¤ž
+      (=jis-x0208-1983	  . #x5A49)	; ø»‡¤ž
       (ideograph-daikanwa . 13245)	; ø¸ƒŽ½
       )
      ((=ucs		  . #x5DFE)	; å·¾
@@ -5478,8 +5478,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((japanese-jisx0208  . #x376A)	; ø»†±¥
-	(korean-ksc5601	    . #x7A6B)	; ø»Šž„
+       ((korean-ksc5601	    . #x7A6B)	; ø»Šž„
 	(ideograph-daikanwa . 25406)	; ø¸†Œ¾
 	)
        ((=ucs		    . #x767B)	; ç™»

@@ -513,7 +513,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=jis-x0208-1978	. #x3152)	; ø»‚”‘
-    (japanese-jisx0208	. #x3152)	; ø»†¨™
+    (=jis-x0208-1983	. #x3152)	; ø»†¨™
     (mojikyo		. 054025)	; ý €Œ‰
     ))
 (define-char

@@ -37,7 +37,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=jis-x0208-1978	. #x633C)	; ø»ƒ—
-    (japanese-jisx0208	. #x633C)	; ø»‡±Ÿ
+    (=jis-x0208-1983	. #x633C)	; ø»‡±Ÿ
     (chinese-cns11643-1 . #x526E)	; ø»’‹§
     (ideograph-daikanwa . 24886)	; ø¸†„¶
     ))

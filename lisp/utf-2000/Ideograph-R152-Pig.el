@@ -19,7 +19,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=jis-x0208-1978	. #x6C35)	; ø»ƒªž
-    (japanese-jisx0208	. #x6C35)	; ø»‡¾¦
+    (=jis-x0208-1983	. #x6C35)	; ø»‡¾¦
     (chinese-cns11643-1 . #x4B49)	; ø»’€°
     ))
 (define-char

@@ -188,7 +188,7 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 5239)
     (=jis-x0208-1978	. #x4B5F)	; ø»‚ºª
-    (japanese-jisx0208	. #x4B5F)	; ø»‡Ž²
+    (=jis-x0208-1983	. #x4B5F)	; ø»‡Ž²
     (korean-ksc5601	. #x5D4E)	; ø»‰³
     (ideograph-daikanwa . 22959)	; ø¸…¦¯
     (=jef-china3	. #x5BB5)	; øº…®µ

@@ -523,7 +523,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 25)
     (=jis-x0208-1978	. #x7368)	; ø»ƒµ£
-    (japanese-jisx0208	. #x7368)	; ø»ˆ‰«
+    (=jis-x0208-1983	. #x7368)	; ø»ˆ‰«
     (korean-ksc5601	. #x5C2F)	; ø»‰±„
     ))
 (define-char

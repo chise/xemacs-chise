@@ -371,7 +371,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x00C5)
-    (japanese-jisx0208	. #x2272)	; ø»†’·
+    (=jis-x0208-1983	. #x2272)	; ø»†’·
     (korean-ksc5601	. #x214A)	; ø»ˆšµ
     (=jis-x0208-1990	. #x2272)	; ø½‰¸«
     (=ucs		. #x212B)	; â„«
