@@ -2342,7 +2342,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (->same
-     ((=daikanwa	  . 48957)	; ø¸‹¼½
+     ((=cns11643-6	  . #x2641)	; ø»›¼¦
+      (=daikanwa	  . 48957)	; ø¸‹¼½
       ))
     (hanyu-dazidian	1 436 7)
     (=ucs		. #x2128F)	; ð¡Š

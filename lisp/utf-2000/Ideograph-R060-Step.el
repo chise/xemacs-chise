@@ -846,7 +846,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (->same
-     ((=daikanwa	  . 00522)	; ø¸€ˆŠ
+     ((=jis-x0212	  . #x3070)	; ø»Š»¡
+      (=jis-x0213-1-2000  . #x2E31)	; ø»¢¦’
+      (=daikanwa	  . 00522)	; ø¸€ˆŠ
       ))
     (->same*sources
      chuanpian daikanwa)

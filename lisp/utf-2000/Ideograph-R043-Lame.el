@@ -607,7 +607,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (->same
-     ((=daikanwa	  . 07583)	; ø¸¶Ÿ
+     ((=cns11643-6	  . #x366A)	; ø»œ”¯
+      (=daikanwa	  . 07583)	; ø¸¶Ÿ
       ))
     (->same*sources
      daikanwa)
