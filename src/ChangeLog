@@ -1,5 +1,15 @@
 2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (map_over_uint8_byte_table): New function.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Likewise.
+	(slow_map_char_id_table_fun): Likewise.
+	(Fmap_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new function `map-char-attribute'.
+
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Ffind_char): New function in XEmacs UTF-2000.
 	(syms_of_mule_charset): Add new function `find-char'.
 
