@@ -391,8 +391,8 @@ Marcus Thiessel <marcus_thiessel@hp.com>
 
 Marcus Thiessel <marcus_thiessel@hp.com>
 
-  Unfortunately, XEmacs releases <21.0 don't work with Motif2.1. It
-  will compile but you will get excessive X11 errors like
+  Unfortunately, XEmacs releases prior to 21.0 don't work with
+  Motif2.1. It will compile but you will get excessive X11 errors like
 
   xemacs: X Error of failed request:  BadGC (invalid GC parameter)
 
@@ -542,17 +542,23 @@ shell.
 *** You type Control-H (Backspace) expecting to delete characters.
 
 Emacs has traditionally used Control-H for help; unfortunately this
-interferes with its use as Backspace on TTY's.  One way to solve this
-problem is to put this in your .emacs:
+interferes with its use as Backspace on TTY's.  As of XEmacs 21,
+XEmacs looks at the "erase" setting of TTY structures and maps C-h to
+backspace when erase is set to C-h.  This is sort of a special hack,
+but it makes it possible for you to use the standard:
 
-  (when (eq tty-erase-char ?\C-h)
-    (keyboard-translate ?\C-h ?\C-?)
-    (global-set-key "\M-?" 'help-command))
+    stty erase ^H
 
-This checks whether the TTY erase char is C-h, and if it is, makes
-Control-H (Backspace) work sensibly, and moves help to Meta-? (ESC ?).
+to get your backspace key to erase characters.  The erase setting is
+recorded in the Lisp variable `tty-erase-char', which you can use to
+tune the settings in your .emacs.
 
-Note that you can probably also access help using F1.
+A major drawback of this is that when C-h becomes backspace, it no
+longer invokes help.  In that case, you need to use f1 for help, or
+bind another key.  An example of the latter is the following code,
+which moves help to Meta-? (ESC ?):
+
+    (global-set-key "\M-?" 'help-command)
 
 *** Mail agents (VM, Gnus, rmail) cannot get new mail
 

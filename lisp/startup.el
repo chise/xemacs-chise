@@ -104,18 +104,21 @@ the user's init file.")
 (defvar emacs-roots nil
   "List of plausible roots of the XEmacs hierarchy.")
 
-(defvar init-file-user nil
-  "Identity of user whose `.emacs' file is or was read.
-The value is nil if no init file is being used; otherwise, it may be either
-the null string, meaning that the init file was taken from the user that
-originally logged in, or it may be a string containing a user's name.
+(defvar user-init-directory-base ".xemacs"
+  "Base of directory where user-installed init files may go.")
 
-In either of the latter cases, `(concat \"~\" init-file-user \"/\")'
-evaluates to the name of the directory in which the `.emacs' file was
-searched for.
+(defvar user-init-file-base (cond
+			     ((eq system-type 'ms-dos) "_emacs")
+			     (t ".emacs"))
+  "Base of init file.")
 
-Setting `init-file-user' does not prevent Emacs from loading
-`site-start.el'.  The only way to do that is to use `--no-site-file'.")
+(defvar user-init-directory
+  (file-name-as-directory
+   (paths-construct-path (list "~" user-init-directory-base)))
+  "Directory where user-installed init files may go.")
+
+(defvar load-user-init-file-p t
+  "Non-nil if XEmacs should load the user's init file.")
 
 ;; #### called `site-run-file' in FSFmacs
 
@@ -226,7 +229,11 @@ In addition, the")
 			startup.  Also implies `-vanilla'.
   -vanilla		Equivalent to -q -no-site-file -no-early-packages.
   -q                    Same as -no-init-file.
+  -user-init-file <file> Use <file> as init file.
+  -user-init-directory <directory> use <directory> as init directory.
   -user <user>          Load user's init file instead of your own.
+                        Equivalent to -user-init-file ~<user>/.emacs
+                                      -user-init-directory ~<user>/.xemacs/
   -u <user>             Same as -user.\n")
    (let ((l command-switch-alist)
 	  (insert (lambda (&rest x)
@@ -396,6 +403,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (if (null emacs-roots)
 	  (startup-find-roots-warning)
 	(startup-setup-paths emacs-roots
+			     user-init-directory
 			     inhibit-early-packages
 			     inhibit-site-lisp
 			     debug-paths))
@@ -491,12 +499,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
   ;;	(standard-display-european t)
   ;;	(require 'iso-syntax)))
 
-  ;; Figure out which user's init file to load,
-  ;; either from the environment or from the options.
-  (setq init-file-user (if (noninteractive) nil (user-login-name)))
-  ;; If user has not done su, use current $HOME to find .emacs.
-  (and init-file-user (string= init-file-user (user-real-login-name))
-       (setq init-file-user ""))
+  (setq load-user-init-file-p (not (noninteractive)))
 
   ;; Allow (at least) these arguments anywhere in the command line
   (let ((new-args nil)
@@ -506,7 +509,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (cond
        ((or (string= arg "-q")
 	    (string= arg "-no-init-file"))
-	(setq init-file-user nil))
+	(setq load-user-init-file-p nil))
        ((string= arg "-no-site-file")
 	(setq site-start-file nil))
        ((or (string= arg "-no-early-packages")
@@ -517,11 +520,21 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	    ;; Some work on this one already done in emacs.c.
 	    (string= arg "-no-autoloads")
 	    (string= arg "--no-autoloads"))
-	(setq init-file-user nil
+	(setq load-user-init-file-p nil
 	      site-start-file nil))
+       ((string= arg "-user-init-file")
+	(setq user-init-file (pop args)))
+       ((string= arg "-user-init-directory")
+	(setq user-init-directory (file-name-as-directory (pop args))))
        ((or (string= arg "-u")
-	    (string= arg "-user"))
-	(setq init-file-user (pop args)))
+ 	    (string= arg "-user"))
+	(let* ((user (pop args))
+	       (home-user (concat "~" user)))
+	  (setq user-init-file
+		(paths-construct-path (list home-user user-init-file-base)))
+	  (setq user-init-directory
+		(file-name-as-directory
+		 (paths-construct-path (list home-user user-init-directory-base))))))
        ((string= arg "-debug-init")
 	(setq init-file-debug t))
        ((string= arg "-unmapped")
@@ -533,7 +546,9 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	(while args
 	  (push (pop args) new-args)))
        (t (push arg new-args))))
-    
+
+    (setq init-file-user (and load-user-init-file-p ""))
+
     (nreverse new-args)))
 
 (defconst initial-scratch-message "\
@@ -618,43 +633,18 @@ If this is nil, no message will be displayed.")
 	    (setq term (substring term 0 hyphend))
 	  (setq term nil))))))
 
-(defconst user-init-directory "/.xemacs/"
-  "Directory where user-installed packages may go.")
-(define-obsolete-variable-alias
-  'emacs-user-extension-dir
-  'user-init-directory)
-
-(defun load-user-init-file (init-file-user)
+(defun load-user-init-file ()
   "This function actually reads the init file, .emacs."
-  (when init-file-user
-;; purge references to init.el and options.el
-;; convert these to use paths-construct-path for eventual migration to init.el
-;; needs to be converted when idiom for constructing "~user" paths is created
-;    (setq user-init-file
-;	  (paths-construct-path (list (concat "~" init-file-user)
-;				      user-init-directory
-;				      "init.el")))
-;    (unless (file-exists-p (expand-file-name user-init-file))
-    (setq user-init-file
-	  (paths-construct-path (list (concat "~" init-file-user)
-				      (cond
-				       ((eq system-type 'ms-dos) "_emacs")
-				       (t ".emacs")))))
-;    )
-    (load user-init-file t t t)
-;; This should not be loaded since custom stuff currently goes into .emacs
-;    (let ((default-custom-file
-;	    (paths-construct-path (list (concat "~" init-file-user)
-;				        user-init-directory
-;				        "options.el")))
-;      (when (string= custom-file default-custom-file)
-;	(load default-custom-file t t)))
-    (unless inhibit-default-init
-      (let ((inhibit-startup-message nil))
-	;; Users are supposed to be told their rights.
-	;; (Plus how to get help and how to undo.)
-	;; Don't you dare turn this off for anyone except yourself.
-	(load "default" t t)))))
+  (if (not user-init-file)
+      (setq user-init-file
+	    (paths-construct-path (list "~" user-init-file-base))))
+  (load user-init-file t t t)
+  (unless inhibit-default-init
+    (let ((inhibit-startup-message nil))
+      ;; Users are supposed to be told their rights.
+      ;; (Plus how to get help and how to undo.)
+      ;; Don't you dare turn this off for anyone except yourself.
+      (load "default" t t))))
 
 ;;; Load user's init file and default ones.
 (defun load-init-file ()
@@ -675,12 +665,13 @@ If this is nil, no message will be displayed.")
 	(debug-on-error-initial
 	 (if (eq init-file-debug t) 'startup init-file-debug)))
     (let ((debug-on-error debug-on-error-initial))
-      (if init-file-debug
+      (if (and load-user-init-file-p init-file-debug)
 	  ;; Do this without a condition-case if the user wants to debug.
-	  (load-user-init-file init-file-user)
+	  (load-user-init-file)
 	(condition-case error
 	    (progn
-	      (load-user-init-file init-file-user)
+	      (if load-user-init-file-p
+		  (load-user-init-file))
 	      (setq init-file-had-error nil))
           (error
 	   (message "Error in init file: %s" (error-message-string error))
@@ -1075,7 +1066,8 @@ Copyright (C) 1995-1996 Ben Wing\n"))
 	;; don't let /tmp_mnt/... get into the load-path or exec-path.
 	(abbreviate-file-name invocation-directory)))
 
-(defun startup-setup-paths (roots &optional
+(defun startup-setup-paths (roots user-init-directory
+				  &optional
 				  inhibit-early-packages inhibit-site-lisp
 				  debug-paths)
   "Setup all the various paths.
@@ -1090,7 +1082,9 @@ It's idempotent, so call this as often as you like!"
 				       early))
 	     (setq late-packages late)
 	     (setq last-packages last))
-	 (packages-find-packages roots))
+	 (packages-find-packages
+	  roots
+	  (packages-compute-package-locations user-init-directory)))
 
   (setq early-package-load-path (packages-find-package-load-path early-packages))
   (setq late-package-load-path (packages-find-package-load-path late-packages))

@@ -2656,20 +2656,23 @@ indicating whether soft newlines should be inserted.")
 		  (if (save-excursion
 			(skip-chars-backward " \t")
 			(= (point) fill-point))
+		      ;; 1999-09-17 hniksic: turn off Kinsoku until
+		      ;; it's debugged.
+		      (indent-new-comment-line)
 		      ;; 97/3/14 jhod: Kinsoku processing
-		      ;(indent-new-comment-line)
-		      (let ((spacep (memq (char-before (point)) '(?\  ?\t))))
-			(funcall comment-line-break-function)
-			;; if user type space explicitly, leave SPC
-			;; even if there is no WAN.
-			(if spacep
-			    (save-excursion
-			      (goto-char fill-point)
-			      ;; put SPC except that there is SPC
-			      ;; already or there is sentence end.
-			      (or (memq (char-after (point)) '(?\  ?\t))
-				  (fill-end-of-sentence-p)
-				  (insert ?\ )))))
+;		      ;(indent-new-comment-line)
+;		      (let ((spacep (memq (char-before (point)) '(?\  ?\t))))
+;			(funcall comment-line-break-function)
+;			;; if user type space explicitly, leave SPC
+;			;; even if there is no WAN.
+;			(if spacep
+;			    (save-excursion
+;			      (goto-char fill-point)
+;			      ;; put SPC except that there is SPC
+;			      ;; already or there is sentence end.
+;			      (or (memq (char-after (point)) '(?\  ?\t))
+;				  (fill-end-of-sentence-p)
+;				  (insert ?\ )))))
 		    (save-excursion
 		      (goto-char fill-point)
 		      (funcall comment-line-break-function)))

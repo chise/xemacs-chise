@@ -1,3 +1,44 @@
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-11-04  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuserv.c (handle_response): Warning suppression
+
+1999-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* ellcc.c:
+	ANSIfy.
+	Remove MSDOS cruft.
+	Remove WINDOWS cruft.
+	Remove VMS cruft.
+	(main): The wrong number of bytes were being read during argument
+	processing.
+	Delete ANSI imitations like ellcc_strchr().
+	Call functions with the right number of arguments.
+	Fix a typo.
+	Make functions static.
+	Remove compiler warnings.
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* cvtmail.c (main): ANSIfy
+	* digest-doc.c (main): ANSIfy
+	* hexl.c (main): ANSIfy
+
+	* make-path.c: Remove declaration for errno.
+	* mmencode.c (nextcharin): ANSIfy
+	* movemail.c (pop_retr): ANSIfy
+
+1999-07-30  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* pop.c (pop_quit): use CLOSESOCKET() instead of close()
+
+	* run.c (build_cmdline): Fix NT native build unreferenced variable
+ 	warning
+	(WinMain): Fix release mode build unreferenced variable warning
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released

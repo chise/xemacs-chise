@@ -1275,7 +1275,7 @@ When checking `inhibit-first-line-modes-regexps', we first discard
 from the end of the file name anything that matches one of these regexps.")
 
 (defvar user-init-file
-  "" ; set by command-line
+  nil ; set by command-line
   "File name including directory of user's initialization file.")
 
 (defun set-auto-mode (&optional just-from-file-name)
@@ -2756,11 +2756,12 @@ non-nil, it is called instead of rereading visited file contents."
 		 (not (file-exists-p file-name)))
 	       (error "Auto-save file %s not current" file-name))
 	      ((save-window-excursion
-		 (with-output-to-temp-buffer "*Directory*"
-		   (buffer-disable-undo standard-output)
-		   (call-process "ls" nil standard-output nil
-				 (if (file-symlink-p file) "-lL" "-l")
-				 file file-name))
+		 (if (not (eq system-type 'windows-nt))
+		     (with-output-to-temp-buffer "*Directory*"
+		       (buffer-disable-undo standard-output)
+		       (call-process "ls" nil standard-output nil
+				     (if (file-symlink-p file) "-lL" "-l")
+				     file file-name)))
 		 (yes-or-no-p (format "Recover auto save file %s? " file-name)))
 	       (switch-to-buffer (find-file-noselect file t))
 	       (let ((buffer-read-only nil))

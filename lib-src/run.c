@@ -65,9 +65,13 @@ WinMain (HINSTANCE hSelf, HINSTANCE hPrev, LPSTR cmdline, int nShow)
    char execpath[MAX_PATH];
    char* argv[MAX_ARGS+1]; /* leave extra slot for compact_invocation argv[0] */
    int argc;
-   int i,j;
+   int i;
    char exec[MAX_PATH + FILENAME_MAX + 100];
    char cmdline2[MAX_ARGS * MAX_PATH];
+
+#ifdef Debug
+   int j;
+#endif
 
    compact_invocation = get_exec_name_and_path(execname,execpath);
 
@@ -157,7 +161,9 @@ void xemacs_special(char* exec)
    char* p;
    char* p2;
    char exec2[MAX_PATH + FILENAME_MAX + 100];
+#if defined(__CYGWIN__)
    char tmp[MAX_PATH + FILENAME_MAX + 100];
+#endif
    strcpy(exec2,exec);
    /* this depends on short-circuit evaluation */
    if ( ((p = strrchr(exec2,'\\')) && stricmp(p,"\\xemacs") == 0) ||

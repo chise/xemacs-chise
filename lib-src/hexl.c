@@ -29,9 +29,7 @@ char *progname;
 void usage (void);
 
 int
-main(argc, argv)
-     int argc;
-     char *argv[];
+main (int argc, char *argv[])
 {
   register long address;
   char string[18];

@@ -459,6 +459,7 @@ heading."
 ;; Is this right for NT?  .zip, with -c for to stdout, right?
 (defvar Info-suffix-list '( ("" . nil) 
 			    (".info" . nil)
+			    (".info.bz2" . "bzip2 -dc %s")
 			    (".info.gz" . "gzip -dc %s")
 			    (".info-z" . "gzip -dc %s")
 			    (".info.Z" . "uncompress -c %s")
@@ -501,9 +502,12 @@ Marker points nowhere if file has no tag table.")
   "List of possible matches for last Info-index command.")
 (defvar Info-index-first-alternative nil)
 
-(defcustom Info-annotations-path '("~/.xemacs/info.notes"
-                                   "~/.infonotes"
-				   "/usr/lib/info.notes")
+(defcustom Info-annotations-path
+  (list
+   (paths-construct-path (list user-init-directory "info.notes"))
+   (paths-construct-path '("~" ".infonotes"))
+   (paths-construct-path '("usr" "lib" "info.notes")
+			 (char-to-string directory-sep-char)))
   "*Names of files that contain annotations for different Info nodes.
 By convention, the first one should reside in your personal directory.
 The last should be a world-writable \"public\" annotations file."
@@ -2060,11 +2064,9 @@ A positive or negative prefix argument moves by multiple screenfuls."
 	  (progn
 	    (Info-global-prev)
 	    (message "Node: %s" Info-current-node)
-	    (sit-for 0)
-	    ;;(scroll-up 1)   ; work around bug in pos-visible-in-window-p
-	    ;;(scroll-down 1)
-	    (while (not (pos-visible-in-window-p (point-max)))
-	      (scroll-up)))
+	    (goto-char (point-max))
+	    (recenter -1)
+	    (move-to-window-line 0))
 	(scroll-down)))))
 
 (defun Info-scroll-prev (arg)

@@ -19,6 +19,571 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-11-06  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* setup-paths.el (paths-default-info-directories): Add
+	/usr/share/info and /usr/local/share/info.
+
+1999-10-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* about.el: Updated Vladimir Ivanovic's info.
+
+11999-08-28  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* auto-show.el (auto-show-truncationp): Remove.
+
+	* auto-show.el (auto-show-should-take-action-p): Use window-truncated-p
+
+999-09-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* indent.el (indent-line-to): fix bug: spaces were not replaced
+	with tab if column is multiple of tab-width
+	From dhn@qedinc.com
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* mule/mule-cmds.el (read-input-method-name): Accept symbols
+	correctly. Patch from Mikio Nakajima <minakaji@osaka.email.ne.jp>
+
+	* package-get.el (package-get-package-provider): Be verbose when
+	interactive. Patch from Robert Pluim
+
+1999-08-23  Mike McEwan  <mike@lotusland.demon.co.uk>
+
+	* info.el (Info-suffix-list): Add ".info.bz2" to the recognised
+	info file suffixes.
+
+1999-08-19  Stephen Tse  <stephent@sfu.ca>
+
+	* process.el (open-network-stream): Add a new optional parameter
+ 	PROTOCOL to support udp; fix a minor typo and add an explanation
+ 	in docstring for udp programming.
+
+	* code-process.el (open-network-stream): Add a new optional
+ 	parameter PROTOCOL to support udp; fix a minor typo and add an
+ 	explanation in docstring for udp programming.
+
+1999-10-18  Andy Piper  <andy@xemacs.org>
+
+	* gui.el (make-gui-button): be more precise about how we call
+ 	callbacks.
+
+	* wid-edit.el (widget-push-button-value-create): Use the new form
+ 	of native gui-button.
+
+1999-10-14  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* info.el (Info-page-prev): Don't do (sit-for 0).
+
+1999-10-13  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (progress-abort-glyph): new glyph for showing
+ 	abort status.
+	(append-progress): dispatch-event rather than sit-for.
+	(abort-progress): new function. Show the abort glyph with an
+ 	appropriate message.
+	(raw-append-progress): dispatch-event rather than sit-for.
+	(display-progress): cope with aborts.
+
+	* gui.el (make-gui-button): Use native widgets for buttons
+ 	unconditionally.
+	(insert-gui-button): ditto.
+	(gui-button-p): ditto.
+
+	* xbm-button.el: remove from core.
+
+	* xpm-button.el: remove from core.
+
+1999-10-07  Olivier Galibert  <galibert@pobox.com>
+
+	* faces.el (init-device-faces): Don't initialize the random faces
+ 	on the stream device.
+
+1999-10-06  Andy Piper  <andy@xemacs.org>
+
+	* files.el (recover-file): Don't use ls under windows for revert buffer. 
+
+1999-09-25  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* package-get.el (package-get-download-menu): Make menu really
+ 	toggle download sites.
+	(package-get-download-sites): Add autoload cookie.
+
+1999-09-29  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* setup-paths.el (paths-find-module-directory): Ditto.
+
+1999-09-29  Werner Fink  <werner@suse.de>
+
+	* setup-paths.el (paths-find-exec-directory): Add missing nil
+	parameter for environment.
+
+1999-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* modeline.el (modeline-format): 
+	Only purecopy the strings.  Else 
+	(nsublis '(("%p" . "%P")) (default-value 'modeline-format) :test 'equal)
+	barfs.
+
+1999-08-28  Mike Woolley  <mike@bulsara.com>
+
+	* winnt.el: Removed nt-shell-mode-hook, which was preventing the
+ 	user setting comint-completion-addsuffix and
+ 	comint-process-echoes.
+
+1999-09-22  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): use
+ 	last-nonminibuf-window instead of selected-window.
+
+1999-09-18  Andy Piper  <andy@xemacs.org>
+
+	* gnuserv.el (gnuserv-edit-files): select frame we are going to
+ 	display on.
+
+	* subr.el (record-buffer-hook): new variable so that the hook gets
+ 	some documentation.
+
+1999-09-16  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): only update when the
+ 	gutter is visible.
+	(remove-buffer-from-gutter-tab): ditto.
+
+1999-09-17  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* simple.el (do-auto-fill): Commented out part of Kinsoku
+	processing.
+
+1999-09-14  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-highlightify-region): Give the
+ 	highlighting extents a high priority.
+	(isearch-make-extent): Give the main highlighting extent an even
+	higher priority.
+
+1999-09-13  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* packages.el (packages-compute-package-locations): Fix typo from
+	-u rationalization.
+
+1999-09-11  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* setup-paths.el (paths-find-doc-directory): Respect value of
+	`configure-doc-directory.'
+
+	* find-paths.el (paths-find-architecture-directory): Give
+ 	precendence `default' argument (which typically comes from
+ 	configure).
+
+1999-09-05  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* startup.el (command-line-early): Added options -user-init-file
+	and -user-init-directory.
+
+	* files.el (user-init-file): Default to NIL so we can recognize
+	when it's set.
+
+1999-08-30  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* obsolete.el (init-file-user): 
+	* startup.el: 
+	* packages.el (packages-compute-package-locations): 
+	* package-get.el (package-get-user-index-filename): 
+	* menubar-items.el (maybe-add-init-button): 
+	* info.el (Info-annotations-path): 
+	* dump-paths.el: 
+	Change `user-init-directory' to be an absolute path.
+	Use `user-init-directory' where appropriate.
+	Zap `init-file-user' and its uses.
+
+1999-09-09  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (copy-symbol): New function.
+
+1999-09-08  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-done): Be sure to restore invisible
+ 	extents in the proper buffer.
+	(isearch-pre-command-hook): Set this-command to the correct value
+ 	in case the buffer has changed and old overriding-local-map was
+ 	used.
+	(isearch-restore-extent): Use remprop instead of setting the
+	property to nil.
+
+1999-09-08  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* cmdloop.el (execute-extended-command): Update zmacs region
+ 	before the delay.
+	(execute-extended-command): Make the message gettext-friendly.
+
+1999-09-07  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (progress-gauge-glyph): renamed from
+ 	progress-glyph.
+	(progress-text-glyph): new variable.
+	(progress-layout-glyph): use layouts and text glyphs.
+	(progress-area-buffer): removed.
+	(progress-text-and-extent): new variable.
+	(progress-displayed-p): dynamically create gutter area buffer.
+	(clear-progress): ditto.
+	(raw-append-progress): ditto.
+	(append-progress): use new glyph names.
+	(raw-append-progress): only create the extent when needed. set
+ 	properties more optimally.
+	(progress): remove args.
+
+1999-09-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-range-invisible): Use mapc instead of
+ 	mapcar where the return value is unused.
+	(isearch-restore-invisible-extents): Ditto.
+	(isearch-highlight-all-cleanup): Ditto.
+	(isearch-delete-extents-in-range): Traverse the extents only once.
+	(isearch-highlight-all-update): Don't start over if the search
+	string has changed and more input is pending.
+
+1999-09-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* packages.el (packages-find-package-data-path): Ditto.
+
+	* cl.el: Use mapcar at top-level -- mapc is no longer a subr.
+
+	* subr.el (mapc-internal): Don't make obsolete.
+
+	* cl-extra.el (mapc): Resurrect.
+
+1999-09-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* obsolete.el (isearch-yank-x-clipboard): Define it as an obsolete 
+	alias.
+
+	* isearch-mode.el (isearch-top-state): Restore isearch-word.
+	(isearch-yank-clipboard): Renamed from isearch-yank-x-clipboard.
+	(isearch-yank-clipboard): Use get-clipboard instead of
+ 	x-get-clipboard.
+	(isearch-yank-selection): Fix docstring.
+
+1999-09-02  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-extra.el: Obsolete hash-table-type in favor of hash-table-weakness.
+
+1999-09-02  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* cl-macs.el (extent-start-position): Fix setf method.
+	(extent-end-position): Ditto.
+
+1999-09-02  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el: End merge with FSF 20.4.
+
+	* isearch-mode.el (search-invisible): New variable.
+	(isearch-hide-immediately): Ditto.
+	(isearch-unhidden-extents): Ditto.
+	(isearch-range-invisible): New function.
+	(isearch-unhide-extent): Ditto.
+	(isearch-restore-invisible-extents): Ditto.
+	(isearch-restore-extent): Ditto.
+
+	* isearch-mode.el (isearch-ring-advance-edit): Use FSF
+ 	implementation.
+	(isearch-ring-retreat-edit): Ditto.
+	(isearch-forward): New argument NO-RECURSIVE-EDIT.
+	(isearch-forward-regexp): New arguments NOT-REGEXP and
+ 	NO-RECURSIVE-EDIT.
+	(isearch-backward): New argument NO-RECURSIVE-EDIT.
+	(isearch-backward-regexp): New arguments NOT-REGEXP and
+ 	NO-RECURSIVE-EDIT.
+	(isearch-mode): Return isearch-success.
+	(isearch-update): Use unread-command-events instead of
+ 	unread-command-event.
+	(isearch-abort): If an invalid regexp is encountered, keep popping
+ 	states.
+	(isearch-*-char): Use FSF implementation.
+	(isearch-whitespace-chars): Use the more robust FSF's
+ 	implementation.
+	(isearch-within-brackets): New variable.
+	(isearch-mode): Initialize it.
+	(isearch-edit-string): Bind it.
+	(isearch-search-and-update): Set it.
+	(isearch-push-state): Push it.
+	(isearch-top-state): Pop it.
+	(isearch-search): Set it.
+	(isearch-printing-char): When called by isearch-whitespace-chars,
+	handle M-SPC gracefully.
+	(isearch-message-prefix): New argument ELLIPSIS.
+	(isearch-message-suffix): Ditto.
+	(isearch-message): Use the ELLIPSIS argument when calling
+	isearch-message-prefix and isearch-message-suffix.
+	(isearch-message-prefix): Distinguish between "wrapped" and
+	"overwrapped" search, FWIW.
+
+1999-09-01  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-edit-string): Use the head of the
+ 	search ring instead of search-last-string and search-last-regexp.
+	(search-highlight): Renamed from isearch-highlight.
+	(isearch-exit): Use the new name.
+	(isearch-highlight): Ditto.
+	(isearch-dehighlight): Ditto.
+	(isearch-update-ring): New function.
+	(isearch-done): Call it.
+	(isearch-done): New argument EDIT.
+	(isearch-repeat): If search string is empty, look up at the car of 
+	the search ring; ignore the yank pointer.
+	(isearch-abort): Call isearch-done with NOPUSH.
+	(isearch-cancel): New function.
+	(isearch-mode-map): Bind it to ESC ESC ESC.
+
+	* isearch-mode.el: Begin merge with FSF 20.4.
+
+1999-09-01  Andy Piper  <andy@xemacs.org>
+
+	* x-select.el (x-get-clipboard): obsolete.
+	(x-yank-clipboard-selection): obsolete
+
+	* select.el (disown-selection): need to be careful to disown the
+ 	clipboard if we set it via selection.
+	(get-clipboard): move from x-select.el
+	(yank-clipboard-selection): ditto.
+
+1999-09-01  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-exit): Bind isearch-highlight and
+	isearch-highlight-all-matches to nil.
+	(isearch-fixed-case): New variable.
+	(isearch-mode): Initialize it.
+	(isearch-edit-string): Save it.
+	(isearch-toggle-case-fold): Set it.
+	(isearch-fix-case): Make sure isearch-toggle-case-fold works --
+	need to check isearch-fixed-case.
+	(isearch-toggle-case-fold): Update highlighting of all matches
+	before the pause.
+	(isearch-edit-string): 
+
+1999-09-01  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-edit-string): Call isearch-message
+ 	before reading the event so that the prompt is displayed properly.
+	(isearch-message): Use isearch-nonincremental when calling
+ 	isearch-message-prefix.
+	(minibuffer-local-isearch-map): Bind up and down to do the same as
+ 	M-p and M-n respectively.
+	(isearch-done): New arg NOPUSH.
+	(isearch-edit-string): Use it.
+	(isearch-edit-string): Don't bind isearch-string.
+	(isearch-ring-adjust): Edit string, *then* push state.
+
+1999-08-31  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* faces.el (isearch-secondary): Make isearch-secondary look
+ 	different than default.
+
+1999-08-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-yank): Use progn instead of the inner
+ 	save-excursion.
+	(isearch-dehighlight): Remove TOTALLY.  Simplify.
+	(isearch-update): Call isearch-dehighlight without arguments.
+	(isearch-done): Ditto.
+
+	* isearch-mode.el (isearch-fix-case): If the search string has no
+ 	upper-case letters, allow the folding to be reenabled.
+  	Previously, once disabled, the folding would remain that way until
+ 	the end of isearch.
+	(isearch-top-state): Call isearch-fix-case.
+
+	* isearch-mode.el (isearch-yank): Use progn instead of the inner
+ 	save-excursion.
+	(isearch-dehighlight): Remove TOTALLY.  Simplify.
+
+1999-08-31  Jan Vroonhof  <jan@xemacs.org>
+
+	* xpm-button.el:
+	xbm-button.el: Need to exist in core because gui.el depends on
+ 	them.
+
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (buffers-tab-face): new customizable variable.
+	(buffers-tab-default-buffer-line-length): new specifier for
+ 	maximum viewable characters.
+	(progress-stack): new variable for implementing widget-based
+ 	progress messages.
+	(progress-area-buffer): ditto.
+	(progress-glyph-height): ditto.
+	(progress-stop-callback): ditto.
+	(progress-quit-function): new function.
+	(progress-glyph): new variable.
+	(progress-layout-glyph): ditto.
+	(progress-displayed-p): new function, see message-displayed-p for
+ 	details.
+	(clear-progress): ditto.
+	(remove-progress): ditto.
+	(append-progress): ditto.
+	(raw-append-progress): ditto.
+	(display-progress): ditto.
+	(current-progress): ditto.
+	(current-progress-label): ditto.
+	(progress): ditto.
+	(lprogress): ditto.
+
+
+1999-08-29  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* obsolete.el (isearch-yank-x-selection): Define obsolete alias.
+
+	* isearch-mode.el (isearch-yank-x-selection): Renamed to
+ 	`isearch-yank-selection'.
+	(isearch-mode-map): Use it.
+	(isearch-yank-selection): Use `get-selection' instead of
+ 	`get-x-selection'.
+
+1999-08-29  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* faces.el (isearch-secondary): Create face here.
+
+	* isearch-mode.el: Rewrote the "lazy highlighting" code not to use 
+	timers.
+
+1999-08-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (buffer-string): More robust backward compatibility
+	check, courtesy William Perry.
+
+1999-08-26  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* replace.el (perform-replace): Stop the search after the search
+	limit has been reached.
+
+1999-08-23  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): call add-tab-to-gutter
+ 	here if we don't have one.
+
+1999-08-15  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el (ldap-coding-system): Default to nil until we get
+	efficient UTF8 support
+	(ldap-decode-string): Guard against `decode-coding-string' not
+	being defined
+	(ldap-encode-string): Guard against `encode-coding-string' not
+	being defined
+
+1999-08-23  Didier Verna  <verna@inf.enst.fr>
+
+	* rect.el: Cosmetics suggested by Dave Love <d.love@dl.ac.uk>.
+	Some doc strings improvements, and add a star to the `interactive'
+	calls.
+
+1999-08-18  Stef Epardaud  <stef@lunatech.com>
+
+	* font-lock.el (java-font-lock-keywords-3): introduced new
+	keywords and regexpes for javadoc syntax 1.2.
+
+1999-08-17  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (buffers-tab-format-buffer-line-function): use
+ 	format-buffers-tab-line.
+	(buffers-tab-max-buffer-line-length): new variable.
+	(format-buffers-tab-line): new function. truncate names if over
+ 	buffers-tab-max-buffer-line-length.
+
+1999-08-13  Charles G Waldman  <cgw@fnal.gov>
+
+	* cus-start.el: Customize the variable `bell-inhibit-time'.
+
+1999-08-16  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (remove-buffer-from-gutter-tab): take a
+ 	brute-force approach to deleting the last buffer.
+	(buffers-tab-grouping-regexp): new customizable variable.
+	(select-buffers-tab-buffers-by-mode): use it.
+
+1999-08-13  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (remove-buffer-from-gutter-tab): fix *scratch*
+ 	deletion problem.
+
+1999-07-30  Didier Verna  <verna@inf.enst.fr>
+
+	* cus-edit.el (custom-save-variables): I said, use prin1 instead
+	of princ to output symbols.
+	(custom-save-face-internal): ditto.
+	(custom-save-resets): ditto.
+
+1999-08-09  Didier Verna  <verna@inf.enst.fr>
+
+	* gutter-items.el (select-buffers-tab-buffers-by-mode): use
+	`regexp-quote' to protect the major mode name for use as a regular
+	expression (c++ needs this for instance).
+
+1999-08-08  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (select-buffers-tab-buffers-by-mode): beef up to
+ 	cope with similar mode names.
+
+	* gutter-items.el (buffers-tab-selection-function): new selection
+ 	function.
+	(select-buffers-tab-buffers-by-mode): new function.
+	(buffers-tab-items): use it if set to only display buffers in the
+ 	tab in the current buffer's group..
+	(update-tab-in-gutter): use new api.
+	(remove-buffer-from-gutter-tab): ditto.
+
+	* gutter-items.el (buffers-tab-max-size): set custom selection
+ 	default to 6.
+	(buffers-tab-switch-to-buffer): just switch window if the window is visible.
+	(add-tab-to-gutter): set face as default.
+
+1999-07-07  Jan Vroonhof  <jan@xemacs.org>
+
+	* faces.el (frob-face-property): Merge the fall-back specifier
+	with the target, not replace it.
+
+1999-08-05  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): add frame argument for
+ 	buffer-items.
+	(update-tab-in-gutter): use it.
+
+	* gutter-items.el (record-buffer-hook): set.
+
+	* buffer.el (switch-to-buffer): back out switch-to-buffer-hook
+ 	change.
+	(switch-to-buffer-hook) deleted.
+
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): make sure this will work
+ 	as an argument to create-frame-hook.
+
+1999-07-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el: Modified Bob and Darryl's code to use itimers
+	instead of timer emulation.
+
+1999-07-30  Darryl Okahata  <darrylo@sonic.net>
+
+	* isearch-mode.el: Merged Bob Glickstein's <bobg@zanshin.com> GNU
+ 	Emacs isearch enhancements.
+
+1999-07-28  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (add-tab-to-gutter): put in specifier specs for
+ 	all devices that support tab controls.
+	(remove-buffer-from-gutter-tab): new function. to be used as a
+ 	value for kill-buffer-hook.
+
+1999-07-21  Sean MacLennan  <seanm@storm.ca>
+
+	* auto-show.el (auto-show-truncationp): changed to match
+	`window_translation_on'
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released
@@ -48,8 +613,8 @@
 
 1999-07-23  Jan Vroonhof  <jan@xemacs.org>
 
-	* custom.el: 
-	* cus-face.el: 
+	* custom.el:
+	* cus-face.el:
 	* cus-edit.el:
 		Massive custom Theme API changes.
 
@@ -81,7 +646,7 @@
 
 1999-06-25  Karl M. Hegbloom  <karlheg@debian.org>
 
-	* files.el (interpreter-mode-alist): add `make', `guile', and 
+	* files.el (interpreter-mode-alist): add `make', `guile', and
 	`emacs' entries. (#!/usr/bin/make -f ought to send a file into
 	makefile-mode, guile is a scheme, and someday XEmacs will be
 	modular enough to use as an efficient scripting tool.)
@@ -265,7 +830,7 @@
 	* mule/mule-cmds.el (set-language-info): Don't set up menus at
 	all.
 	(set-language-info-alist): Set up menus here.
-	
+
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* minibuf.el (completing-read): Add new optional argument

@@ -32,9 +32,6 @@
 
 ;;; Code:
 
-(defvar switch-to-buffer-hooks nil
-  "Hooks to run after a recorded buffer switch.")
-
 (defun switch-to-buffer (bufname &optional norecord)
   "Select buffer BUFNAME in the current window.
 BUFNAME may be a buffer or a buffer name and is created if it did not exist.
@@ -68,8 +65,6 @@ the window-buffer correspondences."
 			   (next-window (minibuffer-window))
 			 (selected-window))
 		       buf)
-    ;; XEmacs change
-    (or norecord (run-hook-with-args 'switch-to-buffer-hooks buf))
     buf))
 
 (defun pop-to-buffer (bufname &optional not-this-window-p on-frame)

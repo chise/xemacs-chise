@@ -92,17 +92,6 @@ visible.  Setting this to 0 disables this feature."
   :type 'number
   :group 'auto-show)
 
-(defun auto-show-truncationp ()
-  "True if line truncation is enabled for the selected window."
-  ;; XEmacs change (use specifiers)
-  ;; ### There should be a more straightforward way to do this from elisp.
-  (or truncate-lines 
-      (and truncate-partial-width-windows
-	   (< (+ (window-width)
-		 (specifier-instance left-margin-width)
-		 (specifier-instance right-margin-width))
-	      (frame-width)))))
-
 (defun auto-show-mode (arg)
   "Turn automatic horizontal scroll mode on or off.
 With arg, turn auto scrolling on if arg is positive, off otherwise.
@@ -128,7 +117,7 @@ This normally includes the horizontal scrollbar commands.")
 
 ;; XEmacs addition:
 (defun auto-show-should-take-action-p ()
-  (and auto-show-mode (auto-show-truncationp)
+  (and auto-show-mode (window-truncated-p)
        (equal (window-buffer) (current-buffer))
        (not (memq this-command auto-show-inhibiting-commands))))
 

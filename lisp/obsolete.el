@@ -171,6 +171,10 @@ If you want to change the locations where XEmacs looks for info files,
 set Info-directory-list.")
 (make-obsolete-variable 'Info-default-directory-list 'Info-directory-list)
 
+(defvar init-file-user nil
+  "This used to be the name of the user whose init file was read at startup.")
+(make-obsolete-variable 'init-file-user 'load-user-init-file-p)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; hooks
 
 (make-compatible-variable 'lisp-indent-hook 'lisp-indent-function)
@@ -241,6 +245,11 @@ set Info-directory-list.")
 (make-compatible 'eval-current-buffer 'eval-buffer)
 (define-compatible-function-alias 'byte-code-function-p
   'compiled-function-p) ;FSFmacs
+
+(define-obsolete-function-alias 'isearch-yank-x-selection
+  'isearch-yank-selection)
+(define-obsolete-function-alias 'isearch-yank-x-clipboard
+  'isearch-yank-clipboard)
 
 ;; too bad there's not a way to check for aref, assq, and nconc
 ;; being called on the values of functions known to return keymaps,

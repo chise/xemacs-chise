@@ -990,7 +990,7 @@
 Adds `Load .emacs' button to menubar when starting up with -q."
   ;; by Stig@hackvan.com
   (cond
-   (init-file-user nil)
+   (load-user-init-file-p nil)
    ((file-exists-p (expand-file-name ".emacs" "~"))
     (add-menu-button nil
 		     ["Load .emacs"

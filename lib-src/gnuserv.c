@@ -323,7 +323,7 @@ handle_response (void)
   char buf[GSERV_BUFSZ+1];
   int offset=0;
   int s;
-  int len;
+  int len = 0;
   int result_len;
 
   /* read in "n/m:" (n=client fd, m=message length) */

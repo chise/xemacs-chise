@@ -388,6 +388,7 @@ with_toolbars=""
 with_tty=""
 use_union_type="no"
 with_dnet=""
+pdump="no"
 
 dnl ------------------
 dnl Options Processing
@@ -516,6 +517,7 @@ while test $# != 0; do
 	const_is_losing | \
 	usage_tracking	| \
 	use_union_type	| \
+	pdump		| \
 	debug		| \
 	use_assertions	| \
 	memory_usage_stats | \
@@ -759,6 +761,8 @@ while test $# != 0; do
 	;;
 
 	dnl Obsolete legacy argument?  Warn, but otherwise ignore.
+	"use_minimal_tagbits" | \
+	"use_indexed_lrecord_implementation" | \
 	"run_in_place"	| \
 	"with_gnu_make" )
 	  AC_MSG_WARN([Obsolete option \`--$optname' ignored.])
@@ -1030,6 +1034,7 @@ case "$canonical" in
   vax-*-*          ) machine=vax ;;
   mips-dec-*       ) machine=pmax ;;
   mips-sgi-*       ) machine=iris4d ;;
+  mips*-linux      ) machine=mips ;;
   romp-ibm-*       ) machine=ibmrt ;;
   rs6000-ibm-aix*  ) machine=ibmrs6000 ;;
   powerpc-ibm-aix* ) machine=ibmrs6000 ;;
@@ -2860,6 +2865,9 @@ if test "$with_x11" = "yes"; then
       dnl XE_APPEND(pkg-src/tree-x, INSTALL_ARCH_DEP_SUBDIR)])
   dnl fi
 
+  dnl Autodetect -lXaw3d
+  AC_CHECK_LIB(Xaw3d, XawScrollbarSetThumb, have_xaw3d=yes, have_xaw3d=no)
+
   dnl autodetect Motif - but only add to libs_x later (if necessary)
   AC_CHECK_HEADER(Xm/Xm.h,
    [AC_CHECK_LIB(Xm, XmStringFree, have_motif=yes, have_motif=no)],
@@ -2888,6 +2896,7 @@ case "$with_menubars" in "" | "yes" | "athena" | "athena3d" )
 esac
 case "$with_dialogs" in "" | "yes" | "lucid" )
   if   test "$have_motif" = "yes"; then with_dialogs="motif"
+  elif test "$have_xaw3d" = "yes"; then with_dialogs="athena3d"
   elif test "$have_xaw"   = "yes"; then with_dialogs="athena"
   else with_dialogs=no
   fi ;;
@@ -2895,15 +2904,27 @@ esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
-case "$with_widgets" in "" | "yes" )
+case "$with_widgets" in "" | "yes" | "lucid")
   if   test "$have_motif" = "yes"; then with_widgets="motif"
+  elif test "$have_xaw3d" = "yes"; then with_widgets="athena3d"
+  elif test "$have_xaw"   = "yes"; then with_widgets="athena"
   else with_widgets=no
   fi ;;
 esac
 
 all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
-case "$all_widgets" in *athena* )
+case "$all_widgets" in
+ *athena*3d )
+  AC_DEFINE(LWLIB_USES_ATHENA)
+  AC_DEFINE(NEED_ATHENA)
+  XE_APPEND(lwlib-Xaw.o, lwlib_objs)
+  if test "$have_xaw3d"; then
+    XE_PREPEND(-lXaw3d, libs_x) 
+  else
+    XE_PREPEND(-lXaw, libs_x)
+  fi ;;
+ *athena* )
   AC_DEFINE(LWLIB_USES_ATHENA)
   AC_DEFINE(NEED_ATHENA)
   XE_APPEND(lwlib-Xaw.o, lwlib_objs)
@@ -2920,6 +2941,11 @@ esac
 test "$with_menubars"   = "lucid" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_menubars"   = "motif" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_scrollbars" = "lucid" && XE_APPEND(xlwscrollbar.o, lwlib_objs)
+test "$with_widgets"   != "no" && test "$with_widgets" != "msw" && \
+	XE_APPEND(xlwtabs.o xlwgcs.o, lwlib_objs)
+case "$with_widgets" in athena* )
+	XE_APPEND(xlwradio.o xlwcheckbox.o xlwgauge.o, lwlib_objs);;
+esac
 case "$all_widgets" in *lucid* )
   AC_DEFINE(NEED_LUCID)
   XE_APPEND(lwlib-Xlw.o, lwlib_objs) ;;
@@ -2931,11 +2957,15 @@ case "$with_scrollbars" in athena* ) AC_DEFINE(LWLIB_SCROLLBARS_ATHENA);; esac
 case "$with_dialogs"    in athena* ) AC_DEFINE(LWLIB_DIALOGS_ATHENA)   ;; esac
 test "$with_scrollbars" = "athena3d" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
 test "$with_dialogs"    = "athena3d" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+case "$with_widgets" in athena* ) AC_DEFINE(LWLIB_WIDGETS_ATHENA);; esac
+test "$with_widgets" != "no" && test "$with_widgets" != "msw" && \
+	AC_DEFINE(LWLIB_TABS_LUCID)
 
 test "$with_menubars"   != "no"    && AC_DEFINE(HAVE_MENUBARS)
 test "$with_scrollbars" != "no"    && AC_DEFINE(HAVE_SCROLLBARS)
 test "$with_dialogs"    != "no"    && AC_DEFINE(HAVE_DIALOGS)
 test "$with_toolbars"   != "no"    && AC_DEFINE(HAVE_TOOLBARS)
+test "$with_widgets"   != "no"    && AC_DEFINE(HAVE_WIDGETS)
 
 test "$with_menubars"   = "lucid"  && AC_DEFINE(LWLIB_MENUBARS_LUCID)
 test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
@@ -2943,6 +2973,7 @@ test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
 test "$with_menubars"   = "motif"  && AC_DEFINE(LWLIB_MENUBARS_MOTIF)
 test "$with_scrollbars" = "motif"  && AC_DEFINE(LWLIB_SCROLLBARS_MOTIF)
 test "$with_dialogs"    = "motif"  && AC_DEFINE(LWLIB_DIALOGS_MOTIF)
+test "$with_widgets"    = "motif"  && AC_DEFINE(LWLIB_WIDGETS_MOTIF)
 
 test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar.o)
 test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar.o)
@@ -3102,7 +3133,7 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
 
 dnl realpath is buggy on linux, decosf and aix4
 
@@ -3962,7 +3993,7 @@ if test "$with_site_modules" = "no"; then
 fi
 
 XE_SPACE(ac_configure_args, $ac_configure_args)
-AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$canonical")
+AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$configuration")
 AC_DEFINE_UNQUOTED(EMACS_CONFIG_OPTIONS, "$ac_configure_args")
 AC_DEFINE_UNQUOTED(config_machfile,  "$machfile")
 AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
@@ -3998,6 +4029,7 @@ test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)
 test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
 test "$with_hesiod"        = "yes" && AC_DEFINE(HESIOD)
 test "$use_union_type"     = "yes" && AC_DEFINE(USE_UNION_TYPE)
+test "$pdump"              = "yes" && AC_DEFINE(PDUMP)
 
 dnl -------------------------------
 dnl Report on what we decided to do
@@ -4132,15 +4164,20 @@ case "$with_menubars" in
           echo "  *WARNING*  The Motif menubar implementation is currently buggy."
           echo "             We recommend using the Lucid menubar instead."
           echo "             Re-run configure with --with-menubars='lucid'." ;;
+  msw ) echo "  Using MS-Windows menubars." ;;
 esac
 case "$with_scrollbars" in
   lucid    ) echo "  Using Lucid scrollbars."     ;;
   motif    ) echo "  Using Motif scrollbars."     ;;
   athena   ) echo "  Using Athena scrollbars."    ;;
   athena3d ) echo "  Using Athena-3d scrollbars." ;;
+  msw ) echo "  Using MS-Windows scrollbars." ;;
 esac
 case "$with_widgets" in
   motif    ) echo "  Using Motif native widgets."     ;;
+  athena   ) echo "  Using Athena native widgets."    ;;
+  athena3d ) echo "  Using Athena-3d native widgets." ;;
+  msw ) echo "  Using MS-Windows native widgets." ;;
 esac
 case "$with_dialogs" in
   motif    )
@@ -4154,6 +4191,7 @@ case "$with_dialogs" in
     ;;
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
+  msw ) echo "  Using MS-Windows dialog boxes." ;;
 esac
 test "$with_modules" = "yes" && echo "  Compiling in DSO module support."
 test "$with_clash_detection" = yes && \
@@ -4163,8 +4201,9 @@ test "$with_pop"	= yes && echo "  Using POP for mail access."
 test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
 test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
 test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
-test "$debug"              = yes && echo "  Compiling in extra code for debugging."
-test "$usage_tracking"     = yes && echo "  Compiling with usage tracking active (Sun internal)."
+test "$pdump"           = yes && echo "  Using the new portable dumper (wishful thinking)."
+test "$debug"           = yes && echo "  Compiling in extra code for debugging."
+test "$usage_tracking"  = yes && echo "  Compiling with usage tracking active (Sun internal)."
 if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc" \
   != "no no no no no"; then
   echo "  WARNING: ---------------------------------------------------------"

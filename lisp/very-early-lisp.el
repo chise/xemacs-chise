@@ -32,8 +32,8 @@
 
 ;;; Code:
 
-;;; Macros from Michael Sperber to replace read-time Lisp reader macros #-, #+
-;;; ####fixme duplicated in make-docfile.el and update-elc.el
+;;; Intended replacement for read-time Lisp reader macros #-, #+
+
 (defmacro assemble-list (&rest components)
   "Assemble a list from COMPONENTS.
 This is a poor man's backquote:
@@ -55,17 +55,17 @@ Otherwise, the component becomes an element of the list."
   "Insert STUFF as a list element if FEATURE is a loaded feature.
 This is intended for use as a component of ASSEMBLE-LIST."
   (list 'splice
-	(if (featurep feature)
-	    (list 'list stuff)
-	  '())))
+	(list 'if (list 'featurep (list 'quote feature))
+	      (list 'list stuff)
+	      '())))
 
 (defmacro unless-feature (feature stuff)
   "Insert STUFF as a list element if FEATURE is NOT a loaded feature.
 This is intended for use as a component of ASSEMBLE-LIST."
   (list 'splice
-	(if (featurep feature)
-	    '()
-	  (list 'list stuff))))
+	(list 'if (list 'featurep (list 'quote feature))
+	      '()
+	      (list 'list stuff))))
 
 (provide 'very-early-lisp)
 

@@ -440,6 +440,7 @@ If a flag is `view', view the files read-only."
 	   (client (make-gnuclient :id gnuserv-current-client
 				   :device device
 				   :frame new-frame)))
+      (select-frame frame)
       (setq gnuserv-current-client nil)
       ;; If the device was created by this client, push it to the list.
       (and (/= old-device-num (length (device-list)))
