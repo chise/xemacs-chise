@@ -1,6 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
-   Licensed to the Free Software Foundation.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -513,16 +512,16 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 
 extern Lisp_Object Vcharacter_attribute_table;
 
-Lisp_Object split_builtin_char (Emchar c);
-Lisp_Object range_charset_code_point (Lisp_Object charset, Emchar ch);
-Lisp_Object charset_code_point (Lisp_Object charset, Emchar ch);
+int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
+int range_charset_code_point (Lisp_Object charset, Emchar ch);
+int charset_code_point (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
-INLINE Lisp_Object SPLIT_CHAR (Emchar c);
-INLINE Lisp_Object
-SPLIT_CHAR (Emchar c)
+INLINE int encode_char_1 (Emchar c, Lisp_Object* charset);
+INLINE int
+encode_char_1 (Emchar c, Lisp_Object* charset)
 {
   Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
 
@@ -533,44 +532,49 @@ SPLIT_CHAR (Emchar c)
 
       while (!EQ (charsets, Qnil))
 	{
-	  Lisp_Object charset = Ffind_charset (Fcar (charsets));
+	  int code_point;
 
-	  if (!EQ (charset, Qnil))
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if (!EQ (*charset, Qnil))
 	    {
-	      if (!NILP (field = Fassq (charset, cdef)))
-		return field;
-	      else if (!NILP (field = range_charset_code_point (charset, c)))
-		return Fcons (charset, field);
+	      if (!NILP (field = Fassq (*charset, cdef)))
+		return XINT (Fcdr (field));
+	      else if ((code_point
+			= range_charset_code_point (*charset, c)) >= 0)
+		return code_point;
 	    }
 	  charsets = Fcdr (charsets);	      
 	}
     }
   
   /* otherwise --- maybe for bootstrap */
-  return split_builtin_char (c);
+  return encode_builtin_char_1 (c, charset);
 }
 
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  Lisp_Object ret = SPLIT_CHAR (c);
+  int code_point = encode_char_1 (c, charset);
 
-  *charset = Fcar (ret);
-  ret = Fcdr (ret);
-  if (INTP (Fcar (ret)))
+  if (code_point >= 0)
     {
-      *c1 = XINT (Fcar (ret));
-      ret = Fcdr (ret);
-      if (INTP (Fcar (ret)))
-	*c2 = XINT (Fcar (ret));
-      else
-	*c2 = 0;
+      int dim = XCHARSET_DIMENSION (*charset);
+
+       if (dim == 1)
+	 {
+	   *c1 = code_point;
+	   *c2 = 0;
+	 }
+       else /* if (dim == 2) */
+	 {
+	   *c1 = code_point >> 8;
+	   *c2 = code_point & 255;
+	 }
     }
-  else
-    {
-      *c1 = *c2 = 0;
-    }
+  else{
+    *c1 = *c2 = 0;
+  }
 }
 
 #define BREAKUP_CHAR(ch, charset, b1, b2) \
