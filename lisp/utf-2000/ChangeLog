@@ -1,4 +1,27 @@
+2004-08-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+	(U-00029C7C): New character.
+	(M-45760): Moved into U-00029C7C.
+	(U-00029C7B): New character.
+	(M-45761): Moved into U-00029C7C.
+	(U-00029CA0): New character.
+	(M-45778): Moved into U-00029CA0.
+	(C5-4B62): Map into M-45783 and U-00029C8F.
+	(C5-5325): Unify U-00029CAC and M-45816.
+	(U+4C22): Use `->subsumptive'.
+	(C4-553F): Unify M-45824.
+	(M-49922): Separate U+4C23 and C3-5377; add `<-unknown' for
+	U+4C23.
+	(U+4C23): Use `->subsumptive'.
+	(C7-522B): Map to M-45890.
+
 2004-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R174-Blue.el (U+5568): Use =ucs@{unicode|iso}
+	components in `ideographic-structure' features of
+	=ucs@{unicode|iso} characters.
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96B9): Use
 	`->subsumptive'.
