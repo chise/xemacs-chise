@@ -567,7 +567,13 @@
     (ideograph-daikanwa . 34855)	; ø¸ˆ §
     ))
 (define-char
-  '((morohashi-daikanwa	34856 3)
+  '((ideographic-radical . 147)	; â¾’
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideograph-daikanwa . 34856)	; ø¸ˆ ¨
+    ))
+(define-char
+  '((morohashi-daikanwa	34856 0 9)
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
