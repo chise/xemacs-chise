@@ -360,22 +360,23 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 100)
     (hanyu-dazidian-char . 6)
-    (chinese-cns11643-6 . #x2564)	; ø»›»«
-    (ideograph-daikanwa . 00238)	; ø¸€ƒ®
-    (mojikyo		. 000238)	; ý €€ƒ®
-    (ucs		. #x20117)	; ð „—
+    (chinese-cns11643-6		. #x2564)	; ø»›»«
+    (ideograph-daikanwa		. 00238)	; ø¸€ƒ®
+    (ideograph-hanziku-1	. #xB8A3)	; ý¢€›¢£
+    (mojikyo			. 000238)	; ý €€ƒ®
+    (ucs			. #x20117)	; ð „—
     ))
 (define-char
-  '((ideographic-radical . 6)	; â¼…
+  '((=>ucs		. #x20029)	; ð €©
+    (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 553)
-    (hanyu-dazidian-char . 5)
+    (->identical
+     ((ucs		  . #x20029)	; ð €©
+      ))
     (chinese-cns11643-6 . #x2563)	; ø»›»ª
     (ideograph-daikanwa . 00239)	; ø¸€ƒ¯
     (mojikyo		. 000239)	; ý €€ƒ¯
-    (ucs		. #x20029)	; ð €©
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…
@@ -469,10 +470,11 @@
     (hanyu-dazidian-vol	 . 6)
     (hanyu-dazidian-page . 3899)
     (hanyu-dazidian-char . 2)
-    (chinese-cns11643-5 . #x3074)	; ø»š‚
-    (ideograph-daikanwa . 00244)	; ø¸€ƒ´
-    (mojikyo		. 000244)	; ý €€ƒ´
-    (ucs		. #x2011A)	; ð „š
+    (chinese-cns11643-5		. #x3074)	; ø»š‚
+    (ideograph-daikanwa		. 00244)	; ø¸€ƒ´
+    (ideograph-hanziku-10	. #xD547)	; ý¢‚­•‡
+    (mojikyo			. 000244)	; ý €€ƒ´
+    (ucs			. #x2011A)	; ð „š
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…
@@ -481,10 +483,11 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 749)
     (hanyu-dazidian-char . 1)
-    (chinese-cns11643-6 . #x4642)	; ø»œ«§
-    (ideograph-daikanwa . 00245)	; ø¸€ƒµ
-    (mojikyo		. 000245)	; ý €€ƒµ
-    (ucs		. #x2011B)	; ð „›
+    (chinese-cns11643-6		. #x4642)	; ø»œ«§
+    (ideograph-daikanwa		. 00245)	; ø¸€ƒµ
+    (ideograph-hanziku-2	. #xEC53)	; ý¢€®±“
+    (mojikyo			. 000245)	; ý €€ƒµ
+    (ucs			. #x2011B)	; ð „›
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…
