@@ -833,7 +833,7 @@
 	)
        ((=ucs		    . #x4E37)	; 丷
 	)
-       ((=ucs@unicode	    . #x8C55)	; &UU+8C55;
+       ((=ucs@unicode	    . #x8C55)	; &G0-7539;
 	))
       (=ucs@unicode	  . #x34B8)	; &UU+34B8;
       )
