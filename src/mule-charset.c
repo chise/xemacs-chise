@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -212,10 +212,8 @@ put_char_ccs_code_point (Lisp_Object character,
       || !INTP (value)
       || (XCHAR (character) != XINT (value)))
     {
-#if 0
-      Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
-#else
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+#if 0
       int ccs_len = XCHARSET_BYTE_SIZE (ccs);
 #endif
       int code_point;
@@ -262,15 +260,6 @@ put_char_ccs_code_point (Lisp_Object character,
       else
 	signal_simple_error ("Invalid value for coded-charset", value);
 
-#if 0
-      if (CHAR_TABLEP (decoding_table))
-	{
-	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
-
-	  if (INTP (cpos))
-	    decoding_table_remove_char (ccs, XINT (cpos));
-	}
-#else
       if (VECTORP (v))
 	{
 	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
@@ -279,13 +268,13 @@ put_char_ccs_code_point (Lisp_Object character,
 	      decoding_table_remove_char (ccs, XINT (cpos));
 	    }
 	}
+#if 0
       else
 	{
 	  XCHARSET_DECODING_TABLE (ccs)
 	    = v = make_vector (ccs_len, Qnil);
 	}
 #endif
-
       decoding_table_put_char (ccs, code_point, character);
     }
   return value;
@@ -297,17 +286,6 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
   Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-#if 0
-  if (CHAR_TABLEP (decoding_table))
-    {
-      Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
-
-      if (!NILP (cpos))
-	{
-	  decoding_table_remove_char (ccs, XINT (cpos));
-	}
-    }
-#else
   if (VECTORP (decoding_table))
     {
       Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
@@ -317,7 +295,6 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 	  decoding_table_remove_char (ccs, XINT (cpos));
 	}
     }
-#endif
   if (CHAR_TABLEP (encoding_table))
     {
       put_char_id_table (XCHAR_TABLE(encoding_table), character, Qunbound);
