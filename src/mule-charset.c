@@ -22,7 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
 
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs CHISE. */
 
 #include <config.h>
 #ifdef CHISE
@@ -2079,13 +2079,10 @@ Save mapping-table of CHARSET.
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
 #ifdef CHISE
-  Lisp_Object db_dir = Vexec_directory;
-  CHISE_DS ds;
   CHISE_Decoding_Table *dt_ccs;
   int modemask;
   int accessmask = 0;
   DBTYPE real_subtype;
-  int status;
 #else
   Lisp_Object db;
   Lisp_Object db_file;
@@ -2095,35 +2092,23 @@ Save mapping-table of CHARSET.
   cs = XCHARSET (charset);
 
 #ifdef CHISE
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-
-  status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
-				   XSTRING_DATA (db_dir));
-  if (status)
-    {
-      chise_close_data_source (&ds);
-      return -1;
-    }
+  if ( open_chise_data_source_maybe () )
+    return -1;
 
   modemask = 0755;		/* rwxr-xr-x */
   real_subtype = DB_HASH;
   accessmask = DB_CREATE;
 
   char_attribute_system_db_file (CHARSET_NAME (cs), Qsystem_char_id, 1);
-  status
-    = chise_open_decoding_table (&dt_ccs, &ds,
-				 XSTRING_DATA (Fsymbol_name
-					       (XCHARSET_NAME(charset))),
-				 real_subtype,
-				 accessmask, modemask);
-  if (status)
+  dt_ccs
+    = chise_ds_open_decoding_table (default_chise_data_source,
+				    XSTRING_DATA (Fsymbol_name
+						  (XCHARSET_NAME(charset))),
+				    real_subtype, accessmask, modemask);
+  if (dt_ccs == NULL)
     {
       printf ("Can't open decoding-table %s\n",
 	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
-      chise_close_decoding_table (dt_ccs);
-      chise_close_data_source (&ds);
       return -1;
     }
 #else
@@ -2287,8 +2272,7 @@ Save mapping-table of CHARSET.
       }
     }
 #ifdef CHISE
-  chise_close_decoding_table (dt_ccs);
-  chise_close_data_source (&ds);
+  chise_dt_close (dt_ccs);
   return Qnil;
 #else
   return Fclose_database (db);
@@ -2318,43 +2302,28 @@ Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
 #ifdef CHISE
-  Lisp_Object db_dir = Vexec_directory;
-  CHISE_DS ds;
   CHISE_Decoding_Table *dt_ccs;
   int modemask;
   int accessmask = 0;
   DBTYPE real_subtype;
-  int status;
   CHISE_Char_ID char_id;
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-
-  status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
-				   XSTRING_DATA (db_dir));
-  if (status)
-    {
-      chise_close_data_source (&ds);
-      return -1;
-    }
+  if ( open_chise_data_source_maybe () )
+    return -1;
 
   modemask = 0755;		/* rwxr-xr-x */
   real_subtype = DB_HASH;
   accessmask = DB_RDONLY;
 
-  status
-    = chise_open_decoding_table (&dt_ccs, &ds,
-				 XSTRING_DATA (Fsymbol_name
-					       (XCHARSET_NAME(ccs))),
-				 real_subtype,
-				 accessmask, modemask);
-  if (status)
+  dt_ccs
+    = chise_ds_open_decoding_table (default_chise_data_source,
+				    XSTRING_DATA (Fsymbol_name
+						  (XCHARSET_NAME(ccs))),
+				    real_subtype, accessmask, modemask);
+  if (dt_ccs == NULL)
     {
       printf ("Can't open decoding-table %s\n",
 	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
-      chise_close_decoding_table (dt_ccs);
-      chise_close_data_source (&ds);
       return -1;
     }
 
@@ -2369,10 +2338,7 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
   else
     decoding_table_put_char (ccs, code_point, Qnil);
 
-  chise_close_decoding_table (dt_ccs);
-
-  chise_close_data_source (&ds);
-
+  chise_dt_close (dt_ccs);
   return char_id;
 #else
   Lisp_Object db;
