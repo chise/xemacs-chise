@@ -15,15 +15,17 @@
     (=daikanwa		. 30638)	; ø¸‡ž®
     ))
 (define-char
-  '((=>ucs*		. #x8279)	; è‰¹
+  '((name		. "CJK RADICAL GRASS TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (->ideographic-component-forms
-     ((name		  . "CJK RADICAL GRASS TWO")
-      (=ucs		  . #x2EBF)	; âº¿
+    (<-denotational
+     ((=ucs		  . #x8279)	; è‰¹
       ))
-    (=ucs		. #xFA5E)	; ï©ž
+    (=ucs		. #x2EBF)	; âº¿
     (=cns11643-4	. #x2153)	; ø»—¡š
     (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
     (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
@@ -31,61 +33,92 @@
     (=gt-k		. 00671)	; ý¡„€ŠŸ
     (=gt-pj-6		. #x4664)	; ý¡€‰«›
     (=daikanwa		. 30639)	; ø¸‡ž¯
-    (=ucs@cns		. #x8279)	; ï©ž
+    (=ucs@cns		. #x8279)	; âº¿
+    (=ucs@jis		. #xFA5E)	; âº¿
     ))
 (define-char
-  '((morohashi-daikanwa	30639 0 1)
+  '((=>daikanwa		. 30639)	; âº¿
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 0)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8278)	; è‰¸
+      ))
+    (=ucs		. #x8279)	; è‰¹
+    ))
+(define-char
+  '((=>ucs*		. #x8279)	; è‰¹
+    (->identical
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; â»€
+      ))
+    (=ucs		. #xFA5D)	; ï©
+    ))
+(define-char
+  '((=>ucs*		. #x8279)	; è‰¹
+    (->identical
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; âº¿
+      ))
+    (=ucs		. #xFA5E)	; ï©ž
+    ))
+(define-char
+  '((name		. "CJK RADICAL GRASS ONE")
+    (=>daikanwa		. 30639)	; âº¿
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (->ideographic-component-forms
-     ((name		  . "CJK RADICAL GRASS ONE")
-      (=ucs		  . #x2EBE)	; âº¾
+    (<-denotational
+     ((=ucs		  . #x8279)	; è‰¹
       ))
-    (=ucs		. #x8279)	; è‰¹
+    (=ucs		. #x2EBE)	; âº¾
     (=gb2312		. #x5C33)	; ø»…€
     (=jis-x0213-2-2000	. #x7576)	; ø»¦™­
     (=gt		. 39639)	; ý¡€‰«—
     (=gt-k		. 00279)	; ý¡„€„—
     (=gt-pj-9		. #x4F47)	; ý¡€‰«—
     (=jef-china3	. #x72FA)	; øº‡‹º
+    (=ucs@unicode	. #x8279)	; âº¾
     ))
 (define-char
-  '((=>ucs*		. #x8279)	; è‰¹
-    (morohashi-daikanwa	30639 0 2)
+  '((name		. "CJK RADICAL GRASS THREE")
+    (=>daikanwa		. 30639)	; âº¿
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (->ideographic-component-forms
-     ((name		  . "CJK RADICAL GRASS THREE")
-      (=ucs		  . #x2EC0)	; â»€
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x8279)	; è‰¹
       ))
-    (=ucs		. #xFA5D)	; ï©
+    (=ucs		. #x2EC0)	; â»€
     (=jis-x0213-2-2000	. #x7574)	; ø»¦™«
     (=gt		. 39645)	; ý¡€‰«
     (=gt-k		. 00569)	; ý¡„€ˆ¹
     (=gt-pj-9		. #x4E5A)	; ý¡€‰«
+    (=ucs@jis		. #xFA5D)	; â»€
     ))
 (define-char
-  '((=>ucs		. #x4491)	; ä’‘
-    (ideographic-radical . 140)	; â¾‹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x8B4B)	; ý¢€ˆ­‹
-    (=gt		. 39640)	; ý¡€‰«˜
-    (=gt-pj-6		. #x4665)	; ý¡€‰«˜
-    (=daikanwa		. 30640)	; ø¸‡ž°
-    ))
-(define-char
-  '((morohashi-daikanwa	30640 0 0)
+  '((=>daikanwa		. 30640)	; ý¢€ˆ­‹
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x4491)	; ä’‘
-    (=jis-x0213-2-2000	. #x7577)	; ø»¦™®
-    (=gt		. 39641)	; ý¡€‰«™
-    (=gt-pj-9		. #x4E59)	; ý¡€‰«™
-    (=jef-china3	. #x61BA)	; øº††º
+    (->subsumptive
+     ((=big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
+      (=gt		  . 39640)	; ý¡€‰«˜
+      (=gt-pj-6		  . #x4665)	; ý¡€‰«˜
+      (=daikanwa	  . 30640)	; ø¸‡ž°
+      )
+     ((=jis-x0213-2-2000  . #x7577)	; ø»¦™®
+      (=gt		  . 39641)	; ý¡€‰«™
+      (=gt-pj-9		  . #x4E59)	; ý¡€‰«™
+      (=jef-china3	  . #x61BA)	; øº††º
+      (=ucs@unicode	  . #x4491)	; ø»¦™®
+      ))
     ))
 (define-char
   '((=>ucs		. #x26AF3)	; ð¦«³

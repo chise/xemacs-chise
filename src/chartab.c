@@ -1136,10 +1136,14 @@ Lisp_Object Qsystem_char_id;
 
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
+Lisp_Object Q_identical;
+Lisp_Object Q_identical_from;
 Lisp_Object Q_denotational;
 Lisp_Object Q_denotational_from;
 Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
+Lisp_Object Q_component;
+Lisp_Object Q_component_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3313,7 +3317,8 @@ Return DEFAULT-VALUE if the value is not exist.
 	}
     }
 
-  if ( !(EQ (attribute, Q_subsumptive_from)) &&
+  if ( !(EQ (attribute, Q_identical)) &&
+       !(EQ (attribute, Q_subsumptive_from)) &&
        !(EQ (attribute, Q_denotational_from)) &&
        ( (NILP (char_rel_max)
 	  || (INTP (char_rel_max) &&
@@ -3325,7 +3330,11 @@ Return DEFAULT-VALUE if the value is not exist.
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
 	  Lisp_Object ancestors
-	    = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
+	    = Fget_char_attribute (character, Q_identical, Qnil);
+
+	  if (NILP (ancestors))
+	    ancestors
+	      = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
 
 	  if (NILP (ancestors))
 	    ancestors
@@ -3482,6 +3491,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_subsumptive_from) ||
 	    EQ (attribute, Q_denotational) ||
 	    EQ (attribute, Q_denotational_from) ||
+	    EQ (attribute, Q_identical) ||
+	    EQ (attribute, Q_identical_from) ||
+	    EQ (attribute, Q_component) ||
+	    EQ (attribute, Q_component_of) ||
 	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
 				  Fsymbol_name (attribute),
 				  Qnil, Qnil)) )
@@ -3492,7 +3505,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       struct gcpro gcpro1;
       GCPRO1 (rev_feature);
 
-      if (EQ (attribute, Q_subsumptive))
+      if (EQ (attribute, Q_identical))
+	rev_feature = Q_identical_from;
+      else if (EQ (attribute, Q_identical_from))
+	rev_feature = Q_identical;
+      else if (EQ (attribute, Q_subsumptive))
 	rev_feature = Q_subsumptive_from;
       else if (EQ (attribute, Q_subsumptive_from))
 	rev_feature = Q_subsumptive;
@@ -3500,6 +3517,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_denotational_from;
       else if (EQ (attribute, Q_denotational_from))
 	rev_feature = Q_denotational;
+      else if (EQ (attribute, Q_component))
+	rev_feature = Q_component_of;
+      else if (EQ (attribute, Q_component_of))
+	rev_feature = Q_component;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
@@ -3782,6 +3803,8 @@ Save values of ATTRIBUTE into database file.
       Lisp_Object (*filter)(Lisp_Object value);
 
       if ( EQ (attribute, Qideographic_structure)
+	   || EQ (attribute, Q_identical)
+	   || EQ (attribute, Q_identical_from)
 	   || !NILP (Fstring_match
 		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
 		      Fsymbol_name (attribute),
@@ -4559,6 +4582,10 @@ syms_of_chartab (void)
   defsymbol (&Q_subsumptive_from,	"<-subsumptive");
   defsymbol (&Q_denotational,		"->denotational");
   defsymbol (&Q_denotational_from,	"<-denotational");
+  defsymbol (&Q_identical,		"->identical");
+  defsymbol (&Q_identical_from,		"<-identical");
+  defsymbol (&Q_component,		"->ideographic-component-forms");
+  defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
