@@ -1,3 +1,13 @@
+2004-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U-000200BD): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; use
+	`->vulgar' and `->vulgar*sources' instead of `->vulgar-ideograph'.
+
+	* read-maps.el (mapping-table-read-file): Don't add `=>ucs' if a
+	character's ancestors have `=>ucs'.
+
 2004-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U+4E46): Use `<-vulgar*sources' instead
@@ -37,6 +47,10 @@
 	`<-vulgar*sources' instead of char-ref in `<-vulgar'; use
 	`->subsumptive' to integrate with CB00636.
 	(U+3893): Use `->subsumptive'.
+
+	* char-db-util.el (insert-char-attributes): Insert `->simplified'
+	and `->vulgar' if they have their meta-data `*sources' even if
+	non-printable mode.
 
 2004-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
