@@ -3193,6 +3193,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (chinese-cns11643-2 . #x3C47)	; ø»“´°
+    (chinese-big5	. #xD9A4)	; ý¢€¦¤
     (ucs		. #x6680)	; æš€
     ))
 (define-char
