@@ -1041,6 +1041,23 @@
     (=ucs		. #x5154)	; å…”
     ))
 (define-char
+  '((=>ucs		. #x5154)	; å…”
+    (morohashi-daikanwa	1368 1 2)
+    (ideographic-radical . 10)	; â¼‰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; â¿·
+      )
+     ((=jis-x0208	  . #x4C48)	; ø½Šµ­
+      )
+     ((=ucs		  . #x4E36)	; ä¸¶
+      ))
+    (=gt-pj-k2		. #x304F)	; ý¡„‘˜
+    (=gt-k		. 05208)	; ý¡„‘˜
+    ))
+(define-char
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
