@@ -1,5 +1,12 @@
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Fchar_attribute_alist): Add coded-charset
+	attributes.
+	(add_charset_to_list_mapper): Add `key' instead of
+	`XCHARSET_NAME (value)' to return aliases.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Vcharacter_ideographic_radical_table): New
 	variable.
 	(Vcharacter_ideographic_strokes_table): New variable.
