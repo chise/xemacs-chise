@@ -143,15 +143,35 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 33)
     (hanyu-dazidian-char . 4)
-    (chinese-cns11643-6 . #x2147)	; ø»›µ–
-    (ideograph-daikanwa . 00232)	; ø¸€ƒ¨
-    (ucs		. #x20112)	; ð „’
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((ucs		  . #x624D)	; æ‰
+      ))
+    (chinese-cns11643-6		. #x2147)	; ø»›µ–
+    (ideograph-daikanwa		. 00232)	; ø¸€ƒ¨
+    (ideograph-hanziku-1	. #xAAD7)	; ý¢€š«—
+    (ucs			. #x20112)	; ð „’
     ))
 (define-char
   '((morohashi-daikanwa	232 0 1)
     (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((japanese-jisx0208-1978	  . #x3A4D)	; ø»‚¡š
+      (japanese-jisx0208	  . #x3A4D)	; ø»†µ¢
+      (korean-ksc5601		  . #x6E26)	; ø»Š‹—
+      (ideograph-daikanwa	  . 11769)	; ø¸‚·¹
+      ))
     (mojikyo		. 000232)	; ý €€ƒ¨
     ))
 (define-char
