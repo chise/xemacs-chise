@@ -309,7 +309,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x456F)	; &C1-456F; [37-79]
+       ((=cns11643-1	    . #x456F)	; &GT-K01023; [37-79]
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
