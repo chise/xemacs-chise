@@ -1,5 +1,10 @@
 1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (syms_of_mule_charset): Delete charset alias
+	`vietnamese-viscii-*'.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.c (Qvietnamese_viscii_lower): New variable.
 	(Qvietnamese_viscii_upper): New variable.
 	(Fdefine_charset_alias): New function.
