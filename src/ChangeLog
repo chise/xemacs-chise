@@ -1,5 +1,38 @@
 1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (Vcharacter_variant_table): New variable.
+	(Q_ucs): New variable.
+	(Fchar_variants): New function.
+	(Fput_char_attribute): Register `->ucs' value to
+	`Vcharacter_variant_table'.
+	(syms_of_mule_charset): Add new function `char-variants' and new
+	symbol `->ucs'.
+	(vars_of_mule_charset): Setup `Vcharacter_variant_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (get_char_code_table): Allow negative character
+	code.
+	(put_char_code_table): Likewise.
+	(Vcharacter_composition_table): New variable.
+	(Q_decomposition): New variable.
+	(Qwide): New variable.
+	(Qnarrow): New variable.
+	(Qcompat): New variable.
+	(QnoBreak): New variable.
+	(Qsuper): New variable.
+	(Qfraction): New variable.
+	(to_char_code): New function.
+	(Fget_composite_char): New function.
+	(Fput_char_attribute): Register `->decomposition' value to
+	`Vcharacter_composition_table'.
+	(syms_of_mule_charset): Add new function `get-composite-char', new
+	symbol `->decomposition', `wide', `narrow', `compat', `noBreak',
+	`super' and `fraction'.
+	(vars_of_mule_charset): Setup `Vcharacter_composition_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (Fchar_attribute_alist): Check the argument is a
 	character; copy the return value.
 
