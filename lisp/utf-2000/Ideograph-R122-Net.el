@@ -1121,15 +1121,13 @@
     (chinese-isoir165		. #x4A70)	; ø»«±
     (chinese-cns11643-1		. #x6577)	; ø»’§ª
     (japanese-jisx0208-1990	. #x3D70)	; ø½Š “
-    (mojikyo			. 050357)	; ø¸Œ’µ
+    (mojikyo			. 050357)	; ý €Œ’µ
     (ucs			. #x7F72)	; ç½²
     ))
 (define-char
-  '((morohashi-daikanwa	28312)
-    (ideographic-radical . 122)	; â½¹
+  '((ideographic-radical . 122)	; â½¹
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (non-morohashi	28313 9)
     (chinese-cns11643-3 . #x4878)	; ø»–‘
     (ideograph-daikanwa . 28312)	; ø¸†º˜
     (ucs		. #x7F6F)	; ç½¯
