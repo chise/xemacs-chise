@@ -572,7 +572,8 @@
     (ideograph-daikanwa . 02879)	; ø¸€¬¿
     ))
 (define-char
-  '((ideographic-radical . 26)	; â¼™
+  '((=>ucs		. #x537F)	; å¿
+    (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (shinjigen-1	. 868)
