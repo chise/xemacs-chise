@@ -287,7 +287,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (<-ancient
-     ((=daikanwa	  . 19687)	; &I-M-19687;
+     ((=gt		  . 25281)	; &GT-25281;
+      (=daikanwa	  . 19687)	; &I-M-19687;
       ))
     (<-ancient*sources
      shuowen daikanwa)
@@ -340,71 +341,57 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x24514)	; 𤔔
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (->ancient-ideograph
-     ((=daikanwa	  . 19682)	; &M-19682;
-      ))
-    (->ancient-ideograph*sources
-     daikanwa)
-    (->same
-     ((=jis-x0208	  . #x502C)	; &GT-00285; [48-12]
-      (=ks-x1001	  . #x552F)	; &I-K0-552F; [53-15]
-      (=daikanwa	  . 00214)	; &I-M-00214;
-      ))
-    (->same*sources
-     shuowen daikanwa)
-    (=gt		. 25281)	; &GT-25281;
-    (=gt-k		. 09318)	; &I-GT-K09318;
-    (=gt-pj-4		. #x624B)	; &GT-25281; [66-43]
-    (=daikanwa		. 19687)	; &I-M-19687;
-    ))
-(define-char
-  '((=>ucs		. #x24514)	; 𤔔
-    (morohashi-daikanwa	19687 0 2)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=gt		. 25283)	; &GT-25283;
-    (=gt-k		. 09319)	; &I-GT-K09319;
-    (=gt-pj-9		. #x6634)	; &GT-25283; [70-20]
-    ))
-(define-char
-  '((=>ucs		. #x24514)	; 𤔔
-    (morohashi-daikanwa	19687 0 3)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=gt		. 25282)	; &GT-25282;
-    (=gt-k		. 09799)	; &I-GT-K09799;
-    (=gt-pj-9		. #x4B68)	; &GT-25282; [43-72]
-    ))
-(define-char
-  '((=>ucs		. #x24514)	; 𤔔
-    (morohashi-daikanwa	19687 0 4)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-4	. #x386A)	; &CDP-8C7D; [24-74]
-    (=big5-cdp		. #x8C7D)	; &I-CDP-8C7D;
-    ))
-(define-char
-  '((morohashi-daikanwa	19687 0 5)
-    (ideographic-radical . 87)	; ⽖
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x24514)	; 𤔔
-    (=gt-k		. 09372)	; &I-GT-K09372;
-    (=gt-pj-k2		. #x363B)	; 𤔔 [22-27]
+    (->subsumptive
+     ((->ancient
+       ((=daikanwa	    . 19682)	; &M-19682;
+	))
+      (->ancient*sources
+       zhengzi-tong shuowen danchuu daikanwa)
+      (->same
+       ((=jis-x0208	    . #x502C)	; &GT-00285; [48-12]
+	(=ks-x1001	    . #x552F)	; &I-K0-552F; [53-15]
+	(=daikanwa	    . 00214)	; &I-M-00214;
+	))
+      (->same*sources
+       shuowen daikanwa)
+      (=gt		  . 25281)	; &GT-25281;
+      (=gt-k		  . 09318)	; &I-GT-K09318;
+      (=gt-pj-4		  . #x624B)	; &GT-25281; [66-43]
+      (=daikanwa	  . 19687)	; &I-M-19687;
+      )
+     ((=gt		  . 25283)	; &GT-25283;
+      (=gt-k		  . 09319)	; &I-GT-K09319;
+      (=gt-pj-9		  . #x6634)	; &GT-25283; [70-20]
+      )
+     ((=gt		  . 25282)	; &GT-25282;
+      (=gt-k		  . 09799)	; &I-GT-K09799;
+      (=gt-pj-9		  . #x4B68)	; &GT-25282; [43-72]
+      )
+     ((->subsumptive
+       ((=cns11643-4	    . #x386A)	; &CDP-8C7D; [24-74]
+	(=big5-cdp	    . #x8C7D)	; &I-CDP-8C7D;
+	)
+       ((=gt-k		    . 09372)	; &GT-K09372;
+	(=gt-pj-k2	    . #x363B)	; &GT-K09372; [22-27]
+	(=ucs@iso	    . #x24514)	; &GT-K09372;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x24515)	; 𤔕
-    (=cns11643-6	. #x4B22)	; &I-C6-4B22; [43-02]
+    (->subsumptive
+     ((=daikanwa	  . 19688)	; &M-19688;
+      )
+     ((=cns11643-6	  . #x4B22)	; &C6-4B22; [43-02]
+      (=ucs@iso		  . #x24515)	; &C6-4B22;
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
