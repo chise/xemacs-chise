@@ -1095,7 +1095,7 @@ part of the documentation of internal subroutines."
 	   (princ object)
 	   (put-nonduplicable-text-property
 	    pos (marker-position standard-output) 'face face buf)))
-	(t princ object)))
+	(t (princ object))))
 
 ;; replacement for `prin1' that puts the text in the specified face,
 ;; if possible
@@ -1111,7 +1111,7 @@ part of the documentation of internal subroutines."
 	   (prin1 object)
 	   (put-nonduplicable-text-property
 	    pos (marker-position standard-output) 'face face buf)))
-	(t prin1 object)))
+	(t (prin1 object))))
 
 (defvar help-symbol-regexp
   (let ((sym-char "[+a-zA-Z0-9_:*]")
