@@ -1,5 +1,15 @@
 2002-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R010-Legs.el (C3-2452): Unify U-0002F80E; unify
+	BC-A74B instead of B-A74B.
+	(U+514D): Unify B-A74B.
+	(C3-2753): Unify U-0002F80F.
+
+	* Ideograph-R038-Woman.el (J0-554F): Unify B-F1FB.
+	(C2-6547): Separate B-F1FB; unify CU+5B3E.
+	(U+5B3E): Map to CU-0002F86A.
+	(C3-5A33): Unify U-0002F86A.
+
 	* Ideograph-R142-Insect.el (M-33682): Separate C3-5B2D; unify
 	JU+8801 and U-0002F9C1.
 	(C3-5B2D): Unify CU-0002F9C1; map to U-0002F9C1.
