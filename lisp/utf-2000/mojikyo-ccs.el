@@ -1,4 +1,4 @@
-;;; mojikyo-ccs.el.el --- Definition of Mojikyo related coded-charsets
+;;; mojikyo-ccs.el --- Definition of Mojikyo related coded-charsets
 
 ;; Copyright (C) 2001,2002 MORIOKA Tomohiko.
 
@@ -70,4 +70,4 @@
 			      conversion 94x60))
     (setq i (1+ i))))
 
-;;; mojikyo-ccs.el.el ends here
+;;; mojikyo-ccs.el ends here
