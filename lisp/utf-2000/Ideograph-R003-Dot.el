@@ -2,7 +2,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (ideograph-cdp	. 271)
     (japanese-jisx0208-1978	. #x5026)	; ø»ƒ‡
     (chinese-gb2312		. #x583C)	; ø»…—‘
     (japanese-jisx0208		. #x5026)	; ø»‡•
@@ -73,7 +72,6 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 274)
     (chinese-cns11643-1 . #x443A)	; ø»‘¶
     (ideograph-gt-pj-2	. #x306A)	; ý¡€€‚„
     (chinese-big5	. #xA459)	; øºŸ¢°
@@ -131,7 +129,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideograph-cdp	. 278)
     (shinjigen-1	. 41)
     (shinjigen-2	. 41)
     (japanese-jisx0208-1978	. #x4330)	; ø»‚®‹
@@ -181,7 +178,6 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideograph-cdp	. 280)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -211,7 +207,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideograph-cdp	. 281)
     (ideographic-structure
      (:cdp-combinator	3
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
