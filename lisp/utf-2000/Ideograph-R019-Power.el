@@ -839,10 +839,16 @@
     (=jef-china3	. #x82B2)	; øºˆŠ²
     ))
 (define-char
-  '((ideographic-radical . 19)	; â¼’
+  '((script		JP-Jouyou Ideograph)
+    (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (comment		. "[JP-Jouyou] <simplified character> of S1-0718")
+    (<-simplified
+     ((shinjigen-1	  . 718)
+      (=daikanwa	  . 02410)	; ø¸€¥ª
+      ))
+    (<-simplified*sources
+     shinjigen-1)
     (shinjigen-1	. 717)
     (shinjigen-2	. 717)
     (=ucs		. #x52B4)	; åŠ´
