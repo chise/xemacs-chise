@@ -29,8 +29,8 @@
     (ideographic-radical . 58)	; â¼¹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=gt		. 60403)	; ý¡€Ž¯³
-    (=gt-pj-11		. #x5A40)	; ý¡€Ž¯³
+    (=gt		. 67403)	; ý¡€‹
+    (=gt-pj-11		. #x5A40)	; ý¡€‹
     (mojikyo		. 050057)	; ý €ŒŽ‰
     ))
 (define-char
@@ -40,7 +40,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (->identical
-     ((=gt		  . 60403)	; ý¡€Ž¯³
+     ((=gt		  . 67403)	; ý¡€‹
       ))
     (=gt-k		. 00267)	; ý¡„€„‹
     (=gt-pj-k1		. #x3974)	; ý¡„€„‹

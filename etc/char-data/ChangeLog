@@ -1,14 +1,14 @@
-2003-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* JC3-to-UCS.txt (JC3-63BC): Map to U-0002F9C1 instead of U+8801.
-	(JC3-63EC): Map to U-0002F9C3 instead of U+8860.
-	(JC3-64C2): Map to U+4679 instead of U+4680.
-	(JC3-64C4): Map to U+FA61 instead of U+8996.
-	(JC3-65C4): Map to U+FA63 instead of U+8B39.
+	* GT-RS.txt (GT-014706): Fixed.
+	(GT-015256): Fixed.
+	(GT-016602): Fixed.
+	(GT-017451): Fixed.
+	(GT-017613): Fixed.
 
-2003-07-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* JX1-to-UCS.txt (JX1-4F62): Delete alternative mapping to U+5C6E.
+	* GT-RS.txt: Add information about GT-053994 .. GT-066773.
 
 2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 

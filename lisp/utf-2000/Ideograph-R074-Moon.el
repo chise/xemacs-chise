@@ -1275,6 +1275,30 @@
     (=cns11643-5	. #x6C38)	; ø»›™
     ))
 (define-char
+  '((morohashi-daikanwa	42490 0 0)
+    (ideographic-radical@ucs . 173)	; â¾¬
+    (ideographic-strokes@ucs . 13)
+    (total-strokes@ucs	     . 21)
+    (ideographic-strokes@ucs*sources
+     jis-x0208-1990/b)
+    (ideographic-radical@jis/a . 74)	; â½‰
+    (ideographic-strokes@jis/a . 17)
+    (total-strokes@jis/a       . 21)
+    (ideographic-strokes@jis/a*sources
+     jis-x0208-1990/a)
+    (ideographic-radical@jis/b . 173)	; â¾¬
+    (ideographic-strokes@jis/b . 12)
+    (total-strokes@jis/b       . 20)
+    (total-strokes@jis/b*sources
+     jis-x0208-1990)
+    (shinjigen-2	. 3454)
+    (=ucs		. #x9738)	; éœ¸
+    (=gb2312		. #x3054)	; ø»„œ¹
+    (=jis-x0208		. #x5B31)	; ø½‹‹˜
+    (=gt		. 57027)	; ý¡€»ƒ
+    (=gt-pj-1		. #x5B31)	; ý¡€»ƒ
+    ))
+(define-char
   '((ideographic-radical . 74)	; â½‰
     (ideographic-strokes . 19)
     (total-strokes	 . 23)

@@ -31196,8 +31196,7 @@
       )
      ((=ucs		  . #x53E3)	; å£
       )
-     ((=jis-x0208	  . #x6F6B)	; ø½‹©ª
-      (=daikanwa	  . 41434)	; ø¸Š‡š
+     ((=daikanwa	  . 41434)	; ø¸Š‡š
       ))
     (=daikanwa		. 04599)	; ø¸‡·
     (=cbeta		. 03537)	; ø¸ ·‘
