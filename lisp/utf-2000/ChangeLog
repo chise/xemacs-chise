@@ -1,3 +1,25 @@
+2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (MH-521): New character; map to U+8362;
+	unify GT-40268.
+
+	* Ideograph-R135-Tongue.el (U+820D): Don't use char-ref in the
+	`ideographic-structure'.
+
+	* Ideograph-R130-Meat.el (U+81A4): Add J90-6733 into the
+	`->same-ideograph'.
+
+	* Ideograph-R109-Eye.el (C6-333D): Use `=>ucs*' instead of
+	`ideograph='; use `<-original-ideograph' instead of
+	`original-ideograph-of'.
+
+	* Ideograph-R077-Stop.el (C6-232E): Don't unify U-00028E16; unify
+	H1-A6EA and U-00023944; add `ideographic-structure'.
+
+2002-02-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R170-Mound.el (C5-232E): Unify U-00028E16.
+
 2002-02-13  MORIOKA Tomohiko  <tomo@mousai.kanji.zinbun.kyoto-u.ac.jp>
 
 	* u01000-Myanmar.el: Reformatted.
