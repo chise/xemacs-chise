@@ -4469,17 +4469,16 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (<-simplified-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 653)
+     (:char	((shinjigen-1	     . 653)
 		 (ideograph-daikanwa . 02228)	; ø¸€¢´
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 345 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((=gt		  . 00767)	; ý¡€€‹¿
+     ((=gt-k		  . 03992)	; ý¡„€¾˜
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
