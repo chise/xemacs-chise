@@ -758,17 +758,15 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same
-     (:sources	(morohashi-daikanwa)
-      :char	((=>ucs		     . #x5167)	; å…§
-		 (ideographic-radical . 11)	; â¼Š
-		 (ideographic-strokes . 2)
-		 (total-strokes	      . 4)
-		 (=daikanwa	     . 01418)	; ø¸€–Š
-		 )
-      )
-     ((=daikanwa	  . 01512)	; ø¸€—¨
+    (->identical
+     ((=cns11643-6	  . #x2150)	; ø»›µŸ
+      (=daikanwa	  . 01512)	; ø¸€—¨
       ))
+    (->same
+     ((=daikanwa	  . 01418)	; ø¸€–Š
+      ))
+    (->same*sources
+     daikanwa)
     (=cns11643-3	. #x2148)	; ø»•—‹
     ))
 (define-char
@@ -3150,7 +3148,7 @@
 	)
        ((=ucs		    . #x5185)	; å†…
 	))
-      (=ucs@unicode	  . #x343B)	; ó°€ƒ
+      (=ucs@unicode	  . #x343B)	; ó°€„
       ))
     ))
 (define-char
@@ -8912,14 +8910,14 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->same
+    (<-denotational
      ((=daikanwa	  . 23937)	; ø¸…¶
       ))
     (<-original-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 00633)	; ø¸€‰¹
-		 )
+     ((=daikanwa	  . 00633)	; ø¸€‰¹
       ))
+    (<-original-ideograph*sources
+     daikanwa)
     (=daikanwa		. 00634)	; ø¸€‰º
     ))
 (define-char
@@ -18358,12 +18356,15 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same
+    (->identical
      ((=daikanwa	  . 02134)	; ø¸€¡–
-      )
-     (:char	((=daikanwa	     . 00768)	; ø¸€Œ€
-		 )
-      :sources	(shuowen morohashi-daikanwa)))
+      ))
+    (->same
+     ((=ucs		  . #x5013)	; å€“
+      (=daikanwa	  . 00768)	; ø¸€Œ€
+      ))
+    (->same*sources
+     shuowen daikanwa)
     (hanyu-dazidian	1 206 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -20548,7 +20549,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (->same
-     ((=daikanwa	  . 23328)	; ø¸…¬ 
+     ((=cns11643-5	  . #x3421)	; ø»š†¦
+      (=daikanwa	  . 23328)	; ø¸…¬ 
       ))
     (=ucs		. #x2032A)	; ð Œª
     ))
@@ -23924,7 +23926,7 @@
 	)
        ((=ucs		    . #x6562)	; æ•¢
 	))
-      (=ucs@unicode	  . #x3488)	; ó°€‡
+      (=ucs@unicode	  . #x3488)	; ó°€ˆ
       ))
     ))
 (define-char
@@ -25020,7 +25022,7 @@
 	 ((=ucs		      . #x975E)	; éž
 	  ))
 	))
-      (=ucs@unicode	  . #x348E)	; ó°€‰
+      (=ucs@unicode	  . #x348E)	; ó°€Š
       ))
     ))
 (define-char
@@ -26853,7 +26855,7 @@
 	)
        ((=ucs		    . #x842C)	; è¬
 	))
-      (=ucs@unicode	  . #x3496)	; ó°€Š
+      (=ucs@unicode	  . #x3496)	; ó°€‹
       ))
     ))
 (define-char
@@ -27336,7 +27338,7 @@
       (=cns11643-4	  . #x4F5D)	; ø»˜¥ˆ
       (=ucs@cns		  . #x349A)	; ø»˜¥ˆ
       )
-     ((=ucs@unicode	  . #x349A)	; ó°€‹
+     ((=ucs@unicode	  . #x349A)	; ó°€Œ
       ))
     ))
 (define-char
@@ -27424,7 +27426,7 @@
 	)
        ((=ucs		    . #x7FDF)	; ç¿Ÿ
 	))
-      (=ucs@unicode	  . #x349B)	; ó°€Œ
+      (=ucs@unicode	  . #x349B)	; ó°€
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -30055,7 +30057,7 @@
 	)
        ((=ucs		    . #x7E47)	; ç¹‡
 	))
-      (=ucs@unicode	  . #x34A1)	; ó°€Ž
+      (=ucs@unicode	  . #x34A1)	; ó°€
       ))
     ))
 (define-char
