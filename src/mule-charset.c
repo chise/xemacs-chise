@@ -3825,8 +3825,8 @@ vars_of_mule_charset (void)
   int k;
 #endif
 
-  chlook = xnew (struct charset_lookup);
-  dumpstruct (&chlook, &charset_lookup_description);
+  chlook = xnew_and_zero (struct charset_lookup); /* zero for Purify. */
+  dump_add_root_struct_ptr (&chlook, &charset_lookup_description);
 
   /* Table of charsets indexed by leading byte. */
   for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)

@@ -528,7 +528,7 @@ Check that OBJECT is of type TYPE.
 TYPE is a Common Lisp-style type specifier." nil nil)
 
 (autoload 'check-type "cl-macs" "\
-Verify that FORM is of type TYPE; signal an error if not.
+Verify that PLACE is of type TYPE; signal a continuable error if not.
 STRING is an optional description of the desired type." nil 'macro)
 
 (autoload 'assert "cl-macs" "\
@@ -1541,6 +1541,17 @@ lead to Emacs accessing remote sites." t nil)
 
 (autoload 'package-get-custom "package-get" "\
 Fetch and install the latest versions of all customized packages." t nil)
+
+;;;***
+
+;;;### (autoloads (package-net-update-installed-db package-net-setup-directory) "package-net" "lisp/package-net.el")
+
+(autoload 'package-net-setup-directory "package-net" nil nil nil)
+
+(autoload 'package-net-update-installed-db "package-net" "\
+Write out the installed package index in a net install suitable format.
+If DESTDIR is non-nil then use that as the destination directory. 
+DESTDIR defaults to the value of `package-net-setup-directory'." nil nil)
 
 ;;;***
 

@@ -5529,7 +5529,7 @@ If due to `eval' entry, one arg, t.
 
   staticpro (&Vpending_warnings);
   Vpending_warnings = Qnil;
-  pdump_wire (&Vpending_warnings_tail);
+  dump_add_root_object (&Vpending_warnings_tail);
   Vpending_warnings_tail = Qnil;
 
   staticpro (&Vautoload_queue);

@@ -3138,13 +3138,15 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	signal_simple_error_2 ("Wrong domain for image instance",
 			       instantiator, domain);
     }
+  /* How ugly !! An image instanciator that uses a kludgy syntax to snarf in
+     face properties. There's a design flaw here. -- didier */
   else if (VECTORP (instantiator)
 	   && EQ (INSTANTIATOR_TYPE (instantiator), Qinherit))
     {
       assert (XVECTOR_LENGTH (instantiator) == 3);
       return (FACE_PROPERTY_INSTANCE
 	      (Fget_face (XVECTOR_DATA (instantiator)[2]),
-	       Qbackground_pixmap, domain, 0, depth));
+	       Qbackground_pixmap, domain, 1, depth));
     }
   else
     {
@@ -3169,7 +3171,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	{
 	  pointer_fg = FACE_FOREGROUND (Vpointer_face, domain);
 	  pointer_bg = FACE_BACKGROUND (Vpointer_face, domain);
-	  hash_key = list4 (glyph, INSTANTIATOR_TYPE (instantiator), 
+	  hash_key = list4 (glyph, INSTANTIATOR_TYPE (instantiator),
 			    pointer_fg, pointer_bg);
 	}
       else
@@ -5169,7 +5171,7 @@ image_instantiator_format_create (void)
   Vimage_instantiator_format_list = Qnil;
   staticpro (&Vimage_instantiator_format_list);
 
-  dumpstruct (&the_image_instantiator_format_entry_dynarr, &iifed_description);
+  dump_add_root_struct_ptr (&the_image_instantiator_format_entry_dynarr, &iifed_description);
 
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (nothing, "nothing");
 

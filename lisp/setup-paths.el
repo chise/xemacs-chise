@@ -38,8 +38,11 @@
 
 ;;; Code:
 
-(defvar paths-load-path-depth 1
+(defvar paths-core-load-path-depth 1
   "Depth of load-path searches in core Lisp paths.")
+
+(defvar paths-site-load-path-depth 1
+  "Depth of load-path searches in site Lisp paths.")
 
 (defvar paths-default-info-directories
   (mapcar (function
@@ -87,11 +90,11 @@
 	 (site-lisp-load-path
 	  (and site-lisp-directory
 	       (paths-find-recursive-load-path (list site-lisp-directory)
-					       paths-load-path-depth)))
+					       paths-site-load-path-depth)))
 	 (lisp-load-path
 	  (and lisp-directory
 	       (paths-find-recursive-load-path (list lisp-directory)
-					       paths-load-path-depth))))
+					       paths-core-load-path-depth))))
     (append env-load-path
 	    early-package-load-path
 	    site-lisp-load-path
@@ -109,11 +112,11 @@
 	 (site-module-load-path
 	  (and site-module-directory
 	       (paths-find-recursive-load-path (list site-module-directory)
-					       paths-load-path-depth)))
+					       paths-site-load-path-depth)))
 	 (module-load-path
 	  (and module-directory
 	       (paths-find-recursive-load-path (list module-directory)
-					       paths-load-path-depth))))
+					       paths-core-load-path-depth))))
      (append env-module-path
 	    site-module-load-path
 	    module-load-path)))

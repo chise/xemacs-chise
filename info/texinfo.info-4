@@ -336,7 +336,7 @@ insert these pointers automatically.)
 
   Do not define the `Previous' node of the Top node to be `(dir)', as
 it causes confusing behavior for users: if you are in the Top node and
-hits <DEL> to go backwards, you wind up in the middle of the some other
+hit <DEL> to go backwards, you wind up in the middle of some other
 entry in the `dir' file, which has nothing to do with what you were
 reading.
 

@@ -2567,8 +2567,8 @@ complex_vars_of_buffer (void)
   syms = XBUFFER (Vbuffer_local_symbols);
   buffer_defaults_saved_slots      = &defs->BUFFER_SLOTS_FIRST_NAME;
   buffer_local_symbols_saved_slots = &syms->BUFFER_SLOTS_FIRST_NAME;
-  dumpstruct (&buffer_defaults_saved_slots,      &buffer_slots_description);
-  dumpstruct (&buffer_local_symbols_saved_slots, &buffer_slots_description);
+  dump_add_root_struct_ptr (&buffer_defaults_saved_slots,      &buffer_slots_description);
+  dump_add_root_struct_ptr (&buffer_local_symbols_saved_slots, &buffer_slots_description);
 
   DEFVAR_BUFFER_DEFAULTS ("default-modeline-format", modeline_format /*
 Default value of `modeline-format' for buffers that don't override it.

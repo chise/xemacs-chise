@@ -1232,23 +1232,9 @@ extern __ptr_t __sbrk __P ((int increment));
    and return the start of data space, or NULL on errors.
    If INCREMENT is negative, shrink data space.  */
 __ptr_t
-__default_morecore (
-#ifdef __STDC__
-     ptrdiff_t increment
-#else
-#ifdef OSF1
-     long increment
-#else
-     int increment
-#endif
-#endif
-     )
+__default_morecore (ptrdiff_t increment)
 {
-#ifdef OSF1
-  __ptr_t result = (__ptr_t) __sbrk ((ssize_t) increment);
-#else
-  __ptr_t result = (__ptr_t) __sbrk ((int) increment);
-#endif
+  __ptr_t result = (__ptr_t) __sbrk (increment);
   if (result == (__ptr_t) -1)
     return NULL;
   return result;

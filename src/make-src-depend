@@ -93,7 +93,7 @@ LISP_UNION_H=lisp-disunion.h
 #endif
 ";
 
-my @LISP_H = ('lisp.h', keys %{$uses{'lisp.h'}});
+my @LISP_H = ('lisp.h', sort keys %{$uses{'lisp.h'}});
 print "LISP_H=@{[grep (!/lisp-(dis)?union\.h/, @LISP_H)]} \$(LISP_UNION_H)\n";
 
 sub PrintDeps {

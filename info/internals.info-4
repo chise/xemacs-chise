@@ -965,7 +965,7 @@ place.
      individually to go out from there to mark all reachable objects.
      All roots that are traversed are shown in their processed order:
         * all constant symbols and static variables that are registered
-          via `staticpro' in the array `staticvec'.  *Note Adding
+          via `staticpro' in the dynarr `staticpros'.  *Note Adding
           Global Lisp Variables::.
 
         * all Lisp objects that are created in C functions and that

@@ -2867,6 +2867,185 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-16  Didier Verna  <didier@xemacs.org>
+
+	* glyphs.c (image_instantiate): don't use fallbacks when
+	instantiating a face's background pixmap by inheritance.
+
+2001-01-14  Mike Sperber <mike@xemacs.org>
+
+	* sysdep.c (start_of_data): PDUMP implies ORDINARY_LINK.
+	Conditionalize accordingly.
+
+2001-01-16  Martin Buchholz  <martin@xemacs.org>
+
+	* dumper.c (pdump_file_get): Fix a compiler warning.
+
+2001-01-15  Martin Buchholz  <martin@xemacs.org>
+
+	Make Purify happy when pdumping.
+	* symbols.c (Fmake_variable_buffer_local): Make Purify happy, by
+	iniitalizing all bits of new lisp object memory.
+	* symbols.c (Fmake_local_variable): Likewise.
+	* symbols.c (Fdontusethis_set_symbol_value_handler): Likewise.
+	* symbols.c (Fdefvaralias): Likewise.
+	* mule-charset.c (vars_of_mule_charset): Likewise.
+
+2001-01-15  Martin Buchholz  <martin@xemacs.org>
+	Add the `-nd' flag when running pre-dump operations under the debugger.
+	* .dbxrc (run-temacs): Add `-nd'.
+	* .dbxrc (update-elc): Likewise.
+	* .dbxrc (dump-temacs): Likewise.
+	* .gdbinit (run-temacs): Likewise.
+	* .gdbinit (check-temacs): Likewise.
+	* .gdbinit (update-elc): Likewise.
+	* .gdbinit (dump-temacs): Likewise.
+
+2001-01-14  Martin Buchholz  <martin@xemacs.org>
+
+	Allow building 64-bit executables on AIX with GNU malloc, e.g.
+	export OBJECT_MODE=64
+	configure --pdump --use-union-type=no
+	* m/ibmrs6000.h (DATA_START): Define for 64-bit world.
+	* gmalloc.c (__default_morecore): Remove pre-ANSI cruft.
+
+	* miscplay.c (sndcnv8U_2mono):
+	Avoid two uses of `++' in the same expression.
+	Suppresses a GCC warning.
+
+2001-01-13  Martin Buchholz  <martin@xemacs.org>
+
+	Make sure future compilers don't miscompile alloc.c.
+	* alloc.c:
+	(MARK_STRUCT_AS_FREE): Make aliasing-optimization-resistant.
+	(MARK_STRUCT_AS_NOT_FREE): Make aliasing-optimization-resistant.
+
+2001-01-12  Martin Buchholz  <martin@xemacs.org>
+
+	* dumper.c: A little post-pdump-rename comment fixup.
+
+2001-01-09  Jerry James  <james@eecs.ku.edu>
+
+	* lisp-disunion.h: Change LISP_TO_CVOID arg to match its use.
+
+2001-01-13  Martin Buchholz  <martin@xemacs.org>
+
+	* *.[ch]: Globally rename symbols using the following `pdump-rename'
+	script:
+	#!/bin/sh
+	replace_symbol () {
+	  (findn texi$; findn [ch]$) | xargs g -lw "$1" | xargs global-replace 's/(?<!_)\b'$1'\b(?!_)/'$2'/g'
+	}
+
+	replace_symbol pdump_wire_lists pdump_weak_object_chains
+	replace_symbol pdump_wire_list dump_add_weak_object_chain
+
+	replace_symbol pdump_wires pdump_root_objects
+	replace_symbol pdump_wire dump_add_root_object
+
+	replace_symbol pdump_dump_wired pdump_dump_from_root_objects
+	replace_symbol pdump_dump_structs pdump_dump_from_root_struct_ptrs
+
+	replace_symbol dumpstructinfos pdump_root_struct_ptrs
+	replace_symbol dumpstructinfo_dynarr pdump_root_struct_ptr_dynarr
+	replace_symbol dumpstructinfo pdump_root_struct_ptr
+	replace_symbol dumpstruct dump_add_root_struct_ptr
+
+	replace_symbol dumpopaque dump_add_opaque
+	replace_symbol dumpopaqueinfo_dynarr pdump_opaque_dynarr
+	replace_symbol dumpopaqueinfos pdump_opaques
+	replace_symbol dumpopaqueinfo pdump_opaque
+
+	replace_symbol nb_structdump nb_root_struct_ptrs
+	replace_symbol nb_opaquedump nb_opaques
+
+	replace_symbol align_table pdump_align_table
+	replace_symbol dump_header pdump_header
+
+	replace_symbol DUMP_SIGNATURE_LEN PDUMP_SIGNATURE_LEN
+	replace_symbol DUMP_SIGNATURE PDUMP_SIGNATURE
+
+
+2001-01-12  Martin Buchholz  <martin@xemacs.org>
+
+	* s/aix4.h: Keep the C for AIX compiler from overaggressively
+	optimizing bytecount_to_charcount().
+
+2001-01-06  Golubev I. N.  <gin@mo.msk.ru>
+
+	* config.h.in:
+	(HAVE_DLFCN_H): Removed.
+	* sysdll.c: Remove HAVE__DLOPEN, HAVE_DLFCN_H.
+
+2001-01-06  Martin Buchholz  <martin@xemacs.org>
+
+	Portable dumper maintainability improvements.
+	* alloc.c (staticpro):
+	* alloc.c (staticpro_nodump):
+	* alloc.c (garbage_collect_1):
+	* alloc.c (reinit_alloc_once_early):
+	* alloc.c (init_alloc_once_early):
+	* alloc.c: Move dumper functions to alloc.c.
+	* dumper.c (pdump_backtrace):
+	* dumper.c (pdump_dump_structs):
+	* dumper.c (pdump_dump_opaques):
+	* dumper.c (pdump_dump_rtables):
+	* dumper.c (pdump_dump_wired):
+	* dumper.c (pdump):
+	* dumper.c (pdump_load_check):
+	* dumper.c (pdump_load_finish):
+	* dumper.c (pdump_file_unmap):
+	* dumper.c (pdump_file_get):
+	* dumper.c (pdump_resource_free):
+	* dumper.c (pdump_resource_get):
+	* dumper.c (pdump_file_free):
+	* dumper.c (pdump_file_try):
+	* dumper.c (pdump_load):
+	Remove fixed size limits on staticpro(), staticpro_nodump(),
+	dumpopaque(), dumpstruct() by using Dynarrs instead of static C arrays.
+	Remove custom code for dumping lrecord_implementations_table - use
+	dumpopaque instead.
+	Remove (most of the) custom code for dumping staticpros - dump it
+	like any other dynarr.
+
+	* alloc.h: Removed.  No longer useful, since dumper now more self-contained.
+	* dumper.c: Moved functions from alloc.c.
+	* alloc.c (dumpstruct): Moved to dumper.c.
+	* alloc.c (dumpopaque): Likewise.
+	* alloc.c (pdump_wire): Likewise.
+	* alloc.c (pdump_wire_list): Likewise.
+
+	* lisp.h (Dynarr_sizeof): New.
+	* lisp.h (Dynarr_begin): New.  Very slightly C++oid.
+	* lisp.h (Dynarr_end): New.  Very slightly C++oid.
+	* lisp.h (Lisp_Object_ptr_dynarr): New.  For staticpros.
+
+	* lisp.h (dumpstruct): Define to nothing if not PDUMPing.
+	* lisp.h (dumpopaque): ditto.
+	* lisp.h (pdump_wire): ditto.
+	* lisp.h (pdump_wire_list): ditto.
+
+2001-01-09  Martin Buchholz  <martin@xemacs.org>
+
+	* make-src-depend (PrintPatternDeps):
+	Use `sort' to make output independent of perl version.
+
+2001-01-08  Martin Buchholz  <martin@xemacs.org>
+
+	Port to Netbsd 1.5.
+	* unexelf.c: Remove (never used) bogus Netbsd-specific cruft.
+	* s/netbsd.c: Use unexelf.o if __ELF__ is defined.
+
+2001-01-03  Didier Verna  <didier@xemacs.org>
+
+	* event-stream.c (emacs_handle_focus_change_preliminary): ensure
+	that `focus_frame' is alive before thinking of calling
+	`redisplay_redraw_cursor' on it.
+
 2001-01-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.40 is released.
@@ -3146,7 +3325,7 @@
 	* buffer.c: Make find-file-compare-truenames default to true on
 	windows.
 
-	* realpath.c (win32_abs_start): 
+	* realpath.c (win32_abs_start):
 	(cygwin_readlink):
 	(win32_readlink): New functions.
 	(xrealpath): Return really real filenames on windows.

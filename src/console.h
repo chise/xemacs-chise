@@ -389,7 +389,7 @@ struct console_methods * type##_console_methods
     add_entry_to_console_type_list (Q##type, type##_console_methods);	\
     type##_console_methods->image_conversion_list = Qnil;		\
     staticpro_nodump (&type##_console_methods->image_conversion_list);	\
-    dumpstruct (&type##_console_methods, &console_methods_description);	\
+    dump_add_root_struct_ptr (&type##_console_methods, &console_methods_description);	\
 } while (0)
 
 #define REINITIALIZE_CONSOLE_TYPE(type) do {	\

@@ -1807,7 +1807,8 @@ emacs_handle_focus_change_preliminary (Lisp_Object frame_inp_and_dev)
 	MARK_WINDOWS_CHANGED (w);
       }
 
-      if (FRAMEP (focus_frame) && !EQ (frame, focus_frame))
+      if (FRAMEP (focus_frame) && FRAME_LIVE_P (XFRAME (focus_frame))
+	  && !EQ (frame, focus_frame))
 	{
 	  /* Oops, we missed a focus-out event. */
 	  DEVICE_FRAME_WITH_FOCUS_REAL (d) = Qnil;
@@ -4469,12 +4470,12 @@ vars_of_event_stream (void)
   Vthis_command_keys = Qnil;
   staticpro (&Vthis_command_keys);
   Vthis_command_keys_tail = Qnil;
-  pdump_wire (&Vthis_command_keys_tail);
+  dump_add_root_object (&Vthis_command_keys_tail);
 
   command_event_queue = Qnil;
   staticpro (&command_event_queue);
   command_event_queue_tail = Qnil;
-  pdump_wire (&command_event_queue_tail);
+  dump_add_root_object (&command_event_queue_tail);
 
   Vlast_selected_frame = Qnil;
   staticpro (&Vlast_selected_frame);

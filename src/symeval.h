@@ -345,7 +345,7 @@ void defvar_magic (const char *symbol_name, const struct symbol_value_forward *m
 
 #define DEFVAR_SYMVAL_FWD_INT(lname, c_location, forward_type, magicfun) do{	\
   DEFVAR_SYMVAL_FWD (lname, c_location, forward_type, magicfun);		\
-  dumpopaque (c_location, sizeof(int));						\
+  dump_add_opaque (c_location, sizeof(int));					\
 } while (0)
 
 #define DEFVAR_SYMVAL_FWD_OBJECT(lname, c_location, forward_type, magicfun) do{ \

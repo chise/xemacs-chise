@@ -1,5 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@c $Id: texinfo.texi,v 1.8.2.6 2001/01/06 07:51:28 stephent Exp $
+@c $Id: texinfo.texi,v 1.8.2.7 2001/01/09 20:52:53 adrian Exp $
 @c %**start of header
 
 @c All text is ignored before the setfilename.
@@ -743,8 +743,8 @@ menu-driven, on-line Info file with nodes, menus, cross references,
 and indices.  You can, if you wish, make the chapters and sections of
 the printed document correspond to the nodes of the on-line
 information; and you use the same cross references and indices for
-both the Info file and the printed work.  @cite{The GNU
-Emacs Manual} is a good example of a Texinfo file, as is this manual.@refill
+both the Info file and the printed work.  @cite{The XEmacs User's
+Manual} is a good example of a Texinfo file, as is this manual.@refill
 
 To make a printed document, you process a Texinfo source file with the
 @TeX{} typesetting program.  This creates a DVI file that you can
@@ -4768,9 +4768,9 @@ utility to insert these pointers automatically.)
 @cindex Previous node of Top node
 Do not define the `Previous' node of the Top node to be @samp{(dir)}, as
 it causes confusing behavior for users: if you are in the Top node and
-hits @key{DEL} to go backwards, you wind up in the middle of the
-some other entry in the @file{dir} file, which has nothing to do with
-what you were reading.
+hit @key{DEL} to go backwards, you wind up in the middle of some other
+entry in the @file{dir} file, which has nothing to do with what you were
+reading.
 
 @xref{Install an Info File}, for more information about installing
 an Info file in the @file{info} directory.
@@ -8226,7 +8226,7 @@ Line breaks are not special within the table body, and you may break
 input lines in your source file as necessary.
 
 Here is a complete example of a multi-column table (the text is from
-@cite{The GNU Emacs Manual}, @pxref{Split Window,, Splitting Windows,
+@cite{The XEmacs Users' Manual}, @pxref{Split Window,, Splitting Windows,
 xemacs, XEmacs User's Manual}):
 
 @example

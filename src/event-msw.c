@@ -3634,12 +3634,12 @@ vars_of_event_mswindows (void)
   mswindows_u_dispatch_event_queue = Qnil;
   staticpro (&mswindows_u_dispatch_event_queue);
   mswindows_u_dispatch_event_queue_tail = Qnil;
-  pdump_wire (&mswindows_u_dispatch_event_queue_tail);
+  dump_add_root_object (&mswindows_u_dispatch_event_queue_tail);
 
   mswindows_s_dispatch_event_queue = Qnil;
   staticpro (&mswindows_s_dispatch_event_queue);
   mswindows_s_dispatch_event_queue_tail = Qnil;
-  pdump_wire (&mswindows_s_dispatch_event_queue_tail);
+  dump_add_root_object (&mswindows_s_dispatch_event_queue_tail);
 
   mswindows_error_caught_in_modal_loop = Qnil;
   staticpro (&mswindows_error_caught_in_modal_loop);

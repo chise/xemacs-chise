@@ -3267,7 +3267,7 @@ void
 specifier_type_create (void)
 {
   the_specifier_type_entry_dynarr = Dynarr_new (specifier_type_entry);
-  dumpstruct (&the_specifier_type_entry_dynarr, &sted_description);
+  dump_add_root_struct_ptr (&the_specifier_type_entry_dynarr, &sted_description);
 
   Vspecifier_type_list = Qnil;
   staticpro (&Vspecifier_type_list);
@@ -3311,7 +3311,7 @@ vars_of_specifier (void)
   /* Do NOT mark through this, or specifiers will never be GC'd.
      This is the same deal as for weak hash tables. */
   Vall_specifiers = Qnil;
-  pdump_wire_list (&Vall_specifiers);
+  dump_add_weak_object_chain (&Vall_specifiers);
 
   Vuser_defined_tags = Qnil;
   staticpro (&Vuser_defined_tags);

@@ -1150,7 +1150,7 @@ void
 console_type_create (void)
 {
   the_console_type_entry_dynarr = Dynarr_new (console_type_entry);
-  dumpstruct(&the_console_type_entry_dynarr, &cted_description);
+  dump_add_root_struct_ptr (&the_console_type_entry_dynarr, &cted_description);
 
   Vconsole_type_list = Qnil;
   staticpro (&Vconsole_type_list);
@@ -1368,8 +1368,8 @@ complex_vars_of_console (void)
   syms = XCONSOLE (Vconsole_local_symbols);
   console_defaults_saved_slots      = &defs->CONSOLE_SLOTS_FIRST_NAME;
   console_local_symbols_saved_slots = &syms->CONSOLE_SLOTS_FIRST_NAME;
-  dumpstruct (&console_defaults_saved_slots,      &console_slots_description);
-  dumpstruct (&console_local_symbols_saved_slots, &console_slots_description);
+  dump_add_root_struct_ptr (&console_defaults_saved_slots,      &console_slots_description);
+  dump_add_root_struct_ptr (&console_local_symbols_saved_slots, &console_slots_description);
 
   DEFVAR_CONSOLE_DEFAULTS ("default-function-key-map", function_key_map /*
 Default value of `function-key-map' for consoles that don't override it.

@@ -1858,7 +1858,7 @@ vars_of_chartab (void)
 {
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
-  pdump_wire_list (&Vall_syntax_tables);
+  dump_add_weak_object_chain (&Vall_syntax_tables);
 }
 
 void

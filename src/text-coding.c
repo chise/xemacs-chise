@@ -47,17 +47,17 @@ Lisp_Object Vcoding_system_for_write;
 Lisp_Object Vfile_name_coding_system;
 
 /* Table of symbols identifying each coding category. */
-Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST + 1];
+Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST];
 
 
 
 struct file_coding_dump {
   /* Coding system currently associated with each coding category. */
-  Lisp_Object coding_category_system[CODING_CATEGORY_LAST + 1];
+  Lisp_Object coding_category_system[CODING_CATEGORY_LAST];
 
   /* Table of all coding categories in decreasing order of priority.
      This describes a permutation of the possible coding categories. */
-  int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
+  int coding_category_by_priority[CODING_CATEGORY_LAST];
 
 #if defined(MULE) && !defined(UTF2000)
   Lisp_Object ucs_to_mule_table[65536];
@@ -1467,7 +1467,7 @@ decode_coding_category (Lisp_Object symbol)
   int i;
 
   CHECK_SYMBOL (symbol);
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     if (EQ (coding_category_symbol[i], symbol))
       return i;
 
@@ -1483,7 +1483,7 @@ Return a list of all recognized coding categories.
   int i;
   Lisp_Object list = Qnil;
 
-  for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+  for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
     list = Fcons (coding_category_symbol[i], list);
   return list;
 }
@@ -1497,13 +1497,13 @@ previously.
 */
        (list))
 {
-  int category_to_priority[CODING_CATEGORY_LAST + 1];
+  int category_to_priority[CODING_CATEGORY_LAST];
   int i, j;
   Lisp_Object rest;
 
   /* First generate a list that maps coding categories to priorities. */
 
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     category_to_priority[i] = -1;
 
   /* Highest priority comes from the specified list. */
@@ -1520,7 +1520,7 @@ previously.
   /* Now go through the existing categories by priority to retrieve
      the categories not yet specified and preserve their priority
      order. */
-  for (j = 0; j <= CODING_CATEGORY_LAST; j++)
+  for (j = 0; j < CODING_CATEGORY_LAST; j++)
     {
       int cat = fcd->coding_category_by_priority[j];
       if (category_to_priority[cat] < 0)
@@ -1530,7 +1530,7 @@ previously.
   /* Now we need to construct the inverse of the mapping we just
      constructed. */
 
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     fcd->coding_category_by_priority[category_to_priority[i]] = i;
 
   /* Phew!  That was confusing. */
@@ -1545,7 +1545,7 @@ Return a list of coding categories in descending order of priority.
   int i;
   Lisp_Object list = Qnil;
 
-  for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+  for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
     list = Fcons (coding_category_symbol[fcd->coding_category_by_priority[i]],
 		  list);
   return list;
@@ -1795,7 +1795,7 @@ coding_system_from_mask (int mask)
 #endif
       /* Look through the coding categories by priority and find
 	 the first one that is allowed. */
-      for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+      for (i = 0; i < CODING_CATEGORY_LAST; i++)
 	{
 	  cat = fcd->coding_category_by_priority[i];
 	  if ((mask & (1 << cat)) &&
@@ -1993,7 +1993,7 @@ type.  Optional arg BUFFER defaults to the current buffer.
 #ifdef MULE
       decst.mask = postprocess_iso2022_mask (decst.mask);
 #endif
-      for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+      for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
 	{
 	  int sys = fcd->coding_category_by_priority[i];
 	  if (decst.mask & (1 << sys))
@@ -5795,10 +5795,10 @@ vars_of_file_coding (void)
   int i;
 
   fcd = xnew (struct file_coding_dump);
-  dumpstruct (&fcd, &fcd_description);
+  dump_add_root_struct_ptr (&fcd, &fcd_description);
 
   /* Initialize to something reasonable ... */
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     {
       fcd->coding_category_system[i] = Qnil;
       fcd->coding_category_by_priority[i] = i;
@@ -5862,7 +5862,7 @@ complex_vars_of_file_coding (void)
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   the_codesys_prop_dynarr = Dynarr_new (codesys_prop);
-  dumpstruct (&the_codesys_prop_dynarr, &codesys_prop_dynarr_description);
+  dump_add_root_struct_ptr (&the_codesys_prop_dynarr, &codesys_prop_dynarr_description);
 
 #define DEFINE_CODESYS_PROP(Prop_Type, Sym) do	\
 {						\
@@ -5938,7 +5938,7 @@ complex_vars_of_file_coding (void)
 
 #if defined(MULE) && !defined(UTF2000)
   {
-    unsigned int i;
+    size_t i;
 
     for (i = 0; i < countof (fcd->ucs_to_mule_table); i++)
       fcd->ucs_to_mule_table[i] = Qnil;

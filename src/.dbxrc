@@ -169,7 +169,7 @@ end
 
 function run-temacs {
   environment-to-run-temacs
-  run -batch -l ../lisp/loadup.el run-temacs -q ${1+"$@"}
+  run -nd -batch -l ../lisp/loadup.el run-temacs -q ${1+"$@"}
 }
 
 document check-xemacs << 'end'
@@ -201,7 +201,7 @@ end
 
 function update-elc {
   environment-to-run-temacs
-  run -batch -l ../lisp/update-elc.el
+  run -nd -batch -l ../lisp/update-elc.el
 }
 
 document dump-temacs << 'end'
@@ -213,7 +213,7 @@ end
 
 function dump-temacs {
   environment-to-run-temacs
-  run -batch -l ../lisp/loadup.el dump
+  run -nd -batch -l ../lisp/loadup.el dump
 }
 
 function pstruct { # pstruct foo.c struct-name

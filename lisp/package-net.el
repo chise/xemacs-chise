@@ -27,6 +27,61 @@
 
 ;; Manipulate packages for the netinstall setup utility
 
+;; The process should be so:
+
+;; 1. The package maintainer or release manager makes a release
+;; announcement.
+;;
+;; 2. For a new package releases the netinstall maintainer simply
+;; needs to update `ftp://ftp.xemacs.org/pub/xemacs/setup.ini'. This is
+;; harder than it sounds because the file also includes information
+;; about the binary releases. At the moment going to the netinstall
+;; directory and typing:
+;;
+;;   `make XEMACS=<current executable location> setup.ini' 
+;;
+;; will do the right thing provided that:
+;; 
+;; (a) `package-net-cygwin32-binary-size' and
+;; `package-net-win32-binary-size' are set correctly.
+;;
+;; (b) The binary pointed to by `XEMACS' has a current
+;; `package-index.LATEST.pgp' file. If you don't specify the XEMACS=
+;; part then you will get whatever is current for your build tree -
+;; which is probably not what you want.
+;;
+;; You can run `package-net-convert-index-to-ini' manually and specify
+;; REMOTE but I generally found that to be inconvenient and error-prone.
+;;
+;; 3. For package releases that's all you need to do. For binary
+;; releases you need to build both cygwin and win32 binaries and put
+;; them in appropriate tarballs:
+;;
+;; For cygwin, configure, make and install and then do (this is for
+;; 21.1.13):
+;;
+;;   cd <install dir>
+;;   tar cvzf xemacs-i686-pc-cygwin32-21.1.13.tar.gz \
+;;      ./bin/i686-pc-cygwin32 ./lib/xemacs-21.1.13 \
+;;      ./lib/xemacs/lock ./man/man1/xemacs.1 \
+;;      ./man/man1/ctags.1 ./man/man1/gnu*.1'
+;;
+;;  Note that the naming of the package is important. Don't be tempted
+;;  to change the order in any way.
+;;
+;; For win32 build and install the release and then (again for
+;; 21.1.13):
+;;
+;;   cd <install dir>
+;;   tar cvzf xemacs-i386-pc-win32-21.1.13.tar.gz ./XEmacs-21.1.13
+;; 
+;; The binaries should be uploaded to
+;; `ftp://ftp.xemacs.org/pub/xemacs/binaries/cygwin32' and
+;; `ftp://ftp.xemacs.org/pub/xemacs/binaries/win32' respectively. Take
+;; a note of their sizes and set `package-net-cygwin32-binary-size'
+;; and `package-net-win32-binary-size' appropriately in this file and
+;; then follow step 2.
+
 (require 'package-admin)
 (require 'package-get)
 
@@ -35,6 +90,22 @@
 ;; bootstrap the process. This will be:
 ;; <root>/setup/ for native windows
 ;; <root>/lib/xemacs/setup for cygwin.
+;;
+;;; To Do:
+;;
+;; 1. Package update functions should also update the installed
+;; database so that running setup.exe again does not reinstall
+;; packages.
+;;
+;; 2. Generating setup.ini should be more automatic.
+
+(defvar package-net-cygwin32-binary-size 6917126
+  "The size in bytes of the cygwin32 binary distribution.")
+
+(defvar package-net-win32-binary-size 6563941
+  "The size in bytes of the win32 binary distribution.")
+
+;;;###autoload
 (defun package-net-setup-directory ()
   (file-truename (concat data-directory "../../" (if (eq system-type 'cygwin32)
 						     "xemacs/setup/" "setup/"))))
@@ -59,31 +130,34 @@ DESTDIR defaults to the value of `data-directory'."
 			    (+ (* (car (current-time)) 65536) (car (cdr (current-time))))))
 	    (insert (format "setup-version: %s\n\n" (or version "1.0")))
 	    ;; Native version
-	    ;; We give the package a capitalised name so that it appears at the top
-	    (insert (format "@ %s\n" "xemacs-i586-pc-win32"))
+	    (insert (format "@ %s\n" "xemacs-i386-pc-win32"))
 	    (insert (format "version: %s\n" emacs-program-version))
 	    (insert "type: native\n")
 	    (insert (format "install: binaries/win32/%s %d\n\n"
 			    (concat emacs-program-name
-				    "-i586-pc-win32-"
-				    emacs-program-version ".tar.gz") 0))
+				    "-i386-pc-win32-"
+				    emacs-program-version ".tar.gz")
+			    package-net-win32-binary-size))
 	    ;; Cygwin version
-	    ;; We give the package a capitalised name so that it appears at the top
 	    (insert (format "@ %s\n" "xemacs-i686-pc-cygwin32"))
 	    (insert (format "version: %s\n" emacs-program-version))
 	    (insert "type: cygwin\n")
 	    (insert (format "install: binaries/cygwin32/%s %d\n\n"
 			    (concat emacs-program-name
 				    "-i686-pc-cygwin32-"
-				    emacs-program-version ".tar.gz") 6779200))
+				    emacs-program-version ".tar.gz") 
+			    package-net-cygwin32-binary-size))
 	    ;; Standard packages
 	    (while entries
 	      (setq entry (car entries))
 	      (setq plist (car (cdr entry)))
-	      (insert (format "@ %s\n" (symbol-name (car entry))))
-	      (insert (format "version: %s\n" (plist-get plist 'version)))
-	      (insert (format "install: packages/%s %s\n" (plist-get plist 'filename)
-			      (plist-get plist 'size)))
+	      ;; ignore mule packages
+	      (unless (or (memq 'mule-base (plist-get plist 'requires))
+			  (eq 'mule-base (car entry)))
+		(insert (format "@ %s\n" (symbol-name (car entry))))
+		(insert (format "version: %s\n" (plist-get plist 'version)))
+		(insert (format "install: packages/%s %s\n" (plist-get plist 'filename)
+				(plist-get plist 'size)))
 	      ;; These are not supported as yet
 	      ;;
 	      ;; (insert (format "source: %s\n" (plist-get plist 'source)))
@@ -91,12 +165,22 @@ DESTDIR defaults to the value of `data-directory'."
 	      ;; (insert (format "version: %s\n" (plist-get plist 'version)))
 	      ;; (insert (format "install: %s\n" (plist-get plist 'filename)))
 	      ;; (insert (format "source: %s\n" (plist-get plist 'source)))
-	      (insert "\n")
+		(insert "\n"))
 	      (setq entries (cdr entries))))
 	  (insert "# setup.ini file ends here\n")
 	  (write-region (point-min) (point-max) (concat destdir "setup.ini")))
       (kill-buffer buf))))
 
+(defun package-net-batch-convert-index-to-ini ()
+  "Convert the package index to ini file format."
+  (unless noninteractive
+    (error "`package-net-batch-convert-index-to-ini' is to be used only with -batch"))
+  (let ((dir (car command-line-args-left))
+	(version (car (cdr command-line-args-left)))
+	(package-get-require-signed-base-updates nil))
+    (package-net-convert-index-to-ini dir nil version)))
+
+;;;###autoload
 (defun package-net-update-installed-db (&optional destdir)
   "Write out the installed package index in a net install suitable format.
 If DESTDIR is non-nil then use that as the destination directory. 

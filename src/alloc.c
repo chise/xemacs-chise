@@ -42,7 +42,6 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
-#include "alloc.h"
 #include "backtrace.h"
 #include "buffer.h"
 #include "bytecode.h"
@@ -821,16 +820,18 @@ You have some weird system and need to supply a reasonable value here.
 
 /* The construct (* (void **) (ptr)) would cause aliasing problems
    with modern optimizing compilers like `gcc -O3 -fstrict-aliasing'.
-   But `char *' can legally alias any pointer.  Hence this union trick. */
+   But `char *' can legally alias any pointer.  Hence this union trick...
+
+   It turned out that the union trick was not good enough for xlC -O3;
+   and it is questionable whether it really complies with the C standard.
+   so we use memset instead, which should be safe from optimizations. */
 typedef union { char c; void *p; } *aliasing_voidpp;
 #define ALIASING_VOIDPP_DEREFERENCE(ptr) \
   (((aliasing_voidpp) (ptr))->p)
 #define FREE_STRUCT_P(ptr) \
   (ALIASING_VOIDPP_DEREFERENCE (ptr) == (void *) INVALID_POINTER_VALUE)
-#define MARK_STRUCT_AS_FREE(ptr) \
-  (ALIASING_VOIDPP_DEREFERENCE (ptr) = (void *) INVALID_POINTER_VALUE)
-#define MARK_STRUCT_AS_NOT_FREE(ptr) \
-  (ALIASING_VOIDPP_DEREFERENCE (ptr) = 0)
+#define MARK_STRUCT_AS_FREE(ptr) memset (ptr, 0xff, sizeof (void *))
+#define MARK_STRUCT_AS_NOT_FREE(ptr) memset (ptr, 0x00, sizeof (void *))
 
 #ifdef ERROR_CHECK_GC
 
@@ -2461,98 +2462,47 @@ Lisp_Object (*lrecord_markers[countof (lrecord_implementations_table)]) (Lisp_Ob
 
 struct gcpro *gcprolist;
 
-/* 415 used Mly 29-Jun-93 */
-/* 1327 used slb 28-Feb-98 */
-/* 1328 used og  03-Oct-99 (moving slowly, heh?) */
-#ifdef HAVE_SHLIB
-#define NSTATICS 4000
-#else
-#define NSTATICS 2000
-#endif
+/* We want the staticpros relocated, but not the pointers found therein.
+   Hence we use a trivial description, as for pointerless objects. */
+static const struct lrecord_description staticpro_description_1[] = {
+  { XD_END }
+};
 
-/* Not "static" because used by dumper.c */
-Lisp_Object *staticvec[NSTATICS];
-int staticidx;
+static const struct struct_description staticpro_description = {
+  sizeof (Lisp_Object *),
+  staticpro_description_1
+};
 
-/* Put an entry in staticvec, pointing at the variable whose address is given
- */
+static const struct lrecord_description staticpros_description_1[] = {
+  XD_DYNARR_DESC (Lisp_Object_ptr_dynarr, &staticpro_description),
+  { XD_END }
+};
+
+static const struct struct_description staticpros_description = {
+  sizeof (Lisp_Object_ptr_dynarr),
+  staticpros_description_1
+};
+
+Lisp_Object_ptr_dynarr *staticpros;
+
+/* Mark the Lisp_Object at non-heap VARADDRESS as a root object for
+   garbage collection, and for dumping. */
 void
 staticpro (Lisp_Object *varaddress)
 {
-  /* #### This is now a dubious assert() since this routine may be called */
-  /* by Lisp attempting to load a DLL. */
-  assert (staticidx < countof (staticvec));
-  staticvec[staticidx++] = varaddress;
+  Dynarr_add (staticpros, varaddress);
+  dump_add_root_object (varaddress);
 }
 
 
-Lisp_Object *staticvec_nodump[200];
-int staticidx_nodump;
+Lisp_Object_ptr_dynarr *staticpros_nodump;
 
-/* Put an entry in staticvec_nodump, pointing at the variable whose address is given
- */
+/* Mark the Lisp_Object at non-heap VARADDRESS as a root object for
+   garbage collection, but not for dumping. */
 void
 staticpro_nodump (Lisp_Object *varaddress)
 {
-  /* #### This is now a dubious assert() since this routine may be called */
-  /* by Lisp attempting to load a DLL. */
-  assert (staticidx_nodump < countof (staticvec_nodump));
-  staticvec_nodump[staticidx_nodump++] = varaddress;
-}
-
-
-struct pdump_dumpstructinfo dumpstructvec[200];
-int dumpstructidx;
-
-/* Put an entry in dumpstructvec, pointing at the variable whose address is given
- */
-void
-dumpstruct (void *varaddress, const struct struct_description *desc)
-{
-  assert (dumpstructidx < countof (dumpstructvec));
-  dumpstructvec[dumpstructidx].data = varaddress;
-  dumpstructvec[dumpstructidx].desc = desc;
-  dumpstructidx++;
-}
-
-struct pdump_dumpopaqueinfo dumpopaquevec[250];
-int dumpopaqueidx;
-
-/* Put an entry in dumpopaquevec, pointing at the variable whose address is given
- */
-void
-dumpopaque (void *varaddress, size_t size)
-{
-  assert (dumpopaqueidx < countof (dumpopaquevec));
-
-  dumpopaquevec[dumpopaqueidx].data = varaddress;
-  dumpopaquevec[dumpopaqueidx].size = size;
-  dumpopaqueidx++;
-}
-
-Lisp_Object *pdump_wirevec[50];
-int pdump_wireidx;
-
-/* Put an entry in pdump_wirevec, pointing at the variable whose address is given
- */
-void
-pdump_wire (Lisp_Object *varaddress)
-{
-  assert (pdump_wireidx < countof (pdump_wirevec));
-  pdump_wirevec[pdump_wireidx++] = varaddress;
-}
-
-
-Lisp_Object *pdump_wirevec_list[50];
-int pdump_wireidx_list;
-
-/* Put an entry in pdump_wirevec_list, pointing at the variable whose address is given
- */
-void
-pdump_wire_list (Lisp_Object *varaddress)
-{
-  assert (pdump_wireidx_list < countof (pdump_wirevec_list));
-  pdump_wirevec_list[pdump_wireidx_list++] = varaddress;
+  Dynarr_add (staticpros_nodump, varaddress);
 }
 
 #ifdef ERROR_CHECK_GC
@@ -3547,11 +3497,17 @@ garbage_collect_1 (void)
   /* Mark all the special slots that serve as the roots of accessibility. */
 
   { /* staticpro() */
-    int i;
-    for (i = 0; i < staticidx; i++)
-      mark_object (*(staticvec[i]));
-    for (i = 0; i < staticidx_nodump; i++)
-      mark_object (*(staticvec_nodump[i]));
+    Lisp_Object **p = Dynarr_begin (staticpros);
+    size_t count;
+    for (count = Dynarr_length (staticpros); count; count--)
+      mark_object (**p++);
+  }
+
+  { /* staticpro_nodump() */
+    Lisp_Object **p = Dynarr_begin (staticpros_nodump);
+    size_t count;
+    for (count = Dynarr_length (staticpros_nodump); count; count--)
+      mark_object (**p++);
   }
 
   { /* GCPRO() */
@@ -3588,7 +3544,7 @@ garbage_collect_1 (void)
 	int i;
 
 	mark_object (*backlist->function);
-	if (nargs == UNEVALLED || nargs == MANY)
+	if (nargs < 0 /* nargs == UNEVALLED || nargs == MANY */)
 	  mark_object (backlist->args[0]);
 	else
 	  for (i = 0; i < nargs; i++)
@@ -4018,9 +3974,10 @@ reinit_alloc_once_early (void)
 
   ignore_malloc_warnings = 0;
 
-  staticidx_nodump = 0;
-  dumpstructidx = 0;
-  pdump_wireidx = 0;
+  if (staticpros_nodump)
+    Dynarr_free (staticpros_nodump);
+  staticpros_nodump = Dynarr_new2 (Lisp_Object_ptr_dynarr, Lisp_Object *);
+  Dynarr_resize (staticpros_nodump, 100); /* merely a small optimization */
 
   consing_since_gc = 0;
 #if 1
@@ -4062,7 +4019,9 @@ init_alloc_once_early (void)
   INIT_LRECORD_IMPLEMENTATION (string);
   INIT_LRECORD_IMPLEMENTATION (lcrecord_list);
 
-  staticidx = 0;
+  staticpros = Dynarr_new2 (Lisp_Object_ptr_dynarr, Lisp_Object *);
+  Dynarr_resize (staticpros, 1410); /* merely a small optimization */
+  dump_add_root_struct_ptr (&staticpros, &staticpros_description);
 }
 
 void

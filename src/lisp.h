@@ -70,6 +70,9 @@ void Dynarr_free (void *d);
   ((dynarr_type *) Dynarr_newf (sizeof (type)))
 #define Dynarr_at(d, pos) ((d)->base[pos])
 #define Dynarr_atp(d, pos) (&Dynarr_at (d, pos))
+#define Dynarr_begin(d) Dynarr_atp (d, 0)
+#define Dynarr_end(d) Dynarr_atp (d, Dynarr_length (d))
+#define Dynarr_sizeof(d) ((d)->cur * (d)->elsize)
 #define Dynarr_length(d) ((d)->cur)
 #define Dynarr_largest(d) ((d)->largest)
 #define Dynarr_reset(d) ((d)->cur = 0)
@@ -569,6 +572,11 @@ typedef struct
 {
   Dynarr_declare (Lisp_Object);
 } Lisp_Object_dynarr;
+
+typedef struct
+{
+  Dynarr_declare (Lisp_Object *);
+} Lisp_Object_ptr_dynarr;
 
 /* Close your eyes now lest you vomit or spontaneously combust ... */
 
@@ -2097,6 +2105,8 @@ void debug_ungcpro(char *, int, struct gcpro *);
     RETURN_SANS_WARNINGS ret_nunb_val;	\
 } while (0)
 
+extern Lisp_Object_ptr_dynarr *staticpros;
+
 /* Call staticpro (&var) to protect static variable `var'. */
 void staticpro (Lisp_Object *);
 
@@ -2104,19 +2114,35 @@ void staticpro (Lisp_Object *);
 /* var will not be saved at dump time */
 void staticpro_nodump (Lisp_Object *);
 
-/* Call dumpstruct(&var, &desc) to dump the structure pointed to by `var'. */
-void dumpstruct (void *, const struct struct_description *);
+/* Call dump_add_root_struct_ptr (&var, &desc) to dump the structure pointed to by `var'. */
+#ifdef PDUMP
+void dump_add_root_struct_ptr (void *, const struct struct_description *);
+#else
+#define dump_add_root_struct_ptr(varaddr,descaddr) DO_NOTHING
+#endif
 
-/* Call dumpopaque(&var, size) to dump the opaque static structure `var'. */
-void dumpopaque (void *, size_t);
+/* Call dump_add_opaque (&var, size) to dump the opaque static structure `var'. */
+#ifdef PDUMP
+void dump_add_opaque (void *, size_t);
+#else
+#define dump_add_opaque(varaddr,size) DO_NOTHING
+#endif
 
-/* Call pdump_wire(&var) to ensure that var is properly updated after pdump. */
-void pdump_wire (Lisp_Object *);
+/* Call dump_add_root_object (&var) to ensure that var is properly updated after pdump. */
+#ifdef PDUMP
+void dump_add_root_object (Lisp_Object *);
+#else
+#define dump_add_root_object(varaddr) DO_NOTHING
+#endif
 
-/* Call pdump_wire(&var) to ensure that var  is properly updated after
-   pdump.  var  must point to  a linked list  of  objects out of which
+/* Call dump_add_root_object (&var) to ensure that var is properly updated after
+   pdump.  var must point to a linked list of objects out of which
    some may not be dumped */
-void pdump_wire_list (Lisp_Object *);
+#ifdef PDUMP
+void dump_add_weak_object_chain (Lisp_Object *);
+#else
+#define dump_add_weak_object_chain(varaddr) DO_NOTHING
+#endif
 
 /* Nonzero means Emacs has already been initialized.
    Used during startup to detect startup of dumped Emacs.  */

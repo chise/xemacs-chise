@@ -123,7 +123,7 @@ end
 
 define run-temacs
   environment-to-run-temacs
-  run -batch -l ../lisp/loadup.el run-temacs -q
+  run -nd -batch -l ../lisp/loadup.el run-temacs -q
 end
 
 document run-temacs
@@ -144,7 +144,7 @@ end
 
 define check-temacs
   environment-to-run-temacs
-  run -batch -l ../lisp/loadup.el run-temacs -q -batch -l ../tests/automated/test-harness.el -f batch-test-emacs ../tests/automated
+  run -nd -batch -l ../lisp/loadup.el run-temacs -q -batch -l ../tests/automated/test-harness.el -f batch-test-emacs ../tests/automated
 end
 
 document check-temacs
@@ -156,7 +156,7 @@ end
 
 define update-elc
   environment-to-run-temacs
-  run -batch -l ../lisp/update-elc.el
+  run -nd -batch -l ../lisp/update-elc.el
 end
 
 document update-elc
@@ -168,7 +168,7 @@ end
 
 define dump-temacs
   environment-to-run-temacs
-  run -batch -l ../lisp/loadup.el dump
+  run -nd -batch -l ../lisp/loadup.el dump
 end
 
 document dump-temacs
