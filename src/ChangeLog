@@ -1,3 +1,8 @@
+2002-10-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (put_char_table): When a charset is specified as a
+	range in UTF-2000, don't support builtin characters.
+
 2002-09-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (decode_defined_char): Don't refer external
