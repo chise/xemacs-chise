@@ -1,5 +1,21 @@
 2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c (char_table_open_db_maybe): Defined even if `CHISE' is
+	not defined; add code for non-libchise setting.
+	(char_table_close_db_maybe): Likewise.
+	(char_table_get_db): New function when `HAVE_CHISE_CLIENT' is
+	defined.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'
+	even if `CHISE' is not defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined; use
+	`char_table_get_db'.
+	(Fload_char_attribute_table): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined.
+
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* chartab.c (char_table_open_db_maybe): New function.
 	(char_table_close_db_maybe): New function.
 	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'.
