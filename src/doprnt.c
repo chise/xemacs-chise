@@ -34,7 +34,7 @@ Boston, MA 02111-1307, USA.  */
 static const char * const valid_flags = "-+ #0";
 static const char * const valid_converters = "dic" "ouxX" "feEgG" "sS";
 static const char * const int_converters = "dic";
-static const char * const unsigned_int_converters = "ouxX";
+static const char * const unsigned_int_converters = "ouxXc";
 static const char * const double_converters = "feEgG";
 static const char * const string_converters = "sS";
 
@@ -586,7 +586,7 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		    obj = Ftruncate (obj);
 
 		  if (strchr (unsigned_int_converters, ch))
-		    arg.ul = (unsigned long) XINT (obj);
+		    arg.ul = (unsigned long) XUINT (obj);
 		  else
 		    arg.l = XINT (obj);
 		}
