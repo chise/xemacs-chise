@@ -1040,6 +1040,8 @@ FORMAT-STRING may contain %-sequences to substitute parts of the time.
 %p is replaced by AM or PM, as appropriate.
 %r is a synonym for "%I:%M:%S %p".
 %R is a synonym for "%H:%M".
+%s is replaced by the time in seconds since 00:00:00, Jan 1, 1970 (a
+      nonstandard extension)
 %S is replaced by the second (00-60).
 %t is a synonym for "\\t".
 %T is a synonym for "%H:%M:%S".
