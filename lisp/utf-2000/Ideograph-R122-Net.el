@@ -1410,10 +1410,6 @@
     (ideographic-radical . 122)	; â½¹
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA5A)	; ï©š
-      (=jis-x0213-1-2000  . #x7A3A)	; ø»¤–ƒ
-      ))
     (=ucs		. #x7F72)	; ç½²
     (=jis-x0208		. #x3D70)	; ø½Š “
     (=gb2312		. #x4A70)	; ø»…ƒ¡

@@ -2823,11 +2823,6 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6A66)	; ø½‹¢
-      (=ks-x1001	  . #x6D7B)	; ø»Š‹Ž
-      (=daikanwa	  . 34321)	; ø¸ˆ˜‘
-      ))
     (=jis-x0208		. #x4175)	; ø½Š¦
     (=gt		. 46217)	; ý¡€‹’‰
     (=gt-pj-1		. #x4175)	; ý¡€‹’‰
@@ -5225,10 +5220,6 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA60)	; ï© 
-      (=jis-x0213-1-2000  . #x7B6F)	; ø»¤˜–
-      ))
     (=jis-x0208		. #x336C)	; ø½Š‘£
     (=gt		. 46248)	; ý¡€‹’¨
     (=gt-k		. 10184)	; ý¡„‚Ÿˆ
@@ -5240,7 +5231,6 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=big5		. #xE7CB)	; ý¢€ŽŸ‹
     (=daikanwa		. 34436)	; ø¸ˆš„
     ))
 (define-char
@@ -5250,16 +5240,13 @@
     (total-strokes	 . 15)
     (=ucs		. #x8911)	; è¤‘
     (=cns11643-2	. #x5434)	; ø»”—­
+    (=big5		. #xE7CB)	; ý¢€ŽŸ‹
     ))
 (define-char
   '((=>ucs		. #x8912)	; è¤’
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6A71)	; ø½‹¢š
-      (=daikanwa	  . 34552)	; ø¸ˆ›¸
-      ))
     (shinjigen-2	. 7428)
     (=jis-x0208		. #x4B2B)	; ø½Š³²
     (=ks-x1001		. #x7866)	; ø»Š›ƒ
@@ -5270,20 +5257,20 @@
     (=ucs@jis		. #x8912)	; ø½Š³²
     ))
 (define-char
-  '((=>ucs		. #x8912)	; è¤’
-    (morohashi-daikanwa	34437 0 0)
-    (ideographic-radical . 145)	; â¾
-    (ideographic-strokes . 9)
-    (total-strokes	 . 15)
-    (=cns11643-1	. #x6E70)	; ø»’´±
-    ))
-(define-char
-  '((morohashi-daikanwa	34437 0 1)
+  '((morohashi-daikanwa	34437 0 0)
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x8912)	; è¤’
     (=gb2312		. #x307D)	; ø»„¢
+    ))
+(define-char
+  '((=>ucs		. #x8912)	; è¤’
+    (morohashi-daikanwa	34437 0 1)
+    (ideographic-radical . 145)	; â¾
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=cns11643-1	. #x6E70)	; ø»’´±
     ))
 (define-char
   '((=>ucs		. #x8913)	; è¤“

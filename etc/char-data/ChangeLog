@@ -1,29 +1,3 @@
-2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* JC3-to-UCS.txt (JC3-81F6): Map to U+6EE8 instead of U+6EEB.
-	(JC3-82BF): Map to U+6CA7 instead of U+6CA6.
-
-2004-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* JC3-to-UCS.txt (JC3-81F7): Map to U+5BBE instead of U+6EE8.
-
-2004-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* jp-jouyou.txt (J0-482F): Fix map.
-
-2004-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* JC3-to-UCS.txt (JC3-5CA7): Map to U-2F94E instead of U+784E.
-
-2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* JC3-to-UCS.txt (JC3-70C6): Map to U+6A0B instead of U+901A.
-
-2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* JC3-to-UCS.txt (JC3-48B9): Map to U+FA39 instead of U+5840.
-	(JC3-51D5): Map to U+665A instead of U+6669.
-
 2003-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JX1-to-UCS.txt, JC3-to-UCS.txt: Modify some mappings to use

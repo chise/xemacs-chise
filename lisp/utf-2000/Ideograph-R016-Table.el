@@ -253,10 +253,6 @@
   '((ideographic-radical . 16)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8655)	; è™•
-      (=jis-x0208	  . #x515D)	; ø½Š½˜
-      ))
     (hanyu-dazidian	1 276 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")

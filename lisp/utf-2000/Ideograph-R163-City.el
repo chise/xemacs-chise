@@ -1578,11 +1578,6 @@
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=ks-x1001	  . #x554D)	; ø»‰§
-      (=jis-x0213-1-2000  . #x7C67)	; ø»¤™¬
-      (=daikanwa	  . 39431)	; ø¸‰¨‡
-      ))
     (=jis-x0208		. #x4F3A)	; ø½Š¹¹
     (=big5		. #xADA6)	; ý¢€Š¶¦
     (=gt		. 53018)	; ý¡€Œ¼š
@@ -2809,11 +2804,6 @@
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA26")
-      (=ucs		  . #xFA26)	; ï¨¦
-      (=jis-x0213-1-2000  . #x7C6A)	; ø»¤™¯
-      ))
     (=ucs		. #x90FD)	; éƒ½
     (=jis-x0208		. #x4554)	; ø½Š«§
     (=gb2312		. #x363C)	; ø»„¥•
@@ -2835,10 +2825,6 @@
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9115)	; é„•
-      (=jis-x0213-1-2000  . #x7C6C)	; ø»¤™±
-      ))
     (=ucs		. #x90F7)	; éƒ·
     (=jis-x0208		. #x363F)	; ø½Š•
     (=cns11643-3	. #x3952)	; ø»•º¥
