@@ -9320,7 +9320,7 @@
   '((->ucs		. #x6994)	; æ¦”
     (morohashi-daikanwa	15226 0 2 0)
     (ideographic-radical . 75)	; â½Š
-    (kangxi-strokes	 . 9)
+    (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (japanese-jisx0208		. #x4F31)	; ø»‡“¼
     (japanese-jisx0208-1990	. #x4F31)	; ø½Š¹°
