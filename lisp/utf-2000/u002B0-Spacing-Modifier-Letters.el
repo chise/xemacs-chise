@@ -262,7 +262,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xA1C5)	; øºŸœ£
     (ucs		. #x2CD)	; Ë
     ))
 (define-char
