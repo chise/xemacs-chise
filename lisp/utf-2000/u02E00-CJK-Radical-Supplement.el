@@ -43,6 +43,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (total-strokes	 . 2)
+    (ideographic-cdp	. -55)
+    (chinese-big5	. #x8AF5)	; ⺅
     (ucs		. #x2E85)	; ⺅
     ))
 (define-char
