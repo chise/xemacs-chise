@@ -535,8 +535,8 @@
     (hanyu-dazidian	1 51 9)
     (chinese-cns11643-3 . #x232D)	; ø»•™¬
     (ideograph-daikanwa . 48950)	; ø¸‹¼¶
-    (ideograph-cbeta	. 00017)	; ø¸ €‘
     (chinese-big5-cdp	. #x8A45)	; ý¢€ˆ©…
+    (ideograph-cbeta	. 00017)	; ø¸ €‘
     (china3-jef		. #x80B6)	; øºˆ‚¶
     (ucs		. #x5350)	; å
     ))

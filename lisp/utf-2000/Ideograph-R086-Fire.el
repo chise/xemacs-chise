@@ -2035,8 +2035,8 @@
      ((ucs		  . #x65A5)	; æ–¥
       ))
     (ideograph-daikanwa		. 18972)	; ø¸„¨œ
-    (ideograph-cbeta		. 03139)	; ø¸ ±ƒ
     (ideograph-hanziku-6	. #xC3F1)	; ý¢¬±
+    (ideograph-cbeta		. 03139)	; ø¸ ±ƒ
     (ucs			. #x241DA)	; ð¤‡š
     ))
 (define-char
@@ -3720,8 +3720,8 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 400 5)
     (ideograph-daikanwa		. 19065)	; ø¸„©¹
-    (ideograph-cbeta		. 05337)	; ø¸¡“™
     (ideograph-hanziku-1	. #xF858)	; ý¢€Ÿ¡˜
+    (ideograph-cbeta		. 05337)	; ø¸¡“™
     (ucs			. #x2422B)	; ð¤ˆ«
     ))
 (define-char
@@ -6246,8 +6246,8 @@
      ((ucs		  . #x52C3)	; å‹ƒ
       ))
     (ideograph-daikanwa		. 19202)	; ø¸„¬‚
-    (ideograph-cbeta		. 04521)	; ø¸¡†©
     (ideograph-hanziku-6	. #xCA7E)	; ý¢¬©¾
+    (ideograph-cbeta		. 04521)	; ø¸¡†©
     (ucs			. #x242B9)	; ð¤Š¹
     ))
 (define-char
@@ -9146,8 +9146,8 @@
      ((ucs		  . #x53C3)	; åƒ
       ))
     (ideograph-daikanwa		. 19366)	; ø¸„®¦
-    (ideograph-cbeta		. 02411)	; ø¸ ¥«
     (ideograph-hanziku-6	. #xCDAA)	; ý¢¬¶ª
+    (ideograph-cbeta		. 02411)	; ø¸ ¥«
     (ucs			. #x2435C)	; ð¤œ
     ))
 (define-char
@@ -10682,8 +10682,8 @@
 	))
       ))
     (ideograph-daikanwa		. 19453)	; ø¸„¯½
-    (ideograph-cbeta		. 00193)	; ø¸ ƒ
     (ideograph-hanziku-6	. #xCDF1)	; ý¢¬·±
+    (ideograph-cbeta		. 00193)	; ø¸ ƒ
     (ucs			. #x243D9)	; ð¤™
     ))
 (define-char

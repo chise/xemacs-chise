@@ -1083,8 +1083,8 @@
       ))
     (chinese-cns11643-6		. #x2951)	; ø»œ
     (ideograph-daikanwa		. 01371)	; ø¸€•›
-    (ideograph-cbeta		. 01781)	; ø¸ ›µ
     (ideograph-hanziku-1	. #xDE48)	; ý¢€¹ˆ
+    (ideograph-cbeta		. 01781)	; ø¸ ›µ
     (mojikyo			. 001371)	; ý €€•›
     (ucs			. #x20483)	; ð ’ƒ
     ))

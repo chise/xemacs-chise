@@ -9,8 +9,8 @@
     (chinese-cns11643-3 . #x2123)	; ø»•–¦
     (ideograph-gt-pj-1	. #x5028)	; ý¡€€‚—
     (ideograph-daikanwa . 00106)	; ø¸€ª
-    (ideograph-cbeta	. 06875)	; ø¸¡«›
     (chinese-big5-cdp	. #x8B47)	; ý¢€ˆ­‡
+    (ideograph-cbeta	. 06875)	; ø¸¡«›
     (ideograph-gt	. 00151)	; ý¡€€‚—
     (mojikyo		. 000106)	; ý €€ª
     (ucs		. #x4E3F)	; ä¸¿

@@ -370,8 +370,8 @@
     (chinese-gb2312		. #x3958)	; ø»„ª‹
     (chinese-isoir165		. #x3958)	; ø»’›
     (japanese-jisx0213-2	. #x2328)	; ø»¤ ƒ
-    (ideograph-cbeta		. 00659)	; ø¸ Š“
     (chinese-big5-cdp		. #x8C63)	; ý¢€ˆ±£
+    (ideograph-cbeta		. 00659)	; ø¸ Š“
     (china3-jef			. #x90EC)	; øº‰ƒ¬
     (mojikyo			. 051198)	; ý €ŒŸ¾
     (ucs			. #x5173)	; å…³

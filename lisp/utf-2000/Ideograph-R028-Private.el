@@ -424,8 +424,8 @@
       ))
     (chinese-cns11643-4 . #x2249)	; ø»—¢®
     (ideograph-daikanwa . 48956)	; ø¸‹¼¼
-    (ideograph-cbeta	. 06611)	; ø¸¡§“
     (chinese-big5-cdp	. #x88E6)	; ý¢€ˆ£¦
+    (ideograph-cbeta	. 06611)	; ø¸¡§“
     (ucs		. #x20AE4)	; ð «¤
     ))
 (define-char
@@ -819,8 +819,8 @@
     (japanese-jisx0212		. #x3458)	; ø»‹
     (chinese-cns11643-3		. #x3A29)	; ø»•»š
     (ideograph-daikanwa		. 03100)	; ø¸€°œ
-    (ideograph-cbeta		. 03744)	; ø¸ º 
     (ideograph-hanziku-1	. #xF5F1)	; ý¢€Ÿ—±
+    (ideograph-cbeta		. 03744)	; ø¸ º 
     (china3-jef			. #x45E9)	; øº„—©
     (ucs			. #x53C5)	; å…
     ))

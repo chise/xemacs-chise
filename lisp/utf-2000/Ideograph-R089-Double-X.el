@@ -87,8 +87,8 @@
     (=jis-x0208			. #x602C)	; ø½‹’©
     (chinese-cns11643-3		. #x2D6B)	; ø»•©–
     (ideograph-daikanwa		. 19743)	; ø¸„´Ÿ
-    (ideograph-cbeta		. 01131)	; ø¸ ‘«
     (ideograph-hanziku-1	. #xAC46)	; ý¢€š±†
+    (ideograph-cbeta		. 01131)	; ø¸ ‘«
     (ucs			. #x723C)	; çˆ¼
     ))
 (define-char

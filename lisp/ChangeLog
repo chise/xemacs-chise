@@ -1,3 +1,8 @@
+2003-01-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el: Add new coded-charset when UTF-2000 [was a
+	builtin coded-charset].
+
 2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (ideograph-gt-k): New coded-charset in

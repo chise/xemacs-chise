@@ -50,8 +50,8 @@
     (hanyu-dazidian	1 92 2)
     (chinese-cns11643-3 . #x215A)	; ø»•—
     (ideograph-daikanwa . 02777)	; ø¸€«™
-    (ideograph-cbeta	. 01453)	; ø¸ –­
     (chinese-big5-cdp	. #x8BF9)	; ý¢€ˆ¯¹
+    (ideograph-cbeta	. 01453)	; ø¸ –­
     (ucs		. #x535D)	; å
     ))
 (define-char
@@ -673,8 +673,8 @@
     (korean-ksc5601		. #x6059)	; ø»‰·¦
     (chinese-cns11643-4		. #x3064)	; ø»—·­
     (ideograph-daikanwa		. 02820)	; ø¸€¬„
-    (ideograph-cbeta		. 05348)	; ø¸¡“¤
     (ideograph-hanziku-1	. #xB7A9)	; ý¢€›ž©
+    (ideograph-cbeta		. 05348)	; ø¸¡“¤
     ))
 (define-char
   '((morohashi-daikanwa	2820 0 3)
