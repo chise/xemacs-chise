@@ -497,30 +497,45 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;; (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;;   (when (and (memq name attributes)
+    ;;              (setq value (get-char-attribute char name)))
+    ;;     (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                     (intern
+    ;;                      (concat "=>ucs@"
+    ;;                              (substring (symbol-name name) 6)))
+    ;;                     value
+    ;;                     (decode-char (intern
+    ;;                                   (concat "=ucs@"
+    ;;                                           (substring
+    ;;                                            (symbol-name name) 6)))
+    ;;                                  value)
+    ;;                     line-breaking))
+    ;;     (setq attributes (delq name attributes))))
+    ;; (when (and (memq '->ucs attributes)
+    ;;            (setq value (get-char-attribute char '->ucs)))
+    ;;   (insert (format (if char-db-convert-obsolete-format
+    ;;                       "(=>ucs\t\t. #x%04X)\t; %c%s"
+    ;;                     "(->ucs\t\t. #x%04X)\t; %c%s")
+    ;;                   value (decode-char '=ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->ucs attributes))
+    ;;   )
+    (dolist (name '(=>daikanwa))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
-	(insert (format "(%-18s . #x%04X)\t; %c%s"
-			(intern
-			 (concat "=>ucs@"
-				 (substring (symbol-name name) 6)))
-			value
-			(decode-char (intern
-				      (concat "=ucs@"
-					      (substring
-					       (symbol-name name) 6)))
-				     value)
-			line-breaking))
+	(insert
+	 (if (integerp value)
+	     (format "(%-18s . %05d)\t; %c%s"
+		     name value (decode-char '=daikanwa value)
+		     line-breaking)
+	   (format "(%-18s %s)\t; %c%s"
+		   name
+		   (mapconcat #'prin1-to-string
+			      value " ")
+		   (char-representative-of-daikanwa char)
+		   line-breaking)))
 	(setq attributes (delq name attributes))))
-    (when (and (memq '->ucs attributes)
-	       (setq value (get-char-attribute char '->ucs)))
-      (insert (format (if char-db-convert-obsolete-format
-			  "(=>ucs\t\t. #x%04X)\t; %c%s"
-			"(->ucs\t\t. #x%04X)\t; %c%s")
-		      value (decode-char '=ucs value)
-		      line-breaking))
-      (setq attributes (delq '->ucs attributes))
-      )
     (when (and (memq 'general-category attributes)
 	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
@@ -882,7 +897,15 @@
 		   (setq cell (car value))
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
-		   (cond ((characterp cell)
+		   (cond ((eq name '->unified)
+			  (if separator
+			      (insert lbs))
+			  (let ((char-db-ignored-attributes
+				 (cons '<-unified
+				       char-db-ignored-attributes)))
+			    (insert-char-attributes cell readable))
+			  (setq separator lbs))
+			 ((characterp cell)
 			  (setq sources
 				(get-char-attribute
 				 char
