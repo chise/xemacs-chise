@@ -1,3 +1,9 @@
+2004-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R192-Sacrificial-Wine.el (U-00029C2A): New character.
+	(M-45670): Moved into U-00029C2A.
+	(C5-7B50): Likewise.
+
 2004-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+8289): Use `->subsumptive'.
