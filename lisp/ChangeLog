@@ -1,3 +1,8 @@
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/vietnamese.el (vscii-2): Delete abolished property
+	`composite'; now composite mode is default.
+
 2000-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* bytecomp.el (byte-compile-insert-header): Use `binary' instead

@@ -1,5 +1,10 @@
 2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (Fmake_coding_system): Add document about
+	`disable-composition' property.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (Qdisable_composition): New variable; delete
 	`Qcomposite'.
 	(Fmake_coding_system): Add new property `disable-composite';
