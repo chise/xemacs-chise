@@ -1,3 +1,8 @@
+2002-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX2-to-UCS.txt (JX2-7575): Don't map to U+8279.
+	(JX2-7576): Map to U+8279.
+
 2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* GT-fmap-K1.txt, GT-fmap-K2.txt: New files.
