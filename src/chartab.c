@@ -3087,7 +3087,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       if (!NILP (db))
 	{
-	  Fput_database (Fchar_to_string (character),
+	  Fput_database (Fprin1_to_string (character, Qnil),
 			 Fprin1_to_string (value, Qnil),
 			 db, Qt);
 	  /* put_char_id_table (XCHAR_TABLE(table), character, value); */
