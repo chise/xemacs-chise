@@ -1,3 +1,7 @@
+2003-06-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el (M-33859): Unify B-F7D7.
+
 2003-06-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R006-Hook.el (U-00020114): Separate C6-2149.
