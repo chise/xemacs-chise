@@ -1,5 +1,10 @@
 2004-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R085-Water.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4C60.
 
 	* Ideograph-R076-Lack.el:
