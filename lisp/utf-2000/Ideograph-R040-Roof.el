@@ -693,6 +693,7 @@
      daikanwa)
     (=jis-x0212		. #x3A4C)	; ø»‹‰©
     (=daikanwa		. 07089)	; ø¸®±
+    (=ucs@jis		. #x5B90)	; ø»‹‰©
     ))
 (define-char
   '((morohashi-daikanwa	7089 0 0)
@@ -754,6 +755,7 @@
     (=jis-x0212		. #x3A4D)	; ø»‹‰ª
     (=daikanwa		. 07092)	; ø¸®´
     (=cbeta		. 05264)	; ø¸¡’
+    (=ucs@jis		. #x5B91)	; ø»‹‰ª
     ))
 (define-char
   '((morohashi-daikanwa	7092 0 0)

@@ -1825,6 +1825,7 @@
     (total-strokes	 . 10)
     (=jis-x0212		. #x4E66)	; ø»‹§›
     (=daikanwa		. 23253)	; ø¸…«•
+    (=ucs@jis		. #x7728)	; ø»‹§›
     ))
 (define-char
   '((morohashi-daikanwa	23253 0 0)
@@ -7471,6 +7472,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=jis-x0212		. #x4F3A)	; ø»‹¨
+    (=ucs@jis		. #x77B5)	; ø»‹¨
     ))
 (define-char
   '((ideographic-radical . 109)	; â½¬

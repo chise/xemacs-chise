@@ -16152,6 +16152,7 @@
     (total-strokes	 . 16)
     (=jis-x0212		. #x4128)	; ø»‹“—
     (=cbeta		. 02695)	; ø¸ ª‡
+    (=ucs@jis		. #x64D1)	; ø»‹“—
     ))
 (define-char
   '((morohashi-daikanwa	12815 0 1)

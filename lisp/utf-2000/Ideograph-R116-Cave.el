@@ -3274,6 +3274,7 @@
     (total-strokes	 . 16)
     (=jis-x0212		. #x5160)	; ø»‹«¯
     (=daikanwa		. 25626)	; ø¸†š
+    (=ucs@jis		. #x7AB5)	; ø»‹«¯
     ))
 (define-char
   '((=>ucs		. #x7AB5)	; çªµ
