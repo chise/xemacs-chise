@@ -1,5 +1,12 @@
 2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R045-Sprout.el (JX1-4F62): Unify GT-K00269; unify
+	U+FA3C instead of U+5C6E; unify GU+5C6E, CU+5C6E and BU+5C6E.
+	(U+5C6E): Separate all; add `->identical' for U+FA3C.
+	(U-0002F878): Don't use char-ref format in `->synonyms'; add
+	`->synonyms*sources' instead; use `->mistakable' and
+	`->mistakable*sources' for M-07825 instead of `comment'.
+
 	* Ideograph-R037-Big.el (J0-4537): Unify B-A4D1.
 	(U+5929): Separate B-A4D1; unify GT-K00468.
 
