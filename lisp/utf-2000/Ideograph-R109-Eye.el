@@ -2031,15 +2031,24 @@
     (ucs		. #x7739)	; çœ¹
     ))
 (define-char
-  '((ideographic-radical . 109)	; â½¬
+  '((=>ucs		. #x773A)	; çœº
+    (ideographic-radical . 109)	; â½¬
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (shinjigen-2	. 5307)
+    (japanese-jisx0208-1978	. #x442F)	; ø»‚¯¨
+    (japanese-jisx0208		. #x442F)	; ø»‡ƒ°
+    (ideograph-daikanwa		. 23314)	; ø¸…¬’
+    ))
+(define-char
+  '((morohashi-daikanwa	23314 0 0)
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
     (chinese-gb2312		. #x4C77)	; ø»…†¤
     (chinese-isoir165		. #x4C77)	; ø»®´
     (chinese-cns11643-1		. #x5C3C)	; ø»’™¡
     (japanese-jisx0208-1990	. #x442F)	; ø½Š©¤
-    (ideograph-daikanwa		. 23314)	; ø¸…¬’
     (ucs			. #x773A)	; çœº
     ))
 (define-char
@@ -5706,22 +5715,38 @@
     (ucs		. #x4070)	; ä°
     ))
 (define-char
-  '((->ucs		. #x77AC)	; çž¬
-    (ideographic-radical . 109)	; â½¬
+  '((ideographic-radical . 109)	; â½¬
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
+    (chinese-gb2312	. #x4B32)	; ø»…„
+    (chinese-isoir165	. #x4B32)	; ø»¬‘
     (ideograph-daikanwa . 23694)	; ø¸…²Ž
+    (ucs		. #x77AC)	; çž¬
     ))
 (define-char
-  '((morohashi-daikanwa	23694 0 2)
+  '((=>ucs		. #x77AC)	; çž¬
+    (morohashi-daikanwa	23694 0 0)
     (ideographic-radical . 109)	; â½¬
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (chinese-gb2312		. #x4B32)	; ø»…„
-    (chinese-isoir165		. #x4B32)	; ø»¬‘
-    (chinese-cns11643-1		. #x7449)	; ø»’¼¾
+    (chinese-cns11643-1 . #x7449)	; ø»’¼¾
+    ))
+(define-char
+  '((=>ucs		. #x77AC)	; çž¬
+    (morohashi-daikanwa	23694 0 1)
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
     (japanese-jisx0208-1990	. #x3D56)	; ø½ŠŸ¹
-    (ucs			. #x77AC)	; çž¬
+    ))
+(define-char
+  '((=>ucs		. #x77AC)	; çž¬
+    (morohashi-daikanwa	23694 0 2)
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
+    (japanese-jisx0208-1978	. #x3D56)	; ø»‚¥½
+    (japanese-jisx0208		. #x3D56)	; ø»†º…
     ))
 (define-char
   '((ideographic-radical . 109)	; â½¬
