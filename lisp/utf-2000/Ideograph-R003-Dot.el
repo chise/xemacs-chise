@@ -237,8 +237,6 @@
     (total-strokes	 . 4)
     (->same
      ((=ucs		  . #x2007E)	; ð ¾
-      )
-     ((=daikanwa	  . 02840)	; ø¸€¬˜
       ))
     (hanyu-dazidian	1 52 1)
     (=big5-cdp		. #x87D2)	; ý¢€ˆŸ’
@@ -385,7 +383,7 @@
      cns11643)
     (total-strokes	 . 8)
     (->same
-     ((ideographic-radical . 1)	; â¼€
+     ((=cns11643-6	  . #x2936)	; ø»œ€µ
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph
