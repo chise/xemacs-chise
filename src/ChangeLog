@@ -1,3 +1,12 @@
+2003-04-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Qmap_jis_x0212): Renamed from
+	`Qjapanese_jisx0212'.
+	(syms_of_mule_charset): Add new symbol `=jis-x0212' instead of
+	`japanese-jisx0212'.
+	(complex_vars_of_mule_charset): Rename `japanese-jisx0212' to
+	`=jis-x0212'.
+
 2003-04-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Qmap_jis_x0208_1983): Renamed from

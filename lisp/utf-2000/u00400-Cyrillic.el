@@ -56,7 +56,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")
-      (japanese-jisx0212  . #x2742)	; ø»Š­¥
+      (=jis-x0212	  . #x2742)	; ø»Š­¥
+      (=ucs@jis		  . #x0402)	; ø»Š­¥
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER DJE")
@@ -80,7 +81,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER DJE")
       (=ucs		  . #x0402)	; Ð‚
       ))
-    (japanese-jisx0212	. #x2742)	; ø»Š­¥
+    (=jis-x0212		. #x2742)	; ø»Š­¥
     (=ucs@jis		. #x0402)	; ø»Š­¥
     ))
 (define-char
@@ -91,7 +92,8 @@
     (->decomposition	#x0413 #x0301)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")
-      (japanese-jisx0212  . #x2743)	; ø»Š­¦
+      (=jis-x0212	  . #x2743)	; ø»Š­¦
+      (=ucs@jis		  . #x0403)	; ø»Š­¦
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER GJE")
@@ -114,7 +116,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (=ucs		  . #x0403)	; Ðƒ
       ))
-    (japanese-jisx0212	. #x2743)	; ø»Š­¦
+    (=jis-x0212		. #x2743)	; ø»Š­¦
     (=ucs@jis		. #x0403)	; ø»Š­¦
     ))
 (define-char
@@ -124,7 +126,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
-      (japanese-jisx0212  . #x2744)	; ø»Š­§
+      (=jis-x0212	  . #x2744)	; ø»Š­§
+      (=ucs@jis		  . #x0404)	; ø»Š­§
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER UKRAINIAN IE")
@@ -147,7 +150,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
       (=ucs		  . #x0404)	; Ð„
       ))
-    (japanese-jisx0212	. #x2744)	; ø»Š­§
+    (=jis-x0212		. #x2744)	; ø»Š­§
     (=ucs@jis		. #x0404)	; ø»Š­§
     ))
 (define-char
@@ -157,7 +160,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")
-      (japanese-jisx0212  . #x2745)	; ø»Š­¨
+      (=jis-x0212	  . #x2745)	; ø»Š­¨
+      (=ucs@jis		  . #x0405)	; ø»Š­¨
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER DZE")
@@ -180,7 +184,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER DZE")
       (=ucs		  . #x0405)	; Ð…
       ))
-    (japanese-jisx0212	. #x2745)	; ø»Š­¨
+    (=jis-x0212		. #x2745)	; ø»Š­¨
     (=ucs@jis		. #x0405)	; ø»Š­¨
     ))
 (define-char
@@ -190,7 +194,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
-      (japanese-jisx0212  . #x2746)	; ø»Š­©
+      (=jis-x0212	  . #x2746)	; ø»Š­©
+      (=ucs@jis		  . #x0406)	; ø»Š­©
       ))
     (->lowercase
      ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -213,7 +218,7 @@
      ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
       (=ucs		  . #x0406)	; Ð†
       ))
-    (japanese-jisx0212	. #x2746)	; ø»Š­©
+    (=jis-x0212		. #x2746)	; ø»Š­©
     (=ucs@jis		. #x0406)	; ø»Š­©
     ))
 (define-char
@@ -225,7 +230,8 @@
     (->decomposition	#x0406 #x0308)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YI")
-      (japanese-jisx0212  . #x2747)	; ø»Š­ª
+      (=jis-x0212	  . #x2747)	; ø»Š­ª
+      (=ucs@jis		  . #x0407)	; ø»Š­ª
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER YI")
@@ -249,7 +255,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (=ucs		  . #x0407)	; Ð‡
       ))
-    (japanese-jisx0212	. #x2747)	; ø»Š­ª
+    (=jis-x0212		. #x2747)	; ø»Š­ª
     (=ucs@jis		. #x0407)	; ø»Š­ª
     ))
 (define-char
@@ -259,7 +265,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER JE")
-      (japanese-jisx0212  . #x2748)	; ø»Š­«
+      (=jis-x0212	  . #x2748)	; ø»Š­«
+      (=ucs@jis		  . #x0408)	; ø»Š­«
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER JE")
@@ -282,7 +289,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER JE")
       (=ucs		  . #x0408)	; Ðˆ
       ))
-    (japanese-jisx0212	. #x2748)	; ø»Š­«
+    (=jis-x0212		. #x2748)	; ø»Š­«
     (=ucs@jis		. #x0408)	; ø»Š­«
     ))
 (define-char
@@ -292,7 +299,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")
-      (japanese-jisx0212  . #x2749)	; ø»Š­¬
+      (=jis-x0212	  . #x2749)	; ø»Š­¬
+      (=ucs@jis		  . #x0409)	; ø»Š­¬
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER LJE")
@@ -315,7 +323,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER LJE")
       (=ucs		  . #x0409)	; Ð‰
       ))
-    (japanese-jisx0212	. #x2749)	; ø»Š­¬
+    (=jis-x0212		. #x2749)	; ø»Š­¬
     (=ucs@jis		. #x0409)	; ø»Š­¬
     ))
 (define-char
@@ -325,7 +333,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")
-      (japanese-jisx0212  . #x274A)	; ø»Š­­
+      (=jis-x0212	  . #x274A)	; ø»Š­­
+      (=ucs@jis		  . #x040A)	; ø»Š­­
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER NJE")
@@ -348,7 +357,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER NJE")
       (=ucs		  . #x040A)	; ÐŠ
       ))
-    (japanese-jisx0212	. #x274A)	; ø»Š­­
+    (=jis-x0212		. #x274A)	; ø»Š­­
     (=ucs@jis		. #x040A)	; ø»Š­­
     ))
 (define-char
@@ -374,7 +383,7 @@
     (->lowercase
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TSHE")
       ))
-    (japanese-jisx0212	. #x274B)	; ø»Š­®
+    (=jis-x0212		. #x274B)	; ø»Š­®
     (=ucs@jis		. #x040B)	; ø»Š­®
     ))
 (define-char
@@ -385,7 +394,8 @@
     (->decomposition	#x041A #x0301)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER KJE")
-      (japanese-jisx0212  . #x274C)	; ø»Š­¯
+      (=jis-x0212	  . #x274C)	; ø»Š­¯
+      (=ucs@jis		  . #x040C)	; ø»Š­¯
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER KJE")
@@ -408,7 +418,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
       (=ucs		  . #x040C)	; ÐŒ
       ))
-    (japanese-jisx0212	. #x274C)	; ø»Š­¯
+    (=jis-x0212		. #x274C)	; ø»Š­¯
     (=ucs@jis		. #x040C)	; ø»Š­¯
     ))
 (define-char
@@ -432,7 +442,8 @@
     (->decomposition	#x0423 #x0306)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")
-      (japanese-jisx0212  . #x274D)	; ø»Š­°
+      (=jis-x0212	  . #x274D)	; ø»Š­°
+      (=ucs@jis		  . #x040E)	; ø»Š­°
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
@@ -456,7 +467,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
       (=ucs		  . #x040E)	; ÐŽ
       ))
-    (japanese-jisx0212	. #x274D)	; ø»Š­°
+    (=jis-x0212		. #x274D)	; ø»Š­°
     (=ucs@jis		. #x040E)	; ø»Š­°
     ))
 (define-char
@@ -466,7 +477,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")
-      (japanese-jisx0212  . #x274E)	; ø»Š­±
+      (=jis-x0212	  . #x274E)	; ø»Š­±
+      (=ucs@jis		  . #x040F)	; ø»Š­±
       ))
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER DZHE")
@@ -489,7 +501,7 @@
      ((name		  . "CYRILLIC CAPITAL LETTER DZHE")
       (=ucs		  . #x040F)	; Ð
       ))
-    (japanese-jisx0212	. #x274E)	; ø»Š­±
+    (=jis-x0212		. #x274E)	; ø»Š­±
     (=ucs@jis		. #x040F)	; ø»Š­±
     ))
 (define-char
@@ -2920,7 +2932,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DJE")
-      (japanese-jisx0212  . #x2772)	; ø»Š®•
+      (=jis-x0212	  . #x2772)	; ø»Š®•
+      (=ucs@jis		  . #x0452)	; ø»Š®•
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER DJE")
@@ -2944,7 +2957,7 @@
      ((name		  . "CYRILLIC SMALL LETTER DJE")
       (=ucs		  . #x0452)	; Ñ’
       ))
-    (japanese-jisx0212	. #x2772)	; ø»Š®•
+    (=jis-x0212		. #x2772)	; ø»Š®•
     (=ucs@jis		. #x0452)	; ø»Š®•
     ))
 (define-char
@@ -2955,7 +2968,8 @@
     (->decomposition	#x0433 #x0301)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER GJE")
-      (japanese-jisx0212  . #x2773)	; ø»Š®–
+      (=jis-x0212	  . #x2773)	; ø»Š®–
+      (=ucs@jis		  . #x0453)	; ø»Š®–
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
@@ -2978,7 +2992,7 @@
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (=ucs		  . #x0453)	; Ñ“
       ))
-    (japanese-jisx0212	. #x2773)	; ø»Š®–
+    (=jis-x0212		. #x2773)	; ø»Š®–
     (=ucs@jis		. #x0453)	; ø»Š®–
     ))
 (define-char
@@ -2988,7 +3002,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")
-      (japanese-jisx0212  . #x2774)	; ø»Š®—
+      (=jis-x0212	  . #x2774)	; ø»Š®—
+      (=ucs@jis		  . #x0454)	; ø»Š®—
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
@@ -3011,7 +3026,7 @@
      ((name		  . "CYRILLIC SMALL LETTER UKRAINIAN IE")
       (=ucs		  . #x0454)	; Ñ”
       ))
-    (japanese-jisx0212	. #x2774)	; ø»Š®—
+    (=jis-x0212		. #x2774)	; ø»Š®—
     (=ucs@jis		. #x0454)	; ø»Š®—
     ))
 (define-char
@@ -3021,7 +3036,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DZE")
-      (japanese-jisx0212  . #x2775)	; ø»Š®˜
+      (=jis-x0212	  . #x2775)	; ø»Š®˜
+      (=ucs@jis		  . #x0455)	; ø»Š®˜
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER DZE")
@@ -3044,7 +3060,7 @@
      ((name		  . "CYRILLIC SMALL LETTER DZE")
       (=ucs		  . #x0455)	; Ñ•
       ))
-    (japanese-jisx0212	. #x2775)	; ø»Š®˜
+    (=jis-x0212		. #x2775)	; ø»Š®˜
     (=ucs@jis		. #x0455)	; ø»Š®˜
     ))
 (define-char
@@ -3054,7 +3070,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
-      (japanese-jisx0212  . #x2776)	; ø»Š®™
+      (=jis-x0212	  . #x2776)	; ø»Š®™
+      (=ucs@jis		  . #x0456)	; ø»Š®™
       ))
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -3077,7 +3094,7 @@
      ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
       (=ucs		  . #x0456)	; Ñ–
       ))
-    (japanese-jisx0212	. #x2776)	; ø»Š®™
+    (=jis-x0212		. #x2776)	; ø»Š®™
     (=ucs@jis		. #x0456)	; ø»Š®™
     ))
 (define-char
@@ -3089,7 +3106,8 @@
     (->decomposition	#x0456 #x0308)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YI")
-      (japanese-jisx0212  . #x2777)	; ø»Š®š
+      (=jis-x0212	  . #x2777)	; ø»Š®š
+      (=ucs@jis		  . #x0457)	; ø»Š®š
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
@@ -3113,7 +3131,7 @@
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (=ucs		  . #x0457)	; Ñ—
       ))
-    (japanese-jisx0212	. #x2777)	; ø»Š®š
+    (=jis-x0212		. #x2777)	; ø»Š®š
     (=ucs@jis		. #x0457)	; ø»Š®š
     ))
 (define-char
@@ -3123,7 +3141,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER JE")
-      (japanese-jisx0212  . #x2778)	; ø»Š®›
+      (=jis-x0212	  . #x2778)	; ø»Š®›
+      (=ucs@jis		  . #x0458)	; ø»Š®›
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER JE")
@@ -3146,7 +3165,7 @@
      ((name		  . "CYRILLIC SMALL LETTER JE")
       (=ucs		  . #x0458)	; Ñ˜
       ))
-    (japanese-jisx0212	. #x2778)	; ø»Š®›
+    (=jis-x0212		. #x2778)	; ø»Š®›
     (=ucs@jis		. #x0458)	; ø»Š®›
     ))
 (define-char
@@ -3156,7 +3175,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER LJE")
-      (japanese-jisx0212  . #x2779)	; ø»Š®œ
+      (=jis-x0212	  . #x2779)	; ø»Š®œ
+      (=ucs@jis		  . #x0459)	; ø»Š®œ
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER LJE")
@@ -3179,7 +3199,7 @@
      ((name		  . "CYRILLIC SMALL LETTER LJE")
       (=ucs		  . #x0459)	; Ñ™
       ))
-    (japanese-jisx0212	. #x2779)	; ø»Š®œ
+    (=jis-x0212		. #x2779)	; ø»Š®œ
     (=ucs@jis		. #x0459)	; ø»Š®œ
     ))
 (define-char
@@ -3189,7 +3209,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER NJE")
-      (japanese-jisx0212  . #x277A)	; ø»Š®
+      (=jis-x0212	  . #x277A)	; ø»Š®
+      (=ucs@jis		  . #x045A)	; ø»Š®
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER NJE")
@@ -3212,7 +3233,7 @@
      ((name		  . "CYRILLIC SMALL LETTER NJE")
       (=ucs		  . #x045A)	; Ñš
       ))
-    (japanese-jisx0212	. #x277A)	; ø»Š®
+    (=jis-x0212		. #x277A)	; ø»Š®
     (=ucs@jis		. #x045A)	; ø»Š®
     ))
 (define-char
@@ -3223,7 +3244,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TSHE")
-      (japanese-jisx0212  . #x277B)	; ø»Š®ž
+      (=jis-x0212	  . #x277B)	; ø»Š®ž
+      (=ucs@jis		  . #x045B)	; ø»Š®ž
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER TSHE")
@@ -3247,7 +3269,7 @@
      ((name		  . "CYRILLIC SMALL LETTER TSHE")
       (=ucs		  . #x045B)	; Ñ›
       ))
-    (japanese-jisx0212	. #x277B)	; ø»Š®ž
+    (=jis-x0212		. #x277B)	; ø»Š®ž
     (=ucs@jis		. #x045B)	; ø»Š®ž
     ))
 (define-char
@@ -3258,7 +3280,8 @@
     (->decomposition	#x043A #x0301)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER KJE")
-      (japanese-jisx0212  . #x277C)	; ø»Š®Ÿ
+      (=jis-x0212	  . #x277C)	; ø»Š®Ÿ
+      (=ucs@jis		  . #x045C)	; ø»Š®Ÿ
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
@@ -3281,7 +3304,7 @@
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (=ucs		  . #x045C)	; Ñœ
       ))
-    (japanese-jisx0212	. #x277C)	; ø»Š®Ÿ
+    (=jis-x0212		. #x277C)	; ø»Š®Ÿ
     (=ucs@jis		. #x045C)	; ø»Š®Ÿ
     ))
 (define-char
@@ -3305,7 +3328,8 @@
     (->decomposition	#x0443 #x0306)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHORT U")
-      (japanese-jisx0212  . #x277D)	; ø»Š® 
+      (=jis-x0212	  . #x277D)	; ø»Š® 
+      (=ucs@jis		  . #x045E)	; ø»Š® 
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
@@ -3329,7 +3353,7 @@
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (=ucs		  . #x045E)	; Ñž
       ))
-    (japanese-jisx0212	. #x277D)	; ø»Š® 
+    (=jis-x0212		. #x277D)	; ø»Š® 
     (=ucs@jis		. #x045E)	; ø»Š® 
     ))
 (define-char
@@ -3339,7 +3363,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DZHE")
-      (japanese-jisx0212  . #x277E)	; ø»Š®¡
+      (=jis-x0212	  . #x277E)	; ø»Š®¡
+      (=ucs@jis		  . #x045F)	; ø»Š®¡
       ))
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER DZHE")
@@ -3362,7 +3387,7 @@
      ((name		  . "CYRILLIC SMALL LETTER DZHE")
       (=ucs		  . #x045F)	; ÑŸ
       ))
-    (japanese-jisx0212	. #x277E)	; ø»Š®¡
+    (=jis-x0212		. #x277E)	; ø»Š®¡
     (=ucs@jis		. #x045F)	; ø»Š®¡
     ))
 (define-char

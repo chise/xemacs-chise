@@ -433,7 +433,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (japanese-jisx0212	. #x4630)	; ø»‹šµ
+    (=jis-x0212		. #x4630)	; ø»‹šµ
     (ideograph-daikanwa . 16633)	; ø¸„ƒ¹
     (=big5-cdp		. #x8BE0)	; ý¢€ˆ¯ 
     (=ucs@jis		. #x6BB8)	; ø»‹šµ
@@ -474,7 +474,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (japanese-jisx0212	. #x4631)	; ø»‹š¶
+    (=jis-x0212		. #x4631)	; ø»‹š¶
     (=big5-cdp		. #x8CD2)	; ý¢€ˆ³’
     (=ucs@jis		. #x6BB9)	; ø»‹š¶
     ))
@@ -760,7 +760,7 @@
   '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (japanese-jisx0212	. #x4632)	; ø»‹š·
+    (=jis-x0212		. #x4632)	; ø»‹š·
     (=jis-x0213-2-2000	. #x6E24)	; ø»¦Ž‰
     (chinese-big5	. #xD9E2)	; ý¢€§¢
     (ideograph-daikanwa . 16647)	; ø¸„„‡
@@ -827,7 +827,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (japanese-jisx0212	. #x4633)	; ø»‹š¸
+    (=jis-x0212		. #x4633)	; ø»‹š¸
     (=jef-china3	. #x54EF)	; øº…“¯
     (=ucs@jis		. #x6BBE)	; ø»‹š¸
     ))
@@ -1097,7 +1097,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0212	. #x4634)	; ø»‹š¹
+    (=jis-x0212		. #x4634)	; ø»‹š¹
     (chinese-big5	. #xE269)	; ý¢€Ž‰©
     (ideograph-daikanwa . 16665)	; ø¸„„™
     (=ucs@jis		. #x6BC3)	; ø»‹š¹
@@ -1145,7 +1145,7 @@
   '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0212	. #x4635)	; ø»‹šº
+    (=jis-x0212		. #x4635)	; ø»‹šº
     (chinese-cns11643-2 . #x4B32)	; ø»”Š
     (chinese-big5	. #xE26A)	; ý¢€Ž‰ª
     (ideograph-daikanwa . 16668)	; ø¸„„œ
@@ -1690,7 +1690,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (unicode-strokes	. 15)
-    (japanese-jisx0212	. #x4636)	; ø»‹š»
+    (=jis-x0212		. #x4636)	; ø»‹š»
     (=jis-x0213-2-2000	. #x6E28)	; ø»¦Ž
     (chinese-big5	. #xEFE9)	; ý¢€Ž¿©
     (=jef-china3	. #x54EC)	; øº…“¬

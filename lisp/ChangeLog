@@ -1,3 +1,9 @@
+2003-04-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el: `japanese-jisx0212' is renamed to
+	`=jis-x0212'.
+	(japanese-jisx0212): New alias for `=jis-x0212'.
+
 2003-04-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el: `japanese-jisx0208' is renamed to

@@ -1183,7 +1183,7 @@
       )
      ((=ucs		  . #x7570)	; ç•°
       ))
-    (japanese-jisx0212	. #x326F)	; ø»Š¾œ
+    (=jis-x0212		. #x326F)	; ø»Š¾œ
     (ideograph-daikanwa . 01494)	; ø¸€—–
     (=cbeta		. 00042)	; ø¸ €ª
     (=jef-china3	. #x43E7)	; øº„§

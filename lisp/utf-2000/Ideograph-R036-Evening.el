@@ -273,7 +273,7 @@
   '((ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (japanese-jisx0212	. #x3867)	; ø»‹‡ˆ
+    (=jis-x0212		. #x3867)	; ø»‹‡ˆ
     (chinese-cns11643-4 . #x2570)	; ø»—§¯
     (ideograph-daikanwa . 05765)	; ø¸š…
     (=ucs		. #x591D)	; å¤
@@ -611,7 +611,7 @@
   '((ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (japanese-jisx0212	. #x3868)	; ø»‹‡‰
+    (=jis-x0212		. #x3868)	; ø»‹‡‰
     (chinese-cns11643-5 . #x373D)	; ø»š‹œ
     (ideograph-daikanwa . 05785)	; ø¸š™
     (=jef-china3	. #x48D8)	; øº„£˜
@@ -820,7 +820,7 @@
 		 )
       :sources	(shinjigen-1)))
     (shinjigen-1	. 1553)
-    (japanese-jisx0212	. #x3869)	; ø»‹‡Š
+    (=jis-x0212		. #x3869)	; ø»‹‡Š
     (ideograph-daikanwa . 05803)	; ø¸š«
     (=ucs@jis		. #x5923)	; ø»‹‡Š
     ))
@@ -856,7 +856,7 @@
     (ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (japanese-jisx0212	. #x386A)	; ø»‹‡‹
+    (=jis-x0212		. #x386A)	; ø»‹‡‹
     (=jis-x0213-2-2000	. #x253D)	; ø»¤£”
     (ideograph-daikanwa . 05805)	; ø¸š­
     (=ucs@jis		. #x5924)	; ø»‹‡‹

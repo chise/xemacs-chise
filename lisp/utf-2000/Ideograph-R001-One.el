@@ -56,7 +56,7 @@
       (=ucs		  . #x310E)	; ã„Ž
       ))
     (hanyu-dazidian	1 4 1)
-    (japanese-jisx0212	. #x3021)	; ø»Šº’
+    (=jis-x0212		. #x3021)	; ø»Šº’
     (chinese-cns11643-4 . #x2126)	; ø»— ­
     (=jis-x0213-2-2000	. #x2122)	; ø»¤
     (=gt-pj-2		. #x3021)	; ý¡€€€ƒ
@@ -157,7 +157,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 3 1)
-    (japanese-jisx0212	. #x3022)	; ø»Šº“
+    (=jis-x0212		. #x3022)	; ø»Šº“
     (chinese-cns11643-3 . #x2126)	; ø»•–©
     (=gt-pj-2		. #x3024)	; ý¡€€€†
     (ideograph-daikanwa . 00007)	; ø¸€€‡
@@ -172,7 +172,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 2 4)
-    (japanese-jisx0212	. #x3023)	; ø»Šº”
+    (=jis-x0212		. #x3023)	; ø»Šº”
     (chinese-cns11643-3 . #x2125)	; ø»•–¨
     (=gt-pj-2		. #x3025)	; ý¡€€€‚
     (ideograph-daikanwa . 00008)	; ø¸€€ˆ
@@ -372,7 +372,7 @@
     (total-strokes	 . 3)
     (hanyu-dazidian	1 9 1)
     (chinese-gb2312	. #x5822)	; ø»…–·
-    (japanese-jisx0212	. #x3024)	; ø»Šº•
+    (=jis-x0212		. #x3024)	; ø»Šº•
     (=iso-ir165		. #x5822)	; ø»¿‡
     (chinese-cns11643-2 . #x2127)	; ø»“Œ¦
     (=gt-pj-2		. #x3028)	; ý¡€€€
@@ -734,7 +734,7 @@
      ((=ucs		  . #x4E00)	; ä¸€
       ))
     (shinjigen-2	. 17)
-    (japanese-jisx0212	. #x3025)	; ø»Šº–
+    (=jis-x0212		. #x3025)	; ø»Šº–
     (chinese-cns11643-4 . #x2139)	; ø»—¡€
     (=jis-x0213-2-2000	. #x2124)	; ø»¤ƒ
     (=gt-pj-2		. #x3032)	; ý¡€€€¢
@@ -1279,7 +1279,7 @@
       )
      ((=ucs		  . #x53BB)	; åŽ»
       ))
-    (japanese-jisx0212	. #x3026)	; ø»Šº—
+    (=jis-x0212		. #x3026)	; ø»Šº—
     (chinese-cns11643-1 . #x4723)	; ø»‘º’
     (=gt-pj-2		. #x303B)	; ý¡€€€½
     (chinese-big5	. #xA5E1)	; ý¢€Š—¡
@@ -1652,7 +1652,7 @@
       ))
     (comment		. "M-11708 is different character.")
     (hanyu-dazidian	1 21 6)
-    (japanese-jisx0212	. #x3027)	; ø»Šº˜
+    (=jis-x0212		. #x3027)	; ø»Šº˜
     (chinese-cns11643-4 . #x2335)	; ø»—£¸
     (=gt-pj-2		. #x3041)	; ý¡€€Œ
     (ideograph-daikanwa . 00048)	; ø¸€€°
@@ -1708,7 +1708,7 @@
     (total-strokes	 . 7)
     (hanyu-dazidian	1 21 2)
     (chinese-gb2312	. #x413D)	; ø»„µ 
-    (japanese-jisx0212	. #x3028)	; ø»Šº™
+    (=jis-x0212		. #x3028)	; ø»Šº™
     (=iso-ir165		. #x413D)	; ø»°
     (chinese-cns11643-3 . #x243F)	; ø»•›œ
     (=gt-pj-2		. #x3044)	; ý¡€€

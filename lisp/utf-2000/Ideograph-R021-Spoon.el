@@ -521,7 +521,7 @@
       )
      ((=big5-cdp	  . #x8CE8)	; ý¢€ˆ³¨
       ))
-    (japanese-jisx0212	. #x3424)	; ø»‹€
+    (=jis-x0212		. #x3424)	; ø»‹€
     (ideograph-daikanwa . 02589)	; ø¸€¨
     (=hanziku-1		. #xDC63)	; ý¢€±£
     (=ucs@jis		. #x5318)	; ø»‹€

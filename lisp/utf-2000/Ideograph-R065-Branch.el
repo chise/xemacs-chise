@@ -78,7 +78,7 @@
       )
      ((=ucs		  . #x652F)	; æ”¯
       ))
-    (japanese-jisx0212	. #x4146)	; ø»‹“µ
+    (=jis-x0212		. #x4146)	; ø»‹“µ
     (ideograph-daikanwa . 13067)	; ø¸ƒŒ‹
     (=cbeta		. 02050)	; ø¸  ‚
     (=jef-china3	. #x50BE)	; øº…‚¾

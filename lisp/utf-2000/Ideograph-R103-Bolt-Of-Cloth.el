@@ -190,7 +190,7 @@
   '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (japanese-jisx0212	. #x4D45)	; ø»‹¥œ
+    (=jis-x0212		. #x4D45)	; ø»‹¥œ
     (chinese-cns11643-2 . #x4C21)	; ø»”‹ª
     (ideograph-daikanwa . 22006)	; ø¸…—¶
     (=ucs		. #x7590)	; ç–

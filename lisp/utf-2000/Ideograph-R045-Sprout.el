@@ -100,7 +100,7 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (japanese-jisx0212	. #x3B22)	; ø»‹Š
+    (=jis-x0212		. #x3B22)	; ø»‹Š
     (chinese-cns11643-4 . #x225F)	; ø»—£„
     (=jis-x0213-2-2000	. #x2836)	; ø»¤§§
     (ideograph-daikanwa . 07833)	; ø¸º™

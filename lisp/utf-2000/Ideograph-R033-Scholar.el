@@ -229,7 +229,7 @@
        ((=ucs		    . #x51E0)	; å‡ 
 	))
       ))
-    (japanese-jisx0212	. #x385E)	; ø»‹†¿
+    (=jis-x0212		. #x385E)	; ø»‹†¿
     (chinese-cns11643-3 . #x282D)	; ø»•¡‚
     (=jis-x0213-2-2000	. #x2536)	; ø»¤£
     (ideograph-daikanwa . 05648)	; ø¸˜

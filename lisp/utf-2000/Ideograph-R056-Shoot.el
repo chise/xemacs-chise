@@ -81,7 +81,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (shinjigen-1	. 7)
-    (japanese-jisx0212	. #x3C60)	; ø»‹Œ¹
+    (=jis-x0212		. #x3C60)	; ø»‹Œ¹
     (=iso-ir165		. #x2E38)	; ø»±
     (chinese-cns11643-3 . #x2362)	; ø»•š¡
     (=jis-x0213-2-2000	. #x2C2E)	; ø»¤­—

@@ -333,7 +333,7 @@
   '((ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 12)
     (total-strokes	 . 27)
-    (japanese-jisx0212	. #x6D5F)	; ø»Œ”¶
+    (=jis-x0212		. #x6D5F)	; ø»Œ”¶
     (chinese-cns11643-4 . #x6E33)	; ø»™’€
     (ideograph-daikanwa . 48880)	; ø¸‹»°
     (=ucs		. #x9F9E)	; é¾ž

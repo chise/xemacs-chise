@@ -1850,7 +1850,7 @@
       ))
     (chinese-gb2312	. #x212B)	; ø»„†Ž
     (korean-ksc5601	. #x2226)	; ø»ˆ›¯
-    (japanese-jisx0212	. #x2237)	; ø»Š¦„
+    (=jis-x0212		. #x2237)	; ø»Š¦„
     (=jis-x0213-1-2000	. #x2232)	; ø»¢”«
     (=jef-china3	. #x81A6)	; øºˆ†¦
     (=ucs		. #xFF5E)	; ï½ž
@@ -2910,7 +2910,7 @@
      ((name		  . "MACRON")
       (=ucs		  . #x00AF)	; Â¯
       ))
-    (japanese-jisx0212	. #x2234)	; ø»Š¦
+    (=jis-x0212		. #x2234)	; ø»Š¦
     (=jis-x0213-1-2000	. #x292B)	; ø»¢ž¶
     (=jef-china3	. #x81A7)	; øºˆ†§
     (=ucs		. #xFFE3)	; ï¿£
@@ -2925,7 +2925,7 @@
      ((name		  . "BROKEN BAR")
       (=ucs		  . #x00A6)	; Â¦
       ))
-    (japanese-jisx0212	. #x2243)	; ø»Š¦
+    (=jis-x0212		. #x2243)	; ø»Š¦
     (=jis-x0213-1-2000	. #x2925)	; ø»¢ž°
     (=big5-eten		. #xC8CE)	; ý¢€Œ£Ž
     (=ucs		. #xFFE4)	; ï¿¤
