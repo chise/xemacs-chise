@@ -17,13 +17,15 @@
 	(M-43247): Separate C7-3D62.
 	(M043247): New character; relate to M-43247.
 
+	* Ideograph-R180-Sound.el (M-43268): Unify M043268.
+
+2001-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R182-Wind.el (M-43769): Add `total-strokes'; unify
 	M043769.
 
 	* Ideograph-R181-Leaf.el (M-43591): Unify M043591.
 	(M-43689): Unify M043689.
-
-	* Ideograph-R180-Sound.el (M-43268): Unify M043268.
 
 	* Ideograph-R174-Blue.el (M-42564): Unify M042564.
 	(M-42570): Unify M042570.
@@ -69,6 +71,8 @@
 
 	* Ideograph-R166-Village.el (M-40132): Unify M040132.
 	(M-40136): Unify M040136.
+
+2001-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R165-Distinguish.el (M-40120): Unify M040120.
 	(M-40120'): Add `total-strokes'.
