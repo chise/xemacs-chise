@@ -345,6 +345,9 @@ for (mps_bufcons = Qunbound,							\
 	Return a pointer to the beginning of the character offset N
 	(in characters) from PTR.
 
+   MAX_EMCHAR_LEN:
+	Maximum number of buffer bytes per Emacs character.
+
 
    (C) For retrieving or changing the character pointed to by a charptr:
    ---------------------------------------------------------------------
@@ -363,28 +366,6 @@ for (mps_bufcons = Qunbound,							\
    charptr_copy_char (ptr, ptr2):
 	Retrieve the character pointed to by PTR and store it as
 	internally-formatted text in PTR2.
-
-
-   (D) For working with Emchars:
-   -----------------------------
-
-   [Note that there are other functions/macros for working with Emchars
-    in mule-charset.h, for retrieving the charset of an Emchar
-    and such.  These are only valid when MULE is defined.]
-
-   valid_char_p (ch):
-	Return whether the given Emchar is valid.
-
-   CHARP (ch):
-	Return whether the given Lisp_Object is a character.
-
-   CHECK_CHAR_COERCE_INT (ch):
-	Signal an error if CH is not a valid character or integer Lisp_Object.
-	If CH is an integer Lisp_Object, convert it to a character Lisp_Object,
-	but merely by repackaging, without performing tests for char validity.
-
-   MAX_EMCHAR_LEN:
-	Maximum number of buffer bytes per Emacs character.
 
 */
 
@@ -484,6 +465,16 @@ charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
   return ptr + charcount_to_bytecount (ptr, offset);
 }
 
+#ifdef UTF2000
+# define MAX_EMCHAR_LEN 6
+#else
+#ifdef MULE
+# define MAX_EMCHAR_LEN 4
+#else
+# define MAX_EMCHAR_LEN 1
+#endif
+#endif
+
 /* -------------------------------------------------------------------- */
 /* (C) For retrieving or changing the character pointed to by a charptr */
 /* -------------------------------------------------------------------- */
@@ -535,21 +526,6 @@ charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
 
 #define charptr_emchar_n(ptr, offset) \
   charptr_emchar (charptr_n_addr (ptr, offset))
-
-
-/* ---------------------------- */
-/* (D) For working with Emchars */
-/* ---------------------------- */
-
-#ifdef UTF2000
-# define MAX_EMCHAR_LEN 6
-#else
-#ifdef MULE
-# define MAX_EMCHAR_LEN 4
-#else
-# define MAX_EMCHAR_LEN 1
-#endif
-#endif
 
 
 /*----------------------------------------------------------------------*/
