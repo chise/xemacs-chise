@@ -1,3 +1,20 @@
+2001-12-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R099-Sweet.el (M-21660): Separate C4-3E65 and U+3F4E;
+	add `ideographic-structure'; unify H1-A97D.
+	(C4-3E65): Add `ideographic-structure'.
+	(U+3F4E): Likewise.
+	(M-21663): Separate C7-302B; add `ideographic-structure'; unify
+	H1-A9B2.
+	(C7-302B): Add `ideographic-structure'.
+
+	* Ideograph-R048-Work.el (H1-A875): New character.
+
+	* Ideograph-R113-Spirit.el (M-49399): Add `ideographic-structure';
+	unify H1-A955.
+	(H1-A954): New character; unify U-00025632.
+	(H1-A975): New character; unify U-00025673.
+
 2001-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (M-14304): Separate C6-4979; add
