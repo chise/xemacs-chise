@@ -200,14 +200,20 @@ If FRAME is nil, use the default face."
     (and image
 	 (image-instance-file-name image))))
 
+;; This consistently fails to dtrt
+;;(defun custom-set-face-font-size (face size &optional locale tags)
+;;  "Set the font of FACE to SIZE."
+;;  ;; #### should this call have tags in it?
+;;  (let* ((font (apply 'face-font-name face (list locale)))
+;;	 ;; Gag
+;;	 (fontobj (font-create-object font)))
+;;    (set-font-size fontobj size)
+;;    (apply 'font-set-face-font face fontobj locale tags)))
+
+;; From Jan Vroonhof -- see faces.el
 (defun custom-set-face-font-size (face size &optional locale tags)
   "Set the font of FACE to SIZE."
-  ;; #### should this call have tags in it?
-  (let* ((font (apply 'face-font-name face (list locale)))
-	 ;; Gag
-	 (fontobj (font-create-object font)))
-    (set-font-size fontobj size)
-    (apply 'font-set-face-font face fontobj locale tags)))
+  (make-face-size face size locale tags))
 
 (defun custom-face-font-size (face &rest args)
   "Return the size of the font of FACE as a string."
@@ -216,14 +222,20 @@ If FRAME is nil, use the default face."
 	 (fontobj (font-create-object font)))
     (format "%s" (font-size fontobj))))
 
+;; Jan suggests this may not dtrt
+;;(defun custom-set-face-font-family (face family &optional locale tags)
+;;  "Set the font of FACE to FAMILY."
+;;  ;; #### should this call have tags in it?
+;;  (let* ((font (apply 'face-font-name face (list locale)))
+;;	 ;; Gag
+;;	 (fontobj (font-create-object font)))
+;;    (set-font-family fontobj family)
+;;    (apply 'font-set-face-font face fontobj locale tags)))
+
+;; From Jan Vroonhof -- see faces.el
 (defun custom-set-face-font-family (face family &optional locale tags)
   "Set the font of FACE to FAMILY."
-  ;; #### should this call have tags in it?
-  (let* ((font (apply 'face-font-name face (list locale)))
-	 ;; Gag
-	 (fontobj (font-create-object font)))
-    (set-font-family fontobj family)
-    (apply 'font-set-face-font face fontobj locale tags)))
+  (make-face-family face family locale tags))
 
 (defun custom-face-font-family (face &rest args)
   "Return the name of the font family of FACE."

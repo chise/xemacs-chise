@@ -161,6 +161,7 @@ lispref-srcs = \
 	lispref/numbers.texi \
 	lispref/objects.texi \
 	lispref/os.texi \
+	lispref/packaging.texi \
 	lispref/positions.texi \
 	lispref/processes.texi \
 	lispref/range-tables.texi \

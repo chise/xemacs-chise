@@ -400,7 +400,7 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 
-@node Introduction, Lisp Data Types, Copying, Top
+@node Introduction, Packaging, Copying, Top
 @chapter Introduction
 
   Most of the XEmacs text editor is written in the programming

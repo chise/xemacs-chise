@@ -93,7 +93,7 @@ typedef unsigned int SOCKET;
 /* Timer ID used for button2 emulation */
 #define BUTTON_2_TIMER_ID 1
 
-static Lisp_Object mswindows_find_frame (HWND hwnd);
+Lisp_Object mswindows_find_frame (HWND hwnd);
 static Lisp_Object mswindows_find_console (HWND hwnd);
 static Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 						  int extendedp);
@@ -232,6 +232,7 @@ slurper_free_shared_data_maybe (struct ntpipe_slurp_stream_shared_data* s)
       CloseHandle (s->hev_thread);
       CloseHandle (s->hev_caller);
       CloseHandle (s->hev_unsleep);
+      CloseHandle (s->hpipe);
       s->inuse_p = 0;
     }
 }
@@ -2827,7 +2828,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 					       MAKEPOINTS (lParam)))
 	  {
 	    GCPRO2 (emacs_event, fobj);
-	    mswindows_pump_outstanding_events ();	/* Can GC */
+	    if (UNBOUNDP(mswindows_pump_outstanding_events ()))	/* Can GC */
+	      SendMessage (hwnd, WM_CANCELMODE, 0, 0);
 	    UNGCPRO;
 	  }
 	else
@@ -3276,7 +3278,7 @@ mswindows_find_console (HWND hwnd)
 /*
  * Find the frame that matches the supplied mswindows window handle
  */
-static Lisp_Object
+Lisp_Object
 mswindows_find_frame (HWND hwnd)
 {
   LONG l = GetWindowLong (hwnd, XWL_FRAMEOBJ);

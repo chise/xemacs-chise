@@ -78,9 +78,9 @@
                 (function :tag "Other"))
   :group 'toolbar)
 
-(defun toolbar-dired ()
-  (interactive)
-  (call-interactively toolbar-dired-function))
+(defun toolbar-dired (dir)
+  (interactive "DDired directory: ")
+  (funcall toolbar-dired-function dir))
 
 (defcustom toolbar-save-function 'save-buffer
   "*Function to call when the save icon is selected."

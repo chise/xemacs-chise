@@ -332,14 +332,132 @@ static struct
   { FRERR_BUFFERLENGTHZERO, "FRERR_BUFFERLENGTHZERO" },
 };
 
+struct param_data {
+  char* fname;
+  char* unknown_fname;
+  int validate;
+};
+
+static int
+CALLBACK handle_directory_proc (HWND hwnd, UINT msg,
+				LPARAM lParam, LPARAM lpData)
+{
+  TCHAR szDir[MAX_PATH];
+  struct param_data* pd = (struct param_data*)lpData;
+  
+  switch(msg) {
+  case BFFM_INITIALIZED:
+    // WParam is TRUE since you are passing a path.
+    // It would be FALSE if you were passing a pidl.
+    SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)pd->fname);
+    break;
+
+  case BFFM_SELCHANGED:
+    // Set the status window to the currently selected path.
+    if (SHGetPathFromIDList((LPITEMIDLIST) lParam, szDir)) {
+      SendMessage(hwnd, BFFM_SETSTATUSTEXT, 0, (LPARAM)szDir);
+    }
+    break;
+
+  case BFFM_VALIDATEFAILED:
+    if (pd->validate)
+      return TRUE;
+    else
+      pd->unknown_fname = xstrdup((char*)lParam);
+    break;
+
+  default:
+    break;
+  }
+  return 0;
+}
+
+static Lisp_Object
+handle_directory_dialog_box (struct frame *f, Lisp_Object keys)
+{
+  Lisp_Object ret = Qnil;
+  BROWSEINFO bi;
+  LPITEMIDLIST pidl;
+  LPMALLOC pMalloc;
+  struct param_data pd;
+
+  xzero(pd);
+  xzero(bi);
+
+  bi.lParam = (LPARAM)&pd;
+  bi.hwndOwner = FRAME_MSWINDOWS_HANDLE (f);
+  bi.pszDisplayName = 0;
+  bi.pidlRoot = 0;
+  bi.ulFlags = BIF_RETURNONLYFSDIRS | BIF_STATUSTEXT | BIF_EDITBOX;
+  bi.lpfn = handle_directory_proc;
+
+  LOCAL_FILE_FORMAT_TO_TSTR (Fexpand_file_name (build_string (""), Qnil),
+			     (char*)pd.fname);
+
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
+      {
+	if (EQ (key, Q_title))
+	  {
+	    CHECK_STRING (value);
+	    LISP_STRING_TO_EXTERNAL (value, bi.lpszTitle, Qmswindows_tstr);
+	  }
+	else if (EQ (key, Q_initial_directory))
+	  LOCAL_FILE_FORMAT_TO_TSTR (Fexpand_file_name (value, Qnil),
+				     pd.fname);
+	else if (EQ (key, Q_initial_filename))
+	  ;			/* do nothing */
+	else if (EQ (key, Q_file_must_exist))
+	  {
+	    if (!NILP (value)) {
+	      pd.validate = TRUE;
+	      bi.ulFlags |= BIF_VALIDATE;
+	    }
+	    else
+	      bi.ulFlags &= ~BIF_VALIDATE;
+	  }
+	else
+	  syntax_error ("Unrecognized directory dialog keyword", key);
+      }
+  }
+
+  if (SHGetMalloc(&pMalloc) == NOERROR)
+    {
+      pidl = SHBrowseForFolder(&bi);
+      if (pidl) {
+	TCHAR* szDir = alloca (MAX_PATH);
+	
+	if (SHGetPathFromIDList(pidl, szDir)) {
+	  ret = tstr_to_local_file_format (szDir);
+	}
+	
+	pMalloc->lpVtbl->Free(pMalloc, pidl);
+	pMalloc->lpVtbl->Release(pMalloc);
+	return ret;
+      } 
+      else if (pd.unknown_fname != 0) {
+	ret = tstr_to_local_file_format (pd.unknown_fname);
+	xfree(pd.unknown_fname);
+      }
+      
+    }
+  else
+    signal_type_error (Qdialog_box_error,
+		       "Unable to create folder browser",
+		       make_int (0));
+  return ret;
+}
+
 static Lisp_Object
 handle_file_dialog_box (struct frame *f, Lisp_Object keys)
 {
   OPENFILENAME ofn;
+  
   char fnbuf[8000];
 
   xzero (ofn);
   ofn.lStructSize = sizeof (ofn);
+  ofn.Flags = OFN_EXPLORER;
   ofn.hwndOwner = FRAME_MSWINDOWS_HANDLE (f);
   ofn.lpstrFile = fnbuf;
   ofn.nMaxFile = sizeof (fnbuf) / XETCHAR_SIZE;
@@ -675,6 +793,8 @@ mswindows_make_dialog_box_internal (struct frame* f, Lisp_Object type,
 {
   if (EQ (type, Qfile))
     return handle_file_dialog_box (f, keys);
+  else if (EQ (type, Qdirectory))
+    return handle_directory_dialog_box (f, keys);
   else if (EQ (type, Qquestion))
     return handle_question_dialog_box (f, keys);
   else if (EQ (type, Qprint))

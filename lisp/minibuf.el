@@ -1665,22 +1665,22 @@ If DEFAULT-VALUE is non-nil, return that if user enters an empty
 	 :activate-callback 'read-file-name-activate-callback)
 	(goto-char (point-min) completion-buf)))))
 
-(defun read-file-name-1 (history prompt dir default
-				 must-match initial-contents
-				 completer)
+(defun read-file-name-1 (type history prompt dir default
+			      must-match initial-contents
+			      completer)
   (if (should-use-dialog-box-p)
       (condition-case nil
 	  (let ((file
 		 (apply #'make-dialog-box
-			'file `(:title ,(capitalize-string-as-title
-					 ;; Kludge: Delete ": " off the end.
-					 (replace-in-string prompt ": $" ""))
-				       ,@(and dir (list :initial-directory
-							dir))
-				       :file-must-exist ,must-match
-				       ,@(and initial-contents
-					      (list :initial-filename
-						    initial-contents))))))
+			type `(:title ,(capitalize-string-as-title
+					;; Kludge: Delete ": " off the end.
+					(replace-in-string prompt ": $" ""))
+				      ,@(and dir (list :initial-directory
+						       dir))
+				      :file-must-exist ,must-match
+				      ,@(and initial-contents
+					     (list :initial-filename
+						   initial-contents))))))
 	    ;; hack -- until we implement reading a directory properly,
 	    ;; allow a file as indicating the directory it's in
 	    (if (and (eq completer 'read-directory-name-internal)
@@ -1731,8 +1731,8 @@ Fifth arg INITIAL-CONTENTS specifies text to start with.  If this is not
 Sixth arg HISTORY specifies the history list to use.  Default is
  `file-name-history'.
 DIR defaults to current buffer's directory default."
-  (read-file-name-1
-   (or history 'file-name-history)
+  (read-file-name-1 
+   'file (or history 'file-name-history)
    prompt dir (or default
 		  (and initial-contents
 		       (abbreviate-file-name (expand-file-name
@@ -1762,9 +1762,9 @@ Sixth arg HISTORY specifies the history list to use.  Default is
  `file-name-history'.
 DIR defaults to current buffer's directory default."
   (read-file-name-1
-    (or history 'file-name-history)
-    prompt dir (or default default-directory) must-match initial-contents
-    'read-directory-name-internal))
+   'directory (or history 'file-name-history)
+   prompt dir (or default default-directory) must-match initial-contents
+   'read-directory-name-internal))
 
 
 ;; Environment-variable and ~username completion hack

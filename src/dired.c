@@ -740,6 +740,9 @@ make_directory_hash_table (const char *path)
     return Qnil;
 }
 
+#if 0
+/* ... never used ... should use list2 directly anyway ... */
+/* NOTE: This function can never return a negative value. */
 Lisp_Object
 wasteful_word_to_lisp (unsigned int item)
 {
@@ -749,6 +752,7 @@ wasteful_word_to_lisp (unsigned int item)
   XCDR (cons) = Fcons (XCDR (cons), Qnil);
   return cons;
 }
+#endif
 
 DEFUN ("file-attributes", Ffile_attributes, 1, 1, 0, /*
 Return a list of attributes of file FILENAME.
@@ -835,9 +839,9 @@ If file does not exist, returns nil.
   values[1] = make_int (s.st_nlink);
   values[2] = make_int (s.st_uid);
   values[3] = make_int (s.st_gid);
-  values[4] = wasteful_word_to_lisp (s.st_atime);
-  values[5] = wasteful_word_to_lisp (s.st_mtime);
-  values[6] = wasteful_word_to_lisp (s.st_ctime);
+  values[4] = make_time (s.st_atime);
+  values[5] = make_time (s.st_mtime);
+  values[6] = make_time (s.st_ctime);
   values[7] = make_int ((EMACS_INT) s.st_size);
   /* If the size is out of range, give back -1.  */
   /* #### Fix when Emacs gets bignums! */
