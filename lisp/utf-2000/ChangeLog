@@ -1,5 +1,21 @@
 2004-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el (C1-655C): Moved into U+842C.
+	(U+842C): Use `->subsumptive'.
+
+	* Ideograph-R124-Feather.el (M-28672): Add `<-denotational' for
+	U+7FD2; use `->subsumptive'.
+	(K0-6327): Likewise.
+	(U+7FD2): Separate all CCS-features.
+	(J0-3D2C): Add `<-denotational' for U+7FD2; use `->subsumptive'.
+	(G1-4F30): Separate U+7FD2; add `<-denotational' for U+7FD2; use
+	`->subsumptive'.
+
+	* Ideograph-R087-Claw.el (J0-602A): Moved into U+7232.
+	(U+7232): Use `->subsumptive'.
+
+	* Ideograph-R005-Second.el: Add some `<-simplified@CN' features.
+
 	* ideograph-util.el (char-daikanwa): Prefer children to parents.
 
 2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
