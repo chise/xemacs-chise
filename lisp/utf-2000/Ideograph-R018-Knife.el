@@ -1659,9 +1659,19 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (->same
+     ((=ucs		  . #x5227)	; 刧
+      (=daikanwa	  . 01927)	; &I-M-01927;
+      )
+     ((=ucs		  . #x52AB)	; 劫
+      (=daikanwa	  . 02316)	; &I-M-02316;
+      ))
+    (->same*sources
+     zhengzi-tong daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 709)
-      (=daikanwa	  . 02316)	; &I-M-02316;
+      (=ucs		  . #x52AB)	; 劫
+      (=jis-x0208	  . #x3965)	; &I-J90-3965;
       ))
     (<-vulgar*sources
      shinjigen-1)
@@ -1686,9 +1696,19 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (->same
+     ((=ucs		  . #x5226)	; 刦
+      (=daikanwa	  . 01926)	; &I-M-01926;
+      )
+     ((=ucs		  . #x52AB)	; 劫
+      (=daikanwa	  . 02316)	; &I-M-02316;
+      ))
+    (->same*sources
+     zhengzi-tong daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 709)
-      (=daikanwa	  . 02316)	; &I-M-02316;
+      (=ucs		  . #x52AB)	; 劫
+      (=jis-x0208	  . #x3965)	; &I-J90-3965;
       ))
     (<-vulgar*sources
      shinjigen-1)
