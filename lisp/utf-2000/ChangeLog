@@ -1,3 +1,13 @@
+2004-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-strokes): Modify preferences
+	to support inheritance.
+	(update-ideograph-radical-table): Check radical of inherited
+	character.
+	(char-daikanwa): Modify preferences to support inheritance.
+	(char-ucs): Use `char-feature' instead of `get-char-attribute' to
+	refer '=>ucs'.
+
 2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-char-spec): Delete unused local
