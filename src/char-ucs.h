@@ -685,10 +685,7 @@ DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
       EQ (decoding_table, Qunbound) ||
       NILP (decoding_table) )
     {
-      if (XCHARSET_GRAPHIC (ccs) == 1)
-	return load_char_decoding_entry_maybe (ccs, code_point & 0x7F7F7F7F);
-      else
-	return load_char_decoding_entry_maybe (ccs, code_point);
+      return load_char_decoding_entry_maybe (ccs, code_point);
     }
 #endif
   else
