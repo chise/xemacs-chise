@@ -6707,6 +6707,12 @@
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (ideograph-cbeta	. 01704)	; ø¸ š¨
+    ))
+(define-char
+  '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (japanese-jisx0212	. #x5266)	; ø»‹­“
