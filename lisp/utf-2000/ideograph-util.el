@@ -252,11 +252,11 @@
      '(> > > >))))
 
 (defun insert-ideograph-radical-char-data (radical)
-  (let* ((ideographic-radical radical)
-	 (chars
-	  (sort (copy-list (aref ideograph-radical-chars-vector radical))
-		(function ideograph-char<)))
-	 attributes ccss)
+  (let ((chars
+	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
+	       (lambda (a b)
+		 (ideograph-char< a b radical))))
+	attributes ccss)
     (dolist (name (char-attribute-list))
       (unless (memq name char-db-ignored-attributes)
 	(if (find-charset name)
