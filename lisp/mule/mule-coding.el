@@ -184,6 +184,8 @@
 	  (ideograph-gt "GT-" 5 d)
 	  (japanese-jisx0208-1990 "J90-" 4 X)
 	  (japanese-jisx0208 "J83-" 4 X)
+	  (japanese-jisx0213-1 "JX1-" 4 X)
+	  (japanese-jisx0213-2 "JX2-" 4 X)
 	  (chinese-cns11643-1 "C1-" 4 X)
 	  (chinese-cns11643-2 "C2-" 4 X)
 	  (chinese-cns11643-3 "C3-" 4 X)
