@@ -1,3 +1,13 @@
+2002-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (char-attributes-poly<): New function.
+	(char-daikanwa-strokes): Likewise.
+	(char-daikanwa): Likewise.
+	(char-ucs): Likewise.
+	(char-id): Likewise.
+	(ideograph-char<): New implementation [use
+	`char-attributes-poly<'].
+
 2002-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el, Ideograph-R077-Stop.el,
