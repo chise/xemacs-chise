@@ -149,18 +149,18 @@
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (jisx0208-difference . -78/4)
+    (jisx0208-difference . 78/4-)
     (shinjigen-1	. 8212)
     (shinjigen-2	. 8212)
-    (ideograph-daikanwa . 38711)	; ø¸‰œ·
+    (japanese-jisx0208-1978	. #x4454)	; ø»‚°
+    (ideograph-daikanwa		. 38711)	; ø¸‰œ·
     ))
 (define-char
   '((morohashi-daikanwa	38711 0 3)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (jisx0208-difference . 78/4-)
-    (japanese-jisx0208-1978	. #x4454)	; ø»‚°
+    (total-strokes	 . 5)
+    (jisx0208-difference . -78/4)
     (japanese-jisx0208		. #x4454)	; ø»‡„•
     (japanese-jisx0208-1990	. #x4454)	; ø½Šª‰
     (ucs			. #x8FBB)	; è¾»
