@@ -1,5 +1,7 @@
 1999-09-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (Fmake_char): Fix problem of 256-set.
+
 	* char-ucs.h (Vcharset_ucs_bmp): New variable.
 	(MAKE_CHAR): Modify for `ucs-bmp'.
 	(breakup_char_1): Return `ucs-bmp' and code point of BMP for
