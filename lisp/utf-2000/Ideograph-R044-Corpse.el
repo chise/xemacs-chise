@@ -850,7 +850,8 @@
     (=cns11643-3	. #x2C37)	; ø»•§„
     ))
 (define-char
-  '((ideographic-radical . 44)	; â¼«
+  '((morohashi-daikanwa	ho 141)
+    (ideographic-radical . 44)	; â¼«
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
