@@ -167,6 +167,7 @@
 ;;         ((null b) t)
 ;;         (t (< a b))))
 
+;;;###autoload
 (defun char-representative-of-daikanwa (char)
   (if (get-char-attribute char 'ideograph-daikanwa)
       char
