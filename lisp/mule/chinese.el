@@ -174,7 +174,7 @@
 		(coding-priority cn-gb-2312 big5 iso-2022-7bit)
 		(input-method . "chinese-py-punct")
 		(features china-util)
-		(sample-text . "Chinese ($AVPND(B,$AFUM(;0(B,$A::So(B)	$ADc:C(B")
+		(sample-text . "Chinese ($BCf$AND(B,$BIaDL$A;0(B,$A::So(B)	$(D0_$B9%(B")
 		(documentation . "Support for Chinese GB2312 character set."))
  '("Chinese"))
 
@@ -194,6 +194,13 @@
  'big5 'big5
  "Coding-system of BIG5."
  '(mnemonic "Zh/Big5"))
+
+(if (featurep 'utf-2000)
+    (make-coding-system
+     'big5-cdp 'big5 "Coding-system of BIG5."
+     '(mnemonic "Zh/Big5"
+		charset-g0 ascii
+		charset-g1 chinese-big5-cdp)))
 
 ;; (define-coding-system-alias 'big5 'chinese-big5)
 ;; (define-coding-system-alias 'cn-big5 'chinese-big5)
@@ -227,7 +234,7 @@
 		  (coding-priority big5 cn-gb-2312 iso-2022-7bit)
 		  (input-method . "chinese-py-punct-b5")
 		  (features china-util)
-		  (sample-text . "Cantonese ($(0GnM$(B,$(0N]0*Hd(B)	$(0*/=((B, $(0+$)p(B")
+		  (sample-text . "Cantonese ($(0GnM$(B,$(0N]0*Hd(B)	$(0*/=((B, $(D0_$(0)p(B")
 		  (documentation . "Support for Chinese Big5 character set."))
  '("Chinese"))
 
