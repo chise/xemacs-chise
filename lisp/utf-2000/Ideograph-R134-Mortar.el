@@ -44,6 +44,14 @@
     (ucs		. #x26954)	; ð¦¥”
     ))
 (define-char
+  '((=>ucs		. #x26954)	; ð¦¥”
+    (morohashi-daikanwa	30176 0 0)
+    (ideographic-radical . 134)	; â¾…
+    (ideographic-strokes . 1)
+    (total-strokes	 . 8)
+    (chinese-big5-cdp	. #x8CCD)	; ý¢€ˆ³
+    ))
+(define-char
   '((ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
