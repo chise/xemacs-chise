@@ -1,0 +1,1019 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Parsing Expressions,  Next: Standard Syntax Tables,  Prev: Motion and Syntax,  Up: Syntax Tables
+
+Parsing Balanced Expressions
+============================
+
+   Here are several functions for parsing and scanning balanced
+expressions, also known as "sexps", in which parentheses match in
+pairs.  The syntax table controls the interpretation of characters, so
+these functions can be used for Lisp expressions when in Lisp mode and
+for C expressions when in C mode.  *Note List Motion::, for convenient
+higher-level functions for moving over balanced expressions.
+
+ - Function: parse-partial-sexp start limit &optional target-depth
+          stop-before state stop-comment buffer
+     This function parses a sexp in the current buffer starting at
+     START, not scanning past LIMIT.  It stops at position LIMIT or
+     when certain criteria described below are met, and sets point to
+     the location where parsing stops.  It returns a value describing
+     the status of the parse at the point where it stops.
+
+     If STATE is `nil', START is assumed to be at the top level of
+     parenthesis structure, such as the beginning of a function
+     definition.  Alternatively, you might wish to resume parsing in the
+     middle of the structure.  To do this, you must provide a STATE
+     argument that describes the initial status of parsing.
+
+     If the third argument TARGET-DEPTH is non-`nil', parsing stops if
+     the depth in parentheses becomes equal to TARGET-DEPTH.  The depth
+     starts at 0, or at whatever is given in STATE.
+
+     If the fourth argument STOP-BEFORE is non-`nil', parsing stops
+     when it comes to any character that starts a sexp.  If
+     STOP-COMMENT is non-`nil', parsing stops when it comes to the
+     start of a comment.
+
+     The fifth argument STATE is an eight-element list of the same form
+     as the value of this function, described below.  The return value
+     of one call may be used to initialize the state of the parse on
+     another call to `parse-partial-sexp'.
+
+     The result is a list of eight elements describing the final state
+     of the parse:
+
+       0. The depth in parentheses, counting from 0.
+
+       1. The character position of the start of the innermost
+          parenthetical grouping containing the stopping point; `nil'
+          if none.
+
+       2. The character position of the start of the last complete
+          subexpression terminated; `nil' if none.
+
+       3. Non-`nil' if inside a string.  More precisely, this is the
+          character that will terminate the string.
+
+       4. `t' if inside a comment (of either style).
+
+       5. `t' if point is just after a quote character.
+
+       6. The minimum parenthesis depth encountered during this scan.
+
+       7. `t' if inside a comment of style "b".
+
+     Elements 0, 3, 4, 5 and 7 are significant in the argument STATE.
+
+     This function is most often used to compute indentation for
+     languages that have nested parentheses.
+
+ - Function: scan-lists from count depth &optional buffer noerror
+     This function scans forward COUNT balanced parenthetical groupings
+     from character number FROM.  It returns the character position
+     where the scan stops.
+
+     If DEPTH is nonzero, parenthesis depth counting begins from that
+     value.  The only candidates for stopping are places where the
+     depth in parentheses becomes zero; `scan-lists' counts COUNT such
+     places and then stops.  Thus, a positive value for DEPTH means go
+     out DEPTH levels of parenthesis.
+
+     Scanning ignores comments if `parse-sexp-ignore-comments' is
+     non-`nil'.
+
+     If the scan reaches the beginning or end of the buffer (or its
+     accessible portion), and the depth is not zero, an error is
+     signaled.  If the depth is zero but the count is not used up,
+     `nil' is returned.
+
+     If optional arg BUFFER is non-`nil', scanning occurs in that
+     buffer instead of in the current buffer.
+
+     If optional arg NOERROR is non-`nil', `scan-lists' will return
+     `nil' instead of signalling an error.
+
+ - Function: scan-sexps from count &optional buffer noerror
+     This function scans forward COUNT sexps from character position
+     FROM.  It returns the character position where the scan stops.
+
+     Scanning ignores comments if `parse-sexp-ignore-comments' is
+     non-`nil'.
+
+     If the scan reaches the beginning or end of (the accessible part
+     of) the buffer in the middle of a parenthetical grouping, an error
+     is signaled.  If it reaches the beginning or end between groupings
+     but before count is used up, `nil' is returned.
+
+     If optional arg BUFFER is non-`nil', scanning occurs in that
+     buffer instead of in the current buffer.
+
+     If optional arg NOERROR is non-`nil', `scan-sexps' will return nil
+     instead of signalling an error.
+
+ - Variable: parse-sexp-ignore-comments
+     If the value is non-`nil', then comments are treated as whitespace
+     by the functions in this section and by `forward-sexp'.
+
+     In older Emacs versions, this feature worked only when the comment
+     terminator is something like `*/', and appears only to end a
+     comment.  In languages where newlines terminate comments, it was
+     necessary make this variable `nil', since not every newline is the
+     end of a comment.  This limitation no longer exists.
+
+   You can use `forward-comment' to move forward or backward over one
+comment or several comments.
+
+ - Function: forward-comment count &optional buffer
+     This function moves point forward across COUNT comments (backward,
+     if COUNT is negative).  If it finds anything other than a comment
+     or whitespace, it stops, leaving point at the place where it
+     stopped.  It also stops after satisfying COUNT.
+
+     Optional argument BUFFER defaults to the current buffer.
+
+   To move forward over all comments and whitespace following point, use
+`(forward-comment (buffer-size))'.  `(buffer-size)' is a good argument
+to use, because the number of comments in the buffer cannot exceed that
+many.
+
+
+File: lispref.info,  Node: Standard Syntax Tables,  Next: Syntax Table Internals,  Prev: Parsing Expressions,  Up: Syntax Tables
+
+Some Standard Syntax Tables
+===========================
+
+   Most of the major modes in XEmacs have their own syntax tables.  Here
+are several of them:
+
+ - Function: standard-syntax-table
+     This function returns the standard syntax table, which is the
+     syntax table used in Fundamental mode.
+
+ - Variable: text-mode-syntax-table
+     The value of this variable is the syntax table used in Text mode.
+
+ - Variable: c-mode-syntax-table
+     The value of this variable is the syntax table for C-mode buffers.
+
+ - Variable: emacs-lisp-mode-syntax-table
+     The value of this variable is the syntax table used in Emacs Lisp
+     mode by editing commands.  (It has no effect on the Lisp `read'
+     function.)
+
+
+File: lispref.info,  Node: Syntax Table Internals,  Prev: Standard Syntax Tables,  Up: Syntax Tables
+
+Syntax Table Internals
+======================
+
+   Each element of a syntax table is an integer that encodes the syntax
+of one character: the syntax class, possible matching character, and
+flags.  Lisp programs don't usually work with the elements directly; the
+Lisp-level syntax table functions usually work with syntax descriptors
+(*note Syntax Descriptors::).
+
+   The low 8 bits of each element of a syntax table indicate the syntax
+class.
+
+Integer
+     Class
+
+0
+     whitespace
+
+1
+     punctuation
+
+2
+     word
+
+3
+     symbol
+
+4
+     open parenthesis
+
+5
+     close parenthesis
+
+6
+     expression prefix
+
+7
+     string quote
+
+8
+     paired delimiter
+
+9
+     escape
+
+10
+     character quote
+
+11
+     comment-start
+
+12
+     comment-end
+
+13
+     inherit
+
+   The next 8 bits are the matching opposite parenthesis (if the
+character has parenthesis syntax); otherwise, they are not meaningful.
+The next 6 bits are the flags.
+
+
+File: lispref.info,  Node: Abbrevs,  Next: Extents,  Prev: Syntax Tables,  Up: Top
+
+Abbrevs And Abbrev Expansion
+****************************
+
+   An abbreviation or "abbrev" is a string of characters that may be
+expanded to a longer string.  The user can insert the abbrev string and
+find it replaced automatically with the expansion of the abbrev.  This
+saves typing.
+
+   The set of abbrevs currently in effect is recorded in an "abbrev
+table".  Each buffer has a local abbrev table, but normally all buffers
+in the same major mode share one abbrev table.  There is also a global
+abbrev table.  Normally both are used.
+
+   An abbrev table is represented as an obarray containing a symbol for
+each abbreviation.  The symbol's name is the abbreviation; its value is
+the expansion; its function definition is the hook function to do the
+expansion (*note Defining Abbrevs::); its property list cell contains
+the use count, the number of times the abbreviation has been expanded.
+Because these symbols are not interned in the usual obarray, they will
+never appear as the result of reading a Lisp expression; in fact,
+normally they are never used except by the code that handles abbrevs.
+Therefore, it is safe to use them in an extremely nonstandard way.
+*Note Creating Symbols::.
+
+   For the user-level commands for abbrevs, see *Note Abbrev Mode:
+(emacs)Abbrevs.
+
+* Menu:
+
+* Abbrev Mode::                 Setting up XEmacs for abbreviation.
+* Tables: Abbrev Tables.        Creating and working with abbrev tables.
+* Defining Abbrevs::            Specifying abbreviations and their expansions.
+* Files: Abbrev Files.          Saving abbrevs in files.
+* Expansion: Abbrev Expansion.  Controlling expansion; expansion subroutines.
+* Standard Abbrev Tables::      Abbrev tables used by various major modes.
+
+
+File: lispref.info,  Node: Abbrev Mode,  Next: Abbrev Tables,  Up: Abbrevs
+
+Setting Up Abbrev Mode
+======================
+
+   Abbrev mode is a minor mode controlled by the value of the variable
+`abbrev-mode'.
+
+ - Variable: abbrev-mode
+     A non-`nil' value of this variable turns on the automatic expansion
+     of abbrevs when their abbreviations are inserted into a buffer.
+     If the value is `nil', abbrevs may be defined, but they are not
+     expanded automatically.
+
+     This variable automatically becomes local when set in any fashion.
+
+ - Variable: default-abbrev-mode
+     This is the value of `abbrev-mode' for buffers that do not
+     override it.  This is the same as `(default-value 'abbrev-mode)'.
+
+
+File: lispref.info,  Node: Abbrev Tables,  Next: Defining Abbrevs,  Prev: Abbrev Mode,  Up: Abbrevs
+
+Abbrev Tables
+=============
+
+   This section describes how to create and manipulate abbrev tables.
+
+ - Function: make-abbrev-table
+     This function creates and returns a new, empty abbrev table--an
+     obarray containing no symbols.  It is a vector filled with zeros.
+
+ - Function: clear-abbrev-table table
+     This function undefines all the abbrevs in abbrev table TABLE,
+     leaving it empty.  The function returns `nil'.
+
+ - Function: define-abbrev-table tabname definitions
+     This function defines TABNAME (a symbol) as an abbrev table name,
+     i.e., as a variable whose value is an abbrev table.  It defines
+     abbrevs in the table according to DEFINITIONS, a list of elements
+     of the form `(ABBREVNAME EXPANSION HOOK USECOUNT)'.  The value is
+     always `nil'.
+
+ - Variable: abbrev-table-name-list
+     This is a list of symbols whose values are abbrev tables.
+     `define-abbrev-table' adds the new abbrev table name to this list.
+
+ - Function: insert-abbrev-table-description name &optional human
+     This function inserts before point a description of the abbrev
+     table named NAME.  The argument NAME is a symbol whose value is an
+     abbrev table.  The value is always `nil'.
+
+     If HUMAN is non-`nil', the description is human-oriented.
+     Otherwise the description is a Lisp expression--a call to
+     `define-abbrev-table' that would define NAME exactly as it is
+     currently defined.
+
+
+File: lispref.info,  Node: Defining Abbrevs,  Next: Abbrev Files,  Prev: Abbrev Tables,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+   These functions define an abbrev in a specified abbrev table.
+`define-abbrev' is the low-level basic function, while `add-abbrev' is
+used by commands that ask for information from the user.
+
+ - Function: add-abbrev table type arg
+     This function adds an abbreviation to abbrev table TABLE based on
+     information from the user.  The argument TYPE is a string
+     describing in English the kind of abbrev this will be (typically,
+     `"global"' or `"mode-specific"'); this is used in prompting the
+     user.  The argument ARG is the number of words in the expansion.
+
+     The return value is the symbol that internally represents the new
+     abbrev, or `nil' if the user declines to confirm redefining an
+     existing abbrev.
+
+ - Function: define-abbrev table name expansion hook
+     This function defines an abbrev in TABLE named NAME, to expand to
+     EXPANSION, and call HOOK.  The return value is an uninterned
+     symbol that represents the abbrev inside XEmacs; its name is NAME.
+
+     The argument NAME should be a string.  The argument EXPANSION
+     should be a string, or `nil' to undefine the abbrev.
+
+     The argument HOOK is a function or `nil'.  If HOOK is non-`nil',
+     then it is called with no arguments after the abbrev is replaced
+     with EXPANSION; point is located at the end of EXPANSION when HOOK
+     is called.
+
+     The use count of the abbrev is initialized to zero.
+
+ - User Option: only-global-abbrevs
+     If this variable is non-`nil', it means that the user plans to use
+     global abbrevs only.  This tells the commands that define
+     mode-specific abbrevs to define global ones instead.  This
+     variable does not alter the behavior of the functions in this
+     section; it is examined by their callers.
+
+
+File: lispref.info,  Node: Abbrev Files,  Next: Abbrev Expansion,  Prev: Defining Abbrevs,  Up: Abbrevs
+
+Saving Abbrevs in Files
+=======================
+
+   A file of saved abbrev definitions is actually a file of Lisp code.
+The abbrevs are saved in the form of a Lisp program to define the same
+abbrev tables with the same contents.  Therefore, you can load the file
+with `load' (*note How Programs Do Loading::).  However, the function
+`quietly-read-abbrev-file' is provided as a more convenient interface.
+
+   User-level facilities such as `save-some-buffers' can save abbrevs
+in a file automatically, under the control of variables described here.
+
+ - User Option: abbrev-file-name
+     This is the default file name for reading and saving abbrevs.
+
+ - Function: quietly-read-abbrev-file filename
+     This function reads abbrev definitions from a file named FILENAME,
+     previously written with `write-abbrev-file'.  If FILENAME is
+     `nil', the file specified in `abbrev-file-name' is used.
+     `save-abbrevs' is set to `t' so that changes will be saved.
+
+     This function does not display any messages.  It returns `nil'.
+
+ - User Option: save-abbrevs
+     A non-`nil' value for `save-abbrev' means that XEmacs should save
+     abbrevs when files are saved.  `abbrev-file-name' specifies the
+     file to save the abbrevs in.
+
+ - Variable: abbrevs-changed
+     This variable is set non-`nil' by defining or altering any
+     abbrevs.  This serves as a flag for various XEmacs commands to
+     offer to save your abbrevs.
+
+ - Command: write-abbrev-file filename
+     Save all abbrev definitions, in all abbrev tables, in the file
+     FILENAME, in the form of a Lisp program that when loaded will
+     define the same abbrevs.  This function returns `nil'.
+
+
+File: lispref.info,  Node: Abbrev Expansion,  Next: Standard Abbrev Tables,  Prev: Abbrev Files,  Up: Abbrevs
+
+Looking Up and Expanding Abbreviations
+======================================
+
+   Abbrevs are usually expanded by commands for interactive use,
+including `self-insert-command'.  This section describes the
+subroutines used in writing such functions, as well as the variables
+they use for communication.
+
+ - Function: abbrev-symbol abbrev &optional table
+     This function returns the symbol representing the abbrev named
+     ABBREV.  The value returned is `nil' if that abbrev is not
+     defined.  The optional second argument TABLE is the abbrev table
+     to look it up in.  If TABLE is `nil', this function tries first
+     the current buffer's local abbrev table, and second the global
+     abbrev table.
+
+ - Function: abbrev-expansion abbrev &optional table
+     This function returns the string that ABBREV would expand into (as
+     defined by the abbrev tables used for the current buffer).  The
+     optional argument TABLE specifies the abbrev table to use, as in
+     `abbrev-symbol'.
+
+ - Command: expand-abbrev
+     This command expands the abbrev before point, if any.  If point
+     does not follow an abbrev, this command does nothing.  The command
+     returns `t' if it did expansion, `nil' otherwise.
+
+ - Command: abbrev-prefix-mark &optional arg
+     Mark current point as the beginning of an abbrev.  The next call to
+     `expand-abbrev' will use the text from here to point (where it is
+     then) as the abbrev to expand, rather than using the previous word
+     as usual.
+
+ - User Option: abbrev-all-caps
+     When this is set non-`nil', an abbrev entered entirely in upper
+     case is expanded using all upper case.  Otherwise, an abbrev
+     entered entirely in upper case is expanded by capitalizing each
+     word of the expansion.
+
+ - Variable: abbrev-start-location
+     This is the buffer position for `expand-abbrev' to use as the start
+     of the next abbrev to be expanded.  (`nil' means use the word
+     before point instead.)  `abbrev-start-location' is set to `nil'
+     each time `expand-abbrev' is called.  This variable is also set by
+     `abbrev-prefix-mark'.
+
+ - Variable: abbrev-start-location-buffer
+     The value of this variable is the buffer for which
+     `abbrev-start-location' has been set.  Trying to expand an abbrev
+     in any other buffer clears `abbrev-start-location'.  This variable
+     is set by `abbrev-prefix-mark'.
+
+ - Variable: last-abbrev
+     This is the `abbrev-symbol' of the last abbrev expanded.  This
+     information is left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-location
+     This is the location of the last abbrev expanded.  This contains
+     information left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-text
+     This is the exact expansion text of the last abbrev expanded,
+     after case conversion (if any).  Its value is `nil' if the abbrev
+     has already been unexpanded.  This contains information left by
+     `expand-abbrev' for the sake of the `unexpand-abbrev' command.
+
+ - Variable: pre-abbrev-expand-hook
+     This is a normal hook whose functions are executed, in sequence,
+     just before any expansion of an abbrev.  *Note Hooks::.  Since it
+     is a normal hook, the hook functions receive no arguments.
+     However, they can find the abbrev to be expanded by looking in the
+     buffer before point.
+
+   The following sample code shows a simple use of
+`pre-abbrev-expand-hook'.  If the user terminates an abbrev with a
+punctuation character, the hook function asks for confirmation.  Thus,
+this hook allows the user to decide whether to expand the abbrev, and
+aborts expansion if it is not confirmed.
+
+     (add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
+     
+     ;; This is the function invoked by `pre-abbrev-expand-hook'.
+     
+     ;; If the user terminated the abbrev with a space, the function does
+     ;; nothing (that is, it returns so that the abbrev can expand).  If the
+     ;; user entered some other character, this function asks whether
+     ;; expansion should continue.
+     
+     ;; If the user answers the prompt with `y', the function returns
+     ;; `nil' (because of the `not' function), but that is
+     ;; acceptable; the return value has no effect on expansion.
+     
+     (defun query-if-not-space ()
+       (if (/= ?\  (preceding-char))
+           (if (not (y-or-n-p "Do you want to expand this abbrev? "))
+               (error "Not expanding this abbrev"))))
+
+
+File: lispref.info,  Node: Standard Abbrev Tables,  Prev: Abbrev Expansion,  Up: Abbrevs
+
+Standard Abbrev Tables
+======================
+
+   Here we list the variables that hold the abbrev tables for the
+preloaded major modes of XEmacs.
+
+ - Variable: global-abbrev-table
+     This is the abbrev table for mode-independent abbrevs.  The abbrevs
+     defined in it apply to all buffers.  Each buffer may also have a
+     local abbrev table, whose abbrev definitions take precedence over
+     those in the global table.
+
+ - Variable: local-abbrev-table
+     The value of this buffer-local variable is the (mode-specific)
+     abbreviation table of the current buffer.
+
+ - Variable: fundamental-mode-abbrev-table
+     This is the local abbrev table used in Fundamental mode; in other
+     words, it is the local abbrev table in all buffers in Fundamental
+     mode.
+
+ - Variable: text-mode-abbrev-table
+     This is the local abbrev table used in Text mode.
+
+ - Variable: c-mode-abbrev-table
+     This is the local abbrev table used in C mode.
+
+ - Variable: lisp-mode-abbrev-table
+     This is the local abbrev table used in Lisp mode and Emacs Lisp
+     mode.
+
+
+File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
+
+Extents
+*******
+
+   An "extent" is a region of text (a start position and an end
+position) that is displayed in a particular face and can have certain
+other properties such as being read-only.  Extents can overlap each
+other.  XEmacs efficiently handles buffers with large numbers of
+extents in them.
+
+ - Function: extentp object
+     This returns `t' if OBJECT is an extent.
+
+* Menu:
+
+* Intro to Extents::	   Extents are regions over a buffer or string.
+* Creating and Modifying Extents::
+			   Basic extent functions.
+* Extent Endpoints::	   Accessing and setting the bounds of an extent.
+* Finding Extents::	   Determining which extents are in an object.
+* Mapping Over Extents::   More sophisticated functions for extent scanning.
+* Extent Properties::	   Extents have built-in and user-definable properties.
+* Detached Extents::	   Extents that are not in a buffer.
+* Extent Parents::         Inheriting properties from another extent.
+* Duplicable Extents::	   Extents can be marked to be copied into strings.
+* Extents and Events::	   Extents can interact with the keyboard and mouse.
+* Atomic Extents::	   Treating a block of text as a single entity.
+
+
+File: lispref.info,  Node: Intro to Extents,  Next: Creating and Modifying Extents,  Up: Extents
+
+Introduction to Extents
+=======================
+
+   An extent is a region of text within a buffer or string that has
+certain properties associated with it.  The properties of an extent
+primarily affect the way the text contained in the extent is displayed.
+Extents can freely overlap each other in a buffer or string.  Extents
+are invisible to functions that merely examine the text of a buffer or
+string.
+
+   _Please note:_ An alternative way to add properties to a buffer or
+string is to use text properties.  *Note Text Properties::.
+
+   An extent is logically a Lisp object consisting of a start position,
+an end position, a buffer or string to which these positions refer, and
+a property list.  As text is inserted into a buffer, the start and end
+positions of the extent are automatically adjusted as necessary to keep
+the extent referring to the same text in the buffer.  If text is
+inserted at the boundary of an extent, the extent's `start-open' and
+`end-open' properties control whether the text is included as part of
+the extent.  If the text bounded by an extent is deleted, the extent
+becomes "detached"; its start and end positions are no longer
+meaningful, but it maintains all its other properties and can later be
+reinserted into a buffer. (None of these considerations apply to
+strings, because text cannot be inserted into or deleted from a string.)
+
+   Each extent has a face or list of faces associated with it, which
+controls the way in which the text bounded by the extent is displayed.
+If an extent's face is `nil' or its properties are partially undefined,
+the corresponding properties from the default face for the frame is
+used.  If two or more extents overlap, or if a list of more than one
+face is specified for a particular extent, the corresponding faces are
+merged to determine the text's displayed properties.  Every extent has
+a "priority" that determines which face takes precedence if the faces
+conflict. (If two extents have the same priority, the one that comes
+later in the display order takes precedence.  *Note display order:
+Extent Endpoints.) Higher-numbered priority values correspond to a
+higher priority, and priority values can be negative.  Every extent is
+created with a priority of 0, but this can be changed with
+`set-extent-priority'.  Within a single extent with a list of faces,
+faces earlier in the list have a higher priority than faces later in
+the list.
+
+   Extents can be set to respond specially to key and mouse events
+within the extent.  An extent's `keymap' property controls the effect of
+key and mouse strokes within the extent's text, and the `mouse-face'
+property controls whether the extent is highlighted when the mouse moves
+over it.  *Note Extents and Events::.
+
+   An extent can optionally have a "begin-glyph" or "end-glyph"
+associated with it.  A begin-glyph or end-glyph is a pixmap or string
+that will be displayed either at the start or end of an extent or in the
+margin of the line that the start or end of the extent lies in,
+depending on the extent's layout policy.  Begin-glyphs and end-glyphs
+are used to implement annotations, and you should use the annotation API
+functions in preference to the lower-level extent functions.  For more
+information, *Note Annotations::.
+
+   If an extent has its `detachable' property set, it will become
+"detached" (i.e. no longer in the buffer) when all its text its
+deleted.  Otherwise, it will simply shrink down to zero-length and sit
+it the same place in the buffer.  By default, the `detachable' property
+is set on newly-created extents.  *Note Detached Extents::.
+
+   If an extent has its `duplicable' property set, it will be
+remembered when a string is created from text bounded by the extent.
+When the string is re-inserted into a buffer, the extent will also be
+re-inserted.  This mechanism is used in the kill, yank, and undo
+commands.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoints,  Prev: Intro to Extents,  Up: Extents
+
+Creating and Modifying Extents
+==============================
+
+ - Function: make-extent from to &optional object
+     This function makes an extent for the range [FROM, TO) in OBJECT
+     (a buffer or string).  OBJECT defaults to the current buffer.
+     Insertions at point TO will be outside of the extent; insertions
+     at FROM will be inside the extent, causing the extent to grow
+     (*note Extent Endpoints::).  This is the same way that markers
+     behave.  The extent is initially detached if both FROM and TO are
+     `nil', and in this case OBJECT defaults to `nil', meaning the
+     extent is in no buffer or string (*note Detached Extents::).
+
+ - Function: delete-extent extent
+     This function removes EXTENT from its buffer and destroys it.
+     This does not modify the buffer's text, only its display
+     properties.  The extent cannot be used thereafter.  To remove an
+     extent in such a way that it can be re-inserted later, use
+     `detach-extent'.  *Note Detached Extents::.
+
+ - Function: extent-object extent
+     This function returns the buffer or string that EXTENT is in.  If
+     the return value is `nil', this means that the extent is detached;
+     however, a detached extent will not necessarily return a value of
+     `nil'.
+
+ - Function: extent-live-p extent
+     This function returns `nil' if EXTENT is deleted, and `t'
+     otherwise.
+
+
+File: lispref.info,  Node: Extent Endpoints,  Next: Finding Extents,  Prev: Creating and Modifying Extents,  Up: Extents
+
+Extent Endpoints
+================
+
+   Every extent has a start position and an end position, and logically
+affects the characters between those positions.  Normally the start and
+end positions must both be valid positions in the extent's buffer or
+string.  However, both endpoints can be `nil', meaning the extent is
+detached.  *Note Detached Extents::.
+
+   Whether the extent overlaps its endpoints is governed by its
+`start-open' and `end-open' properties.  Insertion of a character at a
+closed endpoint will expand the extent to include that character;
+insertion at an open endpoint will not.  Similarly, functions such as
+`extent-at' that scan over all extents overlapping a particular
+position will include extents with a closed endpoint at that position,
+but not extents with an open endpoint.
+
+   Note that the `start-closed' and `end-closed' properties are
+equivalent to `start-open' and `end-open' with the opposite sense.
+
+   Both endpoints can be equal, in which case the extent includes no
+characters but still exists in the buffer or string.  Zero-length
+extents are used to represent annotations (*note Annotations::) and can
+be used as a more powerful form of a marker.  Deletion of all the
+characters in an extent may or may not result in a zero-length extent;
+this depends on the `detachable' property (*note Detached Extents::).
+Insertion at the position of a zero-length extent expands the extent if
+both endpoints are closed; goes before the extent if it has the
+`start-open' property; and goes after the extent if it has the
+`end-open' property.  Zero-length extents with both the `start-open'
+and `end-open' properties are treated as if their starting point were
+closed.  Deletion of a character on a side of a zero-length extent
+whose corresponding endpoint is closed causes the extent to be detached
+if its `detachable' property is set; if the corresponding endpoint is
+open, the extent remains in the buffer, moving as necessary.
+
+   Extents are ordered within a buffer or string by increasing start
+position, and then by decreasing end position (this is called the
+"display order").
+
+ - Function: extent-start-position extent
+     This function returns the start position of EXTENT.
+
+ - Function: extent-end-position extent
+     This function returns the end position of EXTENT.
+
+ - Function: extent-length extent
+     This function returns the length of EXTENT in characters.  If the
+     extent is detached, this returns `0'.  If the extent is not
+     detached, this is equivalent to
+          (- (extent-end-position EXTENT) (extent-start-position EXTENT))
+
+ - Function: set-extent-endpoints extent start end &optional
+          buffer-or-string
+     This function sets the start and end position of EXTENT to START
+     and END.  If both are `nil', this is equivalent to `detach-extent'.
+
+     BUFFER-OR-STRING specifies the new buffer or string that the
+     extent should be in, and defaults to EXTENT's buffer or string.
+     (If `nil', and EXTENT is in no buffer and no string, it defaults
+     to the current buffer.)
+
+     See documentation on `detach-extent' for a discussion of undo
+     recording.
+
+
+File: lispref.info,  Node: Finding Extents,  Next: Mapping Over Extents,  Prev: Extent Endpoints,  Up: Extents
+
+Finding Extents
+===============
+
+   The following functions provide a simple way of determining the
+extents in a buffer or string.  A number of more sophisticated
+primitives for mapping over the extents in a range of a buffer or string
+are also provided (*note Mapping Over Extents::).  When reading through
+this section, keep in mind the way that extents are ordered (*note
+Extent Endpoints::).
+
+ - Function: extent-list &optional buffer-or-string from to flags
+     This function returns a list of the extents in BUFFER-OR-STRING.
+     BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
+     and TO can be used to limit the range over which extents are
+     returned; if omitted, all extents in the buffer or string are
+     returned.
+
+     More specifically, if a range is specified using FROM and TO, only
+     extents that overlap the range (i.e. begin or end inside of the
+     range) are included in the list.  FROM and TO default to the
+     beginning and end of BUFFER-OR-STRING, respectively.
+
+     FLAGS controls how end cases are treated.  For a discussion of
+     this, and exactly what "overlap" means, see `map-extents'.
+
+   Functions that create extents must be prepared for the possibility
+that there are other extents in the same area, created by other
+functions.  To deal with this, functions typically mark their own
+extents by setting a particular property on them.  The following
+function makes it easier to locate those extents.
+
+ - Function: extent-at pos &optional object property before at-flag
+     This function finds the "smallest" extent (i.e., the last one in
+     the display order) at (i.e., overlapping) POS in OBJECT (a buffer
+     or string) having PROPERTY set.  OBJECT defaults to the current
+     buffer.  PROPERTY defaults to `nil', meaning that any extent will
+     do.  Returns `nil' if there is no matching extent at POS.  If the
+     fourth argument BEFORE is not `nil', it must be an extent; any
+     returned extent will precede that extent.  This feature allows
+     `extent-at' to be used by a loop over extents.
+
+     AT-FLAG controls how end cases are handled (i.e. what "at" really
+     means), and should be one of:
+
+    `nil'
+
+    `after'
+          An extent is at POS if it covers the character after POS.
+          This is consistent with the way that text properties work.
+
+    `before'
+          An extent is at POS if it covers the character before POS.
+
+    `at'
+          An extent is at POS if it overlaps or abuts POS.  This
+          includes all zero-length extents at POS.
+
+     Note that in all cases, the start-openness and end-openness of the
+     extents considered is ignored.  If you want to pay attention to
+     those properties, you should use `map-extents', which gives you
+     more control.
+
+   The following low-level functions are provided for explicitly
+traversing the extents in a buffer according to the display order.
+These functions are mostly intended for debugging--in normal operation,
+you should probably use `mapcar-extents' or `map-extents', or loop
+using the BEFORE argument to `extent-at', rather than creating a loop
+using `next-extent'.
+
+ - Function: next-extent extent
+     Given an extent EXTENT, this function returns the next extent in
+     the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the first extent in the buffer or string.
+
+ - Function: previous-extent extent
+     Given an extent EXTENT, this function returns the previous extent
+     in the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the last extent in the buffer or string.
+
+
+File: lispref.info,  Node: Mapping Over Extents,  Next: Extent Properties,  Prev: Finding Extents,  Up: Extents
+
+Mapping Over Extents
+====================
+
+   The most basic and general function for mapping over extents is
+called `map-extents'.  You should read through the definition of this
+function to familiarize yourself with the concepts and optional
+arguments involved.  However, in practice you may find it more
+convenient to use the function `mapcar-extents' or to create a loop
+using the `before' argument to `extent-at' (*note Finding Extents::).
+
+ - Function: map-extents function &optional object from to maparg flags
+          property value
+     This function maps FUNCTION over the extents which overlap a
+     region in OBJECT.  OBJECT is normally a buffer or string but could
+     be an extent (see below).  The region is normally bounded by
+     [FROM, TO) (i.e. the beginning of the region is closed and the end
+     of the region is open), but this can be changed with the FLAGS
+     argument (see below for a complete discussion).
+
+     FUNCTION is called with the arguments (extent, MAPARG).  The
+     arguments OBJECT, FROM, TO, MAPARG, and FLAGS are all optional and
+     default to the current buffer, the beginning of OBJECT, the end of
+     OBJECT, NIL, and NIL, respectively.  `map-extents' returns the
+     first non-`nil' result produced by FUNCTION, and no more calls to
+     FUNCTION are made after it returns non-`nil'.
+
+     If OBJECT is an extent, FROM and TO default to the extent's
+     endpoints, and the mapping omits that extent and its predecessors.
+     This feature supports restarting a loop based on `map-extents'.
+     Note: OBJECT must be attached to a buffer or string, and the
+     mapping is done over that buffer or string.
+
+     An extent overlaps the region if there is any point in the extent
+     that is also in the region. (For the purpose of overlap,
+     zero-length extents and regions are treated as closed on both ends
+     regardless of their endpoints' specified open/closedness.) Note
+     that the endpoints of an extent or region are considered to be in
+     that extent or region if and only if the corresponding end is
+     closed.  For example, the extent [5,7] overlaps the region [2,5]
+     because 5 is in both the extent and the region.  However, (5,7]
+     does not overlap [2,5] because 5 is not in the extent, and neither
+     [5,7] nor (5,7] overlaps the region [2,5) because 5 is not in the
+     region.
+
+     The optional FLAGS can be a symbol or a list of one or more
+     symbols, modifying the behavior of `map-extents'.  Allowed symbols
+     are:
+
+    `end-closed'
+          The region's end is closed.
+
+    `start-open'
+          The region's start is open.
+
+    `all-extents-closed'
+          Treat all extents as closed on both ends for the purpose of
+          determining whether they overlap the region, irrespective of
+          their actual open- or closedness.
+
+    `all-extents-open'
+          Treat all extents as open on both ends.
+
+    `all-extents-closed-open'
+          Treat all extents as start-closed, end-open.
+
+    `all-extents-open-closed'
+          Treat all extents as start-open, end-closed.
+
+    `start-in-region'
+          In addition to the above conditions for extent overlap, the
+          extent's start position must lie within the specified region.
+          Note that, for this condition, open start positions are
+          treated as if 0.5 was added to the endpoint's value, and open
+          end positions are treated as if 0.5 was subtracted from the
+          endpoint's value.
+
+    `end-in-region'
+          The extent's end position must lie within the region.
+
+    `start-and-end-in-region'
+          Both the extent's start and end positions must lie within the
+          region.
+
+    `start-or-end-in-region'
+          Either the extent's start or end position must lie within the
+          region.
+
+    `negate-in-region'
+          The condition specified by a `*-in-region' flag must _not_
+          hold for the extent to be considered.
+
+     At most one of `all-extents-closed', `all-extents-open',
+     `all-extents-closed-open', and `all-extents-open-closed' may be
+     specified.
+
+     At most one of `start-in-region', `end-in-region',
+     `start-and-end-in-region', and `start-or-end-in-region' may be
+     specified.
+
+     If optional arg PROPERTY is non-`nil', only extents with that
+     property set on them will be visited.  If optional arg VALUE is
+     non-`nil', only extents whose value for that property is `eq' to
+     VALUE will be visited.
+
+   If you want to map over extents and accumulate a list of results,
+the following function may be more convenient than `map-extents'.
+
+ - Function: mapcar-extents function &optional predicate
+          buffer-or-string from to flags property value
+     This function applies FUNCTION to all extents which overlap a
+     region in BUFFER-OR-STRING.  The region is delimited by FROM and
+     TO.  FUNCTION is called with one argument, the extent.  A list of
+     the values returned by FUNCTION is returned.  An optional
+     PREDICATE may be used to further limit the extents over which
+     FUNCTION is mapped.  The optional arguments FLAGS, PROPERTY, and
+     VALUE may also be used to control the extents passed to PREDICATE
+     or FUNCTION, and have the same meaning as in `map-extents'.
+
+ - Function: map-extent-children function &optional object from to
+          maparg flags property value
+     This function is similar to `map-extents', but differs in that:
+
+        * It only visits extents which start in the given region.
+
+        * After visiting an extent E, it skips all other extents which
+          start inside E but end before E's end.
+
+     Thus, this function may be used to walk a tree of extents in a
+     buffer:
+          (defun walk-extents (buffer &optional ignore)
+            (map-extent-children 'walk-extents buffer))
+
+ - Function: extent-in-region-p extent &optional from to flags
+     This function returns T if `map-extents' would visit EXTENT if
+     called with the given arguments.
+

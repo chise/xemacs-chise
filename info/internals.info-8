@@ -1,0 +1,1061 @@
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Internals: (internals).       XEmacs Internals Manual.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
+Microsystems.  Copyright (C) 1994 - 1998 Free Software Foundation.
+Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
+
+Window Hierarchy
+================
+
+   If a frame contains multiple windows (panes), they are always created
+by splitting an existing window along the horizontal or vertical axis.
+Terminology is a bit confusing here: to "split a window horizontally"
+means to create two side-by-side windows, i.e. to make a _vertical_ cut
+in a window.  Likewise, to "split a window vertically" means to create
+two windows, one above the other, by making a _horizontal_ cut.
+
+   If you split a window and then split again along the same axis, you
+will end up with a number of panes all arranged along the same axis.
+The precise way in which the splits were made should not be important,
+and this is reflected internally.  Internally, all windows are arranged
+in a tree, consisting of two types of windows, "combination" windows
+(which have children, and are covered completely by those children) and
+"leaf" windows, which have no children and are visible.  Every
+combination window has two or more children, all arranged along the same
+axis.  There are (logically) two subtypes of windows, depending on
+whether their children are horizontally or vertically arrayed.  There is
+always one root window, which is either a leaf window (if the frame
+contains only one window) or a combination window (if the frame contains
+more than one window).  In the latter case, the root window will have
+two or more children, either horizontally or vertically arrayed, and
+each of those children will be either a leaf window or another
+combination window.
+
+   Here are some rules:
+
+  1. Horizontal combination windows can never have children that are
+     horizontal combination windows; same for vertical.
+
+  2. Only leaf windows can be split (obviously) and this splitting does
+     one of two things: (a) turns the leaf window into a combination
+     window and creates two new leaf children, or (b) turns the leaf
+     window into one of the two new leaves and creates the other leaf.
+     Rule (1) dictates which of these two outcomes happens.
+
+  3. Every combination window must have at least two children.
+
+  4. Leaf windows can never become combination windows.  They can be
+     deleted, however.  If this results in a violation of (3), the
+     parent combination window also gets deleted.
+
+  5. All functions that accept windows must be prepared to accept
+     combination windows, and do something sane (e.g. signal an error
+     if so).  Combination windows _do_ escape to the Lisp level.
+
+  6. All windows have three fields governing their contents: these are
+     "hchild" (a list of horizontally-arrayed children), "vchild" (a
+     list of vertically-arrayed children), and "buffer" (the buffer
+     contained in a leaf window).  Exactly one of these will be
+     non-nil.  Remember that "horizontally-arrayed" means
+     "side-by-side" and "vertically-arrayed" means "one above the
+     other".
+
+  7. Leaf windows also have markers in their `start' (the first buffer
+     position displayed in the window) and `pointm' (the window's
+     stashed value of `point'--see above) fields, while combination
+     windows have nil in these fields.
+
+  8. The list of children for a window is threaded through the `next'
+     and `prev' fields of each child window.
+
+  9. *Deleted windows can be undeleted*.  This happens as a result of
+     restoring a window configuration, and is unlike frames, displays,
+     and consoles, which, once deleted, can never be restored.
+     Deleting a window does nothing except set a special `dead' bit to
+     1 and clear out the `next', `prev', `hchild', and `vchild' fields,
+     for GC purposes.
+
+ 10. Most frames actually have two top-level windows--one for the
+     minibuffer and one (the "root") for everything else.  The modeline
+     (if present) separates these two.  The `next' field of the root
+     points to the minibuffer, and the `prev' field of the minibuffer
+     points to the root.  The other `next' and `prev' fields are `nil',
+     and the frame points to both of these windows.  Minibuffer-less
+     frames have no minibuffer window, and the `next' and `prev' of the
+     root window are `nil'.  Minibuffer-only frames have no root
+     window, and the `next' of the minibuffer window is `nil' but the
+     `prev' points to itself. (#### This is an artifact that should be
+     fixed.)
+
+
+File: internals.info,  Node: The Window Object,  Prev: Window Hierarchy,  Up: Consoles; Devices; Frames; Windows
+
+The Window Object
+=================
+
+   Windows have the following accessible fields:
+
+`frame'
+     The frame that this window is on.
+
+`mini_p'
+     Non-`nil' if this window is a minibuffer window.
+
+`buffer'
+     The buffer that the window is displaying.  This may change often
+     during the life of the window.
+
+`dedicated'
+     Non-`nil' if this window is dedicated to its buffer.
+
+`pointm'
+     This is the value of point in the current buffer when this window
+     is selected; when it is not selected, it retains its previous
+     value.
+
+`start'
+     The position in the buffer that is the first character to be
+     displayed in the window.
+
+`force_start'
+     If this flag is non-`nil', it says that the window has been
+     scrolled explicitly by the Lisp program.  This affects what the
+     next redisplay does if point is off the screen: instead of
+     scrolling the window to show the text around point, it moves point
+     to a location that is on the screen.
+
+`last_modified'
+     The `modified' field of the window's buffer, as of the last time a
+     redisplay completed in this window.
+
+`last_point'
+     The buffer's value of point, as of the last time a redisplay
+     completed in this window.
+
+`left'
+     This is the left-hand edge of the window, measured in columns.
+     (The leftmost column on the screen is column 0.)
+
+`top'
+     This is the top edge of the window, measured in lines.  (The top
+     line on the screen is line 0.)
+
+`height'
+     The height of the window, measured in lines.
+
+`width'
+     The width of the window, measured in columns.
+
+`next'
+     This is the window that is the next in the chain of siblings.  It
+     is `nil' in a window that is the rightmost or bottommost of a
+     group of siblings.
+
+`prev'
+     This is the window that is the previous in the chain of siblings.
+     It is `nil' in a window that is the leftmost or topmost of a group
+     of siblings.
+
+`parent'
+     Internally, XEmacs arranges windows in a tree; each group of
+     siblings has a parent window whose area includes all the siblings.
+     This field points to a window's parent.
+
+     Parent windows do not display buffers, and play little role in
+     display except to shape their child windows.  Emacs Lisp programs
+     usually have no access to the parent windows; they operate on the
+     windows at the leaves of the tree, which actually display buffers.
+
+`hscroll'
+     This is the number of columns that the display in the window is
+     scrolled horizontally to the left.  Normally, this is 0.
+
+`use_time'
+     This is the last time that the window was selected.  The function
+     `get-lru-window' uses this field.
+
+`display_table'
+     The window's display table, or `nil' if none is specified for it.
+
+`update_mode_line'
+     Non-`nil' means this window's mode line needs to be updated.
+
+`base_line_number'
+     The line number of a certain position in the buffer, or `nil'.
+     This is used for displaying the line number of point in the mode
+     line.
+
+`base_line_pos'
+     The position in the buffer for which the line number is known, or
+     `nil' meaning none is known.
+
+`region_showing'
+     If the region (or part of it) is highlighted in this window, this
+     field holds the mark position that made one end of that region.
+     Otherwise, this field is `nil'.
+
+
+File: internals.info,  Node: The Redisplay Mechanism,  Next: Extents,  Prev: Consoles; Devices; Frames; Windows,  Up: Top
+
+The Redisplay Mechanism
+***********************
+
+   The redisplay mechanism is one of the most complicated sections of
+XEmacs, especially from a conceptual standpoint.  This is doubly so
+because, unlike for the basic aspects of the Lisp interpreter, the
+computer science theories of how to efficiently handle redisplay are not
+well-developed.
+
+   When working with the redisplay mechanism, remember the Golden Rules
+of Redisplay:
+
+  1. It Is Better To Be Correct Than Fast.
+
+  2. Thou Shalt Not Run Elisp From Within Redisplay.
+
+  3. It Is Better To Be Fast Than Not To Be.
+
+* Menu:
+
+* Critical Redisplay Sections::
+* Line Start Cache::
+* Redisplay Piece by Piece::
+
+
+File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Prev: The Redisplay Mechanism,  Up: The Redisplay Mechanism
+
+Critical Redisplay Sections
+===========================
+
+   Within this section, we are defenseless and assume that the
+following cannot happen:
+
+  1. garbage collection
+
+  2. Lisp code evaluation
+
+  3. frame size changes
+
+   We ensure (3) by calling `hold_frame_size_changes()', which will
+cause any pending frame size changes to get put on hold till after the
+end of the critical section.  (1) follows automatically if (2) is met.
+#### Unfortunately, there are some places where Lisp code can be called
+within this section.  We need to remove them.
+
+   If `Fsignal()' is called during this critical section, we will
+`abort()'.
+
+   If garbage collection is called during this critical section, we
+simply return. #### We should abort instead.
+
+   #### If a frame-size change does occur we should probably actually
+be preempting redisplay.
+
+
+File: internals.info,  Node: Line Start Cache,  Next: Redisplay Piece by Piece,  Prev: Critical Redisplay Sections,  Up: The Redisplay Mechanism
+
+Line Start Cache
+================
+
+   The traditional scrolling code in Emacs breaks in a variable height
+world.  It depends on the key assumption that the number of lines that
+can be displayed at any given time is fixed.  This led to a complete
+separation of the scrolling code from the redisplay code.  In order to
+fully support variable height lines, the scrolling code must actually be
+tightly integrated with redisplay.  Only redisplay can determine how
+many lines will be displayed on a screen for any given starting point.
+
+   What is ideally wanted is a complete list of the starting buffer
+position for every possible display line of a buffer along with the
+height of that display line.  Maintaining such a full list would be very
+expensive.  We settle for having it include information for all areas
+which we happen to generate anyhow (i.e. the region currently being
+displayed) and for those areas we need to work with.
+
+   In order to ensure that the cache accurately represents what
+redisplay would actually show, it is necessary to invalidate it in many
+situations.  If the buffer changes, the starting positions may no longer
+be correct.  If a face or an extent has changed then the line heights
+may have altered.  These events happen frequently enough that the cache
+can end up being constantly disabled.  With this potentially constant
+invalidation when is the cache ever useful?
+
+   Even if the cache is invalidated before every single usage, it is
+necessary.  Scrolling often requires knowledge about display lines which
+are actually above or below the visible region.  The cache provides a
+convenient light-weight method of storing this information for multiple
+display regions.  This knowledge is necessary for the scrolling code to
+always obey the First Golden Rule of Redisplay.
+
+   If the cache already contains all of the information that the
+scrolling routines happen to need so that it doesn't have to go
+generate it, then we are able to obey the Third Golden Rule of
+Redisplay.  The first thing we do to help out the cache is to always
+add the displayed region.  This region had to be generated anyway, so
+the cache ends up getting the information basically for free.  In those
+cases where a user is simply scrolling around viewing a buffer there is
+a high probability that this is sufficient to always provide the needed
+information.  The second thing we can do is be smart about invalidating
+the cache.
+
+   TODO--Be smart about invalidating the cache.  Potential places:
+
+   * Insertions at end-of-line which don't cause line-wraps do not
+     alter the starting positions of any display lines.  These types of
+     buffer modifications should not invalidate the cache.  This is
+     actually a large optimization for redisplay speed as well.
+
+   * Buffer modifications frequently only affect the display of lines
+     at and below where they occur.  In these situations we should only
+     invalidate the part of the cache starting at where the
+     modification occurs.
+
+   In case you're wondering, the Second Golden Rule of Redisplay is not
+applicable.
+
+
+File: internals.info,  Node: Redisplay Piece by Piece,  Prev: Line Start Cache,  Up: The Redisplay Mechanism
+
+Redisplay Piece by Piece
+========================
+
+   As you can begin to see redisplay is complex and also not well
+documented. Chuck no longer works on XEmacs so this section is my take
+on the workings of redisplay.
+
+   Redisplay happens in three phases:
+
+  1. Determine desired display in area that needs redisplay.
+     Implemented by `redisplay.c'
+
+  2. Compare desired display with current display Implemented by
+     `redisplay-output.c'
+
+  3. Output changes Implemented by `redisplay-output.c',
+     `redisplay-x.c', `redisplay-msw.c' and `redisplay-tty.c'
+
+   Steps 1 and 2 are device-independent and relatively complex.  Step 3
+is mostly device-dependent.
+
+   Determining the desired display
+
+   Display attributes are stored in `display_line' structures. Each
+`display_line' consists of a set of `display_block''s and each
+`display_block' contains a number of `rune''s. Generally dynarr's of
+`display_line''s are held by each window representing the current
+display and the desired display.
+
+   The `display_line' structures are tightly tied to buffers which
+presents a problem for redisplay as this connection is bogus for the
+modeline. Hence the `display_line' generation routines are duplicated
+for generating the modeline. This means that the modeline display code
+has many bugs that the standard redisplay code does not.
+
+   The guts of `display_line' generation are in `create_text_block',
+which creates a single display line for the desired locale. This
+incrementally parses the characters on the current line and generates
+redisplay structures for each.
+
+   Gutter redisplay is different. Because the data to display is stored
+in a string we cannot use `create_text_block'. Instead we use
+`create_text_string_block' which performs the same function as
+`create_text_block' but for strings. Many of the complexities of
+`create_text_block' to do with cursor handling and selective display
+have been removed.
+
+
+File: internals.info,  Node: Extents,  Next: Faces,  Prev: The Redisplay Mechanism,  Up: Top
+
+Extents
+*******
+
+* Menu:
+
+* Introduction to Extents::     Extents are ranges over text, with properties.
+* Extent Ordering::             How extents are ordered internally.
+* Format of the Extent Info::   The extent information in a buffer or string.
+* Zero-Length Extents::         A weird special case.
+* Mathematics of Extent Ordering::  A rigorous foundation.
+* Extent Fragments::            Cached information useful for redisplay.
+
+
+File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Prev: Extents,  Up: Extents
+
+Introduction to Extents
+=======================
+
+   Extents are regions over a buffer, with a start and an end position
+denoting the region of the buffer included in the extent.  In addition,
+either end can be closed or open, meaning that the endpoint is or is
+not logically included in the extent.  Insertion of a character at a
+closed endpoint causes the character to go inside the extent; insertion
+at an open endpoint causes the character to go outside.
+
+   Extent endpoints are stored using memory indices (see `insdel.c'),
+to minimize the amount of adjusting that needs to be done when
+characters are inserted or deleted.
+
+   (Formerly, extent endpoints at the gap could be either before or
+after the gap, depending on the open/closedness of the endpoint.  The
+intent of this was to make it so that insertions would automatically go
+inside or out of extents as necessary with no further work needing to
+be done.  It didn't work out that way, however, and just ended up
+complexifying and buggifying all the rest of the code.)
+
+
+File: internals.info,  Node: Extent Ordering,  Next: Format of the Extent Info,  Prev: Introduction to Extents,  Up: Extents
+
+Extent Ordering
+===============
+
+   Extents are compared using memory indices.  There are two orderings
+for extents and both orders are kept current at all times.  The normal
+or "display" order is as follows:
+
+     Extent A is ``less than'' extent B,
+     that is, earlier in the display order,
+       if:    A-start < B-start,
+       or if: A-start = B-start, and A-end > B-end
+
+   So if two extents begin at the same position, the larger of them is
+the earlier one in the display order (`EXTENT_LESS' is true).
+
+   For the e-order, the same thing holds:
+
+     Extent A is ``less than'' extent B in e-order,
+     that is, later in the buffer,
+       if:    A-end < B-end,
+       or if: A-end = B-end, and A-start > B-start
+
+   So if two extents end at the same position, the smaller of them is
+the earlier one in the e-order (`EXTENT_E_LESS' is true).
+
+   The display order and the e-order are complementary orders: any
+theorem about the display order also applies to the e-order if you swap
+all occurrences of "display order" and "e-order", "less than" and
+"greater than", and "extent start" and "extent end".
+
+
+File: internals.info,  Node: Format of the Extent Info,  Next: Zero-Length Extents,  Prev: Extent Ordering,  Up: Extents
+
+Format of the Extent Info
+=========================
+
+   An extent-info structure consists of a list of the buffer or string's
+extents and a "stack of extents" that lists all of the extents over a
+particular position.  The stack-of-extents info is used for
+optimization purposes--it basically caches some info that might be
+expensive to compute.  Certain otherwise hard computations are easy
+given the stack of extents over a particular position, and if the stack
+of extents over a nearby position is known (because it was calculated
+at some prior point in time), it's easy to move the stack of extents to
+the proper position.
+
+   Given that the stack of extents is an optimization, and given that
+it requires memory, a string's stack of extents is wiped out each time
+a garbage collection occurs.  Therefore, any time you retrieve the
+stack of extents, it might not be there.  If you need it to be there,
+use the `_force' version.
+
+   Similarly, a string may or may not have an extent_info structure.
+(Generally it won't if there haven't been any extents added to the
+string.) So use the `_force' version if you need the extent_info
+structure to be there.
+
+   A list of extents is maintained as a double gap array: one gap array
+is ordered by start index (the "display order") and the other is
+ordered by end index (the "e-order").  Note that positions in an extent
+list should logically be conceived of as referring _to_ a particular
+extent (as is the norm in programs) rather than sitting between two
+extents.  Note also that callers of these functions should not be aware
+of the fact that the extent list is implemented as an array, except for
+the fact that positions are integers (this should be generalized to
+handle integers and linked list equally well).
+
+
+File: internals.info,  Node: Zero-Length Extents,  Next: Mathematics of Extent Ordering,  Prev: Format of the Extent Info,  Up: Extents
+
+Zero-Length Extents
+===================
+
+   Extents can be zero-length, and will end up that way if their
+endpoints are explicitly set that way or if their detachable property
+is nil and all the text in the extent is deleted. (The exception is
+open-open zero-length extents, which are barred from existing because
+there is no sensible way to define their properties.  Deletion of the
+text in an open-open extent causes it to be converted into a closed-open
+extent.)  Zero-length extents are primarily used to represent
+annotations, and behave as follows:
+
+  1. Insertion at the position of a zero-length extent expands the
+     extent if both endpoints are closed; goes after the extent if it
+     is closed-open; and goes before the extent if it is open-closed.
+
+  2. Deletion of a character on a side of a zero-length extent whose
+     corresponding endpoint is closed causes the extent to be detached
+     if it is detachable; if the extent is not detachable or the
+     corresponding endpoint is open, the extent remains in the buffer,
+     moving as necessary.
+
+   Note that closed-open, non-detachable zero-length extents behave
+exactly like markers and that open-closed, non-detachable zero-length
+extents behave like the "point-type" marker in Mule.
+
+
+File: internals.info,  Node: Mathematics of Extent Ordering,  Next: Extent Fragments,  Prev: Zero-Length Extents,  Up: Extents
+
+Mathematics of Extent Ordering
+==============================
+
+   The extents in a buffer are ordered by "display order" because that
+is that order that the redisplay mechanism needs to process them in.
+The e-order is an auxiliary ordering used to facilitate operations over
+extents.  The operations that can be performed on the ordered list of
+extents in a buffer are
+
+  1. Locate where an extent would go if inserted into the list.
+
+  2. Insert an extent into the list.
+
+  3. Remove an extent from the list.
+
+  4. Map over all the extents that overlap a range.
+
+   (4) requires being able to determine the first and last extents that
+overlap a range.
+
+   NOTE: "overlap" is used as follows:
+
+   * two ranges overlap if they have at least one point in common.
+     Whether the endpoints are open or closed makes a difference here.
+
+   * a point overlaps a range if the point is contained within the
+     range; this is equivalent to treating a point P as the range [P,
+     P].
+
+   * In the case of an _extent_ overlapping a point or range, the extent
+     is normally treated as having closed endpoints.  This applies
+     consistently in the discussion of stacks of extents and such below.
+     Note that this definition of overlap is not necessarily consistent
+     with the extents that `map-extents' maps over, since `map-extents'
+     sometimes pays attention to whether the endpoints of an extents
+     are open or closed.  But for our purposes, it greatly simplifies
+     things to treat all extents as having closed endpoints.
+
+   First, define >, <, <=, etc. as applied to extents to mean
+comparison according to the display order.  Comparison between an
+extent E and an index I means comparison between E and the range [I, I].
+
+   Also define e>, e<, e<=, etc. to mean comparison according to the
+e-order.
+
+   For any range R, define R(0) to be the starting index of the range
+and R(1) to be the ending index of the range.
+
+   For any extent E, define E(next) to be the extent directly following
+E, and E(prev) to be the extent directly preceding E.  Assume E(next)
+and E(prev) can be determined from E in constant time.  (This is
+because we store the extent list as a doubly linked list.)
+
+   Similarly, define E(e-next) and E(e-prev) to be the extents directly
+following and preceding E in the e-order.
+
+   Now:
+
+   Let R be a range.  Let F be the first extent overlapping R.  Let L
+be the last extent overlapping R.
+
+   Theorem 1: R(1) lies between L and L(next), i.e. L <= R(1) < L(next).
+
+   This follows easily from the definition of display order.  The basic
+reason that this theorem applies is that the display order sorts by
+increasing starting index.
+
+   Therefore, we can determine L just by looking at where we would
+insert R(1) into the list, and if we know F and are moving forward over
+extents, we can easily determine when we've hit L by comparing the
+extent we're at to R(1).
+
+     Theorem 2: F(e-prev) e< [1, R(0)] e<= F.
+
+   This is the analog of Theorem 1, and applies because the e-order
+sorts by increasing ending index.
+
+   Therefore, F can be found in the same amount of time as operation
+(1), i.e. the time that it takes to locate where an extent would go if
+inserted into the e-order list.
+
+   If the lists were stored as balanced binary trees, then operation (1)
+would take logarithmic time, which is usually quite fast.  However,
+currently they're stored as simple doubly-linked lists, and instead we
+do some caching to try to speed things up.
+
+   Define a "stack of extents" (or "SOE") as the set of extents
+(ordered in the display order) that overlap an index I, together with
+the SOE's "previous" extent, which is an extent that precedes I in the
+e-order. (Hopefully there will not be very many extents between I and
+the previous extent.)
+
+   Now:
+
+   Let I be an index, let S be the stack of extents on I, let F be the
+first extent in S, and let P be S's previous extent.
+
+   Theorem 3: The first extent in S is the first extent that overlaps
+any range [I, J].
+
+   Proof: Any extent that overlaps [I, J] but does not include I must
+have a start index > I, and thus be greater than any extent in S.
+
+   Therefore, finding the first extent that overlaps a range R is the
+same as finding the first extent that overlaps R(0).
+
+   Theorem 4: Let I2 be an index such that I2 > I, and let F2 be the
+first extent that overlaps I2.  Then, either F2 is in S or F2 is
+greater than any extent in S.
+
+   Proof: If F2 does not include I then its start index is greater than
+I and thus it is greater than any extent in S, including F.  Otherwise,
+F2 includes I and thus is in S, and thus F2 >= F.
+
+
+File: internals.info,  Node: Extent Fragments,  Prev: Mathematics of Extent Ordering,  Up: Extents
+
+Extent Fragments
+================
+
+   Imagine that the buffer is divided up into contiguous,
+non-overlapping "runs" of text such that no extent starts or ends
+within a run (extents that abut the run don't count).
+
+   An extent fragment is a structure that holds data about the run that
+contains a particular buffer position (if the buffer position is at the
+junction of two runs, the run after the position is used)--the
+beginning and end of the run, a list of all of the extents in that run,
+the "merged face" that results from merging all of the faces
+corresponding to those extents, the begin and end glyphs at the
+beginning of the run, etc.  This is the information that redisplay needs
+in order to display this run.
+
+   Extent fragments have to be very quick to update to a new buffer
+position when moving linearly through the buffer.  They rely on the
+stack-of-extents code, which does the heavy-duty algorithmic work of
+determining which extents overly a particular position.
+
+
+File: internals.info,  Node: Faces,  Next: Glyphs,  Prev: Extents,  Up: Top
+
+Faces
+*****
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Glyphs,  Next: Specifiers,  Prev: Faces,  Up: Top
+
+Glyphs
+******
+
+   Glyphs are graphical elements that can be displayed in XEmacs
+buffers or gutters. We use the term graphical element here in the
+broadest possible sense since glyphs can be as mundane as text to as
+arcane as a native tab widget.
+
+   In XEmacs, glyphs represent the uninstantiated state of graphical
+elements, i.e. they hold all the information necessary to produce an
+image on-screen but the image does not exist at this stage.
+
+   Glyphs are lazily instantiated by calling one of the glyph
+functions. This usually occurs within redisplay when `Fglyph_height' is
+called. Instantiation causes an image-instance to be created and
+cached. This cache is on a device basis for all glyphs except
+glyph-widgets, and on a window basis for glyph widgets.  The caching is
+done by `image_instantiate' and is necessary because it is generally
+possible to display an image-instance in multiple domains. For instance
+if we create a Pixmap, we can actually display this on multiple windows
+- even though we only need a single Pixmap instance to do this. If
+caching wasn't done then it would be necessary to create
+image-instances for every displayable occurrence of a glyph - and every
+usage - and this would be extremely memory and cpu intensive.
+
+   Widget-glyphs (a.k.a native widgets) are not cached in this way.
+This is because widget-glyph image-instances on screen are toolkit
+windows, and thus cannot be reused in multiple XEmacs domains. Thus
+widget-glyphs are cached on a window basis.
+
+   Any action on a glyph first consults the cache before actually
+instantiating a widget.
+
+Widget-Glyphs in the MS-Windows Environment
+===========================================
+
+   To Do
+
+Widget-Glyphs in the X Environment
+==================================
+
+   Widget-glyphs under X make heavy use of lwlib for manipulating the
+native toolkit objects. This is primarily so that different toolkits can
+be supported for widget-glyphs, just as they are supported for features
+such as menubars etc.
+
+   Lwlib is extremely poorly documented and quite hairy so here is my
+understanding of what goes on.
+
+   Lwlib maintains a set of widget_instances which mirror the
+hierarchical state of Xt widgets. I think this is so that widgets can
+be updated and manipulated generically by the lwlib library. For
+instance update_one_widget_instance can cope with multiple types of
+widget and multiple types of toolkit. Each element in the widget
+hierarchy is updated from its corresponding widget_instance by walking
+the widget_instance tree recursively.
+
+   This has desirable properties such as lw_modify_all_widgets which is
+called from glyphs-x.c and updates all the properties of a widget
+without having to know what the widget is or what toolkit it is from.
+Unfortunately this also has hairy properties such as making the lwlib
+code quite complex. And of course lwlib has to know at some level what
+the widget is and how to set its properties.
+
+
+File: internals.info,  Node: Specifiers,  Next: Menus,  Prev: Glyphs,  Up: Top
+
+Specifiers
+**********
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Menus,  Next: Subprocesses,  Prev: Specifiers,  Up: Top
+
+Menus
+*****
+
+   A menu is set by setting the value of the variable `current-menubar'
+(which may be buffer-local) and then calling `set-menubar-dirty-flag'
+to signal a change.  This will cause the menu to be redrawn at the next
+redisplay.  The format of the data in `current-menubar' is described in
+`menubar.c'.
+
+   Internally the data in current-menubar is parsed into a tree of
+`widget_value's' (defined in `lwlib.h'); this is accomplished by the
+recursive function `menu_item_descriptor_to_widget_value()', called by
+`compute_menubar_data()'.  Such a tree is deallocated using
+`free_widget_value()'.
+
+   `update_screen_menubars()' is one of the external entry points.
+This checks to see, for each screen, if that screen's menubar needs to
+be updated.  This is the case if
+
+  1. `set-menubar-dirty-flag' was called since the last redisplay.
+     (This function sets the C variable menubar_has_changed.)
+
+  2. The buffer displayed in the screen has changed.
+
+  3. The screen has no menubar currently displayed.
+
+   `set_screen_menubar()' is called for each such screen.  This
+function calls `compute_menubar_data()' to create the tree of
+widget_value's, then calls `lw_create_widget()',
+`lw_modify_all_widgets()', and/or `lw_destroy_all_widgets()' to create
+the X-Toolkit widget associated with the menu.
+
+   `update_psheets()', the other external entry point, actually changes
+the menus being displayed.  It uses the widgets fixed by
+`update_screen_menubars()' and calls various X functions to ensure that
+the menus are displayed properly.
+
+   The menubar widget is set up so that `pre_activate_callback()' is
+called when the menu is first selected (i.e. mouse button goes down),
+and `menubar_selection_callback()' is called when an item is selected.
+`pre_activate_callback()' calls the function in activate-menubar-hook,
+which can change the menubar (this is described in `menubar.c').  If
+the menubar is changed, `set_screen_menubars()' is called.
+`menubar_selection_callback()' enqueues a menu event, putting in it a
+function to call (either `eval' or `call-interactively') and its
+argument, which is the callback function or form given in the menu's
+description.
+
+
+File: internals.info,  Node: Subprocesses,  Next: Interface to X Windows,  Prev: Menus,  Up: Top
+
+Subprocesses
+************
+
+   The fields of a process are:
+
+`name'
+     A string, the name of the process.
+
+`command'
+     A list containing the command arguments that were used to start
+     this process.
+
+`filter'
+     A function used to accept output from the process instead of a
+     buffer, or `nil'.
+
+`sentinel'
+     A function called whenever the process receives a signal, or `nil'.
+
+`buffer'
+     The associated buffer of the process.
+
+`pid'
+     An integer, the Unix process ID.
+
+`childp'
+     A flag, non-`nil' if this is really a child process.  It is `nil'
+     for a network connection.
+
+`mark'
+     A marker indicating the position of the end of the last output
+     from this process inserted into the buffer.  This is often but not
+     always the end of the buffer.
+
+`kill_without_query'
+     If this is non-`nil', killing XEmacs while this process is still
+     running does not ask for confirmation about killing the process.
+
+`raw_status_low'
+`raw_status_high'
+     These two fields record 16 bits each of the process status
+     returned by the `wait' system call.
+
+`status'
+     The process status, as `process-status' should return it.
+
+`tick'
+`update_tick'
+     If these two fields are not equal, a change in the status of the
+     process needs to be reported, either by running the sentinel or by
+     inserting a message in the process buffer.
+
+`pty_flag'
+     Non-`nil' if communication with the subprocess uses a PTY; `nil'
+     if it uses a pipe.
+
+`infd'
+     The file descriptor for input from the process.
+
+`outfd'
+     The file descriptor for output to the process.
+
+`subtty'
+     The file descriptor for the terminal that the subprocess is using.
+     (On some systems, there is no need to record this, so the value is
+     `-1'.)
+
+`tty_name'
+     The name of the terminal that the subprocess is using, or `nil' if
+     it is using pipes.
+
+
+File: internals.info,  Node: Interface to X Windows,  Next: Index,  Prev: Subprocesses,  Up: Top
+
+Interface to X Windows
+**********************
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Index,  Prev: Interface to X Windows,  Up: Top
+
+Index
+*****
+
+* Menu:
+
+* Amdahl Corporation:                    XEmacs.
+* Andreessen, Marc:                      XEmacs.
+* asynchronous subprocesses:             Modules for Interfacing with the Operating System.
+* Baur, Steve:                           XEmacs.
+* Benson, Eric:                          Lucid Emacs.
+* bridge, playing:                       XEmacs From the Outside.
+* Buchholz, Martin:                      XEmacs.
+* Bufbyte:                               Character-Related Data Types.
+* Bufpos:                                Character-Related Data Types.
+* Bytecount:                             Character-Related Data Types.
+* bytecount_to_charcount:                Working With Character and Byte Positions.
+* Bytind:                                Character-Related Data Types.
+* C vs. Lisp:                            The Lisp Language.
+* caller-protects (GCPRO rule):          Writing Lisp Primitives.
+* case table:                            Modules for Other Aspects of the Lisp Interpreter and Object System.
+* Charcount:                             Character-Related Data Types.
+* charcount_to_bytecount:                Working With Character and Byte Positions.
+* charptr_emchar:                        Working With Character and Byte Positions.
+* charptr_n_addr:                        Working With Character and Byte Positions.
+* closer:                                Lstream Methods.
+* closure:                               The XEmacs Object System (Abstractly Speaking).
+* Coding for Mule:                       Coding for Mule.
+* Common Lisp:                           The Lisp Language.
+* compact_string_chars:                  compact_string_chars.
+* conservative garbage collection:       GCPROing.
+* copy-on-write:                         General Coding Rules.
+* critical redisplay sections:           Critical Redisplay Sections.
+* DEC_CHARPTR:                           Working With Character and Byte Positions.
+* Devin, Matthieu:                       Lucid Emacs.
+* display order of extents:              Mathematics of Extent Ordering.
+* dynamic array:                         Low-Level Modules.
+* dynamic scoping:                       The Lisp Language.
+* dynamic types:                         The Lisp Language.
+* Emchar:                                Character-Related Data Types.
+* Energize:                              Lucid Emacs.
+* Epoch <1>:                             XEmacs.
+* Epoch:                                 Lucid Emacs.
+* Extbyte:                               Character-Related Data Types.
+* Extcount:                              Character-Related Data Types.
+* extent fragment:                       Extent Fragments.
+* extent mathematics:                    Mathematics of Extent Ordering.
+* extent ordering:                       Mathematics of Extent Ordering.
+* extents, display order:                Mathematics of Extent Ordering.
+* external widget:                       Modules for Interfacing with X Windows.
+* flusher:                               Lstream Methods.
+* Free Software Foundation:              A History of Emacs.
+* FSF:                                   A History of Emacs.
+* FSF Emacs <1>:                         GNU Emacs 20.
+* FSF Emacs:                             GNU Emacs 19.
+* garbage collection:                    Garbage Collection.
+* garbage collection protection:         Writing Lisp Primitives.
+* garbage collection step by step:       Garbage Collection - Step by Step.
+* garbage collection, conservative:      GCPROing.
+* garbage collection, invocation:        Invocation.
+* garbage_collect_1:                     garbage_collect_1.
+* gc_sweep:                              gc_sweep.
+* GNU Emacs 19:                          GNU Emacs 19.
+* GNU Emacs 20:                          GNU Emacs 20.
+* Gosling, James <1>:                    The Lisp Language.
+* Gosling, James:                        Through Version 18.
+* Great Usenet Renaming:                 Through Version 18.
+* Hackers (Steven Levy):                 A History of Emacs.
+* hierarchy of windows:                  Window Hierarchy.
+* history of Emacs:                      A History of Emacs.
+* Illinois, University of:               XEmacs.
+* INC_CHARPTR:                           Working With Character and Byte Positions.
+* interactive:                           Modules for Standard Editing Operations.
+* interning:                             The XEmacs Object System (Abstractly Speaking).
+* ITS (Incompatible Timesharing System): A History of Emacs.
+* Java:                                  The Lisp Language.
+* Java vs. Lisp:                         The Lisp Language.
+* Jones, Kyle:                           XEmacs.
+* Kaplan, Simon:                         XEmacs.
+* Levy, Steven:                          A History of Emacs.
+* line start cache:                      Line Start Cache.
+* Lisp vs. C:                            The Lisp Language.
+* Lisp vs. Java:                         The Lisp Language.
+* lstream:                               Modules for Interfacing with the File System.
+* Lstream_close:                         Lstream Functions.
+* Lstream_fgetc:                         Lstream Functions.
+* Lstream_flush:                         Lstream Functions.
+* Lstream_fputc:                         Lstream Functions.
+* Lstream_fungetc:                       Lstream Functions.
+* Lstream_getc:                          Lstream Functions.
+* Lstream_new:                           Lstream Functions.
+* Lstream_putc:                          Lstream Functions.
+* Lstream_read:                          Lstream Functions.
+* Lstream_reopen:                        Lstream Functions.
+* Lstream_rewind:                        Lstream Functions.
+* Lstream_set_buffering:                 Lstream Functions.
+* Lstream_ungetc:                        Lstream Functions.
+* Lstream_unread:                        Lstream Functions.
+* Lstream_write:                         Lstream Functions.
+* Lucid Emacs:                           Lucid Emacs.
+* Lucid Inc.:                            Lucid Emacs.
+* mark and sweep:                        Garbage Collection.
+* mark method <1>:                       lrecords.
+* mark method:                           Modules for Other Aspects of the Lisp Interpreter and Object System.
+* mark_object:                           mark_object.
+* marker:                                Lstream Methods.
+* mathematics of extents:                Mathematics of Extent Ordering.
+* MAX_EMCHAR_LEN:                        Working With Character and Byte Positions.
+* merging attempts:                      XEmacs.
+* MIT:                                   A History of Emacs.
+* Mlynarik, Richard:                     GNU Emacs 19.
+* MULE merged XEmacs appears:            XEmacs.
+* NAS:                                   Modules for Interfacing with the Operating System.
+* native sound:                          Modules for Interfacing with the Operating System.
+* network connections:                   Modules for Interfacing with the Operating System.
+* network sound:                         Modules for Interfacing with the Operating System.
+* Niksic, Hrvoje:                        XEmacs.
+* pane:                                  Modules for the Basic Displayable Lisp Objects.
+* permanent objects:                     The XEmacs Object System (Abstractly Speaking).
+* pi, calculating:                       XEmacs From the Outside.
+* pseudo_closer:                         Lstream Methods.
+* read syntax:                           The XEmacs Object System (Abstractly Speaking).
+* read-eval-print:                       XEmacs From the Outside.
+* reader:                                Lstream Methods.
+* Redisplay Piece by Piece:              Redisplay Piece by Piece.
+* relocating allocator:                  Low-Level Modules.
+* rename to XEmacs:                      XEmacs.
+* rewinder:                              Lstream Methods.
+* RMS:                                   A History of Emacs.
+* scanner:                               Modules for Other Aspects of the Lisp Interpreter and Object System.
+* scoping, dynamic:                      The Lisp Language.
+* seekable_p:                            Lstream Methods.
+* selections:                            Modules for Interfacing with X Windows.
+* set_charptr_emchar:                    Working With Character and Byte Positions.
+* Sexton, Harlan:                        Lucid Emacs.
+* sound, native:                         Modules for Interfacing with the Operating System.
+* sound, network:                        Modules for Interfacing with the Operating System.
+* SPARCWorks:                            XEmacs.
+* Stallman, Richard:                     A History of Emacs.
+* subprocesses, asynchronous:            Modules for Interfacing with the Operating System.
+* subprocesses, synchronous:             Modules for Interfacing with the Operating System.
+* Sun Microsystems:                      XEmacs.
+* sweep_bit_vectors_1:                   sweep_bit_vectors_1.
+* sweep_lcrecords_1:                     sweep_lcrecords_1.
+* sweep_strings:                         sweep_strings.
+* synchronous subprocesses:              Modules for Interfacing with the Operating System.
+* taxes, doing:                          XEmacs From the Outside.
+* TECO:                                  A History of Emacs.
+* temporary objects:                     The XEmacs Object System (Abstractly Speaking).
+* Thompson, Chuck:                       XEmacs.
+* types, dynamic:                        The Lisp Language.
+* University of Illinois:                XEmacs.
+* Win-Emacs:                             XEmacs.
+* window (in Emacs):                     Modules for the Basic Displayable Lisp Objects.
+* window hierarchy:                      Window Hierarchy.
+* window point internals:                The Window Object.
+* Wing, Ben:                             XEmacs.
+* writer:                                Lstream Methods.
+* XEmacs:                                XEmacs.
+* XEmacs goes it alone:                  XEmacs.
+* Zawinski, Jamie:                       Lucid Emacs.
+
+

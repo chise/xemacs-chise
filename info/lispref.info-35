@@ -1,0 +1,1135 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Retrieving Specifications,  Next: Specifier Tag Functions,  Prev: Adding Specifications,  Up: Specifiers
+
+Retrieving the Specifications from a Specifier
+==============================================
+
+ - Function: specifier-spec-list specifier &optional locale tag-set
+          exact-p
+     This function returns the spec-list of specifications for
+     SPECIFIER in LOCALE.
+
+     If LOCALE is a particular locale (a window, buffer, frame, device,
+     or the symbol `global'), a spec-list consisting of the
+     specification for that locale will be returned.
+
+     If LOCALE is a locale type (i.e. a symbol `window', `buffer',
+     `frame', or `device'), a spec-list of the specifications for all
+     locales of that type will be returned.
+
+     If LOCALE is `nil' or the symbol `all', a spec-list of all
+     specifications in SPECIFIER will be returned.
+
+     LOCALE can also be a list of locales, locale types, and/or `all';
+     the result is as if `specifier-spec-list' were called on each
+     element of the list and the results concatenated together.
+
+     Only instantiators where TAG-SET (a list of zero or more tags) is
+     a subset of (or possibly equal to) the instantiator's tag set are
+     returned.  (The default value of` nil' is a subset of all tag sets,
+     so in this case no instantiators will be screened out.) If EXACT-P
+     is non-`nil', however, TAG-SET must be equal to an instantiator's
+     tag set for the instantiator to be returned.
+
+ - Function: specifier-specs specifier &optional locale tag-set exact-p
+     This function returns the specification(s) for SPECIFIER in LOCALE.
+
+     If LOCALE is a single locale or is a list of one element
+     containing a single locale, then a "short form" of the
+     instantiators for that locale will be returned.  Otherwise, this
+     function is identical to `specifier-spec-list'.
+
+     The "short form" is designed for readability and not for ease of
+     use in Lisp programs, and is as follows:
+
+       1. If there is only one instantiator, then an inst-pair (i.e.
+          cons of tag and instantiator) will be returned; otherwise a
+          list of inst-pairs will be returned.
+
+       2. For each inst-pair returned, if the instantiator's tag is
+          `any', the tag will be removed and the instantiator itself
+          will be returned instead of the inst-pair.
+
+       3. If there is only one instantiator, its value is `nil', and
+          its tag is `any', a one-element list containing `nil' will be
+          returned rather than just `nil', to distinguish this case
+          from there being no instantiators at all.
+
+
+ - Function: specifier-fallback specifier
+     This function returns the fallback value for SPECIFIER.  Fallback
+     values are provided by the C code for certain built-in specifiers
+     to make sure that instancing won't fail even if all specs are
+     removed from the specifier, or to implement simple inheritance
+     behavior (e.g. this method is used to ensure that faces other than
+     `default' inherit their attributes from `default').  By design,
+     you cannot change the fallback value, and specifiers created with
+     `make-specifier' will never have a fallback (although a similar,
+     Lisp-accessible capability may be provided in the future to allow
+     for inheritance).
+
+     The fallback value will be an inst-list that is instanced like any
+     other inst-list, a specifier of the same type as SPECIFIER
+     (results in inheritance), or `nil' for no fallback.
+
+     When you instance a specifier, you can explicitly request that the
+     fallback not be consulted. (The C code does this, for example, when
+     merging faces.) See `specifier-instance'.
+
+
+File: lispref.info,  Node: Specifier Tag Functions,  Next: Specifier Instancing Functions,  Prev: Retrieving Specifications,  Up: Specifiers
+
+Working With Specifier Tags
+===========================
+
+   A specifier tag set is an entity that is attached to an instantiator
+and can be used to restrict the scope of that instantiator to a
+particular device class or device type and/or to mark instantiators
+added by a particular package so that they can be later removed.
+
+   A specifier tag set consists of a list of zero of more specifier
+tags, each of which is a symbol that is recognized by XEmacs as a tag.
+(The valid device types and device classes are always tags, as are any
+tags defined by `define-specifier-tag'.) It is called a "tag set" (as
+opposed to a list) because the order of the tags or the number of times
+a particular tag occurs does not matter.
+
+   Each tag has a predicate associated with it, which specifies whether
+that tag applies to a particular device.  The tags which are device
+types and classes match devices of that type or class.  User-defined
+tags can have any predicate, or none (meaning that all devices match).
+When attempting to instance a specifier, a particular instantiator is
+only considered if the device of the domain being instanced over matches
+all tags in the tag set attached to that instantiator.
+
+   Most of the time, a tag set is not specified, and the instantiator
+gets a null tag set, which matches all devices.
+
+ - Function: valid-specifier-tag-p tag
+     This function returns non-`nil' if TAG is a valid specifier tag.
+
+ - Function: valid-specifier-tag-set-p tag-set
+     This function returns non-`nil' if TAG-SET is a valid specifier
+     tag set.
+
+ - Function: canonicalize-tag-set tag-set
+     This function canonicalizes the given tag set.  Two canonicalized
+     tag sets can be compared with `equal' to see if they represent the
+     same tag set. (Specifically, canonicalizing involves sorting by
+     symbol name and removing duplicates.)
+
+ - Function: device-matches-specifier-tag-set-p device tag-set
+     This function returns non-`nil' if DEVICE matches specifier tag
+     set TAG-SET.  This means that DEVICE matches each tag in the tag
+     set.
+
+ - Function: define-specifier-tag tag &optional predicate
+     This function defines a new specifier tag.  If PREDICATE is
+     specified, it should be a function of one argument (a device) that
+     specifies whether the tag matches that particular device.  If
+     PREDICATE is omitted, the tag matches all devices.
+
+     You can redefine an existing user-defined specifier tag.  However,
+     you cannot redefine the built-in specifier tags (the device types
+     and classes) or the symbols `nil', `t', `all', or `global'.
+
+ - Function: device-matching-specifier-tag-list &optional device
+     This function returns a list of all specifier tags matching
+     DEVICE.  DEVICE defaults to the selected device if omitted.
+
+ - Function: specifier-tag-list
+     This function returns a list of all currently-defined specifier
+     tags.  This includes the built-in ones (the device types and
+     classes).
+
+ - Function: specifier-tag-predicate tag
+     This function returns the predicate for the given specifier tag.
+
+
+File: lispref.info,  Node: Specifier Instancing Functions,  Next: Specifier Example,  Prev: Specifier Tag Functions,  Up: Specifiers
+
+Functions for Instancing a Specifier
+====================================
+
+ - Function: specifier-instance specifier &optional domain default
+          no-fallback
+     This function instantiates SPECIFIER (return its value) in DOMAIN.
+     If no instance can be generated for this domain, return DEFAULT.
+
+     DOMAIN should be a window, frame, or device.  Other values that
+     are legal as a locale (e.g. a buffer) are not valid as a domain
+     because they do not provide enough information to identify a
+     particular device (see `valid-specifier-domain-p').  DOMAIN
+     defaults to the selected window if omitted.
+
+     "Instantiating" a specifier in a particular domain means
+     determining the specifier's "value" in that domain.  This is
+     accomplished by searching through the specifications in the
+     specifier that correspond to all locales that can be derived from
+     the given domain, from specific to general.  In most cases, the
+     domain is an Emacs window.  In that case specifications are
+     searched for as follows:
+
+       1. A specification whose locale is the window itself;
+
+       2. A specification whose locale is the window's buffer;
+
+       3. A specification whose locale is the window's frame;
+
+       4. A specification whose locale is the window's frame's device;
+
+       5. A specification whose locale is the symbol `global'.
+
+     If all of those fail, then the C-code-provided fallback value for
+     this specifier is consulted (see `specifier-fallback').  If it is
+     an inst-list, then this function attempts to instantiate that list
+     just as when a specification is located in the first five steps
+     above.  If the fallback is a specifier, `specifier-instance' is
+     called recursively on this specifier and the return value used.
+     Note, however, that if the optional argument NO-FALLBACK is
+     non-`nil', the fallback value will not be consulted.
+
+     Note that there may be more than one specification matching a
+     particular locale; all such specifications are considered before
+     looking for any specifications for more general locales.  Any
+     particular specification that is found may be rejected because it
+     is tagged to a particular device class (e.g. `color') or device
+     type (e.g. `x') or both and the device for the given domain does
+     not match this, or because the specification is not valid for the
+     device of the given domain (e.g.  the font or color name does not
+     exist for this particular X server).
+
+     The returned value is dependent on the type of specifier.  For
+     example, for a font specifier (as returned by the `face-font'
+     function), the returned value will be a font-instance object.  For
+     images, the returned value will be a string, pixmap, or subwindow.
+
+ - Function: specifier-instance-from-inst-list specifier domain
+          inst-list &optional default
+     This function attempts to convert a particular inst-list into an
+     instance.  This attempts to instantiate INST-LIST in the given
+     DOMAIN, as if INST-LIST existed in a specification in SPECIFIER.
+     If the instantiation fails, DEFAULT is returned.  In most
+     circumstances, you should not use this function; use
+     `specifier-instance' instead.
+
+
+File: lispref.info,  Node: Specifier Example,  Next: Creating Specifiers,  Prev: Specifier Instancing Functions,  Up: Specifiers
+
+Example of Specifier Usage
+==========================
+
+   Now let us present an example to clarify the theoretical discussions
+we have been through.  In this example, we will use the general
+specifier functions for clarity.  Keep in mind that many types of
+specifiers, and some other types of objects that are associated with
+specifiers (e.g. faces), provide convenience functions making it easier
+to work with objects of that type.
+
+   Let us consider the background color of the default face.  A
+specifier is used to specify how that color will appear in different
+domains.  First, let's retrieve the specifier:
+
+     (setq sp (face-property 'default 'background))
+         =>   #<color-specifier 0x3da>
+
+     (specifier-specs sp)
+         =>   ((#<buffer "device.c"> (nil . "forest green"))
+                      (#<window on "Makefile" 0x8a2b> (nil . "hot pink"))
+                      (#<x-frame "emacs" 0x4ac> (nil . "puke orange")
+                                                (nil . "moccasin"))
+                      (#<x-frame "VM" 0x4ac> (nil . "magenta"))
+                      (global ((tty) . "cyan") (nil . "white"))
+                     )
+
+   Then, say we want to determine what the background color of the
+default face is for the window currently displaying the buffer
+`*scratch*'.  We call
+
+     (get-buffer-window "*scratch*")
+         => #<window on "*scratch*" 0x4ad>
+     (window-frame (get-buffer-window "*scratch*"))
+         => #<x-frame "emacs" 0x4ac>
+     (specifier-instance sp (get-buffer-window "*scratch*"))
+         => #<color-instance moccasin 47=(FFFF,E4E4,B5B5) 0x6309>
+
+   Note that we passed a window to `specifier-instance', not a buffer.
+We cannot pass a buffer because a buffer by itself does not provide
+enough information.  The buffer might not be displayed anywhere at all,
+or could be displayed in many different frames on different devices.
+
+   The result is arrived at like this:
+
+  1. First, we look for a specification matching the buffer displayed
+     in the window, i.e. `*scratch*'.  There are none, so we proceed.
+
+  2. Then, we look for a specification matching the window itself.
+     Again, there are none.
+
+  3. Then, we look for a specification matching the window's frame.  The
+     specification `(#<x-frame "emacs" 0x4ac> . "puke orange")' is
+     found.  We call the instantiation method for colors, passing it the
+     locale we were searching over (i.e. the window, in this case) and
+     the instantiator (`"puke orange"').  However, the particular device
+     which this window is on (let's say it's an X connection) doesn't
+     recognize the color `"puke orange"', so the specification is
+     rejected.
+
+  4. So we continue looking for a specification matching the window's
+     frame.  We find `(#<x-frame "emacs" 0x4ac> . "moccasin")'.  Again,
+     we call the instantiation method for colors.  This time, the X
+     server our window is on recognizes the color `moccasin', and so the
+     instantiation method succeeds and returns a color instance.
+
+
+File: lispref.info,  Node: Creating Specifiers,  Next: Specifier Validation Functions,  Prev: Specifier Example,  Up: Specifiers
+
+Creating New Specifier Objects
+==============================
+
+ - Function: make-specifier type
+     This function creates a new specifier.
+
+     A specifier is an object that can be used to keep track of a
+     property whose value can be per-buffer, per-window, per-frame, or
+     per-device, and can further be restricted to a particular
+     device-type or device-class.  Specifiers are used, for example,
+     for the various built-in properties of a face; this allows a face
+     to have different values in different frames, buffers, etc.  For
+     more information, see `specifier-instance', `specifier-specs', and
+     `add-spec-to-specifier'; or, for a detailed description of
+     specifiers, including how they are instantiated over a particular
+     domain (i.e. how their value in that domain is determined), see
+     the chapter on specifiers in the XEmacs Lisp Reference Manual.
+
+     TYPE specifies the particular type of specifier, and should be one
+     of the symbols `generic', `integer', `natnum', `boolean', `color',
+     `font', `image', `face-boolean', or `toolbar'.
+
+     For more information on particular types of specifiers, see the
+     functions `generic-specifier-p', `integer-specifier-p',
+     `natnum-specifier-p', `boolean-specifier-p', `color-specifier-p',
+     `font-specifier-p', `image-specifier-p',
+     `face-boolean-specifier-p', and `toolbar-specifier-p'.
+
+ - Function: make-specifier-and-init type spec-list &optional
+          dont-canonicalize
+     This function creates and initialize a new specifier.
+
+     This is a front-end onto `make-specifier' that allows you to create
+     a specifier and add specs to it at the same time.  TYPE specifies
+     the specifier type.  SPEC-LIST supplies the specification(s) to be
+     added to the specifier. Normally, almost any reasonable
+     abbreviation of the full spec-list form is accepted, and is
+     converted to the full form; however, if optional argument
+     DONT-CANONICALIZE is non-`nil', this conversion is not performed,
+     and the SPEC-LIST must already be in full form.  See
+     `canonicalize-spec-list'.
+
+
+File: lispref.info,  Node: Specifier Validation Functions,  Next: Other Specification Functions,  Prev: Creating Specifiers,  Up: Specifiers
+
+Functions for Checking the Validity of Specifier Components
+===========================================================
+
+ - Function: valid-specifier-domain-p domain
+     This function returns non-`nil' if DOMAIN is a valid specifier
+     domain.  A domain is used to instance a specifier (i.e. determine
+     the specifier's value in that domain).  Valid domains are a
+     window, frame, or device.  (`nil' is not valid.)
+
+ - Function: valid-specifier-locale-p locale
+     This function returns non-`nil' if LOCALE is a valid specifier
+     locale.  Valid locales are a device, a frame, a window, a buffer,
+     and `global'.  (`nil' is not valid.)
+
+ - Function: valid-specifier-locale-type-p locale-type
+     Given a specifier LOCALE-TYPE, this function returns non-nil if it
+     is valid.  Valid locale types are the symbols `global', `device',
+     `frame', `window', and `buffer'. (Note, however, that in functions
+     that accept either a locale or a locale type, `global' is
+     considered an individual locale.)
+
+ - Function: valid-specifier-type-p specifier-type
+     Given a SPECIFIER-TYPE, this function returns non-`nil' if it is
+     valid.  Valid types are `generic', `integer', `boolean', `color',
+     `font', `image', `face-boolean', and `toolbar'.
+
+ - Function: valid-specifier-tag-p tag
+     This function returns non-`nil' if TAG is a valid specifier tag.
+
+ - Function: valid-instantiator-p instantiator specifier-type
+     This function returns non-`nil' if INSTANTIATOR is valid for
+     SPECIFIER-TYPE.
+
+ - Function: valid-inst-list-p inst-list type
+     This function returns non-`nil' if INST-LIST is valid for
+     specifier type TYPE.
+
+ - Function: valid-spec-list-p spec-list type
+     This function returns non-`nil' if SPEC-LIST is valid for
+     specifier type TYPE.
+
+ - Function: check-valid-instantiator instantiator specifier-type
+     This function signals an error if INSTANTIATOR is invalid for
+     SPECIFIER-TYPE.
+
+ - Function: check-valid-inst-list inst-list type
+     This function signals an error if INST-LIST is invalid for
+     specifier type TYPE.
+
+ - Function: check-valid-spec-list spec-list type
+     This function signals an error if SPEC-LIST is invalid for
+     specifier type TYPE.
+
+
+File: lispref.info,  Node: Other Specification Functions,  Prev: Specifier Validation Functions,  Up: Specifiers
+
+Other Functions for Working with Specifications in a Specifier
+==============================================================
+
+ - Function: copy-specifier specifier &optional dest locale tag-set
+          exact-p how-to-add
+     This function copies SPECIFIER to DEST, or creates a new one if
+     DEST is `nil'.
+
+     If DEST is `nil' or omitted, a new specifier will be created and
+     the specifications copied into it.  Otherwise, the specifications
+     will be copied into the existing specifier in DEST.
+
+     If LOCALE is `nil' or the symbol `all', all specifications will be
+     copied.  If LOCALE is a particular locale, the specification for
+     that particular locale will be copied.  If LOCALE is a locale
+     type, the specifications for all locales of that type will be
+     copied.  LOCALE can also be a list of locales, locale types,
+     and/or `all'; this is equivalent to calling `copy-specifier' for
+     each of the elements of the list.  See `specifier-spec-list' for
+     more information about LOCALE.
+
+     Only instantiators where TAG-SET (a list of zero or more tags) is
+     a subset of (or possibly equal to) the instantiator's tag set are
+     copied.  (The default value of `nil' is a subset of all tag sets,
+     so in this case no instantiators will be screened out.) If EXACT-P
+     is non-`nil', however, TAG-SET must be equal to an instantiator's
+     tag set for the instantiator to be copied.
+
+     Optional argument HOW-TO-ADD specifies what to do with existing
+     specifications in DEST.  If nil, then whichever locales or locale
+     types are copied will first be completely erased in DEST.
+     Otherwise, it is the same as in `add-spec-to-specifier'.
+
+ - Function: remove-specifier specifier &optional locale tag-set exact-p
+     This function removes specification(s) for SPECIFIER.
+
+     If LOCALE is a particular locale (a buffer, window, frame, device,
+     or the symbol `global'), the specification for that locale will be
+     removed.
+
+     If instead, LOCALE is a locale type (i.e. a symbol `buffer',
+     `window', `frame', or `device'), the specifications for all
+     locales of that type will be removed.
+
+     If LOCALE is `nil' or the symbol `all', all specifications will be
+     removed.
+
+     LOCALE can also be a list of locales, locale types, and/or `all';
+     this is equivalent to calling `remove-specifier' for each of the
+     elements in the list.
+
+     Only instantiators where TAG-SET (a list of zero or more tags) is
+     a subset of (or possibly equal to) the instantiator's tag set are
+     removed.  (The default value of `nil' is a subset of all tag sets,
+     so in this case no instantiators will be screened out.) If EXACT-P
+     is non-`nil', however, TAG-SET must be equal to an instantiator's
+     tag set for the instantiator to be removed.
+
+ - Function: map-specifier specifier func &optional locale maparg
+     This function applies FUNC to the specification(s) for LOCALE in
+     SPECIFIER.
+
+     If LOCALE is a locale, FUNC will be called for that locale.  If
+     LOCALE is a locale type, FUNC will be mapped over all locales of
+     that type.  If LOCALE is `nil' or the symbol `all', FUNC will be
+     mapped over all locales in SPECIFIER.
+
+     FUNC is called with four arguments: the SPECIFIER, the locale
+     being mapped over, the inst-list for that locale, and the optional
+     MAPARG.  If any invocation of FUNC returns non-`nil', the mapping
+     will stop and the returned value becomes the value returned from
+     `map-specifier'.  Otherwise, `map-specifier' returns `nil'.
+
+ - Function: specifier-locale-type-from-locale locale
+     Given a specifier LOCALE, this function returns its type.
+
+
+File: lispref.info,  Node: Faces and Window-System Objects,  Next: Glyphs,  Prev: Specifiers,  Up: Top
+
+Faces and Window-System Objects
+*******************************
+
+* Menu:
+
+* Faces::		Controlling the way text looks.
+* Fonts::		Controlling the typeface of text.
+* Colors::		Controlling the color of text and pixmaps.
+
+
+File: lispref.info,  Node: Faces,  Next: Fonts,  Up: Faces and Window-System Objects
+
+Faces
+=====
+
+   A "face" is a named collection of graphical properties: font,
+foreground color, background color, background pixmap, optional
+underlining, and (on TTY devices) whether the text is to be highlighted,
+dimmed, blinking, or displayed in reverse video.  Faces control the
+display of text on the screen.  Every face has a name, which is a symbol
+such as `default' or `modeline'.
+
+   Each built-in property of a face is controlled using a specifier,
+which allows it to have separate values in particular buffers, frames,
+windows, and devices and to further vary according to device type (X or
+TTY) and device class (color, mono, or grayscale).  *Note Specifiers::,
+for more information.
+
+   The face named `default' is used for ordinary text.  The face named
+`modeline' is used for displaying the modeline.  The face named
+`highlight' is used for highlighted extents (*note Extents::).  The
+faces named `left-margin' and `right-margin' are used for the left and
+right margin areas, respectively (*note Annotations::).  The face named
+`zmacs-region' is used for the highlighted region between point and
+mark.
+
+* Menu:
+
+* Merging Faces::		How XEmacs decides which face to use
+				  for a character.
+* Basic Face Functions::	How to define and examine faces.
+* Face Properties::		How to access and modify a face's properties.
+* Face Convenience Functions::	Convenience functions for accessing
+				  particular properties of a face.
+* Other Face Display Functions:: Other functions pertaining to how a
+				  a face appears.
+
+
+File: lispref.info,  Node: Merging Faces,  Next: Basic Face Functions,  Up: Faces
+
+Merging Faces for Display
+-------------------------
+
+   Here are all the ways to specify which face to use for display of
+text:
+
+   * With defaults.  Each frame has a "default face", which is used for
+     all text that doesn't somehow specify another face.  The face named
+     `default' applies to the text area, while the faces `left-margin'
+     and `right-margin' apply to the left and right margin areas.
+
+   * With text properties.  A character may have a `face' property; if
+     so, it's displayed with that face. (Text properties are actually
+     implemented in terms of extents.) *Note Text Properties::.
+
+   * With extents.  An extent may have a `face' property, which applies
+     to all the text covered by the extent; in addition, if the
+     `highlight' property is set, the `highlight' property applies when
+     the mouse moves over the extent or if the extent is explicitly
+     highlighted.  *Note Extents::.
+
+   * With annotations.  Annotations that are inserted into a buffer can
+     specify their own face. (Annotations are actually implemented in
+     terms of extents.)  *Note Annotations::.
+
+   If these various sources together specify more than one face for a
+particular character, XEmacs merges the properties of the various faces
+specified.  Extents, text properties, and annotations all use the same
+underlying representation (as extents).  When multiple extents cover one
+character, an extent with higher priority overrides those with lower
+priority.  *Note Extents::.  If no extent covers a particular character,
+the `default' face is used.
+
+   If a background pixmap is specified, it determines what will be
+displayed in the background of text characters.  If the background
+pixmap is actually a pixmap, with its colors specified, those colors are
+used; if it is a bitmap, the face's foreground and background colors are
+used to color it.
+
+
+File: lispref.info,  Node: Basic Face Functions,  Next: Face Properties,  Prev: Merging Faces,  Up: Faces
+
+Basic Functions for Working with Faces
+--------------------------------------
+
+   The properties a face can specify include the font, the foreground
+color, the background color, the background pixmap, the underlining,
+the display table, and (for TTY devices) whether the text is to be
+highlighted, dimmed, blinking, or displayed in reverse video.  The face
+can also leave these unspecified, causing them to assume the value of
+the corresponding property of the `default' face.
+
+   Here are the basic primitives for working with faces.
+
+ - Function: make-face name &optional doc-string temporary
+     This function defines and returns a new face named NAME, initially
+     with all properties unspecified.  It does nothing if there is
+     already a face named NAME.  Optional argument DOC-STRING specifies
+     an explanatory string used for descriptive purposes.  If optional
+     argument TEMPORARY is non-`nil', the face will automatically
+     disappear when there are no more references to it anywhere in text
+     or Lisp code (otherwise, the face will continue to exist
+     indefinitely even if it is not used).
+
+ - Function: face-list &optional temporary
+     This function returns a list of the names of all defined faces.  If
+     TEMPORARY is `nil', only the permanent faces are included.  If it
+     is `t', only the temporary faces are included.  If it is any other
+     non-`nil' value both permanent and temporary are included.
+
+ - Function: facep object
+     This function returns whether the given object is a face.
+
+ - Function: copy-face old-face new-name &optional locale how-to-add
+     This function defines a new face named NEW-NAME which is a copy of
+     the existing face named OLD-FACE.  If there is already a face
+     named NEW-NAME, then it alters the face to have the same
+     properties as OLD-FACE.  LOCALE and HOW-TO-ADD let you copy just
+     parts of the old face rather than the whole face, and are as in
+     `copy-specifier' (*note Specifiers::).
+
+
+File: lispref.info,  Node: Face Properties,  Next: Face Convenience Functions,  Prev: Basic Face Functions,  Up: Faces
+
+Face Properties
+---------------
+
+   You can examine and modify the properties of an existing face with
+the following functions.
+
+   The following symbols have predefined meanings:
+
+`foreground'
+     The foreground color of the face.
+
+`background'
+     The background color of the face.
+
+`font'
+     The font used to display text covered by this face.
+
+`display-table'
+     The display table of the face.
+
+`background-pixmap'
+     The pixmap displayed in the background of the face.  Only used by
+     faces on X devices.
+
+`underline'
+     Underline all text covered by this face.
+
+`highlight'
+     Highlight all text covered by this face.  Only used by faces on TTY
+     devices.
+
+`dim'
+     Dim all text covered by this face.  Only used by faces on TTY
+     devices.
+
+`blinking'
+     Blink all text covered by this face.  Only used by faces on TTY
+     devices.
+
+`reverse'
+     Reverse the foreground and background colors.  Only used by faces
+     on TTY devices.
+
+`doc-string'
+     Description of what the face's normal use is.  NOTE: This is not a
+     specifier, unlike all the other built-in properties, and cannot
+     contain locale-specific values.
+
+ - Function: set-face-property face property value &optional locale tag
+          how-to-add
+     This function changes a property of a FACE.
+
+     For built-in properties, the actual value of the property is a
+     specifier and you cannot change this; but you can change the
+     specifications within the specifier, and that is what this
+     function will do.  For user-defined properties, you can use this
+     function to either change the actual value of the property or, if
+     this value is a specifier, change the specifications within it.
+
+     If PROPERTY is a built-in property, the specifications to be added
+     to this property can be supplied in many different ways:
+
+          If VALUE is a simple instantiator (e.g. a string naming a
+          font or color) or a list of instantiators, then the
+          instantiator(s) will be added as a specification of the
+          property for the given LOCALE (which defaults to `global' if
+          omitted).
+
+          If VALUE is a list of specifications (each of which is a cons
+          of a locale and a list of instantiators), then LOCALE must be
+          `nil' (it does not make sense to explicitly specify a locale
+          in this case), and specifications will be added as given.
+
+          If VALUE is a specifier (as would be returned by
+          `face-property' if no LOCALE argument is given), then some or
+          all of the specifications in the specifier will be added to
+          the property.  In this case, the function is really
+          equivalent to `copy-specifier' and LOCALE has the same
+          semantics (if it is a particular locale, the specification
+          for the locale will be copied; if a locale type,
+          specifications for all locales of that type will be copied;
+          if `nil' or `all', then all specifications will be copied).
+
+     HOW-TO-ADD should be either `nil' or one of the symbols `prepend',
+     `append', `remove-tag-set-prepend', `remove-tag-set-append',
+     `remove-locale', `remove-locale-type', or `remove-all'.  See
+     `copy-specifier' and `add-spec-to-specifier' for a description of
+     what each of these means.  Most of the time, you do not need to
+     worry about this argument; the default behavior usually is fine.
+
+     In general, it is OK to pass an instance object (e.g. as returned
+     by `face-property-instance') as an instantiator in place of an
+     actual instantiator.  In such a case, the instantiator used to
+     create that instance object will be used (for example, if you set
+     a font-instance object as the value of the `font' property, then
+     the font name used to create that object will be used instead).
+     If some cases, however, doing this conversion does not make sense,
+     and this will be noted in the documentation for particular types
+     of instance objects.
+
+     If PROPERTY is not a built-in property, then this function will
+     simply set its value if LOCALE is `nil'.  However, if LOCALE is
+     given, then this function will attempt to add VALUE as the
+     instantiator for the given LOCALE, using `add-spec-to-specifier'.
+     If the value of the property is not a specifier, it will
+     automatically be converted into a `generic' specifier.
+
+ - Function: remove-face-property face property &optional local tag-set
+          exact-p
+     This function removes a property of a FACE.
+
+     For built-in properties, this is analogous to `remove-specifier'.
+     For more information, *Note Other Specification Functions::.
+
+     When PROPERTY is not a built-in property, this function will just
+     remove its value if LOCALE is `nil' or `all'.  However, if LOCALE
+     is other than that, this function will attempt to remove VALUE as
+     the instantiator for the given LOCALE with `remove-specifier'.  If
+     the value of the property is not a specifier, it will be converted
+     into a `generic' specifier automatically.
+
+ - Function: face-property face property &optional locale
+     This function returns FACE's value of the given PROPERTY.
+
+     If LOCALE is omitted, the FACE's actual value for PROPERTY will be
+     returned.  For built-in properties, this will be a specifier
+     object of a type appropriate to the property (e.g. a font or color
+     specifier).  For other properties, this could be anything.
+
+     If LOCALE is supplied, then instead of returning the actual value,
+     the specification(s) for the given locale or locale type will be
+     returned.  This will only work if the actual value of PROPERTY is
+     a specifier (this will always be the case for built-in properties,
+     but not or not may apply to user-defined properties).  If the
+     actual value of PROPERTY is not a specifier, this value will
+     simply be returned regardless of LOCALE.
+
+     The return value will be a list of instantiators (e.g. strings
+     specifying a font or color name), or a list of specifications,
+     each of which is a cons of a locale and a list of instantiators.
+     Specifically, if LOCALE is a particular locale (a buffer, window,
+     frame, device, or `global'), a list of instantiators for that
+     locale will be returned.  Otherwise, if LOCALE is a locale type
+     (one of the symbols `buffer', `window', `frame', or `device'), the
+     specifications for all locales of that type will be returned.
+     Finally, if LOCALE is `all', the specifications for all locales of
+     all types will be returned.
+
+     The specifications in a specifier determine what the value of
+     PROPERTY will be in a particular "domain" or set of circumstances,
+     which is typically a particular Emacs window along with the buffer
+     it contains and the frame and device it lies within.  The value is
+     derived from the instantiator associated with the most specific
+     locale (in the order buffer, window, frame, device, and `global')
+     that matches the domain in question.  In other words, given a
+     domain (i.e. an Emacs window, usually), the specifier for PROPERTY
+     will first be searched for a specification whose locale is the
+     buffer contained within that window; then for a specification
+     whose locale is the window itself; then for a specification whose
+     locale is the frame that the window is contained within; etc.  The
+     first instantiator that is valid for the domain (usually this
+     means that the instantiator is recognized by the device [i.e. the
+     X server or TTY device] that the domain is on).  The function
+     `face-property-instance' actually does all this, and is used to
+     determine how to display the face.
+
+ - Function: face-property-instance face property &optional domain
+          default no-fallback
+     This function returns the instance of FACE's PROPERTY in the
+     specified DOMAIN.
+
+     Under most circumstances, DOMAIN will be a particular window, and
+     the returned instance describes how the specified property
+     actually is displayed for that window and the particular buffer in
+     it.  Note that this may not be the same as how the property
+     appears when the buffer is displayed in a different window or
+     frame, or how the property appears in the same window if you
+     switch to another buffer in that window; and in those cases, the
+     returned instance would be different.
+
+     The returned instance will typically be a color-instance,
+     font-instance, or pixmap-instance object, and you can query it
+     using the appropriate object-specific functions.  For example, you
+     could use `color-instance-rgb-components' to find out the RGB
+     (red, green, and blue) components of how the `background' property
+     of the `highlight' face is displayed in a particular window.  The
+     results might be different from the results you would get for
+     another window (perhaps the user specified a different color for
+     the frame that window is on; or perhaps the same color was
+     specified but the window is on a different X server, and that X
+     server has different RGB values for the color from this one).
+
+     DOMAIN defaults to the selected window if omitted.
+
+     DOMAIN can be a frame or device, instead of a window.  The value
+     returned for a such a domain is used in special circumstances when
+     a more specific domain does not apply; for example, a frame value
+     might be used for coloring a toolbar, which is conceptually
+     attached to a frame rather than a particular window.  The value is
+     also useful in determining what the value would be for a
+     particular window within the frame or device, if it is not
+     overridden by a more specific specification.
+
+     If PROPERTY does not name a built-in property, its value will
+     simply be returned unless it is a specifier object, in which case
+     it will be instanced using `specifier-instance'.
+
+     Optional arguments DEFAULT and NO-FALLBACK are the same as in
+     `specifier-instance'.  *Note Specifiers::.
+
+
+File: lispref.info,  Node: Face Convenience Functions,  Next: Other Face Display Functions,  Prev: Face Properties,  Up: Faces
+
+Face Convenience Functions
+--------------------------
+
+ - Function: set-face-foreground face color &optional locale tag
+          how-to-add
+ - Function: set-face-background face color &optional locale tag
+          how-to-add
+     These functions set the foreground (respectively, background)
+     color of face FACE to COLOR.  The argument COLOR should be a
+     string (the name of a color) or a color object as returned by
+     `make-color' (*note Colors::).
+
+ - Function: set-face-background-pixmap face pixmap &optional locale
+          tag how-to-add
+     This function sets the background pixmap of face FACE to PIXMAP.
+     The argument PIXMAP should be a string (the name of a bitmap or
+     pixmap file; the directories listed in the variable
+     `x-bitmap-file-path' will be searched) or a glyph object as
+     returned by `make-glyph' (*note Glyphs::).  The argument may also
+     be a list of the form `(WIDTH HEIGHT DATA)' where WIDTH and HEIGHT
+     are the size in pixels, and DATA is a string, containing the raw
+     bits of the bitmap.
+
+ - Function: set-face-font face font &optional locale tag how-to-add
+     This function sets the font of face FACE.  The argument FONT
+     should be a string or a font object as returned by `make-font'
+     (*note Fonts::).
+
+ - Function: set-face-underline-p face underline-p &optional locale tag
+          how-to-add
+     This function sets the underline property of face FACE.
+
+ - Function: face-foreground face &optional locale
+ - Function: face-background face &optional locale
+     These functions return the foreground (respectively, background)
+     color specifier of face FACE.  *Note Colors::.
+
+ - Function: face-background-pixmap face &optional locale
+     This function return the background-pixmap glyph object of face
+     FACE.
+
+ - Function: face-font face &optional locale
+     This function returns the font specifier of face FACE.  (Note:
+     This is not the same as the function `face-font' in FSF Emacs.)
+     *Note Fonts::.
+
+ - Function: face-font-name face &optional domain
+     This function returns the name of the font of face FACE, or `nil'
+     if it is unspecified.  This is basically equivalent to `(font-name
+     (face-font FACE) DOMAIN)' except that it does not cause an error
+     if FACE's font is `nil'. (This function is named `face-font' in
+     FSF Emacs.)
+
+ - Function: face-underline-p face &optional locale
+     This function returns the underline property of face FACE.
+
+ - Function: face-foreground-instance face &optional domain
+ - Function: face-background-instance face &optional domain
+     These functions return the foreground (respectively, background)
+     color specifier of face FACE.  *Note Colors::.
+
+ - Function: face-background-pixmap-instance face &optional domain
+     This function return the background-pixmap glyph object of face
+     FACE.
+
+ - Function: face-font-instance face &optional domain
+     This function returns the font specifier of face FACE.  *Note
+     Fonts::.
+
+
+File: lispref.info,  Node: Other Face Display Functions,  Prev: Face Convenience Functions,  Up: Faces
+
+Other Face Display Functions
+----------------------------
+
+ - Function: invert-face face &optional locale
+     Swap the foreground and background colors of face FACE.  If the
+     face doesn't specify both foreground and background, then its
+     foreground and background are set to the default background and
+     foreground.
+
+ - Function: face-equal face1 face2 &optional domain
+     This returns `t' if the faces FACE1 and FACE2 will display in the
+     same way.  DOMAIN is as in `face-property-instance'.
+
+ - Function: face-differs-from-default-p face &optional domain
+     This returns `t' if the face FACE displays differently from the
+     default face.  DOMAIN is as in `face-property-instance'.
+
+
+File: lispref.info,  Node: Fonts,  Next: Colors,  Prev: Faces,  Up: Faces and Window-System Objects
+
+Fonts
+=====
+
+   This section describes how to work with font specifier and font
+instance objects, which encapsulate fonts in the window system.
+
+* Menu:
+
+* Font Specifiers::		Specifying how a font will appear.
+* Font Instances::		What a font specifier gets instanced as.
+* Font Instance Names::		The name of a font instance.
+* Font Instance Size::		The size of a font instance.
+* Font Instance Characteristics:: Display characteristics of font instances.
+* Font Convenience Functions::	Convenience functions that automatically
+				  instance and retrieve the properties
+				  of a font specifier.
+
+
+File: lispref.info,  Node: Font Specifiers,  Next: Font Instances,  Up: Fonts
+
+Font Specifiers
+---------------
+
+ - Function: font-specifier-p object
+     This predicate returns `t' if OBJECT is a font specifier, and
+     `nil' otherwise.
+
+
+File: lispref.info,  Node: Font Instances,  Next: Font Instance Names,  Prev: Font Specifiers,  Up: Fonts
+
+Font Instances
+--------------
+
+ - Function: font-instance-p object
+     This predicate returns `t' if OBJECT is a font instance, and `nil'
+     otherwise.
+
+ - Function: make-font-instance name &optional device noerror
+     This function creates a new font-instance object of the specified
+     name.  DEVICE specifies the device this object applies to and
+     defaults to the selected device.  An error is signalled if the
+     font is unknown or cannot be allocated; however, if NOERROR is
+     non-`nil', `nil' is simply returned in this case.
+
+     The returned object is a normal, first-class lisp object.  The way
+     you "deallocate" the font is the way you deallocate any other lisp
+     object: you drop all pointers to it and allow it to be garbage
+     collected.  When these objects are GCed, the underlying X data is
+     deallocated as well.
+
+
+File: lispref.info,  Node: Font Instance Names,  Next: Font Instance Size,  Prev: Font Instances,  Up: Fonts
+
+Font Instance Names
+-------------------
+
+ - Function: list-fonts pattern &optional device
+     This function returns a list of font names matching the given
+     pattern.  DEVICE specifies which device to search for names, and
+     defaults to the currently selected device.
+
+ - Function: font-instance-name font-instance
+     This function returns the name used to allocate FONT-INSTANCE.
+
+ - Function: font-instance-truename font-instance
+     This function returns the canonical name of the given font
+     instance.  Font names are patterns which may match any number of
+     fonts, of which the first found is used.  This returns an
+     unambiguous name for that font (but not necessarily its only
+     unambiguous name).
+
+
+File: lispref.info,  Node: Font Instance Size,  Next: Font Instance Characteristics,  Prev: Font Instance Names,  Up: Fonts
+
+Font Instance Size
+------------------
+
+ - Function: x-font-size font
+     This function returns the nominal size of the given font.  This is
+     done by parsing its name, so it's likely to lose.  X fonts can be
+     specified (by the user) in either pixels or 10ths of points, and
+     this returns the first one it finds, so you have to decide which
+     units the returned value is measured in yourself ...
+
+ - Function: x-find-larger-font font &optional device
+     This function loads a new, slightly larger version of the given
+     font (or font name).  Returns the font if it succeeds, `nil'
+     otherwise.  If scalable fonts are available, this returns a font
+     which is 1 point larger.  Otherwise, it returns the next larger
+     version of this font that is defined.
+
+ - Function: x-find-smaller-font font &optional device
+     This function loads a new, slightly smaller version of the given
+     font (or font name).  Returns the font if it succeeds, `nil'
+     otherwise.  If scalable fonts are available, this returns a font
+     which is 1 point smaller.  Otherwise, it returns the next smaller
+     version of this font that is defined.
+
+
+File: lispref.info,  Node: Font Instance Characteristics,  Next: Font Convenience Functions,  Prev: Font Instance Size,  Up: Fonts
+
+Font Instance Characteristics
+-----------------------------
+
+ - Function: font-instance-properties font
+     This function returns the properties (an alist or `nil') of
+     FONT-INSTANCE.
+
+ - Function: x-make-font-bold font &optional device
+     Given an X font specification, this attempts to make a "bold" font.
+     If it fails, it returns `nil'.
+
+ - Function: x-make-font-unbold font &optional device
+     Given an X font specification, this attempts to make a non-bold
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-italic font &optional device
+     Given an X font specification, this attempts to make an "italic"
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-unitalic font &optional device
+     Given an X font specification, this attempts to make a non-italic
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-bold-italic font &optional device
+     Given an X font specification, this attempts to make a
+     "bold-italic" font.  If it fails, it returns `nil'.
+
+
+File: lispref.info,  Node: Font Convenience Functions,  Prev: Font Instance Characteristics,  Up: Fonts
+
+Font Convenience Functions
+--------------------------
+
+ - Function: font-name font &optional domain
+     This function returns the name of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-name' to the result.
+
+ - Function: font-truename font &optional domain
+     This function returns the truename of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-truename' to the result.
+
+ - Function: font-properties font &optional domain
+     This function returns the properties of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-properties' to the result.
+
+
+File: lispref.info,  Node: Colors,  Prev: Fonts,  Up: Faces and Window-System Objects
+
+Colors
+======
+
+* Menu:
+
+* Color Specifiers::		Specifying how a color will appear.
+* Color Instances::		What a color specifier gets instanced as.
+* Color Instance Properties::	Properties of color instances.
+* Color Convenience Functions::	Convenience functions that automatically
+				  instance and retrieve the properties
+				  of a color specifier.
+
+
+File: lispref.info,  Node: Color Specifiers,  Next: Color Instances,  Up: Colors
+
+Color Specifiers
+----------------
+
+ - Function: color-specifier-p object
+     This function returns non-`nil' if OBJECT is a color specifier.
+

@@ -1,0 +1,1140 @@
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Mule Intro,  Next: Language Environments,  Prev: Mule,  Up: Mule
+
+Introduction to world scripts
+=============================
+
+   The users of these scripts have established many more-or-less
+standard coding systems for storing files.  XEmacs translates between
+the internal character encoding and various other coding systems when
+reading and writing files, when exchanging data with subprocesses, and
+(in some cases) in the `C-q' command (see below).
+
+   The command `C-h h' (`view-hello-file') displays the file
+`etc/HELLO', which shows how to say "hello" in many languages.  This
+illustrates various scripts.
+
+   Keyboards, even in the countries where these character sets are used,
+generally don't have keys for all the characters in them.  So XEmacs
+supports various "input methods", typically one for each script or
+language, to make it convenient to type them.
+
+   The prefix key `C-x <RET>' is used for commands that pertain to
+world scripts, coding systems, and input methods.
+
+
+File: xemacs.info,  Node: Language Environments,  Next: Input Methods,  Prev: Mule Intro,  Up: Mule
+
+Language Environments
+=====================
+
+   All supported character sets are supported in XEmacs buffers if it is
+compile with mule; there is no need to select a particular language in
+order to display its characters in an XEmacs buffer.  However, it is
+important to select a "language environment" in order to set various
+defaults.  The language environment really represents a choice of
+preferred script (more or less) rather that a choice of language.
+
+   The language environment controls which coding systems to recognize
+when reading text (*note Recognize Coding::).  This applies to files,
+incoming mail, netnews, and any other text you read into XEmacs.  It may
+also specify the default coding system to use when you create a file.
+Each language environment also specifies a default input method.
+
+   The command to select a language environment is `M-x
+set-language-environment'.  It makes no difference which buffer is
+current when you use this command, because the effects apply globally to
+the XEmacs session.  The supported language environments include:
+
+     Chinese-BIG5, Chinese-CNS, Chinese-GB, Cyrillic-ISO, English,
+     Ethiopic, Greek, Japanese, Korean, Latin-1, Latin-2, Latin-3,
+     Latin-4, Latin-5.
+
+   Some operating systems let you specify the language you are using by
+setting locale environment variables.  XEmacs handles one common special
+case of this: if your locale name for character types contains the
+string `8859-N', XEmacs automatically selects the corresponding
+language environment.
+
+   To display information about the effects of a certain language
+environment LANG-ENV, use the command `C-h L LANG-ENV <RET>'
+(`describe-language-environment').  This tells you which languages this
+language environment is useful for, and lists the character sets,
+coding systems, and input methods that go with it.  It also shows some
+sample text to illustrate scripts used in this language environment.
+By default, this command describes the chosen language environment.
+
+
+File: xemacs.info,  Node: Input Methods,  Next: Select Input Method,  Prev: Language Environments,  Up: Mule
+
+Input Methods
+=============
+
+   An "input method" is a kind of character conversion designed
+specifically for interactive input.  In XEmacs, typically each language
+has its own input method; sometimes several languages which use the same
+characters can share one input method.  A few languages support several
+input methods.
+
+   The simplest kind of input method works by mapping ASCII letters into
+another alphabet.  This is how the Greek and Russian input methods work.
+
+   A more powerful technique is composition: converting sequences of
+characters into one letter.  Many European input methods use composition
+to produce a single non-ASCII letter from a sequence that consists of a
+letter followed by accent characters.  For example, some methods convert
+the sequence `'a' into a single accented letter.
+
+   The input methods for syllabic scripts typically use mapping followed
+by composition.  The input methods for Thai and Korean work this way.
+First, letters are mapped into symbols for particular sounds or tone
+marks; then, sequences of these which make up a whole syllable are
+mapped into one syllable sign.
+
+   Chinese and Japanese require more complex methods.  In Chinese input
+methods, first you enter the phonetic spelling of a Chinese word (in
+input method `chinese-py', among others), or a sequence of portions of
+the character (input methods `chinese-4corner' and `chinese-sw', and
+others).  Since one phonetic spelling typically corresponds to many
+different Chinese characters, you must select one of the alternatives
+using special XEmacs commands.  Keys such as `C-f', `C-b', `C-n',
+`C-p', and digits have special definitions in this situation, used for
+selecting among the alternatives.  <TAB> displays a buffer showing all
+the possibilities.
+
+   In Japanese input methods, first you input a whole word using
+phonetic spelling; then, after the word is in the buffer, XEmacs
+converts it into one or more characters using a large dictionary.  One
+phonetic spelling corresponds to many differently written Japanese
+words, so you must select one of them; use `C-n' and `C-p' to cycle
+through the alternatives.
+
+   Sometimes it is useful to cut off input method processing so that the
+characters you have just entered will not combine with subsequent
+characters.  For example, in input method `latin-1-postfix', the
+sequence `e '' combines to form an `e' with an accent.  What if you
+want to enter them as separate characters?
+
+   One way is to type the accent twice; that is a special feature for
+entering the separate letter and accent.  For example, `e ' '' gives
+you the two characters `e''.  Another way is to type another letter
+after the `e'--something that won't combine with that--and immediately
+delete it.  For example, you could type `e e <DEL> '' to get separate
+`e' and `''.
+
+   Another method, more general but not quite as easy to type, is to use
+`C-\ C-\' between two characters to stop them from combining.  This is
+the command `C-\' (`toggle-input-method') used twice.  *Note Select
+Input Method::.
+
+   `C-\ C-\' is especially useful inside an incremental search, because
+stops waiting for more characters to combine, and starts searching for
+what you have already entered.
+
+   The variables `input-method-highlight-flag' and
+`input-method-verbose-flag' control how input methods explain what is
+happening.  If `input-method-highlight-flag' is non-`nil', the partial
+sequence is highlighted in the buffer.  If `input-method-verbose-flag'
+is non-`nil', the list of possible characters to type next is displayed
+in the echo area (but not when you are in the minibuffer).
+
+
+File: xemacs.info,  Node: Select Input Method,  Next: Coding Systems,  Prev: Input Methods,  Up: Mule
+
+Selecting an Input Method
+=========================
+
+`C-\'
+     Enable or disable use of the selected input method.
+
+`C-x <RET> C-\ METHOD <RET>'
+     Select a new input method for the current buffer.
+
+`C-h I METHOD <RET>'
+`C-h C-\ METHOD <RET>'
+     Describe the input method METHOD (`describe-input-method').  By
+     default, it describes the current input method (if any).
+
+`M-x list-input-methods'
+     Display a list of all the supported input methods.
+
+   To choose an input method for the current buffer, use `C-x <RET>
+C-\' (`select-input-method').  This command reads the input method name
+with the minibuffer; the name normally starts with the language
+environment that it is meant to be used with.  The variable
+`current-input-method' records which input method is selected.
+
+   Input methods use various sequences of ASCII characters to stand for
+non-ASCII characters.  Sometimes it is useful to turn off the input
+method temporarily.  To do this, type `C-\' (`toggle-input-method').
+To reenable the input method, type `C-\' again.
+
+   If you type `C-\' and you have not yet selected an input method, it
+prompts for you to specify one.  This has the same effect as using `C-x
+<RET> C-\' to specify an input method.
+
+   Selecting a language environment specifies a default input method for
+use in various buffers.  When you have a default input method, you can
+select it in the current buffer by typing `C-\'.  The variable
+`default-input-method' specifies the default input method (`nil' means
+there is none).
+
+   Some input methods for alphabetic scripts work by (in effect)
+remapping the keyboard to emulate various keyboard layouts commonly used
+for those scripts.  How to do this remapping properly depends on your
+actual keyboard layout.  To specify which layout your keyboard has, use
+the command `M-x quail-set-keyboard-layout'.
+
+   To display a list of all the supported input methods, type `M-x
+list-input-methods'.  The list gives information about each input
+method, including the string that stands for it in the mode line.
+
+
+File: xemacs.info,  Node: Coding Systems,  Next: Recognize Coding,  Prev: Select Input Method,  Up: Mule
+
+Coding Systems
+==============
+
+   Users of various languages have established many more-or-less
+standard coding systems for representing them.  XEmacs does not use
+these coding systems internally; instead, it converts from various
+coding systems to its own system when reading data, and converts the
+internal coding system to other coding systems when writing data.
+Conversion is possible in reading or writing files, in sending or
+receiving from the terminal, and in exchanging data with subprocesses.
+
+   XEmacs assigns a name to each coding system.  Most coding systems are
+used for one language, and the name of the coding system starts with the
+language name.  Some coding systems are used for several languages;
+their names usually start with `iso'.  There are also special coding
+systems `binary' and `no-conversion' which do not convert printing
+characters at all.
+
+   In addition to converting various representations of non-ASCII
+characters, a coding system can perform end-of-line conversion.  XEmacs
+handles three different conventions for how to separate lines in a file:
+newline, carriage-return linefeed, and just carriage-return.
+
+`C-h C CODING <RET>'
+     Describe coding system CODING.
+
+`C-h C <RET>'
+     Describe the coding systems currently in use.
+
+`M-x list-coding-systems'
+     Display a list of all the supported coding systems.
+
+   The command `C-h C' (`describe-coding-system') displays information
+about particular coding systems.  You can specify a coding system name
+as argument; alternatively, with an empty argument, it describes the
+coding systems currently selected for various purposes, both in the
+current buffer and as the defaults, and the priority list for
+recognizing coding systems (*note Recognize Coding::).
+
+   To display a list of all the supported coding systems, type `M-x
+list-coding-systems'.  The list gives information about each coding
+system, including the letter that stands for it in the mode line (*note
+Mode Line::).
+
+   Each of the coding systems that appear in this list--except for
+`binary', which means no conversion of any kind--specifies how and
+whether to convert printing characters, but leaves the choice of
+end-of-line conversion to be decided based on the contents of each file.
+For example, if the file appears to use carriage-return linefeed between
+lines, that end-of-line conversion will be used.
+
+   Each of the listed coding systems has three variants which specify
+exactly what to do for end-of-line conversion:
+
+`...-unix'
+     Don't do any end-of-line conversion; assume the file uses newline
+     to separate lines.  (This is the convention normally used on Unix
+     and GNU systems.)
+
+`...-dos'
+     Assume the file uses carriage-return linefeed to separate lines,
+     and do the appropriate conversion.  (This is the convention
+     normally used on Microsoft systems.)
+
+`...-mac'
+     Assume the file uses carriage-return to separate lines, and do the
+     appropriate conversion.  (This is the convention normally used on
+     the Macintosh system.)
+
+   These variant coding systems are omitted from the
+`list-coding-systems' display for brevity, since they are entirely
+predictable.  For example, the coding system `iso-8859-1' has variants
+`iso-8859-1-unix', `iso-8859-1-dos' and `iso-8859-1-mac'.
+
+   In contrast, the coding system `binary' specifies no character code
+conversion at all--none for non-Latin-1 byte values and none for end of
+line.  This is useful for reading or writing binary files, tar files,
+and other files that must be examined verbatim.
+
+   The easiest way to edit a file with no conversion of any kind is with
+the `M-x find-file-literally' command.  This uses `binary', and also
+suppresses other XEmacs features that might convert the file contents
+before you see them.  *Note Visiting::.
+
+   The coding system `no-conversion' means that the file contains
+non-Latin-1 characters stored with the internal XEmacs encoding.  It
+handles end-of-line conversion based on the data encountered, and has
+the usual three variants to specify the kind of end-of-line conversion.
+
+
+File: xemacs.info,  Node: Recognize Coding,  Next: Specify Coding,  Prev: Coding Systems,  Up: Mule
+
+Recognizing Coding Systems
+==========================
+
+   Most of the time, XEmacs can recognize which coding system to use for
+any given file-once you have specified your preferences.
+
+   Some coding systems can be recognized or distinguished by which byte
+sequences appear in the data.  However, there are coding systems that
+cannot be distinguished, not even potentially.  For example, there is no
+way to distinguish between Latin-1 and Latin-2; they use the same byte
+values with different meanings.
+
+   XEmacs handles this situation by means of a priority list of coding
+systems.  Whenever XEmacs reads a file, if you do not specify the coding
+system to use, XEmacs checks the data against each coding system,
+starting with the first in priority and working down the list, until it
+finds a coding system that fits the data.  Then it converts the file
+contents assuming that they are represented in this coding system.
+
+   The priority list of coding systems depends on the selected language
+environment (*note Language Environments::).  For example, if you use
+French, you probably want XEmacs to prefer Latin-1 to Latin-2; if you
+use Czech, you probably want Latin-2 to be preferred.  This is one of
+the reasons to specify a language environment.
+
+   However, you can alter the priority list in detail with the command
+`M-x prefer-coding-system'.  This command reads the name of a coding
+system from the minibuffer, and adds it to the front of the priority
+list, so that it is preferred to all others.  If you use this command
+several times, each use adds one element to the front of the priority
+list.
+
+   Sometimes a file name indicates which coding system to use for the
+file.  The variable `file-coding-system-alist' specifies this
+correspondence.  There is a special function
+`modify-coding-system-alist' for adding elements to this list.  For
+example, to read and write all `.txt' using the coding system
+`china-iso-8bit', you can execute this Lisp expression:
+
+     (modify-coding-system-alist 'file "\\.txt\\'" 'china-iso-8bit)
+
+The first argument should be `file', the second argument should be a
+regular expression that determines which files this applies to, and the
+third argument says which coding system to use for these files.
+
+   You can specify the coding system for a particular file using the
+`-*-...-*-' construct at the beginning of a file, or a local variables
+list at the end (*note File Variables::).  You do this by defining a
+value for the "variable" named `coding'.  XEmacs does not really have a
+variable `coding'; instead of setting a variable, it uses the specified
+coding system for the file.  For example, `-*-mode: C; coding:
+iso-8859-1;-*-' specifies use of the iso-8859-1 coding system, as well
+as C mode.
+
+   Once XEmacs has chosen a coding system for a buffer, it stores that
+coding system in `buffer-file-coding-system' and uses that coding
+system, by default, for operations that write from this buffer into a
+file.  This includes the commands `save-buffer' and `write-region'.  If
+you want to write files from this buffer using a different coding
+system, you can specify a different coding system for the buffer using
+`set-buffer-file-coding-system' (*note Specify Coding::).
+
+
+File: xemacs.info,  Node: Specify Coding,  Prev: Recognize Coding,  Up: Mule
+
+Specifying a Coding System
+==========================
+
+   In cases where XEmacs does not automatically choose the right coding
+system, you can use these commands to specify one:
+
+`C-x <RET> f CODING <RET>'
+     Use coding system CODING for the visited file in the current
+     buffer.
+
+`C-x <RET> c CODING <RET>'
+     Specify coding system CODING for the immediately following command.
+
+`C-x <RET> k CODING <RET>'
+     Use coding system CODING for keyboard input.
+
+`C-x <RET> t CODING <RET>'
+     Use coding system CODING for terminal output.
+
+`C-x <RET> p CODING <RET>'
+     Use coding system CODING for subprocess input and output in the
+     current buffer.
+
+   The command `C-x RET f' (`set-buffer-file-coding-system') specifies
+the file coding system for the current buffer--in other words, which
+coding system to use when saving or rereading the visited file.  You
+specify which coding system using the minibuffer.  Since this command
+applies to a file you have already visited, it affects only the way the
+file is saved.
+
+   Another way to specify the coding system for a file is when you visit
+the file.  First use the command `C-x <RET> c'
+(`universal-coding-system-argument'); this command uses the minibuffer
+to read a coding system name.  After you exit the minibuffer, the
+specified coding system is used for _the immediately following command_.
+
+   So if the immediately following command is `C-x C-f', for example,
+it reads the file using that coding system (and records the coding
+system for when the file is saved).  Or if the immediately following
+command is `C-x C-w', it writes the file using that coding system.
+Other file commands affected by a specified coding system include `C-x
+C-i' and `C-x C-v', as well as the other-window variants of `C-x C-f'.
+
+   In addition, if you run some file input commands with the precedent
+`C-u', you can specify coding system to read from minibuffer.  So if
+the immediately following command is `C-x C-f', for example, it reads
+the file using that coding system (and records the coding system for
+when the file is saved).  Other file commands affected by a specified
+coding system include `C-x C-i' and `C-x C-v', as well as the
+other-window variants of `C-x C-f'.
+
+   The variable `default-buffer-file-coding-system' specifies the
+choice of coding system to use when you create a new file.  It applies
+when you find a new file, and when you create a buffer and then save it
+in a file.  Selecting a language environment typically sets this
+variable to a good choice of default coding system for that language
+environment.
+
+   The command `C-x <RET> t' (`set-terminal-coding-system') specifies
+the coding system for terminal output.  If you specify a character code
+for terminal output, all characters output to the terminal are
+translated into that coding system.
+
+   This feature is useful for certain character-only terminals built to
+support specific languages or character sets--for example, European
+terminals that support one of the ISO Latin character sets.
+
+   By default, output to the terminal is not translated at all.
+
+   The command `C-x <RET> k' (`set-keyboard-coding-system') specifies
+the coding system for keyboard input.  Character-code translation of
+keyboard input is useful for terminals with keys that send non-ASCII
+graphic characters--for example, some terminals designed for ISO
+Latin-1 or subsets of it.
+
+   By default, keyboard input is not translated at all.
+
+   There is a similarity between using a coding system translation for
+keyboard input, and using an input method: both define sequences of
+keyboard input that translate into single characters.  However, input
+methods are designed to be convenient for interactive use by humans, and
+the sequences that are translated are typically sequences of ASCII
+printing characters.  Coding systems typically translate sequences of
+non-graphic characters.
+
+   The command `C-x <RET> p' (`set-buffer-process-coding-system')
+specifies the coding system for input and output to a subprocess.  This
+command applies to the current buffer; normally, each subprocess has its
+own buffer, and thus you can use this command to specify translation to
+and from a particular subprocess by giving the command in the
+corresponding buffer.
+
+   By default, process input and output are not translated at all.
+
+   The variable `file-name-coding-system' specifies a coding system to
+use for encoding file names.  If you set the variable to a coding
+system name (as a Lisp symbol or a string), XEmacs encodes file names
+using that coding system for all file operations.  This makes it
+possible to use non-Latin-1 characters in file names--or, at least,
+those non-Latin-1 characters which the specified coding system can
+encode.  By default, this variable is `nil', which implies that you
+cannot use non-Latin-1 characters in file names.
+
+
+File: xemacs.info,  Node: Major Modes,  Next: Indentation,  Prev: Mule,  Up: Top
+
+Major Modes
+***********
+
+   Emacs has many different "major modes", each of which customizes
+Emacs for editing text of a particular sort.  The major modes are
+mutually exclusive;  at any time, each buffer has one major mode.  The
+mode line normally contains the name of the current major mode in
+parentheses.  *Note Mode Line::.
+
+   The least specialized major mode is called "Fundamental mode".  This
+mode has no mode-specific redefinitions or variable settings.  Each
+Emacs command behaves in its most general manner, and each option is in
+its default state.  For editing any specific type of text, such as Lisp
+code or English text, you should switch to the appropriate major mode,
+such as Lisp mode or Text mode.
+
+   Selecting a major mode changes the meanings of a few keys to become
+more specifically adapted to the language being edited.  <TAB>, <DEL>,
+and <LFD> are changed frequently.  In addition, commands which handle
+comments use the mode to determine how to delimit comments.  Many major
+modes redefine the syntactical properties of characters appearing in
+the buffer.  *Note Syntax::.
+
+   The major modes fall into three major groups.  Lisp mode (which has
+several variants), C mode, and Muddle mode are for specific programming
+languages.  Text mode, Nroff mode, TeX mode, and Outline mode are for
+editing English text.  The remaining major modes are not intended for
+use on users' files; they are used in buffers created by Emacs for
+specific purposes and include Dired mode for buffers made by Dired
+(*note Dired::), Mail mode for buffers made by `C-x m' (*note Sending
+Mail::), and Shell mode for buffers used for communicating with an
+inferior shell process (*note Interactive Shell::).
+
+   Most programming language major modes specify that only blank lines
+separate paragraphs.  This is so that the paragraph commands remain
+useful.  *Note Paragraphs::.  They also cause Auto Fill mode to use the
+definition of <TAB> to indent the new lines it creates.  This is
+because most lines in a program are usually indented.  *Note
+Indentation::.
+
+* Menu:
+
+* Choosing Modes::     How major modes are specified or chosen.
+
+
+File: xemacs.info,  Node: Choosing Modes,  Prev: Major Modes,  Up: Major Modes
+
+Choosing Major Modes
+====================
+
+   You can select a major mode explicitly for the current buffer, but
+most of the time Emacs determines which mode to use based on the file
+name or some text in the file.
+
+   Use a `M-x' command to explicitly select a new major mode.  Add
+`-mode' to the name of a major mode to get the name of a command to
+select that mode.  For example, to enter Lisp mode, execute `M-x
+lisp-mode'.
+
+   When you visit a file, Emacs usually chooses the right major mode
+based on the file's name.  For example, files whose names end in `.c'
+are edited in C mode.  The variable `auto-mode-alist' controls the
+correspondence between file names and major mode.  Its value is a list
+in which each element has the form:
+
+     (REGEXP . MODE-FUNCTION)
+
+For example, one element normally found in the list has the form
+`("\\.c$" . c-mode)'. It is responsible for selecting C mode for files
+whose names end in `.c'.  (Note that `\\' is needed in Lisp syntax to
+include a `\' in the string, which is needed to suppress the special
+meaning of `.' in regexps.)  The only practical way to change this
+variable is with Lisp code.
+
+   You can specify which major mode should be used for editing a certain
+file by a special sort of text in the first non-blank line of the file.
+The mode name should appear in this line both preceded and followed by
+`-*-'.  Other text may appear on the line as well.  For example,
+
+     ;-*-Lisp-*-
+
+tells Emacs to use Lisp mode.  Note how the semicolon is used to make
+Lisp treat this line as a comment.  Such an explicit specification
+overrides any default mode based on the file name.
+
+   Another format of mode specification is:
+
+     -*-Mode: MODENAME;-*-
+
+which allows other things besides the major mode name to be specified.
+However, Emacs does not look for anything except the mode name.
+
+   The major mode can also be specified in a local variables list.
+*Note File Variables::.
+
+   When you visit a file that does not specify a major mode to use, or
+when you create a new buffer with `C-x b', Emacs uses the major mode
+specified by the variable `default-major-mode'.  Normally this value is
+the symbol `fundamental-mode', which specifies Fundamental mode.  If
+`default-major-mode' is `nil', the major mode is taken from the
+previously selected buffer.
+
+
+File: xemacs.info,  Node: Indentation,  Next: Text,  Prev: Major Modes,  Up: Top
+
+Indentation
+***********
+
+`<TAB>'
+     Indent current line "appropriately" in a mode-dependent fashion.
+
+`<LFD>'
+     Perform <RET> followed by <TAB> (`newline-and-indent').
+
+`M-^'
+     Merge two lines (`delete-indentation').  This would cancel out the
+     effect of <LFD>.
+
+`C-M-o'
+     Split line at point; text on the line after point becomes a new
+     line indented to the same column that it now starts in
+     (`split-line').
+
+`M-m'
+     Move (forward or back) to the first non-blank character on the
+     current line (`back-to-indentation').
+
+`C-M-\'
+     Indent several lines to same column (`indent-region').
+
+`C-x <TAB>'
+     Shift block of lines rigidly right or left (`indent-rigidly').
+
+`M-i'
+     Indent from point to the next prespecified tab stop column
+     (`tab-to-tab-stop').
+
+`M-x indent-relative'
+     Indent from point to under an indentation point in the previous
+     line.
+
+   Most programming languages have some indentation convention.  For
+Lisp code, lines are indented according to their nesting in
+parentheses.  The same general idea is used for C code, though details
+differ.
+
+   Use the <TAB> command to indent a line whatever the language.  Each
+major mode defines this command to perform indentation appropriate for
+the particular language.  In Lisp mode, <TAB> aligns a line according
+to its depth in parentheses.  No matter where in the line you are when
+you type <TAB>, it aligns the line as a whole.  In C mode, <TAB>
+implements a subtle and sophisticated indentation style that knows
+about many aspects of C syntax.
+
+   In Text mode, <TAB> runs the command `tab-to-tab-stop', which
+indents to the next tab stop column.  You can set the tab stops with
+`M-x edit-tab-stops'.
+
+* Menu:
+
+* Indentation Commands:: Various commands and techniques for indentation.
+* Tab Stops::            You can set arbitrary "tab stops" and then
+                         indent to the next tab stop when you want to.
+* Just Spaces::          You can request indentation using just spaces.
+
+
+File: xemacs.info,  Node: Indentation Commands,  Next: Tab Stops,  Prev: Indentation,  Up: Indentation
+
+Indentation Commands and Techniques
+===================================
+
+   If you just want to insert a tab character in the buffer, you can
+type `C-q <TAB>'.
+
+   To move over the indentation on a line, type `Meta-m'
+(`back-to-indentation').  This command, given anywhere on a line,
+positions point at the first non-blank character on the line.
+
+   To insert an indented line before the current line, type `C-a C-o
+<TAB>'.  To make an indented line after the current line, use `C-e
+<LFD>'.
+
+   `C-M-o' (`split-line') moves the text from point to the end of the
+line vertically down, so that the current line becomes two lines.
+`C-M-o' first moves point forward over any spaces and tabs.  Then it
+inserts after point a newline and enough indentation to reach the same
+column point is on.  Point remains before the inserted newline; in this
+regard, `C-M-o' resembles `C-o'.
+
+   To join two lines cleanly, use the `Meta-^' (`delete-indentation')
+command to delete the indentation at the front of the current line, and
+the line boundary as well.  Empty spaces are replaced by a single
+space, or by no space if at the beginning of a line, before a close
+parenthesis, or after an open parenthesis.  To delete just the
+indentation of a line, go to the beginning of the line and use `Meta-\'
+(`delete-horizontal-space'), which deletes all spaces and tabs around
+the cursor.
+
+   There are also commands for changing the indentation of several
+lines at once.  `Control-Meta-\' (`indent-region') gives each line which
+begins in the region the "usual" indentation by invoking <TAB> at the
+beginning of the line.  A numeric argument specifies the column to
+indent to.  Each line is shifted left or right so that its first
+non-blank character appears in that column.  `C-x <TAB>'
+(`indent-rigidly') moves all the lines in the region right by its
+argument (left, for negative arguments).  The whole group of lines moves
+rigidly sideways, which is how the command gets its name.
+
+   `M-x indent-relative' indents at point based on the previous line
+(actually, the last non-empty line.)  It inserts whitespace at point,
+moving point, until it is underneath an indentation point in the
+previous line.  An indentation point is the end of a sequence of
+whitespace or the end of the line.  If point is farther right than any
+indentation point in the previous line, the whitespace before point is
+deleted and the first indentation point then applicable is used.  If no
+indentation point is applicable even then, `tab-to-tab-stop' is run
+(see next section).
+
+   `indent-relative' is the definition of <TAB> in Indented Text mode.
+*Note Text::.
+
+
+File: xemacs.info,  Node: Tab Stops,  Next: Just Spaces,  Prev: Indentation Commands,  Up: Indentation
+
+Tab Stops
+=========
+
+   For typing in tables, you can use Text mode's definition of <TAB>,
+`tab-to-tab-stop'.  This command inserts indentation before point,
+enough to reach the next tab stop column.  Even if you are not in Text
+mode, this function is associated with `M-i' anyway.
+
+   You can arbitrarily set the tab stops used by `M-i'.  They are
+stored as a list of column-numbers in increasing order in the variable
+`tab-stop-list'.
+
+   The convenient way to set the tab stops is using `M-x
+edit-tab-stops', which creates and selects a buffer containing a
+description of the tab stop settings.  You can edit this buffer to
+specify different tab stops, and then type `C-c C-c' to make those new
+tab stops take effect.  In the tab stop buffer, `C-c C-c' runs the
+function `edit-tab-stops-note-changes' rather than the default
+`save-buffer'.  `edit-tab-stops' records which buffer was current when
+you invoked it, and stores the tab stops in that buffer.  Normally all
+buffers share the same tab stops and changing them in one buffer
+affects all.  If you make `tab-stop-list' local in one buffer
+`edit-tab-stops' in that buffer edits only the local settings.
+
+   Below is the text representing ordinary tab stops every eight
+columns:
+
+             :       :       :       :       :       :
+     0         1         2         3         4
+     0123456789012345678901234567890123456789012345678
+     To install changes, type C-c C-c
+
+   The first line contains a colon at each tab stop.  The remaining
+lines help you see where the colons are and tell you what to do.
+
+   Note that the tab stops that control `tab-to-tab-stop' have nothing
+to do with displaying tab characters in the buffer.  *Note Display
+Vars::, for more information on that.
+
+
+File: xemacs.info,  Node: Just Spaces,  Prev: Tab Stops,  Up: Indentation
+
+Tabs vs. Spaces
+===============
+
+   Emacs normally uses both tabs and spaces to indent lines.  If you
+prefer, all indentation can be made from spaces only.  To request this,
+set `indent-tabs-mode' to `nil'.  This is a per-buffer variable;
+altering the variable affects only the current buffer, but there is a
+default value which you can change as well.  *Note Locals::.
+
+   There are also commands to convert tabs to spaces or vice versa,
+always preserving the columns of all non-blank text.  `M-x tabify'
+scans the region for sequences of spaces, and converts sequences of at
+least three spaces to tabs if that is possible without changing
+indentation.  `M-x untabify' changes all tabs in the region to
+corresponding numbers of spaces.
+
+
+File: xemacs.info,  Node: Text,  Next: Programs,  Prev: Indentation,  Up: Top
+
+Commands for Human Languages
+****************************
+
+   The term "text" has two widespread meanings in our area of the
+computer field.  One is data that is a sequence of characters.  In this
+sense of the word any file that you edit with Emacs is text.  The other
+meaning is more restrictive: a sequence of characters in a human
+language for humans to read (possibly after processing by a text
+formatter), as opposed to a program or commands for a program.
+
+   Human languages have syntactic and stylistic conventions that editor
+commands should support or use to advantage: conventions involving
+words, sentences, paragraphs, and capital letters.  This chapter
+describes Emacs commands for all these things.  There are also commands
+for "filling", or rearranging paragraphs into lines of approximately
+equal length.  The commands for moving over and killing words,
+sentences, and paragraphs, while intended primarily for editing text,
+are also often useful for editing programs.
+
+   Emacs has several major modes for editing human language text.  If a
+file contains plain text, use Text mode, which customizes Emacs in
+small ways for the syntactic conventions of text.  For text which
+contains embedded commands for text formatters, Emacs has other major
+modes, each for a particular text formatter.  Thus, for input to TeX,
+you can use TeX mode; for input to nroff, Nroff mode.
+
+* Menu:
+
+* Text Mode::   The major modes for editing text files.
+* Nroff Mode::  The major mode for editing input to the formatter nroff.
+* TeX Mode::    The major modes for editing input to the formatter TeX.
+* Outline Mode:: The major mode for editing outlines.
+* Words::       Moving over and killing words.
+* Sentences::   Moving over and killing sentences.
+* Paragraphs::	Moving over paragraphs.
+* Pages::	Moving over pages.
+* Filling::     Filling or justifying text
+* Case::        Changing the case of text
+
+
+File: xemacs.info,  Node: Text Mode,  Next: Words,  Prev: Text,  Up: Text
+
+Text Mode
+=========
+
+   You should use Text mode--rather than Fundamental or Lisp mode--to
+edit files of text in a human language.  Invoke `M-x text-mode' to
+enter Text mode.  In Text mode, <TAB> runs the function
+`tab-to-tab-stop', which allows you to use arbitrary tab stops set with
+`M-x edit-tab-stops' (*note Tab Stops::).  Features concerned with
+comments in programs are turned off unless they are explicitly invoked.
+The syntax table is changed so that periods are not considered part of a
+word, while apostrophes, backspaces and underlines are.
+
+   A similar variant mode is Indented Text mode, intended for editing
+text in which most lines are indented.  This mode defines <TAB> to run
+`indent-relative' (*note Indentation::), and makes Auto Fill indent the
+lines it creates.  As a result, a line made by Auto Filling, or by
+<LFD>, is normally indented just like the previous line.  Use `M-x
+indented-text-mode' to select this mode.
+
+   Entering Text mode or Indented Text mode calls the value of the
+variable `text-mode-hook' with no arguments, if that value exists and
+is not `nil'.  This value is also called when modes related to Text
+mode are entered; this includes Nroff mode, TeX mode, Outline mode, and
+Mail mode.  Your hook can look at the value of `major-mode' to see
+which of these modes is actually being entered.
+
+   Two modes similar to Text mode are of use for editing text that is to
+be passed through a text formatter before achieving its final readable
+form.
+
+* Menu:
+
+* Nroff Mode::  The major mode for editing input to the formatter nroff.
+* TeX Mode::    The major modes for editing input to the formatter TeX.
+
+
+  Another similar mode is used for editing outlines.  It allows you
+to view the text at various levels of detail.  You can view either
+the outline headings alone or both headings and text; you can also
+hide some of the headings at lower levels from view to make the high
+level structure more visible.
+
+
+* Outline Mode:: The major mode for editing outlines.
+
+
+File: xemacs.info,  Node: Nroff Mode,  Next: TeX Mode,  Prev: Text Mode,  Up: Text Mode
+
+Nroff Mode
+----------
+
+   Nroff mode is a mode like Text mode but modified to handle nroff
+commands present in the text.  Invoke `M-x nroff-mode' to enter this
+mode.  Nroff mode differs from Text mode in only a few ways.  All nroff
+command lines are considered paragraph separators, so that filling never
+garbles the nroff commands.  Pages are separated by `.bp' commands.
+Comments start with backslash-doublequote.  There are also three special
+commands that are not available in Text mode:
+
+`M-n'
+     Move to the beginning of the next line that isn't an nroff command
+     (`forward-text-line').  An argument is a repeat count.
+
+`M-p'
+     Like `M-n' but move up (`backward-text-line').
+
+`M-?'
+     Prints in the echo area the number of text lines (lines that are
+     not nroff commands) in the region (`count-text-lines').
+
+   The other feature of Nroff mode is Electric Nroff newline mode.
+This is a minor mode that you can turn on or off with `M-x
+electric-nroff-mode' (*note Minor Modes::).  When the mode is on and
+you use <RET> to end a line containing an nroff command that opens a
+kind of grouping, Emacs automatically inserts the matching nroff
+command to close that grouping on the following line.  For example, if
+you are at the beginning of a line and type `.(b <RET>', the matching
+command `.)b' will be inserted on a new line following point.
+
+   Entering Nroff mode calls the value of the variable `text-mode-hook'
+with no arguments, if that value exists and is not `nil'; then it does
+the same with the variable `nroff-mode-hook'.
+
+
+File: xemacs.info,  Node: TeX Mode,  Next: Outline Mode,  Prev: Nroff Mode,  Up: Text Mode
+
+TeX Mode
+--------
+
+   TeX is a powerful text formatter written by Donald Knuth; like GNU
+Emacs, it is free.  LaTeX is a simplified input format for TeX,
+implemented by TeX macros.  It is part of TeX.
+
+   Emacs has a special TeX mode for editing TeX input files.  It
+provides facilities for checking the balance of delimiters and for
+invoking TeX on all or part of the file.
+
+   TeX mode has two variants, Plain TeX mode and LaTeX mode, which are
+two distinct major modes that differ only slightly.  These modes are
+designed for editing the two different input formats.  The command `M-x
+tex-mode' looks at the contents of a buffer to determine whether it
+appears to be LaTeX input or not; it then selects the appropriate mode.
+If it can't tell which is right (e.g., the buffer is empty), the
+variable `tex-default-mode' controls which mode is used.
+
+   The commands `M-x plain-tex-mode' and `M-x latex-mode' explicitly
+select one of the variants of TeX mode.  Use these commands when `M-x
+tex-mode' does not guess right.
+
+* Menu:
+
+* Editing: TeX Editing.   Special commands for editing in TeX mode.
+* Printing: TeX Print.    Commands for printing part of a file with TeX.
+
+   TeX for Unix systems can be obtained from the University of
+Washington for a distribution fee.
+
+   To order a full distribution, send $140.00 for a 1/2 inch 9-track
+tape, $165.00 for two 4-track 1/4 inch cartridge tapes (foreign sites
+$150.00, for 1/2 inch, $175.00 for 1/4 inch, to cover the extra
+postage) payable to the University of Washington to:
+
+     The Director
+     Northwest Computer Support Group,  DW-10
+     University of Washington
+     Seattle, Washington 98195
+
+Purchase orders are acceptable, but there is an extra charge of $10.00
+to pay for processing charges. (The total cost comes to $150 for
+domestic sites, $175 for foreign sites).
+
+   The normal distribution is a tar tape, blocked 20, 1600 bpi, on an
+industry standard 2400 foot half-inch reel.  The physical format for
+the 1/4 inch streamer cartridges uses QIC-11, 8000 bpi, 4-track
+serpentine recording for the SUN.  Also, SystemV tapes can be written
+in cpio format, blocked 5120 bytes, ASCII headers.
+
+
+File: xemacs.info,  Node: TeX Editing,  Next: TeX Print,  Prev: TeX Mode,  Up: TeX Mode
+
+TeX Editing Commands
+....................
+
+   Here are the special commands provided in TeX mode for editing the
+text of the file.
+
+`"'
+     Insert, according to context, either ```' or `"' or `'''
+     (`TeX-insert-quote').
+
+`<LFD>'
+     Insert a paragraph break (two newlines) and check the previous
+     paragraph for unbalanced braces or dollar signs (`tex-terminate-
+     paragraph').
+
+`M-x validate-tex-buffer'
+     Check each paragraph in the buffer for unbalanced braces or dollar
+     signs.
+
+`C-c {'
+     Insert `{}' and position point between them (`tex-insert-braces').
+
+`C-c }'
+     Move forward past the next unmatched close brace (`up-list').
+
+`C-c C-e'
+     Close a block for LaTeX (`tex-close-latex-block').
+
+   In TeX, the character `"' is not normally used; you use ```' to
+start a quotation and `''' to end one.  TeX mode defines the key `"' to
+insert ```' after whitespace or an open brace, `"' after a backslash,
+or `''' otherwise.  This is done by the command `tex-insert-quote'.  If
+you need the character `"' itself in unusual contexts, use `C-q' to
+insert it.  Also, `"' with a numeric argument always inserts that
+number of `"' characters.
+
+   In TeX mode, `$' has a special syntax code which attempts to
+understand the way TeX math mode delimiters match.  When you insert a
+`$' that is meant to exit math mode, the position of the matching `$'
+that entered math mode is displayed for a second.  This is the same
+feature that displays the open brace that matches a close brace that is
+inserted.  However, there is no way to tell whether a `$' enters math
+mode or leaves it; so when you insert a `$' that enters math mode, the
+previous `$' position is shown as if it were a match, even though they
+are actually unrelated.
+
+   If you prefer to keep braces balanced at all times, you can use `C-c
+{' (`tex-insert-braces') to insert a pair of braces.  It leaves point
+between the two braces so you can insert the text that belongs inside.
+Afterward, use the command `C-c }' (`up-list') to move forward past the
+close brace.
+
+   There are two commands for checking the matching of braces.  <LFD>
+(`tex-terminate-paragraph') checks the paragraph before point, and
+inserts two newlines to start a new paragraph.  It prints a message in
+the echo area if any mismatch is found.  `M-x validate-tex-buffer'
+checks the entire buffer, paragraph by paragraph.  When it finds a
+paragraph that contains a mismatch, it displays point at the beginning
+of the paragraph for a few seconds and pushes a mark at that spot.
+Scanning continues until the whole buffer has been checked or until you
+type another key.  The positions of the last several paragraphs with
+mismatches can be found in the mark ring (*note Mark Ring::).
+
+   Note that square brackets and parentheses, not just braces, are
+matched in TeX mode.  This is wrong if you want to  check TeX syntax.
+However, parentheses and square brackets are likely to be used in text
+as matching delimiters and it is useful for the various motion commands
+and automatic match display to work with them.
+
+   In LaTeX input, `\begin' and `\end' commands must balance.  After
+you insert a `\begin', use `C-c C-f' (`tex-close-latex-block') to
+insert automatically a matching `\end' (on a new line following the
+`\begin').  A blank line is inserted between the two, and point is left
+there.
+
+
+File: xemacs.info,  Node: TeX Print,  Prev: TeX Editing,  Up: TeX Mode
+
+TeX Printing Commands
+.....................
+
+   You can invoke TeX as an inferior of Emacs on either the entire
+contents of the buffer or just a region at a time.  Running TeX in this
+way on just one chapter is a good way to see what your changes look
+like without taking the time to format the entire file.
+
+`C-c C-r'
+     Invoke TeX on the current region, plus the buffer's header
+     (`tex-region').
+
+`C-c C-b'
+     Invoke TeX on the entire current buffer (`tex-buffer').
+
+`C-c C-l'
+     Recenter the window showing output from the inferior TeX so that
+     the last line can be seen (`tex-recenter-output-buffer').
+
+`C-c C-k'
+     Kill the inferior TeX (`tex-kill-job').
+
+`C-c C-p'
+     Print the output from the last `C-c C-r' or `C-c C-b' command
+     (`tex-print').
+
+`C-c C-q'
+     Show the printer queue (`tex-show-print-queue').
+
+   You can pass the current buffer through an inferior TeX using `C-c
+C-b' (`tex-buffer').  The formatted output appears in a file in `/tmp';
+to print it, type `C-c C-p' (`tex-print').  Afterward use `C-c C-q'
+(`tex-show-print-queue') to view the progress of your output towards
+being printed.
+
+   The console output from TeX, including any error messages, appears
+in a buffer called `*TeX-shell*'.  If TeX gets an error, you can switch
+to this buffer and feed it input (this works as in Shell mode; *note
+Interactive Shell::).  Without switching to this buffer, you can scroll
+it so that its last line is visible by typing `C-c C-l'.
+
+   Type `C-c C-k' (`tex-kill-job') to kill the TeX process if you see
+that its output is no longer useful.  Using `C-c C-b' or `C-c C-r' also
+kills any TeX process still running.
+
+   You can pass an arbitrary region through an inferior TeX by typing
+`C-c C-r' (`tex-region').  This is tricky, however, because most files
+of TeX input contain commands at the beginning to set parameters and
+define macros.  Without them, no later part of the file will format
+correctly.  To solve this problem, `C-c C-r' allows you to designate a
+part of the file as containing essential commands; it is included
+before the specified region as part of the input to TeX.  The
+designated part of the file is called the "header".
+
+   To indicate the bounds of the header in Plain TeX mode, insert two
+special strings in the file: `%**start of header' before the header,
+and `%**end of header' after it.  Each string must appear entirely on
+one line, but there may be other text on the line before or after.  The
+lines containing the two strings are included in the header.  If
+`%**start of header' does not appear within the first 100 lines of the
+buffer, `C-c C-r' assumes there is no header.
+
+   In LaTeX mode, the header begins with `\documentstyle' and ends with
+`\begin{document}'.  These are commands that LaTeX requires you to use,
+so you don't need to do anything special to identify the header.
+
+   When you enter either kind of TeX mode, Emacs calls with no
+arguments the value of the variable `text-mode-hook', if that value
+exists and is not `nil'.  Emacs then calls the variable `TeX-mode-hook'
+and either `plain-TeX-mode-hook' or `LaTeX-mode-hook' under the same
+conditions.
+
+
+File: xemacs.info,  Node: Outline Mode,  Prev: TeX Mode,  Up: Text Mode
+
+Outline Mode
+------------
+
+   Outline mode is a major mode similar to Text mode but intended for
+editing outlines.  It allows you to make parts of the text temporarily
+invisible so that you can see just the overall structure of the
+outline.  Type `M-x outline-mode' to turn on Outline mode in the
+current buffer.
+
+   When you enter Outline mode, Emacs calls with no arguments the value
+of the variable `text-mode-hook', if that value exists and is not
+`nil'; then it does the same with the variable `outline-mode-hook'.
+
+   When a line is invisible in outline mode, it does not appear on the
+screen.  The screen appears exactly as if the invisible line were
+deleted, except that an ellipsis (three periods in a row) appears at
+the end of the previous visible line (only one ellipsis no matter how
+many invisible lines follow).
+
+   All editing commands treat the text of the invisible line as part of
+the previous visible line.  For example, `C-n' moves onto the next
+visible line.  Killing an entire visible line, including its
+terminating newline, really kills all the following invisible lines as
+well; yanking everything back yanks the invisible lines and they remain
+invisible.
+
+* Menu:
+
+* Format: Outline Format.	  What the text of an outline looks like.
+* Motion: Outline Motion.	  Special commands for moving through outlines.
+* Visibility: Outline Visibility. Commands to control what is visible.
+

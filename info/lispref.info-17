@@ -1,0 +1,1312 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Interactive Call,  Next: Command Loop Info,  Prev: Defining Commands,  Up: Command Loop
+
+Interactive Call
+================
+
+   After the command loop has translated a key sequence into a
+definition, it invokes that definition using the function
+`command-execute'.  If the definition is a function that is a command,
+`command-execute' calls `call-interactively', which reads the arguments
+and calls the command.  You can also call these functions yourself.
+
+ - Function: commandp object
+     Returns `t' if OBJECT is suitable for calling interactively; that
+     is, if OBJECT is a command.  Otherwise, returns `nil'.
+
+     The interactively callable objects include strings and vectors
+     (treated as keyboard macros), lambda expressions that contain a
+     top-level call to `interactive', compiled-function objects made
+     from such lambda expressions, autoload objects that are declared
+     as interactive (non-`nil' fourth argument to `autoload'), and some
+     of the primitive functions.
+
+     A symbol is `commandp' if its function definition is `commandp'.
+
+     Keys and keymaps are not commands.  Rather, they are used to look
+     up commands (*note Keymaps::).
+
+     See `documentation' in *Note Accessing Documentation::, for a
+     realistic example of using `commandp'.
+
+ - Function: call-interactively command &optional record-flag
+     This function calls the interactively callable function COMMAND,
+     reading arguments according to its interactive calling
+     specifications.  An error is signaled if COMMAND is not a function
+     or if it cannot be called interactively (i.e., is not a command).
+     Note that keyboard macros (strings and vectors) are not accepted,
+     even though they are considered commands, because they are not
+     functions.
+
+     If RECORD-FLAG is the symbol `lambda', the interactive calling
+     arguments for `command' are read and returned as a list, but the
+     function is not called on them.
+
+     If RECORD-FLAG is `t', then this command and its arguments are
+     unconditionally added to the list `command-history'.  Otherwise,
+     the command is added only if it uses the minibuffer to read an
+     argument.  *Note Command History::.
+
+ - Function: command-execute command &optional record-flag
+     This function executes COMMAND as an editing command.  The
+     argument COMMAND must satisfy the `commandp' predicate; i.e., it
+     must be an interactively callable function or a keyboard macro.
+
+     A string or vector as COMMAND is executed with
+     `execute-kbd-macro'.  A function is passed to
+     `call-interactively', along with the optional RECORD-FLAG.
+
+     A symbol is handled by using its function definition in its place.
+     A symbol with an `autoload' definition counts as a command if it
+     was declared to stand for an interactively callable function.
+     Such a definition is handled by loading the specified library and
+     then rechecking the definition of the symbol.
+
+ - Command: execute-extended-command prefix-argument
+     This function reads a command name from the minibuffer using
+     `completing-read' (*note Completion::).  Then it uses
+     `command-execute' to call the specified command.  Whatever that
+     command returns becomes the value of `execute-extended-command'.
+
+     If the command asks for a prefix argument, it receives the value
+     PREFIX-ARGUMENT.  If `execute-extended-command' is called
+     interactively, the current raw prefix argument is used for
+     PREFIX-ARGUMENT, and thus passed on to whatever command is run.
+
+     `execute-extended-command' is the normal definition of `M-x', so
+     it uses the string `M-x ' as a prompt.  (It would be better to
+     take the prompt from the events used to invoke
+     `execute-extended-command', but that is painful to implement.)  A
+     description of the value of the prefix argument, if any, also
+     becomes part of the prompt.
+
+          (execute-extended-command 1)
+          ---------- Buffer: Minibuffer ----------
+          1 M-x forward-word RET
+          ---------- Buffer: Minibuffer ----------
+               => t
+
+ - Function: interactive-p
+     This function returns `t' if the containing function (the one that
+     called `interactive-p') was called interactively, with the function
+     `call-interactively'.  (It makes no difference whether
+     `call-interactively' was called from Lisp or directly from the
+     editor command loop.)  If the containing function was called by
+     Lisp evaluation (or with `apply' or `funcall'), then it was not
+     called interactively.
+
+     The most common use of `interactive-p' is for deciding whether to
+     print an informative message.  As a special exception,
+     `interactive-p' returns `nil' whenever a keyboard macro is being
+     run.  This is to suppress the informative messages and speed
+     execution of the macro.
+
+     For example:
+
+          (defun foo ()
+            (interactive)
+            (and (interactive-p)
+                 (message "foo")))
+               => foo
+          
+          (defun bar ()
+            (interactive)
+            (setq foobar (list (foo) (interactive-p))))
+               => bar
+          
+          ;; Type `M-x foo'.
+               -| foo
+          
+          ;; Type `M-x bar'.
+          ;; This does not print anything.
+          
+          foobar
+               => (nil t)
+
+
+File: lispref.info,  Node: Command Loop Info,  Next: Events,  Prev: Interactive Call,  Up: Command Loop
+
+Information from the Command Loop
+=================================
+
+   The editor command loop sets several Lisp variables to keep status
+records for itself and for commands that are run.
+
+ - Variable: last-command
+     This variable records the name of the previous command executed by
+     the command loop (the one before the current command).  Normally
+     the value is a symbol with a function definition, but this is not
+     guaranteed.
+
+     The value is copied from `this-command' when a command returns to
+     the command loop, except when the command specifies a prefix
+     argument for the following command.
+
+ - Variable: this-command
+     This variable records the name of the command now being executed by
+     the editor command loop.  Like `last-command', it is normally a
+     symbol with a function definition.
+
+     The command loop sets this variable just before running a command,
+     and copies its value into `last-command' when the command finishes
+     (unless the command specifies a prefix argument for the following
+     command).
+
+     Some commands set this variable during their execution, as a flag
+     for whatever command runs next.  In particular, the functions for
+     killing text set `this-command' to `kill-region' so that any kill
+     commands immediately following will know to append the killed text
+     to the previous kill.
+
+   If you do not want a particular command to be recognized as the
+previous command in the case where it got an error, you must code that
+command to prevent this.  One way is to set `this-command' to `t' at the
+beginning of the command, and set `this-command' back to its proper
+value at the end, like this:
+
+     (defun foo (args...)
+       (interactive ...)
+       (let ((old-this-command this-command))
+         (setq this-command t)
+         ...do the work...
+         (setq this-command old-this-command)))
+
+ - Function: this-command-keys
+     This function returns a vector containing the key and mouse events
+     that invoked the present command, plus any previous commands that
+     generated the prefix argument for this command. (Note: this is not
+     the same as in FSF Emacs, which can return a string.)  *Note
+     Events::.
+
+     This function copies the vector and the events; it is safe to keep
+     and modify them.
+
+          (this-command-keys)
+          ;; Now use `C-u C-x C-e' to evaluate that.
+               => [#<keypress-event control-U> #<keypress-event control-X> #<keypress-event control-E>]
+
+ - Variable: last-command-event
+     This variable is set to the last input event that was read by the
+     command loop as part of a command.  The principal use of this
+     variable is in `self-insert-command', which uses it to decide which
+     character to insert.
+
+     This variable is off limits: you may not set its value or modify
+     the event that is its value, as it is destructively modified by
+     `read-key-sequence'.  If you want to keep a pointer to this value,
+     you must use `copy-event'.
+
+     Note that this variable is an alias for `last-command-char' in FSF
+     Emacs.
+
+          last-command-event
+          ;; Now type `C-u C-x C-e'.
+               => #<keypress-event control-E>
+
+ - Variable: last-command-char
+     If the value of `last-command-event' is a keyboard event, then this
+     is the nearest character equivalent to it (or `nil' if there is no
+     character equivalent).  `last-command-char' is the character that
+     `self-insert-command' will insert in the buffer.  Remember that
+     there is _not_ a one-to-one mapping between keyboard events and
+     XEmacs characters: many keyboard events have no corresponding
+     character, and when the Mule feature is available, most characters
+     can not be input on standard keyboards, except possibly with help
+     from an input method.  So writing code that examines this variable
+     to determine what key has been typed is bad practice, unless you
+     are certain that it will be one of a small set of characters.
+
+     This variable exists for compatibility with Emacs version 18.
+
+          last-command-char
+          ;; Now use `C-u C-x C-e' to evaluate that.
+               => ?\^E
+
+
+ - Variable: current-mouse-event
+     This variable holds the mouse-button event which invoked this
+     command, or `nil'.  This is what `(interactive "e")' returns.
+
+ - Variable: echo-keystrokes
+     This variable determines how much time should elapse before command
+     characters echo.  Its value must be an integer, which specifies the
+     number of seconds to wait before echoing.  If the user types a
+     prefix key (say `C-x') and then delays this many seconds before
+     continuing, the key `C-x' is echoed in the echo area.  Any
+     subsequent characters in the same command will be echoed as well.
+
+     If the value is zero, then command input is not echoed.
+
+
+File: lispref.info,  Node: Events,  Next: Reading Input,  Prev: Command Loop Info,  Up: Command Loop
+
+Events
+======
+
+   The XEmacs command loop reads a sequence of "events" that represent
+keyboard or mouse activity.  Unlike in Emacs 18 and in FSF Emacs,
+events are a primitive Lisp type that must be manipulated using their
+own accessor and settor primitives.  This section describes the
+representation and meaning of input events in detail.
+
+   A key sequence that starts with a mouse event is read using the
+keymaps of the buffer in the window that the mouse was in, not the
+current buffer.  This does not imply that clicking in a window selects
+that window or its buffer--that is entirely under the control of the
+command binding of the key sequence.
+
+   For information about how exactly the XEmacs command loop works,
+*Note Reading Input::.
+
+ - Function: eventp object
+     This function returns non-`nil' if EVENT is an input event.
+
+* Menu:
+
+* Event Types::			Events come in different types.
+* Event Contents::		What the contents of each event type are.
+* Event Predicates::		Querying whether an event is of a
+				  particular type.
+* Accessing Mouse Event Positions::
+				Determining where a mouse event occurred,
+				  and over what.
+* Accessing Other Event Info::  Accessing non-positional event info.
+* Working With Events::		Creating, copying, and destroying events.
+* Converting Events::		Converting between events, keys, and
+				  characters.
+
+
+File: lispref.info,  Node: Event Types,  Next: Event Contents,  Up: Events
+
+Event Types
+-----------
+
+   Events represent keyboard or mouse activity or status changes of
+various sorts, such as process input being available or a timeout being
+triggered.  The different event types are as follows:
+
+key-press event
+     A key was pressed.  Note that modifier keys such as "control",
+     "shift", and "alt" do not generate events; instead, they are
+     tracked internally by XEmacs, and non-modifier key presses
+     generate events that specify both the key pressed and the
+     modifiers that were held down at the time.
+
+button-press event
+button-release event
+     A button was pressed or released.  Along with the button that was
+     pressed or released, button events specify the modifier keys that
+     were held down at the time and the position of the pointer at the
+     time.
+
+motion event
+     The pointer was moved.  Along with the position of the pointer,
+     these events also specify the modifier keys that were held down at
+     the time.
+
+misc-user event
+     A menu item was selected, the scrollbar was used, or a drag or a
+     drop occurred.
+
+process event
+     Input is available on a process.
+
+timeout event
+     A timeout has triggered.
+
+magic event
+     Some window-system-specific action (such as a frame being resized
+     or a portion of a frame needing to be redrawn) has occurred.  The
+     contents of this event are not accessible at the E-Lisp level, but
+     `dispatch-event' knows what to do with an event of this type.
+
+eval event
+     This is a special kind of event specifying that a particular
+     function needs to be called when this event is dispatched.  An
+     event of this type is sometimes placed in the event queue when a
+     magic event is processed.  This kind of event should generally
+     just be passed off to `dispatch-event'.  *Note Dispatching an
+     Event::.
+
+
+File: lispref.info,  Node: Event Contents,  Next: Event Predicates,  Prev: Event Types,  Up: Events
+
+Contents of the Different Types of Events
+-----------------------------------------
+
+   Every event, no matter what type it is, contains a timestamp (which
+is typically an offset in milliseconds from when the X server was
+started) indicating when the event occurred.  In addition, many events
+contain a "channel", which specifies which frame the event occurred on,
+and/or a value indicating which modifier keys (shift, control, etc.)
+were held down at the time of the event.
+
+   The contents of each event are as follows:
+
+key-press event
+
+    channel
+
+    timestamp
+
+    key
+          Which key was pressed.  This is an integer (in the printing
+          ASCII range: >32 and <127) or a symbol such as `left' or
+          `right'.  Note that many physical keys are actually treated
+          as two separate keys, depending on whether the shift key is
+          pressed; for example, the "a" key is treated as either "a" or
+          "A" depending on the state of the shift key, and the "1" key
+          is similarly treated as either "1" or "!" on most keyboards.
+          In such cases, the shift key does not show up in the modifier
+          list.  For other keys, such as `backspace', the shift key
+          shows up as a regular modifier.
+
+    modifiers
+          Which modifier keys were pressed.  As mentioned above, the
+          shift key is not treated as a modifier for many keys and will
+          not show up in this list in such cases.
+
+button-press event
+button-release event
+
+    channel
+
+    timestamp
+
+    button
+          What button went down or up.  Buttons are numbered starting
+          at 1.
+
+    modifiers
+          Which modifier keys were pressed.  The special business
+          mentioned above for the shift key does _not_ apply to mouse
+          events.
+
+    x
+    y
+          The position of the pointer (in pixels) at the time of the
+          event.
+
+pointer-motion event
+
+    channel
+
+    timestamp
+
+    x
+    y
+          The position of the pointer (in pixels) after it moved.
+
+    modifiers
+          Which modifier keys were pressed.  The special business
+          mentioned above for the shift key does _not_ apply to mouse
+          events.
+
+misc-user event
+
+    timestamp
+
+    function
+          The E-Lisp function to call for this event.  This is normally
+          either `eval' or `call-interactively'.
+
+    object
+          The object to pass to the function.  This is normally the
+          callback that was specified in the menu description.
+
+    button
+          What button went down or up.  Buttons are numbered starting
+          at 1.
+
+    modifiers
+          Which modifier keys were pressed.  The special business
+          mentioned above for the shift key does _not_ apply to mouse
+          events.
+
+    x
+    y
+          The position of the pointer (in pixels) at the time of the
+          event.
+
+process_event
+
+    timestamp
+
+    process
+          The Emacs "process" object in question.
+
+timeout event
+
+    timestamp
+
+    function
+          The E-Lisp function to call for this timeout.  It is called
+          with one argument, the event.
+
+    object
+          Some Lisp object associated with this timeout, to make it
+          easier to tell them apart.  The function and object for this
+          event were specified when the timeout was set.
+
+magic event
+
+    timestamp
+     (The rest of the information in this event is not user-accessible.)
+
+eval event
+
+    timestamp
+
+    function
+          An E-Lisp function to call when this event is dispatched.
+
+    object
+          The object to pass to the function.  The function and object
+          are set when the event is created.
+
+ - Function: event-type event
+     Return the type of EVENT.
+
+     This will be a symbol; one of
+
+    `key-press'
+          A key was pressed.
+
+    `button-press'
+          A mouse button was pressed.
+
+    `button-release'
+          A mouse button was released.
+
+    `motion'
+          The mouse moved.
+
+    `misc-user'
+          Some other user action happened; typically, this is a menu
+          selection, scrollbar action, or drag and drop action.
+
+    `process'
+          Input is available from a subprocess.
+
+    `timeout'
+          A timeout has expired.
+
+    `eval'
+          This causes a specified action to occur when dispatched.
+
+    `magic'
+          Some window-system-specific event has occurred.
+
+
+File: lispref.info,  Node: Event Predicates,  Next: Accessing Mouse Event Positions,  Prev: Event Contents,  Up: Events
+
+Event Predicates
+----------------
+
+   The following predicates return whether an object is an event of a
+particular type.
+
+ - Function: key-press-event-p object
+     This is true if OBJECT is a key-press event.
+
+ - Function: button-event-p object object
+     This is true if OBJECT is a mouse button-press or button-release
+     event.
+
+ - Function: button-press-event-p object
+     This is true if OBJECT is a mouse button-press event.
+
+ - Function: button-release-event-p object
+     This is true if OBJECT is a mouse button-release event.
+
+ - Function: motion-event-p object
+     This is true if OBJECT is a mouse motion event.
+
+ - Function: mouse-event-p object
+     This is true if OBJECT is a mouse button-press, button-release or
+     motion event.
+
+ - Function: eval-event-p object
+     This is true if OBJECT is an eval event.
+
+ - Function: misc-user-event-p object
+     This is true if OBJECT is a misc-user event.
+
+ - Function: process-event-p object
+     This is true if OBJECT is a process event.
+
+ - Function: timeout-event-p object
+     This is true if OBJECT is a timeout event.
+
+ - Function: event-live-p object
+     This is true if OBJECT is any event that has not been deallocated.
+
+
+File: lispref.info,  Node: Accessing Mouse Event Positions,  Next: Accessing Other Event Info,  Prev: Event Predicates,  Up: Events
+
+Accessing the Position of a Mouse Event
+---------------------------------------
+
+   Unlike other events, mouse events (i.e. motion, button-press,
+button-release, and drag or drop type misc-user events) occur in a
+particular location on the screen. Many primitives are provided for
+determining exactly where the event occurred and what is under that
+location.
+
+* Menu:
+
+* Frame-Level Event Position Info::
+* Window-Level Event Position Info::
+* Event Text Position Info::
+* Event Glyph Position Info::
+* Event Toolbar Position Info::
+* Other Event Position Info::
+
+
+File: lispref.info,  Node: Frame-Level Event Position Info,  Next: Window-Level Event Position Info,  Up: Accessing Mouse Event Positions
+
+Frame-Level Event Position Info
+...............................
+
+   The following functions return frame-level information about where a
+mouse event occurred.
+
+ - Function: event-frame event
+     This function returns the "channel" or frame that the given mouse
+     motion, button press, button release, or misc-user event occurred
+     in.  This will be `nil' for non-mouse events.
+
+ - Function: event-x-pixel event
+     This function returns the X position in pixels of the given mouse
+     event.  The value returned is relative to the frame the event
+     occurred in.  This will signal an error if the event is not a
+     mouse event.
+
+ - Function: event-y-pixel event
+     This function returns the Y position in pixels of the given mouse
+     event.  The value returned is relative to the frame the event
+     occurred in.  This will signal an error if the event is not a
+     mouse event.
+
+
+File: lispref.info,  Node: Window-Level Event Position Info,  Next: Event Text Position Info,  Prev: Frame-Level Event Position Info,  Up: Accessing Mouse Event Positions
+
+Window-Level Event Position Info
+................................
+
+   The following functions return window-level information about where
+a mouse event occurred.
+
+ - Function: event-window event
+     Given a mouse motion, button press, button release, or misc-user
+     event, compute and return the window on which that event occurred.
+     This may be `nil' if the event occurred in the border or over a
+     toolbar.  The modeline is considered to be within the window it
+     describes.
+
+ - Function: event-buffer event
+     Given a mouse motion, button press, button release, or misc-user
+     event, compute and return the buffer of the window on which that
+     event occurred.  This may be `nil' if the event occurred in the
+     border or over a toolbar.  The modeline is considered to be within
+     the window it describes.  This is equivalent to calling
+     `event-window' and then calling `window-buffer' on the result if
+     it is a window.
+
+ - Function: event-window-x-pixel event
+     This function returns the X position in pixels of the given mouse
+     event.  The value returned is relative to the window the event
+     occurred in.  This will signal an error if the event is not a
+     mouse-motion, button-press, button-release, or misc-user event.
+
+ - Function: event-window-y-pixel event
+     This function returns the Y position in pixels of the given mouse
+     event.  The value returned is relative to the window the event
+     occurred in.  This will signal an error if the event is not a
+     mouse-motion, button-press, button-release, or misc-user event.
+
+
+File: lispref.info,  Node: Event Text Position Info,  Next: Event Glyph Position Info,  Prev: Window-Level Event Position Info,  Up: Accessing Mouse Event Positions
+
+Event Text Position Info
+........................
+
+   The following functions return information about the text (including
+the modeline) that a mouse event occurred over or near.
+
+ - Function: event-over-text-area-p event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event, this function returns `t' if the event is over the text
+     area of a window.  Otherwise, `nil' is returned.  The modeline is
+     not considered to be part of the text area.
+
+ - Function: event-over-modeline-p event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event, this function returns `t' if the event is over the modeline
+     of a window.  Otherwise, `nil' is returned.
+
+ - Function: event-x event
+     This function returns the X position of the given mouse-motion,
+     button-press, button-release, or misc-user event in characters.
+     This is relative to the window the event occurred over.
+
+ - Function: event-y event
+     This function returns the Y position of the given mouse-motion,
+     button-press, button-release, or misc-user event in characters.
+     This is relative to the window the event occurred over.
+
+ - Function: event-point event
+     This function returns the character position of the given
+     mouse-motion, button-press, button-release, or misc-user event.
+     If the event did not occur over a window, or did not occur over
+     text, then this returns `nil'.  Otherwise, it returns an index
+     into the buffer visible in the event's window.
+
+ - Function: event-closest-point event
+     This function returns the character position of the given
+     mouse-motion, button-press, button-release, or misc-user event.
+     If the event did not occur over a window or over text, it returns
+     the closest point to the location of the event.  If the Y pixel
+     position overlaps a window and the X pixel position is to the left
+     of that window, the closest point is the beginning of the line
+     containing the Y position.  If the Y pixel position overlaps a
+     window and the X pixel position is to the right of that window,
+     the closest point is the end of the line containing the Y
+     position.  If the Y pixel position is above a window, 0 is
+     returned.  If it is below a window, the value of `(window-end)' is
+     returned.
+
+
+File: lispref.info,  Node: Event Glyph Position Info,  Next: Event Toolbar Position Info,  Prev: Event Text Position Info,  Up: Accessing Mouse Event Positions
+
+Event Glyph Position Info
+.........................
+
+   The following functions return information about the glyph (if any)
+that a mouse event occurred over.
+
+ - Function: event-over-glyph-p event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event, this function returns `t' if the event is over a glyph.
+     Otherwise, `nil' is returned.
+
+ - Function: event-glyph-extent event
+     If the given mouse-motion, button-press, button-release, or
+     misc-user event happened on top of a glyph, this returns its
+     extent; else `nil' is returned.
+
+ - Function: event-glyph-x-pixel event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event over a glyph, this function returns the X position of the
+     pointer relative to the upper left of the glyph.  If the event is
+     not over a glyph, it returns `nil'.
+
+ - Function: event-glyph-y-pixel event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event over a glyph, this function returns the Y position of the
+     pointer relative to the upper left of the glyph.  If the event is
+     not over a glyph, it returns `nil'.
+
+
+File: lispref.info,  Node: Event Toolbar Position Info,  Next: Other Event Position Info,  Prev: Event Glyph Position Info,  Up: Accessing Mouse Event Positions
+
+Event Toolbar Position Info
+...........................
+
+ - Function: event-over-toolbar-p event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event, this function returns `t' if the event is over a toolbar.
+     Otherwise, `nil' is returned.
+
+ - Function: event-toolbar-button event
+     If the given mouse-motion, button-press, button-release, or
+     misc-user event happened on top of a toolbar button, this function
+     returns the button.  Otherwise, `nil' is returned.
+
+
+File: lispref.info,  Node: Other Event Position Info,  Prev: Event Toolbar Position Info,  Up: Accessing Mouse Event Positions
+
+Other Event Position Info
+.........................
+
+ - Function: event-over-border-p event
+     Given a mouse-motion, button-press, button-release, or misc-user
+     event, this function returns `t' if the event is over an internal
+     toolbar.  Otherwise, `nil' is returned.
+
+
+File: lispref.info,  Node: Accessing Other Event Info,  Next: Working With Events,  Prev: Accessing Mouse Event Positions,  Up: Events
+
+Accessing the Other Contents of Events
+--------------------------------------
+
+   The following functions allow access to the contents of events other
+than the position info described in the previous section.
+
+ - Function: event-timestamp event
+     This function returns the timestamp of the given event object.
+
+ - Function: event-device event
+     This function returns the device that the given event occurred on.
+
+ - Function: event-key event
+     This function returns the Keysym of the given key-press event.
+     This will be the ASCII code of a printing character, or a symbol.
+
+ - Function: event-button event
+     This function returns the button-number of the given button-press
+     or button-release event.
+
+ - Function: event-modifiers event
+     This function returns a list of symbols, the names of the modifier
+     keys which were down when the given mouse or keyboard event was
+     produced.
+
+ - Function: event-modifier-bits event
+     This function returns a number representing the modifier keys
+     which were down when the given mouse or keyboard event was
+     produced.
+
+ - Function: event-function event
+     This function returns the callback function of the given timeout,
+     misc-user, or eval event.
+
+ - Function: event-object event
+     This function returns the callback function argument of the given
+     timeout, misc-user, or eval event.
+
+ - Function: event-process event
+     This function returns the process of the given process event.
+
+
+File: lispref.info,  Node: Working With Events,  Next: Converting Events,  Prev: Accessing Other Event Info,  Up: Events
+
+Working With Events
+-------------------
+
+   XEmacs provides primitives for creating, copying, and destroying
+event objects.  Many functions that return events take an event object
+as an argument and fill in the fields of this event; or they make accept
+either an event object or `nil', creating the event object first in the
+latter case.
+
+ - Function: make-event &optional type plist
+     This function creates a new event structure.  If no arguments are
+     specified, the created event will be empty.  To specify the event
+     type, use the TYPE argument.  The allowed types are `empty',
+     `key-press', `button-press', `button-release', `motion', or
+     `misc-user'.
+
+     PLIST is a property list, the properties being compatible to those
+     returned by `event-properties'.  For events other than `empty', it
+     is mandatory to specify certain properties.  For `empty' events,
+     PLIST must be `nil'.  The list is "canonicalized", which means
+     that if a property keyword is present more than once, only the
+     first instance is taken into account.  Specifying an unknown or
+     illegal property signals an error.
+
+     The following properties are allowed:
+
+    `channel'
+          The event channel.  This is a frame or a console.  For mouse
+          events (of type `button-press', `button-release' and
+          `motion'), this must be a frame.  For key-press events, it
+          must be a console.  If channel is unspecified by PLIST, it
+          will be set to the selected frame or selected console, as
+          appropriate.
+
+    `key'
+          The event key.  This is either a symbol or a character.  It
+          is allowed (and required) only for key-press events.
+
+    `button'
+          The event button.  This an integer, either 1, 2 or 3.  It is
+          allowed only for button-press and button-release events.
+
+    `modifiers'
+          The event modifiers.  This is a list of modifier symbols.  It
+          is allowed for key-press, button-press, button-release and
+          motion events.
+
+    `x'
+          The event X coordinate.  This is an integer.  It is relative
+          to the channel's root window, and is allowed for
+          button-press, button-release and motion events.
+
+    `y'
+          The event Y coordinate.  This is an integer.  It is relative
+          to the channel's root window, and is allowed for
+          button-press, button-release and motion events.  This means
+          that, for instance, to access the toolbar, the `y' property
+          will have to be negative.
+
+    `timestamp'
+          The event timestamp, a non-negative integer.  Allowed for all
+          types of events.
+
+     _WARNING_: the event object returned by this function may be a
+     reused one; see the function `deallocate-event'.
+
+     The events created by `make-event' can be used as non-interactive
+     arguments to the functions with an `(interactive "e")'
+     specification.
+
+     Here are some basic examples of usage:
+
+          ;; Create an empty event.
+          (make-event)
+               => #<empty-event>
+          
+          ;; Try creating a key-press event.
+          (make-event 'key-press)
+               error--> Undefined key for keypress event
+          
+          ;; Creating a key-press event, try 2
+          (make-event 'key-press '(key home))
+               => #<keypress-event home>
+          
+          ;; Create a key-press event of dubious fame.
+          (make-event 'key-press '(key escape modifiers (meta alt control shift)))
+               => #<keypress-event control-meta-alt-shift-escape>
+          
+          ;; Create a M-button1 event at coordinates defined by variables
+          ;; X and Y.
+          (make-event 'button-press `(button 1 modifiers (meta) x ,x y ,y))
+               => #<buttondown-event meta-button1>
+          
+          ;; Create a similar button-release event.
+          (make-event 'button-release `(button 1 modifiers (meta) x ,x y ,x))
+               => #<buttonup-event meta-button1up>
+          
+          ;; Create a mouse-motion event.
+          (make-event 'motion '(x 20 y 30))
+               => #<motion-event 20, 30>
+          
+          (event-properties (make-event 'motion '(x 20 y 30)))
+               => (channel #<x-frame "emacs" 0x8e2> x 20 y 30
+                   modifiers nil timestamp 0)
+
+     In conjunction with `event-properties', you can use `make-event'
+     to create modified copies of existing events.  For instance, the
+     following code will return an `equal' copy of EVENT:
+
+          (make-event (event-type EVENT)
+                      (event-properties EVENT))
+
+     Note, however, that you cannot use `make-event' as the generic
+     replacement for `copy-event', because it does not allow creating
+     all of the event types.
+
+     To create a modified copy of an event, you can use the
+     canonicalization feature of PLIST.  The following example creates
+     a copy of EVENT, but with `modifiers' reset to `nil'.
+
+          (make-event (event-type EVENT)
+                      (append '(modifiers nil)
+                              (event-properties EVENT)))
+
+ - Function: copy-event event1 &optional event2
+     This function makes a copy of the given event object.  If a second
+     argument is given, the first event is copied into the second and
+     the second is returned.  If the second argument is not supplied
+     (or is `nil') then a new event will be made.
+
+ - Function: deallocate-event event
+     This function allows the given event structure to be reused.  You
+     *MUST NOT* use this event object after calling this function with
+     it.  You will lose.  It is not necessary to call this function, as
+     event objects are garbage-collected like all other objects;
+     however, it may be more efficient to explicitly deallocate events
+     when you are sure that that is safe.
+
+
+File: lispref.info,  Node: Converting Events,  Prev: Working With Events,  Up: Events
+
+Converting Events
+-----------------
+
+   XEmacs provides some auxiliary functions for converting between
+events and other ways of representing keys.  These are useful when
+working with ASCII strings and with keymaps.
+
+ - Function: character-to-event ch &optional event device
+     This function converts a numeric ASCII value to an event structure,
+     replete with modifier bits.  CH is the character to convert, and
+     EVENT is the event object to fill in.  This function contains
+     knowledge about what the codes "mean"--for example, the number 9 is
+     converted to the character <Tab>, not the distinct character
+     <Control-I>.
+
+     Note that CH does not have to be a numeric value, but can be a
+     symbol such as `clear' or a list such as `(control backspace)'.
+
+     If `event' is not `nil', it is modified; otherwise, a new event
+     object is created.  In both cases, the event is returned.
+
+     Optional third arg DEVICE is the device to store in the event;
+     this also affects whether the high bit is interpreted as a meta
+     key.  A value of `nil' means use the selected device but always
+     treat the high bit as meta.
+
+     Beware that `character-to-event' and `event-to-character' are not
+     strictly inverse functions, since events contain much more
+     information than the ASCII character set can encode.
+
+ - Function: event-to-character event &optional allow-extra-modifiers
+          allow-meta allow-non-ascii
+     This function returns the closest ASCII approximation to EVENT.
+     If the event isn't a keypress, this returns `nil'.
+
+     If ALLOW-EXTRA-MODIFIERS is non-`nil', then this is lenient in its
+     translation; it will ignore modifier keys other than <control> and
+     <meta>, and will ignore the <shift> modifier on those characters
+     which have no shifted ASCII equivalent (<Control-Shift-A> for
+     example, will be mapped to the same ASCII code as <Control-A>).
+
+     If ALLOW-META is non-`nil', then the <Meta> modifier will be
+     represented by turning on the high bit of the byte returned;
+     otherwise, `nil' will be returned for events containing the <Meta>
+     modifier.
+
+     If ALLOW-NON-ASCII is non-`nil', then characters which are present
+     in the prevailing character set (*note variable
+     `character-set-property': Keymaps.) will be returned as their code
+     in that character set, instead of the return value being
+     restricted to ASCII.
+
+     Note that specifying both ALLOW-META and ALLOW-NON-ASCII is
+     ambiguous, as both use the high bit; <M-x> and <oslash> will be
+     indistinguishable.
+
+ - Function: events-to-keys events &optional no-mice
+     Given a vector of event objects, this function returns a vector of
+     key descriptors, or a string (if they all fit in the ASCII range).
+     Optional arg NO-MICE means that button events are not allowed.
+
+
+File: lispref.info,  Node: Reading Input,  Next: Waiting,  Prev: Events,  Up: Command Loop
+
+Reading Input
+=============
+
+   The editor command loop reads keyboard input using the function
+`next-event' and constructs key sequences out of the events using
+`dispatch-event'.  Lisp programs can also use the function
+`read-key-sequence', which reads input a key sequence at a time.  See
+also `momentary-string-display' in *Note Temporary Displays::, and
+`sit-for' in *Note Waiting::.  *Note Terminal Input::, for functions
+and variables for controlling terminal input modes and debugging
+terminal input.
+
+   For higher-level input facilities, see *Note Minibuffers::.
+
+* Menu:
+
+* Key Sequence Input::		How to read one key sequence.
+* Reading One Event::		How to read just one event.
+* Dispatching an Event::        What to do with an event once it has been read.
+* Quoted Character Input::	Asking the user to specify a character.
+* Peeking and Discarding::    	How to reread or throw away input events.
+
+
+File: lispref.info,  Node: Key Sequence Input,  Next: Reading One Event,  Up: Reading Input
+
+Key Sequence Input
+------------------
+
+   Lisp programs can read input a key sequence at a time by calling
+`read-key-sequence'; for example, `describe-key' uses it to read the
+key to describe.
+
+ - Function: read-key-sequence prompt
+     This function reads a sequence of keystrokes or mouse clicks and
+     returns it as a vector of events.  It keeps reading events until
+     it has accumulated a full key sequence; that is, enough to specify
+     a non-prefix command using the currently active keymaps.
+
+     The vector and the event objects it contains are freshly created,
+     and will not be side-effected by subsequent calls to this function.
+
+     The function `read-key-sequence' suppresses quitting: `C-g' typed
+     while reading with this function works like any other character,
+     and does not set `quit-flag'.  *Note Quitting::.
+
+     The argument PROMPT is either a string to be displayed in the echo
+     area as a prompt, or `nil', meaning not to display a prompt.
+
+     If the user selects a menu item while we are prompting for a key
+     sequence, the returned value will be a vector of a single
+     menu-selection event (a misc-user event).  An error will be
+     signalled if you pass this value to `lookup-key' or a related
+     function.
+
+     In the example below, the prompt `?' is displayed in the echo area,
+     and the user types `C-x C-f'.
+
+          (read-key-sequence "?")
+          
+          ---------- Echo Area ----------
+          ?C-x C-f
+          ---------- Echo Area ----------
+          
+               => [#<keypress-event control-X> #<keypress-event control-F>]
+
+   If an input character is an upper-case letter and has no key binding,
+but its lower-case equivalent has one, then `read-key-sequence'
+converts the character to lower case.  Note that `lookup-key' does not
+perform case conversion in this way.
+
+
+File: lispref.info,  Node: Reading One Event,  Next: Dispatching an Event,  Prev: Key Sequence Input,  Up: Reading Input
+
+Reading One Event
+-----------------
+
+   The lowest level functions for command input are those which read a
+single event.  These functions often make a distinction between
+"command events", which are user actions (keystrokes and mouse
+actions), and other events, which serve as communication between XEmacs
+and the window system.
+
+ - Function: next-event &optional event prompt
+     This function reads and returns the next available event from the
+     window system or terminal driver, waiting if necessary until an
+     event is available.  Pass this object to `dispatch-event' to
+     handle it. If an event object is supplied, it is filled in and
+     returned; otherwise a new event object will be created.
+
+     Events can come directly from the user, from a keyboard macro, or
+     from `unread-command-events'.
+
+     In most cases, the function `next-command-event' is more
+     appropriate.
+
+ - Function: next-command-event &optional event
+     This function returns the next available "user" event from the
+     window system or terminal driver.  Pass this object to
+     `dispatch-event' to handle it.  If an event object is supplied, it
+     is filled in and returned, otherwise a new event object will be
+     created.
+
+     The event returned will be a keyboard, mouse press, or mouse
+     release event.  If there are non-command events available (mouse
+     motion, sub-process output, etc) then these will be executed (with
+     `dispatch-event') and discarded.  This function is provided as a
+     convenience; it is equivalent to the Lisp code
+
+                  (while (progn
+                           (next-event event)
+                           (not (or (key-press-event-p event)
+                                    (button-press-event-p event)
+                                    (button-release-event-p event)
+                                    (menu-event-p event))))
+                     (dispatch-event event))
+
+     Here is what happens if you call `next-command-event' and then
+     press the right-arrow function key:
+
+          (next-command-event)
+               => #<keypress-event right>
+
+ - Function: read-char
+     This function reads and returns a character of command input.  If a
+     mouse click is detected, an error is signalled.  The character
+     typed is returned as an ASCII value.  This function is retained for
+     compatibility with Emacs 18, and is most likely the wrong thing
+     for you to be using: consider using `next-command-event' instead.
+
+ - Function: enqueue-eval-event function object
+     This function adds an eval event to the back of the queue.  The
+     eval event will be the next event read after all pending events.
+
+
+File: lispref.info,  Node: Dispatching an Event,  Next: Quoted Character Input,  Prev: Reading One Event,  Up: Reading Input
+
+Dispatching an Event
+--------------------
+
+ - Function: dispatch-event event
+     Given an event object returned by `next-event', this function
+     executes it.  This is the basic function that makes XEmacs respond
+     to user input; it also deals with notifications from the window
+     system (such as Expose events).
+
+
+File: lispref.info,  Node: Quoted Character Input,  Next: Peeking and Discarding,  Prev: Dispatching an Event,  Up: Reading Input
+
+Quoted Character Input
+----------------------
+
+   You can use the function `read-quoted-char' to ask the user to
+specify a character, and allow the user to specify a control or meta
+character conveniently, either literally or as an octal character code.
+The command `quoted-insert' uses this function.
+
+ - Function: read-quoted-char &optional prompt
+     This function is like `read-char', except that if the first
+     character read is an octal digit (0-7), it reads up to two more
+     octal digits (but stopping if a non-octal digit is found) and
+     returns the character represented by those digits in octal.
+
+     Quitting is suppressed when the first character is read, so that
+     the user can enter a `C-g'.  *Note Quitting::.
+
+     If PROMPT is supplied, it specifies a string for prompting the
+     user.  The prompt string is always displayed in the echo area,
+     followed by a single `-'.
+
+     In the following example, the user types in the octal number 177
+     (which is 127 in decimal).
+
+          (read-quoted-char "What character")
+          
+          ---------- Echo Area ----------
+          What character-177
+          ---------- Echo Area ----------
+          
+               => 127
+
+
+File: lispref.info,  Node: Peeking and Discarding,  Prev: Quoted Character Input,  Up: Reading Input
+
+Miscellaneous Event Input Features
+----------------------------------
+
+   This section describes how to "peek ahead" at events without using
+them up, how to check for pending input, and how to discard pending
+input.
+
+   See also the variables `last-command-event' and `last-command-char'
+(*Note Command Loop Info::).
+
+ - Variable: unread-command-events
+     This variable holds a list of events waiting to be read as command
+     input.  The events are used in the order they appear in the list,
+     and removed one by one as they are used.
+
+     The variable is needed because in some cases a function reads a
+     event and then decides not to use it.  Storing the event in this
+     variable causes it to be processed normally, by the command loop
+     or by the functions to read command input.
+
+     For example, the function that implements numeric prefix arguments
+     reads any number of digits.  When it finds a non-digit event, it
+     must unread the event so that it can be read normally by the
+     command loop.  Likewise, incremental search uses this feature to
+     unread events with no special meaning in a search, because these
+     events should exit the search and then execute normally.
+
+
+ - Variable: unread-command-event
+     This variable holds a single event to be read as command input.
+
+     This variable is mostly obsolete now that you can use
+     `unread-command-events' instead; it exists only to support programs
+     written for versions of XEmacs prior to 19.12.
+
+ - Function: input-pending-p
+     This function determines whether any command input is currently
+     available to be read.  It returns immediately, with value `t' if
+     there is available input, `nil' otherwise.  On rare occasions it
+     may return `t' when no input is available.
+
+ - Variable: last-input-event
+     This variable is set to the last keyboard or mouse button event
+     received.
+
+     This variable is off limits: you may not set its value or modify
+     the event that is its value, as it is destructively modified by
+     `read-key-sequence'.  If you want to keep a pointer to this value,
+     you must use `copy-event'.
+
+     Note that this variable is an alias for `last-input-char' in FSF
+     Emacs.
+
+     In the example below, a character is read (the character `1').  It
+     becomes the value of `last-input-event', while `C-e' (from the
+     `C-x C-e' command used to evaluate this expression) remains the
+     value of `last-command-event'.
+
+          (progn (print (next-command-event))
+                 (print last-command-event)
+                 last-input-event)
+               -| #<keypress-event 1>
+               -| #<keypress-event control-E>
+               => #<keypress-event 1>
+
+ - Variable: last-input-char
+     If the value of `last-input-event' is a keyboard event, then this
+     is the nearest ASCII equivalent to it.  Remember that there is
+     _not_ a 1:1 mapping between keyboard events and ASCII characters:
+     the set of keyboard events is much larger, so writing code that
+     examines this variable to determine what key has been typed is bad
+     practice, unless you are certain that it will be one of a small
+     set of characters.
+
+     This function exists for compatibility with Emacs version 18.
+
+ - Function: discard-input
+     This function discards the contents of the terminal input buffer
+     and cancels any keyboard macro that might be in the process of
+     definition.  It returns `nil'.
+
+     In the following example, the user may type a number of characters
+     right after starting the evaluation of the form.  After the
+     `sleep-for' finishes sleeping, `discard-input' discards any
+     characters typed during the sleep.
+
+          (progn (sleep-for 2)
+                 (discard-input))
+               => nil
+
