@@ -1,5 +1,15 @@
 2002-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R095-Profound.el, Ideograph-R094-Dog.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R093-Cow.el:
+	- Merge some missing mapping to CHINA3-JEF code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+2002-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R091-Slice.el:
 	- Use `=>ucs' instead of `->ucs'.
 	- Merge mapping to CHINA3-JEF code points.
@@ -8,6 +18,13 @@
 	Ideograph-R089-Double-X.el and unified by U+723C.
 
 2002-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (J0-3F2E): Modify `ideographic-structure'.
+	(JSP-3148): Likewise; separate C3-2F46.
+	(U+5009): Modify structure of `ideographic-structure'.
+	(J0-4464): Modify `ideographic-structure'.
+	(C3-3445): Add `ideographic-structure'.
+	(JX2-216D): Modify `ideographic-structure'.
 
 	* Ideograph-R092-Fang.el: Use `=>ucs' instead of `->ucs'.
 	(J0-3267): Unify JC3-58C5.
@@ -66,6 +83,9 @@
 	* Ideograph-R063-Door.el (JX1-7463): Unify JC3-4EFB.
 
 2002-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (JSP-343A): Add `ideographic-structure'.
+	(U+535B): Likewise.
 
 	* isolated-char.el (GT-60403): New character.
 
