@@ -1,5 +1,12 @@
 2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* setup-paths.el (paths-find-utf-2000-lisp-directory): Use
+	`configure-utf-2000-lisp-directory'.
+	(paths-construct-load-path): Prefer `utf-2000-lisp-load-path' to
+	`mule-lisp-load-path'.
+
+2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* startup.el (startup-setup-paths): Set and use
 	`utf-2000-lisp-directory'.
 	(startup-setup-paths-warning): Check `utf-2000-lisp-directory' in
