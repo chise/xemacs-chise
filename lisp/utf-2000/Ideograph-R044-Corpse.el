@@ -32,6 +32,7 @@
     (ideographic-strokes@cns . 3)
     (total-strokes	 . 4)
     (shinjigen-2	. 1919)
+    (sound@ja/on	"in")
     (=ucs		. #x5C39)	; å°¹
     (=jis-x0208		. #x557A)	; ø½‹ƒ­
     (=gb2312		. #x527C)	; ø»…
