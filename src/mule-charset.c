@@ -1159,6 +1159,8 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
 	      exit (-1);
 	    }
 	}
+      else if (defined_only)
+	return -1;
       else if ( ( XCHARSET_FINAL (charset) >= '0' ) &&
 		( XCHARSET_MIN_CODE (charset) == 0 )
 	       /*
