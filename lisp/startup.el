@@ -401,10 +401,15 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 			     debug-paths))
       (startup-setup-paths-warning))
 
-    (if (and (not inhibit-autoloads)
-	     lisp-directory)
-	(load (expand-file-name (file-name-sans-extension autoload-file-name)
-				lisp-directory) nil t))
+    (when (and (not inhibit-autoloads)
+	       lisp-directory)
+      (load (expand-file-name (file-name-sans-extension autoload-file-name)
+			      lisp-directory) nil t)
+      (if (featurep 'utf-2000)
+	  (load (expand-file-name
+		 (file-name-sans-extension autoload-file-name)
+		 (expand-file-name "utf-2000" lisp-directory))
+		nil t)))
     
     (if (not inhibit-autoloads)
 	(progn
