@@ -2469,6 +2469,7 @@
     (chinese-gb2312		. #x5322)	; ø»…¡
     (japanese-jisx0208		. #x3151)	; ø»†¨˜
     (chinese-isoir165		. #x5322)	; ø»·±
+    (japanese-jisx0208-1990	. #x3151)	; è‹±
     (ucs			. #x82F1)	; è‹±
     ))
 (define-char
