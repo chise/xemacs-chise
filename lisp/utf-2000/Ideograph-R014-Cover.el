@@ -8,9 +8,8 @@
     (chinese-isoir165		. #x5A22)	; ø»Ž‚ƒ
     (chinese-cns11643-3		. #x2128)	; ø»•–«
     (japanese-jisx0208-1990	. #x514C)	; ø½Š½‡
-    (chinese-big5		. #x8B40)	; å†–
-    (chinese-big5-cdp		. #x8B40)	; å†–
     (ideograph-daikanwa		. 01565)	; ø¸€˜
+    (chinese-big5-cdp		. #x8B40)	; ý¢€ˆ­€
     (ucs			. #x5196)	; å†–
     ))
 (define-char
@@ -57,7 +56,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; å†–
+     ((chinese-big5-cdp	  . #x8B40)	; ý¢€ˆ­€
       )
      ((ucs		  . #x513F)	; å„¿
       ))
@@ -253,7 +252,7 @@
       )
      ((ucs		  . #x5196)	; å†–
       )
-     ((chinese-big5-cdp	  . #x8DB7)	; ï™©
+     ((chinese-big5-cdp	  . #x8DB7)	; ý¢€ˆ¶·
       ))
     (shinjigen-1	. 528)
     (shinjigen-2	. 528)
