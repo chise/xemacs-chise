@@ -750,26 +750,23 @@
     (=hanziku-4		. #xD372)	; &I-HZK04-D372;
     ))
 (define-char
-  '((=>ucs		. #x3C55)	; 㱕
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-original-ideograph
-     ((shinjigen-1	  . 3960)
-      (=daikanwa	  . 16349)	; &I-M-16349;
-      ))
-    (<-original-ideograph*sources
-     shinjigen-1)
-    (shinjigen-1	. 3961)
-    (=cns11643-3	. #x3C48)	; &M-16308; [28-40]
-    (=daikanwa		. 16308)	; &I-M-16308;
-    ))
-(define-char
-  '((morohashi-daikanwa	16308 0 1)
-    (ideographic-radical . 77)	; ⽌
+  '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x3C55)	; 㱕
+    (->subsumptive
+     ((<-original
+       ((shinjigen-1	    . 3960)
+	(=daikanwa	    . 16349)	; &I-M-16349;
+	))
+      (<-original*sources
+       shinjigen-1)
+      (shinjigen-1	  . 3961)
+      (=cns11643-3	  . #x3C48)	; &M-16308; [28-40]
+      (=daikanwa	  . 16308)	; &I-M-16308;
+      )
+     ((=ucs@unicode	  . #x3C55)	; &UU+3C55;
+      ))
     ))
 (define-char
   '((=>ucs		. #x3C56)	; 㱖
