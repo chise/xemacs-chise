@@ -887,7 +887,6 @@ if TYPE is 'ccl:
        (name, type, doc_string, props))
 {
   Lisp_Coding_System *codesys;
-  Lisp_Object rest, key, value;
   enum coding_system_type ty;
   int need_to_setup_eol_systems = 1;
 
@@ -919,122 +918,124 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
-  EXTERNAL_PROPERTY_LIST_LOOP (rest, key, value, props)
-    {
-      if (EQ (key, Qmnemonic))
-	{
-          if (!NILP (value))
-	    CHECK_STRING (value);
-	  CODING_SYSTEM_MNEMONIC (codesys) = value;
-	}
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, props)
+      {
+	if (EQ (key, Qmnemonic))
+	  {
+	    if (!NILP (value))
+	      CHECK_STRING (value);
+	    CODING_SYSTEM_MNEMONIC (codesys) = value;
+	  }
 
-      else if (EQ (key, Qeol_type))
-	{
-	  need_to_setup_eol_systems = NILP (value);
-	  if (EQ (value, Qt))
-	    value = Qnil;
-	  CODING_SYSTEM_EOL_TYPE (codesys) = symbol_to_eol_type (value);
-	}
+	else if (EQ (key, Qeol_type))
+	  {
+	    need_to_setup_eol_systems = NILP (value);
+	    if (EQ (value, Qt))
+	      value = Qnil;
+	    CODING_SYSTEM_EOL_TYPE (codesys) = symbol_to_eol_type (value);
+	  }
 
-      else if (EQ (key, Qpost_read_conversion))
-	CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
-      else if (EQ (key, Qpre_write_conversion))
-	CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
+	else if (EQ (key, Qpost_read_conversion))
+	  CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
+	else if (EQ (key, Qpre_write_conversion))
+	  CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
 #ifdef UTF2000
-      else if (EQ (key, Qdisable_composition))
-	CODING_SYSTEM_DISABLE_COMPOSITION (codesys) = !NILP (value);
+	else if (EQ (key, Qdisable_composition))
+	  CODING_SYSTEM_DISABLE_COMPOSITION (codesys) = !NILP (value);
 #endif
 #ifdef MULE
-      else if (ty == CODESYS_ISO2022)
-	{
+	else if (ty == CODESYS_ISO2022)
+	  {
 #define FROB_INITIAL_CHARSET(charset_num) \
   CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, charset_num) = \
     ((EQ (value, Qt) || EQ (value, Qnil)) ? value : Fget_charset (value))
 
-	  if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
-	  else if (EQ (key, Qcharset_g1)) FROB_INITIAL_CHARSET (1);
-	  else if (EQ (key, Qcharset_g2)) FROB_INITIAL_CHARSET (2);
-	  else if (EQ (key, Qcharset_g3)) FROB_INITIAL_CHARSET (3);
+	    if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
+	    else if (EQ (key, Qcharset_g1)) FROB_INITIAL_CHARSET (1);
+	    else if (EQ (key, Qcharset_g2)) FROB_INITIAL_CHARSET (2);
+	    else if (EQ (key, Qcharset_g3)) FROB_INITIAL_CHARSET (3);
 
 #define FROB_FORCE_CHARSET(charset_num) \
   CODING_SYSTEM_ISO2022_FORCE_CHARSET_ON_OUTPUT (codesys, charset_num) = !NILP (value)
 
-	  else if (EQ (key, Qforce_g0_on_output)) FROB_FORCE_CHARSET (0);
-	  else if (EQ (key, Qforce_g1_on_output)) FROB_FORCE_CHARSET (1);
-	  else if (EQ (key, Qforce_g2_on_output)) FROB_FORCE_CHARSET (2);
-	  else if (EQ (key, Qforce_g3_on_output)) FROB_FORCE_CHARSET (3);
+	    else if (EQ (key, Qforce_g0_on_output)) FROB_FORCE_CHARSET (0);
+	    else if (EQ (key, Qforce_g1_on_output)) FROB_FORCE_CHARSET (1);
+	    else if (EQ (key, Qforce_g2_on_output)) FROB_FORCE_CHARSET (2);
+	    else if (EQ (key, Qforce_g3_on_output)) FROB_FORCE_CHARSET (3);
 
 #define FROB_BOOLEAN_PROPERTY(prop) \
   CODING_SYSTEM_ISO2022_##prop (codesys) = !NILP (value)
 
-	  else if (EQ (key, Qshort))         FROB_BOOLEAN_PROPERTY (SHORT);
-	  else if (EQ (key, Qno_ascii_eol))  FROB_BOOLEAN_PROPERTY (NO_ASCII_EOL);
-	  else if (EQ (key, Qno_ascii_cntl)) FROB_BOOLEAN_PROPERTY (NO_ASCII_CNTL);
-	  else if (EQ (key, Qseven))         FROB_BOOLEAN_PROPERTY (SEVEN);
-	  else if (EQ (key, Qlock_shift))    FROB_BOOLEAN_PROPERTY (LOCK_SHIFT);
-	  else if (EQ (key, Qno_iso6429))    FROB_BOOLEAN_PROPERTY (NO_ISO6429);
-	  else if (EQ (key, Qescape_quoted)) FROB_BOOLEAN_PROPERTY (ESCAPE_QUOTED);
+	    else if (EQ (key, Qshort))         FROB_BOOLEAN_PROPERTY (SHORT);
+	    else if (EQ (key, Qno_ascii_eol))  FROB_BOOLEAN_PROPERTY (NO_ASCII_EOL);
+	    else if (EQ (key, Qno_ascii_cntl)) FROB_BOOLEAN_PROPERTY (NO_ASCII_CNTL);
+	    else if (EQ (key, Qseven))         FROB_BOOLEAN_PROPERTY (SEVEN);
+	    else if (EQ (key, Qlock_shift))    FROB_BOOLEAN_PROPERTY (LOCK_SHIFT);
+	    else if (EQ (key, Qno_iso6429))    FROB_BOOLEAN_PROPERTY (NO_ISO6429);
+	    else if (EQ (key, Qescape_quoted)) FROB_BOOLEAN_PROPERTY (ESCAPE_QUOTED);
 
-	  else if (EQ (key, Qinput_charset_conversion))
-	    {
-	      codesys->iso2022.input_conv =
-		Dynarr_new (charset_conversion_spec);
-	      parse_charset_conversion_specs (codesys->iso2022.input_conv,
-					      value);
-	    }
-	  else if (EQ (key, Qoutput_charset_conversion))
-	    {
-	      codesys->iso2022.output_conv =
-		Dynarr_new (charset_conversion_spec);
-	      parse_charset_conversion_specs (codesys->iso2022.output_conv,
-					      value);
-	    }
-	  else
-	    signal_simple_error ("Unrecognized property", key);
-	}
-      else if (EQ (type, Qccl))
-	{
-	  Lisp_Object sym;
-	  struct ccl_program test_ccl;
-	  Extbyte *suffix;
+	    else if (EQ (key, Qinput_charset_conversion))
+	      {
+		codesys->iso2022.input_conv =
+		  Dynarr_new (charset_conversion_spec);
+		parse_charset_conversion_specs (codesys->iso2022.input_conv,
+						value);
+	      }
+	    else if (EQ (key, Qoutput_charset_conversion))
+	      {
+		codesys->iso2022.output_conv =
+		  Dynarr_new (charset_conversion_spec);
+		parse_charset_conversion_specs (codesys->iso2022.output_conv,
+						value);
+	      }
+	    else
+	      signal_simple_error ("Unrecognized property", key);
+	  }
+	else if (EQ (type, Qccl))
+	  {
+	    Lisp_Object sym;
+	    struct ccl_program test_ccl;
+	    Extbyte *suffix;
 
-	  /* Check key first.  */
-	  if (EQ (key, Qdecode))
-	    suffix = "-ccl-decode";
-	  else if (EQ (key, Qencode))
-	    suffix = "-ccl-encode";
-	  else
-	    signal_simple_error ("Unrecognized property", key);
+	    /* Check key first.  */
+	    if (EQ (key, Qdecode))
+	      suffix = "-ccl-decode";
+	    else if (EQ (key, Qencode))
+	      suffix = "-ccl-encode";
+	    else
+	      signal_simple_error ("Unrecognized property", key);
 
-	  /* If value is vector, register it as a ccl program
-	     associated with an newly created symbol for
-	     backward compatibility.  */
-	  if (VECTORP (value))
-	    {
-	      sym = Fintern (concat2 (Fsymbol_name (name),
-				      build_string (suffix)),
-			     Qnil);
-	      Fregister_ccl_program (sym, value);
-	    }
-	  else
-	    {
-	      CHECK_SYMBOL (value);
-	      sym = value;
-	    }
-	  /* check if the given ccl programs are valid.  */
-	  if (setup_ccl_program (&test_ccl, sym) < 0)
-	    signal_simple_error ("Invalid CCL program", value);
+	    /* If value is vector, register it as a ccl program
+	       associated with an newly created symbol for
+	       backward compatibility.  */
+	    if (VECTORP (value))
+	      {
+		sym = Fintern (concat2 (Fsymbol_name (name),
+					build_string (suffix)),
+			       Qnil);
+		Fregister_ccl_program (sym, value);
+	      }
+	    else
+	      {
+		CHECK_SYMBOL (value);
+		sym = value;
+	      }
+	    /* check if the given ccl programs are valid.  */
+	    if (setup_ccl_program (&test_ccl, sym) < 0)
+	      signal_simple_error ("Invalid CCL program", value);
 
-	  if (EQ (key, Qdecode))
-	    CODING_SYSTEM_CCL_DECODE (codesys) = sym;
-	  else if (EQ (key, Qencode))
-	    CODING_SYSTEM_CCL_ENCODE (codesys) = sym;
+	    if (EQ (key, Qdecode))
+	      CODING_SYSTEM_CCL_DECODE (codesys) = sym;
+	    else if (EQ (key, Qencode))
+	      CODING_SYSTEM_CCL_ENCODE (codesys) = sym;
 
-	}
+	  }
 #endif /* MULE */
-      else
-	signal_simple_error ("Unrecognized property", key);
-    }
+	else
+	  signal_simple_error ("Unrecognized property", key);
+      }
+  }
 
   if (need_to_setup_eol_systems)
     setup_eol_coding_systems (codesys);
