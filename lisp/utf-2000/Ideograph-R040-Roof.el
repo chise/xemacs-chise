@@ -2885,6 +2885,7 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (shinjigen-1	. 557)
     (korean-ksc5601	. #x794E)	; ø»Šœ‰
     (chinese-big5	. #xB448)	; ý¢€‹‘ˆ
     (ideograph-daikanwa . 07239)	; ø¸±‡
@@ -2896,6 +2897,7 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (shinjigen-1	. 556)
     (=jis-x0208		. #x3428)	; ø½Š‘½
     (ucs-jis		. #x5BD2)	; ø½Š‘½
     ))
