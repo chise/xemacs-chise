@@ -1,5 +1,14 @@
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R015-Ice.el,
+	utf-2000/Ideograph-R014-Cover.el,
+	utf-2000/Ideograph-R013-Down-Box.el,
+	utf-2000/Ideograph-R012-Eight.el,
+	utf-2000/Ideograph-R011-Enter.el, utf-2000/Ideograph-R010-Legs.el:
+	Merge CJK Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R008-Lid.el (M00286): Separate
 	`japanese-jisx0208-1978' and `japanese-jisx0208'.
 
