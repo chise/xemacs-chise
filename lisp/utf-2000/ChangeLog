@@ -1,3 +1,52 @@
+2004-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02100-Letterlike-Symbols.el: In each *fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' except if the character
+	  has `=jis-x0208' or `=jis-x0208@1990' feature or it is a circled
+	  character.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+
+2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02080-Subscripts.el, u02070-Superscripts.el: In each
+	*fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+
+	* u00400-Cyrillic.el, u00370-Greek.el: In each *fullwidth*
+	variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' in principle.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+
+2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00250-IPA-Extensions.el: Separate JIS X0213 characters from UCS
+	characters.
+
+	* u00180-Latin-Extended-B.el: In each *fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' in principle.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+
+	* u002B0-Spacing-Modifier-Letters.el In each *fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' in principle.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+	(C1-2226): Moved from u0FF00-Halfwidth-and-Fullwidth-Forms.el; map
+	into U+02CD instead of U+FF3F.
+
 2004-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R013-Down-Box.el (U+34BB): Changed to abstract
