@@ -1917,7 +1917,8 @@
       )
      ((ucs		  . #x5382)	; åŽ‚
       )
-     ((korean-ksc5601	  . #x7258)	; ø»Š’
+     ((=jis-x0208	  . #x6243)	; ø½‹•¼
+      (korean-ksc5601	  . #x7258)	; ø»Š’
       (ideograph-daikanwa . 23235)	; ø¸…«ƒ
       ))
     (ideograph-daikanwa . 02998)	; ø¸€®¶
@@ -2208,7 +2209,8 @@
       )
      ((ucs		  . #x5382)	; åŽ‚
       )
-     ((korean-ksc5601	  . #x6779)	; ø»Š‚˜
+     ((=jis-x0208	  . #x5A44)	; ø½‹Š
+      (korean-ksc5601	  . #x6779)	; ø»Š‚˜
       (ideograph-daikanwa . 13226)	; ø¸ƒŽª
       ))
     (japanese-jisx0212	. #x344E)	; ø»‹€·
@@ -2675,18 +2677,18 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 2214)
+     (:char	((shinjigen-1	     . 2214)
 		 (ideograph-daikanwa . 09490)	; ø¸‚”’
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (ucs		  . #x2FF8)	; â¿¸
       )
      ((ucs		  . #x5382)	; åŽ‚
       )
-     ((korean-ksc5601	  . #x7362)	; ø»Š“©
+     ((=jis-x0208	  . #x5A48)	; ø½‹Š‘
+      (korean-ksc5601	  . #x7362)	; ø»Š“©
       (ideograph-daikanwa . 13246)	; ø¸ƒŽ¾
       ))
     (shinjigen-1	. 2215)

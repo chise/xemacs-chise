@@ -660,7 +660,8 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (ucs		  . #x2E8A)	; âºŠ
       )
-     ((chinese-cns11643-2 . #x294B)	; ø»“˜º
+     ((=jis-x0208	  . #x5325)	; ø½Š¿œ
+      (chinese-cns11643-2 . #x294B)	; ø»“˜º
       (ideograph-daikanwa . 03573)	; ø¸€·µ
       ))
     (korean-ksc5601		. #x6059)	; ø»‰·¦
