@@ -2640,6 +2640,8 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x4E44)	; ø»‚¾©
+    (japanese-jisx0208		. #x4E44)	; ø»‡’±
     (japanese-jisx0208-1990	. #x4E44)	; ø½Š¸¥
     (mojikyo			. 050278)	; ý €Œ‘¦
     (ucs			. #x731F)	; çŒŸ
@@ -4547,6 +4549,8 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (japanese-jisx0208-1978	. #x3D43)	; ø»‚¥ª
+    (japanese-jisx0208		. #x3D43)	; ø»†¹²
     (japanese-jisx0208-1990	. #x3D43)	; ø½ŠŸ¦
     (mojikyo			. 050279)	; ý €Œ‘§
     (ucs			. #x7363)	; ç£
