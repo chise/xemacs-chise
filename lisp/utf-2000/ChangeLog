@@ -1,3 +1,53 @@
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-char-spec): Add new optional
+	argument `required-features'.
+	(insert-char-attributes): For each character in relation features
+	[->FOO or <-FOO] and `ideographic-structure', specify
+	required-features pf `char-db-insert-char-spec' based on *sources.
+
+	* Ideograph-R057-Bow.el, Ideograph-R056-Shoot.el,
+	Ideograph-R055-Two-Hands.el, Ideograph-R049-Oneself.el,
+	Ideograph-R047-River.el, Ideograph-R044-Corpse.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R031-Enclosure.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R029-Again.el (U+53CC): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+53CE): Add `<-simplified@JP/Jouyou'; use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `vulgar-ideograph-of'.
+	(U+53D9): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R026-Seal.el (U+5373): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R023-Hiding-Enclosure.el (C3-2157): Use
+	`<-simplified*sources' instead of char-ref in `<-simplified'.
+	(U+533A): Likewise; add `<-simplified@JP/Jouyou'.
+	(U+533B): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R014-Cover.el (J0-3C4C): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R013-Down-Box.el (M-01512): Use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `comment'; separate
+	S-0481, U+5185, J0-4662, G0-445A, GT-01983 and GT-K00547.
+	(U+5185): Unify BC-8C57.
+	(U+5186): Add `<-simplified@JP/Jouyou'.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el, Ideograph-R033-Scholar.el,
+	Ideograph-R030-Mouth.el, Ideograph-R016-Table.el,
+	Ideograph-R010-Legs.el, Ideograph-R007-Two.el,
+	Ideograph-R006-Hook.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R001-One.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
 2004-01-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el (U+52B4): Use `script', `<-simplified'
