@@ -44,6 +44,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=cns11643-3	. #x272E)	; ø»•Ÿ¥
+    (=jis-x0213-1-2000	. #x7B51)	; ø»¤—¸
     (=ucs		. #x459D)	; ä–
     ))
 (define-char
