@@ -5,3 +5,5 @@
   ))
 
 (garbage-collect)
+
+(setq char-db-stingy-mode nil)
