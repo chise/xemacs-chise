@@ -1,3 +1,17 @@
+2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (M-49176): Unify U+699D.
+
+	* Ideograph-R037-Big.el (M-05898): Map to U-000215FE.
+	(C6-2A58): Separate M-05898.
+
+	* Ideograph-R016-Table.el (U+51E1): Delete `cns-radical'; add
+	`->identical' for C1-443B; separate C1-443B.
+
+	* Ideograph-R004-Slash.el (H1-AAFB): Moved to
+	Ideograph-R005-Second.el; unify U-000200D5.
+	(GT-00199): Unify U+3406.
+
 2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R030-Mouth.el (U+5411): Separate CB-05156; delete
