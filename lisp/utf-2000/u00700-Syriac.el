@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "SYRIAC END OF PARAGRAPH")
     (general-category	punctuation other) ; Informative Category
