@@ -975,21 +975,19 @@
     (=daikanwa		. 30683)	; &I-M-30683;
     ))
 (define-char
-  '((=>ucs		. #x8293)	; 芓
-    (ideographic-radical . 140)	; ⾋
+  '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=cns11643-2	. #x247E)	; &M-30684; [04-94]
-    (=daikanwa		. 30684)	; &I-M-30684;
-    ))
-(define-char
-  '((morohashi-daikanwa	30684 0 1)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
     (=ucs		. #x8293)	; 芓
-    (=jis-x0213-2-2000	. #x757C)	; &I-JX2-757C; [85-92]
-    (=big5		. #xCB7E)	; &I-B-CB7E;
+    (->subsumptive
+     ((total-strokes	   . 7)
+      (=cns11643-2	  . #x247E)	; &M-30684; [04-94]
+      (=daikanwa	  . 30684)	; &I-M-30684;
+      )
+     ((total-strokes	   . 6)
+      (=jis-x0213-2-2000  . #x757C)	; &JX2-757C; [85-92]
+      (=big5		  . #xCB7E)	; &I-B-CB7E;
+      (=ucs@unicode	  . #x8293)	; &JX2-757C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
@@ -998,12 +996,20 @@
     (=ucs		. #x8294)	; 芔
     (=big5		. #xD06A)	; &I-B-D06A;
     (->subsumptive
-     ((<-original
+     ((->same
+       ((=ucs		    . #x2F82C)	; 卉
+	(=daikanwa	    . 02720)	; &I-M-02720;
+	))
+      (->same*sources
+       shuowen zihui daikanwa)
+      (<-original
        ((shinjigen-1	    . 816)
+	(=ucs		    . #x5349)	; 卉
+	(=jis-x0208	    . #x5243)	; &I-J90-5243; [50-35]
 	(=daikanwa	    . 02706)	; &I-M-02706;
 	))
       (<-original*sources
-       shinjigen-1)
+       daikanwa shinjigen-1)
       (shinjigen-1	  . 817)
       (=jis-x0212	  . #x5738)	; &M-30685; [55-24]
       (=cns11643-2	  . #x2D2D)	; &I-C2-2D2D; [13-13]
@@ -1015,21 +1021,19 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x8295)	; 芕
-    (ideographic-radical . 140)	; ⾋
+  '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	5 3176 1)
-    (=cns11643-3	. #x272B)	; &M-30686; [07-11]
-    (=daikanwa		. 30686)	; &I-M-30686;
-    (=hanziku-8		. #xE7F8)	; &I-HZK08-E7F8;
-    ))
-(define-char
-  '((morohashi-daikanwa	30686 0 1)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
     (=ucs		. #x8295)	; 芕
+    (->subsumptive
+     ((total-strokes	   . 7)
+      (hanyu-dazidian	  5 3176 1)
+      (=cns11643-3	  . #x272B)	; &M-30686; [07-11]
+      (=daikanwa	  . 30686)	; &I-M-30686;
+      (=hanziku-8	  . #xE7F8)	; &I-HZK08-E7F8;
+      )
+     ((total-strokes	   . 6)
+      (=ucs@unicode	  . #x8295)	; &UU+8295;
+      ))
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
