@@ -306,6 +306,7 @@
     (japanese-jisx0208		. #x4831)	; ø»‡‰ª
     (chinese-cns11643-3		. #x4A72)	; ø»–”ƒ
     (japanese-jisx0208-1990	. #x4831)	; ø½Š¯ž
+    (mojikyo			. 050600)	; ø¸Œ–¨
     (ucs			. #x9AEA)	; é«ª
     ))
 (define-char
