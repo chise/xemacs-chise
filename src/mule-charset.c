@@ -294,9 +294,8 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  Lisp_Object encoding_table;
-
   if (!EQ (XCHARSET_NAME (ccs), Qucs)
+      || !INTP (value)
       || (XCHAR (character) != XINT (value)))
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
@@ -350,7 +349,7 @@ put_char_ccs_code_point (Lisp_Object character,
       if (VECTORP (v))
 	{
 	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
-	  if (!NILP (cpos))
+	  if (INTP (cpos))
 	    {
 	      decoding_table_remove_char (v, dim, byte_offset, XINT (cpos));
 	    }
@@ -363,13 +362,7 @@ put_char_ccs_code_point (Lisp_Object character,
 
       decoding_table_put_char (v, dim, byte_offset, code_point, character);
     }
-  if (NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
-    {
-      XCHARSET_ENCODING_TABLE (ccs)
-	= encoding_table = make_char_id_table (Qnil);
-    }
-  put_char_id_table (XCHAR_TABLE(encoding_table), character, value);
-  return Qt;
+  return value;
 }
 
 Lisp_Object
@@ -844,7 +837,6 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->registry);
   mark_object (cs->ccl_program);
 #ifdef UTF2000
-  mark_object (cs->encoding_table);
   /* mark_object (cs->decoding_table); */
 #endif
   return cs->name;
@@ -892,7 +884,6 @@ static const struct lrecord_description charset_description[] = {
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, ccl_program) },
 #ifdef UTF2000
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, decoding_table) },
-  { XD_LISP_OBJECT, offsetof (Lisp_Charset, encoding_table) },
 #endif
   { XD_END }
 };
@@ -938,7 +929,6 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
   CHARSET_DECODING_TABLE(cs) = Qnil;
-  CHARSET_ENCODING_TABLE(cs) = Qnil;
   CHARSET_UCS_MIN(cs) = ucs_min;
   CHARSET_UCS_MAX(cs) = ucs_max;
   CHARSET_CODE_OFFSET(cs) = code_offset;
@@ -1978,8 +1968,8 @@ Set mapping-table of CHARSET to TABLE.
 	  Lisp_Object c = XVECTOR_DATA(table)[i];
 
 	  if (CHARP (c))
-	    put_char_ccs_code_point (c, charset,
-				     make_int (i + byte_offset));
+	    Fput_char_attribute (c, XCHARSET_NAME (charset),
+				 make_int (i + byte_offset));
 	}
       break;
     case 2:
@@ -1996,16 +1986,16 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    put_char_ccs_code_point
-		      (c, charset,
+		    Fput_char_attribute
+		      (c, XCHARSET_NAME (charset),
 		       make_int ( ( (i + byte_offset) << 8 )
 				  | (j + byte_offset)
 				  ) );
 		}
 	    }
 	  else if (CHARP (v))
-	    put_char_ccs_code_point (v, charset,
-				     make_int (i + byte_offset));
+	    Fput_char_attribute (v, XCHARSET_NAME (charset),
+				 make_int (i + byte_offset));
 	}
       break;
     }

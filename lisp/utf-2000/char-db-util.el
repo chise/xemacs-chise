@@ -358,17 +358,23 @@
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
 				    column)
-  (setq attributes
-	(sort (if attributes
-		  (if (consp attributes)
-		      (copy-sequence attributes))
-		(char-attribute-list))
-	      #'char-attribute-name<))
-  (setq ccs-attributes
-	(sort (if ccs-attributes
-		  (copy-sequence ccs-attributes)
-		(charset-list))
-	      #'char-attribute-name<))
+  (let (atr-d ccs-d)
+    (setq attributes
+	  (sort (if attributes
+		    (if (consp attributes)
+			(copy-sequence attributes))
+		  (dolist (name (char-attribute-list))
+		    (if (find-charset name)
+			(push name ccs-d)
+		      (push name atr-d)))
+		  atr-d)
+		#'char-attribute-name<))
+    (setq ccs-attributes
+	  (sort (if ccs-attributes
+		    (copy-sequence ccs-attributes)
+		  (or ccs-d
+		      (charset-list)))
+		#'char-attribute-name<)))
   (unless column
     (setq column (current-column)))
   (let (name value has-long-ccs-name rest

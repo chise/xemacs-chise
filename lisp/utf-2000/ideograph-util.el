@@ -205,8 +205,13 @@
   (let ((chars
 	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
 	       (function ideograph-char<)))
-	(attributes (sort (char-attribute-list) #'char-attribute-name<))
-	(ccs (sort (charset-list) #'char-attribute-name<)))
+	attributes ccs)
+    (dolist (name (char-attribute-list))
+      (if (find-charset name)
+	  (push name ccs)
+	(push name attributes)))
+    (setq attributes (sort attributes #'char-attribute-name<)
+	  ccs (sort ccs #'char-attribute-name<))
     (aset ideograph-radical-chars-vector radical chars)
     (while chars
       (insert-char-data (car chars) nil attributes ccs)
