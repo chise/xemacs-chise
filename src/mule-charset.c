@@ -69,6 +69,7 @@ Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
+Lisp_Object Vcharset_chinese_big5;
 Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_mojikyo;
 Lisp_Object Vcharset_mojikyo_2022_1;
@@ -1614,6 +1615,7 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
+  Qchinese_big5,
   Qmojikyo,
   Qmojikyo_2022_1,
   Qmojikyo_pj_1,
@@ -2189,6 +2191,10 @@ get_unallocated_leading_byte (int dimension)
 }
 
 #ifdef UTF2000
+/* Number of Big5 characters which have the same code in 1st byte.  */
+
+#define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
+
 Emchar
 make_builtin_char (Lisp_Object charset, int c1, int c2)
 {
@@ -2224,6 +2230,25 @@ make_builtin_char (Lisp_Object charset, int c1, int c2)
     }
   else
     {
+      if (EQ (charset, Vcharset_chinese_big5))
+	{
+	  int B1 = c1, B2 = c2;
+	  unsigned int I
+	    = (B1 - 0xA1) * BIG5_SAME_ROW
+	    + B2 - (B2 < 0x7F ? 0x40 : 0x62);
+
+	  if (B1 < 0xC9)
+	    {
+	      charset = Vcharset_chinese_big5_1;
+	    }
+	  else
+	    {
+	      charset = Vcharset_chinese_big5_2;
+	      I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
+	    }
+	  c1 = I / 94 + 33;
+	  c2 = I % 94 + 33;
+	}
       switch (XCHARSET_CHARS (charset))
 	{
 	case 94:
@@ -3547,6 +3572,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
+  defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qmojikyo,			"mojikyo");
   defsymbol (&Qmojikyo_2022_1,		"mojikyo-2022-1");
   defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
@@ -3931,6 +3957,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
+		  Qnil, 0, 0, 0, 0);
+  staticpro (&Vcharset_chinese_big5);
+  Vcharset_chinese_big5 =
+    make_charset (LEADING_BYTE_CHINESE_BIG5, Qchinese_big5, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Big5"),
+		  build_string ("Big5"),
+		  build_string ("Big5 Chinese traditional"),
+		  build_string ("big5"),
 		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_ideograph_daikanwa);
   Vcharset_ideograph_daikanwa =
