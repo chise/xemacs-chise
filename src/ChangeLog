@@ -1,3 +1,37 @@
+2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (get_char_id_table): Change interface.
+	(put_char_id_table_0): New function.
+	(put_char_id_table): Change interface; new implementation.
+	(Fget_composite_char): Modify for interface change of
+	`get_char_id_table'.
+	(Fchar_variants): Likewise.
+	(add_char_attribute_alist_mapper): Likewise.
+	(Fchar_attribute_alist): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Allow coded-charset or [CODED-CHARSET ROW]
+	as same as character as the first argument like `put-char-table';
+	modify for interface change of `put_char_id_table'.
+	(Fremove_char_attribute): Modify for interface change of
+	`put_char_id_table'.
+
+2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: Sync up with XEmacs 21.2.41.
+	(COMPOSE_ADD_CHAR): Modify for interface change of
+	`get_char_id_table'.
+
+	* mule-charset.c (put_char_ccs_code_point): Modify for interface
+	change of `put_char_id_table'.
+	(remove_char_ccs): Likewise.
+
+	* chartab.h (put_char_id_table): Change interface.
+
+	* char-ucs.h (get_char_id_table): Change interface.
+	(charset_code_point): Modify for interface change of
+	`get_char_id_table'.
+	(encode_char_1): Likewise.
+
 2001-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (map_over_uint8_byte_table): Change arguments; add new
