@@ -587,6 +587,7 @@
     (total-strokes	 . 5)
     (chinese-cns11643-3 . #x217C)	; ø»•—¿
     (ideograph-daikanwa . 01878)	; ø¸€–
+    (ucs		. #x2F850)	; ð¯¡
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘

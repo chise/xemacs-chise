@@ -4915,11 +4915,12 @@
     (ucs		. #x5BF3)	; å¯³
     ))
 (define-char
-  '((morohashi-daikanwa	7366 0 0 1)
+  '((morohashi-daikanwa	7366 0 1)
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (chinese-cns11643-3 . #x5A36)	; ø»–ª§
+    (ucs		. #x2F870)	; ð¯¡°
     ))
 (define-char
   '((=>ucs		. #x5BF4)	; å¯´
