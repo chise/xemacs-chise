@@ -1,3 +1,7 @@
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Don't define `HAVE_GGC' in XEmacs UTF-2000.
+
 2001-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Makefile.in.in (all-elc all-elcs): Add lisp/utf-2000 as a target
