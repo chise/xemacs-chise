@@ -1,3 +1,24 @@
+2003-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R208-Rat.el (U+9F21): Unify MH-0047 and M054751; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-{radical|strokes}'.
+
+	* Ideograph-R118-Bamboo.el (C2-4C61): Unify MH-0052, JX2-233D,
+	JC3-5EC1 and U+5284; use `ideographic-{radical|strokes}@{ucs|cns}'
+	instead of `ideographic-{radical|strokes}'; delete
+	`ideograph-cdp'.
+	(J0-6459): Separate U+7C4F.
+
+	* Ideograph-R028-Private.el (M-03067): Unify U-0002062F; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-{radical|strokes}'.
+
+	* Ideograph-R018-Knife.el (U+5284): Unify C2-4C61, B-E35A and
+	M054893; use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-{radical|strokes}'; don't use char-spec format in
+	`->same-ideograph'; use `->same-ideograph*sources' instead.
+
 2003-06-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R142-Insect.el, Ideograph-R140-Grass.el: Add some
