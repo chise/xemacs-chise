@@ -953,6 +953,7 @@
 			  (string-match "^->vulgar" (symbol-name name))
 			  (string-match "^->wrong" (symbol-name name))
 			  (string-match "^->original" (symbol-name name))
+			  (string-match "^->ancient" (symbol-name name))
 			  ))
 		 )
 		((or (eq name 'ideographic-structure)
