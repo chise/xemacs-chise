@@ -10491,7 +10491,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x89D2)	; &UU+89D2;
+       ((=ucs@unicode	    . #x89D2)	; &G0-3D47;
 	))
       (=ucs@unicode	  . #x5503)	; &UU+5503;
       ))
@@ -24854,7 +24854,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x89DC)	; &UU+89DC;
+     ((=ucs@unicode	  . #x89DC)	; &G0-757E;
       ))
     (=gb2312		. #x576C)	; &G0-576C; [55-76]
     (=ucs@unicode	. #x5634)	; &G0-576C;

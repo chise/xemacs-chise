@@ -252,7 +252,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x89D2)	; &UU+89D2;
+     ((=ucs@unicode	  . #x89D2)	; &G0-3D47;
       )
      ((=ucs		  . #x6597)	; 斗
       ))
