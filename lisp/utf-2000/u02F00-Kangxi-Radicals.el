@@ -1499,10 +1499,24 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (total-strokes	 . 6)
     (<-radical
      ((ucs		  . #x820C)	; 舌
       ))
+    (ideograph-cdp	. -693)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; ⿱
+		 )
+      )
+     ((ucs		  . #x5343)	; 千
+      )
+     ((ucs		  . #x53E3)	; 口
+      ))
     (chinese-cns11643-1 . #x2848)	; �����
+    (chinese-big5	. #x88EF)	; ⾆
+    (chinese-big5-cdp	. #x88EF)	; ⾆
     (ucs		. #x2F86)	; ⾆
     ))
 (define-char
