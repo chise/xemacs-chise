@@ -1,3 +1,8 @@
+2003-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (decode_char_table_range): CHARTAB_RANGE_DEFAULT is
+	only for XEmacs CHISE.
+
 2003-04-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h: Compact non-ISO-IR charset-ids.
