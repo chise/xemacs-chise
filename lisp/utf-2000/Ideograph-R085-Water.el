@@ -5773,9 +5773,11 @@
 (define-char
   '((ideographic-radical . 85)	; â½”
     (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (japanese-jisx0213-2	. #x6E5C)	; ø»¦
     (ideograph-daikanwa		. 17574)	; ø¸„’¦
     (china3-jef			. #x56AA)	; øº…šª
+    (ucs			. #x23D40)	; ð£µ€
     ))
 (define-char
   '((ideographic-radical . 85)	; â½”
