@@ -19229,6 +19229,7 @@
   '((ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
+    (jisx0208-difference . 78err)
     (japanese-jisx0208-1978	. #x693C)	; ø»ƒ¦‹
     (chinese-gb2312		. #x5E3C)	; ø»… …
     (japanese-jisx0208		. #x693C)	; ø»‡º“
