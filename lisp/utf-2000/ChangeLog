@@ -8,9 +8,10 @@
 	* Ideograph-R044-Corpse.el: Merge mapping to CHINA3-JEF code
 	points.
 
-	* Ideograph-R042-Small.el (M-07479): Add `->ideographic-variants'
-	for M-07477; separate C3-223F.  Merge mapping to CHINA3-JEF code
+	* Ideograph-R042-Small.el: Merge mapping to CHINA3-JEF code
 	points.
+	(M-07479): Add `->ideographic-variants' for M-07477; separate
+	C3-223F.
 
 	* Ideograph-R041-Inch.el: Merge mapping to CHINA3-JEF code points.
 
