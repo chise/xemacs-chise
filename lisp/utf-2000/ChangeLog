@@ -1,3 +1,9 @@
+2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R173-Rain.el (C3-5678): Unify U-0002F9F5.
+
+	* Ideograph-R154-Shell.el (C3-607C): Unify U-0002F9D6.
+
 2002-11-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R007-Two.el, Ideograph-R014-Cover.el,
