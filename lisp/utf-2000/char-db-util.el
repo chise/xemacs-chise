@@ -673,6 +673,10 @@
 		      value line-breaking))
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
+    (when (and (not readable)
+	       (memq '->ucs-variants attributes))
+      (setq attributes (delq '->ucs-variants attributes))
+      )
     (setq rest ccs-attributes)
     (while (and rest
 		(progn
@@ -692,22 +696,24 @@
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
 				 line-breaking)))
-		((memq name '(->lowercase
-			      ->uppercase ->titlecase
-			      ->fullwidth <-fullwidth
-			      ->identical
-			      ->vulgar-ideograph <-vulgar-ideograph
-			      ->ancient-ideograph <-ancient-ideograph
-			      ->original-ideograph <-original-ideograph
-			      ->simplified-ideograph <-simplified-ideograph
-			      ->wrong-ideograph <-wrong-ideograph
-			      ->same-ideograph
-			      ->ideographic-variants
-			      ->synonyms
-			      ->radical <-radical
-			      ->bopomofo <-bopomofo
-			      ->ideographic <-ideographic
-			      ideographic-structure))
+		((or (eq name 'ideographic-structure)
+		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
+                 ;; (memq name '(->lowercase
+                 ;;              ->uppercase ->titlecase
+                 ;;              ->fullwidth <-fullwidth
+                 ;;              ->identical
+                 ;;              ->vulgar-ideograph <-vulgar-ideograph
+                 ;;              ->ancient-ideograph <-ancient-ideograph
+                 ;;              ->original-ideograph <-original-ideograph
+                 ;;              ->simplified-ideograph <-simplified-ideograph
+                 ;;              ->wrong-ideograph <-wrong-ideograph
+                 ;;              ->same-ideograph
+                 ;;              ->ideographic-variants
+                 ;;              ->synonyms
+                 ;;              ->radical <-radical
+                 ;;              ->bopomofo <-bopomofo
+                 ;;              ->ideographic <-ideographic
+                 ;;              ideographic-structure))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -718,7 +724,9 @@
 		   (cond ((characterp cell)
 			  (if separator
 			      (insert lbs))
-			  (char-db-insert-char-spec cell readable)
+			  (if readable
+			      (insert (format "%S" cell))
+			    (char-db-insert-char-spec cell readable))
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator
@@ -762,20 +770,20 @@
 		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
-		((string-match "^->" (symbol-name name))
-		 (insert
-		  (format "(%-18s %s)%s"
-			  name
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "%s%S"
-						      line-breaking code))))
-				     value " ")
-			  line-breaking)))
+                ;; ((string-match "^->" (symbol-name name))
+                ;;  (insert
+                ;;   (format "(%-18s %s)%s"
+                ;;           name
+                ;;           (mapconcat (lambda (code)
+                ;;                        (cond ((symbolp code)
+                ;;                               (symbol-name code))
+                ;;                              ((integerp code)
+                ;;                               (format "#x%04X" code))
+                ;;                              (t
+                ;;                               (format "%s%S"
+                ;;                                       line-breaking code))))
+                ;;                      value " ")
+                ;;           line-breaking)))
 		((consp value)
 		 (insert (format "(%-18s " name))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
