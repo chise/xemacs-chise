@@ -839,23 +839,6 @@ make_char_id_table (Lisp_Object initval)
   return obj;
 }
 
-Lisp_Object
-get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
-{
-  Lisp_Object val = get_byte_table (get_byte_table
-				    (get_byte_table
-				     (get_byte_table
-				      (cit->table,
-				       (unsigned char)(ch >> 24)),
-				      (unsigned char) (ch >> 16)),
-				     (unsigned char)  (ch >> 8)),
-				    (unsigned char)    ch);
-  if (UNBOUNDP (val))
-    return cit->default_value;
-  else
-    return val;
-}
-
 
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
