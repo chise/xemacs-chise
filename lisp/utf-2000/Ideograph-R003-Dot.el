@@ -401,7 +401,10 @@
       (=daikanwa	  . 00059)	; &I-M-00059;
       ))
     (<-ancient
-     ((=daikanwa	  . 47663)	; &I-M-47663;
+     ((=jis-x0208-1978	  . #x4E6F)	; &GT-64844; [46-79]
+      (=jis-x0208-1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
+      (=ks-x1001	  . #x5572)	; &I-K0-5572; [53-82]
+      (=daikanwa	  . 47663)	; &I-M-47663;
       ))
     (<-ancient*sources
      daikanwa)
