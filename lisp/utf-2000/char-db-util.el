@@ -71,6 +71,8 @@
       (aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
+(defvar char-db-ignored-attributes nil)
+
 ;;;###autoload
 (defun char-ref-p (obj)
   (and (consp obj)
@@ -159,13 +161,15 @@
 		       arabic-digit
 		       arabic-1-column
 		       arabic-2-column)))
+	      ((string-match "^chinese-big5" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
 	       (unless (memq 'ideograph-gt dest)
 		 (setq dest (cons 'ideograph-gt dest))))
 	      (t
 	       (setq dest (cons (car rest) dest)))))
       (setq rest (cdr rest)))
-    (sort dest #'char-attribute-name<)))
+    (append (sort dest #'char-attribute-name<)
+	    '(chinese-big5-cdp chinese-big5-eten chinese-big5))))
 
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
@@ -210,10 +214,14 @@
 	  cal nil)
     (while char-spec
       (setq key (car (car char-spec)))
-      (if (find-charset key)
-	  (setq cal (cons key cal))
-	(setq al (cons key al)))
+      (unless (memq key char-db-ignored-attributes)
+	(if (find-charset key)
+	    (setq cal (cons key cal))
+	  (setq al (cons key al))))
       (setq char-spec (cdr char-spec)))
+    (unless (or cal
+		(memq 'ideographic-structure al))
+      (push 'ideographic-structure al))
     (insert-char-attributes char
 			    readable
 			    (or al 'none) cal)
@@ -362,18 +370,32 @@
     (setq attributes
 	  (sort (if attributes
 		    (if (consp attributes)
-			(copy-sequence attributes))
+			(progn
+			  (dolist (name attributes)
+			    (unless (memq name char-db-ignored-attributes)
+			      (push name atr-d)))
+			  atr-d))
 		  (dolist (name (char-attribute-list))
-		    (if (find-charset name)
-			(push name ccs-d)
-		      (push name atr-d)))
+		    (unless (memq name char-db-ignored-attributes)
+		      (if (find-charset name)
+			  (push name ccs-d)
+			(push name atr-d))))
 		  atr-d)
 		#'char-attribute-name<))
     (setq ccs-attributes
 	  (sort (if ccs-attributes
-		    (copy-sequence ccs-attributes)
+		    (progn
+		      (setq ccs-d nil)
+		      (dolist (name ccs-attributes)
+			(unless (memq name char-db-ignored-attributes)
+			  (push name ccs-d)))
+		      ccs-d)
 		  (or ccs-d
-		      (charset-list)))
+		      (progn
+			(dolist (name (charset-list))
+			  (unless (memq name char-db-ignored-attributes)
+			    (push name ccs-d)))
+			ccs-d)))
 		#'char-attribute-name<)))
   (unless column
     (setq column (current-column)))
