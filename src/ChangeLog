@@ -1,3 +1,16 @@
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`chise_ds_get_ccs' instead of `chise_ds_open_ccs_table'; use
+	`chise_ccs_set_decoded_char' instead of `chise_ccst_put_char'; use
+	`chise_ccs_sync' instead of `chise_ccst_close'.
+	(load_char_decoding_entry_maybe): Modify for `chise_ds_get_ccs'.
+
+	* chartab.c (open_chise_data_source_maybe): Modify for
+	`chise_open_data_source'.
+	(char_table_open_db_maybe): Modify for
+	`chise_ds_open_feature_table'.
+
 2003-08-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (load_char_decoding_entry_maybe): Use
