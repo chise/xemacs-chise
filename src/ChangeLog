@@ -1,3 +1,10 @@
+2003-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fchar_attribute_list): When HAVE_LIBCHISE is defined
+	and optional argument `rehash' is specified, call
+	`open_chise_data_source_maybe' before
+	`chise_ds_foreach_char_feature_name' is called.
+
 2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (char_attribute_list_reset_map_func): New function
