@@ -1,5 +1,11 @@
 2001-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R207-Drum.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
+2001-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R205-Frog.el (C4-2834): Don't unify with M-24258
 	because it is wrong; unify with M-48258.
 	(M-24258): Move to Ideograph-R112-Stone.el.
@@ -28,10 +34,15 @@
 
 2001-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R195-Fish.el, Ideograph-R203-Black.el: Resorted; add
-	some missing Morohashi's Daikanwa characters; add missing
-	`ideographic-strokes' attributes; use `ideographic-strokes' if
-	each stroke attribute has same value.
+	* Ideograph-R195-Fish.el (C7-2B66): Unify with M-46018 instead of
+	M-46027.
+	Resorted; add some missing Morohashi's Daikanwa characters; add
+	missing `ideographic-strokes' attributes; use
+	`ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R203-Black.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
 
 	* Ideograph-R204-Embroidery.el: Resorted; add missing
 	`ideographic-strokes' attributes; use `ideographic-strokes' if
