@@ -40,6 +40,8 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #include "window.h"
 
+Lisp_Object Qcoerce;
+
 /* Indentation can insert tabs if this is non-zero;
    otherwise always uses spaces */
 int indent_tabs_mode;
@@ -342,9 +344,11 @@ and horizontal scrolling has no effect.
 If specified column is within a character, point goes after that character.
 If it's past end of line, point goes to end of line.
 
-A non-nil second (optional) argument FORCE means, if the line
-is too short to reach column COLUMN then add spaces/tabs to get there,
-and if COLUMN is in the middle of a tab character, change it to spaces.
+A value of 'coerce for the second (optional) argument FORCE means if
+COLUMN is in the middle of a tab character, change it to spaces.
+Any other non-nil value means the same, plus if the line is too short to
+reach column COLUMN, then add spaces/tabs to get there.
+
 Returns the actual column that it moved to.
 */
        (column, force, buffer))
@@ -428,7 +432,7 @@ Returns the actual column that it moved to.
     }
 
   /* If line ends prematurely, add space to the end.  */
-  if (col < goal && !NILP (force))
+  if (col < goal && !NILP (force) && !EQ (force, Qcoerce))
     {
       col = goal;
       Findent_to (make_int (col), Qzero, buffer);
@@ -541,7 +545,7 @@ vpix_motion (line_start_cache_dynarr *cache, int start, int end)
   assert (start <= end);
   assert (start >= 0);
   assert (end < Dynarr_length (cache));
-  
+
   vpix = 0;
   for (i = start; i <= end; i++)
     vpix += Dynarr_atp (cache, i)->height;
@@ -681,7 +685,7 @@ Lisp_Object vertical_motion_1 (Lisp_Object lines, Lisp_Object window,
   bufpos = vmotion_1 (w, orig, XINT (lines), vpos, vpix);
 
   /* Note that the buffer's point is set, not the window's point. */
-  if (selected) 
+  if (selected)
     BUF_SET_PT (XBUFFER (w->buffer), bufpos);
   else
     set_marker_restricted (w->pointm[CURRENT_DISP],
@@ -856,7 +860,7 @@ that the motion should be as close as possible to PIXELS.
 
   bufpos = vmotion_pixels (window, orig, XINT (pixels), howto, &motion);
 
-  if (selected) 
+  if (selected)
     BUF_SET_PT (XBUFFER (w->buffer), bufpos);
   else
     set_marker_restricted (w->pointm[CURRENT_DISP],
@@ -879,6 +883,8 @@ syms_of_indent (void)
 #endif
   DEFSUBR (Fvertical_motion);
   DEFSUBR (Fvertical_motion_pixels);
+
+  defsymbol (&Qcoerce, "coerce");
 }
 
 void
