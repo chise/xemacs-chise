@@ -1393,6 +1393,7 @@
     (japanese-jisx0208		. #x4A36)	; ø»‡Œ«
     (korean-ksc5601		. #x5D51)	; ø»‰³„
     (ideograph-daikanwa		. 27295)	; ø¸†ªŸ
+    (=jef-china3		. #x5EF3)	; øº…»³
     ))
 (define-char
   '((=>ucs		. #x7D1B)	; ç´›
