@@ -105,6 +105,7 @@ Lisp_Object Qescape_quoted;
 Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 #ifdef UTF2000
+Lisp_Object Qutf_8_mcs;
 Lisp_Object Qdisable_composition;
 Lisp_Object Quse_entity_reference;
 Lisp_Object Qd, Qx, QX;
@@ -6033,6 +6034,7 @@ syms_of_file_coding (void)
   defsymbol (&Qescape_quoted, "escape-quoted");
 #endif /* MULE */
 #ifdef UTF2000
+  defsymbol (&Qutf_8_mcs, "utf-8-mcs");
   defsymbol (&Qdisable_composition, "disable-composition");
   defsymbol (&Quse_entity_reference, "use-entity-reference");
   defsymbol (&Qd, "d");
@@ -6227,9 +6229,10 @@ complex_vars_of_file_coding (void)
 
 #ifdef UTF2000
   Fmake_coding_system
-    (Qutf8, Qutf8,
-     build_string ("Coding-system of ISO/IEC 10646 UTF-8."),
-     list2 (Qmnemonic, build_string ("UTF8")));
+    (Qutf_8_mcs, Qutf8,
+     build_string
+     ("Coding-system of UTF-8 with Multiple Coded-character-Sets extension."),
+     list2 (Qmnemonic, build_string ("MTF8")));
 #endif
 
   Fdefine_coding_system_alias (Qno_conversion, Qraw_text);
@@ -6245,7 +6248,7 @@ complex_vars_of_file_coding (void)
 
 #ifdef UTF2000
   fcd->coding_category_system[CODING_CATEGORY_UTF8]
-   = Fget_coding_system (Qutf8);
+   = Fget_coding_system (Qutf_8_mcs);
 #endif
 
 #if defined(MULE) && !defined(UTF2000)
