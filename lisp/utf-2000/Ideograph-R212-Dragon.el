@@ -20,13 +20,16 @@
 (define-char
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (chinese-gb2312	. #x417A)	; ø»„¶
     (chinese-isoir165	. #x417A)	; ø»ž­
+    (mojikyo		. 051091)	; ø¸Œž“
     (ucs		. #x9F99)	; é¾™
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 2)
+    (total-strokes	 . 18)
     (ideograph-daikanwa . 48819)	; ø¸‹º³
     (ucs		. #x9F8E)	; é¾Ž
     ))
