@@ -1,3 +1,11 @@
+2003-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el, Ideograph-R154-Shell.el,
+	Ideograph-R150-Valley.el, Ideograph-R149-Speech.el,
+	Ideograph-R153-Badger.el, Ideograph-R152-Pig.el,
+	Ideograph-R151-Bean.el, Ideograph-R142-Insect.el: Add some GT code
+	points.
+
 2003-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R155-Red.el, Ideograph-R148-Horn.el,
