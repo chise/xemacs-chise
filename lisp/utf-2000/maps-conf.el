@@ -32,7 +32,8 @@
 		     #x6D3A #x3D34 #x4A56 #x3063 #x3D3F
 		     #x6E60 #x6F52 #x6F5C #x3458 #x4262
 		     #x4E59 #x6F58 #x7051 #x7056 #x375B
-		     #x7123 #x712A))
+		     #x7123 #x712A #x3142 #x3B41 #x7149
+		     #x7165 #x7227 #x7233))
      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 			 '=gt-pj-1 v))
    nil)
