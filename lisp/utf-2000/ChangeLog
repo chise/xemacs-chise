@@ -1,3 +1,8 @@
+2004-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (M-14298): Moved into U+66FC.
+	(U+66FC): Use `->subsumptive'.
+
 2004-03-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R110-Spear.el (U-00025390): Use `->subsumptive'
