@@ -748,7 +748,7 @@ See also the variable completion-highlight-first-word-only for control over
 
 (defun completing-read (prompt table
                         &optional predicate require-match
-                                  initial-contents history)
+                                  initial-contents history default)
   "Read a string in the minibuffer, with completion.
 Args: PROMPT, TABLE, PREDICATE, REQUIRE-MATCH, INITIAL-CONTENTS, HISTORY.
 PROMPT is a string to prompt with; normally it ends in a colon and a space.
@@ -770,19 +770,25 @@ HISTORY, if non-nil, specifies a history list
   which INITIAL-CONTENTS corresponds to).
   If HISTORY is `t', no history will be recorded.
   Positions are counted starting from 1 at the beginning of the list.
+DEFAULT, if non-nil, is the default value.
 Completion ignores case if the ambient value of
   `completion-ignore-case' is non-nil."
   (let ((minibuffer-completion-table table)
         (minibuffer-completion-predicate predicate)
         (minibuffer-completion-confirm (if (eq require-match 't) nil t))
-        (last-exact-completion nil))
-    (read-from-minibuffer prompt
-                          initial-contents
-                          (if (not require-match)
-                              minibuffer-local-completion-map
-                              minibuffer-local-must-match-map)
-                          nil
-                          history)))
+        (last-exact-completion nil)
+	ret)
+    (setq ret (read-from-minibuffer prompt
+				    initial-contents
+				    (if (not require-match)
+					minibuffer-local-completion-map
+				      minibuffer-local-must-match-map)
+				    nil
+				    history))
+    (if (and (string= ret "")
+	     default)
+	default
+      ret)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2107,10 +2113,12 @@ On mswindows devices, this uses `mswindows-color-list'."
 
 ;;(if (featurep 'mule)
 
-(defun read-coding-system (prompt)
+(defun read-coding-system (prompt &optional default-coding-system)
   "Read a coding-system (or nil) from the minibuffer.
-Prompting with string PROMPT."
-  (intern (completing-read prompt obarray 'find-coding-system t)))
+Prompting with string PROMPT.
+If the user enters null input, return second argument DEFAULT-CODING-SYSTEM."
+  (completing-read prompt obarray 'find-coding-system t nil nil 
+		   default-coding-system))
 
 (defun read-non-nil-coding-system (prompt)
   "Read a non-nil coding-system from the minibuffer.
