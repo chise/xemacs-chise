@@ -1,5 +1,7 @@
 2005-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (U+8C9F): Add `<-vulgar' for U+54E1.
+
 	* Ideograph-R104-Sickness.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
