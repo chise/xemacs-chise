@@ -1,3 +1,34 @@
+2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (M-11769): Separate G0-3245, C1-445F and
+	U+624D; unify M011769.
+	(U+624D): Unify G0-3245, C1-445F and M051101.
+
+	* Ideograph-R062-Halberd.el (M-11538): Unify C4-2272 and
+	U-0002298F.
+	(M-11542'): Fix `ideographic-strokes'.
+	(M-11544): Unify M011544.
+
+2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+6247): Unify M057162.
+
+2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (M-10312): Separate C1-4A36; unify
+	M010312.
+	(M-10348): Separate G0-6343, C1-4D3F and U+5FDD; unify M010348.
+	(U+5FDD): Unify G0-6343, C1-4D3F and M053330.
+	(M072435): New character; relate to M-10348 and U+5FDD.
+	(M-11024'): Separate G0-4977, C1-637C and U+614E.
+	(U+614E): Unify G0-4977, C1-637C and M053483.
+	(M-11399'): Unify C4-5B2C.
+	(M-11400): Separate JSP-3E7D; unify M011400 and U+61E9.
+	(C2-615C): Separate U+61E9; unify JSP-3E7D.
+	(JSP-3E7E): Unify M-11400' and M050186; separate C2-5C6F and
+	U+61E5; fix strokes.
+	(U+61E5): Unify C2-5C6F and M054801.
+
 2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R141-Tiger.el (C1-5D29): Moved from
