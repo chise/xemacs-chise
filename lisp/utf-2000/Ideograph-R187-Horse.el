@@ -2802,6 +2802,14 @@
     (ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
+    (=gt		. 60342)	; ý¡€Ž®¶
+    (=gt-pj-8		. #x4E41)	; ý¡€Ž®¶
+    ))
+(define-char
+  '((morohashi-daikanwa	44833 1 0)
+    (ideographic-radical . 187)	; â¾º
+    (ideographic-strokes . 8)
+    (total-strokes	 . 18)
     (mojikyo		. 050593)	; ý €Œ–¡
     ))
 (define-char
@@ -2809,7 +2817,6 @@
     (ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (->mojikyo		. 050593)	; ý €Œ–¡
     (=cns11643-5	. #x6646)	; ø»›§
     ))
 (define-char
