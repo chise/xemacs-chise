@@ -1,5 +1,18 @@
 2004-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R210-Even.el (U+9F4A): Use `->subsumptive'.
+
+	* Ideograph-R182-Wind.el (U+98A8): Use `->subsumptive'.
+
+	* Ideograph-R077-Stop.el (U+6B64): Use `->subsumptive'.
+	(U-00023945): Likewise.
+
+	* Ideograph-R072-Sun.el (U+65E8): Use `->subsumptive'.
+	(U+3AD0): Likewise.
+	(U+3AD5): Likewise.
+
+2004-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R025-Divination.el (GT-K00061): Use `<-denotational'
 	for U+535C; use `=>daikanwa' instead of `morohashi-daikanwa'.
 	(C6-212C): Unify U-00020061, BC-87B1 and GT-00103 instead of using
