@@ -4,8 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x864D)	; è™
-    (=gb2312		. #x722E)	; ø»…½
     (=jis-x0208		. #x6948)	; ø½‹ “
+    (=gb2312		. #x722E)	; ø»…½
     (=cns11643-2	. #x226F)	; ø»“Œ
     (=gt		. 44176)	; ý¡€Š²
     (=gt-k		. 01740)	; ý¡„€›Œ
@@ -472,8 +472,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x865A)	; è™š
-    (=gb2312		. #x5069)	; ø»…ŒŽ
     (=jis-x0208		. #x3575)	; ø½Š”¨
+    (=gb2312		. #x5069)	; ø»…ŒŽ
     (=gt		. 44199)	; ý¡€Š²§
     (=gt-k		. 07745)	; ý¡„¹
     (=gt-pj-1		. #x3575)	; ý¡€Š²§

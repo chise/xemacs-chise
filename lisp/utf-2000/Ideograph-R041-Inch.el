@@ -5,8 +5,8 @@
     (total-strokes	 . 3)
     (shinjigen-2	. 1878)
     (=ucs		. #x5BF8)	; å¯¸
-    (=gb2312		. #x3467)	; ø»„£„
     (=jis-x0208		. #x4023)	; ø½Š£ 
+    (=gb2312		. #x3467)	; ø»„£„
     (=ks-x1001		. #x753B)	; ø»Š•¾
     (=cns11643-1	. #x4450)	; ø»‘¶¥
     (=big5		. #xA46F)	; ý¢€Š‘¯
@@ -45,8 +45,8 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 1879)
     (=ucs		. #x5BFA)	; å¯º
-    (=gb2312		. #x4B42)	; ø»…„‘
     (=jis-x0208		. #x3B7B)	; ø½Š¢
+    (=gb2312		. #x4B42)	; ø»…„‘
     (=ks-x1001		. #x5E51)	; ø»‰´¢
     (=big5		. #xA678)	; ý¢€Š™¸
     (=gt		. 09324)	; ý¡€‚‘¬
@@ -123,8 +123,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5BFF)	; å¯¿
-    (=gb2312		. #x4A59)	; ø»…ƒŠ
     (=jis-x0208		. #x3C77)	; ø½Šž¼
+    (=gb2312		. #x4A59)	; ø»…ƒŠ
     (=cns11643-3	. #x255D)	; ø»•˜
     (=cns11643-6	. #x2721)	; ø»›½¤
     (=gt		. 09329)	; ý¡€‚‘±
@@ -186,8 +186,8 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 1887)
     (=ucs		. #x5C01)	; å°
-    (=gb2312		. #x3762)	; ø»„§™
     (=jis-x0208		. #x4975)	; ø½Š²€
+    (=gb2312		. #x3762)	; ø»„§™
     (=ks-x1001		. #x5C66)	; ø»‰±»
     (=cns11643-1	. #x506C)	; ø»’ˆ©
     (=big5		. #xABCA)	; ý¢€Š¯Š
@@ -266,8 +266,8 @@
     (total-strokes	 . 10)
     (shinjigen-2	. 1888)
     (=ucs		. #x5C04)	; å°„
-    (=gb2312		. #x4964)	; ø»…·
     (=jis-x0208		. #x3C4D)	; ø½Šž’
+    (=gb2312		. #x4964)	; ø»…·
     (=ks-x1001		. #x5E52)	; ø»‰´£
     (=cns11643-1	. #x552B)	; ø»’Ž¾
     (=big5		. #xAE67)	; ý¢€Š¹§
@@ -410,8 +410,8 @@
     (shinjigen-1	. 1892)
     (shinjigen-2	. 1892)
     (=ucs		. #x5C09)	; å°‰
-    (=gb2312		. #x4E3E)	; ø»…ˆ§
     (=jis-x0208		. #x3053)	; ø½ŠŒ°
+    (=gb2312		. #x4E3E)	; ø»…ˆ§
     (=ks-x1001		. #x6A4F)	; ø»Š†ˆ
     (=big5		. #xB14C)	; ý¢€‹…Œ
     (=gt		. 09359)	; ý¡€‚’
@@ -472,8 +472,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5C0A)	; å°Š
-    (=gb2312		. #x5770)	; ø»…–§
     (=jis-x0208		. #x423A)	; ø½Š¦³
+    (=gb2312		. #x5770)	; ø»…–§
     (=cns11643-1	. #x5E71)	; ø»’’
     (=gt		. 09379)	; ý¡€‚’£
     (=gt-k		. 09092)	; ý¡„‚Ž„

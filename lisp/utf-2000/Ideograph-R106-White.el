@@ -5,8 +5,8 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 5196)
     (=ucs		. #x767D)	; ç™½
-    (=gb2312		. #x3057)	; ø»„œ¼
     (=jis-x0208		. #x4772)	; ø½Š¯
+    (=gb2312		. #x3057)	; ø»„œ¼
     (=ks-x1001		. #x5B5C)	; ø»‰°“
     (=cns11643-1	. #x4675)	; ø»‘º†
     (=big5		. #xA5D5)	; ý¢€Š—•
@@ -21,8 +21,8 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 30)
     (=ucs		. #x767E)	; ç™¾
-    (=gb2312		. #x3059)	; ø»„œ¾
     (=jis-x0208		. #x4934)	; ø½Š°¿
+    (=gb2312		. #x3059)	; ø»„œ¾
     (=ks-x1001		. #x5B5D)	; ø»‰°”
     (=cns11643-1	. #x484B)	; ø»‘¼˜
     (=big5		. #xA6CA)	; ý¢€Š›Š
@@ -160,8 +160,8 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 5199)
     (=ucs		. #x7684)	; çš„
-    (=gb2312		. #x3544)	; ø»„£¿
     (=jis-x0208		. #x452A)	; ø½Šª½
+    (=gb2312		. #x3544)	; ø»„£¿
     (=ks-x1001		. #x6E5C)	; ø»ŠŒ
     (=cns11643-1	. #x4E7B)	; ø»’…¼
     (=big5		. #xAABA)	; ý¢€Šªº
@@ -251,8 +251,8 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 5202)
     (=ucs		. #x7686)	; çš†
-    (=gb2312		. #x3D54)	; ø»„¯¿
     (=jis-x0208		. #x3327)	; ø½Šž
+    (=gb2312		. #x3D54)	; ø»„¯¿
     (=ks-x1001		. #x4B4B)	; ø»‰˜¢
     (=big5		. #xACD2)	; ý¢€Š³’
     (=gt		. 29091)	; ý¡€‡†£
@@ -290,8 +290,8 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 5203)
     (=ucs		. #x7687)	; çš‡
-    (=gb2312		. #x3B4A)	; ø»„¬¹
     (=jis-x0208		. #x3944)	; ø½Š™¯
+    (=gb2312		. #x3B4A)	; ø»„¬¹
     (=ks-x1001		. #x7C55)	; ø»Š ª
     (=cns11643-1	. #x5256)	; ø»’‹
     (=big5		. #xACD3)	; ý¢€Š³“
@@ -439,8 +439,8 @@
     (jisx0208-difference . -78/4X)
     (shinjigen-2	. 5204)
     (=ucs		. #x768B)	; çš‹
-    (=gb2312		. #x385E)	; ø»„¨³
     (=jis-x0208		. #x6228)	; ø½‹•¡
+    (=gb2312		. #x385E)	; ø»„¨³
     (=cns11643-1	. #x5672)	; ø»’‘£
     (=big5		. #xAF6F)	; ý¢€Š½¯
     (=gt		. 29109)	; ý¡€‡†µ
@@ -794,8 +794,8 @@
     (total-strokes	 . 13)
     (shinjigen-2	. 5211)
     (=ucs		. #x7699)	; çš™
-    (=gb2312		. #x702A)	; ø»…º
     (=jis-x0208		. #x622C)	; ø½‹•¥
+    (=gb2312		. #x702A)	; ø»…º
     (=cns11643-2	. #x453B)	; ø»”²
     (=big5		. #xDED5)	; ý¢€»•
     (=gt		. 29148)	; ý¡€‡‡œ

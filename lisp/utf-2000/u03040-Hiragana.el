@@ -5,8 +5,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3041)	; ã
-    (=gb2312		. #x2421)	; ø»„Šž
     (=jis-x0208		. #x2421)	; ø½‰º–
+    (=gb2312		. #x2421)	; ø»„Šž
     (=ks-x1001		. #x2A21)	; ø»ˆ§š
     (=big5-eten		. #xC6E7)	; ý¢€Œ›§
     (=jef-china3	. #x7DC5)	; øº‡·…
@@ -17,8 +17,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3042)	; ã‚
-    (=gb2312		. #x2422)	; ø»„ŠŸ
     (=jis-x0208		. #x2422)	; ø½‰º—
+    (=gb2312		. #x2422)	; ø»„ŠŸ
     (=ks-x1001		. #x2A22)	; ø»ˆ§›
     (=big5-eten		. #xC6E8)	; ý¢€Œ›¨
     ))
@@ -28,8 +28,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3043)	; ãƒ
-    (=gb2312		. #x2423)	; ø»„Š 
     (=jis-x0208		. #x2423)	; ø½‰º˜
+    (=gb2312		. #x2423)	; ø»„Š 
     (=ks-x1001		. #x2A23)	; ø»ˆ§œ
     (=big5-eten		. #xC6E9)	; ý¢€Œ›©
     (=jef-china3	. #x7DC6)	; øº‡·†
@@ -40,8 +40,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3044)	; ã„
-    (=gb2312		. #x2424)	; ø»„Š¡
     (=jis-x0208		. #x2424)	; ø½‰º™
+    (=gb2312		. #x2424)	; ø»„Š¡
     (=ks-x1001		. #x2A24)	; ø»ˆ§
     (=big5-eten		. #xC6EA)	; ý¢€Œ›ª
     ))
@@ -51,8 +51,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3045)	; ã…
-    (=gb2312		. #x2425)	; ø»„Š¢
     (=jis-x0208		. #x2425)	; ø½‰ºš
+    (=gb2312		. #x2425)	; ø»„Š¢
     (=ks-x1001		. #x2A25)	; ø»ˆ§ž
     (=big5-eten		. #xC6EB)	; ý¢€Œ›«
     (=jef-china3	. #x7DC7)	; øº‡·‡
@@ -63,8 +63,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3046)	; ã†
-    (=gb2312		. #x2426)	; ø»„Š£
     (=jis-x0208		. #x2426)	; ø½‰º›
+    (=gb2312		. #x2426)	; ø»„Š£
     (=ks-x1001		. #x2A26)	; ø»ˆ§Ÿ
     (=big5-eten		. #xC6EC)	; ý¢€Œ›¬
     ))
@@ -74,8 +74,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3047)	; ã‡
-    (=gb2312		. #x2427)	; ø»„Š¤
     (=jis-x0208		. #x2427)	; ø½‰ºœ
+    (=gb2312		. #x2427)	; ø»„Š¤
     (=ks-x1001		. #x2A27)	; ø»ˆ§ 
     (=big5-eten		. #xC6ED)	; ý¢€Œ›­
     (=jef-china3	. #x7DC8)	; øº‡·ˆ
@@ -86,8 +86,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3048)	; ãˆ
-    (=gb2312		. #x2428)	; ø»„Š¥
     (=jis-x0208		. #x2428)	; ø½‰º
+    (=gb2312		. #x2428)	; ø»„Š¥
     (=ks-x1001		. #x2A28)	; ø»ˆ§¡
     (=big5-eten		. #xC6EE)	; ý¢€Œ›®
     ))
@@ -97,8 +97,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3049)	; ã‰
-    (=gb2312		. #x2429)	; ø»„Š¦
     (=jis-x0208		. #x2429)	; ø½‰ºž
+    (=gb2312		. #x2429)	; ø»„Š¦
     (=ks-x1001		. #x2A29)	; ø»ˆ§¢
     (=big5-eten		. #xC6EF)	; ý¢€Œ›¯
     (=jef-china3	. #x7DC9)	; øº‡·‰
@@ -109,8 +109,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x304A)	; ãŠ
-    (=gb2312		. #x242A)	; ø»„Š§
     (=jis-x0208		. #x242A)	; ø½‰ºŸ
+    (=gb2312		. #x242A)	; ø»„Š§
     (=ks-x1001		. #x2A2A)	; ø»ˆ§£
     (=big5-eten		. #xC6F0)	; ý¢€Œ›°
     ))
@@ -120,8 +120,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x304B)	; ã‹
-    (=gb2312		. #x242B)	; ø»„Š¨
     (=jis-x0208		. #x242B)	; ø½‰º 
+    (=gb2312		. #x242B)	; ø»„Š¨
     (=ks-x1001		. #x2A2B)	; ø»ˆ§¤
     (=big5-eten		. #xC6F1)	; ý¢€Œ›±
     ))
@@ -132,8 +132,8 @@
     (mirrored		. nil)
     (->decomposition	#x304B #x3099)
     (=ucs		. #x304C)	; ãŒ
-    (=gb2312		. #x242C)	; ø»„Š©
     (=jis-x0208		. #x242C)	; ø½‰º¡
+    (=gb2312		. #x242C)	; ø»„Š©
     (=ks-x1001		. #x2A2C)	; ø»ˆ§¥
     (=big5-eten		. #xC6F2)	; ý¢€Œ›²
     ))
@@ -143,8 +143,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x304D)	; ã
-    (=gb2312		. #x242D)	; ø»„Šª
     (=jis-x0208		. #x242D)	; ø½‰º¢
+    (=gb2312		. #x242D)	; ø»„Šª
     (=ks-x1001		. #x2A2D)	; ø»ˆ§¦
     (=big5-eten		. #xC6F3)	; ý¢€Œ›³
     ))
@@ -155,8 +155,8 @@
     (mirrored		. nil)
     (->decomposition	#x304D #x3099)
     (=ucs		. #x304E)	; ãŽ
-    (=gb2312		. #x242E)	; ø»„Š«
     (=jis-x0208		. #x242E)	; ø½‰º£
+    (=gb2312		. #x242E)	; ø»„Š«
     (=ks-x1001		. #x2A2E)	; ø»ˆ§§
     (=big5-eten		. #xC6F4)	; ý¢€Œ›´
     ))
@@ -166,8 +166,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x304F)	; ã
-    (=gb2312		. #x242F)	; ø»„Š¬
     (=jis-x0208		. #x242F)	; ø½‰º¤
+    (=gb2312		. #x242F)	; ø»„Š¬
     (=ks-x1001		. #x2A2F)	; ø»ˆ§¨
     (=big5-eten		. #xC6F5)	; ý¢€Œ›µ
     ))
@@ -178,8 +178,8 @@
     (mirrored		. nil)
     (->decomposition	#x304F #x3099)
     (=ucs		. #x3050)	; ã
-    (=gb2312		. #x2430)	; ø»„Š­
     (=jis-x0208		. #x2430)	; ø½‰º¥
+    (=gb2312		. #x2430)	; ø»„Š­
     (=ks-x1001		. #x2A30)	; ø»ˆ§©
     (=big5-eten		. #xC6F6)	; ý¢€Œ›¶
     ))
@@ -189,8 +189,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3051)	; ã‘
-    (=gb2312		. #x2431)	; ø»„Š®
     (=jis-x0208		. #x2431)	; ø½‰º¦
+    (=gb2312		. #x2431)	; ø»„Š®
     (=ks-x1001		. #x2A31)	; ø»ˆ§ª
     (=big5-eten		. #xC6F7)	; ý¢€Œ›·
     ))
@@ -201,8 +201,8 @@
     (mirrored		. nil)
     (->decomposition	#x3051 #x3099)
     (=ucs		. #x3052)	; ã’
-    (=gb2312		. #x2432)	; ø»„Š¯
     (=jis-x0208		. #x2432)	; ø½‰º§
+    (=gb2312		. #x2432)	; ø»„Š¯
     (=ks-x1001		. #x2A32)	; ø»ˆ§«
     (=big5-eten		. #xC6F8)	; ý¢€Œ›¸
     ))
@@ -212,8 +212,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3053)	; ã“
-    (=gb2312		. #x2433)	; ø»„Š°
     (=jis-x0208		. #x2433)	; ø½‰º¨
+    (=gb2312		. #x2433)	; ø»„Š°
     (=ks-x1001		. #x2A33)	; ø»ˆ§¬
     (=big5-eten		. #xC6F9)	; ý¢€Œ›¹
     ))
@@ -224,8 +224,8 @@
     (mirrored		. nil)
     (->decomposition	#x3053 #x3099)
     (=ucs		. #x3054)	; ã”
-    (=gb2312		. #x2434)	; ø»„Š±
     (=jis-x0208		. #x2434)	; ø½‰º©
+    (=gb2312		. #x2434)	; ø»„Š±
     (=ks-x1001		. #x2A34)	; ø»ˆ§­
     (=big5-eten		. #xC6FA)	; ý¢€Œ›º
     ))
@@ -235,8 +235,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3055)	; ã•
-    (=gb2312		. #x2435)	; ø»„Š²
     (=jis-x0208		. #x2435)	; ø½‰ºª
+    (=gb2312		. #x2435)	; ø»„Š²
     (=ks-x1001		. #x2A35)	; ø»ˆ§®
     (=big5-eten		. #xC6FB)	; ý¢€Œ›»
     ))
@@ -247,8 +247,8 @@
     (mirrored		. nil)
     (->decomposition	#x3055 #x3099)
     (=ucs		. #x3056)	; ã–
-    (=gb2312		. #x2436)	; ø»„Š³
     (=jis-x0208		. #x2436)	; ø½‰º«
+    (=gb2312		. #x2436)	; ø»„Š³
     (=ks-x1001		. #x2A36)	; ø»ˆ§¯
     (=big5-eten		. #xC6FC)	; ý¢€Œ›¼
     ))
@@ -258,8 +258,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3057)	; ã—
-    (=gb2312		. #x2437)	; ø»„Š´
     (=jis-x0208		. #x2437)	; ø½‰º¬
+    (=gb2312		. #x2437)	; ø»„Š´
     (=ks-x1001		. #x2A37)	; ø»ˆ§°
     (=big5-eten		. #xC6FD)	; ý¢€Œ›½
     ))
@@ -270,8 +270,8 @@
     (mirrored		. nil)
     (->decomposition	#x3057 #x3099)
     (=ucs		. #x3058)	; ã˜
-    (=gb2312		. #x2438)	; ø»„Šµ
     (=jis-x0208		. #x2438)	; ø½‰º­
+    (=gb2312		. #x2438)	; ø»„Šµ
     (=ks-x1001		. #x2A38)	; ø»ˆ§±
     (=big5-eten		. #xC6FE)	; ý¢€Œ›¾
     ))
@@ -281,8 +281,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3059)	; ã™
-    (=gb2312		. #x2439)	; ø»„Š¶
     (=jis-x0208		. #x2439)	; ø½‰º®
+    (=gb2312		. #x2439)	; ø»„Š¶
     (=ks-x1001		. #x2A39)	; ø»ˆ§²
     (=big5-eten		. #xC740)	; ý¢€Œ€
     ))
@@ -293,8 +293,8 @@
     (mirrored		. nil)
     (->decomposition	#x3059 #x3099)
     (=ucs		. #x305A)	; ãš
-    (=gb2312		. #x243A)	; ø»„Š·
     (=jis-x0208		. #x243A)	; ø½‰º¯
+    (=gb2312		. #x243A)	; ø»„Š·
     (=ks-x1001		. #x2A3A)	; ø»ˆ§³
     (=big5-eten		. #xC741)	; ý¢€Œ
     ))
@@ -304,8 +304,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x305B)	; ã›
-    (=gb2312		. #x243B)	; ø»„Š¸
     (=jis-x0208		. #x243B)	; ø½‰º°
+    (=gb2312		. #x243B)	; ø»„Š¸
     (=ks-x1001		. #x2A3B)	; ø»ˆ§´
     (=big5-eten		. #xC742)	; ý¢€Œ‚
     ))
@@ -316,8 +316,8 @@
     (mirrored		. nil)
     (->decomposition	#x305B #x3099)
     (=ucs		. #x305C)	; ãœ
-    (=gb2312		. #x243C)	; ø»„Š¹
     (=jis-x0208		. #x243C)	; ø½‰º±
+    (=gb2312		. #x243C)	; ø»„Š¹
     (=ks-x1001		. #x2A3C)	; ø»ˆ§µ
     (=big5-eten		. #xC743)	; ý¢€Œƒ
     ))
@@ -327,8 +327,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x305D)	; ã
-    (=gb2312		. #x243D)	; ø»„Šº
     (=jis-x0208		. #x243D)	; ø½‰º²
+    (=gb2312		. #x243D)	; ø»„Šº
     (=ks-x1001		. #x2A3D)	; ø»ˆ§¶
     (=big5-eten		. #xC744)	; ý¢€Œ„
     ))
@@ -339,8 +339,8 @@
     (mirrored		. nil)
     (->decomposition	#x305D #x3099)
     (=ucs		. #x305E)	; ãž
-    (=gb2312		. #x243E)	; ø»„Š»
     (=jis-x0208		. #x243E)	; ø½‰º³
+    (=gb2312		. #x243E)	; ø»„Š»
     (=ks-x1001		. #x2A3E)	; ø»ˆ§·
     (=big5-eten		. #xC745)	; ý¢€Œ…
     ))
@@ -350,8 +350,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x305F)	; ãŸ
-    (=gb2312		. #x243F)	; ø»„Š¼
     (=jis-x0208		. #x243F)	; ø½‰º´
+    (=gb2312		. #x243F)	; ø»„Š¼
     (=ks-x1001		. #x2A3F)	; ø»ˆ§¸
     (=big5-eten		. #xC746)	; ý¢€Œ†
     ))
@@ -362,8 +362,8 @@
     (mirrored		. nil)
     (->decomposition	#x305F #x3099)
     (=ucs		. #x3060)	; ã 
-    (=gb2312		. #x2440)	; ø»„Š½
     (=jis-x0208		. #x2440)	; ø½‰ºµ
+    (=gb2312		. #x2440)	; ø»„Š½
     (=ks-x1001		. #x2A40)	; ø»ˆ§¹
     (=big5-eten		. #xC747)	; ý¢€Œ‡
     ))
@@ -373,8 +373,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3061)	; ã¡
-    (=gb2312		. #x2441)	; ø»„Š¾
     (=jis-x0208		. #x2441)	; ø½‰º¶
+    (=gb2312		. #x2441)	; ø»„Š¾
     (=ks-x1001		. #x2A41)	; ø»ˆ§º
     (=big5-eten		. #xC748)	; ý¢€Œˆ
     ))
@@ -385,8 +385,8 @@
     (mirrored		. nil)
     (->decomposition	#x3061 #x3099)
     (=ucs		. #x3062)	; ã¢
-    (=gb2312		. #x2442)	; ø»„Š¿
     (=jis-x0208		. #x2442)	; ø½‰º·
+    (=gb2312		. #x2442)	; ø»„Š¿
     (=ks-x1001		. #x2A42)	; ø»ˆ§»
     (=big5-eten		. #xC749)	; ý¢€Œ‰
     ))
@@ -396,8 +396,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3063)	; ã£
-    (=gb2312		. #x2443)	; ø»„‹€
     (=jis-x0208		. #x2443)	; ø½‰º¸
+    (=gb2312		. #x2443)	; ø»„‹€
     (=ks-x1001		. #x2A43)	; ø»ˆ§¼
     (=big5-eten		. #xC74A)	; ý¢€ŒŠ
     (=jef-china3	. #x7DCA)	; øº‡·Š
@@ -408,8 +408,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3064)	; ã¤
-    (=gb2312		. #x2444)	; ø»„‹
     (=jis-x0208		. #x2444)	; ø½‰º¹
+    (=gb2312		. #x2444)	; ø»„‹
     (=ks-x1001		. #x2A44)	; ø»ˆ§½
     (=big5-eten		. #xC74B)	; ý¢€Œ‹
     ))
@@ -420,8 +420,8 @@
     (mirrored		. nil)
     (->decomposition	#x3064 #x3099)
     (=ucs		. #x3065)	; ã¥
-    (=gb2312		. #x2445)	; ø»„‹‚
     (=jis-x0208		. #x2445)	; ø½‰ºº
+    (=gb2312		. #x2445)	; ø»„‹‚
     (=ks-x1001		. #x2A45)	; ø»ˆ§¾
     (=big5-eten		. #xC74C)	; ý¢€ŒŒ
     ))
@@ -431,8 +431,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3066)	; ã¦
-    (=gb2312		. #x2446)	; ø»„‹ƒ
     (=jis-x0208		. #x2446)	; ø½‰º»
+    (=gb2312		. #x2446)	; ø»„‹ƒ
     (=ks-x1001		. #x2A46)	; ø»ˆ§¿
     (=big5-eten		. #xC74D)	; ý¢€Œ
     ))
@@ -443,8 +443,8 @@
     (mirrored		. nil)
     (->decomposition	#x3066 #x3099)
     (=ucs		. #x3067)	; ã§
-    (=gb2312		. #x2447)	; ø»„‹„
     (=jis-x0208		. #x2447)	; ø½‰º¼
+    (=gb2312		. #x2447)	; ø»„‹„
     (=ks-x1001		. #x2A47)	; ø»ˆ¨€
     (=big5-eten		. #xC74E)	; ý¢€ŒŽ
     ))
@@ -454,8 +454,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3068)	; ã¨
-    (=gb2312		. #x2448)	; ø»„‹…
     (=jis-x0208		. #x2448)	; ø½‰º½
+    (=gb2312		. #x2448)	; ø»„‹…
     (=ks-x1001		. #x2A48)	; ø»ˆ¨
     (=big5-eten		. #xC74F)	; ý¢€Œ
     ))
@@ -466,8 +466,8 @@
     (mirrored		. nil)
     (->decomposition	#x3068 #x3099)
     (=ucs		. #x3069)	; ã©
-    (=gb2312		. #x2449)	; ø»„‹†
     (=jis-x0208		. #x2449)	; ø½‰º¾
+    (=gb2312		. #x2449)	; ø»„‹†
     (=ks-x1001		. #x2A49)	; ø»ˆ¨‚
     (=big5-eten		. #xC750)	; ý¢€Œ
     ))
@@ -477,8 +477,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306A)	; ãª
-    (=gb2312		. #x244A)	; ø»„‹‡
     (=jis-x0208		. #x244A)	; ø½‰º¿
+    (=gb2312		. #x244A)	; ø»„‹‡
     (=ks-x1001		. #x2A4A)	; ø»ˆ¨ƒ
     (=big5-eten		. #xC751)	; ý¢€Œ‘
     ))
@@ -488,8 +488,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306B)	; ã«
-    (=gb2312		. #x244B)	; ø»„‹ˆ
     (=jis-x0208		. #x244B)	; ø½‰»€
+    (=gb2312		. #x244B)	; ø»„‹ˆ
     (=ks-x1001		. #x2A4B)	; ø»ˆ¨„
     (=big5-eten		. #xC752)	; ý¢€Œ’
     ))
@@ -499,8 +499,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306C)	; ã¬
-    (=gb2312		. #x244C)	; ø»„‹‰
     (=jis-x0208		. #x244C)	; ø½‰»
+    (=gb2312		. #x244C)	; ø»„‹‰
     (=ks-x1001		. #x2A4C)	; ø»ˆ¨…
     (=big5-eten		. #xC753)	; ý¢€Œ“
     ))
@@ -510,8 +510,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306D)	; ã­
-    (=gb2312		. #x244D)	; ø»„‹Š
     (=jis-x0208		. #x244D)	; ø½‰»‚
+    (=gb2312		. #x244D)	; ø»„‹Š
     (=ks-x1001		. #x2A4D)	; ø»ˆ¨†
     (=big5-eten		. #xC754)	; ý¢€Œ”
     ))
@@ -521,8 +521,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306E)	; ã®
-    (=gb2312		. #x244E)	; ø»„‹‹
     (=jis-x0208		. #x244E)	; ø½‰»ƒ
+    (=gb2312		. #x244E)	; ø»„‹‹
     (=ks-x1001		. #x2A4E)	; ø»ˆ¨‡
     (=big5-eten		. #xC755)	; ý¢€Œ•
     ))
@@ -532,8 +532,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x306F)	; ã¯
-    (=gb2312		. #x244F)	; ø»„‹Œ
     (=jis-x0208		. #x244F)	; ø½‰»„
+    (=gb2312		. #x244F)	; ø»„‹Œ
     (=ks-x1001		. #x2A4F)	; ø»ˆ¨ˆ
     (=big5-eten		. #xC756)	; ý¢€Œ–
     ))
@@ -544,8 +544,8 @@
     (mirrored		. nil)
     (->decomposition	#x306F #x3099)
     (=ucs		. #x3070)	; ã°
-    (=gb2312		. #x2450)	; ø»„‹
     (=jis-x0208		. #x2450)	; ø½‰»…
+    (=gb2312		. #x2450)	; ø»„‹
     (=ks-x1001		. #x2A50)	; ø»ˆ¨‰
     (=big5-eten		. #xC757)	; ý¢€Œ—
     ))
@@ -556,8 +556,8 @@
     (mirrored		. nil)
     (->decomposition	#x306F #x309A)
     (=ucs		. #x3071)	; ã±
-    (=gb2312		. #x2451)	; ø»„‹Ž
     (=jis-x0208		. #x2451)	; ø½‰»†
+    (=gb2312		. #x2451)	; ø»„‹Ž
     (=ks-x1001		. #x2A51)	; ø»ˆ¨Š
     (=big5-eten		. #xC758)	; ý¢€Œ˜
     ))
@@ -567,8 +567,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3072)	; ã²
-    (=gb2312		. #x2452)	; ø»„‹
     (=jis-x0208		. #x2452)	; ø½‰»‡
+    (=gb2312		. #x2452)	; ø»„‹
     (=ks-x1001		. #x2A52)	; ø»ˆ¨‹
     (=big5-eten		. #xC759)	; ý¢€Œ™
     ))
@@ -579,8 +579,8 @@
     (mirrored		. nil)
     (->decomposition	#x3072 #x3099)
     (=ucs		. #x3073)	; ã³
-    (=gb2312		. #x2453)	; ø»„‹
     (=jis-x0208		. #x2453)	; ø½‰»ˆ
+    (=gb2312		. #x2453)	; ø»„‹
     (=ks-x1001		. #x2A53)	; ø»ˆ¨Œ
     (=big5-eten		. #xC75A)	; ý¢€Œš
     ))
@@ -591,8 +591,8 @@
     (mirrored		. nil)
     (->decomposition	#x3072 #x309A)
     (=ucs		. #x3074)	; ã´
-    (=gb2312		. #x2454)	; ø»„‹‘
     (=jis-x0208		. #x2454)	; ø½‰»‰
+    (=gb2312		. #x2454)	; ø»„‹‘
     (=ks-x1001		. #x2A54)	; ø»ˆ¨
     (=big5-eten		. #xC75B)	; ý¢€Œ›
     ))
@@ -602,8 +602,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3075)	; ãµ
-    (=gb2312		. #x2455)	; ø»„‹’
     (=jis-x0208		. #x2455)	; ø½‰»Š
+    (=gb2312		. #x2455)	; ø»„‹’
     (=ks-x1001		. #x2A55)	; ø»ˆ¨Ž
     (=big5-eten		. #xC75C)	; ý¢€Œœ
     ))
@@ -614,8 +614,8 @@
     (mirrored		. nil)
     (->decomposition	#x3075 #x3099)
     (=ucs		. #x3076)	; ã¶
-    (=gb2312		. #x2456)	; ø»„‹“
     (=jis-x0208		. #x2456)	; ø½‰»‹
+    (=gb2312		. #x2456)	; ø»„‹“
     (=ks-x1001		. #x2A56)	; ø»ˆ¨
     (=big5-eten		. #xC75D)	; ý¢€Œ
     ))
@@ -626,8 +626,8 @@
     (mirrored		. nil)
     (->decomposition	#x3075 #x309A)
     (=ucs		. #x3077)	; ã·
-    (=gb2312		. #x2457)	; ø»„‹”
     (=jis-x0208		. #x2457)	; ø½‰»Œ
+    (=gb2312		. #x2457)	; ø»„‹”
     (=ks-x1001		. #x2A57)	; ø»ˆ¨
     (=big5-eten		. #xC75E)	; ý¢€Œž
     ))
@@ -637,8 +637,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3078)	; ã¸
-    (=gb2312		. #x2458)	; ø»„‹•
     (=jis-x0208		. #x2458)	; ø½‰»
+    (=gb2312		. #x2458)	; ø»„‹•
     (=ks-x1001		. #x2A58)	; ø»ˆ¨‘
     (=big5-eten		. #xC75F)	; ý¢€ŒŸ
     ))
@@ -649,8 +649,8 @@
     (mirrored		. nil)
     (->decomposition	#x3078 #x3099)
     (=ucs		. #x3079)	; ã¹
-    (=gb2312		. #x2459)	; ø»„‹–
     (=jis-x0208		. #x2459)	; ø½‰»Ž
+    (=gb2312		. #x2459)	; ø»„‹–
     (=ks-x1001		. #x2A59)	; ø»ˆ¨’
     (=big5-eten		. #xC760)	; ý¢€Œ 
     ))
@@ -661,8 +661,8 @@
     (mirrored		. nil)
     (->decomposition	#x3078 #x309A)
     (=ucs		. #x307A)	; ãº
-    (=gb2312		. #x245A)	; ø»„‹—
     (=jis-x0208		. #x245A)	; ø½‰»
+    (=gb2312		. #x245A)	; ø»„‹—
     (=ks-x1001		. #x2A5A)	; ø»ˆ¨“
     (=big5-eten		. #xC761)	; ý¢€Œ¡
     ))
@@ -672,8 +672,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x307B)	; ã»
-    (=gb2312		. #x245B)	; ø»„‹˜
     (=jis-x0208		. #x245B)	; ø½‰»
+    (=gb2312		. #x245B)	; ø»„‹˜
     (=ks-x1001		. #x2A5B)	; ø»ˆ¨”
     (=big5-eten		. #xC762)	; ý¢€Œ¢
     ))
@@ -684,8 +684,8 @@
     (mirrored		. nil)
     (->decomposition	#x307B #x3099)
     (=ucs		. #x307C)	; ã¼
-    (=gb2312		. #x245C)	; ø»„‹™
     (=jis-x0208		. #x245C)	; ø½‰»‘
+    (=gb2312		. #x245C)	; ø»„‹™
     (=ks-x1001		. #x2A5C)	; ø»ˆ¨•
     (=big5-eten		. #xC763)	; ý¢€Œ£
     ))
@@ -696,8 +696,8 @@
     (mirrored		. nil)
     (->decomposition	#x307B #x309A)
     (=ucs		. #x307D)	; ã½
-    (=gb2312		. #x245D)	; ø»„‹š
     (=jis-x0208		. #x245D)	; ø½‰»’
+    (=gb2312		. #x245D)	; ø»„‹š
     (=ks-x1001		. #x2A5D)	; ø»ˆ¨–
     (=big5-eten		. #xC764)	; ý¢€Œ¤
     ))
@@ -707,8 +707,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x307E)	; ã¾
-    (=gb2312		. #x245E)	; ø»„‹›
     (=jis-x0208		. #x245E)	; ø½‰»“
+    (=gb2312		. #x245E)	; ø»„‹›
     (=ks-x1001		. #x2A5E)	; ø»ˆ¨—
     (=big5-eten		. #xC765)	; ý¢€Œ¥
     ))
@@ -718,8 +718,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x307F)	; ã¿
-    (=gb2312		. #x245F)	; ø»„‹œ
     (=jis-x0208		. #x245F)	; ø½‰»”
+    (=gb2312		. #x245F)	; ø»„‹œ
     (=ks-x1001		. #x2A5F)	; ø»ˆ¨˜
     (=big5-eten		. #xC766)	; ý¢€Œ¦
     ))
@@ -729,8 +729,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3080)	; ã‚€
-    (=gb2312		. #x2460)	; ø»„‹
     (=jis-x0208		. #x2460)	; ø½‰»•
+    (=gb2312		. #x2460)	; ø»„‹
     (=ks-x1001		. #x2A60)	; ø»ˆ¨™
     (=big5-eten		. #xC767)	; ý¢€Œ§
     ))
@@ -740,8 +740,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3081)	; ã‚
-    (=gb2312		. #x2461)	; ø»„‹ž
     (=jis-x0208		. #x2461)	; ø½‰»–
+    (=gb2312		. #x2461)	; ø»„‹ž
     (=ks-x1001		. #x2A61)	; ø»ˆ¨š
     (=big5-eten		. #xC768)	; ý¢€Œ¨
     ))
@@ -751,8 +751,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3082)	; ã‚‚
-    (=gb2312		. #x2462)	; ø»„‹Ÿ
     (=jis-x0208		. #x2462)	; ø½‰»—
+    (=gb2312		. #x2462)	; ø»„‹Ÿ
     (=ks-x1001		. #x2A62)	; ø»ˆ¨›
     (=big5-eten		. #xC769)	; ý¢€Œ©
     ))
@@ -762,8 +762,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3083)	; ã‚ƒ
-    (=gb2312		. #x2463)	; ø»„‹ 
     (=jis-x0208		. #x2463)	; ø½‰»˜
+    (=gb2312		. #x2463)	; ø»„‹ 
     (=ks-x1001		. #x2A63)	; ø»ˆ¨œ
     (=big5-eten		. #xC76A)	; ý¢€Œª
     (=jef-china3	. #x7DCB)	; øº‡·‹
@@ -774,8 +774,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3084)	; ã‚„
-    (=gb2312		. #x2464)	; ø»„‹¡
     (=jis-x0208		. #x2464)	; ø½‰»™
+    (=gb2312		. #x2464)	; ø»„‹¡
     (=ks-x1001		. #x2A64)	; ø»ˆ¨
     (=big5-eten		. #xC76B)	; ý¢€Œ«
     ))
@@ -785,8 +785,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3085)	; ã‚…
-    (=gb2312		. #x2465)	; ø»„‹¢
     (=jis-x0208		. #x2465)	; ø½‰»š
+    (=gb2312		. #x2465)	; ø»„‹¢
     (=ks-x1001		. #x2A65)	; ø»ˆ¨ž
     (=big5-eten		. #xC76C)	; ý¢€Œ¬
     (=jef-china3	. #x7DCC)	; øº‡·Œ
@@ -797,8 +797,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3086)	; ã‚†
-    (=gb2312		. #x2466)	; ø»„‹£
     (=jis-x0208		. #x2466)	; ø½‰»›
+    (=gb2312		. #x2466)	; ø»„‹£
     (=ks-x1001		. #x2A66)	; ø»ˆ¨Ÿ
     (=big5-eten		. #xC76D)	; ý¢€Œ­
     ))
@@ -808,8 +808,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3087)	; ã‚‡
-    (=gb2312		. #x2467)	; ø»„‹¤
     (=jis-x0208		. #x2467)	; ø½‰»œ
+    (=gb2312		. #x2467)	; ø»„‹¤
     (=ks-x1001		. #x2A67)	; ø»ˆ¨ 
     (=big5-eten		. #xC76E)	; ý¢€Œ®
     (=jef-china3	. #x7DCD)	; øº‡·
@@ -820,8 +820,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3088)	; ã‚ˆ
-    (=gb2312		. #x2468)	; ø»„‹¥
     (=jis-x0208		. #x2468)	; ø½‰»
+    (=gb2312		. #x2468)	; ø»„‹¥
     (=ks-x1001		. #x2A68)	; ø»ˆ¨¡
     (=big5-eten		. #xC76F)	; ý¢€Œ¯
     ))
@@ -831,8 +831,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3089)	; ã‚‰
-    (=gb2312		. #x2469)	; ø»„‹¦
     (=jis-x0208		. #x2469)	; ø½‰»ž
+    (=gb2312		. #x2469)	; ø»„‹¦
     (=ks-x1001		. #x2A69)	; ø»ˆ¨¢
     (=big5-eten		. #xC770)	; ý¢€Œ°
     ))
@@ -842,8 +842,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308A)	; ã‚Š
-    (=gb2312		. #x246A)	; ø»„‹§
     (=jis-x0208		. #x246A)	; ø½‰»Ÿ
+    (=gb2312		. #x246A)	; ø»„‹§
     (=ks-x1001		. #x2A6A)	; ø»ˆ¨£
     (=big5-eten		. #xC771)	; ý¢€Œ±
     ))
@@ -853,8 +853,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308B)	; ã‚‹
-    (=gb2312		. #x246B)	; ø»„‹¨
     (=jis-x0208		. #x246B)	; ø½‰» 
+    (=gb2312		. #x246B)	; ø»„‹¨
     (=ks-x1001		. #x2A6B)	; ø»ˆ¨¤
     (=big5-eten		. #xC772)	; ý¢€Œ²
     ))
@@ -864,8 +864,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308C)	; ã‚Œ
-    (=gb2312		. #x246C)	; ø»„‹©
     (=jis-x0208		. #x246C)	; ø½‰»¡
+    (=gb2312		. #x246C)	; ø»„‹©
     (=ks-x1001		. #x2A6C)	; ø»ˆ¨¥
     (=big5-eten		. #xC773)	; ý¢€Œ³
     ))
@@ -875,8 +875,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308D)	; ã‚
-    (=gb2312		. #x246D)	; ø»„‹ª
     (=jis-x0208		. #x246D)	; ø½‰»¢
+    (=gb2312		. #x246D)	; ø»„‹ª
     (=ks-x1001		. #x2A6D)	; ø»ˆ¨¦
     (=big5-eten		. #xC774)	; ý¢€Œ´
     ))
@@ -886,8 +886,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308E)	; ã‚Ž
-    (=gb2312		. #x246E)	; ø»„‹«
     (=jis-x0208		. #x246E)	; ø½‰»£
+    (=gb2312		. #x246E)	; ø»„‹«
     (=ks-x1001		. #x2A6E)	; ø»ˆ¨§
     (=big5-eten		. #xC775)	; ý¢€Œµ
     (=jef-china3	. #x7DCE)	; øº‡·Ž
@@ -898,8 +898,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x308F)	; ã‚
-    (=gb2312		. #x246F)	; ø»„‹¬
     (=jis-x0208		. #x246F)	; ø½‰»¤
+    (=gb2312		. #x246F)	; ø»„‹¬
     (=ks-x1001		. #x2A6F)	; ø»ˆ¨¨
     (=big5-eten		. #xC776)	; ý¢€Œ¶
     ))
@@ -909,8 +909,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3090)	; ã‚
-    (=gb2312		. #x2470)	; ø»„‹­
     (=jis-x0208		. #x2470)	; ø½‰»¥
+    (=gb2312		. #x2470)	; ø»„‹­
     (=ks-x1001		. #x2A70)	; ø»ˆ¨©
     (=big5-eten		. #xC777)	; ý¢€Œ·
     ))
@@ -920,8 +920,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3091)	; ã‚‘
-    (=gb2312		. #x2471)	; ø»„‹®
     (=jis-x0208		. #x2471)	; ø½‰»¦
+    (=gb2312		. #x2471)	; ø»„‹®
     (=ks-x1001		. #x2A71)	; ø»ˆ¨ª
     (=big5-eten		. #xC778)	; ý¢€Œ¸
     ))
@@ -931,8 +931,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3092)	; ã‚’
-    (=gb2312		. #x2472)	; ø»„‹¯
     (=jis-x0208		. #x2472)	; ø½‰»§
+    (=gb2312		. #x2472)	; ø»„‹¯
     (=ks-x1001		. #x2A72)	; ø»ˆ¨«
     (=big5-eten		. #xC779)	; ý¢€Œ¹
     ))
@@ -942,8 +942,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3093)	; ã‚“
-    (=gb2312		. #x2473)	; ø»„‹°
     (=jis-x0208		. #x2473)	; ø½‰»¨
+    (=gb2312		. #x2473)	; ø»„‹°
     (=ks-x1001		. #x2A73)	; ø»ˆ¨¬
     (=big5-eten		. #xC77A)	; ý¢€Œº
     ))

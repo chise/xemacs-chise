@@ -30,8 +30,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
     (=ucs		. #x2103)	; â„ƒ
-    (=gb2312		. #x2166)	; ø»„‡‰
     (=jis-x0208		. #x216E)	; ø½‰·‰
+    (=gb2312		. #x2166)	; ø»„‡‰
     (=ks-x1001		. #x2149)	; ø»ˆš´
     (=cns11643-1	. #x226A)	; ø»‘…ƒ
     (=big5		. #xA24A)	; ý¢€Š‰Š

@@ -264,8 +264,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x221E)	; âˆž
-    (=gb2312		. #x215E)	; ø»„‡
     (=jis-x0208		. #x2167)	; ø½‰·‚
+    (=gb2312		. #x215E)	; ø»„‡
     (=ks-x1001		. #x2144)	; ø»ˆš¯
     (=cns11643-1	. #x223C)	; ø»‘„•
     (=big5		. #xA1DB)	; ý¢€Š‡›
@@ -481,8 +481,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2234)	; âˆ´
-    (=gb2312		. #x2160)	; ø»„‡ƒ
     (=jis-x0208		. #x2168)	; ø½‰·ƒ
+    (=gb2312		. #x2160)	; ø»„‡ƒ
     (=ks-x1001		. #x2145)	; ø»ˆš°
     (=cns11643-1	. #x2250)	; ø»‘„©
     (=big5		. #xA1EF)	; ý¢€Š‡¯
@@ -827,8 +827,8 @@
     (mirrored		. t)
     (->decomposition	#x003D #x0338)
     (=ucs		. #x2260)	; â‰ 
-    (=gb2312		. #x2159)	; ø»„†¼
     (=jis-x0208		. #x2162)	; ø½‰¶½
+    (=gb2312		. #x2159)	; ø»„†¼
     (=ks-x1001		. #x2141)	; ø»ˆš¬
     (=cns11643-1	. #x223B)	; ø»‘„”
     (=big5		. #xA1DA)	; ý¢€Š‡š

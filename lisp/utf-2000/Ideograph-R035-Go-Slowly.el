@@ -308,8 +308,8 @@
     (total-strokes	 . 10)
     (shinjigen-2	. 1539)
     (=ucs		. #x590F)	; å¤
-    (=gb2312		. #x4F44)	; ø»…Š‹
     (=jis-x0208		. #x3246)	; ø½ŠŸ
+    (=gb2312		. #x4F44)	; ø»…Š‹
     (=ks-x1001		. #x793E)	; ø»Š›¹
     (=big5		. #xAE4C)	; ý¢€Š¹Œ
     (=gt		. 07217)	; ý¡€°±

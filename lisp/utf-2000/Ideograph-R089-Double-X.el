@@ -116,8 +116,8 @@
     (total-strokes	 . 11)
     (shinjigen-2	. 1587)
     (=ucs		. #x723D)	; çˆ½
-    (=gb2312		. #x4B2C)	; ø»…ƒ»
     (=jis-x0208		. #x4156)	; ø½Š¥±
+    (=gb2312		. #x4B2C)	; ø»…ƒ»
     (=ks-x1001		. #x5F50)	; ø»‰µ¿
     (=cns11643-1	. #x5B73)	; ø»’˜º
     (=big5		. #xB26E)	; ý¢€‹‰®

@@ -5,8 +5,8 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 6669)
     (=ucs		. #x826E)	; è‰®
-    (=gb2312		. #x745E)	; ø»†€»
     (=jis-x0208		. #x3A31)	; ø½Ššº
+    (=gb2312		. #x745E)	; ø»†€»
     (=ks-x1001		. #x4A5D)	; ø»‰—–
     (=cns11643-1	. #x4862)	; ø»‘¼¯
     (=gt		. 39585)	; ý¡€‰ª¡

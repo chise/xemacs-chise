@@ -23,8 +23,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x79B9)	; ç¦¹
-    (=gb2312		. #x536D)	; ø»…¬
     (=jis-x0208		. #x633B)	; ø½‹—’
+    (=gb2312		. #x536D)	; ø»…¬
     (=ks-x1001		. #x6960)	; ø»Š„»
     (=cns11643-1	. #x526D)	; ø»’‹¦
     (=gt		. 32086)	; ý¡€‡µ–

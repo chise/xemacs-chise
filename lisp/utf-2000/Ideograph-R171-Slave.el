@@ -4,8 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (=ucs		. #x96B6)	; éš¶
-    (=gb2312		. #x4125)	; ø»„µˆ
     (=jis-x0208		. #x7030)	; ø½‹ª
+    (=gb2312		. #x4125)	; ø»„µˆ
     (=cns11643-3	. #x2A7D)	; ø»•¥Ž
     (=gt		. 56338)	; ý¡€°’
     (=gt-k		. 03924)	; ý¡„€½”

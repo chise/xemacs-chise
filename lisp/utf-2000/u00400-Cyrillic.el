@@ -19,8 +19,8 @@
     (->decomposition	#x0415 #x0308)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER IO")
-      (=gb2312		  . #x2727)	; ø»„Ž¾
       (=jis-x0208	  . #x2727)	; ø½‰¾¶
+      (=gb2312		  . #x2727)	; ø»„Ž¾
       (=ks-x1001	  . #x2C27)	; ø»ˆªœ
       ))
     (->lowercase
@@ -44,11 +44,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER IO")
       (=ucs		  . #x0401)	; Ð
       ))
-    (=gb2312		. #x2727)	; ø»„Ž¾
     (=jis-x0208		. #x2727)	; ø½‰¾¶
+    (=gb2312		. #x2727)	; ø»„Ž¾
     (=ks-x1001		. #x2C27)	; ø»ˆªœ
     (=big5-eten		. #xC7F9)	; ý¢€ŒŸ¹
-    (=ucs@jis		. #x0401)	; ø»„Ž¾
+    (=ucs@jis		. #x0401)	; ø½‰¾¶
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DJE")
@@ -513,8 +513,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER A")
-      (=gb2312		  . #x2721)	; ø»„Ž¸
       (=jis-x0208	  . #x2721)	; ø½‰¾°
+      (=gb2312		  . #x2721)	; ø»„Ž¸
       (=ks-x1001	  . #x2C21)	; ø»ˆª–
       ))
     (->lowercase
@@ -538,11 +538,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER A")
       (=ucs		  . #x0410)	; Ð
       ))
-    (=gb2312		. #x2721)	; ø»„Ž¸
     (=jis-x0208		. #x2721)	; ø½‰¾°
+    (=gb2312		. #x2721)	; ø»„Ž¸
     (=ks-x1001		. #x2C21)	; ø»ˆª–
     (=big5-eten		. #xC7F3)	; ý¢€ŒŸ³
-    (=ucs@jis		. #x0410)	; ø»„Ž¸
+    (=ucs@jis		. #x0410)	; ø½‰¾°
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER BE")
@@ -551,8 +551,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER BE")
-      (=gb2312		  . #x2722)	; ø»„Ž¹
       (=jis-x0208	  . #x2722)	; ø½‰¾±
+      (=gb2312		  . #x2722)	; ø»„Ž¹
       (=ks-x1001	  . #x2C22)	; ø»ˆª—
       ))
     (->lowercase
@@ -576,11 +576,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER BE")
       (=ucs		  . #x0411)	; Ð‘
       ))
-    (=gb2312		. #x2722)	; ø»„Ž¹
     (=jis-x0208		. #x2722)	; ø½‰¾±
+    (=gb2312		. #x2722)	; ø»„Ž¹
     (=ks-x1001		. #x2C22)	; ø»ˆª—
     (=big5-eten		. #xC7F4)	; ý¢€ŒŸ´
-    (=ucs@jis		. #x0411)	; ø»„Ž¹
+    (=ucs@jis		. #x0411)	; ø½‰¾±
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER VE")
@@ -589,8 +589,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER VE")
-      (=gb2312		  . #x2723)	; ø»„Žº
       (=jis-x0208	  . #x2723)	; ø½‰¾²
+      (=gb2312		  . #x2723)	; ø»„Žº
       (=ks-x1001	  . #x2C23)	; ø»ˆª˜
       ))
     (->lowercase
@@ -614,11 +614,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER VE")
       (=ucs		  . #x0412)	; Ð’
       ))
-    (=gb2312		. #x2723)	; ø»„Žº
     (=jis-x0208		. #x2723)	; ø½‰¾²
+    (=gb2312		. #x2723)	; ø»„Žº
     (=ks-x1001		. #x2C23)	; ø»ˆª˜
     (=big5-eten		. #xC7F5)	; ý¢€ŒŸµ
-    (=ucs@jis		. #x0412)	; ø»„Žº
+    (=ucs@jis		. #x0412)	; ø½‰¾²
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER GHE")
@@ -627,8 +627,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")
-      (=gb2312		  . #x2724)	; ø»„Ž»
       (=jis-x0208	  . #x2724)	; ø½‰¾³
+      (=gb2312		  . #x2724)	; ø»„Ž»
       (=ks-x1001	  . #x2C24)	; ø»ˆª™
       ))
     (->lowercase
@@ -652,11 +652,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER GHE")
       (=ucs		  . #x0413)	; Ð“
       ))
-    (=gb2312		. #x2724)	; ø»„Ž»
     (=jis-x0208		. #x2724)	; ø½‰¾³
+    (=gb2312		. #x2724)	; ø»„Ž»
     (=ks-x1001		. #x2C24)	; ø»ˆª™
     (=big5-eten		. #xC7F6)	; ý¢€ŒŸ¶
-    (=ucs@jis		. #x0413)	; ø»„Ž»
+    (=ucs@jis		. #x0413)	; ø½‰¾³
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DE")
@@ -665,8 +665,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DE")
-      (=gb2312		  . #x2725)	; ø»„Ž¼
       (=jis-x0208	  . #x2725)	; ø½‰¾´
+      (=gb2312		  . #x2725)	; ø»„Ž¼
       (=ks-x1001	  . #x2C25)	; ø»ˆªš
       ))
     (->lowercase
@@ -690,11 +690,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER DE")
       (=ucs		  . #x0414)	; Ð”
       ))
-    (=gb2312		. #x2725)	; ø»„Ž¼
     (=jis-x0208		. #x2725)	; ø½‰¾´
+    (=gb2312		. #x2725)	; ø»„Ž¼
     (=ks-x1001		. #x2C25)	; ø»ˆªš
     (=big5-eten		. #xC7F7)	; ý¢€ŒŸ·
-    (=ucs@jis		. #x0414)	; ø»„Ž¼
+    (=ucs@jis		. #x0414)	; ø½‰¾´
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER IE")
@@ -703,8 +703,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER IE")
-      (=gb2312		  . #x2726)	; ø»„Ž½
       (=jis-x0208	  . #x2726)	; ø½‰¾µ
+      (=gb2312		  . #x2726)	; ø»„Ž½
       (=ks-x1001	  . #x2C26)	; ø»ˆª›
       ))
     (->lowercase
@@ -728,11 +728,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER IE")
       (=ucs		  . #x0415)	; Ð•
       ))
-    (=gb2312		. #x2726)	; ø»„Ž½
     (=jis-x0208		. #x2726)	; ø½‰¾µ
+    (=gb2312		. #x2726)	; ø»„Ž½
     (=ks-x1001		. #x2C26)	; ø»ˆª›
     (=big5-eten		. #xC7F8)	; ý¢€ŒŸ¸
-    (=ucs@jis		. #x0415)	; ø»„Ž½
+    (=ucs@jis		. #x0415)	; ø½‰¾µ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ZHE")
@@ -741,8 +741,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")
-      (=gb2312		  . #x2728)	; ø»„Ž¿
       (=jis-x0208	  . #x2728)	; ø½‰¾·
+      (=gb2312		  . #x2728)	; ø»„Ž¿
       (=ks-x1001	  . #x2C28)	; ø»ˆª
       ))
     (->lowercase
@@ -766,11 +766,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
       (=ucs		  . #x0416)	; Ð–
       ))
-    (=gb2312		. #x2728)	; ø»„Ž¿
     (=jis-x0208		. #x2728)	; ø½‰¾·
+    (=gb2312		. #x2728)	; ø»„Ž¿
     (=ks-x1001		. #x2C28)	; ø»ˆª
     (=big5-eten		. #xC7FA)	; ý¢€ŒŸº
-    (=ucs@jis		. #x0416)	; ø»„Ž¿
+    (=ucs@jis		. #x0416)	; ø½‰¾·
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ZE")
@@ -779,8 +779,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")
-      (=gb2312		  . #x2729)	; ø»„€
       (=jis-x0208	  . #x2729)	; ø½‰¾¸
+      (=gb2312		  . #x2729)	; ø»„€
       (=ks-x1001	  . #x2C29)	; ø»ˆªž
       ))
     (->lowercase
@@ -804,11 +804,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER ZE")
       (=ucs		  . #x0417)	; Ð—
       ))
-    (=gb2312		. #x2729)	; ø»„€
     (=jis-x0208		. #x2729)	; ø½‰¾¸
+    (=gb2312		. #x2729)	; ø»„€
     (=ks-x1001		. #x2C29)	; ø»ˆªž
     (=big5-eten		. #xC7FB)	; ý¢€ŒŸ»
-    (=ucs@jis		. #x0417)	; ø»„€
+    (=ucs@jis		. #x0417)	; ø½‰¾¸
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER I")
@@ -817,8 +817,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER I")
-      (=gb2312		  . #x272A)	; ø»„
       (=jis-x0208	  . #x272A)	; ø½‰¾¹
+      (=gb2312		  . #x272A)	; ø»„
       (=ks-x1001	  . #x2C2A)	; ø»ˆªŸ
       ))
     (->lowercase
@@ -842,11 +842,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER I")
       (=ucs		  . #x0418)	; Ð˜
       ))
-    (=gb2312		. #x272A)	; ø»„
     (=jis-x0208		. #x272A)	; ø½‰¾¹
+    (=gb2312		. #x272A)	; ø»„
     (=ks-x1001		. #x2C2A)	; ø»ˆªŸ
     (=big5-eten		. #xC7FC)	; ý¢€ŒŸ¼
-    (=ucs@jis		. #x0418)	; ø»„
+    (=ucs@jis		. #x0418)	; ø½‰¾¹
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHORT I")
@@ -856,8 +856,8 @@
     (->decomposition	#x0418 #x0306)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")
-      (=gb2312		  . #x272B)	; ø»„‚
       (=jis-x0208	  . #x272B)	; ø½‰¾º
+      (=gb2312		  . #x272B)	; ø»„‚
       (=ks-x1001	  . #x2C2B)	; ø»ˆª 
       ))
     (->lowercase
@@ -881,11 +881,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
       (=ucs		  . #x0419)	; Ð™
       ))
-    (=gb2312		. #x272B)	; ø»„‚
     (=jis-x0208		. #x272B)	; ø½‰¾º
+    (=gb2312		. #x272B)	; ø»„‚
     (=ks-x1001		. #x2C2B)	; ø»ˆª 
     (=big5-eten		. #xC7FD)	; ý¢€ŒŸ½
-    (=ucs@jis		. #x0419)	; ø»„‚
+    (=ucs@jis		. #x0419)	; ø½‰¾º
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER KA")
@@ -894,8 +894,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER KA")
-      (=gb2312		  . #x272C)	; ø»„ƒ
       (=jis-x0208	  . #x272C)	; ø½‰¾»
+      (=gb2312		  . #x272C)	; ø»„ƒ
       (=ks-x1001	  . #x2C2C)	; ø»ˆª¡
       ))
     (->lowercase
@@ -919,11 +919,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER KA")
       (=ucs		  . #x041A)	; Ðš
       ))
-    (=gb2312		. #x272C)	; ø»„ƒ
     (=jis-x0208		. #x272C)	; ø½‰¾»
+    (=gb2312		. #x272C)	; ø»„ƒ
     (=ks-x1001		. #x2C2C)	; ø»ˆª¡
     (=big5-eten		. #xC7FE)	; ý¢€ŒŸ¾
-    (=ucs@jis		. #x041A)	; ø»„ƒ
+    (=ucs@jis		. #x041A)	; ø½‰¾»
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EL")
@@ -932,8 +932,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EL")
-      (=gb2312		  . #x272D)	; ø»„„
       (=jis-x0208	  . #x272D)	; ø½‰¾¼
+      (=gb2312		  . #x272D)	; ø»„„
       (=ks-x1001	  . #x2C2D)	; ø»ˆª¢
       ))
     (->lowercase
@@ -957,11 +957,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER EL")
       (=ucs		  . #x041B)	; Ð›
       ))
-    (=gb2312		. #x272D)	; ø»„„
     (=jis-x0208		. #x272D)	; ø½‰¾¼
+    (=gb2312		. #x272D)	; ø»„„
     (=ks-x1001		. #x2C2D)	; ø»ˆª¢
     (=big5-eten		. #xC840)	; ý¢€Œ¡€
-    (=ucs@jis		. #x041B)	; ø»„„
+    (=ucs@jis		. #x041B)	; ø½‰¾¼
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EM")
@@ -970,8 +970,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EM")
-      (=gb2312		  . #x272E)	; ø»„…
       (=jis-x0208	  . #x272E)	; ø½‰¾½
+      (=gb2312		  . #x272E)	; ø»„…
       (=ks-x1001	  . #x2C2E)	; ø»ˆª£
       ))
     (->lowercase
@@ -995,11 +995,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER EM")
       (=ucs		  . #x041C)	; Ðœ
       ))
-    (=gb2312		. #x272E)	; ø»„…
     (=jis-x0208		. #x272E)	; ø½‰¾½
+    (=gb2312		. #x272E)	; ø»„…
     (=ks-x1001		. #x2C2E)	; ø»ˆª£
     (=big5-eten		. #xC841)	; ý¢€Œ¡
-    (=ucs@jis		. #x041C)	; ø»„…
+    (=ucs@jis		. #x041C)	; ø½‰¾½
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EN")
@@ -1008,8 +1008,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EN")
-      (=gb2312		  . #x272F)	; ø»„†
       (=jis-x0208	  . #x272F)	; ø½‰¾¾
+      (=gb2312		  . #x272F)	; ø»„†
       (=ks-x1001	  . #x2C2F)	; ø»ˆª¤
       ))
     (->lowercase
@@ -1033,11 +1033,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER EN")
       (=ucs		  . #x041D)	; Ð
       ))
-    (=gb2312		. #x272F)	; ø»„†
     (=jis-x0208		. #x272F)	; ø½‰¾¾
+    (=gb2312		. #x272F)	; ø»„†
     (=ks-x1001		. #x2C2F)	; ø»ˆª¤
     (=big5-eten		. #xC842)	; ý¢€Œ¡‚
-    (=ucs@jis		. #x041D)	; ø»„†
+    (=ucs@jis		. #x041D)	; ø½‰¾¾
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER O")
@@ -1046,8 +1046,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER O")
-      (=gb2312		  . #x2730)	; ø»„‡
       (=jis-x0208	  . #x2730)	; ø½‰¾¿
+      (=gb2312		  . #x2730)	; ø»„‡
       (=ks-x1001	  . #x2C30)	; ø»ˆª¥
       ))
     (->lowercase
@@ -1071,11 +1071,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER O")
       (=ucs		  . #x041E)	; Ðž
       ))
-    (=gb2312		. #x2730)	; ø»„‡
     (=jis-x0208		. #x2730)	; ø½‰¾¿
+    (=gb2312		. #x2730)	; ø»„‡
     (=ks-x1001		. #x2C30)	; ø»ˆª¥
     (=big5-eten		. #xC843)	; ý¢€Œ¡ƒ
-    (=ucs@jis		. #x041E)	; ø»„‡
+    (=ucs@jis		. #x041E)	; ø½‰¾¿
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER PE")
@@ -1084,8 +1084,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER PE")
-      (=gb2312		  . #x2731)	; ø»„ˆ
       (=jis-x0208	  . #x2731)	; ø½‰¿€
+      (=gb2312		  . #x2731)	; ø»„ˆ
       (=ks-x1001	  . #x2C31)	; ø»ˆª¦
       ))
     (->lowercase
@@ -1109,11 +1109,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER PE")
       (=ucs		  . #x041F)	; ÐŸ
       ))
-    (=gb2312		. #x2731)	; ø»„ˆ
     (=jis-x0208		. #x2731)	; ø½‰¿€
+    (=gb2312		. #x2731)	; ø»„ˆ
     (=ks-x1001		. #x2C31)	; ø»ˆª¦
     (=big5-eten		. #xC844)	; ý¢€Œ¡„
-    (=ucs@jis		. #x041F)	; ø»„ˆ
+    (=ucs@jis		. #x041F)	; ø½‰¿€
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ER")
@@ -1122,8 +1122,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ER")
-      (=gb2312		  . #x2732)	; ø»„‰
       (=jis-x0208	  . #x2732)	; ø½‰¿
+      (=gb2312		  . #x2732)	; ø»„‰
       (=ks-x1001	  . #x2C32)	; ø»ˆª§
       ))
     (->lowercase
@@ -1147,11 +1147,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER ER")
       (=ucs		  . #x0420)	; Ð 
       ))
-    (=gb2312		. #x2732)	; ø»„‰
     (=jis-x0208		. #x2732)	; ø½‰¿
+    (=gb2312		. #x2732)	; ø»„‰
     (=ks-x1001		. #x2C32)	; ø»ˆª§
     (=big5-eten		. #xC845)	; ý¢€Œ¡…
-    (=ucs@jis		. #x0420)	; ø»„‰
+    (=ucs@jis		. #x0420)	; ø½‰¿
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ES")
@@ -1160,8 +1160,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ES")
-      (=gb2312		  . #x2733)	; ø»„Š
       (=jis-x0208	  . #x2733)	; ø½‰¿‚
+      (=gb2312		  . #x2733)	; ø»„Š
       (=ks-x1001	  . #x2C33)	; ø»ˆª¨
       ))
     (->lowercase
@@ -1185,11 +1185,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER ES")
       (=ucs		  . #x0421)	; Ð¡
       ))
-    (=gb2312		. #x2733)	; ø»„Š
     (=jis-x0208		. #x2733)	; ø½‰¿‚
+    (=gb2312		. #x2733)	; ø»„Š
     (=ks-x1001		. #x2C33)	; ø»ˆª¨
     (=big5-eten		. #xC846)	; ý¢€Œ¡†
-    (=ucs@jis		. #x0421)	; ø»„Š
+    (=ucs@jis		. #x0421)	; ø½‰¿‚
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER TE")
@@ -1198,8 +1198,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER TE")
-      (=gb2312		  . #x2734)	; ø»„‹
       (=jis-x0208	  . #x2734)	; ø½‰¿ƒ
+      (=gb2312		  . #x2734)	; ø»„‹
       (=ks-x1001	  . #x2C34)	; ø»ˆª©
       ))
     (->lowercase
@@ -1223,11 +1223,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER TE")
       (=ucs		  . #x0422)	; Ð¢
       ))
-    (=gb2312		. #x2734)	; ø»„‹
     (=jis-x0208		. #x2734)	; ø½‰¿ƒ
+    (=gb2312		. #x2734)	; ø»„‹
     (=ks-x1001		. #x2C34)	; ø»ˆª©
     (=big5-eten		. #xC847)	; ý¢€Œ¡‡
-    (=ucs@jis		. #x0422)	; ø»„‹
+    (=ucs@jis		. #x0422)	; ø½‰¿ƒ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER U")
@@ -1236,8 +1236,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER U")
-      (=gb2312		  . #x2735)	; ø»„Œ
       (=jis-x0208	  . #x2735)	; ø½‰¿„
+      (=gb2312		  . #x2735)	; ø»„Œ
       (=ks-x1001	  . #x2C35)	; ø»ˆªª
       ))
     (->lowercase
@@ -1261,11 +1261,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER U")
       (=ucs		  . #x0423)	; Ð£
       ))
-    (=gb2312		. #x2735)	; ø»„Œ
     (=jis-x0208		. #x2735)	; ø½‰¿„
+    (=gb2312		. #x2735)	; ø»„Œ
     (=ks-x1001		. #x2C35)	; ø»ˆªª
     (=big5-eten		. #xC848)	; ý¢€Œ¡ˆ
-    (=ucs@jis		. #x0423)	; ø»„Œ
+    (=ucs@jis		. #x0423)	; ø½‰¿„
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EF")
@@ -1274,8 +1274,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EF")
-      (=gb2312		  . #x2736)	; ø»„
       (=jis-x0208	  . #x2736)	; ø½‰¿…
+      (=gb2312		  . #x2736)	; ø»„
       (=ks-x1001	  . #x2C36)	; ø»ˆª«
       ))
     (->lowercase
@@ -1299,11 +1299,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER EF")
       (=ucs		  . #x0424)	; Ð¤
       ))
-    (=gb2312		. #x2736)	; ø»„
     (=jis-x0208		. #x2736)	; ø½‰¿…
+    (=gb2312		. #x2736)	; ø»„
     (=ks-x1001		. #x2C36)	; ø»ˆª«
     (=big5-eten		. #xC849)	; ý¢€Œ¡‰
-    (=ucs@jis		. #x0424)	; ø»„
+    (=ucs@jis		. #x0424)	; ø½‰¿…
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER HA")
@@ -1312,8 +1312,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER HA")
-      (=gb2312		  . #x2737)	; ø»„Ž
       (=jis-x0208	  . #x2737)	; ø½‰¿†
+      (=gb2312		  . #x2737)	; ø»„Ž
       (=ks-x1001	  . #x2C37)	; ø»ˆª¬
       ))
     (->lowercase
@@ -1337,11 +1337,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER HA")
       (=ucs		  . #x0425)	; Ð¥
       ))
-    (=gb2312		. #x2737)	; ø»„Ž
     (=jis-x0208		. #x2737)	; ø½‰¿†
+    (=gb2312		. #x2737)	; ø»„Ž
     (=ks-x1001		. #x2C37)	; ø»ˆª¬
     (=big5-eten		. #xC84A)	; ý¢€Œ¡Š
-    (=ucs@jis		. #x0425)	; ø»„Ž
+    (=ucs@jis		. #x0425)	; ø½‰¿†
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER TSE")
@@ -1350,8 +1350,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")
-      (=gb2312		  . #x2738)	; ø»„
       (=jis-x0208	  . #x2738)	; ø½‰¿‡
+      (=gb2312		  . #x2738)	; ø»„
       (=ks-x1001	  . #x2C38)	; ø»ˆª­
       ))
     (->lowercase
@@ -1375,11 +1375,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER TSE")
       (=ucs		  . #x0426)	; Ð¦
       ))
-    (=gb2312		. #x2738)	; ø»„
     (=jis-x0208		. #x2738)	; ø½‰¿‡
+    (=gb2312		. #x2738)	; ø»„
     (=ks-x1001		. #x2C38)	; ø»ˆª­
     (=big5-eten		. #xC84B)	; ý¢€Œ¡‹
-    (=ucs@jis		. #x0426)	; ø»„
+    (=ucs@jis		. #x0426)	; ø½‰¿‡
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER CHE")
@@ -1388,8 +1388,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")
-      (=gb2312		  . #x2739)	; ø»„
       (=jis-x0208	  . #x2739)	; ø½‰¿ˆ
+      (=gb2312		  . #x2739)	; ø»„
       (=ks-x1001	  . #x2C39)	; ø»ˆª®
       ))
     (->lowercase
@@ -1413,11 +1413,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER CHE")
       (=ucs		  . #x0427)	; Ð§
       ))
-    (=gb2312		. #x2739)	; ø»„
     (=jis-x0208		. #x2739)	; ø½‰¿ˆ
+    (=gb2312		. #x2739)	; ø»„
     (=ks-x1001		. #x2C39)	; ø»ˆª®
     (=big5-eten		. #xC84C)	; ý¢€Œ¡Œ
-    (=ucs@jis		. #x0427)	; ø»„
+    (=ucs@jis		. #x0427)	; ø½‰¿ˆ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHA")
@@ -1426,8 +1426,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")
-      (=gb2312		  . #x273A)	; ø»„‘
       (=jis-x0208	  . #x273A)	; ø½‰¿‰
+      (=gb2312		  . #x273A)	; ø»„‘
       (=ks-x1001	  . #x2C3A)	; ø»ˆª¯
       ))
     (->lowercase
@@ -1451,11 +1451,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER SHA")
       (=ucs		  . #x0428)	; Ð¨
       ))
-    (=gb2312		. #x273A)	; ø»„‘
     (=jis-x0208		. #x273A)	; ø½‰¿‰
+    (=gb2312		. #x273A)	; ø»„‘
     (=ks-x1001		. #x2C3A)	; ø»ˆª¯
     (=big5-eten		. #xC84D)	; ý¢€Œ¡
-    (=ucs@jis		. #x0428)	; ø»„‘
+    (=ucs@jis		. #x0428)	; ø½‰¿‰
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHCHA")
@@ -1464,8 +1464,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")
-      (=gb2312		  . #x273B)	; ø»„’
       (=jis-x0208	  . #x273B)	; ø½‰¿Š
+      (=gb2312		  . #x273B)	; ø»„’
       (=ks-x1001	  . #x2C3B)	; ø»ˆª°
       ))
     (->lowercase
@@ -1489,11 +1489,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
       (=ucs		  . #x0429)	; Ð©
       ))
-    (=gb2312		. #x273B)	; ø»„’
     (=jis-x0208		. #x273B)	; ø½‰¿Š
+    (=gb2312		. #x273B)	; ø»„’
     (=ks-x1001		. #x2C3B)	; ø»ˆª°
     (=big5-eten		. #xC84E)	; ý¢€Œ¡Ž
-    (=ucs@jis		. #x0429)	; ø»„’
+    (=ucs@jis		. #x0429)	; ø½‰¿Š
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER HARD SIGN")
@@ -1502,8 +1502,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
-      (=gb2312		  . #x273C)	; ø»„“
       (=jis-x0208	  . #x273C)	; ø½‰¿‹
+      (=gb2312		  . #x273C)	; ø»„“
       (=ks-x1001	  . #x2C3C)	; ø»ˆª±
       ))
     (->lowercase
@@ -1527,11 +1527,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
       (=ucs		  . #x042A)	; Ðª
       ))
-    (=gb2312		. #x273C)	; ø»„“
     (=jis-x0208		. #x273C)	; ø½‰¿‹
+    (=gb2312		. #x273C)	; ø»„“
     (=ks-x1001		. #x2C3C)	; ø»ˆª±
     (=big5-eten		. #xC84F)	; ý¢€Œ¡
-    (=ucs@jis		. #x042A)	; ø»„“
+    (=ucs@jis		. #x042A)	; ø½‰¿‹
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YERU")
@@ -1540,8 +1540,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")
-      (=gb2312		  . #x273D)	; ø»„”
       (=jis-x0208	  . #x273D)	; ø½‰¿Œ
+      (=gb2312		  . #x273D)	; ø»„”
       (=ks-x1001	  . #x2C3D)	; ø»ˆª²
       ))
     (->lowercase
@@ -1565,11 +1565,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER YERU")
       (=ucs		  . #x042B)	; Ð«
       ))
-    (=gb2312		. #x273D)	; ø»„”
     (=jis-x0208		. #x273D)	; ø½‰¿Œ
+    (=gb2312		. #x273D)	; ø»„”
     (=ks-x1001		. #x2C3D)	; ø»ˆª²
     (=big5-eten		. #xC850)	; ý¢€Œ¡
-    (=ucs@jis		. #x042B)	; ø»„”
+    (=ucs@jis		. #x042B)	; ø½‰¿Œ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SOFT SIGN")
@@ -1578,8 +1578,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")
-      (=gb2312		  . #x273E)	; ø»„•
       (=jis-x0208	  . #x273E)	; ø½‰¿
+      (=gb2312		  . #x273E)	; ø»„•
       (=ks-x1001	  . #x2C3E)	; ø»ˆª³
       ))
     (->lowercase
@@ -1603,11 +1603,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
       (=ucs		  . #x042C)	; Ð¬
       ))
-    (=gb2312		. #x273E)	; ø»„•
     (=jis-x0208		. #x273E)	; ø½‰¿
+    (=gb2312		. #x273E)	; ø»„•
     (=ks-x1001		. #x2C3E)	; ø»ˆª³
     (=big5-eten		. #xC851)	; ý¢€Œ¡‘
-    (=ucs@jis		. #x042C)	; ø»„•
+    (=ucs@jis		. #x042C)	; ø½‰¿
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER E")
@@ -1616,8 +1616,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER E")
-      (=gb2312		  . #x273F)	; ø»„–
       (=jis-x0208	  . #x273F)	; ø½‰¿Ž
+      (=gb2312		  . #x273F)	; ø»„–
       (=ks-x1001	  . #x2C3F)	; ø»ˆª´
       ))
     (->lowercase
@@ -1641,11 +1641,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER E")
       (=ucs		  . #x042D)	; Ð­
       ))
-    (=gb2312		. #x273F)	; ø»„–
     (=jis-x0208		. #x273F)	; ø½‰¿Ž
+    (=gb2312		. #x273F)	; ø»„–
     (=ks-x1001		. #x2C3F)	; ø»ˆª´
     (=big5-eten		. #xC852)	; ý¢€Œ¡’
-    (=ucs@jis		. #x042D)	; ø»„–
+    (=ucs@jis		. #x042D)	; ø½‰¿Ž
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YU")
@@ -1654,8 +1654,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YU")
-      (=gb2312		  . #x2740)	; ø»„—
       (=jis-x0208	  . #x2740)	; ø½‰¿
+      (=gb2312		  . #x2740)	; ø»„—
       (=ks-x1001	  . #x2C40)	; ø»ˆªµ
       ))
     (->lowercase
@@ -1679,11 +1679,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER YU")
       (=ucs		  . #x042E)	; Ð®
       ))
-    (=gb2312		. #x2740)	; ø»„—
     (=jis-x0208		. #x2740)	; ø½‰¿
+    (=gb2312		. #x2740)	; ø»„—
     (=ks-x1001		. #x2C40)	; ø»ˆªµ
     (=big5-eten		. #xC853)	; ý¢€Œ¡“
-    (=ucs@jis		. #x042E)	; ø»„—
+    (=ucs@jis		. #x042E)	; ø½‰¿
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YA")
@@ -1692,8 +1692,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YA")
-      (=gb2312		  . #x2741)	; ø»„˜
       (=jis-x0208	  . #x2741)	; ø½‰¿
+      (=gb2312		  . #x2741)	; ø»„˜
       (=ks-x1001	  . #x2C41)	; ø»ˆª¶
       ))
     (->lowercase
@@ -1717,11 +1717,11 @@
      ((name		  . "CYRILLIC CAPITAL LETTER YA")
       (=ucs		  . #x042F)	; Ð¯
       ))
-    (=gb2312		. #x2741)	; ø»„˜
     (=jis-x0208		. #x2741)	; ø½‰¿
+    (=gb2312		. #x2741)	; ø»„˜
     (=ks-x1001		. #x2C41)	; ø»ˆª¶
     (=big5-eten		. #xC854)	; ý¢€Œ¡”
-    (=ucs@jis		. #x042F)	; ø»„˜
+    (=ucs@jis		. #x042F)	; ø½‰¿
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER A")
@@ -1730,8 +1730,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER A")
-      (=gb2312		  . #x2751)	; ø»„¨
       (=jis-x0208	  . #x2751)	; ø½‰¿ 
+      (=gb2312		  . #x2751)	; ø»„¨
       (=ks-x1001	  . #x2C51)	; ø»ˆ«†
       ))
     (->uppercase
@@ -1755,11 +1755,11 @@
      ((name		  . "CYRILLIC SMALL LETTER A")
       (=ucs		  . #x0430)	; Ð°
       ))
-    (=gb2312		. #x2751)	; ø»„¨
     (=jis-x0208		. #x2751)	; ø½‰¿ 
+    (=gb2312		. #x2751)	; ø»„¨
     (=ks-x1001		. #x2C51)	; ø»ˆ«†
     (=big5-eten		. #xC855)	; ý¢€Œ¡•
-    (=ucs@jis		. #x0430)	; ø»„¨
+    (=ucs@jis		. #x0430)	; ø½‰¿ 
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER BE")
@@ -1768,8 +1768,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER BE")
-      (=gb2312		  . #x2752)	; ø»„©
       (=jis-x0208	  . #x2752)	; ø½‰¿¡
+      (=gb2312		  . #x2752)	; ø»„©
       (=ks-x1001	  . #x2C52)	; ø»ˆ«‡
       ))
     (->uppercase
@@ -1793,11 +1793,11 @@
      ((name		  . "CYRILLIC SMALL LETTER BE")
       (=ucs		  . #x0431)	; Ð±
       ))
-    (=gb2312		. #x2752)	; ø»„©
     (=jis-x0208		. #x2752)	; ø½‰¿¡
+    (=gb2312		. #x2752)	; ø»„©
     (=ks-x1001		. #x2C52)	; ø»ˆ«‡
     (=big5-eten		. #xC856)	; ý¢€Œ¡–
-    (=ucs@jis		. #x0431)	; ø»„©
+    (=ucs@jis		. #x0431)	; ø½‰¿¡
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER VE")
@@ -1806,8 +1806,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER VE")
-      (=gb2312		  . #x2753)	; ø»„ª
       (=jis-x0208	  . #x2753)	; ø½‰¿¢
+      (=gb2312		  . #x2753)	; ø»„ª
       (=ks-x1001	  . #x2C53)	; ø»ˆ«ˆ
       ))
     (->uppercase
@@ -1831,11 +1831,11 @@
      ((name		  . "CYRILLIC SMALL LETTER VE")
       (=ucs		  . #x0432)	; Ð²
       ))
-    (=gb2312		. #x2753)	; ø»„ª
     (=jis-x0208		. #x2753)	; ø½‰¿¢
+    (=gb2312		. #x2753)	; ø»„ª
     (=ks-x1001		. #x2C53)	; ø»ˆ«ˆ
     (=big5-eten		. #xC857)	; ý¢€Œ¡—
-    (=ucs@jis		. #x0432)	; ø»„ª
+    (=ucs@jis		. #x0432)	; ø½‰¿¢
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER GHE")
@@ -1844,8 +1844,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER GHE")
-      (=gb2312		  . #x2754)	; ø»„«
       (=jis-x0208	  . #x2754)	; ø½‰¿£
+      (=gb2312		  . #x2754)	; ø»„«
       (=ks-x1001	  . #x2C54)	; ø»ˆ«‰
       ))
     (->uppercase
@@ -1869,11 +1869,11 @@
      ((name		  . "CYRILLIC SMALL LETTER GHE")
       (=ucs		  . #x0433)	; Ð³
       ))
-    (=gb2312		. #x2754)	; ø»„«
     (=jis-x0208		. #x2754)	; ø½‰¿£
+    (=gb2312		. #x2754)	; ø»„«
     (=ks-x1001		. #x2C54)	; ø»ˆ«‰
     (=big5-eten		. #xC858)	; ý¢€Œ¡˜
-    (=ucs@jis		. #x0433)	; ø»„«
+    (=ucs@jis		. #x0433)	; ø½‰¿£
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DE")
@@ -1882,8 +1882,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DE")
-      (=gb2312		  . #x2755)	; ø»„¬
       (=jis-x0208	  . #x2755)	; ø½‰¿¤
+      (=gb2312		  . #x2755)	; ø»„¬
       (=ks-x1001	  . #x2C55)	; ø»ˆ«Š
       ))
     (->uppercase
@@ -1907,11 +1907,11 @@
      ((name		  . "CYRILLIC SMALL LETTER DE")
       (=ucs		  . #x0434)	; Ð´
       ))
-    (=gb2312		. #x2755)	; ø»„¬
     (=jis-x0208		. #x2755)	; ø½‰¿¤
+    (=gb2312		. #x2755)	; ø»„¬
     (=ks-x1001		. #x2C55)	; ø»ˆ«Š
     (=big5-eten		. #xC859)	; ý¢€Œ¡™
-    (=ucs@jis		. #x0434)	; ø»„¬
+    (=ucs@jis		. #x0434)	; ø½‰¿¤
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER IE")
@@ -1920,8 +1920,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER IE")
-      (=gb2312		  . #x2756)	; ø»„­
       (=jis-x0208	  . #x2756)	; ø½‰¿¥
+      (=gb2312		  . #x2756)	; ø»„­
       (=ks-x1001	  . #x2C56)	; ø»ˆ«‹
       ))
     (->uppercase
@@ -1945,11 +1945,11 @@
      ((name		  . "CYRILLIC SMALL LETTER IE")
       (=ucs		  . #x0435)	; Ðµ
       ))
-    (=gb2312		. #x2756)	; ø»„­
     (=jis-x0208		. #x2756)	; ø½‰¿¥
+    (=gb2312		. #x2756)	; ø»„­
     (=ks-x1001		. #x2C56)	; ø»ˆ«‹
     (=big5-eten		. #xC85A)	; ý¢€Œ¡š
-    (=ucs@jis		. #x0435)	; ø»„­
+    (=ucs@jis		. #x0435)	; ø½‰¿¥
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ZHE")
@@ -1958,8 +1958,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ZHE")
-      (=gb2312		  . #x2758)	; ø»„¯
       (=jis-x0208	  . #x2758)	; ø½‰¿§
+      (=gb2312		  . #x2758)	; ø»„¯
       (=ks-x1001	  . #x2C58)	; ø»ˆ«
       ))
     (->uppercase
@@ -1983,11 +1983,11 @@
      ((name		  . "CYRILLIC SMALL LETTER ZHE")
       (=ucs		  . #x0436)	; Ð¶
       ))
-    (=gb2312		. #x2758)	; ø»„¯
     (=jis-x0208		. #x2758)	; ø½‰¿§
+    (=gb2312		. #x2758)	; ø»„¯
     (=ks-x1001		. #x2C58)	; ø»ˆ«
     (=big5-eten		. #xC85C)	; ý¢€Œ¡œ
-    (=ucs@jis		. #x0436)	; ø»„¯
+    (=ucs@jis		. #x0436)	; ø½‰¿§
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ZE")
@@ -1996,8 +1996,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ZE")
-      (=gb2312		  . #x2759)	; ø»„°
       (=jis-x0208	  . #x2759)	; ø½‰¿¨
+      (=gb2312		  . #x2759)	; ø»„°
       (=ks-x1001	  . #x2C59)	; ø»ˆ«Ž
       ))
     (->uppercase
@@ -2021,11 +2021,11 @@
      ((name		  . "CYRILLIC SMALL LETTER ZE")
       (=ucs		  . #x0437)	; Ð·
       ))
-    (=gb2312		. #x2759)	; ø»„°
     (=jis-x0208		. #x2759)	; ø½‰¿¨
+    (=gb2312		. #x2759)	; ø»„°
     (=ks-x1001		. #x2C59)	; ø»ˆ«Ž
     (=big5-eten		. #xC85D)	; ý¢€Œ¡
-    (=ucs@jis		. #x0437)	; ø»„°
+    (=ucs@jis		. #x0437)	; ø½‰¿¨
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER I")
@@ -2034,8 +2034,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER I")
-      (=gb2312		  . #x275A)	; ø»„±
       (=jis-x0208	  . #x275A)	; ø½‰¿©
+      (=gb2312		  . #x275A)	; ø»„±
       (=ks-x1001	  . #x2C5A)	; ø»ˆ«
       ))
     (->uppercase
@@ -2059,11 +2059,11 @@
      ((name		  . "CYRILLIC SMALL LETTER I")
       (=ucs		  . #x0438)	; Ð¸
       ))
-    (=gb2312		. #x275A)	; ø»„±
     (=jis-x0208		. #x275A)	; ø½‰¿©
+    (=gb2312		. #x275A)	; ø»„±
     (=ks-x1001		. #x2C5A)	; ø»ˆ«
     (=big5-eten		. #xC85E)	; ý¢€Œ¡ž
-    (=ucs@jis		. #x0438)	; ø»„±
+    (=ucs@jis		. #x0438)	; ø½‰¿©
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHORT I")
@@ -2073,8 +2073,8 @@
     (->decomposition	#x0438 #x0306)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHORT I")
-      (=gb2312		  . #x275B)	; ø»„²
       (=jis-x0208	  . #x275B)	; ø½‰¿ª
+      (=gb2312		  . #x275B)	; ø»„²
       (=ks-x1001	  . #x2C5B)	; ø»ˆ«
       ))
     (->uppercase
@@ -2098,11 +2098,11 @@
      ((name		  . "CYRILLIC SMALL LETTER SHORT I")
       (=ucs		  . #x0439)	; Ð¹
       ))
-    (=gb2312		. #x275B)	; ø»„²
     (=jis-x0208		. #x275B)	; ø½‰¿ª
+    (=gb2312		. #x275B)	; ø»„²
     (=ks-x1001		. #x2C5B)	; ø»ˆ«
     (=big5-eten		. #xC85F)	; ý¢€Œ¡Ÿ
-    (=ucs@jis		. #x0439)	; ø»„²
+    (=ucs@jis		. #x0439)	; ø½‰¿ª
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER KA")
@@ -2111,8 +2111,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER KA")
-      (=gb2312		  . #x275C)	; ø»„³
       (=jis-x0208	  . #x275C)	; ø½‰¿«
+      (=gb2312		  . #x275C)	; ø»„³
       (=ks-x1001	  . #x2C5C)	; ø»ˆ«‘
       ))
     (->uppercase
@@ -2136,11 +2136,11 @@
      ((name		  . "CYRILLIC SMALL LETTER KA")
       (=ucs		  . #x043A)	; Ðº
       ))
-    (=gb2312		. #x275C)	; ø»„³
     (=jis-x0208		. #x275C)	; ø½‰¿«
+    (=gb2312		. #x275C)	; ø»„³
     (=ks-x1001		. #x2C5C)	; ø»ˆ«‘
     (=big5-eten		. #xC860)	; ý¢€Œ¡ 
-    (=ucs@jis		. #x043A)	; ø»„³
+    (=ucs@jis		. #x043A)	; ø½‰¿«
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EL")
@@ -2149,8 +2149,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EL")
-      (=gb2312		  . #x275D)	; ø»„´
       (=jis-x0208	  . #x275D)	; ø½‰¿¬
+      (=gb2312		  . #x275D)	; ø»„´
       (=ks-x1001	  . #x2C5D)	; ø»ˆ«’
       ))
     (->uppercase
@@ -2174,11 +2174,11 @@
      ((name		  . "CYRILLIC SMALL LETTER EL")
       (=ucs		  . #x043B)	; Ð»
       ))
-    (=gb2312		. #x275D)	; ø»„´
     (=jis-x0208		. #x275D)	; ø½‰¿¬
+    (=gb2312		. #x275D)	; ø»„´
     (=ks-x1001		. #x2C5D)	; ø»ˆ«’
     (=big5-eten		. #xC861)	; ý¢€Œ¡¡
-    (=ucs@jis		. #x043B)	; ø»„´
+    (=ucs@jis		. #x043B)	; ø½‰¿¬
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EM")
@@ -2187,8 +2187,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EM")
-      (=gb2312		  . #x275E)	; ø»„µ
       (=jis-x0208	  . #x275E)	; ø½‰¿­
+      (=gb2312		  . #x275E)	; ø»„µ
       (=ks-x1001	  . #x2C5E)	; ø»ˆ«“
       ))
     (->uppercase
@@ -2212,11 +2212,11 @@
      ((name		  . "CYRILLIC SMALL LETTER EM")
       (=ucs		  . #x043C)	; Ð¼
       ))
-    (=gb2312		. #x275E)	; ø»„µ
     (=jis-x0208		. #x275E)	; ø½‰¿­
+    (=gb2312		. #x275E)	; ø»„µ
     (=ks-x1001		. #x2C5E)	; ø»ˆ«“
     (=big5-eten		. #xC862)	; ý¢€Œ¡¢
-    (=ucs@jis		. #x043C)	; ø»„µ
+    (=ucs@jis		. #x043C)	; ø½‰¿­
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EN")
@@ -2225,8 +2225,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EN")
-      (=gb2312		  . #x275F)	; ø»„¶
       (=jis-x0208	  . #x275F)	; ø½‰¿®
+      (=gb2312		  . #x275F)	; ø»„¶
       (=ks-x1001	  . #x2C5F)	; ø»ˆ«”
       ))
     (->uppercase
@@ -2250,11 +2250,11 @@
      ((name		  . "CYRILLIC SMALL LETTER EN")
       (=ucs		  . #x043D)	; Ð½
       ))
-    (=gb2312		. #x275F)	; ø»„¶
     (=jis-x0208		. #x275F)	; ø½‰¿®
+    (=gb2312		. #x275F)	; ø»„¶
     (=ks-x1001		. #x2C5F)	; ø»ˆ«”
     (=big5-eten		. #xC863)	; ý¢€Œ¡£
-    (=ucs@jis		. #x043D)	; ø»„¶
+    (=ucs@jis		. #x043D)	; ø½‰¿®
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER O")
@@ -2263,8 +2263,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER O")
-      (=gb2312		  . #x2760)	; ø»„·
       (=jis-x0208	  . #x2760)	; ø½‰¿¯
+      (=gb2312		  . #x2760)	; ø»„·
       (=ks-x1001	  . #x2C60)	; ø»ˆ«•
       ))
     (->uppercase
@@ -2288,11 +2288,11 @@
      ((name		  . "CYRILLIC SMALL LETTER O")
       (=ucs		  . #x043E)	; Ð¾
       ))
-    (=gb2312		. #x2760)	; ø»„·
     (=jis-x0208		. #x2760)	; ø½‰¿¯
+    (=gb2312		. #x2760)	; ø»„·
     (=ks-x1001		. #x2C60)	; ø»ˆ«•
     (=big5-eten		. #xC864)	; ý¢€Œ¡¤
-    (=ucs@jis		. #x043E)	; ø»„·
+    (=ucs@jis		. #x043E)	; ø½‰¿¯
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER PE")
@@ -2301,8 +2301,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER PE")
-      (=gb2312		  . #x2761)	; ø»„¸
       (=jis-x0208	  . #x2761)	; ø½‰¿°
+      (=gb2312		  . #x2761)	; ø»„¸
       (=ks-x1001	  . #x2C61)	; ø»ˆ«–
       ))
     (->uppercase
@@ -2326,11 +2326,11 @@
      ((name		  . "CYRILLIC SMALL LETTER PE")
       (=ucs		  . #x043F)	; Ð¿
       ))
-    (=gb2312		. #x2761)	; ø»„¸
     (=jis-x0208		. #x2761)	; ø½‰¿°
+    (=gb2312		. #x2761)	; ø»„¸
     (=ks-x1001		. #x2C61)	; ø»ˆ«–
     (=big5-eten		. #xC865)	; ý¢€Œ¡¥
-    (=ucs@jis		. #x043F)	; ø»„¸
+    (=ucs@jis		. #x043F)	; ø½‰¿°
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ER")
@@ -2339,8 +2339,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ER")
-      (=gb2312		  . #x2762)	; ø»„¹
       (=jis-x0208	  . #x2762)	; ø½‰¿±
+      (=gb2312		  . #x2762)	; ø»„¹
       (=ks-x1001	  . #x2C62)	; ø»ˆ«—
       ))
     (->uppercase
@@ -2364,11 +2364,11 @@
      ((name		  . "CYRILLIC SMALL LETTER ER")
       (=ucs		  . #x0440)	; Ñ€
       ))
-    (=gb2312		. #x2762)	; ø»„¹
     (=jis-x0208		. #x2762)	; ø½‰¿±
+    (=gb2312		. #x2762)	; ø»„¹
     (=ks-x1001		. #x2C62)	; ø»ˆ«—
     (=big5-eten		. #xC866)	; ý¢€Œ¡¦
-    (=ucs@jis		. #x0440)	; ø»„¹
+    (=ucs@jis		. #x0440)	; ø½‰¿±
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ES")
@@ -2377,8 +2377,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ES")
-      (=gb2312		  . #x2763)	; ø»„º
       (=jis-x0208	  . #x2763)	; ø½‰¿²
+      (=gb2312		  . #x2763)	; ø»„º
       (=ks-x1001	  . #x2C63)	; ø»ˆ«˜
       ))
     (->uppercase
@@ -2402,11 +2402,11 @@
      ((name		  . "CYRILLIC SMALL LETTER ES")
       (=ucs		  . #x0441)	; Ñ
       ))
-    (=gb2312		. #x2763)	; ø»„º
     (=jis-x0208		. #x2763)	; ø½‰¿²
+    (=gb2312		. #x2763)	; ø»„º
     (=ks-x1001		. #x2C63)	; ø»ˆ«˜
     (=big5-eten		. #xC867)	; ý¢€Œ¡§
-    (=ucs@jis		. #x0441)	; ø»„º
+    (=ucs@jis		. #x0441)	; ø½‰¿²
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER TE")
@@ -2415,8 +2415,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TE")
-      (=gb2312		  . #x2764)	; ø»„»
       (=jis-x0208	  . #x2764)	; ø½‰¿³
+      (=gb2312		  . #x2764)	; ø»„»
       (=ks-x1001	  . #x2C64)	; ø»ˆ«™
       ))
     (->uppercase
@@ -2440,11 +2440,11 @@
      ((name		  . "CYRILLIC SMALL LETTER TE")
       (=ucs		  . #x0442)	; Ñ‚
       ))
-    (=gb2312		. #x2764)	; ø»„»
     (=jis-x0208		. #x2764)	; ø½‰¿³
+    (=gb2312		. #x2764)	; ø»„»
     (=ks-x1001		. #x2C64)	; ø»ˆ«™
     (=big5-eten		. #xC868)	; ý¢€Œ¡¨
-    (=ucs@jis		. #x0442)	; ø»„»
+    (=ucs@jis		. #x0442)	; ø½‰¿³
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER U")
@@ -2453,8 +2453,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER U")
-      (=gb2312		  . #x2765)	; ø»„¼
       (=jis-x0208	  . #x2765)	; ø½‰¿´
+      (=gb2312		  . #x2765)	; ø»„¼
       (=ks-x1001	  . #x2C65)	; ø»ˆ«š
       ))
     (->uppercase
@@ -2478,11 +2478,11 @@
      ((name		  . "CYRILLIC SMALL LETTER U")
       (=ucs		  . #x0443)	; Ñƒ
       ))
-    (=gb2312		. #x2765)	; ø»„¼
     (=jis-x0208		. #x2765)	; ø½‰¿´
+    (=gb2312		. #x2765)	; ø»„¼
     (=ks-x1001		. #x2C65)	; ø»ˆ«š
     (=big5-eten		. #xC869)	; ý¢€Œ¡©
-    (=ucs@jis		. #x0443)	; ø»„¼
+    (=ucs@jis		. #x0443)	; ø½‰¿´
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EF")
@@ -2491,8 +2491,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EF")
-      (=gb2312		  . #x2766)	; ø»„½
       (=jis-x0208	  . #x2766)	; ø½‰¿µ
+      (=gb2312		  . #x2766)	; ø»„½
       (=ks-x1001	  . #x2C66)	; ø»ˆ«›
       ))
     (->uppercase
@@ -2516,11 +2516,11 @@
      ((name		  . "CYRILLIC SMALL LETTER EF")
       (=ucs		  . #x0444)	; Ñ„
       ))
-    (=gb2312		. #x2766)	; ø»„½
     (=jis-x0208		. #x2766)	; ø½‰¿µ
+    (=gb2312		. #x2766)	; ø»„½
     (=ks-x1001		. #x2C66)	; ø»ˆ«›
     (=big5-eten		. #xC86A)	; ý¢€Œ¡ª
-    (=ucs@jis		. #x0444)	; ø»„½
+    (=ucs@jis		. #x0444)	; ø½‰¿µ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER HA")
@@ -2529,8 +2529,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER HA")
-      (=gb2312		  . #x2767)	; ø»„¾
       (=jis-x0208	  . #x2767)	; ø½‰¿¶
+      (=gb2312		  . #x2767)	; ø»„¾
       (=ks-x1001	  . #x2C67)	; ø»ˆ«œ
       ))
     (->uppercase
@@ -2554,11 +2554,11 @@
      ((name		  . "CYRILLIC SMALL LETTER HA")
       (=ucs		  . #x0445)	; Ñ…
       ))
-    (=gb2312		. #x2767)	; ø»„¾
     (=jis-x0208		. #x2767)	; ø½‰¿¶
+    (=gb2312		. #x2767)	; ø»„¾
     (=ks-x1001		. #x2C67)	; ø»ˆ«œ
     (=big5-eten		. #xC86B)	; ý¢€Œ¡«
-    (=ucs@jis		. #x0445)	; ø»„¾
+    (=ucs@jis		. #x0445)	; ø½‰¿¶
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER TSE")
@@ -2567,8 +2567,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TSE")
-      (=gb2312		  . #x2768)	; ø»„¿
       (=jis-x0208	  . #x2768)	; ø½‰¿·
+      (=gb2312		  . #x2768)	; ø»„¿
       (=ks-x1001	  . #x2C68)	; ø»ˆ«
       ))
     (->uppercase
@@ -2592,11 +2592,11 @@
      ((name		  . "CYRILLIC SMALL LETTER TSE")
       (=ucs		  . #x0446)	; Ñ†
       ))
-    (=gb2312		. #x2768)	; ø»„¿
     (=jis-x0208		. #x2768)	; ø½‰¿·
+    (=gb2312		. #x2768)	; ø»„¿
     (=ks-x1001		. #x2C68)	; ø»ˆ«
     (=big5-eten		. #xC86C)	; ý¢€Œ¡¬
-    (=ucs@jis		. #x0446)	; ø»„¿
+    (=ucs@jis		. #x0446)	; ø½‰¿·
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER CHE")
@@ -2605,8 +2605,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER CHE")
-      (=gb2312		  . #x2769)	; ø»„€
       (=jis-x0208	  . #x2769)	; ø½‰¿¸
+      (=gb2312		  . #x2769)	; ø»„€
       (=ks-x1001	  . #x2C69)	; ø»ˆ«ž
       ))
     (->uppercase
@@ -2630,11 +2630,11 @@
      ((name		  . "CYRILLIC SMALL LETTER CHE")
       (=ucs		  . #x0447)	; Ñ‡
       ))
-    (=gb2312		. #x2769)	; ø»„€
     (=jis-x0208		. #x2769)	; ø½‰¿¸
+    (=gb2312		. #x2769)	; ø»„€
     (=ks-x1001		. #x2C69)	; ø»ˆ«ž
     (=big5-eten		. #xC86D)	; ý¢€Œ¡­
-    (=ucs@jis		. #x0447)	; ø»„€
+    (=ucs@jis		. #x0447)	; ø½‰¿¸
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHA")
@@ -2643,8 +2643,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHA")
-      (=gb2312		  . #x276A)	; ø»„
       (=jis-x0208	  . #x276A)	; ø½‰¿¹
+      (=gb2312		  . #x276A)	; ø»„
       (=ks-x1001	  . #x2C6A)	; ø»ˆ«Ÿ
       ))
     (->uppercase
@@ -2668,11 +2668,11 @@
      ((name		  . "CYRILLIC SMALL LETTER SHA")
       (=ucs		  . #x0448)	; Ñˆ
       ))
-    (=gb2312		. #x276A)	; ø»„
     (=jis-x0208		. #x276A)	; ø½‰¿¹
+    (=gb2312		. #x276A)	; ø»„
     (=ks-x1001		. #x2C6A)	; ø»ˆ«Ÿ
     (=big5-eten		. #xC86E)	; ý¢€Œ¡®
-    (=ucs@jis		. #x0448)	; ø»„
+    (=ucs@jis		. #x0448)	; ø½‰¿¹
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHCHA")
@@ -2681,8 +2681,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHCHA")
-      (=gb2312		  . #x276B)	; ø»„‚
       (=jis-x0208	  . #x276B)	; ø½‰¿º
+      (=gb2312		  . #x276B)	; ø»„‚
       (=ks-x1001	  . #x2C6B)	; ø»ˆ« 
       ))
     (->uppercase
@@ -2706,11 +2706,11 @@
      ((name		  . "CYRILLIC SMALL LETTER SHCHA")
       (=ucs		  . #x0449)	; Ñ‰
       ))
-    (=gb2312		. #x276B)	; ø»„‚
     (=jis-x0208		. #x276B)	; ø½‰¿º
+    (=gb2312		. #x276B)	; ø»„‚
     (=ks-x1001		. #x2C6B)	; ø»ˆ« 
     (=big5-eten		. #xC86F)	; ý¢€Œ¡¯
-    (=ucs@jis		. #x0449)	; ø»„‚
+    (=ucs@jis		. #x0449)	; ø½‰¿º
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER HARD SIGN")
@@ -2719,8 +2719,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER HARD SIGN")
-      (=gb2312		  . #x276C)	; ø»„ƒ
       (=jis-x0208	  . #x276C)	; ø½‰¿»
+      (=gb2312		  . #x276C)	; ø»„ƒ
       (=ks-x1001	  . #x2C6C)	; ø»ˆ«¡
       ))
     (->uppercase
@@ -2744,11 +2744,11 @@
      ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
       (=ucs		  . #x044A)	; ÑŠ
       ))
-    (=gb2312		. #x276C)	; ø»„ƒ
     (=jis-x0208		. #x276C)	; ø½‰¿»
+    (=gb2312		. #x276C)	; ø»„ƒ
     (=ks-x1001		. #x2C6C)	; ø»ˆ«¡
     (=big5-eten		. #xC870)	; ý¢€Œ¡°
-    (=ucs@jis		. #x044A)	; ø»„ƒ
+    (=ucs@jis		. #x044A)	; ø½‰¿»
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YERU")
@@ -2757,8 +2757,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YERU")
-      (=gb2312		  . #x276D)	; ø»„„
       (=jis-x0208	  . #x276D)	; ø½‰¿¼
+      (=gb2312		  . #x276D)	; ø»„„
       (=ks-x1001	  . #x2C6D)	; ø»ˆ«¢
       ))
     (->uppercase
@@ -2782,11 +2782,11 @@
      ((name		  . "CYRILLIC SMALL LETTER YERU")
       (=ucs		  . #x044B)	; Ñ‹
       ))
-    (=gb2312		. #x276D)	; ø»„„
     (=jis-x0208		. #x276D)	; ø½‰¿¼
+    (=gb2312		. #x276D)	; ø»„„
     (=ks-x1001		. #x2C6D)	; ø»ˆ«¢
     (=big5-eten		. #xC871)	; ý¢€Œ¡±
-    (=ucs@jis		. #x044B)	; ø»„„
+    (=ucs@jis		. #x044B)	; ø½‰¿¼
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SOFT SIGN")
@@ -2795,8 +2795,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SOFT SIGN")
-      (=gb2312		  . #x276E)	; ø»„…
       (=jis-x0208	  . #x276E)	; ø½‰¿½
+      (=gb2312		  . #x276E)	; ø»„…
       (=ks-x1001	  . #x2C6E)	; ø»ˆ«£
       ))
     (->uppercase
@@ -2820,11 +2820,11 @@
      ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
       (=ucs		  . #x044C)	; ÑŒ
       ))
-    (=gb2312		. #x276E)	; ø»„…
     (=jis-x0208		. #x276E)	; ø½‰¿½
+    (=gb2312		. #x276E)	; ø»„…
     (=ks-x1001		. #x2C6E)	; ø»ˆ«£
     (=big5-eten		. #xC872)	; ý¢€Œ¡²
-    (=ucs@jis		. #x044C)	; ø»„…
+    (=ucs@jis		. #x044C)	; ø½‰¿½
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER E")
@@ -2833,8 +2833,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER E")
-      (=gb2312		  . #x276F)	; ø»„†
       (=jis-x0208	  . #x276F)	; ø½‰¿¾
+      (=gb2312		  . #x276F)	; ø»„†
       (=ks-x1001	  . #x2C6F)	; ø»ˆ«¤
       ))
     (->uppercase
@@ -2858,11 +2858,11 @@
      ((name		  . "CYRILLIC SMALL LETTER E")
       (=ucs		  . #x044D)	; Ñ
       ))
-    (=gb2312		. #x276F)	; ø»„†
     (=jis-x0208		. #x276F)	; ø½‰¿¾
+    (=gb2312		. #x276F)	; ø»„†
     (=ks-x1001		. #x2C6F)	; ø»ˆ«¤
     (=big5-eten		. #xC873)	; ý¢€Œ¡³
-    (=ucs@jis		. #x044D)	; ø»„†
+    (=ucs@jis		. #x044D)	; ø½‰¿¾
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YU")
@@ -2871,8 +2871,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YU")
-      (=gb2312		  . #x2770)	; ø»„‡
       (=jis-x0208	  . #x2770)	; ø½‰¿¿
+      (=gb2312		  . #x2770)	; ø»„‡
       (=ks-x1001	  . #x2C70)	; ø»ˆ«¥
       ))
     (->uppercase
@@ -2896,11 +2896,11 @@
      ((name		  . "CYRILLIC SMALL LETTER YU")
       (=ucs		  . #x044E)	; ÑŽ
       ))
-    (=gb2312		. #x2770)	; ø»„‡
     (=jis-x0208		. #x2770)	; ø½‰¿¿
+    (=gb2312		. #x2770)	; ø»„‡
     (=ks-x1001		. #x2C70)	; ø»ˆ«¥
     (=big5-eten		. #xC874)	; ý¢€Œ¡´
-    (=ucs@jis		. #x044E)	; ø»„‡
+    (=ucs@jis		. #x044E)	; ø½‰¿¿
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YA")
@@ -2909,8 +2909,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YA")
-      (=gb2312		  . #x2771)	; ø»„ˆ
       (=jis-x0208	  . #x2771)	; ø½Š€€
+      (=gb2312		  . #x2771)	; ø»„ˆ
       (=ks-x1001	  . #x2C71)	; ø»ˆ«¦
       ))
     (->uppercase
@@ -2934,11 +2934,11 @@
      ((name		  . "CYRILLIC SMALL LETTER YA")
       (=ucs		  . #x044F)	; Ñ
       ))
-    (=gb2312		. #x2771)	; ø»„ˆ
     (=jis-x0208		. #x2771)	; ø½Š€€
+    (=gb2312		. #x2771)	; ø»„ˆ
     (=ks-x1001		. #x2C71)	; ø»ˆ«¦
     (=big5-eten		. #xC875)	; ý¢€Œ¡µ
-    (=ucs@jis		. #x044F)	; ø»„ˆ
+    (=ucs@jis		. #x044F)	; ø½Š€€
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER IE WITH GRAVE")
@@ -2960,8 +2960,8 @@
     (->decomposition	#x0435 #x0308)
     (->fullwidth
      ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER IO")
-      (=gb2312		  . #x2757)	; ø»„®
       (=jis-x0208	  . #x2757)	; ø½‰¿¦
+      (=gb2312		  . #x2757)	; ø»„®
       (=ks-x1001	  . #x2C57)	; ø»ˆ«Œ
       ))
     (->uppercase
@@ -2985,11 +2985,11 @@
      ((name		  . "CYRILLIC SMALL LETTER IO")
       (=ucs		  . #x0451)	; Ñ‘
       ))
-    (=gb2312		. #x2757)	; ø»„®
     (=jis-x0208		. #x2757)	; ø½‰¿¦
+    (=gb2312		. #x2757)	; ø»„®
     (=ks-x1001		. #x2C57)	; ø»ˆ«Œ
     (=big5-eten		. #xC85B)	; ý¢€Œ¡›
-    (=ucs@jis		. #x0451)	; ø»„®
+    (=ucs@jis		. #x0451)	; ø½‰¿¦
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DJE")

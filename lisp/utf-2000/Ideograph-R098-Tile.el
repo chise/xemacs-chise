@@ -459,8 +459,8 @@
     (total-strokes	 . 11)
     (shinjigen-2	. 4989)
     (=ucs		. #x74F6)	; ç“¶
-    (=gb2312		. #x463F)	; ø»„¼¸
     (=jis-x0208		. #x4953)	; ø½Š±ž
+    (=gb2312		. #x463F)	; ø»„¼¸
     (=cns11643-1	. #x5C25)	; ø»’™Š
     (=big5		. #xB27E)	; ý¢€‹‰¾
     (=gt		. 27617)	; ý¡€†¯¡

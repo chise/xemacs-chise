@@ -5,8 +5,8 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 5389)
     (=ucs		. #x77E2)	; çŸ¢
-    (=gb2312		. #x4A38)	; ø»…‚©
     (=jis-x0208		. #x4C70)	; ø½Š¶•
+    (=gb2312		. #x4A38)	; ø»…‚©
     (=ks-x1001		. #x6345)	; ø»‰»¬
     (=cns11643-1	. #x467A)	; ø»‘º‹
     (=gt		. 30618)	; ý¡€‡žš
@@ -20,8 +20,8 @@
     (total-strokes	 . 7)
     (shinjigen-2	. 5390)
     (=ucs		. #x77E3)	; çŸ£
-    (=gb2312		. #x5253)	; ø»…Ž´
     (=jis-x0208		. #x6263)	; ø½‹–œ
+    (=gb2312		. #x5253)	; ø»…Ž´
     (=ks-x1001		. #x6B78)	; ø»Šˆ
     (=gt		. 30619)	; ý¡€‡ž›
     (=gt-k		. 02722)	; ý¡„€ª¢
@@ -83,8 +83,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x77E5)	; çŸ¥
-    (=gb2312		. #x562A)	; ø»…”ƒ
     (=jis-x0208		. #x434E)	; ø½Š¨¥
+    (=gb2312		. #x562A)	; ø»…”ƒ
     (=ks-x1001		. #x7231)	; ø»Š‘š
     (=cns11643-1	. #x4F21)	; ø»’†€
     (=gt		. 30623)	; ý¡€‡žŸ
@@ -132,8 +132,8 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 5391)
     (=ucs		. #x77E7)	; çŸ§
-    (=gb2312		. #x6F72)	; ø»…¹¹
     (=jis-x0208		. #x476A)	; ø½Š®¹
+    (=gb2312		. #x6F72)	; ø»…¹¹
     (=cns11643-2	. #x2C4A)	; ø»““
     (=gt		. 30627)	; ý¡€‡ž£
     (=gt-pj-1		. #x476A)	; ý¡€‡ž£
@@ -225,8 +225,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x77E9)	; çŸ©
-    (=gb2312		. #x3E58)	; ø»„±¡
     (=jis-x0208		. #x366B)	; ø½Š•¼
+    (=gb2312		. #x3E58)	; ø»„±¡
     (=ks-x1001		. #x4F3B)	; ø»‰žŠ
     (=gt		. 30637)	; ý¡€‡ž­
     (=gt-k		. 06406)	; ý¡„¤†
@@ -542,8 +542,8 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 5395)
     (=ucs		. #x77ED)	; çŸ­
-    (=gb2312		. #x364C)	; ø»„¥¥
     (=jis-x0208		. #x433B)	; ø½Š¨’
+    (=gb2312		. #x364C)	; ø»„¥¥
     (=ks-x1001		. #x532D)	; ø»‰£´
     (=cns11643-1	. #x607B)	; ø»’ ˜
     (=gt		. 30675)	; ý¡€‡Ÿ“
@@ -684,8 +684,8 @@
     (total-strokes	 . 13)
     (shinjigen-2	. 5396)
     (=ucs		. #x77EE)	; çŸ®
-    (=gb2312		. #x302B)	; ø»„œ
     (=jis-x0208		. #x6264)	; ø½‹–
+    (=gb2312		. #x302B)	; ø»„œ
     (=ks-x1001		. #x6861)	; ø»Šƒž
     (=gt		. 30694)	; ý¡€‡Ÿ¦
     (=gt-pj-1		. #x6264)	; ý¡€‡Ÿ¦

@@ -39,8 +39,8 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 4008)
     (=ucs		. #x6BCD)	; æ¯
-    (=gb2312		. #x4438)	; ø»„¹µ
     (=jis-x0208		. #x4A6C)	; ø½Š³•
+    (=gb2312		. #x4438)	; ø»„¹µ
     (=ks-x1001		. #x593D)	; ø»‰¬¸
     (=cns11643-1	. #x4660)	; ø»‘¹±
     (=big5		. #xA5C0)	; ý¢€Š—€

@@ -5,8 +5,8 @@
     (total-strokes	 . 3)
     (shinjigen-2	. 2059)
     (=ucs		. #x5DE5)	; å·¥
-    (=gb2312		. #x3924)	; ø»„©—
     (=jis-x0208		. #x3929)	; ø½Š™”
+    (=gb2312		. #x3924)	; ø»„©—
     (=ks-x1001		. #x4D6F)	; ø»‰œ‚
     (=cns11643-1	. #x4456)	; ø»‘¶«
     (=big5		. #xA475)	; ý¢€Š‘µ
@@ -60,8 +60,8 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 2063)
     (=ucs		. #x5DE6)	; å·¦
-    (=gb2312		. #x5773)	; ø»…–ª
     (=jis-x0208		. #x3A38)	; ø½Š›
+    (=gb2312		. #x5773)	; ø»…–ª
     (=ks-x1001		. #x7127)	; ø»Š²
     (=cns11643-1	. #x464A)	; ø»‘¹›
     (=big5		. #xA5AA)	; ý¢€Š–ª
@@ -76,8 +76,8 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 2062)
     (=ucs		. #x5DE7)	; å·§
-    (=gb2312		. #x4749)	; ø»„¾ 
     (=jis-x0208		. #x392A)	; ø½Š™•
+    (=gb2312		. #x4749)	; ø»„¾ 
     (=ks-x1001		. #x4E65)	; ø»‰–
     (=cns11643-1	. #x4649)	; ø»‘¹š
     (=big5		. #xA5A9)	; ý¢€Š–©
@@ -99,8 +99,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5DE8)	; å·¨
-    (=gb2312		. #x3E5E)	; ø»„±§
     (=jis-x0208		. #x3570)	; ø½Š”£
+    (=gb2312		. #x3E5E)	; ø»„±§
     (=ks-x1001		. #x4B5D)	; ø»‰˜´
     (=cns11643-1	. #x4648)	; ø»‘¹™
     (=big5		. #xA5A8)	; ý¢€Š–¨
@@ -193,8 +193,8 @@
     (total-strokes	 . 7)
     (shinjigen-2	. 2066)
     (=ucs		. #x5DEB)	; å·«
-    (=gb2312		. #x4E57)	; ø»…‰€
     (=jis-x0208		. #x5660)	; ø½‹„±
+    (=gb2312		. #x4E57)	; ø»…‰€
     (=ks-x1001		. #x5963)	; ø»‰­ž
     (=cns11643-1	. #x4A27)	; ø»‘¾°
     (=big5		. #xA7C5)	; ý¢€ŠŸ…

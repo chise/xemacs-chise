@@ -5,8 +5,8 @@
     (total-strokes	 . 4)
     (shinjigen-2	. 4018)
     (=ucs		. #x6BDB)	; æ¯›
-    (=gb2312		. #x432B)	; ø»„¸Š
     (=jis-x0208		. #x4C53)	; ø½Šµ¸
+    (=gb2312		. #x432B)	; ø»„¸Š
     (=ks-x1001		. #x593E)	; ø»‰¬¹
     (=big5		. #xA4F2)	; ý¢€Š“²
     (=gt		. 21495)	; ý¡€…·
@@ -1278,8 +1278,8 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 4025)
     (=ucs		. #x6BEF)	; æ¯¯
-    (=gb2312		. #x4C3A)	; ø»……§
     (=jis-x0208		. #x5D5F)	; ø½‹‚
+    (=gb2312		. #x4C3A)	; ø»……§
     (=big5		. #xB4E0)	; ý¢€‹“ 
     (=gt		. 21614)	; ý¡€…‘®
     (=gt-pj-1		. #x5D5F)	; ý¡€…‘®

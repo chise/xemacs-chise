@@ -139,9 +139,9 @@
       (=ucs		  . #xFFE5)	; ï¿¥
       ))
     (=ucs		. #x00A5)	; Â¥
+    (latin-jisx0201	. #x5C)	; øº‘Œ‡
     (latin-iso8859-1	. #xA5)	; øº’´…
     (hebrew-iso8859-8	. #xA5)	; øº’¾¥
-    (latin-jisx0201	. #x5C)	; øº‘Œ‡
     (latin-iso8859-9	. #xA5)	; øº“†…
     ))
 (define-char
@@ -166,8 +166,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth section sign")
-      (=gb2312		  . #x216C)	; ø»„‡
       (=jis-x0208	  . #x2178)	; ø½‰·“
+      (=gb2312		  . #x216C)	; ø»„‡
       (=ks-x1001	  . #x2157)	; ø»ˆ›‚
       (=cns11643-1	  . #x2170)	; ø»‘ƒ«
       ))
@@ -191,12 +191,12 @@
      ((name		  . "SECTION SIGN")
       (=ucs		  . #x00A7)	; Â§
       ))
-    (=gb2312		. #x216C)	; ø»„‡
     (=jis-x0208		. #x2178)	; ø½‰·“
+    (=gb2312		. #x216C)	; ø»„‡
     (=ks-x1001		. #x2157)	; ø»ˆ›‚
     (=cns11643-1	. #x2170)	; ø»‘ƒ«
     (=big5		. #xA1B1)	; ý¢€Š†±
-    (=ucs@jis		. #x00A7)	; ø»„‡
+    (=ucs@jis		. #x00A7)	; ø½‰·“
     ))
 (define-char
   '((name		. "DIAERESIS")
@@ -206,8 +206,8 @@
     (->decomposition	compat #x0020 #x0308)
     (->fullwidth
      ((name		  . "fullwidth diaeresis")
-      (=gb2312		  . #x2127)	; ø»„†Š
       (=jis-x0208	  . #x212F)	; ø½‰¶Š
+      (=gb2312		  . #x2127)	; ø»„†Š
       (=ks-x1001	  . #x2127)	; ø»ˆš’
       ))
     (=ucs		. #x00A8)	; Â¨
@@ -229,12 +229,12 @@
      ((name		  . "DIAERESIS")
       (=ucs		  . #x00A8)	; Â¨
       ))
-    (=gb2312		. #x2127)	; ø»„†Š
     (=jis-x0208		. #x212F)	; ø½‰¶Š
+    (=gb2312		. #x2127)	; ø»„†Š
     (=ks-x1001		. #x2127)	; ø»ˆš’
     (=big5-eten		. #xC6D8)	; ý¢€Œ›˜
     (=jef-china3	. #x81AA)	; øºˆ†ª
-    (=ucs@jis		. #x00A8)	; ø»„†Š
+    (=ucs@jis		. #x00A8)	; ø½‰¶Š
     ))
 (define-char
   '((name		. "COPYRIGHT SIGN")
@@ -427,8 +427,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth degree sign")
-      (=gb2312		  . #x2163)	; ø»„‡†
       (=jis-x0208	  . #x216B)	; ø½‰·†
+      (=gb2312		  . #x2163)	; ø»„‡†
       (=ks-x1001	  . #x2146)	; ø»ˆš±
       (=cns11643-1	  . #x2278)	; ø»‘…‘
       ))
@@ -451,12 +451,12 @@
      ((name		  . "DEGREE SIGN")
       (=ucs		  . #x00B0)	; Â°
       ))
-    (=gb2312		. #x2163)	; ø»„‡†
     (=jis-x0208		. #x216B)	; ø½‰·†
+    (=gb2312		. #x2163)	; ø»„‡†
     (=ks-x1001		. #x2146)	; ø»ˆš±
     (=cns11643-1	. #x2278)	; ø»‘…‘
     (=big5		. #xA258)	; ý¢€Š‰˜
-    (=ucs@jis		. #x00B0)	; ø»„‡†
+    (=ucs@jis		. #x00B0)	; ø½‰·†
     ))
 (define-char
   '((name		. "PLUS-MINUS SIGN")
@@ -465,8 +465,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth plus-minus sign")
-      (=gb2312		  . #x2140)	; ø»„†£
       (=jis-x0208	  . #x215E)	; ø½‰¶¹
+      (=gb2312		  . #x2140)	; ø»„†£
       (=ks-x1001	  . #x213E)	; ø»ˆš©
       (=cns11643-1	  . #x2234)	; ø»‘„
       ))
@@ -486,12 +486,12 @@
      ((name		  . "PLUS-MINUS SIGN")
       (=ucs		  . #x00B1)	; Â±
       ))
-    (=gb2312		. #x2140)	; ø»„†£
     (=jis-x0208		. #x215E)	; ø½‰¶¹
+    (=gb2312		. #x2140)	; ø»„†£
     (=ks-x1001		. #x213E)	; ø»ˆš©
     (=cns11643-1	. #x2234)	; ø»‘„
     (=big5		. #xA1D3)	; ý¢€Š‡“
-    (=ucs@jis		. #x00B1)	; ø»„†£
+    (=ucs@jis		. #x00B1)	; ø½‰¶¹
     ))
 (define-char
   '((name		. "SUPERSCRIPT TWO")
@@ -1860,8 +1860,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth multiplication sign")
-      (=gb2312		  . #x2141)	; ø»„†¤
       (=jis-x0208	  . #x215F)	; ø½‰¶º
+      (=gb2312		  . #x2141)	; ø»„†¤
       (=ks-x1001	  . #x213F)	; ø»ˆšª
       (=cns11643-1	  . #x2232)	; ø»‘„‹
       ))
@@ -1883,12 +1883,12 @@
      ((name		  . "MULTIPLICATION SIGN")
       (=ucs		  . #x00D7)	; Ã—
       ))
-    (=gb2312		. #x2141)	; ø»„†¤
     (=jis-x0208		. #x215F)	; ø½‰¶º
+    (=gb2312		. #x2141)	; ø»„†¤
     (=ks-x1001		. #x213F)	; ø»ˆšª
     (=cns11643-1	. #x2232)	; ø»‘„‹
     (=big5		. #xA1D1)	; ý¢€Š‡‘
-    (=ucs@jis		. #x00D7)	; ø»„†¤
+    (=ucs@jis		. #x00D7)	; ø½‰¶º
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH STROKE")
@@ -3129,8 +3129,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth division sign")
-      (=gb2312		  . #x2142)	; ø»„†¥
       (=jis-x0208	  . #x2160)	; ø½‰¶»
+      (=gb2312		  . #x2142)	; ø»„†¥
       (=ks-x1001	  . #x2140)	; ø»ˆš«
       (=cns11643-1	  . #x2233)	; ø»‘„Œ
       ))
@@ -3152,12 +3152,12 @@
      ((name		  . "DIVISION SIGN")
       (=ucs		  . #x00F7)	; Ã·
       ))
-    (=gb2312		. #x2142)	; ø»„†¥
     (=jis-x0208		. #x2160)	; ø½‰¶»
+    (=gb2312		. #x2142)	; ø»„†¥
     (=ks-x1001		. #x2140)	; ø»ˆš«
     (=cns11643-1	. #x2233)	; ø»‘„Œ
     (=big5		. #xA1D2)	; ý¢€Š‡’
-    (=ucs@jis		. #x00F7)	; ø»„†¥
+    (=ucs@jis		. #x00F7)	; ø½‰¶»
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH STROKE")

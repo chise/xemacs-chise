@@ -5,8 +5,8 @@
     (total-strokes	 . 4)
     (shinjigen-2	. 4717)
     (=ucs		. #x723F)	; çˆ¿
-    (=gb2312		. #x635D)	; ø»…§¼
     (=jis-x0208		. #x602D)	; ø½‹’ª
+    (=gb2312		. #x635D)	; ø»…§¼
     (=big5		. #xC962)	; ý¢€Œ¥¢
     (=gt		. 25375)	; ý¡€†ŒŸ
     (=gt-k		. 00543)	; ý¡„€ˆŸ

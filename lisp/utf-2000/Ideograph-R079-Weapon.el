@@ -87,8 +87,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x6BB4)	; æ®´
-    (=gb2312		. #x4539)	; ø»„»”
     (=jis-x0208		. #x3225)	; ø½ŠŽ¾
+    (=gb2312		. #x4539)	; ø»„»”
     (=gt		. 21302)	; ý¡€…Œ¶
     (=gt-pj-1		. #x3225)	; ý¡€…Œ¶
     ))

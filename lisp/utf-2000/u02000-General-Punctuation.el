@@ -190,8 +190,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2016)	; â€–
-    (=gb2312		. #x212C)	; ø»„†
     (=jis-x0208		. #x2142)	; ø½‰¶
+    (=gb2312		. #x212C)	; ø»„†
     (=cns11643-1	. #x225D)	; ø»‘„¶
     ))
 (define-char
@@ -209,8 +209,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2018)	; â€˜
-    (=gb2312		. #x212E)	; ø»„†‘
     (=jis-x0208		. #x2146)	; ø½‰¶¡
+    (=gb2312		. #x212E)	; ø»„†‘
     (=ks-x1001		. #x212E)	; ø»ˆš™
     (=cns11643-1	. #x2164)	; ø»‘ƒŸ
     (=big5		. #xA1A5)	; ý¢€Š†¥
@@ -221,8 +221,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2019)	; â€™
-    (=gb2312		. #x212F)	; ø»„†’
     (=jis-x0208		. #x2147)	; ø½‰¶¢
+    (=gb2312		. #x212F)	; ø»„†’
     (=ks-x1001		. #x212F)	; ø»ˆšš
     (=cns11643-1	. #x2165)	; ø»‘ƒ 
     (=big5		. #xA1A6)	; ý¢€Š†¦
@@ -247,8 +247,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201C)	; â€œ
-    (=gb2312		. #x2130)	; ø»„†“
     (=jis-x0208		. #x2148)	; ø½‰¶£
+    (=gb2312		. #x2130)	; ø»„†“
     (=ks-x1001		. #x2130)	; ø»ˆš›
     (=cns11643-1	. #x2166)	; ø»‘ƒ¡
     (=big5		. #xA1A7)	; ý¢€Š†§
@@ -259,8 +259,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201D)	; â€
-    (=gb2312		. #x2131)	; ø»„†”
     (=jis-x0208		. #x2149)	; ø½‰¶¤
+    (=gb2312		. #x2131)	; ø»„†”
     (=ks-x1001		. #x2131)	; ø»ˆšœ
     (=cns11643-1	. #x2167)	; ø»‘ƒ¢
     (=big5		. #xA1A8)	; ý¢€Š†¨
@@ -341,8 +341,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
     (=ucs		. #x2026)	; â€¦
-    (=gb2312		. #x212D)	; ø»„†
     (=jis-x0208		. #x2144)	; ø½‰¶Ÿ
+    (=gb2312		. #x212D)	; ø»„†
     (=ks-x1001		. #x2126)	; ø»ˆš‘
     (=cns11643-1	. #x212C)	; ø»‘‚§
     (=big5		. #xA14B)	; ý¢€Š…‹
@@ -437,8 +437,8 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2032)	; â€²
-    (=gb2312		. #x2164)	; ø»„‡‡
     (=jis-x0208		. #x216C)	; ø½‰·‡
+    (=gb2312		. #x2164)	; ø»„‡‡
     (=ks-x1001		. #x2147)	; ø»ˆš²
     (=cns11643-1	. #x216B)	; ø»‘ƒ¦
     (=big5		. #xA1AC)	; ý¢€Š†¬
@@ -450,8 +450,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
     (=ucs		. #x2033)	; â€³
-    (=gb2312		. #x2165)	; ø»„‡ˆ
     (=jis-x0208		. #x216D)	; ø½‰·ˆ
+    (=gb2312		. #x2165)	; ø»„‡ˆ
     (=ks-x1001		. #x2148)	; ø»ˆš³
     ))
 (define-char
@@ -514,8 +514,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x203B)	; â€»
-    (=gb2312		. #x2179)	; ø»„‡œ
     (=jis-x0208		. #x2228)	; ø½‰·¡
+    (=gb2312		. #x2179)	; ø»„‡œ
     (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
     (=cns11643-1	. #x216F)	; ø»‘ƒª
     (=big5		. #xA1B0)	; ý¢€Š†°
@@ -544,14 +544,24 @@
     (->decomposition	compat #x0020 #x0305)
     (->fullwidth
      ((name		  . "FULLWIDTH OVERLINE")
-      (=gb2312		  . #x237E)	; ø»„Š
       (=jis-x0208	  . #x2131)	; ø½‰¶Œ
+      (=gb2312		  . #x237E)	; ø»„Š
       (=ks-x1001	  . #x237E)	; ø»ˆž¥
       (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
       ))
     (=ucs		. #x203E)	; â€¾
-    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
     (latin-jisx0201	. #x7E)	; øº‘Œ©
+    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
+    ))
+(define-char
+  '((name		. "heavy overline")
+    (=>ucs		. #x203E)	; â€¾
+    (general-category	punctuation other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=cns11643-1	. #x2224)	; ø»‘ƒ½
+    (=big5		. #xA1C3)	; ý¢€Š‡ƒ
+    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
     ))
 (define-char
   '((name		. "FULLWIDTH OVERLINE")
@@ -564,22 +574,12 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
-    (=gb2312		. #x237E)	; ø»„Š
     (=jis-x0208		. #x2131)	; ø½‰¶Œ
+    (=gb2312		. #x237E)	; ø»„Š
     (=ks-x1001		. #x237E)	; ø»ˆž¥
     (=cns11643-1	. #x2223)	; ø»‘ƒ¼
     (=big5		. #xA1C2)	; ý¢€Š‡‚
-    (=ucs@jis		. #x203E)	; ø»„Š
-    ))
-(define-char
-  '((name		. "heavy overline")
-    (=>ucs		. #x203E)	; â€¾
-    (general-category	punctuation other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x2224)	; ø»‘ƒ½
-    (=big5		. #xA1C3)	; ý¢€Š‡ƒ
-    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
+    (=ucs@jis		. #x203E)	; ø½‰¶Œ
     ))
 (define-char
   '((name		. "UNDERTIE")

@@ -82,8 +82,8 @@
     (total-strokes	 . 17)
     (shinjigen-2	. 9878)
     (=ucs		. #x9F3E)	; é¼¾
-    (=gb2312		. #x777D)	; ø»†…´
     (=jis-x0208		. #x736D)	; ø½‹¯¤
+    (=gb2312		. #x777D)	; ø»†…´
     (=cns11643-1	. #x7639)	; ø»’¿ª
     (=gt		. 66236)	; ý¡€Š¼
     (=gt-pj-1		. #x736D)	; ý¡€Š¼
