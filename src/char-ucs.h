@@ -215,12 +215,18 @@ struct Lisp_Charset
   /* Which half of font to be used to display this character set */
   unsigned int graphic;
 
-  /* byte->character mapping table */
+  /* Byte->character mapping table */
   Emchar* decoding_table;
 
-  /* character->byte mapping table */
+  /* Character->byte mapping table */
   Emchar_to_byte_table* to_byte1_table;
   Emchar_to_byte_table* to_byte2_table;
+
+  /* Range of character code */
+  Emchar ucs_min, ucs_max;
+
+  /* Offset for external representation */
+  Emchar code_offset;
 };
 
 DECLARE_LRECORD (charset, struct Lisp_Charset);
@@ -261,6 +267,9 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
 #define CHARSET_TO_BYTE1_TABLE(cs) ((cs)->to_byte1_table)
 #define CHARSET_TO_BYTE2_TABLE(cs) ((cs)->to_byte2_table)
+#define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
+#define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
+#define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
 
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
@@ -356,28 +365,15 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
   
   if ((decoding_table = XCHARSET_DECODING_TABLE (charset)) != NULL)
     return decoding_table[c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)];
-  else if (EQ (charset, Vcharset_ascii))
-    return c1;
-  else if (EQ (charset, Vcharset_control_1))
-    return c1 | 0x80;
-  else if (EQ (charset, Vcharset_ucs_bmp))
-    return (c1 << 8) | c2;
-  else if (EQ (charset, Vcharset_latin_iso8859_1))
-    return c1 | 0x80;
-  else if (EQ (charset, Vcharset_cyrillic_iso8859_5))
-    return c1 + MIN_CHAR_CYRILLIC - 0x20;
-  else if (EQ (charset, Vcharset_greek_iso8859_7))
-    return c1 + MIN_CHAR_GREEK - 0x20;
-  else if (EQ (charset, Vcharset_hebrew_iso8859_8))
-    return c1 + MIN_CHAR_HEBREW - 0x20;
-  else if (EQ (charset, Vcharset_thai_tis620))
-    return c1 + MIN_CHAR_THAI - 0x20;
   else if (EQ (charset, Vcharset_katakana_jisx0201))
     if (c1 < 0x60)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
     else
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
+  else if (CHARSET_UCS_MAX (XCHARSET (charset)))
+    return c1 - CHARSET_CODE_OFFSET (XCHARSET (charset))
+      + CHARSET_UCS_MIN (XCHARSET (charset));
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
       switch (XCHARSET_CHARS (charset))
@@ -479,7 +475,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c2 = latin_a_char_to_byte2[c - 0x100];
 	}
     }
-  else if (c <= MAX_CHAR_GREEK)
+  else if (c < MIN_CHAR_GREEK)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -494,18 +490,15 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  charsets = Fcdr (charsets);	      
 	}
       /* otherwise */
-      if (MIN_CHAR_GREEK <= c)
-	{
-	  *charset = Vcharset_greek_iso8859_7;
-	  *c1 = c - MIN_CHAR_GREEK + 0x20;
-	  *c2 = 0;
-	}
-      else
-	{
-	  *charset = Vcharset_ucs_bmp;
-	  *c1 = c >> 8;
-	  *c2 = c & 0xff;
-	}
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
+    }
+  else if (c <= MAX_CHAR_GREEK)
+    {
+      *charset = Vcharset_greek_iso8859_7;
+      *c1 = c - MIN_CHAR_GREEK + 0x20;
+      *c2 = 0;
     }
   else if (c < MIN_CHAR_CYRILLIC)
     {
