@@ -30,6 +30,22 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
+
+Libraries of Lisp Code for Emacs
+================================
+
+   Lisp code for Emacs editing commands is stored in files whose names
+conventionally end in `.el'.  This ending tells Emacs to edit them in
+Emacs-Lisp mode (*note Lisp Modes::).
+
+* Menu:
+
+* Loading::		Loading libraries of Lisp code into Emacs for use.
+* Compiling Libraries:: Compiling a library makes it load and run faster.
+* Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
+
+
 File: xemacs.info,  Node: Loading,  Next: Compiling Libraries,  Prev: Lisp Libraries,  Up: Lisp Libraries
 
 Loading Libraries
@@ -480,13 +496,17 @@ local needs with safe removal of unnecessary code.
 * Menu:
 
 * Package Terminology:: Understanding different kinds of packages.
-* Using Packages::      How to install and use packages.
-* Building Packages::   Building packages from sources.
+* Installing Packages:: How to install packages.
+* Building Packages::   Building packages from CVS sources.
+* Local.rules File::    This is an important file don't forget to create/edit it.
 * Creating Packages::   The basics.
-* Available Packages::  A brief, out-of-date, directory of packaged LISP.
+* Available Packages::  A brief directory of packaged LISP.
 
 
-File: xemacs.info,  Node: Package Terminology,  Next: Using Packages,  Up: Packages
+File: xemacs.info,  Node: Package Terminology,  Next: Installing Packages,  Up: Packages
+
+Package Terminology:
+====================
 
 Package Flavors
 ---------------
@@ -500,13 +520,14 @@ Package Flavors
      collection of thematically related but otherwise independent lisp
      files.  These files are bundled together for download convenience
      and individual files may be deleted at will without any loss of
-     functionality.
+     functionality.  However, we would recommend that you follow this
+     rule of thumb: "When in doubt, don't delete".
 
 Package Distributions
 ---------------------
 
    XEmacs Lisp packages are distributed in two ways, depending on the
-intended use.  Binary Packages are for installers and end-users and may
+intended use.  Binary Packages are for installers and end-users that can
 be installed directly into an XEmacs package directory.  Source Packages
 are for developers and include all files necessary for rebuilding
 bytecompiled lisp and creating tarballs for distribution.
@@ -525,15 +546,21 @@ appropriate in regular packages) source code plus all of the files
 necessary to build distribution tarballs (Unix Tar format files,
 gzipped for space savings).
 
+   Currently, source packages are only available via CVS.  See
+<http://cvs.xemacs.org/> for details.
+
 
-File: xemacs.info,  Node: Using Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
+File: xemacs.info,  Node: Installing Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
+
+Installing Packages:
+====================
 
 Getting Started
 ---------------
 
    When you first download XEmacs 21, you will usually first grab the
-"core distribution", a file called `xemacs-21.0.tar.gz'. (Replace the
-21.0 by the current version number.)  The core distribution contains
+"core distribution", a file called `xemacs-21.x.x.tar.gz'. (Replace the
+21.x.x by the current version number.)  The core distribution contains
 the sources of XEmacs and a minimal set of Emacs Lisp files, which are
 in the subdirectory named `lisp'.  This subdirectory used to contain
 all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
@@ -542,20 +569,20 @@ space, most non-essential packages were made optional.
 Choosing the Packages You Need
 ------------------------------
 
-   The available packages can currently be found in the same ftp
-directory where you grabbed the core distribution from, and are located
-in the subdirectory `packages/binary-packages'.  Package file names
-follow the naming convention `<package-name>-<version>-pkg.tar.gz'.
+   The *Note Available Packages:: can currently be found in the same
+ftp directory where you grabbed the core distribution from, and are
+located in the subdirectory `packages'.  Package file names follow the
+naming convention `<package-name>-<version>-pkg.tar.gz'.
 
    If you have EFS *Note (EFS)::, packages can be installed over the
 network.  Alternatively, if you have copies of the packages locally,
 you can install packages from a local disk or CDROM.
 
    The file `etc/PACKAGES' in the core distribution contains a list of
-the packages available at the time of the XEmacs release.  Packages are
-also listed on the `Options' menu under:
+the *Note Available Packages:: at the time of the XEmacs release.
+Packages are also listed on the `Options' menu under:
 
-             Options->Customize->Emacs->Packages
+             Options -> Customize -> Emacs -> Packages
 
    However, don't select any of these menu picks unless you actually
 want to install the given package (and have properly configured your
@@ -565,7 +592,7 @@ system to do so).
 they are installed, using the visual package browser and installer.
 You can access it via the menus:
 
-             Options->Manage Packages->List & Install
+             Options -> Manage Packages -> List & Install
 
    Or, you can get to it via the keyboard:
 
@@ -581,233 +608,315 @@ that you need `thingatpt', type:
 
      M-x package-get-package-provider RET thingatpt
 
-   which will return something like (fsf-compat "1.06"). You can the use
+   which will return something like (fsf-compat "1.08"). You can the use
 one of the methods above for installing the package you want.
 
 XEmacs and Installing Packages
 ------------------------------
 
-   Normally, packages are installed over the network, using EFS *Note
-(EFS)::.  However, you may not have network access, or you may already
-have some or all of the packages on a local disk, such as a CDROM.  If
-you want to install from a local disk, you must first tell XEmacs where
-to find the package binaries.  This is done by adding a line like the
-following to your init file:
+   There are three main ways to install packages:
 
-     (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
-                                    package-get-remote))
+* Menu:
 
-   *Note Init File::.
+* Sumo::              All at once, using the 'Sumo Tarball'.
+* Manually::          Using individual package tarballs.
+* Automatically::     Using the package tools from XEmacs.
+* Which Packages::    Which packages to install.
+* Removing Packages:: Removing packages.
 
-   Here, you'd change `/my/path/to/package/binaries' to be the path to
-your local package binaries.  Next, restart XEmacs, and you're ready to
-go (advanced users can just re-evaluate the sexp).
+   But regardless of the method you use to install packages, they can
+only be used by XEmacs after a restart.
 
-   If you are installing from a temporary, one-time directory, you can
-also add these directory names to `package-get-remote' using:
+
+File: xemacs.info,  Node: Sumo,  Next: Manually,  Up: Installing Packages
 
-             M-x pui-add-install-directory
+Installing the Sumo Packages:
+=============================
 
-   Note, however, that any directories added using this function are not
-saved; this information will be lost when you quit XEmacs.
+   Those with little time, cheap connections and plenty of disk space
+can install all the packages at once using the sumo tarballs.  Download
+the file: `xemacs-sumo.tar.gz'
 
-   If you're going to install over the network, you only have to insure
-that EFS *Note (EFS):: works, and that it can get outside a firewall, if
-you happen to be behind one.  You shouldn't have to do anything else;
-XEmacs already knows where to go. However you can add your own mirrors
-to this list. See `package-get-remote'.
+   For an XEmacs compiled with Mule you also need:
+`xemacs-mule-sumo.tar.gz'
 
-   The easiest way to install a package is to use the visual package
-browser and installer, using the menu pick:
+   N.B. They are called 'Sumo Tarballs' for good reason. They are
+currently about 19MB and 4.5MB (gzipped) respectively.
 
-             Options->Manage Packages->List & Install
-   or
-             Options->Manage Packages->Using Custom->Select-> ...
+   Install them by:
 
-   You can also access it using the keyboard:
+   `cd $prefix/lib/xemacs ; gunzip -c <tarballname> | tar xvf - RET'
 
-     M-x pui-list-packages
+   Or, if you have GNU tar:
 
-   The visual package browser will then display a list of all packages.
-Help information will be displayed at the very bottom of the buffer; you
-may have to scroll down to see it.  You can also press `?' to get the
-same help.  From this buffer, you can tell the package status by the
-character in the first column:
+   `cd $prefix/lib/xemacs ; tar zxvf /path/to/<tarballname> RET'
 
-`-'
-     The package has not been installed.
+   As the Sumo tarballs are not regenerated as often as the individual
+packages, it is recommended that you use the automatic package tools
+afterwards to pick up any recent updates.
 
-`*'
-     The package has been installed, but a newer version is available.
-     The current version is out-of-date.
+
+File: xemacs.info,  Node: Manually,  Next: Automatically,  Prev: Sumo,  Up: Installing Packages
 
-`+'
-     The package has been marked for installation/update.
+Manual Package Installation:
+============================
 
-   If there is no character in the first column, the package has been
-installed and is up-to-date.
+   Fetch the packages from the FTP site, CD-ROM whatever. The filenames
+have the form `name-<version>-pkg.tar.gz' and are gzipped tar files. For
+a fresh install it is sufficient to untar the file at the top of the
+package hierarchy.
 
-   From here, you can select or unselect packages for installation using
-the <RET> key, the `Mouse-2' button or selecting "Select" from the
-(Popup) Menu.  Once you've finished selecting the packages, you can
-press the `x' key (or use the menu) to actually install the packages.
-Note that you will have to restart XEmacs for XEmacs to recognize any
-new packages.
+   Note: If you are upgrading packages already installed, it's best to
+remove the old package first *Note Removing Packages::.
 
-   Key summary:
+   For example if we are installing the `xemacs-base' package (version
+1.48):
 
-`?'
-     Display simple help.
+        mkdir $prefix/lib/xemacs/xemacs-packages RET # if it does not exist yet
+        cd $prefix/lib/xemacs/xemacs-packages RET
+        gunzip -c /path/to/xemacs-base-1.48-pkg.tar.gz | tar xvf - RET
+     
+     Or if you have GNU tar, the last step can be:
+     
+        tar zxvf /path/to/xemacs-base-1.48-pkg.tar.gz RET
 
-`<RET>'
-`<Mouse-2>'
-     Toggle between selecting and unselecting a package for
-     installation.
+   For MULE related packages, it is best to untar into the mule-packages
+hierarchy, i.e. for the `mule-base' package, version 1.37:
 
-`x'
-     Install selected packages.
+        mkdir $prefix/lib/xemacs/mule-packages RET # if it does not exist yet
+        cd $prefix/lib/xemacs/mule-packages RET
+        gunzip -c /path/to/mule-base-1.37-pkg.tar.gz | tar xvf - RET
+     
+     Or if you have GNU tar, the last step can be:
+     
+        tar zxvf /path/to/mule-base-1.37-pkg.tar.gz RET
 
-`<SPC>'
-     View, in the minibuffer, additional information about the package,
-     such as the package date (not the build date) and the package
-     author.  Moving the mouse over a package name will also do the
-     same thing.
+
+File: xemacs.info,  Node: Automatically,  Next: Which Packages,  Prev: Manually,  Up: Installing Packages
 
-`v'
-     Toggle between verbose and non-verbose package display.
+Automatic Package Installation:
+===============================
 
-`g'
-     Refresh the package display.
+   XEmacs comes with some tools to make the periodic updating and
+installing easier. It will notice if new packages or versions are
+available and will fetch them from the FTP site.
 
-`q'
-     Kill the package buffer.
+   Unfortunately this requires that a few packages are already in place.
+You will have to install them by hand as above or use a SUMO tarball.
+This requirement will hopefully go away in the future. The packages you
+need are:
 
-   Moving the mouse over a package will also cause additional
-information about the package to be displayed in the minibuffer.
+        efs          - To fetch the files from the FTP site or mirrors.
+        xemacs-base  - Needed by efs.
+     
+     and optionally:
+     
+        mule-base    - Needed if you want to use XEmacs with MULE.
 
-Other package installation interfaces
--------------------------------------
+   After installing these by hand, fire up XEmacs and follow these
+steps.
 
-   For an alternative package interface, you can select packages from
-the customize menus, under:
+   Note: The menus in XEmacs 21.2.x and up have changed slightly, so
+where I mention "Options -> Manage Packages", substitute "Tools ->
+Packages".
 
-             Options->Customize->Emacs->Packages-> ...
-   or
-             Options->Manage Packages->Using Custom->Select-> ...
+  1. Choose a download site.  via menu: Options -> Manages Packages ->
+     Add Download Site via keyb: `M-x customize-variable RET
+     package-get-remote RET' (put in the details of remote host and
+     directory)
 
-   Set their state to on, and then do:
+     If the package tarballs _AND_ the package-index file are in a
+     local directory, you can: `M-x pui-add-install-directory RET'
 
-             Options->Manage Packages->Using Custom->Update Packages
+  2. Obtain a list of packages and display the list in a buffer named
+     `*Packages*'.  menu: Options -> Manage Packages -> List & Install
+     keyb: `M-x pui-list-packages RET'
 
-   This will automatically retrieve the packages you have selected from
-the XEmacs ftp site or your local disk, and install them into XEmacs.
-Additionally it will update any packages you already have installed to
-the newest version.  Note that if a package is newly installed you will
-have to restart XEmacs for the change to take effect.
+     XEmacs will now connect to the remote site and download the latest
+     package-index file.  If you see an error about the package-index
+     entries not being PGP signed, you can safely ignore this because
+     PGP has not been integrated into the XEmacs package tools yet.
+
+     The visual package browser will then display a list of all
+     packages.  Help information will be displayed at the very bottom
+     of the buffer; you may have to scroll down to see it.  You can
+     also press `?' to get the same help.  From this buffer, you can
+     tell the package status by the character in the first column:
+
+    `-'
+          The package has not been installed.
+
+    `*'
+          The package has been installed, but a newer version is
+          available.  The current version is out-of-date.
+
+    `+'
+          The package has been marked for installation/update.
+
+     If there is no character in the first column, the package has been
+     installed and is up-to-date.
+
+     From here, you can select or unselect packages for installation
+     using the <RET> key, the `Mouse-2' button or selecting "Select"
+     from the (Popup) Menu.  Once you've finished selecting the
+     packages, you can press the `x' key (or use the menu) to actually
+     install the packages. Note that you will have to restart XEmacs
+     for XEmacs to recognize any new packages.
+
+     Key summary:
+
+    `?'
+          Display simple help.
+
+    `<RET>'
+    `<Mouse-2>'
+          Toggle between selecting and unselecting a package for
+          installation.
+
+    `x'
+          Install selected packages.
+
+    `<SPC>'
+          View, in the minibuffer, additional information about the
+          package, such as the package date (not the build date) and
+          the package author.  Moving the mouse over a package name
+          will also do the same thing.
+
+    `v'
+          Toggle between verbose and non-verbose package display.
+
+    `g'
+          Refresh the package display.
+
+    `q'
+          Kill the package buffer.
+
+     Moving the mouse over a package will also cause additional
+     information about the package to be displayed in the minibuffer.
+
+  3. Choose the packages you wish to install.  mouse: Click button 2 on
+     the package name.   keyb: `RET' on the package name
+
+  4. Make sure you have everything you need.  menu: Packages -> Add
+     Required keyb: `r'
+
+     XEmacs will now search for packages that are required by the ones
+     that you have chosen to install and offer to select those packages
+     also.
+
+     For novices and gurus alike, this step can save your bacon.  It's
+     easy to forget to install a critical package.
+
+  5. Download and install the packages.  menu: Packages ->
+     Install/Remove Selected keyb: `x'
 
    You can also install packages using a semi-manual interface:
 
      M-x package-get-all <return>
 
    Enter the name of the package (e.g., `prog-modes'), and XEmacs will
-search for the latest version (as listed in the lisp file
-`lisp/package-get-base.el'), and install it and any packages that it
+search for the latest version and install it and any packages that it
 depends upon.
 
-Manual Binary Package Installation
-----------------------------------
+
+File: xemacs.info,  Node: Which Packages,  Next: Removing Packages,  Prev: Automatically,  Up: Installing Packages
 
-   Pre-compiled, binary packages can be installed in either a system
-package directory (this is determined when XEmacs is compiled), or in
-one of the following subdirectories of your `$HOME' directory:
+Which Packages to Install:
+==========================
 
-     ~/.xemacs/mule-packages
-     ~/.xemacs/xemacs-packages
+   This is difficult to say. When in doubt install a package. If you
+administrate a big site it might be a good idea to just install
+everything. A good minimal set of packages for XEmacs-latin1 would be
 
-   Packages in the former directory will only be found by a Mule-enabled
-XEmacs.
+   xemacs-base, xemacs-devel, c-support, cc-mode, debug, dired, efs,
+edit-utils, fsf-compat, mail-lib, net-utils, os-utils, prog-modes,
+text-modes, time
 
-   XEmacs does not have to be running to install binary packages,
-although XEmacs will not know about any newly-installed packages until
-you restart XEmacs.  Note, however, that installing a newer version of a
-package while XEmacs is running could cause strange errors in XEmacs;
-it's best to exit XEmacs before upgrading an existing package.
+   If you are using the XEmacs package tools, don't forget to do:
 
-   To install binary packages manually:
+   	Packages -> Add Required
 
-  1. Download the package(s) that you want to install.  Each binary
-     package will typically be a gzip'd tarball.
+   To make sure you have everything that the packages you have chosen to
+install need.
 
-  2. Decide where to install the packages: in the system package
-     directory, or in `~/.xemacs/mule-packages' or
-     `~/.xemacs/xemacs-packages', respectively.  If you want to install
-     the packages in the system package directory, make sure you can
-     write into that directory.  If you want to install in your `$HOME'
-     directory, create the directory, `~/.xemacs/mule-packages' or
-     `~/.xemacs/xemacs-packages', respectively.
-
-  3. Next, `cd' to the directory under which you want to install the
-     package(s).
-
-  4. From this directory, uncompress and extract each of the gzip'd
-     tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
-     users will typically do this using the commands:
-
-                  gunzip < package.tar.gz | tar xvf -
-
-     Above, replace `package.tar.gz' with the filename of the package
-     that you downloaded in step 1.
-
-     Of course, if you use GNU `tar', you could also use:
-
-                  tar xvzf package.tar.gz
-
-  5. That's it.  Quit and restart XEmacs to get it to recognize any new
-     or changed packages.
-
+   See also *Note Available Packages:: for further descriptions of the
+individual packages.
 
 
-File: xemacs.info,  Node: Building Packages,  Next: Creating Packages,  Prev: Using Packages,  Up: Packages
+File: xemacs.info,  Node: Removing Packages,  Prev: Which Packages,  Up: Installing Packages
 
-   Source packages are available from the `packages/source-packages'
-subdirectory of your favorite XEmacs distribution site.  Alternatively,
-they are available via CVS from `cvs.xemacs.org'.  Look at
-`http://cvs.xemacs.org' for instructions.
+Removing Packages:
+==================
+
+   Because the exact files and their locations contained in a package
+may change it is recommended to remove a package first before
+installing a new version. In order to facilitate removal each package
+contains an `pgkinfo/MANIFEST.pkgname' file which list all the files
+belonging to the package.
+
+   No need to panic, you don't have to go through the
+`pkinfo/MANIFEST.pkgname' and manually delete the files.  Instead, use
+`M-x package-admin-delete-binary-package RET'.
+
+   Note that the interactive package tools included with XEmacs already
+do this for you.
+
+
+File: xemacs.info,  Node: Building Packages,  Next: Local.rules File,  Prev: Installing Packages,  Up: Packages
+
+Building Packages:
+==================
+
+   Currently, source packages are only available via anonymous CVS.  See
+<http://cvs.xemacs.org/> for details of checking out the
+`xemacs-packages' module.
 
 Prerequisites for Building Source Packages
 ------------------------------------------
 
-   You must have GNU `cp', GNU `install' (or a BSD compatible `install'
-program) GNU `make' (3.75 or later preferred), `makeinfo' (1.68 from
-`texinfo-3.11' or later required), GNU `tar' and XEmacs 21.0.  The
-source packages will untar into a correct directory structure.  At the
-top level you must have `XEmacs.rules' and `package-compile.el'.  These
-files are available from the XEmacs FTP site from the same place you
-obtained your source package distributions.
+`GNU cp'
+
+`GNU ginstall'
+     (or a BSD compatible install program).
+
+`GNU make'
+     (3.75 or later preferred).
+
+`makeinfo'
+     (1.68 from texinfo-3.11 or later required).
+
+`GNU tar'
+     (or equivalent).
+
+`GNU gzip'
+     (or equivalent).
+
+`A properly configured `Local.rules' file.'
+     *Note Local.rules File::.  And of course, XEmacs 21.0 or higher.
 
 What You Can Do With Source Packages
 ------------------------------------
 
-   NB:  A global build operation doesn't exist yet as of 13 January
-1998.
-
-   Source packages are most useful for creating XEmacs package tarballs
-for installation into your own XEmacs installations or for distributing
-to others.
+   The packages CVS sources are most useful for creating XEmacs package
+tarballs for installation into your own XEmacs installations or for
+distributing to others.
 
    Supported operations from `make' are:
-
-`clean'
-     Remove all built files except `auto-autoloads.el' and
-     `custom-load.el'.
-
-`distclean'
-     Remove XEmacs backups as well as the files deleted by `make clean'.
 
 `all'
      Bytecompile all files, build and bytecompile byproduct files like
      `auto-autoloads.el' and `custom-load.el'.  Create info version of
      TeXinfo documentation if present.
+
+`bindist'
+     Does a `make all' as well as create a binary package tarball in the
+     staging directory.
+
+`install'
+     Bytecompile all files, build and bytecompile byproduct files like
+     `auto-autoloads.el' and `custom-load.el'.  Create info version of
+     TeXinfo documentation if present.  And install everything into the
+     staging directory.
 
 `srckit'
      Usually aliased to `srckit-std'.  This does a `make distclean' and
@@ -829,8 +938,79 @@ to others.
      Runs the rules `srckit' followed by `binkit'.  This is primarily
      of use by XEmacs maintainers producing files for distribution.
 
+`clean'
+     Remove all built files except `auto-autoloads.el' and
+     `custom-load.el'.
+
+`distclean'
+     Remove all created files.
+
 
-File: xemacs.info,  Node: Creating Packages,  Next: Available Packages,  Prev: Building Packages,  Up: Packages
+File: xemacs.info,  Node: Local.rules File,  Next: Creating Packages,  Prev: Building Packages,  Up: Packages
+
+The Local.rules File:
+=====================
+
+   This file is used when building and installing packages from source.
+In the top level of the CVS module, `xemacs-packages', contains the
+file, `Local.rules.template'.  Simply copy that to `Local.rules' and
+edit it to suit your needs.
+
+   These are the variables in 'Local.rules' that you will need to
+address.
+
+SYMLINK =
+     Set this to 't' if you want to do a "run in place".  Setting this
+     doesn't work well with 'make bindist'
+
+XEMACS_PACKAGES =
+     This is where you set the normal packages that you want to
+     install. eg:
+                XEMACS_PACKAGES = libs/xemacs-base comm/bbdb
+
+XEMACS_STAGING = ${XEMACS_PACKAGES_BASE}/../PACKAGES
+     Set this to where you want normal packages to be installed to.
+
+PACKAGE_INDEX = PACKAGE-INDEX
+     If you want the package-index file to have a different name,
+     change this.
+
+BUILD_WITHOUT_MULE =
+     Building from CVS defaults to building the Mule packages.  Set
+     this to 't' if you don't want/have Mule
+
+MULE_PACKAGES =
+     Same as for 'XEMACS_PACKAGES' except you list the Mule packages
+     you want to install here. eg:
+                MULE_PACKAGES = mule/mule-base mule/skk
+
+MULE_STAGING = ${XEMACS_PACKAGES_BASE}/../MULE-PACKAGES
+     Set this to where you want Mule packages installed to.  Note:
+     'make bindist' does not use this variable.
+
+XEMACS = XEMACS
+     If your XEmacs isn't in your path, change this.
+
+XEMACS_NATIVE_NT =
+     Set this to 't' if you are building on WinNT.
+
+INSTALL = INSTALL -C
+     The path to your BSD compatible install program.
+
+TAR = TAR
+     The path to your tar program
+
+BZIP2 =
+     If you want bzip2 tarballs, set this.
+
+MAKEINFO = MAKEINFO
+     The path to your makeinfo program
+
+
+File: xemacs.info,  Node: Creating Packages,  Next: Available Packages,  Prev: Local.rules File,  Up: Packages
+
+Creating Packages:
+==================
 
    Creating a package from an existing Lisp library is not very
 difficult.
@@ -941,371 +1121,4 @@ BINKIT-ALIAS
 toolbar, and are normally installed in `etc/PACKAGE_NAME'.  A few
 packages have needs beyond the basic templates.  See `XEmacs.rules' or
 a future revision of this manual for details.
-
-
-File: xemacs.info,  Node: Available Packages,  Prev: Creating Packages,  Up: Packages
-
-   This section is surely out-of-date.  If you're sure that XEmacs is
-able to do something, but your installed XEmacs won't do it for you,
-it's probably in a package.  If you can't find it in this section,
-that's a bug--please report it.  It is very hard to keep this section
-up-to-date; your reports, comments, and questions will help a lot.
-
-   This data is up-to-date as of 10 February 1999.  (Ouch!  I told you!)
-
-Library Packages (libs)
------------------------
-
-   These packages are required to build and support most of the rest of
-XEmacs.  By design, xemacs-base is a `regular' package.  Use restraint
-when adding new files there as it is required by almost everything.
-
-`Sun'
-     Support for Sparcworks.
-
-`apel'
-     A Portable Emacs Library.  Used by XEmacs MIME support.
-
-`edebug'
-     A Lisp debugger.
-
-`dired'
-     The DIRectory EDitor is for manipulating, and running commands on
-     files in a directory.
-
-`efs'
-     Treat files on remote systems the same as local files.
-
-`mail-lib'
-     Fundamental lisp files for providing email support.
-
-`tooltalk'
-     Support for building with Tooltalk.
-
-`xemacs-base'
-     Fundamental XEmacs support.  Install this unless you wish a totally
-     naked XEmacs.
-
-`xemacs-devel'
-     XEmacs Lisp developer support.  This package contains utilities for
-     supporting Lisp development.  It is a single-file package so it
-     may be tailored.
-
-Communications Packages (comm)
-------------------------------
-
-   These packages provide support for various communications, primarily
-email and usenet.
-
-`footnote'
-     Footnoting in mail message editing modes.
-
-`gnats'
-     XEmacs bug reports.
-
-`gnus'
-     The Gnus Newsreader and Mailreader.
-
-`mailcrypt'
-     Support for messaging encryption with PGP.
-
-`mh-e'
-     Front end support for MH.
-
-`net-utils'
-     Miscellaneous Networking Utilities.  This is a single-file package
-     and files may be deleted at will.
-
-`ph'
-     Emacs implementation of the ph client to CCSO/qi directory servers.
-
-`rmail'
-     An obsolete Emacs mailer.  If you do not already use it don't
-     start.
-
-`supercite'
-     An Emacs citation tool.  Useful with all Emacs Mailers and
-     Newsreaders.
-
-`tm'
-     Emacs MIME support.
-
-`vm'
-     An Emacs mailer.
-
-`w3'
-     A Web browser.
-
-Games and Amusements (games)
-----------------------------
-
-`cookie'
-     Spook and Yow (Zippy quotes).
-
-`games'
-     Tetris, Sokoban, and Snake.
-
-`mine'
-     Minehunt.
-
-`misc-games'
-     Other amusements and diversions.
-
-Mule Support (mule)
--------------------
-
-`egg-its'
-     Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
-     XEmacs build.
-
-`leim'
-     Quail.  Used for everything other than English and Japanese.
-
-`locale'
-     Used for localized menubars (French and Japanese) and localized
-     splash screens (Japanese).
-
-`mule-base'
-     Basic Mule support.  Must be installed prior to building with Mule.
-
-`skk'
-     Another Japanese Language Input Method.  Can be used without a
-     separate process running as a dictionary server.
-
-Productivity Packages (oa)
---------------------------
-
-`calendar'
-     Calendar and diary support.
-
-`edit-utils'
-     Single file lisp packages for various XEmacs goodies.  Load this
-     and weed out the junk you don't want.
-
-`forms'
-     Forms editing support (obsolete, use the builtin Widget instead).
-
-`frame-icon'
-     Provide a WM icon based on major mode.
-
-`hm--html-menus'
-     HTML editing.
-
-`ispell'
-     Spell-checking with ispell.
-
-`pc'
-     PC style interface emulation.
-
-`psgml'
-     Validated HTML/SGML editing.
-
-`sgml'
-     SGML/Linuxdoc-SGML editing.
-
-`slider'
-     User interface tool.
-
-`speedbar'
-     ??? Document me.
-
-`strokes'
-     Mouse enhancement utility.
-
-`text-modes'
-     Various single file lisp packages for editing text files.
-
-`time'
-     Display time & date on the modeline.
-
-Operating System Utilities (os)
--------------------------------
-
-`eterm'
-     Terminal emulator.
-
-`igrep'
-     Enhanced front-end for Grep.
-
-`ilisp'
-     Front-end for Inferior Lisp.
-
-`os-utils'
-     Miscellaneous single-file O/S utilities, for printing, archiving,
-     compression, remote shells, etc.
-
-`view-process'
-     A Unix process browsing tool.
-
-Program Editing Support (prog)
-------------------------------
-
-`ada'
-     Ada language support.
-
-`c-support'
-     Basic single-file add-ons for editing C code.
-
-`cc-mode'
-     C, C++ and Java language support.
-
-`debug'
-     GUD, gdb, dbx debugging support.
-
-`ediff'
-     Interface over patch.
-
-`emerge'
-     Another interface over patch.
-
-`pcl-cvs'
-     CVS frontend.
-
-`prog-modes'
-     Miscellaneous Lisp libraries for various programming languages.
-
-`scheme'
-     Front-end support for Inferior Scheme.
-
-`sh-script'
-     Support for editing shell scripts.
-
-`vc'
-     Version control for free systems.
-
-`vc-cc'
-     Version control for ClearCase.
-
-`vhdl'
-     Support for VHDL.
-
-Word Processing (wp)
---------------------
-
-`auctex'
-     Basic TeX/LaTeX support.
-
-`crisp'
-     Crisp/Brief emulation.
-
-`edt'
-     DEC EDIT/EDT emulation.
-
-`texinfo'
-     XEmacs TeXinfo support.
-
-`textools'
-     Single-file TeX support.
-
-`tpu'
-     DEC EDIT/TPU support.
-
-`viper'
-     VI emulation support.
-
-
-File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Running,  Up: Top
-
-Abbrevs
-*******
-
-   An "abbrev" is a word which "expands" into some different text.
-Abbrevs are defined by the user to expand in specific ways.  For
-example, you might define `foo' as an abbrev expanding to `find outer
-otter'.  With this abbrev defined, you would be able to get `find outer
-otter ' into the buffer by typing `f o o <SPC>'.
-
-   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
-Disabling Abbrev mode does not cause abbrev definitions to be discarded,
-but they do not expand until Abbrev mode is enabled again.  The command
-`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
-turns Abbrev mode on if the argument is positive, off otherwise.  *Note
-Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
-when the variable is non-`nil'.  The variable `abbrev-mode'
-automatically becomes local to the current buffer when it is set.
-
-   Abbrev definitions can be "mode-specific"--active only in one major
-mode.  Abbrevs can also have "global" definitions that are active in
-all major modes.  The same abbrev can have a global definition and
-various mode-specific definitions for different major modes.  A
-mode-specific definition for the current major mode overrides a global
-definition.
-
-   You can define Abbrevs interactively during an editing session.  You
-can also save lists of abbrev definitions in files and reload them in
-later sessions.  Some users keep extensive lists of abbrevs that they
-load in every session.
-
-   A second kind of abbreviation facility is called the "dynamic
-expansion".  Dynamic abbrev expansion happens only when you give an
-explicit command and the result of the expansion depends only on the
-current contents of the buffer.  *Note Dynamic Abbrevs::.
-
-* Menu:
-
-* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
-* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
-* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
-* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
-* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
-
-
-File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
-
-Defining Abbrevs
-================
-
-`C-x a g'
-     Define an abbrev to expand into some text before point
-     (`add-global-abbrev').
-
-`C-x a l'
-     Similar, but define an abbrev available only in the current major
-     mode (`add-mode-abbrev').
-
-`C-x a i g'
-     Define a word in the buffer as an abbrev
-     (`inverse-add-global-abbrev').
-
-`C-x a i l'
-     Define a word in the buffer as a mode-specific abbrev
-     (`inverse-add-mode-abbrev').
-
-`M-x kill-all-abbrevs'
-     After this command, no abbrev definitions remain in effect.
-
-   The usual way to define an abbrev is to enter the text you want the
-abbrev to expand to, position point after it, and type `C-x a g'
-(`add-global-abbrev').  This reads the abbrev itself using the
-minibuffer, and then defines it as an abbrev for one or more words
-before point.  Use a numeric argument to say how many words before point
-should be taken as the expansion.  For example, to define the abbrev
-`foo' as in the example above, insert the text `find outer otter', then
-type
-`C-u 3 C-x a g f o o <RET>'.
-
-   An argument of zero to `C-x a g' means to use the contents of the
-region as the expansion of the abbrev being defined.
-
-   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
-mode-specific abbrev.  Mode-specific abbrevs are active only in a
-particular major mode.  `C-x a l' defines an abbrev for the major mode
-in effect at the time `C-x a l' is typed.  The arguments work the same
-way they do for `C-x a g'.
-
-   If the text of an abbrev you want is already in the buffer instead of
-the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
-instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
-instead of `C-x a l'.  These commands are called "inverse" because they
-invert the meaning of the argument found in the buffer and the argument
-read using the minibuffer.
-
-   To change the definition of an abbrev, just add the new definition.
-You will be asked to confirm if the abbrev has a prior definition.  To
-remove an abbrev definition, give a negative argument to `C-x a g' or
-`C-x a l'.  You must choose the command to specify whether to kill a
-global definition or a mode-specific definition for the current mode,
-since those two definitions are independent for one abbrev.
-
-   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
 

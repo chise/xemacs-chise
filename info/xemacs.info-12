@@ -111,6 +111,9 @@ normally include all functions and subroutines, and may also include
 global variables, data types, and anything else convenient.  Each name
 recorded is called a "tag".
 
+   The Ebrowse is a separate facility tailored for C++, with tags and a
+class browser.  *Note : (ebrowse).
+
 * Menu:
 
 * Tag Syntax::		Tag syntax for various types of code and text files.
@@ -122,7 +125,7 @@ recorded is called a "tag".
 * List Tags::		Listing and finding tags defined in a file.
 
 
-File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Prev: Tags,  Up: Tags
+File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Up: Tags
 
 Source File Tag Syntax
 ----------------------
@@ -179,8 +182,37 @@ Source File Tag Syntax
    Several other languages are also supported:
 
    * In Ada code, functions, procedures, packages, tasks, and types are
-     tags.  Use the `--packages-only' option to create tags for packages
-     only.
+     tags.  Use the `--packages-only' option to create tags for
+     packages only.
+
+     With Ada, it is possible to have the same name used for different
+     entity kinds (e.g. the same name for a procedure and a function).
+     Also, for things like packages, procedures and functions, there is
+     the spec (i.e. the interface) and the body (i.e. the
+     implementation).  To facilitate the choice to the user, a tag
+     value is appended with a qualifier:
+
+    function
+          `/f'
+
+    procedure
+          `/p'
+
+    package spec
+          `/s'
+
+    package body
+          `/b'
+
+    type
+          `/t'
+
+    task
+          `/k'
+
+     So, as an example, `M-x find-tag bidule/b' will go directly to the
+     body of the package BIDULE while `M-x find-tag bidule' will just
+     search for any tag BIDULE.
 
    * In assembler code, labels appearing at the beginning of a line,
      followed by a colon, are tags.
@@ -197,6 +229,8 @@ Source File Tag Syntax
 
    * In Fortran code, functions, subroutines and blockdata are tags.
 
+   * In makefiles, targets are tags.
+
    * In Objective C code, tags include Objective C definitions for
      classes, class categories, methods, and protocols.
 
@@ -207,7 +241,7 @@ Source File Tag Syntax
      `my' and `local' keywords.  Use `--globals' if you want to tag
      global variables.
 
-   * In Postscript code, the tags are the functions.
+   * In PostScript code, the tags are the functions.
 
    * In Prolog code, a tag name appears at the left margin.
 
@@ -1184,20 +1218,4 @@ Scheme mode
 Inferior Scheme mode
      The mode for an interactive session with an inferior Scheme
      process.
-
-
-File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
-
-Libraries of Lisp Code for Emacs
-================================
-
-   Lisp code for Emacs editing commands is stored in files whose names
-conventionally end in `.el'.  This ending tells Emacs to edit them in
-Emacs-Lisp mode (*note Lisp Modes::).
-
-* Menu:
-
-* Loading::		Loading libraries of Lisp code into Emacs for use.
-* Compiling Libraries:: Compiling a library makes it load and run faster.
-* Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
 
