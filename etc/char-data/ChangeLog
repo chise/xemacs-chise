@@ -1,3 +1,7 @@
+2002-11-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JC3-to-UCS.txt (JC3-84AF): Delete mapping for U+73E9 temporally.
+
 2002-11-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* JC3-to-UCS.txt (JC3-52C9): Map to U+812B instead of U+8131.
