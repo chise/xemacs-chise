@@ -1,3 +1,39 @@
+2001-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Check argument
+	`attributes' for several property names.
+
+	* Ideograph-R075-Tree.el (U+67A3): Unify C3-294C.
+	(M-49161): Fixed.
+	(U+3656): Unify C3-3656.
+	(U+691E): Unify C3-3C33.
+	(U+6983): Add `total-strokes'.
+	(U+6985): Unify C3-4172.
+	(C1-6454): Relate to U+6986.
+	(U+699D): Unify C3-474E.
+	(U+69D9): Unify C2-4B24.
+	(U+69E1): Unify C3-474C.
+	(M-49179): Fixed.
+	(U+6A76): Unify C2-5752.
+	(U+6AAA): Unify C3-5529.
+	(U+6AE5): Unify C1-783C.
+	(U+6AF6): Unify C4-634E.
+	(U+6AF8): Unify C2-6B5F.
+	(U+6B0C): Fix `ideographic-strokes'; add `total-strokes'; unify
+	M059705.
+	(U+6B0D): Unify M059706.
+	(U+6B0E): Unify M059707.
+
+	* Ideograph-R044-Corpse.el (M-07705): Add `vulgar-ideograph-of'
+	property for M-13948.
+	(C3-2C37): Add `ideograph=' property for M-13886.
+
+	* Ideograph-R102-Field.el (C2-452C): Relate to U+6983.
+
+2001-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R070-Square.el (M-13655): Fixed.
+
 2001-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-alist): New function.
