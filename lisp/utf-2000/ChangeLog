@@ -1,3 +1,36 @@
+2004-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (M-14132): Add `->same' for U+6635; add
+	`->synonyms' for M-00279.
+
+2004-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6C37): Add `<-vulgar' for U+51B0.
+
+	* Ideograph-R063-Door.el (U+39BE): Use `->subsumptive'; include
+	M-11705.
+	(U+623B): Use `->subsumptive'.
+	(U+623C): Add `zhengzi-tong' and `daikanwa' into
+	`<-original*sources'.
+	(U+623D): Use `->subsumptive'.
+
+	* Ideograph-R051-Dry.el (U+5E78): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U-0002F855): Use `<-denotational' for
+	U+578B.
+
+	* Ideograph-R015-Ice.el (U+51B0): Add `->vulgar' for U+6C37.
+
+2004-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4FA2): Use `->subsumptive'.
+	(U+4FAE): Define as an abstract character.
+	(U-0002F805): Use `<-denotational' for U+4FAE.
+	(U+FA30): Likewise.
+	(U+3457): Use `->subsumptive'.
+	(U-0002022D): Likewise.
+	(U+4FAF): Likewise.
+
 2004-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el (U+8EAB): Use `->subsumptive'.
