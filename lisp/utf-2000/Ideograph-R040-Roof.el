@@ -1786,6 +1786,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (chinese-cns11643-4 . #x3130)	; ø»—¸—
+    (china3-jef		. #x4AB8)	; øº„ª¸
     ))
 (define-char
   '((ideographic-radical . 40)	; â¼§
