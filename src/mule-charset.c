@@ -2043,8 +2043,8 @@ Save mapping-table of CHARSET.
 
   db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
 					   Qsystem_char_id, 1);
-  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-      
+  db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
+
   byte_min = CHARSET_BYTE_OFFSET (cs);
   byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
   switch (CHARSET_DIMENSION (cs))
@@ -2181,7 +2181,7 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
     = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
 				     0);
 
-  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+  db = Fopen_database (db_file, Qnil, Qnil, build_string ("r"), Qnil);
   if (!NILP (db))
     {
       Lisp_Object ret
