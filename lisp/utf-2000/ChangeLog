@@ -1,5 +1,11 @@
 2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-insert-char-spec): Delete unused local
+	variables `al', `cal' and `key'.
+	(char-db-insert-alist): Don't use deleted local variable `cal'.
+
+2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (insert-char-attributes): Check each character
 	specified in `->subsumptive' with `char-db-ignored-attributes'.
 
