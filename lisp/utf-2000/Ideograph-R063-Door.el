@@ -80,7 +80,7 @@
   '((->ucs		. #x623B)	; æˆ»
     (morohashi-daikanwa	11707 0 2)
     (ideographic-radical . 63)	; â¼¾
-    (kangxi-strokes	 . 3)
+    (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (japanese-jisx0208-1978	. #x4C61)	; ø»‚¼Š
     (japanese-jisx0208		. #x4C61)	; ø»‡’
@@ -385,7 +385,7 @@
   '((->ucs		. #x6246)	; æ‰†
     (morohashi-daikanwa	11742 0 0)
     (ideographic-radical . 63)	; â¼¾
-    (japanese-strokes	 . 6)
+    (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (chinese-cns11643-2 . #x2F32)	; ø»“¡•
     ))
