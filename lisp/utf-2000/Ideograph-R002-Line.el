@@ -597,7 +597,7 @@
       )
      ((chinese-big5-cdp	  . #x8C48)	; ý¢€ˆ±ˆ
       )
-     ((chinese-big5-cdp	  . #x8BAD)	; ý¢€ˆ®­
+     ((japanese-jisx0213-2	  . #x286F)	; ø»¤¨ 
       ))
     (chinese-big5-cdp	. #x8D5D)	; ý¢€ˆµ
     (ucs		. #x20CCB)	; ð ³‹
