@@ -358,6 +358,7 @@
     (=ucs		. #x6B68)	; 歨
     (=cns11643-3	. #x2955)	; &I-C3-2955; [09-53]
     (=daikanwa		. 16277)	; &I-M-16277;
+    (=hanziku-4		. #xD2ED)	; &I-HZK04-D2ED;
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
