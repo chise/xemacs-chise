@@ -220,7 +220,7 @@
 				      required-features)
   (unless column
     (setq column (current-column)))
-  (let (char-spec al cal key temp-char)
+  (let (char-spec temp-char)
     (setq char-spec (char-db-make-char-spec char))
     (unless (or (characterp char) ; char
 		(condition-case nil
@@ -232,40 +232,10 @@
 					 char-spec)))
       (remove-char-attribute temp-char 'ideograph-daikanwa)
       (setq char temp-char))
-    ;; (setq al nil
-    ;;       cal nil)
-    ;; (while char-spec
-    ;;   (setq key (car (car char-spec)))
-    ;;   (unless (memq key char-db-ignored-attributes)
-    ;;     (if (find-charset key)
-    ;;         (if (encode-char char key 'defined-only)
-    ;;             (setq cal (cons key cal)))
-    ;;       (setq al (cons key al))))
-    ;;   (setq char-spec (cdr char-spec)))
-    ;; (unless cal
-    ;;   (setq char-spec (char-db-make-char-spec char))
-    ;;   (while char-spec
-    ;;     (setq key (car (car char-spec)))
-    ;;     (unless (memq key char-db-ignored-attributes)
-    ;;       (if (find-charset key)
-    ;;           (setq cal (cons key cal))
-    ;;         (setq al (cons key al))))
-    ;;     (setq char-spec (cdr char-spec)))
-    ;;   )
-    ;; (unless (or cal
-    ;;             (memq 'ideographic-structure al))
-    ;;   (push 'ideographic-structure al))
-    ;; (dolist (feature required-features)
-    ;;   (if (find-charset feature)
-    ;;       (if (encode-char char feature 'defined-only)
-    ;;           (setq cal (adjoin feature cal)))
-    ;;     (setq al (adjoin feature al))))
     (insert-char-attributes char
 			    readable
-                            ;; (or al 'none) cal
-			    (union (mapcar #'car char-spec)
-				   required-features)
-			    )
+                            (union (mapcar #'car char-spec)
+				   required-features))
     (when temp-char
       ;; undefine temporary character
       ;;   Current implementation is dirty.
@@ -294,7 +264,8 @@
 			     (error nil)))
 		 (progn
 		   (setq al nil
-			 cal nil)
+			 ;; cal nil
+			 )
 		   (while value
 		     (setq key (car (car value)))
                      ;; (if (find-charset key)
@@ -323,7 +294,8 @@
 		   (progn
 		     (setq rest cell
 			   al nil
-			   cal nil)
+			   ;; cal nil
+			   )
 		     (while rest
 		       (setq key (car (car rest)))
                        ;; (if (find-charset key)
@@ -946,7 +918,7 @@
 							 'defined-only))
 					  ccss))
 			    (if separator
-			      (insert lbs))
+				(insert lbs))
 			    (let ((char-db-ignored-attributes
 				   (cons '<-subsumptive
 					 char-db-ignored-attributes)))

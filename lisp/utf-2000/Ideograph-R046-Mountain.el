@@ -43,7 +43,12 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C72)	; å±²
-    (=iso-ir165		. #x2E39)	; ø»²
+    (->subsumptive
+     ((=iso-ir165	  . #x2E39)	; ø»²
+      (=ucs@unicode	  . #x5C72)	; ø»²
+      )
+     ((=jef-china3	  . #x8EFA)	; øºˆ»º
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­

@@ -2419,6 +2419,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x5BBE)	; å®¾
     (=gb2312		. #x3176)	; ø»„ž¹
+    (=jef-china3	. #x81F7)	; øºˆ‡·
     ))
 (define-char
   '((ideographic-radical . 40)	; â¼§
