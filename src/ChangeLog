@@ -1,3 +1,11 @@
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c: Add an EXFUN for `Fmap_char_attribute'.
+	(Fsave_char_attribute_table): Don't check `ct->db_file' if
+	`ct->db' is living.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
 2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (Fclose_char_attribute_table): Set Qnil on
