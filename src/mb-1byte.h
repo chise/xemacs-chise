@@ -27,6 +27,24 @@ Boston, MA 02111-1307, USA.  */
 /* Maximum number of buffer bytes per Emacs character. */
 # define MAX_EMCHAR_LEN 1
 
+/************************************************************************/
+/*                     Operations on individual bytes                   */
+/*                             of any format                            */
+/************************************************************************/
+
+/* Argument `c' should be (unsigned int) or (unsigned char). */
+/* Note that SP and DEL are not included. */
+
+#define BYTE_ASCII_P(byte) 1
+
+
+/************************************************************************/
+/*                        Dealing with characters                       */
+/************************************************************************/
+
+#define REP_BYTES_BY_FIRST_BYTE(fb) 1
+
+
 /* ---------------------------------------------------------------------- */
 /* (A) For working with charptr's (pointers to internally-formatted text) */
 /* ---------------------------------------------------------------------- */
