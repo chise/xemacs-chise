@@ -1,3 +1,34 @@
+2002-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el, Ideograph-R076-Lack.el,
+	Ideograph-R075-Tree.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R024-Ten.el: Add some missing `ideographic-structure'
+	properties.
+	(U+5346): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; add `<-wrong-ideograph' and
+	`ideographic-structure'.
+	(U+5348): Use U-00020089 instead of BC-8B4A in the
+	`ideographic-structure'.
+	(U+5358): Use `script' and `<-simplified-ideograph' instead of
+	`comment'; add `ideographic-structure'.
+
+	* Ideograph-R029-Again.el: Add some missing
+	`ideographic-structure' properties.
+	(U+53D9): Use `script' and `<-vulgar-ideograph' instead of
+	`comment'.
+
+	* Ideograph-R026-Seal.el: Add some missing `ideographic-structure'
+	properties.
+	(U+536E): Fix `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U+4F1C): Simplify
+	`ideographic-structure'.
+	(U+4F24): Use U-00020089 instead of BC-8B4A in the
+	`ideographic-structure'.
+
 2002-03-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R025-Divination.el: Add some missing
