@@ -1449,6 +1449,7 @@
     (=jis-x0213-2-2000	. #x7179)	; ø»¦“¸
     (=big5		. #xF053)	; ý¢€“
     (=daikanwa		. 23076)	; ø¸…¨¤
+    (=jef-china3	. #x8DFC)	; øºˆ·¼
     (mojikyo		. 023076)	; ý €…¨¤
     (=ucs		. #x76EC)	; ç›¬
     ))
