@@ -1,5 +1,35 @@
 2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R169-Gate.el (M-41260'): Unify M050554.
+	(M-41341'): Unify M050555.
+
+	* Ideograph-R166-Village.el (M-40132'): Unify M050546; don't
+	relate to C6-3C61.
+	(M-40145'): Unify M050547.
+
+	* Ideograph-R165-Distinguish.el (M-40120): Unify M050545.
+
+	* Ideograph-R159-Cart.el (M-38234'): Unify M050483.
+	(M-38438): Separate C7-3431; unify K0-6243; relate to U+8F38.
+	(M-38438'): Unify M050484; separate C1-7253.
+	(M-38482): New character; relate to U+8F44.
+	(U+8F44): Relate to M-38482 instead of M-38482'; separate J0-336D
+	and C1-755D.
+	(M-38482'): Separate K0-795D, C1-755D and U+8F44; unify M050485.
+
+	* Ideograph-R152-Pig.el (M-36486'): Unify M050474; separate
+	C7-5F5D.
+
+	* Ideograph-R146-West.el (M-34789): New character; relate to
+	U+8986.
+	(M-34789'): Unify M050448.
+	(M-34790): Separate J0-4746, K0-782E and U+8987.
+	(M-34791): Separate C2-667D and U+8988.
+	(U+8988): Unify C2-667D and M053077.
+	(M-34792): Separate C5-694B.
+
+2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R156-Run.el (M-37034'): Unify M050479.
 
 	* Ideograph-R154-Shell.el (M-36920'): Unify M050478.
