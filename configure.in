@@ -3419,6 +3419,7 @@ if test "$with_mule" = "yes" ; then
   if test "$with_utf_2000" = "yes" ; then
     AC_DEFINE(CHAR_IS_UCS4)
     AC_DEFINE(UTF2000)
+    AC_DEFINE(HAVE_GGC)
   fi
 
   AC_CHECKING(for Mule input methods)
