@@ -1,3 +1,8 @@
+2003-03-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* lisp/mule-conf.el (=ucs@gb): Renamed from `ucs-gb'.
+	(ucs-gb): Changed to an alias for `=ucs@gb'.
+
 2003-03-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* lisp/mule-conf.el (=daikanwa-rev1): Renamed from
