@@ -4807,9 +4807,25 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=ucs		. #x3B0D)	; 㬍
+    (->subsumptive
+     ((=daikanwa	  . 14085)	; &M-14085;
+      (=ucs@unicode	  . #x3B0D)	; &M-14085;
+      )
+     ((=cns11643-3	  . #x4738)	; &C3-4738; [39-24]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
     (=ucs		. #x669E)	; 暞
-    (=cns11643-4	. #x436F)	; &I-C4-436F; [35-79]
-    (=daikanwa		. 14086)	; &I-M-14086;
+    (->subsumptive
+     ((=daikanwa	  . 14086)	; &M-14086;
+      (=ucs@unicode	  . #x669E)	; &M-14086;
+      )
+     ((=cns11643-4	  . #x436F)	; &C4-436F; [35-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -4975,34 +4991,29 @@
     (=cns11643-5	. #x4D4E)	; &C5-4D4E; [45-46]
     ))
 (define-char
-  '((morohashi-daikanwa	14111 1)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x66C6)	; 曆
-      (=jis-x0213-1-2000  . #x7547)	; &I-JX1-7547; [85-39]
-      ))
-    (=ucs		. #x66A6)	; 暦
-    (=jis-x0208		. #x4E71)	; &I-J90-4E71; [46-81]
-    (=gt		. 17852)	; &I-GT-17852;
-    (=gt-k		. 11190)	; &I-GT-K11190;
-    (=gt-pj-1		. #x4E71)	; &I-GT-17852; [46-81]
-    ))
-(define-char
-  '((=>ucs		. #x66A6)	; 暦
-    (morohashi-daikanwa	14111 1 0)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=cns11643-3	. #x4737)	; &C3-4737; [39-23]
-    ))
-(define-char
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs		. #x3B0D)	; 㬍
-    (=cns11643-3	. #x4738)	; &I-C3-4738; [39-24]
+    (=ucs		. #x66A6)	; 暦
+    (->subsumptive
+     ((morohashi-daikanwa	14111 1)
+      (<-simplified@JP/Jouyou
+       ((shinjigen-1	    . 3375)
+	(=ucs		    . #x66C6)	; 曆
+	(=jis-x0213-1-2000  . #x7547)	; &I-JX1-7547; [85-39]
+	))
+      (<-simplified@JP/Jouyou*sources
+       JP/Touyou JP/Jouyou shinjigen-1)
+      (shinjigen-1	  . 3374)
+      (shinjigen-2	  . 3374)
+      (=jis-x0208	  . #x4E71)	; &GT-17852; [46-81]
+      (=gt		  . 17852)	; &I-GT-17852;
+      (=gt-k		  . 11190)	; &I-GT-K11190;
+      (=gt-pj-1		  . #x4E71)	; &I-GT-17852; [46-81]
+      (=ucs@unicode	  . #x66A6)	; &GT-17852;
+      )
+     ((=cns11643-3	  . #x4737)	; &C3-4737; [39-23]
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -5893,6 +5904,7 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (shinjigen-1	. 3375)
     (=ucs		. #x66C6)	; 曆
     (=ks-x1001		. #x5575)	; &I-K0-5575; [53-85]
     (=cns11643-1	. #x706D)	; &I-C1-706D; [80-77]
