@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -160,6 +160,7 @@ Other Mail & News:
 
 Sparcworks, EOS, and WorkShop:
 * Q4.4.1::      What is SPARCworks, EOS, and WorkShop
+* Q4.4.2::      How do I start the Sun Workshop support in XEmacs 21?
 
 Energize:
 * Q4.5.1::      What is/was Energize?
@@ -243,7 +244,7 @@ Q4.0.6: I have various addresses at which I receive mail.  How can I tell VM to 
 
      (setq vm-reply-ignored-addresses
            '("wing@nuspl@nvwls.cc.purdue.edu,netcom[0-9]*.netcom.com"
-     	"wing@netcom.com" "wing@666.com"))
+     	"wing@netcom.com" "wing@xemacs.org"))
 
    Note that each string is a regular expression.
 
@@ -385,7 +386,7 @@ Q4.0.12: Customization of VM not covered in the manual, or here.
      directory of the lisp library.
 
      `vm-vars.el' contains, initializes and carefully describes, with
-     examples of usage, the plethora of user options that *fully*
+     examples of usage, the plethora of user options that _fully_
      control VM's behavior.
 
      Enter vm-vars, `forward-search' for toolbar, find the variables
@@ -440,7 +441,7 @@ Q4.2.1: GNUS, (ding) Gnus, Gnus 5, September Gnus, Red Gnus, Quassia Gnus, argh!
 --------------------------------------------------------------------------------
 
    The Gnus numbering issues are not meant for mere mortals to know
-them.  If you feel you *must* enter the muddy waters of Gnus, visit the
+them.  If you feel you _must_ enter the muddy waters of Gnus, visit the
 excellent FAQ, maintained by Justin Sheehy, at:
 
      `http://www.ccs.neu.edu/software/contrib/gnus/'
@@ -569,7 +570,7 @@ File: xemacs-faq.info,  Node: Q4.3.3,  Next: Q4.3.4,  Prev: Q4.3.2,  Up: Subsyst
 Q4.3.3: Why isn't this `movemail' program working?
 --------------------------------------------------
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      It wasn't chown'ed/chmod'd correctly.
 
@@ -579,12 +580,12 @@ File: xemacs-faq.info,  Node: Q4.3.4,  Next: Q4.3.5,  Prev: Q4.3.3,  Up: Subsyst
 Q4.3.4: Movemail is also distributed by Netscape?  Can that cause problems?
 ---------------------------------------------------------------------------
 
-   Steve Baur <steve@altair.xemacs.org> writes:
+   Steve Baur <steve@xemacs.org> writes:
 
      Yes.  Always use the movemail installed with your XEmacs.  Failure
      to do so can result in lost mail.
 
-   Please refer to Jamie Zawinski's <jwz@netscape.com> notes at
+   Please refer to Jamie Zawinski's <jwz@jwz.org> notes at
 `http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/movemail.html'.
 In particular, this document will show you how to make Netscape use the
 version of movemail configured for your system by the person who built
@@ -613,7 +614,7 @@ Q4.3.5: Where do I find pstogif (required by tm)?
 `ftp://ftp.cdrom.com/pub/tex/ctan/support/latex2html/'.
 
 
-File: xemacs-faq.info,  Node: Q4.4.1,  Next: Q4.5.1,  Prev: Q4.3.5,  Up: Subsystems
+File: xemacs-faq.info,  Node: Q4.4.1,  Next: Q4.4.2,  Prev: Q4.3.5,  Up: Subsystems
 
 4.4: Sparcworks, EOS, and WorkShop
 ==================================
@@ -650,17 +651,45 @@ time.
      EOS is being replaced with a new graphical development environment
      called Sun WorkShop, which is currently (07/96) in Alpha Test.
      For more details, check out
-
-
-
-
-
-
-
      `http://www.sun.com/software/Products/Developer-products/programs.html'.
 
 
-File: xemacs-faq.info,  Node: Q4.5.1,  Next: Q4.6.1,  Prev: Q4.4.1,  Up: Subsystems
+File: xemacs-faq.info,  Node: Q4.4.2,  Next: Q4.5.1,  Prev: Q4.4.1,  Up: Subsystems
+
+Q4.4.2: How do I start the Sun Workshop support in XEmacs 21?
+-------------------------------------------------------------
+
+   Add the switch --with-workshop to the configure command when building
+XEmacs and put the following in one of your startup files (e.g.
+site-start.el or .emacs):
+
+     (when (featurep 'tooltalk)
+       (load "tooltalk-macros")
+       (load "tooltalk-util")
+       (load "tooltalk-init"))
+     (when (featurep 'sparcworks)
+       (load "sunpro-init")
+       (load "ring")
+       (load "comint")
+       (load "annotations")
+       (sunpro-startup))
+
+   If you are not using the latest Workshop (5.0) you have to apply the
+following patch:
+
+--- /opt/SUNWspro/lib/eserve.el.ORIG    Fri May 14 15:23:26 1999
++++ /opt/SUNWspro/lib/eserve.el Fri May 14 15:24:54 1999
+@@ -42,7 +42,7 @@
+ (defvar running-xemacs nil "t if we're running XEmacs")
+ (defvar running-emacs  nil "t if we're running GNU Emacs 19")
+
+-(if (string-match "^\\(19\\|20\\)\..*\\(XEmacs\\|Lucid\\)" emacs-version)
++(if (string-match "\\(XEmacs\\|Lucid\\)" emacs-version)
+     (setq running-xemacs t)
+     (setq running-emacs  t))
+
+
+File: xemacs-faq.info,  Node: Q4.5.1,  Next: Q4.6.1,  Prev: Q4.4.2,  Up: Subsystems
 
 4.5: Energize
 =============
@@ -939,8 +968,7 @@ Q4.7.5: Is there a MatLab mode?
 Can I "teach" emacs what words are MatLab commands, comments, etc. ?
 
    Ulrich Elsner <elsner@mathematik.tu-chemnitz.de> writes:
-     One way to do this (and much more) is by using the
-     matlab mode
+     One way to do this (and much more) is by using the matlab mode
      (ftp://ftp.mathworks.com/pub/contrib/v5/tools/matlab.el).
 
      Instructions on how to install this mode are included in this file.
@@ -1002,7 +1030,7 @@ Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
 * Q5.3.2::      Fontifying hangs when editing a postscript file.
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
-* Q5.3.4::      Getting `M-x lpr' to work with postscript printer.
+* Q5.3.4::      Getting M-x lpr to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
 * Q5.3.6::      [This question intentionally left blank]
 * Q5.3.7::      Can I have the end of the buffer delimited in some way?
@@ -1098,7 +1126,7 @@ standard with XEmacs.  Put this into your `.emacs':
 
    You can customize filling and adaptive filling with Customize.
 Select from the `Options' menu
-`Customize->Emacs->->Editing->Fill->Fill...'  or type `M-x customize
+`Customize->Emacs->->Editing->Fill->Fill...' or type `M-x customize
 <RET> fill <RET>'.
 
    Note that well-behaving text-lookalike modes will run
@@ -1329,38 +1357,4 @@ enabled by default.  To turn it off, put the following in your `.emacs':
 
      (setq auto-show-mode nil)
      (setq-default auto-show-mode nil)
-
-
-File: xemacs-faq.info,  Node: Q5.0.17,  Next: Q5.0.18,  Prev: Q5.0.16,  Up: Miscellaneous
-
-Q5.0.17: How can I get two instances of info?
----------------------------------------------
-
-   You can't.  The `info' package does not provide for multiple info
-buffers.
-
-
-File: xemacs-faq.info,  Node: Q5.0.18,  Next: Q5.0.19,  Prev: Q5.0.17,  Up: Miscellaneous
-
-Q5.0.18: I upgraded to XEmacs 19.14 and gnuserv stopped working.
-----------------------------------------------------------------
-
-   Mark Daku <daku@nortel.ca> writes:
-
-     It turns out I was using an older version of gnuserv.  The
-     installation didn't put the binary into the public bin directory.
-     It put it in `lib/xemacs-19.14/hppa1.1-hp-hpux9.05/gnuserv'.
-     Shouldn't it have been put in `bin/hppa1.1-hp-hpux9.0'?
-
-
-File: xemacs-faq.info,  Node: Q5.0.19,  Next: Q5.0.20,  Prev: Q5.0.18,  Up: Miscellaneous
-
-Q5.0.19: Is there something better than LaTeX mode?
----------------------------------------------------
-
-   David Kastrup <dak@fsnif.neuroinformatik.ruhr-uni-bochum.de> writes:
-
-     The standard TeX modes leave much to be desired, and are somewhat
-     leniently maintained.  Serious TeX users use AUC TeX (*note
-     Q4.7.1::.).
 

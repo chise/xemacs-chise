@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -321,7 +321,7 @@ Tracing
 -------
 
    In addition to automatic stepping through source code, which is also
-called *tracing* (see *Note Edebug Execution Modes::), Edebug can
+called _tracing_ (see *Note Edebug Execution Modes::), Edebug can
 produce a traditional trace listing of execution in a separate buffer,
 `*edebug-trace*'.
 
@@ -418,7 +418,7 @@ for the evaluation.  But Edebug is not completely successful and this
 section explains precisely how it fails.  Edebug operation unavoidably
 alters some data in XEmacs, and this can interfere with debugging
 certain programs.  Also notice that Edebug's protection against change
-of outside data means that any side effects *intended* by the user in
+of outside data means that any side effects _intended_ by the user in
 the course of debugging will be defeated.
 
 * Menu:
@@ -443,6 +443,7 @@ action, it needs to save and restore certain data.
    * The state of keyboard macro execution is saved and restored.  While
      Edebug is active, `executing-macro' is bound to
      `edebug-continue-kbd-macro'.
+
 
 
 File: lispref.info,  Node: Edebug Display Update,  Next: Edebug Recursive Edit,  Prev: Checking Whether to Stop,  Up: The Outside Context
@@ -471,7 +472,7 @@ error or quit signal occurs.
 
    * The Edebug Display Update, is saved and restored if
      `edebug-save-windows' is non-`nil'.  It is not restored on error
-     or quit, but the outside selected window *is* reselected even on
+     or quit, but the outside selected window _is_ reselected even on
      error or quit in case a `save-excursion' is active.  If the value
      of `edebug-save-windows' is a list, only the listed windows are
      saved and restored.
@@ -489,6 +490,7 @@ error or quit signal occurs.
 
    * `cursor-in-echo-area' is locally bound to `nil' so that the cursor
      shows up in the window.
+
 
 
 File: lispref.info,  Node: Edebug Recursive Edit,  Prev: Edebug Display Update,  Up: The Outside Context
@@ -531,6 +533,7 @@ saves (and later restores) these additional data:
      While Edebug is active, `defining-kbd-macro' is bound to
      `edebug-continue-kbd-macro'.
 
+
 
 File: lispref.info,  Node: Instrumenting Macro Calls,  Next: Edebug Options,  Prev: The Outside Context,  Up: Edebug
 
@@ -545,7 +548,7 @@ the resulting expansion is evaluated, or any time later.)  You must
 explain the format of macro call arguments by using `def-edebug-spec' to
 define an "Edebug specification" for each macro.
 
- - Macro: def-edebug-spec MACRO SPECIFICATION
+ - Macro: def-edebug-spec macro specification
      Specify which expressions of a call to macro MACRO are forms to be
      evaluated.  For simple macros, the SPECIFICATION often looks very
      similar to the formal argument list of the macro definition, but

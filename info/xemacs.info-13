@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -50,7 +50,7 @@ character on the line.  There was no need to change `C-a', as the choice
 of screen model does not affect beginnings of lines.
 
    Insertion of text is adapted to the quarter-plane screen model
-through the use of Overwrite mode (*note Minor Modes::.).
+through the use of Overwrite mode (*note Minor Modes::).
 Self-inserting characters replace existing text, column by column,
 rather than pushing existing text to the right.  <RET> runs
 `picture-newline', which just moves to the beginning of the following
@@ -73,7 +73,7 @@ below the current line.
    To actually delete parts of the picture, use `C-w', or with `C-c
 C-d' (which is defined as `delete-char', as `C-d' is in other modes),
 or with one of the picture rectangle commands (*note Rectangles in
-Picture::.).
+Picture::).
 
 
 File: xemacs.info,  Node: Insert in Picture,  Next: Tabs in Picture,  Prev: Basic Picture,  Up: Picture
@@ -158,7 +158,7 @@ Picture Mode Rectangle Commands
 
    Picture mode defines commands for working on rectangular pieces of
 the text in ways that fit with the quarter-plane model.  The standard
-rectangle commands may also be useful (*note Rectangles::.).
+rectangle commands may also be useful (*note Rectangles::).
 
 `C-c C-k'
      Clear out the region-rectangle (`picture-clear-rectangle').  With
@@ -725,7 +725,7 @@ the year in its entirety; that is, type `1990', not `90'.
    `o' (`calendar-other-month') prompts for a month and year, then
 centers the three-month calendar around that month.
 
-   You can return to today's date with `.'  (`calendar-goto-today').
+   You can return to today's date with `.' (`calendar-goto-today').
 
 
 File: xemacs.info,  Node: Scroll Calendar,  Next: Mark and Region,  Prev: Calendar Motion,  Up: Calendar/Diary
@@ -780,7 +780,7 @@ The Mark and the Region
 -----------------------
 
    The concept of the mark applies to the calendar just as to any other
-buffer, but it marks a *date*, not a *position* in the buffer.  The
+buffer, but it marks a _date_, not a _position_ in the buffer.  The
 region consists of the days between the mark and point (including the
 starting and stopping dates).
 
@@ -806,11 +806,11 @@ screen.  This does not change the extent of the region.
 
    To determine the number of days in the region, type `M-='
 (`calendar-count-days-region').  The numbers of days printed is
-*inclusive*; that is, it includes the days specified by mark and point.
+_inclusive_; that is, it includes the days specified by mark and point.
 
    The main use of the mark in the calendar is to remember dates that
 you may want to go back to.  To make this feature more useful, the mark
-ring (*note Mark Ring::.) operates exactly as in other buffers:  Emacs
+ring (*note Mark Ring::) operates exactly as in other buffers:  Emacs
 remembers 16 previous locations of the mark.  To return to a marked
 date, type `C-u C-SPC' (or `C-u C-@'); this is the command
 `calendar-set-mark' given a numeric argument.  It moves point to where
@@ -975,7 +975,7 @@ holidays in a different face (or places a `*' after these dates, if
 display with multiple faces is not available). The command applies both
 to the currently visible months and to other months that subsequently
 become visible by scrolling.  To turn marking off and erase the current
-marks, type `u', which also erases any diary marks (*note Diary::.).
+marks, type `u', which also erases any diary marks (*note Diary::).
 
    To get even more detailed information, use the `a' command, which
 displays a separate buffer containing a list of all holidays in the
@@ -998,8 +998,8 @@ years, and allows you to choose all the holidays or one of several
 categories of holidays.  You can use this command even if you don't have
 a calendar window.
 
-   The dates used by Emacs for holidays are based on *current
-practice*, not historical fact.  Historically, for instance, the start
+   The dates used by Emacs for holidays are based on _current
+practice_, not historical fact.  Historically, for instance, the start
 of daylight savings time and even its existence have varied from year to
 year, but present United States law mandates that daylight savings time
 begins on the first Sunday in April.  When the daylight savings rules
@@ -1028,7 +1028,7 @@ the times of sunrise and sunset for any date.
 `C-u M-x sunrise-sunset'
      Display times of sunrise and sunset for a specified date.
 
-   Within the calendar, to display the *local times* of sunrise and
+   Within the calendar, to display the _local times_ of sunrise and
 sunset in the echo area, move point to the date you want, and type `S'.
 Alternatively, click `Button2' on the date, then choose
 `Sunrise/Sunset' from the menu that appears.  The command `M-x
@@ -1067,8 +1067,8 @@ The value of `calendar-time-zone' is the number of minutes difference
 between your local standard time and Coordinated Universal Time
 (Greenwich time).  The values of `calendar-standard-time-zone-name' and
 `calendar-daylight-time-zone-name' are the abbreviations used in your
-time zone.  Emacs displays the times of sunrise and sunset *corrected
-for daylight savings time*.  *Note Daylight Savings::, for how daylight
+time zone.  Emacs displays the times of sunrise and sunset _corrected
+for daylight savings time_.  *Note Daylight Savings::, for how daylight
 savings time is determined.
 
    As a user, you might find it convenient to set the calendar location
@@ -1117,7 +1117,7 @@ File: xemacs.info,  Node: Other Calendars,  Next: Calendar Systems,  Prev: Lunar
 Conversion To and From Other Calendars
 --------------------------------------
 
-   The Emacs calendar displayed is *always* the Gregorian calendar,
+   The Emacs calendar displayed is _always_ the Gregorian calendar,
 sometimes called the "new style" calendar, which is used in most of the
 world today.  However, this calendar did not exist before the sixteenth
 century and was not widely used before the eighteenth century; it did
@@ -1157,7 +1157,7 @@ nineteenth century.
 
    Astronomers use a simple counting of days elapsed since noon, Monday,
 January 1, 4713 B.C. on the Julian calendar.  The number of days elapsed
-is called the *Julian day number* or the *Astronomical day number*.
+is called the _Julian day number_ or the _Astronomical day number_.
 
    The Hebrew calendar is used by tradition in the Jewish religion.  The
 Emacs calendar program uses the Hebrew calendar to determine the dates
@@ -1179,7 +1179,7 @@ measure similar to the metric system.  The French government officially
 abandoned this calendar at the end of 1805.
 
    The Maya of Central America used three separate, overlapping calendar
-systems, the *long count*, the *tzolkin*, and the *haab*.  Emacs knows
+systems, the _long count_, the _tzolkin_, and the _haab_.  Emacs knows
 about all three of these calendars.  Experts dispute the exact
 correlation between the Mayan calendar and our calendar; Emacs uses the
 Goodman-Martinez-Thompson correlation in its calculations.

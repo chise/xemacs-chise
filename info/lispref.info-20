@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -55,9 +55,9 @@ File: lispref.info,  Node: Pop-Up Menus,  Next: Menu Filters,  Prev: Modifying M
 Pop-Up Menus
 ============
 
- - Function: popup-menu MENU-DESC
+ - Function: popup-menu menu-desc
      This function pops up a menu specified by MENU-DESC, which is a
-     menu description (*note Menu Format::.).  The menu is displayed at
+     menu description (*note Menu Format::).  The menu is displayed at
      the current mouse position.
 
  - Function: popup-menu-up-p
@@ -100,11 +100,11 @@ the binding for button3.
    The following convenience functions are provided for displaying
 pop-up menus.
 
- - Function: popup-buffer-menu EVENT
+ - Function: popup-buffer-menu event
      This function pops up a copy of the `Buffers' menu (from the
      menubar) where the mouse is clicked.
 
- - Function: popup-menubar-menu EVENT
+ - Function: popup-menubar-menu event
      This function pops up a copy of menu that also appears in the
      menubar.
 
@@ -263,7 +263,7 @@ existence, and is updated dynamically.
      then all buffers will be shown.  Setting this to a large number or
      `nil' will slow down menu responsiveness.
 
- - Function: format-buffers-menu-line BUFFER
+ - Function: format-buffers-menu-line buffer
      This function returns a string to represent BUFFER in the
      `Buffers' menu.  `nil' means the buffer shouldn't be listed.  You
      can redefine this.
@@ -334,9 +334,9 @@ File: lispref.info,  Node: Dialog Box Functions,  Prev: Dialog Box Format,  Up: 
 Dialog Box Functions
 ====================
 
- - Function: popup-dialog-box DBOX-DESC
+ - Function: popup-dialog-box dbox-desc
      This function pops up a dialog box.  DBOX-DESC describes how the
-     dialog box will appear (*note Dialog Box Format::.).
+     dialog box will appear (*note Dialog Box Format::).
 
    *Note Yes-or-No Queries::, for functions to ask a yes/no question
 using a dialog box.
@@ -372,7 +372,7 @@ the minibuffer when the mouse is over the button.
 the frame, and two or more different edges can be displaying toolbars
 simultaneously.  The contents, thickness, and visibility of the
 toolbars can be controlled separately, and the values can be
-per-buffer, per-frame, etc., using specifiers (*note Specifiers::.).
+per-buffer, per-frame, etc., using specifiers (*note Specifiers::).
 
    Normally, there is one toolbar displayed in a frame.  Usually, this
 is the standard toolbar, but certain modes will override this and
@@ -483,15 +483,15 @@ others specify blank areas in the toolbar.
      area.  If omitted, it defaults to a device-specific value (8
      pixels for X devices).
 
- - Function: toolbar-make-button-list UP &optional DOWN DISABLED CAP-UP
-          CAP-DOWN CAP-DISABLED
+ - Function: toolbar-make-button-list up &optional down disabled cap-up
+          cap-down cap-disabled
      This function calls `make-glyph' on each arg and returns a list of
      the results.  This is useful for setting the first argument of a
      toolbar button descriptor (typically, the result of this function
      is assigned to a symbol, which is specified as the first argument
      of the toolbar button descriptor).
 
- - Function: check-toolbar-button-syntax BUTTON &optional NOERROR
+ - Function: check-toolbar-button-syntax button &optional noerror
      Verify the syntax of entry BUTTON in a toolbar description list.
      If you want to verify the syntax of a toolbar description list as a
      whole, use `check-valid-instantiator' with a specifier type of
@@ -531,9 +531,9 @@ thickness is controlled by the specifiers `top-toolbar-height',
 `right-toolbar-width', and the visibility status is controlled by the
 specifiers `top-toolbar-visible-p', `bottom-toolbar-visible-p',
 `left-toolbar-visible-p', and `right-toolbar-visible-p' (*note Other
-Toolbar Variables::.).
+Toolbar Variables::).
 
- - Function: set-default-toolbar-position POSITION
+ - Function: set-default-toolbar-position position
      This function sets the position that the `default-toolbar' will be
      displayed at.  Valid positions are the symbols `top', `bottom',
      `left' and `right'.  What this actually does is set the fallback
@@ -543,7 +543,7 @@ Toolbar Variables::.).
      same thing for the position-specific thickness and visibility
      specifiers, which inherit from one of `default-toolbar-height' or
      `default-toolbar-width', and from `default-toolbar-visible-p',
-     respectively (*note Other Toolbar Variables::.).
+     respectively (*note Other Toolbar Variables::).
 
  - Function: default-toolbar-position
      This function returns the position that the `default-toolbar' will
@@ -568,11 +568,11 @@ this position.
  - Specifier: right-toolbar
      Specifier for the toolbar at the right edge of the frame.
 
- - Function: toolbar-specifier-p OBJECT
+ - Function: toolbar-specifier-p object
      This function returns non-nil if OBJECT is a toolbar specifier.
      Toolbar specifiers are the actual objects contained in the toolbar
      variables described above, and their valid instantiators are
-     toolbar descriptors (*note Toolbar Descriptor Format::.).
+     toolbar descriptors (*note Toolbar Descriptor Format::).
 
 
 File: lispref.info,  Node: Other Toolbar Variables,  Prev: Specifying the Toolbar,  Up: Toolbar
@@ -688,7 +688,7 @@ File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: 
 Drag and Drop
 *************
 
-   *WARNING*: the Drag'n'Drop API is still under development and the
+   _WARNING_: the Drag'n'Drop API is still under development and the
 interface may change! The current implementation is considered
 experimental.
 
@@ -732,7 +732,7 @@ File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
 OffiX DND
 ---------
 
-   *WARNING*: If you compile in OffiX, you may not be able to use
+   _WARNING_: If you compile in OffiX, you may not be able to use
 multiple X displays successfully.  If the two servers are from
 different vendors, the results may be unpredictable.
 
@@ -873,7 +873,7 @@ writing a minor mode, which is often difficult).
 modify the old one to serve two purposes, since it may become harder to
 use and maintain.  Instead, copy and rename an existing major mode
 definition and alter the copy--or define a "derived mode" (*note
-Derived Modes::.).  For example, Rmail Edit mode, which is in
+Derived Modes::).  For example, Rmail Edit mode, which is in
 `emacs/lisp/rmailedit.el', is a major mode that is very similar to Text
 mode except that it provides three additional commands.  Its definition
 is distinct from that of Text mode, but was derived from it.
@@ -1044,18 +1044,18 @@ conventions listed above:
      ;; Create mode-specific tables.
      (defvar text-mode-syntax-table nil
        "Syntax table used while in text mode.")
-
+     
      (if text-mode-syntax-table
          ()              ; Do not change the table if it is already set up.
        (setq text-mode-syntax-table (make-syntax-table))
        (modify-syntax-entry ?\" ".   " text-mode-syntax-table)
        (modify-syntax-entry ?\\ ".   " text-mode-syntax-table)
        (modify-syntax-entry ?' "w   " text-mode-syntax-table))
-
+     
      (defvar text-mode-abbrev-table nil
        "Abbrev table used while in text mode.")
      (define-abbrev-table 'text-mode-abbrev-table ())
-
+     
      (defvar text-mode-map nil)   ; Create a mode-specific keymap.
      
      (if text-mode-map
@@ -1070,12 +1070,10 @@ conventions listed above:
      (defun text-mode ()
        "Major mode for editing text intended for humans to read.
       Special commands: \\{text-mode-map}
-
      Turning on text-mode runs the hook `text-mode-hook'."
        (interactive)
        (kill-all-local-variables)
-
-     (use-local-map text-mode-map)     ; This provides the local keymap.
+       (use-local-map text-mode-map)     ; This provides the local keymap.
        (setq mode-name "Text")           ; This name goes into the modeline.
        (setq major-mode 'text-mode)      ; This is how `describe-mode'
                                          ;   finds the doc string to print.
@@ -1093,26 +1091,24 @@ correspondingly more complicated.  Here are excerpts from
      (defvar lisp-mode-syntax-table nil "")
      (defvar emacs-lisp-mode-syntax-table nil "")
      (defvar lisp-mode-abbrev-table nil "")
-
+     
      (if (not emacs-lisp-mode-syntax-table) ; Do not change the table
                                             ;   if it is already set.
          (let ((i 0))
            (setq emacs-lisp-mode-syntax-table (make-syntax-table))
-
-     ;; Set syntax of chars up to 0 to class of chars that are
+     
+           ;; Set syntax of chars up to 0 to class of chars that are
            ;;   part of symbol names but not words.
            ;;   (The number 0 is `48' in the ASCII character set.)
            (while (< i ?0)
              (modify-syntax-entry i "_   " emacs-lisp-mode-syntax-table)
              (setq i (1+ i)))
            ...
-
-     ;; Set the syntax for other characters.
+           ;; Set the syntax for other characters.
            (modify-syntax-entry ?  "    " emacs-lisp-mode-syntax-table)
            (modify-syntax-entry ?\t "    " emacs-lisp-mode-syntax-table)
            ...
-
-     (modify-syntax-entry ?\( "()  " emacs-lisp-mode-syntax-table)
+           (modify-syntax-entry ?\( "()  " emacs-lisp-mode-syntax-table)
            (modify-syntax-entry ?\) ")(  " emacs-lisp-mode-syntax-table)
            ...))
      ;; Create an abbrev table for lisp-mode.
@@ -1130,8 +1126,7 @@ mode functions:
                   ;; The Emacs Lisp mode syntax table always exists, but
                   ;;   the Lisp Mode syntax table is created the first time a
                   ;;   mode that needs it is called.  This is to save space.
-
-     (progn (setq lisp-mode-syntax-table
+                  (progn (setq lisp-mode-syntax-table
                             (copy-syntax-table emacs-lisp-mode-syntax-table))
                          ;; Change some entries for Lisp mode.
                          (modify-syntax-entry ?\| "\"   "
@@ -1140,8 +1135,7 @@ mode functions:
                                               lisp-mode-syntax-table)
                          (modify-syntax-entry ?\] "_   "
                                               lisp-mode-syntax-table)))
-
-     (set-syntax-table lisp-mode-syntax-table)))
+               (set-syntax-table lisp-mode-syntax-table)))
        (setq local-abbrev-table lisp-mode-abbrev-table)
        ...)
 
@@ -1153,13 +1147,12 @@ and the Lisp modes need their own mode-specific
 `comment-indent-function'.  The code to set these variables is the rest
 of `lisp-mode-variables'.
 
-     (make-local-variable 'paragraph-start)
+       (make-local-variable 'paragraph-start)
        ;; Having `^' is not clean, but `page-delimiter'
        ;; has them too, and removing those is a pain.
        (setq paragraph-start (concat "^$\\|" page-delimiter))
        ...
-
-     (make-local-variable 'comment-indent-function)
+       (make-local-variable 'comment-indent-function)
        (setq comment-indent-function 'lisp-comment-indent))
 
    Each of the different Lisp modes has a slightly different keymap.
@@ -1198,14 +1191,12 @@ Emacs Lisp mode.
      Delete converts tabs to spaces as it moves back.
      Blank lines separate paragraphs.  Semicolons start comments.
      \\{emacs-lisp-mode-map}
-
      Entry to this mode runs the hook `emacs-lisp-mode-hook'."
        (interactive)
        (kill-all-local-variables)
        (use-local-map emacs-lisp-mode-map)    ; This provides the local keymap.
        (set-syntax-table emacs-lisp-mode-syntax-table)
-
-     (setq major-mode 'emacs-lisp-mode)     ; This is how `describe-mode'
+       (setq major-mode 'emacs-lisp-mode)     ; This is how `describe-mode'
                                               ;   finds out what to describe.
        (setq mode-name "Emacs-Lisp")          ; This goes into the modeline.
        (lisp-mode-variables nil)              ; This defines various variables.

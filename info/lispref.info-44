@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -590,18 +590,18 @@ Index
 * check-valid-spec-list:                 Specifier Validation Functions.
 * child process:                         Processes.
 * children, of extent:                   Extent Parents.
-* CL note---allocate more storage:       Garbage Collection.
-* CL note---case of letters:             Symbol Type.
-* CL note---default optional arg:        Argument List.
-* CL note---integers vrs eq:             Comparison of Numbers.
-* CL note---lack union, set:             Sets And Lists.
-* CL note---no continuable errors:       Signaling Errors.
-* CL note---only throw in Emacs:         Catch and Throw.
-* CL note---rplaca vrs setcar:           Modifying Lists.
-* CL note---set local:                   Setting Variables.
-* CL note---special forms compared:      Special Forms.
-* CL note---special variables:           Variable Scoping.
-* CL note---symbol in obarrays:          Creating Symbols.
+* CL note--allocate more storage:        Garbage Collection.
+* CL note--case of letters:              Symbol Type.
+* CL note--default optional arg:         Argument List.
+* CL note--integers vrs eq:              Comparison of Numbers.
+* CL note--lack union, set:              Sets And Lists.
+* CL note--no continuable errors:        Signaling Errors.
+* CL note--only throw in Emacs:          Catch and Throw.
+* CL note--rplaca vrs setcar:            Modifying Lists.
+* CL note--set local:                    Setting Variables.
+* CL note--special forms compared:       Special Forms.
+* CL note--special variables:            Variable Scoping.
+* CL note--symbol in obarrays:           Creating Symbols.
 * cl-read:                               Reading in Edebug.
 * cl-specs.el:                           Instrumenting.
 * cl.el (Edebug):                        Instrumenting.

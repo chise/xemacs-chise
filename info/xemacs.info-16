@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -202,7 +202,7 @@ field.  When the attribute is enabled, you can change the attribute
 value in the usual ways.
 
    Setting, saving and resetting a face work like the same operations
-for options (*note Changing an Option::.).
+for options (*note Changing an Option::).
 
    A face can specify different appearances for different types of
 display.  For example, a face can make text red on a color display, but
@@ -261,7 +261,7 @@ can show their contents in the usual way, by invoking `[Show]'.
 customize-apropos'.  You specify a regular expression as argument; then
 all options, faces and groups whose names match this regular expression
 are set up in the customization buffer.  If you specify an empty regular
-expression, this includes *all* groups, options and faces in the
+expression, this includes _all_ groups, options and faces in the
 customization buffer (but that takes a long time).
 
    If you change option values and then decide the change was a mistake,
@@ -464,8 +464,8 @@ list.  That is inappropriate.  Whether you use Auto Fill mode or not is
 a matter of personal taste, not a matter of the contents of particular
 files.  If you want to use Auto Fill, set up major mode hooks with your
 `.emacs' file to turn it on (when appropriate) for you alone (*note
-Init File::.).  Don't try to use a local variable list that would
-impose your taste on everyone working with the file.
+Init File::).  Don't try to use a local variable list that would impose
+your taste on everyone working with the file.
 
    XEmacs allows you to specify local variables in the first line of a
 file, in addition to specifying them in the `Local Variables' section
@@ -604,7 +604,7 @@ one, you must give it a name using `M-x name-last-kbd-macro'.  This
 reads a name as an argument using the minibuffer and defines that name
 to execute the macro.  The macro name is a Lisp symbol, and defining it
 in this way makes it a valid command name for calling with `M-x' or for
-binding a key to with `global-set-key' (*note Keymaps::.).  If you
+binding a key to with `global-set-key' (*note Keymaps::).  If you
 specify a name that has a prior definition other than another keyboard
 macro, Emacs prints an error message and nothing is changed.
 
@@ -618,9 +618,9 @@ This inserts some Lisp code that, when executed later, will define the
 same macro with the same definition it has now.  You need not
 understand Lisp code to do this, because `insert-kbd-macro' writes the
 Lisp code for you.  Then save the file.  You can load the file with
-`load-file' (*note Lisp Libraries::.).  If the file you save in is your
-initialization file `~/.emacs' (*note Init File::.), then the macro
-will be defined each time you run Emacs.
+`load-file' (*note Lisp Libraries::).  If the file you save in is your
+initialization file `~/.emacs' (*note Init File::), then the macro will
+be defined each time you run Emacs.
 
    If you give `insert-kbd-macro' a prefix argument, it creates
 additional Lisp code to record the keys (if any) that you have bound to
@@ -1160,7 +1160,7 @@ argument defaults to the current buffer's syntax table.
 
   1. The first character in the string specifies the syntactic class.
      It is one of the characters in the previous table (*note Syntax
-     Entry::.).
+     Entry::).
 
   2. The second character is the matching delimiter.  For a character
      that is not an opening or closing delimiter, this should be a

@@ -1,5 +1,5 @@
-This is Info file ../info/termcap.info, produced by Makeinfo version
-1.68 from the input file termcap.texi.
+This is ../info/termcap.info, produced by makeinfo version 4.0 from
+termcap.texi.
 
 START-INFO-DIR-ENTRY
 * Termcap: (termcap).		Termcap library of the GNU system.
@@ -124,7 +124,7 @@ obsolete.
 with non-standout text must check for the `xs' flag.  In a per-character
 terminal, this flag says that the only way to remove standout once
 written is to clear that portion of the line with the `ce' string or
-something even more powerful (*note Clearing::.); just writing new
+something even more powerful (*note Clearing::); just writing new
 characters at those screen positions will not change the modes in
 effect there.  In a magic cookie terminal, `xs' says that the only way
 to remove a cookie is to clear a portion of the line that includes the
@@ -140,7 +140,7 @@ finds and removes the next `so' magic cookie on the screen.  (It may
 also be possible to remove a cookie which is not at the beginning of a
 line by clearing that line.)  The `xt' capability also has implications
 for the use of tab characters, but in that regard it is obsolete (*note
-Cursor Motion::.).
+Cursor Motion::).
 
 `so'
      String of commands to enter standout mode.
@@ -726,7 +726,7 @@ Summary of Capability Names
 
    Here are all the terminal capability names in alphabetical order
 with a brief description of each.  For cross references to their
-definitions, see the index of capability names (*note Cap Index::.).
+definitions, see the index of capability names (*note Cap Index::).
 
 `ae'
      String to turn off alternate character set mode.

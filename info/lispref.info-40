@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -59,7 +59,7 @@ Terminal Output
 track of output sent to the terminal.  The function `device-baud-rate'
 tells you what XEmacs thinks is the output speed of the terminal.
 
- - Function: device-baud-rate &optional DEVICE
+ - Function: device-baud-rate &optional device
      This function's value is the output speed of the terminal
      associated with DEVICE, as far as XEmacs knows.  DEVICE defaults
      to the selected device (usually the only device) if omitted.
@@ -82,13 +82,13 @@ the proper value, but others do not.  If XEmacs has the wrong value, it
 makes decisions that are less than optimal.  To fix the problem, use
 `set-device-baud-rate'.
 
- - Function: set-device-baud-rate &optional DEVICE
+ - Function: set-device-baud-rate &optional device
      This function sets the output speed of DEVICE.  See
      `device-baud-rate'.  DEVICE defaults to the selected device
      (usually the only device) if omitted.
 
- - Function: send-string-to-terminal CHAR-OR-STRING &optional STDOUT-P
-          DEVICE
+ - Function: send-string-to-terminal char-or-string &optional stdout-p
+          device
      This function sends CHAR-OR-STRING to the terminal without
      alteration.  Control characters in CHAR-OR-STRING have
      terminal-dependent effects.
@@ -107,7 +107,7 @@ makes decisions that are less than optimal.  To fix the problem, use
           (send-string-to-terminal "\eF4\^U\^F")
                => nil
 
- - Command: open-termscript FILENAME
+ - Command: open-termscript filename
      This function is used to open a "termscript file" that will record
      all the characters sent by XEmacs to the terminal. (If there are
      multiple tty or stream devices, all characters sent to all such
@@ -173,12 +173,12 @@ it: call the function `enable-flow-control'.
      This function enables use of `C-s' and `C-q' for output flow
      control, and provides the characters `C-\' and `C-^' as aliases
      for them using `keyboard-translate-table' (*note Translating
-     Input::.).
+     Input::).
 
    You can use the function `enable-flow-control-on' in your `.emacs'
 file to enable flow control automatically on certain terminal types.
 
- - Function: enable-flow-control-on &rest TERMTYPES
+ - Function: enable-flow-control-on &rest termtypes
      This function enables flow control, and the aliases `C-\' and
      `C-^', if the terminal type is one of TERMTYPES.  For example:
 
@@ -267,7 +267,7 @@ distinguished by "selection types", represented in XEmacs by symbols.
 X clients including XEmacs can read or set the selection for any given
 type.
 
- - Function: x-own-selection DATA &optional TYPE
+ - Function: x-own-selection data &optional type
      This function sets a "selection" in the X server.  It takes two
      arguments: a value, DATA, and the selection type TYPE to assign it
      to.  DATA may be a string, a cons of two markers, or an extent.
@@ -286,7 +286,7 @@ type.
      This function accesses selections set up by XEmacs or by other X
      clients.  It returns the value of the current primary selection.
 
- - Function: x-disown-selection &optional SECONDARY-P
+ - Function: x-disown-selection &optional secondary-p
      Assuming we own the selection, this function disowns it.  If
      SECONDARY-P is non-`nil', the secondary selection instead of the
      primary selection is discarded.
@@ -296,11 +296,11 @@ store text or other data being moved between applications.  Cut buffers
 are considered obsolete, but XEmacs supports them for the sake of X
 clients that still use them.
 
- - Function: x-get-cutbuffer &optional N
+ - Function: x-get-cutbuffer &optional n
      This function returns the contents of cut buffer number N. (This
      function is called `x-get-cut-buffer' in FSF Emacs.)
 
- - Function: x-store-cutbuffer STRING
+ - Function: x-store-cutbuffer string
      This function stores STRING into the first cut buffer (cut buffer
      0), moving the other values down through the series of cut buffers,
      kill-ring-style. (This function is called `x-set-cut-buffer' in FSF
@@ -331,8 +331,8 @@ Resources
      This function return the default X device for resourcing.  This is
      the first-created X device that still exists.
 
- - Function: x-get-resource NAME CLASS TYPE &optional LOCALE DEVICE
-          NOERROR
+ - Function: x-get-resource name class type &optional locale device
+          noerror
      This function retrieves a resource value from the X resource
      manager.
 
@@ -425,7 +425,7 @@ Resources
      `boolean', then the returned value is the list `(t)' for true,
      `(nil)' for false, and is `nil' to mean "unspecified".
 
- - Function: x-put-resource RESOURCE-LINE &optional DEVICE
+ - Function: x-put-resource resource-line &optional device
      This function adds a resource to the resource database for DEVICE.
      RESOURCE-LINE specifies the resource to add and should be a
      standard resource specification.
@@ -455,17 +455,17 @@ get information about the capabilities and origin of the X server
 corresponding to a particular device.  The device argument is generally
 optional and defaults to the selected device.
 
- - Function: x-server-version &optional DEVICE
+ - Function: x-server-version &optional device
      This function returns the list of version numbers of the X server
      DEVICE is on.  The returned value is a list of three integers: the
      major and minor version numbers of the X protocol in use, and the
      vendor-specific release number.
 
- - Function: x-server-vendor &optional DEVICE
+ - Function: x-server-vendor &optional device
      This function returns the vendor supporting the X server DEVICE is
      on.
 
- - Function: x-display-visual-class &optional DEVICE
+ - Function: x-display-visual-class &optional device
      This function returns the visual class of the display DEVICE is
      on.  The value is one of the symbols `static-gray', `gray-scale',
      `static-color', `pseudo-color', `true-color', and `direct-color'.
@@ -478,7 +478,7 @@ File: lispref.info,  Node: Grabs,  Prev: Server Data,  Up: X Server
 Restricting Access to the Server by Other Apps
 ----------------------------------------------
 
- - Function: x-grab-keyboard &optional DEVICE
+ - Function: x-grab-keyboard &optional device
      This function grabs the keyboard on the given device (defaulting
      to the selected one).  So long as the keyboard is grabbed, all
      keyboard events will be delivered to XEmacs - it is not possible
@@ -486,10 +486,10 @@ Restricting Access to the Server by Other Apps
      with `x-ungrab-keyboard' (use an `unwind-protect').  Returns `t'
      if the grab was successful; `nil' otherwise.
 
- - Function: x-ungrab-keyboard &optional DEVICE
+ - Function: x-ungrab-keyboard &optional device
      This function releases a keyboard grab made with `x-grab-keyboard'.
 
- - Function: x-grab-pointer &optional DEVICE CURSOR IGNORE-KEYBOARD
+ - Function: x-grab-pointer &optional device cursor ignore-keyboard
      This function grabs the pointer and restricts it to its current
      window.  If optional DEVICE argument is `nil', the selected device
      will be used.  If optional CURSOR argument is non-`nil', change
@@ -499,7 +499,7 @@ Restricting Access to the Server by Other Apps
      all keyboard events during the grab.  Returns `t' if the grab is
      successful, `nil' otherwise.
 
- - Function: x-ungrab-pointer &optional DEVICE
+ - Function: x-ungrab-pointer &optional device
      This function releases a pointer grab made with `x-grab-pointer'.
      If optional first arg DEVICE is `nil' the selected device is used.
      If it is `t' the pointer will be released on all X devices.
@@ -521,13 +521,13 @@ Miscellaneous X Functions and Variables
      This variable holds the search path used by `read-color' to find
      `rgb.txt'.
 
- - Function: x-valid-keysym-name-p KEYSYM
+ - Function: x-valid-keysym-name-p keysym
      This function returns true if KEYSYM names a keysym that the X
      library knows about.  Valid keysyms are listed in the files
      `/usr/include/X11/keysymdef.h' and in `/usr/lib/X11/XKeysymDB', or
      whatever the equivalents are on your system.
 
- - Function: x-window-id &optional FRAME
+ - Function: x-window-id &optional frame
      This function returns the ID of the X11 window.  This gives us a
      chance to manipulate the Emacs window from within a different
      program.  Since the ID is an unsigned long, we return it as a
@@ -538,7 +538,7 @@ Miscellaneous X Functions and Variables
      ignored.  Beware: allowing XEmacs to process SendEvents opens a
      big security hole.
 
- - Function: x-debug-mode ARG &optional DEVICE
+ - Function: x-debug-mode arg &optional device
      With a true arg, make the connection to the X server synchronous.
      With false, make it asynchronous.  Synchronous connections are
      much slower, but are useful for debugging. (If you get X errors,
@@ -649,7 +649,7 @@ File: lispref.info,  Node: Elisp Interface for Sending Messages,  Prev: Example 
 Elisp Interface for Sending Messages
 ------------------------------------
 
- - Function: make-tooltalk-message ATTRIBUTES
+ - Function: make-tooltalk-message attributes
      Create a ToolTalk message and initialize its attributes.  The
      value of ATTRIBUTES must be a list of alternating keyword/values,
      where keywords are symbols that name valid message attributes.
@@ -682,20 +682,20 @@ Elisp Interface for Sending Messages
      the `ToolTalk Programmer's Guide'.
 
 
- - Function: send-tooltalk-message MSG
+ - Function: send-tooltalk-message msg
      Send the message on its way.  Once the message has been sent it's
      almost always a good idea to get rid of it with
      `destroy-tooltalk-message'.
 
 
- - Function: return-tooltalk-message MSG &optional MODE
+ - Function: return-tooltalk-message msg &optional mode
      Send a reply to this message.  The second argument can be `reply',
      `reject' or `fail'; the default is `reply'.  Before sending a
      reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
      should have been filled in - see `set-tooltalk-message-attribute'.
 
 
- - Function: get-tooltalk-message-attribute MSG ATTRIBUTE &optional ARGN
+ - Function: get-tooltalk-message-attribute msg attribute &optional argn
      Returns the indicated ToolTalk message attribute.  Attributes are
      identified by symbols with the same name (underscores and all) as
      the suffix of the ToolTalk `tt_message_<attribute>' function that
@@ -731,8 +731,8 @@ Elisp Interface for Sending Messages
      `arg_bval' like a string is fine.
 
 
- - Function: set-tooltalk-message-attribute VALUE MSG ATTRIBUTE
-          &optional ARGN
+ - Function: set-tooltalk-message-attribute value msg attribute
+          &optional argn
      Initialize one ToolTalk message attribute.
 
      Attribute names and values are the same as for
@@ -753,7 +753,7 @@ Elisp Interface for Sending Messages
      with `add-tooltalk-message-arg'.
 
 
- - Function: add-tooltalk-message-arg MSG MODE TYPE &optional VALUE
+ - Function: add-tooltalk-message-arg msg mode type &optional value
      Append one new argument to the message.  MODE must be one of
      `TT_IN', `TT_INOUT', or `TT_OUT', TYPE must be a string, and VALUE
      can be a string or an integer.  ToolTalk doesn't define any
@@ -774,7 +774,7 @@ Elisp Interface for Sending Messages
      initialize a message.
 
 
- - Function: destroy-tooltalk-message MSG
+ - Function: destroy-tooltalk-message msg
      Apply `tt_message_destroy' to the message.  It's not necessary to
      destroy messages after they've been processed by a message or
      pattern callback, the Lisp/ToolTalk callback machinery does this
@@ -820,7 +820,7 @@ File: lispref.info,  Node: Elisp Interface for Receiving Messages,  Prev: Exampl
 Elisp Interface for Receiving Messages
 --------------------------------------
 
- - Function: make-tooltalk-pattern ATTRIBUTES
+ - Function: make-tooltalk-pattern attributes
      Create a ToolTalk pattern and initialize its attributes.  The
      value of attributes must be a list of alternating keyword/values,
      where keywords are symbols that name valid pattern attributes or
@@ -857,13 +857,13 @@ Elisp Interface for Receiving Messages
      the `ToolTalk Programmer's Guide'.
 
 
- - Function: register-tooltalk-pattern PAT
+ - Function: register-tooltalk-pattern pat
      XEmacs will begin receiving messages that match this pattern.
 
- - Function: unregister-tooltalk-pattern PAT
+ - Function: unregister-tooltalk-pattern pat
      XEmacs will stop receiving messages that match this pattern.
 
- - Function: add-tooltalk-pattern-attribute VALUE PAT INDICATOR
+ - Function: add-tooltalk-pattern-attribute value pat indicator
      Add one value to the indicated pattern attribute. The names of
      attributes are the same as the ToolTalk accessors used to set them
      less the `tooltalk_pattern_' prefix and the `_add' suffix.  For
@@ -877,7 +877,7 @@ Elisp Interface for Receiving Messages
      argument.  It will be called each time the pattern matches an
      incoming message.
 
- - Function: add-tooltalk-pattern-arg PAT MODE TYPE VALUE
+ - Function: add-tooltalk-pattern-arg pat mode type value
      Add one fully-specified argument to a ToolTalk pattern.  MODE must
      be one of `TT_IN', `TT_INOUT', or `TT_OUT'.  TYPE must be a
      string.  VALUE can be an integer, string or `nil'.  If VALUE is an
@@ -890,11 +890,11 @@ Elisp Interface for Receiving Messages
      Create a new ToolTalk pattern and initialize its session attribute
      to be the default session.
 
- - Function: destroy-tooltalk-pattern PAT
+ - Function: destroy-tooltalk-pattern pat
      Apply `tt_pattern_destroy' to the pattern.  This effectively
      unregisters the pattern.
 
- - Function: describe-tooltalk-message MSG &optional STREAM
+ - Function: describe-tooltalk-message msg &optional stream
      Print the message's attributes and arguments to STREAM.  This is
      often useful for debugging.
 
@@ -924,12 +924,12 @@ Building XEmacs with LDAP support
 linking to an external LDAP client library.  As of 21.2, XEmacs has been
 successfully built and tested with
 
-   * OpenLDAP 1.0.3 (`http://www.openldap.org/')
+   * OpenLDAP 1.0.3 (<http://www.openldap.org/>)
 
    * University of Michigan's LDAP 3.3
-     (`http://www.umich.edu/~dirsvcs/ldap/')
+     (<http://www.umich.edu/~dirsvcs/ldap/>)
 
-   * LDAP SDK 1.0 from Netscape Corp. (`http://developer.netscape.com/')
+   * LDAP SDK 1.0 from Netscape Corp. (<http://developer.netscape.com/>)
 
    Other libraries conforming to RFC 1823 will probably work also but
 may require some minor tweaking at C level.
@@ -980,7 +980,7 @@ LDAP Variables
 
  - Variable: ldap-host-parameters-alist
      An alist of per host options for LDAP transactions.  The list
-     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)'  HOST is the
+     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)' HOST is the
      name of an LDAP server. A TCP port number can be appended to that
      name using a colon as a separator.  PROPN and VALN are
      property/value pairs describing parameters for the server.  Valid
@@ -1043,16 +1043,15 @@ LDAP searches.  Further support is planned in the future.
 perform LDAP searches.  It opens a connection to a host, performs the
 query and cleanly closes the connection thus insulating the user from
 all the details of the low-level interface such as LDAP Lisp objects
-*note The Low-Level LDAP API::.
+*note The Low-Level LDAP API::
 
- - Function: ldap-search FILTER &optional HOST ATTRIBUTES ATTRSONLY
+ - Function: ldap-search filter &optional host attributes attrsonly
      Perform an LDAP search.  FILTER is the search filter *note Syntax
-     of Search Filters::.  HOST is the LDAP host on which to perform
-     the search ATTRIBUTES is the specific attributes to retrieve,
-     `nil' means retrieve all ATTRSONLY if non-`nil' retrieves the
-     attributes only without their associated values.  Additional
-     search parameters can be specified through
-     `ldap-host-parameters-alist'.
+     of Search Filters:: HOST is the LDAP host on which to perform the
+     search ATTRIBUTES is the specific attributes to retrieve, `nil'
+     means retrieve all ATTRSONLY if non-`nil' retrieves the attributes
+     only without their associated values.  Additional search
+     parameters can be specified through `ldap-host-parameters-alist'.
 
 
 File: lispref.info,  Node: The Low-Level LDAP API,  Prev: The High-Level LDAP API,  Up: XEmacs LDAP API
@@ -1074,13 +1073,13 @@ The LDAP Lisp Object
 
    An internal built-in `ldap' lisp object represents a LDAP connection.
 
- - Function: ldapp OBJECT
+ - Function: ldapp object
      This function returns non-`nil' if OBJECT is a `ldap' object.
 
- - Function: ldap-host LDAP
+ - Function: ldap-host ldap
      Return the server host of the connection represented by LDAP
 
- - Function: ldap-live-p LDAP
+ - Function: ldap-live-p ldap
      Return non-`nil' if LDAP is an active LDAP connection
 
 
@@ -1089,7 +1088,7 @@ File: lispref.info,  Node: Opening and Closing a LDAP Connection,  Next: Searchi
 Opening and Closing a LDAP Connection
 .....................................
 
- - Function: ldap-open HOST &optional PLIST
+ - Function: ldap-open host &optional plist
      Open a LDAP connection to HOST.  PLIST is a property list
      containing additional parameters for the connection.  Valid keys
      in that list are:
@@ -1133,7 +1132,7 @@ Opening and Closing a LDAP Connection
           The maximum number of matches to return for searches
           performed on this connection.
 
- - Function: ldap-close LDAP
+ - Function: ldap-close ldap
      Close the connection represented by LDAP
 
 
@@ -1148,11 +1147,11 @@ thus requiring a preliminary call to `ldap-open'.  Multiple searches
 can be made on the same connection, then the session must be closed
 with `ldap-close'.
 
- - Function: ldap-search-internal LDAP FILTER BASE SCOPE ATTRS ATTRSONLY
+ - Function: ldap-search-internal ldap filter base scope attrs attrsonly
      Perform a search on an open connection LDAP created with
      `ldap-open'.  FILTER is a filter string for the search *note
-     Syntax of Search Filters::.  BASE is the distinguished name at
-     which to start the search.  SCOPE is one of the symbols `base',
+     Syntax of Search Filters:: BASE is the distinguished name at which
+     to start the search.  SCOPE is one of the symbols `base',
      `onelevel' or `subtree' indicating the scope of the search limited
      to a base object, to a single level or to the whole subtree.  The
      default is `subtree'.  `attrs' is a list of strings indicating

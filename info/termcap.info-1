@@ -1,5 +1,5 @@
-This is Info file ../info/termcap.info, produced by Makeinfo version
-1.68 from the input file termcap.texi.
+This is ../info/termcap.info, produced by makeinfo version 4.0 from
+termcap.texi.
 
 START-INFO-DIR-ENTRY
 * Termcap: (termcap).		Termcap library of the GNU system.
@@ -154,7 +154,7 @@ up the description of the terminal type in use.  This is done by calling
 
 This function finds the description and remembers it internally so that
 you can interrogate it about specific terminal capabilities (*note
-Interrogate::.).
+Interrogate::).
 
    The argument TERMTYPE is a string which is the name for the type of
 terminal to look up.  Usually you would obtain this from the environment
@@ -236,7 +236,7 @@ of columns is named `co'.  *Note Capabilities::, for definitions of all
 the standard capability names.
 
    Once you have found the proper terminal description with `tgetent'
-(*note Find::.), your application program must "interrogate" it for
+(*note Find::), your application program must "interrogate" it for
 various terminal capabilities.  You must specify the two-letter code of
 the capability whose value you seek.
 
@@ -366,8 +366,8 @@ application program should do two things:
 
    * Initialize various global variables which termcap library output
      functions refer to.  These include `PC' and `ospeed' for padding
-     (*note Output Padding::.) and `UP' and `BC' for cursor motion
-     (*note tgoto::.).
+     (*note Output Padding::) and `UP' and `BC' for cursor motion
+     (*note tgoto::).
 
    * Tell the kernel to turn off alteration and padding of
      horizontal-tab characters sent to the terminal.
@@ -485,7 +485,7 @@ Performing Padding with `tputs'
 
    Use the termcap function `tputs' to output a string containing an
 optional padding spec of the form described above (*note Describe
-Padding::.).  The function `tputs' strips off and decodes the padding
+Padding::).  The function `tputs' strips off and decodes the padding
 spec, outputs the rest of the string, and then outputs the appropriate
 padding.  Here is its declaration in ANSI C:
 
@@ -510,7 +510,7 @@ characters.  The value of `PC' is the character used for padding.
    You are responsible for storing suitable values into these variables
 before using `tputs'.  The value stored into the `PC' variable should be
 taken from the `pc' capability in the terminal description (*note Pad
-Specs::.).  Store zero in `PC' if there is no `pc' capability.
+Specs::).  Store zero in `PC' if there is no `pc' capability.
 
    The argument NLINES requires some thought.  Normally, it should be
 the number of lines whose contents will be cleared or moved by the
@@ -579,7 +579,7 @@ The language for parameter encoding is described in this section.
 or `tgoto' to encode parameters according to the specifications.  These
 functions produce a string containing the actual commands to be output
 (as well a padding spec which must be processed with `tputs'; *note
-Padding::.).
+Padding::).
 
 * Menu:
 
@@ -631,7 +631,7 @@ the following parameter.
 `%3'
      Like `%03d' in `printf': output the next parameter in decimal, and
      always use at least three digits.  Note that `%4' and so on are
-     *not* defined.
+     _not_ defined.
 
 `%.'
      Output the next parameter as a single character whose ASCII code is
@@ -881,7 +881,7 @@ comments.
    A terminal description starts with one or more names for the
 terminal type.  The information in the description is a series of
 "capability names" and values.  The capability names have standard
-meanings (*note Capabilities::.) and their values describe the terminal.
+meanings (*note Capabilities::) and their values describe the terminal.
 
 * Menu:
 
@@ -976,13 +976,13 @@ capability the value `ab:cd', it would also appear to define `cd' as a
 flag.
 
    The string value will often contain digits at the front to specify
-padding (*note Padding::.) and/or `%'-sequences within to specify how
-to encode parameters (*note Parameters::.).  Although these things are
-not to be output literally to the terminal, they are considered part of
-the value of the capability.  They are special only when the string
-value is processed by `tputs', `tparam' or `tgoto'.  By contrast, `\'
-and `^' are considered part of the syntax for specifying the characters
-in the string.
+padding (*note Padding::) and/or `%'-sequences within to specify how to
+encode parameters (*note Parameters::).  Although these things are not
+to be output literally to the terminal, they are considered part of the
+value of the capability.  They are special only when the string value
+is processed by `tputs', `tparam' or `tgoto'.  By contrast, `\' and `^'
+are considered part of the syntax for specifying the characters in the
+string.
 
    Let's look at the VT52 example again:
 
@@ -996,7 +996,7 @@ in the string.
 `bs' and `pt', and many string-valued capabilities.  Most of the
 strings start with <ESC> represented as `\E'.  The rest contain control
 characters represented using `^'.  The meanings of the individual
-capabilities are defined elsewhere (*note Capabilities::.).
+capabilities are defined elsewhere (*note Capabilities::).
 
 
 File: termcap.info,  Node: Naming,  Next: Inheriting,  Prev: Capability Format,  Up: Data Base
@@ -1073,7 +1073,7 @@ are used for two reasons:
 
 `-s'
      "Status".  Says to enable use of a status line which ordinary
-     output does not touch (*note Status Line::.).
+     output does not touch (*note Status Line::).
 
      Some terminals have a special line that is used only as a status
      line.  For these terminals, there is no need for an `-s' variant;
@@ -1133,7 +1133,7 @@ to use that many lines.
 text shown above followed by the text of the description of `aaa-unk'.
 The `tc' capability is handled automatically by `tgetent', which finds
 the description thus referenced and combines the two descriptions
-(*note Find::.).  Therefore, only the implementor of the terminal
+(*note Find::).  Therefore, only the implementor of the terminal
 descriptions needs to think about using `tc'.  Users and application
 programmers do not need to be concerned with it.
 

@@ -1,5 +1,5 @@
-This is Info file ../../info/new-users-guide.info, produced by Makeinfo
-version 1.68 from the input file new-users-guide.texi.
+This is ../info/new-users-guide.info, produced by makeinfo version 4.0
+from new-users-guide/new-users-guide.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -51,7 +51,7 @@ Other Features of XEmacs
 
 
 
- -- The Detailed Node Listing --
+ --- The Detailed Node Listing ---
 
 Entering and Exiting Emacs
 
@@ -617,7 +617,7 @@ Undo
 Cut
      Removes the selected text block from the current buffer, makes it
      the X clipboard selection, and places it in the kill ring (*note
-     Moving Text::.). Before executing this command, you have to select
+     Moving Text::). Before executing this command, you have to select
      a region using Emacs region selection commands or with the mouse.
      *Note Selecting Text::.
 
@@ -1149,14 +1149,14 @@ Pull-down Menus::.
 
    Some of the functions which are available to you for customization
 are:
-  1. add-menu-item: (MENU-NAME ITEM-NAME FUNCTION ENABLED-P &OPTIONAL
+  1. add-menu-item: (MENU-NAME ITEM-NAME FUNCTION ENABLED-P &optional
      BEFORE)
 
      This function will add a menu item to a menu, creating the menu
      first if necessary. If the named item already exists, the menu
      will remain unchanged. For example, if you add the following
      example to your `.emacs' file or evaluate it (*note Customization
-     Basics::.),
+     Basics::),
 
           (add-menu-item '("Edit") "Replace String" replace-string t "Clear")
 

@@ -1,5 +1,5 @@
-This is Info file ../../info/internals.info, produced by Makeinfo
-version 1.68 from the input file internals.texi.
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -277,7 +277,7 @@ later.
    For example, Latin-1 is a 96-character charset, and JISX0208 (the
 Japanese national character set) is a 94x94-character charset.
 
-   [Note that, although the ranges above define the *valid* position
+   [Note that, although the ranges above define the _valid_ position
 codes for a charset, some of the slots in a particular charset may in
 fact be empty.  This is the case for JISX0208, for example, where (e.g.)
 all the slots whose first position code is in the range 118 - 127 are
@@ -845,17 +845,20 @@ Lstream Functions
  - Function: void Lstream_fungetc (Lstream *STREAM, int C)
      Function equivalents of the above macros.
 
- - Function: int Lstream_read (Lstream *STREAM, void *DATA, int SIZE)
+ - Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
+          SIZE)
      Read SIZE bytes of DATA from the stream.  Return the number of
      bytes read.  0 means EOF. -1 means an error occurred and no bytes
      were read.
 
- - Function: int Lstream_write (Lstream *STREAM, void *DATA, int SIZE)
+ - Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA, size_t
+          SIZE)
      Write SIZE bytes of DATA to the stream.  Return the number of
      bytes written.  -1 means an error occurred and no bytes were
      written.
 
- - Function: void Lstream_unread (Lstream *STREAM, void *DATA, int SIZE)
+ - Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
+          SIZE)
      Push back SIZE bytes of DATA onto the input queue.  The next call
      to `Lstream_read()' with the same size will read the same bytes
      back.  Note that this will be the case even if there is other
@@ -879,8 +882,8 @@ File: internals.info,  Node: Lstream Methods,  Prev: Lstream Functions,  Up: Lst
 Lstream Methods
 ===============
 
- - Lstream Method: int reader (Lstream *STREAM, unsigned char *DATA,
-          int SIZE)
+ - Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
+          *DATA, size_t SIZE)
      Read some data from the stream's end and store it into DATA, which
      can hold SIZE bytes.  Return the number of bytes read.  A return
      value of 0 means no bytes can be read at this time.  This may be
@@ -897,8 +900,8 @@ Lstream Methods
 
      This function can be `NULL' if the stream is output-only.
 
- - Lstream Method: int writer (Lstream *STREAM, CONST unsigned char
-          *DATA, int SIZE)
+ - Lstream Method: ssize_t writer (Lstream *STREAM, CONST unsigned char
+          *DATA, size_t SIZE)
      Send some data to the stream's end.  Data to be sent is in DATA
      and is SIZE bytes.  Return the number of bytes sent.  This
      function can send and return fewer bytes than is passed in; in that
@@ -1028,9 +1031,9 @@ Window Hierarchy
    If a frame contains multiple windows (panes), they are always created
 by splitting an existing window along the horizontal or vertical axis.
 Terminology is a bit confusing here: to "split a window horizontally"
-means to create two side-by-side windows, i.e. to make a *vertical* cut
+means to create two side-by-side windows, i.e. to make a _vertical_ cut
 in a window.  Likewise, to "split a window vertically" means to create
-two windows, one above the other, by making a *horizontal* cut.
+two windows, one above the other, by making a _horizontal_ cut.
 
    If you split a window and then split again along the same axis, you
 will end up with a number of panes all arranged along the same axis.
@@ -1068,7 +1071,7 @@ combination window.
 
   5. All functions that accept windows must be prepared to accept
      combination windows, and do something sane (e.g. signal an error
-     if so).  Combination windows *do* escape to the Lisp level.
+     if so).  Combination windows _do_ escape to the Lisp level.
 
   6. All windows have three fields governing their contents: these are
      "hchild" (a list of horizontally-arrayed children), "vchild" (a

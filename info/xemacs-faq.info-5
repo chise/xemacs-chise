@@ -1,10 +1,44 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
 * FAQ: (xemacs-faq).		XEmacs FAQ.
 END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q5.0.17,  Next: Q5.0.18,  Prev: Q5.0.16,  Up: Miscellaneous
+
+Q5.0.17: How can I get two instances of info?
+---------------------------------------------
+
+   You can't.  The `info' package does not provide for multiple info
+buffers.
+
+
+File: xemacs-faq.info,  Node: Q5.0.18,  Next: Q5.0.19,  Prev: Q5.0.17,  Up: Miscellaneous
+
+Q5.0.18: I upgraded to XEmacs 19.14 and gnuserv stopped working.
+----------------------------------------------------------------
+
+   Mark Daku <daku@nortel.ca> writes:
+
+     It turns out I was using an older version of gnuserv.  The
+     installation didn't put the binary into the public bin directory.
+     It put it in `lib/xemacs-19.14/hppa1.1-hp-hpux9.05/gnuserv'.
+     Shouldn't it have been put in `bin/hppa1.1-hp-hpux9.0'?
+
+
+File: xemacs-faq.info,  Node: Q5.0.19,  Next: Q5.0.20,  Prev: Q5.0.18,  Up: Miscellaneous
+
+Q5.0.19: Is there something better than LaTeX mode?
+---------------------------------------------------
+
+   David Kastrup <dak@fsnif.neuroinformatik.ruhr-uni-bochum.de> writes:
+
+     The standard TeX modes leave much to be desired, and are somewhat
+     leniently maintained.  Serious TeX users use AUC TeX (*note
+     Q4.7.1::).
 
 
 File: xemacs-faq.info,  Node: Q5.0.20,  Next: Q5.1.1,  Prev: Q5.0.19,  Up: Miscellaneous
@@ -306,7 +340,7 @@ performance:
      using the more readable `incf' and `push' forms in your compiled
      code.
 
-     *Interpreted* code, on the other hand, must expand these macros
+     _Interpreted_ code, on the other hand, must expand these macros
      every time they are executed.  For this reason it is strongly
      recommended that code making heavy use of macros be compiled.  (The
      features labelled "Special Form" instead of "Function" in this
@@ -391,7 +425,7 @@ Q5.1.11: My elisp program is horribly slow.  Is there
 
    an easy way to find out where it spends time?
 
-   zHrvoje Niksic <hniksic@srce.hr> writes:
+   zHrvoje Niksic <hniksic@xemacs.org> writes:
      Under XEmacs 20.4 and later  you can use `M-x
      profile-key-sequence', press a key (say <RET> in the Gnus Group
      buffer), and get the results using `M-x profile-results'.  It
@@ -745,10 +779,10 @@ Q5.3.11: How do I add new Info directories?
 
        1. Emacs Info scans `Info-directory-list' from right-to-left
           while XEmacs Info reads it from left-to-right, so append to
-          the *correct* end of the list.
+          the _correct_ end of the list.
 
        2. Use `Info-default-directory-list' to initialize
-          `Info-directory-list' *if* it is available at startup, but not
+          `Info-directory-list' _if_ it is available at startup, but not
           all Emacsen define it.
 
        3. Emacs Info looks for a standard `dir' file in each of the
@@ -897,7 +931,7 @@ Q6.0.4: Procedural changes in XEmacs development.
      XEmacs 19.16 was the last 19 release, basically consisting of
      19.15 plus the collected bugfixes.
 
-  3. As of December 1996, Steve Baur <steve@altair.xemacs.org> has
-     become the lead maintainer of XEmacs.
+  3. As of December 1996, Steve Baur <steve@xemacs.org> has become the
+     lead maintainer of XEmacs.
 
 

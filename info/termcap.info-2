@@ -1,5 +1,5 @@
-This is Info file ../info/termcap.info, produced by Makeinfo version
-1.68 from the input file termcap.texi.
+This is ../info/termcap.info, produced by makeinfo version 4.0 from
+termcap.texi.
 
 START-INFO-DIR-ENTRY
 * Termcap: (termcap).		Termcap library of the GNU system.
@@ -36,7 +36,7 @@ For writing a terminal description, you must read each subsection and
 fill in the capabilities described there.
 
    String capabilities that are display commands may require numeric
-parameters (*note Parameters::.).  Most such capabilities do not use
+parameters (*note Parameters::).  Most such capabilities do not use
 parameters.  When a capability requires parameters, this is explicitly
 stated at the beginning of its definition.  In simple cases, the first
 or second sentence of the definition mentions all the parameters, in
@@ -76,7 +76,7 @@ should be omitted from terminal descriptions as well.
 * Meta Key::          <META> acts like an extra shift key.
 * Initialization::    Commands used to initialize or reset the terminal.
 * Pad Specs::         Info for the kernel on how much padding is needed.
-* Status Line::       A status line displays "background" information.
+* Status Line::       A status line displays ``background'' information.
 * Half-Line::         Moving by half-lines, for superscripts and subscripts.
 * Printer::           Controlling auxiliary printers of display terminals.
 
@@ -301,7 +301,7 @@ Even hardcopy terminals can support `nw'.
      carriage-return newline sequence.  But many terminal descriptions
      do use newline in the `do' string, so this is not possible; a
      program which sends the `do' string must disable output conversion
-     in the kernel (*note Initialize::.).
+     in the kernel (*note Initialize::).
 
 `bw'
      Flag whose presence says that `le' may be used in column zero to
@@ -393,9 +393,8 @@ programs.
 
      New programs should not assume any default for `ta', so they need
      not look at `xt' in connection with cursor motion.  Note that `xt'
-     also has implications for standout mode (*note Standout::.).  It
-     is obsolete in regard to cursor motion but not in regard to
-     standout.
+     also has implications for standout mode (*note Standout::).  It is
+     obsolete in regard to cursor motion but not in regard to standout.
 
      In fact, `xt' means that the terminal is a Teleray 1061.
 
@@ -416,7 +415,7 @@ programs.
      use the newline character for this purpose.  These programs follow
      a bad practice, but because they exist, it is still desirable to
      define the `nl' capability in a terminal description if the best
-     way to move down is *not* a newline.
+     way to move down is _not_ a newline.
 
 
 File: termcap.info,  Node: Wrapping,  Next: Scrolling,  Prev: Cursor Motion,  Up: Capabilities
@@ -441,7 +440,7 @@ column.
 
      Writing in the last column of the last line should be avoided on
      terminals with `am', as it may or may not cause scrolling to occur
-     (*note Scrolling::.).  Scrolling is surely not what you would
+     (*note Scrolling::).  Scrolling is surely not what you would
      intend.
 
      If your program needs to check the `am' flag, then it also needs
@@ -695,8 +694,7 @@ using any of these commands.
      cursor is on.  The existing line, and all lines below it, are
      moved down.  The last line in the screen (or in the scroll region,
      if one is set) disappears and in most circumstances is discarded.
-     It may not be discarded if the `db' is present (*note
-     Scrolling::.).
+     It may not be discarded if the `db' is present (*note Scrolling::).
 
      The cursor must be at the left margin before this command is used.
      This command does not move the cursor.
@@ -759,7 +757,7 @@ argument should be the total number of lines from the cursor to the
 bottom of the screen (or scroll region).  Very often these commands
 require padding proportional to this number of lines.  *Note Padding::.
 
-   For `AL' and `DL' the NLINES argument should *not* depend on the
+   For `AL' and `DL' the NLINES argument should _not_ depend on the
 number of lines inserted or deleted; only the total number of lines
 affected.  This is because it is just as fast to insert two or N lines
 with `AL' as to insert one line with `al'.
@@ -867,15 +865,15 @@ of these capabilities.
      If your terminal offers a choice of ways to insert--either use
      insert mode or use a special command--then define `im' and do not
      define `ic', since this gives the most efficient operation when
-     several characters are to be inserted.  *Do not* define both
-     strings, for that means that *both* must be used each time
+     several characters are to be inserted.  _Do not_ define both
+     strings, for that means that _both_ must be used each time
      insertion is done.
 
 `ip'
      String of commands to output following an inserted graphic
      character in insert mode.  Often it is used just for a padding
      spec, when padding is needed after an inserted character (*note
-     Padding::.).
+     Padding::).
 
 `IC'
      String of commands to insert N character positions at and after
@@ -895,7 +893,7 @@ of these capabilities.
      positions which have been cleared.
 
    An application program can assume that the terminal can do character
-insertion if *any one of* the capabilities `IC', `im', `ic' or `ip' is
+insertion if _any one of_ the capabilities `IC', `im', `ic' or `ip' is
 provided.
 
    To insert N blank character positions, move the cursor to the place

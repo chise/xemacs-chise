@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -64,15 +64,15 @@ excursion.
 
    The forms for saving and restoring the configuration of windows are
 described elsewhere (see *Note Window Configurations:: and *note Frame
-Configurations::.).
+Configurations::).
 
- - Special Form: save-excursion FORMS...
+ - Special Form: save-excursion forms...
      The `save-excursion' special form saves the identity of the current
      buffer and the values of point and the mark in it, evaluates
      FORMS, and finally restores the buffer and its saved values of
      point and the mark.  All three saved values are restored even in
      case of an abnormal exit via `throw' or error (*note Nonlocal
-     Exits::.).
+     Exits::).
 
      The `save-excursion' special form is the standard way to switch
      buffers or move point within one part of a program and avoid
@@ -87,7 +87,7 @@ Configurations::.).
      correspondences altered by functions such as `switch-to-buffer'.
      One way to restore these correspondences, and the selected window,
      is to use `save-window-excursion' inside `save-excursion' (*note
-     Window Configurations::.).
+     Window Configurations::).
 
      The value returned by `save-excursion' is the result of the last of
      FORMS, or `nil' if no FORMS are given.
@@ -104,21 +104,21 @@ Configurations::.).
               (goto-char old-pnt)
               (set-marker (mark-marker) old-mark)))
 
- - Special Form: save-current-buffer FORMS...
+ - Special Form: save-current-buffer forms...
      This special form is similar to `save-excursion' but it only saves
      and restores the current buffer.  Beginning with XEmacs 20.3,
      `save-current-buffer' is a primitive.
 
- - Special Form: with-current-buffer BUFFER FORMS...
+ - Special Form: with-current-buffer buffer forms...
      This special form evaluates FORMS with BUFFER as the current
      buffer.  It returns the value of the last form.
 
- - Special Form: with-temp-file FILE FORMS...
+ - Special Form: with-temp-file file forms...
      This special form creates a new buffer, evaluates FORMS there, and
      writes the buffer to FILE.  It returns the value of the last form
      evaluated.
 
- - Special Form: save-selected-window FORMS...
+ - Special Form: save-selected-window forms...
      This special form is similar to `save-excursion' but it saves and
      restores the selected window and nothing else.
 
@@ -146,7 +146,7 @@ which use them refuse to operate on text that is inaccessible.
    The commands for saving buffers are unaffected by narrowing; they
 save the entire buffer regardless of any narrowing.
 
- - Command: narrow-to-region START END &optional BUFFER
+ - Command: narrow-to-region start end &optional buffer
      This function sets the accessible portion of BUFFER to start at
      START and end at END.  Both arguments should be character
      positions.  BUFFER defaults to the current buffer if omitted.
@@ -154,17 +154,17 @@ save the entire buffer regardless of any narrowing.
      In an interactive call, START and END are set to the bounds of the
      current region (point and the mark, with the smallest first).
 
- - Command: narrow-to-page &optional MOVE-COUNT
+ - Command: narrow-to-page &optional move-count
      This function sets the accessible portion of the current buffer to
      include just the current page.  An optional first argument
      MOVE-COUNT non-`nil' means to move forward or backward by
      MOVE-COUNT pages and then narrow.  The variable `page-delimiter'
-     specifies where pages start and end (*note Standard Regexps::.).
+     specifies where pages start and end (*note Standard Regexps::).
 
      In an interactive call, MOVE-COUNT is set to the numeric prefix
      argument.
 
- - Command: widen &optional BUFFER
+ - Command: widen &optional buffer
      This function cancels any narrowing in BUFFER, so that the entire
      contents are accessible.  This is called "widening".  It is
      equivalent to the following expression:
@@ -173,13 +173,13 @@ save the entire buffer regardless of any narrowing.
 
      BUFFER defaults to the current buffer if omitted.
 
- - Special Form: save-restriction BODY...
+ - Special Form: save-restriction body...
      This special form saves the current bounds of the accessible
      portion, evaluates the BODY forms, and finally restores the saved
      bounds, thus restoring the same state of narrowing (or absence
      thereof) formerly in effect.  The state of narrowing is restored
      even in the event of an abnormal exit via `throw' or error (*note
-     Nonlocal Exits::.).  Therefore, this construct is a clean way to
+     Nonlocal Exits::).  Therefore, this construct is a clean way to
      narrow a buffer temporarily.
 
      The value returned by `save-restriction' is that returned by the
@@ -194,7 +194,7 @@ save the entire buffer regardless of any narrowing.
      restrictions it saved from), but it does not restore the identity
      of the current buffer.
 
-     `save-restriction' does *not* restore point and the mark; use
+     `save-restriction' does _not_ restore point and the mark; use
      `save-excursion' for that.  If you use both `save-restriction' and
      `save-excursion' together, `save-excursion' should come first (on
      the outside).  Otherwise, the old point value would be restored
@@ -262,8 +262,8 @@ deleted, so that it stays with the two characters on either side of it.
 * Creating Markers::         Making empty markers or markers at certain places.
 * Information from Markers:: Finding the marker's buffer or character position.
 * Changing Markers::         Moving the marker to a new buffer or position.
-* The Mark::                 How "the mark" is implemented with a marker.
-* The Region::               How to access "the region".
+* The Mark::                 How ``the mark'' is implemented with a marker.
+* The Region::               How to access ``the region''.
 
 
 File: lispref.info,  Node: Overview of Markers,  Next: Predicates on Markers,  Up: Markers
@@ -289,7 +289,7 @@ buffer.  Relocation changes the integer equivalent of the marker.
 the characters immediately before and after the deleted text.  Inserting
 text at the position of a marker normally leaves the marker in front of
 the new text--unless it is inserted with `insert-before-markers' (*note
-Insertion::.).
+Insertion::).
 
    Insertion and deletion in a buffer must check all the markers and
 relocate them if necessary.  This slows processing in a buffer with a
@@ -386,24 +386,24 @@ is either an integer or a marker or either an integer, a character, or a
 marker.  The latter tests are useful in connection with the arithmetic
 functions that work with any of markers, integers, or characters.
 
- - Function: markerp OBJECT
+ - Function: markerp object
      This function returns `t' if OBJECT is a marker, `nil' otherwise.
      Note that integers are not markers, even though many functions
      will accept either a marker or an integer.
 
- - Function: integer-or-marker-p OBJECT
+ - Function: integer-or-marker-p object
      This function returns `t' if OBJECT is an integer or a marker,
      `nil' otherwise.
 
- - Function: integer-char-or-marker-p OBJECT
+ - Function: integer-char-or-marker-p object
      This function returns `t' if OBJECT is an integer, a character, or
      a marker, `nil' otherwise.
 
- - Function: number-or-marker-p OBJECT
+ - Function: number-or-marker-p object
      This function returns `t' if OBJECT is a number (either kind) or a
      marker, `nil' otherwise.
 
- - Function: number-char-or-marker-p OBJECT
+ - Function: number-char-or-marker-p object
      This function returns `t' if OBJECT is a number (either kind), a
      character, or a marker, `nil' otherwise.
 
@@ -425,7 +425,7 @@ marker.
           (make-marker)
                => #<marker in no buffer>
 
- - Function: point-marker &optional DONT-COPY-P BUFFER
+ - Function: point-marker &optional dont-copy-p buffer
      This function returns a marker that points to the present position
      of point in BUFFER, which defaults to the current buffer.  *Note
      Point::.  For an example, see `copy-marker', below.
@@ -437,13 +437,13 @@ marker.
      modifying the position of this marker will move point.  It is
      illegal to change the buffer of it, or make it point nowhere.
 
- - Function: point-min-marker &optional BUFFER
+ - Function: point-min-marker &optional buffer
      This function returns a new marker that points to the beginning of
      the accessible portion of BUFFER, which defaults to the current
      buffer.  This will be the beginning of the buffer unless narrowing
      is in effect.  *Note Narrowing::.
 
- - Function: point-max-marker &optional BUFFER
+ - Function: point-max-marker &optional buffer
      This function returns a new marker that points to the end of the
      accessible portion of BUFFER, which defaults to the current
      buffer.  This will be the end of the buffer unless narrowing is in
@@ -465,7 +465,7 @@ marker.
           (point-max-marker)
                => #<marker at 200 in markers.texi>
 
- - Function: copy-marker MARKER-OR-INTEGER
+ - Function: copy-marker marker-or-integer
      If passed a marker as its argument, `copy-marker' returns a new
      marker that points to the same place and the same buffer as does
      MARKER-OR-INTEGER.  If passed an integer as its argument,
@@ -525,11 +525,11 @@ Information from Markers
    This section describes the functions for accessing the components of
 a marker object.
 
- - Function: marker-position MARKER
+ - Function: marker-position marker
      This function returns the position that MARKER points to, or `nil'
      if it points nowhere.
 
- - Function: marker-buffer MARKER
+ - Function: marker-buffer marker
      This function returns the buffer that MARKER points into, or `nil'
      if it points nowhere.
 
@@ -563,7 +563,7 @@ outside of your program, and, if so, what effects will result from
 moving it--otherwise, confusing things may happen in other parts of
 Emacs.
 
- - Function: set-marker MARKER POSITION &optional BUFFER
+ - Function: set-marker marker position &optional buffer
      This function moves MARKER to POSITION in BUFFER.  If BUFFER is
      not provided, it defaults to the current buffer.
 
@@ -584,7 +584,7 @@ Emacs.
           (set-marker m 0 b)
                => #<marker at 1 in foo>
 
- - Function: move-marker MARKER POSITION &optional BUFFER
+ - Function: move-marker marker position &optional buffer
      This is another name for `set-marker'.
 
 
@@ -647,7 +647,7 @@ mark on the mark ring.  The variable `mark-ring-max' specifies the
 maximum number of entries in the mark ring; once the list becomes this
 long, adding a new element deletes the last element.
 
- - Function: mark &optional FORCE BUFFER
+ - Function: mark &optional force buffer
      This function returns BUFFER's mark position as an integer.
      BUFFER defaults to the current buffer if omitted.
 
@@ -662,7 +662,7 @@ long, adding a new element deletes the last element.
      If you are using this in an editing command, you are most likely
      making a mistake; see the documentation of `set-mark' below.
 
- - Function: mark-marker INACTIVE-P BUFFER
+ - Function: mark-marker inactive-p buffer
      This function returns BUFFER's mark.  BUFFER defaults to the
      current buffer if omitted.  This is the very marker that records
      the mark location inside XEmacs, not a copy.  Therefore, changing
@@ -684,10 +684,10 @@ long, adding a new element deletes the last element.
      other than the one of which it is the mark.  If you do, it will
      yield perfectly consistent, but rather odd, results.
 
- - Function: set-mark POSITION &optional BUFFER
+ - Function: set-mark position &optional buffer
      This function sets `buffer''s mark to POSITION, and activates the
      mark.  BUFFER defaults to the current buffer if omitted.  The old
-     value of the mark is *not* pushed onto the mark ring.
+     value of the mark is _not_ pushed onto the mark ring.
 
      *Please note:* Use this function only if you want the user to see
      that the mark has moved, and you want the previous mark position to
@@ -707,12 +707,12 @@ long, adding a new element deletes the last element.
             (forward-line 1)
             (delete-region beg (point))).
 
- - Command: exchange-point-and-mark &optional DONT-ACTIVATE-REGION
+ - Command: exchange-point-and-mark &optional dont-activate-region
      This function exchanges the positions of point and the mark.  It
      is intended for interactive use.  The mark is also activated
      unless DONT-ACTIVATE-REGION is non-`nil'.
 
- - Function: push-mark &optional POSITION NOMSG ACTIVATE BUFFER
+ - Function: push-mark &optional position nomsg activate buffer
      This function sets BUFFER's mark to POSITION, and pushes a copy of
      the previous mark onto `mark-ring'.  BUFFER defaults to the
      current buffer if omitted.  If POSITION is `nil', then the value
@@ -721,7 +721,7 @@ long, adding a new element deletes the last element.
      If the last global mark pushed was not in BUFFER, also push
      POSITION on the global mark ring (see below).
 
-     The function `push-mark' normally *does not* activate the mark.
+     The function `push-mark' normally _does not_ activate the mark.
      To do that, specify `t' for the argument ACTIVATE.
 
      A `Mark set' message is displayed unless NOMSG is non-`nil'.
@@ -795,7 +795,7 @@ the beginning and end of the region.  This lets other Lisp programs
 specify the bounds explicitly as arguments and automatically respects
 the user's setting for ZMACS-REGIONS.  (*Note Interactive Codes::.)
 
- - Function: region-beginning &optional BUFFER
+ - Function: region-beginning &optional buffer
      This function returns the position of the beginning of BUFFER's
      region (as an integer).  This is the position of either point or
      the mark, whichever is smaller.  BUFFER defaults to the current
@@ -804,7 +804,7 @@ the user's setting for ZMACS-REGIONS.  (*Note Interactive Codes::.)
      If the mark does not point anywhere, an error is signaled.  Note
      that this function ignores whether the region is active.
 
- - Function: region-end &optional BUFFER
+ - Function: region-end &optional buffer
      This function returns the position of the end of BUFFER's region
      (as an integer).  This is the position of either point or the mark,
      whichever is larger.  BUFFER defaults to the current buffer if
@@ -872,7 +872,7 @@ the user's setting for ZMACS-REGIONS.  (*Note Interactive Codes::.)
  - Variable: zmacs-deactivate-region-hook
      This normal hook is called when an active region becomes inactive.
      (Calling `zmacs-deactivate-region' when the region is inactive will
-     *not* cause this hook to be called.)  If ZMACS-REGIONS is false,
+     _not_ cause this hook to be called.)  If ZMACS-REGIONS is false,
      this hook will never get called.
 
  - Variable: zmacs-update-region-hook
@@ -891,12 +891,12 @@ Text
 buffer.  Most examine, insert, or delete text in the current buffer,
 often in the vicinity of point.  Many are interactive.  All the
 functions that change the text provide for undoing the changes (*note
-Undo::.).
+Undo::).
 
    Many text-related functions operate on a region of text defined by
 two buffer positions passed in arguments named START and END.  These
-arguments should be either markers (*note Markers::.) or numeric
-character positions (*note Positions::.).  The order of these arguments
+arguments should be either markers (*note Markers::) or numeric
+character positions (*note Positions::).  The order of these arguments
 does not matter; it is all right for START to be the end of the region
 and END the beginning.  For example, `(delete-region 1 10)' and
 `(delete-region 10 1)' are equivalent.  An `args-out-of-range' error is
@@ -951,7 +951,7 @@ omitted. (In FSF Emacs, and earlier versions of XEmacs, these functions
 usually did not have these optional BUFFER arguments and always
 operated on the current buffer.)
 
- - Function: char-after POSITION &optional BUFFER
+ - Function: char-after position &optional buffer
      This function returns the character in the buffer at (i.e.,
      immediately after) position POSITION.  If POSITION is out of range
      for this purpose, either before the beginning of the buffer, or at
@@ -964,7 +964,7 @@ operated on the current buffer.)
           (char-to-string (char-after 1))
                => "@"
 
- - Function: following-char &optional BUFFER
+ - Function: following-char &optional buffer
      This function returns the character following point in the buffer.
      This is similar to `(char-after (point))'.  However, if point is at
      the end of the buffer, then the result of `following-char' is 0.
@@ -988,32 +988,32 @@ operated on the current buffer.)
           (char-to-string (following-char))
                => "c"
 
- - Function: preceding-char &optional BUFFER
+ - Function: preceding-char &optional buffer
      This function returns the character preceding point in the buffer.
      See above, under `following-char', for an example.  If point is at
      the beginning of the buffer, `preceding-char' returns 0.  If
      optional argument BUFFER is `nil', the current buffer is assumed.
 
- - Function: bobp &optional BUFFER
+ - Function: bobp &optional buffer
      This function returns `t' if point is at the beginning of the
      buffer.  If narrowing is in effect, this means the beginning of the
      accessible portion of the text.  If optional argument BUFFER is
      `nil', the current buffer is assumed.  See also `point-min' in
      *Note Point::.
 
- - Function: eobp &optional BUFFER
+ - Function: eobp &optional buffer
      This function returns `t' if point is at the end of the buffer.
      If narrowing is in effect, this means the end of accessible
      portion of the text.  If optional argument BUFFER is `nil', the
      current buffer is assumed.  See also `point-max' in *Note Point::.
 
- - Function: bolp &optional BUFFER
+ - Function: bolp &optional buffer
      This function returns `t' if point is at the beginning of a line.
      If optional argument BUFFER is `nil', the current buffer is
      assumed.  *Note Text Lines::.  The beginning of the buffer (or its
      accessible portion) always counts as the beginning of a line.
 
- - Function: eolp &optional BUFFER
+ - Function: eolp &optional buffer
      This function returns `t' if point is at the end of a line.  The
      end of the buffer is always considered the end of a line.  If
      optional argument BUFFER is `nil', the current buffer is assumed.
@@ -1029,8 +1029,8 @@ Examining Buffer Contents
    This section describes two functions that allow a Lisp program to
 convert any portion of the text in the buffer into a string.
 
- - Function: buffer-substring START END &optional BUFFER
- - Function: buffer-string START END &optional BUFFER
+ - Function: buffer-substring start end &optional buffer
+ - Function: buffer-string start end &optional buffer
      These functions are equivalent and return a string containing a
      copy of the text of the region defined by positions START and END
      in the buffer.  If the arguments are not positions in the
@@ -1066,8 +1066,8 @@ Comparing Text
    This function lets you compare portions of the text in a buffer,
 without copying them into strings first.
 
- - Function: compare-buffer-substrings BUFFER1 START1 END1 BUFFER2
-          START2 END2
+ - Function: compare-buffer-substrings buffer1 start1 end1 buffer2
+          start2 end2
      This function lets you compare two substrings of the same buffer
      or two different buffers.  The first three arguments specify one
      substring, giving a buffer and two positions within the buffer.
@@ -1104,7 +1104,7 @@ after point.
 
    Insertion relocates markers that point at positions after the
 insertion point, so that they stay with the surrounding text (*note
-Markers::.).  When a marker points at the place of insertion, insertion
+Markers::).  When a marker points at the place of insertion, insertion
 normally doesn't relocate the marker, so that it points to the
 beginning of the inserted text; however, certain special functions such
 as `insert-before-markers' relocate such markers to point after the
@@ -1126,13 +1126,13 @@ properties as the characters they were copied from.  By contrast,
 characters specified as separate arguments, not part of a string or
 buffer, inherit their text properties from the neighboring text.
 
- - Function: insert &rest ARGS
+ - Function: insert &rest args
      This function inserts the strings and/or characters ARGS into the
      current buffer, at point, moving point forward.  In other words, it
      inserts the text before point.  An error is signaled unless all
      ARGS are either strings or characters.  The value is `nil'.
 
- - Function: insert-before-markers &rest ARGS
+ - Function: insert-before-markers &rest args
      This function inserts the strings and/or characters ARGS into the
      current buffer, at point, moving point forward.  An error is
      signaled unless all ARGS are either strings or characters.  The
@@ -1142,21 +1142,21 @@ buffer, inherit their text properties from the neighboring text.
      relocates markers initially pointing at the insertion point, to
      point after the inserted text.
 
- - Function: insert-string STRING &optional BUFFER
+ - Function: insert-string string &optional buffer
      This function inserts STRING into BUFFER before point.  BUFFER
      defaults to the current buffer if omitted.  This function is
      chiefly useful if you want to insert a string in a buffer other
      than the current one (otherwise you could just use `insert').
 
- - Function: insert-char CHARACTER COUNT &optional BUFFER
+ - Function: insert-char character count &optional buffer
      This function inserts COUNT instances of CHARACTER into BUFFER
      before point.  COUNT must be a number, and CHARACTER must be a
      character.  The value is `nil'.  If optional argument BUFFER is
      `nil', the current buffer is assumed. (In FSF Emacs, the third
      argument is called INHERIT and refers to text properties.)
 
- - Function: insert-buffer-substring FROM-BUFFER-OR-NAME &optional
-          START END
+ - Function: insert-buffer-substring from-buffer-or-name &optional
+          start end
      This function inserts a portion of buffer FROM-BUFFER-OR-NAME
      (which must already exist) into the current buffer before point.
      The text inserted is the region from START and END.  (These

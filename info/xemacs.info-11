@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -95,7 +95,7 @@ broken up into files.  It lists the names of the component files and the
 names and positions of the functions (or other named subunits) in each
 file.  Grouping the related files makes it possible to search or replace
 through all the files with one command.  Recording the function names
-and positions makes possible the `M-.'  command which finds the
+and positions makes possible the `M-.' command which finds the
 definition of a function by looking up which of the files it is in.
 
    Tags tables are stored in files called "tags table files".  The
@@ -115,13 +115,14 @@ recorded is called a "tag".
 
 * Tag Syntax::		Tag syntax for various types of code and text files.
 * Create Tags Table::	Creating a tags table with `etags'.
+* Etags Regexps::       Create arbitrary tags using regular expressions.
 * Select Tags Table::	How to visit a tags table.
 * Find Tag::		Commands to find the definition of a specific tag.
 * Tags Search::		Using a tags table for searching and replacing.
 * List Tags::		Listing and finding tags defined in a file.
 
 
-File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Up: Tags
+File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Prev: Tags,  Up: Tags
 
 Source File Tag Syntax
 ----------------------
@@ -129,23 +130,26 @@ Source File Tag Syntax
    Here is how tag syntax is defined for the most popular languages:
 
    * In C code, any C function or typedef is a tag, and so are
-     definitions of `struct', `union' and `enum'.  `#define' macro
-     definitions and `enum' constants are also tags, unless you specify
-     `--no-defines' when making the tags table.  Similarly, global
-     variables are tags, unless you specify `--no-globals'.  Use of
-     `--no-globals' and `--no-defines' can make the tags table file
-     much smaller.
+     definitions of `struct', `union' and `enum'.  You can tag function
+     declarations and external variables in addition to function
+     definitions by giving the `--declarations' option to `etags'.
+     `#define' macro definitions and `enum' constants are also tags,
+     unless you specify `--no-defines' when making the tags table.
+     Similarly, global variables are tags, unless you specify
+     `--no-globals'.  Use of `--no-globals' and `--no-defines' can make
+     the tags table file much smaller.
 
    * In C++ code, in addition to all the tag constructs of C code,
      member functions are also recognized, and optionally member
      variables if you use the `--members' option.  Tags for variables
      and functions in classes are named `CLASS::VARIABLE' and
-     `CLASS::FUNCTION'.
+     `CLASS::FUNCTION'.  `operator' functions tags are named, for
+     example `operator+'.
 
    * In Java code, tags include all the constructs recognized in C++,
-     plus the `extends' and `implements' constructs.  Tags for variables
-     and functions in classes are named `CLASS.VARIABLE' and
-     `CLASS.FUNCTION'.
+     plus the `interface', `extends' and `implements' constructs.  Tags
+     for variables and functions in classes are named `CLASS.VARIABLE'
+     and `CLASS.FUNCTION'.
 
    * In LaTeX text, the argument of any of the commands `\chapter',
      `\section', `\subsection', `\subsubsection', `\eqno', `\label',
@@ -155,7 +159,7 @@ Source File Tag Syntax
      Other commands can make tags as well, if you specify them in the
      environment variable `TEXTAGS' before invoking `etags'.  The value
      of this environment variable should be a colon-separated list of
-     commands names.  For example,
+     command names.  For example,
 
           TEXTAGS="def:newcommand:newenvironment"
           export TEXTAGS
@@ -174,6 +178,10 @@ Source File Tag Syntax
 
    Several other languages are also supported:
 
+   * In Ada code, functions, procedures, packages, tasks, and types are
+     tags.  Use the `--packages-only' option to create tags for packages
+     only.
+
    * In assembler code, labels appearing at the beginning of a line,
      followed by a colon, are tags.
 
@@ -181,32 +189,36 @@ Source File Tag Syntax
      nonterminal it constructs.  The portions of the file that contain
      C code are parsed as C code.
 
-   * In Cobol code, paragraphs names are the tags, i.e. any word
-     starting in column 8 and followed by a full stop.
+   * In Cobol code, tags are paragraph names; that is, any word
+     starting in column 8 and followed by a period.
 
    * In Erlang code, the tags are the functions, records, and macros
      defined in the file.
 
-   * In Fortran code, functions and subroutines are tags.
+   * In Fortran code, functions, subroutines and blockdata are tags.
 
    * In Objective C code, tags include Objective C definitions for
-     classes, class categories, methods and protocols.
+     classes, class categories, methods, and protocols.
 
    * In Pascal code, the tags are the functions and procedures defined
      in the file.
 
-   * In Perl code, the tags are the procedures defined by the `sub'
-     keyword.
+   * In Perl code, the tags are the procedures defined by the `sub',
+     `my' and `local' keywords.  Use `--globals' if you want to tag
+     global variables.
 
    * In Postscript code, the tags are the functions.
 
    * In Prolog code, a tag name appears at the left margin.
 
-   You can also generate tags based on regexp matching (*note Create
-Tags Table::.) to handle other formats and languages.
+   * In Python code, `def' or `class' at the beginning of a line
+     generate a tag.
+
+   You can also generate tags based on regexp matching (*note Etags
+Regexps::) to handle other formats and languages.
 
 
-File: xemacs.info,  Node: Create Tags Table,  Next: Select Tags Table,  Prev: Tag Syntax,  Up: Tags
+File: xemacs.info,  Node: Create Tags Table,  Next: Etags Regexps,  Prev: Tag Syntax,  Up: Tags
 
 Creating Tags Tables
 --------------------
@@ -218,10 +230,18 @@ Here is how to run `etags':
      etags INPUTFILES...
 
 The `etags' program reads the specified files, and writes a tags table
-named `TAGS' in the current working directory.  `etags' recognizes the
-language used in an input file based on its file name and contents.
-You can specify the language with the `--language=NAME' option,
-described below.
+named `TAGS' in the current working directory.  You can intermix
+compressed and plain text source file names.  `etags' knows about the
+most common compression formats, and does the right thing.  So you can
+compress all your source files and have `etags' look for compressed
+versions of its file name arguments, if it does not find uncompressed
+versions.  Under MS-DOS, `etags' also looks for file names like
+`mycode.cgz' if it is given `mycode.c' on the command line and
+`mycode.c' does not exist.
+
+   `etags' recognizes the language used in an input file based on its
+file name and contents.  You can specify the language with the
+`--language=NAME' option, described below.
 
    If the tags table data become outdated due to changes in the files
 described in the table, the way to update the tags table is the same
@@ -258,7 +278,7 @@ files.
 tags file will contain absolute file names.  This way, the tags file
 will still refer to the same files even if you move it, as long as the
 source files remain in the same place.  Absolute file names start with
-`/', or with `DEVICE:/' on MS-DOS and Windows.
+`/', or with `DEVICE:/' on MS-DOS and MS-Windows.
 
    When you want to make a tags table from a great number of files, you
 may have problems listing them on the command line, because some systems
@@ -274,8 +294,17 @@ the file names that follow it.  Specify `--language=auto' to tell
 `etags' to resume guessing the language from the file names and file
 contents.  Specify `--language=none' to turn off language-specific
 processing entirely; then `etags' recognizes tags by regexp matching
-alone.  `etags --help' prints the list of the languages `etags' knows,
-and the file name rules for guessing the language.
+alone (*note Etags Regexps::).
+
+   `etags --help' prints the list of the languages `etags' knows, and
+the file name rules for guessing the language. It also prints a list of
+all the available `etags' options, together with a short explanation.
+
+
+File: xemacs.info,  Node: Etags Regexps,  Next: Select Tags Table,  Prev: Create Tags Table,  Up: Tags
+
+Etags Regexps
+-------------
 
    The `--regex' option provides a general way of recognizing tags
 based on regexp matching.  You can freely intermix it with file names.
@@ -300,9 +329,15 @@ N times.
 
    You should not match more characters with TAGREGEXP than that needed
 to recognize what you want to tag.  If the match is such that more
-characters than needed are unavoidably matched by TAGREGEXP, you may
-find useful to add a NAMEREGEXP, in order to narrow the tag scope.  You
-can find some examples below.
+characters than needed are unavoidably matched by TAGREGEXP (as will
+usually be the case), you should add a NAMEREGEXP, to pick out just the
+tag.  This will enable Emacs to find tags more accurately and to do
+completion on tag names more reliably.  You can find some examples
+below.
+
+   The option `--ignore-case-regex' (or `-c') is like `--regex', except
+that the regular expression provided will be matched without regard to
+case, which is appropriate for various programming languages.
 
    The `-R' option deletes all the regexps defined with `--regex'
 options.  It applies to the file names following it, as you can see
@@ -317,30 +352,65 @@ additional tags in `voo.doo', and both REG1 and REG2 to recognize
 additional tags in `bar.ber'.  `etags' uses the Lisp tags rules, and no
 regexp matching, to recognize tags in `los.er'.
 
+   A regular expression can be bound to a given language, by prepending
+it with `{lang}'.  When you do this, `etags' will use the regular
+expression only for files of that language.  `etags --help' prints the
+list of languages recognised by `etags'.  The following example tags
+the `DEFVAR' macros in the Emacs source files.  `etags' applies this
+regular expression to C files only:
+
+     --regex='{c}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/'
+
+This feature is particularly useful when storing a list of regular
+expressions in a file.  The following option syntax instructs `etags'
+to read two files of regular expressions.  The regular expressions
+contained in the second file are matched without regard to case.
+
+     --regex=@first-file --ignore-case-regex=@second-file
+
+A regex file contains one regular expressions per line.  Empty lines,
+and lines beginning with space or tab are ignored.  When the first
+character in a line is `@', `etags' assumes that the rest of the line
+is the name of a file of regular expressions.  This means that such
+files can be nested.  All the other lines are taken to be regular
+expressions.  For example, one can create a file called `emacs.tags'
+with the following contents (the first line in the file is a comment):
+
+             -- This is for GNU Emacs source files
+     {c}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/\1/
+
+and then use it like this:
+
+     etags --regex=@emacs.tags *.[ch] */*.[ch]
+
    Here are some more examples.  The regexps are quoted to protect them
 from shell interpretation.
 
-Tag the `DEFVAR' macros in the emacs source files:
+   * Tag Octave files:
 
-     --regex='/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/'
+          etags --language=none \
+                --regex='/[ \t]*function.*=[ \t]*\([^ \t]*\)[ \t]*(/\1/' \
+                --regex='/###key \(.*\)/\1/' \
+                --regex='/[ \t]*global[ \t].*/' \
+                *.m
 
-Tag VHDL files (this example is a single long line, broken here for
-formatting reasons):
+     Note that tags are not generated for scripts so that you have to
+     add a line by yourself of the form `###key <script-name>' if you
+     want to jump to it.
 
-     --language=none
-     --regex='/[ \t]*\(ARCHITECTURE\|CONFIGURATION\) +[^ ]* +OF/'
-     --regex='/[ \t]*\(ATTRIBUTE\|ENTITY\|FUNCTION\|PACKAGE\
-     \( BODY\)?\|PROCEDURE\|PROCESS\|TYPE\)[ \t]+\([^ \t(]+\)/\3/'
+   * Tag Tcl files:
 
-Tag TCL files (this last example shows the usage of a NAMEREGEXP):
+          etags --language=none --regex='/proc[ \t]+\([^ \t]+\)/\1/' *.tcl
 
-     --lang=none --regex='/proc[ \t]+\([^ \t]+\)/\1/'
+   * Tag VHDL files:
 
-   For a list of the other available `etags' options, execute `etags
---help'.
+          --language=none \
+          --regex='/[ \t]*\(ARCHITECTURE\|CONFIGURATION\) +[^ ]* +OF/' \
+          --regex='/[ \t]*\(ATTRIBUTE\|ENTITY\|FUNCTION\|PACKAGE\
+          \( BODY\)?\|PROCEDURE\|PROCESS\|TYPE\)[ \t]+\([^ \t(]+\)/\3/'
 
 
-File: xemacs.info,  Node: Select Tags Table,  Next: Find Tag,  Prev: Create Tags Table,  Up: Tags
+File: xemacs.info,  Node: Select Tags Table,  Next: Find Tag,  Prev: Etags Regexps,  Up: Tags
 
 Selecting a Tags Table
 ----------------------
@@ -508,7 +578,7 @@ Searching and Replacing with Tags Tables
    The commands in this section visit and search all the files listed
 in the selected tags table, one by one.  For these commands, the tags
 table serves only to specify a sequence of files to search.  A related
-command is `M-x grep' (*note Compilation::.).
+command is `M-x grep' (*note Compilation::).
 
 `M-x tags-search <RET> REGEXP <RET>'
      Search for REGEXP through the files in the selected tags table.
@@ -806,7 +876,7 @@ standard Emacs comment commands and defines some new variables.
 comments start with `!' and can follow other text.  Because only some
 Fortran compilers accept this syntax, Fortran mode will not insert such
 comments unless you have specified to do so in advance by setting the
-variable `comment-start' to `"!"' (*note Variables::.).
+variable `comment-start' to `"!"' (*note Variables::).
 
 `M-;'
      Align comment or insert new comment (`fortran-comment-indent').
@@ -915,7 +985,7 @@ Fortran Keyword Abbrevs
 
    Fortran mode provides many built-in abbrevs for common keywords and
 declarations.  These are the same sort of abbrevs that you can define
-yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::..
+yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
 
    The built-in abbrevs are unusual in one way: they all start with a
 semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
@@ -1020,7 +1090,7 @@ line is used again.  The first `M-x compile' provides `make -k' as the
 default.  The default is taken from the variable `compile-command'; if
 the appropriate compilation command for a file is something other than
 `make -k', it can be useful to have the file specify a local value for
-`compile-command' (*note File Variables::.).
+`compile-command' (*note File Variables::).
 
    When you start a compilation, the buffer `*compilation*' is
 displayed in another window but not selected.  Its mode line displays
@@ -1106,7 +1176,7 @@ Lisp mode
 Inferior Lisp mode
      The mode for an interactive session with an inferior Lisp process.
      This mode combines the special features of Lisp mode and Shell mode
-     (*note Shell Mode::.).
+     (*note Shell Mode::).
 
 Scheme mode
      Like Lisp mode but for Scheme programs.
@@ -1123,7 +1193,7 @@ Libraries of Lisp Code for Emacs
 
    Lisp code for Emacs editing commands is stored in files whose names
 conventionally end in `.el'.  This ending tells Emacs to edit them in
-Emacs-Lisp mode (*note Lisp Modes::.).
+Emacs-Lisp mode (*note Lisp Modes::).
 
 * Menu:
 
