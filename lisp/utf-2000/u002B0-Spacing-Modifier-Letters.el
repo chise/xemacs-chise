@@ -202,6 +202,7 @@
      ((name		  . "CARON")
       (=ucs		  . #x02C7)	; Ë‡
       ))
+    (=ucs@jis		. #x02C7)	; ø»¢ š
     (=jis-x0213-1-2000	. #x2A31)	; ø»¢ š
     (=cns11643-1	. #x256F)	; ø»‘‰¢
     (=jis-x0212		. #x2230)	; ø»Š¥½
@@ -209,7 +210,6 @@
     (=gb2312		. #x2126)	; ø»„†‰
     (=big5		. #xA3BE)	; ý¢€ŠŽ¾
     (=jef-china3	. #x81AB)	; øºˆ†«
-    (=ucs@jis		. #x02C7)	; ø»¢ š
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -234,8 +234,8 @@
      ((name		  . "MODIFIER LETTER VERTICAL LINE")
       (=ucs		  . #x02C8)	; Ëˆ
       ))
-    (=jis-x0213-1-2000	. #x2B53)	; ø»¢¢š
     (=ucs@jis		. #x02C8)	; ø»¢¢š
+    (=jis-x0213-1-2000	. #x2B53)	; ø»¢¢š
     ))
 (define-char
   '((name		. "MODIFIER LETTER MACRON")
@@ -343,8 +343,8 @@
      ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
       (=ucs		  . #x02CC)	; ËŒ
       ))
-    (=jis-x0213-1-2000	. #x2B54)	; ø»¢¢›
     (=ucs@jis		. #x02CC)	; ø»¢¢›
+    (=jis-x0213-1-2000	. #x2B54)	; ø»¢¢›
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW MACRON")
@@ -391,9 +391,9 @@
      ((name		  . "MODIFIER LETTER TRIANGULAR COLON")
       (=ucs		  . #x02D0)	; Ë
       ))
+    (=ucs@jis		. #x02D0)	; ø»¢¢œ
     (=jis-x0213-1-2000	. #x2B55)	; ø»¢¢œ
     (=ks-x1001		. #x2230)	; ø»ˆ›¹
-    (=ucs@jis		. #x02D0)	; ø»¢¢œ
     ))
 (define-char
   '((name		. "MODIFIER LETTER HALF TRIANGULAR COLON")
@@ -417,8 +417,8 @@
      ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
       (=ucs		  . #x02D1)	; Ë‘
       ))
-    (=jis-x0213-1-2000	. #x2B56)	; ø»¢¢
     (=ucs@jis		. #x02D1)	; ø»¢¢
+    (=jis-x0213-1-2000	. #x2B56)	; ø»¢¢
     ))
 (define-char
   '((name		. "MODIFIER LETTER CENTRED RIGHT HALF RING")
@@ -489,11 +489,11 @@
      ((name		  . "BREVE")
       (=ucs		  . #x02D8)	; Ë˜
       ))
+    (=ucs@jis		. #x02D8)	; ø»¢ ‹
     (=jis-x0213-1-2000	. #x2A22)	; ø»¢ ‹
     (=jis-x0212		. #x222F)	; ø»Š¥¼
     (=ks-x1001		. #x2228)	; ø»ˆ›±
     (=jef-china3	. #x81A8)	; øºˆ†¨
-    (=ucs@jis		. #x02D8)	; ø»¢ ‹
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -526,13 +526,13 @@
      ((name		  . "DOT ABOVE")
       (=ucs		  . #x02D9)	; Ë™
       ))
+    (=ucs@jis		. #x02D9)	; ø»¢¡
     (=jis-x0213-1-2000	. #x2A58)	; ø»¢¡
     (=cns11643-1	. #x256C)	; ø»‘‰Ÿ
     (=jis-x0212		. #x2232)	; ø»Š¥¿
     (=ks-x1001		. #x222B)	; ø»ˆ›´
     (=big5		. #xA3BB)	; ý¢€ŠŽ»
     (=jef-china3	. #x81A9)	; øºˆ†©
-    (=ucs@jis		. #x02D9)	; ø»¢¡
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -559,10 +559,10 @@
      ((name		  . "RING ABOVE")
       (=ucs		  . #x02DA)	; Ëš
       ))
+    (=ucs@jis		. #x02DA)	; ø»Š¦ƒ
     (=jis-x0212		. #x2236)	; ø»Š¦ƒ
     (=ks-x1001		. #x222A)	; ø»ˆ›³
     (=jef-china3	. #x81AC)	; øºˆ†¬
-    (=ucs@jis		. #x02DA)	; ø»Š¦ƒ
     ))
 (define-char
   '((name		. "OGONEK")
@@ -590,11 +590,11 @@
      ((name		  . "OGONEK")
       (=ucs		  . #x02DB)	; Ë›
       ))
+    (=ucs@jis		. #x02DB)	; ø»¢ –
     (=jis-x0213-1-2000	. #x2A2D)	; ø»¢ –
     (=jis-x0212		. #x2235)	; ø»Š¦‚
     (=ks-x1001		. #x222D)	; ø»ˆ›¶
     (=jef-china3	. #x81B3)	; øºˆ†³
-    (=ucs@jis		. #x02DB)	; ø»¢ –
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -630,11 +630,11 @@
      ((name		  . "DOUBLE ACUTE ACCENT")
       (=ucs		  . #x02DD)	; Ë
       ))
+    (=ucs@jis		. #x02DD)	; ø»¢ Ÿ
     (=jis-x0213-1-2000	. #x2A36)	; ø»¢ Ÿ
     (=jis-x0212		. #x2233)	; ø»Š¦€
     (=ks-x1001		. #x2229)	; ø»ˆ›²
     (=jef-china3	. #x81B0)	; øºˆ†°
-    (=ucs@jis		. #x02DD)	; ø»¢ Ÿ
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")
@@ -658,8 +658,8 @@
      ((name		  . "MODIFIER LETTER RHOTIC HOOK")
       (=ucs		  . #x02DE)	; Ëž
       ))
-    (=jis-x0213-1-2000	. #x2B71)	; ø»¢¢¸
     (=ucs@jis		. #x02DE)	; ø»¢¢¸
+    (=jis-x0213-1-2000	. #x2B71)	; ø»¢¢¸
     ))
 (define-char
   '((name		. "MODIFIER LETTER CROSS ACCENT")
@@ -730,8 +730,8 @@
      ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
       (=ucs		  . #x02E5)	; Ë¥
       ))
-    (=jis-x0213-1-2000	. #x2B60)	; ø»¢¢§
     (=ucs@jis		. #x02E5)	; ø»¢¢§
+    (=jis-x0213-1-2000	. #x2B60)	; ø»¢¢§
     ))
 (define-char
   '((name		. "MODIFIER LETTER HIGH TONE BAR")
@@ -755,8 +755,8 @@
      ((name		  . "MODIFIER LETTER HIGH TONE BAR")
       (=ucs		  . #x02E6)	; Ë¦
       ))
-    (=jis-x0213-1-2000	. #x2B61)	; ø»¢¢¨
     (=ucs@jis		. #x02E6)	; ø»¢¢¨
+    (=jis-x0213-1-2000	. #x2B61)	; ø»¢¢¨
     ))
 (define-char
   '((name		. "MODIFIER LETTER MID TONE BAR")
@@ -780,8 +780,8 @@
      ((name		  . "MODIFIER LETTER MID TONE BAR")
       (=ucs		  . #x02E7)	; Ë§
       ))
-    (=jis-x0213-1-2000	. #x2B62)	; ø»¢¢©
     (=ucs@jis		. #x02E7)	; ø»¢¢©
+    (=jis-x0213-1-2000	. #x2B62)	; ø»¢¢©
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW TONE BAR")
@@ -805,8 +805,8 @@
      ((name		  . "MODIFIER LETTER LOW TONE BAR")
       (=ucs		  . #x02E8)	; Ë¨
       ))
-    (=jis-x0213-1-2000	. #x2B63)	; ø»¢¢ª
     (=ucs@jis		. #x02E8)	; ø»¢¢ª
+    (=jis-x0213-1-2000	. #x2B63)	; ø»¢¢ª
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-LOW TONE BAR")
@@ -830,8 +830,8 @@
      ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")
       (=ucs		  . #x02E9)	; Ë©
       ))
-    (=jis-x0213-1-2000	. #x2B64)	; ø»¢¢«
     (=ucs@jis		. #x02E9)	; ø»¢¢«
+    (=jis-x0213-1-2000	. #x2B64)	; ø»¢¢«
     ))
 (define-char
   '((name		. "MODIFIER LETTER YIN DEPARTING TONE MARK")

@@ -41,8 +41,8 @@
     (->decomposition	compat #x0020 #x0301)
     (->fullwidth
      ((name		  . "fullwidth greek tonos")
-      (=jis-x0212	  . #x2238)	; ø»Š¦…
       (=ucs@jis		  . #x0384)	; ø»Š¦…
+      (=jis-x0212	  . #x2238)	; ø»Š¦…
       ))
     (=ucs		. #x0384)	; Î„
     (greek-iso8859-7	. #xB4)	; øº’»´
@@ -58,8 +58,8 @@
      ((name		  . "GREEK TONOS")
       (=ucs		  . #x0384)	; Î„
       ))
-    (=jis-x0212		. #x2238)	; ø»Š¦…
     (=ucs@jis		. #x0384)	; ø»Š¦…
+    (=jis-x0212		. #x2238)	; ø»Š¦…
     ))
 (define-char
   '((name		. "GREEK DIALYTIKA TONOS")
@@ -69,8 +69,8 @@
     (->decomposition	#x00A8 #x0301)
     (->fullwidth
      ((name		  . "fullwidth greek dialytika tonos")
-      (=jis-x0212	  . #x2239)	; ø»Š¦†
       (=ucs@jis		  . #x0385)	; ø»Š¦†
+      (=jis-x0212	  . #x2239)	; ø»Š¦†
       ))
     (=ucs		. #x0385)	; Î…
     (greek-iso8859-7	. #xB5)	; øº’»µ
@@ -86,8 +86,8 @@
      ((name		  . "GREEK DIALYTIKA TONOS")
       (=ucs		  . #x0385)	; Î…
       ))
-    (=jis-x0212		. #x2239)	; ø»Š¦†
     (=ucs@jis		. #x0385)	; ø»Š¦†
+    (=jis-x0212		. #x2239)	; ø»Š¦†
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ALPHA WITH TONOS")
@@ -97,8 +97,8 @@
     (->decomposition	#x0391 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter alpha with tonos")
-      (=jis-x0212	  . #x2661)	; ø»Š¬¦
       (=ucs@jis		  . #x0386)	; ø»Š¬¦
+      (=jis-x0212	  . #x2661)	; ø»Š¬¦
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
@@ -121,8 +121,8 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x0386)	; Î†
       ))
-    (=jis-x0212		. #x2661)	; ø»Š¬¦
     (=ucs@jis		. #x0386)	; ø»Š¬¦
+    (=jis-x0212		. #x2661)	; ø»Š¬¦
     ))
 (define-char
   '((name		. "GREEK ANO TELEIA")
@@ -140,8 +140,8 @@
     (->decomposition	#x0395 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter epsilon with tonos")
-      (=jis-x0212	  . #x2662)	; ø»Š¬§
       (=ucs@jis		  . #x0388)	; ø»Š¬§
+      (=jis-x0212	  . #x2662)	; ø»Š¬§
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
@@ -164,8 +164,8 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x0388)	; Îˆ
       ))
-    (=jis-x0212		. #x2662)	; ø»Š¬§
     (=ucs@jis		. #x0388)	; ø»Š¬§
+    (=jis-x0212		. #x2662)	; ø»Š¬§
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ETA WITH TONOS")
@@ -175,8 +175,8 @@
     (->decomposition	#x0397 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter eta with tonos")
-      (=jis-x0212	  . #x2663)	; ø»Š¬¨
       (=ucs@jis		  . #x0389)	; ø»Š¬¨
+      (=jis-x0212	  . #x2663)	; ø»Š¬¨
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
@@ -199,8 +199,8 @@
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
       (=ucs		  . #x0389)	; Î‰
       ))
-    (=jis-x0212		. #x2663)	; ø»Š¬¨
     (=ucs@jis		. #x0389)	; ø»Š¬¨
+    (=jis-x0212		. #x2663)	; ø»Š¬¨
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER IOTA WITH TONOS")
@@ -210,8 +210,8 @@
     (->decomposition	#x0399 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter iota with tonos")
-      (=jis-x0212	  . #x2664)	; ø»Š¬©
       (=ucs@jis		  . #x038A)	; ø»Š¬©
+      (=jis-x0212	  . #x2664)	; ø»Š¬©
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
@@ -234,8 +234,8 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
       (=ucs		  . #x038A)	; ÎŠ
       ))
-    (=jis-x0212		. #x2664)	; ø»Š¬©
     (=ucs@jis		. #x038A)	; ø»Š¬©
+    (=jis-x0212		. #x2664)	; ø»Š¬©
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMICRON WITH TONOS")
@@ -245,8 +245,8 @@
     (->decomposition	#x039F #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter omicron with tonos")
-      (=jis-x0212	  . #x2667)	; ø»Š¬¬
       (=ucs@jis		  . #x038C)	; ø»Š¬¬
+      (=jis-x0212	  . #x2667)	; ø»Š¬¬
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
@@ -269,8 +269,8 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x038C)	; ÎŒ
       ))
-    (=jis-x0212		. #x2667)	; ø»Š¬¬
     (=ucs@jis		. #x038C)	; ø»Š¬¬
+    (=jis-x0212		. #x2667)	; ø»Š¬¬
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER UPSILON WITH TONOS")
@@ -280,8 +280,8 @@
     (->decomposition	#x03A5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter upsilon with tonos")
-      (=jis-x0212	  . #x2669)	; ø»Š¬®
       (=ucs@jis		  . #x038E)	; ø»Š¬®
+      (=jis-x0212	  . #x2669)	; ø»Š¬®
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
@@ -304,8 +304,8 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x038E)	; ÎŽ
       ))
-    (=jis-x0212		. #x2669)	; ø»Š¬®
     (=ucs@jis		. #x038E)	; ø»Š¬®
+    (=jis-x0212		. #x2669)	; ø»Š¬®
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMEGA WITH TONOS")
@@ -315,8 +315,8 @@
     (->decomposition	#x03A9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter omega with tonos")
-      (=jis-x0212	  . #x266C)	; ø»Š¬±
       (=ucs@jis		  . #x038F)	; ø»Š¬±
+      (=jis-x0212	  . #x266C)	; ø»Š¬±
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
@@ -339,8 +339,8 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x038F)	; Î
       ))
-    (=jis-x0212		. #x266C)	; ø»Š¬±
     (=ucs@jis		. #x038F)	; ø»Š¬±
+    (=jis-x0212		. #x266C)	; ø»Š¬±
     ))
 (define-char
   '((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
@@ -350,8 +350,8 @@
     (->decomposition	#x03CA #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with dialytika and tonos")
-      (=jis-x0212	  . #x2676)	; ø»Š¬»
       (=ucs@jis		  . #x0390)	; ø»Š¬»
+      (=jis-x0212	  . #x2676)	; ø»Š¬»
       ))
     (=ucs		. #x0390)	; Î
     (greek-iso8859-7	. #xC0)	; øº’¼€
@@ -367,8 +367,8 @@
      ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x0390)	; Î
       ))
-    (=jis-x0212		. #x2676)	; ø»Š¬»
     (=ucs@jis		. #x0390)	; ø»Š¬»
+    (=jis-x0212		. #x2676)	; ø»Š¬»
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ALPHA")
@@ -403,12 +403,12 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
       (=ucs		  . #x0391)	; Î‘
       ))
+    (=ucs@jis		. #x0391)	; ø»‘ˆŠ
     (=cns11643-1	. #x2475)	; ø»‘ˆŠ
     (=ks-x1001		. #x2541)	; ø»ˆ ¤
     (=gb2312		. #x2621)	; ø»„š
     (=jis-x0208		. #x2621)	; ø½‰½’
     (=big5		. #xA344)	; ý¢€Š„
-    (=ucs@jis		. #x0391)	; ø»‘ˆŠ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER BETA")
@@ -443,12 +443,12 @@
      ((name		  . "GREEK CAPITAL LETTER BETA")
       (=ucs		  . #x0392)	; Î’
       ))
+    (=ucs@jis		. #x0392)	; ø»‘ˆ‹
     (=cns11643-1	. #x2476)	; ø»‘ˆ‹
     (=ks-x1001		. #x2542)	; ø»ˆ ¥
     (=gb2312		. #x2622)	; ø»„›
     (=jis-x0208		. #x2622)	; ø½‰½“
     (=big5		. #xA345)	; ý¢€Š…
-    (=ucs@jis		. #x0392)	; ø»‘ˆ‹
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER GAMMA")
@@ -483,12 +483,12 @@
      ((name		  . "GREEK CAPITAL LETTER GAMMA")
       (=ucs		  . #x0393)	; Î“
       ))
+    (=ucs@jis		. #x0393)	; ø»‘ˆŒ
     (=cns11643-1	. #x2477)	; ø»‘ˆŒ
     (=ks-x1001		. #x2543)	; ø»ˆ ¦
     (=gb2312		. #x2623)	; ø»„œ
     (=jis-x0208		. #x2623)	; ø½‰½”
     (=big5		. #xA346)	; ý¢€Š†
-    (=ucs@jis		. #x0393)	; ø»‘ˆŒ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER DELTA")
@@ -523,12 +523,12 @@
      ((name		  . "GREEK CAPITAL LETTER DELTA")
       (=ucs		  . #x0394)	; Î”
       ))
+    (=ucs@jis		. #x0394)	; ø»‘ˆ
     (=cns11643-1	. #x2478)	; ø»‘ˆ
     (=ks-x1001		. #x2544)	; ø»ˆ §
     (=gb2312		. #x2624)	; ø»„
     (=jis-x0208		. #x2624)	; ø½‰½•
     (=big5		. #xA347)	; ý¢€Š‡
-    (=ucs@jis		. #x0394)	; ø»‘ˆ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER EPSILON")
@@ -563,12 +563,12 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
       (=ucs		  . #x0395)	; Î•
       ))
+    (=ucs@jis		. #x0395)	; ø»‘ˆŽ
     (=cns11643-1	. #x2479)	; ø»‘ˆŽ
     (=ks-x1001		. #x2545)	; ø»ˆ ¨
     (=gb2312		. #x2625)	; ø»„ž
     (=jis-x0208		. #x2625)	; ø½‰½–
     (=big5		. #xA348)	; ý¢€Šˆ
-    (=ucs@jis		. #x0395)	; ø»‘ˆŽ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ZETA")
@@ -603,12 +603,12 @@
      ((name		  . "GREEK CAPITAL LETTER ZETA")
       (=ucs		  . #x0396)	; Î–
       ))
+    (=ucs@jis		. #x0396)	; ø»‘ˆ
     (=cns11643-1	. #x247A)	; ø»‘ˆ
     (=ks-x1001		. #x2546)	; ø»ˆ ©
     (=gb2312		. #x2626)	; ø»„Ÿ
     (=jis-x0208		. #x2626)	; ø½‰½—
     (=big5		. #xA349)	; ý¢€Š‰
-    (=ucs@jis		. #x0396)	; ø»‘ˆ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ETA")
@@ -643,12 +643,12 @@
      ((name		  . "GREEK CAPITAL LETTER ETA")
       (=ucs		  . #x0397)	; Î—
       ))
+    (=ucs@jis		. #x0397)	; ø»‘ˆ
     (=cns11643-1	. #x247B)	; ø»‘ˆ
     (=ks-x1001		. #x2547)	; ø»ˆ ª
     (=gb2312		. #x2627)	; ø»„ 
     (=jis-x0208		. #x2627)	; ø½‰½˜
     (=big5		. #xA34A)	; ý¢€ŠŠ
-    (=ucs@jis		. #x0397)	; ø»‘ˆ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER THETA")
@@ -683,12 +683,12 @@
      ((name		  . "GREEK CAPITAL LETTER THETA")
       (=ucs		  . #x0398)	; Î˜
       ))
+    (=ucs@jis		. #x0398)	; ø»‘ˆ‘
     (=cns11643-1	. #x247C)	; ø»‘ˆ‘
     (=ks-x1001		. #x2548)	; ø»ˆ «
     (=gb2312		. #x2628)	; ø»„¡
     (=jis-x0208		. #x2628)	; ø½‰½™
     (=big5		. #xA34B)	; ý¢€Š‹
-    (=ucs@jis		. #x0398)	; ø»‘ˆ‘
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER IOTA")
@@ -723,12 +723,12 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Î™
       ))
+    (=ucs@jis		. #x0399)	; ø»‘ˆ’
     (=cns11643-1	. #x247D)	; ø»‘ˆ’
     (=ks-x1001		. #x2549)	; ø»ˆ ¬
     (=gb2312		. #x2629)	; ø»„¢
     (=jis-x0208		. #x2629)	; ø½‰½š
     (=big5		. #xA34C)	; ý¢€ŠŒ
-    (=ucs@jis		. #x0399)	; ø»‘ˆ’
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER KAPPA")
@@ -763,12 +763,12 @@
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
       (=ucs		  . #x039A)	; Îš
       ))
+    (=ucs@jis		. #x039A)	; ø»‘ˆ“
     (=cns11643-1	. #x247E)	; ø»‘ˆ“
     (=ks-x1001		. #x254A)	; ø»ˆ ­
     (=gb2312		. #x262A)	; ø»„£
     (=jis-x0208		. #x262A)	; ø½‰½›
     (=big5		. #xA34D)	; ý¢€Š
-    (=ucs@jis		. #x039A)	; ø»‘ˆ“
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER LAMDA")
@@ -803,12 +803,12 @@
      ((name		  . "GREEK CAPITAL LETTER LAMDA")
       (=ucs		  . #x039B)	; Î›
       ))
+    (=ucs@jis		. #x039B)	; ø»‘ˆ”
     (=cns11643-1	. #x2521)	; ø»‘ˆ”
     (=ks-x1001		. #x254B)	; ø»ˆ ®
     (=gb2312		. #x262B)	; ø»„¤
     (=jis-x0208		. #x262B)	; ø½‰½œ
     (=big5		. #xA34E)	; ý¢€ŠŽ
-    (=ucs@jis		. #x039B)	; ø»‘ˆ”
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER MU")
@@ -843,12 +843,12 @@
      ((name		  . "GREEK CAPITAL LETTER MU")
       (=ucs		  . #x039C)	; Îœ
       ))
+    (=ucs@jis		. #x039C)	; ø»‘ˆ•
     (=cns11643-1	. #x2522)	; ø»‘ˆ•
     (=ks-x1001		. #x254C)	; ø»ˆ ¯
     (=gb2312		. #x262C)	; ø»„¥
     (=jis-x0208		. #x262C)	; ø½‰½
     (=big5		. #xA34F)	; ý¢€Š
-    (=ucs@jis		. #x039C)	; ø»‘ˆ•
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER NU")
@@ -883,12 +883,12 @@
      ((name		  . "GREEK CAPITAL LETTER NU")
       (=ucs		  . #x039D)	; Î
       ))
+    (=ucs@jis		. #x039D)	; ø»‘ˆ–
     (=cns11643-1	. #x2523)	; ø»‘ˆ–
     (=ks-x1001		. #x254D)	; ø»ˆ °
     (=gb2312		. #x262D)	; ø»„¦
     (=jis-x0208		. #x262D)	; ø½‰½ž
     (=big5		. #xA350)	; ý¢€Š
-    (=ucs@jis		. #x039D)	; ø»‘ˆ–
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER XI")
@@ -923,12 +923,12 @@
      ((name		  . "GREEK CAPITAL LETTER XI")
       (=ucs		  . #x039E)	; Îž
       ))
+    (=ucs@jis		. #x039E)	; ø»‘ˆ—
     (=cns11643-1	. #x2524)	; ø»‘ˆ—
     (=ks-x1001		. #x254E)	; ø»ˆ ±
     (=gb2312		. #x262E)	; ø»„§
     (=jis-x0208		. #x262E)	; ø½‰½Ÿ
     (=big5		. #xA351)	; ý¢€Š‘
-    (=ucs@jis		. #x039E)	; ø»‘ˆ—
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMICRON")
@@ -963,12 +963,12 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
       (=ucs		  . #x039F)	; ÎŸ
       ))
+    (=ucs@jis		. #x039F)	; ø»‘ˆ˜
     (=cns11643-1	. #x2525)	; ø»‘ˆ˜
     (=ks-x1001		. #x254F)	; ø»ˆ ²
     (=gb2312		. #x262F)	; ø»„¨
     (=jis-x0208		. #x262F)	; ø½‰½ 
     (=big5		. #xA352)	; ý¢€Š’
-    (=ucs@jis		. #x039F)	; ø»‘ˆ˜
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PI")
@@ -1003,12 +1003,12 @@
      ((name		  . "GREEK CAPITAL LETTER PI")
       (=ucs		  . #x03A0)	; Î 
       ))
+    (=ucs@jis		. #x03A0)	; ø»‘ˆ™
     (=cns11643-1	. #x2526)	; ø»‘ˆ™
     (=ks-x1001		. #x2550)	; ø»ˆ ³
     (=gb2312		. #x2630)	; ø»„©
     (=jis-x0208		. #x2630)	; ø½‰½¡
     (=big5		. #xA353)	; ý¢€Š“
-    (=ucs@jis		. #x03A0)	; ø»‘ˆ™
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER RHO")
@@ -1043,12 +1043,12 @@
      ((name		  . "GREEK CAPITAL LETTER RHO")
       (=ucs		  . #x03A1)	; Î¡
       ))
+    (=ucs@jis		. #x03A1)	; ø»‘ˆš
     (=cns11643-1	. #x2527)	; ø»‘ˆš
     (=ks-x1001		. #x2551)	; ø»ˆ ´
     (=gb2312		. #x2631)	; ø»„ª
     (=jis-x0208		. #x2631)	; ø½‰½¢
     (=big5		. #xA354)	; ý¢€Š”
-    (=ucs@jis		. #x03A1)	; ø»‘ˆš
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER SIGMA")
@@ -1083,12 +1083,12 @@
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
       (=ucs		  . #x03A3)	; Î£
       ))
+    (=ucs@jis		. #x03A3)	; ø»‘ˆ›
     (=cns11643-1	. #x2528)	; ø»‘ˆ›
     (=ks-x1001		. #x2552)	; ø»ˆ µ
     (=gb2312		. #x2632)	; ø»„«
     (=jis-x0208		. #x2632)	; ø½‰½£
     (=big5		. #xA355)	; ý¢€Š•
-    (=ucs@jis		. #x03A3)	; ø»‘ˆ›
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER TAU")
@@ -1123,12 +1123,12 @@
      ((name		  . "GREEK CAPITAL LETTER TAU")
       (=ucs		  . #x03A4)	; Î¤
       ))
+    (=ucs@jis		. #x03A4)	; ø»‘ˆœ
     (=cns11643-1	. #x2529)	; ø»‘ˆœ
     (=ks-x1001		. #x2553)	; ø»ˆ ¶
     (=gb2312		. #x2633)	; ø»„¬
     (=jis-x0208		. #x2633)	; ø½‰½¤
     (=big5		. #xA356)	; ý¢€Š–
-    (=ucs@jis		. #x03A4)	; ø»‘ˆœ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER UPSILON")
@@ -1163,12 +1163,12 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (=ucs		  . #x03A5)	; Î¥
       ))
+    (=ucs@jis		. #x03A5)	; ø»‘ˆ
     (=cns11643-1	. #x252A)	; ø»‘ˆ
     (=ks-x1001		. #x2554)	; ø»ˆ ·
     (=gb2312		. #x2634)	; ø»„­
     (=jis-x0208		. #x2634)	; ø½‰½¥
     (=big5		. #xA357)	; ý¢€Š—
-    (=ucs@jis		. #x03A5)	; ø»‘ˆ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PHI")
@@ -1203,12 +1203,12 @@
      ((name		  . "GREEK CAPITAL LETTER PHI")
       (=ucs		  . #x03A6)	; Î¦
       ))
+    (=ucs@jis		. #x03A6)	; ø»‘ˆž
     (=cns11643-1	. #x252B)	; ø»‘ˆž
     (=ks-x1001		. #x2555)	; ø»ˆ ¸
     (=gb2312		. #x2635)	; ø»„®
     (=jis-x0208		. #x2635)	; ø½‰½¦
     (=big5		. #xA358)	; ý¢€Š˜
-    (=ucs@jis		. #x03A6)	; ø»‘ˆž
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER CHI")
@@ -1243,12 +1243,12 @@
      ((name		  . "GREEK CAPITAL LETTER CHI")
       (=ucs		  . #x03A7)	; Î§
       ))
+    (=ucs@jis		. #x03A7)	; ø»‘ˆŸ
     (=cns11643-1	. #x252C)	; ø»‘ˆŸ
     (=ks-x1001		. #x2556)	; ø»ˆ ¹
     (=gb2312		. #x2636)	; ø»„¯
     (=jis-x0208		. #x2636)	; ø½‰½§
     (=big5		. #xA359)	; ý¢€Š™
-    (=ucs@jis		. #x03A7)	; ø»‘ˆŸ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PSI")
@@ -1283,12 +1283,12 @@
      ((name		  . "GREEK CAPITAL LETTER PSI")
       (=ucs		  . #x03A8)	; Î¨
       ))
+    (=ucs@jis		. #x03A8)	; ø»‘ˆ 
     (=cns11643-1	. #x252D)	; ø»‘ˆ 
     (=ks-x1001		. #x2557)	; ø»ˆ º
     (=gb2312		. #x2637)	; ø»„°
     (=jis-x0208		. #x2637)	; ø½‰½¨
     (=big5		. #xA35A)	; ý¢€Šš
-    (=ucs@jis		. #x03A8)	; ø»‘ˆ 
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMEGA")
@@ -1323,12 +1323,12 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (=ucs		  . #x03A9)	; Î©
       ))
+    (=ucs@jis		. #x03A9)	; ø»‘ˆ¡
     (=cns11643-1	. #x252E)	; ø»‘ˆ¡
     (=ks-x1001		. #x2558)	; ø»ˆ »
     (=gb2312		. #x2638)	; ø»„±
     (=jis-x0208		. #x2638)	; ø½‰½©
     (=big5		. #xA35B)	; ý¢€Š›
-    (=ucs@jis		. #x03A9)	; ø»‘ˆ¡
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
@@ -1338,8 +1338,8 @@
     (->decomposition	#x0399 #x0308)
     (->fullwidth
      ((name . "fullwidth greek capital letter iota with dialytika")
-      (=jis-x0212	  . #x2665)	; ø»Š¬ª
       (=ucs@jis		  . #x03AA)	; ø»Š¬ª
+      (=jis-x0212	  . #x2665)	; ø»Š¬ª
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
@@ -1362,8 +1362,8 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03AA)	; Îª
       ))
-    (=jis-x0212		. #x2665)	; ø»Š¬ª
     (=ucs@jis		. #x03AA)	; ø»Š¬ª
+    (=jis-x0212		. #x2665)	; ø»Š¬ª
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
@@ -1373,8 +1373,8 @@
     (->decomposition	#x03A5 #x0308)
     (->fullwidth
      ((name . "fullwidth greek capital letter upsilon with dialytika")
-      (=jis-x0212	  . #x266A)	; ø»Š¬¯
       (=ucs@jis		  . #x03AB)	; ø»Š¬¯
+      (=jis-x0212	  . #x266A)	; ø»Š¬¯
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
@@ -1397,8 +1397,8 @@
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03AB)	; Î«
       ))
-    (=jis-x0212		. #x266A)	; ø»Š¬¯
     (=ucs@jis		. #x03AB)	; ø»Š¬¯
+    (=jis-x0212		. #x266A)	; ø»Š¬¯
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH TONOS")
@@ -1408,8 +1408,8 @@
     (->decomposition	#x03B1 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter alpha with tonos")
-      (=jis-x0212	  . #x2671)	; ø»Š¬¶
       (=ucs@jis		  . #x03AC)	; ø»Š¬¶
+      (=jis-x0212	  . #x2671)	; ø»Š¬¶
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
@@ -1432,8 +1432,8 @@
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x03AC)	; Î¬
       ))
-    (=jis-x0212		. #x2671)	; ø»Š¬¶
     (=ucs@jis		. #x03AC)	; ø»Š¬¶
+    (=jis-x0212		. #x2671)	; ø»Š¬¶
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH TONOS")
@@ -1443,8 +1443,8 @@
     (->decomposition	#x03B5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter epsilon with tonos")
-      (=jis-x0212	  . #x2672)	; ø»Š¬·
       (=ucs@jis		  . #x03AD)	; ø»Š¬·
+      (=jis-x0212	  . #x2672)	; ø»Š¬·
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
@@ -1467,8 +1467,8 @@
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x03AD)	; Î­
       ))
-    (=jis-x0212		. #x2672)	; ø»Š¬·
     (=ucs@jis		. #x03AD)	; ø»Š¬·
+    (=jis-x0212		. #x2672)	; ø»Š¬·
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ETA WITH TONOS")
@@ -1478,8 +1478,8 @@
     (->decomposition	#x03B7 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter eta with tonos")
-      (=jis-x0212	  . #x2673)	; ø»Š¬¸
       (=ucs@jis		  . #x03AE)	; ø»Š¬¸
+      (=jis-x0212	  . #x2673)	; ø»Š¬¸
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
@@ -1502,8 +1502,8 @@
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (=ucs		  . #x03AE)	; Î®
       ))
-    (=jis-x0212		. #x2673)	; ø»Š¬¸
     (=ucs@jis		. #x03AE)	; ø»Š¬¸
+    (=jis-x0212		. #x2673)	; ø»Š¬¸
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER IOTA WITH TONOS")
@@ -1513,8 +1513,8 @@
     (->decomposition	#x03B9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with tonos")
-      (=jis-x0212	  . #x2674)	; ø»Š¬¹
       (=ucs@jis		  . #x03AF)	; ø»Š¬¹
+      (=jis-x0212	  . #x2674)	; ø»Š¬¹
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
@@ -1537,8 +1537,8 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (=ucs		  . #x03AF)	; Î¯
       ))
-    (=jis-x0212		. #x2674)	; ø»Š¬¹
     (=ucs@jis		. #x03AF)	; ø»Š¬¹
+    (=jis-x0212		. #x2674)	; ø»Š¬¹
     ))
 (define-char
   '((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
@@ -1548,8 +1548,8 @@
     (->decomposition	#x03CB #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with dialytika and tonos")
-      (=jis-x0212	  . #x267B)	; ø»Š­€
       (=ucs@jis		  . #x03B0)	; ø»Š­€
+      (=jis-x0212	  . #x267B)	; ø»Š­€
       ))
     (=ucs		. #x03B0)	; Î°
     (greek-iso8859-7	. #xE0)	; øº’¼ 
@@ -1565,8 +1565,8 @@
      ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x03B0)	; Î°
       ))
-    (=jis-x0212		. #x267B)	; ø»Š­€
     (=ucs@jis		. #x03B0)	; ø»Š­€
+    (=jis-x0212		. #x267B)	; ø»Š­€
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA")
@@ -1601,12 +1601,12 @@
      ((name		  . "GREEK SMALL LETTER ALPHA")
       (=ucs		  . #x03B1)	; Î±
       ))
+    (=ucs@jis		. #x03B1)	; ø»‘ˆ¢
     (=cns11643-1	. #x252F)	; ø»‘ˆ¢
     (=ks-x1001		. #x2561)	; ø»ˆ¡„
     (=gb2312		. #x2641)	; ø»„º
     (=jis-x0208		. #x2641)	; ø½‰½²
     (=big5		. #xA35C)	; ý¢€Šœ
-    (=ucs@jis		. #x03B1)	; ø»‘ˆ¢
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER BETA")
@@ -1641,12 +1641,12 @@
      ((name		  . "GREEK SMALL LETTER BETA")
       (=ucs		  . #x03B2)	; Î²
       ))
+    (=ucs@jis		. #x03B2)	; ø»‘ˆ£
     (=cns11643-1	. #x2530)	; ø»‘ˆ£
     (=ks-x1001		. #x2562)	; ø»ˆ¡…
     (=gb2312		. #x2642)	; ø»„»
     (=jis-x0208		. #x2642)	; ø½‰½³
     (=big5		. #xA35D)	; ý¢€Š
-    (=ucs@jis		. #x03B2)	; ø»‘ˆ£
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER GAMMA")
@@ -1681,12 +1681,12 @@
      ((name		  . "GREEK SMALL LETTER GAMMA")
       (=ucs		  . #x03B3)	; Î³
       ))
+    (=ucs@jis		. #x03B3)	; ø»‘ˆ¤
     (=cns11643-1	. #x2531)	; ø»‘ˆ¤
     (=ks-x1001		. #x2563)	; ø»ˆ¡†
     (=gb2312		. #x2643)	; ø»„¼
     (=jis-x0208		. #x2643)	; ø½‰½´
     (=big5		. #xA35E)	; ý¢€Šž
-    (=ucs@jis		. #x03B3)	; ø»‘ˆ¤
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER DELTA")
@@ -1721,12 +1721,12 @@
      ((name		  . "GREEK SMALL LETTER DELTA")
       (=ucs		  . #x03B4)	; Î´
       ))
+    (=ucs@jis		. #x03B4)	; ø»‘ˆ¥
     (=cns11643-1	. #x2532)	; ø»‘ˆ¥
     (=ks-x1001		. #x2564)	; ø»ˆ¡‡
     (=gb2312		. #x2644)	; ø»„½
     (=jis-x0208		. #x2644)	; ø½‰½µ
     (=big5		. #xA35F)	; ý¢€ŠŸ
-    (=ucs@jis		. #x03B4)	; ø»‘ˆ¥
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON")
@@ -1761,12 +1761,12 @@
      ((name		  . "GREEK SMALL LETTER EPSILON")
       (=ucs		  . #x03B5)	; Îµ
       ))
+    (=ucs@jis		. #x03B5)	; ø»‘ˆ¦
     (=cns11643-1	. #x2533)	; ø»‘ˆ¦
     (=ks-x1001		. #x2565)	; ø»ˆ¡ˆ
     (=gb2312		. #x2645)	; ø»„¾
     (=jis-x0208		. #x2645)	; ø½‰½¶
     (=big5		. #xA360)	; ý¢€Š 
-    (=ucs@jis		. #x03B5)	; ø»‘ˆ¦
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ZETA")
@@ -1801,12 +1801,12 @@
      ((name		  . "GREEK SMALL LETTER ZETA")
       (=ucs		  . #x03B6)	; Î¶
       ))
+    (=ucs@jis		. #x03B6)	; ø»‘ˆ§
     (=cns11643-1	. #x2534)	; ø»‘ˆ§
     (=ks-x1001		. #x2566)	; ø»ˆ¡‰
     (=gb2312		. #x2646)	; ø»„¿
     (=jis-x0208		. #x2646)	; ø½‰½·
     (=big5		. #xA361)	; ý¢€Š¡
-    (=ucs@jis		. #x03B6)	; ø»‘ˆ§
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ETA")
@@ -1841,12 +1841,12 @@
      ((name		  . "GREEK SMALL LETTER ETA")
       (=ucs		  . #x03B7)	; Î·
       ))
+    (=ucs@jis		. #x03B7)	; ø»‘ˆ¨
     (=cns11643-1	. #x2535)	; ø»‘ˆ¨
     (=ks-x1001		. #x2567)	; ø»ˆ¡Š
     (=gb2312		. #x2647)	; ø»„Ž€
     (=jis-x0208		. #x2647)	; ø½‰½¸
     (=big5		. #xA362)	; ý¢€Š¢
-    (=ucs@jis		. #x03B7)	; ø»‘ˆ¨
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER THETA")
@@ -1882,12 +1882,12 @@
      ((name		  . "GREEK SMALL LETTER THETA")
       (=ucs		  . #x03B8)	; Î¸
       ))
+    (=ucs@jis		. #x03B8)	; ø»‘ˆ©
     (=cns11643-1	. #x2536)	; ø»‘ˆ©
     (=ks-x1001		. #x2568)	; ø»ˆ¡‹
     (=gb2312		. #x2648)	; ø»„Ž
     (=jis-x0208		. #x2648)	; ø½‰½¹
     (=big5		. #xA363)	; ý¢€Š£
-    (=ucs@jis		. #x03B8)	; ø»‘ˆ©
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER IOTA")
@@ -1922,12 +1922,12 @@
      ((name		  . "GREEK SMALL LETTER IOTA")
       (=ucs		  . #x03B9)	; Î¹
       ))
+    (=ucs@jis		. #x03B9)	; ø»‘ˆª
     (=cns11643-1	. #x2537)	; ø»‘ˆª
     (=ks-x1001		. #x2569)	; ø»ˆ¡Œ
     (=gb2312		. #x2649)	; ø»„Ž‚
     (=jis-x0208		. #x2649)	; ø½‰½º
     (=big5		. #xA364)	; ý¢€Š¤
-    (=ucs@jis		. #x03B9)	; ø»‘ˆª
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER KAPPA")
@@ -1963,12 +1963,12 @@
      ((name		  . "GREEK SMALL LETTER KAPPA")
       (=ucs		  . #x03BA)	; Îº
       ))
+    (=ucs@jis		. #x03BA)	; ø»‘ˆ«
     (=cns11643-1	. #x2538)	; ø»‘ˆ«
     (=ks-x1001		. #x256A)	; ø»ˆ¡
     (=gb2312		. #x264A)	; ø»„Žƒ
     (=jis-x0208		. #x264A)	; ø½‰½»
     (=big5		. #xA365)	; ý¢€Š¥
-    (=ucs@jis		. #x03BA)	; ø»‘ˆ«
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER LAMDA")
@@ -2003,12 +2003,12 @@
      ((name		  . "GREEK SMALL LETTER LAMDA")
       (=ucs		  . #x03BB)	; Î»
       ))
+    (=ucs@jis		. #x03BB)	; ø»‘ˆ¬
     (=cns11643-1	. #x2539)	; ø»‘ˆ¬
     (=ks-x1001		. #x256B)	; ø»ˆ¡Ž
     (=gb2312		. #x264B)	; ø»„Ž„
     (=jis-x0208		. #x264B)	; ø½‰½¼
     (=big5		. #xA366)	; ý¢€Š¦
-    (=ucs@jis		. #x03BB)	; ø»‘ˆ¬
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER MU")
@@ -2043,12 +2043,12 @@
      ((name		  . "GREEK SMALL LETTER MU")
       (=ucs		  . #x03BC)	; Î¼
       ))
+    (=ucs@jis		. #x03BC)	; ø»‘ˆ­
     (=cns11643-1	. #x253A)	; ø»‘ˆ­
     (=ks-x1001		. #x256C)	; ø»ˆ¡
     (=gb2312		. #x264C)	; ø»„Ž…
     (=jis-x0208		. #x264C)	; ø½‰½½
     (=big5		. #xA367)	; ý¢€Š§
-    (=ucs@jis		. #x03BC)	; ø»‘ˆ­
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER NU")
@@ -2083,12 +2083,12 @@
      ((name		  . "GREEK SMALL LETTER NU")
       (=ucs		  . #x03BD)	; Î½
       ))
+    (=ucs@jis		. #x03BD)	; ø»‘ˆ®
     (=cns11643-1	. #x253B)	; ø»‘ˆ®
     (=ks-x1001		. #x256D)	; ø»ˆ¡
     (=gb2312		. #x264D)	; ø»„Ž†
     (=jis-x0208		. #x264D)	; ø½‰½¾
     (=big5		. #xA368)	; ý¢€Š¨
-    (=ucs@jis		. #x03BD)	; ø»‘ˆ®
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER XI")
@@ -2123,12 +2123,12 @@
      ((name		  . "GREEK SMALL LETTER XI")
       (=ucs		  . #x03BE)	; Î¾
       ))
+    (=ucs@jis		. #x03BE)	; ø»‘ˆ¯
     (=cns11643-1	. #x253C)	; ø»‘ˆ¯
     (=ks-x1001		. #x256E)	; ø»ˆ¡‘
     (=gb2312		. #x264E)	; ø»„Ž‡
     (=jis-x0208		. #x264E)	; ø½‰½¿
     (=big5		. #xA369)	; ý¢€Š©
-    (=ucs@jis		. #x03BE)	; ø»‘ˆ¯
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMICRON")
@@ -2163,12 +2163,12 @@
      ((name		  . "GREEK SMALL LETTER OMICRON")
       (=ucs		  . #x03BF)	; Î¿
       ))
+    (=ucs@jis		. #x03BF)	; ø»‘ˆ°
     (=cns11643-1	. #x253D)	; ø»‘ˆ°
     (=ks-x1001		. #x256F)	; ø»ˆ¡’
     (=gb2312		. #x264F)	; ø»„Žˆ
     (=jis-x0208		. #x264F)	; ø½‰¾€
     (=big5		. #xA36A)	; ý¢€Šª
-    (=ucs@jis		. #x03BF)	; ø»‘ˆ°
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PI")
@@ -2203,12 +2203,12 @@
      ((name		  . "GREEK SMALL LETTER PI")
       (=ucs		  . #x03C0)	; Ï€
       ))
+    (=ucs@jis		. #x03C0)	; ø»‘ˆ±
     (=cns11643-1	. #x253E)	; ø»‘ˆ±
     (=ks-x1001		. #x2570)	; ø»ˆ¡“
     (=gb2312		. #x2650)	; ø»„Ž‰
     (=jis-x0208		. #x2650)	; ø½‰¾
     (=big5		. #xA36B)	; ý¢€Š«
-    (=ucs@jis		. #x03C0)	; ø»‘ˆ±
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER RHO")
@@ -2243,12 +2243,12 @@
      ((name		  . "GREEK SMALL LETTER RHO")
       (=ucs		  . #x03C1)	; Ï
       ))
+    (=ucs@jis		. #x03C1)	; ø»‘ˆ²
     (=cns11643-1	. #x253F)	; ø»‘ˆ²
     (=ks-x1001		. #x2571)	; ø»ˆ¡”
     (=gb2312		. #x2651)	; ø»„ŽŠ
     (=jis-x0208		. #x2651)	; ø½‰¾‚
     (=big5		. #xA36C)	; ý¢€Š¬
-    (=ucs@jis		. #x03C1)	; ø»‘ˆ²
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER FINAL SIGMA")
@@ -2281,9 +2281,9 @@
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (=ucs		  . #x03C2)	; Ï‚
       ))
+    (=ucs@jis		. #x03C2)	; ø»¢›Š
     (=jis-x0213-1-2000	. #x2659)	; ø»¢›Š
     (=jis-x0212		. #x2678)	; ø»Š¬½
-    (=ucs@jis		. #x03C2)	; ø»¢›Š
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER SIGMA")
@@ -2318,12 +2318,12 @@
      ((name		  . "GREEK SMALL LETTER SIGMA")
       (=ucs		  . #x03C3)	; Ïƒ
       ))
+    (=ucs@jis		. #x03C3)	; ø»‘ˆ³
     (=cns11643-1	. #x2540)	; ø»‘ˆ³
     (=ks-x1001		. #x2572)	; ø»ˆ¡•
     (=gb2312		. #x2652)	; ø»„Ž‹
     (=jis-x0208		. #x2652)	; ø½‰¾ƒ
     (=big5		. #xA36D)	; ý¢€Š­
-    (=ucs@jis		. #x03C3)	; ø»‘ˆ³
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER TAU")
@@ -2358,12 +2358,12 @@
      ((name		  . "GREEK SMALL LETTER TAU")
       (=ucs		  . #x03C4)	; Ï„
       ))
+    (=ucs@jis		. #x03C4)	; ø»‘ˆ´
     (=cns11643-1	. #x2541)	; ø»‘ˆ´
     (=ks-x1001		. #x2573)	; ø»ˆ¡–
     (=gb2312		. #x2653)	; ø»„ŽŒ
     (=jis-x0208		. #x2653)	; ø½‰¾„
     (=big5		. #xA36E)	; ý¢€Š®
-    (=ucs@jis		. #x03C4)	; ø»‘ˆ´
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER UPSILON")
@@ -2398,12 +2398,12 @@
      ((name		  . "GREEK SMALL LETTER UPSILON")
       (=ucs		  . #x03C5)	; Ï…
       ))
+    (=ucs@jis		. #x03C5)	; ø»‘ˆµ
     (=cns11643-1	. #x2542)	; ø»‘ˆµ
     (=ks-x1001		. #x2574)	; ø»ˆ¡—
     (=gb2312		. #x2654)	; ø»„Ž
     (=jis-x0208		. #x2654)	; ø½‰¾…
     (=big5		. #xA36F)	; ý¢€Š¯
-    (=ucs@jis		. #x03C5)	; ø»‘ˆµ
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PHI")
@@ -2438,12 +2438,12 @@
      ((name		  . "GREEK SMALL LETTER PHI")
       (=ucs		  . #x03C6)	; Ï†
       ))
+    (=ucs@jis		. #x03C6)	; ø»‘ˆ¶
     (=cns11643-1	. #x2543)	; ø»‘ˆ¶
     (=ks-x1001		. #x2575)	; ø»ˆ¡˜
     (=gb2312		. #x2655)	; ø»„ŽŽ
     (=jis-x0208		. #x2655)	; ø½‰¾†
     (=big5		. #xA370)	; ý¢€Š°
-    (=ucs@jis		. #x03C6)	; ø»‘ˆ¶
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER CHI")
@@ -2478,12 +2478,12 @@
      ((name		  . "GREEK SMALL LETTER CHI")
       (=ucs		  . #x03C7)	; Ï‡
       ))
+    (=ucs@jis		. #x03C7)	; ø»‘ˆ·
     (=cns11643-1	. #x2544)	; ø»‘ˆ·
     (=ks-x1001		. #x2576)	; ø»ˆ¡™
     (=gb2312		. #x2656)	; ø»„Ž
     (=jis-x0208		. #x2656)	; ø½‰¾‡
     (=big5		. #xA371)	; ý¢€Š±
-    (=ucs@jis		. #x03C7)	; ø»‘ˆ·
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PSI")
@@ -2518,12 +2518,12 @@
      ((name		  . "GREEK SMALL LETTER PSI")
       (=ucs		  . #x03C8)	; Ïˆ
       ))
+    (=ucs@jis		. #x03C8)	; ø»‘ˆ¸
     (=cns11643-1	. #x2545)	; ø»‘ˆ¸
     (=ks-x1001		. #x2577)	; ø»ˆ¡š
     (=gb2312		. #x2657)	; ø»„Ž
     (=jis-x0208		. #x2657)	; ø½‰¾ˆ
     (=big5		. #xA372)	; ý¢€Š²
-    (=ucs@jis		. #x03C8)	; ø»‘ˆ¸
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMEGA")
@@ -2558,12 +2558,12 @@
      ((name		  . "GREEK SMALL LETTER OMEGA")
       (=ucs		  . #x03C9)	; Ï‰
       ))
+    (=ucs@jis		. #x03C9)	; ø»‘ˆ¹
     (=cns11643-1	. #x2546)	; ø»‘ˆ¹
     (=ks-x1001		. #x2578)	; ø»ˆ¡›
     (=gb2312		. #x2658)	; ø»„Ž‘
     (=jis-x0208		. #x2658)	; ø½‰¾‰
     (=big5		. #xA373)	; ý¢€Š³
-    (=ucs@jis		. #x03C9)	; ø»‘ˆ¹
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
@@ -2573,8 +2573,8 @@
     (->decomposition	#x03B9 #x0308)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with dialytika")
-      (=jis-x0212	  . #x2675)	; ø»Š¬º
       (=ucs@jis		  . #x03CA)	; ø»Š¬º
+      (=jis-x0212	  . #x2675)	; ø»Š¬º
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
@@ -2597,8 +2597,8 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03CA)	; ÏŠ
       ))
-    (=jis-x0212		. #x2675)	; ø»Š¬º
     (=ucs@jis		. #x03CA)	; ø»Š¬º
+    (=jis-x0212		. #x2675)	; ø»Š¬º
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
@@ -2608,8 +2608,8 @@
     (->decomposition	#x03C5 #x0308)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with dialytika")
-      (=jis-x0212	  . #x267A)	; ø»Š¬¿
       (=ucs@jis		  . #x03CB)	; ø»Š¬¿
+      (=jis-x0212	  . #x267A)	; ø»Š¬¿
       ))
     (->uppercase
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
@@ -2632,8 +2632,8 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03CB)	; Ï‹
       ))
-    (=jis-x0212		. #x267A)	; ø»Š¬¿
     (=ucs@jis		. #x03CB)	; ø»Š¬¿
+    (=jis-x0212		. #x267A)	; ø»Š¬¿
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMICRON WITH TONOS")
@@ -2643,8 +2643,8 @@
     (->decomposition	#x03BF #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter omicron with tonos")
-      (=jis-x0212	  . #x2677)	; ø»Š¬¼
       (=ucs@jis		  . #x03CC)	; ø»Š¬¼
+      (=jis-x0212	  . #x2677)	; ø»Š¬¼
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
@@ -2667,8 +2667,8 @@
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x03CC)	; ÏŒ
       ))
-    (=jis-x0212		. #x2677)	; ø»Š¬¼
     (=ucs@jis		. #x03CC)	; ø»Š¬¼
+    (=jis-x0212		. #x2677)	; ø»Š¬¼
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER UPSILON WITH TONOS")
@@ -2678,8 +2678,8 @@
     (->decomposition	#x03C5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with tonos")
-      (=jis-x0212	  . #x2679)	; ø»Š¬¾
       (=ucs@jis		  . #x03CD)	; ø»Š¬¾
+      (=jis-x0212	  . #x2679)	; ø»Š¬¾
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
@@ -2702,8 +2702,8 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x03CD)	; Ï
       ))
-    (=jis-x0212		. #x2679)	; ø»Š¬¾
     (=ucs@jis		. #x03CD)	; ø»Š¬¾
+    (=jis-x0212		. #x2679)	; ø»Š¬¾
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMEGA WITH TONOS")
@@ -2713,8 +2713,8 @@
     (->decomposition	#x03C9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter omega with tonos")
-      (=jis-x0212	  . #x267C)	; ø»Š­
       (=ucs@jis		  . #x03CE)	; ø»Š­
+      (=jis-x0212	  . #x267C)	; ø»Š­
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
@@ -2737,8 +2737,8 @@
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x03CE)	; ÏŽ
       ))
-    (=jis-x0212		. #x267C)	; ø»Š­
     (=ucs@jis		. #x03CE)	; ø»Š­
+    (=jis-x0212		. #x267C)	; ø»Š­
     ))
 (define-char
   '((name		. "GREEK BETA SYMBOL")

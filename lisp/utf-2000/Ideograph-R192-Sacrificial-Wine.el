@@ -8,9 +8,9 @@
     (=cns11643-2	. #x334D)	; ø»“§¨
     (=gb2312		. #x5B4B)	; ø»…›º
     (=jis-x0208		. #x722E)	; ø½‹­‡
+    (=daikanwa		. 45661)	; ø¸‹‰
     (=gt-k		. 06656)	; ý¡„¨€
     (=gt-pj-1		. #x722E)	; é¬¯
-    (=daikanwa		. 45661)	; ø¸‹‰
     ))
 (define-char
   '((ideographic-radical . 192)	; â¾¿

@@ -728,9 +728,9 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 25)
     (shinjigen-2	. 9812)
+    (=ucs@jis		. #x9ECC)	; ø½‹¯‹
     (=jis-x0208		. #x7354)	; ø½‹¯‹
     (=daikanwa		. 47985)	; ø¸‹­±
-    (=ucs@jis		. #x9ECC)	; ø½‹¯‹
     ))
 (define-char
   '((=>ucs		. #x9ECC)	; é»Œ

@@ -1,8 +1,3 @@
-2003-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* mule/mule-conf.el: Prefer `=big5-cdp', `=gt' and `=gt-k' to
-	`=daikanwa'.
-
 2003-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el: Define =ucs@DOMAIN at the end of CCS

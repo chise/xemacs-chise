@@ -6,14 +6,14 @@
     (total-strokes	 . 2)
     (shinjigen-1	. 480)
     (shinjigen-2	. 480)
+    (=gt		. 01850)	; ý¡€€œº
+    (=ucs@jis		. #x5165)	; ý¡€€œº
     (=ks-x1001		. #x6C7D)	; ø»Š‰²
     (=jis-x0208		. #x467E)	; ø½Š­¯
     (=big5		. #xA44A)	; ý¢€Š‘Š
-    (=gt		. 01850)	; ý¡€€œº
+    (=daikanwa		. 01415)	; ø¸€–‡
     (=gt-k		. 00050)	; ý¡„€€²
     (=gt-pj-1		. #x467E)	; ý¡€€œº
-    (=daikanwa		. 01415)	; ø¸€–‡
-    (=ucs@jis		. #x5165)	; ø»Š‰²
     ))
 (define-char
   '((morohashi-daikanwa	1415 0 0)
@@ -79,9 +79,9 @@
       (=jis-x0208	  . #x467E)	; ø½Š­¯
       (=daikanwa	  . 01415)	; ø¸€–‡
       ))
+    (=ucs@jis		. #x5166)	; ø»Š¾›
     (=jis-x0212		. #x326E)	; ø»Š¾›
     (=daikanwa		. 01417)	; ø¸€–‰
-    (=ucs@jis		. #x5166)	; ø»Š¾›
     ))
 (define-char
   '((=>ucs		. #x5166)	; å…¦
@@ -348,9 +348,9 @@
      ((=ucs		  . #x738B)	; çŽ‹
       ))
     (=ucs		. #x5168)	; å…¨
+    (=gt		. 00565)	; ý¡€€ˆµ
     (=gb2312		. #x482B)	; ø»„¿ 
     (=jis-x0208		. #x4134)	; ø½Š¥
-    (=gt		. 00565)	; ý¡€€ˆµ
     (=gt-k		. 01658)	; ý¡„€™º
     (=gt-pj-1		. #x4134)	; ý¡€€ˆµ
     ))
@@ -660,14 +660,14 @@
       ))
     (shinjigen-1	. 484)
     (shinjigen-2	. 484)
+    (=gt		. 01871)	; ý¡€€
+    (=ucs@jis		. #x5169)	; ý¡€€
     (=ks-x1001		. #x5557)	; ø»‰§š
     (=jis-x0208		. #x5140)	; ø½Š¼»
     (=big5		. #xA8E2)	; ý¢€Š£¢
-    (=gt		. 01871)	; ý¡€€
+    (=daikanwa		. 01436)	; ø¸€–œ
     (=gt-k		. 03859)	; ý¡„€¼“
     (=gt-pj-1		. #x5140)	; ý¡€€
-    (=daikanwa		. 01436)	; ø¸€–œ
-    (=ucs@jis		. #x5169)	; ø»‰§š
     ))
 (define-char
   '((morohashi-daikanwa	1436 0 0)
@@ -711,13 +711,13 @@
       ))
     (shinjigen-1	. 487)
     (shinjigen-2	. 487)
+    (=gt		. 01873)	; ý¡€€‘
+    (=ucs@jis		. #x516A)	; ý¡€€‘
     (=ks-x1001		. #x6A64)	; ø»Š†
     (=jis-x0208		. #x5141)	; ø½Š¼¼
-    (=gt		. 01873)	; ý¡€€‘
+    (=daikanwa		. 01437)	; ø¸€–
     (=gt-k		. 05209)	; ý¡„‘™
     (=gt-pj-1		. #x5141)	; ý¡€€‘
-    (=daikanwa		. 01437)	; ø¸€–
-    (=ucs@jis		. #x516A)	; ø»Š†
     ))
 (define-char
   '((=>ucs		. #x516A)	; å…ª

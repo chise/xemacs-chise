@@ -846,7 +846,7 @@ get_unallocated_leading_byte (int dimension)
 #define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
 
 Emchar
-decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
+decode_defined_char (Lisp_Object ccs, int code_point)
 {
   int dim = XCHARSET_DIMENSION (ccs);
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
@@ -870,16 +870,14 @@ decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
 #endif /* HAVE_CHISE */
   if (char_id >= 0)
     return char_id;
-  else if ( !without_inheritance
-	    && CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
+  else if ( CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
     {
       if ( XCHARSET_CONVERSION (ccs) == CONVERSION_IDENTICAL )
 	{
 	  if ( EQ (mother, Vcharset_ucs) )
-	    return DECODE_CHAR (mother, code_point, without_inheritance);
+	    return DECODE_CHAR (mother, code_point);
 	  else
-	    return decode_defined_char (mother, code_point,
-					without_inheritance);
+	    return decode_defined_char (mother, code_point);
 	}
       else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_1 )
 	{
@@ -890,8 +888,7 @@ decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
 	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
 
 	  b2 += b2 < 0x3F ? 0x40 : 0x62;
-	  return decode_defined_char (mother, (b1 << 8) | b2,
-				      without_inheritance);
+	  return decode_defined_char (mother, (b1 << 8) | b2);
 	}
       else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_2 )
 	{
@@ -903,8 +900,7 @@ decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
 	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
 
 	  b2 += b2 < 0x3F ? 0x40 : 0x62;
-	  return decode_defined_char (mother, (b1 << 8) | b2,
-				      without_inheritance);
+	  return decode_defined_char (mother, (b1 << 8) | b2);
 	}
     }
   return -1;
@@ -981,8 +977,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	      code = (b1 << 8) | b2;
 	    }
 	  return
-	    decode_builtin_char (mother,
-				 code + XCHARSET_CODE_OFFSET(charset));
+	    decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
 	}
       else
 	{
@@ -2375,13 +2370,12 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 /************************************************************************/
 
 #ifdef UTF2000
-DEFUN ("decode-char", Fdecode_char, 2, 4, 0, /*
+DEFUN ("decode-char", Fdecode_char, 2, 3, 0, /*
 Make a character from CHARSET and code-point CODE.
 If DEFINED_ONLY is non-nil, builtin character is not returned.
-If WITHOUT_INHERITANCE is non-nil, inherited character is not returned.
 If corresponding character is not found, nil is returned.
 */
-       (charset, code, defined_only, without_inheritance))
+       (charset, code, defined_only))
 {
   int c;
 
@@ -2391,9 +2385,9 @@ If corresponding character is not found, nil is returned.
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
   if (NILP (defined_only))
-    c = DECODE_CHAR (charset, c, !NILP (without_inheritance));
+    c = DECODE_CHAR (charset, c);
   else
-    c = decode_defined_char (charset, c, !NILP (without_inheritance));
+    c = decode_defined_char (charset, c);
   return c >= 0 ? make_char (c) : Qnil;
 }
 
@@ -2408,7 +2402,7 @@ Make a builtin character from CHARSET and code-point CODE.
   CHECK_INT (code);
   if (EQ (charset, Vcharset_latin_viscii))
     {
-      Lisp_Object chr = Fdecode_char (charset, code, Qnil, Qnil);
+      Lisp_Object chr = Fdecode_char (charset, code, Qnil);
       Lisp_Object ret;
 
       if (!NILP (chr))
@@ -2437,8 +2431,7 @@ Make a builtin character from CHARSET and code-point CODE.
     c &= 0x7F7F7F7F;
 #endif
   c = decode_builtin_char (charset, c);
-  return
-    c >= 0 ? make_char (c) : Fdecode_char (charset, code, Qnil, Qnil);
+  return c >= 0 ? make_char (c) : Fdecode_char (charset, code, Qnil);
 }
 #endif
 

@@ -5,13 +5,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (shinjigen-2	. 9772)
-    (=ks-x1001		. #x5663)	; ø»‰©„
-    (=jis-x0208		. #x3C2F)	; ø½Š´
-    (=gt-k		. 07773)	; ý¡„¹
-    (=gt-pj-1		. #x3C2F)	; ø»‰©„
-    (=daikanwa		. 47586)	; ø¸‹§¢
     (=ucs@jis		. #x9E7F)	; ø»‰©„
     (=ucs@ks		. #x9E7F)	; ø»‰©„
+    (=ks-x1001		. #x5663)	; ø»‰©„
+    (=jis-x0208		. #x3C2F)	; ø½Š´
+    (=daikanwa		. 47586)	; ø¸‹§¢
+    (=gt-k		. 07773)	; ý¡„¹
+    (=gt-pj-1		. #x3C2F)	; ø»‰©„
     ))
 (define-char
   '((morohashi-daikanwa	47586 0 0)
@@ -27,8 +27,8 @@
     (ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (=cns11643-1	. #x5E26)	; ø»’œ‡
     (=ucs@cns		. #x9E7F)	; ø»’œ‡
+    (=cns11643-1	. #x5E26)	; ø»’œ‡
     ))
 (define-char
   '((ideographic-radical . 198)	; â¿…
@@ -252,9 +252,9 @@
     (ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
+    (=ucs@jis		. #x9E87)	; ø»Œ“š
     (=jis-x0212		. #x6C61)	; ø»Œ“š
     (=daikanwa		. 47612)	; ø¸‹§¼
-    (=ucs@jis		. #x9E87)	; ø»Œ“š
     ))
 (define-char
   '((morohashi-daikanwa	47612 0 0)
@@ -295,9 +295,9 @@
     (total-strokes	 . 16)
     (shinjigen-1	. 9777)
     (shinjigen-2	. 9777)
+    (=ucs@jis		. #x9E88)	; ø½‹®¾
     (=jis-x0208		. #x7347)	; ø½‹®¾
     (=daikanwa		. 47616)	; ø¸‹¨€
-    (=ucs@jis		. #x9E88)	; ø½‹®¾
     ))
 (define-char
   '((morohashi-daikanwa	47616 0 0)
@@ -717,8 +717,8 @@
     (ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
-    (=jis-x0208-1990	. #x4E6F)	; ø½Š¹
     (=ucs@jis		. #x9E97)	; ø½Š¹
+    (=jis-x0208-1990	. #x4E6F)	; ø½Š¹
     ))
 (define-char
   '((morohashi-daikanwa	47663 0 1)
@@ -1076,9 +1076,9 @@
     (ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 12)
     (total-strokes	 . 23)
+    (=ucs@jis		. #x9E9F)	; ø½Š¸¼
     (=jis-x0208-1990	. #x4E5B)	; ø½Š¸¼
     (=ks-x1001		. #x5778)	; ø»‰ª·
-    (=ucs@jis		. #x9E9F)	; ø½Š¸¼
     ))
 (define-char
   '((ideographic-radical . 198)	; â¿…

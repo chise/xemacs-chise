@@ -564,12 +564,12 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
+    (=ucs@jis		. #x203E)	; ø»‘ƒ¼
     (=cns11643-1	. #x2223)	; ø»‘ƒ¼
     (=ks-x1001		. #x237E)	; ø»ˆž¥
     (=gb2312		. #x237E)	; ø»„Š
     (=jis-x0208		. #x2131)	; ø½‰¶Œ
     (=big5		. #xA1C2)	; ý¢€Š‡‚
-    (=ucs@jis		. #x203E)	; ø»‘ƒ¼
     ))
 (define-char
   '((name		. "heavy overline")
@@ -577,9 +577,9 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
     (=cns11643-1	. #x2224)	; ø»‘ƒ½
     (=big5		. #xA1C3)	; ý¢€Š‡ƒ
-    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
     ))
 (define-char
   '((name		. "UNDERTIE")
