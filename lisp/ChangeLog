@@ -1,5 +1,9 @@
 1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/ccs-tcvn5712.el: New file.
+
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add "ccs-jisx0208-1983.el"
 	in UTF-2000.
 
