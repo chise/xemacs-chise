@@ -1,3 +1,62 @@
+2001-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Support
+	`wrong-ideograph-of' property.
+
+	* Ideograph-R085-Water.el (C1-5B52): Relate to M050252.
+	(M-17758): Unify M017758.
+	(U+6E1A): Delete `japanese-strokes'.
+	(M-18277): Unify M018277.
+	(M-18515): Unify M018515.
+	(M-18668): Separate C2-6571 and U+7024; unify M018668.
+	(M-18669): Separate C3-5A54 and U+7025; unify M018669.
+	(M-18670): Separate J83-4375, C2-6223, J90-4375 and U+7026; unify
+	M018670; fix `total-strokes'.
+	(U+7026): Unify J83-4375, C2-6223, J90-4375 and M054231.
+
+	* Ideograph-R094-Dog.el (U+731F): Add `total-strokes'.
+	(U+7320): Likewise; unify M059773.
+	(U+7363): Add `total-strokes'.
+	(U+7364): Likewise; unify M065381.
+
+	* Ideograph-R093-Cow.el (M-20032): Unify M020032.
+	(U+727F): Unify M057757.
+
+	* Ideograph-R087-Claw.el (U+7233): Delete `kangxi-radical' and
+	`kangxi-strokes'; add `total-strokes'; unify M059770.
+	(M-19711): Unify M019711.
+
+	* Ideograph-R080-Do-Not.el (M-16740): Separate G0-5839, C1-645C
+	and U+6BD3; fix strokes; unify M016740.
+	(U+6BD3): Unify G0-5839.
+	(M-16742): Fix `ideographic-strokes'; unify M016742.
+	(C4-4A53): Fix `ideographic-strokes'.
+
+	* Ideograph-R086-Fire.el (M-19369): Unify C5-4E2D and U+24398.
+	(M019369): New character; relate to U+24398 and M-19369.
+
+2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (M-30640): Add `total-strokes'.
+	(M-30860'): Separate C6-2E22 and J90-326A; unify J78-326A and
+	J83-326A.
+	(C6-2E22): Unify U-0002F995.
+	(MH-521): Use `morohashi-daikanwa' instead of
+	`morohashi-daikanwa-ho'.
+	(M079242): Relate to MH-521.
+
+	* Ideograph-R084-Steam.el (U+6C28): Add `total-strokes'.
+	(C1-5636): Add `ideographic-strokes'.
+	(U+6C29): Add `total-strokes'.
+
+	* Ideograph-R078-Death.el (M-16459): Unify M016459.
+	(U+6B8B): Add `script'.
+	(MH-291): Add `total-strokes'; use `morohashi-daikanwa' instead of
+	`morohashi-daikanwa-ho'.
+
+	* Ideograph-R077-Stop.el (M-16257): Unify C6-232E and U-00028E16.
+	(M016257): New character; relate to M-16257 and U-00028E16.
+
 2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el (MH-575): Put `(ho 575)' to
