@@ -1,6 +1,14 @@
+2002-12-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (GC_CHARSETP): Deleted.
+
 2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (MAX_CHAR_GT): Updated.
+
+2002-12-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c: Sync with XEmacs 21.4.10.
 
 2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
