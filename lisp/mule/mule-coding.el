@@ -192,6 +192,8 @@
 	  (chinese-cns11643-6 "C6-" 4 X)
 	  (chinese-cns11643-7 "C7-" 4 X)
 	  ))
+
+  (define-coding-system-alias 'utf-8 'utf-8-mcs)
   )
 
 ;; initialize the coding categories to something semi-reasonable
