@@ -3946,7 +3946,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TCVN 5712"),
 		  build_string ("TCVN 5712 (VSCII-2)"),
 		  build_string ("Vietnamese TCVN 5712:1983 (VSCII-2)"),
-		  build_string ("tcvn5712-1"),
+		  build_string ("tcvn5712\\(\\.1993\\)?-1"),
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
