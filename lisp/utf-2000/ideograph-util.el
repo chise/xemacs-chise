@@ -182,6 +182,10 @@
       (let ((name (get-char-attribute (int-char (+ #x2EFF radical)) 'name)))
 	(if (string-match "KANGXI RADICAL " name)
 	    (setq name (capitalize (substring name (match-end 0)))))
+	(setq name (mapconcat (lambda (char)
+				(if (eq char ? )
+				    "-"
+				  (char-to-string char))) name ""))
 	(setq file
 	      (expand-file-name
 	       (format "Ideograph-R%03d-%s.el" radical name)
