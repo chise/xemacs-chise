@@ -186,6 +186,18 @@
 	)))
 
 (define-char
+  '((ideograph-gt-pj-4 . #x3844)
+    (ideograph-gt . 19655)
+    ))
+(define-char
+  '((ideograph-gt-pj-4 . #x3845)
+    (ideograph-gt . 19656)
+    ))
+(define-char
+  '((ideograph-gt-pj-9 . #x4D7B)
+    (ideograph-gt . 19861)
+    ))
+(define-char
   '((ideograph-gt-pj-4	. #x493C)
     (ideograph-gt	. 21862)
     ))
