@@ -839,9 +839,11 @@
      ((=ucs		  . #x25605)	; 𥘅
       ))
     (<-ideographic-component-forms
-     ((=daikanwa	  . 24624)	; &I-M-24624;
+     ((=cns11643-6	  . #x2227)	; &GT-31487; [02-07]
+      (=daikanwa	  . 24624)	; &I-M-24624;
       )
-     ((=daikanwa	  . 24623)	; &I-M-24623;
+     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+      (=daikanwa	  . 24623)	; &I-M-24623;
       ))
     (hanyu-dazidian	1 11 2)
     (=big5-cdp		. #x88C7)	; &CDP-88C7;
