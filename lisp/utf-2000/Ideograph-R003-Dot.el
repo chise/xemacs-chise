@@ -104,11 +104,12 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (<-original-ideograph
-     (:char	((shinjigen-1	     . 39)
-		 (=daikanwa	     . 00094)	; &I-M-00094;
-		 )
-      :sources	(chuuka-daijiten morohashi-daikanwa shinjigen-1)))
+    (<-original
+     ((shinjigen-1	  . 39)
+      (=daikanwa	  . 00094)	; &I-M-00094;
+      ))
+    (<-original*sources
+     zhonghua-dazidian daikanwa shinjigen-1)
     (hanyu-dazidian	1 276 4)
     (shinjigen-1	. 40)
     (=ucs		. #x2007D)	; 𠁽
