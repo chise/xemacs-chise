@@ -1,6 +1,8 @@
 ;;; mule-category.el --- category functions for XEmacs/Mule.
 
 ;; Copyright (C) 1992,93,94,95 Free Software Foundation, Inc.
+;; Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
+;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 
@@ -254,6 +256,23 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 	(define-category (nth 1 (car l)) (nth 2 (car l))))
     (modify-category-entry (car (car l)) (nth 1 (car l)))
     (setq l (cdr l))))
+
+;;; Setting word boundary.
+
+(setq word-combining-categories
+      '((?l . ?l)))
+
+(setq word-separating-categories	;  (2-byte character sets)
+      '((?A . ?K)			; Alpha numeric - Katakana
+	(?A . ?C)			; Alpha numeric - Chinese
+	(?H . ?A)			; Hiragana - Alpha numeric
+	(?H . ?K)			; Hiragana - Katakana
+	(?H . ?C)			; Hiragana - Chinese
+	(?K . ?A)			; Katakana - Alpha numeric
+	(?K . ?C)			; Katakana - Chinese
+	(?C . ?A)			; Chinese - Alpha numeric
+	(?C . ?K)			; Chinese - Katakana
+	))
 
 ;;; At the present, I know Japanese and Chinese text can
 ;;; break line at any point under a restriction of 'kinsoku'.
