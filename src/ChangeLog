@@ -1,5 +1,23 @@
 2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c: Use HAVE_CHISE instead of HAVE_CHISE_CLIENT to
+	specify CHISE DB support.
+	(Freset_charset_mapping_table): Use `chise_ccs_setup_db' instead
+	of `char_attribute_system_db_file' to check feature DB file.
+
+	* chartab.h, casetab.c, char-ucs.h: Use HAVE_CHISE instead of
+	HAVE_CHISE_CLIENT to specify CHISE DB support.
+
+	* chartab.c: Use HAVE_CHISE instead of HAVE_CHISE_CLIENT to
+	specify CHISE DB support.
+	(open_chise_data_source_maybe): Don't define when HAVE_LIBCHISE is
+	not defined.
+	(Freset_char_attribute_table): Use `chise_feature_setup_db'
+	instead of `char_attribute_system_db_file' to check feature DB
+	file.
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule.c (vars_of_mule): Use `HAVE_CHISE' instead of `CHISE' and
 	`HAVE_CHISE_CLIENT'.
 
