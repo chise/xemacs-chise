@@ -1,5 +1,11 @@
 2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (U+48A1): Changed to abstract character.
+	(U+9040): Changed to abstract character.
+	(C3-447D): Use `<-denotational' for U+9040; unify BC-8CBC.
+
+2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R073-Say.el (U+66F0): Use `->subsumptive'.
 
 	* Ideograph-R013-Down-Box.el (U+5190): Use `->denotational'
