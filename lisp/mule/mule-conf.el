@@ -451,6 +451,15 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-gb '=ucs@gb)
+  (make-charset '=ucs@gb/fw
+		"ISO/IEC 10646 for GB with fullwidth"
+		'(long-name	"UCS for GB-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@gb))
   (make-charset '=ucs@cns
 		"ISO/IEC 10646 for CNS 11643"
 		'(long-name	"UCS for CNS"
