@@ -12264,6 +12264,7 @@
     (=jis-x0213-2-2000	. #x2421)	; ø»¤¡š
     (=big5		. #xD473)	; ý¢€‘³
     (=daikanwa		. 03780)	; ø¸€»„
+    (=jef-china3	. #x46E0)	; øº„› 
     (=ucs@jis		. #x553C)	; ø»‹‚›
     ))
 (define-char
@@ -12281,7 +12282,6 @@
       ))
     (=gb2312		. #x5F7E)	; ø»…¢¥
     (=iso-ir165		. #x5F7E)	; ø»ŽŠµ
-    (=jef-china3	. #x46E0)	; øº„› 
     (=ucs		. #x553C)	; å”¼
     ))
 (define-char
@@ -22237,6 +22237,7 @@
     (=cns11643-2	. #x4936)	; ø»”‡¥
     (=big5		. #xE14F)	; ý¢€Ž…
     (=daikanwa		. 04197)	; ø¸¥
+    (=jef-china3	. #x8DC0)	; øºˆ·€
     (mojikyo		. 004197)	; ý €¥
     (=ucs		. #x5613)	; å˜“
     ))
@@ -29737,11 +29738,11 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (simplified-ideograph-of
-     ((sources		  morohashi-daikanwa)
-      (char . ((=daikanwa	   . 04633)	; ø¸ˆ™
-	       ))
+    (<-simplified-ideograph
+     ((=daikanwa	  . 04633)	; ø¸ˆ™
       ))
+    (<-simplified-ideograph*sources
+     daikanwa)
     (=jis-x0208-1983	. #x4739)	; ø»‡ˆ”
     (=jis-x0208-1990	. #x4739)	; ø½Š®ˆ
     (=gt-pj-1		. #x4739)	; åš¢
