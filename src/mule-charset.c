@@ -2080,9 +2080,6 @@ Save mapping-table of CHARSET.
   int byte_min, byte_max;
 #ifdef CHISE
   CHISE_CCS dt_ccs;
-  int modemask;
-  int accessmask = 0;
-  DBTYPE real_subtype;
 #else
   Lisp_Object db;
   Lisp_Object db_file;
@@ -2095,16 +2092,10 @@ Save mapping-table of CHARSET.
   if ( open_chise_data_source_maybe () )
     return -1;
 
-  modemask = 0755;		/* rwxr-xr-x */
-  real_subtype = DB_HASH;
-  accessmask = DB_CREATE;
-
   char_attribute_system_db_file (CHARSET_NAME (cs), Qsystem_char_id, 1);
   dt_ccs
-    = chise_ds_open_ccs_table (default_chise_data_source,
-			       XSTRING_DATA (Fsymbol_name
-					     (XCHARSET_NAME(charset))),
-			       real_subtype, accessmask, modemask);
+    = chise_ds_get_ccs (default_chise_data_source,
+			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
   if (dt_ccs == NULL)
     {
       printf ("Can't open decoding-table %s\n",
@@ -2133,7 +2124,7 @@ Save mapping-table of CHARSET.
 	    if (CHARP (c))
 	      {
 #ifdef CHISE
-		chise_ccst_put_char (dt_ccs, cell, XCHAR (c));
+		chise_ccs_set_decoded_char (dt_ccs, cell, XCHAR (c));
 #else
 		Fput_database (Fprin1_to_string (make_int (cell), Qnil),
 			       Fprin1_to_string (c, Qnil),
@@ -2160,8 +2151,9 @@ Save mapping-table of CHARSET.
 		if (CHARP (c))
 		  {
 #ifdef CHISE
-		    chise_ccst_put_char (dt_ccs,
-					 (row << 8) | cell, XCHAR (c));
+		    chise_ccs_set_decoded_char
+		      (dt_ccs,
+		       (row << 8) | cell, XCHAR (c));
 #else
 		    Fput_database (Fprin1_to_string (make_int ((row << 8)
 							       | cell),
@@ -2199,10 +2191,11 @@ Save mapping-table of CHARSET.
 		    if (CHARP (c))
 		      {
 #ifdef CHISE
-			chise_ccst_put_char (dt_ccs,
-					     (plane << 16)
-					     | (row <<  8)
-					     | cell, XCHAR (c));
+			chise_ccs_set_decoded_char
+			  (dt_ccs,
+			   (plane << 16)
+			   | (row <<  8)
+			   | cell, XCHAR (c));
 #else
 			Fput_database (Fprin1_to_string
 				       (make_int ((plane << 16)
@@ -2249,11 +2242,12 @@ Save mapping-table of CHARSET.
 			if (CHARP (c))
 			  {
 #ifdef CHISE
-			    chise_ccst_put_char (dt_ccs,
-						 (  group << 24)
-						 | (plane << 16)
-						 | (row   <<  8)
-						 |  cell, XCHAR (c));
+			    chise_ccs_set_decoded_char
+			      (dt_ccs,
+			       (  group << 24)
+			       | (plane << 16)
+			       | (row   <<  8)
+			       |  cell, XCHAR (c));
 #else
 			    Fput_database (Fprin1_to_string
 					   (make_int ((  group << 24)
@@ -2272,7 +2266,7 @@ Save mapping-table of CHARSET.
       }
     }
 #ifdef CHISE
-  chise_ccst_close (dt_ccs);
+  chise_ccs_sync (dt_ccs);
   return Qnil;
 #else
   return Fclose_database (db);
@@ -2303,22 +2297,14 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
 #ifdef CHISE
   CHISE_CCS dt_ccs;
-  int modemask;
-  int accessmask = 0;
-  DBTYPE real_subtype;
   CHISE_Char_ID char_id;
 
   if ( open_chise_data_source_maybe () )
     return -1;
 
-  modemask = 0755;		/* rwxr-xr-x */
-  real_subtype = DB_HASH;
-  accessmask = DB_RDONLY;
-
   dt_ccs
     = chise_ds_get_ccs (default_chise_data_source,
-			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))),
-			real_subtype, accessmask, modemask);
+			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
   if (dt_ccs == NULL)
     {
       printf ("Can't open decoding-table %s\n",
