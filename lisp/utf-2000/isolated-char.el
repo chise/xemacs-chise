@@ -180,7 +180,7 @@
 	(setq gt-code (string-to-int (match-string 1))
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))
-	(put-char-attribute (decode-builtin-char 'ideograph-gt gt-code)
+	(put-char-attribute (decode-builtin-char '=gt gt-code)
 			    (intern (format "ideograph-gt-pj-%d" plane))
 			    code)
 	)))
@@ -209,43 +209,43 @@
 
 (define-char
   '((ideograph-gt-pj-4	. #x3844)
-    (ideograph-gt	. 19655)
+    (=gt	. 19655)
     ))
 (define-char
   '((ideograph-gt-pj-4	. #x3845)
-    (ideograph-gt	. 19656)
+    (=gt	. 19656)
     ))
 (define-char
   '((ideograph-gt-pj-9	. #x4D7B)
-    (ideograph-gt	. 19861)
+    (=gt	. 19861)
     ))
 (define-char
   '((ideograph-gt-pj-4	. #x493C)
-    (ideograph-gt	. 21862)
+    (=gt	. 21862)
     ))
 (define-char
   '((ideograph-gt-pj-4	. #x6D51)
-    (ideograph-gt	. 26606)
+    (=gt	. 26606)
     ))
 (define-char
   '((ideograph-gt-pj-5	. #x4579)
-    (ideograph-gt	. 30254)
+    (=gt	. 30254)
     ))
 (define-char
   '((ideograph-gt-pj-11 . #x5277)
-    (ideograph-gt	. 40268)
+    (=gt	. 40268)
     ))
 (define-char
   '((ideograph-gt-pj-1	. #x3F6B)
-    (ideograph-gt	. 52230)
+    (=gt	. 52230)
     ))
 (define-char
   '((ideograph-gt-pj-7	. #x5821)
-    (ideograph-gt	. 52349)
+    (=gt	. 52349)
     ))
 (define-char
   '((ideograph-gt-pj-11	. #x5A40)
-    (ideograph-gt	. 60403)
+    (=gt	. 60403)
     ))
 
 ;;; isolated-char.el ends here
