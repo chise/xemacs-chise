@@ -127,7 +127,7 @@ color_instance_hash (Lisp_Object obj, int depth)
 DEFINE_LRECORD_IMPLEMENTATION ("color-instance", color_instance,
 			       mark_color_instance, print_color_instance,
 			       finalize_color_instance, color_instance_equal,
-			       color_instance_hash,
+			       color_instance_hash, 0,
 			       struct Lisp_Color_Instance);
 
 DEFUN ("make-color-instance", Fmake_color_instance, 1, 3, 0, /*
@@ -301,7 +301,7 @@ font_instance_hash (Lisp_Object obj, int depth)
 DEFINE_LRECORD_IMPLEMENTATION ("font-instance", font_instance,
 			       mark_font_instance, print_font_instance,
 			       finalize_font_instance, font_instance_equal,
-			       font_instance_hash, struct Lisp_Font_Instance);
+			       font_instance_hash, 0, struct Lisp_Font_Instance);
 
 DEFUN ("make-font-instance", Fmake_font_instance, 1, 3, 0, /*
 Return a new `font-instance' object named NAME.

@@ -30,7 +30,7 @@ Boston, MA 02111-1307, USA.  */
 void update_frame_menubars (struct frame *f);
 void free_frame_menubars (struct frame *f);
 Lisp_Object menu_parse_submenu_keywords (Lisp_Object desc,
-					 struct gui_item* pgui_item);
+					 Lisp_Object gui_item);
 Lisp_Object current_frame_menubar (CONST struct frame* f);
 
 EXFUN (Fmenu_find_real_submenu, 2);

@@ -357,6 +357,7 @@ package_path=''
 etcdir='${datadir}/${PROGNAME}-${version}/etc'
 lockdir='${statedir}/${PROGNAME}/lock'
 archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
+docdir='${archlibdir}'
 with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
@@ -711,6 +712,8 @@ while test $# != 0; do
            dnl You need to synchronize this with the way the
            dnl default values are built.
 	   case "$opt" in
+	     prefix ) AC_DEFINE(PREFIX_USER_DEFINED) ;;
+	     exec_prefix ) AC_DEFINE(EXEC_PREFIX_USER_DEFINED) ;;
              lispdir ) AC_DEFINE(LISPDIR_USER_DEFINED) ;;
              sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
              moduledir ) AC_DEFINE(MODULEDIR_USER_DEFINED) ;;
@@ -724,6 +727,7 @@ while test $# != 0; do
             AC_DEFINE(MODULEDIR_USER_DEFINED)
 	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
              statedir | lockdir ) AC_DEFINE(LOCKDIR_USER_DEFINED) ;;
+	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
 	;;
@@ -2672,23 +2676,20 @@ AC_CHECKING(for LDAP)
 test -z "$with_ldap" && { AC_CHECK_HEADER(ldap.h, ,with_ldap=no) }
 test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
 if test "$with_ldap" != "no"; then
-  test -z "$with_umich_ldap" && { AC_CHECK_LIB(ldap, ldap_open, with_umich_ldap=yes, with_umich_ldap=no, -llber) }
-  test "$with_umich_ldap" = "no" && { AC_CHECK_LIB(ldap10, ldap_set_option, with_ns_ldap=yes, with_ns_ldap=no) }
-  test -z "$with_ldap" -a \( "$with_umich_ldap" = "yes" -o "$with_ns_ldap" = "yes" \) && with_ldap=yes
+  AC_CHECK_LIB(ldap, ldap_search, with_ldap_nolber=yes, with_ldap_nolber=no)
+  test "$with_ldap_nolber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_lber=yes, with_ldap_lber=no, -llber) }
+  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" \) && with_ldap=yes
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
   XE_ADD_OBJS(eldap.o)
-  if test "$with_umich_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_UMICH_LDAP)
+  if test "$with_ldap_nolber" = "yes" ; then
+    XE_PREPEND(-lldap, LIBS)
+  else
     XE_PREPEND(-llber, LIBS)
     XE_PREPEND(-lldap, LIBS)
-  elif test "$with_ldap" = "yes" -a "$with_ns_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_NS_LDAP)
-    XE_PREPEND(-lldap10, LIBS)
-  elif test "$with_ldap" = "yes" ; then
-    XE_PREPEND(-lldap, LIBS)
   fi
+  AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
 fi
 
 dnl ----------------------
@@ -3753,6 +3754,7 @@ AC_SUBST(libdir)
 AC_SUBST(mandir)
 
 AC_SUBST(prefix)
+AC_SUBST(PREFIX_USER_DEFINED)
 dnl Yo, Stephen Bourne!  I want to marry you!
 PREFIX=$prefix
 while true; do
@@ -3764,6 +3766,7 @@ done
 AC_SUBST(PREFIX)
 
 AC_SUBST(exec_prefix)
+AC_SUBST(EXEC_PREFIX_USER_DEFINED)
 EXEC_PREFIX=$exec_prefix
 while true; do
   case "$EXEC_PREFIX" in
@@ -3871,6 +3874,17 @@ while true; do
   esac
 done
 AC_SUBST(LOCKDIR)
+
+AC_SUBST(docdir)
+AC_SUBST(DOCDIR_USER_DEFINED)
+DOCDIR=$docdir
+while true; do
+  case "$DOCDIR" in
+    *\$* ) eval "DOCDIR=$DOCDIR" ;;
+    *) break ;;
+  esac
+done
+AC_SUBST(DOCDIR)
 
 AC_SUBST(archlibdir)
 AC_SUBST(ARCHLIBDIR_USER_DEFINED)
@@ -4070,9 +4084,7 @@ test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley 
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
 test "$with_database_gnudbm" = yes && echo "  Compiling in support for GNU DBM."
 
-test "$with_umich_ldap"	     = yes && echo "  Compiling in support for LDAP (UMich libs)."
-test "$with_ns_ldap"	     = yes && echo "  Compiling in support for LDAP (Netscape SDK)."
-test "$with_ldap" = yes -a "$with_umich_ldap" = no -a "$with_ns_ldap" = no && echo "  Compiling in support for LDAP (Generic)."
+test "$with_ldap"	     = yes && echo "  Compiling in support for LDAP."
 
 test "$with_ncurses"  = yes && echo "  Compiling in support for ncurses."
 test "$with_gpm"      = yes && echo "  Compiling in support for GPM (General Purpose Mouse)."

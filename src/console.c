@@ -137,7 +137,7 @@ print_console (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("console", console,
-			       mark_console, print_console, 0, 0, 0,
+			       mark_console, print_console, 0, 0, 0, 0,
 			       struct console);
 
 static struct console *

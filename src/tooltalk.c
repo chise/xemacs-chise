@@ -175,7 +175,7 @@ print_tooltalk_message (Lisp_Object obj, Lisp_Object printcharfun,
 
 DEFINE_LRECORD_IMPLEMENTATION ("tooltalk-message", tooltalk_message,
                                mark_tooltalk_message, print_tooltalk_message,
-                               0, 0, 0,
+                               0, 0, 0, 0,
 			       struct Lisp_Tooltalk_Message);
 
 static Lisp_Object
@@ -249,7 +249,7 @@ print_tooltalk_pattern (Lisp_Object obj, Lisp_Object printcharfun,
 
 DEFINE_LRECORD_IMPLEMENTATION ("tooltalk-pattern", tooltalk_pattern,
                                mark_tooltalk_pattern, print_tooltalk_pattern,
-                               0, 0, 0,
+                               0, 0, 0, 0,
 			       struct Lisp_Tooltalk_Pattern);
 
 static Lisp_Object

@@ -90,7 +90,7 @@ print_toolbar_button (Lisp_Object obj, Lisp_Object printcharfun,
 
 DEFINE_LRECORD_IMPLEMENTATION ("toolbar-button", toolbar_button,
 			       mark_toolbar_button, print_toolbar_button,
-			       0, 0, 0,
+			       0, 0, 0, 0,
 			       struct toolbar_button);
 
 DEFUN ("toolbar-button-p", Ftoolbar_button_p, 1, 1, 0, /*

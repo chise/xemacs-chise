@@ -1,3 +1,18 @@
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (DOC_SRC8): Remove mule-coding.c.
+	(TEMACS_MULE_OBJS): Remove mule-coding.obj
+	(check): Implement according to src/Makefile.
+	(check-temacs): ditto.
+
+1999-06-05  Norbert Koch <n.koch@delta-ii.de>
+
+	* xemacs.mak (mule): remove dependencies from mule-coding.c
+	
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released

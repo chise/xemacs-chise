@@ -165,6 +165,138 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+1999-06-23  Olivier Galibert  <galibert@pobox.com>
+
+	* config.h.in: Add missing #undef *_USER_DEFINED.
+
+1999-06-23  SL Baur  <steve@miho.m17n.org>
+
+	* lisp.h (set_bit_vector_bit): Force promotion to unsigned long
+	int (fixes a 64-bit problem).
+
+	* chartab.c (word_boundary_p): Use EQ not == for lisp_object
+	comparison.
+
+1999-03-23  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* paths.h.in (PATH_DOC): Made doc-directory configurable.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added basic external description system.
+
+	* symbols.c: Added symbol, symbol-value-buffer-local,
+ 	symbol-value-lisp-magic and symbol-value-varalias description.
+	* mule-charset.c: Added charset description.
+	* marker.c: Added marker description.
+	* keymap.c: Added keymap description.
+	* glyphs.c: Added glyph description.
+	* floatfns.c: Added float description.
+	* file-coding.c: Added coding-system description.
+	* extents.c: Added extent description.
+	* elhash.c: Added hash-table description.
+	* data.c: Added weak-list desciption.
+	* chartab.c: Added char-table-entry and char-table description.
+	* bytecode.c: Added compiled-function description.
+	* alloc.c: Added cons, vector and string description.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h (struct lrecord_header): Reduced size to 4 bytes.
+	Updated everything to the removal of the "flags" substructure.
+
+	* lisp.h (subr_lheader_initializer): Updated.
+	* symeval.h (symbol_value_forward_lheader_initializer): Updated.
+
+1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* syntax.c (word_constituent_p): Deleted.
+	(scan_words): Use `WORD_BOUNDARY_P'.
+
+	* chartab.c (Vword_combining_categories): New variable.
+	(Vword_separating_categories): Likewise.
+	(CATEGORYP): New macro.
+	(CATEGORY_SET): Likewise.
+	(CATEGORY_MEMBER): Likewise.
+	(word_boundary_p): New function.
+	(complex_vars_of_chartab): Set up new variable
+	`word-combining-categories' and `word-separating-categories'.
+
+1999-06-18  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added description as a placehold in the lrecord
+ 	implementation structures.  Added the parameter to all constructor
+ 	defines.
+
+	* alloc.c: Added placeholders.
+	* buffer.c: Ditto.
+	* bytecode.c: Ditto.
+	* chartab.c: Ditto.
+	* console.c: Ditto.
+	* data.c: Ditto.
+	* database.c: Ditto.
+	* device.c: Ditto.
+	* eldap.c: Ditto.
+	* elhash.c: Ditto.
+	* eval.c: Ditto.
+	* event-stream.c: Ditto.
+	* events.c: Ditto.
+	* extents.c: Ditto.
+	* faces.c: Ditto.
+	* file-coding.c: Ditto.
+	* floatfns.c: Ditto.
+	* fns.c: Ditto.
+	* frame.c: Ditto.
+	* glyphs.c: Ditto.
+	* gui-x.c: Ditto.
+	* keymap.c: Ditto.
+	* lstream.c: Ditto.
+	* marker.c: Ditto.
+	* mule-charset.c: Ditto.
+	* objects.c: Ditto.
+	* opaque.c: Ditto.
+	* process.c: Ditto.
+	* rangetab.c: Ditto.
+	* specifier.c: Ditto.
+	* symbols.c: Ditto.
+	* toolbar.c: Ditto.
+	* tooltalk.c: Ditto.
+	* window.c: Ditto.
+
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* config.h.in (HAVE_LDAP_SET_OPTION): New define
+	(HAVE_LDAP_GET_LDERRNO): Ditto
+	(HAVE_LDAP_RESULT2ERROR): Ditto
+	(HAVE_LDAP_PARSE_RESULT): Ditto
+	(HAVE_UMICH_LDAP): Removed
+	(HAVE_NS_LDAP): Removed
+
+	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as  
+	suggested by Olivier Galibert
+	(CHECK_LIVE_LDAP): Test on `ld' instead of `livep'
+
+	* eldap.c: Take the removal of `livep' into account in all the
+	necessary functions
+	(signal_ldap_error): Take two additional parameters
+	Added new finer compilation conditions in order to use
+	ldap_parse_result or ldap_result2error if available
+	(Fldap_open): Conform to this new API
+	(Fldap_search_internal): Ditto
+
+1999-06-17  SL Baur  <steve@miho.m17n.org>
+
+	* data.c (struct int_or_double): Should use EMACS_INT not int.
+
+1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
+
+	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 
+	redisplay-x.c
+
 1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* redisplay-x.c (separate_textual_runs): Run `ccl_driver' with
@@ -183,6 +315,97 @@
 	* mule-ccl.h (CCL_MODE_ENCODING): New macro.
 	(CCL_MODE_DECODING): New macro.
 	(ccl_driver): Add new argument `conversion_mode'.
+
+1999-06-15  SL Baur  <steve@miho.m17n.org>
+
+	* mule-charset.c (Fsplit_char): New subr.
+	(Fchar_octet): delete.
+	(syms_of_mule_charset): DEFSUBR it.
+
+1999-06-13  Andy Piper  <andy@xemacs.org>
+
+	* menubar.h: update declarations involving gui_items.
+
+	* lisp.h: declare Lisp_Gui_Item.
+
+	* glyphs.h (struct Lisp_Image_Instance): update type of gui_item.
+
+	* glyphs.c (mark_image_instance): modify for new lisp-based gui_items.
+	(print_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+
+	* event-msw.c (mswindows_need_event): assert badly_p status.
+	(mswindows_wnd_proc): modify WM_NOTIFY handling to cope with
+ 	callbacks in tree-view and tab-control widgets.
+	(emacs_mswindows_next_event): modify use of
+ 	mswindows_dequeue_dispatch_event.
+
+	* dialog-msw.c (mswindows_popup_dialog_box): modify for new
+ 	lisp-based gui_items.
+
+	* glyphs-msw.c (mswindows_update_subwindow): update use of
+ 	gui_items.
+	(mswindows_register_gui_item): new function.
+	(mswindows_register_gui_item): fix to use lisp gui_items.
+	(mswindows_widget_instantiate): ditto.
+	(mswindows_button_instantiate): ditto.
+	(add_tree_item): new function to recursively add tree view
+ 	elements.
+	(add_tree_item_list): ditto.
+	(mswindows_tree_instantiate): new function. instantiate tree view
+ 	controls.
+	(add_tab_item): new function to add tabs to a tab control.
+	(mswindows_tab_instantiate): new function. instantiate tab
+ 	controls.
+	(image_instantiator_format_create_glyphs_mswindows): add tree view
+ 	and tab controls.
+	(vars_of_glyphs_mswindows): ditto.
+
+	* glyphs-widget.c (check_valid_item_list_1): allow nested lists in
+ 	item lists.
+	(check_valid_item_list): ditto.
+	(initialize_widget_image_instance): fix to use new lisp gui_item.
+	(widget_instantiate_1): allow the setting of default textwidth in
+ 	characters.
+	(widget_instantiate): change to use new widget_instantiate_1
+ 	signature.
+	(combo_instantiate): ditto.
+	(static_instantiate): ditto.
+	(tab_instantiate): new function for tab widgets.
+	(image_instantiator_format_create_glyphs_widget): add tab and tree
+ 	view widgets.
+
+	* menubar-msw.c (displayable_menu_item): convert to use lisp
+ 	gui_items.
+	(populate_menu_add_item): ditto.
+	(populate_or_checksum_helper): ditto.
+
+	* menubar.c (menu_parse_submenu_keywords): convert to use lisp
+ 	gui_items.
+	(Fmenu_find_real_submenu): ditto.
+
+	* gui.h (struct Lisp_Gui_Item): make gui_item a lisp oebjct.
+
+	* gui.c (gui_item_add_keyval_pair): gui_items are now lisp
+ 	objects, convert functions that use them accordingly.
+	(gui_item_init): ditto.
+	(gui_item_active_p): ditto.
+	(gui_item_selected_p): ditto.
+	(gui_item_included_p): ditto.
+	(gui_item_display_flush_left): ditto.
+	(gui_item_display_flush_right): ditto.
+	(mark_gui_item): ditto.
+	(allocate_gui_item): new function to create a gui_item.
+	(make_gui_item_from_keywords_internal): ditto. create and return a
+ 	gui_item as well as setting keywords.
+	(gui_parse_item_keywords): ditto.
+	(gui_parse_item_keywords_no_errors): ditto.
+	(gui_add_item_keywords_to_plist): new function, not yet used.
+	(gui_item_hash): new function.
+	(gui_item_id_hash): use gui_item_hash.
+	(gui_item_equal): new function.
+	(print_gui_item): new function.
 
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
@@ -212,12 +435,6 @@
 	`no-conversion' as an alias for `raw-text'.
 
 	* file-coding.h (Qraw_text): New variable.
-
-1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule-charset.c (complex_vars_of_mule_charset): Registry of
-	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
-	"jisc6226.1983".
 
 1999-06-08  SL Baur  <steve@xemacs.org>
 

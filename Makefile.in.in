@@ -191,6 +191,9 @@ etcdir=@etcdir@
 ## currently being edited.
 lockdir=@lockdir@
 
+# Where to put the DOC file.
+docdir=@docdir@
+
 ## Where to put executables to be run by XEmacs rather than
 ## the user.  This path usually includes the XEmacs version
 ## and configuration name, so that multiple configurations
@@ -393,9 +396,8 @@ install-arch-dep: mkdir
 	   if test -f ../Installation; then \
 		${INSTALL_DATA} ../Installation ${archlibdir}/Installation; \
 	   fi; \
-	   for f in DOC config.values; do \
-		${INSTALL_DATA} lib-src/$${f} ${archlibdir}/$${f}; \
-	   done ; \
+	   ${INSTALL_DATA} lib-src/config.values ${archlibdir}/config.values; \
+	   ${INSTALL_DATA} lib-src/DOC ${docdir}/DOC; \
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
 	else true; fi
@@ -471,7 +473,7 @@ MAKEPATH=./lib-src/make-path
 ## (e.g. /usr/local/lib/${PROGNAME}-20.5/sparc-sun-solaris2.6), we use
 ## make-path instead of mkdir.  Not all mkdirs have the `-p' flag.
 mkdir: FRC.mkdir
-	${MAKEPATH} ${COPYDESTS} ${lockdir} ${infodir} ${archlibdir} \
+	${MAKEPATH} ${COPYDESTS} ${lockdir} ${docdir} ${infodir} ${archlibdir} \
 	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir} \
 	  ${sitelispdir} ${moduledir} ${sitemoduledir}
 	-chmod 0777 ${lockdir}

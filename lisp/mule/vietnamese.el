@@ -33,22 +33,22 @@
 
 (defvar viet-viscii-decode-table
   [;; VISCII is a full 8-bit code.
-   0 1 ?.2NF 3 4 ?NG ?Ng 7 8 9 10 11 12 13 14 15
-   16 17 18 19 ?.2NV 21 22 23 24 ?N[ 26 27 28 29 ?N\ 31
+   0 1 ?,2F(B 3 4 ?,2G(B ?,2g(B 7 8 9 10 11 12 13 14 15
+   16 17 18 19 ?,2V(B 21 22 23 24 ?,2[(B 26 27 28 29 ?,2\(B 31
    32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
    48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
    64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
    80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95
    96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111
    112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 
-   ?.2NU ?N! ?N" ?N# ?N$ ?N% ?N& ?N' ?N( ?N) ?N* ?N+ ?N, ?N- ?N. ?N/
-   ?.2N0 ?N1 ?N2 ?N5 ?N~ ?N> ?N6 ?N7 ?N8 ?Nv ?Nw ?No ?N| ?N{ ?Nx ?NO
-   ?.2Nu ?.1N! ?N" ?N# ?N$ ?N% ?N& ?N' ?N( ?N) ?N* ?N+ ?N, ?N- ?N. ?N/
-   ?.1N0 ?N1 ?N2 ?.2N^ ?N= ?.1N5 ?N6 ?N7 ?N8 ?.2Nq ?NQ ?NW ?NX ?.1N= ?N> ?.2N_
-   ?.2N` ?Na ?Nb ?Nc ?Nd ?Ne ?.1NF ?NG ?.2Nh ?Ni ?Nj ?Nk ?Nl ?Nm ?Nn ?.1NO
-   ?.2Np ?.1NQ ?.2Nr ?Ns ?Nt ?.1NU ?NV ?NW ?NX ?.2Ny ?Nz ?.1N[ ?N\ ?.2N} ?.1N^ ?N_
-   ?.1N` ?Na ?Nb ?Nc ?Nd ?Ne ?Nf ?Ng ?Nh ?Ni ?Nj ?Nk ?Nl ?Nm ?Nn ?No
-   ?.1Np ?Nq ?Nr ?Ns ?Nt ?Nu ?Nv ?Nw ?Nx ?Ny ?Nz ?N{ ?N| ?N} ?N~ ?.2Nf ]
+   ?,2U(B ?,2!(B ?,2"(B ?,2#(B ?,2$(B ?,2%(B ?,2&(B ?,2'(B ?,2((B ?,2)(B ?,2*(B ?,2+(B ?,2,(B ?,2-(B ?,2.(B ?,2/(B
+   ?,20(B ?,21(B ?,22(B ?,25(B ?,2~(B ?,2>(B ?,26(B ?,27(B ?,28(B ?,2v(B ?,2w(B ?,2o(B ?,2|(B ?,2{(B ?,2x(B ?,2O(B
+   ?,2u(B ?,1!(B ?,1"(B ?,1#(B ?,1$(B ?,1%(B ?,1&(B ?,1'(B ?,1((B ?,1)(B ?,1*(B ?,1+(B ?,1,(B ?,1-(B ?,1.(B ?,1/(B
+   ?,10(B ?,11(B ?,12(B ?,2^(B ?,2=(B ?,15(B ?,16(B ?,17(B ?,18(B ?,2q(B ?,2Q(B ?,2W(B ?,2X(B ?,1=(B ?,1>(B ?,2_(B
+   ?,2`(B ?,2a(B ?,2b(B ?,2c(B ?,2d(B ?,2e(B ?,1F(B ?,1G(B ?,2h(B ?,2i(B ?,2j(B ?,2k(B ?,2l(B ?,2m(B ?,2n(B ?,1O(B
+   ?,2p(B ?,1Q(B ?,2r(B ?,2s(B ?,2t(B ?,1U(B ?,1V(B ?,1W(B ?,1X(B ?,2y(B ?,2z(B ?,1[(B ?,1\(B ?,2}(B ?,1^(B ?,1_(B
+   ?,1`(B ?,1a(B ?,1b(B ?,1c(B ?,1d(B ?,1e(B ?,1f(B ?,1g(B ?,1h(B ?,1i(B ?,1j(B ?,1k(B ?,1l(B ?,1m(B ?,1n(B ?,1o(B
+   ?,1p(B ?,1q(B ?,1r(B ?,1s(B ?,1t(B ?,1u(B ?,1v(B ?,1w(B ?,1x(B ?,1y(B ?,1z(B ?,1{(B ?,1|(B ?,1}(B ?,1~(B ?,2f(B ]
   "Vietnamese VISCII decoding table.")
 
 (defvar viet-viscii-encode-table
@@ -58,7 +58,7 @@
 	char-component)
     (while (< i 256)
       (setq char-component
-	    (split-char-or-char-int (aref viet-viscii-decode-table i)))
+	    (split-char (aref viet-viscii-decode-table i)))
       (cond ((eq (car char-component) 'vietnamese-viscii-lower)
 	     (aset table-lower (nth 1 char-component) i))
 	    ((eq (car char-component) 'vietnamese-viscii-upper)
@@ -71,22 +71,22 @@ Both tables are indexed by the position code of Vietnamese characters.")
 
 (defvar viet-vscii-decode-table
   [;; VSCII is a full 8-bit code.
-   0 ?.2Nz ?Nx 3 ?NW ?NX ?Nf 7 8 9 10 11 12 13 14 15
-   16 ?.2NQ ?N_ ?NO ?NV ?N[ ?N} ?N\ 24 25 26 27 28 29 30 31
+   0 ?,2z(B ?,2x(B 3 ?,2W(B ?,2X(B ?,2f(B 7 8 9 10 11 12 13 14 15
+   16 ?,2Q(B ?,2_(B ?,2O(B ?,2V(B ?,2[(B ?,2}(B ?,2\(B 24 25 26 27 28 29 30 31
    32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
    48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
    64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
    80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95
    96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111
    112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 
-   ?.2N` ?Nd ?Nc ?Na ?NU ?N# ?N' ?Nh ?Nk ?N( ?Ni ?N) ?N. ?Nl ?No ?Nn
-   ?.2Nm ?N8 ?Nr ?Nv ?Nu ?Ns ?Nw ?N5 ?N6 ?N7 ?N^ ?N> ?N~ ?Ny ?N| ?N{
-   160 ?.2Ne ?Nb ?Nj ?Nt ?N= ?N_ ?Np ?.1Ne ?Nb ?Nj ?Nt ?N> ?Ny ?Np ?.2N"
-   192 193 194 195 196 ?.1N` ?Nd ?Nc ?Na ?NU ?.2NF ?.1N" ?NF ?NG ?N! ?.2NG
-   ?.2N! ?N% ?N& ?Ng ?N% ?N+ ?.1N# ?N% ?N& ?Ng ?N$ ?N' ?Nh ?.2N, ?.1Nk ?N(
-   ?.1Ni ?N) ?N+ ?N, ?N- ?N* ?N. ?Nl ?No ?.2N- ?N* ?N0 ?.1Nn ?Nm ?N8 ?Nr
-   ?.2N1 ?.1Nv ?Nu ?Ns ?Nw ?N0 ?N1 ?N2 ?N/ ?N5 ?N6 ?N7 ?N^ ?N> ?N~ ?Ny
-   ?.2N2 ?.1N| ?N{ ?Nz ?Nx ?NW ?NX ?Nf ?NQ ?Nq ?NO ?NV ?N[ ?N} ?N\ ?.2N/]
+   ?,2`(B ?,2d(B ?,2c(B ?,2a(B ?,2U(B ?,2#(B ?,2'(B ?,2h(B ?,2k(B ?,2((B ?,2i(B ?,2)(B ?,2.(B ?,2l(B ?,2o(B ?,2n(B
+   ?,2m(B ?,28(B ?,2r(B ?,2v(B ?,2u(B ?,2s(B ?,2w(B ?,25(B ?,26(B ?,27(B ?,2^(B ?,2>(B ?,2~(B ?,2y(B ?,2|(B ?,2{(B
+   160 ?,2e(B ?,2b(B ?,2j(B ?,2t(B ?,2=(B ?,2_(B ?,2p(B ?,1e(B ?,1b(B ?,1j(B ?,1t(B ?,1>(B ?,1y(B ?,1p(B ?,2"(B
+   192 193 194 195 196 ?,1`(B ?,1d(B ?,1c(B ?,1a(B ?,1U(B ?,2F(B ?,1"(B ?,1F(B ?,1G(B ?,1!(B ?,2G(B
+   ?,2!(B ?,2%(B ?,2&(B ?,2g(B ?,2%(B ?,2+(B ?,1#(B ?,1%(B ?,1&(B ?,1g(B ?,1$(B ?,1'(B ?,1h(B ?,2,(B ?,1k(B ?,1((B
+   ?,1i(B ?,1)(B ?,1+(B ?,1,(B ?,1-(B ?,1*(B ?,1.(B ?,1l(B ?,1o(B ?,2-(B ?,2*(B ?,20(B ?,1n(B ?,1m(B ?,18(B ?,1r(B
+   ?,21(B ?,1v(B ?,1u(B ?,1s(B ?,1w(B ?,10(B ?,11(B ?,12(B ?,1/(B ?,15(B ?,16(B ?,17(B ?,1^(B ?,1>(B ?,1~(B ?,1y(B
+   ?,22(B ?,1|(B ?,1{(B ?,1z(B ?,1x(B ?,1W(B ?,1X(B ?,1f(B ?,1Q(B ?,1q(B ?,1O(B ?,1V(B ?,1[(B ?,1}(B ?,1\(B ?,2/(B]
   "Vietnamese VSCII decoding table.")
 
 (defvar viet-vscii-encode-table
@@ -96,7 +96,7 @@ Both tables are indexed by the position code of Vietnamese characters.")
 	char-component)
     (while (< i 256)
       (setq char-component
-	    (split-char-or-char-int (aref viet-vscii-decode-table i)))
+	    (split-char (aref viet-vscii-decode-table i)))
       (cond ((eq (car char-component) 'vietnamese-viscii-lower)
 	     (aset table-lower (nth 1 char-component) i))
 	    ((eq (car char-component) 'vietnamese-viscii-upper)
@@ -268,7 +268,7 @@ Both tables are indexed by the position code of Vietnamese characters.")
 		(charset . (vietnamese-viscii-lower
 			    vietnamese-viscii-upper))
 		(coding-system . (viscii vscii viqr))
-		(sample-text . "Vietnamese (Ti.1N*ng ViN.t)	ChN`o bNUn")
+		(sample-text . "Vietnamese (Ti,1*(Bng Vi,1.(Bt)	Ch,1`(Bo b,1U(Bn")
 		(documentation . "\
 For Vietnamese, Emacs uses special charasets internally.
 They can be decoded from and encoded to VISCC, VSCII, and VIQR.")

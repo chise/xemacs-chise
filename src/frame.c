@@ -155,7 +155,7 @@ print_frame (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("frame", frame,
-                               mark_frame, print_frame, 0, 0, 0,
+                               mark_frame, print_frame, 0, 0, 0, 0,
 			       struct frame);
 
 static void

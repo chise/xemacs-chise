@@ -113,7 +113,7 @@ bit_vector_hash (Lisp_Object obj, int depth)
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("bit-vector", bit_vector,
 				     mark_bit_vector, print_bit_vector, 0,
-				     bit_vector_equal, bit_vector_hash,
+				     bit_vector_equal, bit_vector_hash, 0,
 				     struct Lisp_Bit_Vector);
 
 DEFUN ("identity", Fidentity, 1, 1, 0, /*

@@ -102,8 +102,10 @@ current_frame_menubar (CONST struct frame* f)
 }
 
 Lisp_Object
-menu_parse_submenu_keywords (Lisp_Object desc, struct gui_item* pgui_item)
+menu_parse_submenu_keywords (Lisp_Object desc, Lisp_Object gui_item)
 {
+  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+
   /* Menu descriptor should be a list */
   CHECK_CONS (desc);
 
@@ -130,7 +132,7 @@ menu_parse_submenu_keywords (Lisp_Object desc, struct gui_item* pgui_item)
       desc = XCDR (desc);
       if (!NILP (desc))
 	CHECK_CONS (desc);
-      gui_item_add_keyval_pair (pgui_item, key, val, ERROR_ME);
+      gui_item_add_keyval_pair (gui_item, key, val, ERROR_ME);
     }
 
   /* Return the rest - supposed to be a list of items */
@@ -152,10 +154,10 @@ See also 'find-menu-item'.
 {
   Lisp_Object path_entry, submenu_desc, submenu;
   struct gcpro gcpro1;
-  struct gui_item gui_item;
+  Lisp_Object gui_item = allocate_gui_item ();
+  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
-  gui_item_init (&gui_item);
-  GCPRO_GUI_ITEM (&gui_item);
+  GCPRO1 (gui_item);
 
   EXTERNAL_LIST_LOOP (path_entry, path)
     {
@@ -164,15 +166,15 @@ See also 'find-menu-item'.
 	RETURN_UNGCPRO (Qnil);
 
       /* Parse this menu */
-      desc = menu_parse_submenu_keywords (desc, &gui_item);
+      desc = menu_parse_submenu_keywords (desc, gui_item);
 
       /* Check that this (sub)menu is active */
-      if (!gui_item_active_p (&gui_item))
+      if (!gui_item_active_p (gui_item))
 	RETURN_UNGCPRO (Qnil);
 
       /* Apply :filter */
-      if (!NILP (gui_item.filter))
-	desc = call1 (gui_item.filter, desc);
+      if (!NILP (pgui_item->filter))
+	desc = call1 (pgui_item->filter, desc);
 
       /* Find the next menu on the path inside this one */
       EXTERNAL_LIST_LOOP (submenu_desc, desc)
@@ -191,7 +193,7 @@ See also 'find-menu-item'.
 
     descend:
       /* Prepare for the next iteration */
-      gui_item_init (&gui_item);
+      gui_item_init (gui_item);
     }
 
   /* We have successfully descended down the end of the path */

@@ -600,7 +600,7 @@ mark_image_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
       markobj (IMAGE_INSTANCE_WIDGET_TYPE (i));
       markobj (IMAGE_INSTANCE_WIDGET_PROPS (i));
       markobj (IMAGE_INSTANCE_WIDGET_FACE (i));
-      mark_gui_item (&IMAGE_INSTANCE_WIDGET_ITEM (i), markobj);
+      markobj (IMAGE_INSTANCE_WIDGET_ITEM (i));
     case IMAGE_SUBWINDOW:
       markobj (IMAGE_INSTANCE_SUBWINDOW_FRAME (i));
       break;
@@ -707,11 +707,13 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
       break;
 
     case IMAGE_WIDGET:
+      /*
       if (!NILP (IMAGE_INSTANCE_WIDGET_CALLBACK (ii)))
 	{
 	  print_internal (IMAGE_INSTANCE_WIDGET_CALLBACK (ii), printcharfun, 0);
 	  write_c_string (", ", printcharfun);
 	}
+      */
       if (!NILP (IMAGE_INSTANCE_WIDGET_FACE (ii)))
 	{
 	  write_c_string (" (", printcharfun);
@@ -834,15 +836,14 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 
     case IMAGE_WIDGET:
       if (!(EQ (IMAGE_INSTANCE_WIDGET_TYPE (i1),
-		IMAGE_INSTANCE_WIDGET_TYPE (i2)) &&
-	    EQ (IMAGE_INSTANCE_WIDGET_CALLBACK (i1),
-		IMAGE_INSTANCE_WIDGET_CALLBACK (i2))
+		IMAGE_INSTANCE_WIDGET_TYPE (i2))
+	    && internal_equal (IMAGE_INSTANCE_WIDGET_ITEM (i1),
+			       IMAGE_INSTANCE_WIDGET_ITEM (i2),
+			       depth + 1)
 	    && internal_equal (IMAGE_INSTANCE_WIDGET_PROPS (i1),
 			       IMAGE_INSTANCE_WIDGET_PROPS (i2),
 			       depth + 1)
-	    && internal_equal (IMAGE_INSTANCE_WIDGET_TEXT (i1),
-			       IMAGE_INSTANCE_WIDGET_TEXT (i2),
-			       depth + 1)))
+	    ))
 	return 0;
     case IMAGE_SUBWINDOW:
       if (!(IMAGE_INSTANCE_SUBWINDOW_WIDTH (i1) ==
@@ -892,7 +893,7 @@ image_instance_hash (Lisp_Object obj, int depth)
       hash = HASH4 (hash, 
 		    internal_hash (IMAGE_INSTANCE_WIDGET_TYPE (i), depth + 1),
 		    internal_hash (IMAGE_INSTANCE_WIDGET_PROPS (i), depth + 1),
-		    internal_hash (IMAGE_INSTANCE_WIDGET_CALLBACK (i), depth + 1));
+		    internal_hash (IMAGE_INSTANCE_WIDGET_ITEM (i), depth + 1));
     case IMAGE_SUBWINDOW:
       hash = HASH4 (hash, IMAGE_INSTANCE_SUBWINDOW_WIDTH (i),
 		    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (i),
@@ -910,7 +911,7 @@ image_instance_hash (Lisp_Object obj, int depth)
 DEFINE_LRECORD_IMPLEMENTATION ("image-instance", image_instance,
 			       mark_image_instance, print_image_instance,
 			       finalize_image_instance, image_instance_equal,
-			       image_instance_hash,
+			       image_instance_hash, 0,
 			       struct Lisp_Image_Instance);
 
 static Lisp_Object
@@ -2925,9 +2926,14 @@ glyph_plist (Lisp_Object obj)
   return result;
 }
 
+static const struct lrecord_description glyph_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Glyph, image), 5 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("glyph", glyph,
 					  mark_glyph, print_glyph, 0,
-					  glyph_equal, glyph_hash,
+					  glyph_equal, glyph_hash, glyph_description,
 					  glyph_getprop, glyph_putprop,
 					  glyph_remprop, glyph_plist,
 					  struct Lisp_Glyph);

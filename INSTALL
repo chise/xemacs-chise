@@ -630,6 +630,10 @@ GNU software; here are some variables specific to XEmacs.
 	above), is `/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME'
 	(where VERSION and CONFIGURATION-NAME are as described above).
 
+`docdir' indicates where to put Lisp documentation strings that XEmacs
+        refers to as it runs.  It defaults the value of `archlibdir'
+        (see above).
+
 `moduledir' indicates where XEmacs installs and expects to find
 	any dynamic modules.  Its default value, based on
 	`archlibdir' (see above) is

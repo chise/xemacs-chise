@@ -413,7 +413,7 @@ finalize_command_builder (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("command-builder", command_builder,
                                mark_command_builder, internal_object_printer,
-			       finalize_command_builder, 0, 0,
+			       finalize_command_builder, 0, 0, 0,
 			       struct command_builder);
 
 static void
