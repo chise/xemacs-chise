@@ -1,5 +1,5 @@
 (define-char
-  '((->ucs		. #x5902)	; å¤‚
+  '((=>ucs		. #x5902)	; å¤‚
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 0)
     (cns-radical	 . 35)	; â¼¢
@@ -51,6 +51,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (chinese-cns11643-2 . #x213A)	; ø»“Œ¹
+    (chinese-big5	. #xC95A)	; øº¡¥ž
     (ucs		. #x5903)	; å¤ƒ
     ))
 (define-char
@@ -69,12 +70,11 @@
     (ucs		. #x5904)	; å¤„
     ))
 (define-char
-  '((->ucs		. #x5904)	; å¤„
+  '((=>ucs		. #x5904)	; å¤„
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 2)
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 5)
-    (non-morohashi	5694 9 1)
     (chinese-cns11643-3 . #x2235)	; ø»•˜–
     ))
 (define-char
@@ -87,13 +87,20 @@
     (ucs			. #x5905)	; å¤…
     ))
 (define-char
-  '((->ucs		. #x5905)	; å¤…
+  '((=>ucs		. #x5905)	; å¤…
     (morohashi-daikanwa	5695 0 0)
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 3)
-    (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 6)
     (chinese-cns11643-3 . #x2344)	; ø»•šƒ
+    ))
+(define-char
+  '((=>ucs		. #x5905)	; å¤…
+    (morohashi-daikanwa	5695 0 1)
+    (ideographic-radical . 34)	; å¤‚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideograph-cbeta	. 03232)	; ø¸ ² 
     ))
 (define-char
   '((ideographic-radical . 34)	; å¤‚
@@ -120,6 +127,7 @@
     (chinese-isoir165		. #x7B26)	; ø»Ž²¥
     (chinese-cns11643-2		. #x2350)	; ø»“‹
     (japanese-jisx0213-2	. #x2539)	; ø»¤£
+    (chinese-big5		. #xCAB0)	; øº¡¨¯
     (ideograph-daikanwa		. 05698)	; ø¸™‚
     (ucs			. #x5906)	; å¤†
     ))
@@ -165,7 +173,7 @@
     (ucs		. #x5908)	; å¤ˆ
     ))
 (define-char
-  '((->ucs		. #x5908)	; å¤ˆ
+  '((=>ucs		. #x5908)	; å¤ˆ
     (morohashi-daikanwa	5702 0 1)
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 6)
@@ -174,14 +182,14 @@
     (chinese-cns11643-3 . #x2B7A)	; ø»•¦©
     ))
 (define-char
-  '((->ucs		. #x5909)	; å¤‰
+  '((=>ucs		. #x5909)	; å¤‰
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 05703)	; ø¸™‡
     ))
 (define-char
-  '((->ucs		. #x5909)	; å¤‰
+  '((=>ucs		. #x5909)	; å¤‰
     (morohashi-daikanwa	5703 0 0)
     (ideographic-radical . 34)	; å¤‚
     (ideographic-strokes . 6)
