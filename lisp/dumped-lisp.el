@@ -133,7 +133,8 @@
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
 	(when-feature mule "misc-lang")
-	(when-feature mule "thai-xtis")
+	(when-feature mule "thai-xtis-chars")
+	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
 	(when-feature mule "vietnamese")
 
