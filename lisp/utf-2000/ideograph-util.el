@@ -232,6 +232,21 @@
       (write-region (point-min)(point-max) file)
       )))
 
+;;;###autoload
+(defun ideographic-structure-find-char (structure)
+  (let (rest)
+    (map-char-attribute (lambda (char value)
+			  (setq rest structure)
+			  (catch 'tag
+			    (while (and rest value)
+			      (unless (char-ref= (car rest)(car value))
+				(throw 'tag nil))
+			      (setq rest (cdr rest)
+				    value (cdr value)))
+			    (unless (or rest value)
+			      char)))
+			'ideographic-structure)))
+
 (provide 'ideograph-util)
 
 ;;; ideograph-util.el ends here
