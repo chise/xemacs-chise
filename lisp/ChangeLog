@@ -1615,7 +1615,7 @@
 	* gutter-items.el (make-search-dialog):
 	Change to new callback-ex api.
 
-2000-04-26  Bjö²® Torkelsson  <torkel@hpc2n.umu.se>
+2000-04-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* help.el: (describe-installation): decode-coding-string is not
 	defined in a non MULE environment.
