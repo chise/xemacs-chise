@@ -3931,7 +3931,7 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.17 (Hōryūji)");
+  Vutf_2000_version = build_string("0.18 (Yamato-Koizumi)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of XEmacs UTF-2000.
 */ );
