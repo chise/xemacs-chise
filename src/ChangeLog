@@ -1,4 +1,36 @@
-2001-09-02  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(mark_char_id_table): Deleted.
+	(print_char_id_table): Likewise.
+	(char_id_table_equal): Likewise.
+	(char_id_table_hash): Likewise.
+	(char_id_table_description): Likewise.
+	(char_id_table): Likewise.
+	(make_char_id_table): Use `Fmake_char_table' and
+	`fill_char_table'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table): Likewise.
+	(Fput_char_attribute): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fremove_char_attribute): Likewise.
+	(syms_of_chartab): Don't define type `char-id-table'.
+
+	* chartab.h (struct Lisp_Char_ID_Table): Deleted.
+	(char_id_table): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(Lisp_Char_ID_Table): Use structure `Lisp_Char_Table'.
+	(XCHAR_ID_TABLE): Use `XCHAR_TABLE'.
+	(XSETCHAR_ID_TABLE): Use `XSETCHAR_TABLE'.
+	(CHAR_ID_TABLE_P): Use `CHAR_TABLEP'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table_0): Likewise.
+	(put_char_id_table): Likewise.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
 
 	* chartab.h: Lisp_Byte_Table related codes are moved from
 	chartab.h.
