@@ -1,5 +1,44 @@
 2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R083-Clan.el (J83-5D62): New character; unify
+	J78-5D62.
+	(U+6C13): Add `total-strokes'.
+
+	* Ideograph-R026-Seal.el (C78-362A): Relate to U+537F.
+
+	* Ideograph-R010-Legs.el (M-01371): Unify CB-01781.
+	(M-01374): Unify CB-05839.
+
+	* Ideograph-R008-Lid.el (M074988): Unify CB-04846.
+	(M-00297): Unify CB-01504.
+	(M-00310): Unify CB-00282.
+	(M071493): Unify CB-03716.
+
+	* Ideograph-R007-Two.el (M-00262): Unify CB-00040.
+
+	* Ideograph-R006-Hook.el (M-00229): Unify CB-06876.
+
+	* Ideograph-R004-Slash.el (U+4E3F): Unify CB-06875.
+	(M-00124): Unify CB-01415.
+
+	* Ideograph-R003-Dot.el (M-00097): Unify CB-2728.
+
+	* Ideograph-R002-Line.el (U+4E2A): Unify CB-286.
+
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideograph-cbeta' as same as `ideograph-daikanwa' and
+	`ideograph-gt'.
+
+	* Ideograph-R063-Door.el (M-11750): Separate C1-5F3D; unify
+	J78-4862.
+	(J83-4862): New character.
+
+	* Ideograph-R028-Private.el: Unify missing KS X 1001 code points.
+
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R196-Bird.el (U+9D48): Unify J78-727E and J83-727E.
 	(J83-7337): New character.
 
