@@ -1,5 +1,10 @@
 2004-01-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R175-Wrong.el (U+8F88): Add `total-strokes'.
+
+	* Ideograph-R174-Blue.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R170-Mound.el: Add some `total-strokes' features.
+
 	* Ideograph-R167-Gold.el: Add some `total-strokes' features.
 
 	* Ideograph-R158-Body.el, Ideograph-R141-Tiger.el: Add some
