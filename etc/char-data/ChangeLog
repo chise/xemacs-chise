@@ -1,0 +1,48 @@
+2002-11-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JC3-to-UCS.txt (JC3-52C9): Map to U+812B instead of U+8131.
+
+2002-07-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* C3-to-UCS.txt: New file.
+
+2002-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt: Add and fix some mappings.
+
+2002-10-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JC3-to-UCS.txt: Add and fix some mappings.
+
+2002-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt: Add some missing mappings.
+
+2002-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-41F8): Don't map to U+4F60.
+
+2002-09-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JC3-to-UCS.txt (JC3-76CD): Fix typo.
+	(JC3-76E8): Likewise.
+	(JC3-7DC6): New mapping.
+	(JC3-7DCA): Fix typo.
+	(JC3-7FE6): Likewise.
+	(JC3-83A2): New mapping.
+	(JC3-83AD): Fix typo.
+	(JC3-9AA9): Likewise.
+
+2002-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt: New file.
+
+2002-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* B-to-UCS.txt, J90-to-UCS.txt, JSP-to-UCS.txt, JX1-to-UCS.txt,
+	JX2-to-UCS.txt: New files.
+
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* GT-RS.txt: Moved from etc/GT-RS.txt.
+
