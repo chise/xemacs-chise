@@ -103,9 +103,7 @@
 	    guess
 	  (paths-find-version-directory roots "utf-2000-lisp"
 					nil
-					nil
-					;; configure-utf-2000-lisp-directory
-					)))))
+					configure-utf-2000-lisp-directory)))))
 
 (defun paths-find-module-directory (roots)
   "Find the main modules directory of the XEmacs hierarchy."
@@ -142,8 +140,8 @@
 	    early-package-load-path
 	    site-lisp-load-path
 	    late-package-load-path
-	    mule-lisp-load-path
 	    utf-2000-lisp-load-path
+	    mule-lisp-load-path
 	    lisp-load-path
 	    last-package-load-path)))
 
