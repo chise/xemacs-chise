@@ -1,3 +1,14 @@
+2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_subsumptive): Renamed from Q_unified.
+	(Q_subsumptive_from): Renamed from Q_unified_from.
+	(Fchar_feature): Use `Q_subsumptive_from' instead of
+	`Q_unified_from'.
+	(Fput_char_attribute): Likewise; Use `Q_subsumptive' instead of
+	`Q_unified'.
+	(syms_of_chartab): Rename `->unified' to `->subsumptive' and
+	`<-unified' to `<-subsumptive'.
+
 2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_feature): Check `<-denotational' to avoid
