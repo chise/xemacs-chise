@@ -165,7 +165,8 @@
     (ucs		. #x24555)	; ð¤••
     ))
 (define-char
-  '((ideographic-radical . 88)	; â½—
+  '((=>ucs		. #x3E18)	; ã¸˜
+    (ideographic-radical . 88)	; â½—
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 19731)	; ø¸„´“
