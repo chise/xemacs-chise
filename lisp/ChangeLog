@@ -1,5 +1,8 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/u03300-CJK-Compatibility.el: Merge
+	`japanese-jisx0213-1'.
+
 	* utf-2000/u03200-Enclosed-CJK-Letters-and-Months.el: Merge
 	`japanese-jisx0213-1'.
 
