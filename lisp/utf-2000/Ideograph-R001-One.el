@@ -191,11 +191,13 @@
     (ucs		. #x20001)	; ð €
     ))
 (define-char
-  '((name		. "cjk radical person for top")
+  '((name*		. "ideographic component person for top")
     (ideographic-	(:radical	4 ; â¼ƒ
-			 :strokes	1)
+			 :strokes	1
+			 :sources	(ucs))
 			(:radical	1 ; â¼€
-			 :strokes	1)
+			 :strokes	1
+			 :sources	(gt))
 			(:radical	9 ; â¼ˆ
 			 :strokes	0))
     (total-strokes	 . 2)
@@ -633,7 +635,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-cns11643-6 . #x2138)	; ø»›µ‡
+     ((=jis-x0208	  . #x3F4F)	; ø½Š¢®
+      (chinese-cns11643-6 . #x2138)	; ø»›µ‡
       (ideograph-daikanwa . 01850)	; ø¸€œº
       )
      ((ucs		  . #x4E00)	; ä¸€
@@ -800,7 +803,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((ucs		  . #x2FF1)	; â¿±
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((chinese-big5-cdp	  . #x89D7)	; ý¢€ˆ§—
       )
@@ -1994,7 +1998,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B53)	; ý¢€ˆ­“
+     ((ucs		  . #x20B9B)	; ð ®›
       )
      ((ucs		  . #x20541)	; ð •
       ))
@@ -2067,7 +2071,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8CC2)	; ý¢€ˆ³‚
+     ((ucs		  . #x268FB)	; ð¦£»
       )
      ((ucs		  . #x4E42)	; ä¹‚
       ))
@@ -2083,9 +2087,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8CC2)	; ý¢€ˆ³‚
+     ((ucs		  . #x268FB)	; ð¦£»
       )
-     ((korean-ksc5601	  . #x6751)	; ø»Š°
+     ((=jis-x0208	  . #x5029)	; ø½Š»†
+      (korean-ksc5601	  . #x6751)	; ø»Š°
       (ideograph-daikanwa . 00111)	; ø¸€¯
       ))
     (ideograph-gt-pj-11 . #x4358)	; ý¡€€˜
@@ -2266,7 +2271,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
       )
-     ((chinese-big5-cdp	  . #x8B53)	; ý¢€ˆ­“
+     ((ucs		  . #x20B9B)	; ð ®›
       )
      ((ucs		  . #x5196)	; å†–
       )
