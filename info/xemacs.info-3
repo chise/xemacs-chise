@@ -1,0 +1,1200 @@
+This is Info file ../../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Exiting,  Next: Command Switches,  Prev: Entering Emacs,  Up: Top
+
+Exiting Emacs
+=============
+
+   There are two commands for exiting Emacs because there are two kinds
+of exiting: "suspending" Emacs and "killing" Emacs.  "Suspending" means
+stopping Emacs temporarily and returning control to its superior
+(usually the shell), allowing you to resume editing later in the same
+Emacs job, with the same files, same kill ring, same undo history, and
+so on.  This is the usual way to exit.  "Killing" Emacs means
+destroying the Emacs job.  You can run Emacs again later, but you will
+get a fresh Emacs; there is no way to resume the same editing session
+after it has been killed.
+
+`C-z'
+     Suspend Emacs (`suspend-emacs').  If used under the X window
+     system, shrink the X window containing the Emacs frame to an icon
+     (see below).
+
+`C-x C-c'
+     Kill Emacs (`save-buffers-kill-emacs').
+
+   If you use XEmacs under the X window system, `C-z' shrinks the X
+window containing the Emacs frame to an icon.  The Emacs process is
+stopped temporarily, and control is returned to the window manager.  If
+more than one frame is associated with the Emacs process, only the
+frame from which you used `C-z' is retained.  The X windows containing
+the other Emacs frames are closed.
+
+   To activate the "suspended" Emacs, use the appropriate window manager
+mouse gestures.  Usually left-clicking on the icon reactivates and
+reopens the X window containing the Emacs frame, but the window manager
+you use determines what exactly happens.  To actually kill the Emacs
+process, use `C-x C-c' or the Exit Emacs item on the File menu.
+
+   On systems that do not permit programs to be suspended, `C-z' runs
+an inferior shell that communicates directly with the terminal, and
+Emacs waits until you exit the subshell.  On these systems, the only way
+to return to the shell from which Emacs was started (to log out, for
+example) is to kill Emacs.  `C-d' or `exit' are typical commands to
+exit a subshell.
+
+   To kill Emacs, type `C-x C-c' (`save-buffers-kill-emacs').  A
+two-character key is used for this to make it harder to type.  In
+XEmacs, selecting the Exit Emacs option of the File menu is an
+alternate way of issuing the command.
+
+   Unless a numeric argument is used, this command first offers to save
+any modified buffers.  If you do not save all buffers, you are asked for
+reconfirmation with `yes' before killing Emacs, since any changes not
+saved will be lost.  If any subprocesses are still running, `C-x C-c'
+asks you to confirm killing them, since killing Emacs kills the
+subprocesses simultaneously.
+
+   In most programs running on Unix, certain characters may instantly
+suspend or kill the program.  (In Berkeley Unix these characters are
+normally `C-z' and `C-c'.)  This Unix feature is turned off while you
+are in Emacs. The meanings of `C-z' and `C-x C-c' as keys in Emacs were
+inspired by the standard Berkeley Unix meanings of `C-z' and `C-c', but
+that is their only relationship with Unix.  You could customize these
+keys to do anything (*note Keymaps::.).
+
+
+File: xemacs.info,  Node: Command Switches,  Next: Startup Paths,  Prev: Exiting,  Up: Top
+
+Command Line Switches and Arguments
+===================================
+
+   XEmacs supports command line arguments you can use to request
+various actions when invoking Emacs.  The commands are for compatibility
+with other editors and for sophisticated activities.  If you are using
+XEmacs under the X window system, you can also use a number of standard
+Xt command line arguments. Command line arguments are not usually
+needed for editing with Emacs; new users can skip this section.
+
+   Many editors are designed to be started afresh each time you want to
+edit.  You start the editor to edit one file; then exit the editor.  The
+next time you want to edit either another file or the same one, you
+start the editor again.  Under these circumstances, it makes sense to
+use a command line argument to say which file to edit.
+
+   The recommended way to use XEmacs is to start it only once, just
+after you log in, and do all your editing in the same Emacs process.
+Each time you want to edit a file, you visit it using the existing
+Emacs.  Emacs creates a new buffer for each file, and (unless you kill
+some of the buffers) Emacs eventually has many files in it ready for
+editing.  Usually you do not kill the Emacs process until you are about
+to log out.  Since you usually read files by typing commands to Emacs,
+command line arguments for specifying a file when Emacs is started are
+seldom needed.
+
+   Emacs accepts command-line arguments that specify files to visit,
+functions to call, and other activities and operating modes.  If you are
+running XEmacs under the X window system, a number of standard Xt
+command line arguments are available as well.
+
+   The following subsections list:
+   * Command line arguments that you can always use
+
+   * Command line arguments that have to appear at the beginning of the
+     argument list
+
+   * Command line arguments that are only relevant if you are running
+     XEmacs under X
+
+Command Line Arguments for Any Position
+---------------------------------------
+
+   Command line arguments are processed in the order they appear on the
+command line; however, certain arguments (the ones in the second table)
+must be at the front of the list if they are used.
+
+   Here are the arguments allowed:
+
+`FILE'
+     Visit FILE using `find-file'.  *Note Visiting::.
+
+`+LINENUM FILE'
+     Visit FILE using `find-file', then go to line number LINENUM in it.
+
+`-load FILE'
+`-l FILE'
+     Load a file FILE of Lisp code with the function `load'.  *Note
+     Lisp Libraries::.
+
+`-funcall FUNCTION'
+`-f FUNCTION'
+     Call Lisp function FUNCTION with no arguments.
+
+`-eval FUNCTION'
+     Interpret the next argument as a Lisp expression, and evaluate it.
+     You must be very careful of the shell quoting here.
+
+`-insert FILE'
+`-i FILE'
+     Insert the contents of FILE into the current buffer.  This is like
+     what `M-x insert-buffer' does; *Note Misc File Ops::.
+
+`-kill'
+     Exit from Emacs without asking for confirmation.
+
+`-version'
+`-V'
+     Prints version information.  This implies `-batch'.
+
+          % xemacs -version
+          XEmacs 19.13 of Mon Aug 21 1995 on willow (usg-unix-v) [formerly Lucid Emacs]
+
+`-help'
+     Prints a summary of command-line options and then exits.
+
+Command Line Arguments (Beginning of Line Only)
+-----------------------------------------------
+
+   The following arguments are recognized only at the beginning of the
+command line.  If more than one of them appears, they must appear in the
+order in which they appear in this table.
+
+`-t FILE'
+     Use FILE instead of the terminal for input and output.  This
+     implies the `-nw' option, documented below.
+
+`-batch'
+     Run Emacs in "batch mode", which means that the text being edited
+     is not displayed and the standard Unix interrupt characters such as
+     `C-z' and `C-c' continue to have their normal effect.  Emacs in
+     batch mode outputs to `stderr' only what would normally be printed
+     in the echo area under program control.
+
+     Batch mode is used for running programs written in Emacs Lisp from
+     shell scripts, makefiles, and so on.  Normally the `-l' switch or
+     `-f' switch will be used as well, to invoke a Lisp program to do
+     the batch processing.
+
+     `-batch' implies `-q' (do not load an init file).  It also causes
+     Emacs to kill itself after all command switches have been
+     processed.  In addition, auto-saving is not done except in buffers
+     for which it has been explicitly requested.
+
+`-nw'
+     Start up XEmacs in TTY mode (using the TTY XEmacs was started
+     from), rather than trying to connect to an X display.  Note that
+     this happens automatically if the `DISPLAY' environment variable
+     is not set.
+
+`-debug-init'
+     Enter the debugger if an error in the init file occurs.
+
+`-debug-paths'
+     Displays information on how XEmacs constructs the various paths
+     into its hierarchy on startup.  (See also *note Startup Paths::..)
+
+`-unmapped'
+     Do not map the initial frame.  This is useful if you want to start
+     up XEmacs as a server (e.g. for gnuserv screens or external client
+     widgets).
+
+`-no-init-file'
+`-q'
+     Do not load your Emacs init file `~/.emacs'.
+
+`-no-site-file'
+     Do not load the site-specific init file `lisp/site-start.el'.
+
+`-no-autoloads'
+     Do not load global symbol files (`auto-autoloads') at startup.
+     This implies `-vanilla'.
+
+`-no-early-packages'
+     Do not process early packages.  (For more information on startup
+     issues concerning the package system, *Note Startup Paths::.)
+
+`-vanilla'
+     This is equivalent to `-q -no-site-file -no-early-packages'.
+
+`-user-init-file FILE'
+     Load FILE as your Emacs init file instead of `~/.emacs'.
+
+`-user-init-directory DIRECTORY'
+     Use DIRECTORY as the location of your early package hierarchies
+     and the various user-specific initialization files.
+
+`-user USER'
+`-u USER'
+     Equivalent to `-user-init-file ~USER/.emacs -user-init-directory
+     ~USER/.xemacs'.
+
+   Note that the init file can get access to the command line argument
+values as the elements of a list in the variable `command-line-args'.
+(The arguments in the second table above will already have been
+processed and will not be in the list.)  The init file can override the
+normal processing of the other arguments by setting this variable.
+
+   One way to use command switches is to visit many files automatically:
+
+     xemacs *.c
+
+passes each `.c' file as a separate argument to Emacs, so that Emacs
+visits each file (*note Visiting::.).
+
+   Here is an advanced example that assumes you have a Lisp program file
+called `hack-c-program.el' which, when loaded, performs some useful
+operation on the current buffer, expected to be a C program.
+
+     xemacs -batch foo.c -l hack-c-program -f save-buffer -kill > log
+
+Here Emacs is told to visit `foo.c', load `hack-c-program.el' (which
+makes changes in the visited file), save `foo.c' (note that
+`save-buffer' is the function that `C-x C-s' is bound to), and then
+exit to the shell from which the command was executed.  `-batch'
+guarantees there will be no problem redirecting output to `log',
+because Emacs will not assume that it has a display terminal to work
+with.
+
+Command Line Arguments (for XEmacs Under X)
+-------------------------------------------
+
+   If you are running XEmacs under X, a number of options are available
+to control color, border, and window title and icon name:
+
+`-title TITLE'
+`-wn TITLE'
+`-T TITLE'
+     Use TITLE as the window title. This sets the `frame-title-format'
+     variable, which controls the title of the X window corresponding
+     to the selected frame.  This is the same format as
+     `mode-line-format'.
+
+`-iconname TITLE'
+`-in TITLE'
+     Use TITLE as the icon name. This sets the
+     `frame-icon-title-format' variable, which controls the title of
+     the icon corresponding to the selected frame.
+
+`-mc COLOR'
+     Use COLOR as the mouse color.
+
+`-cr COLOR'
+     Use COLOR as the text-cursor foreground color.
+
+`-private'
+     Install a private colormap for XEmacs.
+
+   In addition, XEmacs allows you to use a number of standard Xt
+command line arguments.
+
+`-background COLOR'
+`-bg COLOR'
+     Use COLOR as the background color.
+
+`-bordercolor COLOR'
+`-bd COLOR'
+     Use COLOR as the border color.
+
+`-borderwidth WIDTH'
+`-bw WIDTH'
+     Use WIDTH as the border width.
+
+`-display DISPLAY'
+`-d DISPLAY'
+     When running under the X window system, create the window
+     containing the Emacs frame on the display named DISPLAY.
+
+`-foreground COLOR'
+`-fg COLOR'
+     Use COLOR as the foreground color.
+
+`-font NAME'
+`-fn NAME'
+     Use NAME as the default font.
+
+`-geometry SPEC'
+`-geom SPEC'
+`-g SPEC'
+     Use the geometry (window size and/or position) specified by SPEC.
+
+`-iconic'
+     Start up iconified.
+
+`-rv'
+     Bring up Emacs in reverse video.
+
+`-name NAME'
+     Use the resource manager resources specified by NAME.  The default
+     is to use the name of the program (`argv[0]') as the resource
+     manager name.
+
+`-xrm'
+     Read something into the resource database for this invocation of
+     Emacs only.
+
+
+File: xemacs.info,  Node: Startup Paths,  Next: Basic,  Prev: Command Switches,  Up: Top
+
+How XEmacs finds Directories and Files
+======================================
+
+   XEmacs deals with a multitude of files during operation.  These files
+are spread over many directories, and XEmacs determines the location of
+most of these directories at startup and organizes them into various
+paths.  (A "path", for the purposes of this section, is simply a list
+of directories which XEmacs searches successively in order to locate a
+file.)
+
+XEmacs Directory Hierarchies
+----------------------------
+
+   Many of the files XEmacs looks for are located within the XEmacs
+installation itself.  However, there are several views of what actually
+constitutes the "XEmacs installation": XEmacs may be run from the
+compilation directory, it may be installed into arbitrary directories,
+spread over several directories unrelated to each other.  Moreover, it
+may subsequently be moved to a different place.  (This last case is not
+as uncommon as it sounds.  Binary kits work this way.)  Consequently,
+XEmacs has quite complex procedures in place to find directories, no
+matter where they may be hidden.
+
+   XEmacs will always respect directory options passed to `configure'.
+However, if it cannot locate a directory at the configured place, it
+will initiate a search for the directory in any of a number of
+"hierarchies" rooted under a directory which XEmacs assumes contain
+parts of the XEmacs installation; it may locate several such hierarchies
+and search across them.  (Typically, there are just one or two
+hierarchies: the hierarchy where XEmacs was or will be installed, and
+the one where it is being built.)  Such a directory containing a
+hierarchy is called a "root".  Whenever this section refers to a
+directory using the shorthand `<root>', it means that XEmacs searches
+for it under all hierarchies under all hierarchies XEmacs was able to
+scrounge up.  In a running XEmacs, the hierarchy roots are stored in
+the variable `emacs-roots'.
+
+Package Hierarchies
+-------------------
+
+   Many relevant directories and files XEmacs uses are actually not
+part of the core installation.  They are part of any of the many
+packages usually installed on top of an XEmacs installation.  (*Note
+Packages::.)  Hence, they play a prominent role in the various paths
+XEmacs sets up.
+
+   XEmacs locates packages in any of a number of package hierarchies.
+Package hierarchies fall into three groups: "early", "late", and "last",
+according to the relative location at which they show up in the various
+XEmacs paths.  Early package hierarchies are at the very front, late
+ones somewhere in the middle, and last hierarchies are (you guessed it)
+last.
+
+   By default, XEmacs expects an early package hierarchy in the a
+subdirectory `.xemacs' of the user's home directory.
+
+   Moreover, XEmacs expects late hierarchies in the subdirectories
+`site-packages', `mule-packages', and `xemacs-packages' (in that order)
+of the `<root>/lib/xemacs' subdirectory of one of the installation
+hierarchies.  (If you run in-place, these are direct subdirectories of
+the build directory.)  Furthermore, XEmacs will also search these
+subdirectories in the `<root>/lib/xemacs-<VERSION>' subdirectory and
+prefer directories found there.
+
+   By default, XEmacs does not have a pre-configured last package
+hierarchy.  Last hierarchies are primarily for using package hierarchies
+of outdated versions of XEmacs as a fallback option.  For example, it is
+possible to run XEmacs 21.0 with the 20.4 package hierarchy as a last
+hierarchy.
+
+   It is possible to specify at configure-time the location of the
+various package hierarchies with the `--package-path' option to
+configure.  The early, late, and last components of the package path
+are separated by double instead of single colons.  If three components
+are present, they are locate the early, late, and last package
+hierarchies respectively.  If two components are present, they locate
+the early and late hierarchies.  If only one component is present, it
+locates the late hierarchy.  At run time, the package path may also be
+specified via the `PACKAGEPATH' environment variable.
+
+   An XEmacs package is laid out just like a normal installed XEmacs
+lisp directory.  It may have `lisp', `etc', `info', and `lib-src'
+subdirectories.  XEmacs adds these at appropriate places within the
+various system-wide paths.
+
+   There may be any number of package hierarchy directories.
+
+Directories and Paths
+---------------------
+
+   Here is a list of the various directories and paths XEmacs tries to
+locate during startup.  XEmacs distinguishes between directories and
+paths specific to "version", "site", and "architecture" when looking
+for them.
+
+`version-specific'
+     directories are specific to the version of XEmacs they belong to
+     and typically reside under `<root>/lib/xemacs-<VERSION>'.
+
+`site-specific'
+     directories are independent of the version of XEmacs they belong
+     to and typically reside under `<root>/lib/xemacs'
+
+`architecture-specific'
+     directories are specific both to the version of XEmacs and the
+     architecture it runs on and typically reside under
+     `<root>/lib/xemacs-<VERSION>/<ARCHITECTURE>'.
+
+   During installation, all of these directories may also reside
+directly under `<root>', because that is where they are in the XEmacs
+tarball.
+
+   If XEmacs runs with the `-debug-paths' option (*note Command
+Switches::.), it will print the values of these variables, hopefully
+aiding in debugging any problems which come up.
+
+`lisp-directory'
+     Contains the version-specific location of the Lisp files that come
+     with the core distribution of XEmacs.  XEmacs will search it
+     recursively to a depth of 1 when setting up `load-path'.
+
+`load-path'
+     Is where XEmacs searches for XEmacs Lisp files with commands like
+     `load-library'.  It contains the package lisp directories (see
+     further down) and the version-specific core Lisp directories.  If
+     the environment variable `EMACSLOADPATH' is set at startup, its
+     directories are prepended to `load-path'.
+
+`Info-directory-list'
+     Contains the location of info files.  (See *Note (info)::.)  It
+     contains the package info directories and the version-specific core
+     documentation.  Moreover, XEmacs will add `/usr/info',
+     `/usr/local/info' as well as the directories of the environment
+     variable `INFOPATH' to `Info-directory-list'.
+
+`lock-directory'
+`superlock-file'
+     Are the site-specific locations of the lock directory and the
+     superlock file, respectively.  The `lock-directory' variable may
+     also be initialized from the `EMACSLOCKDIR' environment variable.
+
+`exec-directory'
+     Is the directory of architecture-dependent files that come with
+     XEmacs, especially executable programs intended for XEmacs to
+     invoke.
+
+`exec-path'
+     Is the path for executables which XEmacs may want to start.  It
+     contains the package executable paths as well as `exec-directory',
+     and the directories of the environment variables `PATH' and
+     `EMACSPATH'.
+
+`doc-directory'
+     Is the directory containing the architecture-specific `DOC' file
+     that contains documentation for XEmacs' commands.
+
+`data-directory'
+     Is the version-specific directory that contains core data files
+     XEmacs uses.  It may be initialized from the `EMACSDATA'
+     environment variable.
+
+`data-directory-list'
+     Is the path where XEmacs looks for data files.  It contains
+     package data directories as well as `data-directory'.
+
+
+File: xemacs.info,  Node: Basic,  Next: Undo,  Prev: Startup Paths,  Up: Top
+
+Basic Editing Commands
+**********************
+
+   We now give the basics of how to enter text, make corrections, and
+save the text in a file.  If this material is new to you, you might
+learn it more easily by running the Emacs learn-by-doing tutorial.  To
+do this, type `Control-h t' (`help-with-tutorial').
+
+Inserting Text
+==============
+
+   To insert printing characters into the text you are editing, just
+type them.  This inserts the characters into the buffer at the cursor
+(that is, at "point"; *note Point::.).  The cursor moves forward.  Any
+characters after the cursor move forward too.  If the text in the buffer
+is `FOOBAR', with the cursor before the `B', and you type `XX', the
+result is `FOOXXBAR', with the cursor still before the `B'.
+
+   To "delete" text you have just inserted, use <DEL>.  <DEL> deletes
+the character BEFORE the cursor (not the one that the cursor is on top
+of or under; that is the character AFTER the cursor).  The cursor and
+all characters after it move backwards.  Therefore, if you type a
+printing character and then type <DEL>, they cancel out.
+
+   To end a line and start typing a new one, type <RET>.  This inserts
+a newline character in the buffer.  If point is in the middle of a
+line, <RET> splits the line.  Typing <DEL> when the cursor is at the
+beginning of a line rubs out the newline before the line, thus joining
+the line with the preceding line.
+
+   Emacs automatically splits lines when they become too long, if you
+turn on a special mode called "Auto Fill" mode.  *Note Filling::, for
+information on using Auto Fill mode.
+
+   Customization information: <DEL>, in most modes, runs the command
+`delete-backward-char'; <RET> runs the command `newline', and
+self-inserting printing characters run the command `self-insert', which
+inserts whatever character was typed to invoke it.  Some major modes
+rebind <DEL> to other commands.
+
+   Direct insertion works for printing characters and <SPC>, but other
+characters act as editing commands and do not insert themselves.  If
+you need to insert a control character or a character whose code is
+above 200 octal, you must "quote" it by typing the character
+`control-q' (`quoted-insert') first.  There are two ways to use `C-q':
+
+   * `Control-q' followed by any non-graphic character (even `C-g')
+     inserts that character.
+
+   * `Control-q' followed by three octal digits inserts the character
+     with the specified character code.
+
+A numeric argument to `C-q' specifies how many copies of the quoted
+character should be inserted (*note Arguments::.).
+
+   If you prefer to have text characters replace (overwrite) existing
+text instead of moving it to the right, you can enable Overwrite mode, a
+minor mode.  *Note Minor Modes::.
+
+Changing the Location of Point
+==============================
+
+   To do more than insert characters, you have to know how to move point
+(*note Point::.).  Here are a few of the available commands.
+
+   NOTE: Many of the following commands have two versions, one that uses
+the function keys (e.g. <LEFT> or <END>) and one that doesn't.  The
+former versions may only be available on X terminals (i.e. not on
+TTY's), but the latter are available on all terminals.
+
+`C-a'
+`HOME'
+     Move to the beginning of the line (`beginning-of-line').
+
+`C-e'
+`END'
+     Move to the end of the line (`end-of-line').
+
+`C-f'
+`RIGHT'
+     Move forward one character (`forward-char').
+
+`C-b'
+`LEFT'
+     Move backward one character (`backward-char').
+
+`M-f'
+`C-RIGHT'
+     Move forward one word (`forward-word').
+
+`M-b'
+`C-LEFT'
+     Move backward one word (`backward-word').
+
+`C-n'
+`DOWN'
+     Move down one line, vertically (`next-line').  This command
+     attempts to keep the horizontal position unchanged, so if you
+     start in the middle of one line, you end in the middle of the
+     next.  When on the last line of text, `C-n' creates a new line and
+     moves onto it.
+
+`C-p'
+`UP'
+     Move up one line, vertically (`previous-line').
+
+`C-v'
+`PGDN'
+     Move down one page, vertically (`scroll-up').
+
+`M-v'
+`PGUP'
+     Move up one page, vertically (`scroll-down').
+
+`C-l'
+     Clear the frame and reprint everything (`recenter').  Text moves
+     on the frame to bring point to the center of the window.
+
+`M-r'
+     Move point to left margin on the line halfway down the frame or
+     window (`move-to-window-line').  Text does not move on the frame.
+     A numeric argument says how many screen lines down from the top of
+     the window (zero for the top).  A negative argument counts from
+     the bottom (-1 for the bottom).
+
+`C-t'
+     Transpose two characters, the ones before and after the cursor
+     (`transpose-chars').
+
+`M-<'
+`C-HOME'
+     Move to the top of the buffer (`beginning-of-buffer').  With
+     numeric argument N, move to N/10 of the way from the top.  *Note
+     Arguments::, for more information on numeric arguments.
+
+`M->'
+`C-END'
+     Move to the end of the buffer (`end-of-buffer').
+
+`M-x goto-char'
+     Read a number N and move the cursor to character number N.
+     Position 1 is the beginning of the buffer.
+
+`M-g'
+     Read a number N and move cursor to line number N (`goto-line').
+     Line 1 is the beginning of the buffer.
+
+`C-x C-n'
+     Use the current column of point as the "semi-permanent goal
+     column" for `C-n' and `C-p' (`set-goal-column').  Henceforth, those
+     commands always move to this column in each line moved into, or as
+     close as possible given the contents of the line.  This goal
+     column remains in effect until canceled.
+
+`C-u C-x C-n'
+     Cancel the goal column.  Henceforth, `C-n' and `C-p' once again
+     try to avoid changing the horizontal position, as usual.
+
+   If you set the variable `track-eol' to a non-`nil' value, `C-n' and
+`C-p' move to the end of the line when at the end of the starting line.
+By default, `track-eol' is `nil'.
+
+Erasing Text
+============
+
+`<DEL>'
+     Delete the character before the cursor (`delete-backward-char').
+
+`C-d'
+     Delete the character after the cursor (`delete-char').
+
+`C-k'
+     Kill to the end of the line (`kill-line').
+
+`M-d'
+     Kill forward to the end of the next word (`kill-word').
+
+`M-<DEL>'
+     Kill back to the beginning of the previous word
+     (`backward-kill-word').
+
+   In contrast to the <DEL> key, which deletes the character before the
+cursor, `Control-d' deletes the character after the cursor, causing the
+rest of the text on the line to shift left.  If `Control-d' is typed at
+the end of a line, that line and the next line are joined.
+
+   To erase a larger amount of text, use `Control-k', which kills a
+line at a time.  If you use `C-k' at the beginning or in the middle of
+a line, it kills all the text up to the end of the line.  If you use
+`C-k' at the end of a line, it joins that line and the next line.
+
+   *Note Killing::, for more flexible ways of killing text.
+
+Files
+=====
+
+   The commands above are sufficient for creating and altering text in
+an Emacs buffer.  More advanced Emacs commands just make things easier.
+But to keep any text permanently you must put it in a "file".  Files
+are named units of text which are stored by the operating system and
+which you can retrieve by name.  To look at or use the contents of a
+file in any way, including editing the file with Emacs, you must
+specify the file name.
+
+   Consider a file named `/usr/rms/foo.c'.  To begin editing this file
+from Emacs, type:
+
+     C-x C-f /usr/rms/foo.c <RET>
+
+The file name is given as an "argument" to the command `C-x C-f'
+(`find-file').  The command uses the "minibuffer" to read the argument.
+You have to type <RET> to terminate the argument (*note Minibuffer::.).
+
+   You can also use the Open... menu item from the File menu, then type
+the name of the file to the prompt.
+
+   Emacs obeys the command by "visiting" the file: it creates a buffer,
+copies the contents of the file into the buffer, and then displays the
+buffer for you to edit.  You can make changes in the buffer, and then
+"save" the file by typing `C-x C-s' (`save-buffer') or choosing Save
+Buffer from the File menu.  This makes the changes permanent by copying
+the altered contents of the buffer back into the file `/usr/rms/foo.c'.
+Until then, the changes are only inside your Emacs buffer, and the
+file `foo.c' is not changed.
+
+   To create a file, visit the file with `C-x C-f' as if it already
+existed or choose Open... from the File menu and provide the name for
+the new file in the minibuffer.  Emacs will create an empty buffer in
+which you can insert the text you want to put in the file.  When you
+save the buffer with `C-x C-s', or by choosing Save Buffer from the
+File menu, the file is created.
+
+   To learn more about using files, *note Files::..
+
+Help
+====
+
+   If you forget what a key does, you can use the Help character
+(`C-h') to find out: Type `C-h k' followed by the key you want to know
+about.  For example, `C-h k C-n' tells you what `C-n' does.  `C-h' is a
+prefix key; `C-h k' is just one of its subcommands (the command
+`describe-key').  The other subcommands of `C-h' provide different
+kinds of help.  Type `C-h' three times to get a description of all the
+help facilities.  *Note Help::.
+
+* Menu:
+
+* Blank Lines::        Commands to make or delete blank lines.
+* Continuation Lines:: Lines too wide for the frame.
+* Position Info::      What page, line, row, or column is point on?
+* Arguments::	       Numeric arguments for repeating a command.
+
+
+File: xemacs.info,  Node: Blank Lines,  Next: Continuation Lines,  Prev: Basic,  Up: Basic
+
+Blank Lines
+===========
+
+   Here are special commands and techniques for entering and removing
+blank lines.
+
+`C-o'
+     Insert one or more blank lines after the cursor (`open-line').
+
+`C-x C-o'
+     Delete all but one of many consecutive blank lines
+     (`delete-blank-lines').
+
+   When you want to insert a new line of text before an existing line,
+you just type the new line of text, followed by <RET>.  If you prefer
+to create a blank line first and then insert the desired text, use the
+key `C-o' (`open-line'), which inserts a newline after point but leaves
+point in front of the newline.  Then type the text into the new line.
+`C-o F O O' has the same effect as `F O O <RET>', except for the final
+location of point.
+
+   To create several blank lines, type `C-o' several times, or give
+`C-o' an argument indicating how many blank lines to create.  *Note
+Arguments::, for more information.
+
+   If you have many blank lines in a row and want to get rid of them,
+use `C-x C-o' (`delete-blank-lines').  If point is on a blank line
+which is adjacent to at least one other blank line, `C-x C-o' deletes
+all but one of the blank lines.  If point is on a blank line with no
+other adjacent blank line, the sole blank line is deleted.  If point is
+on a non-blank line, `C-x C-o' deletes any blank lines following that
+non-blank line.
+
+
+File: xemacs.info,  Node: Continuation Lines,  Next: Position Info,  Prev: Blank Lines,  Up: Basic
+
+Continuation Lines
+==================
+
+   If you add too many characters to one line without breaking with a
+<RET>, the line grows to occupy two (or more) screen lines, with a
+curved arrow at the extreme right margin of all but the last line.  The
+curved arrow indicates that the following screen line is not really a
+distinct line in the text, but just the "continuation" of a line too
+long to fit the frame.  You can use Auto Fill mode (*note Filling::.)
+to have Emacs insert newlines automatically when a line gets too long.
+
+   Instead of continuation, long lines can be displayed by "truncation".
+This means that all the characters that do not fit in the width of the
+frame or window do not appear at all.  They remain in the buffer,
+temporarily invisible.  Three diagonal dots in the last column (instead
+of the curved arrow inform you that truncation is in effect.
+
+   To turn off continuation for a particular buffer, set the variable
+`truncate-lines' to non-`nil' in that buffer.  Truncation instead of
+continuation also happens whenever horizontal scrolling is in use, and
+optionally whenever side-by-side windows are in use (*note Windows::.).
+Altering the value of `truncate-lines' makes it local to the current
+buffer; until that time, the default value is in effect.  The default
+is initially `nil'.  *Note Locals::.
+
+
+File: xemacs.info,  Node: Position Info,  Next: Arguments,  Prev: Continuation Lines,  Up: Basic
+
+Cursor Position Information
+===========================
+
+   If you are accustomed to other display editors, you may be surprised
+that Emacs does not always display the page number or line number of
+point in the mode line.  In Emacs, this information is only rarely
+needed, and a number of commands are available to compute and print it.
+Since text is stored in a way that makes it difficult to compute the
+information, it is not displayed all the time.
+
+`M-x what-page'
+     Print page number of point, and line number within page.
+
+`M-x what-line'
+     Print line number of point in the buffer.
+
+`M-='
+     Print number of lines and characters in the current region
+     (`count-lines-region').
+
+`C-x ='
+     Print character code of character after point, character position
+     of point, and column of point (`what-cursor-position').
+
+   There are several commands for printing line numbers:
+   * `M-x what-line' counts lines from the beginning of the file and
+     prints the line number point is on.  The first line of the file is
+     line number 1.  You can use these numbers as arguments to `M-x
+     goto-line'.
+
+   * `M-x what-page' counts pages from the beginning of the file, and
+     counts lines within the page, printing both of them.  *Note
+     Pages::, for the command `C-x l', which counts the lines in the
+     current page.
+
+   * `M-=' (`count-lines-region') prints the number of lines in the
+     region (*note Mark::.).
+
+   The command `C-x =' (`what-cursor-position') provides information
+about point and about the column the cursor is in.  It prints a line in
+the echo area that looks like this:
+
+     Char: x (0170)  point=65986 of 563027(12%)  column 44
+
+(In fact, this is the output produced when point is before `column 44'
+in the example.)
+
+   The two values after `Char:' describe the character following point,
+first by showing it and second by giving its octal character code.
+
+   `point=' is followed by the position of point expressed as a
+character count.  The front of the buffer counts as position 1, one
+character later as 2, and so on.  The next, larger number is the total
+number of characters in the buffer.  Afterward in parentheses comes the
+position expressed as a percentage of the total size.
+
+   `column' is followed by the horizontal position of point, in columns
+from the left edge of the window.
+
+   If the buffer has been narrowed, making some of the text at the
+beginning and the end temporarily invisible, `C-x =' prints additional
+text describing the current visible range.  For example, it might say:
+
+     Char: x (0170)  point=65986 of 563025(12%) <65102 - 68533>  column 44
+
+where the two extra numbers give the smallest and largest character
+position that point is allowed to assume.  The characters between those
+two positions are the visible ones.  *Note Narrowing::.
+
+   If point is at the end of the buffer (or the end of the visible
+part), `C-x =' omits any description of the character after point.  The
+output looks like
+
+     point=563026 of 563025(100%)  column 0
+
+
+File: xemacs.info,  Node: Arguments,  Prev: Position Info,  Up: Basic
+
+Numeric Arguments
+=================
+
+   Any Emacs command can be given a "numeric argument".  Some commands
+interpret the argument as a repetition count.  For example, giving an
+argument of ten to the key `C-f' (the command `forward-char', move
+forward one character) moves forward ten characters.  With these
+commands, no argument is equivalent to an argument of one.  Negative
+arguments are allowed.  Often they tell a command to move or act
+backwards.
+
+   If your keyboard has a <META> key (labelled with a diamond on
+Sun-type keyboards and labelled `Alt' on some other keyboards), the
+easiest way to specify a numeric argument is to type digits and/or a
+minus sign while holding down the <META> key.  For example,
+     M-5 C-n
+
+moves down five lines.  The characters `Meta-1', `Meta-2', and so on,
+as well as `Meta--', do this because they are keys bound to commands
+(`digit-argument' and `negative-argument') that are defined to
+contribute to an argument for the next command.
+
+   Another way of specifying an argument is to use the `C-u'
+(`universal-argument') command followed by the digits of the argument.
+With `C-u', you can type the argument digits without holding down shift
+keys.  To type a negative argument, start with a minus sign.  Just a
+minus sign normally means -1.  `C-u' works on all terminals.
+
+   `C-u' followed by a character which is neither a digit nor a minus
+sign has the special meaning of "multiply by four".  It multiplies the
+argument for the next command by four.  `C-u' twice multiplies it by
+sixteen.  Thus, `C-u C-u C-f' moves forward sixteen characters.  This
+is a good way to move forward "fast", since it moves about 1/5 of a line
+in the usual size frame.  Other useful combinations are `C-u C-n', `C-u
+C-u C-n' (move down a good fraction of a frame), `C-u C-u C-o' (make "a
+lot" of blank lines), and `C-u C-k' (kill four lines).
+
+   Some commands care only about whether there is an argument and not
+about its value.  For example, the command `M-q' (`fill-paragraph') with
+no argument fills text; with an argument, it justifies the text as well.
+(*Note Filling::, for more information on `M-q'.)  Just `C-u' is a
+handy way of providing an argument for such commands.
+
+   Some commands use the value of the argument as a repeat count, but do
+something peculiar when there is no argument.  For example, the command
+`C-k' (`kill-line') with argument N kills N lines, including their
+terminating newlines.  But `C-k' with no argument is special: it kills
+the text up to the next newline, or, if point is right at the end of
+the line, it kills the newline itself.  Thus, two `C-k' commands with
+no arguments can kill a non-blank line, just like `C-k' with an
+argument of one.  (*Note Killing::, for more information on `C-k'.)
+
+   A few commands treat a plain `C-u' differently from an ordinary
+argument.  A few others may treat an argument of just a minus sign
+differently from an argument of -1.  These unusual cases will be
+described when they come up; they are always to make the individual
+command more convenient to use.
+
+
+File: xemacs.info,  Node: Undo,  Next: Minibuffer,  Prev: Basic,  Up: Top
+
+Undoing Changes
+***************
+
+   Emacs allows you to undo all changes you make to the text of a
+buffer, up to a certain amount of change (8000 characters).  Each
+buffer records changes individually, and the undo command always
+applies to the current buffer.  Usually each editing command makes a
+separate entry in the undo records, but some commands such as
+`query-replace' make many entries, and very simple commands such as
+self-inserting characters are often grouped to make undoing less
+tedious.
+
+`C-x u'
+     Undo one batch of changes (usually, one command's worth) (`undo').
+
+`C-_'
+     The same.
+
+   The command `C-x u' or `C-_' allows you to undo changes.  The first
+time you give this command, it undoes the last change.  Point moves to
+the text affected by the undo, so you can see what was undone.
+
+   Consecutive repetitions of the `C-_' or `C-x u' commands undo
+earlier and earlier changes, back to the limit of what has been
+recorded.  If all recorded changes have already been undone, the undo
+command prints an error message and does nothing.
+
+   Any command other than an undo command breaks the sequence of undo
+commands.  Starting at this moment, the previous undo commands are
+considered ordinary changes that can themselves be undone.  Thus, you
+can redo changes you have undone by typing `C-f' or any other command
+that have no important effect, and then using more undo commands.
+
+   If you notice that a buffer has been modified accidentally, the
+easiest way to recover is to type `C-_' repeatedly until the stars
+disappear from the front of the mode line.  When that happens, all the
+modifications you made have been canceled.  If you do not remember
+whether you changed the buffer deliberately, type `C-_' once. When you
+see Emacs undo the last change you made, you probably remember why you
+made it.  If the change was an accident, leave it undone.  If it was
+deliberate, redo the change as described in the preceding paragraph.
+
+   Whenever an undo command makes the stars disappear from the mode
+line, the buffer contents is the same as it was when the file was last
+read in or saved.
+
+   Not all buffers record undo information.  Buffers whose names start
+with spaces don't; these buffers are used internally by Emacs and its
+extensions to hold text that users don't normally look at or edit.
+Minibuffers, help buffers, and documentation buffers also don't record
+undo information.
+
+   Emacs can remember at most 8000 or so characters of deleted or
+modified text in any one buffer for reinsertion by the undo command.
+There is also a limit on the number of individual insert, delete, or
+change actions that Emacs can remember.
+
+   There are two keys to run the `undo' command, `C-x u' and `C-_',
+because on some keyboards, it is not obvious how to type `C-_'. `C-x u'
+is an alternative you can type in the same fashion on any terminal.
+
+
+File: xemacs.info,  Node: Minibuffer,  Next: M-x,  Prev: Undo,  Up: Top
+
+The Minibuffer
+**************
+
+   Emacs commands use the "minibuffer" to read arguments more
+complicated than a single number.  Minibuffer arguments can be file
+names, buffer names, Lisp function names, Emacs command names, Lisp
+expressions, and many other things, depending on the command reading the
+argument.  To edit the argument in the minibuffer, you can use Emacs
+editing commands.
+
+   When the minibuffer is in use, it appears in the echo area, and the
+cursor moves there.  The beginning of the minibuffer line displays a
+"prompt" indicating what kind of input you should supply and how it
+will be used.  The prompt is often derived from the name of the command
+the argument is for.  The prompt normally ends with a colon.
+
+   Sometimes a "default argument" appears in parentheses after the
+colon; it, too, is part of the prompt.  The default is used as the
+argument value if you enter an empty argument (e.g., by just typing
+<RET>).  For example, commands that read buffer names always show a
+default, which is the name of the buffer that will be used if you type
+just <RET>.
+
+   The simplest way to give a minibuffer argument is to type the text
+you want, terminated by <RET> to exit the minibuffer.  To get out of
+the minibuffer and cancel the command that it was for, type `C-g'.
+
+   Since the minibuffer uses the screen space of the echo area, it can
+conflict with other ways Emacs customarily uses the echo area.  Here is
+how Emacs handles such conflicts:
+
+   * If a command gets an error while you are in the minibuffer, this
+     does not cancel the minibuffer.  However, the echo area is needed
+     for the error message and therefore the minibuffer itself is
+     hidden for a while.  It comes back after a few seconds, or as soon
+     as you type anything.
+
+   * If you use a command in the minibuffer whose purpose is to print a
+     message in the echo area (for example `C-x =') the message is
+     displayed normally, and the minibuffer is hidden for a while.  It
+     comes back after a few seconds, or as soon as you type anything.
+
+   * Echoing of keystrokes does not take place while the minibuffer is
+     in use.
+
+* Menu:
+
+* File: Minibuffer File.  Entering file names with the minibuffer.
+* Edit: Minibuffer Edit.  How to edit in the minibuffer.
+* Completion::		  An abbreviation facility for minibuffer input.
+* Repetition::		  Re-executing commands that used the minibuffer.
+
+
+File: xemacs.info,  Node: Minibuffer File,  Next: Minibuffer Edit,  Prev: Minibuffer,  Up: Minibuffer
+
+Minibuffers for File Names
+==========================
+
+   Sometimes the minibuffer starts out with text in it.  For example,
+when you are supposed to give a file name, the minibuffer starts out
+containing the "default directory", which ends with a slash.  This
+informs you in which directory the file will be looked for if you do
+not specify a different one. For example, the minibuffer might start
+out with:
+
+     Find File: /u2/emacs/src/
+
+where `Find File: ' is the prompt.  Typing `buffer.c' specifies the file
+`/u2/emacs/src/buffer.c'.  To find files in nearby directories, use
+`..'; thus, if you type `../lisp/simple.el', the file that you visit
+will be the one named
+`/u2/emacs/lisp/simple.el'.  Alternatively, you can use  `M-<DEL>' to
+kill directory names you don't want (*note Words::.).
+
+   You can also type an absolute file name, one starting with a slash
+or a tilde, ignoring the default directory.  For example, to find the
+file `/etc/termcap', just type the name, giving:
+
+     Find File: /u2/emacs/src//etc/termcap
+
+Two slashes in a row are not normally meaningful in Unix file names, but
+they are allowed in XEmacs.  They mean, "ignore everything before the
+second slash in the pair."  Thus, `/u2/emacs/src/' is ignored, and you
+get the file `/etc/termcap'.
+
+   If you set `insert-default-directory' to `nil', the default
+directory is not inserted in the minibuffer.  This way, the minibuffer
+starts out empty.  But the name you type, if relative, is still
+interpreted with respect to the same default directory.
+
+
+File: xemacs.info,  Node: Minibuffer Edit,  Next: Completion,  Prev: Minibuffer File,  Up: Minibuffer
+
+Editing in the Minibuffer
+=========================
+
+   The minibuffer is an Emacs buffer (albeit a peculiar one), and the
+usual Emacs commands are available for editing the text of an argument
+you are entering.
+
+   Since <RET> in the minibuffer is defined to exit the minibuffer, you
+must use `C-o' or `C-q <LFD>' to insert a newline into the minibuffer.
+(Recall that a newline is really the <LFD> character.)
+
+   The minibuffer has its own window, which always has space on the
+screen but acts as if it were not there when the minibuffer is not in
+use.  The minibuffer window is just like the others; you can switch to
+another window with `C-x o', edit text in other windows, and perhaps
+even visit more files before returning to the minibuffer to submit the
+argument.  You can kill text in another window, return to the minibuffer
+window, and then yank the text to use it in the argument.  *Note
+Windows::.
+
+   There are, however, some restrictions on the use of the minibuffer
+window.  You cannot switch buffers in it--the minibuffer and its window
+are permanently attached.  You also cannot split or kill the minibuffer
+window, but you can make it taller with `C-x ^'.
+
+   If you are in the minibuffer and issue a command that displays help
+text in another window, that window will be scrolled if you type
+`M-C-v' while in the minibuffer until you exit the minibuffer.  This
+feature is helpful if a completing minibuffer gives you a long list of
+possible completions.
+
+   If the variable `minibuffer-confirm-incomplete' is `t', you are
+asked for confirmation if there is no known completion for the text you
+typed. For example, if you attempted to visit a non-existent file, the
+minibuffer might read:
+             Find File:chocolate_bar.c [no completions, confirm]
+   If you press `Return' again, that confirms the filename. Otherwise,
+you can continue editing it.
+
+   Emacs supports recursive use of the minibuffer.  However, it is easy
+to do this by accident (because of autorepeating keyboards, for
+example) and get confused.  Therefore, most Emacs commands that use the
+minibuffer refuse to operate if the minibuffer window is selected.  If
+the minibuffer is active but you have switched to a different window,
+recursive use of the minibuffer is allowed--if you know enough to try
+to do this, you probably will not get confused.
+
+   If you set the variable `enable-recursive-minibuffers' to be
+non-`nil', recursive use of the minibuffer is always allowed.
+
