@@ -202,9 +202,12 @@
   (let (name value has-long-ccs-name rest
 	radical strokes
 	(line-breaking
-	 (concat "\n" (make-string (1+ column) ?\ ))))
+	 (concat "\n" (make-string (1+ column) ?\ )))
+	lbs cell separator ret
+	key al cal)
     (insert "(")
-    (when (setq value (get-char-attribute char 'name))
+    (when (and (memq 'name attributes)
+	       (setq value (get-char-attribute char 'name)))
       (insert (format
 	       (if (> (length value) 47)
 		   "(name . %S)%s"
@@ -212,20 +215,23 @@
 	       value line-breaking))
       (setq attributes (delq 'name attributes))
       )
-    (when (setq value (get-char-attribute char 'script))
+    (when (and (memq 'script attributes)
+	       (setq value (get-char-attribute char 'script)))
       (insert (format "(script\t\t%s)%s"
 		      (mapconcat (function prin1-to-string)
 				 value " ")
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
-    (when (setq value (get-char-attribute char '->ucs))
+    (when (and (memq '->ucs attributes)
+	       (setq value (get-char-attribute char '->ucs)))
       (insert (format "(->ucs\t\t. #x%04X)\t; %c%s"
 		      value (decode-char 'ucs value)
 		      line-breaking))
       (setq attributes (delq '->ucs attributes))
       )
-    (when (setq value (get-char-attribute char 'general-category))
+    (when (and (memq 'general-category attributes)
+	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
 	       "(general-category\t%s) ; %s%s"
 	       (mapconcat (lambda (cell)
@@ -240,32 +246,37 @@
 	       line-breaking))
       (setq attributes (delq 'general-category attributes))
       )
-    (when (setq value (get-char-attribute char 'bidi-category))
+    (when (and (memq 'bidi-category attributes)
+	       (setq value (get-char-attribute char 'bidi-category)))
       (insert (format "(bidi-category\t. %S)%s"
 		      value
 		      line-breaking))
       (setq attributes (delq 'bidi-category attributes))
       )
-    (unless (eq (setq value (get-char-attribute char 'mirrored 'empty))
-		'empty)
+    (unless (or (not (memq 'mirrored attributes))
+		(eq (setq value (get-char-attribute char 'mirrored 'empty))
+		    'empty))
       (insert (format "(mirrored\t\t. %S)%s"
 		      value
 		      line-breaking))
       (setq attributes (delq 'mirrored attributes))
       )
     (cond
-     ((setq value (get-char-attribute char 'decimal-digit-value))
+     ((and (memq 'decimal-digit-value attributes)
+	   (setq value (get-char-attribute char 'decimal-digit-value)))
       (insert (format "(decimal-digit-value . %S)%s"
 		      value
 		      line-breaking))
       (setq attributes (delq 'decimal-digit-value attributes))
-      (when (setq value (get-char-attribute char 'digit-value))
+      (when (and (memq 'digit-value attributes)
+		 (setq value (get-char-attribute char 'digit-value)))
 	(insert (format "(digit-value\t . %S)%s"
 			value
 			line-breaking))
 	(setq attributes (delq 'digit-value attributes))
 	)
-      (when (setq value (get-char-attribute char 'numeric-value))
+      (when (and (memq 'numeric-value attributes)
+		 (setq value (get-char-attribute char 'numeric-value)))
 	(insert (format "(numeric-value\t . %S)%s"
 			value
 			line-breaking))
@@ -273,25 +284,29 @@
 	)
       )
      (t
-      (when (setq value (get-char-attribute char 'digit-value))
+      (when (and (memq 'digit-value attributes)
+		 (setq value (get-char-attribute char 'digit-value)))
 	(insert (format "(digit-value\t. %S)%s"
 			value
 			line-breaking))
 	(setq attributes (delq 'digit-value attributes))
 	)
-      (when (setq value (get-char-attribute char 'numeric-value))
+      (when (and (memq 'numeric-value attributes)
+		 (setq value (get-char-attribute char 'numeric-value)))
 	(insert (format "(numeric-value\t. %S)%s"
 			value
 			line-breaking))
 	(setq attributes (delq 'numeric-value attributes))
 	)))
-    (when (setq value (get-char-attribute char 'iso-10646-comment))
+    (when (and (memq 'iso-10646-comment attributes)
+	       (setq value (get-char-attribute char 'iso-10646-comment)))
       (insert (format "(iso-10646-comment\t. %S)%s"
 		      value
 		      line-breaking))
       (setq attributes (delq 'iso-10646-comment attributes))
       )
-    (when (setq value (get-char-attribute char 'morohashi-daikanwa))
+    (when (and (memq 'morohashi-daikanwa attributes)
+	       (setq value (get-char-attribute char 'morohashi-daikanwa)))
       (insert (format "(morohashi-daikanwa\t%s)%s"
 		      (mapconcat (function prin1-to-string) value " ")
 		      line-breaking))
@@ -299,7 +314,8 @@
       )
     (setq radical nil
 	  strokes nil)
-    (when (setq value (get-char-attribute char 'ideographic-radical))
+    (when (and (memq 'ideographic-radical attributes)
+	       (setq value (get-char-attribute char 'ideographic-radical)))
       (setq radical value)
       (insert (format "(ideographic-radical . %S)\t; %c%s"
 		      radical
@@ -307,14 +323,16 @@
 		      line-breaking))
       (setq attributes (delq 'ideographic-radical attributes))
       )
-    (when (setq value (get-char-attribute char 'ideographic-strokes))
+    (when (and (memq 'ideographic-strokes attributes)
+	       (setq value (get-char-attribute char 'ideographic-strokes)))
       (setq strokes value)
       (insert (format "(ideographic-strokes . %S)%s"
 		      strokes
 		      line-breaking))
       (setq attributes (delq 'ideographic-strokes attributes))
       )
-    (when (setq value (get-char-attribute char 'kangxi-radical))
+    (when (and (memq 'kangxi-radical attributes)
+	       (setq value (get-char-attribute char 'kangxi-radical)))
       (unless (eq value radical)
 	(insert (format "(kangxi-radical\t . %S)\t; %c%s"
 			value
@@ -324,7 +342,8 @@
 	    (setq radical value)))
       (setq attributes (delq 'kangxi-radical attributes))
       )
-    (when (setq value (get-char-attribute char 'kangxi-strokes))
+    (when (and (memq 'kangxi-strokes attributes)
+	       (setq value (get-char-attribute char 'kangxi-strokes)))
       (unless (eq value strokes)
 	(insert (format "(kangxi-strokes\t . %S)%s"
 			value
@@ -333,7 +352,8 @@
 	    (setq strokes value)))
       (setq attributes (delq 'kangxi-strokes attributes))
       )
-    (when (setq value (get-char-attribute char 'japanese-radical))
+    (when (and (memq 'japanese-radical attributes)
+	       (setq value (get-char-attribute char 'japanese-radical)))
       (unless (eq value radical)
 	(insert (format "(japanese-radical\t . %S)\t; %c%s"
 			value
@@ -343,7 +363,8 @@
 	    (setq radical value)))
       (setq attributes (delq 'japanese-radical attributes))
       )
-    (when (setq value (get-char-attribute char 'japanese-strokes))
+    (when (and (memq 'japanese-strokes attributes)
+	       (setq value (get-char-attribute char 'japanese-strokes)))
       (unless (eq value strokes)
 	(insert (format "(japanese-strokes\t . %S)%s"
 			value
@@ -352,14 +373,16 @@
 	    (setq strokes value)))
       (setq attributes (delq 'japanese-strokes attributes))
       )
-    (when (setq value (get-char-attribute char 'cns-radical))
+    (when (and (memq 'cns-radical attributes)
+	       (setq value (get-char-attribute char 'cns-radical)))
       (insert (format "(cns-radical\t . %S)\t; %c%s"
 		      value
 		      (aref ideographic-radicals value)
 		      line-breaking))
       (setq attributes (delq 'cns-radical attributes))
       )
-    (when (setq value (get-char-attribute char 'cns-strokes))
+    (when (and (memq 'cns-strokes attributes)
+	       (setq value (get-char-attribute char 'cns-strokes)))
       (unless (eq value strokes)
 	(insert (format "(cns-strokes\t . %S)%s"
 			value
@@ -368,7 +391,8 @@
 	    (setq strokes value)))
       (setq attributes (delq 'cns-strokes attributes))
       )
-    (when (setq value (get-char-attribute char 'shinjigen-1-radical))
+    (when (and (memq 'shinjigen-1-radical attributes)
+	       (setq value (get-char-attribute char 'shinjigen-1-radical)))
       (unless (eq value radical)
 	(insert (format "(shinjigen-1-radical . %S)\t; %c%s"
 			value
@@ -378,13 +402,15 @@
 	    (setq radical value)))
       (setq attributes (delq 'shinjigen-1-radical attributes))
       )
-    (when (setq value (get-char-attribute char 'total-strokes))
+    (when (and (memq 'total-strokes attributes)
+	       (setq value (get-char-attribute char 'total-strokes)))
       (insert (format "(total-strokes       . %S)%s"
 		      value
 		      line-breaking))
       (setq attributes (delq 'total-strokes attributes))
       )
-    (when (setq value (get-char-attribute char '->ideograph))
+    (when (and (memq '->ideograph attributes)
+	       (setq value (get-char-attribute char '->ideograph)))
       (insert (format "(->ideograph\t%s)%s"
 		      (mapconcat (lambda (code)
 				   (cond ((symbolp code)
@@ -397,7 +423,8 @@
 		      line-breaking))
       (setq attributes (delq '->ideograph attributes))
       )
-    (when (setq value (get-char-attribute char '->decomposition))
+    (when (and (memq '->decomposition attributes)
+	       (setq value (get-char-attribute char '->decomposition)))
       (insert (format "(->decomposition\t%s)%s"
 		      (mapconcat (lambda (code)
 				   (cond ((symbolp code)
@@ -416,7 +443,8 @@
 		      line-breaking))
       (setq attributes (delq '->decomposition attributes))
       )
-    (when (setq value (get-char-attribute char '->uppercase))
+    (when (and (memq '->uppercase attributes)
+	       (setq value (get-char-attribute char '->uppercase)))
       (insert (format "(->uppercase\t%s)%s"
 		      (mapconcat (lambda (code)
 				   (cond ((symbolp code)
@@ -429,7 +457,8 @@
 		      line-breaking))
       (setq attributes (delq '->uppercase attributes))
       )
-    (when (setq value (get-char-attribute char '->lowercase))
+    (when (and (memq '->lowercase attributes)
+	       (setq value (get-char-attribute char '->lowercase)))
       (insert (format "(->lowercase\t%s)%s"
 		      (mapconcat (lambda (code)
 				   (cond ((symbolp code)
@@ -442,7 +471,8 @@
 		      line-breaking))
       (setq attributes (delq '->lowercase attributes))
       )
-    (when (setq value (get-char-attribute char '->titlecase))
+    (when (and (memq '->titlecase attributes)
+	       (setq value (get-char-attribute char '->titlecase)))
       (insert (format "(->titlecase\t%s)%s"
 		      (mapconcat (lambda (code)
 				   (cond ((symbolp code)
@@ -455,7 +485,8 @@
 		      line-breaking))
       (setq attributes (delq '->titlecase attributes))
       )
-    (when (setq value (get-char-attribute char '->mojikyo))
+    (when (and (memq '->mojikyo attributes)
+	       (setq value (get-char-attribute char '->mojikyo)))
       (insert (format "(->mojikyo\t\t. %06d)\t; %c%s"
 		      value (decode-char 'mojikyo value)
 		      line-breaking))
@@ -498,60 +529,56 @@
 			      original-ideograph-of
 			      vulgar-ideograph-of))
 		 (insert (format "(%-18s%s " name line-breaking))
-		 (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
-		       cell ret
-		       rest key al cal
-		       separator)
-		   (while (consp value)
-		     (setq cell (car value))
-		     (if (and (consp cell)
-			      (consp (car cell)))
-			 (progn
-                           (if separator
-			       (insert lbs))
-                           (char-db-insert-alist cell readable)
-			   (setq separator lbs))
-		       (if separator
-			   (insert separator))
-		       (insert (prin1-to-string cell))
-		       (setq separator " "))
-		     (setq value (cdr value))))
+		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+		       separator nil)
+		 (while (consp value)
+		   (setq cell (car value))
+		   (if (and (consp cell)
+			    (consp (car cell)))
+		       (progn
+			 (if separator
+			     (insert lbs))
+			 (char-db-insert-alist cell readable)
+			 (setq separator lbs))
+		     (if separator
+			 (insert separator))
+		     (insert (prin1-to-string cell))
+		     (setq separator " "))
+		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
 		((consp value)
 		 (insert (format "(%-18s " name))
-		 (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
-		       cell ret
-		       rest key al cal
-		       separator)
-		   (while (consp value)
-		     (setq cell (car value))
-		     (if (and (consp cell)
-			      (consp (car cell))
-			      (setq ret (condition-case nil
-					    (define-char cell)
-					  (error nil))))
-			 (progn
-			   (setq rest cell
-				 al nil
-				 cal nil)
-			   (while rest
-			     (setq key (car (car rest)))
-			     (if (find-charset key)
-				 (setq cal (cons key cal))
-			       (setq al (cons key al)))
-			     (setq rest (cdr rest)))
-			   (if separator
-			       (insert lbs))
-			   (insert-char-attributes ret
-						   readable
-						   al cal)
-			   (setq separator lbs))
-		       (if separator
-			   (insert separator))
-		       (insert (prin1-to-string cell))
-		       (setq separator " "))
-		     (setq value (cdr value))))
+		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+		       separator nil)
+		 (while (consp value)
+		   (setq cell (car value))
+		   (if (and (consp cell)
+			    (consp (car cell))
+			    (setq ret (condition-case nil
+					  (define-char cell)
+					(error nil))))
+		       (progn
+			 (setq rest cell
+			       al nil
+			       cal nil)
+			 (while rest
+			   (setq key (car (car rest)))
+			   (if (find-charset key)
+			       (setq cal (cons key cal))
+			     (setq al (cons key al)))
+			   (setq rest (cdr rest)))
+			 (if separator
+			     (insert lbs))
+			 (insert-char-attributes ret
+						 readable
+						 al cal)
+			 (setq separator lbs))
+		     (if separator
+			 (insert separator))
+		     (insert (prin1-to-string cell))
+		     (setq separator " "))
+		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
 		(t
