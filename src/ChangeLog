@@ -151,6 +151,10 @@
 	(Fload_char_attribute_table): Use
 	`chise_char_feature_value_iterate' instead of `chise_ft_iterate'.
 
+2003-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Fixed.
+
 2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (put_char_table): Modify for inherited coded-charsets
