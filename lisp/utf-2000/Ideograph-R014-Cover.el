@@ -518,7 +518,8 @@
     (ucs		. #x51A5)	; å†¥
     ))
 (define-char
-  '((ideographic-radical . 14)	; â¼
+  '((=>ucs		. #x2058C)	; ð –Œ
+    (ideographic-radical . 14)	; â¼
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 01589)	; ø¸€˜µ
