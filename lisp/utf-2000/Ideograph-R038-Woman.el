@@ -11352,11 +11352,11 @@
     (chinese-cns11643-7 . #x2D22)	; ø»ž
     ))
 (define-char
-  '((=>ucs		. #x218B7)	; ð¡¢·
-    (morohashi-daikanwa	49017 0 1)
+  '((morohashi-daikanwa	49017 0 1)
     (ideographic-radical . 38)	; â¼¥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ucs		. #x218B7)	; ð¡¢·
     ))
 (define-char
   '((ideographic-radical . 38)	; â¼¥
