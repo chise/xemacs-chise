@@ -1,5 +1,21 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`korean-ksc5601'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02000-General-Punctuation.el", "u02070-Superscripts.el",
+	"u02080-Subscripts.el", "u020A0-Currency-Symbols.el" and
+	"u020D0-Combining-Diacritical-Marks-for-Symbols.el".
+
+	* utf-2000/u02000-General-Punctuation.el,
+	utf-2000/u02070-Superscripts.el, utf-2000/u02080-Subscripts.el,
+	utf-2000/u020A0-Currency-Symbols.el,
+	utf-2000/u020D0-Combining-Diacritical-Marks-for-Symbols.el: New
+	files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/u00180-Latin-Extended-B.el: Reformatted to print
 	code-point of GR-set as GR value.
 

@@ -1,5 +1,11 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (Qsub): New variable.
+	(to_char_code): Add `Qsub'.
+	(syms_of_mule_charset): Add new symbol `sub'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (Fput_char_attribute): Convert each element of
 	VALUE to GL position if ATTRIBUTE is a GR-set,
 
