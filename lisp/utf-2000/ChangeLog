@@ -1,3 +1,17 @@
+2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+7784): Use `->subsumptive'; add
+	JC3-8FA2.
+
+	* Ideograph-R104-Sickness.el (U+764E): Use `->subsumptive'; add
+	JC3-5AF0.
+
+	* Ideograph-R086-Fire.el (U+70D2): Use `->subsumptive'; add
+	JC3-8EE2.
+	(U+70E7): Unify JC3-81CF.
+	(U+70ED): Unify JC3-81E9.
+	(U+70EE): Use `->subsumptive'.
+
 2004-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+672F): Unify JC3-81CB.
