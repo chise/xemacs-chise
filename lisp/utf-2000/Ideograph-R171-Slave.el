@@ -41,30 +41,28 @@
     (=daikanwa		. 41927)	; &I-M-41927;
     ))
 (define-char
-  '((=>ucs		. #x96B7)	; 隷
-    (ideographic-radical . 171)	; ⾪
+  '((ideographic-radical . 171)	; ⾪
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=cns11643-3	. #x5349)	; &M-41928;
-    (=daikanwa		. 41928)	; &I-M-41928;
-    ))
-(define-char
-  '((morohashi-daikanwa	41928 0 0)
-    (ideographic-radical . 171)	; ⾪
-    (ideographic-strokes . 8)
-    (total-strokes	 . 16)
-    (shinjigen-2	. 8938)
     (=ucs		. #x96B7)	; 隷
-    (=jis-x0208		. #x4E6C)	; &I-J90-4E6C;
-    (=ks-x1001		. #x564B)	; &I-K0-564B;
-    (=gt		. 56345)	; &I-GT-56345;
-    (=gt-pj-1		. #x4E6C)	; &I-GT-56345;
+    (->subsumptive
+     ((=cns11643-3	  . #x5349)	; &M-41928;
+      (=daikanwa	  . 41928)	; &I-M-41928;
+      )
+     ((shinjigen-2	  . 8938)
+      (=jis-x0208	  . #x4E6C)	; &GT-56345;
+      (=ks-x1001	  . #x564B)	; &I-K0-564B;
+      (=gt		  . 56345)	; &I-GT-56345;
+      (=gt-pj-1		  . #x4E6C)	; &I-GT-56345;
+      (=ucs@unicode	  . #x96B7)	; &GT-56345;
+      ))
     ))
 (define-char
   '((ideographic-radical . 171)	; ⾪
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=cns11643-5	. #x5945)	; &M-41929;
+    (=ucs		. #x28F7C)	; 𨽼
+    (=cns11643-5	. #x5945)	; &I-C5-5945;
     (=daikanwa		. 41929)	; &I-M-41929;
     ))
 (define-char
@@ -132,20 +130,18 @@
   '((ideographic-radical . 171)	; ⾪
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (=daikanwa		. 41934)	; &M-41934;
-    ))
-(define-char
-  '((morohashi-daikanwa	41934 0 0)
-    (ideographic-radical . 171)	; ⾪
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (=cns11643-7	. #x444E)	; &C7-444E;
+    (->subsumptive
+     ((=daikanwa	  . 41934)	; &M-41934;
+      )
+     ((=cns11643-7	  . #x444E)	; &C7-444E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 171)	; ⾪
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (=cns11643-5	. #x6A3E)	; &M-41935;
+    (=ucs		. #x28F82)	; 𨾂
+    (=cns11643-5	. #x6A3E)	; &I-C5-6A3E;
     (=daikanwa		. 41935)	; &I-M-41935;
     ))
 (define-char
