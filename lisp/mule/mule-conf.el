@@ -139,6 +139,7 @@
   )
 
 (when (featurep 'utf-2000)
+  (define-charset-alias 'ucs '=ucs)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
   (make-charset 'ucs-gb
 		"UCS for GB"
@@ -148,7 +149,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	ucs))
+		  mother	=ucs))
   (make-charset 'ucs-cns
 		"UCS for CNS"
 		`(long-name	"ISO/IEC 10646 for CNS 11643"
@@ -157,7 +158,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	ucs))
+		  mother	=ucs))
   (make-charset 'ucs-jis
 		"UCS for JIS"
 		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
@@ -166,7 +167,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	ucs))
+		  mother	=ucs))
   (make-charset '=ucs-jis-1990
 		"UCS for JIS:1990"
 		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
@@ -193,7 +194,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	ucs))
+		  mother	=ucs))
   (make-charset 'ucs-big5
 		"UCS for Big5"
 		`(long-name	"ISO/IEC 10646 for Big5"
@@ -202,7 +203,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	ucs))
+		  mother	=ucs))
 
   (make-charset 'ideograph-daikanwa-2
 		"Daikanwa Rev."
