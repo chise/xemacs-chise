@@ -1564,6 +1564,42 @@ Store character's ATTRIBUTES.
   return character;
 }
 
+DEFUN ("find-char", Ffind_char, 1, 1, 0, /*
+Retrieve the character of the given ATTRIBUTES.
+*/
+       (attributes))
+{
+  Lisp_Object rest = attributes;
+  Lisp_Object code;
+
+  while (CONSP (rest))
+    {
+      Lisp_Object cell = Fcar (rest);
+      Lisp_Object ccs;
+
+      if (!LISTP (cell))
+	signal_simple_error ("Invalid argument", attributes);
+      if (!NILP (ccs = Ffind_charset (Fcar (cell))))
+	{
+	  cell = Fcdr (cell);
+	  if (CONSP (cell))
+	    return Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+	  else
+	    return Fdecode_char (ccs, cell);
+	}
+      rest = Fcdr (rest);
+    }
+  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
+       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+    {
+      if (!INTP (code))
+	signal_simple_error ("Invalid argument", attributes);
+      else
+	return make_char (XINT (code) + 0x100000);
+    }
+  return Qnil;
+}
+
 Lisp_Object Vutf_2000_version;
 #endif
 
@@ -3462,6 +3498,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fput_char_attribute);
   DEFSUBR (Fremove_char_attribute);
   DEFSUBR (Fdefine_char);
+  DEFSUBR (Ffind_char);
   DEFSUBR (Fchar_variants);
   DEFSUBR (Fget_composite_char);
   DEFSUBR (Fcharset_mapping_table);
