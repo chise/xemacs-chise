@@ -915,6 +915,7 @@
 		      (or (eq name '<-identical)
 			  (string-match "^->simplified" (symbol-name name))
 			  (string-match "^->vulgar" (symbol-name name))
+			  (string-match "^->wrong" (symbol-name name))
 			  ))
 		 )
 		((or (eq name 'ideographic-structure)
