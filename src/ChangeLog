@@ -1,3 +1,45 @@
+2000-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: (Fencode_shift_jis_char):
+	(Fencode_big5_char):
+	Docstring arglist/Texinfo fixes.  See man/ChangeLog for details.
+	Replace 0 with '\0' when working with bytes.
+	Replace initial "(" with "\(" in docstrings.
+
+	(Fmake_coding_system):
+	When type is ccl and value is vector, register it with a proper
+	symbol.  And checks whether the given ccl program is valid.
+	(mule_decode): When calling ccl_driver, if src indicates
+	NULL pointer, set an empty string instead.
+	(mule_encode): Likewise.
+
+	(detect_eol_type):
+	(detect_coding_sjis):
+	(decode_coding_sjis):
+	(detect_coding_big5):
+	(decode_coding_big5):
+	(detect_coding_ucs4):
+	(decode_coding_ucs4):
+	(detect_coding_utf8):
+	(decode_coding_utf8):
+	(detect_coding_iso2022):
+	(decode_coding_iso2022):
+	(decode_coding_no_conversion):
+	(mule_decode):
+	Make all detecting and decoding functions take an Extbyte * arg.
+	(text_encode_generic):
+	(encode_coding_big5):
+	(encode_coding_no_conversion):
+	(mule_encode):
+	Make all encoding functions take a Bufbyte * arg.
+	Use size_t instead of unsigned int for memory sizes.
+	Only cast to unsigned char whenever dereferencing Extbyte *.
+
+	(struct lrecord_description fcd_description_1): Use countof.
+	(complex_vars_of_file_coding):
+	Use countof instead of sizeof.
+	Use CHECK_NATNUM instead of CHECK_INT.
+
 2000-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fget_char_attribute): Add new optional argument
