@@ -356,7 +356,7 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
 #ifdef MULE
   {
-    int i;
+    Charset_ID i;
 
     for (i = MIN_LEADING_BYTE; i < MIN_LEADING_BYTE + NUM_LEADING_BYTES;
 	 i++)
@@ -775,14 +775,22 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 
 /* called from CHAR_TABLE_VALUE(). */
 Lisp_Object
-get_non_ascii_char_table_value (struct Lisp_Char_Table *ct, int leading_byte,
-			       Emchar c)
+get_non_ascii_char_table_value (struct Lisp_Char_Table *ct,
+				Charset_ID leading_byte, Emchar c)
 {
   Lisp_Object val;
+#ifdef UTF2000
+  Lisp_Object charset;
+#else
   Lisp_Object charset = CHARSET_BY_LEADING_BYTE (leading_byte);
+#endif
   int byte1, byte2;
 
+#ifdef UTF2000
+  BREAKUP_CHAR (c, charset, byte1, byte2);
+#else
   BREAKUP_CHAR_1_UNSAFE (c, charset, byte1, byte2);
+#endif
   val = ct->level1[leading_byte - MIN_LEADING_BYTE];
   if (CHAR_TABLE_ENTRYP (val))
     {
@@ -1267,7 +1275,7 @@ map_over_charset_row (struct Lisp_Char_Table_Entry *cte,
 
 
 static int
-map_over_other_charset (struct Lisp_Char_Table *ct, int lb,
+map_over_other_charset (struct Lisp_Char_Table *ct, Charset_ID lb,
 			int (*fn) (struct chartab_range *range,
 				   Lisp_Object val, void *arg),
 			void *arg)
@@ -1344,9 +1352,9 @@ map_char_table (struct Lisp_Char_Table *ct,
 	if (retval)
 	  return retval;
 	{
-	  int i;
-	  int start = MIN_LEADING_BYTE;
-	  int stop  = start + NUM_LEADING_BYTES;
+	  Charset_ID i;
+	  Charset_ID start = MIN_LEADING_BYTE;
+	  Charset_ID stop  = start + NUM_LEADING_BYTES;
 
 	  for (i = start, retval = 0; i < stop && retval == 0; i++)
 	    {
@@ -1365,7 +1373,8 @@ map_char_table (struct Lisp_Char_Table *ct,
 
     case CHARTAB_RANGE_ROW:
       {
-	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE];
+	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (range->charset)
+				    - MIN_LEADING_BYTE];
 	if (!CHAR_TABLE_ENTRYP (val))
 	  {
 	    struct chartab_range rainj;

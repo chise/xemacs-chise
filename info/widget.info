@@ -1,4 +1,4 @@
-This is ../info/widget.info, produced by makeinfo version 4.0 from
+This is ../info/widget.info, produced by makeinfo version 3.12s from
 widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -1517,37 +1517,37 @@ Wishlist
 
 
 Tag Table:
-Node: Top201
-Node: Introduction581
-Node: User Interface4064
-Node: Programming Example8959
-Node: Setting Up the Buffer12276
-Node: Basic Types13993
-Node: link20038
-Node: url-link20552
-Node: info-link20864
-Node: push-button21155
-Node: editable-field21728
-Node: text23067
-Node: menu-choice23365
-Node: radio-button-choice24230
-Node: item25809
-Node: choice-item26197
-Node: toggle26695
-Node: checkbox27420
-Node: checklist27726
-Node: editable-list29170
-Node: group30352
-Node: Sexp Types30639
-Node: constants30952
-Node: generic32031
-Node: atoms32564
-Node: composite34511
-Node: Widget Properties36977
-Node: Defining New Widgets40040
-Node: Widget Browser45340
-Node: Widget Minor Mode46198
-Node: Utilities46755
-Node: Widget Wishlist47236
+Node: Top203
+Node: Introduction583
+Node: User Interface4066
+Node: Programming Example8961
+Node: Setting Up the Buffer12278
+Node: Basic Types13995
+Node: link20040
+Node: url-link20554
+Node: info-link20866
+Node: push-button21157
+Node: editable-field21730
+Node: text23069
+Node: menu-choice23367
+Node: radio-button-choice24232
+Node: item25811
+Node: choice-item26199
+Node: toggle26697
+Node: checkbox27422
+Node: checklist27728
+Node: editable-list29172
+Node: group30354
+Node: Sexp Types30641
+Node: constants30954
+Node: generic32033
+Node: atoms32566
+Node: composite34513
+Node: Widget Properties36979
+Node: Defining New Widgets40042
+Node: Widget Browser45342
+Node: Widget Minor Mode46200
+Node: Utilities46757
+Node: Widget Wishlist47238
 
 End Tag Table

@@ -1,4 +1,4 @@
-This is ../info/custom.info, produced by makeinfo version 4.0 from
+This is ../info/custom.info, produced by makeinfo version 3.12s from
 custom.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -381,13 +381,13 @@ Wishlist
 
 
 Tag Table:
-Node: Top204
-Node: Declaring Groups1625
-Node: Declaring Variables2726
-Node: Declaring Faces5817
-Node: Usage for Package Authors7515
-Node: Utilities8294
-Node: The Init File9378
-Node: Wishlist9830
+Node: Top206
+Node: Declaring Groups1627
+Node: Declaring Variables2728
+Node: Declaring Faces5819
+Node: Usage for Package Authors7517
+Node: Utilities8296
+Node: The Init File9380
+Node: Wishlist9832
 
 End Tag Table

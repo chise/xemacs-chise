@@ -3339,7 +3339,7 @@ glyph_height_internal (Lisp_Object glyph_or_image, Lisp_Object frame_face,
       {
 	struct font_metric_info fm;
 	Lisp_Object string = XIMAGE_INSTANCE_TEXT_STRING (instance);
-	unsigned char charsets[NUM_LEADING_BYTES];
+	Charset_ID charsets[NUM_LEADING_BYTES];
 	struct face_cachel frame_cachel;
 	struct face_cachel *cachel;
 

@@ -1,4 +1,4 @@
-This is ../info/info.info, produced by makeinfo version 4.0 from
+This is ../info/info.info, produced by makeinfo version 3.12s from
 info.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -816,25 +816,25 @@ learn how to install an Info file after you have created one.
 
 
 Tag Table:
-Node: Top1067
-Node: Getting Started1612
-Node: Help-Small-Screen2360
-Node: Help4109
-Node: Help-P5139
-Node: Help-^L6001
-Node: Help-M8879
-Node: Help-FOO14859
-Node: Help-Adv15597
-Node: Help-Cross18272
-Node: Help-Q18918
-Node: Advanced Info19545
-Node: Expert20523
-Node: Add23037
-Node: Menus26397
-Node: Cross-refs29271
-Node: Tags29973
-Node: Checking31275
-Node: Emacs Info Variables32228
-Node: Creating an Info File33217
+Node: Top1069
+Node: Getting Started1614
+Node: Help-Small-Screen2362
+Node: Help4111
+Node: Help-P5141
+Node: Help-^L6003
+Node: Help-M8881
+Node: Help-FOO14861
+Node: Help-Adv15599
+Node: Help-Cross18274
+Node: Help-Q18920
+Node: Advanced Info19547
+Node: Expert20525
+Node: Add23039
+Node: Menus26399
+Node: Cross-refs29273
+Node: Tags29975
+Node: Checking31277
+Node: Emacs Info Variables32230
+Node: Creating an Info File33219
 
 End Tag Table

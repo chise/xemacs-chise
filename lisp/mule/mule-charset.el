@@ -3,6 +3,8 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
+;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
+;; Licensed to the Free Software Foundation.
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -248,5 +250,47 @@ DESCRIPTION (string) is the description string of the charset."
 (defalias 'put-charset-property 'put)
 (defalias 'charset-plist 'object-plist)
 (defalias 'set-charset-plist 'setplist)
+
+
+;;; @ Coded character set
+;;;
+
+(when (featurep 'utf-2000)
+  (setq default-coded-charset-priority-list
+	'(ascii
+          ;; latin-iso646-irv
+	  control-1
+	  latin-iso8859-1
+	  latin-iso8859-2
+	  latin-iso8859-3
+	  latin-iso8859-4
+	  latin-iso8859-9
+	  latin-jisx0201
+	  cyrillic-iso8859-5
+	  greek-iso8859-7
+	  thai-tis620
+          ;; hiragana-jisx0208
+          ;; katakana-jisx0208
+	  japanese-jisx0208
+	  japanese-jisx0212
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+	  chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
+	  korean-ksc5601
+	  chinese-gb2312
+	  hebrew-iso8859-8
+	  latin-viscii
+	  latin-viscii-lower
+	  latin-viscii-upper
+	  ipa
+	  lao
+	  ethiopic-ucs
+	  ethiopic
+	  ucs-bmp
+	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here

@@ -223,7 +223,7 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	    WINDOW_FACE_CACHEL (w, DEFAULT_INDEX);
 	  struct display_line dl;
 	  Lisp_Object string = IMAGE_INSTANCE_TEXT_STRING (p);
-	  unsigned char charsets[NUM_LEADING_BYTES];
+	  Charset_ID charsets[NUM_LEADING_BYTES];
 	  Emchar_dynarr *buf;
 	  struct font_metric_info fm;
 

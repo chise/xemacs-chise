@@ -112,6 +112,8 @@ else
   echo Yes
 fi
 
+ignore_dirs="$ignore_dirs utf-2000"
+
 # first recompile the byte-compiler, so that the other compiles take place
 # with the latest version (assuming we're compiling the lisp dir of the emacs
 # we're running, which might not be the case, but often is.)

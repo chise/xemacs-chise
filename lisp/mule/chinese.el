@@ -56,11 +56,11 @@
       (make-charset
        name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
        `(registry 
-         ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
-         dimension 2
-         chars 94
-         final ,final
-         graphic 0))
+	 ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
+	 dimension 2
+	 chars 94
+	 final ,final
+	 graphic 0))
       (modify-syntax-entry   name "w")
       (modify-category-entry name ?t)
       ))
