@@ -217,11 +217,6 @@ struct Lisp_Charset
   /* Final byte of this character set in ISO2022 designating escape sequence */
   Bufbyte final;
 
-  /* Number of bytes (1 - 4) required in the internal representation
-     for characters in this character set.  This is *not* the
-     same as the dimension of the character set). */
-  unsigned int rep_bytes;
-
   /* Number of columns a character in this charset takes up, on TTY
      devices.  Not used for X devices. */
   unsigned int columns;
@@ -240,6 +235,12 @@ struct Lisp_Charset
 
   /* Which half of font to be used to display this character set */
   unsigned int graphic;
+
+  /* character->byte mapping table */
+  Emchar_to_byte_table* encoding_table;
+
+  /* byte->character mapping table */
+  Emchar* decoding_table;
 };
 
 DECLARE_LRECORD (charset, struct Lisp_Charset);
@@ -266,7 +267,6 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_NAME(cs)	 ((cs)->name)
 #define CHARSET_SHORT_NAME(cs)	 ((cs)->short_name)
 #define CHARSET_LONG_NAME(cs)	 ((cs)->long_name)
-#define CHARSET_REP_BYTES(cs)	 ((cs)->rep_bytes)
 #define CHARSET_COLUMNS(cs)	 ((cs)->columns)
 #define CHARSET_GRAPHIC(cs)	 ((cs)->graphic)
 #define CHARSET_TYPE(cs)	 ((cs)->type)
@@ -284,8 +284,6 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
 #define XCHARSET_SHORT_NAME(cs)	  CHARSET_SHORT_NAME   (XCHARSET (cs))
 #define XCHARSET_LONG_NAME(cs)	  CHARSET_LONG_NAME    (XCHARSET (cs))
-#define XCHARSET_REP_BYTES(cs)	  CHARSET_REP_BYTES    (XCHARSET (cs))
-#define XCHARSET_COLUMNS(cs)	  CHARSET_COLUMNS      (XCHARSET (cs))
 #define XCHARSET_GRAPHIC(cs)      CHARSET_GRAPHIC      (XCHARSET (cs))
 #define XCHARSET_TYPE(cs)	  CHARSET_TYPE         (XCHARSET (cs))
 #define XCHARSET_DIRECTION(cs)	  CHARSET_DIRECTION    (XCHARSET (cs))
@@ -671,15 +669,7 @@ CHAR_CHARSET (Emchar ch)
 
 #define CHAR_LEADING_BYTE(c) (XCHARSET_LEADING_BYTE(CHAR_CHARSET(c)))
 
-
-#ifdef ENABLE_COMPOSITE_CHARS
-/************************************************************************/
-/*                           Composite characters                       */
-/************************************************************************/
-
-Emchar lookup_composite_char (Bufbyte *str, int len);
-Lisp_Object composite_char_string (Emchar ch);
-#endif /* ENABLE_COMPOSITE_CHARS */
+#define CHAR_COLUMNS(c)     (CHARSET_COLUMNS(XCHARSET(CHAR_CHARSET(c))))
 
 
 /************************************************************************/
