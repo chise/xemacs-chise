@@ -711,7 +711,7 @@ chaînes par <Return>.
 
 >> Déplacez le curseur sur la ligne blanche en dessous de ce
    paragraphe, puis tapez
-   M-x repls<Return>Remarquez<Return>Notez<Return>.
+   M-x repl<Return>s<Return>Remarquez<Return>Notez<Return>.
 
    Remarquez comme cette ligne a changé: le mot R-e-m-a-r-q-u-e-z a
    été remplacé par N-o-t-e-z partout où il est apparu après le

@@ -131,19 +131,22 @@ be used only with -batch." nil nil)
 ;;;### (autoloads (build-report) "build-report" "lisp/build-report.el")
 
 (autoload 'build-report "build-report" "\
-Composes a fresh mail message with the contents of the built XEmacs
-Installation file and excerpts from XEmacs make output.
-`compose-mail' is used to create the mail message.  Point is left at
-the beginning of the mail text.  You may add some personal notes if
-you like and send the report.
-See also
-  `compose-mail', `mail-user-agent',
-  `build-report-destination',
-  `build-report-keep-regexp',
-  `build-report-delete-regexp',
-  `build-report-make-output-dir',
-  `build-report-make-output-files', and
-  `build-report-installation-file'." t nil)
+Report build information including Installation and make output.
+
+Prompts for status (usually \"Success\" or \"Failure\").  Then uses
+`compose-mail' to create a mail message.  The Subject header contains
+status and version information.  Point is left at the beginning of the
+mail text.  Add some notes if you like, and send the report.
+
+Looks for Installation and the make output file (`beta.err' by
+default, customizable via `build-report-make-output-files') in the
+build directory of the running XEmacs by default (customizable via
+`build-report-make-output-dir').  The output from make is filtered
+through `build-report-keep-regexp' and `build-report-delete-regexp'
+before including in the message.
+
+See also `mail-user-agent', `build-report-destination', and
+`build-report-installation-file'." t nil)
 
 ;;;***
 
@@ -861,7 +864,8 @@ in the tag table that matches the tagname used in the previous find-tag.
 the tag.
 
 This version of this function supports multiple active tags tables,
-and completion.
+and completion. See also the commands `\\[push-tag-mark]' and
+`\\[pop-tag-mark]'.
 
 Variables of note:
 
@@ -1223,7 +1227,8 @@ or if you change your font path, you can call this to re-initialize the menus." 
 
 ;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp/font.el")
 
-(autoload 'font-create-object "font" nil nil nil)
+(autoload 'font-create-object "font" "\
+Return a font descriptor object for FONTNAME, appropriate for DEVICE." nil nil)
 
 (autoload 'font-default-font-for-device "font" nil nil nil)
 
@@ -1430,7 +1435,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (match-string 4 name)))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 4 truename)))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
+(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (or (match-string 4 name) "0")))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (or (match-string 4 truename) "0")))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
 
 ;;;***
 
@@ -1503,7 +1508,7 @@ recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
 
-(defcustom package-get-download-sites '(("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages") ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages") ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages") ("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages") ("unc.edu (United States)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages") ("utk.edu (United States)" "ftp.sunsite.utk.edu" "pub/xemacs/packages") ("unicamp.br (Brazil)" "ftp.unicamp.br" "pub/xemacs/packages") ("tuwien.ac.at (Austria)" "gd.tuwien.ac.at" "editors/xemacs/packages") ("auc.dk (Denmark)" "sunsite.auc.dk" "pub/emacs/xemacs/packages") ("doc.ic.ac.uk (England)" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages") ("funet.fi (Finland)" "ftp.funet.fi" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("cenatls.cena.dgac.fr (France)" "ftp.cenatls.cena.dgac.fr" "Emacs/xemacs/packages") ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages") ("kfki.hu (Hungary)" "ftp.kfki.hu" "pub/packages/xemacs/packages") ("eunet.ie (Ireland)" "ftp.eunet.ie" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("uniroma2.it (Italy)" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages") ("uio.no (Norway)" "sunsite.uio.no" "pub/xemacs/packages") ("icm.edu.pl (Poland)" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages") ("srcc.msu.su (Russia)" "ftp.srcc.msu.su" "mirror/ftp.xemacs.org/packages") ("sunet.se (Sweden)" "ftp.sunet.se" "pub/gnu/xemacs/packages") ("cnlab-switch.ch (Switzerland)" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages") ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages") ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages") ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages") ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages") ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages") ("tsukuba.ac.jp (Japan)" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages") ("kreonet.re.kr (Korea)" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages") ("nctu.edu.tw (Taiwan)" "coda.nctu.edu.tw" "Editors/xemacs/packages") ("sun.ac.za (South Africa)" "ftp.sun.ac.za" "xemacs/packages") ("isu.net.sa (Saudi Arabia)" "ftp.isu.net.sa" "pub/mirrors/ftp.xemacs.org/packages") ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
+(defcustom package-get-download-sites '(("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages") ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages") ("ca.xemacs.org (Canada)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages") ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("us.xemacs.org (United States)" "ftp.us.xemacs.org" "pub/xemacs/packages") ("ibiblio.org (United States)" "ibiblio.org" "pub/packages/editors/xemacs/packages") ("stealth.net (United States)" "ftp.stealth.net" "pub/mirrors/ftp.xemacs.org/pub/xemacs/packages") ("br.xemacs.org (Brazil)" "ftp.br.xemacs.org" "pub/xemacs/packages") ("at.xemacs.org (Austria)" "ftp.at.xemacs.org" "editors/xemacs/packages") ("be.xemacs.org (Belgium)" "ftp.be.xemacs.org" "xemacs/packages") ("cz.xemacs.org (Czech Republic)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages") ("dk.xemacs.org (Denmark)" "ftp.dk.xemacs.org" "pub/emacs/xemacs/packages") ("fi.xemacs.org (Finland)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("fr.xemacs.org (France)" "ftp.fr.xemacs.org" "pub/xemacs/packages") ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("de.xemacs.org (Germany)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages") ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages") ("ie.xemacs.org (Ireland)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("it.xemacs.org (Italy)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages") ("no.xemacs.org (Norway)" "ftp.no.xemacs.org" "pub/xemacs/packages") ("pl.xemacs.org (Poland)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages") ("ru.xemacs.org (Russia)" "ftp.ru.xemacs.org" "pub/xemacs/packages") ("sk.xemacs.org (Slovakia)" "ftp.sk.xemacs.org" "pub/mirrors/xemacs/packages") ("se.xemacs.org (Sweden)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages") ("ch.xemacs.org (Switzerland)" "ftp.ch.xemacs.org" "mirror/xemacs/packages") ("uk.xemacs.org (United Kingdom)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages") ("jp.xemacs.org (Japan)" "ftp.jp.xemacs.org" "pub/GNU/xemacs/packages") ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages") ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages") ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages") ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages") ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages") ("kr.xemacs.org (Korea)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages") ("za.xemacs.org (South Africa)" "ftp.za.xemacs.org" "mirrorsites/ftp.xemacs.org/packages") ("sa.xemacs.org (Saudi Arabia)" "ftp.sa.xemacs.org" "pub/mirrors/ftp.xemacs.org/xemacs/packages") ("au.xemacs.org (Australia)" "ftp.au.xemacs.org" "pub/xemacs/packages") ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages") ("nz.xemacs.org (New Zealand)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
 
 (autoload 'package-get-download-menu "package-get" "\
 Build the `Add Download Site' menu." nil nil)
@@ -1693,7 +1698,7 @@ they are not defaultly assigned to keys." t nil)
 
 ;;;***
 
-;;;### (autoloads (clear-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle kill-rectangle extract-rectangle delete-extract-rectangle delete-rectangle) "rect" "lisp/rect.el")
+;;;### (autoloads (clear-rectangle replace-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle kill-rectangle extract-rectangle delete-extract-rectangle delete-rectangle) "rect" "lisp/rect.el")
 
 (autoload 'delete-rectangle "rect" "\
 Delete the text in the region-rectangle without saving it.
@@ -1752,6 +1757,10 @@ If `pending-delete-mode' is active the string replace the region.
 Otherwise this command does not delete or overwrite any existing text.
 
 When called from a program, the rectangle's corners are START and END." t nil)
+
+(autoload 'replace-rectangle "rect" "\
+Like `string-rectangle', but unconditionally replace the original region,
+as if `pending-delete-mode' were active." t nil)
 
 (autoload 'clear-rectangle "rect" "\
 Blank out the region-rectangle.

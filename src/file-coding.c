@@ -1785,6 +1785,8 @@ coding_system_from_mask (int mask)
    that should be unnecessary with the explicit eol-type argument. */
 
 #define LENGTH(string_constant) (sizeof (string_constant) - 1)
+/* number of leading lines to check for a coding cookie */
+#define LINES_TO_CHECK 2
 
 void
 determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
@@ -1808,13 +1810,13 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
       Extbyte *p;
       Lstream_data_count nread = Lstream_read (stream, buf, sizeof (buf));
       Extbyte *scan_end;
+      int lines_checked = 0;
 
       /* Look for initial "-*-"; mode line prefix */
       for (p = buf,
 	     scan_end = buf + nread - LENGTH ("-*-coding:?-*-");
 	   p <= scan_end
-	     && *p != '\n'
-	     && *p != '\r';
+	     && lines_checked < LINES_TO_CHECK;
 	   p++)
 	if (*p == '-' && *(p+1) == '*' && *(p+2) == '-')
 	  {
@@ -1823,8 +1825,7 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
 	    for (p = local_vars_beg,
 		   scan_end = buf + nread - LENGTH ("-*-");
 		 p <= scan_end
-		   && *p != '\n'
-		   && *p != '\r';
+		   && lines_checked < LINES_TO_CHECK;
 		 p++)
 	      if (*p == '-' && *(p+1) == '*' && *(p+2) == '-')
 		{
@@ -1866,7 +1867,23 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
 		      }
 		  break;
 		}
+	      /* #### file must use standard EOLs or we miss 2d line */
+	      /* #### not to mention this is broken for UTF-16 DOS files */
+	      else if (*p == '\n' || *p == '\r')
+		{
+		  lines_checked++;
+		  /* skip past multibyte (DOS) newline */
+		  if (*p == '\r' && *(p+1) == '\n') p++;
+		}
 	    break;
+	  }
+	/* #### file must use standard EOLs or we miss 2d line */
+	/* #### not to mention this is broken for UTF-16 DOS files */
+	else if (*p == '\n' || *p == '\r')
+	  {
+	    lines_checked++;
+	    /* skip past multibyte (DOS) newline */
+	    if (*p == '\r' && *(p+1) == '\n') p++;
 	  }
 
       if (NILP (coding_system))

@@ -1323,12 +1323,18 @@ buffer modifications are performed or a buffer is reverted.")
 ;; was supposedly much faster than the FSF version because it was written in
 ;; C. However, the FSF version uses parse-partial-sexp, which is also
 ;; written in C, and the benchmarking I did showed the
-;; syntactically-sectionize code to be slower overall. So here's the FSF
-;; version, modified to support font-lock-doc-string-face.
+;; syntactically-sectionize code to be slower overall. So here's the
+;; FSF version, modified to support font-lock-doc-string-face.
 ;; -- mct 2000-12-29
+;; #### Andy conditionally reverted Matt's change when we were experimenting
+;; with making lookup-syntax-properties an optional feature.  I don't see how
+;; this code relates to lookup-syntax-properties, though.  I wonder if the
+;; bug is in our (?) version of parse-partial-sexp.  Andy says no.  Of course,
+;; Matt benchmarked ... WTF knows?  sjt 2002-09-28
 (defun font-lock-fontify-syntactically-region (start end &optional loudly)
   "Put proper face on each string and comment between START and END.
-START should be at the beginning of a line."
+START should be at the beginning of a line.  Optional argument LOUDLY
+is currently ignored."
   (if font-lock-keywords-only
       nil
 
@@ -1630,10 +1636,11 @@ LIMIT can be modified by the value of its PRE-MATCH-FORM."
 START should be at the beginning of a line."
   (let ((loudly (and font-lock-verbose
 		     (>= (- end start) font-lock-message-threshold))))
+    (unless (eq (car-safe font-lock-keywords) t)
+      (setq font-lock-keywords
+	    (font-lock-compile-keywords font-lock-keywords)))
     (let* ((case-fold-search font-lock-keywords-case-fold-search)
-	   (keywords (cdr (if (eq (car-safe font-lock-keywords) t)
-			      font-lock-keywords
-			    (font-lock-compile-keywords))))
+	   (keywords (cdr font-lock-keywords))
 	   (bufname (buffer-name)) 
 	   (progress 5) (old-progress 5)
 	   (iter 0)
@@ -1707,15 +1714,12 @@ START should be at the beginning of a line."
 
 ;; Various functions.
 
-(defun font-lock-compile-keywords (&optional keywords)
-  "Compile KEYWORDS into the form (t KEYWORD ...).
-Here KEYWORD is of the form (MATCHER HIGHLIGHT ...) as shown in the
-`font-lock-keywords' doc string."
-  (let ((keywords (or keywords font-lock-keywords)))
-    (setq font-lock-keywords 
-     (if (eq (car-safe keywords) t)
-	 keywords
-       (cons t (mapcar 'font-lock-compile-keyword keywords))))))
+(defun font-lock-compile-keywords (keywords)
+  "Compile KEYWORDS (a list) and return the list of compiled keywords.
+Each keyword has the form (MATCHER HIGHLIGHT ...).  See `font-lock-keywords'."
+  (if (eq (car-safe keywords) t)
+      keywords
+    (cons t (mapcar 'font-lock-compile-keyword keywords))))
 
 (defun font-lock-compile-keyword (keyword)
   (cond ((nlistp keyword)		; Just MATCHER

@@ -283,7 +283,7 @@ depend ${srcdir}/src/depend:
 
 ## Build XEmacs and recompile out-of-date and missing .elc files along
 ## the way.
-all-elc all-elcs: lib-src lwlib dump-elcs src
+all-elc all-elcs: autoloads dump-elcs
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l update-elc-2.el -f batch-update-elc-2 lisp
 
@@ -291,19 +291,19 @@ all-elc all-elcs: lib-src lwlib dump-elcs src
 dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs
 	cd ./src && $(RECURSIVE_MAKE) dump-elcs
 
-autoloads: lisp/auto-autoloads.el lisp/custom-load.el
+autoloads: lib-src lwlib src lisp/auto-autoloads.el lisp/custom-load.el
 
 FRC.lisp.auto.autoloads.el:
 lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
 	$(RM) lisp/auto-autoloads.el
-	${blddir}/src/${PROGNAME} -batch -vanilla \
+	${blddir}/src/${PROGNAME} -batch -no-autoloads \
 		-l autoload -f batch-update-directory lisp
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/auto-autoloads.el
 	@$(RM) lisp/auto-autoloads.el~
 
 FRC.lisp.custom.load.el:
-lisp/custom-load.el: FRC.lisp.custom.load.el
+lisp/custom-load.el: FRC.lisp.custom.load.el lisp/auto-autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla -l cus-dep \
 		-f Custom-make-dependencies lisp
 

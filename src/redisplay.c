@@ -7603,7 +7603,7 @@ find_point_loop:
 
   while (1)
     {
-      unsigned int new_pos;
+      EMACS_INT new_pos;
       Bufpos start, end;
 
       pos = (bottom + top + 1) >> 1;

@@ -1,3 +1,80 @@
+2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.10 "Military Intelligence" is released.
+
+2002-11-01  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* Makefile.in.in (lisp/custom-load.el): Depend on auto-autoloads.el.
+
+2002-10-31  Christopher Sekiya  <wileyc@rezrov.net>
+
+	* etc/OXYMORONS: "Too much Mozart" is an oxymoron.
+
+2002-10-25  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/TUTORIAL.fr (suivante): Typo fix.
+	From juergen stuber <stuberj@mines.inpl-nancy.fr>.
+
+2002-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* Makefile.in.in (lisp/auto-autoloads.el):
+	(lisp/custom-load.el): 
+	Use -no-autoloads for these targets; can't load 'em if they ain't.
+
+2002-10-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running/Cygwin): "No cygXpm-noX" fatal error.
+
+2002-10-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Missing charsets): Remove ambiguity.
+
+2002-10-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* INSTALL (PREREQUISITES): Recommend Texinfo 4.2.
+
+2002-10-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/BETA: Improve descriptions of XEmacs Patches; mention Design.
+
+2002-10-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (MacOS/X): Describe stack limitation.
+	(Digital Unix): Generalize to all regexp-using applications.
+	* INSTALL (PREQUISITES): Mention MacOS/X stack limitation.
+	(PROBLEMS): Point to PROBLEMS file for build notes.
+	Thanks to Skip Montanaro for the report.
+
+2002-10-07  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* Makefile.in.in (all-elcs): Depend on autoloads.
+	(autoloads): Depend on lib-src, lwlib, and src.
+
+2002-10-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (Check for POSIX functions):  New section head.
+	getaddrinfo is detected on HP-UX 11.XX, but appears to be
+	non-functional.  Disable it.  Based on work by Darryl Okahata.
+	
+2002-09-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running, General): Missing charset in FontSet warnings.
+
+	* Emacs.ad: Add charsets to *menubar*FontSet and *popup*FontSet.
+
+2002-08-29  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* Emacs.ad: Add *menubar*FontSet and *popup*FontSet entries,
+	(self-)obtained from Red Hat.
+
+2002-09-25  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/OXYMORONS:  A couple new ones.
+
+2002-09-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.usage: Complete rewrite and reorganization.
+
 2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.9 "Informed Management" is released.

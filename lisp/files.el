@@ -2707,6 +2707,7 @@ Revert only if they differ."
       (funcall revert-buffer-function ignore-auto noconfirm)
     (let* ((opoint (point))
 	   (newbuf nil)
+	   (found nil)
 	   (delay-prompt nil)
 	   (auto-save-p (and (not ignore-auto)
                              (recent-auto-save-p)
@@ -2721,10 +2722,9 @@ Revert only if they differ."
 	     (error "Buffer does not seem to be associated with any file"))
 	    ((or noconfirm
 		 (and (not (buffer-modified-p))
-		      (let (found)
-			(dolist (rx revert-without-query found)
-			  (when (string-match rx file-name)
-			    (setq found t)))))
+		      (dolist (rx revert-without-query found)
+			(when (string-match rx file-name)
+			  (setq found t))))
 		 ;; If we will call revert-buffer-internal, delay prompting
 		 (and (not auto-save-p)
 		      (not (buffer-modified-p))
@@ -2738,7 +2738,7 @@ Revert only if they differ."
 			(and (setq newbuf (revert-buffer-internal
 					   file-name))
 			     ;; ... and if different, prompt
-			     (or noconfirm
+			     (or noconfirm found
 				 (and delay-prompt
 				      (yes-or-no-p 
 				       (format "Revert buffer from file %s? "

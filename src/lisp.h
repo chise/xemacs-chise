@@ -1587,7 +1587,7 @@ XCHAR_OR_INT (Lisp_Object obj)
 #define C_READONLY(obj) (C_READONLY_RECORD_HEADER_P(XRECORD_LHEADER (obj)))
 #define LISP_READONLY(obj) (LISP_READONLY_RECORD_HEADER_P(XRECORD_LHEADER (obj)))
 
-/*----------------------------- structrures ----------------------------*/
+/*----------------------------- structures -----------------------------*/
 
 typedef struct structure_keyword_entry structure_keyword_entry;
 struct structure_keyword_entry

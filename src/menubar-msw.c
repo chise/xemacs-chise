@@ -737,7 +737,7 @@ unsafe_handle_wm_initmenupopup_1 (HMENU menu, struct frame *f)
 
   Lisp_Object path, desc;
   struct gcpro gcpro1;
-
+  
   /* Find which guy is going to explode */
   path = Fgethash (hmenu_to_lisp_object (menu), current_hash_table, Qunbound);
   assert (!UNBOUNDP (path));

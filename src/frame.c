@@ -116,6 +116,10 @@ Lisp_Object Vframe_being_created;
 Lisp_Object Qframe_being_created;
 
 static void store_minibuf_frame_prop (struct frame *f, Lisp_Object val);
+static void frame_conversion_internal (struct frame *f, int pixel_to_char,
+				       int *pixel_width, int *pixel_height,
+				       int *char_width, int *char_height,
+				       int real_face);
 static struct display_line title_string_display_line;
 /* Used by generate_title_string. Global because they get used so much that
    the dynamic allocation time adds up. */
@@ -2623,6 +2627,37 @@ but that the idea of the actual height of the frame should not be changed.
   return frame;
 }
 
+DEFUN ("set-frame-pixel-height", Fset_frame_pixel_height, 2, 3, 0, /*
+Specify that the frame FRAME is HEIGHT pixels tall.
+Optional third arg non-nil means that redisplay should be HEIGHT pixels tall
+but that the idea of the actual height of the frame should not be changed.
+*/
+       (frame, height, pretend))
+{
+  struct frame *f = decode_frame (frame);
+  int pheight, width;
+  XSETFRAME (frame, f);
+  CHECK_INT (height);
+
+  if (!window_system_pixelated_geometry (frame)) 
+    {
+      int h = XINT (height);
+      width = FRAME_WIDTH (f);
+      /* Simply using pixel_to_real_char_size here is not good
+	 enough since we end up with a total frame size of HEIGHT
+	 rather than a displayable height of HEIGHT. */
+      frame_conversion_internal (f, 2, 0, &h, 0, &pheight, 0);
+    }
+  else 
+    {
+      width = FRAME_PIXWIDTH (f);
+      pheight = XINT (height);
+    }
+
+  internal_set_frame_size (f, width, pheight, !NILP (pretend));
+  return frame;
+}
+
 DEFUN ("set-frame-width", Fset_frame_width, 2, 3, 0, /*
 Specify that the frame FRAME has COLS columns.
 Optional third arg non-nil means that redisplay should use COLS columns
@@ -2650,6 +2685,37 @@ but that the idea of the actual width of the frame should not be changed.
   return frame;
 }
 
+DEFUN ("set-frame-pixel-width", Fset_frame_pixel_width, 2, 3, 0, /*
+Specify that the frame FRAME is WIDTH pixels wide.
+Optional third arg non-nil means that redisplay should be WIDTH wide
+but that the idea of the actual height of the frame should not be changed.
+*/
+       (frame, width, pretend))
+{
+  struct frame *f = decode_frame (frame);
+  int height, pwidth;
+  XSETFRAME (frame, f);
+  CHECK_INT (width);
+
+  if (!window_system_pixelated_geometry (frame))
+    {
+      int w = XINT (width);
+      height = FRAME_HEIGHT (f);
+      /* Simply using pixel_to_real_char_size here is not good
+	 enough since we end up with a total frame size of WIDTH
+	 rather than a displayable height of WIDTH. */
+      frame_conversion_internal (f, 2, &w, 0, &pwidth, 0, 0);
+    }
+  else
+    {
+      height = FRAME_PIXHEIGHT (f);
+      pwidth = XINT (width);
+    }
+
+  internal_set_frame_size (f, pwidth, height, !NILP (pretend));
+  return frame;
+}
+
 DEFUN ("set-frame-size", Fset_frame_size, 3, 4, 0, /*
 Set the size of FRAME to COLS by ROWS, measured in characters.
 Optional fourth arg non-nil means that redisplay should use COLS by ROWS
@@ -2672,6 +2738,38 @@ but that the idea of the actual size of the frame should not be changed.
     }
 
   internal_set_frame_size (f, width, height, !NILP (pretend));
+  return frame;
+}
+
+DEFUN ("set-frame-pixel-size", Fset_frame_pixel_size, 3, 4, 0, /*
+Set the size of FRAME to WIDTH by HEIGHT, measured in pixels.
+Optional fourth arg non-nil means that redisplay should use WIDTH by HEIGHT
+but that the idea of the actual size of the frame should not be changed.
+*/
+       (frame, width, height, pretend))
+{
+  struct frame *f = decode_frame (frame);
+  int pheight, pwidth;
+  XSETFRAME (frame, f);
+  CHECK_INT (width);
+  CHECK_INT (height);
+
+  if (!window_system_pixelated_geometry (frame)) 
+    {
+      int w = XINT (width);
+      int h = XINT (height);
+      /* Simply using pixel_to_real_char_size here is not good enough
+	 since we end up with a total frame size of WIDTH x HEIGHT
+	 rather than a displayable height of WIDTH x HEIGHT. */
+      frame_conversion_internal (f, 2, &w, &h, &pwidth, &pheight, 0);
+    }
+  else
+    {
+      pheight = XINT (height);
+      pwidth = XINT (width);
+    }
+
+  internal_set_frame_size (f, pwidth, pheight, !NILP (pretend));
   return frame;
 }
 
@@ -2731,7 +2829,21 @@ frame_conversion_internal (struct frame *f, int pixel_to_char,
     2 * FRAME_THEORETICAL_TOP_TOOLBAR_BORDER_WIDTH (f) +
     2 * FRAME_THEORETICAL_BOTTOM_TOOLBAR_BORDER_WIDTH (f);
 
-  if (pixel_to_char)
+  /* Convert to chars so that the displayable area is pixel_width x
+     pixel_height.
+
+     #### Consider rounding up to 0.5 characters to avoid adding too
+     much space. */
+  if (pixel_to_char > 1)
+    {
+      if (char_width)
+	*char_width = ROUND_UP (*pixel_width, cpw) / cpw;
+      if (char_height)
+	*char_height = ROUND_UP (*pixel_height, cph) / cph;
+    }
+  /* Convert to chars so that the total frame size is pixel_width x
+     pixel_height. */
+  else if (pixel_to_char)
     {
       if (char_width)
 	*char_width = 1 + ((*pixel_width - egw) - bdr - obw) / cpw;
@@ -3293,6 +3405,9 @@ syms_of_frame (void)
   DEFSUBR (Fset_frame_height);
   DEFSUBR (Fset_frame_width);
   DEFSUBR (Fset_frame_size);
+  DEFSUBR (Fset_frame_pixel_height);
+  DEFSUBR (Fset_frame_pixel_width);
+  DEFSUBR (Fset_frame_pixel_size);
   DEFSUBR (Fset_frame_position);
   DEFSUBR (Fset_frame_pointer);
   DEFSUBR (Fprint_job_page_number);

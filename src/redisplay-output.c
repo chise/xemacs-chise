@@ -2,7 +2,7 @@
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1996 Chuck Thompson.
-   Copyright (C) 1999 Andy Piper.
+   Copyright (C) 1999, 2002 Andy Piper.
 
 This file is part of XEmacs.
 
@@ -1353,17 +1353,22 @@ redisplay_output_layout (Lisp_Object domain,
 	  int edges = 0;
 	  enum edge_style style;
 	  int ypos = db->ypos;
+	  int xpos = db->xpos;
 	  int height = dga->height;
+	  int width = dga->width;
 
-	  if (dga->xoffset >= 0)
+	  /* The bevel_area routines always draw in from the specified
+	     area so there is no need to adjust the displayed area to
+	     make sure that the lines are visible. */
+	  if (dga->xoffset >= 0) 
 	    edges |= EDGE_LEFT;
-	  if (dga->width - dga->xoffset == layout_width)
+	  if (dga->width - dga->xoffset == layout_width) 
 	    edges |= EDGE_RIGHT;
-	  if (dga->yoffset >= 0)
+	  if (dga->yoffset >= 0) 
 	    edges |= EDGE_TOP;
 	  if (dga->height - dga->yoffset == layout_height)
 	    edges |= EDGE_BOTTOM;
-
+	  
 	  if (EQ (IMAGE_INSTANCE_LAYOUT_BORDER (p), Qetched_in))
 	    style = EDGE_ETCHED_IN;
 	  else if (EQ (IMAGE_INSTANCE_LAYOUT_BORDER (p), Qetched_out))
@@ -1383,9 +1388,8 @@ redisplay_output_layout (Lisp_Object domain,
 	    style = EDGE_BEVEL_OUT;
 
 	  MAYBE_DEVMETH (d, bevel_area,
-			 (w, findex, db->xpos,
-			  ypos,
-			  dga->width, height, 2, edges, style));
+			 (w, findex, xpos, ypos, width, height,
+			  DEFAULT_WIDGET_SHADOW_WIDTH, edges, style));
 	}
     }
 

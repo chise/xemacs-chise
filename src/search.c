@@ -108,6 +108,7 @@ Lisp_Object Vforward_word_regexp, Vbackward_word_regexp;
 Lisp_Object Vskip_chars_range_table;
 
 static void set_search_regs (struct buffer *buf, Bufpos beg, Charcount len);
+static void clear_unused_search_regs (struct re_registers *regp, int no_sub);
 /* #### according to comment in 21.5, unnecessary */
 static void save_search_regs (void);
 static Bufpos simple_search (struct buffer *buf, Bufbyte *base_pat,
@@ -1173,10 +1174,11 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
   if (len == 0)
     {
       set_search_regs (buf, bufpos, 0);
+      clear_unused_search_regs (&search_regs, 0);
       return bufpos;
     }
 
-  /* Searching 0 times means don't move.  */
+  /* Searching 0 times means noop---don't move, don't touch registers.  */
   if (n == 0)
     return bufpos;
 
@@ -1223,6 +1225,8 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 		    search_regs.start[i] += j;
 		    search_regs.end[i] += j;
 		  }
+	      /* re_match (called from re_search et al) does this for us */
+	      /* clear_unused_search_regs (search_regs, bufp->no_sub);   */
 	      XSETBUFFER (last_thing_searched, buf);
 	      /* Set pos to the new position. */
 	      pos = search_regs.start[0];
@@ -1260,6 +1264,8 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 		    search_regs.start[i] += j;
 		    search_regs.end[i] += j;
 		  }
+	      /* re_match (called from re_search et al) does this for us */
+	      /* clear_unused_search_regs (search_regs, bufp->no_sub);   */
 	      XSETBUFFER (last_thing_searched, buf);
 	      /* Set pos to the new position. */
 	      pos = search_regs.end[0];
@@ -1460,6 +1466,7 @@ simple_search (struct buffer *buf, Bufbyte *base_pat, Bytecount len_byte,
 	  end = bytind_to_bufpos (buf, idx + buf_len);
 	}
       set_search_regs (buf, beg, end - beg);
+      clear_unused_search_regs (&search_regs, 0);
 
       return retval;
     }
@@ -1821,6 +1828,7 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
 		    Bufpos bufend = bytind_to_bufpos (buf, bytstart + len);
 
 		    set_search_regs (buf, bufstart, bufend - bufstart);
+		    clear_unused_search_regs (&search_regs, 0);
 		  }
 
 		  if ((n -= direction) != 0)
@@ -1910,6 +1918,7 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
 		    Bufpos bufend = bytind_to_bufpos (buf, bytstart + len);
 
 		    set_search_regs (buf, bufstart, bufend - bufstart);
+		    clear_unused_search_regs (&search_regs, 0);
 		  }
 
 		  if ((n -= direction) != 0)
@@ -1929,8 +1938,8 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
   return bytind_to_bufpos (buf, pos);
 }
 
-/* Record beginning BEG and end BEG + LEN
-   for a match just found in the current buffer.  */
+/* Record the whole-match data (beginning BEG and end BEG + LEN) and the
+   buffer for a match just found.  */
 
 static void
 set_search_regs (struct buffer *buf, Bufpos beg, Charcount len)
@@ -1948,6 +1957,24 @@ set_search_regs (struct buffer *buf, Bufpos beg, Charcount len)
   search_regs.start[0] = beg;
   search_regs.end[0] = beg + len;
   XSETBUFFER (last_thing_searched, buf);
+}
+
+/* Clear unused search registers so match data will be null.
+   REGP is a pointer to the register structure to clear, usually the global
+   search_regs.
+   NO_SUB is the number of subexpressions to allow for.  (Does not count
+   the whole match, ie, for a string search NO_SUB == 0.)
+   It is an error if NO_SUB > REGP.num_regs - 1. */
+
+static void
+clear_unused_search_regs (struct re_registers *regp, int no_sub)
+{
+  /* This function has been Mule-ized. */
+  int i;
+
+  assert (no_sub >= 0 && no_sub < regp->num_regs);
+  for (i = no_sub + 1; i < regp->num_regs; i++)
+    regp->start[i] = regp->end[i] = -1;
 }
 
 

@@ -107,16 +107,20 @@
 ;; <apply-pos> can be in the form (start . end), or can be a
 ;; character position.
 (defun test-syntax-table (string apply-pos apply-syntax stop)
-  (goto-char (point-max))
-  (unless (consp apply-pos)
-	(setq apply-pos `(,apply-pos . ,(+ 1 apply-pos))))
-  (let ((point (point)))
-	(insert string)
-	(put-text-property (+ point (car apply-pos)) (+ point (cdr apply-pos))
-					   'syntax-table apply-syntax)
-	(goto-char point)
-	(forward-word 1)
-	(Assert (eq (point) (+ point stop)))))
+  ;; We don't necessarily have syntax-table properties ...
+  (when (boundp 'lookup-syntax-properties) ; backwards compatible kludge
+    ;; ... and they may not be enabled by default if we do.
+    (setq lookup-syntax-properties t)
+    (goto-char (point-max))
+    (unless (consp apply-pos)
+      (setq apply-pos `(,apply-pos . ,(+ 1 apply-pos))))
+    (let ((point (point)))
+      (insert string)
+      (put-text-property (+ point (car apply-pos)) (+ point (cdr apply-pos))
+			 'syntax-table apply-syntax)
+      (goto-char point)
+      (forward-word 1)
+      (Assert (eq (point) (+ point stop))))))
 
 ;; test syntax-table extents
 (with-temp-buffer
@@ -126,17 +130,28 @@
   (test-syntax-table "W." 1 `(,(syntax-string-to-code "w")) 2))
 
 ;; Test forward-comment at buffer boundaries
+;; #### The second Assert fails (once interpreted, once compiled) on 21.4.9
+;; with sjt's version of Andy's syntax-text-property-killer patch.
 (with-temp-buffer
-  (c-mode)
-  (insert "// comment\n")
-  (forward-comment -2)
-  (Assert (eq (point) (point-min)))
+  (if (not (fboundp 'c-mode))
+      ;; #### This whole thing should go inside a macro Skip-Test
+      (let* ((reason "c-mode unavailable")
+	     (count (gethash reason skipped-test-reasons)))
+	;;(message "%S: %S" reason count)
+	(puthash reason (if (null count) 1 (1+ count))
+		 skipped-test-reasons)
+	(Print-Skip "comment and parse-partial-sexp tests" reason))
+    (c-mode)
+    
+    (insert "// comment\n")
+    (forward-comment -2)
+    (Assert (eq (point) (point-min)))
 
-  (let ((point (point)))
-	(insert "/* comment */")
-	(goto-char point)
-	(forward-comment 2)
-	(Assert (eq (point) (point-max)))
+    (let ((point (point)))
+      (insert "/* comment */")
+      (goto-char point)
+      (forward-comment 2)
+      (Assert (eq (point) (point-max)))
 
-	;; this last used to crash
-	(parse-partial-sexp point (point-max))))
+      ;; this last used to crash
+      (parse-partial-sexp point (point-max)))))

@@ -42,7 +42,7 @@ list motion functions (@pxref{List Motion}) as well as the functions in
 this chapter.
 @end ifinfo
 
-  Under XEmacs 20, a syntax table is a particular subtype of the
+  Under XEmacs 20 and later, a syntax table is a particular subtype of the
 primitive char table type (@pxref{Char Tables}), and each element of the
 char table is an integer that encodes the syntax of the character in
 question, or a cons of such an integer and a matching character (for
@@ -133,11 +133,13 @@ comment-starter, second character of a comment-ender).
 their meanings, and examples of their use.
 
 @deffn {Syntax class} @w{whitespace character}
-@dfn{Whitespace characters} (designated with @w{@samp{@ }} or @samp{-})
+@dfn{Whitespace characters} (designated with @samp{-})
 separate symbols and words from each other.  Typically, whitespace
 characters have no other syntactic significance, and multiple whitespace
 characters are syntactically equivalent to a single one.  Space, tab,
-newline and formfeed are almost always classified as whitespace.
+newline and formfeed are almost always classified as whitespace.  (The
+designator @w{@samp{@ }} is accepted for backwards compatibility with
+older versions of XEmacs, but is deprecated.  It is invalid in GNU Emacs.)
 @end deffn
 
 @deffn {Syntax class} @w{word constituent}
@@ -268,41 +270,22 @@ designator for this syntax code is @samp{@@}.
 @subsection Syntax Flags
 @cindex syntax flags
 
+@c This is a bit inaccurate, the ``a'' and ``b'' flags actually don't
+@c exist in the internal implementation.  AFAICT it doesn't affect the
+@c semantics as perceived by the LISP programmer.
   In addition to the classes, entries for characters in a syntax table
-can include flags.  There are six possible flags, represented by the
-characters @samp{1}, @samp{2}, @samp{3}, @samp{4}, @samp{b} and
-@samp{p}.
+can include flags.  There are eleven possible flags, represented by the
+digits @samp{1}--@samp{8}, and the lowercase letters @samp{a}, @samp{b},
+and @samp{p}.
 
-  All the flags except @samp{p} are used to describe multi-character
-comment delimiters.  The digit flags indicate that a character can
-@emph{also} be part of a comment sequence, in addition to the syntactic
-properties associated with its character class.  The flags are
+  All the flags except @samp{p} are used to describe comment delimiters.
+The digit flags indicate that a character can @emph{also} be part of a
+multi-character comment sequence, in addition to the syntactic
+properties associated with its character class.  The flags must be
 independent of the class and each other for the sake of characters such
 as @samp{*} in C mode, which is a punctuation character, @emph{and} the
 second character of a start-of-comment sequence (@samp{/*}), @emph{and}
 the first character of an end-of-comment sequence (@samp{*/}).
-
-The flags for a character @var{c} are:
-
-@itemize @bullet
-@item
-@samp{1} means @var{c} is the start of a two-character comment-start
-sequence.
-
-@item
-@samp{2} means @var{c} is the second character of such a sequence.
-
-@item
-@samp{3} means @var{c} is the start of a two-character comment-end
-sequence.
-
-@item
-@samp{4} means @var{c} is the second character of such a sequence.
-
-@item
-@c Emacs 19 feature
-@samp{b} means that @var{c} as a comment delimiter belongs to the
-alternative ``b'' comment style.
 
 Emacs supports two comment styles simultaneously in any one syntax
 table.  This is for the sake of C++.  Each style of comment syntax has
@@ -311,44 +294,59 @@ comment must stick to one style or the other; thus, if it starts with
 the comment-start sequence of style ``b'', it must also end with the
 comment-end sequence of style ``b''.
 
-The two comment-start sequences must begin with the same character; only
-the second character may differ.  Mark the second character of the
-``b''-style comment-start sequence with the @samp{b} flag.
+@c #### Compatibility note; index here.
+As an extension to GNU Emacs 19 and 20, XEmacs supports two arbitrary
+comment-start sequences and two arbitrary comment-end sequences.  (Thus
+the need for 8 flags.)  GNU Emacs restricts the comment-start sequences
+to start with the same character, XEmacs does not.  This means that for
+two-character sequences, where GNU Emacs uses the @samp{b} flag, XEmacs
+uses the digit flags @samp{5}--@samp{8}.
 
-A comment-end sequence (one or two characters) applies to the ``b''
-style if its first character has the @samp{b} flag set; otherwise, it
-applies to the ``a'' style.
+A one character comment-end sequence applies to the ``b'' style if its
+first character has the @samp{b} flag set; otherwise, it applies to the
+``a'' style.  The @samp{a} flag is optional.  These flags have no effect
+on non-comment characters; two-character styles are determined by the
+digit flags.
 
-The appropriate comment syntax settings for C++ are as follows:
+The flags for a character @var{c} are:
 
-@table @asis
-@item @samp{/}
-@samp{124b}
-@item @samp{*}
-@samp{23}
-@item newline
-@samp{>b}
-@end table
+@itemize @bullet
+@item
+@samp{1} means @var{c} is the start of a two-character comment-start
+sequence of style ``a''.
 
-This defines four comment-delimiting sequences:
+@item
+@samp{2} means @var{c} is the second character of such a sequence.
 
-@table @asis
-@item @samp{/*}
-This is a comment-start sequence for ``a'' style because the
-second character, @samp{*}, does not have the @samp{b} flag.
+@item
+@samp{3} means @var{c} is the start of a two-character comment-end
+sequence of style ``a''.
 
-@item @samp{//}
-This is a comment-start sequence for ``b'' style because the second
-character, @samp{/}, does have the @samp{b} flag.
+@item
+@samp{4} means @var{c} is the second character of such a sequence.
 
-@item @samp{*/}
-This is a comment-end sequence for ``a'' style because the first
-character, @samp{*}, does not have the @samp{b} flag
+@item
+@samp{5} means @var{c} is the start of a two-character comment-start
+sequence of style ``b''.
 
-@item newline
-This is a comment-end sequence for ``b'' style, because the newline
-character has the @samp{b} flag.
-@end table
+@item
+@samp{6} means @var{c} is the second character of such a sequence.
+
+@item
+@samp{7} means @var{c} is the start of a two-character comment-end
+sequence of style ``b''.
+
+@item
+@samp{8} means @var{c} is the second character of such a sequence.
+
+@item
+@samp{a} means that @var{c} as a comment delimiter belongs to the
+default ``a'' comment style.  (This flag is optional.)
+
+@item
+@c Emacs 19 feature
+@samp{b} means that @var{c} as a comment delimiter belongs to the
+alternate ``b'' comment style.
 
 @item
 @c Emacs 19 feature
@@ -361,6 +359,62 @@ The function @code{backward-prefix-chars} moves back over these
 characters, as well as over characters whose primary syntax class is
 prefix (@samp{'}).  @xref{Motion and Syntax}.
 @end itemize
+
+Lisp (as you would expect) has a simple comment syntax.
+
+@table @asis
+@item @samp{;}
+@samp{<}
+@item newline
+@samp{>}
+@end table
+
+Note that no flags are used.
+This defines two comment-delimiting sequences:
+
+@table @asis
+@item @samp{;}
+This is a single-character comment-start sequence because the syntax
+class is @samp{<}.
+
+@item newline
+This is a single character comment-end sequence because the syntax class
+is @samp{>} and the @samp{b} flag is not set.
+@end table
+
+C++ (again, as you would expect) has a baroque, overrich, and
+excessively complex comment syntax.
+
+@table @asis
+@item @samp{/}
+@samp{1456}
+@item @samp{*}
+@samp{23}
+@item newline
+@samp{>b}
+@end table
+
+Note that the ``b'' style mixes one-character and two-character
+sequences.  The table above defines four comment-delimiting sequences:
+
+@table @asis
+@item @samp{/*}
+This is a comment-start sequence for ``a'' style because the @samp{1}
+flag is set on @samp{/} and the @samp{2} flag is set on @samp{*}.
+
+@item @samp{//}
+This is a comment-start sequence for ``b'' style because both the @samp{5}
+and the @samp{6} flags are set on @samp{/}.
+
+@item @samp{*/}
+This is a comment-end sequence for ``a'' style because the @samp{3}
+flag is set on @samp{*} and the @samp{4} flag is set on @samp{/}.
+
+@item newline
+This is a comment-end sequence for ``b'' style, because the newline
+character has the @samp{b} flag.
+@end table
+
 
 @node Syntax Table Functions
 @section Syntax Table Functions

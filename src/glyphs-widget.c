@@ -1,5 +1,5 @@
 /* Widget-specific glyph objects.
-   Copyright (C) 1998, 1999, 2000 Andy Piper.
+   Copyright (C) 1998, 1999, 2000, 2002 Andy Piper.
 
 This file is part of XEmacs.
 
@@ -60,6 +60,12 @@ Lisp_Object Qnative_layout;
 
 Lisp_Object Qetched_in, Qetched_out, Qbevel_in, Qbevel_out;
 Lisp_Object Qmake_glyph;
+Lisp_Object Vwidget_border_width;
+
+static int
+widget_border_width (Lisp_Object domain);
+static int
+widget_spacing (Lisp_Object domain);
 
 #ifdef DEBUG_WIDGETS
 int debug_widget_instances;
@@ -118,7 +124,15 @@ check_valid_tab_orientation (Lisp_Object data)
 static void
 check_valid_justification (Lisp_Object data)
 {
-  if (!EQ (data, Qleft) && !EQ (data, Qright) && !EQ (data, Qcenter))
+  if (!EQ (data, Qleft) 
+      && 
+      !EQ (data, Qright) 
+      && 
+      !EQ (data, Qtop) 
+      && 
+      !EQ (data, Qbottom) 
+      && 
+      !EQ (data, Qcenter))
     invalid_argument ("unknown justification for layout", data);
 }
 
@@ -236,6 +250,56 @@ substitute_keyword_value (Lisp_Object inst, Lisp_Object key, Lisp_Object val)
 	  break;
 	}
     }
+}
+
+/* Determine the border with of the widget. */
+static int
+widget_border_width (Lisp_Object domain)
+{
+  /* #### FIXME -- need to use specifiers (Vwidget_border_width) for
+     some portion of this. */
+  if (HAS_DEVMETH_P (DOMAIN_XDEVICE (domain),
+		     widget_border_width))
+    return DEVMETH (DOMAIN_XDEVICE (domain), widget_border_width, ());
+  else 
+    return DEFAULT_WIDGET_BORDER_WIDTH;
+}
+
+static int
+widget_instance_border_width (Lisp_Image_Instance* ii)
+{
+  return widget_border_width (IMAGE_INSTANCE_DOMAIN (ii));
+}
+
+/* #### Its not clear to me what the value of logical_unit_height should
+   be, or whether it should even depend on the current
+   image_instance. It really should probably only depend on the
+   default widget face and the domain, however you can envisage users
+   wanting different logical units for nested layouts - so using the
+   properties of the current lahyout is probably not so dumb. */
+static int
+logical_unit_height (Lisp_Object text, Lisp_Object face, Lisp_Object domain)
+{
+  int charheight = 0;
+  query_string_geometry (text, face, 
+			 0, &charheight, 0, domain);
+  /* For the returned value to be useful it needs to be big enough to
+     accomodate the largest single-height widget. This is currently
+     the edit-field. */
+  return charheight + 2 * widget_spacing (domain)
+    + 4 * widget_border_width (domain);
+}
+
+static int
+widget_logical_unit_height (Lisp_Image_Instance* ii)
+{
+  return logical_unit_height (NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)) ?
+			      NILP (IMAGE_INSTANCE_NAME (ii)) ?
+			      Fsymbol_name (Qwidget) 
+			      : IMAGE_INSTANCE_NAME (ii)
+			      : IMAGE_INSTANCE_WIDGET_TEXT (ii),
+			      IMAGE_INSTANCE_WIDGET_FACE (ii),
+			      IMAGE_INSTANCE_DOMAIN (ii));
 }
 
 /* Wire widget property invocations to specific widgets. The problem
@@ -424,7 +488,8 @@ redisplay_widget (Lisp_Object widget)
      from lisp does not result in synchronous updates. Do this last so
      that format-specific methods have an opportunity to prevent
      wholesale changes - e.g. rebuilding tabs. */
-  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain), redisplay_widget, (ii));
+  MAYBE_DEVMETH (DOMAIN_XDEVICE (IMAGE_INSTANCE_DOMAIN (ii)),
+		 redisplay_widget, (ii));
 
   /* Pick up the items we recorded earlier. */
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
@@ -433,6 +498,17 @@ redisplay_widget (Lisp_Object widget)
 	IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii);
       IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = Qnil;
     }
+}
+
+/* Determine the spacing of the widget. */
+static int
+widget_spacing (Lisp_Object domain)
+{
+  if (HAS_DEVMETH_P (DOMAIN_XDEVICE (domain), widget_spacing))
+    return DEVMETH (DOMAIN_XDEVICE (domain),
+		    widget_spacing, (0));
+  else 
+    return DEFAULT_WIDGET_SPACING;
 }
 
 /* Query for a widgets desired geometry. If no type specific method is
@@ -483,9 +559,9 @@ widget_query_geometry (Lisp_Object image_instance,
 				     &w, &h, 0, domain);
 	      /* Adjust the size for borders. */
 	      if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
-		*width = w + 2 * WIDGET_BORDER_WIDTH;
+		*width = w + 2 * widget_instance_border_width (ii);
 	      if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
-		*height = h +  2 * WIDGET_BORDER_HEIGHT;
+		*height = h +  2 * widget_instance_border_width (ii);
 	    }
 	}
       /* Finish off with dynamic sizing. */
@@ -597,7 +673,8 @@ initialize_widget_image_instance (Lisp_Image_Instance *ii, Lisp_Object type)
   IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 1;
   IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 1;
   IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = LAYOUT_HORIZONTAL;
-  IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY (ii) = 0;
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
@@ -715,24 +792,44 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      size in characters is probably as good as any since the widget
      face is more likely to be proportional and thus give inadequate
      results. Using character sizes can only ever be approximate
-     anyway. */
-  if (tw || th)
+     anyway. :height is measured in logical characters which take into
+     account the borders and spacing on widgets. */
+  if (tw)
     {
-      int charwidth, charheight;
-      default_face_font_info (domain, 0, 0, &charheight, &charwidth, 0);
-      if (tw)
-	pw = charwidth * tw;
-      if (th)
-	ph = charheight * th;
+      int charwidth;
+      default_face_font_info (domain, 0, 0, 0, &charwidth, 0);
+      pw = ROUND_UP (charwidth * tw + 4 * widget_instance_border_width (ii), charwidth);
+    }
+
+  /* For heights the widget face is more appropriate. */
+  if (th == 1) 
+    {
+      int charheight;
+      if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii))) 
+	{
+	  query_string_geometry (IMAGE_INSTANCE_WIDGET_TEXT (ii),
+				 IMAGE_INSTANCE_WIDGET_FACE (ii),
+				 0, &charheight, 0, domain);
+	}
+      else 
+	{
+	  default_face_font_info (domain, 0, 0, &charheight, 0, 0);
+	}
+      ph = (charheight + 2 * widget_instance_border_width (ii)) * th;
+    }
+  /* For heights > 1 use logical units. */
+  else if (th > 1) 
+    {
+      ph = widget_logical_unit_height (ii) * th;
     }
 
   /* for a widget with an image pick up the dimensions from that */
   if (!NILP (glyph))
     {
       if (!pw)
-	pw = glyph_width (glyph, image_instance) + 2 * WIDGET_BORDER_WIDTH;
+	pw = glyph_width (glyph, image_instance) + 2 * widget_instance_border_width (ii);
       if (!ph)
-	ph = glyph_height (glyph, image_instance) + 2 * WIDGET_BORDER_HEIGHT;
+	ph = glyph_height (glyph, image_instance) + 2 * widget_instance_border_width (ii);
       IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 0;
       IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 0;
     }
@@ -779,7 +876,7 @@ button_query_geometry (Lisp_Object image_instance,
   /* Adjust the size for borders. */
   if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
     {
-      *width = w + 2 * WIDGET_BORDER_WIDTH;
+      *width = w + 3 * widget_instance_border_width (ii);
 
       if (EQ (XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (ii))->style, Qradio)
 	  ||
@@ -788,7 +885,25 @@ button_query_geometry (Lisp_Object image_instance,
 	*width += 12;
     }
   if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
-    *height = h +  2 * WIDGET_BORDER_HEIGHT;
+    *height = h +  3 * widget_instance_border_width (ii);
+}
+
+/* Get the geometry of an edit field. */
+static void
+edit_field_query_geometry (Lisp_Object image_instance,
+		       int* width, int* height,
+		       enum image_instance_geometry disp, Lisp_Object domain)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  int w, h;
+  query_string_geometry (IMAGE_INSTANCE_WIDGET_TEXT (ii),
+			 IMAGE_INSTANCE_WIDGET_FACE (ii),
+			 &w, &h, 0, domain);
+  /* Adjust the size for borders. */
+  if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
+    *width = w + 4 * widget_instance_border_width (ii);
+  if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
+    *height = h + 4 * widget_instance_border_width (ii);
 }
 
 /* tree-view geometry - get the height right */
@@ -811,6 +926,7 @@ tree_view_query_geometry (Lisp_Object image_instance,
   if (*height)
     {
       int len, h;
+      /* #### widget face would be better here. */
       default_face_font_info (domain, 0, 0, &h, 0, 0);
       GET_LIST_LENGTH (items, len);
       *height = len * h;
@@ -836,9 +952,9 @@ tab_control_query_geometry (Lisp_Object image_instance,
       query_string_geometry (XGUI_ITEM (XCAR (rest))->name,
 			     IMAGE_INSTANCE_WIDGET_FACE (ii),
 			     &w, &h, 0, domain);
-      tw += 5 * WIDGET_BORDER_WIDTH; /* some bias */
+      tw += 5 * widget_instance_border_width (ii); /* some bias */
       tw += w;
-      th = max (th, h + 2 * WIDGET_BORDER_HEIGHT);
+      th = max (th, h + 2 * widget_instance_border_width (ii));
     }
 
   /* Fixup returned values depending on orientation. */
@@ -948,14 +1064,50 @@ layout_update (Lisp_Object image_instance, Lisp_Object instantiator)
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
   Lisp_Object border_inst = find_keyword_in_vector (instantiator, Q_border);
+  Lisp_Object justify = find_keyword_in_vector (instantiator, Q_justify);
+  Lisp_Object hjustify = find_keyword_in_vector (instantiator, Q_horizontally_justify);
+  Lisp_Object vjustify = find_keyword_in_vector (instantiator, Q_vertically_justify);
   Lisp_Object border = Qnil;
   Lisp_Object children = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii);
   int structure_changed = 0;
   struct gcpro gcpro1;
 
+  /* Pick up horizontal justification, left is the default.*/
+  if (!NILP (hjustify)) 
+    {
+      if (EQ (hjustify, Qright) || EQ (hjustify, Qbottom))
+	IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY (ii) = LAYOUT_JUSTIFY_RIGHT;
+      else if (EQ (hjustify, Qcenter))
+	IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY (ii) = LAYOUT_JUSTIFY_CENTER;
+    }
+  /* If not set use general justification. */
+  else if (!NILP (justify))
+    {
+      if (EQ (justify, Qright) || EQ (justify, Qbottom))
+	IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY (ii) = LAYOUT_JUSTIFY_RIGHT;
+      else if (EQ (justify, Qcenter))
+	IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY (ii) = LAYOUT_JUSTIFY_CENTER;
+    }
+
+  /* Pick up vertical justification, top is the default. */
+  if (!NILP (vjustify)) 
+    {
+      if (EQ (vjustify, Qright) || EQ (vjustify, Qbottom))
+	IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY (ii) = LAYOUT_JUSTIFY_BOTTOM;
+      else if (EQ (vjustify, Qcenter))
+	IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY (ii) = LAYOUT_JUSTIFY_CENTER;
+    }
+  /* If not set use general justification. */
+  else if (!NILP (justify)) 
+    {
+      if (EQ (justify, Qright) || EQ (justify, Qbottom))
+	IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY (ii) = LAYOUT_JUSTIFY_BOTTOM;
+      else if (EQ (justify, Qcenter))
+	IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY (ii) = LAYOUT_JUSTIFY_CENTER;
+    }
+
   /* We want to avoid consing if we can. This is quite awkward because
      we have to deal with the border as well as the items. */
-
   GCPRO1 (border);
 
   if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
@@ -1107,10 +1259,32 @@ layout_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
    glyphs are cached on a device basis like most other glyphs. Instead
    they should be cached per-window and then the instance would be
    fixed and we wouldn't have to mess around with font metrics and the
-   rest. */
+   rest. 
 
-/* Query the geometry of a layout widget. We assume that we can only
-   get here if the size is not already fixed. */
+   Another sizing problem is alignment. We provide layout widgets that
+   allow users to stack widgets vertically or horizontally. These
+   layouts also allow the widgets to be centered (space evenly
+   distributed), left or right justified (fixed spacing widgets
+   stacked against the left, righ, top or bottom edge). Unfortunately
+   this doesn't allow widgets in different layouts to be aligned. For
+   instance how should the search dialog be organized for alignment?
+   The obvious choice of two vertical columns does not work since the
+   size of individual widgets will affect where they get placed. The
+   same is true for several rows of widgets. To solve this problem we
+   introduce the notion of `logical_unit_height'. This is a size
+   quantity that is designed to be big enough to accomodate the
+   largest `single height unit'. The function
+   widget_logical_unit_height() determines the value of this in
+   pixels. It is dependent on the widget face and some combination of
+   spacing and border-width. Thus if users specify left or right
+   justification in a vertical layout they get something in logical
+   units. To simplify this the functions
+   `widget-logical-to-character-height' and
+   `widget-logical-to-character-width' allow conversion between
+   characters and logical units so that frames can be sized
+   appropriately. */
+
+/* Query the geometry of a layout widget. */
 static void
 layout_query_geometry (Lisp_Object image_instance, int* width,
 		       int* height, enum image_instance_geometry disp,
@@ -1119,7 +1293,7 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii), rest;
   int maxph = 0, maxpw = 0, nitems = 0, ph_adjust = 0;
-  int gheight, gwidth;
+  int gheight, gwidth, luh;
 
   /* If we are not initialized then we won't have any children. */
   if (!IMAGE_INSTANCE_INITIALIZED (ii))
@@ -1135,12 +1309,14 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
       !IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
     return;
 
+  luh = widget_logical_unit_height (ii);
+
   /* Pick up the border text if we have one. */
   if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
     {
       glyph_query_geometry (XCAR (items), &gwidth, &gheight, disp,
 			    image_instance);
-      ph_adjust = gheight / 2;
+      ph_adjust = gheight;
       items = XCDR (items);
     }
 
@@ -1151,8 +1327,7 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
       glyph_query_geometry (glyph, &gwidth, &gheight, disp, image_instance);
 
       nitems ++;
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	  == LAYOUT_HORIZONTAL)
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_HORIZONTAL)
 	{
 	  maxph = max (maxph, gheight);
 	  maxpw += gwidth;
@@ -1166,36 +1341,53 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
 
   /* Work out minimum space we need to fit all the items. This could
      have been fixed by the user. */
-  if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
-    {
-      Lisp_Object dynamic_width =
-	Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
-      if (INTP (dynamic_width))
-	*width = XINT (dynamic_width);
-    }
-  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	   == LAYOUT_HORIZONTAL)
-    *width = maxpw + ((nitems + 1) * WIDGET_BORDER_WIDTH +
-		      IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2;
-  else
-    *width = maxpw + 2 * (WIDGET_BORDER_WIDTH * 2 +
-			  IMAGE_INSTANCE_MARGIN_WIDTH (ii));
+  if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii)) {
+    if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
+      {
+	Lisp_Object dynamic_width =
+	  Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
+	if (INTP (dynamic_width))
+	  *width = XINT (dynamic_width);
+      }
+    else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_HORIZONTAL) 
+      {
+	*width = maxpw + ((nitems + 1) * widget_instance_border_width (ii) +
+			  IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2;
+      }
+    else
+      {
+	*width = maxpw + 2 * (widget_instance_border_width (ii) * 2 +
+			      IMAGE_INSTANCE_MARGIN_WIDTH (ii));
+      }
+  }
 
   /* Work out vertical spacings. */
-  if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
-    {
-      Lisp_Object dynamic_height =
-	Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
-      if (INTP (dynamic_height))
-	*height = XINT (dynamic_height);
-    }
-  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	   == LAYOUT_VERTICAL)
-    *height = maxph + ((nitems + 1) * WIDGET_BORDER_HEIGHT +
-		       IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2 + ph_adjust;
-  else
-    *height = maxph + (2 * WIDGET_BORDER_HEIGHT +
-		       IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2 + ph_adjust;
+  if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii)) {
+    if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
+      {
+	Lisp_Object dynamic_height =
+	  Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
+	if (INTP (dynamic_height))
+	  *height = XINT (dynamic_height);
+      }
+    else if (IMAGE_INSTANCE_SUBWINDOW_LOGICAL_LAYOUT (ii))
+      {
+	*height = nitems * luh + ph_adjust;
+      }
+    else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_VERTICAL)
+      {
+	*height = maxph + ((nitems + 1) * widget_instance_border_width (ii) +
+			   IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2 + ph_adjust;
+      }
+    else
+      {
+	*height = maxph + (2 * widget_instance_border_width (ii) +
+			   IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2 + ph_adjust;
+      }
+  }
+#ifdef DEBUG_WIDGET_OUTPUT
+  stderr_out ("layout wants %dx%d\n", *width, *height);
+#endif
 }
 
 int
@@ -1209,20 +1401,34 @@ layout_layout (Lisp_Object image_instance,
   int x, y, maxph = 0, maxpw = 0, nitems = 0,
     horiz_spacing, vert_spacing, ph_adjust = 0;
   int gheight, gwidth;
+  /* See comments in widget_logical_unit_height(). */
+  int luh = widget_logical_unit_height (ii);
 
   /* If we are not initialized then we won't have any children. */
   if (!IMAGE_INSTANCE_INITIALIZED (ii))
       return 0;
 
-  /* Pick up the border text if we have one. */
+#ifdef DEBUG_WIDGET_OUTPUT
+  stderr_out ("layout output %dx%d\n", width, height);
+#endif
+
+  /* Pick up the border text if we have one. A border can have the
+     values Qetched_in, Qetched_out, Qbevel_in, Qbevel_out or an
+     integer. The first four just affect the display properties of the
+     border that is drawn. The last is an offset and implies that the
+     first item in the list of subcontrols is a text control that
+     should be displayed on the border. */
   if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
     {
       Lisp_Object border = XCAR (items);
       items = XCDR (items);
       glyph_query_geometry (border, &gwidth, &gheight,
 			    IMAGE_DESIRED_GEOMETRY, image_instance);
-      ph_adjust = gheight / 2;
-      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (ph_adjust);
+      /* The vertical offset for subsequent items is the full height
+	 of the border glyph. */
+      ph_adjust = gheight;
+      /* The offset for the border is half the glyph height. */
+      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (gheight / 2);
 
       /* #### Really, what should this be? */
       glyph_do_layout (border, gwidth, gheight, 10, 0,
@@ -1254,10 +1460,10 @@ layout_layout (Lisp_Object image_instance,
   if (width < maxpw)
     /* The user wants a smaller space than the largest item, so we
        just provide default spacing and will let the output routines
-       clip.. */
-    horiz_spacing = WIDGET_BORDER_WIDTH * 2;
+       clip. */
+    horiz_spacing = widget_spacing (IMAGE_INSTANCE_DOMAIN (ii));
   else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	   == LAYOUT_HORIZONTAL)
+	   == LAYOUT_HORIZONTAL) 
     /* We have a larger area to display in so distribute the space
        evenly. */
     horiz_spacing = (width - (maxpw +
@@ -1267,18 +1473,30 @@ layout_layout (Lisp_Object image_instance,
     horiz_spacing = (width - maxpw) / 2
       - IMAGE_INSTANCE_MARGIN_WIDTH (ii);
 
+  /* We are trying here to get widgets to line up when they are left
+     or right justified vertically. This means that we must position
+     widgets on logical unit boundaries, even though their height may
+     be greater or less than a logical unit. In order to avoid
+     clipping we need to determine how big the widget wants to be and
+     then allocate as many logical units as necessary in order to
+     accommodate it. */
   if (height < maxph)
-    vert_spacing = WIDGET_BORDER_HEIGHT * 2;
+    vert_spacing = widget_spacing (IMAGE_INSTANCE_DOMAIN (ii)) * 2;
   else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	   == LAYOUT_VERTICAL)
-    vert_spacing = (height - (maxph + ph_adjust +
-			      IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2))
-      / (nitems + 1);
+    {
+      if (!IMAGE_INSTANCE_SUBWINDOW_V_CENTERED (ii))
+	vert_spacing = widget_spacing (IMAGE_INSTANCE_DOMAIN (ii)) * 2;
+      else
+	vert_spacing = (height - (maxph + ph_adjust +
+				  IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2))
+	  / (nitems + 1);
+    }
   else
     vert_spacing = (height - (maxph + ph_adjust)) / 2
       - IMAGE_INSTANCE_MARGIN_WIDTH (ii);
 
-  y = vert_spacing + ph_adjust + IMAGE_INSTANCE_MARGIN_WIDTH (ii);
+  y = yoffset = vert_spacing + ph_adjust + IMAGE_INSTANCE_MARGIN_WIDTH (ii);
   x = horiz_spacing + IMAGE_INSTANCE_MARGIN_WIDTH (ii);
 
   /* Now flip through putting items where we want them, paying
@@ -1291,37 +1509,37 @@ layout_layout (Lisp_Object image_instance,
       glyph_query_geometry (glyph, &gwidth, &gheight,
 			    IMAGE_DESIRED_GEOMETRY, image_instance);
 
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	  == LAYOUT_HORIZONTAL)
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_HORIZONTAL)
 	{
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
-	      == LAYOUT_JUSTIFY_RIGHT)
+	  if (IMAGE_INSTANCE_SUBWINDOW_BOTTOM_JUSTIFIED (ii))
 	    y = height - (gheight + vert_spacing);
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
-	      == LAYOUT_JUSTIFY_CENTER)
+	  else if (IMAGE_INSTANCE_SUBWINDOW_V_CENTERED (ii))
 	    y = (height - gheight) / 2;
 	}
       else
 	{
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
-	      == LAYOUT_JUSTIFY_RIGHT)
+	  if (IMAGE_INSTANCE_SUBWINDOW_RIGHT_JUSTIFIED (ii))
 	    x = width - (gwidth + horiz_spacing);
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
-	      == LAYOUT_JUSTIFY_CENTER)
+	  else if (IMAGE_INSTANCE_SUBWINDOW_H_CENTERED (ii))
 	    x = (width - gwidth) / 2;
 	}
 
       /* Now layout subwidgets if they require it. */
       glyph_do_layout (glyph, gwidth, gheight, x, y, image_instance);
 
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
-	  == LAYOUT_HORIZONTAL)
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_HORIZONTAL)
 	{
 	  x += (gwidth + horiz_spacing);
 	}
       else
 	{
 	  y += (gheight + vert_spacing);
+	  if (!IMAGE_INSTANCE_SUBWINDOW_V_CENTERED (ii))
+	    {
+	      /* justified, vertical layout, try and align on logical unit
+		 boundaries. */
+	      y = ROUND_UP (y - yoffset, luh) + yoffset;
+	    }
 	}
 
     }
@@ -1386,6 +1604,67 @@ native_layout_layout (Lisp_Object image_instance,
   return 1;
 }
 
+DEFUN ("widget-logical-to-character-width", Fwidget_logical_to_character_width, 1, 3, 0, /*
+Convert the width in logical widget units to characters.
+Logical widget units do not take into account adjusments made for
+layout borders, so this adjusment is approximated.
+*/
+       (width, face, domain))
+{
+  int w, neww, charwidth;
+  int border_width = DEFAULT_WIDGET_BORDER_WIDTH;
+
+  if (NILP (domain))
+    domain = Fselected_frame (Qnil);
+
+  CHECK_INT (width);
+  w = XINT (width);
+  
+  if (HAS_DEVMETH_P (DOMAIN_XDEVICE (domain), widget_border_width))
+    border_width = DEVMETH (DOMAIN_XDEVICE (domain), widget_border_width, ());
+
+  default_face_font_info (domain, 0, 0, 0, &charwidth, 0);
+  neww = ROUND_UP (charwidth * w + 4 * border_width + 2 * widget_spacing (domain), 
+		charwidth) / charwidth;
+  
+  return make_int (neww);
+}
+
+DEFUN ("widget-logical-to-character-height", Fwidget_logical_to_character_height, 1, 3, 0, /*
+Convert the height in logical widget units to characters.
+Logical widget units do not take into account adjusments made for
+layout borders, so this adjustment is approximated.
+
+If the components of a widget layout are justified to the top or the
+bottom then they are aligned in terms of `logical units'. This is a
+size quantity that is designed to be big enough to accomodate the
+largest `single height' widget. It is dependent on the widget face and
+some combination of spacing and border-width. Thus if you specify top
+or bottom justification in a vertical layout the subcontrols are laid
+out one per logical unit. This allows adjoining layouts to have
+identical alignment for their subcontrols.
+
+Since frame sizes are measured in characters, this function allows you
+to do appropriate conversion between logical units and characters.
+*/
+       (height, face, domain))
+{
+  int h, newh, charheight;
+  
+  CHECK_INT (height);
+  if (NILP (domain))
+    domain = Fselected_frame (Qnil);
+
+  h = XINT (height);
+
+  default_face_font_info (domain, 0, 0, &charheight, 0, 0);
+  newh = ROUND_UP (logical_unit_height (Fsymbol_name (Qwidget), 
+					Vwidget_face, domain) * h, charheight)
+    / charheight;
+
+  return make_int (newh);
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
@@ -1399,6 +1678,9 @@ syms_of_glyphs_widget (void)
   DEFSYMBOL (Qbevel_in);
   DEFSYMBOL (Qbevel_out);
   DEFSYMBOL (Qmake_glyph);
+
+  DEFSUBR (Fwidget_logical_to_character_height);
+  DEFSUBR (Fwidget_logical_to_character_width);
 }
 
 #define VALID_GUI_KEYWORDS(type) do {					      \
@@ -1462,6 +1744,7 @@ static void image_instantiator_edit_fields (void)
   IIFORMAT_HAS_SHARED_METHOD (edit_field, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (edit_field, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (edit_field, governing_domain, subwindow);
+  IIFORMAT_HAS_METHOD (edit_field, query_geometry);
   VALID_WIDGET_KEYWORDS (edit_field);
   VALID_GUI_KEYWORDS (edit_field);
 }
@@ -1559,6 +1842,8 @@ static void image_instantiator_labels (void)
   VALID_WIDGET_KEYWORDS (layout);					   \
   IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation); \
   IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_vertically_justify, check_valid_justification);   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_horizontally_justify, check_valid_justification);   \
   IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);	   \
   IIFORMAT_VALID_KEYWORD (layout, Q_margin_width, check_valid_int);	   \
   IIFORMAT_VALID_KEYWORD (layout, Q_items,				   \
@@ -1626,4 +1911,16 @@ void
 vars_of_glyphs_widget (void)
 {
   reinit_vars_of_glyphs_widget ();
+}
+
+
+void
+specifier_vars_of_glyphs_widget (void)
+{
+  DEFVAR_SPECIFIER ("widget-border-width",
+		    &Vwidget_border_width /*
+*Border width of widgets.
+This is a specifier; use `set-specifier' to change it.
+*/ );
+  Vwidget_border_width = Fmake_specifier (Qnatnum);
 }

@@ -186,51 +186,60 @@ order until the package is found.  As a special case, `site-name' can be
     ;; North America
     ("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages")
     ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages")
+    ("ca.xemacs.org (Canada)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages")
     ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages")
-    ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages")
-    ("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages")
-    ("unc.edu (United States)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages")
-    ("utk.edu (United States)" "ftp.sunsite.utk.edu" "pub/xemacs/packages")
+    ("us.xemacs.org (United States)" "ftp.us.xemacs.org" "pub/xemacs/packages")
+    ("ibiblio.org (United States)" "ibiblio.org" "pub/packages/editors/xemacs/packages")
+    ("stealth.net (United States)" "ftp.stealth.net" "pub/mirrors/ftp.xemacs.org/pub/xemacs/packages")
+    ;("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages")
 
     ;; South America
-    ("unicamp.br (Brazil)" "ftp.unicamp.br" "pub/xemacs/packages")
+    ("br.xemacs.org (Brazil)" "ftp.br.xemacs.org" "pub/xemacs/packages")
 
     ;; Europe
-    ("tuwien.ac.at (Austria)" "gd.tuwien.ac.at" "editors/xemacs/packages")
-    ("auc.dk (Denmark)" "sunsite.auc.dk" "pub/emacs/xemacs/packages")
-    ("doc.ic.ac.uk (England)" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages")
-    ("funet.fi (Finland)" "ftp.funet.fi" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages")
-    ("cenatls.cena.dgac.fr (France)" "ftp.cenatls.cena.dgac.fr" "Emacs/xemacs/packages")
+    ("at.xemacs.org (Austria)" "ftp.at.xemacs.org" "editors/xemacs/packages")
+    ("be.xemacs.org (Belgium)" "ftp.be.xemacs.org" "xemacs/packages")
+    ("cz.xemacs.org (Czech Republic)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages")
+    ("dk.xemacs.org (Denmark)" "ftp.dk.xemacs.org" "pub/emacs/xemacs/packages")
+    ("fi.xemacs.org (Finland)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages")
+    ("fr.xemacs.org (France)" "ftp.fr.xemacs.org" "pub/xemacs/packages")
     ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
+    ("de.xemacs.org (Germany)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages")
     ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages")
-    ("kfki.hu (Hungary)" "ftp.kfki.hu" "pub/packages/xemacs/packages")
-    ("eunet.ie (Ireland)" "ftp.eunet.ie" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
-    ("uniroma2.it (Italy)" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages")
-    ("uio.no (Norway)" "sunsite.uio.no" "pub/xemacs/packages")
-    ("icm.edu.pl (Poland)" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages")
-    ("srcc.msu.su (Russia)" "ftp.srcc.msu.su" "mirror/ftp.xemacs.org/packages")
-    ("sunet.se (Sweden)" "ftp.sunet.se" "pub/gnu/xemacs/packages")
-    ("cnlab-switch.ch (Switzerland)" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages")
+    ;("hu.xemacs.org (Hungary)" "ftp.hu.xemacs.org" "pub/packages/xemacs/packages")
+    ("ie.xemacs.org (Ireland)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
+    ("it.xemacs.org (Italy)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages")
+    ("no.xemacs.org (Norway)" "ftp.no.xemacs.org" "pub/xemacs/packages")
+    ("pl.xemacs.org (Poland)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages")
+    ("ru.xemacs.org (Russia)" "ftp.ru.xemacs.org" "pub/xemacs/packages")
+    ("sk.xemacs.org (Slovakia)" "ftp.sk.xemacs.org" "pub/mirrors/xemacs/packages")
+    ("se.xemacs.org (Sweden)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages")
+    ("ch.xemacs.org (Switzerland)" "ftp.ch.xemacs.org" "mirror/xemacs/packages")
+    ("uk.xemacs.org (United Kingdom)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages")
 
     ;; Asia
+    ("jp.xemacs.org (Japan)" "ftp.jp.xemacs.org" "pub/GNU/xemacs/packages")
     ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages")
     ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages")
     ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages")
     ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages")
     ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages")
     ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages")
-    ("tsukuba.ac.jp (Japan)" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages")
-    ("kreonet.re.kr (Korea)" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages")
-    ("nctu.edu.tw (Taiwan)" "coda.nctu.edu.tw" "Editors/xemacs/packages")
+    ("kr.xemacs.org (Korea)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages")
+    ;("tw.xemacs.org (Taiwan)" "ftp.tw.xemacs.org" "Editors/xemacs/packages")
 
     ;; Africa
-    ("sun.ac.za (South Africa)" "ftp.sun.ac.za" "xemacs/packages")
+    ("za.xemacs.org (South Africa)" "ftp.za.xemacs.org" "mirrorsites/ftp.xemacs.org/packages")
 
     ;; Middle East
-    ("isu.net.sa (Saudi Arabia)" "ftp.isu.net.sa" "pub/mirrors/ftp.xemacs.org/packages")
+    ("sa.xemacs.org (Saudi Arabia)" "ftp.sa.xemacs.org" "pub/mirrors/ftp.xemacs.org/xemacs/packages")
 
     ;; Australia
+    ("au.xemacs.org (Australia)" "ftp.au.xemacs.org" "pub/xemacs/packages")
     ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")
+
+    ;; Oceania
+    ("nz.xemacs.org (New Zealand)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
     )
   "*List of remote sites available for downloading packages.
 List format is '(site-description site-name directory-on-site).

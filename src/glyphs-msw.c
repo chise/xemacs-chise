@@ -1720,9 +1720,9 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
 
       for (j=0; j<old_width; j++)
 	{
-	  int byte = offset[j];
+	  int bite = offset[j];
 	  new_offset[j] = ~ (unsigned char)
-	    ((flip_table[byte & 0xf] << 4) + flip_table[byte >> 4]);
+	    ((flip_table[bite & 0xf] << 4) + flip_table[bite >> 4]);
 	}
     }
 
@@ -2366,6 +2366,13 @@ mswindows_redisplay_widget (Lisp_Image_Instance *p)
 	SetWindowLong (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		       GWL_STYLE, style | WS_DISABLED);
     }
+}
+
+/* Account for some of the limitations with widget images. */
+static int
+mswindows_widget_border_width (void)
+{
+  return DEFAULT_WIDGET_BORDER_WIDTH;
 }
 
 /* register widgets into our hashtable so that we can cope with the
@@ -3078,7 +3085,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
   default_face_font_info (domain, 0, 0, &height, 0, 0);
   GET_LIST_LENGTH (items, len);
 
-  height = (height + WIDGET_BORDER_HEIGHT * 2 ) * len;
+  height = (height + DEFAULT_WIDGET_BORDER_WIDTH * 2 ) * len;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
 
   /* Now create the widget. */
@@ -3236,6 +3243,7 @@ console_type_create_glyphs_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, image_instance_hash);
   CONSOLE_HAS_METHOD (mswindows, init_image_instance_from_eimage);
   CONSOLE_HAS_METHOD (mswindows, locate_pixmap_file);
+  CONSOLE_HAS_METHOD (mswindows, widget_border_width);
 
   /* image methods - printer */
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, print_image_instance);

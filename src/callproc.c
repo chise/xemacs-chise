@@ -772,13 +772,14 @@ child_setup (int in, int out, int err, char **new_argv,
   close (out);
   close (err);
 
-  /* I can't think of any reason why child processes need any more
-     than the standard 3 file descriptors.  It would be cleaner to
+  /* Close non-process-related file descriptors. It would be cleaner to
      close just the ones that need to be, but the following brute
      force approach is certainly effective, and not too slow. */
+
   {
     int fd;
-    for (fd=3; fd<=64; fd++)
+
+    for (fd = 3; fd < MAXDESC; fd++)
       close (fd);
   }
 #endif /* not WIN32_NATIVE */

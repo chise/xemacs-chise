@@ -124,7 +124,8 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
   if (!d)
     report_file_error ("Opening directory", list1 (directory));
 
-  regex_match_object = Qt;
+  /* #### In Matt's code, this was Qt.  Why? */
+  regex_match_object = Qnil;
   regex_emacs_buffer = current_buffer;
 
   record_unwind_protect (close_directory_unwind, make_opaque_ptr ((void *)d));

@@ -2959,7 +2959,7 @@ print_extent_1 (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   if (extent_detached_p (ext))
     strcpy (bp, "detached");
   else
-    sprintf (bp, "%d, %d",
+    sprintf (bp, "%ld, %ld",
 	     XINT (Fextent_start_position (obj)),
 	     XINT (Fextent_end_position (obj)));
   bp += strlen (bp);
@@ -5351,7 +5351,14 @@ The following symbols have predefined meanings:
                     `inside-margin', or `outside-margin') of the extent's
                     begin glyph.
 
- end-glyph-layout The layout policy of the extent's end glyph.
+ end-glyph-layout   The layout policy of the extent's end glyph.
+
+ syntax-table       A cons or a syntax table object.  If a cons, the car must
+                    be an integer (interpreted as a syntax code, applicable to
+		    all characters in the extent).  Otherwise, syntax of
+		    characters in the extent is looked up in the syntax table.
+		    You should use the text property API to manipulate this
+		    property.  (This may be required in the future.)
 */
        (extent, property, value))
 {

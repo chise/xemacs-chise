@@ -416,8 +416,8 @@ side-by-side."
     (setq progress-glyph-height 16)
     (setq progress-layout-instantiator
 	  `[layout
-	    :orientation horizontal
-	    :margin-width 4
+	    :orientation vertical :margin-width 4
+	    :horizontally-justify left :vertically-justify center
 	    :items (,progress-gauge-instantiator
 		    [button
 		     :pixel-height (eval progress-glyph-height)
@@ -430,8 +430,8 @@ side-by-side."
     (setq progress-glyph-height 24)
     (setq progress-layout-instantiator
 	  `[layout 
-	    :orientation vertical :justify left
-	    :margin-width 4
+	    :orientation vertical :margin-width 4
+	    :horizontally-justify left :vertically-justify center
 	    :items (,progress-text-instantiator
 		    [layout 
 		     :orientation horizontal
@@ -448,7 +448,8 @@ side-by-side."
 
 (defun set-progress-abort-instantiator (&optional locale)
   (set-glyph-image progress-abort-glyph
-		   `[layout :orientation vertical :justify left
+		   `[layout :orientation vertical
+			    :horizontally-justify left :vertically-justify center
 			    :items (,progress-text-instantiator
 				    [layout
 				     :margin-width 4
