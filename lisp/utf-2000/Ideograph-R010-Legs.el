@@ -665,6 +665,7 @@
     (=big5-cdp		. #xA74B)	; ý¢€Š‹
     (=jef-china3	. #x43D5)	; øº„•
     (=ucs@cns		. #x2F80E)	; ï¨²
+    (mojikyo		. 054447)	; ý €’¯
     (=ucs		. #xFA32)	; ï¨²
     ))
 (define-char
@@ -676,7 +677,6 @@
     (->identical
      ((=ucs		  . #xFA32)	; ï¨²
       ))
-    (mojikyo		. 054447)	; ý €’¯
     (=ucs		. #x2F80E)	; ð¯ Ž
     ))
 (define-char
