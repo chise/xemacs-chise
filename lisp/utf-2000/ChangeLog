@@ -1,5 +1,42 @@
 2001-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R003-Dot.el (U-0002007E): Moved from
+	Ideograph-R005-Second.el.
+	(BC-87D2): Likewise.
+
+	* Ideograph-R025-Divination.el: Merge some CJK Ext-B code points.
+
+	* Ideograph-R022-Right-Open-Box.el: update.
+
+	* Ideograph-R005-Second.el (U+5350): Moved to
+	Ideograph-R024-Ten.el.
+	(BC-87D2): Separate U-0002007E; moved to Ideograph-R003-Dot.el.
+	(U-0002007E): Moved to Ideograph-R003-Dot.el.
+
+	* Ideograph-R004-Slash.el (U-000209AC): Moved to
+	Ideograph-R024-Ten.el.
+
+	* Ideograph-R001-One.el (BC-86A4): Separate U-0002097B and moved
+	to Ideograph-R024-Ten.el.
+	(U-0002097B): Moved to Ideograph-R024-Ten.el.
+	(U-000209B4): Likewise.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Unify BC-8A70; add
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(C3-2466): Unify BC-8CD3; add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add
+	`ideographic-structure'.
+	(U+533C): Separated from C2-2558 and moved from
+	Ideograph-R022-Right-Open-Box.el.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Add some missing `ideographic-structure'.
+	- Add some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+
+2001-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R050-Turban.el:
 	- Use char-spec instead of char-ref as operators in
 	  `ideographic-structure' properties.
@@ -16,7 +53,7 @@
 
 	* Ideograph-R022-Right-Open-Box.el:
 	- Add some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
-	  `hanyu-dazidian-char' properties.	
+	  `hanyu-dazidian-char' properties.
 	- Use char-spec instead of char-ref as operators in
 	  `ideographic-structure' properties.
 	(C2-2558): Separate U+533C; add `->identical' for U+533C.
