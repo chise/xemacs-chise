@@ -21,7 +21,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: FSF 19.28. */
 
 #define NO_SHORTNAMES
-#include <../src/config.h>
+#include <config.h>
 
 #if defined (BSD) && !defined (BSD4_1) && !defined (USE_FAKEMAIL)
 /* This program is not used in BSD, so just avoid loader complaints.  */
@@ -637,10 +637,6 @@ main (int argc, char *argv[])
   char buf[BUFLEN + 1];
   register int size;
   FILE *the_pipe;
-
-#if !(__STDC__ || defined(STDC_HEADERS))
-  extern char *getenv ();
-#endif
 
   mail_program_name = getenv ("FAKEMAILER");
   if (!(mail_program_name && *mail_program_name))

@@ -2,6 +2,10 @@
  (make-extent (point) (point))
  (setq im (make-glyph [xpm :file "xemacs-icon.xpm"])))
 
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (make-glyph [string :data "xemacs"]))
+
 (defun foo ()
   (interactive)
   (setq ok-select (not ok-select)))
@@ -64,6 +68,7 @@
  (setq tab (make-glyph 
 	    [tab-control :descriptor "My Tab"
 			 :face highlight
+			 :orientation right
 			 :properties (:items (["One" foo]
 					      ["Two" fee]
 					      ["Three" foo]))])))
@@ -104,7 +109,8 @@
 ;; normal pushbutton
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [button :descriptor ["A Big Button" foo ]]))
+ (setq pbutton
+       (make-glyph [button :descriptor ["A Big Button" foo ]])))
 
 ;; edit box
 (set-extent-begin-glyph 

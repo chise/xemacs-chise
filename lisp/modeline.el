@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -59,11 +59,36 @@ buffer list and clicking on the right half cycles backward."
   :type 'boolean
   :group 'modeline)
 
+(defcustom modeline-scrolling-method nil
+  "*If non-nil, dragging the modeline with the mouse may also scroll its
+text horizontally (vertical motion controls window resizing and horizontal
+motion controls modeline scrolling).
+
+With a value of t, the modeline text is scrolled in the same direction as
+the mouse motion. With a value of 'scrollbar, the modeline is considered as
+a scrollbar for its own text, which then moves in the opposite direction."
+  :type '(choice (const :tag "none" nil)
+		 (const :tag "text" t)
+		 (const :tag "scrollbar" scrollbar))
+  :set (lambda (sym val)
+	 (set-default sym val)
+	 (when (featurep 'x)
+	   (cond ((eq val t)
+		  (set-glyph-image modeline-pointer-glyph "hand2" 'global 'x))
+		 ((eq val 'scrollbar)
+		  (set-glyph-image modeline-pointer-glyph "fleur" 'global 'x))
+		 (t
+		  (set-glyph-image modeline-pointer-glyph "sb_v_double_arrow"
+				   'global 'x)))))
+  :group 'modeline)
+
 (defun mouse-drag-modeline (event)
   "Resize a window by dragging its modeline.
 This command should be bound to a button-press event in modeline-map.
 Holding down a mouse button and moving the mouse up and down will
-make the clicked-on window taller or shorter."
+make the clicked-on window taller or shorter.
+
+See also the variable `modeline-scrolling-method'."
   (interactive "e")
   (or (button-press-event-p event)
       (error "%s must be invoked by a mouse-press" this-command))
@@ -79,9 +104,9 @@ make the clicked-on window taller or shorter."
 	  (start-event-frame (event-frame event))
 	  (start-event-window (event-window event))
 	  (start-nwindows (count-windows t))
-;;	  (hscroll-delta (face-width 'modeline))
-;;	  (start-hscroll (modeline-hscroll (event-window event)))
-;	  (start-x-pixel (event-x-pixel event))
+	  (hscroll-delta (face-width 'modeline))
+	  (start-hscroll (modeline-hscroll (event-window event)))
+	  (start-x-pixel (event-x-pixel event))
 	  (last-timestamp 0)
 	  default-line-height
 	  modeline-height
@@ -141,7 +166,9 @@ make the clicked-on window taller or shorter."
 	       ;; scroll) nore Y pos (modeline drag) have changed.
 	       (and modeline-click-swaps-buffers
 		    (= depress-line (event-y event))
-;;		    (= start-hscroll (modeline-hscroll start-event-window))
+		    (or (not modeline-scrolling-method)
+			(= start-hscroll
+			   (modeline-hscroll start-event-window)))
 		    (modeline-swap-buffers event)))
 	      ((button-event-p event)
 	       (setq done t))
@@ -153,11 +180,14 @@ make the clicked-on window taller or shorter."
 		  drag-divider-event-lag)
 	       nil)
 	      (t
-;;		 (set-modeline-hscroll start-event-window
-;;				       (+ (/ (- (event-x-pixel event) 
-;;						start-x-pixel)
-;;					     hscroll-delta)
-;;					  start-hscroll))
+	       (when modeline-scrolling-method
+		 (let ((delta (/ (- (event-x-pixel event) start-x-pixel)
+				 hscroll-delta)))
+		   (set-modeline-hscroll start-event-window
+					 (if (eq modeline-scrolling-method t)
+					     (- start-hscroll delta)
+					   (+ start-hscroll delta)))
+		   ))
 	       (setq last-timestamp (event-timestamp event)
 		     y (event-y-pixel event)
 		     edges (window-pixel-edges start-event-window)
@@ -263,7 +293,7 @@ the buffer of the window whose modeline was clicked upon.")
 (make-face 'modeline-mousable "Face for mousable portions of the modeline.")
 (set-face-parent 'modeline-mousable 'modeline nil '(default))
 (when (featurep 'window-system)
-  (set-face-foreground 'modeline-mousable 
+  (set-face-foreground 'modeline-mousable
 		       '(((default color x) . "firebrick")
 			 ((default color mswindows) . "firebrick"))
 			 'global))
@@ -307,7 +337,7 @@ in the list takes precedence.")
 		       '(((default color x) . "green4")
 			 ((default color x) . "forestgreen")
 			 ((default color mswindows) . "green4")
-			 ((default color mswindows) . "forestgreen")) 
+			 ((default color mswindows) . "forestgreen"))
 		       'global))
 
 (defvar modeline-mousable-minor-mode-extent (make-extent nil nil)
@@ -391,7 +421,7 @@ Example: (add-minor-mode 'view-minor-mode \" View\" view-mode-map)"
 	       name)))
 	(if (setq el (assq toggle minor-mode-alist))
 	    (setcdr el (list hacked-name))
-	  (funcall add-elt 
+	  (funcall add-elt
 		   (list toggle hacked-name)
 		   'minor-mode-alist))))
     (when keymap
@@ -508,7 +538,7 @@ parentheses on the modeline."
 	   "Face for the buffer ID string in the modeline.")
 (set-face-parent 'modeline-buffer-id 'modeline nil '(default))
 (when (featurep 'window-system)
-  (set-face-foreground 'modeline-buffer-id 
+  (set-face-foreground 'modeline-buffer-id
 		       '(((default color x) . "blue4")
 			 ((default color mswindows) . "blue4"))
 		       'global))
@@ -521,7 +551,7 @@ parentheses on the modeline."
 (defvar modeline-buffer-id-extent (make-extent nil nil)
   "Extent covering the whole of the buffer-id string.")
 (set-extent-face modeline-buffer-id-extent 'modeline-buffer-id)
-  
+
 (defvar modeline-buffer-id-left-extent (make-extent nil nil)
 "Extent covering the left half of the buffer-id string.")
 (set-extent-keymap modeline-buffer-id-left-extent

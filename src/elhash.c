@@ -413,19 +413,11 @@ xhash_table (Lisp_Object hash_table)
 /************************************************************************/
 
 /* Creation of hash tables, without error-checking. */
-static double
-hash_table_rehash_threshold (Lisp_Hash_Table *ht)
-{
-  return
-    ht->rehash_threshold > 0.0 ? ht->rehash_threshold :
-    ht->size > 4096 && !ht->test_function ? 0.7 : 0.6;
-}
-
 static void
 compute_hash_table_derived_values (Lisp_Hash_Table *ht)
 {
   ht->rehash_count = (size_t)
-    ((double) ht->size * hash_table_rehash_threshold (ht));
+    ((double) ht->size * ht->rehash_threshold);
   ht->golden_ratio = (size_t)
     ((double) ht->size * (.6180339887 / (double) sizeof (Lisp_Object)));
 }
@@ -439,10 +431,6 @@ make_general_lisp_hash_table (enum hash_table_test test,
 {
   Lisp_Object hash_table;
   Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, &lrecord_hash_table);
-
-  ht->rehash_size      = rehash_size;
-  ht->rehash_threshold = rehash_threshold;
-  ht->weakness         = weakness;
 
   switch (test)
     {
@@ -465,15 +453,21 @@ make_general_lisp_hash_table (enum hash_table_test test,
       abort ();
     }
 
-  if (ht->rehash_size <= 0.0)
-    ht->rehash_size = HASH_TABLE_DEFAULT_REHASH_SIZE;
+  ht->weakness = weakness;
+
+  ht->rehash_size =
+    rehash_size > 1.0 ? rehash_size : HASH_TABLE_DEFAULT_REHASH_SIZE;
+
+  ht->rehash_threshold =
+    rehash_threshold > 0.0 ? rehash_threshold :
+    size > 4096 && !ht->test_function ? 0.7 : 0.6;
+
   if (size < HASH_TABLE_MIN_SIZE)
     size = HASH_TABLE_MIN_SIZE;
-  if (rehash_threshold < 0.0)
-    rehash_threshold = 0.75;
-  ht->size =
-    hash_table_size ((size_t) ((double) size / hash_table_rehash_threshold (ht)) + 1);
+  ht->size = hash_table_size ((size_t) (((double) size / ht->rehash_threshold)
+					+ 1.0));
   ht->count = 0;
+
   compute_hash_table_derived_values (ht);
 
   /* We leave room for one never-occupied sentinel hentry at the end.  */
@@ -500,8 +494,7 @@ make_lisp_hash_table (size_t size,
 		      enum hash_table_weakness weakness,
 		      enum hash_table_test test)
 {
-  return make_general_lisp_hash_table
-    (test, size, HASH_TABLE_DEFAULT_REHASH_SIZE, -1.0, weakness);
+  return make_general_lisp_hash_table (test, size, -1.0, -1.0, weakness);
 }
 
 /* Pretty reading of hash tables.
@@ -1090,7 +1083,7 @@ beyond which the HASH-TABLE is enlarged by rehashing.
 */
        (hash_table))
 {
-  return make_float (hash_table_rehash_threshold (xhash_table (hash_table)));
+  return make_float (xhash_table (hash_table)->rehash_threshold);
 }
 
 DEFUN ("hash-table-weakness", Fhash_table_weakness, 1, 1, 0, /*

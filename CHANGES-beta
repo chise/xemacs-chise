@@ -1,3 +1,22 @@
+to 21.2.27 "Hera"
+-- Dynamic layout for widgets from Andy Piper
+-- config.sub, config.guess major upgrade, Marcus Thiessel
+-- gdbinit renamed to .gdbinit
+-- dbxrc renamed to .dbxrc
+-- Mail locking overhaul, Michael Sperber
+-- Info-visit-file can now be used non-interactively, Martin Buchholz
+-- FAQ updates, Sandra Wambold
+-- Document lisp-level error handling, Hrvoje Niksic
+-- Windows changes, Kirill Katsnelson
+-- Portable dumper ported to Windows, Kirill Katsnelson
+-- idlwave-mode added, Carsten Dominik
+-- Info changes, Yoshiki Hayashi and Didier Verna.
+-- Again support BSD/OS 2.0
+-- minibuf.* changes, Yoshiki Hayashi
+-- hyper-apropos changes, Yoshiki Hayashi
+-- buffers tab has its own face, Andy Piper
+-- modeline scrolling changes, Didier Verna
+
 to 21.2.26 "Millenium"
 -- Fix unpredictable results, perhaps even crashes, if using the
    `return from debugger feature' and errors in `eval' or `funcall'.

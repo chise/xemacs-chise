@@ -239,7 +239,7 @@ Boston, MA 02111-1307, USA.  */
 
    Character set		Encoding (PC == position-code)
    -------------		-------- (LB == leading-byte)
-   ASCII			PC1 |
+   ASCII			PC1  |
    Control-1			LB   | PC1 + 0xA0
    Dimension-1 official		LB   | PC1 + 0x80
    Dimension-1 private		0x9E | LB         | PC1 + 0x80
@@ -557,17 +557,6 @@ struct charset_lookup {
 
 extern struct charset_lookup *chlook;
 
-/* Table of number of bytes in the string representation of a character
-   indexed by the first byte of that representation.
-
-   This value can be derived other ways -- e.g. something like
-
-   (BYTE_ASCII_P (first_byte) ? 1 :
-    XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (first_byte)))
-
-   but it's faster this way. */
-extern Bytecount rep_bytes_by_first_byte[0xA0];
-
 #ifdef ERROR_CHECK_TYPECHECK
 /* int not Bufbyte even though that is the actual type of a leading byte.
    This way, out-ot-range values will get caught rather than automatically
@@ -589,20 +578,25 @@ CHARSET_BY_LEADING_BYTE (int lb)
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
   (chlook->charset_by_attributes[type][final][dir])
 
-#ifdef ERROR_CHECK_TYPECHECK
 
-/* Number of bytes in the string representation of a character */
+/* Table of number of bytes in the string representation of a character
+   indexed by the first byte of that representation.
+
+   This value can be derived in other ways -- e.g. something like
+   XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (first_byte))
+   but it's faster this way. */
+extern const Bytecount rep_bytes_by_first_byte[0xA0];
+
+/* Number of bytes in the string representation of a character. */
 INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
 INLINE int
 REP_BYTES_BY_FIRST_BYTE (int fb)
 {
-  assert (fb >= 0 && fb < 0xA0);
+#ifdef ERROR_CHECK_TYPECHECK
+  assert (0 <= fb && fb < 0xA0);
+#endif
   return rep_bytes_by_first_byte[fb];
 }
-
-#else
-#define REP_BYTES_BY_FIRST_BYTE(fb) (rep_bytes_by_first_byte[fb])
-#endif
 
 
 /************************************************************************/

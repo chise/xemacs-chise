@@ -663,7 +663,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     height = unwind.giffile->SHeight;
     width = unwind.giffile->SWidth;
-    unwind.eimage = (unsigned char*) 
+    unwind.eimage = (unsigned char*)
       xmalloc (width * height * 3 * unwind.giffile->ImageCount);
     if (!unwind.eimage)
       signal_image_error("Unable to allocate enough memory for image", instantiator);
@@ -695,7 +695,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	    eip = unwind.eimage + (width * height * 3 * slice) + (row * width * 3);
 	    for (j = 0; j < width; j++)
 	      {
-		unsigned char pixel = 
+		unsigned char pixel =
 		  unwind.giffile->SavedImages[slice].RasterBits[(i * width) + j];
 		*eip++ = cmo->Colors[pixel].Red;
 		*eip++ = cmo->Colors[pixel].Green;
@@ -727,7 +727,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  unwind.giffile->SavedImages[0].ExtensionBlockCount)
 	{
 	  timeout = (unsigned short)
-	    ((unwind.giffile->SavedImages[0].ExtensionBlocks[0].Bytes[2] << 8) + 
+	    ((unwind.giffile->SavedImages[0].ExtensionBlocks[0].Bytes[2] << 8) +
 	     unwind.giffile-> SavedImages[0].ExtensionBlocks[0].Bytes[1]) * 10;
 	}
 
@@ -737,7 +737,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       if (!NILP (tid))
 	IMAGE_INSTANCE_PIXMAP_TIMEOUT (ii) = XINT (tid);
     }
-  
+
   unbind_to (speccount, Qnil);
 }
 
@@ -1155,7 +1155,7 @@ tiff_memory_size(thandle_t data)
 
 struct tiff_error_struct
 {
-#if HAVE_VSNPRINTF
+#ifdef HAVE_VSNPRINTF
   char err_str[256];
 #else
   char err_str[1024];		/* return the error string */
@@ -1175,7 +1175,7 @@ tiff_error_func(CONST char *module, CONST char *fmt, ...)
   va_list vargs;
 
   va_start (vargs, fmt);
-#if HAVE_VSNPRINTF
+#ifdef HAVE_VSNPRINTF
   vsnprintf (tiff_err_data.err_str, 255, fmt, vargs);
 #else
   /* pray this doesn't overflow... */
@@ -1190,14 +1190,14 @@ static void
 tiff_warning_func(CONST char *module, CONST char *fmt, ...)
 {
   va_list vargs;
-#if HAVE_VSNPRINTF
+#ifdef HAVE_VSNPRINTF
   char warn_str[256];
 #else
   char warn_str[1024];
 #endif
 
   va_start (vargs, fmt);
-#if HAVE_VSNPRINTF
+#ifdef HAVE_VSNPRINTF
   vsnprintf (warn_str, 255, fmt, vargs);
 #else
   vsprintf (warn_str, fmt, vargs);

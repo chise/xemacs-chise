@@ -129,7 +129,7 @@ struct window
   /* Number of columns display within the window is scrolled to the left. */
   int hscroll;
   /* Idem for the window's modeline */
-  int modeline_hscroll;
+  Charcount modeline_hscroll;
   /* Amount to clip off the top line for pixel-based scrolling. Point
      will remain constant but this will be incremented to
      incrementally shift lines up. */

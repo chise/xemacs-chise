@@ -96,7 +96,7 @@ struct Lisp_Coding_System
 
   Lisp_Object post_read_conversion, pre_write_conversion;
 
-  enum eol_type eol_type;
+  eol_type_t eol_type;
 
   /* Subsidiary coding systems that specify a particular type of EOL
      marking, rather than autodetecting it.  These will only be non-nil
@@ -500,7 +500,7 @@ void set_decoding_stream_coding_system (Lstream *stream,
 void set_encoding_stream_coding_system (Lstream *stream,
 					Lisp_Object codesys);
 void determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
-				   enum eol_type *eol_type_in_out);
+				   eol_type_t *eol_type_in_out);
 
 
 #ifndef MULE

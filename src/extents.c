@@ -4618,14 +4618,9 @@ struct report_extent_modification_closure {
   int speccount;
 };
 
-/* This juggling with the pointer to another file's global variable is
-   kind of yucky.  Perhaps I should just export the variable.  */
-static int *inside_change_hook_pointer;
-
 static Lisp_Object
 report_extent_modification_restore (Lisp_Object buffer)
 {
-  *inside_change_hook_pointer = 0;
   if (current_buffer != XBUFFER (buffer))
     Fset_buffer (buffer);
   return Qnil;
@@ -4650,7 +4645,13 @@ report_extent_modification_mapper (EXTENT extent, void *arg)
   /* Now that we are sure to call elisp, set up an unwind-protect so
      inside_change_hook gets restored in case we throw.  Also record
      the current buffer, in case we change it.  Do the recording only
-     once.  */
+     once.
+
+     One confusing thing here is that our caller never actually calls
+     unbind_to (closure.speccount, Qnil).  This is because
+     map_extents_bytind() unbinds before, and with a smaller
+     speccount.  The additional unbind_to() in
+     report_extent_modification() would cause XEmacs to abort.  */
   if (closure->speccount == -1)
     {
       closure->speccount = specpdl_depth ();
@@ -4666,7 +4667,10 @@ report_extent_modification_mapper (EXTENT extent, void *arg)
   /* #### It's a shame that we can't use any of the existing run_hook*
      functions here.  This is so because all of them work with
      symbols, to be able to retrieve default values of local hooks.
-     <sigh> */
+     <sigh>
+
+     #### Idea: we could set up a dummy symbol, and call the hook
+     functions on *that*.  */
 
   if (!CONSP (hook) || EQ (XCAR (hook), Qlambda))
     call3 (hook, exobj, startobj, endobj);
@@ -4674,6 +4678,8 @@ report_extent_modification_mapper (EXTENT extent, void *arg)
     {
       Lisp_Object tail;
       EXTERNAL_LIST_LOOP (tail, hook)
+	/* #### Shouldn't this perform the same Fset_buffer() check as
+           above?  */
 	call3 (XCAR (tail), exobj, startobj, endobj);
     }
   return 0;
@@ -4681,7 +4687,7 @@ report_extent_modification_mapper (EXTENT extent, void *arg)
 
 void
 report_extent_modification (Lisp_Object buffer, Bufpos start, Bufpos end,
-			    int *inside, int afterp)
+			    int afterp)
 {
   struct report_extent_modification_closure closure;
 
@@ -4691,20 +4697,8 @@ report_extent_modification (Lisp_Object buffer, Bufpos start, Bufpos end,
   closure.afterp = afterp;
   closure.speccount = -1;
 
-  inside_change_hook_pointer = inside;
-  *inside = 1;
-
   map_extents (start, end, report_extent_modification_mapper, (void *)&closure,
 	       buffer, NULL, ME_MIGHT_CALL_ELISP);
-
-  if (closure.speccount == -1)
-    *inside = 0;
-  else
-    {
-      /* We mustn't unbind when closure.speccount != -1 because
-	 map_extents_bytind has already done that.  */
-      assert (*inside == 0);
-    }
 }
 
 

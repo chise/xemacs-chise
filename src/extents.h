@@ -367,7 +367,7 @@ void process_extents_for_insertion (Lisp_Object object,
 				    Bytind opoint, Bytecount length);
 void process_extents_for_deletion (Lisp_Object object, Bytind from,
 				   Bytind to, int destroy_them);
-void report_extent_modification (Lisp_Object, Bufpos, Bufpos, int *, int);
+void report_extent_modification (Lisp_Object, Bufpos, Bufpos, int);
 
 void set_extent_glyph (EXTENT extent, Lisp_Object glyph, int endp,
 		       glyph_layout layout);

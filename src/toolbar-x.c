@@ -296,9 +296,9 @@ x_get_button_size (struct frame *f, Lisp_Object window,
 	return XINT (f->toolbar_size[pos]);
 
       if (vert)
-	size = glyph_height (glyph, Vdefault_face, 0, window);
+	size = glyph_height (glyph, window);
       else
-	size = glyph_width (glyph, Vdefault_face, 0, window);
+	size = glyph_width (glyph, window);
     }
 
   if (!size)

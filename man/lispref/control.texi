@@ -662,7 +662,7 @@ instead.  @xref{Catch and Throw}.
 which you call for other purposes, such as if you try to take the
 @sc{car} of an integer or move forward a character at the end of the
 buffer; you can also signal errors explicitly with the functions
-@code{error} and @code{signal}.
+@code{error}, @code{signal}, and others.
 
   Quitting, which happens when the user types @kbd{C-g}, is not 
 considered an error, but it is handled almost like an error.
@@ -672,6 +672,11 @@ considered an error, but it is handled almost like an error.
 This function signals an error with an error message constructed by
 applying @code{format} (@pxref{String Conversion}) to
 @var{format-string} and @var{args}.
+
+This error is not continuable: you cannot continue execution after the
+error using the debugger @kbd{r} or @kbd{c} commands.  If you wish the
+user to be able to continue execution, use @code{cerror} or
+@code{signal} instead.
 
 These examples show typical uses of @code{error}:
 
@@ -691,7 +696,8 @@ These examples show typical uses of @code{error}:
 
 @code{error} works by calling @code{signal} with two arguments: the
 error symbol @code{error}, and a list containing the string returned by
-@code{format}.
+@code{format}.  This is repeated in an endless loop, to ensure that
+@code{error} never returns.
 
 If you want to use your own string as an error message verbatim, don't
 just write @code{(error @var{string})}.  If @var{string} contains
@@ -699,10 +705,16 @@ just write @code{(error @var{string})}.  If @var{string} contains
 results.  Instead, use @code{(error "%s" @var{string})}.
 @end defun
 
+@defun cerror format-string &rest args
+This function behaves like @code{error}, except that the error it
+signals is continuable.  That means that debugger commands @kbd{c} and
+@kbd{r} can resume execution.
+@end defun
+
 @defun signal error-symbol data
-This function signals an error named by @var{error-symbol}.  The
-argument @var{data} is a list of additional Lisp objects relevant to the
-circumstances of the error.
+This function signals a continuable error named by @var{error-symbol}.
+The argument @var{data} is a list of additional Lisp objects relevant to
+the circumstances of the error.
 
 The argument @var{error-symbol} must be an @dfn{error symbol}---a symbol
 bearing a property @code{error-conditions} whose value is a list of
@@ -710,9 +722,9 @@ condition names.  This is how XEmacs Lisp classifies different sorts of
 errors.
 
 The number and significance of the objects in @var{data} depends on
-@var{error-symbol}.  For example, with a @code{wrong-type-arg} error,
-there are two objects in the list: a predicate that describes the type
-that was expected, and the object that failed to fit that type.
+@var{error-symbol}.  For example, with a @code{wrong-type-argument}
+error, there are two objects in the list: a predicate that describes the
+type that was expected, and the object that failed to fit that type.
 @xref{Error Symbols}, for a description of error symbols.
 
 Both @var{error-symbol} and @var{data} are available to any error
@@ -721,8 +733,10 @@ variable to a list of the form @code{(@var{error-symbol} .@:
 @var{data})} (@pxref{Handling Errors}).  If the error is not handled,
 these two values are used in printing the error message.
 
-The function @code{signal} never returns (though in older Emacs versions
-it could sometimes return).
+The function @code{signal} can return, if the debugger is invoked and
+the user invokes the ``return from signal'' option.  If you want the
+error not to be continuable, use @code{signal-error} instead.  Note that
+in FSF Emacs @code{signal} never returns.
 
 @smallexample
 @group
@@ -731,17 +745,42 @@ it could sometimes return).
 @end group
 
 @group
-(signal 'no-such-error '("My unknown error condition."))
-     @error{} peculiar error: "My unknown error condition."
+(signal 'no-such-error '("My unknown error condition"))
+     @error{} Peculiar error (no-such-error "My unknown error condition")
 @end group
 @end smallexample
 @end defun
 
-@cindex CL note---no continuable errors
-@quotation
-@b{Common Lisp note:} XEmacs Lisp has nothing like the Common Lisp
-concept of continuable errors.
-@end quotation
+@defun signal-error error-symbol data
+This function behaves like @code{signal}, except that the error it
+signals is not continuable.
+@end defun
+
+@defmac check-argument-type predicate argument
+This macro checks that @var{argument} satisfies @var{predicate}.  If
+that is not the case, it signals a continuable
+@code{wrong-type-argument} error until the returned value satisfies
+@var{predicate}, and assigns the returned value to @var{argument}.  In
+other words, execution of the program will not continue until
+@var{predicate} is met.
+
+@var{argument} is not evaluated, and should be a symbol.
+@var{predicate} is evaluated, and should name a function.
+
+As shown in the following example, @code{check-argument-type} is useful
+in low-level code that attempts to ensure the sanity of its data before
+proceeding.
+
+@example
+@group
+(defun cache-object-internal (object wlist)
+  ;; @r{Before doing anything, make sure that @var{wlist} is indeed}
+  ;; @r{a weak list, which is what we expect.}
+  (check-argument-type 'weak-list-p wlist)
+  @dots{})
+@end group
+@end example
+@end defmac
 
 @node Processing of Errors
 @subsubsection How XEmacs Processes Errors
@@ -760,6 +799,27 @@ terminated and control returns to the editor command loop, because the
 command loop has an implicit handler for all kinds of errors.  The
 command loop's handler uses the error symbol and associated data to
 print an error message.
+
+Errors in command loop are processed using the @code{command-error}
+function, which takes care of some necessary cleanup, and prints a
+formatted error message to the echo area.  The functions that do the
+formatting are explained below.
+
+@defun display-error error-object stream
+This function displays @var{error-object} on @var{stream}.
+@var{error-object} is a cons of error type, a symbol, and error
+arguments, a list.  If the error type symbol of one of its error
+condition superclasses has an @code{display-error} property, that
+function is invoked for printing the actual error message.  Otherwise,
+the error is printed as @samp{Error: arg1, arg2, ...}.
+@end defun
+
+@defun error-message-string error-object
+This function converts @var{error-object} to an error message string,
+and returns it.  The message is equivalent to the one that would be
+printed by @code{display-error}, except that it is conveniently returned
+in string form.
+@end defun
 
 @cindex @code{debug-on-error} use
 An error that has no explicit handler may call the Lisp debugger.  The
@@ -833,6 +893,13 @@ predictable, such as failure to open a file in a call to
 @code{insert-file-contents}.  It is also used to trap errors that are
 totally unpredictable, such as when the program evaluates an expression
 read from the user.
+
+@cindex @code{debug-on-signal} use
+  Even when an error is handled, the debugger may still be called if the
+variable @code{debug-on-signal} (@pxref{Error Debugging}) is
+non-@code{nil}.  Note that this may yield unpredictable results with
+code that traps expected errors as normal part of its operation.  Do not
+set @code{debug-on-signal} unless you know what you are doing.
 
   Error signaling and handling have some resemblance to @code{throw} and
 @code{catch}, but they are entirely separate facilities.  An error
@@ -917,7 +984,9 @@ message and returns a very large number.
 @end smallexample
 
 @noindent
-The handler specifies condition name @code{arith-error} so that it will handle only division-by-zero errors.  Other kinds of errors will not be handled, at least not by this @code{condition-case}.  Thus,
+The handler specifies condition name @code{arith-error} so that it will
+handle only division-by-zero errors.  Other kinds of errors will not be
+handled, at least not by this @code{condition-case}.  Thus,
 
 @smallexample
 @group
@@ -972,43 +1041,49 @@ one or more condition names: @code{error}, the error symbol if that
 is distinct from @code{error}, and perhaps some intermediate
 classifications.
 
-  In order for a symbol to be an error symbol, it must have an
-@code{error-conditions} property which gives a list of condition names.
-This list defines the conditions that this kind of error belongs to.
-(The error symbol itself, and the symbol @code{error}, should always be
-members of this list.)  Thus, the hierarchy of condition names is
-defined by the @code{error-conditions} properties of the error symbols.
+  In other words, each error condition @dfn{inherits} from another error
+condition, with @code{error} sitting at the top of the inheritance
+hierarchy.
 
-  In addition to the @code{error-conditions} list, the error symbol
-should have an @code{error-message} property whose value is a string to
-be printed when that error is signaled but not handled.  If the
-@code{error-message} property exists, but is not a string, the error
-message @samp{peculiar error} is used.
-@cindex peculiar error
+@defun define-error error-symbol error-message &optional inherits-from
+  This function defines a new error, denoted by @var{error-symbol}.
+@var{error-message} is an informative message explaining the error, and
+will be printed out when an unhandled error occurs.  @var{error-symbol}
+is a sub-error of @var{inherits-from} (which defaults to @code{error}).
 
-  Here is how we define a new error symbol, @code{new-error}:
+  @code{define-error} internally works by putting on @var{error-symbol}
+an @code{error-message} property whose value is @var{error-message}, and
+an @code{error-conditions} property that is a list of @var{error-symbol}
+followed by each of its super-errors, up to and including @code{error}.
+You will sometimes see code that sets this up directly rather than
+calling @code{define-error}, but you should @emph{not} do this yourself,
+unless you wish to maintain compatibility with FSF Emacs, which does not
+provide @code{define-error}.
+@end defun
+
+  Here is how we define a new error symbol, @code{new-error}, that
+belongs to a range of errors called @code{my-own-errors}:
 
 @example
 @group
-(put 'new-error
-     'error-conditions
-     '(error my-own-errors new-error))       
-@result{} (error my-own-errors new-error)
-@end group
-@group
-(put 'new-error 'error-message "A new error")
-@result{} "A new error"
+(define-error 'my-own-errors "A whole range of errors" 'error)
+(define-error 'new-error "A new error" 'my-own-errors)
 @end group
 @end example
 
 @noindent
-This error has three condition names: @code{new-error}, the narrowest
-classification; @code{my-own-errors}, which we imagine is a wider
-classification; and @code{error}, which is the widest of all.
+@code{new-error} has three condition names: @code{new-error}, the
+narrowest classification; @code{my-own-errors}, which we imagine is a
+wider classification; and @code{error}, which is the widest of all.
+
+  Note that it is not legal to try to define an error unless its
+super-error is also defined.  For instance, attempting to define
+@code{new-error} before @code{my-own-errors} are defined will signal an
+error.
 
   The error string should start with a capital letter but it should
 not end with a period.  This is for consistency with the rest of Emacs.
- 
+
   Naturally, XEmacs will never signal @code{new-error} on its own; only
 an explicit call to @code{signal} (@pxref{Signaling Errors}) in your
 code can do this:
@@ -1043,6 +1118,8 @@ seriously decrease the power of @code{condition-case}.  Condition names
 make it possible to categorize errors at various levels of generality
 when you write an error handler.  Using error symbols alone would
 eliminate all but the narrowest level of classification.
+
+  
 
   @xref{Standard Errors}, for a list of all the standard error symbols
 and their conditions.

@@ -496,8 +496,8 @@ this_one_is_unmarkable (Lisp_Object obj)
 /************************************************************************/
 /* Give gdb/dbx enough information to decode Lisp Objects.  We make
    sure certain symbols are always defined, so gdb doesn't complain
-   about expressions in src/gdbinit.  See src/gdbinit or src/dbxrc to
-   see how this is used.  */
+   about expressions in src/.gdbinit.  See src/.gdbinit or src/.dbxrc
+   to see how this is used.  */
 
 EMACS_UINT dbg_valmask = ((1UL << VALBITS) - 1) << GCBITS;
 EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
@@ -1720,7 +1720,7 @@ noseeum_make_marker (void)
 
    This new method makes things somewhat bigger, but it is MUCH safer.  */
 
-DECLARE_FIXED_TYPE_ALLOC (string, struct Lisp_String);
+DECLARE_FIXED_TYPE_ALLOC (string, Lisp_String);
 /* strings are used and freed quite often */
 /* #define MINIMUM_ALLOWED_FIXED_TYPE_CELLS_string 10000 */
 #define MINIMUM_ALLOWED_FIXED_TYPE_CELLS_string 1000
@@ -1728,7 +1728,7 @@ DECLARE_FIXED_TYPE_ALLOC (string, struct Lisp_String);
 static Lisp_Object
 mark_string (Lisp_Object obj)
 {
-  struct Lisp_String *ptr = XSTRING (obj);
+  Lisp_String *ptr = XSTRING (obj);
 
   if (CONSP (ptr->plist) && EXTENT_INFOP (XCAR (ptr->plist)))
     flush_cached_extent_info (XCAR (ptr->plist));
@@ -1764,7 +1764,7 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION ("string", string,
 				      */
 				     0, string_equal, 0,
 				     string_description,
-				     struct Lisp_String);
+				     Lisp_String);
 
 /* String blocks contain this many useful bytes. */
 #define STRING_CHARS_BLOCK_SIZE					\
@@ -1789,27 +1789,22 @@ static struct string_chars_block *current_string_chars_block;
  *  the string occupies in string_chars_block->string_chars
  *  (including alignment padding).
  */
-#define STRING_FULLSIZE(s) \
-   ALIGN_SIZE (((s) + 1 + sizeof (struct Lisp_String *)),\
-               ALIGNOF (struct Lisp_String *))
+#define STRING_FULLSIZE(size) \
+   ALIGN_SIZE (((size) + 1 + sizeof (Lisp_String *)),\
+               ALIGNOF (Lisp_String *))
 
 #define BIG_STRING_FULLSIZE_P(fullsize) ((fullsize) >= STRING_CHARS_BLOCK_SIZE)
 #define BIG_STRING_SIZE_P(size) (BIG_STRING_FULLSIZE_P (STRING_FULLSIZE(size)))
 
-#define CHARS_TO_STRING_CHAR(x) \
-  ((struct string_chars *) \
-   (((char *) (x)) - (slot_offset (struct string_chars, chars[0]))))
-
-
 struct string_chars
 {
-  struct Lisp_String *string;
+  Lisp_String *string;
   unsigned char chars[1];
 };
 
 struct unused_string_chars
 {
-  struct Lisp_String *string;
+  Lisp_String *string;
   EMACS_INT fullsize;
 };
 
@@ -1824,19 +1819,14 @@ init_string_chars_alloc (void)
 }
 
 static struct string_chars *
-allocate_string_chars_struct (struct Lisp_String *string_it_goes_with,
+allocate_string_chars_struct (Lisp_String *string_it_goes_with,
 			      EMACS_INT fullsize)
 {
   struct string_chars *s_chars;
 
-  /* Allocate the string's actual data */
-  if (BIG_STRING_FULLSIZE_P (fullsize))
-    {
-      s_chars = (struct string_chars *) xmalloc (fullsize);
-    }
-  else if (fullsize <=
-           (countof (current_string_chars_block->string_chars)
-            - current_string_chars_block->pos))
+  if (fullsize <=
+      (countof (current_string_chars_block->string_chars)
+       - current_string_chars_block->pos))
     {
       /* This string can fit in the current string chars block */
       s_chars = (struct string_chars *)
@@ -1868,21 +1858,20 @@ allocate_string_chars_struct (struct Lisp_String *string_it_goes_with,
 Lisp_Object
 make_uninit_string (Bytecount length)
 {
-  struct Lisp_String *s;
-  struct string_chars *s_chars;
+  Lisp_String *s;
   EMACS_INT fullsize = STRING_FULLSIZE (length);
   Lisp_Object val;
 
-  if ((length < 0) || (fullsize <= 0))
-    abort ();
+  assert (length >= 0 && fullsize > 0);
 
   /* Allocate the string header */
-  ALLOCATE_FIXED_TYPE (string, struct Lisp_String, s);
+  ALLOCATE_FIXED_TYPE (string, Lisp_String, s);
   set_lheader_implementation (&(s->lheader), &lrecord_string);
 
-  s_chars = allocate_string_chars_struct (s, fullsize);
+  set_string_data (s, BIG_STRING_FULLSIZE_P (fullsize)
+		   ? xnew_array (Bufbyte, length + 1)
+		   : allocate_string_chars_struct (s, fullsize)->chars);
 
-  set_string_data (s, &(s_chars->chars[0]));
   set_string_length (s, length);
   s->plist = Qnil;
 
@@ -1903,8 +1892,9 @@ static void verify_string_chars_integrity (void);
 */
 
 void
-resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta)
+resize_string (Lisp_String *s, Bytecount pos, Bytecount delta)
 {
+  Bytecount oldfullsize, newfullsize;
 #ifdef VERIFY_STRING_CHARS_INTEGRITY
   verify_string_chars_integrity ();
 #endif
@@ -1923,47 +1913,59 @@ resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta)
     }
 #endif /* ERROR_CHECK_BUFPOS */
 
-  if (pos >= 0 && delta < 0)
-  /* If DELTA < 0, the functions below will delete the characters
-     before POS.  We want to delete characters *after* POS, however,
-     so convert this to the appropriate form. */
-    pos += -delta;
-
   if (delta == 0)
     /* simplest case: no size change. */
     return;
-  else
-    {
-      Bytecount oldfullsize = STRING_FULLSIZE (string_length (s));
-      Bytecount newfullsize = STRING_FULLSIZE (string_length (s) + delta);
 
-      if (oldfullsize == newfullsize)
+  if (pos >= 0 && delta < 0)
+    /* If DELTA < 0, the functions below will delete the characters
+       before POS.  We want to delete characters *after* POS, however,
+       so convert this to the appropriate form. */
+    pos += -delta;
+
+  oldfullsize = STRING_FULLSIZE (string_length (s));
+  newfullsize = STRING_FULLSIZE (string_length (s) + delta);
+
+  if (BIG_STRING_FULLSIZE_P (oldfullsize))
+    {
+      if (BIG_STRING_FULLSIZE_P (newfullsize))
 	{
-	  /* next simplest case; size change but the necessary
-	     allocation size won't change (up or down; code somewhere
-	     depends on there not being any unused allocation space,
-	     modulo any alignment constraints). */
+	  /* Both strings are big.  We can just realloc(). */
+	  set_string_data (s, (Bufbyte *) xrealloc (string_data (s),
+						    string_length (s) + delta + 1));
 	  if (pos >= 0)
 	    {
 	      Bufbyte *addroff = pos + string_data (s);
 
 	      memmove (addroff + delta, addroff,
-		       /* +1 due to zero-termination. */
 		       string_length (s) + 1 - pos);
 	    }
 	}
-      else if (BIG_STRING_FULLSIZE_P (oldfullsize) &&
-	       BIG_STRING_FULLSIZE_P (newfullsize))
+      else /* String has been demoted from BIG_STRING. */
 	{
-	  /* next simplest case; the string is big enough to be malloc()ed
-	     itself, so we just realloc.
+	  Bufbyte *new_data =
+	    allocate_string_chars_struct (s, newfullsize)->chars;
+	  Bufbyte *old_data = string_data (s);
 
-	     It's important not to let the string get below the threshold
-	     for making big strings and still remain malloc()ed; if that
-	     were the case, repeated calls to this function on the same
-	     string could result in memory leakage. */
-	  set_string_data (s, (Bufbyte *) xrealloc (string_data (s),
-						    newfullsize));
+	  if (pos >= 0)
+	    {
+	      memcpy (new_data, old_data, pos);
+	      memcpy (new_data + pos + delta, old_data + pos,
+		      string_length (s) + 1 - pos);
+	    }
+	  set_string_data (s, new_data);
+	  xfree (old_data);
+	}
+    }
+  else /* old string is small */
+    {
+      if (oldfullsize == newfullsize)
+	{
+	  /* special case; size change but the necessary
+	     allocation size won't change (up or down; code
+	     somewhere depends on there not being any unused
+	     allocation space, modulo any alignment
+	     constraints). */
 	  if (pos >= 0)
 	    {
 	      Bufbyte *addroff = pos + string_data (s);
@@ -1975,58 +1977,52 @@ resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta)
 	}
       else
 	{
-	  /* worst case.  We make a new string_chars struct and copy
-	     the string's data into it, inserting/deleting the delta
-	     in the process.  The old string data will either get
-	     freed by us (if it was malloc()ed) or will be reclaimed
-	     in the normal course of garbage collection. */
-	  struct string_chars *s_chars =
-	    allocate_string_chars_struct (s, newfullsize);
-	  Bufbyte *new_addr = &(s_chars->chars[0]);
-	  Bufbyte *old_addr = string_data (s);
+	  Bufbyte *old_data = string_data (s);
+	  Bufbyte *new_data =
+	    BIG_STRING_FULLSIZE_P (newfullsize)
+	    ? xnew_array (Bufbyte, string_length (s) + delta + 1)
+	    : allocate_string_chars_struct (s, newfullsize)->chars;
+
 	  if (pos >= 0)
 	    {
-	      memcpy (new_addr, old_addr, pos);
-	      memcpy (new_addr + pos + delta, old_addr + pos,
+	      memcpy (new_data, old_data, pos);
+	      memcpy (new_data + pos + delta, old_data + pos,
 		      string_length (s) + 1 - pos);
 	    }
-	  set_string_data (s, new_addr);
-	  if (BIG_STRING_FULLSIZE_P (oldfullsize))
-	    xfree (old_addr);
-	  else
-	    {
-	      /* We need to mark this chunk of the string_chars_block
-		 as unused so that compact_string_chars() doesn't
-		 freak. */
-	      struct string_chars *old_s_chars =
-		(struct string_chars *) ((char *) old_addr -
-					 sizeof (struct Lisp_String *));
-	      /* Sanity check to make sure we aren't hosed by strange
-	         alignment/padding. */
-	      assert (old_s_chars->string == s);
-	      MARK_STRUCT_AS_FREE (old_s_chars);
-	      ((struct unused_string_chars *) old_s_chars)->fullsize =
-		oldfullsize;
-	    }
+	  set_string_data (s, new_data);
+
+	  {
+	    /* We need to mark this chunk of the string_chars_block
+	       as unused so that compact_string_chars() doesn't
+	       freak. */
+	    struct string_chars *old_s_chars = (struct string_chars *)
+	      ((char *) old_data - offsetof (struct string_chars, chars));
+	    /* Sanity check to make sure we aren't hosed by strange
+	       alignment/padding. */
+	    assert (old_s_chars->string == s);
+	    MARK_STRUCT_AS_FREE (old_s_chars);
+	    ((struct unused_string_chars *) old_s_chars)->fullsize =
+	      oldfullsize;
+	  }
 	}
+    }
 
-      set_string_length (s, string_length (s) + delta);
-      /* If pos < 0, the string won't be zero-terminated.
-	 Terminate now just to make sure. */
-      string_data (s)[string_length (s)] = '\0';
+  set_string_length (s, string_length (s) + delta);
+  /* If pos < 0, the string won't be zero-terminated.
+     Terminate now just to make sure. */
+  string_data (s)[string_length (s)] = '\0';
 
-      if (pos >= 0)
-	{
-	  Lisp_Object string;
+  if (pos >= 0)
+    {
+      Lisp_Object string;
 
-	  XSETSTRING (string, s);
-	  /* We also have to adjust all of the extent indices after the
-	     place we did the change.  We say "pos - 1" because
-	     adjust_extents() is exclusive of the starting position
-	     passed to it. */
-	  adjust_extents (string, pos - 1, string_length (s),
-			  delta);
-	}
+      XSETSTRING (string, s);
+      /* We also have to adjust all of the extent indices after the
+	 place we did the change.  We say "pos - 1" because
+	 adjust_extents() is exclusive of the starting position
+	 passed to it. */
+      adjust_extents (string, pos - 1, string_length (s),
+		      delta);
     }
 
 #ifdef VERIFY_STRING_CHARS_INTEGRITY
@@ -2037,7 +2033,7 @@ resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta)
 #ifdef MULE
 
 void
-set_string_char (struct Lisp_String *s, Charcount i, Emchar c)
+set_string_char (Lisp_String *s, Charcount i, Emchar c)
 {
   Bufbyte newstr[MAX_EMCHAR_LEN];
   Bytecount bytoff = charcount_to_bytecount (string_data (s), i);
@@ -2160,7 +2156,7 @@ build_translated_string (CONST char *str)
 Lisp_Object
 make_string_nocopy (CONST Bufbyte *contents, Bytecount length)
 {
-  struct Lisp_String *s;
+  Lisp_String *s;
   Lisp_Object val;
 
   /* Make sure we find out about bad make_string_nocopy's when they happen */
@@ -2169,7 +2165,7 @@ make_string_nocopy (CONST Bufbyte *contents, Bytecount length)
 #endif
 
   /* Allocate the string header */
-  ALLOCATE_FIXED_TYPE (string, struct Lisp_String, s);
+  ALLOCATE_FIXED_TYPE (string, Lisp_String, s);
   set_lheader_implementation (&(s->lheader), &lrecord_string);
   SET_C_READONLY_RECORD_HEADER (&s->lheader);
   s->plist = Qnil;
@@ -2993,7 +2989,7 @@ verify_string_chars_integrity (void)
         {
           struct string_chars *s_chars =
             (struct string_chars *) &(sb->string_chars[pos]);
-          struct Lisp_String *string;
+          Lisp_String *string;
 	  int size;
 	  int fullsize;
 
@@ -3044,7 +3040,7 @@ compact_string_chars (void)
           struct string_chars *from_s_chars =
             (struct string_chars *) &(from_sb->string_chars[from_pos]);
           struct string_chars *to_s_chars;
-          struct Lisp_String *string;
+          Lisp_String *string;
 	  int size;
 	  int fullsize;
 
@@ -3129,7 +3125,7 @@ compact_string_chars (void)
 static int debug_string_purity;
 
 static void
-debug_string_purity_print (struct Lisp_String *p)
+debug_string_purity_print (Lisp_String *p)
 {
   Charcount i;
   Charcount s = string_char_length (p);
@@ -3155,24 +3151,25 @@ sweep_strings (void)
   int num_small_used = 0, num_small_bytes = 0, num_bytes = 0;
   int debug = debug_string_purity;
 
-#define UNMARK_string(ptr)				\
-  do { struct Lisp_String *p = (ptr);			\
-       int size = string_length (p);			\
-       UNMARK_RECORD_HEADER (&(p->lheader));		\
-       num_bytes += size;				\
-       if (!BIG_STRING_SIZE_P (size))			\
-	 { num_small_bytes += size;			\
-	   num_small_used++;				\
-	 }						\
-       if (debug) debug_string_purity_print (p);	\
-     } while (0)
-#define ADDITIONAL_FREE_string(p)				\
-  do { int size = string_length (p);				\
-       if (BIG_STRING_SIZE_P (size))				\
-	 xfree_1 (CHARS_TO_STRING_CHAR (string_data (p)));	\
-     } while (0)
+#define UNMARK_string(ptr) do {			\
+    Lisp_String *p = (ptr);			\
+    size_t size = string_length (p);		\
+    UNMARK_RECORD_HEADER (&(p->lheader));	\
+    num_bytes += size;				\
+    if (!BIG_STRING_SIZE_P (size))		\
+      { num_small_bytes += size;		\
+      num_small_used++;				\
+      }						\
+    if (debug)					\
+      debug_string_purity_print (p);		\
+  } while (0)
+#define ADDITIONAL_FREE_string(ptr) do {	\
+    size_t size = string_length (ptr);		\
+    if (BIG_STRING_SIZE_P (size))		\
+      xfree (ptr->data);			\
+  } while (0)
 
-  SWEEP_FIXED_TYPE_BLOCK (string, struct Lisp_String);
+  SWEEP_FIXED_TYPE_BLOCK (string, Lisp_String);
 
   gc_count_num_short_string_in_use = num_small_used;
   gc_count_string_total_size = num_bytes;
@@ -3485,7 +3482,7 @@ garbage_collect_1 (void)
     for (i = 0; i < staticidx; i++)
       mark_object (*(staticvec[i]));
     for (i = 0; i < staticidx_nodump; i++)
-      mark_object (*(staticvec_nodump[i]));    
+      mark_object (*(staticvec_nodump[i]));
   }
 
   { /* GCPRO() */
@@ -4150,7 +4147,7 @@ complex_vars_of_alloc (void)
  *			- lrecord_implementations_table[]
  *			- relocation table
  *                      - wired variable address/value couples with the count preceding the list
- */	
+ */
 typedef struct
 {
   char signature[8];
@@ -4264,7 +4261,7 @@ pdump_add_entry (pdump_entry_list *list, const void *obj, size_t size, int count
     {
       if (e->obj == obj)
 	return;
-      
+
       pos++;
       if (pos == PDUMP_HASHSIZE)
 	pos = 0;
@@ -4311,7 +4308,7 @@ pdump_get_entry_list(const struct struct_description *sdesc)
   pdump_struct_table.list[pdump_struct_table.count].list.align = 8;
   pdump_struct_table.list[pdump_struct_table.count].list.count = 0;
   pdump_struct_table.list[pdump_struct_table.count].sdesc = sdesc;
-  
+
   return &pdump_struct_table.list[pdump_struct_table.count++].list;
 }
 
@@ -4436,11 +4433,11 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	    int i;
 	    if (XD_IS_INDIRECT (count))
 	      count = pdump_get_indirect_count (count, desc, data);
-	    
+
 	    for(i=0;i<count;i++) {
 	      const Lisp_Object *pobj = ((const Lisp_Object *)rdata) + i;
 	      Lisp_Object dobj = *pobj;
-	      
+
 	      backtrace[me].offset = (const char *)pobj - (const char *)data;
 	      pdump_register_object (dobj);
 	    }
@@ -4454,7 +4451,7 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	    if (dobj) {
 	      if (XD_IS_INDIRECT (count))
 		count = pdump_get_indirect_count (count, desc, data);
-	      
+
 	      pdump_register_struct (dobj, sdesc, count);
 	    }
 	    break;
@@ -4474,7 +4471,7 @@ pdump_register_object (Lisp_Object obj)
       !POINTER_TYPE_P (XTYPE (obj)) ||
       pdump_get_entry (XRECORD_LHEADER (obj)))
     return;
-  
+
   if (XRECORD_LHEADER_IMPLEMENTATION (obj)->description)
     {
       int me = depth++;
@@ -4522,7 +4519,7 @@ pdump_register_struct (const void *data, const struct struct_description *sdesc,
       backtrace[me].obj = 0;
       backtrace[me].position = 0;
       backtrace[me].offset = 0;
-      
+
       pdump_add_entry (pdump_get_entry_list (sdesc),
 		       data,
 		       sdesc->size,
@@ -4548,7 +4545,7 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
       int pos, i;
       void *rdata;
       memcpy (pdump_buf, elmt->obj, size*count);
-      
+
       for (i=0; i<count; i++)
 	{
 	  char *cur = ((char *)pdump_buf) + i*size;
@@ -4614,7 +4611,7 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 		    int i;
 		    if (XD_IS_INDIRECT (count))
 		      count = pdump_get_indirect_count (count, desc, elmt->obj);
-		    
+
 		    for(i=0; i<count; i++)
 		      {
 			Lisp_Object *pobj = ((Lisp_Object *)rdata) + i;
@@ -4681,7 +4678,7 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 	  int i;
 	  if (XD_IS_INDIRECT (count))
 	    count = pdump_get_indirect_count (count, desc, data);
-	  
+
 	  for (i=0; i<count; i++)
 	    {
 	      Lisp_Object *pobj = ((Lisp_Object *)rdata) + i;
@@ -4736,7 +4733,7 @@ pdump_scan_by_alignement (void (*f)(pdump_entry_list_elmt *, const struct lrecor
 		elmt = elmt->next;
 	      }
 	  }
-      
+
       for (i=0; i<pdump_struct_table.count; i++)
 	if (pdump_struct_table.list[i].list.align == align) {
 	  elmt = pdump_struct_table.list[i].list.first;
@@ -4747,7 +4744,7 @@ pdump_scan_by_alignement (void (*f)(pdump_entry_list_elmt *, const struct lrecor
 	      elmt = elmt->next;
 	    }
 	}
-      
+
       elmt = pdump_opaque_data_list.first;
       while (elmt)
 	{
@@ -4793,7 +4790,7 @@ pdump_dump_structvec (void)
 static void
 pdump_dump_itable (void)
 {
-  write (pdump_fd, lrecord_implementations_table, sizeof (lrecord_implementations_table));  
+  write (pdump_fd, lrecord_implementations_table, sizeof (lrecord_implementations_table));
 }
 
 static void
@@ -4858,7 +4855,7 @@ pdump_dump_wired (void)
       write (pdump_fd, &pdump_wirevec[i], sizeof (pdump_wirevec[i]));
       write (pdump_fd, &obj, sizeof (obj));
     }
-  
+
   for (i=0; i<pdump_wireidx_list; i++)
     {
       Lisp_Object obj = *(pdump_wirevec_list[i]);
@@ -4915,7 +4912,7 @@ pdump (void)
     }
   pdump_struct_table.count = 0;
   pdump_struct_table.size = -1;
-  
+
   pdump_opaque_data_list.first = 0;
   pdump_opaque_data_list.align = 8;
   pdump_opaque_data_list.count = 0;
@@ -4939,17 +4936,17 @@ pdump (void)
     return;
 
   for (i=0; i<dumpstructidx; i++)
-    pdump_register_struct (*(void **)(dumpstructvec[i].data), dumpstructvec[i].desc, 1); 
+    pdump_register_struct (*(void **)(dumpstructvec[i].data), dumpstructvec[i].desc, 1);
 
   memcpy (hd.signature, "XEmacsDP", 8);
   hd.reloc_address = 0;
   hd.nb_staticpro = staticidx;
   hd.nb_structdmp = dumpstructidx;
   hd.last_type    = last_lrecord_type_index_assigned;
-  
+
   cur_offset = 256;
   max_size = 0;
-  
+
   pdump_scan_by_alignement (pdump_allocate_offset);
   pdump_qnil = pdump_get_entry (XRECORD_LHEADER (Qnil));
 
@@ -5003,7 +5000,7 @@ pdump_load (void)
   if (pdump_start == MAP_FAILED)
     pdump_start = 0;
 #endif
-  
+
   if (!pdump_start)
     {
       pdump_start = (void *)((((unsigned long)(malloc(length+255))) + 255) & ~255);

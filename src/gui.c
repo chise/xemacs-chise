@@ -76,7 +76,7 @@ get_gui_callback (Lisp_Object data, Lisp_Object *fn, Lisp_Object *arg)
   if (SYMBOLP (data)
       || (COMPILED_FUNCTIONP (data)
 	  && XCOMPILED_FUNCTION (data)->flags.interactivep)
-      || (EQ (XCAR (data), Qlambda)
+      || (CONSP (data) && (EQ (XCAR (data), Qlambda))
 	  && !NILP (Fassq (Qinteractive, Fcdr (Fcdr (data))))))
     {
       *fn = Qcall_interactively;

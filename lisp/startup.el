@@ -30,7 +30,7 @@
 
 ;; This file is dumped with XEmacs.
 
-;; -batch, -t, and -nw are processed by main() in emacs.c and are 
+;; -batch, -t, and -nw are processed by main() in emacs.c and are
 ;; never seen by lisp code.
 
 ;; -version and -help are special-cased as well: they imply -batch,
@@ -395,11 +395,11 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 
       (setq emacs-roots (paths-find-emacs-roots invocation-directory
 						invocation-name))
-    
+
       (if debug-paths
 	  (princ (format "emacs-roots:\n%S\n" emacs-roots)
 		 'external-debugging-output))
-    
+
       (if (null emacs-roots)
 	  (startup-find-roots-warning)
 	(startup-setup-paths emacs-roots
@@ -413,7 +413,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	     lisp-directory)
 	(load (expand-file-name (file-name-sans-extension autoload-file-name)
 				lisp-directory) nil t))
-    
+
     (if (not inhibit-autoloads)
 	(progn
 	  (if (not inhibit-early-packages)
@@ -495,7 +495,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
   ;;		   (and (not (equal string "")) string)))))
   ;;	(and ctype
   ;;	     (string-match iso-8859-1-locale-regexp ctype)))
-  ;;      (progn 
+  ;;      (progn
   ;;	(standard-display-european t)
   ;;	(require 'iso-syntax)))
 
@@ -597,7 +597,7 @@ If this is nil, no message will be displayed.")
 
     ;;; Load init files.
     (load-init-file)
-    
+
     (with-current-buffer (get-buffer "*scratch*")
       (erase-buffer)
       ;; (insert initial-scratch-message)
@@ -622,7 +622,7 @@ If this is nil, no message will be displayed.")
     ;; If -batch, terminate after processing the command options.
     (when (noninteractive) (kill-emacs t))))
 
-(defun load-terminal-library ()	      
+(defun load-terminal-library ()
   (when term-file-prefix
     (let ((term (getenv "TERM"))
 	  hyphend)
@@ -785,7 +785,7 @@ a new format, when variables have changed, etc."
 	  (setq end-of-options t))
 	 (t
 	  (setq file-p t)))
-	
+
 	(when file-p
 	  (setq file-p nil)
 	  (incf file-count)
@@ -823,7 +823,7 @@ a new format, when variables have changed, etc."
 	       (setq e (read-key-sequence
 			(let ((p (keymap-prompt map t)))
 			  (cond ((symbolp map)
-				 (if p 
+				 (if p
 				     (format "%s %s " map p)
 				   (format "%s " map)))
 				(p)
@@ -902,7 +902,7 @@ a new format, when variables have changed, etc."
 (defun startup-center-spaces (glyph)
   ;; Return the number of spaces to insert in order to center
   ;; the given glyph (may be a string or a pixmap).
-  ;; Assume spaces are as wide as avg-pixwidth.  
+  ;; Assume spaces are as wide as avg-pixwidth.
   ;; Won't be quite right for proportional fonts, but it's the best we can do.
   ;; Maybe the new redisplay will export something a glyph-width function.
   ;;; #### Yes, there is a glyph-width function but it isn't quite what
@@ -913,7 +913,7 @@ a new format, when variables have changed, etc."
   ;; This function is used in about.el too.
   (let* ((avg-pixwidth     (round (/ (frame-pixel-width) (frame-width))))
 	 (fill-area-width  (* avg-pixwidth (- fill-column left-margin)))
-	 (glyph-pixwidth   (cond ((stringp glyph) 
+	 (glyph-pixwidth   (cond ((stringp glyph)
 				  (* avg-pixwidth (length glyph)))
 				 ;; #### the pixmap option should be removed
 				 ;;((pixmapp glyph)
@@ -933,12 +933,12 @@ a new format, when variables have changed, etc."
 	   `( "\
 Sun provides support for the WorkShop/XEmacs integration package only.
 All other XEmacs packages are provided to you \"AS IS\".\n"
-	      ,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES") 
+	      ,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES")
 				(getenv "LANG"))))
 		  (if (and
 		       (not (featurep 'mule)) ;; Already got mule?
 		       ;; No Mule support on tty's yet
-		       (not (eq 'tty (console-type))) 
+		       (not (eq 'tty (console-type)))
 		       lang ;; Non-English locale?
 		       (not (string= lang "C"))
 		       (not (string-match "^en" lang))
@@ -950,7 +950,7 @@ To handle other languages you need to run a Multi-lingual (`Mule') version of
 XEmacs, by either running the command `xemacs-mule', or by using the X resource
 `ESERVE*defaultXEmacsPath: xemacs-mule' when starting XEmacs from Sun WorkShop.
 \n")))))
-     ((key describe-no-warranty) 
+     ((key describe-no-warranty)
       ": "(face (red bold) "XEmacs comes with ABSOLUTELY NO WARRANTY\n"))
      ((key describe-copying)
       ": conditions to give out copies of XEmacs\n")
@@ -963,11 +963,11 @@ Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
 Copyright (C) 1995-1996 Ben Wing\n"))
-    
+
     ((face (blue bold underline) "\nInformation, on-line help:\n\n")
      "XEmacs comes with plenty of documentation...\n\n"
      ,@(if (string-match "beta" emacs-version)
-	   `((key describe-beta) 
+	   `((key describe-beta)
 	     ": " (face (red bold)
 			"This is an Experimental version of XEmacs.\n"))
 	 `( "\n"))
@@ -996,7 +996,7 @@ Copyright (C) 1995-1996 Ben Wing\n"))
 ;  "If non-nil, function called to provide the startup logo.
 ;This function should return an initialized glyph if it is used.")
 
-;; This will hopefully go away when gettext is functionnal.
+;; This will hopefully go away when gettext is functional.
 (defconst splash-frame-static-body
   `(,(emacs-version) "\n\n"
     (face italic "`C-' means the control key,`M-' means the meta key\n\n")))
@@ -1128,7 +1128,7 @@ It's idempotent, so call this as often as you like!"
 	(paths-construct-info-path roots
 				   early-packages late-packages last-packages))
 
-  
+
   (if debug-paths
       (princ (format "Info-directory-list:\n%S\n" Info-directory-list)
 	     'external-debugging-output))
@@ -1137,7 +1137,7 @@ It's idempotent, so call this as often as you like!"
       (progn
 	(setq lock-directory (paths-find-lock-directory roots))
 	(setq superlock-file (paths-find-superlock-file lock-directory))
-	
+
 	(if debug-paths
 	    (progn
 	      (princ (format "lock-directory:\n%S\n" lock-directory)
@@ -1158,7 +1158,7 @@ It's idempotent, so call this as often as you like!"
   (if debug-paths
       (princ (format "exec-path:\n%S\n" exec-path)
 	     'external-debugging-output))
-  
+
   (setq doc-directory (paths-find-doc-directory roots))
 
   (if debug-paths

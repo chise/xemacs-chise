@@ -163,8 +163,8 @@ If each element of LIST is not a string, it is converted to string
 (defalias 'sref 'aref)
 (defalias 'map-char-concat 'mapcar)
 (defun char-bytes (character)
-  "Return number of length a CHARACTER occupies in a string or buffer.
-It returns only 1 in XEmacs.  It is for compatibility with MULE 2.3."
+  "Return number of bytes a CHARACTER occupies in a string or buffer.
+It always returns 1 in XEmacs.  It is for compatibility with MULE 2.3."
   1)
 (defalias 'char-length 'char-bytes)
 
@@ -207,19 +207,6 @@ because its `find-charset-string' ignores ASCII charset."
 ;		i (1+ i)))
 ;	(cons charset dest)
 ;	))))
-
-(defun char-octet (ch &optional n)
-  "Return the octet numbered N (should be 0 or 1) of char CH.
-N defaults to 0 if omitted."
-  (let ((split (split-char ch)))
-    (setq n (or n 0))
-    (cond ((eq n 0)
-	   (nth 1 split))
-	  ((eq n 1)
-	   (nth 2 split))
-	  (t (error "n must be 0 or 1")))))
-;; Made obsolete June 15, 1999.  Delete ASAP.
-(make-obsolete 'char-octet "Use split-char")
 
 ;(defun split-char-or-char-int (char)
 ;  "Return list of charset and one or two position-codes of CHAR.

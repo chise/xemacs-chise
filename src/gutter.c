@@ -805,8 +805,7 @@ in the gutter area.
      automatically knew about specifier fallbacks, so we didn't
      have to do it ourselves. */
   set_specifier_caching (Vdefault_gutter,
-			 slot_offset (struct window,
-				      default_gutter),
+			 offsetof (struct window, default_gutter),
 			 default_gutter_specs_changed,
 			 0, 0);
 
@@ -818,8 +817,7 @@ See `default-gutter' for a description of a valid gutter instantiator.
 */ );
   Vgutter[TOP_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[TOP_GUTTER],
-			 slot_offset (struct window,
-				      gutter[TOP_GUTTER]),
+			 offsetof (struct window, gutter[TOP_GUTTER]),
 			 gutter_specs_changed,
 			 0, 0);
 
@@ -836,8 +834,7 @@ displayed even if you provide a value for `bottom-gutter'.
 */ );
   Vgutter[BOTTOM_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[BOTTOM_GUTTER],
-			 slot_offset (struct window,
-				      gutter[BOTTOM_GUTTER]),
+			 offsetof (struct window, gutter[BOTTOM_GUTTER]),
 			 gutter_specs_changed,
 			 0, 0);
 
@@ -854,8 +851,7 @@ displayed even if you provide a value for `left-gutter'.
 */ );
   Vgutter[LEFT_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[LEFT_GUTTER],
-			 slot_offset (struct window,
-				      gutter[LEFT_GUTTER]),
+			 offsetof (struct window, gutter[LEFT_GUTTER]),
 			 gutter_specs_changed,
 			 0, 0);
 
@@ -872,8 +868,7 @@ displayed even if you provide a value for `right-gutter'.
 */ );
   Vgutter[RIGHT_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[RIGHT_GUTTER],
-			 slot_offset (struct window,
-				      gutter[RIGHT_GUTTER]),
+			 offsetof (struct window, gutter[RIGHT_GUTTER]),
 			 gutter_specs_changed,
 			 0, 0);
 
@@ -913,8 +908,7 @@ is the default.
 */ );
   Vdefault_gutter_height = Fmake_specifier (Qgutter_size);
   set_specifier_caching (Vdefault_gutter_height,
-			 slot_offset (struct window,
-				      default_gutter_height),
+			 offsetof (struct window, default_gutter_height),
 			 default_gutter_size_changed_in_window,
 			 0, 0);
 
@@ -926,8 +920,7 @@ See `default-gutter-height' for more information.
 */ );
   Vdefault_gutter_width = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vdefault_gutter_width,
-			 slot_offset (struct window,
-				      default_gutter_width),
+			 offsetof (struct window, default_gutter_width),
 			 default_gutter_size_changed_in_window,
 			 0, 0);
 
@@ -940,8 +933,7 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_size[TOP_GUTTER] = Fmake_specifier (Qgutter_size);
   set_specifier_caching (Vgutter_size[TOP_GUTTER],
-			 slot_offset (struct window,
-				      gutter_size[TOP_GUTTER]),
+			 offsetof (struct window, gutter_size[TOP_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -954,8 +946,7 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_size[BOTTOM_GUTTER] = Fmake_specifier (Qgutter_size);
   set_specifier_caching (Vgutter_size[BOTTOM_GUTTER],
-			 slot_offset (struct window,
-				      gutter_size[BOTTOM_GUTTER]),
+			 offsetof (struct window, gutter_size[BOTTOM_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -968,8 +959,7 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_size[LEFT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_size[LEFT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_size[LEFT_GUTTER]),
+			 offsetof (struct window, gutter_size[LEFT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -982,8 +972,7 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_size[RIGHT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_size[RIGHT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_size[RIGHT_GUTTER]),
+			 offsetof (struct window, gutter_size[RIGHT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1036,8 +1025,7 @@ instead.
 */ );
   Vdefault_gutter_border_width = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vdefault_gutter_border_width,
-			 slot_offset (struct window,
-				      default_gutter_border_width),
+			 offsetof (struct window, default_gutter_border_width),
 			 default_gutter_border_width_changed_in_window,
 			 0, 0);
 
@@ -1050,8 +1038,8 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_border_width[TOP_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_border_width[TOP_GUTTER],
-			 slot_offset (struct window,
-				      gutter_border_width[TOP_GUTTER]),
+			 offsetof (struct window,
+				   gutter_border_width[TOP_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1064,8 +1052,8 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_border_width[BOTTOM_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_border_width[BOTTOM_GUTTER],
-			 slot_offset (struct window,
-				      gutter_border_width[BOTTOM_GUTTER]),
+			 offsetof (struct window,
+				   gutter_border_width[BOTTOM_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1078,8 +1066,8 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_border_width[LEFT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_border_width[LEFT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_border_width[LEFT_GUTTER]),
+			 offsetof (struct window,
+				   gutter_border_width[LEFT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1092,8 +1080,8 @@ See `default-gutter-height' for more information.
 */ );
   Vgutter_border_width[RIGHT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_border_width[RIGHT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_border_width[RIGHT_GUTTER]),
+			 offsetof (struct window,
+				   gutter_border_width[RIGHT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1133,8 +1121,8 @@ visibility specifiers have a fallback value of true.
 */ );
   Vdefault_gutter_visible_p = Fmake_specifier (Qboolean);
   set_specifier_caching (Vdefault_gutter_visible_p,
-			 slot_offset (struct window,
-				      default_gutter_visible_p),
+			 offsetof (struct window,
+				   default_gutter_visible_p),
 			 default_gutter_visible_p_changed_in_window,
 			 0, 0);
 
@@ -1147,8 +1135,8 @@ See `default-gutter-visible-p' for more information.
 */ );
   Vgutter_visible_p[TOP_GUTTER] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vgutter_visible_p[TOP_GUTTER],
-			 slot_offset (struct window,
-				      gutter_visible_p[TOP_GUTTER]),
+			 offsetof (struct window,
+				   gutter_visible_p[TOP_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1161,8 +1149,8 @@ See `default-gutter-visible-p' for more information.
 */ );
   Vgutter_visible_p[BOTTOM_GUTTER] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vgutter_visible_p[BOTTOM_GUTTER],
-			 slot_offset (struct window,
-				      gutter_visible_p[BOTTOM_GUTTER]),
+			 offsetof (struct window,
+				   gutter_visible_p[BOTTOM_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1175,8 +1163,8 @@ See `default-gutter-visible-p' for more information.
 */ );
   Vgutter_visible_p[LEFT_GUTTER] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vgutter_visible_p[LEFT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_visible_p[LEFT_GUTTER]),
+			 offsetof (struct window,
+				   gutter_visible_p[LEFT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 
@@ -1189,8 +1177,8 @@ See `default-gutter-visible-p' for more information.
 */ );
   Vgutter_visible_p[RIGHT_GUTTER] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vgutter_visible_p[RIGHT_GUTTER],
-			 slot_offset (struct window,
-				      gutter_visible_p[RIGHT_GUTTER]),
+			 offsetof (struct window,
+				   gutter_visible_p[RIGHT_GUTTER]),
 			 gutter_geometry_changed_in_window,
 			 0, 0);
 

@@ -4743,7 +4743,7 @@ backtrace_specials (int speccount, int speclimit, Lisp_Object stream)
 
 DEFUN ("backtrace", Fbacktrace, 0, 2, "", /*
 Print a trace of Lisp function calls currently active.
-Option arg STREAM specifies the output stream to send the backtrace to,
+Optional arg STREAM specifies the output stream to send the backtrace to,
 and defaults to the value of `standard-output'.  Optional second arg
 DETAILED means show places where currently active variable bindings,
 catches, condition-cases, and unwind-protects were made as well as
@@ -4786,8 +4786,8 @@ function calls.
       if (!NILP (detailed) && catches && catches->backlist == backlist)
 	{
           int catchpdl = catches->pdlcount;
-          if (specpdl[catchpdl].func == condition_case_unwind
-              && speccount > catchpdl)
+          if (speccount > catchpdl
+	      && specpdl[catchpdl].func == condition_case_unwind)
             /* This is a condition-case catchpoint */
             catchpdl = catchpdl + 1;
 

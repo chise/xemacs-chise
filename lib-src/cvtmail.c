@@ -35,17 +35,12 @@ Boston, MA 02111-1307, USA.  */
  */
 
 
-#include <../src/config.h>
+#include <config.h>
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-#if __STDC__ || defined(STDC_HEADERS)
-# include <stdlib.h>
-#else
-char *malloc ();
-char *getenv ();
-#endif
 static void *xmalloc (unsigned int);
 static void *xrealloc (char *ptr, unsigned int);
 static void skip_to_lf (FILE *stream);
@@ -68,7 +63,7 @@ main (int argc, char *argv[])
   char name[14];
   int c;
 
-  hd = (char *) getenv ("HOME");
+  hd = getenv ("HOME");
 
   md = (char *) xmalloc (strlen (hd) + 10);
   strcpy (md, hd);

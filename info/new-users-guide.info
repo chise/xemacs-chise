@@ -19,58 +19,58 @@ preserved on all copies.
 
 Indirect:
 new-users-guide.info-1: 635
-new-users-guide.info-2: 50471
-new-users-guide.info-3: 99973
+new-users-guide.info-2: 50468
+new-users-guide.info-3: 99970
 
 Tag Table:
 (Indirect)
 Node: Top635
-Node: Intro4615
-Node: Entering7198
-Node: Enter8712
-Node: Frame9394
-Node: Exiting11063
-Node: Mode Line12263
-Node: Echo Area14410
-Node: Windows and Menus15765
-Node: XEmacs Window16218
-Node: Pull-down Menus19839
-Node: File menu20718
-Node: Edit menu23977
-Node: Options Menu26503
-Node: Buffers Menu31285
-Node: Help menu31671
-Node: Edit32169
-Node: Insert33763
-Node: Cursor Position35091
-Node: Erase37162
-Node: Numeric Argument38316
-Node: Undo39500
-Node: Customization Basics40263
-Node: Customizing key Bindings41492
-Node: Customizing Menus44982
-Node: Help50471
-Node: The Help Menu51159
-Node: Modes56084
-Node: Major Modes57000
-Node: Minor Modes60949
-Node: Files65035
-Node: File Names65757
-Node: Visiting67560
-Node: Saving Files69684
-Node: Other Customizations73061
-Node: Setting Variables75529
-Node: Init File78738
-Node: Select and Move84208
-Node: Selecting Text85162
-Node: Mouse86675
-Node: Region Operation88000
-Node: Moving Text89260
-Node: Accumulating text90500
-Node: Search and Replace92820
-Node: Key Index96684
-Node: Command Index99973
-Node: Variable Index104075
-Node: Concept Index104652
+Node: Intro4612
+Node: Entering7195
+Node: Enter8709
+Node: Frame9391
+Node: Exiting11060
+Node: Mode Line12260
+Node: Echo Area14407
+Node: Windows and Menus15762
+Node: XEmacs Window16215
+Node: Pull-down Menus19836
+Node: File menu20715
+Node: Edit menu23974
+Node: Options Menu26500
+Node: Buffers Menu31282
+Node: Help menu31668
+Node: Edit32166
+Node: Insert33760
+Node: Cursor Position35088
+Node: Erase37159
+Node: Numeric Argument38313
+Node: Undo39497
+Node: Customization Basics40260
+Node: Customizing key Bindings41489
+Node: Customizing Menus44979
+Node: Help50468
+Node: The Help Menu51156
+Node: Modes56081
+Node: Major Modes56997
+Node: Minor Modes60946
+Node: Files65032
+Node: File Names65754
+Node: Visiting67557
+Node: Saving Files69681
+Node: Other Customizations73058
+Node: Setting Variables75526
+Node: Init File78735
+Node: Select and Move84205
+Node: Selecting Text85159
+Node: Mouse86672
+Node: Region Operation87997
+Node: Moving Text89257
+Node: Accumulating text90497
+Node: Search and Replace92817
+Node: Key Index96681
+Node: Command Index99970
+Node: Variable Index104072
+Node: Concept Index104649
 
 End Tag Table

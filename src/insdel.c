@@ -2057,7 +2057,12 @@ multiple_change_finish_up (Lisp_Object buffer)
    of the specified region, that will also be handled correctly.
 
    begin_multiple_change() returns a number (actually a specpdl depth)
-   that you must pass to end_multiple_change() when you are done. */
+   that you must pass to end_multiple_change() when you are done.
+
+   FSF Emacs 20 implements a similar feature, accessible from Lisp
+   through a `combine-after-change-calls' special form, which is
+   essentially equivalent to this function.  We should consider
+   whether we want to introduce a similar Lisp form.  */
 
 int
 begin_multiple_change (struct buffer *buf, Bufpos start, Bufpos end)
@@ -2105,7 +2110,8 @@ change_function_restore (Lisp_Object buffer)
   /* We should first reset the variable and then change the buffer,
      because Fset_buffer() can throw.  */
   inside_change_hook = 0;
-  Fset_buffer (buffer);
+  if (XBUFFER (buffer) != current_buffer)
+    Fset_buffer (buffer);
   return Qnil;
 }
 
@@ -2155,6 +2161,7 @@ signal_before_change (struct buffer *buf, Bufpos start, Bufpos end)
   if (!inside_change_hook)
     {
       Lisp_Object buffer;
+      int speccount;
 
       /* Are we in a multiple-change session? */
       if (buf->text->changes->in_multiple_change &&
@@ -2192,6 +2199,9 @@ signal_before_change (struct buffer *buf, Bufpos start, Bufpos end)
 	}
 
       /* Now in any case run the before-change-functions if any.  */
+      speccount = specpdl_depth ();
+      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
+      inside_change_hook = 1;
 
       MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
@@ -2200,25 +2210,28 @@ signal_before_change (struct buffer *buf, Bufpos start, Bufpos end)
 	      /* Obsolete, for compatibility */
 	      || !NILP (symbol_value_in_buffer (Qbefore_change_function, buffer)))
 	    {
-	      int speccount = specpdl_depth ();
-	      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
 	      set_buffer_internal (buf);
-	      inside_change_hook = 1;
 	      va_run_hook_with_args (Qbefore_change_functions, 2,
 				     make_int (start), make_int (end));
 	      /* Obsolete, for compatibility */
 	      va_run_hook_with_args (Qbefore_change_function, 2,
 				     make_int (start), make_int (end));
-	      unbind_to (speccount, Qnil);
 	    }
 	}
+
+      /* Make sure endpoints remain valid.  before-change-functions
+	 might have modified the buffer. */
+      if (start < BUF_BEGV (buf)) start = BUF_BEGV (buf);
+      if (start > BUF_ZV (buf))   start = BUF_ZV (buf);
+      if (end < BUF_BEGV (buf)) end = BUF_BEGV (buf);
+      if (end > BUF_ZV (buf))   end = BUF_ZV (buf);
 
       MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
 	  XSETBUFFER (buffer, mbuf);
-	  report_extent_modification (buffer, start, end,
-				      &inside_change_hook, 0);
+	  report_extent_modification (buffer, start, end, 0);
 	}
+      unbind_to (speccount, Qnil);
 
       /* Only now do we indicate that the before-change-functions have
 	 been called, in case some function throws out. */
@@ -2255,6 +2268,7 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
   if (!inside_change_hook)
     {
       Lisp_Object buffer;
+      int speccount;
 
       if (buf->text->changes->in_multiple_change &&
 	  buf->text->changes->mc_begin != 0)
@@ -2267,6 +2281,9 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
 	  return; /* after-change-functions signalled when all changes done */
 	}
 
+      speccount = specpdl_depth ();
+      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
+      inside_change_hook = 1;
       MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
 	  XSETBUFFER (buffer, mbuf);
@@ -2275,10 +2292,7 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
 	      /* Obsolete, for compatibility */
 	      || !NILP (symbol_value_in_buffer (Qafter_change_function, buffer)))
 	    {
-	      int speccount = specpdl_depth ();
-	      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
 	      set_buffer_internal (buf);
-	      inside_change_hook = 1;
 	      /* The actual after-change functions take slightly
 		 different arguments than what we were passed. */
 	      va_run_hook_with_args (Qafter_change_functions, 3,
@@ -2288,16 +2302,24 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
 	      va_run_hook_with_args (Qafter_change_function, 3,
 				     make_int (start), make_int (new_end),
 				     make_int (orig_end - start));
-	      unbind_to (speccount, Qnil);
 	    }
 	}
+
+      /* Make sure endpoints remain valid.  after-change-functions
+	 might have modified the buffer. */
+      if (start < BUF_BEGV (buf)) start = BUF_BEGV (buf);
+      if (start > BUF_ZV (buf))   start = BUF_ZV (buf);
+      if (new_end < BUF_BEGV (buf)) new_end = BUF_BEGV (buf);
+      if (new_end > BUF_ZV (buf))   new_end = BUF_ZV (buf);
+      if (orig_end < BUF_BEGV (buf)) orig_end = BUF_BEGV (buf);
+      if (orig_end > BUF_ZV (buf))   orig_end = BUF_ZV (buf);
 
       MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
 	  XSETBUFFER (buffer, mbuf);
-	  report_extent_modification (buffer, start, new_end,
-				      &inside_change_hook, 1);
+	  report_extent_modification (buffer, start, new_end, 1);
 	}
+      unbind_to (speccount, Qnil); /* sets inside_change_hook back to 0 */
     }
 }
 

@@ -779,7 +779,7 @@ Emacs Info-mode Variables
    The following variables may modify the behaviour of Info-mode in
 Emacs; you may wish to set one or several of these variables
 interactively, or in your `~/.emacs' init file.  *Note Examining and
-Setting Variables: (emacs)Examining.
+Setting Variables: (xemacs)Examining.
 
 `Info-enable-edit'
      Set to `nil', disables the `e' (`Info-edit') command.  A non-`nil'
@@ -835,6 +835,6 @@ Node: Cross-refs29271
 Node: Tags29973
 Node: Checking31275
 Node: Emacs Info Variables32228
-Node: Creating an Info File33217
+Node: Creating an Info File33218
 
 End Tag Table

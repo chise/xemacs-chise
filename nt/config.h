@@ -611,16 +611,8 @@ on various systems. */
 /* Should movemail use hesiod for getting POP server host? */
 #undef HESIOD
 /* Determine type of mail locking. */
-/* Play preprocessor games so that configure options override s&m files */
-#undef REAL_MAIL_USE_LOCKF
-#undef REAL_MAIL_USE_FLOCK
-#undef MAIL_USE_LOCKF
-#undef MAIL_USE_FLOCK
-#ifdef REAL_MAIL_USE_FLOCK
-#define MAIL_USE_FLOCK
-#endif
-#ifdef REAL_MAIL_USE_LOCKF
-#define MAIL_USE_LOCKF
-#endif
+#undef MAIL_LOCK_LOCKF
+#undef REAL_LOCK_FLOCK
+#undef MAIL_LOCK_DOT
 
 #endif /* _SRC_CONFIG_H_ */

@@ -1148,7 +1148,7 @@ be used.  Otherwise, the selected frame is used.
   return FRAME_MINIBUF_WINDOW (decode_frame_or_selected (con_dev_or_frame));
 }
 
-DEFUN ("window-minibuffer-p", Fwindow_minibuffer_p, 1, 1, 0, /*
+DEFUN ("window-minibuffer-p", Fwindow_minibuffer_p, 0, 1, 0, /*
 Return non-nil if WINDOW is a minibuffer window.
 */
        (window))
@@ -1437,22 +1437,23 @@ Return the number of columns by which WINDOW is scrolled from left margin.
   return make_int (decode_window (window)->hscroll);
 }
 
-#ifdef MODELINE_IS_SCROLLABLE
 DEFUN ("modeline-hscroll", Fmodeline_hscroll, 0, 1, 0, /*
-Return the number of columns by which WINDOW's modeline is scrolled from
-left margin. If the window has no modeline, return nil.
+Return the horizontal scrolling ammount of WINDOW's modeline.
+If the window has no modeline, return nil.
 */
        (window))
 {
   struct window *w = decode_window (window);
 
-  return (WINDOW_HAS_MODELINE_P (w)) ? make_int (w->modeline_hscroll) : Qnil;
+  return (WINDOW_HAS_MODELINE_P (w)) ? make_int ((int) w->modeline_hscroll) :
+    Qnil;
 }
 
 DEFUN ("set-modeline-hscroll", Fset_modeline_hscroll, 2, 2, 0, /*
-Set number of columns WINDOW's modeline is scrolled from left margin to NCOL.
-NCOL should be zero or positive. If NCOL is negative, it will be forced to 0.
-If the window has no modeline, do nothing and return nil.
+Set the horizontal scrolling ammount of WINDOW's modeline to NCOL.
+If NCOL is negative, it will silently be forced to 0.
+If the window has no modeline, return nil. Otherwise, return the actual
+value that was set.
 */
        (window, ncol))
 {
@@ -1460,18 +1461,20 @@ If the window has no modeline, do nothing and return nil.
 
   if (WINDOW_HAS_MODELINE_P (w))
     {
-      int ncols;
+      Charcount ncols;
+
       CHECK_INT (ncol);
-      ncols = XINT (ncol);
-      if (ncols < 0) ncols = 0;
-      if (w->modeline_hscroll != ncols)
-	MARK_MODELINE_CHANGED;
-      w->modeline_hscroll = ncols;
-      return ncol;
+      ncols = (XINT (ncol) <= 0) ? 0 : (Charcount) XINT (ncol);
+      if (ncols != w->modeline_hscroll)
+	{
+	  MARK_MODELINE_CHANGED;
+	  w->modeline_hscroll = ncols;
+	}
+      return make_int ((int) ncols);
     }
+
   return Qnil;
 }
-#endif /* MODELINE_IS_SCROLLABLE */
 
 DEFUN ("set-window-hscroll", Fset_window_hscroll, 2, 2, 0, /*
 Set number of columns WINDOW is scrolled from left margin to NCOL.
@@ -4050,12 +4053,12 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
     fheight = XINT (Vwindow_pixel_scroll_increment);
   else if (!NILP (Vwindow_pixel_scroll_increment));
     default_face_height_and_width (window, &fheight, &fwidth);
-  
+
   if (Dynarr_length (dla) >= 1)
     modeline = Dynarr_atp (dla, 0)->modeline;
 
   dl = Dynarr_atp (dla, modeline);
-    
+
   if (value > 0)
     {
       /* Go for partial display line scrolling. This just means bumping
@@ -4074,7 +4077,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	{
 	  int vtarget;
 	  Bufpos startp, old_start;
-	  
+
 	  if (WINDOW_TEXT_TOP_CLIP (w))
 	    {
 	      WINDOW_TEXT_TOP_CLIP (w) = 0;
@@ -4083,7 +4086,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 
 	  old_start = marker_position (w->start[CURRENT_DISP]);
 	  startp = vmotion (w, old_start, value, &vtarget);
-	  
+
 	  if (vtarget < value &&
 	      (w->window_end_pos[CURRENT_DISP] == -1
 	       || (BUF_Z (b) - w->window_end_pos[CURRENT_DISP] > BUF_ZV (b))))
@@ -4098,7 +4101,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	      w->force_start = 1;
 	      w->start_at_line_beg = beginning_of_line_p (b, startp);
 	      MARK_WINDOWS_CHANGED (w);
-	      
+
 	      if (!point_would_be_visible (w, startp, XINT (point)))
 		{
 		  if (selected)
@@ -4132,16 +4135,16 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	{
 	  int vtarget;
 	  Bufpos startp, old_start;
-	  
+
 	  if (WINDOW_TEXT_TOP_CLIP (w))
 	    {
 	      WINDOW_TEXT_TOP_CLIP (w) = 0;
 	      MARK_WINDOWS_CHANGED (w);
 	    }
-	      
+
 	  old_start = marker_position (w->start[CURRENT_DISP]);
 	  startp = vmotion (w, old_start, value, &vtarget);
-	  
+
 	  if (vtarget > value
 	      && marker_position (w->start[CURRENT_DISP]) == BUF_BEGV (b))
 	    {
@@ -4155,16 +4158,16 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	      w->force_start = 1;
 	      w->start_at_line_beg = beginning_of_line_p (b, startp);
 	      MARK_WINDOWS_CHANGED (w);
-	      
+
 	      if (!point_would_be_visible (w, startp, XINT (point)))
 		{
 		  Bufpos new_point;
-		  
+
 		  if (MINI_WINDOW_P (w))
 		    new_point = startp;
 		  else
 		    new_point = start_of_last_line (w, startp);
-		  
+
 		  if (selected)
 		    BUF_SET_PT (b, new_point);
 		  else
@@ -4694,7 +4697,7 @@ struct saved_window
   int pixel_width;
   int pixel_height;
   int hscroll;
-  int modeline_hscroll;
+  Charcount modeline_hscroll;
   int parent_index;           /* index into saved_windows */
   int prev_index;             /* index into saved_windows */
   char start_at_line_beg; /* boolean */
@@ -4956,7 +4959,7 @@ by `current-window-configuration' (which see).
   int previous_pixel_width;
   int previous_minibuf_height, previous_minibuf_top,previous_minibuf_width;
   int real_font_height;
-  int converted_minibuf_height,target_minibuf_height; 
+  int converted_minibuf_height,target_minibuf_height;
   int specpdl_count = specpdl_depth ();
 
   GCPRO1 (configuration);
@@ -5024,7 +5027,7 @@ by `current-window-configuration' (which see).
 #if 0
       /* JV: This is bogus,
 	 First of all, the units are inconsistent. The frame sizes are measured
-	 in characters but the window sizes are stored in pixels. So if a 
+	 in characters but the window sizes are stored in pixels. So if a
 	 font size change happened between saving and restoring, the
 	 frame "sizes" maybe equal but the windows still should be
 	 resized. This is tickled alot by the new "character size
@@ -5045,7 +5048,7 @@ by `current-window-configuration' (which see).
 	  || config->frame_width != FRAME_WIDTH (f))
 	change_frame_size (f, config->frame_height, config->frame_width, 0);
 #endif
-      
+
       previous_pixel_top = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top;
       previous_pixel_height = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_height;
       previous_pixel_left = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left;
@@ -5055,7 +5058,7 @@ by `current-window-configuration' (which see).
 
       default_face_height_and_width (frame, &real_font_height, 0);
       assert(real_font_height > 0);
-  
+
       if (FRAME_HAS_MINIBUF_P (f) && ! FRAME_MINIBUF_ONLY_P (f))
 	{
 	  previous_minibuf_height
@@ -5068,13 +5071,14 @@ by `current-window-configuration' (which see).
       else
 	{
 	  previous_minibuf_height = 0;
+	  previous_minibuf_top = 0;
 	  previous_minibuf_width = 0;
 	}
       converted_minibuf_height =
 	(previous_minibuf_height % real_font_height) == 0 ?
 	- (previous_minibuf_height / real_font_height ) :    /* lines */
 	    previous_minibuf_height;   /* pixels */
-           
+
       /* Temporarily avoid any problems with windows that are smaller
 	 than they are supposed to be.  */
       window_min_height = 1;
@@ -5256,7 +5260,7 @@ by `current-window-configuration' (which see).
 
          #### Now we get more cases correct then ever before, but
 	 are we treating all? For instance what if the frames minibuf window
-	 is no longer the same one? 
+	 is no longer the same one?
       */
       target_minibuf_height = previous_minibuf_height;
       if (converted_minibuf_height &&
@@ -5279,7 +5283,7 @@ by `current-window-configuration' (which see).
 	  set_window_pixwidth  (FRAME_MINIBUF_WINDOW (f),
 			    previous_minibuf_width, 0);
 	}
-	
+
       /* This is a better way to deal with frame resizing, etc.
 	 What we _actually_ want is for the old (just restored)
 	 root window to fit
@@ -5294,7 +5298,7 @@ by `current-window-configuration' (which see).
       /* Note that this function also updates the subwindow
 	 "pixel_left"s */
       set_window_pixwidth (FRAME_ROOT_WINDOW (f), previous_pixel_width, 0);
-      
+
       /* If restoring in the current frame make the window current,
 	 otherwise just update the frame selected_window slot to be
 	 the restored current_window. */
@@ -5536,11 +5540,11 @@ its value is -not- saved.
 
   /* save the minibuffer height using the heuristics from
      change_frame_size_1 */
-  
+
   XSETFRAME (frame, f); /* frame could have been nil ! */
   default_face_height_and_width (frame, &real_font_height, 0);
   assert(real_font_height > 0);
-  
+
   if (FRAME_HAS_MINIBUF_P (f) && ! FRAME_MINIBUF_ONLY_P (f))
     minibuf_height = XWINDOW(FRAME_MINIBUF_WINDOW(f))->pixel_height;
   else
@@ -5606,7 +5610,7 @@ a non-nil result to be returned.
 
       if (NILP (pos))
 	pos = Fwindow_point (window);
-      
+
       CHECK_INT (pos);
       point = XINT (pos);
 
@@ -5744,15 +5748,13 @@ syms_of_window (void)
   DEFSUBR (Fwindow_displayed_text_pixel_height);
   DEFSUBR (Fwindow_text_area_pixel_width);
   DEFSUBR (Fwindow_hscroll);
-#ifdef MODELINE_IS_SCROLLABLE
+  DEFSUBR (Fset_window_hscroll);
   DEFSUBR (Fmodeline_hscroll);
   DEFSUBR (Fset_modeline_hscroll);
-#endif /* MODELINE_IS_SCROLLABLE */
 #if 0 /* bogus FSF crock */
   DEFSUBR (Fwindow_redisplay_end_trigger);
   DEFSUBR (Fset_window_redisplay_end_trigger);
 #endif
-  DEFSUBR (Fset_window_hscroll);
   DEFSUBR (Fwindow_pixel_edges);
   DEFSUBR (Fwindow_text_area_pixel_edges);
   DEFSUBR (Fwindow_point);
@@ -5892,8 +5894,7 @@ This is a specifier; use `set-specifier' to change it.
   Fadd_spec_to_specifier (Vmodeline_shadow_thickness, make_int (2),
 			  Qnil, Qnil, Qnil);
   set_specifier_caching (Vmodeline_shadow_thickness,
-			 slot_offset (struct window,
-				      modeline_shadow_thickness),
+			 offsetof (struct window, modeline_shadow_thickness),
 			 modeline_shadow_thickness_changed,
 			 0, 0);
 
@@ -5905,8 +5906,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_fallback (Vhas_modeline_p,
 			  list1 (Fcons (Qnil, Qt)));
   set_specifier_caching (Vhas_modeline_p,
-			 slot_offset (struct window,
-				      has_modeline_p),
+			 offsetof (struct window, has_modeline_p),
 			 /* #### It's strange that we need a special
 			    flag to indicate that the shadow-thickness
 			    has changed, but not one to indicate that
@@ -5928,8 +5928,8 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_fallback (Vvertical_divider_always_visible_p,
 			  list1 (Fcons (Qnil, Qt)));
   set_specifier_caching (Vvertical_divider_always_visible_p,
-			 slot_offset (struct window,
-				      vertical_divider_always_visible_p),
+			 offsetof (struct window,
+				   vertical_divider_always_visible_p),
 			 vertical_divider_changed_in_window,
  			 0, 0);
 
@@ -5943,8 +5943,8 @@ This is a specifier; use `set-specifier' to change it.
   Fadd_spec_to_specifier (Vvertical_divider_shadow_thickness, make_int (2),
 			  Qnil, Qnil, Qnil);
   set_specifier_caching (Vvertical_divider_shadow_thickness,
-			 slot_offset (struct window,
-				      vertical_divider_shadow_thickness),
+			 offsetof (struct window,
+				   vertical_divider_shadow_thickness),
 			 vertical_divider_changed_in_window,
  			 0, 0);
   DEFVAR_SPECIFIER ("vertical-divider-line-width", &Vvertical_divider_line_width /*
@@ -5974,8 +5974,8 @@ This is a specifier; use `set-specifier' to change it.
     set_specifier_fallback (Vvertical_divider_line_width, fb);
   }
   set_specifier_caching (Vvertical_divider_line_width,
-                         slot_offset (struct window,
-				      vertical_divider_line_width),
+                         offsetof (struct window,
+				   vertical_divider_line_width),
 			 vertical_divider_changed_in_window,
                          0, 0);
 
@@ -6004,8 +6004,7 @@ This is a specifier; use `set-specifier' to change it.
     set_specifier_fallback (Vvertical_divider_spacing, fb);
   }
   set_specifier_caching (Vvertical_divider_spacing,
-			 slot_offset (struct window,
-				      vertical_divider_spacing),
+			 offsetof (struct window, vertical_divider_spacing),
 			 vertical_divider_changed_in_window,
 			 0, 0);
 }

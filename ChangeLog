@@ -1,3 +1,48 @@
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-15  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* etc/TUTORIAL.de: Update copyright and fix typo.
+
+2000-01-14  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Create a .dbxrc in the src directory, like .gdbinit.
+
+	* configure.in: Add `tests' symlink to make it easier to find
+	automated tests directory.
+
+2000-01-14  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: for cygwin 1.0 we must pick up the mingw32 headers
+	before the cygwin headers.
+
+2000-01-08  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	- Allow find-tag to work in the build directory.
+	- rename src/gdbinit to src/.gdbinit, so that gdb can find it.
+	- Less verbose messages when creating .sbinit, .gdbinit, TAGS.
+
+2000-01-07  Marcus Thiessel <marcus@xemacs.org>
+
+	* config.sub: Upgrade to 1.169, imported from autoconf's CVS
+	* config.guess: Upgrade to 1.158, imported from autoconf's CVS
+
+2000-01-03  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* etc/NEWS: Document mail spool locking overhaul.
+
+	* configure.usage (--mail-locking):
+	* configure.in: Handle --mail-locking option correctly in
+	preparation for the movemail locking overhaul.
+
+2000-01-05  Daniel Pittman  <daniel@danann.net>
+
+	* configure.in (Installation): Report which Athena header/library
+	combo is being used.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

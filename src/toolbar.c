@@ -1434,8 +1434,7 @@ For the other vector formats (specifying blank areas of the toolbar):
      automatically knew about specifier fallbacks, so we didn't
      have to do it ourselves. */
   set_specifier_caching (Vdefault_toolbar,
-			 slot_offset (struct window,
-				      default_toolbar),
+			 offsetof (struct window, default_toolbar),
 			 default_toolbar_specs_changed,
 			 0, 0);
 
@@ -1447,8 +1446,7 @@ See `default-toolbar' for a description of a valid toolbar instantiator.
 */ );
   Vtoolbar[TOP_TOOLBAR] = Fmake_specifier (Qtoolbar);
   set_specifier_caching (Vtoolbar[TOP_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar[TOP_TOOLBAR]),
+			 offsetof (struct window, toolbar[TOP_TOOLBAR]),
 			 toolbar_specs_changed,
 			 0, 0);
 
@@ -1465,8 +1463,7 @@ displayed even if you provide a value for `bottom-toolbar'.
 */ );
   Vtoolbar[BOTTOM_TOOLBAR] = Fmake_specifier (Qtoolbar);
   set_specifier_caching (Vtoolbar[BOTTOM_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar[BOTTOM_TOOLBAR]),
+			 offsetof (struct window, toolbar[BOTTOM_TOOLBAR]),
 			 toolbar_specs_changed,
 			 0, 0);
 
@@ -1483,8 +1480,7 @@ displayed even if you provide a value for `left-toolbar'.
 */ );
   Vtoolbar[LEFT_TOOLBAR] = Fmake_specifier (Qtoolbar);
   set_specifier_caching (Vtoolbar[LEFT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar[LEFT_TOOLBAR]),
+			 offsetof (struct window, toolbar[LEFT_TOOLBAR]),
 			 toolbar_specs_changed,
 			 0, 0);
 
@@ -1501,8 +1497,7 @@ displayed even if you provide a value for `right-toolbar'.
 */ );
   Vtoolbar[RIGHT_TOOLBAR] = Fmake_specifier (Qtoolbar);
   set_specifier_caching (Vtoolbar[RIGHT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar[RIGHT_TOOLBAR]),
+			 offsetof (struct window, toolbar[RIGHT_TOOLBAR]),
 			 toolbar_specs_changed,
 			 0, 0);
 
@@ -1556,11 +1551,9 @@ is not visible, so it is expanded to take up the slack.
 */ );
   Vdefault_toolbar_height = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vdefault_toolbar_height,
-			 slot_offset (struct window,
-				      default_toolbar_height),
+			 offsetof (struct window, default_toolbar_height),
 			 default_toolbar_size_changed_in_window,
-			 slot_offset (struct frame,
-				      default_toolbar_height),
+			 offsetof (struct frame, default_toolbar_height),
 			 default_toolbar_size_changed_in_frame);
 
   DEFVAR_SPECIFIER ("default-toolbar-width", &Vdefault_toolbar_width /*
@@ -1571,11 +1564,9 @@ See `default-toolbar-height' for more information.
 */ );
   Vdefault_toolbar_width = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vdefault_toolbar_width,
-			 slot_offset (struct window,
-				      default_toolbar_width),
+			 offsetof (struct window, default_toolbar_width),
 			 default_toolbar_size_changed_in_window,
-			 slot_offset (struct frame,
-				      default_toolbar_width),
+			 offsetof (struct frame, default_toolbar_width),
 			 default_toolbar_size_changed_in_frame);
 
   DEFVAR_SPECIFIER ("top-toolbar-height",
@@ -1587,11 +1578,9 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_size[TOP_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_size[TOP_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_size[TOP_TOOLBAR]),
+			 offsetof (struct window, toolbar_size[TOP_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_size[TOP_TOOLBAR]),
+			 offsetof (struct frame, toolbar_size[TOP_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("bottom-toolbar-height",
@@ -1603,11 +1592,9 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_size[BOTTOM_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_size[BOTTOM_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_size[BOTTOM_TOOLBAR]),
+			 offsetof (struct window, toolbar_size[BOTTOM_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_size[BOTTOM_TOOLBAR]),
+			 offsetof (struct frame, toolbar_size[BOTTOM_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("left-toolbar-width",
@@ -1619,11 +1606,9 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_size[LEFT_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_size[LEFT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_size[LEFT_TOOLBAR]),
+			 offsetof (struct window, toolbar_size[LEFT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_size[LEFT_TOOLBAR]),
+			 offsetof (struct frame, toolbar_size[LEFT_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("right-toolbar-width",
@@ -1635,11 +1620,9 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_size[RIGHT_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_size[RIGHT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_size[RIGHT_TOOLBAR]),
+			 offsetof (struct window, toolbar_size[RIGHT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_size[RIGHT_TOOLBAR]),
+			 offsetof (struct frame, toolbar_size[RIGHT_TOOLBAR]),
 			 frame_size_slipped);
 
   fb = Qnil;
@@ -1700,11 +1683,9 @@ the value in a window domain will not.
 */ );
   Vdefault_toolbar_border_width = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vdefault_toolbar_border_width,
-			 slot_offset (struct window,
-				      default_toolbar_border_width),
+			 offsetof (struct window, default_toolbar_border_width),
 			 default_toolbar_border_width_changed_in_window,
-			 slot_offset (struct frame,
-				      default_toolbar_border_width),
+			 offsetof (struct frame, default_toolbar_border_width),
 			 default_toolbar_border_width_changed_in_frame);
 
   DEFVAR_SPECIFIER ("top-toolbar-border-width",
@@ -1716,11 +1697,11 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_border_width[TOP_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_border_width[TOP_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_border_width[TOP_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_border_width[TOP_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_border_width[TOP_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_border_width[TOP_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("bottom-toolbar-border-width",
@@ -1732,11 +1713,11 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_border_width[BOTTOM_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_border_width[BOTTOM_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_border_width[BOTTOM_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_border_width[BOTTOM_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_border_width[BOTTOM_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_border_width[BOTTOM_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("left-toolbar-border-width",
@@ -1748,11 +1729,11 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_border_width[LEFT_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_border_width[LEFT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_border_width[LEFT_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_border_width[LEFT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_border_width[LEFT_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_border_width[LEFT_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("right-toolbar-border-width",
@@ -1764,11 +1745,11 @@ See `default-toolbar-height' for more information.
 */ );
   Vtoolbar_border_width[RIGHT_TOOLBAR] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vtoolbar_border_width[RIGHT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_border_width[RIGHT_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_border_width[RIGHT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_border_width[RIGHT_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_border_width[RIGHT_TOOLBAR]),
 			 frame_size_slipped);
 
   fb = Qnil;
@@ -1812,11 +1793,9 @@ visibility specifiers have a fallback value of true.
 */ );
   Vdefault_toolbar_visible_p = Fmake_specifier (Qboolean);
   set_specifier_caching (Vdefault_toolbar_visible_p,
-			 slot_offset (struct window,
-				      default_toolbar_visible_p),
+			 offsetof (struct window, default_toolbar_visible_p),
 			 default_toolbar_visible_p_changed_in_window,
-			 slot_offset (struct frame,
-				      default_toolbar_visible_p),
+			 offsetof (struct frame, default_toolbar_visible_p),
 			 default_toolbar_visible_p_changed_in_frame);
 
   DEFVAR_SPECIFIER ("top-toolbar-visible-p",
@@ -1828,11 +1807,11 @@ See `default-toolbar-visible-p' for more information.
 */ );
   Vtoolbar_visible_p[TOP_TOOLBAR] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vtoolbar_visible_p[TOP_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_visible_p[TOP_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_visible_p[TOP_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_visible_p[TOP_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_visible_p[TOP_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("bottom-toolbar-visible-p",
@@ -1844,11 +1823,11 @@ See `default-toolbar-visible-p' for more information.
 */ );
   Vtoolbar_visible_p[BOTTOM_TOOLBAR] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vtoolbar_visible_p[BOTTOM_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_visible_p[BOTTOM_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_visible_p[BOTTOM_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_visible_p[BOTTOM_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_visible_p[BOTTOM_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("left-toolbar-visible-p",
@@ -1860,11 +1839,11 @@ See `default-toolbar-visible-p' for more information.
 */ );
   Vtoolbar_visible_p[LEFT_TOOLBAR] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vtoolbar_visible_p[LEFT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_visible_p[LEFT_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_visible_p[LEFT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_visible_p[LEFT_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_visible_p[LEFT_TOOLBAR]),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("right-toolbar-visible-p",
@@ -1876,11 +1855,11 @@ See `default-toolbar-visible-p' for more information.
 */ );
   Vtoolbar_visible_p[RIGHT_TOOLBAR] = Fmake_specifier (Qboolean);
   set_specifier_caching (Vtoolbar_visible_p[RIGHT_TOOLBAR],
-			 slot_offset (struct window,
-				      toolbar_visible_p[RIGHT_TOOLBAR]),
+			 offsetof (struct window,
+				   toolbar_visible_p[RIGHT_TOOLBAR]),
 			 toolbar_geometry_changed_in_window,
-			 slot_offset (struct frame,
-				      toolbar_visible_p[RIGHT_TOOLBAR]),
+			 offsetof (struct frame,
+				   toolbar_visible_p[RIGHT_TOOLBAR]),
 			 frame_size_slipped);
 
   /* initially, top inherits from default; this can be
@@ -1902,8 +1881,7 @@ This is a specifier; use `set-specifier' to change it.
 */ );
   Vtoolbar_buttons_captioned_p = Fmake_specifier (Qboolean);
   set_specifier_caching (Vtoolbar_buttons_captioned_p,
-			 slot_offset (struct window,
-				      toolbar_buttons_captioned_p),
+			 offsetof (struct window, toolbar_buttons_captioned_p),
 			 toolbar_buttons_captioned_p_changed,
 			 0, 0);
   set_specifier_fallback (Vtoolbar_buttons_captioned_p,

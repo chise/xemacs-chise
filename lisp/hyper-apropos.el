@@ -438,7 +438,9 @@ General Commands:
 	(if (and (or (symbolp defn) (symbolp (setq defn (car-safe defn))))
 		 defn
 		 show)
-	    (hyper-apropos-get-doc defn t))))))
+	    (hyper-apropos-get-doc defn t))
+	(or (memq major-mode '(hyper-apropos-mode hyper-apropos-help-mode))
+	  (setq hyper-apropos-prev-wconfig (current-window-configuration)))))))
 
 ;;;###autoload
 (defun hyper-describe-face (symbol &optional this-ref-buffer)
@@ -460,10 +462,9 @@ See also `hyper-apropos' and `hyper-describe-function'."
 			    ": "))
 		  (mapcar #'(lambda (x) (list (symbol-name x)))
 			  (face-list))
-		  nil t nil 'hyper-apropos-face-history)))
-     (list (if (string= val "")
-	       (progn (push (symbol-name v) hyper-apropos-face-history) v)
-	     (intern-soft val))
+		  nil t nil 'hyper-apropos-face-history
+		  (and v (symbol-name v)))))
+     (list (intern-soft val)
 	   current-prefix-arg)))
   (if (null symbol)
       (message "Sorry, nothing to describe.")
@@ -530,10 +531,10 @@ See also `hyper-apropos' and `hyper-describe-function'."
 			 (if v
 			     (format " (default %s): " v)
 			   ": "))
-		 obarray predicate t nil 'variable-history)))
-    (if (string= val "")
-	(progn (push (symbol-name v) variable-history) v)
-      (intern-soft val))))
+		 obarray predicate t nil 'variable-history
+		 (and v (symbol-name v)))))
+    (intern-soft val)))
+
 ;;;###autoload
 (define-obsolete-function-alias
   'hypropos-read-variable-symbol 'hyper-apropos-read-variable-symbol)
@@ -549,10 +550,9 @@ See also `hyper-apropos' and `hyper-describe-function'."
 				     (format "%s (default %s): " prompt fn)
 				   (format "%s: " prompt))
 				 obarray 'fboundp t nil
-				 'function-history)))
-    (if (equal val "")
-	(progn (push (symbol-name fn) function-history) fn)
-      (intern-soft val))))
+				 'function-history
+				 (and fn (symbol-name fn)))))
+    (intern-soft val)))
 
 (defun hyper-apropos-last-help (arg)
   "Go back to the last symbol documented in the *Hyper Help* buffer."

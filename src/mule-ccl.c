@@ -645,20 +645,20 @@ static tr_stack *mapping_stack_pointer;
 
 /* Suspend CCL program because of reading from empty input buffer or
    writing to full output buffer.  When this program is resumed, the
-   same I/O command is executed.  */
+   same I/O command is executed.  The `if (1)' is for warning suppression. */
 #define CCL_SUSPEND(stat)	\
   do {				\
     ic--;			\
     ccl->status = stat;		\
-    goto ccl_finish;		\
+    if (1) goto ccl_finish;	\
   } while (0)
 
 /* Terminate CCL program because of invalid command.  Should not occur
-   in the normal case.  */
+   in the normal case.  The `if (1)' is for warning suppression. */
 #define CCL_INVALID_CMD		     	\
   do {				     	\
     ccl->status = CCL_STAT_INVALID_CMD;	\
-    goto ccl_error_handler;	     	\
+    if (1) goto ccl_error_handler;	\
   } while (0)
 
 /* Encode one character CH to multibyte form and write to the current

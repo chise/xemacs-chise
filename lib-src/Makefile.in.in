@@ -91,7 +91,7 @@ INSTALLABLES = $(INSTALLABLES_BASE) ellcc
 #ifdef HAVE_MS_WINDOWS
 INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient
 #else
-INSTALLABLES = $(INSTALLABLES_BASE) 
+INSTALLABLES = $(INSTALLABLES_BASE)
 #endif
 #endif
 
@@ -162,7 +162,13 @@ ld_libs_general=@ld_libs_general@
 
 ## We need to #define emacs to get the right versions of some files.
 
-cppflags = -Demacs -I$(top_srcdir)/src -I../src $(CPPFLAGS)
+## To understand the order of -I flags, consider what happens if you run
+## ./configure in the source tree, and then run
+## $(srcdir).2.26/configure in some other build tree.
+## Where will the generated files like config.h be included from?
+## This is also why you _must_ use <...> instead of "..." 
+## when #include'ing generated files.
+cppflags = -Demacs -I. -I../src -I$(srcdir) -I$(top_srcdir)/src $(CPPFLAGS)
 cflags   = $(CFLAGS) $(cppflags) $(c_switch_general)
 ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 
@@ -279,32 +285,29 @@ getopt.o: ${srcdir}/getopt.c ${srcdir}/getopt.h
 	${CC} -c $(cflags) ${srcdir}/getopt.c
 getopt1.o: ${srcdir}/getopt1.c ${srcdir}/getopt.h
 	${CC} -c $(cflags) ${srcdir}/getopt1.c
-alloca.o: ${srcdir}/../src/alloca.c
+alloca.o: ${top_srcdir}/src/alloca.c
 	${CC} -c $(cflags) ${srcdir}/../src/alloca.c
 
-regex.o: ${srcdir}/../src/regex.c ${srcdir}/../src/regex.h
+regex.o: ${srcdir}/../src/regex.c ${top_srcdir}/src/regex.h
 	$(CC) -c `echo $(cflags) | sed 's/-Demacs/ /'` \
-		-DINHIBIT_STRING_HEADER ${srcdir}/../src/regex.c
+		-DINHIBIT_STRING_HEADER ${top_srcdir}/src/regex.c
 
-etags_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-	-DVERSION='"${version}"' ${srcdir}/etags.c \
+etags_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/etags.c \
 	$(GETOPTOBJS) regex.o $(ldflags)
-etags_deps   = ${srcdir}/etags.c $(GETOPTDEPS) regex.o ../src/config.h
+etags_deps = ${srcdir}/etags.c $(GETOPTDEPS) regex.o ../src/config.h
 
 etags: ${etags_deps}
 	$(CC) ${etags_args} -o $@
 
-ellcc_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-    ${srcdir}/ellcc.c $(ldflags)
+ellcc_args = $(cflags) ${srcdir}/ellcc.c $(ldflags)
 ellcc_deps = ${srcdir}/ellcc.c ellcc.h ../src/config.h
 
 ellcc: ${ellcc_deps}
 	$(CC) ${ellcc_args} -o $@
 
-run_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-	-DVERSION='"${version}"' ${srcdir}/run.c \
+run_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/run.c \
 	$(ldflags) -Wl,--subsystem,windows -e _mainCRTStartup
-run_deps   = ${srcdir}/run.c ${srcdir}/run.h ${srcdir}/run.rc \
+run_deps = ${srcdir}/run.c ${srcdir}/run.h ${srcdir}/run.rc \
 	${srcdir}/../nt/xemacs.ico ${srcdir}/../nt/file.ico \
 	${srcdir}/../nt/lisp.ico
 
@@ -319,10 +322,9 @@ runxemacs: run
 rungnuclient: run
 	cp run.exe $@.exe
 
-ootags_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-	-DVERSION='"${version}"' ${srcdir}/ootags.c \
+ootags_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/ootags.c \
 	$(GETOPTOBJS) regex.o $(ldflags)
-ootags_deps   = ${srcdir}/ootags.c $(GETOPTDEPS) regex.o ../src/config.h
+ootags_deps = ${srcdir}/ootags.c $(GETOPTDEPS) regex.o ../src/config.h
 
 ootags: ${ootags_deps}
 	$(CC) ${ootags_args} -o $@

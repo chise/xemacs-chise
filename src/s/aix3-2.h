@@ -32,8 +32,6 @@
 #endif
 #endif
 
-#define HAVE_FSYNC
-
 /* With this defined, a gcc-compiled Emacs crashed in realloc under AIX
    3.2, and a cc-compiled Emacs works with this undefined.
    --karl@cs.umb.edu.  */

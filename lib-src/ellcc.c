@@ -58,7 +58,7 @@ the lines of:
 See the samples for more details.
 */
 
-#include <../src/config.h>
+#include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -71,8 +71,9 @@ See the samples for more details.
 #endif /* HAVE_UNISTD_H */
 
 #define EMODULES_GATHER_VERSION
-#include "emodules.h"
-#include "ellcc.h"
+
+#include <emodules.h>
+#include <ellcc.h> /* Generated files must be included using <...> */
 
 #define DEBUG
 

@@ -92,9 +92,9 @@ static const struct struct_description charset_lookup_description = {
    rep_bytes_by_first_byte(c) is more efficient than the equivalent
    canonical computation:
 
-   (BYTE_ASCII_P (c) ? 1 : XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (c))) */
+   XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (c)) */
 
-Bytecount rep_bytes_by_first_byte[0xA0] =
+const Bytecount rep_bytes_by_first_byte[0xA0] =
 { /* 0x00 - 0x7f are for straight ASCII */
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -506,9 +506,6 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
 
   assert (NILP (chlook->charset_by_leading_byte[id - 128]));
   chlook->charset_by_leading_byte[id - 128] = obj;
-  if (id < 0xA0)
-    /* official leading byte */
-    rep_bytes_by_first_byte[id] = rep_bytes;
 
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
@@ -1122,6 +1119,27 @@ Return the character set of char CH.
 			(CHAR_LEADING_BYTE (XCHAR (ch))));
 }
 
+DEFUN ("char-octet", Fchar_octet, 1, 2, 0, /*
+Return the octet numbered N (should be 0 or 1) of char CH.
+N defaults to 0 if omitted.
+*/
+       (ch, n))
+{
+  Lisp_Object charset;
+  int octet0, octet1;
+
+  CHECK_CHAR_COERCE_INT (ch);
+
+  BREAKUP_CHAR (XCHAR (ch), charset, octet0, octet1);
+
+  if (NILP (n) || EQ (n, Qzero))
+    return make_int (octet0);
+  else if (EQ (n, make_int (1)))
+    return make_int (octet1);
+  else
+    signal_simple_error ("Octet number must be 0 or 1", n);
+}
+
 DEFUN ("split-char", Fsplit_char, 1, 1, 0, /*
 Return list of charset and one or two position-codes of CHAR.
 */
@@ -1253,6 +1271,7 @@ syms_of_mule_charset (void)
 
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
+  DEFSUBR (Fchar_octet);
   DEFSUBR (Fsplit_char);
 
 #ifdef ENABLE_COMPOSITE_CHARS

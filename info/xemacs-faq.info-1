@@ -88,7 +88,6 @@ Getting Started:
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
 * Q1.4.6::      What's the difference between a macro and a function?
-* Q1.4.7::      Why options saved with 19.13 don't work with 19.14 or later?
 
 Installation and Trouble Shooting
 
@@ -104,8 +103,6 @@ Installation and Trouble Shooting
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
-* Q2.0.13::     Can't link XEmacs on Solaris with Gcc.
-* Q2.0.14::     Make on HP/UX 9 fails after linking temacs
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -125,10 +122,10 @@ Trouble Shooting:
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
 * Q2.1.17::     `Marker does not point anywhere'.
-* Q2.1.18::     19.14 hangs on HP/UX 10.10.
+* Q2.1.18::     [This question intentionally left blank]
 * Q2.1.19::     XEmacs does not follow the local timezone.
 * Q2.1.20::     `Symbol's function definition is void: hkey-help-show.'
-* Q2.1.21::     Every so often the XEmacs frame freezes.
+* Q2.1.21::     [This question intentionally left blank]
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
 * Q2.1.24::     XEmacs won't start without network. (NEW)
@@ -148,8 +145,8 @@ Customization and Options
 X Window System & Resources:
 * Q3.1.1::      Where is a list of X resources?
 * Q3.1.2::      How can I detect a color display?
-* Q3.1.3::      `(set-screen-width)' worked in 19.6, but not in 19.13?
-* Q3.1.4::      Specifying `Emacs*EmacsScreen.geometry' in `.emacs' does not work in 19.15?
+* Q3.1.3::      [This question intentionally left blank]
+* Q3.1.4::      [This question intentionally left blank]
 * Q3.1.5::      How can I get the icon to just say `XEmacs'?
 * Q3.1.6::      How can I have the window title area display the full path?
 * Q3.1.7::      `xemacs -name junk' doesn't work?
@@ -268,7 +265,7 @@ Infodock:
 Other Unbundled Packages:
 * Q4.7.1::      What is AUC TeX?  Where do you get it?
 * Q4.7.2::      Are there any Emacs Lisp Spreadsheets?
-* Q4.7.3::      Byte compiling AUC TeX on XEmacs 19.14
+* Q4.7.3::      [This question intentionally left blank]
 * Q4.7.4::      Problems installing AUC TeX
 * Q4.7.5::      Is there a reason for an Emacs package not to be included in XEmacs?
 * Q4.7.6::      Is there a MatLab mode?
@@ -285,14 +282,14 @@ The Miscellaneous Stuff
 * Q5.0.8::      Why does edt emulation not work?
 * Q5.0.9::      How can I emulate VI and use it as my default mode?
 * Q5.0.10::     [This question intentionally left blank]
-* Q5.0.11::     Filladapt doesn't work in 19.15?
+* Q5.0.11::     How do I turn on filladapt for all buffers?
 * Q5.0.12::     How do I disable gnuserv from opening a new frame?
 * Q5.0.13::     How do I start gnuserv so that each subsequent XEmacs is a client?
 * Q5.0.14::     Strange things are happening in Shell Mode.
 * Q5.0.15::     Where do I get the latest CC Mode?
 * Q5.0.16::     I find auto-show-mode disconcerting.  How do I turn it off?
 * Q5.0.17::     How can I get two instances of info?
-* Q5.0.18::     I upgraded to XEmacs 19.14 and gnuserv stopped working
+* Q5.0.18::     [This question intentionally left blank]
 * Q5.0.19::     Is there something better than LaTeX mode?
 * Q5.0.20::     Is there a way to start a new XEmacs if there's no gnuserv running, and otherwise use gnuclient?
 
@@ -437,7 +434,6 @@ Getting Started:
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
 * Q1.4.6::      What's the difference between a macro and a function?
-* Q1.4.7::      Why options saved with 19.13 don't work with 19.14 or later?
 
 
 File: xemacs-faq.info,  Node: Q1.0.1,  Next: Q1.0.2,  Prev: Introduction,  Up: Introduction
@@ -611,12 +607,10 @@ File: xemacs-faq.info,  Node: Q1.0.11,  Next: Q1.0.12,  Prev: Q1.0.10,  Up: Intr
 Q1.0.11: Is there a port of XEmacs to the Macintosh?
 ----------------------------------------------------
 
-   There has been a port to the MachTen environment of XEmacs 19.13,
-but no patches have been submitted to the maintainers to get this in the
-mainstream distribution.
-
-   For the MacOS, there is a port of Emacs 18.59
-(ftp://ftp.cs.cornell.edu/pub/parmet/).
+   Yes, there is a port of XEmacs 19.14, tested on MacOS 7.6.1 and MacOS
+8.5.1 by Pitts Jarvis (pjarvis@ispchannel.com).  It's available at
+http://my.ispchannel.com/~pjarvis/xemacs.html
+(http://my.ispchannel.com/~pjarvis/xemacs.html).
 
 
 File: xemacs-faq.info,  Node: Q1.0.12,  Next: Q1.0.13,  Prev: Q1.0.11,  Up: Introduction
@@ -634,7 +628,7 @@ File: xemacs-faq.info,  Node: Q1.0.13,  Next: Q1.0.14,  Prev: Q1.0.12,  Up: Intr
 Q1.0.13: Is there a port of XEmacs to OS/2?
 -------------------------------------------
 
-   No, and there is no news of anyone working on it.
+   No, but Alexander Nikolaev <avn_1251@mail.ru> is working on it.
 
 
 File: xemacs-faq.info,  Node: Q1.0.14,  Next: Q1.1.1,  Prev: Q1.0.13,  Up: Introduction
@@ -781,13 +775,19 @@ crash some time ago.
 
    * Curtis.N.Bingham <binge@aloft.att.com>
 
+   * Georges Brun-Cottan <bruncott@dormeur.inria.fr>
+
    * Richard Caley <rjc@cogsci.ed.ac.uk>
 
    * Richard Cognot <cognot@ensg.u-nancy.fr>
 
+   * Mark Daku <daku@nortel.ca>
+
    * William G. Dubuque <wgd@martigny.ai.mit.edu>
 
    * Eric Eide <eeide@cs.utah.edu>
+
+   * Alain Fauconnet <af@biomath.jussieu.fr>
 
    * Chris Flatters <cflatter@nrao.edu>
 
@@ -1138,7 +1138,7 @@ Q1.4.5: And how do I bind it to a key?
    Or interactively, `M-x global-set-key' and follow the prompts.
 
 
-File: xemacs-faq.info,  Node: Q1.4.6,  Next: Q1.4.7,  Prev: Q1.4.5,  Up: Introduction
+File: xemacs-faq.info,  Node: Q1.4.6,  Prev: Q1.4.5,  Up: Introduction
 
 Q1.4.6: What's the difference between a macro and a function?
 -------------------------------------------------------------
@@ -1161,32 +1161,79 @@ another matter, entirely.  A keyboard macro is a key bound to several
 other keys.  Refer to manual for details.
 
 
-File: xemacs-faq.info,  Node: Q1.4.7,  Prev: Q1.4.6,  Up: Introduction
+File: xemacs-faq.info,  Node: Installation,  Next: Customization,  Prev: Introduction,  Up: Top
 
-Q1.4.7: How come options saved with 19.13 don't work with 19.14 or later?
--------------------------------------------------------------------------
+2 Installation and Trouble Shooting
+***********************************
 
-   There's a problem with options of the form:
+   This is part 2 of the XEmacs Frequently Asked Questions list.  This
+section is devoted to Installation, Maintenance and Trouble Shooting.
 
-     (add-spec-list-to-specifier (face-property 'searchm-field 'font)
-                                 '((global (nil))))
+* Menu:
 
-   saved by a 19.13 XEmacs that causes a 19.14 XEmacs grief.  You must
-delete these options.  XEmacs 19.14 and later no longer write the
-options directly to `.emacs' which should allow us to deal with version
-incompatibilities better in the future.
+Installation:
+* Q2.0.1::      Running XEmacs without installing.
+* Q2.0.2::      XEmacs is too big.
+* Q2.0.3::      Compiling XEmacs with Netaudio.
+* Q2.0.4::      Problems with Linux and ncurses.
+* Q2.0.5::      Do I need X11 to run XEmacs?
+* Q2.0.6::      I'm having strange crashes.  What do I do?
+* Q2.0.7::      Libraries in non-standard locations.
+* Q2.0.8::      can't resolve symbol _h_errno
+* Q2.0.9::      Where do I find external libraries?
+* Q2.0.10::     After I run configure I find a coredump, is something wrong?
+* Q2.0.11::     XEmacs can't resolve host names.
+* Q2.0.12::     Why can't I strip XEmacs?
 
-   Options saved under XEmacs 19.13 are protected by code that
-specifically requires a version 19 XEmacs.  This won't be a problem
-unless you're using XEmacs v20.  You should consider changing the code
-to read:
+Trouble Shooting:
+* Q2.1.1::      XEmacs just crashed on me!
+* Q2.1.2::      Cryptic Minibuffer messages.
+* Q2.1.3::      Translation Table Syntax messages at Startup.
+* Q2.1.4::      Startup warnings about deducing proper fonts?
+* Q2.1.5::      XEmacs cannot connect to my X Terminal.
+* Q2.1.6::      XEmacs just locked up my Linux X server.
+* Q2.1.7::      HP Alt key as Meta.
+* Q2.1.8::      got (wrong-type-argument color-instance-p nil)!
+* Q2.1.9::      XEmacs causes my OpenWindows 3.0 server to crash.
+* Q2.1.10::     Warnings from incorrect key modifiers.
+* Q2.1.11::     Can't instantiate image error... in toolbar
+* Q2.1.12::     Regular Expression Problems on DEC OSF1.
+* Q2.1.13::     HP/UX 10.10 and `create_process' failure
+* Q2.1.14::     C-g doesn't work for me.  Is it broken?
+* Q2.1.15::     How to debug an XEmacs problem with a debugger.
+* Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
+* Q2.1.17::     `Marker does not point anywhere'.
+* Q2.1.18::     [This question intentionally left blank]
+* Q2.1.19::     XEmacs does not follow the local timezone.
+* Q2.1.20::     `Symbol's function definition is void: hkey-help-show.'
+* Q2.1.21::     [This question intentionally left blank]
+* Q2.1.22::     XEmacs seems to take a really long time to do some things.
+* Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 
-     (cond
-      ((and (string-match "XEmacs" emacs-version)
-            (boundp 'emacs-major-version)
-            (or (and (= emacs-major-version 19)
-                     (>= emacs-minor-version 12))
-                (>= emacs-major-version 20)))
-       ...
-       ))
+
+File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
+
+2.0: Installation
+=================
+
+Q2.0.1: Running XEmacs without installing
+-----------------------------------------
+
+   The `INSTALL' file says that up to 108 MB of space is needed
+temporarily during installation!  How can I just try it out?
+
+   XEmacs will run in place without requiring installation and copying
+of the Lisp directories, and without having to specify a special
+build-time flag.  It's the copying of the Lisp directories that
+requires so much space.  XEmacs is largely written in Lisp.
+
+   A good method is to make a shell alias for xemacs:
+
+     alias xemacs=/i/xemacs-20.2/src/xemacs
+
+   (You will obviously use whatever directory you downloaded the source
+tree to instead of `/i/xemacs-20.2').
+
+   This will let you run XEmacs without massive copying.
 

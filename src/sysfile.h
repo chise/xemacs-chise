@@ -203,10 +203,6 @@ Boston, MA 02111-1307, USA.  */
 #define S_ISNWK(m) (((m) & S_IFMT) == S_IFNWK)
 #endif
 
-#if !defined (USG)  && !defined (WINDOWSNT)
-# define HAVE_FSYNC
-#endif
-
 #ifndef MAXPATHLEN
 /* in 4.1, param.h fails to define this. */
 #define MAXPATHLEN 1024

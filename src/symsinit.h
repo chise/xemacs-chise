@@ -293,6 +293,7 @@ void vars_of_font_lock (void);
 void reinit_vars_of_font_lock (void);
 void vars_of_frame_tty (void);
 void vars_of_frame_mswindows (void);
+void reinit_vars_of_frame_mswindows (void);
 void vars_of_frame_x (void);
 void vars_of_frame (void);
 void vars_of_glyphs_x (void);

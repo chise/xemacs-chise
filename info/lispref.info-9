@@ -50,6 +50,92 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Error Symbols,  Prev: Handling Errors,  Up: Errors
+
+Error Symbols and Condition Names
+.................................
+
+   When you signal an error, you specify an "error symbol" to specify
+the kind of error you have in mind.  Each error has one and only one
+error symbol to categorize it.  This is the finest classification of
+errors defined by the XEmacs Lisp language.
+
+   These narrow classifications are grouped into a hierarchy of wider
+classes called "error conditions", identified by "condition names".
+The narrowest such classes belong to the error symbols themselves: each
+error symbol is also a condition name.  There are also condition names
+for more extensive classes, up to the condition name `error' which
+takes in all kinds of errors.  Thus, each error has one or more
+condition names: `error', the error symbol if that is distinct from
+`error', and perhaps some intermediate classifications.
+
+   In other words, each error condition "inherits" from another error
+condition, with `error' sitting at the top of the inheritance hierarchy.
+
+ - Function: define-error error-symbol error-message &optional
+          inherits-from
+     This function defines a new error, denoted by ERROR-SYMBOL.
+     ERROR-MESSAGE is an informative message explaining the error, and
+     will be printed out when an unhandled error occurs.  ERROR-SYMBOL
+     is a sub-error of INHERITS-FROM (which defaults to `error').
+
+     `define-error' internally works by putting on ERROR-SYMBOL an
+     `error-message' property whose value is ERROR-MESSAGE, and an
+     `error-conditions' property that is a list of ERROR-SYMBOL
+     followed by each of its super-errors, up to and including `error'.
+     You will sometimes see code that sets this up directly rather than
+     calling `define-error', but you should _not_ do this yourself,
+     unless you wish to maintain compatibility with FSF Emacs, which
+     does not provide `define-error'.
+
+   Here is how we define a new error symbol, `new-error', that belongs
+to a range of errors called `my-own-errors':
+
+     (define-error 'my-own-errors "A whole range of errors" 'error)
+     (define-error 'new-error "A new error" 'my-own-errors)
+
+`new-error' has three condition names: `new-error', the narrowest
+classification; `my-own-errors', which we imagine is a wider
+classification; and `error', which is the widest of all.
+
+   Note that it is not legal to try to define an error unless its
+super-error is also defined.  For instance, attempting to define
+`new-error' before `my-own-errors' are defined will signal an error.
+
+   The error string should start with a capital letter but it should
+not end with a period.  This is for consistency with the rest of Emacs.
+
+   Naturally, XEmacs will never signal `new-error' on its own; only an
+explicit call to `signal' (*note Signaling Errors::) in your code can
+do this:
+
+     (signal 'new-error '(x y))
+          error--> A new error: x, y
+
+   This error can be handled through any of the three condition names.
+This example handles `new-error' and any other errors in the class
+`my-own-errors':
+
+     (condition-case foo
+         (bar nil t)
+       (my-own-errors nil))
+
+   The significant way that errors are classified is by their condition
+names--the names used to match errors with handlers.  An error symbol
+serves only as a convenient way to specify the intended error message
+and list of condition names.  It would be cumbersome to give `signal' a
+list of condition names rather than one error symbol.
+
+   By contrast, using only error symbols without condition names would
+seriously decrease the power of `condition-case'.  Condition names make
+it possible to categorize errors at various levels of generality when
+you write an error handler.  Using error symbols alone would eliminate
+all but the narrowest level of classification.
+
+   *Note Standard Errors::, for a list of all the standard error symbols
+and their conditions.
+
+
 File: lispref.info,  Node: Cleanups,  Prev: Errors,  Up: Nonlocal Exits
 
 Cleaning Up from Nonlocal Exits
@@ -1125,87 +1211,4 @@ Creating and Deleting Buffer-Local Bindings
 `permanent-local' property that is non-`nil'.  Permanent locals are
 appropriate for data pertaining to where the file came from or how to
 save it, rather than with how to edit the contents.
-
-
-File: lispref.info,  Node: Default Value,  Prev: Creating Buffer-Local,  Up: Buffer-Local Variables
-
-The Default Value of a Buffer-Local Variable
---------------------------------------------
-
-   The global value of a variable with buffer-local bindings is also
-called the "default" value, because it is the value that is in effect
-except when specifically overridden.
-
-   The functions `default-value' and `setq-default' access and change a
-variable's default value regardless of whether the current buffer has a
-buffer-local binding.  For example, you could use `setq-default' to
-change the default setting of `paragraph-start' for most buffers; and
-this would work even when you are in a C or Lisp mode buffer that has a
-buffer-local value for this variable.
-
-   The special forms `defvar' and `defconst' also set the default value
-(if they set the variable at all), rather than any local value.
-
- - Function: default-value symbol
-     This function returns SYMBOL's default value.  This is the value
-     that is seen in buffers that do not have their own values for this
-     variable.  If SYMBOL is not buffer-local, this is equivalent to
-     `symbol-value' (*note Accessing Variables::).
-
- - Function: default-boundp symbol
-     The function `default-boundp' tells you whether SYMBOL's default
-     value is nonvoid.  If `(default-boundp 'foo)' returns `nil', then
-     `(default-value 'foo)' would get an error.
-
-     `default-boundp' is to `default-value' as `boundp' is to
-     `symbol-value'.
-
- - Special Form: setq-default symbol value
-     This sets the default value of SYMBOL to VALUE.  It does not
-     evaluate SYMBOL, but does evaluate VALUE.  The value of the
-     `setq-default' form is VALUE.
-
-     If a SYMBOL is not buffer-local for the current buffer, and is not
-     marked automatically buffer-local, `setq-default' has the same
-     effect as `setq'.  If SYMBOL is buffer-local for the current
-     buffer, then this changes the value that other buffers will see
-     (as long as they don't have a buffer-local value), but not the
-     value that the current buffer sees.
-
-          ;; In buffer `foo':
-          (make-local-variable 'local)
-               => local
-          (setq local 'value-in-foo)
-               => value-in-foo
-          (setq-default local 'new-default)
-               => new-default
-          local
-               => value-in-foo
-          (default-value 'local)
-               => new-default
-          
-          ;; In (the new) buffer `bar':
-          local
-               => new-default
-          (default-value 'local)
-               => new-default
-          (setq local 'another-default)
-               => another-default
-          (default-value 'local)
-               => another-default
-          
-          ;; Back in buffer `foo':
-          local
-               => value-in-foo
-          (default-value 'local)
-               => another-default
-
- - Function: set-default symbol value
-     This function is like `setq-default', except that SYMBOL is
-     evaluated.
-
-          (set-default (car '(a b c)) 23)
-               => 23
-          (default-value 'a)
-               => 23
 

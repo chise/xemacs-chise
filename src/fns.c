@@ -1850,7 +1850,7 @@ int
 plists_differ (Lisp_Object a, Lisp_Object b, int nil_means_not_present,
 	       int laxp, int depth)
 {
-  int eqp = (depth == -1);	/* -1 as depth means us eq, not equal. */
+  int eqp = (depth == -1);	/* -1 as depth means use eq, not equal. */
   int la, lb, m, i, fill;
   Lisp_Object *keys, *vals;
   char *flags;

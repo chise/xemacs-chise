@@ -527,6 +527,10 @@ funcall_compiled_function (Lisp_Object fun, int nargs, Lisp_Object args[])
   }
 
  wrong_number_of_arguments:
+  /* The actual printed compiled_function object is incomprehensible.
+     Check the backtrace to see if we can get a more meaningful symbol. */
+  if (EQ (fun, indirect_function (*backtrace_list->function, 0)))
+    fun = *backtrace_list->function;
   return Fsignal (Qwrong_number_of_arguments, list2 (fun, make_int (nargs)));
 }
 

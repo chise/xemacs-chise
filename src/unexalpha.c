@@ -31,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <stdio.h>
+#include <errno.h>
 #include <varargs.h>
 #include <filehdr.h>
 #include <aouthdr.h>
@@ -53,9 +54,6 @@ static void mark_x (char *);
 	errno = EEOF; \
 	if (lseek (_fd, _position, L_SET) != _position) \
 	  fatal_unexec (_error_message, _error_arg);
-
-extern int errno;
-extern char *strerror ();
 
 void *sbrk();
 

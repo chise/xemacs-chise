@@ -1,3 +1,27 @@
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-15  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xlw.c (lw_update_one_widget): make sure global
+	properties gets set.
+
+2000-01-07  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in (ATHENA_INCLUDE): CPP trickery to make old cpps happy.
+	This extends support for gcc 2.6 (e.g. on BSD/OS 2.0)
+
+	* lwlib.c: Fix up memset calls.
+
+	* lwlib-Xm.c (xm_update_text): Warning suppression.
+	(xm_update_text_field): Warning suppression.
+
+2000-01-03  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_update_one_widget): Emergency fix for this crash:
+	(yes-or-no-p-dialog-box "Yes or No")
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

@@ -696,13 +696,18 @@ int window_half_pixpos (struct window *w);
 void redisplay_echo_area (void);
 void free_display_structs (struct window_mirror *mir);
 void free_display_lines (display_line_dynarr *dla);
-Bufbyte *generate_formatted_string (struct window *w, Lisp_Object format_str,
-                                    Lisp_Object result_str, face_index findex,
-                                    int type);
 void generate_displayable_area (struct window *w, Lisp_Object disp_string,
 				int xpos, int ypos, int width, int height,
 				display_line_dynarr* dl,
 				Bufpos start_pos, face_index default_face);
+/* `generate_title_string' in frame.c needs this */
+void generate_formatted_string_db (Lisp_Object format_str,
+				   Lisp_Object result_str,
+				   struct window *w,
+				   struct display_line *dl,
+				   struct display_block *db,
+				   face_index findex,
+				   int min_pixpos, int max_pixpos, int type);
 int real_current_modeline_height (struct window *w);
 int pixel_to_glyph_translation (struct frame *f, int x_coord,
 				int y_coord, int *col, int *row,

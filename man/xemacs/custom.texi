@@ -1093,9 +1093,9 @@ definitions for the same key.  Or you can change the current buffer's
 local map, which affects all buffers using the same major mode.
 
 @menu
-* Interactive Rebinding::     Changing Key Bindings Interactively   
-* Programmatic Rebinding::    Changing Key Bindings Programmatically
-* Key Bindings Using Strings::Using Strings for Changing Key Bindings 
+* Interactive Rebinding::      Changing Key Bindings Interactively   
+* Programmatic Rebinding::     Changing Key Bindings Programmatically
+* Key Bindings Using Strings:: Using Strings for Changing Key Bindings 
 @end menu
 
 @node Interactive Rebinding

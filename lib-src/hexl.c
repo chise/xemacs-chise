@@ -1,6 +1,6 @@
 /* Synched up with: FSF 19.28. */
 
-#include <../src/config.h>
+#include <config.h>
 
 #include <stdio.h>
 #include <ctype.h>

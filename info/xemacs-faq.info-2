@@ -7,85 +7,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: xemacs-faq.info,  Node: Installation,  Next: Customization,  Prev: Introduction,  Up: Top
-
-2 Installation and Trouble Shooting
-***********************************
-
-   This is part 2 of the XEmacs Frequently Asked Questions list.  This
-section is devoted to Installation, Maintenance and Trouble Shooting.
-
-* Menu:
-
-Installation:
-* Q2.0.1::      Running XEmacs without installing.
-* Q2.0.2::      XEmacs is too big.
-* Q2.0.3::      Compiling XEmacs with Netaudio.
-* Q2.0.4::      Problems with Linux and ncurses.
-* Q2.0.5::      Do I need X11 to run XEmacs?
-* Q2.0.6::      I'm having strange crashes.  What do I do?
-* Q2.0.7::      Libraries in non-standard locations.
-* Q2.0.8::      can't resolve symbol _h_errno
-* Q2.0.9::      Where do I find external libraries?
-* Q2.0.10::     After I run configure I find a coredump, is something wrong?
-* Q2.0.11::     XEmacs can't resolve host names.
-* Q2.0.12::     Why can't I strip XEmacs?
-* Q2.0.13::     Can't link XEmacs on Solaris with Gcc.
-* Q2.0.14::     Make on HP/UX 9 fails after linking temacs
-
-Trouble Shooting:
-* Q2.1.1::      XEmacs just crashed on me!
-* Q2.1.2::      Cryptic Minibuffer messages.
-* Q2.1.3::      Translation Table Syntax messages at Startup.
-* Q2.1.4::      Startup warnings about deducing proper fonts?
-* Q2.1.5::      XEmacs cannot connect to my X Terminal.
-* Q2.1.6::      XEmacs just locked up my Linux X server.
-* Q2.1.7::      HP Alt key as Meta.
-* Q2.1.8::      got (wrong-type-argument color-instance-p nil)!
-* Q2.1.9::      XEmacs causes my OpenWindows 3.0 server to crash.
-* Q2.1.10::     Warnings from incorrect key modifiers.
-* Q2.1.11::     Can't instantiate image error... in toolbar
-* Q2.1.12::     Regular Expression Problems on DEC OSF1.
-* Q2.1.13::     HP/UX 10.10 and `create_process' failure
-* Q2.1.14::     C-g doesn't work for me.  Is it broken?
-* Q2.1.15::     How to debug an XEmacs problem with a debugger.
-* Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
-* Q2.1.17::     `Marker does not point anywhere'.
-* Q2.1.18::     19.14 hangs on HP/UX 10.10.
-* Q2.1.19::     XEmacs does not follow the local timezone.
-* Q2.1.20::     `Symbol's function definition is void: hkey-help-show.'
-* Q2.1.21::     Every so often the XEmacs frame freezes.
-* Q2.1.22::     XEmacs seems to take a really long time to do some things.
-* Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
-* Q2.1.24::     XEmacs won't start without network. (NEW)
-
-
-File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
-
-2.0: Installation
-=================
-
-Q2.0.1: Running XEmacs without installing
------------------------------------------
-
-   The `INSTALL' file says that up to 108 MB of space is needed
-temporarily during installation!  How can I just try it out?
-
-   XEmacs will run in place without requiring installation and copying
-of the Lisp directories, and without having to specify a special
-build-time flag.  It's the copying of the Lisp directories that
-requires so much space.  XEmacs is largely written in Lisp.
-
-   A good method is to make a shell alias for xemacs:
-
-     alias xemacs=/i/xemacs-20.2/src/xemacs
-
-   (You will obviously use whatever directory you downloaded the source
-tree to instead of `/i/xemacs-20.2').
-
-   This will let you run XEmacs without massive copying.
-
-
 File: xemacs-faq.info,  Node: Q2.0.2,  Next: Q2.0.3,  Prev: Q2.0.1,  Up: Installation
 
 Q2.0.2: XEmacs is too big
@@ -464,7 +385,7 @@ that stock SunOS systems do not ship with DNS resolver code in libc.
      then proceed to link against the DNS resolver library code.
 
 
-File: xemacs-faq.info,  Node: Q2.0.12,  Next: Q2.0.13,  Prev: Q2.0.11,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.0.12,  Next: Q2.1.1,  Prev: Q2.0.11,  Up: Installation
 
 Q2.0.12: Why can't I strip XEmacs?
 ----------------------------------
@@ -507,44 +428,7 @@ Q2.0.12: Why can't I strip XEmacs?
           /usr/local/lib/xemacs-19.16/i586-unknown-linuxaout
 
 
-File: xemacs-faq.info,  Node: Q2.0.13,  Next: Q2.0.14,  Prev: Q2.0.12,  Up: Installation
-
-Q2.0.13: Problems linking with Gcc on Solaris
----------------------------------------------
-
-   There are known difficulties linking with Gnu ld on Solaris.  A
-typical error message might look like:
-
-     unexec(): dlopen(../dynodump/dynodump.so): ld.so.1: ./temacs:
-     fatal: relocation error:
-     symbol not found: main: referenced in ../dynodump/dynodump.so
-
-   Martin Buchholz <martin@xemacs.org> writes:
-
-     You need to specify `-fno-gnu-linker' as part of your flags to pass
-     to ld.  Future releases of XEmacs will try to do this
-     automatically.
-
-
-File: xemacs-faq.info,  Node: Q2.0.14,  Next: Q2.1.1,  Prev: Q2.0.13,  Up: Installation
-
-Q2.0.14: Make on HP/UX 9 fails after linking temacs
----------------------------------------------------
-
-   Problem when building xemacs-19.16 on hpux 9:
-
-   Richard Cognot <cognot@ensg.u-nancy.fr> writes:
-
-     make on hpux fails after linking temacs with a message:
-
-          "make: don't know how to make .y."
-
-     Solution: This is a problem with HP make revision 70.X.  Either
-     use GNU make, or install PHCO_6552, which will bring make to
-     revision 72.24.1.17.
-
-
-File: xemacs-faq.info,  Node: Q2.1.1,  Next: Q2.1.2,  Prev: Q2.0.14,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.1.1,  Next: Q2.1.2,  Prev: Q2.0.12,  Up: Installation
 
 2.1: Trouble Shooting
 =====================
@@ -971,17 +855,55 @@ debugger.  Here are some hints:
      you've got is a core dump, all is not lost.
 
      If you're using GDB, there are some macros in the file
-     `src/gdbinit' in the XEmacs source distribution that should make it
-     easier for you to decode Lisp objects.  Copy this file to
-     `~/.gdbinit', or `source' it from `~/.gdbinit', and use the macros
-     defined therein.  In particular, use the `pobj' macro to print the
-     internal C representation of a lisp object.  This will work with a
-     core file or not-yet-run executable.  The aliases `ldp' and `lbt'
-     are provided for conveniently calling `debug_print' and
-     `debug_backtrace'.
+     `src/.gdbinit' in the XEmacs source distribution that should make
+     it easier for you to decode Lisp objects.  This file is
+     automatically read by gdb if gdb is run in the directory where
+     xemacs was built, and contains these useful macros to inspect the
+     state of xemacs:
+
+    `pobj'
+          Usage: pobj lisp_object
+          Print the internal C representation of a lisp object.
+
+    `xtype'
+          Usage: xtype lisp_object
+          Print the Lisp type of a lisp object.
+
+    `lbt'
+          Usage: lbt
+          Print the current Lisp stack trace.  Requires a running
+          xemacs process.
+
+    `ldp'
+          Usage: ldp lisp_object
+          Print a Lisp Object value using the Lisp printer.  Requires a
+          running xemacs process.
+
+    `run-temacs'
+          Usage: run-temacs
+          Run temacs interactively, like xemacs.  Use this with
+          debugging tools (like purify) that cannot deal with dumping,
+          or when temacs builds successfully, but xemacs does not.
+
+    `dump-temacs'
+          Usage: dump-temacs
+          Run the dumping part of the build procedure.  Use when
+          debugging temacs, not xemacs!  Use this when temacs builds
+          successfully, but xemacs does not.
+
+    `check-xemacs'
+          Usage: check-xemacs
+          Run the test suite.  Equivalent to 'make check'.
+
+    `check-temacs'
+          Usage: check-temacs
+          Run the test suite on temacs.  Equivalent to 'make
+          check-temacs'.  Use this with debugging tools (like purify)
+          that cannot deal with dumping, or when temacs builds
+          successfully, but xemacs does not.
 
      If you are using Sun's `dbx' debugger, there is an equivalent file
-     `src/dbxrc' to copy to or source from `~/.dbxrc'.
+     `src/.dbxrc', which defines the same commands for dbx.
 
    * If you're using a debugger to get a C stack backtrace and you're
      seeing stack traces with some of the innermost frames mangled, it
@@ -1026,13 +948,12 @@ debugger.  Here are some hints:
 
 
    * If you compile with the newer gcc variants gcc-2.8 or egcs, you
-     will also need gdb 4.17.  Earlier releases of gdb can't handle the
-     debug information generated by the newer compilers.
+     will also need gdb 4.17 or above.  Earlier releases of gdb can't
+     handle the debug information generated by the newer compilers.
 
-   * The above information on using `src/gdbinit' works for XEmacs-21.0
-     and above.  For older versions of XEmacs, there are different
-     `gdbinit' files provided in the `src' directory.  Use the one
-     corresponding to the configure options used when building XEmacs.
+   * In versions of XEmacs before 21.2.27, `src/.gdbinit' was named
+     `src/gdbinit'.  This had the disadvantage of not being sourced
+     automatically by gdb, so you had to set that up yourself.
 
 
 
@@ -1079,44 +1000,8 @@ reported (and fixed).
 
 File: xemacs-faq.info,  Node: Q2.1.18,  Next: Q2.1.19,  Prev: Q2.1.17,  Up: Installation
 
-Q2.1.18: 19.14 hangs on HP/UX 10.10.
-------------------------------------
-
-   Richard Cognot <cognot@ensg.u-nancy.fr> writes:
-
-     For the record, compiling on hpux 10.10 leads to a hang in Gnus
-     when compiled with optimization on.
-
-     I've just discovered that my hpux 10.01 binary was working less
-     well than expected. In fact, on a 10.10 system, `(while t)' was not
-     interrupted by `C-g'. I defined `BROKEN_SIGIO' and recompiled on
-     10.10, and... the hang is now gone.
-
-     As far as configure goes, this will be a bit tricky: `BROKEN_SIGIO'
-     is needed on 10.10, but *not* on 10.01: if I run my 10.01 binary
-     on a 10.01 machine, without `BROKEN_SIGIO' being defined, `C-g'
-     works as expected.
-
-   Richard Cognot <cognot@ensg.u-nancy.fr> adds:
-
-     Apparently somebody has found the reason why there is this `poll:
-     interrupted...' message for each event.  For some reason, libcurses
-     reimplements a `select()' system call, in a highly broken fashion.
-     The fix is to add a -lc to the link line _before_ the -lxcurses.
-     XEmacs will then use the right version of `select()'.
-
-   Alain Fauconnet <af@biomath.jussieu.fr> writes:
-
-     The _real_ solution is to _not_ link -lcurses in!  I just changed
-     -lcurses to -ltermcap in the Makefile and it fixed:
-
-       1. The `poll: interrupted system call' message.
-
-       2. A more serious problem I had discovered in the meantime, that
-          is the fact that subprocess handling was seriously broken:
-          subprocesses e.g. started by AUC TeX for TeX compilation of a
-          buffer would _hang_.  Actually they would wait forever for
-          emacs to read the socket which connects stdout...
+Q2.1.18: removed
+----------------
 
 
 File: xemacs-faq.info,  Node: Q2.1.19,  Next: Q2.1.20,  Prev: Q2.1.18,  Up: Installation
@@ -1148,11 +1033,8 @@ Q2.1.20: `Symbol's function definition is void: hkey-help-show.'
 
 File: xemacs-faq.info,  Node: Q2.1.21,  Next: Q2.1.22,  Prev: Q2.1.20,  Up: Installation
 
-Q2.1.21: Every so often the XEmacs frame freezes
-------------------------------------------------
-
-   This problem has been fixed in 19.15, and was due to a not easily
-reproducible race condition.
+Q2.1.21: [This question intentionally left blank]
+-------------------------------------------------
 
 
 File: xemacs-faq.info,  Node: Q2.1.22,  Next: Q2.1.23,  Prev: Q2.1.21,  Up: Installation
@@ -1222,4 +1104,174 @@ not on the network, you may be missing a "localhost" entry in your
      127.0.0.1        localhost
 
    Add that line, and XEmacs will be happy.
+
+
+File: xemacs-faq.info,  Node: Customization,  Next: Subsystems,  Prev: Installation,  Up: Top
+
+3 Customization and Options
+***************************
+
+   This is part 3 of the XEmacs Frequently Asked Questions list.  This
+section is devoted to Customization and screen settings.
+
+* Menu:
+
+Customization---Emacs Lisp and `.emacs':
+* Q3.0.1::      What version of Emacs am I running?
+* Q3.0.2::      How do I evaluate Elisp expressions?
+* Q3.0.3::      `(setq tab-width 6)' behaves oddly.
+* Q3.0.4::      How can I add directories to the `load-path'?
+* Q3.0.5::      How to check if a lisp function is defined?
+* Q3.0.6::      Can I force the output of `(face-list)' to a buffer?
+* Q3.0.7::      Font selections don't get saved after `Save Options'.
+* Q3.0.8::      How do I make a single minibuffer frame?
+* Q3.0.9::      What is `Customize'?
+
+X Window System & Resources:
+* Q3.1.1::      Where is a list of X resources?
+* Q3.1.2::      How can I detect a color display?
+* Q3.1.3::      [This question intentionally left blank]
+* Q3.1.4::      [This question intentionally left blank]
+* Q3.1.5::      How can I get the icon to just say `XEmacs'?
+* Q3.1.6::      How can I have the window title area display the full path?
+* Q3.1.7::      `xemacs -name junk' doesn't work?
+* Q3.1.8::      `-iconic' doesn't work.
+
+Textual Fonts & Colors:
+* Q3.2.1::      How can I set color options from `.emacs'?
+* Q3.2.2::      How do I set the text, menu and modeline fonts?
+* Q3.2.3::      How can I set the colors when highlighting a region?
+* Q3.2.4::      How can I limit color map usage?
+* Q3.2.5::      My tty supports color, but XEmacs doesn't use them.
+* Q3.2.6::      Can I have pixmap backgrounds in XEmacs?
+
+The Modeline:
+* Q3.3.1::      How can I make the modeline go away?
+* Q3.3.2::      How do you have XEmacs display the line number in the modeline?
+* Q3.3.3::      How do I get XEmacs to put the time of day on the modeline?
+* Q3.3.4::      How do I turn off current chapter from AUC TeX modeline?
+* Q3.3.5::      How can one change the modeline color based on the mode used?
+
+3.4 Multiple Device Support:
+* Q3.4.1::      How do I open a frame on another screen of my multi-headed display?
+* Q3.4.2::      Can I really connect to a running XEmacs after calling up over a modem?  How?
+
+3.5 The Keyboard:
+* Q3.5.1::      How can I bind complex functions (or macros) to keys?
+* Q3.5.2::      How can I stop down-arrow from adding empty lines to the bottom of my buffers?
+* Q3.5.3::      How do I bind C-. and C-; to scroll one line up and down?
+* Q3.5.4::      Globally binding Delete?
+* Q3.5.5::      Scrolling one line at a time.
+* Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
+* Q3.5.7::      How can you type in special characters in XEmacs?
+* Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
+* Q3.5.9::      How do I make the Delete key delete forward?
+* Q3.5.10::     Can I turn on "sticky" modifier keys?
+* Q3.5.11::     How do I map the arrow keys?
+
+The Cursor:
+* Q3.6.1::      Is there a way to make the bar cursor thicker?
+* Q3.6.2::      Is there a way to get back the old block cursor where the cursor covers the character in front of the point?
+* Q3.6.3::      Can I make the cursor blink?
+
+The Mouse and Highlighting:
+* Q3.7.1::      How can I turn off Mouse pasting?
+* Q3.7.2::      How do I set control/meta/etc modifiers on mouse buttons?
+* Q3.7.3::      Clicking the left button does not do anything in buffer list.
+* Q3.7.4::      How can I get a list of buffers when I hit mouse button 3?
+* Q3.7.5::      Why does cut-and-paste not work between XEmacs and a cmdtool?
+* Q3.7.6::      How I can set XEmacs up so that it pastes where the text cursor is?
+* Q3.7.7::      How do I select a rectangular region?
+* Q3.7.8::      Why does M-w take so long?
+
+The Menubar and Toolbar:
+* Q3.8.1::      How do I get rid of the menu (or menubar)?
+* Q3.8.2::      Can I customize the basic menubar?
+* Q3.8.3::      How do I control how many buffers are listed in the menu `Buffers' list?
+* Q3.8.4::      Resources like `Emacs*menubar*font' are not working?
+* Q3.8.5::      How can I bind a key to a function to toggle the toolbar?
+
+Scrollbars:
+* Q3.9.1::      How can I disable the scrollbar?
+* Q3.9.2::      How can one use resources to change scrollbar colors?
+* Q3.9.3::      Moving the scrollbar can move the point; can I disable this?
+* Q3.9.4::      How can I get automatic horizontal scrolling?
+
+Text Selections:
+* Q3.10.1::     How can I turn off or change highlighted selections?
+* Q3.10.2::     How do I get that typing on an active region removes it?
+* Q3.10.3::     Can I turn off the highlight during isearch?
+* Q3.10.4::     How do I turn off highlighting after C-x C-p (mark-page)?
+* Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
+
+
+File: xemacs-faq.info,  Node: Q3.0.1,  Next: Q3.0.2,  Prev: Customization,  Up: Customization
+
+3.0: Customization - Emacs Lisp and .emacs
+==========================================
+
+Q3.0.1: What version of Emacs am I running?
+-------------------------------------------
+
+   How can `.emacs' determine which of the family of Emacsen I am using?
+
+   To determine if you are currently running GNU Emacs 18, GNU Emacs 19,
+XEmacs 19, XEmacs 20, or Epoch, and use appropriate code, check out the
+example given in `etc/sample.emacs'.  There are other nifty things in
+there as well!
+
+   For all new code, all you really need to do is:
+
+     (defvar running-xemacs (string-match "XEmacs\\|Lucid" emacs-version))
+
+
+File: xemacs-faq.info,  Node: Q3.0.2,  Next: Q3.0.3,  Prev: Q3.0.1,  Up: Customization
+
+Q3.0.2: How can I evaluate Emacs-Lisp expressions?
+--------------------------------------------------
+
+   I know I can evaluate Elisp expressions from `*scratch*' buffer with
+`C-j' after the expression.  How do I do it from another buffer?
+
+   Press `M-:' (the default binding of `eval-expression'), and enter
+the expression to the minibuffer.  In XEmacs prior to 19.15
+`eval-expression' used to be a disabled command by default.  If this is
+the case, upgrade your XEmacs.
+
+
+File: xemacs-faq.info,  Node: Q3.0.3,  Next: Q3.0.4,  Prev: Q3.0.2,  Up: Customization
+
+Q3.0.3: `(setq tab-width 6)' behaves oddly.
+-------------------------------------------
+
+   If you put `(setq tab-width 6)' in your `.emacs' file it does not
+work!  Is there a reason for this?  If you do it at the EVAL prompt it
+works fine!! How strange.
+
+   Use `setq-default' instead, since `tab-width' is all-buffer-local.
+
+
+File: xemacs-faq.info,  Node: Q3.0.4,  Next: Q3.0.5,  Prev: Q3.0.3,  Up: Customization
+
+Q3.0.4: How can I add directories to the `load-path'?
+-----------------------------------------------------
+
+   Here are two ways to do that, one that puts your directories at the
+front of the load-path, the other at the end:
+
+     ;;; Add things at the beginning of the load-path, do not add
+     ;;; duplicate directories:
+     (pushnew "bar" load-path :test 'equal)
+     
+     (pushnew "foo" load-path :test 'equal)
+     
+     ;;; Add things at the end, unconditionally
+     (setq load-path (nconc load-path '("foo" "bar")))
+
+   keith (k.p.) hanlan <keithh@nortel.ca> writes:
+
+     To add directories using Unix shell metacharacters use
+     `expand-file-name' like this:
+
+          (push (expand-file-name "~keithh/.emacsdir") load-path)
 

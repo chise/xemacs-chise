@@ -40,6 +40,11 @@ customized through the options menu."
 	   (set-specifier default-gutter-visible-p val)
 	   (setq gutter-visible-p val)))
 
+(defvar gutter-buffers-tab nil
+  "A tab widget in the gutter for displaying buffers.
+Do not set this. Use `glyph-image-instance' and
+`set-image-instance-property' to change the properties of the tab.")
+
 (defcustom default-gutter-position
   (default-gutter-position)
   "The location of the default gutter. It can be 'top, 'bottom, 'left or
@@ -51,7 +56,8 @@ customized through the options menu."
 		 (const :tag "right" 'right))
   :set #'(lambda (var val)
 	   (set-default-gutter-position val)
-	   (setq default-gutter-position val)))
+	   (setq default-gutter-position val)
+	   (when gutter-buffers-tab (update-tab-in-gutter))))
 
 ;;; The Buffers tab
 
@@ -59,10 +65,10 @@ customized through the options menu."
   "Customization of `Buffers' tab."
   :group 'gutter)
 
-(defvar gutter-buffers-tab nil
-  "A tab widget in the gutter for displaying buffers.
-Do not set this. Use `glyph-image-instance' and
-`set-image-instance-property' to change the properties of the tab.")
+(defvar gutter-buffers-tab-orientation 'top
+  "Where the buffers tab currently is. Do not set this.")
+
+(defvar gutter-buffers-tab-extent nil)
 
 (defcustom buffers-tab-max-size 6
   "*Maximum number of entries which may appear on the \"Buffers\" tab.
@@ -102,7 +108,10 @@ by `buffers-tab-grouping-regexp'."
 		 function)
   :group 'buffers-tab)
 
-(defcustom buffers-tab-face 'default
+(make-face 'buffers-tab "Face for displaying the buffers tab.")
+(set-face-parent 'buffers-tab 'default)
+
+(defcustom buffers-tab-face 'buffers-tab
   "*Face to use for displaying the buffers tab."
   :type 'face
   :group 'buffers-tab)
@@ -227,25 +236,51 @@ items by redefining the function `format-buffers-menu-line'."
 
 (defun add-tab-to-gutter ()
   "Put a tab control in the gutter area to hold the most recent buffers."
+  (setq gutter-buffers-tab-orientation (default-gutter-position))
   (let ((gutter-string ""))
+    (unless gutter-buffers-tab-extent
+      (setq gutter-buffers-tab-extent (make-extent 0 0 gutter-string)))
     (set-extent-begin-glyph 
-     (make-extent 0 0 gutter-string)
+     gutter-buffers-tab-extent
      (setq gutter-buffers-tab 
 	   (make-glyph 
 	    (vector 'tab-control :descriptor "Buffers" :face buffers-tab-face
+		    :orientation gutter-buffers-tab-orientation
 		    :properties (list :items (buffers-tab-items))))))
     ;; This looks better than a 3d border
     (mapcar '(lambda (x)
 	       (when (valid-image-instantiator-format-p 'tab-control x)
 		 (set-specifier default-gutter-border-width 0 'global x)
-		 (set-specifier default-gutter gutter-string 'global x)))
+		 (set-specifier top-gutter nil 'global x)
+		 (set-specifier bottom-gutter nil 'global x)
+		 (set-specifier left-gutter nil 'global x)
+		 (set-specifier right-gutter nil 'global x)
+		 (set-specifier left-gutter-width 0 'global x)
+		 (set-specifier right-gutter-width 0 'global x)
+		 (cond ((eq gutter-buffers-tab-orientation 'top)
+			(set-specifier top-gutter gutter-string 'global x))
+		       ((eq gutter-buffers-tab-orientation 'bottom)
+			(set-specifier bottom-gutter gutter-string 'global x))
+		       ((eq gutter-buffers-tab-orientation 'left)
+			(set-specifier left-gutter gutter-string 'global x)
+			(set-specifier left-gutter-width
+				       (glyph-width gutter-buffers-tab)
+				       'global x))
+		       ((eq gutter-buffers-tab-orientation 'right)
+			(set-specifier right-gutter gutter-string 'global x)
+			(set-specifier right-gutter-width
+				       (glyph-width gutter-buffers-tab)
+				       'global x))
+		       )))
 	    (console-type-list))))
 
 (defun update-tab-in-gutter (&optional frame-or-buffer)
   "Update the tab control in the gutter area."
   (let ((locale (if (framep frame-or-buffer) frame-or-buffer)))
     (when (specifier-instance default-gutter-visible-p locale)
-      (unless gutter-buffers-tab 
+      (unless (and gutter-buffers-tab 
+		   (eq (default-gutter-position)
+		       gutter-buffers-tab-orientation))
 	(add-tab-to-gutter))
       (when (valid-image-instantiator-format-p 'tab-control)
 	(let ((inst (glyph-image-instance 
@@ -254,9 +289,7 @@ items by redefining the function `format-buffers-menu-line'."
 		       (last-nonminibuf-window frame-or-buffer)))))
 	  (set-image-instance-property inst :items 
 				       (buffers-tab-items 
-					nil locale))
-	  (resize-subwindow inst (gutter-pixel-width) nil))
-	))))
+					nil locale)))))))
 
 (defun remove-buffer-from-gutter-tab ()
   "Remove the current buffer from the tab control in the gutter area."
@@ -268,9 +301,7 @@ items by redefining the function `format-buffers-menu-line'."
 	(setq buffers (build-buffers-tab-internal 
 		       (list 
 			(get-buffer-create "*scratch*")))))
-      (set-image-instance-property inst :items buffers)
-      (resize-subwindow inst (gutter-pixel-width) nil)
-      )))
+      (set-image-instance-property inst :items buffers))))
 
 (add-hook 'kill-buffer-hook 'remove-buffer-from-gutter-tab)
 (add-hook 'create-frame-hook 'update-tab-in-gutter)
