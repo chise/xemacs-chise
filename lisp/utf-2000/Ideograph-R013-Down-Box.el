@@ -1425,7 +1425,7 @@
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
-     daikanwa=14301 jisx0208/c cns11643-6 ucs)
+     daikanwa jisx0208/c cns11643-6 ucs)
     (ideographic-radical@shinjigen . 29)	; ⼜
     (ideographic-strokes@shinjigen . 10)
     (ideographic-radical@shinjigen*sources
