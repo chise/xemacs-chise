@@ -18,12 +18,14 @@
 (define-char
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
-    (japanese-strokes	 . 1)
     (total-strokes	 . 5)
+    (shinjigen-1	. 4872)
     (=ucs		. #x738A)	; 玊
     (=cns11643-2	. #x2166)	; &I-C2-2166; [01-70]
     (=jis-x0213-2-2000	. #x705A)	; &I-JX2-705A; [80-58]
     (=big5		. #xC9A7)	; &I-B-C9A7;
+    (=gt		. 26659)	; &I-GT-26659;
+    (=gt-pj-4		. #x6D73)	; &I-GT-26659; [77-83]
     (=daikanwa		. 20822)	; &I-M-20822;
     ))
 (define-char
@@ -46,8 +48,17 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7389)	; 玉
+      (=daikanwa	  . 20821)	; &I-M-20821;
+      ))
+    (<-ideographic-component-forms*sources
+     zihui/char-index daikanwa)
+    (shinjigen-1	. 4874)
     (=ucs		. #x248E9)	; 𤣩
     (=cns11643-5	. #x214C)	; &I-C5-214C; [01-44]
+    (=gt		. 26658)	; &I-GT-26658;
+    (=gt-pj-4		. #x6D74)	; &I-GT-26658; [77-84]
     (=daikanwa		. 20824)	; &I-M-20824;
     ))
 (define-char
