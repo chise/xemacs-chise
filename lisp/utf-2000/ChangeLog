@@ -1,3 +1,9 @@
+2003-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U-0002123D): New character.
+	(U-0002131B): New character.
+	(U-0002146E): New character.
+
 2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R032-Earth.el (M-05344): Delete J83-444D, J90-444D,
