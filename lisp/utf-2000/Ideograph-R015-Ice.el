@@ -159,7 +159,7 @@
     (ucs		. #x51B0)	; å†°
     ))
 (define-char
-  '((=>ucs		. #x4ECC)	; ä»Œ
+  '((=>ucs*		. #x4ECC)	; ä»Œ
     (morohashi-daikanwa	1612 0 7)
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 2)
@@ -170,10 +170,9 @@
       (ideograph-daikanwa . 00360)	; ø¸€…¨
       ))
     (<-original-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 01612)	; ø¸€™Œ
+     (:char	((ideograph-daikanwa . 01612)	; ø¸€™Œ
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -183,6 +182,7 @@
      ((ucs		  . #x4EBA)	; äºº
       ))
     (chinese-cns11643-4 . #x213F)	; ø»—¡†
+    (ucs		. #x2F819)	; ð¯ ™
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž

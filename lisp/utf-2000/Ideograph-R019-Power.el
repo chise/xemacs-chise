@@ -2626,27 +2626,26 @@
     ))
 (define-char
   '((script		JP-Jouyou Ideograph)
-    (=>ucs		. #x52E4)	; å‹¤
+    (=>ucs*		. #x52E4)	; å‹¤
     (morohashi-daikanwa	2415 1)
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (<-simplified-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 02424)	; ø¸€¥¸
+     (:char	((ideograph-daikanwa . 02424)	; ø¸€¥¸
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 744)
+     (:char	((shinjigen-1	     . 744)
 		 (ideograph-daikanwa . 02424)	; ø¸€¥¸
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (shinjigen-1	. 743)
     (shinjigen-2	. 743)
     (=jis-x0208		. #x3650)	; ø½Š•¡
     (chinese-cns11643-4 . #x364C)	; ø»˜€‰
-    (ucs-jis		. #x52E4)	; ø½Š•¡
+    (ucs-jis		. #x52E4)	; ð¯ §
+    (ucs		. #x2F827)	; ð¯ §
     ))
 (define-char
   '((=>ucs		. #x52DF)	; å‹Ÿ
