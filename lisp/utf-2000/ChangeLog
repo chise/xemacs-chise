@@ -1,4 +1,25 @@
+2004-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U+6B54): Changed to an abstract
+	character.
+	(J0-5D41): Use `<-denotational' for U+6B54; use `->subsumptive' to
+	integrate C2-576A.
+	(EGB-2E55): Use `<-denotational' for U+6B54; use `->subsumptive'
+	to integrate C7-2378.
+	(C7-2378): Unify U-0002F8F1.
+
 2004-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (M-04033): Moved into U+55C0.
+	(U+55C0): Use `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (J0-405A): Moved into U+5207.
+	(U+5207): Use `->subsumptive'.
+	(S1-0597): Use `<-denotational' for U+5207; use `<-wrong*sources'
+	instead of char-ref in `<-wrong'.
+	(M-02103): Moved into U-00020771; use `<-wrong*sources' instead of
+	char-ref in `<-wrong'.
+	(U-00020771): Use `->subsumptive'.
 
 	* Ideograph-R134-Mortar.el (U-0002695B): Use `<-wrong*sources'
 	instead of char-ref in `<-wrong'.
