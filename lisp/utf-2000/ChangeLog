@@ -1,5 +1,9 @@
 2003-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el: Add some `total-strokes'.
+
+	* Ideograph-R051-Dry.el (U+9878): Add `total-strokes'.
+
 	* Ideograph-R030-Mouth.el (JX1-2F2C): Unify U+FA36 instead of
 	U+559D.
 	(JX1-2F2F): Unify U+FA37 instead of U+5606.
