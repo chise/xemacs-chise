@@ -1,4 +1,18 @@
+2002-11-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JSP-to-UCS.txt (JSP-382A): Add mapping for U-0002F856.
+
+	* J90-to-UCS.txt: Add some mappings for CJK Compatibility
+	Ideographs Supplement.
+
+2002-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-45A1): Map to U-0002F828 instead of U+52FA.
+	(JC3-4AB8): Map to U-0002F86D instead of U+5BC3.
+
 2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* C4-to-UCS.txt: New file.
 
 	* JX2-to-UCS.txt (JX2-6E4F): Add mapping for U-0002F8FE.
 	(JX2-6E65): Add mapping for U-0002F907.
