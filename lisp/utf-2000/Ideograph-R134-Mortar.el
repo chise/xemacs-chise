@@ -923,11 +923,18 @@
     (ideograph-daikanwa . 30255)	; ø¸‡˜¯
     ))
 (define-char
-  '((morohashi-daikanwa	30255 0 9)
+  '((=>ucs		. #x820B)	; èˆ‹
+    (morohashi-daikanwa	30255 0 4)
     (ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (chinese-cns11643-2 . #x664D)	; ø»”²¢
+    ))
+(define-char
+  '((morohashi-daikanwa	30255 0 5)
+    (ideographic-radical . 134)	; â¾…
+    (ideographic-strokes . 13)
+    (total-strokes	 . 20)
     (ucs		. #x820B)	; èˆ‹
     ))
 (define-char
