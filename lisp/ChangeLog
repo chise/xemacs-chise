@@ -1,7 +1,19 @@
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "ccs-jisx0208-1983.el"
+	in UTF-2000.
+
 1999-10-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`japanese-jisx0208'.
+
+1999-10-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"ccs-jisx0201-latin.el", "ccs-iso8859-2.el", "ccs-iso8859-3.el",
+	"ccs-iso8859-4.el", "ccs-iso8859-9.el" and "ccs-viscii.el" in
+	UTF-2000.
 
 	* mule/ccs-iso8859-2.el, mule/ccs-iso8859-3.el,
 	mule/ccs-iso8859-4.el, mule/ccs-iso8859-9.el,
