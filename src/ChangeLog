@@ -1,3 +1,13 @@
+2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_composition): Use DECODE_CHAR to get
+	character corresponding with UCS code point.
+	(Fput_char_attribute): Likewise.
+
+	* mule-charset.c (put_char_ccs_code_point): Don't omit a UCS
+	character in the UCS decoding-table if the char-id is not equal to
+	the UCS code point.
+
 2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fsave_charset_properties): Use `true-name' only
