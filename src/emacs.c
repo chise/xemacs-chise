@@ -181,6 +181,10 @@ version 18.59 released October 31, 1992.
 #include "sysfile.h"
 #include "systime.h"
 
+#ifdef CYGWIN
+#include "syswindows.h"
+#endif
+
 #ifdef PDUMP
 #include "dumper.h"
 #endif
@@ -2911,7 +2915,8 @@ voodoo_free_hook (void *mem)
   /* Disable all calls to free() when XEmacs is exiting and it doesn't */
   /* matter. */
   __free_hook =
-#ifdef __GNUC__ /* prototype of __free_hook varies with glibc version */
+#if defined __GNUC__ || defined __INTEL_COMPILER
+/* prototype of __free_hook varies with glibc version */
     (__typeof__ (__free_hook))
 #endif
     voodoo_free_hook;
@@ -2985,7 +2990,8 @@ all of which are called before XEmacs is actually killed.
 
 #if defined(GNU_MALLOC)
   __free_hook =
-#ifdef __GNUC__ /* prototype of __free_hook varies with glibc version */
+#if defined __GNUC__ || defined __INTEL_COMPILER
+/* prototype of __free_hook varies with glibc version */
     (__typeof__ (__free_hook))
 #endif
     voodoo_free_hook;

@@ -7081,7 +7081,7 @@ EOF
     fi
 
     install_pp="$blddir/lib-src/installexe.sh"
-    libs_system="$libs_system -lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool" &&  if test "$extra_verbose" = "yes"; then echo "    Appending \"-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool\" to \$libs_system"; fi
+    libs_system="$libs_system -lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lkernel32 -lwinspool" &&  if test "$extra_verbose" = "yes"; then echo "    Appending \"-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lkernel32 -lwinspool\" to \$libs_system"; fi
     test "$with_dragndrop" != no && dragndrop_proto="$dragndrop_proto msw" &&  if test "$extra_verbose" = "yes"; then echo "    Appending \"msw\" to \$dragndrop_proto"; fi
     if test "$window_system" != x11; then
  	window_system=msw

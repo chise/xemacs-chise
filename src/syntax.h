@@ -1,6 +1,6 @@
 /* Declarations having to do with XEmacs syntax tables.
    Copyright (C) 1985, 1992, 1993 Free Software Foundation, Inc.
-   Copyright (C) 2001 MORIOKA Tomohiko
+   Copyright (C) 2001,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -79,8 +79,9 @@ enum syntaxcode charset_syntax (struct buffer *buf, Lisp_Object charset,
 /* Return the syntax code for a particular character and mirror table. */
 
 #ifdef UTF2000
-INLINE_HEADER int SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c);
-INLINE_HEADER int
+INLINE_HEADER enum syntaxcode
+SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER enum syntaxcode
 SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
 {
   int code = CHAR_TABLE_VALUE_UNSAFE (table, c);
@@ -103,11 +104,11 @@ SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
 }
 #else
 #define SYNTAX_CODE_UNSAFE(table, c) \
-   XINT (CHAR_TABLE_VALUE_UNSAFE (table, c))
+   ((enum syntaxcode) XINT (CHAR_TABLE_VALUE_UNSAFE (table, c)))
 #endif
 
-INLINE_HEADER int SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
-INLINE_HEADER int
+INLINE_HEADER enum syntaxcode SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER enum syntaxcode
 SYNTAX_CODE (Lisp_Char_Table *table, Emchar c)
 {
   return SYNTAX_CODE_UNSAFE (table, c);
@@ -418,7 +419,7 @@ struct syntax_cache
 					   syntax table to the cache. */
   Lisp_Object object;			/* The buffer or string the current
 					   syntax cache applies to. */
-  int syntax_code;			/* Syntax code of current char. */
+  enum syntaxcode syntax_code;		/* Syntax code of current char. */
   Lisp_Object current_syntax_table;	/* Syntax table for current pos. */
   Lisp_Object old_prop;			/* Syntax-table prop at prev pos. */
 
