@@ -1,3 +1,27 @@
+2001-09-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el: Add `ideographic-structure'.
+	(U+51AB): Unify Big5-CDP-8BEE.
+	(U+51B0): Use `<-original-ideograph' instead of
+	`original-char-of-shinjigen-1'.
+	(C4-213F): Use `->same-ideograph' and `<-original-ideograph'
+	instead of `comment'.
+	(U+51C9): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R169-Gate.el, Ideograph-R162-Walk.el: Merge GB 12345
+	code points.
+
+2001-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+4E5F): Unify Big5-A45D.
+	(C1-443E): Separate Big5-A45D.
+
+2001-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el, Ideograph-R010-Legs.el: Add
+	`ideographic-structure'.
+
 2001-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R159-Cart.el, Ideograph-R157-Foot.el: Merge GB 12345
