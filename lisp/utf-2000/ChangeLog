@@ -1,3 +1,19 @@
+2003-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (C1-5775): Modify subcode of
+	`morohashi-daikanwa' value.
+	(GT-40140): Likewise.
+	(J0-427B): Likewise.
+	(U+8338): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516B): Separate C1-442C.
+
+	* Ideograph-R009-Man.el (C2-3A43): Modify subcode of
+	`morohashi-daikanwa' value.
+	(B-D85F): Likewise.
+	(U+5087): Likewise.
+	(U+513C): Likewise.
+
 2003-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u00180-Latin-Extended-B.el (JX1-2874): Add JU+01F8.
