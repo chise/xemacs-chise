@@ -24,6 +24,8 @@ Boston, MA 02111-1307, USA.  */
 #include "chartab.h"
 #include "elhash.h"
 
+EXFUN (Fmake_directory_internal, 1);
+
 extern Lisp_Object Vchar_attribute_hash_table;
 
 #define valid_char_p(ch) 1
