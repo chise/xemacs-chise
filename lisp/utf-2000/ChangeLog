@@ -1,3 +1,57 @@
+2001-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Merge GB 12345 code points.
+	(C7-2B77): Cancel relation to M-46738.
+
+	* Ideograph-R195-Fish.el: Merge GB 12345 code points.
+
+	* Ideograph-R018-Knife.el (U+5231): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER LEFT TO MIDDLE AND RIGHT> instead of <IDEOGRAPHIC
+	DESCRIPTION CHARACTER LEFT TO RIGHT> in `ideographic-structure'.
+	(C2-2554): Likewise.
+
+	* Ideograph-R012-Eight.el (M-01483): Unify M058241.
+	(M001483): New character.
+	(U+517C): Unify M054100.
+	(S1-503): Unify M054445.
+
+	* Ideograph-R009-Man.el (U+50C9): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER ABOVE TO MIDDLE AND BELOW> instead of <IDEOGRAPHIC
+	DESCRIPTION CHARACTER ABOVE TO BELOW> in `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (J0-3067): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER ABOVE TO MIDDLE AND BELOW> instead of <IDEOGRAPHIC
+	DESCRIPTION CHARACTER ABOVE TO BELOW> as the operator of
+	`ideographic-structure'.
+	(U+4EA5): Likewise.
+
+2001-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (J0-4234): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER ABOVE TO MIDDLE AND BELOW> instead of <IDEOGRAPHIC
+	DESCRIPTION CHARACTER ABOVE TO BELOW> in `ideographic-structure'.
+	(U+5352): Likewise.
+
+	* Ideograph-R013-Down-Box.el (U+5183): Unify C4-213E.
+	(Big5-CDP-8A78): Relate to U+5183 and M-1508; unify M070546.
+
+2001-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F475): Separate Big5-8A78 and
+	Big5-CDP-8A78.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL PAW ONE): Unify
+	Big5-8B58 and Big5-CDP-8B58; add `total-strokes'.
+
+	* Ideograph-R124-Feather.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+	- Add `ideographic-structure'.
+
+	* Ideograph-R009-Man.el: Add `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (M-00291): Add `ideographic-structure'.
+
 2001-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R087-Claw.el (M-19682): New character.
