@@ -1,3 +1,9 @@
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): New function.
+	(syms_of_mule_charset): Add new builtin function
+	`save-charset-mapping-table'.
+
 2002-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (decoding_table_check_elements): Delete prototype.
