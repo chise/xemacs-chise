@@ -1,5 +1,8 @@
 2003-02-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el (M-02433): Rearrangement
+	`<-simplified-ideograph'.
+
 	* isolated-char.el (GT-56364): New character.
 
 2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
