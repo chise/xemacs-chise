@@ -50,6 +50,436 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Internationalization Terminology,  Next: Charsets,  Up: MULE
+
+Internationalization Terminology
+================================
+
+   In internationalization terminology, a string of text is divided up
+into "characters", which are the printable units that make up the text.
+A single character is (for example) a capital `A', the number `2', a
+Katakana character, a Hangul character, a Kanji ideograph (an
+"ideograph" is a "picture" character, such as is used in Japanese
+Kanji, Chinese Hanzi, and Korean Hanja; typically there are thousands
+of such ideographs in each language), etc.  The basic property of a
+character is that it is the smallest unit of text with semantic
+significance in text processing.
+
+   Human beings normally process text visually, so to a first
+approximation a character may be identified with its shape.  Note that
+the same character may be drawn by two different people (or in two
+different fonts) in slightly different ways, although the "basic shape"
+will be the same.  But consider the works of Scott Kim; human beings
+can recognize hugely variant shapes as the "same" character.
+Sometimes, especially where characters are extremely complicated to
+write, completely different shapes may be defined as the "same"
+character in national standards.  The Taiwanese variant of Hanzi is
+generally the most complicated; over the centuries, the Japanese,
+Koreans, and the People's Republic of China have adopted
+simplifications of the shape, but the line of descent from the original
+shape is recorded, and the meanings and pronunciation of different
+forms of the same character are considered to be identical within each
+language.  (Of course, it may take a specialist to recognize the
+related form; the point is that the relations are standardized, despite
+the differing shapes.)
+
+   In some cases, the differences will be significant enough that it is
+actually possible to identify two or more distinct shapes that both
+represent the same character.  For example, the lowercase letters `a'
+and `g' each have two distinct possible shapes--the `a' can optionally
+have a curved tail projecting off the top, and the `g' can be formed
+either of two loops, or of one loop and a tail hanging off the bottom.
+Such distinct possible shapes of a character are called "glyphs".  The
+important characteristic of two glyphs making up the same character is
+that the choice between one or the other is purely stylistic and has no
+linguistic effect on a word (this is the reason why a capital `A' and
+lowercase `a' are different characters rather than different
+glyphs--e.g.  `Aspen' is a city while `aspen' is a kind of tree).
+
+   Note that "character" and "glyph" are used differently here than
+elsewhere in XEmacs.
+
+   A "character set" is essentially a set of related characters.  ASCII,
+for example, is a set of 94 characters (or 128, if you count
+non-printing characters).  Other character sets are ISO8859-1 (ASCII
+plus various accented characters and other international symbols), JIS
+X 0201 (ASCII, more or less, plus half-width Katakana), JIS X 0208
+(Japanese Kanji), JIS X 0212 (a second set of less-used Japanese Kanji),
+GB2312 (Mainland Chinese Hanzi), etc.
+
+   The definition of a character set will implicitly or explicitly give
+it an "ordering", a way of assigning a number to each character in the
+set.  For many character sets, there is a natural ordering, for example
+the "ABC" ordering of the Roman letters.  But it is not clear whether
+digits should come before or after the letters, and in fact different
+European languages treat the ordering of accented characters
+differently.  It is useful to use the natural order where available, of
+course.  The number assigned to any particular character is called the
+character's "code point".  (Within a given character set, each
+character has a unique code point.  Thus the word "set" is ill-chosen;
+different orderings of the same characters are different character sets.
+Identifying characters is simple enough for alphabetic character sets,
+but the difference in ordering can cause great headaches when the same
+thousands of characters are used by different cultures as in the Hanzi.)
+
+   A code point may be broken into a number of "position codes".  The
+number of position codes required to index a particular character in a
+character set is called the "dimension" of the character set.  For
+practical purposes, a position code may be thought of as a byte-sized
+index.  The printing characters of ASCII, being a relatively small
+character set, is of dimension one, and each character in the set is
+indexed using a single position code, in the range 1 through 94.  Use of
+this unusual range, rather than the familiar 33 through 126, is an
+intentional abstraction; to understand the programming issues you must
+break the equation between character sets and encodings.
+
+   JIS X 0208, i.e. Japanese Kanji, has thousands of characters, and is
+of dimension two - every character is indexed by two position codes,
+each in the range 1 through 94.  (This number "94" is not a
+coincidence; we shall see that the JIS position codes were chosen so
+that JIS kanji could be encoded without using codes that in ASCII are
+associated with device control functions.)  Note that the choice of the
+range here is somewhat arbitrary.  You could just as easily index the
+printing characters in ASCII using numbers in the range 0 through 93, 2
+through 95, 3 through 96, etc.  In fact, the standardized _encoding_
+for the ASCII _character set_ uses the range 33 through 126.
+
+   An "encoding" is a way of numerically representing characters from
+one or more character sets into a stream of like-sized numerical values
+called "words"; typically these are 8-bit, 16-bit, or 32-bit
+quantities.  If an encoding encompasses only one character set, then the
+position codes for the characters in that character set could be used
+directly.  (This is the case with the trivial cipher used by children,
+assigning 1 to `A', 2 to `B', and so on.)  However, even with ASCII,
+other considerations intrude.  For example, why are the upper- and
+lowercase alphabets separated by 8 characters?  Why do the digits start
+with `0' being assigned the code 48?  In both cases because semantically
+interesting operations (case conversion and numerical value extraction)
+become convenient masking operations.  Other artificial aspects (the
+control characters being assigned to codes 0-31 and 127) are historical
+accidents.  (The use of 127 for `DEL' is an artifact of the "punch
+once" nature of paper tape, for example.)
+
+   Naive use of the position code is not possible, however, if more than
+one character set is to be used in the encoding.  For example, printed
+Japanese text typically requires characters from multiple character sets
+- ASCII, JIS X 0208, and JIS X 0212, to be specific.  Each of these is
+indexed using one or more position codes in the range 1 through 94, so
+the position codes could not be used directly or there would be no way
+to tell which character was meant.  Different Japanese encodings handle
+this differently - JIS uses special escape characters to denote
+different character sets; EUC sets the high bit of the position codes
+for JIS X 0208 and JIS X 0212, and puts a special extra byte before each
+JIS X 0212 character; etc.  (JIS, EUC, and most of the other encodings
+you will encounter in files are 7-bit or 8-bit encodings.  There is one
+common 16-bit encoding, which is Unicode; this strives to represent all
+the world's characters in a single large character set.  32-bit
+encodings are often used internally in programs, such as XEmacs with
+MULE support, to simplify the code that manipulates them; however, they
+are not used externally because they are not very space-efficient.)
+
+   A general method of handling text using multiple character sets
+(whether for multilingual text, or simply text in an extremely
+complicated single language like Japanese) is defined in the
+international standard ISO 2022.  ISO 2022 will be discussed in more
+detail later (*note ISO 2022::), but for now suffice it to say that text
+needs control functions (at least spacing), and if escape sequences are
+to be used, an escape sequence introducer.  It was decided to make all
+text streams compatible with ASCII in the sense that the codes 0-31
+(and 128-159) would always be control codes, never graphic characters,
+and where defined by the character set the `SPC' character would be
+assigned code 32, and `DEL' would be assigned 127.  Thus there are 94
+code points remaining if 7 bits are used.  This is the reason that most
+character sets are defined using position codes in the range 1 through
+94.  Then ISO 2022 compatible encodings are produced by shifting the
+position codes 1 to 94 into character codes 33 to 126, or (if 8 bit
+codes are available) into character codes 161 to 254.
+
+   Encodings are classified as either "modal" or "non-modal".  In a
+"modal encoding", there are multiple states that the encoding can be
+in, and the interpretation of the values in the stream depends on the
+current global state of the encoding.  Special values in the encoding,
+called "escape sequences", are used to change the global state.  JIS,
+for example, is a modal encoding.  The bytes `ESC $ B' indicate that,
+from then on, bytes are to be interpreted as position codes for JIS X
+0208, rather than as ASCII.  This effect is cancelled using the bytes
+`ESC ( B', which mean "switch from whatever the current state is to
+ASCII".  To switch to JIS X 0212, the escape sequence `ESC $ ( D'.
+(Note that here, as is common, the escape sequences do in fact begin
+with `ESC'.  This is not necessarily the case, however.  Some encodings
+use control characters called "locking shifts" (effect persists until
+cancelled) to switch character sets.)
+
+   A "non-modal encoding" has no global state that extends past the
+character currently being interpreted.  EUC, for example, is a
+non-modal encoding.  Characters in JIS X 0208 are encoded by setting
+the high bit of the position codes, and characters in JIS X 0212 are
+encoded by doing the same but also prefixing the character with the
+byte 0x8F.
+
+   The advantage of a modal encoding is that it is generally more
+space-efficient, and is easily extendable because there are essentially
+an arbitrary number of escape sequences that can be created.  The
+disadvantage, however, is that it is much more difficult to work with
+if it is not being processed in a sequential manner.  In the non-modal
+EUC encoding, for example, the byte 0x41 always refers to the letter
+`A'; whereas in JIS, it could either be the letter `A', or one of the
+two position codes in a JIS X 0208 character, or one of the two
+position codes in a JIS X 0212 character.  Determining exactly which
+one is meant could be difficult and time-consuming if the previous
+bytes in the string have not already been processed, or impossible if
+they are drawn from an external stream that cannot be rewound.
+
+   Non-modal encodings are further divided into "fixed-width" and
+"variable-width" formats.  A fixed-width encoding always uses the same
+number of words per character, whereas a variable-width encoding does
+not.  EUC is a good example of a variable-width encoding: one to three
+bytes are used per character, depending on the character set.  16-bit
+and 32-bit encodings are nearly always fixed-width, and this is in fact
+one of the main reasons for using an encoding with a larger word size.
+The advantages of fixed-width encodings should be obvious.  The
+advantages of variable-width encodings are that they are generally more
+space-efficient and allow for compatibility with existing 8-bit
+encodings such as ASCII.  (For example, in Unicode ASCII characters are
+simply promoted to a 16-bit representation.  That means that every
+ASCII character contains a `NUL' byte; evidently all of the standard
+string manipulation functions will lose badly in a fixed-width Unicode
+environment.)
+
+   The bytes in an 8-bit encoding are often referred to as "octets"
+rather than simply as bytes.  This terminology dates back to the days
+before 8-bit bytes were universal, when some computers had 9-bit bytes,
+others had 10-bit bytes, etc.
+
+
+File: lispref.info,  Node: Charsets,  Next: MULE Characters,  Prev: Internationalization Terminology,  Up: MULE
+
+Charsets
+========
+
+   A "charset" in MULE is an object that encapsulates a particular
+character set as well as an ordering of those characters.  Charsets are
+permanent objects and are named using symbols, like faces.
+
+ - Function: charsetp object
+     This function returns non-`nil' if OBJECT is a charset.
+
+* Menu:
+
+* Charset Properties::          Properties of a charset.
+* Basic Charset Functions::     Functions for working with charsets.
+* Charset Property Functions::  Functions for accessing charset properties.
+* Predefined Charsets::         Predefined charset objects.
+
+
+File: lispref.info,  Node: Charset Properties,  Next: Basic Charset Functions,  Up: Charsets
+
+Charset Properties
+------------------
+
+   Charsets have the following properties:
+
+`name'
+     A symbol naming the charset.  Every charset must have a different
+     name; this allows a charset to be referred to using its name
+     rather than the actual charset object.
+
+`doc-string'
+     A documentation string describing the charset.
+
+`registry'
+     A regular expression matching the font registry field for this
+     character set.  For example, both the `ascii' and `latin-iso8859-1'
+     charsets use the registry `"ISO8859-1"'.  This field is used to
+     choose an appropriate font when the user gives a general font
+     specification such as `-*-courier-medium-r-*-140-*', i.e. a
+     14-point upright medium-weight Courier font.
+
+`dimension'
+     Number of position codes used to index a character in the
+     character set.  XEmacs/MULE can only handle character sets of
+     dimension 1 or 2.  This property defaults to 1.
+
+`chars'
+     Number of characters in each dimension.  In XEmacs/MULE, the only
+     allowed values are 94 or 96. (There are a couple of pre-defined
+     character sets, such as ASCII, that do not follow this, but you
+     cannot define new ones like this.) Defaults to 94.  Note that if
+     the dimension is 2, the character set thus described is 94x94 or
+     96x96.
+
+`columns'
+     Number of columns used to display a character in this charset.
+     Only used in TTY mode. (Under X, the actual width of a character
+     can be derived from the font used to display the characters.)  If
+     unspecified, defaults to the dimension. (This is almost always the
+     correct value, because character sets with dimension 2 are usually
+     ideograph character sets, which need two columns to display the
+     intricate ideographs.)
+
+`direction'
+     A symbol, either `l2r' (left-to-right) or `r2l' (right-to-left).
+     Defaults to `l2r'.  This specifies the direction that the text
+     should be displayed in, and will be left-to-right for most
+     charsets but right-to-left for Hebrew and Arabic. (Right-to-left
+     display is not currently implemented.)
+
+`final'
+     Final byte of the standard ISO 2022 escape sequence designating
+     this charset.  Must be supplied.  Each combination of (DIMENSION,
+     CHARS) defines a separate namespace for final bytes, and each
+     charset within a particular namespace must have a different final
+     byte.  Note that ISO 2022 restricts the final byte to the range
+     0x30 - 0x7E if dimension == 1, and 0x30 - 0x5F if dimension == 2.
+     Note also that final bytes in the range 0x30 - 0x3F are reserved
+     for user-defined (not official) character sets.  For more
+     information on ISO 2022, see *Note Coding Systems::.
+
+`graphic'
+     0 (use left half of font on output) or 1 (use right half of font on
+     output).  Defaults to 0.  This specifies how to convert the
+     position codes that index a character in a character set into an
+     index into the font used to display the character set.  With
+     `graphic' set to 0, position codes 33 through 126 map to font
+     indices 33 through 126; with it set to 1, position codes 33
+     through 126 map to font indices 161 through 254 (i.e. the same
+     number but with the high bit set).  For example, for a font whose
+     registry is ISO8859-1, the left half of the font (octets 0x20 -
+     0x7F) is the `ascii' charset, while the right half (octets 0xA0 -
+     0xFF) is the `latin-iso8859-1' charset.
+
+`ccl-program'
+     A compiled CCL program used to convert a character in this charset
+     into an index into the font.  This is in addition to the `graphic'
+     property.  If a CCL program is defined, the position codes of a
+     character will first be processed according to `graphic' and then
+     passed through the CCL program, with the resulting values used to
+     index the font.
+
+     This is used, for example, in the Big5 character set (used in
+     Taiwan).  This character set is not ISO-2022-compliant, and its
+     size (94x157) does not fit within the maximum 96x96 size of
+     ISO-2022-compliant character sets.  As a result, XEmacs/MULE
+     splits it (in a rather complex fashion, so as to group the most
+     commonly used characters together) into two charset objects
+     (`big5-1' and `big5-2'), each of size 94x94, and each charset
+     object uses a CCL program to convert the modified position codes
+     back into standard Big5 indices to retrieve a character from a
+     Big5 font.
+
+   Most of the above properties can only be set when the charset is
+initialized, and cannot be changed later.  *Note Charset Property
+Functions::.
+
+
+File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Functions,  Prev: Charset Properties,  Up: Charsets
+
+Basic Charset Functions
+-----------------------
+
+ - Function: find-charset charset-or-name
+     This function retrieves the charset of the given name.  If
+     CHARSET-OR-NAME is a charset object, it is simply returned.
+     Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
+     such charset, `nil' is returned.  Otherwise the associated charset
+     object is returned.
+
+ - Function: get-charset name
+     This function retrieves the charset of the given name.  Same as
+     `find-charset' except an error is signalled if there is no such
+     charset instead of returning `nil'.
+
+ - Function: charset-list
+     This function returns a list of the names of all defined charsets.
+
+ - Function: make-charset name doc-string props
+     This function defines a new character set.  This function is for
+     use with MULE support.  NAME is a symbol, the name by which the
+     character set is normally referred.  DOC-STRING is a string
+     describing the character set.  PROPS is a property list,
+     describing the specific nature of the character set.  The
+     recognized properties are `registry', `dimension', `columns',
+     `chars', `final', `graphic', `direction', and `ccl-program', as
+     previously described.
+
+ - Function: make-reverse-direction-charset charset new-name
+     This function makes a charset equivalent to CHARSET but which goes
+     in the opposite direction.  NEW-NAME is the name of the new
+     charset.  The new charset is returned.
+
+ - Function: charset-from-attributes dimension chars final &optional
+          direction
+     This function returns a charset with the given DIMENSION, CHARS,
+     FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
+     will be checked (left-to-right will be returned if character sets
+     exist for both directions).
+
+ - Function: charset-reverse-direction-charset charset
+     This function returns the charset (if any) with the same dimension,
+     number of characters, and final byte as CHARSET, but which is
+     displayed in the opposite direction.
+
+
+File: lispref.info,  Node: Charset Property Functions,  Next: Predefined Charsets,  Prev: Basic Charset Functions,  Up: Charsets
+
+Charset Property Functions
+--------------------------
+
+   All of these functions accept either a charset name or charset
+object.
+
+ - Function: charset-property charset prop
+     This function returns property PROP of CHARSET.  *Note Charset
+     Properties::.
+
+   Convenience functions are also provided for retrieving individual
+properties of a charset.
+
+ - Function: charset-name charset
+     This function returns the name of CHARSET.  This will be a symbol.
+
+ - Function: charset-doc-string charset
+     This function returns the doc string of CHARSET.
+
+ - Function: charset-registry charset
+     This function returns the registry of CHARSET.
+
+ - Function: charset-dimension charset
+     This function returns the dimension of CHARSET.
+
+ - Function: charset-chars charset
+     This function returns the number of characters per dimension of
+     CHARSET.
+
+ - Function: charset-columns charset
+     This function returns the number of display columns per character
+     (in TTY mode) of CHARSET.
+
+ - Function: charset-direction charset
+     This function returns the display direction of CHARSET--either
+     `l2r' or `r2l'.
+
+ - Function: charset-final charset
+     This function returns the final byte of the ISO 2022 escape
+     sequence designating CHARSET.
+
+ - Function: charset-graphic charset
+     This function returns either 0 or 1, depending on whether the
+     position codes of characters in CHARSET map to the left or right
+     half of their font, respectively.
+
+ - Function: charset-ccl-program charset
+     This function returns the CCL program, if any, for converting
+     position codes of characters in CHARSET into font indices.
+
+   The only property of a charset that can currently be set after the
+charset has been created is the CCL program.
+
+ - Function: set-charset-ccl-program charset ccl-program
+     This function sets the `ccl-program' property of CHARSET to
+     CCL-PROGRAM.
+
+
 File: lispref.info,  Node: Predefined Charsets,  Prev: Charset Property Functions,  Up: Charsets
 
 Predefined Charsets
@@ -601,616 +1031,4 @@ EOL Conversion
      Automatically detect the end-of-line type but do not generate
      subsidiary coding systems.  (This value is converted to `nil' when
      stored internally, and `coding-system-property' will return `nil'.)
-
-
-File: lispref.info,  Node: Coding System Properties,  Next: Basic Coding System Functions,  Prev: EOL Conversion,  Up: Coding Systems
-
-Coding System Properties
-------------------------
-
-`mnemonic'
-     String to be displayed in the modeline when this coding system is
-     active.
-
-`eol-type'
-     End-of-line conversion to be used.  It should be one of the types
-     listed in *Note EOL Conversion::.
-
-`eol-lf'
-     The coding system which is the same as this one, except that it
-     uses the Unix line-breaking convention.
-
-`eol-crlf'
-     The coding system which is the same as this one, except that it
-     uses the DOS line-breaking convention.
-
-`eol-cr'
-     The coding system which is the same as this one, except that it
-     uses the Macintosh line-breaking convention.
-
-`post-read-conversion'
-     Function called after a file has been read in, to perform the
-     decoding.  Called with two arguments, BEG and END, denoting a
-     region of the current buffer to be decoded.
-
-`pre-write-conversion'
-     Function called before a file is written out, to perform the
-     encoding.  Called with two arguments, BEG and END, denoting a
-     region of the current buffer to be encoded.
-
-   The following additional properties are recognized if TYPE is
-`iso2022':
-
-`charset-g0'
-`charset-g1'
-`charset-g2'
-`charset-g3'
-     The character set initially designated to the G0 - G3 registers.
-     The value should be one of
-
-        * A charset object (designate that character set)
-
-        * `nil' (do not ever use this register)
-
-        * `t' (no character set is initially designated to the
-          register, but may be later on; this automatically sets the
-          corresponding `force-g*-on-output' property)
-
-`force-g0-on-output'
-`force-g1-on-output'
-`force-g2-on-output'
-`force-g3-on-output'
-     If non-`nil', send an explicit designation sequence on output
-     before using the specified register.
-
-`short'
-     If non-`nil', use the short forms `ESC $ @', `ESC $ A', and `ESC $
-     B' on output in place of the full designation sequences `ESC $ (
-     @', `ESC $ ( A', and `ESC $ ( B'.
-
-`no-ascii-eol'
-     If non-`nil', don't designate ASCII to G0 at each end of line on
-     output.  Setting this to non-`nil' also suppresses other
-     state-resetting that normally happens at the end of a line.
-
-`no-ascii-cntl'
-     If non-`nil', don't designate ASCII to G0 before control chars on
-     output.
-
-`seven'
-     If non-`nil', use 7-bit environment on output.  Otherwise, use
-     8-bit environment.
-
-`lock-shift'
-     If non-`nil', use locking-shift (SO/SI) instead of single-shift or
-     designation by escape sequence.
-
-`no-iso6429'
-     If non-`nil', don't use ISO6429's direction specification.
-
-`escape-quoted'
-     If non-nil, literal control characters that are the same as the
-     beginning of a recognized ISO 2022 or ISO 6429 escape sequence (in
-     particular, ESC (0x1B), SO (0x0E), SI (0x0F), SS2 (0x8E), SS3
-     (0x8F), and CSI (0x9B)) are "quoted" with an escape character so
-     that they can be properly distinguished from an escape sequence.
-     (Note that doing this results in a non-portable encoding.) This
-     encoding flag is used for byte-compiled files.  Note that ESC is a
-     good choice for a quoting character because there are no escape
-     sequences whose second byte is a character from the Control-0 or
-     Control-1 character sets; this is explicitly disallowed by the ISO
-     2022 standard.
-
-`input-charset-conversion'
-     A list of conversion specifications, specifying conversion of
-     characters in one charset to another when decoding is performed.
-     Each specification is a list of two elements: the source charset,
-     and the destination charset.
-
-`output-charset-conversion'
-     A list of conversion specifications, specifying conversion of
-     characters in one charset to another when encoding is performed.
-     The form of each specification is the same as for
-     `input-charset-conversion'.
-
-   The following additional properties are recognized (and required) if
-TYPE is `ccl':
-
-`decode'
-     CCL program used for decoding (converting to internal format).
-
-`encode'
-     CCL program used for encoding (converting to external format).
-
-   The following properties are used internally:  EOL-CR, EOL-CRLF,
-EOL-LF, and BASE.
-
-
-File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System Property Functions,  Prev: Coding System Properties,  Up: Coding Systems
-
-Basic Coding System Functions
------------------------------
-
- - Function: find-coding-system coding-system-or-name
-     This function retrieves the coding system of the given name.
-
-     If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
-     returned.  Otherwise, CODING-SYSTEM-OR-NAME should be a symbol.
-     If there is no such coding system, `nil' is returned.  Otherwise
-     the associated coding system object is returned.
-
- - Function: get-coding-system name
-     This function retrieves the coding system of the given name.  Same
-     as `find-coding-system' except an error is signalled if there is no
-     such coding system instead of returning `nil'.
-
- - Function: coding-system-list
-     This function returns a list of the names of all defined coding
-     systems.
-
- - Function: coding-system-name coding-system
-     This function returns the name of the given coding system.
-
- - Function: coding-system-base coding-system
-     Returns the base coding system (undecided EOL convention) coding
-     system.
-
- - Function: make-coding-system name type &optional doc-string props
-     This function registers symbol NAME as a coding system.
-
-     TYPE describes the conversion method used and should be one of the
-     types listed in *Note Coding System Types::.
-
-     DOC-STRING is a string describing the coding system.
-
-     PROPS is a property list, describing the specific nature of the
-     character set.  Recognized properties are as in *Note Coding
-     System Properties::.
-
- - Function: copy-coding-system old-coding-system new-name
-     This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
-     does not name an existing coding system, a new one will be created.
-
- - Function: subsidiary-coding-system coding-system eol-type
-     This function returns the subsidiary coding system of
-     CODING-SYSTEM with eol type EOL-TYPE.
-
-
-File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and Decoding Text,  Prev: Basic Coding System Functions,  Up: Coding Systems
-
-Coding System Property Functions
---------------------------------
-
- - Function: coding-system-doc-string coding-system
-     This function returns the doc string for CODING-SYSTEM.
-
- - Function: coding-system-type coding-system
-     This function returns the type of CODING-SYSTEM.
-
- - Function: coding-system-property coding-system prop
-     This function returns the PROP property of CODING-SYSTEM.
-
-
-File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textual Encoding,  Prev: Coding System Property Functions,  Up: Coding Systems
-
-Encoding and Decoding Text
---------------------------
-
- - Function: decode-coding-region start end coding-system &optional
-          buffer
-     This function decodes the text between START and END which is
-     encoded in CODING-SYSTEM.  This is useful if you've read in
-     encoded text from a file without decoding it (e.g. you read in a
-     JIS-formatted file but used the `binary' or `no-conversion' coding
-     system, so that it shows up as `^[$B!<!+^[(B').  The length of the
-     encoded text is returned.  BUFFER defaults to the current buffer
-     if unspecified.
-
- - Function: encode-coding-region start end coding-system &optional
-          buffer
-     This function encodes the text between START and END using
-     CODING-SYSTEM.  This will, for example, convert Japanese
-     characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
-     encoding.  The length of the encoded text is returned.  BUFFER
-     defaults to the current buffer if unspecified.
-
-
-File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
-
-Detection of Textual Encoding
------------------------------
-
- - Function: coding-category-list
-     This function returns a list of all recognized coding categories.
-
- - Function: set-coding-priority-list list
-     This function changes the priority order of the coding categories.
-     LIST should be a list of coding categories, in descending order of
-     priority.  Unspecified coding categories will be lower in priority
-     than all specified ones, in the same relative order they were in
-     previously.
-
- - Function: coding-priority-list
-     This function returns a list of coding categories in descending
-     order of priority.
-
- - Function: set-coding-category-system coding-category coding-system
-     This function changes the coding system associated with a coding
-     category.
-
- - Function: coding-category-system coding-category
-     This function returns the coding system associated with a coding
-     category.
-
- - Function: detect-coding-region start end &optional buffer
-     This function detects coding system of the text in the region
-     between START and END.  Returned value is a list of possible coding
-     systems ordered by priority.  If only ASCII characters are found,
-     it returns `autodetect' or one of its subsidiary coding systems
-     according to a detected end-of-line type.  Optional arg BUFFER
-     defaults to the current buffer.
-
-
-File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Next: Predefined Coding Systems,  Prev: Detection of Textual Encoding,  Up: Coding Systems
-
-Big5 and Shift-JIS Functions
-----------------------------
-
-   These are special functions for working with the non-standard
-Shift-JIS and Big5 encodings.
-
- - Function: decode-shift-jis-char code
-     This function decodes a JIS X 0208 character of Shift-JIS
-     coding-system.  CODE is the character code in Shift-JIS as a cons
-     of type bytes.  The corresponding character is returned.
-
- - Function: encode-shift-jis-char ch
-     This function encodes a JIS X 0208 character CH to SHIFT-JIS
-     coding-system.  The corresponding character code in SHIFT-JIS is
-     returned as a cons of two bytes.
-
- - Function: decode-big5-char code
-     This function decodes a Big5 character CODE of BIG5 coding-system.
-     CODE is the character code in BIG5.  The corresponding character
-     is returned.
-
- - Function: encode-big5-char ch
-     This function encodes the Big5 character CHAR to BIG5
-     coding-system.  The corresponding character code in Big5 is
-     returned.
-
-
-File: lispref.info,  Node: Predefined Coding Systems,  Prev: Big5 and Shift-JIS Functions,  Up: Coding Systems
-
-Coding Systems Implemented
---------------------------
-
-   MULE initializes most of the commonly used coding systems at XEmacs's
-startup.  A few others are initialized only when the relevant language
-environment is selected and support libraries are loaded.  (NB: The
-following list is based on XEmacs 21.2.19, the development branch at the
-time of writing.  The list may be somewhat different for other
-versions.  Recent versions of GNU Emacs 20 implement a few more rare
-coding systems; work is being done to port these to XEmacs.)
-
-   Unfortunately, there is not a consistent naming convention for
-character sets, and for practical purposes coding systems often take
-their name from their principal character sets (ASCII, KOI8-R, Shift
-JIS).  Others take their names from the coding system (ISO-2022-JP,
-EUC-KR), and a few from their non-text usages (internal, binary).  To
-provide for this, and for the fact that many coding systems have
-several common names, an aliasing system is provided.  Finally, some
-effort has been made to use names that are registered as MIME charsets
-(this is why the name 'shift_jis contains that un-Lisp-y underscore).
-
-   There is a systematic naming convention regarding end-of-line (EOL)
-conventions for different systems.  A coding system whose name ends in
-"-unix" forces the assumptions that lines are broken by newlines (0x0A).
-A coding system whose name ends in "-mac" forces the assumptions that
-lines are broken by ASCII CRs (0x0D).  A coding system whose name ends
-in "-dos" forces the assumptions that lines are broken by CRLF sequences
-(0x0D 0x0A).  These subsidiary coding systems are automatically derived
-from a base coding system.  Use of the base coding system implies
-autodetection of the text file convention.  (The fact that the -unix,
--mac, and -dos are derived from a base system results in them showing up
-as "aliases" in `list-coding-systems'.)  These subsidiaries have a
-consistent modeline indicator as well.  "-dos" coding systems have ":T"
-appended to their modeline indicator, while "-mac" coding systems have
-":t" appended (eg, "ISO8:t" for iso-2022-8-mac).
-
-   In the following table, each coding system is given with its mode
-line indicator in parentheses.  Non-textual coding systems are listed
-first, followed by textual coding systems and their aliases. (The
-coding system subsidiary modeline indicators ":T" and ":t" will be
-omitted from the table of coding systems.)
-
-   ### SJT 1999-08-23 Maybe should order these by language?  Definitely
-need language usage for the ISO-8859 family.
-
-   Note that although true coding system aliases have been implemented
-for XEmacs 21.2, the coding system initialization has not yet been
-converted as of 21.2.19.  So coding systems described as aliases have
-the same properties as the aliased coding system, but will not be equal
-as Lisp objects.
-
-`automatic-conversion'
-`undecided'
-`undecided-dos'
-`undecided-mac'
-`undecided-unix'
-     Modeline indicator: `Auto'.  A type `undecided' coding system.
-     Attempts to determine an appropriate coding system from file
-     contents or the environment.
-
-`raw-text'
-`no-conversion'
-`raw-text-dos'
-`raw-text-mac'
-`raw-text-unix'
-`no-conversion-dos'
-`no-conversion-mac'
-`no-conversion-unix'
-     Modeline indicator: `Raw'.  A type `no-conversion' coding system,
-     which converts only line-break-codes.  An implementation quirk
-     means that this coding system is also used for ISO8859-1.
-
-`binary'
-     Modeline indicator: `Binary'.  A type `no-conversion' coding
-     system which does no character coding or EOL conversions.  An
-     alias for `raw-text-unix'.
-
-`alternativnyj'
-`alternativnyj-dos'
-`alternativnyj-mac'
-`alternativnyj-unix'
-     Modeline indicator: `Cy.Alt'.  A type `ccl' coding system used for
-     Alternativnyj, an encoding of the Cyrillic alphabet.
-
-`big5'
-`big5-dos'
-`big5-mac'
-`big5-unix'
-     Modeline indicator: `Zh/Big5'.  A type `big5' coding system used
-     for BIG5, the most common encoding of traditional Chinese as used
-     in Taiwan.
-
-`cn-gb-2312'
-`cn-gb-2312-dos'
-`cn-gb-2312-mac'
-`cn-gb-2312-unix'
-     Modeline indicator: `Zh-GB/EUC'.  A type `iso2022' coding system
-     used for simplified Chinese (as used in the People's Republic of
-     China), with the `ascii' (G0), `chinese-gb2312' (G1), and `sisheng'
-     (G2) character sets initially designated.  Chinese EUC (Extended
-     Unix Code).
-
-`ctext-hebrew'
-`ctext-hebrew-dos'
-`ctext-hebrew-mac'
-`ctext-hebrew-unix'
-     Modeline indicator: `CText/Hbrw'.  A type `iso2022' coding system
-     with the `ascii' (G0) and `hebrew-iso8859-8' (G1) character sets
-     initially designated for Hebrew.
-
-`ctext'
-`ctext-dos'
-`ctext-mac'
-`ctext-unix'
-     Modeline indicator: `CText'.  A type `iso2022' 8-bit coding system
-     with the `ascii' (G0) and `latin-iso8859-1' (G1) character sets
-     initially designated.  X11 Compound Text Encoding.  Often
-     mistakenly recognized instead of EUC encodings; usual cause is
-     inappropriate setting of `coding-priority-list'.
-
-`escape-quoted'
-     Modeline indicator: `ESC/Quot'.  A type `iso2022' 8-bit coding
-     system with the `ascii' (G0) and `latin-iso8859-1' (G1) character
-     sets initially designated and escape quoting.  Unix EOL conversion
-     (ie, no conversion).  It is used for .ELC files.
-
-`euc-jp'
-`euc-jp-dos'
-`euc-jp-mac'
-`euc-jp-unix'
-     Modeline indicator: `Ja/EUC'.  A type `iso2022' 8-bit coding system
-     with `ascii' (G0), `japanese-jisx0208' (G1), `katakana-jisx0201'
-     (G2), and `japanese-jisx0212' (G3) initially designated.  Japanese
-     EUC (Extended Unix Code).
-
-`euc-kr'
-`euc-kr-dos'
-`euc-kr-mac'
-`euc-kr-unix'
-     Modeline indicator: `ko/EUC'.  A type `iso2022' 8-bit coding system
-     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
-     Korean EUC (Extended Unix Code).
-
-`hz-gb-2312'
-     Modeline indicator: `Zh-GB/Hz'.  A type `no-conversion' coding
-     system with Unix EOL convention (ie, no conversion) using
-     post-read-decode and pre-write-encode functions to translate the
-     Hz/ZW coding system used for Chinese.
-
-`iso-2022-7bit'
-`iso-2022-7bit-unix'
-`iso-2022-7bit-dos'
-`iso-2022-7bit-mac'
-`iso-2022-7'
-     Modeline indicator: `ISO7'.  A type `iso2022' 7-bit coding system
-     with `ascii' (G0) initially designated.  Other character sets must
-     be explicitly designated to be used.
-
-`iso-2022-7bit-ss2'
-`iso-2022-7bit-ss2-dos'
-`iso-2022-7bit-ss2-mac'
-`iso-2022-7bit-ss2-unix'
-     Modeline indicator: `ISO7/SS'.  A type `iso2022' 7-bit coding
-     system with `ascii' (G0) initially designated.  Other character
-     sets must be explicitly designated to be used.  SS2 is used to
-     invoke a 96-charset, one character at a time.
-
-`iso-2022-8'
-`iso-2022-8-dos'
-`iso-2022-8-mac'
-`iso-2022-8-unix'
-     Modeline indicator: `ISO8'.  A type `iso2022' 8-bit coding system
-     with `ascii' (G0) and `latin-iso8859-1' (G1) initially designated.
-     Other character sets must be explicitly designated to be used.
-     No single-shift or locking-shift.
-
-`iso-2022-8bit-ss2'
-`iso-2022-8bit-ss2-dos'
-`iso-2022-8bit-ss2-mac'
-`iso-2022-8bit-ss2-unix'
-     Modeline indicator: `ISO8/SS'.  A type `iso2022' 8-bit coding
-     system with `ascii' (G0) and `latin-iso8859-1' (G1) initially
-     designated.  Other character sets must be explicitly designated to
-     be used.  SS2 is used to invoke a 96-charset, one character at a
-     time.
-
-`iso-2022-int-1'
-`iso-2022-int-1-dos'
-`iso-2022-int-1-mac'
-`iso-2022-int-1-unix'
-     Modeline indicator: `INT-1'.  A type `iso2022' 7-bit coding system
-     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
-     ISO-2022-INT-1.
-
-`iso-2022-jp-1978-irv'
-`iso-2022-jp-1978-irv-dos'
-`iso-2022-jp-1978-irv-mac'
-`iso-2022-jp-1978-irv-unix'
-     Modeline indicator: `Ja-78/7bit'.  A type `iso2022' 7-bit coding
-     system.  For compatibility with old Japanese terminals; if you
-     need to know, look at the source.
-
-`iso-2022-jp'
-`iso-2022-jp-2 (ISO7/SS)'
-`iso-2022-jp-dos'
-`iso-2022-jp-mac'
-`iso-2022-jp-unix'
-`iso-2022-jp-2-dos'
-`iso-2022-jp-2-mac'
-`iso-2022-jp-2-unix'
-     Modeline indicator: `MULE/7bit'.  A type `iso2022' 7-bit coding
-     system with `ascii' (G0) initially designated, and complex
-     specifications to insure backward compatibility with old Japanese
-     systems.  Used for communication with mail and news in Japan.  The
-     "-2" versions also use SS2 to invoke a 96-charset one character at
-     a time.
-
-`iso-2022-kr'
-     Modeline indicator: `Ko/7bit'  A type `iso2022' 7-bit coding
-     system with `ascii' (G0) and `korean-ksc5601' (G1) initially
-     designated.  Used for e-mail in Korea.
-
-`iso-2022-lock'
-`iso-2022-lock-dos'
-`iso-2022-lock-mac'
-`iso-2022-lock-unix'
-     Modeline indicator: `ISO7/Lock'.  A type `iso2022' 7-bit coding
-     system with `ascii' (G0) initially designated, using Locking-Shift
-     to invoke a 96-charset.
-
-`iso-8859-1'
-`iso-8859-1-dos'
-`iso-8859-1-mac'
-`iso-8859-1-unix'
-     Due to implementation, this is not a type `iso2022' coding system,
-     but rather an alias for the `raw-text' coding system.
-
-`iso-8859-2'
-`iso-8859-2-dos'
-`iso-8859-2-mac'
-`iso-8859-2-unix'
-     Modeline indicator: `MIME/Ltn-2'.  A type `iso2022' coding system
-     with `ascii' (G0) and `latin-iso8859-2' (G1) initially invoked.
-
-`iso-8859-3'
-`iso-8859-3-dos'
-`iso-8859-3-mac'
-`iso-8859-3-unix'
-     Modeline indicator: `MIME/Ltn-3'.  A type `iso2022' coding system
-     with `ascii' (G0) and `latin-iso8859-3' (G1) initially invoked.
-
-`iso-8859-4'
-`iso-8859-4-dos'
-`iso-8859-4-mac'
-`iso-8859-4-unix'
-     Modeline indicator: `MIME/Ltn-4'.  A type `iso2022' coding system
-     with `ascii' (G0) and `latin-iso8859-4' (G1) initially invoked.
-
-`iso-8859-5'
-`iso-8859-5-dos'
-`iso-8859-5-mac'
-`iso-8859-5-unix'
-     Modeline indicator: `ISO8/Cyr'.  A type `iso2022' coding system
-     with `ascii' (G0) and `cyrillic-iso8859-5' (G1) initially invoked.
-
-`iso-8859-7'
-`iso-8859-7-dos'
-`iso-8859-7-mac'
-`iso-8859-7-unix'
-     Modeline indicator: `Grk'.  A type `iso2022' coding system with
-     `ascii' (G0) and `greek-iso8859-7' (G1) initially invoked.
-
-`iso-8859-8'
-`iso-8859-8-dos'
-`iso-8859-8-mac'
-`iso-8859-8-unix'
-     Modeline indicator: `MIME/Hbrw'.  A type `iso2022' coding system
-     with `ascii' (G0) and `hebrew-iso8859-8' (G1) initially invoked.
-
-`iso-8859-9'
-`iso-8859-9-dos'
-`iso-8859-9-mac'
-`iso-8859-9-unix'
-     Modeline indicator: `MIME/Ltn-5'.  A type `iso2022' coding system
-     with `ascii' (G0) and `latin-iso8859-9' (G1) initially invoked.
-
-`koi8-r'
-`koi8-r-dos'
-`koi8-r-mac'
-`koi8-r-unix'
-     Modeline indicator: `KOI8'.  A type `ccl' coding-system used for
-     KOI8-R, an encoding of the Cyrillic alphabet.
-
-`shift_jis'
-`shift_jis-dos'
-`shift_jis-mac'
-`shift_jis-unix'
-     Modeline indicator: `Ja/SJIS'.  A type `shift-jis' coding-system
-     implementing the Shift-JIS encoding for Japanese.  The underscore
-     is to conform to the MIME charset implementing this encoding.
-
-`tis-620'
-`tis-620-dos'
-`tis-620-mac'
-`tis-620-unix'
-     Modeline indicator: `TIS620'.  A type `ccl' encoding for Thai.  The
-     external encoding is defined by TIS620, the internal encoding is
-     peculiar to MULE, and called `thai-xtis'.
-
-`viqr'
-     Modeline indicator: `VIQR'.  A type `no-conversion' coding system
-     with Unix EOL convention (ie, no conversion) using
-     post-read-decode and pre-write-encode functions to translate the
-     VIQR coding system for Vietnamese.
-
-`viscii'
-`viscii-dos'
-`viscii-mac'
-`viscii-unix'
-     Modeline indicator: `VISCII'.  A type `ccl' coding-system used for
-     VISCII 1.1 for Vietnamese.  Differs slightly from VSCII; VISCII is
-     given priority by XEmacs.
-
-`vscii'
-`vscii-dos'
-`vscii-mac'
-`vscii-unix'
-     Modeline indicator: `VSCII'.  A type `ccl' coding-system used for
-     VSCII 1.1 for Vietnamese.  Differs slightly from VISCII, which is
-     given priority by XEmacs.  Use `(prefer-coding-system
-     'vietnamese-vscii)' to give priority to VSCII.
 

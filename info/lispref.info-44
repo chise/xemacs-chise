@@ -50,6 +50,618 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Coding System Properties,  Next: Basic Coding System Functions,  Prev: EOL Conversion,  Up: Coding Systems
+
+Coding System Properties
+------------------------
+
+`mnemonic'
+     String to be displayed in the modeline when this coding system is
+     active.
+
+`eol-type'
+     End-of-line conversion to be used.  It should be one of the types
+     listed in *Note EOL Conversion::.
+
+`eol-lf'
+     The coding system which is the same as this one, except that it
+     uses the Unix line-breaking convention.
+
+`eol-crlf'
+     The coding system which is the same as this one, except that it
+     uses the DOS line-breaking convention.
+
+`eol-cr'
+     The coding system which is the same as this one, except that it
+     uses the Macintosh line-breaking convention.
+
+`post-read-conversion'
+     Function called after a file has been read in, to perform the
+     decoding.  Called with two arguments, BEG and END, denoting a
+     region of the current buffer to be decoded.
+
+`pre-write-conversion'
+     Function called before a file is written out, to perform the
+     encoding.  Called with two arguments, BEG and END, denoting a
+     region of the current buffer to be encoded.
+
+   The following additional properties are recognized if TYPE is
+`iso2022':
+
+`charset-g0'
+`charset-g1'
+`charset-g2'
+`charset-g3'
+     The character set initially designated to the G0 - G3 registers.
+     The value should be one of
+
+        * A charset object (designate that character set)
+
+        * `nil' (do not ever use this register)
+
+        * `t' (no character set is initially designated to the
+          register, but may be later on; this automatically sets the
+          corresponding `force-g*-on-output' property)
+
+`force-g0-on-output'
+`force-g1-on-output'
+`force-g2-on-output'
+`force-g3-on-output'
+     If non-`nil', send an explicit designation sequence on output
+     before using the specified register.
+
+`short'
+     If non-`nil', use the short forms `ESC $ @', `ESC $ A', and `ESC $
+     B' on output in place of the full designation sequences `ESC $ (
+     @', `ESC $ ( A', and `ESC $ ( B'.
+
+`no-ascii-eol'
+     If non-`nil', don't designate ASCII to G0 at each end of line on
+     output.  Setting this to non-`nil' also suppresses other
+     state-resetting that normally happens at the end of a line.
+
+`no-ascii-cntl'
+     If non-`nil', don't designate ASCII to G0 before control chars on
+     output.
+
+`seven'
+     If non-`nil', use 7-bit environment on output.  Otherwise, use
+     8-bit environment.
+
+`lock-shift'
+     If non-`nil', use locking-shift (SO/SI) instead of single-shift or
+     designation by escape sequence.
+
+`no-iso6429'
+     If non-`nil', don't use ISO6429's direction specification.
+
+`escape-quoted'
+     If non-nil, literal control characters that are the same as the
+     beginning of a recognized ISO 2022 or ISO 6429 escape sequence (in
+     particular, ESC (0x1B), SO (0x0E), SI (0x0F), SS2 (0x8E), SS3
+     (0x8F), and CSI (0x9B)) are "quoted" with an escape character so
+     that they can be properly distinguished from an escape sequence.
+     (Note that doing this results in a non-portable encoding.) This
+     encoding flag is used for byte-compiled files.  Note that ESC is a
+     good choice for a quoting character because there are no escape
+     sequences whose second byte is a character from the Control-0 or
+     Control-1 character sets; this is explicitly disallowed by the ISO
+     2022 standard.
+
+`input-charset-conversion'
+     A list of conversion specifications, specifying conversion of
+     characters in one charset to another when decoding is performed.
+     Each specification is a list of two elements: the source charset,
+     and the destination charset.
+
+`output-charset-conversion'
+     A list of conversion specifications, specifying conversion of
+     characters in one charset to another when encoding is performed.
+     The form of each specification is the same as for
+     `input-charset-conversion'.
+
+   The following additional properties are recognized (and required) if
+TYPE is `ccl':
+
+`decode'
+     CCL program used for decoding (converting to internal format).
+
+`encode'
+     CCL program used for encoding (converting to external format).
+
+   The following properties are used internally:  EOL-CR, EOL-CRLF,
+EOL-LF, and BASE.
+
+
+File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System Property Functions,  Prev: Coding System Properties,  Up: Coding Systems
+
+Basic Coding System Functions
+-----------------------------
+
+ - Function: find-coding-system coding-system-or-name
+     This function retrieves the coding system of the given name.
+
+     If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
+     returned.  Otherwise, CODING-SYSTEM-OR-NAME should be a symbol.
+     If there is no such coding system, `nil' is returned.  Otherwise
+     the associated coding system object is returned.
+
+ - Function: get-coding-system name
+     This function retrieves the coding system of the given name.  Same
+     as `find-coding-system' except an error is signalled if there is no
+     such coding system instead of returning `nil'.
+
+ - Function: coding-system-list
+     This function returns a list of the names of all defined coding
+     systems.
+
+ - Function: coding-system-name coding-system
+     This function returns the name of the given coding system.
+
+ - Function: coding-system-base coding-system
+     Returns the base coding system (undecided EOL convention) coding
+     system.
+
+ - Function: make-coding-system name type &optional doc-string props
+     This function registers symbol NAME as a coding system.
+
+     TYPE describes the conversion method used and should be one of the
+     types listed in *Note Coding System Types::.
+
+     DOC-STRING is a string describing the coding system.
+
+     PROPS is a property list, describing the specific nature of the
+     character set.  Recognized properties are as in *Note Coding
+     System Properties::.
+
+ - Function: copy-coding-system old-coding-system new-name
+     This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
+     does not name an existing coding system, a new one will be created.
+
+ - Function: subsidiary-coding-system coding-system eol-type
+     This function returns the subsidiary coding system of
+     CODING-SYSTEM with eol type EOL-TYPE.
+
+
+File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and Decoding Text,  Prev: Basic Coding System Functions,  Up: Coding Systems
+
+Coding System Property Functions
+--------------------------------
+
+ - Function: coding-system-doc-string coding-system
+     This function returns the doc string for CODING-SYSTEM.
+
+ - Function: coding-system-type coding-system
+     This function returns the type of CODING-SYSTEM.
+
+ - Function: coding-system-property coding-system prop
+     This function returns the PROP property of CODING-SYSTEM.
+
+
+File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textual Encoding,  Prev: Coding System Property Functions,  Up: Coding Systems
+
+Encoding and Decoding Text
+--------------------------
+
+ - Function: decode-coding-region start end coding-system &optional
+          buffer
+     This function decodes the text between START and END which is
+     encoded in CODING-SYSTEM.  This is useful if you've read in
+     encoded text from a file without decoding it (e.g. you read in a
+     JIS-formatted file but used the `binary' or `no-conversion' coding
+     system, so that it shows up as `^[$B!<!+^[(B').  The length of the
+     encoded text is returned.  BUFFER defaults to the current buffer
+     if unspecified.
+
+ - Function: encode-coding-region start end coding-system &optional
+          buffer
+     This function encodes the text between START and END using
+     CODING-SYSTEM.  This will, for example, convert Japanese
+     characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
+     encoding.  The length of the encoded text is returned.  BUFFER
+     defaults to the current buffer if unspecified.
+
+
+File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
+
+Detection of Textual Encoding
+-----------------------------
+
+ - Function: coding-category-list
+     This function returns a list of all recognized coding categories.
+
+ - Function: set-coding-priority-list list
+     This function changes the priority order of the coding categories.
+     LIST should be a list of coding categories, in descending order of
+     priority.  Unspecified coding categories will be lower in priority
+     than all specified ones, in the same relative order they were in
+     previously.
+
+ - Function: coding-priority-list
+     This function returns a list of coding categories in descending
+     order of priority.
+
+ - Function: set-coding-category-system coding-category coding-system
+     This function changes the coding system associated with a coding
+     category.
+
+ - Function: coding-category-system coding-category
+     This function returns the coding system associated with a coding
+     category.
+
+ - Function: detect-coding-region start end &optional buffer
+     This function detects coding system of the text in the region
+     between START and END.  Returned value is a list of possible coding
+     systems ordered by priority.  If only ASCII characters are found,
+     it returns `autodetect' or one of its subsidiary coding systems
+     according to a detected end-of-line type.  Optional arg BUFFER
+     defaults to the current buffer.
+
+
+File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Next: Predefined Coding Systems,  Prev: Detection of Textual Encoding,  Up: Coding Systems
+
+Big5 and Shift-JIS Functions
+----------------------------
+
+   These are special functions for working with the non-standard
+Shift-JIS and Big5 encodings.
+
+ - Function: decode-shift-jis-char code
+     This function decodes a JIS X 0208 character of Shift-JIS
+     coding-system.  CODE is the character code in Shift-JIS as a cons
+     of type bytes.  The corresponding character is returned.
+
+ - Function: encode-shift-jis-char ch
+     This function encodes a JIS X 0208 character CH to SHIFT-JIS
+     coding-system.  The corresponding character code in SHIFT-JIS is
+     returned as a cons of two bytes.
+
+ - Function: decode-big5-char code
+     This function decodes a Big5 character CODE of BIG5 coding-system.
+     CODE is the character code in BIG5.  The corresponding character
+     is returned.
+
+ - Function: encode-big5-char ch
+     This function encodes the Big5 character CHAR to BIG5
+     coding-system.  The corresponding character code in Big5 is
+     returned.
+
+
+File: lispref.info,  Node: Predefined Coding Systems,  Prev: Big5 and Shift-JIS Functions,  Up: Coding Systems
+
+Coding Systems Implemented
+--------------------------
+
+   MULE initializes most of the commonly used coding systems at XEmacs's
+startup.  A few others are initialized only when the relevant language
+environment is selected and support libraries are loaded.  (NB: The
+following list is based on XEmacs 21.2.19, the development branch at the
+time of writing.  The list may be somewhat different for other
+versions.  Recent versions of GNU Emacs 20 implement a few more rare
+coding systems; work is being done to port these to XEmacs.)
+
+   Unfortunately, there is not a consistent naming convention for
+character sets, and for practical purposes coding systems often take
+their name from their principal character sets (ASCII, KOI8-R, Shift
+JIS).  Others take their names from the coding system (ISO-2022-JP,
+EUC-KR), and a few from their non-text usages (internal, binary).  To
+provide for this, and for the fact that many coding systems have
+several common names, an aliasing system is provided.  Finally, some
+effort has been made to use names that are registered as MIME charsets
+(this is why the name 'shift_jis contains that un-Lisp-y underscore).
+
+   There is a systematic naming convention regarding end-of-line (EOL)
+conventions for different systems.  A coding system whose name ends in
+"-unix" forces the assumptions that lines are broken by newlines (0x0A).
+A coding system whose name ends in "-mac" forces the assumptions that
+lines are broken by ASCII CRs (0x0D).  A coding system whose name ends
+in "-dos" forces the assumptions that lines are broken by CRLF sequences
+(0x0D 0x0A).  These subsidiary coding systems are automatically derived
+from a base coding system.  Use of the base coding system implies
+autodetection of the text file convention.  (The fact that the -unix,
+-mac, and -dos are derived from a base system results in them showing up
+as "aliases" in `list-coding-systems'.)  These subsidiaries have a
+consistent modeline indicator as well.  "-dos" coding systems have ":T"
+appended to their modeline indicator, while "-mac" coding systems have
+":t" appended (eg, "ISO8:t" for iso-2022-8-mac).
+
+   In the following table, each coding system is given with its mode
+line indicator in parentheses.  Non-textual coding systems are listed
+first, followed by textual coding systems and their aliases. (The
+coding system subsidiary modeline indicators ":T" and ":t" will be
+omitted from the table of coding systems.)
+
+   ### SJT 1999-08-23 Maybe should order these by language?  Definitely
+need language usage for the ISO-8859 family.
+
+   Note that although true coding system aliases have been implemented
+for XEmacs 21.2, the coding system initialization has not yet been
+converted as of 21.2.19.  So coding systems described as aliases have
+the same properties as the aliased coding system, but will not be equal
+as Lisp objects.
+
+`automatic-conversion'
+`undecided'
+`undecided-dos'
+`undecided-mac'
+`undecided-unix'
+     Modeline indicator: `Auto'.  A type `undecided' coding system.
+     Attempts to determine an appropriate coding system from file
+     contents or the environment.
+
+`raw-text'
+`no-conversion'
+`raw-text-dos'
+`raw-text-mac'
+`raw-text-unix'
+`no-conversion-dos'
+`no-conversion-mac'
+`no-conversion-unix'
+     Modeline indicator: `Raw'.  A type `no-conversion' coding system,
+     which converts only line-break-codes.  An implementation quirk
+     means that this coding system is also used for ISO8859-1.
+
+`binary'
+     Modeline indicator: `Binary'.  A type `no-conversion' coding
+     system which does no character coding or EOL conversions.  An
+     alias for `raw-text-unix'.
+
+`alternativnyj'
+`alternativnyj-dos'
+`alternativnyj-mac'
+`alternativnyj-unix'
+     Modeline indicator: `Cy.Alt'.  A type `ccl' coding system used for
+     Alternativnyj, an encoding of the Cyrillic alphabet.
+
+`big5'
+`big5-dos'
+`big5-mac'
+`big5-unix'
+     Modeline indicator: `Zh/Big5'.  A type `big5' coding system used
+     for BIG5, the most common encoding of traditional Chinese as used
+     in Taiwan.
+
+`cn-gb-2312'
+`cn-gb-2312-dos'
+`cn-gb-2312-mac'
+`cn-gb-2312-unix'
+     Modeline indicator: `Zh-GB/EUC'.  A type `iso2022' coding system
+     used for simplified Chinese (as used in the People's Republic of
+     China), with the `ascii' (G0), `chinese-gb2312' (G1), and `sisheng'
+     (G2) character sets initially designated.  Chinese EUC (Extended
+     Unix Code).
+
+`ctext-hebrew'
+`ctext-hebrew-dos'
+`ctext-hebrew-mac'
+`ctext-hebrew-unix'
+     Modeline indicator: `CText/Hbrw'.  A type `iso2022' coding system
+     with the `ascii' (G0) and `hebrew-iso8859-8' (G1) character sets
+     initially designated for Hebrew.
+
+`ctext'
+`ctext-dos'
+`ctext-mac'
+`ctext-unix'
+     Modeline indicator: `CText'.  A type `iso2022' 8-bit coding system
+     with the `ascii' (G0) and `latin-iso8859-1' (G1) character sets
+     initially designated.  X11 Compound Text Encoding.  Often
+     mistakenly recognized instead of EUC encodings; usual cause is
+     inappropriate setting of `coding-priority-list'.
+
+`escape-quoted'
+     Modeline indicator: `ESC/Quot'.  A type `iso2022' 8-bit coding
+     system with the `ascii' (G0) and `latin-iso8859-1' (G1) character
+     sets initially designated and escape quoting.  Unix EOL conversion
+     (ie, no conversion).  It is used for .ELC files.
+
+`euc-jp'
+`euc-jp-dos'
+`euc-jp-mac'
+`euc-jp-unix'
+     Modeline indicator: `Ja/EUC'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0), `japanese-jisx0208' (G1), `katakana-jisx0201'
+     (G2), and `japanese-jisx0212' (G3) initially designated.  Japanese
+     EUC (Extended Unix Code).
+
+`euc-kr'
+`euc-kr-dos'
+`euc-kr-mac'
+`euc-kr-unix'
+     Modeline indicator: `ko/EUC'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
+     Korean EUC (Extended Unix Code).
+
+`hz-gb-2312'
+     Modeline indicator: `Zh-GB/Hz'.  A type `no-conversion' coding
+     system with Unix EOL convention (ie, no conversion) using
+     post-read-decode and pre-write-encode functions to translate the
+     Hz/ZW coding system used for Chinese.
+
+`iso-2022-7bit'
+`iso-2022-7bit-unix'
+`iso-2022-7bit-dos'
+`iso-2022-7bit-mac'
+`iso-2022-7'
+     Modeline indicator: `ISO7'.  A type `iso2022' 7-bit coding system
+     with `ascii' (G0) initially designated.  Other character sets must
+     be explicitly designated to be used.
+
+`iso-2022-7bit-ss2'
+`iso-2022-7bit-ss2-dos'
+`iso-2022-7bit-ss2-mac'
+`iso-2022-7bit-ss2-unix'
+     Modeline indicator: `ISO7/SS'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated.  Other character
+     sets must be explicitly designated to be used.  SS2 is used to
+     invoke a 96-charset, one character at a time.
+
+`iso-2022-8'
+`iso-2022-8-dos'
+`iso-2022-8-mac'
+`iso-2022-8-unix'
+     Modeline indicator: `ISO8'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0) and `latin-iso8859-1' (G1) initially designated.
+     Other character sets must be explicitly designated to be used.
+     No single-shift or locking-shift.
+
+`iso-2022-8bit-ss2'
+`iso-2022-8bit-ss2-dos'
+`iso-2022-8bit-ss2-mac'
+`iso-2022-8bit-ss2-unix'
+     Modeline indicator: `ISO8/SS'.  A type `iso2022' 8-bit coding
+     system with `ascii' (G0) and `latin-iso8859-1' (G1) initially
+     designated.  Other character sets must be explicitly designated to
+     be used.  SS2 is used to invoke a 96-charset, one character at a
+     time.
+
+`iso-2022-int-1'
+`iso-2022-int-1-dos'
+`iso-2022-int-1-mac'
+`iso-2022-int-1-unix'
+     Modeline indicator: `INT-1'.  A type `iso2022' 7-bit coding system
+     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
+     ISO-2022-INT-1.
+
+`iso-2022-jp-1978-irv'
+`iso-2022-jp-1978-irv-dos'
+`iso-2022-jp-1978-irv-mac'
+`iso-2022-jp-1978-irv-unix'
+     Modeline indicator: `Ja-78/7bit'.  A type `iso2022' 7-bit coding
+     system.  For compatibility with old Japanese terminals; if you
+     need to know, look at the source.
+
+`iso-2022-jp'
+`iso-2022-jp-2 (ISO7/SS)'
+`iso-2022-jp-dos'
+`iso-2022-jp-mac'
+`iso-2022-jp-unix'
+`iso-2022-jp-2-dos'
+`iso-2022-jp-2-mac'
+`iso-2022-jp-2-unix'
+     Modeline indicator: `MULE/7bit'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated, and complex
+     specifications to insure backward compatibility with old Japanese
+     systems.  Used for communication with mail and news in Japan.  The
+     "-2" versions also use SS2 to invoke a 96-charset one character at
+     a time.
+
+`iso-2022-kr'
+     Modeline indicator: `Ko/7bit'  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) and `korean-ksc5601' (G1) initially
+     designated.  Used for e-mail in Korea.
+
+`iso-2022-lock'
+`iso-2022-lock-dos'
+`iso-2022-lock-mac'
+`iso-2022-lock-unix'
+     Modeline indicator: `ISO7/Lock'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated, using Locking-Shift
+     to invoke a 96-charset.
+
+`iso-8859-1'
+`iso-8859-1-dos'
+`iso-8859-1-mac'
+`iso-8859-1-unix'
+     Due to implementation, this is not a type `iso2022' coding system,
+     but rather an alias for the `raw-text' coding system.
+
+`iso-8859-2'
+`iso-8859-2-dos'
+`iso-8859-2-mac'
+`iso-8859-2-unix'
+     Modeline indicator: `MIME/Ltn-2'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-2' (G1) initially invoked.
+
+`iso-8859-3'
+`iso-8859-3-dos'
+`iso-8859-3-mac'
+`iso-8859-3-unix'
+     Modeline indicator: `MIME/Ltn-3'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-3' (G1) initially invoked.
+
+`iso-8859-4'
+`iso-8859-4-dos'
+`iso-8859-4-mac'
+`iso-8859-4-unix'
+     Modeline indicator: `MIME/Ltn-4'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-4' (G1) initially invoked.
+
+`iso-8859-5'
+`iso-8859-5-dos'
+`iso-8859-5-mac'
+`iso-8859-5-unix'
+     Modeline indicator: `ISO8/Cyr'.  A type `iso2022' coding system
+     with `ascii' (G0) and `cyrillic-iso8859-5' (G1) initially invoked.
+
+`iso-8859-7'
+`iso-8859-7-dos'
+`iso-8859-7-mac'
+`iso-8859-7-unix'
+     Modeline indicator: `Grk'.  A type `iso2022' coding system with
+     `ascii' (G0) and `greek-iso8859-7' (G1) initially invoked.
+
+`iso-8859-8'
+`iso-8859-8-dos'
+`iso-8859-8-mac'
+`iso-8859-8-unix'
+     Modeline indicator: `MIME/Hbrw'.  A type `iso2022' coding system
+     with `ascii' (G0) and `hebrew-iso8859-8' (G1) initially invoked.
+
+`iso-8859-9'
+`iso-8859-9-dos'
+`iso-8859-9-mac'
+`iso-8859-9-unix'
+     Modeline indicator: `MIME/Ltn-5'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-9' (G1) initially invoked.
+
+`koi8-r'
+`koi8-r-dos'
+`koi8-r-mac'
+`koi8-r-unix'
+     Modeline indicator: `KOI8'.  A type `ccl' coding-system used for
+     KOI8-R, an encoding of the Cyrillic alphabet.
+
+`shift_jis'
+`shift_jis-dos'
+`shift_jis-mac'
+`shift_jis-unix'
+     Modeline indicator: `Ja/SJIS'.  A type `shift-jis' coding-system
+     implementing the Shift-JIS encoding for Japanese.  The underscore
+     is to conform to the MIME charset implementing this encoding.
+
+`tis-620'
+`tis-620-dos'
+`tis-620-mac'
+`tis-620-unix'
+     Modeline indicator: `TIS620'.  A type `ccl' encoding for Thai.  The
+     external encoding is defined by TIS620, the internal encoding is
+     peculiar to MULE, and called `thai-xtis'.
+
+`viqr'
+     Modeline indicator: `VIQR'.  A type `no-conversion' coding system
+     with Unix EOL convention (ie, no conversion) using
+     post-read-decode and pre-write-encode functions to translate the
+     VIQR coding system for Vietnamese.
+
+`viscii'
+`viscii-dos'
+`viscii-mac'
+`viscii-unix'
+     Modeline indicator: `VISCII'.  A type `ccl' coding-system used for
+     VISCII 1.1 for Vietnamese.  Differs slightly from VSCII; VISCII is
+     given priority by XEmacs.
+
+`vscii'
+`vscii-dos'
+`vscii-mac'
+`vscii-unix'
+     Modeline indicator: `VSCII'.  A type `ccl' coding-system used for
+     VSCII 1.1 for Vietnamese.  Differs slightly from VISCII, which is
+     given priority by XEmacs.  Use `(prefer-coding-system
+     'vietnamese-vscii)' to give priority to VSCII.
+
+
 File: lispref.info,  Node: CCL,  Next: Category Tables,  Prev: Coding Systems,  Up: MULE
 
 CCL
@@ -468,699 +1080,4 @@ described in the previous chapters.
 * Documentation Tips::        Writing readable documentation strings.
 * Comment Tips::	      Conventions for writing comments.
 * Library Headers::           Standard headers for library packages.
-
-
-File: lispref.info,  Node: Style Tips,  Next: Compilation Tips,  Up: Tips
-
-Writing Clean Lisp Programs
-===========================
-
-   Here are some tips for avoiding common errors in writing Lisp code
-intended for widespread use:
-
-   * Since all global variables share the same name space, and all
-     functions share another name space, you should choose a short word
-     to distinguish your program from other Lisp programs.  Then take
-     care to begin the names of all global variables, constants, and
-     functions with the chosen prefix.  This helps avoid name conflicts.
-
-     This recommendation applies even to names for traditional Lisp
-     primitives that are not primitives in XEmacs Lisp--even to `cadr'.
-     Believe it or not, there is more than one plausible way to define
-     `cadr'.  Play it safe; append your name prefix to produce a name
-     like `foo-cadr' or `mylib-cadr' instead.
-
-     If you write a function that you think ought to be added to Emacs
-     under a certain name, such as `twiddle-files', don't call it by
-     that name in your program.  Call it `mylib-twiddle-files' in your
-     program, and send mail to `bug-gnu-emacs@prep.ai.mit.edu'
-     suggesting we add it to Emacs.  If and when we do, we can change
-     the name easily enough.
-
-     If one prefix is insufficient, your package may use two or three
-     alternative common prefixes, so long as they make sense.
-
-     Separate the prefix from the rest of the symbol name with a hyphen,
-     `-'.  This will be consistent with XEmacs itself and with most
-     Emacs Lisp programs.
-
-   * It is often useful to put a call to `provide' in each separate
-     library program, at least if there is more than one entry point to
-     the program.
-
-   * If a file requires certain other library programs to be loaded
-     beforehand, then the comments at the beginning of the file should
-     say so.  Also, use `require' to make sure they are loaded.
-
-   * If one file FOO uses a macro defined in another file BAR, FOO
-     should contain this expression before the first use of the macro:
-
-          (eval-when-compile (require 'BAR))
-
-     (And BAR should contain `(provide 'BAR)', to make the `require'
-     work.)  This will cause BAR to be loaded when you byte-compile
-     FOO.  Otherwise, you risk compiling FOO without the necessary
-     macro loaded, and that would produce compiled code that won't work
-     right.  *Note Compiling Macros::.
-
-     Using `eval-when-compile' avoids loading BAR when the compiled
-     version of FOO is _used_.
-
-   * If you define a major mode, make sure to run a hook variable using
-     `run-hooks', just as the existing major modes do.  *Note Hooks::.
-
-   * If the purpose of a function is to tell you whether a certain
-     condition is true or false, give the function a name that ends in
-     `p'.  If the name is one word, add just `p'; if the name is
-     multiple words, add `-p'.  Examples are `framep' and
-     `frame-live-p'.
-
-   * If a user option variable records a true-or-false condition, give
-     it a name that ends in `-flag'.
-
-   * Please do not define `C-c LETTER' as a key in your major modes.
-     These sequences are reserved for users; they are the *only*
-     sequences reserved for users, so we cannot do without them.
-
-     Instead, define sequences consisting of `C-c' followed by a
-     non-letter.  These sequences are reserved for major modes.
-
-     Changing all the major modes in Emacs 18 so they would follow this
-     convention was a lot of work.  Abandoning this convention would
-     make that work go to waste, and inconvenience users.
-
-   * Sequences consisting of `C-c' followed by `{', `}', `<', `>', `:'
-     or `;' are also reserved for major modes.
-
-   * Sequences consisting of `C-c' followed by any other punctuation
-     character are allocated for minor modes.  Using them in a major
-     mode is not absolutely prohibited, but if you do that, the major
-     mode binding may be shadowed from time to time by minor modes.
-
-   * You should not bind `C-h' following any prefix character (including
-     `C-c').  If you don't bind `C-h', it is automatically available as
-     a help character for listing the subcommands of the prefix
-     character.
-
-   * You should not bind a key sequence ending in <ESC> except following
-     another <ESC>.  (That is, it is ok to bind a sequence ending in
-     `<ESC> <ESC>'.)
-
-     The reason for this rule is that a non-prefix binding for <ESC> in
-     any context prevents recognition of escape sequences as function
-     keys in that context.
-
-   * Applications should not bind mouse events based on button 1 with
-     the shift key held down.  These events include `S-mouse-1',
-     `M-S-mouse-1', `C-S-mouse-1', and so on.  They are reserved for
-     users.
-
-   * Modes should redefine `mouse-2' as a command to follow some sort of
-     reference in the text of a buffer, if users usually would not want
-     to alter the text in that buffer by hand.  Modes such as Dired,
-     Info, Compilation, and Occur redefine it in this way.
-
-   * When a package provides a modification of ordinary Emacs behavior,
-     it is good to include a command to enable and disable the feature,
-     Provide a command named `WHATEVER-mode' which turns the feature on
-     or off, and make it autoload (*note Autoload::).  Design the
-     package so that simply loading it has no visible effect--that
-     should not enable the feature.  Users will request the feature by
-     invoking the command.
-
-   * It is a bad idea to define aliases for the Emacs primitives.  Use
-     the standard names instead.
-
-   * Redefining an Emacs primitive is an even worse idea.  It may do
-     the right thing for a particular program, but there is no telling
-     what other programs might break as a result.
-
-   * If a file does replace any of the functions or library programs of
-     standard XEmacs, prominent comments at the beginning of the file
-     should say which functions are replaced, and how the behavior of
-     the replacements differs from that of the originals.
-
-   * Please keep the names of your XEmacs Lisp source files to 13
-     characters or less.  This way, if the files are compiled, the
-     compiled files' names will be 14 characters or less, which is
-     short enough to fit on all kinds of Unix systems.
-
-   * Don't use `next-line' or `previous-line' in programs; nearly
-     always, `forward-line' is more convenient as well as more
-     predictable and robust.  *Note Text Lines::.
-
-   * Don't call functions that set the mark, unless setting the mark is
-     one of the intended features of your program.  The mark is a
-     user-level feature, so it is incorrect to change the mark except
-     to supply a value for the user's benefit.  *Note The Mark::.
-
-     In particular, don't use these functions:
-
-        * `beginning-of-buffer', `end-of-buffer'
-
-        * `replace-string', `replace-regexp'
-
-     If you just want to move point, or replace a certain string,
-     without any of the other features intended for interactive users,
-     you can replace these functions with one or two lines of simple
-     Lisp code.
-
-   * Use lists rather than vectors, except when there is a particular
-     reason to use a vector.  Lisp has more facilities for manipulating
-     lists than for vectors, and working with lists is usually more
-     convenient.
-
-     Vectors are advantageous for tables that are substantial in size
-     and are accessed in random order (not searched front to back),
-     provided there is no need to insert or delete elements (only lists
-     allow that).
-
-   * The recommended way to print a message in the echo area is with
-     the `message' function, not `princ'.  *Note The Echo Area::.
-
-   * When you encounter an error condition, call the function `error'
-     (or `signal').  The function `error' does not return.  *Note
-     Signaling Errors::.
-
-     Do not use `message', `throw', `sleep-for', or `beep' to report
-     errors.
-
-   * An error message should start with a capital letter but should not
-     end with a period.
-
-   * Try to avoid using recursive edits.  Instead, do what the Rmail `e'
-     command does: use a new local keymap that contains one command
-     defined to switch back to the old local keymap.  Or do what the
-     `edit-options' command does: switch to another buffer and let the
-     user switch back at will.  *Note Recursive Editing::.
-
-   * In some other systems there is a convention of choosing variable
-     names that begin and end with `*'.  We don't use that convention
-     in Emacs Lisp, so please don't use it in your programs.  (Emacs
-     uses such names only for program-generated buffers.)  The users
-     will find Emacs more coherent if all libraries use the same
-     conventions.
-
-   * Indent each function with `C-M-q' (`indent-sexp') using the
-     default indentation parameters.
-
-   * Don't make a habit of putting close-parentheses on lines by
-     themselves; Lisp programmers find this disconcerting.  Once in a
-     while, when there is a sequence of many consecutive
-     close-parentheses, it may make sense to split them in one or two
-     significant places.
-
-   * Please put a copyright notice on the file if you give copies to
-     anyone.  Use the same lines that appear at the top of the Lisp
-     files in XEmacs itself.  If you have not signed papers to assign
-     the copyright to the Foundation, then place your name in the
-     copyright notice in place of the Foundation's name.
-
-
-File: lispref.info,  Node: Compilation Tips,  Next: Documentation Tips,  Prev: Style Tips,  Up: Tips
-
-Tips for Making Compiled Code Fast
-==================================
-
-   Here are ways of improving the execution speed of byte-compiled Lisp
-programs.
-
-   * Use the `profile' library to profile your program.  See the file
-     `profile.el' for instructions.
-
-   * Use iteration rather than recursion whenever possible.  Function
-     calls are slow in XEmacs Lisp even when a compiled function is
-     calling another compiled function.
-
-   * Using the primitive list-searching functions `memq', `member',
-     `assq', or `assoc' is even faster than explicit iteration.  It may
-     be worth rearranging a data structure so that one of these
-     primitive search functions can be used.
-
-   * Certain built-in functions are handled specially in byte-compiled
-     code, avoiding the need for an ordinary function call.  It is a
-     good idea to use these functions rather than alternatives.  To see
-     whether a function is handled specially by the compiler, examine
-     its `byte-compile' property.  If the property is non-`nil', then
-     the function is handled specially.
-
-     For example, the following input will show you that `aref' is
-     compiled specially (*note Array Functions::) while `elt' is not
-     (*note Sequence Functions::):
-
-          (get 'aref 'byte-compile)
-               => byte-compile-two-args
-          
-          (get 'elt 'byte-compile)
-               => nil
-
-   * If calling a small function accounts for a  substantial part of
-     your program's running time, make the function inline.  This
-     eliminates the function call overhead.  Since making a function
-     inline reduces the flexibility of changing the program, don't do
-     it unless it gives a noticeable speedup in something slow enough
-     that users care about the speed.  *Note Inline Functions::.
-
-
-File: lispref.info,  Node: Documentation Tips,  Next: Comment Tips,  Prev: Compilation Tips,  Up: Tips
-
-Tips for Documentation Strings
-==============================
-
-   Here are some tips for the writing of documentation strings.
-
-   * Every command, function, or variable intended for users to know
-     about should have a documentation string.
-
-   * An internal variable or subroutine of a Lisp program might as well
-     have a documentation string.  In earlier Emacs versions, you could
-     save space by using a comment instead of a documentation string,
-     but that is no longer the case.
-
-   * The first line of the documentation string should consist of one
-     or two complete sentences that stand on their own as a summary.
-     `M-x apropos' displays just the first line, and if it doesn't
-     stand on its own, the result looks bad.  In particular, start the
-     first line with a capital letter and end with a period.
-
-     The documentation string can have additional lines that expand on
-     the details of how to use the function or variable.  The
-     additional lines should be made up of complete sentences also, but
-     they may be filled if that looks good.
-
-   * For consistency, phrase the verb in the first sentence of a
-     documentation string as an infinitive with "to" omitted.  For
-     instance, use "Return the cons of A and B." in preference to
-     "Returns the cons of A and B."  Usually it looks good to do
-     likewise for the rest of the first paragraph.  Subsequent
-     paragraphs usually look better if they have proper subjects.
-
-   * Write documentation strings in the active voice, not the passive,
-     and in the present tense, not the future.  For instance, use
-     "Return a list containing A and B." instead of "A list containing
-     A and B will be returned."
-
-   * Avoid using the word "cause" (or its equivalents) unnecessarily.
-     Instead of, "Cause Emacs to display text in boldface," write just
-     "Display text in boldface."
-
-   * Do not start or end a documentation string with whitespace.
-
-   * Format the documentation string so that it fits in an Emacs window
-     on an 80-column screen.  It is a good idea for most lines to be no
-     wider than 60 characters.  The first line can be wider if
-     necessary to fit the information that ought to be there.
-
-     However, rather than simply filling the entire documentation
-     string, you can make it much more readable by choosing line breaks
-     with care.  Use blank lines between topics if the documentation
-     string is long.
-
-   * *Do not* indent subsequent lines of a documentation string so that
-     the text is lined up in the source code with the text of the first
-     line.  This looks nice in the source code, but looks bizarre when
-     users view the documentation.  Remember that the indentation
-     before the starting double-quote is not part of the string!
-
-   * A variable's documentation string should start with `*' if the
-     variable is one that users would often want to set interactively.
-     If the value is a long list, or a function, or if the variable
-     would be set only in init files, then don't start the
-     documentation string with `*'.  *Note Defining Variables::.
-
-   * The documentation string for a variable that is a yes-or-no flag
-     should start with words such as "Non-nil means...", to make it
-     clear that all non-`nil' values are equivalent and indicate
-     explicitly what `nil' and non-`nil' mean.
-
-   * When a function's documentation string mentions the value of an
-     argument of the function, use the argument name in capital letters
-     as if it were a name for that value.  Thus, the documentation
-     string of the function `/' refers to its second argument as
-     `DIVISOR', because the actual argument name is `divisor'.
-
-     Also use all caps for meta-syntactic variables, such as when you
-     show the decomposition of a list or vector into subunits, some of
-     which may vary.
-
-   * When a documentation string refers to a Lisp symbol, write it as it
-     would be printed (which usually means in lower case), with
-     single-quotes around it.  For example: `lambda'.  There are two
-     exceptions: write t and nil without single-quotes.  (In this
-     manual, we normally do use single-quotes for those symbols.)
-
-   * Don't write key sequences directly in documentation strings.
-     Instead, use the `\\[...]' construct to stand for them.  For
-     example, instead of writing `C-f', write `\\[forward-char]'.  When
-     Emacs displays the documentation string, it substitutes whatever
-     key is currently bound to `forward-char'.  (This is normally `C-f',
-     but it may be some other character if the user has moved key
-     bindings.)  *Note Keys in Documentation::.
-
-   * In documentation strings for a major mode, you will want to refer
-     to the key bindings of that mode's local map, rather than global
-     ones.  Therefore, use the construct `\\<...>' once in the
-     documentation string to specify which key map to use.  Do this
-     before the first use of `\\[...]'.  The text inside the `\\<...>'
-     should be the name of the variable containing the local keymap for
-     the major mode.
-
-     It is not practical to use `\\[...]' very many times, because
-     display of the documentation string will become slow.  So use this
-     to describe the most important commands in your major mode, and
-     then use `\\{...}' to display the rest of the mode's keymap.
-
-
-File: lispref.info,  Node: Comment Tips,  Next: Library Headers,  Prev: Documentation Tips,  Up: Tips
-
-Tips on Writing Comments
-========================
-
-   We recommend these conventions for where to put comments and how to
-indent them:
-
-`;'
-     Comments that start with a single semicolon, `;', should all be
-     aligned to the same column on the right of the source code.  Such
-     comments usually explain how the code on the same line does its
-     job.  In Lisp mode and related modes, the `M-;'
-     (`indent-for-comment') command automatically inserts such a `;' in
-     the right place, or aligns such a comment if it is already present.
-
-     This and following examples are taken from the Emacs sources.
-
-          (setq base-version-list                 ; there was a base
-                (assoc (substring fn 0 start-vn)  ; version to which
-                       file-version-assoc-list))  ; this looks like
-                                                  ; a subversion
-
-`;;'
-     Comments that start with two semicolons, `;;', should be aligned to
-     the same level of indentation as the code.  Such comments usually
-     describe the purpose of the following lines or the state of the
-     program at that point.  For example:
-
-          (prog1 (setq auto-fill-function
-                       ...
-                       ...
-            ;; update modeline
-            (redraw-modeline)))
-
-     Every function that has no documentation string (because it is use
-     only internally within the package it belongs to), should have
-     instead a two-semicolon comment right before the function,
-     explaining what the function does and how to call it properly.
-     Explain precisely what each argument means and how the function
-     interprets its possible values.
-
-`;;;'
-     Comments that start with three semicolons, `;;;', should start at
-     the left margin.  Such comments are used outside function
-     definitions to make general statements explaining the design
-     principles of the program.  For example:
-
-          ;;; This Lisp code is run in XEmacs
-          ;;; when it is to operate as a server
-          ;;; for other processes.
-
-     Another use for triple-semicolon comments is for commenting out
-     lines within a function.  We use triple-semicolons for this
-     precisely so that they remain at the left margin.
-
-          (defun foo (a)
-          ;;; This is no longer necessary.
-          ;;;  (force-mode-line-update)
-            (message "Finished with %s" a))
-
-`;;;;'
-     Comments that start with four semicolons, `;;;;', should be aligned
-     to the left margin and are used for headings of major sections of a
-     program.  For example:
-
-          ;;;; The kill ring
-
-The indentation commands of the Lisp modes in XEmacs, such as `M-;'
-(`indent-for-comment') and <TAB> (`lisp-indent-line') automatically
-indent comments according to these conventions, depending on the number
-of semicolons.  *Note Manipulating Comments: (emacs)Comments.
-
-
-File: lispref.info,  Node: Library Headers,  Prev: Comment Tips,  Up: Tips
-
-Conventional Headers for XEmacs Libraries
-=========================================
-
-   XEmacs has conventions for using special comments in Lisp libraries
-to divide them into sections and give information such as who wrote
-them.  This section explains these conventions.  First, an example:
-
-     ;;; lisp-mnt.el --- minor mode for Emacs Lisp maintainers
-     
-     ;; Copyright (C) 1992 Free Software Foundation, Inc.
-     
-     ;; Author: Eric S. Raymond <esr@snark.thyrsus.com>
-     ;; Maintainer: Eric S. Raymond <esr@snark.thyrsus.com>
-     ;; Created: 14 Jul 1992
-     ;; Version: 1.2
-     ;; Keywords: docs
-     
-     ;; This file is part of XEmacs.
-     COPYING PERMISSIONS...
-
-   The very first line should have this format:
-
-     ;;; FILENAME --- DESCRIPTION
-
-The description should be complete in one line.
-
-   After the copyright notice come several "header comment" lines, each
-beginning with `;; HEADER-NAME:'.  Here is a table of the conventional
-possibilities for HEADER-NAME:
-
-`Author'
-     This line states the name and net address of at least the principal
-     author of the library.
-
-     If there are multiple authors, you can list them on continuation
-     lines led by `;;' and a tab character, like this:
-
-          ;; Author: Ashwin Ram <Ram-Ashwin@cs.yale.edu>
-          ;;      Dave Sill <de5@ornl.gov>
-          ;;      Dave Brennan <brennan@hal.com>
-          ;;      Eric Raymond <esr@snark.thyrsus.com>
-
-`Maintainer'
-     This line should contain a single name/address as in the Author
-     line, or an address only, or the string `FSF'.  If there is no
-     maintainer line, the person(s) in the Author field are presumed to
-     be the maintainers.  The example above is mildly bogus because the
-     maintainer line is redundant.
-
-     The idea behind the `Author' and `Maintainer' lines is to make
-     possible a Lisp function to "send mail to the maintainer" without
-     having to mine the name out by hand.
-
-     Be sure to surround the network address with `<...>' if you
-     include the person's full name as well as the network address.
-
-`Created'
-     This optional line gives the original creation date of the file.
-     For historical interest only.
-
-`Version'
-     If you wish to record version numbers for the individual Lisp
-     program, put them in this line.
-
-`Adapted-By'
-     In this header line, place the name of the person who adapted the
-     library for installation (to make it fit the style conventions, for
-     example).
-
-`Keywords'
-     This line lists keywords for the `finder-by-keyword' help command.
-     This field is important; it's how people will find your package
-     when they're looking for things by topic area.  To separate the
-     keywords, you can use spaces, commas, or both.
-
-   Just about every Lisp library ought to have the `Author' and
-`Keywords' header comment lines.  Use the others if they are
-appropriate.  You can also put in header lines with other header
-names--they have no standard meanings, so they can't do any harm.
-
-   We use additional stylized comments to subdivide the contents of the
-library file.  Here is a table of them:
-
-`;;; Commentary:'
-     This begins introductory comments that explain how the library
-     works.  It should come right after the copying permissions.
-
-`;;; Change log:'
-     This begins change log information stored in the library file (if
-     you store the change history there).  For most of the Lisp files
-     distributed with XEmacs, the change history is kept in the file
-     `ChangeLog' and not in the source file at all; these files do not
-     have a `;;; Change log:' line.
-
-`;;; Code:'
-     This begins the actual code of the program.
-
-`;;; FILENAME ends here'
-     This is the "footer line"; it appears at the very end of the file.
-     Its purpose is to enable people to detect truncated versions of
-     the file from the lack of a footer line.
-
-
-File: lispref.info,  Node: Building XEmacs and Object Allocation,  Next: Standard Errors,  Prev: Tips,  Up: Top
-
-Building XEmacs; Allocation of Objects
-**************************************
-
-   This chapter describes how the runnable XEmacs executable is dumped
-with the preloaded Lisp libraries in it and how storage is allocated.
-
-   There is an entire separate document, the `XEmacs Internals Manual',
-devoted to the internals of XEmacs from the perspective of the C
-programmer.  It contains much more detailed information about the build
-process, the allocation and garbage-collection process, and other
-aspects related to the internals of XEmacs.
-
-* Menu:
-
-* Building XEmacs::     How to preload Lisp libraries into XEmacs.
-* Pure Storage::        A kludge to make preloaded Lisp functions sharable.
-* Garbage Collection::  Reclaiming space for Lisp objects no longer used.
-
-
-File: lispref.info,  Node: Building XEmacs,  Next: Pure Storage,  Up: Building XEmacs and Object Allocation
-
-Building XEmacs
-===============
-
-   This section explains the steps involved in building the XEmacs
-executable.  You don't have to know this material to build and install
-XEmacs, since the makefiles do all these things automatically.  This
-information is pertinent to XEmacs maintenance.
-
-   The `XEmacs Internals Manual' contains more information about this.
-
-   Compilation of the C source files in the `src' directory produces an
-executable file called `temacs', also called a "bare impure XEmacs".
-It contains the XEmacs Lisp interpreter and I/O routines, but not the
-editing commands.
-
-   Before XEmacs is actually usable, a number of Lisp files need to be
-loaded.  These define all the editing commands, plus most of the startup
-code and many very basic Lisp primitives.  This is accomplished by
-loading the file `loadup.el', which in turn loads all of the other
-standardly-loaded Lisp files.
-
-   It takes a substantial time to load the standard Lisp files.
-Luckily, you don't have to do this each time you run XEmacs; `temacs'
-can dump out an executable program called `xemacs' that has these files
-preloaded.  `xemacs' starts more quickly because it does not need to
-load the files.  This is the XEmacs executable that is normally
-installed.
-
-   To create `xemacs', use the command `temacs -batch -l loadup dump'.
-The purpose of `-batch' here is to tell `temacs' to run in
-non-interactive, command-line mode. (`temacs' can _only_ run in this
-fashion.  Part of the code required to initialize frames and faces is
-in Lisp, and must be loaded before XEmacs is able to create any frames.)
-The argument `dump' tells `loadup.el' to dump a new executable named
-`xemacs'.
-
-   The dumping process is highly system-specific, and some operating
-systems don't support dumping.  On those systems, you must start XEmacs
-with the `temacs -batch -l loadup run-temacs' command each time you use
-it.  This takes a substantial time, but since you need to start Emacs
-once a day at most--or once a week if you never log out--the extra time
-is not too severe a problem. (In older versions of Emacs, you started
-Emacs from `temacs' using `temacs -l loadup'.)
-
-   You are free to start XEmacs directly from `temacs' if you want,
-even if there is already a dumped `xemacs'.  Normally you wouldn't want
-to do that; but the Makefiles do this when you rebuild XEmacs using
-`make all-elc', which builds XEmacs and simultaneously compiles any
-out-of-date Lisp files. (You need `xemacs' in order to compile Lisp
-files.  However, you also need the compiled Lisp files in order to dump
-out `xemacs'.  If both of these are missing or corrupted, you are out
-of luck unless you're able to bootstrap `xemacs' from `temacs'.  Note
-that `make all-elc' actually loads the alternative loadup file
-`loadup-el.el', which works like `loadup.el' but disables the
-pure-copying process and forces XEmacs to ignore any compiled Lisp
-files even if they exist.)
-
-   You can specify additional files to preload by writing a library
-named `site-load.el' that loads them.  You may need to increase the
-value of `PURESIZE', in `src/puresize.h', to make room for the
-additional files.  You should _not_ modify this file directly, however;
-instead, use the `--puresize' configuration option. (If you run out of
-pure space while dumping `xemacs', you will be told how much pure space
-you actually will need.) However, the advantage of preloading
-additional files decreases as machines get faster.  On modern machines,
-it is often not advisable, especially if the Lisp code is on a file
-system local to the machine running XEmacs.
-
-   You can specify other Lisp expressions to execute just before dumping
-by putting them in a library named `site-init.el'.  However, if they
-might alter the behavior that users expect from an ordinary unmodified
-XEmacs, it is better to put them in `default.el', so that users can
-override them if they wish.  *Note Start-up Summary::.
-
-   Before `loadup.el' dumps the new executable, it finds the
-documentation strings for primitive and preloaded functions (and
-variables) in the file where they are stored, by calling
-`Snarf-documentation' (*note Accessing Documentation::).  These strings
-were moved out of the `xemacs' executable to make it smaller.  *Note
-Documentation Basics::.
-
- - Function: dump-emacs to-file from-file
-     This function dumps the current state of XEmacs into an executable
-     file TO-FILE.  It takes symbols from FROM-FILE (this is normally
-     the executable file `temacs').
-
-     If you use this function in an XEmacs that was already dumped, you
-     must set `command-line-processed' to `nil' first for good results.
-     *Note Command Line Arguments::.
-
- - Function: run-emacs-from-temacs &rest args
-     This is the function that implements the `run-temacs' command-line
-     argument.  It is called from `loadup.el' as appropriate.  You
-     should most emphatically _not_ call this yourself; it will
-     reinitialize your XEmacs process and you'll be sorry.
-
- - Command: emacs-version
-     This function returns a string describing the version of XEmacs
-     that is running.  It is useful to include this string in bug
-     reports.
-
-          (emacs-version)
-            => "XEmacs 20.1 [Lucid] (i586-unknown-linux2.0.29)
-                           of Mon Apr  7 1997 on altair.xemacs.org"
-
-     Called interactively, the function prints the same information in
-     the echo area.
-
- - Variable: emacs-build-time
-     The value of this variable is the time at which XEmacs was built
-     at the local site.
-
-          emacs-build-time "Mon Apr  7 20:28:52 1997"
-               =>
-
- - Variable: emacs-version
-     The value of this variable is the version of Emacs being run.  It
-     is a string, e.g. `"20.1 XEmacs Lucid"'.
-
-   The following two variables did not exist before FSF GNU Emacs
-version 19.23 and XEmacs version 19.10, which reduces their usefulness
-at present, but we hope they will be convenient in the future.
-
- - Variable: emacs-major-version
-     The major version number of Emacs, as an integer.  For XEmacs
-     version 20.1, the value is 20.
-
- - Variable: emacs-minor-version
-     The minor version number of Emacs, as an integer.  For XEmacs
-     version 20.1, the value is 1.
 
