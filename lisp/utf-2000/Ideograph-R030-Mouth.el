@@ -14261,7 +14261,6 @@
      ((japanese-jisx0208-1978	  . #x3D38)	; ø»‚¥Ÿ
       (japanese-jisx0208	  . #x3D38)	; ø»†¹§
       (korean-ksc5601		  . #x7322)	; ø»Š’©
-      (chinese-isoir165		  . #x3C2F)	; ø»–Œ
       (ideograph-daikanwa	  . 41974)	; ø¸Š¶
       ))
     (ideograph-daikanwa . 04244)	; ø¸‚”
