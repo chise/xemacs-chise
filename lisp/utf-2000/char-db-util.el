@@ -447,6 +447,14 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
+    ;; (when (and (memq '<-denotational attributes)
+    ;;            (setq value (get-char-attribute char '<-denotational))
+    ;;            (null (cdr value))
+    ;;            (setq value (encode-char (car value) 'ucs 'defined-only)))
+    ;;   (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                   '=>ucs value (decode-char 'ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '<-denotational attributes)))
     (dolist (name '(=>ucs =>ucs*))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -828,7 +836,8 @@
       )
     (unless readable
       (dolist (ignored '(composition
-			 ->denotational <-subsumptive ->ucs-unified))
+			 ->denotational <-subsumptive ->ucs-unified
+			 ->ideographic-component-forms))
 	(setq attributes (delq ignored attributes))))
     ;; (setq rest ccs-attributes)
     ;; (while (and rest
