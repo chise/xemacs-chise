@@ -40,6 +40,7 @@ list describes meaning of keys:
 	Meaning of some symbols are defined.  Following list describes
 	meaning of symbols:
 
+		chuuka-daijiten			中華大辞典
 		doubun-tsuukou			同文通考
 		gyokuhen			玉篇
 		henkai				篇海
@@ -47,6 +48,7 @@ list describes meaning of keys:
 		jii				字彙
 		jiiho				字彙補
 		jiyun (shuuin)			集韻
+		kaihen				海篇
 		kangxi				康煕字典
 		kouin				広韻
 		morohashi-daikanwa		大漢和辞典
@@ -55,9 +57,8 @@ list describes meaning of keys:
 		seiji-tsuu			正字通
 		setsumon-tsuukun-teisei		説文通訓定聲
 		shuowen				説文
-		yuquan				玉泉
-		chuuka-daijiten			中華大辞典
 		sougen-irai-zokujifu		宋元以来俗字譜
+		yuquan				玉泉
 
 ** Properties
 
