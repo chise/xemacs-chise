@@ -5,6 +5,7 @@
     (total-strokes	 . 6)
     (korean-ksc5601	. #x6962)	; ø»Š„½
     (ideograph-daikanwa . 28614)	; ø¸†¿†
+    (mojikyo		. 028614)	; ý €†¿†
     ))
 (define-char
   '((morohashi-daikanwa	28614 1)
@@ -17,7 +18,7 @@
     (chinese-isoir165		. #x5370)	; ø»¸¿
     (chinese-cns11643-1		. #x4851)	; ø»‘¼ž
     (japanese-jisx0208-1990	. #x3129)	; ø½Š¤
-    (mojikyo			. 050358)	; ø¸Œ’¶
+    (mojikyo			. 050358)	; ý €Œ’¶
     (ucs			. #x7FBD)	; ç¾½
     ))
 (define-char
@@ -285,13 +286,21 @@
     ))
 (define-char
   '((->ucs		. #x7FC1)	; ç¿
+    (morohashi-daikanwa	28635 0 0)
+    (ideographic-radical . 124)	; â½»
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (mojikyo		. 028635)	; ý €†¿›
+    ))
+(define-char
+  '((->ucs		. #x7FC1)	; ç¿
     (morohashi-daikanwa	28635 1)
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (->mojikyo		. 050359)	; ç¿
     (japanese-jisx0208-1978	. #x3227)	; ø»‚•„
     (japanese-jisx0208		. #x3227)	; ø»†©Œ
-    (mojikyo			. 050359)	; ø¸Œ’·
     ))
 (define-char
   '((morohashi-daikanwa	28635 1 0)
@@ -302,6 +311,7 @@
     (chinese-isoir165		. #x4E4C)	; ø»±…
     (chinese-cns11643-1		. #x5751)	; ø»’’ 
     (japanese-jisx0208-1990	. #x3227)	; ø½Š€
+    (mojikyo			. 050359)	; ý €Œ’·
     (ucs			. #x7FC1)	; ç¿
     ))
 (define-char
@@ -647,6 +657,7 @@
     (total-strokes	 . 11)
     (korean-ksc5601	. #x6C4E)	; ø»Š‰ƒ
     (ideograph-daikanwa . 28657)	; ø¸†¿±
+    (mojikyo		. 028657)	; ý €†¿±
     ))
 (define-char
   '((morohashi-daikanwa	28657 1)
@@ -659,7 +670,7 @@
     (chinese-isoir165		. #x526E)	; ø»·Ÿ
     (chinese-cns11643-1		. #x5C62)	; ø»’š‡
     (japanese-jisx0208-1990	. #x4D62)	; ø½Š·¥
-    (mojikyo			. 050360)	; ø¸Œ’¸
+    (mojikyo			. 050360)	; ý €Œ’¸
     (ucs			. #x7FCC)	; ç¿Œ
     ))
 (define-char
@@ -885,6 +896,7 @@
     (total-strokes	 . 11)
     (korean-ksc5601	. #x6327)	; ø»‰»Ž
     (ideograph-daikanwa . 28672)	; ø¸‡€€
+    (mojikyo		. 028672)	; ý €‡€€
     ))
 (define-char
   '((morohashi-daikanwa	28672 1)
@@ -895,7 +907,7 @@
     (japanese-jisx0208		. #x3D2C)	; ø»†¹›
     (chinese-cns11643-1		. #x5C64)	; ø»’š‰
     (japanese-jisx0208-1990	. #x3D2C)	; ø½ŠŸ
-    (mojikyo			. 050361)	; ø¸Œ’¹
+    (mojikyo			. 050361)	; ý €Œ’¹
     (ucs			. #x7FD2)	; ç¿’
     ))
 (define-char
@@ -2807,7 +2819,7 @@
     (chinese-isoir165		. #x526D)	; ø»·ž
     (chinese-cns11643-1		. #x7476)	; ø»’½«
     (japanese-jisx0208-1990	. #x4D63)	; ø½Š·¦
-    (mojikyo			. 050362)	; ø¸Œ’º
+    (mojikyo			. 050362)	; ý €Œ’º
     (ucs			. #x7FFC)	; ç¿¼
     ))
 (define-char
