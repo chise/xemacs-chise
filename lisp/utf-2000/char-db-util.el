@@ -1,8 +1,8 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998, 1999 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000 MORIOKA Tomohiko.
 
-;; Author: MORIOKA Tomohiko <tomo@m17n.org>
+;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
 ;; This file is part of UTF-2000.
@@ -319,6 +319,20 @@
     "
 			  cell))
 	  (setq data (del-alist 'total-strokes data))
+	  )
+	(when (setq cell (assq '->ideograph data))
+	  (setq cell (cdr cell))
+	  (insert (format "(->ideograph\t%s)
+    "
+			  (mapconcat (lambda (code)
+				       (cond ((symbolp code)
+					      (symbol-name code))
+					     ((integerp code)
+					      (format "#x%04X" code))
+					     (t
+					      (format "\n     %S" code))))
+				     cell " ")))
+	  (setq data (del-alist '->ideograph data))
 	  )
 	(when (setq cell (assq '->decomposition data))
 	  (setq cell (cdr cell))
