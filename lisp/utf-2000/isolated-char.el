@@ -173,7 +173,7 @@
 
 (with-temp-buffer
   (buffer-disable-undo)
-  (insert-file-contents "../etc/GT-RS.txt")
+  (insert-file-contents "../etc/char-data/GT-RS.txt")
     (goto-char (point-min))
     (let (gt-code radical strokes plane code)
       (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
