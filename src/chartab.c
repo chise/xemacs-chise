@@ -3313,10 +3313,11 @@ Return DEFAULT-VALUE if the value is not exist.
 	}
     }
 
-  if ( !(EQ (attribute, Q_unified_from))
-       && ( (NILP (char_rel_max)
-	     || (INTP (char_rel_max) &&
-		 XINT (char_rel_max) > 0)) ) )
+  if ( !(EQ (attribute, Q_unified_from)) &&
+       !(EQ (attribute, Q_denotational_from)) &&
+       ( (NILP (char_rel_max)
+	  || (INTP (char_rel_max) &&
+	      XINT (char_rel_max) > 0)) ) )
     {
       Lisp_String* name = symbol_name (XSYMBOL (attribute));
       Bufbyte *name_str = string_data (name);
@@ -3334,7 +3335,7 @@ Return DEFAULT-VALUE if the value is not exist.
 	    {
 	      Lisp_Object ancestor = XCAR (ancestors);
 
-	      if (!EQ (ancestors, character))
+	      if (!EQ (ancestor, character))
 		{
 		  ret = Fchar_feature (ancestor, attribute, Qunbound,
 				       Qnil, make_int (0));
@@ -3347,7 +3348,8 @@ Return DEFAULT-VALUE if the value is not exist.
 		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
 		}
 	      else
-		ancestors = XCDR (ancestors);
+		return default_value;
+	      /* ancestors = XCDR (ancestors); */
 	    }
 	}
     }
