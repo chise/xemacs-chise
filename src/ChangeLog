@@ -1,3 +1,10 @@
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (text_encode_generic): Use `if' instead of
+	`switch'.
+	(decode_coding_sjis): Use `MAKE_CHAR' and `DECODE_ADD_UCS_CHAR' to
+	decode JIS-Latin.
+
 1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* text-coding.c (encode_coding_sjis): Deleted.
