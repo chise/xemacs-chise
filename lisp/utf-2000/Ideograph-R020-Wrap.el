@@ -217,7 +217,7 @@
     (ideograph-daikanwa . 02510)	; ø¸€§Ž
     ))
 (define-char
-  '((morohashi-daikanwa	2510 0 *)
+  '((morohashi-daikanwa	2510 0 9)
     (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
