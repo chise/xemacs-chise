@@ -1,3 +1,23 @@
+2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (DECODE_CHAR): Delete special code for
+	`chinese-big5-1' and `chinese-big5-2'.
+
+	* mule-charset.c (Qbig5_1): New variable in UTF-2000.
+	(Qbig5_2): Likewise.
+	(decode_defined_char): Support CONVERSION_BIG5_1 and
+	CONVERSION_BIG5_2.
+	(decode_builtin_char): Likewise.
+	(charset_code_point): Likewise.
+	(Fmake_charset): Accept `big5-1' and `big5-2' as a value of
+	'conversion in UTF-2000.
+	(syms_of_mule_charset): Add new symbol `big5-1' and `big5-2'.
+	(complex_vars_of_mule_charset): Define `chinese-big5-1' and
+	`chinese-big5-2' as children of `chinese-big5'.
+
+	* char-ucs.h (CONVERSION_BIG5_1): New macro.
+	(CONVERSION_BIG5_2): New macro.
+
 2002-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (char_encode_big5): Support entity-reference.

@@ -1,3 +1,14 @@
+2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el: Don't specify `auto-fill-chars' for
+	`katakana-jisx0201', `japanese-jisx0208', `japanese-jisx0212',
+	`chinese-gb2312', `chinese-big5-1' and `chinese-big5-2'.
+	(default-coded-charset-priority-list): Add `chinese-big5-1' and
+	`chinese-big5-2' in UTF-2000.
+
+	* mule/chinese.el: Set syntax-entry "w" for `chinese-big5' instead
+	of `chinese-big5-1' and `chinese-big5-2' in UTF-2000.
+
 2002-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/chinese.el: Add new coding-systems `big5-er', `big5-eten',
