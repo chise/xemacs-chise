@@ -644,21 +644,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; ⿱
-	)
-       ((ucs		    . #x53B6)	; 厶
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((ucs		      . #x53B6)	; 厶
-	  )
-	 ((ucs		      . #x53B6)	; 厶
-	  ))
-	))
+     ((ucs		  . #x53BD)	; 厽
       )
      ((ucs		  . #x4E8C)	; 二
       ))
