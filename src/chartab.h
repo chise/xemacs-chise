@@ -30,10 +30,67 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
+/************************************************************************/
+/*                               Char-ID Tables                         */
+/************************************************************************/
+
+struct Lisp_Uint8_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned char property[256];
+};
+typedef struct Lisp_Uint8_Byte_Table Lisp_Uint8_Byte_Table;
+
+DECLARE_LRECORD (uint8_byte_table, Lisp_Uint8_Byte_Table);
+#define XUINT8_BYTE_TABLE(x) \
+   XRECORD (x, uint8_byte_table, Lisp_Uint8_Byte_Table)
+#define XSETUINT8_BYTE_TABLE(x, p) XSETRECORD (x, p, uint8_byte_table)
+#define UINT8_BYTE_TABLE_P(x) RECORDP (x, uint8_byte_table)
+#define GC_UINT8_BYTE_TABLE_P(x) GC_RECORDP (x, uint8_byte_table)
+/* #define CHECK_UINT8_BYTE_TABLE(x) CHECK_RECORD (x, uint8_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Uint16_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned short property[256];
+};
+typedef struct Lisp_Uint16_Byte_Table Lisp_Uint16_Byte_Table;
+
+DECLARE_LRECORD (uint16_byte_table, Lisp_Uint16_Byte_Table);
+#define XUINT16_BYTE_TABLE(x) \
+   XRECORD (x, uint16_byte_table, Lisp_Uint16_Byte_Table)
+#define XSETUINT16_BYTE_TABLE(x, p) XSETRECORD (x, p, uint16_byte_table)
+#define UINT16_BYTE_TABLE_P(x) RECORDP (x, uint16_byte_table)
+#define GC_UINT16_BYTE_TABLE_P(x) GC_RECORDP (x, uint16_byte_table)
+/* #define CHECK_UINT16_BYTE_TABLE(x) CHECK_RECORD (x, uint16_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Byte_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object property[256];
+};
+typedef struct Lisp_Byte_Table Lisp_Byte_Table;
+
+DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
+#define XBYTE_TABLE(x) XRECORD (x, byte_table, Lisp_Byte_Table)
+#define XSETBYTE_TABLE(x, p) XSETRECORD (x, p, byte_table)
+#define BYTE_TABLE_P(x) RECORDP (x, byte_table)
+#define GC_BYTE_TABLE_P(x) GC_RECORDP (x, byte_table)
+/* #define CHECK_BYTE_TABLE(x) CHECK_RECORD (x, byte_table)
+   char table entries should never escape to Lisp */
+
 Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
 
 Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
 			    Lisp_Object value);
+
 
 struct Lisp_Char_ID_Table
 {
@@ -50,7 +107,6 @@ DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
 #define GC_CHAR_ID_TABLE_P(x) GC_RECORDP (x, char_id_table)
 /* #define CHECK_CHAR_ID_TABLE(x) CHECK_RECORD (x, char_id_table)
    char table entries should never escape to Lisp */
-
 
 Lisp_Object make_char_id_table (Lisp_Object initval);
 
