@@ -4085,6 +4085,8 @@
     (ideographic-radical . 196)	; â¿ƒ
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
+    (japanese-jisx0208-1978	. #x375C)	; ø»‚
+    (japanese-jisx0208		. #x375C)	; ø»†±—
     (japanese-jisx0208-1990	. #x375C)	; ø½Š—‹
     (mojikyo			. 050605)	; ý €Œ–­
     (ucs			. #x9D8F)	; é¶
