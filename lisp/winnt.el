@@ -39,11 +39,14 @@
 ;; #### Oh if we had an alist of shells and their command switches.
 (setq shell-command-switch "/c")
 
-;; For appending suffixes to directories and files in shell completions.
-(defun nt-shell-mode-hook ()
-  (setq comint-completion-addsuffix '("\\" . " ")
-	comint-process-echoes t))
-(add-hook 'shell-mode-hook 'nt-shell-mode-hook)
+;; For appending suffixes to directories and files in shell
+;; completions.  This screws up cygwin users so we leave it out for
+;; now. Uncomment this if you only ever want to use cmd.
+
+;(defun nt-shell-mode-hook ()
+;  (setq comint-completion-addsuffix '("\\" . " ")
+;	comint-process-echoes t))
+;(add-hook 'shell-mode-hook 'nt-shell-mode-hook)
 
 ;; Use ";" instead of ":" as a path separator (from files.el).
 (setq path-separator ";")
