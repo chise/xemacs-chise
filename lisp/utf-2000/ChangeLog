@@ -1,3 +1,24 @@
+2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R063-Door.el: Add some mappings to CJK Ext-B code
+	points and Daikanwa numbers.
+
+2002-01-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R069-Axe.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some mappings to CJK Ext-B code points.
+
+	* Ideograph-R068-Dipper.el: Add some mappings to CJK Ext-B code
+	points.
+
+	* Ideograph-R067-Script.el (M-13485): Don't map to U+6594.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some mappings to CJK Ext-B code points.
+
+	* Ideograph-R065-Branch.el: Add some mappings into CJK Ext-B code
+	points.
+
 2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R062-Halberd.el, Ideograph-R060-Step.el,
