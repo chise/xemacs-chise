@@ -835,6 +835,21 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x25605)	; 𥘅
+      ))
+    (<-ideographic-component-forms
+     ((=daikanwa	  . 24624)	; &I-M-24624;
+      )
+     ((=daikanwa	  . 24623)	; &I-M-24623;
+      ))
+    (hanyu-dazidian	1 11 2)
+    (=big5-cdp		. #x88C7)	; &CDP-88C7;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=gt		. 00025)	; &GT-00025;
     (=gt-pj-9		. #x3C43)	; &GT-00025; [28-35]
     ))
@@ -842,8 +857,45 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (hanyu-dazidian	1 11 2)
-    (=big5-cdp		. #x88C7)	; &CDP-88C7;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x5182)	; 冂
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      ))
+    (=gt-k		. 00615)	; &GT-K00615;
+    (=gt-pj-k1		. #x3E25)	; &GT-K00615; [30-05]
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x5182)	; 冂
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	))
+      ))
+    (=gt-k		. 00616)	; &GT-K00616;
+    (=gt-pj-k1		. #x3E29)	; &GT-K00616; [30-09]
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -2010,6 +2062,14 @@
      ((=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
       (=daikanwa	  . 00104)	; &I-M-00104;
       ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00615)	; &GT-K00615;
+      )
+     ((=gt-k		  . 00615)	; &GT-K00615;
+      ))
     (=cns11643-6	. #x2936)	; &GT-00087; [09-22]
     (=gt		. 00087)	; &I-GT-00087;
     (=gt-pj-2		. #x304B)	; &I-GT-00087; [16-43]
@@ -2063,37 +2123,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       ))
     (=cns11643-3	. #x2740)	; &GT-00145; [07-32]
     (=big5-cdp		. #x8CB7)	; &I-CDP-8CB7;
