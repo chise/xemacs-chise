@@ -1,3 +1,14 @@
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `&I-RUI6-hhhh;' and `&RUI6-hhhh;'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ruimoku-v6'.
+
+	* mule/mule-conf.el (=ruimoku-v6): New coded-charset of XEmacs
+	CHISE.
+
 2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs@iso): New coded-charset in XEmacs CHISE.
