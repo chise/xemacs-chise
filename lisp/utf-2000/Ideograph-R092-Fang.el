@@ -16,6 +16,7 @@
     (total-strokes	 . 5)
     (japanese-jisx0208-1978	. #x3267)	; ø»‚–„
     (japanese-jisx0208		. #x3267)	; ø»†ªŒ
+    (korean-ksc5601		. #x6433)	; ø»‰¼¸
     (japanese-jisx0208-1990	. #x3267)	; ø½Š€
     ))
 (define-char
