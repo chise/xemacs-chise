@@ -563,6 +563,11 @@
     ))
 (define-char
   '((=>ucs		. #x2EB6)	; âº¶
+    (=gt-pj-k1		. #x3443)	; ý¡„€š¥
+    (=gt-k		. 01701)	; ý¡„€š¥
+    ))
+(define-char
+  '((=>ucs		. #x2EB6)	; âº¶
     (=big5-cdp		. #x8CCC)	; ý¢€ˆ³Œ
     ))
 (define-char
@@ -626,7 +631,9 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=gt-pj-k1		. #x377D)	; ý¢€ˆ¥˜
     (=big5-cdp		. #x8958)	; ý¢€ˆ¥˜
+    (=gt-k		. 00417)	; ý¡„€†¡
     ))
 (define-char
   '((=>ucs		. #x2EBC)	; âº¼
