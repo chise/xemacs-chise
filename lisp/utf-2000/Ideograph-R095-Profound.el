@@ -6,6 +6,7 @@
     (shinjigen-2	. 4867)
     (=jis-x0208		. #x383C)	; ø½Š˜‰
     (korean-ksc5601	. #x7A5C)	; ø»Šµ
+    (chinese-big5	. #xA5C8)	; ý¢€Š—ˆ
     (ideograph-daikanwa . 20814)	; ø¸……Ž
     (ucs-jis		. #x7384)	; ø½Š˜‰
     ))
@@ -26,6 +27,7 @@
     (total-strokes	 . 9)
     (japanese-jisx0212		. #x4B50)	; ø»‹¢«
     (japanese-jisx0213-2	. #x7059)	; ø»¦‘º
+    (chinese-big5		. #xCFC6)	; ý¢€Œ¿†
     (ideograph-daikanwa		. 20815)	; ø¸……
     (china3-jef			. #x58FE)	; øº…£¾
     ))
@@ -44,6 +46,7 @@
     (total-strokes	 . 10)
     (korean-ksc5601	. #x6D35)	; ø»ŠŠˆ
     (japanese-jisx0212	. #x4B51)	; ø»‹¢¬
+    (chinese-big5	. #xAF59)	; ý¢€Š½™
     (ideograph-daikanwa . 20816)	; ø¸……
     (china3-jef		. #x58FC)	; øº…£¼
     ))
@@ -73,6 +76,7 @@
     (total-strokes	 . 11)
     (=jis-x0208		. #x4E28)	; ø½Š¸‰
     (korean-ksc5601	. #x6163)	; ø»‰¹Ž
+    (chinese-big5	. #xB276)	; ý¢€‹‰¶
     (ucs-jis		. #x7387)	; ø½Š¸‰
     (mojikyo		. 050282)	; ý €Œ‘ª
     ))
@@ -91,6 +95,7 @@
   '((=>ucs		. #x7388)	; çŽˆ
     (ideographic-radical . 95)	; â½ž
     (ideographic-strokes . 6)
+    (chinese-big5	. #xD66A)	; ý¢€™ª
     (ideograph-daikanwa . 20818)	; ø¸……’
     ))
 (define-char
