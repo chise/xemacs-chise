@@ -203,7 +203,7 @@ embedded nulls (use 'arg_bval).
 (create-tooltalk-message)
 
 Create a new tooltalk message.  The messages session attribute is
-initialized to the default session.  Other attributes can be intialized
+initialized to the default session.  Other attributes can be initialized
 with set-tooltalk-message-attribute.  Make-tooltalk-message is the
 preferred to create and initialize a message.
 
@@ -211,7 +211,7 @@ preferred to create and initialize a message.
 (destroy-tooltalk-message msg)
 
 Apply tt_message_destroy to the message.  It's not necessary
-to destroy messages after they've been proccessed by a message or
+to destroy messages after they've been processed by a message or
 pattern callback, the Lisp/Tooltalk callback machinery does this
 for you.
 

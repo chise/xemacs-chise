@@ -43,7 +43,7 @@ Boston, MA 02111-1307, USA.  */
    used ones first).  So if faces get changed, their GCs will eventually be
    recycled.  Also more sharing of GCs is possible.
 
-   This code uses hashtables.  It could be that, if the cache size is small
+   This code uses hash tables.  It could be that, if the cache size is small
    enough, a linear search might be faster; but I doubt it, since we need
    `equal' comparisons, not `eq', and I expect that the optimal cache size
    will be ~100.
@@ -84,7 +84,7 @@ struct gc_cache {
   struct gc_cache_cell *head;
   struct gc_cache_cell *tail;
 #ifdef GCCACHE_HASH
-  c_hashtable table;
+  struct hash_table *table;
 #endif
 
   int create_count;
@@ -129,7 +129,7 @@ make_gc_cache (Display *dpy, Window window)
   cache->create_count = cache->delete_count = 0;
 #ifdef GCCACHE_HASH
   cache->table =
-    make_general_hashtable (GC_CACHE_SIZE, gc_cache_hash, gc_cache_eql);
+    make_general_hash_table (GC_CACHE_SIZE, gc_cache_hash, gc_cache_eql);
 #endif
   return cache;
 }
@@ -147,7 +147,7 @@ free_gc_cache (struct gc_cache *cache)
       rest = next;
     }
 #ifdef GCCACHE_HASH
-  free_hashtable (cache->table);
+  free_hash_table (cache->table);
 #endif
   xfree (cache);
 }
@@ -268,8 +268,6 @@ gc_cache_lookup (struct gc_cache *cache, XGCValues *gcv, unsigned long mask)
 
 #ifdef DEBUG_XEMACS
 
-#include <stdio.h>
-
 void describe_gc_cache (struct gc_cache *cache);
 void
 describe_gc_cache (struct gc_cache *cache)
@@ -290,32 +288,35 @@ describe_gc_cache (struct gc_cache *cache)
 	  gc_cache_hash (&cell->gcvm) == gc_cache_hash (&cell2->gcvm))
 	stderr_out ("\tHASH COLLISION with cell %d\n", i);
     stderr_out ("\tmask:       %8lx\n", cell->gcvm.mask);
-#define F(x) (int)cell->gcvm.gcv.x
-#define G(w,x) if (F(x) != (~0)) stderr_out ("\t%-12s%8x\n", w, F(x))
-    G("function:", function);
-    G("plane_mask:", plane_mask);
-    G("foreground:", foreground);
-    G("background:", background);
-    G("line_width:", line_width);
-    G("line_style:", line_style);
-    G("cap_style:", cap_style);
-    G("join_style:", join_style);
-    G("fill_style:", fill_style);
-    G("fill_rule:", fill_rule);
-    G("arc_mode:", arc_mode);
-    G("tile:", tile);
-    G("stipple:", stipple);
-    G("tsx_origin:", ts_x_origin);
-    G("tsy_origin:", ts_y_origin);
-    G("font:", font);
-    G("subwindow:", subwindow_mode);
-    G("gexposures:", graphics_exposures);
-    G("clip_x:", clip_x_origin);
-    G("clip_y:", clip_y_origin);
-    G("clip_mask:", clip_mask);
-    G("dash_off:", dash_offset);
-#undef F
-#undef G
+
+#define FROB(field) do {						\
+  if ((int)cell->gcvm.gcv.field != (~0))				\
+    stderr_out ("\t%-12s%8x\n", #field ":", (int)cell->gcvm.gcv.field);	\
+} while (0)
+    FROB (function);
+    FROB (plane_mask);
+    FROB (foreground);
+    FROB (background);
+    FROB (line_width);
+    FROB (line_style);
+    FROB (cap_style);
+    FROB (join_style);
+    FROB (fill_style);
+    FROB (fill_rule);
+    FROB (arc_mode);
+    FROB (tile);
+    FROB (stipple);
+    FROB (ts_x_origin);
+    FROB (ts_y_origin);
+    FROB (font);
+    FROB (subwindow_mode);
+    FROB (graphics_exposures);
+    FROB (clip_x_origin);
+    FROB (clip_y_origin);
+    FROB (clip_mask);
+    FROB (dash_offset);
+#undef FROB
+
     count++;
     if (cell->next && cell == cache->tail)
       stderr_out ("\nERROR!  tail is here!\n\n");

@@ -32,7 +32,6 @@ Boston, MA 02111-1307, USA.  */
 #include "console-x.h"
 #endif
 
-#include "commands.h"
 #include "device.h"
 #include "redisplay.h"
 #include "sysdep.h"
@@ -456,7 +455,7 @@ init_native_sound (struct device *d)
 	  else
 	    {
 	      /* We have to call gethostbyname() on the result of gethostname()
-		 because the two aren't guarenteed to be the same name for the
+		 because the two aren't guaranteed to be the same name for the
 		 same host: on some losing systems, one is a FQDN and the other
 		 is not.  Here in the wide wonderful world of Unix it's rocket
 		 science to obtain the local hostname in a portable fashion.

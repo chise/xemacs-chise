@@ -670,7 +670,7 @@ Syntax:
 TYPE ::= (info-link [KEYWORD ARGUMENT]...  ADDRESS)
 @end example
 
-When this link is invoked, the build-in info browser is started on
+When this link is invoked, the built-in info browser is started on
 @var{address}. 
 
 @node  push-button, editable-field, info-link, Basic Types

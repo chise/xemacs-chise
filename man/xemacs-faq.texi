@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1998/06/30 06:35:33 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1998/12/05 16:55:03 $
 @sp 1
 @author Tony Rossini <arossini@@stat.sc.edu>
 @author Ben Wing <wing@@666.com>
@@ -64,7 +64,7 @@ The canonical version of the FAQ is the texinfo document
 @item
 If you do not have makeinfo installed, you may @uref{xemacs-faq.info,
 download the faq} in info format, and install it in @file{<XEmacs
-libarary directory>/info/}. For example in
+library directory>/info/}. For example in
 @file{/usr/local/lib/xemacs-20.4/info/}.
 
 @end itemize
@@ -2727,7 +2727,7 @@ It's almost always a mistake to test @code{emacs-version} or any similar
 variables.
 
 Instead, use feature-tests, such as @code{featurep}, @code{boundp},
-@code{fboundp}, or even simple behavioural tests, eg.:
+@code{fboundp}, or even simple behavioral tests, eg.:
 
 @lisp
 (defvar foo-old-losing-code-p

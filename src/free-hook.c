@@ -62,15 +62,7 @@ Boston, MA 02111-1307, USA.  */
      there will be a large amount, so this might not be very useful.
 */
 
-#if defined (EMACS_BTL) && defined (sun4) && !defined (__lucid)
-/* currently only works in this configuration */
-# define SAVE_STACK
-#endif
-
 #ifdef emacs
-#ifdef SAVE_STACK
-#include "cadillac-btl.h"
-#endif
 #include <config.h>
 #include "lisp.h"
 #else
@@ -93,7 +85,7 @@ void *malloc (unsigned long);
 /* System function prototypes don't belong in C source files */
 /* extern void free (void *); */
 
-c_hashtable pointer_table;
+struct hash_table *pointer_table;
 
 extern void (*__free_hook) (void *);
 extern void *(*__malloc_hook) (unsigned long);
@@ -102,12 +94,8 @@ static void *check_malloc (unsigned long);
 
 typedef void (*fun_ptr) ();
 
-#ifdef SAVE_STACK
-#define FREE_QUEUE_LIMIT 1000
-#else
 /* free_queue is not too useful without backtrace logging */
 #define FREE_QUEUE_LIMIT 1
-#endif
 #define TRACE_LIMIT 20
 
 typedef struct {
@@ -120,98 +108,21 @@ typedef struct {
 typedef struct {
   void *address;
   unsigned long length;
-#ifdef SAVE_STACK
-  fun_entry backtrace[TRACE_LIMIT];
-#endif
 } free_queue_entry;
 
 free_queue_entry free_queue[FREE_QUEUE_LIMIT];
 
 int current_free;
 
-#ifdef SAVE_STACK
-static void
-init_frame (FRAME *fptr)
-{
-  FRAME tmp_frame;
-
-#ifdef sparc
-  /* Do the system trap ST_FLUSH_WINDOWS */
-  asm ("ta 3");
-  asm ("st %sp, [%i0+0]");
-  asm ("st %fp, [%i0+4]");
-#endif
-
-  fptr->pc = (char *) init_frame;
-  tmp_frame = *fptr;
-
-  PREVIOUS_FRAME (tmp_frame);
-
-  *fptr = tmp_frame;
-  return;
-}
-
-#ifdef SAVE_ARGS
-static void *
-frame_arg (FRAME *fptr, int index)
-{
-  return ((void *) FRAME_ARG(*fptr, index));
-}
-#endif
-
-static void
-save_backtrace (FRAME *current_frame_ptr, fun_entry *table)
-{
-  int i = 0;
-#ifdef SAVE_ARGS
-  int j;
-#endif
-  FRAME current_frame = *current_frame_ptr;
-
-  /* Get up and out of free() */
-  PREVIOUS_FRAME (current_frame);
-
-  /* now do the basic loop adding data until there is no more */
-  while (PREVIOUS_FRAME (current_frame) && i < TRACE_LIMIT)
-    {
-      table[i].return_pc = (void (*)())FRAME_PC (current_frame);
-#ifdef SAVE_ARGS
-      for (j = 0; j < 3; j++)
-	table[i].arg[j] = frame_arg (&current_frame, j);
-#endif
-      i++;
-    }
-  memset (&table[i], 0, sizeof (fun_entry) * (TRACE_LIMIT - i));
-}
-
-free_queue_entry *
-find_backtrace (void *ptr)
-{
-  int i;
-
-  for (i = 0; i < FREE_QUEUE_LIMIT; i++)
-    if (free_queue[i].address == ptr)
-      return &free_queue[i];
-
-  return 0;
-}
-#endif /* SAVE_STACK */
-
 int strict_free_check;
 
 static void
 check_free (void *ptr)
 {
-#ifdef SAVE_STACK
-  FRAME start_frame;
-
-  init_frame (&start_frame);
-#endif
-
   __free_hook = 0;
   __malloc_hook = 0;
   if (!pointer_table)
-    pointer_table = make_hashtable (max (100, FREE_QUEUE_LIMIT * 2));
+    pointer_table = make_hash_table (max (100, FREE_QUEUE_LIMIT * 2));
   if (ptr != 0)
     {
       long size;
@@ -273,10 +184,7 @@ check_free (void *ptr)
 #endif
       free_queue[current_free].address = ptr;
       free_queue[current_free].length = size;
-#ifdef SAVE_STACK
-      save_backtrace (&start_frame,
-		      free_queue[current_free].backtrace);
-#endif
+
       current_free++;
       if (current_free >= FREE_QUEUE_LIMIT)
 	current_free = 0;
@@ -324,7 +232,7 @@ check_malloc (unsigned long size)
 #endif
   result = malloc (rounded_up_size);
   if (!pointer_table)
-    pointer_table = make_hashtable (FREE_QUEUE_LIMIT * 2);
+    pointer_table = make_hash_table (FREE_QUEUE_LIMIT * 2);
   puthash (result, (void *)size, pointer_table);
   __free_hook = check_free;
   __malloc_hook = check_malloc;
@@ -519,9 +427,6 @@ struct block_input_history_struct
   int line;
   blocktype type;
   int value;
-#ifdef SAVE_STACK
-  fun_entry backtrace[TRACE_LIMIT];
-#endif
 };
 
 typedef struct block_input_history_struct block_input_history;
@@ -554,21 +459,10 @@ note_totally_unblocked (char* file, int line)
 
 note_block (char *file, int line, blocktype type)
 {
-#ifdef SAVE_STACK
-  FRAME start_frame;
-
-  init_frame (&start_frame);
-#endif
-
   blhist[blhistptr].file = file;
   blhist[blhistptr].line = line;
   blhist[blhistptr].type = type;
   blhist[blhistptr].value = interrupt_input_blocked;
-
-#ifdef SAVE_STACK
-  save_backtrace (&start_frame,
-		  blhist[blhistptr].backtrace);
-#endif
 
   blhistptr++;
   if (blhistptr >= BLHISTLIMIT)
@@ -601,16 +495,10 @@ log_gcpro (char *file, int line, struct gcpro *value, blocktype type)
       abort ();
     OK:;
     }
-#ifdef SAVE_STACK
-  init_frame (&start_frame);
-#endif
   gcprohist[gcprohistptr].file = file;
   gcprohist[gcprohistptr].line = line;
   gcprohist[gcprohistptr].type = type;
   gcprohist[gcprohistptr].value = (int) value;
-#ifdef SAVE_STACK
-  save_backtrace (&start_frame, gcprohist[gcprohistptr].backtrace);
-#endif
   gcprohistptr++;
   if (gcprohistptr >= GCPROHISTLIMIT)
     gcprohistptr = 0;

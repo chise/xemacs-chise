@@ -26,74 +26,68 @@ typedef struct
   void	     *contents;
 } hentry;
 
-struct _C_hashtable
+typedef int           (*hash_table_test_function) (CONST void *, CONST void *);
+typedef unsigned long (*hash_table_hash_function) (CONST void *);
+typedef size_t hash_size_t;
+
+struct hash_table
 {
   hentry	*harray;
   long		zero_set;
   void		*zero_entry;
-  size_t	size;		/* size of the hasharray */
-  unsigned int	fullness;	/* number of entries in the hashtable */
-  unsigned long (*hash_function) (CONST void *);
-  int		(*test_function) (CONST void *, CONST void *);
-#ifdef emacs
-  Lisp_Object elisp_table;
-#endif
+  hash_size_t	size;		/* size of the hasharray */
+  hash_size_t	fullness;	/* number of entries in the hash table */
+  hash_table_hash_function hash_function;
+  hash_table_test_function test_function;
 };
 
-typedef struct _C_hashtable *c_hashtable;
-
-/* size is the number of initial entries. The hashtable will be grown
+/* SIZE is the number of initial entries. The hash table will be grown
    automatically if the number of entries approaches the size */
-c_hashtable make_hashtable (unsigned int size);
+struct hash_table *make_hash_table (hash_size_t size);
 
-c_hashtable make_general_hashtable (unsigned int hsize,
-				    unsigned long (*hash_function)
-				    (CONST void *),
-				    int (*test_function) (CONST void *,
-							  CONST void *));
+struct hash_table *
+make_general_hash_table (hash_size_t size,
+			hash_table_hash_function hash_function,
+			hash_table_test_function test_function);
 
-c_hashtable make_strings_hashtable (unsigned int hsize);
+struct hash_table *make_strings_hash_table (hash_size_t size);
 
-/* clears the hash table. A freshly created hashtable is already cleared up */
-void clrhash (c_hashtable hash);
+/* Clear HASH-TABLE. A freshly created hash table is already cleared up. */
+void clrhash (struct hash_table *hash_table);
 
-/* frees the table and substructures */
-void free_hashtable (c_hashtable hash);
+/* Free HASH-TABLE and its substructures */
+void free_hash_table (struct hash_table *hash_table);
 
-/* returns a hentry whose key is 0 if the entry does not exist in hashtable */
-CONST void *gethash (CONST void *key, c_hashtable hash,
+/* Returns a hentry whose key is 0 if the entry does not exist in HASH-TABLE */
+CONST void *gethash (CONST void *key, struct hash_table *hash_table,
 		     CONST void **ret_value);
 
-/* key should be different from 0 */
-void puthash (CONST void *key, void *contents, c_hashtable hash);
+/* KEY should be different from 0 */
+void puthash (CONST void *key, void *contents, struct hash_table *hash_table);
 
-/* delete the entry which key is key */
-void remhash (CONST void *key, c_hashtable hash);
+/* delete the entry with key KEY */
+void remhash (CONST void *key, struct hash_table *hash_table);
 
 typedef int (*maphash_function) (CONST void* key, void* contents, void* arg);
 
 typedef int (*remhash_predicate) (CONST void* key, CONST void* contents,
                                   void* arg);
 
-typedef void (*generic_hashtable_op) (c_hashtable table,
+typedef void (*generic_hash_table_op) (struct hash_table *hash_table,
                                       void *arg1, void *arg2, void *arg3);
 
-/* calls mf with the following arguments:  key, contents, arg; for every
-   entry in the hashtable */
-void maphash (maphash_function fn, c_hashtable hash, void* arg);
+/* Call MF (key, contents, arg) for every entry in HASH-TABLE */
+void maphash (maphash_function mf, struct hash_table *hash_table, void* arg);
 
-/* delete objects from the table which satisfy the predicate */
-void map_remhash (remhash_predicate predicate, c_hashtable hash, void *arg);
+/* Delete all objects from HASH-TABLE satisfying PREDICATE */
+void map_remhash (remhash_predicate predicate,
+		  struct hash_table *hash_table, void *arg);
 
-/* copies all the entries of src into dest -- dest is modified as needed
-   so it is as big as src. */
-void copy_hash (c_hashtable dest, c_hashtable src);
+/* Copy all the entries from SRC into DEST -- DEST is modified as needed
+   so it is as big as SRC. */
+void copy_hash (struct hash_table *dest, struct hash_table *src);
 
-/* makes sure that hashtable can hold at least needed_size entries */
-void expand_hashtable (c_hashtable hash, unsigned int needed_size);
-
-#ifdef emacs	/* for elhash.c */
-unsigned int compute_harray_size (unsigned int);
-#endif
+/* Make sure HASH-TABLE can hold at least NEEDED_SIZE entries */
+void expand_hash_table (struct hash_table *hash_table, hash_size_t needed_size);
 
 #endif /* _HASH_H_ */

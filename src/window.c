@@ -36,7 +36,6 @@ Boston, MA 02111-1307, USA.  */
 #include "glyphs.h"
 #include "redisplay.h"
 #include "window.h"
-#include "commands.h"
 
 Lisp_Object Qwindowp, Qwindow_live_p, Qwindow_configurationp;
 Lisp_Object Qscroll_up, Qscroll_down, Qdisplay_buffer;
@@ -136,36 +135,36 @@ do {						\
 
 
 #define MARK_DISP_VARIABLE(field)		\
-  ((markobj) (window->field[CURRENT_DISP]));	\
-  ((markobj) (window->field[DESIRED_DISP]));	\
-  ((markobj) (window->field[CMOTION_DISP]));
+  markobj (window->field[CURRENT_DISP]);	\
+  markobj (window->field[DESIRED_DISP]);	\
+  markobj (window->field[CMOTION_DISP]);
 
 static Lisp_Object
 mark_window (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct window *window = XWINDOW (obj);
-  ((markobj) (window->frame));
-  ((markobj) (window->mini_p));
-  ((markobj) (window->next));
-  ((markobj) (window->prev));
-  ((markobj) (window->hchild));
-  ((markobj) (window->vchild));
-  ((markobj) (window->parent));
-  ((markobj) (window->buffer));
+  markobj (window->frame);
+  markobj (window->mini_p);
+  markobj (window->next);
+  markobj (window->prev);
+  markobj (window->hchild);
+  markobj (window->vchild);
+  markobj (window->parent);
+  markobj (window->buffer);
   MARK_DISP_VARIABLE (start);
   MARK_DISP_VARIABLE (pointm);
-  ((markobj) (window->sb_point));	/* #### move to scrollbar.c? */
-  ((markobj) (window->use_time));
+  markobj (window->sb_point);	/* #### move to scrollbar.c? */
+  markobj (window->use_time);
   MARK_DISP_VARIABLE (last_modified);
   MARK_DISP_VARIABLE (last_point);
   MARK_DISP_VARIABLE (last_start);
   MARK_DISP_VARIABLE (last_facechange);
-  ((markobj) (window->line_cache_last_updated));
-  ((markobj) (window->redisplay_end_trigger));
+  markobj (window->line_cache_last_updated);
+  markobj (window->redisplay_end_trigger);
   mark_face_cachels (window->face_cachels, markobj);
   mark_glyph_cachels (window->glyph_cachels, markobj);
 
-#define WINDOW_SLOT(slot, compare) ((markobj) (window->slot))
+#define WINDOW_SLOT(slot, compare) ((void) (markobj (window->slot)))
 #include "winslots.h"
 
   return Qnil;
@@ -385,23 +384,21 @@ static Lisp_Object
 real_window_internal (Lisp_Object win, struct window_mirror *rmir,
 		      struct window_mirror *mir)
 {
-  Lisp_Object retval;
-
   for (; !NILP (win) && rmir ; win = XWINDOW (win)->next, rmir = rmir->next)
     {
       if (mir == rmir)
 	return win;
       if (!NILP (XWINDOW (win)->vchild))
 	{
-	  retval = real_window_internal (XWINDOW (win)->vchild, rmir->vchild,
-					 mir);
+	  Lisp_Object retval =
+	    real_window_internal (XWINDOW (win)->vchild, rmir->vchild, mir);
 	  if (!NILP (retval))
 	    return retval;
 	}
       if (!NILP (XWINDOW (win)->hchild))
 	{
-	  retval = real_window_internal (XWINDOW (win)->hchild, rmir->hchild,
-					 mir);
+	  Lisp_Object retval =
+	    real_window_internal (XWINDOW (win)->hchild, rmir->hchild, mir);
 	  if (!NILP (retval))
 	    return retval;
 	}
@@ -746,7 +743,7 @@ window_needs_vertical_divider_1 (struct window *w)
     return 1;
 
 #ifdef HAVE_SCROLLBARS
-  /* Our right scrollabr is enough to separate us at the right */
+  /* Our right scrollbar is enough to separate us at the right */
   if (NILP (w->scrollbar_on_left_p)
       && !NILP (w->vertical_scrollbar_visible_p)
       && !ZEROP (w->scrollbar_width))
@@ -785,7 +782,7 @@ invalidate_vertical_divider_cache_in_window (struct window *w,
 /* Calculate width of vertical divider, including its shadows
    and spacing. The returned value is effectively the distance
    between adjacent window edges. This function does not check
-   whether a windows needs vertival divider, so the returned 
+   whether a window needs a vertical divider, so the returned
    value is a "theoretical" one */
 int
 window_divider_width (struct window *w)
@@ -794,7 +791,7 @@ window_divider_width (struct window *w)
      will have a depressed look */
 
   if (FRAME_WIN_P (XFRAME (WINDOW_FRAME (w))))
-    return 
+    return
       XINT (w->vertical_divider_line_width)
       + 2 * XINT (w->vertical_divider_spacing)
       + 2 * abs (XINT (w->vertical_divider_shadow_thickness));
@@ -893,7 +890,7 @@ window_modeline_height (struct window *w)
 		/* This should be an abort except I'm not yet 100%
                    confident that it won't ever get hit (though I
                    haven't been able to trigger it).  It is extremely
-                   unlikely to cause any noticable problem and even if
+                   unlikely to cause any noticeable problem and even if
                    it does it will be a minor display glitch. */
 		/* #### Bullshit alert.  It does get hit and it causes
                    noticeable glitches.  real_current_modeline_height
@@ -1051,7 +1048,7 @@ int
 window_left_gutter_width (struct window *w, int modeline)
 {
   int gutter = window_left_toolbar_width (w);
-  
+
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
 
@@ -1067,8 +1064,8 @@ window_left_gutter_width (struct window *w, int modeline)
 int
 window_right_gutter_width (struct window *w, int modeline)
 {
-  int gutter = window_left_toolbar_width (w);
-  
+  int gutter = window_right_toolbar_width (w);
+
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
 
@@ -1404,7 +1401,7 @@ DEFUN ("window-text-area-pixel-width",
        Fwindow_text_area_pixel_width, 0, 1, 0, /*
 Return the width in pixels of the text-displaying portion of WINDOW.
 Unlike `window-pixel-width', the space occupied by the vertical
-scrollbar or divider, if any, is not counted.  
+scrollbar or divider, if any, is not counted.
 */
      (window))
 {
@@ -3168,7 +3165,7 @@ BUFFER can be a buffer or buffer name.
   Fset_marker (w->sb_point, w->start[CURRENT_DISP], buffer);
   /* set start_at_line_beg correctly. GE */
   w->start_at_line_beg = beginning_of_line_p (XBUFFER (buffer),
-					      marker_position (w->start[CURRENT_DISP]));  
+					      marker_position (w->start[CURRENT_DISP]));
   w->force_start = 0;           /* Lucid fix */
   SET_LAST_MODIFIED (w, 1);
   SET_LAST_FACECHANGE (w);
@@ -3484,9 +3481,9 @@ and put SIZE columns in the first of the pair.
 
 
 DEFUN ("enlarge-window", Fenlarge_window, 1, 3, "_p", /*
-Make the selected window ARG lines bigger.
-From program, optional second arg non-nil means grow sideways ARG columns,
-and optional third ARG specifies the window to change instead of the
+Make the selected window N lines bigger.
+From program, optional second arg SIDE non-nil means grow sideways N columns,
+and optional third arg WINDOW specifies the window to change instead of the
 selected window.
 */
        (n, side, window))
@@ -3498,9 +3495,9 @@ selected window.
 }
 
 DEFUN ("enlarge-window-pixels", Fenlarge_window_pixels, 1, 3, "_p", /*
-Make the selected window ARG pixels bigger.
-From program, optional second arg non-nil means grow sideways ARG pixels,
-and optional third ARG specifies the window to change instead of the
+Make the selected window N pixels bigger.
+From program, optional second arg SIDE non-nil means grow sideways N pixels,
+and optional third arg WINDOW specifies the window to change instead of the
 selected window.
 */
        (n, side, window))
@@ -3512,9 +3509,9 @@ selected window.
 }
 
 DEFUN ("shrink-window", Fshrink_window, 1, 3, "_p", /*
-Make the selected window ARG lines smaller.
-From program, optional second arg non-nil means shrink sideways ARG columns,
-and optional third ARG specifies the window to change instead of the
+Make the selected window N lines smaller.
+From program, optional second arg SIDE non-nil means shrink sideways N columns,
+and optional third arg WINDOW specifies the window to change instead of the
 selected window.
 */
        (n, side, window))
@@ -3526,9 +3523,9 @@ selected window.
 }
 
 DEFUN ("shrink-window-pixels", Fshrink_window_pixels, 1, 3, "_p", /*
-Make the selected window ARG pixels smaller.
-From program, optional second arg non-nil means shrink sideways ARG pixels,
-and optional third ARG specifies the window to change instead of the
+Make the selected window N pixels smaller.
+From program, optional second arg SIDE non-nil means shrink sideways N pixels,
+and optional third arg WINDOW specifies the window to change instead of the
 selected window.
 */
        (n, side, window))
@@ -3912,7 +3909,7 @@ change_window_height (struct window *win, int delta, int widthflag,
       (*setsizefun) (window, *sizep + delta1, 0);
 
       /* Squeeze out delta1 lines or columns from our parent,
-	 shriking this window and siblings proportionately.
+	 shrinking this window and siblings proportionately.
 	 This brings parent back to correct size.
 	 Delta1 was calculated so this makes this window the desired size,
 	 taking it all out of the siblings.  */
@@ -3957,7 +3954,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
     }
 
   /* Always set force_start so that redisplay_window will run
-     thw window-scroll-functions.  */
+     the window-scroll-functions.  */
   w->force_start = 1;
 
   /* #### When the fuck does this happen?  I'm so glad that history has
@@ -4130,10 +4127,10 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 }
 
 DEFUN ("scroll-up", Fscroll_up, 0, 1, "_P", /*
-Scroll text of current window upward ARG lines; or near full screen if no ARG.
+Scroll text of current window upward N lines; or near full screen if no arg.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative ARG means scroll downward.
-When calling from a program, supply a number as argument or nil.
+Negative N means scroll downward.
+When calling from a program, supply an integer as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
@@ -4145,9 +4142,9 @@ signaled.
 }
 
 DEFUN ("scroll-down", Fscroll_down, 0, 1, "_P", /*
-Scroll text of current window downward ARG lines; or near full screen if no ARG.
+Scroll text of current window downward N lines; or near full screen if no arg.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative ARG means scroll upward.
+Negative N means scroll upward.
 When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
@@ -4205,9 +4202,9 @@ showing that buffer is used.
  }
 
 DEFUN ("scroll-other-window", Fscroll_other_window, 0, 1, "_P", /*
-Scroll next window upward ARG lines; or near full frame if no ARG.
+Scroll next window upward N lines; or near full frame if no arg.
 The next window is the one below the current one; or the one at the top
-if the current one is at the bottom.  Negative ARG means scroll downward.
+if the current one is at the bottom.  Negative N means scroll downward.
 When calling from a program, supply a number as argument or nil.
 
 If in the minibuffer, `minibuffer-scroll-window' if non-nil
@@ -4222,37 +4219,33 @@ showing that buffer, popping the buffer up if necessary.
 }
 
 DEFUN ("scroll-left", Fscroll_left, 0, 1, "_P", /*
-Scroll selected window display ARG columns left.
-Default for ARG is window width minus 2.
+Scroll selected window display N columns left.
+Default for N is window width minus 2.
 */
-       (arg))
+       (n))
 {
   Lisp_Object window = Fselected_window (Qnil);
   struct window *w = XWINDOW (window);
+  int count = (NILP (n) ?
+	       window_char_width (w, 0) - 2 :
+	       XINT (Fprefix_numeric_value (n)));
 
-  if (NILP (arg))
-    arg = make_int (window_char_width (w, 0) - 2);
-  else
-    arg = Fprefix_numeric_value (arg);
-
-  return Fset_window_hscroll (window, make_int (w->hscroll + XINT (arg)));
+  return Fset_window_hscroll (window, make_int (w->hscroll + count));
 }
 
 DEFUN ("scroll-right", Fscroll_right, 0, 1, "_P", /*
-Scroll selected window display ARG columns right.
-Default for ARG is window width minus 2.
+Scroll selected window display N columns right.
+Default for N is window width minus 2.
 */
-       (arg))
+       (n))
 {
   Lisp_Object window = Fselected_window (Qnil);
   struct window *w = XWINDOW (window);
+  int count = (NILP (n) ?
+	       window_char_width (w, 0) - 2 :
+	       XINT (Fprefix_numeric_value (n)));
 
-  if (NILP (arg))
-    arg = make_int (window_char_width (w, 0) - 2);
-  else
-    arg = Fprefix_numeric_value (arg);
-
-  return Fset_window_hscroll (window, make_int (w->hscroll - XINT (arg)));
+  return Fset_window_hscroll (window, make_int (w->hscroll - count));
 }
 
 DEFUN ("center-to-window-line", Fcenter_to_window_line, 0, 2, "_P", /*
@@ -4431,7 +4424,7 @@ map_windows_1 (Lisp_Object window,
    non-zero, the mapping is halted.  Otherwise, map_windows() maps
    over all windows in F.
 
-   If MAPFUN creates or deletes windows, the behaviour is undefined.  */
+   If MAPFUN creates or deletes windows, the behavior is undefined.  */
 
 int
 map_windows (struct frame *f, int (*mapfun) (struct window *w, void *closure),
@@ -4447,7 +4440,7 @@ map_windows (struct frame *f, int (*mapfun) (struct window *w, void *closure),
 	{
 	  int v = map_windows_1 (FRAME_ROOT_WINDOW (XFRAME (XCAR (frmcons))),
 				 mapfun, closure);
-	  if (v)     
+	  if (v)
 	    return v;
 	}
     }
@@ -4465,8 +4458,8 @@ modeline_shadow_thickness_changed (Lisp_Object specifier, struct window *w,
 }
 
 static void
-vertical_divider_changed_in_window (Lisp_Object specifier, 
-				    struct window *w, 
+vertical_divider_changed_in_window (Lisp_Object specifier,
+				    struct window *w,
 				    Lisp_Object oldval)
 {
   MARK_WINDOWS_CHANGED (w);
@@ -4650,28 +4643,28 @@ mark_window_config (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct window_config *config = XWINDOW_CONFIGURATION (obj);
   int i;
-  ((markobj) (config->current_window));
-  ((markobj) (config->current_buffer));
-  ((markobj) (config->minibuffer_scroll_window));
-  ((markobj) (config->root_window));
+  markobj (config->current_window);
+  markobj (config->current_buffer);
+  markobj (config->minibuffer_scroll_window);
+  markobj (config->root_window);
 
   for (i = 0; i < config->saved_windows_count; i++)
     {
       struct saved_window *s = SAVED_WINDOW_N (config, i);
-      ((markobj) (s->window));
-      ((markobj) (s->buffer));
-      ((markobj) (s->start));
-      ((markobj) (s->pointm));
-      ((markobj) (s->sb_point));
-      ((markobj) (s->mark));
+      markobj (s->window);
+      markobj (s->buffer);
+      markobj (s->start);
+      markobj (s->pointm);
+      markobj (s->sb_point);
+      markobj (s->mark);
 #if 0
       /* #### This looked like this. I do not see why specifier cached
 	 values should not be marked, as such specifiers as toolbars
 	 might have GC-able instances. Freed configs are not marked,
 	 aren't they?  -- kkm */
-      ((markobj) (s->dedicated));
+      markobj (s->dedicated);
 #else
-#define WINDOW_SLOT(slot, compare) ((markobj) (s->slot))
+#define WINDOW_SLOT(slot, compare) ((void) (markobj (s->slot)))
 #include "winslots.h"
 #endif
     }
@@ -5605,7 +5598,7 @@ This is a specifier; use `set-specifier' to change it.
 				      modeline_shadow_thickness),
 			 modeline_shadow_thickness_changed,
 			 0, 0);
-  
+
   DEFVAR_SPECIFIER ("has-modeline-p", &Vhas_modeline_p /*
 *Whether the modeline should be displayed.
 This is a specifier; use `set-specifier' to change it.
@@ -5643,7 +5636,7 @@ This is a specifier; use `set-specifier' to change it.
  			 0, 0);
 
   DEFVAR_SPECIFIER ("vertical-divider-shadow-thickness", &Vvertical_divider_shadow_thickness /*
-*How thick to draw 3D shadows around vertical dividers. 
+*How thick to draw 3D shadows around vertical dividers.
 This is a specifier; use `set-specifier' to change it.
 */ );
   Vvertical_divider_shadow_thickness = Fmake_specifier (Qinteger);

@@ -59,7 +59,7 @@ void child_setup_tty (int out);
 
 /* Suspend the Emacs process; give terminal to its superior.  */
 void sys_suspend (void);
-/* Suspend a process if possible; give termianl to its superior. */
+/* Suspend a process if possible; give terminal to its superior. */
 void sys_suspend_process (int process);
 
 void request_sigio (void);

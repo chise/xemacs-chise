@@ -2481,7 +2481,7 @@ XEmacs executable (usually @samp{xemacs}), and
 @node Menubar Resources
 @subsection Menubar Resources
 
-As the menubar is implemented as a widget which is not a part of XEacs
+As the menubar is implemented as a widget which is not a part of XEmacs
 proper, it does not use the fac" mechanism for specifying fonts and
 colors: It uses whatever resources are appropriate to the type of widget
 which is used to implement it.

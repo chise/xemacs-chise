@@ -36,11 +36,7 @@ typedef	unsigned char	GifPixelType;
 typedef unsigned char *	GifRowType;
 typedef unsigned char	GifByteType;
 
-#ifdef SYSV
-#define VoidPtr char *
-#else
 #define VoidPtr void *
-#endif /* SYSV */
 
 typedef struct GifColorType {
     GifByteType Red, Green, Blue;
@@ -167,7 +163,7 @@ extern void GifWarning(GifFileType *GifFile, const char *err_str);
 
 /* This is the in-core version of an extension record */
 typedef struct {
-    int		    ByteCount;
+    int		ByteCount;
     GifByteType	*Bytes;		/* on malloc(3) heap */
 } ExtensionBlock;
 

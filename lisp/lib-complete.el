@@ -38,7 +38,7 @@
 ;; Last Modified By: Heiko M|nkel <muenkel@tnt.uni-hannover.de>
 ;; Additional XEmacs integration By: Chuck Thompson <cthomp@cs.uiuc.edu>
 ;; Last Modified On: Thu Jul 1 14:23:00 1994
-;; RCS Info        : $Revision: 1.3 $ $Locker:  $
+;; RCS Info        : $Revision: 1.3.2.1 $ $Locker:  $
 ;; ========================================================================
 ;; NOTE: XEmacs must be redumped if this file is changed.
 ;;
@@ -104,25 +104,24 @@ If optional fourth argument FAST is non-nil, don't sort the completions,
 
 ;;=== Utilities ===========================================================
 
-(defmacro progn-with-message (MESSAGE &rest FORMS)
+(defmacro progn-with-message (message &rest forms)
   "(progn-with-message MESSAGE FORMS ...)
 Display MESSAGE and evaluate FORMS, returning value of the last one."
   ;; based on Hallvard Furuseth's funcall-with-message
-  (` 
-   (if (eq (selected-window) (minibuffer-window))
+  `(if (eq (selected-window) (minibuffer-window))
        (save-excursion
 	 (goto-char (point-max))
 	 (let ((orig-pmax (point-max)))
 	   (unwind-protect
 	       (progn
-		 (insert " " (, MESSAGE)) (goto-char orig-pmax)
+		 (insert " " ,message) (goto-char orig-pmax)
 		 (sit-for 0)		; Redisplay
-		 (,@ FORMS))
+		 ,@forms)
 	     (delete-region orig-pmax (point-max)))))
      (prog2
-      (message "%s" (, MESSAGE))
-      (progn (,@ FORMS))
-      (message "")))))
+	 (message "%s" ,message)
+	 (progn ,@forms)
+       (message ""))))
 
 (put 'progn-with-message 'lisp-indent-hook 1)
 
@@ -218,6 +217,7 @@ where each <cache-record> has the form
       (if tail (setcdr tail nil)))))
 
 ;;=== Read a filename, with completion in a search path ===================
+(defvar read-library-internal-search-path)
 
 (defun read-library-internal (FILE FILTER FLAG)
   "Don't call this."

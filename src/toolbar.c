@@ -59,17 +59,17 @@ Lisp_Object Qinit_toolbar_from_resources;
 static Lisp_Object
 mark_toolbar_button (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  struct toolbar_button *data = (struct toolbar_button *) XPNTR (obj);
-  ((markobj) (data->next));
-  ((markobj) (data->frame));
-  ((markobj) (data->up_glyph));
-  ((markobj) (data->down_glyph));
-  ((markobj) (data->disabled_glyph));
-  ((markobj) (data->cap_up_glyph));
-  ((markobj) (data->cap_down_glyph));
-  ((markobj) (data->cap_disabled_glyph));
-  ((markobj) (data->callback));
-  ((markobj) (data->enabled_p));
+  struct toolbar_button *data = XTOOLBAR_BUTTON (obj);
+  markobj (data->next);
+  markobj (data->frame);
+  markobj (data->up_glyph);
+  markobj (data->down_glyph);
+  markobj (data->disabled_glyph);
+  markobj (data->cap_up_glyph);
+  markobj (data->cap_down_glyph);
+  markobj (data->cap_disabled_glyph);
+  markobj (data->callback);
+  markobj (data->enabled_p);
   return data->help_string;
 }
 
@@ -741,10 +741,10 @@ update_frame_toolbars (struct frame *f)
       /* We're not officially "in redisplay", so we still have a
 	 chance to re-layout toolbars and windows. This is done here,
 	 because toolbar is the only thing which currently might
-	 necesseritate this layout, as it is outside any windows. We
+	 necessitate this layout, as it is outside any windows. We
 	 take care not to change size if toolbar geometry is really
 	 unchanged, as it will hose windows whose pixsizes are not
-	 multiple of character sizes */
+	 multiple of character sizes. */
 
       for (pos = 0; pos < 4; pos++)
 	if (FRAME_REAL_TOOLBAR_SIZE (f, pos)
@@ -894,30 +894,27 @@ get_toolbar_coords (struct frame *f, enum toolbar_pos pos, int *x, int *y,
     }
 }
 
-#define CHECK_TOOLBAR(pos)						\
-  do									\
+#define CHECK_TOOLBAR(pos) do {						\
+  if (FRAME_REAL_##pos##_VISIBLE (f))					\
     {									\
+      int x, y, width, height, vert;					\
+  									\
       get_toolbar_coords (f, pos, &x, &y, &width, &height, &vert, 0);	\
       if ((x_coord >= x) && (x_coord < (x + width)))			\
 	{								\
 	  if ((y_coord >= y) && (y_coord < (y + height)))		\
 	    return FRAME_TOOLBAR_BUTTONS (f, pos);			\
 	}								\
-    } while (0)
+    }									\
+} while (0)
 
 static Lisp_Object
 toolbar_buttons_at_pixpos (struct frame *f, int x_coord, int y_coord)
 {
-  int x, y, width, height, vert;
-
-  if (FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
-    CHECK_TOOLBAR (TOP_TOOLBAR);
-  if (FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
-    CHECK_TOOLBAR (BOTTOM_TOOLBAR);
-  if (FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
-    CHECK_TOOLBAR (LEFT_TOOLBAR);
-  if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
-    CHECK_TOOLBAR (RIGHT_TOOLBAR);
+  CHECK_TOOLBAR (TOP_TOOLBAR);
+  CHECK_TOOLBAR (BOTTOM_TOOLBAR);
+  CHECK_TOOLBAR (LEFT_TOOLBAR);
+  CHECK_TOOLBAR (RIGHT_TOOLBAR);
 
   return Qnil;
 }
@@ -930,9 +927,6 @@ Lisp_Object
 toolbar_button_at_pixpos (struct frame *f, int x_coord, int y_coord)
 {
   Lisp_Object buttons = toolbar_buttons_at_pixpos (f, x_coord, y_coord);
-
-  if (NILP (buttons))
-    return Qnil;
 
   while (!NILP (buttons))
     {
@@ -953,7 +947,7 @@ toolbar_button_at_pixpos (struct frame *f, int x_coord, int y_coord)
       buttons = tb->next;
     }
 
-  /* We must be over a blank in the toolbar. */
+  /* We are not over a toolbar or we are over a blank in the toolbar. */
   return Qnil;
 }
 
@@ -964,13 +958,10 @@ toolbar_button_at_pixpos (struct frame *f, int x_coord, int y_coord)
 
 DEFINE_SPECIFIER_TYPE (toolbar);
 
-#define CTB_ERROR(msg)						\
-  do								\
-    {								\
-      maybe_signal_simple_error (msg, button, Qtoolbar, errb);	\
-      RETURN__ Qnil;						\
-    }								\
-  while (0)
+#define CTB_ERROR(msg) do {					\
+  maybe_signal_simple_error (msg, button, Qtoolbar, errb);	\
+  RETURN_SANS_WARNINGS Qnil;					\
+} while (0)
 
 /* Returns Q_style if key was :style, Qt if ok otherwise, Qnil if error. */
 static Lisp_Object
@@ -979,7 +970,7 @@ check_toolbar_button_keywords (Lisp_Object button, Lisp_Object key,
 {
   if (!KEYWORDP (key))
     {
-      maybe_signal_simple_error_2 ("not a keyword", key, button, Qtoolbar,
+      maybe_signal_simple_error_2 ("Not a keyword", key, button, Qtoolbar,
 				   errb);
       return Qnil;
     }
@@ -990,7 +981,7 @@ check_toolbar_button_keywords (Lisp_Object button, Lisp_Object key,
 	  && !EQ (val, Q3D)
 	  && !EQ (val, Q2d)
 	  && !EQ (val, Q3d))
-	CTB_ERROR ("unrecognized toolbar blank style");
+	CTB_ERROR ("Unrecognized toolbar blank style");
 
       return Q_style;
     }
@@ -1139,18 +1130,18 @@ toolbar_validate (Lisp_Object instantiator)
     return;
 
   if (!CONSP (instantiator))
-    signal_simple_error ("toolbar spec must be list or nil", instantiator);
+    signal_simple_error ("Toolbar spec must be list or nil", instantiator);
 
   for (rest = instantiator; !NILP (rest); rest = XCDR (rest))
     {
       if (!CONSP (rest))
-	signal_simple_error ("bad list in toolbar spec", instantiator);
+	signal_simple_error ("Bad list in toolbar spec", instantiator);
 
       if (NILP (XCAR (rest)))
 	{
 	  if (pushright_seen)
 	    error
-	      ("more than one partition (nil) in instantiator description");
+	      ("More than one partition (nil) in instantiator description");
 	  else
 	    pushright_seen = 1;
 	}
@@ -1200,7 +1191,7 @@ toolbar_specs_changed (Lisp_Object specifier, struct window *w,
 		       Lisp_Object oldval)
 {
   /* This could be smarter but I doubt that it would make any
-     noticable difference given the infrequency with which this is
+     noticeable difference given the infrequency with which this is
      probably going to be called.
      */
   MARK_TOOLBAR_CHANGED;
@@ -1272,7 +1263,7 @@ toolbar_buttons_captioned_p_changed (Lisp_Object specifier, struct window *w,
 				     Lisp_Object oldval)
 {
   /* This could be smarter but I doubt that it would make any
-     noticable difference given the infrequency with which this is
+     noticeable difference given the infrequency with which this is
      probably going to be called. */
   MARK_TOOLBAR_CHANGED;
 }

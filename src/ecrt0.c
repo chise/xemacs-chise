@@ -22,7 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 
 /* The standard Vax 4.2 Unix crt0.c cannot be used for Emacs
-   because it makes `envron' an initialized variable.
+   because it makes `environ' an initialized variable.
    It is easiest to have a special crt0.c on all machines
    though I don't know whether other machines actually need it.  */
 

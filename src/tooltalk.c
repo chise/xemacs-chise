@@ -153,7 +153,7 @@ struct Lisp_Tooltalk_Message
 static Lisp_Object
 mark_tooltalk_message (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  (markobj) (XTOOLTALK_MESSAGE (obj)->callback);
+  markobj (XTOOLTALK_MESSAGE (obj)->callback);
   return XTOOLTALK_MESSAGE (obj)->plist_sym;
 }
 
@@ -169,7 +169,7 @@ print_tooltalk_message (Lisp_Object obj, Lisp_Object printcharfun,
     error ("printing unreadable object #<tooltalk_message 0x%x>",
 	   p->header.uid);
 
-  sprintf (buf, "#<tooltalk_message id:%p 0x%x>", p->m, p->header.uid);
+  sprintf (buf, "#<tooltalk_message id:0x%lx 0x%x>", (long) (p->m), p->header.uid);
   write_c_string (buf, printcharfun);
 }
 
@@ -227,7 +227,7 @@ struct Lisp_Tooltalk_Pattern
 static Lisp_Object
 mark_tooltalk_pattern (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  (markobj) (XTOOLTALK_PATTERN (obj)->callback);
+  markobj (XTOOLTALK_PATTERN (obj)->callback);
   return XTOOLTALK_PATTERN (obj)->plist_sym;
 }
 
@@ -243,7 +243,7 @@ print_tooltalk_pattern (Lisp_Object obj, Lisp_Object printcharfun,
     error ("printing unreadable object #<tooltalk_pattern 0x%x>",
 	   p->header.uid);
 
-  sprintf (buf, "#<tooltalk_pattern id:%p 0x%x>", p->p, p->header.uid);
+  sprintf (buf, "#<tooltalk_pattern id:0x%lx 0x%x>", (long) (p->p), p->header.uid);
   write_c_string (buf, printcharfun);
 }
 
@@ -673,7 +673,7 @@ value returned by 'arg_bval like a string is fine.
 			   (XTOOLTALK_MESSAGE (message_)->plist_sym));
 
   else
-    signal_simple_error ("invalid value for `get-tooltalk-message-attribute'",
+    signal_simple_error ("Invalid value for `get-tooltalk-message-attribute'",
 			 attribute);
 
   return Qnil;
@@ -834,7 +834,7 @@ New arguments can be added to a message with add-tooltalk-message-arg.
       return Fput (XTOOLTALK_MESSAGE (message_)->plist_sym, argn, value);
     }
   else
-    signal_simple_error ("invalid value for `set-tooltalk-message-attribute'",
+    signal_simple_error ("Invalid value for `set-tooltalk-message-attribute'",
 			 attribute);
   return Qnil;
 }
@@ -1474,8 +1474,8 @@ Unprocessed messages are messages that didn't match any patterns.
 
   staticpro (&Vtooltalk_message_gcpro);
   staticpro (&Vtooltalk_pattern_gcpro);
-  Vtooltalk_message_gcpro = make_lisp_hashtable (10, HASHTABLE_NONWEAK,
-						 HASHTABLE_EQ);
-  Vtooltalk_pattern_gcpro = make_lisp_hashtable (10, HASHTABLE_NONWEAK,
-						 HASHTABLE_EQ);
+  Vtooltalk_message_gcpro =
+    make_lisp_hash_table (10, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+  Vtooltalk_pattern_gcpro =
+    make_lisp_hash_table (10, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 }

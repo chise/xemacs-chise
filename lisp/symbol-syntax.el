@@ -101,14 +101,12 @@
 ;; ?_)
 
 (defun show-chars-with-syntax (tables syntax)
-  (let ((osyn (syntax-table))
-	(schars nil))
+  (let ((schars nil))
     (unwind-protect
 	(while (consp tables)
 	  (let* ((chars nil)
 		 (table-symbol (car tables))
-		 (table table-symbol)
-		 (i 0))
+		 (table table-symbol))
 	    (or (symbolp table-symbol)
 		(error "bad argument non-symbol"))
 	    (while (symbolp table)

@@ -211,7 +211,7 @@ This map inherits from `hyper-apropos-help-map.'")
 
 (defvar hyper-apropos-mode-hook nil
   "*User function run after hyper-apropos mode initialization.  Usage:
-\(setq hyper-apropos-mode-hook '(lambda () ... your init forms ...)).")
+\(add-hook 'hyper-apropos-mode-hook #'(lambda () ... your init forms ...)).")
 
 ;; ---------------------------------------------------------------------- ;;
 
@@ -380,7 +380,7 @@ General Commands:
 
 ;; ---------------------------------------------------------------------- ;;
 
-;; similar to `describe-key-briefly', copied from prim/help.el by CW
+;; similar to `describe-key-briefly', copied from help.el by CW
 
 ;;;###autoload
 (defun hyper-describe-key (key)
@@ -452,7 +452,7 @@ See also `hyper-apropos' and `hyper-describe-function'."
 			  (if v
 			      (format " (default %s): " v)
 			    ": "))
-		  (mapcar (function (lambda (x) (list (symbol-name x))))
+		  (mapcar #'(lambda (x) (list (symbol-name x)))
 			  (face-list))
 		  nil t nil 'hyper-apropos-face-history)))
      (list (if (string= val "")
@@ -885,14 +885,13 @@ See also `hyper-apropos' and `hyper-describe-function'."
 	     (progn
 	       (setq ok t)
 	       (copy-face symbol 'hyper-apropos-temp-face 'global)
-	       (mapcar (function
-			(lambda (property)
-			  (setq symtype (face-property-instance symbol
-								property))
-			  (if symtype
-			      (set-face-property 'hyper-apropos-temp-face
-						 property
-						 symtype))))
+	       (mapcar #'(lambda (property)
+			   (setq symtype (face-property-instance symbol
+								 property))
+			   (if symtype
+			       (set-face-property 'hyper-apropos-temp-face
+						  property
+						  symtype)))
 		       built-in-face-specifiers)
 	       (setq font (cons (face-property-instance symbol 'font nil 0 t)
 				(face-property-instance symbol 'font))

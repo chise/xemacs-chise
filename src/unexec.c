@@ -194,6 +194,7 @@ pointer looks like an int) but not on all machines.
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stddef.h>
 
 # ifdef __lucid
 #  include <sysent.h>
@@ -288,7 +289,7 @@ static long data_scnptr;
 
 #ifdef __STDC__
 #ifndef __sys_stdtypes_h
-#ifndef _PTRDIFF_T
+#if !defined(_PTRDIFF_T) && !defined(_BSD_PTRDIFF_T_)
 typedef long ptrdiff_t;
 #endif
 #endif
@@ -968,7 +969,7 @@ copy_text_and_data (int new, int a_out)
 
 #ifdef RISCiX
 
-  /* Acorn's RISC-iX has a wacky way of initialising the position of the heap.
+  /* Acorn's RISC-iX has a wacky way of initializing the position of the heap.
    * There is a little table in crt0.o that is filled at link time with
    * the min and current brk positions, among other things.  When start
    * runs, it copies the table to where these parameters live during

@@ -116,7 +116,7 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
      which might compile a new regexp until we're done with the loop!  */
 
   /* Do this opendir after anything which might signal an error.
-     NOTE: the above comment is old; previosly, there was no
+     NOTE: the above comment is old; previously, there was no
      unwind-protection in case of error, but now there is.  */
   d = opendir ((char *) XSTRING_DATA (dirname));
   if (!d)
@@ -128,7 +128,6 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
   while (1)
     {
       DIRENTRY *dp = readdir (d);
-      Lisp_Object name;
       int len;
 
       if (!dp)
@@ -179,22 +178,22 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 		continue;
 	    }
 
-	  if (!NILP (full))
-	    name = concat2 (dirname, make_ext_string ((Bufbyte *)dp->d_name,
-						      len, FORMAT_FILENAME));
-	  else
-	    name = make_ext_string ((Bufbyte *)dp->d_name,
-				    len, FORMAT_FILENAME);
+	  {
+	    Lisp_Object name =
+	      make_ext_string ((Bufbyte *)dp->d_name, len, FORMAT_FILENAME);
+	    if (!NILP (full))
+	      name = concat2 (dirname, name);
 
-	  list = Fcons (name, list);
+	    list = Fcons (name, list);
+	  }
 	}
     }
   unbind_to (speccount, Qnil);	/* This will close the dir */
 
-  if (!NILP (nosort))
-    RETURN_UNGCPRO (list);
-  else
-    RETURN_UNGCPRO (Fsort (Fnreverse (list), Qstring_lessp));
+  if (NILP (nosort))
+    list = Fsort (Fnreverse (list), Qstring_lessp);
+
+  RETURN_UNGCPRO (list);
 }
 
 static Lisp_Object file_name_completion (Lisp_Object file,
@@ -691,14 +690,10 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
 
   for (i = 0; i < user_cache_len; i++)
     {
-      Bytecount len;
+      Bufbyte *d_name = (Bufbyte *) user_cache[i];
+      Bytecount len = strlen ((char *) d_name);
       /* scmp() works in chars, not bytes, so we have to compute this: */
-      Charcount cclen;
-      Bufbyte *d_name;
-
-      d_name = (Bufbyte *) user_cache[i];
-      len = strlen (d_name);
-      cclen = bytecount_to_charcount (d_name, len);
+      Charcount cclen = bytecount_to_charcount (d_name, len);
 
       QUIT;
 
@@ -784,8 +779,8 @@ Lisp_Object
 make_directory_hash_table (CONST char *path)
 {
   DIR *d;
-  Lisp_Object hash = make_lisp_hashtable (100, HASHTABLE_NONWEAK,
-					  HASHTABLE_EQUAL);
+  Lisp_Object hash =
+    make_lisp_hash_table (100, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
   if ((d = opendir (path)))
     {
       DIRENTRY *dp;

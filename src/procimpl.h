@@ -29,7 +29,7 @@ struct Lisp_Process;
 
 /*
  * Structure which keeps methods of the process implementation.
- * There is only one object of this class exists in a perticular
+ * There is only one object of this class exists in a particular
  * XEmacs implementation.
  */
 
@@ -163,7 +163,7 @@ extern Lisp_Object Qtcpip;
 extern Lisp_Object Vprocess_connection_type;
 extern Lisp_Object Vprocess_list;
 
-extern c_hashtable usid_to_process;
+extern struct hash_table *usid_to_process;
 
 extern volatile int process_tick;
 

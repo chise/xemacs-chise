@@ -104,24 +104,22 @@
 
 (require 'x-iso8859-1)
 
-(defun make-compose-map (map-sym)
-  (let ((map (make-sparse-keymap)))
-    (set map-sym map)
-    (set-keymap-name map map-sym)
-    ;; Required to tell XEmacs the keymaps were actually autoloaded.
-    ;; #### Make this unnecessary!
-    (fset map-sym map)))
+(macrolet
+    ((define-compose-map (keymap-symbol)
+       `(progn
+	  (defconst ,keymap-symbol (make-sparse-keymap ',keymap-symbol))
+	  ;; Required to tell XEmacs the keymaps were actually autoloaded.
+	  ;; #### Make this unnecessary!
+	  (fset ',keymap-symbol ,keymap-symbol))))
 
-(make-compose-map 'compose-map)
-(make-compose-map 'compose-acute-map)
-(make-compose-map 'compose-grave-map)
-(make-compose-map 'compose-cedilla-map)
-(make-compose-map 'compose-diaeresis-map)
-(make-compose-map 'compose-circumflex-map)
-(make-compose-map 'compose-tilde-map)
-(make-compose-map 'compose-ring-map)
-
-(unintern 'make-compose-map)
+  (define-compose-map compose-map)
+  (define-compose-map compose-acute-map)
+  (define-compose-map compose-grave-map)
+  (define-compose-map compose-cedilla-map)
+  (define-compose-map compose-diaeresis-map)
+  (define-compose-map compose-circumflex-map)
+  (define-compose-map compose-tilde-map)
+  (define-compose-map compose-ring-map))
 
 (define-key compose-map 'acute	    compose-acute-map)
 (define-key compose-map 'grave	    compose-grave-map)
@@ -131,27 +129,7 @@
 (define-key compose-map 'tilde      compose-tilde-map)
 (define-key compose-map 'degree	    compose-ring-map)
 
-;;(eval-when-compile
-;;  (defsubst define-dead-key-map (key map)
-;;    (define-key function-key-map key map)
-;;    (define-key compose-map key map)))
-
-;;;###utoload (autoload 'compose-map           "x-compose" nil t 'keymap)
-;;;###utoload (autoload 'compose-acute-map     "x-compose" nil t 'keymap)
-;;;###utoload (autoload 'compose-grave-map     "x-compose" nil t 'keymap)
-;;;###utoload (autoload 'compose-cedilla-map   "x-compose" nil t 'keymap)
-;;;###utoload (autoload 'compose-diaeresis-map "x-compose" nil t 'keymap)
-;;;###utoload (autoload 'compose-degree-map    "x-compose" nil t 'keymap)
-;;;###utoload (define-key function-key-map [acute]     'compose-acute-map)
-;;;###utoload (define-key function-key-map [grave]     'compose-grave-map)
-;;;###utoload (define-key function-key-map [cedilla]   'compose-cedilla-map)
-;;;###utoload (define-key function-key-map [diaeresis] 'compose-diaeresis-map)
-;;;###utoload (define-key function-key-map [degree]    'compose-degree-map)
-;;;###utoload (define-key function-key-map [multi-key] 'compose-map)
-;;;###utoload (define-key global-map       [multi-key] 'compose-map)
-
 ;;(define-key function-key-map [multi-key] compose-map)
-
 
 ;; The following is necessary, because one can't rebind [degree]
 ;; and use it to insert the degree sign!
@@ -159,13 +137,6 @@
 ;;  "Inserts a degree sign."
 ;;  (interactive)
 ;;  (insert ?\260))
-
-;; The "Dead" keys:
-;;
-;;(define-dead-key-map [acute]	 compose-acute-map)
-;;(define-dead-key-map [cedilla]	 compose-cedilla-map)
-;;(define-dead-key-map [diaeresis] compose-diaeresis-map)
-;;(define-dead-key-map [degree]	 compose-ring-map)
 
 (define-key compose-map [acute]		compose-acute-map)
 (define-key compose-map [?']		compose-acute-map)
@@ -181,116 +152,6 @@
 (define-key compose-map [~]		compose-tilde-map)
 (define-key compose-map [degree]	compose-ring-map)
 (define-key compose-map [?*]		compose-ring-map)
-
-
-;;; The dead keys might really be called just about anything, depending
-;;; on the vendor.  MIT thinks that the prefixes are "SunFA_", "D", and
-;;; "hpmute_" for Sun, DEC, and HP respectively.  However, OpenWindows 3
-;;; thinks that the prefixes are "SunXK_FA_", "DXK_", and "hpXK_mute_".
-;;; And HP (who don't mention Sun and DEC at all) use "XK_mute_".
-;;; Go figure.
-
-;;; Presumably if someone is running OpenWindows, they won't be using
-;;; the DEC or HP keysyms, but if they are defined then that is possible,
-;;; so in that case we accept them all.
-
-;;; If things seem not to be working, you might want to check your
-;;; /usr/lib/X11/XKeysymDB file to see if your vendor has an equally
-;;; mixed up view of what these keys should be called.
-
-;; Sun according to MIT:
-;;
-
-;;(when (x-valid-keysym-name-p "SunFA_Acute")
-;;  (define-dead-key-map [SunFA_Acute]		compose-acute-map)
-;;  (define-dead-key-map [SunFA_Grave]		compose-grave-map)
-;;  (define-dead-key-map [SunFA_Cedilla]		compose-cedilla-map)
-;;  (define-dead-key-map [SunFA_Diaeresis]	compose-diaeresis-map)
-;;  (define-dead-key-map [SunFA_Circum]		compose-circumflex-map)
-;;  (define-dead-key-map [SunFA_Tilde]		compose-tilde-map)
-;;  )
-;;
-;;;; Sun according to OpenWindows 2:
-;;;;
-;;(when (x-valid-keysym-name-p "Dead_Grave")
-;;  (define-dead-key-map [Dead_Grave]		compose-grave-map)
-;;  (define-dead-key-map [Dead_Circum]		compose-circumflex-map)
-;;  (define-dead-key-map [Dead_Tilde]		compose-tilde-map)
-;;  )
-;;
-;;;; Sun according to OpenWindows 3:
-;;;;
-;;(when (x-valid-keysym-name-p "SunXK_FA_Acute")
-;;  (define-dead-key-map [SunXK_FA_Acute]		compose-acute-map)
-;;  (define-dead-key-map [SunXK_FA_Grave]		compose-grave-map)
-;;  (define-dead-key-map [SunXK_FA_Cedilla]	compose-cedilla-map)
-;;  (define-dead-key-map [SunXK_FA_Diaeresis]	compose-diaeresis-map)
-;;  (define-dead-key-map [SunXK_FA_Circum]	compose-circumflex-map)
-;;  (define-dead-key-map [SunXK_FA_Tilde]		compose-tilde-map)
-;;  )
-;;
-;;;; DEC according to MIT:
-;;;;
-;;(when (x-valid-keysym-name-p "Dacute_accent")
-;;  (define-dead-key-map [Dacute_accent]		compose-acute-map)
-;;  (define-dead-key-map [Dgrave_accent]		compose-grave-map)
-;;  (define-dead-key-map [Dcedilla_accent]	compose-cedilla-map)
-;;  (define-dead-key-map [Dcircumflex_accent]	compose-circumflex-map)
-;;  (define-dead-key-map [Dtilde]			compose-tilde-map)
-;;  (define-dead-key-map [Dring_accent]		compose-ring-map)
-;;  )
-;;
-;;;; DEC according to OpenWindows 3:
-;;;;
-;;(when (x-valid-keysym-name-p "DXK_acute_accent")
-;;  (define-dead-key-map [DXK_acute_accent]	compose-acute-map)
-;;  (define-dead-key-map [DXK_grave_accent]	compose-grave-map)
-;;  (define-dead-key-map [DXK_cedilla_accent]	compose-cedilla-map)
-;;  (define-dead-key-map [DXK_circumflex_accent]	compose-circumflex-map)
-;;  (define-dead-key-map [DXK_tilde]		compose-tilde-map)
-;;  (define-dead-key-map [DXK_ring_accent]	compose-ring-map)
-;;  )
-;;
-;;;; HP according to MIT:
-;;;;
-;;(when (x-valid-keysym-name-p "hpmute_acute")
-;;  (define-dead-key-map [hpmute_acute]		compose-acute-map)
-;;  (define-dead-key-map [hpmute_grave]		compose-grave-map)
-;;  (define-dead-key-map [hpmute_diaeresis]	compose-diaeresis-map)
-;;  (define-dead-key-map [hpmute_asciicircum]	compose-circumflex-map)
-;;  (define-dead-key-map [hpmute_asciitilde]	compose-tilde-map)
-;;  )
-;;
-;;;; HP according to OpenWindows 3:
-;;;;
-;;(when (x-valid-keysym-name-p "hpXK_mute_acute")
-;;  (define-dead-key-map [hpXK_mute_acute]	compose-acute-map)
-;;  (define-dead-key-map [hpXK_mute_grave]	compose-grave-map)
-;;  (define-dead-key-map [hpXK_mute_diaeresis]	compose-diaeresis-map)
-;;  (define-dead-key-map [hpXK_mute_asciicircum]	compose-circumflex-map)
-;;  (define-dead-key-map [hpXK_mute_asciitilde]	compose-tilde-map)
-;;  )
-;;
-;;;; HP according to HP-UX 8.0:
-;;;;
-;;(when (x-valid-keysym-name-p "XK_mute_acute")
-;;  (define-dead-key-map [XK_mute_acute]		compose-acute-map)
-;;  (define-dead-key-map [XK_mute_grave]		compose-grave-map)
-;;  (define-dead-key-map [XK_mute_diaeresis]	compose-diaeresis-map)
-;;  (define-dead-key-map [XK_mute_asciicircum]	compose-circumflex-map)
-;;  (define-dead-key-map [XK_mute_asciitilde]	compose-tilde-map)
-;;  )
-;;
-;;;; Xfree seems to use lower case and a hyphen
-;;(when (x-valid-keysym-name-p "dead-tilde")
-;;  (define-dead-key-map [dead-acute]		compose-acute-map)
-;;  (define-dead-key-map [dead-grave]		compose-grave-map)
-;;  (define-dead-key-map [dead-cedilla]		compose-cedilla-map)
-;;  (define-dead-key-map [dead-diaeresis]		compose-diaeresis-map)
-;;  (define-dead-key-map [dead-circum]		compose-circumflex-map)
-;;  (define-dead-key-map [dead-tilde]		compose-tilde-map)
-;;  )
-
 
 
 ;;; The contents of the "dead key" maps.  These are shared by the

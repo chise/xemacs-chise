@@ -119,7 +119,7 @@ A mark is pushed, so that the inserted text lies between point and mark."
       (set-buffer (extent-object (car primary-selection-extent)))
       (x-store-cutbuffer
        (mapconcat
-	'identity
+	#'identity
 	(extract-rectangle
 	 (extent-start-position (car primary-selection-extent))
 	 (extent-end-position (car (reverse primary-selection-extent))))

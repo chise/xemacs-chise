@@ -34,7 +34,7 @@ Boston, MA 02111-1307, USA.  */
   etc.
 
   A magic specifier consists of two specifier objects. The first one
-  behaves like a normal specifier in all sences. The second one, a
+  behaves like a normal specifier in all senses. The second one, a
   ghost specifier, is a fallback value for the first one, and contains
   values provided by window system, resources etc. which reflect
   default settings for values being specified.
@@ -61,11 +61,11 @@ Boston, MA 02111-1307, USA.  */
   frame defaults, such as
   init-{global,frame,device}-{faces,toolbars,etc}.
 
-  Thus, values supplied by resources or other means of a window system 
+  Thus, values supplied by resources or other means of a window system
   stored in externally unmodifiable ghost objects. Regular lisp code
   may thus freely modify the normal part of a magic specifier, and
   removing a specification for a particular domain causes the
-  specification to consider ghost-provided fallback values, or its own 
+  specification to consider ghost-provided fallback values, or its own
   fallback value.
 
   Rules of conduct for magic specifiers
@@ -76,10 +76,10 @@ Boston, MA 02111-1307, USA.  */
   2. All specifier methods, except for instantiate method, are passed
      the bodily object of the magic specifier. Instantiate method is
      passed the specifier being instantiated.
-  3. Only bodily objects are passed to set_specifier_caching function, 
+  3. Only bodily objects are passed to set_specifier_caching function,
      and only these may be cached.
-  4. All specifiers are added to Vall_specifiers list, both bodily and 
-     ghost. The pair of objects is always removed from the list at the 
+  4. All specifiers are added to Vall_specifiers list, both bodily and
+     ghost. The pair of objects is always removed from the list at the
      same time.
 */
 
@@ -98,7 +98,7 @@ struct specifier_methods
   void (*mark_method) (Lisp_Object specifier, void (*markobj) (Lisp_Object));
 
   /* Equal method: Compare two specifiers. This is called after
-     ensuring that the two specifiers are of the same type, and habe
+     ensuring that the two specifiers are of the same type, and have
      the same specs.  Quit is inhibited during the call so it is safe
      to call internal_equal().
 
@@ -220,7 +220,7 @@ struct Lisp_Specifier
      the ghost part of the magic specifier, a pointer to its parent
      object */
   Lisp_Object magic_parent;
-  
+
   /* Fallback value. For magic specifiers, it is a pointer to the ghost. */
   Lisp_Object fallback;
 
@@ -244,9 +244,9 @@ DECLARE_LRECORD (specifier, struct Lisp_Specifier);
 
 /* Call a void-returning specifier method, if it exists.  */
 #define MAYBE_SPECMETH(sp, m, args) do {		\
-  struct Lisp_Specifier *_maybe_specmeth_sp = (sp);	\
-  if (HAS_SPECMETH_P (_maybe_specmeth_sp, m))		\
-    SPECMETH (_maybe_specmeth_sp, m, args);		\
+  struct Lisp_Specifier *maybe_specmeth_sp = (sp);	\
+  if (HAS_SPECMETH_P (maybe_specmeth_sp, m))		\
+    SPECMETH (maybe_specmeth_sp, m, args);		\
 } while (0)
 
 /***** Defining new specifier types *****/

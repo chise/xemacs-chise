@@ -289,14 +289,14 @@ ignore_completion_p (Lisp_Object completion_string,
 }
 
 
-/* #### Maybe we should allow ALIST to be a hashtable.  It is wrong
+/* #### Maybe we should allow ALIST to be a hash table.  It is wrong
    for the use of obarrays to be better-rewarded than the use of
-   hashtables.  By better-rewarded I mean that you can pass an obarray
+   hash tables.  By better-rewarded I mean that you can pass an obarray
    to all of the completion functions, whereas you can't do anything
-   like that with a hashtable.
+   like that with a hash table.
 
    To do so, there should probably be a
-   map_obarray_or_alist_or_hashtable function which would be used by
+   map_obarray_or_alist_or_hash_table function which would be used by
    both Ftry_completion and Fall_completions.  But would the
    additional funcalls slow things down?  */
 

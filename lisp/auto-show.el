@@ -140,8 +140,7 @@ actually do any horizontal scrolling; rather, it just sets things up so
 that the region will be visible when `auto-show-make-point-visible'
 is next called (this happens after every command)."
   (if (auto-show-should-take-action-p)
-      (let* ((col (current-column))	;column on line point is at
-	     (scroll (window-hscroll));how far window is scrolled
+      (let* ((scroll (window-hscroll))	;how far window is scrolled
 	     (w-width (- (window-width) 
 			 (if (> scroll 0)
 			     2 1)))	;how wide window is on the screen

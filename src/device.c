@@ -37,10 +37,13 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "keymap.h"
 #include "redisplay.h"
-#include "scrollbar.h"
 #include "specifier.h"
 #include "sysdep.h"
 #include "window.h"
+
+#ifdef HAVE_SCROLLBARS
+#include "scrollbar.h"
+#endif
 
 #include "syssignal.h"
 
@@ -82,29 +85,29 @@ mark_device (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct device *d = XDEVICE (obj);
 
-  ((markobj) (d->name));
-  ((markobj) (d->connection));
-  ((markobj) (d->canon_connection));
-  ((markobj) (d->console));
-  ((markobj) (d->_selected_frame));
-  ((markobj) (d->frame_with_focus_real));
-  ((markobj) (d->frame_with_focus_for_hooks));
-  ((markobj) (d->frame_that_ought_to_have_focus));
-  ((markobj) (d->device_class));
-  ((markobj) (d->user_defined_tags));
-  ((markobj) (d->pixel_to_glyph_cache.obj1));
-  ((markobj) (d->pixel_to_glyph_cache.obj2));
+  markobj (d->name);
+  markobj (d->connection);
+  markobj (d->canon_connection);
+  markobj (d->console);
+  markobj (d->selected_frame);
+  markobj (d->frame_with_focus_real);
+  markobj (d->frame_with_focus_for_hooks);
+  markobj (d->frame_that_ought_to_have_focus);
+  markobj (d->device_class);
+  markobj (d->user_defined_tags);
+  markobj (d->pixel_to_glyph_cache.obj1);
+  markobj (d->pixel_to_glyph_cache.obj2);
 
-  ((markobj) (d->color_instance_cache));
-  ((markobj) (d->font_instance_cache));
+  markobj (d->color_instance_cache);
+  markobj (d->font_instance_cache);
 #ifdef MULE
-  ((markobj) (d->charset_font_cache));
+  markobj (d->charset_font_cache);
 #endif
-  ((markobj) (d->image_instance_cache));
+  markobj (d->image_instance_cache);
 
   if (d->devmeths)
     {
-      ((markobj) (d->devmeths->symbol));
+      markobj (d->devmeths->symbol);
       MAYBE_DEVMETH (d, mark_device, (d, markobj));
     }
 
@@ -177,7 +180,7 @@ allocate_device (Lisp_Object console)
   d->connection = Qnil;
   d->canon_connection = Qnil;
   d->frame_list = Qnil;
-  d->_selected_frame = Qnil;
+  d->selected_frame = Qnil;
   d->frame_with_focus_real = Qnil;
   d->frame_with_focus_for_hooks = Qnil;
   d->frame_that_ought_to_have_focus = Qnil;
@@ -189,22 +192,22 @@ allocate_device (Lisp_Object console)
   d->infd = d->outfd = -1;
 
   /* #### is 20 reasonable? */
-  d->color_instance_cache = make_lisp_hashtable (20, HASHTABLE_KEY_WEAK,
-						 HASHTABLE_EQUAL);
-  d->font_instance_cache = make_lisp_hashtable (20, HASHTABLE_KEY_WEAK,
-						HASHTABLE_EQUAL);
+  d->color_instance_cache =
+    make_lisp_hash_table (20, HASH_TABLE_KEY_WEAK, HASH_TABLE_EQUAL);
+  d->font_instance_cache =
+    make_lisp_hash_table (20, HASH_TABLE_KEY_WEAK, HASH_TABLE_EQUAL);
 #ifdef MULE
   /* Note that the following table is bi-level. */
-  d->charset_font_cache = make_lisp_hashtable (20, HASHTABLE_NONWEAK,
-					       HASHTABLE_EQ);
+  d->charset_font_cache =
+    make_lisp_hash_table (20, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 #endif
   /*
      Note that the image instance cache is actually bi-level.
      See device.h.  We use a low number here because most of the
-     time there aren't very many diferent masks that will be used.
+     time there aren't very many different masks that will be used.
      */
-  d->image_instance_cache = make_lisp_hashtable (5, HASHTABLE_NONWEAK,
-						 HASHTABLE_EQ);
+  d->image_instance_cache =
+    make_lisp_hash_table (5, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   UNGCPRO;
   return d;
@@ -216,7 +219,7 @@ decode_device (Lisp_Object device)
   if (NILP (device))
     device = Fselected_device (Qnil);
   /* quietly accept frames for the device arg */
-  if (FRAMEP (device))
+  else if (FRAMEP (device))
     device = FRAME_DEVICE (decode_frame (device));
   CHECK_LIVE_DEVICE (device);
   return XDEVICE (device);
@@ -287,7 +290,7 @@ set_device_selected_frame (struct device *d, Lisp_Object frame)
 {
   if (!NILP (frame) && !FRAME_MINIBUF_ONLY_P (XFRAME (frame)))
     set_console_last_nonminibuf_frame (XCONSOLE (DEVICE_CONSOLE (d)), frame);
-  d->_selected_frame = frame;
+  d->selected_frame = frame;
 }
 
 DEFUN ("set-device-selected-frame", Fset_device_selected_frame, 2, 2, 0, /*
@@ -914,7 +917,7 @@ Get a metric for DEVICE as provided by the system.
 
 METRIC must be a symbol specifying requested metric.  Note that the metrics
 returned are these provided by the system internally, not read from resources,
-so obtained from the most internal level. 
+so obtained from the most internal level.
 
 If a metric is not provided by the system, then DEFAULT is returned.
 
@@ -923,14 +926,14 @@ When DEVICE is nil, selected device is assumed
 Metrics, by group, are:
 
 COLORS.  Colors are returned as valid color instantiators.  No other assumption
-on the returned valie should be made (i.e. it can be a string on one system but
+on the returned value should be made (i.e. it can be a string on one system but
 a color instance on another).  For colors, returned value is a cons of
 foreground and background colors.  Note that if the system provides only one
 color of the pair, the second one may be nil.
 
 color-default         Standard window text foreground and background.
-color-select          Selection highligh text and backgroun colors.
-color-balloon         Ballon popup text and background colors.
+color-select          Selection highlight text and background colors.
+color-balloon         Balloon popup text and background colors.
 color-3d-face         3-D object (button, modeline) text and surface colors.
 color-3d-light        Fore and back colors for 3-D edges facing light source.
 color-3d-dark         Fore and back colors for 3-D edges facing away from
@@ -954,7 +957,7 @@ font-dialog           Dialog boxes font
 
 GEOMETRY. These metrics are returned as conses of (X . Y).  As with colors,
 either car or cdr of the cons may be nil if the system does not provide one
-of corresponding dimensions.
+of the corresponding dimensions.
 
 size-cursor           Mouse cursor size.
 size-scrollbar        Scrollbars (WIDTH . HEIGHT)
@@ -971,14 +974,14 @@ size-workspace        Workspace size in pixels. This can be less than the
                       windows.
 size-device-mm        Device screen size in millimeters.
 device-dpi            Device resolution, in dots per inch.
-num-bit-planes        Integer, number of deivce bit planes.
+num-bit-planes        Integer, number of device bit planes.
 num-color-cells       Integer, number of device color cells.
 
 FEATURES.  This group reports various device features.  If a feature is
 present, integer 1 (one) is returned, if it is not present, then integer
 0 (zero) is returned.  If the system is unaware of the feature, then
 DEFAULT is returned.
-                
+
 mouse-buttons         Integer, number of mouse buttons, or zero if no mouse.
 swap-buttons          Non-zero if left and right mouse buttons are swapped.
 show-sounds           User preference for visual over audible bell.

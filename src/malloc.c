@@ -184,7 +184,7 @@ what you give them.   Help stamp out software-hoarding!  */
 #include <sys/resource.h>
 #endif /* BSD4_2 */
 
-#ifdef __STDC_
+#ifdef __STDC__
 #ifndef HPUX
 /* not sure where this for NetBSD should really go
    and it probably applies to other systems */

@@ -112,7 +112,7 @@ void DGifInitRead(GifFileType *GifFile)
     Buf[GIF_STAMP_LEN] = 0;
     if (strncmp(GIF_STAMP, (const char *) Buf, GIF_VERSION_POS) != 0) {
 	GifInternError(GifFile, D_GIF_ERR_NOT_GIF_FILE);
-    }
+      }
 
     DGifGetScreenDesc(GifFile);
 }
@@ -249,7 +249,7 @@ void DGifGetImageDesc(GifFileType *GifFile)
 	      MakeMapObject (GifFile->Image.ColorMap->ColorCount,
 			     GifFile->Image.ColorMap->Colors);
 	  }
-	sp->RasterBits = (GifPixelType *)NULL;
+	sp->RasterBits = NULL;
 	sp->ExtensionBlockCount = 0;
 	sp->ExtensionBlocks = (ExtensionBlock *)NULL;
     }
@@ -745,7 +745,7 @@ void DGifSlurp(GifFileType *GifFile)
 		ImageSize = sp->ImageDesc.Width * sp->ImageDesc.Height;
 
 		sp->RasterBits
-		    = (GifPixelType*) malloc(ImageSize * sizeof(GifPixelType));
+		    = (GifPixelType*) malloc (ImageSize * sizeof(GifPixelType));
 
 		DGifGetLine(GifFile, sp->RasterBits, ImageSize);
 		break;
@@ -856,7 +856,7 @@ SavedImage *MakeSavedImage(GifFileType *GifFile, SavedImage *CopyFrom)
 				  CopyFrom->ImageDesc.ColorMap->Colors);
 
 	    /* next, the raster */
-	    sp->RasterBits = (GifPixelType*)malloc(sizeof(GifPixelType)
+	    sp->RasterBits = (GifPixelType *) malloc(sizeof(GifPixelType)
 				* CopyFrom->ImageDesc.Height
 				* CopyFrom->ImageDesc.Width);
 	    memcpy(sp->RasterBits,
@@ -911,7 +911,7 @@ void FreeSavedImages(GifFileType *GifFile)
 * Miscellaneous utility functions					      *
 ******************************************************************************/
 
-int BitSize(int n)
+static int BitSize(int n)
 /* return smallest bitfield size n will fit in */
 {
     register	int i;

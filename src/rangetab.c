@@ -47,7 +47,7 @@ mark_range_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
   int i;
 
   for (i = 0; i < Dynarr_length (rt->entries); i++)
-    (markobj) (Dynarr_at (rt->entries, i).val);
+    markobj (Dynarr_at (rt->entries, i).val);
   return Qnil;
 }
 
@@ -242,15 +242,13 @@ If there is no corresponding value, return DEFAULT (defaults to nil).
        (pos, table, default_))
 {
   struct Lisp_Range_Table *rt;
-  EMACS_INT po;
 
   CHECK_RANGE_TABLE (table);
   rt = XRANGE_TABLE (table);
 
   CHECK_INT_COERCE_CHAR (pos);
-  po = XINT (pos);
 
-  return get_range_table (po, Dynarr_length (rt->entries),
+  return get_range_table (XINT (pos), Dynarr_length (rt->entries),
 			  Dynarr_atp (rt->entries, 0), default_);
 }
 

@@ -86,15 +86,10 @@
 ;; making it more likely you will get a unique match.
 (setq completion-ignored-extensions
       (mapcar 'purecopy
-	      (if (eq system-type 'vax-vms)
-		  '(".obj" ".elc" ".exe" ".bin" ".lbin" ".sbin"
-		    ".dvi" ".toc" ".log" ".aux"
-		    ".lof" ".brn" ".rnt" ".mem" ".lni" ".lis"
-		    ".olb" ".tlb" ".mlb" ".hlb" ".glo" ".idx" ".lot" ".fmt")
-		'(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
-		  ".dvi" ".toc" ".log" ".aux" ".a" ".ln"
-		  ".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
-		  ".diff" ".oi" ".class"))))
+	      '(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
+		".dvi" ".toc" ".log" ".aux" ".a" ".ln"
+		".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
+		".diff" ".oi" ".class")))
 
 
 ;; This needs to be redone better. -slb

@@ -66,9 +66,8 @@ from the search."
 	    (let ((raw-entries
 		   (if (equal 0 max-depth)
 		       '()
-		       (directory-files directory nil "^[^.-]")))
+		     (directory-files directory nil "^[^.-]")))
 		  (reverse-dirs '()))
-
 	      (while raw-entries
 		(if (null (string-match exclude-regexp (car raw-entries)))
 		    (setq reverse-dirs
@@ -106,7 +105,7 @@ from the search."
 								"lib"
 								emacs-program-name)))
    ;; in-place or windows-nt
-   (and 
+   (and
     (paths-file-readable-directory-p (paths-construct-path (list directory "lisp")))
     (paths-file-readable-directory-p (paths-construct-path (list directory "etc"))))))
 
@@ -153,7 +152,7 @@ to EXPAND-FILE-NAME."
 (defun paths-construct-emacs-directory (root suffix base)
   "Construct a directory name within the XEmacs hierarchy."
   (file-name-as-directory
-   (expand-file-name 
+   (expand-file-name
     (concat
      (file-name-as-directory root)
      suffix
@@ -236,7 +235,7 @@ If ENFORCE-VERSION is non-nil, the directory must contain the XEmacs version."
   (let ((reverse-directories '()))
     (while directories
       (if (paths-file-readable-directory-p (car directories))
-	  (setq reverse-directories 
+	  (setq reverse-directories
 		(cons (car directories)
 		      reverse-directories)))
       (setq directories (cdr directories)))

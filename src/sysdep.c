@@ -212,11 +212,7 @@ set_descriptor_non_blocking (int fd)
   }
 #endif
 
-#ifdef O_NONBLOCK /* The POSIX way */
   fcntl (fd, F_SETFL, O_NONBLOCK);
-#elif defined (O_NDELAY)
-  fcntl (fd, F_SETFL, O_NDELAY);
-#endif /* O_NONBLOCK */
 }
 
 #if defined (NO_SUBPROCESSES)
@@ -456,8 +452,8 @@ child_setup_tty (int out)
 
   s.main.c_lflag |= ICANON;	/* Enable erase/kill and eof processing */
   s.main.c_cc[VEOF] = 04;	/* ensure that EOF is Control-D */
-  s.main.c_cc[VERASE] = CDISABLE; /* disable erase processing */
-  s.main.c_cc[VKILL]  = CDISABLE; /* disable kill processing */
+  s.main.c_cc[VERASE] = _POSIX_VDISABLE; /* disable erase processing */
+  s.main.c_cc[VKILL]  = _POSIX_VDISABLE; /* disable kill processing */
 
 #ifdef HPUX
   s.main.c_cflag = (s.main.c_cflag & ~CBAUD) | B9600; /* baud rate sanity */
@@ -485,12 +481,12 @@ child_setup_tty (int out)
 #else /* no TIOCGPGRP or no TIOCGLTC or no TIOCGETC */
   /* TTY `special characters' work better as signals, so disable
      character forms */
-  s.main.c_cc[VQUIT] = CDISABLE;
-  s.main.c_cc[VINTR] = CDISABLE;
-  s.main.c_cc[VSUSP] = CDISABLE;
+  s.main.c_cc[VQUIT] = _POSIX_VDISABLE;
+  s.main.c_cc[VINTR] = _POSIX_VDISABLE;
+  s.main.c_cc[VSUSP] = _POSIX_VDISABLE;
   s.main.c_lflag &= ~ISIG;
 #endif /* no TIOCGPGRP or no TIOCGLTC or no TIOCGETC */
-  s.main.c_cc[VEOL] = CDISABLE;
+  s.main.c_cc[VEOL] = _POSIX_VDISABLE;
 #if defined (CBAUD)
   /* <mdiers> ### This is not portable. ###
      POSIX does not specify CBAUD, and 4.4BSD does not have it.
@@ -749,7 +745,7 @@ get_eof_char (int fd)
     else
       return (Bufbyte) t.c_cc[VEOF];
 #endif
-    return t.c_cc[VEOF] == CDISABLE ? ctrl_d : (Bufbyte) t.c_cc[VEOF];
+    return t.c_cc[VEOF] == _POSIX_VDISABLE ? ctrl_d : (Bufbyte) t.c_cc[VEOF];
   }
 #else /* ! HAVE_TERMIOS */
   /* On Berkeley descendants, the following IOCTL's retrieve the
@@ -1534,51 +1530,51 @@ tty_init_sys_modes_on_device (struct device *d)
     }
   else
     {
-      tty.main.c_cc[VINTR] = CDISABLE;
-      tty.main.c_cc[VQUIT] = CDISABLE;
+      tty.main.c_cc[VINTR] = _POSIX_VDISABLE;
+      tty.main.c_cc[VQUIT] = _POSIX_VDISABLE;
     }
   tty.main.c_cc[VMIN] = 1;	/* Input should wait for at
 				   least 1 char */
   tty.main.c_cc[VTIME] = 0;	/* no matter how long that takes.  */
 #ifdef VSWTCH
-  tty.main.c_cc[VSWTCH] = CDISABLE;	/* Turn off shell layering use
-					   of C-z */
+  tty.main.c_cc[VSWTCH] = _POSIX_VDISABLE; /* Turn off shell layering use
+					      of C-z */
 #endif /* VSWTCH */
   /* There was some conditionalizing here on (mips or TCATTR), but
      I think that's wrong.  There was one report of C-y (DSUSP) not being
      disabled on HP9000s700 systems, and this might fix it. */
 #ifdef VSUSP
-  tty.main.c_cc[VSUSP] = CDISABLE;/* Turn off mips handling of C-z.  */
+  tty.main.c_cc[VSUSP] = _POSIX_VDISABLE; /* Turn off mips handling of C-z. */
 #endif /* VSUSP */
 #ifdef V_DSUSP
-  tty.main.c_cc[V_DSUSP] = CDISABLE; /* Turn off mips handling of C-y.  */
+  tty.main.c_cc[V_DSUSP] = _POSIX_VDISABLE; /* Turn off mips handling of C-y. */
 #endif /* V_DSUSP */
 #ifdef VDSUSP /* Some systems have VDSUSP, some have V_DSUSP.  */
-  tty.main.c_cc[VDSUSP] = CDISABLE;
+  tty.main.c_cc[VDSUSP] = _POSIX_VDISABLE;
 #endif /* VDSUSP */
 #ifdef VLNEXT
-  tty.main.c_cc[VLNEXT] = CDISABLE;
+  tty.main.c_cc[VLNEXT] = _POSIX_VDISABLE;
 #endif /* VLNEXT */
 #ifdef VREPRINT
-  tty.main.c_cc[VREPRINT] = CDISABLE;
+  tty.main.c_cc[VREPRINT] = _POSIX_VDISABLE;
 #endif /* VREPRINT */
 #ifdef VWERASE
-  tty.main.c_cc[VWERASE] = CDISABLE;
+  tty.main.c_cc[VWERASE] = _POSIX_VDISABLE;
 #endif /* VWERASE */
 #ifdef VDISCARD
-  tty.main.c_cc[VDISCARD] = CDISABLE;
+  tty.main.c_cc[VDISCARD] = _POSIX_VDISABLE;
 #endif /* VDISCARD */
 #ifdef VSTART
-  tty.main.c_cc[VSTART] = CDISABLE;
+  tty.main.c_cc[VSTART] = _POSIX_VDISABLE;
 #endif /* VSTART */
 #ifdef VSTRT
-  tty.main.c_cc[VSTRT] = CDISABLE; /* called VSTRT on some systems */
+  tty.main.c_cc[VSTRT] = _POSIX_VDISABLE; /* called VSTRT on some systems */
 #endif /* VSTART */
 #ifdef VSTOP
-  tty.main.c_cc[VSTOP] = CDISABLE;
+  tty.main.c_cc[VSTOP] = _POSIX_VDISABLE;
 #endif /* VSTOP */
 #ifdef SET_LINE_DISCIPLINE
-  /* Need to explicitely request TERMIODISC line discipline or
+  /* Need to explicitly request TERMIODISC line discipline or
      Ultrix's termios does not work correctly.  */
   tty.main.c_line = SET_LINE_DISCIPLINE;
 #endif
@@ -2072,7 +2068,6 @@ hft_reset (struct console *con)
 /*                    limits of text/data segments                      */
 /************************************************************************/
 
-/* Note that VMS compiler won't accept defined (CANNOT_DUMP).  */
 #ifndef CANNOT_DUMP
 #define NEED_STARTS
 #endif
@@ -2137,7 +2132,7 @@ start_of_text (void)
  *	at least on UniPlus, is temacs will have to be made unshared so
  *	that text and data are contiguous.  Then once loadup is complete,
  *	unexec will produce a shared executable where the data can be
- *	at the normal shared text boundry and the startofdata variable
+ *	at the normal shared text boundary and the startofdata variable
  *	will be patched by unexec to the correct value.
  *
  */
@@ -2594,7 +2589,8 @@ sys_open (CONST char *path, int oflag, ...)
   {
     int rtnval;
     while ((rtnval = open (path, oflag, mode)) == -1
-	   && (errno == EINTR));
+	   && (errno == EINTR))
+      DO_NOTHING;
     return rtnval;
   }
 #else
@@ -2779,7 +2775,8 @@ sys_fopen (CONST char *path, CONST char *type)
 #elif defined (INTERRUPTIBLE_OPEN)
   {
     FILE *rtnval;
-    while (!(rtnval = fopen (path, type)) && (errno == EINTR));
+    while (!(rtnval = fopen (path, type)) && (errno == EINTR))
+      DO_NOTHING;
     return rtnval;
   }
 #else
@@ -3682,7 +3679,7 @@ opendir (CONST char *filename)	/* name of directory */
   int fd;		/* file descriptor for read */
   struct stat sbuf;		/* result of fstat */
 
-  fd = sys_open (filename, 0);
+  fd = sys_open (filename, O_RDONLY);
   if (fd < 0)
     return 0;
 
@@ -3799,24 +3796,24 @@ mkdir (CONST char *dpath, int dmode)
     {
 
     case -1:			/* Error in fork() */
-      return (-1);		/* Errno is set already */
+      return -1;		/* Errno is set already */
 
     case 0:			/* Child process */
     {
       /*
-		 * Cheap hack to set mode of new directory.  Since this
-		 * child process is going away anyway, we zap its umask.
-		 * ####, this won't suffice to set SUID, SGID, etc. on this
-		 * directory.  Does anybody care?
-		 */
+       * Cheap hack to set mode of new directory.  Since this
+       * child process is going away anyway, we zap its umask.
+       * ####, this won't suffice to set SUID, SGID, etc. on this
+       * directory.  Does anybody care?
+       */
       status = umask (0);	/* Get current umask */
       status = umask (status | (0777 & ~dmode));	/* Set for mkdir */
-      fd = sys_open ("/dev/null", 2);
+      fd = sys_open ("/dev/null", O_RDWR);
       if (fd >= 0)
         {
-	  dup2 (fd, 0);
-	  dup2 (fd, 1);
-	  dup2 (fd, 2);
+	  if (fd != STDIN_FILENO)  dup2 (fd, STDIN_FILENO);
+	  if (fd != STDOUT_FILENO) dup2 (fd, STDOUT_FILENO);
+	  if (fd != STDERR_FILENO) dup2 (fd, STDERR_FILENO);
         }
       execl ("/bin/mkdir", "mkdir", dpath, (char *) 0);
       _exit (-1);		/* Can't exec /bin/mkdir */
@@ -3857,12 +3854,12 @@ rmdir (CONST char *dpath)
       return (-1);		/* Errno is set already */
 
     case 0:			/* Child process */
-      fd = sys_open("/dev/null", 2);
+      fd = sys_open("/dev/null", O_RDWR);
       if (fd >= 0)
         {
-	  dup2 (fd, 0);
-	  dup2 (fd, 1);
-	  dup2 (fd, 2);
+	  if (fd != STDIN_FILENO)  dup2 (fd, STDIN_FILENO);
+	  if (fd != STDOUT_FILENO) dup2 (fd, STDOUT_FILENO);
+	  if (fd != STDERR_FILENO) dup2 (fd, STDERR_FILENO);
         }
       execl ("/bin/rmdir", "rmdir", dpath, (char *) 0);
       _exit (-1);		/* Can't exec /bin/mkdir */
@@ -3871,7 +3868,8 @@ rmdir (CONST char *dpath)
       wait_for_termination (cpid);
     }
 
-  if (synch_process_death != 0 || synch_process_retcode != 0)
+  if (synch_process_death   != 0 ||
+      synch_process_retcode != 0)
     {
       errno = EIO;		/* We don't know why, but */
       return -1;		/* /bin/rmdir failed */

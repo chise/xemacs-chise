@@ -1,4 +1,4 @@
-;;; byte-opt.el --- the optimization passes of the emacs-lisp byte compiler.
+;;; byte-optimize.el --- the optimization passes of the emacs-lisp byte compiler.
 
 ;;; Copyright (c) 1991, 1994 Free Software Foundation, Inc.
 
@@ -39,7 +39,7 @@
 
 ;; TO DO:
 ;;
-;; (apply '(lambda (x &rest y) ...) 1 (foo))
+;; (apply #'(lambda (x &rest y) ...) 1 (foo))
 ;;
 ;; maintain a list of functions known not to access any global variables
 ;; (actually, give them a 'dynamically-safe property) and then
@@ -149,7 +149,7 @@
 ;; in some grody way, but that's a really bad idea.)
 ;;
 ;; HA!  RMS removed the following paragraph from his version of
-;; byte-opt.el.
+;; byte-optimize.el.
 ;;
 ;; Really the Right Thing is to make lexical scope the default across
 ;; the board, in the interpreter and compiler, and just FIX all of 
@@ -158,14 +158,14 @@
 ;; Other things to consider:
 
 ;; Associative math should recognize subcalls to identical function:
-;;(disassemble (lambda (x) (+ (+ (foo) 1) (+ (bar) 2))))
+;;(disassemble #'(lambda (x) (+ (+ (foo) 1) (+ (bar) 2))))
 ;; This should generate the same as (1+ x) and (1- x)
 
-;;(disassemble (lambda (x) (cons (+ x 1) (- x 1))))
+;;(disassemble #'(lambda (x) (cons (+ x 1) (- x 1))))
 ;; An awful lot of functions always return a non-nil value.  If they're
 ;; error free also they may act as true-constants.
 
-;;(disassemble (lambda (x) (and (point) (foo))))
+;;(disassemble #'(lambda (x) (and (point) (foo))))
 ;; When 
 ;;   - all but one arguments to a function are constant
 ;;   - the non-constant argument is an if-expression (cond-expression?)
@@ -174,20 +174,20 @@
 ;; arguments may be any expressions.  Since, however, the code size
 ;; can increase this way they should be "simple".  Compare:
 
-;;(disassemble (lambda (x) (eq (if (point) 'a 'b) 'c)))
-;;(disassemble (lambda (x) (if (point) (eq 'a 'c) (eq 'b 'c))))
+;;(disassemble #'(lambda (x) (eq (if (point) 'a 'b) 'c)))
+;;(disassemble #'(lambda (x) (if (point) (eq 'a 'c) (eq 'b 'c))))
 
 ;; (car (cons A B)) -> (progn B A)
-;;(disassemble (lambda (x) (car (cons (foo) 42))))
+;;(disassemble #'(lambda (x) (car (cons (foo) 42))))
 
 ;; (cdr (cons A B)) -> (progn A B)
-;;(disassemble (lambda (x) (cdr (cons 42 (foo)))))
+;;(disassemble #'(lambda (x) (cdr (cons 42 (foo)))))
 
 ;; (car (list A B ...)) -> (progn B ... A)
-;;(disassemble (lambda (x) (car (list (foo) 42 (bar)))))
+;;(disassemble #'(lambda (x) (car (list (foo) 42 (bar)))))
 
 ;; (cdr (list A B ...)) -> (progn A (list B ...))
-;;(disassemble (lambda (x) (cdr (list 42 (foo) (bar)))))
+;;(disassemble #'(lambda (x) (cdr (list 42 (foo) (bar)))))
 
 
 ;;; Code:
@@ -199,31 +199,32 @@
       (error "The old version of the disassembler is loaded.  Reload new-bytecomp as well."))
   (byte-compile-log-1
    (apply 'format format
-     (let (c a)
-       (mapcar '(lambda (arg)
-		  (if (not (consp arg))
-		      (if (and (symbolp arg)
-			       (string-match "^byte-" (symbol-name arg)))
-			  (intern (substring (symbol-name arg) 5))
-			arg)
-		    (if (integerp (setq c (car arg)))
-			(error "non-symbolic byte-op %s" c))
-		    (if (eq c 'TAG)
-			(setq c arg)
-		      (setq a (cond ((memq c byte-goto-ops)
-				     (car (cdr (cdr arg))))
-				    ((memq c byte-constref-ops)
-				     (car (cdr arg)))
-				    (t (cdr arg))))
-		      (setq c (symbol-name c))
-		      (if (string-match "^byte-." c)
-			  (setq c (intern (substring c 5)))))
-		    (if (eq c 'constant) (setq c 'const))
-		    (if (and (eq (cdr arg) 0)
-			     (not (memq c '(unbind call const))))
-			c
-		      (format "(%s %s)" c a))))
-	       args)))))
+	  (let (c a)
+	    (mapcar
+	     #'(lambda (arg)
+		 (if (not (consp arg))
+		     (if (and (symbolp arg)
+			      (string-match "^byte-" (symbol-name arg)))
+			 (intern (substring (symbol-name arg) 5))
+		       arg)
+		   (if (integerp (setq c (car arg)))
+		       (error "non-symbolic byte-op %s" c))
+		   (if (eq c 'TAG)
+		       (setq c arg)
+		     (setq a (cond ((memq c byte-goto-ops)
+				    (car (cdr (cdr arg))))
+				   ((memq c byte-constref-ops)
+				    (car (cdr arg)))
+				   (t (cdr arg))))
+		     (setq c (symbol-name c))
+		     (if (string-match "^byte-." c)
+			 (setq c (intern (substring c 5)))))
+		   (if (eq c 'constant) (setq c 'const))
+		   (if (and (eq (cdr arg) 0)
+			    (not (memq c '(unbind call const))))
+		       c
+		     (format "(%s %s)" c a))))
+	     args)))))
 
 (defmacro byte-compile-log-lap (format-string &rest args)
   (list 'and
@@ -238,20 +239,21 @@
 
 (defun byte-optimize-inline-handler (form)
   "byte-optimize-handler for the `inline' special-form."
-  (cons 'progn
-	(mapcar
-	 '(lambda (sexp)
-	    (let ((fn (car-safe sexp)))
-	      (if (and (symbolp fn)
-		    (or (cdr (assq fn byte-compile-function-environment))
-		      (and (fboundp fn)
-			(not (or (cdr (assq fn byte-compile-macro-environment))
-				 (and (consp (setq fn (symbol-function fn)))
-				      (eq (car fn) 'macro))
-				 (subrp fn))))))
-		  (byte-compile-inline-expand sexp)
-		sexp)))
-	 (cdr form))))
+  (cons
+   'progn
+   (mapcar
+    #'(lambda (sexp)
+	(let ((fn (car-safe sexp)))
+	  (if (and (symbolp fn)
+		   (or (cdr (assq fn byte-compile-function-environment))
+		       (and (fboundp fn)
+			    (not (or (cdr (assq fn byte-compile-macro-environment))
+				     (and (consp (setq fn (symbol-function fn)))
+					  (eq (car fn) 'macro))
+				     (subrp fn))))))
+	      (byte-compile-inline-expand sexp)
+	    sexp)))
+    (cdr form))))
 
 
 ;; Splice the given lap code into the current instruction stream.
@@ -392,27 +394,29 @@
 	   ;; are more deeply nested are optimized first.
 	   (cons fn
 	     (cons
-	      (mapcar '(lambda (binding)
-			 (if (symbolp binding)
-			     binding
-			   (if (cdr (cdr binding))
-			       (byte-compile-warn "malformed let binding: %s"
-						  (prin1-to-string binding)))
-			   (list (car binding)
-				 (byte-optimize-form (nth 1 binding) nil))))
-		      (nth 1 form))
+	      (mapcar
+	       #'(lambda (binding)
+		   (if (symbolp binding)
+		       binding
+		     (if (cdr (cdr binding))
+			 (byte-compile-warn "malformed let binding: %s"
+					    (prin1-to-string binding)))
+		     (list (car binding)
+			   (byte-optimize-form (nth 1 binding) nil))))
+	       (nth 1 form))
 	      (byte-optimize-body (cdr (cdr form)) for-effect))))
 	  ((eq fn 'cond)
 	   (cons fn
-		 (mapcar '(lambda (clause)
-			    (if (consp clause)
-				(cons
-				 (byte-optimize-form (car clause) nil)
-				 (byte-optimize-body (cdr clause) for-effect))
-			      (byte-compile-warn "malformed cond form: %s"
-						 (prin1-to-string clause))
-			      clause))
-			 (cdr form))))
+		 (mapcar
+		  #'(lambda (clause)
+		      (if (consp clause)
+			  (cons
+			   (byte-optimize-form (car clause) nil)
+			   (byte-optimize-body (cdr clause) for-effect))
+			(byte-compile-warn "malformed cond form: %s"
+					   (prin1-to-string clause))
+			clause))
+		  (cdr form))))
 	  ((eq fn 'progn)
 	   ;; as an extra added bonus, this simplifies (progn <x>) --> <x>
 	   (if (cdr (cdr form))
@@ -542,7 +546,7 @@
   ;; First, optimize all sub-forms of this one.
   (setq form (byte-optimize-form-code-walker form for-effect))
   ;;
-  ;; after optimizing all subforms, optimize this form until it doesn't
+  ;; After optimizing all subforms, optimize this form until it doesn't
   ;; optimize any further.  This means that some forms will be passed through
   ;; the optimizer many times, but that's necessary to make the for-effect
   ;; processing do as much as possible.
@@ -564,10 +568,10 @@
 
 
 (defun byte-optimize-body (forms all-for-effect)
-  ;; optimize the cdr of a progn or implicit progn; all forms is a list of
+  ;; Optimize the cdr of a progn or implicit progn; `forms' is a list of
   ;; forms, all but the last of which are optimized with the assumption that
-  ;; they are being called for effect.  the last is for-effect as well if
-  ;; all-for-effect is true.  returns a new list of forms.
+  ;; they are being called for effect.  The last is for-effect as well if
+  ;; all-for-effect is true.  Returns a new list of forms.
   (let ((rest forms)
 	(result nil)
 	fe new)
@@ -592,9 +596,10 @@
 ;; I'd like this to be a defsubst, but let's not be self-referential...
 (defmacro byte-compile-trueconstp (form)
   ;; Returns non-nil if FORM is a non-nil constant.
-  (` (cond ((consp (, form)) (eq (car (, form)) 'quote))
-	   ((not (symbolp (, form))))
-	   ((eq (, form) t)))))
+  `(cond ((consp ,form) (eq (car ,form) 'quote))
+	 ((not (symbolp ,form)))
+	 ((eq ,form t))
+	 ((keywordp ,form))))
 
 ;; If the function is being called with constant numeric args,
 ;; evaluate as much as possible at compile-time.  This optimizer 
@@ -899,7 +904,7 @@
 
 ;; I'm not convinced that this is necessary.  Doesn't the optimizer loop 
 ;; take care of this? - Jamie
-;; I think this may some times be necessary to reduce ie (quote 5) to 5,
+;; I think this may some times be necessary to reduce eg. (quote 5) to 5,
 ;; so arithmetic optimizers recognize the numeric constant.  - Hallvard
 (put 'quote 'byte-optimizer 'byte-optimize-quote)
 (defun byte-optimize-quote (form)
@@ -1052,7 +1057,7 @@
 	    (if (listp (nth 1 last))
 		(let ((butlast (nreverse (cdr (reverse (cdr (cdr form)))))))
 		  (nconc (list 'funcall fn) butlast
-			 (mapcar '(lambda (x) (list 'quote x)) (nth 1 last))))
+			 (mapcar #'(lambda (x) (list 'quote x)) (nth 1 last))))
 	      (byte-compile-warn
 	       "last arg to apply can't be a literal atom: %s"
 	       (prin1-to-string last))
@@ -1122,6 +1127,16 @@
 	 file-newer-than-file-p file-readable-p file-symlink-p file-writable-p
 	 float floor format
 	 get get-buffer get-buffer-window getenv get-file-buffer
+	 ;; hash-table functions
+	 make-hash-table copy-hash-table
+	 gethash
+	 hash-table-count
+	 hash-table-rehash-size
+	 hash-table-rehash-threshold
+	 hash-table-size
+	 hash-table-test
+	 hash-table-type
+	 ;;
 	 int-to-string
 	 length log log10 logand logb logior lognot logxor lsh
 	 marker-buffer max member memq min mod
@@ -1134,7 +1149,14 @@
 	 ;; XEmacs change: window-edges -> window-pixel-edges
 	 window-buffer window-dedicated-p window-pixel-edges window-height
 	 window-hscroll window-minibuffer-p window-width
-	 zerop))
+	 zerop
+	 ;; functions defined by cl
+	 oddp evenp plusp minusp
+	 abs expt signum last butlast ldiff
+	 pairlis gcd lcm
+	 isqrt floor* ceiling* truncate* round* mod* rem* subseq
+	 list-length get* getf
+	 ))
       (side-effect-and-error-free-fns
        '(arrayp atom
 	 bobp bolp buffer-end buffer-list buffer-size buffer-string bufferp
@@ -1147,6 +1169,7 @@
 	 dot dot-marker eobp eolp eq eql equal eventp extentp
 	 extent-live-p floatp framep frame-live-p
 	 get-largest-window get-lru-window
+	 hash-table-p
 	 identity ignore integerp integer-or-marker-p interactive-p
 	 invocation-directory invocation-name
 	 ;; keymapp may autoload in XEmacs, so not on this list!
@@ -1161,14 +1184,15 @@
 	 user-full-name user-login-name user-original-login-name
 	 user-real-login-name user-real-uid user-uid
 	 vector vectorp
-	 window-configuration-p window-live-p windowp)))
-  (while side-effect-free-fns
-    (put (car side-effect-free-fns) 'side-effect-free t)
-    (setq side-effect-free-fns (cdr side-effect-free-fns)))
-  (while side-effect-and-error-free-fns
-    (put (car side-effect-and-error-free-fns) 'side-effect-free 'error-free)
-    (setq side-effect-and-error-free-fns (cdr side-effect-and-error-free-fns)))
-  nil)
+	 window-configuration-p window-live-p windowp
+	 ;; Functions defined by cl
+	 eql floatp-safe list* subst acons equalp random-state-p
+	 copy-tree sublis
+	 )))
+  (dolist (fn side-effect-free-fns)
+    (put fn 'side-effect-free t))
+  (dolist (fn side-effect-and-error-free-fns)
+    (put fn 'side-effect-free 'error-free)))
 
 
 (defun byte-compile-splice-in-already-compiled-code (form)
@@ -1326,10 +1350,7 @@
     (if endtag
 	(setq lap (cons (cons nil endtag) lap)))
     ;; remove addrs, lap = ( [ (op . arg) | (TAG tagno) ]* )
-    (mapcar (function (lambda (elt)
-			(if (numberp elt)
-			    elt
-			  (cdr elt))))
+    (mapcar #'(lambda (elt) (if (numberp elt) elt (cdr elt)))
 	    (nreverse lap))))
 
 
@@ -1953,17 +1974,18 @@
      (assq 'byte-code (symbol-function 'byte-optimize-form))
      (let ((byte-optimize nil)
 	   (byte-compile-warnings nil))
-       (mapcar '(lambda (x)
-		  (or noninteractive (message "compiling %s..." x))
-		  (byte-compile x)
-		  (or noninteractive (message "compiling %s...done" x)))
-	       '(byte-optimize-form
-		 byte-optimize-body
-		 byte-optimize-predicate
-		 byte-optimize-binary-predicate
-		 ;; Inserted some more than necessary, to speed it up.
-		 byte-optimize-form-code-walker
-		 byte-optimize-lapcode))))
+       (mapcar
+	#'(lambda (x)
+	    (or noninteractive (message "compiling %s..." x))
+	    (byte-compile x)
+	    (or noninteractive (message "compiling %s...done" x)))
+	'(byte-optimize-form
+	  byte-optimize-body
+	  byte-optimize-predicate
+	  byte-optimize-binary-predicate
+	  ;; Inserted some more than necessary, to speed it up.
+	  byte-optimize-form-code-walker
+	  byte-optimize-lapcode))))
  nil)
 
 ;;; byte-optimize.el ends here

@@ -162,13 +162,13 @@ in_float_error (void)
 static Lisp_Object
 mark_float (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  return (Qnil);
+  return Qnil;
 }
 
 static int
-float_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+float_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  return (extract_float (o1) == extract_float (o2));
+  return (extract_float (obj1) == extract_float (obj2));
 }
 
 static unsigned long
@@ -188,11 +188,13 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION ("float", float,
 double
 extract_float (Lisp_Object num)
 {
-  CHECK_INT_OR_FLOAT (num);
-
   if (FLOATP (num))
-    return (float_data (XFLOAT (num)));
-  return (double) XINT (num);
+    return XFLOAT_DATA (num);
+
+  if (INTP (num))
+    return (double) XINT (num);
+
+  return extract_float (wrong_type_argument (num, Qnumberp));
 }
 #endif /* LISP_FLOAT_TYPE */
 
@@ -422,53 +424,54 @@ Return the exponential ARG1 ** ARG2.
 */
        (arg1, arg2))
 {
-  double f1, f2;
-
-  CHECK_INT_OR_FLOAT (arg1);
-  CHECK_INT_OR_FLOAT (arg2);
-  if ((INTP (arg1)) && /* common lisp spec */
-      (INTP (arg2))) /* don't promote, if both are ints */
+  if (INTP (arg1) && /* common lisp spec */
+      INTP (arg2)) /* don't promote, if both are ints */
     {
-      EMACS_INT acc, x, y;
-      x = XINT (arg1);
-      y = XINT (arg2);
+      EMACS_INT retval;
+      EMACS_INT x = XINT (arg1);
+      EMACS_INT y = XINT (arg2);
 
       if (y < 0)
 	{
 	  if (x == 1)
-	    acc = 1;
+	    retval = 1;
 	  else if (x == -1)
-	    acc = (y & 1) ? -1 : 1;
+	    retval = (y & 1) ? -1 : 1;
 	  else
-	    acc = 0;
+	    retval = 0;
 	}
       else
 	{
-	  acc = 1;
+	  retval = 1;
 	  while (y > 0)
 	    {
 	      if (y & 1)
-		acc *= x;
+		retval *= x;
 	      x *= x;
 	      y = (EMACS_UINT) y >> 1;
 	    }
 	}
-      return (make_int (acc));
+      return make_int (retval);
     }
+
 #ifdef LISP_FLOAT_TYPE
-  f1 = (FLOATP (arg1)) ? float_data (XFLOAT (arg1)) : XINT (arg1);
-  f2 = (FLOATP (arg2)) ? float_data (XFLOAT (arg2)) : XINT (arg2);
-  /* Really should check for overflow, too */
-  if (f1 == 0.0 && f2 == 0.0)
-    f1 = 1.0;
+  {
+    double f1 = extract_float (arg1);
+    double f2 = extract_float (arg2);
+    /* Really should check for overflow, too */
+    if (f1 == 0.0 && f2 == 0.0)
+      f1 = 1.0;
 # ifdef FLOAT_CHECK_DOMAIN
-  else if ((f1 == 0.0 && f2 < 0.0) || (f1 < 0 && f2 != floor(f2)))
-    domain_error2 ("expt", arg1, arg2);
+    else if ((f1 == 0.0 && f2 < 0.0) || (f1 < 0 && f2 != floor(f2)))
+      domain_error2 ("expt", arg1, arg2);
 # endif /* FLOAT_CHECK_DOMAIN */
-  IN_FLOAT2 (f1 = pow (f1, f2), "expt", arg1, arg2);
-  return make_float (f1);
-#else  /* !LISP_FLOAT_TYPE */
-  abort ();
+    IN_FLOAT2 (f1 = pow (f1, f2), "expt", arg1, arg2);
+    return make_float (f1);
+  }
+#else
+  CHECK_INT_OR_FLOAT (arg1);
+  CHECK_INT_OR_FLOAT (arg2);
+  return Fexpt (arg1, arg2);
 #endif /* LISP_FLOAT_TYPE */
 }
 
@@ -651,21 +654,19 @@ Return the absolute value of ARG.
 */
        (arg))
 {
-  CHECK_INT_OR_FLOAT (arg);
-
 #ifdef LISP_FLOAT_TYPE
   if (FLOATP (arg))
-  {
-    IN_FLOAT (arg = make_float ((double) fabs (float_data (XFLOAT (arg)))),
-              "abs", arg);
-    return (arg);
-  }
-  else
+    {
+      IN_FLOAT (arg = make_float (fabs (XFLOAT_DATA (arg))),
+		"abs", arg);
+      return arg;
+    }
 #endif /* LISP_FLOAT_TYPE */
-    if (XINT (arg) < 0)
-      return (make_int (- XINT (arg)));
-    else
-      return (arg);
+
+  if (INTP (arg))
+    return (XINT (arg) >= 0) ? arg : make_int (- XINT (arg));
+
+  return Fabs (wrong_type_argument (arg, Qnumberp));
 }
 
 #ifdef LISP_FLOAT_TYPE
@@ -674,12 +675,13 @@ Return the floating point number equal to ARG.
 */
        (arg))
 {
-  CHECK_INT_OR_FLOAT (arg);
-
   if (INTP (arg))
     return make_float ((double) XINT (arg));
-  else				/* give 'em the same float back */
+
+  if (FLOATP (arg))		/* give 'em the same float back */
     return arg;
+
+  return Ffloat (wrong_type_argument (arg, Qnumberp));
 }
 #endif /* LISP_FLOAT_TYPE */
 
@@ -743,18 +745,19 @@ Return the smallest integer no less than ARG.  (Round toward +inf.)
 */
        (arg))
 {
-  CHECK_INT_OR_FLOAT (arg);
-
 #ifdef LISP_FLOAT_TYPE
   if (FLOATP (arg))
-  {
-    double d;
-    IN_FLOAT ((d = ceil (float_data (XFLOAT (arg)))), "ceiling", arg);
-    return (float_to_int (d, "ceiling", arg, Qunbound));
-  }
+    {
+      double d;
+      IN_FLOAT ((d = ceil (XFLOAT_DATA (arg))), "ceiling", arg);
+      return (float_to_int (d, "ceiling", arg, Qunbound));
+    }
 #endif /* LISP_FLOAT_TYPE */
 
-  return arg;
+  if (INTP (arg))
+    return arg;
+
+  return Fceiling (wrong_type_argument (arg, Qnumberp));
 }
 
 
@@ -775,10 +778,9 @@ With optional DIVISOR, return the largest integer no greater than ARG/DIVISOR.
 #ifdef LISP_FLOAT_TYPE
       if (FLOATP (arg) || FLOATP (divisor))
 	{
-	  double f1, f2;
+	  double f1 = extract_float (arg);
+	  double f2 = extract_float (divisor);
 
-	  f1 = ((FLOATP (arg)) ? float_data (XFLOAT (arg)) : XINT (arg));
-	  f2 = ((FLOATP (divisor)) ? float_data (XFLOAT (divisor)) : XINT (divisor));
 	  if (f2 == 0)
 	    Fsignal (Qarith_error, Qnil);
 
@@ -804,11 +806,11 @@ With optional DIVISOR, return the largest integer no greater than ARG/DIVISOR.
 
 #ifdef LISP_FLOAT_TYPE
   if (FLOATP (arg))
-  {
-    double d;
-    IN_FLOAT ((d = floor (float_data (XFLOAT (arg)))), "floor", arg);
-    return (float_to_int (d, "floor", arg, Qunbound));
-  }
+    {
+      double d;
+      IN_FLOAT ((d = floor (XFLOAT_DATA (arg))), "floor", arg);
+      return (float_to_int (d, "floor", arg, Qunbound));
+    }
 #endif /* LISP_FLOAT_TYPE */
 
   return arg;
@@ -819,19 +821,20 @@ Return the nearest integer to ARG.
 */
        (arg))
 {
-  CHECK_INT_OR_FLOAT (arg);
-
 #ifdef LISP_FLOAT_TYPE
   if (FLOATP (arg))
-  {
-    double d;
-    /* Screw the prevailing rounding mode.  */
-    IN_FLOAT ((d = rint (float_data (XFLOAT (arg)))), "round", arg);
-    return (float_to_int (d, "round", arg, Qunbound));
-  }
+    {
+      double d;
+      /* Screw the prevailing rounding mode.  */
+      IN_FLOAT ((d = rint (XFLOAT_DATA (arg))), "round", arg);
+      return (float_to_int (d, "round", arg, Qunbound));
+    }
 #endif /* LISP_FLOAT_TYPE */
 
-  return arg;
+  if (INTP (arg))
+    return arg;
+
+  return Fround (wrong_type_argument (arg, Qnumberp));
 }
 
 DEFUN ("truncate", Ftruncate, 1, 1, 0, /*
@@ -840,15 +843,15 @@ Rounds the value toward zero.
 */
        (arg))
 {
-  CHECK_INT_OR_FLOAT (arg);
-
 #ifdef LISP_FLOAT_TYPE
   if (FLOATP (arg))
-    return (float_to_int (float_data (XFLOAT (arg)),
-                          "truncate", arg, Qunbound));
+    return float_to_int (XFLOAT_DATA (arg), "truncate", arg, Qunbound);
 #endif /* LISP_FLOAT_TYPE */
 
-  return arg;
+  if (INTP (arg))
+    return arg;
+
+  return Ftruncate (wrong_type_argument (arg, Qnumberp));
 }
 
 /* Float-rounding functions. */

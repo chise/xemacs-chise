@@ -112,11 +112,10 @@ struct image_instantiator_methods
 #define IIFORMAT_METH(mstruc, m, args) (((mstruc)->m##_method) args)
 
 /* Call a void-returning specifier method, if it exists */
-#define MAYBE_IIFORMAT_METH(mstruc, m, args)				     \
-do {									     \
-  struct image_instantiator_methods *_maybe_iiformat_meth_mstruc = (mstruc); \
-  if (HAS_IIFORMAT_METH_P (_maybe_iiformat_meth_mstruc, m))		     \
-    IIFORMAT_METH (_maybe_iiformat_meth_mstruc, m, args);		     \
+#define MAYBE_IIFORMAT_METH(mstruc, m, args) do {				\
+  struct image_instantiator_methods *maybe_iiformat_meth_mstruc = (mstruc);	\
+  if (HAS_IIFORMAT_METH_P (maybe_iiformat_meth_mstruc, m))			\
+    IIFORMAT_METH (maybe_iiformat_meth_mstruc, m, args);			\
 } while (0)
 
 /* Call a specifier method, if it exists; otherwise return
@@ -185,7 +184,7 @@ Lisp_Object find_keyword_in_vector (Lisp_Object vector,
 Lisp_Object find_keyword_in_vector_or_given (Lisp_Object vector,
 					     Lisp_Object keyword,
 					     Lisp_Object default_);
-Lisp_Object simple_image_type_normalize (Lisp_Object inst, 
+Lisp_Object simple_image_type_normalize (Lisp_Object inst,
 					 Lisp_Object console_type,
 					 Lisp_Object image_type_tag);
 Lisp_Object potential_pixmap_file_instantiator (Lisp_Object instantiator,
@@ -403,11 +402,11 @@ Lisp_Object pixmap_to_lisp_data (Lisp_Object name, int ok_if_data_invalid);
 #ifdef HAVE_WINDOW_SYSTEM
 Lisp_Object bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
 				 int ok_if_data_invalid);
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width, 
+int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot);
 Lisp_Object xbm_mask_file_munging (Lisp_Object alist, Lisp_Object file,
-				   Lisp_Object mask_file, 
+				   Lisp_Object mask_file,
 				   Lisp_Object console_type);
 #endif
 

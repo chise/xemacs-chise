@@ -115,7 +115,7 @@ Boston, MA 02111-1307, USA.  */
 			have a separate input fd per device).
 
  create_stream_pair_cb  These callbacks are called by process code to
- delete_stream_pair_cb  create and delete a pait of input and output lstreams
+ delete_stream_pair_cb  create and delete a pair of input and output lstreams
 			which are used for subprocess I/O.
 
  quitp_cb		A handler function called from the `QUIT' macro which
@@ -269,11 +269,11 @@ Boston, MA 02111-1307, USA.  */
   ------------------------
 
   Since there are many possible processes/event loop combinations, the event code
-  is responsible for creating an appropriare lstream type. The process
+  is responsible for creating an appropriate lstream type. The process
   implementation does not care about that implementation.
 
   The Create stream pair function is passed two void* values, which identify
-  process-dependant 'handles'. The process implementation uses these handles
+  process-dependent 'handles'. The process implementation uses these handles
   to communicate with child processes. The function must be prepared to receive
   handle types of any process implementation. Since there only one process
   implementation exists in a particular XEmacs configuration, preprocessing
@@ -293,20 +293,20 @@ Boston, MA 02111-1307, USA.  */
   corresponding lstream should not be created.
 
   The return value of the function is a unique stream identifier. It is used
-  by processes implementation, in its  platform-independant part. There is
+  by processes implementation, in its  platform-independent part. There is
   the get_process_from_usid function, which returns process object given its
   USID. The event stream is responsible for converting its internal handle
   type into USID.
 
   Example is the TTY event stream. When a file descriptor signals input, the
   event loop must determine process to which the input is destined. Thus,
-  the imlementation uses process input stream file descriptor as USID, by
+  the implementation uses process input stream file descriptor as USID, by
   simply casting the fd value to USID type.
 
   There are two special USID values. One, USID_ERROR, indicates that the stream
   pair cannot be created. The second, USID_DONTHASH, indicates that streams are
   created, but the event stream does not wish to be able to find the process
-  by its USID. Specifically, if an event stream implementation never calss
+  by its USID. Specifically, if an event stream implementation never calls
   get_process_from_usid, this value should always be returned, to prevent
   accumulating useless information on USID to process relationship.
 */
@@ -454,7 +454,7 @@ struct Lisp_Event
       struct motion_data	motion;
       struct process_data	process;
       struct timeout_data	timeout;
-      struct eval_data		eval;	/* misc_user_event no loger uses this */
+      struct eval_data		eval;	/* misc_user_event no longer uses this */
       struct misc_user_data	misc;	/* because it needs position information */
       union magic_data		magic;
       struct magic_eval_data	magic_eval;
@@ -519,16 +519,13 @@ extern Lisp_Object Qcancel_mode_internal;
 /* Maybe this should be trickier */
 #define KEYSYM(x) (intern (x))
 
-Lisp_Object allocate_command_builder (Lisp_Object console);
-
+/* from events.c */
 void format_event_object (char *buf, struct Lisp_Event *e, int brief);
 void character_to_event (Emchar c, struct Lisp_Event *event,
 			 struct console *con,
 			 int use_console_meta_flag,
 			 int do_backspace_mapping);
-void enqueue_magic_eval_event (void (*fun) (Lisp_Object), Lisp_Object object);
 void zero_event (struct Lisp_Event *e);
-
 void deallocate_event_chain (Lisp_Object event);
 Lisp_Object event_chain_tail (Lisp_Object event);
 void enqueue_event (Lisp_Object event, Lisp_Object *head, Lisp_Object *tail);
@@ -542,17 +539,18 @@ Lisp_Object event_chain_find_previous (Lisp_Object event_chain,
 				       Lisp_Object event);
 Lisp_Object event_chain_nth (Lisp_Object event_chain, int n);
 Lisp_Object copy_event_chain (Lisp_Object event_chain);
-
 /* True if this is a non-internal event
    (keyboard press, menu, scrollbar, mouse button) */
 int command_event_p (Lisp_Object event);
-
 struct console *event_console_or_selected (Lisp_Object event);
 
+/* from event-stream.c */
+Lisp_Object allocate_command_builder (Lisp_Object console);
+void enqueue_magic_eval_event (void (*fun) (Lisp_Object), Lisp_Object object);
 void event_stream_next_event (struct Lisp_Event *event);
 void event_stream_handle_magic_event (struct Lisp_Event *event);
-void event_stream_select_console   (struct console *c);
-void event_stream_unselect_console (struct console *c);
+void event_stream_select_console   (struct console *con);
+void event_stream_unselect_console (struct console *con);
 void event_stream_select_process   (struct Lisp_Process *proc);
 void event_stream_unselect_process (struct Lisp_Process *proc);
 USID event_stream_create_stream_pair (void* inhandle, void* outhandle,
@@ -583,7 +581,6 @@ int event_stream_generate_wakeup (unsigned int milliseconds,
 void event_stream_disable_wakeup (int id, int async_p);
 void event_stream_deal_with_async_timeout (int interval_id);
 
-/* from signal.c */
 int event_stream_add_async_timeout (EMACS_TIME thyme);
 void event_stream_remove_async_timeout (int id);
 
@@ -601,7 +598,13 @@ void single_console_state (void);
 void any_console_state (void);
 int in_single_console_state (void);
 
+extern int emacs_is_blocking;
+
+extern volatile int sigint_happened;
+
 #ifdef HAVE_UNIXOID_EVENT_LOOP
+/* from event-unixoid.c */
+
 /* Ceci n'est pas un pipe. */
 extern int signal_event_pipe[];
 
@@ -615,7 +618,7 @@ int event_stream_unixoid_unselect_console (struct console *con);
 int event_stream_unixoid_select_process   (struct Lisp_Process *proc);
 int event_stream_unixoid_unselect_process (struct Lisp_Process *proc);
 int read_event_from_tty_or_stream_desc (struct Lisp_Event *event,
-					struct console *c, int fd);
+					struct console *con, int fd);
 USID event_stream_unixoid_create_stream_pair (void* inhandle, void* outhandle,
 					     Lisp_Object* instream,
 					     Lisp_Object* outstream,
@@ -627,10 +630,6 @@ USID event_stream_unixoid_delete_stream_pair (Lisp_Object instream,
 #define FD_TO_USID(fd) ((fd)==0 ? (USID)999999 : ((fd)<0 ? USID_DONTHASH : (USID)(fd)))
 
 #endif /* HAVE_UNIXOID_EVENT_LOOP */
-
-extern int emacs_is_blocking;
-
-extern volatile int sigint_happened;
 
 /* Define this if you want the tty event stream to be used when the
    first console is tty, even if HAVE_X_WINDOWS is defined */

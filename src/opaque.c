@@ -42,6 +42,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "opaque.h"
+#include <stddef.h>
 
 Lisp_Object Qopaquep;
 
@@ -55,62 +56,76 @@ Lisp_Object Vopaque_ptr_free_list;
 static Lisp_Object
 mark_opaque (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
+   Lisp_Opaque *p = XOPAQUE (obj);
+   Lisp_Object size_or_chain = p->size_or_chain;
 #ifdef ERROR_CHECK_GC
   if (!in_opaque_list_marking)
     /* size is non-int for objects on an opaque free list.  We sure
        as hell better not be marking any of these objects unless
        we're marking an opaque list. */
-    assert (INTP (XOPAQUE (obj)->size_or_chain));
+    assert (GC_INTP (size_or_chain));
   else
     /* marking an opaque on the free list doesn't do any recursive
        markings, so we better not have non-freed opaques on a free
        list. */
-    assert (!INTP (XOPAQUE (obj)->size_or_chain));
+    assert (!GC_INTP (size_or_chain));
 #endif
-  if (INTP (XOPAQUE (obj)->size_or_chain) && XOPAQUE_MARKFUN (obj))
-    return XOPAQUE_MARKFUN (obj) (obj, markobj);
+  if (GC_INTP (size_or_chain) && OPAQUE_MARKFUN (p))
+    return OPAQUE_MARKFUN (p) (obj, markobj);
   else
-    return XOPAQUE (obj)->size_or_chain;
+    return size_or_chain;
 }
 
 /* Should never, ever be called. (except by an external debugger) */
 static void
 print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
+  CONST Lisp_Opaque *p = XOPAQUE (obj);
   char buf[200];
-  if (INTP (XOPAQUE (obj)->size_or_chain))
-    sprintf (buf, "#<INTERNAL EMACS BUG (opaque, size=%ld) 0x%lx>",
-	     (long) XOPAQUE_SIZE (obj), (unsigned long) XPNTR (obj));
+  char size_buf[50];
+
+  if (INTP (p->size_or_chain))
+    sprintf (size_buf, "size=%lu", (unsigned long) OPAQUE_SIZE (p));
   else
-    sprintf (buf, "#<INTERNAL EMACS BUG (opaque, freed) 0x%lx>",
-	     (unsigned long) XPNTR (obj));
+    sprintf (size_buf, "freed");
+
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque, %s) 0x%lx>",
+	   size_buf, (unsigned long) p);
   write_c_string (buf, printcharfun);
 }
 
 static size_t
 sizeof_opaque (CONST void *header)
 {
-  CONST struct Lisp_Opaque *p = (CONST struct Lisp_Opaque *) header;
-  if (!INTP (p->size_or_chain))
-    return sizeof (*p);
-  return sizeof (*p) + XINT (p->size_or_chain) - sizeof (int);
+  CONST Lisp_Opaque *p = (CONST Lisp_Opaque *) header;
+  return offsetof (Lisp_Opaque, data)
+    + (GC_INTP (p->size_or_chain) ? XINT (p->size_or_chain) : 0);
 }
 
+/* Return an opaque object of size SIZE.
+   If DATA is OPAQUE_CLEAR, the object's data is memset to '\0' bytes.
+   If DATA is OPAQUE_UNINIT, the object's data is uninitialized.
+   Else the object's data is initialized by copying from DATA. */
 Lisp_Object
-make_opaque (int size, CONST void *data)
+make_opaque (size_t size, CONST void *data)
 {
-  struct Lisp_Opaque *p = (struct Lisp_Opaque *)
-    alloc_lcrecord (sizeof (*p) + size - sizeof (int), lrecord_opaque);
-  Lisp_Object val;
-
+  Lisp_Opaque *p = (Lisp_Opaque *)
+    alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, lrecord_opaque);
   p->markfun = 0;
   p->size_or_chain = make_int (size);
-  if (data)
-    memcpy (p->data, data, size);
+
+  if (data == OPAQUE_CLEAR)
+    memset (p->data, '\0', size);
+  else if (data == OPAQUE_UNINIT)
+    DO_NOTHING;
   else
-    memset (p->data, 0, size);
-  XSETOPAQUE (val, p);
-  return val;
+    memcpy (p->data, data, size);
+
+  {
+    Lisp_Object val;
+    XSETOPAQUE (val, p);
+    return val;
+  }
 }
 
 /* This will not work correctly for opaques with subobjects! */
@@ -118,17 +133,14 @@ make_opaque (int size, CONST void *data)
 static int
 equal_opaque (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
+  size_t size;
 #ifdef DEBUG_XEMACS
   assert (!XOPAQUE_MARKFUN (obj1) && !XOPAQUE_MARKFUN (obj2));
-  assert (INTP (XOPAQUE(obj1)->size_or_chain));
-  assert (INTP (XOPAQUE(obj2)->size_or_chain));
+  assert (INTP (XOPAQUE (obj1)->size_or_chain));
+  assert (INTP (XOPAQUE (obj2)->size_or_chain));
 #endif
-  if (XOPAQUE_SIZE(obj1) != XOPAQUE_SIZE(obj2))
-    return 0;
-  return (XOPAQUE_SIZE(obj1) == sizeof(*XOPAQUE_DATA(obj1))
-	  ? *XOPAQUE_DATA(obj1) == *XOPAQUE_DATA(obj2)
-	  : memcmp (XOPAQUE_DATA(obj1), XOPAQUE_DATA(obj2),
-		    XOPAQUE_SIZE(obj1)) == 0);
+  return ((size = XOPAQUE_SIZE (obj1)) == XOPAQUE_SIZE (obj2) &&
+	  !memcmp (XOPAQUE_DATA (obj1), XOPAQUE_DATA (obj2), size));
 }
 
 /* This will not work correctly for opaques with subobjects! */
@@ -138,36 +150,36 @@ hash_opaque (Lisp_Object obj, int depth)
 {
 #ifdef DEBUG_XEMACS
   assert (!XOPAQUE_MARKFUN (obj));
-  assert (INTP (XOPAQUE(obj)->size_or_chain));
+  assert (INTP (XOPAQUE (obj)->size_or_chain));
 #endif
-  if (XOPAQUE_SIZE(obj) == sizeof (unsigned long))
-    return (unsigned int) *XOPAQUE_DATA(obj);
+  if (XOPAQUE_SIZE (obj) == sizeof (unsigned long))
+    return *((unsigned long *) XOPAQUE_DATA(obj));
   else
-    return memory_hash (XOPAQUE_DATA(obj), XOPAQUE_SIZE(obj));
+    return memory_hash (XOPAQUE_DATA (obj), XOPAQUE_SIZE (obj));
 }
 
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("opaque", opaque,
 					mark_opaque, print_opaque, 0,
 					equal_opaque, hash_opaque,
-					sizeof_opaque, struct Lisp_Opaque);
+					sizeof_opaque, Lisp_Opaque);
 
 static Lisp_Object
 mark_opaque_list (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   in_opaque_list_marking++;
-  (markobj) (XOPAQUE_LIST (obj)->free);
+  markobj (XOPAQUE_LIST (obj)->free);
   in_opaque_list_marking--;
   return Qnil;
 }
 
 Lisp_Object
-make_opaque_list (int size,
+make_opaque_list (size_t size,
 		  Lisp_Object (*markfun) (Lisp_Object obj,
 					  void (*markobj) (Lisp_Object)))
 {
   Lisp_Object val;
-  struct Lisp_Opaque_List *p =
-    alloc_lcrecord_type (struct Lisp_Opaque_List, lrecord_opaque_list);
+  Lisp_Opaque_List *p =
+    alloc_lcrecord_type (Lisp_Opaque_List, lrecord_opaque_list);
 
   p->markfun = markfun;
   p->size = size;
@@ -178,12 +190,12 @@ make_opaque_list (int size,
 
 DEFINE_LRECORD_IMPLEMENTATION ("opaque-list", opaque_list,
 			       mark_opaque_list, internal_object_printer,
-			       0, 0, 0, struct Lisp_Opaque_List);
+			       0, 0, 0, Lisp_Opaque_List);
 
 Lisp_Object
 allocate_managed_opaque (Lisp_Object opaque_list, CONST void *data)
 {
-  struct Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
+  Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
   Lisp_Object val;
 
   if (!NILP (li->free))
@@ -208,7 +220,7 @@ allocate_managed_opaque (Lisp_Object opaque_list, CONST void *data)
 void
 free_managed_opaque (Lisp_Object opaque_list, Lisp_Object opaque)
 {
-  struct Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
+  Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
 
 #ifdef ERROR_CHECK_GC
   assert (INTP (XOPAQUE (opaque)->size_or_chain));
@@ -226,7 +238,7 @@ make_opaque_ptr (CONST void *val)
 				  (CONST void *) &val);
 }
 
-/* Be wery wery careful with this.  Same admonitions as with
+/* Be very very careful with this.  Same admonitions as with
    free_cons() apply. */
 
 void

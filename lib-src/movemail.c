@@ -68,7 +68,7 @@ Boston, MA 02111-1307, USA.  */
 #include "getopt.h"
 #ifdef MAIL_USE_POP
 #include "pop.h"
-#include <regex.h>
+#include "../src/regex.h"
 #endif
 
 extern char *optarg;
@@ -847,7 +847,7 @@ mbx_delimit_end (FILE *mbf)
 /* Turn a name, which is an ed-style (but Emacs syntax) regular
    expression, into a real regular expression by compiling it. */
 static struct re_pattern_buffer*
-compile_regex (char* regexp_pattern)
+compile_regex (char* pattern)
 {
   char *err;
   struct re_pattern_buffer *patbuf=0;
@@ -858,7 +858,7 @@ compile_regex (char* regexp_pattern)
   patbuf->buffer = NULL;
   patbuf->allocated = 0;
 
-  err = (char*) re_compile_pattern (regexp_pattern, strlen (regexp_pattern), patbuf);
+  err = (char*) re_compile_pattern (pattern, strlen (pattern), patbuf);
   if (err != NULL)
     {
       error ("%s while compiling pattern", err, NULL);

@@ -100,14 +100,14 @@ mark_console (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct console *con = XCONSOLE (obj);
 
-#define MARKED_SLOT(x) ((markobj) (con->x));
+#define MARKED_SLOT(x) ((void) (markobj (con->x)));
 #include "conslots.h"
 #undef MARKED_SLOT
 
   /* Can be zero for Vconsole_defaults, Vconsole_local_symbols */
   if (con->conmeths)
     {
-      ((markobj) (con->conmeths->symbol));
+      markobj (con->conmeths->symbol);
       MAYBE_CONMETH (con, mark_console, (con, markobj));
     }
 
@@ -285,7 +285,7 @@ void
 set_console_last_nonminibuf_frame (struct console *con,
 				   Lisp_Object frame)
 {
-  con->_last_nonminibuf_frame = frame;
+  con->last_nonminibuf_frame = frame;
 }
 
 DEFUN ("consolep", Fconsolep, 1, 1, 0, /*
@@ -1141,71 +1141,43 @@ One argument, the to-be-deleted console.
 #endif
 }
 
-/* DOC is ignored because it is snagged and recorded externally
- *  by make-docfile */
+/* The docstrings for DEFVAR_* are recorded externally by make-docfile.  */
+
 /* Declaring this stuff as const produces 'Cannot reinitialize' messages
    from SunPro C's fix-and-continue feature (a way neato feature that
    makes debugging unbelievably more bearable) */
-#define DEFVAR_CONSOLE_LOCAL(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_SELECTED_CONSOLE_FORWARD }, 0 };				\
-     defvar_console_local ((lname), &I_hate_C);				\
+#define DEFVAR_CONSOLE_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
+  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
+    = { { { symbol_value_forward_lheader_initializer,				\
+	    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
+	  forward_type }, magicfun };						\
+  {										\
+    int offset = ((char *)symbol_value_forward_forward (&I_hate_C)		\
+		  - (char *)&console_local_flags);				\
+										\
+    defvar_magic (lname, &I_hate_C);						\
+										\
+    *((Lisp_Object *)(offset + (char *)XCONSOLE (Vconsole_local_symbols)))	\
+      = intern (lname);								\
+  }										\
 } while (0)
 
-#define DEFVAR_CONSOLE_LOCAL_MAGIC(lname, field_name, magicfun)	do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_SELECTED_CONSOLE_FORWARD }, magicfun };			\
-     defvar_console_local ((lname), &I_hate_C);				\
-} while (0)
+#define DEFVAR_CONSOLE_LOCAL_MAGIC(lname, field_name, magicfun)		\
+	DEFVAR_CONSOLE_LOCAL_1 (lname, field_name,			\
+				SYMVAL_SELECTED_CONSOLE_FORWARD, magicfun)
+#define DEFVAR_CONSOLE_LOCAL(lname, field_name)				\
+	DEFVAR_CONSOLE_LOCAL_MAGIC (lname, field_name, 0)
+#define DEFVAR_CONST_CONSOLE_LOCAL_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_CONSOLE_LOCAL_1 (lname, field_name,			\
+				SYMVAL_CONST_SELECTED_CONSOLE_FORWARD, magicfun)
+#define DEFVAR_CONST_CONSOLE_LOCAL(lname, field_name)			\
+	DEFVAR_CONST_CONSOLE_LOCAL_MAGIC (lname, field_name, 0)
 
-#define DEFVAR_CONST_CONSOLE_LOCAL(lname, field_name) do {		\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_CONST_SELECTED_CONSOLE_FORWARD }, 0 };			\
-     defvar_console_local ((lname), &I_hate_C);				\
-} while (0)
-
-#define DEFVAR_CONST_CONSOLE_LOCAL_MAGIC(lname, field_name, magicfun) do { \
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_CONST_SELECTED_CONSOLE_FORWARD }, magicfun };		\
-     defvar_console_local ((lname), &I_hate_C);				\
-} while (0)
-
-#define DEFVAR_CONSOLE_DEFAULTS(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_DEFAULT_CONSOLE_FORWARD }, 0 };				\
-     defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
-} while (0)
-
-#define DEFVAR_CONSOLE_DEFAULTS_MAGIC(lname, field_name, magicfun) do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-     SYMVAL_DEFAULT_CONSOLE_FORWARD }, magicfun };			\
-     defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
-} while (0)
-
-static void
-defvar_console_local (CONST char *namestring,
-		       CONST struct symbol_value_forward *m)
-{
-  int offset = ((char *)symbol_value_forward_forward (m)
-                - (char *)&console_local_flags);
-
-  defvar_mumble (namestring, m, sizeof (*m));
-
-  *((Lisp_Object *)(offset + (char *)XCONSOLE (Vconsole_local_symbols)))
-    = intern (namestring);
-}
+#define DEFVAR_CONSOLE_DEFAULTS_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_SYMVAL_FWD(lname, &(console_local_flags.field_name),	\
+			  SYMVAL_DEFAULT_CONSOLE_FORWARD, magicfun)
+#define DEFVAR_CONSOLE_DEFAULTS(lname, field_name)			\
+	DEFVAR_CONSOLE_DEFAULTS_MAGIC (lname, field_name, 0)
 
 static void
 nuke_all_console_slots (struct console *con, Lisp_Object zap)

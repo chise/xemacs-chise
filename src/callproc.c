@@ -28,7 +28,6 @@ Boston, MA 02111-1307, USA.  */
 #include "commands.h"
 #include "insdel.h"
 #include "lstream.h"
-#include <paths.h>
 #include "process.h"
 #include "sysdep.h"
 #include "window.h"
@@ -314,19 +313,11 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
   {
     /* child_setup must clobber environ in systems with true vfork.
-	Protect it from permanent change.  */
-     REGISTER char **save_environ = environ;
-     REGISTER int fd1 = fd[1];
-     int fd_error = fd1;
-     char **env;
-
-#ifdef EMACS_BTL
-    /* when performance monitoring is on, turn it off before the vfork(),
-       as the child has no handler for the signal -- when back in the
-       parent process, turn it back on if it was really on when you "turned
-       it off" */
-    int logging_on = cadillac_stop_logging ();
-#endif /* EMACS_BTL */
+       Protect it from permanent change.  */
+    REGISTER char **save_environ = environ;
+    REGISTER int fd1 = fd[1];
+    int fd_error = fd1;
+    char **env;
 
     env = environ;
 
@@ -385,10 +376,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	child_setup (filefd, fd1, fd_error, new_argv,
 		     (char *) XSTRING_DATA (current_dir));
       }
-#ifdef EMACS_BTL
-    else if (logging_on)
-      cadillac_start_logging ();
-#endif
     if (fd_error >= 0)
       close (fd_error);
 
@@ -534,9 +521,30 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
 
 
+/* Move the file descriptor FD so that its number is not less than MIN. *
+   The original file descriptor remains open.  */
+static int
+relocate_fd (int fd, int min)
+{
+  if (fd >= min)
+    return fd;
+  else
+    {
+      int newfd = dup (fd);
+      if (newfd == -1)
+	{
+	  stderr_out ("Error while setting up child: %s\n",
+		      strerror (errno));
+	  _exit (1);
+	}
+      return relocate_fd (newfd, min);
+    }
+}
+
 /* This is the last thing run in a newly forked inferior
    either synchronous or asynchronous.
-   Copy descriptors IN, OUT and ERR as descriptors 0, 1 and 2.
+   Copy descriptors IN, OUT and ERR
+   as descriptors STDIN_FILENO, STDOUT_FILENO, and STDERR_FILENO.
    Initialize inferior's priority, pgrp, connected dir and environment.
    then exec another program based on new_argv.
 
@@ -553,8 +561,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
    directory the subprocess should have.  Since we can't really signal
    a decent error from within the child, this should be verified as an
    executable directory by the parent.  */
-
-static int relocate_fd (int fd, int min);
 
 #ifdef WINDOWSNT
 int
@@ -685,29 +691,19 @@ child_setup (int in, int out, int err, char **new_argv,
      descriptors zero, one, or two; this could happen if Emacs is
      started with its standard in, out, or error closed, as might
      happen under X.  */
-  {
-    int oin = in, oout = out;
+  in  = relocate_fd (in,  3);
+  out = relocate_fd (out, 3);
+  err = relocate_fd (err, 3);
 
-    /* We have to avoid relocating the same descriptor twice!  */
-
-    in = relocate_fd (in, 3);
-
-    if (out == oin) out = in;
-    else            out = relocate_fd (out, 3);
-
-    if      (err == oin)  err = in;
-    else if (err == oout) err = out;
-    else                  err = relocate_fd (err, 3);
-  }
-
-  close (0);
-  close (1);
-  close (2);
-
-  dup2 (in,  0);
-  dup2 (out, 1);
-  dup2 (err, 2);
-
+  /* Set the standard input/output channels of the new process.  */
+  close (STDIN_FILENO);
+  close (STDOUT_FILENO);
+  close (STDERR_FILENO);
+  
+  dup2 (in,  STDIN_FILENO);
+  dup2 (out, STDOUT_FILENO);
+  dup2 (err, STDERR_FILENO);
+  
   close (in);
   close (out);
   close (err);
@@ -719,9 +715,7 @@ child_setup (int in, int out, int err, char **new_argv,
   {
     int fd;
     for (fd=3; fd<=64; fd++)
-      {
-        close(fd);
-      }
+      close (fd);
   }
 #endif /* not WINDOWSNT */
 
@@ -747,30 +741,6 @@ child_setup (int in, int out, int err, char **new_argv,
   stdout_out ("Can't exec program %s\n", new_argv[0]);
   _exit (1);
 #endif /* not WINDOWSNT */
-}
-
-/* Move the file descriptor FD so that its number is not less than MIN.
-   If the file descriptor is moved at all, the original is freed.  */
-static int
-relocate_fd (int fd, int min)
-{
-  if (fd >= min)
-    return fd;
-  else
-    {
-      int new = dup (fd);
-      if (new == -1)
-	{
-	  stderr_out ("Error while setting up child: %s\n",
-		      strerror (errno));
-	  _exit (1);
-	}
-      /* Note that we hold the original FD open while we recurse,
-	 to guarantee we'll get a new FD if we need it.  */
-      new = relocate_fd (new, min);
-      close (fd);
-      return new;
-    }
 }
 
 static int

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/compile.info
 @node Byte Compilation, Debugging, Loading, Top
@@ -24,6 +24,13 @@ In general, any version of Emacs can run byte-compiled code produced
 by recent earlier versions of Emacs, but the reverse is not true.  In
 particular, if you compile a program with XEmacs 20, the compiled code
 may not run in earlier versions.
+
+The first time a compiled-function object is executed, the byte-code
+instructions are validated and the byte-code is further optimized.  An
+@code{invalid-byte-code} error is signaled if the byte-code is invalid,
+for example if it contains invalid opcodes.  This usually means a bug in
+the byte compiler.
+
 @iftex
 @xref{Docs and Compilation}.
 @end iftex
@@ -53,7 +60,7 @@ Here is an example:
 (defun silly-loop (n)
   "Return time before and after N iterations of a loop."
   (let ((t1 (current-time-string)))
-    (while (> (setq n (1- n)) 
+    (while (> (setq n (1- n))
               0))
     (list t1 (current-time-string))))
 @result{} silly-loop
@@ -61,14 +68,13 @@ Here is an example:
 
 @group
 (silly-loop 5000000)
-@result{} ("Fri Nov 28 20:56:16 1997"
-    "Fri Nov 28 20:56:39 1997")  ; @r{23 seconds}
+@result{} ("Mon Sep 14 15:51:49 1998"
+    "Mon Sep 14 15:52:07 1998")  ; @r{18 seconds}
 @end group
 
 @group
 (byte-compile 'silly-loop)
 @result{} #<compiled-function
-(from "loadup.el")
 (n)
 "...(23)"
 [current-time-string t1 n 0]
@@ -78,12 +84,12 @@ Here is an example:
 
 @group
 (silly-loop 5000000)
-@result{} ("Fri Nov 28 20:57:49 1997"
-    "Fri Nov 28 20:57:55 1997")  ; @r{6 seconds}
+@result{} ("Mon Sep 14 15:53:43 1998"
+    "Mon Sep 14 15:53:49 1998")  ; @r{6 seconds}
 @end group
 @end example
 
-  In this example, the interpreted code required 23 seconds to run,
+  In this example, the interpreted code required 18 seconds to run,
 whereas the byte-compiled code required 6 seconds.  These results are
 representative, but actual results will vary greatly.
 
@@ -109,7 +115,7 @@ for proper compilation.  For more details, see @ref{Compiling Macros}.
   Normally, compiling a file does not evaluate the file's contents or
 load the file.  But it does execute any @code{require} calls at top
 level in the file.  One way to ensure that necessary macro definitions
-are available during compilation is to require the file that defines
+are available during compilation is to @code{require} the file that defines
 them (@pxref{Named Features}).  To avoid loading the macro definition files
 when someone @emph{runs} the compiled program, write
 @code{eval-when-compile} around the @code{require} calls (@pxref{Eval
@@ -141,7 +147,6 @@ way to ``compile the same definition again.''
 @group
 (byte-compile 'factorial)
 @result{} #<compiled-function
-(from "loadup.el")
 (integer)
 "...(21)"
 [integer 1 factorial]
@@ -202,7 +207,7 @@ for the file name.
 @group
 % ls -l push*
 -rw-r--r--  1 lewis     791 Oct  5 20:31 push.el
--rw-rw-rw-  1 lewis     638 Oct  8 20:25 push.elc
+-rw-r--r--  1 lewis     638 Oct  8 20:25 push.elc
 @end group
 @end example
 @end deffn
@@ -219,7 +224,7 @@ When a @samp{.el} file has no corresponding @samp{.elc} file, then
 ignored.  If it is non-@code{nil}, the user is asked whether to compile
 each such file.
 
-The returned value of this command is unpredictable.
+The return value of this command is unpredictable.
 @end deffn
 
 @defun batch-byte-compile
@@ -249,16 +254,18 @@ normally @code{nil}, but is bound to @code{t} by
 @code{batch-byte-recompile-directory}.
 @end defvar
 
-@defun byte-code code-string data-vector max-stack
+@defun byte-code instructions constants stack-size
 @cindex byte-code interpreter
-This function actually interprets byte-code.  A byte-compiled function
-is actually defined with a body that calls @code{byte-code}.  Don't call
-this function yourself.  Only the byte compiler knows how to generate
-valid calls to this function.
+This function actually interprets byte-code.
+Don't call this function yourself.  Only the byte compiler knows how to
+generate valid calls to this function.
 
-In newer Emacs versions (19 and up), byte-code is usually executed as
+In newer Emacs versions (19 and up), byte code is usually executed as
 part of a compiled-function object, and only rarely due to an explicit
-call to @code{byte-code}.
+call to @code{byte-code}.  A byte-compiled function was once actually
+defined with a body that calls @code{byte-code}, but in recent versions
+of Emacs @code{byte-code} is only used to run isolated fragments of lisp
+code without an associated argument list.
 @end defun
 
 @node Docs and Compilation
@@ -297,13 +304,14 @@ directory where you built it, you will experience this problem
 occasionally if you edit and recompile Lisp files.  When it happens, you
 can cure the problem by reloading the file after recompiling it.
 
-  Byte-compiled files made with Emacs 19.29 will not load into older
-versions because the older versions don't support this feature.  You can
-turn off this feature by setting @code{byte-compile-dynamic-docstrings}
-to @code{nil}.  Once this is done, you can compile files that will load
-into older Emacs versions.  You can do this globally, or for one source
-file by specifying a file-local binding for the variable.  Here's one
-way to do that:
+  Versions of Emacs up to and including XEmacs 19.14 and FSF Emacs 19.28
+do not support the dynamic docstrings feature, and so will not be able
+to load bytecode created by more recent Emacs versions.  You can turn
+off the dynamic docstring feature by setting
+@code{byte-compile-dynamic-docstrings} to @code{nil}.  Once this is
+done, you can compile files that will load into older Emacs versions.
+You can do this globally, or for one source file by specifying a
+file-local binding for the variable.  Here's one way to do that:
 
 @example
 -*-byte-compile-dynamic-docstrings: nil;-*-
@@ -415,23 +423,21 @@ At top level, this is analogous to the Common Lisp idiom
 @cindex byte-code function
 
   Byte-compiled functions have a special data type: they are
-@dfn{compiled-function objects}.
+@dfn{compiled-function objects}. The evaluator handles this data type
+specially when it appears as a function to be called.
 
-  A compiled-function object is a bit like a vector; however, the
-evaluator handles this data type specially when it appears as a function
-to be called.  The printed representation for a compiled-function
-object normally begins with @samp{#<compiled-function} and ends with
-@samp{>}.  However, if the variable @code{print-readably} is
-non-@code{nil}, the object is printed beginning with @samp{#[} and
-ending with @samp{]}.  This representation can be read directly
-by the Lisp reader, and is used in byte-compiled files (those ending
-in @samp{.elc}).
+  The printed representation for a compiled-function object normally
+begins with @samp{#<compiled-function} and ends with @samp{>}.  However,
+if the variable @code{print-readably} is non-@code{nil}, the object is
+printed beginning with @samp{#[} and ending with @samp{]}.  This
+representation can be read directly by the Lisp reader, and is used in
+byte-compiled files (those ending in @samp{.elc}).
 
   In Emacs version 18, there was no compiled-function object data type;
 compiled functions used the function @code{byte-code} to run the byte
 code.
 
-  A compiled-function object has a number of different elements.
+  A compiled-function object has a number of different attributes.
 They are:
 
 @table @var
@@ -445,7 +451,7 @@ The string containing the byte-code instructions.
 The vector of Lisp objects referenced by the byte code.  These include
 symbols used as function names and variable names.
 
-@item stacksize
+@item stack-size
 The maximum stack size this function needs.
 
 @item doc-string
@@ -470,8 +476,8 @@ representation.  It is the definition of the command
 @code{backward-sexp}.
 
 @example
-#<compiled-function
-(from "lisp.elc")
+(symbol-function 'backward-sexp)
+@result{} #<compiled-function
 (&optional arg)
 "...(15)" [arg 1 forward-sexp] 2 854740 "_p">
 @end example
@@ -479,9 +485,9 @@ representation.  It is the definition of the command
   The primitive way to create a compiled-function object is with
 @code{make-byte-code}:
 
-@defun make-byte-code &rest elements
+@defun make-byte-code arglist instructions constants stack-size &optional doc-string interactive
 This function constructs and returns a compiled-function object
-with @var{elements} as its elements.
+with the specified attributes.
 
 @emph{Please note:} Unlike all other Emacs-lisp functions, calling this with
 five arguments is @emph{not} the same as calling it with six arguments,
@@ -571,9 +577,6 @@ it outputs to a buffer named @samp{*Disassemble*}.
   Here are two examples of using the @code{disassemble} function.  We
 have added explanatory comments to help you relate the byte-code to the
 Lisp source; these do not appear in the output of @code{disassemble}.
-These examples show unoptimized byte-code.  Nowadays byte-code is
-usually optimized, but we did not want to rewrite these examples, since
-they still serve their purpose.
 
 @example
 @group
@@ -597,12 +600,12 @@ they still serve their purpose.
 @end group
 
 @group
-0   constant 1              ; @r{Push 1 onto stack.}
-
-1   varref   integer        ; @r{Get value of @code{integer}} 
+0   varref   integer        ; @r{Get value of @code{integer}}
                             ;   @r{from the environment}
                             ;   @r{and push the value}
                             ;   @r{onto the stack.}
+
+1   constant 1              ; @r{Push 1 onto stack.}
 @end group
 
 @group
@@ -612,39 +615,35 @@ they still serve their purpose.
 @end group
 
 @group
-3   goto-if-nil 10          ; @r{Pop and test top of stack;}
-                            ;   @r{if @code{nil}, go to 10,}
+3   goto-if-nil 1           ; @r{Pop and test top of stack;}
+                            ;   @r{if @code{nil},}
+                            ;   @r{go to label 1 (which is also byte 7),}
                             ;   @r{else continue.}
 @end group
 
 @group
-6   constant 1              ; @r{Push 1 onto top of stack.}
+5   constant 1              ; @r{Push 1 onto top of stack.}
 
-7   goto     17             ; @r{Go to 17 (in this case, 1 will be}
-                            ;   @r{returned by the function).}
+6   return                  ; @r{Return the top element}
+                            ;   @r{of the stack.}
 @end group
 
-@group
-10  constant *              ; @r{Push symbol @code{*} onto stack.}
-
-11  varref   integer        ; @r{Push value of @code{integer} onto stack.}
-@end group
+7:1 varref   integer        ; @r{Push value of @code{integer} onto stack.}
 
 @group
-12  constant factorial      ; @r{Push @code{factorial} onto stack.}
+8   constant factorial      ; @r{Push @code{factorial} onto stack.}
 
-13  varref   integer        ; @r{Push value of @code{integer} onto stack.}
+9   varref   integer        ; @r{Push value of @code{integer} onto stack.}
 
-14  sub1                    ; @r{Pop @code{integer}, decrement value,}
+10  sub1                    ; @r{Pop @code{integer}, decrement value,}
                             ;   @r{push new value onto stack.}
 @end group
 
 @group
                             ; @r{Stack now contains:}
                             ;   @minus{} @r{decremented value of @code{integer}}
-                            ;   @minus{} @r{@code{factorial}} 
+                            ;   @minus{} @r{@code{factorial}}
                             ;   @minus{} @r{value of @code{integer}}
-                            ;   @minus{} @r{@code{*}}
 @end group
 
 @group
@@ -659,20 +658,16 @@ they still serve their purpose.
                             ;   @minus{} @r{result of recursive}
                             ;        @r{call to @code{factorial}}
                             ;   @minus{} @r{value of @code{integer}}
-                            ;   @minus{} @r{@code{*}}
 @end group
 
 @group
-16  call     2              ; @r{Using the first two}
-                            ;   @r{(i.e., the top two)}
-                            ;   @r{elements of the stack}
-                            ;   @r{as arguments,}
-                            ;   @r{call the function @code{*},}
+12  mult                    ; @r{Pop top two values off the stack,}
+                            ;   @r{multiply them,}
                             ;   @r{pushing the result onto the stack.}
 @end group
 
 @group
-17  return                  ; @r{Return the top element}
+13  return                  ; @r{Return the top element}
                             ;   @r{of the stack.}
      @result{} nil
 @end group
@@ -685,7 +680,7 @@ The @code{silly-loop} function is somewhat more complex:
 (defun silly-loop (n)
   "Return time before and after N iterations of a loop."
   (let ((t1 (current-time-string)))
-    (while (> (setq n (1- n)) 
+    (while (> (setq n (1- n))
               0))
     (list t1 (current-time-string))))
      @result{} silly-loop
@@ -714,7 +709,7 @@ The @code{silly-loop} function is somewhat more complex:
 @end group
 
 @group
-3   varref   n              ; @r{Get value of @code{n} from}
+3:1 varref   n              ; @r{Get value of @code{n} from}
                             ;   @r{the environment and push}
                             ;   @r{the value onto the stack.}
 @end group
@@ -728,11 +723,9 @@ The @code{silly-loop} function is somewhat more complex:
                             ;   @r{i.e., copy the top of}
                             ;   @r{the stack and push the}
                             ;   @r{copy onto the stack.}
-@end group
 
-@group
 6   varset   n              ; @r{Pop the top of the stack,}
-                            ;   @r{and bind @code{n} to the value.}
+                            ;   @r{and set @code{n} to the value.}
 
                             ; @r{In effect, the sequence @code{dup varset}}
                             ;   @r{copies the top of the stack}
@@ -742,69 +735,43 @@ The @code{silly-loop} function is somewhat more complex:
 
 @group
 7   constant 0              ; @r{Push 0 onto stack.}
-@end group
 
-@group
 8   gtr                     ; @r{Pop top two values off stack,}
                             ;   @r{test if @var{n} is greater than 0}
                             ;   @r{and push result onto stack.}
 @end group
 
 @group
-9   goto-if-nil-else-pop 17 ; @r{Goto 17 if @code{n} <= 0}
+9   goto-if-not-nil 1       ; @r{Goto label 1 (byte 3) if @code{n} <= 0}
                             ;   @r{(this exits the while loop).}
                             ;   @r{else pop top of stack}
                             ;   @r{and continue}
 @end group
 
 @group
-12  constant nil            ; @r{Push @code{nil} onto stack}
-                            ;   @r{(this is the body of the loop).}
+11  varref   t1             ; @r{Push value of @code{t1} onto stack.}
 @end group
 
 @group
-13  discard                 ; @r{Discard result of the body}
-                            ;   @r{of the loop (a while loop}
-                            ;   @r{is always evaluated for}
-                            ;   @r{its side effects).}
-@end group
-
-@group
-14  goto     3              ; @r{Jump back to beginning}
-                            ;   @r{of while loop.}
-@end group
-
-@group
-17  discard                 ; @r{Discard result of while loop}
-                            ;   @r{by popping top of stack.}
-                            ;   @r{This result is the value @code{nil} that}
-                            ;   @r{was not popped by the goto at 9.}
-@end group
-
-@group
-18  varref   t1             ; @r{Push value of @code{t1} onto stack.}
-@end group
-
-@group
-19  constant current-time-string  ; @r{Push} 
+12  constant current-time-string  ; @r{Push}
                                   ;   @r{@code{current-time-string}}
                                   ;   @r{onto top of stack.}
 @end group
 
 @group
-20  call     0              ; @r{Call @code{current-time-string} again.}
+13  call     0              ; @r{Call @code{current-time-string} again.}
+
+14  unbind   1              ; @r{Unbind @code{t1} in local environment.}
 @end group
 
 @group
-21  list2                   ; @r{Pop top two elements off stack,}
+15  list2                   ; @r{Pop top two elements off stack,}
                             ;   @r{create a list of them,}
                             ;   @r{and push list onto stack.}
 @end group
 
 @group
-22  unbind   1              ; @r{Unbind @code{t1} in local environment.}
-
-23  return                  ; @r{Return value of the top of stack.}
+16  return                  ; @r{Return the top element of the stack.}
 
      @result{} nil
 @end group

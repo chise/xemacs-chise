@@ -25,9 +25,9 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_TOOLBAR_H_
 #define _XEMACS_TOOLBAR_H_
 
-#include "specifier.h"
-
 #ifdef HAVE_TOOLBARS
+
+#include "specifier.h"
 
 #define FRAME_TOOLBAR_BUTTONS(frame, pos)	\
   ((frame)->toolbar_buttons[pos])
@@ -65,7 +65,7 @@ struct toolbar_button
   int dirty;
   /* is this button in a left or right toolbar? */
   int vertical;
-  /* border_width when this button was layed out */
+  /* border_width when this button was laid out */
   int border_width;
 };
 

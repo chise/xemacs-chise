@@ -122,7 +122,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
   int depth, bitmap_pad, byte_cnt, i, j;
   int rd,gr,bl,q;
   unsigned char *data, *ip, *dp;
-  quant_table *qtable;
+  quant_table *qtable = 0;
   union {
     FOUR_BYTE_TYPE val;
     char cp[4];
@@ -145,7 +145,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
 		(depth >  8) ? 16 :
 		8);
   byte_cnt = bitmap_pad >> 3;
-  
+
   outimg = XCreateImage (dpy, vis,
 			 depth, ZPixmap, 0, 0, width, height,
 			 bitmap_pad, 0);
@@ -158,7 +158,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
       return NULL;
     }
   outimg->data = (char *) data;
-  
+
   if (vis->class == PseudoColor)
     {
       unsigned long pixarray[256];
@@ -174,7 +174,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
 	{
 	  XColor color;
 	  int res;
-	
+
 	  color.red = qtable->rm[i] ? qtable->rm[i] << 8 : 0;
 	  color.green = qtable->gm[i] ? qtable->gm[i] << 8 : 0;
 	  color.blue = qtable->bm[i] ? qtable->bm[i] << 8 : 0;
@@ -287,7 +287,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
 #endif
 	    }
 	}
-    }  
+    }
   return outimg;
 }
 
@@ -469,7 +469,7 @@ x_locate_pixmap_file (Lisp_Object name)
     }
 
   if (NILP (Vdefault_x_device))
-    /* This may occur during intialization. */
+    /* This may occur during initialization. */
     return Qnil;
   else
     /* We only check the bitmapFilePath resource on the original X device. */
@@ -609,7 +609,7 @@ write_lisp_string_to_temp_file (Lisp_Object string, char *filename_out)
       /* reset the dynarr */
       Lstream_rewind(ostr);
     }
-  
+
   if (fclose (tmpfil) != 0)
     fubar = 1;
   Lstream_close (istr);
@@ -791,7 +791,7 @@ init_image_instance_from_x_image (struct Lisp_Image_Instance *ii,
 static void
 x_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
 				   int width, int height,
-				   unsigned char *eimage, 
+				   unsigned char *eimage,
 				   int dest_mask,
 				   Lisp_Object instantiator,
 				   Lisp_Object domain)
@@ -801,7 +801,7 @@ x_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
   unsigned long *pixtbl = NULL;
   int npixels = 0;
   XImage* ximage;
-  
+
   ximage = convert_EImage_to_XImage (device, width, height, eimage,
 				     &pixtbl, &npixels);
   if (!ximage)
@@ -809,7 +809,7 @@ x_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
       if (pixtbl) xfree (pixtbl);
       signal_image_error("EImage to XImage conversion failed", instantiator);
     }
-  
+
   /* Now create the pixmap and set up the image instance */
   init_image_instance_from_x_image (ii, ximage, dest_mask,
 				    cmap, pixtbl, npixels,
@@ -826,11 +826,11 @@ x_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
     }
 }
 
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width, 
+int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot)
 {
-  return XmuReadBitmapDataFromFile (filename, width, height, 
+  return XmuReadBitmapDataFromFile (filename, width, height,
 				    datap, x_hot, y_hot);
 }
 
@@ -1493,7 +1493,7 @@ xface_validate (Lisp_Object instantiator)
 static Lisp_Object
 xface_normalize (Lisp_Object inst, Lisp_Object console_type)
 {
-  /* This funcation can call lisp */
+  /* This function can call lisp */
   Lisp_Object file = Qnil, mask_file = Qnil;
   struct gcpro gcpro1, gcpro2, gcpro3;
   Lisp_Object alist = Qnil;
@@ -2085,9 +2085,9 @@ finalize_subwindow (void *header, int for_disksave)
 
 /* subwindows are equal iff they have the same window XID */
 static int
-subwindow_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+subwindow_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  return (XSUBWINDOW (o1)->subwindow == XSUBWINDOW (o2)->subwindow);
+  return (XSUBWINDOW (obj1)->subwindow == XSUBWINDOW (obj2)->subwindow);
 }
 
 static unsigned long

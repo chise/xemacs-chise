@@ -284,10 +284,10 @@ string is passed through `substitute-command-keys'.
   else if (COMPILED_FUNCTIONP (fun))
     {
       Lisp_Object tem;
-      struct Lisp_Compiled_Function *b = XCOMPILED_FUNCTION (fun);
-      if (! (b->flags.documentationp))
+      struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+      if (! (f->flags.documentationp))
         return Qnil;
-      tem = compiled_function_documentation (b);
+      tem = compiled_function_documentation (f);
       if (STRINGP (tem))
 	doc = tem;
       else if (NATNUMP (tem) || CONSP (tem))
@@ -338,7 +338,7 @@ string is passed through `substitute-command-keys'.
 #ifdef I18N3
       Lisp_Object domain = Qnil;
       if (COMPILED_FUNCTIONP (fun))
-	domain = Fcompiled_function_domain (fun);
+	domain = compiled_function_domain (XCOMPILED_FUNCTION (fun));
       if (NILP (domain))
 	doc = Fgettext (doc);
       else
@@ -550,7 +550,7 @@ when doc strings are referred to in the dumped Emacs.
 			    {
 			      weird_doc (sym, GETTEXT ("!CONSP(tem)"),
 					 GETTEXT ("function"), pos);
-			  goto cont;
+			      goto cont;
 			    }
                           else
 			    {
@@ -573,7 +573,7 @@ when doc strings are referred to in the dumped Emacs.
 		    {
                       /* Compiled-Function objects sometimes have
                          slots for it.  */
-                      struct Lisp_Compiled_Function *b =
+                      struct Lisp_Compiled_Function *f =
 			XCOMPILED_FUNCTION (fun);
 
 		      /* This compiled-function object must have a
@@ -583,7 +583,7 @@ when doc strings are referred to in the dumped Emacs.
 			 have any doc, which is a legal if slightly
 			 bogus situation, so don't blow up. */
 
-                      if (! (b->flags.documentationp))
+                      if (! (f->flags.documentationp))
 			{
 			  weird_doc (sym, GETTEXT ("no doc slot"),
 				     GETTEXT ("bytecode"), pos);
@@ -592,7 +592,7 @@ when doc strings are referred to in the dumped Emacs.
 		      else
 			{
 			  Lisp_Object old =
-			    compiled_function_documentation (b);
+			    compiled_function_documentation (f);
 			  if (!ZEROP (old))
 			    {
 			      weird_doc (sym, GETTEXT ("duplicate"),
@@ -603,7 +603,7 @@ when doc strings are referred to in the dumped Emacs.
 			      if (!INTP (old))
 				goto weird;
 			    }
-			  set_compiled_function_documentation (b, offset);
+			  set_compiled_function_documentation (f, offset);
 			}
                     }
                   else
@@ -684,12 +684,12 @@ verify_doc_mapper (Lisp_Object sym, void *arg)
 	}
       else if (COMPILED_FUNCTIONP (fun))
 	{
-          struct Lisp_Compiled_Function *b = XCOMPILED_FUNCTION (fun);
-          if (! (b->flags.documentationp))
+          struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+          if (! (f->flags.documentationp))
             doc = -1;
           else
             {
-              Lisp_Object tem = compiled_function_documentation (b);
+              Lisp_Object tem = compiled_function_documentation (f);
               if (INTP (tem))
                 doc = XINT (tem);
             }

@@ -114,7 +114,7 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 	    status = 1;
 	  else
   	    {
-  	      int rd, gr, bl;	
+  	      int rd, gr, bl;
 	      /* ### JH: I'm punting here, knowing that doing this will at
 		 least draw the color correctly.  However, unless we convert
 		 all of the functions that allocate colors (graphics
@@ -209,13 +209,11 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
 		       Bytecount len, Error_behavior errb)
 {
   Display *dpy;
-  Screen *xs;
   Colormap cmap;
   Visual *visual;
   int result;
 
   dpy = DEVICE_X_DISPLAY (d);
-  xs = DefaultScreenOfDisplay (dpy);
   cmap = DEVICE_X_COLORMAP(d);
   visual = DEVICE_X_VISUAL (d);
 
@@ -229,14 +227,14 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
   }
   if (!result)
     {
-      maybe_signal_simple_error ("unrecognized color", make_string (name, len),
+      maybe_signal_simple_error ("Unrecognized color", make_string (name, len),
 				 Qcolor, errb);
       return 0;
     }
   result = allocate_nearest_color (dpy, cmap, visual, color);
   if (!result)
     {
-      maybe_signal_simple_error ("couldn't allocate color",
+      maybe_signal_simple_error ("Couldn't allocate color",
 				 make_string (name, len), Qcolor, errb);
       return 0;
     }
@@ -367,7 +365,7 @@ x_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
 
   if (!xf)
     {
-      maybe_signal_simple_error ("couldn't load font", f->name,
+      maybe_signal_simple_error ("Couldn't load font", f->name,
 				 Qfont, errb);
       return 0;
     }
@@ -452,7 +450,7 @@ static void
 x_mark_font_instance (struct Lisp_Font_Instance *f,
 		       void (*markobj) (Lisp_Object))
 {
-  ((markobj) (FONT_INSTANCE_X_TRUENAME (f)));
+  markobj (FONT_INSTANCE_X_TRUENAME (f));
 }
 
 static void
@@ -498,7 +496,7 @@ x_finalize_font_instance (struct Lisp_Font_Instance *f)
    also picking 100dpi adobe fonts over 75dpi adobe fonts even though the
    75dpi are in the path earlier) but sometimes appears to be doing something
    else entirely (for example, removing the bitsream fonts from the path will
-   cause the 75dpi adobe fonts to be used instead of the100dpi, even though
+   cause the 75dpi adobe fonts to be used instead of the 100dpi, even though
    their relative positions in the path (and their names!) have not changed).
 
    The documentation for XSetFontPath() seems to indicate that the order of
@@ -509,7 +507,7 @@ x_finalize_font_instance (struct Lisp_Font_Instance *f)
    truename of the font.  However, there are two problems with using this: the
    first is that the X Protocol Document is quite explicit that all properties
    are optional, so we can't depend on it being there.  The second is that
-   it's concievable that this alleged truename isn't actually accessible as a
+   it's conceivable that this alleged truename isn't actually accessible as a
    font, due to some difference of opinion between the font designers and
    whoever installed the font on the system.
 
@@ -566,7 +564,7 @@ x_finalize_font_instance (struct Lisp_Font_Instance *f)
 static int
 valid_x_font_name_p (Display *dpy, char *name)
 {
-  /* Maybe this should be implemented by callign XLoadFont and trapping
+  /* Maybe this should be implemented by calling XLoadFont and trapping
      the error.  That would be a lot of work, and wasteful as hell, but
      might be more correct.
    */
@@ -783,7 +781,7 @@ x_font_instance_truename (struct Lisp_Font_Instance *f, Error_behavior errb)
 	  Lisp_Object font_instance;
 	  XSETFONT_INSTANCE (font_instance, f);
 
-	  maybe_signal_simple_error ("couldn't determine font truename",
+	  maybe_signal_simple_error ("Couldn't determine font truename",
 				   font_instance, Qfont, errb);
 	  /* Ok, just this once, return the font name as the truename.
 	     (This is only used by Fequal() right now.) */

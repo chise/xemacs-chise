@@ -104,7 +104,7 @@ get_display_arg_connection (void)
 {
   CONST char *disp_name;
 
-  /* If the user didn't explicitly specifify a display to use when
+  /* If the user didn't explicitly specify a display to use when
      they called make-x-device, then we first check to see if a
      display was specified on the command line with -display.  If
      so, we set disp_name to it.  Otherwise we use XDisplayName to

@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "backtrace.h"
 #include "bytecode.h"
+#include "elhash.h"
 #include "hash.h"
 
 #include "syssignal.h"
@@ -38,25 +39,25 @@ Boston, MA 02111-1307, USA.  */
    (ITIMER_PROF), which generates a SIGPROF every so often.  (This
    runs not in real time but rather when the process is executing or
    the system is running on behalf of the process.) When the signal
-   goes off, we see what we're in, and add by 1 the count associated
+   goes off, we see what we're in, and add 1 to the count associated
    with that function.
 
    It would be nice to use the Lisp allocation mechanism etc. to keep
    track of the profiling information, but we can't because that's not
-   safe, and trying to make it safe would be much more work than is
+   safe, and trying to make it safe would be much more work than it's
    worth.
 
 
    Jan 1998: In addition to this, I have added code to remember call
    counts of Lisp funcalls.  The profile_increase_call_count()
-   function is called from funcall_recording_as(), and serves to add
-   data to Vcall_count_profile_table.  This mechanism is much simpler
-   and independent of the SIGPROF-driven one.  It uses the Lisp
-   allocation mechanism normally, since it is not called from a
-   handler.  It may even be useful to provide a way to turn on only
-   one profiling mechanism, but I haven't done so yet.  --hniksic */
+   function is called from Ffuncall(), and serves to add data to
+   Vcall_count_profile_table.  This mechanism is much simpler and
+   independent of the SIGPROF-driven one.  It uses the Lisp allocation
+   mechanism normally, since it is not called from a handler.  It may
+   even be useful to provide a way to turn on only one profiling
+   mechanism, but I haven't done so yet.  --hniksic */
 
-c_hashtable big_profile_table;
+struct hash_table *big_profile_table;
 Lisp_Object Vcall_count_profile_table;
 
 int default_profiling_interval;
@@ -78,15 +79,16 @@ Lisp_Object QSunknown;
    enough to catch us while we're already in there. */
 static volatile int inside_profiling;
 
-/* Increase the value of OBJ in Vcall_count_profile_table hashtable.
-   If hashtable is nil, create it first.  */
+/* Increase the value of OBJ in Vcall_count_profile_table hash table.
+   If the hash table is nil, create it first.  */
 void
 profile_increase_call_count (Lisp_Object obj)
 {
   Lisp_Object count;
 
   if (NILP (Vcall_count_profile_table))
-    Vcall_count_profile_table = Fmake_hashtable (make_int (100), Qeq);
+    Vcall_count_profile_table =
+      make_lisp_hash_table (100, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   count = Fgethash (obj, Vcall_count_profile_table, Qzero);
   if (!INTP (count))
@@ -117,8 +119,10 @@ sigprof_handler (int signo)
 	{
 	  fun = *backtrace_list->function;
 
-	  if (!GC_SYMBOLP (fun) && !GC_COMPILED_FUNCTIONP (fun))
-	    fun = QSunknown;
+	  if (!GC_SYMBOLP	     (fun) &&
+	      !GC_COMPILED_FUNCTIONP (fun) &&
+	      !GC_SUBRP		     (fun))
+	     fun = QSunknown;
 	}
       else
 	fun = QSprocessing_events_at_top_level;
@@ -163,12 +167,13 @@ will be properly accumulated.
   struct itimerval foo;
 
   /* #### The hash code can safely be called from a signal handler
-     except when it has to grow the hashtable.  In this case, it calls
-     realloc(), which is not (in general) re-entrant.  We just be
+     except when it has to grow the hash table.  In this case, it calls
+     realloc(), which is not (in general) re-entrant.  We'll just be
      sleazy and make the table large enough that it (hopefully) won't
      need to be realloc()ed. */
   if (!big_profile_table)
-    big_profile_table = make_hashtable (10000);
+    big_profile_table = make_hash_table (10000);
+
   if (NILP (microsecs))
     msecs = default_profiling_interval;
   else
@@ -301,7 +306,7 @@ Clear out the recorded profiling info.
       clrhash (big_profile_table);
       inside_profiling = 0;
     }
-  if (!NILP(Vcall_count_profile_table))
+  if (!NILP (Vcall_count_profile_table))
     Fclrhash (Vcall_count_profile_table);
   return Qnil;
 }
@@ -328,7 +333,7 @@ void
 vars_of_profile (void)
 {
   DEFVAR_INT ("default-profiling-interval", &default_profiling_interval /*
-Default time in microseconds between profiling queries.
+Default CPU time in microseconds between profiling sampling.
 Used when the argument to `start-profiling' is nil or omitted.
 Note that the time in question is CPU time (when the program is executing
 or the kernel is executing on behalf of the program) and not real time.
@@ -337,8 +342,8 @@ or the kernel is executing on behalf of the program) and not real time.
 
   DEFVAR_LISP ("call-count-profile-table", &Vcall_count_profile_table /*
 The table where call-count information is stored by the profiling primitives.
-This is a hashtable whose keys are funcallable objects, and whose
- values are their call counts (integers).
+This is a hash table whose keys are funcallable objects, and whose
+values are their call counts (integers).
 */ );
   Vcall_count_profile_table = Qnil;
 

@@ -316,7 +316,7 @@ DndSetData(int Type,unsigned char *Data,unsigned long Size)
 }
 
 /*================================================================== DndGetData
- * Return a pointer to the current data. Se HOWTO for more details.
+ * Return a pointer to the current data. See HOWTO for more details.
  *===========================================================================*/
 void
 DndGetData(XEvent *event, unsigned char **Data,unsigned long *Size)

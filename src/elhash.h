@@ -23,56 +23,64 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_ELHASH_H_
 #define _XEMACS_ELHASH_H_
 
-DECLARE_LRECORD (hashtable, struct hashtable);
+DECLARE_LRECORD (hash_table, struct Lisp_Hash_Table);
 
-#define XHASHTABLE(x) XRECORD (x, hashtable, struct hashtable)
-#define XSETHASHTABLE(x, p) XSETRECORD (x, p, hashtable)
-#define HASHTABLEP(x) RECORDP (x, hashtable)
-#define GC_HASHTABLEP(x) GC_RECORDP (x, hashtable)
-#define CHECK_HASHTABLE(x) CHECK_RECORD (x, hashtable)
-#define CONCHECK_HASHTABLE(x) CONCHECK_RECORD (x, hashtable)
+#define XHASH_TABLE(x) XRECORD (x, hash_table, struct Lisp_Hash_Table)
+#define XSETHASH_TABLE(x, p) XSETRECORD (x, p, hash_table)
+#define HASH_TABLEP(x) RECORDP (x, hash_table)
+#define GC_HASH_TABLEP(x) GC_RECORDP (x, hash_table)
+#define CHECK_HASH_TABLE(x) CHECK_RECORD (x, hash_table)
+#define CONCHECK_HASH_TABLE(x) CONCHECK_RECORD (x, hash_table)
 
-enum hashtable_type
+enum hash_table_type
 {
-  HASHTABLE_NONWEAK,
-  HASHTABLE_KEY_WEAK,
-  HASHTABLE_VALUE_WEAK,
-  HASHTABLE_KEY_CAR_WEAK,
-  HASHTABLE_VALUE_CAR_WEAK,
-  HASHTABLE_WEAK
+  HASH_TABLE_NON_WEAK,
+  HASH_TABLE_KEY_WEAK,
+  HASH_TABLE_VALUE_WEAK,
+  HASH_TABLE_KEY_CAR_WEAK,
+  HASH_TABLE_VALUE_CAR_WEAK,
+  HASH_TABLE_WEAK
 };
 
-enum hashtable_test_fun
+enum hash_table_test
 {
-  HASHTABLE_EQ,
-  HASHTABLE_EQL,
-  HASHTABLE_EQUAL
+  HASH_TABLE_EQ,
+  HASH_TABLE_EQL,
+  HASH_TABLE_EQUAL
 };
 
-EXFUN (Fcopy_hashtable, 1);
-EXFUN (Fhashtable_fullness, 1);
+EXFUN (Fcopy_hash_table, 1);
+EXFUN (Fhash_table_count, 1);
+EXFUN (Fgethash, 3);
+EXFUN (Fputhash, 3);
 EXFUN (Fremhash, 2);
+EXFUN (Fclrhash, 1);
 
-Lisp_Object make_lisp_hashtable (int size,
-				 enum hashtable_type type,
-				 enum hashtable_test_fun test_fun);
+typedef unsigned long hashcode_t;
+typedef int (*hash_table_test_function_t) (Lisp_Object obj1, Lisp_Object obj2);
+typedef unsigned long (*hash_table_hash_function_t) (Lisp_Object obj);
+typedef int (*maphash_function_t) (Lisp_Object key, Lisp_Object value,
+				   void* extra_arg);
 
-void elisp_maphash (int (*fn) (CONST void *key, void *contents,
-				void *extra_arg),
-		    Lisp_Object table,
-		    void *extra_arg);
 
-void elisp_map_remhash (int (*fn) (CONST void *key,
-				   CONST void *contents,
-				   void *extra_arg),
-			Lisp_Object table,
-			void *extra_arg);
+Lisp_Object make_general_lisp_hash_table (size_t size,
+					  enum hash_table_type type,
+					  enum hash_table_test test,
+					  double rehash_threshold,
+					  double rehash_size);
 
-int finish_marking_weak_hashtables (int (*obj_marked_p) (Lisp_Object),
-					   void (*markobj) (Lisp_Object));
-void prune_weak_hashtables (int (*obj_marked_p) (Lisp_Object));
+Lisp_Object make_lisp_hash_table (size_t size,
+				  enum hash_table_type type,
+				  enum hash_table_test test);
 
-void *elisp_hvector_malloc (unsigned int, Lisp_Object);
-void elisp_hvector_free (void *ptr, Lisp_Object table);
+void elisp_maphash (maphash_function_t function,
+		    Lisp_Object hash_table, void *extra_arg);
+
+void elisp_map_remhash (maphash_function_t predicate,
+			Lisp_Object hash_table, void *extra_arg);
+
+int finish_marking_weak_hash_tables (int (*obj_marked_p) (Lisp_Object),
+				     void (*markobj) (Lisp_Object));
+void prune_weak_hash_tables (int (*obj_marked_p) (Lisp_Object));
 
 #endif /* _XEMACS_ELHASH_H_ */

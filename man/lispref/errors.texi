@@ -87,6 +87,10 @@ This is a @code{file-error}.@*
 This is a @code{file-error}.@*
 @xref{Modification Time}.
 
+@item invalid-byte-code
+@code{"Invalid byte code"}@*
+@xref{Byte Compilation}.
+
 @item invalid-function
 @code{"Invalid function"}@*
 @xref{Classifying Lists}.

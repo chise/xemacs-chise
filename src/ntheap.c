@@ -111,7 +111,7 @@ get_data_end (void)
 static char *
 allocate_heap (void)
 {
-  /* The base address for our GNU malloc heap is chosen in conjuction
+  /* The base address for our GNU malloc heap is chosen in conjunction
      with the link settings for temacs.exe which control the stack size,
      the initial default process heap size and the executable image base
      address.  The link settings and the malloc heap base below must all

@@ -1032,7 +1032,7 @@ scan_lisp_file (CONST char *filename, CONST char *mode)
       else
 	{
 #ifdef DEBUG
-	  fprintf (stderr, "## unrecognised top-level form, %s (%s)\n",
+	  fprintf (stderr, "## unrecognized top-level form, %s (%s)\n",
 		   buffer, filename);
 #endif
 	  continue;

@@ -148,6 +148,7 @@
     "\\<view-minor-mode-map>\\[scroll-up] = page forward; \\[scroll-down] = page back; \
 \\[view-mode-describe] = help; \\[view-quit] = quit.")))
 
+(defvar view-major-mode)
 (defvar view-exit-position)
 (defvar view-prev-buffer)
 (defvar view-exit-action)

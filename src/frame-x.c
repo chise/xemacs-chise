@@ -278,8 +278,7 @@ x_wm_hack_wm_protocols (Widget widget)
   int need_delete = 1;
   int need_focus = 1;
 
-  if (!XtIsWMShell (widget))
-    abort ();
+  assert (XtIsWMShell (widget));
 
   {
     Atom type, *atoms = 0;
@@ -996,7 +995,7 @@ x_cde_destroy_callback (Widget widget, XtPointer clientData,
 	{
 	  for (i = 0; i < dragData->numItems; i++)
 	    {
-	      XtFree(dragData->data.buffers[i].bp);
+	      XtFree((char *) dragData->data.buffers[i].bp);
 	      if (dragData->data.buffers[i].name)
 		XtFree(dragData->data.buffers[i].name);
 	    }
@@ -1151,7 +1150,7 @@ WARNING: can only handle plain/text and file: transfers!
 	  numItems++;
 	  item = XCDR (item);
 	}
-	
+
       if (numItems)
 	{
 	  /*
@@ -1160,7 +1159,7 @@ WARNING: can only handle plain/text and file: transfers!
 	   */
 	  Ctext = (char *)xmalloc (textlen+1);
 	  Ctext[0] = 0;
-	  
+
 	  item = dragdata;
 	  while (!NILP (item))
 	    {
@@ -1176,12 +1175,12 @@ WARNING: can only handle plain/text and file: transfers!
 	      item = XCDR (item);
 	    }
 	  Ctext[pos] = 0;
-	  
+
 	  dnd_convert_cb_rec[0].callback = x_cde_convert_callback;
 	  dnd_convert_cb_rec[0].closure  = (XtPointer) Ctext;
 	  dnd_convert_cb_rec[1].callback = NULL;
 	  dnd_convert_cb_rec[1].closure  = NULL;
-	  
+
 	  dnd_destroy_cb_rec[0].callback = x_cde_destroy_callback;
 	  dnd_destroy_cb_rec[0].closure  = (XtPointer) Ctext;
 	  dnd_destroy_cb_rec[1].callback = NULL;
@@ -1198,7 +1197,7 @@ WARNING: can only handle plain/text and file: transfers!
 	}
 
       UNGCPRO;
-	  
+
       return numItems?Qt:Qnil;
     }
 
@@ -1268,7 +1267,7 @@ x_cde_transfer_callback (Widget widget, XtPointer clientData,
 	  /* what, if the data is no text, and how can I tell it? */
 	  l_data = Fcons ( list3 ( list1 ( make_string ((Bufbyte *)"text/plain", 10) ),
 				   make_string ((Bufbyte *)"8bit", 4),
-				   make_string ((Bufbyte *)transferInfo->dropData->data.buffers[ii].bp, 
+				   make_string ((Bufbyte *)transferInfo->dropData->data.buffers[ii].bp,
 						transferInfo->dropData->data.buffers[ii].size) ),
 			   l_data );
  	}
@@ -1279,7 +1278,7 @@ x_cde_transfer_callback (Widget widget, XtPointer clientData,
     enqueue=0;
 
   /* The Problem: no button and mods from CDE... */
-  if (enqueue)  
+  if (enqueue)
     enqueue_misc_user_event_pos ( frame, Qdragdrop_drop_dispatch,
 				  Fcons (l_type, l_data),
 				  0 /* this is the button */,
@@ -1361,15 +1360,13 @@ The type defaults to DndText (4).
 	  if (!STRINGP (data))
 	    return Qnil;
 
-	  /* and whats with MULE data ??? */
+	  /* and what's with MULE data ??? */
 	  dnd_data = (char *)XSTRING_DATA (data);
 	  dnd_len  = XSTRING_LENGTH (data) + 1; /* the zero */
 
 	}
 
-      /*
-       * not so cross hack that converts a emacs event back to a XEvent
-       */
+      /* not so gross hack that converts an emacs event back to a XEvent */
 
       x_event.xbutton.type = ButtonPress;
       x_event.xbutton.send_event = False;
@@ -1923,9 +1920,9 @@ x_create_widgets (struct frame *f, Lisp_Object lisp_window_id,
       XtSetArg (al[ac], XtNinput, True);       ac++;
       XtSetArg (al[ac], XtNminWidthCells, 10); ac++;
       XtSetArg (al[ac], XtNminHeightCells, 1); ac++;
-      XtSetArg (al[ac], XtNvisual, visual); ac++;
-      XtSetArg (al[ac], XtNdepth, depth);   ac++;
-      XtSetArg (al[ac], XtNcolormap, cmap); ac++;
+      XtSetArg (al[ac], XtNvisual, visual);    ac++;
+      XtSetArg (al[ac], XtNdepth, depth);      ac++;
+      XtSetArg (al[ac], XtNcolormap, cmap);    ac++;
     }
 
   if (!NILP (parent))
@@ -1995,7 +1992,7 @@ x_create_widgets (struct frame *f, Lisp_Object lisp_window_id,
    though, the failure to call the popup callbacks resulted in XEmacs
    not accepting any input.  Bizarre but true.  Stupid but true.
 
-   So, in case there are any other gotches floating out there along
+   So, in case there are any other gotchas floating out there along
    the same lines I've duplicated the majority of XtPopup here.  It
    assumes no grabs and that the widget is not already popped up, both
    valid assumptions for the one place this is called from. */
@@ -2020,12 +2017,6 @@ xemacs_XtPopup (Widget widget)
   XtRealizeWidget (widget);
   Xt_SET_VALUE (widget, XtNmappedWhenManaged, True);
 }
-
-#ifdef HAVE_CDE
-/* Does this have to be non-automatic? */
-/* hack frame to respond to dnd messages */
-static XtCallbackRec dnd_transfer_cb_rec[2];
-#endif /* HAVE_CDE */
 
 /* create the windows for the specified frame and display them.
    Note that the widgets have already been created, and any
@@ -2081,7 +2072,7 @@ x_popup_frame (struct frame *f)
 
 #ifdef HACK_EDITRES
   /* Allow XEmacs to respond to EditRes requests.  See the O'Reilly Xt */
-  /* Instrinsics Programming Manual, Motif Edition, Aug 1993, Sect 14.14, */
+  /* Intrinsics Programming Manual, Motif Edition, Aug 1993, Sect 14.14, */
   /* pp. 483-493. */
   XtAddEventHandler (shell_widget,           /* the shell widget in question */
 		     (EventMask) NoEventMask,/* OR with existing mask */
@@ -2092,6 +2083,8 @@ x_popup_frame (struct frame *f)
 
 #ifdef HAVE_CDE
   {
+    XtCallbackRec dnd_transfer_cb_rec[2];
+
     dnd_transfer_cb_rec[0].callback = x_cde_transfer_callback;
     dnd_transfer_cb_rec[0].closure = (XtPointer) f;
     dnd_transfer_cb_rec[1].callback = NULL;
@@ -2101,7 +2094,7 @@ x_popup_frame (struct frame *f)
  			 DtDND_FILENAME_TRANSFER | DtDND_BUFFER_TRANSFER,
  			 XmDROP_COPY, dnd_transfer_cb_rec,
  			 DtNtextIsBuffer, True,
-			 DtNregisterChildren, True, 
+			 DtNregisterChildren, True,
 			 DtNpreserveRegistration, False,
 			 NULL);
   }
@@ -2183,9 +2176,9 @@ x_init_frame_2 (struct frame *f, Lisp_Object props)
    *   will update the frame title anyway, so nothing is lost.
    * JV:
    *   It turns out it gives problems with FVWMs name based mapping.
-   *   We'll just  need to be carefull in the modeline specs.
+   *   We'll just  need to be careful in the modeline specs.
    */
-  update_frame_title (f); 
+  update_frame_title (f);
 }
 
 static void
@@ -2199,8 +2192,8 @@ x_init_frame_3 (struct frame *f)
 static void
 x_mark_frame (struct frame *f, void (*markobj) (Lisp_Object))
 {
-  ((markobj) (FRAME_X_ICON_PIXMAP (f)));
-  ((markobj) (FRAME_X_ICON_PIXMAP_MASK (f)));
+  markobj (FRAME_X_ICON_PIXMAP (f));
+  markobj (FRAME_X_ICON_PIXMAP_MASK (f));
 }
 
 static void
@@ -2630,40 +2623,54 @@ x_focus_on_frame (struct frame *f)
 static void
 x_delete_frame (struct frame *f)
 {
-  Widget w = FRAME_X_SHELL_WIDGET (f);
-  Display *dpy = XtDisplay (w);
-
 #ifndef HAVE_SESSION
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))
     x_wm_maybe_move_wm_command (f);
 #endif /* HAVE_SESSION */
 
-#ifdef EXTERNAL_WIDGET
-  expect_x_error (dpy);
-  /* for obscure reasons having (I think) to do with the internal
-     window-to-widget hierarchy maintained by Xt, we have to call
-     XtUnrealizeWidget() here.  Xt can really suck. */
-  if (f->being_deleted)
-    XtUnrealizeWidget (w);
-  XtDestroyWidget (w);
-  x_error_occurred_p (dpy);
-#else
-  XtDestroyWidget (w);
-  XFlush (dpy);   /* make sure the windows are really gone! */
-#endif /* EXTERNAL_WIDGET */
+#ifdef HAVE_CDE
+  DtDndDropUnregister (FRAME_X_TEXT_WIDGET (f));
+#endif /* HAVE_CDE */
+
+  assert (FRAME_X_SHELL_WIDGET (f));
+  if (FRAME_X_SHELL_WIDGET (f))
+    {
+      Display *dpy = XtDisplay (FRAME_X_SHELL_WIDGET (f));
+      expect_x_error (dpy);
+      /* for obscure reasons having (I think) to do with the internal
+	 window-to-widget hierarchy maintained by Xt, we have to call
+	 XtUnrealizeWidget() here.  Xt can really suck. */
+      if (f->being_deleted)
+	XtUnrealizeWidget (FRAME_X_SHELL_WIDGET (f));
+      XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
+      x_error_occurred_p (dpy);
+
+      /* make sure the windows are really gone! */
+      /* ### Is this REALLY necessary? */
+      XFlush (dpy);
+
+      FRAME_X_SHELL_WIDGET (f) = 0;
+    }
 
   if (FRAME_X_GEOM_FREE_ME_PLEASE (f))
-    xfree (FRAME_X_GEOM_FREE_ME_PLEASE (f));
-  xfree (f->frame_data);
-  f->frame_data = 0;
+    {
+      xfree (FRAME_X_GEOM_FREE_ME_PLEASE (f));
+      FRAME_X_GEOM_FREE_ME_PLEASE (f) = 0;
+    }
+
+  if (f->frame_data)
+    {
+      xfree (f->frame_data);
+      f->frame_data = 0;
+    }
 }
 
 static void
 x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
 {
-  Arg av[10];
+  Arg al[10];
   int ac = 0;
-  Lisp_Object frame = Qnil;
+  Lisp_Object frame;
 
   XSETFRAME(frame, frm);
 
@@ -2675,7 +2682,7 @@ x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
      if (!EQ (color, Vthe_null_color_instance))
        {
 	 fgc = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (color));
-	 XtSetArg (av[ac], XtNforeground, (void *) fgc.pixel); ac++;
+	 XtSetArg (al[ac], XtNforeground, (void *) fgc.pixel); ac++;
        }
    }
   else if (EQ (name, Qbackground))
@@ -2686,7 +2693,7 @@ x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
      if (!EQ (color, Vthe_null_color_instance))
        {
 	 bgc = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (color));
-	 XtSetArg (av[ac], XtNbackground, (void *) bgc.pixel); ac++;
+	 XtSetArg (al[ac], XtNbackground, (void *) bgc.pixel); ac++;
        }
 
      /* Really crappy way to force the modeline shadows to be
@@ -2699,14 +2706,14 @@ x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
      Lisp_Object font = FACE_FONT (Vdefault_face, frame, Vcharset_ascii);
 
      if (!EQ (font, Vthe_null_font_instance))
-       XtSetArg (av[ac], XtNfont,
+       XtSetArg (al[ac], XtNfont,
 		 (void *) FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font)));
      ac++;
    }
   else
    abort ();
 
-  XtSetValues (FRAME_X_TEXT_WIDGET (frm), av, ac);
+  XtSetValues (FRAME_X_TEXT_WIDGET (frm), al, ac);
 
 #ifdef HAVE_TOOLBARS
   /* Setting the background clears the entire frame area

@@ -20,7 +20,7 @@
 /*      1. determines if fildes is pty                         */
 /*         does normal ioctl it is not                         */
 /*      2. places fildes into raw mode                         */
-/*      3. converts ioctl arguments to datastream              */
+/*      3. converts ioctl arguments to data stream             */
 /*      4. waits for 2 secs for acknowledgement before         */
 /*         timing out.                                         */
 /*      5. places response in callers buffer ( just like       */
@@ -259,8 +259,8 @@ GT_ACK (fd, req, buf)
 
       (i ? memcpy (&ack, p.c, i) : 0); /* if any left over, then move */
       p.ack = &ack;		/* ESC to front of ack struct  */
-      p.c += i;			/* skip over whats been read   */
-      i = sizeof (ack) - i;	/* set whats left to be read   */
+      p.c += i;			/* skip over what's been read  */
+      i = sizeof (ack) - i;	/* set what's left to be read  */
     }				/***** TRY AGAIN               */
 
   alarm(0);			/* ACK VTD received, reset alrm*/

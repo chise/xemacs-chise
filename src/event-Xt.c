@@ -31,7 +31,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "blocktype.h"
 #include "buffer.h"
-#include "commands.h"
 #include "console.h"
 #include "console-tty.h"
 #include "events.h"
@@ -181,7 +180,7 @@ x_reset_key_mapping (struct device *d)
   Display *display = DEVICE_X_DISPLAY (d);
   struct x_device *xd = DEVICE_X_DATA (d);
   KeySym *keysym, *keysym_end;
-  Lisp_Object hashtable;
+  Lisp_Object hash_table;
   int key_code_count, keysyms_per_code;
 
   if (xd->x_keysym_map)
@@ -194,12 +193,12 @@ x_reset_key_mapping (struct device *d)
     XGetKeyboardMapping (display, xd->x_keysym_map_min_code, key_code_count,
 			 &xd->x_keysym_map_keysyms_per_code);
 
-  hashtable = xd->x_keysym_map_hashtable;
-  if (HASHTABLEP (hashtable))
-    Fclrhash (hashtable);
+  hash_table = xd->x_keysym_map_hash_table;
+  if (HASH_TABLEP (hash_table))
+    Fclrhash (hash_table);
   else
-    xd->x_keysym_map_hashtable = hashtable =
-      make_lisp_hashtable (128, HASHTABLE_NONWEAK, HASHTABLE_EQUAL);
+    xd->x_keysym_map_hash_table = hash_table =
+      make_lisp_hash_table (128, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 
   for (keysym = xd->x_keysym_map,
 	 keysyms_per_code = xd->x_keysym_map_keysyms_per_code,
@@ -217,8 +216,8 @@ x_reset_key_mapping (struct device *d)
 	Lisp_Object sym = x_keysym_to_emacs_keysym (keysym[0], 0);
 	if (name)
 	  {
-	    Fputhash (build_string (name), Qsans_modifiers, hashtable);
-	    Fputhash (sym, Qsans_modifiers, hashtable);
+	    Fputhash (build_string (name), Qsans_modifiers, hash_table);
+	    Fputhash (sym, Qsans_modifiers, hash_table);
 	  }
       }
 
@@ -229,10 +228,10 @@ x_reset_key_mapping (struct device *d)
 	    {
 	      char *name = XKeysymToString (keysym[j]);
 	      Lisp_Object sym = x_keysym_to_emacs_keysym (keysym[j], 0);
-	      if (name && NILP (Fgethash (sym, hashtable, Qnil)))
+	      if (name && NILP (Fgethash (sym, hash_table, Qnil)))
 		{
-		  Fputhash (build_string (name), Qt, hashtable);
-		  Fputhash (sym, Qt, hashtable);
+		  Fputhash (build_string (name), Qt, hash_table);
+		  Fputhash (sym, Qt, hash_table);
 		}
 	    }
 	}
@@ -450,7 +449,7 @@ void
 x_init_modifier_mapping (struct device *d)
 {
   struct x_device *xd = DEVICE_X_DATA (d);
-  xd->x_keysym_map_hashtable = Qnil;
+  xd->x_keysym_map_hash_table = Qnil;
   xd->x_keysym_map = NULL;
   xd->x_modifier_keymap = NULL;
   x_reset_modifier_mapping (d);
@@ -772,7 +771,7 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
      /* simple_p means don't try too hard (ASCII only) */
 {
   KeySym keysym = 0;
-  
+
 #ifdef HAVE_XIM
   int len;
   char buffer[64];
@@ -1136,7 +1135,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	    emacs_event->timestamp  = DEVICE_X_LAST_SERVER_TIMESTAMP (d);
 
 	    state=DndDragButtons(x_event);
-	    
+
 	    if (state & ShiftMask)	modifiers |= MOD_SHIFT;
 	    if (state & ControlMask)	modifiers |= MOD_CONTROL;
 	    if (state & xd->MetaMask)	modifiers |= MOD_META;
@@ -1183,7 +1182,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 		l_type = Qdragdrop_MIME;
 		l_dndlist = list1 ( list3 ( list1 ( make_string ((Bufbyte *)"text/plain", 10) ),
 					    make_string ((Bufbyte *)"8bit", 4),
-					    make_ext_string ((Extbyte *)data, 
+					    make_ext_string ((Extbyte *)data,
 							     strlen((char *)data),
 							     FORMAT_CTEXT) ) );
 		break;
@@ -1205,7 +1204,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	      case DndLink:
 	      case DndExe:
 		{
-		  char *hurl = dnd_url_hexify_string (data, "file:");
+		  char *hurl = dnd_url_hexify_string ((char *) data, "file:");
 
 		  l_dndlist = list1 ( make_string ((Bufbyte *)hurl,
 						   strlen (hurl)) );
@@ -1217,7 +1216,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	      case DndURL:
 		/* as it is a real URL it should already be escaped
 		   and escaping again will break them (cause % is unsave) */
-		l_dndlist = list1 ( make_ext_string ((Extbyte *)data, 
+		l_dndlist = list1 ( make_ext_string ((Extbyte *)data,
 						     strlen ((char *)data),
 						     FORMAT_FILENAME) );
 		l_type = Qdragdrop_URL;
@@ -1595,7 +1594,7 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
       handle_client_message (f, event);
       break;
 
-    case VisibilityNotify: /* window visiblity has changed */
+    case VisibilityNotify: /* window visibility has changed */
       if (event->xvisibility.window == XtWindow (FRAME_X_SHELL_WIDGET (f)))
 	{
 	  FRAME_X_TOTALLY_VISIBLE_P (f) =
@@ -1694,7 +1693,7 @@ emacs_Xt_remove_timeout (int id)
   struct Xt_timeout *timeout, *t2;
 
   timeout = NULL;
-  
+
   /* Find the timeout on the list of pending ones, if it's still there. */
   if (pending_timeouts)
     {
@@ -2897,18 +2896,18 @@ vars_of_event_Xt (void)
   init_what_input_once ();
 
   Xt_event_stream = xnew (struct event_stream);
-  Xt_event_stream->event_pending_p 	= emacs_Xt_event_pending_p;
-  Xt_event_stream->next_event_cb	= emacs_Xt_next_event;
-  Xt_event_stream->handle_magic_event_cb= emacs_Xt_handle_magic_event;
-  Xt_event_stream->add_timeout_cb 	= emacs_Xt_add_timeout;
-  Xt_event_stream->remove_timeout_cb 	= emacs_Xt_remove_timeout;
-  Xt_event_stream->select_console_cb 	= emacs_Xt_select_console;
-  Xt_event_stream->unselect_console_cb 	= emacs_Xt_unselect_console;
-  Xt_event_stream->select_process_cb 	= emacs_Xt_select_process;
-  Xt_event_stream->unselect_process_cb 	= emacs_Xt_unselect_process;
-  Xt_event_stream->quit_p_cb		= emacs_Xt_quit_p;
-  Xt_event_stream->create_stream_pair_cb= emacs_Xt_create_stream_pair;
-  Xt_event_stream->delete_stream_pair_cb= emacs_Xt_delete_stream_pair;
+  Xt_event_stream->event_pending_p 	 = emacs_Xt_event_pending_p;
+  Xt_event_stream->next_event_cb	 = emacs_Xt_next_event;
+  Xt_event_stream->handle_magic_event_cb = emacs_Xt_handle_magic_event;
+  Xt_event_stream->add_timeout_cb 	 = emacs_Xt_add_timeout;
+  Xt_event_stream->remove_timeout_cb 	 = emacs_Xt_remove_timeout;
+  Xt_event_stream->select_console_cb 	 = emacs_Xt_select_console;
+  Xt_event_stream->unselect_console_cb 	 = emacs_Xt_unselect_console;
+  Xt_event_stream->select_process_cb 	 = emacs_Xt_select_process;
+  Xt_event_stream->unselect_process_cb 	 = emacs_Xt_unselect_process;
+  Xt_event_stream->quit_p_cb		 = emacs_Xt_quit_p;
+  Xt_event_stream->create_stream_pair_cb = emacs_Xt_create_stream_pair;
+  Xt_event_stream->delete_stream_pair_cb = emacs_Xt_delete_stream_pair;
 
   DEFVAR_BOOL ("modifier-keys-are-sticky", &modifier_keys_are_sticky /*
 *Non-nil makes modifier keys sticky.

@@ -146,35 +146,35 @@ been generated automatically, with a reference to the keymap."
 	     (setq docstring nil)))
   (setq docstring (or docstring (derived-mode-make-docstring parent child)))
 
-  (` (progn 
-       (derived-mode-init-mode-variables (quote (, child)))
-       (defun (, child) ()
-	 (, docstring)
+  `(progn 
+       (derived-mode-init-mode-variables (quote ,child))
+       (defun ,child ()
+	 ,docstring
 	 (interactive)
 					; Run the parent.
-	 ((, parent))
+	 (,parent)
 					; Identify special modes.
-	 (if (get (quote (, parent)) 'special)
-	     (put (quote (, child)) 'special t))
+	 (if (get (quote ,parent) 'special)
+	     (put (quote ,child) 'special t))
 	 ;; XEmacs addition
-	 (let ((mode-class (get (quote (, parent)) 'mode-class)))
+	 (let ((mode-class (get (quote ,parent) 'mode-class)))
 	   (if mode-class
-	       (put (quote (, child)) 'mode-class mode-class)))
+	       (put (quote ,child) 'mode-class mode-class)))
 					; Identify the child mode.
-	 (setq major-mode (quote (, child)))
-	 (setq mode-name (, name))
+	 (setq major-mode (quote ,child))
+	 (setq mode-name ,name)
 					; Set up maps and tables.
-	 (derived-mode-set-keymap (quote (, child)))
-	 (derived-mode-set-syntax-table (quote (, child)))
-	 (derived-mode-set-abbrev-table (quote (, child)))
+	 (derived-mode-set-keymap (quote ,child))
+	 (derived-mode-set-syntax-table (quote ,child))
+	 (derived-mode-set-abbrev-table (quote ,child))
 					; Splice in the body (if any).
-	 (,@ body)
+	 ,@body
 ;;;					; Run the setup function, if
 ;;;					; any -- this will soon be
 ;;;					; obsolete.
-;;;	 (derived-mode-run-setup-function (quote (, child)))
+;;;	 (derived-mode-run-setup-function (quote ,child))
 					; Run the hooks, if any.
-	 (derived-mode-run-hooks (quote (, child)))))))
+	 (derived-mode-run-hooks (quote ,child)))))
 
 
 ;; PUBLIC: find the ultimate class of a derived mode.
@@ -223,30 +223,30 @@ the first time the mode is used."
 
   (if (boundp (derived-mode-map-name mode))
       t
-    (eval (` (defvar (, (derived-mode-map-name mode))
-	       ;; XEmacs change
-	       (make-sparse-keymap (derived-mode-map-name mode))
-	       (, (format "Keymap for %s." mode)))))
+    (eval `(defvar ,(derived-mode-map-name mode)
+	     ;; XEmacs change
+	     (make-sparse-keymap (derived-mode-map-name mode))
+	     ,(format "Keymap for %s." mode)))
     (put (derived-mode-map-name mode) 'derived-mode-unmerged t))
 
   (if (boundp (derived-mode-syntax-table-name mode))
       t
-    (eval (` (defvar (, (derived-mode-syntax-table-name mode))
-	       ;; XEmacs change
-	       ;; Make a syntax table which doesn't specify anything
-	       ;; for any char.  Valid data will be merged in by
-	       ;; derived-mode-merge-syntax-tables.
-	       ;; (make-char-table 'syntax-table nil)
-	       (make-syntax-table)
-	       (, (format "Syntax table for %s." mode)))))
+    (eval `(defvar ,(derived-mode-syntax-table-name mode)
+	     ;; XEmacs change
+	     ;; Make a syntax table which doesn't specify anything
+	     ;; for any char.  Valid data will be merged in by
+	     ;; derived-mode-merge-syntax-tables.
+	     ;; (make-char-table 'syntax-table nil)
+	     (make-syntax-table)
+	     ,(format "Syntax table for %s." mode)))
     (put (derived-mode-syntax-table-name mode) 'derived-mode-unmerged t))
 
   (if (boundp (derived-mode-abbrev-table-name mode))
       t
-    (eval (` (defvar (, (derived-mode-abbrev-table-name mode))
-	       (progn (define-abbrev-table (derived-mode-abbrev-table-name mode) nil)
-		      (make-abbrev-table))
-	       (, (format "Abbrev table for %s." mode)))))))
+    (eval `(defvar ,(derived-mode-abbrev-table-name mode)
+	     (progn (define-abbrev-table (derived-mode-abbrev-table-name mode) nil)
+		    (make-abbrev-table))
+	     ,(format "Abbrev table for %s." mode)))))
 
 (defun derived-mode-make-docstring (parent child)
   "Construct a docstring for a new mode if none is provided."

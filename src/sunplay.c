@@ -61,7 +61,7 @@ static SIGTYPE sighandler (int sig);
 
 static int audio_fd;
 
-#define audio_open()	open ("/dev/audio", (O_WRONLY | O_NDELAY), 0)
+#define audio_open()	open ("/dev/audio", (O_WRONLY | O_NONBLOCK), 0)
 
 static int reset_volume_p, reset_device_p;
 static double old_volume;

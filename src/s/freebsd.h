@@ -55,7 +55,7 @@
 #endif
 #define LD_SWITCH_SYSTEM
 #define START_FILES pre-crt0.o /usr/lib/crt1.o /usr/lib/crti.o /usr/lib/crtbegin.o
-#define UNEXEC unexelf.o
+#define UNEXEC "unexelf.o"
 #define LIB_STANDARD -lgcc -lc -lgcc /usr/lib/crtend.o /usr/lib/crtn.o
 #define LINKER "$(CC) -nostdlib"
 #undef LIB_GCC

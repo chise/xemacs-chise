@@ -24,8 +24,8 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_KEYMAP_H_
 #define _XEMACS_KEYMAP_H_
 
-DECLARE_LRECORD (keymap, struct keymap);
-#define XKEYMAP(x) XRECORD (x, keymap, struct keymap)
+DECLARE_LRECORD (keymap, struct Lisp_Keymap);
+#define XKEYMAP(x) XRECORD (x, keymap, struct Lisp_Keymap)
 #define XSETKEYMAP(x, p) XSETRECORD (x, p, keymap)
 #define KEYMAPP(x) RECORDP (x, keymap)
 #define GC_KEYMAPP(x) GC_RECORDP (x, keymap)

@@ -42,13 +42,12 @@
 
 (defmacro define-widget-keywords (&rest keys)
   "This doesn't do anything in Emacs 20 or XEmacs."
-  (`
-   (eval-and-compile
-    (let ((keywords (quote (, keys))))
-      (while keywords
-	(or (boundp (car keywords))
-           (set (car keywords) (car keywords)))
-       (setq keywords (cdr keywords)))))))
+  `(eval-and-compile
+     (let ((keywords (quote ,keys)))
+       (while keywords
+	 (or (boundp (car keywords))
+	     (set (car keywords) (car keywords)))
+	 (setq keywords (cdr keywords))))))
 
 (defun define-widget (name class doc &rest args)
   "Define a new widget type named NAME from CLASS.

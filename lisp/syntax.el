@@ -183,7 +183,7 @@ Defined flags are the characters 1, 2, 3, 4, 5, 6, 7, 8, p, a, and b.
  b means C is comment starter or comment ender for comment style b."
   (interactive 
    ;; I really don't know why this is interactive
-   ;; help-form should at least be made useful whilst reading the second arg
+   ;; help-form should at least be made useful while reading the second arg
    "cSet syntax for character: \nsSet syntax for %c to: ")
   (cond ((syntax-table-p table))
         ((not table)

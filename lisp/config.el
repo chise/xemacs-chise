@@ -33,13 +33,13 @@
   "File containing configuration parameters and their values.")
 
 (defvar config-value-hash-table nil
-  "Hashtable to store configuration parameters and their values.")
+  "Hash table to store configuration parameters and their values.")
 
 ;;;###autoload
 (defun config-value-hash-table ()
-  "Return hashtable of configuration parameters and their values."
+  "Return hash table of configuration parameters and their values."
   (when (null config-value-hash-table)
-    (setq config-value-hash-table (make-hashtable 300))
+    (setq config-value-hash-table (make-hash-table :size 300))
     (save-excursion
       (let ((buf (get-buffer-create " *Config*")))
 	(set-buffer buf)

@@ -100,7 +100,7 @@ struct device
      frames on this device have the window-system focus), but
      selected_frame will never be nil if there are any frames on
      the device. */
-  Lisp_Object _selected_frame;
+  Lisp_Object selected_frame;
   /* Frame that currently contains the window-manager focus, or none.
      Note that we've split frame_with_focus into two variables.
      frame_with_focus_real is the value we use most of the time,
@@ -308,7 +308,7 @@ int valid_device_class_p (Lisp_Object class);
 #define DEVICE_NAME(d) ((d)->name)
 #define DEVICE_CLASS(d) ((d)->device_class)
 /* Catch people attempting to set this. */
-#define DEVICE_SELECTED_FRAME(d) NON_LVALUE ((d)->_selected_frame)
+#define DEVICE_SELECTED_FRAME(d) NON_LVALUE ((d)->selected_frame)
 #define DEVICE_FRAME_WITH_FOCUS_REAL(d) ((d)->frame_with_focus_real)
 #define DEVICE_FRAME_WITH_FOCUS_FOR_HOOKS(d) ((d)->frame_with_focus_for_hooks)
 #define DEVICE_FRAME_THAT_OUGHT_TO_HAVE_FOCUS(d)			\
@@ -331,11 +331,11 @@ int valid_device_class_p (Lisp_Object class);
 #define INVALIDATE_DEVICE_PIXEL_TO_GLYPH_CACHE(d)			\
   ((void) ((d)->pixel_to_glyph_cache.valid = 0))
 
-#define INVALIDATE_PIXEL_TO_GLYPH_CACHE do {				\
-  Lisp_Object _devcons_, _concons_;					\
-  DEVICE_LOOP_NO_BREAK (_devcons_, _concons_)				\
-    INVALIDATE_DEVICE_PIXEL_TO_GLYPH_CACHE (XDEVICE (XCAR (_devcons_)));\
-  } while (0)
+#define INVALIDATE_PIXEL_TO_GLYPH_CACHE do {					\
+  Lisp_Object IPTGC_devcons, IPTGC_concons;					\
+  DEVICE_LOOP_NO_BREAK (IPTGC_devcons, IPTGC_concons)				\
+    INVALIDATE_DEVICE_PIXEL_TO_GLYPH_CACHE (XDEVICE (XCAR (IPTGC_devcons)));	\
+} while (0)
 
 #define MARK_DEVICE_FACES_CHANGED(d)			\
   ((void) (faces_changed = (d)->faces_changed = 1))

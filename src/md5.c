@@ -27,10 +27,7 @@
 #endif
 
 #include <sys/types.h>
-
-#include <stdlib.h>
 #include <string.h>
-
 #include <stdio.h>
 
 #if defined HAVE_LIMITS_H || _LIBC

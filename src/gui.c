@@ -26,7 +26,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "gui.h"
-#include "bytecode.h"		/* for struct Lisp_Compiled_Function */
+#include "bytecode.h"
 
 Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
 Lisp_Object Q_filter, Q_config, Q_included, Q_key_sequence;

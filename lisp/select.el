@@ -273,7 +273,7 @@ secondary selection instead of the primary selection."
 		   ;; why is killed-rectangle free?  Is it used somewhere?
 		   ;; should it be defvarred?
 		   (setq killed-rectangle (extract-rectangle s e))
-		   (kill-new (mapconcat 'identity killed-rectangle "\n")))
+		   (kill-new (mapconcat #'identity killed-rectangle "\n")))
 	       (copy-region-as-kill s e))
 	     ;; Maybe killing doesn't own clipboard.  Make sure it happens.
 	     ;; This memq is kind of grody, because they might have done it

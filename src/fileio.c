@@ -438,7 +438,7 @@ Given a Unix syntax file name, returns a string ending in slash.
 
   while (p != beg && !IS_ANY_SEP (p[-1])
 #ifdef WINDOWSNT
-	 /* only recognise drive specifier at beginning */
+	 /* only recognize drive specifier at beginning */
 	 && !(p[-1] == ':' && p == beg + 2)
 #endif
     ) p--;
@@ -493,7 +493,7 @@ or the entire name if it contains no slash.
 
   while (p != beg && !IS_ANY_SEP (p[-1])
 #ifdef WINDOWSNT
-	 /* only recognise drive specifier at beginning */
+	 /* only recognize drive specifier at beginning */
 	 && !(p[-1] == ':' && p == beg + 2)
 #endif
     ) p--;
@@ -742,18 +742,17 @@ be an absolute file name.
 	  /* We want to return only if errno is ENOENT.  */
 	  if (errno == ENOENT)
 	    return val;
-	  else
-	    /* The error here is dubious, but there is little else we
-	       can do.  The alternatives are to return nil, which is
-	       as bad as (and in many cases worse than) throwing the
-	       error, or to ignore the error, which will likely result
-	       in inflooping.  */
-	    report_file_error ("Cannot create temporary name for prefix",
-			       list1 (prefix));
-	  /* not reached */
+
+	  /* The error here is dubious, but there is little else we
+	     can do.  The alternatives are to return nil, which is
+	     as bad as (and in many cases worse than) throwing the
+	     error, or to ignore the error, which will likely result
+	     in inflooping.  */
+	  report_file_error ("Cannot create temporary name for prefix",
+			     list1 (prefix));
+	  return Qnil; /* not reached */
 	}
     }
-  RETURN_NOT_REACHED (Qnil);
 }
 
 
@@ -869,7 +868,7 @@ See also the function `substitute-in-file-name'.
 
     if (colon)
       /* Only recognize colon as part of drive specifier if there is a
-	 single alphabetic character preceeding the colon (and if the
+	 single alphabetic character preceding the colon (and if the
 	 character before the drive letter, if present, is a directory
 	 separator); this is to support the remote system syntax used by
 	 ange-ftp, and the "po:username" syntax for POP mailboxes. */
@@ -991,7 +990,8 @@ See also the function `substitute-in-file-name'.
 	}
       else			/* ~user/filename */
 	{
-	  for (p = nm; *p && (!IS_DIRECTORY_SEP (*p)); p++);
+	  for (p = nm; *p && (!IS_DIRECTORY_SEP (*p)); p++)
+	    DO_NOTHING;
 	  o = (Bufbyte *) alloca (p - nm + 1);
 	  memcpy (o, (char *) nm, p - nm);
 	  o [p - nm] = 0;
@@ -1018,13 +1018,13 @@ See also the function `substitute-in-file-name'.
 	    {
 	      /* Does the user login name match the ~name? */
 	      if (strcmp(user,((char *) o + 1)) == 0)
-	        { 
+	        {
 		  newdir = (Bufbyte *)  get_home_directory();
 	          nm = p;
 		}
 	    }
           if (! newdir)
-            {	
+            {
 #endif /* __CYGWIN32__ */
 	  /* Jamie reports that getpwnam() can get wedged by SIGIO/SIGALARM
 	     occurring in it. (It can call select()). */
@@ -1770,7 +1770,7 @@ A prefix arg makes KEEP-TIME non-nil.
     }
 #endif /* S_ISREG && S_ISLNK */
 
-  ofd = open( (char *) XSTRING_DATA (newname), 
+  ofd = open( (char *) XSTRING_DATA (newname),
 	      O_WRONLY | O_CREAT | O_TRUNC | OPEN_BINARY, CREAT_MODE);
   if (ofd < 0)
     report_file_error ("Opening output file", list1 (newname));
@@ -2049,7 +2049,7 @@ This is what happens in interactive use with M-x.
    on NT here. --marcpa */
 /* But FSF #defines link as sys_link which is supplied in nt.c. We can't do
    that because sysfile.h defines sys_link depending on ENCAPSULATE_LINK.
-   Reverted to previous behaviour pending a working fix. (jhar) */
+   Reverted to previous behavior pending a working fix. (jhar) */
 #if defined(WINDOWSNT)
   /* Windows does not support this operation.  */
   report_file_error ("Adding new name", Flist (2, &filename));
@@ -2525,7 +2525,7 @@ Return mode bits of FILE, as an integer.
   /* Syncing with FSF 19.34.6 note: not in FSF, #if 0'ed out here. */
 #if 0
 #ifdef DOS_NT
-  if (check_executable (XSTRING (abspath)->_data))
+  if (check_executable (XSTRING_DATA (abspath)))
     st.st_mode |= S_IEXEC;
 #endif /* DOS_NT */
 #endif /* 0 */
@@ -3346,10 +3346,10 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
     /* On VMS and APOLLO, must do the stat after the close
        since closing changes the modtime.  */
     /* As it does on Windows too - kkm */
-    /* The spurious warnings appear on Linux too.  Rather than handling 
+    /* The spurious warnings appear on Linux too.  Rather than handling
        this on a per-system basis, unconditionally do the stat after the close - cgw */
-       
-#if 0 /* !defined (WINDOWSNT)  /* !defined (VMS) && !defined (APOLLO) */
+
+#if 0 /* !defined (WINDOWSNT) */  /* !defined (VMS) && !defined (APOLLO) */
     fstat (desc, &st);
 #endif
 
@@ -3367,7 +3367,7 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
     unbind_to (speccount, Qnil);
   }
 
-  /* # if defined (WINDOWSNT) /* defined (VMS) || defined (APOLLO) */
+  /* # if defined (WINDOWSNT) */ /* defined (VMS) || defined (APOLLO) */
   stat ((char *) XSTRING_DATA (fn), &st);
   /* #endif */
 
@@ -3429,7 +3429,10 @@ Return t if (car A) is numerically less than (car B).
 */
        (a, b))
 {
-  return arithcompare (Fcar (a), Fcar (b), arith_less);
+  Lisp_Object objs[2];
+  objs[0] = Fcar (a);
+  objs[1] = Fcar (b);
+  return Flss (2, objs);
 }
 
 /* Heh heh heh, let's define this too, just to aggravate the person who
@@ -3439,7 +3442,10 @@ Return t if (cdr A) is numerically less than (cdr B).
 */
        (a, b))
 {
-  return arithcompare (Fcdr (a), Fcdr (b), arith_less);
+  Lisp_Object objs[2];
+  objs[0] = Fcdr (a);
+  objs[1] = Fcdr (b);
+  return Flss (2, objs);
 }
 
 /* Build the complete list of annotations appropriate for writing out
@@ -3828,7 +3834,7 @@ auto_save_expand_name (Lisp_Object name)
   struct gcpro gcpro1;
 
   /* note that caller did NOT gc protect name, so we do it. */
-  /* #### dmoore - this might not be neccessary, if condition_case_1
+  /* #### dmoore - this might not be necessary, if condition_case_1
      protects it.  but I don't think it does. */
   GCPRO1 (name);
   RETURN_UNGCPRO (Fexpand_file_name (name, Qnil));

@@ -83,23 +83,23 @@ xlwMenuResources[] =
      /* We must use an iso8859-1 font here, or people without $LANG set lose.
 	It's fair to assume that those who do have $LANG set also have the
 	*fontList resource set, or at least know how to deal with this. */
-     XtRString, "-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-1"},
+     XtRString, (XtPointer) "-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-1"},
 #else
   {XtNfont,  XtCFont, XtRFontStruct, sizeof(XFontStruct *),
-     offset(menu.font), XtRString, "XtDefaultFont"},
+     offset(menu.font), XtRString, (XtPointer) "XtDefaultFont"},
 # ifdef USE_XFONTSET
   {XtNfontSet,  XtCFontSet, XtRFontSet, sizeof(XFontSet),
-     offset(menu.font_set), XtRString, "XtDefaultFontSet"},
+     offset(menu.font_set), XtRString, (XtPointer) "XtDefaultFontSet"},
 # endif
 #endif
   {XtNforeground, XtCForeground, XtRPixel, sizeof(Pixel),
-     offset(menu.foreground), XtRString, "XtDefaultForeground"},
+     offset(menu.foreground), XtRString, (XtPointer) "XtDefaultForeground"},
   {XtNbuttonForeground, XtCButtonForeground, XtRPixel, sizeof(Pixel),
-     offset(menu.button_foreground), XtRString, "XtDefaultForeground"},
+     offset(menu.button_foreground), XtRString, (XtPointer) "XtDefaultForeground"},
   {XtNhighlightForeground, XtCHighlightForeground, XtRPixel, sizeof(Pixel),
-     offset(menu.highlight_foreground), XtRString, "XtDefaultForeground"},
+     offset(menu.highlight_foreground), XtRString, (XtPointer) "XtDefaultForeground"},
   {XtNtitleForeground, XtCTitleForeground, XtRPixel, sizeof(Pixel),
-     offset(menu.title_foreground), XtRString, "XtDefaultForeground"},
+     offset(menu.title_foreground), XtRString, (XtPointer) "XtDefaultForeground"},
   {XtNmargin, XtCMargin, XtRDimension,  sizeof(Dimension),
      offset(menu.margin), XtRImmediate, (XtPointer)2},
   {XmNmarginWidth, XmCMarginWidth, XmRHorizontalDimension, sizeof(Dimension),
@@ -867,16 +867,16 @@ string_draw_u (XlwMenuWidget mw,
 #endif
 )
 {
-int i,s=0;
-char *chars;
+  int i, s = 0;
+  char *chars;
 
 #ifdef NEED_MOTIF
   XmStringGetLtoR (string, XmFONTLIST_DEFAULT_TAG, &chars);
 #else
   chars = string;
 #endif
-  for (i=0;chars[i];++i) {
-      if (chars[i]=='%'&&chars[i+1]=='_') {
+  for (i=0; chars[i]; ++i) {
+      if (chars[i] == '%' && chars[i+1] == '_') {
 	  int w;
 
 	  x += string_draw_range (mw, window, x, y, gc, chars, s, i);
@@ -1475,7 +1475,7 @@ print_widget_value (widget_value *wv, int just_one, int depth)
       print_widget_value (wv->next, 0, depth);
     }
 }
-#endif
+#endif /* SLOPPY_TYPES < 2 */
 
 static Boolean
 all_dashes_p (char *s)
@@ -1489,30 +1489,29 @@ all_dashes_p (char *s)
     return True;
   return False;
 }
-#endif
+#endif /* SLOPPY_TYPES */
 
 static widget_value_type
 menu_item_type (widget_value *val)
 {
   if (val->type != UNSPECIFIED_TYPE)
     return val->type;
-  else
-    {
 #if SLOPPY_TYPES
-      if (all_dashes_p (val->name))
-	return SEPARATOR_TYPE;
-      else if (val->name && val->name[0] == '\0') /* push right */
-	return PUSHRIGHT_TYPE;
-      else if (val->contents) /* cascade */
-	return CASCADE_TYPE;
-      else if (val->call_data) /* push button */
-	return BUTTON_TYPE;
-      else
-	return TEXT_TYPE;
+  else if (all_dashes_p (val->name))
+    return SEPARATOR_TYPE;
+  else if (val->name && val->name[0] == '\0') /* push right */
+    return PUSHRIGHT_TYPE;
+  else if (val->contents) /* cascade */
+    return CASCADE_TYPE;
+  else if (val->call_data) /* push button */
+    return BUTTON_TYPE;
+  else
+    return TEXT_TYPE;
 #else
+  else 
     abort();
+  return UNSPECIFIED_TYPE; /* Not reached */
 #endif
-    }
 }
 
 static void

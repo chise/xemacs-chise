@@ -52,7 +52,6 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "buffer.h"
-#include "insdel.h"
 
 #include "line-number.h"
 
@@ -81,7 +80,7 @@ Boston, MA 02111-1307, USA.  */
 /* Initialize the cache.  Cache is (in pseudo-BNF):
 
    CACHE		= nil | INITIALIZED-CACHE
-   INITITIALIZED-CACHE	= cons (RING, BEGV-LINE)
+   INITIALIZED-CACHE	= cons (RING, BEGV-LINE)
    RING			= vector (*RING-ELEMENT)
    RING-ELEMENT		= nil | RING-PAIR
    RING-PAIR		= cons (marker, integer)

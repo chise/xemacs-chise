@@ -44,7 +44,7 @@
 ;; keys are bound to one-character keyboard macros, so that `kp-9' will, by
 ;; default, do the same thing that `9' does, in whatever the current mode is.
 
-;; The standard case and syntax tables are set in prim/iso8859-1.el, since
+;; The standard case and syntax tables are set in iso8859-1.el, since
 ;; that is not X-specific.
 
 ;;; Code:
@@ -71,16 +71,16 @@ possible, in the interest of portability.")
 	;; the keysym symbols.
 	;; 
 	(mapcar '(lambda (sym-and-code)
-		   (list 'put (list 'quote (car sym-and-code))
-			 ''x-iso8859/1 (car (cdr sym-and-code))))
+		  (list 'put (list 'quote (car sym-and-code))
+			''x-iso8859/1 (car (cdr sym-and-code))))
 		syms-and-iso8859/1-codes)
 	;;
 	;; Then emit code that binds all of those keysym symbols to
 	;; `self-insert-command'.
 	;; 
 	(mapcar '(lambda (sym-and-code)
-		   (list 'global-set-key (list 'quote (car sym-and-code))
-			 ''self-insert-command))
+		  (list 'global-set-key (list 'quote (car sym-and-code))
+			''self-insert-command))
 		syms-and-iso8859/1-codes)
 	;;
 	;; Then emit the value of iso8859/1-code-to-x-keysym-table.
@@ -96,8 +96,8 @@ possible, in the interest of portability.")
 		  '((8 backspace) (9 tab) (10 linefeed) (13 return)
 		    (27 escape) (32 space) (127 delete)))
 	  (mapcar '(lambda (sym-and-code)
-		     (or (aref v (car (cdr sym-and-code)))
-			 (aset v (car (cdr sym-and-code)) (car sym-and-code))))
+		    (or (aref v (car (cdr sym-and-code)))
+			(aset v (car (cdr sym-and-code)) (car sym-and-code))))
 		  syms-and-iso8859/1-codes)
 	  (list (list 'setq 'iso8859/1-code-to-x-keysym-table v)))
 	))))
@@ -211,8 +211,8 @@ possible, in the interest of portability.")
 ((macro . (lambda (&rest syms-and-iso8859/1-codes)
 	    (cons 'progn
 		  (mapcar '(lambda (sym-and-code)
-			     (list 'put (list 'quote (car sym-and-code))
-				   ''x-iso8859/1 (car (cdr sym-and-code))))
+			    (list 'put (list 'quote (car sym-and-code))
+				  ''x-iso8859/1 (car (cdr sym-and-code))))
 			  syms-and-iso8859/1-codes))))
  ;;
  ;; Let's do the appropriate thing for some vendor-specific keysyms too...

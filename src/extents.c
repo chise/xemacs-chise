@@ -222,7 +222,6 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs.h"
-#include "hash.h"
 #include "insdel.h"
 #include "keymap.h"
 #include "opaque.h"
@@ -536,7 +535,7 @@ gap_array_make_gap (Gap_Array *ga, int increment)
   int old_gap_size;
 
   /* If we have to get more space, get enough to last a while.  We use
-     a geometric progession that saves on realloc space. */
+     a geometric progression that saves on realloc space. */
   increment += 100 + ga->numels / 8;
 
   ptr = (char *) xrealloc (ptr,
@@ -914,15 +913,15 @@ static Lisp_Object
 mark_extent_auxiliary (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct extent_auxiliary *data = XEXTENT_AUXILIARY (obj);
-  ((markobj) (data->begin_glyph));
-  ((markobj) (data->end_glyph));
-  ((markobj) (data->invisible));
-  ((markobj) (data->children));
-  ((markobj) (data->read_only));
-  ((markobj) (data->mouse_face));
-  ((markobj) (data->initial_redisplay_function));
-  ((markobj) (data->before_change_functions));
-  ((markobj) (data->after_change_functions));
+  markobj (data->begin_glyph);
+  markobj (data->end_glyph);
+  markobj (data->invisible);
+  markobj (data->children);
+  markobj (data->read_only);
+  markobj (data->mouse_face);
+  markobj (data->initial_redisplay_function);
+  markobj (data->before_change_functions);
+  markobj (data->after_change_functions);
   return data->parent;
 }
 
@@ -976,10 +975,9 @@ static void soe_invalidate (Lisp_Object obj);
 static Lisp_Object
 mark_extent_info (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  struct extent_info *data =
-    (struct extent_info *) XEXTENT_INFO (obj);
+  struct extent_info *data = (struct extent_info *) XEXTENT_INFO (obj);
   int i;
-  Extent_List *list;
+  Extent_List *list = data->extents;
 
   /* Vbuffer_defaults and Vbuffer_local_symbols are buffer-like
      objects that are created specially and never have their extent
@@ -990,7 +988,6 @@ mark_extent_info (Lisp_Object obj, void (*markobj) (Lisp_Object))
      (Also the list can be zero when we're dealing with a destroyed
      buffer.) */
 
-  list = data->extents;
   if (list)
     {
       for (i = 0; i < extent_list_num_els (list); i++)
@@ -999,7 +996,7 @@ mark_extent_info (Lisp_Object obj, void (*markobj) (Lisp_Object))
 	  Lisp_Object exobj;
 
 	  XSETEXTENT (exobj, extent);
-	  ((markobj) (exobj));
+	  markobj (exobj);
 	}
     }
 
@@ -1608,7 +1605,7 @@ extent_changed_for_redisplay (EXTENT extent, int descendants_too,
        force the modeline to be updated.  But how to determine whether
        a string is a `generated-modeline-string'?  Looping through
        all buffers is not very efficient.  Should we add all
-       `generated-modeline-string' strings to a hashtable?
+       `generated-modeline-string' strings to a hash table?
        Maybe efficiency is not the greatest concern here and there's
        no big loss in looping over the buffers. */
     return;
@@ -1824,7 +1821,7 @@ extent_in_region_p (EXTENT extent, Bytind from, Bytind to,
   Endpoint_Index start, end, exs, exe;
   int start_open, end_open;
   unsigned int all_extents_flags = flags & ME_ALL_EXTENTS_MASK;
-  unsigned int in_region_flags = flags & ME_IN_REGION_MASK;
+  unsigned int in_region_flags   = flags & ME_IN_REGION_MASK;
   int retval;
 
   /* A zero-length region is treated as closed-closed. */
@@ -1834,31 +1831,30 @@ extent_in_region_p (EXTENT extent, Bytind from, Bytind to,
       flags &= ~ME_START_OPEN;
     }
 
-  switch (all_extents_flags)
-    {
-    case ME_ALL_EXTENTS_CLOSED:
-      start_open = end_open = 0; break;
-    case ME_ALL_EXTENTS_OPEN:
-      start_open = end_open = 1; break;
-    case ME_ALL_EXTENTS_CLOSED_OPEN:
-      start_open = 0; end_open = 1; break;
-    case ME_ALL_EXTENTS_OPEN_CLOSED:
-      start_open = 1; end_open = 0; break;
-    default:
-      start_open = extent_start_open_p (extent);
-      end_open = extent_end_open_p (extent);
-      break;
-    }
-
   /* So is a zero-length extent. */
   if (extent_start (extent) == extent_end (extent))
-    start_open = end_open = 0;
+    start_open = 0, end_open = 0;
+  /* `all_extents_flags' will almost always be zero. */
+  else if (all_extents_flags == 0)
+    {
+      start_open = extent_start_open_p (extent);
+      end_open   = extent_end_open_p   (extent);
+    }
+  else
+    switch (all_extents_flags)
+      {
+      case ME_ALL_EXTENTS_CLOSED:      start_open = 0, end_open = 0; break;
+      case ME_ALL_EXTENTS_OPEN:        start_open = 1, end_open = 1; break;
+      case ME_ALL_EXTENTS_CLOSED_OPEN: start_open = 0, end_open = 1; break;
+      case ME_ALL_EXTENTS_OPEN_CLOSED: start_open = 1, end_open = 0; break;
+      default: abort(); break;
+      }
 
   start = buffer_or_string_bytind_to_startind (obj, from,
 					       flags & ME_START_OPEN);
   end = buffer_or_string_bytind_to_endind (obj, to, ! (flags & ME_END_CLOSED));
   exs = memind_to_startind (extent_start (extent), start_open);
-  exe = memind_to_endind (extent_end (extent), end_open);
+  exe = memind_to_endind   (extent_end   (extent), end_open);
 
   /* It's easy to determine whether an extent lies *outside* the
      region -- just determine whether it's completely before
@@ -1870,20 +1866,24 @@ extent_in_region_p (EXTENT extent, Bytind from, Bytind to,
     return 0;
 
   /* See if any further restrictions are called for. */
-  switch (in_region_flags)
-    {
-    case ME_START_IN_REGION:
-      retval = start <= exs && exs <= end; break;
-    case ME_END_IN_REGION:
-      retval = start <= exe && exe <= end; break;
-    case ME_START_AND_END_IN_REGION:
-      retval = start <= exs && exe <= end; break;
-    case ME_START_OR_END_IN_REGION:
-      retval = (start <= exs && exs <= end) || (start <= exe && exe <= end);
-      break;
-    default:
-      retval = 1; break;
-    }
+  /* in_region_flags will almost always be zero. */
+  if (in_region_flags == 0)
+    retval = 1;
+  else
+    switch (in_region_flags)
+      {
+      case ME_START_IN_REGION:
+	retval = start <= exs && exs <= end; break;
+      case ME_END_IN_REGION:
+	retval = start <= exe && exe <= end; break;
+      case ME_START_AND_END_IN_REGION:
+	retval = start <= exs && exe <= end; break;
+      case ME_START_OR_END_IN_REGION:
+	retval = (start <= exs && exs <= end) || (start <= exe && exe <= end);
+	break;
+      default:
+	abort(); break;
+      }
   return flags & ME_NEGATE_IN_REGION ? !retval : retval;
 }
 
@@ -2866,7 +2866,7 @@ extent_fragment_update (struct window *w, struct extent_fragment *ef,
 	      xzero (dummy_lhe_extent);
 	      set_extent_priority (&dummy_lhe_extent,
 				   mouse_highlight_priority);
-	      /* Need to break up thefollowing expression, due to an */
+	      /* Need to break up the following expression, due to an */
 	      /* error in the Digital UNIX 3.2g C compiler (Digital */
 	      /* UNIX Compiler Driver 3.11). */
 	      f = extent_mouse_face (lhe);
@@ -2942,8 +2942,8 @@ mark_extent (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct extent *extent = XEXTENT (obj);
 
-  ((markobj) (extent_object (extent)));
-  ((markobj) (extent_no_chase_normal_field (extent, face)));
+  markobj (extent_object (extent));
+  markobj (extent_no_chase_normal_field (extent, face));
   return extent->plist;
 }
 
@@ -2995,7 +2995,7 @@ print_extent_1 (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
       write_c_string (" ", printcharfun);
     }
 
-  sprintf (buf, "0x%lx", (unsigned long int) ext);
+  sprintf (buf, "0x%lx", (long) ext);
   write_c_string (buf, printcharfun);
 }
 
@@ -3042,8 +3042,8 @@ print_extent (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	  if (!EXTENT_LIVE_P (XEXTENT (obj)))
 	    error ("printing unreadable object #<destroyed extent>");
 	  else
-	    error ("printing unreadable object #<extent 0x%p>",
-		   XEXTENT (obj));
+	    error ("printing unreadable object #<extent 0x%lx>",
+		   (long) XEXTENT (obj));
 	}
 
       if (!EXTENT_LIVE_P (XEXTENT (obj)))
@@ -3106,13 +3106,13 @@ properties_equal (EXTENT e1, EXTENT e2, int depth)
 }
 
 static int
-extent_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+extent_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct extent *e1 = XEXTENT (o1);
-  struct extent *e2 = XEXTENT (o2);
+  struct extent *e1 = XEXTENT (obj1);
+  struct extent *e2 = XEXTENT (obj2);
   return
     (extent_start (e1) == extent_start (e2) &&
-     extent_end (e1) == extent_end (e2) &&
+     extent_end   (e1) == extent_end   (e2) &&
      internal_equal (extent_object (e1), extent_object (e2), depth + 1) &&
      properties_equal (extent_ancestor (e1), extent_ancestor (e2),
 		       depth));
@@ -4748,7 +4748,7 @@ memoize_extent_face_internal (Lisp_Object list)
      on the keys so the memoization works correctly.
 
      Note that we canonicalize things so that the keys in the
-     hashtable (the external lists) always contain symbols and
+     hash table (the external lists) always contain symbols and
      the values (the internal lists) always contain face objects.
 
      We also maintain a "reverse" table that maps from the internal
@@ -4998,7 +4998,7 @@ symbol_to_glyph_layout (Lisp_Object layout_obj)
   if (EQ (layout_obj, Qwhitespace))	return GL_WHITESPACE;
   if (EQ (layout_obj, Qtext))		return GL_TEXT;
 
-  signal_simple_error ("unknown glyph layout type", layout_obj);
+  signal_simple_error ("Unknown glyph layout type", layout_obj);
   return GL_TEXT; /* unreached */
 }
 
@@ -5325,23 +5325,15 @@ The following symbols have predefined meanings:
     Fset_extent_begin_glyph (extent, value, Qnil);
   else if (EQ (property, Qend_glyph))
     Fset_extent_end_glyph (extent, value, Qnil);
-  else if (EQ (property, Qstart_open) ||
-	   EQ (property, Qend_open) ||
-	   EQ (property, Qstart_closed) ||
-	   EQ (property, Qend_closed))
-    {
-      int start_open = -1, end_open = -1;
-      if (EQ (property, Qstart_open))
-	start_open = !NILP (value);
-      else if (EQ (property, Qend_open))
-	end_open = !NILP (value);
-      /* Support (but don't document...) the obvious antonyms. */
-      else if (EQ (property, Qstart_closed))
-	start_open = NILP (value);
-      else
-	end_open = NILP (value);
-      set_extent_openness (e, start_open, end_open);
-    }
+  else if (EQ (property, Qstart_open))
+    set_extent_openness (e, !NILP (value), -1);
+  else if (EQ (property, Qend_open))
+    set_extent_openness (e, -1, !NILP (value));
+  /* Support (but don't document...) the obvious *_closed antonyms. */
+  else if (EQ (property, Qstart_closed))
+    set_extent_openness (e, NILP (value), -1);
+  else if (EQ (property, Qend_closed))
+    set_extent_openness (e, -1, NILP (value));
   else
     {
       if (EQ (property, Qkeymap))
@@ -5387,18 +5379,21 @@ See `set-extent-property' for the built-in property names.
 {
   EXTENT e = decode_extent (extent, 0);
 
-  if      (EQ (property, Qdetached))
+  if (EQ (property, Qdetached))
     return extent_detached_p (e) ? Qt : Qnil;
   else if (EQ (property, Qdestroyed))
     return !EXTENT_LIVE_P (e) ? Qt : Qnil;
-#define RETURN_FLAG(flag) return extent_normal_field (e, flag) ? Qt : Qnil
-  else if (EQ (property, Qstart_open))	 RETURN_FLAG (start_open);
-  else if (EQ (property, Qend_open))	 RETURN_FLAG (end_open);
-  else if (EQ (property, Qunique))	 RETURN_FLAG (unique);
-  else if (EQ (property, Qduplicable))	 RETURN_FLAG (duplicable);
-  else if (EQ (property, Qdetachable))	 RETURN_FLAG (detachable);
-#undef RETURN_FLAG
-  /* Support (but don't document...) the obvious antonyms. */
+  else if (EQ (property, Qstart_open))
+    return extent_normal_field (e, start_open) ? Qt : Qnil;
+  else if (EQ (property, Qend_open))
+    return extent_normal_field (e, end_open) ? Qt : Qnil;
+  else if (EQ (property, Qunique))
+    return extent_normal_field (e, unique) ? Qt : Qnil;
+  else if (EQ (property, Qduplicable))
+    return extent_normal_field (e, duplicable) ? Qt : Qnil;
+  else if (EQ (property, Qdetachable))
+    return extent_normal_field (e, detachable) ? Qt : Qnil;
+  /* Support (but don't document...) the obvious *_closed antonyms. */
   else if (EQ (property, Qstart_closed))
     return extent_start_open_p (e) ? Qnil : Qt;
   else if (EQ (property, Qend_closed))
@@ -5755,12 +5750,10 @@ add_string_extents_mapper (EXTENT extent, void *arg)
   struct add_string_extents_arg *closure =
     (struct add_string_extents_arg *) arg;
   Bytecount start = extent_endpoint_bytind (extent, 0) - closure->from;
-  Bytecount end = extent_endpoint_bytind (extent, 1) - closure->from;
+  Bytecount end   = extent_endpoint_bytind (extent, 1) - closure->from;
 
   if (extent_duplicable_p (extent))
     {
-      EXTENT e;
-
       start = max (start, 0);
       end = min (end, closure->length);
 
@@ -5771,7 +5764,7 @@ add_string_extents_mapper (EXTENT extent, void *arg)
 	  !run_extent_copy_function (extent, start + closure->from,
 				     end + closure->from))
 	return 0;
-      e = copy_extent (extent, start, end, closure->string);
+      copy_extent (extent, start, end, closure->string);
     }
 
   return 0;
@@ -5896,25 +5889,21 @@ copy_string_extents_mapper (EXTENT extent, void *arg)
 {
   struct copy_string_extents_arg *closure =
     (struct copy_string_extents_arg *) arg;
-  Bytecount old_start, old_end;
-  Bytecount new_start, new_end;
+  Bytecount old_start, old_end, new_start, new_end;
 
   old_start = extent_endpoint_bytind (extent, 0);
-  old_end = extent_endpoint_bytind (extent, 1);
+  old_end   = extent_endpoint_bytind (extent, 1);
 
   old_start = max (closure->old_pos, old_start);
-  old_end = min (closure->old_pos + closure->length, old_end);
+  old_end   = min (closure->old_pos + closure->length, old_end);
 
   if (old_start >= old_end)
     return 0;
 
   new_start = old_start + closure->new_pos - closure->old_pos;
-  new_end = old_end + closure->new_pos - closure->old_pos;
+  new_end   = old_end   + closure->new_pos - closure->old_pos;
 
-  copy_extent (extent,
-	       old_start + closure->new_pos - closure->old_pos,
-	       old_end + closure->new_pos - closure->old_pos,
-	       closure->new_string);
+  copy_extent (extent, new_start, new_end, closure->new_string);
   return 0;
 }
 
@@ -6514,7 +6503,7 @@ Used as the `paste-function' property of `text-prop' extents.
 
   prop = Fextent_property (extent, Qtext_prop, Qnil);
   if (NILP (prop))
-    signal_simple_error ("internal error: no text-prop", extent);
+    signal_simple_error ("Internal error: no text-prop", extent);
   val = Fextent_property (extent, prop, Qnil);
 #if 0
   /* removed by bill perry, 2/9/97
@@ -6522,7 +6511,7 @@ Used as the `paste-function' property of `text-prop' extents.
   ** with a value of Qnil.  This is bad bad bad.
   */
   if (NILP (val))
-    signal_simple_error_2 ("internal error: no text-prop",
+    signal_simple_error_2 ("Internal error: no text-prop",
 			   extent, prop);
 #endif
   Fput_text_property (from, to, prop, val, Qnil);
@@ -6814,7 +6803,7 @@ See `set-extent-priority'.
   /* Set mouse-highlight-priority (which ends up being used both for the
      mouse-highlighting pseudo-extent and the primary selection extent)
      to a very high value because very few extents should override it.
-     1000 gives lots of room below it for different-prioritied extents.
+     1000 gives lots of room below it for different-prioritized extents.
      10 doesn't. ediff, for example, likes to use priorities around 100.
      --ben */
   mouse_highlight_priority = /* 10 */ 1000;
@@ -6850,14 +6839,14 @@ void
 complex_vars_of_extents (void)
 {
   staticpro (&Vextent_face_memoize_hash_table);
-  /* The memoize hash-table maps from lists of symbols to lists of
+  /* The memoize hash table maps from lists of symbols to lists of
      faces.  It needs to be `equal' to implement the memoization.
      The reverse table maps in the other direction and just needs
      to do `eq' comparison because the lists of faces are already
      memoized. */
   Vextent_face_memoize_hash_table =
-    make_lisp_hashtable (100, HASHTABLE_VALUE_WEAK, HASHTABLE_EQUAL);
+    make_lisp_hash_table (100, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
   staticpro (&Vextent_face_reverse_memoize_hash_table);
   Vextent_face_reverse_memoize_hash_table =
-    make_lisp_hashtable (100, HASHTABLE_KEY_WEAK, HASHTABLE_EQ);
+    make_lisp_hash_table (100, HASH_TABLE_KEY_WEAK, HASH_TABLE_EQ);
 }

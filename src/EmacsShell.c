@@ -24,14 +24,12 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 
-#include <stdio.h>
+#include <assert.h>
 #include <stdlib.h>
 #include <X11/StringDefs.h>
 #include "xintrinsicp.h"
 #include <X11/Shell.h>
 #include <X11/ShellP.h>
-#include <X11/Vendor.h>
-#include <X11/VendorP.h>
 #include "EmacsShell.h"
 #include "ExternalShell.h"
 
@@ -140,17 +138,14 @@ EmacsShellSetPositionUserSpecified (Widget gw)
 void
 EmacsShellSmashIconicHint (Widget shell, int iconic_p)
 {
-  /* See comment in xfns.c about this */
-  WMShellWidget wmshell;
-  int old, new;
-  if (! XtIsSubclass (shell, wmShellWidgetClass)) abort ();
-  wmshell = (WMShellWidget) shell;
-  old = (wmshell->wm.wm_hints.flags & StateHint
-	 ? wmshell->wm.wm_hints.initial_state
-	 : NormalState);
-  new = (iconic_p ? IconicState : NormalState);
+  /* See comment in frame-x.c about this */
+  WMShellWidget wmshell = (WMShellWidget) shell;
+  assert (XtIsSubclass (shell, wmShellWidgetClass));
+  /* old_state = (wmshell->wm.wm_hints.flags & StateHint
+                  ? wmshell->wm.wm_hints.initial_state
+                  : NormalState); */
   wmshell->wm.wm_hints.flags |= StateHint;
-  wmshell->wm.wm_hints.initial_state = new;
+  wmshell->wm.wm_hints.initial_state = iconic_p ? IconicState : NormalState;
 }
 
 void

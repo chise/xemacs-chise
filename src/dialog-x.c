@@ -25,9 +25,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "console-x.h"
-#include "EmacsManager.h"
 #include "EmacsFrame.h"
-#include "EmacsShell.h"
 #include "gui-x.h"
 
 #include "buffer.h"

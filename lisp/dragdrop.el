@@ -51,7 +51,7 @@ text is inserted."
 
 (defcustom dragdrop-autoload-tm-view nil
   "*{EXPERIMENTAL} If non-nil, autoload tm-view to decode MIME data.
-Otherwise, the buffer is only decoded if tm-view is already avaiable."
+Otherwise, the buffer is only decoded if tm-view is already available."
   :type 'boolean
   :group 'drag-n-drop)
 
@@ -176,7 +176,7 @@ Returns t if one of drop-funs returns t. Otherwise returns nil."
       (and (or (eq (cadr flist) t)
 	       (= (cadr flist) button))
 	   (or (eq (caddr flist) t)
-	       (dragdrop-compare-mods (caddr flist) modifiers))
+	       (dragdrop-compare-mods (caddr flist) mods))
 	   (apply (car flist) `(,event ,object ,@(cdddr flist)))
 	   ;; (funcall (car flist) event object)
 	   (throw 'dragdrop-drop-is-done t))
@@ -356,7 +356,7 @@ format."
 This function uses special data types if the low-level
 protocol requires it. It does so by calling
 dragdrop-drag-pure-text."
-  (dragdrop-drag-pure-text event
+  (experimental-dragdrop-drag-pure-text event
 			   (buffer-substring-no-properties begin end)))
 
 (defun experimental-dragdrop-drag-pure-text (event text)

@@ -187,10 +187,10 @@ XIM_init_frame (struct frame *f)
   static XtResource resources[] =
   {
     /*  name              class          represent'n   field    default value */
-    res(XtNximStyles,     XtCXimStyles,  XtRXimStyles, styles,  DefaultXIMStyles),
-    res(XtNfontSet,       XtCFontSet,    XtRFontSet,   fontset, XtDefaultFontSet),
-    res(XtNximForeground, XtCForeground, XtRPixel,     fg,      XtDefaultForeground),
-    res(XtNximBackground, XtCBackground, XtRPixel,     bg,      XtDefaultBackground)
+    res(XtNximStyles,     XtCXimStyles,  XtRXimStyles, styles,  (XtPointer) DefaultXIMStyles),
+    res(XtNfontSet,       XtCFontSet,    XtRFontSet,   fontset, (XtPointer) XtDefaultFontSet),
+    res(XtNximForeground, XtCForeground, XtRPixel,     fg,      (XtPointer) XtDefaultForeground),
+    res(XtNximBackground, XtCBackground, XtRPixel,     bg,      (XtPointer) XtDefaultBackground)
   };
 
   assert (win != 0 && w != NULL && d != NULL);
@@ -385,14 +385,14 @@ get_XIM_input (XKeyPressedEvent *x_key_event, XIC ic, Display *dpy)
   int i;
   XClientMessageEvent new_event;
 
-try_again:
+retry:
   len = XwcLookupString (ic, x_key_event, composed_input_buf.data,
 			 composed_input_buf.size, &keysym, &status);
   switch (status)
     {
     case XBufferOverflow:
       /* GROW_WC_STRING (&composed_input_buf, 32); mrb */
-      goto try_again;
+      goto retry;
     case XLookupChars:
       break;
     default:

@@ -110,22 +110,22 @@ mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
   switch (event->event_type)
     {
     case key_press_event:
-      ((markobj) (event->event.key.keysym));
+      markobj (event->event.key.keysym);
       break;
     case process_event:
-      ((markobj) (event->event.process.process));
+      markobj (event->event.process.process);
       break;
     case timeout_event:
-      ((markobj) (event->event.timeout.function));
-      ((markobj) (event->event.timeout.object));
+      markobj (event->event.timeout.function);
+      markobj (event->event.timeout.object);
       break;
     case eval_event:
     case misc_user_event:
-      ((markobj) (event->event.eval.function));
-      ((markobj) (event->event.eval.object));
+      markobj (event->event.eval.function);
+      markobj (event->event.eval.object);
       break;
     case magic_eval_event:
-      ((markobj) (event->event.magic_eval.object));
+      markobj (event->event.magic_eval.object);
       break;
     case button_press_event:
     case button_release_event:
@@ -137,7 +137,7 @@ mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
     default:
       abort ();
     }
-  ((markobj) (event->channel));
+  markobj (event->channel);
   return event->next;
 }
 
@@ -154,7 +154,7 @@ static void
 print_event (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   if (print_readably)
-    error ("printing unreadable object #<event>");
+    error ("Printing unreadable object #<event>");
 
   switch (XEVENT (obj)->event_type)
     {
@@ -219,16 +219,18 @@ print_event (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static int
-event_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Event *e1 = XEVENT (o1);
-  struct Lisp_Event *e2 = XEVENT (o2);
+  struct Lisp_Event *e1 = XEVENT (obj1);
+  struct Lisp_Event *e2 = XEVENT (obj2);
 
   if (e1->event_type != e2->event_type) return 0;
   if (!EQ (e1->channel, e2->channel)) return 0;
 /*  if (e1->timestamp != e2->timestamp) return 0; */
   switch (e1->event_type)
     {
+    default: abort ();
+
     case process_event:
       return EQ (e1->event.process.process, e2->event.process.process);
 
@@ -284,14 +286,14 @@ event_equal (Lisp_Object o1, Lisp_Object o2, int depth)
 #endif
 #ifdef HAVE_TTY
 	if (CONSOLE_TTY_P (con))
-	return (e1->event.magic.underlying_tty_event ==
-		e2->event.magic.underlying_tty_event);
+	  return (e1->event.magic.underlying_tty_event ==
+		  e2->event.magic.underlying_tty_event);
 #endif
 #ifdef HAVE_MS_WINDOWS
 	if (CONSOLE_MSWINDOWS_P (con))
-	return (!memcmp(&e1->event.magic.underlying_mswindows_event,
-		&e2->event.magic.underlying_mswindows_event,
-		sizeof(union magic_data)));
+	  return (!memcmp(&e1->event.magic.underlying_mswindows_event,
+			  &e2->event.magic.underlying_mswindows_event,
+			  sizeof(union magic_data)));
 #endif
 	return 1; /* not reached */
       }
@@ -299,10 +301,6 @@ event_equal (Lisp_Object o1, Lisp_Object o2, int depth)
     case empty_event:      /* Empty and deallocated events are equal. */
     case dead_event:
       return 1;
-
-    default:
-      abort ();
-      return 0;                 /* not reached; warning suppression */
     }
 }
 
@@ -512,45 +510,45 @@ WARNING: the event object returned may be a reused one; see the function
 	}
       else if (EQ (keyword, Qkey))
 	{
-	  if (e->event_type != key_press_event)
-	    WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	  if (!SYMBOLP (value) && !CHARP (value))
-	    signal_simple_error ("Invalid event key", value);
-	  e->event.key.keysym = value;
+	  switch (e->event_type)
+	    {
+	    case key_press_event:
+	      if (!SYMBOLP (value) && !CHARP (value))
+		signal_simple_error ("Invalid event key", value);
+	      e->event.key.keysym = value;
+	      break;
+	    default:
+	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
+	    }
 	}
       else if (EQ (keyword, Qbutton))
 	{
-	  if (e->event_type != button_press_event
-	      && e->event_type != button_release_event
-	      && e->event_type != misc_user_event)
-	    {
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	    }
 	  CHECK_NATNUM (value);
 	  check_int_range (XINT (value), 0, 7);
-	  if (e->event_type == misc_user_event)
-	    e->event.misc.button = XINT (value);
-	  else
-	    e->event.button.button = XINT (value);
+
+	  switch (e->event_type)
+	    {
+	    case button_press_event:
+	    case button_release_event:
+	      e->event.button.button = XINT (value);
+	      break;
+	    case misc_user_event:
+	      e->event.misc.button = XINT (value);
+	      break;
+	    default:
+	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
+	    }
 	}
       else if (EQ (keyword, Qmodifiers))
 	{
-	  Lisp_Object modtail;
 	  int modifiers = 0;
+	  Lisp_Object sym;
 
-	  if (e->event_type != key_press_event
-	      && e->event_type != button_press_event
-	      && e->event_type != button_release_event
-	      && e->event_type != pointer_motion_event
-	      && e->event_type != misc_user_event)
+	  EXTERNAL_LIST_LOOP_2 (sym, value)
 	    {
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	    }
-
-	  EXTERNAL_LIST_LOOP (modtail, value)
-	    {
-	      Lisp_Object sym = XCAR (modtail);
-	      if (EQ (sym, Qcontrol))      modifiers |= MOD_CONTROL;
+	      if      (EQ (sym, Qcontrol)) modifiers |= MOD_CONTROL;
 	      else if (EQ (sym, Qmeta))    modifiers |= MOD_META;
 	      else if (EQ (sym, Qsuper))   modifiers |= MOD_SUPER;
 	      else if (EQ (sym, Qhyper))   modifiers |= MOD_HYPER;
@@ -560,42 +558,61 @@ WARNING: the event object returned may be a reused one; see the function
 	      else
 		signal_simple_error ("Invalid key modifier", sym);
 	    }
-	  if (e->event_type == key_press_event)
-	    e->event.key.modifiers = modifiers;
-	  else if (e->event_type == button_press_event
-		   || e->event_type == button_release_event)
-	    e->event.button.modifiers = modifiers;
-	  else if (e->event_type == pointer_motion_event)
-	    e->event.motion.modifiers = modifiers;
-	  else /* misc_user_event */
-	    e->event.misc.modifiers = modifiers;
+
+	  switch (e->event_type)
+	    {
+	    case key_press_event:
+	      e->event.key.modifiers = modifiers;
+	      break;
+	    case button_press_event:
+	    case button_release_event:
+	      e->event.button.modifiers = modifiers;
+	      break;
+	    case pointer_motion_event:
+	      e->event.motion.modifiers = modifiers;
+	      break;
+	    case misc_user_event:
+	      e->event.misc.modifiers = modifiers;
+	      break;
+	    default:
+	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
+	    }
 	}
       else if (EQ (keyword, Qx))
 	{
-	  if (e->event_type != pointer_motion_event
-	      && e->event_type != button_press_event
-	      && e->event_type != button_release_event
-	      && e->event_type != misc_user_event)
+	  switch (e->event_type)
 	    {
+	    case pointer_motion_event:
+	    case button_press_event:
+	    case button_release_event:
+	    case misc_user_event:
+	      /* Allow negative values, so we can specify toolbar
+		 positions.  */
+	      CHECK_INT (value);
+	      coord_x = XINT (value);
+	      break;
+	    default:
 	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
 	    }
-	  /* Allow negative values, so we can specify toolbar
-             positions.  */
-	  CHECK_INT (value);
-	  coord_x = XINT (value);
 	}
       else if (EQ (keyword, Qy))
 	{
-	  if (e->event_type != pointer_motion_event
-	      && e->event_type != button_press_event
-	      && e->event_type != button_release_event
-	      && e->event_type != misc_user_event)
+	  switch (e->event_type)
 	    {
+	    case pointer_motion_event:
+	    case button_press_event:
+	    case button_release_event:
+	    case misc_user_event:
+	      /* Allow negative values; see above. */
+	      CHECK_INT (value);
+	      coord_y = XINT (value);
+	      break;
+	    default:
 	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
 	    }
-	  /* Allow negative values; see above. */
-	  CHECK_INT (value);
-	  coord_y = XINT (value);
 	}
       else if (EQ (keyword, Qtimestamp))
 	{
@@ -604,15 +621,27 @@ WARNING: the event object returned may be a reused one; see the function
 	}
       else if (EQ (keyword, Qfunction))
 	{
-	  if (e->event_type != misc_user_event)
-	    WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	  e->event.eval.function = value;
+	  switch (e->event_type)
+	    {
+	    case misc_user_event:
+	      e->event.eval.function = value;
+	      break;
+	    default:
+	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
+	    }
 	}
       else if (EQ (keyword, Qobject))
 	{
-	  if (e->event_type != misc_user_event)
-	    WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	  e->event.eval.object = value;
+	  switch (e->event_type)
+	    {
+	    case misc_user_event:
+	      e->event.eval.object = value;
+	      break;
+	    default:
+	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+	      break;
+	    }
 	}
       else
 	signal_simple_error_2 ("Invalid property", keyword, value);
@@ -629,31 +658,28 @@ WARNING: the event object returned may be a reused one; see the function
 
   /* Fevent_properties, Fevent_x_pixel, etc. work with pixels relative
      to the frame, so we must adjust accordingly.  */
-  if (e->event_type == pointer_motion_event
-      || e->event_type == button_press_event
-      || e->event_type == button_release_event
-      || e->event_type == misc_user_event)
+  if (FRAMEP (EVENT_CHANNEL (e)))
     {
-      struct frame *f = XFRAME (EVENT_CHANNEL (e));
+      coord_x += FRAME_REAL_LEFT_TOOLBAR_WIDTH (XFRAME (EVENT_CHANNEL (e)));
+      coord_y += FRAME_REAL_TOP_TOOLBAR_HEIGHT (XFRAME (EVENT_CHANNEL (e)));
 
-      coord_x += FRAME_REAL_LEFT_TOOLBAR_WIDTH (f);
-      coord_y += FRAME_REAL_TOP_TOOLBAR_HEIGHT (f);
-
-      if (e->event_type == pointer_motion_event)
+      switch (e->event_type)
 	{
+	case pointer_motion_event:
 	  e->event.motion.x = coord_x;
 	  e->event.motion.y = coord_y;
-	}
-      else if (e->event_type == button_press_event
-	       || e->event_type == button_release_event)
-	{
+	  break;
+	case button_press_event:
+	case button_release_event:
 	  e->event.button.x = coord_x;
 	  e->event.button.y = coord_y;
-	}
-      else if (e->event_type == misc_user_event)
-	{
+	  break;
+	case misc_user_event:
 	  e->event.misc.x = coord_x;
 	  e->event.misc.y = coord_y;
+	  break;
+	default:
+	  abort();
 	}
     }
 
@@ -661,20 +687,20 @@ WARNING: the event object returned may be a reused one; see the function
   switch (e->event_type)
     {
     case key_press_event:
-      if (UNBOUNDP (e->event.key.keysym)
-	  || !(SYMBOLP (e->event.key.keysym) || CHARP (e->event.key.keysym)))
-	error ("Undefined key for keypress event");
+      if (UNBOUNDP (e->event.key.keysym))
+	error ("A key must be specified to make a keypress event");
       break;
     case button_press_event:
+      if (!e->event.button.button)
+	error ("A button must be specified to make a button-press event");
+      break;
     case button_release_event:
       if (!e->event.button.button)
-	error ("Undefined button for %s event",
-	       e->event_type == button_press_event
-	       ? "buton-press" : "button-release");
+	error ("A button must be specified to make a button-release event");
       break;
     case misc_user_event:
       if (NILP (e->event.misc.function))
-	error ("Undefined function for misc-user event");
+	error ("A function must be specified to make a misc-user event");
       break;
     default:
       break;
@@ -989,7 +1015,7 @@ character_to_event (Emchar c, struct Lisp_Event *event, struct console *con,
 	}
       if (c >= 'A' && c <= 'Z') c -= 'A'-'a';
     }
-#if defined(HAVE_TTY) 
+#if defined(HAVE_TTY)
   else if (do_backspace_mapping &&
 	   CHARP (con->tty_erase_char) && c == XCHAR (con->tty_erase_char))
     k = QKbackspace;
@@ -1253,8 +1279,8 @@ format_event_object (char *buf, struct Lisp_Event *event, int brief)
     default:
       abort ();
     }
-#define modprint1(x)  { strcpy (buf, (x)); buf += sizeof (x)-1; }
-#define modprint(x,y) { if (brief) modprint1 (y) else modprint1 (x) }
+#define modprint1(x)  do { strcpy (buf, (x)); buf += sizeof (x)-1; } while (0)
+#define modprint(x,y) do { if (brief) modprint1 (y); else modprint1 (x); } while (0)
   if (mod & MOD_CONTROL) modprint ("control-", "C-");
   if (mod & MOD_META)    modprint ("meta-",    "M-");
   if (mod & MOD_SUPER)   modprint ("super-",   "S-");
@@ -2077,6 +2103,8 @@ This is in the form of a property list (alternating keyword/value pairs).
 
   switch (e->event_type)
     {
+    default: abort ();
+
     case process_event:
       props = cons3 (Qprocess, e->event.process.process, props);
       break;
@@ -2127,10 +2155,6 @@ This is in the form of a property list (alternating keyword/value pairs).
     case empty_event:
       RETURN_UNGCPRO (Qnil);
       break;
-
-    default:
-      abort ();
-      break;                 /* not reached; warning suppression */
     }
 
   props = cons3 (Qchannel, Fevent_channel (event), props);

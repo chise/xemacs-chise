@@ -217,14 +217,14 @@
 (define-key suntool-map "jl" 'kill-region-and-unmark)	; Delete
 (define-key suntool-map "j\M-l" 'exchange-point-and-mark); M-Delete
 (define-key suntool-map "j," 
-  '(lambda () (interactive) (pop-mark 1)))		; C-Delete
+  #'(lambda () (interactive) (pop-mark 1)))		; C-Delete
 
 (define-key suntool-map "fT" 'shrink-window-horizontally)	; T6
 (define-key suntool-map "gT" 'enlarge-window-horizontally)	; T7
 (define-key suntool-map "ft" 'shrink-window)			; t6
 (define-key suntool-map "gt" 'enlarge-window)			; t7
-(define-key suntool-map "cT" '(lambda(n) (interactive "p") (scroll-down n)))
-(define-key suntool-map "dT" '(lambda(n) (interactive "p") (scroll-up n)))
+(define-key suntool-map "cT" #'(lambda(n) (interactive "p") (scroll-down n)))
+(define-key suntool-map "dT" #'(lambda(n) (interactive "p") (scroll-up n)))
 (define-key suntool-map "ct" 'scroll-down-in-place)		; t3
 (define-key suntool-map "dt" 'scroll-up-in-place)		; t4
 (define-key ctl-x-map "*" suntool-map)

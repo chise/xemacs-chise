@@ -169,6 +169,7 @@ make output and errors and leaves point at the beginning of the mail text.
 	 (prompts build-report-prompts))
      (progn
        (while prompts
+	 (defvar hist)
 	 (setq prompt (caar prompts))
 	 (setq hist (cdar prompts))
 	 (setq prompts (cdr prompts))
@@ -283,12 +284,12 @@ created by the XEmacs Beta configure process."
 
 (defun build-report-keep ()
   "build-report-internal function of no general value."
-  (mapconcat '(lambda (item) item)
+  (mapconcat #'identity
 	     (cons "^--\\[\\[\\|\\]\\]$" build-report-keep-regexp) "\\|"))
 
 (defun build-report-delete ()
   "build-report-internal function of no general value."
-  (mapconcat '(lambda (item) item)
+  (mapconcat #'identity
 	     build-report-delete-regexp "\\|"))
 
 ;;; build-report.el ends here

@@ -131,6 +131,13 @@ Boston, MA 02111-1307, USA.  */
 /* mrb - Ordinary link is simple and effective */
 /* slb - Not any more ... :-( */
 #define ORDINARY_LINK
+#endif /* 0 */
+
+/* I still think ORDINARY_LINK should be the default, but since slb
+   insists, ORDINARY_LINK will stay on until we expunge the dump code.
+   However, the user (i.e. me!) should be able to specify ORDINARY_LINK via
+   configure --cppflags=-DORDINARY_LINK ... */
+#ifdef ORDINARY_LINK
 #undef LIB_STANDARD
 #undef START_FILES
 #undef LIB_GCC

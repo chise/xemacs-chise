@@ -159,7 +159,7 @@ mswindows_init_device (struct device *d, Lisp_Object props)
 static void
 mswindows_finish_init_device (struct device *d, Lisp_Object props)
 {
-  /* Initialise DDE management library and our related globals. We execute a
+  /* Initialize DDE management library and our related globals. We execute a
    * dde Open("file") by simulating a drop, so this depends on dnd support. */
 #ifdef HAVE_DRAGNDROP
   mswindows_dde_mlid = 0;

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/objects.info
 @node Lisp Data Types, Numbers, Introduction, Top
@@ -26,7 +26,7 @@ which all other types are constructed, are called @dfn{primitive types}.
 Each object belongs to one and only one primitive type.  These types
 include @dfn{integer}, @dfn{character} (starting with XEmacs 20.0),
 @dfn{float}, @dfn{cons}, @dfn{symbol}, @dfn{string}, @dfn{vector},
-@dfn{bit-vector}, @dfn{subr}, @dfn{compiled-function}, @dfn{hashtable},
+@dfn{bit-vector}, @dfn{subr}, @dfn{compiled-function}, @dfn{hash-table},
 @dfn{range-table}, @dfn{char-table}, @dfn{weak-list}, and several
 special types, such as @dfn{buffer}, that are related to editing.
 (@xref{Editing Types}.)
@@ -173,7 +173,7 @@ frame
 @item
 glyph
 @item
-hashtable
+hash-table
 @item
 image-instance
 @item
@@ -407,7 +407,7 @@ provides for characters.
   The usual read syntax for alphanumeric characters is a question mark
 followed by the character; thus, @samp{?A} for the character
 @kbd{A}, @samp{?B} for the character @kbd{B}, and @samp{?a} for the
-character @kbd{a}.  
+character @kbd{a}.
 
   For example:
 
@@ -1051,8 +1051,8 @@ ignores an escaped newline while reading a string.
 in documentation strings,
 but the newline is \
 ignored if escaped."
-     @result{} "It is useful to include newlines 
-in documentation strings, 
+     @result{} "It is useful to include newlines
+in documentation strings,
 but the newline is ignored if escaped."
 @end example
 
@@ -1253,17 +1253,22 @@ called @dfn{hashing}.  Hash tables are very fast (much more efficient
 that using an association list, when there are a large number of
 elements in the table).
 
-  Hash tables have no read syntax.  They print in hash notation (The
-``hash'' in ``hash notation'' has nothing to do with the ``hash'' in
-``hash table''), giving the number of elements, total space allocated
-for elements, and a unique number assigned at the time the hash table
-was created. (Hash tables automatically resize as necessary so there
-is no danger of running out of space for elements.)
+Hash tables have a special read syntax beginning with
+@samp{#s(hash-table} (this is an example of @dfn{structure} read
+syntax.  This notation is also used for printing when
+@code{print-readably} is @code{t}.
+
+Otherwise they print in hash notation (The ``hash'' in ``hash notation''
+has nothing to do with the ``hash'' in ``hash table''), giving the
+number of elements, total space allocated for elements, and a unique
+number assigned at the time the hash table was created. (Hash tables
+automatically resize as necessary so there is no danger of running out
+of space for elements.)
 
 @example
 @group
-(make-hashtable 50)
-     @result{} #<hashtable 0/71 0x313a>
+(make-hash-table :size 50)
+     @result{} #<hash-table 0/107 0x313a>
 @end group
 @end example
 
@@ -1983,8 +1988,8 @@ with references to further information.
 @item glyphp
 @xref{Glyphs, glyphp}.
 
-@item hashtablep
-@xref{Hash Tables, hashtablep}.
+@item hash-table-p
+@xref{Hash Tables, hash-table-p}.
 
 @item icon-glyph-p
 @xref{Glyph Types, icon-glyph-p}.
@@ -2153,7 +2158,7 @@ This function returns a symbol naming the primitive type of
 @code{coding-system}, @code{cons}, @code{color-instance},
 @code{compiled-function}, @code{console}, @code{database},
 @code{device}, @code{event}, @code{extent}, @code{face}, @code{float},
-@code{font-instance}, @code{frame}, @code{glyph}, @code{hashtable},
+@code{font-instance}, @code{frame}, @code{glyph}, @code{hash-table},
 @code{image-instance}, @code{integer}, @code{keymap}, @code{marker},
 @code{process}, @code{range-table}, @code{specifier}, @code{string},
 @code{subr}, @code{subwindow}, @code{symbol}, @code{toolbar-button},

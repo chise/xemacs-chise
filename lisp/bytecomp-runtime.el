@@ -55,13 +55,13 @@ They will only be compiled open-coded when `byte-optimize' is true."
 	(apply
 	 'nconc
 	 (mapcar
-	  '(lambda (x)
-	     (` ((or (memq (get '(, x) 'byte-optimizer)
-			   '(nil byte-compile-inline-expand))
-		     (error
-		      "%s already has a byte-optimizer, can't make it inline"
-		      '(, x)))
-		 (put '(, x) 'byte-optimizer 'byte-compile-inline-expand))))
+	  #'(lambda (x)
+	      `((or (memq (get ',x 'byte-optimizer)
+			  '(nil byte-compile-inline-expand))
+		    (error
+		     "%s already has a byte-optimizer, can't make it inline"
+		     ',x))
+		(put ',x 'byte-optimizer 'byte-compile-inline-expand)))
 	  fns))))
 
 
@@ -71,10 +71,10 @@ They will only be compiled open-coded when `byte-optimize' is true."
 	(apply
 	 'nconc
 	 (mapcar
-	  '(lambda (x)
-	     (` ((if (eq (get '(, x) 'byte-optimizer)
-			 'byte-compile-inline-expand)
-		     (put '(, x) 'byte-optimizer nil)))))
+	  #'(lambda (x)
+	      `((if (eq (get ',x 'byte-optimizer)
+			'byte-compile-inline-expand)
+		    (put ',x 'byte-optimizer nil))))
 	  fns))))
 
 ;; This has a special byte-hunk-handler in bytecomp.el.
@@ -178,7 +178,7 @@ Called (eval-when-feature (FEATURE [. FILENAME]) BODYFORMS...).
 If (featurep 'FEATURE), evals now; otherwise adds an elt to
 `after-load-alist' (which see), using FEATURE as filename if FILENAME is nil."
   (let ((file (or (cdr feature) (symbol-name (car feature)))))
-    `(let ((bodythunk (function (lambda () ,@body))))
+    `(let ((bodythunk #'(lambda () ,@body)))
        (if (featurep ',(car feature))
 	   (funcall bodythunk)
 	 (setq after-load-alist (cons '(,file . (list 'lambda '() bodythunk))

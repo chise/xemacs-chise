@@ -1,6 +1,6 @@
 /* scrollbar implementation -- mswindows interface.
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
-   Copyright (C) 1994 Amdhal Corporation.
+   Copyright (C) 1994 Amdahl Corporation.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995 Darrell Kindred <dkindred+@cmu.edu>.
 

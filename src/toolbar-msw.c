@@ -87,7 +87,7 @@ allocate_toolbar_item_id (struct frame* f, struct toolbar_button* button,
   /* hmm what do we generate an id based on */
   int id = TOOLBAR_ITEM_ID_BITS (internal_hash (button->callback, 0));
   while (!NILP (Fgethash (make_int (id),
-			  FRAME_MSWINDOWS_TOOLBAR_HASHTABLE (f), Qnil)))
+			  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f), Qnil)))
     {
       id = TOOLBAR_ITEM_ID_BITS (id + 1);
     }
@@ -105,14 +105,14 @@ mswindows_clear_toolbar (struct frame *f, enum toolbar_pos pos,
     {
       TBBUTTON info;
       
-      /* delete the buttons and remove the command from the hashtable*/
+      /* Delete the buttons and remove the command from the hash table*/
       i = SendMessage (toolbarwnd, TB_BUTTONCOUNT, 0, 0);
       for (i--; i >= 0; i--)
 	{
 	  SendMessage (toolbarwnd, TB_GETBUTTON, (WPARAM)i, 
 		       (LPARAM)&info);
 	  Fremhash(make_int(info.idCommand), 
-		   FRAME_MSWINDOWS_TOOLBAR_HASHTABLE(f));
+		   FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f));
 	  SendMessage (toolbarwnd, TB_DELETEBUTTON, (WPARAM)i, 0);
 	}
 	  
@@ -262,7 +262,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 		  
 		  if (IMAGE_INSTANCE_PIXMAP_TYPE_P (p))
 		    {
-		      /* we are going to honour the toolbar settings
+		      /* we are going to honor the toolbar settings
 			 and resize the bitmaps accordingly if they are
 			 too big.  If they are too small we leave them
 			 and pad the difference - unless a different size
@@ -293,7 +293,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 			    {
 			      xfree (button_tbl);
 			      if (ilist) ImageList_Destroy (ilist);
-			      signal_simple_error ("couldn't resize pixmap", 
+			      signal_simple_error ("Couldn't resize pixmap", 
 						   instance);
 			    }
 			  /* we don't care if the mask fails */
@@ -316,7 +316,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 					nbuttons, nbuttons * 2 )))
 			{
 			  xfree (button_tbl);
-			  signal_simple_error ("couldn't create image list",
+			  signal_simple_error ("Couldn't create image list",
 					       instance);
 			}
 
@@ -343,7 +343,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 		}
 
 	      Fputhash (make_int (tbbutton->idCommand), 
-			button, FRAME_MSWINDOWS_TOOLBAR_HASHTABLE (f));
+			button, FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 	    }
 
 	  /* now fix up the button size */
@@ -582,7 +582,7 @@ Lisp_Object
 mswindows_get_toolbar_button_text ( struct frame* f, int command_id )
 {
   Lisp_Object button = Fgethash (make_int (command_id),
-				 FRAME_MSWINDOWS_TOOLBAR_HASHTABLE (f), Qnil);
+				 FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f), Qnil);
   
   if (!NILP (button))
     {
@@ -605,7 +605,7 @@ mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id)
   Lisp_Object button, data, fn, arg, frame;
 
   button = Fgethash (make_int (id), 
-		     FRAME_MSWINDOWS_TOOLBAR_HASHTABLE (f), Qnil);
+		     FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f), Qnil);
 
   if (NILP (button))
     return Qnil;

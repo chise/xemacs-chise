@@ -1,3 +1,72 @@
+1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.5 is released
+
+1998-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/startup.texi (Startup Paths):
+	* xemacs/custom.texi (Widgets):
+	* xemacs-faq.texi (Q3.0.5):
+	* xemacs-faq.texi (Top):
+
+	* widget.texi (info-link):
+
+	* lispref/objects.texi (Type Predicates):
+	* lispref/objects.texi (Hash Table Type):
+	* lispref/objects.texi (Primitive Types):
+	* lispref/objects.texi (Lisp Data Types):
+	* lispref/macros.texi (Backquote):
+	* lispref/hash-tables.texi (Weak Hash Tables):
+	* lispref/hash-tables.texi:
+	* lispref/errors.texi (Standard Errors):
+	* lispref/compile.texi (Disassembly):
+	* lispref/compile.texi (Compiled-Function Objects):
+	* lispref/compile.texi (Eval During Compile):
+	* lispref/compile.texi (Docs and Compilation):
+	* lispref/compile.texi (Compilation Functions):
+	* lispref/compile.texi (Speed of Byte-Code):
+	* lispref/compile.texi (Byte Compilation):
+	* lispref/building.texi (Garbage Collection):
+
+	* internals/internals.texi (Simple Special Forms):
+	* internals/internals.texi (Evaluation; Stack Frames; Bindings):
+	* internals/internals.texi (Specifics of the Event Gathering Mechanism):
+	* internals/internals.texi (String):
+	* internals/internals.texi (Introduction to Allocation):
+	* internals/internals.texi (Allocation of Objects in XEmacs Lisp):
+	* internals/internals.texi (Modules for Internationalization):
+	* internals/internals.texi (Modules for Interfacing with X Windows):
+	* internals/internals.texi (Modules for Interfacing with the Operating System):
+	* internals/internals.texi (Modules for Other Aspects of the Lisp Interpreter and Object System):
+	* internals/internals.texi (Modules for Interfacing with the File System):
+	* internals/internals.texi (Modules for the Redisplay Mechanism):
+	* internals/internals.texi (Modules for the Basic Displayable Lisp Objects):
+	* internals/internals.texi (Editor-Level Control Flow Modules):
+	* internals/internals.texi (Modules for Standard Editing Operations):
+	* internals/internals.texi (Basic Lisp Modules):
+	* internals/internals.texi (Low-Level Modules):
+	* internals/internals.texi (A Summary of the Various XEmacs Modules):
+	* internals/internals.texi (An Example of Mule-Aware Code):
+	* internals/internals.texi (Working With Character and Byte Positions):
+	* internals/internals.texi (Writing Lisp Primitives):
+	* internals/internals.texi (General Coding Rules):
+	* internals/internals.texi (How Lisp Objects Are Represented in C):
+	* internals/internals.texi (The XEmacs Object System (Abstractly Speaking)):
+	* internals/internals.texi (XEmacs From the Perspective of Building):
+	* internals/internals.texi (The Lisp Language):
+	* internals/internals.texi (Top):
+	* internals/internals.texi:
+	- rewrite Internals manual
+
+	* cl.texi (Porting Common Lisp):
+	* cl.texi (Hash Tables):
+	* cl.texi (Association Lists):
+	* cl.texi (Declarations):
+	* cl.texi (For Clauses):
+	* cl.texi (Basic Setf):
+	* cl.texi (Equality Predicates):
+	- mega patch
+
 1998-11-28  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta4 is released.

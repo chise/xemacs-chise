@@ -533,7 +533,7 @@ Suitable for use with `map-extents'."
 	  widget-shadow-subrs)
   (defun widget-put (widget property value)
     "In WIDGET set PROPERTY to VALUE.
-The value can later be retrived with `widget-get'."
+The value can later be retrieved with `widget-get'."
     (setcdr widget (plist-put (cdr widget) property value))))
 
 ;; Recoded in C, for efficiency:
@@ -730,7 +730,7 @@ It can also be a valid image instantiator, in which case it will be
 		 ;; format.
 		 (when (valid-image-instantiator-format-p (caar formats))
 		   (setq file (locate-file image dirlist
-					   (mapconcat 'identity (cdar formats)
+					   (mapconcat #'identity (cdar formats)
 						      ":"))))
 		 (unless file
 		   (pop formats)))
@@ -1129,7 +1129,7 @@ Recommended as a parent keymap for modes using widgets.")
       (error "This widget is inactive"))
     (let ((current-glyph 'down))
       ;; We always know what glyph is drawn currently, to avoid
-      ;; unnecessary extent changes.  Is this any noticable gain?
+      ;; unnecessary extent changes.  Is this any noticeable gain?
       (unwind-protect
 	  (progn
 	    ;; Press the glyph.

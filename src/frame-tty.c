@@ -155,13 +155,11 @@ tty_frame_visible_p (struct frame *f)
 static void
 tty_raise_frame_no_select (struct frame *f)
 {
-  struct frame *o;
-  Lisp_Object tail;
-
-  LIST_LOOP (tail, DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f))))
+  Lisp_Object frame;
+  LIST_LOOP_2 (frame, DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f))))
     {
-      o = XFRAME (XCAR (tail));
-      if (o != f && FRAME_REPAINT_P(o))
+      struct frame *o = XFRAME (frame);
+      if (o != f && FRAME_REPAINT_P (o))
 	{
 	   tty_make_frame_hidden (o);
 	   break;
@@ -216,7 +214,7 @@ tty_delete_frame (struct frame *f)
 }
 
 /************************************************************************/
-/*                            initialization                            */
+/*			      initialization				*/
 /************************************************************************/
 
 void

@@ -87,9 +87,9 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
   if (DEVICE_MSWINDOWS_BITSPIXEL (d) > 0)
     {
       int bpline = BPLINE(width * 3);
-      /* FIXME: we can do this because 24bpp implies no colour table, once
-       * we start paletizing this is no longer true. The X versions of
-       * this function quantises to 256 colours or bit masks down to a
+      /* FIXME: we can do this because 24bpp implies no color table, once
+       * we start palettizing this is no longer true. The X versions of
+       * this function quantises to 256 colors or bit masks down to a
        * long. Windows can actually handle rgb triples in the raw so I
        * don't see much point trying to optimize down to the best
        * structure - unless it has memory / color allocation implications
@@ -699,7 +699,7 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
       break;
     case XpmFileInvalid:
       {
-	signal_simple_error ("invalid XPM data", image);
+	signal_simple_error ("Invalid XPM data", image);
       }
     case XpmNoMemory:
       {
@@ -1173,7 +1173,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
     }
   else if (!(resid = MAKEINTRESOURCE (resource_name_to_resource (resource_id,
 							       type))))
-    signal_simple_error ("invalid resource identifier", resource_id);
+    signal_simple_error ("Invalid resource identifier", resource_id);
   
   /* load the image */
   if (!(himage = LoadImage (hinst, resid, type, 0, 0,
@@ -1181,7 +1181,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 			    LR_SHARED |      
 			    (!NILP (file) ? LR_LOADFROMFILE : 0))))
     {
-      signal_simple_error ("cannot load image", instantiator);
+      signal_simple_error ("Cannot load image", instantiator);
     }
 
   if (hinst)
@@ -1295,7 +1295,7 @@ in this Software without prior written authorization from the X Consortium.
 
 
 /*
- * Based on an optimized version provided by Jim Becker, Auguest 5, 1988.
+ * Based on an optimized version provided by Jim Becker, August 5, 1988.
  */
 #ifndef BitmapSuccess
 #define BitmapSuccess           0

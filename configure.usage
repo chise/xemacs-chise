@@ -3,7 +3,7 @@ Usage: configure [--OPTION[=VALUE] ...] [CONFIGURATION]
 Set compilation and installation parameters for XEmacs, and report.
 
 Note that for most of the following options, you can explicitly enable
-them using `--OPTION=yes' and explicitly disable them using `--OPTION=no'.  
+them using `--OPTION=yes' and explicitly disable them using `--OPTION=no'.
 This is especially useful for auto-detected options.
 The option `--without-FEATURE' is a synonym for `--with-FEATURE=no'.
 
@@ -24,11 +24,6 @@ Compilation options:
 --compiler=prog		C compiler to use.
 --with-gcc (*)		Use GCC to compile XEmacs.
 --without-gcc		Don't use GCC to compile XEmacs.
---with-gnu-make		Write the Makefiles to take advantage of
-			special features of GNU Make. (GNU Make
-			works fine on the Makefiles even without this
-			option.  This just allows for simultaneous
-			in-place and --srcdir building.)
 --cflags=FLAGS		Compiler flags (such as -O)
 --cpp=prog		C preprocessor to use (e.g. /usr/ccs/lib/cpp or cc -E)
 --cppflags=FLAGS	C preprocessor flags (e.g. -I/foo or -Dfoo=bar)
@@ -46,7 +41,7 @@ Compilation options:
 --dynamic=no		Force static linking on systems where dynamic
 			linking is the default.
 --srcdir=DIR		Look for the XEmacs source files in DIR.
-			See also --with-gnu-make.
+			Works best when using GNU Make.
 --use-indexed-lrecord-implementation
 --use-minimal-tagbits
 --gung-ho		Build with new-style Lisp_Objects.
@@ -124,7 +119,7 @@ Additional features:
 --with-socks		Compile with support for SOCKS (an Internet proxy).
 --with-database=TYPE (*) Compile with database support.  Valid types are
 			`no' or a comma-separated list of one or more
-			of `dbm', `gnudbm', or `berkdb'.
+			of `berkdb' and either `dbm' or `gnudbm'.
 --with-sound=native (*)	Compile with native sound support.
 --with-sound=nas	Compile with network sound support.
 --with-sound=both	Compile with native and network sound support.
@@ -140,17 +135,17 @@ Additional features:
 --mail-locking=TYPE (*)	Specify the locking to be used by movemail to prevent
 			concurrent updates of mail spool files. Valid types
 			are `lockf', `flock', and `file'.
---with-site-lisp        Allow for a site-lisp directory in the XEmacs hierarchy 
+--with-site-lisp        Allow for a site-lisp directory in the XEmacs hierarchy
 			searched before the installation packages.
 --package-path=PATH     Directories to search for packages to dump with xemacs.
                         PATH splits into three parts separated
                         by double colons (::), an early, a late, and a last part,
                         corresponding to their position in the various
-                        system paths:  The early part is always first, 
-                        the late part somewhere in the middle, and the 
+                        system paths:  The early part is always first,
+                        the late part somewhere in the middle, and the
                         last part at the very back.
                         Only the late part gets seen at dump time.
-                        If PATH has only one component, that component 
+                        If PATH has only one component, that component
                         is late.
                         If PATH has two components, the first is
                         early, the second is late.
@@ -221,6 +216,8 @@ Other options:
     Defaults to `${statedir}/xemacs/lock'.
 --with-system-malloc	Force use of the system malloc, rather than GNU malloc.
 --with-debug-malloc	Use the debugging malloc package.
+--with-quantify		Add support for performance debugging using Quantify.
+--with-purify		Add support for memory debugging using Purify.
 
 You may also specify any of the `path' variables found in Makefile.in,
 including --bindir, --libdir, --lispdir, --sitelispdir, --datadir,

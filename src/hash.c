@@ -33,10 +33,16 @@ Boston, MA 02111-1307, USA.  */
 #endif /* !emacs */
 
 #include "hash.h"
-#include "elhash.h"
 
-static CONST unsigned int
-primes []={
+#define COMFORTABLE_SIZE(size) (21 * (size) / 16)
+
+/* Knuth volume 3, hash functions */
+#define WORD_HASH_4(word) (0x9c406b55 * (word))
+#define WORD_HASH_8(word) (0x9c406b549c406b55 * (word))
+
+static CONST hash_size_t
+primes [] =
+{
   13,
   29, 37, 47, 59, 71, 89, 107, 131, 163, 197, 239, 293, 353, 431, 521, 631,
   761, 919, 1103, 1327, 1597, 1931, 2333, 2801, 3371, 4049, 4861, 5839, 7013,
@@ -46,7 +52,147 @@ primes []={
   2009191, 2411033, 2893249
 };
 
-/* strings code */
+#if 0
+static CONST hash_size_t
+primes [] =
+{
+ 29, 41, 59, 79, 107, 149, 197, 263, 347, 457, 599, 787, 1031, 1361,
+ 1777, 2333, 3037, 3967, 5167, 6719, 8737, 11369, 14783, 19219, 24989,
+ 32491, 42257, 54941, 71429, 92861, 120721, 156941, 204047, 265271,
+ 344857, 448321, 582821, 757693, 985003, 1280519, 1664681, 2164111,
+ 2813353, 3657361, 4754591, 6180989, 8035301, 10445899, 13579681,
+ 17653589, 22949669, 29834603, 38784989, 50420551, 65546729, 85210757,
+ 110774011, 144006217, 187208107, 243370577, 316381771, 411296309,
+ 534685237, 695090819, 903618083, 1174703521, 1527114613, 1985248999,
+ 2580823717, 3355070839, 4361592119
+};
+#endif
+
+unsigned long
+memory_hash (CONST void *xv, size_t size)
+{
+  unsigned int h = 0;
+  unsigned CONST char *x = (unsigned CONST char *) xv;
+
+  if (!x) return 0;
+
+  while (size--)
+    {
+      unsigned int g;
+      h = (h << 4) + *x++;
+      if ((g = h & 0xf0000000) != 0)
+	h = (h ^ (g >> 24)) ^ g;
+    }
+
+  return h;
+}
+
+/* We've heard of binary search. */
+static hash_size_t
+prime_size (hash_size_t size)
+{
+  int low, high;
+  for (low = 0, high = countof (primes) - 1; high - low > 1;)
+    {
+      /* Loop Invariant: size < primes [high] */
+      int mid = (low + high) / 2;
+      if (primes [mid] < size)
+	low = mid;
+      else
+	high = mid;
+    }
+  return primes [high];
+}
+
+static void rehash (hentry *harray, struct hash_table *ht, hash_size_t size);
+
+#define KEYS_DIFFER_P(old, new, testfun) \
+  (((old) != (new)) && (!(testfun) || !(testfun) ((old),(new))))
+
+CONST void *
+gethash (CONST void *key, struct hash_table *hash_table, CONST void **ret_value)
+{
+  hentry *harray = hash_table->harray;
+  hash_table_test_function test_function = hash_table->test_function;
+  hash_size_t size = hash_table->size;
+  unsigned int hcode_initial =
+    hash_table->hash_function ?
+    hash_table->hash_function (key) :
+    (unsigned long) key;
+  unsigned int hcode = hcode_initial % size;
+  hentry *e = &harray [hcode];
+  CONST void *e_key = e->key;
+
+  if (!key)
+    {
+      *ret_value = hash_table->zero_entry;
+      return (void *) hash_table->zero_set;
+    }
+
+  if (e_key ?
+      KEYS_DIFFER_P (e_key, key, test_function) :
+      e->contents == NULL_ENTRY)
+    {
+      size_t h2 = size - 2;
+      unsigned int incr = 1 + (hcode_initial % h2);
+      do
+        {
+          hcode += incr; if (hcode >= size) hcode -= size;
+          e = &harray [hcode];
+          e_key = e->key;
+        }
+      while (e_key ?
+             KEYS_DIFFER_P (e_key, key, test_function) :
+             e->contents == NULL_ENTRY);
+    }
+
+  *ret_value = e->contents;
+  return e->key;
+}
+
+void
+clrhash (struct hash_table *hash_table)
+{
+  memset (hash_table->harray, 0, sizeof (hentry) * hash_table->size);
+  hash_table->zero_entry = 0;
+  hash_table->zero_set   = 0;
+  hash_table->fullness   = 0;
+}
+
+void
+free_hash_table (struct hash_table *hash_table)
+{
+  xfree (hash_table->harray);
+  xfree (hash_table);
+}
+
+struct hash_table*
+make_hash_table (hash_size_t size)
+{
+  struct hash_table *hash_table = xnew_and_zero (struct hash_table);
+  hash_table->size = prime_size (COMFORTABLE_SIZE (size));
+  hash_table->harray = xnew_array (hentry, hash_table->size);
+  clrhash (hash_table);
+  return hash_table;
+}
+
+struct hash_table *
+make_general_hash_table (hash_size_t size,
+			hash_table_hash_function hash_function,
+			hash_table_test_function test_function)
+{
+  struct hash_table* hash_table = make_hash_table (size);
+  hash_table->hash_function = hash_function;
+  hash_table->test_function = test_function;
+  return hash_table;
+}
+
+#if 0 /* unused strings code */
+struct hash_table *
+make_strings_hash_table (hash_size_t size)
+{
+  return make_general_hash_table (size, string_hash, string_eq);
+}
 
 /* from base/generic-hash.cc, and hence from Dragon book, p436 */
 unsigned long
@@ -68,320 +214,136 @@ string_hash (CONST void *xv)
   return h;
 }
 
-unsigned long
-memory_hash (CONST void *xv, size_t size)
-{
-  unsigned int h = 0;
-  unsigned CONST char *x = (unsigned CONST char *) xv;
-
-  if (!x) return 0;
-
-  while (size > 0)
-    {
-      unsigned int g;
-      h = (h << 4) + *x++;
-      if ((g = h & 0xf0000000) != 0)
-	h = (h ^ (g >> 24)) ^ g;
-      size--;
-    }
-
-  return h;
-}
-
 static int
-string_eq (CONST void *st1, CONST void *st2)
+string_eq (CONST void *s1, CONST void *s2)
 {
-  if (!st1)
-    return st2 ? 0 : 1;
-  else if (!st2)
-    return 0;
-  else
-    return !strcmp ( (CONST char *) st1, (CONST char *) st2);
+  return s1 && s2 ? !strcmp ((CONST char *) s1, (CONST char *) s2) : s1 == s2;
 }
-
-
-/* ### Ever heard of binary search? */
-static unsigned int
-prime_size (unsigned int size)
-{
-  int i;
-  for (i = 0; i < countof (primes); i++)
-    if (size <= primes [i])
-      return primes [i];
-  return primes [countof (primes) - 1];
-}
-
-static void rehash (hentry *harray, c_hashtable ht, unsigned int size);
-
-#define KEYS_DIFFER_P(old, new, testfun) \
-  ((testfun)?(((old) == (new))?0:(!(testfun ((old), new)))):((old) != (new)))
-
-CONST void *
-gethash (CONST void *key, c_hashtable hash, CONST void **ret_value)
-{
-  hentry *harray = hash->harray;
-  int (*test_function) (CONST void *, CONST void *) = hash->test_function;
-  unsigned int hsize = hash->size;
-  unsigned int hcode_initial =
-    (hash->hash_function)?(hash->hash_function(key)):((unsigned long) key);
-  unsigned int hcode = hcode_initial % hsize;
-  hentry *e = &harray [hcode];
-  CONST void *e_key = e->key;
-
-  if (!key)
-    {
-      *ret_value = hash->zero_entry;
-      return (void *) hash->zero_set;
-    }
-
-  if ((e_key)?
-      (KEYS_DIFFER_P (e_key, key, test_function)):
-      (e->contents == NULL_ENTRY))
-    {
-      unsigned int h2 = hsize - 2;
-      unsigned int incr = 1 + (hcode_initial % h2);
-      do
-        {
-          hcode = hcode + incr;
-          if (hcode >= hsize) hcode = hcode - hsize;
-          e = &harray [hcode];
-          e_key = e->key;
-        }
-      while ((e_key)?
-             (KEYS_DIFFER_P (e_key, key, test_function)):
-             (e->contents == NULL_ENTRY));
-    }
-
-  *ret_value = e->contents;
-  return e->key;
-}
+#endif /* unused strings code */
 
 void
-clrhash (c_hashtable hash)
+copy_hash (struct hash_table *dest, struct hash_table *src)
 {
-  memset (hash->harray, 0, sizeof (hentry) * hash->size);
-  hash->zero_entry = 0;
-  hash->zero_set = 0;
-  hash->fullness = 0;
-}
-
-void
-free_hashtable (c_hashtable hash)
-{
-#ifdef emacs
-  if (!NILP (hash->elisp_table))
-    return;
-#endif
-  xfree (hash->harray);
-  xfree (hash);
-}
-
-c_hashtable
-make_hashtable (unsigned int hsize)
-{
-  c_hashtable res = xnew_and_zero (struct _C_hashtable);
-  res->size = prime_size ((13 * hsize) / 10);
-  res->harray = xnew_array (hentry, res->size);
-#ifdef emacs
-  res->elisp_table = Qnil;
-#endif
-  clrhash (res);
-  return res;
-}
-
-c_hashtable
-make_general_hashtable (unsigned int hsize,
-			unsigned long (*hash_function) (CONST void *),
-			int (*test_function) (CONST void *, CONST void *))
-{
-  c_hashtable res = xnew_and_zero (struct _C_hashtable);
-  res->size = prime_size ((13 * hsize) / 10);
-  res->harray = xnew_array (hentry, res->size);
-  res->hash_function = hash_function;
-  res->test_function = test_function;
-#ifdef emacs
-  res->elisp_table = Qnil;
-#endif
-  clrhash (res);
-  return res;
-}
-
-c_hashtable
-make_strings_hashtable (unsigned int hsize)
-{
-  return make_general_hashtable (hsize, string_hash, string_eq);
-}
-
-#ifdef emacs
-unsigned int
-compute_harray_size (unsigned int hsize)
-{
-  return prime_size ((13 * hsize) / 10);
-}
-#endif
-
-void
-copy_hash (c_hashtable dest, c_hashtable src)
-{
-#ifdef emacs
-  /* if these are not the same, then we are losing here */
-  if ((NILP (dest->elisp_table)) != (NILP (src->elisp_table)))
-    {
-      error ("Incompatible hashtable types to copy_hash.");
-      return;
-    }
-#endif
-
   if (dest->size != src->size)
     {
-#ifdef emacs
-      if (!NILP (dest->elisp_table))
-        elisp_hvector_free (dest->harray, dest->elisp_table);
-      else
-#endif
-        xfree (dest->harray);
+      xfree (dest->harray);
 
       dest->size = src->size;
-#ifdef emacs
-      if (!NILP (dest->elisp_table))
-        dest->harray = (hentry *)
-	  elisp_hvector_malloc (sizeof (hentry) * dest->size,
-				dest->elisp_table);
-      else
-#endif
-        dest->harray = xnew_array (hentry, dest->size);
+      dest->harray = xnew_array (hentry, dest->size);
     }
-  dest->fullness = src->fullness;
-  dest->zero_entry = src->zero_entry;
-  dest->zero_set = src->zero_set;
+  dest->fullness      = src->fullness;
+  dest->zero_entry    = src->zero_entry;
+  dest->zero_set      = src->zero_set;
   dest->hash_function = src->hash_function;
   dest->test_function = src->test_function;
   memcpy (dest->harray, src->harray, sizeof (hentry) * dest->size);
 }
 
 static void
-grow_hashtable (c_hashtable hash, unsigned int new_size)
+grow_hash_table (struct hash_table *hash_table, hash_size_t new_size)
 {
-  unsigned int old_hsize = hash->size;
-  hentry *old_harray = hash->harray;
-  unsigned int new_hsize = prime_size (new_size);
-  hentry *new_harray;
+  hash_size_t old_size   = hash_table->size;
+  hentry     *old_harray = hash_table->harray;
+  hentry     *new_harray;
 
-#ifdef emacs
-  /* We test for Qzero to facilitate free-hook.c.  That module creates
-     a hashtable very very early, at which point Qnil has not yet
-     been set and is thus all zeroes.  Qzero is "automatically"
-     initialized at startup because its correct value is also all
-     zeroes. */
-  if (!EQ (hash->elisp_table, Qnull_pointer) &&
-      !NILP (hash->elisp_table) &&
-      !ZEROP (hash->elisp_table))
-    new_harray = (hentry *) elisp_hvector_malloc (sizeof (hentry) * new_hsize,
-						  hash->elisp_table);
-  else
-#endif
-    new_harray = (hentry *) xmalloc (sizeof (hentry) * new_hsize);
+  new_size = prime_size (new_size);
 
-  hash->size = new_hsize;
-  hash->harray = new_harray;
+  new_harray = xnew_array (hentry, new_size);
+
+  hash_table->size   = new_size;
+  hash_table->harray = new_harray;
 
   /* do the rehash on the "grown" table */
   {
-    long old_zero_set = hash->zero_set;
-    void *old_zero_entry = hash->zero_entry;
-    clrhash (hash);
-    hash->zero_set = old_zero_set;
-    hash->zero_entry = old_zero_entry;
-    rehash (old_harray, hash, old_hsize);
+    long old_zero_set    = hash_table->zero_set;
+    void *old_zero_entry = hash_table->zero_entry;
+    clrhash (hash_table);
+    hash_table->zero_set   = old_zero_set;
+    hash_table->zero_entry = old_zero_entry;
+    rehash (old_harray, hash_table, old_size);
   }
 
-#ifdef emacs
-  if (!EQ (hash->elisp_table, Qnull_pointer) &&
-      !NILP (hash->elisp_table) &&
-      !ZEROP (hash->elisp_table))
-    elisp_hvector_free (old_harray, hash->elisp_table);
-  else
-#endif
-    xfree (old_harray);
+  xfree (old_harray);
 }
 
 void
-expand_hashtable (c_hashtable hash, unsigned int needed_size)
+expand_hash_table (struct hash_table *hash_table, hash_size_t needed_size)
 {
-  size_t hsize = hash->size;
-  size_t comfortable_size = (13 * needed_size) / 10;
-  if (hsize < comfortable_size)
-    grow_hashtable (hash, comfortable_size + 1);
+  hash_size_t size = hash_table->size;
+  hash_size_t comfortable_size = COMFORTABLE_SIZE (needed_size);
+  if (size < comfortable_size)
+    grow_hash_table (hash_table, comfortable_size + 1);
 }
 
 void
-puthash (CONST void *key, void *cont, c_hashtable hash)
+puthash (CONST void *key, void *contents, struct hash_table *hash_table)
 {
-  unsigned int hsize = hash->size;
-  int (*test_function) (CONST void *, CONST void *) = hash->test_function;
-  unsigned int fullness = hash->fullness;
+  hash_table_test_function test_function = hash_table->test_function;
+  hash_size_t size     = hash_table->size;
+  hash_size_t fullness = hash_table->fullness;
   hentry *harray;
   CONST void *e_key;
   hentry *e;
   unsigned int hcode_initial =
-    (hash->hash_function)?(hash->hash_function(key)):((unsigned long) key);
+    hash_table->hash_function ?
+    hash_table->hash_function (key) :
+    (unsigned long) key;
   unsigned int hcode;
   unsigned int incr = 0;
-  unsigned int h2;
+  size_t h2;
   CONST void *oldcontents;
 
   if (!key)
     {
-      hash->zero_entry = cont;
-      hash->zero_set = 1;
+      hash_table->zero_entry = contents;
+      hash_table->zero_set = 1;
       return;
     }
 
-  if (hsize < (1 + ((13 * fullness) / 10)))
+  if (size < (1 + COMFORTABLE_SIZE (fullness)))
     {
-      grow_hashtable (hash, hsize + 1);
-      hsize = hash->size;
-      fullness = hash->fullness;
+      grow_hash_table (hash_table, size + 1);
+      size = hash_table->size;
+      fullness = hash_table->fullness;
     }
 
-  harray= hash->harray;
-  h2 = hsize - 2;
+  harray= hash_table->harray;
+  h2 = size - 2;
 
-  hcode = hcode_initial % hsize;
+  hcode = hcode_initial % size;
 
   e_key = harray [hcode].key;
-  if (e_key && (KEYS_DIFFER_P (e_key, key, test_function)))
+  if (e_key && KEYS_DIFFER_P (e_key, key, test_function))
     {
-      h2 = hsize - 2;
+      h2 = size - 2;
       incr = 1 + (hcode_initial % h2);
       do
         {
-          hcode = hcode + incr;
-          if (hcode >= hsize) hcode = hcode - hsize;
+          hcode += incr;
+          if (hcode >= size) hcode -= size;
           e_key = harray [hcode].key;
         }
-      while (e_key && (KEYS_DIFFER_P (e_key, key, test_function)));
+      while (e_key && KEYS_DIFFER_P (e_key, key, test_function));
     }
   oldcontents = harray [hcode].contents;
   harray [hcode].key = key;
-  harray [hcode].contents = cont;
-  /* if the entry that we used was a deleted entry,
+  harray [hcode].contents = contents;
+  /* If the entry that we used was a deleted entry,
      check for a non deleted entry of the same key,
-     then delete it */
-  if (!e_key && (oldcontents == NULL_ENTRY))
+     then delete it. */
+  if (!e_key && oldcontents == NULL_ENTRY)
     {
       if (!incr) incr = 1 + ((unsigned long) key % h2);
 
       do
         {
-          hcode = hcode + incr;
-          if (hcode >= hsize) hcode = hcode - hsize;
+          hcode += incr; if (hcode >= size) hcode -= size;
           e = &harray [hcode];
           e_key = e->key;
         }
-      while ((e_key)?
-             (KEYS_DIFFER_P (e_key, key, test_function)):
-             (e->contents == NULL_ENTRY));
+      while (e_key ?
+             KEYS_DIFFER_P (e_key, key, test_function):
+             e->contents == NULL_ENTRY);
 
       if (e_key)
         {
@@ -391,57 +353,58 @@ puthash (CONST void *key, void *cont, c_hashtable hash)
     }
 
   /* only increment the fullness when we used up a new hentry */
-  if (!e_key || (KEYS_DIFFER_P (e_key, key, test_function)))
-    hash->fullness++;
+  if (!e_key || KEYS_DIFFER_P (e_key, key, test_function))
+    hash_table->fullness++;
 }
 
 static void
-rehash (hentry *harray, c_hashtable hash, unsigned int size)
+rehash (hentry *harray, struct hash_table *hash_table, hash_size_t size)
 {
   hentry *limit = harray + size;
   hentry *e;
   for (e = harray; e < limit; e++)
     {
       if (e->key)
-	puthash (e->key, e->contents, hash);
+	puthash (e->key, e->contents, hash_table);
     }
 }
 
 void
-remhash (CONST void *key, c_hashtable hash)
+remhash (CONST void *key, struct hash_table *hash_table)
 {
-  hentry *harray = hash->harray;
-  int (*test_function) (CONST void*, CONST void*) = hash->test_function;
-  unsigned int hsize = hash->size;
+  hentry *harray = hash_table->harray;
+  hash_table_test_function test_function = hash_table->test_function;
+  hash_size_t size = hash_table->size;
   unsigned int hcode_initial =
-    (hash->hash_function)?(hash->hash_function(key)):((unsigned long) key);
-  unsigned int hcode = hcode_initial % hsize;
+    (hash_table->hash_function) ?
+    (hash_table->hash_function (key)) :
+    ((unsigned long) key);
+  unsigned int hcode = hcode_initial % size;
   hentry *e = &harray [hcode];
   CONST void *e_key = e->key;
 
   if (!key)
     {
-      hash->zero_entry = 0;
-      hash->zero_set = 0;
+      hash_table->zero_entry = 0;
+      hash_table->zero_set = 0;
       return;
     }
 
-  if ((e_key)?
-      (KEYS_DIFFER_P (e_key, key, test_function)):
-      (e->contents == NULL_ENTRY))
+  if (e_key ?
+      KEYS_DIFFER_P (e_key, key, test_function) :
+      e->contents == NULL_ENTRY)
     {
-      unsigned int h2 = hsize - 2;
+      size_t h2 = size - 2;
       unsigned int incr = 1 + (hcode_initial % h2);
       do
         {
-          hcode = hcode + incr;
-          if (hcode >= hsize) hcode = hcode - hsize;
+          hcode += incr; if (hcode >= size) hcode -= size;
           e = &harray [hcode];
           e_key = e->key;
         }
-      while ((e_key)?
-             (KEYS_DIFFER_P (e_key, key, test_function)):
-             (e->contents == NULL_ENTRY));
+      while (e_key?
+             KEYS_DIFFER_P (e_key, key, test_function):
+             e->contents == NULL_ENTRY);
     }
   if (e_key)
     {
@@ -452,41 +415,38 @@ remhash (CONST void *key, c_hashtable hash)
 }
 
 void
-maphash (maphash_function mf, c_hashtable hash, void *arg)
+maphash (maphash_function mf, struct hash_table *hash_table, void *arg)
 {
   hentry *e;
   hentry *limit;
 
-  if (hash->zero_set)
+  if (hash_table->zero_set)
     {
-      if (((*mf) (0, hash->zero_entry, arg)))
+      if (mf (0, hash_table->zero_entry, arg))
 	return;
     }
 
-  for (e = hash->harray, limit = e + hash->size; e < limit; e++)
+  for (e = hash_table->harray, limit = e + hash_table->size; e < limit; e++)
     {
-      if (e->key)
-	{
-	  if (((*mf) (e->key, e->contents, arg)))
-	    return;
-	}
+      if (e->key && mf (e->key, e->contents, arg))
+	return;
     }
 }
 
 void
-map_remhash (remhash_predicate predicate, c_hashtable hash, void *arg)
+map_remhash (remhash_predicate predicate, struct hash_table *hash_table, void *arg)
 {
   hentry *e;
   hentry *limit;
 
-  if (hash->zero_set && ((*predicate) (0, hash->zero_entry, arg)))
+  if (hash_table->zero_set && predicate (0, hash_table->zero_entry, arg))
     {
-      hash->zero_set = 0;
-      hash->zero_entry = 0;
+      hash_table->zero_set = 0;
+      hash_table->zero_entry = 0;
     }
 
-  for (e = hash->harray, limit = e + hash->size; e < limit; e++)
-    if ((*predicate) (e->key, e->contents, arg))
+  for (e = hash_table->harray, limit = e + hash_table->size; e < limit; e++)
+    if (predicate (e->key, e->contents, arg))
       {
         e->key = 0;
         e->contents = NULL_ENTRY;
