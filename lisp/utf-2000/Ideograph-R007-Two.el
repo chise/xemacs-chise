@@ -61,10 +61,8 @@
     (hanyu-dazidian-page . 4)
     (hanyu-dazidian-char . 4)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
       )
      ((ucs		  . #x4E00)	; 一
       )
@@ -165,10 +163,8 @@
     (hanyu-dazidian-page . 384)
     (hanyu-dazidian-char . 2)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
       )
      ((ucs		  . #x4E8C)	; 二
       )
@@ -227,10 +223,8 @@
     (hanyu-dazidian-page . 10)
     (hanyu-dazidian-char . 3)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
       )
      ((ucs		  . #x4E00)	; 一
       )
@@ -393,10 +387,8 @@
     (hanyu-dazidian-page . 19)
     (hanyu-dazidian-char . 5)
     (ideographic-structure
-     (:cdp-combinator	3
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-		 (ucs		     . #x2FF4)	; ⿴
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; ⿴
       )
      ((ucs		  . #x4E8C)	; 二
       )
@@ -453,10 +445,8 @@
     (hanyu-dazidian-page . 1441)
     (hanyu-dazidian-char . 8)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
       )
      ((ucs		  . #x6B64)	; 此
       )
@@ -480,11 +470,12 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian-vol	 . 2)
+    (hanyu-dazidian-page . 1441)
+    (hanyu-dazidian-char . 8)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
       )
      ((ucs		  . #x6B64)	; 此
       )
@@ -628,6 +619,9 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 55)
+    (hanyu-dazidian-char . 7)
     (shinjigen-1	. 88)
     (shinjigen-2	. 88)
     (japanese-jisx0208-1978	. #x5034)	; �����
