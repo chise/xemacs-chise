@@ -839,16 +839,18 @@ add_emchar_rune (pos_data *data)
 
   if (data->ch == '\n')
     {
-      char_glyph.charset = Vcharset_ascii;
-      char_glyph.code_point = '\n';
+      char_glyph = ASCII_TO_CHARC ('\n');
       data->font_is_bogus = 0;
       /* Cheesy end-of-line pseudo-character. */
       width = data->blank_width;
     }
   else
     {
-      char_glyph.code_point = ENCODE_CHAR (data->ch, char_glyph.charset);
-      if (!EQ (char_glyph.charset, data->last_charset) ||
+      Lisp_Object charset;
+
+      char_glyph = CHAR_TO_CHARC (data->ch);
+      charset = CHARC_CHARSET (char_glyph);
+      if (!EQ (charset, data->last_charset) ||
 	  data->findex != data->last_findex)
 	{
 	  /* OK, we need to do things the hard way. */
@@ -856,7 +858,7 @@ add_emchar_rune (pos_data *data)
 	  struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, data->findex);
 	  Lisp_Object font_instance =
 	    ensure_face_cachel_contains_charset (cachel, data->window,
-						 char_glyph.charset);
+						 charset);
 	  Lisp_Font_Instance *fi;
 
 	  if (EQ (font_instance, Vthe_null_font_instance))
@@ -875,7 +877,7 @@ add_emchar_rune (pos_data *data)
 	    data->last_char_width = -1;
 	  data->new_ascent  = max (data->new_ascent,  (int) fi->ascent);
 	  data->new_descent = max (data->new_descent, (int) fi->descent);
-	  data->last_charset = char_glyph.charset;
+	  data->last_charset = charset;
 	  data->last_findex = data->findex;
 	}
 
@@ -925,14 +927,9 @@ add_emchar_rune (pos_data *data)
     /* Text but not in buffer */
     crb->bufpos = 0;
   crb->type = RUNE_CHAR;
-  if (data->font_is_bogus)
-    {
-      char_glyph.charset = Vcharset_ascii;
-      char_glyph.code_point =  '~';
-      crb->object.cglyph = char_glyph;
-    }
-  else
-    crb->object.cglyph = char_glyph;
+  crb->object.cglyph = data->font_is_bogus
+    ? ASCII_TO_CHARC ('~')
+    : char_glyph;
   crb->endpos = 0;
 
   if (data->cursor_type == CURSOR_ON)
@@ -2544,9 +2541,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if ((rb->type == RUNE_CHAR
-	     && EQ (rb->object.cglyph.charset, Vcharset_ascii)
-	     && rb->object.cglyph.code_point == ' ')
+	if ((rb->type == RUNE_CHAR && CHARC_ASCII_EQ (rb->object.cglyph, ' '))
 	    || rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.left_white += rb->width;
@@ -2566,11 +2561,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if (!(rb->type == RUNE_CHAR
-	      && (EQ (rb->object.cglyph.charset, Vcharset_ascii)
-		  || EQ (rb->object.cglyph.charset, Vcharset_control_1)
-		  || EQ (rb->object.cglyph.charset, Vcharset_latin_iso8859_1))
-	      && isspace (rb->object.cglyph.code_point))
+	if (!(rb->type == RUNE_CHAR && CHARC_IS_SPACE (rb->object.cglyph))
 	    && !rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.right_white = rb->xpos + rb->width;
@@ -3567,11 +3558,10 @@ generate_formatted_string_db (Lisp_Object format_str, Lisp_Object result_str,
         {
           if (Dynarr_atp (db->runes, elt)->type == RUNE_CHAR)
             {
-	      Charc ec = Dynarr_atp (db->runes, elt)->object.cglyph;
-
-              len += (set_charptr_emchar (strdata + len,
-					  DECODE_CHAR (ec.charset,
-						       ec.code_point)));
+              len += (set_charptr_emchar
+		      (strdata + len,
+		       CHARC_TO_CHAR (Dynarr_atp (db->runes,
+						  elt)->object.cglyph)));
             }
         }
 
@@ -4800,9 +4790,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if ((rb->type == RUNE_CHAR
-	     && EQ (rb->object.cglyph.charset, Vcharset_ascii)
-	     && rb->object.cglyph.code_point == ' ')
+	if ((rb->type == RUNE_CHAR && CHARC_ASCII_EQ (rb->object.cglyph, ' '))
 	    || rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.left_white += rb->width;
@@ -4822,11 +4810,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if (!(rb->type == RUNE_CHAR
-	      && (EQ (rb->object.cglyph.charset, Vcharset_ascii)
-		  || EQ (rb->object.cglyph.charset, Vcharset_control_1)
-		  || EQ (rb->object.cglyph.charset, Vcharset_latin_iso8859_1))
-	      && isspace (rb->object.cglyph.code_point))
+	if (!(rb->type == RUNE_CHAR && CHARC_IS_SPACE (rb->object.cglyph))
 	    && !rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.right_white = rb->xpos + rb->width;
@@ -8727,9 +8711,7 @@ pixel_to_glyph_translation (struct frame *f, int x_coord, int y_coord,
 		    }
 		  else if (past_end
 			   || (rb->type == RUNE_CHAR
-			       && EQ (rb->object.cglyph.charset,
-				      Vcharset_ascii)
-			       && rb->object.cglyph.code_point == '\n'))
+			       && CHARC_ASCII_EQ (rb->object.cglyph, '\n')))
 		    {
 		      (*row)--;
 		      /* At this point we may have glyphs in the right
