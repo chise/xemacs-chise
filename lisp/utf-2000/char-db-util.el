@@ -999,8 +999,15 @@
     (goto-char (point-min))
     (while (re-search-forward "[ \t]+$" nil t)
       (replace-match ""))
+    ;; from tabify.
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t][ \t][ \t]*" nil t)
+      (let ((column (current-column))
+	    (indent-tabs-mode t))
+	(delete-region (match-beginning 0) (point))
+	(indent-to column)))
     (goto-char (point-max))
-    (tabify (point-min)(point-max))
+    ;; (tabify (point-min)(point-max))
     ))
 
 (defun insert-char-data-with-variant (char &optional printable
