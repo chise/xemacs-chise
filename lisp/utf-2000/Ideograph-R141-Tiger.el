@@ -845,6 +845,7 @@
     (total-strokes	 . 14)
     (=jis-x0212		. #x5A41)	; ø»‹¸ž
     (=daikanwa		. 32734)	; ø¸‡¿ž
+    (=ucs@jis		. #x8661)	; ø»‹¸ž
     ))
 (define-char
   '((=>ucs		. #x8661)	; è™¡
@@ -933,6 +934,7 @@
     (=jis-x0213-1-2000	. #x7B50)	; ø»¤—·
     (=daikanwa		. 32742)	; ø¸‡¿¦
     (=jef-china3	. #x63B0)	; øº†Ž°
+    (=ucs@jis		. #x8662)	; ø»‹¸Ÿ
     ))
 (define-char
   '((=>ucs		. #x8662)	; è™¢
@@ -958,6 +960,7 @@
     (=jis-x0212		. #x5A43)	; ø»‹¸ 
     (=daikanwa		. 32744)	; ø¸‡¿¨
     (=jef-china3	. #x63B1)	; øº†Ž±
+    (=ucs@jis		. #x8663)	; ø»‹¸ 
     ))
 (define-char
   '((=>ucs		. #x8663)	; è™£
