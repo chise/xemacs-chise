@@ -1,3 +1,16 @@
+2002-09-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (decode_defined_char): Don't refer external
+	database if Qunbound or Qnil are found.
+	(Fsave_charset_mapping_table): Don't define it if
+	HAVE_CHISE_CLIENT is not defined.
+	(Freset_charset_mapping_table): New function.
+	(load_char_decoding_entry_maybe): Store Qnil if a character is not
+	found in external database.
+	(syms_of_mule_charset): Don't define `save-charset-mapping-table'
+	if HAVE_CHISE_CLIENT is not defined; add new builtin function
+	`reset-charset-mapping-table' if HAVE_CHISE_CLIENT is defined.
+
 2002-09-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (decode_coding_utf8): Check CCS is specified or
