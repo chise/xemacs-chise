@@ -3541,7 +3541,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	}
       UNGCPRO;
     }
-#if 0
+#if 1
   else if (EQ (attribute, Qideographic_structure))
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
 #endif
@@ -3781,7 +3781,11 @@ Save values of ATTRIBUTE into database file.
     {
       Lisp_Object (*filter)(Lisp_Object value);
 
-      if (EQ (attribute, Qideographic_structure))
+      if ( EQ (attribute, Qideographic_structure)
+	   || !NILP (Fstring_match
+		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
+		      Fsymbol_name (attribute),
+		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
       else
 	filter = NULL;
@@ -4078,33 +4082,46 @@ Store character's ATTRIBUTES.
 */
        (attributes))
 {
-  Lisp_Object rest = attributes;
+  Lisp_Object rest;
   Lisp_Object code = Fcdr (Fassq (Qmap_ucs, attributes));
   Lisp_Object character;
 
   if (NILP (code))
     code = Fcdr (Fassq (Qucs, attributes));
+
   if (NILP (code))
     {
+      rest = attributes;
       while (CONSP (rest))
 	{
 	  Lisp_Object cell = Fcar (rest);
 	  Lisp_Object ccs;
 
-	  if (!LISTP (cell))
+	  if ( !LISTP (cell) )
 	    signal_simple_error ("Invalid argument", attributes);
-	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
-	      && ((XCHARSET_FINAL (ccs) != 0) ||
-		  (XCHARSET_MAX_CODE (ccs) > 0) ||
-		  (EQ (ccs, Vcharset_chinese_big5))) )
+
+	  ccs = Ffind_charset (Fcar (cell));
+	  if (!NILP (ccs))
 	    {
 	      cell = Fcdr (cell);
-	      if (CONSP (cell))
-		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
-	      else
-		character = Fdecode_char (ccs, cell, Qnil, Qt);
-	      if (!NILP (character))
-		goto setup_attributes;
+	      if (INTP (cell))
+		{
+		  character = Fdecode_char (ccs, cell, Qt, Qt);
+		  if (!NILP (character))
+		    goto setup_attributes;
+		}
+	      if ( (XCHARSET_FINAL (ccs) != 0) ||
+		   (XCHARSET_MAX_CODE (ccs) > 0) ||
+		   (EQ (ccs, Vcharset_chinese_big5)) )
+		{
+		  if (CONSP (cell))
+		    character
+		      = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+		  else
+		    character = Fdecode_char (ccs, cell, Qnil, Qt);
+		  if (!NILP (character))
+		    goto setup_attributes;
+		}
 	    }
 	  rest = Fcdr (rest);
 	}
