@@ -1,5 +1,10 @@
 2002-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el (U+7872): Add `total-strokes'.
+	(U+7877): Likewise.
+	(M-24244): New character.
+	(C3-4333): Unify U-0002F94E; relate to M-24244.
+
 	* Ideograph-R205-Frog.el (M-48286): Add mapping for U-0002FA19.
 	(C3-5C2F): Unify U-0002FA19.
 
