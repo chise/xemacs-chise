@@ -1061,7 +1061,6 @@ charset_get_byte2 (Lisp_Object charset, Emchar ch)
 }
 
 Lisp_Object Vdefault_coded_charset_priority_list;
-Lisp_Object Vdefault_coded_charset_priority_list_for_font;
 #endif
 
 
@@ -2063,12 +2062,6 @@ Version number of UTF-2000.
 	       &Vdefault_coded_charset_priority_list /*
 Default order of preferred coded-character-set.
 */ );
-
-  Vdefault_coded_charset_priority_list_for_font = Qnil;
-  DEFVAR_LISP ("default-coded-charset-priority-list-for-font",
-	       &Vdefault_coded_charset_priority_list_for_font /*
-Default order of preferred coded-character-set for font.
-*/ );
 #endif
 }
 
@@ -2090,7 +2083,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("BMP"),
 		  build_string ("BMP"),
 		  build_string ("BMP"),
-		  build_string (""),
+		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0);
 #else
 # define MIN_CHAR_THAI 0
