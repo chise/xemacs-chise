@@ -295,6 +295,7 @@
     (chinese-cns11643-3		. #x2265)	; ø»•™†
     (japanese-jisx0208-1990	. #x4168)	; ø½Š¦ƒ
     (ideograph-daikanwa		. 00236)	; ø¸€ƒ¬
+    (ideograph-hanziku-1	. #xE8D1)	; ý¢€ž£‘
     (mojikyo			. 000236)	; ý €€ƒ¬
     (ucs			. #x4E89)	; äº‰
     ))
