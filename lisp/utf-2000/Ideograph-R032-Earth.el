@@ -5631,6 +5631,7 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=jis-x0213-2-2000	. #x2474)	; ø»¤¢­
     (=ucs		. #x21336)	; ð¡Œ¶
     ))
 (define-char
