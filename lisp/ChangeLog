@@ -1,3 +1,10 @@
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el
+	(default-coded-charset-priority-list-for-font): Setup in UTF-2000.
+
+	* utf-2000/ccs-viscii.el: Add mapping-table for `latin-viscii'.
+
 1999-10-08   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
 
 	* bytecomp.el (byte-compile-insert-header): Fix regexp.
