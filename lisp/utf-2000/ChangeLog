@@ -1,3 +1,26 @@
+2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (C1-644D): Unify J90-3335.
+
+	* Ideograph-R175-Wrong.el (J83-7051): Separate J90-7051 and
+	JU+9760.
+
+	* Ideograph-R115-Grain.el (J0-6348): Separate C1-6562 and U+7A1F;
+	add `ucs-jis' for U+7A1F.
+
+	* Ideograph-R100-Life.el (J0-3B3A): Separate C3-3745 and G1-327A.
+
+	* Ideograph-R063-Door.el (J83-4862): Separate J90-4862 and
+	JU+6249.
+	
+	* Ideograph-R027-Cliff.el (J90-3139): Separate J83-3139.
+
+2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R173-Rain.el (C3-5678): Unify U-0002F9F5.
+
+	* Ideograph-R154-Shell.el (C3-607C): Unify U-0002F9D6.
+
 2002-11-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R007-Two.el, Ideograph-R014-Cover.el,
