@@ -317,7 +317,6 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET(x) XRECORD (x, charset, Lisp_Charset)
 #define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
 #define CHARSETP(x) RECORDP (x, charset)
-#define GC_CHARSETP(x) GC_RECORDP (x, charset)
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
