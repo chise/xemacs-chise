@@ -1,779 +1,817 @@
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED A")
-    (ucs		. #x0250)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xA8)	; øº’š¨
-    (japanese-jisx0213-1	#x2B #x33)	; É
+    (ipa			. #xA8)	; øº’š¨
+    (japanese-jisx0213-1	. #x2B33)	; ø»¢¡º
+    (ucs			. #x0250)	; É
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ALPHA")
-    (ucs		. #x0251)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xAC)	; øº’š¬
-    (japanese-jisx0213-1	#x2B #x39)	; É‘
+    (ipa			. #xAC)	; øº’š¬
+    (japanese-jisx0213-1	. #x2B39)	; ø»¢¢€
+    (ucs			. #x0251)	; É‘
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED ALPHA")
-    (ucs		. #x0252)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xB8)	; øº’š¸
-    (japanese-jisx0213-1	#x2B #x3A)	; É’
+    (ipa			. #xB8)	; øº’š¸
+    (japanese-jisx0213-1	. #x2B3A)	; ø»¢¢
+    (ucs			. #x0252)	; É’
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER B WITH HOOK")
-    (ucs		. #x0253)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0181)
-    (->titlecase	#x0181)
-    (japanese-jisx0213-1	#x2B #x25)	; É“
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER B WITH HOOK")
+      (ucs		  . #x0181)	; Æ
+      ))
+    (japanese-jisx0213-1	. #x2B25)	; ø»¢¡¬
+    (ucs			. #x0253)	; É“
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER OPEN O")
-    (ucs		. #x0254)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0186)
-    (->titlecase	#x0186)
-    (ipa			#xB7)	; øº’š·
-    (japanese-jisx0213-1	#x2B #x38)	; É”
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER OPEN O")
+      (ucs		  . #x0186)	; Æ†
+      ))
+    (ipa			. #xB7)	; øº’š·
+    (japanese-jisx0213-1	. #x2B38)	; ø»¢¡¿
+    (ucs			. #x0254)	; É”
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C WITH CURL")
-    (ucs		. #x0255)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x3F)	; É•
+    (japanese-jisx0213-1	. #x2B3F)	; ø»¢¢†
+    (ucs			. #x0255)	; É•
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D WITH TAIL")
-    (ucs		. #x0256)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0189)
-    (->titlecase	#x0189)
-    (japanese-jisx0213-1	#x2A #x6E)	; É–
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER AFRICAN D")
+      (ucs		  . #x0189)	; Æ‰
+      ))
+    (japanese-jisx0213-1	. #x2A6E)	; ø»¢¡—
+    (ucs			. #x0256)	; É–
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D WITH HOOK")
-    (ucs		. #x0257)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x018A)
-    (->titlecase	#x018A)
-    (japanese-jisx0213-1	#x2B #x26)	; É—
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER D WITH HOOK")
+      (ucs		  . #x018A)	; ÆŠ
+      ))
+    (japanese-jisx0213-1	. #x2B26)	; ø»¢¡­
+    (ucs			. #x0257)	; É—
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED E")
-    (ucs		. #x0258)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x2E)	; É˜
+    (japanese-jisx0213-1	. #x2B2E)	; ø»¢¡µ
+    (ucs			. #x0258)	; É˜
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCHWA")
-    (ucs		. #x0259)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x018F)
-    (->titlecase	#x018F)
-    (ipa			#xA7)	; øº’š§
-    (japanese-jisx0213-1	#x2B #x30)	; É™
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER SCHWA")
+      (ucs		  . #x018F)	; Æ
+      ))
+    (ipa			. #xA7)	; øº’š§
+    (japanese-jisx0213-1	. #x2B30)	; ø»¢¡·
+    (ucs			. #x0259)	; É™
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCHWA WITH HOOK")
-    (ucs		. #x025A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xBA)	; øº’šº
-    (japanese-jisx0213-1	#x2B #x43)	; Éš
+    (ipa			. #xBA)	; øº’šº
+    (japanese-jisx0213-1	. #x2B43)	; ø»¢¢Š
+    (ucs			. #x025A)	; Éš
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER OPEN E")
-    (ucs		. #x025B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0190)
-    (->titlecase	#x0190)
-    (ipa		#xA3)	; øº’š£
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER OPEN E")
+      (ucs		  . #x0190)	; Æ
+      ))
+    (ipa		. #xA3)	; øº’š£
+    (ucs		. #x025B)	; É›
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E")
-    (ucs		. #x025C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x31)	; Éœ
+    (japanese-jisx0213-1	. #x2B31)	; ø»¢¡¸
+    (ucs			. #x025C)	; Éœ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E WITH HOOK")
-    (ucs		. #x025D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x025D)	; É
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER CLOSED REVERSED OPEN E")
-    (ucs		. #x025E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x32)	; Éž
+    (japanese-jisx0213-1	. #x2B32)	; ø»¢¡¹
+    (ucs			. #x025E)	; Éž
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DOTLESS J WITH STROKE")
-    (ucs		. #x025F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x75)	; ÉŸ
+    (japanese-jisx0213-1	. #x2A75)	; ø»¢¡ž
+    (ucs			. #x025F)	; ÉŸ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER G WITH HOOK")
-    (ucs		. #x0260)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0193)
-    (->titlecase	#x0193)
-    (japanese-jisx0213-1	#x2B #x28)	; É 
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER G WITH HOOK")
+      (ucs		  . #x0193)	; Æ“
+      ))
+    (japanese-jisx0213-1	. #x2B28)	; ø»¢¡¯
+    (ucs			. #x0260)	; É 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCRIPT G")
-    (ucs		. #x0261)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x79)	; É¡
+    (japanese-jisx0213-1	. #x2A79)	; ø»¢¡¢
+    (ucs			. #x0261)	; É¡
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL G")
-    (ucs		. #x0262)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0262)	; É¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER GAMMA")
-    (ucs		. #x0263)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0194)
-    (->titlecase	#x0194)
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER GAMMA")
+      (ucs		  . #x0194)	; Æ”
+      ))
+    (ucs		. #x0263)	; É£
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER RAMS HORN")
-    (ucs		. #x0264)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xAA)	; øº’šª
-    (japanese-jisx0213-1	#x2B #x36)	; É¤
+    (ipa			. #xAA)	; øº’šª
+    (japanese-jisx0213-1	. #x2B36)	; ø»¢¡½
+    (ucs			. #x0264)	; É¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED H")
-    (ucs		. #x0265)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xDD)	; øº’›
-    (japanese-jisx0213-1	#x2B #x3C)	; É¥
+    (ipa			. #xDD)	; øº’›
+    (japanese-jisx0213-1	. #x2B3C)	; ø»¢¢ƒ
+    (ucs			. #x0265)	; É¥
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER H WITH HOOK")
-    (ucs		. #x0266)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x22)	; É¦
+    (japanese-jisx0213-1	. #x2B22)	; ø»¢¡©
+    (ucs			. #x0266)	; É¦
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER HENG WITH HOOK")
-    (ucs		. #x0267)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x42)	; É§
+    (japanese-jisx0213-1	. #x2B42)	; ø»¢¢‰
+    (ucs			. #x0267)	; É§
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH STROKE")
-    (ucs		. #x0268)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0197)
-    (->titlecase	#x0197)
-    (ipa			#xA6)	; øº’š¦
-    (japanese-jisx0213-1	#x2B #x2C)	; É¨
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER I WITH STROKE")
+      (ucs		  . #x0197)	; Æ—
+      ))
+    (ipa			. #xA6)	; øº’š¦
+    (japanese-jisx0213-1	. #x2B2C)	; ø»¢¡³
+    (ucs			. #x0268)	; É¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER IOTA")
-    (ucs		. #x0269)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0196)
-    (->titlecase	#x0196)
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER IOTA")
+      (ucs		  . #x0196)	; Æ–
+      ))
+    (ucs		. #x0269)	; É©
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL I")
-    (ucs		. #x026A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#xA1)	; øº’š¡
+    (ipa		. #xA1)	; øº’š¡
+    (ucs		. #x026A)	; Éª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH MIDDLE TILDE")
-    (ucs		. #x026B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x026B)	; É«
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH BELT")
-    (ucs		. #x026C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x6A)	; É¬
+    (japanese-jisx0213-1	. #x2A6A)	; ø»¢¡“
+    (ucs			. #x026C)	; É¬
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH RETROFLEX HOOK")
-    (ucs		. #x026D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x74)	; É­
+    (japanese-jisx0213-1	. #x2A74)	; ø»¢¡
+    (ucs			. #x026D)	; É­
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER LEZH")
-    (ucs		. #x026E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x6B)	; É®
+    (japanese-jisx0213-1	. #x2A6B)	; ø»¢¡”
+    (ucs			. #x026E)	; É®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED M")
-    (ucs		. #x026F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x019C)
-    (->titlecase	#x019C)
-    (ipa			#xA9)	; øº’š©
-    (japanese-jisx0213-1	#x2B #x34)	; É¯
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER TURNED M")
+      (ucs		  . #x019C)	; Æœ
+      ))
+    (ipa			. #xA9)	; øº’š©
+    (japanese-jisx0213-1	. #x2B34)	; ø»¢¡»
+    (ucs			. #x026F)	; É¯
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED M WITH LONG LEG")
-    (ucs		. #x0270)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x7B)	; É°
+    (japanese-jisx0213-1	. #x2A7B)	; ø»¢¡¤
+    (ucs			. #x0270)	; É°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH HOOK")
-    (ucs		. #x0271)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xDF)	; øº’›Ÿ
-    (japanese-jisx0213-1	#x2A #x65)	; É±
+    (ipa			. #xDF)	; øº’›Ÿ
+    (japanese-jisx0213-1	. #x2A65)	; ø»¢¡Ž
+    (ucs			. #x0271)	; É±
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH LEFT HOOK")
-    (ucs		. #x0272)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x019D)
-    (->titlecase	#x019D)
-    (ipa			#xD4)	; øº’›”
-    (japanese-jisx0213-1	#x2A #x76)	; É²
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER N WITH LEFT HOOK")
+      (ucs		  . #x019D)	; Æ
+      ))
+    (ipa			. #xD4)	; øº’›”
+    (japanese-jisx0213-1	. #x2A76)	; ø»¢¡Ÿ
+    (ucs			. #x0272)	; É²
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH RETROFLEX HOOK")
-    (ucs		. #x0273)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x6F)	; É³
+    (japanese-jisx0213-1	. #x2A6F)	; ø»¢¡˜
+    (ucs			. #x0273)	; É³
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL N")
-    (ucs		. #x0274)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0274)	; É´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER BARRED O")
-    (ucs		. #x0275)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x019F)
-    (->titlecase	#x019F)
-    (ipa			#xB3)	; øº’š³
-    (japanese-jisx0213-1	#x2B #x2F)	; Éµ
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER O WITH MIDDLE TILDE")
+      (ucs		  . #x019F)	; ÆŸ
+      ))
+    (ipa			. #xB3)	; øº’š³
+    (japanese-jisx0213-1	. #x2B2F)	; ø»¢¡¶
+    (ucs			. #x0275)	; Éµ
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL OE")
-    (ucs		. #x0276)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#xB1)	; øº’š±
+    (ipa		. #xB1)	; øº’š±
+    (ucs		. #x0276)	; É¶
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER CLOSED OMEGA")
-    (ucs		. #x0277)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0277)	; É·
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER PHI")
-    (ucs		. #x0278)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0278)	; É¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R")
-    (ucs		. #x0279)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xD8)	; øº’›˜
-    (japanese-jisx0213-1	#x2A #x6C)	; É¹
+    (ipa			. #xD8)	; øº’›˜
+    (japanese-jisx0213-1	. #x2A6C)	; ø»¢¡•
+    (ucs			. #x0279)	; É¹
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R WITH LONG LEG")
-    (ucs		. #x027A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x41)	; Éº
+    (japanese-jisx0213-1	. #x2B41)	; ø»¢¢ˆ
+    (ucs			. #x027A)	; Éº
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R WITH HOOK")
-    (ucs		. #x027B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x73)	; É»
+    (japanese-jisx0213-1	. #x2A73)	; ø»¢¡œ
+    (ucs			. #x027B)	; É»
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R WITH LONG LEG")
-    (ucs		. #x027C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x027C)	; É¼
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R WITH TAIL")
-    (ucs		. #x027D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x70)	; É½
+    (japanese-jisx0213-1	. #x2A70)	; ø»¢¡™
+    (ucs			. #x027D)	; É½
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R WITH FISHHOOK")
-    (ucs		. #x027E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x67)	; É¾
+    (japanese-jisx0213-1	. #x2A67)	; ø»¢¡
+    (ucs			. #x027E)	; É¾
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED R WITH FISHHOOK")
-    (ucs		. #x027F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x027F)	; É¿
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL R")
-    (ucs		. #x0280)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01A6)
-    (->titlecase	#x01A6)
-    (ipa		#xD7)	; øº’›—
+    (->uppercase
+     ((name		  . "LATIN LETTER YR")
+      (ucs		  . #x01A6)	; Æ¦
+      ))
+    (ipa		. #xD7)	; øº’›—
+    (ucs		. #x0280)	; Ê€
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL INVERTED R")
-    (ucs		. #x0281)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xD0)	; øº’›
-    (japanese-jisx0213-1	#x2A #x7C)	; Ê
+    (ipa			. #xD0)	; øº’›
+    (japanese-jisx0213-1	. #x2A7C)	; ø»¢¡¥
+    (ucs			. #x0281)	; Ê
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S WITH HOOK")
-    (ucs		. #x0282)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x71)	; Ê‚
+    (japanese-jisx0213-1	. #x2A71)	; ø»¢¡š
+    (ucs			. #x0282)	; Ê‚
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ESH")
-    (ucs		. #x0283)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01A9)
-    (->titlecase	#x01A9)
-    (ipa			#xCC)	; øº’›Œ
-    (japanese-jisx0213-1	#x2A #x68)	; Êƒ
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER ESH")
+      (ucs		  . #x01A9)	; Æ©
+      ))
+    (ipa			. #xCC)	; øº’›Œ
+    (japanese-jisx0213-1	. #x2A68)	; ø»¢¡‘
+    (ucs			. #x0283)	; Êƒ
     ))
 (define-char
   '((name . "LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK")
-    (ucs		. #x0284)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x27)	; Ê„
+    (japanese-jisx0213-1	. #x2B27)	; ø»¢¡®
+    (ucs			. #x0284)	; Ê„
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SQUAT REVERSED ESH")
-    (ucs		. #x0285)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0285)	; Ê…
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ESH WITH CURL")
-    (ucs		. #x0286)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0286)	; Ê†
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED T")
-    (ucs		. #x0287)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0287)	; Ê‡
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER T WITH RETROFLEX HOOK")
-    (ucs		. #x0288)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01AE)
-    (->titlecase	#x01AE)
-    (japanese-jisx0213-1	#x2A #x6D)	; Êˆ
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER T WITH RETROFLEX HOOK")
+      (ucs		  . #x01AE)	; Æ®
+      ))
+    (japanese-jisx0213-1	. #x2A6D)	; ø»¢¡–
+    (ucs			. #x0288)	; Êˆ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U BAR")
-    (ucs		. #x0289)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xB2)	; øº’š²
-    (japanese-jisx0213-1	#x2B #x2D)	; Ê‰
+    (ipa			. #xB2)	; øº’š²
+    (japanese-jisx0213-1	. #x2B2D)	; ø»¢¡´
+    (ucs			. #x0289)	; Ê‰
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER UPSILON")
-    (ucs		. #x028A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01B1)
-    (->titlecase	#x01B1)
-    (ipa			#xB5)	; øº’šµ
-    (japanese-jisx0213-1	#x2B #x35)	; ÊŠ
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER UPSILON")
+      (ucs		  . #x01B1)	; Æ±
+      ))
+    (ipa			. #xB5)	; øº’šµ
+    (japanese-jisx0213-1	. #x2B35)	; ø»¢¡¼
+    (ucs			. #x028A)	; ÊŠ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER V WITH HOOK")
-    (ucs		. #x028B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01B2)
-    (->titlecase	#x01B2)
-    (japanese-jisx0213-1	#x2A #x66)	; Ê‹
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER V WITH HOOK")
+      (ucs		  . #x01B2)	; Æ²
+      ))
+    (japanese-jisx0213-1	. #x2A66)	; ø»¢¡
+    (ucs			. #x028B)	; Ê‹
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED V")
-    (ucs		. #x028C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xAB)	; øº’š«
-    (japanese-jisx0213-1	#x2B #x37)	; ÊŒ
+    (ipa			. #xAB)	; øº’š«
+    (japanese-jisx0213-1	. #x2B37)	; ø»¢¡¾
+    (ucs			. #x028C)	; ÊŒ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED W")
-    (ucs		. #x028D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xDF)	; øº’›Ÿ
-    (japanese-jisx0213-1	#x2B #x3B)	; Ê
+    (ipa			. #xDF)	; øº’›Ÿ
+    (japanese-jisx0213-1	. #x2B3B)	; ø»¢¢‚
+    (ucs			. #x028D)	; Ê
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED Y")
-    (ucs		. #x028E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa			#xDB)	; øº’››
-    (japanese-jisx0213-1	#x2A #x78)	; ÊŽ
+    (ipa			. #xDB)	; øº’››
+    (japanese-jisx0213-1	. #x2A78)	; ø»¢¡¡
+    (ucs			. #x028E)	; ÊŽ
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL Y")
-    (ucs		. #x028F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#xAE)	; øº’š®
+    (ipa		. #xAE)	; øº’š®
+    (ucs		. #x028F)	; Ê
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z WITH RETROFLEX HOOK")
-    (ucs		. #x0290)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x72)	; Ê
+    (japanese-jisx0213-1	. #x2A72)	; ø»¢¡›
+    (ucs			. #x0290)	; Ê
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z WITH CURL")
-    (ucs		. #x0291)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x40)	; Ê‘
+    (japanese-jisx0213-1	. #x2B40)	; ø»¢¢‡
+    (ucs			. #x0291)	; Ê‘
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER EZH")
-    (ucs		. #x0292)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x01B7)
-    (->titlecase	#x01B7)
-    (ipa			#xCD)	; øº’›
-    (japanese-jisx0213-1	#x2A #x69)	; Ê’
+    (->uppercase
+     ((name		  . "LATIN CAPITAL LETTER EZH")
+      (ucs		  . #x01B7)	; Æ·
+      ))
+    (ipa			. #xCD)	; øº’›
+    (japanese-jisx0213-1	. #x2A69)	; ø»¢¡’
+    (ucs			. #x0292)	; Ê’
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER EZH WITH CURL")
-    (ucs		. #x0293)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0293)	; Ê“
     ))
 (define-char
   '((name		. "LATIN LETTER GLOTTAL STOP")
-    (ucs		. #x0294)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x21)	; Ê”
+    (japanese-jisx0213-1	. #x2B21)	; ø»¢¡¨
+    (ucs			. #x0294)	; Ê”
     ))
 (define-char
   '((name		. "LATIN LETTER PHARYNGEAL VOICED FRICATIVE")
-    (ucs		. #x0295)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x7E)	; Ê•
+    (japanese-jisx0213-1	. #x2A7E)	; ø»¢¡§
+    (ucs			. #x0295)	; Ê•
     ))
 (define-char
   '((name		. "LATIN LETTER INVERTED GLOTTAL STOP")
-    (ucs		. #x0296)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0296)	; Ê–
     ))
 (define-char
   '((name		. "LATIN LETTER STRETCHED C")
-    (ucs		. #x0297)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0297)	; Ê—
     ))
 (define-char
   '((name		. "LATIN LETTER BILABIAL CLICK")
-    (ucs		. #x0298)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x23)	; Ê˜
+    (japanese-jisx0213-1	. #x2B23)	; ø»¢¡ª
+    (ucs			. #x0298)	; Ê˜
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL B")
-    (ucs		. #x0299)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0299)	; Ê™
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER CLOSED OPEN E")
-    (ucs		. #x029A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x029A)	; Êš
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL G WITH HOOK")
-    (ucs		. #x029B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x029B)	; Ê›
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL H")
-    (ucs		. #x029C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x029C)	; Êœ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER J WITH CROSSED-TAIL")
-    (ucs		. #x029D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2A #x77)	; Ê
+    (japanese-jisx0213-1	. #x2A77)	; ø»¢¡ 
+    (ucs			. #x029D)	; Ê
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED K")
-    (ucs		. #x029E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x029E)	; Êž
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL L")
-    (ucs		. #x029F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#xDC)	; øº’›œ
+    (ipa		. #xDC)	; øº’›œ
+    (ucs		. #x029F)	; ÊŸ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Q WITH HOOK")
-    (ucs		. #x02A0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A0)	; Ê 
     ))
 (define-char
   '((name		. "LATIN LETTER GLOTTAL STOP WITH STROKE")
-    (ucs		. #x02A1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x3E)	; Ê¡
+    (japanese-jisx0213-1	. #x2B3E)	; ø»¢¢…
+    (ucs			. #x02A1)	; Ê¡
     ))
 (define-char
   '((name		. "LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE")
-    (ucs		. #x02A2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x2B #x3D)	; Ê¢
+    (japanese-jisx0213-1	. #x2B3D)	; ø»¢¢„
+    (ucs			. #x02A2)	; Ê¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DZ DIGRAPH")
-    (ucs		. #x02A3)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A3)	; Ê£
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DEZH DIGRAPH")
-    (ucs		. #x02A4)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A4)	; Ê¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DZ DIGRAPH WITH CURL")
-    (ucs		. #x02A5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A5)	; Ê¥
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TS DIGRAPH")
-    (ucs		. #x02A6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A6)	; Ê¦
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TESH DIGRAPH")
-    (ucs		. #x02A7)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A7)	; Ê§
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TC DIGRAPH WITH CURL")
-    (ucs		. #x02A8)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A8)	; Ê¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER FENG DIGRAPH")
-    (ucs		. #x02A9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02A9)	; Ê©
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER LS DIGRAPH")
-    (ucs		. #x02AA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02AA)	; Êª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER LZ DIGRAPH")
-    (ucs		. #x02AB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02AB)	; Ê«
     ))
 (define-char
   '((name		. "LATIN LETTER BILABIAL PERCUSSIVE")
-    (ucs		. #x02AC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02AC)	; Ê¬
     ))
 (define-char
   '((name		. "LATIN LETTER BIDENTAL PERCUSSIVE")
-    (ucs		. #x02AD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x02AD)	; Ê­
     ))
