@@ -391,19 +391,10 @@
     (=gt-pj-9		. #x4A2F)	; &GT-00144; [42-15]
     ))
 (define-char
-  '((ideographic-radical@daikanwa . 3)	; ⼂
-    (ideographic-strokes@daikanwa . 7)
-    (total-strokes@daikanwa	  . 8)
-    (ideographic-radical@daikanwa*sources
-     daikanwa gt)
+  '((ideographic-radical@ucs . 3)	; ⼂
+    (ideographic-radical@ucs*sources
+     daikanwa gt ucs)
     (ideographic-radical@cns . 1)	; ⼀
-    (ideographic-strokes@cns . 7)
-    (total-strokes@cns	     . 8)
-    (ideographic-radical@cns*sources
-     cns11643)
-    (ideographic-radical@unicode . 3)
-    (ideographic-strokes@unicode . 6)
-    (total-strokes@unicode . 7)
     (=ucs		. #x4E3D)	; 丽
     ))
 (define-char
@@ -417,8 +408,8 @@
      cns11643)
     (total-strokes	 . 8)
     (<-ancient
-     ((=jis-x0208-1978	  . #x4E6F)	; &GT-64844; [46-79]
-      (=jis-x0208-1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
+     ((=jis-x0208@1978	  . #x4E6F)	; &GT-64844; [46-79]
+      (=jis-x0208@1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
       (=ks-x1001	  . #x5572)	; &I-K0-5572; [53-82]
       (=daikanwa	  . 47663)	; &I-M-47663;
       ))
@@ -436,37 +427,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       ))
     (=cns11643-3	. #x2740)	; &GT-00145; [07-32]
     (=big5-cdp		. #x8CB7)	; &I-CDP-8CB7;

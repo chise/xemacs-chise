@@ -411,48 +411,27 @@
     (=cns11643-3	. #x612E)	; &I-C3-612E; [65-14]
     ))
 (define-char
-  '((=>ucs		. #x9B2E)	; 鬮
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 16)
-    (total-strokes	 . 26)
-    (=daikanwa		. 45659)	; &M-45659;
-    ))
-(define-char
-  '((=>ucs		. #x9B2E)	; 鬮
-    (morohashi-daikanwa	45659 0 0)
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 16)
-    (total-strokes	 . 26)
-    (=jis-x0208-1983	. #x722D)	; &GT-61417; [82-13]
-    (=jis-x0208-1990	. #x722D)	; &I-J90-722D; [82-13]
-    (=gt		. 61417)	; &I-GT-61417;
-    (=gt-pj-1		. #x722D)	; &I-GT-61417; [82-13]
-    (=ucs@jis		. #x9B2E)	; &GT-61417;
-    ))
-(define-char
-  '((=>ucs		. #x9B2E)	; 鬮
-    (morohashi-daikanwa	45659 0 1)
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 16)
-    (total-strokes	 . 26)
-    (=cns11643-2	. #x7166)	; &C2-7166; [81-70]
-    (=ucs@cns		. #x9B2E)	; &C2-7166;
-    ))
-(define-char
-  '((=>ucs		. #x9B2E)	; 鬮
-    (morohashi-daikanwa	45659 0 2)
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 16)
-    (total-strokes	 . 26)
-    (=jis-x0208-1978	. #x722D)	; &J78-722D; [82-13]
-    ))
-(define-char
-  '((morohashi-daikanwa	45659 0 3)
-    (ideographic-radical . 191)	; ⾾
+  '((ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 16)
     (total-strokes	 . 26)
     (=ucs		. #x9B2E)	; 鬮
-    (=gb12345		. #x634E)	; 鬮 [67-46]
+    (->subsumptive
+     ((=daikanwa	  . 45659)	; &M-45659;
+      )
+     ((=jis-x0208@1983	  . #x722D)	; &GT-61417; [82-13]
+      (=jis-x0208@1990	  . #x722D)	; &I-J90-722D; [82-13]
+      (=gt		  . 61417)	; &I-GT-61417;
+      (=gt-pj-1		  . #x722D)	; &I-GT-61417; [82-13]
+      (=ucs@jis		  . #x9B2E)	; &GT-61417;
+      )
+     ((=cns11643-2	  . #x7166)	; &C2-7166; [81-70]
+      (=ucs@cns		  . #x9B2E)	; &C2-7166;
+      )
+     ((=jis-x0208@1978	  . #x722D)	; &J78-722D; [82-13]
+      )
+     ((=gb12345		  . #x634E)	; &UU+9B2E; [67-46]
+      (=ucs@unicode	  . #x9B2E)	; &UU+9B2E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾

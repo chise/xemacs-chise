@@ -1199,9 +1199,9 @@
 	(=cns11643-4	    . #x6529)	; &M-43198; [69-09]
 	(=daikanwa	    . 43198)	; &I-M-43198;
 	)
-       ((ideographic-strokes . 10)
+       ((ideographic-strokes@jis-x0213 . 11)
+	(ideographic-strokes . 10)
 	(total-strokes	     . 20)
-	(ideographic-strokes@jisx0213 . 11)
 	(=jis-x0212	    . #x676A)	; &JX1-7D74; [71-74]
 	(=jis-x0213-1-2000  . #x7D74)	; &I-JX1-7D74; [93-84]
 	(=jef-china3	    . #x6CCE)	; &I-JC3-6CCE;

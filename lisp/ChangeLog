@@ -1,3 +1,74 @@
+2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs-radicals): Use "-zhRadicals-.*-ucs-0" as
+	its registry.
+	(=ucs-radicals@unicode): Likewise.
+
+2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs-hangul): New coded-charset for XEmacs
+	CHISE.
+
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@cns/fw): New coded-charset for XEmacs
+	CHISE.
+
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@gb/fw): New coded-charset for XEmacs
+	CHISE.
+
+2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Modify preference of *isolated settings*.
+
+2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@big5/cns11643): New coded-charset when
+	utf-2000 is provided.
+	(=ucs@cns11643): Likewise.
+
+2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer every *isolated setting* to ordinary setting.
+
+2004-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `latin-viscii-{upper|lower}' and `latin-viscii'.
+
+2004-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@jis/fw): New coded-charset for XEmacs
+	CHISE.
+
+2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=jis-x0208@1997'.
+
+2004-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=jis-x0208@1997'.
+
+2004-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1997): New coded-charset for
+	XEmacs CHISE.
+
+2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208-1978): Define as an alias for
+	`=jis-x0208@1978'.
+	(=jis-x0208-1983): Define as an alias for `=jis-x0208@1983'.
+	(=jis-x0213-1-2000): Use `=jis-x0208@1990' instead of
+	`=jis-x0208-1990' as the mother.
+	(=jis-x0208-1990): Define as an alias for `=jis-x0208@1990'.
+
 2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs@jis/1990): Renamed from `=ucs@jis-1990';

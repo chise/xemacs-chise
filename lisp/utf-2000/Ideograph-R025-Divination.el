@@ -698,10 +698,16 @@
     (=daikanwa		. 48951)	; &I-M-48951;
     ))
 (define-char
-  '((=>ucs		. #x5368)	; 卨
-    (ideographic-radical . 25)	; ⼘
+  '((ideographic-radical . 25)	; ⼘
+    (=ucs		. #x5368)	; 卨
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (<-denotational
+     ((=ucs		  . #x5368)	; 卨
+      ))
     (hanyu-dazidian	1 95 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -721,10 +727,12 @@
     (=cbeta		. 05348)	; &I-CB05348;
     ))
 (define-char
-  '((morohashi-daikanwa	2820 0 3)
-    (ideographic-radical . 25)	; ⼘
+  '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (<-denotational
+     ((=ucs		  . #x5368)	; 卨
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -732,9 +740,9 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=ucs		  . #x54BC)	; 咼
+     ((=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
       ))
-    (=ucs		. #x5368)	; 卨
+    (=ucs@unicode	. #x5368)	; &UU+5368;
     ))
 (define-char
   '((=>ucs		. #x209FA)	; 𠧺

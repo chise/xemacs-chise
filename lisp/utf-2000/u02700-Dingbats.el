@@ -110,7 +110,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2713)	; ✓
-    (=jis-x0213-1-2000	. #x277B)	; &I-JX1-277B; [07-91]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CHECK MARK")
+      (=ucs		  . #x2713)	; ✓
+      ))
+    (<-fullwidth
+     ((name		  . "CHECK MARK")
+      (=ucs		  . #x2713)	; ✓
+      ))
+    (=jis-x0213-1-2000	. #x277B)	; &JX1-277B; [07-91]
+    (=ucs@jis		. #x2713)	; &JX1-277B;
     ))
 (define-char
   '((name		. "HEAVY CHECK MARK")
@@ -398,7 +409,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x273D)	; ✽
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
+      (=ucs		  . #x273D)	; ✽
+      ))
+    (<-fullwidth
+     ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
+      (=ucs		  . #x273D)	; ✽
+      ))
     (=big5-eten		. #xC6E6)	; &B-C6E6;
+    (=ucs@big5		. #x273D)	; &B-C6E6;
     ))
 (define-char
   '((name		. "SIX PETALLED BLACK AND WHITE FLORETTE")
@@ -539,7 +561,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2756)	; ❖
-    (=jis-x0213-1-2000	. #x2D7D)	; &I-JX1-2D7D; [13-93]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "BLACK DIAMOND MINUS WHITE X")
+      (=ucs		  . #x2756)	; ❖
+      ))
+    (<-fullwidth
+     ((name		  . "BLACK DIAMOND MINUS WHITE X")
+      (=ucs		  . #x2756)	; ❖
+      ))
+    (=jis-x0213-1-2000	. #x2D7D)	; &JX1-2D7D; [13-93]
+    (=ucs@jis		. #x2756)	; &JX1-2D7D;
     ))
 (define-char
   '((name		. "LIGHT VERTICAL BAR")

@@ -156,19 +156,29 @@
     (mojikyo		. 000230)	; &MCS-600000E6;
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8DD8)	; &CDP-8DD8;
-      )
-     ((=ucs		  . #x4E85)	; 亅
-      ))
+  '((total-strokes	 . 3)
     (=ucs		. #x4E87)	; 亇
-    (=gb12345		. #x7D3B)	; 亇 [93-27]
+    (->subsumptive
+     ((ideographic-radical . 4)	; ⼃
+      (ideographic-strokes . 2)
+      (=cns11643-3	  . #x212D)	; &C3-212D; [01-13]
+      (=jef-china3	  . #x8FC2)	; &I-JC3-8FC2;
+      (=ucs@cns		  . #x4E87)	; &C3-212D;
+      (mojikyo		  . 059024)	; &MCS-6000E690;
+      )
+     ((ideographic-radical . 6)	; ⼅
+      (ideographic-strokes . 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8DD8)	; &CDP-8DD8;
+	)
+       ((=ucs		    . #x4E85)	; 亅
+	))
+      (=gb12345		  . #x7D3B)	; &UU+4E87; [93-27]
+      (=ucs@unicode	  . #x4E87)	; &UU+4E87;
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅

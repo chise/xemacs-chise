@@ -17,21 +17,23 @@
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
     (=ucs		. #x20AD3)	; 𠫓
-    (=cns11643-5	. #x212E)	; &I-C5-212E; [01-14]
-    (=big5-cdp		. #x8B7E)	; &I-CDP-8B7E;
-    (=daikanwa		. 03058)	; &I-M-03058;
-    ))
-(define-char
-  '((=>ucs		. #x20AD3)	; 𠫓
-    (morohashi-daikanwa	3058 0 1)
-    (ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=jis-x0213-2-2000	. #x2359)	; &JX2-2359; [03-57]
-    (=ucs@jis		. #x20AD3)	; &JX2-2359;
+    (->subsumptive
+     ((ideographic-strokes . 1)
+      (total-strokes	   . 3)
+      (=big5-cdp	  . #x8B7E)	; &CDP-8B7E;
+      (=daikanwa	  . 03058)	; &I-M-03058;
+      (=ucs@iso		  . #x20AD3)	; &CDP-8B7E;
+      )
+     ((ideographic-strokes . 1)
+      (total-strokes	   . 3)
+      (=cns11643-5	  . #x212E)	; &C5-212E; [01-14]
+      )
+     ((ideographic-strokes . 2)
+      (total-strokes	   . 4)
+      (=jis-x0213-2-2000  . #x2359)	; &JX2-2359; [03-57]
+      (=ucs@jis		  . #x20AD3)	; &JX2-2359;
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -911,21 +913,37 @@
     (=hanziku-1		. #xF5F0)	; &I-HZK01-F5F0;
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 10)
+  '((ideographic-radical@ucs . 28)	; ⼛
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@ucs*sources
+     daikanwa=03104 ucs)
+    (ideographic-radical@cns . 136)	; ⾇
+    (ideographic-strokes@cns . 6)
+    (ideographic-radical@cns*sources
+     daikanwa=30340 cns11643)
     (total-strokes	 . 12)
-    (->identical
-     ((=daikanwa	  . 30340)	; &M-30340;
-      ))
-    (->synonyms
-     (:sources	(henkai-ruihen morohashi-daikanwa)
-      :char	((=daikanwa	     . 13502)	; &I-M-13502;
-		 )
-      ))
-    (hanyu-dazidian	1 389 3)
     (=ucs		. #x20B02)	; 𠬂
-    (=daikanwa		. 03104)	; &I-M-03104;
-    (=hanziku-1		. #xF5EF)	; &I-HZK01-F5EF;
+    (->subsumptive
+     ((hanyu-dazidian	  1 389 3)
+      (=hanziku-1	  . #xF5EF)	; &HZK01-F5EF;
+      (=ucs@iso		  . #x20B02)	; &HZK01-F5EF;
+      (->subsumptive
+       ((ideographic-radical . 28)	; ⼛
+	(ideographic-strokes . 10)
+	(->synonyms
+	 ((=daikanwa	      . 13502)	; &I-M-13502;
+	  ))
+	(->synonyms*sources
+	 pianhai-leibian daikanwa)
+	(=daikanwa	    . 03104)	; &M-03104;
+	)
+       ((ideographic-radical . 136)	; ⾇
+	(ideographic-strokes . 6)
+	(=daikanwa	    . 30340)	; &M-30340;
+	))
+      )
+     ((=cns11643-6	  . #x4D62)	; &C6-4D62; [45-66]
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

@@ -687,7 +687,7 @@
     (=ucs		. #x99C6)	; 駆
     (->subsumptive
      ((<-simplified@JP/Jouyou
-       ((=jis-x0208-1990    . #x715C)	; &GT-60508; [81-60]
+       ((=jis-x0208@1990    . #x715C)	; &GT-60508; [81-60]
 	))
       (shinjigen-2	  . 9335)
       (=jis-x0208	  . #x366E)	; &GT-60085; [22-78]
@@ -2675,6 +2675,20 @@
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
+    (=ucs		. #x4B94)	; 䮔
+    (->subsumptive
+     ((ideographic-strokes . 8)
+      (total-strokes	   . 18)
+      (=daikanwa	  . 44803)	; &M-44803;
+      (=ucs@unicode	  . #x4B94)	; &M-44803;
+      )
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 19)
+      (=cns11643-5	  . #x6A6E)	; &C5-6A6E; [74-78]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
     (=ucs		. #x298F8)	; 𩣸
@@ -3250,6 +3264,7 @@
     (->subsumptive
      ((=jis-x0213-2-2000  . #x7C7D)	; &M-44853; [92-93]
       (=daikanwa	  . 44853)	; &I-M-44853;
+      (=ucs@jis		  . #x9A1A)	; &M-44853;
       )
      ((=ucs@unicode	  . #x9A1A)	; &UU+9A1A;
       )
@@ -3548,23 +3563,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
     (=cns11643-7	. #x4C35)	; &C7-4C35; [44-21]
-    ))
-(define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 19)
-    (=ucs		. #x4B94)	; 䮔
-    (=cns11643-5	. #x6A6E)	; &I-C5-6A6E; [74-78]
-    ))
-(define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 19)
-    (=ucs		. #x9A28)	; 騨
-    (=jis-x0208-1983	. #x424D)	; &I-J83-424D; [34-45]
-    (=jis-x0208-1990	. #x424D)	; &I-J90-424D; [34-45]
-    (=gt		. 60402)	; &I-GT-60402;
-    (=gt-pj-1		. #x424D)	; &I-GT-60402; [34-45]
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
@@ -4598,55 +4596,66 @@
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (shinjigen-2	. 9336)
     (=ucs		. #x9A45)	; 驅
-    (=jis-x0208-1978	. #x715C)	; &I-J78-715C; [81-60]
-    (=jis-x0208-1983	. #x715C)	; &I-J83-715C; [81-60]
-    (=ks-x1001		. #x4F4C)	; &I-K0-4F4C; [47-44]
-    (=gb12345		. #x477D)	; 驅 [39-93]
-    (=daikanwa		. 44968)	; &I-M-44968;
-    ))
-(define-char
-  '((=>ucs		. #x9A45)	; 驅
-    (morohashi-daikanwa	44968 0 0)
-    (ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (=jis-x0208-1990	. #x715C)	; &GT-60508; [81-60]
-    (=gt		. 60508)	; &I-GT-60508;
-    (=gt-pj-1		. #x715C)	; &I-GT-60508; [81-60]
-    (=ucs@jis		. #x9A45)	; &GT-60508;
-    ))
-(define-char
-  '((=>ucs		. #x9A45)	; 驅
-    (morohashi-daikanwa	44968 0 2)
-    (ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (=cns11643-1	. #x7B44)	; &C1-7B44; [91-36]
+    (->subsumptive
+     ((shinjigen-2	  . 9336)
+      (=jis-x0208@1978	  . #x715C)	; &M-44968; [81-60]
+      (=jis-x0208@1983	  . #x715C)	; &I-J83-715C; [81-60]
+      (=ks-x1001	  . #x4F4C)	; &I-K0-4F4C; [47-44]
+      (=gb12345		  . #x477D)	; &M-44968; [39-93]
+      (=daikanwa	  . 44968)	; &I-M-44968;
+      (=ucs@unicode	  . #x9A45)	; &M-44968;
+      )
+     ((=jis-x0208@1990	  . #x715C)	; &GT-60508; [81-60]
+      (=gt		  . 60508)	; &I-GT-60508;
+      (=gt-pj-1		  . #x715C)	; &I-GT-60508; [81-60]
+      (=ucs@jis		  . #x9A45)	; &GT-60508;
+      )
+     ((=cns11643-1	  . #x7B44)	; &C1-7B44; [91-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
     (=ucs		. #x4BB0)	; 䮰
-    (=cns11643-5	. #x722D)	; &I-C5-722D; [82-13]
-    (=daikanwa		. 44969)	; &I-M-44969;
+    (->subsumptive
+     ((=daikanwa	  . 44969)	; &M-44969;
+      )
+     ((=cns11643-5	  . #x722D)	; &C5-722D; [82-13]
+      (=ucs@unicode	  . #x4BB0)	; &C5-722D;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x4BB1)	; 䮱
-    (ideographic-radical . 187)	; ⾺
+  '((ideographic-radical . 187)	; ⾺
+    (=ucs		. #x4BB1)	; 䮱
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x4BB1)	; 䮱
+      ))
     (=daikanwa		. 44970)	; &M-44970;
     ))
 (define-char
-  '((morohashi-daikanwa	44970 0 2)
-    (ideographic-radical . 187)	; ⾺
+  '((ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 10)
+    (total-strokes	 . 20)
+    (<-denotational
+     ((=ucs		  . #x4BB1)	; 䮱
+      ))
+    (=ucs@unicode	. #x4BB1)	; &UU+4BB1;
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=ucs		. #x4BB1)	; 䮱
-    (=cns11643-4	. #x6828)	; &I-C4-6828; [72-08]
+    (<-denotational
+     ((=ucs		  . #x4BB1)	; 䮱
+      ))
+    (=cns11643-4	. #x6828)	; &C4-6828; [72-08]
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
@@ -4997,11 +5006,36 @@
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x424D)	; &J97-424D; [34-45]
+      ))
     (=ucs		. #x9A52)	; 驒
-    (=jis-x0208-1978	. #x424D)	; &I-J78-424D; [34-45]
+    (=jis-x0208@1978	. #x424D)	; &I-J78-424D; [34-45]
     (=cns11643-2	. #x6E4F)	; &I-C2-6E4F; [78-47]
     (=jis-x0213-1-2000	. #x7E34)	; &I-JX1-7E34; [94-20]
     (=daikanwa		. 45002)	; &I-M-45002;
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
+    (=jis-x0208@1997	. #x424D)	; &J97-424D; [34-45]
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 19)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x424D)	; &J97-424D; [34-45]
+      ))
+    (<-simplified@JP
+     ((=ucs		  . #x9A52)	; 驒
+      (=jis-x0208@1978	  . #x424D)	; &I-J78-424D; [34-45]
+      (=jis-x0213-1-2000  . #x7E34)	; &I-JX1-7E34; [94-20]
+      ))
+    (=ucs		. #x9A28)	; 騨
+    (=jis-x0208@1983	. #x424D)	; &I-J83-424D; [34-45]
+    (=jis-x0208@1990	. #x424D)	; &I-J90-424D; [34-45]
+    (=gt		. 60402)	; &I-GT-60402;
+    (=gt-pj-1		. #x424D)	; &I-GT-60402; [34-45]
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺

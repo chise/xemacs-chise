@@ -103,20 +103,18 @@
     (=cns11643-6	. #x283D)	; &I-C6-283D; [08-29]
     ))
 (define-char
-  '((=>ucs		. #x6BD0)	; 毐
-    (ideographic-radical . 80)	; ⽏
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=cns11643-2	. #x2448)	; &M-16727; [04-40]
-    (=big5		. #xCB48)	; &I-B-CB48;
-    (=daikanwa		. 16727)	; &I-M-16727;
-    ))
-(define-char
-  '((morohashi-daikanwa	16727 0 2)
-    (ideographic-radical . 80)	; ⽏
+  '((ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x6BD0)	; 毐
+    (->subsumptive
+     ((=cns11643-2	  . #x2448)	; &M-16727; [04-40]
+      (=big5		  . #xCB48)	; &I-B-CB48;
+      (=daikanwa	  . 16727)	; &I-M-16727;
+      (=ucs@cns		  . #x6BD0)	; &M-16727;
+      )
+     ((=ucs@unicode	  . #x6BD0)	; &UU+6BD0;
+      ))
     ))
 (define-char
   '((ideographic-radical . 80)	; ⽏

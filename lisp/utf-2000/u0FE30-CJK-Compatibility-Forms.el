@@ -35,6 +35,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
     (=ucs		. #xFE33)	; ︳
+    (=cns11643-1	. #x213A)	; &I-C1-213A; [01-26]
     (=big5		. #xA159)	; &I-B-A159;
     ))
 (define-char
@@ -44,14 +45,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
     (=ucs		. #xFE34)	; ︴
-    ))
-(define-char
-  '((name . "presentation form for vertical book name mark")
-    (=>ucs		. #xFE34)	; ︴
-    (general-category	punctuation connector) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x213C)	; &C1-213C; [01-28]
+    (=cns11643-1	. #x213C)	; &I-C1-213C; [01-28]
     (=big5		. #xA15B)	; &I-B-A15B;
     ))
 (define-char
@@ -291,13 +285,6 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (=ucs		. #xFE4F)	; ﹏
-    ))
-(define-char
-  '((name		. "book name mark")
-    (=>ucs		. #xFE4F)	; ﹏
-    (general-category	punctuation connector) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x213D)	; &C1-213D; [01-29]
+    (=cns11643-1	. #x213D)	; &I-C1-213D; [01-29]
     (=big5		. #xA15C)	; &I-B-A15C;
     ))

@@ -223,34 +223,31 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (<-simplified@CN
-     ((=ucs		  . #x8C50)	; 豐
-      (=gb12345		  . #x3761)	; 豐 [23-65]
-      ))
-    (shinjigen-1	. 35)
-    (shinjigen-2	. 35)
     (=ucs		. #x4E30)	; 丰
-    (=gb2312		. #x3761)	; &I-G0-3761; [23-65]
-    (=jis-x0212		. #x302D)	; &I-JSP-302D; [16-13]
-    (=jis-x0213-1-2000	. #x2E26)	; &I-JX1-2E26; [14-06]
-    (=big5-cdp		. #x897E)	; &I-CDP-897E;
-    (=gt		. 00110)	; &I-GT-00110;
-    (=gt-pj-2		. #x305A)	; &I-GT-00110; [16-58]
-    (=daikanwa		. 00076)	; &I-M-00076;
-    (=jef-china3	. #x81FE)	; &I-JC3-81FE;
-    (mojikyo		. 000076)	; &MCS-6000004C;
-    ))
-(define-char
-  '((=>ucs		. #x4E30)	; 丰
-    (morohashi-daikanwa	76 0 2)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (hanyu-dazidian	1 28 7)
-    (=cns11643-1	. #x4464)	; &C1-4464; [36-68]
-    (=big5		. #xA4A5)	; &I-B-A4A5;
-    (=ucs@cns		. #x4E30)	; &C1-4464;
-    (=ucs@big5		. #x4E30)	; &C1-4464;
+    (->subsumptive
+     ((<-simplified@CN
+       ((=ucs		    . #x8C50)	; 豐
+	(=gb12345	    . #x3761)	; 豐 [23-65]
+	))
+      (shinjigen-1	  . 35)
+      (shinjigen-2	  . 35)
+      (=gb2312		  . #x3761)	; &GT-00110; [23-65]
+      (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
+      (=jis-x0213-1-2000  . #x2E26)	; &I-JX1-2E26; [14-06]
+      (=big5-cdp	  . #x897E)	; &I-CDP-897E;
+      (=gt		  . 00110)	; &I-GT-00110;
+      (=gt-pj-2		  . #x305A)	; &I-GT-00110; [16-58]
+      (=daikanwa	  . 00076)	; &I-M-00076;
+      (=jef-china3	  . #x81FE)	; &I-JC3-81FE;
+      (=ucs@unicode	  . #x4E30)	; &GT-00110;
+      (mojikyo		  . 000076)	; &MCS-6000004C;
+      )
+     ((hanyu-dazidian	  1 28 7)
+      (=cns11643-1	  . #x4464)	; &C1-4464; [36-68]
+      (=big5		  . #xA4A5)	; &I-B-A4A5;
+      (=ucs@cns		  . #x4E30)	; &C1-4464;
+      (=ucs@big5	  . #x4E30)	; &C1-4464;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
@@ -546,8 +543,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (<-simplified@CN
-     ((=ucs		  . #x81E8)	; 臨
-      (=gb12345		  . #x4159)	; 臨 [33-57]
+     ((=gb12345		  . #x4159)	; &GT-38930; [33-57]
       ))
     (hanyu-dazidian	1 30 5)
     (ideographic-structure

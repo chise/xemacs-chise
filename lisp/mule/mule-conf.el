@@ -25,9 +25,11 @@
 
 ;;; Code:
 
-(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208-1978)
+(define-charset-alias '=jis-x0208-1978		'=jis-x0208@1978)
+(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208@1978)
 (define-charset-alias 'chinese-gb2312		'=gb2312)
-(define-charset-alias 'japanese-jisx0208	'=jis-x0208-1983)
+(define-charset-alias '=jis-x0208-1983		'=jis-x0208@1983)
+(define-charset-alias 'japanese-jisx0208	'=jis-x0208@1983)
 (define-charset-alias 'korean-ksc5601		'=ks-x1001)
 (define-charset-alias 'japanese-jisx0212	'=jis-x0212)
 (define-charset-alias 'chinese-cns11643-1	'=cns11643-1)
@@ -135,7 +137,7 @@
 		registry "jisx0213\\(\\.2000\\)-1"
 		dimension 2
 		chars 94
-		mother =jis-x0208-1990
+		mother =jis-x0208@1990
 		final ?O
 		graphic 0))
       (make-charset
@@ -170,11 +172,21 @@
 
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
-  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
+  (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
+  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
+  (make-charset
+   '=jis-x0208@1997
+   "JIS X 0208 based on the unification rule of 1997 edition."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      ;; final ?B
+	      graphic 0))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
-		`(long-name	"Big5-CDP"
+		'(long-name	"Big5-CDP"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -231,7 +243,7 @@
   (make-charset
    '=gt-pj-k1
    "Ideographic parts of GT (pseudo JIS encoding) part 1"
-   `(long-name "GT K1"
+   '(long-name "GT K1"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -242,7 +254,7 @@
   (make-charset
    '=gt-pj-k2
    "Ideographic parts of GT (pseudo JIS encoding) part 2"
-   `(long-name "GT K2"
+   '(long-name "GT K2"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -439,6 +451,15 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-gb '=ucs@gb)
+  (make-charset '=ucs@gb/fw
+		"ISO/IEC 10646 for GB with fullwidth"
+		'(long-name	"UCS for GB-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@gb))
   (make-charset '=ucs@cns
 		"ISO/IEC 10646 for CNS 11643"
 		'(long-name	"UCS for CNS"
@@ -449,6 +470,15 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
+  (make-charset '=ucs@cns/fw
+		"ISO/IEC 10646 for CNS 11643 with fullwidth"
+		'(long-name	"UCS for CNS-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns))
   (make-charset '=ucs@jis
 		"ISO/IEC 10646 for JIS X0208/0212/0213"
 		'(long-name	"UCS for JIS"
@@ -459,6 +489,15 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
+  (make-charset '=ucs@jis/fw
+		"ISO/IEC 10646 for JIS X0208/0212/0213 with fullwidth"
+		'(long-name	"UCS for JIS-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis))
   (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		'(long-name	"UCS for JIS:1990"
@@ -493,7 +532,7 @@
   (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
 		"ISO/IEC 10646 for Korean Standards"
-		`(long-name	"UCS for KS"
+		'(long-name	"UCS for KS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -503,7 +542,7 @@
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
-		`(long-name	"UCS for Big5"
+		'(long-name	"UCS for Big5"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -511,35 +550,65 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
-
+  (make-charset '=ucs@big5/cns11643
+		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
+		'(long-name	"UCS for Big5@CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@big5))
+  (make-charset '=ucs@cns11643
+		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
+		'(long-name	"UCS for CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns))
+  
   (make-charset
    '=ucs-radicals
    "CJK Radicals of UCS"
-   `(long-name "UCS-Radicals"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother ucs-bmp
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
    '=ucs-radicals@unicode
    "CJK Radicals of UCS"
-   `(long-name "UCS-Radicals"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother =ucs@unicode
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
+   '=ucs-hangul
+   "Hangul Syllables of UCS"
+   '(long-name "UCS-Hangul-Syllables"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-Hangul-.*-ucs-0"
+	       mother =ucs
+	       min-code #xAC00 max-code #xD7AF))
+  (make-charset
    '=ucs-bmp-cjk
    "CJK Characters in BMP of UCS"
-   `(long-name "UCS-BMP-CJK"
+   '(long-name "UCS-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -551,7 +620,7 @@
   (make-charset
    '=ucs-bmp-cjk@unicode
    "CJK Characters in BMP of Unicode"
-   `(long-name "Unicode-BMP-CJK"
+   '(long-name "Unicode-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -563,7 +632,7 @@
   (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"
-   `(long-name "UCS CJK Ext-B"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -576,7 +645,7 @@
   (make-charset
    '=ucs-sip-ext-b@iso
    "CJK Ideographs Extension B (ISO/IEC 10646-2)"
-   `(long-name "UCS CJK Ext-B"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2

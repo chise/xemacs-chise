@@ -19,22 +19,13 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	super #x0034)
-    (->fullwidth
-     ((name		  . "fullwidth superscript four")
-      (=ks-x1001	  . #x2979)	; &K0-2979; [09-89]
-      ))
     (=ucs		. #x2074)	; ⁴
     ))
 (define-char
-  '((name		. "fullwidth superscript four")
-    (=>ucs		. #x2074)	; ⁴
-    (general-category	number other) ; Normative Category
-    (bidi-category	. "EN")
-    (mirrored		. nil)
-    (decimal-digit-value . 4)
-    (digit-value	 . 4)
-    (numeric-value	 . 4)
-    (->decomposition	wide #x2074)
+  '((<-denotational
+     ((name		  . "SUPERSCRIPT FOUR")
+      (=ucs		  . #x2074)	; ⁴
+      ))
     (<-fullwidth
      ((name		  . "SUPERSCRIPT FOUR")
       (=ucs		  . #x2074)	; ⁴
@@ -142,19 +133,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	super #x006E)
-    (->fullwidth
-     ((name		  . "fullwidth superscript latin small letter n")
-      (=ks-x1001	  . #x297A)	; &K0-297A; [09-90]
-      ))
     (=ucs		. #x207F)	; ⁿ
     ))
 (define-char
-  '((name		. "fullwidth superscript latin small letter n")
-    (=>ucs		. #x207F)	; ⁿ
-    (general-category	letter lowercase) ; Normative Category
-    (bidi-category	. "L")
-    (mirrored		. nil)
-    (->decomposition	wide #x207F)
+  '((<-denotational
+     ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
+      (=ucs		  . #x207F)	; ⁿ
+      ))
     (<-fullwidth
      ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
       (=ucs		  . #x207F)	; ⁿ

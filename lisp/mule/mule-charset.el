@@ -277,6 +277,19 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  =jis-x0208
+	  chinese-gb2312
+	  japanese-jisx0208
+	  =jis-x0208-1990
+	  japanese-jisx0212
+	  japanese-jisx0208-1978
+	  korean-ksc5601
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+          chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
@@ -289,19 +302,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-11
 	  =gt-pj-k1
 	  =gt-pj-k2
-	  japanese-jisx0208
-	  =jis-x0208-1990
-	  chinese-gb2312
-	  japanese-jisx0212
-	  japanese-jisx0208-1978
-	  korean-ksc5601
-	  chinese-cns11643-1
-	  chinese-cns11643-2
-	  chinese-cns11643-3
-          chinese-cns11643-4
-	  chinese-cns11643-5
-	  chinese-cns11643-6
-	  chinese-cns11643-7
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
 	  =big5-cdp
@@ -320,6 +320,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-1-column
 	  arabic-2-column
 	  =gt-pj-1
+	  =jis-x0208@1997
 	  =ucs-radicals
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b

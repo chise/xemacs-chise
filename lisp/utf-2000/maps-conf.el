@@ -2,6 +2,8 @@
 
 ;; (dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
 ;;                 "JX1-to-UCS.txt" "JX2-to-UCS.txt"
+;;                 "G0-to-UCS.txt"
+;;                 "C2-to-UCS.txt"
 ;;                 "C3-to-UCS.txt" "C4-to-UCS.txt"
 ;;                 "B-to-UCS.txt" "JC3-to-UCS.txt"))
 ;;   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
@@ -38,7 +40,16 @@
 ;;                      #x7366 #x7367 #x7368 #x736C #x5423
 ;;                      #x342A #x3476 #x5877 #x592D #x5A61
 ;;                      #x3522 #x334C #x657D #x657E #x6621
-;;                      #x335C #x6D7D))
+;;                      #x335C #x6D7D #x507C #x417C #x5371
+;;                      #x3766 #x3E7D #x555D #x5739 #x5831
+;;                      #x3F78 #x5973 #x5A33 #x5970 #x5A49
+;;                      #x3F22 #x6026 #x4D32 #x612E #x4D63
+;;                      #x4E57 #x316A #x4A43 #x723C #x6A64
+;;                      #x6B36 #x6E43 #x3D36 #x6E44 #x3C60
+;;                      #x6E45 #x6E46 #x6E48 #x6E4B #x6E4A
+;;                      #x6E4F #x6E52 #x6E51 #x4830 #x6E54
+;;                      #x6E55 #x395A #x724D #x737D #x3973
+;;                      #x5379 #x5879 #x3D5D #x3C21 #x4C60))
 ;;      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 ;;                          '=gt-pj-1 v))
 ;;    nil)

@@ -106,7 +106,9 @@
     (=ruimoku-v6	. #xE00C)	; &RUI6-E00C;
     ))
 (define-char
-  '((->decomposition	#x0101 #x0301)
+  '((name*		. "latin small letter a with macron and acute")
+    (general-category	letter lowercase) ; Normative Category
+    (->decomposition	#x0101 #x0301)
     (sources		bos=C011091-00007)
     (=ruimoku-v6	. #xE00D)	; &RUI6-E00D;
     ))

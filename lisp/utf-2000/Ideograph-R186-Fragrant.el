@@ -320,6 +320,7 @@
     (=cns11643-4	. #x5E60)	; &I-C4-5E60; [62-64]
     (=daikanwa		. 44552)	; &I-M-44552;
     (=ucs@unicode	. #x99A7)	; 馧
+    (=ucs@cns		. #x2FA05)	; 馧
     ))
 (define-char
   '((ideographic-radical . 186)	; ⾹

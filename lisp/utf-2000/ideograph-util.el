@@ -252,13 +252,20 @@
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let (ret radical script dest)
+  (let (ret rret radical script dest)
     (dolist (feature
 	     (cons 'ideographic-radical
-		   (mapcar
-		    (lambda (domain)
-		      (intern (format "%s@%s" 'ideographic-radical domain)))
-		    char-db-feature-domains)))
+		   (progn
+		     (dolist (feature (char-attribute-list))
+		       (if (string-match "^ideographic-radical@[^@*]+$"
+					 (symbol-name feature))
+			   (setq dest (cons feature dest))))
+		     dest)
+                   ;; (mapcar
+                   ;;  (lambda (domain)
+                   ;;    (intern (format "%s@%s" 'ideographic-radical domain)))
+                   ;;  char-db-feature-domains)
+		   ))
       (map-char-attribute
        (lambda (chr radical)
 	 (dolist (char (append
@@ -270,7 +277,11 @@
 				(unless (eq (get-char-attribute
 					     pc 'ideographic-radical)
 					    radical)
-				  (setq dest (cons pc dest))))
+				  (if (setq rret
+					    (get-char-attribute
+					     pc '<-subsumptive))
+				      (setq ret (append ret rret))
+				    (setq dest (cons pc dest)))))
 			      dest)
 			  (list chr))
 			(let ((rest (append

@@ -127,9 +127,9 @@
     greek-iso8859-7
     thai-tis620
     =jis-x0208
-    japanese-jisx0208
+    =jis-x0208@1978
+    =jis-x0208@1983
     japanese-jisx0212
-    japanese-jisx0208-1978
     chinese-gb2312
     chinese-cns11643-1
     chinese-cns11643-2
@@ -138,7 +138,7 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0208-1990
+    =jis-x0208@1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
@@ -165,9 +165,11 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    =gt-k
+    =ucs@unicode
     =big5
     =big5-eten
-    =gt-k
+    =jis-x0208@1997
     =jef-china3))
 
 (defun char-db-make-char-spec (char)
@@ -203,6 +205,8 @@
 					 =daikanwa@rev2
 					 ;; =gt-k
 					 )))
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
 			     (setq ret (encode-char char ccs 'defined-only)))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
@@ -619,7 +623,19 @@
       (setq attributes (delq 'ideographic-radical attributes))
       )
     (let (key)
-      (dolist (domain char-db-feature-domains)
+      (dolist (domain
+	       (append
+		char-db-feature-domains
+		(let (dest domain)
+		  (dolist (feature (char-attribute-list))
+		    (setq feature (symbol-name feature))
+		    (when (string-match
+			   "\\(radical\\|strokes\\)@\\([^@*]+\\)\\(\\*\\|$\\)"
+			   feature)
+		      (setq domain (intern (match-string 2 feature)))
+		     (unless (memq domain dest)
+		       (setq dest (cons domain dest)))))
+		  (sort dest #'string<))))
 	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
@@ -859,8 +875,7 @@
 			  (prog1
 			      (setq value (get-char-attribute char name))
 			    (setq dest-ccss (cons name dest-ccss))))
-		     (char-db-insert-ccs-feature name value line-breaking)
-		     )
+		     (char-db-insert-ccs-feature name value line-breaking))
 		 )
 		((string-match "^=>ucs@" (symbol-name name))
 		 (insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -878,12 +893,18 @@
 			     (intern (format "%s*sources" name))))
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
+			  (string-match "^->halfwidth" (symbol-name name))
+			  (and
+			   (string-match "^->fullwidth" (symbol-name name))
+			   (not
+			    (and (consp value)
+				 (characterp (car value))
+				 (encode-char
+				  (car value) '=ucs 'defined-only))))
 			  (string-match "^->simplified" (symbol-name name))
-                          ;; (string-match "^<-same" (symbol-name name))
-			  (string-match "^->same" (symbol-name name))
-                          ;; (string-match "^->ideographic-same" (symbol-name name))
 			  (string-match "^->vulgar" (symbol-name name))
 			  (string-match "^->wrong" (symbol-name name))
+			  (string-match "^->same" (symbol-name name))
 			  (string-match "^->original" (symbol-name name))
 			  (string-match "^->ancient" (symbol-name name))
 			  ))
@@ -928,12 +949,12 @@
 			      (setq required-features
 				    (union required-features
 					   '(=jis-x0208
-					     =jis-x0208-1990
+					     =jis-x0208@1990
 					     =jis-x0213-1-2000
 					     =jis-x0213-2-2000
 					     =jis-x0212
-					     =jis-x0208-1983
-					     =jis-x0208-1978))))
+					     =jis-x0208@1983
+					     =jis-x0208@1978))))
 			     ((eq source 'CN)
 			      (setq required-features
 				    (union required-features
@@ -951,12 +972,12 @@
 				 (setq required-features
 				       (union required-features
 					      '(=jis-x0208
-						=jis-x0208-1990
+						=jis-x0208@1990
 						=jis-x0213-1-2000
 						=jis-x0213-2-2000
 						=jis-x0212
-						=jis-x0208-1983
-						=jis-x0208-1978))))
+						=jis-x0208@1983
+						=jis-x0208@1978))))
 				((string-match "@CN" (symbol-name name))
 				 (setq required-features
 				       (union required-features
@@ -1092,20 +1113,26 @@
 		      (let ((ucs (get-char-attribute char '->ucs)))
 			(if ucs
 			    (delete char (char-variants (int-char ucs)))))))
-	variant vs)
+	variant vs ret)
     (setq variants (sort variants #'<))
     (while variants
       (setq variant (car variants))
-      (if (and (or (null script)
-		   (null (setq vs (get-char-attribute variant 'script)))
-		   (memq script vs))
-	       (or (null excluded-script)
-		   (null (setq vs (get-char-attribute variant 'script)))
-		   (not (memq excluded-script vs))))
-	  (or (and no-ucs-unified (get-char-attribute variant '=ucs))
-	      (insert-char-data variant printable)))
-      (setq variants (cdr variants))
-      )))
+      (unless (get-char-attribute variant '<-subsumptive)
+	(if (and (or (null script)
+		     (null (setq vs (get-char-attribute variant 'script)))
+		     (memq script vs))
+		 (or (null excluded-script)
+		     (null (setq vs (get-char-attribute variant 'script)))
+		     (not (memq excluded-script vs))))
+	    (unless (and no-ucs-unified (get-char-attribute variant '=ucs))
+	      (insert-char-data variant printable)
+	      (if (setq ret (char-variants variant))
+		  (while ret
+		    (or (memq (car ret) variants)
+                        ;; (get-char-attribute (car ret) '<-subsumptive)
+			(setq variants (append variants (list (car ret)))))
+		    (setq ret (cdr ret)))))))
+      (setq variants (cdr variants)))))
 
 (defun insert-char-range-data (min max &optional script excluded-script)
   (let ((code min)

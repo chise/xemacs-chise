@@ -906,14 +906,14 @@
     (=cns11643-4	. #x504D)	; &I-C4-504D; [48-45]
     ))
 (define-char
-  '((=>daikanwa		. 13604)	; &M-13604;
-    (ideographic-radical . 69)	; ⽄
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x65B5)	; 斵
     (->subsumptive
      ((=jis-x0213-2-2000  . #x2D6B)	; &M-13604; [13-75]
       (=daikanwa	  . 13604)	; &I-M-13604;
+      (=ucs@jis		  . #x65B5)	; &M-13604;
       )
      ((=cns11643-3	  . #x546B)	; &CB00010; [52-75]
       (=cbeta		  . 00010)	; &I-CB00010;

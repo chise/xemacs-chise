@@ -369,21 +369,18 @@
 (define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
-    (kangxi-strokes	 . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 60 2)
     (=ucs		. #x534C)	; 卌
-    (=jis-x0212		. #x3437)	; &I-JSP-3437; [20-23]
     (=big5		. #xC96D)	; &I-B-C96D;
-    (=daikanwa		. 02712)	; &I-M-02712;
-    ))
-(define-char
-  '((=>ucs		. #x534C)	; 卌
-    (morohashi-daikanwa	2712 0 1)
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=cns11643-2	. #x214E)	; &C2-214E; [01-46]
+    (->subsumptive
+     ((=jis-x0212	  . #x3437)	; &M-02712; [20-23]
+      (=daikanwa	  . 02712)	; &I-M-02712;
+      (=ucs@unicode	  . #x534C)	; &M-02712;
+      )
+     ((=cns11643-2	  . #x214E)	; &C2-214E; [01-46]
+      (=ucs@cns		  . #x534C)	; &C2-214E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗

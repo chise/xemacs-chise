@@ -1223,20 +1223,31 @@
     (=gb2312		. #x7623)	; &I-G0-7623; [86-03]
     ))
 (define-char
-  '((=>ucs		. #x46A1)	; 䚡
-    (ideographic-radical . 148)	; ⾓
-    (ideographic-strokes . 9)
-    (total-strokes	 . 16)
-    (=cns11643-4	. #x5364)	; &M-35116; [51-68]
-    (=jis-x0213-2-2000	. #x784E)	; &I-JX2-784E; [88-46]
-    (=daikanwa		. 35116)	; &I-M-35116;
-    ))
-(define-char
-  '((morohashi-daikanwa	35116 0 2)
-    (ideographic-radical . 148)	; ⾓
+  '((ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (=ucs		. #x46A1)	; 䚡
+    ))
+(define-char
+  '((ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x46A1)	; 䚡
+      ))
+    (=cns11643-4	. #x5364)	; &M-35116; [51-68]
+    (=jis-x0213-2-2000	. #x784E)	; &I-JX2-784E; [88-46]
+    (=daikanwa		. 35116)	; &I-M-35116;
+    (=ucs@jis		. #x46A1)	; &M-35116;
+    ))
+(define-char
+  '((ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x46A1)	; 䚡
+      ))
+    (=ucs@unicode	. #x46A1)	; &UU+46A1;
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
@@ -1251,15 +1262,28 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (=ucs		. #x46A2)	; 䚢
-    (=daikanwa		. 35118)	; &I-M-35118;
     ))
 (define-char
-  '((=>ucs		. #x46A2)	; 䚢
-    (morohashi-daikanwa	35118 0 1)
-    (ideographic-radical . 148)	; ⾓
+  '((ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (=cns11643-4	. #x5361)	; &C4-5361; [51-65]
+    (<-denotational
+     ((=ucs		  . #x46A2)	; 䚢
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 35118)	; &M-35118;
+      )
+     ((=cns11643-4	  . #x5361)	; &C4-5361; [51-65]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x46A2)	; 䚢
+      ))
+    (=ucs@unicode	. #x46A2)	; &UU+46A2;
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
