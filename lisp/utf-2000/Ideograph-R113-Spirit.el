@@ -2774,24 +2774,23 @@
     (=ucs		. #x4112)	; 䄒
     ))
 (define-char
-  '((=>ucs		. #x7985)	; 禅
-    (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (<-vulgar
-     ((=daikanwa	  . 24835)	; &I-M-24835;
-      ))
-    (<-vulgar*sources
-     sougen-irai-zokujifu daikanwa)
-    (=daikanwa		. 24754)	; &M-24754;
-    ))
-(define-char
-  '((morohashi-daikanwa	24754 0 0)
-    (ideographic-radical . 113)	; ⽰
+  '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x7985)	; 禅
-    (=gb2312		. #x6C78)	; &I-G0-6C78;
+    (->subsumptive
+     ((<-vulgar
+       ((=jis-x0208	    . #x6338)	; &GT-31989;
+	(=ks-x1001	    . #x6049)	; &I-K0-6049;
+	(=daikanwa	    . 24835)	; &I-M-24835;
+	))
+      (<-vulgar*sources
+       songyuan-yilai-suzipu daikanwa)
+      (=daikanwa	  . 24754)	; &M-24754;
+      )
+     ((=gb2312		  . #x6C78)	; &G0-6C78;
+      (=ucs@unicode	  . #x7985)	; &G0-6C78;
+      ))
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
@@ -3799,39 +3798,31 @@
     (=gt-pj-1		. #x357A)	; &I-GT-31946;
     ))
 (define-char
-  '((=>ucs		. #x9834)	; 頴
-    (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (<-vulgar
-     ((=daikanwa	  . 25267)	; &I-M-25267;
-      ))
-    (<-vulgar*sources
-     seiji-tsuu daikanwa)
-    (=daikanwa		. 24824)	; &M-24824;
-    ))
-(define-char
-  '((=>ucs		. #x9834)	; 頴
-    (morohashi-daikanwa	24824 0 0)
-    (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (=cns11643-3	. #x5228)	; &C3-5228;
-    ))
-(define-char
-  '((morohashi-daikanwa	24824 0 1)
-    (ideographic-radical@ucs . 181)	; ⾴
+  '((ideographic-radical@ucs . 181)	; ⾴
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@cns . 113)	; ⽰
     (ideographic-strokes@cns . 11)
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 16)
-    (shinjigen-2	. 5660)
     (=ucs		. #x9834)	; 頴
-    (=jis-x0208		. #x3150)	; &I-J90-3150;
-    (=gt		. 31942)	; &I-GT-31942;
-    (=gt-pj-1		. #x3150)	; &I-GT-31942;
+    (->subsumptive
+     ((<-vulgar
+       ((=ucs		    . #x7A4E)	; 穎
+	(=daikanwa	    . 25267)	; &I-M-25267;
+	))
+      (<-vulgar*sources
+       seiji-tsuu daikanwa)
+      (=daikanwa	  . 24824)	; &M-24824;
+      )
+     ((=cns11643-3	  . #x5228)	; &C3-5228;
+      )
+     ((shinjigen-2	  . 5660)
+      (=jis-x0208	  . #x3150)	; &GT-31942;
+      (=gt		  . 31942)	; &I-GT-31942;
+      (=gt-pj-1		  . #x3150)	; &I-GT-31942;
+      (=ucs@unicode	  . #x9834)	; &GT-31942;
+      ))
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
