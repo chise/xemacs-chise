@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2001,2002 MORIOKA Tomohiko
 
 ;; Keywords: multilingual, Chinese
 
@@ -195,12 +195,32 @@
  "Coding-system of BIG5."
  '(mnemonic "Zh/Big5"))
 
-(if (featurep 'utf-2000)
-    (make-coding-system
-     'big5-cdp 'big5 "Coding-system of BIG5."
-     '(mnemonic "Zh/Big5"
-		charset-g0 ascii
-		charset-g1 chinese-big5-cdp)))
+(when (featurep 'utf-2000)
+  (make-coding-system
+   'big5-er 'big5 "Coding-system of BIG5 with entity-reference."
+   '(mnemonic "Big5r"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5
+	      use-entity-reference t))
+
+  (make-coding-system
+   'big5-eten 'big5 "Coding-system of BIG5-ETEN."
+   '(mnemonic "Big5E"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-eten))
+  (make-coding-system
+   'big5-eten-er 'big5 "Coding-system of BIG5-ETEN with entity-reference."
+   '(mnemonic "Big5Er"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-eten
+	      use-entity-reference t))
+
+  (make-coding-system
+   'big5-cdp 'big5 "Coding-system of BIG5 with CDP-extension."
+   '(mnemonic "Big5C"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-cdp))
+  )
 
 ;; (define-coding-system-alias 'big5 'chinese-big5)
 ;; (define-coding-system-alias 'cn-big5 'chinese-big5)
