@@ -1,5 +1,23 @@
 2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (Qdisable_composition): New variable; delete
+	`Qcomposite'.
+	(Fmake_coding_system): Add new property `disable-composite';
+	delete property `composite'.
+	(COMPOSE_ADD_CHAR): Use `CODING_SYSTEM_DISABLE_COMPOSITION'
+	instead of `!CODING_SYSTEM_COMPOSITE'.
+	(syms_of_file_coding): Add new symbol `disable-composition';
+	delete symbol `composite'.
+
+	* file-coding.h (struct Lisp_Coding_System): Add
+	`disable_composition'; delete `enable_composition'.
+	(CODING_SYSTEM_DISABLE_COMPOSITION): New macro; delete
+	`CODING_SYSTEM_COMPOSITE'.
+	(XCODING_SYSTEM_DISABLE_COMPOSITION): New macro; delete
+	`XCODING_SYSTEM_COMPOSITE'.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
 	to 0.15.
 
