@@ -20,10 +20,12 @@
     (ucs		. #x7CF8)	; ç³¸
     ))
 (define-char
-  '((ideographic-radical . 120)	; â½·
+  '((morohashi-daikanwa	27221 0 2)
+    (ideographic-radical . 120)	; â½·
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (chinese-gb12345	. #x6679)	; ç³¹
+    (chinese-big5-cdp	. #x8AFB)	; ý¢€ˆ«»
     (ucs		. #x7CF9)	; ç³¹
     ))
 (define-char
