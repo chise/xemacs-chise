@@ -728,8 +728,7 @@
       (=jef-china3	  . #x5DCF)	; &I-JC3-5DCF;
       (=ucs@jis		  . #x7A8A)	; &JX2-732E;
       )
-     ((=>ucs		  . #x7A8A)	; 窊
-      (=cns11643-2	  . #x315E)	; &C2-315E;
+     ((=cns11643-2	  . #x315E)	; &C2-315E;
       ))
     ))
 (define-char
