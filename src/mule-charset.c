@@ -949,7 +949,7 @@ Return charset identification number of CHARSET.
 */
 	(charset))
 {
-  return make_int(XCHARSET_ID (Fget_charset (charset)));
+  return make_int(XCHARSET_LEADING_BYTE (Fget_charset (charset)));
 }
 
 /* #### We need to figure out which properties we really want to
