@@ -16,17 +16,12 @@
 
 (when (or load-ignore-elc-files
 	  (not (file-exists-p system-char-database-directory)))
+  (if (file-exists-p system-char-database-directory)
+      (delete-file-with-children system-char-database-directory))
+
   (load "dumped-chars.el")
   (dolist (file system-char-db-source-file-list)
     (pureload file))
-  
-  ;;(condition-case nil
-  ;; (call-process "rm" nil 0 nil
-  ;;               "-rf" system-char-database-directory)
-  ;;(error (princ (format "Can't delete %s\n"
-  ;;		  system-char-database-directory))))
-  (if (file-exists-p system-char-database-directory)
-      (delete-file-with-children system-char-database-directory))
 
   (dolist (attribute (char-attribute-list))
     (save-char-attribute-table attribute))
