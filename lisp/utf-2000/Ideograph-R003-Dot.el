@@ -585,10 +585,11 @@
     (hanyu-dazidian-vol	 . 2)
     (hanyu-dazidian-page . 1526)
     (hanyu-dazidian-char . 1)
-    (chinese-cns11643-6 . #x5050)	; ø»œº¡
-    (ideograph-gt-pj-2	. #x3072)	; ý¡€€‚“
-    (ideograph-daikanwa . 00105)	; ø¸€©
-    (ideograph-gt	. 00147)	; ý¡€€‚“
-    (mojikyo		. 000105)	; ý €€©
-    (ucs		. #x20084)	; ð ‚„
+    (chinese-cns11643-6		. #x5050)	; ø»œº¡
+    (ideograph-gt-pj-2		. #x3072)	; ý¡€€‚“
+    (ideograph-daikanwa		. 00105)	; ø¸€©
+    (ideograph-hanziku-4	. #xE461)	; ý¢Ž‘¡
+    (ideograph-gt		. 00147)	; ý¡€€‚“
+    (mojikyo			. 000105)	; ý €€©
+    (ucs			. #x20084)	; ð ‚„
     ))
