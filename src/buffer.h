@@ -541,35 +541,6 @@ charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
 /* (D) For working with Emchars */
 /* ---------------------------- */
 
-#define CHAR_INTP(x) (INTP (x) && valid_char_p (XINT (x)))
-
-#define CHAR_OR_CHAR_INTP(x) (CHARP (x) || CHAR_INTP (x))
-
-#ifdef ERROR_CHECK_TYPECHECK
-
-INLINE Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
-INLINE Emchar
-XCHAR_OR_CHAR_INT (Lisp_Object obj)
-{
-  assert (CHAR_OR_CHAR_INTP (obj));
-  return CHARP (obj) ? XCHAR (obj) : XINT (obj);
-}
-
-#else
-
-#define XCHAR_OR_CHAR_INT(obj) (CHARP ((obj)) ? XCHAR ((obj)) : XINT ((obj)))
-
-#endif
-
-#define CHECK_CHAR_COERCE_INT(x) do {		\
-  if (CHARP (x))				\
-     ;						\
-  else if (CHAR_INTP (x))			\
-    x = make_char (XINT (x));			\
-  else						\
-    x = wrong_type_argument (Qcharacterp, x);	\
-} while (0)
-
 #ifdef UTF2000
 # define MAX_EMCHAR_LEN 6
 #else
