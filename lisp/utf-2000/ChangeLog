@@ -1,11 +1,26 @@
-2004-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2004-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R019-Power.el:
+	* Ideograph-R027-Cliff.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
 
 2004-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el, Ideograph-R020-Wrap.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R014-Cover.el (U-00020582): Unify M-01575.
+	(U-0002058B): Add M-01581.
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el: Add some `=ucs@cns' features.
 
 	* Ideograph-R028-Private.el (U-00020AD3): Use `->subsumptive'.
 
