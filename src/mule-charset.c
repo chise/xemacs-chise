@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -72,7 +72,6 @@ Lisp_Object Vcharset_ucs_gb;
 Lisp_Object Vcharset_ucs_cns;
 Lisp_Object Vcharset_ucs_jis;
 Lisp_Object Vcharset_ucs_ks;
-Lisp_Object Vcharset_ucs_big5;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
@@ -91,7 +90,6 @@ Lisp_Object Vcharset_ideograph_hanziku_9;
 Lisp_Object Vcharset_ideograph_hanziku_10;
 Lisp_Object Vcharset_ideograph_hanziku_11;
 Lisp_Object Vcharset_ideograph_hanziku_12;
-Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
 Lisp_Object Vcharset_ideograph_gt_pj_2;
 Lisp_Object Vcharset_ideograph_gt_pj_3;
@@ -342,7 +340,6 @@ Lisp_Object Qascii,
   Qucs_cns,
   Qucs_jis,
   Qucs_ks,
-  Qucs_big5,
   Qlatin_viscii,
   Qlatin_tcvn5712,
   Qlatin_viscii_lower,
@@ -366,7 +363,6 @@ Lisp_Object Qascii,
   Qideograph_hanziku_12,
   Qideograph_daikanwa_2,
   Qideograph_daikanwa,
-  Qideograph_gt,
   Qideograph_gt_pj_1,
   Qideograph_gt_pj_2,
   Qideograph_gt_pj_3,
@@ -2452,7 +2448,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs_cns,			"ucs-cns");
   defsymbol (&Qucs_jis,			"ucs-jis");
   defsymbol (&Qucs_ks,			"ucs-ks");
-  defsymbol (&Qucs_big5,		"ucs-big5");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_tcvn5712,		"latin-tcvn5712");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
@@ -2460,7 +2455,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qjis_x0208, 		"=jis-x0208");
-  defsymbol (&Qideograph_gt,		"ideograph-gt");
   defsymbol (&Qideograph_gt_pj_1,	"ideograph-gt-pj-1");
   defsymbol (&Qideograph_gt_pj_2,	"ideograph-gt-pj-2");
   defsymbol (&Qideograph_gt_pj_3,	"ideograph-gt-pj-3");
@@ -2633,15 +2627,6 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for KS"),
 		  build_string ("UCS for CCS defined by KS"),
 		  build_string ("ISO/IEC 10646 for Korean Standards"),
-		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
-  staticpro (&Vcharset_ucs_big5);
-  Vcharset_ucs_big5 =
-    make_charset (LEADING_BYTE_UCS_BIG5, Qucs_big5, 256, 3,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("UCS for Big5"),
-		  build_string ("UCS for Big5"),
-		  build_string ("ISO/IEC 10646 for Big5"),
 		  build_string (""),
 		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
 #else
@@ -2987,16 +2972,6 @@ complex_vars_of_mule_charset (void)
   DEF_HANZIKU (10);
   DEF_HANZIKU (11);
   DEF_HANZIKU (12);
-  staticpro (&Vcharset_ideograph_gt);
-  Vcharset_ideograph_gt =
-    make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("GT"),
-		  build_string ("GT"),
-		  build_string ("GT"),
-		  build_string (""),
-		  Qnil, MIN_CHAR_GT, MAX_CHAR_GT,
-		  MIN_CHAR_GT, 0, Qnil, CONVERSION_IDENTICAL);
 #define DEF_GT_PJ(n)							\
   staticpro (&Vcharset_ideograph_gt_pj_##n);				\
   Vcharset_ideograph_gt_pj_##n =					\
