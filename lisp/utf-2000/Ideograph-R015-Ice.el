@@ -56,9 +56,10 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (japanese-jisx0212	#x32 #x78)	; ø»Š¾¥
-    (chinese-cns11643-4 #x21 #x5E)	; ø»—¡¥
-    (ideograph-daikanwa #x06 #x4B)	; ø¹™‹
+    (japanese-jisx0212		#x32 #x78)	; ø»Š¾¥
+    (chinese-cns11643-4		#x21 #x5E)	; ø»—¡¥
+    (japanese-jisx0213-2	#x23 #x2E)	; å†­
+    (ideograph-daikanwa		#x06 #x4B)	; ø¹™‹
     ))
 (define-char
   '((ucs		. #x51AE)
@@ -365,10 +366,11 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (chinese-gb2312	#x59 #x7E)	; ø»…™±
-    (japanese-jisx0212	#x32 #x7B)	; ø»Š¾¨
-    (chinese-cns11643-2 #x25 #x4E)	; ø»““…
-    (ideograph-daikanwa #x06 #x61)	; ø¹™¡
+    (chinese-gb2312		#x59 #x7E)	; ø»…™±
+    (japanese-jisx0212		#x32 #x7B)	; ø»Š¾¨
+    (chinese-cns11643-2		#x25 #x4E)	; ø»““…
+    (japanese-jisx0213-2	#x23 #x30)	; å†¼
+    (ideograph-daikanwa		#x06 #x61)	; ø¹™¡
     ))
 (define-char
   '((morohashi-daikanwa	1634)
@@ -573,7 +575,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (non-morohashi	1655 9)
-    (chinese-cns11643-3 #x2B #x3E)	; ø»•¥­
+    (chinese-cns11643-3		#x2B #x3E)	; ø»•¥­
+    (japanese-jisx0213-1	#x2E #x55)	; å‡ƒ
     ))
 (define-char
   '((morohashi-daikanwa	1656)
@@ -705,13 +708,21 @@
     (ideograph-daikanwa		#x06 #x81)	; ø¹š
     ))
 (define-char
-  '((ucs		. #x51CA)
+  '((->ucs		. #x51CA)
     (morohashi-daikanwa	1666)
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (japanese-jisx0213-1	#x2E #x56)	; ø»¢¦·
+    (ideograph-daikanwa		#x06 #x82)	; ø¹š‚
+    ))
+(define-char
+  '((ucs		. #x51CA)
+    (morohashi-daikanwa	1666 0 2)
+    (ideographic-radical . 15)	; â¼Ž
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (chinese-cns11643-2 #x2E #x24)	; ø»“Ÿ©
-    (ideograph-daikanwa #x06 #x82)	; ø¹š‚
     ))
 (define-char
   '((morohashi-daikanwa	1667)
@@ -1262,9 +1273,10 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (japanese-jisx0212	#x33 #x28)	; ø»Š¾³
-    (chinese-cns11643-2 #x56 #x44)	; ø»”š¹
-    (ideograph-daikanwa #x06 #xB9)	; ø¹š¹
+    (japanese-jisx0212		#x33 #x28)	; ø»Š¾³
+    (chinese-cns11643-2		#x56 #x44)	; ø»”š¹
+    (japanese-jisx0213-1	#x2E #x57)	; å‡ž
+    (ideograph-daikanwa		#x06 #xB9)	; ø¹š¹
     ))
 (define-char
   '((morohashi-daikanwa	1722)
