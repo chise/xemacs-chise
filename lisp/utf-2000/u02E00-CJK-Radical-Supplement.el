@@ -254,6 +254,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5-cdp	. #x8AF6)	; ý¢€ˆ«¶
     (ucs		. #x2EA1)	; âº¡
     ))
 (define-char
