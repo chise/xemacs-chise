@@ -2844,41 +2844,20 @@ Return the alist of attributes of CHARACTER.
 */
        (character))
 {
+  struct gcpro gcpro1;
+  struct char_attribute_alist_closure char_attribute_alist_closure;
   Lisp_Object alist = Qnil;
-  int i;
 
   CHECK_CHAR (character);
-  {
-    struct gcpro gcpro1;
-    struct char_attribute_alist_closure char_attribute_alist_closure;
-  
-    GCPRO1 (alist);
-    char_attribute_alist_closure.char_id = XCHAR (character);
-    char_attribute_alist_closure.char_attribute_alist = &alist;
-    elisp_maphash (add_char_attribute_alist_mapper,
-		   Vchar_attribute_hash_table,
-		   &char_attribute_alist_closure);
-    UNGCPRO;
-  }
 
-  for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)
-    {
-      Lisp_Object ccs = chlook->charset_by_leading_byte[i];
+  GCPRO1 (alist);
+  char_attribute_alist_closure.char_id = XCHAR (character);
+  char_attribute_alist_closure.char_attribute_alist = &alist;
+  elisp_maphash (add_char_attribute_alist_mapper,
+		 Vchar_attribute_hash_table,
+		 &char_attribute_alist_closure);
+  UNGCPRO;
 
-      if (!NILP (ccs))
-	{
-	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
-	  Lisp_Object cpos;
-
-	  if ( CHAR_TABLEP (encoding_table)
-	       && INTP (cpos
-			= get_char_id_table (XCHAR_TABLE(encoding_table),
-					     XCHAR (character))) )
-	    {
-	      alist = Fcons (Fcons (ccs, cpos), alist);
-	    }
-	}
-    }
   return alist;
 }
 
@@ -2888,29 +2867,21 @@ Return DEFAULT-VALUE if the value is not exist.
 */
        (character, attribute, default_value))
 {
-  Lisp_Object ccs;
+  Lisp_Object table;
 
   CHECK_CHAR (character);
-  if (!NILP (ccs = Ffind_charset (attribute)))
-    {
-      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-      if (CHAR_TABLEP (encoding_table))
-	return get_char_id_table (XCHAR_TABLE(encoding_table),
-				  XCHAR (character));
-    }
-  else
+  if (CHARSETP (attribute))
+    attribute = XCHARSET_NAME (attribute);
+
+  table = Fgethash (attribute, Vchar_attribute_hash_table,
+		    Qunbound);
+  if (!UNBOUNDP (table))
     {
-      Lisp_Object table = Fgethash (attribute,
-				    Vchar_attribute_hash_table,
-				    Qunbound);
-      if (!UNBOUNDP (table))
-	{
-	  Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table),
-					       XCHAR (character));
-	  if (!UNBOUNDP (ret))
-	    return ret;
-	}
+      Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table),
+					   XCHAR (character));
+      if (!UNBOUNDP (ret))
+	return ret;
     }
   return default_value;
 }
@@ -2920,13 +2891,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 */
        (character, attribute, value))
 {
-  Lisp_Object ccs;
+  Lisp_Object ccs = Ffind_charset (attribute);
 
-  ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
       CHECK_CHAR (character);
-      return put_char_ccs_code_point (character, ccs, value);
+      value = put_char_ccs_code_point (character, ccs, value);
     }
   else if (EQ (attribute, Q_decomposition))
     {
