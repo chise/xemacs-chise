@@ -2,7 +2,6 @@
 
 	* mule/korean.el: Use `define-coding-system-alias' instead of
 	`copy-coding-system'.
-	("Korean"): Add `input-method' and `features' keys.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -11,52 +10,17 @@
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule/misc-lang.el (setup-ipa-environment): Just call
-	`set-language-environment'.
-	("IPA"): Add `input-method' key.
+	* mule/japanese.el: Use `define-coding-system-alias' instead of
+	`copy-coding-system'.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule/japanese.el:
-	- Use `define-coding-system-alias' instead of `copy-coding-system'.
-	- Register `input-method' and `features' keys into
-	  language-info-alist.
-
-1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule/vietnamese.el:
-	- Specify `iso-8-1' as a category of coding-system `viscii'.
-	- Register `input-method' and `features' keys into
-	  language-info-alist.
-
-1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule/hebrew.el (setup-hebrew-environment): Just call
-	`set-language-environment'.	
-	("Hebrew"): Add `input-method' property.
-
-	* mule/greek.el (setup-greek-environment): Just call
-	`set-language-environment'.
-	- Specify `coding-priority' and `input-method' properties of each
-	  language environment.
-
-1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule/european.el (setup-latin1-environment): Just call
-	`set-language-environment'.
-	- Specify `coding-priority' and `input-method' properties of each
-	  language environment.
-
-1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule/english.el (setup-english-environment): Don't setup
-	`setup-function' property of English environment.
+	* mule/vietnamese.el: Specify `iso-8-1' as a category of
+	coding-system `viscii'.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/cyrillic.el:
-	- Register `coding-priority', `input-method' and `features' keys
-	  into language-info-alist.
 	- Specify `iso-8-1' as a category of coding-system `koi8-r'.
 	(cyrillic-alternativnyj-decode-table): New variable.
 	(cyrillic-alternativnyj-encode-table): New variable.
@@ -70,7 +34,6 @@
 	- Use `define-coding-system-alias' instead of `copy-coding-system'.
 	- Register `chinese-gb-environment-setup-function' as a
 	  `setup-function' of "Chinese-GB" environment.
-	- Register input-method key in language-info-alist.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -195,17 +158,22 @@
 
 1999-04-12  Richard M. Stallman  <rms@gnu.org>
 
-	* mule/mule-cmds.el (input-method-function):
-	Add permanent-local property.
+	* mule/mule-cmds.el (input-method-function): Add permanent-local
+	property.
 
 1999-03-30  Dave Love  <fx@gnu.org>
 
 	* mule/mule-cmds.el (current-language-environment): Doc fix.
 
+1999-02-06  Richard Stallman  <rms@gnu.org>
+
+	* mule/european.el (setup-slovenian-environment): New function.
+	("Slovenian"): New language environment.
+
 1999-01-27  Dave Love  <fx@gnu.org>
 
-	* mule/mule-cmds.el (current-language-environment):
-	Provide :link, :type (choices) and appropriate :get.
+	* mule/mule-cmds.el (current-language-environment): Provide :link,
+	:type (choices) and appropriate :get.
 
 1999-01-14  Kenichi Handa  <handa@etl.go.jp>
 
@@ -220,9 +188,9 @@
 
 1998-12-30  Eli Zaretskii  <eliz@mescaline.gnu.org>
 
-	* mule/mule-cmds.el (prefer-coding-system): If the
-	argument requires specific EOL conversion type, make the default
-	coding systems use that.
+	* mule/mule-cmds.el (prefer-coding-system): If the argument
+	requires specific EOL conversion type, make the default coding
+	systems use that.
 
 1998-12-17  Eli Zaretskii  <eliz@mescaline.gnu.org>
 
@@ -276,7 +244,19 @@
 	avoid bootstrapping problem if you need to recompile all the Lisp
 	files using interpreted code.
 
+1998-08-26  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/european.el ("Latin-1"): Modify `documentation' key value.
+	("Latin-2"): Likewise.
+
+1998-08-18  Per Starback  <starback@update.uu.se>
+
+	* mule/european.el (setup-latin2-environment): Fix typo.
+
 1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/european.el: Give proper value of `input-method' key to all
+	lang. env.
 
 	* mule/mule-cmds.el (activate-input-method): Handle the case that
 	the arg INPUT-METHOD is nil correctly.
@@ -289,6 +269,8 @@
 	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
 	(set-language-info-alist): Fix typo in doc-string.
 
+	* mule/hebrew.el ("Hebrew"): Delete describe-function key.
+
 1998-08-09  Kenichi HANDA  <handa@etl.go.jp>
 
 	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
@@ -298,6 +280,17 @@
 	in language-info-alist.
 	(read-language-name): Handle the case that the arg KEY is nil.
 	(describe-language-environment): Handle input-method property.
+
+	* mule/: All files under this directory, which related with
+	specific languages (such as mule/european.el, mule/greek.el,
+	mule/hebrew.el, mule/misc-lang.el), modified as below.
+	(setup-XXX-environment): Just call set-language-environment.  If
+	they used to do some other jobs than what done by
+	set-language-environment, those jobs are done in
+	setup-XXX-environment-internal now.
+	("LANUGAGE-ENVIRONMENT"): Delete property setup-function or change
+	the value to setup-XXX-environment-internal.  Add properties
+	input-method and features.
 
 	* mule/english.el (setup-english-environment): Just call
 	reset-language-environment.
@@ -336,6 +329,10 @@
 
 	* mule/misc-lang.el ("IPA"): Add coding-priority and
 	coding-system.
+
+1998-06-26  Ken'ichi Handa  <handa@melange.gnu.org>
+
+	* mule/greek.el: Add coding-priority.
 
 1998-05-23  Richard Stallman  <rms@psilocin.ai.mit.edu>
 
@@ -408,6 +405,29 @@
 	set-language-info-alist.  Register coding-priority key in
 	language-info-alist.
 
+	* mule/cyrillic.el: Remove setting up of
+	describe-cyrillic-environment-map and
+	setup-cyrillic-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.
+
+	* mule/english.el: Register coding-priority key in
+	language-info-alist.
+
+	* mule/ethiopic.el: Register coding-priority key in
+	language-info-alist.
+
+	* mule/european.el: Remove setting up of
+	describe-european-environment-map and
+	setup-european-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.  Add "German" language env.
+	(setup-8-bit-environment): Delete CODING-SYSTEM arg.
+	(setup-german-environment): New function.
+
+	* mule/greek.el (setup-greek-environment): For Greek lang. env.,
+	change default input method to "greek-postfix".
+
 	* mule/japanese.el, mule/korean.el, mule/vietnamese.el: Register
 	coding-priority key in
 
@@ -445,7 +465,7 @@
 	(activate-input-method): Check if we can run the registered
 	function to activate an input method.
 
-	* language/korean.el: Set exit-function for language environment
+	* mule/korean.el: Set exit-function for language environment
 	"Korean" to exit-korean-environment.
 	(setup-korean-environment): Moved to korea-util.el.
 
