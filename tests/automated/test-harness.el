@@ -276,6 +276,8 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	(message "Test suite execution failed unexpectedly."))
       (fmakunbound 'Assert)
       (fmakunbound 'Check-Error)
+      (fmakunbound 'Check-Message)
+      (fmakunbound 'Check-Error-Message)
       (fmakunbound 'Ignore-Ebola)
       (fmakunbound 'Int-to-Marker)
       )))

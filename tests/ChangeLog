@@ -1,6 +1,11 @@
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* XEmacs 21.4.6 "Common Lisp" is released.
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2002-04-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/test-harness.el (test-harness-from-buffer): Clean up
+	Check-Message and Check-Error-Message when done.
 
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 

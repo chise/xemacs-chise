@@ -393,7 +393,7 @@ file. An example might be something like:
   :type '(repeat directory)
   :group 'info)
 
-(defcustom Info-auto-generate-directory 'if-missing
+(defcustom Info-auto-generate-directory 'if-outdated
   "*When to auto generate an info directory listing.
 Possible values are:
 nil or `never' never auto-generate a directory listing,
@@ -1087,8 +1087,8 @@ optional arguments."
 	      (null (Info-directory-files file 'all)))
     (if (not (find-buffer-visiting file))
 	(if (not (file-exists-p file))
-	    (if (or (eq Info-auto-generate-directory 'always)
-		    (eq Info-auto-generate-directory 'if-missing))
+	    (if (or (memq Info-auto-generate-directory
+			  '(always if-missing if-outdated)))
 		(Info-build-dir-anew (file-name-directory file)))
 	  (if (or (eq Info-auto-generate-directory 'always)
 		  (and (eq Info-auto-generate-directory 'if-outdated)

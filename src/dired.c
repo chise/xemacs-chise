@@ -217,11 +217,6 @@ is not applied to the names of directories.
 DEFUN ("file-name-all-completions", Ffile_name_all_completions, 2, 2, 0, /*
 Return a list of all completions of PARTIAL-FILENAME in DIRECTORY.
 These are all file names in DIRECTORY which begin with PARTIAL-FILENAME.
-
-File names which end with any member of `completion-ignored-extensions'
-are not considered as possible completions for PARTIAL-FILENAME unless
-there is no other possible completion. `completion-ignored-extensions'
-is not applied to the names of directories.
 */
        (partial_filename, directory))
 {
@@ -898,8 +893,7 @@ vars_of_dired (void)
 *Completion ignores filenames ending in any string in this list.
 This variable does not affect lists of possible completions,
 but does affect the commands that actually do completions.
-It is used by the functions `file-name-completion' and
-`file-name-all-completions'.
+It is used by the function `file-name-completion'.
 */ );
   Vcompletion_ignored_extensions = Qnil;
 }

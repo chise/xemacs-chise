@@ -1,7 +1,15 @@
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* XEmacs 21.4.6 "Common Lisp" is released.
+	* XEmacs 21.4.7 "Economic Science" is released.
 
+2002-02-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib-Xm.c (make_dialog): Fix XmProcessTraversal crash.
+
+2001-12-19  Valdis Kletnieks  <Valdis.Kletnieks@vt.edu>
+
+	* xlwscrollbar.c: Fix Xt translations comment.
+	
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.6 "Common Lisp" is released.

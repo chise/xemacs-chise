@@ -126,6 +126,9 @@ extern void emacs_gtk_selection_handle (GtkWidget *,
 					guint info,
 					guint time_stamp,
 					gpointer data);
+extern void emacs_gtk_selection_clear_event_handle (GtkWidget *widget,
+                                                    GdkEventSelection *event,
+                                                    gpointer data);
 extern void emacs_gtk_selection_received (GtkWidget *widget,
 					  GtkSelectionData *selection_data,
 					  gpointer user_data);
@@ -284,9 +287,15 @@ gtk_init_device (struct device *d, Lisp_Object props)
   /* Need to set up some selection handlers */
   gtk_selection_add_target (GTK_WIDGET (app_shell), GDK_SELECTION_PRIMARY,
 			    GDK_SELECTION_TYPE_STRING, 0);
+  gtk_selection_add_target (GTK_WIDGET (app_shell),
+                            gdk_atom_intern("CLIPBOARD", FALSE),
+			    GDK_SELECTION_TYPE_STRING, 0);
   
   gtk_signal_connect (GTK_OBJECT (app_shell), "selection_get",
 		      GTK_SIGNAL_FUNC (emacs_gtk_selection_handle), NULL);
+  gtk_signal_connect (GTK_OBJECT (app_shell), "selection_clear_event",
+                      GTK_SIGNAL_FUNC (emacs_gtk_selection_clear_event_handle),
+                      NULL);
   gtk_signal_connect (GTK_OBJECT (app_shell), "selection_received",
 		      GTK_SIGNAL_FUNC (emacs_gtk_selection_received), NULL);
 

@@ -3582,7 +3582,7 @@ const char *sys_siglist[NSIG + 1] =
     DEFER_GETTEXT ("bad argument to system call"),	/* 12 SIGSYS */
     DEFER_GETTEXT ("write on a pipe with no one to read it"), /* 13 SIGPIPE */
     DEFER_GETTEXT ("alarm clock"),			/* 14 SIGALRM */
-    DEFER_GETTEXT ("software termination signum"),	/* 15 SIGTERM */
+    DEFER_GETTEXT ("software termination signal"),	/* 15 SIGTERM */
     DEFER_GETTEXT ("user defined signal 1"),		/* 16 SIGUSR1 */
     DEFER_GETTEXT ("user defined signal 2"),		/* 17 SIGUSR2 */
     DEFER_GETTEXT ("death of a child"),			/* 18 SIGCLD */
@@ -3621,7 +3621,7 @@ const char *sys_siglist[NSIG + 1] =
     DEFER_GETTEXT ("bad argument to system call"),	/* 12 SIGSYS */
     DEFER_GETTEXT ("write on a pipe with no one to read it"), /* 13 SIGPIPE */
     DEFER_GETTEXT ("alarm clock"),			/* 14 SIGALRM */
-    DEFER_GETTEXT ("software termination signum"),	/* 15 SIGTERM */
+    DEFER_GETTEXT ("software termination signal"),	/* 15 SIGTERM */
     DEFER_GETTEXT ("user defined signal 1"),		/* 16 SIGUSR1 */
     DEFER_GETTEXT ("user defined signal 2"),		/* 17 SIGUSR2 */
     DEFER_GETTEXT ("death of a child"),			/* 18 SIGCLD */

@@ -1298,6 +1298,7 @@ make_dialog (char* name, Widget parent, Boolean pop_up_p,
 	 list activate the default button */
       XtAddCallback (value, XmNdefaultActionCallback, activate_button, button);
     }
+  /* else add nothing; it's a separator */
 
   ac = 0;
   XtSetArg(al[ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
@@ -1335,11 +1336,12 @@ make_dialog (char* name, Widget parent, Boolean pop_up_p,
       XtInstallAccelerators (value, button);
       XmProcessTraversal(value, XmTRAVERSE_CURRENT);
     }
-  else
+  else if (radio_box)
     {
       XtInstallAccelerators (form, button);
       XmProcessTraversal(value, XmTRAVERSE_CURRENT);
     }
+  /* else we don' need no STEENKIN' assellerators. */
 
 #ifdef DND_KLUDGE
   XtFree ((char *) dnd_override);

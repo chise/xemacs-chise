@@ -1216,11 +1216,21 @@ static void
 gtk_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
 {
   struct Lisp_Event *eev = NULL;
-  GtkWidget *widget = menu_descriptor_to_widget (menu_desc);
-  GtkWidget *menu = GTK_MENU_ITEM (widget)->submenu;
-  gpointer id = gtk_object_get_data (GTK_OBJECT (widget), XEMACS_MENU_GUIID_TAG);
+  GtkWidget *widget = NULL;
+  GtkWidget *menu = NULL;
+  gpointer id = NULL;
 
+  /* Do basic error checking first... */
+  if (SYMBOLP (menu_desc))
+    menu_desc = Fsymbol_value (menu_desc);
+  CHECK_CONS (menu_desc);
+  CHECK_STRING (XCAR (menu_desc));
+
+  /* Now lets get down to business... */
+  widget = menu_descriptor_to_widget (menu_desc);
+  menu = GTK_MENU_ITEM (widget)->submenu;
   gtk_widget_set_name (widget, "XEmacsPopupMenu");
+  id = gtk_object_get_data (GTK_OBJECT (widget), XEMACS_MENU_GUIID_TAG);
 
   __activate_menu (GTK_MENU_ITEM (widget), id);
 

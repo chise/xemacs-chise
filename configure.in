@@ -743,7 +743,7 @@ The default is to autodetect native and NAS sound support."])
 	dnl Has the user specified one of the path options?
 	prefix | exec_prefix | bindir | datadir | statedir | libdir | \
 	mandir | infodir | infopath | lispdir | etcdir | pkgdir | \
-	archlibdir | docdir | package_path )
+	archlibdir | docdir | package_path | moduledir )
 	   dnl If the value was omitted, get it from the next argument.
 	   if test "$valomitted" = "yes"; then
 	     if test "$#" = 0; then
@@ -794,6 +794,8 @@ The default is to autodetect native and NAS sound support."])
 	    a | at | ath | athe | athen | athena )	val=athena ;;
 	    n | no | non | none )			val=no     ;;
 	    y | ye | yes )				val=yes    ;;
+	    dnl Explicit --with-widgets on command line means yes.
+            "")						val=yes    ;;
 	    g | gt | gtk )				val=gtk    ;;
 	    ms | msw )					val=msw    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
@@ -1211,6 +1213,13 @@ case "$canonical" in
 
   dnl Cubix QBx/386
   i[[3-9]]86-cubix-sysv* ) machine=intel386 opsys=usg5-3 ;;
+
+  dnl Darwin, a.k.a. MacOS X (based on Mach and Freebsd)
+  *-*-darwin*)
+    opsys=darwin
+    RANLIB="ranlib -c" dnl Avoids a link error with lwlib-config.c
+    pdump=yes          dnl No "native" working dumper available
+    ;;
 
   dnl Data General AViiON Machines
   i586-dg-dgux*R4*   | i586-dg-dgux5.4.4* ) machine=aviion opsys=dgux5-4r4 ;;
@@ -2605,6 +2614,9 @@ if test "${GTK_CONFIG}" != "no"; then
 
       AC_MSG_CHECKING(gtk cflags)
       GTK_CFLAGS=`${GTK_CONFIG} --cflags`
+      if test "$GCC" = "yes"; then
+      	GTK_CFLAGS="${GTK_CFLAGS} -Wno-shadow"
+      fi
       XE_APPEND(${GTK_CFLAGS}, c_switch_gtk)
       AC_MSG_RESULT(${GTK_CFLAGS})
 
@@ -3385,7 +3397,15 @@ if test "$with_x11" = "yes"; then
   AC_CHECKING(for X11 graphics libraries)
 fi
 
-if test "$with_x11" = "yes" -a "$with_widgets" = "athena"; then
+dnl We don't automatically trigger widgets if athena is present
+dnl because of stability concerns.
+dnl But if the user wants widgets, still offer him autodetections
+case "$with_widgets" in
+  "yes" | "athena")		detect_athena=yes ;;
+   *)				detect_athena=no ;;
+esac
+
+if test "$with_x11" = "yes" -a "$detect_athena" = "yes" ; then
   AC_CHECKING(for the Athena widgets)
 
   dnl What in heck did the user actually want?
@@ -3484,7 +3504,7 @@ if test "$with_x11" = "yes" -a "$with_widgets" = "athena"; then
 
 else
   have_xaw=no
-fi dnl "$with_x11" = "yes" -a "$with_widgets" = "athena"
+fi dnl "$with_x11" = "yes" -a "detect_athena" = "yes"
 
 if test "$with_x11" = "yes"; then
   dnl autodetect Motif - but only add to libs_x later (if necessary)

@@ -42,6 +42,10 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # define RTLD_GLOBAL 0
 #endif
 
+#ifndef RTLD_NOW
+# define RTLD_NOW 2
+#endif
+
 int
 dll_init (const char *arg)
 {
@@ -51,7 +55,7 @@ dll_init (const char *arg)
 dll_handle
 dll_open (const char *fname)
 {
-  return (dll_handle) dlopen (fname, RTLD_LAZY | RTLD_GLOBAL);
+  return (dll_handle) dlopen (fname, RTLD_NOW | RTLD_GLOBAL);
 }
 
 int

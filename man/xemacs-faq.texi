@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/10/23 08:35:23 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/04/30 16:06:09 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -28,7 +28,6 @@
 
 @node Top, Introduction, (dir), (dir)
 @top XEmacs FAQ
-@unnumbered Introduction
 
 This is the guide to the XEmacs Frequently Asked Questions list---a
 compendium of questions and answers pertaining to one of the finest
@@ -125,6 +124,8 @@ Internationalization:
 * Q1.3.5::      Please explain the various input methods in MULE/XEmacs
 * Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
+* Q1.3.8::      Does XEmacs support Unicode?
+* Q1.3.9::      How does XEmacs display Unicode?
 
 Getting Started:
 * Q1.4.1::      What is an @file{init.el} or @file{.emacs} and is there a sample one?
@@ -317,6 +318,7 @@ Other Unbundled Packages:
 * Q4.7.4::      Problems installing AUC TeX
 * Q4.7.5::      Is there a reason for an Emacs package not to be included in XEmacs?
 * Q4.7.6::      Is there a MatLab mode?
+* Q4.7.7::      Can I edit files on other hosts?
 
 The Miscellaneous Stuff
 
@@ -486,6 +488,8 @@ Internationalization:
 * Q1.3.5::      Please explain the various input methods in MULE/XEmacs
 * Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
+* Q1.3.8::      Does XEmacs support Unicode?
+* Q1.3.9::      How does XEmacs display Unicode?
 
 Getting Started:
 * Q1.4.1::      What is an @file{init.el} or @file{.emacs} and is there a sample one?
@@ -635,11 +639,13 @@ comp.emacs.xemacs}.  Please do not post XEmacs related questions to
 gnu.emacs.help.
 
 If you cannot post or read Usenet news, there is a corresponding mailing
-list which is available.  It can be subscribed to by sending a message
-to @email{xemacs-request@@xemacs.org} with @samp{subscribe} in the
-body of the message.  Send to the list at @email{xemacs@@xemacs.org}.
-list.  To cancel a subscription, you @strong{must} use the
-xemacs-request address.  Send a message with a subject of
+list @email{xemacs-news@@xemacs.org} which is available.  It can be
+subscribed to via the Mailman Web interface or by sending mail to to
+@email{xemacs-news-request@@xemacs.org} with @samp{subscribe} in the
+body of the message.  See also
+@uref{http://www.xemacs.org/Lists/#xemacs-news}.  To cancel a
+subscription, you may use the @email{xemacs-news-request@@xemacs.org}
+address or the Web interface.  Send a message with a subject of
 @samp{unsubscribe} to be removed.
 
 @node Q1.0.7, Q1.0.8, Q1.0.6, Introduction
@@ -1040,7 +1046,7 @@ Following is a sample to distinguish mule variants:
 @end lisp
 @end quotation
 
-@node Q1.3.7, Q1.4.1, Q1.3.6, Introduction
+@node Q1.3.7, Q1.3.8, Q1.3.6, Introduction
 @unnumberedsubsec Q1.3.7: How about Cyrillic Modes?
 
 @email{ilya@@math.ohio-state.edu, Ilya Zakharevich} writes:
@@ -1078,7 +1084,49 @@ The fullest resource I found on Russian language use (in and out of
 XEmacs) is @uref{http://www.ibiblio.org/sergei/Software/Software.html}
 @end quotation
 
-@node Q1.4.1, Q1.4.2, Q1.3.7, Introduction
+@node Q1.3.8, Q1.3.9, Q1.3.7, Introduction
+@unnumberedsubsec Q1.3.8: Does XEmacs support Unicode?
+
+Partially, as an external encoding for files, processes, and terminals.
+It does not yet support Unicode fonts @ref{Q1.3.9, Does XEmacs support
+Unicode Fonts?}
+
+To get Unicode support, you need a Mule-enabled XEmacs.  Install
+Mule-UCS from packages in the usual way.  Put
+
+(require 'un-define)
+(set-coding-priority-list '(utf-8))
+(set-coding-category-system 'utf-8 utf-8)
+
+Install standard national fonts (not Unicode fonts) for all
+character sets you use.
+
+Mule-UCS also supports 16-bit forms of Unicode (UTF-16).  It does not
+support 31-bit forms of Unicode (UTF-32 or UCS-4).
+
+@node Q1.3.9, Q1.4.1, Q1.3.8, Introduction
+@unnumberedsubsec Q1.3.9: How does XEmacs display Unicode?
+
+Mule doesn't have a Unicode charset internally, so there's nothing to
+bind a Unicode registry to.  It would not be straightforward to create,
+either, because Unicode is not ISO 2022-compatible.  You'd have to
+translate it to multiple 96x96 pages.
+
+This means that Mule-UCS uses ordinary national fonts for display.  This
+is not really a problem, except for those languages that use the Unified
+Han characters.  The problem here is that Mule-UCS maps from Unicode
+code points to national character sets in a deterministic way.  By
+default, this means that Japanese fonts are tried first, then Chinese,
+then Korean.  To change the priority ordering, use the command
+`un-define-change-charset-order'.
+
+It also means you can't use Unicode fonts directly, at least not without
+extreme hackery.  You can run -nw with (set-terminal-coding-system
+'utf-8) if you really want a Unicode font for some reason.
+
+Real Unicode support will be introduced in XEmacs 22.0.
+
+@node Q1.4.1, Q1.4.2, Q1.3.9, Introduction
 @unnumberedsec 1.4: Getting Started, Backing up & Recovery
 @unnumberedsubsec Q1.4.1: What is an @file{init.el} or @file{.emacs} and is there a sample one?
 
@@ -3829,6 +3877,7 @@ Other Unbundled Packages:
 * Q4.7.4::      Problems installing AUC TeX
 * Q4.7.5::      Is there a reason for an Emacs package not to be included in XEmacs?
 * Q4.7.6::      Is there a MatLab mode?
+* Q4.7.7::      Can I edit files on other hosts?
 @end menu
 
 @node Q4.0.1, Q4.0.2, Subsystems, Subsystems
@@ -4630,12 +4679,28 @@ even better, offer your help.  It will be gladly accepted and
 appreciated.
 @end enumerate
 
-@node Q4.7.6,  , Q4.7.5, Subsystems
+@node Q4.7.6,  Q4.7.7, Q4.7.5, Subsystems
 @unnumberedsubsec Q4.7.5: Is there a MatLab mode?
 
 Yes, a matlab mode and other items are available at the
 @uref{ftp://ftp.mathworks.com/pub/contrib/emacs_add_ons,
 MathWorks' emacs_add_ons ftp directory}.
+
+@node Q4.7.7,  , Q4.7.6, Subsystems
+@unnumberedsubsec Q4.7.7: Can I edit files on other hosts?
+
+Yes.  Of course XEmacs can use any network file system (such as NFS or
+Windows file sharing) you have available, and includes some
+optimizations and safety features appropriate to those environments.
+
+It is also possible to transparently edit files via FTP, ssh, or rsh.  That
+is, XEmacs makes a local copy using the transport in the background, and
+automatically refreshes the remote original from that copy when you save
+it.  XEmacs also is capable of doing file system manipulations like
+creating and removing directories and files.  The FTP interface is
+provided by the standard @samp{efs} package @ref{Top, EFS, , efs}.  The
+ssh/rsh interface is provided by the optional @samp{tramp} package
+@ref{Top, TRAMP, , tramp}.
 
 @node Miscellaneous, MS Windows, Subsystems, Top
 @unnumbered 5 The Miscellaneous Stuff
@@ -6624,7 +6689,7 @@ version.  For a fuller list, see the @file{NEWS} in the @file{etc}
 directory of the XEmacs distribution, or use @kbd{C-h n} or the
 @samp{Help} menu to view this file inside of XEmacs.
 
-@unnumberedsubsubsec User-visible changes
+@unnumberedsubsubsec User-visible changes in XEmacs 21.4
 
 @itemize @bullet
 
@@ -6709,7 +6774,7 @@ Other init-file-related changes. (Init file in your home directory may be called
 Etags changes.  See @file{NEWS} for full details.
 @end itemize
 
-@unnumberedsubsubsec Lisp and internal changes
+@unnumberedsubsubsec Lisp and internal changes in XEmacs 21.4
 
 Not yet written.
 
@@ -6729,7 +6794,7 @@ version.  For a fuller list, see the @file{NEWS} in the @file{etc}
 directory of the XEmacs distribution, or use @kbd{C-h n} or the
 @samp{Help} menu to view this file inside of XEmacs.
 
-@unnumberedsubsubsec User-visible changes
+@unnumberedsubsubsec User-visible changes in XEmacs 21.1
 
 @itemize @bullet
 
@@ -6792,7 +6857,7 @@ menubars if XEmacs is built with the right support.
 
 @end itemize
 
-@unnumberedsubsubsec Lisp and internal changes
+@unnumberedsubsubsec Lisp and internal changes in XEmacs 21.1
 
 @itemize @bullet
 

@@ -1,6 +1,84 @@
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* XEmacs 21.4.6 "Common Lisp" is released.
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2002-03-18  Adrian Aichner  <adrian@xemacs.org>
+
+	* cus-edit.el (customize-save-variable): Fix typo in prompt.
+
+2002-03-26  John Paul Wallington  <jpw@xemacs.org>
+
+	* obsolete.el (assq-delete-all): New compatibility alias for 
+	remassq.
+
+2002-01-09  Simon Josefsson  <jas@extundo.com>
+
+	* files.el (auto-mode-alist): Support Sieve (*.siv, *.sieve).
+
+2002-01-04  Adrian Aichner  <adrian@xemacs.org>
+
+	* info.el (Info-auto-generate-directory): Default
+	Info-auto-generate-directory to 'if-outdated.
+
+2002-03-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* startup.el (normal-top-level): Prevent migration code from
+	trashing .emacs on an error in loading the init files.
+
+2002-03-14  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* files.el (auto-mode-alist): GNUmakefile is a Makefile,
+	"system default" Xdefaults and friends get xrdb-mode.
+
+2002-03-05  Mats Lidell  <matsl@contactor.se>
+ 
+ 	* help-nomule.el (tutorial-supported-languages): Added Swedish
+ 	tutorial. Sorted languages.
+
+2002-02-11  Mike Sperber <mike@xemacs.org>
+
+	* info.el (Info-maybe-update-dir): Regenerate dir if we're
+	regenerating outdated dir files and dir is non-existent.
+
+2002-01-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* code-files.el (convert-mbox-coding-system): Improve comment.
+	(write-region): Improve docstring.  Reformat to 80 columns.  Add
+	coding-system argument to `write-region-pre-hook' call.
+	(write-region-pre-hook): Fix docstring to mention lockname argument.
+
+2002-01-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* minibuf.el (completing-read): Remove redundant wrong arg list.
+
+	* help.el (with-displaying-help-buffer): Put usage advice in docstring.
+
+2001-12-27  John Paul Wallington  <jpw@shootybangbang.com>
+
+	* obsolete.el (interactive-form): new compatibility alias for 
+	function-interactive.
+
+2001-11-29  Adrian Aichner  <adrian@xemacs.org>
+
+	* menubar-items.el (Menubar-items-truncate-list): Removed.
+	* menubar-items.el (Menubar-items-truncate-history): New.
+	* menubar-items.el (default-menubar): Use
+	Menubar-items-truncate-history.
+
+2002-02-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* printer.el (generic-print-region): Pass correct arguments to
+	lpr-region.  Thanks to Nevin Kapur <nevin@jhu.edu> and Björn
+	Torkelsson <torkel@acc.umu.se>.
+
+2002-01-09  John Paul Wallington  <jpw@shootybangbang.com>
+
+	* help.el (describe-mode): synched with FSF 19.34; handle nil
+	minor mode indicators.
+
+2001-12-03  Christoph Wedler  <Christoph.Wedler@sap.com>
+
+	* minibuf.el (completing-read): Update docstring.
 
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 

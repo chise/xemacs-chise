@@ -95,8 +95,11 @@ Boston, MA 02111-1307, USA.  */
 #if	defined(__linux__) && defined(powerpc)	/*Added by Fukui*/
 #define START_FILES		/*Added by Fukui*/
 #else				/*Added by Fukui*/
-
+#if defined __s390x__ || defined __x86_64__
+#define START_FILES "pre-crt0.o /usr/lib64/crt1.o /usr/lib64/crti.o"
+#else
 #define START_FILES "pre-crt0.o /usr/lib/crt1.o /usr/lib/crti.o"
+#endif
 #endif				/*Added by Fukui*/
 #endif
 
@@ -117,7 +120,11 @@ Boston, MA 02111-1307, USA.  */
 #else
 /*#undef LIB_GCC
   #define LIB_GCC*/
+#if defined __s390x__  || defined __x86_64__
+#define LIB_STANDARD "-lgcc -lc -lgcc /usr/lib64/crtn.o"
+#else
 #define LIB_STANDARD "-lgcc -lc -lgcc /usr/lib/crtn.o"
+#endif
 #define LINKER "$(CC) -nostdlib"
 #endif
 

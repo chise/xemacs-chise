@@ -31,12 +31,15 @@
 ;;; Code:
 
 (defconst tutorial-supported-languages
-  '(("French" fr iso-8859-1)
+  '(
+    ("Croatian" hr iso-8859-2)
+    ("French" fr iso-8859-1)
     ("German" de iso-8859-1)
     ("Norwegian" no iso-8859-1)
-    ("Croatian" hr iso-8859-2)
     ("Polish" pl iso-8859-2)
-    ("Romanian" ro iso-8859-2))
+    ("Romanian" ro iso-8859-2)
+    ("Swedish" se iso-8859-1)
+    )
   "Alist of supported languages in TUTORIAL files.
 Add languages here, as more are translated.")
 

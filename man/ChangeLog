@@ -1,12 +1,74 @@
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* custom.texi (The Init File): Rewrite completely.
+
+2002-03-19  Adrian Aichner  <adrian@xemacs.org>
+
+	* widget.texi (constants): Typo fix.
+
+2002-02-07  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* external-widget.texi (External Client Widget Internals): New node.
+
+2001-11-15  Darryl Okahata  <darrylo@xemacs.org>
+
+	* lispref/glyphs.texi:
+	lispref/lispref.texi: Add examples of how to insert graphics into a
+	buffer.
+	
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/packages.texi (Packages):
+	(Package Terminology):
+	Carefully distinguish libraries and packages.
+	(Package Terminology):
+	More careful definitions of ``category'' and ``distribution.''
+	Use ``generic'' instead of ``normal'' (N.B. package tools use
+	``standard''.)
+	(Installing Packages):
+	Use @var to mark variable version strings, not @t or <>.
+	(Sumo):
+	Add disk space estimate when unpacked.
+
+2002-02-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q1.3.8, Q1.3.9): Unicode support via Mule-UCS.
+
+2002-02-01  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs/packages.texi (Removing Packages): The interactive
+	function is 'package-get-delete-package'.
+
+2001-01-24  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.6): Update mail-to-news gateway information.
+
+2001-11-27  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi: Hyperlink fixes.
+	
+2002-02-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q4.7.7): New FAQ on remote files.
+
+2002-01-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.6): Update mail-to-news gateway information.
+
+2002-02-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/files.texi (Files):
+	(File Names):
+	Document remote file editing, refer to EFS and TRAMP.
+
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.6 "Common Lisp" is released.
 
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
-
-	* XEmacs 21.4.6 "Common Lisp" is released.
-
-man/ChangeLog
 2001-12-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* lispref/packaging.texi (The User's View):

@@ -656,6 +656,18 @@ microsoft website.
 * Problems with running XEmacs
 ==============================
 ** General
+*** Whenever I try to retrieve a remote file, I have problems.
+
+A typical error: FTP Error: USER request failed; 500 AUTH not understood.
+Thanks to giacomo boffi <giacomo.boffi@polimi.it> on comp.emacs.xemacs:
+
+   tell your ftp client to not attempt AUTH authentication (or do not
+   use FTP servers that don't understand AUTH)
+
+and notes that you need to add an element (often "-u") to
+`efs-ftp-program-args'.  Use M-x customize-variable, and verify the
+needed flag with `man ftp' or other local documentation.
+
 *** gnuserv is running, some clients can connect, but others cannot.
 
 The code in gnuslib.c respects the value of TMPDIR.  If the server and

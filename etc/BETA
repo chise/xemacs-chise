@@ -3,51 +3,78 @@
 * Introduction
 ==============
 
-You are running an experimental version of XEmacs.  Please do not
-report problems with Beta XEmacs to comp.emacs.xemacs.  Report them to
-xemacs-beta@xemacs.org.
+You are running a potentially unstable version of XEmacs.  Please do
+not report problems with Beta XEmacs to comp.emacs.xemacs.  Report
+them to xemacs-beta@xemacs.org.
 
-** XEmacs Beta Mailing List
-===========================
+** Mailing Lists
+================
 
-*** Subscribing
----------------
+*** XEmacs Beta Mailing List
+----------------------------
 
-If you are not subscribed to the XEmacs beta list you should be.  Send
-an email message to xemacs-beta-request@xemacs.org with `subscribe'
-(without the quotes) as the BODY of the message.
+If you are not subscribed to the XEmacs beta list you should be.
+Currently all discussion of development issues, including bug reports
+and coding discussion, takes place on the XEmacs Beta mailing list.
+Only patches and administrative actions regarding patches are sent
+elsewhere (to the XEmacs Patches list).
 
-*** Unsubscribing
------------------
+** XEmacs Patches Mailing List
+==============================
 
-To unsubscribe from the list send an email message to
-xemacs-beta-request@xemacs.org with `unsubscribe' (without the quotes)
-as the BODY of the message.
+XEmacs Patches records proposed changes to XEmacs, and their
+disposition.  It is open subscription, but only patches and actions by
+members of the XEmacs Review Board should be posted to this list.  You
+can follow progress of your patch by subscribing to the mailing list
+or in the archives.
 
-*** Administrivia
------------------
+** List Administrivia
+=====================
 
-The XEmacs beta list is managed by the Majordomo mailing list package,
-and the usual Majordomo commands work.  Do not send mailing list
-requests to the main address (xemacs-beta@xemacs.org), always send
-them to xemacs-beta-request@xemacs.org.  If you have problems with the
-list itself, they should be brought to the attention of the XEmacs
-Mailing List manager Jason Mastaler <list-manager@xemacs.org>.
+In the descriptions below, the word LIST (all uppercase) is a
+variable.  Substitute "beta" or "patches" as appropriate (to get
+"xemacs-beta" as the mailbox for the XEmacs Beta mailing list, or
+http://www.xemacs.org/Lists/#xemacs-beta for its URL).
 
+The XEmacs mailing lists are managed by the Mailman mailing list
+package, and the usual Mailman commands work.  Do not send mailing
+list requests to the main address (xemacs-LIST@xemacs.org), always
+send them to xemacs-LIST-request@xemacs.org.  If you have problems
+with the list itself, they should be brought to the attention of the
+XEmacs Mailing List manager <list-manager@xemacs.org> (the same
+mailbox, "list-manager", for all lists).  All public mailing lists
+have searchable archives.  The URL is
+
+	     http://list-archive.xemacs.org/xemacs-LIST
+
+*** Managing your subscription via the Web
+------------------------------------------
+
+Subscription, unsubscription, and options (such as digests and
+temporarily suspending delivery) can be accomplished via the web
+interface at http://www.xemacs.org/Lists/#xemacs-LIST.
+
+*** Subscribing by e-mail
+-------------------------
+
+Send an email message to xemacs-LIST-request@xemacs.org with
+`subscribe' (without the quotes) as the BODY of the message.
+
+*** Unsubscribing by e-mail
+---------------------------
+
+Send an email message to xemacs-LIST-request@xemacs.org with
+`unsubscribe' (without the quotes) as the BODY of the message.
 
 ** Beta Release Schedule
 ========================
 
-The URL ftp://ftp.xemacs.org/pub/xemacs/beta/README always contains
-the best estimate of when the next beta XEmacs will be released.  For
-weekend betas the release time is generally in the vicinity of 2PM to
-5PM US Pacific Time (Universal Time minus 8 hours).  For weekday
-betas, the release time is generally in the vicinity of 8PM to
-Midnight US Pacific Time on the listed day.
-
-Betas are nominally a week apart, scheduled on every Saturday.
-Midweek releases are made when a serious enough problem warrants it.
-
+Betas are now released rather sporadically.  We would like to achieve
+a weekly release schedule, but personnel availability does not
+permit.  For access to the most recent code, use CVS (see
+http://www.xemacs.org/Develop/cvsaccess.html for more information).
+If you have need for FTP access, please let us know.  It will make it
+more likely that we release betas more often.
 
 ** Reporting Problems
 =====================
@@ -66,11 +93,16 @@ of problem reporting.  Other items which are most important are:
     problem is actually occurring.
  
 2.  Attempt to recreate the problem starting with an invocation of
-    XEmacs with `xemacs -q -no-site-file'.  Quite often, problems are
-    due to package interdependencies, and the like.  An actual bug in
-    XEmacs should be reproducible in a default configuration without
-    loading any special packages (or the one or two specific packages
-    that cause the bug to appear).
+    XEmacs with `xemacs -q -no-site-file -no-autoloads'.  Quite often,
+    problems are due to package interdependencies, and the like.  An
+    actual bug in XEmacs should be reproducible in a default
+    configuration without loading any special packages (or the one or
+    two specific packages that cause the bug to appear).  If you have
+    trouble getting anything to work at all with the above invocation,
+    use `xemacs -q -no-site-file' instead.  If you need to load your
+    user init file or the site file to get the problem to occur, then
+    it has something to do with them, and you should try to isolate
+    the issue in those files.
 
 3.  A picture can be worth a thousand words.  When reporting an
     unusual display, it is generally best to capture the problem in a
@@ -84,7 +116,9 @@ of problem reporting.  Other items which are most important are:
 =====================
 
 In addition to the normal tar distribution, XEmacs source is now
-available via CVS.  Please see the URL: <URL:http://cvs.xemacs.org/~xemacs/>.
+available via CVS.  Please see
+
+	    http://www.xemacs.org/Develop/cvsaccess.html
 
 * Compiling Beta XEmacs
 =======================
@@ -136,7 +170,10 @@ writing:
 	--with-scrollbars=athena3d --with-dialogs=athena3d \
 	--with-mule --with-xfs --with-xim=xlib
 
-Part of the configure output is a summary that looks something like:
+Part of the configure output is a summary that looks something like
+the following.  (In XEmacs 21.1 and later, this summary is also
+available as the file Installation in the top directory of your build
+tree, and via the command M-x describe-installation.)
 
 uname -a: Linux altair.xemacs.org 2.0.32 #2 Sun Nov 16 18:52:14 PST 1997 i586
 
@@ -197,7 +234,18 @@ Then type `make' and you should have a working XEmacs.
 
 After you have verified that you have a functional editor, fire up
 your favorite mail program and send a build report to
-xemacs-build-reports@xemacs.org.  The build report should include
+xemacs-build-reports@xemacs.org.
+
+Preferrably this is done from XEmacs, following these simple steps:
+
+M-x customize-group RET build-report RET
+M-x build-report RET
+
+See also
+http://www.xemacs.org/Releases/Public-21.2/tester.html#reporting
+
+If you create the report manually by other means, here is what the
+build report should include:
 
 1. Your hardware configuration (OS version, etc.)
 
@@ -217,12 +265,18 @@ xemacs-build-reports@xemacs.org.  The build report should include
 5. Any other unusual items you feel should be brought to the attention
    of the developers.
 
+
+* Patching XEmacs
+=================
+
 ** Creating patches for submission
 ==================================
 
 Patches to XEmacs should be mailed to <xemacs-patches@xemacs.org>.
 Each patch will be reviewed by the patches review board, and will be
-acked and added to the distribution, or rejected with an explanation.
+acknowledged and added to the distribution, or rejected with an
+explanation.  Progress of the patch is tracked on the XEmacs Patches
+mailing list, which is open subscription.
 
 Patches to XEmacs Lisp packages should be sent to the maintainer of
 the package.  If the maintainer is listed as `XEmacs Development Team'
@@ -231,9 +285,19 @@ patches should be sent to <xemacs-patches@xemacs.org>.
 Emailed patches should preferably be sent in MIME format and quoted
 printable encoding (if necessary).
 
-When making patches, please use the `-u' option, or if your diff
-doesn't support it, `-c'.  Using ordinary (context-free) diffs are
-notoriously prone to error, since line numbers tend to change when
+The simplest way to create well-formed patches is to use CVS and
+Didier Verna's Patcher library (available as patcher.el in the
+xemacs-devel package).  Patcher is new and requires some setup, but
+most of the core developers are now using it for their own patches.
+Patcher also can be configured to create patches for several projects,
+and recognize the project from the directory it is invoked in.  This
+makes it a useful general tool (as long as XEmacs-style patches are
+accepted at your other projects, which is likely since they conform to
+the GNU standards).
+
+When making patches by hand, please use the `-u' option, or if your
+diff doesn't support it, `-c'.  Using ordinary (context-free) diffs
+are notoriously prone to error, since line numbers tend to change when
 others make changes to the same source file.
 
 An example of the `diff' usage:
@@ -251,21 +315,11 @@ $ cp -p lwlib/xlwmenu.c lwlib/xlwmenu.c.orig
   hack, hack, hack....
 $ diff -u lwlib/xlwmenu.c.orig lwlib/xlwmenu.c
 
-Each patch should be accompanied by an update to the appropriate
-ChangeLog file.  Please don't mail patches to ChangeLog because they
-have an extremely high rate of failure; just mail us the new part of
-the ChangeLog you added.
-
 Also note that if you cut & paste from an xterm to an XEmacs mail buffer
 you will probably lose due to tab expansion.  The best thing to do is
 to use an XEmacs shell buffer to run the diff commands, or ...
 M-x cd to the appropriate directory, and issue the command `C-u M-!' from
 within XEmacs.
-
-Guidelines for writing ChangeLog entries is governed by the GNU coding 
-standards.  Please see
-	http://www.gnu.org/prep/standards_toc.html   [Change Logs section]
-for details.
 
 Patches should be as single-minded as possible.  Mammoth patches can
 be very difficult to place into the right slot.  They are much easier
@@ -273,28 +327,81 @@ to deal with when broken down into functional or conceptual chunks.
 The patches submitted by Kyle Jones and Hrvoje Niksic are stellar
 examples of how to Do The Right Thing.
 
-** Packages directory on the FTP Site
-=====================================
+Each patch should be accompanied by an update to the appropriate
+ChangeLog file.  Guidelines for writing ChangeLog entries is governed
+by the GNU coding standards.  Please see
+	http://www.gnu.org/prep/standards_toc.html   [Change Logs section]
+for details.
 
-The packages directory
-	ftp://ftp.xemacs.org/pub/xemacs/beta/xemacs-21.0/packages/
+Do not submit context diffs (either -c or -u) of ChangeLogs.  Because
+of the "stack" nature of ChangeLogs (new entries are always pushed on
+the top), context diffs will fail to apply more often than they
+succeed.  Simply cutting and pasting the entry from an Emacs buffer to
+the mail buffer (beware of tab expansion!) is probably easiest.  The
+Patcher library also will set up your ChangeLogs for you, and copy
+them to the mail.  Contextless unified diffs (-U 0) are also
+acceptable but perhaps more trouble than they are worth.
 
-is divided into subdirectory by the major type of package.
+*** Patch discussion etiquette
+-------------------------------
 
-drwxr-xr-x   2 beta-f   beta-f      1024 Oct 10 00:43 binary-packages
-drwxr-xr-x   2 beta-f   beta-f       512 Oct 10 00:44 package-sources
-drwxr-xr-x   2 beta-f   beta-f       512 Oct 10 00:44 utils
+If you intend a patch for _application_ to the sources as is, _always_
+post it to xemacs-patches, even if there are minor points you would
+like to have discussed by others.  Not doing so will resulting in
+patches getting "lost".  If you expect that the patch will not be
+acceptable, but are using it to stimulate discussion, then don't post
+to xemacs-patches.  Intermediate cases are up to your judgement;
+unless you're sure you'll follow up with a "real" patch, better to err
+on the side of posting to xemacs-patches.
 
-** Support Utilities (utils)
-============================
+Discussion of the _content_ of the patch (ie responses to reviewer
+comments beyond "that's right, ok, I'll do it your way") should _always_
+be posted to xemacs-beta.  (We may split xemacs-beta into code
+discussion and stuff that is more relevant to non-developer testers at
+some point, but at this point xemacs-beta is the correct place for
+this.)
 
-The utils directory contains tools to deal with current Lisp sources that
-have not had yet gotten XEmacs package integration.  The script `xpackage.sh'
-is used with Quassia Gnus.  Edit the appropriate variables at the top of
-the script to reflect the local configuration and run it in the top level
-directory of a Quassia Gnus source tree to install an update to Quassia Gnus.
+If discussion results in a bright idea and you come up with a new
+patch, normally you should post it to both mailing lists.  The people
+discussing on XEmacs Beta will want to know the outcome of the thread,
+and you need to submit to XEmacs Patches as the "list of record."
 
-** Binary package installation (binary-packages)
+If the old patch has been applied to CVS, then just submit the new one
+as usual.  If it has not been applied, then it is best to submit a new
+patch against CVS.  If possible do this as a reply to the original
+patch post, or something following it in the thread.  (The point is to
+get the original patch post's Message-ID in your References header.)
+In this case, also use the keyword SUPERCEDES in the Subject header to
+indicate that the old patch is no longer valid, and that this one
+replaces it.
+
+These rules will result in a fair number of cross posts, but we don't
+yet have a better way to handle that.
+
+Note: Developers should never post to xemacs-patches unless there is a
+patch in the post.  We plan to enforce this with an automatic filter.
+
+The exceptions are administrative.  If you have commit authorization,
+then post a short COMMIT notice to xemacs-patches when you commit to
+CVS.  Members of the Review Board will also post short notices of
+administrative action (APPROVE, VETO, QUERY, etc) to xemacs-patches.
+
+* Packages
+====================================
+
+[Note: these instructions have been partly updated, but not carefully
+reviewed in some time.  Caveat tester.]
+
+Starting with XEmacs 21.1, much of the functionality of XEmacs has
+been unbundled into "the packages."  For more information about the
+package system, see the Info nodes on Packages (in the XEmacs User
+Manual) and on Packaging (in the Lisp Reference).
+
+When bootstrapping XEmacs, you may need to manually install some
+packages (at least xemacs-base and efs).  These packages are available
+by FTP at ftp://ftp.xemacs.org/pub/xemacs/packages/.
+
+** Binary package installation
 ================================================
 
 Prerequisite:  XEmacs 21.0-b1.
@@ -315,16 +422,15 @@ groups) must be kept in synch.  Assuming one is manipulating a
 directory called `lisp-utils', the command to rebuild the
 auto-autoloads.el file is:
 
-xemacs-21.0 -vanilla -batch -l autoload -f batch-update-directory lisp-utils
+xemacs -vanilla -batch -l autoload -f batch-update-directory lisp-utils
 
 The command to rebuild the custom-load.el file is:
 
-xemacs-21.0 -vanilla -batch -l cus-dep \
-	-f Custom-make-dependencies lisp-utils
+xemacs -vanilla -batch -l cus-dep -f Custom-make-dependencies lisp-utils
 
 To bytecompile both of these files the command is:
 
-xemacs-21.0 -vanilla -batch -f batch-byte-compile \
+xemacs -vanilla -batch -f batch-byte-compile \
 	lisp-utils/auto-autoloads.el lisp-utils/custom-load.el
 
 ** Building XEmacs and XEmacs packages from scratch

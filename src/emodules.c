@@ -426,6 +426,7 @@ emodules_load(const char *module, const char *modname, const char *modver)
     {
       emodules_depth--;
       dll_close (dlhandle);
+      dlhandle = 0;  /* Zero this out before module_load_unwind runs */
       return;
     }
 
