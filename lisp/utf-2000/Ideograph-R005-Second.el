@@ -563,6 +563,21 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     (:cdp-combinator	1
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+		 (ucs		     . #x2FF0)	; â¿°
+		 )
+      )
+     ((japanese-jisx0208-1978	  . #x5555)	; ø»ƒ‰Œ
+      (japanese-jisx0208	  . #x5555)	; ø»‡”
+      (korean-ksc5601		  . #x5D21)	; ø»‰²”
+      (ideograph-daikanwa	  . 06948)	; ø¸¬¤
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
+      (ucs		  . #x2E83)	; âºƒ
+      ))
     (shinjigen-1	. 63)
     (shinjigen-2	. 63)
     (korean-ksc5601	. #x6A61)	; ø»Š†š
