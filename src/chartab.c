@@ -3426,7 +3426,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 
       if (INTP (v))
 	{
-	  Emchar c = XINT (v);
+	  Emchar c = DECODE_CHAR (Vcharset_ucs, XINT (v), 0);
 	  Lisp_Object ret
 	    = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
 			     Qnil, Qnil);
@@ -3489,7 +3489,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       if (!INTP (value))
 	signal_simple_error ("Invalid value for =>ucs", value);
 
-      c = XINT (value);
+      c = DECODE_CHAR (Vcharset_ucs, XINT (value), 0);
 
       ret = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
 			   Qnil, Qnil);
