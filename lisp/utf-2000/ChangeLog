@@ -1,3 +1,66 @@
+2001-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el, Ideograph-R091-Slice.el,
+	Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R087-Claw.el: Merge
+	missing JIS X 0208 code points.
+
+2001-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02000-General-Punctuation.el: Unify BIG5 code points.
+
+	* Ideograph-R086-Fire.el (J78-4E7B): Separate J83-4E7B and
+	J90-4E7B.
+	(J78-4079): Separate G0-3C65, C1-6474, J90-4079 and U+714E.
+	(J90-5F66): Unify J78-5F66 and J90-5F66.
+	(J83-5F6B): Separate C1-6524 and U+7156.
+	(M-19272): Separate J78-407A, G0-493F, J83-407A, C1-695B, J90-407A
+	and U+717D.
+	(J83-4D50): Separate J78-4D50.
+	(J90-5F70): Unify J78-5F70 and J83-5F70.
+	(J90-5F73): Add `jisx0208-difference' property.
+	(J90-5F7D): Unify J78-5F7D and J83-5F7D.
+
+2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R089-Double-X.el: Merge missing JIS X 0208 code points.
+
+	* Ideograph-R088-Father.el (J90-4C6C): Unify J78-4C6C and
+	J83-4C6C.
+
+2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el: Merge missing JIS X 0208 code points.
+	(J83-4749): Separate J90-4749; add `ideograph=' property for
+	M-17427.
+	(J90-5E56): Separate J83-5E56.
+	(J78-5E56): Unify J83-5E56.
+	(J83-4F51): Separate C3-3C63 and J90-4F51.
+	(M-17944): Unify J78-3942.
+	(J83-3942): Separate J78-3942.
+	(M-18098): Separate J78-5E78, J83-5E78, K0-4D63, C1-693E and
+	U+6EFE.
+	(M-18123): Separate J78-5E74, J83-5E74, J90-5E74, K0-4B49, C3-4764
+	and U+6F11.
+	(M-18155): Separate J83-4E7A, C1-694E, J90-4E7A and U+6F23.
+	(J90-5F21): Separate J78-5F21 and J83-5F21.
+	(J78-4275): Separate G0-652A, J83-4275, C1-7429, J90-4275 and
+	U+6FEF.
+	(J78-494E): Separate J83-494E and J90-494E.
+	(M-18784): Unify J78-4667.
+	(J83-4667): Separate J78-4667.
+	(J78-4B22): Separate J83-4B22 and J90-4B22; fix
+	`ideographic-strokes'; delete `kangxi-strokes'.
+
+	* u00370-Greek.el (fullwidth *): Renamed from `FULLWIDTH *'; unify
+	BIG5 and JIS X 0213 code points.
+	(GREEK SMALL LETTER FINAL SIGMA): Separate JX0-2659.
+	(fullwidth greek small letter final sigma): Renamed from
+	`FULLWIDTH GREEK SMALL LETTER FINAL SIGMA'; unify JX0-2659.
+
+	* u002B0-Spacing-Modifier-Letters.el (U+****): Separate JIS X 0213
+	code points if there are 1-column CCS code points.
+	(fullwidth *): Unify BIG5 code points.
+
 2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u00300-Combining-Diacritical-Marks.el (U+****): Unify
