@@ -22,6 +22,21 @@
 	U-000202F4.
 	(U-000202F4): Separate all.
 
+	* ideograph-util.el (expand-char-feature-name): New function.
+	(map-char-family): New function.
+	(get-char-feature-from-domains): New function.
+	(char-ideographic-radical): Add new optional argument
+	`ignore-sisters'; use `get-char-feature-from-domains'.
+	(char-ideographic-strokes-from-domains): Use
+	`get-char-feature-from-domains'.
+	(char-ideographic-strokes): Simplify code about domains.
+	(update-ideograph-radical-table): Check ancestors' radicals;
+	prefer to use `get-char-attribute' to get `ideographic-radical'
+	rather than to use `char-ideographic-radical'.
+	(char-representative-of-daikanwa): Add new optional arguments
+	`ignore-default' and `dont-inherit'; use `map-char-family'.
+	(char-daikanwa): Use `map-char-family'.
+
 2004-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el: Add some Japanese vocal sounds.
