@@ -1,4 +1,11 @@
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+84E6): Moved from
+	Ideograph-R187-Horse.el.
+
 2004-01-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (U+9B13): Add `total-strokes'.
 
 	* Ideograph-R181-Leaf.el: Add some `total-strokes' features.
 	(U+989E): Fix strokes.
