@@ -587,7 +587,7 @@ charset_code_point (Lisp_Object charset, Emchar ch)
   Lisp_Object ret;
 
   if ( CHAR_ID_TABLE_P (encoding_table)
-       && INTP (ret = get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+       && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
 					 ch)) )
     return XINT (ret);
   else
@@ -613,7 +613,7 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
 
 	  if ( CHAR_ID_TABLE_P (encoding_table)
 	       && INTP (ret
-			= get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+			= get_char_id_table (XCHAR_TABLE(encoding_table),
 					     ch)) )
 	    return XINT (ret);
 	  else
