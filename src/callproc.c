@@ -626,19 +626,11 @@ child_setup (int in, int out, int err, char **new_argv,
   }
 
   /* Set `env' to a vector of the strings in Vprocess_environment.  */
+  /* + 2 to include PWD and terminating 0.  */
+  env = alloca_array (char *, XINT (Flength (Vprocess_environment)) + 2);
   {
-    REGISTER Lisp_Object tem;
-    REGISTER char **new_env;
-    REGISTER int new_length = 0;
-
-    for (tem = Vprocess_environment;
-	 (CONSP (tem)
-	  && STRINGP (XCAR (tem)));
-	 tem = XCDR (tem))
-      new_length++;
-
-    /* new_length + 2 to include PWD and terminating 0.  */
-    env = new_env = alloca_array (char *, new_length + 2);
+    REGISTER Lisp_Object tail;
+    char **new_env = env;
 
     /* If we have a PWD envvar and we know the real current directory,
        pass one down, but with corrected value.  */
@@ -646,20 +638,23 @@ child_setup (int in, int out, int err, char **new_argv,
       *new_env++ = pwd;
 
     /* Copy the Vprocess_environment strings into new_env.  */
-    for (tem = Vprocess_environment;
-	 (CONSP (tem)
-	  && STRINGP (XCAR (tem)));
-	 tem = XCDR (tem))
+    for (tail = Vprocess_environment;
+	 CONSP (tail) && STRINGP (XCAR (tail));
+	 tail = XCDR (tail))
     {
       char **ep = env;
-      char *string = (char *) XSTRING_DATA (XCAR (tem));
-      /* See if this string duplicates any string already in the env.
+      char *envvar_external;
+      Bufbyte *envvar_internal = XSTRING_DATA (XCAR (tail));
+
+      GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA (envvar_internal, envvar_external);
+
+      /* See if envvar_external duplicates any string already in the env.
 	 If so, don't put it in.
 	 When an env var has multiple definitions,
 	 we keep the definition that comes first in process-environment.  */
       for (; ep != new_env; ep++)
 	{
-	  char *p = *ep, *q = string;
+	  char *p = *ep, *q = envvar_external;
 	  while (1)
 	    {
 	      if (*q == 0)
@@ -672,17 +667,19 @@ child_setup (int in, int out, int err, char **new_argv,
 	      p++, q++;
 	    }
 	}
-      if (pwd && !strncmp ("PWD=", string, 4))
+      if (pwd && !strncmp ("PWD=", envvar_external, 4))
 	{
 	  *new_env++ = pwd;
 	  pwd = 0;
 	}
       else
-        *new_env++ = string;
+        *new_env++ = envvar_external;
+
     duplicate: ;
     }
     *new_env = 0;
   }
+
 #ifdef WINDOWSNT
   prepare_standard_handles (in, out, err, handles);
   set_process_dir (current_dir);
@@ -699,11 +696,11 @@ child_setup (int in, int out, int err, char **new_argv,
   close (STDIN_FILENO);
   close (STDOUT_FILENO);
   close (STDERR_FILENO);
-  
+
   dup2 (in,  STDIN_FILENO);
   dup2 (out, STDOUT_FILENO);
   dup2 (err, STDERR_FILENO);
-  
+
   close (in);
   close (out);
   close (err);

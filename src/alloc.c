@@ -376,7 +376,7 @@ memory_full (void)
 void *
 xmalloc (size_t size)
 {
-  void *val = (void *) malloc (size);
+  void *val = malloc (size);
 
   if (!val && (size != 0)) memory_full ();
   return val;
@@ -385,7 +385,7 @@ xmalloc (size_t size)
 static void *
 xcalloc (size_t nelem, size_t elsize)
 {
-  void *val = (void *) calloc (nelem, elsize);
+  void *val = calloc (nelem, elsize);
 
   if (!val && (nelem != 0)) memory_full ();
   return val;
@@ -406,7 +406,7 @@ xrealloc (void *block, size_t size)
 {
   /* We must call malloc explicitly when BLOCK is 0, since some
      reallocs don't do this.  */
-  void *val = (void *) (block ? realloc (block, size) : malloc (size));
+  void *val = block ? realloc (block, size) : malloc (size);
 
   if (!val && (size != 0)) memory_full ();
   return val;
@@ -3378,8 +3378,7 @@ lrecord_type_index (CONST struct lrecord_implementation *implementation)
   if (type_index < 0 || type_index > max_lrecord_type
       || lrecord_implementations_table[type_index] != implementation)
     {
-      if (last_lrecord_type_index_assigned == max_lrecord_type)
-        abort ();
+      assert (last_lrecord_type_index_assigned < max_lrecord_type);
       type_index = ++last_lrecord_type_index_assigned;
       lrecord_implementations_table[type_index] = implementation;
       *(implementation->lrecord_type_index) = type_index;
@@ -3397,21 +3396,6 @@ static struct
   int bytes_freed;
   int instances_on_free_list;
 } lcrecord_stats [countof (lrecord_implementations_table)];
-
-
-static void
-reset_lcrecord_stats (void)
-{
-  int i;
-  for (i = 0; i < countof (lcrecord_stats); i++)
-    {
-      lcrecord_stats[i].instances_in_use = 0;
-      lcrecord_stats[i].bytes_in_use = 0;
-      lcrecord_stats[i].instances_freed = 0;
-      lcrecord_stats[i].bytes_freed = 0;
-      lcrecord_stats[i].instances_on_free_list = 0;
-    }
-}
 
 static void
 tick_lcrecord_stats (CONST struct lrecord_header *h, int free_p)
@@ -3452,7 +3436,8 @@ sweep_lcrecords_1 (struct lcrecord_header **prev, int *used)
   struct lcrecord_header *header;
   int num_used = 0;
   /* int total_size = 0; */
-  reset_lcrecord_stats ();
+
+  xzero (lcrecord_stats); /* Reset all statistics to 0. */
 
   /* First go through and call all the finalize methods.
      Then go through and free the objects.  There used to

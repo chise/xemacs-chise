@@ -1,4 +1,7 @@
 							-*- indented-text -*-
+to 21.2 beta8 "Artemis"
+-- A bunch of Mule fixes from Martin Buchholz
+
 to 21.2 beta7 "Ares"
 -- mswindows modeline crash fix from Jonathan Harris
 -- picon glyph fix from Gunnar Evermann

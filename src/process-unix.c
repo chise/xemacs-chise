@@ -698,7 +698,7 @@ unix_init_process_io_handles (struct Lisp_Process *p, void* in, void* out, int f
 }
 
 /*
- * Fork off a subprocess. P is a pointer to newly created subprocess
+ * Fork off a subprocess. P is a pointer to a newly created subprocess
  * object. If this function signals, the caller is responsible for
  * deleting (and finalizing) the process object.
  *
@@ -714,30 +714,13 @@ unix_create_process (struct Lisp_Process *p,
 {
   /* This function rewritten by ben@xemacs.org. */
 
-  int pid, inchannel, outchannel;
+  int pid;
+  int inchannel  = -1;
+  int outchannel = -1;
   /* Use volatile to protect variables from being clobbered by longjmp.  */
-  volatile int forkin, forkout;
+  volatile int forkin   = -1;
+  volatile int forkout  = -1;
   volatile int pty_flag = 0;
-  char **env;
-  char **new_argv;
-  char *current_dir;
-  int i;
-
-  env = environ;
-
-  inchannel = outchannel = forkin = forkout = -1;
-
-  /* Nothing below here GCs so our string pointers shouldn't move. */
-  new_argv = alloca_array (char *, nargv + 2);
-  GET_C_STRING_FILENAME_DATA_ALLOCA (program, new_argv[0]);
-  for (i = 0; i < nargv; i++)
-    {
-      Lisp_Object tem = argv[i];
-      CHECK_STRING (tem);
-      new_argv[i + 1] = (char *) XSTRING_DATA (tem);
-    }
-  new_argv[i + 1] = 0;
-  GET_C_STRING_FILENAME_DATA_ALLOCA (cur_dir, current_dir);
 
 #ifdef HAVE_PTYS
   if (!NILP (Vprocess_connection_type))
@@ -755,7 +738,7 @@ unix_create_process (struct Lisp_Process *p,
 	 better error checking. */
 #if !defined(USG)
       /* On USG systems it does not work to open the pty's tty here
-	       and then close and reopen it in the child.  */
+	 and then close and reopen it in the child.  */
 #ifdef O_NOCTTY
       /* Don't let this terminal become our controlling terminal
 	 (in case we don't have one).  */
@@ -915,20 +898,38 @@ unix_create_process (struct Lisp_Process *p,
 	    */
 	    signal (SIGHUP, SIG_DFL);
 	  }
-#endif /* HAVE_PTYS */
-
-	signal (SIGINT, SIG_DFL);
-	signal (SIGQUIT, SIG_DFL);
 
 	if (pty_flag)
-	  {
-	    /* Set up the terminal characteristics of the pty. */
-	    child_setup_tty (xforkout);
-	  }
+	  /* Set up the terminal characteristics of the pty. */
+	  child_setup_tty (xforkout);
 
-	child_setup (xforkin, xforkout, xforkout, new_argv, current_dir);
-      }
+#endif /* HAVE_PTYS */
 
+	signal (SIGINT,  SIG_DFL);
+	signal (SIGQUIT, SIG_DFL);
+
+	{
+	  char *current_dir;
+	  char **new_argv = alloca_array (char *, nargv + 2);
+	  int i;
+
+	  /* Nothing below here GCs so our string pointers shouldn't move. */
+	  new_argv[0] = (char *) XSTRING_DATA (program);
+	  for (i = 0; i < nargv; i++)
+	    {
+	      CHECK_STRING (argv[i]);
+	      new_argv[i + 1] = (char *) XSTRING_DATA (argv[i]);
+	    }
+	  new_argv[i + 1] = 0;
+
+	  GET_C_STRING_FILENAME_DATA_ALLOCA (cur_dir, current_dir);
+
+	  child_setup (xforkin, xforkout, xforkout, new_argv, current_dir);
+	}
+
+      } /**** End of child code ****/
+
+    /**** Back in parent process ****/
 #if !defined(__CYGWIN32__)
     environ = save_environ;
 #endif
@@ -968,14 +969,13 @@ unix_create_process (struct Lisp_Process *p,
 
 io_failure:
   {
-    int temp = errno;
+    int save_errno = errno;
     close_descriptor_pair (forkin, forkout);
     close_descriptor_pair (inchannel, outchannel);
-    errno = temp;
+    errno = save_errno;
     report_file_error ("Opening pty or pipe", Qnil);
+    return 0; /* not reached */
   }
-
-  RETURN_NOT_REACHED (0);
 }
 
 /* Return nonzero if this process is a ToolTalk connection. */

@@ -981,8 +981,13 @@ See also the function `substitute-in-file-name'.
       if (IS_DIRECTORY_SEP (nm[1])
 	  || nm[1] == 0)	/* ~ by itself */
 	{
-	  if (!(newdir = (Bufbyte *) get_home_directory()))
+	  char * newdir_external = get_home_directory ();
+
+	  if (newdir_external == NULL)
 	    newdir = (Bufbyte *) "";
+	  else
+	    GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (newdir_external, newdir);
+
 	  nm++;
 #ifdef WINDOWSNT
 	  collapse_newdir = 0;
@@ -1255,8 +1260,7 @@ See also the function `substitute-in-file-name'.
     }
   else
     {
-      if (!(IS_DIRECTORY_SEP (target[0]) && IS_DIRECTORY_SEP (target[1])))
-      abort ();
+      assert (IS_DIRECTORY_SEP (target[0]) && IS_DIRECTORY_SEP (target[1]));
     }
   CORRECT_DIR_SEPS (target);
 #endif /* WINDOWSNT */

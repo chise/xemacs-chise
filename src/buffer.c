@@ -126,6 +126,7 @@ struct buffer buffer_local_flags;
 
 /* This is the initial (startup) directory, as used for the *scratch* buffer.
    We're making this a global to make others aware of the startup directory.
+   `initial_directory' is stored in external format.
  */
 char initial_directory[MAXPATHLEN+1];
 
@@ -1125,7 +1126,7 @@ No argument or nil as argument means do this for the current buffer.
 }
 
 DEFUN ("kill-buffer", Fkill_buffer, 1, 1, "bKill buffer: ", /*
-Kill the buffer BUFNAME.
+Kill the buffer BUFFER.
 The argument may be a buffer or may be the name of a buffer.
 An argument of nil means kill the current buffer.
 
@@ -1139,21 +1140,21 @@ when the hook functions are called.
 Any processes that have this buffer as the `process-buffer' are killed
 with `delete-process'.
 */
-       (bufname))
+       (buffer))
 {
   /* This function can call lisp */
   Lisp_Object buf;
   REGISTER struct buffer *b;
   struct gcpro gcpro1, gcpro2;
 
-  if (NILP (bufname))
+  if (NILP (buffer))
     buf = Fcurrent_buffer ();
-  else if (BUFFERP (bufname))
-    buf = bufname;
+  else if (BUFFERP (buffer))
+    buf = buffer;
   else
     {
-      buf = get_buffer (bufname, 0);
-      if (NILP (buf)) nsberror (bufname);
+      buf = get_buffer (buffer, 0);
+      if (NILP (buf)) nsberror (buffer);
     }
 
   b = XBUFFER (buf);
@@ -1175,7 +1176,7 @@ with `delete-process'.
       && BUF_MODIFF (b) > BUF_SAVE_MODIFF (b))
     {
       Lisp_Object killp;
-      GCPRO2 (buf, bufname);
+      GCPRO1 (buf);
       killp = call1
 	(Qyes_or_no_p,
 	 (emacs_doprnt_string_c
@@ -1361,7 +1362,7 @@ with `delete-process'.
 }
 
 DEFUN ("record-buffer", Frecord_buffer, 1, 1, 0, /*
-Place buffer BUF first in the buffer order.
+Place buffer BUFFER first in the buffer order.
 Call this function when a buffer is selected "visibly".
 
 This function changes the global buffer order and the per-frame buffer
@@ -1369,7 +1370,7 @@ order for the selected frame.  The buffer order keeps track of recency
 of selection so that `other-buffer' will return a recently selected
 buffer.  See `other-buffer' for more information.
 */
-       (buf))
+       (buffer))
 {
   REGISTER Lisp_Object lynk, prev;
   struct frame *f = selected_frame ();
@@ -1377,7 +1378,7 @@ buffer.  See `other-buffer' for more information.
   prev = Qnil;
   for (lynk = Vbuffer_alist; CONSP (lynk); lynk = XCDR (lynk))
     {
-      if (EQ (XCDR (XCAR (lynk)), buf))
+      if (EQ (XCDR (XCAR (lynk)), buffer))
 	break;
       prev = lynk;
     }
@@ -1394,7 +1395,7 @@ buffer.  See `other-buffer' for more information.
   prev = Qnil;
   for (lynk = f->buffer_alist; CONSP (lynk); lynk = XCDR (lynk))
     {
-      if (EQ (XCDR (XCAR (lynk)), buf))
+      if (EQ (XCDR (XCAR (lynk)), buffer))
 	break;
       prev = lynk;
     }
@@ -1413,15 +1414,14 @@ Set an appropriate major mode for BUFFER, according to `default-major-mode'.
 Use this function before selecting the buffer, since it may need to inspect
 the current buffer's major mode.
 */
-       (buf))
+       (buffer))
 {
   int speccount = specpdl_depth ();
-  REGISTER Lisp_Object function, tem;
+  Lisp_Object function = XBUFFER (Vbuffer_defaults)->major_mode;
 
-  function = XBUFFER (Vbuffer_defaults)->major_mode;
   if (NILP (function))
     {
-      tem = Fget (current_buffer->major_mode, Qmode_class, Qnil);
+      Lisp_Object tem = Fget (current_buffer->major_mode, Qmode_class, Qnil);
       if (NILP (tem))
 	function = current_buffer->major_mode;
     }
@@ -1434,7 +1434,7 @@ the current buffer's major mode.
 
   record_unwind_protect (Fset_buffer, Fcurrent_buffer ());
 
-  Fset_buffer (buf);
+  Fset_buffer (buffer);
   call0 (function);
 
   return unbind_to (speccount, Qnil);
@@ -1452,9 +1452,9 @@ Return the current buffer as a Lisp object.
 */
        ())
 {
-  Lisp_Object buf;
-  XSETBUFFER (buf, current_buffer);
-  return buf;
+  Lisp_Object buffer;
+  XSETBUFFER (buffer, current_buffer);
+  return buffer;
 }
 
 /* Set the current buffer to B.  */
@@ -2688,37 +2688,53 @@ handled:
   }
 }
 
+/* Is PWD another name for `.' ? */
+static int
+directory_is_current_directory (char *pwd)
+{
+  Bufbyte *pwd_internal;
+  struct stat dotstat, pwdstat;
+
+  GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (pwd, pwd_internal);
+
+  return (IS_DIRECTORY_SEP (*pwd_internal)
+	  && stat (pwd_internal, &pwdstat) == 0
+	  && stat ("."         , &dotstat) == 0
+	  && dotstat.st_ino == pwdstat.st_ino
+	  && dotstat.st_dev == pwdstat.st_dev
+	  && (int) strlen (pwd_internal) < MAXPATHLEN);
+}
+
 void
 init_initial_directory (void)
 {
   /* This function can GC */
 
   char *pwd;
-  struct stat dotstat, pwdstat;
-  int rc;
 
   initial_directory[0] = 0;
 
   /* If PWD is accurate, use it instead of calling getcwd.  This is faster
      when PWD is right, and may avoid a fatal error.  */
-  if ((pwd = getenv ("PWD")) != 0 && IS_DIRECTORY_SEP (*pwd)
-      && stat (pwd, &pwdstat) == 0
-      && stat (".", &dotstat) == 0
-      && dotstat.st_ino == pwdstat.st_ino
-      && dotstat.st_dev == pwdstat.st_dev
-      && (int) strlen (pwd) < MAXPATHLEN)
+  if ((pwd = getenv ("PWD")) != NULL
+      && directory_is_current_directory (pwd))
     strcpy (initial_directory, pwd);
   else if (getcwd (initial_directory, MAXPATHLEN) == NULL)
     fatal ("`getcwd' failed: %s\n", strerror (errno));
 
-  /* Maybe this should really use some standard subroutine
+  /* Make sure pwd is DIRECTORY_SEP-terminated.
+     Maybe this should really use some standard subroutine
      whose definition is filename syntax dependent.  */
-  rc = strlen (initial_directory);
-  if (!(IS_DIRECTORY_SEP (initial_directory[rc - 1])))
-    {
-      initial_directory[rc] = DIRECTORY_SEP;
-      initial_directory[rc + 1] = '\0';
-    }
+  {
+    int len = strlen (initial_directory);
+
+    if (! IS_DIRECTORY_SEP (initial_directory[len - 1]))
+      {
+	initial_directory[len] = DIRECTORY_SEP;
+	initial_directory[len + 1] = '\0';
+      }
+  }
+  
   /* XEmacs change: store buffer's default directory
      using preferred (i.e. as defined at compile-time)
      directory separator. --marcpa */
@@ -2739,7 +2755,8 @@ init_buffer (void)
 
   Fset_buffer (Fget_buffer_create (QSscratch));
 
-  current_buffer->directory = build_string (initial_directory);
+  current_buffer->directory =
+    build_ext_string (initial_directory, FORMAT_FILENAME);
 
 #if 0 /* FSFmacs */
   /* #### is this correct? */

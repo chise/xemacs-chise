@@ -1513,6 +1513,7 @@ extern struct buffer *current_buffer;
 
 /* This is the initial (startup) directory, as used for the *scratch* buffer.
    We're making this a global to make others aware of the startup directory.
+   `initial_directory' is stored in external format.
  */
 extern char initial_directory[];
 extern void init_initial_directory (void);   /* initialize initial_directory */

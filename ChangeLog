@@ -1,3 +1,11 @@
+1998-12-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.8 is released.
+
+1998-12-28  Martin Buchholz  <martin@xemacs.org>
+
+	* PROBLEMS: Document Linux GNU Libc 2.0 I18N crashes.
+
 1998-12-24  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.7 is released.
