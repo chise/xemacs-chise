@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1992, 1993, 1997 Free Software Foundation, Inc.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;; Maintainer: XEmacs Development Team
 ;; Rewritten by Martin Buchholz far too many times.
 ;;
@@ -73,7 +73,7 @@
 ;; work, depending on what system and keyboard you are using.  If it
 ;; doesn't, you'll have to read the man page for xmodmap.  You might want
 ;; to get the "xkeycaps" program from
-;; <URL:http://people.netscape.com/jwz/xkeycaps/>,
+;; <URL:http://www.jwz.org/xkeycaps/>,
 ;; which is a graphical front end to xmodmap
 ;; that hides xmodmap's arcane syntax from you.
 

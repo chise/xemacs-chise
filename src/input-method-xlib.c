@@ -27,6 +27,47 @@ Boston, MA 02111-1307, USA.  */
    and X11 R6 release guide chapters on internationalized input,
    for further details */
 
+/*
+  Policy:
+
+  The XIM is of the device, by the device, for the device.
+  The XIC is of each frame, by each frame, for each frame.
+  The exceptions are:
+      1.  Activate XICs on poor frames when the XIM is back.
+      2.  Deactivate all the XICs when the XIM go down.
+
+  Methods:
+
+    -  Register a callback for an XIM when the X device is being initialized.
+       XIM_init_device (d) { XRegisterIMInstantiateCallback (); }
+       The "XRegisterIMInstantiateCallback" is called when an XIM become
+       available on the X display.
+
+    -  Catch the XIC when the frame is being initialized if XIM was available.
+       XIM_init_frame (f) { ... XCreateIC (); ... }
+
+    -  Release the XIC when the frame is being closed.
+       XIM_delete_frame (f) { ... FRAME_X_XIC (f) = NULL; ... }
+       "XIM_delete_frame" is a "DestroyCallback" function declared in
+       XIM_init_frame ();
+
+    -  Release all the XICs when the XIM was down accidentally.
+       In IMDestroyCallback:
+           DEVICE_FRAME_LOOP (...) { FRAME_X_XIC (f) = NULL; }
+
+    -  Re-enable XIC for all the frames which doesn't have XIC when the XIM
+       is back.
+       In IMInstantiateCallback:
+           DEVICE_FRAME_LOOP (...) { XIM_init_frame (f); }
+
+
+  Note:
+
+    -  Currently, we don't use XDestroyIC because of _XimProtoCloseIM
+       (internally registered as im->methods->close) does "Xfree (ic)".
+
+ */
+
 #include <config.h>
 #include "lisp.h"
 #include <X11/Xlocale.h>        /* More portable than <locale.h> ? */
@@ -38,12 +79,19 @@ Boston, MA 02111-1307, USA.  */
 #include "EmacsFrame.h"
 #include "events.h"
 
+#ifdef THIS_IS_X11R6
 #include <X11/IntrinsicP.h>
 #include <X11/Xaw/XawImP.h>
+#endif
 
 #ifndef XIM_XLIB
 #error  XIM_XLIB is not defined??
 #endif
+
+Lisp_Object Qxim_xlib;
+#define xim_warn(str) warn_when_safe (Qxim_xlib, Qwarning, str);
+#define xim_warn1(fmt, str) warn_when_safe (Qxim_xlib, Qwarning, fmt, str);
+#define xim_info(str) warn_when_safe (Qxim_xlib, Qinfo, str);
 
 /* Get/Set IC values for just one attribute */
 #ifdef DEBUG_XEMACS
@@ -92,31 +140,31 @@ Initialize_Locale (void)
   /*XtSetLanguageProc (NULL, (XtLanguageProc) NULL, NULL);*/
   if ((locale = setlocale (LC_ALL, "")) == NULL)
     {
-      stderr_out ("Can't set locale.\n");
-      stderr_out ("Using C locale instead.\n");
+      xim_warn ("Can't set locale.\n"
+		"Using C locale instead.\n");
       putenv ("LANG=C");
       putenv ("LC_ALL=C");
       if ((locale = setlocale (LC_ALL, "C")) == NULL)
 	{
-	  stderr_out ("Can't even set locale to `C'!\n");
+	  xim_warn ("Can't even set locale to `C'!\n");
 	  return;
 	}
     }
 
   if (!XSupportsLocale ())
     {
-      stderr_out ("X Windows does not support locale `%s'\n", locale);
-      stderr_out ("Using C Locale instead\n");
+      xim_warn1 ("X Windows does not support locale `%s'\n"
+		 "Using C Locale instead\n", locale);
       putenv ("LANG=C");
       putenv ("LC_ALL=C");
       if ((locale = setlocale (LC_ALL, "C")) == NULL)
 	{
-	  stderr_out ("Can't even set locale to `C'!\n");
+	  xim_warn ("Can't even set locale to `C'!\n");
 	  return;
 	}
       if (!XSupportsLocale ())
         {
-          stderr_out ("X Windows does not even support locale `C'!\n");
+          xim_warn ("X Windows does not even support locale `C'!\n");
           return;
         }
     }
@@ -125,54 +173,130 @@ Initialize_Locale (void)
 
   if (XSetLocaleModifiers ("") == NULL)
     {
-      stderr_out ("XSetLocaleModifiers(\"\") failed\n");
-      stderr_out ("Check the value of the XMODIFIERS environment variable.\n");
+      xim_warn ("XSetLocaleModifiers(\"\") failed\n"
+		"Check the value of the XMODIFIERS environment variable.\n");
     }
 }
 
-/******************************************************************/
-/*                     Input method using xlib                    */
-/******************************************************************/
-
-/*
- * called from when XIM is destroying
- */
+#ifdef THIS_IS_X11R6 /* Callbacks for IM are supported from X11R6 or later. */
+/* Called from when XIM is destroying.
+   Clear all the XIC when the XIM was destroying... */
 static void
 IMDestroyCallback (XIM im, XPointer client_data, XPointer call_data)
 {
-  struct frame *f = (struct frame *) client_data;
-  struct device *d = XDEVICE (FRAME_DEVICE (f));
+  struct device *d = (struct device *)client_data;
   Lisp_Object tail;
 
   DEVICE_FRAME_LOOP (tail, d)
     {
       struct frame *target_frame = XFRAME (XCAR (tail));
-      if (FRAME_X_XIC (target_frame))
+      if (FRAME_X_P (target_frame) && FRAME_X_XIC (target_frame))
 	{
-	  XDestroyIC (FRAME_X_XIC (target_frame));
+	  /* XDestroyIC (FRAME_X_XIC (target_frame)); */
 	  FRAME_X_XIC (target_frame) = NULL;
 	}
     }
 
-#if 0
-  if ( DEVICE_X_XIM (d) )
-    {
-      stderr_out ("NULLing d->xim...\n");
-      /* DEVICE_X_XIM (d) = NULL; */
-    }
-#endif
-
+  DEVICE_X_XIM (d) = NULL;
   xim_initted = False;
   return;
 }
 
-/*
- * called from when FRAME is initializing
- */
+/* This is registered in XIM_init_device (when DEVICE is initializing).
+   This activates XIM when XIM becomes available. */
 static void
 IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
 {
+  struct device *d = (struct device *)client_data;
+  XIM xim;
+  char *name, *class;
+  XIMCallback ximcallback;
+  Lisp_Object tail;
+
+  /* if no xim is presented, initialize xim ... */
+  if ( xim_initted == False )
+    {
+      xim_initted = True;
+      XtGetApplicationNameAndClass (dpy, &name, &class);
+      DEVICE_X_XIM (d) = xim = XOpenIM (dpy, XtDatabase (dpy), name, class);
+
+      /* destroy callback for im */
+      ximcallback.callback = IMDestroyCallback;
+      ximcallback.client_data = (XPointer) d;
+      XSetIMValues (xim, XNDestroyCallback, &ximcallback, NULL);
+    }
+
+  /* activate XIC on all the X frames... */
+  DEVICE_FRAME_LOOP (tail, d)
+    {
+      struct frame *target_frame = XFRAME (XCAR (tail));
+      if (FRAME_X_P (target_frame) && !FRAME_X_XIC (target_frame))
+	{
+	  XIM_init_frame (target_frame);
+	}
+    }
+  return;
+}
+#endif /* if THIS_IS_X11R6 */
+
+/* Initialize XIM for X device.
+   Register the use of XIM using XRegisterIMInstantiateCallback. */
+void
+XIM_init_device (struct device *d)
+{
+#ifdef THIS_IS_X11R6
+  DEVICE_X_XIM (d) = NULL;
+  XRegisterIMInstantiateCallback (DEVICE_X_DISPLAY (d), NULL, NULL, NULL,
+				  IMInstantiateCallback, (XPointer) d);
+  return;
+#else
+  Display *dpy = DEVICE_X_DISPLAY (d);
+  char *name, *class;
+  XIM xim;
+
+  XtGetApplicationNameAndClass (dpy, &name, &class);
+  DEVICE_X_XIM (d) = xim = XOpenIM (dpy, XtDatabase (dpy), name, class);
+  if (xim == NULL)
+    {
+      xim_warn ("XOpenIM() failed...no input server available\n");
+      return;
+    }
+  else
+    {
+      XGetIMValues (xim, XNQueryInputStyle, &DEVICE_X_XIM_STYLES (d), NULL);
+      return;
+    }
+#endif
+}
+
+
+/*
+ * For the frames
+ */
+
+/* Callback for the deleting frame. */
+static void
+XIM_delete_frame (Widget w, XtPointer client_data, XtPointer call_data)
+{
   struct frame *f = (struct frame *) client_data;
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
+
+  if (DEVICE_X_XIM (d))
+    {
+      if (FRAME_X_XIC (f))
+	{
+	  XDestroyIC (FRAME_X_XIC (f));
+	  FRAME_X_XIC (f) = NULL;
+	}
+    }
+  return;
+}
+
+/* Initialize XIC for new frame.
+   Create an X input context (XIC) for this frame. */
+void
+XIM_init_frame (struct frame *f)
+{
   struct device *d = XDEVICE (FRAME_DEVICE (f));
   XIM xim;
   Widget w = FRAME_X_TEXT_WIDGET (f);
@@ -181,7 +305,6 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
   XPoint spot = {0,0};
   XIMStyle style;
   XVaNestedList p_list, s_list;
-  char *name, *class;
   typedef struct
   {
     XIMStyles styles;
@@ -191,7 +314,6 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
     char      *inputmethod;
   } xic_vars_t;
   xic_vars_t xic_vars;
-  XIMCallback ximcallback;
   XIC xic;
 
 #define res(name, class, representation, field, default_value) \
@@ -201,32 +323,22 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
   static XtResource resources[] =
   {
     /*  name              class          represent'n   field    default value */
+#ifdef THIS_IS_X11R6
+    res(XtNinputMethod,   XtCInputMethod, XtRString,   inputmethod, (XtPointer) NULL),
+#endif
     res(XtNximStyles,     XtCXimStyles,  XtRXimStyles, styles,  (XtPointer) DefaultXIMStyles),
     res(XtNfontSet,       XtCFontSet,    XtRFontSet,   fontset, (XtPointer) XtDefaultFontSet),
     res(XtNximForeground, XtCForeground, XtRPixel,     fg,      (XtPointer) XtDefaultForeground),
-    res(XtNximBackground, XtCBackground, XtRPixel,     bg,      (XtPointer) XtDefaultBackground),
-    res(XtNinputMethod,   XtCInputMethod, XtRString,   inputmethod, (XtPointer) NULL)
+    res(XtNximBackground, XtCBackground, XtRPixel,     bg,      (XtPointer) XtDefaultBackground)
   };
 
-  /* ---------- beginning of the action ---------- */
 
-  /*
-   * if no xim is presented, initialize xim ...
-   */
-  if ( xim_initted == False )
-    {
-      xim_initted = True;
-      XtGetApplicationNameAndClass (dpy, &name, &class);
-      DEVICE_X_XIM (d) = xim = XOpenIM (dpy, XtDatabase (dpy), name, class);
+  xim = DEVICE_X_XIM (d);
 
-      /* destroy callback for im */
-      ximcallback.callback = IMDestroyCallback;
-      ximcallback.client_data = (XPointer) f;
-      XSetIMValues (xim, XNDestroyCallback, &ximcallback, NULL);
-    }
-  else
+  if (!xim)
     {
-      xim = DEVICE_X_XIM (d);
+      xim_info ("X Input Method open failed. Waiting for an XIM to be enabled.\n");
+      return;
     }
 
   w = FRAME_X_TEXT_WIDGET (f);
@@ -234,13 +346,13 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
   /*
    * initialize XIC
    */
-  if ( FRAME_X_XIC (f) ) return;
+  if (FRAME_X_XIC (f)) return;
   XtGetApplicationResources (w, &xic_vars,
 			     resources, XtNumber (resources),
 			     NULL, 0);
   if (!xic_vars.fontset)
     {
-      stderr_out ("Can't get fontset resource for Input Method\n");
+      xim_warn ("Can't get fontset resource for Input Method\n");
       FRAME_X_XIC (f) = NULL;
       return;
     }
@@ -278,7 +390,7 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
 
   if (!xic)
     {
-      stderr_out ("Warning: XCreateIC failed.\n");
+      xim_warn ("Warning: XCreateIC failed.\n");
       return;
     }
 
@@ -292,60 +404,11 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
 
   XSetICFocus (xic);
 
-  return;
-}
-
-/* Create X input method for device */
-void
-XIM_init_device (struct device *d)
-{
-  /* do nothing here */
-  return;
-}
-
-/* Callback for when the frame was deleted (closed) */
-static void
-XIM_delete_frame (Widget w, XtPointer client_data, XtPointer call_data)
-{
-  struct frame *f = (struct frame *) client_data;
-  struct device *d = XDEVICE (FRAME_DEVICE (f));
-  Display *dpy = DEVICE_X_DISPLAY (d);
-
-  XUnregisterIMInstantiateCallback (dpy, NULL, NULL, NULL,
-				    IMInstantiateCallback, (XPointer) f);
-
-  if (FRAME_X_XIC (f))
-    {
-      XDestroyIC (FRAME_X_XIC (f));
-      FRAME_X_XIC (f) = NULL;
-    }
-  return;
-}
-
-/* Create an X input context for this frame.
-   -  Register the IM to be initiated later using XRegisterIMInstantiateCallback
- */
-void
-XIM_init_frame (struct frame *f)
-{
-  struct device *d = XDEVICE (FRAME_DEVICE (f));
-
-  XRegisterIMInstantiateCallback (DEVICE_X_DISPLAY (d), NULL, NULL, NULL,
-				  IMInstantiateCallback, (XPointer) f);
-
-#if 0
-  if ( FRAME_X_XIC (f) )
-    return;
-#endif
-  if ( ! DEVICE_X_XIM (d) )
-    {
-      stderr_out ("X Input Method open failed. Waiting IM to be enabled.\n");
-    }
-
+#ifdef THIS_IS_X11R6
   /* when frame is going to be destroyed (closed) */
   XtAddCallback (FRAME_X_TEXT_WIDGET(f), XNDestroyCallback,
 		 XIM_delete_frame, (XtPointer)f);
-  return;
+#endif
 }
 
 
@@ -723,6 +786,65 @@ best_style (XIMStyles *user, XIMStyles *xim)
   return DEFAULTStyle; /* Default Style */
 }
 
+/* These lisp-callable functions will be sealed until xim-leim is needed. 
+   Oct 22 1999 - kazz */
+#if 0
+/*
+ * External callable function for XIM
+ */
+DEFUN ("x-open-xim", Fx_open_xim, 1, 1, 0, /*
+Open the XIC on the frame if XIM is available.
+Commonly, use this as \(x-open-xim \(selected-frame)).
+If the frame is not on X device, return signal.
+If XIC is created successfully return t.  If not return nil.
+*/
+       (frame))
+{
+  struct frame *f;
+
+  CHECK_LIVE_FRAME (frame);
+  f = XFRAME (frame);
+  if (!FRAME_X_P (f))
+    return signal_simple_error ("This frame is not on X device", frame);
+
+  XIM_init_frame (f);
+  return FRAME_X_XIC (f) ? Qt : Qnil;
+}
+
+DEFUN ("x-close-xim", Fx_close_xim, 1, 1, 0, /*
+Close the XIC on the frame if it exists.
+Commonly, use this as \(x-close-xim \(selected-frame)).
+If the frame is not on X device, return signal.
+Otherwise, it destroys the XIC if it exists, then returns t anyway.
+*/
+       (frame))
+{
+  struct frame *f;
+  struct device *d;
+
+  CHECK_LIVE_FRAME (frame);
+  f = XFRAME (frame);
+  if (!FRAME_X_P (f))
+    return signal_simple_error ("This frame is not on X device", frame);
+
+  d = XDEVICE (FRAME_DEVICE (f));
+  if (DEVICE_X_XIM (d)) {
+    /* XDestroyIC (FRAME_X_XIC (XFRAME (f))); */
+    FRAME_X_XIC (XFRAME (f)) = NULL;
+  }
+  return Qt;
+}
+#endif /* if 0 */
+
+void
+syms_of_input_method_xlib (void)
+{
+  defsymbol (&Qxim_xlib, "xim-xlib");
+#if 0 /* see above */
+  DEFSUBR (Fx_open_xim);
+  DEFSUBR (Fx_close_xim);
+#endif
+}
 
 void
 vars_of_input_method_xlib (void)

@@ -62,7 +62,7 @@
 ;; Mule-2.3, and could probably use some feature additions (like additional wrap
 ;; styles, etc)
 
-;; 97/06/11 Steve Baur (steve@altair.xemacs.org) Convert use of
+;; 97/06/11 Steve Baur (steve@xemacs.org) Convert use of
 ;;  (preceding|following)-char to char-(after|before).
 
 ;;; Code:
@@ -670,7 +670,7 @@ BUFFER defaults to the current buffer."
       cnt)))
 
 ;;; Modified by Bob Weiner, 8/24/95, to print narrowed line number also.
-;;; Expanded by Bob Weiner, Altrasoft, on 02/12/1997
+;;; Expanded by Bob Weiner, BeOpen, on 02/12/1997
 (defun what-line ()
   "Print the following variants of the line number of point:
      Region line     - displayed line within the active region

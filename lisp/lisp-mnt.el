@@ -6,7 +6,7 @@
 ;; Maintainer: Eric S. Raymond <esr@snark.thyrsus.com>
 ;; Created: 14 Jul 1992
 ;; Keywords: docs, maint
-;; X-Modified-by: Bob Weiner <weiner@altrasoft.com>, 4/14/95, to support
+;; X-Modified-by: Bob Weiner <weiner@beopen.com>, 4/14/95, to support
 ;;  InfoDock headers.
 ;; X-Bogus-Bureaucratic-Cruft: Gruad will get you if you don't watch out!
 

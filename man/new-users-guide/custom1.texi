@@ -168,8 +168,8 @@ Menus}.
 @enumerate
 
 @item
-add-menu-item: @var{(menu-name item-name function enabled-p
-&optional before)}
+add-menu-item: (@var{menu-name} @var{item-name} @var{function} @var{enabled-p}
+&optional @var{before})
 
 This function will add a menu item to a menu, creating the menu first if
 necessary. If the named item already exists, the menu will remain
@@ -260,7 +260,7 @@ submenus: @b{Copy File}, @b{Delete File} and @b{Rename File}.
 @findex delete-menu-item
 @cindex deleting menu items
 @item
-delete-menu-item: @var{(menu-path)}
+delete-menu-item: (@var{menu-path})
 This function will remove the menu item defined by @var{menu-name} from
 the menu hierarchy. Look at the following examples and the comments just
 above them which specify what the examples do.
@@ -286,7 +286,7 @@ above them which specify what the examples do.
 @findex disable-menu-item
 @cindex disabling menu items
 @item
-disable-menu-item: @var{(menu-name)}
+disable-menu-item: (@var{menu-name})
 Disables the specified menu item. The following example 
 
 @example
@@ -301,7 +301,7 @@ be selected.
 @findex enable-menu-item
 @cindex enabling menu items
 @item
-enable-menu-item: @var{(menu-name)}
+enable-menu-item: (@var{menu-name})
 Enables the specified previously disabled menu item. 
 
 @example
@@ -315,7 +315,7 @@ earlier command.
 @findex relabel-menu-items
 @cindex relabelling menu items
 @item
-relabel-menu-item: @var{(menu-name new-name)}
+relabel-menu-item: (@var{menu-name} @var{new-name})
 Change the string of the menu item specified by @var{menu-name} to
 @var{new-name}. 
 

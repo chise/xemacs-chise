@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Ben Wing.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>, for the LISPM Preservation Society.
+;; Author: Jamie Zawinski <jwz@jwz.org>, for the LISPM Preservation Society.
 ;; Minimally merged with FSF 19.34 by Barry Warsaw <bwarsaw@python.org>
 ;; Then (partially) synched with FSF 19.30, leading to:
 ;; Next Author: RMS

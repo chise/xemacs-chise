@@ -41,9 +41,6 @@ DECLARE_CONSOLE_TYPE (tty);
 struct tty_console
 {
   int infd, outfd;
-#ifdef HAVE_GPM
-  int mouse_fd;
-#endif
   Lisp_Object instream, outstream;
   Lisp_Object terminal_type;
   Lisp_Object controlling_process;
@@ -203,9 +200,6 @@ struct tty_console
   unsigned int is_stdio :1;
 };
 
-#ifdef HAVE_GPM
-#define CONSOLE_TTY_MOUSE_FD(c) (CONSOLE_TTY_DATA (c)->mouse_fd)
-#endif
 #define CONSOLE_TTY_DATA(c) CONSOLE_TYPE_DATA (c, tty)
 #define CONSOLE_TTY_CURSOR_X(c) (CONSOLE_TTY_DATA (c)->cursor_x)
 #define CONSOLE_TTY_CURSOR_Y(c) (CONSOLE_TTY_DATA (c)->cursor_y)

@@ -1,3 +1,78 @@
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* internals.texi (Lstream Functions):
+	* internals.texi (Lstream Methods):
+	Types have changed to size_t and ssize_t.  Document them.
+
+1999-08-12     Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xemacs-faq.texi (Q4.4.2): added FAQ about Sun Workshop on
+ 	XEmacs 21
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/programs.texi: Upgrade to etags Version 13.32
+	
+	* Makefile:
+	- Make sure the default target is `info' instead of cl.info.
+	- Use $(INFODIR) consistently where appropriate.
+	- Remove makeinfo-1.68 warning.  (Usually only maintainer rebuilds info).
+	- Comment out unused macros: EMACS EMACSFLAGS
+	- Replace `-rm -f' with `rm -f', XPG4 guarantees exit code == 0.
+	- Get dependencies up to date.
+
+	* internals/Makefile:
+	* xemacs/Makefile:
+	* lispref/Makefile:
+	* new-users-guide/Makefile:
+	* lispref/index.perm:
+	* lispref/index.unperm:
+	* lispref/permute-index:
+	* internals/index.perm:
+	* internals/index.unperm:
+	Remove these Makefiles.
+	Include all functionality in man/Makefile.
+	Support only non-permuted indexes for simplicity.
+
+	* emodules.texi:
+	- TeX doesn't tolerate `_' in variable names; use `-' instead.
+
+	* lispref/commands.texi:
+	* lispref/display.texi:
+	* lispref/faces.texi:
+	* lispref/functions.texi:
+	* lispref/keymaps.texi:
+	* lispref/lists.texi:
+	* lispref/modes.texi:
+	* lispref/objects.texi:
+	* lispref/os.texi:
+	* lispref/sequences.texi:
+	* lispref/strings.texi:
+	* lispref/text.texi:
+	* new-users-guide/custom1.texi:
+	* xemacs/custom.texi:
+	* xemacs/menus.texi:
+	- Make sources compatible with makeinfo 4.0 *and* 3.12.
+	- Replace @sc{ASCII} with @sc{ascii}, etc...
+	- Replace @var{(foo)} with (@var{foo}), etc...
+
+	* info-stnd.texi: Remove.  Who cares about the standalone info reader?
+
+	* texinfo.tex:
+	* texinfo.texi:
+	* info.texi:
+	* standards.texi:
+	* make-stds.texi:
+	Import FSF-maintained files from texinfo-4.0.
+
 1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.20 is released
@@ -26,7 +101,7 @@
 
 1999-08-23  Stephane Epardaud  <stephane@lunatech.com>
 
-	* internals/internals.texi (Garbage Collection - Step by Step): 
+	* internals/internals.texi (Garbage Collection - Step by Step):
 	just added some dots to shut up compile warnings.
 
 1999-08-19  Matthias Neubauer  <neubauer@informatik.uni-tuebingen.de>

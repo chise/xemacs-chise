@@ -244,7 +244,7 @@ Boston, MA 02111-1307, USA.  */
    Other encapsulations are declared in the appropriate sys*.h file. */
 
 #ifdef ENCAPSULATE_READ
-int sys_read (int, void *, size_t);
+ssize_t sys_read (int, void *, size_t);
 #endif
 #if defined (ENCAPSULATE_READ) && !defined (DONT_ENCAPSULATE)
 # undef read
@@ -255,7 +255,7 @@ int sys_read (int, void *, size_t);
 #endif
 
 #ifdef ENCAPSULATE_WRITE
-int sys_write (int, CONST void *, size_t);
+ssize_t sys_write (int, CONST void *, size_t);
 #endif
 #if defined (ENCAPSULATE_WRITE) && !defined (DONT_ENCAPSULATE)
 # undef write

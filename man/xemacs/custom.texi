@@ -2359,8 +2359,8 @@ The font of this face.
 The foreground and background colors of this face.
 
 @item @code{attributeBackgroundPixmap} (class @code{AttributeBackgroundPixmap}): file-name
-The name of an @sc{XBM} file (or @sc{XPM} file, if your version of Emacs
-supports @sc{XPM}), to use as a background stipple.
+The name of an @sc{xbm} file (or @sc{xpm} file, if your version of Emacs
+supports @sc{xpm}), to use as a background stipple.
 
 @item @code{attributeUnderline} (class @code{AttributeUnderline}): boolean
 Whether text in this face should be underlined.

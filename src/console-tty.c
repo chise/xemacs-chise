@@ -38,9 +38,6 @@ Boston, MA 02111-1307, USA.  */
 #ifdef FILE_CODING
 #include "file-coding.h"
 #endif
-#ifdef HAVE_GPM
-#include "gpmevent.h"
-#endif
 
 DEFINE_CONSOLE_TYPE (tty);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
@@ -129,10 +126,6 @@ tty_init_console (struct console *con, Lisp_Object props)
 #endif /* MULE */
   tty_con->terminal_type = terminal_type;
   tty_con->controlling_process = controlling_process;
-
-#ifdef HAVE_GPM
-  connect_to_gpm (con);
-#endif
 
   if (NILP (CONSOLE_NAME (con)))
     CONSOLE_NAME (con) = Ffile_name_nondirectory (tty);

@@ -7506,18 +7506,18 @@ argument is evaluated more than once.
 Function equivalents of the above macros.
 @end deftypefun
 
-@deftypefun int Lstream_read (Lstream *@var{stream}, void *@var{data}, int @var{size})
+@deftypefun ssize_t Lstream_read (Lstream *@var{stream}, void *@var{data}, size_t @var{size})
 Read @var{size} bytes of @var{data} from the stream.  Return the number
 of bytes read.  0 means EOF. -1 means an error occurred and no bytes
 were read.
 @end deftypefun
 
-@deftypefun int Lstream_write (Lstream *@var{stream}, void *@var{data}, int @var{size})
+@deftypefun ssize_t Lstream_write (Lstream *@var{stream}, void *@var{data}, size_t @var{size})
 Write @var{size} bytes of @var{data} to the stream.  Return the number
 of bytes written.  -1 means an error occurred and no bytes were written.
 @end deftypefun
 
-@deftypefun void Lstream_unread (Lstream *@var{stream}, void *@var{data}, int @var{size})
+@deftypefun void Lstream_unread (Lstream *@var{stream}, void *@var{data}, size_t @var{size})
 Push back @var{size} bytes of @var{data} onto the input queue.  The next
 call to @code{Lstream_read()} with the same size will read the same
 bytes back.  Note that this will be the case even if there is other
@@ -7542,7 +7542,7 @@ Rewind the stream to the beginning.
 @node Lstream Methods
 @section Lstream Methods
 
-@deftypefn {Lstream Method} int reader (Lstream *@var{stream}, unsigned char *@var{data}, int @var{size})
+@deftypefn {Lstream Method} ssize_t reader (Lstream *@var{stream}, unsigned char *@var{data}, size_t @var{size})
 Read some data from the stream's end and store it into @var{data}, which
 can hold @var{size} bytes.  Return the number of bytes read.  A return
 value of 0 means no bytes can be read at this time.  This may be because
@@ -7559,7 +7559,7 @@ calls @code{Lstream_read()} with a very small size.
 This function can be @code{NULL} if the stream is output-only.
 @end deftypefn
 
-@deftypefn {Lstream Method} int writer (Lstream *@var{stream}, CONST unsigned char *@var{data}, int @var{size})
+@deftypefn {Lstream Method} ssize_t writer (Lstream *@var{stream}, CONST unsigned char *@var{data}, size_t @var{size})
 Send some data to the stream's end.  Data to be sent is in @var{data}
 and is @var{size} bytes.  Return the number of bytes sent.  This
 function can send and return fewer bytes than is passed in; in that

@@ -1,5 +1,4 @@
-
-\input ../texinfo  @c -*-texinfo-*-
+\input texinfo  @c -*-texinfo-*-
 @setfilename ../../info/xemacs.info
 @comment  node-name,  next,  previous,  up
 

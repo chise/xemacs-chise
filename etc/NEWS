@@ -124,6 +124,9 @@ buffer.  As a side effect subwindow support now works once again.
 
 This support is currently only available under MS-Windows.
 
+** XEmacs can now play sound using Enlightenment Sound Daemon (ESD).
+It will try NAS first, then ESD, then playing native sound directly.
+
 ** X-Face support is now available under MS-Windows.
 If an X-Face libary built under MS-Windows is available then XEmacs
 will use this at build time.
@@ -149,6 +152,40 @@ These can be used to specify alternate locations for what is normally
 Moreover, -user <user> (which used to only work in unpredictable ways)
 is now equivalent to
 -user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
+
+** Etags changes.
+
+*** In DOS, etags looks for file.cgz if it cannot find file.c.
+
+*** New option --ignore-case-regex is an alternative to --regex.  It is now
+possible to bind a regexp to a language, by prepending the regexp with
+{lang}, where lang is one of the languages that `etags --help' prints out.
+This feature is useful especially for regex files, where each line contains
+a regular expression.  The manual contains details.
+
+*** In C and derived languages, etags creates tags for function
+declarations when given the --declarations option.
+
+*** In C++, tags are created for "operator".  The tags have the form
+"operator+", without spaces between the keyword and the operator.
+
+*** New language Ada: tags are functions, procedures, packages, tasks, and
+types.
+
+*** In Fortran, procedure is no more tagged.
+
+*** In Java, tags are created for "interface".
+
+*** In Lisp, "(defstruct (foo", "(defun (operator" and similar constructs
+are now tagged.
+
+*** In Perl, the --globals option tags global variables.  my and local
+variables are tagged.
+
+*** New language Python: def and class at the beginning of a line are tags.
+
+*** .ss files are Scheme files, .pdb is Postscript with C syntax, .psw is
+for PSWrap.
 
 
 * Lisp and internal changes in XEmacs 21.2
@@ -236,15 +273,21 @@ Except that SUFFIXES are now a list of strings instead of a single,
 colon-separated string.  MODE is now a symbol or a list of symbols
 (symbols `exists', `executable', `writable', and `readable' are
 supported) instead of an integer code.  See the documentation for
-details.
+details.  Of course, the old form is still accepted for backward
+compatibility.
 
-Of course, the old form is still accepted for backward compatibility.
+Several bugs in locate-file have been fixed, most notably its failure
+to call expand-file-name on elements of PATH-LIST.  Because of that
+elements of load-path of the form "~/..." used to not work.
+locate-file is now guaranteed to expand files during its course of
+operation.
 
 ** `translate-region' has been improved in several ways.  Its TABLE
 argument used to be a 256-character string.  In addition to this, it
-can now also be a vector or a char-table (which is useful for Mule.)
-If TABLE a vector or a generic char-table, you can map characters to
-strings instead of to other characters.  For instance:
+can now also be a vector or a char-table, which makes the function
+useful for Mule, which it wasn't.  If TABLE a vector or a generic
+char-table, you can map characters to strings instead of to other
+characters.  For instance:
 
     (let ((table (make-char-table 'generic)))
       (put-char-table ?a "the letter a" table)

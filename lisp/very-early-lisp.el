@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1998 by Free Software Foundation, Inc.
 
-;; Author: SL Baur <steve@altair.xemacs.org>
+;; Author: SL Baur <steve@xemacs.org>
 ;;  Michael Sperber [Mr. Preprocessor] <sperber@Informatik.Uni-Tuebingen.De>
 ;; Keywords: internal, dumped
 

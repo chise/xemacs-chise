@@ -28,8 +28,8 @@ my ($myName, $srcdir);
 ($myName = $0) =~ s@.*/@@; my $usage ="
 Usage: $myName
 
-Generates header file fragments from the Emacs sources.
-";
+Generates header file fragments from the Emacs sources
+and writes them to stdout.\n";
 
 die $usage if @ARGV;
 

@@ -2,8 +2,8 @@
 @c %**start of header
 @setfilename ../info/standards.info
 @settitle GNU Coding Standards
-@c UPDATE THIS DATE WHENEVER YOU MAKE CHANGES!
-@set lastupdate 17 May 1996
+@c This date is automagically updated when you save this file:
+@set lastupdate June 24, 1999
 @c %**end of header
 
 @ifinfo
@@ -28,7 +28,7 @@ END-INFO-DIR-ENTRY
 
 @ifinfo
 GNU Coding Standards
-Copyright (C) 1992, 1993, 1994, 1995, 1996 Free Software Foundation, Inc.
+Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999 Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -59,7 +59,7 @@ by the Free Software Foundation.
 @page
 
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1992, 1993, 1994, 1995, 1996 Free Software Foundation, Inc.
+Copyright @copyright{} 1992, 1993, 1994, 1995, 1996, 1997, 1998 Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -84,13 +84,14 @@ Last updated @value{lastupdate}.
 @end ifinfo
 
 @menu
-* Preface::			About the GNU Coding Standards
-* Intellectual Property::       Keeping Free Software Free
-* Design Advice::               General Program Design
-* Program Behavior::            Program Behavior for All Programs
-* Writing C::                   Making The Best Use of C
-* Documentation::		Documenting Programs
-* Managing Releases::           The Release Process
+* Preface::                 About the GNU Coding Standards
+* Legal Issues::            Keeping Free Software Free
+* Design Advice::           General Program Design
+* Program Behavior::        Program Behavior for All Programs
+* Writing C::               Making The Best Use of C
+* Documentation::           Documenting Programs
+* Managing Releases::       The Release Process
+* References::              References to Non-Free Software or Documentation
 @end menu
 
 @node Preface
@@ -104,8 +105,8 @@ programs written in C, but many of the rules and principles are useful
 even if you write in another programming language.  The rules often
 state reasons for writing in a certain way.
 
-Corrections or suggestions regarding this document should be sent to
-@code{gnu@@prep.ai.mit.edu}.  If you make a suggestion, please include a
+Corrections or suggestions for this document should be sent to
+@email{gnu@@gnu.org}.  If you make a suggestion, please include a
 suggested new wording for it; our time is limited.  We prefer a context
 diff to the @file{standards.texi} or @file{make-stds.texi} files, but if
 you don't have those files, please mail your suggestion anyway.
@@ -113,15 +114,15 @@ you don't have those files, please mail your suggestion anyway.
 This release of the GNU Coding Standards was last updated
 @value{lastupdate}.
 
-@node Intellectual Property
+@node Legal Issues
 @chapter Keeping Free Software Free
 
 This @value{CHAPTER} discusses how you can make sure that GNU software
 remains unencumbered.
 
 @menu
-* Reading Non-Free Code::	Referring to Proprietary Programs
-* Contributions::		Accepting Contributions
+* Reading Non-Free Code::       Referring to Proprietary Programs
+* Contributions::               Accepting Contributions
 @end menu
 
 @node Reading Non-Free Code
@@ -161,36 +162,46 @@ to free memory, or use a new GNU facility such as obstacks.
 @node Contributions
 @section Accepting Contributions
 
-If someone else sends you a piece of code to add to the program you are
-working on, we need legal papers to use it---the same sort of legal
-papers we will need to get from you.  @emph{Each} significant
-contributor to a program must sign some sort of legal papers in order
-for us to have clear title to the program.  The main author alone is not
+If the program you are working on is copyrighted by the Free Software
+Foundation, then when someone else sends you a piece of code to add to
+the program, we need legal papers to use it---just as we asked you to
+sign papers initially.  @emph{Each} person who makes a nontrivial
+contribution to a program must sign some sort of legal papers in order
+for us to have clear title to the program; the main author alone is not
 enough.
 
-So, before adding in any contributions from other people, tell us
-so we can arrange to get the papers.  Then wait until we tell you
+So, before adding in any contributions from other people, please tell
+us, so we can arrange to get the papers.  Then wait until we tell you
 that we have received the signed papers, before you actually use the
 contribution.
 
 This applies both before you release the program and afterward.  If
 you receive diffs to fix a bug, and they make significant changes, we
-need legal papers for it.
+need legal papers for that change.
+
+This also applies to comments and documentation files.  For copyright
+law, comments and code are just text.  Copyright applies to all kinds of
+text, so we need legal papers for all kinds.
+
+We know it is frustrating to ask for legal papers; it's frustrating for
+us as well.  But if you don't wait, you are going out on a limb---for
+example, what if the contributor's employer won't sign a disclaimer?
+You might have to take that code out again!
 
 You don't need papers for changes of a few lines here or there, since
 they are not significant for copyright purposes.  Also, you don't need
 papers if all you get from the suggestion is some ideas, not actual code
-which you use.  For example, if you write a different solution to the
-problem, you don't need to get papers.
-
-We know this is frustrating; it's frustrating for us as well.  But if
-you don't wait, you are going out on a limb---for example, what if the
-contributor's employer won't sign a disclaimer?  You might have to take
-that code out again!
+which you use.  For example, if someone send you one implementation, but
+you write a different implementation of the same idea, you don't need to
+get papers.
 
 The very worst thing is if you forget to tell us about the other
 contributor.  We could be very embarrassed in court some day as a
 result.
+
+We have more detailed advice for maintainers of programs; if you have
+reached the stage of actually maintaining a program for GNU (whether
+released or not), please ask us for a copy.
 
 @node Design Advice
 @chapter General Program Design
@@ -199,10 +210,10 @@ This @value{CHAPTER} discusses some of the issues you should take into
 account when designing your program.
 
 @menu
-* Compatibility::		Compatibility with other implementations
-* Using Extensions::		Using non-standard features
+* Compatibility::               Compatibility with other implementations
+* Using Extensions::            Using non-standard features
 * ANSI C::                      Using ANSI C features
-* Source Language::		Using languages other than C
+* Source Language::             Using languages other than C
 @end menu
 
 @node Compatibility
@@ -211,20 +222,20 @@ account when designing your program.
 With occasional exceptions, utility programs and libraries for GNU
 should be upward compatible with those in Berkeley Unix, and upward
 compatible with @sc{ansi} C if @sc{ansi} C specifies their behavior, and
-upward compatible with @sc{POSIX} if @sc{POSIX} specifies their
+upward compatible with @sc{posix} if @sc{posix} specifies their
 behavior.
 
 When these standards conflict, it is useful to offer compatibility
 modes for each of them.
 
-@sc{ansi} C and @sc{POSIX} prohibit many kinds of extensions.  Feel free
+@sc{ansi} C and @sc{posix} prohibit many kinds of extensions.  Feel free
 to make the extensions anyway, and include a @samp{--ansi},
 @samp{--posix}, or @samp{--compatible} option to turn them off.
 However, if the extension has a significant chance of breaking any real
 programs or scripts, then it is not really upward compatible.  Try to
 redesign its interface.
 
-Many GNU programs suppress extensions that conflict with POSIX if the
+Many GNU programs suppress extensions that conflict with @sc{posix} if the
 environment variable @code{POSIXLY_CORRECT} is defined (even if it is
 defined with a null value).  Please make your program recognize this
 variable if appropriate.
@@ -236,9 +247,6 @@ completely with something totally different and better.  (For example,
 feature as well.  (There is a free @code{vi} clone, so we offer it.)
 
 Additional useful features not in Berkeley Unix are welcome.
-Additional programs with no counterpart in Unix may be useful,
-but our first priority is usually to duplicate what Unix already
-has.
 
 @node Using Extensions
 @section Using Non-standard Features
@@ -282,9 +290,16 @@ non-@sc{ansi} compilers).  And if a program is already written in
 @sc{ansi} C, there's no need to convert it to support non-@sc{ansi}
 compilers.
 
+If you don't know non-@sc{ansi} C, there's no need to learn it; just
+write in @sc{ansi} C.
+
 However, it is easy to support non-@sc{ansi} compilers in most programs,
-so you might still consider doing so when you write a program.  Instead
-of writing function definitions in @sc{ansi} prototype form,
+so you might still consider doing so when you write a program.  And if a
+program you are maintaining has such support, you should try to keep it
+working.
+
+To support pre-@sc{ansi} C, instead of writing function definitions in
+@sc{ansi} prototype form,
 
 @example
 int
@@ -311,11 +326,22 @@ int foo (int, int);
 
 You need such a declaration anyway, in a header file, to get the benefit
 of @sc{ansi} C prototypes in all the files where the function is called.
-And once you have it, you lose nothing by writing the function
-definition in the pre-@sc{ansi} style.
+And once you have the declaration, you normally lose nothing by writing
+the function definition in the pre-@sc{ansi} style.
 
-If you don't know non-@sc{ansi} C, there's no need to learn it; just
-write in @sc{ansi} C.
+This technique does not work for integer types narrower than @code{int}.
+If you think of an argument as being of a type narrower than @code{int},
+declare it as @code{int} instead.
+
+There are a few special cases where this technique is hard to use.  For
+example, if a function argument needs to hold the system type
+@code{dev_t}, you run into trouble, because @code{dev_t} is shorter than
+@code{int} on some machines; but you cannot use @code{int} instead,
+because @code{dev_t} is wider than @code{int} on some machines.  There
+is no type you can safely use on all machines in a non-@sc{ansi}
+definition.  The only way to support non-@sc{ansi} C and pass such an
+argument is to check the width of @code{dev_t} using Autoconf and choose
+the argument type accordingly.  This may not be worth the trouble.
 
 @node Source Language
 @section Using Languages Other Than C
@@ -323,13 +349,16 @@ write in @sc{ansi} C.
 Using a language other than C is like using a non-standard feature: it
 will cause trouble for users.  Even if GCC supports the other language,
 users may find it inconvenient to have to install the compiler for that
-other language in order to build your program.  So please write in C.
+other language in order to build your program.  For example, if you
+write your program in C++, people will have to install the C++ compiler
+in order to compile your program.  Thus, it is better if you write in C.
 
-There are three exceptions for this rule:
+But there are three situations when there is no disadvantage in using
+some other language:
 
 @itemize @bullet
 @item
-It is okay to use a special language if the same program contains an
+It is okay to use another language if your program contains an
 interpreter for that language.
 
 For example, if your program links with GUILE, it is ok to write part of
@@ -343,9 +372,13 @@ This is okay because the only people who want to build the tool will be
 those who have installed the other language anyway.
 
 @item
-If an application is not of extremely widespread interest, then perhaps
+If an application is of interest to a narrow community, then perhaps
 it's not important if the application is inconvenient to install.
 @end itemize
+
+C has one other advantage over C++ and other compiled languages: more
+people know C, so more people will find it easy to read and modify the
+program if it is written in C.
 
 @node Program Behavior
 @chapter Program Behavior for All Programs
@@ -355,10 +388,11 @@ describes general standards for error messages, the command line interface,
 and how libraries should behave.
 
 @menu
-* Semantics::			Writing robust programs
-* Libraries::			Library behavior
-* Errors::			Formatting error messages
-* User Interfaces::		Standards for command line interfaces
+* Semantics::                   Writing robust programs
+* Libraries::                   Library behavior
+* Errors::                      Formatting error messages
+* User Interfaces::             Standards for command line interfaces
+* Option Table::                Table of long options.
 * Memory Usage::                When and how to care about memory needs
 @end menu
 
@@ -371,9 +405,13 @@ all data structures dynamically.  In most Unix utilities, ``long lines
 are silently truncated''.  This is not acceptable in a GNU utility.
 
 Utilities reading files should not drop NUL characters, or any other
-nonprinting characters @emph{including those with codes above 0177}.  The
-only sensible exceptions would be utilities specifically intended for
-interface to certain types of printers that can't handle those characters.
+nonprinting characters @emph{including those with codes above 0177}.
+The only sensible exceptions would be utilities specifically intended
+for interface to certain types of terminals or printers
+that can't handle those characters.
+Whenever possible, try to make programs work properly with
+sequences of bytes that represent multibyte characters, using encodings
+such as UTF-8 and others.
 
 Check every system call for an error return, unless you know you wish to
 ignore errors.  Include the system error text (from @code{perror} or
@@ -415,11 +453,18 @@ Try to avoid low-level interfaces to obscure Unix data structures (such
 as file directories, utmp, or the layout of kernel memory), since these
 are less likely to work compatibly.  If you need to find all the files
 in a directory, use @code{readdir} or some other high-level interface.
-These will be supported compatibly by GNU.
+These are supported compatibly by GNU.
 
-By default, the GNU system will provide the signal handling functions of
-@sc{BSD} and of @sc{POSIX}.  So GNU software should be written to use
-these.
+The preferred signal handling facilities are the BSD variant of
+@code{signal}, and the @sc{posix} @code{sigaction} function; the
+alternative USG @code{signal} interface is an inferior design.
+
+Nowadays, using the @sc{posix} signal functions may be the easiest way
+to make a program portable.  If you use @code{signal}, then on GNU/Linux
+systems running GNU libc version 1, you should include
+@file{bsd/signal.h} instead of @file{signal.h}, so as to get BSD
+behavior.  It is up to you whether to support systems where
+@code{signal} has only the USG behavior, or give up on them.
 
 In error checks that detect ``impossible'' conditions, just abort.
 There is usually no point in printing any message.  These checks
@@ -477,6 +522,20 @@ Error messages from compilers should look like this:
 @var{source-file-name}:@var{lineno}: @var{message}
 @end example
 
+@noindent
+If you want to mention the column number, use this format:
+
+@example
+@var{source-file-name}:@var{lineno}:@var{column}: @var{message}
+@end example
+
+@noindent
+Line numbers should start from 1 at the beginning of the file, and
+column numbers should start from 1 at the beginning of the line.  (Both
+of these conventions are chosen for compatibility.)  Calculate column
+numbers assuming that space and all ASCII printing characters have
+equal width, and assuming tab stops every 8 columns.
+
 Error messages from other noninteractive programs should look like this:
 
 @example
@@ -492,6 +551,12 @@ when there is an appropriate source file, or like this:
 
 @noindent
 when there is no relevant source file.
+
+If you want to mention the column number, use this format:
+
+@example
+@var{program}:@var{source-file-name}:@var{lineno}:@var{column}: @var{message}
+@end example
 
 In an interactive program (one that is reading commands from a
 terminal), it is better not to include the program name in an error
@@ -520,8 +585,10 @@ to select among the alternate behaviors.
 
 Likewise, please don't make the behavior of the program depend on the
 type of output device it is used with.  Device independence is an
-important principle of the system's design; do not compromise it
-merely to save someone from typing an option now and then.
+important principle of the system's design; do not compromise it merely
+to save someone from typing an option now and then.  (Variation in error
+message syntax when using a terminal is ok, because that is a side issue
+that people do not depend on.)
 
 If you think one behavior is most useful when the output is to a
 terminal, and another is most useful when the output is a file or a
@@ -537,11 +604,11 @@ output device type.  For example, we provide a @code{dir} program much
 like @code{ls} except that its default output format is always
 multi-column format.
 
-It is a good idea to follow the @sc{POSIX} guidelines for the
+It is a good idea to follow the @sc{posix} guidelines for the
 command-line options of a program.  The easiest way to do this is to use
 @code{getopt} to parse them.  Note that the GNU version of @code{getopt}
 will normally permit options anywhere among the arguments unless the
-special argument @samp{--} is used.  This is not what @sc{POSIX}
+special argument @samp{--} is used.  This is not what @sc{posix}
 specifies; it is a GNU extension.
 
 Please define long-named options that are equivalent to the
@@ -554,26 +621,119 @@ consistent from program to program.  For example, users should be able
 to expect the ``verbose'' option of any GNU program which has one, to be
 spelled precisely @samp{--verbose}.  To achieve this uniformity, look at
 the table of common long-option names when you choose the option names
-for your program.  The table appears below.
+for your program (@pxref{Option Table}).
 
-If you use names not already in the table, please send
-@samp{gnu@@prep.ai.mit.edu} a list of them, with their meanings, so we
-can update the table.
+It is usually a good idea for file names given as ordinary arguments to
+be input files only; any output files would be specified using options
+(preferably @samp{-o} or @samp{--output}).  Even if you allow an output
+file name as an ordinary argument for compatibility, try to provide an
+option as another way to specify it.  This will lead to more consistency
+among GNU utilities, and fewer idiosyncracies for users to remember.
 
-It is usually a good idea for file names given as ordinary arguments
-to be input files only; any output files would be specified using
-options (preferably @samp{-o}).  Even if you allow an output file name
-as an ordinary argument for compatibility, try to provide a suitable
-option as well.  This will lead to more consistency among GNU
-utilities, so that there are fewer idiosyncracies for users to
-remember.
+All programs should support two standard options: @samp{--version}
+and @samp{--help}.
 
-Programs should support an option @samp{--version} which prints the
-program's version number on standard output and exits successfully, and
-an option @samp{--help} which prints option usage information on
-standard output and exits successfully.  These options should inhibit
-the normal function of the command; they should do nothing except print
-the requested information.
+@table @code
+@item --version
+This option should direct the program to print information about its name,
+version, origin and legal status, all on standard output, and then exit
+successfully.  Other options and arguments should be ignored once this
+is seen, and the program should not perform its normal function.
+
+The first line is meant to be easy for a program to parse; the version
+number proper starts after the last space.  In addition, it contains
+the canonical name for this program, in this format:
+
+@example
+GNU Emacs 19.30
+@end example
+
+@noindent
+The program's name should be a constant string; @emph{don't} compute it
+from @code{argv[0]}.  The idea is to state the standard or canonical
+name for the program, not its file name.  There are other ways to find
+out the precise file name where a command is found in @code{PATH}.
+
+If the program is a subsidiary part of a larger package, mention the
+package name in parentheses, like this:
+
+@example
+emacsserver (GNU Emacs) 19.30
+@end example
+
+@noindent
+If the package has a version number which is different from this
+program's version number, you can mention the package version number
+just before the close-parenthesis.
+
+If you @strong{need} to mention the version numbers of libraries which
+are distributed separately from the package which contains this program,
+you can do so by printing an additional line of version info for each
+library you want to mention.  Use the same format for these lines as for
+the first line.
+
+Please do not mention all of the libraries that the program uses ``just
+for completeness''---that would produce a lot of unhelpful clutter.
+Please mention library version numbers only if you find in practice that
+they are very important to you in debugging.
+
+The following line, after the version number line or lines, should be a
+copyright notice.  If more than one copyright notice is called for, put
+each on a separate line.
+
+Next should follow a brief statement that the program is free software,
+and that users are free to copy and change it on certain conditions.  If
+the program is covered by the GNU GPL, say so here.  Also mention that
+there is no warranty, to the extent permitted by law.
+
+It is ok to finish the output with a list of the major authors of the
+program, as a way of giving credit.
+
+Here's an example of output that follows these rules:
+
+@smallexample
+GNU Emacs 19.34.5
+Copyright (C) 1996 Free Software Foundation, Inc.
+GNU Emacs comes with NO WARRANTY,
+to the extent permitted by law.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters,
+see the files named COPYING.
+@end smallexample
+
+You should adapt this to your program, of course, filling in the proper
+year, copyright holder, name of program, and the references to
+distribution terms, and changing the rest of the wording as necessary.
+
+This copyright notice only needs to mention the most recent year in
+which changes were made---there's no need to list the years for previous
+versions' changes.  You don't have to mention the name of the program in
+these notices, if that is inconvenient, since it appeared in the first
+line.
+
+@item --help
+This option should output brief documentation for how to invoke the
+program, on standard output, then exit successfully.  Other options and
+arguments should be ignored once this is seen, and the program should
+not perform its normal function.
+
+Near the end of the @samp{--help} option's output there should be a line
+that says where to mail bug reports.  It should have this format:
+
+@example
+Report bugs to @var{mailing-address}.
+@end example
+@end table
+
+@node Option Table
+@section Table of Long Options
+
+Here is a table of long options used by GNU programs.  It is surely
+incomplete, but we aim to list all the options that a new program might
+want to be compatible with.  If you use names not already in the table,
+please send @email{gnu@@gnu.org} a list of them, with their
+meanings, so we can update the table.
 
 @c Please leave newlines between items in this table; it's much easier
 @c to update when it isn't completely squashed together and unreadable.
@@ -581,10 +741,7 @@ the requested information.
 @c a semicolon between the lists of the programs that use them, not a
 @c period.   --friedman
 
-Here is the table of long options used by GNU programs.
-
 @table @samp
-
 @item after-date
 @samp{-N} in @code{tar}.
 
@@ -634,6 +791,9 @@ and @code{unexpand}.
 
 @item avoid-wraps
 @samp{-n} in @code{wdiff}.
+
+@item background
+For server programs, run in the background.
 
 @item backward-search
 @samp{-B} in @code{ctags}.
@@ -758,6 +918,9 @@ Used in @code{tar} and @code{cpio}.
 
 @item dereference-args
 @samp{-D} in @code{du}.
+
+@item device
+Specify an I/O device (special file name).
 
 @item diacritics
 @samp{-d} in @code{recode}.
@@ -890,6 +1053,11 @@ Used in @code{makeinfo}.
 
 @item force-prefix
 @samp{-F} in @code{shar}.
+
+@item foreground
+For server programs, run in the foreground;
+in other words, don't do anything special to run the server
+in the background.
 
 @item format
 Used in @code{ls}, @code{time}, and @code{ptx}.
@@ -1070,7 +1238,7 @@ Used in @code{su}.
 @item machine
 No listing of which programs already use this;
 someone should check to
-see if any actually do and tell @code{gnu@@prep.ai.mit.edu}.
+see if any actually do, and tell @email{gnu@@gnu.org}.
 
 @item macro-name
 @samp{-M} in @code{ptx}.
@@ -1195,6 +1363,9 @@ Used in @code{makeinfo}.
 @item no-validate
 Used in @code{makeinfo}.
 
+@item no-wait
+Used in @code{emacsclient}.
+
 @item no-warn
 Used in various programs to inhibit warnings.
 
@@ -1245,6 +1416,10 @@ Used in GDB.
 
 @item only-time
 @samp{-F} in @code{gprof}.
+
+@item options
+@samp{-o} in @code{getopt}, @code{fdlist}, @code{fdmount},
+@code{fdmountd}, and @code{fdumount}.
 
 @item output
 In various programs, specify the output file name.
@@ -1330,6 +1505,9 @@ Used in @code{tar} and @code{cp}.
 @item prompt
 @samp{-p} in @code{ed}.
 
+@item proxy
+Specify an HTTP proxy.
+
 @item query-user
 @samp{-X} in @code{shar}.
 
@@ -1337,9 +1515,9 @@ Used in @code{tar} and @code{cp}.
 @samp{-q} in Make.
 
 @item quiet
-Used in many programs to inhibit the usual output.  @strong{Please
-note:} every program accepting @samp{--quiet} should accept
-@samp{--silent} as a synonym.
+Used in many programs to inhibit the usual output.  @strong{Note:} every
+program accepting @samp{--quiet} should accept @samp{--silent} as a
+synonym.
 
 @item quiet-unshar
 @samp{-Q} in @code{shar}
@@ -1452,11 +1630,17 @@ Used by @code{recode} to chose files or pipes for sequencing passes.
 
 @item silent
 Used in many programs to inhibit the usual output.
-@strong{Please note:} every program accepting
+@strong{Note:} every program accepting
 @samp{--silent} should accept @samp{--quiet} as a synonym.
 
 @item size
 @samp{-s} in @code{ls}.
+
+@item socket
+Specify a file descriptor for a network server to use for its socket,
+instead of opening and binding a new socket.  This provides a way to
+run, in a nonpriveledged process, a server that normally needs a
+reserved port number.
 
 @item sort
 Used in @code{ls}.
@@ -1555,6 +1739,9 @@ Used in GDB and @code{objdump}.
 
 @item time
 Used in @code{ls} and @code{touch}.
+
+@item timeout
+Specify how long to wait before giving up on some operation.
 
 @item to-stdout
 @samp{-O} in @code{tar}.
@@ -1672,14 +1859,15 @@ This @value{CHAPTER} provides advice on how best to use the C language
 when writing GNU software.
 
 @menu
-* Formatting::			Formatting Your Source Code
-* Comments::			Commenting Your Work
-* Syntactic Conventions::	Clean Use of C Constructs
-* Names::			Naming Variables and Functions
-* System Portability::		Portability between different operating systems
+* Formatting::                  Formatting Your Source Code
+* Comments::                    Commenting Your Work
+* Syntactic Conventions::       Clean Use of C Constructs
+* Names::                       Naming Variables and Functions
+* System Portability::          Portability between different operating systems
 * CPU Portability::             Supporting the range of CPU types
 * System Functions::            Portability and ``standard'' library functions
 * Internationalization::        Techniques for internationalization
+* Mmap::                        How you can safely use @code{mmap}.
 @end menu
 
 @node Formatting
@@ -1808,6 +1996,13 @@ page.  The formfeeds should appear alone on lines by themselves.
 Every program should start with a comment saying briefly what it is for.
 Example: @samp{fmt - filter for simple filling of text}.
 
+Please write the comments in a GNU program in English, because English
+is the one language that nearly all programmers in all countries can
+read.  If you do not write English well, please write comments in
+English as well as you can, then ask other people to help rewrite them.
+If you can't write comments in English, please find someone to work with
+you and translate your comments into English.
+
 Please put a comment on each function saying what the function does,
 what sorts of arguments it gets, and what the possible values of
 arguments mean and are used for.  It is not necessary to duplicate in
@@ -1862,6 +2057,11 @@ its sense}.  @samp{#else} should have a comment describing the condition
   @dots{}
 #endif /* not foo */
 @end group
+@group
+#ifdef foo
+  @dots{}
+#endif /* foo */
+@end group
 @end example
 
 @noindent
@@ -1875,8 +2075,12 @@ but, by contrast, write the comments this way for a @samp{#ifndef}:
   @dots{}
 #endif /* foo */
 @end group
+@group
+#ifndef foo
+  @dots{}
+#endif /* not foo */
+@end group
 @end example
-
 
 @node Syntactic Conventions
 @section Clean Use of C Constructs
@@ -2005,8 +2209,21 @@ Don't make the program ugly to placate @code{lint}.  Please don't insert any
 casts to @code{void}.  Zero without a cast is perfectly fine as a null
 pointer constant, except when calling a varargs function.
 
-@node  Names
+@node Names
 @section Naming Variables and Functions
+
+The names of global variables and functions in a program serve as
+comments of a sort.  So don't choose terse names---instead, look for
+names that give useful information about the meaning of the variable or
+function.  In a GNU program, names should be English, like other
+comments.
+
+Local variable names can be shorter, because they are used only within
+one context, where (presumably) comments explain their purpose.
+
+Try to limit your use of abbreviations in symbol names.  It is ok to
+make a few abbreviations, explain what they mean, and then use them
+frequently, but don't use lots of obscure abbreviations.
 
 Please use underscores to separate words in a name, so that the Emacs
 word commands can be useful within them.  Stick to lower case; reserve
@@ -2033,10 +2250,10 @@ When you want to define names with constant integer values, use
 constants.
 
 Use file names of 14 characters or less, to avoid creating gratuitous
-problems on older System V systems.  You can use the program @code{doschk} to test for
-this.  @code{doschk} also tests for potential name conflicts if the
-files were loaded onto an MS-DOS file system---something you may or may
-not care about.
+problems on older System V systems.  You can use the program
+@code{doschk} to test for this.  @code{doschk} also tests for potential
+name conflicts if the files were loaded onto an MS-DOS file
+system---something you may or may not care about.
 
 @node System Portability
 @section Portability between System Types
@@ -2066,14 +2283,10 @@ Avoid using the format of semi-internal data bases (e.g., directories)
 when there is a higher-level alternative (@code{readdir}).
 
 As for systems that are not like Unix, such as MSDOS, Windows, the
-Macintosh, VMS, and MVS, supporting them is usually so much work that it
-is better if you don't.
-
-The planned GNU kernel is not finished yet, but you can tell which
-facilities it will provide by looking at the GNU C Library Manual.  The
-GNU kernel is based on Mach, so the features of Mach will also be
-available.  However, if you use Mach features, you'll probably have
-trouble debugging your program today.
+Macintosh, VMS, and MVS, supporting them is often a lot of work.  When
+that is the case, it is better to spend your time adding features that
+will be useful on GNU and GNU/Linux, rather than on supporting other
+incompatible systems.
 
 @node CPU Portability
 @section Portability between @sc{cpu}s
@@ -2111,7 +2324,7 @@ that pass their arguments along to @code{printf} and friends:
 @example
 error (s, a1, a2, a3)
      char *s;
-     int a1, a2, a3;
+     char *a1, *a2, *a3;
 @{
   fprintf (stderr, "error: ");
   fprintf (stderr, s, a1, a2, a3);
@@ -2119,16 +2332,18 @@ error (s, a1, a2, a3)
 @end example
 
 @noindent
-In practice, this works on all machines, and it is much simpler than any
-``correct'' alternative.  Be sure @emph{not} to use a prototype
-for such functions.
+In practice, this works on all machines, since a pointer is generally
+the widest possible kind of argument, and it is much simpler than any
+``correct'' alternative.  Be sure @emph{not} to use a prototype for such
+functions.
 
 However, avoid casting pointers to integers unless you really need to.
-These assumptions really reduce portability, and in most programs they
-are easy to avoid.  In the cases where casting pointers to integers is
-essential---such as, a Lisp interpreter which stores type information as
-well as an address in one word---it is ok to do so, but you'll have to
-make explicit provisions to handle different word sizes.
+Outside of special situations, such casts greatly reduce portability,
+and in most programs they are easy to avoid.  In the cases where casting
+pointers to integers is essential---such as, a Lisp interpreter which
+stores type information as well as an address in one word---it is ok to
+do it, but you'll have to make explicit provisions to handle different
+word sizes.
 
 @node System Functions
 @section Calling System Functions
@@ -2143,6 +2358,11 @@ functions to avoid unnecessary loss of portability.
 @item
 Don't use the value of @code{sprintf}.  It returns the number of
 characters written on some systems, but not on all systems.
+
+@item
+@code{main} should be declared to return type @code{int}.  It should
+terminate either by calling @code{exit} or by returning the integer
+status code; make sure it cannot ever return an undefined value.
 
 @item
 Don't declare system functions explicitly.
@@ -2275,13 +2495,18 @@ translations for this package from the translations for other packages.
 Normally, the text domain name should be the same as the name of the
 package---for example, @samp{fileutils} for the GNU file utilities.
 
-To enable gettext to work, avoid writing code that makes assumptions
-about the structure of words.  Don't construct words from parts.  Here
-is an example of what not to do:
+To enable gettext to work well, avoid writing code that makes
+assumptions about the structure of words or sentences.  When you want
+the precise text of a sentence to vary depending on the data, use two or
+more alternative string constants each containing a complete sentences,
+rather than inserting conditionalized words or phrases into a single
+sentence framework.
+
+Here is an example of what not to do:
 
 @example
-prinf ("%d file%s processed", nfiles,
-       nfiles > 1 ? "s" : "");
+printf ("%d file%s processed", nfiles,
+        nfiles != 1 ? "s" : "");
 @end example
 
 @noindent
@@ -2289,8 +2514,8 @@ The problem with that example is that it assumes that plurals are made
 by adding `s'.  If you apply gettext to the format string, like this,
 
 @example
-prinf (gettext ("%d file%s processed"), nfiles,
-       nfiles > 1 ? "s" : "");
+printf (gettext ("%d file%s processed"), nfiles,
+        nfiles != 1 ? "s" : "");
 @end example
 
 @noindent
@@ -2298,9 +2523,9 @@ the message can use different words, but it will still be forced to use
 `s' for the plural.  Here is a better way:
 
 @example
-prinf ((nfiles > 1 ? "%d files processed"
-        : "%d file processed"),
-       nfiles);
+printf ((nfiles != 1 ? "%d files processed"
+         : "%d file processed"),
+        nfiles);
 @end example
 
 @noindent
@@ -2308,14 +2533,52 @@ This way, you can apply gettext to each of the two strings
 independently:
 
 @example
-prinf ((nfiles > 1 ? gettext ("%d files processed")
-        : gettext ("%d file processed")),
-       nfiles);
+printf ((nfiles != 1 ? gettext ("%d files processed")
+         : gettext ("%d file processed")),
+        nfiles);
 @end example
 
 @noindent
-This can handle any language, no matter how it forms the plural of the
-word for ``file.''
+This can be any method of forming the plural of the word for ``file'', and
+also handles languages that require agreement in the word for
+``processed''.
+
+A similar problem appears at the level of sentence structure with this
+code:
+
+@example
+printf ("#  Implicit rule search has%s been done.\n",
+        f->tried_implicit ? "" : " not");
+@end example
+
+@noindent
+Adding @code{gettext} calls to this code cannot give correct results for
+all languages, because negation in some languages requires adding words
+at more than one place in the sentence.  By contrast, adding
+@code{gettext} calls does the job straightfowardly if the code starts
+out like this:
+
+@example
+printf (f->tried_implicit
+        ? "#  Implicit rule search has been done.\n",
+        : "#  Implicit rule search has not been done.\n");
+@end example
+
+@node Mmap
+@section Mmap
+
+Don't assume that @code{mmap} either works on all files or fails
+for all files.  It may work on some files and fail on others.
+
+The proper way to use @code{mmap} is to try it on the specific file for
+which you want to use it---and if @code{mmap} doesn't work, fall back on
+doing the job in another way using @code{read} and @code{write}.
+
+The reason this precaution is needed is that the GNU kernel (the HURD)
+provides a user-extensible file system, in which there can be many
+different kinds of ``ordinary files.''  Many of them support
+@code{mmap}, but some do not.  It is important to make programs handle
+all these kinds of files.
 
 @node Documentation
 @chapter Documenting Programs
@@ -2323,8 +2586,9 @@ word for ``file.''
 @menu
 * GNU Manuals::                 Writing proper manuals.
 * Manual Structure Details::    Specific structure conventions.
+* License for Manuals::         Writing the distribution terms for a manual.
 * NEWS File::                   NEWS files supplement manuals.
-* Change Logs::			Recording Changes
+* Change Logs::                 Recording Changes
 * Man Pages::                   Man pages are secondary.
 * Reading other Manuals::       How far you can go in learning
                                 from other manuals.
@@ -2334,21 +2598,54 @@ word for ``file.''
 @section GNU Manuals
 
 The preferred way to document part of the GNU system is to write a
-manual in the Texinfo formatting language.  See the Texinfo manual,
-either the hardcopy, or the on-line version available through
-@code{info} or the Emacs Info subsystem (@kbd{C-h i}).
+manual in the Texinfo formatting language.  This makes it possible to
+produce a good quality formatted book, using @TeX{}, and to generate an
+Info file.  It is also possible to generate HTML output from Texinfo
+source.  See the Texinfo manual, either the hardcopy, or the on-line
+version available through @code{info} or the Emacs Info subsystem
+(@kbd{C-h i}).
 
-The manual should document all of the program's command-line options and
-all of its commands.  It should give examples of their use.  But don't
-organize the manual as a list of features.  Instead, organize it
-logically, by subtopics.  Address the goals that a user will have in
-mind, and explain how to accomplish them.
+Programmers often find it most natural to structure the documentation
+following the structure of the implementation, which they know.  But
+this structure is not necessarily good for explaining how to use the
+program; it may be irrelevant and confusing for a user.
+
+At every level, from the sentences in a paragraph to the grouping of
+topics into separate manuals, the right way to structure documentation
+is according to the concepts and questions that a user will have in mind
+when reading it.  Sometimes this structure of ideas matches the
+structure of the implementation of the software being documented---but
+often they are different.  Often the most important part of learning to
+write good documentation is learning to notice when you are structuring
+the documentation like the implementation, and think about better
+alternatives.
+
+For example, each program in the GNU system probably ought to be
+documented in one manual; but this does not mean each program should
+have its own manual.  That would be following the structure of the
+implementation, rather than the structure that helps the user
+understand.
+
+Instead, each manual should cover a coherent @emph{topic}.  For example,
+instead of a manual for @code{diff} and a manual for @code{diff3}, we
+have one manual for ``comparison of files'' which covers both of those
+programs, as well as @code{cmp}.  By documenting these programs
+together, we can make the whole subject clearer.
+
+The manual which discusses a program should document all of the
+program's command-line options and all of its commands.  It should give
+examples of their use.  But don't organize the manual as a list of
+features.  Instead, organize it logically, by subtopics.  Address the
+questions that a user will ask when thinking about the job that the
+program does.
 
 In general, a GNU manual should serve both as tutorial and reference.
 It should be set up for convenient access to each topic through Info,
 and for reading straight through (appendixes aside).  A GNU manual
 should give a good introduction to a beginner reading through from the
 start, and should also provide all the details that hackers want.
+The Bison manual is a good example of this---please take a look at it
+to see what we mean.
 
 That is not as hard as it first sounds.  Arrange each chapter as a
 logical breakdown of its topic, but order the sections, and write their
@@ -2363,29 +2660,38 @@ the framework for a beginner to understand the rest of the manual.  The
 Bison manual provides a good example of how to do this.
 
 Don't use Unix man pages as a model for how to write GNU documentation;
-they are a bad example to follow.
+most of them are terse, badly structured, and give inadequate
+explanation of the underlying concepts.  (There are, of course
+exceptions.)  Also Unix man pages use a particular format which is
+different from what we use in GNU manuals.
+
+Please include an email address in the manual for where to report
+bugs @emph{in the manual}.
 
 Please do not use the term ``pathname'' that is used in Unix
 documentation; use ``file name'' (two words) instead.  We use the term
-``path'' only for search paths, which are lists of file names.
+``path'' only for search paths, which are lists of directory names.
+
+Please do not use the term ``illegal'' to refer to erroneous input to a
+computer program.  Please use ``invalid'' for this, and reserve the term
+``illegal'' for violations of law.
 
 @node Manual Structure Details
 @section Manual Structure Details
 
-The title page of the manual should state the version of the program
-to which the manual applies.  The Top node of the manual should also
-contain this information.  If the manual is changing more frequently
-than or independent of the program, also state a version number for
-the manual in both of these places.
+The title page of the manual should state the version of the programs or
+packages documented in the manual.  The Top node of the manual should
+also contain this information.  If the manual is changing more
+frequently than or independent of the program, also state a version
+number for the manual in both of these places.
 
-The manual should have a node named @samp{@var{program} Invocation} or
-@samp{Invoking @var{program}}, where @var{program} stands for the name
-of the program being described, as you would type it in the shell to run
-the program.  This node (together with its subnodes, if any) should
-describe the program's command line arguments and how to run it (the
-sort of information people would look in a man page for).  Start with an
-@samp{@@example} containing a template for all the options and arguments
-that the program uses.
+Each program documented in the manual should have a node named
+@samp{@var{program} Invocation} or @samp{Invoking @var{program}}.  This
+node (together with its subnodes, if any) should describe the program's
+command line arguments and how to run it (the sort of information people
+would look in a man page for).  Start with an @samp{@@example}
+containing a template for all the options and arguments that the program
+uses.
 
 Alternatively, put a menu item in some menu whose item name fits one of
 the above patterns.  This identifies the node which that item points to
@@ -2396,6 +2702,18 @@ quickly reading just this part of its manual.
 
 If one manual describes several programs, it should have such a node for
 each program described.
+
+@node License for Manuals
+@section License for Manuals
+
+If the manual contains a copy of the GNU GPL or GNU LGPL, or if it
+contains chapters that make political or personal statements, please
+copy the distribution terms of the GNU Emacs Manual, and adapt it by
+modifying appropriately the list of special chapters that may not be
+modified or deleted.
+
+If the manual does not contain any such chapters, then imitate the
+simpler distribution terms of the Texinfo manual.
 
 @node NEWS File
 @section The NEWS File
@@ -2418,18 +2736,46 @@ Keep a change log to describe all the changes made to program source
 files.  The purpose of this is so that people investigating bugs in the
 future will know about the changes that might have introduced the bug.
 Often a new bug can be found by looking at what was recently changed.
-More importantly, change logs can help eliminate conceptual
-inconsistencies between different parts of a program; they can give you
-a history of how the conflicting concepts arose.
+More importantly, change logs can help you eliminate conceptual
+inconsistencies between different parts of a program, by giving you a
+history of how the conflicting concepts arose and who they came from.
 
-A change log file is normally called @file{ChangeLog} and covers an
+@menu
+* Change Log Concepts::         
+* Style of Change Logs::        
+* Simple Changes::              
+* Conditional Changes::         
+@end menu
+
+@node Change Log Concepts
+@subsection Change Log Concepts
+
+You can think of the change log as a conceptual ``undo list'' which
+explains how earlier versions were different from the current version.
+People can see the current version; they don't need the change log
+to tell them what is in it.  What they want from a change log is a
+clear explanation of how the earlier version differed.
+
+The change log file is normally called @file{ChangeLog} and covers an
 entire directory.  Each directory can have its own change log, or a
 directory can use the change log of its parent directory--it's up to
 you.
 
 Another alternative is to record change log information with a version
 control system such as RCS or CVS.  This can be converted automatically
-to a @file{ChangeLog} file.
+to a @file{ChangeLog} file using @code{rcs2log}; in Emacs, the command
+@kbd{C-x v a} (@code{vc-update-change-log}) does the job.
+
+There's no need to describe the full purpose of the changes or how they
+work together.  If you think that a change calls for explanation, you're
+probably right.  Please do explain it---but please put the explanation
+in comments in the code, where people will see it whenever they see the
+code.  For example, ``New function'' is enough for the change log when
+you add a function, because there should be a comment before the
+function definition to explain what it does.
+
+However, sometimes it is useful to write one line to describe the
+overall purpose of a batch of changes.
 
 The easiest way to add an entry to @file{ChangeLog} is with the Emacs
 command @kbd{M-x add-change-log-entry}.  An entry should have an
@@ -2437,12 +2783,10 @@ asterisk, the name of the changed file, and then in parentheses the name
 of the changed functions, variables or whatever, followed by a colon.
 Then describe the changes you made to that function or variable.
 
-Separate unrelated entries with blank lines.  When two entries
-represent parts of the same change, so that they work together, then
-don't put blank lines between them.  Then you can omit the file name
-and the asterisk when successive entries are in the same file.
+@node Style of Change Logs
+@subsection Style of Change Logs
 
-Here are some examples:
+Here are some examples of change log entries:
 
 @example
 * register.el (insert-register): Return nil.
@@ -2461,44 +2805,87 @@ Restart the tex shell if process is gone or stopped.
 
 It's important to name the changed function or variable in full.  Don't
 abbreviate function or variable names, and don't combine them.
-Subsequent maintainers will often
-search for a function name to find all the change log entries that
-pertain to it; if you abbreviate the name, they won't find it when they
-search.  For example, some people are tempted to abbreviate groups of
-function names by writing @samp{* register.el
-(@{insert,jump-to@}-register)}; this is not a good idea, since searching
-for @code{jump-to-register} or @code{insert-register} would not find the
-entry.
+Subsequent maintainers will often search for a function name to find all
+the change log entries that pertain to it; if you abbreviate the name,
+they won't find it when they search.
 
-There's no need to describe the full purpose of the changes or how they
-work together.  It is better to put such explanations in comments in the
-code.  That's why just ``New function'' is enough; there is a comment
-with the function in the source to explain what it does.
+For example, some people are tempted to abbreviate groups of function
+names by writing @samp{* register.el (@{insert,jump-to@}-register)};
+this is not a good idea, since searching for @code{jump-to-register} or
+@code{insert-register} would not find that entry.
 
-However, sometimes it is useful to write one line to describe the
-overall purpose of a large batch of changes.
+Separate unrelated change log entries with blank lines.  When two
+entries represent parts of the same change, so that they work together,
+then don't put blank lines between them.  Then you can omit the file
+name and the asterisk when successive entries are in the same file.
 
-You can think of the change log as a conceptual ``undo list'' which
-explains how earlier versions were different from the current version.
-People can see the current version; they don't need the change log
-to tell them what is in it.  What they want from a change log is a
-clear explanation of how the earlier version differed.
+@node Simple Changes
+@subsection Simple Changes
 
-When you change the calling sequence of a function in a simple
-fashion, and you change all the callers of the function, there is no
-need to make individual entries for all the callers.  Just write in
+Certain simple kinds of changes don't need much detail in the change
+log.
+
+When you change the calling sequence of a function in a simple fashion,
+and you change all the callers of the function, there is no need to make
+individual entries for all the callers that you changed.  Just write in
 the entry for the function being called, ``All callers changed.''
 
+@example
+* keyboard.c (Fcommand_execute): New arg SPECIAL.
+All callers changed.
+@end example
+
 When you change just comments or doc strings, it is enough to write an
-entry for the file, without mentioning the functions.  Write just,
-``Doc fix.''
+entry for the file, without mentioning the functions.  Just ``Doc
+fixes'' is enough for the change log.
 
 There's no need to make change log entries for documentation files.
 This is because documentation is not susceptible to bugs that are hard
 to fix.  Documentation does not consist of parts that must interact in a
 precisely engineered fashion.  To correct an error, you need not know
-the history of the erroneous passage; it is enough to compare the
-passage with the way the program actually works.
+the history of the erroneous passage; it is enough to compare what the
+documentation says with the way the program actually works.
+
+@node Conditional Changes
+@subsection Conditional Changes
+
+C programs often contain compile-time @code{#if} conditionals.  Many
+changes are conditional; sometimes you add a new definition which is
+entirely contained in a conditional.  It is very useful to indicate in
+the change log the conditions for which the change applies.
+
+Our convention for indicating conditional changes is to use square
+brackets around the name of the condition.
+
+Here is a simple example, describing a change which is conditional but
+does not have a function or entity name associated with it:
+
+@example
+* xterm.c [SOLARIS2]: Include string.h.
+@end example
+
+Here is an entry describing a new definition which is entirely
+conditional.  This new definition for the macro @code{FRAME_WINDOW_P} is
+used only when @code{HAVE_X_WINDOWS} is defined:
+
+@example
+* frame.h [HAVE_X_WINDOWS] (FRAME_WINDOW_P): Macro defined.
+@end example
+
+Here is an entry for a change within the function @code{init_display},
+whose definition as a whole is unconditional, but the changes themselves
+are contained in a @samp{#ifdef HAVE_LIBNCURSES} conditional:
+
+@example
+* dispnew.c (init_display) [HAVE_LIBNCURSES]: If X, call tgetent.
+@end example
+
+Here is an entry for a change that takes affect only when
+a certain macro is @emph{not} defined:
+
+@example
+(gethostname) [!HAVE_SOCKETS]: Replace with winsock version.
+@end example
 
 @node Man Pages
 @section Man Pages
@@ -2558,9 +2945,9 @@ makes it easy to include your package into the larger framework of
 all GNU software.
 
 @menu
-* Configuration::		How Configuration Should Work
+* Configuration::               How Configuration Should Work
 * Makefile Conventions::	Makefile Conventions
-* Releases::			Making Releases
+* Releases::                    Making Releases
 @end menu
 
 @node Configuration
@@ -2633,7 +3020,7 @@ The @code{configure} script needs to be able to decode all plausible
 alternatives for how to describe a machine.  Thus, @samp{sun3-sunos4.1}
 would be a valid alias.  For many programs, @samp{vax-dec-ultrix} would
 be an alias for @samp{vax-dec-bsd}, simply because the differences
-between Ultrix and @sc{BSD} are rarely noticeable, but a few programs
+between Ultrix and BSD are rarely noticeable, but a few programs
 might need to distinguish them.
 @c Real 4.4BSD now runs on some Suns.
 
@@ -2665,9 +3052,12 @@ to work with @var{package}.
 @c  Giving an optional @var{parameter} of
 @c @samp{no} should omit @var{package}, if it is used by default.
 
-Possible values of @var{package} include @samp{x}, @samp{x-toolkit},
-@samp{gnu-as} (or @samp{gas}), @samp{gnu-ld}, @samp{gnu-libc}, and
-@samp{gdb}.
+Possible values of @var{package} include 
+@samp{gnu-as} (or @samp{gas}), @samp{gnu-ld}, @samp{gnu-libc},
+@samp{gdb},
+@samp{x}, 
+and
+@samp{x-toolkit}.
 
 Do not use a @samp{--with} option to specify the file name to use to
 find certain files.  That is outside the scope of what @samp{--with}
@@ -2734,9 +3124,9 @@ ignore most of its arguments.
 @node Releases
 @section Making Releases
 
-Package the distribution of Foo version 69.96 in a gzipped tar file
-named @file{foo-69.96.tar.gz}.  It should unpack into a subdirectory
-named @file{foo-69.96}.
+Package the distribution of @code{Foo version 69.96} up in a gzipped tar
+file with the name @file{foo-69.96.tar.gz}.  It should unpack into a
+subdirectory named @file{foo-69.96}.
 
 Building and installing the program should never modify any of the files
 contained in the distribution.  This means that all the files that form
@@ -2744,6 +3134,21 @@ part of the program in any way must be classified into @dfn{source
 files} and @dfn{non-source files}.  Source files are written by humans
 and never changed automatically; non-source files are produced from
 source files by programs under the control of the Makefile.
+
+The distribution should contain a file named @file{README} which gives
+the name of the package, and a general description of what it does.  It
+is also good to explain the purpose of each of the first-level
+subdirectories in the package, if there are any.  The @file{README} file
+should either state the version number of the package, or refer to where
+in the package it can be found.
+
+The @file{README} file should refer to the file @file{INSTALL}, which
+should contain an explanation of the installation procedure.
+
+The @file{README} file should also refer to the file which contains the
+copying conditions.  The GNU GPL, if used, should be in a file called
+@file{COPYING}.  If the GNU LGPL is used, it should be in a file called
+@file{COPYING.LIB}.
 
 Naturally, all the source files must be in the distribution.  It is okay
 to include non-source files in the distribution, provided they are
@@ -2769,7 +3174,7 @@ Make sure that all the files in the distribution are world-readable.
 Make sure that no file name in the distribution is more than 14
 characters long.  Likewise, no file created by building the program
 should have a name longer than 14 characters.  The reason for this is
-that some systems adhere to a foolish interpretation of the POSIX
+that some systems adhere to a foolish interpretation of the @sc{posix}
 standard, and refuse to open a longer name, rather than truncating as
 they did in the past.
 
@@ -2796,6 +3201,31 @@ getopt, obstack, or termcap, include them in the distribution file.
 Leaving them out would make the distribution file a little smaller at
 the expense of possible inconvenience to a user who doesn't know what
 other files to get.
+
+@node References
+@chapter References to Non-Free Software and Documentation
+
+A GNU program should not recommend use of any non-free program.  We
+can't stop some people from writing proprietary programs, or stop other
+people from using them.  But we can and should avoid helping to
+advertise them to new customers.
+
+Sometimes it is important to mention how to build your package on top of
+some non-free operating system or other non-free base package.  In such
+cases, please mention the name of the non-free package or system in the
+briefest possible way.  Don't include any references for where to find
+more information about the proprietary program.  The goal should be that
+people already using the proprietary program will get the advice they
+need about how to use your free program, while people who don't already
+use the proprietary program will not see anything to encourage them to
+take an interest in it.
+
+Likewise, a GNU package should not refer the user to any non-free
+documentation for free software.  The need for free documentation to go
+with free software is now a major focus of the GNU project; to show that
+we are serious about the need for free documentation, we must not
+undermine our position by recommending use of documentation that isn't
+free.
 
 @contents
 

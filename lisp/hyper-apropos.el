@@ -60,7 +60,7 @@
 
 ;; ### The maintainer is supposed to be stig, but I haven't seen him
 ;; around for ages.  The real maintainer for the moment is Hrvoje
-;; Niksic <hniksic@srce.hr>.
+;; Niksic <hniksic@xemacs.org>.
 
 ;;; Code:
 

@@ -1602,7 +1602,7 @@ entries and DEC terminal concentrators, see @file{emacs/etc/TERMS}.
 @code{C-s} and @kbd{C-q} for flow control.  Therefore, the choice of
 @kbd{C-s} and @kbd{C-q} as command characters was uncontroversial.
 XEmacs, for economy of keystrokes and portability, used nearly all the
-@sc{ASCII} control characters, with mnemonic meanings when possible;
+@sc{ascii} control characters, with mnemonic meanings when possible;
 thus, @kbd{C-s} for search and @kbd{C-q} for quote.
 
   Later, some terminals were introduced which required these characters

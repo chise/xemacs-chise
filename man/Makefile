@@ -19,15 +19,7 @@
 # the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
-# Avoid trouble on systems where the "SHELL" variable might be
-# inherited from the environment.
-SHELL = /bin/sh
-
-EMACS = ../src/xemacs
-EMACSFLAGS = -batch -q -no-site-file 
-
-# NOTE:  You *must* have makeinfo-1.68 or later to rebuild the
-# info tree.
+SHELL    = /bin/sh
 MAKEINFO = makeinfo
 TEXI2DVI = texi2dvi
 
@@ -35,6 +27,8 @@ TEXI2DVI = texi2dvi
 .SUFFIXES: .info .texi .dvi
 
 RECURSIVE_MAKE = $(MAKE) $(MFLAGS) MAKEINFO='$(MAKEINFO)' TEXI2DVI='$(TEXI2DVI)'
+
+all : info
 
 # Ughhh!  The things we do to have portable makefiles...
 
@@ -46,11 +40,15 @@ info_files = \
 	$(INFODIR)/emodules.info \
 	$(INFODIR)/external-widget.info \
 	$(INFODIR)/info.info \
+	$(INFODIR)/lispref.info \
+	$(INFODIR)/internals.info \
+	$(INFODIR)/new-users-guide.info \
 	$(INFODIR)/standards.info \
 	$(INFODIR)/term.info \
 	$(INFODIR)/termcap.info \
 	$(INFODIR)/texinfo.info \
 	$(INFODIR)/widget.info \
+	$(INFODIR)/xemacs.info \
 	$(INFODIR)/xemacs-faq.info
 
 dvi_files = \
@@ -59,103 +57,244 @@ dvi_files = \
 	emodules.dvi \
 	external-widget.dvi \
 	info.dvi \
+	lispref.dvi \
+	internals.dvi \
+	new-users-guide.dvi \
 	standards.dvi \
 	term.dvi \
 	termcap.dvi \
 	texinfo.dvi \
 	widget.dvi \
+	xemacs.dvi \
 	xemacs-faq.dvi
 
-../info/cl.info : cl.texi
-	-$(MAKEINFO) cl.texi -o ../info/cl.info
+xemacs-srcs = \
+	xemacs/abbrevs.texi \
+	xemacs/basic.texi \
+	xemacs/buffers.texi \
+	xemacs/building.texi \
+	xemacs/calendar.texi \
+	xemacs/cmdargs.texi \
+	xemacs/custom.texi \
+	xemacs/display.texi \
+	xemacs/entering.texi \
+	xemacs/files.texi \
+	xemacs/fixit.texi \
+	xemacs/frame.texi \
+	xemacs/glossary.texi \
+	xemacs/gnu.texi \
+	xemacs/help.texi \
+	xemacs/indent.texi \
+	xemacs/keystrokes.texi \
+	xemacs/killing.texi \
+	xemacs/m-x.texi \
+	xemacs/major.texi \
+	xemacs/mark.texi \
+	xemacs/menus.texi \
+	xemacs/mini.texi \
+	xemacs/misc.texi \
+	xemacs/mouse.texi \
+	xemacs/mule.texi \
+	xemacs/new.texi \
+	xemacs/packages.texi \
+	xemacs/picture.texi \
+	xemacs/programs.texi \
+	xemacs/reading.texi \
+	xemacs/regs.texi \
+	xemacs/search.texi \
+	xemacs/sending.texi \
+	xemacs/startup.texi \
+	xemacs/text.texi \
+	xemacs/trouble.texi \
+	xemacs/undo.texi \
+	xemacs/windows.texi \
+	xemacs/xemacs.texi
 
-../info/custom.info : custom.texi
-	-$(MAKEINFO) custom.texi -o ../info/custom.info
+lispref-srcs = \
+	lispref/abbrevs.texi \
+	lispref/annotations.texi \
+	lispref/back.texi \
+	lispref/backups.texi \
+	lispref/buffers.texi \
+	lispref/building.texi \
+	lispref/commands.texi \
+	lispref/compile.texi \
+	lispref/consoles-devices.texi \
+	lispref/control.texi \
+	lispref/customize.texi \
+	lispref/databases.texi \
+	lispref/debugging.texi \
+	lispref/dialog.texi \
+	lispref/display.texi \
+	lispref/dragndrop.texi \
+	lispref/edebug-inc.texi \
+	lispref/edebug.texi \
+	lispref/errors.texi \
+	lispref/eval.texi \
+	lispref/extents.texi \
+	lispref/faces.texi \
+	lispref/files.texi \
+	lispref/frames.texi \
+	lispref/functions.texi \
+	lispref/glyphs.texi \
+	lispref/hash-tables.texi \
+	lispref/help.texi \
+	lispref/hooks.texi \
+	lispref/index.texi \
+	lispref/internationalization.texi \
+	lispref/intro.texi \
+	lispref/keymaps.texi \
+	lispref/ldap.texi \
+	lispref/lispref.texi \
+	lispref/lists.texi \
+	lispref/loading.texi \
+	lispref/locals.texi \
+	lispref/macros.texi \
+	lispref/maps.texi \
+	lispref/markers.texi \
+	lispref/menus.texi \
+	lispref/minibuf.texi \
+	lispref/modes.texi \
+	lispref/mouse.texi \
+	lispref/mule.texi \
+	lispref/numbers.texi \
+	lispref/objects.texi \
+	lispref/os.texi \
+	lispref/positions.texi \
+	lispref/processes.texi \
+	lispref/range-tables.texi \
+	lispref/scrollbars.texi \
+	lispref/searching.texi \
+	lispref/sequences.texi \
+	lispref/specifiers.texi \
+	lispref/streams.texi \
+	lispref/strings.texi \
+	lispref/symbols.texi \
+	lispref/syntax.texi \
+	lispref/text.texi \
+	lispref/tips.texi \
+	lispref/toolbar.texi \
+	lispref/tooltalk.texi \
+	lispref/variables.texi \
+	lispref/windows.texi \
+	lispref/x-windows.texi
 
-../info/emodules.info : emodules.texi
-	-$(MAKEINFO) emodules.texi -o ../info/emodules.info
+internals-srcs = \
+	internals/internals.texi
 
-../info/external-widget.info : external-widget.texi
-	-$(MAKEINFO) external-widget.texi -o ../info/external-widget.info
+new-users-guide-srcs = \
+	new-users-guide/custom1.texi \
+	new-users-guide/custom2.texi \
+	new-users-guide/edit.texi \
+	new-users-guide/enter.texi \
+	new-users-guide/files.texi \
+	new-users-guide/help.texi \
+	new-users-guide/modes.texi \
+	new-users-guide/new-users-guide.texi \
+	new-users-guide/region.texi \
+	new-users-guide/search.texi \
+	new-users-guide/xmenu.texi
 
-../info/info.info : info.texi
-	-$(MAKEINFO) info.texi -o ../info/info.info
+$(INFODIR)/cl.info : cl.texi
+	$(MAKEINFO) -o $(INFODIR)/cl.info cl.texi
 
-../info/standards.info : standards.texi
-	-$(MAKEINFO) standards.texi -o ../info/standards.info
+$(INFODIR)/custom.info : custom.texi
+	$(MAKEINFO) -o $(INFODIR)/custom.info custom.texi
 
-../info/term.info : term.texi
-	-$(MAKEINFO) term.texi -o ../info/term.info
+$(INFODIR)/emodules.info : emodules.texi
+	$(MAKEINFO) -o $(INFODIR)/emodules.info emodules.texi
 
-../info/termcap.info : termcap.texi
-	-$(MAKEINFO) termcap.texi -o ../info/termcap.info
+$(INFODIR)/external-widget.info : external-widget.texi
+	$(MAKEINFO) -o $(INFODIR)/external-widget.info external-widget.texi
 
-../info/texinfo.info : texinfo.texi
-	-$(MAKEINFO) texinfo.texi -o ../info/texinfo.info
+$(INFODIR)/info.info : info.texi
+	$(MAKEINFO) -o $(INFODIR)/info.info info.texi
 
-../info/widget.info : widget.texi
-	-$(MAKEINFO) widget.texi -o ../info/widget.info
+$(INFODIR)/standards.info : standards.texi
+	$(MAKEINFO) -o $(INFODIR)/standards.info standards.texi
 
-../info/xemacs-faq.info : xemacs-faq.texi
-	-$(MAKEINFO) xemacs-faq.texi -o ../info/xemacs-faq.info
+$(INFODIR)/term.info : term.texi
+	$(MAKEINFO) -o $(INFODIR)/term.info term.texi
 
+$(INFODIR)/termcap.info : termcap.texi
+	$(MAKEINFO) -o $(INFODIR)/termcap.info termcap.texi
 
-# ../info/w3.info : w3.texi
-#	-$(MAKEINFO) w3.texi -o ../info/w3.info
+$(INFODIR)/texinfo.info : texinfo.texi
+	$(MAKEINFO) -o $(INFODIR)/texinfo.info texinfo.texi
 
-# ../info/vm.info : vm.texi
+$(INFODIR)/widget.info : widget.texi
+	$(MAKEINFO) -o $(INFODIR)/widget.info widget.texi
+
+$(INFODIR)/xemacs-faq.info : xemacs-faq.texi
+	$(MAKEINFO) -o $(INFODIR)/xemacs-faq.info xemacs-faq.texi
+
+# Manuals with their own subdirectory
+$(INFODIR)/xemacs.info : $(xemacs-srcs)
+	$(MAKEINFO) -P xemacs -o $(INFODIR)/xemacs.info xemacs/xemacs.texi
+
+$(INFODIR)/lispref.info : $(lispref-srcs)
+	$(MAKEINFO) -P lispref -o $(INFODIR)/lispref.info lispref/lispref.texi
+
+$(INFODIR)/internals.info : $(internals-srcs)
+	$(MAKEINFO) -P internals -o $(INFODIR)/internals.info internals/internals.texi
+
+$(INFODIR)/new-users-guide.info : $(new-users-guide-srcs)
+	$(MAKEINFO) -P new-users-guide -o $(INFODIR)/new-users-guide.info new-users-guide/new-users-guide.texi
+
+# $(INFODIR)/w3.info : w3.texi
+#	$(MAKEINFO) -o $(INFODIR)/w3.info w3.texi
+
+# EMACS = ../src/xemacs
+# EMACSFLAGS = -batch -q -no-site-file
+
+# $(INFODIR)/vm.info : vm.texi
 #	-$(EMACS) $(EMACSFLAGS) -insert vm.texi -l texinfmt \
 #		-f texinfo-format-buffer -f save-buffer
-#	-mv vm.info* ../info
+#	-mv vm.info* $(INFODIR)/.
 
-# special = # ../info/w3.info ../info/vm.info ../info/texinfo.info
+# special = # $(INFODIR)/vm.info $(INFODIR)/texinfo.info
 
-all: info
+xemacs : $(INFODIR)/xemacs.info
+lispref : $(INFODIR)/lispref.info
+internals : $(INFODIR)/internals.info
+new-users-guide.info : $(INFODIR)/new-users-guide.info
 
-# Subdirectories to make recursively.
-SUBDIR = xemacs lispref new-users-guide internals
-.PHONY: $(SUBDIR)
+.PHONY : xemacs lispref internals new-users-guide info dvi
 
 info : $(info_files)
-	-for d in $(SUBDIR) ; do (cd ./$$d && $(RECURSIVE_MAKE) $@) ; done
+
+# tm: FRC.tm
+#	cd ./tm && $(RECURSIVE_MAKE)
+# gnats: FRC.gnats
+#	cd ./gnats && $(RECURSIVE_MAKE)
+# FRC.xemacs FRC.lispref FRC.new-users-guide FRC.internals FRC.tm FRC.gnats:
 
 .PHONY: info dvi
 
-xemacs: FRC.xemacs
-	-cd ./$@ && $(RECURSIVE_MAKE)
-lispref: FRC.lispref
-	-cd ./$@ && $(RECURSIVE_MAKE)
-new-users-guide: FRC.new-users-guide
-	-cd ./$@ && $(RECURSIVE_MAKE)
-internals: FRC.internals
-	-cd ./$@ && $(RECURSIVE_MAKE)
-# tm: FRC.tm
-#	-cd ./$@ && $(RECURSIVE_MAKE)
-# gnats: FRC.gnats
-#	-cd ./$@ && $(RECURSIVE_MAKE)
-# FRC.xemacs FRC.lispref FRC.new-users-guide FRC.internals FRC.tm FRC.gnats:
-FRC.info FRC.dvi FRC.xemacs FRC.lispref FRC.new-users-guide FRC.internals:
-
-
 .texi.dvi:
-	$(TEXI2DVI) $<
+	-$(TEXI2DVI) $<
+
+xemacs.dvi : $(xemacs-srcs)
+	$(TEXI2DVI) -I xemacs xemacs/xemacs.texi
+
+lispref.dvi : $(lispref-srcs)
+	$(TEXI2DVI) -I lispref lispref/lispref.texi
+
+internals.dvi : $(internals-srcs)
+	$(TEXI2DVI) -I internals internals/internals.texi
+
+new-users-guide.dvi : $(new-users-guide-srcs)
+	$(TEXI2DVI) -I new-users-guide new-users-guide/new-users-guide.texi
 
 dvi : $(dvi_files)
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
-
 
 .PHONY: mostlyclean clean distclean realclean extraclean
 mostlyclean:
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
-	rm -f *.toc *.aux *.log *.op \
-	      *.cp *.cps *.fn *.fns *.ky *.kys *.pg *.pgs *.vr *.vrs *.tp *.tps
+	rm -f *.toc *.aux *.log *.op *.cp *.cps *.fn *.fns
+	rm -f *.ky *.kys *.pg *.pgs *.tp *.tps *.vr *.vrs
 clean: mostlyclean
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
-	rm -f *.o core *.dvi
+	rm -f core *.dvi
 distclean: clean
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
 realclean: distclean
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
 extraclean: distclean
-	-for d in $(SUBDIR) ; do (cd ./$${d} && $(RECURSIVE_MAKE) $@) ; done
-	-rm -f *~ \#*
+	rm -f *~ \#* */*~ */\#*

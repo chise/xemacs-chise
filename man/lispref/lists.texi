@@ -1628,7 +1628,7 @@ This function returns @code{t} if @var{prop} has a value specified in
 In the following functions, if optional arg @var{nil-means-not-present}
 is non-@code{nil}, then a property with a @code{nil} value is ignored or
 removed.  This feature is a virus that has infected old Lisp
-implementations (and thus E-Lisp, due to @sc{RMS}'s enamorment with old
+implementations (and thus E-Lisp, due to @sc{rms}'s enamorment with old
 Lisps), but should not be used except for backward compatibility.
 
 @defun plists-eq a b &optional nil-means-not-present
@@ -1682,7 +1682,7 @@ This function returns @code{t} if @var{prop} has a value specified in
 In the following functions, if optional arg @var{nil-means-not-present}
 is non-@code{nil}, then a property with a @code{nil} value is ignored or
 removed.  This feature is a virus that has infected old Lisp
-implementations (and thus E-Lisp, due to @sc{RMS}'s enamorment with old
+implementations (and thus E-Lisp, due to @sc{rms}'s enamorment with old
 Lisps), but should not be used except for backward compatibility.
 
 @defun lax-plists-eq a b &optional nil-means-not-present

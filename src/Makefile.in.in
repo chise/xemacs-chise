@@ -739,5 +739,8 @@ install: ${PROGNAME}
 FRC.depend:
 depend: FRC.depend
 	cd ${srcdir} && $(RM) depend.tmp && \
-	perl make-src-depend > depend.tmp && \
-	$(RM) depend && mv depend.tmp depend
+	perl ./make-src-depend > depend.tmp && \
+	if cmp -s depend depend.tmp; \
+	then $(RM) depend.tmp; \
+	else $(RM) depend && mv depend.tmp depend; \
+	fi

@@ -147,10 +147,10 @@ print_process (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   else
     {
       int netp = network_connection_p (obj);
-      write_c_string (((netp) ? GETTEXT ("#<network connection ") :
+      write_c_string ((netp ? GETTEXT ("#<network connection ") :
 		       GETTEXT ("#<process ")), printcharfun);
       print_internal (proc->name, printcharfun, 1);
-      write_c_string (((netp) ? " " : " pid "), printcharfun);
+      write_c_string ((netp ? " " : " pid "), printcharfun);
       print_internal (proc->pid, printcharfun, 1);
       write_c_string (" state:", printcharfun);
       print_internal (proc->status_symbol, printcharfun, 1);

@@ -2,8 +2,8 @@
 # add-big-package.sh --- Add multiple file package to Package Lisp Hierarchy
 # Copyright (C) 1997 Free Software Foundation, Inc.
 
-# Author:	SL Baur <steve@altair.xemacs.org>
-# Maintainer:	SL Baur <steve@altair.xemacs.org>
+# Author:	SL Baur <steve@xemacs.org>
+# Maintainer:	SL Baur <steve@xemacs.org>
 # Keywords:	packages internal
 
 # This file is part of XEmacs.

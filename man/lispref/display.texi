@@ -874,13 +874,13 @@ Character code 10 is a newline.
 All other codes in the range 0 through 31, and code 127, display in one
 of two ways according to the value of @code{ctl-arrow}.  If it is
 non-@code{nil}, these codes map to sequences of two glyphs, where the
-first glyph is the @sc{ASCII} code for @samp{^}.  (A display table can
+first glyph is the @sc{ascii} code for @samp{^}.  (A display table can
 specify a glyph to use instead of @samp{^}.)  Otherwise, these codes map
 just like the codes in the range 128 to 255.
 
 @item
 Character codes 128 through 255 map to sequences of four glyphs, where
-the first glyph is the @sc{ASCII} code for @samp{\}, and the others are
+the first glyph is the @sc{ascii} code for @samp{\}, and the others are
 digit characters representing the code in octal.  (A display table can
 specify a glyph to use instead of @samp{\}.)
 @end itemize
@@ -921,7 +921,7 @@ stops used by the command @code{tab-to-tab-stop}.  @xref{Indent Tabs}.
 @cindex display table
 You can use the @dfn{display table} feature to control how all 256
 possible character codes display on the screen.  This is useful for
-displaying European languages that have letters not in the @sc{ASCII}
+displaying European languages that have letters not in the @sc{ascii}
 character set.
 
 The display table maps each character code into a sequence of
@@ -1040,9 +1040,9 @@ set, you can arrange to use that character set as follows:
 @end example
 
 If you are editing buffers written in the ISO Latin 1 character set and
-your terminal doesn't handle anything but @sc{ASCII}, you can load the
+your terminal doesn't handle anything but @sc{ascii}, you can load the
 file @file{iso-ascii} to set up a display table that displays the other
-ISO characters as explanatory sequences of @sc{ASCII} characters.  For
+ISO characters as explanatory sequences of @sc{ascii} characters.  For
 example, the character ``o with umlaut'' displays as @samp{@{"o@}}.
 
 Some European countries have terminals that don't support ISO Latin 1

@@ -88,7 +88,9 @@ If set to `symbol', double-click will always attempt to highlight a
 the X cutbuffer.  A mark is pushed, so that the inserted text lies
 between point and mark."
   (interactive)
-  (if (not (console-on-window-system-p))
+  (if (and (not (console-on-window-system-p))
+	   (and (featurep 'gpm)
+		(not gpm-minor-mode)))
       (yank)
     (push-mark)
     (if (region-active-p)

@@ -4839,9 +4839,7 @@ dribble_out_event (Lisp_Object event)
 	{
 	  Emchar ch = XCHAR (keysym);
 	  Bufbyte str[MAX_EMCHAR_LEN];
-	  Bytecount len;
-
-	  len = set_charptr_emchar (str, ch);
+	  Bytecount len = set_charptr_emchar (str, ch);
 	  Lstream_write (XLSTREAM (Vdribble_file), str, len);
 	}
       else if (string_char_length (XSYMBOL (keysym)->name) == 1)

@@ -75,6 +75,13 @@ Emacs*dialog*XmList*Background:		WhiteSmoke
 ! While this one is for Athena dialog boxes.
 Emacs*dialog*Command*Background:	WhiteSmoke
 
+! Athena dialog boxes are sometimes built with the Xaw3d
+! variant of the Athena toolkit.
+! XEmacs being nice to 8bit displays, it defaults to:
+Emacs*dialog*Command*beNiceToColormap:	true
+! If you are shocked by the ugliness of the 3d rendition,
+! you may want to set (even on 8bit displays) the above to false.
+
 ! Xlw Scrollbar colors
 Emacs*XlwScrollBar.Foreground:		Gray30
 Emacs*XlwScrollBar.Background:		Gray75

@@ -44,7 +44,7 @@
 ;;	(b) ",.foo" is the same as ". ,foo"
 ;;	(c) because RMS isn't interested in using this version of backquote.el
 ;;
-;; wing@666.com; added ,. support back in:
+;; ben@xemacs.org added ,. support back in:
 ;;     (a) yes, it is in CLtl2.  Read closely on page 529.
 ;;     (b) RMS in 19.30 adds C support for ,. even if it's not really
 ;;         handled.

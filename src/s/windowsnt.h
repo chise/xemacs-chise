@@ -281,10 +281,15 @@ int kill (int pid, int sig);
 
 #endif /* 0 */
 
+typedef int uid_t;
+typedef int gid_t;
+typedef int pid_t;
+typedef int ssize_t;
+
 /* Encapsulation of system calls */
 #ifndef DONT_ENCAPSULATE
 #define getpid sys_getpid
-int getpid (void);
+pid_t getpid (void);
 #endif
 
 /* Random global functions called everywhere. Implemented in nt.c */
@@ -299,12 +304,12 @@ char *getwd (char *dir);
 void *sbrk (unsigned long increment);
 
 struct passwd;
-struct passwd *getpwuid (int uid);
+struct passwd *getpwuid (uid_t uid);
 struct passwd *getpwnam (const char *name);
-int getuid ();
-int geteuid ();
-int getgid (void);
-int getegid ();
+uid_t getuid (void);
+uid_t geteuid (void);
+gid_t getgid (void);
+gid_t getegid (void);
 
 /* Setitimer is emulated */
 #define HAVE_SETITIMER

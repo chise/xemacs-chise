@@ -45,8 +45,8 @@ determined only by how it is used.  @xref{Character Type}.
   The length of a string (like any array) is fixed and independent of
 the string contents, and cannot be altered.  Strings in Lisp are
 @emph{not} terminated by a distinguished character code.  (By contrast,
-strings in C are terminated by a character with @sc{ASCII} code 0.)
-This means that any character, including the null character (@sc{ASCII}
+strings in C are terminated by a character with @sc{ascii} code 0.)
+This means that any character, including the null character (@sc{ascii}
 code 0), is a valid element of a string.@refill
 
   Since strings are considered arrays, you can operate on them with the
@@ -321,15 +321,15 @@ the range 0 - 255 map to characters as follows:
 @item 0 - 31
 Control set 0
 @item 32 - 127
-@sc{ASCII}
+@sc{ascii}
 @item 128 - 159
 Control set 1
 @item 160 - 255
 Right half of ISO-8859-1
 @end table
 
-If support for @sc{MULE} does not exist, these are the only valid
-character values.  When @sc{MULE} support exists, the values assigned to
+If support for @sc{mule} does not exist, these are the only valid
+character values.  When @sc{mule} support exists, the values assigned to
 other characters may vary depending on the particular version of XEmacs,
 the order in which character sets were loaded, etc., and you should not
 depend on them.
@@ -427,9 +427,9 @@ function returns @code{t}.  If the lesser character is the one from
 @var{string2}, then @var{string1} is greater, and this function returns
 @code{nil}.  If the two strings match entirely, the value is @code{nil}.
 
-Pairs of characters are compared by their @sc{ASCII} codes.  Keep in
+Pairs of characters are compared by their @sc{ascii} codes.  Keep in
 mind that lower case letters have higher numeric values in the
-@sc{ASCII} character set than their upper case counterparts; numbers and
+@sc{ascii} character set than their upper case counterparts; numbers and
 many punctuation characters have a lower numeric value than upper case
 letters.
 
@@ -515,7 +515,7 @@ of 1.  (@xref{Creating Strings}.)  This conversion can also be done with
   This function returns the first character in @var{string}.  If the
 string is empty, the function returns 0. (Under XEmacs 19, the value is
 also 0 when the first character of @var{string} is the null character,
-@sc{ASCII} code 0.)
+@sc{ascii} code 0.)
 
 @example
 (string-to-char "ABC")
@@ -910,7 +910,7 @@ characters (the letters @samp{A} through @samp{Z} and @samp{a} through
 modify the strings that are passed to them as arguments.
 
   The examples below use the characters @samp{X} and @samp{x} which have
-@sc{ASCII} codes 88 and 120 respectively.
+@sc{ascii} codes 88 and 120 respectively.
 
 @defun downcase string-or-char
 This function converts a character or a string to lower case.
@@ -995,7 +995,7 @@ table}.  A case table specifies the mapping between upper case and lower
 case letters.  It affects both the string and character case conversion
 functions (see the previous section) and those that apply to text in the
 buffer (@pxref{Case Changes}).  You need a case table if you are using a
-language which has letters other than the standard @sc{ASCII} letters.
+language which has letters other than the standard @sc{ascii} letters.
 
   A case table is a list of this form:
 
@@ -1022,7 +1022,7 @@ the same canonical equivalent character.
 
   The element @var{equivalences} is a map that cyclicly permutes each
 equivalence class (of characters with the same canonical equivalent).
-(For ordinary @sc{ASCII}, this would map @samp{a} into @samp{A} and
+(For ordinary @sc{ascii}, this would map @samp{a} into @samp{A} and
 @samp{A} into @samp{a}, and likewise for each set of equivalent
 characters.)
 
@@ -1063,7 +1063,7 @@ This sets the current buffer's case table to @var{table}.
 @end defun
 
   The following three functions are convenient subroutines for packages
-that define non-@sc{ASCII} character sets.  They modify a string
+that define non-@sc{ascii} character sets.  They modify a string
 @var{downcase-table} provided as an argument; this should be a string to
 be used as the @var{downcase} part of a case table.  They also modify
 the standard syntax table.  @xref{Syntax Tables}.
@@ -1109,7 +1109,7 @@ Note that char tables as a primitive type, and all of the functions in
 this section, exist only in XEmacs 20.  In XEmacs 19, char tables are
 generally implemented using a vector of 256 elements.
 
-When @sc{MULE} support exists, the types of ranges that can be assigned
+When @sc{mule} support exists, the types of ranges that can be assigned
 values are
 
 @itemize @bullet
@@ -1123,7 +1123,7 @@ a single row in a two-octet charset
 a single character
 @end itemize
 
-When @sc{MULE} support is not present, the types of ranges that can be
+When @sc{mule} support is not present, the types of ranges that can be
 assigned values are
 
 @itemize @bullet
@@ -1154,7 +1154,7 @@ Used for category tables, which specify the regexp categories
 that a character is in.  The valid values are @code{nil} or a
 bit vector of 95 elements.  Higher-level Lisp functions are
 provided for working with category tables.  Currently categories
-and category tables only exist when @sc{MULE} support is present.
+and category tables only exist when @sc{mule} support is present.
 @item char
 A generalized char table, for mapping from one character to
 another.  Used for case tables, syntax matching tables,
@@ -1203,10 +1203,10 @@ one of the following:
 @item
 @code{t} (all characters are affected)
 @item
-A charset (only allowed when @sc{MULE} support is present)
+A charset (only allowed when @sc{mule} support is present)
 @item
 A vector of two elements: a two-octet charset and a row number
-(only allowed when @sc{MULE} support is present)
+(only allowed when @sc{mule} support is present)
 @item
 A single character
 @end itemize

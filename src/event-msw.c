@@ -89,7 +89,7 @@ typedef NMHDR *LPNMHDR;
 /* Timer ID used for button2 emulation */
 #define BUTTON_2_TIMER_ID 1
 
-extern Lisp_Object 
+extern Lisp_Object
 mswindows_get_toolbar_button_text (struct frame* f, int command_id);
 extern Lisp_Object
 mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
@@ -199,7 +199,7 @@ struct ntpipe_slurp_stream_shared_data
 };
 
 #define MAX_SLURP_STREAMS 32
-struct ntpipe_slurp_stream_shared_data 
+struct ntpipe_slurp_stream_shared_data
 shared_data_block[MAX_SLURP_STREAMS]={{0}};
 
 struct ntpipe_slurp_stream
@@ -271,7 +271,7 @@ slurp_thread (LPVOID vparam)
 
       /* Now we got something to notify caller, either a byte or an
 	 error/eof indication. Before we do, allow internal pipe
-	 buffer to accumulate little bit more data. 
+	 buffer to accumulate little bit more data.
 	 Reader function pulses this event before waiting for
 	 a character, to avoid pipe delay, and to get the byte
 	 immediately. */
@@ -360,11 +360,11 @@ get_ntpipe_input_stream_waitable (Lstream *stream)
   return s->thread_data->hev_caller;
 }
 
-static int 
+static ssize_t
 ntpipe_slurp_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   /* This function must be called from the main thread only */
-  struct ntpipe_slurp_stream_shared_data* s = 
+  struct ntpipe_slurp_stream_shared_data* s =
     NTPIPE_SLURP_STREAM_DATA(stream)->thread_data;
 
   if (!s->die_p)
@@ -373,7 +373,7 @@ ntpipe_slurp_reader (Lstream *stream, unsigned char *data, size_t size)
       /* Disallow pipe read delay for the thread: we need a character
          ASAP */
       SetEvent (s->hev_unsleep);
-  
+
       /* Check if we have a character ready. Give it a short delay,
 	 for the thread to awake from pipe delay, just ion case*/
       wait_result = WaitForSingleObject (s->hev_caller, 2);
@@ -424,7 +424,7 @@ ntpipe_slurp_reader (Lstream *stream, unsigned char *data, size_t size)
 	      ReadFile (s->hpipe, data, min (bytes_available, size),
 			&bytes_read, NULL);
 	  }
-      
+
 	/* Now we can unblock thread, so it attempts to read more */
 	SetEvent (s->hev_thread);
 	return bytes_read + 1;
@@ -433,11 +433,11 @@ ntpipe_slurp_reader (Lstream *stream, unsigned char *data, size_t size)
   return 0;
 }
 
-static int 
+static int
 ntpipe_slurp_closer (Lstream *stream)
 {
   /* This function must be called from the main thread only */
-  struct ntpipe_slurp_stream_shared_data* s = 
+  struct ntpipe_slurp_stream_shared_data* s =
     NTPIPE_SLURP_STREAM_DATA(stream)->thread_data;
 
   /* Force thread to stop */
@@ -469,7 +469,7 @@ init_slurp_stream (void)
   LSTREAM_TYPE_DATA (stream, ntpipe_shove)
 
 #define MAX_SHOVE_BUFFER_SIZE 128
-     
+
 struct ntpipe_shove_stream
 {
   LPARAM user_data;	/* Any user data stored in the stream object	 */
@@ -496,7 +496,7 @@ shove_thread (LPVOID vparam)
 
   for (;;)
     {
-      DWORD bytes_written; 
+      DWORD bytes_written;
 
       /* Block on event and wait for a job */
       InterlockedIncrement (&s->idle_p);
@@ -533,7 +533,7 @@ make_ntpipe_output_stream (HANDLE hpipe, LPARAM param)
   s->hpipe = hpipe;
   s->user_data = param;
 
-  /* Create reader thread. This could fail, so do not 
+  /* Create reader thread. This could fail, so do not
      create the event until thread is created */
   s->hthread = CreateThread (NULL, 0, shove_thread, (LPVOID)s,
 			     CREATE_SUSPENDED, &thread_id_unused);
@@ -562,7 +562,7 @@ get_ntpipe_output_stream_param (Lstream *stream)
 }
 #endif
 
-static int
+static ssize_t
 ntpipe_shove_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct ntpipe_shove_stream* s = NTPIPE_SHOVE_STREAM_DATA(stream);
@@ -671,7 +671,7 @@ winsock_initiate_read (struct winsock_stream *str)
     str->eof_p = 1;
 }
 
-static int
+static ssize_t
 winsock_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
@@ -704,7 +704,7 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
     return 0;
   if (str->error_p)
     return -1;
-  
+
   /* Return as much of buffer as we have */
   size = min (size, (size_t) (str->bufsize - str->bufpos));
   memcpy (data, (void*)((BYTE*)str->buffer + str->bufpos), size);
@@ -717,7 +717,7 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
   return size;
 }
 
-static int
+static ssize_t
 winsock_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
@@ -745,7 +745,7 @@ winsock_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 
   if (size == 0)
     return 0;
-  
+
   {
     ResetEvent (str->ov.hEvent);
 
@@ -867,7 +867,7 @@ mswindows_user_event_p (struct Lisp_Event* sevt)
 	  || sevt->event_type == misc_user_event);
 }
 
-/* 
+/*
  * Add an emacs event to the proper dispatch queue
  */
 static void
@@ -875,7 +875,7 @@ mswindows_enqueue_dispatch_event (Lisp_Object event)
 {
   int user_p = mswindows_user_event_p (XEVENT(event));
   enqueue_event (event,
-		 user_p ? &mswindows_u_dispatch_event_queue : 
+		 user_p ? &mswindows_u_dispatch_event_queue :
 		 	&mswindows_s_dispatch_event_queue,
 		 user_p ? &mswindows_u_dispatch_event_queue_tail :
 		 	&mswindows_s_dispatch_event_queue_tail);
@@ -953,7 +953,7 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT message, POINTS where, DWO
   event->event.button.x = where.x;
   event->event.button.y = where.y;
   event->event.button.modifiers = mswindows_modifier_state (NULL, 0);
-      
+
   if (message==WM_LBUTTONDOWN || message==WM_MBUTTONDOWN ||
       message==WM_RBUTTONDOWN)
     {
@@ -972,7 +972,7 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT message, POINTS where, DWO
       event->event_type = button_release_event;
       ReleaseCapture ();
     }
-  
+
   mswindows_enqueue_dispatch_event (emacs_event);
 }
 
@@ -1004,10 +1004,10 @@ mswindows_dequeue_dispatch_event ()
 	  !NILP(mswindows_s_dispatch_event_queue));
 
   event = dequeue_event (
-		 NILP(mswindows_u_dispatch_event_queue) ? 
-			 &mswindows_s_dispatch_event_queue : 
+		 NILP(mswindows_u_dispatch_event_queue) ?
+			 &mswindows_s_dispatch_event_queue :
 			 &mswindows_u_dispatch_event_queue,
-		 NILP(mswindows_u_dispatch_event_queue) ? 
+		 NILP(mswindows_u_dispatch_event_queue) ?
 			 &mswindows_s_dispatch_event_queue_tail :
 			 &mswindows_u_dispatch_event_queue_tail);
 
@@ -1037,9 +1037,9 @@ mswindows_cancel_dispatch_event (struct Lisp_Event *match)
   Lisp_Object event;
   Lisp_Object previous_event = Qnil;
   int user_p = mswindows_user_event_p (match);
-  Lisp_Object* head = user_p ? &mswindows_u_dispatch_event_queue : 
+  Lisp_Object* head = user_p ? &mswindows_u_dispatch_event_queue :
     			       &mswindows_s_dispatch_event_queue;
-  Lisp_Object* tail = user_p ? &mswindows_u_dispatch_event_queue_tail : 
+  Lisp_Object* tail = user_p ? &mswindows_u_dispatch_event_queue_tail :
     			       &mswindows_s_dispatch_event_queue_tail;
 
   assert (match->event_type == timeout_event
@@ -1062,7 +1062,7 @@ mswindows_cancel_dispatch_event (struct Lisp_Event *match)
 	      if (EQ (*tail, event))
 		*tail = previous_event;
 	    }
-	  
+
 	  return event;
 	}
       previous_event = event;
@@ -1103,7 +1103,7 @@ remove_waitable_handle (HANDLE h)
   if (ix < 0)
     return;
 
-  mswindows_waitable_handles [ix] = 
+  mswindows_waitable_handles [ix] =
     mswindows_waitable_handles [--mswindows_waitable_count];
 }
 #endif /* HAVE_MSG_SELECT */
@@ -1127,7 +1127,7 @@ mswindows_protect_modal_loop (Lisp_Object (*bfun) (Lisp_Object barg),
 {
   Lisp_Object tmp;
 
-  ++mswindows_in_modal_loop; 
+  ++mswindows_in_modal_loop;
   tmp = condition_case_1 (Qt,
 			  bfun, barg,
 			  mswindows_modal_loop_error_handler, Qnil);
@@ -1151,7 +1151,7 @@ mswindows_unmodalize_signal_maybe (void)
 }
 
 /*
- * This is an unsafe part of event pump, guarded by 
+ * This is an unsafe part of event pump, guarded by
  * condition_case. See mswindows_pump_outstanding_events
  */
 static Lisp_Object
@@ -1175,7 +1175,7 @@ mswindows_unsafe_pump_events (Lisp_Object u_n_u_s_e_d)
 
   Fdeallocate_event (event);
   UNGCPRO;
-  
+
   /* Qt becomes return value of mswindows_pump_outstanding_events
      once we get here */
   return Qt;
@@ -1223,14 +1223,14 @@ mswindows_pump_outstanding_events (void)
   Lisp_Object result = Qt;
   struct gcpro gcpro1;
   GCPRO1 (result);
-  
+
   if (NILP(mswindows_error_caught_in_modal_loop))
       result = mswindows_protect_modal_loop (mswindows_unsafe_pump_events, Qnil);
   UNGCPRO;
   return result;
 }
 
-static void 
+static void
 mswindows_drain_windows_queue ()
 {
   MSG msg;
@@ -1249,7 +1249,7 @@ mswindows_drain_windows_queue ()
     }
 }
 
-/* 
+/*
  * This is a special flavor of the mswindows_need_event function,
  * used while in event pump. Actually, there is only kind of events
  * allowed while in event pump: a timer.  An attempt to fetch any
@@ -1282,7 +1282,7 @@ mswindows_need_event_in_modal_loop (int badly_p)
       /* We'll deadlock if go waiting */
       if (mswindows_pending_timers_count == 0)
 	error ("Deadlock due to an attempt to call next-event in a wrong context");
-      
+
       /* Fetch and dispatch any pending timers */
       GetMessage (&msg, NULL, WM_TIMER, WM_TIMER);
       DispatchMessage (&msg);
@@ -1319,7 +1319,7 @@ mswindows_need_event (int badly_p)
       SELECT_TYPE temp_mask = input_wait_mask;
       EMACS_TIME sometime;
       EMACS_SELECT_TIME select_time_to_block, *pointer_to_this;
-      
+
       if (badly_p)
  	pointer_to_this = 0;
       else
@@ -1330,7 +1330,7 @@ mswindows_need_event (int badly_p)
 	}
 
       active = select (MAXDESC, &temp_mask, 0, 0, pointer_to_this);
-      
+
       if (active == 0)
 	{
 	  assert (!badly_p);
@@ -1342,7 +1342,7 @@ mswindows_need_event (int badly_p)
 	    {
 	      mswindows_drain_windows_queue ();
 	    }
-#ifdef HAVE_TTY	  
+#ifdef HAVE_TTY
 	  /* Look for a TTY event */
 	  for (i = 0; i < MAXDESC-1; i++)
 	    {
@@ -1354,7 +1354,7 @@ mswindows_need_event (int badly_p)
 		  struct console *c = tty_find_console_from_fd (i);
 		  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
 		  struct Lisp_Event* event = XEVENT (emacs_event);
-		  
+
 		  assert (c);
 		  if (read_event_from_tty_or_stream_desc (event, c, i))
 		    {
@@ -1373,7 +1373,7 @@ mswindows_need_event (int badly_p)
 		    {
 		      struct Lisp_Process *p =
 			get_process_from_usid (FD_TO_USID(i));
-		      
+
 		      mswindows_enqueue_process_event (p);
 		    }
 		  else
@@ -1412,7 +1412,7 @@ mswindows_need_event (int badly_p)
     assert ((!badly_p && active == WAIT_TIMEOUT) ||
 	    (active >= WAIT_OBJECT_0 &&
 	     active <= WAIT_OBJECT_0 + mswindows_waitable_count));
-    
+
     if (active == WAIT_TIMEOUT)
       {
 	/* No luck trying - just return what we've already got */
@@ -1427,7 +1427,7 @@ mswindows_need_event (int badly_p)
       {
 	int ix = active - WAIT_OBJECT_0;
 	/* First, try to find which process' output has signaled */
-	struct Lisp_Process *p = 
+	struct Lisp_Process *p =
 	  get_process_from_usid (HANDLE_TO_USID (mswindows_waitable_handles[ix]));
 	if (p != NULL)
 	  {
@@ -1455,7 +1455,7 @@ mswindows_need_event (int badly_p)
 /*                           Event generators                           */
 /************************************************************************/
 
-/* 
+/*
  * Callback procedure for synchronous timer messages
  */
 static void CALLBACK
@@ -1477,7 +1477,7 @@ mswindows_wm_timer_callback (HWND hwnd, UINT umsg, UINT id_timer, DWORD dwtime)
   mswindows_enqueue_dispatch_event (emacs_event);
 }
 
-/* 
+/*
  * Callback procedure for dde messages
  *
  * We execute a dde Open("file") by simulating a file drop, so dde support
@@ -1488,9 +1488,9 @@ HDDEDATA CALLBACK
 mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 			HSZ hszTopic, HSZ hszItem, HDDEDATA hdata,
 			DWORD dwData1, DWORD dwData2)
-{ 
+{
   switch (uType)
-    { 
+    {
     case XTYP_CONNECT:
       if (!DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system))
 	return (HDDEDATA)TRUE;
@@ -1507,7 +1507,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  return (DdeCreateDataHandle (mswindows_dde_mlid, (LPBYTE)pairs,
 				       sizeof (pairs), 0L, 0, uFmt, 0));
       }
-      return (HDDEDATA)NULL; 
+      return (HDDEDATA)NULL;
 
     case XTYP_EXECUTE:
       if (!DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system))
@@ -1588,12 +1588,12 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  UNGCPRO;
 	  return (HDDEDATA) DDE_FACK;
 	}
-      DdeFreeDataHandle (hdata); 
+      DdeFreeDataHandle (hdata);
       return (HDDEDATA) DDE_FNOTPROCESSED;
 
-    default: 
-      return (HDDEDATA) NULL; 
-    } 
+    default:
+      return (HDDEDATA) NULL;
+    }
 }
 #endif
 
@@ -1677,7 +1677,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  BYTE keymap_orig[256];
 	  POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
 	  MSG msg;
-	  
+
 	  msg.hwnd = hwnd;
 	  msg.message = message;
 	  msg.wParam = wParam;
@@ -1750,7 +1750,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     mswindows_enqueue_mouse_button_event (hwnd, message,
 					  MAKEPOINTS (lParam), GetMessageTime());
     break;
-    
+
   case WM_LBUTTONUP:
     msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
     msframe->last_click_time =  GetMessageTime();
@@ -1872,7 +1872,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       }
     msframe->last_click_time =  GetMessageTime();
     break;
-	
+
   case WM_TIMER:
     if (wParam == BUTTON_2_TIMER_ID)
       {
@@ -1921,7 +1921,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       event->event.motion.x = MAKEPOINTS(lParam).x;
       event->event.motion.y = MAKEPOINTS(lParam).y;
       event->event.motion.modifiers = mswindows_modifier_state (NULL, 0);
-      
+
       mswindows_enqueue_dispatch_event (emacs_event);
     }
     break;
@@ -1946,9 +1946,9 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	  /* find out which toolbar */
 	  frame = XFRAME (mswindows_find_frame (hwnd));
-	  btext = mswindows_get_toolbar_button_text ( frame, 
+	  btext = mswindows_get_toolbar_button_text ( frame,
 						      nmhdr->idFrom );
-	  
+
 	  tttext->lpszText = NULL;
 	  tttext->hinst = NULL;
 
@@ -1956,7 +1956,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    {
 	      /* I think this is safe since the text will only go away
                  when the toolbar does...*/
-	      GET_C_STRING_EXT_DATA_ALLOCA (btext, FORMAT_OS, 
+	      GET_C_STRING_EXT_DATA_ALLOCA (btext, FORMAT_OS,
 					    tttext->lpszText);
 	    }
 #endif
@@ -1978,12 +1978,12 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  item.mask = TCIF_PARAM;
 	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)index,
 		       (LPARAM)&item);
-	  
+
 	  mswindows_handle_gui_wm_command (frame, 0, item.lParam);
 	}
     }
     break;
-    
+
   case WM_PAINT:
     {
       /* According to the docs we need to check GetUpdateRect() before
@@ -1994,7 +1994,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  int x, y, width, height;
 
 	  frame = XFRAME (mswindows_find_frame (hwnd));
-	  
+
 	  BeginPaint (hwnd, &paintStruct);
 	  x = paintStruct.rcPaint.left;
 	  y = paintStruct.rcPaint.top;
@@ -2057,8 +2057,8 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  if (FRAME_MSWINDOWS_TARGET_RECT (frame))
 	    {
 	      /* Yes, we have to size again */
-	      mswindows_size_frame_internal ( frame, 
-					      FRAME_MSWINDOWS_TARGET_RECT 
+	      mswindows_size_frame_internal ( frame,
+					      FRAME_MSWINDOWS_TARGET_RECT
 					      (frame));
 	      /* Reset so we do not get here again. The SetWindowPos call in
 	       * mswindows_size_frame_internal can cause recursion here. */
@@ -2073,7 +2073,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	      if (!msframe->sizing && !FRAME_VISIBLE_P (frame))
 		mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
 	      FRAME_VISIBLE_P (frame) = 1;
-	      
+
 	      if (!msframe->sizing || mswindows_dynamic_frame_resize)
 		redisplay ();
 	    }
@@ -2164,7 +2164,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  SendMessage (hwndScrollBar, WM_CANCELMODE, 0, 0);
 	}
       UNGCPRO;
-      break;     
+      break;
     }
 
   case WM_MOUSEWHEEL:
@@ -2181,7 +2181,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
       else
 	goto defproc;
-      break;     
+      break;
     }
 #endif
 
@@ -2255,7 +2255,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  Lisp_Object image_instance;
 	  VOID_TO_LISP (image_instance, ii);
 	  if (IMAGE_INSTANCEP (image_instance)
-	      && 
+	      &&
 	      IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET)
 	      &&
 	      !NILP (XIMAGE_INSTANCE_WIDGET_FACE (image_instance)))
@@ -2266,27 +2266,27 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 		  if (widget_brush)
 		    DeleteObject (widget_brush);
-		  widget_brush = CreateSolidBrush 
-		    (COLOR_INSTANCE_MSWINDOWS_COLOR 
-		     (XCOLOR_INSTANCE 
-		      (FACE_BACKGROUND 
+		  widget_brush = CreateSolidBrush
+		    (COLOR_INSTANCE_MSWINDOWS_COLOR
+		     (XCOLOR_INSTANCE
+		      (FACE_BACKGROUND
 		       (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
 			XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
 		}
 	      last_widget_brushed = ii;
 	      SetTextColor
 		(hdc,
-		 COLOR_INSTANCE_MSWINDOWS_COLOR 
-		 (XCOLOR_INSTANCE 
-		  (FACE_FOREGROUND 
+		 COLOR_INSTANCE_MSWINDOWS_COLOR
+		 (XCOLOR_INSTANCE
+		  (FACE_FOREGROUND
 		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
 		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
 	      SetBkMode (hdc, OPAQUE);
 	      SetBkColor
 		(hdc,
-		 COLOR_INSTANCE_MSWINDOWS_COLOR 
-		 (XCOLOR_INSTANCE 
-		  (FACE_BACKGROUND 
+		 COLOR_INSTANCE_MSWINDOWS_COLOR
+		 (XCOLOR_INSTANCE
+		  (FACE_BACKGROUND
 		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
 		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
 	      return (LRESULT)widget_brush;
@@ -2667,7 +2667,7 @@ emacs_mswindows_handle_magic_event (struct Lisp_Event *emacs_event)
     {
     case XM_BUMPQUEUE:
       break;
-    
+
     case WM_SETFOCUS:
     case WM_KILLFOCUS:
       {
@@ -2695,13 +2695,13 @@ emacs_mswindows_handle_magic_event (struct Lisp_Event *emacs_event)
     case XM_UNMAPFRAME:
       {
 	Lisp_Object frame = EVENT_CHANNEL (emacs_event);
-	va_run_hook_with_args (EVENT_MSWINDOWS_MAGIC_TYPE(emacs_event) 
+	va_run_hook_with_args (EVENT_MSWINDOWS_MAGIC_TYPE(emacs_event)
 			       == XM_MAPFRAME ?
-			       Qmap_frame_hook : Qunmap_frame_hook, 
+			       Qmap_frame_hook : Qunmap_frame_hook,
 			       1, frame);
       }
       break;
-			    
+
       /* #### What about Enter & Leave */
 #if 0
       va_run_hook_with_args (in_p ? Qmouse_enter_frame_hook :
@@ -2969,9 +2969,9 @@ reinit_vars_of_event_mswindows (void)
   mswindows_event_stream->select_console_cb 	= emacs_mswindows_select_console;
   mswindows_event_stream->unselect_console_cb	= emacs_mswindows_unselect_console;
 #ifdef HAVE_MSG_SELECT
-  mswindows_event_stream->select_process_cb 	= 
+  mswindows_event_stream->select_process_cb 	=
     (void (*)(struct Lisp_Process*))event_stream_unixoid_select_process;
-  mswindows_event_stream->unselect_process_cb	= 
+  mswindows_event_stream->unselect_process_cb	=
     (void (*)(struct Lisp_Process*))event_stream_unixoid_unselect_process;
   mswindows_event_stream->create_stream_pair_cb = event_stream_unixoid_create_stream_pair;
   mswindows_event_stream->delete_stream_pair_cb = event_stream_unixoid_delete_stream_pair;

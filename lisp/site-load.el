@@ -1,7 +1,7 @@
 ;;; site-load.el --- Template file for site-wide XEmacs customization
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
 
-;; Author: Steven L. Baur <steve@altair.xemacs.org>
+;; Author: Steven L. Baur <steve@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.

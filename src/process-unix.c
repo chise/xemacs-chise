@@ -1142,7 +1142,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 
       while (1)
 	{
-	  int writeret;
+	  ssize_t writeret;
 
 	  chunklen = Lstream_read (lstream, chunkbuf, 512);
 	  if (chunklen <= 0)
