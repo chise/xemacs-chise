@@ -18,6 +18,15 @@
     (ucs		. #x4E00)	; ä¸€
     ))
 (define-char
+  '((=>ucs		. #x4E00)	; ä¸€
+    (morohashi-daikanwa	1 0 9)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (ideograph-gt-pj-k1 . #x3034)	; ý¡„€€‚
+    (ideograph-gt-k	. 00002)	; ý¡„€€‚
+    ))
+(define-char
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
@@ -264,6 +273,7 @@
     (ideograph-daikanwa		. 00011)	; ø¸€€‹
     (ideograph-gt-k		. 00189)	; ý¡„€‚½
     (china3-jef			. #x41A5)	; øº„†¥
+    (ucs-big5			. #x4E08)	; ø»‚§«
     (ideograph-gt		. 00018)	; ý¡€€€’
     ))
 (define-char
@@ -576,6 +586,7 @@
     (ideograph-daikanwa . 00023)	; ø¸€€—
     (ideograph-gt-k	. 00398)	; ý¡„€†Ž
     (ucs-jis		. #x4E11)	; ø½Šª
+    (ucs-big5		. #x4E11)	; ø½Šª
     (ideograph-gt	. 00033)	; ý¡€€€¡
     ))
 (define-char
@@ -714,10 +725,13 @@
     ))
 (define-char
   '((=>ucs		. #x5187)	; å†‡
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 3)
+    (ideographic-	(:radical	1 ; â¼€
+			 :strokes	3
+			 :sources	(cns-11643))
+			(:radical	13 ; â¼Œ
+			 :strokes	2
+			 :sources	(ucs)))
     (total-strokes	 . 4)
-    (hanyu-dazidian	1 96 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (ucs		  . #x2FF8)	; â¿¸
@@ -728,7 +742,7 @@
       (ucs		  . #x2E86)	; âº†
       ))
     (chinese-cns11643-2 . #x212E)	; ø»“Œ­
-    (chinese-big5	. #xC94E)	; ý¢€Œ¥Ž
+    (ucs-cns		. #x5187)	; ø»“Œ­
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -866,6 +880,7 @@
      ((ucs		  . #x4E00)	; ä¸€
       ))
     (chinese-cns11643-4 . #x2155)	; ø»—¡œ
+    (ucs-cns		. #x4E17)	; ø»—¡œ
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -1333,6 +1348,7 @@
      ((ucs		  . #x4E00)	; ä¸€
       ))
     (chinese-cns11643-3 . #x2262)	; ø»•™ƒ
+    (ucs-cns		. #x4E20)	; ø»•™ƒ
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -1900,11 +1916,10 @@
       (ideograph-daikanwa . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((ideographic-radical . 198)	; â¿…
+     (:char	((ideographic-radical . 198)	; â¿…
 		 (ideograph-daikanwa . 47663)	; ø¸‹¨¯
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -1944,6 +1959,7 @@
     (chinese-cns11643-3 . #x2740)	; ø»•Ÿ·
     (ideograph-gt-pj-2	. #x3071)	; ý¡€€‚‘
     (ideograph-daikanwa . 00104)	; ø¸€¨
+    (ucs-cns		. #x4E3D)	; ø»•Ÿ·
     (ideograph-gt	. 00145)	; ý¡€€‚‘
     ))
 (define-char
