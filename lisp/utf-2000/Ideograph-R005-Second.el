@@ -193,6 +193,7 @@
     (chinese-isoir165		. #x5232)	; ø»¶£
     (japanese-jisx0208-1990	. #x4C69)	; ø½Š¶Ž
     (ideograph-gt-pj-1		. #x4C69)	; ý¡€€ƒ§
+    (chinese-big5		. #xA45D)	; øºŸ¢´
     (ideograph-daikanwa		. 00171)	; ø¸€‚«
     (ideograph-gt		. 00231)	; ý¡€€ƒ§
     (mojikyo			. 000171)	; ý €€‚«
@@ -205,7 +206,6 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (chinese-cns11643-1 . #x443E)	; ø»‘¶“
-    (chinese-big5	. #xA45D)	; øºŸ¢´
     ))
 (define-char
   '((ideographic-radical . 5)	; â¼„
