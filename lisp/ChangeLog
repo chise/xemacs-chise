@@ -1,3 +1,8 @@
+1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* version.el (emacs-version): Add more space just before UTF-2000
+	version string.
+
 1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* version.el ([constant] emacs-version): Don't add a space in the
