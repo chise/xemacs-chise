@@ -38,6 +38,10 @@
 
 2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* maps-conf.el: Read C4-to-UCS.txt.
+
+2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* dumped-chars.el (system-char-db-source-file-list): Delete
 	"read-maps" and "ad-hoc-cdp".
 
