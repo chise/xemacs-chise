@@ -5550,9 +5550,7 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((korean-ksc5601		  . #x544D)	; ø»‰¥²
-      (japanese-jisx0213-1	  . #x7951)	; ø»¤”¼
-      (ideograph-daikanwa	  . 25439)	; ø¸†Ÿ
+     ((ucs		  . #xFA55)	; ï©•
       ))
     (ideograph-daikanwa . 05235)	; ø¸‘³
     (ideograph-cbeta	. 02027)	; ø¸ Ÿ«
@@ -7790,9 +7788,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601		  . #x7566)	; ø»Š–©
-      (japanese-jisx0213-1	  . #x793B)	; ø»¤”¦
-      (ideograph-daikanwa	  . 24672)	; ø¸† 
+     ((ucs		  . #xFA51)	; ï©‘
       )
      ((ucs		  . #x571F)	; åœŸ
       ))

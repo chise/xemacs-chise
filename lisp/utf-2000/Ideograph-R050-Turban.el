@@ -5238,8 +5238,7 @@
       )
      ((ucs		  . #x5DFE)	; å·¾
       )
-     ((korean-ksc5601		  . #x6F3D)	; ø»ŠŒ
-      (japanese-jisx0213-1	  . #x7964)	; ø»¤•
+     ((ucs		  . #xFA56)	; ï©–
       ))
     (chinese-big5	. #xE96E)	; ý¢€Ž¥®
     ))
