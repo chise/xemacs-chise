@@ -120,31 +120,61 @@
     nil)))
 
 (defvar char-db-coded-charset-priority-list
-  (let ((rest default-coded-charset-priority-list)
-	dest)
-    (while rest
-      (when (symbolp (car rest))
-	(cond ((memq (car rest)
-		     '(latin-viscii-lower
-		       latin-viscii-upper
-		       ipa
-		       lao
-		       ethiopic
-		       arabic-digit
-		       arabic-1-column
-		       arabic-2-column)))
-	      ((string-match "^ideograph-cbeta" (symbol-name (car rest))))
-	      ((string-match "^china3-jef" (symbol-name (car rest))))
-	      ((string-match "^chinese-big5" (symbol-name (car rest))))
-	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
-	       (unless (memq '=gt dest)
-		 (setq dest (cons '=gt dest))))
-	      (t
-	       (setq dest (cons (car rest) dest)))))
-      (setq rest (cdr rest)))
-    (append (sort dest #'char-attribute-name<)
-	    '(chinese-big5-cdp ideograph-cbeta china3-jef
-			       chinese-big5-eten chinese-big5))))
+  '(ascii
+    control-1
+    latin-iso8859-1
+    latin-iso8859-2
+    latin-iso8859-3
+    latin-iso8859-4
+    latin-iso8859-9
+    latin-jisx0201
+    cyrillic-iso8859-5
+    greek-iso8859-7
+    thai-tis620
+    =jis-x0208
+    japanese-jisx0208
+    japanese-jisx0212
+    japanese-jisx0208-1978
+    chinese-gb2312
+    chinese-cns11643-1
+    chinese-cns11643-2
+    chinese-cns11643-3
+    chinese-cns11643-4
+    chinese-cns11643-5
+    chinese-cns11643-6
+    chinese-cns11643-7
+    =jis-x0213-1-2000
+    =jis-x0213-2-2000
+    korean-ksc5601
+    chinese-isoir165
+    katakana-jisx0201
+    hebrew-iso8859-8
+    japanese-jisx0208-1990
+    chinese-gb12345
+    latin-viscii
+    ethiopic-ucs
+    =gt
+    =big5-cdp
+    =gt-k
+    ideograph-daikanwa-2
+    ideograph-daikanwa
+    =cbeta
+    ideograph-hanziku-1
+    ideograph-hanziku-2
+    ideograph-hanziku-3
+    ideograph-hanziku-4
+    ideograph-hanziku-5
+    ideograph-hanziku-6
+    ideograph-hanziku-7
+    ideograph-hanziku-8
+    ideograph-hanziku-9
+    ideograph-hanziku-10
+    ideograph-hanziku-11
+    ideograph-hanziku-12
+    =cbeta
+    =jef-china3
+    =big5-eten
+    =big5))
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -169,9 +199,12 @@
 			      (setq rest (cdr rest))))))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
-		    (if (or (and (charset-iso-final-char ccs)
-				 (setq ret (get-char-attribute char ccs)))
-			    (eq ccs 'ideograph-daikanwa))
+		    (if (and (or (charset-iso-final-char ccs)
+				 (memq ccs
+				       '(ideograph-daikanwa
+					 ;; =gt-k
+					 )))
+			     (setq ret (get-char-attribute char ccs)))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
 		      (setq char-spec (split-char char)))
