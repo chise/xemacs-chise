@@ -1,3 +1,11 @@
+2003-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (GT-K04926): New character.
+	(BC-8C5B): New character.
+
+	* Ideograph-R124-Feather.el, Ideograph-R121-Jar.el: Add some
+	missing mappings to JEF-CHINA3 code points.
+
 2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R119-Rice.el (U+7CE9): Separate C7-4857; unify
