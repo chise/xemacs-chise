@@ -181,6 +181,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=daikanwa		. 07062)	; ø¸®–
+    (=jef-china3	. #x4AA3)	; øº„ª£
     ))
 (define-char
   '((morohashi-daikanwa	7062 0 0)
