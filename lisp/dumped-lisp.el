@@ -120,6 +120,13 @@
 	;; Provide basic commands to set coding systems to user
 	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
+	(when-feature utf-2000 "utf-2000/ccs-jisx0201-latin.el")
+	(when-feature utf-2000 "utf-2000/ccs-iso8859-2.el")
+	(when-feature utf-2000 "utf-2000/ccs-iso8859-3.el")
+	(when-feature utf-2000 "utf-2000/ccs-iso8859-4.el")
+	(when-feature utf-2000 "utf-2000/ccs-iso8859-9.el")
+	(when-feature utf-2000 "utf-2000/ccs-viscii.el")
+	(when-feature utf-2000 "utf-2000/ccs-jisx0208-1983.el")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
 	;; All files after this can have extended characters in them.

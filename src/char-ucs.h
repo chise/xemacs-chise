@@ -52,6 +52,8 @@ typedef int Charset_ID;
 
 #define LEADING_BYTE_UCS_BMP		0x80
 #define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
+#define LEADING_BYTE_HIRAGANA_JISX0208	0x82
+#define LEADING_BYTE_KATAKANA_JISX0208	0x83
 
 
 #define CHARSET_ID_OFFSET_94		0x55
@@ -211,13 +213,16 @@ struct Lisp_Charset
   unsigned int graphic;
 
   /* Byte->character mapping table */
-  Emchar* decoding_table;
+  Lisp_Object decoding_table;
 
   /* Range of character code */
   Emchar ucs_min, ucs_max;
 
-  /* Offset for external representation */
+  /* Offset for external code */
   Emchar code_offset;
+
+  /* Offset for each byte */
+  Emchar byte_offset;
 };
 typedef struct Lisp_Charset Lisp_Charset;
 
@@ -259,6 +264,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
+#define CHARSET_BYTE_OFFSET(cs)	 ((cs)->byte_offset)
 
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
@@ -278,6 +284,10 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
+#define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
+#define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
+#define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
+#define XCHARSET_BYTE_OFFSET(cs)  CHARSET_BYTE_OFFSET(XCHARSET(cs))
 
 struct charset_lookup {
   /* Table of charsets indexed by (leading byte - MIN_LEADING_BYTE). */
@@ -339,8 +349,17 @@ CHARSET_BY_ATTRIBUTES (unsigned int type, unsigned char final, int dir)
 #define MIN_CHAR_THAI		0x0E00
 #define MAX_CHAR_THAI		0x0E5F
 
+#define MIN_CHAR_HIRAGANA	0x3041
+#define MAX_CHAR_HIRAGANA	0x3093
+
+#define MIN_CHAR_KATAKANA	0x30A1
+#define MAX_CHAR_KATAKANA	0x30F6
+
 #define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
+
+#define MIN_CHAR_OBS_94x94	0xE00000
+#define MAX_CHAR_OBS_94x94	(0xE00000 + 94 * 94 * 14 - 1)
 
 #define MIN_CHAR_94		0xE90940
 #define MAX_CHAR_94		(MIN_CHAR_94 + 94 * 80 - 1)
@@ -360,25 +379,48 @@ INLINE_HEADER Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
 INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
-  Emchar* decoding_table;
-  
-  if ((decoding_table = XCHARSET_DECODING_TABLE (charset)) != NULL)
-    return decoding_table[c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)];
-  else if (EQ (charset, Vcharset_katakana_jisx0201))
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
+  int ofs, idx;
+  Lisp_Object ch;
+
+  if (!EQ (decoding_table, Qnil)
+      && (0 <= (idx =
+		c1 - (ofs = (XCHARSET_CHARS (charset) == 94 ? 33 : 32))))
+      && (idx < XVECTOR_LENGTH (decoding_table))
+      && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
+    {
+      if (VECTORP (ch))
+	{
+	  if ((0 <= (idx = c2 - ofs))
+	      && (idx < XVECTOR_LENGTH (ch))
+	      && !EQ (ch = XVECTOR_DATA(ch)[idx], Qnil))
+	    return XCHAR (ch);
+	}
+      else
+	return XCHAR (ch);
+    }
+  if (EQ (charset, Vcharset_katakana_jisx0201))
     if (c1 < 0x60)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
     else
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
-  else if (CHARSET_UCS_MAX (XCHARSET (charset)))
-    return (XCHARSET_DIMENSION (charset) == 1
-	    ?
-	    c1 - CHARSET_CODE_OFFSET (XCHARSET (charset))
-	    :
-	    (c1 - CHARSET_CODE_OFFSET (XCHARSET (charset)))
-	    * XCHARSET_CHARS (charset)
-	    + c2  - CHARSET_CODE_OFFSET (XCHARSET (charset)))
-      + CHARSET_UCS_MIN (XCHARSET (charset));
+  else if (XCHARSET_UCS_MAX (charset))
+    {
+      Emchar code
+	= (XCHARSET_DIMENSION (charset) == 1
+	   ?
+	   c1 - XCHARSET_BYTE_OFFSET (charset)
+	   :
+	   (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
+	   + c2  - XCHARSET_BYTE_OFFSET (charset))
+	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
+      if ((code < XCHARSET_UCS_MIN (charset))
+	  || (XCHARSET_UCS_MAX (charset) < code))
+	signal_simple_error ("Arguments makes invalid character",
+			     make_char (code));
+      return code;
+    }
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
       switch (XCHARSET_CHARS (charset))
@@ -421,7 +463,7 @@ INLINE_HEADER void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int 
 INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c < MIN_CHAR_94)
+  if (c < MIN_CHAR_OBS_94x94)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -491,6 +533,15 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
 	}
+    }
+  else if (c <= MAX_CHAR_OBS_94x94)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
+				 ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = (((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33;
+      *c2 = ((c - MIN_CHAR_OBS_94x94) % 94) + 33;
     }
   else if (c <= MAX_CHAR_94)
     {

@@ -1,3 +1,7 @@
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.
