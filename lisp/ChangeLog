@@ -1,3 +1,10 @@
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	"ccs-jisx0201-latin.el".
+
+	* utf-2000/ccs-jisx0201-latin.el: Deleted.
+
 1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Add
