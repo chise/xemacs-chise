@@ -1,3 +1,46 @@
+2001-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U-00026AF9): New character.
+
+	* Ideograph-R039-Child.el (M-06971): Separate U-000200F1; add
+	`->identical' for U-000200F1; add `ideographic-structure'.
+
+	* Ideograph-R037-Big.el (J0-546F): Unify EGB-7A25, B-C95B and
+	U+592C.
+	(C2-213B): Separate EGB-7A25, B-C95B and U+592C.
+	(U-00021645): New character.
+	(H1-ACBB): Likewise.
+	(U-00021686): Unify H1-ACC0; add `ideographic-structure'.
+	(C7-2C7D): Add `ideographic-structure'.
+
+	* Ideograph-R036-Evening.el (U-00021588): Unify H1-AEE5; add
+	`ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (H1-AB78): Unify U-0002009D.
+	(H1-ABB9): Unify U-000200A1.
+	(H1-ABE0): Unify U-000200A7.
+	(U-000200AC): New character.
+	(H1-ABE6): Unify U-0002394B.
+	(U-000200B1): New character.
+	(U-000200B3): New character.
+	(H1-ABE7): Unify U-000200B5.
+	(H1-ABF9): Unify U-00024C06.
+	(H1-ABFD): Unify U-0002664D.
+	(H1-ABF7): Unify U-00027E86.
+	(H1-AC43): Unify U-000200B8.
+	(U-00021D18): Unify H3-D0D4.
+	(H1-AC7B): Unify U-000200BD.
+	(U-00020B61): Unify H1-F855.
+	(H1-AC7E): Unify U-000200C0.
+	(H1-ACA1): Unify U-000200C1.
+	(U-000200C2): New character.
+	(H1-ACBB): Moved to Ideograph-R037-Big.el.
+	(H1-ACBD): Unify U-0002A00B.
+	(H1-B3B6): New character.
+	(H1-ACBC): Unify U-00025740.
+	(H1-ACC0): Moved to Ideograph-R037-Big.el.
+	(U-000200C8): New character.
+
 2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el (U-00024CCF): New character [moved from
