@@ -1397,6 +1397,9 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (->same-ideograph
+     ((ideograph-daikanwa . 27272)	; ø¸†ªˆ
+      ))
     (hanyu-dazidian	1 309 8)
     (ideograph-hanziku-1	. #xE5C4)	; ý¢€ž—„
     (ucs			. #x200B3)	; ð ‚³
