@@ -268,6 +268,7 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((name		      . "CJK RADICAL SMALL ONE")
 	  (=ucs		      . #x2E8C)	; âºŒ
@@ -323,25 +324,21 @@
 (define-char
   '((=>ucs		. #x21109)	; ð¡„‰
     (morohashi-daikanwa	19756 0 0)
-    (ideographic-radical@ucs . 30)	; â¼
-    (ideographic-strokes@ucs . 16)
-    (ideographic-radical@cns . 89)	; â½˜
-    (ideographic-strokes@cns . 15)
-    (ideographic-radical@cns*sources
-     daikanwa cns11643)
+    (ideographic-radical . 89)	; â½˜
+    (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (hanyu-dazidian	1 703 3)
-    (=ucs		. #x21109)	; ð¡„‰
+    (->identical
+     ((=ucs		  . #x21109)	; ð¡„‰
+      ))
     (=cns11643-7	. #x476E)	; ø»ž·µ
-    (=hanziku-2		. #xE2D9)	; ý¢€®‹™
     ))
 (define-char
-  '((ideographic-radical@ucs . 9)	; â¼ˆ
-    (ideographic-strokes@ucs . 17)
-    (ideographic-radical@cns . 89)	; â½˜
-    (ideographic-strokes@cns . 15)
-    (ideographic-radical@cns*sources
-     daikanwa cns11643)
+  '((ideographic-	(:radical	89 ; â½˜
+			 :strokes	15
+			 :sources	(morohashi-daikanwa cns-11643))
+			(:radical	9 ; â¼ˆ
+			 :strokes	17
+			 :sources	(ucs)))
     (total-strokes	 . 19)
     (hanyu-dazidian	1 237 5)
     (ideographic-structure
@@ -358,6 +355,7 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((=ucs		      . #x6B62)	; æ­¢
 	  )

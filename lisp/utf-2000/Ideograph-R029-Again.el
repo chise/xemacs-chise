@@ -283,16 +283,13 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208-1990	  . #x5256)	; ø½Š¾¯
-      ))
     (<-vulgar-ideograph
-     ((ideographic-radical . 172)	; â¾«
-      (shinjigen-1	  . 903)
-      (=daikanwa	  . 42116)	; ø¸Š’„
+     (:sources	(inkai shinjigen-1)
+      :char	((ideographic-radical . 172)	; â¾«
+		 (shinjigen-1	     . 903)
+		 (=daikanwa	     . 42116)	; ø¸Š’„
+		 )
       ))
-    (<-vulgar-ideograph*sources
-     yunhai shinjigen-1)
     (hanyu-dazidian	1 393 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -382,56 +379,52 @@
     (=gt-pj-k1		. #x422F)	; å
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
-    (=>daikanwa		. 03128)	; ø½ŠŸ‚
+  '((script		JP-Jouyou Ideograph)
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x6536)	; æ”¶
-      (=jis-x0208	  . #x5A40)	; ø½‹Š‰
+    (hanyu-dazidian	1 393 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x4E29)	; ä¸©
+      )
+     ((=ucs		  . #x53C8)	; åˆ
       ))
-    (<-vulgar-ideograph
-     ((ideographic-radical . 66)	; â½
-      (shinjigen-1	  . 907)
-      (=daikanwa	  . 13110)	; ø¸ƒŒ¶
+    (shinjigen-1	. 906)
+    (shinjigen-2	. 906)
+    (vulgar-ideograph-of
+     ((sources		  morohashi-daikanwa shinjigen-1)
+      (char . ((ideographic-radical . 66)	; â½
+	       (shinjigen-1	   . 907)
+	       (=daikanwa	   . 13110)	; ø¸ƒŒ¶
+	       ))
       ))
-    (<-vulgar-ideograph*sources
-     daikanwa shinjigen-1)
     (=ucs		. #x53CE)	; åŽ
-    (->subsumptive
-     ((hanyu-dazidian	  1 393 3)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; â¿°
-	)
-       ((=ucs		    . #x4E29)	; ä¸©
-	)
-       ((=ucs		    . #x53C8)	; åˆ
-	))
-      (shinjigen-1	  . 906)
-      (shinjigen-2	  . 906)
-      (=jis-x0208-1990	  . #x3C7D)	; ø½ŠŸ‚
-      (=gt		  . 03952)	; ý¡€€½°
-      (=gt-pj-1		  . #x3C7D)	; ý¡€€½°
-      (=daikanwa	  . 03128)	; ø¸€°¸
-      (=hanziku-1	  . #xF6D2)	; ý¢€Ÿ›’
-      (=cbeta		  . 01495)	; ø¸ ——
-      (=ucs@unicode	  . #x53CE)	; ø½ŠŸ‚
-      )
-     ((=jis-x0208-1978	  . #x3C7D)	; ø»‚¥†
-      (=jis-x0208-1983	  . #x3C7D)	; ø»†¹Ž
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; â¿°
-	)
-       ((=cns11643-4	    . #x2127)	; ø»— ®
-	)
-       ((=ucs		    . #x53C8)	; åˆ
-	))
-      (=cns11643-3	  . #x2160)	; ø»•—£
-      ))
+    (=jis-x0208-1990	. #x3C7D)	; ø½ŠŸ‚
+    (=gt		. 03952)	; ý¡€€½°
+    (=gt-pj-1		. #x3C7D)	; ý¡€€½°
+    (=daikanwa		. 03128)	; ø¸€°¸
+    (=hanziku-1		. #xF6D2)	; ý¢€Ÿ›’
+    (=cbeta		. 01495)	; ø¸ ——
+    ))
+(define-char
+  '((=>ucs		. #x53CE)	; åŽ
+    (morohashi-daikanwa	3128 0 1)
+    (ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=jis-x0208-1978	. #x3C7D)	; ø»‚¥†
+    (=jis-x0208-1983	. #x3C7D)	; ø»†¹Ž
+    ))
+(define-char
+  '((=>ucs		. #x53CE)	; åŽ
+    (morohashi-daikanwa	3128 0 2)
+    (ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=cns11643-3	. #x2160)	; ø»•—£
     ))
 (define-char
   '((=>ucs		. #x20B1F)	; ð ¬Ÿ
@@ -1159,20 +1152,15 @@
     (=daikanwa		. 03162)	; ø¸€±š
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
+  '((script		JP-Jouyou Ideograph)
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x654D)	; æ•
-      (=jis-x0208	  . #x5A46)	; ø½‹Š
-      ))
     (<-vulgar-ideograph
-     ((shinjigen-1	  . 915)
-      (=daikanwa	  . 13205)	; ø¸ƒŽ•
-      ))
-    (<-vulgar-ideograph*sources
-     zhengzi-tong daikanwa shinjigen-1)
+     (:char	((shinjigen-1	     . 915)
+		 (=daikanwa	     . 13205)	; ø¸ƒŽ•
+		 )
+      :sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)))
     (hanyu-dazidian	1 397 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

@@ -615,10 +615,6 @@
   '((ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5B78)	; å­¸
-      (=jis-x0208	  . #x555C)	; ø½‹ƒ
-      ))
     (shinjigen-2	. 1782)
     (=ucs		. #x5B66)	; å­¦
     (=jis-x0208		. #x3358)	; ø½Š‘
@@ -632,7 +628,6 @@
 (define-char
   '((ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 5)
-    (total-strokes	 . 8)
     (=ucs		. #x5B67)	; å­§
     ))
 (define-char

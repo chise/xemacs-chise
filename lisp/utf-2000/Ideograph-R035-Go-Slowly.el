@@ -647,12 +647,6 @@
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=ucs		. #x5911)	; 夑
-    ))
-(define-char
-  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x5912)	; 夒

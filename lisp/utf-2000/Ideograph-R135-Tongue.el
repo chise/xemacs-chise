@@ -446,17 +446,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (->same-ideograph
-     ((=daikanwa	  . 38638)	; ø¸‰›®
-      ))
-    (->same-ideograph*sources
-     daikanwa)
+     (:char	((=daikanwa	     . 38638)	; ø¸‰›®
+		 )
+      :sources	(morohashi-daikanwa)))
     (<-vulgar-ideograph
      (:char	((=daikanwa	     . 38671)	; ø¸‰œ
 		 )
-      :sources	(daikanwa))
+      :sources	(morohashi-daikanwa))
      (:char	((=daikanwa	     . 38649)	; ø¸‰›¹
 		 )
-      :sources	(daikanwa)))
+      :sources	(morohashi-daikanwa)))
     (=daikanwa		. 30307)	; ø¸‡™£
     ))
 (define-char

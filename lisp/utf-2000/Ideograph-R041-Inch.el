@@ -105,39 +105,23 @@
     (=daikanwa		. 07417)	; ø¸³¹
     ))
 (define-char
-  '((=>ucs		. #x5BFE)	; å¯¾
-    (ideographic-radical . 41)	; â¼¨
+  '((ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5C0D)	; å°
-      (=jis-x0208	  . #x5574)	; ø½‹ƒ§
-      ))
     (shinjigen-2	. 1880)
+    (=ucs		. #x5BFE)	; å¯¾
     (=jis-x0208		. #x4250)	; ø½Š§‰
+    (=cns11643-3	. #x255C)	; ø»•—
     (=gt		. 09330)	; ý¡€‚‘²
     (=gt-k		. 02603)	; ý¡„€¨«
     (=gt-pj-1		. #x4250)	; ý¡€‚‘²
     (=daikanwa		. 07419)	; ø¸³»
-    (=ucs@jis		. #x5BFE)	; ø½Š§‰
-    ))
-(define-char
-  '((morohashi-daikanwa	7419 0 0)
-    (ideographic-radical . 41)	; â¼¨
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=ucs		. #x5BFE)	; å¯¾
-    (=cns11643-3	. #x255C)	; ø»•—
     ))
 (define-char
   '((morohashi-daikanwa	7419 1)
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x58FD)	; å£½
-      (=jis-x0208	  . #x5468)	; ø½‹½
-      ))
     (=ucs		. #x5BFF)	; å¯¿
     (=jis-x0208		. #x3C77)	; ø½Šž¼
     (=gb2312		. #x4A59)	; ø»…ƒŠ
@@ -345,10 +329,6 @@
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5C07)	; å°‡
-      (=jis-x0208	  . #x5572)	; ø½‹ƒ¥
-      ))
     (=jis-x0208		. #x3E2D)	; ø½Š ®
     (=cns11643-3	. #x3059)	; ø»•­ž
     (=gt		. 09355)	; ý¡€‚’‹
@@ -408,10 +388,6 @@
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5C08)	; å°ˆ
-      (=jis-x0208	  . #x5573)	; ø½‹ƒ¦
-      ))
     (=ucs		. #x5C02)	; å°‚
     (=jis-x0208		. #x406C)	; ø½Š¤©
     (=gt		. 09348)	; ý¡€‚’„
@@ -708,12 +684,11 @@
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (<-simplified
-     ((=ks-x1001	  . #x5374)	; ø»‰¤»
-      (=daikanwa	  . 07465)	; ø¸´©
+    (<-simplified-ideograph
+     (:sources	(morohashi-daikanwa)
+      :char	((=daikanwa	     . 07465)	; ø¸´©
+		 )
       ))
-    (<-simplified*sources
-     daikanwa)
     (=ucs		. #x5C0E)	; å°Ž
     (=jis-x0208		. #x4633)	; ø½Š¬¤
     (=gb12345		. #x353C)	; å°Ž
