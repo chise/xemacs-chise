@@ -554,8 +554,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-5	    . #x212E)	; &CDP-8B7E; [01-14]
-	(=daikanwa	    . 03058)	; &I-M-03058;
+       ((=daikanwa	    . 03058)	; &I-M-03058;
 	)
        ((=big5-cdp	    . #x8BED)	; &GT-10942;
 	(=daikanwa	    . 08674)	; &I-M-08674;
