@@ -9813,10 +9813,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+     ((name*		  . "ideographic component person as roof")
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=gt-k		  . 00057)	; ý¡„€€¹
-      (=jef-china3	  . #x71FA)	; øº‡‡º
       )
      ((ucs		  . #x8349)	; è‰
       ))
