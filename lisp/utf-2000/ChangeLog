@@ -1,5 +1,15 @@
 2004-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R116-Cave.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+
+	* Ideograph-R114-Track.el, Ideograph-R112-Stone.el,
+	Ideograph-R097-Melon.el, Ideograph-R094-Dog.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 	* Ideograph-R009-Man.el (U-0002F819): Separate H1-B9A2 and
 	UU+4ECC.
 
