@@ -1,3 +1,36 @@
+2003-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el: Reformatted.
+	(M-45313): Separate G0-385F, C1-586D and U+9AD8.
+
+	* Ideograph-R187-Horse.el (M-44894): Separate C1-7A55, G1-6539 and
+	U+9A2B.
+
+	* Ideograph-R181-Leaf.el (JX1-7D7B): Unify U+FA6A and KU+983B; map
+	to GU+983B and CU+983B.
+	(U+983B): Map to JU+FA6A.
+
+	* Ideograph-R030-Mouth.el, Ideograph-R009-Man.el: Reformatted.
+
+	* Ideograph-R180-Sound.el (JX1-7D76): Unify U+FA69.
+
+	* Ideograph-R175-Wrong.el (M-42585): Separate C1-4F66.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Reformatted.
+	(C2-643D): Separate U+96DA; unify CU+96DA.
+	(JX1-7D63): Unify U+FA68 and KU+96E3; map to GU+96E3 and CU+96E3.
+	(U+96E3): Map to JU+FA68.
+
+2003-01-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R162-Walk.el (JX1-7C59): Unify U+FA67 and KU+9038.
+	(M-38985): Unify GT-K10928 and KU+9042.
+	(U+9042): Unify GT-K09081.
+	(U+9045): Add `<-simplified-ideograph' for M-39113.
+	(M-39046): Add S1-8338.
+	(C3-4A27): Separate U+905F.
+	(M-39113): Add S1-8337; add `->ideographic-variants' for S1-8338.
+
 2003-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (M-41704): Separate all.
