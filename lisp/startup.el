@@ -421,10 +421,15 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 			   debug-paths)
       (startup-setup-paths-warning))
 
-    (if (and (not inhibit-autoloads)
-	     lisp-directory)
-	(load (expand-file-name (file-name-sans-extension autoload-file-name)
-				lisp-directory) nil t))
+    (when (and (not inhibit-autoloads)
+	       lisp-directory)
+      (load (expand-file-name (file-name-sans-extension autoload-file-name)
+			      lisp-directory) nil t)
+      (if (featurep 'utf-2000)
+	  (load (expand-file-name
+		 (file-name-sans-extension autoload-file-name)
+		 (expand-file-name "utf-2000" lisp-directory))
+		nil t)))
 
     (if (not inhibit-autoloads)
 	(progn
@@ -1117,7 +1122,9 @@ Copyright (C) 1985-2001 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
-Copyright (C) 1995-2001 Ben Wing\n"))
+Copyright (C) 1995-2001 Ben Wing
+Copyright (C) 1996-2002 MORIOKA Tomohiko
+"))
 
     ((face (blue bold underline) "\nInformation, on-line help:\n\n")
      "XEmacs comes with plenty of documentation...\n\n"
@@ -1276,6 +1283,17 @@ It's idempotent, so call this as often as you like!"
 		   'external-debugging-output)))
     (setq mule-lisp-directory '()))
 
+  (if (featurep 'utf-2000)
+      (progn
+	(setq utf-2000-lisp-directory
+	      (paths-find-utf-2000-lisp-directory roots
+						  lisp-directory))
+	(if debug-paths
+	    (princ (format "utf-2000-lisp-directory:\n%S\n"
+			   utf-2000-lisp-directory)
+		   'external-debugging-output)))
+    (setq utf-2000-lisp-directory '()))
+
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
 
@@ -1289,7 +1307,8 @@ It's idempotent, so call this as often as you like!"
 					     last-package-load-path
 					     lisp-directory
 					     site-directory
-					     mule-lisp-directory))
+					     mule-lisp-directory
+					     utf-2000-lisp-directory))
 
   (setq Info-directory-list
 	(paths-construct-info-path roots
@@ -1359,6 +1378,9 @@ It's idempotent, so call this as often as you like!"
 	(if (and (featurep 'mule)
 		 (null mule-lisp-directory))
 	    (push "mule-lisp-directory" warnings))
+	(if (and (featurep 'utf-2000)
+		 (null utf-2000-lisp-directory))
+	    (push "utf-2000-lisp-directory" warnings))
 	(if (null exec-directory) (push "exec-directory" warnings))
 	(if (null data-directory) (push "data-directory" warnings))
 	(if (null doc-directory)  (push "doc-directory"  warnings))
