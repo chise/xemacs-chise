@@ -3947,216 +3947,42 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Konjaku-Mojikyo for ISO/IEC 2022 Part 1"),
 		  build_string (""),
 		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_1);
-  Vcharset_mojikyo_pj_1 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-1"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 1"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 1"),
-		  build_string ("jisx0208\\.Mojikyo-1$"),
+
+#define DEF_MOJIKYO_PJ(n)						   \
+  staticpro (&Vcharset_mojikyo_pj_##n);					   \
+  Vcharset_mojikyo_pj_##n =						   \
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_##n, Qmojikyo_pj_##n, 94, 2,	   \
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,			   \
+		  build_string ("Mojikyo-PJ-"#n),			   \
+		  build_string ("Mojikyo (pseudo JIS encoding) part "#n), \
+		  build_string						   \
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part "#n),	   \
+		  build_string						   \
+		  ("\\(MojikyoPJ-"#n "\\|jisx0208\\.Mojikyo-"#n "\\)$"),   \
 		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_2);
-  Vcharset_mojikyo_pj_2 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_2, Qmojikyo_pj_2, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-2"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 2"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 2"),
-		  build_string ("jisx0208\\.Mojikyo-2$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_3);
-  Vcharset_mojikyo_pj_3 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_3, Qmojikyo_pj_3, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-3"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 3"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 3"),
-		  build_string ("jisx0208\\.Mojikyo-3$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_4);
-  Vcharset_mojikyo_pj_4 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_4, Qmojikyo_pj_4, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-4"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 4"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 4"),
-		  build_string ("jisx0208\\.Mojikyo-4$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_5);
-  Vcharset_mojikyo_pj_5 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_5, Qmojikyo_pj_5, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-5"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 5"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 5"),
-		  build_string ("jisx0208\\.Mojikyo-5$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_6);
-  Vcharset_mojikyo_pj_6 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_6, Qmojikyo_pj_6, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-6"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 6"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 6"),
-		  build_string ("jisx0208\\.Mojikyo-6$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_7);
-  Vcharset_mojikyo_pj_7 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_7, Qmojikyo_pj_7, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-7"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 7"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 7"),
-		  build_string ("jisx0208\\.Mojikyo-7$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_8);
-  Vcharset_mojikyo_pj_8 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_8, Qmojikyo_pj_8, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-8"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 8"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 8"),
-		  build_string ("jisx0208\\.Mojikyo-8$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_9);
-  Vcharset_mojikyo_pj_9 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_9, Qmojikyo_pj_9, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-9"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 9"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 9"),
-		  build_string ("jisx0208\\.Mojikyo-9$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_10);
-  Vcharset_mojikyo_pj_10 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_10, Qmojikyo_pj_10, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-10"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 10"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 10"),
-		  build_string ("jisx0208\\.Mojikyo-10$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_11);
-  Vcharset_mojikyo_pj_11 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_11, Qmojikyo_pj_11, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-11"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 11"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 11"),
-		  build_string ("jisx0208\\.Mojikyo-11$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_12);
-  Vcharset_mojikyo_pj_12 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_12, Qmojikyo_pj_12, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-12"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 12"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 12"),
-		  build_string ("jisx0208\\.Mojikyo-12$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_13);
-  Vcharset_mojikyo_pj_13 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_13, Qmojikyo_pj_13, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-13"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 13"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 13"),
-		  build_string ("jisx0208\\.Mojikyo-13$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_14);
-  Vcharset_mojikyo_pj_14 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_14, Qmojikyo_pj_14, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-14"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 14"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 14"),
-		  build_string ("jisx0208\\.Mojikyo-14$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_15);
-  Vcharset_mojikyo_pj_15 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_15, Qmojikyo_pj_15, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-15"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 15"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 15"),
-		  build_string ("jisx0208\\.Mojikyo-15$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_16);
-  Vcharset_mojikyo_pj_16 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_16, Qmojikyo_pj_16, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-16"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 16"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 16"),
-		  build_string ("jisx0208\\.Mojikyo-16$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_17);
-  Vcharset_mojikyo_pj_17 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_17, Qmojikyo_pj_17, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-17"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 17"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 17"),
-		  build_string ("jisx0208\\.Mojikyo-17$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_18);
-  Vcharset_mojikyo_pj_18 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_18, Qmojikyo_pj_18, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-18"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 18"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 18"),
-		  build_string ("jisx0208\\.Mojikyo-18$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_19);
-  Vcharset_mojikyo_pj_19 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_19, Qmojikyo_pj_19, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-19"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 19"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 19"),
-		  build_string ("jisx0208\\.Mojikyo-19$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_20);
-  Vcharset_mojikyo_pj_20 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_20, Qmojikyo_pj_20, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-20"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 20"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 20"),
-		  build_string ("jisx0208\\.Mojikyo-20$"),
-		  Qnil, 0, 0, 0, 33);
-  staticpro (&Vcharset_mojikyo_pj_21);
-  Vcharset_mojikyo_pj_21 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_21, Qmojikyo_pj_21, 94, 2,
-		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Mojikyo-PJ-21"),
-		  build_string ("Mojikyo (pseudo JIS encoding) part 21"),
-		  build_string
-		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 21"),
-		  build_string ("jisx0208\\.Mojikyo-21$"),
-		  Qnil, 0, 0, 0, 33);
+
+  DEF_MOJIKYO_PJ (1);
+  DEF_MOJIKYO_PJ (2);
+  DEF_MOJIKYO_PJ (3);
+  DEF_MOJIKYO_PJ (4);
+  DEF_MOJIKYO_PJ (5);
+  DEF_MOJIKYO_PJ (6);
+  DEF_MOJIKYO_PJ (7);
+  DEF_MOJIKYO_PJ (8);
+  DEF_MOJIKYO_PJ (9);
+  DEF_MOJIKYO_PJ (10);
+  DEF_MOJIKYO_PJ (11);
+  DEF_MOJIKYO_PJ (12);
+  DEF_MOJIKYO_PJ (13);
+  DEF_MOJIKYO_PJ (14);
+  DEF_MOJIKYO_PJ (15);
+  DEF_MOJIKYO_PJ (16);
+  DEF_MOJIKYO_PJ (17);
+  DEF_MOJIKYO_PJ (18);
+  DEF_MOJIKYO_PJ (19);
+  DEF_MOJIKYO_PJ (20);
+  DEF_MOJIKYO_PJ (21);
+
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =
     make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs, 256, 2,
