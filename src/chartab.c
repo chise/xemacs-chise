@@ -1167,10 +1167,15 @@ Return variants of CHARACTER.
 */
        (character))
 {
+  Lisp_Object ret;
+
   CHECK_CHAR (character);
-  return Fcopy_list (get_char_id_table
-		     (XCHAR_TABLE(Vcharacter_variant_table),
-		      XCHAR (character)));
+  ret = get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
+			   XCHAR(character));
+  if (CONSP (ret))
+    return Fcopy_list (ret);
+  else
+    return Qnil;
 }
 
 #endif
@@ -3217,7 +3222,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		= get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 				     c);
 
-	      if (NILP (Fmemq (v, ret)))
+	      if (!CONSP (ret))
+		{
+		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
+				     make_char (c), Fcons (character, Qnil));
+		}
+	      else if (NILP (Fmemq (v, ret)))
 		{
 		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 				     make_char (c), Fcons (character, ret));
@@ -3239,7 +3249,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       c = XINT (value);
 
       ret = get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table), c);
-      if (NILP (Fmemq (character, ret)))
+      if (!CONSP (ret))
+	{
+	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
+			     make_char (c), Fcons (character, Qnil));
+	}
+      else if (NILP (Fmemq (character, ret)))
 	{
 	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 			     make_char (c), Fcons (character, ret));
@@ -3311,7 +3326,39 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
   if (writing_mode && NILP (Ffile_exists_p (db_dir)))
     Fmake_directory_internal (db_dir);
 
+  {
+    Lisp_Object attribute_name = Fsymbol_name (attribute);
+    Lisp_Object dest = Qnil, ret;
+    int base = 0;
+    struct gcpro gcpro1, gcpro2;
+    int len = XSTRING_CHAR_LENGTH (attribute_name);
+    int i;
+
+    GCPRO2 (dest, ret);
+    for (i = 0; i < len; i++)
+      {
+	Emchar c = string_char (XSTRING (attribute_name), i);
+
+	if ( (c == '/') || (c == '%') )
+	  {
+	    char str[4];
+
+	    sprintf (str, "%%%02X", c);
+	    dest = concat3 (dest,
+			    Fsubstring (attribute_name,
+					make_int (base), make_int (i)),
+			    build_string (str));
+	    base = i + 1;
+	  }
+      }
+    ret = Fsubstring (attribute_name, make_int (base), make_int (len));
+    dest = concat2 (dest, ret);
+    UNGCPRO;
+    return Fexpand_file_name (dest, db_dir);
+  }
+#if 0
   return Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+#endif
 }
   
 DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
@@ -4059,7 +4106,7 @@ Version number of XEmacs UTF-2000.
   Vcharacter_composition_table = make_char_id_table (Qnil);
 
   staticpro (&Vcharacter_variant_table);
-  Vcharacter_variant_table = make_char_id_table (Qnil);
+  Vcharacter_variant_table = make_char_id_table (Qunbound);
 #endif
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
