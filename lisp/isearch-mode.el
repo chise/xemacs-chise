@@ -238,13 +238,6 @@ Default nil means edit the string from the search ring first."
     ;; then it would terminate the search and be executed without this.
     (let ((i 32)
 	  (str (make-string 1 0)))
-      ;; #### GR (and C1 too, in KOI8 and Windows-land at least) should
-      ;; be printing.  But that breaks on high-bit-is-meta brain-damage.
-      ;; At least in no-mule, the high bit is treated as a meta bit.
-      ;; With GR treated as printable in isearch, any meta command
-      ;; events will not be executed because they are treated as GR
-      ;; characters by isearch, but then there is an error because
-      ;; event-to-character (properly) returns nil.
       (while (< i 127)
 	(aset str 0 i)
 	(define-key map str 'isearch-printing-char)

@@ -20,7 +20,7 @@
     (->decomposition	sub #x0031)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT ONE")
-      (=ks-x1001	  . #x297B)	; ø»ˆ§–
+      (korean-ksc5601	  . #x297B)	; ø»ˆ§–
       ))
     (=ucs		. #x2081)	; â‚
     ))
@@ -38,7 +38,7 @@
      ((name		  . "SUBSCRIPT ONE")
       (=ucs		  . #x2081)	; â‚
       ))
-    (=ks-x1001		. #x297B)	; ø»ˆ§–
+    (korean-ksc5601	. #x297B)	; ø»ˆ§–
     ))
 (define-char
   '((name		. "SUBSCRIPT TWO")
@@ -51,7 +51,7 @@
     (->decomposition	sub #x0032)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT TWO")
-      (=ks-x1001	  . #x297C)	; ø»ˆ§—
+      (korean-ksc5601	  . #x297C)	; ø»ˆ§—
       ))
     (=ucs		. #x2082)	; â‚‚
     ))
@@ -69,7 +69,7 @@
      ((name		  . "SUBSCRIPT TWO")
       (=ucs		  . #x2082)	; â‚‚
       ))
-    (=ks-x1001		. #x297C)	; ø»ˆ§—
+    (korean-ksc5601	. #x297C)	; ø»ˆ§—
     ))
 (define-char
   '((name		. "SUBSCRIPT THREE")
@@ -82,7 +82,7 @@
     (->decomposition	sub #x0033)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT THREE")
-      (=ks-x1001	  . #x297D)	; ø»ˆ§˜
+      (korean-ksc5601	  . #x297D)	; ø»ˆ§˜
       ))
     (=ucs		. #x2083)	; â‚ƒ
     ))
@@ -100,7 +100,7 @@
      ((name		  . "SUBSCRIPT THREE")
       (=ucs		  . #x2083)	; â‚ƒ
       ))
-    (=ks-x1001		. #x297D)	; ø»ˆ§˜
+    (korean-ksc5601	. #x297D)	; ø»ˆ§˜
     ))
 (define-char
   '((name		. "SUBSCRIPT FOUR")
@@ -113,7 +113,7 @@
     (->decomposition	sub #x0034)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT FOUR")
-      (=ks-x1001	  . #x297E)	; ø»ˆ§™
+      (korean-ksc5601	  . #x297E)	; ø»ˆ§™
       ))
     (=ucs		. #x2084)	; â‚„
     ))
@@ -131,7 +131,7 @@
      ((name		  . "SUBSCRIPT FOUR")
       (=ucs		  . #x2084)	; â‚„
       ))
-    (=ks-x1001		. #x297E)	; ø»ˆ§™
+    (korean-ksc5601	. #x297E)	; ø»ˆ§™
     ))
 (define-char
   '((name		. "SUBSCRIPT FIVE")
