@@ -30,6 +30,14 @@
     (=daikanwa		. 40132)	; ø¸‰³„
     ))
 (define-char
+  '((morohashi-daikanwa	40132 1)
+    (ideographic-radical . 166)	; â¾¥
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (=gt		. 53970)	; ý¡€‹’
+    (=gt-pj-7		. #x6363)	; ý¡€‹’
+    ))
+(define-char
   '((ideographic-radical . 166)	; â¾¥
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
