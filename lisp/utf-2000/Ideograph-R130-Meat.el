@@ -501,7 +501,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (->synonyms@jiyun
-     ((=daikanwa	  . 43109)	; &I-M-43109;
+     ((=daikanwa	  . 43109)	; &M-43109;
       )
      ((=daikanwa	  . 42715)	; &I-M-42715;
       )
