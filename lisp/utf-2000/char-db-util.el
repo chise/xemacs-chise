@@ -920,41 +920,6 @@
     (tabify (point-min)(point-max))
     ))
 
-;;;###autoload
-(defun char-db-update-comment ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (let (cdef table char)
-      (while (re-search-forward "^[ \t]*\\(([^.()]+)\\)" nil t)
-	(goto-char (match-beginning 1))
-	(setq cdef (read (current-buffer)))
-	(when (find-charset (car cdef))
-	  (goto-char (match-end 0))
-	  (setq char
-		(if (and
-		     (not (eq (car cdef) 'ideograph-daikanwa))
-		     (or (memq (car cdef) '(ascii latin-viscii-upper
-						  latin-viscii-lower
-						  arabic-iso8859-6
-						  japanese-jisx0213-1
-						  japanese-jisx0213-2))
-			 (= (char-int (charset-iso-final-char (car cdef)))
-			    0)))
-		    (apply (function make-char) cdef)
-		  (if (setq table (charset-mapping-table (car cdef)))
-		      (set-charset-mapping-table (car cdef) nil))
-		  (prog1
-		      (apply (function make-char) cdef)
-		    (if table
-			(set-charset-mapping-table (car cdef) table)))))
-	  (when (not (or (< (char-int char) 32)
-			 (and (<= 128 (char-int char))
-			      (< (char-int char) 160))))
-	    (delete-region (point) (point-at-eol))
-	    (insert (format "\t; %c" char)))
-	  )))))
-
 (defun insert-char-data-with-variant (char &optional printable
 					   no-ucs-variant
 					   script excluded-script)
