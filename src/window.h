@@ -361,6 +361,7 @@ int window_left_gutter_width (struct window *w, int modeline);
 int window_right_gutter_width (struct window *w, int modeline);
 
 void delete_all_subwindows (struct window *w);
+void undedicate_windows (Lisp_Object buffer, Lisp_Object frame);
 void set_window_pixheight (Lisp_Object window, int pixheight,
 			   int nodelete);
 void set_window_pixwidth (Lisp_Object window, int pixwidth,

@@ -1258,9 +1258,11 @@ with `delete-process'.
 
     delete_from_buffer_alist (buf);
 
-    /* #### This is a problem if this buffer is in a dedicated window.
-       Need to undedicate any windows of this buffer first (and delete them?)
-       */
+    /* Undedicate any windows of this buffer, and make sure no windows
+       show it.  */
+
+    undedicate_windows (buf, Qt);
+    
     GCPRO1 (buf);
     Freplace_buffer_in_windows (buf, Qnil, Qall);
     UNGCPRO;

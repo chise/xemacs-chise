@@ -4523,7 +4523,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 		goto done;
 	    }
 
-	  /* #### What if we we're dealing with a display table? */
+	  /* #### What if we're dealing with a display table? */
 	  if (data.start_col)
 	    data.start_col--;
 
@@ -6283,7 +6283,8 @@ redisplay_frame (struct frame *f, int preemption_check)
 {
   struct device *d = XDEVICE (f->device);
 
-  if (preemption_check)
+  if (preemption_check
+      && !DEVICE_IMPL_FLAG (d, XDEVIMPF_DONT_PREEMPT_REDISPLAY))
     {
       /* The preemption check itself takes a lot of time,
 	 so normally don't do it here.  We do it if called
@@ -6443,27 +6444,29 @@ static int
 redisplay_device (struct device *d, int automatic)
 {
   Lisp_Object frame, frmcons;
-  int preempted = 0;
   int size_change_failed = 0;
   struct frame *f;
 
-  if (automatic
-      && (MAYBE_INT_DEVMETH (d, device_implementation_flags, ())
-	  & XDEVIMPF_NO_AUTO_REDISPLAY))
+  if (automatic && DEVICE_IMPL_FLAG (d, XDEVIMPF_NO_AUTO_REDISPLAY))
     return 0;
 
   if (DEVICE_STREAM_P (d)) /* nothing to do */
     return 0;
 
   /* It is possible that redisplay has been called before the
-     device is fully initialized.  If so then continue with the
-     next device. */
+     device is fully initialized, or that the console implementation
+     allows frameless devices.  If so then continue with the next
+     device. */
   if (NILP (DEVICE_SELECTED_FRAME (d)))
     return 0;
 
-  REDISPLAY_PREEMPTION_CHECK;
-  if (preempted)
-    return 1;
+  if (!DEVICE_IMPL_FLAG (d, XDEVIMPF_DONT_PREEMPT_REDISPLAY))
+    {
+      int preempted;
+      REDISPLAY_PREEMPTION_CHECK;
+      if (preempted)
+	return 1;
+    }
 
   /* Always do the selected frame first. */
   frame = DEVICE_SELECTED_FRAME (d);
@@ -6477,11 +6480,10 @@ redisplay_device (struct device *d, int automatic)
     {
       if (CLASS_REDISPLAY_FLAGS_CHANGEDP(f))
 	{
-	  preempted = redisplay_frame (f, 0);
+	  int preempted = redisplay_frame (f, 0);
+	  if (preempted)
+	    return 1;
 	}
-
-      if (preempted)
-	return 1;
 
       /* If the frame redisplay did not get preempted, then this flag
          should have gotten set to 0.  It might be possible for that
@@ -6507,11 +6509,10 @@ redisplay_device (struct device *d, int automatic)
 	{
 	  if (CLASS_REDISPLAY_FLAGS_CHANGEDP (f))
 	    {
-	      preempted = redisplay_frame (f, 0);
+	      int preempted = redisplay_frame (f, 0);
+	      if (preempted)
+		return 1;
 	    }
-
-	  if (preempted)
-	    return 1;
 
 	  if (f->size_change_pending)
 	    size_change_failed = 1;
@@ -7106,6 +7107,10 @@ mark_redisplay (void)
   FRAME_LOOP_NO_BREAK (frmcons, devcons, concons)
     {
       struct frame *f = XFRAME (XCAR (frmcons));
+      /* #### urk!  this does tons o' crap, such as creating lots of
+	 structs, doing window system actions, etc.  we DO NOT want to
+	 be doing this -- marking should never change any state.
+	 i think we can just delete this. --ben */
       update_frame_window_mirror (f);
       mark_window_mirror (f->root_mirror);
       mark_gutters (f);

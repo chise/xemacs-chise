@@ -251,12 +251,46 @@ struct itimerval
   struct timeval it_interval;
 };
 
-int setitimer (int kind, const struct itimerval* itnew,
-	       struct itimerval* itold);
-
 #define ITIMER_REAL 1
 #define ITIMER_PROF 2
 
-#endif /* WIN32_NATIVE */
+#endif /* WIN32_NATIVE || BROKEN_CYGWIN */
+
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+
+int mswindows_setitimer (int kind, const struct itimerval *itnew,
+			 struct itimerval *itold);
+
+#endif /* defined (WIN32_NATIVE) || defined (CYGWIN) */
+
+/* #### Move this comment elsewhere when we figure out the place.
+
+   "qxe" is a unique prefix used to identify encapsulations of standard
+   library functions.  We used to play pre-processing games but in
+   general this leads to nothing but trouble because someone first
+   encountering the code will have no idea that what appears to be a
+   call to a library function has actually been redefined to be a call
+   somewhere else.  This is doubly true when the redefinition occurs
+   in out-of-the way s+m files and only on certainly systems.
+
+   By making the encapsulation explicit we might be making the code
+   that uses is slightly less pretty, but this is more than compensated
+   for by the huge increase in clarity.
+
+   "Standard library function" can refer to any function in any
+   standard library.  If we are explicitly changing the semantics
+   (e.g. Mule-encapsulating), we should use an extended version of
+   the prefix, e.g. perhaps "qxe_xlat_" for functions that Mule-
+   encapsulate, or "qxe_retry_" for functions that automatically
+   retry a system call interrupted by EINTR.  In general, if there
+   is no prefix extension, it means the function is trying to
+   provide (more or less) the same semantics as the standard library
+   function; but be aware that the reimplementation may be incomplete
+   or differ in important respects.  This is especially the case
+   when attempts are made to implement Unix functions on MS Windows.
+*/
+
+int qxe_setitimer (int kind, const struct itimerval *itnew,
+		   struct itimerval *itold);
 
 #endif /* INCLUDED_systime_h_ */

@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1992-1995, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
-;; Copyright (C) 1996, 2000 Ben Wing.
+;; Copyright (C) 1996, 2000, 2001 Ben Wing.
 
 ;; Author: Jamie Zawinski <jwz@jwz.org>, for the LISPM Preservation Society.
 ;; Minimally merged with FSF 19.34 by Barry Warsaw <bwarsaw@python.org>
@@ -1203,10 +1203,15 @@ buffer modifications are performed or a buffer is reverted.")
 (defun font-lock-after-change-function (beg end old-len)
   (when font-lock-mode
     ;; treat deletions as if the following character (or previous, if
-    ;; there is no following) were inserted.  this is a bit of a hack
+    ;; there is no following) were inserted. (also use the previous
+    ;; character at end of line.  this avoids a problem when you
+    ;; insert a comment on the line before a line of code: if we use
+    ;; the following char, then when you hit backspace, the following
+    ;; line of code turns the comment color.) this is a bit of a hack
     ;; but allows us to use text properties for everything.
     (if (= beg end)
-	(cond ((/= end (point-max)) (setq end (1+ end)))
+	(cond ((not (save-excursion (goto-char end) (eolp)))
+	       (setq end (1+ end)))
 	      ((/= beg (point-min)) (setq beg (1- beg)))
 	      (t nil)))
     (put-text-property beg end 'font-lock-pending t)

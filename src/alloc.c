@@ -3246,6 +3246,61 @@ restore_gc_inhibit (Lisp_Object val)
 /* Maybe we want to use this when doing a "panic" gc after memory_full()? */
 static int gc_hooks_inhibited;
 
+struct post_gc_action
+{
+  void (*fun) (void *);
+  void *arg;
+};
+
+typedef struct post_gc_action post_gc_action;
+
+typedef struct
+{
+  Dynarr_declare (post_gc_action);
+} post_gc_action_dynarr;
+
+static post_gc_action_dynarr *post_gc_actions;
+
+/* Register an action to be called at the end of GC.
+   gc_in_progress is 0 when this is called.
+   This is used when it is discovered that an action needs to be taken,
+   but it's during GC, so it's not safe. (e.g. in a finalize method.)
+
+   As a general rule, do not use Lisp objects here.
+   And NEVER signal an error.
+*/
+
+void
+register_post_gc_action (void (*fun) (void *), void *arg)
+{
+  post_gc_action action;
+
+  if (!post_gc_actions)
+    post_gc_actions = Dynarr_new (post_gc_action);
+
+  action.fun = fun;
+  action.arg = arg;
+
+  Dynarr_add (post_gc_actions, action);
+}
+
+static void
+run_post_gc_actions (void)
+{
+  int i;
+
+  if (post_gc_actions)
+    {
+      for (i = 0; i < Dynarr_length (post_gc_actions); i++)
+	{
+	  post_gc_action action = Dynarr_at (post_gc_actions, i);
+	  (action.fun) (action.arg);
+	}
+
+      Dynarr_reset (post_gc_actions);
+    }
+}
+
 
 void
 garbage_collect_1 (void)
@@ -3460,6 +3515,8 @@ garbage_collect_1 (void)
 #endif
 
   gc_in_progress = 0;
+
+  run_post_gc_actions ();
 
   /******* End of garbage collection ********/
 

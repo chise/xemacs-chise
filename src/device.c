@@ -1175,8 +1175,7 @@ window_system_pixelated_geometry (Lisp_Object domain)
   Lisp_Object winsy = domain_device_type (domain);
   struct console_methods *meth = decode_console_type (winsy, ERROR_ME_NOT);
   assert (meth);
-  return (MAYBE_INT_CONTYPE_METH (meth, device_implementation_flags, ())
-	  & XDEVIMPF_PIXEL_GEOMETRY);
+  return CONMETH_IMPL_FLAG (meth, XDEVIMPF_PIXEL_GEOMETRY);
 }
 
 DEFUN ("domain-device-type", Fdomain_device_type, 0, 1, 0, /*

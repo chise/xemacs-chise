@@ -38,6 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 #include "frame.h"
 
+int lisp_to_time (Lisp_Object, time_t *);
 static Lisp_Object Vretrieved_selection;
 static gboolean waiting_for_selection;
 Lisp_Object Vgtk_sent_selection_hooks;

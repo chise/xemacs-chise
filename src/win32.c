@@ -22,6 +22,9 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include "lisp.h"
 
 #include "buffer.h"
+
+#include "syssignal.h"
+#include "systime.h"
 #include "syswindows.h"
 
 typedef BOOL (WINAPI *pfSwitchToThread_t) (VOID);
@@ -215,6 +218,141 @@ otherwise it is an integer representing a ShowWindow flag:
   return Qnil;
 }
 
+
+/*--------------------------------------------------------------------*/
+/*                               Async timers                         */
+/*--------------------------------------------------------------------*/
+
+/* setitimer() does not exist on native MS Windows, and appears broken
+   on Cygwin (random lockups when BROKEN_SIGIO is defined), so we
+   emulate in both cases by using multimedia timers. */
+
+/* We emulate two timers, one for SIGALRM, another for SIGPROF.
+
+   itimerproc() function has an implementation limitation: it does
+   not allow to set *both* interval and period. If an attempt is
+   made to set both, and then they are unequal, the function
+   asserts.
+
+   Minimum timer resolution on Win32 systems varies, and is greater
+   than or equal than 1 ms. The resolution is always wrapped not to
+   attempt to get below the system defined limit.
+   */
+
+/* Timer precision, denominator of one fraction: for 100 ms
+   interval, request 10 ms precision
+   */
+const int setitimer_helper_timer_prec = 10;
+
+/* Last itimervals, as set by calls to setitimer */
+static struct itimerval it_alarm;
+static struct itimerval it_prof;
+
+/* Timer IDs as returned by MM */
+MMRESULT tid_alarm = 0;
+MMRESULT tid_prof = 0;
+
+static void CALLBACK
+setitimer_helper_proc (UINT uID, UINT uMsg, DWORD dwUser,
+		       DWORD dw1, DWORD dw2)
+{
+  /* Just raise the signal indicated by the dwUser parameter */
+#ifdef CYGWIN
+  kill (getpid (), dwUser);
+#else
+  mswindows_raise (dwUser);
+#endif
+}
+
+/* Divide time in ms specified by IT by DENOM. Return 1 ms
+   if division results in zero */
+static UINT
+setitimer_helper_period (const struct itimerval* it, UINT denom)
+{
+  static TIMECAPS time_caps;
+
+  UINT res;
+  const struct timeval* tv = 
+    (it->it_value.tv_sec == 0 && it->it_value.tv_usec == 0)
+    ? &it->it_interval : &it->it_value;
+  
+  /* Zero means stop timer */
+  if (tv->tv_sec == 0 && tv->tv_usec == 0)
+    return 0;
+  
+  /* Convert to ms and divide by denom */
+  res = (tv->tv_sec * 1000 + (tv->tv_usec + 500) / 1000) / denom;
+  
+  /* Converge to minimum timer resolution */
+  if (time_caps.wPeriodMin == 0)
+      timeGetDevCaps (&time_caps, sizeof(time_caps));
+
+  if (res < time_caps.wPeriodMin)
+    res = time_caps.wPeriodMin;
+
+  return res;
+}
+
+static int
+setitimer_helper (const struct itimerval* itnew,
+		  struct itimerval* itold, struct itimerval* itcurrent,
+		  MMRESULT* tid, DWORD sigkind)
+{
+  UINT delay, resolution, event_type;
+
+  /* First stop the old timer */
+  if (*tid)
+    {
+      timeKillEvent (*tid);
+      timeEndPeriod (setitimer_helper_period (itcurrent,
+					      setitimer_helper_timer_prec));
+      *tid = 0;
+    }
+
+  /* Return old itimerval if requested */
+  if (itold)
+    *itold = *itcurrent;
+
+  *itcurrent = *itnew;
+
+  /* Determine if to start new timer */
+  delay = setitimer_helper_period (itnew, 1);
+  if (delay)
+    {
+      resolution = setitimer_helper_period (itnew,
+					    setitimer_helper_timer_prec);
+      event_type = (itnew->it_value.tv_sec == 0 &&
+		    itnew->it_value.tv_usec == 0)
+	? TIME_ONESHOT : TIME_PERIODIC;
+      timeBeginPeriod (resolution);
+      *tid = timeSetEvent (delay, resolution, setitimer_helper_proc, sigkind,
+			   event_type);
+    }
+
+  return !delay || *tid;
+}
+ 
+int
+mswindows_setitimer (int kind, const struct itimerval *itnew,
+		     struct itimerval *itold)
+{
+  /* In this version, both interval and value are allowed
+     only if they are equal. */
+  assert ((itnew->it_value.tv_sec == 0 && itnew->it_value.tv_usec == 0)
+	  || (itnew->it_interval.tv_sec == 0 &&
+	      itnew->it_interval.tv_usec == 0)
+	  || (itnew->it_value.tv_sec == itnew->it_interval.tv_sec &&
+	      itnew->it_value.tv_usec == itnew->it_interval.tv_usec));
+
+  if (kind == ITIMER_REAL)
+    return setitimer_helper (itnew, itold, &it_alarm, &tid_alarm, SIGALRM);
+  else if (kind == ITIMER_PROF)
+    return setitimer_helper (itnew, itold, &it_prof, &tid_prof, SIGPROF);
+  else
+    return errno = EINVAL;
+}
+
+
 void
 syms_of_win32 (void)
 {

@@ -160,12 +160,14 @@ the last entry in the menu."
 
 (defvar font-menu-preferred-resolution
   (make-specifier-and-init 'generic '((global ((mswindows) . ":")
-					      ((x gtk) . "*-*"))) t)
+					      ((gtk) . "*-*")
+					      ((x) . "*-*"))) t)
   "Preferred horizontal and vertical font menu resolution (e.g. \"75:75\").")
 
 (defvar font-menu-size-scaling
   (make-specifier-and-init 'integer '((global ((mswindows) . 1)
-					      ((x gtk) . 10))) t)
+					      ((gtk) . 10)
+					      ((x) . 10))) t)
   "Scale factor used in defining font sizes.")
 
 ;; only call XListFonts (and parse) once per device.
@@ -377,7 +379,9 @@ or if you change your font path, you can call this to re-initialize the menus."
 	(condition-case c
 	    (font-menu-change-face face
 				   from-family from-weight from-size
-				   family      weight      size)
+				   (or family from-family)
+				   (or weight from-weight)
+				   (or size from-size))
 	  (error
 	   (display-error c nil)
 	   (sit-for 1)))))
@@ -392,7 +396,7 @@ or if you change your font path, you can call this to re-initialize the menus."
       ;; OK Let Customize do it.
       (custom-set-face-update-spec 'default
 				   (list (list 'type (device-type)))
-				   (list :family family
+				   (list :family (or family from-family)
 					 :size (concat
 						(int-to-string
 						 (/ (or size from-size)

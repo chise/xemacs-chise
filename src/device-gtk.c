@@ -680,12 +680,6 @@ Get the style information for a Gtk device.
   return (result);
 }
 
-static unsigned int
-gtk_device_implementation_flags (void)
-{
-  return 0; /* XDEVIMPF_PIXEL_GEOMETRY; */
-}
-
 
 /************************************************************************/
 /*                            initialization                            */
@@ -717,7 +711,10 @@ console_type_create_device_gtk (void)
   CONSOLE_HAS_METHOD (gtk, mark_device);
   CONSOLE_HAS_METHOD (gtk, delete_device);
   CONSOLE_HAS_METHOD (gtk, device_system_metrics);
-  CONSOLE_HAS_METHOD (gtk, device_implementation_flags);
+  /* CONSOLE_IMPLEMENTATION_FLAGS (gtk, XDEVIMPF_PIXEL_GEOMETRY); */
+  /* I inserted the above commented out statement, as the original
+     implementation of gtk_device_implementation_flags(), which I
+     deleted, contained commented out XDEVIMPF_PIXEL_GEOMETRY - kkm*/
 }
 
 void

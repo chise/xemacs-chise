@@ -16,6 +16,7 @@ define([AC_INIT_NOTICE],
 ### To rebuild it, execute the command
 ###	autoconf
 ### in the this directory.  You must have autoconf version 2.13 or later.
+### Note: this script has not yet been ported to autoconf version 2.5x.
 
 ### This file is part of XEmacs.
 
@@ -333,13 +334,13 @@ infodir='${datadir}/${instvardir}/info'
 infopath=''
 install_pp=''
 lispdir='${datadir}/${instvardir}/lisp'
-moduledir='${datadir}/${instvardir}/${configuration}/modules'
+moduledir='${libdir}/${instvardir}/${configuration}/modules'
 sitelispdir='${datadir}/${inststaticdir}/site-lisp'
-sitemoduledir='${datadir}/${inststaticdir}/site-modules'
+sitemoduledir='${libdir}/${inststaticdir}/site-modules'
 pkgdir='${datadir}/${instvardir}/lisp'
 package_path=''
 etcdir='${datadir}/${instvardir}/etc'
-archlibdir='${datadir}/${instvardir}/${configuration}'
+archlibdir='${libdir}/${instvardir}/${configuration}'
 docdir='${archlibdir}'
 with_netinstall="no"
 with_prefix='yes'
@@ -1900,9 +1901,15 @@ if test "$cflags_specified" = "no"; then
   dnl Following values of CFLAGS are known to work well.
   dnl Should we take debugging options into consideration?
   if   test "$GCC" = "yes"; then
-    CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes -Wshadow"
+    CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes"
     dnl Yuck, bad compares have been worth at least 3 crashes!
     CFLAGS="$CFLAGS -Wsign-compare"
+    dnl You get five zillion shadowing warnings with g++.
+    dnl Even with gcc, -Wshadow is questionable because of its complaints
+    dnl about parameters with the same names as global functions.
+    if test "$xemacs_compiler" != "g++"; then
+      CFLAGS="$CFLAGS -Wshadow"
+    fi
     dnl glibc is intentionally not `-Wpointer-arith'-clean.
     dnl Ulrich Drepper has rejected patches to fix the glibc header files.
     test "$have_glibc" != "yes" && CFLAGS="$CFLAGS -Wpointer-arith"
@@ -2908,7 +2915,7 @@ if test "$with_msw" != "no"; then
     dnl check for our special version of select
     AC_TRY_RUN([#include <fcntl.h>
     int main() { return (open("/dev/windows", O_RDONLY, 0) > 0)? 0 : 1; }],
-    [AC_DEFINE(HAVE_MSG_SELECT)])
+    [need_event_unixoid=yes; AC_DEFINE(HAVE_MSG_SELECT)])
     with_file_coding=yes
     XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o gui-msw.o)
   fi
@@ -3173,9 +3180,38 @@ dnl ----------------------
 if test "$window_system" != "none"; then
   AC_CHECKING(for graphics libraries)
 
+  dnl add special code to handle xpm-nox on Cygwin (csw)
+  dnl   -- should only happen if CYGWIN && WITH_XPM && WITH_MSW && !WITH_X
+  libpath_xpm=
+  incpath_xpm=
+  case "$opsys" in 
+    cygwin*)
+      cygwin_top=`eval "gcc -print-file-name=libc.a"` ;
+      cygwin_top=`eval "dirname ${cygwin_top}"`;
+      cygwin_top="${cygwin_top}/..";
+      case "$window_system" in
+        dnl use "standard" search pattern
+        x11)  ;;
+        dnl hardcode "standard" non-X11 xpm lib/inc dirs
+        msw) libpath_xpm="-L${cygwin_top}/lib/noX"
+             incpath_xpm="-I${cygwin_top}/include/noX"
+              ;;
+        dnl not supported on cygwin (yet?)
+        gtk)  ;;
+        dnl probably not reached...
+        none) ;;
+        dnl ditto
+        *)    ;;
+      esac
+      ;;
+    dnl use "standard" search pattern for all other OS's
+    *) ;;
+  esac
   dnl Autodetect Xpm
   xpm_problem=""
   if test -z "$with_xpm"; then
+    XE_PREPEND("$incpath_xpm", CFLAGS)
+    XE_PREPEND("$libpath_xpm", LDFLAGS)
     AC_MSG_CHECKING(for Xpm - no older than 3.4f)
     xe_check_libs=-lXpm
     AC_TRY_RUN([#define XPM_NUMBERS
@@ -3211,7 +3247,9 @@ if test "$window_system" != "none"; then
     dnl #### then it will succeed if FOR_MSW is defined,
     dnl #### but doesn't actually verify this assumption.
     AC_DEFINE(HAVE_XPM)
+    XE_PREPEND("$libpath_xpm", LDFLAGS)
     XE_PREPEND(-lXpm, libs_x)
+    XE_PREPEND("$incpath_xpm", CFLAGS)
     AC_MSG_CHECKING(for \"FOR_MSW\" xpm)
     xe_check_libs=-lXpm
     AC_TRY_LINK(, [XpmCreatePixmapFromData()],
@@ -4222,7 +4260,9 @@ else dnl "$with_tty" = "no"
 fi dnl with_tty
 
 dnl Do we need event-unixoid.o ?
-test "$with_x11" = "yes" -o "$with_tty" = "yes" && XE_ADD_OBJS(event-unixoid.o)
+dnl This is needed for X, or for TTY, or for MSWIN w/Cygwin select()
+dnl [but not Mingw MSWIN]
+test "$with_x11" = "yes" -o "$with_tty" = "yes" -o "$need_event_unixoid" = "yes" && XE_ADD_OBJS(event-unixoid.o)
 
 dnl Database support
 dnl We do not necessarily have to have libdb/lib(g)dbm for DB/(G)DBM support.

@@ -637,7 +637,8 @@ On Unix it is obtained from TMPDIR, with /tmp as the default.
 	{
 	  mkdir(path, 0700);	/* ignore retval -- checked next anyway. */
 	}
-      if (lstat(path, &st) == 0 && st.st_uid == myuid && S_ISDIR(st.st_mode))
+      if (lstat(path, &st) == 0 && st.st_uid == (uid_t) myuid &&
+	  S_ISDIR(st.st_mode))
 	{
 	  tmpdir = path;
 	}
@@ -824,7 +825,7 @@ value of `user-full-name' is returned.
 #endif
   tem = ((!NILP (user) && !pw)
 	 ? Qnil
-	 : make_ext_string ((Extbyte *) p, (q ? q - p : strlen (p)),
+	 : make_ext_string ((Extbyte *) p, (q ? q - p : (int) strlen (p)),
 			    Qnative));
 
 #ifdef AMPERSAND_FULL_NAME

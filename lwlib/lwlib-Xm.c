@@ -336,6 +336,36 @@ xm_update_pushbutton (widget_instance* instance, Widget widget,
   XtAddCallback (widget, XmNactivateCallback, xm_generic_callback, instance);
 }
 
+static void
+xm_update_progress (widget_instance* instance, Widget scale,
+		      widget_value* val)
+{
+  Arg al[20];
+  int ac = 0;
+  Dimension height = 0;
+  Dimension width = 0;
+  if (!val->call_data)
+    {
+      XtSetArg (al [ac], XmNeditable, False);		ac++;
+    }
+  else
+    {
+      XtSetArg (al [ac], XmNeditable, val->enabled);		ac++;
+    }
+  height = (Dimension)lw_get_value_arg (val, XtNheight);
+  width = (Dimension)lw_get_value_arg (val, XtNwidth);
+  if (height > 0)
+    {
+      XtSetArg (al [ac], XmNscaleHeight, height); ac++;
+    }
+  if (width > 0)
+    {
+      XtSetArg (al [ac], XmNscaleWidth, width); ac++;
+    }
+
+  XtSetValues (scale, al, 1);
+}
+
 #ifdef LWLIB_MENUBARS_MOTIF
 
 static void
@@ -858,6 +888,10 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
       xm_update_scrollbar (instance, widget, val);
     }
 #endif
+  else if (class == xmScaleWidgetClass)
+    {
+      xm_update_progress (instance, widget, val);
+    }
   /* Lastly update our global arg values. */
   if (val->args && val->args->nargs)
     XtSetValues (widget, val->args->args, val->args->nargs);
@@ -912,7 +946,7 @@ xm_update_one_value (widget_instance* instance, Widget widget,
       if (radiobox)
 	{
 	  CompositeWidget radio = (CompositeWidget)widget;
-	  int i;
+	  unsigned int i;
 	  for (i = 0; i < radio->composite.num_children; i++)
 	    {
 	      int set = False;
@@ -1649,20 +1683,18 @@ xm_create_progress (widget_instance *instance)
 {
   Arg al[20];
   int ac = 0;
+  Dimension height = 0;
+  Dimension width = 0;
   Widget scale = 0;
   widget_value* val = instance->info->val;
-#if 0		/* This looks too awful, although more correct. */
   if (!val->call_data)
     {
-      XtSetArg (al [ac], XmNsensitive, False);		ac++;
+      XtSetArg (al [ac], XmNeditable, False);		ac++;
     }
   else
     {
-      XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+      XtSetArg (al [ac], XmNeditable, val->enabled);		ac++;
     }
-#else
-  XtSetArg (al [ac], XmNsensitive, True);		ac++;
-#endif
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
@@ -1671,6 +1703,18 @@ xm_create_progress (widget_instance *instance)
      look ugly.  I think this may be a LessTif bug but for now we just
      get rid of it. */
   XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+  
+  height = (Dimension)lw_get_value_arg (val, XtNheight);
+  width = (Dimension)lw_get_value_arg (val, XtNwidth);
+  if (height > 0)
+    {
+      XtSetArg (al [ac], XmNscaleHeight, height); ac++;
+    }
+  if (width > 0)
+    {
+      XtSetArg (al [ac], XmNscaleWidth, width); ac++;
+    }
+
   /* add any args the user supplied for creation time */
   lw_add_value_args_to_args (val, al, &ac);
 

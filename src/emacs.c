@@ -242,6 +242,10 @@ static void *malloc_state_ptr;
 void r_alloc_reinit (void);
 # endif
 
+#ifdef HAVE_GTK
+void console_type_create_select_gtk(void);
+#endif
+
 /* Variable whose value is symbol giving operating system type. */
 Lisp_Object Vsystem_type;
 
@@ -797,7 +801,7 @@ argmatch (char **argv, int argc, char *sstr, char *lstr,
       return 1;
     }
   arglen = (valptr != NULL && (p = strchr (arg, '=')) != NULL
-	    ? p - arg : strlen (arg));
+	    ? p - arg : (int) strlen (arg));
   if (lstr == 0 || arglen < minlen || strncmp (arg, lstr, arglen) != 0)
     return 0;
   else if (valptr == NULL)
@@ -1146,6 +1150,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 				       so we can be fairly accurate. */
   init_intl_very_early (); /* set up the locale and domain for gettext and
 			      such. */
+#ifdef HAVE_MS_WINDOWS
+  init_mswindows_very_early ();	/* Some things - like dde need to be
+				   initialized early so that the
+				   client doesn't give up waiting.  */
+#endif
 
   /* Now initialize the Lisp engine and the like.  Done only during
      dumping.  No dependence on anything that may be in the user's

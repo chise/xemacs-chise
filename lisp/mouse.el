@@ -532,7 +532,7 @@ button is held down (see also `mouse-track-y-threshold'), then a drag
 is initiated; otherwise the gesture is considered to be a click.
 See `mouse-track'.
 
-The value should be either a number of a form to be evaluated to
+The value should be either a number or a form to be evaluated to
 produce a number.")
 
 (defvar mouse-track-y-threshold '(face-height 'default)
@@ -570,7 +570,9 @@ Return true if the function was activated."
 	       event ex)
       t)))
 
-(defun mouse-track-run-hook (hook event &rest args)
+(defvar Mouse-track-gensym (gensym))
+
+(defun mouse-track-run-hook (hook override event &rest args)
   ;; ugh, can't use run-hook-with-args-until-success because we have
   ;; to get the value using symbol-value-in-buffer.  Doing a
   ;; save-excursion/set-buffer is wrong because the hook might want to
@@ -578,33 +580,40 @@ Return true if the function was activated."
   ;; the hook might not want to change the buffer.
   ;; #### What we need here is a Lisp interface to
   ;; run_hook_with_args_in_buffer.  Here is a poor man's version.
-  (let ((buffer (event-buffer event)))
-    (and mouse-grabbed-buffer (setq buffer mouse-grabbed-buffer))
-    (when buffer
-      (let ((value (symbol-value-in-buffer hook buffer nil)))
-	(if (and (listp value) (not (eq (car value) 'lambda)))
-	    ;; List of functions.
-	    (let (retval)
-	      (while (and value (null retval))
-		;; Found `t': should process default value.  We could
-		;; splice it into the buffer-local value, but that
-		;; would cons, which is not a good thing for
-		;; mouse-track hooks.
-		(if (eq (car value) t)
-		    (let ((global (default-value hook)))
-		      (if (and (listp global) (not (eq (car global) 'lambda)))
-			  ;; List of functions.
-			  (while (and global
-				      (null (setq retval
-						  (apply (car global) event args))))
-			    (pop global))
-			;; lambda
-			(setq retval (apply (car global) event args))))
-		  (setq retval (apply (car value) event args)))
-		(pop value))
-	      retval)
-	  ;; lambda
-	  (apply value event args))))))
+  (let ((overridden (plist-get override hook Mouse-track-gensym)))
+    (if (not (eq overridden Mouse-track-gensym))
+	(if (and (listp overridden) (not (eq (car overridden) 'lambda)))
+	    (some #'(lambda (val) (apply val event args)) overridden)
+	  (apply overridden event args))
+      (let ((buffer (event-buffer event)))
+	(and mouse-grabbed-buffer (setq buffer mouse-grabbed-buffer))
+	(when buffer
+	  (let ((value (symbol-value-in-buffer hook buffer nil)))
+	    (if (and (listp value) (not (eq (car value) 'lambda)))
+		;; List of functions.
+		(let (retval)
+		  (while (and value (null retval))
+		    ;; Found `t': should process default value.  We could
+		    ;; splice it into the buffer-local value, but that
+		    ;; would cons, which is not a good thing for
+		    ;; mouse-track hooks.
+		    (if (eq (car value) t)
+			(let ((global (default-value hook)))
+			  (if (and (listp global) (not (eq (car global)
+							   'lambda)))
+			      ;; List of functions.
+			      (while (and global
+					  (null (setq retval
+						      (apply (car global)
+							     event args))))
+				(pop global))
+			    ;; lambda
+			    (setq retval (apply (car global) event args))))
+		      (setq retval (apply (car value) event args)))
+		    (pop value))
+		  retval)
+	      ;; lambda
+	      (apply value event args))))))))
 
 (defun mouse-track-scroll-undefined (random)
   ;; the old implementation didn't actually define this function,
@@ -615,7 +624,7 @@ Return true if the function was activated."
   ;; difficult to do), this function may get called.
 )
 
-(defun mouse-track (event)
+(defun mouse-track (event &optional overriding-hooks)
   "Generalized mouse-button handler.  This should be bound to a mouse button.
 The behavior of this function is customizable using various hooks and
 variables: see `mouse-track-click-hook', `mouse-track-drag-hook',
@@ -628,6 +637,10 @@ Default handlers are provided to implement standard selecting/positioning
 behavior.  You can explicitly request this default behavior, and override
 any custom-supplied handlers, by using the function `mouse-track-default'
 instead of `mouse-track'.
+
+\(In general, you can override specific hooks by using the argument
+OVERRIDING-HOOKS, which should be a plist of alternating hook names
+and values.)
 
 Default behavior is as follows:
 
@@ -669,7 +682,7 @@ at the initial click position."
       (setq mouse-track-click-count (1+ mouse-track-click-count)))
     (if (not (event-window event))
 	(error "Not over a window."))
-    (mouse-track-run-hook 'mouse-track-down-hook
+    (mouse-track-run-hook 'mouse-track-down-hook overriding-hooks
 			  event mouse-track-click-count)
     (unwind-protect
 	(while mouse-down
@@ -683,14 +696,17 @@ at the initial click position."
 		     (setq mouse-moved t))
 		 (if mouse-moved
 		     (mouse-track-run-hook 'mouse-track-drag-hook
-		      event mouse-track-click-count nil))
+					   overriding-hooks
+					   event mouse-track-click-count nil))
 		 (mouse-track-set-timeout event))
 		((and (timeout-event-p event)
 		      (eq (event-function event)
 			  'mouse-track-scroll-undefined))
 		 (if mouse-moved
 		     (mouse-track-run-hook 'mouse-track-drag-hook
-		      (event-object event) mouse-track-click-count t))
+					   overriding-hooks
+					   (event-object event)
+					   mouse-track-click-count t))
 		 (mouse-track-set-timeout (event-object event)))
 		((button-release-event-p event)
 		 (setq mouse-track-up-time (event-timestamp event))
@@ -698,12 +714,15 @@ at the initial click position."
 		 (setq mouse-track-up-y (event-y-pixel event))
 		 (setq mouse-down nil)
 		 (mouse-track-run-hook 'mouse-track-up-hook
-		  event mouse-track-click-count)
+				       overriding-hooks
+				       event mouse-track-click-count)
 		 (if mouse-moved
 		     (mouse-track-run-hook 'mouse-track-drag-up-hook
-		      event mouse-track-click-count)
+					   overriding-hooks
+					   event mouse-track-click-count)
 		   (mouse-track-run-hook 'mouse-track-click-hook
-		    event mouse-track-click-count)))
+					 overriding-hooks
+					 event mouse-track-click-count)))
 		((or (key-press-event-p event)
 		     (and (misc-user-event-p event)
 			  (eq (event-function event) 'cancel-mode-internal)))
@@ -717,7 +736,14 @@ at the initial click position."
       (and (buffer-live-p buffer)
 	   (save-excursion
 	     (set-buffer buffer)
-	     (run-hooks 'mouse-track-cleanup-hook))))))
+	     (let ((override (plist-get overriding-hooks
+					'mouse-track-cleanup-hook
+					Mouse-track-gensym)))
+	       (if (not (eq override Mouse-track-gensym))
+		   (if (and (listp override) (not (eq (car override) 'lambda)))
+		       (mapc #'funcall override)
+		     (funcall override))
+		 (run-hooks 'mouse-track-cleanup-hook))))))))
 
 
 ;;;;;;;;;;;; default handlers: new version of mouse-track
@@ -1039,29 +1065,33 @@ at the initial click position."
 	     ;;
 	     (and (eq (console-type) 'x)
 		  (sit-for 0.15 t))
+	     ;; zmacs-activate-region -> zmacs-activate-region-hook ->
+	     ;; activate-region-as-selection -> either own-selection or
+	     ;; mouse-track-activate-rectangular-selection
 	     (zmacs-activate-region)))
 	  ((console-on-window-system-p)
+	   ;; #### do we need this?  we don't do it when zmacs-regions = t
 	   (if (= start end)
 	       (disown-selection type)
-	     (if (consp default-mouse-track-extent)
-		 ;; own the rectangular region
-		 ;; this is a hack
-		 (let ((r default-mouse-track-extent))
-		   (save-excursion
-		     (set-buffer (get-buffer-create " *rect yank temp buf*"))
-		     (while r
-		       (insert (extent-string (car r)) "\n")
-		       (setq r (cdr r)))
-		     (own-selection (buffer-substring (point-min) (point-max)))
-		     (kill-buffer (current-buffer))))
-	       (own-selection (cons (set-marker (make-marker) start)
-				    (set-marker (make-marker) end))
-			      type)))))
+	     (activate-region-as-selection))))
     (if (and (eq 'x (console-type))
 	     (not (= start end)))
 	;; I guess cutbuffers should do something with rectangles too.
 	;; does anybody use them?
-	(x-store-cutbuffer (buffer-substring start end)))))
+        (x-store-cutbuffer (buffer-substring start end)))))
+
+(defun mouse-track-activate-rectangular-selection ()
+  (if (consp default-mouse-track-extent)
+      ;; own the rectangular region
+      ;; this is a hack
+      (let ((r default-mouse-track-extent))
+	(save-excursion
+	  (set-buffer (get-buffer-create " *rect yank temp buf*"))
+	  (erase-buffer)
+	  (while r
+	    (insert (extent-string (car r)) "\n")
+	    (setq r (cdr r)))
+	  (own-selection (buffer-substring (point-min) (point-max)))))))
 
 (defun default-mouse-track-deal-with-down-event (click-count)
   (let ((event default-mouse-track-down-event))
@@ -1315,12 +1345,14 @@ at the initial click position."
 (defun mouse-track-default (event)
   "Invoke `mouse-track' with only the default handlers active."
   (interactive "e")
-  (let ((mouse-track-down-hook 'default-mouse-track-down-hook)
-	(mouse-track-drag-hook 'default-mouse-track-drag-hook)
-	(mouse-track-drag-up-hook 'default-mouse-track-drag-up-hook)
-	(mouse-track-click-hook 'default-mouse-track-click-hook)
-	(mouse-track-cleanup-hook 'default-mouse-track-cleanup-hook))
-    (mouse-track event)))
+  (mouse-track event
+	       '(mouse-track-down-hook
+		 default-mouse-track-down-hook
+		 mouse-track-up-hook nil
+		 mouse-track-drag-hook default-mouse-track-drag-hook
+		 mouse-track-drag-up-hook default-mouse-track-drag-up-hook
+		 mouse-track-click-hook default-mouse-track-click-hook
+		 mouse-track-cleanup-hook default-mouse-track-cleanup-hook)))
 
 (defun mouse-track-do-rectangle (event)
   "Like `mouse-track' but selects rectangles instead of regions."
@@ -1351,37 +1383,37 @@ custom mouse-track handlers that the user may have installed."
   (let ((default-mouse-track-adjust t))
     (mouse-track-default event)))
 
-(defvar mouse-track-insert-selected-region nil)
-
-(defun mouse-track-insert-drag-up-hook (event click-count)
-  (setq mouse-track-insert-selected-region
-	(default-mouse-track-return-dragged-selection event)))
-
 (defun mouse-track-insert (event &optional delete)
   "Make a selection with the mouse and insert it at point.
 This is exactly the same as the `mouse-track' command on \\[mouse-track],
 except that point is not moved; the selected text is immediately inserted
 after being selected\; and the selection is immediately disowned afterwards."
   (interactive "*e")
-  (setq mouse-track-insert-selected-region nil)
-  (let ((mouse-track-drag-up-hook 'mouse-track-insert-drag-up-hook)
- 	(mouse-track-click-hook 'mouse-track-insert-click-hook)
-	s)
-    (save-excursion
-      (save-window-excursion
-	(mouse-track event)
-	(if (consp mouse-track-insert-selected-region)
-	    (let ((pair mouse-track-insert-selected-region))
-	      (setq s (prog1
-			  (buffer-substring (car pair) (cdr pair))
-			(if delete
-			    (kill-region (car pair) (cdr pair)))))))))
-	(or (null s) (equal s "") (insert s))))
-
-(defun mouse-track-insert-click-hook (event click-count)
-  (default-mouse-track-drag-hook event click-count nil)
-  (mouse-track-insert-drag-up-hook event click-count)
-  t)
+  (let (s selreg)
+    (flet ((Mouse-track-insert-drag-up-hook (event count)
+	     (setq selreg
+		   (default-mouse-track-return-dragged-selection event))
+	     t)
+	   (Mouse-track-insert-click-hook (event count)
+	     (default-mouse-track-drag-hook event count nil)
+	     (setq selreg
+		   (default-mouse-track-return-dragged-selection event))
+	     t))
+      (save-excursion
+	(save-window-excursion
+	  (mouse-track
+	   event
+	   '(mouse-track-drag-up-hook
+	     Mouse-track-insert-drag-up-hook
+	     mouse-track-click-hook
+	     Mouse-track-insert-click-hook))
+	  (if (consp selreg)
+	      (let ((pair selreg))
+		(setq s (prog1
+			    (buffer-substring (car pair) (cdr pair))
+			  (if delete
+			      (kill-region (car pair) (cdr pair))))))))))
+    (or (null s) (equal s "") (insert s))))
 
 (defun mouse-track-delete-and-insert (event)
   "Make a selection with the mouse and insert it at point.

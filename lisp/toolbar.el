@@ -32,8 +32,8 @@
 
 (defcustom toolbar-visible-p ;; added for the options menu - dverna apr. 98
   (specifier-instance default-toolbar-visible-p)
-  "Whether the default toolbar is globally visible. This option can be
-customized through the options menu."
+  "Whether the default toolbar is globally visible.
+This option can be customized through the options menu."
   :group 'display
   :type 'boolean
   :set #'(lambda (var val)
@@ -43,8 +43,8 @@ customized through the options menu."
 
 (defcustom toolbar-captioned-p ;; added for the options menu - dverna apr. 98
   (specifier-instance toolbar-buttons-captioned-p)
-  "Whether the toolbars buttons are globally captioned. This option can be
-customized through the options menu."
+  "Whether the toolbars buttons are globally captioned.
+This option can be customized through the options menu."
   :group 'display
   :type 'boolean
   :set #'(lambda (var val)
@@ -54,8 +54,9 @@ customized through the options menu."
 
 (defcustom default-toolbar-position ;; added for the options menu - dverna
   (default-toolbar-position)
-  "The location of the default toolbar. It can be 'top, 'bottom, 'left or
-'right. This option can be customized through the options menu."
+  "The location of the default toolbar.
+It can be 'top, 'bottom, 'left or 'right. This option can be
+customized through the options menu."
   :group 'display
   :type '(choice (const :tag "top" top)
 		 (const :tag "bottom" bottom)

@@ -1761,7 +1761,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'highlight
 			    '(((x default mono) . "gray1")
-;; 			      ((gtk default mono) . "gray1")
+ 			      ((gtk default mono) . "gray1")
 			      ((mswindows default mono) . "gray1"))
 			    'global)
 
@@ -1773,7 +1773,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'zmacs-region
 			    '(((x default mono) . "gray3")
-;; 			      ((gtk default mono) . "gray3")
+ 			      ((gtk default mono) . "gray3")
 			      ((mswindows default mono) . "gray3"))
 			    'global)
 
@@ -1781,9 +1781,9 @@ in that frame; otherwise change each frame."
 		     '(((x default color) . "gray68")
 		       ((x default grayscale) . "gray68")
 		       ((x default mono) . [default foreground])
-;; 		       ((gtk default color) . "gray68")
-;; 		       ((gtk default grayscale) . "gray68")
-;; 		       ((gtk default mono) . [default foreground])
+ 		       ((gtk default color) . "gray68")
+ 		       ((gtk default grayscale) . "gray68")
+ 		       ((gtk default mono) . [default foreground])
 		       ((mswindows default color) . "gray68")
 		       ((mswindows default grayscale) . "gray68")
 		       ((mswindows default mono) . [default foreground]))
@@ -1801,7 +1801,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'primary-selection
 			    '(((x default mono) . "gray3")
-			      ;;((gtk default mono) . "gray3")
+			      ((gtk default mono) . "gray3")
 			      ((mswindows default mono) . "gray3"))
 			    'global)
 
@@ -1809,24 +1809,24 @@ in that frame; otherwise change each frame."
 		     '(((x default color) . "paleturquoise")
 		       ((x default color) . "green")
 		       ((x default grayscale) . "gray53")
-		       ;;((gtk default color) . "paleturquoise")
-		       ;;((gtk default color) . "green")
-		       ;;((gtk default grayscale) . "gray53")
+		       ((gtk default color) . "paleturquoise")
+		       ((gtk default color) . "green")
+		       ((gtk default grayscale) . "gray53")
 		       ((mswindows default color) . "paleturquoise")
 		       ((mswindows default color) . "green")
 		       ((mswindows default grayscale) . "gray53"))
 		     'global)
 (set-face-background-pixmap 'secondary-selection
 			    '(((x default mono) . "gray1")
-			      ;;((gtk default mono) . "gray1")
+			      ((gtk default mono) . "gray1")
 			      ((mswindows default mono) . "gray1"))
 			    'global)
 
 (set-face-background 'isearch
 		     '(((x default color) . "paleturquoise")
 		       ((x default color) . "green")
-		       ;;((gtk default color) . "paleturquoise")
-		       ;;((gtk default color) . "green")
+		       ((gtk default color) . "paleturquoise")
+		       ((gtk default color) . "green")
 		       ((mswindows default color) . "paleturquoise")
 		       ((mswindows default color) . "green"))
 		     'global)

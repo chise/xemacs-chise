@@ -1,4 +1,4 @@
-/* Process support for Windows NT port of XEMACS.
+/* Old process support under MS Windows, soon to die.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
@@ -23,6 +23,16 @@ Boston, MA 02111-1307, USA.
 
 /* Adapted for XEmacs by David Hobley <david@spook-le0.cia.com.au> */
 /* Synced with FSF Emacs 19.34.6 by Marc Paquette <marcpa@cam.org> */
+
+/* #### This ENTIRE file is only around because of callproc.c, which
+   in turn is only used in batch mode.
+
+   We only need two things to get rid of both this and callproc.c:
+
+   -- my `stderr-proc' ws, which adds support for a separate stderr
+      in asynch. subprocesses. (it's a feature in `old-call-process-internal'.)
+   -- a noninteractive event loop that supports processes.
+*/
 
 #include <config.h>
 #undef signal
@@ -1316,7 +1326,7 @@ When non-nil, they show their window in the method of their choice.
 	       &Vwin32_start_process_share_console /*
     When nil, processes started via start-process are given a new console.
 When non-nil, they share the Emacs console; this has the limitation of
-allowing only only DOS subprocess to run at a time (whether started directly
+allowing only one DOS subprocess to run at a time (whether started directly
 or indirectly by Emacs), and preventing Emacs from cleanly terminating the
 subprocess group, but may allow Emacs to interrupt a subprocess that doesn't
 otherwise respond to interrupts from Emacs.

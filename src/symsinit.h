@@ -32,6 +32,7 @@ void init_intl_very_early (void);
 void init_process_times_very_early (void);
 void init_ralloc (void);
 void init_signals_very_early (void);
+void init_mswindows_very_early (void);
 
 /* Early Lisp-engine initialization (dump-time for init, run-time for reinit). */
 

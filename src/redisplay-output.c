@@ -271,7 +271,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	  crb->findex != drb->findex ||
 	  WINDOW_FACE_CACHEL_DIRTY (w, drb->findex))
 	{
-	  /* We now now we are going to re-output the glyph, but since
+	  /* Now we are going to re-output the glyph, but since
 	     this is for some internal reason not related to geometry
 	     changes, send a hint to the output routines that they can
 	     take some short cuts. This is most useful for

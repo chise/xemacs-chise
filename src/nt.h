@@ -27,6 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_nt_h_
 
 #include "syswindows.h"
+#include "systime.h" /* because of struct utimbuf below */
 
 #ifdef DEBUG_XEMACS
 #define DebPrint(stuff) _DebPrint stuff

@@ -2151,6 +2151,8 @@ void debug_ungcpro(char *, int, struct gcpro *);
 
 extern Lisp_Object_ptr_dynarr *staticpros;
 
+void register_post_gc_action (void (*fun) (void *), void *arg);
+
 /* Call staticpro (&var) to protect static variable `var'. */
 void staticpro (Lisp_Object *);
 

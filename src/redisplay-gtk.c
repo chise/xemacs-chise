@@ -51,6 +51,10 @@ Boston, MA 02111-1307, USA.  */
 #include "file-coding.h" /* for CCL conversion */
 #endif
 
+#ifdef HAVE_POLL
+#include <sys/poll.h>
+#endif
+
 #define CONST const
 
 #define EOL_CURSOR_WIDTH	5

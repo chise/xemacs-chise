@@ -146,6 +146,8 @@ static XtResource resources[] = {
 	XtOffsetOf(RectObjRec,rectangle.border_width), XtRImmediate, (XtPointer)0},
   {XtNtopWidget, XtCTopWidget, XtRWidget, sizeof(Widget),
 	offset(topWidget), XtRImmediate, NULL},
+  {XtNhighlightWidget, XtCHighlightWidget, XtRWidget, sizeof(Widget),
+	offset(hilight), XtRImmediate, NULL},
   {XtNcallback, XtCCallback, XtRCallback, sizeof(XtPointer),
 	offset(callbacks), XtRCallback, NULL},
   {XtNpopdownCallback, XtCCallback, XtRCallback, sizeof(XtPointer),
@@ -650,6 +652,12 @@ TabsSetValues(Widget current, Widget request, Widget new,
 	if( tw->core.sensitive != curtw->core.sensitive )
 	  needRedraw = True ;
 
+	/* Highlit widget changed */
+	if ( tw->tabs.hilight != curtw->tabs.hilight )
+	{
+		needRedraw = True ;
+	}
+
 	/* If top widget changes, need to change stacking order, redraw tabs.
 	 * Window system will handle the redraws.
 	 */
@@ -670,6 +678,7 @@ TabsSetValues(Widget current, Widget request, Widget new,
 	    if( tab->tabs.row != tw->tabs.numRows-1 )
 	      TabsShuffleRows(tw) ;
 
+		
 	    needRedraw = True ;
 	  }
 	  else

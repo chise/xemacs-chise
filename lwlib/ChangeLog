@@ -1,3 +1,33 @@
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-10-02  Darryl Okahata  <darrylo@sonic.net>
+
+	* If HAVE_XMU was not defined (xmu was not being used), xlwgcs.c
+	was still referencing xmu functions.
+
+2001-04-08  Danny Colascione  <qtmstr@optonline.net>
+
+	* lwlib-Xlw.c:
+	xlwtabs.c:
+	xlwtabs.h:
+	Force buffer-tab highlight update when moving the buffer, avoiding
+	an ugly black border, used for keyboard focus indication, on a
+	widget that can never have keyboard focus, the buffer tab.
+
+2001-07-26  Andy Piper  <andy@xemacs.org>
+
+	Fix progress gauge flashing under OpenMotif:
+
+	* lwlib-Xm.c (xm_update_progress): new function. Set Scale height
+	and width from normal height and width.
+	* lwlib-Xm.c (xm_create_progress): ditto.
+	* lwlib-Xm.c (xm_update_one_widget): call xm_update_progress.
+	* lwlib.c (lw_get_value_arg): new function. Return an argument
+	based on its name.
+	* lwlib.h: declare it.
+
 2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.4 "Artificial Intelligence" is released.

@@ -522,6 +522,8 @@ XtAllocateGC(Widget w, int depth, unsigned long mask, XGCValues *values,
 #endif
 
 
+#ifdef HAVE_XMU
+
 static	unsigned char screen0[2] = {0,0} ;
 static	unsigned char screen25[2] = {0,0xaa} ;
 static	unsigned char screen75[2] = {0xaa,0xff} ;
@@ -544,3 +546,5 @@ getDitherPixmap(Widget w, int contrast)
 	else
 	  return XCreateBitmapFromData(dpy,win, (char *)screen100, 2,2) ;
 }
+
+#endif	/* HAVE_XMU */

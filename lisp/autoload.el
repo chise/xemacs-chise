@@ -509,7 +509,7 @@ The directory to which the auto-autoloads.el file must be the first parameter
 on the command line."
   (unless noninteractive
     (error "batch-update-autoloads is to be used only with -batch"))
-  (let ((defdir default-directory)
+  (let ((defdir (directory-file-name default-directory))
 	(enable-local-eval nil))	; Don't query in batch mode.
     ;; (message "Updating autoloads in %s..." generated-autoload-file)
     (dolist (arg command-line-args-left)

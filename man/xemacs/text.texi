@@ -562,10 +562,10 @@ bodies are not affected.
 
 @findex hide-subtree
 @findex show-subtree
-@kindex C-c C-s (Outline mode)
+@kindex C-c C-d (Outline mode)
 @kindex C-c C-h (Outline mode)
 @cindex subtree (Outline mode)
-  Two more powerful opposites are @kbd{C-c C-h} (@code{hide-subtree}) and
+  Two more powerful opposites are @kbd{C-c C-d} (@code{hide-subtree}) and
 @kbd{C-c C-s} (@code{show-subtree}).  Both should be used when point is
 on a heading line, and both apply to all the lines of that heading's
 @dfn{subtree}: its body, all its subheadings, both direct and indirect, and

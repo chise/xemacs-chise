@@ -30,6 +30,10 @@ Boston, MA 02111-1307, USA.  */
 #include "syssignal.h"
 #include "systime.h"
 
+#ifndef HAVE_SETITIMER
+#error Sorry charlie.  We need a scalpel and all we have is a lawnmower.
+#endif
+
 /* We implement our own profiling scheme so that we can determine
    things like which Lisp functions are occupying the most time.  Any
    standard OS-provided profiling works on C functions, which is
@@ -192,7 +196,7 @@ will be properly accumulated.
   foo.it_interval = foo.it_value;
   profiling_active = 1;
   inside_profiling = 0;
-  setitimer (ITIMER_PROF, &foo, 0);
+  qxe_setitimer (ITIMER_PROF, &foo, 0);
   return Qnil;
 }
 
@@ -207,7 +211,7 @@ Stop profiling.
   foo.it_value.tv_sec = 0;
   foo.it_value.tv_usec = 0;
   foo.it_interval = foo.it_value;
-  setitimer (ITIMER_PROF, &foo, 0);
+  qxe_setitimer (ITIMER_PROF, &foo, 0);
   profiling_active = 0;
   signal (SIGPROF, fatal_error_signal);
   return Qnil;

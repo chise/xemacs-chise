@@ -49,8 +49,14 @@ Boston, MA 02111-1307, USA.  */
 #include "../src/xmu.h"
 #include "xlwtabs.h"
 #endif
-
 
+
+#include <X11/Intrinsic.h>
+#include <X11/StringDefs.h>
+#include <X11/Shell.h>
+#include <X11/Xaw/Form.h>
+#include <X11/Xaw/Command.h>
+
 
 #ifdef LWLIB_MENUBARS_LUCID
 
@@ -142,9 +148,8 @@ xlw_create_popup_menu (widget_instance* instance)
   XtSetArg (al [0], XtNmenu, instance->info->val);
   XtSetArg (al [1], XtNhorizontal, False);
   widget = XtCreateManagedWidget ("popup", xlwMenuWidgetClass,
-				  popup_shell, al, 2);
-  XtAddCallback (widget, XtNselect, pick_hook, (XtPointer)instance);
-
+  			 popup_shell, al, 2);
+  XtAddCallback (widget, XtNselect, pick_hook, (XtPointer)instance);  
   return popup_shell;
 }
 #endif /* LWLIB_MENUBARS_LUCID */

@@ -573,7 +573,7 @@ when reading the arguments.
 	int prompt_length;
 	prompt_length = ((prompt_limit)
 			 ? (prompt_limit - prompt_start)
-			 : strlen (prompt_start));
+			 : (int) strlen (prompt_start));
 	if (prompt_limit && prompt_limit[1] == 0)
 	  {
 	    prompt_limit = 0;	/* "sfoo:\n" -- strip tailing return */
