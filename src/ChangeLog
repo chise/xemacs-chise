@@ -1,3 +1,12 @@
+2000-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (get_non_ascii_char_table_value): Use <Charset_ID>.
+
+	* char-ucs.h: Use <short> for <Charset_ID>.
+
+	* mule-charset.h, char-1byte.h: Use <unsigned char> for
+	<Charset_ID>.
+
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
@@ -1476,8 +1485,8 @@
 
 1999-09-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule-charset.c (vars_of_mule_charset):
-	Update `utf-2000-version' to 0.6.
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.6.
 
 1999-09-05  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
