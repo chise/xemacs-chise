@@ -401,8 +401,7 @@
                   ;; mother	ucs
 		  min-code	#xE90000 ; #xE000
 		  max-code	#xE908FF ; #xE8FF
-		  code-offset	,(- #xE90000 #xE000)
-		  ))
+		  code-offset	,(- #xE90000 #xE000)))
 
   (make-charset '=ucs@iso
 		"UCS for ISO"
@@ -501,6 +500,81 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
+
+  (make-charset
+   '=ucs-radicals
+   "UCS-Radicals"
+   `(long-name "CJK Radicals of UCS"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ucs-bmp
+	       min-code #x2E00 max-code #x2FFF))
+  (make-charset
+   '=ucs-radicals@unicode
+   "UCS-Radicals"
+   `(long-name "CJK Radicals of UCS"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother =ucs@unicode
+	       min-code #x2E00 max-code #x2FFF))
+  (make-charset
+   '=ucs-bmp-cjk
+   "UCS-BMP-CJK"
+   `(long-name "CJK Characters in BMP of UCS"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ucs-bmp
+	       min-code #x2E00 max-code #xA4CF))
+  (make-charset
+   '=ucs-bmp-cjk@unicode
+   "Unicode-BMP-CJK"
+   `(long-name "CJK Characters in BMP of Unicode"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother =ucs@unicode
+	       min-code #x2E00 max-code #xA4CF))
+  (make-charset
+   '=ucs-sip-ext-b
+   "UCS CJK Ext-B"
+   `(long-name "CJK Ideographs Extension B"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       mother ucs
+	       min-code #x20000 max-code #x2A6D6
+	       code-offset #x20000))
+  (make-charset
+   '=ucs-sip-ext-b@iso
+   "UCS CJK Ext-B"
+   `(long-name "CJK Ideographs Extension B (ISO/IEC 10646-2)"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       mother =ucs@iso
+	       min-code #x20000 max-code #x2A6D6
+	       code-offset #x20000))
   )
 
 ;;; mule-conf.el ends here
