@@ -1,3 +1,19 @@
+2002-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R129-Brush.el, Ideograph-R131-Minister.el,
+	Ideograph-R132-Self.el, Ideograph-R133-Arrive.el,
+	Ideograph-R134-Mortar.el, Ideograph-R135-Tongue.el,
+	Ideograph-R136-Oppose.el, Ideograph-R138-Stopping.el,
+	Ideograph-R139-Color.el, Ideograph-R141-Tiger.el,
+	Ideograph-R143-Blood.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R146-West.el, Ideograph-R148-Horn.el,
+	Ideograph-R150-Valley.el, Ideograph-R151-Bean.el,
+	Ideograph-R028-Private.el, Ideograph-R086-Fire.el: Add some
+	missing mappings for CJK Ex-B code points and/or fix some
+	definitions.
+
+	* README.en (Character Reference): Add `henkai-ruihen'.
+
 2002-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R210-Even.el, Ideograph-R189-Tall.el,
