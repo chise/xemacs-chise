@@ -51,27 +51,27 @@
     3  4  4  4  3  4  4  4  4  4
     4  4  4  4  4  4  4  4  4  4
     4  4  4  4  4  3  4  4  4  4
-    4  4  4  4  4  5  5  5  5  5
+    4  4  4  4  3  5  4  5  5  5
     ;; 100
     5  5  5  5  5  5  5  5  5  5
     5  5  5  5  5  5  5  5  6  6
     6  6  6  6  6  6  6  6  6  6
-    6  6  6  6  6  6  6  6  6  6
+    4  6  6  6  6  6  6  6  6  6
     4  6  6  6  6  6  6  7  7  7
     7  7  7  7  7  7  7  7  7  7
-    7  7  4  3  7  7  7  8  8  8
-    8  8  8  8  8  8  9  9  9  9
-    9  9  9  9  9  9  9 10 10 10
+    7  7  4  3  7  7  7  8  7  8
+    3  8  8  8  8  8  9  9  9  9
+    9  9  9  9  8  9  9 10 10 10
    10 10 10 10 10 11 11 11 11 11
    ;; 200
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
 (defun char-ideographic-strokes (char)
-  (or (get-char-attribute char 'ideographic-strokes)
+  (or (get-char-attribute char 'daikanwa-strokes)
+      (get-char-attribute char 'ideographic-strokes)
       (let ((strokes
-	     (or (get-char-attribute char 'daikanwa-strokes)
-		 (get-char-attribute char 'kangxi-strokes)
+	     (or (get-char-attribute char 'kangxi-strokes)
 		 (get-char-attribute char 'japanese-strokes)
 		 (get-char-attribute char 'korean-strokes)
 		 (let ((r (char-ideographic-radical char))
