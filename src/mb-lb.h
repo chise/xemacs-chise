@@ -1,4 +1,4 @@
-/* Header for buffer/string representation based on leading-byte.
+/* Header for leading-byte based string representation.
    Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
 
@@ -28,5 +28,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Maximum number of buffer bytes per Emacs character. */
 #define MAX_EMCHAR_LEN 4
+
+
+#include "mb-multibyte.h"
 
 #endif /* _XEMACS_MB_LB_H */

@@ -70,4 +70,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
     return 6;
 }
 
+
+#include "mb-multibyte.h"
+
 #endif /* _XEMACS_MB_UTF_8_H */
