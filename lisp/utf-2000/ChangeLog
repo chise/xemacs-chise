@@ -1,3 +1,9 @@
+2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`chinese-big5-cdp' to `ideograph-cbeta' and `china3-jef'.
+	(insert-char-attributes): Format `name*' like `name'.
+
 2003-01-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R123-Sheep.el, Ideograph-R093-Cow.el,
