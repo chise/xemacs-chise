@@ -11,7 +11,8 @@ such code with autodetection at configure time.
 
 The XEmacs core should build "out of the box" on most Unix-like systems.
 
-XEmacs 21.2 was tested and `make check' succeeded on these Unix
+XEmacs 21.2 (the development branch that is the base for the 21.4
+release series) was tested and `make check' succeeded on these Unix
 configurations as of 2001-02-10:
 
 alphaev56-dec-osf4.0e (both Compaq C and gcc)
@@ -38,8 +39,9 @@ On most of these systems, XEmacs also builds with a C++ compiler,
 but not "out of the box".  This feature is only for use by the
 maintainers.
 
-XEmacs 21.2 is known _not_ to work on any machines with m680x0
-processors.  Sorry, all you sun3 and Unix PC nostalgia buffs out there.
+XEmacs 21.2 (and therefore 21.4) is known _not_ to work on any
+machines with m680x0 processors.  Sorry, all you sun3 and Unix PC
+nostalgia buffs out there.
 
 VMS has never been supported by XEmacs.  In fact, all the old VMS code
 inherited from Emacs has been removed.  Sorry, all you VMS fans out there.

@@ -734,7 +734,7 @@ may need to add "#define static" to the m- or the s- file.
 Try evaluating the form (setq lock-directory nil) and see if that helps.
 There is a problem with file-locking on some systems (possibly related
 to NFS) that I don't understand.  Please send mail to the address
-xemacs@xemacs.org if you figure this one out.
+xemacs-beta@xemacs.org if you figure this one out.
 
 *** When emacs starts up, I get lots of warnings about unknown keysyms.
 
@@ -913,7 +913,7 @@ redisplay on the traditional terminals, or over slow lines can be very
 slow.
 
 If you are interested in fixing this, please let us know at
-<xemacs@xemacs.org>.
+<xemacs-beta@xemacs.org>.
 
 *** Screen is updated wrong, but only on one kind of terminal.
 
@@ -1305,6 +1305,27 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
+*** Debian
+**** XEmacs warns "Symbol `toggleClassRec' has different size in shared
+     object, consider re-linking / Symbol `labelClassRec' has different
+     size in shared object, consider re-linking / Warning: Representation
+     size 4 must match superclass's to override value"
+
+Sometimes this results in segfaults when using the tab control widget
+or a progress bar widget.
+
+Some versions of Debian install 3D versions of the Athena widget
+library as /usr/X11R6/lib/libXaw.so.  We have not yet solved the
+problem of identifying the actual library in use in ./configure, so it
+is possible for XEmacs to be compiled with reference to headers for
+"flat" Xaw but find a "3D" Xaw when loading.
+
+The straightforward solution is to rebuild XEmacs with additional
+configure options: --with-widgets=athena --with-athena=3d.
+
+There are several 3D Athena widget sets available; to see which ones
+are supported by XEmacs, use ./configure --usage.
+
 *** Mandrake
 
 The Mandrake Linux distribution is attempting to comprehensively
@@ -1322,6 +1343,19 @@ XEmacs to use the Alt key" below.
 
 The color-gcc wrapper (see below) is in common use on the Mandrake
 platform.
+
+*** XEmacs configured with ESD crashes with a segmentation violation
+
+This often occurs when a progress bar pops up.
+
+The problem is that the ESD sound daemon manipulates interrupts in a
+way that disagrees with XEmacs.  The currently available workaround is
+not very satisfactory: remove ESD support.  Rebuild after
+reconfiguring with the option --with-sound=none[,native][,nas]
+
+The funny syntax (requiring the initial "none") is for backward
+compatibility, and may change.  Native sound and NAS do not cause the
+problem, so they may be added to the option to get some sound support.
 
 *** I want XEmacs to use the Alt key, not the XXX key, for Meta commands
 
@@ -1439,7 +1473,7 @@ getaddrinfo() interface from the older gethostbyname() interface.  The
 solution above is insufficient, because getaddrinfo() by default tries
 to get IPv6 information for localhost.  This always involves a dns
 lookup to get the CNAME, and the strategies above don't work.  It then
-falls back to IPv4 behavior.  This is good[tm]; trust us.
+falls back to IPv4 behavior.
 
 ***** Robust network case
 

@@ -35,7 +35,7 @@ Copyright (C) 2000 Andy Piper. */
  *				\pkginfo
  * 			\site-packages
  *			\mule-packages
- *			\XEmacs-21.2
+ *			\XEmacs-21.4
  *				\i386-pc-win32
  *				\etc
  *				\info
@@ -45,7 +45,7 @@ Copyright (C) 2000 Andy Piper. */
  *		/xemacs/xemacs-packages
  * 		/xemacs/site-packages
  *		/xemacs/mule-packages
- *		/xemacs-21.2
+ *		/xemacs-21.4
  *				/i686-pc-cygwin32
  *				/etc
  *				/info
