@@ -282,7 +282,8 @@
     (ucs		. #x5E89)	; 庉
     ))
 (define-char
-  '((ideographic-radical . 53)	; ⼴
+  '((=>ucs		. #x5E8A)	; 床
+    (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (shinjigen-2	. 2175)
