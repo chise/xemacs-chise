@@ -1,3 +1,16 @@
+2001-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R067-Script.el (M-13450): Unify with J{83|90}-4A38.
+	(U+9F50): Moved from Ideograph-R210-Even.el and unify with
+	C3-2370.
+
+	* u030A0-Katakana.el, u03040-Hiragana.el: Add `mojikyo'.
+
+	* Ideograph-R210-Even.el: Move U+9F50 to Ideograph-R067-Script.el.
+
+	* Ideograph-R101-Use.el, Ideograph-R074-Moon.el: Add some missing
+	`japanese-jisx0208-1978' and `japanese-jisx0208' properties.
+
 2001-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el: Resorted; add
