@@ -1490,7 +1490,6 @@ buffer_insert1 (struct buffer *buf, Lisp_Object arg)
       arg = wrong_type_argument (Qchar_or_string_p, arg);
       goto retry;
     }
-  zmacs_region_stays = 0;
   UNGCPRO;
 }
 
@@ -1551,7 +1550,6 @@ Any other markers at the point of insertion also end up after the text.
 	  goto retry;
 	}
     }
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -1567,7 +1565,6 @@ BUFFER defaults to the current buffer.
   struct buffer *b = decode_buffer (buffer, 1);
   CHECK_STRING (string);
   buffer_insert_lisp_string (b, string);
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -1638,7 +1635,6 @@ text into.  If BUFFER is nil, the current buffer is assumed.
     buffer_insert_raw_string (b, string, n);
 #endif
 
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -2004,7 +2000,6 @@ If optional third arg BUFFER is nil, the current buffer is assumed.
 
   get_buffer_range_char (buf, start, end, &bp_start, &bp_end, 0);
   buffer_delete_range (buf, bp_start, bp_end, 0);
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -2041,7 +2036,6 @@ If BUFFER is nil, the current buffer is assumed.
 {
   struct buffer *b = decode_buffer (buffer, 1);
   widen_buffer (b, 0);
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -2077,7 +2071,6 @@ or markers) bounding the text that should remain visible.
   /* Changing the buffer bounds invalidates any recorded current column.  */
   invalidate_current_column ();
   narrow_line_number_cache (buf);
-  zmacs_region_stays = 0;
   return Qnil;
 }
 

@@ -642,13 +642,15 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
     }
 }
 
-void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
+void
+mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
 {
   RECT rect, ws_rect;
   int pixel_width, pixel_height;
   int size_p = (dest->width >=0 || dest->height >=0);
   int move_p = (dest->top >=0 || dest->left >=0);
-  char_to_real_pixel_size (f, dest->width, dest->height, &pixel_width, &pixel_height);
+  char_to_real_pixel_size (f, dest->width, dest->height, &pixel_width,
+			   &pixel_height);
 
   if (dest->width < 0)
     pixel_width = FRAME_PIXWIDTH (f);
@@ -806,15 +808,18 @@ msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
 
   f->frame_data = xnew_and_zero (struct msprinter_frame);
 
-  /* Default margin size is 1" = 1440 twips */
-  FRAME_MSPRINTER_TOP_MARGIN(f) = 1440;
-  FRAME_MSPRINTER_BOTTOM_MARGIN(f) = 1440;
-  FRAME_MSPRINTER_LEFT_MARGIN(f) = 1440;
-  FRAME_MSPRINTER_RIGHT_MARGIN(f) = 1440;
+  FRAME_MSPRINTER_TOP_MARGIN (f) =
+    mswindows_get_default_margin (Qtop_margin);
+  FRAME_MSPRINTER_BOTTOM_MARGIN (f) =
+    mswindows_get_default_margin (Qbottom_margin);
+  FRAME_MSPRINTER_LEFT_MARGIN (f) =
+    mswindows_get_default_margin (Qleft_margin);
+  FRAME_MSPRINTER_RIGHT_MARGIN (f) =
+    mswindows_get_default_margin (Qright_margin);
 
   /* Negative for "uinspecified" */
-  FRAME_MSPRINTER_CHARWIDTH(f) = -1;
-  FRAME_MSPRINTER_CHARHEIGHT(f) = -1;
+  FRAME_MSPRINTER_CHARWIDTH (f) = -1;
+  FRAME_MSPRINTER_CHARHEIGHT (f) = -1;
 }
 
 static void
@@ -1182,8 +1187,10 @@ set at any time, except as otherwise noted):
   top-margin			typographical unit of measurement,
   right-margin                  equal to 1/1440 of an inch, or 1/20 of a
   bottom-margin			point, and roughly equal to 7/400 of a
-				millimeter. If not specified, each margin
-				defaults to one inch (25.4 mm).
+				millimeter.  If not specified, the left
+				and right margins default to 1 inch
+				(25.4 mm) and the top and bottom margins
+				to 0.5 inch (12.7 mm).
 
      MARGINS NOTE. right-margin and bottom-margin are overridden by
        the height and width properties. If you want to specify size
@@ -1194,8 +1201,8 @@ set at any time, except as otherwise noted):
        want to specify right/bottom margins, set height/width in this
        plist to nil, as in this example:
 
-	  (setq default-frame-plist '(height 55 'width 80)
-		default-msprinter-frame-plist '(height nil 'width nil))
+	  (setq default-frame-plist '(height 55 width 80)
+		default-msprinter-frame-plist '(height nil width nil))
 
 See also `default-frame-plist', which specifies properties which apply
 to all frames, not just mswindows frames.

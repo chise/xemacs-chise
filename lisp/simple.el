@@ -1115,8 +1115,7 @@ Repeating \\[universal-argument] without digits or minus sign
 (defcustom kill-whole-line nil
   "*If non-nil, kill the whole line if point is at the beginning.
 Otherwise, `kill-line' kills only up to the end of the line, but not
-the terminating newline.  Note: This only applies when `kill-line' is
-called interactively.
+the terminating newline.
 
 WARNING: This is a misnamed variable!  It should be called something
 like `kill-whole-line-when-at-beginning'.  If you simply want
@@ -1125,7 +1124,7 @@ like `kill-whole-line-when-at-beginning'.  If you simply want
   :type 'boolean
   :group 'killing)
 
-(defun kill-line-1 (arg entire-line interactive-p)
+(defun kill-line-1 (arg entire-line)
   (kill-region (if entire-line
 		   (save-excursion
 		     (beginning-of-line)
@@ -1147,8 +1146,7 @@ like `kill-whole-line-when-at-beginning'.  If you simply want
 		       (signal 'end-of-buffer nil))
 		   (if (or (looking-at "[ \t]*$")
 			   (or entire-line
-			       (and interactive-p
-				    (and kill-whole-line (bolp)))))
+			       (and kill-whole-line (bolp))))
 		       (forward-line 1)
 		     (end-of-line)))
 		 (point))))
@@ -1161,7 +1159,7 @@ arguments kill lines backward.
 When calling from a program, nil means \"no arg\",
 a number counts as a prefix arg."
   (interactive "*P")
-  (kill-line-1 arg t (interactive-p)))
+  (kill-line-1 arg t))
 
 (defun kill-line (&optional arg)
   "Kill the rest of the current line, or the entire line.
@@ -1177,7 +1175,7 @@ current line, use `kill-entire-line'.
 When calling from a program, nil means \"no arg\",
 a number counts as a prefix arg."
   (interactive "*P")
-  (kill-line-1 arg nil (interactive-p)))
+  (kill-line-1 arg nil))
 
 ;; XEmacs
 (defun backward-kill-line nil
@@ -2088,9 +2086,7 @@ either a character or a symbol, uppercase or lowercase."
 	     (setq zmacs-region-stays t))
 	    ((and (getf last-command-properties 'shifted-motion-command)
 		  unshifted-motion-keys-deselect-region)
-	     (setq zmacs-region-stays nil))
-	    (t
-	     (setq zmacs-region-stays t)))))
+	     (setq zmacs-region-stays nil)))))
 
 (defun forward-char-command (&optional arg buffer)
   "Move point right ARG characters (left if ARG negative) in BUFFER.
@@ -3870,14 +3866,28 @@ If active regions are in use (i.e. `zmacs-regions' is true), this means that
  the region is active.  Otherwise, this means that the user has pushed
  a mark in this buffer at some point in the past.
 The functions `region-beginning' and `region-end' can be used to find the
- limits of the region."
+ limits of the region.
+
+You should use this, *NOT* `region-active-p', in a menu item
+specification that you want grayed out when the region is not active:
+
+  [ ... ... :active (region-exists-p)]
+
+This correctly caters to the user's setting of `zmacs-regions'."
   (not (null (mark))))
 
 ;; XEmacs
 (defun region-active-p ()
   "Return non-nil if the region is active.
 If `zmacs-regions' is true, this is equivalent to `region-exists-p'.
-Otherwise, this function always returns false."
+Otherwise, this function always returns false.
+
+You should generally *NOT* use this in a menu item specification that you
+want grayed out when the region is not active.  Instead, use this:
+
+  [ ... ... :active (region-exists-p)]
+
+Which correctly caters to the user's setting of `zmacs-regions'."
   (and zmacs-regions zmacs-region-extent))
 
 (defvar zmacs-activate-region-hook nil
