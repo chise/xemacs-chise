@@ -6,9 +6,8 @@
     (japanese-jisx0208-1978	. #x5678)	; ø»ƒ‹
     (japanese-jisx0208		. #x5678)	; ø»‡Ÿ•
     (japanese-jisx0208-1990	. #x5678)	; ø½‹…‰
-    (chinese-big5		. #x8B50)	; ø»ƒ‹
-    (chinese-big5-cdp		. #x8B50)	; ø»ƒ‹
     (ideograph-daikanwa		. 09221)	; ø¸‚…
+    (chinese-big5-cdp		. #x8B50)	; ý¢€ˆ­
     ))
 (define-char
   '((morohashi-daikanwa	9221 0 0)
