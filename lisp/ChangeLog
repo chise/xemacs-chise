@@ -1,6 +1,28 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`lao'.
+
+	* mule/mule-conf.el (lao): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u00900-Devanagari.el", "u00980-Bengali.el", "u00A00-Gurmukhi.el",
+	"u00A80-Gujarati.el", "u00B00-Oriya.el", "u00B80-Tamil.el",
+	"u00C00-Telugu.el", "u00C80-Kannada.el", "u00D00-Malayalam.el",
+	"u00D80-Sinhala.el", "u00E00-Thai.el", "u00E80-Lao.el",
+	"u00F00-Tibetan.el" and "u01000-Myanmar.el".
+
+	* utf-2000/u00900-Devanagari.el, utf-2000/u00980-Bengali.el,
+	utf-2000/u00A00-Gurmukhi.el, utf-2000/u00A80-Gujarati.el,
+	utf-2000/u00B00-Oriya.el, utf-2000/u00B80-Tamil.el,
+	utf-2000/u00C00-Telugu.el, utf-2000/u00C80-Kannada.el,
+	utf-2000/u00D00-Malayalam.el, utf-2000/u00D80-Sinhala.el,
+	utf-2000/u00E00-Thai.el, utf-2000/u00E80-Lao.el,
+	utf-2000/u00F00-Tibetan.el, utf-2000/u01000-Myanmar.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`ucs-bmp' and `arabic-iso8859-6'.
 
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
