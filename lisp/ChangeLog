@@ -1,5 +1,9 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/u01F00-Greek-Extended.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/char-db-util.el (insert-char-data): Ignore
 	`kangxi-radical' and `japanese-radical' if they have the same
 	value of `ideographic-radical'; ignore `japanese-strokes' if it
