@@ -388,7 +388,7 @@
 	(when-feature utf-2000 "u0FE70-Arabic-Presentation-Forms-B")
 	(when-feature utf-2000 "u0FF00-Halfwidth-and-Fullwidth-Forms")
 	(when-feature utf-2000 "u0FFF0-Specials")
-
+	(when-feature utf-2000 "mojikyo")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
