@@ -500,6 +500,17 @@
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((chinese-big5-cdp	  . #x8BB7)	; ï”¯
+      )
+     ((japanese-jisx0208-1978	  . #x5147)	; ø»ƒƒ†
+      (ideograph-daikanwa	  . 01514)	; ø¸€—ª
+      ))
     (ideograph-daikanwa . 01540)	; ø¸€˜„
     ))
 (define-char
