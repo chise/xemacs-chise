@@ -27,7 +27,6 @@ DECLARE_LRECORD (extent, struct extent);
 #define XEXTENT(x) XRECORD (x, extent, struct extent)
 #define XSETEXTENT(x, p) XSETRECORD (x, p, extent)
 #define EXTENTP(x) RECORDP (x, extent)
-#define GC_EXTENTP(x) GC_RECORDP (x, extent)
 #define CHECK_EXTENT(x) CHECK_RECORD (x, extent)
 #define CONCHECK_EXTENT(x) CONCHECK_RECORD (x, extent)
 
@@ -147,7 +146,6 @@ DECLARE_LRECORD (extent_auxiliary, struct extent_auxiliary);
   XRECORD (x, extent_auxiliary, struct extent_auxiliary)
 #define XSETEXTENT_AUXILIARY(x, p) XSETRECORD (x, p, extent_auxiliary)
 #define EXTENT_AUXILIARYP(x) RECORDP (x, extent_auxiliary)
-#define GC_EXTENT_AUXILIARYP(x) GC_RECORDP (x, extent_auxiliary)
 #define CHECK_EXTENT_AUXILIARY(x) CHECK_RECORD (x, extent_auxiliary)
 #define CONCHECK_EXTENT_AUXILIARY(x) CONCHECK_RECORD (x, extent_auxiliary)
 
@@ -163,7 +161,6 @@ DECLARE_LRECORD (extent_info, struct extent_info);
 #define XEXTENT_INFO(x) XRECORD (x, extent_info, struct extent_info)
 #define XSETEXTENT_INFO(x, p) XSETRECORD (x, p, extent_info)
 #define EXTENT_INFOP(x) RECORDP (x, extent_info)
-#define GC_EXTENT_INFOP(x) GC_RECORDP (x, extent_info)
 #define CHECK_EXTENT_INFO(x) CHECK_RECORD (x, extent_info)
 #define CONCHECK_EXTENT_INFO(x) CONCHECK_RECORD (x, extent_info)
 

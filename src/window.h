@@ -130,6 +130,14 @@ struct window
   int hscroll;
   /* Idem for the window's modeline */
   int modeline_hscroll;
+  /* Amount to clip off the top line for pixel-based scrolling. Point
+     will remain constant but this will be incremented to
+     incrementally shift lines up. */
+  int top_yoffset;
+  /* Amount to clip off the left of the lines for pixel-based
+     scrolling. Hscroll will remain constant but this will be
+     incremented to incrementally shift lines left.*/
+  int left_xoffset;
   /* Number saying how recently window was selected */
   Lisp_Object use_time;
   /* text.modified of displayed buffer as of last time display completed */
@@ -254,7 +262,6 @@ DECLARE_LRECORD (window, struct window);
 #define XWINDOW(x) XRECORD (x, window, struct window)
 #define XSETWINDOW(x, p) XSETRECORD (x, p, window)
 #define WINDOWP(x) RECORDP (x, window)
-#define GC_WINDOWP(x) GC_RECORDP (x, window)
 #define CHECK_WINDOW(x) CHECK_RECORD (x, window)
 #define CONCHECK_WINDOW(x) CONCHECK_RECORD (x, window)
 
@@ -382,6 +389,7 @@ int window_divider_width (struct window *w);
 /* XEmacs window size and positioning macros. */
 #define WINDOW_TOP(w) ((w)->pixel_top)
 #define WINDOW_TEXT_TOP(w) (WINDOW_TOP (w) + window_top_gutter_height (w))
+#define WINDOW_TEXT_TOP_CLIP(w) ((w)->top_yoffset)
 #define WINDOW_BOTTOM(w) ((w)->pixel_top + (w)->pixel_height)
 #define WINDOW_TEXT_BOTTOM(w) (WINDOW_BOTTOM (w) - window_bottom_gutter_height (w))
 #define WINDOW_LEFT(w) ((w)->pixel_left)

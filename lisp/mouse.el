@@ -84,8 +84,9 @@ If set to `symbol', double-click will always attempt to highlight a
   "Function that is called upon by `mouse-yank' to actually insert text.")
 
 (defun mouse-consolidated-yank ()
-  "Insert the current selection or, if there is none under X insert the X cutbuffer.
-A mark is pushed, so that the inserted text lies between point and mark."
+  "Insert the current selection or, if there is none under X insert
+the X cutbuffer.  A mark is pushed, so that the inserted text lies
+between point and mark."
   (interactive)
   (if (not (console-on-window-system-p))
       (yank)
@@ -225,9 +226,10 @@ This functions has to be improved.  Currently it is just a (working) test."
   (if (click-inside-extent-p event zmacs-region-extent)
       ;; okay, this is a drag
       (cond ((featurep 'offix)
-	     (offix-start-drag-region event
-				      (extent-start-position zmacs-region-extent)
-				      (extent-end-position zmacs-region-extent)))
+	     (offix-start-drag-region 
+	      event
+	      (extent-start-position zmacs-region-extent)
+	      (extent-end-position zmacs-region-extent)))
 	    ((featurep 'cde)
 	     ;; should also work with CDE
 	     (cde-start-drag-region event

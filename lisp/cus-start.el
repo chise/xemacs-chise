@@ -63,6 +63,7 @@
 	     ;; integer
 	     (auto-save-interval auto-save integer)
 	     (bell-volume sound integer)
+	     (bell-inhibit-time sound integer)
 	     (echo-keystrokes keyboard integer)
 	     (gc-cons-threshold alloc integer)
 	     (next-screen-context-lines display integer)

@@ -94,10 +94,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <errno.h>
 
-#ifndef errno
-extern int errno;
-#endif
-
 #ifndef HAVE_GETLOADAVG
 
 /* The existing Emacs configuration files define a macro called

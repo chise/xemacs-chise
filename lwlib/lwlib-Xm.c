@@ -60,9 +60,11 @@ Boston, MA 02111-1307, USA.  */
 #include <Xm/Separator.h>
 #include <Xm/DialogS.h>
 #include <Xm/Form.h>
+#ifdef LWLIB_WIDGETS_MOTIF
 #include <Xm/Scale.h>
 #if XmVERSION > 1
-#include <Xm/ComboBox.h>
+#include <Xm/ComboBoxP.h>
+#endif
 #endif
 
 #ifdef LWLIB_MENUBARS_MOTIF
@@ -72,7 +74,9 @@ static void xm_internal_update_other_instances (Widget, XtPointer,
 						XtPointer);
 static void xm_pop_down_callback (Widget, XtPointer, XtPointer);
 static void xm_generic_callback (Widget, XtPointer, XtPointer);
-#ifdef LWLIB_DIALOGS_MOTIF
+static void mark_dead_instance_destroyed (Widget widget, XtPointer closure,
+					  XtPointer call_data);
+#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
 static void xm_nosel_callback (Widget, XtPointer, XtPointer);
 #endif
 #ifdef LWLIB_SCROLLBARS_MOTIF
@@ -171,35 +175,6 @@ resource_string (Widget widget, char *name)
   return result;
 }
 
-#ifdef LWLIB_MENUBARS_MOTIF
-
-static void
-destroy_all_children (Widget widget)
-{
-  Widget* children;
-  unsigned int number;
-  int i;
-
-  children = XtCompositeChildren (widget, &number);
-  if (children)
-    {
-      /* Unmanage all children and destroy them.  They will only be
-       * really destroyed when we get out of DispatchEvent. */
-      for (i = 0; i < number; i++)
-	{
-	  Widget child = children [i];
-	  if (!child->core.being_destroyed)
-	    {
-	      XtUnmanageChild (child);
-	      XtDestroyWidget (child);
-	    }
-	}
-      XtFree ((char *) children);
-    }
-}
-
-#endif /* LWLIB_MENUBARS_MOTIF */
-
 
 
 #ifdef LWLIB_DIALOGS_MOTIF
@@ -221,7 +196,7 @@ is_in_dialog_box (Widget w)
 
 #endif /* LWLIB_DIALOGS_MOTIF */
 
-#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF)
+#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
 
 /* update the label of anything subclass of a label */
 static void
@@ -233,6 +208,14 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
   XmString name_string  = NULL;
   Arg al [20];
   int ac = 0;
+  int type;
+
+  /* Don't clobber pixmap types. */
+  XtSetArg (al [0], XmNlabelType, &type);
+  XtGetValues (widget, al, 1);
+
+  if (type == XmPIXMAP)
+    return;
 
   if (val->value)
     {
@@ -262,24 +245,30 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
 	  char *res_name = NULL;
 
 	  res_name = resource_string (widget, val->name);
+	  /* Concatenating the value with itself seems just plain daft. */
 	  if (!res_name)
-	    res_name = val->name;
-
-	  name_string =
-	    XmStringCreateLtoR (res_name, XmSTRING_DEFAULT_CHARSET);
-
-	  value_name = XtMalloc (strlen (val->value) + 2);
-	  *value_name = 0;
-	  strcat (value_name, " ");
-	  strcat (value_name, val->value);
-
-	  val_string =
-	    XmStringCreateLtoR (value_name, XmSTRING_DEFAULT_CHARSET);
-
-	  built_string =
-	    XmStringConcat (name_string, val_string);
-
-	  XtFree (value_name);
+	    {
+	      built_string =
+		XmStringCreateLtoR (val->value, XmSTRING_DEFAULT_CHARSET);
+	    }
+	  else
+	    {
+	      name_string =
+		XmStringCreateLtoR (res_name, XmSTRING_DEFAULT_CHARSET);
+	      
+	      value_name = XtMalloc (strlen (val->value) + 2);
+	      *value_name = 0;
+	      strcat (value_name, " ");
+	      strcat (value_name, val->value);
+	      
+	      val_string =
+		XmStringCreateLtoR (value_name, XmSTRING_DEFAULT_CHARSET);
+	      
+	      built_string =
+		XmStringConcat (name_string, val_string);
+	      
+	      XtFree (value_name);
+	    }
 	}
 
       XtSetArg (al [ac], XmNlabelString, built_string); ac++;
@@ -303,6 +292,9 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
 
   if (name_string)
     XmStringFree (name_string);
+
+  if (val_string)
+    XmStringFree (val_string);
 }
 
 #endif /* defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) */
@@ -380,7 +372,7 @@ xm_update_toggle (widget_instance* instance, Widget widget, widget_value* val)
 		 instance);
   XtSetArg (al [0], XmNset, val->selected);
   XtSetArg (al [1], XmNalignment, XmALIGNMENT_BEGINNING);
-  XtSetValues (widget, al, 2);
+  XtSetValues (widget, al, 1);
 }
 
 static void
@@ -424,6 +416,29 @@ xm_update_radiobox (widget_instance* instance, Widget widget,
 	}
     }
 }
+
+#if defined (LWLIB_WIDGETS_MOTIF) && XmVERSION > 1
+/* update of combo box */
+static void
+xm_update_combo_box (widget_instance* instance, Widget widget, widget_value* val)
+{
+  widget_value* cur;
+  int i;
+  XtRemoveAllCallbacks (widget, XmNselectionCallback);
+  XtAddCallback (widget, XmNselectionCallback, xm_generic_callback,
+		 instance);
+  for (cur = val->contents, i = 0; cur; cur = cur->next)
+    if (cur->value)
+      {
+	XmString xmstr = XmStringCreate (cur->value, XmSTRING_DEFAULT_CHARSET);
+	i += 1;
+	XmListAddItem (CB_List (widget), xmstr, 0);
+	if (cur->selected)
+	  XmListSelectPos (CB_List (widget), i, False);
+	XmStringFree (xmstr);
+      }
+}
+#endif
 
 #ifdef LWLIB_MENUBARS_MOTIF
 
@@ -767,22 +782,24 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
 		      widget_value* val, Boolean deep_p)
 {
   WidgetClass class;
-  Arg al [2];
+  Arg al [20];
+  int ac = 0;
 
   /* Mark as not edited */
   val->edited = False;
 
   /* Common to all widget types */
-  XtSetArg (al [0], XmNsensitive, val->enabled);
-  XtSetArg (al [1], XmNuserData,  val->call_data);
-  XtSetValues (widget, al, 2);
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XmNuserData,  val->call_data);	ac++;
+  lw_add_value_args_to_args (val, al, &ac);
 
-#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF)
+  XtSetValues (widget, al, ac);
+
+#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
   /* Common to all label like widgets */
   if (XtIsSubclass (widget, xmLabelWidgetClass))
     xm_update_label (instance, widget, val);
-#endif /* defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) */
-
+#endif
   class = XtClass (widget);
   /* Class specific things */
   if (class == xmPushButtonWidgetClass ||
@@ -827,6 +844,12 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
     {
       xm_update_list (instance, widget, val);
     }
+#if defined (LWLIB_WIDGETS_MOTIF) && XmVERSION > 1
+  else if (class == xmComboBoxWidgetClass)
+    {
+      xm_update_combo_box (instance, widget, val);
+    }
+#endif
 #ifdef LWLIB_SCROLLBARS_MOTIF
   else if (class == xmScrollBarWidgetClass)
     {
@@ -903,11 +926,20 @@ xm_update_one_value (widget_instance* instance, Widget widget,
 	  val->edited = True;
 	}
     }
-  else if (class == xmListWidgetClass)
+  else if (class == xmListWidgetClass 
+#if defined (LWLIB_WIDGETS_MOTIF) && XmVERSION > 1
+	   || class == xmComboBoxWidgetClass
+#endif
+	   )
     {
       int pos_cnt;
       int* pos_list;
-      if (XmListGetSelectedPos (widget, &pos_list, &pos_cnt))
+      Widget list = widget;
+#if defined (LWLIB_WIDGETS_MOTIF) && XmVERSION > 1
+      if (class == xmComboBoxWidgetClass)
+	list = CB_List (widget);
+#endif
+      if (XmListGetSelectedPos (list, &pos_list, &pos_cnt))
 	{
 	  int i;
 	  widget_value* cur;
@@ -1316,14 +1348,6 @@ find_matching_instance (widget_instance* instance)
 }
 
 static void
-mark_dead_instance_destroyed (Widget widget, XtPointer closure,
-			      XtPointer call_data)
-{
-  destroyed_instance* instance = (destroyed_instance*)closure;
-  instance->widget = NULL;
-}
-
-static void
 recenter_widget (Widget widget)
 {
   Widget parent = XtParent (widget);
@@ -1566,9 +1590,10 @@ make_horizontal_scrollbar (widget_instance *instance)
 
 #endif /* LWLIB_SCROLLBARS_MOTIF */
 
+#ifdef LWLIB_WIDGETS_MOTIF
 /* glyph widgets */
 static Widget
-make_button (widget_instance *instance)
+xm_create_button (widget_instance *instance)
 {
   Arg al[20];
   int ac = 0;
@@ -1615,14 +1640,21 @@ make_button (widget_instance *instance)
 }
 
 static Widget
-make_progress (widget_instance *instance)
+xm_create_progress (widget_instance *instance)
 {
   Arg al[20];
   int ac = 0;
   Widget scale = 0;
   widget_value* val = instance->info->val;
 
-  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  if (!val->call_data)
+    {
+      XtSetArg (al [ac], XmNsensitive, False);		ac++;
+    }
+  else
+    {
+      XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+    }
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
@@ -1631,9 +1663,6 @@ make_progress (widget_instance *instance)
      look ugly.  I think this may be a LessTif bug but for now we just
      get rid of it. */
   XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
-  if (!val->call_data)
-    XtSetArg (al [ac], XmNsensitive, False);		ac++;
-
   /* add any args the user supplied for creation time */
   lw_add_value_args_to_args (val, al, &ac);
 
@@ -1648,7 +1677,7 @@ make_progress (widget_instance *instance)
 }
 
 static Widget
-make_text_field (widget_instance *instance)
+xm_create_text_field (widget_instance *instance)
 {
   Arg al[20];
   int ac = 0;
@@ -1677,9 +1706,45 @@ make_text_field (widget_instance *instance)
   return text;
 }
 
+static Widget
+xm_create_label_field (widget_instance *instance)
+{
+  return xm_create_label (instance->parent, instance->info->val);
+}
+
+Widget
+xm_create_label (Widget parent, widget_value* val)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget label = 0;
+
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
+  XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  label = XmCreateLabel (parent, val->name, al, ac);
+
+  XtManageChild (label);
+
+  /* Do it again for arguments that have no effect until the widget is realized. */
+  ac = 0;
+  lw_add_value_args_to_args (val, al, &ac);
+  XtSetValues (label, al, ac);
+
+  return label;
+}
+
 #if XmVERSION > 1
 static Widget
-make_combo_box (widget_instance *instance)
+xm_create_combo_box (widget_instance *instance)
 {
   Arg al[20];
   int ac = 0;
@@ -1698,7 +1763,7 @@ make_combo_box (widget_instance *instance)
   /* add any args the user supplied for creation time */
   lw_add_value_args_to_args (val, al, &ac);
 
-  combo = XmCreateComboBox (instance->parent, val->name, al, ac);
+  combo = XmCreateDropDownComboBox (instance->parent, val->name, al, ac);
   if (val->call_data)
     XtAddCallback (combo, XmNselectionCallback, xm_generic_callback,
 		   (XtPointer)instance);
@@ -1708,6 +1773,7 @@ make_combo_box (widget_instance *instance)
   return combo;
 }
 #endif
+#endif /* LWLIB_WIDGETS_MOTIF */
 
 
 /* Table of functions to create widgets */
@@ -1723,11 +1789,14 @@ xm_creation_table [] =
   {"vertical-scrollbar",	make_vertical_scrollbar},
   {"horizontal-scrollbar",	make_horizontal_scrollbar},
 #endif
-  {"button",		make_button},
-  {"progress",		make_progress},
-  {"text-field",		make_text_field},
+#ifdef LWLIB_WIDGETS_MOTIF
+  {"button",		xm_create_button},
+  {"progress",		xm_create_progress},
+  {"text-field",		xm_create_text_field},
+  {"label",		xm_create_label_field},
 #if XmVERSION > 1
-  {"combo-box",		make_combo_box},
+  {"combo-box",		xm_create_combo_box},
+#endif
 #endif
   {NULL, NULL}
 };
@@ -1736,7 +1805,7 @@ xm_creation_table [] =
 void
 xm_destroy_instance (widget_instance* instance)
 {
-#ifdef LWLIB_DIALOGS_MOTIF
+#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
   /* It appears that this is used only for dialog boxes. */
   Widget widget = instance->widget;
   /* recycle the dialog boxes */
@@ -1767,7 +1836,7 @@ xm_destroy_instance (widget_instance* instance)
 
       XtDestroyWidget (instance->widget);
     }
-#endif /* LWLIB_DIALOGS_MOTIF */
+#endif /* LWLIB_DIALOGS_MOTIF || LWLIB_WIDGETS_MOTIF */
 }
 
 /* popup utility */
@@ -1920,7 +1989,7 @@ xm_internal_update_other_instances (Widget widget, XtPointer closure,
 static void
 xm_generic_callback (Widget widget, XtPointer closure, XtPointer call_data)
 {
-#if (defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_DIALOGS_MOTIF))
+#if (defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF))
   /* We want the selected status to change only when we decide it
      should change.  Yuck but correct. */
   if (XtClass (widget) == xmToggleButtonWidgetClass
@@ -1945,25 +2014,6 @@ xm_pop_down_callback (Widget widget, XtPointer closure, XtPointer call_data)
 {
   do_call (widget, closure, post_activate);
 }
-
-#ifdef LWLIB_DIALOGS_MOTIF
-
-static void
-xm_nosel_callback (Widget widget, XtPointer closure, XtPointer call_data)
-{
-  /* This callback is only called when a dialog box is dismissed with the wm's
-     destroy button (WM_DELETE_WINDOW.)  We want the dialog box to be destroyed
-     in that case, not just unmapped, so that it releases its keyboard grabs.
-     But there are problems with running our callbacks while the widget is in
-     the process of being destroyed, so we set XmNdeleteResponse to XmUNMAP
-     instead of XmDESTROY and then destroy it ourself after having run the
-     callback.
-   */
-  do_call (widget, closure, no_selection);
-  XtDestroyWidget (widget);
-}
-
-#endif
 
 #ifdef LWLIB_MENUBARS_MOTIF
 
@@ -2072,6 +2122,31 @@ xm_scrollbar_callback (Widget widget, XtPointer closure, XtPointer call_data)
     instance->info->pre_activate_cb (widget, id, (XtPointer) &event_data);
 }
 #endif /* LWLIB_SCROLLBARS_MOTIF */
+
+#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
+static void
+mark_dead_instance_destroyed (Widget widget, XtPointer closure,
+			      XtPointer call_data)
+{
+  destroyed_instance* instance = (destroyed_instance*)closure;
+  instance->widget = NULL;
+}
+
+static void
+xm_nosel_callback (Widget widget, XtPointer closure, XtPointer call_data)
+{
+  /* This callback is only called when a dialog box is dismissed with the wm's
+     destroy button (WM_DELETE_WINDOW.)  We want the dialog box to be destroyed
+     in that case, not just unmapped, so that it releases its keyboard grabs.
+     But there are problems with running our callbacks while the widget is in
+     the process of being destroyed, so we set XmNdeleteResponse to XmUNMAP
+     instead of XmDESTROY and then destroy it ourself after having run the
+     callback.
+   */
+  do_call (widget, closure, no_selection);
+  XtDestroyWidget (widget);
+}
+#endif
 
 
 /* set the keyboard focus */

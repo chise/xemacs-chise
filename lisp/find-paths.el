@@ -218,13 +218,13 @@ If ENFORCE-VERSION is non-nil, the directory must contain the XEmacs version."
    ;; from more to less specific
    (paths-find-version-directory roots
 				 (concat base system-configuration)
-				 envvar)
+				 envvar default)
    (paths-find-version-directory roots
 				 base
 				 envvar)
    (paths-find-version-directory roots
 				 system-configuration
-				 envvar default)))
+				 envvar)))
 
 (defun construct-emacs-version-name ()
   "Construct the raw XEmacs version number."

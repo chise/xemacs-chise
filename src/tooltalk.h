@@ -31,7 +31,6 @@ DECLARE_LRECORD (tooltalk_message, struct Lisp_Tooltalk_Message);
 #define XTOOLTALK_MESSAGE(x) XRECORD (x, tooltalk_message, struct Lisp_Tooltalk_Message)
 #define XSETTOOLTALK_MESSAGE(x, p) XSETRECORD (x, p, tooltalk_message)
 #define TOOLTALK_MESSAGEP(x) RECORDP (x, tooltalk_message)
-#define GC_TOOLTALK_MESSAGEP(x) GC_RECORDP (x, tooltalk_message)
 #define CHECK_TOOLTALK_MESSAGE(x) CHECK_RECORD (x, tooltalk_message)
 
 struct Lisp_Tooltalk_Pattern;
@@ -39,7 +38,6 @@ DECLARE_LRECORD (tooltalk_pattern, struct Lisp_Tooltalk_Pattern);
 #define XTOOLTALK_PATTERN(x) XRECORD (x, tooltalk_pattern, struct Lisp_Tooltalk_Pattern)
 #define XSETTOOLTALK_PATTERN(x, p) XSETRECORD (x, p, tooltalk_pattern)
 #define TOOLTALK_PATTERNP(x) RECORDP (x, tooltalk_pattern)
-#define GC_TOOLTALK_PATTERNP(x) GC_RECORDP (x, tooltalk_pattern)
 #define CHECK_TOOLTALK_PATTERN(x) CHECK_RECORD (x, tooltalk_pattern)
 
 #define TOOLTALK_MESSAGE_KEY 100

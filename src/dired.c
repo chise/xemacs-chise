@@ -558,7 +558,7 @@ These are all user names which begin with USER.
 }
 
 struct user_cache {
-  char **data;
+  Bufbyte **data;
   int length;
   int size;
   EMACS_TIME last_rebuild_time;
@@ -634,9 +634,10 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
 	  Bufbyte *pwuser;
           QUIT;
 	  DO_REALLOC (user_cache.data, user_cache.size,
-		      user_cache.length + 1, char *);
+		      user_cache.length + 1, Bufbyte *);
 	  GET_C_CHARPTR_INT_DATA_ALLOCA (pwd->pw_name, FORMAT_OS, pwuser);
-          user_cache.data[user_cache.length++] = xstrdup (pwuser);
+          user_cache.data[user_cache.length++] =
+	    (Bufbyte *) xstrdup ((char *) pwuser);
         }
       endpwent ();
       speed_up_interrupts ();

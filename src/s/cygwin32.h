@@ -105,6 +105,19 @@ extern long random();
 #endif
 #endif
 
+#ifndef SPI_GETWHEELSCROLLLINES
+#define SPI_GETWHEELSCROLLLINES 104
+#endif
+#ifndef WHEEL_PAGESCROLL
+#define WHEEL_PAGESCROLL (UINT_MAX)
+#endif
+#ifndef WHEEL_DELTA
+#define WHEEL_DELTA 120
+#endif
+#ifndef WM_MOUSEWHEEL
+#define WM_MOUSEWHEEL 0x20A
+#endif
+
 #define PBS_SMOOTH              0x01
 
 #ifdef HAVE_MS_WINDOWS

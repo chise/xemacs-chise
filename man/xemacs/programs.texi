@@ -884,7 +884,7 @@ Move past next close parenthesis and re-indent
 @findex insert-parentheses
 @findex move-over-close-and-reindent
   The commands @kbd{M-(} (@code{insert-parentheses}) and @kbd{M-)}
-(@code{move-over-close-@*and-reindent}) are designed to facilitate a style of
+(@code{move-over-close-and-reindent}) are designed to facilitate a style of
 editing which keeps parentheses balanced at all times.  @kbd{M-(} inserts a
 pair of parentheses, either together as in @samp{()}, or, if given an
 argument, around the next several sexps, and leaves point after the open

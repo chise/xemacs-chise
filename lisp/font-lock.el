@@ -2444,11 +2444,11 @@ The name is assumed to begin with a capital letter.")
 		  (goto-char (match-end 1))
 		  (goto-char (match-end 0))
 		  (1 font-lock-variable-name-face))))))
-
+	
   ;; Modifier keywords and Java doc tags
   (setq java-font-lock-keywords-3
 	(append
-
+ 
 	 '(
 	   ;; Feature scoping:
 	   ;; These must come first or the Modifiers from keywords-1 will
@@ -2458,11 +2458,11 @@ The name is assumed to begin with a capital letter.")
 	   ("\\<protected\\>" 0 font-lock-preprocessor-face)
 	   ("\\<public\\>"    0 font-lock-reference-face))
 	 java-font-lock-keywords-2
-
+ 
 	 (list
 
 	  ;; Java doc tags
-	  '("@\\(author\\|exception\\|param\\|return\\|see\\|version\\)\\s "
+	  '("@\\(author\\|exception\\|throws\\|deprecated\\|param\\|return\\|see\\|since\\|version\\)\\s "
 	    0 font-lock-keyword-face t)
 
 	  ;; Doc tag - Parameter identifiers
@@ -2470,7 +2470,17 @@ The name is assumed to begin with a capital letter.")
 		1 'font-lock-variable-name-face t)
 
 	  ;; Doc tag - Exception types
-	  (list (concat "@exception\\ s*"
+	  (list (concat "@exception\\s +"
+			java-font-lock-identifier-regexp)
+		'(1 (if (equal (char-after (match-end 0)) ?.)
+			font-lock-reference-face font-lock-type-face) t)
+		(list (concat "\\=\\." java-font-lock-identifier-regexp)
+		      '(goto-char (match-end 0)) nil
+		      '(1 (if (equal (char-after (match-end 0)) ?.)
+			      'font-lock-reference-face 'font-lock-type-face) t)))
+    
+	  ;; Doc tag - Exception types
+	  (list (concat "@exception\\s +"
 			java-font-lock-identifier-regexp)
 		'(1 (if (equal (char-after (match-end 0)) ?.)
 			font-lock-reference-face font-lock-type-face) t)
@@ -2482,7 +2492,14 @@ The name is assumed to begin with a capital letter.")
 	  ;; Doc tag - Cross-references, usually to methods 
 	  '("@see\\s +\\(\\S *[^][ \t\n\r\f(){},.;:]\\)"
 	    1 font-lock-function-name-face t)
-
+    
+	  ;; Doc tag - Links
+	  '("{@link\\s +\\([^}]*\\)}"
+	    0 font-lock-keyword-face t)
+	  ;; Doc tag - Links
+	  '("{@link\\s +\\(\\S +\\s +\\S +\\)}"
+	    1 font-lock-function-name-face t)
+    
 	  )))
   )
 

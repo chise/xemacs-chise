@@ -922,7 +922,7 @@ pop_quit (popserver server)
 	  ret = -1;
 	}
 
-      close (server->file);
+      CLOSESOCKET (server->file);
     }
 
   if (server->buffer)

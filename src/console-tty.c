@@ -166,12 +166,12 @@ tty_init_console (struct console *con, Lisp_Object props)
 }
 
 static void
-tty_mark_console (struct console *con, void (*markobj) (Lisp_Object))
+tty_mark_console (struct console *con)
 {
   struct tty_console *tty_con = CONSOLE_TTY_DATA (con);
-  markobj (tty_con->terminal_type);
-  markobj (tty_con->instream);
-  markobj (tty_con->outstream);
+  mark_object (tty_con->terminal_type);
+  mark_object (tty_con->instream);
+  mark_object (tty_con->outstream);
 }
 
 static int
@@ -369,6 +369,12 @@ console_type_create_tty (void)
   CONSOLE_HAS_METHOD (tty, canonicalize_device_connection);
   CONSOLE_HAS_METHOD (tty, semi_canonicalize_console_connection);
   CONSOLE_HAS_METHOD (tty, semi_canonicalize_device_connection);
+}
+
+void
+reinit_console_type_create_tty (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (tty);
 }
 
 void

@@ -41,7 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #include "gutter.h"
 
 Lisp_Object Qwindowp, Qwindow_live_p, Qwindow_configurationp;
-Lisp_Object Qscroll_up, Qscroll_down, Qdisplay_buffer;
+Lisp_Object Qdisplay_buffer;
 
 #ifdef MEMORY_USAGE_STATS
 Lisp_Object Qface_cache, Qglyph_cache, Qline_start_cache, Qother_redisplay;
@@ -85,6 +85,9 @@ Lisp_Object Vvertical_divider_line_width;
 /* Spacing between outer egde of divider border and window edge */
 Lisp_Object Vvertical_divider_spacing;
 
+/* How much to scroll by per-line. */
+Lisp_Object Vwindow_pixel_scroll_increment;
+
 /* Scroll if point lands on the bottom line and that line is partially
    clipped. */
 int scroll_on_clipped_lines;
@@ -118,7 +121,7 @@ Lisp_Object Qtemp_buffer_show_hook;
 int next_screen_context_lines;
 
 /* List of freed window configurations with 1 - 10 windows. */
-Lisp_Object Vwindow_configuration_free_list[10];
+static Lisp_Object Vwindow_configuration_free_list[10];
 
 #define SET_LAST_MODIFIED(w, cache_too)		\
 do {						\
@@ -138,38 +141,38 @@ do {						\
 
 
 #define MARK_DISP_VARIABLE(field)		\
-  markobj (window->field[CURRENT_DISP]);	\
-  markobj (window->field[DESIRED_DISP]);	\
-  markobj (window->field[CMOTION_DISP]);
+  mark_object (window->field[CURRENT_DISP]);	\
+  mark_object (window->field[DESIRED_DISP]);	\
+  mark_object (window->field[CMOTION_DISP]);
 
 static Lisp_Object
-mark_window (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_window (Lisp_Object obj)
 {
   struct window *window = XWINDOW (obj);
-  markobj (window->frame);
-  markobj (window->mini_p);
-  markobj (window->next);
-  markobj (window->prev);
-  markobj (window->hchild);
-  markobj (window->vchild);
-  markobj (window->parent);
-  markobj (window->buffer);
+  mark_object (window->frame);
+  mark_object (window->mini_p);
+  mark_object (window->next);
+  mark_object (window->prev);
+  mark_object (window->hchild);
+  mark_object (window->vchild);
+  mark_object (window->parent);
+  mark_object (window->buffer);
   MARK_DISP_VARIABLE (start);
   MARK_DISP_VARIABLE (pointm);
-  markobj (window->sb_point);	/* #### move to scrollbar.c? */
-  markobj (window->use_time);
+  mark_object (window->sb_point);	/* #### move to scrollbar.c? */
+  mark_object (window->use_time);
   MARK_DISP_VARIABLE (last_modified);
   MARK_DISP_VARIABLE (last_point);
   MARK_DISP_VARIABLE (last_start);
   MARK_DISP_VARIABLE (last_facechange);
-  markobj (window->line_cache_last_updated);
-  markobj (window->redisplay_end_trigger);
-  markobj (window->subwindow_instance_cache);
+  mark_object (window->line_cache_last_updated);
+  mark_object (window->redisplay_end_trigger);
+  mark_object (window->subwindow_instance_cache);
 
-  mark_face_cachels (window->face_cachels, markobj);
-  mark_glyph_cachels (window->glyph_cachels, markobj);
+  mark_face_cachels (window->face_cachels);
+  mark_glyph_cachels (window->glyph_cachels);
 
-#define WINDOW_SLOT(slot, compare) ((void) (markobj (window->slot)))
+#define WINDOW_SLOT(slot, compare) mark_object (window->slot)
 #include "winslots.h"
 
   return Qnil;
@@ -706,6 +709,11 @@ window_full_height_p (struct window *w)
 int
 window_truncation_on (struct window *w)
 {
+    /* Minibuffer windows are never truncated.
+       ### is this the right way ? */
+  if (MINI_WINDOW_P (w))
+    return 0;
+
   /* Horizontally scrolled windows are truncated. */
   if (w->hscroll)
     return 1;
@@ -723,6 +731,17 @@ window_truncation_on (struct window *w)
 
   return 0;
 }
+
+DEFUN ("window-truncated-p", Fwindow_truncated_p, 0, 1, 0, /*
+Returns Non-Nil iff the window is truncated.
+*/
+       (window))
+{
+  struct window *w = decode_window (window);
+
+  return window_truncation_on (w) ? Qt : Qnil;
+}
+
 
 static int
 have_undivided_common_edge (struct window *w_right, void *closure)
@@ -1093,6 +1112,26 @@ be used.  Otherwise, the selected frame is used.
   {
     struct frame *f = decode_frame_or_selected (con_dev_or_frame);
     return FRAME_SELECTED_WINDOW (f);
+  }
+}
+
+DEFUN ("last-nonminibuf-window", Flast_nonminibuf_window, 0, 1, 0, /*
+Return the last selected window that is not a minibuffer window.
+If the optional argument CON-DEV-OR-FRAME is specified and is a frame,
+return the last non-minibuffer window used by that frame.  If
+CON-DEV-OR-FRAME is a device, then the selected frame on that device
+will be used.  If CON-DEV-OR-FRAME is a console, the selected frame on
+that console's selected device will be used.  Otherwise, the selected
+frame is used.
+*/
+       (con_dev_or_frame))
+{
+  if (NILP (con_dev_or_frame) && NILP (Fselected_device (Qnil)))
+    return Qnil; /* happens at startup */
+
+  {
+    struct frame *f = decode_frame_or_selected (con_dev_or_frame);
+    return FRAME_LAST_NONMINIBUF_WINDOW (f);
   }
 }
 
@@ -3910,7 +3949,8 @@ change_window_height (struct window *win, int delta, int widthflag,
 
 
 
-/* Scroll contents of window WINDOW up N lines.  */
+/* Scroll contents of window WINDOW up N lines. If N < (top line height /
+   average line height) then we just adjust the top clip.  */
 void
 window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	       Error_behavior errb)
@@ -3920,6 +3960,9 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
   int selected = EQ (window, Fselected_window (Qnil));
   int value = 0;
   Lisp_Object point, tem;
+  display_line_dynarr *dla;
+  int fheight, fwidth, modeline = 0;
+  struct display_line* dl;
 
   if (selected)
     point = make_int (BUF_PT (b));
@@ -3949,6 +3992,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
                         window, Qnil);
       Fset_marker (w->start[CURRENT_DISP], point, w->buffer);
       w->start_at_line_beg = beginning_of_line_p (b, XINT (point));
+      WINDOW_TEXT_TOP_CLIP (w) = 0;
       MARK_WINDOWS_CHANGED (w);
     }
 
@@ -3992,82 +4036,146 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
     {
       return;
     }
-  else if (value > 0)
+
+  /* Determine parameters to test for partial line scrolling with. */
+  dla = window_display_lines (w, CURRENT_DISP);
+
+  if (INTP (Vwindow_pixel_scroll_increment))
+    fheight = XINT (Vwindow_pixel_scroll_increment);
+  else if (!NILP (Vwindow_pixel_scroll_increment));
+    default_face_height_and_width (window, &fheight, &fwidth);
+  
+  if (Dynarr_length (dla) >= 1)
+    modeline = Dynarr_atp (dla, 0)->modeline;
+
+  dl = Dynarr_atp (dla, modeline);
+    
+  if (value > 0)
     {
-      int vtarget;
-      Bufpos startp, old_start;
-
-      old_start = marker_position (w->start[CURRENT_DISP]);
-      startp = vmotion (w, old_start, value, &vtarget);
-
-      if (vtarget < value &&
-	  (w->window_end_pos[CURRENT_DISP] == -1
-	   || (BUF_Z (b) - w->window_end_pos[CURRENT_DISP] > BUF_ZV (b))))
+      /* Go for partial display line scrolling. This just means bumping
+	 the clip by a reasonable amount and redisplaying, everything else
+	 remains unchanged. */
+      if (!NILP (Vwindow_pixel_scroll_increment)
+	  &&
+	  Dynarr_length (dla) >= (1 + modeline)
+	  &&
+	  (dl->ascent - dl->top_clip) - fheight * value > 0)
 	{
-	  maybe_signal_error (Qend_of_buffer, Qnil, Qwindow, errb);
-	  return;
+	  WINDOW_TEXT_TOP_CLIP (w) += value * fheight;
+	  MARK_WINDOWS_CHANGED (w);
 	}
       else
 	{
-	  set_marker_restricted (w->start[CURRENT_DISP], make_int (startp),
-				 w->buffer);
-	  w->force_start = 1;
-	  w->start_at_line_beg = beginning_of_line_p (b, startp);
-	  MARK_WINDOWS_CHANGED (w);
-
-	  if (!point_would_be_visible (w, startp, XINT (point)))
+	  int vtarget;
+	  Bufpos startp, old_start;
+	  
+	  if (WINDOW_TEXT_TOP_CLIP (w))
 	    {
-	      if (selected)
-		BUF_SET_PT (b, startp);
-	      else
-		set_marker_restricted (w->pointm[CURRENT_DISP],
-				       make_int (startp),
-				       w->buffer);
+	      WINDOW_TEXT_TOP_CLIP (w) = 0;
+	      MARK_WINDOWS_CHANGED (w);
+	    }
+
+	  old_start = marker_position (w->start[CURRENT_DISP]);
+	  startp = vmotion (w, old_start, value, &vtarget);
+	  
+	  if (vtarget < value &&
+	      (w->window_end_pos[CURRENT_DISP] == -1
+	       || (BUF_Z (b) - w->window_end_pos[CURRENT_DISP] > BUF_ZV (b))))
+	    {
+	      maybe_signal_error (Qend_of_buffer, Qnil, Qwindow, errb);
+	      return;
+	    }
+	  else
+	    {
+	      set_marker_restricted (w->start[CURRENT_DISP], make_int (startp),
+				     w->buffer);
+	      w->force_start = 1;
+	      w->start_at_line_beg = beginning_of_line_p (b, startp);
+	      MARK_WINDOWS_CHANGED (w);
+	      
+	      if (!point_would_be_visible (w, startp, XINT (point)))
+		{
+		  if (selected)
+		    BUF_SET_PT (b, startp);
+		  else
+		    set_marker_restricted (w->pointm[CURRENT_DISP],
+					   make_int (startp),
+					   w->buffer);
+		}
 	    }
 	}
     }
   else if (value < 0)
     {
-      int vtarget;
-      Bufpos startp, old_start;
-
-      old_start = marker_position (w->start[CURRENT_DISP]);
-      startp = vmotion (w, old_start, value, &vtarget);
-
-      if (vtarget > value
-	  && marker_position (w->start[CURRENT_DISP]) == BUF_BEGV (b))
+      /* Go for partial display line scrolling. This just means bumping
+	 the clip by a reasonable amount and redisplaying, everything else
+	 remains unchanged. */
+      if (!NILP (Vwindow_pixel_scroll_increment)
+	  &&
+	  Dynarr_length (dla) >= (1 + modeline)
+	  &&
+	  (dl->ascent - dl->top_clip) - fheight * value <
+	  (dl->ascent + dl->descent - dl->clip)
+	  &&
+	  WINDOW_TEXT_TOP_CLIP (w) + value * fheight > 0)
 	{
-	  maybe_signal_error (Qbeginning_of_buffer, Qnil, Qwindow, errb);
-	  return;
+	  WINDOW_TEXT_TOP_CLIP (w) += value * fheight;
+	  MARK_WINDOWS_CHANGED (w);
 	}
       else
 	{
-	  set_marker_restricted (w->start[CURRENT_DISP], make_int (startp),
-				 w->buffer);
-	  w->force_start = 1;
-	  w->start_at_line_beg = beginning_of_line_p (b, startp);
-	  MARK_WINDOWS_CHANGED (w);
-
-	  if (!point_would_be_visible (w, startp, XINT (point)))
+	  int vtarget;
+	  Bufpos startp, old_start;
+	  
+	  if (WINDOW_TEXT_TOP_CLIP (w))
 	    {
-	      Bufpos new_point;
-
-	      if (MINI_WINDOW_P (w))
-		new_point = startp;
-	      else
-		new_point = start_of_last_line (w, startp);
-
-	      if (selected)
-		BUF_SET_PT (b, new_point);
-	      else
-		set_marker_restricted (w->pointm[CURRENT_DISP],
-				       make_int (new_point),
-				       w->buffer);
+	      WINDOW_TEXT_TOP_CLIP (w) = 0;
+	      MARK_WINDOWS_CHANGED (w);
+	    }
+	      
+	  old_start = marker_position (w->start[CURRENT_DISP]);
+	  startp = vmotion (w, old_start, value, &vtarget);
+	  
+	  if (vtarget > value
+	      && marker_position (w->start[CURRENT_DISP]) == BUF_BEGV (b))
+	    {
+	      maybe_signal_error (Qbeginning_of_buffer, Qnil, Qwindow, errb);
+	      return;
+	    }
+	  else
+	    {
+	      set_marker_restricted (w->start[CURRENT_DISP], make_int (startp),
+				     w->buffer);
+	      w->force_start = 1;
+	      w->start_at_line_beg = beginning_of_line_p (b, startp);
+	      MARK_WINDOWS_CHANGED (w);
+	      
+	      if (!point_would_be_visible (w, startp, XINT (point)))
+		{
+		  Bufpos new_point;
+		  
+		  if (MINI_WINDOW_P (w))
+		    new_point = startp;
+		  else
+		    new_point = start_of_last_line (w, startp);
+		  
+		  if (selected)
+		    BUF_SET_PT (b, new_point);
+		  else
+		    set_marker_restricted (w->pointm[CURRENT_DISP],
+					   make_int (new_point),
+					   w->buffer);
+		}
 	    }
 	}
     }
   else	/* value == 0 && direction == -1 */
     {
+      if (WINDOW_TEXT_TOP_CLIP (w))
+	{
+	  WINDOW_TEXT_TOP_CLIP (w) = 0;
+	  MARK_WINDOWS_CHANGED (w);
+	}
       if (marker_position (w->start[CURRENT_DISP]) == BUF_BEGV (b))
 	{
 	  maybe_signal_error (Qbeginning_of_buffer, Qnil, Qwindow, errb);
@@ -4105,7 +4213,6 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	    }
 	}
     }
-
 }
 
 DEFUN ("scroll-up", Fscroll_up, 0, 1, "_P", /*
@@ -4622,32 +4729,32 @@ struct window_config
 #define CHECK_WINDOW_CONFIGURATION(x) CHECK_RECORD (x, window_configuration)
 
 static Lisp_Object
-mark_window_config (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_window_config (Lisp_Object obj)
 {
   struct window_config *config = XWINDOW_CONFIGURATION (obj);
   int i;
-  markobj (config->current_window);
-  markobj (config->current_buffer);
-  markobj (config->minibuffer_scroll_window);
-  markobj (config->root_window);
+  mark_object (config->current_window);
+  mark_object (config->current_buffer);
+  mark_object (config->minibuffer_scroll_window);
+  mark_object (config->root_window);
 
   for (i = 0; i < config->saved_windows_count; i++)
     {
       struct saved_window *s = SAVED_WINDOW_N (config, i);
-      markobj (s->window);
-      markobj (s->buffer);
-      markobj (s->start);
-      markobj (s->pointm);
-      markobj (s->sb_point);
-      markobj (s->mark);
+      mark_object (s->window);
+      mark_object (s->buffer);
+      mark_object (s->start);
+      mark_object (s->pointm);
+      mark_object (s->sb_point);
+      mark_object (s->mark);
 #if 0
       /* #### This looked like this. I do not see why specifier cached
 	 values should not be marked, as such specifiers as toolbars
 	 might have GC-able instances. Freed configs are not marked,
 	 aren't they?  -- kkm */
-      markobj (s->dedicated);
+      mark_object (s->dedicated);
 #else
-#define WINDOW_SLOT(slot, compare) ((void) (markobj (s->slot)))
+#define WINDOW_SLOT(slot, compare) mark_object (s->slot)
 #include "winslots.h"
 #endif
     }
@@ -5050,7 +5157,7 @@ by `current-window-configuration' (which see).
 	  SET_LAST_FACECHANGE (w);
 	  w->config_mark = 0;
 
-#define WINDOW_SLOT(slot, compare) w->slot = p->slot;
+#define WINDOW_SLOT(slot, compare) w->slot = p->slot
 #include "winslots.h"
 
 	  /* Reinstall the saved buffer and pointers into it.  */
@@ -5324,7 +5431,7 @@ save_window_save (Lisp_Object window, struct window_config *config, int i)
       p->hscroll = w->hscroll;
       p->modeline_hscroll = w->modeline_hscroll;
 
-#define WINDOW_SLOT(slot, compare) p->slot = w->slot;
+#define WINDOW_SLOT(slot, compare) p->slot = w->slot
 #include "winslots.h"
 
       if (!NILP (w->buffer))
@@ -5466,6 +5573,78 @@ Does not restore the value of point in current buffer.
   return unbind_to (speccount, val);
 }
 
+DEFUN ("current-pixel-column", Fcurrent_pixel_column, 0, 2, 0, /*
+Return the horizontal pixel position of POS in window.
+Beginning of line is column 0. This is calculated using the redisplay
+display tables.  If WINDOW is nil, the current window is assumed.
+If POS is nil, point is assumed. Note that POS must be visible for
+a non-nil result to be returned.
+*/
+       (window, pos))
+{
+  struct window* w = decode_window (window);
+  display_line_dynarr *dla = window_display_lines (w, CURRENT_DISP);
+
+  struct display_line *dl = 0;
+  struct display_block *db = 0;
+  struct rune* rb = 0;
+  int y = w->last_point_y[CURRENT_DISP];
+  int x = w->last_point_x[CURRENT_DISP];
+
+  if (MINI_WINDOW_P (w))
+    return Qnil;
+
+  if (y<0 || x<0 || y >= Dynarr_length (dla) || !NILP (pos))
+    {
+      int first_line, i;
+      Bufpos point;
+
+      if (NILP (pos))
+	pos = Fwindow_point (window);
+      
+      CHECK_INT (pos);
+      point = XINT (pos);
+
+      if (Dynarr_length (dla) && Dynarr_atp (dla, 0)->modeline)
+	first_line = 1;
+      else
+	first_line = 0;
+
+      for (i = first_line; i < Dynarr_length (dla); i++)
+	{
+	  dl = Dynarr_atp (dla, i);
+	  /* find the vertical location first */
+	  if (point >= dl->bufpos && point <= dl->end_bufpos)
+	    {
+	      db = get_display_block_from_line (dl, TEXT);
+	      for (i = 0; i < Dynarr_length (db->runes); i++)
+		{
+		  rb = Dynarr_atp (db->runes, i);
+		  if (point <= rb->bufpos)
+		    goto found_bufpos;
+		}
+	      return Qnil;
+	    }
+	}
+      return Qnil;
+    found_bufpos:
+      ;
+    }
+  else
+    {
+      /* optimised case */
+      dl = Dynarr_atp (dla, y);
+      db = get_display_block_from_line (dl, TEXT);
+
+      if (x >= Dynarr_length (db->runes))
+	return Qnil;
+
+      rb = Dynarr_atp (db->runes, x);
+    }
+
+  return make_int (rb->xpos - WINDOW_LEFT (w));
+}
+
 
 #ifdef DEBUG_XEMACS
 /* This is short and simple in elisp, but... it was written to debug
@@ -5518,8 +5697,6 @@ syms_of_window (void)
   defsymbol (&Qwindowp, "windowp");
   defsymbol (&Qwindow_live_p, "window-live-p");
   defsymbol (&Qwindow_configurationp, "window-configuration-p");
-  defsymbol (&Qscroll_up, "scroll-up");
-  defsymbol (&Qscroll_down, "scroll-down");
   defsymbol (&Qtemp_buffer_show_hook, "temp-buffer-show-hook");
   defsymbol (&Qdisplay_buffer, "display-buffer");
 
@@ -5535,6 +5712,7 @@ syms_of_window (void)
 #endif
 
   DEFSUBR (Fselected_window);
+  DEFSUBR (Flast_nonminibuf_window);
   DEFSUBR (Fminibuffer_window);
   DEFSUBR (Fwindow_minibuffer_p);
   DEFSUBR (Fwindowp);
@@ -5545,6 +5723,7 @@ syms_of_window (void)
   DEFSUBR (Fwindow_previous_child);
   DEFSUBR (Fwindow_parent);
   DEFSUBR (Fwindow_lowest_p);
+  DEFSUBR (Fwindow_truncated_p);
   DEFSUBR (Fwindow_highest_p);
   DEFSUBR (Fwindow_leftmost_p);
   DEFSUBR (Fwindow_rightmost_p);
@@ -5613,14 +5792,30 @@ syms_of_window (void)
   DEFSUBR (Fset_window_configuration);
   DEFSUBR (Fcurrent_window_configuration);
   DEFSUBR (Fsave_window_excursion);
+  DEFSUBR (Fcurrent_pixel_column);
+}
+
+void
+reinit_vars_of_window (void)
+{
+  int i;
+  /* Make sure all windows get marked */
+  minibuf_window = Qnil;
+  staticpro_nodump (&minibuf_window);
+
+  for (i = 0; i < countof (Vwindow_configuration_free_list); i++)
+    {
+      Vwindow_configuration_free_list[i] =
+	make_lcrecord_list (sizeof_window_config_for_n_windows (i + 1),
+			    &lrecord_window_configuration);
+      staticpro_nodump (&Vwindow_configuration_free_list[i]);
+    }
 }
 
 void
 vars_of_window (void)
 {
-  /* Make sure all windows get marked */
-  minibuf_window = Qnil;
-  staticpro (&minibuf_window);
+  reinit_vars_of_window ();
 
   DEFVAR_BOOL ("scroll-on-clipped-lines", &scroll_on_clipped_lines /*
 *Non-nil means to scroll if point lands on a line which is clipped.
@@ -5651,6 +5846,13 @@ If non-nil, this is a buffer and \\[scroll-other-window] should scroll its windo
 */ );
   Vother_window_scroll_buffer = Qnil;
 
+  DEFVAR_LISP ("window-pixel-scroll-increment", &Vwindow_pixel_scroll_increment /*
+*Number of pixels to scroll by per requested line.
+If nil then normal line scrolling occurs regardless of line height.
+If t then scrolling is done in increments equal to the height of the default face.
+*/ );
+  Vwindow_pixel_scroll_increment = Qt;
+
   DEFVAR_INT ("next-screen-context-lines", &next_screen_context_lines /*
 *Number of lines of continuity when scrolling by screenfuls.
 */ );
@@ -5665,18 +5867,6 @@ If non-nil, this is a buffer and \\[scroll-other-window] should scroll its windo
 *Delete any window less than this wide.
 */ );
   window_min_width = 10;
-
-  {
-    int i;
-
-    for (i = 0; i < countof (Vwindow_configuration_free_list); i++)
-      {
-	Vwindow_configuration_free_list[i] =
-	  make_lcrecord_list (sizeof_window_config_for_n_windows (i + 1),
-			      &lrecord_window_configuration);
-	staticpro (&Vwindow_configuration_free_list[i]);
-      }
-  }
 }
 
 void

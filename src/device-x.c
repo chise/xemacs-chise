@@ -743,10 +743,10 @@ x_finish_init_device (struct device *d, Lisp_Object props)
 }
 
 static void
-x_mark_device (struct device *d, void (*markobj) (Lisp_Object))
+x_mark_device (struct device *d)
 {
-  markobj (DEVICE_X_WM_COMMAND_FRAME (d));
-  markobj (DEVICE_X_DATA (d)->x_keysym_map_hash_table);
+  mark_object (DEVICE_X_WM_COMMAND_FRAME (d));
+  mark_object (DEVICE_X_DATA (d)->x_keysym_map_hash_table);
 }
 
 
@@ -1893,29 +1893,43 @@ syms_of_device_x (void)
 }
 
 void
+reinit_console_type_create_device_x (void)
+{
+  /* Initialize variables to speed up X resource interactions */
+  CONST char *valid_resource_chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  while (*valid_resource_chars)
+    valid_resource_char_p[(unsigned int) (*valid_resource_chars++)] = 1;
+  
+  name_char_dynarr  = Dynarr_new (char);
+  class_char_dynarr = Dynarr_new (char);
+}
+
+void
 console_type_create_device_x (void)
 {
+  reinit_console_type_create_device_x ();
   CONSOLE_HAS_METHOD (x, init_device);
   CONSOLE_HAS_METHOD (x, finish_init_device);
   CONSOLE_HAS_METHOD (x, mark_device);
   CONSOLE_HAS_METHOD (x, delete_device);
   CONSOLE_HAS_METHOD (x, device_system_metrics);
+}
 
-  {
-    /* Initialize variables to speed up X resource interactions */
-    CONST char *valid_resource_chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
-    while (*valid_resource_chars)
-      valid_resource_char_p[(unsigned int) (*valid_resource_chars++)] = 1;
+void
+reinit_vars_of_device_x (void)
+{
+  error_expected = 0;
+  error_occurred = 0;
 
-    name_char_dynarr  = Dynarr_new (char);
-    class_char_dynarr = Dynarr_new (char);
-  }
+  in_resource_setting = 0;
 }
 
 void
 vars_of_device_x (void)
 {
+  reinit_vars_of_device_x ();
+
   DEFVAR_LISP ("x-emacs-application-class", &Vx_emacs_application_class /*
 The X application class of the XEmacs process.
 This controls, among other things, the name of the `app-defaults' file
@@ -1958,9 +1972,4 @@ where the localized init files are.
 
   staticpro (&Vdefault_x_device);
   Vdefault_x_device = Qnil;
-
-  error_expected = 0;
-  error_occurred = 0;
-
-  in_resource_setting = 0;
 }

@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/03/04 15:48:25 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/09/26 19:46:47 $
 @sp 1
 @author Tony Rossini <arossini@@stat.sc.edu>
 @author Ben Wing <wing@@666.com>
@@ -580,7 +580,7 @@ that often result.  Mail your questions to @email{xemacs-beta@@xemacs.org} and
 @unnumberedsubsec Q1.0.6: Where can I get help?
 
 Probably the easiest way, if everything is installed, is to use info, by
-pressing @kbd{C-h i}, or selecting @code{Emacs Info} from the Help Menu.
+pressing @kbd{C-h i}, or selecting @code{Manuals->Info} from the Help Menu.
 
 Also, @kbd{M-x apropos} will look for commands for you.
 
@@ -1148,9 +1148,9 @@ directory called @file{sample.emacs}.  Copy this file from there to your
 home directory and rename it @file{.emacs}.  Then edit it to suit.
 
 Starting with 19.14, you may bring the @file{sample.emacs} into an
-XEmacs buffer by selecting @samp{Help->Sample .emacs} from the menubar.
-To determine the location of the @file{etc} directory type the command
-@kbd{C-h v data-directory @key{RET}}.
+XEmacs buffer by selecting @samp{Help->Samples->Sample .emacs} from the
+menubar.  To determine the location of the @file{etc} directory type the
+command @kbd{C-h v data-directory @key{RET}}.
 
 @node Q1.4.2, Q1.4.3, Q1.4.1, Introduction
 @unnumberedsubsec Q1.4.2: Can I use the same @file{.emacs} with the other Emacs?
@@ -1161,10 +1161,10 @@ show you how to handle different versions and flavors of Emacs.
 @node Q1.4.3, Q1.4.4, Q1.4.2, Introduction
 @unnumberedsubsec Q1.4.3: Any good tutorials around?
 
-There's the XEmacs tutorial available from the Help Menu, or by typing
-@kbd{C-h t}. To check whether it's available in a non-english language,
-type @kbd{C-u C-h t TAB}, type the first letters of your preferred
-language, then type @key{RET}.
+There's the XEmacs tutorial available from the Help Menu under
+@samp{Basics->Tutorials}, or by typing @kbd{C-h t}. To check whether
+it's available in a non-english language, type @kbd{C-u C-h t TAB}, type
+the first letters of your preferred language, then type @key{RET}.
 
 There's an Emacs Lisp tutorial at
 
@@ -1580,7 +1580,7 @@ bad pointer, perhaps to a CD-ROM that is not inserted.
 
 No.  The name @dfn{XEmacs} is unfortunate in the sense that it is
 @strong{not} an X Window System-only version of Emacs.  Starting with
-19.14 XEmacs has full color support on a color capable character
+19.14 XEmacs has full color support on a color-capable character
 terminal.
 
 @node Q2.0.6, Q2.0.7, Q2.0.5, Installation
@@ -5111,6 +5111,10 @@ This will then start a second shell.  The key is that no buffer named
 @samp{*shell*} can exist.  It might be preferable to use @kbd{M-x
 rename-uniquely} to rename the @code{*shell*} buffer instead of @kbd{M-x
 rename-buffer}.
+
+Alternately, you can set the variable @code{shell-multiple-shells}.
+If the value of this variable is non-nil, each time shell mode is invoked, 
+a new shell is made
 
 @node Q5.0.7, Q5.0.8, Q5.0.6, Miscellaneous
 @unnumberedsubsec Q5.0.7: Telnet from shell filters too much

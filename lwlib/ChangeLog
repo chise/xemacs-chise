@@ -1,3 +1,217 @@
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-09-09  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: updated tabs widget from Ed Falk.
+	* xlwtabs.h: ditto.
+	* xlwtabsP.h: ditto.
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib-internal.h:
+	* lwlib-utils.h:
+	Move declaration of destroy_all_children from lwlib-internal.h to
+	lwlib-utils.h, where it belongs.
+
+1999-09-21  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_label): don't clobber pixmap type labels
+ 	with text.
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwtabs.c: Fix C++ compilability.
+
+1999-09-18  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: Put in tabs sync because clipping should fix useability
+ 	problems.
+
+1999-09-13  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: Back out tabs sync because of reported useability
+ 	problems.
+
+1999-09-09  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: updated tabs widget from Ed Falk.
+	* xlwtabs.h: ditto.
+	* xlwtabsP.h: ditto.
+	* xlwgcs.c: ditto.
+	* xlwgcs.h: ditto.
+
+1999-09-03  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwgauge.c: Ansify.
+	Include <stdlib.h> to get prototype for atoi().
+	(GaugeSelect): Call GaugeExpose with the right number of args.
+	(GaugeLoseSel): Call GaugeExpose with the right number of args.
+	(GaugeConvert): This is a XtConvertSelectionProc, 
+	so 5th parameter must be of type XtPointer, not XPointer.
+	(GaugeGetValue): This is a XtTimerCallbackProc, 
+	so 2nd parameter must be of type XtIntervalId *, not XtIntervalId.
+	
+
+1999-09-01  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib.c (free_widget_value_contents): Use proper type for cast.
+
+	* xlwradio.c: Use function prototypes everywhere.
+	* xlwcheckbox.c:
+	* xlwradio.c:
+	* xlwradioP.h: Move declarations of non-static functions defined
+	in xlwradio.c into xlwradioP.h.
+
+1999-09-02  Andy Piper  <andy@xemacs.org>
+
+	* xlwgcs.c: include xmu.h
+
+1999-09-01  Andy Piper  <andy@xemacs.org>
+
+	* xlwgauge.c: rearrange headers yet again.
+	* xlwcheckbox.c: ditto.
+	* xlwradio.c: ditto.
+	* xlwtabs.c: ditto.
+
+1999-09-01  Andy Piper  <andy@xemacs.org>
+
+	* xlwgauge.c: use xmu.h
+	* xlwcheckbox.c: ditto.
+	* xlwradio.c: ditto.
+
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c:
+	* xlwgcs.c:
+	* xlwradio.c:
+	* xlwcheckbox.c:
+	* xlwgauge.c: Fix for losing systems without Xmu.
+	
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_one_widget): fix for AIX compiler lossage.
+
+1999-08-30  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.c (free_widget_value_contents): be more precise about
+ 	freeing user defined args.
+
+	* lwlib-Xaw.c (xaw_update_one_widget): make sure we use val not
+ 	its contents for hierarchies one deep.
+
+1999-08-29  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: temporary fixes pending a new release.
+	* xlwtabsP.h: ditto.
+
+	* lwlib-Xm.c (xm_update_one_widget): update user defined args.
+	(xm_create_label): set args after creation as well as before.
+
+	* lwlib-Xlw.c (xlw_create_tab_control): orient tabs horizontally.
+	(xlw_update_tab_control): actually update the children rather than
+ 	the parent.
+
+	* lwlib-Xaw.c (xaw_update_one_widget): update user defined args.
+	(xaw_create_label): set args after creation as well as before.
+
+1999-08-23  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_label): don't concatenate value to itself.
+
+	* lwlib-Xm.c (xm_create_label_field): new function for creating labels.
+	(xm_creation_table): use it.
+
+	* lwlib-Xaw.c (xaw_create_label_field): new function for creating labels.
+	(xaw_creation_table): use it.
+
+1999-08-16  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.h: declare free_widget_value_tree.
+
+	* lwlib.c (free_widget_value_tree): make non-static.
+
+	* lwlib-Xm.c (xm_update_label): free val_string when updating.
+
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (mark_dead_instance_destroyed): change so that its
+ 	defined for widgets.
+	(xm_nosel_callback): ditto.
+
+	* xlwtabsP.h: sync with 1.5.
+
+	* xlwtabs.c: sync with 1.18.
+
+1999-07-28  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: new lucid tabs widget from Ed Falk.
+	* xlwtabs.h: ditto.
+	* xlwtabsP.h: ditto.
+	* xlwgcs.c: GC manipulation for tab widgets.
+	* xlwgcs.h: ditto.
+
+	* xlwgauge.c: new athena gauge widget from Ed Falk.
+	* xlwgauge.h: ditto.
+	* xlwgaugeP.h: ditto.
+
+	* xlwradio.c: new athena radio widget from Ed Falk.
+	* xlwradio.h: ditto.
+	* xlwradioP.h: ditto.
+
+	* xlwcheckbox.c: new athena checkbox widget from Ed Falk.
+	* xlwcheckbox.h: ditto.
+	* xlwcheckboxP.h: ditto.
+
+	* lwlib-utils.c (destroy_all_children): moved from lwlib-Xm.c.
+
+	* lwlib-internal.h: declare destroy_all_children.
+
+	* lwlib-config.c: add widget checks.
+
+	* lwlib-Xm.h: declare xm_create_label;
+
+	* lwlib-Xm.c (destroy_all_children): move to lwlib-utils.c.
+	(xm_update_label): enable for widgets.
+	(xm_update_one_widget): ditto.
+	(xm_create_button): rename in line with lwlib-Xaw.c
+	(xm_create_progress): ditto.
+	(xm_create_text_field): ditto.
+	(xm_create_combo_box): ditto.
+	(xm_create_label): new function.
+	(xm_creation_table): rename widget creation functions.
+	(xm_destroy_instance): enable for widgets.
+	(xm_generic_callback): ditto.
+	(xm_generic_callback): ditto.
+
+	* lwlib-Xlw.c (xlw_tab_control_callback): new function. a special
+ 	callback that calls the correct function depending on what tab is
+ 	selected.
+	(xlw_create_tab_control): new function.
+	(build_tabs_in_widget): new function. puts tabs in a tab widget,
+ 	uses Xaw or Xm depending on how XEmacs was compiled.
+	(xlw_update_tab_control): update the resources for each
+ 	tab. optionally rebuild the contents of the tab widget.
+	(xlw_creation_table): add tab widget creation function.
+	(lw_lucid_widget_p): add tab widget.
+	(xlw_update_one_widget): ditto.
+
+	* lwlib-Xaw.h: declare xaw_create_label;
+
+	* lwlib-Xaw.c (lw_xaw_widget_p): add widgets classes.
+	(xaw_update_one_widget): ditto.
+	(xaw_update_one_value): add code from the Xm version.
+	(xaw_generic_callback): add Xm hack for setting command
+ 	states. beef up lookup of call data.
+	(xaw_create_button): new function.
+	(xaw_create_label): new function for use by tab widget.
+	(xaw_create_progress): new function.
+	(xaw_create_text_field): new function.
+	(xaw_creation_table): add new widget type creation functions.
+
+	* Makefile.in.in: add dependencies for new lw widgets.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released

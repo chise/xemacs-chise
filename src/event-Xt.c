@@ -1569,8 +1569,13 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
       break;
 
     case Expose:
-      x_redraw_exposed_area (f, event->xexpose.x, event->xexpose.y,
-			     event->xexpose.width, event->xexpose.height);
+      if (!check_for_ignored_expose (f, event->xexpose.x, event->xexpose.y,
+				     event->xexpose.width, event->xexpose.height)
+	  &&
+	  !find_matching_subwindow (f, event->xexpose.x, event->xexpose.y,
+	  event->xexpose.width, event->xexpose.height))
+	x_redraw_exposed_area (f, event->xexpose.x, event->xexpose.y,
+			       event->xexpose.width, event->xexpose.height);
       break;
 
     case GraphicsExpose: /* This occurs when an XCopyArea's source area was
@@ -1663,14 +1668,14 @@ static int timeout_id_tick;
 /* Xt interval id's might not fit into an int (they're pointers, as it
    happens), so we need to provide a conversion list. */
 
-struct Xt_timeout
+static struct Xt_timeout
 {
   int id;
   XtIntervalId interval_id;
   struct Xt_timeout *next;
 } *pending_timeouts, *completed_timeouts;
 
-struct Xt_timeout_blocktype
+static struct Xt_timeout_blocktype
 {
   Blocktype_declare (struct Xt_timeout);
 } *the_Xt_timeout_blocktype;
@@ -2918,15 +2923,8 @@ syms_of_event_Xt (void)
 }
 
 void
-vars_of_event_Xt (void)
+reinit_vars_of_event_Xt (void)
 {
-  dispatch_event_queue = Qnil;
-  staticpro (&dispatch_event_queue);
-  dispatch_event_queue_tail = Qnil;
-
-  /* this function only makes safe calls */
-  init_what_input_once ();
-
   Xt_event_stream = xnew (struct event_stream);
   Xt_event_stream->event_pending_p 	 = emacs_Xt_event_pending_p;
   Xt_event_stream->next_event_cb	 = emacs_Xt_next_event;
@@ -2940,6 +2938,24 @@ vars_of_event_Xt (void)
   Xt_event_stream->quit_p_cb		 = emacs_Xt_quit_p;
   Xt_event_stream->create_stream_pair_cb = emacs_Xt_create_stream_pair;
   Xt_event_stream->delete_stream_pair_cb = emacs_Xt_delete_stream_pair;
+
+  the_Xt_timeout_blocktype = Blocktype_new (struct Xt_timeout_blocktype);
+
+  last_quit_check_signal_tick_count = 0;
+
+  /* this function only makes safe calls */
+  init_what_input_once ();
+}
+
+void
+vars_of_event_Xt (void)
+{
+  reinit_vars_of_event_Xt ();
+
+  dispatch_event_queue = Qnil;
+  staticpro (&dispatch_event_queue);
+  dispatch_event_queue_tail = Qnil;
+  pdump_wire (&dispatch_event_queue_tail);
 
   DEFVAR_BOOL ("modifier-keys-are-sticky", &modifier_keys_are_sticky /*
 *Non-nil makes modifier keys sticky.
@@ -2966,10 +2982,6 @@ Information is displayed on stderr.  Currently defined values are:
 */ );
   x_debug_events = 0;
 #endif
-
-  the_Xt_timeout_blocktype = Blocktype_new (struct Xt_timeout_blocktype);
-
-  last_quit_check_signal_tick_count = 0;
 }
 
 /* This mess is a hack that patches the shell widget to treat visual inheritance

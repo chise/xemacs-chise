@@ -95,11 +95,18 @@ CONFIG_H = ../src/config.h config.h
 
 ## Following correct as of 19980312
 
-lwlib-Xaw.o:	$(CONFIG_H) lwlib-Xaw.h lwlib-internal.h lwlib.h xlwmenu.h
-lwlib-Xlw.o:	$(CONFIG_H) lwlib-Xlw.h lwlib-internal.h lwlib.h xlwmenu.h xlwscrollbar.h
+lwlib-Xaw.o:	$(CONFIG_H) lwlib-Xaw.h lwlib-internal.h lwlib.h xlwmenu.h xlwradio.h \
+xlwgauge.h xlwcheckbox.h
+lwlib-Xlw.o:	$(CONFIG_H) lwlib-Xlw.h lwlib-internal.h lwlib.h xlwmenu.h xlwscrollbar.h \
+xlwtabs.h xlwgcs.h
 lwlib-Xm.o:	$(CONFIG_H) lwlib-Xm.h lwlib-internal.h lwlib-utils.h lwlib.h xlwmenu.h
 lwlib-config.o:	$(CONFIG_H) lwlib.h xlwmenu.h
 lwlib-utils.o:	$(CONFIG_H) lwlib-utils.h
 lwlib.o:	$(CONFIG_H) lwlib-Xaw.h lwlib-Xlw.h lwlib-Xm.h lwlib-internal.h lwlib-utils.h lwlib.h xlwmenu.h
 xlwmenu.o:	$(CONFIG_H) lwlib.h xlwmenu.h xlwmenuP.h
 xlwscrollbar.o:	$(CONFIG_H) xlwscrollbar.h xlwscrollbarP.h
+xlwtabs.o:	$(CONFIG_H) xlwtabs.h xlwtabsP.h
+xlwradio.o:	$(CONFIG_H) xlwradio.h xlwradioP.h
+xlwcheckbox.o:	$(CONFIG_H) xlwcheckbox.h xlwcheckboxP.h
+xlwgauge.o:	$(CONFIG_H) xlwgauge.h xlwgaugeP.h
+xlwgcs.o:	$(CONFIG_H) xlwgcs.h

@@ -8,6 +8,9 @@ extern widget_creation_entry xm_creation_table [];
 Widget 
 xm_create_dialog (widget_instance* instance);
 
+Widget
+xm_create_label (Widget parent, widget_value* val);
+
 Boolean
 lw_motif_widget_p (Widget widget);
 

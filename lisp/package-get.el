@@ -180,6 +180,7 @@ order until the package is found.  As a special case, `site-name' can be
 			 (list :tag "Remote" host-name directory) ))
   :group 'package-get)
 
+;;;###autoload
 (defcustom package-get-download-sites
   '(
     ;; North America
@@ -239,6 +240,10 @@ with respect to `package-get-remote', or an absolute path."
   :type 'file
   :group 'package-get)
 
+(defvar package-get-user-index-filename
+  (paths-construct-path (list user-init-directory package-get-base-filename))
+  "Name for the user-specific location of the package-get database file.")
+
 (defcustom package-get-always-update nil
   "*If Non-nil always make sure we are using the latest package index (base).
 Otherwise respect the `force-current' argument of `package-get-require-base'."
@@ -261,11 +266,16 @@ When nil, updates which are not PGP signed are allowed without confirmation."
 (defun package-get-download-menu ()
   "Build the `Add Download Site' menu."
   (mapcar (lambda (site)
-            (vector (car site)
-               `(package-ui-add-site (quote ,(cdr site)))
-		    :style 'toggle :selected
-		    `(member (quote ,(cdr site)) package-get-remote)))
-          package-get-download-sites))
+	    (vector (car site)
+		    `(if (member (quote ,(cdr site))
+				 package-get-remote)
+			 (setq package-get-remote
+			       (delete (quote ,(cdr site)) package-get-remote))
+		       (package-ui-add-site (quote ,(cdr site))))
+		    :style 'toggle
+		    :selected `(member (quote ,(cdr site))
+				       package-get-remote)))
+	  package-get-download-sites))
 
 ;;;###autoload
 (defun package-get-require-base (&optional force-current)
@@ -328,23 +338,21 @@ If NO-REMOTE is non-nil never search remote locations."
   "Locate the package-get index file.  Do not return remote paths if NO-REMOTE
 is non-nil."
   (or (package-get-locate-file package-get-base-filename t no-remote)
-      (locate-data-file package-get-base-filename)
-      package-get-base-filename))
-
-(defvar package-get-user-package-location user-init-directory)
+      (if (file-exists-p package-get-user-index-filename)
+	  package-get-user-index-filename)))
 
 (defun package-get-maybe-save-index (filename)
   "Offer to save the current buffer as the local package index file,
 if different."
   (let ((location (package-get-locate-index-file t)))
     (unless (and filename (equal filename location))
-      (unless (equal (md5 (current-buffer))
-		     (with-temp-buffer
-		       (insert-file-contents location)
-		       (md5 (current-buffer))))
-	(unless (file-writable-p location)
-	  (setq location (expand-file-name package-get-base-filename
-		(expand-file-name "etc/" package-get-user-package-location))))
+      (unless (and location
+		   (equal (md5 (current-buffer))
+			  (with-temp-buffer
+			    (insert-file-contents-literally location)
+			    (md5 (current-buffer)))))
+	(unless (and location (file-writable-p location))
+	  (setq location package-get-user-index-filename))
 	(when (y-or-n-p (concat "Update package index in" location "? "))
 	  (write-file location))))))
       
@@ -1001,6 +1009,10 @@ lead to Emacs accessing remote sites."
 			 (package-get-info-prop (car this-package) 'version))))
 	    (setq this-package (cdr this-package)))))
       (setq packages (cdr packages)))
+    (when (interactive-p)
+      (if found
+          (message "%S" found)
+        (message "No appropriate package found")))
     found))
 
 ;;

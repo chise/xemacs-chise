@@ -22,24 +22,19 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <sys/types.h>
-#if defined(HAVE_UNISTD_H) || defined(STDC_HEADERS)
-#include <unistd.h>
-#endif
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
 #ifdef _POSIX_VERSION
 #include <limits.h>			/* for PATH_MAX */
 #else
 #include <sys/param.h>			/* for MAXPATHLEN */
-#endif
-#include <errno.h>
-#ifndef STDC_HEADERS
-extern int errno;
 #endif
 
 #ifdef WINDOWSNT
@@ -62,13 +57,8 @@ extern int errno;
 
 #define MAX_READLINKS 32
 
-#ifdef __STDC__
-char *xrealpath(const char *path, char resolved_path [])
-#else
-char *xrealpath(path, resolved_path)
-const char *path;
-char resolved_path [];
-#endif
+char *
+xrealpath (const char *path, char resolved_path [])
 {
   char copy_path[PATH_MAX];
   char *new_path = resolved_path;

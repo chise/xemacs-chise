@@ -101,8 +101,7 @@ Boston, MA 02111-1307, USA.  */
 #ifdef UNEXEC
 #undef UNEXEC
 #endif
-/* FSF renames this file to unexsgi.o */
-#define UNEXEC "unexelfsgi.o"
+#define UNEXEC "unexelf.o"
 
 #define TEXT_START 0x400000
 

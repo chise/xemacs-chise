@@ -248,13 +248,13 @@ mswindows_after_init_frame (struct frame *f, int first_on_device,
 }
 
 static void
-mswindows_mark_frame (struct frame *f, void (*markobj) (Lisp_Object))
+mswindows_mark_frame (struct frame *f)
 {
-  markobj (FRAME_MSWINDOWS_MENU_HASH_TABLE (f));
+  mark_object (FRAME_MSWINDOWS_MENU_HASH_TABLE (f));
 #ifdef HAVE_TOOLBARS
-  markobj (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
+  mark_object (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 #endif
-  markobj (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
 }
 
 static void
@@ -741,10 +741,16 @@ syms_of_frame_mswindows (void)
 }
 
 void
-vars_of_frame_mswindows (void)
+reinit_vars_of_frame_mswindows (void)
 {
   /* Needn't staticpro -- see comment above.  */
   Vmswindows_frame_being_created = Qnil;
+}
+
+void
+vars_of_frame_mswindows (void)
+{
+  reinit_vars_of_frame_mswindows ();
 
   DEFVAR_LISP ("mswindows-use-system-frame-size-defaults", &Vmswindows_use_system_frame_size_defaults /*
 Controls whether to use system or XEmacs defaults for frame size.

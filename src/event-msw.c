@@ -98,7 +98,8 @@ mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, WORD id);
 
 static Lisp_Object mswindows_find_frame (HWND hwnd);
 static Lisp_Object mswindows_find_console (HWND hwnd);
-static Lisp_Object mswindows_key_to_emacs_keysym(int mswindows_key, int mods);
+static Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
+						  int extendedp);
 static int mswindows_modifier_state (BYTE* keymap, int has_AltGr);
 static void mswindows_set_chord_timer (HWND hwnd);
 static int mswindows_button2_near_enough (POINTS p1, POINTS p2);
@@ -144,6 +145,7 @@ int mswindows_quit_chars_count = 0;
 
 /* These are Lisp integers; see DEFVARS in this file for description. */
 int mswindows_dynamic_frame_resize;
+int mswindows_meta_activates_menu;
 int mswindows_num_mouse_buttons;
 int mswindows_mouse_button_max_skew_x;
 int mswindows_mouse_button_max_skew_y;
@@ -1659,15 +1661,17 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       BYTE keymap[256];
       int has_AltGr = mswindows_current_layout_has_AltGr ();
       int mods;
+      int extendedp = lParam & 0x1000000;
       Lisp_Object keysym;
 
       GetKeyboardState (keymap);
       mods = mswindows_modifier_state (keymap, has_AltGr);
 
-      /* Handle those keys for which TranslateMessage won't generate a WM_CHAR */
-      if (!NILP (keysym = mswindows_key_to_emacs_keysym(wParam, mods)))
+      /* Handle non-printables */
+      if (!NILP (keysym = mswindows_key_to_emacs_keysym (wParam, mods,
+							 extendedp)))
 	mswindows_enqueue_keypress_event (hwnd, keysym, mods);
-      else
+      else	/* Normal keys & modifiers */
 	{
 	  int quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
 	  BYTE keymap_orig[256];
@@ -1685,9 +1689,9 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	   * to loosely track Left and Right modifiers on behalf of the OS,
 	   * without screwing up Windows NT which tracks them properly. */
 	  if (wParam == VK_CONTROL)
-	    keymap [(lParam & 0x1000000) ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+	    keymap [extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
 	  else if (wParam == VK_MENU)
-	    keymap [(lParam & 0x1000000) ? VK_RMENU : VK_LMENU] |= 0x80;
+	    keymap [extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
 
 	  memcpy (keymap_orig, keymap, 256);
 
@@ -1734,7 +1738,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	} /* else */
     }
     /* F10 causes menu activation by default. We do not want this */
-    if (wParam != VK_F10)
+    if (wParam != VK_F10 && (mswindows_meta_activates_menu || wParam != VK_MENU))
       goto defproc;
     break;
 
@@ -1982,15 +1986,35 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     
   case WM_PAINT:
     {
-      PAINTSTRUCT paintStruct;
-      
-      frame = XFRAME (mswindows_find_frame (hwnd));
+      /* According to the docs we need to check GetUpdateRect() before
+         actually doing a WM_PAINT */
+      if (GetUpdateRect (hwnd, NULL, FALSE))
+	{
+	  PAINTSTRUCT paintStruct;
+	  int x, y, width, height;
 
-      BeginPaint (hwnd, &paintStruct);
-      mswindows_redraw_exposed_area (frame,
-			paintStruct.rcPaint.left, paintStruct.rcPaint.top,
-			paintStruct.rcPaint.right, paintStruct.rcPaint.bottom);
-      EndPaint (hwnd, &paintStruct);
+	  frame = XFRAME (mswindows_find_frame (hwnd));
+	  
+	  BeginPaint (hwnd, &paintStruct);
+	  x = paintStruct.rcPaint.left;
+	  y = paintStruct.rcPaint.top;
+	  width = paintStruct.rcPaint.right - paintStruct.rcPaint.left;
+	  height = paintStruct.rcPaint.bottom - paintStruct.rcPaint.top;
+	  /* Normally we want to ignore expose events when child
+	     windows are unmapped, however once we are in the guts of
+	     WM_PAINT we need to make sure that we don't register
+	     unmaps then because they will not actually occur. */
+	  if (!check_for_ignored_expose (frame, x, y, width, height))
+	    {
+	      hold_ignored_expose_registration = 1;
+	      mswindows_redraw_exposed_area (frame, x, y, width, height);
+	      hold_ignored_expose_registration = 0;
+	    }
+
+	  EndPaint (hwnd, &paintStruct);
+	}
+      else
+	goto defproc;
     }
     break;
 
@@ -2140,6 +2164,23 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  SendMessage (hwndScrollBar, WM_CANCELMODE, 0, 0);
 	}
       UNGCPRO;
+      break;     
+    }
+
+  case WM_MOUSEWHEEL:
+    {
+      int keys = LOWORD (wParam); /* Modifier key flags */
+      int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
+      struct gcpro gcpro1, gcpro2;
+
+      if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd), keys,  delta))
+	{
+	  GCPRO2 (emacs_event, fobj);
+	  mswindows_pump_outstanding_events ();	/* Can GC */
+	  UNGCPRO;
+	}
+      else
+	goto defproc;
       break;     
     }
 #endif
@@ -2417,67 +2458,100 @@ int mswindows_modifier_state (BYTE* keymap, int has_AltGr)
  * Only returns non-Qnil for keys that don't generate WM_CHAR messages
  * or whose ASCII codes (like space) xemacs doesn't like.
  * Virtual key values are defined in winresrc.h
- * XXX I'm not sure that KEYSYM("name") is the best thing to use here.
  */
-Lisp_Object mswindows_key_to_emacs_keysym(int mswindows_key, int mods)
+Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
+					   int extendedp)
 {
-  switch (mswindows_key)
-  {
-  /* First the predefined ones */
-  case VK_BACK:		return QKbackspace;
-  case VK_TAB:		return QKtab;
-  case '\n':		return QKlinefeed;  /* No VK_LINEFEED in winresrc.h */
-  case VK_RETURN:	return QKreturn;
-  case VK_ESCAPE:	return QKescape;
-  case VK_SPACE:	return QKspace;
-  case VK_DELETE:	return QKdelete;
-
-  /* The rest */
-  case VK_CLEAR:	return KEYSYM ("clear");  /* Should do ^L ? */
-  case VK_PRIOR:	return KEYSYM ("prior");
-  case VK_NEXT:		return KEYSYM ("next");
-  case VK_END:		return KEYSYM ("end");
-  case VK_HOME:		return KEYSYM ("home");
-  case VK_LEFT:		return KEYSYM ("left");
-  case VK_UP:		return KEYSYM ("up");
-  case VK_RIGHT:	return KEYSYM ("right");
-  case VK_DOWN:		return KEYSYM ("down");
-  case VK_SELECT:	return KEYSYM ("select");
-  case VK_PRINT:	return KEYSYM ("print");
-  case VK_EXECUTE:	return KEYSYM ("execute");
-  case VK_SNAPSHOT:	return KEYSYM ("print");
-  case VK_INSERT:	return KEYSYM ("insert");
-  case VK_HELP:		return KEYSYM ("help");
-#if 0	/* XXX What are these supposed to do? */
-  case VK_LWIN		return KEYSYM ("");
-  case VK_RWIN		return KEYSYM ("");
+  if (extendedp)	/* Keys not present on a 82 key keyboard */
+    {
+      switch (mswindows_key)
+        {
+	case VK_RETURN:		return KEYSYM ("kp-enter");
+	case VK_PRIOR:		return KEYSYM ("prior");
+	case VK_NEXT:		return KEYSYM ("next");
+	case VK_END:		return KEYSYM ("end");
+	case VK_HOME:		return KEYSYM ("home");
+	case VK_LEFT:		return KEYSYM ("left");
+	case VK_UP:		return KEYSYM ("up");
+	case VK_RIGHT:		return KEYSYM ("right");
+	case VK_DOWN:		return KEYSYM ("down");
+	case VK_INSERT:		return KEYSYM ("insert");
+	case VK_DELETE:		return QKdelete;
+	}
+    }
+  else
+    {
+      switch (mswindows_key)
+	{
+	case VK_BACK:		return QKbackspace;
+	case VK_TAB:		return QKtab;
+	case '\n':		return QKlinefeed;
+	case VK_CLEAR:		return KEYSYM ("clear");
+	case VK_RETURN:		return QKreturn;
+	case VK_ESCAPE:		return QKescape;
+	case VK_SPACE:		return QKspace;
+	case VK_PRIOR:		return KEYSYM ("kp-prior");
+	case VK_NEXT:		return KEYSYM ("kp-next");
+	case VK_END:		return KEYSYM ("kp-end");
+	case VK_HOME:		return KEYSYM ("kp-home");
+	case VK_LEFT:		return KEYSYM ("kp-left");
+	case VK_UP:		return KEYSYM ("kp-up");
+	case VK_RIGHT:		return KEYSYM ("kp-right");
+	case VK_DOWN:		return KEYSYM ("kp-down");
+	case VK_SELECT:		return KEYSYM ("select");
+	case VK_PRINT:		return KEYSYM ("print");
+	case VK_EXECUTE:	return KEYSYM ("execute");
+	case VK_SNAPSHOT:	return KEYSYM ("print");
+	case VK_INSERT:		return KEYSYM ("kp-insert");
+	case VK_DELETE:		return KEYSYM ("kp-delete");
+	case VK_HELP:		return KEYSYM ("help");
+#if 0	/* FSF Emacs allows these to return configurable syms/mods */
+	case VK_LWIN		return KEYSYM ("");
+	case VK_RWIN		return KEYSYM ("");
 #endif
-  case VK_APPS:		return KEYSYM ("menu");
-  case VK_F1:		return KEYSYM ("f1");
-  case VK_F2:		return KEYSYM ("f2");
-  case VK_F3:		return KEYSYM ("f3");
-  case VK_F4:		return KEYSYM ("f4");
-  case VK_F5:		return KEYSYM ("f5");
-  case VK_F6:		return KEYSYM ("f6");
-  case VK_F7:		return KEYSYM ("f7");
-  case VK_F8:		return KEYSYM ("f8");
-  case VK_F9:		return KEYSYM ("f9");
-  case VK_F10:		return KEYSYM ("f10");
-  case VK_F11:		return KEYSYM ("f11");
-  case VK_F12:		return KEYSYM ("f12");
-  case VK_F13:		return KEYSYM ("f13");
-  case VK_F14:		return KEYSYM ("f14");
-  case VK_F15:		return KEYSYM ("f15");
-  case VK_F16:		return KEYSYM ("f16");
-  case VK_F17:		return KEYSYM ("f17");
-  case VK_F18:		return KEYSYM ("f18");
-  case VK_F19:		return KEYSYM ("f19");
-  case VK_F20:		return KEYSYM ("f20");
-  case VK_F21:		return KEYSYM ("f21");
-  case VK_F22:		return KEYSYM ("f22");
-  case VK_F23:		return KEYSYM ("f23");
-  case VK_F24:		return KEYSYM ("f24");
-  }
+	case VK_APPS:		return KEYSYM ("menu");
+	case VK_NUMPAD0:	return KEYSYM ("kp-0");
+	case VK_NUMPAD1:	return KEYSYM ("kp-1");
+	case VK_NUMPAD2:	return KEYSYM ("kp-2");
+	case VK_NUMPAD3:	return KEYSYM ("kp-3");
+	case VK_NUMPAD4:	return KEYSYM ("kp-4");
+	case VK_NUMPAD5:	return KEYSYM ("kp-5");
+	case VK_NUMPAD6:	return KEYSYM ("kp-6");
+	case VK_NUMPAD7:	return KEYSYM ("kp-7");
+	case VK_NUMPAD8:	return KEYSYM ("kp-8");
+	case VK_NUMPAD9:	return KEYSYM ("kp-9");
+	case VK_MULTIPLY:	return KEYSYM ("kp-multiply");
+	case VK_ADD:		return KEYSYM ("kp-add");
+	case VK_SEPARATOR:	return KEYSYM ("kp-separator");
+	case VK_SUBTRACT:	return KEYSYM ("kp-subtract");
+	case VK_DECIMAL:	return KEYSYM ("kp-decimal");
+	case VK_DIVIDE:		return KEYSYM ("kp-divide");
+	case VK_F1:		return KEYSYM ("f1");
+	case VK_F2:		return KEYSYM ("f2");
+	case VK_F3:		return KEYSYM ("f3");
+	case VK_F4:		return KEYSYM ("f4");
+	case VK_F5:		return KEYSYM ("f5");
+	case VK_F6:		return KEYSYM ("f6");
+	case VK_F7:		return KEYSYM ("f7");
+	case VK_F8:		return KEYSYM ("f8");
+	case VK_F9:		return KEYSYM ("f9");
+	case VK_F10:		return KEYSYM ("f10");
+	case VK_F11:		return KEYSYM ("f11");
+	case VK_F12:		return KEYSYM ("f12");
+	case VK_F13:		return KEYSYM ("f13");
+	case VK_F14:		return KEYSYM ("f14");
+	case VK_F15:		return KEYSYM ("f15");
+	case VK_F16:		return KEYSYM ("f16");
+	case VK_F17:		return KEYSYM ("f17");
+	case VK_F18:		return KEYSYM ("f18");
+	case VK_F19:		return KEYSYM ("f19");
+	case VK_F20:		return KEYSYM ("f20");
+	case VK_F21:		return KEYSYM ("f21");
+	case VK_F22:		return KEYSYM ("f22");
+	case VK_F23:		return KEYSYM ("f23");
+	case VK_F24:		return KEYSYM ("f24");
+	}
+    }
   return Qnil;
 }
 
@@ -2877,20 +2951,10 @@ debug_process_finalization (struct Lisp_Process *p)
 /************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
- 
+
 void
-vars_of_event_mswindows (void)
+reinit_vars_of_event_mswindows (void)
 {
-  mswindows_u_dispatch_event_queue = Qnil;
-  staticpro (&mswindows_u_dispatch_event_queue);
-  mswindows_u_dispatch_event_queue_tail = Qnil;
-
-  mswindows_s_dispatch_event_queue = Qnil;
-  staticpro (&mswindows_s_dispatch_event_queue);
-  mswindows_s_dispatch_event_queue_tail = Qnil;
-
-  mswindows_error_caught_in_modal_loop = Qnil;
-  staticpro (&mswindows_error_caught_in_modal_loop);
   mswindows_in_modal_loop = 0;
   mswindows_pending_timers_count = 0;
 
@@ -2917,6 +2981,31 @@ vars_of_event_mswindows (void)
   mswindows_event_stream->create_stream_pair_cb = emacs_mswindows_create_stream_pair;
   mswindows_event_stream->delete_stream_pair_cb = emacs_mswindows_delete_stream_pair;
 #endif
+}
+
+void
+vars_of_event_mswindows (void)
+{
+  reinit_vars_of_event_mswindows ();
+
+  mswindows_u_dispatch_event_queue = Qnil;
+  staticpro (&mswindows_u_dispatch_event_queue);
+  mswindows_u_dispatch_event_queue_tail = Qnil;
+  pdump_wire (&mswindows_u_dispatch_event_queue_tail);
+
+  mswindows_s_dispatch_event_queue = Qnil;
+  staticpro (&mswindows_s_dispatch_event_queue);
+  mswindows_s_dispatch_event_queue_tail = Qnil;
+  pdump_wire (&mswindows_u_dispatch_event_queue_tail);
+
+  mswindows_error_caught_in_modal_loop = Qnil;
+  staticpro (&mswindows_error_caught_in_modal_loop);
+
+  DEFVAR_BOOL ("mswindows-meta-activates-menu", &mswindows_meta_activates_menu /*
+*Controls whether pressing and releasing the Meta (Alt) key should
+activate the menubar.
+Default is t.
+*/ );
 
   DEFVAR_BOOL ("mswindows-dynamic-frame-resize", &mswindows_dynamic_frame_resize /*
 *Controls redrawing frame contents during mouse-drag or keyboard resize
@@ -2962,6 +3051,7 @@ If negative or zero, currently set system default is used instead.
   mswindows_mouse_button_max_skew_x = 0;
   mswindows_mouse_button_max_skew_y = 0;
   mswindows_mouse_button_tolerance = 0;
+  mswindows_meta_activates_menu = 1;
 }
 
 void

@@ -36,7 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 
 static Lisp_Object
-mark_marker (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_marker (Lisp_Object obj)
 {
   struct Lisp_Marker *marker = XMARKER (obj);
   Lisp_Object buf;
@@ -66,7 +66,7 @@ print_marker (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
     write_c_string (GETTEXT ("in no buffer"), printcharfun);
   else
     {
-      sprintf (buf, "at %d in ", marker_position (obj));
+      sprintf (buf, "at %ld in ", (long) marker_position (obj));
       write_c_string (buf, printcharfun);
       print_internal (marker->buffer->name, printcharfun, 0);
     }

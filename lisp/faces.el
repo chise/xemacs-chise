@@ -834,12 +834,12 @@ substituted for the specification."
       ;;     happen if that locale has no instantiators.  So signal
       ;;     an error to indicate this.
 
-      (setq temp-sp
-	    (if (and (or (eq locale 'global) (eq locale 'all) (not locale))
-		     (not (face-property face property 'global)))
-		(copy-specifier (face-property 'default property)
-				nil 'global)
-	      sp))
+      
+      (setq temp-sp (copy-specifier sp))
+      (if (and (or (eq locale 'global) (eq locale 'all) (not locale))
+	       (not (face-property face property 'global)))
+	  (copy-specifier (face-property 'default property)
+			  temp-sp 'global))	    
       (if (and (valid-specifier-locale-p locale)
 	       (not (specifier-specs temp-sp locale)))
 	  (error "Property must have a specification in locale %S" locale))
@@ -1410,7 +1410,8 @@ and 'global)."
 	   (mswindows-init-device-faces device))
 	  ;; Nothing to do for TTYs?
 	  )
-    (init-other-random-faces device)))
+    (or (eq 'stream (device-type device))
+	(init-other-random-faces device))))
 
 (defun init-frame-faces (frame)
   (when init-face-from-resources
@@ -1618,6 +1619,7 @@ in that frame; otherwise change each frame."
     (set-face-underline-p 'underline t 'global '(default)))
 (make-face 'zmacs-region "Used on highlightes region between point and mark.")
 (make-face 'isearch "Used on region matched by isearch.")
+(make-face 'isearch-secondary "Face to use for highlighting all matches.")
 (make-face 'list-mode-item-selected
 	   "Face for the selected list item in list-mode.")
 (make-face 'highlight "Highlight face.")
@@ -1705,6 +1707,13 @@ in that frame; otherwise change each frame."
 		       ((x default color) . "green")
 		       ((mswindows default color) . "paleturquoise")
 		       ((mswindows default color) . "green"))
+		     'global)
+
+;; #### This should really, I mean *really*, be converted to some form
+;; of `defface' one day.
+(set-face-foreground 'isearch-secondary
+		     '(((x default color) . "red3")
+		       ((mswindows default color) . "red3"))
 		     'global)
 
 ;; Define some logical color names to be used when reading the pixmap files.

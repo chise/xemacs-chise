@@ -34,8 +34,7 @@ Boston, MA 02111-1307, USA.  */
 
 struct mswindows_image_instance_data
 {
-  HBITMAP bitmap;
-  HBITMAP mask;
+  HBITMAP* bitmaps;
   HICON icon;
 };
 
@@ -43,14 +42,22 @@ struct mswindows_image_instance_data
 ((struct mswindows_image_instance_data *) (i)->data)
 
 #define IMAGE_INSTANCE_MSWINDOWS_BITMAP(i) \
-     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmap)
+     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmaps[0])
+#define IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE(i,slice) \
+     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmaps[slice])
+#define IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES(i) \
+     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmaps)
 #define IMAGE_INSTANCE_MSWINDOWS_MASK(i) \
-     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->mask)
+     (HBITMAP)(IMAGE_INSTANCE_PIXMAP_MASK (i))
 #define IMAGE_INSTANCE_MSWINDOWS_ICON(i) \
      (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->icon)
 
 #define XIMAGE_INSTANCE_MSWINDOWS_BITMAP(i) \
   IMAGE_INSTANCE_MSWINDOWS_BITMAP (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE(i,slice) \
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE (XIMAGE_INSTANCE (i,slice))
+#define XIMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES(i) \
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_MSWINDOWS_MASK(i) \
   IMAGE_INSTANCE_MSWINDOWS_MASK (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_MSWINDOWS_ICON(i) \
@@ -77,6 +84,20 @@ mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
 
 #define XWIDGET_INSTANCE_MSWINDOWS_HANDLE(i) \
   WIDGET_INSTANCE_MSWINDOWS_HANDLE (XIMAGE_INSTANCE (i))
+
+struct mswindows_subwindow_data
+{
+  HWND clip_window;
+};
+
+#define MSWINDOWS_SUBWINDOW_DATA(i) \
+((struct mswindows_subwindow_data *) (i)->data)
+
+#define IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW(i) \
+     (MSWINDOWS_SUBWINDOW_DATA (i)->clip_window)
+
+#define XIMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW(i) \
+  IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (XIMAGE_INSTANCE (i))
 
 #endif /* HAVE_MS_WINDOWS */
 #endif /* _XEMACS_GLYPHS_MSW_H_ */

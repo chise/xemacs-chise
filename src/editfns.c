@@ -45,6 +45,7 @@ Boston, MA 02111-1307, USA.  */
 #include "systime.h"
 #include "sysdep.h"
 #include "syspwd.h"
+#include "sysfile.h"			/* for getcwd */
 
 /* Some static data, and a function to initialize it for each run */
 

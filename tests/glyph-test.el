@@ -1,24 +1,28 @@
-(setq str "Hello There")
 (set-extent-begin-glyph 
- (make-extent 0 0 str)
- (make-glyph [xpm :file "../etc/xemacs-icon.xpm"]))
+ (make-extent (point) (point))
+ (setq im (make-glyph [xpm :file "xemacs-icon.xpm"])))
 
 (defun foo ()
-  (interactive) 
-  (ding))
-;  (setq ok-select (not ok-select)))
+  (interactive)
+  (setq ok-select (not ok-select)))
+
+(defun fee () (interactive) (message "hello"))
 
 ;; button in a group
 (setq ok-select nil)
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [button :descriptor ["ok     " (setq ok-select t)
-				  :style radio :selected ok-select]]))
+ (setq radio-button1 
+       (make-glyph 
+	[button :descriptor ["ok     " (setq ok-select t)
+			     :style radio :selected ok-select]])))
 ;; button in a group
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [button :descriptor ["ok" (setq ok-select nil) :style radio 
-				  :selected (not ok-select)]]))
+ (setq radio-button2
+       (make-glyph
+	[button :descriptor ["ok" (setq ok-select nil) :style radio 
+			     :selected (not ok-select)]])))
 ;; toggle button
 (set-extent-begin-glyph 
  (make-extent (point) (point))
@@ -28,19 +32,20 @@
 					:selected (not ok-select)]])))
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [button :descriptor ["ok" :style toggle 
-				  :callback 
-				  (setq ok-select (not ok-select))
-				  :selected ok-select]]))
+ (setq toggle-button
+       (make-glyph [button :descriptor ["ok" :style toggle 
+					:callback 
+					(setq ok-select (not ok-select))
+					:selected ok-select]])))
 
 ;; normal pushbutton
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq pbutton (make-glyph 
-		[button :width 10 :height 2
-			:face modeline-mousable
-			:descriptor "ok" :callback foo 
-			:selected t])))
+ (setq push-button 
+       (make-glyph [button :width 10 :height 2
+			   :face modeline-mousable
+			   :descriptor "ok" :callback foo 
+			   :selected t])))
 ;; tree view
 (set-extent-begin-glyph 
  (make-extent (point) (point))
@@ -58,9 +63,9 @@
  (make-extent (point) (point))
  (setq tab (make-glyph 
 	    [tab-control :descriptor "My Tab"
-			 :face default
+			 :face highlight
 			 :properties (:items (["One" foo]
-					      ["Two" foo]
+					      ["Two" fee]
 					      ["Three" foo]))])))
 
 ;; progress gauge
@@ -94,8 +99,7 @@
  (make-glyph 
   [button :face modeline-mousable
 	  :descriptor "ok" :callback foo
-	  :image (make-glyph 
-		  [xpm :file "../etc/xemacs-icon.xpm"])]))
+	  :image [xpm :file "../etc/xemacs-icon.xpm"]]))
 
 ;; normal pushbutton
 (set-extent-begin-glyph 
@@ -105,20 +109,25 @@
 ;; edit box
 (set-extent-begin-glyph 
  (make-extent (point) (point)) 
- (setq hedit (make-glyph [edit-field :pixel-width 50 :pixel-height 30
-				     :face bold-italic
-				     :descriptor ["Hello"]])))
+ (setq edit-field (make-glyph [edit-field :pixel-width 50 :pixel-height 30
+					  :face bold-italic
+					  :descriptor ["Hello"]])))
 ;; combo box
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq hcombo (make-glyph 
-	       [combo-box :width 10 :height 3 :descriptor ["Hello"] 
-			  :properties (:items ("One" "Two" "Three"))])))
+ (setq combo-box (make-glyph
+		  [combo-box :width 10 :descriptor ["Hello"] 
+			     :properties (:items ("One" "Two" "Three"))])))
 
-;; line
+;; label
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [label :pixel-width 150 :descriptor "Hello"]))
+ (setq label (make-glyph [label :pixel-width 150 :descriptor "Hello"])))
+
+;; string
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (setq str (make-glyph [string :data "Hello There"])))
 
 ;; scrollbar
 ;(set-extent-begin-glyph 
@@ -129,3 +138,17 @@
 (setq sw (make-glyph [subwindow :pixel-width 50 :pixel-height 70]))
 (set-extent-begin-glyph (make-extent (point) (point)) sw)
 
+;; layout
+(setq layout 
+      (make-glyph
+       [layout :pixel-width 200 :pixel-height 250
+	       :orientation vertical
+	       :justify left
+	       :border [string :data "Hello There Mrs"]
+	       :items ([layout :orientation horizontal
+			       :items (radio-button1 radio-button2)]
+		       edit-field toggle-button label str)]))
+(set-glyph-face layout 'gui-element)
+(set-extent-begin-glyph
+ (make-extent (point) (point)) layout)
+			       

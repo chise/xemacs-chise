@@ -25,6 +25,8 @@ MODTITLE="Encode objects in Base 64"
 
 all: $(MODNAME).ell
 
+distclean: clean
+
 clean:
 	rm -f $(MODNAME).ell $(OBJS) base64_i.o base64_i.c
 

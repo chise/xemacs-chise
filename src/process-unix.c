@@ -212,9 +212,11 @@ allocate_pty (void)
      end of the ptys.  */
   int failed_count = 0;
 #endif
-  int i;
   int fd;
+#ifndef HAVE_GETPT
+  int i;
   int c;
+#endif
 
 #ifdef PTY_ITERATION
   PTY_ITERATION
@@ -261,7 +263,7 @@ allocate_pty (void)
 #else
             sprintf (pty_name, "/dev/tty%c%x", c, i);
 #endif /* no PTY_TTY_NAME_SPRINTF */
-#ifndef UNIPLUS
+#if !defined(UNIPLUS) && !defined(HAVE_GETPT)
 	    if (access (pty_name, 6) != 0)
 	      {
 		close (fd);
@@ -384,7 +386,7 @@ set_socket_nonblocking_maybe (int fd, int port, CONST char* proto)
 	  else
 	    continue;
 	}
-      else if ((INTP (tail_port)) && (htons ((unsigned short) XINT (tail_port)) == port))
+      else if (INTP (tail_port) && (htons ((unsigned short) XINT (tail_port)) == port))
 	break;
     }
 
@@ -663,10 +665,9 @@ unix_alloc_process_data (struct Lisp_Process *p)
  */
 
 static void
-unix_mark_process_data (struct Lisp_Process *proc,
-			void (*markobj) (Lisp_Object))
+unix_mark_process_data (struct Lisp_Process *proc)
 {
-  markobj (UNIX_DATA(proc)->tty_name);
+  mark_object (UNIX_DATA(proc)->tty_name);
 }
 
 /*
@@ -1429,19 +1430,21 @@ unix_canonicalize_host_name (Lisp_Object host)
 
 static void
 unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
-			  Lisp_Object family, void** vinfd, void** voutfd)
+			  Lisp_Object protocol, void** vinfd, void** voutfd)
 {
   struct sockaddr_in address;
-  int s, inch, outch;
+  int inch;
+  int outch;
+  volatile int s;
   volatile int port;
   volatile int retry = 0;
   int retval;
 
   CHECK_STRING (host);
 
-  if (!EQ (family, Qtcpip))
-    error ("Unsupported protocol family \"%s\"",
-	   string_data (symbol_name (XSYMBOL (family))));
+  if (!EQ (protocol, Qtcp) && !EQ (protocol, Qudp))
+    error ("Unsupported protocol \"%s\"",
+	   string_data (symbol_name (XSYMBOL (protocol))));
 
   if (INTP (service))
     port = htons ((unsigned short) XINT (service));
@@ -1449,7 +1452,12 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
     {
       struct servent *svc_info;
       CHECK_STRING (service);
-      svc_info = getservbyname ((char *) XSTRING_DATA (service), "tcp");
+
+      if (EQ (protocol, Qtcp))
+	  svc_info = getservbyname ((char *) XSTRING_DATA (service), "tcp");
+      else /* EQ (protocol, Qudp) */
+	  svc_info = getservbyname ((char *) XSTRING_DATA (service), "udp");
+
       if (svc_info == 0)
 	error ("Unknown service \"%s\"", XSTRING_DATA (service));
       port = svc_info->s_port;
@@ -1458,7 +1466,11 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
   get_internet_address (host, &address, ERROR_ME);
   address.sin_port = port;
 
-  s = socket (address.sin_family, SOCK_STREAM, 0);
+  if (EQ (protocol, Qtcp))
+      s = socket (address.sin_family, SOCK_STREAM, 0);
+  else /* EQ (protocol, Qudp) */
+      s = socket (address.sin_family, SOCK_DGRAM, 0);
+
   if (s < 0)
     report_file_error ("error creating socket", list1 (name));
 

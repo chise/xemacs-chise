@@ -73,7 +73,6 @@ DECLARE_LRECORD (toolbar_button, struct toolbar_button);
 #define XTOOLBAR_BUTTON(x) XRECORD (x, toolbar_button, struct toolbar_button)
 #define XSETTOOLBAR_BUTTON(x, p) XSETRECORD (x, p, toolbar_button)
 #define TOOLBAR_BUTTONP(x) RECORDP (x, toolbar_button)
-#define GC_TOOLBAR_BUTTONP(x) GC_RECORDP (x, toolbar_button)
 #define CHECK_TOOLBAR_BUTTON(x) CHECK_RECORD (x, toolbar_button)
 #define CONCHECK_TOOLBAR_BUTTON(x) CONCHECK_RECORD (x, toolbar_button)
 

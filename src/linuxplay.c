@@ -125,7 +125,7 @@ static union {
 
 /* Use a global buffer as scratch-pad for possible conversions of the
    sampling format */
-unsigned char linuxplay_sndbuf[SNDBUFSZ];
+static unsigned char linuxplay_sndbuf[SNDBUFSZ];
 
 static int           mix_fd;
 static int           audio_vol;

@@ -223,6 +223,12 @@ other hooks, such as major mode hooks, can do the job."
 The value of this variable may be buffer-local.
 The buffer about to be killed is current when this hook is run.")
 
+;; called by Frecord_buffer()
+(defvar record-buffer-hook nil
+  "Function or functions to be called when a buffer is recorded.
+The value of this variable may be buffer-local.
+The buffer being recorded is passed as an argument to the hook.")
+
 ;; in C in FSFmacs
 (defvar kill-emacs-hook nil
   "Function or functions to be called when `kill-emacs' is called,
@@ -238,6 +244,22 @@ just before emacs is actually killed.")
 ;; ...and analogously for RPLACD.
 (define-function 'rplaca 'setcar)
 (define-function 'rplacd 'setcdr)
+
+(defun copy-symbol (symbol &optional copy-properties)
+  "Return a new uninterned symbol with the same name as SYMBOL.
+If COPY-PROPERTIES is non-nil, the new symbol will have a copy of
+SYMBOL's value, function, and property lists."
+  (let ((new (make-symbol (symbol-name symbol))))
+    (when copy-properties
+      ;; This will not copy SYMBOL's chain of forwarding objects, but
+      ;; I think that's OK.  Callers should not expect such magic to
+      ;; keep working in the copy in the first place.
+      (and (boundp symbol)
+	   (set new (symbol-value symbol)))
+      (and (fboundp symbol)
+	   (fset new (symbol-function symbol)))
+      (setplist new (copy-list (symbol-plist symbol))))
+    new))
 
 ;;;; String functions.
 
@@ -569,9 +591,6 @@ This function accepts any number of arguments, but ignores them."
   (interactive)
   nil)
 
-(define-function 'mapc-internal 'mapc)
-(make-obsolete 'mapc-internal 'mapc)
-
 (define-function 'eval-in-buffer 'with-current-buffer)
 (make-obsolete 'eval-in-buffer 'with-current-buffer)
 
@@ -632,13 +651,17 @@ If BUFFER is specified, the contents of that buffer are returned.
 The arguments OLD-END and OLD-BUFFER are supported for backward
 compatibility with pre-21.2 XEmacsen times when arguments to this
 function were (buffer-string &optional START END BUFFER)."
-  (if (or (null buffer)
-	  (bufferp buffer)
-	  (stringp buffer))
-      ;; The new way
-      (buffer-substring nil nil buffer)
-    ;; The old way
-    (buffer-substring buffer old-end old-buffer)))
+  (cond
+   ((or (stringp buffer) (bufferp buffer))
+    ;; Most definitely the new way.
+    (buffer-substring nil nil buffer))
+   ((or (stringp old-buffer) (bufferp old-buffer)
+	(natnump buffer) (natnump old-end))
+    ;; Definitely the old way.
+    (buffer-substring buffer old-end old-buffer))
+   (t
+    ;; Probably the old way.
+    (buffer-substring buffer old-end old-buffer))))
 
 ;; This was not present before.  I think Jamie had some objections
 ;; to this, so I'm leaving this undefined for now. --ben

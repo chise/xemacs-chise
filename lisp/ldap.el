@@ -155,9 +155,7 @@ Valid properties include:
   :type 'symbol
   :group 'ldap)
 
-(defcustom ldap-coding-system (if (featurep 'mule)
-				  'utf-8
-				nil)
+(defcustom ldap-coding-system nil
   "*Coding system of LDAP string values.
 LDAP v3 specifies the coding system of strings to be UTF-8.  
 Mule support is needed for this."
@@ -395,10 +393,12 @@ This table is built from RFC2252 Section 5 and RFC2256 Section 5")
       (error "Invalid country string: %s" str)))
 
 (defun ldap-decode-string (str)
-  (decode-coding-string str ldap-coding-system))
+  (if (fboundp 'decode-coding-string)
+      (decode-coding-string str ldap-coding-system)))
 
 (defun ldap-encode-string (str)
-  (encode-coding-string str ldap-coding-system))
+   (if (fboundp 'encode-coding-string)
+       (encode-coding-string str ldap-coding-system)))
 
 (defun ldap-decode-address (str)
   (mapconcat 'ldap-decode-string

@@ -51,14 +51,13 @@ Lisp_Object Vstandard_output, Qstandard_output;
 /* The subroutine object for external-debugging-output is kept here
    for the convenience of the debugger.  */
 Lisp_Object Qexternal_debugging_output;
-Lisp_Object Qalternate_debugging_output;
 
 /* Avoid actual stack overflow in print.  */
 static int print_depth;
 
 /* Detect most circularities to print finite output.  */
 #define PRINT_CIRCLE 200
-Lisp_Object being_printed[PRINT_CIRCLE];
+static Lisp_Object being_printed[PRINT_CIRCLE];
 
 /* Maximum length of list or vector to print in full; noninteger means
    effectively infinity */
@@ -91,9 +90,6 @@ int print_readably;
    on entry to and exit from print functions.  */
 Lisp_Object Vprint_gensym;
 Lisp_Object Vprint_gensym_alist;
-
-Lisp_Object Qprint_escape_newlines;
-Lisp_Object Qprint_readably;
 
 Lisp_Object Qdisplay_error;
 Lisp_Object Qprint_message_label;
@@ -711,7 +707,6 @@ Display ERROR-OBJECT on STREAM in a user-friendly way.
 #ifdef LISP_FLOAT_TYPE
 
 Lisp_Object Vfloat_output_format;
-Lisp_Object Qfloat_output_format;
 
 /*
  * This buffer should be at least as large as the max string size of the
@@ -1362,8 +1357,8 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    getting rid of this function altogether?  Does anything actually
    *use* it?  --hniksic */
 
-int alternate_do_pointer;
-char alternate_do_string[5000];
+static int alternate_do_pointer;
+static char alternate_do_string[5000];
 
 DEFUN ("alternate-debugging-output", Falternate_debugging_output, 1, 1, 0, /*
 Append CHARACTER to the array `alternate_do_string'.
@@ -1467,7 +1462,6 @@ FILE = nil means just close any termscript file currently open.
 /* Debugging kludge -- unbuffered */
 static int debug_print_length = 50;
 static int debug_print_level = 15;
-Lisp_Object debug_temp;
 
 static void
 debug_print_no_newline (Lisp_Object debug_print_obj)
@@ -1604,14 +1598,7 @@ debug_short_backtrace (int length)
 void
 syms_of_print (void)
 {
-  defsymbol (&Qprint_escape_newlines, "print-escape-newlines");
-  defsymbol (&Qprint_readably, "print-readably");
-
   defsymbol (&Qstandard_output, "standard-output");
-
-#ifdef LISP_FLOAT_TYPE
-  defsymbol (&Qfloat_output_format, "float-output-format");
-#endif
 
   defsymbol (&Qprint_length, "print-length");
 
@@ -1629,7 +1616,6 @@ syms_of_print (void)
   DEFSUBR (Fterpri);
   DEFSUBR (Fwrite_char);
   DEFSUBR (Falternate_debugging_output);
-  defsymbol (&Qalternate_debugging_output, "alternate-debugging-output");
   DEFSUBR (Fexternal_debugging_output);
   DEFSUBR (Fopen_termscript);
   defsymbol (&Qexternal_debugging_output, "external-debugging-output");
@@ -1637,9 +1623,15 @@ syms_of_print (void)
 }
 
 void
-vars_of_print (void)
+reinit_vars_of_print (void)
 {
   alternate_do_pointer = 0;
+}
+
+void
+vars_of_print (void)
+{
+  reinit_vars_of_print ();
 
   DEFVAR_LISP ("standard-output", &Vstandard_output /*
 Output stream `print' uses by default for outputting a character.

@@ -71,7 +71,7 @@ Boston, MA 02111-1307, USA.  */
 /* Need to lower-case the drive letter, or else expanded
    filenames will sometimes compare inequal, because
    `expand-file-name' doesn't always down-case the drive letter.  */
-#define DRIVE_LETTER(x) (tolower (x))
+#define DRIVE_LETTER(x) tolower (x)
 #endif /* WINDOWSNT */
 
 int lisp_to_time (Lisp_Object, time_t *);
@@ -108,8 +108,6 @@ Lisp_Object Vwrite_region_annotations_so_far;
 Lisp_Object Vauto_save_list_file_name;
 
 int disable_auto_save_when_buffer_shrinks;
-
-Lisp_Object Qfile_name_handler_alist;
 
 Lisp_Object Vdirectory_sep_char;
 
@@ -1303,19 +1301,19 @@ No component of the resulting pathname will be a symbolic link, as
 
   {
     char resolved_path[MAXPATHLEN];
-    char path[MAXPATHLEN];
-    char *p = path;
-    int elen = XSTRING_LENGTH (expanded_name);
+    Extbyte *path;
+    Extbyte *p;
+    Extcount elen = XSTRING_LENGTH (expanded_name);
 
-    if (elen >= countof (path))
+    GET_STRING_FILENAME_DATA_ALLOCA (expanded_name,path,elen);
+    p = path;
+    if (elen > MAXPATHLEN)
       goto toolong;
-
-    memcpy (path, XSTRING_DATA (expanded_name), elen + 1);
-    /* memset (resolved_path, 0, sizeof (resolved_path)); */
-
+    
     /* Try doing it all at once. */
-    /* !!#### Does realpath() Mule-encapsulate? */
-    if (!xrealpath (path, resolved_path))
+    /* !! Does realpath() Mule-encapsulate?
+       Answer: Nope! So we do it above */
+    if (!xrealpath ((char *) path, resolved_path))
       {
 	/* Didn't resolve it -- have to do it one component at a time. */
 	/* "realpath" is a typically useless, stupid un*x piece of crap.
@@ -1325,12 +1323,12 @@ No component of the resulting pathname will be a symbolic link, as
 	   partial result returned.  What a piece of junk. */
 	for (;;)
 	  {
-	    p = (char *) memchr (p + 1, '/', elen - (p + 1 - path));
+	    p = (Extbyte *) memchr (p + 1, '/', elen - (p + 1 - path));
 	    if (p)
 	      *p = 0;
 
 	    /* memset (resolved_path, 0, sizeof (resolved_path)); */
-	    if (xrealpath (path, resolved_path))
+	    if (xrealpath ((char *) path, resolved_path))
 	      {
 		if (p)
 		  *p = '/';
@@ -1998,7 +1996,7 @@ This is what happens in interactive use with M-x.
 	  Fcopy_file (filename, newname,
 		      /* We have already prompted if it was an integer,
 			 so don't have copy-file prompt again.  */
-		      ((NILP (ok_if_already_exists)) ? Qnil : Qt),
+		      (NILP (ok_if_already_exists) ? Qnil : Qt),
                       Qt);
 	  Fdelete_file (filename);
 	}
@@ -3909,7 +3907,7 @@ Non-nil second argument means save only current buffer.
 
   run_hook (Qauto_save_hook);
 
-  if (GC_STRINGP (Vauto_save_list_file_name))
+  if (STRINGP (Vauto_save_list_file_name))
     listfile = condition_case_1 (Qt,
 				 auto_save_expand_name,
 				 Vauto_save_list_file_name,
@@ -3928,13 +3926,13 @@ Non-nil second argument means save only current buffer.
   for (do_handled_files = 0; do_handled_files < 2; do_handled_files++)
     {
       for (tail = Vbuffer_alist;
-	   GC_CONSP (tail);
+	   CONSP (tail);
 	   tail = XCDR (tail))
 	{
 	  buf = XCDR (XCAR (tail));
 	  b = XBUFFER (buf);
 
-	  if (!GC_NILP (current_only)
+	  if (!NILP (current_only)
 	      && b != current_buffer)
 	    continue;
 
@@ -3946,7 +3944,7 @@ Non-nil second argument means save only current buffer.
 	  /* Check for auto save enabled
 	     and file changed since last auto save
 	     and file changed since last real save.  */
-	  if (GC_STRINGP (b->auto_save_file_name)
+	  if (STRINGP (b->auto_save_file_name)
 	      && BUF_SAVE_MODIFF (b) < BUF_MODIFF (b)
 	      && b->auto_save_modified < BUF_MODIFF (b)
 	      /* -1 means we've turned off autosaving for a while--see below.  */
@@ -3991,7 +3989,7 @@ Non-nil second argument means save only current buffer.
 		  continue;
 		}
 	      set_buffer_internal (b);
-	      if (!auto_saved && GC_NILP (no_message))
+	      if (!auto_saved && NILP (no_message))
 		{
 		  static CONST unsigned char *msg
 		    = (CONST unsigned char *) "Auto-saving...";
@@ -4003,7 +4001,7 @@ Non-nil second argument means save only current buffer.
 	      /* Open the auto-save list file, if necessary.
 		 We only do this now so that the file only exists
 		 if we actually auto-saved any files. */
-	      if (!auto_saved && GC_STRINGP (listfile) && listdesc < 0)
+	      if (!auto_saved && STRINGP (listfile) && listdesc < 0)
 		{
 		  listdesc = open ((char *) XSTRING_DATA (listfile),
 				   O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
@@ -4092,7 +4090,7 @@ Non-nil second argument means save only current buffer.
      one because nothing needed to be auto-saved.  Do this afterwards
      rather than before in case we get a crash attempting to autosave
      (in that case we'd still want the old one around). */
-  if (listdesc < 0 && !auto_saved && GC_STRINGP (listfile))
+  if (listdesc < 0 && !auto_saved && STRINGP (listfile))
     unlink ((char *) XSTRING_DATA (listfile));
 
   /* Show "...done" only if the echo area would otherwise be empty. */
@@ -4180,7 +4178,6 @@ syms_of_fileio (void)
   defsymbol (&Qset_visited_file_modtime, "set-visited-file-modtime");
   defsymbol (&Qcar_less_than_car, "car-less-than-car"); /* Vomitous! */
 
-  defsymbol (&Qfile_name_handler_alist, "file-name-handler-alist");
   defsymbol (&Qauto_save_hook, "auto-save-hook");
   defsymbol (&Qauto_save_error, "auto-save-error");
   defsymbol (&Qauto_saving, "auto-saving");

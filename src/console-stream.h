@@ -40,6 +40,8 @@ struct stream_console
 
 #define CONSOLE_STREAM_DATA(con) CONSOLE_TYPE_DATA (con, stream)
 
+extern Lisp_Object Vterminal_console, Vterminal_frame, Vterminal_device;
+
 Lisp_Object stream_semi_canonicalize_console_connection(Lisp_Object,
 							Error_behavior);
 Lisp_Object stream_canonicalize_console_connection(Lisp_Object,

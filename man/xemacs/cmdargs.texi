@@ -155,10 +155,17 @@ concerning the package system, @xref{Startup Paths}.)
 @item -vanilla
 This is equivalent to @samp{-q -no-site-file -no-early-packages}.
 
+@item -user-init-file @var{file}
+Load @var{file} as your Emacs init file instead of @file{~/.emacs}.
+
+@item -user-init-directory @var{directory}
+Use @var{directory} as the location of your early package hierarchies
+and the various user-specific initialization files.
+
 @item -user @var{user}
 @itemx -u @var{user}
-Load @var{user}'s Emacs init file @file{~@var{user}/.emacs} instead of
-your own.
+Equivalent to
+@samp{-user-init-file ~@var{user}/.emacs -user-init-directory ~@var{user}/.xemacs}.
 
 
 @end table

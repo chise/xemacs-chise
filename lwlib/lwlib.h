@@ -181,6 +181,10 @@ extern int lw_menu_active;
 /* do this for the other toolkits too */
 #endif /* LWLIB_MENUBARS_LUCID */
 
+#if defined (LWLIB_TABS_LUCID)
+#include "xlwtabs.h"
+#endif
+
 void  lw_register_widget (CONST char* type, CONST char* name, LWLIB_ID id,
 			  widget_value* val, lw_callback pre_activate_cb,
 			  lw_callback selection_cb,
@@ -210,6 +214,7 @@ void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset);
 
 widget_value *malloc_widget_value (void);
 void free_widget_value (widget_value *);
+void free_widget_value_tree (widget_value *wv);
 widget_value *replace_widget_value_tree (widget_value*, widget_value*);
 
 void lw_popup_menu (Widget, XEvent *);
