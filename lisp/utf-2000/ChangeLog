@@ -1,5 +1,11 @@
 2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* char-db-util.el (insert-char-attributes): Ignore
+	`->ucs-variants' if optional argument `readable' is not specified;
+	regard ->FOO and <-FOO as list of char-refs.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* make-cdbs.el (system-char-database-directory): New variable.
 	- Load character-definition files if
 	  `system-char-database-directory' is not found or
