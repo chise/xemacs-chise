@@ -1,3 +1,22 @@
+2001-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (BC-8B4B): New character.
+	(U+5179): Add `ideographic-structure'; unify BC-88F2.
+
+2001-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge CJK Ext-B code points.
+	- Add some `ideographic-structure' properties.
+	- Merge Big5-CDP code points.
+
+	* Ideograph-R030-Mouth.el (JX2-2424): Separate C4-3074 and U+5547.
+	(BC-8C6B): New character.
+
 2001-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el:
@@ -36,6 +55,13 @@
 	  `hanyu-dazidian-char'.
 	- Use char-spec instead of char-ref as operators in
 	  `ideographic-structure' properties.
+
+2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Eliminate
+	Mule-private coded-charsets and ideograph-gt-pj-* from initial
+	value; add `ideograph-gt' into initial value.
+	(char-db-insert-char-spec): Modify to avoid enmity char-spec.
 
 2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
