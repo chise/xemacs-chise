@@ -1541,12 +1541,6 @@ split_builtin_char (Emchar c)
 	  return list2 (Vcharset_thai_tis620,
 			make_int (c - MIN_CHAR_THAI + 0x20));
 	}
-      else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
-	{
-	  return list2 (Vcharset_katakana_jisx0201,
-			make_int (c - MIN_CHAR_HALFWIDTH_KATAKANA + 33));
-	}
       else
 	{
 	  return list3 (Vcharset_ucs_bmp,
@@ -2797,9 +2791,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
 		  build_string ("jisx0201\\.1976"),
-		  Qnil,
-		  MIN_CHAR_HALFWIDTH_KATAKANA,
-		  MAX_CHAR_HALFWIDTH_KATAKANA, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_latin_jisx0201 =
     make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201,
 		  CHARSET_TYPE_94, 1, 0, 'J',
