@@ -787,9 +787,10 @@
   '((ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (ideograph-daikanwa . 44063)	; ø¸Š°Ÿ
-    (mojikyo		. 044063)	; ý €Š°Ÿ
-    (ucs		. #x98EE)	; é£®
+    (japanese-jisx0208-1990	. #x5D3B)	; ø½‹Žž
+    (ideograph-daikanwa		. 44063)	; ø¸Š°Ÿ
+    (mojikyo			. 044063)	; ý €Š°Ÿ
+    (ucs			. #x98EE)	; é£®
     ))
 (define-char
   '((morohashi-daikanwa	44063 1)
