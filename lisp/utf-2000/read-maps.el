@@ -136,17 +136,17 @@ UCS-REGEXP is a regular expression to match against
 	    (put-char-attribute chr ccs code))
 	  (when (and ucs-code
 		     (not
-		      (eq (or (encode-char chr ucs-ccs 'defined-only)
-			      (if (memq ucs-ccs '(=ucs@jis
-						  =ucs@jis/1990
-						  =ucs@jis/2000
-						  ))
-				  (encode-char chr '=ucs@jis/fw
-					       'defined-only)
-				(unless (memq ucs-ccs '(=ucs@gb
-							;; ucs-big5
-							))
-				  (char-feature chr '=>ucs))))
+		      (eq (or
+			   (encode-char chr ucs-ccs 'defined-only)
+			   (cond
+			    ((memq ucs-ccs '(=ucs@jis
+					     =ucs@jis/1990
+					     =ucs@jis/2000))
+			     (encode-char chr '=ucs@jis/fw 'defined-only))
+			    ((eq ucs-ccs '=ucs@gb)
+			     (encode-char chr '=ucs@gb/fw 'defined-only))
+			    (t
+			     (char-feature chr '=>ucs))))
 			  ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
