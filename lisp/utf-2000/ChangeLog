@@ -1,3 +1,14 @@
+2000-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el, Ideograph-R129-Brush.el: Resorted; add
+	missing `ideographic-strokes' attributes; use
+	`ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R118-Bamboo.el, Ideograph-R085-Water.el: Resorted; add
+	some missing Morohashi's Daikanwa characters; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
 2000-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el, Ideograph-R122-Net.el: Resorted; add
