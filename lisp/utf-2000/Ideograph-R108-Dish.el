@@ -462,10 +462,19 @@
     (chinese-gb2312		. #x303B)	; ø»„œ 
     (japanese-jisx0212		. #x4E4E)	; ø»‹§ƒ
     (chinese-isoir165		. #x303B)	; ø»„°
-    (chinese-cns11643-1		. #x5676)	; ø»’‘§
     (japanese-jisx0213-1	. #x7869)	; ø»¤“¶
     (ideograph-daikanwa		. 22981)	; ø¸…§…
+    (china3-jef			. #x92BB)	; øº‰Š»
+    (mojikyo			. 022981)	; ý €…§…
     (ucs			. #x76CE)	; ç›Ž
+    ))
+(define-char
+  '((=>ucs		. #x76CE)	; ç›Ž
+    (morohashi-daikanwa	22981 0 0)
+    (ideographic-radical . 108)	; â½«
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (chinese-cns11643-1 . #x5676)	; ø»’‘§
     ))
 (define-char
   '((ideographic-radical . 108)	; â½«
@@ -825,12 +834,20 @@
     (ucs		. #x25076)	; ð¥¶
     ))
 (define-char
-  '((ideographic-radical . 108)	; â½«
+  '((=>ucs		. #x76DD)	; ç›
+    (ideographic-radical . 108)	; â½«
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (chinese-cns11643-2 . #x453D)	; ø»”´
+    (ideograph-daikanwa . 23019)	; ø¸…§«
+    (mojikyo		. 023019)	; ý €…§«
+    ))
+(define-char
+  '((morohashi-daikanwa	23019 0 5)
+    (ideographic-radical . 108)	; â½«
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (chinese-isoir165	. #x7D54)	; ø»Ž¶
-    (chinese-cns11643-2 . #x453D)	; ø»”´
-    (ideograph-daikanwa . 23019)	; ø¸…§«
     (ucs		. #x76DD)	; ç›
     ))
 (define-char
@@ -923,6 +940,7 @@
     (japanese-jisx0212	. #x4E51)	; ø»‹§†
     (chinese-cns11643-4 . #x4535)	; ø»˜•´
     (ideograph-daikanwa . 23028)	; ø¸…§´
+    (mojikyo		. 023028)	; ý €…§´
     (ucs		. #x76E0)	; ç› 
     ))
 (define-char
@@ -1181,6 +1199,7 @@
     (japanese-jisx0212	. #x4E53)	; ø»‹§ˆ
     (chinese-cns11643-4 . #x572D)	; ø»˜°ˆ
     (ideograph-daikanwa . 23058)	; ø¸…¨’
+    (mojikyo		. 023058)	; ý €…¨’
     (ucs		. #x76E8)	; ç›¨
     ))
 (define-char
@@ -1300,6 +1319,7 @@
     (chinese-cns11643-2		. #x6240)	; ø»”¬
     (japanese-jisx0213-2	. #x7179)	; ø»¦“¸
     (ideograph-daikanwa		. 23076)	; ø¸…¨¤
+    (mojikyo			. 023076)	; ý €…¨¤
     (ucs			. #x76EC)	; ç›¬
     ))
 (define-char

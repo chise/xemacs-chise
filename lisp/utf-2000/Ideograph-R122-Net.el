@@ -614,6 +614,7 @@
     (japanese-jisx0212	. #x5478)	; ø»‹°¡
     (chinese-cns11643-2 . #x3223)	; ø»“¥ 
     (ideograph-daikanwa . 28245)	; ø¸†¹•
+    (china3-jef		. #x5FED)	; øº…¿­
     (ucs		. #x7F5D)	; ç½
     ))
 (define-char
