@@ -1,3 +1,16 @@
+2005-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+4E7E): Delete
+	`ideographic-structure'.
+
+2005-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-00021A04): Use `->denotational'
+	instead of `->subsumptive'.
+	(BC-8C5F): New character; map to U-00021A04.
+	(U+5BB8): Use `->subsumptive'.
+	(U+5BB9): Likewise.
+
 2005-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R035-Go-Slowly.el (U+5912): Use `->subsumptive'.
@@ -5,6 +18,8 @@
 	* Ideograph-R034-Go.el (M-05699): Separate C5-2362; add `=>ucs'
 	and `<-unknown' for U-0002F85C.
 	(C5-2362): Unify U-0002F85C; add `<-unknown' for M-05699.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{3C39|3848}.
 
 	* Ideograph-R031-Enclosure.el (U+56DB): Use `->subsumptive'.
 	(U+56E7): Use `->denotational' and `->subsumptive'.
