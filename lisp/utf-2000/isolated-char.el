@@ -185,4 +185,13 @@
 	)))
   (kill-buffer buf))
 
+(define-char
+  '((ideograph-gt-pj-1	. #x3F6B)
+    (ideograph-gt	. 52230)
+    ))
+(define-char
+  '((ideograph-gt-pj-7	. #x5821)
+    (ideograph-gt	. 52349)
+    ))
+
 ;;; mime-view.el ends here
