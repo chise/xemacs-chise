@@ -5408,12 +5408,15 @@
 (define-char
   '((ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 12)
+    (total-strokes	 . 17)
     (chinese-isoir165	. #x7D44)	; ø»Žµ¿
     (ucs		. #x785A)	; ç¡š
     ))
 (define-char
   '((ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (korean-ksc5601	. #x4A58)	; ø»‰—‘
     (mojikyo		. 059815)	; ý €Ž¦§
     (ucs		. #x78F5)	; ç£µ
     ))
