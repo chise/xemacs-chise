@@ -1,5 +1,39 @@
 2001-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (morohashi-daikanwa<): Accept integer.
+	(char-representative-of-daikanwa): New function.
+	(ideograph-char<): Use `char-representative-of-daikanwa'.
+
+	* Ideograph-R085-Water.el (J83-4B22): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+	(C2-4B50): Likewise.
+	(C2-4B49): Likewise.
+	(C2-4B46): Likewise.
+	(C2-4B42): Likewise.
+	(C2-4B53): Likewise.
+	(J83-4667): Likewise.
+
+2001-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): New
+	implementation based on `map-char-attribute'.
+	(ideograph-char<): Use `map-char-attribute' to find the
+	representative character of morohashi-daikanwa.
+
+	* Ideograph-R084-Steam.el (C2-274E): Add `ideographic-strokes'.
+
+	* Ideograph-R075-Tree.el (J83-4F31): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+
+	* Ideograph-R072-Sun.el (J83-3322): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+	(C3-5472): Add `ideographic-strokes'.
+
+	* Ideograph-R066-Rap.el (C*-****): Add missing
+	`ideographic-strokes'.
+
+2001-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R063-Door.el (J0-4C61): Use `ideographic-strokes'
 	instead of `kangxi-strokes'.
 	(C2-2F32): Use `ideographic-strokes' instead of
@@ -102,6 +136,10 @@
 	* Ideograph-R031-Enclosure.el: Use `=>ucs' instead of `->ucs'.
 	(C6-2651): New character; relate to M-04726.
 	(C6-2A3E): Add `->same-ideograph' for M-04718.
+
+2001-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* README.en: New file.
 
 2001-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
