@@ -492,10 +492,11 @@
     (morohashi-daikanwa	43318 1)
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 11)
-    (total-strokes	 . 21)
+    (total-strokes	 . 20)
     (japanese-jisx0208-1978	. #x3641)	; ø»‚›–
     (japanese-jisx0208		. #x3641)	; ø»†¯ž
     (japanese-jisx0208-1990	. #x3641)	; ø½Š•’
+    (mojikyo			. 050573)	; ø¸Œ–
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³
