@@ -1,0 +1,1225 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Active Display Table,  Next: Character Descriptors,  Prev: Display Table Format,  Up: Display Tables
+
+Active Display Table
+--------------------
+
+   The active display table is controlled by the variable
+`current-display-table'.  This is a specifier, which means that you can
+specify separate values for it in individual buffers, windows, frames,
+and devices, as well as a global value.  It also means that you cannot
+set this variable using `setq'; use `set-specifier' instead.  *Note
+Specifiers::. (FSF Emacs uses `window-display-table',
+`buffer-display-table', `standard-display-table', etc. to control the
+display table.  However, specifiers are a cleaner and more powerful way
+of doing the same thing.  FSF Emacs also uses a different format for
+the contents of a display table, using additional indirection to a
+"glyph table" and such.  Note that "glyph" has a different meaning in
+XEmacs.)
+
+ - Variable: current-display-table
+     The display table currently in use.  This is a specifier.
+
+     Display tables are used to control how characters are displayed.
+     Each time that redisplay processes a character, it is looked up in
+     all the display tables that apply (obtained by calling
+     `specifier-instance' on `current-display-table' and any overriding
+     display tables specified in currently active faces).  The first
+     entry found that matches the character determines how the
+     character is displayed.  If there is no matching entry, the
+     default display method is used. (Non-control characters are
+     displayed as themselves and control characters are displayed
+     according to the buffer-local variable `ctl-arrow'.  Control
+     characters are further affected by `control-arrow-glyph' and
+     `octal-escape-glyph'.)
+
+     Each instantiator in this specifier and the display-table
+     specifiers in faces is a display table or a list of such tables.
+     If a list, each table will be searched in turn for an entry
+     matching a particular character.  Each display table is one of
+
+        * A vector, specifying values for characters starting at 0.
+
+        * A char table, either of type `char' or `generic'.
+
+        * A range table.
+
+     Each entry in a display table should be one of
+
+        * nil (this entry is ignored and the search continues).
+
+        * A character (use this character; if it happens to be the same
+          as the original character, default processing happens,
+          otherwise redisplay attempts to display this character
+          directly; #### At some point recursive display-table lookup
+          will be implemented).
+
+        * A string (display each character in the string directly; ####
+          At some point recursive display-table lookup will be
+          implemented).
+
+        * A glyph (display the glyph; #### At some point recursive
+          display-table lookup will be implemented when a string glyph
+          is being processed).
+
+        * A cons of the form (format "STRING") where STRING is a
+          printf-like spec used to process the character. ####
+          Unfortunately no formatting directives other than %% are
+          implemented.
+
+        * A vector (each element of the vector is processed recursively;
+          in such a case, nil elements in the vector are simply
+          ignored).
+
+          #### At some point in the near future, display tables are
+          likely to be expanded to include other features, such as
+          referencing characters in particular fonts and allowing the
+          character search to continue all the way up the chain of
+          specifier instantiators.  These features are necessary to
+          properly display Unicode characters.
+
+   Individual faces can also specify an overriding display table; this
+is set using `set-face-display-table'.  *Note Faces::.
+
+   If no display table can be determined for a particular window, then
+XEmacs uses the usual display conventions.  *Note Usual Display::.
+
+
+File: lispref.info,  Node: Character Descriptors,  Prev: Active Display Table,  Up: Display Tables
+
+Character Descriptors
+---------------------
+
+   Each element of the display-table vector describes how to display a
+particular character and is called a "character descriptor".  A
+character descriptor can be:
+
+a string
+     Display this particular string wherever the character is to be
+     displayed.
+
+a glyph
+     Display this particular glyph wherever the character is to be
+     displayed.
+
+a vector
+     The vector may contain strings and/or glyphs.  Display the
+     elements of the vector one after another wherever the character is
+     to be displayed.
+
+`nil'
+     Display according to the standard interpretation (*note Usual
+     Display::).
+
+
+File: lispref.info,  Node: Beeping,  Prev: Display Tables,  Up: Display
+
+Beeping
+=======
+
+   You can make XEmacs ring a bell, play a sound, or blink the screen to
+attract the user's attention.  Be conservative about how often you do
+this; frequent bells can become irritating.  Also be careful not to use
+beeping alone when signaling an error is appropriate.  (*Note Errors::.)
+
+ - Function: ding &optional dont-terminate sound device
+     This function beeps, or flashes the screen (see `visible-bell'
+     below).  It also terminates any keyboard macro currently executing
+     unless DONT-TERMINATE is non-`nil'.  If SOUND is specified, it
+     should be a symbol specifying which sound to make.  This sound
+     will be played if `visible-bell' is `nil'. (This only works if
+     sound support was compiled into the executable and you are running
+     on the console of a Sun SparcStation, SGI, HP9000s700, or Linux
+     PC. Otherwise you just get a beep.) The optional third argument
+     specifies what device to make the sound on, and defaults to the
+     selected device.
+
+ - Function: beep &optional dont-terminate sound device
+     This is a synonym for `ding'.
+
+ - User Option: visible-bell
+     This variable determines whether XEmacs should flash the screen to
+     represent a bell.  Non-`nil' means yes, `nil' means no.  On TTY
+     devices, this is effective only if the Termcap entry for the
+     terminal type has the visible bell flag (`vb') set.
+
+ - Variable: sound-alist
+     This variable holds an alist associating names with sounds.  When
+     `beep' or `ding' is called with one of the name symbols, the
+     associated sound will be generated instead of the standard beep.
+
+     Each element of `sound-alist' is a list describing a sound.  The
+     first element of the list is the name of the sound being defined.
+     Subsequent elements of the list are alternating keyword/value
+     pairs:
+
+    `sound'
+          A string of raw sound data, or the name of another sound to
+          play.  The symbol `t' here means use the default X beep.
+
+    `volume'
+          An integer from 0-100, defaulting to `bell-volume'.
+
+    `pitch'
+          If using the default X beep, the pitch (Hz) to generate.
+
+    `duration'
+          If using the default X beep, the duration (milliseconds).
+
+     For compatibility, elements of `sound-alist' may also be:
+
+        * `( sound-name . <sound> )'
+
+        * `( sound-name <volume> <sound> )'
+
+     You should probably add things to this list by calling the function
+     `load-sound-file'.
+
+     Caveats:
+
+        - You can only play audio data if running on the console screen
+          of a Sun SparcStation, SGI, or HP9000s700.
+
+        - The pitch, duration, and volume options are available
+          everywhere, but many X servers ignore the `pitch' option.
+
+     The following beep-types are used by XEmacs itself:
+
+    `auto-save-error'
+          when an auto-save does not succeed
+
+    `command-error'
+          when the XEmacs command loop catches an error
+
+    `undefined-key'
+          when you type a key that is undefined
+
+    `undefined-click'
+          when you use an undefined mouse-click combination
+
+    `no-completion'
+          during completing-read
+
+    `y-or-n-p'
+          when you type something other than 'y' or 'n'
+
+    `yes-or-no-p'
+          when you type something other than 'yes' or 'no'
+
+    `default'
+          used when nothing else is appropriate.
+
+     Other lisp packages may use other beep types, but these are the
+     ones that the C kernel of XEmacs uses.
+
+ - User Option: bell-volume
+     This variable specifies the default volume for sounds, from 0 to
+     100.
+
+ - Command: load-default-sounds
+     This function loads and installs some sound files as beep-types.
+
+ - Command: load-sound-file filename sound-name &optional volume
+     This function reads in an audio file and adds it to `sound-alist'.
+     The sound file must be in the Sun/NeXT U-LAW format.  SOUND-NAME
+     should be a symbol, specifying the name of the sound.  If VOLUME
+     is specified, the sound will be played at that volume; otherwise,
+     the value of BELL-VOLUME will be used.
+
+ - Function: play-sound sound &optional volume device
+     This function plays sound SOUND, which should be a symbol
+     mentioned in `sound-alist'.  If VOLUME is specified, it overrides
+     the value (if any) specified in `sound-alist'.  DEVICE specifies
+     the device to play the sound on, and defaults to the selected
+     device.
+
+ - Command: play-sound-file file &optional volume device
+     This function plays the named sound file at volume VOLUME, which
+     defaults to `bell-volume'.  DEVICE specifies the device to play
+     the sound on, and defaults to the selected device.
+
+
+File: lispref.info,  Node: Hash Tables,  Next: Range Tables,  Prev: Display,  Up: Top
+
+Hash Tables
+***********
+
+ - Function: hash-table-p object
+     This function returns `t' if OBJECT is a hash table, else `nil'.
+
+* Menu:
+
+* Introduction to Hash Tables::	Hash tables are fast data structures for
+                                implementing simple tables (i.e. finite
+                                mappings from keys to values).
+* Working With Hash Tables::    Hash table functions.
+* Weak Hash Tables::            Hash tables with special garbage-collection
+                                behavior.
+
+
+File: lispref.info,  Node: Introduction to Hash Tables,  Next: Working With Hash Tables,  Up: Hash Tables
+
+Introduction to Hash Tables
+===========================
+
+   A "hash table" is a data structure that provides mappings from
+arbitrary Lisp objects called "keys" to other arbitrary Lisp objects
+called "values".  A key/value pair is sometimes called an "entry" in
+the hash table.  There are many ways other than hash tables of
+implementing the same sort of mapping, e.g.  association lists (*note
+Association Lists::) and property lists (*note Property Lists::), but
+hash tables provide much faster lookup when there are many entries in
+the mapping.  Hash tables are an implementation of the abstract data
+type "dictionary", also known as "associative array".
+
+   Internally, hash tables are hashed using the "linear probing" hash
+table implementation method.  This method hashes each key to a
+particular spot in the hash table, and then scans forward sequentially
+until a blank entry is found.  To look up a key, hash to the appropriate
+spot, then search forward for the key until either a key is found or a
+blank entry stops the search.  This method is used in preference to
+double hashing because of changes in recent hardware.  The penalty for
+non-sequential access to memory has been increasing, and this
+compensates for the problem of clustering that linear probing entails.
+
+   When hash tables are created, the user may (but is not required to)
+specify initial properties that influence performance.
+
+   Use the `:size' parameter to specify the number of entries that are
+likely to be stored in the hash table, to avoid the overhead of resizing
+the table.  But if the pre-allocated space for the entries is never
+used, it is simply wasted and makes XEmacs slower.  Excess unused hash
+table entries exact a small continuous performance penalty, since they
+must be scanned at every garbage collection.  If the number of entries
+in the hash table is unknown, simply avoid using the `:size' keyword.
+
+   Use the `:rehash-size' and `:rehash-threshold' keywords to adjust
+the algorithm for deciding when to rehash the hash table.  For
+temporary hash tables that are going to be very heavily used, use a
+small rehash threshold, for example, 0.4 and a large rehash size, for
+example 2.0.  For permanent hash tables that will be infrequently used,
+specify a large rehash threshold, for example 0.8.
+
+   Hash tables can also be created by the lisp reader using structure
+syntax, for example:
+     #s(hash-table size 20 data (foo 1 bar 2))
+
+   The structure syntax accepts the same keywords as `make-hash-table'
+(without the `:' character), as well as the additional keyword `data',
+which specifies the initial hash table contents.
+
+ - Function: make-hash-table &key `test' `size' `rehash-size'
+          `rehash-threshold' `weakness'
+     This function returns a new empty hash table object.
+
+     Keyword `:test' can be `eq', `eql' (default) or `equal'.
+     Comparison between keys is done using this function.  If speed is
+     important, consider using `eq'.  When storing strings in the hash
+     table, you will likely need to use `equal'.
+
+     Keyword `:size' specifies the number of keys likely to be inserted.
+     This number of entries can be inserted without enlarging the hash
+     table.
+
+     Keyword `:rehash-size' must be a float greater than 1.0, and
+     specifies the factor by which to increase the size of the hash
+     table when enlarging.
+
+     Keyword `:rehash-threshold' must be a float between 0.0 and 1.0,
+     and specifies the load factor of the hash table which triggers
+     enlarging.
+
+     Non-standard keyword `:weakness' can be `nil' (default), `t',
+     `key-and-value', `key', `value' or `key-or-value'.  `t' is an
+     alias for `key-and-value'.
+
+     A key-and-value-weak hash table, also known as a fully-weak or
+     simply as a weak hash table, is one whose pointers do not count as
+     GC referents: for any key-value pair in the hash table, if the only
+     remaining pointer to either the key or the value is in a weak hash
+     table, then the pair will be removed from the hash table, and the
+     key and value collected.  A non-weak hash table (or any other
+     pointer) would prevent the object from being collected.
+
+     A key-weak hash table is similar to a fully-weak hash table except
+     that a key-value pair will be removed only if the key remains
+     unmarked outside of weak hash tables.  The pair will remain in the
+     hash table if the key is pointed to by something other than a weak
+     hash table, even if the value is not.
+
+     A value-weak hash table is similar to a fully-weak hash table
+     except that a key-value pair will be removed only if the value
+     remains unmarked outside of weak hash tables.  The pair will
+     remain in the hash table if the value is pointed to by something
+     other than a weak hash table, even if the key is not.
+
+     A key-or-value-weak hash table is similar to a fully-weak hash
+     table except that a key-value pair will be removed only if the
+     value and the key remain unmarked outside of weak hash tables.
+     The pair will remain in the hash table if the value or key are
+     pointed to by something other than a weak hash table, even if the
+     other is not.
+
+ - Function: copy-hash-table hash-table
+     This function returns a new hash table which contains the same
+     keys and values as HASH-TABLE.  The keys and values will not
+     themselves be copied.
+
+ - Function: hash-table-count hash-table
+     This function returns the number of entries in HASH-TABLE.
+
+ - Function: hash-table-test hash-table
+     This function returns the test function of HASH-TABLE.  This can
+     be one of `eq', `eql' or `equal'.
+
+ - Function: hash-table-size hash-table
+     This function returns the current number of slots in HASH-TABLE,
+     whether occupied or not.
+
+ - Function: hash-table-rehash-size hash-table
+     This function returns the current rehash size of HASH-TABLE.  This
+     is a float greater than 1.0; the factor by which HASH-TABLE is
+     enlarged when the rehash threshold is exceeded.
+
+ - Function: hash-table-rehash-threshold hash-table
+     This function returns the current rehash threshold of HASH-TABLE.
+     This is a float between 0.0 and 1.0; the maximum "load factor" of
+     HASH-TABLE, beyond which the HASH-TABLE is enlarged by rehashing.
+
+ - Function: hash-table-weakness hash-table
+     This function returns the weakness of HASH-TABLE.  This can be one
+     of `nil', `t', `key' or `value'.
+
+
+File: lispref.info,  Node: Working With Hash Tables,  Next: Weak Hash Tables,  Prev: Introduction to Hash Tables,  Up: Hash Tables
+
+Working With Hash Tables
+========================
+
+ - Function: puthash key value hash-table
+     This function hashes KEY to VALUE in HASH-TABLE.
+
+ - Function: gethash key hash-table &optional default
+     This function finds the hash value for KEY in HASH-TABLE.  If
+     there is no entry for KEY in HASH-TABLE, DEFAULT is returned
+     (which in turn defaults to `nil').
+
+ - Function: remhash key hash-table
+     This function removes the entry for KEY from HASH-TABLE.  Does
+     nothing if there is no entry for KEY in HASH-TABLE.
+
+ - Function: clrhash hash-table
+     This function removes all entries from HASH-TABLE, leaving it
+     empty.
+
+ - Function: maphash function hash-table
+     This function maps FUNCTION over entries in HASH-TABLE, calling it
+     with two args, each key and value in the hash table.
+
+     FUNCTION may not modify HASH-TABLE, with the one exception that
+     FUNCTION may remhash or puthash the entry currently being
+     processed by FUNCTION.
+
+
+File: lispref.info,  Node: Weak Hash Tables,  Prev: Working With Hash Tables,  Up: Hash Tables
+
+Weak Hash Tables
+================
+
+   A "weak hash table" is a special variety of hash table whose
+elements do not count as GC referents.  For any key-value pair in such a
+hash table, if either the key or value (or in some cases, if one
+particular one of the two) has no references to it outside of weak hash
+tables (and similar structures such as weak lists), the pair will be
+removed from the table, and the key and value collected.  A non-weak
+hash table (or any other pointer) would prevent the objects from being
+collected.
+
+   Weak hash tables are useful for keeping track of information in a
+non-obtrusive way, for example to implement caching.  If the cache
+contains objects such as buffers, markers, image instances, etc. that
+will eventually disappear and get garbage-collected, using a weak hash
+table ensures that these objects are collected normally rather than
+remaining around forever, long past their actual period of use.
+(Otherwise, you'd have to explicitly map over the hash table every so
+often and remove unnecessary elements.)
+
+   There are four types of weak hash tables:
+
+key-and-value-weak hash tables
+     In these hash tables, also known as fully weak or simply as weak
+     hash tables, a pair disappears if either the key or the value is
+     unreferenced outside of the table.
+
+key-weak hash tables
+     In these hash tables, a pair disappears if the key is unreferenced
+     outside of the table, regardless of how the value is referenced.
+
+value-weak hash tables
+     In these hash tables, a pair disappears if the value is
+     unreferenced outside of the table, regardless of how the key is
+     referenced.
+
+key-or-value-weak hash tables
+     In these hash tables, a pair disappears if both the key and the
+     value are unreferenced outside of the table.
+
+   Also see *Note Weak Lists::.
+
+   Weak hash tables are created by specifying the `:weakness' keyword to
+`make-hash-table'.
+
+
+File: lispref.info,  Node: Range Tables,  Next: Databases,  Prev: Hash Tables,  Up: Top
+
+Range Tables
+************
+
+   A range table is a table that efficiently associated values with
+ranges of integers.
+
+   Note that range tables have a read syntax, like this:
+
+     #s(range-table data ((-3 2) foo (5 20) bar))
+
+   This maps integers in the range (-3, 2) to `foo' and integers in the
+range (5, 20) to `bar'.
+
+ - Function: range-table-p object
+     Return non-`nil' if OBJECT is a range table.
+
+* Menu:
+
+* Introduction to Range Tables:: Range tables efficiently map ranges of
+                                 integers to values.
+* Working With Range Tables::    Range table functions.
+
+
+File: lispref.info,  Node: Introduction to Range Tables,  Next: Working With Range Tables,  Up: Range Tables
+
+Introduction to Range Tables
+============================
+
+ - Function: make-range-table
+     Make a new, empty range table.
+
+ - Function: copy-range-table range-table
+     This function returns a new range table which contains the same
+     values for the same ranges as RANGE-TABLE.  The values will not
+     themselves be copied.
+
+
+File: lispref.info,  Node: Working With Range Tables,  Prev: Introduction to Range Tables,  Up: Range Tables
+
+Working With Range Tables
+=========================
+
+ - Function: get-range-table pos range-table &optional default
+     This function finds value for position POS in RANGE-TABLE.  If
+     there is no corresponding value, return DEFAULT (defaults to
+     `nil').
+
+ - Function: put-range-table start end value range-table
+     This function sets the value for range (START, END) to be VALUE in
+     RANGE-TABLE.
+
+ - Function: remove-range-table start end range-table
+     This function removes the value for range (START, END) in
+     RANGE-TABLE.
+
+ - Function: clear-range-table range-table
+     This function flushes RANGE-TABLE.
+
+ - Function: map-range-table function range-table
+     This function maps FUNCTION over entries in RANGE-TABLE, calling
+     it with three args, the beginning and end of the range and the
+     corresponding value.
+
+
+File: lispref.info,  Node: Databases,  Next: Processes,  Prev: Range Tables,  Up: Top
+
+Databases
+*********
+
+ - Function: databasep object
+     This function returns non-`nil' if OBJECT is a database.
+
+* Menu:
+
+* Connecting to a Database::
+* Working With a Database::
+* Other Database Functions::
+
+
+File: lispref.info,  Node: Connecting to a Database,  Next: Working With a Database,  Up: Databases
+
+Connecting to a Database
+========================
+
+ - Function: open-database file &optional type subtype access mode
+     This function opens database FILE, using database method TYPE and
+     SUBTYPE, with access rights ACCESS and permissions MODE.  ACCESS
+     can be any combination of `r' `w' and `+', for read, write, and
+     creation flags.
+
+     TYPE can have the value `'dbm' or `'berkeley-db' to select the
+     type of database file to use.  (Note:  XEmacs may not support both
+     of these types.)
+
+     For a TYPE of `'dbm', there are no subtypes, so SUBTYPE should be
+     `nil'.
+
+     For a TYPE of `'berkeley-db', the following subtypes are
+     available:  `'hash', `'btree', and `'recno'.  See the manpages for
+     the Berkeley DB functions for more information about these types.
+
+ - Function: close-database database
+     This function closes database DATABASE.
+
+ - Function: database-live-p object
+     This function returns `t' if OBJECT is an active database, else
+     `nil'.
+
+
+File: lispref.info,  Node: Working With a Database,  Next: Other Database Functions,  Prev: Connecting to a Database,  Up: Databases
+
+Working With a Database
+=======================
+
+ - Function: get-database key database &optional default
+     This function finds the value for KEY in DATABASE.  If there is no
+     corresponding value, DEFAULT is returned (`nil' if DEFAULT is
+     omitted).
+
+ - Function: map-database function database
+     This function maps FUNCTION over entries in DATABASE, calling it
+     with two args, each key and value in the database.
+
+ - Function: put-database key value database &optional replace
+     This function stores KEY and VALUE in DATABASE.  If optional
+     fourth arg REPLACE is non-`nil', replace any existing entry in the
+     database.
+
+ - Function: remove-database key database
+     This function removes KEY from DATABASE.
+
+
+File: lispref.info,  Node: Other Database Functions,  Prev: Working With a Database,  Up: Databases
+
+Other Database Functions
+========================
+
+ - Function: database-file-name database
+     This function returns the filename associated with DATABASE.
+
+ - Function: database-last-error &optional database
+     This function returns the last error associated with DATABASE.
+
+ - Function: database-subtype database
+     This function returns the subtype of DATABASE, if any.
+
+ - Function: database-type database
+     This function returns the type of DATABASE.
+
+
+File: lispref.info,  Node: Processes,  Next: System Interface,  Prev: Databases,  Up: Top
+
+Processes
+*********
+
+   In the terminology of operating systems, a "process" is a space in
+which a program can execute.  XEmacs runs in a process.  XEmacs Lisp
+programs can invoke other programs in processes of their own.  These are
+called "subprocesses" or "child processes" of the XEmacs process, which
+is their "parent process".
+
+   A subprocess of XEmacs may be "synchronous" or "asynchronous",
+depending on how it is created.  When you create a synchronous
+subprocess, the Lisp program waits for the subprocess to terminate
+before continuing execution.  When you create an asynchronous
+subprocess, it can run in parallel with the Lisp program.  This kind of
+subprocess is represented within XEmacs by a Lisp object which is also
+called a "process".  Lisp programs can use this object to communicate
+with the subprocess or to control it.  For example, you can send
+signals, obtain status information, receive output from the process, or
+send input to it.
+
+ - Function: processp object
+     This function returns `t' if OBJECT is a process, `nil' otherwise.
+
+* Menu:
+
+* Subprocess Creation::      Functions that start subprocesses.
+* Synchronous Processes::    Details of using synchronous subprocesses.
+* MS-DOS Subprocesses::      On MS-DOS, you must indicate text vs binary
+                                for data sent to and from a subprocess.
+* Asynchronous Processes::   Starting up an asynchronous subprocess.
+* Deleting Processes::       Eliminating an asynchronous subprocess.
+* Process Information::      Accessing run-status and other attributes.
+* Input to Processes::       Sending input to an asynchronous subprocess.
+* Signals to Processes::     Stopping, continuing or interrupting
+                               an asynchronous subprocess.
+* Output from Processes::    Collecting output from an asynchronous subprocess.
+* Sentinels::                Sentinels run when process run-status changes.
+* Process Window Size::      Changing the logical window size of a process.
+* Transaction Queues::	     Transaction-based communication with subprocesses.
+* Network::                  Opening network connections.
+
+
+File: lispref.info,  Node: Subprocess Creation,  Next: Synchronous Processes,  Up: Processes
+
+Functions that Create Subprocesses
+==================================
+
+   There are three functions that create a new subprocess in which to
+run a program.  One of them, `start-process', creates an asynchronous
+process and returns a process object (*note Asynchronous Processes::).
+The other two, `call-process' and `call-process-region', create a
+synchronous process and do not return a process object (*note
+Synchronous Processes::).
+
+   Synchronous and asynchronous processes are explained in the following
+sections.  Since the three functions are all called in a similar
+fashion, their common arguments are described here.
+
+   In all cases, the function's PROGRAM argument specifies the program
+to be run.  An error is signaled if the file is not found or cannot be
+executed.  If the file name is relative, the variable `exec-path'
+contains a list of directories to search.  Emacs initializes
+`exec-path' when it starts up, based on the value of the environment
+variable `PATH'.  The standard file name constructs, `~', `.', and
+`..', are interpreted as usual in `exec-path', but environment variable
+substitutions (`$HOME', etc.) are not recognized; use
+`substitute-in-file-name' to perform them (*note File Name Expansion::).
+
+   Each of the subprocess-creating functions has a BUFFER-OR-NAME
+argument which specifies where the standard output from the program will
+go.  If BUFFER-OR-NAME is `nil', that says to discard the output unless
+a filter function handles it.  (*Note Filter Functions::, and *Note
+Read and Print::.)  Normally, you should avoid having multiple
+processes send output to the same buffer because their output would be
+intermixed randomly.
+
+   All three of the subprocess-creating functions have a `&rest'
+argument, ARGS.  The ARGS must all be strings, and they are supplied to
+PROGRAM as separate command line arguments.  Wildcard characters and
+other shell constructs are not allowed in these strings, since they are
+passed directly to the specified program.
+
+   *Please note:* The argument PROGRAM contains only the name of the
+program; it may not contain any command-line arguments.  You must use
+ARGS to provide those.
+
+   If you want to use features of the shell, then invoke the shell
+directly using, for example, PROGRAM of `"sh"', and ARGS of `"-c"' and
+"COMMAND LINE...".
+
+   The subprocess gets its current directory from the value of
+`default-directory' (*note File Name Expansion::).
+
+   The subprocess inherits its environment from XEmacs; but you can
+specify overrides for it with `process-environment'.  *Note System
+Environment::.
+
+ - Variable: exec-directory
+     The value of this variable is the name of a directory (a string)
+     that contains programs that come with XEmacs, that are intended
+     for XEmacs to invoke.  The program `wakeup' is an example of such
+     a program; the `display-time' command uses it to get a reminder
+     once per minute.
+
+ - User Option: exec-path
+     The value of this variable is a list of directories to search for
+     programs to run in subprocesses.  Each element is either the name
+     of a directory (i.e., a string), or `nil', which stands for the
+     default directory (which is the value of `default-directory').
+
+     The value of `exec-path' is used by `call-process' and
+     `start-process' when the PROGRAM argument is not an absolute file
+     name.
+
+
+File: lispref.info,  Node: Synchronous Processes,  Next: MS-DOS Subprocesses,  Prev: Subprocess Creation,  Up: Processes
+
+Creating a Synchronous Process
+==============================
+
+   After a "synchronous process" is created, XEmacs waits for the
+process to terminate before continuing.  Starting Dired is an example of
+this: it runs `ls' in a synchronous process, then modifies the output
+slightly.  Because the process is synchronous, the entire directory
+listing arrives in the buffer before XEmacs tries to do anything with
+it.
+
+   While Emacs waits for the synchronous subprocess to terminate, the
+user can quit by typing `C-g'.  The first `C-g' tries to kill the
+subprocess with a `SIGINT' signal; but it waits until the subprocess
+actually terminates before quitting.  If during that time the user
+types another `C-g', that kills the subprocess instantly with `SIGKILL'
+and quits immediately.  *Note Quitting::.
+
+   The synchronous subprocess functions returned `nil' in version 18.
+In version 19, they return an indication of how the process terminated.
+
+ - Function: call-process program &optional infile destination display
+          &rest args
+     This function calls PROGRAM in a separate process and waits for it
+     to finish.
+
+     The standard input for the process comes from file INFILE if
+     INFILE is not `nil' and from `/dev/null' otherwise.  The argument
+     DESTINATION says where to put the process output.  Here are the
+     possibilities:
+
+    a buffer
+          Insert the output in that buffer, before point.  This
+          includes both the standard output stream and the standard
+          error stream of the process.
+
+    a string
+          Find or create a buffer with that name, then insert the
+          output in that buffer, before point.
+
+    `t'
+          Insert the output in the current buffer, before point.
+
+    `nil'
+          Discard the output.
+
+    0
+          Discard the output, and return immediately without waiting
+          for the subprocess to finish.
+
+          In this case, the process is not truly synchronous, since it
+          can run in parallel with Emacs; but you can think of it as
+          synchronous in that Emacs is essentially finished with the
+          subprocess as soon as this function returns.
+
+    (REAL-DESTINATION ERROR-DESTINATION)
+          Keep the standard output stream separate from the standard
+          error stream; deal with the ordinary output as specified by
+          REAL-DESTINATION, and dispose of the error output according
+          to ERROR-DESTINATION.  The value `nil' means discard it, `t'
+          means mix it with the ordinary output, and a string specifies
+          a file name to redirect error output into.
+
+          You can't directly specify a buffer to put the error output
+          in; that is too difficult to implement.  But you can achieve
+          this result by sending the error output to a temporary file
+          and then inserting the file into a buffer.
+
+     If DISPLAY is non-`nil', then `call-process' redisplays the buffer
+     as output is inserted.  Otherwise the function does no redisplay,
+     and the results become visible on the screen only when XEmacs
+     redisplays that buffer in the normal course of events.
+
+     The remaining arguments, ARGS, are strings that specify command
+     line arguments for the program.
+
+     The value returned by `call-process' (unless you told it not to
+     wait) indicates the reason for process termination.  A number
+     gives the exit status of the subprocess; 0 means success, and any
+     other value means failure.  If the process terminated with a
+     signal, `call-process' returns a string describing the signal.
+
+     In the examples below, the buffer `foo' is current.
+
+          (call-process "pwd" nil t)
+               => nil
+          
+          ---------- Buffer: foo ----------
+          /usr/user/lewis/manual
+          ---------- Buffer: foo ----------
+          
+          (call-process "grep" nil "bar" nil "lewis" "/etc/passwd")
+               => nil
+          
+          ---------- Buffer: bar ----------
+          lewis:5LTsHm66CSWKg:398:21:Bil Lewis:/user/lewis:/bin/csh
+          
+          ---------- Buffer: bar ----------
+
+     The `insert-directory' function contains a good example of the use
+     of `call-process':
+
+          (call-process insert-directory-program nil t nil switches
+                        (if full-directory-p
+                            (concat (file-name-as-directory file) ".")
+                          file))
+
+ - Function: call-process-region start end program &optional deletep
+          destination displayp &rest args
+     This function sends the text between START to END as standard
+     input to a process running PROGRAM.  It deletes the text sent if
+     DELETEP is non-`nil'; this is useful when BUFFER is `t', to insert
+     the output in the current buffer.
+
+     The arguments DESTINATION and DISPLAYP control what to do with the
+     output from the subprocess, and whether to update the display as
+     it comes in.  For details, see the description of `call-process',
+     above.  If DESTINATION is the integer 0, `call-process-region'
+     discards the output and returns `nil' immediately, without waiting
+     for the subprocess to finish.
+
+     The remaining arguments, ARGS, are strings that specify command
+     line arguments for the program.
+
+     The return value of `call-process-region' is just like that of
+     `call-process': `nil' if you told it to return without waiting;
+     otherwise, a number or string which indicates how the subprocess
+     terminated.
+
+     In the following example, we use `call-process-region' to run the
+     `cat' utility, with standard input being the first five characters
+     in buffer `foo' (the word `input').  `cat' copies its standard
+     input into its standard output.  Since the argument DESTINATION is
+     `t', this output is inserted in the current buffer.
+
+          ---------- Buffer: foo ----------
+          input-!-
+          ---------- Buffer: foo ----------
+          
+          (call-process-region 1 6 "cat" nil t)
+               => nil
+          
+          ---------- Buffer: foo ----------
+          inputinput-!-
+          ---------- Buffer: foo ----------
+
+     The `shell-command-on-region' command uses `call-process-region'
+     like this:
+
+          (call-process-region
+           start end
+           shell-file-name      ; Name of program.
+           nil                  ; Do not delete region.
+           buffer               ; Send output to `buffer'.
+           nil                  ; No redisplay during output.
+           "-c" command)        ; Arguments for the shell.
+
+
+File: lispref.info,  Node: MS-DOS Subprocesses,  Next: Asynchronous Processes,  Prev: Synchronous Processes,  Up: Processes
+
+MS-DOS Subprocesses
+===================
+
+   On MS-DOS, you must indicate whether the data going to and from a
+synchronous subprocess are text or binary.  Text data requires
+translation between the end-of-line convention used within Emacs (a
+single newline character) and the convention used outside Emacs (the
+two-character sequence, CRLF).
+
+   The variable `binary-process-input' applies to input sent to the
+subprocess, and `binary-process-output' applies to output received from
+it.  A non-`nil' value means the data is non-text; `nil' means the data
+is text, and calls for conversion.
+
+ - Variable: binary-process-input
+     If this variable is `nil', convert newlines to CRLF sequences in
+     the input to a synchronous subprocess.
+
+ - Variable: binary-process-output
+     If this variable is `nil', convert CRLF sequences to newlines in
+     the output from a synchronous subprocess.
+
+   *Note Files and MS-DOS::, for related information.
+
+
+File: lispref.info,  Node: Asynchronous Processes,  Next: Deleting Processes,  Prev: MS-DOS Subprocesses,  Up: Processes
+
+Creating an Asynchronous Process
+================================
+
+   After an "asynchronous process" is created, Emacs and the Lisp
+program both continue running immediately.  The process may thereafter
+run in parallel with Emacs, and the two may communicate with each other
+using the functions described in following sections.  Here we describe
+how to create an asynchronous process with `start-process'.
+
+ - Function: start-process name buffer-or-name program &rest args
+     This function creates a new asynchronous subprocess and starts the
+     program PROGRAM running in it.  It returns a process object that
+     stands for the new subprocess in Lisp.  The argument NAME
+     specifies the name for the process object; if a process with this
+     name already exists, then NAME is modified (by adding `<1>', etc.)
+     to be unique.  The buffer BUFFER-OR-NAME is the buffer to
+     associate with the process.
+
+     The remaining arguments, ARGS, are strings that specify command
+     line arguments for the program.
+
+     In the example below, the first process is started and runs
+     (rather, sleeps) for 100 seconds.  Meanwhile, the second process
+     is started, and given the name `my-process<1>' for the sake of
+     uniqueness.  It inserts the directory listing at the end of the
+     buffer `foo', before the first process finishes.  Then it
+     finishes, and a message to that effect is inserted in the buffer.
+     Much later, the first process finishes, and another message is
+     inserted in the buffer for it.
+
+          (start-process "my-process" "foo" "sleep" "100")
+               => #<process my-process>
+          
+          (start-process "my-process" "foo" "ls" "-l" "/user/lewis/bin")
+               => #<process my-process<1>>
+          
+          ---------- Buffer: foo ----------
+          total 2
+          lrwxrwxrwx  1 lewis     14 Jul 22 10:12 gnuemacs --> /emacs
+          -rwxrwxrwx  1 lewis     19 Jul 30 21:02 lemon
+          
+          Process my-process<1> finished
+          
+          Process my-process finished
+          ---------- Buffer: foo ----------
+
+ - Function: start-process-shell-command name buffer-or-name command
+          &rest command-args
+     This function is like `start-process' except that it uses a shell
+     to execute the specified command.  The argument COMMAND is a shell
+     command name, and COMMAND-ARGS are the arguments for the shell
+     command.
+
+ - Variable: process-connection-type
+     This variable controls the type of device used to communicate with
+     asynchronous subprocesses.  If it is non-`nil', then PTYs are
+     used, when available.  Otherwise, pipes are used.
+
+     PTYs are usually preferable for processes visible to the user, as
+     in Shell mode, because they allow job control (`C-c', `C-z', etc.)
+     to work between the process and its children whereas pipes do not.
+     For subprocesses used for internal purposes by programs, it is
+     often better to use a pipe, because they are more efficient.  In
+     addition, the total number of PTYs is limited on many systems and
+     it is good not to waste them.  A rule of thumb is to use ptys for
+     processes the user interacts with directly, and pipes for
+     processes that are hidden from the user.
+
+     The value `process-connection-type' is used when `start-process'
+     is called.  So you can specify how to communicate with one
+     subprocess by binding the variable around the call to
+     `start-process'.
+
+          (let ((process-connection-type nil))  ; Use a pipe.
+            (start-process ...))
+
+     To determine whether a given subprocess actually got a pipe or a
+     PTY, use the function `process-tty-name' (*note Process
+     Information::).
+
+   Lisp functions that manipulate processes usually accept a PROCESS
+argument.  Besides using an actual process object for this argument, you
+can use a process name, a buffer object, the name of a buffer, or
+`nil'.  Specifying a buffer or buffer name for the PROCESS argument
+means use the process associated with the buffer (or the most recent
+one, if there is more than one).  `nil' means use the process
+associated with the current buffer.  *Note Process Information::.
+*Note Process Buffers::.
+
+
+File: lispref.info,  Node: Deleting Processes,  Next: Process Information,  Prev: Asynchronous Processes,  Up: Processes
+
+Deleting Processes
+==================
+
+   "Deleting a process" disconnects XEmacs immediately from the
+subprocess, and removes it from the list of active processes.  It sends
+a signal to the subprocess to make the subprocess terminate, but this is
+not guaranteed to happen immediately.  The process object itself
+continues to exist as long as other Lisp objects point to it.
+
+   You can delete a process explicitly at any time.  Processes are
+deleted automatically after they terminate, but not necessarily right
+away.  If you delete a terminated process explicitly before it is
+deleted automatically, no harm results.
+
+ - Variable: delete-exited-processes
+     This variable controls automatic deletion of processes that have
+     terminated (due to calling `exit' or to a signal).  If it is
+     `nil', then they continue to exist until the user runs
+     `list-processes'.  Otherwise, they are deleted immediately after
+     they exit.
+
+ - Function: delete-process name
+     This function deletes the process associated with NAME, killing it
+     with a `SIGHUP' signal.  The argument NAME may be a process, the
+     name of a process, a buffer, or the name of a buffer.
+
+          (delete-process "*shell*")
+               => nil
+
+ - Function: process-kill-without-query process &optional
+          require-query-p
+     This function declares that XEmacs need not query the user if
+     PROCESS is still running when XEmacs is exited.  The process will
+     be deleted silently.  If REQUIRE-QUERY-P is non-`nil', then XEmacs
+     _will_ query the user (this is the default).  The return value is
+     `t' if a query was formerly required, and `nil' otherwise.
+
+          (process-kill-without-query (get-process "shell"))
+               => t
+
+
+File: lispref.info,  Node: Process Information,  Next: Input to Processes,  Prev: Deleting Processes,  Up: Processes
+
+Process Information
+===================
+
+   Several functions return information about processes.
+`list-processes' is provided for interactive use.
+
+ - Command: list-processes
+     This command displays a listing of all living processes.  In
+     addition, it finally deletes any process whose status was `Exited'
+     or `Signaled'.  It returns `nil'.
+
+ - Function: process-list
+     This function returns a list of all processes that have not been
+     deleted.
+
+          (process-list)
+               => (#<process display-time> #<process shell>)
+
+ - Function: get-process process-name
+     This function returns the process named PROCESS-NAME.  If
+     PROCESS-NAME is a string and there is no process with that name,
+     the value is `nil'.  If PROCESS-NAME is actually a process, it is
+     returned as given.  (That is not very useful, so the argument is
+     usually a name.) For example:
+
+          (get-process "shell")
+               => #<process shell>
+
+ - Function: process-command process
+     This function returns the command that was executed to start
+     PROCESS.  This is a list of strings, the first string being the
+     program executed and the rest of the strings being the arguments
+     that were given to the program.
+
+          (process-command (get-process "shell"))
+               => ("/bin/csh" "-i")
+
+ - Function: process-id process
+     This function returns the PID of PROCESS.  This is an integer that
+     distinguishes the process PROCESS from all other processes running
+     on the same computer at the current time.  The PID of a process is
+     chosen by the operating system kernel when the process is started
+     and remains constant as long as the process exists.
+
+ - Function: process-name process
+     This function returns the name of PROCESS.
+
+ - Function: process-status process
+     This function returns the status of PROCESS as a symbol.  The
+     argument PROCESS must be a process, a buffer, a process name
+     (string) or a buffer name (string).
+
+     The possible values for an actual subprocess are:
+
+    `run'
+          for a process that is running.
+
+    `stop'
+          for a process that is stopped but continuable.
+
+    `exit'
+          for a process that has exited.
+
+    `signal'
+          for a process that has received a fatal signal.
+
+    `open'
+          for a network connection that is open.
+
+    `closed'
+          for a network connection that is closed.  Once a connection
+          is closed, you cannot reopen it, though you might be able to
+          open a new connection to the same place.
+
+    `nil'
+          if PROCESS does not identify an existing process.
+
+          (process-status "shell")
+               => run
+          (process-status (get-buffer "*shell*"))
+               => run
+          x
+               => #<process xx<1>>
+          (process-status x)
+               => exit
+
+     For a network connection, `process-status' returns one of the
+     symbols `open' or `closed'.  The latter means that the other side
+     closed the connection, or XEmacs did `delete-process'.
+
+     In earlier Emacs versions (prior to version 19), the status of a
+     network connection was `run' if open, and `exit' if closed.
+
+ - Function: process-kill-without-query-p process
+     This function returns whether PROCESS will be killed without
+     querying the user, if it is running when XEmacs is exited.  The
+     default value is `nil'.
+
+ - Function: process-exit-status process
+     This function returns the exit status of PROCESS or the signal
+     number that killed it.  (Use the result of `process-status' to
+     determine which of those it is.)  If PROCESS has not yet
+     terminated, the value is 0.
+
+ - Function: process-tty-name process
+     This function returns the terminal name that PROCESS is using for
+     its communication with Emacs--or `nil' if it is using pipes
+     instead of a terminal (see `process-connection-type' in *Note
+     Asynchronous Processes::).
+

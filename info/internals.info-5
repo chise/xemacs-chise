@@ -1,0 +1,1094 @@
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Internals: (internals).       XEmacs Internals Manual.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
+Microsystems.  Copyright (C) 1994 - 1998 Free Software Foundation.
+Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: internals.info,  Node: gc_sweep,  Next: sweep_lcrecords_1,  Prev: mark_object,  Up: Garbage Collection - Step by Step
+
+`gc_sweep'
+----------
+
+   The job of this function is to free all unmarked records from
+memory. As we know, there are different types of objects implemented
+and managed, and consequently different ways to free them from memory.
+*Note Introduction to Allocation::.
+
+   We start with all objects stored through `lcrecords'. All bulkier
+objects are allocated and handled using that scheme of `lcrecords'.
+Each object is `malloc'ed separately instead of placing it in one of
+the contiguous frob blocks. All types that are currently stored using
+`lcrecords''s  `alloc_lcrecord' and `make_lcrecord_list' are the types:
+vectors, buffers, char-table, char-table-entry, console, weak-list,
+database, device, ldap, hash-table, command-builder, extent-auxiliary,
+extent-info, face, coding-system, frame, image-instance, glyph,
+popup-data, gui-item, keymap, charset, color_instance, font_instance,
+opaque, opaque-list, process, range-table, specifier,
+symbol-value-buffer-local, symbol-value-lisp-magic,
+symbol-value-varalias, toolbar-button, tooltalk-message,
+tooltalk-pattern, window, and window-configuration. We take care of
+them in the fist place in order to be able to handle and to finalize
+items stored in them more easily. The function `sweep_lcrecords_1' as
+described below is doing the whole job for us.  For a description about
+the internals: *Note lrecords::.
+
+   Our next candidates are the other objects that behave quite
+differently than everything else: the strings. They consists of two
+parts, a fixed-size portion (`struct Lisp_String') holding the string's
+length, its property list and a pointer to the second part, and the
+actual string data, which is stored in string-chars blocks comparable to
+frob blocks. In this block, the data is not only freed, but also a
+compression of holes is made, i.e. all strings are relocated together.
+*Note String::. This compacting phase is performed by the function
+`compact_string_chars', the actual sweeping by the function
+`sweep_strings' is described below.
+
+   After that, the other types are swept step by step using functions
+`sweep_conses', `sweep_bit_vectors_1', `sweep_compiled_functions',
+`sweep_floats', `sweep_symbols', `sweep_extents', `sweep_markers' and
+`sweep_extents'.  They are the fixed-size types cons, floats,
+compiled-functions, symbol, marker, extent, and event stored in
+so-called "frob blocks", and therefore we can basically do the same on
+every type objects, using the same macros, especially defined only to
+handle everything with respect to fixed-size blocks. The only fixed-size
+type that is not handled here are the fixed-size portion of strings,
+because we took special care of them earlier.
+
+   The only big exceptions are bit vectors stored differently and
+therefore treated differently by the function `sweep_bit_vectors_1'
+described later.
+
+   At first, we need some brief information about how these fixed-size
+types are managed in general, in order to understand how the sweeping
+is done. They have all a fixed size, and are therefore stored in big
+blocks of memory - allocated at once - that can hold a certain amount
+of objects of one type. The macro `DECLARE_FIXED_TYPE_ALLOC' creates
+the suitable structures for every type. More precisely, we have the
+block struct (holding a pointer to the previous block `prev' and the
+objects in `block[]'), a pointer to current block
+(`current_..._block)') and its last index (`current_..._block_index'),
+and a pointer to the free list that will be created. Also a macro
+`FIXED_TYPE_FROM_BLOCK' plus some related macros exists that are used
+to obtain a new object, either from the free list
+`ALLOCATE_FIXED_TYPE_1' if there is an unused object of that type
+stored or by allocating a completely new block using
+`ALLOCATE_FIXED_TYPE_FROM_BLOCK'.
+
+   The rest works as follows: all of them define a macro `UNMARK_...'
+that is used to unmark the object. They define a macro
+`ADDITIONAL_FREE_...' that defines additional work that has to be done
+when converting an object from in use to not in use (so far, only
+markers use it in order to unchain them). Then, they all call the macro
+`SWEEP_FIXED_TYPE_BLOCK' instantiated with their type name and their
+struct name.
+
+   This call in particular does the following: we go over all blocks
+starting with the current moving towards the oldest.  For each block,
+we look at every object in it. If the object already freed (checked
+with `FREE_STRUCT_P' using the first pointer of the object), or if it is
+set to read only (`C_READONLY_RECORD_HEADER_P', nothing must be done.
+If it is unmarked (checked with `MARKED_RECORD_HEADER_P'), it is put in
+the free list and set free (using the macro `FREE_FIXED_TYPE',
+otherwise it stays in the block, but is unmarked (by `UNMARK_...').
+While going through one block, we note if the whole block is empty. If
+so, the whole block is freed (using `xfree') and the free list state is
+set to the state it had before handling this block.
+
+
+File: internals.info,  Node: sweep_lcrecords_1,  Next: compact_string_chars,  Prev: gc_sweep,  Up: Garbage Collection - Step by Step
+
+`sweep_lcrecords_1'
+-------------------
+
+   After nullifying the complete lcrecord statistics, we go over all
+lcrecords two separate times. They are all chained together in a list
+with a head called `all_lcrecords'.
+
+   The first loop calls for each object its `finalizer' method, but only
+in the case that it is not read only (`C_READONLY_RECORD_HEADER_P)', it
+is not already marked (`MARKED_RECORD_HEADER_P'), it is not already in
+a free list (list of freed objects, field `free') and finally it owns a
+finalizer method.
+
+   The second loop actually frees the appropriate objects again by
+iterating through the whole list. In case an object is read only or
+marked, it has to persist, otherwise it is manually freed by calling
+`xfree'. During this loop, the lcrecord statistics are kept up to date
+by calling `tick_lcrecord_stats' with the right arguments,
+
+
+File: internals.info,  Node: compact_string_chars,  Next: sweep_strings,  Prev: sweep_lcrecords_1,  Up: Garbage Collection - Step by Step
+
+`compact_string_chars'
+----------------------
+
+   The purpose of this function is to compact all the data parts of the
+strings that are held in so-called `string_chars_block', i.e. the
+strings that do not exceed a certain maximal length.
+
+   The procedure with which this is done is as follows. We are keeping
+two positions in the `string_chars_block's using two pointer/integer
+pairs, namely `from_sb'/`from_pos' and `to_sb'/`to_pos'. They stand for
+the actual positions, from where to where, to copy the actually handled
+string.
+
+   While going over all chained `string_char_block's and their held
+strings, staring at `first_string_chars_block', both pointers are
+advanced and eventually a string is copied from `from_sb' to `to_sb',
+depending on the status of the pointed at strings.
+
+   More precisely, we can distinguish between the following actions.
+   * The string at `from_sb''s position could be marked as free, which
+     is indicated by an invalid pointer to the pointer that should
+     point back to the fixed size string object, and which is checked by
+     `FREE_STRUCT_P'. In this case, the `from_sb'/`from_pos' is
+     advanced to the next string, and nothing has to be copied.
+
+   * Also, if a string object itself is unmarked, nothing has to be
+     copied. We likewise advance the `from_sb'/`from_pos' pair as
+     described above.
+
+   * In all other cases, we have a marked string at hand. The string
+     data must be moved from the from-position to the to-position. In
+     case there is not enough space in the actual `to_sb'-block, we
+     advance this pointer to the beginning of the next block before
+     copying. In case the from and to positions are different, we
+     perform the actual copying using the library function `memmove'.
+
+   After compacting, the pointer to the current `string_chars_block',
+sitting in `current_string_chars_block', is reset on the last block to
+which we moved a string, i.e. `to_block', and all remaining blocks (we
+know that they just carry garbage) are explicitly `xfree'd.
+
+
+File: internals.info,  Node: sweep_strings,  Next: sweep_bit_vectors_1,  Prev: compact_string_chars,  Up: Garbage Collection - Step by Step
+
+`sweep_strings'
+---------------
+
+   The sweeping for the fixed sized string objects is essentially
+exactly the same as it is for all other fixed size types. As before,
+the freeing into the suitable free list is done by using the macro
+`SWEEP_FIXED_SIZE_BLOCK' after defining the right macros
+`UNMARK_string' and `ADDITIONAL_FREE_string'. These two definitions are
+a little bit special compared to the ones used for the other fixed size
+types.
+
+   `UNMARK_string' is defined the same way except some additional code
+used for updating the bookkeeping information.
+
+   For strings, `ADDITIONAL_FREE_string' has to do something in
+addition: in case, the string was not allocated in a
+`string_chars_block' because it exceeded the maximal length, and
+therefore it was `malloc'ed separately, we know also `xfree' it
+explicitly.
+
+
+File: internals.info,  Node: sweep_bit_vectors_1,  Prev: sweep_strings,  Up: Garbage Collection - Step by Step
+
+`sweep_bit_vectors_1'
+---------------------
+
+   Bit vectors are also one of the rare types that are `malloc'ed
+individually. Consequently, while sweeping, all further needless bit
+vectors must be freed by hand. This is done, as one might imagine, the
+expected way: since they are all registered in a list called
+`all_bit_vectors', all elements of that list are traversed, all
+unmarked bit vectors are unlinked by calling `xfree' and all of them
+become unmarked.  In addition, the bookkeeping information used for
+garbage collector's output purposes is updated.
+
+
+File: internals.info,  Node: Integers and Characters,  Next: Allocation from Frob Blocks,  Prev: Garbage Collection - Step by Step,  Up: Allocation of Objects in XEmacs Lisp
+
+Integers and Characters
+=======================
+
+   Integer and character Lisp objects are created from integers using
+the macros `XSETINT()' and `XSETCHAR()' or the equivalent functions
+`make_int()' and `make_char()'. (These are actually macros on most
+systems.)  These functions basically just do some moving of bits
+around, since the integral value of the object is stored directly in
+the `Lisp_Object'.
+
+   `XSETINT()' and the like will truncate values given to them that are
+too big; i.e. you won't get the value you expected but the tag bits
+will at least be correct.
+
+
+File: internals.info,  Node: Allocation from Frob Blocks,  Next: lrecords,  Prev: Integers and Characters,  Up: Allocation of Objects in XEmacs Lisp
+
+Allocation from Frob Blocks
+===========================
+
+   The uninitialized memory required by a `Lisp_Object' of a particular
+type is allocated using `ALLOCATE_FIXED_TYPE()'.  This only occurs
+inside of the lowest-level object-creating functions in `alloc.c':
+`Fcons()', `make_float()', `Fmake_byte_code()', `Fmake_symbol()',
+`allocate_extent()', `allocate_event()', `Fmake_marker()', and
+`make_uninit_string()'.  The idea is that, for each type, there are a
+number of frob blocks (each 2K in size); each frob block is divided up
+into object-sized chunks.  Each frob block will have some of these
+chunks that are currently assigned to objects, and perhaps some that are
+free. (If a frob block has nothing but free chunks, it is freed at the
+end of the garbage collection cycle.)  The free chunks are stored in a
+free list, which is chained by storing a pointer in the first four bytes
+of the chunk. (Except for the free chunks at the end of the last frob
+block, which are handled using an index which points past the end of the
+last-allocated chunk in the last frob block.)  `ALLOCATE_FIXED_TYPE()'
+first tries to retrieve a chunk from the free list; if that fails, it
+calls `ALLOCATE_FIXED_TYPE_FROM_BLOCK()', which looks at the end of the
+last frob block for space, and creates a new frob block if there is
+none. (There are actually two versions of these macros, one of which is
+more defensive but less efficient and is used for error-checking.)
+
+
+File: internals.info,  Node: lrecords,  Next: Low-level allocation,  Prev: Allocation from Frob Blocks,  Up: Allocation of Objects in XEmacs Lisp
+
+lrecords
+========
+
+   [see `lrecord.h']
+
+   All lrecords have at the beginning of their structure a `struct
+lrecord_header'.  This just contains a type number and some flags,
+including the mark bit.  All builtin type numbers are defined as
+constants in `enum lrecord_type', to allow the compiler to generate
+more efficient code for `TYPEP'.  The type number, thru the
+`lrecord_implementation_table', gives access to a `struct
+lrecord_implementation', which is a structure containing method pointers
+and such.  There is one of these for each type, and it is a global,
+constant, statically-declared structure that is declared in the
+`DEFINE_LRECORD_IMPLEMENTATION()' macro.
+
+   Simple lrecords (of type (b) above) just have a `struct
+lrecord_header' at their beginning.  lcrecords, however, actually have a
+`struct lcrecord_header'.  This, in turn, has a `struct lrecord_header'
+at its beginning, so sanity is preserved; but it also has a pointer
+used to chain all lcrecords together, and a special ID field used to
+distinguish one lcrecord from another. (This field is used only for
+debugging and could be removed, but the space gain is not significant.)
+
+   Simple lrecords are created using `ALLOCATE_FIXED_TYPE()', just like
+for other frob blocks.  The only change is that the implementation
+pointer must be initialized correctly. (The implementation structure for
+an lrecord, or rather the pointer to it, is named `lrecord_float',
+`lrecord_extent', `lrecord_buffer', etc.)
+
+   lcrecords are created using `alloc_lcrecord()'.  This takes a size
+to allocate and an implementation pointer. (The size needs to be passed
+because some lcrecords, such as window configurations, are of variable
+size.) This basically just `malloc()'s the storage, initializes the
+`struct lcrecord_header', and chains the lcrecord onto the head of the
+list of all lcrecords, which is stored in the variable `all_lcrecords'.
+The calls to `alloc_lcrecord()' generally occur in the lowest-level
+allocation function for each lrecord type.
+
+   Whenever you create an lrecord, you need to call either
+`DEFINE_LRECORD_IMPLEMENTATION()' or
+`DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()'.  This needs to be specified
+in a `.c' file, at the top level.  What this actually does is define
+and initialize the implementation structure for the lrecord. (And
+possibly declares a function `error_check_foo()' that implements the
+`XFOO()' macro when error-checking is enabled.)  The arguments to the
+macros are the actual type name (this is used to construct the C
+variable name of the lrecord implementation structure and related
+structures using the `##' macro concatenation operator), a string that
+names the type on the Lisp level (this may not be the same as the C
+type name; typically, the C type name has underscores, while the Lisp
+string has dashes), various method pointers, and the name of the C
+structure that contains the object.  The methods are used to
+encapsulate type-specific information about the object, such as how to
+print it or mark it for garbage collection, so that it's easy to add
+new object types without having to add a specific case for each new
+type in a bunch of different places.
+
+   The difference between `DEFINE_LRECORD_IMPLEMENTATION()' and
+`DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()' is that the former is used
+for fixed-size object types and the latter is for variable-size object
+types.  Most object types are fixed-size; some complex types, however
+(e.g. window configurations), are variable-size.  Variable-size object
+types have an extra method, which is called to determine the actual
+size of a particular object of that type.  (Currently this is only used
+for keeping allocation statistics.)
+
+   For the purpose of keeping allocation statistics, the allocation
+engine keeps a list of all the different types that exist.  Note that,
+since `DEFINE_LRECORD_IMPLEMENTATION()' is a macro that is specified at
+top-level, there is no way for it to initialize the global data
+structures containing type information, like
+`lrecord_implementations_table'.  For this reason a call to
+`INIT_LRECORD_IMPLEMENTATION' must be added to the same source file
+containing `DEFINE_LRECORD_IMPLEMENTATION', but instead of to the top
+level, to one of the init functions, typically `syms_of_FOO.c'.
+`INIT_LRECORD_IMPLEMENTATION' must be called before an object of this
+type is used.
+
+   The type number is also used to index into an array holding the
+number of objects of each type and the total memory allocated for
+objects of that type.  The statistics in this array are computed during
+the sweep stage.  These statistics are returned by the call to
+`garbage-collect'.
+
+   Note that for every type defined with a `DEFINE_LRECORD_*()' macro,
+there needs to be a `DECLARE_LRECORD_IMPLEMENTATION()' somewhere in a
+`.h' file, and this `.h' file needs to be included by `inline.c'.
+
+   Furthermore, there should generally be a set of `XFOOBAR()',
+`FOOBARP()', etc. macros in a `.h' (or occasionally `.c') file.  To
+create one of these, copy an existing model and modify as necessary.
+
+   *Please note:* If you define an lrecord in an external
+dynamically-loaded module, you must use `DECLARE_EXTERNAL_LRECORD',
+`DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION', and
+`DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION' instead of the
+non-EXTERNAL forms. These macros will dynamically add new type numbers
+to the global enum that records them, whereas the non-EXTERNAL forms
+assume that the programmer has already inserted the correct type numbers
+into the enum's code at compile-time.
+
+   The various methods in the lrecord implementation structure are:
+
+  1. A "mark" method.  This is called during the marking stage and
+     passed a function pointer (usually the `mark_object()' function),
+     which is used to mark an object.  All Lisp objects that are
+     contained within the object need to be marked by applying this
+     function to them.  The mark method should also return a Lisp
+     object, which should be either `nil' or an object to mark. (This
+     can be used in lieu of calling `mark_object()' on the object, to
+     reduce the recursion depth, and consequently should be the most
+     heavily nested sub-object, such as a long list.)
+
+     *Please note:* When the mark method is called, garbage collection
+     is in progress, and special precautions need to be taken when
+     accessing objects; see section (B) above.
+
+     If your mark method does not need to do anything, it can be `NULL'.
+
+  2. A "print" method.  This is called to create a printed
+     representation of the object, whenever `princ', `prin1', or the
+     like is called.  It is passed the object, a stream to which the
+     output is to be directed, and an `escapeflag' which indicates
+     whether the object's printed representation should be "escaped" so
+     that it is readable. (This corresponds to the difference between
+     `princ' and `prin1'.) Basically, "escaped" means that strings will
+     have quotes around them and confusing characters in the strings
+     such as quotes, backslashes, and newlines will be backslashed; and
+     that special care will be taken to make symbols print in a
+     readable fashion (e.g. symbols that look like numbers will be
+     backslashed).  Other readable objects should perhaps pass
+     `escapeflag' on when sub-objects are printed, so that readability
+     is preserved when necessary (or if not, always pass in a 1 for
+     `escapeflag').  Non-readable objects should in general ignore
+     `escapeflag', except that some use it as an indication that more
+     verbose output should be given.
+
+     Sub-objects are printed using `print_internal()', which takes
+     exactly the same arguments as are passed to the print method.
+
+     Literal C strings should be printed using `write_c_string()', or
+     `write_string_1()' for non-null-terminated strings.
+
+     Functions that do not have a readable representation should check
+     the `print_readably' flag and signal an error if it is set.
+
+     If you specify NULL for the print method, the
+     `default_object_printer()' will be used.
+
+  3. A "finalize" method.  This is called at the beginning of the sweep
+     stage on lcrecords that are about to be freed, and should be used
+     to perform any extra object cleanup.  This typically involves
+     freeing any extra `malloc()'ed memory associated with the object,
+     releasing any operating-system and window-system resources
+     associated with the object (e.g. pixmaps, fonts), etc.
+
+     The finalize method can be NULL if nothing needs to be done.
+
+     WARNING #1: The finalize method is also called at the end of the
+     dump phase; this time with the for_disksave parameter set to
+     non-zero.  The object is _not_ about to disappear, so you have to
+     make sure to _not_ free any extra `malloc()'ed memory if you're
+     going to need it later.  (Also, signal an error if there are any
+     operating-system and window-system resources here, because they
+     can't be dumped.)
+
+     Finalize methods should, as a rule, set to zero any pointers after
+     they've been freed, and check to make sure pointers are not zero
+     before freeing.  Although I'm pretty sure that finalize methods
+     are not called twice on the same object (except for the
+     `for_disksave' proviso), we've gotten nastily burned in some cases
+     by not doing this.
+
+     WARNING #2: The finalize method is _only_ called for lcrecords,
+     _not_ for simply lrecords.  If you need a finalize method for
+     simple lrecords, you have to stick it in the
+     `ADDITIONAL_FREE_foo()' macro in `alloc.c'.
+
+     WARNING #3: Things are in an _extremely_ bizarre state when
+     `ADDITIONAL_FREE_foo()' is called, so you have to be incredibly
+     careful when writing one of these functions.  See the comment in
+     `gc_sweep()'.  If you ever have to add one of these, consider
+     using an lcrecord or dealing with the problem in a different
+     fashion.
+
+  4. An "equal" method.  This compares the two objects for similarity,
+     when `equal' is called.  It should compare the contents of the
+     objects in some reasonable fashion.  It is passed the two objects
+     and a "depth" value, which is used to catch circular objects.  To
+     compare sub-Lisp-objects, call `internal_equal()' and bump the
+     depth value by one.  If this value gets too high, a
+     `circular-object' error will be signaled.
+
+     If this is NULL, objects are `equal' only when they are `eq', i.e.
+     identical.
+
+  5. A "hash" method.  This is used to hash objects when they are to be
+     compared with `equal'.  The rule here is that if two objects are
+     `equal', they _must_ hash to the same value; i.e. your hash
+     function should use some subset of the sub-fields of the object
+     that are compared in the "equal" method.  If you specify this
+     method as `NULL', the object's pointer will be used as the hash,
+     which will _fail_ if the object has an `equal' method, so don't do
+     this.
+
+     To hash a sub-Lisp-object, call `internal_hash()'.  Bump the depth
+     by one, just like in the "equal" method.
+
+     To convert a Lisp object directly into a hash value (using its
+     pointer), use `LISP_HASH()'.  This is what happens when the hash
+     method is NULL.
+
+     To hash two or more values together into a single value, use
+     `HASH2()', `HASH3()', `HASH4()', etc.
+
+  6. "getprop", "putprop", "remprop", and "plist" methods.  These are
+     used for object types that have properties.  I don't feel like
+     documenting them here.  If you create one of these objects, you
+     have to use different macros to define them, i.e.
+     `DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS()' or
+     `DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS()'.
+
+  7. A "size_in_bytes" method, when the object is of variable-size.
+     (i.e. declared with a `_SEQUENCE_IMPLEMENTATION' macro.)  This
+     should simply return the object's size in bytes, exactly as you
+     might expect.  For an example, see the methods for window
+     configurations and opaques.
+
+
+File: internals.info,  Node: Low-level allocation,  Next: Cons,  Prev: lrecords,  Up: Allocation of Objects in XEmacs Lisp
+
+Low-level allocation
+====================
+
+   Memory that you want to allocate directly should be allocated using
+`xmalloc()' rather than `malloc()'.  This implements error-checking on
+the return value, and once upon a time did some more vital stuff (i.e.
+`BLOCK_INPUT', which is no longer necessary).  Free using `xfree()',
+and realloc using `xrealloc()'.  Note that `xmalloc()' will do a
+non-local exit if the memory can't be allocated. (Many functions,
+however, do not expect this, and thus XEmacs will likely crash if this
+happens.  *This is a bug.*  If you can, you should strive to make your
+function handle this OK.  However, it's difficult in the general
+circumstance, perhaps requiring extra unwind-protects and such.)
+
+   Note that XEmacs provides two separate replacements for the standard
+`malloc()' library function.  These are called "old GNU malloc"
+(`malloc.c') and "new GNU malloc" (`gmalloc.c'), respectively.  New GNU
+malloc is better in pretty much every way than old GNU malloc, and
+should be used if possible.  (It used to be that on some systems, the
+old one worked but the new one didn't.  I think this was due
+specifically to a bug in SunOS, which the new one now works around; so
+I don't think the old one ever has to be used any more.) The primary
+difference between both of these mallocs and the standard system malloc
+is that they are much faster, at the expense of increased space.  The
+basic idea is that memory is allocated in fixed chunks of powers of
+two.  This allows for basically constant malloc time, since the various
+chunks can just be kept on a number of free lists. (The standard system
+malloc typically allocates arbitrary-sized chunks and has to spend some
+time, sometimes a significant amount of time, walking the heap looking
+for a free block to use and cleaning things up.)  The new GNU malloc
+improves on things by allocating large objects in chunks of 4096 bytes
+rather than in ever larger powers of two, which results in ever larger
+wastage.  There is a slight speed loss here, but it's of doubtful
+significance.
+
+   NOTE: Apparently there is a third-generation GNU malloc that is
+significantly better than the new GNU malloc, and should probably be
+included in XEmacs.
+
+   There is also the relocating allocator, `ralloc.c'.  This actually
+moves blocks of memory around so that the `sbrk()' pointer shrunk and
+virtual memory released back to the system.  On some systems, this is a
+big win.  On all systems, it causes a noticeable (and sometimes huge)
+speed penalty, so I turn it off by default.  `ralloc.c' only works with
+the new GNU malloc in `gmalloc.c'.  There are also two versions of
+`ralloc.c', one that uses `mmap()' rather than block copies to move
+data around.  This purports to be faster, although that depends on the
+amount of data that would have had to be block copied and the
+system-call overhead for `mmap()'.  I don't know exactly how this
+works, except that the relocating-allocation routines are pretty much
+used only for the memory allocated for a buffer, which is the biggest
+consumer of space, esp. of space that may get freed later.
+
+   Note that the GNU mallocs have some "memory warning" facilities.
+XEmacs taps into them and issues a warning through the standard warning
+system, when memory gets to 75%, 85%, and 95% full.  (On some systems,
+the memory warnings are not functional.)
+
+   Allocated memory that is going to be used to make a Lisp object is
+created using `allocate_lisp_storage()'.  This just calls `xmalloc()'.
+It used to verify that the pointer to the memory can fit into a Lisp
+word, before the current Lisp object representation was introduced.
+`allocate_lisp_storage()' is called by `alloc_lcrecord()',
+`ALLOCATE_FIXED_TYPE()', and the vector and bit-vector creation
+routines.  These routines also call `INCREMENT_CONS_COUNTER()' at the
+appropriate times; this keeps statistics on how much memory is
+allocated, so that garbage-collection can be invoked when the threshold
+is reached.
+
+
+File: internals.info,  Node: Cons,  Next: Vector,  Prev: Low-level allocation,  Up: Allocation of Objects in XEmacs Lisp
+
+Cons
+====
+
+   Conses are allocated in standard frob blocks.  The only thing to
+note is that conses can be explicitly freed using `free_cons()' and
+associated functions `free_list()' and `free_alist()'.  This
+immediately puts the conses onto the cons free list, and decrements the
+statistics on memory allocation appropriately.  This is used to good
+effect by some extremely commonly-used code, to avoid generating extra
+objects and thereby triggering GC sooner.  However, you have to be
+_extremely_ careful when doing this.  If you mess this up, you will get
+BADLY BURNED, and it has happened before.
+
+
+File: internals.info,  Node: Vector,  Next: Bit Vector,  Prev: Cons,  Up: Allocation of Objects in XEmacs Lisp
+
+Vector
+======
+
+   As mentioned above, each vector is `malloc()'ed individually, and
+all are threaded through the variable `all_vectors'.  Vectors are
+marked strangely during garbage collection, by kludging the size field.
+Note that the `struct Lisp_Vector' is declared with its `contents'
+field being a _stretchy_ array of one element.  It is actually
+`malloc()'ed with the right size, however, and access to any element
+through the `contents' array works fine.
+
+
+File: internals.info,  Node: Bit Vector,  Next: Symbol,  Prev: Vector,  Up: Allocation of Objects in XEmacs Lisp
+
+Bit Vector
+==========
+
+   Bit vectors work exactly like vectors, except for more complicated
+code to access an individual bit, and except for the fact that bit
+vectors are lrecords while vectors are not. (The only difference here is
+that there's an lrecord implementation pointer at the beginning and the
+tag field in bit vector Lisp words is "lrecord" rather than "vector".)
+
+
+File: internals.info,  Node: Symbol,  Next: Marker,  Prev: Bit Vector,  Up: Allocation of Objects in XEmacs Lisp
+
+Symbol
+======
+
+   Symbols are also allocated in frob blocks.  Symbols in the awful
+horrible obarray structure are chained through their `next' field.
+
+   Remember that `intern' looks up a symbol in an obarray, creating one
+if necessary.
+
+
+File: internals.info,  Node: Marker,  Next: String,  Prev: Symbol,  Up: Allocation of Objects in XEmacs Lisp
+
+Marker
+======
+
+   Markers are allocated in frob blocks, as usual.  They are kept in a
+buffer unordered, but in a doubly-linked list so that they can easily
+be removed. (Formerly this was a singly-linked list, but in some cases
+garbage collection took an extraordinarily long time due to the O(N^2)
+time required to remove lots of markers from a buffer.) Markers are
+removed from a buffer in the finalize stage, in
+`ADDITIONAL_FREE_marker()'.
+
+
+File: internals.info,  Node: String,  Next: Compiled Function,  Prev: Marker,  Up: Allocation of Objects in XEmacs Lisp
+
+String
+======
+
+   As mentioned above, strings are a special case.  A string is
+logically two parts, a fixed-size object (containing the length,
+property list, and a pointer to the actual data), and the actual data
+in the string.  The fixed-size object is a `struct Lisp_String' and is
+allocated in frob blocks, as usual.  The actual data is stored in
+special "string-chars blocks", which are 8K blocks of memory.
+Currently-allocated strings are simply laid end to end in these
+string-chars blocks, with a pointer back to the `struct Lisp_String'
+stored before each string in the string-chars block.  When a new string
+needs to be allocated, the remaining space at the end of the last
+string-chars block is used if there's enough, and a new string-chars
+block is created otherwise.
+
+   There are never any holes in the string-chars blocks due to the
+string compaction and relocation that happens at the end of garbage
+collection.  During the sweep stage of garbage collection, when objects
+are reclaimed, the garbage collector goes through all string-chars
+blocks, looking for unused strings.  Each chunk of string data is
+preceded by a pointer to the corresponding `struct Lisp_String', which
+indicates both whether the string is used and how big the string is,
+i.e. how to get to the next chunk of string data.  Holes are compressed
+by block-copying the next string into the empty space and relocating the
+pointer stored in the corresponding `struct Lisp_String'.  *This means
+you have to be careful with strings in your code.* See the section
+above on `GCPRO'ing.
+
+   Note that there is one situation not handled: a string that is too
+big to fit into a string-chars block.  Such strings, called "big
+strings", are all `malloc()'ed as their own block. (#### Although it
+would make more sense for the threshold for big strings to be somewhat
+lower, e.g. 1/2 or 1/4 the size of a string-chars block.  It seems that
+this was indeed the case formerly--indeed, the threshold was set at
+1/8--but Mly forgot about this when rewriting things for 19.8.)
+
+   Note also that the string data in string-chars blocks is padded as
+necessary so that proper alignment constraints on the `struct
+Lisp_String' back pointers are maintained.
+
+   Finally, strings can be resized.  This happens in Mule when a
+character is substituted with a different-length character, or during
+modeline frobbing. (You could also export this to Lisp, but it's not
+done so currently.) Resizing a string is a potentially tricky process.
+If the change is small enough that the padding can absorb it, nothing
+other than a simple memory move needs to be done.  Keep in mind,
+however, that the string can't shrink too much because the offset to the
+next string in the string-chars block is computed by looking at the
+length and rounding to the nearest multiple of four or eight.  If the
+string would shrink or expand beyond the correct padding, new string
+data needs to be allocated at the end of the last string-chars block and
+the data moved appropriately.  This leaves some dead string data, which
+is marked by putting a special marker of 0xFFFFFFFF in the `struct
+Lisp_String' pointer before the data (there's no real `struct
+Lisp_String' to point to and relocate), and storing the size of the dead
+string data (which would normally be obtained from the now-non-existent
+`struct Lisp_String') at the beginning of the dead string data gap.
+The string compactor recognizes this special 0xFFFFFFFF marker and
+handles it correctly.
+
+
+File: internals.info,  Node: Compiled Function,  Prev: String,  Up: Allocation of Objects in XEmacs Lisp
+
+Compiled Function
+=================
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Dumping,  Next: Events and the Event Loop,  Prev: Allocation of Objects in XEmacs Lisp,  Up: Top
+
+Dumping
+*******
+
+What is dumping and its justification
+=====================================
+
+   The C code of XEmacs is just a Lisp engine with a lot of built-in
+primitives useful for writing an editor.  The editor itself is written
+mostly in Lisp, and represents around 100K lines of code.  Loading and
+executing the initialization of all this code takes a bit a time (five
+to ten times the usual startup time of current xemacs) and requires
+having all the lisp source files around.  Having to reload them each
+time the editor is started would not be acceptable.
+
+   The traditional solution to this problem is called dumping: the build
+process first creates the lisp engine under the name `temacs', then
+runs it until it has finished loading and initializing all the lisp
+code, and eventually creates a new executable called `xemacs' including
+both the object code in `temacs' and all the contents of the memory
+after the initialization.
+
+   This solution, while working, has a huge problem: the creation of the
+new executable from the actual contents of memory is an extremely
+system-specific process, quite error-prone, and which interferes with a
+lot of system libraries (like malloc).  It is even getting worse
+nowadays with libraries using constructors which are automatically
+called when the program is started (even before main()) which tend to
+crash when they are called multiple times, once before dumping and once
+after (IRIX 6.x libz.so pulls in some C++ image libraries thru
+dependencies which have this problem).  Writing the dumper is also one
+of the most difficult parts of porting XEmacs to a new operating system.
+Basically, `dumping' is an operation that is just not officially
+supported on many operating systems.
+
+   The aim of the portable dumper is to solve the same problem as the
+system-specific dumper, that is to be able to reload quickly, using only
+a small number of files, the fully initialized lisp part of the editor,
+without any system-specific hacks.
+
+* Menu:
+
+* Overview::
+* Data descriptions::
+* Dumping phase::
+* Reloading phase::
+* Remaining issues::
+
+
+File: internals.info,  Node: Overview,  Next: Data descriptions,  Prev: Dumping,  Up: Dumping
+
+Overview
+========
+
+   The portable dumping system has to:
+
+  1. At dump time, write all initialized, non-quickly-rebuildable data
+     to a file [Note: currently named `xemacs.dmp', but the name will
+     change], along with all informations needed for the reloading.
+
+  2. When starting xemacs, reload the dump file, relocate it to its new
+     starting address if needed, and reinitialize all pointers to this
+     data.  Also, rebuild all the quickly rebuildable data.
+
+
+File: internals.info,  Node: Data descriptions,  Next: Dumping phase,  Prev: Overview,  Up: Dumping
+
+Data descriptions
+=================
+
+   The more complex task of the dumper is to be able to write lisp
+objects (lrecords) and C structs to disk and reload them at a different
+address, updating all the pointers they include in the process.  This
+is done by using external data descriptions that give information about
+the layout of the structures in memory.
+
+   The specification of these descriptions is in lrecord.h.  A
+description of an lrecord is an array of struct lrecord_description.
+Each of these structs include a type, an offset in the structure and
+some optional parameters depending on the type.  For instance, here is
+the string description:
+
+     static const struct lrecord_description string_description[] = {
+       { XD_BYTECOUNT,         offsetof (Lisp_String, size) },
+       { XD_OPAQUE_DATA_PTR,   offsetof (Lisp_String, data), XD_INDIRECT(0, 1) },
+       { XD_LISP_OBJECT,       offsetof (Lisp_String, plist) },
+       { XD_END }
+     };
+
+   The first line indicates a member of type Bytecount, which is used by
+the next, indirect directive.  The second means "there is a pointer to
+some opaque data in the field `data'".  The length of said data is
+given by the expression `XD_INDIRECT(0, 1)', which means "the value in
+the 0th line of the description (welcome to C) plus one".  The third
+line means "there is a Lisp_Object member `plist' in the Lisp_String
+structure".  `XD_END' then ends the description.
+
+   This gives us all the information we need to move around what is
+pointed to by a structure (C or lrecord) and, by transitivity,
+everything that it points to.  The only missing information for dumping
+is the size of the structure.  For lrecords, this is part of the
+lrecord_implementation, so we don't need to duplicate it.  For C
+structures we use a struct struct_description, which includes a size
+field and a pointer to an associated array of lrecord_description.
+
+
+File: internals.info,  Node: Dumping phase,  Next: Reloading phase,  Prev: Data descriptions,  Up: Dumping
+
+Dumping phase
+=============
+
+   Dumping is done by calling the function pdump() (in dumper.c) which
+is invoked from Fdump_emacs (in emacs.c).  This function performs a
+number of tasks.
+
+* Menu:
+
+* Object inventory::
+* Address allocation::
+* The header::
+* Data dumping::
+* Pointers dumping::
+
+
+File: internals.info,  Node: Object inventory,  Next: Address allocation,  Prev: Dumping phase,  Up: Dumping phase
+
+Object inventory
+----------------
+
+   The first task is to build the list of the objects to dump.  This
+includes:
+
+   * lisp objects
+
+   * C structures
+
+   We end up with one `pdump_entry_list_elmt' per object group (arrays
+of C structs are kept together) which includes a pointer to the first
+object of the group, the per-object size and the count of objects in the
+group, along with some other information which is initialized later.
+
+   These entries are linked together in `pdump_entry_list' structures
+and can be enumerated thru either:
+
+  1. the `pdump_object_table', an array of `pdump_entry_list', one per
+     lrecord type, indexed by type number.
+
+  2. the `pdump_opaque_data_list', used for the opaque data which does
+     not include pointers, and hence does not need descriptions.
+
+  3. the `pdump_struct_table', which is a vector of
+     `struct_description'/`pdump_entry_list' pairs, used for non-opaque
+     C structures.
+
+   This uses a marking strategy similar to the garbage collector.  Some
+differences though:
+
+  1. We do not use the mark bit (which does not exist for C structures
+     anyway), we use a big hash table instead.
+
+  2. We do not use the mark function of lrecords but instead rely on the
+     external descriptions.  This happens essentially because we need to
+     follow pointers to C structures and opaque data in addition to
+     Lisp_Object members.
+
+   This is done by `pdump_register_object', which handles Lisp_Object
+variables, and pdump_register_struct which handles C structures, which
+both delegate the description management to pdump_register_sub.
+
+   The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
+allows us to look up a pdump_entry_list_elmt with the object it points
+to).  Entries are added with `pdump_add_entry()' and looked up with
+`pdump_get_entry()'.  There is no need for entry removal.  The hash
+value is computed quite basically from the object pointer by
+`pdump_make_hash()'.
+
+   The roots for the marking are:
+
+  1. the `staticpro''ed variables (there is a special
+     `staticpro_nodump()' call for protected variables we do not want
+     to dump).
+
+  2. the `pdump_wire''d variables (`staticpro' is equivalent to
+     `staticpro_nodump()' + `pdump_wire()').
+
+  3. the `dumpstruct''ed variables, which points to C structures.
+
+   This does not include the GCPRO'ed variables, the specbinds, the
+catchtags, the backlist, the redisplay or the profiling info, since we
+do not want to rebuild the actual chain of lisp calls which end up to
+the dump-emacs call, only the global variables.
+
+   Weak lists and weak hash tables are dumped as if they were their
+non-weak equivalent (without changing their type, of course).  This has
+not yet been a problem.
+
+
+File: internals.info,  Node: Address allocation,  Next: The header,  Prev: Object inventory,  Up: Dumping phase
+
+Address allocation
+------------------
+
+   The next step is to allocate the offsets of each of the objects in
+the final dump file.  This is done by `pdump_allocate_offset()' which
+is called indirectly by `pdump_scan_by_alignment()'.
+
+   The strategy to deal with alignment problems uses these facts:
+
+  1. real world alignment requirements are powers of two.
+
+  2. the C compiler is required to adjust the size of a struct so that
+     you can have an array of them next to each other.  This means you
+     can have a upper bound of the alignment requirements of a given
+     structure by looking at which power of two its size is a multiple.
+
+  3. the non-variant part of variable size lrecords has an alignment
+     requirement of 4.
+
+   Hence, for each lrecord type, C struct type or opaque data block the
+alignment requirement is computed as a power of two, with a minimum of
+2^2 for lrecords.  `pdump_scan_by_alignment()' then scans all the
+`pdump_entry_list_elmt''s, the ones with the highest requirements
+first.  This ensures the best packing.
+
+   The maximum alignment requirement we take into account is 2^8.
+
+   `pdump_allocate_offset()' only has to do a linear allocation,
+starting at offset 256 (this leaves room for the header and keep the
+alignments happy).
+
+
+File: internals.info,  Node: The header,  Next: Data dumping,  Prev: Address allocation,  Up: Dumping phase
+
+The header
+----------
+
+   The next step creates the file and writes a header with a signature
+and some random informations in it (number of staticpro, number of
+assigned lrecord types, etc...).  The reloc_address field, which
+indicates at which address the file should be loaded if we want to
+avoid post-reload relocation, is set to 0.  It then seeks to offset 256
+(base offset for the objects).
+
+
+File: internals.info,  Node: Data dumping,  Next: Pointers dumping,  Prev: The header,  Up: Dumping phase
+
+Data dumping
+------------
+
+   The data is dumped in the same order as the addresses were allocated
+by `pdump_dump_data()', called from `pdump_scan_by_alignment()'.  This
+function copies the data to a temporary buffer, relocates all pointers
+in the object to the addresses allocated in step Address Allocation,
+and writes it to the file.  Using the same order means that, if we are
+careful with lrecords whose size is not a multiple of 4, we are ensured
+that the object is always written at the offset in the file allocated
+in step Address Allocation.
+
+
+File: internals.info,  Node: Pointers dumping,  Prev: Data dumping,  Up: Dumping phase
+
+Pointers dumping
+----------------
+
+   A bunch of tables needed to reassign properly the global pointers are
+then written.  They are:
+
+  1. the staticpro array
+
+  2. the dumpstruct array
+
+  3. the lrecord_implementation_table array
+
+  4. a vector of all the offsets to the objects in the file that
+     include a description (for faster relocation at reload time)
+
+  5. the pdump_wired and pdump_wired_list arrays
+
+   For each of the arrays we write both the pointer to the variables and
+the relocated offset of the object they point to.  Since these variables
+are global, the pointers are still valid when restarting the program and
+are used to regenerate the global pointers.
+
+   The `pdump_wired_list' array is a special case.  The variables it
+points to are the head of weak linked lists of lisp objects of the same
+type.  Not all objects of this list are dumped so the relocated pointer
+we associate with them points to the first dumped object of the list, or
+Qnil if none is available.  This is also the reason why they are not
+used as roots for the purpose of object enumeration.
+
+   This is the end of the dumping part.
+
+
+File: internals.info,  Node: Reloading phase,  Next: Remaining issues,  Prev: Dumping phase,  Up: Dumping
+
+Reloading phase
+===============
+
+File loading
+------------
+
+   The file is mmap'ed in memory (which ensures a PAGESIZE alignment, at
+least 4096), or if mmap is unavailable or fails, a 256-bytes aligned
+malloc is done and the file is loaded.
+
+   Some variables are reinitialized from the values found in the header.
+
+   The difference between the actual loading address and the
+reloc_address is computed and will be used for all the relocations.
+
+Putting back the staticvec
+--------------------------
+
+   The staticvec array is memcpy'd from the file and the variables it
+points to are reset to the relocated objects addresses.
+
+Putting back the dumpstructed variables
+---------------------------------------
+
+   The variables pointed to by dumpstruct in the dump phase are reset to
+the right relocated object addresses.
+
+lrecord_implementations_table
+-----------------------------
+
+   The lrecord_implementations_table is reset to its dump time state and
+the right lrecord_type_index values are put in.
+
+Object relocation
+-----------------
+
+   All the objects are relocated using their description and their
+offset by `pdump_reloc_one'.  This step is unnecessary if the
+reloc_address is equal to the file loading address.
+
+Putting back the pdump_wire and pdump_wire_list variables
+---------------------------------------------------------
+
+   Same as Putting back the dumpstructed variables.
+
+Reorganize the hash tables
+--------------------------
+
+   Since some of the hash values in the lisp hash tables are
+address-dependent, their layout is now wrong.  So we go through each of
+them and have them resorted by calling `pdump_reorganize_hash_table'.
+
+
+File: internals.info,  Node: Remaining issues,  Prev: Reloading phase,  Up: Dumping
+
+Remaining issues
+================
+
+   The build process will have to start a post-dump xemacs, ask it the
+loading address (which will, hopefully, be always the same between
+different xemacs invocations) and relocate the file to the new address.
+This way the object relocation phase will not have to be done, which
+means no writes in the objects and that, because of the use of mmap, the
+dumped data will be shared between all the xemacs running on the
+computer.
+
+   Some executable signature will be necessary to ensure that a given
+dump file is really associated with a given executable, or random
+crashes will occur.  Maybe a random number set at compile or configure
+time thru a define.  This will also allow for having
+differently-compiled xemacsen on the same system (mule and no-mule
+comes to mind).
+
+   The DOC file contents should probably end up in the dump file.
+

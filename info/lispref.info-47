@@ -1,0 +1,860 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Standard Buffer-Local Variables,  Next: Standard Keymaps,  Prev: Standard Errors,  Up: Top
+
+Buffer-Local Variables
+**********************
+
+   The table below lists the general-purpose Emacs variables that are
+automatically local (when set) in each buffer.  Many Lisp packages
+define such variables for their internal use; we don't list them here.
+
+`abbrev-mode'
+     *note Abbrevs::
+
+`auto-fill-function'
+     *note Auto Filling::
+
+`buffer-auto-save-file-name'
+     *note Auto-Saving::
+
+`buffer-backed-up'
+     *note Backup Files::
+
+`buffer-display-table'
+     *note Display Tables::
+
+`buffer-file-format'
+     *note Format Conversion::
+
+`buffer-file-name'
+     *note Buffer File Name::
+
+`buffer-file-number'
+     *note Buffer File Name::
+
+`buffer-file-truename'
+     *note Buffer File Name::
+
+`buffer-file-type'
+     *note Files and MS-DOS::
+
+`buffer-invisibility-spec'
+     *note Invisible Text::
+
+`buffer-offer-save'
+     *note Saving Buffers::
+
+`buffer-read-only'
+     *note Read Only Buffers::
+
+`buffer-saved-size'
+     *note Point::
+
+`buffer-undo-list'
+     *note Undo::
+
+`cache-long-line-scans'
+     *note Text Lines::
+
+`case-fold-search'
+     *note Searching and Case::
+
+`ctl-arrow'
+     *note Usual Display::
+
+`comment-column'
+     *note Comments: (emacs)Comments.
+
+`default-directory'
+     *note System Environment::
+
+`defun-prompt-regexp'
+     *note List Motion::
+
+`fill-column'
+     *note Auto Filling::
+
+`goal-column'
+     *note Moving Point: (emacs)Moving Point.
+
+`left-margin'
+     *note Indentation::
+
+`local-abbrev-table'
+     *note Abbrevs::
+
+`local-write-file-hooks'
+     *note Saving Buffers::
+
+`major-mode'
+     *note Mode Help::
+
+`mark-active'
+     *note The Mark::
+
+`mark-ring'
+     *note The Mark::
+
+`minor-modes'
+     *note Minor Modes::
+
+`modeline-format'
+     *note Modeline Data::
+
+`modeline-buffer-identification'
+     *note Modeline Variables::
+
+`modeline-format'
+     *note Modeline Data::
+
+`modeline-modified'
+     *note Modeline Variables::
+
+`modeline-process'
+     *note Modeline Variables::
+
+`mode-name'
+     *note Modeline Variables::
+
+`overwrite-mode'
+     *note Insertion::
+
+`paragraph-separate'
+     *note Standard Regexps::
+
+`paragraph-start'
+     *note Standard Regexps::
+
+`point-before-scroll'
+     Used for communication between mouse commands and scroll-bar
+     commands.
+
+`require-final-newline'
+     *note Insertion::
+
+`selective-display'
+     *note Selective Display::
+
+`selective-display-ellipses'
+     *note Selective Display::
+
+`tab-width'
+     *note Usual Display::
+
+`truncate-lines'
+     *note Truncation::
+
+`vc-mode'
+     *note Modeline Variables::
+
+
+File: lispref.info,  Node: Standard Keymaps,  Next: Standard Hooks,  Prev: Standard Buffer-Local Variables,  Up: Top
+
+Standard Keymaps
+****************
+
+   The following symbols are used as the names for various keymaps.
+Some of these exist when XEmacs is first started, others are loaded
+only when their respective mode is used.  This is not an exhaustive
+list.
+
+   Almost all of these maps are used as local maps.  Indeed, of the
+modes that presently exist, only Vip mode and Terminal mode ever change
+the global keymap.
+
+`bookmark-map'
+     A keymap containing bindings to bookmark functions.
+
+`Buffer-menu-mode-map'
+     A keymap used by Buffer Menu mode.
+
+`c++-mode-map'
+     A keymap used by C++ mode.
+
+`c-mode-map'
+     A keymap used by C mode.  A sparse keymap used by C mode.
+
+`command-history-map'
+     A keymap used by Command History mode.
+
+`ctl-x-4-map'
+     A keymap for subcommands of the prefix `C-x 4'.
+
+`ctl-x-5-map'
+     A keymap for subcommands of the prefix `C-x 5'.
+
+`ctl-x-map'
+     A keymap for `C-x' commands.
+
+`debugger-mode-map'
+     A keymap used by Debugger mode.
+
+`dired-mode-map'
+     A keymap for `dired-mode' buffers.
+
+`edit-abbrevs-map'
+     A keymap used in `edit-abbrevs'.
+
+`edit-tab-stops-map'
+     A keymap used in `edit-tab-stops'.
+
+`electric-buffer-menu-mode-map'
+     A keymap used by Electric Buffer Menu mode.
+
+`electric-history-map'
+     A keymap used by Electric Command History mode.
+
+`emacs-lisp-mode-map'
+     A keymap used by Emacs Lisp mode.
+
+`help-map'
+     A keymap for characters following the Help key.
+
+`Helper-help-map'
+     A keymap used by the help utility package.
+     It has the same keymap in its value cell and in its function cell.
+
+`Info-edit-map'
+     A keymap used by the `e' command of Info.
+
+`Info-mode-map'
+     A keymap containing Info commands.
+
+`isearch-mode-map'
+     A keymap that defines the characters you can type within
+     incremental search.
+
+`itimer-edit-map'
+     A keymap used when in Itimer Edit mode.
+
+`lisp-interaction-mode-map'
+     A keymap used by Lisp mode.
+
+`lisp-mode-map'
+     A keymap used by Lisp mode.
+
+     A keymap for minibuffer input with completion.
+
+`minibuffer-local-isearch-map'
+     A keymap for editing isearch strings in the minibuffer.
+
+`minibuffer-local-map'
+     Default keymap to use when reading from the minibuffer.
+
+`minibuffer-local-must-match-map'
+     A keymap for minibuffer input with completion, for exact match.
+
+`mode-specific-map'
+     The keymap for characters following `C-c'.  Note, this is in the
+     global map.  This map is not actually mode specific: its name was
+     chosen to be informative for the user in `C-h b'
+     (`display-bindings'), where it describes the main use of the `C-c'
+     prefix key.
+
+`modeline-map'
+     The keymap consulted for mouse-clicks on the modeline of a window.
+
+`objc-mode-map'
+     A keymap used in Objective C mode as a local map.
+
+`occur-mode-map'
+     A local keymap used by Occur mode.
+
+`overriding-local-map'
+     A keymap that overrides all other local keymaps.
+
+`query-replace-map'
+     A local keymap used for responses in `query-replace' and related
+     commands; also for `y-or-n-p' and `map-y-or-n-p'.  The functions
+     that use this map do not support prefix keys; they look up one
+     event at a time.
+
+`read-expression-map'
+     The minibuffer keymap used for reading Lisp expressions.
+
+`read-shell-command-map'
+     The minibuffer keymap used by `shell-command' and related commands.
+
+`shared-lisp-mode-map'
+     A keymap for commands shared by all sorts of Lisp modes.
+
+`text-mode-map'
+     A keymap used by Text mode.
+
+`toolbar-map'
+     The keymap consulted for mouse-clicks over a toolbar.
+
+`view-mode-map'
+     A keymap used by View mode.
+
+
+File: lispref.info,  Node: Standard Hooks,  Next: Index,  Prev: Standard Keymaps,  Up: Top
+
+Standard Hooks
+**************
+
+   The following is a list of hook variables that let you provide
+functions to be called from within Emacs on suitable occasions.
+
+   Most of these variables have names ending with `-hook'.  They are
+"normal hooks", run by means of `run-hooks'.  The value of such a hook
+is a list of functions.  The recommended way to put a new function on
+such a hook is to call `add-hook'.  *Note Hooks::, for more information
+about using hooks.
+
+   The variables whose names end in `-function' have single functions
+as their values.  Usually there is a specific reason why the variable is
+not a normal hook, such as the need to pass arguments to the function.
+(In older Emacs versions, some of these variables had names ending in
+`-hook' even though they were not normal hooks.)
+
+   The variables whose names end in `-hooks' or `-functions' have lists
+of functions as their values, but these functions are called in a
+special way (they are passed arguments, or else their values are used).
+
+`activate-menubar-hook'
+
+`activate-popup-menu-hook'
+
+`ad-definition-hooks'
+
+`adaptive-fill-function'
+
+`add-log-current-defun-function'
+
+`after-change-functions'
+
+`after-delete-annotation-hook'
+
+`after-init-hook'
+
+`after-insert-file-functions'
+
+`after-revert-hook'
+
+`after-save-hook'
+
+`after-set-visited-file-name-hooks'
+
+`after-write-file-hooks'
+
+`auto-fill-function'
+
+`auto-save-hook'
+
+`before-change-functions'
+
+`before-delete-annotation-hook'
+
+`before-init-hook'
+
+`before-revert-hook'
+
+`blink-paren-function'
+
+`buffers-menu-switch-to-buffer-function'
+
+`c++-mode-hook'
+
+`c-delete-function'
+
+`c-mode-common-hook'
+
+`c-mode-hook'
+
+`c-special-indent-hook'
+
+`calendar-load-hook'
+
+`change-major-mode-hook'
+
+`command-history-hook'
+
+`comment-indent-function'
+
+`compilation-buffer-name-function'
+
+`compilation-exit-message-function'
+
+`compilation-finish-function'
+
+`compilation-parse-errors-function'
+
+`compilation-mode-hook'
+
+`create-console-hook'
+
+`create-device-hook'
+
+`create-frame-hook'
+
+`dabbrev-friend-buffer-function'
+
+`dabbrev-select-buffers-function'
+
+`delete-console-hook'
+
+`delete-device-hook'
+
+`delete-frame-hook'
+
+`deselect-frame-hook'
+
+`diary-display-hook'
+
+`diary-hook'
+
+`dired-after-readin-hook'
+
+`dired-before-readin-hook'
+
+`dired-load-hook'
+
+`dired-mode-hook'
+
+`disabled-command-hook'
+
+`display-buffer-function'
+
+`ediff-after-setup-control-frame-hook'
+
+`ediff-after-setup-windows-hook'
+
+`ediff-before-setup-control-frame-hook'
+
+`ediff-before-setup-windows-hook'
+
+`ediff-brief-help-message-function'
+
+`ediff-cleanup-hook'
+
+`ediff-control-frame-position-function'
+
+`ediff-display-help-hook'
+
+`ediff-focus-on-regexp-matches-function'
+
+`ediff-forward-word-function'
+
+`ediff-hide-regexp-matches-function'
+
+`ediff-keymap-setup-hook'
+
+`ediff-load-hook'
+
+`ediff-long-help-message-function'
+
+`ediff-make-wide-display-function'
+
+`ediff-merge-split-window-function'
+
+`ediff-meta-action-function'
+
+`ediff-meta-redraw-function'
+
+`ediff-mode-hook'
+
+`ediff-prepare-buffer-hook'
+
+`ediff-quit-hook'
+
+`ediff-registry-setup-hook'
+
+`ediff-select-hook'
+
+`ediff-session-action-function'
+
+`ediff-session-group-setup-hook'
+
+`ediff-setup-diff-regions-function'
+
+`ediff-show-registry-hook'
+
+`ediff-show-session-group-hook'
+
+`ediff-skip-diff-region-function'
+
+`ediff-split-window-function'
+
+`ediff-startup-hook'
+
+`ediff-suspend-hook'
+
+`ediff-toggle-read-only-function'
+
+`ediff-unselect-hook'
+
+`ediff-window-setup-function'
+
+`edit-picture-hook'
+
+`electric-buffer-menu-mode-hook'
+
+`electric-command-history-hook'
+
+`electric-help-mode-hook'
+
+`emacs-lisp-mode-hook'
+
+`fill-paragraph-function'
+
+`find-file-hooks'
+
+`find-file-not-found-hooks'
+
+`first-change-hook'
+
+`font-lock-after-fontify-buffer-hook'
+
+`font-lock-beginning-of-syntax-function'
+
+`font-lock-mode-hook'
+
+`fume-found-function-hook'
+
+`fume-list-mode-hook'
+
+`fume-rescan-buffer-hook'
+
+`fume-sort-function'
+
+`gnus-startup-hook'
+
+`hack-local-variables-hook'
+
+`highlight-headers-follow-url-function'
+
+`hyper-apropos-mode-hook'
+
+`indent-line-function'
+
+`indent-mim-hook'
+
+`indent-region-function'
+
+`initial-calendar-window-hook'
+
+`isearch-mode-end-hook'
+
+`isearch-mode-hook'
+
+`java-mode-hook'
+
+`kill-buffer-hook'
+
+`kill-buffer-query-functions'
+
+`kill-emacs-hook'
+
+`kill-emacs-query-functions'
+
+`kill-hooks'
+
+`LaTeX-mode-hook'
+
+`latex-mode-hook'
+
+`ledit-mode-hook'
+
+`lisp-indent-function'
+
+`lisp-interaction-mode-hook'
+
+`lisp-mode-hook'
+
+`list-diary-entries-hook'
+
+`load-read-function'
+
+`log-message-filter-function'
+
+`m2-mode-hook'
+
+`mail-citation-hook'
+
+`mail-mode-hook'
+
+`mail-setup-hook'
+
+`make-annotation-hook'
+
+`makefile-mode-hook'
+
+`map-frame-hook'
+
+`mark-diary-entries-hook'
+
+`medit-mode-hook'
+
+`menu-no-selection-hook'
+
+`mh-compose-letter-hook'
+
+`mh-folder-mode-hook'
+
+`mh-letter-mode-hook'
+
+`mim-mode-hook'
+
+`minibuffer-exit-hook'
+
+`minibuffer-setup-hook'
+
+`mode-motion-hook'
+
+`mouse-enter-frame-hook'
+
+`mouse-leave-frame-hook'
+
+`mouse-track-cleanup-hook'
+
+`mouse-track-click-hook'
+
+`mouse-track-down-hook'
+
+`mouse-track-drag-hook'
+
+`mouse-track-drag-up-hook'
+
+`mouse-track-up-hook'
+
+`mouse-yank-function'
+
+`news-mode-hook'
+
+`news-reply-mode-hook'
+
+`news-setup-hook'
+
+`nongregorian-diary-listing-hook'
+
+`nongregorian-diary-marking-hook'
+
+`nroff-mode-hook'
+
+`objc-mode-hook'
+
+`outline-mode-hook'
+
+`perl-mode-hook'
+
+`plain-TeX-mode-hook'
+
+`post-command-hook'
+
+`post-gc-hook'
+
+`pre-abbrev-expand-hook'
+
+`pre-command-hook'
+
+`pre-display-buffer-function'
+
+`pre-gc-hook'
+
+`pre-idle-hook'
+
+`print-diary-entries-hook'
+
+`prolog-mode-hook'
+
+`protect-innocence-hook'
+
+`remove-message-hook'
+
+`revert-buffer-function'
+
+`revert-buffer-insert-contents-function'
+
+`rmail-edit-mode-hook'
+
+`rmail-mode-hook'
+
+`rmail-retry-setup-hook'
+
+`rmail-summary-mode-hook'
+
+`scheme-indent-hook'
+
+`scheme-mode-hook'
+
+`scribe-mode-hook'
+
+`select-frame-hook'
+
+`send-mail-function'
+
+`shell-mode-hook'
+
+`shell-set-directory-error-hook'
+
+`special-display-function'
+
+`suspend-hook'
+
+`suspend-resume-hook'
+
+`temp-buffer-show-function'
+
+`term-setup-hook'
+
+`terminal-mode-hook'
+
+`terminal-mode-break-hook'
+
+`TeX-mode-hook'
+
+`tex-mode-hook'
+
+`text-mode-hook'
+
+`today-visible-calendar-hook'
+
+`today-invisible-calendar-hook'
+
+`tooltalk-message-handler-hook'
+
+`tooltalk-pattern-handler-hook'
+
+`tooltalk-unprocessed-message-hook'
+
+`unmap-frame-hook'
+
+`vc-checkin-hook'
+
+`vc-checkout-writable-buffer-hook'
+
+`vc-log-after-operation-hook'
+
+`vc-make-buffer-writable-hook'
+
+`view-hook'
+
+`vm-arrived-message-hook'
+
+`vm-arrived-messages-hook'
+
+`vm-chop-full-name-function'
+
+`vm-display-buffer-hook'
+
+`vm-edit-message-hook'
+
+`vm-forward-message-hook'
+
+`vm-iconify-frame-hook'
+
+`vm-inhibit-write-file-hook'
+
+`vm-key-functions'
+
+`vm-mail-hook'
+
+`vm-mail-mode-hook'
+
+`vm-menu-setup-hook'
+
+`vm-mode-hook'
+
+`vm-quit-hook'
+
+`vm-rename-current-buffer-function'
+
+`vm-reply-hook'
+
+`vm-resend-bounced-message-hook'
+
+`vm-resend-message-hook'
+
+`vm-retrieved-spooled-mail-hook'
+
+`vm-select-message-hook'
+
+`vm-select-new-message-hook'
+
+`vm-select-unread-message-hook'
+
+`vm-send-digest-hook'
+
+`vm-summary-mode-hook'
+
+`vm-summary-pointer-update-hook'
+
+`vm-summary-redo-hook'
+
+`vm-summary-update-hook'
+
+`vm-undisplay-buffer-hook'
+
+`vm-visit-folder-hook'
+
+`window-setup-hook'
+
+`write-contents-hooks'
+
+`write-file-data-hooks'
+
+`write-file-hooks'
+
+`write-region-annotate-functions'
+
+`x-lost-selection-hooks'
+
+`x-sent-selection-hooks'
+
+`zmacs-activate-region-hook'
+
+`zmacs-deactivate-region-hook'
+
+`zmacs-update-region-hook'

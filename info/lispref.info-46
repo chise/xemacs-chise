@@ -1,0 +1,1199 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Style Tips,  Next: Compilation Tips,  Up: Tips
+
+Writing Clean Lisp Programs
+===========================
+
+   Here are some tips for avoiding common errors in writing Lisp code
+intended for widespread use:
+
+   * Since all global variables share the same name space, and all
+     functions share another name space, you should choose a short word
+     to distinguish your program from other Lisp programs.  Then take
+     care to begin the names of all global variables, constants, and
+     functions with the chosen prefix.  This helps avoid name conflicts.
+
+     This recommendation applies even to names for traditional Lisp
+     primitives that are not primitives in XEmacs Lisp--even to `cadr'.
+     Believe it or not, there is more than one plausible way to define
+     `cadr'.  Play it safe; append your name prefix to produce a name
+     like `foo-cadr' or `mylib-cadr' instead.
+
+     If you write a function that you think ought to be added to Emacs
+     under a certain name, such as `twiddle-files', don't call it by
+     that name in your program.  Call it `mylib-twiddle-files' in your
+     program, and send mail to `bug-gnu-emacs@prep.ai.mit.edu'
+     suggesting we add it to Emacs.  If and when we do, we can change
+     the name easily enough.
+
+     If one prefix is insufficient, your package may use two or three
+     alternative common prefixes, so long as they make sense.
+
+     Separate the prefix from the rest of the symbol name with a hyphen,
+     `-'.  This will be consistent with XEmacs itself and with most
+     Emacs Lisp programs.
+
+   * It is often useful to put a call to `provide' in each separate
+     library program, at least if there is more than one entry point to
+     the program.
+
+   * If a file requires certain other library programs to be loaded
+     beforehand, then the comments at the beginning of the file should
+     say so.  Also, use `require' to make sure they are loaded.
+
+   * If one file FOO uses a macro defined in another file BAR, FOO
+     should contain this expression before the first use of the macro:
+
+          (eval-when-compile (require 'BAR))
+
+     (And BAR should contain `(provide 'BAR)', to make the `require'
+     work.)  This will cause BAR to be loaded when you byte-compile
+     FOO.  Otherwise, you risk compiling FOO without the necessary
+     macro loaded, and that would produce compiled code that won't work
+     right.  *Note Compiling Macros::.
+
+     Using `eval-when-compile' avoids loading BAR when the compiled
+     version of FOO is _used_.
+
+   * If you define a major mode, make sure to run a hook variable using
+     `run-hooks', just as the existing major modes do.  *Note Hooks::.
+
+   * If the purpose of a function is to tell you whether a certain
+     condition is true or false, give the function a name that ends in
+     `p'.  If the name is one word, add just `p'; if the name is
+     multiple words, add `-p'.  Examples are `framep' and
+     `frame-live-p'.
+
+   * If a user option variable records a true-or-false condition, give
+     it a name that ends in `-flag'.
+
+   * Please do not define `C-c LETTER' as a key in your major modes.
+     These sequences are reserved for users; they are the *only*
+     sequences reserved for users, so we cannot do without them.
+
+     Instead, define sequences consisting of `C-c' followed by a
+     non-letter.  These sequences are reserved for major modes.
+
+     Changing all the major modes in Emacs 18 so they would follow this
+     convention was a lot of work.  Abandoning this convention would
+     make that work go to waste, and inconvenience users.
+
+   * Sequences consisting of `C-c' followed by `{', `}', `<', `>', `:'
+     or `;' are also reserved for major modes.
+
+   * Sequences consisting of `C-c' followed by any other punctuation
+     character are allocated for minor modes.  Using them in a major
+     mode is not absolutely prohibited, but if you do that, the major
+     mode binding may be shadowed from time to time by minor modes.
+
+   * You should not bind `C-h' following any prefix character (including
+     `C-c').  If you don't bind `C-h', it is automatically available as
+     a help character for listing the subcommands of the prefix
+     character.
+
+   * You should not bind a key sequence ending in <ESC> except following
+     another <ESC>.  (That is, it is ok to bind a sequence ending in
+     `<ESC> <ESC>'.)
+
+     The reason for this rule is that a non-prefix binding for <ESC> in
+     any context prevents recognition of escape sequences as function
+     keys in that context.
+
+   * Applications should not bind mouse events based on button 1 with
+     the shift key held down.  These events include `S-mouse-1',
+     `M-S-mouse-1', `C-S-mouse-1', and so on.  They are reserved for
+     users.
+
+   * Modes should redefine `mouse-2' as a command to follow some sort of
+     reference in the text of a buffer, if users usually would not want
+     to alter the text in that buffer by hand.  Modes such as Dired,
+     Info, Compilation, and Occur redefine it in this way.
+
+   * When a package provides a modification of ordinary Emacs behavior,
+     it is good to include a command to enable and disable the feature,
+     Provide a command named `WHATEVER-mode' which turns the feature on
+     or off, and make it autoload (*note Autoload::).  Design the
+     package so that simply loading it has no visible effect--that
+     should not enable the feature.  Users will request the feature by
+     invoking the command.
+
+   * It is a bad idea to define aliases for the Emacs primitives.  Use
+     the standard names instead.
+
+   * Redefining an Emacs primitive is an even worse idea.  It may do
+     the right thing for a particular program, but there is no telling
+     what other programs might break as a result.
+
+   * If a file does replace any of the functions or library programs of
+     standard XEmacs, prominent comments at the beginning of the file
+     should say which functions are replaced, and how the behavior of
+     the replacements differs from that of the originals.
+
+   * Please keep the names of your XEmacs Lisp source files to 13
+     characters or less.  This way, if the files are compiled, the
+     compiled files' names will be 14 characters or less, which is
+     short enough to fit on all kinds of Unix systems.
+
+   * Don't use `next-line' or `previous-line' in programs; nearly
+     always, `forward-line' is more convenient as well as more
+     predictable and robust.  *Note Text Lines::.
+
+   * Don't call functions that set the mark, unless setting the mark is
+     one of the intended features of your program.  The mark is a
+     user-level feature, so it is incorrect to change the mark except
+     to supply a value for the user's benefit.  *Note The Mark::.
+
+     In particular, don't use these functions:
+
+        * `beginning-of-buffer', `end-of-buffer'
+
+        * `replace-string', `replace-regexp'
+
+     If you just want to move point, or replace a certain string,
+     without any of the other features intended for interactive users,
+     you can replace these functions with one or two lines of simple
+     Lisp code.
+
+   * Use lists rather than vectors, except when there is a particular
+     reason to use a vector.  Lisp has more facilities for manipulating
+     lists than for vectors, and working with lists is usually more
+     convenient.
+
+     Vectors are advantageous for tables that are substantial in size
+     and are accessed in random order (not searched front to back),
+     provided there is no need to insert or delete elements (only lists
+     allow that).
+
+   * The recommended way to print a message in the echo area is with
+     the `message' function, not `princ'.  *Note The Echo Area::.
+
+   * When you encounter an error condition, call the function `error'
+     (or `signal').  The function `error' does not return.  *Note
+     Signaling Errors::.
+
+     Do not use `message', `throw', `sleep-for', or `beep' to report
+     errors.
+
+   * An error message should start with a capital letter but should not
+     end with a period.
+
+   * Try to avoid using recursive edits.  Instead, do what the Rmail `e'
+     command does: use a new local keymap that contains one command
+     defined to switch back to the old local keymap.  Or do what the
+     `edit-options' command does: switch to another buffer and let the
+     user switch back at will.  *Note Recursive Editing::.
+
+   * In some other systems there is a convention of choosing variable
+     names that begin and end with `*'.  We don't use that convention
+     in Emacs Lisp, so please don't use it in your programs.  (Emacs
+     uses such names only for program-generated buffers.)  The users
+     will find Emacs more coherent if all libraries use the same
+     conventions.
+
+   * Indent each function with `C-M-q' (`indent-sexp') using the
+     default indentation parameters.
+
+   * Don't make a habit of putting close-parentheses on lines by
+     themselves; Lisp programmers find this disconcerting.  Once in a
+     while, when there is a sequence of many consecutive
+     close-parentheses, it may make sense to split them in one or two
+     significant places.
+
+   * Please put a copyright notice on the file if you give copies to
+     anyone.  Use the same lines that appear at the top of the Lisp
+     files in XEmacs itself.  If you have not signed papers to assign
+     the copyright to the Foundation, then place your name in the
+     copyright notice in place of the Foundation's name.
+
+
+File: lispref.info,  Node: Compilation Tips,  Next: Documentation Tips,  Prev: Style Tips,  Up: Tips
+
+Tips for Making Compiled Code Fast
+==================================
+
+   Here are ways of improving the execution speed of byte-compiled Lisp
+programs.
+
+   * Use the `profile' library to profile your program.  See the file
+     `profile.el' for instructions.
+
+   * Use iteration rather than recursion whenever possible.  Function
+     calls are slow in XEmacs Lisp even when a compiled function is
+     calling another compiled function.
+
+   * Using the primitive list-searching functions `memq', `member',
+     `assq', or `assoc' is even faster than explicit iteration.  It may
+     be worth rearranging a data structure so that one of these
+     primitive search functions can be used.
+
+   * Certain built-in functions are handled specially in byte-compiled
+     code, avoiding the need for an ordinary function call.  It is a
+     good idea to use these functions rather than alternatives.  To see
+     whether a function is handled specially by the compiler, examine
+     its `byte-compile' property.  If the property is non-`nil', then
+     the function is handled specially.
+
+     For example, the following input will show you that `aref' is
+     compiled specially (*note Array Functions::) while `elt' is not
+     (*note Sequence Functions::):
+
+          (get 'aref 'byte-compile)
+               => byte-compile-two-args
+          
+          (get 'elt 'byte-compile)
+               => nil
+
+   * If calling a small function accounts for a  substantial part of
+     your program's running time, make the function inline.  This
+     eliminates the function call overhead.  Since making a function
+     inline reduces the flexibility of changing the program, don't do
+     it unless it gives a noticeable speedup in something slow enough
+     that users care about the speed.  *Note Inline Functions::.
+
+
+File: lispref.info,  Node: Documentation Tips,  Next: Comment Tips,  Prev: Compilation Tips,  Up: Tips
+
+Tips for Documentation Strings
+==============================
+
+   Here are some tips for the writing of documentation strings.
+
+   * Every command, function, or variable intended for users to know
+     about should have a documentation string.
+
+   * An internal variable or subroutine of a Lisp program might as well
+     have a documentation string.  In earlier Emacs versions, you could
+     save space by using a comment instead of a documentation string,
+     but that is no longer the case.
+
+   * The first line of the documentation string should consist of one
+     or two complete sentences that stand on their own as a summary.
+     `M-x apropos' displays just the first line, and if it doesn't
+     stand on its own, the result looks bad.  In particular, start the
+     first line with a capital letter and end with a period.
+
+     The documentation string can have additional lines that expand on
+     the details of how to use the function or variable.  The
+     additional lines should be made up of complete sentences also, but
+     they may be filled if that looks good.
+
+   * For consistency, phrase the verb in the first sentence of a
+     documentation string as an infinitive with "to" omitted.  For
+     instance, use "Return the cons of A and B." in preference to
+     "Returns the cons of A and B."  Usually it looks good to do
+     likewise for the rest of the first paragraph.  Subsequent
+     paragraphs usually look better if they have proper subjects.
+
+   * Write documentation strings in the active voice, not the passive,
+     and in the present tense, not the future.  For instance, use
+     "Return a list containing A and B." instead of "A list containing
+     A and B will be returned."
+
+   * Avoid using the word "cause" (or its equivalents) unnecessarily.
+     Instead of, "Cause Emacs to display text in boldface," write just
+     "Display text in boldface."
+
+   * Do not start or end a documentation string with whitespace.
+
+   * Format the documentation string so that it fits in an Emacs window
+     on an 80-column screen.  It is a good idea for most lines to be no
+     wider than 60 characters.  The first line can be wider if
+     necessary to fit the information that ought to be there.
+
+     However, rather than simply filling the entire documentation
+     string, you can make it much more readable by choosing line breaks
+     with care.  Use blank lines between topics if the documentation
+     string is long.
+
+   * *Do not* indent subsequent lines of a documentation string so that
+     the text is lined up in the source code with the text of the first
+     line.  This looks nice in the source code, but looks bizarre when
+     users view the documentation.  Remember that the indentation
+     before the starting double-quote is not part of the string!
+
+   * A variable's documentation string should start with `*' if the
+     variable is one that users would often want to set interactively.
+     If the value is a long list, or a function, or if the variable
+     would be set only in init files, then don't start the
+     documentation string with `*'.  *Note Defining Variables::.
+
+   * The documentation string for a variable that is a yes-or-no flag
+     should start with words such as "Non-nil means...", to make it
+     clear that all non-`nil' values are equivalent and indicate
+     explicitly what `nil' and non-`nil' mean.
+
+   * When a function's documentation string mentions the value of an
+     argument of the function, use the argument name in capital letters
+     as if it were a name for that value.  Thus, the documentation
+     string of the function `/' refers to its second argument as
+     `DIVISOR', because the actual argument name is `divisor'.
+
+     Also use all caps for meta-syntactic variables, such as when you
+     show the decomposition of a list or vector into subunits, some of
+     which may vary.
+
+   * When a documentation string refers to a Lisp symbol, write it as it
+     would be printed (which usually means in lower case), with
+     single-quotes around it.  For example: `lambda'.  There are two
+     exceptions: write t and nil without single-quotes.  (In this
+     manual, we normally do use single-quotes for those symbols.)
+
+   * Don't write key sequences directly in documentation strings.
+     Instead, use the `\\[...]' construct to stand for them.  For
+     example, instead of writing `C-f', write `\\[forward-char]'.  When
+     Emacs displays the documentation string, it substitutes whatever
+     key is currently bound to `forward-char'.  (This is normally `C-f',
+     but it may be some other character if the user has moved key
+     bindings.)  *Note Keys in Documentation::.
+
+   * In documentation strings for a major mode, you will want to refer
+     to the key bindings of that mode's local map, rather than global
+     ones.  Therefore, use the construct `\\<...>' once in the
+     documentation string to specify which key map to use.  Do this
+     before the first use of `\\[...]'.  The text inside the `\\<...>'
+     should be the name of the variable containing the local keymap for
+     the major mode.
+
+     It is not practical to use `\\[...]' very many times, because
+     display of the documentation string will become slow.  So use this
+     to describe the most important commands in your major mode, and
+     then use `\\{...}' to display the rest of the mode's keymap.
+
+
+File: lispref.info,  Node: Comment Tips,  Next: Library Headers,  Prev: Documentation Tips,  Up: Tips
+
+Tips on Writing Comments
+========================
+
+   We recommend these conventions for where to put comments and how to
+indent them:
+
+`;'
+     Comments that start with a single semicolon, `;', should all be
+     aligned to the same column on the right of the source code.  Such
+     comments usually explain how the code on the same line does its
+     job.  In Lisp mode and related modes, the `M-;'
+     (`indent-for-comment') command automatically inserts such a `;' in
+     the right place, or aligns such a comment if it is already present.
+
+     This and following examples are taken from the Emacs sources.
+
+          (setq base-version-list                 ; there was a base
+                (assoc (substring fn 0 start-vn)  ; version to which
+                       file-version-assoc-list))  ; this looks like
+                                                  ; a subversion
+
+`;;'
+     Comments that start with two semicolons, `;;', should be aligned to
+     the same level of indentation as the code.  Such comments usually
+     describe the purpose of the following lines or the state of the
+     program at that point.  For example:
+
+          (prog1 (setq auto-fill-function
+                       ...
+                       ...
+            ;; update modeline
+            (redraw-modeline)))
+
+     Every function that has no documentation string (because it is use
+     only internally within the package it belongs to), should have
+     instead a two-semicolon comment right before the function,
+     explaining what the function does and how to call it properly.
+     Explain precisely what each argument means and how the function
+     interprets its possible values.
+
+`;;;'
+     Comments that start with three semicolons, `;;;', should start at
+     the left margin.  Such comments are used outside function
+     definitions to make general statements explaining the design
+     principles of the program.  For example:
+
+          ;;; This Lisp code is run in XEmacs
+          ;;; when it is to operate as a server
+          ;;; for other processes.
+
+     Another use for triple-semicolon comments is for commenting out
+     lines within a function.  We use triple-semicolons for this
+     precisely so that they remain at the left margin.
+
+          (defun foo (a)
+          ;;; This is no longer necessary.
+          ;;;  (force-mode-line-update)
+            (message "Finished with %s" a))
+
+`;;;;'
+     Comments that start with four semicolons, `;;;;', should be aligned
+     to the left margin and are used for headings of major sections of a
+     program.  For example:
+
+          ;;;; The kill ring
+
+The indentation commands of the Lisp modes in XEmacs, such as `M-;'
+(`indent-for-comment') and <TAB> (`lisp-indent-line') automatically
+indent comments according to these conventions, depending on the number
+of semicolons.  *Note Manipulating Comments: (emacs)Comments.
+
+
+File: lispref.info,  Node: Library Headers,  Prev: Comment Tips,  Up: Tips
+
+Conventional Headers for XEmacs Libraries
+=========================================
+
+   XEmacs has conventions for using special comments in Lisp libraries
+to divide them into sections and give information such as who wrote
+them.  This section explains these conventions.  First, an example:
+
+     ;;; lisp-mnt.el --- minor mode for Emacs Lisp maintainers
+     
+     ;; Copyright (C) 1992 Free Software Foundation, Inc.
+     
+     ;; Author: Eric S. Raymond <esr@snark.thyrsus.com>
+     ;; Maintainer: Eric S. Raymond <esr@snark.thyrsus.com>
+     ;; Created: 14 Jul 1992
+     ;; Version: 1.2
+     ;; Keywords: docs
+     
+     ;; This file is part of XEmacs.
+     COPYING PERMISSIONS...
+
+   The very first line should have this format:
+
+     ;;; FILENAME --- DESCRIPTION
+
+The description should be complete in one line.
+
+   After the copyright notice come several "header comment" lines, each
+beginning with `;; HEADER-NAME:'.  Here is a table of the conventional
+possibilities for HEADER-NAME:
+
+`Author'
+     This line states the name and net address of at least the principal
+     author of the library.
+
+     If there are multiple authors, you can list them on continuation
+     lines led by `;;' and a tab character, like this:
+
+          ;; Author: Ashwin Ram <Ram-Ashwin@cs.yale.edu>
+          ;;      Dave Sill <de5@ornl.gov>
+          ;;      Dave Brennan <brennan@hal.com>
+          ;;      Eric Raymond <esr@snark.thyrsus.com>
+
+`Maintainer'
+     This line should contain a single name/address as in the Author
+     line, or an address only, or the string `FSF'.  If there is no
+     maintainer line, the person(s) in the Author field are presumed to
+     be the maintainers.  The example above is mildly bogus because the
+     maintainer line is redundant.
+
+     The idea behind the `Author' and `Maintainer' lines is to make
+     possible a Lisp function to "send mail to the maintainer" without
+     having to mine the name out by hand.
+
+     Be sure to surround the network address with `<...>' if you
+     include the person's full name as well as the network address.
+
+`Created'
+     This optional line gives the original creation date of the file.
+     For historical interest only.
+
+`Version'
+     If you wish to record version numbers for the individual Lisp
+     program, put them in this line.
+
+`Adapted-By'
+     In this header line, place the name of the person who adapted the
+     library for installation (to make it fit the style conventions, for
+     example).
+
+`Keywords'
+     This line lists keywords for the `finder-by-keyword' help command.
+     This field is important; it's how people will find your package
+     when they're looking for things by topic area.  To separate the
+     keywords, you can use spaces, commas, or both.
+
+   Just about every Lisp library ought to have the `Author' and
+`Keywords' header comment lines.  Use the others if they are
+appropriate.  You can also put in header lines with other header
+names--they have no standard meanings, so they can't do any harm.
+
+   We use additional stylized comments to subdivide the contents of the
+library file.  Here is a table of them:
+
+`;;; Commentary:'
+     This begins introductory comments that explain how the library
+     works.  It should come right after the copying permissions.
+
+`;;; Change log:'
+     This begins change log information stored in the library file (if
+     you store the change history there).  For most of the Lisp files
+     distributed with XEmacs, the change history is kept in the file
+     `ChangeLog' and not in the source file at all; these files do not
+     have a `;;; Change log:' line.
+
+`;;; Code:'
+     This begins the actual code of the program.
+
+`;;; FILENAME ends here'
+     This is the "footer line"; it appears at the very end of the file.
+     Its purpose is to enable people to detect truncated versions of
+     the file from the lack of a footer line.
+
+
+File: lispref.info,  Node: Building XEmacs and Object Allocation,  Next: Standard Errors,  Prev: Tips,  Up: Top
+
+Building XEmacs; Allocation of Objects
+**************************************
+
+   This chapter describes how the runnable XEmacs executable is dumped
+with the preloaded Lisp libraries in it and how storage is allocated.
+
+   There is an entire separate document, the `XEmacs Internals Manual',
+devoted to the internals of XEmacs from the perspective of the C
+programmer.  It contains much more detailed information about the build
+process, the allocation and garbage-collection process, and other
+aspects related to the internals of XEmacs.
+
+* Menu:
+
+* Building XEmacs::     How to preload Lisp libraries into XEmacs.
+* Pure Storage::        A kludge to make preloaded Lisp functions sharable.
+* Garbage Collection::  Reclaiming space for Lisp objects no longer used.
+
+
+File: lispref.info,  Node: Building XEmacs,  Next: Pure Storage,  Up: Building XEmacs and Object Allocation
+
+Building XEmacs
+===============
+
+   This section explains the steps involved in building the XEmacs
+executable.  You don't have to know this material to build and install
+XEmacs, since the makefiles do all these things automatically.  This
+information is pertinent to XEmacs maintenance.
+
+   The `XEmacs Internals Manual' contains more information about this.
+
+   Compilation of the C source files in the `src' directory produces an
+executable file called `temacs', also called a "bare impure XEmacs".
+It contains the XEmacs Lisp interpreter and I/O routines, but not the
+editing commands.
+
+   Before XEmacs is actually usable, a number of Lisp files need to be
+loaded.  These define all the editing commands, plus most of the startup
+code and many very basic Lisp primitives.  This is accomplished by
+loading the file `loadup.el', which in turn loads all of the other
+standardly-loaded Lisp files.
+
+   It takes a substantial time to load the standard Lisp files.
+Luckily, you don't have to do this each time you run XEmacs; `temacs'
+can dump out an executable program called `xemacs' that has these files
+preloaded.  `xemacs' starts more quickly because it does not need to
+load the files.  This is the XEmacs executable that is normally
+installed.
+
+   To create `xemacs', use the command `temacs -batch -l loadup dump'.
+The purpose of `-batch' here is to tell `temacs' to run in
+non-interactive, command-line mode. (`temacs' can _only_ run in this
+fashion.  Part of the code required to initialize frames and faces is
+in Lisp, and must be loaded before XEmacs is able to create any frames.)
+The argument `dump' tells `loadup.el' to dump a new executable named
+`xemacs'.
+
+   The dumping process is highly system-specific, and some operating
+systems don't support dumping.  On those systems, you must start XEmacs
+with the `temacs -batch -l loadup run-temacs' command each time you use
+it.  This takes a substantial time, but since you need to start Emacs
+once a day at most--or once a week if you never log out--the extra time
+is not too severe a problem. (In older versions of Emacs, you started
+Emacs from `temacs' using `temacs -l loadup'.)
+
+   You are free to start XEmacs directly from `temacs' if you want,
+even if there is already a dumped `xemacs'.  Normally you wouldn't want
+to do that; but the Makefiles do this when you rebuild XEmacs using
+`make all-elc', which builds XEmacs and simultaneously compiles any
+out-of-date Lisp files. (You need `xemacs' in order to compile Lisp
+files.  However, you also need the compiled Lisp files in order to dump
+out `xemacs'.  If both of these are missing or corrupted, you are out
+of luck unless you're able to bootstrap `xemacs' from `temacs'.  Note
+that `make all-elc' actually loads the alternative loadup file
+`loadup-el.el', which works like `loadup.el' but disables the
+pure-copying process and forces XEmacs to ignore any compiled Lisp
+files even if they exist.)
+
+   You can specify additional files to preload by writing a library
+named `site-load.el' that loads them.  You may need to increase the
+value of `PURESIZE', in `src/puresize.h', to make room for the
+additional files.  You should _not_ modify this file directly, however;
+instead, use the `--puresize' configuration option. (If you run out of
+pure space while dumping `xemacs', you will be told how much pure space
+you actually will need.) However, the advantage of preloading
+additional files decreases as machines get faster.  On modern machines,
+it is often not advisable, especially if the Lisp code is on a file
+system local to the machine running XEmacs.
+
+   You can specify other Lisp expressions to execute just before dumping
+by putting them in a library named `site-init.el'.  However, if they
+might alter the behavior that users expect from an ordinary unmodified
+XEmacs, it is better to put them in `default.el', so that users can
+override them if they wish.  *Note Start-up Summary::.
+
+   Before `loadup.el' dumps the new executable, it finds the
+documentation strings for primitive and preloaded functions (and
+variables) in the file where they are stored, by calling
+`Snarf-documentation' (*note Accessing Documentation::).  These strings
+were moved out of the `xemacs' executable to make it smaller.  *Note
+Documentation Basics::.
+
+ - Function: dump-emacs to-file from-file
+     This function dumps the current state of XEmacs into an executable
+     file TO-FILE.  It takes symbols from FROM-FILE (this is normally
+     the executable file `temacs').
+
+     If you use this function in an XEmacs that was already dumped, you
+     must set `command-line-processed' to `nil' first for good results.
+     *Note Command Line Arguments::.
+
+ - Function: run-emacs-from-temacs &rest args
+     This is the function that implements the `run-temacs' command-line
+     argument.  It is called from `loadup.el' as appropriate.  You
+     should most emphatically _not_ call this yourself; it will
+     reinitialize your XEmacs process and you'll be sorry.
+
+ - Command: emacs-version &optional arg
+     This function returns a string describing the version of XEmacs
+     that is running.  It is useful to include this string in bug
+     reports.
+
+     When called interactively with a prefix argument, insert string at
+     point.  Don't use this function in programs to choose actions
+     according to the system configuration; look at
+     `system-configuration' instead.
+
+          (emacs-version)
+            => "XEmacs 20.1 [Lucid] (i586-unknown-linux2.0.29)
+                           of Mon Apr  7 1997 on altair.xemacs.org"
+
+     Called interactively, the function prints the same information in
+     the echo area.
+
+ - Variable: emacs-build-time
+     The value of this variable is the time at which XEmacs was built
+     at the local site.
+
+          emacs-build-time "Mon Apr  7 20:28:52 1997"
+               =>
+
+ - Variable: emacs-version
+     The value of this variable is the version of Emacs being run.  It
+     is a string, e.g. `"20.1 XEmacs Lucid"'.
+
+   The following two variables did not exist before FSF GNU Emacs
+version 19.23 and XEmacs version 19.10, which reduces their usefulness
+at present, but we hope they will be convenient in the future.
+
+ - Variable: emacs-major-version
+     The major version number of Emacs, as an integer.  For XEmacs
+     version 20.1, the value is 20.
+
+ - Variable: emacs-minor-version
+     The minor version number of Emacs, as an integer.  For XEmacs
+     version 20.1, the value is 1.
+
+
+File: lispref.info,  Node: Pure Storage,  Next: Garbage Collection,  Prev: Building XEmacs,  Up: Building XEmacs and Object Allocation
+
+Pure Storage
+============
+
+   XEmacs Lisp uses two kinds of storage for user-created Lisp objects:
+"normal storage" and "pure storage".  Normal storage is where all the
+new data created during an XEmacs session is kept; see the following
+section for information on normal storage.  Pure storage is used for
+certain data in the preloaded standard Lisp files--data that should
+never change during actual use of XEmacs.
+
+   Pure storage is allocated only while `temacs' is loading the
+standard preloaded Lisp libraries.  In the file `xemacs', it is marked
+as read-only (on operating systems that permit this), so that the
+memory space can be shared by all the XEmacs jobs running on the machine
+at once.  Pure storage is not expandable; a fixed amount is allocated
+when XEmacs is compiled, and if that is not sufficient for the preloaded
+libraries, `temacs' aborts with an error message.  If that happens, you
+must increase the compilation parameter `PURESIZE' using the
+`--puresize' option to `configure'.  This normally won't happen unless
+you try to preload additional libraries or add features to the standard
+ones.
+
+ - Function: purecopy object
+     This function makes a copy of OBJECT in pure storage and returns
+     it.  It copies strings by simply making a new string with the same
+     characters in pure storage.  It recursively copies the contents of
+     vectors and cons cells.  It does not make copies of other objects
+     such as symbols, but just returns them unchanged.  It signals an
+     error if asked to copy markers.
+
+     This function is a no-op except while XEmacs is being built and
+     dumped; it is usually called only in the file
+     `xemacs/lisp/prim/loaddefs.el', but a few packages call it just in
+     case you decide to preload them.
+
+ - Variable: pure-bytes-used
+     The value of this variable is the number of bytes of pure storage
+     allocated so far.  Typically, in a dumped XEmacs, this number is
+     very close to the total amount of pure storage available--if it
+     were not, we would preallocate less.
+
+ - Variable: purify-flag
+     This variable determines whether `defun' should make a copy of the
+     function definition in pure storage.  If it is non-`nil', then the
+     function definition is copied into pure storage.
+
+     This flag is `t' while loading all of the basic functions for
+     building XEmacs initially (allowing those functions to be sharable
+     and non-collectible).  Dumping XEmacs as an executable always
+     writes `nil' in this variable, regardless of the value it actually
+     has before and after dumping.
+
+     You should not change this flag in a running XEmacs.
+
+
+File: lispref.info,  Node: Garbage Collection,  Prev: Pure Storage,  Up: Building XEmacs and Object Allocation
+
+Garbage Collection
+==================
+
+   When a program creates a list or the user defines a new function
+(such as by loading a library), that data is placed in normal storage.
+If normal storage runs low, then XEmacs asks the operating system to
+allocate more memory in blocks of 2k bytes.  Each block is used for one
+type of Lisp object, so symbols, cons cells, markers, etc., are
+segregated in distinct blocks in memory.  (Vectors, long strings,
+buffers and certain other editing types, which are fairly large, are
+allocated in individual blocks, one per object, while small strings are
+packed into blocks of 8k bytes. [More correctly, a string is allocated
+in two sections: a fixed size chunk containing the length, list of
+extents, etc.; and a chunk containing the actual characters in the
+string.  It is this latter chunk that is either allocated individually
+or packed into 8k blocks.  The fixed size chunk is packed into 2k
+blocks, as for conses, markers, etc.])
+
+   It is quite common to use some storage for a while, then release it
+by (for example) killing a buffer or deleting the last pointer to an
+object.  XEmacs provides a "garbage collector" to reclaim this
+abandoned storage.  (This name is traditional, but "garbage recycler"
+might be a more intuitive metaphor for this facility.)
+
+   The garbage collector operates by finding and marking all Lisp
+objects that are still accessible to Lisp programs.  To begin with, it
+assumes all the symbols, their values and associated function
+definitions, and any data presently on the stack, are accessible.  Any
+objects that can be reached indirectly through other accessible objects
+are also accessible.
+
+   When marking is finished, all objects still unmarked are garbage.  No
+matter what the Lisp program or the user does, it is impossible to refer
+to them, since there is no longer a way to reach them.  Their space
+might as well be reused, since no one will miss them.  The second
+("sweep") phase of the garbage collector arranges to reuse them.
+
+   The sweep phase puts unused cons cells onto a "free list" for future
+allocation; likewise for symbols, markers, extents, events, floats,
+compiled-function objects, and the fixed-size portion of strings.  It
+compacts the accessible small string-chars chunks so they occupy fewer
+8k blocks; then it frees the other 8k blocks.  Vectors, buffers,
+windows, and other large objects are individually allocated and freed
+using `malloc' and `free'.
+
+     Common Lisp note: unlike other Lisps, XEmacs Lisp does not call
+     the garbage collector when the free list is empty.  Instead, it
+     simply requests the operating system to allocate more storage, and
+     processing continues until `gc-cons-threshold' bytes have been
+     used.
+
+     This means that you can make sure that the garbage collector will
+     not run during a certain portion of a Lisp program by calling the
+     garbage collector explicitly just before it (provided that portion
+     of the program does not use so much space as to force a second
+     garbage collection).
+
+ - Command: garbage-collect
+     This command runs a garbage collection, and returns information on
+     the amount of space in use.  (Garbage collection can also occur
+     spontaneously if you use more than `gc-cons-threshold' bytes of
+     Lisp data since the previous garbage collection.)
+
+     `garbage-collect' returns a list containing the following
+     information:
+
+          ((USED-CONSES . FREE-CONSES)
+           (USED-SYMS . FREE-SYMS)
+           (USED-MARKERS . FREE-MARKERS)
+           USED-STRING-CHARS
+           USED-VECTOR-SLOTS
+           (PLIST))
+          
+          => ((73362 . 8325) (13718 . 164)
+          (5089 . 5098) 949121 118677
+          (conses-used 73362 conses-free 8329 cons-storage 658168
+          symbols-used 13718 symbols-free 164 symbol-storage 335216
+          bit-vectors-used 0 bit-vectors-total-length 0
+          bit-vector-storage 0 vectors-used 7882
+          vectors-total-length 118677 vector-storage 537764
+          compiled-functions-used 1336 compiled-functions-free 37
+          compiled-function-storage 44440 short-strings-used 28829
+          long-strings-used 2 strings-free 7722
+          short-strings-total-length 916657 short-string-storage 1179648
+          long-strings-total-length 32464 string-header-storage 441504
+          floats-used 3 floats-free 43 float-storage 2044 markers-used 5089
+          markers-free 5098 marker-storage 245280 events-used 103
+          events-free 835 event-storage 110656 extents-used 10519
+          extents-free 2718 extent-storage 372736
+          extent-auxiliarys-used 111 extent-auxiliarys-freed 3
+          extent-auxiliary-storage 4440 window-configurations-used 39
+          window-configurations-on-free-list 5
+          window-configurations-freed 10 window-configuration-storage 9492
+          popup-datas-used 3 popup-data-storage 72 toolbar-buttons-used 62
+          toolbar-button-storage 4960 toolbar-datas-used 12
+          toolbar-data-storage 240 symbol-value-buffer-locals-used 182
+          symbol-value-buffer-local-storage 5824
+          symbol-value-lisp-magics-used 22
+          symbol-value-lisp-magic-storage 1496
+          symbol-value-varaliases-used 43
+          symbol-value-varalias-storage 1032 opaque-lists-used 2
+          opaque-list-storage 48 color-instances-used 12
+          color-instance-storage 288 font-instances-used 5
+          font-instance-storage 180 opaques-used 11 opaque-storage 312
+          range-tables-used 1 range-table-storage 16 faces-used 34
+          face-storage 2584 glyphs-used 124 glyph-storage 4464
+          specifiers-used 775 specifier-storage 43869 weak-lists-used 786
+          weak-list-storage 18864 char-tables-used 40
+          char-table-storage 41920 buffers-used 25 buffer-storage 7000
+          extent-infos-used 457 extent-infos-freed 73
+          extent-info-storage 9140 keymaps-used 275 keymap-storage 12100
+          consoles-used 4 console-storage 384 command-builders-used 2
+          command-builder-storage 120 devices-used 2 device-storage 344
+          frames-used 3 frame-storage 624 image-instances-used 47
+          image-instance-storage 3008 windows-used 27 windows-freed 2
+          window-storage 9180 lcrecord-lists-used 15
+          lcrecord-list-storage 360 hash-tables-used 631
+          hash-table-storage 25240 streams-used 1 streams-on-free-list 3
+          streams-freed 12 stream-storage 91))
+
+     Here is a table explaining each element:
+
+    USED-CONSES
+          The number of cons cells in use.
+
+    FREE-CONSES
+          The number of cons cells for which space has been obtained
+          from the operating system, but that are not currently being
+          used.
+
+    USED-SYMS
+          The number of symbols in use.
+
+    FREE-SYMS
+          The number of symbols for which space has been obtained from
+          the operating system, but that are not currently being used.
+
+    USED-MARKERS
+          The number of markers in use.
+
+    FREE-MARKERS
+          The number of markers for which space has been obtained from
+          the operating system, but that are not currently being used.
+
+    USED-STRING-CHARS
+          The total size of all strings, in characters.
+
+    USED-VECTOR-SLOTS
+          The total number of elements of existing vectors.
+
+    PLIST
+          A list of alternating keyword/value pairs providing more
+          detailed information. (As you can see above, quite a lot of
+          information is provided.)
+
+ - User Option: gc-cons-threshold
+     The value of this variable is the number of bytes of storage that
+     must be allocated for Lisp objects after one garbage collection in
+     order to trigger another garbage collection.  A cons cell counts
+     as eight bytes, a string as one byte per character plus a few
+     bytes of overhead, and so on; space allocated to the contents of
+     buffers does not count.  Note that the subsequent garbage
+     collection does not happen immediately when the threshold is
+     exhausted, but only the next time the Lisp evaluator is called.
+
+     The initial threshold value is 500,000.  If you specify a larger
+     value, garbage collection will happen less often.  This reduces the
+     amount of time spent garbage collecting, but increases total
+     memory use.  You may want to do this when running a program that
+     creates lots of Lisp data.
+
+     You can make collections more frequent by specifying a smaller
+     value, down to 10,000.  A value less than 10,000 will remain in
+     effect only until the subsequent garbage collection, at which time
+     `garbage-collect' will set the threshold back to 10,000. (This does
+     not apply if XEmacs was configured with `--debug'.  Therefore, be
+     careful when setting `gc-cons-threshold' in that case!)
+
+ - Variable: pre-gc-hook
+     This is a normal hook to be run just before each garbage
+     collection.  Interrupts, garbage collection, and errors are
+     inhibited while this hook runs, so be extremely careful in what
+     you add here.  In particular, avoid consing, and do not interact
+     with the user.
+
+ - Variable: post-gc-hook
+     This is a normal hook to be run just after each garbage collection.
+     Interrupts, garbage collection, and errors are inhibited while
+     this hook runs, so be extremely careful in what you add here.  In
+     particular, avoid consing, and do not interact with the user.
+
+ - Variable: gc-message
+     This is a string to print to indicate that a garbage collection is
+     in progress.  This is printed in the echo area.  If the selected
+     frame is on a window system and `gc-pointer-glyph' specifies a
+     value (i.e. a pointer image instance) in the domain of the
+     selected frame, the mouse cursor will change instead of this
+     message being printed.
+
+ - Glyph: gc-pointer-glyph
+     This holds the pointer glyph used to indicate that a garbage
+     collection is in progress.  If the selected window is on a window
+     system and this glyph specifies a value (i.e. a pointer image
+     instance) in the domain of the selected window, the cursor will be
+     changed as specified during garbage collection.  Otherwise, a
+     message will be printed in the echo area, as controlled by
+     `gc-message'.  *Note Glyphs::.
+
+   If XEmacs was configured with `--debug', you can set the following
+two variables to get direct information about all the allocation that
+is happening in a segment of Lisp code.
+
+ - Variable: debug-allocation
+     If non-zero, print out information to stderr about all objects
+     allocated.
+
+ - Variable: debug-allocation-backtrace
+     Length (in stack frames) of short backtrace printed out by
+     `debug-allocation'.
+
+
+File: lispref.info,  Node: Standard Errors,  Next: Standard Buffer-Local Variables,  Prev: Building XEmacs and Object Allocation,  Up: Top
+
+Standard Errors
+***************
+
+   Here is the complete list of the error symbols in standard Emacs,
+grouped by concept.  The list includes each symbol's message (on the
+`error-message' property of the symbol) and a cross reference to a
+description of how the error can occur.
+
+   Each error symbol has an `error-conditions' property that is a list
+of symbols.  Normally this list includes the error symbol itself and
+the symbol `error'.  Occasionally it includes additional symbols, which
+are intermediate classifications, narrower than `error' but broader
+than a single error symbol.  For example, all the errors in accessing
+files have the condition `file-error'.
+
+   As a special exception, the error symbol `quit' does not have the
+condition `error', because quitting is not considered an error.
+
+   *Note Errors::, for an explanation of how errors are generated and
+handled.
+
+`SYMBOL'
+     STRING; REFERENCE.
+
+`error'
+     `"error"'
+     *Note Errors::.
+
+`quit'
+     `"Quit"'
+     *Note Quitting::.
+
+`args-out-of-range'
+     `"Args out of range"'
+     *Note Sequences Arrays Vectors::.
+
+`arith-error'
+     `"Arithmetic error"'
+     See `/' and `%' in *Note Numbers::.
+
+`beginning-of-buffer'
+     `"Beginning of buffer"'
+     *Note Motion::.
+
+`buffer-read-only'
+     `"Buffer is read-only"'
+     *Note Read Only Buffers::.
+
+`cyclic-function-indirection'
+     `"Symbol's chain of function indirections contains a loop"'
+     *Note Function Indirection::.
+
+`domain-error'
+     `"Arithmetic domain error"'
+`end-of-buffer'
+     `"End of buffer"'
+     *Note Motion::.
+
+`end-of-file'
+     `"End of file during parsing"'
+     This is not a `file-error'.
+     *Note Input Functions::.
+
+`file-error'
+     This error and its subcategories do not have error-strings,
+     because the error message is constructed from the data items alone
+     when the error condition `file-error' is present.
+     *Note Files::.
+
+`file-locked'
+     This is a `file-error'.
+     *Note File Locks::.
+
+`file-already-exists'
+     This is a `file-error'.
+     *Note Writing to Files::.
+
+`file-supersession'
+     This is a `file-error'.
+     *Note Modification Time::.
+
+`invalid-byte-code'
+     `"Invalid byte code"'
+     *Note Byte Compilation::.
+
+`invalid-function'
+     `"Invalid function"'
+     *Note Classifying Lists::.
+
+`invalid-read-syntax'
+     `"Invalid read syntax"'
+     *Note Input Functions::.
+
+`invalid-regexp'
+     `"Invalid regexp"'
+     *Note Regular Expressions::.
+
+`mark-inactive'
+     `"The mark is not active now"'
+`no-catch'
+     `"No catch for tag"'
+     *Note Catch and Throw::.
+
+`overflow-error'
+     `"Arithmetic overflow error"'
+`protected-field'
+     `"Attempt to modify a protected field"'
+`range-error'
+     `"Arithmetic range error"'
+`search-failed'
+     `"Search failed"'
+     *Note Searching and Matching::.
+
+`setting-constant'
+     `"Attempt to set a constant symbol"'
+     *Note Variables that Never Change: Constant Variables.
+
+`singularity-error'
+     `"Arithmetic singularity error"'
+`tooltalk-error'
+     `"ToolTalk error"'
+     *Note ToolTalk Support::.
+
+`undefined-keystroke-sequence'
+     `"Undefined keystroke sequence"'
+`void-function'
+     `"Symbol's function definition is void"'
+     *Note Function Cells::.
+
+`void-variable'
+     `"Symbol's value as variable is void"'
+     *Note Accessing Variables::.
+
+`wrong-number-of-arguments'
+     `"Wrong number of arguments"'
+     *Note Classifying Lists::.
+
+`wrong-type-argument'
+     `"Wrong type argument"'
+     *Note Type Predicates::.
+
+   These error types, which are all classified as special cases of
+`arith-error', can occur on certain systems for invalid use of
+mathematical functions.
+
+`domain-error'
+     `"Arithmetic domain error"'
+     *Note Math Functions::.
+
+`overflow-error'
+     `"Arithmetic overflow error"'
+     *Note Math Functions::.
+
+`range-error'
+     `"Arithmetic range error"'
+     *Note Math Functions::.
+
+`singularity-error'
+     `"Arithmetic singularity error"'
+     *Note Math Functions::.
+
+`underflow-error'
+     `"Arithmetic underflow error"'
+     *Note Math Functions::.
+
