@@ -1,3 +1,18 @@
+2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R037-Big.el: Reformatted.
+
+2003-01-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R070-Square.el, Ideograph-R060-Step.el,
+	Ideograph-R041-Inch.el: Reformatted.
+
+	* Ideograph-R040-Roof.el: Reformatted.
+	(M-07226): Separate C2-3B36 and U+5BCB.
+
+	* Ideograph-R039-Child.el: Reformatted.
+	(M-06987): Separate G1-4B6F and U+5B6B.
+
 2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R009-Man.el: Reformatted.
@@ -8,7 +23,8 @@
 	rename <cjk radical person as roof> to <ideographic component
 	person as roof>.
 
-	* Ideograph-R031-Enclosure.el: Reformatted.
+	* Ideograph-R033-Scholar.el, Ideograph-R031-Enclosure.el:
+	Reformatted.
 
 2003-01-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
