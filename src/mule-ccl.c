@@ -1233,6 +1233,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
 	      break;
 #endif
 
+#ifndef UTF2000
 	    case CCL_WriteMultibyteChar2:
 	      i = reg[RRR]; /* charset */
 	      if (i == LEADING_BYTE_ASCII)
@@ -1252,6 +1253,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
 	      CCL_WRITE_CHAR (i);
 
 	      break;
+#endif
 
 #if 0
 	    case CCL_TranslateCharacter:
