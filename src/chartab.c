@@ -3159,8 +3159,11 @@ Return the list of all existing character attributes except coded-charsets.
   
 #ifdef HAVE_LIBCHISE
   if (!NILP (rehash))
-    chise_ds_foreach_char_feature_name
-      (default_chise_data_source, &char_attribute_list_reset_map_func);
+    {
+      open_chise_data_source_maybe ();
+      chise_ds_foreach_char_feature_name
+	(default_chise_data_source, &char_attribute_list_reset_map_func);
+    }
 #endif
   GCPRO1 (char_attribute_list);
   char_attribute_list_closure.char_attribute_list = &char_attribute_list;
