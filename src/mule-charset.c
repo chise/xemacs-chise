@@ -383,7 +383,9 @@ Return the alist of attributes of CHARACTER.
 */
        (character))
 {
-  return get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+  CHECK_CHAR (character);
+  return Fcopy_alist (get_char_code_table (XCHAR (character),
+					   Vcharacter_attribute_table));
 }
 
 DEFUN ("get-char-attribute", Fget_char_attribute, 2, 2, 0, /*
