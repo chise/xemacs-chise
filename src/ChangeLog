@@ -1,3 +1,8 @@
+2004-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char-variants): Refer `->subsumptive',
+	`->denotational' and `->identical' as same as `->ucs-unified'.
+
 2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-specs in value of

@@ -1,3 +1,9 @@
+2004-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->fullwidth' for non UCS character when running with non-readable
+	mode and it does not have `->fullwidth*sources'.
+
 2004-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R213-Turtle.el, Ideograph-R205-Frog.el,
