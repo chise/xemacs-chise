@@ -1,3 +1,10 @@
+2004-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+4188): Use `->subsumptive'.
+	(U+4189): Use `->subsumptive'.
+	(C3-5E47): Use `<-ancient-ideograph*sources' instead of char-ref
+	in `<-ancient-ideograph'.
+
 2004-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+68A6): Use
