@@ -1,3 +1,8 @@
+2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=gt-k): Renamed from `ideograph-gt-k'.
+	(ideograph-gt-k): Changed to an alias for `=gt-k'.
+
 2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=big5-cdp): Renamed from `chinese-big5-cdp'.
