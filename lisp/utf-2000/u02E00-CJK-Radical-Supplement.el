@@ -835,6 +835,7 @@
      ((=ucs		  . #x8BA0)	; 讠
       ))
     (=ucs		. #x2EC8)	; ⻈
+    (=big5-cdp		. #x8963)	; &I-CDP-8963;
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED SHELL")
