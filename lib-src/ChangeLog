@@ -1,3 +1,7 @@
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released

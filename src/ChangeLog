@@ -1,3 +1,17 @@
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_CHAR_OBS_94x94): New macro.
+	(MAX_CHAR_OBS_94x94): New macro.
+	(breakup_char_1): Support obsolete XEmacs-UCS private code space
+	for 94x94 sets.
+
+	* mule-charset.c (put_byte_from_character_table): Change unit size
+	from 128 to 256.
+	(mark_charset): Don't mark `cs->decoding_table' if `UTF2000' is
+	not defined.
+	(Fmake_reverse_direction_charset): Modify dummy argument of
+	`make_charset' for non-UTF-2000 environment.
+
 1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* char-ucs.h (MAKE_CHAR): Allow nested decoding-table.
