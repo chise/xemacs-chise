@@ -34,13 +34,13 @@ Boston, MA 02111-1307, USA.  */
 /*                       in a Mule-formatted string                     */
 /************************************************************************/
 
-/* Does this byte represent the first byte of a character? */
+/* Does BYTE represent the first byte of a character? */
 
-INLINE_HEADER int BUFBYTE_FIRST_BYTE_P(Bufbyte c);
+INLINE_HEADER int BUFBYTE_FIRST_BYTE_P(Bufbyte byte);
 INLINE_HEADER int
-BUFBYTE_FIRST_BYTE_P(Bufbyte c)
+BUFBYTE_FIRST_BYTE_P(Bufbyte byte)
 {
-  return (c <= 0x7f) || (0xc0 <= c);
+  return (byte <= 0x7F) || (0xC0 <= byte);
 }
 
 
@@ -53,19 +53,19 @@ BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 #define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
 
 
-INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (Bufbyte fb);
 INLINE_HEADER int
-REP_BYTES_BY_FIRST_BYTE (int fb)
+REP_BYTES_BY_FIRST_BYTE (Bufbyte fb)
 {
-  if ( fb < 0xc0 )
+  if ( fb < 0xC0 )
     return 1;
-  else if ( fb < 0xe0 )
+  else if ( fb < 0xE0 )
     return 2;
-  else if ( fb < 0xf0 )
+  else if ( fb < 0xF0 )
     return 3;
-  else if ( fb < 0xf8 )
+  else if ( fb < 0xF8 )
     return 4;
-  else if ( fb < 0xfc )
+  else if ( fb < 0xFC )
     return 5;
   else
     return 6;
