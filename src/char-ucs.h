@@ -479,7 +479,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c2 = latin_a_char_to_byte2[c - 0x100];
 	}
     }
-  else if (c < MIN_CHAR_GREEK)
+  else if (c <= MAX_CHAR_GREEK)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -494,15 +494,18 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  charsets = Fcdr (charsets);	      
 	}
       /* otherwise */
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
-    }
-  else if (c <= MAX_CHAR_GREEK)
-    {
-      *charset = Vcharset_greek_iso8859_7;
-      *c1 = c - MIN_CHAR_GREEK + 0x20;
-      *c2 = 0;
+      if (MIN_CHAR_GREEK <= c)
+	{
+	  *charset = Vcharset_greek_iso8859_7;
+	  *c1 = c - MIN_CHAR_GREEK + 0x20;
+	  *c2 = 0;
+	}
+      else
+	{
+	  *charset = Vcharset_ucs_bmp;
+	  *c1 = c >> 8;
+	  *c2 = c & 0xff;
+	}
     }
   else if (c < MIN_CHAR_CYRILLIC)
     {
