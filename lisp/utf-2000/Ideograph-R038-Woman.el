@@ -6504,6 +6504,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x5A67)	; 婧
+    (=big5		. #xD4D1)	; &I-B-D4D1;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
@@ -6527,7 +6528,6 @@
       ))
     (->subsumptive
      ((=gb2312		  . #x663A)	; &G0-663A; [70-26]
-      (=big5		  . #xD4D1)	; &I-B-D4D1;
       (=ucs@unicode	  . #x5A67)	; &G0-663A;
       )
      ((=cns11643-2	  . #x3454)	; &C2-3454; [20-52]
@@ -8999,6 +8999,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x5AB5)	; 媵
+    (=big5		. #xDCF9)	; &I-B-DCF9;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
@@ -9022,7 +9023,6 @@
       ))
     (->subsumptive
      ((=gb2312		  . #x6B74)	; &G0-6B74; [75-84]
-      (=big5		  . #xDCF9)	; &I-B-DCF9;
       (=ucs@unicode	  . #x5AB5)	; &G0-6B74;
       )
      ((=cns11643-2	  . #x4240)	; &C2-4240; [34-32]
