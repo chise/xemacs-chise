@@ -787,15 +787,21 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2A32)	; ø»œ‚
     (ideograph-daikanwa . 03155)	; ø¸€±“
     ))
 (define-char
-  '((morohashi-daikanwa	3155 0 2)
+  '((=>ucs		. #x20B3B)	; ð ¬»
+    (morohashi-daikanwa	3155 0 0)
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (chinese-cns11643-6 . #x2A32)	; ø»œ‚
+    ))
+(define-char
+  '((morohashi-daikanwa	3155 0 3)
+    (ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (ucs		. #x20B3B)	; ð ¬»
     ))
 (define-char
