@@ -152,26 +152,23 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (=daikanwa		. 29007)	; &M-29007;
+    (=ucs		. #x26536)	; 𦔶
+    (->subsumptive
+     ((=daikanwa	  . 29007)	; &M-29007;
+      )
+     ((=ucs@iso		  . #x26536)	; &UU+26536;
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (<-same
+    (->subsumptive
+     ((=gt-k		  . 04926)	; &GT-K04926;
+      (=gt-pj-k1	  . #x3432)	; &GT-K04926; [20-18]
+      )
      ((=big5-cdp	  . #x8C5B)	; &CDP-8C5B;
       ))
-    (=gt-k		. 04926)	; &GT-K04926;
-    (=gt-pj-k1		. #x3432)	; &GT-K04926; [20-18]
-    ))
-(define-char
-  '((ideographic-radical . 128)	; ⽿
-    (ideographic-strokes . 2)
-    (total-strokes	 . 8)
-    (<-same
-     ((=gt-k		  . 04926)	; &GT-K04926;
-      ))
-    (=big5-cdp		. #x8C5B)	; &CDP-8C5B;
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
@@ -180,7 +177,7 @@
     (=ucs		. #x8036)	; 耶
     (->subsumptive
      ((=jis-x0208@1990	  . #x4C6D)	; &GT-37579; [44-77]
-      (=cns11643-1	  . #x5326)	; &I-M-29008; [51-06]
+      (=cns11643-1	  . #x5326)	; &I-C1-5326; [51-06]
       (=gt		  . 37579)	; &I-GT-37579;
       (=gt-k		  . 05192)	; &I-GT-K05192;
       (=gt-pj-1		  . #x4C6D)	; &I-GT-37579; [44-77]
