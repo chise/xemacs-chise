@@ -2,6 +2,8 @@
 
 	* Ideograph-R121-Jar.el: Add mappings for Big5 code points.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6621.
+
 2004-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R122-Net.el: Add mappings for Big5 code points.
