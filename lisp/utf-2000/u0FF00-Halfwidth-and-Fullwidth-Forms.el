@@ -4,6 +4,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0021)
+    (<-fullwidth
+     ((name		  . "EXCLAMATION MARK")
+      (ucs		  . #x0021)	; !
+      ))
     (japanese-jisx0208-1978	. #x212A)	; ø»¼‰
     (chinese-gb2312		. #x2321)	; ø»„‰€
     (japanese-jisx0208		. #x212A)	; ø»†‘
@@ -19,6 +23,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0022)
+    (<-fullwidth
+     ((name		  . "QUOTATION MARK")
+      (ucs		  . #x0022)	; "
+      ))
     (chinese-gb2312		. #x2322)	; ø»„‰
     (korean-ksc5601		. #x2322)	; ø»ˆ‰
     (japanese-jisx0213-1	. #x2230)	; ø»¢”©
@@ -30,6 +38,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x0023)
+    (<-fullwidth
+     ((name		  . "NUMBER SIGN")
+      (ucs		  . #x0023)	; #
+      ))
     (japanese-jisx0208-1978	. #x2174)	; ø»½“
     (chinese-gb2312		. #x2323)	; ø»„‰‚
     (japanese-jisx0208		. #x2174)	; ø»†‘›
@@ -45,6 +57,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x0024)
+    (<-fullwidth
+     ((name		  . "DOLLAR SIGN")
+      (ucs		  . #x0024)	; $
+      ))
     (japanese-jisx0208-1978	. #x2170)	; ø»½
     (chinese-gb2312		. #x2167)	; ø»„‡Š
     (japanese-jisx0208		. #x2170)	; ø»†‘—
@@ -60,6 +76,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x0025)
+    (<-fullwidth
+     ((name		  . "PERCENT SIGN")
+      (ucs		  . #x0025)	; %
+      ))
     (japanese-jisx0208-1978	. #x2173)	; ø»½’
     (chinese-gb2312		. #x2325)	; ø»„‰„
     (japanese-jisx0208		. #x2173)	; ø»†‘š
@@ -75,6 +95,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0026)
+    (<-fullwidth
+     ((name		  . "AMPERSAND")
+      (ucs		  . #x0026)	; &
+      ))
     (japanese-jisx0208-1978	. #x2175)	; ø»½”
     (chinese-gb2312		. #x2326)	; ø»„‰…
     (japanese-jisx0208		. #x2175)	; ø»†‘œ
@@ -90,6 +114,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0027)
+    (<-fullwidth
+     ((name		  . "APOSTROPHE")
+      (ucs		  . #x0027)	; '
+      ))
     (chinese-gb2312		. #x2327)	; ø»„‰†
     (korean-ksc5601		. #x2327)	; ø»ˆŽ
     (japanese-jisx0213-1	. #x222F)	; ø»¢”¨
@@ -101,6 +129,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0028)
+    (<-fullwidth
+     ((name		  . "LEFT PARENTHESIS")
+      (ucs		  . #x0028)	; (
+      ))
     (japanese-jisx0208-1978	. #x214A)	; ø»¼©
     (chinese-gb2312		. #x2328)	; ø»„‰‡
     (japanese-jisx0208		. #x214A)	; ø»†±
@@ -116,6 +148,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0029)
+    (<-fullwidth
+     ((name		  . "RIGHT PARENTHESIS")
+      (ucs		  . #x0029)	; )
+      ))
     (japanese-jisx0208-1978	. #x214B)	; ø»¼ª
     (chinese-gb2312		. #x2329)	; ø»„‰ˆ
     (japanese-jisx0208		. #x214B)	; ø»†²
@@ -131,10 +167,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x002A)
+    (<-fullwidth
+     ((name		  . "ASTERISK")
+      (ucs		  . #x002A)	; *
+      ))
     (japanese-jisx0208-1978	. #x2176)	; ø»½•
     (chinese-gb2312		. #x232A)	; ø»„‰‰
     (japanese-jisx0208		. #x2176)	; ø»†‘
     (korean-ksc5601		. #x232A)	; ø»ˆ‘
+    (chinese-cns11643-1		. #x216E)	; ø»‘ƒ©
     (japanese-jisx0208-1990	. #x2176)	; ø½‰·‘
     (chinese-big5		. #xA1AF)	; øºŸœ
     (ucs			. #xFF0A)	; ï¼Š
@@ -145,6 +186,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x002B)
+    (<-fullwidth
+     ((name		  . "PLUS SIGN")
+      (ucs		  . #x002B)	; +
+      ))
     (japanese-jisx0208-1978	. #x215C)	; ø»¼»
     (chinese-gb2312		. #x232B)	; ø»„‰Š
     (japanese-jisx0208		. #x215C)	; ø»†‘ƒ
@@ -160,6 +205,10 @@
     (bidi-category	. "CS")
     (mirrored		. nil)
     (->decomposition	wide #x002C)
+    (<-fullwidth
+     ((name		  . "COMMA")
+      (ucs		  . #x002C)	; ,
+      ))
     (japanese-jisx0208-1978	. #x2124)	; ø»¼ƒ
     (chinese-gb2312		. #x232C)	; ø»„‰‹
     (japanese-jisx0208		. #x2124)	; ø»†‹
@@ -175,6 +224,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x002D)
+    (<-fullwidth
+     ((name		  . "HYPHEN-MINUS")
+      (ucs		  . #x002D)	; -
+      ))
     (chinese-gb2312		. #x232D)	; ø»„‰Œ
     (korean-ksc5601		. #x232D)	; ø»ˆ”
     (chinese-cns11643-1		. #x2231)	; ø»‘„Š
@@ -188,6 +241,10 @@
     (bidi-category	. "CS")
     (mirrored		. nil)
     (->decomposition	wide #x002E)
+    (<-fullwidth
+     ((name		  . "FULL STOP")
+      (ucs		  . #x002E)	; .
+      ))
     (japanese-jisx0208-1978	. #x2125)	; ø»¼„
     (chinese-gb2312		. #x232E)	; ø»„‰
     (japanese-jisx0208		. #x2125)	; ø»†Œ
@@ -203,6 +260,10 @@
     (bidi-category	. "ES")
     (mirrored		. nil)
     (->decomposition	wide #x002F)
+    (<-fullwidth
+     ((name		  . "SOLIDUS")
+      (ucs		  . #x002F)	; /
+      ))
     (japanese-jisx0208-1978	. #x213F)	; ø»¼ž
     (chinese-gb2312		. #x232F)	; ø»„‰Ž
     (japanese-jisx0208		. #x213F)	; ø»†¦
@@ -220,6 +281,10 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (->decomposition	wide #x0030)
+    (<-fullwidth
+     ((name		  . "DIGIT ZERO")
+      (ucs		  . #x0030)	; 0
+      ))
     (japanese-jisx0208-1978	. #x2330)	; ø»¿‹
     (chinese-gb2312		. #x2330)	; ø»„‰
     (japanese-jisx0208		. #x2330)	; ø»†““
@@ -238,6 +303,10 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (->decomposition	wide #x0031)
+    (<-fullwidth
+     ((name		  . "DIGIT ONE")
+      (ucs		  . #x0031)	; 1
+      ))
     (japanese-jisx0208-1978	. #x2331)	; ø»¿Œ
     (chinese-gb2312		. #x2331)	; ø»„‰
     (japanese-jisx0208		. #x2331)	; ø»†“”
@@ -256,6 +325,10 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (->decomposition	wide #x0032)
+    (<-fullwidth
+     ((name		  . "DIGIT TWO")
+      (ucs		  . #x0032)	; 2
+      ))
     (japanese-jisx0208-1978	. #x2332)	; ø»¿
     (chinese-gb2312		. #x2332)	; ø»„‰‘
     (japanese-jisx0208		. #x2332)	; ø»†“•
@@ -274,6 +347,10 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (->decomposition	wide #x0033)
+    (<-fullwidth
+     ((name		  . "DIGIT THREE")
+      (ucs		  . #x0033)	; 3
+      ))
     (japanese-jisx0208-1978	. #x2333)	; ø»¿Ž
     (chinese-gb2312		. #x2333)	; ø»„‰’
     (japanese-jisx0208		. #x2333)	; ø»†“–
@@ -292,6 +369,10 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	wide #x0034)
+    (<-fullwidth
+     ((name		  . "DIGIT FOUR")
+      (ucs		  . #x0034)	; 4
+      ))
     (japanese-jisx0208-1978	. #x2334)	; ø»¿
     (chinese-gb2312		. #x2334)	; ø»„‰“
     (japanese-jisx0208		. #x2334)	; ø»†“—
@@ -310,6 +391,10 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (->decomposition	wide #x0035)
+    (<-fullwidth
+     ((name		  . "DIGIT FIVE")
+      (ucs		  . #x0035)	; 5
+      ))
     (japanese-jisx0208-1978	. #x2335)	; ø»¿
     (chinese-gb2312		. #x2335)	; ø»„‰”
     (japanese-jisx0208		. #x2335)	; ø»†“˜
@@ -328,6 +413,10 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (->decomposition	wide #x0036)
+    (<-fullwidth
+     ((name		  . "DIGIT SIX")
+      (ucs		  . #x0036)	; 6
+      ))
     (japanese-jisx0208-1978	. #x2336)	; ø»¿‘
     (chinese-gb2312		. #x2336)	; ø»„‰•
     (japanese-jisx0208		. #x2336)	; ø»†“™
@@ -346,6 +435,10 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (->decomposition	wide #x0037)
+    (<-fullwidth
+     ((name		  . "DIGIT SEVEN")
+      (ucs		  . #x0037)	; 7
+      ))
     (japanese-jisx0208-1978	. #x2337)	; ø»¿’
     (chinese-gb2312		. #x2337)	; ø»„‰–
     (japanese-jisx0208		. #x2337)	; ø»†“š
@@ -364,6 +457,10 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (->decomposition	wide #x0038)
+    (<-fullwidth
+     ((name		  . "DIGIT EIGHT")
+      (ucs		  . #x0038)	; 8
+      ))
     (japanese-jisx0208-1978	. #x2338)	; ø»¿“
     (chinese-gb2312		. #x2338)	; ø»„‰—
     (japanese-jisx0208		. #x2338)	; ø»†“›
@@ -382,6 +479,10 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (->decomposition	wide #x0039)
+    (<-fullwidth
+     ((name		  . "DIGIT NINE")
+      (ucs		  . #x0039)	; 9
+      ))
     (japanese-jisx0208-1978	. #x2339)	; ø»¿”
     (chinese-gb2312		. #x2339)	; ø»„‰˜
     (japanese-jisx0208		. #x2339)	; ø»†“œ
@@ -397,6 +498,10 @@
     (bidi-category	. "CS")
     (mirrored		. nil)
     (->decomposition	wide #x003A)
+    (<-fullwidth
+     ((name		  . "COLON")
+      (ucs		  . #x003A)	; :
+      ))
     (japanese-jisx0208-1978	. #x2127)	; ø»¼†
     (chinese-gb2312		. #x233A)	; ø»„‰™
     (japanese-jisx0208		. #x2127)	; ø»†Ž
@@ -412,6 +517,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x003B)
+    (<-fullwidth
+     ((name		  . "SEMICOLON")
+      (ucs		  . #x003B)	; ;
+      ))
     (japanese-jisx0208-1978	. #x2128)	; ø»¼‡
     (chinese-gb2312		. #x233B)	; ø»„‰š
     (japanese-jisx0208		. #x2128)	; ø»†
@@ -427,6 +536,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x003C)
+    (<-fullwidth
+     ((name		  . "LESS-THAN SIGN")
+      (ucs		  . #x003C)	; <
+      ))
     (japanese-jisx0208-1978	. #x2163)	; ø»½‚
     (chinese-gb2312		. #x233C)	; ø»„‰›
     (japanese-jisx0208		. #x2163)	; ø»†‘Š
@@ -442,6 +555,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x003D)
+    (<-fullwidth
+     ((name		  . "EQUALS SIGN")
+      (ucs		  . #x003D)	; =
+      ))
     (japanese-jisx0208-1978	. #x2161)	; ø»½€
     (chinese-gb2312		. #x233D)	; ø»„‰œ
     (japanese-jisx0208		. #x2161)	; ø»†‘ˆ
@@ -457,6 +574,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x003E)
+    (<-fullwidth
+     ((name		  . "GREATER-THAN SIGN")
+      (ucs		  . #x003E)	; >
+      ))
     (japanese-jisx0208-1978	. #x2164)	; ø»½ƒ
     (chinese-gb2312		. #x233E)	; ø»„‰
     (japanese-jisx0208		. #x2164)	; ø»†‘‹
@@ -472,6 +593,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x003F)
+    (<-fullwidth
+     ((name		  . "QUESTION MARK")
+      (ucs		  . #x003F)	; ?
+      ))
     (japanese-jisx0208-1978	. #x2129)	; ø»¼ˆ
     (chinese-gb2312		. #x233F)	; ø»„‰ž
     (japanese-jisx0208		. #x2129)	; ø»†
@@ -487,6 +612,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0040)
+    (<-fullwidth
+     ((name		  . "COMMERCIAL AT")
+      (ucs		  . #x0040)	; @
+      ))
     (japanese-jisx0208-1978	. #x2177)	; ø»½–
     (chinese-gb2312		. #x2340)	; ø»„‰Ÿ
     (japanese-jisx0208		. #x2177)	; ø»†‘ž
@@ -502,7 +631,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0041)
-    (->lowercase	#xFF41)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (ucs		  . #xFF41)	; ï½
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (ucs		  . #x0041)	; A
+      ))
     (japanese-jisx0208-1978	. #x2341)	; ø»¿œ
     (chinese-gb2312		. #x2341)	; ø»„‰ 
     (japanese-jisx0208		. #x2341)	; ø»†“¤
@@ -518,7 +654,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0042)
-    (->lowercase	#xFF42)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER B")
+      (ucs		  . #xFF42)	; ï½‚
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (ucs		  . #x0042)	; B
+      ))
     (japanese-jisx0208-1978	. #x2342)	; ø»¿
     (chinese-gb2312		. #x2342)	; ø»„‰¡
     (japanese-jisx0208		. #x2342)	; ø»†“¥
@@ -534,7 +677,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0043)
-    (->lowercase	#xFF43)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER C")
+      (ucs		  . #xFF43)	; ï½ƒ
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (ucs		  . #x0043)	; C
+      ))
     (japanese-jisx0208-1978	. #x2343)	; ø»¿ž
     (chinese-gb2312		. #x2343)	; ø»„‰¢
     (japanese-jisx0208		. #x2343)	; ø»†“¦
@@ -550,7 +700,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0044)
-    (->lowercase	#xFF44)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER D")
+      (ucs		  . #xFF44)	; ï½„
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER D")
+      (ucs		  . #x0044)	; D
+      ))
     (japanese-jisx0208-1978	. #x2344)	; ø»¿Ÿ
     (chinese-gb2312		. #x2344)	; ø»„‰£
     (japanese-jisx0208		. #x2344)	; ø»†“§
@@ -566,7 +723,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0045)
-    (->lowercase	#xFF45)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (ucs		  . #xFF45)	; ï½…
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (ucs		  . #x0045)	; E
+      ))
     (japanese-jisx0208-1978	. #x2345)	; ø»¿ 
     (chinese-gb2312		. #x2345)	; ø»„‰¤
     (japanese-jisx0208		. #x2345)	; ø»†“¨
@@ -582,7 +746,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0046)
-    (->lowercase	#xFF46)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER F")
+      (ucs		  . #xFF46)	; ï½†
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (ucs		  . #x0046)	; F
+      ))
     (japanese-jisx0208-1978	. #x2346)	; ø»¿¡
     (chinese-gb2312		. #x2346)	; ø»„‰¥
     (japanese-jisx0208		. #x2346)	; ø»†“©
@@ -598,7 +769,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0047)
-    (->lowercase	#xFF47)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER G")
+      (ucs		  . #xFF47)	; ï½‡
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (ucs		  . #x0047)	; G
+      ))
     (japanese-jisx0208-1978	. #x2347)	; ø»¿¢
     (chinese-gb2312		. #x2347)	; ø»„‰¦
     (japanese-jisx0208		. #x2347)	; ø»†“ª
@@ -614,7 +792,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0048)
-    (->lowercase	#xFF48)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER H")
+      (ucs		  . #xFF48)	; ï½ˆ
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (ucs		  . #x0048)	; H
+      ))
     (japanese-jisx0208-1978	. #x2348)	; ø»¿£
     (chinese-gb2312		. #x2348)	; ø»„‰§
     (japanese-jisx0208		. #x2348)	; ø»†“«
@@ -630,7 +815,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0049)
-    (->lowercase	#xFF49)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (ucs		  . #xFF49)	; ï½‰
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (ucs		  . #x0049)	; I
+      ))
     (japanese-jisx0208-1978	. #x2349)	; ø»¿¤
     (chinese-gb2312		. #x2349)	; ø»„‰¨
     (japanese-jisx0208		. #x2349)	; ø»†“¬
@@ -646,7 +838,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004A)
-    (->lowercase	#xFF4A)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER J")
+      (ucs		  . #xFF4A)	; ï½Š
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER J")
+      (ucs		  . #x004A)	; J
+      ))
     (japanese-jisx0208-1978	. #x234A)	; ø»¿¥
     (chinese-gb2312		. #x234A)	; ø»„‰©
     (japanese-jisx0208		. #x234A)	; ø»†“­
@@ -662,7 +861,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004B)
-    (->lowercase	#xFF4B)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER K")
+      (ucs		  . #xFF4B)	; ï½‹
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (ucs		  . #x004B)	; K
+      ))
     (japanese-jisx0208-1978	. #x234B)	; ø»¿¦
     (chinese-gb2312		. #x234B)	; ø»„‰ª
     (japanese-jisx0208		. #x234B)	; ø»†“®
@@ -678,7 +884,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004C)
-    (->lowercase	#xFF4C)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
+      (ucs		  . #xFF4C)	; ï½Œ
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER L")
+      (ucs		  . #x004C)	; L
+      ))
     (japanese-jisx0208-1978	. #x234C)	; ø»¿§
     (chinese-gb2312		. #x234C)	; ø»„‰«
     (japanese-jisx0208		. #x234C)	; ø»†“¯
@@ -694,7 +907,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004D)
-    (->lowercase	#xFF4D)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER M")
+      (ucs		  . #xFF4D)	; ï½
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (ucs		  . #x004D)	; M
+      ))
     (japanese-jisx0208-1978	. #x234D)	; ø»¿¨
     (chinese-gb2312		. #x234D)	; ø»„‰¬
     (japanese-jisx0208		. #x234D)	; ø»†“°
@@ -710,7 +930,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004E)
-    (->lowercase	#xFF4E)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER N")
+      (ucs		  . #xFF4E)	; ï½Ž
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER N")
+      (ucs		  . #x004E)	; N
+      ))
     (japanese-jisx0208-1978	. #x234E)	; ø»¿©
     (chinese-gb2312		. #x234E)	; ø»„‰­
     (japanese-jisx0208		. #x234E)	; ø»†“±
@@ -726,7 +953,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x004F)
-    (->lowercase	#xFF4F)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (ucs		  . #xFF4F)	; ï½
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (ucs		  . #x004F)	; O
+      ))
     (japanese-jisx0208-1978	. #x234F)	; ø»¿ª
     (chinese-gb2312		. #x234F)	; ø»„‰®
     (japanese-jisx0208		. #x234F)	; ø»†“²
@@ -742,7 +976,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0050)
-    (->lowercase	#xFF50)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER P")
+      (ucs		  . #xFF50)	; ï½
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (ucs		  . #x0050)	; P
+      ))
     (japanese-jisx0208-1978	. #x2350)	; ø»¿«
     (chinese-gb2312		. #x2350)	; ø»„‰¯
     (japanese-jisx0208		. #x2350)	; ø»†“³
@@ -758,7 +999,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0051)
-    (->lowercase	#xFF51)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Q")
+      (ucs		  . #xFF51)	; ï½‘
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER Q")
+      (ucs		  . #x0051)	; Q
+      ))
     (japanese-jisx0208-1978	. #x2351)	; ø»¿¬
     (chinese-gb2312		. #x2351)	; ø»„‰°
     (japanese-jisx0208		. #x2351)	; ø»†“´
@@ -774,7 +1022,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0052)
-    (->lowercase	#xFF52)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER R")
+      (ucs		  . #xFF52)	; ï½’
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (ucs		  . #x0052)	; R
+      ))
     (japanese-jisx0208-1978	. #x2352)	; ø»¿­
     (chinese-gb2312		. #x2352)	; ø»„‰±
     (japanese-jisx0208		. #x2352)	; ø»†“µ
@@ -790,7 +1045,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0053)
-    (->lowercase	#xFF53)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER S")
+      (ucs		  . #xFF53)	; ï½“
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER S")
+      (ucs		  . #x0053)	; S
+      ))
     (japanese-jisx0208-1978	. #x2353)	; ø»¿®
     (chinese-gb2312		. #x2353)	; ø»„‰²
     (japanese-jisx0208		. #x2353)	; ø»†“¶
@@ -806,7 +1068,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0054)
-    (->lowercase	#xFF54)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER T")
+      (ucs		  . #xFF54)	; ï½”
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER T")
+      (ucs		  . #x0054)	; T
+      ))
     (japanese-jisx0208-1978	. #x2354)	; ø»¿¯
     (chinese-gb2312		. #x2354)	; ø»„‰³
     (japanese-jisx0208		. #x2354)	; ø»†“·
@@ -822,7 +1091,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0055)
-    (->lowercase	#xFF55)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (ucs		  . #xFF55)	; ï½•
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (ucs		  . #x0055)	; U
+      ))
     (japanese-jisx0208-1978	. #x2355)	; ø»¿°
     (chinese-gb2312		. #x2355)	; ø»„‰´
     (japanese-jisx0208		. #x2355)	; ø»†“¸
@@ -838,7 +1114,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0056)
-    (->lowercase	#xFF56)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER V")
+      (ucs		  . #xFF56)	; ï½–
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (ucs		  . #x0056)	; V
+      ))
     (japanese-jisx0208-1978	. #x2356)	; ø»¿±
     (chinese-gb2312		. #x2356)	; ø»„‰µ
     (japanese-jisx0208		. #x2356)	; ø»†“¹
@@ -854,7 +1137,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0057)
-    (->lowercase	#xFF57)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER W")
+      (ucs		  . #xFF57)	; ï½—
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (ucs		  . #x0057)	; W
+      ))
     (japanese-jisx0208-1978	. #x2357)	; ø»¿²
     (chinese-gb2312		. #x2357)	; ø»„‰¶
     (japanese-jisx0208		. #x2357)	; ø»†“º
@@ -870,7 +1160,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0058)
-    (->lowercase	#xFF58)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER X")
+      (ucs		  . #xFF58)	; ï½˜
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (ucs		  . #x0058)	; X
+      ))
     (japanese-jisx0208-1978	. #x2358)	; ø»¿³
     (chinese-gb2312		. #x2358)	; ø»„‰·
     (japanese-jisx0208		. #x2358)	; ø»†“»
@@ -886,7 +1183,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0059)
-    (->lowercase	#xFF59)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Y")
+      (ucs		  . #xFF59)	; ï½™
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER Y")
+      (ucs		  . #x0059)	; Y
+      ))
     (japanese-jisx0208-1978	. #x2359)	; ø»¿´
     (chinese-gb2312		. #x2359)	; ø»„‰¸
     (japanese-jisx0208		. #x2359)	; ø»†“¼
@@ -902,7 +1206,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x005A)
-    (->lowercase	#xFF5A)
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Z")
+      (ucs		  . #xFF5A)	; ï½š
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER Z")
+      (ucs		  . #x005A)	; Z
+      ))
     (japanese-jisx0208-1978	. #x235A)	; ø»¿µ
     (chinese-gb2312		. #x235A)	; ø»„‰¹
     (japanese-jisx0208		. #x235A)	; ø»†“½
@@ -918,6 +1229,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x005B)
+    (<-fullwidth
+     ((name		  . "LEFT SQUARE BRACKET")
+      (ucs		  . #x005B)	; [
+      ))
     (japanese-jisx0208-1978	. #x214E)	; ø»¼­
     (chinese-gb2312		. #x235B)	; ø»„‰º
     (japanese-jisx0208		. #x214E)	; ø»†µ
@@ -931,6 +1246,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x005C)
+    (<-fullwidth
+     ((name		  . "REVERSE SOLIDUS")
+      (ucs		  . #x005C)	; \
+      ))
     (japanese-jisx0208-1978	. #x2140)	; ø»¼Ÿ
     (chinese-gb2312		. #x235C)	; ø»„‰»
     (japanese-jisx0208		. #x2140)	; ø»†§
@@ -946,6 +1265,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x005D)
+    (<-fullwidth
+     ((name		  . "RIGHT SQUARE BRACKET")
+      (ucs		  . #x005D)	; ]
+      ))
     (japanese-jisx0208-1978	. #x214F)	; ø»¼®
     (chinese-gb2312		. #x235D)	; ø»„‰¼
     (japanese-jisx0208		. #x214F)	; ø»†¶
@@ -959,6 +1282,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x005E)
+    (<-fullwidth
+     ((name		  . "CIRCUMFLEX ACCENT")
+      (ucs		  . #x005E)	; ^
+      ))
     (japanese-jisx0208-1978	. #x2130)	; ø»¼
     (chinese-gb2312		. #x235E)	; ø»„‰½
     (japanese-jisx0208		. #x2130)	; ø»†—
@@ -972,6 +1299,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x005F)
+    (<-fullwidth
+     ((name		  . "LOW LINE")
+      (ucs		  . #x005F)	; _
+      ))
     (japanese-jisx0208-1978	. #x2132)	; ø»¼‘
     (chinese-gb2312		. #x235F)	; ø»„‰¾
     (japanese-jisx0208		. #x2132)	; ø»†™
@@ -983,7 +1314,7 @@
     ))
 (define-char
   '((name		. "heavy low line")
-    (->ucs		. #xFF3F)	; ï¼¿
+    (=>ucs		. #xFF3F)	; ï¼¿
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -997,6 +1328,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0060)
+    (<-fullwidth
+     ((name		  . "GRAVE ACCENT")
+      (ucs		  . #x0060)	; `
+      ))
     (japanese-jisx0208-1978	. #x212E)	; ø»¼
     (chinese-gb2312		. #x2360)	; ø»„‰¿
     (japanese-jisx0208		. #x212E)	; ø»†•
@@ -1010,8 +1345,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0061)
-    (->uppercase	#xFF21)
-    (->titlecase	#xFF21)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (ucs		  . #xFF21)	; ï¼¡
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER A")
+      (ucs		  . #x0061)	; a
+      ))
     (japanese-jisx0208-1978	. #x2361)	; ø»¿¼
     (chinese-gb2312		. #x2361)	; ø»„Š€
     (japanese-jisx0208		. #x2361)	; ø»†”„
@@ -1027,8 +1368,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0062)
-    (->uppercase	#xFF22)
-    (->titlecase	#xFF22)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER B")
+      (ucs		  . #xFF22)	; ï¼¢
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER B")
+      (ucs		  . #x0062)	; b
+      ))
     (japanese-jisx0208-1978	. #x2362)	; ø»¿½
     (chinese-gb2312		. #x2362)	; ø»„Š
     (japanese-jisx0208		. #x2362)	; ø»†”…
@@ -1044,8 +1391,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0063)
-    (->uppercase	#xFF23)
-    (->titlecase	#xFF23)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER C")
+      (ucs		  . #xFF23)	; ï¼£
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER C")
+      (ucs		  . #x0063)	; c
+      ))
     (japanese-jisx0208-1978	. #x2363)	; ø»¿¾
     (chinese-gb2312		. #x2363)	; ø»„Š‚
     (japanese-jisx0208		. #x2363)	; ø»†”†
@@ -1061,8 +1414,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0064)
-    (->uppercase	#xFF24)
-    (->titlecase	#xFF24)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER D")
+      (ucs		  . #xFF24)	; ï¼¤
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER D")
+      (ucs		  . #x0064)	; d
+      ))
     (japanese-jisx0208-1978	. #x2364)	; ø»¿¿
     (chinese-gb2312		. #x2364)	; ø»„Šƒ
     (japanese-jisx0208		. #x2364)	; ø»†”‡
@@ -1078,8 +1437,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0065)
-    (->uppercase	#xFF25)
-    (->titlecase	#xFF25)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (ucs		  . #xFF25)	; ï¼¥
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER E")
+      (ucs		  . #x0065)	; e
+      ))
     (japanese-jisx0208-1978	. #x2365)	; ø»‚€€
     (chinese-gb2312		. #x2365)	; ø»„Š„
     (japanese-jisx0208		. #x2365)	; ø»†”ˆ
@@ -1095,8 +1460,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0066)
-    (->uppercase	#xFF26)
-    (->titlecase	#xFF26)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER F")
+      (ucs		  . #xFF26)	; ï¼¦
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER F")
+      (ucs		  . #x0066)	; f
+      ))
     (japanese-jisx0208-1978	. #x2366)	; ø»‚€
     (chinese-gb2312		. #x2366)	; ø»„Š…
     (japanese-jisx0208		. #x2366)	; ø»†”‰
@@ -1112,8 +1483,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0067)
-    (->uppercase	#xFF27)
-    (->titlecase	#xFF27)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER G")
+      (ucs		  . #xFF27)	; ï¼§
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER G")
+      (ucs		  . #x0067)	; g
+      ))
     (japanese-jisx0208-1978	. #x2367)	; ø»‚€‚
     (chinese-gb2312		. #x2367)	; ø»„Š†
     (japanese-jisx0208		. #x2367)	; ø»†”Š
@@ -1129,8 +1506,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0068)
-    (->uppercase	#xFF28)
-    (->titlecase	#xFF28)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER H")
+      (ucs		  . #xFF28)	; ï¼¨
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER H")
+      (ucs		  . #x0068)	; h
+      ))
     (japanese-jisx0208-1978	. #x2368)	; ø»‚€ƒ
     (chinese-gb2312		. #x2368)	; ø»„Š‡
     (japanese-jisx0208		. #x2368)	; ø»†”‹
@@ -1146,8 +1529,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0069)
-    (->uppercase	#xFF29)
-    (->titlecase	#xFF29)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (ucs		  . #xFF29)	; ï¼©
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER I")
+      (ucs		  . #x0069)	; i
+      ))
     (japanese-jisx0208-1978	. #x2369)	; ø»‚€„
     (chinese-gb2312		. #x2369)	; ø»„Šˆ
     (japanese-jisx0208		. #x2369)	; ø»†”Œ
@@ -1163,8 +1552,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006A)
-    (->uppercase	#xFF2A)
-    (->titlecase	#xFF2A)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER J")
+      (ucs		  . #xFF2A)	; ï¼ª
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER J")
+      (ucs		  . #x006A)	; j
+      ))
     (japanese-jisx0208-1978	. #x236A)	; ø»‚€…
     (chinese-gb2312		. #x236A)	; ø»„Š‰
     (japanese-jisx0208		. #x236A)	; ø»†”
@@ -1180,8 +1575,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006B)
-    (->uppercase	#xFF2B)
-    (->titlecase	#xFF2B)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER K")
+      (ucs		  . #xFF2B)	; ï¼«
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER K")
+      (ucs		  . #x006B)	; k
+      ))
     (japanese-jisx0208-1978	. #x236B)	; ø»‚€†
     (chinese-gb2312		. #x236B)	; ø»„ŠŠ
     (japanese-jisx0208		. #x236B)	; ø»†”Ž
@@ -1197,8 +1598,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006C)
-    (->uppercase	#xFF2C)
-    (->titlecase	#xFF2C)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER L")
+      (ucs		  . #xFF2C)	; ï¼¬
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER L")
+      (ucs		  . #x006C)	; l
+      ))
     (japanese-jisx0208-1978	. #x236C)	; ø»‚€‡
     (chinese-gb2312		. #x236C)	; ø»„Š‹
     (japanese-jisx0208		. #x236C)	; ø»†”
@@ -1214,8 +1621,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006D)
-    (->uppercase	#xFF2D)
-    (->titlecase	#xFF2D)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER M")
+      (ucs		  . #xFF2D)	; ï¼­
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER M")
+      (ucs		  . #x006D)	; m
+      ))
     (japanese-jisx0208-1978	. #x236D)	; ø»‚€ˆ
     (chinese-gb2312		. #x236D)	; ø»„ŠŒ
     (japanese-jisx0208		. #x236D)	; ø»†”
@@ -1231,8 +1644,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006E)
-    (->uppercase	#xFF2E)
-    (->titlecase	#xFF2E)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER N")
+      (ucs		  . #xFF2E)	; ï¼®
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER N")
+      (ucs		  . #x006E)	; n
+      ))
     (japanese-jisx0208-1978	. #x236E)	; ø»‚€‰
     (chinese-gb2312		. #x236E)	; ø»„Š
     (japanese-jisx0208		. #x236E)	; ø»†”‘
@@ -1248,8 +1667,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x006F)
-    (->uppercase	#xFF2F)
-    (->titlecase	#xFF2F)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (ucs		  . #xFF2F)	; ï¼¯
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER O")
+      (ucs		  . #x006F)	; o
+      ))
     (japanese-jisx0208-1978	. #x236F)	; ø»‚€Š
     (chinese-gb2312		. #x236F)	; ø»„ŠŽ
     (japanese-jisx0208		. #x236F)	; ø»†”’
@@ -1265,8 +1690,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0070)
-    (->uppercase	#xFF30)
-    (->titlecase	#xFF30)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER P")
+      (ucs		  . #xFF30)	; ï¼°
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER P")
+      (ucs		  . #x0070)	; p
+      ))
     (japanese-jisx0208-1978	. #x2370)	; ø»‚€‹
     (chinese-gb2312		. #x2370)	; ø»„Š
     (japanese-jisx0208		. #x2370)	; ø»†”“
@@ -1282,8 +1713,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0071)
-    (->uppercase	#xFF31)
-    (->titlecase	#xFF31)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Q")
+      (ucs		  . #xFF31)	; ï¼±
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER Q")
+      (ucs		  . #x0071)	; q
+      ))
     (japanese-jisx0208-1978	. #x2371)	; ø»‚€Œ
     (chinese-gb2312		. #x2371)	; ø»„Š
     (japanese-jisx0208		. #x2371)	; ø»†””
@@ -1299,8 +1736,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0072)
-    (->uppercase	#xFF32)
-    (->titlecase	#xFF32)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER R")
+      (ucs		  . #xFF32)	; ï¼²
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER R")
+      (ucs		  . #x0072)	; r
+      ))
     (japanese-jisx0208-1978	. #x2372)	; ø»‚€
     (chinese-gb2312		. #x2372)	; ø»„Š‘
     (japanese-jisx0208		. #x2372)	; ø»†”•
@@ -1316,8 +1759,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0073)
-    (->uppercase	#xFF33)
-    (->titlecase	#xFF33)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER S")
+      (ucs		  . #xFF33)	; ï¼³
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER S")
+      (ucs		  . #x0073)	; s
+      ))
     (japanese-jisx0208-1978	. #x2373)	; ø»‚€Ž
     (chinese-gb2312		. #x2373)	; ø»„Š’
     (japanese-jisx0208		. #x2373)	; ø»†”–
@@ -1333,8 +1782,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0074)
-    (->uppercase	#xFF34)
-    (->titlecase	#xFF34)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER T")
+      (ucs		  . #xFF34)	; ï¼´
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER T")
+      (ucs		  . #x0074)	; t
+      ))
     (japanese-jisx0208-1978	. #x2374)	; ø»‚€
     (chinese-gb2312		. #x2374)	; ø»„Š“
     (japanese-jisx0208		. #x2374)	; ø»†”—
@@ -1350,8 +1805,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0075)
-    (->uppercase	#xFF35)
-    (->titlecase	#xFF35)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (ucs		  . #xFF35)	; ï¼µ
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER U")
+      (ucs		  . #x0075)	; u
+      ))
     (japanese-jisx0208-1978	. #x2375)	; ø»‚€
     (chinese-gb2312		. #x2375)	; ø»„Š”
     (japanese-jisx0208		. #x2375)	; ø»†”˜
@@ -1367,8 +1828,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0076)
-    (->uppercase	#xFF36)
-    (->titlecase	#xFF36)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER V")
+      (ucs		  . #xFF36)	; ï¼¶
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER V")
+      (ucs		  . #x0076)	; v
+      ))
     (japanese-jisx0208-1978	. #x2376)	; ø»‚€‘
     (chinese-gb2312		. #x2376)	; ø»„Š•
     (japanese-jisx0208		. #x2376)	; ø»†”™
@@ -1384,8 +1851,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0077)
-    (->uppercase	#xFF37)
-    (->titlecase	#xFF37)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER W")
+      (ucs		  . #xFF37)	; ï¼·
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER W")
+      (ucs		  . #x0077)	; w
+      ))
     (japanese-jisx0208-1978	. #x2377)	; ø»‚€’
     (chinese-gb2312		. #x2377)	; ø»„Š–
     (japanese-jisx0208		. #x2377)	; ø»†”š
@@ -1401,8 +1874,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0078)
-    (->uppercase	#xFF38)
-    (->titlecase	#xFF38)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER X")
+      (ucs		  . #xFF38)	; ï¼¸
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER X")
+      (ucs		  . #x0078)	; x
+      ))
     (japanese-jisx0208-1978	. #x2378)	; ø»‚€“
     (chinese-gb2312		. #x2378)	; ø»„Š—
     (japanese-jisx0208		. #x2378)	; ø»†”›
@@ -1418,8 +1897,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0079)
-    (->uppercase	#xFF39)
-    (->titlecase	#xFF39)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Y")
+      (ucs		  . #xFF39)	; ï¼¹
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER Y")
+      (ucs		  . #x0079)	; y
+      ))
     (japanese-jisx0208-1978	. #x2379)	; ø»‚€”
     (chinese-gb2312		. #x2379)	; ø»„Š˜
     (japanese-jisx0208		. #x2379)	; ø»†”œ
@@ -1435,8 +1920,14 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x007A)
-    (->uppercase	#xFF3A)
-    (->titlecase	#xFF3A)
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Z")
+      (ucs		  . #xFF3A)	; ï¼º
+      ))
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER Z")
+      (ucs		  . #x007A)	; z
+      ))
     (japanese-jisx0208-1978	. #x237A)	; ø»‚€•
     (chinese-gb2312		. #x237A)	; ø»„Š™
     (japanese-jisx0208		. #x237A)	; ø»†”
@@ -1452,6 +1943,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x007B)
+    (<-fullwidth
+     ((name		  . "LEFT CURLY BRACKET")
+      (ucs		  . #x007B)	; {
+      ))
     (japanese-jisx0208-1978	. #x2150)	; ø»¼¯
     (chinese-gb2312		. #x237B)	; ø»„Šš
     (japanese-jisx0208		. #x2150)	; ø»†·
@@ -1467,6 +1962,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x007C)
+    (<-fullwidth
+     ((name		  . "VERTICAL LINE")
+      (ucs		  . #x007C)	; |
+      ))
     (japanese-jisx0208-1978	. #x2143)	; ø»¼¢
     (chinese-gb2312		. #x237C)	; ø»„Š›
     (japanese-jisx0208		. #x2143)	; ø»†ª
@@ -1482,6 +1981,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x007D)
+    (<-fullwidth
+     ((name		  . "RIGHT CURLY BRACKET")
+      (ucs		  . #x007D)	; }
+      ))
     (japanese-jisx0208-1978	. #x2151)	; ø»¼°
     (chinese-gb2312		. #x237D)	; ø»„Šœ
     (japanese-jisx0208		. #x2151)	; ø»†¸
@@ -1497,6 +2000,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x007E)
+    (<-fullwidth
+     ((name		  . "TILDE")
+      (ucs		  . #x007E)	; ~
+      ))
     (chinese-gb2312		. #x212B)	; ø»„†Ž
     (korean-ksc5601		. #x2226)	; ø»ˆ›¯
     (japanese-jisx0212		. #x2237)	; ø»Š¦„
@@ -2494,6 +3001,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x00A2)
+    (<-fullwidth
+     ((name		  . "CENT SIGN")
+      (ucs		  . #x00A2)	; Â¢
+      ))
     (japanese-jisx0208-1978	. #x2171)	; ø»½
     (chinese-gb2312		. #x2169)	; ø»„‡Œ
     (japanese-jisx0208		. #x2171)	; ø»†‘˜
@@ -2509,6 +3020,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x00A3)
+    (<-fullwidth
+     ((name		  . "POUND SIGN")
+      (ucs		  . #x00A3)	; Â£
+      ))
     (japanese-jisx0208-1978	. #x2172)	; ø»½‘
     (chinese-gb2312		. #x216A)	; ø»„‡
     (japanese-jisx0208		. #x2172)	; ø»†‘™
@@ -2524,6 +3039,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x00AC)
+    (<-fullwidth
+     ((name		  . "NOT SIGN")
+      (ucs		  . #x00AC)	; Â¬
+      ))
     (japanese-jisx0208		. #x224C)	; ø»†’‘
     (korean-ksc5601		. #x217E)	; ø»ˆ›©
     (japanese-jisx0208-1990	. #x224C)	; ø½‰¸…
@@ -2535,6 +3054,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x00AF)
+    (<-fullwidth
+     ((name		  . "MACRON")
+      (ucs		  . #x00AF)	; Â¯
+      ))
     (japanese-jisx0212		. #x2234)	; ø»Š¦
     (japanese-jisx0213-1	. #x292B)	; ø»¢ž¶
     (ucs			. #xFFE3)	; ï¿£
@@ -2545,6 +3068,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x00A6)
+    (<-fullwidth
+     ((name		  . "BROKEN BAR")
+      (ucs		  . #x00A6)	; Â¦
+      ))
     (japanese-jisx0212		. #x2243)	; ø»Š¦
     (japanese-jisx0213-1	. #x2925)	; ø»¢ž°
     (ucs			. #xFFE4)	; ï¿¤
@@ -2555,6 +3082,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x00A5)
+    (<-fullwidth
+     ((name		  . "YEN SIGN")
+      (ucs		  . #x00A5)	; Â¥
+      ))
     (japanese-jisx0208-1978	. #x216F)	; ø»½Ž
     (chinese-gb2312		. #x2324)	; ø»„‰ƒ
     (japanese-jisx0208		. #x216F)	; ø»†‘–
@@ -2570,6 +3101,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x20A9)
+    (<-fullwidth
+     ((name		  . "WON SIGN")
+      (ucs		  . #x20A9)	; â‚©
+      ))
     (korean-ksc5601	. #x235C)	; ø»ˆžƒ
     (ucs		. #xFFE6)	; ï¿¦
     ))
