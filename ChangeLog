@@ -1,3 +1,18 @@
+1999-06-25  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in (with_prefix): Added --with-prefix, defaults to
+	yes, to control whether the value of --prefix is compiled into the 
+	binary.
+
+1999-07-03  Andy Piper  <andy@xemacs.org>
+
+	* configure.usage (--with-widgets): add.
+
+1999-07-02  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: Make sure we get motif in lwlib if we have widgets
+ 	and motif.
+
 1999-06-25  SL Baur  <steve@miho.m17n.org>
 
 	* configure.in (version): Fix --with-infodock test.

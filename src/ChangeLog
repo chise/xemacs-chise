@@ -1,3 +1,56 @@
+1999-07-04  Andy Piper  <andy@xemacs.org>
+
+	* console.c: undo earlier Fprovide changes.
+	* fns.c: ditto.
+	* console.h: ditto.
+
+	* console-tty.c (image_instantiator_format_create_glyphs_tty): new
+ 	function. validate appropriate image formats for tty.
+
+	* glyphs.h (INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM):
+ 	initialize consoles parameter.
+	(struct image_instantiator_methods): add consoles parameter.
+	(IIFORMAT_VALID_CONSOLE): new function. validate the format on the
+ 	console.
+	(INITIALIZE_DEVICE_IIFORMAT): validate the format on the given
+ 	console.
+
+	* glyphs-msw.c: declare instantiators for later use.
+	(image_instantiator_format_create_glyphs_mswindows): validate xpm
+ 	and friends on the mswindows console.
+	* glyphs-x.c: ditto.
+
+	* glyphs.c (valid_image_instantiator_format_p): disallow glyphs
+ 	that have not been registered on the supplied device.
+	(Fvalid_image_instantiator_format_p): add locale argument.
+	(instantiate_image_instantiator): valid image instantiator on the
+ 	device.
+
+	* symsinit.h: add image_instantiator_format_create_glyphs_tty()
+ 	declaration.
+
+	* emacs.c (main_1): add call to
+ 	image_instantiator_format_create_glyphs_tty().
+
+1999-06-29  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add #include <stddef.h>.
+
+	* sysdep.c: Remove #include <stddef.h>.
+	* symbols.c: Remove #include <stddef.h>.
+	* sheap.c: Remove #include <stddef.h>.
+	* opaque.c: Remove #include <stddef.h>.
+	* nt.c: Remove #include <stddef.h>.
+	* mule-charset.c: Remove #include <stddef.h>.
+	* marker.c: Remove #include <stddef.h>.
+	* file-coding.c: Remove #include <stddef.h>.
+	* extents.c: Remove #include <stddef.h>.
+	* elhash.c: Remove #include <stddef.h>.
+	* data.c: Remove #include <stddef.h>.
+	* chartab.c: Remove #include <stddef.h>.
+	* bytecode.c: Remove #include <stddef.h>.
+	* alloc.c: Remove #include <stddef.h>.  Fix vector description
+
 1999-06-30  SL Baur  <steve@miho.m17n.org>
 
 	* editfns.c: Document "%s" format spec.

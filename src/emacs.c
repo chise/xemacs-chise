@@ -1200,6 +1200,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       image_instantiator_format_create ();
       image_instantiator_format_create_glyphs_eimage ();
       image_instantiator_format_create_glyphs_widget ();
+#ifdef HAVE_TTY
+      image_instantiator_format_create_glyphs_tty ();
+#endif
 #ifdef HAVE_X_WINDOWS
       image_instantiator_format_create_glyphs_x ();
 #endif /* HAVE_X_WINDOWS */

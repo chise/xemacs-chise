@@ -73,11 +73,7 @@ typedef unsigned int SOCKET;
 #include <errno.h>
 
 #if defined (__CYGWIN32__) && !defined (CYGWIN_VERSION_DLL_MAJOR)
-typedef struct tagNMHDR { 
-  HWND hwndFrom; 
-  UINT idFrom; 
-  UINT code; 
-} NMHDR, *PNMHDR, *LPNMHDR; 
+typedef NMHDR *LPNMHDR;
 #endif
 
 #ifdef HAVE_MENUBARS

@@ -1,3 +1,55 @@
+1999-06-24  Bob Weiner  <weiner@beopen.com>
+
+	* lib-complete.el (find-library): 
+	(find-library-other-window): 
+	(find-library-other-frame): Completely rewrote
+	so that these functions actually work when called non-interactively.  
+	Also made them handle LIBRARY arguments which end with .el or .elc.
+
+1999-06-24  Bob Weiner  <weiner@beopen.com>
+
+	* simple.el (indent-new-comment-line): Locally bound
+	`block-comment-start' to `comstart' or else when this is called
+	from do-auto-fill, e.g. in Lisp mode, it will insert any non-nil
+	`block-comment-start' value, ignoring any existing spacing after a
+	comment prefix in the previous line and producing ugly comments.
+
+1999-06-23  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (mouse-choose-completion): 
+	(choose-completion): 
+	(completion-switch-to-minibuffer): Added.
+	([Tab]): [Tab] previously switched to the minibuffer
+	but since [space] does that and since most applications in the
+	world use [Tab] to select the next item in a list, do that in the
+	*Completions* buffer too.  This will cause the least confusion
+	among the largest population of users.  -- Bob Weiner, BeOpen.com,
+	06/23/1999.
+
+1999-06-22  Bob Weiner  <weiner@beopen.com>
+
+	* help.el (help-buffer-name): Added support for a null value
+	of `help-buffer-prefix-string' since some buffers require no
+	prefix.
+
+1999-06-20  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (completion-list-mode-quit): Added and bound to {q} 
+	in the completion-list-mode-map to bury the completions buffer
+	even when the minibuffer is no longer active.
+
+1999-06-20  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (list-mode): It is visually disconcerting to have
+	the text cursor disappear within list buffers, especially when
+	moving from window to window, so leave it visible.
+
+1999-07-01  SL Baur  <steve@miho.m17n.org>
+
+	* menubar-items.el (default-menubar): Conditionalize the bug
+	report menu item (which may not be possible in this XEmacs).
+	Reported by: Ken'ichi Handa <handa@etl.go.jp>
+	
 1999-06-30  SL Baur  <steve@miho.m17n.org>
 
 	* subr.el (with-current-buffer): DOC string fix.

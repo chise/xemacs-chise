@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 #include <stdio.h>		/* NULL, etc. */
 #include <ctype.h>
 #include <stdarg.h>
+#include <stddef.h>		/* offsetof */
 
 #ifdef __lucid
 # include <sysent.h>
@@ -2739,7 +2740,6 @@ EXFUN (Fprint, 2);
 EXFUN (Fprocess_status, 1);
 EXFUN (Fprogn, UNEVALLED);
 EXFUN (Fprovide, 1);
-EXFUN (Fprovide_on_console, 2);
 EXFUN (Fpurecopy, 1);
 EXFUN (Fput, 3);
 EXFUN (Fput_range_table, 4);
