@@ -1,3 +1,13 @@
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Makefile.in.in (COPYDIR): Add ${srcdir}/lib-src/char-db if
+	HAVE_CHISE_CLIENT is defined.
+	(COPYDESTS): Add ${archlibdir}/char-db if HAVE_CHISE_CLIENT is
+	defined.
+
+	* configure.in: Define HAVE_CHISE_CLIENT when HAVE_DATABASE and
+	UTF2000 are defined.
+
 2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* configure.in: Don't define `HAVE_GGC' in XEmacs UTF-2000.
