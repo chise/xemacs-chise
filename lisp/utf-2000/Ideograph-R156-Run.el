@@ -22,6 +22,7 @@
     (japanese-jisx0208		. #x6C61)	; ø»‡¿’
     (chinese-cns11643-3		. #x243A)	; ø»•›—
     (japanese-jisx0208-1990	. #x6C61)	; ø½‹¥†
+    (mojikyo			. 050479)	; ø¸Œ”¯
     (ucs			. #x8D71)	; èµ±
     ))
 (define-char
