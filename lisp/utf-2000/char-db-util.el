@@ -165,9 +165,10 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    =gt-k
+    =ucs@unicode
     =big5
     =big5-eten
-    =gt-k
     =jis-x0208@1997
     =jef-china3))
 
