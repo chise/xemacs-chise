@@ -1,3 +1,13 @@
+2002-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+5405): Unify CB08105.
+	(U+35CA): Unify CB07362.
+
+	* Ideograph-R024-Ten.el (JC3-73FC): Unify U-0002099D.
+
+	* Ideograph-R009-Man.el (U-00020256): Delete broken
+	`ideographic-structure'.
+
 2002-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el, Ideograph-R101-Use.el,
