@@ -514,7 +514,7 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
 #define MIN_CHAR_GT		0x61000000
-#define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
+#define MAX_CHAR_GT		(MIN_CHAR_GT + 67547)
 #define MIN_CHAR_BIG5_CDP	0x62000000
 #define MAX_CHAR_BIG5_CDP	0x6200FFFF
 #define MIN_CHAR_HANZIKU_1	(0x62000000 + 65536 * 1)
