@@ -70,27 +70,24 @@
     (=jis-x0208-1978	. #x737D)	; &J78-737D; [83-93]
     ))
 (define-char
-  '((=>ucs		. #x9F9C)	; 龜
-    (ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 15)
-    (<-original-ideograph
-     ((shinjigen-1	  . 9918)
-      (=daikanwa	  . 48847)	; &I-M-48847;
-      ))
-    (<-original-ideograph*sources
-     zhengzi-tong daikanwa shinjigen-1)
-    (shinjigen-1	. 9919)
-    (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
-    (=daikanwa		. 48848)	; &I-M-48848;
-    ))
-(define-char
-  '((morohashi-daikanwa	48848 0 1)
-    (ideographic-radical . 213)	; ⿔
+  '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
     (=ucs		. #x9F9C)	; 龜
-    (=gb12345		. #x396A)	; 龜 [25-74]
+    (->subsumptive
+     ((<-original
+       ((shinjigen-1	    . 9918)
+	(=daikanwa	    . 48847)	; &I-M-48847;
+	))
+      (<-original*sources
+       zhengzi-tong daikanwa shinjigen-1)
+      (shinjigen-1	  . 9919)
+      (=cns11643-7	  . #x2C3A)	; &M-48848; [12-26]
+      (=daikanwa	  . 48848)	; &I-M-48848;
+      )
+     ((=gb12345		  . #x396A)	; &UU+9F9C; [25-74]
+      (=ucs@unicode	  . #x9F9C)	; &UU+9F9C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
