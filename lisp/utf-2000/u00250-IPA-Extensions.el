@@ -12,7 +12,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x2C)	; -0¬-A
+    (ipa		#x2C)	; -0¬-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED ALPHA")
@@ -20,7 +20,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x38)	; -0¸-A
+    (ipa		#x38)	; -0¸-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER B WITH HOOK")
@@ -39,7 +39,7 @@
     (mirrored		. nil)
     (->uppercase	#x0186)
     (->titlecase	#x0186)
-    (ipa	#x37)	; -0·-A
+    (ipa		#x37)	; -0·-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C WITH CURL")
@@ -81,7 +81,7 @@
     (mirrored		. nil)
     (->uppercase	#x018F)
     (->titlecase	#x018F)
-    (ipa	#x27)	; -0§-A
+    (ipa		#x27)	; -0§-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCHWA WITH HOOK")
@@ -89,7 +89,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x3A)	; -0º-A
+    (ipa		#x3A)	; -0º-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER OPEN E")
@@ -99,7 +99,7 @@
     (mirrored		. nil)
     (->uppercase	#x0190)
     (->titlecase	#x0190)
-    (ipa	#x23)	; -0£-A
+    (ipa		#x23)	; -0£-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E")
@@ -167,7 +167,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x2A)	; -0ª-A
+    (ipa		#x2A)	; -0ª-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED H")
@@ -175,7 +175,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x5D)	; -0Ý-A
+    (ipa		#x5D)	; -0Ý-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER H WITH HOOK")
@@ -199,7 +199,7 @@
     (mirrored		. nil)
     (->uppercase	#x0197)
     (->titlecase	#x0197)
-    (ipa	#x26)	; -0¦-A
+    (ipa		#x26)	; -0¦-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER IOTA")
@@ -216,7 +216,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x21)	; -0¡-A
+    (ipa		#x21)	; -0¡-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH MIDDLE TILDE")
@@ -269,7 +269,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x5F)	; -0ß-A
+    (ipa		#x5F)	; -0ß-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH LEFT HOOK")
@@ -279,7 +279,7 @@
     (mirrored		. nil)
     (->uppercase	#x019D)
     (->titlecase	#x019D)
-    (ipa	#x54)	; -0Ô-A
+    (ipa		#x54)	; -0Ô-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH RETROFLEX HOOK")
@@ -303,7 +303,7 @@
     (mirrored		. nil)
     (->uppercase	#x019F)
     (->titlecase	#x019F)
-    (ipa	#x33)	; -0³-A
+    (ipa		#x33)	; -0³-A
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL OE")
@@ -311,7 +311,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x31)	; -0±-A
+    (ipa		#x31)	; -0±-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER CLOSED OMEGA")
@@ -333,7 +333,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x58)	; -0Ø-A
+    (ipa		#x58)	; -0Ø-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R WITH LONG LEG")
@@ -385,7 +385,7 @@
     (mirrored		. nil)
     (->uppercase	#x01A6)
     (->titlecase	#x01A6)
-    (ipa	#x57)	; -0×-A
+    (ipa		#x57)	; -0×-A
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL INVERTED R")
@@ -393,7 +393,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x50)	; -0Ð-A
+    (ipa		#x50)	; -0Ð-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S WITH HOOK")
@@ -410,11 +410,11 @@
     (mirrored		. nil)
     (->uppercase	#x01A9)
     (->titlecase	#x01A9)
-    (ipa	#x4C)	; -0Ì-A
+    (ipa		#x4C)	; -0Ì-A
     ))
 (define-char
   '((name . "LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK")
-    (ucs  . #x0284)
+    (ucs		. #x0284)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -455,7 +455,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x32)	; -0²-A
+    (ipa		#x32)	; -0²-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER UPSILON")
@@ -465,7 +465,7 @@
     (mirrored		. nil)
     (->uppercase	#x01B1)
     (->titlecase	#x01B1)
-    (ipa	#x35)	; -0µ-A
+    (ipa		#x35)	; -0µ-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER V WITH HOOK")
@@ -482,7 +482,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#x2B)
+    (ipa		#x2B)	; -0«-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED W")
@@ -490,7 +490,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#x5F)
+    (ipa		#x5F)	; -0ß-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED Y")
@@ -498,7 +498,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x5B)	; -0Û-A
+    (ipa		#x5B)	; -0Û-A
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL Y")
@@ -506,7 +506,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x2E)	; -0®-A
+    (ipa		#x2E)	; -0®-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z WITH RETROFLEX HOOK")
@@ -530,7 +530,7 @@
     (mirrored		. nil)
     (->uppercase	#x01B7)
     (->titlecase	#x01B7)
-    (ipa	#x4D)	; -0Í-A
+    (ipa		#x4D)	; -0Í-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER EZH WITH CURL")
@@ -622,7 +622,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa	#x5C)	; -0Ü-A
+    (ipa		#x5C)	; -0Ü-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Q WITH HOOK")
