@@ -1,5 +1,8 @@
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R001-One.el (U-00023944): Moved to
+	Ideograph-R077-Stop.el.
+
 	* Ideograph-R140-Grass.el (MH-521): New character; map to U+8362;
 	unify GT-40268.
 
