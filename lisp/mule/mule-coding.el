@@ -209,6 +209,8 @@
 	  ( chinese-cns11643-6                    "C6-" 4 X)
 	  ((chinese-cns11643-7 . isolated)      "I-C7-" 4 X)
 	  ( chinese-cns11643-7                    "C7-" 4 X)
+	  ((korean-ksc5601 . isolated)      	"I-K0-" 4 X)
+	  ( korean-ksc5601                    	  "K0-" 4 X)
 	  ))
 
   (make-coding-system
