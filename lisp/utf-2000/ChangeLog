@@ -1,3 +1,7 @@
+2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-data): Don't use `tabify'.
+
 2003-02-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R089-Double-X.el (M-19751): Unify U-0002039B instead
