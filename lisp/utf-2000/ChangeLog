@@ -1,3 +1,11 @@
+2002-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el, Ideograph-R092-Fang.el: Add mappings for
+	Big5 code points.
+
+	* Ideograph-R091-Slice.el: Add mappings for Big5 code points and
+	CBETA numbers.
+
 2002-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R087-Claw.el: Add mappings for Big5 code points and
