@@ -1,0 +1,1138 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: How Programs Do Loading,  Next: Autoload,  Up: Loading
+
+How Programs Do Loading
+=======================
+
+   XEmacs Lisp has several interfaces for loading.  For example,
+`autoload' creates a placeholder object for a function in a file;
+trying to call the autoloading function loads the file to get the
+function's real definition (*note Autoload::).  `require' loads a file
+if it isn't already loaded (*note Named Features::).  Ultimately, all
+these facilities call the `load' function to do the work.
+
+ - Function: load filename &optional missing-ok nomessage nosuffix
+     This function finds and opens a file of Lisp code, evaluates all
+     the forms in it, and closes the file.
+
+     To find the file, `load' first looks for a file named
+     `FILENAME.elc', that is, for a file whose name is FILENAME with
+     `.elc' appended.  If such a file exists, it is loaded.  If there
+     is no file by that name, then `load' looks for a file named
+     `FILENAME.el'.  If that file exists, it is loaded.  Finally, if
+     neither of those names is found, `load' looks for a file named
+     FILENAME with nothing appended, and loads it if it exists.  (The
+     `load' function is not clever about looking at FILENAME.  In the
+     perverse case of a file named `foo.el.el', evaluation of `(load
+     "foo.el")' will indeed find it.)
+
+     If the optional argument NOSUFFIX is non-`nil', then the suffixes
+     `.elc' and `.el' are not tried.  In this case, you must specify
+     the precise file name you want.
+
+     If FILENAME is a relative file name, such as `foo' or
+     `baz/foo.bar', `load' searches for the file using the variable
+     `load-path'.  It appends FILENAME to each of the directories
+     listed in `load-path', and loads the first file it finds whose name
+     matches.  The current default directory is tried only if it is
+     specified in `load-path', where `nil' stands for the default
+     directory.  `load' tries all three possible suffixes in the first
+     directory in `load-path', then all three suffixes in the second
+     directory, and so on.
+
+     If you get a warning that `foo.elc' is older than `foo.el', it
+     means you should consider recompiling `foo.el'.  *Note Byte
+     Compilation::.
+
+     Messages like `Loading foo...' and `Loading foo...done' appear in
+     the echo area during loading unless NOMESSAGE is non-`nil'.
+
+     Any unhandled errors while loading a file terminate loading.  If
+     the load was done for the sake of `autoload', any function
+     definitions made during the loading are undone.
+
+     If `load' can't find the file to load, then normally it signals the
+     error `file-error' (with `Cannot open load file FILENAME').  But
+     if MISSING-OK is non-`nil', then `load' just returns `nil'.
+
+     You can use the variable `load-read-function' to specify a function
+     for `load' to use instead of `read' for reading expressions.  See
+     below.
+
+     `load' returns `t' if the file loads successfully.
+
+ - User Option: load-path
+     The value of this variable is a list of directories to search when
+     loading files with `load'.  Each element is a string (which must be
+     a directory name) or `nil' (which stands for the current working
+     directory).  The value of `load-path' is initialized from the
+     environment variable `EMACSLOADPATH', if that exists; otherwise its
+     default value is specified in `emacs/src/paths.h' when XEmacs is
+     built.
+
+     The syntax of `EMACSLOADPATH' is the same as used for `PATH'; `:'
+     (or `;', according to the operating system) separates directory
+     names, and `.' is used for the current default directory.  Here is
+     an example of how to set your `EMACSLOADPATH' variable from a
+     `csh' `.login' file:
+
+          setenv EMACSLOADPATH .:/user/bil/emacs:/usr/lib/emacs/lisp
+
+     Here is how to set it using `sh':
+
+          export EMACSLOADPATH
+          EMACSLOADPATH=.:/user/bil/emacs:/usr/local/lib/emacs/lisp
+
+     Here is an example of code you can place in a `.emacs' file to add
+     several directories to the front of your default `load-path':
+
+          (setq load-path
+                (append (list nil "/user/bil/emacs"
+                              "/usr/local/lisplib"
+                              "~/emacs")
+                        load-path))
+
+     In this example, the path searches the current working directory
+     first, followed then by the `/user/bil/emacs' directory, the
+     `/usr/local/lisplib' directory, and the `~/emacs' directory, which
+     are then followed by the standard directories for Lisp code.
+
+     The command line options `-l' or `-load' specify a Lisp library to
+     load as part of Emacs startup.  Since this file might be in the
+     current directory, Emacs 18 temporarily adds the current directory
+     to the front of `load-path' so the file can be found there.  Newer
+     Emacs versions also find such files in the current directory, but
+     without altering `load-path'.
+
+     Dumping Emacs uses a special value of `load-path'.  If the value of
+     `load-path' at the end of dumping is unchanged (that is, still the
+     same special value), the dumped Emacs switches to the ordinary
+     `load-path' value when it starts up, as described above.  But if
+     `load-path' has any other value at the end of dumping, that value
+     is used for execution of the dumped Emacs also.
+
+     Therefore, if you want to change `load-path' temporarily for
+     loading a few libraries in `site-init.el' or `site-load.el', you
+     should bind `load-path' locally with `let' around the calls to
+     `load'.
+
+ - Function: locate-file filename path-list &optional suffixes mode
+     This function searches for a file in the same way that `load' does,
+     and returns the file found (if any). (In fact, `load' uses this
+     function to search through `load-path'.) It searches for FILENAME
+     through PATH-LIST, expanded by one of the optional SUFFIXES
+     (string of suffixes separated by `:'s), checking for access MODE
+     (0|1|2|4 = exists|executable|writable|readable), default readable.
+
+     `locate-file' keeps hash tables of the directories it searches
+     through, in order to speed things up.  It tries valiantly to not
+     get confused in the face of a changing and unpredictable
+     environment, but can occasionally get tripped up.  In this case,
+     you will have to call `locate-file-clear-hashing' to get it back
+     on track.  See that function for details.
+
+ - Function: locate-file-clear-hashing path
+     This function clears the hash records for the specified list of
+     directories.  `locate-file' uses a hashing scheme to speed lookup,
+     and will correctly track the following environmental changes:
+
+        * changes of any sort to the list of directories to be searched.
+
+        * addition and deletion of non-shadowing files (see below) from
+          the directories in the list.
+
+        * byte-compilation of a .el file into a .elc file.
+
+     `locate-file' will primarily get confused if you add a file that
+     shadows (i.e. has the same name as) another file further down in
+     the directory list.  In this case, you must call
+     `locate-file-clear-hashing'.
+
+ - Variable: load-in-progress
+     This variable is non-`nil' if Emacs is in the process of loading a
+     file, and it is `nil' otherwise.
+
+ - Variable: load-read-function
+     This variable specifies an alternate expression-reading function
+     for `load' and `eval-region' to use instead of `read'.  The
+     function should accept one argument, just as `read' does.
+
+     Normally, the variable's value is `nil', which means those
+     functions should use `read'.
+
+ - User Option: load-warn-when-source-newer
+     This variable specifies whether `load' should check whether the
+     source is newer than the binary.  If this variable is true, then
+     when a `.elc' file is being loaded and the corresponding `.el' is
+     newer, a warning message will be printed.  The default is `nil',
+     but it is bound to `t' during the initial loadup.
+
+ - User Option: load-warn-when-source-only
+     This variable specifies whether `load' should warn when loading a
+     `.el' file instead of an `.elc'.  If this variable is true, then
+     when `load' is called with a filename without an extension, and
+     the `.elc' version doesn't exist but the `.el' version does, then
+     a message will be printed.  If an explicit extension is passed to
+     `load', no warning will be printed.  The default is `nil', but it
+     is bound to `t' during the initial loadup.
+
+ - User Option: load-ignore-elc-files
+     This variable specifies whether `load' should ignore `.elc' files
+     when a suffix is not given.  This is normally used only to
+     bootstrap the `.elc' files when building XEmacs, when you use the
+     command `make all-elc'. (This forces the `.el' versions to be
+     loaded in the process of compiling those same files, so that
+     existing out-of-date `.elc' files do not make it mess things up.)
+
+   To learn how `load' is used to build XEmacs, see *Note Building
+XEmacs::.
+
+
+File: lispref.info,  Node: Autoload,  Next: Repeated Loading,  Prev: How Programs Do Loading,  Up: Loading
+
+Autoload
+========
+
+   The "autoload" facility allows you to make a function or macro known
+in Lisp, but put off loading the file that defines it.  The first call
+to the function automatically reads the proper file to install the real
+definition and other associated code, then runs the real definition as
+if it had been loaded all along.
+
+   There are two ways to set up an autoloaded function: by calling
+`autoload', and by writing a special "magic" comment in the source
+before the real definition.  `autoload' is the low-level primitive for
+autoloading; any Lisp program can call `autoload' at any time.  Magic
+comments do nothing on their own; they serve as a guide for the command
+`update-file-autoloads', which constructs calls to `autoload' and
+arranges to execute them when Emacs is built.  Magic comments are the
+most convenient way to make a function autoload, but only for packages
+installed along with Emacs.
+
+ - Function: autoload function filename &optional docstring interactive
+          type
+     This function defines the function (or macro) named FUNCTION so as
+     to load automatically from FILENAME.  The string FILENAME
+     specifies the file to load to get the real definition of FUNCTION.
+
+     The argument DOCSTRING is the documentation string for the
+     function.  Normally, this is identical to the documentation string
+     in the function definition itself.  Specifying the documentation
+     string in the call to `autoload' makes it possible to look at the
+     documentation without loading the function's real definition.
+
+     If INTERACTIVE is non-`nil', then the function can be called
+     interactively.  This lets completion in `M-x' work without loading
+     the function's real definition.  The complete interactive
+     specification need not be given here; it's not needed unless the
+     user actually calls FUNCTION, and when that happens, it's time to
+     load the real definition.
+
+     You can autoload macros and keymaps as well as ordinary functions.
+     Specify TYPE as `macro' if FUNCTION is really a macro.  Specify
+     TYPE as `keymap' if FUNCTION is really a keymap.  Various parts of
+     Emacs need to know this information without loading the real
+     definition.
+
+     An autoloaded keymap loads automatically during key lookup when a
+     prefix key's binding is the symbol FUNCTION.  Autoloading does not
+     occur for other kinds of access to the keymap.  In particular, it
+     does not happen when a Lisp program gets the keymap from the value
+     of a variable and calls `define-key'; not even if the variable
+     name is the same symbol FUNCTION.
+
+     If FUNCTION already has a non-void function definition that is not
+     an autoload object, `autoload' does nothing and returns `nil'.  If
+     the function cell of FUNCTION is void, or is already an autoload
+     object, then it is defined as an autoload object like this:
+
+          (autoload FILENAME DOCSTRING INTERACTIVE TYPE)
+
+     For example,
+
+          (symbol-function 'run-prolog)
+               => (autoload "prolog" 169681 t nil)
+
+     In this case, `"prolog"' is the name of the file to load, 169681
+     refers to the documentation string in the `DOC' file (*note
+     Documentation Basics::), `t' means the function is interactive,
+     and `nil' that it is not a macro or a keymap.
+
+   The autoloaded file usually contains other definitions and may
+require or provide one or more features.  If the file is not completely
+loaded (due to an error in the evaluation of its contents), any function
+definitions or `provide' calls that occurred during the load are
+undone.  This is to ensure that the next attempt to call any function
+autoloading from this file will try again to load the file.  If not for
+this, then some of the functions in the file might appear defined, but
+they might fail to work properly for the lack of certain subroutines
+defined later in the file and not loaded successfully.
+
+   XEmacs as distributed comes with many autoloaded functions.  The
+calls to `autoload' are in the file `loaddefs.el'.  There is a
+convenient way of updating them automatically.
+
+   If the autoloaded file fails to define the desired Lisp function or
+macro, then an error is signaled with data `"Autoloading failed to
+define function FUNCTION-NAME"'.
+
+   A magic autoload comment looks like `;;;###autoload', on a line by
+itself, just before the real definition of the function in its
+autoloadable source file.  The command `M-x update-file-autoloads'
+writes a corresponding `autoload' call into `loaddefs.el'.  Building
+Emacs loads `loaddefs.el' and thus calls `autoload'.  `M-x
+update-directory-autoloads' is even more powerful; it updates autoloads
+for all files in the current directory.
+
+   The same magic comment can copy any kind of form into `loaddefs.el'.
+If the form following the magic comment is not a function definition,
+it is copied verbatim.  You can also use a magic comment to execute a
+form at build time _without_ executing it when the file itself is
+loaded.  To do this, write the form "on the same line" as the magic
+comment.  Since it is in a comment, it does nothing when you load the
+source file; but `update-file-autoloads' copies it to `loaddefs.el',
+where it is executed while building Emacs.
+
+   The following example shows how `doctor' is prepared for autoloading
+with a magic comment:
+
+     ;;;###autoload
+     (defun doctor ()
+       "Switch to *doctor* buffer and start giving psychotherapy."
+       (interactive)
+       (switch-to-buffer "*doctor*")
+       (doctor-mode))
+
+Here's what that produces in `loaddefs.el':
+
+     (autoload 'doctor "doctor"
+       "\
+     Switch to *doctor* buffer and start giving psychotherapy."
+       t)
+
+The backslash and newline immediately following the double-quote are a
+convention used only in the preloaded Lisp files such as `loaddefs.el';
+they tell `make-docfile' to put the documentation string in the `DOC'
+file.  *Note Building XEmacs::.
+
+
+File: lispref.info,  Node: Repeated Loading,  Next: Named Features,  Prev: Autoload,  Up: Loading
+
+Repeated Loading
+================
+
+   You may load one file more than once in an Emacs session.  For
+example, after you have rewritten and reinstalled a function definition
+by editing it in a buffer, you may wish to return to the original
+version; you can do this by reloading the file it came from.
+
+   When you load or reload files, bear in mind that the `load' and
+`load-library' functions automatically load a byte-compiled file rather
+than a non-compiled file of similar name.  If you rewrite a file that
+you intend to save and reinstall, remember to byte-compile it if
+necessary; otherwise you may find yourself inadvertently reloading the
+older, byte-compiled file instead of your newer, non-compiled file!
+
+   When writing the forms in a Lisp library file, keep in mind that the
+file might be loaded more than once.  For example, the choice of
+`defvar' vs. `defconst' for defining a variable depends on whether it
+is desirable to reinitialize the variable if the library is reloaded:
+`defconst' does so, and `defvar' does not.  (*Note Defining
+Variables::.)
+
+   The simplest way to add an element to an alist is like this:
+
+     (setq minor-mode-alist
+           (cons '(leif-mode " Leif") minor-mode-alist))
+
+But this would add multiple elements if the library is reloaded.  To
+avoid the problem, write this:
+
+     (or (assq 'leif-mode minor-mode-alist)
+         (setq minor-mode-alist
+               (cons '(leif-mode " Leif") minor-mode-alist)))
+
+   To add an element to a list just once, use `add-to-list' (*note
+Setting Variables::).
+
+   Occasionally you will want to test explicitly whether a library has
+already been loaded.  Here's one way to test, in a library, whether it
+has been loaded before:
+
+     (defvar foo-was-loaded)
+     
+     (if (not (boundp 'foo-was-loaded))
+         EXECUTE-FIRST-TIME-ONLY)
+     
+     (setq foo-was-loaded t)
+
+If the library uses `provide' to provide a named feature, you can use
+`featurep' to test whether the library has been loaded.  *Note Named
+Features::.
+
+
+File: lispref.info,  Node: Named Features,  Next: Unloading,  Prev: Repeated Loading,  Up: Loading
+
+Features
+========
+
+   `provide' and `require' are an alternative to `autoload' for loading
+files automatically.  They work in terms of named "features".
+Autoloading is triggered by calling a specific function, but a feature
+is loaded the first time another program asks for it by name.
+
+   A feature name is a symbol that stands for a collection of functions,
+variables, etc.  The file that defines them should "provide" the
+feature.  Another program that uses them may ensure they are defined by
+"requiring" the feature.  This loads the file of definitions if it
+hasn't been loaded already.
+
+   To require the presence of a feature, call `require' with the
+feature name as argument.  `require' looks in the global variable
+`features' to see whether the desired feature has been provided
+already.  If not, it loads the feature from the appropriate file.  This
+file should call `provide' at the top level to add the feature to
+`features'; if it fails to do so, `require' signals an error.
+
+   Features are normally named after the files that provide them, so
+that `require' need not be given the file name.
+
+   For example, in `emacs/lisp/prolog.el', the definition for
+`run-prolog' includes the following code:
+
+     (defun run-prolog ()
+       "Run an inferior Prolog process, input and output via buffer *prolog*."
+       (interactive)
+       (require 'comint)
+       (switch-to-buffer (make-comint "prolog" prolog-program-name))
+       (inferior-prolog-mode))
+
+The expression `(require 'comint)' loads the file `comint.el' if it has
+not yet been loaded.  This ensures that `make-comint' is defined.
+
+   The `comint.el' file contains the following top-level expression:
+
+     (provide 'comint)
+
+This adds `comint' to the global `features' list, so that `(require
+'comint)' will henceforth know that nothing needs to be done.
+
+   When `require' is used at top level in a file, it takes effect when
+you byte-compile that file (*note Byte Compilation::) as well as when
+you load it.  This is in case the required package contains macros that
+the byte compiler must know about.
+
+   Although top-level calls to `require' are evaluated during byte
+compilation, `provide' calls are not.  Therefore, you can ensure that a
+file of definitions is loaded before it is byte-compiled by including a
+`provide' followed by a `require' for the same feature, as in the
+following example.
+
+     (provide 'my-feature)  ; Ignored by byte compiler,
+                            ;   evaluated by `load'.
+     (require 'my-feature)  ; Evaluated by byte compiler.
+
+The compiler ignores the `provide', then processes the `require' by
+loading the file in question.  Loading the file does execute the
+`provide' call, so the subsequent `require' call does nothing while
+loading.
+
+ - Function: provide feature
+     This function announces that FEATURE is now loaded, or being
+     loaded, into the current XEmacs session.  This means that the
+     facilities associated with FEATURE are or will be available for
+     other Lisp programs.
+
+     The direct effect of calling `provide' is to add FEATURE to the
+     front of the list `features' if it is not already in the list.
+     The argument FEATURE must be a symbol.  `provide' returns FEATURE.
+
+          features
+               => (bar bish)
+          
+          (provide 'foo)
+               => foo
+          features
+               => (foo bar bish)
+
+     When a file is loaded to satisfy an autoload, and it stops due to
+     an error in the evaluating its contents, any function definitions
+     or `provide' calls that occurred during the load are undone.
+     *Note Autoload::.
+
+ - Function: require feature &optional filename
+     This function checks whether FEATURE is present in the current
+     XEmacs session (using `(featurep FEATURE)'; see below).  If it is
+     not, then `require' loads FILENAME with `load'.  If FILENAME is
+     not supplied, then the name of the symbol FEATURE is used as the
+     file name to load.
+
+     If loading the file fails to provide FEATURE, `require' signals an
+     error, `Required feature FEATURE was not provided'.
+
+ - Function: featurep fexp
+     This function returns `t' if feature FEXP is present in this
+     Emacs.  Use this to conditionalize execution of lisp code based on
+     the presence or absence of emacs or environment extensions.
+
+     FEXP can be a symbol, a number, or a list.
+
+     If FEXP is a symbol, it is looked up in the `features' variable,
+     and `t' is returned if it is found, `nil' otherwise.
+
+     If FEXP is a number, the function returns `t' if this Emacs has an
+     equal or greater number than FEXP, `nil' otherwise.  Note that
+     minor Emacs version is expected to be 2 decimal places wide, so
+     `(featurep 20.4)' will return `nil' on XEmacs 20.4--you must write
+     `(featurep 20.04)', unless you wish to match for XEmacs 20.40.
+
+     If FEXP is a list whose car is the symbol `and', the function
+     returns `t' if all the features in its cdr are present, `nil'
+     otherwise.
+
+     If FEXP is a list whose car is the symbol `or', the function
+     returns `t' if any the features in its cdr are present, `nil'
+     otherwise.
+
+     If FEXP is a list whose car is the symbol `not', the function
+     returns `t' if the feature is not present, `nil' otherwise.
+
+     Examples:
+
+          (featurep 'xemacs)
+               => ; t on XEmacs.
+          
+          (featurep '(and xemacs gnus))
+               => ; t on XEmacs with Gnus loaded.
+          
+          (featurep '(or tty-frames (and emacs 19.30)))
+               => ; t if this Emacs supports TTY frames.
+          
+          (featurep '(or (and xemacs 19.15) (and emacs 19.34)))
+               => ; t on XEmacs 19.15 and later, or on
+                         ; FSF Emacs 19.34 and later.
+
+     *Please note:* The advanced arguments of this function (anything
+     other than a symbol) are not yet supported by FSF Emacs.  If you
+     feel they are useful for supporting multiple Emacs variants, lobby
+     Richard Stallman at `<bug-gnu-emacs@prep.ai.mit.edu>'.
+
+ - Variable: features
+     The value of this variable is a list of symbols that are the
+     features loaded in the current XEmacs session.  Each symbol was
+     put in this list with a call to `provide'.  The order of the
+     elements in the `features' list is not significant.
+
+
+File: lispref.info,  Node: Unloading,  Next: Hooks for Loading,  Prev: Named Features,  Up: Loading
+
+Unloading
+=========
+
+   You can discard the functions and variables loaded by a library to
+reclaim memory for other Lisp objects.  To do this, use the function
+`unload-feature':
+
+ - Command: unload-feature feature &optional force
+     This command unloads the library that provided feature FEATURE.
+     It undefines all functions, macros, and variables defined in that
+     library with `defconst', `defvar', `defun', `defmacro',
+     `defsubst', `define-function' and `defalias'.  It then restores
+     any autoloads formerly associated with those symbols.  (Loading
+     saves these in the `autoload' property of the symbol.)
+
+     Ordinarily, `unload-feature' refuses to unload a library on which
+     other loaded libraries depend.  (A library A depends on library B
+     if A contains a `require' for B.)  If the optional argument FORCE
+     is non-`nil', dependencies are ignored and you can unload any
+     library.
+
+   The `unload-feature' function is written in Lisp; its actions are
+based on the variable `load-history'.
+
+ - Variable: load-history
+     This variable's value is an alist connecting library names with the
+     names of functions and variables they define, the features they
+     provide, and the features they require.
+
+     Each element is a list and describes one library.  The CAR of the
+     list is the name of the library, as a string.  The rest of the
+     list is composed of these kinds of objects:
+
+        * Symbols that were defined by this library.
+
+        * Lists of the form `(require . FEATURE)' indicating features
+          that were required.
+
+        * Lists of the form `(provide . FEATURE)' indicating features
+          that were provided.
+
+     The value of `load-history' may have one element whose CAR is
+     `nil'.  This element describes definitions made with `eval-buffer'
+     on a buffer that is not visiting a file.
+
+   The command `eval-region' updates `load-history', but does so by
+adding the symbols defined to the element for the file being visited,
+rather than replacing that element.
+
+
+File: lispref.info,  Node: Hooks for Loading,  Prev: Unloading,  Up: Loading
+
+Hooks for Loading
+=================
+
+ - Variable: after-load-alist
+     An alist of expressions to evaluate if and when particular
+     libraries are loaded.  Each element looks like this:
+
+          (FILENAME FORMS...)
+
+     When `load' is run and the file-name argument is FILENAME, the
+     FORMS in the corresponding element are executed at the end of
+     loading.
+
+     FILENAME must match exactly!  Normally FILENAME is the name of a
+     library, with no directory specified, since that is how `load' is
+     normally called.  An error in FORMS does not undo the load, but
+     does prevent execution of the rest of the FORMS.
+
+
+
+File: lispref.info,  Node: Byte Compilation,  Next: Debugging,  Prev: Loading,  Up: Top
+
+Byte Compilation
+****************
+
+   XEmacs Lisp has a "compiler" that translates functions written in
+Lisp into a special representation called "byte-code" that can be
+executed more efficiently.  The compiler replaces Lisp function
+definitions with byte-code.  When a byte-coded function is called, its
+definition is evaluated by the "byte-code interpreter".
+
+   Because the byte-compiled code is evaluated by the byte-code
+interpreter, instead of being executed directly by the machine's
+hardware (as true compiled code is), byte-code is completely
+transportable from machine to machine without recompilation.  It is not,
+however, as fast as true compiled code.
+
+   In general, any version of Emacs can run byte-compiled code produced
+by recent earlier versions of Emacs, but the reverse is not true.  In
+particular, if you compile a program with XEmacs 20, the compiled code
+may not run in earlier versions.
+
+   The first time a compiled-function object is executed, the byte-code
+instructions are validated and the byte-code is further optimized.  An
+`invalid-byte-code' error is signaled if the byte-code is invalid, for
+example if it contains invalid opcodes.  This usually means a bug in
+the byte compiler.
+
+   *Note Compilation Errors::, for how to investigate errors occurring
+in byte compilation.
+
+* Menu:
+
+* Speed of Byte-Code::          An example of speedup from byte compilation.
+* Compilation Functions::       Byte compilation functions.
+* Docs and Compilation::        Dynamic loading of documentation strings.
+* Dynamic Loading::             Dynamic loading of individual functions.
+* Eval During Compile::  	Code to be evaluated when you compile.
+* Compiled-Function Objects::	The data type used for byte-compiled functions.
+* Disassembly::                 Disassembling byte-code; how to read byte-code.
+
+
+File: lispref.info,  Node: Speed of Byte-Code,  Next: Compilation Functions,  Up: Byte Compilation
+
+Performance of Byte-Compiled Code
+=================================
+
+   A byte-compiled function is not as efficient as a primitive function
+written in C, but runs much faster than the version written in Lisp.
+Here is an example:
+
+     (defun silly-loop (n)
+       "Return time before and after N iterations of a loop."
+       (let ((t1 (current-time-string)))
+         (while (> (setq n (1- n))
+                   0))
+         (list t1 (current-time-string))))
+     => silly-loop
+     
+     (silly-loop 5000000)
+     => ("Mon Sep 14 15:51:49 1998"
+         "Mon Sep 14 15:52:07 1998")  ; 18 seconds
+     
+     (byte-compile 'silly-loop)
+     => #<compiled-function
+     (n)
+     "...(23)"
+     [current-time-string t1 n 0]
+     2
+     "Return time before and after N iterations of a loop.">
+     
+     (silly-loop 5000000)
+     => ("Mon Sep 14 15:53:43 1998"
+         "Mon Sep 14 15:53:49 1998")  ; 6 seconds
+
+   In this example, the interpreted code required 18 seconds to run,
+whereas the byte-compiled code required 6 seconds.  These results are
+representative, but actual results will vary greatly.
+
+
+File: lispref.info,  Node: Compilation Functions,  Next: Docs and Compilation,  Prev: Speed of Byte-Code,  Up: Byte Compilation
+
+The Compilation Functions
+=========================
+
+   You can byte-compile an individual function or macro definition with
+the `byte-compile' function.  You can compile a whole file with
+`byte-compile-file', or several files with `byte-recompile-directory'
+or `batch-byte-compile'.
+
+   When you run the byte compiler, you may get warnings in a buffer
+called `*Compile-Log*'.  These report things in your program that
+suggest a problem but are not necessarily erroneous.
+
+   Be careful when byte-compiling code that uses macros.  Macro calls
+are expanded when they are compiled, so the macros must already be
+defined for proper compilation.  For more details, see *Note Compiling
+Macros::.
+
+   Normally, compiling a file does not evaluate the file's contents or
+load the file.  But it does execute any `require' calls at top level in
+the file.  One way to ensure that necessary macro definitions are
+available during compilation is to `require' the file that defines them
+(*note Named Features::).  To avoid loading the macro definition files
+when someone _runs_ the compiled program, write `eval-when-compile'
+around the `require' calls (*note Eval During Compile::).
+
+ - Function: byte-compile symbol
+     This function byte-compiles the function definition of SYMBOL,
+     replacing the previous definition with the compiled one.  The
+     function definition of SYMBOL must be the actual code for the
+     function; i.e., the compiler does not follow indirection to
+     another symbol.  `byte-compile' returns the new, compiled
+     definition of SYMBOL.
+
+     If SYMBOL's definition is a compiled-function object,
+     `byte-compile' does nothing and returns `nil'.  Lisp records only
+     one function definition for any symbol, and if that is already
+     compiled, non-compiled code is not available anywhere.  So there
+     is no way to "compile the same definition again."
+
+          (defun factorial (integer)
+            "Compute factorial of INTEGER."
+            (if (= 1 integer) 1
+              (* integer (factorial (1- integer)))))
+          => factorial
+          
+          (byte-compile 'factorial)
+          => #<compiled-function
+          (integer)
+          "...(21)"
+          [integer 1 factorial]
+          3
+          "Compute factorial of INTEGER.">
+
+     The result is a compiled-function object.  The string it contains
+     is the actual byte-code; each character in it is an instruction or
+     an operand of an instruction.  The vector contains all the
+     constants, variable names and function names used by the function,
+     except for certain primitives that are coded as special
+     instructions.
+
+ - Command: compile-defun &optional arg
+     This command reads the defun containing point, compiles it, and
+     evaluates the result.  If you use this on a defun that is actually
+     a function definition, the effect is to install a compiled version
+     of that function.
+
+     If ARG is non-`nil', the result is inserted in the current buffer
+     after the form; otherwise, it is printed in the minibuffer.
+
+ - Command: byte-compile-file filename &optional load
+     This function compiles a file of Lisp code named FILENAME into a
+     file of byte-code.  The output file's name is made by appending
+     `c' to the end of FILENAME.
+
+     If `load' is non-`nil', the file is loaded after having been
+     compiled.
+
+     Compilation works by reading the input file one form at a time.
+     If it is a definition of a function or macro, the compiled
+     function or macro definition is written out.  Other forms are
+     batched together, then each batch is compiled, and written so that
+     its compiled code will be executed when the file is read.  All
+     comments are discarded when the input file is read.
+
+     This command returns `t'.  When called interactively, it prompts
+     for the file name.
+
+          % ls -l push*
+          -rw-r--r--  1 lewis     791 Oct  5 20:31 push.el
+          
+          (byte-compile-file "~/emacs/push.el")
+               => t
+          
+          % ls -l push*
+          -rw-r--r--  1 lewis     791 Oct  5 20:31 push.el
+          -rw-r--r--  1 lewis     638 Oct  8 20:25 push.elc
+
+ - Command: byte-recompile-directory directory &optional flag
+          norecursion force
+     This function recompiles every `.el' file in DIRECTORY that needs
+     recompilation.  A file needs recompilation if a `.elc' file exists
+     but is older than the `.el' file.
+
+     Files in subdirectories of DIRECTORY are also processed unless
+     optional argument NORECURSION is non-`nil'.
+
+     When a `.el' file has no corresponding `.elc' file, then FLAG says
+     what to do.  If it is `nil', these files are ignored.  If it is
+     non-`nil', the user is asked whether to compile each such file.
+
+     If the fourth optional argument FORCE is non-`nil', recompile
+     every `.el' file that already has a `.elc' file.
+
+     The return value of this command is unpredictable.
+
+ - Function: batch-byte-compile
+     This function runs `byte-compile-file' on files specified on the
+     command line.  This function must be used only in a batch
+     execution of Emacs, as it kills Emacs on completion.  An error in
+     one file does not prevent processing of subsequent files.  (The
+     file that gets the error will not, of course, produce any compiled
+     code.)
+
+          % xemacs -batch -f batch-byte-compile *.el
+
+ - Function: batch-byte-recompile-directory
+     This function is similar to `batch-byte-compile' but runs the
+     command `byte-recompile-directory' on the files remaining on the
+     command line.
+
+ - Variable: byte-recompile-directory-ignore-errors-p
+     If non-`nil', this specifies that `byte-recompile-directory' will
+     continue compiling even when an error occurs in a file.  This is
+     normally `nil', but is bound to `t' by
+     `batch-byte-recompile-directory'.
+
+ - Function: byte-code instructions constants stack-depth
+     This function actually interprets byte-code.  Don't call this
+     function yourself.  Only the byte compiler knows how to generate
+     valid calls to this function.
+
+     In newer Emacs versions (19 and up), byte code is usually executed
+     as part of a compiled-function object, and only rarely due to an
+     explicit call to `byte-code'.  A byte-compiled function was once
+     actually defined with a body that calls `byte-code', but in recent
+     versions of Emacs `byte-code' is only used to run isolated
+     fragments of lisp code without an associated argument list.
+
+
+File: lispref.info,  Node: Docs and Compilation,  Next: Dynamic Loading,  Prev: Compilation Functions,  Up: Byte Compilation
+
+Documentation Strings and Compilation
+=====================================
+
+   Functions and variables loaded from a byte-compiled file access their
+documentation strings dynamically from the file whenever needed.  This
+saves space within Emacs, and makes loading faster because the
+documentation strings themselves need not be processed while loading the
+file.  Actual access to the documentation strings becomes slower as a
+result, but normally not enough to bother users.
+
+   Dynamic access to documentation strings does have drawbacks:
+
+   * If you delete or move the compiled file after loading it, Emacs
+     can no longer access the documentation strings for the functions
+     and variables in the file.
+
+   * If you alter the compiled file (such as by compiling a new
+     version), then further access to documentation strings in this
+     file will give nonsense results.
+
+   If your site installs Emacs following the usual procedures, these
+problems will never normally occur.  Installing a new version uses a new
+directory with a different name; as long as the old version remains
+installed, its files will remain unmodified in the places where they are
+expected to be.
+
+   However, if you have built Emacs yourself and use it from the
+directory where you built it, you will experience this problem
+occasionally if you edit and recompile Lisp files.  When it happens, you
+can cure the problem by reloading the file after recompiling it.
+
+   Versions of Emacs up to and including XEmacs 19.14 and FSF Emacs
+19.28 do not support the dynamic docstrings feature, and so will not be
+able to load bytecode created by more recent Emacs versions.  You can
+turn off the dynamic docstring feature by setting
+`byte-compile-dynamic-docstrings' to `nil'.  Once this is done, you can
+compile files that will load into older Emacs versions.  You can do
+this globally, or for one source file by specifying a file-local
+binding for the variable.  Here's one way to do that:
+
+     -*-byte-compile-dynamic-docstrings: nil;-*-
+
+ - Variable: byte-compile-dynamic-docstrings
+     If this is non-`nil', the byte compiler generates compiled files
+     that are set up for dynamic loading of documentation strings.
+
+   The dynamic documentation string feature writes compiled files that
+use a special Lisp reader construct, `#@COUNT'.  This construct skips
+the next COUNT characters.  It also uses the `#$' construct, which
+stands for "the name of this file, as a string."  It is best not to use
+these constructs in Lisp source files.
+
+
+File: lispref.info,  Node: Dynamic Loading,  Next: Eval During Compile,  Prev: Docs and Compilation,  Up: Byte Compilation
+
+Dynamic Loading of Individual Functions
+=======================================
+
+   When you compile a file, you can optionally enable the "dynamic
+function loading" feature (also known as "lazy loading").  With dynamic
+function loading, loading the file doesn't fully read the function
+definitions in the file.  Instead, each function definition contains a
+place-holder which refers to the file.  The first time each function is
+called, it reads the full definition from the file, to replace the
+place-holder.
+
+   The advantage of dynamic function loading is that loading the file
+becomes much faster.  This is a good thing for a file which contains
+many separate commands, provided that using one of them does not imply
+you will soon (or ever) use the rest.  A specialized mode which provides
+many keyboard commands often has that usage pattern: a user may invoke
+the mode, but use only a few of the commands it provides.
+
+   The dynamic loading feature has certain disadvantages:
+
+   * If you delete or move the compiled file after loading it, Emacs
+     can no longer load the remaining function definitions not already
+     loaded.
+
+   * If you alter the compiled file (such as by compiling a new
+     version), then trying to load any function not already loaded will
+     get nonsense results.
+
+   If you compile a new version of the file, the best thing to do is
+immediately load the new compiled file.  That will prevent any future
+problems.
+
+   The byte compiler uses the dynamic function loading feature if the
+variable `byte-compile-dynamic' is non-`nil' at compilation time.  Do
+not set this variable globally, since dynamic loading is desirable only
+for certain files.  Instead, enable the feature for specific source
+files with file-local variable bindings, like this:
+
+     -*-byte-compile-dynamic: t;-*-
+
+ - Variable: byte-compile-dynamic
+     If this is non-`nil', the byte compiler generates compiled files
+     that are set up for dynamic function loading.
+
+ - Function: fetch-bytecode function
+     This immediately finishes loading the definition of FUNCTION from
+     its byte-compiled file, if it is not fully loaded already.  The
+     argument FUNCTION may be a compiled-function object or a function
+     name.
+
+
+File: lispref.info,  Node: Eval During Compile,  Next: Compiled-Function Objects,  Prev: Dynamic Loading,  Up: Byte Compilation
+
+Evaluation During Compilation
+=============================
+
+   These features permit you to write code to be evaluated during
+compilation of a program.
+
+ - Special Form: eval-and-compile body
+     This form marks BODY to be evaluated both when you compile the
+     containing code and when you run it (whether compiled or not).
+
+     You can get a similar result by putting BODY in a separate file
+     and referring to that file with `require'.  Using `require' is
+     preferable if there is a substantial amount of code to be executed
+     in this way.
+
+ - Special Form: eval-when-compile body
+     This form marks BODY to be evaluated at compile time and not when
+     the compiled program is loaded.  The result of evaluation by the
+     compiler becomes a constant which appears in the compiled program.
+     When the program is interpreted, not compiled at all, BODY is
+     evaluated normally.
+
+     At top level, this is analogous to the Common Lisp idiom
+     `(eval-when (compile eval) ...)'.  Elsewhere, the Common Lisp `#.'
+     reader macro (but not when interpreting) is closer to what
+     `eval-when-compile' does.
+
+
+File: lispref.info,  Node: Compiled-Function Objects,  Next: Disassembly,  Prev: Eval During Compile,  Up: Byte Compilation
+
+Compiled-Function Objects
+=========================
+
+   Byte-compiled functions have a special data type: they are
+"compiled-function objects". The evaluator handles this data type
+specially when it appears as a function to be called.
+
+   The printed representation for a compiled-function object normally
+begins with `#<compiled-function' and ends with `>'.  However, if the
+variable `print-readably' is non-`nil', the object is printed beginning
+with `#[' and ending with `]'.  This representation can be read
+directly by the Lisp reader, and is used in byte-compiled files (those
+ending in `.elc').
+
+   In Emacs version 18, there was no compiled-function object data type;
+compiled functions used the function `byte-code' to run the byte code.
+
+   A compiled-function object has a number of different attributes.
+They are:
+
+ARGLIST
+     The list of argument symbols.
+
+INSTRUCTIONS
+     The string containing the byte-code instructions.
+
+CONSTANTS
+     The vector of Lisp objects referenced by the byte code.  These
+     include symbols used as function names and variable names.
+
+STACK-DEPTH
+     The maximum stack size this function needs.
+
+DOC-STRING
+     The documentation string (if any); otherwise, `nil'.  The value may
+     be a number or a list, in case the documentation string is stored
+     in a file.  Use the function `documentation' to get the real
+     documentation string (*note Accessing Documentation::).
+
+INTERACTIVE
+     The interactive spec (if any).  This can be a string or a Lisp
+     expression.  It is `nil' for a function that isn't interactive.
+
+DOMAIN
+     The domain (if any).  This is only meaningful if I18N3
+     (message-translation) support was compiled into XEmacs.  This is a
+     string defining which domain to find the translation for the
+     documentation string and interactive prompt.  *Note Domain
+     Specification::.
+
+   Here's an example of a compiled-function object, in printed
+representation.  It is the definition of the command `backward-sexp'.
+
+     (symbol-function 'backward-sexp)
+     => #<compiled-function
+     (&optional arg)
+     "...(15)" [arg 1 forward-sexp] 2 854740 "_p">
+
+   The primitive way to create a compiled-function object is with
+`make-byte-code':
+
+ - Function: make-byte-code arglist instructions constants stack-depth
+          &optional doc-string interactive
+     This function constructs and returns a compiled-function object
+     with the specified attributes.
+
+     _Please note:_ Unlike all other Emacs-lisp functions, calling this
+     with five arguments is _not_ the same as calling it with six
+     arguments, the last of which is `nil'.  If the INTERACTIVE arg is
+     specified as `nil', then that means that this function was defined
+     with `(interactive)'.  If the arg is not specified, then that means
+     the function is not interactive.  This is terrible behavior which
+     is retained for compatibility with old `.elc' files which expected
+     these semantics.
+
+   You should not try to come up with the elements for a
+compiled-function object yourself, because if they are inconsistent,
+XEmacs may crash when you call the function.  Always leave it to the
+byte compiler to create these objects; it makes the elements consistent
+(we hope).
+
+   The following primitives are provided for accessing the elements of
+a compiled-function object.
+
+ - Function: compiled-function-arglist function
+     This function returns the argument list of compiled-function object
+     FUNCTION.
+
+ - Function: compiled-function-instructions function
+     This function returns a string describing the byte-code
+     instructions of compiled-function object FUNCTION.
+
+ - Function: compiled-function-constants function
+     This function returns the vector of Lisp objects referenced by
+     compiled-function object FUNCTION.
+
+ - Function: compiled-function-stack-depth function
+     This function returns the maximum stack size needed by
+     compiled-function object FUNCTION.
+
+ - Function: compiled-function-doc-string function
+     This function returns the doc string of compiled-function object
+     FUNCTION, if available.
+
+ - Function: compiled-function-interactive function
+     This function returns the interactive spec of compiled-function
+     object FUNCTION, if any.  The return value is `nil' or a
+     two-element list, the first element of which is the symbol
+     `interactive' and the second element is the interactive spec (a
+     string or Lisp form).
+
+ - Function: compiled-function-domain function
+     This function returns the domain of compiled-function object
+     FUNCTION, if any.  The result will be a string or `nil'.  *Note
+     Domain Specification::.
+

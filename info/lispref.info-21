@@ -1,0 +1,1153 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Gutter Intro,  Next: Creating Gutter,  Prev: Gutter,  Up: Gutter
+
+Gutter Intro
+============
+
+   A "gutter" is a rectangle displayed along one edge of a frame.  It
+can contain arbitrary text or graphics.  It could be considered a
+generalization of a toolbar, although toolbars are not currently
+implemented using gutters.
+
+   In XEmacs, a gutter can be displayed along any of the four edges of
+the frame, and two or more different edges can be displaying gutters
+simultaneously.  The contents, thickness, and visibility of the gutters
+can be controlled separately, and the values can be per-buffer,
+per-frame, etc., using specifiers (*note Specifiers::).
+
+   Normally, there is one gutter displayed in a frame.  Usually, this is
+the default gutter, containing buffer tabs, but modes cab override this
+and substitute their own gutter.  This default gutter is usually
+positioned along the top of the frame, but this can be changed using
+`set-default-gutter-position'.
+
+   Note that, for each of the gutter properties (contents, thickness,
+and visibility), there is a separate specifier for each of the four
+gutter positions (top, bottom, left, and right), and an additional
+specifier for the "default" gutter, i.e. the gutter whose position is
+controlled by `set-default-gutter-position'.  The way this works is
+that `set-default-gutter-position' arranges things so that the
+appropriate position-specific specifiers for the default position
+inherit from the corresponding default specifiers.  That way, if the
+position-specific specifier does not give a value (which it usually
+doesn't), then the value from the default specifier applies.  If you
+want to control the default gutter, you just change the default
+specifiers, and everything works.  A package such as VM that wants to
+put its own gutter in a different location from the default just sets
+the position-specific specifiers, and if the user sets the default
+gutter to the same position, it will just not be visible.
+
+
+File: lispref.info,  Node: Creating Gutter,  Next: Gutter Descriptor Format,  Prev: Gutter Intro,  Up: Gutter
+
+Creating Gutter
+===============
+
+ - Function: make-gutter-specifier spec-list
+     Return a new `gutter' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter specifiers are used to specify the format of a gutter.  The
+     values of the variables `default-gutter', `top-gutter',
+     `left-gutter', `right-gutter', and `bottom-gutter' are always
+     gutter specifiers.
+
+     Valid gutter instantiators are called "gutter descriptors" and are
+     either strings or property-lists of strings.  See `default-gutter'
+     for a description of the exact format.
+
+ - Function: make-gutter-size-specifier spec-list
+     Return a new `gutter-size' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-size specifiers are used to specify the size of a gutter.
+     The values of the variables `default-gutter-size',
+     `top-gutter-size', `left-gutter-size', `right-gutter-size', and
+     `bottom-gutter-size' are always gutter-size specifiers.
+
+     Valid gutter-size instantiators are either integers or the special
+     symbol `autodetect'. If a gutter-size is set to `autodetect' them
+     the size of the gutter will be adjusted to just accommodate the
+     gutters contents. `autodetect' only works for top and bottom
+     gutters.
+
+ - Function: make-gutter-visible-specifier spec-list
+     Return a new `gutter-visible' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-visible specifiers are used to specify the visibility of a
+     gutter.  The values of the variables `default-gutter-visible-p',
+     `top-gutter-visible-p', `left-gutter-visible-p',
+     `right-gutter-visible-p', and `bottom-gutter-visible-p' are always
+     gutter-visible specifiers.
+
+     Valid gutter-visible instantiators are `t', `nil' or a list of
+     symbols.  If a gutter-visible instantiator is set to a list of
+     symbols, and the corresponding gutter specification is a
+     property-list strings, then elements of the gutter specification
+     will only be visible if the corresponding symbol occurs in the
+     gutter-visible instantiator.
+
+
+File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Creating Gutter,  Up: Gutter
+
+Gutter Descriptor Format
+========================
+
+   The contents of a gutter are specified using a "gutter descriptor".
+The format of a gutter descriptor is a list of "gutter button
+descriptors".  Each gutter button descriptor is a vector in one of the
+following formats:
+
+   * `[GLYPH-LIST FUNCTION ENABLED-P HELP]'
+
+   * `[:style 2D-OR-3D]'
+
+   * `[:style 2D-OR-3D :size WIDTH-OR-HEIGHT]'
+
+   * `[:size WIDTH-OR-HEIGHT :style 2D-OR-3D]'
+
+   Optionally, one of the gutter button descriptors may be `nil'
+instead of a vector; this signifies the division between the gutter
+buttons that are to be displayed flush-left, and the buttons to be
+displayed flush-right.
+
+   The first vector format above specifies a normal gutter button; the
+others specify blank areas in the gutter.
+
+   For the first vector format:
+
+   * GLYPH-LIST should be a list of one to six glyphs (as created by
+     `make-glyph') or a symbol whose value is such a list.  The first
+     glyph, which must be provided, is the glyph used to display the
+     gutter button when it is in the "up" (not pressed) state.  The
+     optional second glyph is for displaying the button when it is in
+     the "down" (pressed) state.  The optional third glyph is for when
+     the button is disabled.  The last three glyphs are for displaying
+     the button in the "up", "down", and "disabled" states,
+     respectively, but are used when the user has called for captioned
+     gutter buttons (using `gutter-buttons-captioned-p').  The function
+     `gutter-make-button-list' is useful in creating these glyph lists.
+
+   * Even if you do not provide separate down-state and disabled-state
+     glyphs, the user will still get visual feedback to indicate which
+     state the button is in.  Buttons in the up-state are displayed
+     with a shadowed border that gives a raised appearance to the
+     button.  Buttons in the down-state are displayed with shadows that
+     give a recessed appearance.  Buttons in the disabled state are
+     displayed with no shadows, giving a 2-d effect.
+
+   * If some of the gutter glyphs are not provided, they inherit as
+     follows:
+
+               UP:                up
+               DOWN:              down -> up
+               DISABLED:          disabled -> up
+               CAP-UP:            cap-up -> up
+               CAP-DOWN:          cap-down -> cap-up -> down -> up
+               CAP-DISABLED:      cap-disabled -> cap-up -> disabled -> up
+
+   * The second element FUNCTION is a function to be called when the
+     gutter button is activated (i.e. when the mouse is released over
+     the gutter button, if the press occurred in the gutter).  It can
+     be any form accepted by `call-interactively', since this is how it
+     is invoked.
+
+   * The third element ENABLED-P specifies whether the gutter button is
+     enabled (disabled buttons do nothing when they are activated, and
+     are displayed differently; see above).  It should be either a
+     boolean or a form that evaluates to a boolean.
+
+   * The fourth element HELP, if non-`nil', should be a string.  This
+     string is displayed in the echo area when the mouse passes over the
+     gutter button.
+
+   For the other vector formats (specifying blank areas of the gutter):
+
+   * 2D-OR-3D should be one of the symbols `2d' or `3d', indicating
+     whether the area is displayed with shadows (giving it a raised,
+     3-d appearance) or without shadows (giving it a flat appearance).
+
+   * WIDTH-OR-HEIGHT specifies the length, in pixels, of the blank
+     area.  If omitted, it defaults to a device-specific value (8
+     pixels for X devices).
+
+ - Function: gutter-make-button-list up &optional down disabled cap-up
+          cap-down cap-disabled
+     This function calls `make-glyph' on each arg and returns a list of
+     the results.  This is useful for setting the first argument of a
+     gutter button descriptor (typically, the result of this function
+     is assigned to a symbol, which is specified as the first argument
+     of the gutter button descriptor).
+
+ - Function: check-gutter-button-syntax button &optional noerror
+     Verify the syntax of entry BUTTON in a gutter description list.
+     If you want to verify the syntax of a gutter description list as a
+     whole, use `check-valid-instantiator' with a specifier type of
+     `gutter'.
+
+
+File: lispref.info,  Node: Specifying a Gutter,  Next: Other Gutter Variables,  Prev: Gutter Descriptor Format,  Up: Gutter
+
+Specifying a Gutter
+===================
+
+   In order to specify the contents of a gutter, set one of the
+specifier variables `default-gutter', `top-gutter', `bottom-gutter',
+`left-gutter', or `right-gutter'.  These are specifiers, which means
+you set them with `set-specifier' and query them with `specifier-specs'
+or `specifier-instance'.  You will get an error if you try to set them
+using `setq'.  The valid instantiators for these specifiers are gutter
+descriptors, as described above.  *Note Specifiers::, for more
+information.
+
+   Most of the time, you will set `default-gutter', which allows the
+user to choose where the gutter should go.
+
+ - Specifier: default-gutter
+     The position of this gutter is specified in the function
+     `default-gutter-position'.  If the corresponding position-specific
+     gutter (e.g. `top-gutter' if `default-gutter-position' is `top')
+     does not specify a gutter in a particular domain, then the value
+     of `default-gutter' in that domain, of any, will be used instead.
+
+   Note that the gutter at any particular position will not be displayed
+unless its thickness (width or height, depending on orientation) is
+non-zero and its visibility status is true.  The thickness is controlled
+by the specifiers `top-gutter-height', `bottom-gutter-height',
+`left-gutter-width', and `right-gutter-width', and the visibility
+status is controlled by the specifiers `top-gutter-visible-p',
+`bottom-gutter-visible-p', `left-gutter-visible-p', and
+`right-gutter-visible-p' (*note Other Gutter Variables::).
+
+ - Function: set-default-gutter-position position
+     This function sets the position that the `default-gutter' will be
+     displayed at.  Valid positions are the symbols `top', `bottom',
+     `left' and `right'.  What this actually does is set the fallback
+     specifier for the position-specific specifier corresponding to the
+     given position to `default-gutter', and set the fallbacks for the
+     other position-specific specifiers to `nil'.  It also does the
+     same thing for the position-specific thickness and visibility
+     specifiers, which inherit from one of `default-gutter-height' or
+     `default-gutter-width', and from `default-gutter-visible-p',
+     respectively (*note Other Gutter Variables::).
+
+ - Function: default-gutter-position
+     This function returns the position that the `default-gutter' will
+     be displayed at.
+
+   You can also explicitly set a gutter at a particular position.  When
+redisplay determines what to display at a particular position in a
+particular domain (i.e. window), it first consults the position-specific
+gutter.  If that does not yield a gutter descriptor, the
+`default-gutter' is consulted if `default-gutter-position' indicates
+this position.
+
+ - Specifier: top-gutter
+     Specifier for the gutter at the top of the frame.
+
+ - Specifier: bottom-gutter
+     Specifier for the gutter at the bottom of the frame.
+
+ - Specifier: left-gutter
+     Specifier for the gutter at the left edge of the frame.
+
+ - Specifier: right-gutter
+     Specifier for the gutter at the right edge of the frame.
+
+ - Function: gutter-specifier-p object
+     This function returns non-`nil' if OBJECT is a gutter specifier.
+     Gutter specifiers are the actual objects contained in the gutter
+     variables described above, and their valid instantiators are
+     gutter descriptors (*note Gutter Descriptor Format::).
+
+
+File: lispref.info,  Node: Other Gutter Variables,  Next: Common Gutter Widgets,  Prev: Specifying a Gutter,  Up: Gutter
+
+Other Gutter Variables
+======================
+
+   The variables to control the gutter thickness, visibility status, and
+captioned status are all specifiers.  *Note Specifiers::.
+
+ - Specifier: default-gutter-height
+     This specifies the height of the default gutter, if it's oriented
+     horizontally.  The position of the default gutter is specified by
+     the function `set-default-gutter-position'.  If the corresponding
+     position-specific gutter thickness specifier (e.g.
+     `top-gutter-height' if `default-gutter-position' is `top') does
+     not specify a thickness in a particular domain (a window or a
+     frame), then the value of `default-gutter-height' or
+     `default-gutter-width' (depending on the gutter orientation) in
+     that domain, if any, will be used instead.
+
+ - Specifier: default-gutter-width
+     This specifies the width of the default gutter, if it's oriented
+     vertically.  This behaves like `default-gutter-height'.
+
+   Note that `default-gutter-height' is only used when
+`default-gutter-position' is `top' or `bottom', and
+`default-gutter-width' is only used when `default-gutter-position' is
+`left' or `right'.
+
+ - Specifier: top-gutter-height
+     This specifies the height of the top gutter.
+
+ - Specifier: bottom-gutter-height
+     This specifies the height of the bottom gutter.
+
+ - Specifier: left-gutter-width
+     This specifies the width of the left gutter.
+
+ - Specifier: right-gutter-width
+     This specifies the width of the right gutter.
+
+   Note that all of the position-specific gutter thickness specifiers
+have a fallback value of zero when they do not correspond to the
+default gutter.  Therefore, you will have to set a non-zero thickness
+value if you want a position-specific gutter to be displayed.
+
+ - Specifier: default-gutter-visible-p
+     This specifies whether the default gutter is visible.  The
+     position of the default gutter is specified by the function
+     `set-default-gutter-position'.  If the corresponding
+     position-specific gutter visibility specifier (e.g.
+     `top-gutter-visible-p' if `default-gutter-position' is `top') does
+     not specify a visible-p value in a particular domain (a window or
+     a frame), then the value of `default-gutter-visible-p' in that
+     domain, if any, will be used instead.
+
+ - Specifier: top-gutter-visible-p
+     This specifies whether the top gutter is visible.
+
+ - Specifier: bottom-gutter-visible-p
+     This specifies whether the bottom gutter is visible.
+
+ - Specifier: left-gutter-visible-p
+     This specifies whether the left gutter is visible.
+
+ - Specifier: right-gutter-visible-p
+     This specifies whether the right gutter is visible.
+
+   `default-gutter-visible-p' and all of the position-specific gutter
+visibility specifiers have a fallback value of true.
+
+   Internally, gutter thickness and visibility specifiers are
+instantiated in both window and frame domains, for different purposes.
+The value in the domain of a frame's selected window specifies the
+actual gutter thickness or visibility that you will see in that frame.
+The value in the domain of a frame itself specifies the gutter
+thickness or visibility that is used in frame geometry calculations.
+
+   Thus, for example, if you set the frame width to 80 characters and
+the left gutter width for that frame to 68 pixels, then the frame will
+be sized to fit 80 characters plus a 68-pixel left gutter.  If you then
+set the left gutter width to 0 for a particular buffer (or if that
+buffer does not specify a left gutter or has a `nil' value specified for
+`left-gutter-visible-p'), you will find that, when that buffer is
+displayed in the selected window, the window will have a width of 86 or
+87 characters - the frame is sized for a 68-pixel left gutter but the
+selected window specifies that the left gutter is not visible, so it is
+expanded to take up the slack.
+
+ - Specifier: gutter-buttons-captioned-p
+     Whether gutter buttons are captioned.  This affects which glyphs
+     from a gutter button descriptor are chosen.  *Note Gutter
+     Descriptor Format::.
+
+   You can also reset the gutter to what it was when XEmacs started up.
+
+ - Constant: initial-gutter-spec
+     The gutter descriptor used to initialize `default-gutter' at
+     startup.
+
+
+File: lispref.info,  Node: Common Gutter Widgets,  Prev: Other Gutter Variables,  Up: Gutter
+
+Common Gutter Widgets
+=====================
+
+   A gutter can contain arbitrary text.  So, for example, in an Info
+buffer you could put the title of the current node in the top gutter,
+and it would not scroll out of view in a long node.  (This is an
+artificial example, since usually the node name is sufficiently
+descriptive, and Info puts that in the mode line.)
+
+   A more common use for the gutter is to hold some kind of active
+widget.  The buffer-tab facility, available in all XEmacs frames,
+creates an array of file-folder-like tabs, which the user can click with
+the mouse to switch buffers.  W3 uses a progress-bar widget in the
+bottom gutter to give a visual indication of the progress of
+time-consuming operations like downloading.
+
+* Menu:
+
+* Buffer Tabs::         Tabbed divider index metaphor for switching buffers.
+* Progress Bars::       Visual indication of operation progress.
+
+
+File: lispref.info,  Node: Buffer Tabs,  Next: Progress Bars,  Up: Common Gutter Widgets
+
+Buffer Tabs
+-----------
+
+   Not documented yet.
+
+
+File: lispref.info,  Node: Progress Bars,  Prev: Buffer Tabs,  Up: Common Gutter Widgets
+
+Progress Bars
+-------------
+
+   Not documented yet.
+
+
+File: lispref.info,  Node: Scrollbars,  Next: Drag and Drop,  Prev: Gutter,  Up: Top
+
+Scrollbars
+**********
+
+   Not yet documented.
+
+
+File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: Top
+
+Drag and Drop
+*************
+
+   _WARNING_: the Drag'n'Drop API is still under development and the
+interface may change! The current implementation is considered
+experimental.
+
+   Drag'n'drop is a way to transfer information between multiple
+applications.  To do this several GUIs define their own protocols.
+Examples are OffiX, CDE, Motif, KDE, MSWindows, GNOME, and many more.
+To catch all these protocols, XEmacs provides a generic API.
+
+   One prime idea behind the API is to use a data interface that is
+transparent for all systems. The author thinks that this is best
+archived by using URL and MIME data, cause any internet enabled system
+must support these for email already. XEmacs also already provides
+powerful interfaces to support these types of data (tm and w3).
+
+* Menu:
+
+* Supported Protocols:: Which low-level protocols are supported.
+* Drop Interface::      How XEmacs handles a drop from another application.
+* Drag Interface::      Calls to initiate a drag from XEmacs.
+
+
+File: lispref.info,  Node: Supported Protocols,  Next: Drop Interface,  Up: Drag and Drop
+
+Supported Protocols
+===================
+
+   The current release of XEmacs only support a small set of Drag'n'drop
+protocols. Some of these only support limited options available in the
+API.
+
+* Menu:
+
+* OffiX DND::           A generic X based protocol.
+* CDE dt::              Common Desktop Environment used on suns.
+* MSWindows OLE::       Mr. Gates way of live.
+* Loose ends::          The other protocols.
+
+
+File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
+
+OffiX DND
+---------
+
+   _WARNING_: If you compile in OffiX, you may not be able to use
+multiple X displays successfully.  If the two servers are from
+different vendors, the results may be unpredictable.
+
+   The OffiX Drag'n'Drop protocol is part of a X API/Widget library
+created by Cesar Crusius. It is based on X-Atoms and ClientMessage
+events, and works with any X platform supporting them.
+
+   OffiX is supported if 'offix is member of the variable
+dragdrop-protocols, or the feature 'offix is defined.
+
+   Unfortunately it uses it's own data types. Examples are: File, Files,
+Exe, Link, URL, MIME. The API tries to choose the right type for the
+data that is dragged from XEmacs (well, not yet...).
+
+   XEmacs supports both MIME and URL drags and drops using this API. No
+application interaction is possible while dragging is in progress.
+
+   For information about the OffiX project have a look at
+http://leb.net/~offix/
+
+
+File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
+
+CDE dt
+------
+
+   CDE stands for Common Desktop Environment. It is based on the Motif
+widget library. It's drag'n'drop protocol is also an abstraction of the
+Motif protocol (so it might be possible, that XEmacs will also support
+the Motif protocol soon).
+
+   CDE has three different types: file, buffer, and text. XEmacs only
+uses file and buffer drags. The API will disallow full URL drags, only
+file method URLs are passed through.
+
+   Buffer drags are always converted to plain text.
+
+
+File: lispref.info,  Node: MSWindows OLE,  Next: Loose ends,  Prev: CDE dt,  Up: Supported Protocols
+
+MSWindows OLE
+-------------
+
+   Only allows file drags and drops.
+
+
+File: lispref.info,  Node: Loose ends,  Prev: MSWindows OLE,  Up: Supported Protocols
+
+Loose ends
+----------
+
+   The following protocols will be supported soon: Xdnd, Motif, Xde (if
+I get some specs), KDE OffiX (if KDE can find XEmacs windows).
+
+   In particular Xdnd will be one of the protocols that can benefit from
+the XEmacs API, cause it also uses MIME types to encode dragged data.
+
+
+File: lispref.info,  Node: Drop Interface,  Next: Drag Interface,  Prev: Supported Protocols,  Up: Drag and Drop
+
+Drop Interface
+==============
+
+   For each activated low-level protocol, a internal routine will catch
+incoming drops and convert them to a dragdrop-drop type misc-user-event.
+
+   This misc-user-event has its function argument set to
+`dragdrop-drop-dispatch' and the object contains the data of the drop
+(converted to URL/MIME specific data). This function will search the
+variable `experimental-dragdrop-drop-functions' for a function that can
+handle the dropped data.
+
+   To modify the drop behavior, the user can modify the variable
+`experimental-dragdrop-drop-functions'. Each element of this list
+specifies a possible handler for dropped data. The first one that can
+handle the data will return `t' and exit. Another possibility is to set
+a extent-property with the same name. Extents are checked prior to the
+variable.
+
+   The customization group `drag-n-drop' shows all variables of user
+interest.
+
+
+File: lispref.info,  Node: Drag Interface,  Prev: Drop Interface,  Up: Drag and Drop
+
+Drag Interface
+==============
+
+   This describes the drag API (not implemented yet).
+
+
+File: lispref.info,  Node: Modes,  Next: Documentation,  Prev: Drag and Drop,  Up: Top
+
+Major and Minor Modes
+*********************
+
+   A "mode" is a set of definitions that customize XEmacs and can be
+turned on and off while you edit.  There are two varieties of modes:
+"major modes", which are mutually exclusive and used for editing
+particular kinds of text, and "minor modes", which provide features
+that users can enable individually.
+
+   This chapter describes how to write both major and minor modes, how
+to indicate them in the modeline, and how they run hooks supplied by the
+user.  For related topics such as keymaps and syntax tables, see *Note
+Keymaps::, and *Note Syntax Tables::.
+
+* Menu:
+
+* Major Modes::        Defining major modes.
+* Minor Modes::        Defining minor modes.
+* Modeline Format::    Customizing the text that appears in the modeline.
+* Hooks::              How to use hooks; how to write code that provides hooks.
+
+
+File: lispref.info,  Node: Major Modes,  Next: Minor Modes,  Up: Modes
+
+Major Modes
+===========
+
+   Major modes specialize XEmacs for editing particular kinds of text.
+Each buffer has only one major mode at a time.
+
+   The least specialized major mode is called "Fundamental mode".  This
+mode has no mode-specific definitions or variable settings, so each
+XEmacs command behaves in its default manner, and each option is in its
+default state.  All other major modes redefine various keys and options.
+For example, Lisp Interaction mode provides special key bindings for
+<LFD> (`eval-print-last-sexp'), <TAB> (`lisp-indent-line'), and other
+keys.
+
+   When you need to write several editing commands to help you perform a
+specialized editing task, creating a new major mode is usually a good
+idea.  In practice, writing a major mode is easy (in contrast to
+writing a minor mode, which is often difficult).
+
+   If the new mode is similar to an old one, it is often unwise to
+modify the old one to serve two purposes, since it may become harder to
+use and maintain.  Instead, copy and rename an existing major mode
+definition and alter the copy--or define a "derived mode" (*note
+Derived Modes::).  For example, Rmail Edit mode, which is in
+`emacs/lisp/rmailedit.el', is a major mode that is very similar to Text
+mode except that it provides three additional commands.  Its definition
+is distinct from that of Text mode, but was derived from it.
+
+   Rmail Edit mode is an example of a case where one piece of text is
+put temporarily into a different major mode so it can be edited in a
+different way (with ordinary XEmacs commands rather than Rmail).  In
+such cases, the temporary major mode usually has a command to switch
+back to the buffer's usual mode (Rmail mode, in this case).  You might
+be tempted to present the temporary redefinitions inside a recursive
+edit and restore the usual ones when the user exits; but this is a bad
+idea because it constrains the user's options when it is done in more
+than one buffer: recursive edits must be exited most-recently-entered
+first.  Using alternative major modes avoids this limitation.  *Note
+Recursive Editing::.
+
+   The standard XEmacs Lisp library directory contains the code for
+several major modes, in files including `text-mode.el', `texinfo.el',
+`lisp-mode.el', `c-mode.el', and `rmail.el'.  You can look at these
+libraries to see how modes are written.  Text mode is perhaps the
+simplest major mode aside from Fundamental mode.  Rmail mode is a
+complicated and specialized mode.
+
+* Menu:
+
+* Major Mode Conventions::  Coding conventions for keymaps, etc.
+* Example Major Modes::     Text mode and Lisp modes.
+* Auto Major Mode::         How XEmacs chooses the major mode automatically.
+* Mode Help::               Finding out how to use a mode.
+* Derived Modes::           Defining a new major mode based on another major
+                              mode.
+
+
+File: lispref.info,  Node: Major Mode Conventions,  Next: Example Major Modes,  Up: Major Modes
+
+Major Mode Conventions
+----------------------
+
+   The code for existing major modes follows various coding conventions,
+including conventions for local keymap and syntax table initialization,
+global names, and hooks.  Please follow these conventions when you
+define a new major mode:
+
+   * Define a command whose name ends in `-mode', with no arguments,
+     that switches to the new mode in the current buffer.  This command
+     should set up the keymap, syntax table, and local variables in an
+     existing buffer without changing the buffer's text.
+
+   * Write a documentation string for this command that describes the
+     special commands available in this mode.  `C-h m'
+     (`describe-mode') in your mode will display this string.
+
+     The documentation string may include the special documentation
+     substrings, `\[COMMAND]', `\{KEYMAP}', and `\<KEYMAP>', that
+     enable the documentation to adapt automatically to the user's own
+     key bindings.  *Note Keys in Documentation::.
+
+   * The major mode command should start by calling
+     `kill-all-local-variables'.  This is what gets rid of the local
+     variables of the major mode previously in effect.
+
+   * The major mode command should set the variable `major-mode' to the
+     major mode command symbol.  This is how `describe-mode' discovers
+     which documentation to print.
+
+   * The major mode command should set the variable `mode-name' to the
+     "pretty" name of the mode, as a string.  This appears in the mode
+     line.
+
+   * Since all global names are in the same name space, all the global
+     variables, constants, and functions that are part of the mode
+     should have names that start with the major mode name (or with an
+     abbreviation of it if the name is long).  *Note Style Tips::.
+
+   * The major mode should usually have its own keymap, which is used
+     as the local keymap in all buffers in that mode.  The major mode
+     function should call `use-local-map' to install this local map.
+     *Note Active Keymaps::, for more information.
+
+     This keymap should be kept in a global variable named
+     `MODENAME-mode-map'.  Normally the library that defines the mode
+     sets this variable.
+
+   * The mode may have its own syntax table or may share one with other
+     related modes.  If it has its own syntax table, it should store
+     this in a variable named `MODENAME-mode-syntax-table'.  *Note
+     Syntax Tables::.
+
+   * The mode may have its own abbrev table or may share one with other
+     related modes.  If it has its own abbrev table, it should store
+     this in a variable named `MODENAME-mode-abbrev-table'.  *Note
+     Abbrev Tables::.
+
+   * Use `defvar' to set mode-related variables, so that they are not
+     reinitialized if they already have a value.  (Such reinitialization
+     could discard customizations made by the user.)
+
+   * To make a buffer-local binding for an Emacs customization
+     variable, use `make-local-variable' in the major mode command, not
+     `make-variable-buffer-local'.  The latter function would make the
+     variable local to every buffer in which it is subsequently set,
+     which would affect buffers that do not use this mode.  It is
+     undesirable for a mode to have such global effects.  *Note
+     Buffer-Local Variables::.
+
+     It's ok to use `make-variable-buffer-local', if you wish, for a
+     variable used only within a single Lisp package.
+
+   * Each major mode should have a "mode hook" named
+     `MODENAME-mode-hook'.  The major mode command should run that
+     hook, with `run-hooks', as the very last thing it does. *Note
+     Hooks::.
+
+   * The major mode command may also run the hooks of some more basic
+     modes.  For example, `indented-text-mode' runs `text-mode-hook' as
+     well as `indented-text-mode-hook'.  It may run these other hooks
+     immediately before the mode's own hook (that is, after everything
+     else), or it may run them earlier.
+
+   * If something special should be done if the user switches a buffer
+     from this mode to any other major mode, the mode can set a local
+     value for `change-major-mode-hook'.
+
+   * If this mode is appropriate only for specially-prepared text, then
+     the major mode command symbol should have a property named
+     `mode-class' with value `special', put on as follows:
+
+          (put 'funny-mode 'mode-class 'special)
+
+     This tells XEmacs that new buffers created while the current
+     buffer has Funny mode should not inherit Funny mode.  Modes such
+     as Dired, Rmail, and Buffer List use this feature.
+
+   * If you want to make the new mode the default for files with certain
+     recognizable names, add an element to `auto-mode-alist' to select
+     the mode for those file names.  If you define the mode command to
+     autoload, you should add this element in the same file that calls
+     `autoload'.  Otherwise, it is sufficient to add the element in the
+     file that contains the mode definition.  *Note Auto Major Mode::.
+
+   * In the documentation, you should provide a sample `autoload' form
+     and an example of how to add to `auto-mode-alist', that users can
+     include in their `.emacs' files.
+
+   * The top-level forms in the file defining the mode should be
+     written so that they may be evaluated more than once without
+     adverse consequences.  Even if you never load the file more than
+     once, someone else will.
+
+ - Variable: change-major-mode-hook
+     This normal hook is run by `kill-all-local-variables' before it
+     does anything else.  This gives major modes a way to arrange for
+     something special to be done if the user switches to a different
+     major mode.  For best results, make this variable buffer-local, so
+     that it will disappear after doing its job and will not interfere
+     with the subsequent major mode.  *Note Hooks::.
+
+
+File: lispref.info,  Node: Example Major Modes,  Next: Auto Major Mode,  Prev: Major Mode Conventions,  Up: Major Modes
+
+Major Mode Examples
+-------------------
+
+   Text mode is perhaps the simplest mode besides Fundamental mode.
+Here are excerpts from  `text-mode.el' that illustrate many of the
+conventions listed above:
+
+     ;; Create mode-specific tables.
+     (defvar text-mode-syntax-table nil
+       "Syntax table used while in text mode.")
+     
+     (if text-mode-syntax-table
+         ()              ; Do not change the table if it is already set up.
+       (setq text-mode-syntax-table (make-syntax-table))
+       (modify-syntax-entry ?\" ".   " text-mode-syntax-table)
+       (modify-syntax-entry ?\\ ".   " text-mode-syntax-table)
+       (modify-syntax-entry ?' "w   " text-mode-syntax-table))
+     
+     (defvar text-mode-abbrev-table nil
+       "Abbrev table used while in text mode.")
+     (define-abbrev-table 'text-mode-abbrev-table ())
+     
+     (defvar text-mode-map nil)   ; Create a mode-specific keymap.
+     
+     (if text-mode-map
+         ()              ; Do not change the keymap if it is already set up.
+       (setq text-mode-map (make-sparse-keymap))
+       (define-key text-mode-map "\t" 'tab-to-tab-stop)
+       (define-key text-mode-map "\es" 'center-line)
+       (define-key text-mode-map "\eS" 'center-paragraph))
+
+   Here is the complete major mode function definition for Text mode:
+
+     (defun text-mode ()
+       "Major mode for editing text intended for humans to read.
+      Special commands: \\{text-mode-map}
+     Turning on text-mode runs the hook `text-mode-hook'."
+       (interactive)
+       (kill-all-local-variables)
+       (use-local-map text-mode-map)     ; This provides the local keymap.
+       (setq mode-name "Text")           ; This name goes into the modeline.
+       (setq major-mode 'text-mode)      ; This is how `describe-mode'
+                                         ;   finds the doc string to print.
+       (setq local-abbrev-table text-mode-abbrev-table)
+       (set-syntax-table text-mode-syntax-table)
+       (run-hooks 'text-mode-hook))      ; Finally, this permits the user to
+                                         ;   customize the mode with a hook.
+
+   The three Lisp modes (Lisp mode, Emacs Lisp mode, and Lisp
+Interaction mode) have more features than Text mode and the code is
+correspondingly more complicated.  Here are excerpts from
+`lisp-mode.el' that illustrate how these modes are written.
+
+     ;; Create mode-specific table variables.
+     (defvar lisp-mode-syntax-table nil "")
+     (defvar emacs-lisp-mode-syntax-table nil "")
+     (defvar lisp-mode-abbrev-table nil "")
+     
+     (if (not emacs-lisp-mode-syntax-table) ; Do not change the table
+                                            ;   if it is already set.
+         (let ((i 0))
+           (setq emacs-lisp-mode-syntax-table (make-syntax-table))
+     
+           ;; Set syntax of chars up to 0 to class of chars that are
+           ;;   part of symbol names but not words.
+           ;;   (The number 0 is `48' in the ASCII character set.)
+           (while (< i ?0)
+             (modify-syntax-entry i "_   " emacs-lisp-mode-syntax-table)
+             (setq i (1+ i)))
+           ...
+           ;; Set the syntax for other characters.
+           (modify-syntax-entry ?  "    " emacs-lisp-mode-syntax-table)
+           (modify-syntax-entry ?\t "    " emacs-lisp-mode-syntax-table)
+           ...
+           (modify-syntax-entry ?\( "()  " emacs-lisp-mode-syntax-table)
+           (modify-syntax-entry ?\) ")(  " emacs-lisp-mode-syntax-table)
+           ...))
+     ;; Create an abbrev table for lisp-mode.
+     (define-abbrev-table 'lisp-mode-abbrev-table ())
+
+   Much code is shared among the three Lisp modes.  The following
+function sets various variables; it is called by each of the major Lisp
+mode functions:
+
+     (defun lisp-mode-variables (lisp-syntax)
+       ;; The `lisp-syntax' argument is `nil' in Emacs Lisp mode,
+       ;;   and `t' in the other two Lisp modes.
+       (cond (lisp-syntax
+              (if (not lisp-mode-syntax-table)
+                  ;; The Emacs Lisp mode syntax table always exists, but
+                  ;;   the Lisp Mode syntax table is created the first time a
+                  ;;   mode that needs it is called.  This is to save space.
+                  (progn (setq lisp-mode-syntax-table
+                            (copy-syntax-table emacs-lisp-mode-syntax-table))
+                         ;; Change some entries for Lisp mode.
+                         (modify-syntax-entry ?\| "\"   "
+                                              lisp-mode-syntax-table)
+                         (modify-syntax-entry ?\[ "_   "
+                                              lisp-mode-syntax-table)
+                         (modify-syntax-entry ?\] "_   "
+                                              lisp-mode-syntax-table)))
+               (set-syntax-table lisp-mode-syntax-table)))
+       (setq local-abbrev-table lisp-mode-abbrev-table)
+       ...)
+
+   Functions such as `forward-paragraph' use the value of the
+`paragraph-start' variable.  Since Lisp code is different from ordinary
+text, the `paragraph-start' variable needs to be set specially to
+handle Lisp.  Also, comments are indented in a special fashion in Lisp
+and the Lisp modes need their own mode-specific
+`comment-indent-function'.  The code to set these variables is the rest
+of `lisp-mode-variables'.
+
+       (make-local-variable 'paragraph-start)
+       ;; Having `^' is not clean, but `page-delimiter'
+       ;; has them too, and removing those is a pain.
+       (setq paragraph-start (concat "^$\\|" page-delimiter))
+       ...
+       (make-local-variable 'comment-indent-function)
+       (setq comment-indent-function 'lisp-comment-indent))
+
+   Each of the different Lisp modes has a slightly different keymap.
+For example, Lisp mode binds `C-c C-l' to `run-lisp', but the other
+Lisp modes do not.  However, all Lisp modes have some commands in
+common.  The following function adds these common commands to a given
+keymap.
+
+     (defun lisp-mode-commands (map)
+       (define-key map "\e\C-q" 'indent-sexp)
+       (define-key map "\177" 'backward-delete-char-untabify)
+       (define-key map "\t" 'lisp-indent-line))
+
+   Here is an example of using `lisp-mode-commands' to initialize a
+keymap, as part of the code for Emacs Lisp mode.  First we declare a
+variable with `defvar' to hold the mode-specific keymap.  When this
+`defvar' executes, it sets the variable to `nil' if it was void.  Then
+we set up the keymap if the variable is `nil'.
+
+   This code avoids changing the keymap or the variable if it is already
+set up.  This lets the user customize the keymap.
+
+     (defvar emacs-lisp-mode-map () "")
+     (if emacs-lisp-mode-map
+         ()
+       (setq emacs-lisp-mode-map (make-sparse-keymap))
+       (define-key emacs-lisp-mode-map "\e\C-x" 'eval-defun)
+       (lisp-mode-commands emacs-lisp-mode-map))
+
+   Finally, here is the complete major mode function definition for
+Emacs Lisp mode.
+
+     (defun emacs-lisp-mode ()
+       "Major mode for editing Lisp code to run in XEmacs.
+     Commands:
+     Delete converts tabs to spaces as it moves back.
+     Blank lines separate paragraphs.  Semicolons start comments.
+     \\{emacs-lisp-mode-map}
+     Entry to this mode runs the hook `emacs-lisp-mode-hook'."
+       (interactive)
+       (kill-all-local-variables)
+       (use-local-map emacs-lisp-mode-map)    ; This provides the local keymap.
+       (set-syntax-table emacs-lisp-mode-syntax-table)
+       (setq major-mode 'emacs-lisp-mode)     ; This is how `describe-mode'
+                                              ;   finds out what to describe.
+       (setq mode-name "Emacs-Lisp")          ; This goes into the modeline.
+       (lisp-mode-variables nil)              ; This defines various variables.
+       (run-hooks 'emacs-lisp-mode-hook))     ; This permits the user to use a
+                                              ;   hook to customize the mode.
+
+
+File: lispref.info,  Node: Auto Major Mode,  Next: Mode Help,  Prev: Example Major Modes,  Up: Major Modes
+
+How XEmacs Chooses a Major Mode
+-------------------------------
+
+   Based on information in the file name or in the file itself, XEmacs
+automatically selects a major mode for the new buffer when a file is
+visited.
+
+ - Command: fundamental-mode
+     Fundamental mode is a major mode that is not specialized for
+     anything in particular.  Other major modes are defined in effect
+     by comparison with this one--their definitions say what to change,
+     starting from Fundamental mode.  The `fundamental-mode' function
+     does _not_ run any hooks; you're not supposed to customize it.
+     (If you want Emacs to behave differently in Fundamental mode,
+     change the _global_ state of Emacs.)
+
+ - Command: normal-mode &optional find-file
+     This function establishes the proper major mode and local variable
+     bindings for the current buffer.  First it calls `set-auto-mode',
+     then it runs `hack-local-variables' to parse, and bind or evaluate
+     as appropriate, any local variables.
+
+     If the FIND-FILE argument to `normal-mode' is non-`nil',
+     `normal-mode' assumes that the `find-file' function is calling it.
+     In this case, it may process a local variables list at the end of
+     the file and in the `-*-' line.  The variable
+     `enable-local-variables' controls whether to do so.
+
+     If you run `normal-mode' interactively, the argument FIND-FILE is
+     normally `nil'.  In this case, `normal-mode' unconditionally
+     processes any local variables list.  *Note Local Variables in
+     Files: (emacs)File variables, for the syntax of the local
+     variables section of a file.
+
+     `normal-mode' uses `condition-case' around the call to the major
+     mode function, so errors are caught and reported as a `File mode
+     specification error',  followed by the original error message.
+
+ - User Option: enable-local-variables
+     This variable controls processing of local variables lists in files
+     being visited.  A value of `t' means process the local variables
+     lists unconditionally; `nil' means ignore them; anything else means
+     ask the user what to do for each file.  The default value is `t'.
+
+ - Variable: ignored-local-variables
+     This variable holds a list of variables that should not be set by
+     a local variables list.  Any value specified for one of these
+     variables is ignored.
+
+   In addition to this list, any variable whose name has a non-`nil'
+`risky-local-variable' property is also ignored.
+
+ - User Option: enable-local-eval
+     This variable controls processing of `Eval:' in local variables
+     lists in files being visited.  A value of `t' means process them
+     unconditionally; `nil' means ignore them; anything else means ask
+     the user what to do for each file.  The default value is `maybe'.
+
+ - Function: set-auto-mode
+     This function selects the major mode that is appropriate for the
+     current buffer.  It may base its decision on the value of the `-*-'
+     line, on the visited file name (using `auto-mode-alist'), or on the
+     value of a local variable.  However, this function does not look
+     for the `mode:' local variable near the end of a file; the
+     `hack-local-variables' function does that.  *Note How Major Modes
+     are Chosen: (emacs)Choosing Modes.
+
+ - User Option: default-major-mode
+     This variable holds the default major mode for new buffers.  The
+     standard value is `fundamental-mode'.
+
+     If the value of `default-major-mode' is `nil', XEmacs uses the
+     (previously) current buffer's major mode for the major mode of a
+     new buffer.  However, if the major mode symbol has a `mode-class'
+     property with value `special', then it is not used for new buffers;
+     Fundamental mode is used instead.  The modes that have this
+     property are those such as Dired and Rmail that are useful only
+     with text that has been specially prepared.
+
+ - Function: set-buffer-major-mode buffer
+     This function sets the major mode of BUFFER to the value of
+     `default-major-mode'.  If that variable is `nil', it uses the
+     current buffer's major mode (if that is suitable).
+
+     The low-level primitives for creating buffers do not use this
+     function, but medium-level commands such as `switch-to-buffer' and
+     `find-file-noselect' use it whenever they create buffers.
+
+ - Variable: initial-major-mode
+     The value of this variable determines the major mode of the initial
+     `*scratch*' buffer.  The value should be a symbol that is a major
+     mode command name.  The default value is `lisp-interaction-mode'.
+
+ - Variable: auto-mode-alist
+     This variable contains an association list of file name patterns
+     (regular expressions; *note Regular Expressions::) and
+     corresponding major mode functions.  Usually, the file name
+     patterns test for suffixes, such as `.el' and `.c', but this need
+     not be the case.  An ordinary element of the alist looks like
+     `(REGEXP .  MODE-FUNCTION)'.
+
+     For example,
+
+          (("^/tmp/fol/" . text-mode)
+           ("\\.texinfo\\'" . texinfo-mode)
+           ("\\.texi\\'" . texinfo-mode)
+           ("\\.el\\'" . emacs-lisp-mode)
+           ("\\.c\\'" . c-mode)
+           ("\\.h\\'" . c-mode)
+           ...)
+
+     When you visit a file whose expanded file name (*note File Name
+     Expansion::) matches a REGEXP, `set-auto-mode' calls the
+     corresponding MODE-FUNCTION.  This feature enables XEmacs to select
+     the proper major mode for most files.
+
+     If an element of `auto-mode-alist' has the form `(REGEXP FUNCTION
+     t)', then after calling FUNCTION, XEmacs searches
+     `auto-mode-alist' again for a match against the portion of the file
+     name that did not match before.
+
+     This match-again feature is useful for uncompression packages: an
+     entry of the form `("\\.gz\\'" . FUNCTION)' can uncompress the file
+     and then put the uncompressed file in the proper mode according to
+     the name sans `.gz'.
+
+     Here is an example of how to prepend several pattern pairs to
+     `auto-mode-alist'.  (You might use this sort of expression in your
+     `.emacs' file.)
+
+          (setq auto-mode-alist
+            (append
+             ;; File name starts with a dot.
+             '(("/\\.[^/]*\\'" . fundamental-mode)
+               ;; File name has no dot.
+               ("[^\\./]*\\'" . fundamental-mode)
+               ;; File name ends in `.C'.
+               ("\\.C\\'" . c++-mode))
+             auto-mode-alist))
+
+ - Variable: interpreter-mode-alist
+     This variable specifies major modes to use for scripts that
+     specify a command interpreter in an `#!' line.  Its value is a
+     list of elements of the form `(INTERPRETER . MODE)'; for example,
+     `("perl" . perl-mode)' is one element present by default.  The
+     element says to use mode MODE if the file specifies INTERPRETER.
+
+     This variable is applicable only when the `auto-mode-alist' does
+     not indicate which major mode to use.
+
+ - Function: hack-local-variables &optional force
+     This function parses, and binds or evaluates as appropriate, any
+     local variables for the current buffer.
+
+     The handling of `enable-local-variables' documented for
+     `normal-mode' actually takes place here.  The argument FORCE
+     usually comes from the argument FIND-FILE given to `normal-mode'.
+
