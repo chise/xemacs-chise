@@ -2558,12 +2558,15 @@ reset_encoding_stream (struct encoding_stream *str)
     case CODESYS_UTF8:
       str->encode_char = &char_encode_utf8;
       str->finish = &char_finish_utf8;
+      break;
     case CODESYS_UCS4:
       str->encode_char = &char_encode_ucs4;
       str->finish = &char_finish_ucs4;
+      break;
     case CODESYS_SHIFT_JIS:
       str->encode_char = &char_encode_shift_jis;
       str->finish = &char_finish_shift_jis;
+      break;
     default:
       break;
     }
@@ -3424,10 +3427,10 @@ void
 char_encode_ucs4 (struct encoding_stream *str, Emchar ch,
 		  unsigned_char_dynarr *dst, unsigned int *flags)
 {
-  Dynarr_add (dst,  ch >> 24);
-  Dynarr_add (dst, (ch >> 16) & 255);
-  Dynarr_add (dst, (ch >>  8) & 255);
-  Dynarr_add (dst,  ch        & 255);
+  Dynarr_add (dst, ch >> 24);
+  Dynarr_add (dst, ch >> 16);
+  Dynarr_add (dst, ch >>  8);
+  Dynarr_add (dst, ch      );
 }
 
 void
