@@ -74,11 +74,13 @@
 ;;	(read REG ...)
 ;;	| (read-if (REG OPERATOR ARG) CCL_BLOCK CCL_BLOCK)
 ;;	| (read-branch REG CCL_BLOCK [CCL_BLOCK ...])
+;;      | (read-multibyte-character REG {charset} REG {code-point})
 ;; WRITE :=
 ;;	(write REG ...)
 ;;	| (write EXPRESSION)
 ;;	| (write integer) | (write string) | (write REG ARRAY)
 ;;	| string
+;;      | (write-multibyte-character REG(charset) REG(codepoint))
 ;; CALL := (call ccl-program-name)
 ;; END := (end)
 ;;
@@ -89,14 +91,20 @@
 ;;	| < | > | == | <= | >= | != | de-sjis | en-sjis
 ;; ASSIGNMENT_OPERATOR :=
 ;;	+= | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
-;; ARRAY := '[' interger ... ']'
+;; ARRAY := '[' integer ... ']'
 
 ;;; Code:
 
+(defgroup ccl nil
+  "CCL (Code Conversion Language) compiler."
+  :prefix "ccl-"
+  :group 'i18n)
+
 (defconst ccl-command-table
   [if branch loop break repeat write-repeat write-read-repeat
-      read read-if read-branch write call end]
-  "*Vector of CCL commands (symbols).")
+      read read-if read-branch write call end
+      read-multibyte-character write-multibyte-character]
+  "Vector of CCL commands (symbols).")
 
 ;; Put a property to each symbol of CCL commands for the compiler.
 (let (op (i 0) (len (length ccl-command-table)))
@@ -137,8 +145,21 @@
    jump-cond-expr-register
    read-jump-cond-expr-const
    read-jump-cond-expr-register
+   ex-cmd
    ]
-  "*Vector of CCL compiled codes (symbols).")
+  "Vector of CCL compiled codes (symbols).")
+
+(defconst ccl-extended-code-table
+  [read-multibyte-character
+   write-multibyte-character
+   translate-character
+   translate-character-const-tbl
+   nil nil nil nil nil nil nil nil nil nil nil nil ; 0x04-0x0f
+   iterate-multiple-map
+   map-multiple
+   map-single
+   ]
+  "Vector of CCL extended compiled codes (symbols).")
 
 ;; Put a property to each symbol of CCL codes for the disassembler.
 (let (code (i 0) (len (length ccl-code-table)))
@@ -146,6 +167,15 @@
     (setq code (aref ccl-code-table i))
     (put code 'ccl-code i)
     (put code 'ccl-dump-function (intern (format "ccl-dump-%s" code)))
+    (setq i (1+ i))))
+
+(let (code (i 0) (len (length ccl-extended-code-table)))
+  (while (< i len)
+    (setq code (aref ccl-extended-code-table i))
+    (if code
+	(progn
+	  (put code 'ccl-ex-code i)
+	  (put code 'ccl-dump-function (intern (format "ccl-dump-%s" code)))))
     (setq i (1+ i))))
 
 (defconst ccl-jump-code-list
@@ -162,7 +192,7 @@
 
 (defconst ccl-register-table
   [r0 r1 r2 r3 r4 r5 r6 r7]
-  "*Vector of CCL registers (symbols).")
+  "Vector of CCL registers (symbols).")
 
 ;; Put a property to indicate register number to each symbol of CCL.
 ;; registers.
@@ -175,7 +205,7 @@
 (defconst ccl-arith-table
   [+ - * / % & | ^ << >> <8 >8 // nil nil nil
    < > == <= >= != de-sjis en-sjis]
-  "*Vector of CCL arithmetic/logical operators (symbols).")
+  "Vector of CCL arithmetic/logical operators (symbols).")
 
 ;; Put a property to each symbol of CCL operators for the compiler.
 (let (arith (i 0) (len (length ccl-arith-table)))
@@ -186,7 +216,7 @@
 
 (defconst ccl-assign-arith-table
   [+= -= *= /= %= &= |= ^= <<= >>= <8= >8= //=]
-  "*Vector of CCL assignment operators (symbols).")
+  "Vector of CCL assignment operators (symbols).")
 
 ;; Put a property to each symbol of CCL assignment operators for the compiler.
 (let (arith (i 0) (len (length ccl-assign-arith-table)))
@@ -257,6 +287,16 @@
 			(ash data 8)))))
     (aset ccl-program-vector ccl-current-ic code)
     (setq ccl-current-ic (1+ ccl-current-ic))))
+
+;; extended ccl command format
+;;	|- 14-bit -|- 3-bit --|- 3-bit --|- 3-bit --|- 5-bit -|
+;;	|- EX-OP --|-- REG3 --|-- REG2 --|-- REG ---|-- OP ---|
+(defun ccl-embed-extended-command (ex-op reg reg2 reg3)
+  (let ((data (logior (ash (get ex-op 'ccl-ex-code) 3)
+		      (if (symbolp reg3)
+			  (get reg3 'ccl-register-number)
+			0))))
+    (ccl-embed-code 'ex-cmd reg data reg2)))
 
 ;; Just advance `ccl-current-ic' by INC.
 (defun ccl-increment-ic (inc)
@@ -524,7 +564,9 @@
     (let ((unconditional-jump (ccl-compile-1 true-cmds)))
       (if (null false-cmds)
 	  ;; This is the place to jump to if condition is false.
-	  (ccl-embed-current-address jump-cond-address)
+	  (progn
+	    (ccl-embed-current-address jump-cond-address)
+	    (setq unconditional-jump nil))
 	(let (end-true-part-address)
 	  (if (not unconditional-jump)
 	      (progn
@@ -802,6 +844,119 @@
   (ccl-embed-code 'end 0 0)
   t)
 
+;; Compile read-multibyte-character
+(defun ccl-compile-read-multibyte-character (cmd)
+  (if (/= (length cmd) 3)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let ((RRR (nth 1 cmd))
+	(rrr (nth 2 cmd)))
+    (ccl-check-register rrr cmd)
+    (ccl-check-register RRR cmd)
+    (ccl-embed-extended-command 'read-multibyte-character rrr RRR 0))
+  nil)
+
+;; Compile write-multibyte-character
+(defun ccl-compile-write-multibyte-character (cmd)
+  (if (/= (length cmd) 3)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let ((RRR (nth 1 cmd))
+	(rrr (nth 2 cmd)))
+    (ccl-check-register rrr cmd)
+    (ccl-check-register RRR cmd)
+    (ccl-embed-extended-command 'write-multibyte-character rrr RRR 0))
+  nil)
+
+;; Compile translate-character
+;; (defun ccl-compile-translate-character (cmd)
+;;   (if (/= (length cmd) 4)
+;;       (error "CCL: Invalid number of arguments: %s" cmd))
+;;   (let ((Rrr (nth 1 cmd))
+;;         (RRR (nth 2 cmd))
+;;         (rrr (nth 3 cmd)))
+;;     (ccl-check-register rrr cmd)
+;;     (ccl-check-register RRR cmd)
+;;     (cond ((and (symbolp Rrr) (not (get Rrr 'ccl-register-number)))
+;;            (if (not (get Rrr 'translation-table))
+;;                (error "CCL: Invalid translation table %s in %s" Rrr cmd))
+;;            (ccl-embed-extended-command 'translate-character-const-tbl
+;;                                        rrr RRR 0)
+;;            (ccl-embed-data Rrr))
+;;           (t
+;;            (ccl-check-register Rrr cmd)
+;;            (ccl-embed-extended-command 'translate-character rrr RRR Rrr))))
+;;   nil)
+
+;; (defun ccl-compile-iterate-multiple-map (cmd)
+;;   (ccl-compile-multiple-map-function 'iterate-multiple-map cmd)
+;;   nil)
+
+;; (defun ccl-compile-map-multiple (cmd)
+;;   (if (/= (length cmd) 4)
+;;       (error "CCL: Invalid number of arguments: %s" cmd))
+;;   (let ((func '(lambda (arg mp)
+;;                           (let ((len 0) result add)
+;;                             (while arg
+;;                               (if (consp (car arg))
+;;                                   (setq add (funcall func (car arg) t)
+;;                                         result (append result add)
+;;                                         add (+ (-(car add)) 1))
+;;                                 (setq result
+;;                                       (append result
+;;                                               (list (car arg)))
+;;                                       add 1))
+;;                               (setq arg (cdr arg)
+;;                                     len (+ len add)))
+;;                             (if mp 
+;;                                 (cons (- len) result)
+;;                               result))))
+;;         arg)
+;;     (setq arg (append (list (nth 0 cmd) (nth 1 cmd) (nth 2 cmd))
+;;                       (funcall func (nth 3 cmd) nil)))
+;;     (ccl-compile-multiple-map-function 'map-multiple arg))
+;;   nil)
+
+;; (defun ccl-compile-map-single (cmd)
+;;   (if (/= (length cmd) 4)
+;;       (error "CCL: Invalid number of arguments: %s" cmd))
+;;   (let ((RRR (nth 1 cmd))
+;;         (rrr (nth 2 cmd))
+;;         (map (nth 3 cmd))
+;;         id)
+;;     (ccl-check-register rrr cmd)
+;;     (ccl-check-register RRR cmd)
+;;     (ccl-embed-extended-command 'map-single rrr RRR 0)
+;;     (cond ((symbolp map)
+;;            (if (get map 'code-conversion-map)
+;;                (ccl-embed-data map)
+;;              (error "CCL: Invalid map: %s" map)))
+;;           (t
+;;            (error "CCL: Invalid type of arguments: %s" cmd))))
+;;   nil)
+
+;; (defun ccl-compile-multiple-map-function (command cmd)
+;;   (if (< (length cmd) 4)
+;;       (error "CCL: Invalid number of arguments: %s" cmd))
+;;   (let ((RRR (nth 1 cmd))
+;;         (rrr (nth 2 cmd))
+;;         (args (nthcdr 3 cmd))
+;;         map)
+;;     (ccl-check-register rrr cmd)
+;;     (ccl-check-register RRR cmd)
+;;     (ccl-embed-extended-command command rrr RRR 0)
+;;     (ccl-embed-data (length args))
+;;     (while args
+;;       (setq map (car args))
+;;       (cond ((symbolp map)
+;;              (if (get map 'code-conversion-map)
+;;                  (ccl-embed-data map)
+;;                (error "CCL: Invalid map: %s" map)))
+;;             ((numberp map)
+;;              (ccl-embed-data map))
+;;             (t
+;;              (error "CCL: Invalid type of arguments: %s" cmd)))
+;;       (setq args (cdr args)))))
+
+
 ;;; CCL dump staffs
 
 ;; To avoid byte-compiler warning.
@@ -1069,17 +1224,69 @@
 	(insert "\n"))
       (setq i (1+ i)))))
 
+(defun ccl-dump-ex-cmd (rrr cc)
+  (let* ((RRR (logand cc ?\x7))
+	 (Rrr (logand (ash cc -3) ?\x7))
+	 (ex-op (aref ccl-extended-code-table (logand (ash cc -6) ?\x3fff))))
+    (insert (format "<%s> " ex-op))
+    (funcall (get ex-op 'ccl-dump-function) rrr RRR Rrr)))
+
+(defun ccl-dump-read-multibyte-character (rrr RRR Rrr)
+  (insert (format "read-multibyte-character r%d r%d\n" RRR rrr)))
+
+(defun ccl-dump-write-multibyte-character (rrr RRR Rrr)
+  (insert (format "write-multibyte-character r%d r%d\n" RRR rrr)))
+
+;; (defun ccl-dump-translate-character (rrr RRR Rrr)
+;;   (insert (format "translation table(r%d) r%d r%d\n" Rrr RRR rrr)))
+
+;; (defun ccl-dump-translate-character-const-tbl (rrr RRR Rrr)
+;;   (let ((tbl (ccl-get-next-code)))
+;;     (insert (format "translation table(%S) r%d r%d\n" tbl RRR rrr))))
+
+;; (defun ccl-dump-iterate-multiple-map (rrr RRR Rrr)
+;;   (let ((notbl (ccl-get-next-code))
+;;         (i 0) id)
+;;     (insert (format "iterate-multiple-map r%d r%d\n" RRR rrr))
+;;     (insert (format "\tnumber of maps is %d .\n\t [" notbl))
+;;     (while (< i notbl)
+;;       (setq id (ccl-get-next-code))
+;;       (insert (format "%S" id))
+;;       (setq i (1+ i)))
+;;     (insert "]\n")))
+
+;; (defun ccl-dump-map-multiple (rrr RRR Rrr)
+;;   (let ((notbl (ccl-get-next-code))
+;;         (i 0) id)
+;;     (insert (format "map-multiple r%d r%d\n" RRR rrr))
+;;     (insert (format "\tnumber of maps and separators is %d\n\t [" notbl))
+;;     (while (< i notbl)
+;;       (setq id (ccl-get-next-code))
+;;       (if (= id -1)
+;;           (insert "]\n\t [")
+;;         (insert (format "%S " id)))
+;;       (setq i (1+ i)))
+;;     (insert "]\n")))
+
+;; (defun ccl-dump-map-single (rrr RRR Rrr)
+;;   (let ((id (ccl-get-next-code)))
+;;     (insert (format "map-single r%d r%d map(%S)\n" RRR rrr id))))
+
+
 ;; CCL emulation staffs 
 
 ;; Not yet implemented.
 
+;; Auto-loaded functions.
+
 ;;;###autoload
-(defmacro declare-ccl-program (name)
+(defmacro declare-ccl-program (name &optional vector)
   "Declare NAME as a name of CCL program.
 
 To compile a CCL program which calls another CCL program not yet
-defined, it must be declared as a CCL program in advance."
-  `(put ',name 'ccl-program-idx (register-ccl-program ',name nil)))
+defined, it must be declared as a CCL program in advance.
+Optional arg VECTOR is a compiled CCL code of the CCL program."
+  `(put ',name 'ccl-program-idx (register-ccl-program ',name ,vector)))
 
 ;;;###autoload
 (defmacro define-ccl-program (name ccl-program &optional doc)
@@ -1092,9 +1299,27 @@ The compiled code is a vector of integers."
      nil))
 
 ;;;###autoload
+(defmacro check-ccl-program (ccl-program &optional name)
+  "Check validity of CCL-PROGRAM.
+If CCL-PROGRAM is a symbol denoting a valid CCL program, return
+CCL-PROGRAM, else return nil.
+If CCL-PROGRAM is a vector and optional arg NAME (symbol) is supplied,
+register CCL-PROGRAM by name NAME, and return NAME."
+  `(let ((result ,ccl-program))
+     (cond ((symbolp ,ccl-program)
+	    (or (numberp (get ,ccl-program 'ccl-program-idx))
+		(setq result nil)))
+	   ((vectorp ,ccl-program)
+	    (setq result ,name)
+	    (register-ccl-program result ,ccl-program))
+	   (t
+	    (setq result nil)))
+     result))
+
+;;;###autoload
 (defun ccl-execute-with-args (ccl-prog &rest args)
   "Execute CCL-PROGRAM with registers initialized by the remaining args.
-The return value is a vector of resulting CCL registeres."
+The return value is a vector of resulting CCL registers."
   (let ((reg (make-vector 8 0))
 	(i 0))
     (while (and args (< i 8))
