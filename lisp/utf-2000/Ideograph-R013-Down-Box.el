@@ -169,6 +169,7 @@
       (ideograph-daikanwa . 28201)	; ø¸†¸©
       (ucs		  . #x7F53)	; ç½“
       ))
+    (hanyu-dazidian	1 97 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
@@ -179,7 +180,8 @@
       ))
     (chinese-gb2312	. #x3854)	; ø»„¨©
     (chinese-isoir165	. #x3854)	; ø»¹
-    (chinese-big5	. #xC8A2)	; øº »«
+    (chinese-big5-eten	. #xC8A2)	; øº »«
+    (chinese-big5-cdp	. #x85BE)	; ý¢€ˆ–¾
     (ucs		. #x5188)	; å†ˆ
     ))
 (define-char
