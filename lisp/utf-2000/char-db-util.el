@@ -113,393 +113,342 @@
    ((symbolp kb)
     nil)))
 
-(defun insert-char-data (char &optional readable)
-  (let ((data (char-attribute-alist char))
-	cell ret has-long-ccs-name rest
+(defun insert-char-data (char &optional readable
+			      attributes ccs-attributes)
+  (or attributes
+      (setq attributes (sort (char-attribute-list) #'char-attribute-name<)))
+  (or ccs-attributes
+      (setq ccs-attributes (sort (charset-list) #'char-attribute-name<)))
+  (let (name value cell ret has-long-ccs-name rest
 	radical strokes)
-    (when data
-      (save-restriction
-	(narrow-to-region (point)(point))
-	(insert "(define-char
+    (save-restriction
+      (narrow-to-region (point)(point))
+      (insert "(define-char
   '(")
-	(when (setq cell (assq 'name data))
-	  (setq cell (cdr cell))
-	  (insert (format
-		   (if (> (length cell) 47)
-		       "(name . %S)
+      (when (setq value (get-char-attribute char 'name))
+	(insert (format
+		 (if (> (length value) 47)
+		     "(name . %S)
     "
-		     "(name\t\t. %S)
+		   "(name\t\t. %S)
     ")
-		   cell))
-	  (setq data (del-alist 'name data))
+		 value))
+	(setq attributes (delq 'name attributes))
+	)
+      (when (setq value (get-char-attribute char 'script))
+	(insert (format "(script\t\t%s)
+    "
+			(mapconcat (function prin1-to-string)
+				   value " ")))
+	(setq attributes (del-alist 'script data))
+	)
+      (when (setq value (get-char-attribute char '->ucs))
+	(insert (format "(->ucs\t\t. #x%04X)\t; %c
+    "
+			value (decode-char 'ucs value)))
+	(setq attributes (delq '->ucs attributes))
+	)
+      (when (setq value (get-char-attribute char 'general-category))
+	(insert (format
+		 "(general-category\t%s) ; %s
+    "
+		 (mapconcat (lambda (cell)
+			      (format "%S" cell))
+			    value " ")
+		 (cond ((rassoc value unidata-normative-category-alist)
+			"Normative Category")
+		       ((rassoc value unidata-informative-category-alist)
+			"Informative Category")
+		       (t
+			"Unknown Category"))))
+	(setq attributes (delq 'general-category attributes))
+	)
+      (when (setq value (get-char-attribute char 'bidi-category))
+	(insert (format "(bidi-category\t. %S)
+    "
+			value))
+	(setq attributes (delq 'bidi-category attributes))
+	)
+      (when (setq value (get-char-attribute char 'mirrored))
+	(insert (format "(mirrored\t\t. %S)
+    "
+			value))
+	(setq attributes (delq 'mirrored attributes))
+	)
+      (cond
+       ((setq value (get-char-attribute char 'decimal-digit-value))
+	(insert (format "(decimal-digit-value . %S)
+    "
+			value))
+	(setq attributes (delq 'decimal-digit-value attributes))
+	(when (setq value (get-char-attribute char 'digit-value))
+	  (insert (format "(digit-value\t . %S)
+    "
+			  value))
+	  (setq attributes (delq 'digit-value attributes))
 	  )
-	(when (setq cell (assq 'script data))
-	  (insert (format "(script\t\t%s)
+	(when (setq value (get-char-attribute char 'numeric-value))
+	  (insert (format "(numeric-value\t . %S)
     "
-			  (mapconcat (function prin1-to-string)
-				     (cdr cell) " ")))
-	  (setq data (del-alist 'script data))
+			  value))
+	  (setq attributes (delq 'numeric-value attributes))
 	  )
-	(when (setq cell (assq 'ucs data))
-	  (setq cell (cdr cell))
-	  (insert (format "(ucs\t\t. #x%04X)
+	)
+       (t
+	(when (setq value (get-char-attribute char 'digit-value))
+	  (insert (format "(digit-value\t. %S)
     "
-			  cell))
-	  (setq data (del-alist 'ucs data))
+			  value))
+	  (setq attributes (delq 'digit-value attributes))
 	  )
-	(when (setq cell (assq '->ucs data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->ucs\t\t. #x%04X)\t; %c
+	(when (setq value (get-char-attribute char 'numeric-value))
+	  (insert (format "(numeric-value\t. %S)
     "
-			  cell (decode-char 'ucs cell)))
-	  (setq data (del-alist '->ucs data))
-	  )
-	(when (setq cell (assq 'general-category data))
-	  (setq ret (cdr cell))
-	  (insert (format
-		   "(general-category\t%s) ; %s
+			  value))
+	  (setq attributes (delq 'numeric-value attributes))
+	  )))
+      (when (setq value (get-char-attribute char 'iso-10646-comment))
+	(insert (format "(iso-10646-comment\t. %S)
     "
-		   (mapconcat (lambda (cell)
-				(format "%S" cell))
-			      ret " ")
-		   (cond ((rassoc (cdr cell)
-				  unidata-normative-category-alist)
-			  "Normative Category")
-			 ((rassoc (cdr cell)
-				  unidata-informative-category-alist)
-			  "Informative Category")
-			 (t
-			  "Unknown Category"))))
-	  (setq data (del-alist 'general-category data))
-	  )
-	(when (setq cell (assq 'bidi-category data))
-	  (setq cell (cdr cell))
-	  (insert (format "(bidi-category\t. %S)
+			value))
+	(setq attributes (delq 'iso-10646-comment attributes))
+	)
+      (when (setq value (get-char-attribute char 'morohashi-daikanwa))
+	(insert (format "(morohashi-daikanwa\t%s)
     "
-			  cell))
-	  (setq data (del-alist 'bidi-category data))
-	  )
-	(when (setq cell (assq 'mirrored data))
-	  (setq cell (cdr cell))
-	  (insert (format "(mirrored\t\t. %S)
+			(mapconcat (function prin1-to-string) value " ")))
+	(setq attributes (delq 'morohashi-daikanwa attributes))
+	)
+      (setq radical nil
+	    strokes nil)
+      (when (setq value (get-char-attribute char 'ideographic-radical))
+	(setq radical value)
+	(insert (format "(ideographic-radical . %S)\t; %c
     "
-			  cell))
-	  (setq data (del-alist 'mirrored data))
-	  )
-	(cond
-	 ((setq cell (assq 'decimal-digit-value data))
-	  (setq cell (cdr cell))
-	  (insert (format "(decimal-digit-value . %S)
+			radical
+			(aref ideographic-radicals radical)))
+	(setq attributes (delq 'ideographic-radical attributes))
+	)
+      (when (setq value (get-char-attribute char 'ideographic-strokes))
+	(setq strokes value)
+	(insert (format "(ideographic-strokes . %S)
     "
-			  cell))
-	  (setq data (del-alist 'decimal-digit-value data))
-	  (when (setq cell (assq 'digit-value data))
-	    (setq cell (cdr cell))
-	    (insert (format "(digit-value\t . %S)
+			strokes))
+	(setq attributes (delq 'ideographic-strokes attributes))
+	)
+      (when (setq value (get-char-attribute char 'kangxi-radical))
+	(unless (eq value radical)
+	  (insert (format "(kangxi-radical\t . %S)\t; %c
     "
-			    cell))
-	    (setq data (del-alist 'digit-value data))
-	    )
-	  (when (setq cell (assq 'numeric-value data))
-	    (setq cell (cdr cell))
-	    (insert (format "(numeric-value\t . %S)
+			  value
+			  (aref ideographic-radicals value)))
+	  (or radical
+	      (setq radical value)))
+	(setq attributes (delq 'kangxi-radical attributes))
+	)
+      (when (setq value (get-char-attribute char 'kangxi-strokes))
+	(unless (eq value strokes)
+	  (insert (format "(kangxi-strokes\t . %S)
     "
-			    cell))
-	    (setq data (del-alist 'numeric-value data))
-	    )
-	  )
-	 (t
-	  (when (setq cell (assq 'digit-value data))
-	    (setq cell (cdr cell))
-	    (insert (format "(digit-value\t. %S)
+			  value))
+	  (or strokes
+	      (setq strokes value)))
+	(setq attributes (delq 'kangxi-strokes attributes))
+	)
+      (when (setq value (get-char-attribute char 'japanese-radical))
+	(unless (eq value radical)
+	  (insert (format "(japanese-radical\t . %S)\t; %c
     "
-			    cell))
-	    (setq data (del-alist 'digit-value data))
-	    )
-	  (when (setq cell (assq 'numeric-value data))
-	    (setq cell (cdr cell))
-	    (insert (format "(numeric-value\t. %S)
+			  value
+			  (aref ideographic-radicals value)))
+	  (or radical
+	      (setq radical value)))
+	(setq attributes (delq 'japanese-radical attributes))
+	)
+      (when (setq value (get-char-attribute char 'japanese-strokes))
+	(unless (eq value strokes)
+	  (insert (format "(japanese-strokes\t . %S)
     "
-			    cell))
-	    (setq data (del-alist 'numeric-value data))
-	    )))
-	(when (setq cell (assq 'iso-10646-comment data))
-	  (setq cell (cdr cell))
-	  (insert (format "(iso-10646-comment\t. %S)
+			  value))
+	  (or strokes
+	      (setq strokes value)))
+	(setq attributes (delq 'japanese-strokes attributes))
+	)
+      (when (setq value (get-char-attribute char 'cns-radical))
+	(insert (format "(cns-radical\t . %S)\t; %c
     "
-			  cell))
-	  (setq data (del-alist 'iso-10646-comment data))
-	  )
-	(when (setq cell (assq 'morohashi-daikanwa data))
-	  (setq cell (cdr cell))
-	  (insert (format "(morohashi-daikanwa\t%s)
+			value
+			(aref ideographic-radicals value)))
+	(setq attributes (delq 'cns-radical attributes))
+	)
+      (when (setq value (get-char-attribute char 'cns-strokes))
+	(unless (eq value strokes)
+	  (insert (format "(cns-strokes\t . %S)
     "
-			  (mapconcat (function prin1-to-string) cell " ")))
-	  (setq data (del-alist 'morohashi-daikanwa data))
-	  )
-	(setq radical nil
-	      strokes nil)
-	(when (setq cell (assq 'ideographic-radical data))
-	  (setq radical (cdr cell))
-	  (insert (format "(ideographic-radical . %S)\t; %c
+			  value))
+	  (or strokes
+	      (setq strokes value)))
+	(setq attributes (delq 'cns-strokes attributes))
+	)
+      (when (setq value (get-char-attribute char 'total-strokes))
+	(insert (format "(total-strokes\t . %S)
     "
-			  radical
-			  (aref ideographic-radicals radical)))
-	  (setq data (del-alist 'ideographic-radical data))
-	  )
-	(when (setq cell (assq 'ideographic-strokes data))
-	  (setq strokes (cdr cell))
-	  (insert (format "(ideographic-strokes . %S)
+			value))
+	(setq attributes (delq 'total-strokes attributes))
+	)
+      (when (setq value (get-char-attribute char '->ideograph))
+	(insert (format "(->ideograph\t%s)
     "
-			  strokes))
-	  (setq data (del-alist 'ideographic-strokes data))
-	  )
-	(when (setq cell (assq 'kangxi-radical data))
-	  (setq cell (cdr cell))
-	  (unless (eq cell radical)
-	    (insert (format "(kangxi-radical\t . %S)\t; %c
+			(mapconcat (lambda (code)
+				     (cond ((symbolp code)
+					    (symbol-name code))
+					   ((integerp code)
+					    (format "#x%04X" code))
+					   (t
+					    (format "\n     %S" code))))
+				   value " ")))
+	(setq attributes (delq '->ideograph attributes))
+	)
+      (when (setq value (get-char-attribute char '->decomposition))
+	(insert (format "(->decomposition\t%s)
     "
-			    cell
-			    (aref ideographic-radicals cell)))
-	    (setq radical cell))
-	  (setq data (del-alist 'kangxi-radical data))
-	  )
-	(when (setq cell (assq 'kangxi-strokes data))
-	  (setq cell (cdr cell))
-	  (unless (eq cell strokes)
-	    (insert (format "(kangxi-strokes\t . %S)
+			(mapconcat (lambda (code)
+				     (cond ((symbolp code)
+					    (symbol-name code))
+					   ((characterp code)
+					    (if readable
+						(format "%S" code)
+					      (format "#x%04X"
+						      (char-int code))
+					      ))
+					   ((integerp code)
+					    (format "#x%04X" code))
+					   (t
+					    (format "\n     %S" code))))
+				   value " ")))
+	(setq attributes (delq '->decomposition attributes))
+	)
+      (when (setq value (get-char-attribute char '->uppercase))
+	(insert (format "(->uppercase\t%s)
     "
-			    cell))
-	    (setq strokes cell))
-	  (setq data (del-alist 'kangxi-strokes data))
-	  )
-	(when (setq cell (assq 'japanese-radical data))
-	  (setq cell (cdr cell))
-	  (unless (eq cell radical)
-	    (insert (format "(japanese-radical\t . %S)\t; %c
+			(mapconcat (lambda (code)
+				     (cond ((symbolp code)
+					    (symbol-name code))
+					   ((integerp code)
+					    (format "#x%04X" code))
+					   (t
+					    (format "\n     %S" code))))
+				   value " ")))
+	(setq attributes (delq '->uppercase attributes))
+	)
+      (when (setq value (get-char-attribute char '->lowercase))
+	(insert (format "(->lowercase\t%s)
     "
-			    cell
-			    (aref ideographic-radicals cell)))
-	    (setq radical cell))
-	  (setq data (del-alist 'japanese-radical data))
-	  )
-	(when (setq cell (assq 'japanese-strokes data))
-	  (setq cell (cdr cell))
-	  (unless (eq cell strokes)
-	    (insert (format "(japanese-strokes\t . %S)
+			(mapconcat (lambda (code)
+				     (cond ((symbolp code)
+					    (symbol-name code))
+					   ((integerp code)
+					    (format "#x%04X" code))
+					   (t
+					    (format "\n     %S" code))))
+				   value " ")))
+	(setq attributes (delq '->lowercase attributes))
+	)
+      (when (setq value (get-char-attribute char '->titlecase))
+	(insert (format "(->titlecase\t%s)
     "
-			    cell))
-	    (setq strokes cell))
-	  (setq data (del-alist 'japanese-strokes data))
-	  )
-	(when (setq cell (assq 'cns-radical data))
-	  (setq cell (cdr cell))
-	  (insert (format "(cns-radical\t . %S)\t; %c
-    "
-			  cell
-			  (aref ideographic-radicals cell)))
-	  (setq data (del-alist 'cns-radical data))
-	  )
-	(when (setq cell (assq 'cns-strokes data))
-	  (setq cell (cdr cell))
-	  (unless (eq cell strokes)
-	    (insert (format "(cns-strokes\t . %S)
-    "
-			    cell))
-	    (setq strokes cell))
-	  (setq data (del-alist 'cns-strokes data))
-	  )
-	(when (setq cell (assq 'total-strokes data))
-	  (setq cell (cdr cell))
-	  (insert (format "(total-strokes\t . %S)
-    "
-			  cell))
-	  (setq data (del-alist 'total-strokes data))
-	  )
-	(when (setq cell (assq '->ideograph data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->ideograph\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->ideograph data))
-	  )
-	(when (setq cell (assq '->decomposition data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->decomposition\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((characterp code)
-					      (if readable
-						  (format "%S" code)
-						(format "#x%04X"
-							(char-int code))
-						))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->decomposition data))
-	  )
-	(when (setq cell (assq '->uppercase data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->uppercase\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->uppercase data))
-	  )
-	(when (setq cell (assq '->lowercase data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->lowercase\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->lowercase data))
-	  )
-	(when (setq cell (assq '->titlecase data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->titlecase\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->titlecase data))
-	  )
-	(setq data
-	      (sort data
-		    (lambda (a b)
-		      (char-attribute-name< (car a)(car b)))))
-	(setq rest data)
-	(while (and rest
+			(mapconcat (lambda (code)
+				     (cond ((symbolp code)
+					    (symbol-name code))
+					   ((integerp code)
+					    (format "#x%04X" code))
+					   (t
+					    (format "\n     %S" code))))
+				   value " ")))
+	(setq attributes (delq '->titlecase attributes))
+	)
+      (setq rest ccs-attributes)
+      (while (and rest
 		    (progn
-		      (setq cell (car rest))
-		      (if (setq ret (find-charset (car cell)))
-			  (if (>= (length (symbol-name (charset-name ret))) 19)
+		      (setq value (get-char-attribute char (car rest)))
+		      (if value
+			  (if (>= (length (symbol-name (car rest))) 19)
 			      (progn
 				(setq has-long-ccs-name t)
 				nil)
 			    t)
 			t)))
 	  (setq rest (cdr rest)))
-	(while data
-	  (setq cell (car data))
-	  (cond ((setq ret (find-charset (car cell)))
-		 (or (string-match "^mojikyo-pj-"
-				   (symbol-name (charset-name ret)))
-		     (insert
-		      (format
-		       (if has-long-ccs-name
-			   (if (memq ret
-				     (list (find-charset 'ideograph-daikanwa)
-					   (find-charset 'mojikyo)))
-			       "(%-26s . %05d)\t; %c
+      (while attributes
+	(setq name (car attributes))
+	(if (setq value (get-char-attribute char name))
+	    (cond ((string-match "^->" (symbol-name name))
+		   (insert
+		    (format "(%-18s %s)
     "
-			     "(%-26s . #x%X)\t; %c
+			    name
+			    (mapconcat (lambda (code)
+					 (cond ((symbolp code)
+						(symbol-name code))
+					       ((integerp code)
+						(format "#x%04X" code))
+					       (t
+						(format "\n     %S" code))))
+				       value " "))))
+		  ((consp value)
+		   (insert (format "(%-18s %s)
     "
-			     )
-			 (if (memq ret
-				   (list (find-charset 'ideograph-daikanwa)
-					 (find-charset 'mojikyo)))
-			     "(%-18s . %05d)\t; %c
+				   name
+				   (mapconcat (function prin1-to-string)
+					      value " "))))
+		  ((eq name 'jisx0208-1978/4X)
+		   (insert (format "(%-18s . #x%04X)
     "
-			   "(%-18s . #x%X)\t; %c
+				   name value)))
+		  (t
+		   (insert (format "(%-18s . %S)
     "
-			   ))
-		       (charset-name ret)
-		       (if (= (charset-iso-graphic-plane ret) 1)
-			   (logior (cdr cell)
-				   (cond ((= (charset-dimension ret) 1)
-					  #x80)
-					 ((= (charset-dimension ret) 2)
-					  #x8080)
-					 ((= (charset-dimension ret) 3)
-					  #x808080)
-					 (t 0)))
-			 (cdr cell))
-		       (decode-builtin-char ret (cdr cell))))))
-		((string-match "^->" (symbol-name (car cell)))
-		 (insert
-		  (format "(%-18s %s)
+				   name value)))
+		  ))
+	(setq attributes (cdr attributes)))
+      (while ccs-attributes
+	(setq name (car ccs-attributes))
+	(if (setq value (get-char-attribute char name))
+	    (insert
+	     (format
+	      (if has-long-ccs-name
+		  (if (memq name '(ideograph-daikanwa mojikyo))
+		      "(%-26s . %05d)\t; %c
     "
-			  (car cell)
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     (cdr cell) " "))))
-		((consp (cdr cell))
-		 (insert (format "(%-18s %s)
+		    "(%-26s . #x%X)\t; %c
     "
-				 (car cell)
-				 (mapconcat (function prin1-to-string)
-					    (cdr cell) " "))))
-		((eq (car cell) 'jisx0208-1978/4X)
-		 (insert (format "(%-18s . #x%04X)
+		    )
+		(if (memq name '(ideograph-daikanwa mojikyo))
+		    "(%-18s . %05d)\t; %c
     "
-				 (car cell)(cdr cell))))
-		(t
-		 (insert (format "(%-18s . %S)
+		  "(%-18s . #x%X)\t; %c
     "
-				 (car cell)(cdr cell)))
-		 ))
-	  (setq data (cdr data)))
-	(insert "))\n")
-	(goto-char (point-min))
-	(while (re-search-forward "[ \t]+$" nil t)
-	  (replace-match ""))
-	(goto-char (point-max))
-	(tabify (point-min)(point-max))
-	))))
-
-(defun decode-builtin-char (charset code-point)
-  (setq charset (get-charset charset))
-  (if (and (not (memq (charset-name charset)
-		      '(ideograph-daikanwa mojikyo)))
-	   (or (memq (charset-name charset)
-		     '(ascii latin-viscii-upper
-			     latin-viscii-lower
-			     arabic-iso8859-6
-			     japanese-jisx0213-1
-			     japanese-jisx0213-2))
-	       (= (char-int (charset-iso-final-char charset)) 0)))
-      (decode-char charset code-point)
-    (let ((table (charset-mapping-table charset)))
-      (if table
-	  (prog2
-	      (set-charset-mapping-table charset nil)
-	      (decode-char charset code-point)
-	    (set-charset-mapping-table charset table))
-	(decode-char charset code-point)))))
+		  ))
+	      name
+	      (if (= (charset-iso-graphic-plane name) 1)
+		  (logior value
+			  (cond ((= (charset-dimension name) 1)
+				 #x80)
+				((= (charset-dimension name) 2)
+				 #x8080)
+				((= (charset-dimension name) 3)
+				 #x808080)
+				(t 0)))
+		value)
+	      (decode-builtin-char name value))))
+	(setq ccs-attributes (cdr ccs-attributes)))
+      (insert "))\n")
+      (goto-char (point-min))
+      (while (re-search-forward "[ \t]+$" nil t)
+	(replace-match ""))
+      (goto-char (point-max))
+      (tabify (point-min)(point-max))
+      )))
 
 ;;;###autoload
 (defun char-db-update-comment ()
