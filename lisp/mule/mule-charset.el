@@ -334,31 +334,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-9
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
-;;;	  mojikyo
 	  chinese-big5
-;;; 	  mojikyo-pj-1
-;;; 	  mojikyo-pj-2
-;;; 	  mojikyo-pj-3
-;;; 	  mojikyo-pj-4
-;;; 	  mojikyo-pj-5
-;;; 	  mojikyo-pj-6
-;;; 	  mojikyo-pj-7
-;;; 	  mojikyo-pj-8
-;;; 	  mojikyo-pj-9
-;;; 	  mojikyo-pj-10
-;;; 	  mojikyo-pj-11
-;;; 	  mojikyo-pj-12
-;;; 	  mojikyo-pj-13
-;;; 	  mojikyo-pj-14
-;;; 	  mojikyo-pj-15
-;;; 	  mojikyo-pj-16
-;;; 	  mojikyo-pj-17
-;;; 	  mojikyo-pj-18
-;;; 	  mojikyo-pj-19
-;;; 	  mojikyo-pj-20
-;;; 	  mojikyo-pj-21
 	  ucs-bmp
-	  mojikyo-2022-1
 	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
