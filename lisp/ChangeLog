@@ -1,3 +1,12 @@
+2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208-1978): Define as an alias for
+	`=jis-x0208@1978'.
+	(=jis-x0208-1983): Define as an alias for `=jis-x0208@1983'.
+	(=jis-x0213-1-2000): Use `=jis-x0208@1990' instead of
+	`=jis-x0208-1990' as the mother.
+	(=jis-x0208-1990): Define as an alias for `=jis-x0208@1990'.
+
 2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs@jis/1990): Renamed from `=ucs@jis-1990';
