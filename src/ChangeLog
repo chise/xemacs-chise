@@ -1,3 +1,8 @@
+2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_utf8): Try to use entity-references
+	for U-000F0000 ...  U-0010FFFF.
+
 2004-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (ER_BUF_SIZE): New macro.
