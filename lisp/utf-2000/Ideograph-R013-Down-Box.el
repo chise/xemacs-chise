@@ -516,13 +516,21 @@
     (ideograph-daikanwa #x06 #x0A)	; ø¹˜Š
     ))
 (define-char
-  '((morohashi-daikanwa	1547)
+  '((->ucs		. #x34BC)
+    (morohashi-daikanwa	1547)
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (chinese-cns11643-5		#x31 #x26)	; ø»š‚‘
-    (japanese-jisx0213-2	#x23 #x2B)	; ø»š‚‘
+    (japanese-jisx0213-2	#x23 #x2B)	; ø»¤ †
     (ideograph-daikanwa		#x06 #x0B)	; ø¹˜‹
+    ))
+(define-char
+  '((ucs		. #x34BC)
+    (morohashi-daikanwa	1547 0 0)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (chinese-cns11643-5 #x31 #x26)	; ø»š‚‘
     ))
 (define-char
   '((morohashi-daikanwa	1548)
