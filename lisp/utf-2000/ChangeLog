@@ -1,3 +1,37 @@
+2004-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R042-Small.el (M-07516): Moved into U-000202D3.
+	(U-000202D3): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+	* Ideograph-R009-Man.el (U-000202D3): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+	(H1-CC7C): Unify M-07516 and move into U-000202D3.
+
+2004-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R086-Fire.el (U-000244DF): Add
+	`ideographic-radical@cns*sources'.
+
+2004-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R134-Mortar.el (U-000244DF): Add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R115-Grain.el (U+79EF): Unify JC3-5DA1 instead of
+	JC3-81D7.
+	(M-25262): Moved into U+7A4B.
+	(U+7A4B): Use `->subsumptive'.
+	(U+7A4C): Unify JC3-92CA.
+
+	* Ideograph-R086-Fire.el (U-000243DE): Use `->subsumptive' instead
+	of `->identical' for M-49571; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(U-000244DF): Use `->subsumptive' instead of `->identical' for
+	M-30268; use `ideographic-{radical|strokes}@{ucs|cns}'.
+
 2004-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* Ideograph-R136-Oppose.el (M-49571): Moved into U-000243DE.
