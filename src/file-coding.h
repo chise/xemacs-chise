@@ -258,6 +258,7 @@ extern Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output;
 extern Lisp_Object Qinput_charset_conversion, Qiso2022, Qlf, Qlock_shift;
 extern Lisp_Object Qmnemonic, Qno_ascii_cntl, Qno_ascii_eol, Qno_conversion;
+extern Lisp_Object Qraw_text;
 extern Lisp_Object Qno_iso6429, Qoutput_charset_conversion;
 extern Lisp_Object Qpost_read_conversion, Qpre_write_conversion, Qseven;
 extern Lisp_Object Qshift_jis, Qshort, Vcoding_system_for_read;

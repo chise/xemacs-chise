@@ -1747,7 +1747,7 @@ With argument, insert value in current buffer after the form."
   ;; file if under Mule.  If there are any extended characters in the
   ;; input file, use `escape-quoted' to make sure that both binary and
   ;; extended characters are output properly and distinguished properly.
-  ;; Otherwise, use `no-conversion' for maximum portability with non-Mule
+  ;; Otherwise, use `raw-text' for maximum portability with non-Mule
   ;; Emacsen.
   (when (featurep 'mule)
     (defvar buffer-file-coding-system)
@@ -1758,7 +1758,7 @@ With argument, insert value in current buffer after the form."
 	  (skip-chars-forward (concat (char-to-string 0) "-"
 				      (char-to-string 255)))
 	  (eq (point) (point-max)))
-	(setq buffer-file-coding-system 'no-conversion)
+	(setq buffer-file-coding-system 'raw-text)
       (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
       (setq buffer-file-coding-system 'escape-quoted)
       ;; #### Lazy loading not yet implemented for MULE files

@@ -339,32 +339,41 @@ may be solved.
      properly, it would still not work because strcoll() does not
      handle multiple locales.  This is the fundamental flaw in the
      locale model. */
-  Bytecount bcend = charcount_to_bytecount (string_data (p1), end);
-  /* Compare strings using collation order of locale. */
-  /* Need to be tricky to handle embedded nulls. */
+  {
+    Bytecount bcend = charcount_to_bytecount (string_data (p1), end);
+    /* Compare strings using collation order of locale. */
+    /* Need to be tricky to handle embedded nulls. */
 
-  for (i = 0; i < bcend; i += strlen((char *) string_data (p1) + i) + 1)
-    {
-      int val = strcoll ((char *) string_data (p1) + i,
-			 (char *) string_data (p2) + i);
-      if (val < 0)
-	return Qt;
-      if (val > 0)
-	return Qnil;
-    }
+    for (i = 0; i < bcend; i += strlen((char *) string_data (p1) + i) + 1)
+      {
+	int val = strcoll ((char *) string_data (p1) + i,
+			   (char *) string_data (p2) + i);
+	if (val < 0)
+	  return Qt;
+	if (val > 0)
+	  return Qnil;
+      }
+  }
 #else /* not I18N2, or MULE */
-  /* #### It is not really necessary to do this: We could compare
-     byte-by-byte and still get a reasonable comparison, since this
-     would compare characters with a charset in the same way.
-     With a little rearrangement of the leading bytes, we could
-     make most inter-charset comparisons work out the same, too;
-     even if some don't, this is not a big deal because inter-charset
-     comparisons aren't really well-defined anyway. */
-  for (i = 0; i < end; i++)
-    {
-      if (string_char (p1, i) != string_char (p2, i))
-	return string_char (p1, i) < string_char (p2, i) ? Qt : Qnil;
-    }
+  {
+    Bufbyte *ptr1 = string_data (p1);
+    Bufbyte *ptr2 = string_data (p2);
+
+    /* #### It is not really necessary to do this: We could compare
+       byte-by-byte and still get a reasonable comparison, since this
+       would compare characters with a charset in the same way.  With
+       a little rearrangement of the leading bytes, we could make most
+       inter-charset comparisons work out the same, too; even if some
+       don't, this is not a big deal because inter-charset comparisons
+       aren't really well-defined anyway. */
+    for (i = 0; i < end; i++)
+      {
+	if (charptr_emchar (ptr1) != charptr_emchar (ptr2))
+	  return charptr_emchar (ptr1) < charptr_emchar (ptr2) ? Qt : Qnil;
+	INC_CHARPTR (ptr1);
+	INC_CHARPTR (ptr2);
+      }
+  }
 #endif /* not I18N2, or MULE */
   /* Can't do i < len2 because then comparison between "foo" and "foo^@"
      won't work right in I18N2 case */
@@ -3382,9 +3391,12 @@ If FILENAME is omitted, the printname of FEATURE is used as the file name.
 }
 
 /* base64 encode/decode functions.
-   Based on code from GNU recode. */
 
-#define MIME_LINE_LENGTH 76
+   Originally based on code from GNU recode.  Ported to FSF Emacs by
+   Lars Magne Ingebrigtsen and Karl Heuer.  Ported to XEmacs and
+   subsequently heavily hacked by Hrvoje Niksic.  */
+
+#define MIME_LINE_LENGTH 72
 
 #define IS_ASCII(Character) \
   ((Character) < 128)
@@ -3504,102 +3516,89 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
 }
 #undef ADVANCE_INPUT
 
-/* Semantically identical to ADVANCE_INPUT above, only no >255
-   checking is needed for decoding -- checking is covered by IS_BASE64
-   below.  */
-#define ADVANCE_INPUT(c, stream)		\
- (ec = Lstream_get_emchar (stream),		\
-  ec == -1 ? 0 : (c = (Bufbyte)ec, 1))
+/* Get next character from the stream, except that non-base64
+   characters are ignored.  This is in accordance with rfc2045.  EC
+   should be an Emchar, so that it can hold -1 as the value for EOF.  */
+#define ADVANCE_INPUT_IGNORE_NONBASE64(ec, stream, streampos) do {	\
+  ec = Lstream_get_emchar (stream);					\
+  ++streampos;								\
+  /* IS_BASE64 may not be called with negative arguments so check for	\
+     EOF first. */							\
+  if (ec < 0 || IS_BASE64 (ec) || ec == '=')				\
+    break;								\
+} while (1)
 
-/* Get next character from the stream, but ignore it if it's
-   whitespace.  ENDP is set to 1 if EOF is hit.  */
-#define ADVANCE_INPUT_IGNORE_WHITESPACE(c, endp, stream) do {		\
-  endp = 0;								\
-  do {									\
-    if (!ADVANCE_INPUT (c, stream))					\
-      endp = 1;								\
-  } while (!endp && (c == ' ' || c == '\t' || c == '\r' || c == '\n'	\
-		     || c == '\f' || c == '\v'));			\
-} while (0)
-
-#define STORE_BYTE(pos, val) do {					\
+#define STORE_BYTE(pos, val, ccnt) do {					\
   pos += set_charptr_emchar (pos, (Emchar)((unsigned char)(val)));	\
-  ++*ccptr;								\
+  ++ccnt;								\
 } while (0)
 
 static Bytind
 base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
 {
+  Charcount ccnt = 0;
   Bufbyte *e = to;
-  unsigned long value;
+  EMACS_INT streampos = 0;
 
-  *ccptr = 0;
   while (1)
     {
-      Bufbyte c;
       Emchar ec;
-      int endp;
-
-      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
-      if (endp)
-	break;
+      unsigned long value;
 
       /* Process first byte of a quadruplet.  */
-      if (!IS_BASE64 (c))
-	return -1;
-      value = base64_char_to_value[c] << 18;
+      ADVANCE_INPUT_IGNORE_NONBASE64 (ec, istream, streampos);
+      if (ec < 0)
+	break;
+      if (ec == '=')
+	signal_simple_error ("Illegal `=' character while decoding base64",
+			     make_int (streampos));
+      value = base64_char_to_value[ec] << 18;
 
       /* Process second byte of a quadruplet.  */
-      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
-      if (endp)
-	return -1;
-
-      if (!IS_BASE64 (c))
-	return -1;
-      value |= base64_char_to_value[c] << 12;
-
-      STORE_BYTE (e, value >> 16);
+      ADVANCE_INPUT_IGNORE_NONBASE64 (ec, istream, streampos);
+      if (ec < 0)
+	error ("Premature EOF while decoding base64");
+      if (ec == '=')
+	signal_simple_error ("Illegal `=' character while decoding base64",
+			     make_int (streampos));
+      value |= base64_char_to_value[ec] << 12;
+      STORE_BYTE (e, value >> 16, ccnt);
 
       /* Process third byte of a quadruplet.  */
-      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
-      if (endp)
-	return -1;
+      ADVANCE_INPUT_IGNORE_NONBASE64 (ec, istream, streampos);
+      if (ec < 0)
+	error ("Premature EOF while decoding base64");
 
-      if (c == '=')
+      if (ec == '=')
 	{
-	  ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
-	  if (endp)
-	    return -1;
-	  if (c != '=')
-	    return -1;
+	  ADVANCE_INPUT_IGNORE_NONBASE64 (ec, istream, streampos);
+	  if (ec < 0)
+	    error ("Premature EOF while decoding base64");
+	  if (ec != '=')
+	    signal_simple_error ("Padding `=' expected but not found while decoding base64",
+				 make_int (streampos));
 	  continue;
 	}
 
-      if (!IS_BASE64 (c))
-	return -1;
-      value |= base64_char_to_value[c] << 6;
-
-      STORE_BYTE (e, 0xff & value >> 8);
+      value |= base64_char_to_value[ec] << 6;
+      STORE_BYTE (e, 0xff & value >> 8, ccnt);
 
       /* Process fourth byte of a quadruplet.  */
-      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
-      if (endp)
-	return -1;
-
-      if (c == '=')
+      ADVANCE_INPUT_IGNORE_NONBASE64 (ec, istream, streampos);
+      if (ec < 0)
+	error ("Premature EOF while decoding base64");
+      if (ec == '=')
 	continue;
 
-      if (!IS_BASE64 (c))
-	return -1;
-      value |= base64_char_to_value[c];
-
-      STORE_BYTE (e, 0xff & value);
+      value |= base64_char_to_value[ec];
+      STORE_BYTE (e, 0xff & value, ccnt);
     }
 
+  *ccptr = ccnt;
   return e - to;
 }
 #undef ADVANCE_INPUT
-#undef ADVANCE_INPUT_IGNORE_WHITESPACE
+#undef ADVANCE_INPUT_IGNORE_NONBASE64
 #undef STORE_BYTE
 
 static Lisp_Object
@@ -3677,8 +3676,8 @@ into shorter lines.
   XMALLOC_UNBIND (encoded, allength, speccount);
   buffer_delete_range (buf, begv + encoded_length, zv + encoded_length, 0);
 
-  /* Simulate FSF Emacs: if point was in the region, place it at the
-     beginning.  */
+  /* Simulate FSF Emacs implementation of this function: if point was
+     in the region, place it at the beginning.  */
   if (old_pt >= begv && old_pt < zv)
     BUF_SET_PT (buf, begv);
 
@@ -3719,6 +3718,7 @@ DEFUN ("base64-decode-region", Fbase64_decode_region, 2, 2, "r", /*
 Base64-decode the region between BEG and END.
 Return the length of the decoded text.
 If the region can't be decoded, return nil and don't modify the buffer.
+Characters out of the base64 alphabet are ignored.
 */
        (beg, end))
 {
@@ -3743,13 +3743,6 @@ If the region can't be decoded, return nil and don't modify the buffer.
     abort ();
   Lstream_delete (XLSTREAM (input));
 
-  if (decoded_length < 0)
-    {
-      /* The decoding wasn't possible. */
-      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
-      return Qnil;
-    }
-
   /* Now we have decoded the region, so we insert the new contents
      and delete the old.  (Insert first in order to preserve markers.)  */
   BUF_SET_PT (buf, begv);
@@ -3758,8 +3751,8 @@ If the region can't be decoded, return nil and don't modify the buffer.
   buffer_delete_range (buf, begv + cc_decoded_length,
 		       zv + cc_decoded_length, 0);
 
-  /* Simulate FSF Emacs: if point was in the region, place it at the
-     beginning.  */
+  /* Simulate FSF Emacs implementation of this function: if point was
+     in the region, place it at the beginning.  */
   if (old_pt >= begv && old_pt < zv)
     BUF_SET_PT (buf, begv);
 
@@ -3768,6 +3761,7 @@ If the region can't be decoded, return nil and don't modify the buffer.
 
 DEFUN ("base64-decode-string", Fbase64_decode_string, 1, 1, 0, /*
 Base64-decode STRING and return the result.
+Characters out of the base64 alphabet are ignored.
 */
        (string))
 {
@@ -3789,13 +3783,6 @@ Base64-decode STRING and return the result.
   if (decoded_length > length * MAX_EMCHAR_LEN)
     abort ();
   Lstream_delete (XLSTREAM (input));
-
-  if (decoded_length < 0)
-    {
-      /* The decoding wasn't possible. */
-      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
-      return Qnil;
-    }
 
   result = make_string (decoded, decoded_length);
   XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
