@@ -1,5 +1,7 @@
 2004-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el (U+53CE): Delete `=>daikanwa'.
+
 	* Ideograph-R016-Table.el (U+51E1): Use `->subsumptive'.
 	(GT-K00368): Use `=>daikanwa' instead of `morohashi-daikanwa'.
 	(GT-K00369): Likewise.
