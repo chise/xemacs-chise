@@ -22,6 +22,9 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_char_ucs_h_
 
 #include "chartab.h"
+#include "elhash.h"
+
+extern Lisp_Object Vchar_attribute_hash_table;
 
 #define valid_char_p(ch) 1
 
@@ -293,9 +296,6 @@ struct Lisp_Charset
   /* Code-point->character mapping table */
   Lisp_Object decoding_table;
 
-  /* Character->code-point mapping table */
-  Lisp_Object encoding_table;
-
   /* Range of character code */
   Emchar ucs_min, ucs_max;
 
@@ -335,12 +335,19 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
-#define CHARSET_ENCODING_TABLE(cs) ((cs)->encoding_table)
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
 #define CHARSET_BYTE_OFFSET(cs)	 ((cs)->byte_offset)
 
+INLINE_HEADER Lisp_Object CHARSET_ENCODING_TABLE (Lisp_Charset* cs);
+INLINE_HEADER Lisp_Object
+CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
+{
+  return Fgethash (CHARSET_NAME(cs),
+		   Vchar_attribute_hash_table,
+		   Qnil);
+}
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
