@@ -1,3 +1,20 @@
+1999-12-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_mojikyo_pj_[1 .. 21]): New variable.
+	(Qisolated): New variable.
+	(Qinitial): New variable.
+	(Qmedial): New variable.
+	(Qfinal): New variable.
+	(Qvertical): New variable.
+	(Qsmall): New variable.
+	(to_char_code): Use `Qisolated', `Qinitial', `Qmedial', `Qfinal',
+	`Qvertical' and `Qsmall'.
+	(Qmojikyo_pj_[1 .. 21]): New variable.
+	(syms_of_mule_charset): Add new symbols `isolated', `initial',
+	`medial', `final', `vertical', `small' and `mojikyo-pj-[1 .. 21]'.
+	(complex_vars_of_mule_charset): Add new charset `mojikyo-pj-[1
+	.. 21]'.
+
 1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x60.
