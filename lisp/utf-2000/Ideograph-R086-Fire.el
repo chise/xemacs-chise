@@ -196,9 +196,10 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (<-vulgar-ideograph
-     (:char	((=daikanwa	     . 18858)	; ø¸„¦ª
-		 )
-      :sources	(chuuka-daijiten morohashi-daikanwa)))
+     ((=daikanwa	  . 18858)	; ø¸„¦ª
+      ))
+    (<-vulgar-ideograph*sources
+     zhonghua-dazidian daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸
