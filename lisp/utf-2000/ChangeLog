@@ -1,3 +1,45 @@
+2003-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41704): Separate all.
+
+	* Ideograph-R169-Gate.el (M-41379): Separate all.
+	(M-41433): Likewise.
+
+	* Ideograph-R164-Wine.el (M-40006): Separate G1-523D and U+91AB;
+	add JU+91AB and KU+91AB.
+
+	* Ideograph-R163-City.el (U+90C1): Separate C1-5368.
+
+	* Ideograph-R160-Bitter.el (M-38636): Separate G0-393C, C1-624B
+	and U+8F9C; add JU+8F9C and KU+8F9C.
+	(M-38642): Separate G0-3159, C1-6728 and U+8F9F; add JU+8F9F.
+
+	* Ideograph-R157-Foot.el (M-37741): Separate G0-653F, C2-5F6B and
+	U+8E47; add JU+8E47 and KU+8E47.
+
+	* Ideograph-R154-Shell.el (U+8D2A): Modify
+	`ideographic-structure'.
+	(JX1-7C38): Unify U+FA64 and KU+8CD3; map to GU+8CD3 and CU+8CD3.
+	(U+8CD3): Map to JU+FA64.
+	(JX1-7C3D): Unify U+FA65 and KU+8D08.
+
+	* Ideograph-R159-Cart.el (J90-475A): Separate C1-6F45.
+
+	* Ideograph-R032-Earth.el, Ideograph-R030-Mouth.el: Reformatted.
+
+2003-01-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R149-Speech.el (M-35458): Separate G0-5532, C1-6669
+	and U+8A79; add JU+8A79 and KU+8A79.
+	(M-35757): Separate C1-7240, G1-5A4B and U+8B01; unify U+FA62 and
+	KU+8B01; map to GU+8B01 and CU+8B01.
+	(M-35900): Separate C1-773F, G1-3D77 and U+8B39; unify U+FA63 and
+	KU+8B39; map to GU+8B39 and CU+8B39.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R121-Jar.el (JX2-7461): Unify CB08559.
+
 2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R147-See.el (JX1-7B79): Unify U+FA61 and KU+8996.
@@ -353,6 +395,8 @@
 2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R008-Lid.el (JC3-81C1): Unify GT-K02308.
+
+	* Ideograph-R167-Gold.el (U+9485): Unify CDP-895A.
 
 2003-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
