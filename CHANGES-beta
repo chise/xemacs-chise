@@ -1,6 +1,6 @@
 							-*- indented-text -*-
 to 21.2.18 "Toshima"
--- console features implementation from Andy Piper.
+-- valid-image-instantiator-format-p tightened up by Andy Piper.
 -- glyph widget support under X/Motif from Andy Piper
 -- Make docdir configurable, update package searching rules from Michael
    Sperber

@@ -358,10 +358,12 @@ etcdir='${datadir}/${PROGNAME}-${version}/etc'
 lockdir='${statedir}/${PROGNAME}/lock'
 archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
 docdir='${archlibdir}'
+with_prefix='yes'
 with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
 with_scrollbars=''
+with_widgets=''
 with_dialogs=''
 with_file_coding=''
 dnl const_is_losing is removed - we rely on AC_C_CONST instead.
@@ -464,7 +466,8 @@ while test $# != 0; do
 
       dnl Process (many) boolean options
 	with_site_lisp	| \
-    with_site_modules | \
+	with_prefix	| \
+	with_site_modules | \
 	with_x		| \
 	with_x11	| \
 	with_msw	| \
@@ -710,7 +713,7 @@ while test $# != 0; do
            dnl You need to synchronize this with the way the
            dnl default values are built.
 	   case "$opt" in
-	     prefix ) AC_DEFINE(PREFIX_USER_DEFINED) ;;
+	     dnl prefix is taken care of by --with-prefix
 	     exec_prefix ) AC_DEFINE(EXEC_PREFIX_USER_DEFINED) ;;
              lispdir ) AC_DEFINE(LISPDIR_USER_DEFINED) ;;
              sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
@@ -739,7 +742,8 @@ while test $# != 0; do
 	dnl Has the user specified the toolkit(s) to use for GUI elements?
 	"with_menubars"   | \
 	"with_scrollbars" | \
-	"with_dialogs" )
+	"with_dialogs" | \
+	"with_widgets" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
 	    m | mo | mot | moti | motif )		val=motif  ;;
@@ -2878,8 +2882,13 @@ esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
+case "$with_widgets" in "" | "yes" )
+  if   test "$have_motif" = "yes"; then with_widgets="motif"
+  else with_widgets=no
+  fi ;;
+esac
 
-all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars"
+all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
 case "$all_widgets" in *athena* )
   AC_DEFINE(LWLIB_USES_ATHENA)
@@ -2932,7 +2941,7 @@ if test "$with_x11" = "yes"; then
   test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-x.o)
   test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
   test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
-  test "$all_widgets" != "no no no no" && XE_ADD_OBJS(gui-x.o)
+  test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
 else
   if test \( "$with_sound" = "nas" \) -o \( "$with_sound" = "both" \); then
     echo "Attempt to Build NAS sound without X"
@@ -3924,6 +3933,10 @@ dnl Useful for building XEmacs with a C++ or 64-bit compiler.
 : ${XEMACS_CC:=$CC}
 AC_SUBST(XEMACS_CC)
 
+dnl The default is yes
+if test "$with_prefix" = "yes"; then
+  AC_DEFINE(PREFIX_USER_DEFINED)
+fi
 
 dnl The default is no
 if test "$with_site_lisp" = "no"; then
