@@ -3448,7 +3448,7 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=ucs@unicode	  . #x65F2)	; &UU+65F2;
+     ((=ucs@unicode	  . #x65F2)	; &M-13753;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))

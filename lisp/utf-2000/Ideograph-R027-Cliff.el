@@ -2452,7 +2452,7 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ucs@unicode	    . #x6677)	; &UU+6677;
+       ((=ucs@unicode	    . #x6677)	; &G0-6A50;
 	))
       (=ucs@unicode	  . #x53AC)	; &UU+53AC;
       ))

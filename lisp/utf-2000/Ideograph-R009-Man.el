@@ -17852,7 +17852,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x661D)	; &UU+661D;
+       ((=ucs@unicode	    . #x661D)	; &G0-6A43;
 	))
       (=daikanwa	  . 00923)	; &M-00923;
       (=ucs@unicode	  . #x507A)	; &M-00923;
