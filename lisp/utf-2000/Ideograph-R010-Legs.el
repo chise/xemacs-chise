@@ -406,14 +406,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 266 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x88EE)	; &CDP-88EE;
-      )
-     ((=ucs		  . #x513F)	; 儿
-      ))
     (shinjigen-1	. 451)
     (shinjigen-2	. 451)
     (sound@ja/kun	"hikari" "hika+r5")
@@ -2440,7 +2432,9 @@
 	 ((=gb2312	      . #x3963)	; &C3-213E; [25-67]
 	  (=cns11643-3	      . #x213E)	; &I-C3-213E; [01-30]
 	  )
-	 ((=ucs@unicode	      . #x9EC3)	; &UU+9EC3;
+	 ((=ks-x1001	      . #x7C5C)	; &I-JX1-7E71; [92-60]
+	  (=jis-x0213-1-2000  . #x7E71)	; &I-JX1-7E71; [94-81]
+	  (=daikanwa	      . 47926)	; &I-M-47926;
 	  ))
 	))
       (=hanziku-1	  . #xDED5)	; &HZK01-DED5;
