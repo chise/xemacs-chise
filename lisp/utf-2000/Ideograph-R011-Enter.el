@@ -62,7 +62,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x2136)	; ø»›µ…
+    (=cns11643-6	. #x2136)	; ø»›µ…
     (=ucs		. #x204DB)	; ð “›
     ))
 (define-char
@@ -300,7 +300,7 @@
       )
      ((=ucs		  . #x4E5E)	; ä¹ž
       ))
-    (chinese-cns11643-6 . #x2237)	; ø»›¶¤
+    (=cns11643-6	. #x2237)	; ø»›¶¤
     ))
 (define-char
   '((=>ucs		. #x5168)	; å…¨
@@ -397,7 +397,7 @@
       )
      ((=ucs		  . #x6534)	; æ”´
       ))
-    (chinese-cns11643-6 . #x2356)	; ø»›¸¡
+    (=cns11643-6	. #x2356)	; ø»›¸¡
     ))
 (define-char
   '((=>ucs		. #x34B2)	; ã’²
@@ -472,7 +472,7 @@
       )
      ((=ucs		  . #x4E93)	; äº“
       ))
-    (chinese-cns11643-6 . #x2355)	; ø»›¸ 
+    (=cns11643-6	. #x2355)	; ø»›¸ 
     ))
 (define-char
   '((ideographic-radical . 11)	; â¼Š
@@ -663,7 +663,7 @@
       )
      ((=ucs		  . #x6534)	; æ”´
       ))
-    (chinese-cns11643-6 . #x2579)	; ø»›¼€
+    (=cns11643-6	. #x2579)	; ø»›¼€
     ))
 (define-char
   '((=>ucs		. #x5169)	; å…©
@@ -1007,7 +1007,7 @@
       )
      ((=ucs		  . #x9763)	; é£
       ))
-    (chinese-cns11643-6 . #x353D)	; ø»œ’¤
+    (=cns11643-6	. #x353D)	; ø»œ’¤
     ))
 (define-char
   '((=>ucs		. #x204F1)	; ð “±
@@ -1060,7 +1060,7 @@
       )
      ((=ucs		  . #x5927)	; å¤§
       ))
-    (chinese-cns11643-6 . #x3D3A)	; ø»œž‘
+    (=cns11643-6	. #x3D3A)	; ø»œž‘
     (=ucs		. #x204F1)	; ð “±
     ))
 (define-char
@@ -1077,7 +1077,7 @@
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (chinese-cns11643-6 . #x465A)	; ø»œ«¿
+    (=cns11643-6	. #x465A)	; ø»œ«¿
     ))
 (define-char
   '((=>ucs		. #x204F4)	; ð “´
@@ -1111,7 +1111,7 @@
       )
      ((=ucs		  . #x4E23)	; ä¸£
       ))
-    (chinese-cns11643-6 . #x5064)	; ø»œºµ
+    (=cns11643-6	. #x5064)	; ø»œºµ
     (=ucs		. #x204F4)	; ð “´
     ))
 (define-char
@@ -1221,7 +1221,7 @@
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x5A78)	; ø»‰µ
+    (=cns11643-6	. #x5A78)	; ø»‰µ
     ))
 (define-char
   '((ideographic-radical . 11)	; â¼Š

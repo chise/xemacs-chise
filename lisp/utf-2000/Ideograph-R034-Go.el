@@ -68,7 +68,7 @@
   '((ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (chinese-cns11643-6 . #x2263)	; ø»›·
+    (=cns11643-6	. #x2263)	; ø»›·
     (ideograph-daikanwa . 05694)	; ø¸˜¾
     (=ucs		. #x21553)	; ð¡•“
     ))
@@ -150,7 +150,7 @@
     (ideographic-strokes . 3)
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 6)
-    (chinese-cns11643-6 . #x2437)	; ø»›¹ 
+    (=cns11643-6	. #x2437)	; ø»›¹ 
     (ideograph-daikanwa . 05696)	; ø¸™€
     (=ucs		. #x21555)	; ð¡••
     ))
@@ -159,7 +159,7 @@
     (ideographic-strokes . 3)
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 6)
-    (chinese-cns11643-6 . #x2436)	; ø»›¹Ÿ
+    (=cns11643-6	. #x2436)	; ø»›¹Ÿ
     (ideograph-daikanwa . 05697)	; ø¸™
     (=ucs		. #x21556)	; ð¡•–
     ))
@@ -197,7 +197,7 @@
   '((ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-6 . #x266C)	; ø»›½‘
+    (=cns11643-6	. #x266C)	; ø»›½‘
     (ideograph-daikanwa . 05700)	; ø¸™„
     (=ucs		. #x21558)	; ð¡•˜
     ))
@@ -322,7 +322,7 @@
   '((ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (chinese-cns11643-6 . #x3643)	; ø»œ”ˆ
+    (=cns11643-6	. #x3643)	; ø»œ”ˆ
     (ideograph-daikanwa . 05704)	; ø¸™ˆ
     (=ucs		. #x2155A)	; ð¡•š
     ))
@@ -331,7 +331,7 @@
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x3E37)	; ø»œŸ¬
+    (=cns11643-6	. #x3E37)	; ø»œŸ¬
     (ideograph-daikanwa . 05705)	; ø¸™‰
     ))
 (define-char
@@ -346,7 +346,7 @@
     (ideographic-strokes . 8)
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x3E38)	; ø»œŸ­
+    (=cns11643-6	. #x3E38)	; ø»œŸ­
     (ideograph-daikanwa . 05706)	; ø¸™Š
     (=ucs		. #x2155C)	; ð¡•œ
     ))
@@ -363,5 +363,5 @@
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x515A)	; ø»œ¼‰
+    (=cns11643-6	. #x515A)	; ø»œ¼‰
     ))

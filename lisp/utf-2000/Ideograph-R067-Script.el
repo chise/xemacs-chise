@@ -124,7 +124,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2B6D)	; ø»œ„¨
+    (=cns11643-6	. #x2B6D)	; ø»œ„¨
     (=ucs		. #x23043)	; ð£ƒ
     ))
 (define-char
@@ -145,7 +145,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-6 . #x382D)	; ø»œ–®
+    (=cns11643-6	. #x382D)	; ø»œ–®
     (=ucs		. #x2304A)	; ð£Š
     ))
 (define-char
@@ -160,7 +160,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-6 . #x382E)	; ø»œ–¯
+    (=cns11643-6	. #x382E)	; ø»œ–¯
     (=ucs		. #x2304B)	; ð£‹
     ))
 (define-char
@@ -233,7 +233,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-6 . #x382C)	; ø»œ–­
+    (=cns11643-6	. #x382C)	; ø»œ–­
     (=ucs		. #x3AB0)	; ãª°
     ))
 (define-char
@@ -248,7 +248,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x4042)	; ø»œ¢³
+    (=cns11643-6	. #x4042)	; ø»œ¢³
     (=ucs		. #x2304E)	; ð£Ž
     ))
 (define-char
@@ -263,7 +263,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x4044)	; ø»œ¢µ
+    (=cns11643-6	. #x4044)	; ø»œ¢µ
     (=ucs		. #x2304F)	; ð£
     ))
 (define-char
@@ -278,7 +278,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x4043)	; ø»œ¢´
+    (=cns11643-6	. #x4043)	; ø»œ¢´
     (=ucs		. #x23052)	; ð£’
     ))
 (define-char
@@ -488,7 +488,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x5332)	; ø»œ¾
+    (=cns11643-6	. #x5332)	; ø»œ¾
     (=ucs		. #x23059)	; ð£™
     ))
 (define-char
@@ -511,7 +511,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x5333)	; ø»œ¾ž
+    (=cns11643-6	. #x5333)	; ø»œ¾ž
     ))
 (define-char
   '((=>ucs		. #x2305F)	; ð£Ÿ

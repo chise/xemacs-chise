@@ -23,7 +23,7 @@
   '((ideographic-radical . 204)	; â¿‹
     (ideographic-strokes . 1)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x5A60)	; ø»‰
+    (=cns11643-6	. #x5A60)	; ø»‰
     ))
 (define-char
   '((ideographic-radical . 204)	; â¿‹

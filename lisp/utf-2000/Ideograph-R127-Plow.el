@@ -50,7 +50,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2D5B)	; ø»œ‡’
+    (=cns11643-6	. #x2D5B)	; ø»œ‡’
     (ideograph-daikanwa . 28901)	; ø¸‡ƒ¥
     (=ucs		. #x264E5)	; ð¦“¥
     ))
@@ -66,7 +66,7 @@
     (ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2D5C)	; ø»œ‡“
+    (=cns11643-6	. #x2D5C)	; ø»œ‡“
     (=ucs		. #x23407)	; ð£‡
     ))
 (define-char
@@ -94,7 +94,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x3377)	; ø»œ¢
+    (=cns11643-6	. #x3377)	; ø»œ¢
     (ideograph-daikanwa . 28904)	; ø¸‡ƒ¨
     (=ucs		. #x264E8)	; ð¦“¨
     ))
@@ -110,7 +110,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x3378)	; ø»œ£
+    (=cns11643-6	. #x3378)	; ø»œ£
     (ideograph-daikanwa . 28906)	; ø¸‡ƒª
     (=ucs		. #x264EA)	; ð¦“ª
     ))
@@ -353,7 +353,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (chinese-cns11643-6 . #x4349)	; ø»œ§”
+    (=cns11643-6	. #x4349)	; ø»œ§”
     (ideograph-daikanwa . 28920)	; ø¸‡ƒ¸
     (=ucs		. #x264EE)	; ð¦“®
     ))
@@ -466,7 +466,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x5660)	; ø»ƒ¥
+    (=cns11643-6	. #x5660)	; ø»ƒ¥
     (ideograph-daikanwa . 28930)	; ø¸‡„‚
     (=ucs		. #x264F5)	; ð¦“µ
     ))
@@ -481,7 +481,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x605C)	; ø»’
+    (=cns11643-6	. #x605C)	; ø»’
     (ideograph-daikanwa . 28931)	; ø¸‡„ƒ
     (=ucs		. #x264F7)	; ð¦“·
     ))
@@ -626,7 +626,7 @@
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x605B)	; ø»’Œ
+    (=cns11643-6	. #x605B)	; ø»’Œ
     (ideograph-daikanwa . 28946)	; ø¸‡„’
     (=ucs		. #x26501)	; ð¦”
     ))

@@ -58,7 +58,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 1)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x6479)	; ø»˜¢
+    (=cns11643-6	. #x6479)	; ø»˜¢
     (ideograph-daikanwa . 48259)	; ø¸‹²ƒ
     ))
 (define-char
