@@ -1,5 +1,13 @@
 2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (M055104): Use `=>ucs' instead of
+	`->ucs'; delete `->mojikyo'.
+	(M077259): Likewise.
+	(M055801): Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R001-One.el (U-00023944): Moved to
+	Ideograph-R077-Stop.el.
+
 	* Ideograph-R130-Meat.el (U+81A4): Use J0-6733 instead of M054669
 	as the link of `->same-ideograph'.
 
