@@ -1,3 +1,7 @@
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in: Use chise-db/ instead of char-db/.
+
 2003-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Makefile.in.in:
