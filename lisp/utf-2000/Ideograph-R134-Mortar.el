@@ -144,10 +144,13 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (<-wrong
-     (:sources	(chuuka-daijiten morohashi-daikanwa)
-      :char	((=daikanwa	     . 30180)	; &I-M-30180;
-		 )
+     ((=jis-x0212	  . #x566C)	; &M-30180;
+      (=cns11643-2	  . #x2D2B)	; &I-C2-2D2B;
+      (=jis-x0213-2-2000  . #x755C)	; &I-JX2-755C;
+      (=daikanwa	  . 30180)	; &I-M-30180;
       ))
+    (<-wrong*sources
+     zhonghua-dazidian daikanwa)
     (=ucs		. #x2695B)	; 𦥛
     (=cns11643-6	. #x3B3B)	; &I-C6-3B3B;
     (=big5-cdp		. #x8570)	; &I-CDP-8570;
