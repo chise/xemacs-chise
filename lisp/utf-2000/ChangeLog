@@ -1,3 +1,81 @@
+2004-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (M-07112): Use `->subsumptive'; use
+	`->same*sources' instead of using char-ref in `->same'.
+
+2004-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (M-17428): Use `->same*sources' instead
+	of using char-ref in `->same'; add `->vulgar-ideograph' for
+	M-17427.
+
+	* Ideograph-R059-Bristle.el (M-09994): Moved into U-0002249C.
+	(H3-ABF0): Likewise.
+	(U-0002249C): Use `->subsumptive'.
+
+	* Ideograph-R027-Cliff.el (C3-5755): Moved into U+9F8E.
+
+	* Ideograph-R026-Seal.el (M-02875): Use `->same*sources' instead
+	of using char-ref in `->same'.
+
+	* Ideograph-R025-Divination.el (C6-212C): Use
+	`<-ancient-ideograph*sources' instead of using char-ref in
+	`<-ancient-ideograph'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+533C): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (C3-2148): Use `->identical' instead of
+	`->same' for M-01512; use `->same*sources' instead of using
+	char-ref in `->same'.
+	(M-00634): Use `<-denotational' instead of `->same' for M-23937;
+	use `<-original-ideograph*sources' instead of using char-ref in
+	`<-original-ideograph'.
+	(U-000202F4): Use `->identical' instead of `->same' for M-02134;
+	use `->same*sources' instead of using char-ref in `->same'.
+
+2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (M-02134): Use `->identical' instead of
+	`->same' for U-000202F4 = M-00938; use `->same*sources' instead of
+	using char-ref in `->same'.
+	(U+5292): Use `{->same|<-ancient-ideograph}*sources' instead of
+	using char-ref in `{->same|<-ancient-ideograph}'.
+
+	* Ideograph-R003-Dot.el (BC-87D2): Omit M-02840 in `->same'
+	because it is identical to U-0002007E.
+
+2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el, Ideograph-R203-Black.el,
+	Ideograph-R186-Fragrant.el, Ideograph-R196-Bird.el,
+	Ideograph-R184-Eat.el, Ideograph-R177-Leather.el,
+	Ideograph-R170-Mound.el, Ideograph-R145-Clothes.el,
+	Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
+	Ideograph-R135-Tongue.el, Ideograph-R130-Meat.el,
+	Ideograph-R128-Ear.el, Ideograph-R124-Feather.el,
+	Ideograph-R123-Sheep.el, Ideograph-R120-Silk.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R115-Grain.el,
+	Ideograph-R109-Eye.el, Ideograph-R101-Use.el,
+	Ideograph-R102-Field.el, Ideograph-R087-Claw.el,
+	Ideograph-R085-Water.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el, Ideograph-R064-Hand.el,
+	Ideograph-R060-Step.el, Ideograph-R058-Snout.el,
+	Ideograph-R059-Bristle.el, Ideograph-R047-River.el,
+	Ideograph-R046-Mountain.el, Ideograph-R045-Sprout.el,
+	Ideograph-R044-Corpse.el, Ideograph-R043-Lame.el,
+	Ideograph-R040-Roof.el, Ideograph-R036-Evening.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R029-Again.el,
+	Ideograph-R027-Cliff.el, Ideograph-R025-Divination.el,
+	Ideograph-R026-Seal.el, Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R020-Wrap.el,
+	Ideograph-R019-Power.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R018-Knife.el, Ideograph-R015-Ice.el,
+	Ideograph-R009-Man.el, Ideograph-R008-Lid.el,
+	Ideograph-R005-Second.el, Ideograph-R003-Dot.el,
+	Ideograph-R004-Slash.el, Ideograph-R002-Line.el,
+	Ideograph-R001-One.el: Rename `->same-ideograph' to `->same'.
+
 2004-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (GT-39643): Unify <CJK RADICAL GRASS
