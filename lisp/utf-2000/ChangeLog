@@ -1,3 +1,117 @@
+2001-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02100-Letterlike-Symbols.el (halfwidth numero sign): Renamed
+	from <HALFWIDTH NUMERO SIGN>; use `=>ucs' instead of `->ucs'.
+	(OHM SIGN): Delete `->lowercase'.
+	(KELVIN SIGN): Likewise.
+	(ANGSTROM SIGN): Likewise.
+
+	* Ideograph-R007-Two.el:
+	- Merge Big5 code and GB 12345 points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R006-Hook.el (U+4E87): Separate C3-212D and move it to
+	Ideograph-R004-Slash.el; delete `kangxi-radical'; unify G1-7D3B;
+	delete `non-morohashi'.
+	- Merge Big5 code points.
+	- Use `<-vulgar-ideograph' instead of `vulgar-ideograph-of'.
+
+	* Ideograph-R005-Second.el:
+	- Merge Big5 and GB 12345 code points.
+	- Use `->same-ideograph' instead of `ideograph='.
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `<-vulgar-ideograph' instead of `vulgar-ideograph-of'.
+
+	* u01F00-Greek-Extended.el:
+	- Use ``character-reference'' style for `->uppercase' and
+	  `->lowercase'.
+	- Omit `->titlecase' because each value of it has the same value
+	of `->uppercase'.
+	(GREEK SMALL LETTER ALPHA WITH VARIA): Separate JX1-2B46.
+	(LATIN SMALL LETTER ALPHA WITH GRAVE): New character; unify
+	JX1-2B46.
+	(GREEK SMALL LETTER ALPHA WITH OXIA): Separate JX1-2B47.
+	(LATIN SMALL LETTER ALPHA WITH ACUTE): New character; unify
+	JX1-2B47.
+	(GREEK SMALL LETTER EPSILON WITH VARIA): Separate JX1-2B50.
+	(LATIN SMALL LETTER OPEN E WITH GRAVE): New character; unify
+	JX1-2B50.
+	(GREEK SMALL LETTER EPSILON WITH OXIA): Separate JX1-2B51.
+	(LATIN SMALL LETTER OPEN E WITH ACUTE): New character; unify
+	JX1-2B51.
+
+	* Ideograph-R003-Dot.el:
+	- Merge GB 12345-90 and Big5.
+	- Use `=>ucs' instead of `->ucs'.
+	(M-00104): Use `->same-ideograph' instead of `ideograph='; use
+	`<-ancient-ideograph' instead of `ancient-ideograph-of'.
+
+	* Ideograph-R002-Line.el:
+	- Merge Big5.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R001-One.el (U+4E06): Unify G1-7D3D.
+
+2001-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE50-Small-Form-Variants.el (SMALL REVERSE SOLIDUS): Unify
+	Big5-A242.
+
+	* u02500-Box-Drawing.el (BOX DRAWINGS DOUBLE HORIZONTAL): Unify
+	Big5-A2A4 instead of Big5-F9F9.
+	(Big5-F9F9): New character.
+	(box drawings double light arc down and right): New character;
+	unify Big5-F9FA.
+	(box drawings double light arc down and left): New character;
+	unify Big5-F9FB.
+	(box drawings double light arc up and left): New character; unify
+	Big5-F9FD.
+	(box drawings double light arc up and right): New character; unify
+	Big5-F9FC.
+
+	* u02300-Miscellaneous-Technical.el (WAVY LINE): Delete Big5-A15B.
+
+	* u02200-Mathematical-Operators.el (SET MINUS): Delete Big5-A242.
+	(RING OPERATOR): Delete Big5-A258.
+	(TILDE OPERATOR): Add `ucs-big5' for U+FF5E.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02460-Enclosed-Alphanumerics.el (CIRCLED LATIN CAPITAL LETTER
+	*): Use ``character-reference'' style instead of UCS code-point as
+	the format of `->lowercase'.
+	(CIRCLED LATIN SMALL LETTER *): Use ``character-reference'' style
+	instead of UCS code-point as the format of `->uppercase'; omit
+	`->titlecase'.
+
+	* u02150-Number-Forms.el (ROMAN NUMERAL *): Add `->lowercase'.
+	(SMALL ROMAN NUMERAL *): Add `->uppercase'; omit `->titlecase'.
+
+	* u020A0-Currency-Symbols.el (WON SIGN): Add `->fullwidth'.
+
+	* u02080-Subscripts.el, u02070-Superscripts.el (U+****): Add
+	`->fullwidth'.
+	(fullwidth *): Use `=>ucs' instead of `->ucs'; add `<-fullwidth'.
+
+	* u00530-Armenian.el:
+	- Use ``character-reference'' style instead of UCS code-point as
+	  the format of `->lowercase' and `->uppercase'.
+	- Omit `->titlecase' because each value of it has the same value
+	  of `->uppercase'.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00400-Cyrillic.el (CYRILLIC *): Add `->fullwidth'.
+	(FULLWIDTH CYRILLIC *): Use `=>ucs' instead of `->ucs'.
+	- Use ``character-reference'' style [alist] instead of UCS
+	  code-point [hex integer] as the format of `->lowercase' and
+	  `->uppercase'.
+	- Omit `->titlecase' because each value of it has the same value
+	  of `->uppercase'.
+
+	* char-db-util.el (char-db-insert-char-reference): Renamed from
+	`char-db-insert-char-map'.
+
 2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (ideograph-char<): Treat `=>ucs' as same as
