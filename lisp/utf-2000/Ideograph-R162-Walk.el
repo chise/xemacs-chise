@@ -1984,6 +1984,7 @@
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (korean-ksc5601	. #x4C26)	; ø»‰™›
     (ideograph-daikanwa . 38812)	; ø¸‰žœ
     ))
 (define-char
