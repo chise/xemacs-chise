@@ -3624,11 +3624,11 @@
     (ideographic-radical@cns . 118)	; ⽵
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (->same
+    (<-same
      ((=ucs		  . #x7B9A)	; 箚
       (=daikanwa	  . 26149)	; &I-M-26149;
       ))
-    (->same*sources
+    (<-same*sources
      kouin kangxi daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

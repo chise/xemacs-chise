@@ -70,11 +70,11 @@
       ))
     (->mistakable*sources
      kangxi daikanwa)
-    (->same
+    (<-same
      ((=ucs		  . #x5917)	; 夗
       (=daikanwa	  . 05752)	; &I-M-05752;
       ))
-    (->same*sources
+    (<-same*sources
      zihui daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 848)
@@ -169,11 +169,11 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (->same
+    (<-same
      ((=ucs		  . #x591A)	; 多
       (=daikanwa	  . 05756)	; &I-M-05756;
       ))
-    (->same*sources
+    (<-same*sources
      jiyun daikanwa)
     (hanyu-dazidian	2 862 1)
     (=ucs		. #x21587)	; 𡖇

@@ -856,11 +856,11 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (->same
+    (<-same
      ((=ucs		  . #x2F833)	; 卿
       (=daikanwa	  . 02879)	; &I-M-02879;
       ))
-    (->same*sources
+    (<-same*sources
      zhonghua-dazidian daikanwa)
     (=daikanwa		. 02875)	; &M-02875;
     ))

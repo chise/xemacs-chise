@@ -1625,7 +1625,7 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=daikanwa	  . 07001)	; &M-07001;
       ))
     (=ucs		. #x21CAA)	; 𡲪

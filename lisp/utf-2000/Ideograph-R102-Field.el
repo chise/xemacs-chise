@@ -178,11 +178,11 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (->same
+    (<-same
      ((=ucs		  . #x753A)	; 町
       (=daikanwa	  . 21735)	; &I-M-21735;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (=ucs		. #x753C)	; 甼
     (=jis-x0208		. #x6136)	; &I-J90-6136; [65-22]

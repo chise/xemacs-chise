@@ -1127,12 +1127,12 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (->same
+    (<-same
      ((=jis-x0208	  . #x3539)	; &GT-08923; [21-25]
       (=ks-x1001	  . #x6B71)	; &I-K0-6B71; [75-81]
       (=daikanwa	  . 07111)	; &I-M-07111;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (->subsumptive
      ((=daikanwa	  . 07112)	; &M-07112;

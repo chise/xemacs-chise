@@ -229,7 +229,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (->same
+    (<-same
      ((=ucs		  . #x2007E)	; 𠁾
       ))
     (hanyu-dazidian	1 52 1)
@@ -396,10 +396,6 @@
     (ideographic-radical@cns*sources
      cns11643)
     (total-strokes	 . 8)
-    (->same
-     ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
-      (=daikanwa	  . 00059)	; &I-M-00059;
-      ))
     (<-ancient
      ((=jis-x0208-1978	  . #x4E6F)	; &GT-64844; [46-79]
       (=jis-x0208-1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
@@ -410,6 +406,10 @@
      daikanwa)
     (<-denotational
      ((=ucs		  . #x4E3D)	; 丽
+      ))
+    (<-same
+     ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
+      (=daikanwa	  . 00059)	; &I-M-00059;
       ))
     (hanyu-dazidian	1 24 5)
     (ideographic-structure

@@ -62,16 +62,16 @@
   '((ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (->same@jiyun
+    (<-same@jiyun
      ((=daikanwa	  . 29262)	; &M-29262;
       ))
-    (->same@jiyun*sources
+    (<-same@jiyun*sources
      jiyun daikanwa)
-    (->same@zihui
+    (<-same@zihui
      ((=gb12345		  . #x484D)	; &M-43109; [40-45]
       (=daikanwa	  . 43109)	; &M-43109;
       ))
-    (->same@zihui*sources
+    (<-same@zihui*sources
      jiyun zihui daikanwa)
     (=ucs		. #x976D)	; 靭
     (->subsumptive

@@ -14535,7 +14535,7 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (->same
+    (<-same
      ((=ucs		  . #x2F8C5)	; 撝
       ))
     (=ucs		. #x649D)	; 撝
@@ -19783,7 +19783,7 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (->same@unknown
+    (<-same@unknown
      ((=ucs		  . #x7C61)	; 籡
       ))
     (hanyu-dazidian	3 1991 1)

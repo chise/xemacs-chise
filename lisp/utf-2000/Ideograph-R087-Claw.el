@@ -351,12 +351,12 @@
 	))
       (->ancient*sources
        zhengzi-tong shuowen danchuu daikanwa)
-      (->same
+      (<-same
        ((=jis-x0208	    . #x502C)	; &GT-00285; [48-12]
 	(=ks-x1001	    . #x552F)	; &I-K0-552F; [53-15]
 	(=daikanwa	    . 00214)	; &I-M-00214;
 	))
-      (->same*sources
+      (<-same*sources
        shuowen daikanwa)
       (=gt		  . 25281)	; &GT-25281;
       (=gt-k		  . 09318)	; &I-GT-K09318;
@@ -400,7 +400,7 @@
     (->identical
      ((=cns11643-6	  . #x4743)	; &C6-4743; [39-35]
       ))
-    (->same
+    (<-same
      ((=daikanwa	  . 04811)	; &M-04811;
       ))
     (hanyu-dazidian	3 2033 18)

@@ -1239,7 +1239,7 @@
 			(:radical	5 ; ⼄
 			 :strokes	7))
     (total-strokes	 . 8)
-    (->same
+    (<-same
      ((=daikanwa	  . 21712)	; &M-21712;
       ))
     (hanyu-dazidian	1 55 3)

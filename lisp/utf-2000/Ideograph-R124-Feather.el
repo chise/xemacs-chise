@@ -4471,10 +4471,10 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (->same
+    (<-same
      ((=daikanwa	  . 28818)	; &M-28818;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

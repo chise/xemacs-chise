@@ -454,7 +454,7 @@
        ((=jis-x0208	    . #x3C2D)	; &GT-51568; [28-13]
 	(=daikanwa	    . 38638)	; &I-M-38638;
 	))
-      (->same*sources
+      (<-same*sources
        daikanwa)
       (<-vulgar@jiyun
        ((=jis-x0212	    . #x6130)	; &M-38649; [65-16]

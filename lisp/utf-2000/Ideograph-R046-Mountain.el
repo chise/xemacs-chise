@@ -4816,7 +4816,7 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=ucs		  . #x2F87C)	; 嵃
       ))
     (=ucs		. #x5D43)	; 嵃

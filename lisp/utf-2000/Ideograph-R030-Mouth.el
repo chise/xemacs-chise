@@ -3746,7 +3746,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (->same
+    (<-same
      ((=ucs		  . #x2F83E)	; 呈
       ))
     (=ucs		. #x5448)	; 呈
@@ -11362,7 +11362,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same
+    (<-same
      ((=cns11643-6	  . #x395E)	; &M-21715; [25-62]
       (=daikanwa	  . 21715)	; &I-M-21715;
       ))
@@ -13219,7 +13219,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (->same
+    (<-same
      ((=ucs		  . #x2F843)	; 啓
       ))
     (=ucs		. #x5553)	; 啓
@@ -17691,7 +17691,7 @@
 			(:radical	1 ; ⼀
 			 :strokes	11))
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=cns11643-6	  . #x472D)	; &C6-472D; [39-13]
       ))
     (hanyu-dazidian	1 26 11)

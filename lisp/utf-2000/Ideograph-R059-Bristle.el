@@ -441,12 +441,12 @@
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (->same
+    (<-same
      ((=jis-x0208	  . #x4937)	; &GT-12610; [41-23]
       (=ks-x1001	  . #x7873)	; &I-K0-7873; [88-83]
       (=daikanwa	  . 09993)	; &I-M-09993;
       ))
-    (->same*sources
+    (<-same*sources
      zihui-bei daikanwa)
     (=ucs		. #x2249C)	; 𢒜
     (->subsumptive

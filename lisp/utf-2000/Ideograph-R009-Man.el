@@ -785,14 +785,14 @@
      ((=cns11643-6	  . #x2150)	; &M-01512; [01-48]
       (=daikanwa	  . 01512)	; &I-M-01512;
       ))
-    (->same
-     ((=daikanwa	  . 01418)	; &I-M-01418;
-      ))
-    (->same*sources
-     daikanwa)
     (<-denotational
      ((=ucs		  . #x5185)	; 内
       ))
+    (<-same
+     ((=daikanwa	  . 01418)	; &I-M-01418;
+      ))
+    (<-same*sources
+     daikanwa)
     (=cns11643-3	. #x2148)	; &C3-2148; [01-40]
     (=ucs@cns		. #x5185)	; &C3-2148;
     ))
@@ -18414,11 +18414,11 @@
     (ideographic-radical@cns*sources
      cns11643 daikanwa)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=ucs		  . #x5013)	; 倓
       (=daikanwa	  . 00768)	; &I-M-00768;
       ))
-    (->same*sources
+    (<-same*sources
      shuowen yunhai-bei daikanwa)
     (=ucs		. #x202F4)	; 𠋴
     ))
