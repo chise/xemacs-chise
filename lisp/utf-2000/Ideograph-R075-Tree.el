@@ -3910,6 +3910,7 @@
     (japanese-jisx0208-1978	. #x4034)	; ø»‚©µ
     (japanese-jisx0208		. #x4034)	; ø»†½½
     (korean-ksc5601		. #x5F77)	; ø»‰¶¦
+    (japanese-jisx0208-1990	. #x4034)	; ø½Š£±
     (ideograph-daikanwa		. 14693)	; ø¸ƒ¥¥
     ))
 (define-char
