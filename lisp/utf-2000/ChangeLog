@@ -1,3 +1,21 @@
+2003-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (MH-0048): New character; unify U+5C76
+	and copied from Ideograph-R046-Mountain.el.
+	(U+34E6): Add strokes.
+	(C6-2E76): Unify U-0002F821.
+	(U+34EA): Add strokes.
+	(U-00020724): New character.
+	(U+5266): Unify MH-0050 and M050004.
+	(MH-0051): New character.
+	(JC3-44CF): Relate to MH-0051 instead of M-02245.
+	(U+5271): Likewise; separate M054511.
+	(J0-517B): Relate to MH-0051 instead of M-02245; unify GT-02690.
+
+	* Ideograph-R046-Mountain.el (U+5C76): use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-{radical|strokes}'; unify GT-09918 and M054547.
+
 2003-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el (M057256): Map to U-0002F823 and GU+5277
