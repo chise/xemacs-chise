@@ -1,3 +1,7 @@
+2003-02-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R212-Dragon.el (JC3-70A4): New character.
+
 2003-02-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R181-Leaf.el (U+985E): Add JU+F9D0.
