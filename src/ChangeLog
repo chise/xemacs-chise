@@ -1,3 +1,44 @@
+2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (Fmake_char): New EXFUN; moved from chartab.c.
+	(Fdecode_char): Likewise.
+
+	* chartab.c: Move EXFUN for Fmake_char and Fdecode_char into
+	chartab.h.
+	(Fdefine_char): Modify for Fdecode_char.
+	(Ffind_char): Likewise.
+
+	* mule-charset.c (Fdecode_char): Add new optional argument
+	`defined-only'.
+	(Fdecode_builtin_char): Modify for `Fdecode_char'.
+
+2001-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (mark_coding_system): Mark initial-charset-g0 and
+	-g1 of CODESYS_BIG5 in XEmacs UTF-2000.
+	(allocate_coding_system): Initialize initial-charsets of
+	CODESYS_BIG5 in XEmacs UTF-2000.
+	(Fmake_coding_system): Accept `charset-g0' and `charset-g1' for
+	CODESYS_BIG5 in XEmacs UTF-2000.
+	(decode_coding_big5): Use initial-charset-g0 and -g1 of
+	CODESYS_BIG5 in XEmacs UTF-2000; use `DECODE_DEFINED_CHAR'.
+
+	* mule-charset.c (Vcharset_ideograph_hanziku_{1 .. 12}): New
+	variables.
+	(Qideograph_hanziku_{1 .. 12}): Likewise.
+	(syms_of_mule_charset): Add new symbols `ideograph-hanziku-{1
+	.. 12}'.
+	(complex_vars_of_mule_charset): Use `MIN_CHAR_BIG5_CDP' to
+	`MAX_CHAR_BIG5_CDP' for `chinese-big5'; add news coded-charsets
+	`ideograph-hanziku-{1 .. 12}'.
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x200.
+	(LEADING_BYTE_HANZIKU_{1 .. 12}): New macros.
+	({MIN|MAX}_CHAR_BIG5_CDP): New macros.
+	({MIN|MAX}_CHAR_HANZIKU_{1 .. 12}): New macros.
+	(DECODE_DEFINED_CHAR): New inline function.
+	(DECODE_CHAR): Use `DECODE_DEFINED_CHAR'.
+
 2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_china3_jef): Renamed from
