@@ -2813,13 +2813,9 @@
 (define-char
   '((ideographic-radical . 124)	; â½»
     (ideographic-strokes . 11)
-    (ucs		. #x7FF6)	; ç¿¶
-    ))
-(define-char
-  '((ideographic-radical . 124)	; â½»
-    (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (chinese-cns11643-3 . #x557E)	; ø»–¤™
+    (ucs		. #x7FF6)	; ç¿¶
     ))
 (define-char
   '((ideographic-radical . 124)	; â½»
