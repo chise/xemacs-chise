@@ -1,3 +1,20 @@
+2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R123-Sheep.el (U+7FA1): Unify JC3-5FF7.
+	(M-28545): Unify JC3-98F3.
+	(B-F5EE): Unify JC3-5FFB.
+
+	* Ideograph-R118-Bamboo.el (U+7B2F): Unify JC3-5DF1.
+	(C2-377C): Separate JC3-5DF1.
+
+2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R125-Old.el (U+800A): Unify JC3-60B6.
+
+	* Ideograph-R122-Net.el (U+7F87): Unify JC3-64BC.
+
+	* Ideograph-R040-Roof.el (M-07062): Unify JC3-4AA3.
+
 2003-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+36A8): Unify MH-0117.
