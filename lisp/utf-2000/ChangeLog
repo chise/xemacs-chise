@@ -1,4 +1,25 @@
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F65): Use `->subsumptive'.
+	(U+5F66): Likewise.
+
+	* Ideograph-R146-West.el (J97-4D57): New abstract character.
+	(M-34768): Use `<-denotational' for J97-4D57 instead of `=>ucs'
+	for U+8981.
+	(U+8981): Use `<-denotational' for J97-4D57; use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+5185): Add `<-denotational' for
+	J97-4662; delete `<-vulgar' for U+5167.
+	(C3-2148): Delete `->identical' for C6-2150.
+	(J97-4662): New abstract character.
+	(U-000202EE): Use `->subsumptive'.
+	(U+50FF): Likewise.
+
 2005-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+82E5): Changed to abstract character.
+
+	* Ideograph-R032-Earth.el (U+585E): Use `->subsumptive'.
 
 	* Ideograph-R013-Down-Box.el (U+5185): Add `<-denotational' for
 	J97-4662; delete `<-vulgar' for U+5167.
