@@ -586,9 +586,14 @@ CHARSET_BY_LEADING_BYTE (int lb)
 
 #endif
 
-#define CHARSET_BY_ATTRIBUTES(type, final, dir) \
-  (chlook->charset_by_attributes[type][final][dir])
-
+INLINE_HEADER Lisp_Object
+CHARSET_BY_ATTRIBUTES (int chars, int multi, int final, int dir);
+INLINE_HEADER Lisp_Object
+CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
+{
+  return chlook->charset_by_attributes[(dimension == 1 ? 0 : 2)
+				      + (chars == 94 ? 0 : 1)][final][dir];
+}
 
 /* Table of number of bytes in the string representation of a character
    indexed by the first byte of that representation.
