@@ -1,3 +1,13 @@
+1999-04-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el:
+	- Change font registry name from "Thai94x94-0" to "xtis-0".
+	- Change mnemonic of coding-system `tis-620' to "TIS620".
+
+1999-04-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/ethiopic.el: fixed.
+
 1999-03-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* dumped-lisp.el: Add ethiopic, thai-xtis and vietnamese.
