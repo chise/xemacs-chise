@@ -1,3 +1,8 @@
+2003-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Vchise_system_db_directory): New variable.
+	(vars_of_chartab): Add new variable `chise-system-db-directory'.
+
 2003-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c: EXFUN `Fmount_char_attribute_table'.
