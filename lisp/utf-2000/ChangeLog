@@ -1,3 +1,14 @@
+2003-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (JX1-2F2C): Unify U+FA36 instead of
+	U+559D.
+	(JX1-2F2F): Unify U+FA37 instead of U+5606.
+	(JX1-2F36): Unify U+FA38 instead of U+5668.
+
+	* Ideograph-R085-Water.el (JX1-7669): Unify U+FA45 instead of
+	U+6D77.
+	(JX1-7725): Unify U+FA47 instead of U+6F22.
+
 2003-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (JX1-7565): Unify U+FA44 instead of
