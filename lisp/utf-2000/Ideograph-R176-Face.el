@@ -313,8 +313,7 @@
 (define-char
   '((ideographic-radical . 176)	; â¾¯
     (ideographic-strokes . 6)
-    (kangxi-radical	 . 27)	; â¼š
-    (kangxi-strokes	 . 13)
+    (total-strokes	 . 15)
     (=ucs		. #x9765)	; é¥
     (=gb2312		. #x584C)	; ø»…—¡
     ))
