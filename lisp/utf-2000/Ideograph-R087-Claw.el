@@ -14,14 +14,21 @@
     (ucs			. #x722A)	; çˆª
     ))
 (define-char
-  '((ideographic-radical . 87)	; â½–
+  '((=>ucs		. #x722B)	; çˆ«
+    (ideographic-radical . 87)	; â½–
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (japanese-jisx0212		. #x4A48)	; ø»‹¡…
     (chinese-cns11643-4		. #x2151)	; ø»—¡˜
     (japanese-jisx0213-2	. #x702A)	; ø»¦‘‹
     (ideograph-daikanwa		. 19655)	; ø¸„³‡
-    (ucs			. #x722B)	; çˆ«
+    ))
+(define-char
+  '((morohashi-daikanwa	19655 0 2)
+    (ideographic-radical . 87)	; â½–
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ucs		. #x722B)	; çˆ«
     ))
 (define-char
   '((ideographic-radical . 87)	; â½–
