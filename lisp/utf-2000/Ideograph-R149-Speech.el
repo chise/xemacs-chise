@@ -13623,6 +13623,7 @@
     (total-strokes	 . 20)
     (=jis-x0213-1-2000	. #x7C34)	; ø»¤˜¹
     (=daikanwa		. 36013)	; ø¸ˆ²­
+    (=ucs@jis		. #x8B69)	; ø»¤˜¹
     ))
 (define-char
   '((morohashi-daikanwa	36013 0 0)
@@ -16013,6 +16014,7 @@
     (total-strokes	 . 27)
     (=jis-x0213-1-2000	. #x7C35)	; ø»¤˜º
     (=daikanwa		. 36169)	; ø¸ˆµ‰
+    (=ucs@jis		. #x8B9D)	; ø»¤˜º
     ))
 (define-char
   '((=>ucs		. #x8B9D)	; è®
