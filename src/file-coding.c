@@ -5362,9 +5362,25 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 	}
       else if (BYTE_ASCII_P (c))
 	{
+#ifdef UTF2000
+	  ch =0;
+#else
 	  assert (ch == 0);
+#endif
 	  Dynarr_add (dst, c);
 	}
+#ifdef UTF2000
+      else if ( (0xc0 <= c) && (c < 0xe0) )
+	ch = c;
+      else
+	{
+	  c = ((ch & 0x1f) << 6) | (c & 0x3f);
+	  if ( c <= 0xff )
+	    Dynarr_add (dst, c);
+	  else
+	    Dynarr_add (dst, '~'); /* untranslatable character */
+	}
+#else /* not UTF2000 */
       else if (BUFBYTE_LEADING_BYTE_P (c))
 	{
 	  assert (ch == 0);
@@ -5387,6 +5403,7 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 	     untranslatable character, so ignore it */
 	  ch = 0;
 	}
+#endif /* not UTF2000 */
     }
 
   str->flags = flags;
