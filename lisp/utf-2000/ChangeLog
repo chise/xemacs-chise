@@ -1,3 +1,14 @@
+2004-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R070-Square.el, Ideograph-R030-Mouth.el: Use
+	`->subsumptive' or `{<-|->}denotational' for some character
+	definitions.
+
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R062-Halberd.el: Use `->subsumptive' for some
