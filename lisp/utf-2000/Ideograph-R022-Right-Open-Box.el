@@ -1093,6 +1093,13 @@
     (ideograph-daikanwa . 02646)	; ø¸€©–
     ))
 (define-char
+  '((=>ucs		. #x3532)	; ã”²
+    (ideographic-radical . 22)	; â¼•
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (mojikyo		. 083453)	; ý €”—½
+    ))
+(define-char
   '((=>ucs		. #x3534)	; ã”´
     (ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 12)
