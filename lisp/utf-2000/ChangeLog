@@ -1,3 +1,19 @@
+2002-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (C3-275D): Unify H1-EA70.
+	(U+523C): Separate H1-EA70.
+
+	* Ideograph-R009-Man.el (U+4F8C): Delete
+	`hanyu-dazidian-{vol|page|char}'.
+
+2002-04-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R077-Stop.el (JX1-7643): Unify JC3-54DC.
+	(J0-4A62): Separate JC3-54DC.
+
+	* Ideograph-R012-Eight.el (C3-403F): Unify H1-D9DB.
+	(U+517E): Separate H1-D9DB.
+
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R013-Down-Box.el (U+5188): Unify BE-C8A2 instead of
