@@ -1,3 +1,7 @@
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* close-cdb.el: Call `close-char-data-source'.
+
 2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R042-Small.el (U+5C19): Unify BC-A97C.
