@@ -85,25 +85,32 @@
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
-(defun char-ideographic-strokes (char &optional radical)
+(defun char-ideographic-strokes-from-domains (char domains &optional radical)
+  (catch 'tag
+    (dolist (domain domains)
+      (if (and (setq ret (or (get-char-attribute
+			      char
+			      (intern
+			       (format "%s@%s"
+				       'ideographic-radical domain)))
+			     (get-char-attribute
+			      char 'ideographic-radical)))
+	       (or (eq ret radical)
+		   (null radical))
+	       (setq ret (get-char-attribute
+			  char
+			  (intern
+			   (format "%s@%s"
+				   'ideographic-strokes domain)))))
+	  (throw 'tag ret)))))
+
+(defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
-    (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (or (get-char-attribute
-				    char
-				    (intern
-				     (format "%s@%s"
-					     'ideographic-radical domain)))
-				   (get-char-attribute
-				    char 'ideographic-radical)))
-		     (or (eq ret radical)
-			 (null radical))
-		     (setq ret (get-char-attribute
-				char
-				(intern
-				 (format "%s@%s"
-					 'ideographic-strokes domain)))))
-		(throw 'tag ret))))
+    (or (char-ideographic-strokes-from-domains
+	 char preferred-domains radical)
+	(get-char-attribute char 'ideographic-strokes)
+	(char-ideographic-strokes-from-domains
+	 char char-db-feature-domains radical)
 	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
@@ -111,7 +118,6 @@
 			 (null radical)))
 		(throw 'tag (plist-get cell :strokes)))))
 	(get-char-attribute char 'daikanwa-strokes)
-	(get-char-attribute char 'ideographic-strokes)
 	(let ((strokes
 	       (or (get-char-attribute char 'kangxi-strokes)
 		   (get-char-attribute char 'japanese-strokes)
@@ -265,12 +271,10 @@
   (unless radical
     (setq radical ideographic-radical))
   (let ((drc (char-representative-of-daikanwa char)))
-    (char-ideographic-strokes
-     (if (= (char-ideographic-radical drc radical)
-	    (char-ideographic-radical char radical))
-	 drc
-       char)
-     radical)))
+    (if (= (char-ideographic-radical drc radical)
+	   (char-ideographic-radical char radical))
+	(setq char drc)))
+  (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
 (defun char-daikanwa (char)
