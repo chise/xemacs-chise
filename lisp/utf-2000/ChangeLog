@@ -1,4 +1,35 @@
+2002-04-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R120-Silk.el (C2-3E77): Separate U+7D6D.
+
+	* Ideograph-R030-Mouth.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; add some mappings for Hanziku code points.
+
+	* Ideograph-R027-Cliff.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; add some mappings for Hanziku code points.
+	(BC-8AB8): Moved to Ideograph-R049-Oneself.el; unified by U+5DF5.
+
+	* Ideograph-R019-Power.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; add some mappings for Hanziku code points.
+
+	* Ideograph-R049-Oneself.el (U+5DF5): Unify BC-8AB8.
+
+	* Ideograph-R043-Lame.el (U+5C2F): Unify H2-C1E4.
+
+	* Ideograph-R029-Again.el, Ideograph-R028-Private.el,
+	Ideograph-R026-Seal.el, Ideograph-R024-Ten.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R020-Wrap.el,
+	Ideograph-R018-Knife.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; add some mappings for Hanziku code points.
+
 2002-04-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (H1-C161): Moved to
+	Ideograph-R154-Shell.el; unified by U+8D2A.
 
 	* Ideograph-R184-Eat.el (U+98DF): Separate J0-3F29 and M-44014.
 	(C1-537A): Unify M-44014.
