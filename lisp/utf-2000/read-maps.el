@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004,2005 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -149,6 +149,8 @@ UCS-REGEXP is a regular expression to match against
 			     (encode-char chr '=ucs@jis/fw 'defined-only))
 			    ((eq ucs-ccs '=ucs@gb)
 			     (encode-char chr '=ucs@gb/fw 'defined-only))
+                            ;; ((eq ucs-ccs '=ucs@big5)
+                            ;;  nil)
 			    (t
 			     (char-feature chr '=>ucs))))
 			  ucs-code)))
