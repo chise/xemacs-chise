@@ -43,7 +43,7 @@
 (define-key mule-keymap "\C-\\" 'set-input-method)
 (define-key mule-keymap "c" 'universal-coding-system-argument)
 ;;(define-key mule-keymap "c" 'list-coding-system-briefly) ; XEmacs
-(define-key mule-keymap "C" 'list-coding-systems)	 ; XEmacs
+(define-key mule-keymap "C" 'describe-coding-system)	 ; XEmacs
 (define-key mule-keymap "r" 'toggle-display-direction)	 ; XEmacs
 (define-key mule-keymap "l" 'set-language-environment)
 
