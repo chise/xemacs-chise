@@ -281,6 +281,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-6
 	  chinese-cns11643-7
 	  korean-ksc5601
+	  chinese-gb2312
 	  hebrew-iso8859-8
 	  latin-viscii
 	  latin-viscii-lower
