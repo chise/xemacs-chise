@@ -1,5 +1,14 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/char-db-util.el (insert-char-data): Fix format of
+	`iso-10646-comment'; swap order of `->lowercase' and
+	`->titlecase'.
+
+	* utf-2000/u00180-Latin-Extended-B.el: Merge `latin-viscii'
+	code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/char-db-util.el (char-attribute-name<): New function.
 	(insert-char-data): Use `char-attribute-name<' to sort; change
 	order of `iso-10646-comment'.
