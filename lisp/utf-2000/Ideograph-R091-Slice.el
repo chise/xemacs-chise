@@ -699,35 +699,30 @@
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (shinjigen-2	. 4725)
     (=ucs		. #x724C)	; 牌
-    (=jis-x0208-1978	. #x4757)	; &I-J78-4757; [39-55]
-    (=gb2312		. #x4546)	; &I-G0-4546; [37-38]
-    (=ks-x1001		. #x782B)	; &I-K0-782B; [88-11]
-    (=big5		. #xB550)	; &I-B-B550;
-    (=daikanwa		. 19854)	; &I-M-19854;
-    ))
-(define-char
-  '((=>ucs		. #x724C)	; 牌
-    (morohashi-daikanwa	19854 0 1)
-    (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-1	. #x6056)	; &C1-6056; [64-54]
-    ))
-(define-char
-  '((=>ucs		. #x724C)	; 牌
-    (morohashi-daikanwa	19854 0 2)
-    (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=jis-x0208-1983	. #x4757)	; &GT-25508; [39-55]
-    (=jis-x0208-1990	. #x4757)	; &I-J90-4757; [39-55]
-    (=gt		. 25508)	; &I-GT-25508;
-    (=gt-pj-1		. #x4757)	; &I-GT-25508; [39-55]
-    (=ucs@jis		. #x724C)	; &GT-25508;
+    (->subsumptive
+     ((ideographic-strokes . 8)
+      (total-strokes	   . 12)
+      (shinjigen-2	  . 4725)
+      (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
+      (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
+      (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
+      (=big5		  . #xB550)	; &I-B-B550;
+      (=daikanwa	  . 19854)	; &I-M-19854;
+      (=ucs@unicode	  . #x724C)	; &M-19854;
+      )
+     ((ideographic-strokes . 8)
+      (total-strokes	   . 12)
+      (=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
+      )
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 13)
+      (=jis-x0208@1983	  . #x4757)	; &GT-25508; [39-55]
+      (=jis-x0208@1990	  . #x4757)	; &I-J90-4757; [39-55]
+      (=gt		  . 25508)	; &I-GT-25508;
+      (=gt-pj-1		  . #x4757)	; &I-GT-25508; [39-55]
+      (=ucs@jis		  . #x724C)	; &GT-25508;
+      ))
     ))
 (define-char
   '((=>ucs		. #x245CB)	; 𤗋
