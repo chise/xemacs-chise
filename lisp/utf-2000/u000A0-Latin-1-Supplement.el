@@ -194,7 +194,7 @@
     (korean-ksc5601		. #x2157)	; ø»ˆ›‚
     (chinese-cns11643-1		. #x2170)	; ø»‘ƒ«
     (japanese-jisx0208-1990	. #x2178)	; ø½‰·“
-    (chinese-big5		. #xA1B1)	; øºŸœ
+    (chinese-big5		. #xA1B1)	; ý¢€Š†±
     ))
 (define-char
   '((name		. "DIAERESIS")
@@ -233,7 +233,7 @@
     (japanese-jisx0208		. #x212F)	; ø»†–
     (korean-ksc5601		. #x2127)	; ø»ˆš’
     (japanese-jisx0208-1990	. #x212F)	; ø½‰¶Š
-    (chinese-big5		. #xC6D8)	; øº ·§
+    (chinese-big5-eten		. #xC6D8)	; ý¢€Œ›˜
     ))
 (define-char
   '((name		. "COPYRIGHT SIGN")
@@ -451,7 +451,7 @@
     (korean-ksc5601		. #x2146)	; ø»ˆš±
     (chinese-cns11643-1		. #x2278)	; ø»‘…‘
     (japanese-jisx0208-1990	. #x216B)	; ø½‰·†
-    (chinese-big5		. #xA258)	; øºŸµ
+    (chinese-big5		. #xA258)	; ý¢€Š‰˜
     ))
 (define-char
   '((name		. "PLUS-MINUS SIGN")
@@ -488,7 +488,7 @@
     (korean-ksc5601		. #x213E)	; ø»ˆš©
     (chinese-cns11643-1		. #x2234)	; ø»‘„
     (japanese-jisx0208-1990	. #x215E)	; ø½‰¶¹
-    (chinese-big5		. #xA1D3)	; øºŸœ±
+    (chinese-big5		. #xA1D3)	; ý¢€Š‡“
     ))
 (define-char
   '((name		. "SUPERSCRIPT TWO")
@@ -598,7 +598,6 @@
     (japanese-jisx0208		. #x212D)	; ø»†”
     (korean-ksc5601		. #x2225)	; ø»ˆ›®
     (japanese-jisx0208-1990	. #x212D)	; ø½‰¶ˆ
-    (chinese-big5		. #xA1A6)	; øºŸœ„
     ))
 (define-char
   '((name		. "MICRO SIGN")
@@ -672,7 +671,7 @@
     (korean-ksc5601		. #x2124)	; ø»ˆš
     (chinese-cns11643-1		. #x2126)	; ø»‘‚¡
     (japanese-jisx0213-1	. #x292E)	; ø»¢ž¹
-    (chinese-big5		. #xA150)	; øºŸ›
+    (chinese-big5		. #xA150)	; ý¢€Š…
     ))
 (define-char
   '((name		. "CEDILLA")
@@ -1830,7 +1829,7 @@
     (korean-ksc5601		. #x213F)	; ø»ˆšª
     (chinese-cns11643-1		. #x2232)	; ø»‘„‹
     (japanese-jisx0208-1990	. #x215F)	; ø½‰¶º
-    (chinese-big5		. #xA1D1)	; øºŸœ¯
+    (chinese-big5		. #xA1D1)	; ý¢€Š‡‘
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH STROKE")
@@ -3043,7 +3042,7 @@
     (korean-ksc5601		. #x2140)	; ø»ˆš«
     (chinese-cns11643-1		. #x2233)	; ø»‘„Œ
     (japanese-jisx0208-1990	. #x2160)	; ø½‰¶»
-    (chinese-big5		. #xA1D2)	; øºŸœ°
+    (chinese-big5		. #xA1D2)	; ý¢€Š‡’
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH STROKE")
