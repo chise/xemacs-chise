@@ -203,7 +203,7 @@ startup."
     (if (not coding-category)
 	;; CODING-SYSTEM is no-conversion or undecided.
 	(error "Can't prefer the coding system `%s'" coding-system))
-    (set coding-category (or base coding-system))
+    (set-coding-category-system coding-category (or base coding-system))
     ;; (update-coding-systems-internal)
     (or (eq coding-category (car (coding-category-list)))
 	;; We must change the order.
