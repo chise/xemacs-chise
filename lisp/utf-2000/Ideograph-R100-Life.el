@@ -185,6 +185,7 @@
     (total-strokes	 . 11)
     (=jis-x0208		. #x3B3A)	; ø½Šœ¡
     (korean-ksc5601	. #x5F27)	; ø»‰µ–
+    (ucs-jis		. #x7523)	; ø½Šœ¡
     (mojikyo		. 050288)	; ý €Œ‘°
     ))
 (define-char
