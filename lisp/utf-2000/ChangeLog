@@ -1,3 +1,34 @@
+2001-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R206-Tripod.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
+	* Ideograph-R030-Mouth.el (U+5497): Unify M059178.
+	(U+5498): Delete `non-morohashi' property.
+	(U+5499): Delete `non-morohashi' property.
+	(U+549A): Delete `non-morohashi' property.
+	(U+549B): Delete `non-morohashi' property.
+	(U+549C): Delete `non-morohashi' property; add
+	`morohashi-daikanwa-ho' property; unify M050005.
+	(U+549D): Delete `non-morohashi' property.
+	(C3-2772): Cancel unification with M-48258; add mapping to U+9EFE;
+	add mapping to M051084; add `ucs-radical' property.
+
+	* Ideograph-R001-One.el (U+3402): Unify M050741; add
+	`morohashi-daikanwa-ho' property.
+
+2001-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el, Ideograph-R203-Black.el: Resorted; add
+	some missing Morohashi's Daikanwa characters; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
+	* Ideograph-R204-Embroidery.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
 2001-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R201-Yellow.el: Resorted; add some missing Morohashi's
