@@ -11863,7 +11863,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x80A5)	; &UU+80A5;
+       ((=ucs@unicode	    . #x80A5)	; &GT-37958;
 	))
       (=big5		  . #xD0D5)	; &M-00733;
       (=daikanwa	  . 00733)	; &I-M-00733;
@@ -16245,7 +16245,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x80CC)	; &UU+80CC;
+       ((=ucs@unicode	    . #x80CC)	; &GT-38037;
 	))
       (=big5		  . #xD453)	; &M-00865;
       (=daikanwa	  . 00865)	; &I-M-00865;
