@@ -21,6 +21,8 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_char_ucs_h_
 #define INCLUDED_char_ucs_h_
 
+#include "chartab.h"
+
 #define valid_char_p(ch) 1
 
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
@@ -81,26 +83,6 @@ DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
 #define GC_BYTE_TABLE_P(x) GC_RECORDP (x, byte_table)
 /* #define CHECK_BYTE_TABLE(x) CHECK_RECORD (x, byte_table)
    char table entries should never escape to Lisp */
-
-
-struct Lisp_Char_ID_Table
-{
-  struct lcrecord_header header;
-
-  Lisp_Object table;
-};
-typedef struct Lisp_Char_ID_Table Lisp_Char_ID_Table;
-
-DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
-#define XCHAR_ID_TABLE(x) XRECORD (x, char_id_table, Lisp_Char_ID_Table)
-#define XSETCHAR_ID_TABLE(x, p) XSETRECORD (x, p, char_id_table)
-#define CHAR_ID_TABLE_P(x) RECORDP (x, char_id_table)
-#define GC_CHAR_ID_TABLE_P(x) GC_RECORDP (x, char_id_table)
-/* #define CHECK_CHAR_ID_TABLE(x) CHECK_RECORD (x, char_id_table)
-   char table entries should never escape to Lisp */
-
-
-Lisp_Object get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch);
 
 
 extern Lisp_Object Vcharset_mojikyo;
