@@ -1993,7 +1993,9 @@
 (define-char
   '((ideographic-radical . 104)	; â½§
     (ideographic-strokes . 7)
-    (ucs		. #x75E9)	; ç—©
+    (total-strokes	 . 12)
+    (japanese-jisx0208-1990	. #x4169)	; ø½Š¦„
+    (ucs			. #x75E9)	; ç—©
     ))
 (define-char
   '((ideographic-radical . 104)	; â½§
@@ -2437,6 +2439,8 @@
 (define-char
   '((ideographic-radical . 104)	; â½§
     (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (japanese-jisx0212	. #x4D66)	; ø»‹¥½
     (chinese-isoir165	. #x7D6C)	; ø»Ž¶§
     (ideograph-daikanwa . 22300)	; ø¸…œœ
     (ucs		. #x7604)	; ç˜„
