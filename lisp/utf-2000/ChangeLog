@@ -1,5 +1,14 @@
 2004-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R157-Foot.el, Ideograph-R156-Run.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R154-Shell.el: Add some `total-strokes' features.
+	(U+8D51): Fix strokes.
+
+	* Ideograph-R148-Horn.el, Ideograph-R147-See.el: Add some
+	`total-strokes' features.
+
 	* Ideograph-R155-Red.el (U+8D6A): Add `total-strokes'.
 
 	* Ideograph-R152-Pig.el (U+8C6E): Add `total-strokes'.
