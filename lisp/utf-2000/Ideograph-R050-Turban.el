@@ -5017,8 +5017,8 @@
       )
      ((ucs		  . #x8511)	; è”‘
       ))
-    (china3-jef		. #x4CAC)	; øº„²¬
     (chinese-big5	. #xEFC5)	; øº£ƒµ
+    (china3-jef		. #x4CAC)	; øº„²¬
     ))
 (define-char
   '((morohashi-daikanwa	9133 0 2)
