@@ -1,3 +1,8 @@
+2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u0A490-Yi-Radicals"
+	in UTF-2000.
+
 2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (utf-8-er): New coding-system in UTF-2000;
