@@ -137,8 +137,8 @@
 	      ((string-match "^china3-jef" (symbol-name (car rest))))
 	      ((string-match "^chinese-big5" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
-	       (unless (memq 'ideograph-gt dest)
-		 (setq dest (cons 'ideograph-gt dest))))
+	       (unless (memq '=gt dest)
+		 (setq dest (cons '=gt dest))))
 	      (t
 	       (setq dest (cons (car rest) dest)))))
       (setq rest (cdr rest)))
@@ -361,8 +361,8 @@
 				  ideograph-gt-pj-10
 				  ideograph-gt-pj-11))
 		      (setq ret (decode-char ccs code-point))
-		      (setq ret (get-char-attribute ret 'ideograph-gt)))
-		 (decode-builtin-char 'ideograph-gt ret))
+		      (setq ret (get-char-attribute ret '=gt)))
+		 (decode-builtin-char '=gt ret))
 		(t
 		 (decode-builtin-char ccs code-point))))
     (cond ((and (<= 0 (char-int ret))
@@ -915,9 +915,7 @@
 	   (format
 	    (cond ((memq name '(ideograph-daikanwa-2
 				ideograph-daikanwa
-				ideograph-gt
-				=gt-k
-				ideograph-cbeta))
+				=gt =gt-k =cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
 		     "(%-18s . %05d)\t; %c%s"))
