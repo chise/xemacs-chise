@@ -1,3 +1,8 @@
+2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R077-Stop.el (C6-232E): Don't unify U-00028E16; unify
+	H1-A6EA and U-00023944; add `ideographic-structure'.
+
 2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R063-Door.el: Add some mappings to CJK Ext-B code
