@@ -253,6 +253,19 @@
     (=daikanwa		. 17105)	; &I-M-17105;
     ))
 (define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x6C42)	; 求
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x6C42)	; 求
+      ))
+    (=gt-k		. 02519)	; &GT-K02519;
+    (=gt-pj-k1		. #x345C)	; &GT-K02519; [20-60]
+    ))
+(define-char
   '((=>ucs		. #x6C43)	; 汃
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 2)
@@ -566,6 +579,9 @@
     (=cns11643-1	. #x483F)	; &I-C1-483F; [40-31]
     (=jis-x0213-1-2000	. #x7651)	; &I-JX1-7651; [86-49]
     (=big5		. #xA6BE)	; &I-B-A6BE;
+    (=gt		. 21907)	; &I-GT-21907;
+    (=gt-k		. 01581)	; &I-GT-K01581;
+    (=gt-pj-4		. #x496E)	; &I-GT-21907; [41-78]
     (=daikanwa		. 17132)	; &I-M-17132;
     (=jef-china3	. #x55BB)	; &I-JC3-55BB;
     ))
