@@ -628,6 +628,7 @@
 (define-char
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (=ucs		. #x5B67)	; 孧
     ))
 (define-char
