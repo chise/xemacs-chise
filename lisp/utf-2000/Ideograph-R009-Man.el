@@ -5138,6 +5138,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (jisx0208-difference . -78/4X)
     (japanese-jisx0208-1978	. #x3666)	; ø»‚›»
     (japanese-jisx0208		. #x3666)	; ø»†°ƒ
     (korean-ksc5601		. #x4E7C)	; ø»‰­
@@ -5151,6 +5152,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (jisx0208-1978/4X	. #x3666)
     (shinjigen-1	. 287)
     (shinjigen-2	. 287)
     (chinese-gb2312	. #x3E63)	; ø»„±¬
