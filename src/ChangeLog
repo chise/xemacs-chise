@@ -1,3 +1,8 @@
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_table_map_function): Fixed.
+	(word_boundary_p): Don't check charset in XEmacs CHISE.
+
 2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Fsave_charset_mapping_table): Use
