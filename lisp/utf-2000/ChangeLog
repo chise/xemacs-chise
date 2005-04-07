@@ -1,4 +1,27 @@
+2005-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-0002008B): Add U+5C38 into
+	`<-ideographic-component-forms'.
+
 2005-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+536E): Use U-0002008B in
+	`ideographic-structure' to compact it.
+
+	* Ideograph-R005-Second.el (GT-00248): Map to U-000209DD.
+	(U-000209DD): New character.
+	(GT-00250): Map to U+8034.
+	(U+8034): Copied from Ideograph-R128-Ear.el.
+	(U+4E73): Use `->denotational' instead of `->subsumptive'; unify
+	B-A8C5.
+	(K0-6A61): Use `<-denotational' instead of `<-subsumptive';
+	separate B-A8C5.
+	(J0-467D): Use `<-denotational' instead of `<-subsumptive'.
+
+2005-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (M-02788): Unify U-000209D5.
+	(U-000209DD): Copied from Ideograph-R005-Second.el.
 
 	* Ideograph-R044-Corpse.el (U+5C3B): Add S1-1921.
 	(U+5C3C): Use `->subsumptive'.
