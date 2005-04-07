@@ -1,3 +1,21 @@
+2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (U+516D): Use `->subsumptive'.
+	(U-00020501): Likewise.
+	(GT-K00859): New character.
+	(U+5175): Delete `ideographic-structure'.
+	(U+5176): Modify `ideographic-structure'.
+	(U+5178): Likewise.
+
+	* Ideograph-R004-Slash.el (U+4E51): Use `->subsumptive'.
+
+2005-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el (U+4E39): Use `->subsumptive' to integrate
+	U+F95E.
+	(GT-K00462): New character.
+	(GT-K00463): New character.
+
 2005-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U-0002008B): Add U+5C38 into
