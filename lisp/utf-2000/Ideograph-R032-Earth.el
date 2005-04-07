@@ -18,6 +18,19 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=gt-k		. 00199)	; &GT-K00199;
+    (=gt-pj-k1		. #x3522)	; &GT-K00199; [21-02]
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 417 3)
