@@ -984,15 +984,21 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 38 5)
     (=ucs		. #x4E51)	; 乑
-    (=jis-x0212		. #x3033)	; &I-JSP-3033; [16-19]
-    (=cns11643-4	. #x2227)	; &I-C4-2227; [02-07]
-    (=jis-x0213-2-2000	. #x212C)	; &I-JX2-212C; [01-12]
-    (=big5-cdp		. #x89F2)	; &I-CDP-89F2;
-    (=gt		. 00188)	; &I-GT-00188;
-    (=gt-k		. 01781)	; &I-GT-K01781;
-    (=gt-pj-2		. #x312D)	; &I-GT-00188; [17-13]
-    (=daikanwa		. 00139)	; &I-M-00139;
-    (=jef-china3	. #x41B9)	; &I-JC3-41B9;
+    (->subsumptive
+     ((=gt		  . 00188)	; &GT-00188;
+      (=gt-k		  . 01781)	; &I-GT-K01781;
+      (=gt-pj-2		  . #x312D)	; &GT-00188; [17-13]
+      (=daikanwa	  . 00139)	; &I-M-00139;
+      )
+     ((=jis-x0212	  . #x3033)	; &CDP-89F2; [16-19]
+      (=cns11643-4	  . #x2227)	; &I-C4-2227; [02-07]
+      (=jis-x0213-2-2000  . #x212C)	; &I-JX2-212C; [01-12]
+      (=big5-cdp	  . #x89F2)	; &I-CDP-89F2;
+      (=jef-china3	  . #x41B9)	; &I-JC3-41B9;
+      (=ucs@jis		  . #x4E51)	; &CDP-89F2;
+      )
+     ((=ucs@unicode	  . #x4E51)	; &UU+4E51;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
