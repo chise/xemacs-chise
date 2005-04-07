@@ -175,14 +175,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x20086)	; 𠂆
-	)
-       ((=ucs		    . #x4E00)	; 一
-	))
+     ((=ucs		  . #x2008B)	; 𠂋
       )
      ((=ucs		  . #x353E)	; 㔾
       ))
