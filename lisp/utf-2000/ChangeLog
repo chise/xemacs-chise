@@ -1,5 +1,30 @@
 2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el (U+5712): Use `->denotational'.
+
+	* Ideograph-R019-Power.el (U+52D6): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+52D7): Likewise.
+	(U+52D9): Use `->subsumptive'.
+	(U+52E2): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+53EA): Modify
+	`ideographic-structure'; add S1-946.
+	(UU+3563): Unify BC-8BFD.
+	(U+53F8): Delete `ideographic-structure'; add S1-942.
+	(U+540E): Use U-0002008B in `ideographic-structure' to compact it;
+	add S1-969.
+	(J0-3C7E): Delete `ideographic-structure'.
+	(U+54E4): Use `->denotational' and `->subsumptive'.
+	(U+54E5): Use `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (U+5238): Use `->denotational' and
+	`->subsumptive'.
+	(U+523E): Delete wrong `ideographic-structure'.
+	(U+524D): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (GT-K00199): New character.
+
 	* Ideograph-R012-Eight.el (U+516D): Use `->subsumptive'.
 	(U-00020501): Likewise.
 	(GT-K00859): New character.
