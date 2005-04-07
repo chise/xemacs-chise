@@ -1,5 +1,12 @@
 2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el (U-000224F0): Use `->denotational'.
+	(C5-2D48): Map to U-0002F89B; separate M-10116.
+	(U-0002F89B): New character.
+
+	* Ideograph-R054-Long-Stride.el (U+389F): Use `->denotational'.
+	(BC-88F4): New character.
+
 	* Ideograph-R031-Enclosure.el (U+5712): Use `->denotational'.
 
 	* Ideograph-R019-Power.el (U+52D6): Use `->denotational' instead
@@ -91,6 +98,8 @@
 	(C1-685F): Use `<-denotational' for U+5E54; separate J0-566F,
 	G0-6123, B0-B9F7 and GT-11412; unify GT-11411.
 	(U+5E55): Use `->denotational'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5578.
 
 	* Ideograph-R032-Earth.el:
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
