@@ -238,31 +238,48 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (shinjigen-2	. 2301)
     (=ucs		. #x5F56)	; 彖
-    (=jis-x0208		. #x5741)	; &I-J90-5741; [55-33]
-    (=gb2312		. #x6568)	; &I-G0-6568; [69-72]
-    (=ks-x1001		. #x5327)	; &I-K0-5327; [51-07]
-    (=cns11643-2	. #x2A3E)	; &I-C2-2A3E; [10-30]
     (=big5		. #xCEBD)	; &I-B-CEBD;
-    (=gt		. 12518)	; &I-GT-12518;
-    (=gt-k		. 05239)	; &I-GT-K05239;
-    (=gt-pj-1		. #x5741)	; &I-GT-12518; [55-33]
-    (=daikanwa		. 09920)	; &I-M-09920;
+    (->subsumptive
+     ((shinjigen-1	  . 2301)
+      (shinjigen-2	  . 2301)
+      (=jis-x0208	  . #x5741)	; &GT-12518; [55-33]
+      (=ks-x1001	  . #x5327)	; &I-K0-5327; [51-07]
+      (=gt		  . 12518)	; &I-GT-12518;
+      (=gt-k		  . 05239)	; &I-GT-K05239;
+      (=gt-pj-1		  . #x5741)	; &I-GT-12518; [55-33]
+      (=daikanwa	  . 09920)	; &I-M-09920;
+      (=ucs@jis		  . #x5F56)	; &GT-12518;
+      )
+     ((=gb2312		  . #x6568)	; &G0-6568; [69-72]
+      (=ucs@unicode	  . #x5F56)	; &G0-6568;
+      )
+     ((=cns11643-2	  . #x2A3E)	; &C2-2A3E; [10-30]
+      ))
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x22457)	; 𢑗
-    (=daikanwa		. 09921)	; &I-M-09921;
     ))
 (define-char
-  '((=>ucs		. #x22457)	; 𢑗
-    (morohashi-daikanwa	9921 0 5)
-    (ideographic-radical . 58)	; ⼹
+  '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x22457)	; 𢑗
+      ))
+    (=daikanwa		. 09921)	; &M-09921;
+    (=ucs@iso		. #x22457)	; &M-09921;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x22457)	; 𢑗
+      ))
     (=cns11643-6	. #x3124)	; &C6-3124; [17-04]
     ))
 (define-char
@@ -696,6 +713,13 @@
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (=ucs		. #x5F5F)	; 彟
+    (=iso-ir165		. #x2E3D)	; &I-EGB-2E3D; [14-29]
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (=ucs		. #x2247D)	; 𢑽
@@ -706,8 +730,13 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (=cns11643-5	. #x7340)	; &M-09958; [83-32]
-    (=daikanwa		. 09958)	; &I-M-09958;
+    (=ucs		. #x2F898)	; 𦇚
+    (->subsumptive
+     ((=daikanwa	  . 09958)	; &M-09958;
+      )
+     ((=cns11643-5	  . #x7340)	; &C5-7340; [83-32]
+      (=ucs@iso		  . #x2F898)	; &C5-7340;
+      ))
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
@@ -719,12 +748,39 @@
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
+    (=ucs		. #x5F60)	; 彠
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 23)
     (total-strokes	 . 26)
-    (=ucs		. #x5F60)	; 彠
-    (=jis-x0212		. #x3C7B)	; &I-JSP-3C7B; [28-91]
-    (=cns11643-3	. #x6164)	; &I-C3-6164; [65-68]
-    (=daikanwa		. 09960)	; &I-M-09960;
+    (<-denotational
+     ((=ucs		  . #x5F60)	; 彠
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 09960)	; &M-09960;
+      )
+     ((=cns11643-3	  . #x6164)	; &C3-6164; [65-68]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 22)
+    (total-strokes	 . 25)
+    (<-denotational
+     ((=ucs		  . #x5F60)	; 彠
+      ))
+    (=ucs@unicode	. #x5F60)	; &UU+5F60;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 22)
+    (total-strokes	 . 25)
+    (<-denotational
+     ((=ucs		  . #x5F60)	; 彠
+      ))
+    (=jis-x0212		. #x3C7B)	; &JSP-3C7B; [28-91]
+    (=ucs@jis		. #x5F60)	; &JSP-3C7B;
     ))
 (define-char
   '((=>ucs		. #x2247F)	; 𢑿
@@ -747,11 +803,4 @@
     (ideographic-strokes . 23)
     (total-strokes	 . 26)
     (=cns11643-7	. #x6237)	; &C7-6237; [66-23]
-    ))
-(define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 23)
-    (total-strokes	 . 26)
-    (=ucs		. #x5F5F)	; 彟
-    (=iso-ir165		. #x2E3D)	; &I-EGB-2E3D; [14-29]
     ))
