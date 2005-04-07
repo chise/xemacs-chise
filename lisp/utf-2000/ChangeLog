@@ -1,5 +1,13 @@
 2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el (U+5FD8): Use `->subsumptive'.
+	(U+5FD9): Likewise.
+	(U-000225BA): Likewise.
+	(U+5FDA): Likewise.
+	(U+38FF): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(U-000225BB): Use `->denotational' and `->subsumptive'.
+	(C5-2438): Unify U-0002F89F.
+
 	* Ideograph-R060-Step.el (U-000224F0): Use `->denotational'.
 	(C5-2D48): Map to U-0002F89B; separate M-10116.
 	(U-0002F89B): New character.
