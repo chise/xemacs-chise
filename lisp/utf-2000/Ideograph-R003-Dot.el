@@ -196,21 +196,36 @@
     (=ucs		. #x4E39)	; 丹
     (=jis-x0208		. #x4330)	; &I-J90-4330; [35-16]
     (=gb2312		. #x3524)	; &I-G0-3524; [21-04]
-    (=ks-x1001		. #x5321)	; &I-K0-5321; [51-01]
     (=cns11643-1	. #x4465)	; &I-C1-4465; [36-69]
     (=big5		. #xA4A6)	; &I-B-A4A6;
     (=gt		. 00136)	; &I-GT-00136;
     (=gt-k		. 00460)	; &I-GT-K00460;
     (=gt-pj-1		. #x4330)	; &I-GT-00136; [35-16]
     (=daikanwa		. 00099)	; &I-M-00099;
+    (->subsumptive
+     ((=ks-x1001	  . #x5321)	; &K0-5321; [51-01]
+      )
+     ((=ucs		  . #xF95E)	; 丹
+      (=ks-x1001	  . #x552E)	; &I-K0-552E; [53-14]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	99 0 0)
-    (ideographic-radical . 3)	; ⼂
+  '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=ucs		. #xF95E)	; 丹
-    (=ks-x1001		. #x552E)	; &I-K0-552E; [53-14]
+    (<-denotational
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    (->subsumptive
+     ((=gt-k		  . 00462)	; &GT-K00462;
+      (=gt-pj-k2	  . #x436D)	; &GT-K00462; [35-77]
+      )
+     ((=gt-k		  . 00463)	; &GT-K00463;
+      (=gt-pj-k1	  . #x3B42)	; &GT-K00463; [27-34]
+      ))
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
