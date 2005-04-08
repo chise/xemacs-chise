@@ -1,4 +1,72 @@
+2005-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el (U+5C28): Use `->denotational' and
+	`->subsumptive'.
+	(U-00021BCF): Use `->subsumptive'.
+	(U-00021BD0): Likewise.
+	(U+5C2E): Likewise.
+	(U-00021BE2): Likewise.
+	(U+5C2F): Likewise.
+	(U-00021BE3): Likewise.
+	(U+3780): Likewise.
+	(U+3781): Likewise.
+	(C5-2873): Map to U-0002F876.
+	(U-0002F876): New character.
+	(U+5C30): Likewise.
+	(U+3787): Likewise.
+	(U-00021BFA): Likewise.
+	(U-00021BFB): Likewise.
+	(U-00021BF6): Likewise.
+	(U+5C31): Likewise.
+	(U+3788): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R073-Say.el (J0-5228): Copied from
+	Ideograph-R019-Power.el.
+	(U-0002F8D4): Use `daikanwa' instead of `daikanwa=14301' in
+	`ideographic-radical@ucs*sources'.
+	(J0-3A47): Add S2-925.
+
 2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+3754): Use `->subsumptive'.
+	(U+5BA4): Likewise.
+	(U+5BA5): Likewise.
+	(U+5BA6): Likewise.
+	(U+5BA7): Likewise; use `=>daikanwa' instead of
+	`morohashi-daikanwa' for M-07139.
+	(U+5BA8): Use `->subsumptive'.
+	(U-000219F0): Likewise.
+	(U+3755): Use `->subsumptive'.
+	(U-000219F1): Likewise.
+	(U+3756): Likewise.
+
+	* Ideograph-R046-Mountain.el (U+5C91): Use `->subsumptive'.
+	(U+5C92): Likewise.
+	(U+5DCC): Use `->denotational' instead of `->subsumptive'.
+	(U+5DCD): Use `->subsumptive'.
+	(U-00021FC6): Likewise.
+	(U-00021FC1): Likewise.
+
+	* Ideograph-R038-Woman.el (U+5984): Use `->subsumptive'.
+	(U+5985): Likewise.
+	(U+36A6): Likewise.
+	(U+36A7): Likewise.
+	(U+59D1): Likewise.
+	(U+36B8): Likewise.
+	(U+59FF): Use `->denotational' and `->subsumptive'.
+	(U+5A00): Use `->subsumptive'.
+	(U+5A01): Likewise.
+	(U+5A02): Likewise.
+	(U+5A03): Likewise.
+
+2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+5F56): Use `->subsumptive'.
+	(U-00022457): Use `->denotational'.
+	(U+5F5F): Fix strokes.
+	(M-09958): Map to U-0002F898; separate C5-7340.
+	(U-0002F898): New character.
+	(U+5F60): Use `->denotational' and `->subsumptive'.
 
 	* Ideograph-R061-Heart.el (U+5FD8): Use `->subsumptive'.
 	(U+5FD9): Likewise.
