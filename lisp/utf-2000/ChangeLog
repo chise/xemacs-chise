@@ -1,5 +1,28 @@
 2005-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R064-Hand.el (U+625C): Unify JC3-8DD5.
+	(C5-226E): Unify U-0002F8B4.
+	(U+625E): Separate JC3-8DD5.
+	(U+3A2D): Use `->denotational'.
+	(C4-4358): Use `<-denotational' for U+3A2D; unify M-12569.
+	(C5-462C): Unify U-0002F8C2; use `=>daikanwa' instead of
+	`morohashi-daikanwa' for M-12570.
+
+	* Ideograph-R053-Dotted-Cliff.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(C5-2927): Map to U-0002F88A.
+	(U-0002F88A): New character.
+	(U+5ECA): Use `->denotational' and `->subsumptive'.
+	(JX1-742E): Use `<-denotational' for U+5ECA; don't map to
+	U-0002F88E; separate K0-5546; unify U+F928; use `->subsumptive' to
+	integrate K0-5546 and K0-5227.
+	(U-0002F88E): Use `<-denotational' for U+5ECA.
+	(B-B459): Likewise; use `->subsumptive'.
+	(U-0002F88F): New character.
+	(C5-455D): Map to U-0002F88F; separate M-09472.
+	(U-000222A7): New character.
+	(M-09474): Map to U-000222A7.
+
 	* Ideograph-R043-Lame.el (U+5C28): Use `->denotational' and
 	`->subsumptive'.
 	(U-00021BCF): Use `->subsumptive'.
