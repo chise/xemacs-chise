@@ -273,8 +273,7 @@
     (=daikanwa		. 14297)	; &I-M-14297;
     ))
 (define-char
-  '((=>daikanwa		. 14298)	; &M-14298;
-    (ideographic-radical@ucs . 73)	; ⽈
+  '((ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
@@ -294,6 +293,33 @@
       (=gt-pj-1		  . #x5258)	; &I-GT-18098; [50-56]
       (=ucs@unicode	  . #x66FC)	; &GT-18098;
       ))
+    ))
+(define-char
+  '((ideographic-radical@ucs . 19)	; ⼒
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-strokes@cns . 7)
+    (total-strokes	 . 11)
+    (<-denotational
+     ((=ucs		  . #x52D7)	; 勗
+      ))
+    (hanyu-dazidian	2 1512 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
+      )
+     ((=ucs		  . #x52A9)	; 助
+      ))
+    (=jis-x0208		. #x5228)	; &GT-03066; [50-08]
+    (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
+    (=big5		. #xB1E5)	; &I-B-B1E5;
+    (=gt		. 03066)	; &I-GT-03066;
+    (=gt-pj-1		. #x5228)	; &I-GT-03066; [50-08]
+    (=ucs@unicode	. #x52D7)	; &GT-03066;
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -417,7 +443,7 @@
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
-     daikanwa=14301 jisx0208/c cns11643-6 ucs)
+     daikanwa jisx0208/c cns11643-6 ucs)
     (ideographic-radical@shinjigen . 29)	; ⼜
     (ideographic-strokes@shinjigen . 10)
     (ideographic-radical@shinjigen*sources
@@ -429,6 +455,7 @@
     (=ucs		. #x2F8D4)	; 最
     (->subsumptive
      ((shinjigen-1	  . 925)
+      (shinjigen-2	  . 925)
       (=jis-x0208	  . #x3A47)	; &GT-18101; [26-39]
       (=ks-x1001	  . #x754C)	; &I-K0-754C; [85-44]
       (=cns11643-6	  . #x4978)	; &I-C6-4978; [41-88]
