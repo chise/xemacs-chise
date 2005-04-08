@@ -1,3 +1,7 @@
+2005-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt (JX1-742E): Don't map to U-0002F88E.
+
 2005-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-44C7): Map to U-0002F822 instead of U+5272.
