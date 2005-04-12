@@ -1,3 +1,26 @@
+2005-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el (U+6C14): Add S1-4043.
+	(GT-K00816): New character.
+
+2005-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+55B4): Use `->subsumptive'.
+	(U+55B6): Use `->denotational'.
+
+2005-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (U+670C): Use `->subsumptive'.
+	(C5-264A): Unify U-0002F8D7.
+	(U+670D): Use `->denotational'.
+	(U-00023364): Unify M-14346.
+	(U-00026657): Copied from Ideograph-R130-Meat.el; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-radical@cns' and `ideographic-radical@cns*sources';
+	use `->subsumptive'.
+	(C4-2664): Use `<-subsumptive' instead of `->identical' for
+	U-00026657; unify M-14347.
+
 2005-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+625C): Unify JC3-8DD5.
