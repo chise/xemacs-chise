@@ -1,27 +1,32 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x7259)	; 牙
-    (ideographic-radical . 92)	; ⽛
+  '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=cns11643-1	. #x455B)	; &M-19909; [37-59]
-    (=daikanwa		. 19909)	; &I-M-19909;
-    ))
-(define-char
-  '((morohashi-daikanwa	19909 0 0)
-    (ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
     (=ucs		. #x7259)	; 牙
-    (=gb2312		. #x5140)	; &I-G0-5140; [49-32]
-    (=big5		. #xA4FA)	; &I-B-A4FA;
     ))
 (define-char
-  '((=>ucs		. #x7259)	; 牙
-    (morohashi-daikanwa	19909 0 1)
-    (ideographic-radical . 92)	; ⽛
+  '((ideographic-radical . 92)	; ⽛
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x7259)	; 牙
+      ))
+    (->subsumptive
+     ((=cns11643-1	  . #x455B)	; &M-19909; [37-59]
+      (=daikanwa	  . 19909)	; &I-M-19909;
+      )
+     ((=gb2312		  . #x5140)	; &G0-5140; [49-32]
+      (=big5		  . #xA4FA)	; &I-B-A4FA;
+      (=ucs@unicode	  . #x7259)	; &G0-5140;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-denotational
+     ((=ucs		  . #x7259)	; 牙
+      ))
     (=jis-x0208		. #x3267)	; &GT-25560; [18-71]
     (=ks-x1001		. #x6433)	; &I-K0-6433; [68-19]
     (=gt		. 25560)	; &I-GT-25560;
