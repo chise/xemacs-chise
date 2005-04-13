@@ -1,3 +1,34 @@
+2005-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R092-Fang.el (U+7259): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R086-Fire.el (U+706C): Unify BC-8B4F.
+	(U-00024182): Use `->subsumptive'.
+	(M-18853): New character.
+	(GT-K01443): New character.
+	(U+71DF): Use `->denotational' and `->subsumptive'.
+
+2005-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(C5-4641): Unify U-0002F8D0 and M-14087.
+	(U-00023255): Use `->subsumptive'; integrate M-14090.
+	(U-00023256): Use `->subsumptive'; integrate M-14091.
+	(U-00023258): Use `->subsumptive'; integrate M-14093.
+	(U-0002325A): Use `->subsumptive'; integrate M-14098.
+	(U+66CD): Use `->subsumptive'; delete `morohashi-daikanwa'.
+	(U+3B10): Use `->denotational'.
+	(C3-4736): Unify M-14105.
+	(U-0002326D): Use `->subsumptive'; integrate M-14110.
+	(U+3B17): Use `->subsumptive'; integrate M-14149.
+	(U-0002329E): Use `->subsumptive'; integrate M-14159.
+	(U-000232A8): Use `->subsumptive'; integrate M-14184.
+	(U+3B1E): Use `->subsumptive'; integrate M-14192.
+
+	* Ideograph-R039-Child.el (U+5B57): Use `->subsumptive'.
+
 2005-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R084-Steam.el (U+6C14): Add S1-4043.
