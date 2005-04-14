@@ -609,8 +609,12 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (=ucs		. #x434C)	; 䍌
-    (=cns11643-3	. #x4876)	; &I-C3-4876; [40-86]
-    (=daikanwa		. 28157)	; &I-M-28157;
+    (->subsumptive
+     ((=daikanwa	  . 28157)	; &M-28157;
+      )
+     ((=cns11643-3	  . #x4876)	; &C3-4876; [40-86]
+      (=ucs@unicode	  . #x434C)	; &C3-4876;
+      ))
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
