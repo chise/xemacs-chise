@@ -3,6 +3,7 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (shinjigen-1	. 5898)
     (shinjigen-2	. 5898)
     (=ucs		. #x7C73)	; 米
     (->subsumptive
@@ -21,11 +22,29 @@
     ))
 (define-char
   '((ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-denotational
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (=gt-k		. 01687)	; &GT-K01687;
+    (=gt-pj-k1		. #x3451)	; &GT-K01687; [20-49]
+    ))
+(define-char
+  '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x25E25)	; 𥸥
-    (=cns11643-5	. #x2471)	; &I-C5-2471; [04-81]
-    (=daikanwa		. 26833)	; &I-M-26833;
+    (->subsumptive
+     ((=daikanwa	  . 26833)	; &M-26833;
+      )
+     ((=ucs@iso		  . #x25E25)	; &UU+25E25;
+      )
+     ((=cns11643-5	  . #x2471)	; &C5-2471; [04-81]
+      ))
     ))
 (define-char
   '((ideographic-radical . 119)	; ⽶
