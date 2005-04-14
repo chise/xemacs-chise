@@ -621,14 +621,9 @@
   '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=daikanwa		. 22991)	; &M-22991;
-    ))
-(define-char
-  '((morohashi-daikanwa	22991 0 1)
-    (ideographic-radical . 108)	; ⽫
-    (ideographic-strokes . 6)
-    (total-strokes	 . 11)
-    (=cns11643-5	. #x3371)	; &C5-3371; [19-81]
+    (=ucs		. #x2F93E)	; 㿼
+    (=cns11643-5	. #x3371)	; &I-C5-3371; [19-81]
+    (=daikanwa		. 22991)	; &I-M-22991;
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
