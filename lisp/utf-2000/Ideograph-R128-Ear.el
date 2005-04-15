@@ -38,18 +38,31 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 128)	; ⽿
-    (ideographic-strokes . 1)
+  '((ideographic-radical@ucs . 128)	; ⽿
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643 ucs)
+    (ideographic-radical@gt . 5)	; ⼄
+    (ideographic-strokes@gt . 6)
     (total-strokes	 . 7)
     (=ucs		. #x8034)	; 耴
     (->subsumptive
-     ((=jis-x0212	  . #x555B)	; &M-29001; [53-59]
+     ((=jis-x0212	  . #x555B)	; &GT-37567; [53-59]
       (=cns11643-2	  . #x2473)	; &I-C2-2473; [04-83]
       (=big5		  . #xCB73)	; &I-B-CB73;
+      (=gt		  . 37567)	; &I-GT-37567;
+      (=gt-k		  . 02775)	; &I-GT-K02775;
+      (=gt-pj-6		  . #x3662)	; &I-GT-37567; [22-66]
       (=daikanwa	  . 29001)	; &I-M-29001;
-      (=ucs@jis		  . #x8034)	; &M-29001;
+      (=ucs@jis		  . #x8034)	; &GT-37567;
       )
-     ((=ucs@unicode	  . #x8034)	; &UU+8034;
+     ((=gt		  . 00250)	; &GT-00250;
+      (=gt-pj-11	  . #x4B66)	; &GT-00250; [43-70]
+      (=ucs@unicode	  . #x8034)	; &GT-00250;
+      )
+     ((=gt		  . 37568)	; &GT-37568;
+      (=gt-k		  . 02776)	; &I-GT-K02776;
+      (=gt-pj-9		  . #x4B7D)	; &GT-37568; [43-93]
       ))
     ))
 (define-char
@@ -1592,8 +1605,15 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=cns11643-5	. #x4874)	; &M-29111; [40-84]
-    (=daikanwa		. 29111)	; &I-M-29111;
+    (=ucs		. #x2F97E)	; 𦖨
+    (->subsumptive
+     ((=daikanwa	  . 29111)	; &M-29111;
+      )
+     ((=ucs@iso		  . #x2F97E)	; &UU+2F97E;
+      )
+     ((=cns11643-5	  . #x4874)	; &C5-4874; [40-84]
+      (=ucs@cns		  . #x2F97E)	; &C5-4874;
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
