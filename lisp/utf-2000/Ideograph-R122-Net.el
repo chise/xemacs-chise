@@ -66,7 +66,35 @@
      ((=ucs		  . #x3405)	; 㐅
       ))
     (=ucs		. #x7F53)	; 罓
-    (=jis-x0212		. #x5475)	; &I-JSP-5475; [52-85]
+    ))
+(define-char
+  '((name		. "CJK RADICAL NET ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x7F53)	; 罓
+      ))
+    (<-radical
+     ((=ucs		  . #x7F53)	; 罓
+      ))
+    (=ucs		. #x2EB1)	; ⺱
+    (=ucs@unicode	. #x7F53)	; ⺱
+    ))
+(define-char
+  '((ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x7F53)	; 罓
+      ))
+    (=jis-x0212		. #x5475)	; &GT-K00882; [52-85]
+    (=gt-k		. 00882)	; &I-GT-K00882;
+    (=gt-pj-k1		. #x6174)	; &GT-K00882; [65-84]
+    (=ucs@jis		. #x7F53)	; &GT-K00882;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -429,8 +457,12 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x2628D)	; 𦊍
-    (=cns11643-6	. #x3A67)	; &I-C6-3A67; [26-71]
-    (=daikanwa		. 49499)	; &I-M-49499;
+    (->subsumptive
+     ((=daikanwa	  . 49499)	; &M-49499;
+      )
+     ((=cns11643-6	  . #x3A67)	; &C6-3A67; [26-71]
+      (=ucs@iso		  . #x2628D)	; &C6-3A67;
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -445,21 +477,45 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=ucs		. #x26288)	; 𦊈
+    (=cns11643-5	. #x2B29)	; &I-C5-2B29; [11-09]
+    ))
+(define-char
+  '((ideographic-radical@ucs . 109)	; ⽬
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643-5 ucs)
+    (ideographic-radical@cns . 122)	; ⽹
+    (ideographic-radical@cns*sources
+     cns11643-3)
+    (<-denotational
+     ((=ucs		  . #x7714)	; 眔
+      ))
     (=ucs		. #x25133)	; 𥄳
     ))
 (define-char
-  '((=>ucs		. #x25133)	; 𥄳
+  '((=>daikanwa		. 23221)	; &M-23221;
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x25133)	; 𥄳
+      ))
     (=cns11643-3	. #x2E5A)	; &C3-2E5A; [14-58]
     ))
 (define-char
-  '((ideographic-radical . 122)	; ⽹
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=ucs		. #x26288)	; 𦊈
-    (=cns11643-5	. #x2B29)	; &I-C5-2B29; [11-09]
+  '((=>ucs		. #x262B3)	; 𦊳
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=daikanwa		. 28233)	; &M-28233;
+    ))
+(define-char
+  '((=>daikanwa		. 28233)	; &M-28233;
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=ucs		. #x262B3)	; 𦊳
+    (=cns11643-5	. #x2F5E)	; &I-C5-2F5E; [15-62]
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -496,6 +552,25 @@
     (=ucs		. #x26291)	; 𦊑
     (=cns11643-6	. #x3A6C)	; &I-C6-3A6C; [26-76]
     (=daikanwa		. 28237)	; &I-M-28237;
+    ))
+(define-char
+  '((=>ucs		. #x4355)	; 䍕
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=daikanwa		. 28238)	; &M-28238;
+    ))
+(define-char
+  '((=>daikanwa		. 28238)	; &M-28238;
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=ucs		. #x4355)	; 䍕
+    (->subsumptive
+     ((=cns11643-4	  . #x2F2A)	; &C4-2F2A; [15-10]
+      )
+     ((=ucs@unicode	  . #x4355)	; &UU+4355;
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -757,15 +832,12 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ucs		. #x4355)	; 䍕
-    (=cns11643-4	. #x2F2A)	; &I-C4-2F2A; [15-10]
-    ))
-(define-char
-  '((ideographic-radical . 122)	; ⽹
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
     (=ucs		. #x2629C)	; 𦊜
-    (=cns11643-5	. #x2F5D)	; &I-C5-2F5D; [15-61]
+    (->subsumptive
+     ((=cns11643-5	  . #x2F5D)	; &C5-2F5D; [15-61]
+      )
+     ((=ucs@iso		  . #x2629C)	; &UU+2629C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -776,18 +848,15 @@
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (=ucs		. #x262B3)	; 𦊳
-    (=cns11643-5	. #x2F5E)	; &I-C5-2F5E; [15-62]
-    ))
-(define-char
-  '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x262AA)	; 𦊪
-    (=cns11643-6	. #x4C77)	; &I-C6-4C77; [44-87]
-    (=daikanwa		. 28263)	; &I-M-28263;
+    (->subsumptive
+     ((=daikanwa	  . 28263)	; &M-28263;
+      (=ucs@iso		  . #x262AA)	; &M-28263;
+      )
+     ((=cns11643-6	  . #x4C77)	; &C6-4C77; [44-87]
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
