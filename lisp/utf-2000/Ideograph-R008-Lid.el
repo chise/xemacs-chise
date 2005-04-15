@@ -2548,23 +2548,13 @@
     (->subsumptive
      ((ideographic-radical . 123)	; ⽺
       (ideographic-strokes . 8)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=gt-k	      . 01444)	; &GT-K01444;
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  ))
-	)
-       ((name		    . "CJK RADICAL EWE")
-	(=ucs		    . #x2EB8)	; ⺸
-	))
       (=daikanwa	  . 49510)	; &M-49510;
+      )
+     ((ideographic-radical . 8)	; ⼇
+      (ideographic-strokes . 13)
+      (hanyu-dazidian	  1 292 5)
+      (=hanziku-1	  . #xE256)	; &HZK01-E256;
+      (=ucs@iso		  . #x20186)	; &HZK01-E256;
       )
      ((ideographic-radical . 123)	; ⽺
       (ideographic-strokes . 8)
@@ -2593,12 +2583,6 @@
 	(=ucs		    . #x2EB8)	; ⺸
 	))
       (=cns11643-7	  . #x2679)	; &C7-2679; [06-89]
-      )
-     ((ideographic-radical . 8)	; ⼇
-      (ideographic-strokes . 13)
-      (hanyu-dazidian	  1 292 5)
-      (=hanziku-1	  . #xE256)	; &HZK01-E256;
-      (=ucs@iso		  . #x20186)	; &HZK01-E256;
       ))
     ))
 (define-char
