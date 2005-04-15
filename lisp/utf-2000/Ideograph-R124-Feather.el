@@ -2175,48 +2175,41 @@
     (=cns11643-3	. #x4371)	; &I-C3-4371; [35-81]
     ))
 (define-char
-  '((=>ucs		. #x7FDB)	; 翛
-    (ideographic-radical . 124)	; ⽻
+  '((ideographic-radical . 124)	; ⽻
+    (=ucs		. #x7FDB)	; 翛
+    (=big5		. #xDF6F)	; &I-B-DF6F;
+    ))
+(define-char
+  '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x6535)	; 攵
-	)
-       ((=ks-x1001	    . #x6962)	; &GT-36832; [73-66]
-	(=daikanwa	    . 28614)	; &I-M-28614;
-	))
+    (<-denotational
+     ((=ucs		  . #x7FDB)	; 翛
       ))
     (=jis-x0212		. #x553B)	; &M-28709; [53-27]
     (=jis-x0213-1-2000	. #x7A3F)	; &I-JX1-7A3F; [90-31]
-    (=big5		. #xDF6F)	; &I-B-DF6F;
     (=daikanwa		. 28709)	; &I-M-28709;
     (=jef-china3	. #x43AE)	; &I-JC3-43AE;
     (=ucs@jis		. #x7FDB)	; &M-28709;
     ))
 (define-char
-  '((=>ucs		. #x7FDB)	; 翛
-    (morohashi-daikanwa	28709 0 2)
-    (ideographic-radical . 124)	; ⽻
-    (ideographic-strokes . 7)
-    (total-strokes	 . 13)
-    (=cns11643-2	. #x4636)	; &C2-4636; [38-22]
-    (=ucs@cns		. #x7FDB)	; &C2-4636;
-    ))
-(define-char
-  '((morohashi-daikanwa	28709 0 3)
-    (ideographic-radical . 124)	; ⽻
+  '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs		. #x7FDB)	; 翛
+    (<-denotational
+     ((=ucs		  . #x7FDB)	; 翛
+      ))
+    (=ucs@unicode	. #x7FDB)	; &UU+7FDB;
+    ))
+(define-char
+  '((ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x7FDB)	; 翛
+      ))
+    (=cns11643-2	. #x4636)	; &C2-4636; [38-22]
+    (=ucs@cns		. #x7FDB)	; &C2-4636;
     ))
 (define-char
   '((=>ucs		. #x2643B)	; 𦐻
