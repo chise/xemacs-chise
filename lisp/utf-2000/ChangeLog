@@ -1,3 +1,23 @@
+2005-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (U+7FDB): Use `->denotational'.
+
+	* Ideograph-R109-Eye.el (U+7714): Use `->denotational'.
+	(U-00025133): Copied from Ideograph-R122-Net.el; add
+	`<-denotational' for U+7714.
+	(parent of JSP-4E5F): Use `->subsumptive' to integrate BC-8CB2.
+	(BC-8CB2): Unify U-0002F944 and C5-2F26.
+	(U-0002514F): Use `->subsumptive'.
+	(U-00025149): Unify M-23272.
+	(M-23275): Unify U-00025154.
+
+	* Ideograph-R008-Lid.el (U-00020186): Change order of characters
+	in `->subsumptive'.
+
+	* Ideograph-R005-Second.el (JSP-555B): Unify GT-37567 and
+	GT-K02775.
+	(U+8034): Integrate GT-37568.
+
 2005-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R121-Jar.el (U+434C): Use `->subsumptive'.
