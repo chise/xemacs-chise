@@ -289,14 +289,23 @@
     (=daikanwa		. 02706)	; &I-M-02706;
     ))
 (define-char
-  '((=>ucs		. #x534A)	; 半
-    (ideographic-radical . 24)	; ⼗
+  '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian	1 46 1)
+    (=ucs		. #x534A)	; 半
+    (=big5		. #xA562)	; &I-B-A562;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (<-denotational
+     ((=ucs		  . #x534A)	; 半
+      ))
     (shinjigen-1	. 820)
     (shinjigen-2	. 820)
     (=ks-x1001		. #x5A62)	; &GT-03469; [58-66]
-    (=big5		. #xA562)	; &I-B-A562;
     (=gt		. 03469)	; &I-GT-03469;
     (=gt-k		. 01096)	; &I-GT-K01096;
     (=gt-pj-2		. #x4834)	; &I-GT-03469; [40-20]
@@ -304,29 +313,34 @@
     (=jef-china3	. #x45C7)	; &I-JC3-45C7;
     ))
 (define-char
-  '((=>ucs		. #x534A)	; 半
-    (morohashi-daikanwa	2707 0 1)
-    (ideographic-radical . 24)	; ⼗
+  '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=gt-k		. 01097)	; &GT-K01097;
-    (=gt-pj-k1		. #x3B21)	; &GT-K01097; [27-01]
-    ))
-(define-char
-  '((morohashi-daikanwa	2707 0 2)
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 46 1)
+    (<-denotational
+     ((=ucs		  . #x534A)	; 半
+      ))
     (shinjigen-1	. 819)
     (shinjigen-2	. 819)
-    (=ucs		. #x534A)	; 半
-    (=jis-x0208		. #x483E)	; &I-J90-483E; [40-30]
+    (=jis-x0208		. #x483E)	; &GT-03470; [40-30]
     (=gb2312		. #x306B)	; &I-G0-306B; [16-75]
     (=cns11643-1	. #x4624)	; &I-C1-4624; [38-04]
     (=gt		. 03470)	; &I-GT-03470;
     (=gt-k		. 00986)	; &I-GT-K00986;
     (=gt-pj-1		. #x483E)	; &I-GT-03470; [40-30]
+    (=ucs@unicode	. #x534A)	; &GT-03470;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (<-denotational
+     ((=ucs		  . #x534A)	; 半
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x534A)	; 半
+      ))
+    (=gt-k		. 01097)	; &GT-K01097;
+    (=gt-pj-k1		. #x3B21)	; &GT-K01097; [27-01]
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
