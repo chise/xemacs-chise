@@ -16,18 +16,22 @@
     (=daikanwa		. 30350)	; &I-M-30350;
     ))
 (define-char
-  '((morohashi-daikanwa	30350 0 7)
-    (ideographic-radical . 137)	; ⾈
+  '((ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x821F)	; 舟
+      ))
     (=gt-k		. 00606)	; &GT-K00606;
     (=gt-pj-k1		. #x3973)	; &GT-K00606; [25-83]
     ))
 (define-char
-  '((morohashi-daikanwa	30350 0 8)
-    (ideographic-radical . 137)	; ⾈
+  '((ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x821F)	; 舟
+      ))
     (=gt-k		. 00607)	; &GT-K00607;
     (=gt-pj-k1		. #x3821)	; &GT-K00607; [24-01]
     ))
