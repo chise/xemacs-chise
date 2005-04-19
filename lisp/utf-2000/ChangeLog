@@ -1,3 +1,47 @@
+2005-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4742.
+
+2005-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (CB06151): Unify <CJK RADICAL EWE>;
+	moved into Ideograph-R123-Sheep.el.
+	(J97-3755): Unify B-AFF0.
+	(U+83EF): Use `->denotational'.
+	(J0-325A): Use `<-denotational' for U+83EF; add S1-6806.
+	(C1-615E): Use `<-denotational' for U+83EF; add S1-6807.
+	(JC3-62A8): Use `<-denotational' for U+83EF; use `=>daikanwa'
+	instead of `morohashi-daikanwa' for M-31214.
+	(U+44DD): Use `->subsumptive'.
+
+	* Ideograph-R130-Meat.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U-00026657): Use `->subsumptive', `ideographic-radical@{ucs|cns}'
+	and `ideographic-radical@cns*sources' instead of `->identical' for
+	C4-2664.
+	(J0-4054): Add S1-6485.
+	(U-0002F984): New character.
+	(M-29639): Map to U-0002F984.
+	(C5-3B50): Likewise.
+	(J0-6734): Add S1-6556.
+
+2005-04-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(<CJK RADICAL EWE>): Moved from Ideograph-R140-Grass.el.
+	(U-0002634C): Add `->mistakable' for <CJK RADICAL RAM>; add
+	`<-wrong' for U-00022189; add `sound@ja/on/name'.
+	(U+8288): Add `<-unknown' for M-28426 and M-28428; delete
+	`morohashi-daikanwa'.
+	(U+4367): Modify `ideographic-structure'.
+	(U-0002638D): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-28512.
+	(U-0002639E): Use `->subsumptive'; integrate M-28525.
+	(U-0002639D): Unify M-28526.
+	(U-000263AB): Use `->subsumptive'; use `=>daikanwa' instead of
+	`morohashi-daikanwa' for M-28535; integrate BC-8AE2.
+
 2005-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el: Use `->subsumptive' or
