@@ -1,5 +1,10 @@
 2005-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R147-See.el (C5-7A38): Unify U-0002F9CB.
+
+	* Ideograph-R145-Clothes.el (C5-303E): Map to U-0002F9C5; use
+	`->subsumptive'.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4742.
 
 2005-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
