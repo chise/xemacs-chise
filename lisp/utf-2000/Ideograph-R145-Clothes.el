@@ -1014,8 +1014,13 @@
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=cns11643-5	. #x303E)	; &M-34163; [16-30]
-    (=daikanwa		. 34163)	; &I-M-34163;
+    (=ucs		. #x2F9C5)	; 𧙧
+    (->subsumptive
+     ((=daikanwa	  . 34163)	; &M-34163;
+      )
+     ((=cns11643-5	  . #x303E)	; &C5-303E; [16-30]
+      (=ucs@iso		  . #x2F9C5)	; &C5-303E;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	34163 1)
