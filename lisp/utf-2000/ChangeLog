@@ -1,3 +1,59 @@
+2005-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+7996): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+7997): Likewise.
+	(U-000256C2): Use `->denotational' and `->subsumptive'.
+	(H6-F0D1): Unify M-24782; use `<-denotational' for U-000256C2.
+	(U-000256C1): Use `->subsumptive'.
+	(C6-5F62): Unify M-24784; use `<-subsumptive' for U-000256C1.
+	(U-000256C0): Use `->denotational' and `->subsumptive'; integrate
+	M-24786.
+	(U+799A): Use `->denotational' instead of `->subsumptive'.
+	(U+799B): Likewise.
+	(M-24791): New character.
+	(U-256C5): Map to M-24791.
+	(C4-4B60): Unify U-0002F955; map to M-24791.
+	(U+799D): Use `->denotational' instead of `->subsumptive'.
+	(U+4118): Use `->denotational'; integrate M-24793.
+	(U+4119): Use `->denotational'; integrate M-24795.
+	(U-000256C6): Use `->denotational'; integrate M-24797.
+	(C5-4E77): Use `<-subsumptive'; don't use `->identical' for
+	U-0002059F.
+	(U-0002059F): Copied from Ideograph-R014-Cover.el.
+	(U-000256D4): Use `->denotational'.
+	(H6-F16E): Use `<-denotational' for U-000256D4; unify M-24803.
+	(U-000256D8): Use `->denotational'.
+	(H6-F1B7): Use `<-denotational' for U-000256D8; unify M-24807.
+	(U-000256D9): Use `->denotational'.
+	(H6-F1B9): Use `<-denotational' for U-000256D9; unify M-24808.
+	(U+411A): Use `->denotational'.
+	(M-24809): New character.
+	(U+411B): Integrate GT-31937.
+	(U-000256DA): Use `->denotational'; integrate GT-31958 and
+	M-24811.
+	(U+79A4): Use `->denotational' instead of `->subsumptive'.
+	(U-000256DB): Use `->subsumptive'; integrate M-24813 and GT-31939.
+	(U+411C): Use `->denotational'; integrate M-24814.
+	(U+411D): Use `->denotational'; integrate M-24815.
+	(U-000256DC): Use `->denotational'.
+	(H6-F1B5): Use `<-denotational' for U-000256DC; unify GT-31952 and
+	M-24816.
+	(U-000256DD): Use `->denotational'.
+	(H6-F1BC): Use `<-denotational' for U-000256DD; unify GT-31964 and
+	M-24817.
+	(U-000256DE): Use `->denotational'; integrate M-24818 and
+	GT-31938.
+	(M-24819): Unify GT-31943.
+	(U-000256DF): Use `->denotational' instead of `->subsumptive'.
+	(M-24821): Unify GT-31960.
+
+	* Ideograph-R152-Pig.el (U-00027C28): Use `->subsumptive'.
+	(U+8C56): Likewise.
+	(U-00027C2A): Likewise.
+	(U+8C57): Likewise.
+	(M-36405): Unify JSP-5E77 and JX2-7922.
+
 2005-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R147-See.el (C5-7A38): Unify U-0002F9CB.
