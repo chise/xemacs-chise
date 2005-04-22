@@ -1,5 +1,16 @@
 2005-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R167-Gold.el (U+91D2): Add
+	`<-ideographic-component-forms' for U+91D1.
+	(U+9485): Likewise.
+	(BC-8DE3): Likewise.
+
+	* Ideograph-R154-Shell.el (U+8CD3): Use `->denotational'.
+	(U+FA64): Use `->subsumptive'; add `<-denotational' for U+8CD3.
+	(J0-4950): Add `<-denotational' for U+8CD3.
+
+2005-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R113-Spirit.el (U+7996): Use `->denotational' instead
 	of `->subsumptive'.
 	(U+7997): Likewise.
@@ -47,6 +58,8 @@
 	(M-24819): Unify GT-31943.
 	(U-000256DF): Use `->denotational' instead of `->subsumptive'.
 	(M-24821): Unify GT-31960.
+
+	* Ideograph-R150-Valley.el: Add mappings for Big5 code points.
 
 	* Ideograph-R152-Pig.el (U-00027C28): Use `->subsumptive'.
 	(U+8C56): Likewise.
