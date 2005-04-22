@@ -18,6 +18,9 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
     (=ucs		. #x91D2)	; 釒
     (=gb12345		. #x6E44)	; 釒 [78-36]
     ))
@@ -25,9 +28,24 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
     (=ucs		. #x9485)	; 钅
     (=gb2312		. #x6E44)	; &I-G0-6E44; [78-36]
     (=big5-cdp		. #x895A)	; &I-CDP-895A;
+    ))
+(define-char
+  '((ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (=big5-cdp		. #x8DE3)	; &CDP-8DE3;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
