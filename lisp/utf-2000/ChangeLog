@@ -1,3 +1,25 @@
+2005-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (G0-5A62): Unify <CJK RADICAL MOUND
+	TWO>; use `<-denotational' for U+961D.
+	(U+961D): Use `->denotational'; unify JSP-6644, C3-2143, JX2-7A25,
+	BC-8B43 and JC3-67F6.
+
+	* Ideograph-R169-Gate.el (U+95DE): Use `->denotational'.
+
+2005-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U-00020474): Copied from Ideograph-R009-Man.el.
+	(H1-D7D3): Use `<-denotational' for U-00020474; unify M-33957.
+
+	* Ideograph-R163-City.el (<CJK RADICAL CITY>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add `<-denotational' for U+961D;
+	add `<-ideographic-component-forms' for U+9091.
+	(JSP-6644): Unify U+961D, BC-8B43 and JC3-67F6.
+	(U+48CF): Unify H1-C9AF.
+
 2005-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (U+91D2): Add
