@@ -22,12 +22,37 @@
     (=daikanwa		. 41535)	; &I-M-41535;
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
+  '((name		. "CJK RADICAL MOUND TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x961D)	; 阝
+      ))
+    (<-radical
+     ((=ucs		  . #x961D)	; 阝
+      ))
+    (=ucs		. #x2ED6)	; ⻖
+    (=gb2312		. #x5A62)	; &I-G0-5A62; [58-66]
+    (=daikanwa		. 41536)	; &I-M-41536;
+    (=ucs@unicode	. #x961D)	; ⻖
+    ))
+(define-char
+  '((ideographic-radical@ucs . 170)	; ⾩
+    (ideographic-radical@cns . 163)	; ⾢
+    (ideographic-radical@cns*sources
+     cns11643 jis-x0213)
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x961D)	; 阝
-    (=gb2312		. #x5A62)	; &I-G0-5A62; [58-66]
-    (=daikanwa		. 41536)	; &I-M-41536;
+    (=jis-x0212		. #x6644)	; &I-JSP-6644; [70-36]
+    (=cns11643-3	. #x2143)	; &I-C3-2143; [01-35]
+    (=jis-x0213-2-2000	. #x7A25)	; &I-JX2-7A25; [90-05]
+    (=big5-cdp		. #x8B43)	; &I-CDP-8B43;
+    (=jef-china3	. #x67F6)	; &I-JC3-67F6;
     ))
 (define-char
   '((ideographic-radical . 170)	; ⾩
