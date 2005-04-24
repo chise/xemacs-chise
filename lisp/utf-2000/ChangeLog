@@ -1,3 +1,8 @@
+2005-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Use `{<-|->}denotational' for some
+	character definitions.
+
 2005-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (G0-5A62): Unify <CJK RADICAL MOUND
