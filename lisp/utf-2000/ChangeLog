@@ -1,3 +1,10 @@
+2005-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+49F9): Use
+	`->subsumptive'.
+	(M-41997): Unify BC-8BD2.
+	(U+96E3): Use `->denotational' and `->subsumptive'.
+
 2005-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Use `{<-|->}denotational' for some
