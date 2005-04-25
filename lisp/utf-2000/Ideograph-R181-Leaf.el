@@ -174,8 +174,13 @@
   '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (=cns11643-5	. #x3D47)	; &M-43345; [29-39]
-    (=daikanwa		. 43345)	; &I-M-43345;
+    (=ucs		. #x2F9FC)	; 䪲
+    (->subsumptive
+     ((=daikanwa	  . 43345)	; &M-43345;
+      )
+     ((=cns11643-5	  . #x3D47)	; &C5-3D47; [29-39]
+      (=ucs@cns		  . #x2F9FC)	; &C5-3D47;
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -1506,21 +1511,23 @@
   '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (=daikanwa		. 43457)	; &M-43457;
+    (=ucs		. #x29496)	; 𩒖
+    (->subsumptive
+     ((=daikanwa	  . 43457)	; &M-43457;
+      )
+     ((=cns11643-7	  . #x2B24)	; &C7-2B24; [11-04]
+      (=ucs@cns		  . #x29496)	; &C7-2B24;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	43457 0 1)
-    (ideographic-radical . 181)	; ⾴
-    (ideographic-strokes . 6)
-    (total-strokes	 . 15)
-    (=cns11643-7	. #x2B24)	; &C7-2B24; [11-04]
-    ))
-(define-char
-  '((morohashi-daikanwa	43457 0 2)
-    (ideographic-radical . 181)	; ⾴
+  '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (=cns11643-5	. #x4435)	; &C5-4435; [36-21]
+    (<-denotational
+     ((=ucs		  . #x29496)	; 𩒖
+      ))
+    (=ucs		. #x2F9FD)	; 𩒖
+    (=cns11643-5	. #x4435)	; &I-C5-4435; [36-21]
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
