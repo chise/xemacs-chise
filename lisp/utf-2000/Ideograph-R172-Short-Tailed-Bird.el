@@ -954,19 +954,17 @@
     (=cns11643-1	. #x6755)	; &I-C1-6755; [71-53]
     ))
 (define-char
-  '((=>ucs		. #x49F9)	; 䧹
-    (ideographic-radical . 172)	; ⾫
-    (ideographic-strokes . 5)
-    (total-strokes	 . 13)
-    (=daikanwa		. 41997)	; &M-41997;
-    ))
-(define-char
-  '((morohashi-daikanwa	41997 0 1)
-    (ideographic-radical . 172)	; ⾫
+  '((ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
     (=ucs		. #x49F9)	; 䧹
-    (=cns11643-3	. #x4543)	; &I-C3-4543; [37-35]
+    (->subsumptive
+     ((=big5-cdp	  . #x8BD2)	; &CDP-8BD2;
+      (=daikanwa	  . 41997)	; &I-M-41997;
+      )
+     ((=cns11643-3	  . #x4543)	; &C3-4543; [37-35]
+      (=ucs@unicode	  . #x49F9)	; &C3-4543;
+      ))
     ))
 (define-char
   '((=>ucs		. #x96CC)	; 雌
@@ -3173,35 +3171,37 @@
     (=ucs		. #x4A04)	; 䨄
     ))
 (define-char
-  '((=>ucs*		. #x96E3)	; 難
-    (=>ucs@gb		. #x96E3)	; 難
-    (=>ucs@cns		. #x96E3)	; 難
-    (ideographic-radical . 172)	; ⾫
-    (ideographic-strokes . 11)
-    (total-strokes	 . 19)
-    (=ucs		. #xFA68)	; 難
-    (=ks-x1001		. #x5171)	; &I-K0-5171; [49-81]
-    (=jis-x0213-1-2000	. #x7D63)	; &I-JX1-7D63; [93-67]
-    (=daikanwa		. 42145)	; &I-M-42145;
-    (=ucs@ks		. #x96E3)	; 難
+  '((ideographic-radical . 172)	; ⾫
+    (=ucs		. #x96E3)	; 難
     ))
 (define-char
   '((=>ucs@jis		. #xFA68)	; 難
-    (morohashi-daikanwa	42145 0 1)
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
-    (japanese-strokes	 . 10)
     (total-strokes	 . 19)
-    (=ucs		. #x96E3)	; 難
-    (=cns11643-1	. #x7945)	; &I-C1-7945; [89-37]
-    (=gb12345		. #x4451)	; 難 [36-49]
+    (<-denotational
+     ((=ucs		  . #x96E3)	; 難
+      ))
+    (->subsumptive
+     ((=>ucs*		  . #x96E3)	; 難
+      (=ucs		  . #xFA68)	; 難
+      (=ks-x1001	  . #x5171)	; &I-K0-5171; [49-81]
+      (=jis-x0213-1-2000  . #x7D63)	; &I-JX1-7D63; [93-67]
+      (=daikanwa	  . 42145)	; &I-M-42145;
+      (=ucs@ks		  . #x96E3)	; 難
+      )
+     ((=cns11643-1	  . #x7945)	; &C1-7945; [89-37]
+      (=gb12345		  . #x4451)	; &C1-7945; [36-49]
+      (=ucs@unicode	  . #x96E3)	; &C1-7945;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x96E3)	; 難
-    (morohashi-daikanwa	42145 0 3)
-    (ideographic-radical . 172)	; ⾫
+  '((ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
+    (<-denotational
+     ((=ucs		  . #x96E3)	; 難
+      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA68)	; 難
       (=jis-x0213-1-2000  . #x7D63)	; &I-JX1-7D63; [93-67]
