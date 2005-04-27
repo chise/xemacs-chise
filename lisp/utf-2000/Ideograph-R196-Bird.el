@@ -6343,37 +6343,73 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=ucs		. #x9DB6)	; 鶶
-    (=cns11643-2	. #x6D21)	; &I-C2-6D21; [77-01]
-    (=daikanwa		. 47190)	; &I-M-47190;
+    (->subsumptive
+     ((=daikanwa	  . 47190)	; &M-47190;
+      )
+     ((=cns11643-2	  . #x6D21)	; &C2-6D21; [77-01]
+      (=ucs@unicode	  . #x9DB6)	; &C2-6D21;
+      ))
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=ucs		. #x9DB7)	; 鶷
-    (=daikanwa		. 47191)	; &I-M-47191;
-    ))
-(define-char
-  '((=>ucs		. #x9DB7)	; 鶷
-    (morohashi-daikanwa	47191 0 2)
-    (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 10)
-    (total-strokes	 . 21)
-    (=cns11643-2	. #x6C7E)	; &C2-6C7E; [76-94]
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=daikanwa		. 47192)	; &M-47192;
+    (<-denotational
+     ((=ucs		  . #x9DB7)	; 鶷
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 47191)	; &M-47191;
+      )
+     ((=ucs@unicode	  . #x9DB7)	; &UU+9DB7;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	47192 0 2)
-    (ideographic-radical . 196)	; ⿃
+  '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x9DB7)	; 鶷
+      ))
+    (=cns11643-2	. #x6C7E)	; &C2-6C7E; [76-94]
+    ))
+(define-char
+  '((ideographic-radical . 196)	; ⿃
+    (=ucs		. #x2A105)	; 𪄅
+    ))
+(define-char
+  '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x2A105)	; 𪄅
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 47192)	; &M-47192;
+      )
+     ((=ucs@iso		  . #x2A105)	; &UU+2A105;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (cns-total-strokes	. 21)
-    (=cns11643-7	. #x567A)	; &C7-567A; [54-90]
+    (<-denotational
+     ((=ucs		  . #x2A105)	; 𪄅
+      ))
+    (=ucs		. #x2FA12)	; 𪄅
+    (->subsumptive
+     ((total-strokes@cns       . 21)
+      (=cns11643-7	  . #x567A)	; &C7-567A; [54-90]
+      )
+     ((=cns11643-5	  . #x7535)	; &C5-7535; [85-21]
+      (=ucs@cns		  . #x2FA12)	; &C5-7535;
+      ))
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
@@ -7169,26 +7205,39 @@
     (=daikanwa		. 47243)	; &I-M-47243;
     ))
 (define-char
-  '((=>ucs		. #x4CF8)	; 䳸
-    (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 11)
-    (total-strokes	 . 22)
-    (=daikanwa		. 47244)	; &M-47244;
-    ))
-(define-char
-  '((morohashi-daikanwa	47244 0 0)
-    (ideographic-radical . 196)	; ⿃
+  '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
     (=ucs		. #x4CF8)	; 䳸
-    (=cns11643-4	. #x6A2C)	; &I-C4-6A2C; [74-12]
     ))
 (define-char
-  '((morohashi-daikanwa	47244 0 0 1)
-    (ideographic-radical . 196)	; ⿃
+  '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=cns11643-5	. #x7536)	; &C5-7536; [85-22]
+    (<-denotational
+     ((=ucs		  . #x4CF8)	; 䳸
+      ))
+    (=ucs		. #x2FA11)	; 䳸
+    (->subsumptive
+     ((=daikanwa	  . 47244)	; &M-47244;
+      )
+     ((->subsumptive
+       ((=cns11643-4	    . #x6A2C)	; &C4-6A2C; [74-12]
+	(=ucs@cns	    . #x4CF8)	; &C4-6A2C;
+	)
+       ((=cns11643-5	    . #x7536)	; &C5-7536; [85-22]
+	(=ucs@cns	    . #x2FA11)	; &C5-7536;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (<-denotational
+     ((=ucs		  . #x4CF8)	; 䳸
+      ))
+    (=ucs@unicode	. #x4CF8)	; &UU+4CF8;
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
@@ -7885,12 +7934,6 @@
     (total-strokes	 . 16)
     (=ucs		. #x9E68)	; 鹨
     (=gb2312		. #x7052)	; &I-G0-7052; [80-50]
-    ))
-(define-char
-  '((ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 11)
-    (total-strokes	 . 22)
-    (=cns11643-5	. #x7535)	; &C5-7535; [85-21]
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
