@@ -1,3 +1,27 @@
+2005-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R202-Millet.el, Ideograph-R200-Hemp.el: Add mappings
+	between CJK Ext B and CNS 11643 plain 5.
+
+2005-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U-0002A105): New character.
+	(M-47192): Map to U-0002A105.
+	(C7-567A): Use `->subsumptive' to integrate C5-7535.
+	(C5-7535): Map to U-0002FA12.
+	(U-0002FA12): New character; add `<-denotational' for U-0002A105.
+	(U+4CF8): Use `->denotational'.
+	(U-0002FA11): New character; add `<-denotational' for U+4CF8; use
+	`->subsumptive' to integrate M-47244, C4-6A2C and C5-7536.
+
+2005-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (C5-3D47): Map to U-0002F9FC.
+	(C7-2B24): Map to U-00029496.
+	(C5-4435): Unify U-0002F9FD; add `<-denotational' for U-00029496.
+
 2005-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+49F9): Use
