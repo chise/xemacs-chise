@@ -2670,6 +2670,21 @@
     (=hanziku-8		. #xE9E4)	; &I-HZK08-E9E4;
     ))
 (define-char
+  '((ideographic-radical@ucs . 37)	; ⼤
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@misc . 140)	; ⾋
+    (ideographic-strokes@misc . 4)
+    (total-strokes	 . 5)
+    (=ucs		. #x215D7)	; 𡗗
+    (->subsumptive
+     ((=gt-k		  . 01089)	; &GT-K01089;
+      (=gt-pj-k1	  . #x322E)	; &GT-K01089; [18-14]
+      (=ucs@iso		  . #x215D7)	; &GT-K01089;
+      )
+     ((=big5-cdp	  . #x8BE9)	; &CDP-8BE9;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
@@ -2680,25 +2695,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=cns11643-6	. #x2D7D)	; &C6-2D7D; [13-93]
-    ))
-(define-char
-  '((ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (->ideographic-variants
-     ((=big5-cdp	  . #x8BE9)	; &CDP-8BE9;
-      ))
-    (=gt-k		. 01089)	; &GT-K01089;
-    (=gt-pj-k1		. #x322E)	; &GT-K01089; [18-14]
-    ))
-(define-char
-  '((ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (->ideographic-variants
-     ((=gt-k		  . 01089)	; &GT-K01089;
-      ))
-    (=big5-cdp		. #x8BE9)	; &CDP-8BE9;
     ))
 (define-char
   '((=>ucs		. #x82D0)	; 苐
