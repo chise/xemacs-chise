@@ -3,30 +3,40 @@
   '((ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x322B)	; &J97-322B; [18-11]
+      ))
     (=ucs		. #x9EC3)	; 黃
-    (=ks-x1001		. #x7C5C)	; &I-K0-7C5C; [92-60]
-    (=jis-x0213-1-2000	. #x7E71)	; &I-JX1-7E71; [94-81]
-    (=gt		. 65324)	; &I-GT-65324;
-    (=gt-k		. 09001)	; &I-GT-K09001;
-    (=gt-pj-8		. #x6D75)	; &I-GT-65324; [77-85]
-    (=daikanwa		. 47926)	; &I-M-47926;
+    (->subsumptive
+     ((=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
+      (=jis-x0213-1-2000  . #x7E71)	; &I-JX1-7E71; [94-81]
+      (=gt		  . 65324)	; &I-GT-65324;
+      (=gt-k		  . 09001)	; &I-GT-K09001;
+      (=gt-pj-8		  . #x6D75)	; &I-GT-65324; [77-85]
+      (=daikanwa	  . 47926)	; &I-M-47926;
+      (=jef-china3	  . #x6FCC)	; &I-JC3-6FCC;
+      (=ucs@unicode	  . #x9EC3)	; &GT-65324;
+      )
+     ((=cns11643-1	  . #x6327)	; &C1-6327; [67-07]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9EC3)	; 黃
-    (morohashi-daikanwa	47926 0 1)
-    (ideographic-radical . 201)	; ⿈
+  '((ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
-    (total-strokes	 . 12)
-    (=cns11643-1	. #x6327)	; &C1-6327; [67-07]
+    (=jis-x0208@1997	. #x322B)	; &J97-322B; [18-11]
     ))
 (define-char
   '((morohashi-daikanwa	47926 1)
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x322B)	; &J97-322B; [18-11]
+      ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EC3)	; 黃
+     ((=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
       (=jis-x0213-1-2000  . #x7E71)	; &I-JX1-7E71; [94-81]
+      (=daikanwa	  . 47926)	; &I-M-47926;
       ))
     (=ucs		. #x9EC4)	; 黄
     (=jis-x0208		. #x322B)	; &I-J90-322B; [18-11]
