@@ -263,6 +263,28 @@
     (=jef-china3	. #x81E3)	; &I-JC3-81E3;
     ))
 (define-char
+  '((ideographic-radical@ucs . 37)	; ⼤
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@misc . 140)	; ⾋
+    (ideographic-strokes@misc . 4)
+    (total-strokes	 . 5)
+    (=ucs		. #x215D7)	; 𡗗
+    (->subsumptive
+     ((=gt-k		  . 01089)	; &GT-K01089;
+      (=gt-pj-k1	  . #x322E)	; &GT-K01089; [18-14]
+      (=ucs@iso		  . #x215D7)	; &GT-K01089;
+      )
+     ((=big5-cdp	  . #x8BE9)	; &CDP-8BE9;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x215DA)	; 𡗚
+    (=big5-cdp		. #x877C)	; &I-CDP-877C;
+    ))
+(define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
