@@ -1,3 +1,31 @@
+2005-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R201-Yellow.el (U+9EC3): Use `->subsumptive'; add
+	`<-denotational' for J97-322B.
+	(J97-322B): New abstract character.
+	(U+9EC4): Add `<-denotational' for J97-322B.
+
+	* Ideograph-R173-Rain.el (M-42378): Map to U-0002910A.
+	(U+972B): Use `->denotational'.
+	(U-00029145): New character.
+	(M-42435): Use `<-denotational' for U-00029145.
+	(C7-4B50): Likewise.
+	(C5-5F5E): Likewise; unify U-0002F9F6.
+
+	* Ideograph-R162-Walk.el (U+8FF7): Use `->denotational'.
+
+	* Ideograph-R140-Grass.el (U-000215D7): New character.
+	(GT-K01089): Use `<-subsumptive' for U-000215D7.
+	(BC-8BE9): Likewise.
+
+	* Ideograph-R072-Sun.el (U+3B05): Use `->denotational'.
+	(M-14056): Use `<-denotational' for U+3B05.
+	(C3-415A): Likewise; unify H4-E3CE.
+
+	* Ideograph-R037-Big.el (U-000215D7): Copied from
+	Ideograph-R140-Grass.el.
+	(U-000215DA): New character; unify BC-877C.
+
 2005-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R202-Millet.el, Ideograph-R200-Hemp.el: Add mappings
