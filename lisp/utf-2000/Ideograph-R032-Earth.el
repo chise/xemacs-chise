@@ -10230,7 +10230,7 @@
     (=daikanwa		. 05469)	; &I-M-05469;
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
     (=ucs@unicode	. #x58A8)	; 墨
-    (=ucs@jis/2000	. #xFA3A)	; 墨
+    (=ucs@jis		. #xFA3A)	; 墨
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
