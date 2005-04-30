@@ -1,3 +1,13 @@
+2005-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R204-Embroidery.el: Add mappings between CJK Ext B and
+	CNS 11643 plain 5.
+
+2005-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+FA3A): Use `=ucs@jis' instead of
+	`=ucs@jis/2000' for U+FA3A.
+
 2005-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R201-Yellow.el (U+9EC3): Use `->subsumptive'; add
