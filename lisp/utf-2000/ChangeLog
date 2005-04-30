@@ -1,3 +1,9 @@
+2005-04-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+9ED2): Copied from
+	Ideograph-R086-Fire.el.
+	(U+7119): Use `->subsumptive'.
+
 2005-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R204-Embroidery.el: Add mappings between CJK Ext B and
