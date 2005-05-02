@@ -1,3 +1,18 @@
+2005-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+	(U+9ED1): Add `<-denotational' for J97-3975.
+	(U+9ED2): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources' and
+	`ideographic-{radical|strokes}@daikanwa=19098'; add
+	`<-denotational' for J97-3975; add S1-9817; use `->subsumptive' to
+	integrate M-19098.
+	(J97-3975): New abstract character.
+	(U+FA3A): Add S1-1488; use `=ucs@unicode' instead of
+	`=ucs@{gb|cns|ks|big5}' for U+58A8; add `=ucs@jis' for U+FA3A.
+
 2005-04-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el (U+9ED2): Copied from
