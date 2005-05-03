@@ -1,5 +1,32 @@
 2005-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R210-Even.el (U-0002A5CF): New character.
+	(M-48579): Use `<-subsumptive' for U-0002A5CF.
+	(C5-7A23): Likewise; unify H12-E3DD.
+	(U-0002A5D0): Use `->denotational'.
+
+	* Ideograph-R208-Rat.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R206-Tripod.el (U+9F0F): Use `->subsumptive'.
+	(U+9F10): Likewise.
+	(U+9F11): Likewise.
+	(U-0002FA1A): New character.
+	(M-48320): Separate C5-5351; use `<-subsumptive' for U-0002FA1A;
+	add `->mistakable' for M-48317.
+	(C5-5351): Use `<-subsumptive' for U-0002FA1A.
+	(U+9F12): Use `->subsumptive'.
+	(U+4D7A): Likewise.
+	(U-0002A506): New character.
+	(M-48325): Separate C5-5A6B; use `<-subsumptive' for U-0002A506.
+	(C5-5A6B): Use `<-subsumptive' for U-0002A506.
+	(U+4D7B): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R205-Frog.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+2005-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R203-Black.el: Add mappings between CJK Ext B and CNS
 	11643 plain 5.
 	(U+9ED1): Add `<-denotational' for J97-3975.
