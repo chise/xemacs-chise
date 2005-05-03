@@ -1,5 +1,8 @@
 2005-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R209-Nose.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
 	* Ideograph-R210-Even.el (U-0002A5CF): New character.
 	(M-48579): Use `<-subsumptive' for U-0002A5CF.
 	(C5-7A23): Likewise; unify H12-E3DD.
