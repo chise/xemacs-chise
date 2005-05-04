@@ -15,6 +15,23 @@
     (=daikanwa		. 40152)	; &I-M-40152;
     ))
 (define-char
+  '((name		. "CJK RADICAL C-SIMPLIFIED GOLD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9485)	; 钅
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (<-radical
+     ((=ucs		  . #x9485)	; 钅
+      ))
+    (=ucs		. #x2ED0)	; ⻐
+    (=big5-cdp		. #x895A)	; &I-CDP-895A;
+    ))
+(define-char
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
@@ -31,9 +48,12 @@
     (<-ideographic-component-forms
      ((=ucs		  . #x91D1)	; 金
       ))
+    (<-simplified@CN
+     ((=ucs		  . #x91D2)	; 釒
+      (=gb12345		  . #x6E44)	; 釒 [78-36]
+      ))
     (=ucs		. #x9485)	; 钅
     (=gb2312		. #x6E44)	; &I-G0-6E44; [78-36]
-    (=big5-cdp		. #x895A)	; &I-CDP-895A;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
