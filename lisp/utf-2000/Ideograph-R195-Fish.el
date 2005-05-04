@@ -37,6 +37,23 @@
     (=cns11643-4	. #x3043)	; &C4-3043; [16-35]
     ))
 (define-char
+  '((name		. "CJK RADICAL C-SIMPLIFIED FISH")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9C7C)	; 鱼
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x9B5A)	; 魚
+      ))
+    (<-radical
+     ((=ucs		  . #x9C7C)	; 鱼
+      ))
+    (=ucs		. #x2EE5)	; ⻥
+    (=big5-cdp		. #x8A5B)	; &I-CDP-8A5B;
+    ))
+(define-char
   '((ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
