@@ -33,19 +33,52 @@
      ((=ucs		  . #x7CF8)	; 糸
       ))
     (=ucs		. #x7CF9)	; 糹
-    (->subsumptive
-     ((=gb12345		  . #x6679)	; &UU+7CF9; [70-89]
-      (=ucs@unicode	  . #x7CF9)	; &UU+7CF9;
-      )
-     ((=big5-cdp	  . #x8AFB)	; &CDP-8AFB;
+    (=gb12345		. #x6679)	; 糹 [70-89]
+    ))
+(define-char
+  '((name		. "CJK RADICAL SILK")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x7CF9)	; 糹
       ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
+    (<-radical
+     ((=ucs		  . #x7CF9)	; 糹
+      ))
+    (=ucs		. #x2EAF)	; ⺯
+    (=big5-cdp		. #x8AFB)	; &I-CDP-8AFB;
+    ))
+(define-char
+  '((name		. "CJK RADICAL C-SIMPLIFIED SILK")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x7E9F)	; 纟
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
+    (<-radical
+     ((=ucs		  . #x7E9F)	; 纟
+      ))
+    (<-simplified@CN
+     ((name		  . "CJK RADICAL SILK")
+      (=ucs		  . #x2EAF)	; ⺯
+      ))
+    (=ucs		. #x2EB0)	; ⺰
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (<-simplified@CN
-     ((=gb12345		  . #x6679)	; &UU+7CF9; [70-89]
+     ((=ucs		  . #x7CF9)	; 糹
+      (=gb12345		  . #x6679)	; 糹 [70-89]
       ))
     (=ucs		. #x7E9F)	; 纟
     (=gb2312		. #x6679)	; &I-G0-6679; [70-89]
