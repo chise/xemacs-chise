@@ -15,11 +15,29 @@
     (=daikanwa		. 44572)	; &I-M-44572;
     ))
 (define-char
+  '((name		. "CJK RADICAL C-SIMPLIFIED HORSE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9A6C)	; 马
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x99AC)	; 馬
+      ))
+    (<-radical
+     ((=ucs		  . #x9A6C)	; 马
+      ))
+    (=ucs		. #x2EE2)	; ⻢
+    (=big5-cdp		. #x8A50)	; &I-CDP-8A50;
+    ))
+(define-char
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x9A6C)	; 马
     (=gb2312		. #x426D)	; &I-G0-426D; [34-77]
+    (=jef-china3	. #x81EC)	; &I-JC3-81EC;
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
