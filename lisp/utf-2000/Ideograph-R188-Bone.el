@@ -1,33 +1,52 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x9AA8)	; 骨
-    (ideographic-radical . 188)	; ⾻
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (shinjigen-2	. 9431)
-    (=jis-x0208		. #x397C)	; &GT-60709; [25-92]
-    (=ks-x1001		. #x4D69)	; &I-K0-4D69; [45-73]
-    (=gt		. 60709)	; &I-GT-60709;
-    (=gt-k		. 06431)	; &I-GT-K06431;
-    (=gt-pj-1		. #x397C)	; &I-GT-60709; [25-92]
-    (=daikanwa		. 45098)	; &I-M-45098;
-    (=ucs@jis		. #x9AA8)	; &GT-60709;
+    (=ucs		. #x9AA8)	; 骨
     ))
 (define-char
-  '((=>ucs		. #x9AA8)	; 骨
-    (morohashi-daikanwa	45098 0 0)
-    (ideographic-radical . 188)	; ⾻
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (=cns11643-1	. #x586C)	; &C1-586C; [56-76]
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (->subsumptive
+     ((shinjigen-1	  . 9431)
+      (shinjigen-2	  . 9431)
+      (=jis-x0208	  . #x397C)	; &GT-60709; [25-92]
+      (=ks-x1001	  . #x4D69)	; &I-K0-4D69; [45-73]
+      (=gt		  . 60709)	; &I-GT-60709;
+      (=gt-k		  . 06431)	; &I-GT-K06431;
+      (=gt-pj-1		  . #x397C)	; &I-GT-60709; [25-92]
+      (=daikanwa	  . 45098)	; &I-M-45098;
+      (=ucs@jis		  . #x9AA8)	; &GT-60709;
+      )
+     ((=cns11643-1	  . #x586C)	; &C1-586C; [56-76]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	45098 0 4)
-    (ideographic-radical . 188)	; ⾻
+  '((name		. "CJK RADICAL BONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (<-radical
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=ucs		. #x2EE3)	; ⻣
+    ))
+(define-char
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
-    (=ucs		. #x9AA8)	; 骨
-    (=gb2312		. #x3947)	; &I-G0-3947; [25-39]
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=gb2312		. #x3947)	; &G0-3947; [25-39]
+    (=ucs@unicode	. #x9AA8)	; &G0-3947;
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
