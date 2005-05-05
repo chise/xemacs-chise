@@ -1,3 +1,99 @@
+2005-05-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (<CJK RADICAL C-SIMPLIFIED GOLD>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+9485): Add `<-simplified@CN' for U+91D2; move BC-895A to <CJK
+	RADICAL C-SIMPLIFIED GOLD>.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL CLIFF>): Delete
+	`<-radical' for U-00020086.
+	(<CJK RADICAL SECOND TWO>): Delete `ideograph-cdp'.
+	(<CJK RADICAL PERSON>): Add `<-ideographic-component-forms' for
+	U+4EBA; delete `ideograph-cdp'.
+	(<CJK RADICAL KNIFE ONE>): Add `<-ideographic-component-forms' for
+	U+5200.
+	(<CJK RADICAL KNIFE TWO>): Likewise.
+	(<CJK RADICAL DIVINATION>): Add `<-ideographic-component-forms'
+	for U+535C.
+	(<CJK RADICAL HEART ONE>): Add `<-ideographic-component-forms' for
+	U+5FC3.
+	(<CJK RADICAL HEART TWO>): Add `<-ideographic-component-forms' for
+	U+5FC3.
+	(<CJK RADICAL HAND>): Add `<-ideographic-component-forms' for
+	U+624B.
+	(<CJK RADICAL WATER ONE>): Add `<-ideographic-component-forms' for
+	U+6C34.
+	(<CJK RADICAL WATER TWO>): Likewise.
+	(<CJK RADICAL FIRE>): Add `<-ideographic-component-forms' for
+	U+706B.
+	(<CJK RADICAL DOG>): Unify BC-8BAF.
+	(<CJK RADICAL JADE): Add U+7389 info
+	`<-ideographic-component-forms'.
+	(<CJK RADICAL BOLT OF CLOTH>): Add `<-ideographic-component-forms'
+	for U+758B.
+	(BC-8DC5): Likewise.
+	(<CJK RADICAL SPIRIT ONE>): Add `<-ideographic-component-forms'
+	for U+793A.
+	(<CJK RADICAL SPIRIT TWO>): Likewise.
+	(<CJK RADICAL SILK>): Add `<-denotational' for U+7CF9; add
+	`<-ideographic-component-forms' for U+7CF8; unify BC-8AFB.
+	(<CJK RADICAL C-SIMPLIFIED SILK>): Add `<-denotational' for
+	U+7E9F; add `<-ideographic-component-forms' for U+7CF8; add
+	`<-simplified@CN' for <CJK RADICAL SILK>.
+	(<CJK RADICAL NET ONE>): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `<-denotational' for U+7F53; add UU+7F53.
+	(<CJK RADICAL RAM>): Add `->mistakable' for U-0002634C; delete
+	`<-radical' for U-0002634C; unify BC-8B4E.
+	(<CJK RADICAL EWE>): Add `=>daikanwa' for M-28426; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`->mistakable' for U+8289; add `ideographic-structure'; unify
+	CB06151.
+	(<CJK RADICAL OLD>): Add `<-ideographic-component-forms' for
+	U+8001.
+	(<CJK RADICAL CITY>): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `<-denotational' for U+961D; add
+	`<-ideographic-component-forms' for U+9091.
+	(<CJK RADICAL C-SIMPLIFIED GOLD>): Add `<-denotational' for
+	U+9485; add `<-ideographic-component-forms' for U+91D1.
+	(<CJK RADICAL MOUND TWO>): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `<-denotational' for U+961D; unify G0-5A62
+	and M-41536.
+	(<CJK RADICAL C-SIMPLIFIED HORSE>): Add `<-denotational' for
+	U+9A6C; add `<-ideographic-component-forms' for U+99AC; unify
+	BC-8A50.
+	(<CJK RADICAL BONE>): Add `<-denotational' for U+9AA8.
+	(<CJK RADICAL C-SIMPLIFIED FISH>): Add `<-denotational' for
+	U+9C7C; add `<-ideographic-component-forms' for U+9B5A; unify
+	BC-8A5B.
+
+2005-05-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (<CJK RADICAL C-SIMPLIFIED FISH>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R187-Horse.el (<CJK RADICAL C-SIMPLIFIED HORSE>):
+	Copied from u02E00-CJK-Radical-Supplement.el.
+	(U+9A6C): Unify JC3-81EC.
+
+	* Ideograph-R188-Bone.el (U+9AA8): Use `->denotational' and
+	`->subsumptive'.
+	(<CJK RADICAL BONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R120-Silk.el (U+7CF9): Move BC-8AFB into <CJK RADICAL
+	SILK>.
+	(<CJK RADICAL SILK>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL C-SIMPLIFIED SILK>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+2005-05-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R207-Drum.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R012-Eight.el (GT-K00264): New character.
+
 2005-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R209-Nose.el: Add mappings between CJK Ext B and CNS
