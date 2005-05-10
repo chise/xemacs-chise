@@ -152,10 +152,20 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (<-radical
      ((=ucs		  . #x353E)	; 㔾
       ))
     (=ucs		. #x2E8B)	; ⺋
+    ))
+(define-char
+  '((=>ucs		. #x353E)	; 㔾
+    (=jef-china3	. #x71F7)	; &JC3-71F7;
     ))
 (define-char
   '((name		. "CJK RADICAL SMALL ONE")
@@ -623,6 +633,7 @@
       (=ucs		  . #x2EAF)	; ⺯
       ))
     (=ucs		. #x2EB0)	; ⺰
+    (=big5-cdp		. #x895B)	; &I-CDP-895B;
     ))
 (define-char
   '((name		. "CJK RADICAL NET ONE")
@@ -1100,6 +1111,7 @@
      ((=ucs		  . #x9485)	; 钅
       ))
     (=ucs		. #x2ED0)	; ⻐
+    (=big5-cdp		. #x895A)	; &I-CDP-895A;
     ))
 (define-char
   '((name		. "CJK RADICAL LONG ONE")
