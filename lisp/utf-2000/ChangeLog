@@ -1,5 +1,11 @@
 2005-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R214-Flute.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R120-Silk.el (<CJK RADICAL C-SIMPLIFIED SILK>): Unify
+	BC-895B.
+
 	* Ideograph-R213-Turtle.el: Add mappings between CJK Ext B and CNS
 	11643 plain 5.
 
