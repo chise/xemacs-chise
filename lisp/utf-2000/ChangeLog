@@ -1,5 +1,35 @@
 2005-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R213-Turtle.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R212-Dragon.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+	(U+9F99): Unify JC3-82AD.
+	(BC-89AF): New character.
+	(U+9F8E): Add `ideographic-radical@ucs*sources'.
+	(M-48819): Add `ideographic-{radical|strokes}'.
+	(UU+9F8E): Likewise.
+	(C3-5755): Likewise.
+	(U+9F91): Use `->subsumptive'.
+	(U-0002A697): New character.
+	(M-48828): Map to U-0002A697.
+	(C5-6F64): Copied from Ideograph-R078-Death.el; map to U-0002A697.
+	(U-0002A698): New character.
+	(M-48829): Map to U-0002A698; separate C5-6F64.
+	(U+9F92): Use `->subsumptive'.
+	(U-0002A6A0): New character.
+	(M-48840): Map to U-0002A6A0; separate C5-7751.
+	(U-0002A6A2): New character.
+	(M-48842): Map to U-0002A6A2.
+	(U+9F96): Use `->subsumptive'.
+	(U+9F97): Likewise.
+	(U+9F98): Use `->subsumptive'.
+	(U-0002A6A5): New character.
+	(M-48846): Map to U-0002A6A5; separate C5-7C51.
+
+2005-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R211-Tooth.el: Add mappings between CJK Ext B and CNS
 	11643 plain 5.
 
