@@ -71,6 +71,7 @@
       (=ucs		  . #x2EAF)	; ⺯
       ))
     (=ucs		. #x2EB0)	; ⺰
+    (=big5-cdp		. #x895B)	; &I-CDP-895B;
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
