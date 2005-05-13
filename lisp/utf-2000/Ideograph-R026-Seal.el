@@ -29,9 +29,29 @@
     (=daikanwa		. 02837)	; &I-M-02837;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((name		. "CJK RADICAL SEAL")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (<-radical
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs		. #x2E8B)	; ⺋
+    ))
+(define-char
+  '((=>ucs		. #x5369)	; 卩
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (=big5-cdp		. #x8A60)	; &CDP-8A60;
     ))
 (define-char
