@@ -1,3 +1,14 @@
+2005-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (U+5C54): Use `->subsumptive'.
+	(U+5C56): Unify B-D16A; delete `=>daikanwa'.
+	(M-07716): Separate B-D16A.
+
+	* Ideograph-R026-Seal.el (<CJK RADICAL SEAL>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(BC-8A60): Add `<-ideographic-component-forms' for U+5369; map to
+	U+5369.
+
 2005-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R214-Flute.el: Add mappings between CJK Ext B and CNS
