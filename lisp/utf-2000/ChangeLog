@@ -1,5 +1,10 @@
 2005-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R109-Eye.el (U+4014): Use `->subsumptive'.
+	(U+76F2): Likewise.
+
+2005-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R044-Corpse.el (U+5C54): Use `->subsumptive'.
 	(U+5C56): Unify B-D16A; delete `=>daikanwa'.
 	(M-07716): Separate B-D16A.
