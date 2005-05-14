@@ -1,4 +1,22 @@
+2005-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el (U+5F02): Use `->denotational'.
+	(G0-526C): Use `<-denotational' for U+5F02; use `->subsumptive' to
+	integrate CB02326 and CB11790.
+	(U-00020020): Use `ideographic-{radical|strokes}@{ucs|daikanwa}'
+	instead of `ideographic-'; add `ideographic-radical@cns*sources'.
+
 2005-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R078-Death.el (U+3C79): Use `->subsumptive'.
+	(U+3C7A): Likewise.
+	(U-00023A7A): Likewise.
+	(U-0002A697): Use `->subsumptive' to integrate M-48828; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
+	(U-00023A7C): Use `->subsumptive'.
+	(U-00023A7E): Likewise.
+	(U+3C7B): Likewise.
 
 	* Ideograph-R109-Eye.el (U+4014): Use `->subsumptive'.
 	(U+76F2): Likewise.
