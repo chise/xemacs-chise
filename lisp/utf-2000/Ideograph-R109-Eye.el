@@ -285,56 +285,38 @@
     (=daikanwa		. 23130)	; &I-M-23130;
     ))
 (define-char
-  '((=>ucs		. #x4014)	; 䀔
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=daikanwa		. 23131)	; &M-23131;
-    ))
-(define-char
-  '((morohashi-daikanwa	23131 0 1)
-    (ideographic-radical . 109)	; ⽬
+  '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x4014)	; 䀔
-    (=cns11643-4	. #x274A)	; &I-C4-274A; [07-42]
+    (->subsumptive
+     ((=cns11643-4	  . #x274A)	; &M-23131; [07-42]
+      (=daikanwa	  . 23131)	; &I-M-23131;
+      )
+     ((=ucs@unicode	  . #x4014)	; &UU+4014;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x76F2)	; 盲
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=big5		. #xAABC)	; &M-23132;
-    (=daikanwa		. 23132)	; &I-M-23132;
-    ))
-(define-char
-  '((=>ucs		. #x76F2)	; 盲
-    (morohashi-daikanwa	23132 0 0)
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=jis-x0208		. #x4C55)	; &GT-29645; [44-53]
-    (=ks-x1001		. #x586E)	; &I-K0-586E; [56-78]
-    (=gt		. 29645)	; &I-GT-29645;
-    (=gt-k		. 03840)	; &I-GT-K03840;
-    (=gt-pj-1		. #x4C55)	; &I-GT-29645; [44-53]
-    (=ucs@jis		. #x76F2)	; &GT-29645;
-    ))
-(define-char
-  '((=>ucs		. #x76F2)	; 盲
-    (morohashi-daikanwa	23132 0 1)
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=cns11643-1	. #x4E7D)	; &C1-4E7D; [46-93]
-    ))
-(define-char
-  '((morohashi-daikanwa	23132 0 2)
-    (ideographic-radical . 109)	; ⽬
+  '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x76F2)	; 盲
-    (=gb2312		. #x4324)	; &I-G0-4324; [35-04]
+    (=big5		. #xAABC)	; &I-B-AABC;
+    (->subsumptive
+     ((=daikanwa	  . 23132)	; &M-23132;
+      )
+     ((=jis-x0208	  . #x4C55)	; &GT-29645; [44-53]
+      (=ks-x1001	  . #x586E)	; &I-K0-586E; [56-78]
+      (=gt		  . 29645)	; &I-GT-29645;
+      (=gt-k		  . 03840)	; &I-GT-K03840;
+      (=gt-pj-1		  . #x4C55)	; &I-GT-29645; [44-53]
+      (=ucs@jis		  . #x76F2)	; &GT-29645;
+      )
+     ((=cns11643-1	  . #x4E7D)	; &C1-4E7D; [46-93]
+      )
+     ((=gb2312		  . #x4324)	; &G0-4324; [35-04]
+      (=ucs@unicode	  . #x76F2)	; &G0-4324;
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
