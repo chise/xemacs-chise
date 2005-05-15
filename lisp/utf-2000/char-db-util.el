@@ -166,6 +166,7 @@
     ideograph-hanziku-11
     ideograph-hanziku-12
     =gt-k
+    =ucs@iso
     =ucs@unicode
     =big5
     =big5-eten
