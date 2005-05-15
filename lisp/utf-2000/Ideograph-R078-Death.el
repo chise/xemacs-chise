@@ -3316,7 +3316,7 @@
       )
      ((ideographic-strokes . 17)
       (total-strokes	   . 21)
-      (=ucs@iso		  . #x23A7A)	; &UU+23A7A;
+      (=ucs@iso		  . #x23A7A)	; &U-00023A7A;
       )
      ((ideographic-strokes . 17)
       (total-strokes	   . 21)
@@ -3335,7 +3335,7 @@
     (->subsumptive
      ((=daikanwa	  . 48828)	; &M-48828;
       )
-     ((=ucs@iso		  . #x2A697)	; &UU+2A697;
+     ((=ucs@iso		  . #x2A697)	; &U-0002A697;
       )
      ((=cns11643-7	  . #x4E24)	; &C7-4E24; [46-04]
       ))
