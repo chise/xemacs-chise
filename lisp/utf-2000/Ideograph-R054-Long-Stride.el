@@ -317,6 +317,6 @@
     (->subsumptive
      ((=daikanwa	  . 09582)	; &M-09582;
       )
-     ((=ucs@iso		  . #x262EA)	; &UU+262EA;
+     ((=ucs@iso		  . #x262EA)	; &U-000262EA;
       ))
     ))
