@@ -3319,7 +3319,7 @@
        zhengzi-tong daikanwa)
       (=daikanwa	  . 13355)	; &M-13355;
       )
-     ((=ucs@iso		  . #x22FCC)	; &UU+22FCC;
+     ((=ucs@iso		  . #x22FCC)	; &U-00022FCC;
       ))
     ))
 (define-char
