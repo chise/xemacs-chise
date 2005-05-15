@@ -1456,7 +1456,7 @@
      ((=cns11643-5	  . #x2830)	; &M-02355; [08-16]
       (=daikanwa	  . 02355)	; &I-M-02355;
       )
-     ((=ucs@iso		  . #x2085E)	; &UU+2085E;
+     ((=ucs@iso		  . #x2085E)	; &U-0002085E;
       ))
     ))
 (define-char
@@ -2531,7 +2531,7 @@
       )
      ((=cns11643-5	  . #x3666)	; &C5-3666; [22-70]
       )
-     ((=ucs@iso		  . #x20886)	; &UU+20886;
+     ((=ucs@iso		  . #x20886)	; &U-00020886;
       ))
     ))
 (define-char
@@ -3497,7 +3497,7 @@
     (->subsumptive
      ((=daikanwa	  . 02452)	; &M-02452;
       )
-     ((=ucs@iso		  . #x208A9)	; &UU+208A9;
+     ((=ucs@iso		  . #x208A9)	; &U-000208A9;
       ))
     ))
 (define-char
@@ -3586,7 +3586,7 @@
       )
      ((=cns11643-5	  . #x4C28)	; &C5-4C28; [44-08]
       )
-     ((=ucs@iso		  . #x208B1)	; &UU+208B1;
+     ((=ucs@iso		  . #x208B1)	; &U-000208B1;
       ))
     ))
 (define-char
@@ -3762,7 +3762,7 @@
       (->subsumptive
        ((=daikanwa	    . 02466)	; &M-02466;
 	)
-       ((=ucs@iso	    . #x208B7)	; &UU+208B7;
+       ((=ucs@iso	    . #x208B7)	; &U-000208B7;
 	))
       )
      ((ideographic-strokes . 15)
@@ -3976,7 +3976,7 @@
       )
      ((=cns11643-7	  . #x367E)	; &C7-367E; [22-94]
       )
-     ((=ucs@iso		  . #x208BB)	; &UU+208BB;
+     ((=ucs@iso		  . #x208BB)	; &U-000208BB;
       ))
     ))
 (define-char
@@ -4043,7 +4043,7 @@
       )
      ((=cns11643-5	  . #x6756)	; &C5-6756; [71-54]
       )
-     ((=ucs@iso		  . #x208C4)	; &UU+208C4;
+     ((=ucs@iso		  . #x208C4)	; &U-000208C4;
       ))
     ))
 (define-char
@@ -4173,7 +4173,7 @@
     (->subsumptive
      ((=daikanwa	  . 02488)	; &M-02488;
       )
-     ((=ucs@iso		  . #x208C7)	; &UU+208C7;
+     ((=ucs@iso		  . #x208C7)	; &U-000208C7;
       )
      ((=cns11643-5	  . #x6F6B)	; &C5-6F6B; [79-75]
       ))
@@ -4210,7 +4210,7 @@
     (->subsumptive
      ((=daikanwa	  . 02491)	; &M-02491;
       )
-     ((=ucs@iso		  . #x208CA)	; &UU+208CA;
+     ((=ucs@iso		  . #x208CA)	; &U-000208CA;
       )
      ((=cns11643-4	  . #x6C6B)	; &C4-6C6B; [76-75]
       ))
@@ -4223,7 +4223,7 @@
     (->subsumptive
      ((=daikanwa	  . 02492)	; &M-02492;
       )
-     ((=ucs@iso		  . #x208CB)	; &UU+208CB;
+     ((=ucs@iso		  . #x208CB)	; &U-000208CB;
       )
      ((=cns11643-7	  . #x663B)	; &C7-663B; [70-27]
       ))

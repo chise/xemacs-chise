@@ -270,7 +270,7 @@
 	)
        ((=ucs		    . #x4E8C)	; 二
 	))
-      (=ucs@iso		  . #x204DE)	; &UU+204DE;
+      (=ucs@iso		  . #x204DE)	; &U-000204DE;
       ))
     ))
 (define-char
@@ -1352,6 +1352,6 @@
 	)
        ((=ucs@unicode	    . #x532A)	; &UU+532A;
 	))
-      (=ucs@iso		  . #x204FF)	; &UU+204FF;
+      (=ucs@iso		  . #x204FF)	; &U-000204FF;
       ))
     ))

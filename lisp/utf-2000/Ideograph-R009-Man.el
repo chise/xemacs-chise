@@ -12996,7 +12996,7 @@
       )
      ((=ucs@unicode	  . #x6BD2)	; &UU+6BD2;
       ))
-    (=ucs@iso		. #x20269)	; &UU+20269;
+    (=ucs@iso		. #x20269)	; &U-00020269;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -20709,7 +20709,7 @@
       (=daikanwa	  . 23328)	; &I-M-23328;
       (=hanziku-1	  . #xCD57)	; &I-HZK01-CD57;
       )
-     ((=ucs@iso		  . #x2032A)	; &UU+2032A;
+     ((=ucs@iso		  . #x2032A)	; &U-0002032A;
       ))
     ))
 (define-char
@@ -21506,7 +21506,7 @@
 	)
        ((=cns11643-1	    . #x514D)	; &C1-514D; [49-45]
 	))
-      (=ucs@iso		  . #x20330)	; &UU+20330;
+      (=ucs@iso		  . #x20330)	; &U-00020330;
       )
      ((=cns11643-5	  . #x307B)	; &C5-307B; [16-91]
       ))
@@ -22983,7 +22983,7 @@
       )
      ((=cns11643-5	  . #x3D5F)	; &C5-3D5F; [29-63]
       )
-     ((=ucs@iso		  . #x2036A)	; &UU+2036A;
+     ((=ucs@iso		  . #x2036A)	; &U-0002036A;
       ))
     ))
 (define-char
@@ -28714,7 +28714,7 @@
       (=gt		  . 01566)	; &GT-01566;
       (=gt-pj-11	  . #x4638)	; &GT-01566; [38-24]
       )
-     ((=ucs@iso		  . #x20400)	; &UU+20400;
+     ((=ucs@iso		  . #x20400)	; &U-00020400;
       ))
     ))
 (define-char
@@ -29471,7 +29471,7 @@
        ((=ks-x1001	    . #x5B54)	; &GT-51245; [59-52]
 	(=jis-x0208@1990    . #x475A)	; &I-J90-475A; [39-58]
 	))
-      (=ucs@iso		  . #x20421)	; &UU+20421;
+      (=ucs@iso		  . #x20421)	; &U-00020421;
       ))
     ))
 (define-char
@@ -30357,7 +30357,7 @@
       (=hanziku-1	  . #xD6D8)	; &I-HZK01-D6D8;
       (=cbeta		  . 05405)	; &I-CB05405;
       )
-     ((=ucs@iso		  . #x20433)	; &UU+20433;
+     ((=ucs@iso		  . #x20433)	; &U-00020433;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -31532,7 +31532,7 @@
     (->subsumptive
      ((=daikanwa	  . 01321)	; &M-01321;
       )
-     ((=ucs@iso		  . #x20461)	; &UU+20461;
+     ((=ucs@iso		  . #x20461)	; &U-00020461;
       ))
     ))
 (define-char
@@ -31594,7 +31594,7 @@
 	))
       (=daikanwa	  . 01322)	; &M-01322;
       )
-     ((=ucs@iso		  . #x2045F)	; &UU+2045F;
+     ((=ucs@iso		  . #x2045F)	; &U-0002045F;
       ))
     ))
 (define-char
@@ -32106,7 +32106,7 @@
     (<-denotational
      ((=ucs		  . #x20474)	; 𠑴
       ))
-    (=ucs@iso		. #x20474)	; &UU+20474;
+    (=ucs@iso		. #x20474)	; &U-00020474;
     ))
 (define-char
   '((morohashi-daikanwa	ho 32)

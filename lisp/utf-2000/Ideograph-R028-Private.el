@@ -723,7 +723,7 @@
     (total-strokes	 . 9)
     (=ucs		. #x20AF8)	; 𠫸
     (->subsumptive
-     ((=ucs@iso		  . #x20AF8)	; &UU+20AF8;
+     ((=ucs@iso		  . #x20AF8)	; &U-00020AF8;
       )
      ((hanyu-dazidian	  1 387 10)
       (=hanziku-1	  . #xF5B6)	; &HZK01-F5B6;
@@ -1129,7 +1129,7 @@
     (<-denotational
      ((=ucs		  . #x20B0D)	; 𠬍
       ))
-    (=ucs@iso		. #x20B0D)	; &UU+20B0D;
+    (=ucs@iso		. #x20B0D)	; &U-00020B0D;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

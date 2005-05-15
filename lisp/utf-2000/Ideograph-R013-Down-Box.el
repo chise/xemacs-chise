@@ -534,7 +534,7 @@
       (=daikanwa	  . 01523)	; &I-M-01523;
       (=cbeta		  . 04693)	; &I-CB04693;
       )
-     ((=ucs@iso		  . #x2054B)	; &UU+2054B;
+     ((=ucs@iso		  . #x2054B)	; &U-0002054B;
       ))
     ))
 (define-char
@@ -643,7 +643,7 @@
       (=cns11643-6	  . #x2358)	; &HZK01-AD7C; [03-56]
       (=hanziku-1	  . #xAD7C)	; &I-HZK01-AD7C;
       )
-     ((=ucs@iso		  . #x2054D)	; &UU+2054D;
+     ((=ucs@iso		  . #x2054D)	; &U-0002054D;
       ))
     ))
 (define-char
@@ -985,7 +985,7 @@
       )
      ((=cns11643-6	  . #x2E6C)	; &C6-2E6C; [14-76]
       )
-     ((=ucs@iso		  . #x2055B)	; &UU+2055B;
+     ((=ucs@iso		  . #x2055B)	; &U-0002055B;
       )
      ((hanyu-dazidian	  1 620 3)
       (=hanziku-2	  . #xD1E6)	; &HZK02-D1E6;
@@ -1496,7 +1496,7 @@
      ((=ucs		  . #x20566)	; 𠕦
       ))
     (->subsumptive
-     ((=ucs@iso		  . #x20566)	; &UU+20566;
+     ((=ucs@iso		  . #x20566)	; &U-00020566;
       )
      ((=cns11643-4	  . #x3C33)	; &C4-3C33; [28-19]
       (=ucs@cns		  . #x20566)	; &C4-3C33;

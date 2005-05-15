@@ -1375,7 +1375,7 @@
      ((hanyu-dazidian	  1 252 4)
       (=hanziku-1	  . #xD9FC)	; &HZK01-D9FC;
       )
-     ((=ucs@iso		  . #x2052F)	; &UU+2052F;
+     ((=ucs@iso		  . #x2052F)	; &U-0002052F;
       )
      ((=cns11643-4	  . #x423A)	; &C4-423A; [34-26]
       (=ucs@cns		  . #x2052F)	; &C4-423A;

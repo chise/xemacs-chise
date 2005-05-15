@@ -1011,7 +1011,7 @@
       )
      ((ideographic-radical . 25)	; ⼘
       (ideographic-strokes . 5)
-      (=ucs@iso		  . #x209DD)	; &UU+209DD;
+      (=ucs@iso		  . #x209DD)	; &U-000209DD;
       ))
     ))
 (define-char
@@ -1866,7 +1866,7 @@
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
-      (=ucs@iso		  . #x200FD)	; &UU+200FD;
+      (=ucs@iso		  . #x200FD)	; &U-000200FD;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

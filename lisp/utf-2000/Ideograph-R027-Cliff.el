@@ -3069,7 +3069,7 @@
      ((hanyu-dazidian	  1 80 19)
       (=hanziku-1	  . #xB4A4)	; &HZK01-B4A4;
       )
-     ((=ucs@iso		  . #x20AC3)	; &UU+20AC3;
+     ((=ucs@iso		  . #x20AC3)	; &U-00020AC3;
       ))
     ))
 (define-char

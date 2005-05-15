@@ -5614,7 +5614,7 @@
       (shinjigen-2	  . 679)
       (=jef-china3	  . #x44C7)	; &JC3-44C7;
       )
-     ((=ucs@iso		  . #x2F822)	; &UU+2F822;
+     ((=ucs@iso		  . #x2F822)	; &U-0002F822;
       )
      ((=ks-x1001	  . #x795C)	; &K0-795C; [89-60]
       )
@@ -8034,7 +8034,7 @@
       )
      ((ideographic-strokes . 15)
       (total-strokes	   . 17)
-      (=ucs@iso		  . #x207FC)	; &UU+207FC;
+      (=ucs@iso		  . #x207FC)	; &U-000207FC;
       )
      ((ideographic-strokes . 15)
       (total-strokes	   . 17)

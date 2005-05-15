@@ -382,7 +382,7 @@
       )
      ((ideographic-radical . 25)	; ⼘
       (ideographic-strokes . 5)
-      (=ucs@iso		  . #x209DD)	; &UU+209DD;
+      (=ucs@iso		  . #x209DD)	; &U-000209DD;
       ))
     ))
 (define-char

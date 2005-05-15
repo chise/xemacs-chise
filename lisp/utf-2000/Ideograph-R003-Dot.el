@@ -515,7 +515,7 @@
 	))
       (=hanziku-1	  . #xADBE)	; &HZK01-ADBE;
       )
-     ((=ucs@iso		  . #x2592C)	; &UU+2592C;
+     ((=ucs@iso		  . #x2592C)	; &U-0002592C;
       ))
     ))
 (define-char
