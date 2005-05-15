@@ -1,5 +1,36 @@
 2005-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs@iso'.
+
+	* Ideograph-R061-Heart.el (U+3941): Use `->subsumptive'.
+	(U-000226F3): New character.
+	(U+60B4): Use `->subsumptive'.
+
+2005-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4ECD): Use <CJK RADICAL PERSON> instead
+	of U+4EBB in `ideographic-structure'.
+	(GT-K02405): New character.
+	(BC-88D2): Likewise.
+	(U+4F2D): Use `->subsumptive'; use <CJK RADICAL PERSON> instead of
+	U+4EBB in `ideographic-structure'.
+	(U+3447): Delete incomplete `ideographic-structure'.
+	(U+344E): Likewise.
+	(U+4FB5): Use `->denotational'.
+	(U+504B): Likewise.
+	(C2-3355): Use `<-denotational' for U+504B; use <CJK RADICAL
+	PERSON> instead of U+4EBB in `ideographic-structure'.
+	(U+504C): Use `->denotational'; use <CJK RADICAL PERSON> instead
+	of U+4EBB in `ideographic-structure'.
+	(U-0002036A): Delete incomplete `ideographic-structure'; use
+	`->subsumptive'.
+	(U+348C): Likewise.
+	(M-01053): Add `<-denotational' for U+504B; add
+	`ideographic-structure'.
+	(U+34A8): Use `->denotational' and `->subsumptive'.
+	(H1-C9AF): Unify U+48CF; moved to Ideograph-R163-City.el.
+
 	* Ideograph-R055-Two-Hands.el (U+5F02): Use `->denotational'.
 	(G0-526C): Use `<-denotational' for U+5F02; use `->subsumptive' to
 	integrate CB02326 and CB11790.
