@@ -3,6 +3,7 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2326)
     (shinjigen-2	. 2326)
     (=ucs		. #x5F73)	; 彳
     (=jis-x0208		. #x5746)	; &I-J90-5746; [55-38]
@@ -2132,7 +2133,7 @@
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 11)
-      (=ucs@iso		  . #x22514)	; &UU+22514;
+      (=ucs@iso		  . #x22514)	; &U-00022514;
       ))
     ))
 (define-char
@@ -2326,7 +2327,7 @@
      ((=cns11643-6	  . #x5252)	; &M-10205; [50-50]
       (=daikanwa	  . 10205)	; &I-M-10205;
       )
-     ((=ucs@iso		  . #x22535)	; &UU+22535;
+     ((=ucs@iso		  . #x22535)	; &U-00022535;
       ))
     ))
 (define-char
