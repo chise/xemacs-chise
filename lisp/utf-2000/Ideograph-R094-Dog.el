@@ -3,6 +3,7 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 4759)
     (shinjigen-2	. 4759)
     (=ucs		. #x72AC)	; 犬
     (=jis-x0208		. #x3824)	; &I-J90-3824; [24-04]
@@ -1190,7 +1191,7 @@
     (<-denotational
      ((=ucs		  . #x2475E)	; 𤝞
       ))
-    (=ucs@iso		. #x2475E)	; &UU+2475E;
+    (=ucs@iso		. #x2475E)	; &U-0002475E;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -5528,7 +5529,7 @@
     (->subsumptive
      ((=daikanwa	  . 20681)	; &M-20681;
       )
-     ((=ucs@iso		  . #x24869)	; &UU+24869;
+     ((=ucs@iso		  . #x24869)	; &U-00024869;
       )
      ((=cns11643-7	  . #x2F73)	; &C7-2F73; [15-83]
       ))
@@ -6199,7 +6200,7 @@
     (->subsumptive
      ((=daikanwa	  . 20733)	; &M-20733;
       )
-     ((=ucs@iso		  . #x24893)	; &UU+24893;
+     ((=ucs@iso		  . #x24893)	; &U-00024893;
       )
      ((=cns11643-7	  . #x2F78)	; &C7-2F78; [15-88]
       ))
@@ -6641,7 +6642,7 @@
     (->subsumptive
      ((=daikanwa	  . 20762)	; &M-20762;
       )
-     ((=ucs@iso		  . #x248AF)	; &UU+248AF;
+     ((=ucs@iso		  . #x248AF)	; &U-000248AF;
       )
      ((=cns11643-7	  . #x3934)	; &C7-3934; [25-20]
       ))
