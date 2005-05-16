@@ -3,6 +3,7 @@
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (shinjigen-1	. 5269)
     (shinjigen-2	. 5269)
     (=ucs		. #x76EE)	; 目
     (=jis-x0208		. #x4C5C)	; &I-J90-4C5C; [44-60]
@@ -2105,7 +2106,7 @@
     (->subsumptive
      ((=daikanwa	  . 23271)	; &M-23271;
       )
-     ((=ucs@iso		  . #x2514F)	; &UU+2514F;
+     ((=ucs@iso		  . #x2514F)	; &U-0002514F;
       ))
     ))
 (define-char
@@ -2790,7 +2791,7 @@
       (=daikanwa	  . 23328)	; &I-M-23328;
       (=hanziku-1	  . #xCD57)	; &I-HZK01-CD57;
       )
-     ((=ucs@iso		  . #x2032A)	; &UU+2032A;
+     ((=ucs@iso		  . #x2032A)	; &U-0002032A;
       ))
     ))
 (define-char
@@ -9512,7 +9513,7 @@
     (->subsumptive
      ((=daikanwa	  . 23827)	; &M-23827;
       )
-     ((=ucs@iso		  . #x25349)	; &UU+25349;
+     ((=ucs@iso		  . #x25349)	; &U-00025349;
       )
      ((=cns11643-5	  . #x762B)	; &C5-762B; [86-11]
       ))
