@@ -162,7 +162,7 @@
     (->subsumptive
      ((=daikanwa	  . 47895)	; &M-47895;
       )
-     ((=ucs@iso		  . #x2A395)	; &UU+2A395;
+     ((=ucs@iso		  . #x2A395)	; &U-0002A395;
       )
      ((=cns11643-5	  . #x534E)	; &C5-534E; [51-46]
       ))
@@ -364,7 +364,7 @@
     (<-denotational
      ((=ucs		  . #x2A3A3)	; 𪎣
       ))
-    (=ucs@iso		. #x2A3A3)	; &UU+2A3A3;
+    (=ucs@iso		. #x2A3A3)	; &U-0002A3A3;
     ))
 (define-char
   '((ideographic-radical . 200)	; ⿇
@@ -527,7 +527,7 @@
     (total-strokes	 . 20)
     (=ucs		. #x2A3A8)	; 𪎨
     (->subsumptive
-     ((=ucs@iso		  . #x2A3A8)	; &UU+2A3A8;
+     ((=ucs@iso		  . #x2A3A8)	; &U-0002A3A8;
       )
      ((=cns11643-4	  . #x6573)	; &C4-6573; [69-83]
       ))

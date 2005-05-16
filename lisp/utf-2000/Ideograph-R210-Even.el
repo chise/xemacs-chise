@@ -332,7 +332,7 @@
     (->subsumptive
      ((=daikanwa	  . 48579)	; &M-48579;
       )
-     ((=ucs@iso		  . #x2A5CF)	; &UU+2A5CF;
+     ((=ucs@iso		  . #x2A5CF)	; &U-0002A5CF;
       )
      ((hanyu-dazidian	  7 4787 6)
       (=cns11643-5	  . #x7A23)	; &HZK12-E3DD; [90-03]

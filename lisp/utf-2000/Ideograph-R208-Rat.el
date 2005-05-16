@@ -358,7 +358,7 @@
     (->subsumptive
      ((=daikanwa	  . 48405)	; &M-48405;
       )
-     ((=ucs@iso		  . #x2A543)	; &UU+2A543;
+     ((=ucs@iso		  . #x2A543)	; &U-0002A543;
       ))
     ))
 (define-char
@@ -449,7 +449,7 @@
     (->subsumptive
      ((=daikanwa	  . 48409)	; &M-48409;
       )
-     ((=ucs@iso		  . #x2A546)	; &UU+2A546;
+     ((=ucs@iso		  . #x2A546)	; &U-0002A546;
       ))
     ))
 (define-char
@@ -469,7 +469,7 @@
     (->subsumptive
      ((=daikanwa	  . 48410)	; &M-48410;
       )
-     ((=ucs@iso		  . #x2A547)	; &UU+2A547;
+     ((=ucs@iso		  . #x2A547)	; &U-0002A547;
       ))
     ))
 (define-char
@@ -794,7 +794,7 @@
     (<-denotational
      ((=ucs		  . #x2A54E)	; 𪕎
       ))
-    (=ucs@iso		. #x2A54E)	; &UU+2A54E;
+    (=ucs@iso		. #x2A54E)	; &U-0002A54E;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
@@ -991,7 +991,7 @@
     (->subsumptive
      ((=daikanwa	  . 48435)	; &M-48435;
       )
-     ((=ucs@iso		  . #x2A554)	; &UU+2A554;
+     ((=ucs@iso		  . #x2A554)	; &U-0002A554;
       ))
     ))
 (define-char
@@ -1156,7 +1156,7 @@
     (<-denotational
      ((=ucs		  . #x2A55E)	; 𪕞
       ))
-    (=ucs@iso		. #x2A55E)	; &UU+2A55E;
+    (=ucs@iso		. #x2A55E)	; &U-0002A55E;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
@@ -1592,7 +1592,7 @@
     (<-denotational
      ((=ucs		  . #x2A576)	; 𪕶
       ))
-    (=ucs@iso		. #x2A576)	; &UU+2A576;
+    (=ucs@iso		. #x2A576)	; &U-0002A576;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
@@ -1834,7 +1834,7 @@
     (<-denotational
      ((=ucs		  . #x2A582)	; 𪖂
       ))
-    (=ucs@iso		. #x2A582)	; &UU+2A582;
+    (=ucs@iso		. #x2A582)	; &U-0002A582;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
@@ -1987,7 +1987,7 @@
     (->subsumptive
      ((=daikanwa	  . 48492)	; &M-48492;
       )
-     ((=ucs@iso		  . #x2A58B)	; &UU+2A58B;
+     ((=ucs@iso		  . #x2A58B)	; &U-0002A58B;
       ))
     ))
 (define-char

@@ -82,7 +82,7 @@
        zihui daikanwa)
       (=daikanwa	  . 48320)	; &M-48320;
       )
-     ((=ucs@iso		  . #x2FA1A)	; &UU+2FA1A;
+     ((=ucs@iso		  . #x2FA1A)	; &U-0002FA1A;
       )
      ((=cns11643-5	  . #x5351)	; &C5-5351; [51-49]
       ))
