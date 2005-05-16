@@ -82,7 +82,7 @@
     (->subsumptive
      ((=daikanwa	  . 34765)	; &M-34765;
       )
-     ((=ucs@iso		  . #x277E2)	; &UU+277E2;
+     ((=ucs@iso		  . #x277E2)	; &U-000277E2;
       ))
     ))
 (define-char
