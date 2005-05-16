@@ -3,6 +3,7 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 3947)
     (shinjigen-2	. 3947)
     (=ucs		. #x6B62)	; 止
     (=jis-x0208		. #x3B5F)	; &I-J90-3B5F; [27-63]
@@ -1039,7 +1040,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x2398B)	; 𣦋
     (->subsumptive
-     ((=ucs@iso		  . #x2398B)	; &UU+2398B;
+     ((=ucs@iso		  . #x2398B)	; &U-0002398B;
       )
      ((hanyu-dazidian	  2 1444 5)
       (=hanziku-4	  . #xD3B4)	; &HZK04-D3B4;
