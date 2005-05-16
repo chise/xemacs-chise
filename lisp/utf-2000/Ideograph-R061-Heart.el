@@ -3,6 +3,7 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 2389)
     (shinjigen-2	. 2389)
     (=ucs		. #x5FC3)	; 心
     (=jis-x0208		. #x3F34)	; &I-J90-3F34; [31-20]
@@ -547,7 +548,7 @@
      ((=cns11643-5	  . #x2265)	; &M-10337; [02-69]
       (=daikanwa	  . 10337)	; &I-M-10337;
       )
-     ((=ucs@iso		  . #x225BA)	; &UU+225BA;
+     ((=ucs@iso		  . #x225BA)	; &U-000225BA;
       ))
     ))
 (define-char
@@ -604,7 +605,7 @@
     (<-denotational
      ((=ucs		  . #x225BB)	; 𢖻
       ))
-    (=ucs@iso		. #x225BB)	; &UU+225BB;
+    (=ucs@iso		. #x225BB)	; &U-000225BB;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -4944,7 +4945,7 @@
       )
      ((ideographic-strokes . 7)
       (total-strokes	   . 10)
-      (=ucs@iso		  . #x22680)	; &UU+22680;
+      (=ucs@iso		  . #x22680)	; &U-00022680;
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 11)
@@ -5691,7 +5692,7 @@
       (=big5-cdp	  . #x8BB3)	; &I-CDP-8BB3;
       (=ucs@jis		  . #x226F3)	; &CDP-8BB3;
       )
-     ((=ucs@iso		  . #x226F3)	; &UU+226F3;
+     ((=ucs@iso		  . #x226F3)	; &U-000226F3;
       ))
     ))
 (define-char
@@ -9911,7 +9912,7 @@
       )
      ((=cns11643-5	  . #x456B)	; &C5-456B; [37-75]
       )
-     ((=ucs@iso		  . #x2279A)	; &UU+2279A;
+     ((=ucs@iso		  . #x2279A)	; &U-0002279A;
       ))
     ))
 (define-char
@@ -9922,7 +9923,7 @@
     (->subsumptive
      ((=daikanwa	  . 11027)	; &M-11027;
       )
-     ((=ucs@iso		  . #x2279B)	; &UU+2279B;
+     ((=ucs@iso		  . #x2279B)	; &U-0002279B;
       ))
     ))
 (define-char
@@ -11242,7 +11243,7 @@
      ((=cns11643-5	  . #x4573)	; &M-11117; [37-83]
       (=daikanwa	  . 11117)	; &I-M-11117;
       )
-     ((=ucs@iso		  . #x227E9)	; &UU+227E9;
+     ((=ucs@iso		  . #x227E9)	; &U-000227E9;
       ))
     ))
 (define-char
@@ -13215,7 +13216,7 @@
       )
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
-      (=ucs@iso		  . #x2283F)	; &UU+2283F;
+      (=ucs@iso		  . #x2283F)	; &U-0002283F;
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 12)
@@ -15491,7 +15492,7 @@
     (->subsumptive
      ((=cns11643-5	  . #x5B52)	; &C5-5B52; [59-50]
       )
-     ((=ucs@iso		  . #x228FC)	; &UU+228FC;
+     ((=ucs@iso		  . #x228FC)	; &U-000228FC;
       ))
     ))
 (define-char
@@ -15550,7 +15551,7 @@
     (->subsumptive
      ((=daikanwa	  . 11407)	; &M-11407;
       )
-     ((=ucs@iso		  . #x228FF)	; &UU+228FF;
+     ((=ucs@iso		  . #x228FF)	; &U-000228FF;
       )
      ((=cns11643-5	  . #x6168)	; &C5-6168; [65-72]
       ))
