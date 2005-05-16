@@ -3,6 +3,7 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 3455)
     (shinjigen-2	. 3455)
     (=ucs		. #x6728)	; 木
     (=jis-x0208		. #x4C5A)	; &I-J90-4C5A; [44-58]
@@ -7184,7 +7185,7 @@
        ((=cns11643-5	    . #x327E)	; &C5-327E; [18-94]
 	(=ucs@cns	    . #x2F8E4)	; &C5-327E;
 	)
-       ((=ucs@iso	    . #x2F8E4)	; &UU+2F8E4;
+       ((=ucs@iso	    . #x2F8E4)	; &U-0002F8E4;
 	))
       ))
     ))
@@ -12860,7 +12861,7 @@
       )
      ((=cns11643-6	  . #x534B)	; &C6-534B; [51-43]
       )
-     ((=ucs@iso		  . #x23587)	; &UU+23587;
+     ((=ucs@iso		  . #x23587)	; &U-00023587;
       ))
     ))
 (define-char
@@ -14249,7 +14250,7 @@
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 13)
-      (=ucs@iso		  . #x235B4)	; &UU+235B4;
+      (=ucs@iso		  . #x235B4)	; &U-000235B4;
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 13)
@@ -22913,7 +22914,7 @@
       )
      ((ideographic-strokes . 14)
       (total-strokes	   . 18)
-      (=ucs@iso		  . #x2F8ED)	; &UU+2F8ED;
+      (=ucs@iso		  . #x2F8ED)	; &U-0002F8ED;
       )
      ((ideographic-strokes . 15)
       (total-strokes	   . 19)
