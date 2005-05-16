@@ -3,6 +3,7 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 1955)
     (shinjigen-2	. 1955)
     (=ucs		. #x5C71)	; 山
     (=jis-x0208		. #x3B33)	; &I-J90-3B33; [27-19]
@@ -3622,7 +3623,7 @@
     (->subsumptive
      ((=daikanwa	  . 08174)	; &M-08174;
       )
-     ((=ucs@iso		  . #x21E1C)	; &UU+21E1C;
+     ((=ucs@iso		  . #x21E1C)	; &U-00021E1C;
       )
      ((=cns11643-4	  . #x3138)	; &C4-3138; [17-24]
       ))
@@ -7120,7 +7121,7 @@
       )
      ((=cns11643-5	  . #x454C)	; &C5-454C; [37-44]
       )
-     ((=ucs@iso		  . #x21EF0)	; &UU+21EF0;
+     ((=ucs@iso		  . #x21EF0)	; &U-00021EF0;
       ))
     ))
 (define-char
@@ -9724,7 +9725,7 @@
     (->subsumptive
      ((=daikanwa	  . 08615)	; &M-08615;
       )
-     ((=ucs@iso		  . #x21FAE)	; &UU+21FAE;
+     ((=ucs@iso		  . #x21FAE)	; &U-00021FAE;
       )
      ((=cns11643-4	  . #x6338)	; &C4-6338; [67-24]
       ))
@@ -9960,7 +9961,7 @@
     (->subsumptive
      ((=daikanwa	  . 08627)	; &M-08627;
       )
-     ((=ucs@iso		  . #x21FC6)	; &UU+21FC6;
+     ((=ucs@iso		  . #x21FC6)	; &U-00021FC6;
       )
      ((=cns11643-7	  . #x5331)	; &C7-5331; [51-17]
       ))
@@ -9973,7 +9974,7 @@
     (->subsumptive
      ((=daikanwa	  . 08628)	; &M-08628;
       )
-     ((=ucs@iso		  . #x21FC1)	; &UU+21FC1;
+     ((=ucs@iso		  . #x21FC1)	; &U-00021FC1;
       )
      ((=cns11643-7	  . #x5332)	; &C7-5332; [51-18]
       ))
