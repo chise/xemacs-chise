@@ -1,3 +1,9 @@
+2005-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Modify to use "&U-hhhhhhhh;" instead of "&UU+hhhh;" for
+	`=ucs@iso'.
+
 2005-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
