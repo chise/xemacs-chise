@@ -402,7 +402,7 @@
     (->subsumptive
      ((=daikanwa	  . 30383)	; &M-30383;
       )
-     ((=ucs@iso		  . #x26A1B)	; &UU+26A1B;
+     ((=ucs@iso		  . #x26A1B)	; &U-00026A1B;
       ))
     ))
 (define-char
@@ -2461,7 +2461,7 @@
     (<-denotational
      ((=ucs		  . #x26A8E)	; 𦪎
       ))
-    (=ucs@iso		. #x26A8E)	; &UU+26A8E;
+    (=ucs@iso		. #x26A8E)	; &U-00026A8E;
     ))
 (define-char
   '((ideographic-radical . 137)	; ⾈
@@ -2644,7 +2644,7 @@
     (->subsumptive
      ((=cns11643-5	  . #x6376)	; &C5-6376; [67-86]
       )
-     ((=ucs@iso		  . #x26A9A)	; &UU+26A9A;
+     ((=ucs@iso		  . #x26A9A)	; &U-00026A9A;
       ))
     ))
 (define-char

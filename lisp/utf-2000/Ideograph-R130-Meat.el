@@ -7170,7 +7170,7 @@
     (->subsumptive
      ((=daikanwa	  . 29639)	; &M-29639;
       )
-     ((=ucs@iso		  . #x2F984)	; &UU+2F984;
+     ((=ucs@iso		  . #x2F984)	; &U-0002F984;
       )
      ((=cns11643-5	  . #x3B50)	; &C5-3B50; [27-48]
       (=ucs@cns		  . #x2F984)	; &C5-3B50;

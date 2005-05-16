@@ -111,7 +111,7 @@
     (<-denotational
      ((=ucs		  . #x26ACD)	; 𦫍
       ))
-    (=ucs@iso		. #x26ACD)	; &UU+26ACD;
+    (=ucs@iso		. #x26ACD)	; &U-00026ACD;
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
