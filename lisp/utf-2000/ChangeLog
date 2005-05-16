@@ -1,3 +1,101 @@
+2005-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (M-39763): Separate S2-8489.
+	(J0-4653): Add S-8489.
+	(M-39764): Separate S2-8491.
+	(J0-6E44): Add S-8491.
+	(J78-3D36): Add S1-8490.
+
+	* Ideograph-R136-Oppose.el (J0-4124): Add S-6636.
+	(C1-4860): Separate S-6636.
+
+	* Ideograph-R128-Ear.el (M-28999): Separate S2-6374.
+	(J0-3C2A): Add S-6374.
+	(JSP-555B): Add S1-6375.
+	(JSP-555C): Add S1-6376.
+	(J0-433F): Add S1-6379.
+	(JSP-5561): Add S1-6378.
+	(J0-6656): Add S1-6377.
+
+2005-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (U+7F8A): Add S1-6268.
+
+	* Ideograph-R121-Jar.el (U+7F36): Add S1-6223.
+	(U-00026222): Add S1-6225.
+
+	* Ideograph-R120-Silk.el (J0-3B65): Add S1-5958.
+
+	* Ideograph-R118-Bamboo.el (U+7AF9): Add S1-5747.
+
+	* Ideograph-R117-Stand.el (J0-4E29): Add S1-5729.
+
+	* Ideograph-R116-Cave.el (J83-376A): Add S1-5678.
+	(J90-376A): Add S1-5677.
+
+	* Ideograph-R115-Grain.el (U+79BE): Add S1-5588.
+
+	* Ideograph-R113-Spirit.el (J0-3C28): Add S1-5504.
+
+	* Ideograph-R109-Eye.el (U+76EE): Add S1-5269.
+
+	* Ideograph-R108-Dish.el (U+76BF): Add S1-5230.
+
+	* Ideograph-R106-White.el (U+767D): Add S1-5196.
+
+	* Ideograph-R096-Jade.el (U+7389): Add S1-4873.
+
+	* Ideograph-R094-Dog.el (U+72AC): Add S1-4759.
+
+	* Ideograph-R093-Cow.el (U+725B): Add S1-4733.
+
+	* Ideograph-R086-Fire.el (J0-3250): Add S1-4550.
+
+	* Ideograph-R083-Clan.el (U+6C0F): Add S1-4037.
+
+	* Ideograph-R082-Fur.el (J0-4C53): Add S1-4018.
+
+	* Ideograph-R079-Weapon.el (J0-5D55): Add S1-3991.
+
+	* Ideograph-R077-Stop.el (U+6B62): Add S1-3947.
+
+	* Ideograph-R075-Tree.el (U+6728): Add S1-3455.
+
+	* Ideograph-R072-Sun.el (U+65E5): Add S1-3263.
+
+	* Ideograph-R068-Dipper.el (U+6597): Add S1-3210.
+
+	* Ideograph-R067-Script.el (K0-597E): Add S1-3204.
+	(J0-4A38): Add S1-3203.
+
+	* Ideograph-R061-Heart.el (U+5FC3): Add S1-2389.
+
+	* Ideograph-R060-Step.el (U+5F73): Add S1-2326.
+
+	* Ideograph-R050-Turban.el (J0-5664): Add S1-2091.
+
+	* Ideograph-R046-Mountain.el (U+5C71): Add S1-1955.
+
+	* Ideograph-R044-Corpse.el (U+5C38): Add S1-1918.
+
+	* Ideograph-R041-Inch.el (U+5BF8): Add S1-1878.
+
+	* Ideograph-R040-Roof.el (J0-555F): Add S1-1801.
+
+2005-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (U-0002001B): Copied from
+	Ideograph-R001-One.el.
+	(M-05861): Use `<-subsumptive' for U-0002001B.
+	(BC-87EE): Likewise; unify H1-A7B3.
+	(U+3691): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (U-0002001B): Use `->subsumptive' to
+	integrate M-05861.
+	(U-00020020): Use `ideographic-{radical|strokes}@{ucs|daikanwa}'
+	instead of `ideographic-'; add `ideographic-radical@cns*sources'.
+	(U+3402): Use `->subsumptive'.
+
 2005-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
