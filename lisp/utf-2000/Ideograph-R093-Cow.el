@@ -3,6 +3,7 @@
   '((ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 4733)
     (shinjigen-2	. 4733)
     (=ucs		. #x725B)	; 牛
     (=jis-x0208		. #x356D)	; &I-J90-356D; [21-77]
@@ -3010,7 +3011,7 @@
     (->subsumptive
      ((=daikanwa	  . 20220)	; &M-20220;
       )
-     ((=ucs@iso		  . #x2470C)	; &UU+2470C;
+     ((=ucs@iso		  . #x2470C)	; &U-0002470C;
       )
      ((=cns11643-7	  . #x583A)	; &C7-583A; [56-26]
       ))
@@ -3065,7 +3066,7 @@
     (->subsumptive
      ((=daikanwa	  . 20228)	; &M-20228;
       )
-     ((=ucs@iso		  . #x24714)	; &UU+24714;
+     ((=ucs@iso		  . #x24714)	; &U-00024714;
       )
      ((=cns11643-5	  . #x7769)	; &C5-7769; [87-73]
       ))
