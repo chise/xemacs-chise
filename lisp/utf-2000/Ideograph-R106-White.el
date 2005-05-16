@@ -3,6 +3,7 @@
   '((ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (shinjigen-1	. 5196)
     (shinjigen-2	. 5196)
     (=ucs		. #x767D)	; 白
     (=jis-x0208		. #x4772)	; &I-J90-4772; [39-82]
@@ -726,7 +727,7 @@
       )
      ((=cns11643-6	  . #x4B6A)	; &C6-4B6A; [43-74]
       )
-     ((=ucs@iso		  . #x24F70)	; &UU+24F70;
+     ((=ucs@iso		  . #x24F70)	; &U-00024F70;
       ))
     ))
 (define-char
@@ -1210,7 +1211,7 @@
       )
      ((ideographic-strokes . 12)
       (total-strokes	   . 17)
-      (=ucs@iso		  . #x24FA4)	; &UU+24FA4;
+      (=ucs@iso		  . #x24FA4)	; &U-00024FA4;
       )
      ((ideographic-strokes . 13)
       (total-strokes	   . 18)
@@ -1292,7 +1293,7 @@
       )
      ((=cns11643-7	  . #x406F)	; &C7-406F; [32-79]
       )
-     ((=ucs@iso		  . #x24FA8)	; &UU+24FA8;
+     ((=ucs@iso		  . #x24FA8)	; &U-00024FA8;
       ))
     ))
 (define-char
@@ -1340,7 +1341,7 @@
     (->subsumptive
      ((=daikanwa	  . 22798)	; &M-22798;
       )
-     ((=ucs@iso		  . #x24FAB)	; &UU+24FAB;
+     ((=ucs@iso		  . #x24FAB)	; &U-00024FAB;
       )
      ((=cns11643-5	  . #x6845)	; &C5-6845; [72-37]
       ))
