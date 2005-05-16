@@ -5,6 +5,8 @@
     (=ucs		. #x821B)	; 舛
     (->subsumptive
      ((total-strokes	   . 6)
+      (shinjigen-1	  . 6636)
+      (shinjigen-2	  . 6636)
       (=jis-x0208	  . #x4124)	; &GT-39240; [33-04]
       (=gb2312		  . #x6236)	; &I-G0-6236; [66-22]
       (=big5		  . #xA6DF)	; &I-B-A6DF;
@@ -15,8 +17,6 @@
       (=ucs@unicode	  . #x821B)	; &GT-39240;
       )
      ((total-strokes	   . 6)
-      (shinjigen-1	  . 6636)
-      (shinjigen-2	  . 6636)
       (=cns11643-1	  . #x4860)	; &C1-4860; [40-64]
       )
      ((total-strokes	   . 7)
@@ -194,7 +194,7 @@
     (total-strokes	 . 15)
     (=ucs		. #x269FE)	; 𦧾
     (->subsumptive
-     ((=ucs@iso		  . #x269FE)	; &UU+269FE;
+     ((=ucs@iso		  . #x269FE)	; &U-000269FE;
       )
      ((=cns11643-5	  . #x5026)	; &C5-5026; [48-06]
       ))
@@ -262,7 +262,7 @@
     (total-strokes	 . 23)
     (=ucs		. #x26A03)	; 𦨃
     (->subsumptive
-     ((=ucs@iso		  . #x26A03)	; &UU+26A03;
+     ((=ucs@iso		  . #x26A03)	; &U-00026A03;
       )
      ((=cns11643-7	  . #x5C4B)	; &C7-5C4B; [60-43]
       ))
