@@ -219,7 +219,7 @@
     (->subsumptive
      ((=daikanwa	  . 28854)	; &M-28854;
       )
-     ((=ucs@iso		  . #x264BA)	; &UU+264BA;
+     ((=ucs@iso		  . #x264BA)	; &U-000264BA;
       )
      ((=cns11643-4	  . #x3440)	; &C4-3440; [20-32]
       ))
@@ -370,7 +370,7 @@
       )
      ((=cns11643-7	  . #x3158)	; &C7-3158; [17-56]
       )
-     ((=ucs@iso		  . #x264C3)	; &UU+264C3;
+     ((=ucs@iso		  . #x264C3)	; &U-000264C3;
       ))
     ))
 (define-char
@@ -381,7 +381,7 @@
     (->subsumptive
      ((=daikanwa	  . 28866)	; &M-28866;
       )
-     ((=ucs@iso		  . #x264C4)	; &UU+264C4;
+     ((=ucs@iso		  . #x264C4)	; &U-000264C4;
       )
      ((=cns11643-7	  . #x3157)	; &C7-3157; [17-55]
       ))
@@ -394,7 +394,7 @@
     (->subsumptive
      ((=daikanwa	  . 28868)	; &M-28868;
       )
-     ((=ucs@iso		  . #x264C8)	; &UU+264C8;
+     ((=ucs@iso		  . #x264C8)	; &U-000264C8;
       ))
     ))
 (define-char
@@ -405,7 +405,7 @@
     (->subsumptive
      ((=daikanwa	  . 28869)	; &M-28869;
       )
-     ((=ucs@iso		  . #x264CB)	; &UU+264CB;
+     ((=ucs@iso		  . #x264CB)	; &U-000264CB;
       ))
     ))
 (define-char
@@ -418,6 +418,6 @@
       )
      ((ideographic-strokes . 20)
       (total-strokes	   . 24)
-      (=ucs@iso		  . #x264CD)	; &UU+264CD;
+      (=ucs@iso		  . #x264CD)	; &U-000264CD;
       ))
     ))
