@@ -3,6 +3,7 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 3263)
     (shinjigen-2	. 3263)
     (=ucs		. #x65E5)	; 日
     (=jis-x0208		. #x467C)	; &I-J90-467C; [38-92]
@@ -5080,7 +5081,7 @@
       )
      ((=gb12345		  . #x4931)	; &UU+6BBA; [41-17]
       ))
-    (=ucs@iso		. #x2325C)	; &UU+2325C;
+    (=ucs@iso		. #x2325C)	; &U-0002325C;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -5132,7 +5133,7 @@
     (->subsumptive
      ((=daikanwa	  . 14110)	; &M-14110;
       )
-     ((=ucs@iso		  . #x2326D)	; &UU+2326D;
+     ((=ucs@iso		  . #x2326D)	; &U-0002326D;
       )
      ((=cns11643-6	  . #x5D5A)	; &C6-5D5A; [61-58]
       ))
