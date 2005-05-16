@@ -3,6 +3,7 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (shinjigen-1	. 6268)
     (shinjigen-2	. 6268)
     (=ucs		. #x7F8A)	; 羊
     (=jis-x0208		. #x4D53)	; &I-J90-4D53; [45-51]
@@ -1536,7 +1537,7 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 12)
-      (=ucs@iso		  . #x26391)	; &UU+26391;
+      (=ucs@iso		  . #x26391)	; &U-00026391;
       ))
     ))
 (define-char
@@ -1712,7 +1713,7 @@
     (<-denotational
      ((=ucs		  . #x2639E)	; 𦎞
       ))
-    (=ucs@iso		. #x2639E)	; &UU+2639E;
+    (=ucs@iso		. #x2639E)	; &U-0002639E;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
