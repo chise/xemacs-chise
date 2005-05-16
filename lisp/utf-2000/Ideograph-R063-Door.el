@@ -191,7 +191,7 @@
     (->subsumptive
      ((=daikanwa	  . 11709)	; &M-11709;
       )
-     ((=ucs@iso		  . #x22A2E)	; &UU+22A2E;
+     ((=ucs@iso		  . #x22A2E)	; &U-00022A2E;
       ))
     ))
 (define-char
@@ -347,7 +347,7 @@
     (->subsumptive
      ((=daikanwa	  . 11719)	; &M-11719;
       )
-     ((=ucs@iso		  . #x22A31)	; &UU+22A31;
+     ((=ucs@iso		  . #x22A31)	; &U-00022A31;
       ))
     ))
 (define-char
@@ -358,7 +358,7 @@
     (->subsumptive
      ((=daikanwa	  . 11720)	; &M-11720;
       )
-     ((=ucs@iso		  . #x22A33)	; &UU+22A33;
+     ((=ucs@iso		  . #x22A33)	; &U-00022A33;
       ))
     ))
 (define-char
@@ -393,7 +393,7 @@
     (->subsumptive
      ((=daikanwa	  . 11722)	; &M-11722;
       )
-     ((=ucs@iso		  . #x22A36)	; &UU+22A36;
+     ((=ucs@iso		  . #x22A36)	; &U-00022A36;
       ))
     ))
 (define-char
@@ -582,7 +582,7 @@
     (->subsumptive
      ((=daikanwa	  . 11736)	; &M-11736;
       )
-     ((=ucs@iso		  . #x22A3F)	; &UU+22A3F;
+     ((=ucs@iso		  . #x22A3F)	; &U-00022A3F;
       ))
     ))
 (define-char
