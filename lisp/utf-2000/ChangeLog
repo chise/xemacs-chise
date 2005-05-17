@@ -1,5 +1,20 @@
 2005-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R169-Gate.el (U+9580): Use `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (U+84EB): Use `->denotational'.
+	(U+84EC): Unify B-BDB4.
+	(J78-4B29): Separate B-BDB4.
+	(U+84ED): Use `->denotational'.
+	(U+84EE): Unify B-BDAC.
+	(J78-4F21): Separate B-BDAC.
+	(J90-4F21): Unify JC3-63A3.
+
+	* Ideograph-R070-Square.el (U+65B9): Use `->subsumptive'.
+	(U+3AC3): Likewise.
+
+2005-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R119-Rice.el (U+7C73): Separate S-5898.
 	(J0-4A46): Add S-5898.
 
@@ -8,6 +23,8 @@
 	* Ideograph-R035-Go-Slowly.el (U+590A): Use `->subsumptive'.
 	(GT-K00218): Use `<-denotational' for J0-546A; add
 	`<-ideographic-component-forms' for J0-546A.
+
+	* Ideograph-R005-Second.el (JSP-555B): Add S1-6375.
 
 	* Ideograph-R164-Wine.el (M-39763): Separate S2-8489.
 	(J0-4653): Add S-8489.
