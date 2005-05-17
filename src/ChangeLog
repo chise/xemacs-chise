@@ -1,3 +1,8 @@
+2005-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.22
+	(Kizu).
+
 2005-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Qccs_priority_list): New variable in XEmacs
