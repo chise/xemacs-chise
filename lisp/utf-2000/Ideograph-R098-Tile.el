@@ -1,27 +1,26 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x74E6)	; 瓦
-    (ideographic-radical . 98)	; ⽡
+  '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (shinjigen-2	. 4979)
-    (=jis-x0208		. #x3424)	; &GT-27544; [20-04]
-    (=ks-x1001		. #x683F)	; &I-K0-683F; [72-31]
-    (=cns11643-1	. #x466B)	; &I-C1-466B; [38-75]
-    (=big5		. #xA5CB)	; &I-B-A5CB;
-    (=gt		. 27544)	; &I-GT-27544;
-    (=gt-k		. 00906)	; &I-GT-K00906;
-    (=gt-pj-1		. #x3424)	; &I-GT-27544; [20-04]
-    (=daikanwa		. 21438)	; &I-M-21438;
-    (=ucs@jis		. #x74E6)	; &GT-27544;
-    ))
-(define-char
-  '((morohashi-daikanwa	21438 0 0)
-    (ideographic-radical . 98)	; ⽡
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
     (=ucs		. #x74E6)	; 瓦
-    (=gb2312		. #x4D5F)	; &I-G0-4D5F; [45-63]
+    (->subsumptive
+     ((total-strokes	   . 5)
+      (shinjigen-1	  . 4979)
+      (shinjigen-2	  . 4979)
+      (=jis-x0208	  . #x3424)	; &GT-27544; [20-04]
+      (=ks-x1001	  . #x683F)	; &I-K0-683F; [72-31]
+      (=cns11643-1	  . #x466B)	; &I-C1-466B; [38-75]
+      (=big5		  . #xA5CB)	; &I-B-A5CB;
+      (=gt		  . 27544)	; &I-GT-27544;
+      (=gt-k		  . 00906)	; &I-GT-K00906;
+      (=gt-pj-1		  . #x3424)	; &I-GT-27544; [20-04]
+      (=daikanwa	  . 21438)	; &I-M-21438;
+      (=ucs@jis		  . #x74E6)	; &GT-27544;
+      )
+     ((total-strokes	   . 4)
+      (=gb2312		  . #x4D5F)	; &G0-4D5F; [45-63]
+      (=ucs@unicode	  . #x74E6)	; &G0-4D5F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
@@ -1305,7 +1304,7 @@
     (->subsumptive
      ((=daikanwa	  . 21563)	; &M-21563;
       )
-     ((=ucs@iso		  . #x24B79)	; &UU+24B79;
+     ((=ucs@iso		  . #x24B79)	; &U-00024B79;
       )
      ((=cns11643-4	  . #x4B28)	; &C4-4B28; [43-08]
       ))
@@ -2020,7 +2019,7 @@
     (->subsumptive
      ((=daikanwa	  . 21618)	; &M-21618;
       )
-     ((=ucs@iso		  . #x24B9D)	; &UU+24B9D;
+     ((=ucs@iso		  . #x24B9D)	; &U-00024B9D;
       )
      ((=cns11643-7	  . #x4065)	; &C7-4065; [32-69]
       ))
