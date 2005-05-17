@@ -22,16 +22,8 @@
   '((<-denotational
      ((=ucs		  . #x5F50)	; 彐
       ))
-    (=gb2312		. #x6566)	; &GT-K00266; [69-70]
-    (=gt-k		. 00266)	; &I-GT-K00266;
-    (=gt-pj-k1		. #x3663)	; &GT-K00266; [22-67]
-    (=ucs@unicode	. #x5F50)	; &GT-K00266;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5F50)	; 彐
-      ))
-    (=big5-cdp		. #x897C)	; &CDP-897C;
+    (=gb2312		. #x6566)	; &G0-6566; [69-70]
+    (=ucs@unicode	. #x5F50)	; &G0-6566;
     ))
 (define-char
   '((<-denotational
@@ -47,6 +39,28 @@
       ))
     (=gt-k		. 00267)	; &GT-K00267;
     (=gt-pj-k1		. #x3974)	; &GT-K00267; [25-84]
+    ))
+(define-char
+  '((name		. "CJK RADICAL SNOUT TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (<-radical
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (=ucs		. #x2E95)	; ⺕
+    (=gt-k		. 00266)	; &I-GT-K00266;
+    (=gt-pj-k1		. #x3663)	; ⺕ [22-67]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (=big5-cdp		. #x897C)	; &CDP-897C;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
