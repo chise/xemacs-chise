@@ -1,31 +1,35 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x590A)	; 夊
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (shinjigen-2	. 1538)
-    (=jis-x0208		. #x546A)	; &GT-07225; [52-74]
-    (=gt		. 07225)	; &I-GT-07225;
-    (=gt-pj-1		. #x546A)	; &I-GT-07225; [52-74]
-    (=daikanwa		. 05708)	; &I-M-05708;
-    (=ucs@jis		. #x590A)	; &GT-07225;
-    ))
-(define-char
-  '((morohashi-daikanwa	5708 0 0)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x590A)	; 夊
-    (=cns11643-3	. #x213A)	; &I-C3-213A; [01-26]
-    (=big5-cdp		. #x8A71)	; &I-CDP-8A71;
+    (->subsumptive
+     ((shinjigen-1	  . 1538)
+      (shinjigen-2	  . 1538)
+      (=jis-x0208	  . #x546A)	; &GT-07225; [52-74]
+      (=gt		  . 07225)	; &I-GT-07225;
+      (=gt-pj-1		  . #x546A)	; &I-GT-07225; [52-74]
+      (=daikanwa	  . 05708)	; &I-M-05708;
+      (=ucs@jis		  . #x590A)	; &GT-07225;
+      )
+     ((=cns11643-3	  . #x213A)	; &CDP-8A71; [01-26]
+      (=big5-cdp	  . #x8A71)	; &I-CDP-8A71;
+      (=ucs@unicode	  . #x590A)	; &CDP-8A71;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x590A)	; 夊
-    (morohashi-daikanwa	5708 0 1)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-denotational
+     ((=jis-x0208	  . #x546A)	; &GT-07225; [52-74]
+      (=daikanwa	  . 05708)	; &I-M-05708;
+      ))
+    (<-ideographic-component-forms
+     ((=jis-x0208	  . #x546A)	; &GT-07225; [52-74]
+      (=daikanwa	  . 05708)	; &I-M-05708;
+      ))
     (=gt-k		. 00218)	; &GT-K00218;
     (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
     ))
@@ -357,7 +361,7 @@
       )
      ((=cns11643-6	  . #x3E3B)	; &C6-3E3B; [30-27]
       )
-     ((=ucs@iso		  . #x2156B)	; &UU+2156B;
+     ((=ucs@iso		  . #x2156B)	; &U-0002156B;
       ))
     ))
 (define-char
@@ -370,7 +374,7 @@
       )
      ((=cns11643-6	  . #x3E3C)	; &C6-3E3C; [30-28]
       )
-     ((=ucs@iso		  . #x21569)	; &UU+21569;
+     ((=ucs@iso		  . #x21569)	; &U-00021569;
       ))
     ))
 (define-char
