@@ -1,5 +1,14 @@
 2005-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R119-Rice.el (U+7C73): Separate S-5898.
+	(J0-4A46): Add S-5898.
+
+	* Ideograph-R098-Tile.el (U+74E6): Use `->subsumptive'.
+
+	* Ideograph-R035-Go-Slowly.el (U+590A): Use `->subsumptive'.
+	(GT-K00218): Use `<-denotational' for J0-546A; add
+	`<-ideographic-component-forms' for J0-546A.
+
 	* Ideograph-R164-Wine.el (M-39763): Separate S2-8489.
 	(J0-4653): Add S-8489.
 	(M-39764): Separate S2-8491.
