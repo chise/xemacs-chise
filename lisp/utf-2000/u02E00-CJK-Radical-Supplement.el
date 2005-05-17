@@ -275,10 +275,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x5F50)	; 彐
+      ))
     (<-radical
      ((=ucs		  . #x5F50)	; 彐
       ))
     (=ucs		. #x2E95)	; ⺕
+    (=gt-k		. 00266)	; &I-GT-K00266;
+    (=gt-pj-k1		. #x3663)	; ⺕ [22-67]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (=big5-cdp		. #x897C)	; &CDP-897C;
     ))
 (define-char
   '((name		. "CJK RADICAL HEART ONE")
