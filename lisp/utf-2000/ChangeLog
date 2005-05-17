@@ -1,3 +1,19 @@
+2005-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R204-Embroidery.el (U+9EF9): Use `->denotational' and
+	`->subsumptive'.
+	(U+9EFA): Likewise.
+	(U+9EFB): Likewise.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SNOUT TWO>): Add
+	`<-denotational' for U+5F50; unify GT-K00266.
+	(BC-897C): Copied from Ideograph-R058-Snout.el.
+
+	* Ideograph-R058-Snout.el (G0-6566): Separate GT-K00266.
+	(<CJK RADICAL SNOUT TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el; unify GT-K00266.
+	(BC-897C): Map to <CJK RADICAL SNOUT TWO> instead of U+5F50.
+
 2005-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R169-Gate.el (U+9580): Use `->subsumptive'.
