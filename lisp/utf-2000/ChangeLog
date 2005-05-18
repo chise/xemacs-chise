@@ -1,4 +1,27 @@
+2005-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (J0-4F37): Add S1-6340.
+	(U+8002): Unify BC-8B52.
+	(J78-394D): Separate S2-6339.
+	(J90-394D): Add S-6339.
+
 2005-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (G0-3B23): Use UU+864E instead of U+864E
+	in `ideographic-structure'.
+
+2005-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (U+5928): Use `->subsumptive'.
+	(M-05847): Add `<-subsumptive' for U-000215DA.
+	(U-000215DA): Use `->subsumptive' to integrate M-05847.
+	(U+5934): Use `->subsumptive'.
+	(U+3690): Likewise.
+	(M-05861): Add `ideographic-structure'.
+	(U+5948): Use `->subsumptive'.
+	(U+5949): Likewise.
+
+	* Ideograph-R001-One.el (M-05861): Add `ideographic-structure'.
 
 	* Ideograph-R204-Embroidery.el (U+9EF9): Use `->denotational' and
 	`->subsumptive'.
