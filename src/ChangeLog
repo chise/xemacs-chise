@@ -334,7 +334,7 @@
 	characters in value of `ideographic-structure'.
 	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
 	for `{<-|->}simplified(@...)'.
-	(Fdefine_char): bTry to use predefined character's id.
+	(Fdefine_char): Try to use predefined character's id.
 
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
