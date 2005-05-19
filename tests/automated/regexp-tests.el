@@ -152,6 +152,89 @@
   (Assert (string-match "^\\(Ä\\)\\1$" "ÄÄ"))
   (Assert (not (string-match "^\\(Ä\\)\\1$" "Ää"))))
 
+;; multiple-match
+;; Thanks to Manfred Bartz <MBartz@xix.com>
+;; c.e.x <vn4rkkm7ouf3b5@corp.supernews.com>
+;; #### Need to do repetitions of more complex regexps
+;; #### WASH ME!
+(with-temp-buffer
+  (Assert (not (string-match "^a\\{4,4\\}$" "aaa")))
+  (Assert      (string-match "^a\\{4,4\\}$" "aaaa"))
+  (Assert (not (string-match "^a\\{4,4\\}$" "aaaaa")))
+  (Assert (not (string-match "^[a]\\{4,4\\}$" "aaa")))
+  (Assert      (string-match "^[a]\\{4,4\\}$" "aaaa"))
+  (Assert (not (string-match "^[a]\\{4,4\\}$" "aaaaa")))
+  (Assert (not (string-match "^\\(a\\)\\{4,4\\}$" "aaa")))
+  (Assert      (string-match "^\\(a\\)\\{4,4\\}$" "aaaa"))
+  (Assert (not (string-match "^\\(a\\)\\{4,4\\}$" "aaaaa")))
+  ;; Use class because repetition of single char broken in 21.5.15
+  (Assert (not (string-match "^[a]\\{3,5\\}$" "aa")))
+  (Assert      (string-match "^[a]\\{3,5\\}$" "aaa"))
+  (Assert      (string-match "^[a]\\{3,5\\}$" "aaaa"))
+  (Assert      (string-match "^[a]\\{3,5\\}$" "aaaaa"))
+  (Assert (not (string-match "^[a]\\{3,5\\}$" "aaaaaa")))
+  (insert "\
+aa
+aaa
+aaaa
+aaaaa
+aaaaaa
+baaaa
+")
+  (goto-char (point-min))
+  (forward-line 1)
+  (Assert (not (looking-at "^a\\{4,4\\}$")))
+  (forward-line 1)
+  (Assert      (looking-at "^a\\{4,4\\}$"))
+  (forward-line 1)
+  (Assert (not (looking-at "^a\\{4,4\\}$")))
+  (goto-char (point-min))
+  (forward-line 1)
+  (Assert (not (looking-at "^[a]\\{4,4\\}$")))
+  (forward-line 1)
+  (Assert      (looking-at "^[a]\\{4,4\\}$"))
+  (forward-line 1)
+  (Assert (not (looking-at "^[a]\\{4,4\\}$")))
+  (goto-char (point-min))
+  (forward-line 1)
+  (Assert (not (looking-at "^\\(a\\)\\{4,4\\}$")))
+  (forward-line 1)
+  (Assert      (looking-at "^\\(a\\)\\{4,4\\}$"))
+  (forward-line 1)
+  (Assert (not (looking-at "^\\(a\\)\\{4,4\\}$")))
+  ;; Use class because repetition of single char broken in 21.5.15
+  (goto-char (point-min))
+  (Assert (not (looking-at "^[a]\\{3,5\\}$")))
+  (forward-line 1)
+  (Assert      (looking-at "^[a]\\{3,5\\}$"))
+  (forward-line 1)
+  (Assert      (looking-at "^[a]\\{3,5\\}$"))
+  (forward-line 1)
+  (Assert      (looking-at "^[a]\\{3,5\\}$"))
+  (forward-line 1)
+  (Assert (not (looking-at "^[a]\\{3,5\\}$")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "a\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "b?a\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 31 (re-search-forward "ba\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 31 (re-search-forward "[b]a\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 31 (re-search-forward "\\(b\\)a\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "^a\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "^a\\{4,4\\}$")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "[a]\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "^[a]\\{4,4\\}")))
+  (goto-char (point-min))
+  (Assert (= 12 (re-search-forward "^[a]\\{4,4\\}$")))
+  )
+
 ;; charset, charset_not
 ;; Not called because it takes too much time.
 (defun test-regexp-charset-paranoid ()

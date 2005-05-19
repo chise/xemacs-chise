@@ -97,6 +97,9 @@ Portable Emacs Lisp utilities library.
 *** emerge
 Another interface over GNU patch.
 
+*** erc
+ERC is an Emacs InternetRelayChat client.
+
 *** eshell
 Command shell implemented entirely in Emacs Lisp.
 
@@ -161,7 +164,8 @@ Spell-checking with GNU ispell.
 Integrated Development Environment for Java.
 
 *** liece
-IRC (Internet Relay Chat) client for Emacs.
+IRC (Internet Relay Chat) client for Emacs.  Note, this package is
+deprecated and will be removed, use riece instead.
 
 *** mail-lib
 Fundamental lisp files for providing email support.
@@ -173,7 +177,7 @@ Support for messaging encryption with PGP.
 Messaging in an Emacs World.
 
 *** mh-e
-Front end support for MH.
+The XEmacs Interface to the MH Mail System.
 
 *** mine
 Minehunt Game.
@@ -229,6 +233,9 @@ Python support.
 
 *** reftex
 Emacs support for LaTeX cross-references, citations.
+
+*** riece
+IRC (Internet Relay Chat) client for Emacs.
 
 *** rmail
 An obsolete Emacs mailer.  If you do not already use it don't start.

@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "INTERLINEAR ANNOTATION ANCHOR")
     (general-category	other format) ; Normative Category

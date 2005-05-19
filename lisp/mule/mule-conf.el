@@ -25,9 +25,11 @@
 
 ;;; Code:
 
-(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208-1978)
+(define-charset-alias '=jis-x0208-1978		'=jis-x0208@1978)
+(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208@1978)
 (define-charset-alias 'chinese-gb2312		'=gb2312)
-(define-charset-alias 'japanese-jisx0208	'=jis-x0208-1983)
+(define-charset-alias '=jis-x0208-1983		'=jis-x0208@1983)
+(define-charset-alias 'japanese-jisx0208	'=jis-x0208@1983)
 (define-charset-alias 'korean-ksc5601		'=ks-x1001)
 (define-charset-alias 'japanese-jisx0212	'=jis-x0212)
 (define-charset-alias 'chinese-cns11643-1	'=cns11643-1)
@@ -135,7 +137,7 @@
 		registry "jisx0213\\(\\.2000\\)-1"
 		dimension 2
 		chars 94
-		mother =jis-x0208-1990
+		mother =jis-x0208@1990
 		final ?O
 		graphic 0))
       (make-charset
@@ -170,11 +172,21 @@
 
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
-  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
+  (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
+  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
+  (make-charset
+   '=jis-x0208@1997
+   "JIS X 0208 based on the unification rule of 1997 edition."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      ;; final ?B
+	      graphic 0))
 
   (make-charset '=big5-cdp
-		"Big5-CDP"
-		`(long-name	"Big5 with CDP extension"
+		"Big5 with CDP extension"
+		'(long-name	"Big5-CDP"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -187,8 +199,8 @@
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
 
   (make-charset '=gt
-		"GT"
-		`(long-name	"GT 2000"
+		"GT 2000"
+		`(long-name	"GT"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -200,8 +212,8 @@
 		  code-offset	,(lsh #x6100 16)))
   (define-charset-alias 'ideograph-gt '=gt)
   (make-charset '=gt-k
-		"GT parts"
-		`(long-name	"Ideographic parts of GT"
+		"Ideographic components of GT"
+		`(long-name	"GT components"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -216,8 +228,8 @@
     (while (<= i 11)
       (make-charset
        (intern (format "=gt-pj-%d" i))
-       (format "GT PJ %d" i)
-       `(long-name ,(format "GT 2000 (pseudo JIS encoding) part %d" i)
+       (format "GT 2000 (pseudo JIS encoding) part %d" i)
+       `(long-name ,(format "GT PJ %d" i)
 		   chars 94
 		   dimension 2
 		   columns 2
@@ -230,8 +242,8 @@
       (setq i (1+ i))))
   (make-charset
    '=gt-pj-k1
-   "GT K1"
-   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 1"
+   "Ideographic parts of GT (pseudo JIS encoding) part 1"
+   '(long-name "GT K1"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -241,8 +253,8 @@
   (define-charset-alias 'ideograph-gt-pj-k1 '=gt-pj-k1)
   (make-charset
    '=gt-pj-k2
-   "GT K2"
-   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 2"
+   "Ideographic parts of GT (pseudo JIS encoding) part 2"
+   '(long-name "GT K2"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -252,8 +264,8 @@
   (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
 
   (make-charset '=daikanwa
-		"Daikanwa"
-		`(long-name	"Daikanwa dictionary (revised version 2)"
+		"Daikanwa dictionary (revised version 2)"
+		`(long-name	"Daikanwa"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -265,33 +277,41 @@
 		  code-offset	#xE00000))
   (define-charset-alias 'ideograph-daikanwa '=daikanwa)
 
-  (make-charset '=daikanwa-rev1
-		"Daikanwa Rev."
-		`(long-name	"Daikanwa dictionary (revised version)"
+  (make-charset '=daikanwa@rev1
+		"Daikanwa dictionary (revised version)"
+		`(long-name	"Daikanwa Rev."
 		  chars		256
 		  dimension	2
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"))
-  (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa-rev1)
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"
+		  mother	=daikanwa
+                  ))
+  (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa@rev1)
+  (define-charset-alias '=daikanwa-rev1 '=daikanwa@rev1)
 
-  (make-charset '=daikanwa-rev2
-		"Daikanwa"
-		`(long-name	"Daikanwa dictionary (revised version 2)"
+  (make-charset '=daikanwa@rev2
+		"Daikanwa dictionary (revised version 2)"
+		`(long-name	"Daikanwa"
 		  chars		256
 		  dimension	2
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
-		  min-code	#xE00000
-		  max-code	,(+ #xE00000 50100)
-		  code-offset	#xE00000))
+		  mother	=daikanwa
+		  min-code	1
+                  max-code	49964
+                  ;; min-code	#xE00000
+                  ;; max-code	,(+ #xE00000 50100)
+                  ;; code-offset	#xE00000
+		  ))
+  (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
   (make-charset '=big5-pua
-		"Big5-PUA"
-		`(long-name	"Big5 with private used area"
+		"Big5 with private used area"
+		'(long-name	"Big5-PUA"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -301,8 +321,8 @@
 		  registry	"Big5\\.ETEN"))
   (define-charset-alias 'chinese-big5-pua '=big5-pua)
   (make-charset '=big5-eten
-		"Big5-ETEN"
-		`(long-name	"Big5 ETEN"
+		"Big5 ETEN"
+		'(long-name	"Big5-ETEN"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -314,8 +334,8 @@
 		  registry	"Big5\\.ETEN"))
   (define-charset-alias 'chinese-big5-eten '=big5-eten)
   (make-charset 'chinese-big5-eten-a
-		"Big5-ETEN-a"
-		`(long-name	"Big5 ETEN (#xF9D6 .. #xF9FE)"
+		"Big5 ETEN (#xF9D6 .. #xF9FE)"
+		'(long-name	"Big5-ETEN-a"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -326,8 +346,8 @@
 		  max-code	#xF9FE
 		  registry	"Big5\\.ETEN"))
   (make-charset 'chinese-big5-eten-b
-		"Big5-ETEN-b"
-		`(long-name	"Big5 ETEN (#xC6A1 .. #xC8FE)"
+		"Big5 ETEN (#xC6A1 .. #xC8FE)"
+		'(long-name	"Big5-ETEN-b"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -344,8 +364,8 @@
     (while (<= i 12)
       (make-charset
        (intern (format "=hanziku-%d" i))
-       (format "HANZIKU-%d" i)
-       `(long-name ,(format "HANZIKU (pseudo BIG5 encoding) part %d" i)
+       (format "HANZIKU (pseudo BIG5 encoding) part %d" i)
+       `(long-name ,(format "HANZIKU-%d" i)
 		   chars 256
 		   dimension 2
 		   columns 2
@@ -362,8 +382,8 @@
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))
 
-  (make-charset '=cbeta "CBETA PUA"
-		'(long-name	"CBETA private characters"
+  (make-charset '=cbeta "CBETA private characters"
+		'(long-name	"CBETA PUA"
 		  chars		256
 		  dimension	2
 		  registry	"cbeta-0"
@@ -376,8 +396,8 @@
   (define-charset-alias 'ideograph-cbeta '=cbeta)
 
   (make-charset '=jef-china3
-		"JEF + CHINA3"
-		`(long-name	"JEF + CHINA3 private characters"
+		"JEF + CHINA3 private characters"
+		'(long-name	"JEF + CHINA3"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -390,8 +410,8 @@
   (define-charset-alias 'china3-jef '=jef-china3)
 
   (make-charset '=ruimoku-v6
-		"RUI6"
-		`(long-name	"private characters used in RUIMOKU"
+		"private characters used in RUIMOKU Version.6"
+		`(long-name	"RUI6"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -404,8 +424,8 @@
 		  code-offset	,(- #xE90000 #xE000)))
 
   (make-charset '=ucs@iso
-		"UCS for ISO"
-		`(long-name	"ISO/IEC 10646 for its representative glyphs"
+		"ISO/IEC 10646 for its representative glyphs"
+		'(long-name	"UCS for ISO"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -413,8 +433,8 @@
 		  direction	l2r
 		  mother	=ucs))
   (make-charset '=ucs@unicode
-		"UCS for Unicode"
-		`(long-name	"Unicode for its representative glyphs"
+		"Unicode for its representative glyphs"
+		'(long-name	"UCS for Unicode"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -422,8 +442,8 @@
 		  direction	l2r
 		  mother	=ucs@iso))
   (make-charset '=ucs@gb
-		"UCS for GB"
-		`(long-name	"ISO/IEC 10646 for GB"
+		"ISO/IEC 10646 for GB"
+		'(long-name	"UCS for GB"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -431,9 +451,18 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-gb '=ucs@gb)
+  (make-charset '=ucs@gb/fw
+		"ISO/IEC 10646 for GB with fullwidth"
+		'(long-name	"UCS for GB-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@gb))
   (make-charset '=ucs@cns
-		"UCS for CNS"
-		`(long-name	"ISO/IEC 10646 for CNS 11643"
+		"ISO/IEC 10646 for CNS 11643"
+		'(long-name	"UCS for CNS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -441,9 +470,18 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
+  (make-charset '=ucs@cns/fw
+		"ISO/IEC 10646 for CNS 11643 with fullwidth"
+		'(long-name	"UCS for CNS-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns))
   (make-charset '=ucs@jis
-		"UCS for JIS"
-		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
+		"ISO/IEC 10646 for JIS X0208/0212/0213"
+		'(long-name	"UCS for JIS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -451,38 +489,50 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
-  (make-charset '=ucs@jis-1990
-		"UCS for JIS:1990"
-		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
+  (make-charset '=ucs@jis/fw
+		"ISO/IEC 10646 for JIS X0208/0212/0213 with fullwidth"
+		'(long-name	"UCS for JIS-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis))
+  (make-charset '=ucs@jis/1990
+		"ISO/IEC 10646 for JIS X 0208/0212:1990"
+		'(long-name	"UCS for JIS:1990"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
-  (make-charset '=ucs@jis-2000
-		"UCS for JIS:2000"
-		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
+  (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
+  (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
+  (make-charset '=ucs@jis/2000
+		"ISO/IEC 10646 for JIS X 0213:2000"
+		'(long-name	"UCS for JIS:2000"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
-  (make-charset '=ucs@jp
-		"UCS for Japan"
-		`(long-name	"UCS for common glyphs used in Japan"
+  (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
+  (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
+  (make-charset '=ucs@JP
+		"UCS for common glyphs used in Japan"
+		'(long-name	"UCS for Japan"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@jis-2000))
+		  mother	=ucs@jis/2000))
+  (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
-		"UCS for KS"
-		`(long-name	"ISO/IEC 10646 for Korean Standards"
+		"ISO/IEC 10646 for Korean Standards"
+		'(long-name	"UCS for KS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -491,8 +541,8 @@
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs@big5
-		"UCS for Big5"
-		`(long-name	"ISO/IEC 10646 for Big5"
+		"ISO/IEC 10646 for Big5"
+		'(long-name	"UCS for Big5"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -500,35 +550,65 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
-
+  (make-charset '=ucs@big5/cns11643
+		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
+		'(long-name	"UCS for Big5@CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@big5))
+  (make-charset '=ucs@cns11643
+		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
+		'(long-name	"UCS for CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns))
+  
   (make-charset
    '=ucs-radicals
-   "UCS-Radicals"
-   `(long-name "CJK Radicals of UCS"
+   "CJK Radicals of UCS"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother ucs-bmp
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
    '=ucs-radicals@unicode
-   "UCS-Radicals"
-   `(long-name "CJK Radicals of UCS"
+   "CJK Radicals of UCS"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother =ucs@unicode
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
+   '=ucs-hangul
+   "Hangul Syllables of UCS"
+   '(long-name "UCS-Hangul-Syllables"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-Hangul-.*-ucs-0"
+	       mother =ucs
+	       min-code #xAC00 max-code #xD7AF))
+  (make-charset
    '=ucs-bmp-cjk
-   "UCS-BMP-CJK"
-   `(long-name "CJK Characters in BMP of UCS"
+   "CJK Characters in BMP of UCS"
+   '(long-name "UCS-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -539,8 +619,8 @@
 	       min-code #x2E00 max-code #xA4CF))
   (make-charset
    '=ucs-bmp-cjk@unicode
-   "Unicode-BMP-CJK"
-   `(long-name "CJK Characters in BMP of Unicode"
+   "CJK Characters in BMP of Unicode"
+   '(long-name "Unicode-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -551,8 +631,8 @@
 	       min-code #x2E00 max-code #xA4CF))
   (make-charset
    '=ucs-sip-ext-b
-   "UCS CJK Ext-B"
-   `(long-name "CJK Ideographs Extension B"
+   "CJK Ideographs Extension B"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -564,8 +644,8 @@
 	       code-offset #x20000))
   (make-charset
    '=ucs-sip-ext-b@iso
-   "UCS CJK Ext-B"
-   `(long-name "CJK Ideographs Extension B (ISO/IEC 10646-2)"
+   "CJK Ideographs Extension B (ISO/IEC 10646-2)"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2
