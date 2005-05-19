@@ -7144,7 +7144,7 @@
 	argument `required-features'.
 	(insert-char-attributes): For each character in relation features
 	[->FOO or <-FOO] and `ideographic-structure', specify
-	required-features pf `char-db-insert-char-spec' based on *sources.
+	required-features of `char-db-insert-char-spec' based on *sources.
 
 	* Ideograph-R057-Bow.el, Ideograph-R056-Shoot.el,
 	Ideograph-R055-Two-Hands.el, Ideograph-R049-Oneself.el,
