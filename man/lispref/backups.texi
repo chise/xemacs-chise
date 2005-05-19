@@ -579,7 +579,7 @@ name.
   If you have made extensive changes to a file and then change your mind
 about them, you can get rid of them by reading in the previous version
 of the file with the @code{revert-buffer} command.  @xref{Reverting, ,
-Reverting a Buffer, xemacs, The XEmacs Lisp Reference Manual}.
+Reverting a Buffer, xemacs, The XEmacs User's Manual}.
 
 @deffn Command revert-buffer &optional check-auto-save noconfirm preserve-modes
 This command replaces the buffer text with the text of the visited

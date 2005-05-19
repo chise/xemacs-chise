@@ -11,7 +11,7 @@
 #endif
 
 /* Fix understandable GCC lossage on Solaris 2.6 */
-#if defined(__GNUC__) && OS_RELEASE >= 56 && !defined(NOT_C_CODE)
+#if defined(__GNUC__) && OS_RELEASE >= 506 && !defined(NOT_C_CODE)
 
 /* GCC va_list munging is a little messed up */
 #define __GNUC_VA_LIST
@@ -66,7 +66,7 @@ extern int     __xnet_getsockopt (int, int, int, void *, size_t *);
  */
 
 #undef UNEXEC
-#if OS_RELEASE < 56
+#if OS_RELEASE < 506
 #define UNEXEC "unexsol2.o"
 #else
 #define UNEXEC "unexsol2-6.o"
@@ -74,7 +74,7 @@ extern int     __xnet_getsockopt (int, int, int, void *, size_t *);
 
 #else /* C_CODE */
 
-#if OS_RELEASE <= 53
+#if OS_RELEASE <= 503
 /* Solaris 2.3 has a bug in XListFontsWithInfo.  */
 #define BROKEN_XLISTFONTSWITHINFO
 #endif
@@ -91,7 +91,7 @@ extern int     __xnet_getsockopt (int, int, int, void *, size_t *);
 #define BROKEN_SIGCHLD
 #endif
 
-#if OS_RELEASE < 55
+#if OS_RELEASE < 505
 
 #if __STDC__ == 1 && defined(__SUNPRO_C)
 #define _POSIX_C_SOURCE 1
@@ -103,7 +103,7 @@ extern int     __xnet_getsockopt (int, int, int, void *, size_t *);
 extern void *__builtin_alloca (size_t);
 #endif /* before SunOS 5.5 */
 
-#if OS_RELEASE == 55
+#if OS_RELEASE == 505
 /* The following functions were added in Solaris 2.5,
    but they forgot to add prototypes to the system header files. */
 int getpagesize (void);
@@ -113,13 +113,13 @@ int usleep (unsigned int useconds);
 #endif /* SunOS 5.5 */
 
 /* 2.5 now has `random' back in libc but we don't want to use it. */
-#if OS_RELEASE >= 55
+#if OS_RELEASE >= 505
 #undef HAVE_RANDOM
 /* Apparently not necessary here, and it causes 10% CPU chewage. */
 #undef BROKEN_SIGCHLD
 #endif /* >= SunOS 5.5 */
 
-#if OS_RELEASE < 56
+#if OS_RELEASE < 506
 /* Missing prototypes, added in Solaris 2.6 */
 struct timeval;
 int utimes (char *file, struct timeval *tvp);

@@ -2106,7 +2106,7 @@ run both variants.
 Starting with XEmacs 21, XEmacs uses the class @samp{XEmacs} if it finds
 any XEmacs resources in the resource database when the X connection is
 initialized.  Otherwise, it will use the class @samp{Emacs} for
-backwards compatibility.  The variable @var{x-emacs-application-class}
+backwards compatibility.  The variable @code{x-emacs-application-class}
 may be consulted to determine the application class being used.
 
 The examples in this section assume the application class is @samp{Emacs}.
