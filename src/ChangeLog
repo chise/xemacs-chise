@@ -1,3 +1,24 @@
+2005-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.22
+	(Kizu).
+
+2005-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qccs_priority_list): New variable in XEmacs
+	CHISE.
+	(Fmake_coding_system): Support new property `ccs-priority-list' in
+	XEmacs CHISE.
+	(Fcoding_system_property): Likewise.
+	(char_encode_iso2022): Prefer CODING_SYSTEM_CCS_PRIORITY_LIST than
+	Vdefault_coded_charset_priority_list in XEmacs CHISE.
+	(syms_of_file_coding): Add builtin symbol `ccs-priority-list' in
+	XEmacs CHISE.
+	(complex_vars_of_file_coding): Define new coding-system-property
+	`ccs-priority-list' in XEmacs CHISE.
+
+	* file-coding.h (XCODING_SYSTEM_CCS_PRIORITY_LIST): New macro.
+
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (decoding_table_put_char): Moved to mule-charset.c;
@@ -313,7 +334,7 @@
 	characters in value of `ideographic-structure'.
 	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
 	for `{<-|->}simplified(@...)'.
-	(Fdefine_char): bTry to use predefined character's id.
+	(Fdefine_char): Try to use predefined character's id.
 
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 

@@ -1,7 +1,7 @@
 /* Header for code conversion stuff
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2002,2005 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -249,6 +249,8 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
   CODING_SYSTEM_DISABLE_COMPOSITION (XCODING_SYSTEM (codesys))
 #define XCODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
   CODING_SYSTEM_USE_ENTITY_REFERENCE (XCODING_SYSTEM (codesys))
+#define XCODING_SYSTEM_CCS_PRIORITY_LIST(codesys) \
+  CODING_SYSTEM_CCS_PRIORITY_LIST (XCODING_SYSTEM (codesys))
 #endif
 
 EXFUN (Fcoding_category_list, 0);
