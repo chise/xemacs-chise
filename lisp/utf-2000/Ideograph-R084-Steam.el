@@ -3,6 +3,7 @@
   '((ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 4043)
     (shinjigen-2	. 4043)
     (=ucs		. #x6C14)	; 气
     (=jis-x0208		. #x5D63)	; &I-J90-5D63; [61-67]
@@ -13,6 +14,16 @@
     (=gt-k		. 00540)	; &I-GT-K00540;
     (=gt-pj-1		. #x5D63)	; &I-GT-21827; [61-67]
     (=daikanwa		. 17043)	; &I-M-17043;
+    ))
+(define-char
+  '((ideographic-radical . 84)	; ⽓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x6C14)	; 气
+      ))
+    (=gt-k		. 00816)	; &GT-K00816;
+    (=gt-pj-k1		. #x3B3B)	; &GT-K00816; [27-27]
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓
@@ -469,7 +480,7 @@
      ((=daikanwa	  . 49205)	; &M-49205;
       (mojikyo		  . 049205)	; &MCS-6000C035;
       )
-     ((=ucs@iso		  . #x23C64)	; &UU+23C64;
+     ((=ucs@iso		  . #x23C64)	; &U-00023C64;
       )
      ((=cns11643-5	  . #x395D)	; &C5-395D; [25-61]
       ))

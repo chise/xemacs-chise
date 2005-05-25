@@ -3,6 +3,7 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 1878)
     (shinjigen-2	. 1878)
     (=ucs		. #x5BF8)	; 寸
     (=jis-x0208		. #x4023)	; &I-J90-4023; [32-03]
@@ -241,7 +242,7 @@
       )
      ((=cns11643-6	  . #x302E)	; &C6-302E; [16-14]
       )
-     ((=ucs@iso		  . #x21B28)	; &UU+21B28;
+     ((=ucs@iso		  . #x21B28)	; &U-00021B28;
       ))
     ))
 (define-char
@@ -675,7 +676,7 @@
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (=ucs@iso		  . #x21B3D)	; &UU+21B3D;
+      (=ucs@iso		  . #x21B3D)	; &U-00021B3D;
       ))
     ))
 (define-char
@@ -855,7 +856,7 @@
       )
      ((ideographic-strokes . 13)
       (total-strokes	   . 16)
-      (=ucs@iso		  . #x21B4E)	; &UU+21B4E;
+      (=ucs@iso		  . #x21B4E)	; &U-00021B4E;
       ))
     ))
 (define-char

@@ -21,18 +21,31 @@
 (define-char
   '((ideographic-radical . 54)	; ⼵
     (=ucs		. #x389F)	; 㢟
+    ))
+(define-char
+  '((ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (<-denotational
+     ((=ucs		  . #x389F)	; 㢟
+      ))
     (->subsumptive
-     ((ideographic-strokes . 3)
-      (total-strokes	   . 6)
-      (=daikanwa	  . 09567)	; &M-09567;
+     ((=daikanwa	  . 09567)	; &M-09567;
       )
-     ((ideographic-strokes . 3)
-      (total-strokes	   . 6)
-      (=ucs@unicode	  . #x389F)	; &UU+389F;
+     ((=ucs@unicode	  . #x389F)	; &UU+389F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x389F)	; 㢟
+      ))
+    (->subsumptive
+     ((=big5-cdp	  . #x88F4)	; &CDP-88F4;
       )
-     ((ideographic-strokes . 4)
-      (total-strokes	   . 7)
-      (=cns11643-4	  . #x2429)	; &C4-2429; [04-09]
+     ((=cns11643-4	  . #x2429)	; &C4-2429; [04-09]
       ))
     ))
 (define-char
@@ -307,6 +320,6 @@
     (->subsumptive
      ((=daikanwa	  . 09582)	; &M-09582;
       )
-     ((=ucs@iso		  . #x262EA)	; &UU+262EA;
+     ((=ucs@iso		  . #x262EA)	; &U-000262EA;
       ))
     ))

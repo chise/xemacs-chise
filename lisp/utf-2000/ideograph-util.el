@@ -32,6 +32,7 @@
       (intern (format "%s@%s" feature domain))
     feature))
 
+;;;###autoload
 (defun map-char-family (function char &optional ignore-sisters)
   (let ((rest (list char))
 	ret checked)

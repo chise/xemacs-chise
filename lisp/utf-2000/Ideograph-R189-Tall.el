@@ -1,32 +1,41 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x9AD8)	; 高
-    (ideographic-radical . 189)	; ⾼
+  '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (shinjigen-2	. 9450)
-    (=jis-x0208		. #x3962)	; &GT-60968; [25-66]
-    (=ks-x1001		. #x4D54)	; &I-K0-4D54; [45-52]
-    (=gt		. 60968)	; &I-GT-60968;
-    (=gt-k		. 06430)	; &I-GT-K06430;
-    (=gt-pj-1		. #x3962)	; &I-GT-60968; [25-66]
-    (=daikanwa		. 45313)	; &I-M-45313;
-    (=ucs@jis		. #x9AD8)	; &GT-60968;
-    (=ucs@ks		. #x9AD8)	; &GT-60968;
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3962)	; &J97-3962; [25-66]
+      ))
+    (=ucs		. #x9AD8)	; 高
+    (->subsumptive
+     ((shinjigen-1	  . 9450)
+      (shinjigen-2	  . 9450)
+      (=jis-x0208	  . #x3962)	; &GT-60968; [25-66]
+      (=ks-x1001	  . #x4D54)	; &I-K0-4D54; [45-52]
+      (=gt		  . 60968)	; &I-GT-60968;
+      (=gt-k		  . 06430)	; &I-GT-K06430;
+      (=gt-pj-1		  . #x3962)	; &I-GT-60968; [25-66]
+      (=daikanwa	  . 45313)	; &I-M-45313;
+      (=ucs@jis		  . #x9AD8)	; &GT-60968;
+      (=ucs@ks		  . #x9AD8)	; &GT-60968;
+      )
+     ((=gb2312		  . #x385F)	; &C1-586D; [24-63]
+      (=cns11643-1	  . #x586D)	; &I-C1-586D; [56-77]
+      (=ucs@unicode	  . #x9AD8)	; &C1-586D;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	45313 0 0)
-    (ideographic-radical . 189)	; ⾼
+  '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (=ucs		. #x9AD8)	; 高
-    (=gb2312		. #x385F)	; &I-G0-385F; [24-63]
-    (=cns11643-1	. #x586D)	; &I-C1-586D; [56-77]
+    (=jis-x0208@1997	. #x3962)	; &J97-3962; [25-66]
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3962)	; &J97-3962; [25-66]
+      ))
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
      ((<-vulgar
@@ -36,6 +45,7 @@
 	))
       (<-vulgar*sources
        yunhai daikanwa)
+      (shinjigen-1	  . 9451)
       (=daikanwa	  . 45314)	; &M-45314;
       )
      ((hanyu-dazidian	  7 4594 1)

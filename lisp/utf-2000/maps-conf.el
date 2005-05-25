@@ -5,6 +5,7 @@
 ;;                 "G0-to-UCS.txt"
 ;;                 "C2-to-UCS.txt"
 ;;                 "C3-to-UCS.txt" "C4-to-UCS.txt"
+;;                 "C5-to-UCS.txt"
 ;;                 "B-to-UCS.txt" "JC3-to-UCS.txt"))
 ;;   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
@@ -49,7 +50,9 @@
 ;;                      #x6E45 #x6E46 #x6E48 #x6E4B #x6E4A
 ;;                      #x6E4F #x6E52 #x6E51 #x4830 #x6E54
 ;;                      #x6E55 #x395A #x724D #x737D #x3973
-;;                      #x5379 #x5879 #x3D5D #x3C21 #x4C60))
+;;                      #x5379 #x5879 #x3D5D #x3C21 #x4C60
+;;                      #x5267 #x722F #x3C39 #x3848 #x5578
+;;                      #x4742))
 ;;      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 ;;                          '=gt-pj-1 v))
 ;;    nil)

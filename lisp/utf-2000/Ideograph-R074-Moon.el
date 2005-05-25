@@ -145,32 +145,40 @@
     (=cns11643-6	. #x2C23)	; &C6-2C23; [12-03]
     ))
 (define-char
-  '((=>ucs		. #x670C)	; 朌
-    (ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=daikanwa		. 14343)	; &M-14343;
-    ))
-(define-char
-  '((morohashi-daikanwa	14343 0 0)
-    (ideographic-radical . 74)	; ⽉
+  '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x670C)	; 朌
-    (=cns11643-3	. #x2945)	; &I-C3-2945; [09-37]
+    (->subsumptive
+     ((=daikanwa	  . 14343)	; &M-14343;
+      )
+     ((=cns11643-3	  . #x2945)	; &C3-2945; [09-37]
+      )
+     ((=ucs@unicode	  . #x670C)	; &UU+670C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=cns11643-5	. #x264A)	; &M-14344; [06-42]
+    (=ucs		. #x2F8D7)	; 䏙
+    (=cns11643-5	. #x264A)	; &I-C5-264A; [06-42]
     (=daikanwa		. 14344)	; &I-M-14344;
     ))
 (define-char
-  '((=>ucs		. #x670D)	; 服
-    (ideographic-radical . 74)	; ⽉
+  '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=ucs		. #x670D)	; 服
+    (=jis-x0208@1997	. #x497E)	; 服 [41-94]
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x670D)	; 服
+      ))
     (=daikanwa		. 14345)	; &M-14345;
     (=jef-china3	. #x52B4)	; &I-JC3-52B4;
     (mojikyo		. 014345)	; &MCS-60003809;
@@ -180,8 +188,10 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs		. #x670D)	; 服
-    (=jis-x0208		. #x497E)	; &I-J90-497E; [41-94]
+    (<-denotational
+     ((=ucs		  . #x670D)	; 服
+      ))
+    (=jis-x0208		. #x497E)	; &GT-18171; [41-94]
     (=gb2312		. #x377E)	; &I-G0-377E; [23-94]
     (=ks-x1001		. #x5C57)	; &I-K0-5C57; [60-55]
     (=cns11643-1	. #x4E24)	; &I-C1-4E24; [46-04]
@@ -189,6 +199,7 @@
     (=gt		. 18171)	; &I-GT-18171;
     (=gt-k		. 03813)	; &I-GT-K03813;
     (=gt-pj-1		. #x497E)	; &I-GT-18171; [41-94]
+    (=ucs@unicode	. #x670D)	; &GT-18171;
     (mojikyo		. 050220)	; &MCS-6000C42C;
     ))
 (define-char
@@ -197,16 +208,26 @@
     (total-strokes	 . 8)
     (=ucs		. #x23364)	; 𣍤
     (=cns11643-6	. #x2C22)	; &I-C6-2C22; [12-02]
+    (=daikanwa		. 14346)	; &I-M-14346;
     ))
 (define-char
-  '((=>ucs		. #x26657)	; 𦙗
-    (ideographic-radical . 74)	; ⽉
+  '((ideographic-radical@ucs . 130)	; ⾁
+    (ideographic-radical@cns . 74)	; ⽉
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (->identical
-     ((=ucs		  . #x26657)	; 𦙗
+    (=ucs		. #x26657)	; 𦙗
+    (->subsumptive
+     ((ideographic-radical . 74)	; ⽉
+      (=cns11643-4	  . #x2664)	; &M-14347; [06-68]
+      (=daikanwa	  . 14347)	; &I-M-14347;
+      )
+     ((ideographic-radical . 130)	; ⾁
+      (hanyu-dazidian	  3 2047 1)
+      (=hanziku-6	  . #xA5B4)	; &HZK06-A5B4;
+      (=ucs@iso		  . #x26657)	; &HZK06-A5B4;
       ))
-    (=cns11643-4	. #x2664)	; &C4-2664; [06-68]
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉

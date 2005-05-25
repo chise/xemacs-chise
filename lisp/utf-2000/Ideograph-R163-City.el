@@ -23,15 +23,34 @@
     (=daikanwa		. 39270)	; &I-M-39270;
     ))
 (define-char
-  '((=>ucs		. #x961D)	; 阝
-    (morohashi-daikanwa	41536 0 9)
+  '((name		. "CJK RADICAL CITY")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=jis-x0212		. #x6644)	; &JX2-7A25; [70-36]
+    (<-denotational
+     ((=ucs		  . #x961D)	; 阝
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x9091)	; 邑
+      ))
+    (=ucs		. #x2ECF)	; ⻏
+    ))
+(define-char
+  '((ideographic-radical@ucs . 170)	; ⾩
+    (ideographic-radical@cns . 163)	; ⾢
+    (ideographic-radical@cns*sources
+     cns11643 jis-x0213)
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs		. #x961D)	; 阝
+    (=jis-x0212		. #x6644)	; &I-JSP-6644; [70-36]
     (=cns11643-3	. #x2143)	; &I-C3-2143; [01-35]
     (=jis-x0213-2-2000	. #x7A25)	; &I-JX2-7A25; [90-05]
-    (=ucs@jis		. #x961D)	; &JX2-7A25;
+    (=big5-cdp		. #x8B43)	; &I-CDP-8B43;
+    (=jef-china3	. #x67F6)	; &I-JC3-67F6;
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -2705,9 +2724,19 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (hanyu-dazidian	1 171 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4F9B)	; 供
+      )
+     ((=ucs		  . #x961D)	; 阝
+      ))
     (=ucs		. #x48CF)	; 䣏
     (=cns11643-4	. #x3570)	; &I-C4-3570; [21-80]
     (=daikanwa		. 39489)	; &I-M-39489;
+    (=hanziku-1		. #xC9AF)	; &I-HZK01-C9AF;
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢

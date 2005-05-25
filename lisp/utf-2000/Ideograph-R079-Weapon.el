@@ -6,7 +6,8 @@
     (=ucs		. #x6BB3)	; 殳
     (=big5		. #xC95F)	; &I-B-C95F;
     (->subsumptive
-     ((shinjigen-2	  . 3991)
+     ((shinjigen-1	  . 3991)
+      (shinjigen-2	  . 3991)
       (=jis-x0208	  . #x5D55)	; &GT-21300; [61-53]
       (=gt		  . 21300)	; &I-GT-21300;
       (=gt-k		  . 00537)	; &I-GT-K00537;
@@ -303,7 +304,7 @@
     (->subsumptive
      ((=daikanwa	  . 16628)	; &M-16628;
       )
-     ((=ucs@iso		  . #x23A89)	; &UU+23A89;
+     ((=ucs@iso		  . #x23A89)	; &U-00023A89;
       ))
     ))
 (define-char
@@ -553,7 +554,7 @@
     (=ucs		. #x23A8E)	; 𣪎
     (->subsumptive
      ((<-wrong
-       ((=daikanwa	    . 04033)	; &I-M-04033;
+       ((=daikanwa	    . 04033)	; &M-04033;
 	))
       (<-wrong*sources
        daikanwa)
@@ -697,7 +698,7 @@
       (=jef-china3	  . #x93C9)	; &I-JC3-93C9;
       (=ucs@jis		  . #x23A98)	; &JX2-6E23;
       )
-     ((=ucs@iso		  . #x23A98)	; &UU+23A98;
+     ((=ucs@iso		  . #x23A98)	; &U-00023A98;
       ))
     ))
 (define-char

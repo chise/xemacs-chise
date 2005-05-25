@@ -1928,37 +1928,45 @@
     (=daikanwa		. 36787)	; &I-M-36787;
     ))
 (define-char
-  '((=>ucs*		. #x8CD3)	; 賓
-    (=>ucs@gb		. #x8CD3)	; 賓
-    (=>ucs@cns		. #x8CD3)	; 賓
-    (ideographic-radical . 154)	; ⾙
-    (ideographic-strokes . 7)
-    (total-strokes	 . 14)
-    (=ucs		. #xFA64)	; 賓
-    (=ks-x1001		. #x5E39)	; &I-K0-5E39; [62-25]
-    (=jis-x0213-1-2000	. #x7C38)	; &I-JX1-7C38; [92-24]
-    (=daikanwa		. 36788)	; &I-M-36788;
-    (=ucs@ks		. #x8CD3)	; 賓
-    ))
-(define-char
-  '((=>ucs@jis		. #xFA64)	; 賓
-    (morohashi-daikanwa	36788 0 0)
-    (ideographic-radical . 154)	; ⾙
-    (ideographic-strokes . 7)
-    (total-strokes	 . 14)
+  '((ideographic-radical . 154)	; ⾙
     (=ucs		. #x8CD3)	; 賓
-    (=cns11643-1	. #x6B33)	; &I-C1-6B33; [75-19]
-    (=gb12345		. #x3176)	; 賓 [17-86]
     ))
 (define-char
-  '((=>ucs		. #x8CD3)	; 賓
-    (morohashi-daikanwa	36788 0 2)
+  '((=>ucs*		. #x8CD3)	; 賓
+    (=>ucs@gb		. #x8CD3)	; &C1-6B33;
+    (=>ucs@cns		. #x8CD3)	; &C1-6B33;
+    (=>ucs@jis		. #xFA64)	; &M-36788;
+    (=>ucs@ks		. #x8CD3)	; &M-36788;
     (ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x8CD3)	; 賓
+      ))
+    (=ucs		. #xFA64)	; 賓
+    (->subsumptive
+     ((=ks-x1001	  . #x5E39)	; &M-36788; [62-25]
+      (=jis-x0213-1-2000  . #x7C38)	; &I-JX1-7C38; [92-24]
+      (=daikanwa	  . 36788)	; &I-M-36788;
+      (=ucs@unicode	  . #xFA64)	; &M-36788;
+      (=ucs@ks		  . #x8CD3)	; &M-36788;
+      )
+     ((=cns11643-1	  . #x6B33)	; &C1-6B33; [75-19]
+      (=gb12345		  . #x3176)	; &C1-6B33; [17-86]
+      (=ucs@unicode	  . #x8CD3)	; &C1-6B33;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x8CD3)	; 賓
+      ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA64)	; 賓
+     ((=ks-x1001	  . #x5E39)	; &M-36788; [62-25]
       (=jis-x0213-1-2000  . #x7C38)	; &I-JX1-7C38; [92-24]
+      (=daikanwa	  . 36788)	; &I-M-36788;
       ))
     (=jis-x0208		. #x4950)	; &GT-49334; [41-48]
     (=gt		. 49334)	; &I-GT-49334;

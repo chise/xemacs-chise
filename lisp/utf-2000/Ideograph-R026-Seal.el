@@ -29,9 +29,29 @@
     (=daikanwa		. 02837)	; &I-M-02837;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((name		. "CJK RADICAL SEAL")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (<-radical
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs		. #x2E8B)	; ⺋
+    ))
+(define-char
+  '((=>ucs		. #x5369)	; 卩
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (=big5-cdp		. #x8A60)	; &CDP-8A60;
     (mojikyo		. 070838)	; &MCS-600114B6;
     ))
@@ -176,14 +196,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x20086)	; 𠂆
-	)
-       ((=ucs		    . #x4E00)	; 一
-	))
+     ((=ucs		  . #x2008B)	; 𠂋
       )
      ((=ucs		  . #x353E)	; 㔾
       ))
@@ -681,7 +694,7 @@
     (->subsumptive
      ((=daikanwa	  . 02866)	; &M-02866;
       )
-     ((=ucs@iso		  . #x20A13)	; &UU+20A13;
+     ((=ucs@iso		  . #x20A13)	; &U-00020A13;
       )
      ((=cns11643-6	  . #x2A24)	; &C6-2A24; [10-04]
       ))

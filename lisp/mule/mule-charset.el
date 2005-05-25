@@ -3,7 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -282,7 +282,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0208-1990
 	  japanese-jisx0212
 	  japanese-jisx0208-1978
-	  korean-ksc5601
 	  chinese-cns11643-1
 	  chinese-cns11643-2
 	  chinese-cns11643-3
@@ -290,6 +289,10 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
+	  =big5-cdp
+	  chinese-big5-eten-a
+	  chinese-big5-eten-b
+	  chinese-big5
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
@@ -304,21 +307,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-k2
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
-	  =big5-cdp
 	  ;; chinese-gb12345
-	  chinese-isoir165
-	  katakana-jisx0201
-	  hebrew-iso8859-8
-	  latin-viscii
-	  latin-viscii-lower
-	  latin-viscii-upper
-	  ipa
-	  lao
-	  ethiopic-ucs
-	  ethiopic
-	  arabic-digit
-	  arabic-1-column
-	  arabic-2-column
 	  =gt-pj-1
 	  =jis-x0208@1997
 	  =ucs-radicals
@@ -339,18 +328,30 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-12
 	  =ucs-radicals@unicode
 	  =ucs-sip-ext-b@iso
-	  chinese-big5-eten-a
-	  chinese-big5-eten-b
-	  chinese-big5
 	  =ucs-bmp-cjk@unicode
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
+	  korean-ksc5601
+	  katakana-jisx0201
+	  hebrew-iso8859-8
+	  latin-viscii
+	  latin-viscii-lower
+	  latin-viscii-upper
+	  ipa
+	  lao
+	  ethiopic-ucs
+	  ethiopic
+	  arabic-digit
+	  arabic-1-column
+	  arabic-2-column
 	  =cbeta
 	  ucs-bmp
 	  =jef-china3
+	  chinese-isoir165
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
-	  ucs-sip)))
+	  ;; ucs-sip
+	  )))
 
 ;;; mule-charset.el ends here

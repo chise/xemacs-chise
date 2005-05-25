@@ -5,7 +5,8 @@
     (total-strokes	 . 4)
     (=ucs		. #x6BDB)	; 毛
     (->subsumptive
-     ((shinjigen-2	  . 4018)
+     ((shinjigen-1	  . 4018)
+      (shinjigen-2	  . 4018)
       (=jis-x0208	  . #x4C53)	; &GT-21495; [44-51]
       (=gb2312		  . #x432B)	; &I-G0-432B; [35-11]
       (=ks-x1001	  . #x593E)	; &I-K0-593E; [57-30]
@@ -2298,7 +2299,7 @@
     (->subsumptive
      ((=daikanwa	  . 16941)	; &M-16941;
       )
-     ((=ucs@iso		  . #x23BE4)	; &UU+23BE4;
+     ((=ucs@iso		  . #x23BE4)	; &U-00023BE4;
       )
      ((=cns11643-4	  . #x4A56)	; &C4-4A56; [42-54]
       ))
@@ -2741,7 +2742,7 @@
     (->subsumptive
      ((=daikanwa	  . 16980)	; &M-16980;
       )
-     ((=ucs@iso		  . #x23C0B)	; &UU+23C0B;
+     ((=ucs@iso		  . #x23C0B)	; &U-00023C0B;
       )
      ((=cns11643-4	  . #x5655)	; &C4-5655; [54-53]
       ))

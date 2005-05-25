@@ -3,6 +3,7 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (shinjigen-1	. 4873)
     (shinjigen-2	. 4873)
     (=ucs		. #x7389)	; 玉
     (=jis-x0208		. #x364C)	; &I-J90-364C; [22-44]
@@ -5760,7 +5761,7 @@
     (->subsumptive
      ((=daikanwa	  . 21263)	; &M-21263;
       )
-     ((=ucs@iso		  . #x24A69)	; &UU+24A69;
+     ((=ucs@iso		  . #x24A69)	; &U-00024A69;
       )
      ((=cns11643-5	  . #x555A)	; &C5-555A; [53-58]
       ))
@@ -7201,7 +7202,7 @@
       )
      ((=cns11643-4	  . #x6A52)	; &C4-6A52; [74-50]
       )
-     ((=ucs@iso		  . #x24AD5)	; &UU+24AD5;
+     ((=ucs@iso		  . #x24AD5)	; &U-00024AD5;
       ))
     ))
 (define-char
@@ -7214,7 +7215,7 @@
       )
      ((=cns11643-5	  . #x7624)	; &C5-7624; [86-04]
       )
-     ((=ucs@iso		  . #x24AD8)	; &UU+24AD8;
+     ((=ucs@iso		  . #x24AD8)	; &U-00024AD8;
       ))
     ))
 (define-char

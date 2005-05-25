@@ -3,6 +3,7 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2326)
     (shinjigen-2	. 2326)
     (=ucs		. #x5F73)	; 彳
     (=jis-x0208		. #x5746)	; &I-J90-5746; [55-38]
@@ -1019,26 +1020,41 @@
     (=daikanwa		. 10114)	; &I-M-10114;
     ))
 (define-char
-  '((=>ucs		. #x224F0)	; 𢓰
-    (ideographic-radical . 60)	; ⼻
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=daikanwa		. 10115)	; &M-10115;
-    ))
-(define-char
-  '((morohashi-daikanwa	10115 0 2)
-    (ideographic-radical . 60)	; ⼻
+  '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x224F0)	; 𢓰
-    (=cns11643-5	. #x2D49)	; &I-C5-2D49; [13-41]
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=cns11643-5	. #x2D48)	; &M-10116; [13-40]
-    (=daikanwa		. 10116)	; &I-M-10116;
+    (<-denotational
+     ((=ucs		  . #x224F0)	; 𢓰
+      ))
+    (=daikanwa		. 10115)	; &M-10115;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (<-denotational
+     ((=ucs		  . #x224F0)	; 𢓰
+      ))
+    (=cns11643-5	. #x2D49)	; &C5-2D49; [13-41]
+    (=ucs@iso		. #x224F0)	; &C5-2D49;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs		. #x2F89B)	; 㣣
+    (->subsumptive
+     ((=daikanwa	  . 10116)	; &M-10116;
+      (=ucs@iso		  . #x2F89B)	; &M-10116;
+      )
+     ((=cns11643-5	  . #x2D48)	; &C5-2D48; [13-40]
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -2127,7 +2143,7 @@
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 11)
-      (=ucs@iso		  . #x22514)	; &UU+22514;
+      (=ucs@iso		  . #x22514)	; &U-00022514;
       ))
     ))
 (define-char
@@ -2323,7 +2339,7 @@
      ((=cns11643-6	  . #x5252)	; &M-10205; [50-50]
       (=daikanwa	  . 10205)	; &I-M-10205;
       )
-     ((=ucs@iso		  . #x22535)	; &UU+22535;
+     ((=ucs@iso		  . #x22535)	; &U-00022535;
       ))
     ))
 (define-char

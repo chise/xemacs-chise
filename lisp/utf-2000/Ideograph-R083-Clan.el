@@ -3,6 +3,7 @@
   '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 4037)
     (shinjigen-2	. 4037)
     (=ucs		. #x6C0F)	; 氏
     (=jis-x0208		. #x3B61)	; &I-J90-3B61; [27-65]
@@ -94,7 +95,7 @@
       )
      ((=cns11643-6	  . #x2C48)	; &C6-2C48; [12-40]
       )
-     ((=ucs@iso		  . #x23C45)	; &UU+23C45;
+     ((=ucs@iso		  . #x23C45)	; &U-00023C45;
       ))
     ))
 (define-char
@@ -175,7 +176,7 @@
     (->subsumptive
      ((=daikanwa	  . 17041)	; &M-17041;
       )
-     ((=ucs@iso		  . #x23C51)	; &UU+23C51;
+     ((=ucs@iso		  . #x23C51)	; &U-00023C51;
       )
      ((=cns11643-7	  . #x2F2D)	; &C7-2F2D; [15-13]
       ))

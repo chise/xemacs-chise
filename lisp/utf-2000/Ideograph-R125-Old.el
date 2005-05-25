@@ -5,7 +5,8 @@
     (total-strokes	 . 6)
     (=ucs		. #x8001)	; 老
     (->subsumptive
-     ((shinjigen-2	  . 6340)
+     ((shinjigen-1	  . 6340)
+      (shinjigen-2	  . 6340)
       (=jis-x0208	  . #x4F37)	; &GT-37307; [47-23]
       (=gb2312		  . #x404F)	; &I-G0-404F; [32-47]
       (=ks-x1001	  . #x5655)	; &I-K0-5655; [54-53]
@@ -25,6 +26,7 @@
     (total-strokes	 . 4)
     (=ucs		. #x8002)	; 耂
     (=jis-x0213-2-2000	. #x7522)	; &I-JX2-7522; [85-02]
+    (=big5-cdp		. #x8B52)	; &I-CDP-8B52;
     (=gt		. 37304)	; &I-GT-37304;
     (=gt-pj-9		. #x4E52)	; &I-GT-37304; [46-50]
     (=jef-china3	. #x72FC)	; &I-JC3-72FC;
@@ -35,8 +37,7 @@
     (total-strokes	 . 6)
     (=ucs		. #x8003)	; 考
     (->subsumptive
-     ((shinjigen-2	  . 6339)
-      (=jis-x0208@1978	  . #x394D)	; &M-28843; [25-45]
+     ((=jis-x0208@1978	  . #x394D)	; &M-28843; [25-45]
       (=gb2312		  . #x3F3C)	; &I-G0-3F3C; [31-28]
       (=jis-x0208@1983	  . #x394D)	; &I-J83-394D; [25-45]
       (=cns11643-1	  . #x4853)	; &I-C1-4853; [40-51]
@@ -44,7 +45,9 @@
       (=daikanwa	  . 28843)	; &I-M-28843;
       (=ucs@unicode	  . #x8003)	; &M-28843;
       )
-     ((=ks-x1001	  . #x4D45)	; &GT-37305; [45-37]
+     ((shinjigen-1	  . 6339)
+      (shinjigen-2	  . 6339)
+      (=ks-x1001	  . #x4D45)	; &GT-37305; [45-37]
       (=jis-x0208@1990	  . #x394D)	; &I-J90-394D; [25-45]
       (=gt		  . 37305)	; &I-GT-37305;
       (=gt-k		  . 01611)	; &I-GT-K01611;
@@ -219,7 +222,7 @@
     (->subsumptive
      ((=daikanwa	  . 28854)	; &M-28854;
       )
-     ((=ucs@iso		  . #x264BA)	; &UU+264BA;
+     ((=ucs@iso		  . #x264BA)	; &U-000264BA;
       )
      ((=cns11643-4	  . #x3440)	; &C4-3440; [20-32]
       ))
@@ -370,7 +373,7 @@
       )
      ((=cns11643-7	  . #x3158)	; &C7-3158; [17-56]
       )
-     ((=ucs@iso		  . #x264C3)	; &UU+264C3;
+     ((=ucs@iso		  . #x264C3)	; &U-000264C3;
       ))
     ))
 (define-char
@@ -381,7 +384,7 @@
     (->subsumptive
      ((=daikanwa	  . 28866)	; &M-28866;
       )
-     ((=ucs@iso		  . #x264C4)	; &UU+264C4;
+     ((=ucs@iso		  . #x264C4)	; &U-000264C4;
       )
      ((=cns11643-7	  . #x3157)	; &C7-3157; [17-55]
       ))
@@ -394,7 +397,7 @@
     (->subsumptive
      ((=daikanwa	  . 28868)	; &M-28868;
       )
-     ((=ucs@iso		  . #x264C8)	; &UU+264C8;
+     ((=ucs@iso		  . #x264C8)	; &U-000264C8;
       ))
     ))
 (define-char
@@ -405,7 +408,7 @@
     (->subsumptive
      ((=daikanwa	  . 28869)	; &M-28869;
       )
-     ((=ucs@iso		  . #x264CB)	; &UU+264CB;
+     ((=ucs@iso		  . #x264CB)	; &U-000264CB;
       ))
     ))
 (define-char
@@ -418,6 +421,6 @@
       )
      ((ideographic-strokes . 20)
       (total-strokes	   . 24)
-      (=ucs@iso		  . #x264CD)	; &UU+264CD;
+      (=ucs@iso		  . #x264CD)	; &U-000264CD;
       ))
     ))

@@ -1,3 +1,23 @@
+2005-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Modify to use "&U-hhhhhhhh;" instead of "&UU+hhhh;" for
+	`=ucs@iso'.
+
+2005-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Delete `ucs-sip'; modify order of some CCSs.
+
+2005-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (iso-2022-jp-2): Specify `ccs-priority-list'
+	in XEmacs CHISE.
+
+	* mule/japanese.el (iso-2022-jp): Specify `ccs-priority-list' in
+	XEmacs CHISE; don't specify `input-charset-conversion' in XEmacs
+	CHISE.
+
 2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs-radicals): Use "-zhRadicals-.*-ucs-0" as

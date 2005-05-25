@@ -396,9 +396,24 @@
     (mojikyo		. 000083)	; &MCS-60000053;
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
+  '((ideographic-radical@ucs . 85)	; ⽔
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 2)	; ⼁
+    (ideographic-strokes@cns . 7)
+    (total-strokes@cns	     . 8)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643 gt)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes@cns*sources
+     cns11643 cdp)
+    (ideographic-radical@gt . 2)	; ⼁
+    (ideographic-strokes@gt . 8)
+    (total-strokes@gt	    . 9)
+    (ideographic-radical@cdp . 4)	; ⼃
+    (ideographic-strokes@cdp . 7)
+    (total-strokes@cdp	     . 8)
+    (hanyu-dazidian	1 39 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
@@ -408,28 +423,19 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (=ucs		. #x23D92)	; 𣶒
-    (=cns11643-4	. #x252F)	; &I-C4-252F; [05-15]
-    (=daikanwa		. 00084)	; &I-M-00084;
-    (mojikyo		. 000084)	; &MCS-60000054;
-    ))
-(define-char
-  '((=>ucs		. #x23D92)	; 𣶒
-    (morohashi-daikanwa	84 0 0)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 9)
-    (=gt		. 00119)	; &GT-00119;
-    (=gt-pj-2		. #x3060)	; &GT-00119; [16-64]
-    ))
-(define-char
-  '((=>ucs		. #x23D92)	; 𣶒
-    (morohashi-daikanwa	84 0 1)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 9)
-    (=gt		. 00120)	; &GT-00120;
-    (=gt-k		. 06263)	; &I-GT-K06263;
-    (=gt-pj-9		. #x4B25)	; &GT-00120; [43-05]
+    (->subsumptive
+     ((=cns11643-4	  . #x252F)	; &GT-00119; [05-15]
+      (=gt		  . 00119)	; &I-GT-00119;
+      (=gt-pj-2		  . #x3060)	; &I-GT-00119; [16-64]
+      (=daikanwa	  . 00084)	; &I-M-00084;
+      (=ucs@iso		  . #x23D92)	; &GT-00119;
+      (mojikyo		  . 000084)	; &MCS-60000054;
+      )
+     ((=big5-cdp	  . #x8DD9)	; &GT-00120;
+      (=gt		  . 00120)	; &I-GT-00120;
+      (=gt-k		  . 06263)	; &I-GT-K06263;
+      (=gt-pj-9		  . #x4B25)	; &I-GT-00120; [43-05]
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁

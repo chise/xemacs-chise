@@ -202,12 +202,25 @@
     (=jef-china3	. #x48CF)	; &I-JC3-48CF;
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
+  '((=>ucs		. #x2F85C)	; 夆
+    (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
-    (cns-radical	 . 35)	; ⼢
     (total-strokes	 . 7)
-    (=cns11643-5	. #x2362)	; &M-05699; [03-66]
-    (=daikanwa		. 05699)	; &I-M-05699;
+    (<-unknown
+     ((=ucs		  . #x2F85C)	; 夆
+      ))
+    (=daikanwa		. 05699)	; &M-05699;
+    ))
+(define-char
+  '((=>daikanwa		. 05699)	; &M-05699;
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (<-unknown
+     ((=daikanwa	  . 05699)	; &M-05699;
+      ))
+    (=ucs		. #x2F85C)	; 夆
+    (=cns11643-5	. #x2362)	; &I-C5-2362; [03-66]
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡

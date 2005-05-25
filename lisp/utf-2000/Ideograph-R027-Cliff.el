@@ -952,37 +952,37 @@
     (=daikanwa		. 02942)	; &I-M-02942;
     ))
 (define-char
-  '((=>ucs		. #x5397)	; 厗
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5382)	; 厂
-      )
-     ((=ucs		  . #x8F9B)	; 辛
-      ))
-    (=daikanwa		. 02943)	; &M-02943;
-    ))
-(define-char
-  '((morohashi-daikanwa	2943 0 0)
-    (ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 73 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5382)	; 厂
-      )
-     ((=ucs		  . #x8F9B)	; 辛
-      ))
     (=ucs		. #x5397)	; 厗
-    (=cns11643-2	. #x2938)	; &I-C2-2938; [09-24]
     (=big5		. #xCDF6)	; &I-B-CDF6;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=jis-x0208	    . #x3F49)	; &GT-51557; [31-41]
+	(=ks-x1001	    . #x6374)	; &I-K0-6374; [67-84]
+	(=daikanwa	    . 38630)	; &I-M-38630;
+	))
+      (=daikanwa	  . 02943)	; &M-02943;
+      )
+     ((hanyu-dazidian	  1 73 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=gb2312	    . #x5041)	; &C1-4B50; [48-33]
+	(=cns11643-1	    . #x4B50)	; &I-C1-4B50; [43-48]
+	))
+      (=cns11643-2	  . #x2938)	; &C2-2938; [09-24]
+      (=ucs@unicode	  . #x5397)	; &C2-2938;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -3124,28 +3124,50 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (=daikanwa		. 03049)	; &M-03049;
+    (=ucs		. #x20AC3)	; 𠫃
+    (->subsumptive
+     ((=daikanwa	  . 03049)	; &M-03049;
+      )
+     ((hanyu-dazidian	  1 80 19)
+      (=hanziku-1	  . #xB4A4)	; &HZK01-B4A4;
+      )
+     ((=ucs@iso		  . #x20AC3)	; &U-00020AC3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (=daikanwa		. 03050)	; &M-03050;
+    (=ucs		. #x20AC4)	; 𠫄
+    (->subsumptive
+     ((=daikanwa	  . 03050)	; &M-03050;
+      )
+     ((hanyu-dazidian	  1 80 20)
+      (=hanziku-1	  . #xB4A5)	; &HZK01-B4A5;
+      (=ucs@iso		  . #x20AC4)	; &HZK01-B4A5;
+      ))
     ))
 (define-char
-  '((=>daikanwa		. 48819)	; &M-48819;
-    (ideographic-radical@ucs . 212)	; ⿓
+  '((ideographic-radical@ucs . 212)	; ⿓
     (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
     (ideographic-radical@cns . 27)	; ⼚
     (ideographic-strokes@cns . 16)
     (total-strokes	 . 18)
     (=ucs		. #x9F8E)	; 龎
     (->subsumptive
-     ((=daikanwa	  . 48819)	; &M-48819;
+     ((ideographic-radical . 212)	; ⿓
+      (ideographic-strokes . 2)
+      (=daikanwa	  . 48819)	; &M-48819;
       )
-     ((=ucs@unicode	  . #x9F8E)	; &UU+9F8E;
+     ((ideographic-radical . 212)	; ⿓
+      (ideographic-strokes . 2)
+      (=ucs@unicode	  . #x9F8E)	; &UU+9F8E;
       )
-     ((=cns11643-3	  . #x5755)	; &C3-5755; [55-53]
+     ((ideographic-radical . 27)	; ⼚
+      (ideographic-strokes . 16)
+      (=cns11643-3	  . #x5755)	; &C3-5755; [55-53]
       ))
     ))
 (define-char
@@ -3449,18 +3471,6 @@
     (hanyu-dazidian	8 7 24)
     (=ucs		. #x20ABF)	; 𠪿
     (=hanziku-12	. #xEB57)	; &I-HZK12-EB57;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 80 19)
-    (=ucs		. #x20AC3)	; 𠫃
-    (=hanziku-1		. #xB4A4)	; &I-HZK01-B4A4;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 80 20)
-    (=ucs		. #x20AC4)	; 𠫄
-    (=hanziku-1		. #xB4A5)	; &I-HZK01-B4A5;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚

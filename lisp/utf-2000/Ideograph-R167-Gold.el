@@ -15,9 +15,29 @@
     (=daikanwa		. 40152)	; &I-M-40152;
     ))
 (define-char
+  '((name		. "CJK RADICAL C-SIMPLIFIED GOLD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9485)	; 钅
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (<-radical
+     ((=ucs		  . #x9485)	; 钅
+      ))
+    (=ucs		. #x2ED0)	; ⻐
+    (=big5-cdp		. #x895A)	; &I-CDP-895A;
+    ))
+(define-char
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
     (=ucs		. #x91D2)	; 釒
     (=gb12345		. #x6E44)	; 釒 [78-36]
     ))
@@ -25,9 +45,27 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (<-simplified@CN
+     ((=ucs		  . #x91D2)	; 釒
+      (=gb12345		  . #x6E44)	; 釒 [78-36]
+      ))
     (=ucs		. #x9485)	; 钅
     (=gb2312		. #x6E44)	; &I-G0-6E44; [78-36]
-    (=big5-cdp		. #x895A)	; &I-CDP-895A;
+    ))
+(define-char
+  '((ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (=big5-cdp		. #x8DE3)	; &CDP-8DE3;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
@@ -4332,7 +4370,7 @@
      ((=cns11643-5	  . #x517E)	; &M-40453; [49-94]
       (=daikanwa	  . 40453)	; &I-M-40453;
       )
-     ((=ucs@iso		  . #x289AE)	; &UU+289AE;
+     ((=ucs@iso		  . #x289AE)	; &U-000289AE;
       ))
     ))
 (define-char
@@ -5769,7 +5807,7 @@
      ((=cns11643-5	  . #x5931)	; &M-40551; [57-17]
       (=daikanwa	  . 40551)	; &I-M-40551;
       )
-     ((=ucs@iso		  . #x28A2E)	; &UU+28A2E;
+     ((=ucs@iso		  . #x28A2E)	; &U-00028A2E;
       ))
     ))
 (define-char
@@ -6607,7 +6645,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x289FE)	; 𨧾
     (->subsumptive
-     ((=ucs@iso		  . #x289FE)	; &UU+289FE;
+     ((=ucs@iso		  . #x289FE)	; &U-000289FE;
       )
      ((=cns11643-5	  . #x5933)	; &C5-5933; [57-19]
       ))
@@ -7446,7 +7484,7 @@
     (->subsumptive
      ((=daikanwa	  . 40669)	; &M-40669;
       )
-     ((=ucs@iso		  . #x28A3A)	; &UU+28A3A;
+     ((=ucs@iso		  . #x28A3A)	; &U-00028A3A;
       )
      ((=cns11643-5	  . #x5F4F)	; &C5-5F4F; [63-47]
       ))
@@ -8329,7 +8367,7 @@
     (->subsumptive
      ((=daikanwa	  . 40732)	; &M-40732;
       )
-     ((=ucs@iso		  . #x28A8F)	; &UU+28A8F;
+     ((=ucs@iso		  . #x28A8F)	; &U-00028A8F;
       )
      ((=cns11643-5	  . #x654E)	; &C5-654E; [69-46]
       ))
@@ -9932,7 +9970,7 @@
     (total-strokes	 . 19)
     (=ucs		. #x28A90)	; 𨪐
     (->subsumptive
-     ((=ucs@iso		  . #x28A90)	; &UU+28A90;
+     ((=ucs@iso		  . #x28A90)	; &U-00028A90;
       )
      ((=cns11643-5	  . #x6A31)	; &C5-6A31; [74-17]
       ))

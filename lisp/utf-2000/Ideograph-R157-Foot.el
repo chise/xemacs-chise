@@ -4107,27 +4107,24 @@
     (=daikanwa		. 37740)	; &I-M-37740;
     ))
 (define-char
-  '((=>ucs		. #x8E47)	; 蹇
-    (ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 10)
-    (total-strokes	 . 17)
-    (shinjigen-2	. 8044)
-    (=jis-x0208		. #x6D21)	; &GT-50425; [77-01]
-    (=ks-x1001		. #x4B74)	; &I-K0-4B74; [43-84]
-    (=gt		. 50425)	; &I-GT-50425;
-    (=gt-pj-1		. #x6D21)	; &I-GT-50425; [77-01]
-    (=daikanwa		. 37741)	; &I-M-37741;
-    (=ucs@jis		. #x8E47)	; &GT-50425;
-    (=ucs@ks		. #x8E47)	; &GT-50425;
-    ))
-(define-char
-  '((morohashi-daikanwa	37741 0 0)
-    (ideographic-radical . 157)	; ⾜
+  '((ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x8E47)	; 蹇
-    (=gb2312		. #x653F)	; &I-G0-653F; [69-31]
-    (=cns11643-2	. #x5F6B)	; &I-C2-5F6B; [63-75]
+    (->subsumptive
+     ((shinjigen-2	  . 8044)
+      (=jis-x0208	  . #x6D21)	; &GT-50425; [77-01]
+      (=ks-x1001	  . #x4B74)	; &I-K0-4B74; [43-84]
+      (=gt		  . 50425)	; &I-GT-50425;
+      (=gt-pj-1		  . #x6D21)	; &I-GT-50425; [77-01]
+      (=daikanwa	  . 37741)	; &I-M-37741;
+      (=ucs@jis		  . #x8E47)	; &GT-50425;
+      (=ucs@ks		  . #x8E47)	; &GT-50425;
+      )
+     ((=gb2312		  . #x653F)	; &C2-5F6B; [69-31]
+      (=cns11643-2	  . #x5F6B)	; &I-C2-5F6B; [63-75]
+      (=ucs@unicode	  . #x8E47)	; &C2-5F6B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜

@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004,2005 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -57,8 +57,12 @@
      "^C3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
-    (=cns11643-4     
+    (=cns11643-4
      "^C4-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-5
+     "^C5-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=big5     
@@ -145,6 +149,8 @@ UCS-REGEXP is a regular expression to match against
 			     (encode-char chr '=ucs@jis/fw 'defined-only))
 			    ((eq ucs-ccs '=ucs@gb)
 			     (encode-char chr '=ucs@gb/fw 'defined-only))
+                            ;; ((eq ucs-ccs '=ucs@big5)
+                            ;;  nil)
 			    (t
 			     (char-feature chr '=>ucs))))
 			  ucs-code)))
@@ -155,7 +161,7 @@ UCS-REGEXP is a regular expression to match against
 							    =ucs@jis/1990
                                                             =ucs@jis/2000
 							    =ucs@gb
-							    ;; ucs-big5
+							    =ucs@big5
 							    )))
 				       (char-feature chr '=>ucs)))
 			      ucs)))

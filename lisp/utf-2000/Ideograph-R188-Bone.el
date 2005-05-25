@@ -1,33 +1,52 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x9AA8)	; 骨
-    (ideographic-radical . 188)	; ⾻
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (shinjigen-2	. 9431)
-    (=jis-x0208		. #x397C)	; &GT-60709; [25-92]
-    (=ks-x1001		. #x4D69)	; &I-K0-4D69; [45-73]
-    (=gt		. 60709)	; &I-GT-60709;
-    (=gt-k		. 06431)	; &I-GT-K06431;
-    (=gt-pj-1		. #x397C)	; &I-GT-60709; [25-92]
-    (=daikanwa		. 45098)	; &I-M-45098;
-    (=ucs@jis		. #x9AA8)	; &GT-60709;
+    (=ucs		. #x9AA8)	; 骨
     ))
 (define-char
-  '((=>ucs		. #x9AA8)	; 骨
-    (morohashi-daikanwa	45098 0 0)
-    (ideographic-radical . 188)	; ⾻
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (=cns11643-1	. #x586C)	; &C1-586C; [56-76]
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (->subsumptive
+     ((shinjigen-1	  . 9431)
+      (shinjigen-2	  . 9431)
+      (=jis-x0208	  . #x397C)	; &GT-60709; [25-92]
+      (=ks-x1001	  . #x4D69)	; &I-K0-4D69; [45-73]
+      (=gt		  . 60709)	; &I-GT-60709;
+      (=gt-k		  . 06431)	; &I-GT-K06431;
+      (=gt-pj-1		  . #x397C)	; &I-GT-60709; [25-92]
+      (=daikanwa	  . 45098)	; &I-M-45098;
+      (=ucs@jis		  . #x9AA8)	; &GT-60709;
+      )
+     ((=cns11643-1	  . #x586C)	; &C1-586C; [56-76]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	45098 0 4)
-    (ideographic-radical . 188)	; ⾻
+  '((name		. "CJK RADICAL BONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (<-radical
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=ucs		. #x2EE3)	; ⻣
+    ))
+(define-char
+  '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
-    (=ucs		. #x9AA8)	; 骨
-    (=gb2312		. #x3947)	; &I-G0-3947; [25-39]
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=gb2312		. #x3947)	; &G0-3947; [25-39]
+    (=ucs@unicode	. #x9AA8)	; &G0-3947;
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
@@ -1717,7 +1736,7 @@
       )
      ((=cns11643-5	  . #x6656)	; &C5-6656; [70-54]
       )
-     ((=ucs@iso		  . #x29A61)	; &UU+29A61;
+     ((=ucs@iso		  . #x29A61)	; &U-00029A61;
       ))
     ))
 (define-char
@@ -2166,7 +2185,7 @@
       (=daikanwa	  . 45248)	; &M-45248;
       )
      ((total-strokes	   . 19)
-      (=ucs@iso		  . #x29A83)	; &UU+29A83;
+      (=ucs@iso		  . #x29A83)	; &U-00029A83;
       )
      ((total-strokes	   . 20)
       (=cns11643-5	  . #x6E73)	; &C5-6E73; [78-83]
@@ -2326,7 +2345,7 @@
       (=cns11643-5	  . #x7236)	; &C5-7236; [82-22]
       )
      ((total-strokes	   . 20)
-      (=ucs@iso		  . #x29A8A)	; &UU+29A8A;
+      (=ucs@iso		  . #x29A8A)	; &U-00029A8A;
       ))
     ))
 (define-char
@@ -2385,7 +2404,7 @@
     (->subsumptive
      ((=daikanwa	  . 45263)	; &M-45263;
       )
-     ((=ucs@iso		  . #x29A8D)	; &UU+29A8D;
+     ((=ucs@iso		  . #x29A8D)	; &U-00029A8D;
       )
      ((=cns11643-5	  . #x7235)	; &C5-7235; [82-21]
       ))

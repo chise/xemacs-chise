@@ -1,35 +1,37 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x65B9)	; 方
-    (ideographic-radical . 70)	; ⽅
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (shinjigen-2	. 3236)
-    (=jis-x0208		. #x4A7D)	; &GT-17214; [42-93]
-    (=ks-x1001		. #x5B30)	; &I-K0-5B30; [59-16]
-    (=big5		. #xA4E8)	; &I-B-A4E8;
-    (=gt		. 17214)	; &I-GT-17214;
-    (=gt-k		. 00490)	; &I-GT-K00490;
-    (=gt-pj-1		. #x4A7D)	; &I-GT-17214; [42-93]
-    (=daikanwa		. 13620)	; &I-M-13620;
-    (=ucs@jis		. #x65B9)	; &GT-17214;
-    (=ucs@big5		. #x65B9)	; &GT-17214;
-    ))
-(define-char
-  '((morohashi-daikanwa	13620 0 0)
-    (ideographic-radical . 70)	; ⽅
+  '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x65B9)	; 方
-    (=gb2312		. #x373D)	; &I-G0-373D; [23-29]
-    (=cns11643-1	. #x4549)	; &I-C1-4549; [37-41]
+    (=big5		. #xA4E8)	; &I-B-A4E8;
+    (->subsumptive
+     ((shinjigen-1	  . 3236)
+      (shinjigen-2	  . 3236)
+      (=jis-x0208	  . #x4A7D)	; &GT-17214; [42-93]
+      (=ks-x1001	  . #x5B30)	; &I-K0-5B30; [59-16]
+      (=gt		  . 17214)	; &I-GT-17214;
+      (=gt-k		  . 00490)	; &I-GT-K00490;
+      (=gt-pj-1		  . #x4A7D)	; &I-GT-17214; [42-93]
+      (=daikanwa	  . 13620)	; &I-M-13620;
+      (=ucs@jis		  . #x65B9)	; &GT-17214;
+      )
+     ((=gb2312		  . #x373D)	; &C1-4549; [23-29]
+      (=cns11643-1	  . #x4549)	; &I-C1-4549; [37-41]
+      (=ucs@unicode	  . #x65B9)	; &C1-4549;
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x3AC3)	; 㫃
-    (=cns11643-3	. #x2371)	; &I-C3-2371; [03-81]
+    (->subsumptive
+     ((=daikanwa	  . 13621)	; &M-13621;
+      )
+     ((=cns11643-3	  . #x2371)	; &C3-2371; [03-81]
+      (=ucs@unicode	  . #x3AC3)	; &C3-2371;
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
@@ -989,7 +991,7 @@
     (<-denotational
      ((=ucs		  . #x2311A)	; 𣄚
       ))
-    (=ucs@iso		. #x2311A)	; &UU+2311A;
+    (=ucs@iso		. #x2311A)	; &U-0002311A;
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
