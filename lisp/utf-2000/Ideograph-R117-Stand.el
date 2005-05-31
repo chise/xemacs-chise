@@ -1013,7 +1013,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x7AEA)	; 竪
     (->subsumptive
-     ((shinjigen-2	  . 7812)
+     ((shinjigen-1	  . 7812)
+      (shinjigen-2	  . 7812)
       (=jis-x0208	  . #x4328)	; &GT-33261; [35-08]
       (=ks-x1001	  . #x6235)	; &I-K0-6235; [66-21]
       (=gt		  . 33261)	; &I-GT-33261;
