@@ -733,30 +733,35 @@
     (=hanziku-2		. #xE542)	; &I-HZK02-E542;
     ))
 (define-char
-  '((=>ucs		. #x56F1)	; 囱
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical@ucs . 31)	; ⼞
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 36)	; ⼣
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
-      )
-     ((=ucs		  . #x590A)	; 夊
+    (=ucs		. #x56F1)	; 囱
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x56F1)	; 囱
       ))
     (=jis-x0212		. #x367C)	; &M-04710; [22-92]
     (=daikanwa		. 04710)	; &I-M-04710;
     (=ucs@jis		. #x56F1)	; &M-04710;
     ))
 (define-char
-  '((morohashi-daikanwa	4710 0 1)
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x56F1)	; 囱
-    (=gb2312		. #x3451)	; &I-G0-3451; [20-49]
+    (<-denotational
+     ((=ucs		  . #x56F1)	; 囱
+      ))
+    (=gb2312		. #x3451)	; &G0-3451; [20-49]
     (=jef-china3	. #x8CD8)	; &I-JC3-8CD8;
+    (=ucs@unicode	. #x56F1)	; &G0-3451;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
