@@ -395,6 +395,19 @@
 		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
 
+  (make-charset '=zinbun-oracle
+		"Oracle Bones Script"
+		`(long-name	"Oracle Bones Script in Zinbun, Kyoto Univ."
+		  chars		256
+		  dimension	2
+		  registry	"zob1968-0"
+		  graphic	2
+		  min-code	#xE70000
+		  max-code	,(+ #xE70000 8192)
+		  code-offset	#xE70000
+		  columns	2
+		  direction	l2r))
+
   (make-charset '=jef-china3
 		"JEF + CHINA3 private characters"
 		'(long-name	"JEF + CHINA3"
@@ -616,7 +629,10 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother ucs-bmp
-	       min-code #x2E00 max-code #xA4CF))
+	       min-code #x2E00
+	       max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
   (make-charset
    '=ucs-bmp-cjk@unicode
    "CJK Characters in BMP of Unicode"
