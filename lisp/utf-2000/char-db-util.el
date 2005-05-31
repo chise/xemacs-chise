@@ -171,6 +171,7 @@
     =big5
     =big5-eten
     =jis-x0208@1997
+    =zinbun-oracle
     =jef-china3))
 
 (defun char-db-make-char-spec (char)
@@ -402,7 +403,7 @@
    (format
     (cond ((memq name '(=daikanwa
 			=daikanwa@rev1 =daikanwa@rev2
-			=gt =gt-k =cbeta))
+			=gt =gt-k =cbeta =zinbun-oracle))
 	   "(%-18s . %05d)\t; %c")
 	  ((eq name 'mojikyo)
 	   "(%-18s . %06d)\t; %c")
