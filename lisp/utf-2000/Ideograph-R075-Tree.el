@@ -7715,7 +7715,15 @@
       ))
     ))
 (define-char
-  '((total-strokes	 . 11)
+  '((ideographic-radical@ucs . 75)	; ⽊
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@ucs*sources
+     daikanwa=14871 ucs jis/b)
+    (ideographic-radical@cns . 36)	; ⼣
+    (ideographic-strokes@cns . 8)
+    (ideographic-radical@cns*sources
+     daikanwa=05784 cns11643 gt jis)
+    (total-strokes	 . 11)
     (<-vulgar
      ((shinjigen-1	  . 1550)
       (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
@@ -7738,12 +7746,10 @@
     (->subsumptive
      ((ideographic-radical . 36)	; ⼣
       (ideographic-strokes . 8)
-      (ideographic-radical*sources cns11643 gt jis daikanwa)
       (=daikanwa	  . 05784)	; &M-05784;
       )
      ((ideographic-radical . 75)	; ⽊
       (ideographic-strokes . 7)
-      (ideographic-radical*sources ucs jis/b daikanwa)
       (=daikanwa	  . 14871)	; &M-14871;
       ))
     ))
