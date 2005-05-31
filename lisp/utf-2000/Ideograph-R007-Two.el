@@ -36,6 +36,12 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-ancient
+     ((=ucs		  . #x4E0A)	; 上
+      (=daikanwa	  . 00013)	; &I-M-00013;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     (hanyu-dazidian	1 2 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -55,6 +61,12 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-ancient
+     ((=ucs		  . #x4E0B)	; 下
+      (=daikanwa	  . 00014)	; &I-M-00014;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     (hanyu-dazidian	1 2 3)
     (=ucs		. #x2011F)	; 𠄟
     (=cns11643-6	. #x2128)	; &I-C6-2128; [01-08]
