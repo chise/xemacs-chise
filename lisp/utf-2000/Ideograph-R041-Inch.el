@@ -696,23 +696,52 @@
     (=daikanwa		. 07458)	; &I-M-07458;
     ))
 (define-char
-  '((ideographic-radical . 41)	; ⼨
+  '((ideographic-radical@ucs . 33)	; ⼠
+    (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x5C2F)	; &M-07459; [60-15]
-    (=daikanwa		. 07459)	; &I-M-07459;
+    (=ucs		. #x5900)	; 夀
+    (->subsumptive
+     ((hanyu-dazidian	  1 490 1)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8A4E)	; &CDP-8A4E;
+	)
+       ((=ucs		    . #x540B)	; 吋
+	))
+      (=daikanwa	  . 07459)	; &M-07459;
+      (=hanziku-2	  . #xB4D5)	; &I-HZK02-B4D5;
+      (=ucs@unicode	  . #x5900)	; &M-07459;
+      )
+     ((=cns11643-6	  . #x5C2F)	; &C6-5C2F; [60-15]
+      ))
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x21B41)	; 𡭁
-    (->subsumptive
-     ((=daikanwa	  . 49031)	; &M-49031;
-      )
-     ((=cns11643-6	  . #x5C31)	; &C6-5C31; [60-17]
-      (=ucs@iso		  . #x21B41)	; &C6-5C31;
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x21B41)	; 𡭁
       ))
+    (=daikanwa		. 49031)	; &M-49031;
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x21B41)	; 𡭁
+      ))
+    (=cns11643-6	. #x5C31)	; &C6-5C31; [60-17]
+    (=ucs@iso		. #x21B41)	; &C6-5C31;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
