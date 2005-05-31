@@ -2830,9 +2830,16 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
+    (=ucs		. #x21682)	; 𡚂
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x21682)	; 𡚂
+    (<-denotational
+     ((=ucs		  . #x21682)	; 𡚂
+      ))
+    (=ucs@iso		. #x21682)	; &U-00021682;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -3015,12 +3022,23 @@
     (=cns11643-5	. #x4C53)	; &I-C5-4C53; [44-51]
     ))
 (define-char
-  '((=>ucs		. #x21682)	; 𡚂
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x21682)	; 𡚂
+      ))
     (hanyu-dazidian	1 549 7)
     (=hanziku-2		. #xC0DF)	; &HZK02-C0DF;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (<-unknown
+     ((=ucs		  . #x596D)	; 奭
+      ))
+    (=big5-cdp		. #x85BD)	; &CDP-85BD;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
