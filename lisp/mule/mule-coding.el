@@ -238,6 +238,7 @@
 	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
 	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
 	  ( ideograph-gt   		          "GT-" 5 d)
+	  ( =zinbun-oracle                       "ZOB-" 4 d)
 	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ( chinese-big5-cdp		         "CDP-" 4 X)
 	  ( ideograph-daikanwa                     "M-" 5 d)
