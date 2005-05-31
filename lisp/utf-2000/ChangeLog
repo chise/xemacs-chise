@@ -1,3 +1,22 @@
+2005-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (U-00021682): Use `->denotational'.
+	(BC-85BD): New character.
+
+	* Ideograph-R009-Man.el (U+4FCA): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R007-Two.el (U-0002011E): Add `<-ancient' for U+4E0A.
+	(U-0002011F): Add `<-ancient' for U+4E0B.
+
+	* Ideograph-R075-Tree.el (U+68A6): Add
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources'.
+
+2005-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el (J0-4328): Add S1-7812.
+
 2005-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* README.en:
