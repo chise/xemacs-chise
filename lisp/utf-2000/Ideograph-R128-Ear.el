@@ -1538,7 +1538,16 @@
     (total-strokes	 . 14)
     (=ucs		. #x805F)	; 聟
     (->subsumptive
-     ((=gt		  . 37686)	; &GT-37686;
+     ((<-vulgar
+       ((shinjigen-1	    . 1704)
+	(=jis-x0208	    . #x5466)	; &GT-07170; [52-70]
+	(=ks-x1001	    . #x5F6B)	; &I-K0-5F6B; [63-75]
+	(=daikanwa	    . 05664)	; &I-M-05664;
+	))
+      (<-vulgar*sources
+       goonruiju daikanwa shinjigen-1)
+      (shinjigen-1	  . 1705)
+      (=gt		  . 37686)	; &GT-37686;
       (=gt-pj-1		  . #x665D)	; &GT-37686; [70-61]
       (=daikanwa	  . 29106)	; &I-M-29106;
       )
@@ -1550,7 +1559,8 @@
       (=jis-x0208@1983	  . #x665D)	; &I-J83-665D; [70-61]
       (=ucs@unicode	  . #x805F)	; &J83-665D;
       )
-     ((=cns11643-3	  . #x4926)	; &C3-4926; [41-06]
+     ((=cns11643-3	  . #x4926)	; &CB00414; [41-06]
+      (=cbeta		  . 00414)	; &I-CB00414;
       ))
     ))
 (define-char
