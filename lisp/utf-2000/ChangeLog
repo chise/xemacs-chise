@@ -1,4 +1,89 @@
+2005-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R033-Scholar.el (M-05641): Unify U-0002151C; add
+	`total-strokes'; delete `kangxi-strokes'.
+	(U+58EE): Add S1-1526; unify H2-A6B0.
+	(U+58F0): Unify BC-8BE1.
+	(U+58F3): Use `->denotational'.
+	(G0-3F47): Use `<-denotational' for U+58F3; unify H2-A850.
+	(U+58F5): Unify H2-A9F5.
+	(M-05656): Unify U-00021529.
+	(U+58F6): Unify H2-AC40.
+	(U+58F7): Unify H2-AE68.
+	(U+58FB): Use `->subsumptive'.
+	(M-05671): Map to U-00021534.
+	(U+58F8): Unify H2-AE66.
+	(U+5900): Use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-radical@cns'; use
+	`->subsumptive' to integrate M-07459 and C6-5C2F.
+	(M-07459): Unify H2-B4D5.
+	(U+5901): Unify H2-B544.
+
+2005-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`ideographic-combination'.
+
+2005-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=zinbun-oracle'.
+	(char-db-insert-ccs-feature): Add setting for `=zinbun-oracle'.
+
+	* Ideograph-R036-Evening.el (U+5915): Add S1-1544 and
+	`hanyu-dazidian'.
+	(U+5916): Use `->subsumptive'.
+	(U+5918): Unify H3-AD64.
+	(U+5919): Add S1-1545 and `hanyu-dazidian'.
+	(U+591A): Add S1-1546 and `hanyu-dazidian'.
+	(U+591B): Add `<-denotational' for J97-546C; unify H3-ADC3.
+	(J97-546C): New abstract character.
+	(U+56F1): Copied from Ideograph-R031-Enclosure.el.
+	(C3-2548): Add `<-denotational' for U+56F1.
+	(U+591C): Use `->denotational' and `->subsumptive'.
+	(U+591D): Unify H3-ADC8.
+	(U+591F): Unify H3-ADD5.
+	(U+68A6): Add `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources'.
+	(U+5921): Unify H3-ADEB.
+	(U+368A): Use `->subsumptive'.
+	(M-05801): Map to U-000215B4; unify H3-AE48.
+	(U-000215B4): Use `->subsumptive'.
+	(U+5922): Use `->denotational'.
+	(UU+5923): Unify H3-AE6B.
+	(U+5924): Use `->subsumptive'.
+	(U+368B): Use `->denotational'.
+	(U+5926): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el: Modify some definitions about Big5.
+
+2005-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (U+590B): Use `->denotational' and
+	`->subsumptive'.
+	(U+590C): Use `->denotational' instead of `->subsumptive'.
+	(U-00021562): Use `->denotational' and `->subsumptive'.
+	(U-00021563): Likewise.
+	(U+590D): Use `->denotational' instead of `->subsumptive'.
+	(U+590E): Likewise.
+	(U+590F): Use `->denotational' and `->subsumptive'.
+	(U-0002156A): Use `->subsumptive'.
+	(U+5912): Use `->denotational' instead of `->subsumptive'.
+	(U+5913): Use `->denotational' and `->subsumptive'.
+	(H3-AFA9): New character.
+	(U+5914): Use `->denotational'.
+
 2005-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (U+5900): Copied from
+	Ideograph-R033-Scholar.el; use `->subsumptive'.
+	(M-07459): Map to U+5900; unify H2-B4D5.
+	(C6-5C2F): Map to U+5900.
+	(U-00021B41): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R031-Enclosure.el (U+56F1): Use `->denotational'; use
+	`ideographic-radical@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
 
 	* Ideograph-R037-Big.el (U-00021682): Use `->denotational'.
 	(BC-85BD): New character.
