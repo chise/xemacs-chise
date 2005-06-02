@@ -3513,7 +3513,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				  "fullwidth\\|halfwidth"
 				  "\\|simplified\\|vulgar\\|wrong"
 				  "\\|same\\|original\\|ancient"
-				  "\\)[^*]*$"),
+				  "\\|Oracle-Bones\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )
     {
@@ -3839,7 +3839,7 @@ Save values of ATTRIBUTE into database file.
 		     (build_string ("^\\(<-\\|->\\)\\(simplified"
 				    "\\|same\\|vulgar\\|wrong"
 				    "\\|original\\|ancient"
-				    "\\)[^*]*$"),
+				    "\\|Oracle-Bones\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
