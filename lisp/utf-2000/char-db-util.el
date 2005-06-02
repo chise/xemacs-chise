@@ -912,6 +912,7 @@
 			  ))
 		 )
 		((or (eq name 'ideographic-structure)
+		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
 		 (insert (format "(%-18s%s " name line-breaking))
