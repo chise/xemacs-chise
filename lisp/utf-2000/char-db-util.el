@@ -909,6 +909,7 @@
 			  (string-match "^->same" (symbol-name name))
 			  (string-match "^->original" (symbol-name name))
 			  (string-match "^->ancient" (symbol-name name))
+			  (string-match "^->Oracle-Bones" (symbol-name name))
 			  ))
 		 )
 		((or (eq name 'ideographic-structure)
