@@ -6093,9 +6093,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0208	    . #x5469)	; &GT-07201; [52-73]
-	(=cns11643-3	    . #x2139)	; &I-C3-2139; [01-25]
-	(=daikanwa	    . 05691)	; &I-M-05691;
+       ((=ucs		    . #x5902)	; 夂
 	)
        ((=gt-k		    . 00049)	; &GT-K00049;
 	))
@@ -6129,9 +6127,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0208	    . #x5469)	; &GT-07201; [52-73]
-	(=cns11643-3	    . #x2139)	; &I-C3-2139; [01-25]
-	(=daikanwa	    . 05691)	; &I-M-05691;
+       ((=ucs		    . #x5902)	; 夂
 	)
        ((name		    . "CJK RADICAL DIVINATION")
 	(=ucs		    . #x2E8A)	; ⺊
