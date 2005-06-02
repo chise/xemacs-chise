@@ -1,5 +1,28 @@
 2005-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R151-Bean.el: Add mappings for Big5 code points.
+	(U+8C47): Unify JC3-65E1.
+	(U+8C49): Unify JC3-65E2.
+	(U-00027BE1): Add `<-original' for J0-6C32; unify CB03349.
+	(U+8C4B): Use `->subsumptive'.
+	(JSP-5E69): Unify JC3-65DE.
+	(U+8C4C): Use `->subsumptive'.
+	(U+8C4E): Add S1-7811.
+	(U+473F): Use `->subsumptive'.
+	(U+8C4F): Use `->denotational'.
+	(U+4740): Use `->subsumptive'.
+	(U+8C54): Unify JC3-65E0.
+
+	* Ideograph-R128-Ear.el (GT-37686): Add `<-vulgar' for J0-5466;
+	add S1-1705.
+	(C3-4926): Unify CB00414.
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->Oracle-Bones' when running with non-readable mode.
+
+	* Ideograph-R109-Eye.el (C5-3421): Delete incomplete
+	`ideographic-structure'.
+
 	* Ideograph-R033-Scholar.el (M-05641): Unify U-0002151C; add
 	`total-strokes'; delete `kangxi-strokes'.
 	(U+58EE): Add S1-1526; unify H2-A6B0.
