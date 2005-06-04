@@ -1,3 +1,31 @@
+2005-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002020D): Use `->subsumptive'.
+	(U-0002022C): Delete incomplete `ideographic-structure'.
+	(U-00020228): Likewise.
+	(M-00624): Map to U-00020226.
+	(U-00020226): Map to M-00624; delete incomplete
+	`ideographic-structure'.
+	(U-0002022A): Use `->denotational' and `->subsumptive'.
+	(U-00020227): Delete incomplete `ideographic-structure'.
+	(C5-3421): Likewise.
+	(U+50B9): Use `->subsumptive'.
+	(U+50BA): Likewise.
+	(U+50BB): Use `->denotational'.
+	(U-0002037B): Delete incomplete `ideographic-structure'.
+	(U-000203B9): Use `->denotational' and `->subsumptive'.
+	(M-01140): Unify U-000203AD.
+	(U+510D): Use `->denotational' and `->subsumptive'.
+
+2005-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U-00022724): Use `->subsumptive'.
+	(M-10842): Map to U-00022725.
+	(U-00022725): Map to M-10842.
+	(M-10843): Unify U-00022726.
+	(M-10844): Map to U+3956.
+	(U+3956): Use `->subsumptive'; integrate M-10844.
+
 2005-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R151-Bean.el: Add mappings for Big5 code points.
