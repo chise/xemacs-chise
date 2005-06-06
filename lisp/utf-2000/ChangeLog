@@ -1,3 +1,16 @@
+2005-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R034-Go.el (J0-5469): Unify U+5902.
+	(U-00021552): Use `->subsumptive'.
+	(U+5904): Use `->denotational'.
+	(G0-3426): Unify H3-AEB6.
+	(U+5905): Use `->subsumptive'.
+	(U+5907): Unify H3-AEE8.
+	(U+5908): Use `->subsumptive'.
+	(UU+5908): Unify H3-AEEE.
+	(U+5909): Use `->denotational' and `->subsumptive'.
+	(H3-AEED): New character.
+
 2005-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U-0002020D): Use `->subsumptive'.
