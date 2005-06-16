@@ -1,3 +1,20 @@
+2005-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el (U-00020554): Use `->subsumptive' to
+	integrate M-49525 and C6-287A; use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add
+	`ideographic-strokes@{ucs|cns}', `ideographic-radical@cns',
+	`ideographic-radical@cns*sources' and `total-strokes'.
+
+2005-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U-00020B10): Use `->subsumptive' to
+	integrate C6-6072; use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-radical@cns',
+	`ideographic-strokes@{ucs|cns}', `ideographic-radical@cns*sources'
+	and `total-strokes'.
+	(H1-F5F9): Unify M-49546.
+
 2005-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R034-Go.el (J0-5469): Unify U+5902.
