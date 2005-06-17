@@ -1419,6 +1419,7 @@
      ((=ucs		  . #x9EC4)	; 黄
       ))
     (=ucs		. #x2EE9)	; ⻩
+    (=big5-cdp		. #x8A5E)	; &I-CDP-8A5E;
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED FROG")
