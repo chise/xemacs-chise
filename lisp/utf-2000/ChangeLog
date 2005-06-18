@@ -1,5 +1,10 @@
 2005-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SIMPLIFIED
+	YELLOW>): Unify BC-8A5E.
+
+2005-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R013-Down-Box.el (U-00020554): Use `->subsumptive' to
 	integrate M-49525 and C6-287A; use `ideographic-radical@ucs'
 	instead of `ideographic-radical'; add
