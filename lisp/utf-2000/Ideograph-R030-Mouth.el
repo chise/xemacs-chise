@@ -21364,19 +21364,28 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=jis-x0208	    . #x6950)	; &GT-44398; [73-48]
+       ((=jis-x0208	    . #x6950)	; &M-32902; [73-48]
 	(=ks-x1001	    . #x7649)	; &I-K0-7649; [86-41]
-	(=cns11643-6	    . #x3B71)	; &I-C6-3B71; [27-81]
 	(=daikanwa	    . 32902)	; &I-M-32902;
 	))
       (jisx0208-difference . 78err)
+      (shinjigen-1	  . 1196)
       (shinjigen-2	  . 1196)
-      (=jis-x0208	  . #x5350)	; &GT-05103; [51-48]
+      (=jis-x0208	  . #x5350)	; &M-04110; [51-48]
       (=ks-x1001	  . #x7638)	; &I-K0-7638; [86-24]
-      (=gt		  . 05103)	; &I-GT-05103;
-      (=gt-pj-1		  . #x5350)	; &I-GT-05103; [51-48]
       (=daikanwa	  . 04110)	; &I-M-04110;
-      (=ucs@jis		  . #x55E4)	; &GT-05103;
+      (=ucs@jis		  . #x55E4)	; &M-04110;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=cns11643-6	    . #x3B71)	; &GT-44398; [27-81]
+	))
+      (=gt		  . 05103)	; &GT-05103;
+      (=gt-pj-1		  . #x5350)	; &GT-05103; [51-48]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
