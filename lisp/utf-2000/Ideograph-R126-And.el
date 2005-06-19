@@ -22,7 +22,6 @@
     (hanyu-dazidian	1 36 5)
     (=ucs		. #x264D0)	; 𦓐
     (=cns11643-5	. #x2179)	; &I-C5-2179; [01-89]
-    (=big5-cdp		. #x87DC)	; &I-CDP-87DC;
     (=daikanwa		. 28872)	; &I-M-28872;
     ))
 (define-char
