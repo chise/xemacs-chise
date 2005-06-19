@@ -2366,7 +2366,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x3DB2)	; 㶲
-    (=cns11643-4	. #x2A27)	; &I-C4-2A27; [10-07]
+    (->subsumptive
+     ((=ucs@unicode	  . #x3DB2)	; &UU+3DB2;
+      )
+     ((=cns11643-4	  . #x2A27)	; &C4-2A27; [10-07]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
