@@ -118,15 +118,14 @@
     (total-strokes	 . 4)
     (=ucs		. #x2626B)	; 𦉫
     (=cns11643-6	. #x2228)	; &I-C6-2228; [02-08]
+    (=big5-cdp		. #x87DC)	; &I-CDP-87DC;
     (=daikanwa		. 28204)	; &I-M-28204;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 267)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 267 1)
     (=ucs		. #x2626D)	; 𦉭
     (=cns11643-6	. #x2544)	; &I-C6-2544; [05-36]
     (=big5-cdp		. #x87BA)	; &I-CDP-87BA;
