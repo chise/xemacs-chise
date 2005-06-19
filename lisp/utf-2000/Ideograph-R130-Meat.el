@@ -17,7 +17,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL MEAT")
-    (=>daikanwa		. 29237)	; &GT-37857;
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -41,6 +40,19 @@
       (=gt-k		  . 00417)	; &I-GT-K00417;
       (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    (=big5-cdp		. #x88F0)	; &CDP-88F0;
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
