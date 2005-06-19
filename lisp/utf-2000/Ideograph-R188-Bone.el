@@ -26,6 +26,16 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=gb2312		. #x3947)	; &G0-3947; [25-39]
+    (=ucs@unicode	. #x9AA8)	; &G0-3947;
+    ))
+(define-char
   '((name		. "CJK RADICAL BONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -39,14 +49,11 @@
     (=ucs		. #x2EE3)	; ⻣
     ))
 (define-char
-  '((ideographic-radical . 188)	; ⾻
-    (ideographic-strokes . 0)
-    (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x9AA8)	; 骨
+  '((<-denotational
+     ((name		  . "CJK RADICAL BONE")
+      (=ucs		  . #x2EE3)	; ⻣
       ))
-    (=gb2312		. #x3947)	; &G0-3947; [25-39]
-    (=ucs@unicode	. #x9AA8)	; &G0-3947;
+    (=big5-cdp		. #x8A5C)	; &CDP-8A5C;
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
