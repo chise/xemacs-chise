@@ -1,5 +1,26 @@
 2005-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R086-Fire.el (U+7099): Use `->subsumptive'.
+	(U+70BA): Add `<-denotational' for B-ACB0.
+	(B-ACB0): New abstract character.
+
+	* Ideograph-R058-Snout.el (JSP-3C77): Unify BC-8A6E.
+
+	* Ideograph-R024-Ten.el (U+5342): Use `->denotational' and
+	`->subsumptive'.
+	(BC-88EC): New character; map to U+5342.
+	(BC-89D7): New character; map to U+5345.
+
+	* Ideograph-R001-One.el (U+4E11): Use `->denotational' instead of
+	`->subsumptive'.
+	(G0-3373): Unify BC-89D2.
+
+	* Ideograph-R126-And.el (U-000264D0): Delete BC-87DC.
+
+	* Ideograph-R140-Grass.el (C6-575A): Unify U-00026CCA and H8-F6F0.
+
+2005-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R130-Meat.el: Add mappings between CJK Ext B and CNS
 	11643 plain 6.
 
