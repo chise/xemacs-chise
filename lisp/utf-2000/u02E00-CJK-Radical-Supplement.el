@@ -809,7 +809,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL MEAT")
-    (=>daikanwa		. 29237)	; &GT-37857;
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -833,6 +832,19 @@
       (=gt-k		  . 00417)	; &I-GT-K00417;
       (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    (=big5-cdp		. #x88F0)	; &CDP-88F0;
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")
@@ -965,6 +977,7 @@
      ((=ucs		  . #x89C1)	; 见
       ))
     (=ucs		. #x2EC5)	; ⻅
+    (=big5-cdp		. #x89A1)	; &I-CDP-89A1;
     ))
 (define-char
   '((name		. "CJK RADICAL SIMPLIFIED HORN")
@@ -1028,6 +1041,7 @@
      ((=ucs		  . #x8F66)	; 车
       ))
     (=ucs		. #x2ECB)	; ⻋
+    (=big5-cdp		. #x8967)	; &I-CDP-8967;
     ))
 (define-char
   '((name		. "CJK RADICAL SIMPLIFIED WALK")
@@ -1354,6 +1368,13 @@
     (=ucs		. #x2EE3)	; ⻣
     ))
 (define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL BONE")
+      (=ucs		  . #x2EE3)	; ⻣
+      ))
+    (=big5-cdp		. #x8A5C)	; &CDP-8A5C;
+    ))
+(define-char
   '((name		. "CJK RADICAL GHOST")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -1362,6 +1383,7 @@
      ((=ucs		  . #x9B3C)	; 鬼
       ))
     (=ucs		. #x2EE4)	; ⻤
+    (=big5-cdp		. #x8A5D)	; &I-CDP-8A5D;
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED FISH")
