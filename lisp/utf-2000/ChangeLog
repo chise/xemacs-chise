@@ -1,5 +1,10 @@
 2005-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R077-Stop.el (GT-K00182): Unify BC-8960.
+	(U+9FB0): Use `->subsumptive' to integrate BC-8B68.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3326.
+
 	* Ideograph-R008-Lid.el (U-0002019F): Use `->subsumptive' to
 	integrate M-00343.
 
