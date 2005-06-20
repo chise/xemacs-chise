@@ -8,6 +8,7 @@
     (=iso-ir165		. #x7E6E)	; &I-EGB-7E6E; [94-78]
     (=cns11643-3	. #x272F)	; &I-C3-272F; [07-15]
     (=jis-x0213-1-2000	. #x7C53)	; &I-JX1-7C53; [92-51]
+    (=big5-cdp		. #x8A74)	; &I-CDP-8A74;
     (=daikanwa		. 38700)	; &I-M-38700;
     ))
 (define-char
