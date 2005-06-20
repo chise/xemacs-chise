@@ -9765,32 +9765,65 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (=ucs		. #x20233)	; 𠈳
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x20233)	; 𠈳
+      ))
     (hanyu-dazidian	1 166 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x4EBB)	; 亻
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8A6E)	; &CDP-8A6E;
+       ((=jis-x0212	    . #x3C77)	; &GT-12503; [28-87]
+	(=cns11643-3	    . #x2140)	; &I-C3-2140; [01-32]
+	(=daikanwa	    . 09908)	; &I-M-09908;
 	)
-       ((=ucs		    . #x706B)	; 火
+       ((=jis-x0208	    . #x3250)	; &GT-24152; [18-48]
+	(=gb2312	    . #x3B70)	; &I-G0-3B70; [27-80]
+	(=ks-x1001	    . #x7B7D)	; &I-K0-7B7D; [91-93]
+	(=daikanwa	    . 18850)	; &I-M-18850;
 	))
       ))
-    (=ucs		. #x20233)	; 𠈳
-    (=daikanwa		. 00661)	; &I-M-00661;
+    (=daikanwa		. 00661)	; &M-00661;
     (=hanziku-1		. #xC5EF)	; &I-HZK01-C5EF;
+    (=ucs@iso		. #x20233)	; &M-00661;
     ))
 (define-char
-  '((=>ucs		. #x20233)	; 𠈳
-    (morohashi-daikanwa	661 0 5)
-    (ideographic-radical . 9)	; ⼈
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x20233)	; 𠈳
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL SNOUT ONE")
+	(=ucs		    . #x2E94)	; ⺔
+	)
+       ((=cns11643-1	    . #x4556)	; &C1-4556; [37-54]
+	))
+      ))
     (=cns11643-6	. #x2E57)	; &C6-2E57; [14-55]
     ))
 (define-char
@@ -18170,6 +18203,24 @@
     (=ucs		. #x202DD)	; 𠋝
     (=cns11643-5	. #x307D)	; &I-C5-307D; [16-93]
     (=hanziku-1		. #xCD5C)	; &I-HZK01-CD5C;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 130)	; ⾁
+    (ideographic-strokes@cns . 7)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (total-strokes	 . 11)
+    (=ucs		. #x202DB)	; 𠋛
+    (->subsumptive
+     ((hanyu-dazidian	  1 189 2)
+      (=daikanwa	  . 49536)	; &M-49536;
+      (=hanziku-1	  . #xCD54)	; &I-HZK01-CD54;
+      (=ucs@iso		  . #x202DB)	; &M-49536;
+      )
+     ((=cns11643-6	  . #x4363)	; &C6-4363; [35-67]
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -32590,20 +32641,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 189 2)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
-      )
-     ((=ucs		  . #x6534)	; 攴
-      )
-     ((=big5-cdp	  . #x8A73)	; &CDP-8A73;
-      ))
-    (=ucs		. #x202DB)	; 𠋛
-    (=hanziku-1		. #xCD54)	; &I-HZK01-CD54;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 191 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
@@ -33277,23 +33314,6 @@
       ))
     (=ucs		. #x204F2)	; 𠓲
     (=hanziku-1		. #xCF5A)	; &I-HZK01-CF5A;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 186 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((=ucs		  . #x8089)	; 肉
-      )
-     ((=ucs		  . #x571F)	; 土
-      ))
-    (=ucs		. #x26699)	; 𦚙
-    (=hanziku-1		. #xCCB3)	; &I-HZK01-CCB3;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
