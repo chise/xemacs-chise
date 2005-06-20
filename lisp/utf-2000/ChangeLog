@@ -1,4 +1,55 @@
+2005-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (U-0002019F): Use `->subsumptive' to
+	integrate M-00343.
+
+2005-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+8FB5): Unify BC-8A74.
+
+	* Ideograph-R044-Corpse.el (U-00021C23): Unify BC-86BA.
+
+	* Ideograph-R152-Pig.el (C5-2329): Unify BC-8BC9.
+
+	* Ideograph-R086-Fire.el (U+3DB2): Use `->subsumptive'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for
+	J90-{6950|697C|6A24|5350}'.
+
+	* Ideograph-R130-Meat.el (<CJK RADICAL MEAT>): Delete
+	`=>daikanwa'.
+	(BC-88F0): New character.
+
+	* Ideograph-R009-Man.el (U-00020233): Use `->denotational'.
+	(U-000202DB): Use `->subsumptive' to integrate M-49536 and
+	C6-4363; use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-strokes@{ucs|cns}',
+	`ideographic-radical@cns' and `ideographic-radical@cns*sources'.
+	(H1-CD54): Use `<-subsumptive' for U-000202DB; unify M-49536.
+	(U-00026699): Unify C6-4356 and M-29416; moved to
+	Ideograph-R130-Meat.el.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Delete
+	`=>daikanwa'.
+	(BC-88F0): New character.
+	(<CJK RADICAL C-SIMPLIFIED SEE>): Unify BC-89A1.
+	(<CJK RADICAL C-SIMPLIFIED CART>): Unify BC-8967.
+	(BC-8A5C): New character.
+	(<CJK RADICAL GHOST>): Unify BC-8A5D.
+
+	* Ideograph-R122-Net.el (U-0002626B): Unify BC-87DC.
+	(U-0002626D): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
 2005-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (BC-8A5C): New character.
+
+	* Ideograph-R087-Claw.el (U+7232): Add `<-denotational' for
+	B-ACB0; use `->denotational' instead of `->subsumptive'.
+	(J0-602A): Add `<-denotational' for U+7232; add S1-4703; unify
+	BC-89D1.
+	(B-ACB0): New abstract character.
 
 	* Ideograph-R086-Fire.el (U+7099): Use `->subsumptive'.
 	(U+70BA): Add `<-denotational' for B-ACB0.
