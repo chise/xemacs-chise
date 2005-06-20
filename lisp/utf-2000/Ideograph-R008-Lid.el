@@ -3332,37 +3332,14 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 22)
     (total-strokes	 . 24)
-    (=daikanwa		. 00343)	; &M-00343;
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 22)
-    (total-strokes	 . 24)
-    (hanyu-dazidian	1 294 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((=big5-cdp	    . #x8B65)	; &CDP-8B65;
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=big5-cdp	      . #x8A6E)	; &CDP-8A6E;
-	  )
-	 ((=big5-cdp	      . #x8BC9)	; &CDP-8BC9;
-	  ))
-	))
-      ))
     (=ucs		. #x2019F)	; 𠆟
-    (=hanziku-1		. #xE2C4)	; &I-HZK01-E2C4;
+    (->subsumptive
+     ((=daikanwa	  . 00343)	; &M-00343;
+      )
+     ((hanyu-dazidian	  1 294 17)
+      (=hanziku-1	  . #xE2C4)	; &HZK01-E2C4;
+      (=ucs@iso		  . #x2019F)	; &HZK01-E2C4;
+      ))
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
