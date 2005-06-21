@@ -5,9 +5,11 @@
     (total-strokes	 . 4)
     (=ucs		. #x65E0)	; 无
     (->subsumptive
-     ((shinjigen-2	  . 3259)
+     ((shinjigen-1	  . 3259)
+      (shinjigen-2	  . 3259)
       (=jis-x0208	  . #x5A5B)	; &GT-17330; [58-59]
       (=ks-x1001	  . #x5969)	; &I-K0-5969; [57-73]
+      (=big5-cdp	  . #x8A72)	; &I-CDP-8A72;
       (=gt		  . 17330)	; &I-GT-17330;
       (=gt-k		  . 00532)	; &I-GT-K00532;
       (=gt-pj-1		  . #x5A5B)	; &I-GT-17330; [58-59]
