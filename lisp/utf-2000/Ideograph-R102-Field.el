@@ -577,17 +577,23 @@
   '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (shinjigen-2	. 5031)
     (=ucs		. #x754C)	; 界
-    (=jis-x0208		. #x3326)	; &I-J90-3326; [19-06]
-    (=gb2312		. #x3D67)	; &I-G0-3D67; [29-71]
-    (=ks-x1001		. #x4D23)	; &I-K0-4D23; [45-03]
-    (=cns11643-1	. #x524C)	; &I-C1-524C; [50-44]
-    (=big5		. #xACC9)	; &I-B-ACC9;
-    (=gt		. 27949)	; &I-GT-27949;
-    (=gt-k		. 05035)	; &I-GT-K05035;
-    (=gt-pj-1		. #x3326)	; &I-GT-27949; [19-06]
-    (=daikanwa		. 21775)	; &I-M-21775;
+    (->subsumptive
+     ((shinjigen-1	  . 5031)
+      (shinjigen-2	  . 5031)
+      (=jis-x0208	  . #x3326)	; &M-21775; [19-06]
+      (=big5		  . #xACC9)	; &I-B-ACC9;
+      (=daikanwa	  . 21775)	; &I-M-21775;
+      (=ucs@jis		  . #x754C)	; &M-21775;
+      )
+     ((=gb2312		  . #x3D67)	; &GT-27949; [29-71]
+      (=ks-x1001	  . #x4D23)	; &I-K0-4D23; [45-03]
+      (=cns11643-1	  . #x524C)	; &I-C1-524C; [50-44]
+      (=gt		  . 27949)	; &I-GT-27949;
+      (=gt-k		  . 05035)	; &I-GT-K05035;
+      (=gt-pj-1		  . #x3326)	; &I-GT-27949; [19-06]
+      (=ucs@unicode	  . #x754C)	; &GT-27949;
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
