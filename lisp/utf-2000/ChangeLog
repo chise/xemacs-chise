@@ -1,4 +1,31 @@
+2005-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+76F4): Use `->denotational'.
+	(J0-443E): Add S1-5273; unify U-0002F940.
+	(BC-8BB2): New character.
+
+2005-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U+620B): Add `<-simplified@CN' for
+	U+6214; use `->subsumptive' to integrate BC-89DC.
+	(U+39AE): Add `<-simplified@component' for U+6214; use
+	`->subsumptive'; integrate BC-89DD.
+	(M-11542): Add `<-subsumptive' for U+39AE; add `<-simplified' for
+	U+9322.
+	(GT-K02180): Use `<-denotational' for U+39AE; add
+	`<-ideographic-component-forms' for U+39AE.
+
 2005-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R071-Not.el (J0-5A5B): Add S1-3259; unify BC-8A72.
+
+	* Ideograph-R032-Earth.el (U+5742): Use `->subsumptive'.
+	(U-00021372): Likewise.
+	(U+583A): Likewise.
+
+2005-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U+754C): Use `->subsumptive'.
 
 	* Ideograph-R077-Stop.el (GT-K00182): Unify BC-8960.
 	(U+9FB0): Use `->subsumptive' to integrate BC-8B68.
