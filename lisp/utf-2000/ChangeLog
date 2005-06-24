@@ -1,5 +1,9 @@
 2005-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el (U-0002256B): Use `->subsumptive'.
+	(U+5FB6): Use `->denotational' and `->subsumptive'.
+	(U+5FB7): Add S1-2385.
+
 	* Ideograph-R061-Heart.el (U+393F): Use `->subsumptive'.
 	(U+3940): Use `->denotational'.
 	(U+60B3): Likewise.
