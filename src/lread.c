@@ -1632,6 +1632,26 @@ START and END optionally delimit a substring of STRING from which to read;
   return tem;
 }
 
+Lisp_Object
+read_from_c_string (const unsigned char* str, size_t size)
+{
+  Lisp_Object tem;
+  Lisp_Object lispstream = Qnil;
+  struct gcpro gcpro1;
+
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  Vcurrent_compiled_function_annotation = Qnil;
+#endif
+  GCPRO1 (lispstream);
+  lispstream = make_fixed_buffer_input_stream (str, size);
+
+  Vread_objects = Qnil;
+
+  tem = read0 (lispstream);
+  Lstream_delete (XLSTREAM (lispstream));
+  UNGCPRO;
+  return tem;
+}
 
 #ifdef LISP_BACKQUOTES
 
