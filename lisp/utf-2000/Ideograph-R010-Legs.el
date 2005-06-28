@@ -2316,6 +2316,7 @@
       ))
     (=cns11643-3	. #x5754)	; &M-48929; [55-52]
     (=daikanwa		. 48929)	; &I-M-48929;
+    (=ucs@cns		. #x34AF)	; &M-48929;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -2389,6 +2390,7 @@
      ((=ucs@iso		  . #x204CF)	; &U-000204CF;
       )
      ((=cns11643-5	  . #x6B6D)	; &C5-6B6D; [75-77]
+      (=ucs@cns		  . #x204CF)	; &C5-6B6D;
       ))
     ))
 (define-char
