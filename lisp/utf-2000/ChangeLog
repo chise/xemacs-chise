@@ -1,5 +1,10 @@
 2005-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R013-Down-Box.el (C5-252C): Add CU-00020556.
+
+	* Ideograph-R006-Hook.el (U-0002010D): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R010-Legs.el (C3-5754): Add CU+34AF.
 	(C5-6B6D): Add CU-000204CF.
 
