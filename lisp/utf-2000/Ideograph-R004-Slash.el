@@ -995,6 +995,7 @@
       (=jis-x0213-2-2000  . #x212C)	; &I-JX2-212C; [01-12]
       (=big5-cdp	  . #x89F2)	; &I-CDP-89F2;
       (=jef-china3	  . #x41B9)	; &I-JC3-41B9;
+      (=ucs@cns		  . #x4E51)	; &CDP-89F2;
       (=ucs@jis		  . #x4E51)	; &CDP-89F2;
       )
      ((=ucs@unicode	  . #x4E51)	; &UU+4E51;
