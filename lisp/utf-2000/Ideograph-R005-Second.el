@@ -1032,6 +1032,7 @@
       (=gt-k		  . 02775)	; &I-GT-K02775;
       (=gt-pj-6		  . #x3662)	; &I-GT-37567; [22-66]
       (=daikanwa	  . 29001)	; &I-M-29001;
+      (=ucs@cns		  . #x8034)	; &GT-37567;
       (=ucs@jis		  . #x8034)	; &GT-37567;
       )
      ((=gt		  . 00250)	; &GT-00250;
@@ -1878,6 +1879,7 @@
        ((=ucs		    . #x4E5A)	; 乚
 	))
       (=cns11643-5	  . #x3073)	; &C5-3073; [16-83]
+      (=ucs@cns		  . #x200FD)	; &C5-3073;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
