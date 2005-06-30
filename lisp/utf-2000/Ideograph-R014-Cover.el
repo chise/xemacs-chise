@@ -82,18 +82,16 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (hanyu-dazidian	1 302 15)
     (=ucs		. #x20573)	; 𠕳
-    (=daikanwa		. 01568)	; &I-M-01568;
-    (=hanziku-1		. #xE466)	; &I-HZK01-E466;
-    ))
-(define-char
-  '((=>ucs		. #x20573)	; 𠕳
-    (morohashi-daikanwa	1568 0 0)
-    (ideographic-radical . 14)	; ⼍
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=cns11643-5	. #x2138)	; &C5-2138; [01-24]
+    (->subsumptive
+     ((hanyu-dazidian	  1 302 15)
+      (=daikanwa	  . 01568)	; &M-01568;
+      (=hanziku-1	  . #xE466)	; &I-HZK01-E466;
+      (=ucs@iso		  . #x20573)	; &M-01568;
+      )
+     ((=cns11643-5	  . #x2138)	; &C5-2138; [01-24]
+      (=ucs@cns		  . #x20573)	; &C5-2138;
+      ))
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
@@ -479,6 +477,7 @@
 	))
       (=cns11643-3	  . #x2F5B)	; &CDP-8CE1; [15-59]
       (=big5-cdp	  . #x8CE1)	; &I-CDP-8CE1;
+      (=ucs@cns		  . #x51A1)	; &CDP-8CE1;
       ))
     ))
 (define-char
@@ -1110,28 +1109,40 @@
     (=cns11643-7	. #x4D3F)	; &C7-4D3F; [45-31]
     ))
 (define-char
-  '((=>ucs		. #x205A9)	; 𠖩
-    (ideographic-radical . 14)	; ⼍
-    (ideographic-strokes . 19)
-    (total-strokes	 . 21)
-    (hanyu-dazidian	1 306 12)
-    (=daikanwa		. 01606)	; &M-01606;
-    (=hanziku-1		. #xE546)	; &I-HZK01-E546;
-    ))
-(define-char
-  '((morohashi-daikanwa	1606 0 2)
-    (ideographic-radical . 14)	; ⼍
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
     (=ucs		. #x205A9)	; 𠖩
     ))
 (define-char
-  '((=>ucs		. #x205A9)	; 𠖩
-    (morohashi-daikanwa	1606 0 4)
-    (ideographic-radical . 14)	; ⼍
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x205A9)	; 𠖩
+      ))
+    (hanyu-dazidian	1 306 12)
+    (=daikanwa		. 01606)	; &M-01606;
+    (=hanziku-1		. #xE546)	; &I-HZK01-E546;
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 19)
+    (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x205A9)	; 𠖩
+      ))
+    (=ucs@iso		. #x205A9)	; &U-000205A9;
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 19)
+    (total-strokes	 . 21)
+    (<-denotational
+     ((=ucs		  . #x205A9)	; 𠖩
+      ))
     (=cns11643-5	. #x6F69)	; &C5-6F69; [79-73]
+    (=ucs@cns		. #x205A9)	; &C5-6F69;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
