@@ -409,9 +409,10 @@
     (total-strokes	 . 7)
     (=ucs		. #x7077)	; 灷
     (->subsumptive
+     ((=daikanwa	  . 18871)	; &M-18871;
+      (=ucs@unicode	  . #x7077)	; &M-18871;
+      )
      ((=big5-cdp	  . #x8AC1)	; &CDP-8AC1;
-      (=daikanwa	  . 18871)	; &I-M-18871;
-      (=ucs@unicode	  . #x7077)	; &CDP-8AC1;
       )
      ((=cns11643-3	  . #x265F)	; &C3-265F; [06-63]
       ))
