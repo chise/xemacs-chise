@@ -1,5 +1,15 @@
 2005-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R086-Fire.el (M-18871): Separate BC-8AC1.
+
+	* Ideograph-R060-Step.el (U+5F80): Use `->denotational'.
+
+	* Ideograph-R018-Knife.el (C5-3663): Add CU-000202F4.
+
+	* Ideograph-R014-Cover.el (U-00020573): Use `->subsumptive'.
+	(C3-2F5B): Add CU+51A1.
+	(U-000205A9): Use `->denotational'.
+
 	* Ideograph-R013-Down-Box.el (C5-252C): Add CU-00020556.
 
 	* Ideograph-R006-Hook.el (U-0002010D): Use `->denotational' and
