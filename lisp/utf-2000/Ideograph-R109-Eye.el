@@ -2782,12 +2782,24 @@
      daikanwa cns11643)
     (=ucs		. #x2032A)	; 𠌪
     (->subsumptive
-     ((hanyu-dazidian	  1 189 5)
-      (=cns11643-5	  . #x3421)	; &M-23328; [20-01]
-      (=daikanwa	  . 23328)	; &I-M-23328;
+     ((ideographic-radical@daikanwa . 109)	; ⽬
+      (ideographic-strokes@daikanwa . 6)
+      (ideographic-radical@misc . 9)	; ⼈
+      (ideographic-strokes@misc . 9)
+      (total-strokes	   . 11)
+      (hanyu-dazidian	  1 189 5)
+      (=daikanwa	  . 23328)	; &M-23328;
       (=hanziku-1	  . #xCD57)	; &I-HZK01-CD57;
       )
-     ((=ucs@iso		  . #x2032A)	; &U-0002032A;
+     ((ideographic-radical . 109)	; ⽬
+      (ideographic-strokes . 6)
+      (total-strokes	   . 11)
+      (=cns11643-5	  . #x3421)	; &C5-3421; [20-01]
+      )
+     ((ideographic-radical . 9)	; ⼈
+      (ideographic-strokes . 10)
+      (total-strokes	   . 12)
+      (=ucs@iso		  . #x2032A)	; &U-0002032A;
       ))
     ))
 (define-char
