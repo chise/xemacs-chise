@@ -1,8 +1,29 @@
+2005-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (C2-2473): Add CU+8034.
+
+	* Ideograph-R109-Eye.el (M-23328): Add
+	`ideographic-{radical|strokes}@{daikanwa|misc}' and
+	`total-strokes'; separate C5-3421.
+	(IU-0002032A): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+
+	* Ideograph-R030-Mouth.el (U+562E): Use `->subsumptive'.
+
+	* Ideograph-R024-Ten.el (U-000209B4): Unify GT-03531.
+	(U-000209B5): Use `->denotational'.
+
+	* Ideograph-R019-Power.el (U+52DE): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el: Add some missing `=ucs@cns' features.
+
 2005-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el (M-18871): Separate BC-8AC1.
 
 	* Ideograph-R060-Step.el (U+5F80): Use `->denotational'.
+
+	* Ideograph-R162-Walk.el (U+9006): Use `->denotational'.
 
 	* Ideograph-R018-Knife.el (C5-3663): Add CU-000202F4.
 
