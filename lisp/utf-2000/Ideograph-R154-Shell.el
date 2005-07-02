@@ -1993,8 +1993,16 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x6266)	; &M-36790; [66-70]
-    (=daikanwa		. 36790)	; &I-M-36790;
+    (=ucs		. #x27D89)	; 𧶉
+    (->subsumptive
+     ((=gt		  . 49286)	; &GT-49286;
+      (=gt-k		  . 11324)	; &I-GT-K11324;
+      (=gt-pj-7		  . #x416B)	; &GT-49286; [33-75]
+      (=daikanwa	  . 36790)	; &I-M-36790;
+      )
+     ((=cns11643-6	  . #x6266)	; &C6-6266; [66-70]
+      (=ucs@iso		  . #x27D89)	; &C6-6266;
+      ))
     ))
 (define-char
   '((=>ucs		. #x27D8E)	; 𧶎
