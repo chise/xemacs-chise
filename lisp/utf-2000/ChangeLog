@@ -1,6 +1,19 @@
 2005-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R128-Ear.el (C2-2473): Add CU+8034.
+	* Ideograph-R154-Shell.el (U-00027D89): New character.
+	(M-36790): Add `<-subsumptive' for U-00027D89; separate C6-6266;
+	unify GT-49286 and GT-K11324.
+	(C6-6266): Add `<-subsumptive' for U-00027D89.
+
+	* Ideograph-R140-Grass.el (U+83AB): Use `->denotational' and
+	`->subsumptive'.
+	(U+8449): Likewise.
+
+	* Ideograph-R040-Roof.el (U-000219CD): Use `->subsumptive'.
+	(M-07088): Add `<-subsumptive'; unify GT-08912 and GT-K03155; add
+	JPU-000219CD.
+	(U-00021AC5): Use `->subsumptive'.
+	(M-07350): Add `<-subsumptive'; unify GT-09248; add JPU-00021AC5.
 
 	* Ideograph-R109-Eye.el (M-23328): Add
 	`ideographic-{radical|strokes}@{daikanwa|misc}' and
@@ -24,6 +37,8 @@
 	* Ideograph-R060-Step.el (U+5F80): Use `->denotational'.
 
 	* Ideograph-R162-Walk.el (U+9006): Use `->denotational'.
+
+	* Ideograph-R128-Ear.el (C2-2473): Add CU+8034.
 
 	* Ideograph-R018-Knife.el (C5-3663): Add CU-000202F4.
 
