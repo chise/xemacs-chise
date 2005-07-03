@@ -1490,7 +1490,10 @@
     (total-strokes	 . 12)
     (=ucs		. #x2598E)	; 𥦎
     (->subsumptive
-     ((=daikanwa	  . 25542)	; &M-25542;
+     ((=gt		  . 32948)	; &GT-32948;
+      (=gt-pj-5		  . #x5922)	; &GT-32948; [57-02]
+      (=daikanwa	  . 25542)	; &I-M-25542;
+      (=ucs@JP		  . #x2598E)	; &GT-32948;
       )
      ((=cns11643-6	  . #x4C4F)	; &C6-4C4F; [44-47]
       (=ucs@iso		  . #x2598E)	; &C6-4C4F;
