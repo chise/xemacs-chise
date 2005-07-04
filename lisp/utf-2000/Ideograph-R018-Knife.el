@@ -5617,6 +5617,7 @@
      ((=ucs@iso		  . #x2F822)	; &U-0002F822;
       )
      ((=ks-x1001	  . #x795C)	; &K0-795C; [89-60]
+      (=ucs@ks		  . #x5272)	; &K0-795C;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
