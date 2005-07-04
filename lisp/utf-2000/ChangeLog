@@ -1,4 +1,40 @@
+2005-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (J0-455B): Add S1-1600.
+
+	* Ideograph-R140-Grass.el (K0-6434): Add KU+82BD.
+
+	* Ideograph-R073-Say.el (K0-754C): Add KU+6700.
+
+	* Ideograph-R029-Again.el (K0-754C): Add KU+6700.
+
+	* Ideograph-R018-Knife.el (K0-795C): Add KU+5272.
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (K0-754C):
+	Add KU+6700.
+
+2005-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (M-25542): Unify GT-32948; add
+	JPU-0002598E.
+
 2005-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (U-000283D6): New character.
+	(C7-5957): Add `<-subsumptive' for U-000283D6.
+	(GT-51493): New character; add `<-subsumptive' for U-000283D6.
+
+	* Ideograph-R156-Run.el (U-00027F9D): New character.
+	(M-37333): Map to U-00027F9D; separate C7-553D.
+	(C7-553D): Unify GT-49924.
+	(U+47D0): Use `->subsumptive'.
+	(U-00027FA9): Unify GT-49948.
+
+2005-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U-000262A0): Use `->subsumptive'.
+	(M-28256): Add `<-subsumptive' for U-000262A0; unify GT-36405.
+	(U-000262BE): Unify GT-36416.
 
 	* Ideograph-R154-Shell.el (U-00027D89): New character.
 	(M-36790): Add `<-subsumptive' for U-00027D89; separate C6-6266;
