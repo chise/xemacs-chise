@@ -1,3 +1,7 @@
+2005-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* K0-to-UCS.txt: New file.
+
 2005-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-63C6): Map to U+45A3 instead of U+86CC.
