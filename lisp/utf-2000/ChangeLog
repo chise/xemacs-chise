@@ -13,6 +13,12 @@
 	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (K0-754C):
 	Add KU+6700.
 
+	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
+	`=ks-x1001'.
+	(mapping-table-read-file): Likewise.
+
+	* maps-conf.el: Add K0-to-UCS.txt to the check list.
+
 2005-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R116-Cave.el (M-25542): Unify GT-32948; add
