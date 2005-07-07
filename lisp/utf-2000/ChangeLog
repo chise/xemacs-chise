@@ -1,3 +1,24 @@
+2005-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el: New file.
+
+2005-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (ideographic-radical): New function.
+	(shuowen-radicals): New constant.
+	(shuowen-radical): New function.
+	(char-db-insert-char-reference): Use function
+	`ideographic-radical' to avoid to refer `ideographic-radicals'.
+	(insert-char-attributes): Likewise; add code to format
+	char-feature `shuowen-radical'.
+	(insert-char-attributes): Don't display `->formed' when running
+	with non-readable mode.
+
+2005-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"Oracle-Bones".
+
 2005-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (J0-455B): Add S1-1600.
