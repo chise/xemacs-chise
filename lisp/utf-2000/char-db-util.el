@@ -1,9 +1,9 @@
-;;; char-db-util.el --- Character Database utility
+;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
+;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
 
 ;; This file is part of XEmacs CHISE.
 
@@ -68,6 +68,15 @@
       (aset v i (decode-char '=ucs (+ #x2EFF i)))
       (setq i (1+ i)))
     v))
+
+(defun ideographic-radical (number)
+  (aref ideographic-radicals number))
+
+(defconst shuowen-radicals
+  [?一 ?上 ?示 ?三 ?王 ?玉 ?玨 ?气 ?士 ?丨 ?屮 ?艸 ?茻])
+
+(defun shuowen-radical (number)
+  (aref shuowen-radicals (1- number)))
 
 (defvar char-db-file-coding-system 'utf-8-mcs-er)
 
@@ -359,7 +368,7 @@
 	     (insert (format "%s%s\t%d ; %c%s"
 			     separator
 			     name value
-			     (aref ideographic-radicals value)
+			     (ideographic-radical value)
 			     line-breaking))
 	     (setq separator ""))
             (t
@@ -620,9 +629,17 @@
       (setq radical value)
       (insert (format "(ideographic-radical . %S)\t; %c%s"
 		      radical
-		      (aref ideographic-radicals radical)
+		      (ideographic-radical radical)
 		      line-breaking))
       (setq attributes (delq 'ideographic-radical attributes))
+      )
+    (when (and (memq 'shuowen-radical attributes)
+	       (setq value (get-char-attribute char 'shuowen-radical)))
+      (insert (format "(shuowen-radical\t. %S)\t; %c%s"
+		      value
+		      (shuowen-radical value)
+		      line-breaking))
+      (setq attributes (delq 'shuowen-radical attributes))
       )
     (let (key)
       (dolist (domain
@@ -645,7 +662,7 @@
 	  (insert (format "(%s . %S)\t; %c%s"
 			  key
 			  radical
-			  (aref ideographic-radicals radical)
+			  (ideographic-radical radical)
 			  line-breaking))
 	  (setq attributes (delq key attributes))
 	  )
@@ -695,7 +712,7 @@
       (unless (eq value radical)
 	(insert (format "(kangxi-radical\t . %S)\t; %c%s"
 			value
-			(aref ideographic-radicals value)
+			(ideographic-radical value)
 			line-breaking))
 	(or radical
 	    (setq radical value)))
@@ -716,7 +733,7 @@
       (unless (eq value radical)
 	(insert (format "(japanese-radical\t . %S)\t; %c%s"
 			value
-			(aref ideographic-radicals value)
+			(ideographic-radical value)
 			line-breaking))
 	(or radical
 	    (setq radical value)))
@@ -736,7 +753,7 @@
 	       (setq value (get-char-attribute char 'cns-radical)))
       (insert (format "(cns-radical\t . %S)\t; %c%s"
 		      value
-		      (aref ideographic-radicals value)
+		      (ideographic-radical value)
 		      line-breaking))
       (setq attributes (delq 'cns-radical attributes))
       )
@@ -755,7 +772,7 @@
       (unless (eq value radical)
 	(insert (format "(shinjigen-1-radical . %S)\t; %c%s"
 			value
-			(aref ideographic-radicals value)
+			(ideographic-radical value)
 			line-breaking))
 	(or radical
 	    (setq radical value)))
@@ -907,6 +924,7 @@
 			  (string-match "^->vulgar" (symbol-name name))
 			  (string-match "^->wrong" (symbol-name name))
 			  (string-match "^->same" (symbol-name name))
+			  (string-match "^->formed" (symbol-name name))
 			  (string-match "^->original" (symbol-name name))
 			  (string-match "^->ancient" (symbol-name name))
 			  (string-match "^->Oracle-Bones" (symbol-name name))
