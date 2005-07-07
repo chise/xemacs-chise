@@ -473,6 +473,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@gb))
+  (make-charset '=ucs-bmp@gb
+		"ISO/IEC 10646 BMP for GB"
+		'(long-name	"BMP for GB"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@gb
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@cns
 		"ISO/IEC 10646 for CNS 11643"
 		'(long-name	"UCS for CNS"
@@ -492,6 +503,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@cns))
+  (make-charset '=ucs-bmp@cns
+		"ISO/IEC 10646 BMP for CNS"
+		'(long-name	"BMP for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@jis
 		"ISO/IEC 10646 for JIS X0208/0212/0213"
 		'(long-name	"UCS for JIS"
@@ -511,6 +533,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@jis))
+  (make-charset '=ucs-bmp@jis
+		"ISO/IEC 10646 BMP for JIS"
+		'(long-name	"BMP for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		'(long-name	"UCS for JIS:1990"
@@ -553,6 +586,17 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
+  (make-charset '=ucs-bmp@ks
+		"ISO/IEC 10646 BMP for KS"
+		'(long-name	"BMP for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@ks
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
 		'(long-name	"UCS for Big5"
