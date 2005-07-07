@@ -2,6 +2,7 @@
 
 (dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
 		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
+		"K0-to-UCS.txt"
 		"G0-to-UCS.txt"
 		"C2-to-UCS.txt"
 		"C3-to-UCS.txt" "C4-to-UCS.txt"
