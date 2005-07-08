@@ -387,11 +387,11 @@ gnuserv: ${srcdir}/gnuserv.c gnuslib.o ${srcdir}/gnuserv.h
 ## mmencode binary is used by tm - but is really part of the metamail package
 ## mmencode.c was merged copy of mmencode.c and codes.c of metamail
 mmencode : ${srcdir}/mmencode.c
-	$(CC) $(cflags) ${srcdir}/mmencode.c -o $@
+	$(CC) $(cflags) ${srcdir}/mmencode.c $(ldflags) -o $@
 
 
 ## The timer utility (timer.c, getdate.y) is not used in XEmacs
 ## because XEmacs provides built-in timer facilities.
 
 make-path: ${srcdir}/make-path.c ../src/config.h
-	$(CC) -Demacs $(cflags) ${srcdir}/make-path.c -o $@
+	$(CC) -Demacs $(cflags) ${srcdir}/make-path.c $(ldflags) -o $@

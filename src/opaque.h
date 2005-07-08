@@ -47,10 +47,8 @@ DECLARE_LRECORD (opaque, Lisp_Opaque);
 
 #define OPAQUE_SIZE(op) ((op)->size)
 #define OPAQUE_DATA(op) ((void *) ((op)->data))
-#define OPAQUE_MARKFUN(op) ((op)->markfun)
 #define XOPAQUE_SIZE(op) OPAQUE_SIZE (XOPAQUE (op))
 #define XOPAQUE_DATA(op) OPAQUE_DATA (XOPAQUE (op))
-#define XOPAQUE_MARKFUN(op) OPAQUE_MARKFUN (XOPAQUE (op))
 
 Lisp_Object make_opaque (const void *data, size_t size);
 

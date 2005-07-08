@@ -1,3 +1,21 @@
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2003-12-10  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs.mak (COPYCMD): New.
+	* xemacs.mak (COPY): New.
+	* xemacs.mak (COPYDIR): New.
+	* xemacs.mak (XEMACS_INCLUDES):
+	* xemacs.mak (install): Allow xemacs.mak to overwrite existing
+	installation.
+
+2003-11-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* minitar.c: Sync with Xemacs 21.5 version to fix package
+	installation in native Windows XEmacs.
+
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released

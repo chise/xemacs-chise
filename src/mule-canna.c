@@ -1891,7 +1891,6 @@ m2c (unsigned char *mp, int l, unsigned char *cp)
 {
   unsigned char	ch, *ep = mp + l;
 #ifdef UTF2000
-  unsigned char fb;
   int len;
   Emchar chr;
 #endif
@@ -1936,25 +1935,31 @@ m2c (unsigned char *mp, int l, unsigned char *cp)
 	}
       if ( chr <= 0x7f )
 	*cp++ = chr;
-      else if ( chr <= MAX_CHAR_HALFWIDTH_KATAKANA )
-	{
-	  *cp++ = ISO_CODE_SS2;
-	  *cp++ = ( chr & 0x7f ) | 0x80;
-	}
       else
 	{
-	  Lisp_Object charset;
-	  int c1, c2;
+	  int code;
 
-	  BREAKUP_CHAR (chr, charset, c1, c2);
-	  fb = XCHARSET_FINAL (charset);
-	  switch (fb)
+	  if ( (code
+		= charset_code_point (Vcharset_japanese_jisx0208,
+				      chr, 0)) >= 0 )
 	    {
-	    case 'D':
+	      *cp++ = (code >> 8) | 0x80;
+	      *cp++ = (code & 0xFF) | 0x80;
+	    }
+	  else if ( (code
+		     = charset_code_point (Vcharset_katakana_jisx0201,
+					   chr, 0)) >= 0 )
+	    {
+	      *cp++ = ISO_CODE_SS2;
+	      *cp++ = code | 0x80;
+	    }
+	  else if ( (code
+		     = charset_code_point (Vcharset_japanese_jisx0212,
+					   chr, 0)) >= 0 )
+	    {
 	      *cp++ = ISO_CODE_SS3;
-	    default:
-	      *cp++ = c1;
-	      *cp++ = c2;
+	      *cp++ = (code >> 8) | 0x80;
+	      *cp++ = (code & 0xFF) | 0x80;
 	    }
 	}
 #else

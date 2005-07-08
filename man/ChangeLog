@@ -1,3 +1,144 @@
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2004-01-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/lispref.texi (Top): Pluralize node name Specifier Examples.
+	* lispref/specifiers.texi: Synch to 21.5 where appropriate.
+
+2003-11-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi: Fix Tony Rossini's address.
+
+2004-01-25  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs-faq.texi (Q2.0.2): Rewrite, mentioning the correct way to
+	remove a package.
+	(Q3.8.2): big-menubar is in the edit-utils package.
+	(Q4.3.2): Add a comment about not needing TM for things like Gnus,
+	MH-E and VM.
+	(Q5.3.3): State correct location of ps-print.el.
+
+	* xemacs/packages.texi (Packages): Remove "Creating Packages" menu
+	entry.
+	(Package Terminology): Whitespace clean up.
+	(Installing Packages): Whitespace clean up and add some @code
+	formatters. 
+	Re-organise the menu so that installation via PUI is first and
+	Sumo is last.
+	(Automatically): mule-base is no longer a requirement for using
+	PUI.
+	Mention optionally requiring mailcrypt.
+	(Note): Removed.
+	(Manually): Move to below the PUI installation method.
+	(Sumo): Move to below the manual installation method.
+	(Which Packages): Add mailcrypt.
+	(Building Packages): Remove duplicated stuff that is in
+	lispref/packaging.texi, xref to it instead.
+	(Local.rules File): xref to the appropriate node in
+	lispref/packaging.texi. 
+	(Available Packages): Update to current reality.
+	(all): Removed.
+	(srckit): Removed.
+	(binkit): Removed.
+	
+	* xemacs/reading.texi (Reading Mail): Mention Gnus and MEW.
+
+	* new-users-guide/custom2.texi (Init File): big-menubar.el is in
+	the edit-utils package.
+
+	* lispref/packaging.texi (Packaging):
+	(The User View):
+	(The Library Maintainer View):
+	(Infrastructure):
+	(Control Files):
+	(Obtaining):
+	(The Package Release Engineer View):
+	(Package Terminology):
+	(Building Packages):
+	(Makefile Targets):
+	(packages): New.
+	(Local.rules File):
+	(XEMACS_PACKAGES): Removed.
+	(XEMACS_INSTALLED_PACKAGES_ROOT): New.
+	(NONMULE_PACKAGES): New.
+	(EXCLUDES): New.
+	(Creating Packages):
+	(BATCH): New.
+	(VERSION): Removed.
+	(AUTHOR_VERSION): Removed.
+	(MAINTAINER): Removed.
+	(PACKAGE): Removed.
+	(PKG_TYPE): Removed.
+	(REQUIRES): Removed.
+	(CATEGORY): Removed.
+	(ELS): Removed.
+	(ELCS): Removed.
+	(all): Removed.
+	(srckit): Removed.
+	(binkit): Removed.
+	(are): New.
+	(STANDARD_DOCS): New.
+	(ELCS_1_DEST): New.
+	(example): New.
+	(PACKAGE_SUPPRESS): New.
+	(EXPLICIT_DOCS): New.
+	(DATA_DEST): New.
+	(Documenting Packages):
+
+	Not quite a total rewrite, but a fairly thorough audit
+	nonetheless.
+
+2003-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi: Update copyright notice.
+	(GCPROing): Add missing period.
+	(Adding Global Lisp Variables): general.c -> general-slots.h.
+	(A Reader's Guide to XEmacs Coding Conventions): New node.
+
+2003-10-22  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* custom.texi (The Init File):
+	* xemacs-faq.texi (Q2.1.3):
+	(Q2.1.5):
+	* internals/internals.texi (Modules for Internationalization):
+	* lispref/display.texi (Beeping):
+	* lispref/ldap.texi (Encoder/Decoder Functions):
+	* lispref/markers.texi (The Mark):
+	(The Region):
+	* lispref/menus.texi (Menu Accelerator Functions):
+	* lispref/numbers.texi (Math Functions):
+	* lispref/packaging.texi (package-compile.el):
+	(Makefile Targets):
+	(Local.rules File):
+	* lispref/postgresql.texi (libpq Lisp Symbols and DataTypes):
+	(libpq Lisp Variables):
+	(Synchronous Interface Functions):
+	(Other libpq Functions):
+	* new-users-guide/custom2.texi (Init File):
+	(Setting Variables):
+	* new-users-guide/files.texi (File Names):
+	(Saving Files):
+	* new-users-guide/search.texi (Search and Replace):
+	* xemacs/custom.texi (X Resources):
+	Fix up erroneous uses of @var instead of @code for the names of
+	particular variables in programming languages.
+
+2003-10-20  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* lispref/tips.texi (Style Tips): Note disabling undo in temporary
+	buffers.
+
+2003-10-16  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* lispref/tips.texi (Comment Tips): Typo fix.
+
+2003-09-22  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/backups.texi (Reverting): Fix the PRINTED-MANUAL-TITLE
+	argument for a cross reference to  "The XEmacs User's Manual".
+
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released

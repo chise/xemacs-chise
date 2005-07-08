@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "ORIYA SIGN CANDRABINDU")
     (general-category	mark non-spacing) ; Normative Category

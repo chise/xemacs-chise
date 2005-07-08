@@ -445,7 +445,14 @@ for just those modules.  (Or use gcc).
 
 This only occurs if you have LANG != C.  This is a known bug with
 /bin/sh fixed by installing Patch-ID# 101613-01.  Or, you can use
-bash, as a workaround.
+bash by setting the environment variable CONFIG_SHELL to /bin/bash
+
+*** Solaris 2.x configure fails: ./config.status: test: argument expected
+
+This is a known bug with /bin/sh and /bin/test, i.e. they do not
+support the XPG4 standard.  You can use bash as a workaround or an
+XPG4-compliant Bourne shell such as the Sun-supplied /usr/xpg4/bin/sh
+by setting the environment variable CONFIG_SHELL to /usr/xpg4/bin/sh
 
 *** On SunOS, you get linker errors
     ld: Undefined symbol

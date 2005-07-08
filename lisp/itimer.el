@@ -406,6 +406,14 @@ its FUNCTION will be called when it expires, and so on."
 	(error "itimer named \"%s\" already existing and activated"
 	       (itimer-name itimer))))
   (let ((inhibit-quit t))
+    (if itimer-timer
+	;; Modify the itimer timeout value as if it were begun
+	;; at the last time when the itimer driver was woken up.
+	(set-itimer-value
+	 itimer
+	 (+ (itimer-value itimer)
+	    (itimer-time-difference (current-time)
+				    itimer-timer-last-wakeup))))
     ;; add the itimer to the global list
     (setq itimer-list (cons itimer itimer-list))
     ;; If the itimer process is scheduled to wake up too late for

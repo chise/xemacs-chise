@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2002,2004 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2004,2005 MORIOKA Tomohiko
 
 ;; Keywords: multilingual, Japanese
 
@@ -157,13 +157,21 @@
 (make-coding-system
  'iso-2022-jp 'iso2022
  "Coding-system used for communication with mail and news in Japan."
- '(charset-g0 ascii
-   short t
-   seven t
-   input-charset-conversion ((latin-jisx0201 ascii)
-			     (japanese-jisx0208-1978 japanese-jisx0208))
-   mnemonic "MULE/7bit"
-   ))
+ (let ((conf
+	'(charset-g0 ascii
+	  short t
+	  seven t
+	  mnemonic "MULE/7bit")))
+   (if (featurep 'utf-2000)
+       (list* 'ccs-priority-list
+	      '(ascii
+		=jis-x0208@1983 =jis-x0208@1978
+		latin-jisx0201)
+	      conf)
+     (list* 'input-charset-conversion
+	    '((latin-jisx0201 ascii)
+	      (japanese-jisx0208-1978 japanese-jisx0208))
+	    conf))))
 
 (define-coding-system-alias 'junet 'iso-2022-jp)
 

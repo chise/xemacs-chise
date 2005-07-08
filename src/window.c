@@ -2109,9 +2109,13 @@ will automatically call `save-buffers-kill-emacs'.)
   else if (!NILP (w->vchild))
     delete_all_subwindows (XWINDOW (w->vchild));
 
+  /* Warning: mark_window_as_deleted calls window_unmap_subwindows and
+     therefore redisplay, so it requires the mirror structure to be
+     correct.  We must dirty the mirror before it is called.  */
+  f->mirror_dirty = 1;
+
   mark_window_as_deleted (w);
 
-  f->mirror_dirty = 1;
   return Qnil;
 }
 

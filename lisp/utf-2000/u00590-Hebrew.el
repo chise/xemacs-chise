@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "HEBREW ACCENT ETNAHTA")
     (general-category	mark non-spacing) ; Normative Category
@@ -360,7 +360,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D0)	; ×
-    (hebrew-iso8859-8	. #xE0)	; øº’¿ 
+    (hebrew-iso8859-8	. #xE0)	; &I-HEBREW-60;
     ))
 (define-char
   '((name		. "HEBREW LETTER BET")
@@ -368,7 +368,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D1)	; ×‘
-    (hebrew-iso8859-8	. #xE1)	; øº’¿¡
+    (hebrew-iso8859-8	. #xE1)	; &I-HEBREW-61;
     ))
 (define-char
   '((name		. "HEBREW LETTER GIMEL")
@@ -376,7 +376,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D2)	; ×’
-    (hebrew-iso8859-8	. #xE2)	; øº’¿¢
+    (hebrew-iso8859-8	. #xE2)	; &I-HEBREW-62;
     ))
 (define-char
   '((name		. "HEBREW LETTER DALET")
@@ -384,7 +384,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D3)	; ×“
-    (hebrew-iso8859-8	. #xE3)	; øº’¿£
+    (hebrew-iso8859-8	. #xE3)	; &I-HEBREW-63;
     ))
 (define-char
   '((name		. "HEBREW LETTER HE")
@@ -392,7 +392,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D4)	; ×”
-    (hebrew-iso8859-8	. #xE4)	; øº’¿¤
+    (hebrew-iso8859-8	. #xE4)	; &I-HEBREW-64;
     ))
 (define-char
   '((name		. "HEBREW LETTER VAV")
@@ -400,7 +400,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D5)	; ×•
-    (hebrew-iso8859-8	. #xE5)	; øº’¿¥
+    (hebrew-iso8859-8	. #xE5)	; &I-HEBREW-65;
     ))
 (define-char
   '((name		. "HEBREW LETTER ZAYIN")
@@ -408,7 +408,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D6)	; ×–
-    (hebrew-iso8859-8	. #xE6)	; øº’¿¦
+    (hebrew-iso8859-8	. #xE6)	; &I-HEBREW-66;
     ))
 (define-char
   '((name		. "HEBREW LETTER HET")
@@ -416,7 +416,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D7)	; ×—
-    (hebrew-iso8859-8	. #xE7)	; øº’¿§
+    (hebrew-iso8859-8	. #xE7)	; &I-HEBREW-67;
     ))
 (define-char
   '((name		. "HEBREW LETTER TET")
@@ -424,7 +424,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D8)	; ×˜
-    (hebrew-iso8859-8	. #xE8)	; øº’¿¨
+    (hebrew-iso8859-8	. #xE8)	; &I-HEBREW-68;
     ))
 (define-char
   '((name		. "HEBREW LETTER YOD")
@@ -432,7 +432,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05D9)	; ×™
-    (hebrew-iso8859-8	. #xE9)	; øº’¿©
+    (hebrew-iso8859-8	. #xE9)	; &I-HEBREW-69;
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL KAF")
@@ -440,7 +440,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DA)	; ×š
-    (hebrew-iso8859-8	. #xEA)	; øº’¿ª
+    (hebrew-iso8859-8	. #xEA)	; &I-HEBREW-6A;
     ))
 (define-char
   '((name		. "HEBREW LETTER KAF")
@@ -448,7 +448,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DB)	; ×›
-    (hebrew-iso8859-8	. #xEB)	; øº’¿«
+    (hebrew-iso8859-8	. #xEB)	; &I-HEBREW-6B;
     ))
 (define-char
   '((name		. "HEBREW LETTER LAMED")
@@ -456,7 +456,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DC)	; ×œ
-    (hebrew-iso8859-8	. #xEC)	; øº’¿¬
+    (hebrew-iso8859-8	. #xEC)	; &I-HEBREW-6C;
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL MEM")
@@ -464,7 +464,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DD)	; ×
-    (hebrew-iso8859-8	. #xED)	; øº’¿­
+    (hebrew-iso8859-8	. #xED)	; &I-HEBREW-6D;
     ))
 (define-char
   '((name		. "HEBREW LETTER MEM")
@@ -472,7 +472,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DE)	; ×ž
-    (hebrew-iso8859-8	. #xEE)	; øº’¿®
+    (hebrew-iso8859-8	. #xEE)	; &I-HEBREW-6E;
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL NUN")
@@ -480,7 +480,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05DF)	; ×Ÿ
-    (hebrew-iso8859-8	. #xEF)	; øº’¿¯
+    (hebrew-iso8859-8	. #xEF)	; &I-HEBREW-6F;
     ))
 (define-char
   '((name		. "HEBREW LETTER NUN")
@@ -488,7 +488,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E0)	; × 
-    (hebrew-iso8859-8	. #xF0)	; øº’¿°
+    (hebrew-iso8859-8	. #xF0)	; &I-HEBREW-70;
     ))
 (define-char
   '((name		. "HEBREW LETTER SAMEKH")
@@ -496,7 +496,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E1)	; ×¡
-    (hebrew-iso8859-8	. #xF1)	; øº’¿±
+    (hebrew-iso8859-8	. #xF1)	; &I-HEBREW-71;
     ))
 (define-char
   '((name		. "HEBREW LETTER AYIN")
@@ -504,7 +504,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E2)	; ×¢
-    (hebrew-iso8859-8	. #xF2)	; øº’¿²
+    (hebrew-iso8859-8	. #xF2)	; &I-HEBREW-72;
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL PE")
@@ -512,7 +512,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E3)	; ×£
-    (hebrew-iso8859-8	. #xF3)	; øº’¿³
+    (hebrew-iso8859-8	. #xF3)	; &I-HEBREW-73;
     ))
 (define-char
   '((name		. "HEBREW LETTER PE")
@@ -520,7 +520,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E4)	; ×¤
-    (hebrew-iso8859-8	. #xF4)	; øº’¿´
+    (hebrew-iso8859-8	. #xF4)	; &I-HEBREW-74;
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL TSADI")
@@ -528,7 +528,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E5)	; ×¥
-    (hebrew-iso8859-8	. #xF5)	; øº’¿µ
+    (hebrew-iso8859-8	. #xF5)	; &I-HEBREW-75;
     ))
 (define-char
   '((name		. "HEBREW LETTER TSADI")
@@ -536,7 +536,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E6)	; ×¦
-    (hebrew-iso8859-8	. #xF6)	; øº’¿¶
+    (hebrew-iso8859-8	. #xF6)	; &I-HEBREW-76;
     ))
 (define-char
   '((name		. "HEBREW LETTER QOF")
@@ -544,7 +544,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E7)	; ×§
-    (hebrew-iso8859-8	. #xF7)	; øº’¿·
+    (hebrew-iso8859-8	. #xF7)	; &I-HEBREW-77;
     ))
 (define-char
   '((name		. "HEBREW LETTER RESH")
@@ -552,7 +552,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E8)	; ×¨
-    (hebrew-iso8859-8	. #xF8)	; øº’¿¸
+    (hebrew-iso8859-8	. #xF8)	; &I-HEBREW-78;
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN")
@@ -560,7 +560,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05E9)	; ×©
-    (hebrew-iso8859-8	. #xF9)	; øº’¿¹
+    (hebrew-iso8859-8	. #xF9)	; &I-HEBREW-79;
     ))
 (define-char
   '((name		. "HEBREW LETTER TAV")
@@ -568,7 +568,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (=ucs		. #x05EA)	; ×ª
-    (hebrew-iso8859-8	. #xFA)	; øº’¿º
+    (hebrew-iso8859-8	. #xFA)	; &I-HEBREW-7A;
     ))
 (define-char
   '((name		. "HEBREW LIGATURE YIDDISH DOUBLE VAV")

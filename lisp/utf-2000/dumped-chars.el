@@ -301,6 +301,8 @@
 	"u0FE70-Arabic-Presentation-Forms-B"
 	"u0FF00-Halfwidth-and-Fullwidth-Forms"
 	"u0FFF0-Specials"
+	"Oracle-Bones"
 	"ruimoku6"
+	"additional-precomposed"
 	"maps-conf"
 	"ccs-tcvn5712.el"))

@@ -1,3 +1,27 @@
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2003-10-22  Vin Shelton  <acs@xemacs.org>
+
+	* automated/hash-table-tests.el: Remove debugging print
+	statements.
+
+2003-10-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/test-harness.el: Synch to 21.5.
+
+2003-09-25  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el (multiple-match): Test \{m,n\}.
+
+2003-09-09  Adrian Aichner  <adrian@xemacs.org>
+
+	* automated/test-harness.el (test-harness-from-buffer): Log
+	results when running noninteractive.
+	* automated/test-harness.el (batch-test-emacs): Remove misplaced
+	debugging code.
+
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released

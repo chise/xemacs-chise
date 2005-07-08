@@ -1811,10 +1811,14 @@ x_layout_widgets (Widget w, XtPointer client_data, XtPointer call_data)
 #endif
 
   /* finally the text area */
-  XtConfigureWidget (text, text_x, text_y,
-		     width - 2*textbord,
-		     height - text_y - 2*textbord,
-		     textbord);
+  {
+    Dimension nw = width - 2*textbord;
+    Dimension nh = height - text_y - 2*textbord;
+
+    if (nh != f->pixheight || nw != f->pixwidth)
+      MARK_FRAME_SIZE_SLIPPED (f);
+    XtConfigureWidget (text, text_x, text_y, nw, nh, textbord);
+  }
 }
 
 static void
@@ -2744,9 +2748,11 @@ x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
      Lisp_Object font = FACE_FONT (Vdefault_face, frame, Vcharset_ascii);
 
      if (!EQ (font, Vthe_null_font_instance))
-       XtSetArg (al[ac], XtNfont,
-		 (void *) FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font)));
-     ac++;
+       {
+	 XtSetArg (al[ac], XtNfont,
+		   (void *) FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font)));
+	 ac++;
+       }
    }
   else
    abort ();

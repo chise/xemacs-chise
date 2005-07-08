@@ -1,7 +1,7 @@
 ;;; specifier.el --- Lisp interface to specifiers
 
-;; Copyright (C) 1997 Free Software Foundation, Inc.
-;; Copyright (C) 1995, 1996, 2000 Ben Wing.
+;; Copyright (C) 1997, 2004 Free Software Foundation, Inc.
+;; Copyright (C) 1995, 1996, 2000, 2002 Ben Wing.
 
 ;; Author: Ben Wing <ben@xemacs.org>
 ;; Keywords: internal, dumped
@@ -32,16 +32,15 @@
 ;;; Code:
 
 (defun make-specifier-and-init (type spec-list &optional dont-canonicalize)
-  "Create and initialize a new specifier.
+  "Create and initialize a specifier of type TYPE with spec(s) SPEC-LIST.
 
-This is a front-end onto `make-specifier' that allows you to create a
-specifier and add specs to it at the same time.  TYPE specifies the
-specifier type.  SPEC-LIST supplies the specification(s) to be added
-to the specifier. Normally, almost any reasonable abbreviation of the
-full spec-list form is accepted, and is converted to the full form;
-however, if optional argument DONT-CANONICALIZE is non-nil, this
-conversion is not performed, and the SPEC-LIST must already be in full
-form.  See `canonicalize-spec-list'."
+A convenience API combining `make-specifier' and `set-specifier', allowing you
+to create a specifier and add specs to it at the same time.
+TYPE specifies the specifier type.  See `make-specifier' for known types.
+SPEC-LIST supplies the specification(s) to be added to the specifier, in any
+  form acceptable to `canonicalize-spec-list'.
+Optional DONT-CANONICALIZE, if non-nil, inhibits the conversion, and the
+  SPEC-LIST must already be in full form."
   (let ((sp (make-specifier type)))
     (if (not dont-canonicalize)
 	(setq spec-list (canonicalize-spec-list spec-list type)))
@@ -53,10 +52,12 @@ form.  See `canonicalize-spec-list'."
 (defun map-specifier (ms-specifier ms-func &optional ms-locale ms-maparg)
   "Apply MS-FUNC to the specification(s) for MS-LOCALE in MS-SPECIFIER.
 
-If MS-LOCALE is a locale, MS-FUNC will be called for that locale.
-If MS-LOCALE is a locale type, MS-FUNC will be mapped over all locales
-of that type.  If MS-LOCALE is 'all or nil, MS-FUNC will be mapped
-over all locales in MS-SPECIFIER.
+If optional MS-LOCALE is a locale, MS-FUNC will be called for that locale.
+If MS-LOCALE is a locale type, MS-FUNC will be mapped over all locales of that
+type.  If MS-LOCALE is 'all or nil, MS-FUNC will be mapped over all locales in
+MS-SPECIFIER.
+
+Optional MS-MAPARG will be passed to MS-FUNC.
 
 MS-FUNC is called with four arguments: the MS-SPECIFIER, the locale
 being mapped over, the inst-list for that locale, and the
@@ -76,7 +77,7 @@ returns nil."
 (defun canonicalize-inst-pair (inst-pair specifier-type &optional noerror)
   "Canonicalize the given INST-PAIR.
 
-SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
+SPECIFIER-TYPE specifies the type of specifier that this INST-PAIR
 will be used for.
 
 Canonicalizing means converting to the full form for an inst-pair, i.e.
@@ -169,8 +170,7 @@ otherwise return t."
 (defun canonicalize-spec (spec specifier-type &optional noerror)
   "Canonicalize the given SPEC (a specification).
 
-SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
-will be used for.
+SPECIFIER-TYPE is the type of specifier that this SPEC will be used for.
 
 Canonicalizing means converting to the full form for a spec, i.e.
 `(LOCALE (TAG-SET . INSTANTIATOR) ...)'.  This function accepts a
@@ -222,9 +222,42 @@ a possibly abbreviated specification or a list of such things. (See
 accepted by `set-specifier' and such into a form suitable for
 `add-spec-list-to-specifier'.
 
-This function tries extremely hard to resolve any ambiguities,
-and the built-in specifier types (font, image, toolbar, etc.) are
-designed so that there won't be any ambiguities.
+The canonicalization algorithm is as follows:
+
+1. Attempt to parse SPEC-LIST as a single, possibly abbreviated, specification.
+2. If (1) fails, attempt to parse SPEC-LIST as a list of (abbreviated)
+   specifications.
+3. If (2) fails, SPEC-LIST is invalid.
+
+A possibly abbreviated specification SPEC is parsed by
+
+1. Attempt to parse SPEC as a possibly abbreviated inst-list.
+2. If (1) fails, attempt to parse SPEC as a cons of a locale and an
+   (abbreviated) inst-list.
+3. If (2) fails, SPEC is invalid.
+
+A possibly abbreviated inst-list INST-LIST is parsed by
+
+1. Attempt to parse INST-LIST as a possibly abbreviated inst-pair.
+2. If (1) fails, attempt to parse INST-LIST as a list of (abbreviated)
+   inst-pairs.
+3. If (2) fails, INST-LIST is invalid.
+
+A possibly abbreviated inst-pair INST-PAIR is parsed by
+
+1. Check if INST-PAIR is `valid-instantiator-p'.
+2. If not, check if INST-PAIR is a cons of something that is a tag, ie,
+   `valid-specifier-tag-p', and something that is `valid-instantiator-p'.
+3. If not, check if INST-PAIR is a cons of a list of tags and something that
+   is `valid-instantiator-p'.
+
+In summary, this function generally prefers more abbreviated forms.
+
+This function tries extremely hard to resolve any ambiguities, and the
+built-in specifier types (font, image, toolbar, etc.) are designed so that
+there won't be any ambiguities.  (#### Unfortunately there are bugs in the
+treatment of toolbar spec-lists and generic spec-lists; avoid depending on
+canonicalization for these types.)
 
 If NOERROR is nil, signal an error if the spec-list is invalid;
 otherwise return t."
@@ -265,51 +298,47 @@ otherwise return t."
 	    (nreverse result)))))))
 
 (defun set-specifier (specifier value &optional locale tag-set how-to-add)
-  "Add a specification or specifications to SPECIFIER.
+  "Add the specification(s) given by VALUE to SPECIFIER in LOCALE.
 
-This function adds a specification of VALUE in locale LOCALE.
+VALUE may be any of the values accepted by `canonicalize-spec-list', including
+
+-- an instantiator (either a Lisp object which will be returned when the
+   specifier is instanced, or a Lisp object that can be instantiated to
+   produce an opaque value: eg, a font name (string) can be used for a font
+   specifier, but an instance will be a font object)
+-- a list of instantiators
+-- a cons of a locale and an instantiator, or of a locale and a list of
+   instantiators
+-- a cons of a tag or tag-set and an instantiator (or list of instantiators)
+-- a cons of a locale and the previous type of item
+-- a list of one or more of any of the previous types of items
+-- a canonical spec-list.
+
+See `canonicalize-spec-list' for details.  If you need to know the details,
+though, strongly consider using the unambiguous APIs `add-spec-to-specifier'
+and `add-spec-list-to-specifier' instead.
+
+Finally, VALUE can itself be a specifier (of the same type as
+SPECIFIER), if you want to copy specifications from one specifier
+to another; this is equivalent to calling `copy-specifier', and
+LOCALE, TAG-SET, and HOW-TO-ADD have the same semantics as with
+that function.
+
+Note that a VALUE of `nil' is either illegal or will be treated as a value of
+`nil'; it does not remove existing specifications.  Use `remove-specifier' for
+that.  N.B. `remove-specifier' defaults to removing all specifications, not
+just the 'global one!
+
+Warning: this function is inherently heuristic, and should not be relied on to
+properly resolve ambiguities, when specifier instantiators can be lists
+\(currently, for toolbar specifiers and generic specifiers).  In those cases
+use either `add-spec-to-specifier' or `add-spec-list-to-specifier'.
+
 LOCALE indicates where this specification is active, and should be
 a buffer, a window, a frame, a device, or the symbol `global' to
-indicate that it applies everywhere.  LOCALE usually defaults to
-`global' if omitted.
-
-VALUE is usually what is called an \"instantiator\" (which, roughly
-speaking, corresponds to the \"value\" of the property governed by
-SPECIFIER).  The valid instantiators for SPECIFIER depend on the type
-of SPECIFIER (which you can determine using `specifier-type').  The
-specifier `scrollbar-width', for example, is of type `integer',
-meaning its valid instantiators are integers.  The specifier governing
-the background color of the `default' face (you can retrieve this
-specifier using `(face-background 'default)') is of type `color',
-meaning its valid instantiators are strings naming colors and
-color-instance objects.  For some types of specifiers, such as `image'
-and `toolbar', the instantiators can be very complex.  Generally this
-is documented in the appropriate creation function --
-e.g. `make-color-specifier', `make-font-specifier',
-`make-image-specifier' -- or in the global variable holding the most
-common specifier for that type (`default-toolbar', `default-gutter',
-`current-display-table').
-
-NOTE: It does *not* work to give a VALUE of nil as a way of
-removing the specifications for a locale.  Use `remove-specifier'
-instead. (And keep in mind that, if you omit the LOCALE argument
-to `remove-specifier', it removes *all* specifications!  If you
-want to remove just the `global' specification, make sure to
-specify a LOCALE of `global'.)
-
-VALUE can also be a list of instantiators.  This means basically,
-\"try each one in turn until you get one that works\".  This allows
-you to give funky instantiators that may only work in some cases,
-and provide more normal backups for the other cases. (For example,
-you might like the color \"darkseagreen2\", but some X servers
-don't recognize this color, so you could provide a backup
-\"forest green\".  Color TTY devices probably won't recognize this
-either, so you could provide a second backup \"green\".  You'd
-do this by specifying this list of instantiators:
-
-'(\"darkseagreen2\" \"forest green\" \"green\")
-
-VALUE can also be various more complicated forms; see below.
+indicate that it applies everywhere.  LOCALE defaults to
+`global' if omitted, and is overridden by locales provided by VALUE (in the
+cases where value is a full specification or a spec-list).
 
 Optional argument TAG-SET is a tag or a list of tags, to be associated
 with the VALUE.  Tags are symbols (usually naming device types, such
@@ -329,25 +358,6 @@ the default behavior of `remove-tag-set-prepend' is usually fine.
 See `copy-specifier' and `add-spec-to-specifier' for a full
 description of what each of these means.
 
-VALUE can actually be anything acceptable to `canonicalize-spec-list';
-this includes, among other things:
-
--- a cons of a locale and an instantiator (or list of instantiators)
--- a cons of a tag or tag-set and an instantiator (or list of
-   instantiators)
--- a cons of a locale and the previous type of item
--- a list of one or more of any of the previous types of items
-
-However, in these cases, you cannot give a LOCALE or TAG-SET,
-because they do not make sense. (You will probably get an error if
-you try this.)
-
-Finally, VALUE can itself be a specifier (of the same type as
-SPECIFIER), if you want to copy specifications from one specifier
-to another; this is equivalent to calling `copy-specifier', and
-LOCALE, TAG-SET, and HOW-TO-ADD have the same semantics as with
-that function.
-
 Note that `set-specifier' is exactly complementary to `specifier-specs'
 except in the case where SPECIFIER has no specs at all in it but nil
 is a valid instantiator (in that case, `specifier-specs' will return
@@ -355,14 +365,7 @@ nil (meaning no specs) and `set-specifier' will interpret the `nil'
 as meaning \"I'm adding a global instantiator and its value is `nil'\"),
 or in strange cases where there is an ambiguity between a spec-list
 and an inst-list, etc. (The built-in specifier types are designed
-in such a way as to avoid any such ambiguities.)
-
-NOTE: If you want to work with spec-lists, you should probably not
-use either `set-specifier' or `specifier-specs', but should use the
-lower-level functions `add-spec-list-to-specifier' and `specifier-spec-list'.
-These functions always work with fully-qualified spec-lists; thus, there
-is no possibility for ambiguity and no need to go through the function
-`canonicalize-spec-list', which is potentially time-consuming."
+in such a way as to avoid any such ambiguities.)"
 
   ;; backward compatibility: the old function had HOW-TO-ADD as the
   ;; third argument and no arguments after that.
@@ -406,7 +409,7 @@ is no possibility for ambiguity and no need to go through the function
   value)
 
 (defun modify-specifier-instances (specifier func &optional args force default
-					     locale tag-set)
+				   locale tag-set)
   "Modify all specifications that match LOCALE and TAG-SET by FUNC.
 
 For each specification that exists for SPECIFIER, in locale LOCALE

@@ -291,7 +291,7 @@ and older XEmacs) and is @file{custom.el} in the same directory as
 @file{init.el} (in XEmacs 21.4 and later).  If you use another file, you
 must explicitly load it yourself.
 
-As of XEmacs 21.4.7, when @var{custom-file} is present, it is loaded
+As of XEmacs 21.4.7, when @code{custom-file} is present, it is loaded
 @emph{after} @file{init.el}.  This is likely to change in the future,
 because (1) actions in @file{init.el} often would like to depend on
 customizations for consistent appearance and (2) Custom is quite brutal

@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -107,6 +107,7 @@ Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #ifdef UTF2000
 Lisp_Object Qutf_8_mcs;
 Lisp_Object Qdisable_composition;
+Lisp_Object Qccs_priority_list;
 Lisp_Object Quse_entity_reference;
 Lisp_Object Qd, Qx, QX;
 #endif
@@ -1052,6 +1053,12 @@ if TYPE is 'ccl:
 		parse_charset_conversion_specs (codesys->iso2022.output_conv,
 						value);
 	      }
+#ifdef UTF2000
+	    else if (EQ (key, Qccs_priority_list))
+	      {
+		codesys->ccs_priority_list = value;
+	      }
+#endif
 	    else
 	      signal_simple_error ("Unrecognized property", key);
 	  }
@@ -1484,6 +1491,8 @@ Return the PROP property of CODING-SYSTEM.
     return XCODING_SYSTEM_DISABLE_COMPOSITION (coding_system) ? Qt : Qnil;
   else if (EQ (prop, Quse_entity_reference))
     return XCODING_SYSTEM_USE_ENTITY_REFERENCE (coding_system) ? Qt : Qnil;
+  else if (EQ (prop, Qccs_priority_list))
+    return XCODING_SYSTEM_CCS_PRIORITY_LIST (coding_system);
 #endif
   else if (type == CODESYS_ISO2022)
     {
@@ -2269,6 +2278,8 @@ do {					\
 
 #define DECODING_STREAM_DATA(stream) LSTREAM_TYPE_DATA (stream, decoding)
 
+#define ER_BUF_SIZE 24
+
 struct decoding_stream
 {
   /* Coding system that governs the conversion. */
@@ -2310,7 +2321,7 @@ struct decoding_stream
 #endif
 #ifdef UTF2000
   unsigned char er_counter;
-  unsigned char er_buf[16];
+  unsigned char er_buf[ER_BUF_SIZE];
 
   unsigned combined_char_count;
   Emchar combined_chars[16];
@@ -3244,6 +3255,8 @@ decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
     }
 }
 
+EXFUN (Fregexp_quote, 1);
+
 void decode_add_er_char (struct decoding_stream *str, Emchar character,
 			 unsigned_char_dynarr* dst);
 void
@@ -3265,7 +3278,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     {
       Lisp_Object string = make_string (str->er_buf,
 					str->er_counter);
-      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+      Lisp_Object rest;
       Lisp_Object cell;
       Lisp_Object ret;
       Lisp_Object pat;
@@ -3273,7 +3286,8 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
       Lisp_Object char_type;
       int base;
 
-      while (!NILP (rest))
+      for ( rest = Vcoded_charset_entity_reference_alist;
+	    !NILP (rest); rest = Fcdr (rest) )
 	{		      
 	  cell = Fcar (rest);
 	  ccs = Fcar (cell);
@@ -3293,6 +3307,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	    pat = ret;
 	  else
 	    continue;
+	  pat = Fregexp_quote (pat);
 
 	  cell = Fcdr (cell);
 	  cell = Fcdr (cell);
@@ -3334,7 +3349,6 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	      DECODE_ADD_UCS_CHAR (chr, dst);
 	      goto decoded;
 	    }
-	  rest = Fcdr (rest);
 	}
       if (!NILP (Fstring_match (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
 				string, Qnil, Qnil)))
@@ -3356,7 +3370,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     decoded:
       str->er_counter = 0;
     }
-  else if ( (str->er_counter >= 16) || (c >= 0x7F) )
+  else if ( (str->er_counter >= ER_BUF_SIZE) || (c >= 0x7F) )
     {
       Dynarr_add_many (dst, str->er_buf, str->er_counter);
       str->er_counter = 0;
@@ -3375,7 +3389,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
   Lisp_Object ccs;
   Lisp_Object char_type;
   int format_columns, idx;
-  char format[18];
+  char format[ER_BUF_SIZE];
 
   while (!NILP (rest))
     {
@@ -3400,14 +3414,15 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
-	      if (STRINGP (ret) && ((idx = XSTRING_LENGTH (ret)) <= 6))
+	      if ( STRINGP (ret) &&
+		   ( (idx = XSTRING_LENGTH (ret)) <= (ER_BUF_SIZE - 4) ) )
 		{
 		  format[0] = '&';
 		  strncpy (&format[1], XSTRING_DATA (ret), idx);
 		  idx++;
 		}
 	      else
-		continue;
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
@@ -3415,12 +3430,15 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 		{
 		  format[idx++] = '%';
 		  format_columns = XINT (ret);
-		  if ( (2 <= format_columns) && (format_columns <= 8) )
+		  if ( (2 <= format_columns) && (format_columns <= 8)
+		       && (idx + format_columns <= ER_BUF_SIZE - 1) )
 		    {
 		      format [idx++] = '0';
 		      format [idx++] = '0' + format_columns;
 		    }
 		}
+	      else
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
@@ -3431,7 +3449,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      else if (EQ (ret, QX))
 		format [idx++] = 'X';
 	      else
-		continue;
+		goto try_next;
 	      format [idx++] = ';';
 	      format [idx++] = 0;
 
@@ -3439,6 +3457,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      return;
 	    }
 	}
+    try_next:
       rest = Fcdr (rest);
     }
   sprintf (buf, "&MCS-%08X;", ch);
@@ -4602,7 +4621,7 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 0);
       int code_point = charset_code_point (ucs_ccs, ch, 0);
 
-      if ( (code_point < 0) || (code_point > 0x10FFFF) )
+      if ( (code_point < 0) || (code_point > 0xEFFFF) )
 	{
 	  Lisp_Object map
 	    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
@@ -5963,7 +5982,19 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 	{
 	  Lisp_Object original_default_coded_charset_priority_list
 	    = Vdefault_coded_charset_priority_list;
-
+	  Vdefault_coded_charset_priority_list
+	    = CODING_SYSTEM_CCS_PRIORITY_LIST (codesys);
+	  while (!EQ (Vdefault_coded_charset_priority_list, Qnil))
+	    {
+	      code_point = ENCODE_CHAR (ch, charset);
+	      if (XCHARSET_FINAL (charset))
+		goto found;
+	      Vdefault_coded_charset_priority_list
+		= Fcdr (Fmemq (XCHARSET_NAME (charset),
+			       Vdefault_coded_charset_priority_list));
+	    }
+	  Vdefault_coded_charset_priority_list
+	    = original_default_coded_charset_priority_list;
 	  while (!EQ (Vdefault_coded_charset_priority_list, Qnil))
 	    {
 	      code_point = ENCODE_CHAR (ch, charset);
@@ -6340,6 +6371,7 @@ syms_of_file_coding (void)
 #ifdef UTF2000
   defsymbol (&Qutf_8_mcs, "utf-8-mcs");
   defsymbol (&Qdisable_composition, "disable-composition");
+  defsymbol (&Qccs_priority_list, "ccs-priority-list");
   defsymbol (&Quse_entity_reference, "use-entity-reference");
   defsymbol (&Qd, "d");
   defsymbol (&Qx, "x");
@@ -6513,6 +6545,9 @@ complex_vars_of_file_coding (void)
   DEFINE_CODESYS_PROP (CODESYS_PROP_ISO2022, Qescape_quoted);
   DEFINE_CODESYS_PROP (CODESYS_PROP_ISO2022, Qinput_charset_conversion);
   DEFINE_CODESYS_PROP (CODESYS_PROP_ISO2022, Qoutput_charset_conversion);
+#ifdef UTF2000
+  DEFINE_CODESYS_PROP (CODESYS_PROP_ISO2022, Qccs_priority_list);
+#endif
 
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qencode);
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qdecode);

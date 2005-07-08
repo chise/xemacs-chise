@@ -1510,7 +1510,7 @@ versions of NAME. Only the suffixes are tried."
 			   (format (cdr (car suff)) file)
 			 (concat (cdr (car suff)) " < " file))))
 	  (message "%s..." command)
-	  (call-process shell-file-name nil t nil "-c" command)
+	  (call-process shell-file-name nil t nil shell-command-switch command)
 	  (message "")
 	  (when visit
 	    (setq buffer-file-name file)

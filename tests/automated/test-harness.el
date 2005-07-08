@@ -1,8 +1,10 @@
 ;; test-harness.el --- Run Emacs Lisp test suites.
 
-;;; Copyright (C) 1998 Free Software Foundation, Inc.
+;;; Copyright (C) 1998, 2002, 2003 Free Software Foundation, Inc.
+;;; Copyright (C) 2002 Ben Wing.
 
 ;; Author: Martin Buchholz
+;; Maintainer: Stephen J. Turnbull <stephen@xemacs.org>
 ;; Keywords: testing
 
 ;; This file is part of XEmacs.
@@ -29,21 +31,54 @@
 ;;; A test suite harness for testing XEmacs.
 ;;; The actual tests are in other files in this directory.
 ;;; Basically you just create files of emacs-lisp, and use the
-;;; Assert, Check-Error, and Check-Message functions to create tests.
+;;; Assert, Check-Error, Check-Message, and Check-Error-Message functions
+;;; to create tests.  See `test-harness-from-buffer' below.
+;;; Don't suppress tests just because they're due to known bugs not yet
+;;; fixed -- use the Known-Bug-Expect-Failure and
+;;; Implementation-Incomplete-Expect-Failure wrapper macros to mark them.
+;;; A lot of the tests we run push limits; suppress Ebola message with the
+;;; Ignore-Ebola wrapper macro.
+;;; 
 ;;; You run the tests using M-x test-emacs-test-file,
 ;;; or $(EMACS) -batch -l .../test-harness.el -f batch-test-emacs file ...
 ;;; which is run for you by the `make check' target in the top-level Makefile.
 
 (require 'bytecomp)
 
+(defvar test-harness-test-compiled nil
+  "Non-nil means the test code was compiled before execution.")
+
 (defvar test-harness-verbose
   (and (not noninteractive) (> (device-baud-rate) search-slow-speed))
   "*Non-nil means print messages describing progress of emacs-tester.")
+
+(defvar test-harness-file-results-alist nil
+  "Each element is a list (FILE SUCCESSES TESTS).
+The order is the reverse of the order in which tests are run.
+
+FILE is a string naming the test file.
+SUCCESSES is a non-negative integer, the number of successes.
+TESTS is a non-negative integer, the number of tests run.")
+
+(defvar test-harness-risk-infloops nil
+  "*Non-nil to run tests that may loop infinitely in buggy implementations.")
 
 (defvar test-harness-current-file nil)
 
 (defvar emacs-lisp-file-regexp (purecopy "\\.el\\'")
   "*Regexp which matches Emacs Lisp source files.")
+
+(defconst test-harness-file-summary-template
+  (format "%%-%ds %%%dd of %%%dd tests successful (%%3d%%%%)."
+	  (length "byte-compiler-tests.el:") ; use the longest file name
+	  5
+	  5)
+  "Format for summary lines printed after each file is run.")
+
+(defconst test-harness-null-summary-template
+  (format "%%-%ds             No tests run."
+	  (length "byte-compiler-tests.el:")) ; use the longest file name
+  "Format for \"No tests\" lines printed after a file is run.")
 
 ;;;###autoload
 (defun test-emacs-test-file (filename)
@@ -99,7 +134,8 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	  (setq body (cons (read buffer) body)))
       (end-of-file nil)
       (error
-       (princ (format "Unexpected error %S reading forms from buffer\n" error-info))))
+       (princ (format "Unexpected error %S reading forms from buffer\n"
+		      error-info))))
     `(lambda ()
        (defvar passes)
        (defvar assertion-failures)
@@ -130,20 +166,60 @@ The output file's name is made by appending `c' to the end of FILENAME."
 
 	(trick-optimizer nil)
 	(unexpected-test-suite-failure nil)
-	(debug-on-error t))
+	(debug-on-error t)
+	(pass-stream nil))
     (with-output-to-temp-buffer "*Test-Log*"
+      (princ (format "Testing %s...\n\n" filename))
+
+      (defconst test-harness-failure-tag "FAIL")
+      (defconst test-harness-success-tag "PASS")
+
+      (defmacro Known-Bug-Expect-Failure (&rest body)
+	`(let ((test-harness-failure-tag "KNOWN BUG")
+	       (test-harness-success-tag "PASS (FAILURE EXPECTED)"))
+	  ,@body))
+    
+      (defmacro Implementation-Incomplete-Expect-Failure (&rest body)
+	`(let ((test-harness-failure-tag "IMPLEMENTATION INCOMPLETE")
+	       (test-harness-success-tag "PASS (FAILURE EXPECTED)"))
+	  ,@body))
+    
+      (defun Print-Failure (fmt &rest args)
+	(setq fmt (format "%s: %s" test-harness-failure-tag fmt))
+	(if (noninteractive) (apply #'message fmt args))
+	(princ (concat (apply #'format fmt args) "\n")))
+
+      (defun Print-Pass (fmt &rest args)
+	(setq fmt (format "%s: %s" test-harness-success-tag fmt))
+	(and test-harness-verbose
+	     (princ (concat (apply #'format fmt args) "\n"))))
+
+      (defun Print-Skip (test reason &optional fmt &rest args)
+	(setq fmt (concat "SKIP: %S BECAUSE %S" fmt))
+	(princ (concat (apply #'format fmt test reason args) "\n")))
+
+      (defmacro Skip-Test-Unless (condition reason description &rest body)
+	"Unless CONDITION is satisfied, skip test BODY.
+REASON is a description of the condition failure, and must be unique (it
+is used as a hash key).  DESCRIPTION describes the tests that were skipped.
+BODY is a sequence of expressions and may contain several tests."
+	`(if (not ,condition)
+	     (let ((count (gethash ,reason skipped-test-reasons)))
+	       (puthash ,reason (if (null count) 1 (1+ count))
+			skipped-test-reasons)
+	       (Print-Skip ,description ,reason))
+	   ,@body))
 
       (defmacro Assert (assertion)
 	`(condition-case error-info
 	     (progn
 	       (assert ,assertion)
-	       (princ (format "PASS: %S" (quote ,assertion)))
-	       (terpri)
+	       (Print-Pass "%S" (quote ,assertion))
 	       (incf passes))
 	   (cl-assertion-failed
-	    (princ (format "FAIL: Assertion failed: %S\n" (quote ,assertion)))
+	    (Print-Failure "Assertion failed: %S" (quote ,assertion))
 	    (incf assertion-failures))
-	   (t (princ (format "FAIL: %S ==> error: %S\n" (quote ,assertion) error-info))
+	   (t (Print-Failure "%S ==> error: %S" (quote ,assertion) error-info)
 	      (incf other-failures)
 	      )))
 
@@ -153,60 +229,52 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	  `(condition-case error-info
 	       (progn
 		 (setq trick-optimizer (progn ,@body))
-		 (princ (format "FAIL: %S executed successfully, but expected error %S\n"
+		 (Print-Failure "%S executed successfully, but expected error %S"
 				,quoted-body
-				',expected-error))
+				',expected-error)
 		 (incf no-error-failures))
 	     (,expected-error
-	      (princ (format "PASS: %S ==> error %S, as expected\n"
-			     ,quoted-body ',expected-error))
+	      (Print-Pass "%S ==> error %S, as expected"
+			  ,quoted-body ',expected-error)
 	      (incf passes))
 	     (error
-	      (princ (format "FAIL: %S ==> expected error %S, got error %S instead\n"
-			     ,quoted-body ',expected-error error-info))
+	      (Print-Failure "%S ==> expected error %S, got error %S instead"
+			     ,quoted-body ',expected-error error-info)
 	      (incf wrong-error-failures)))))
 
-      (defmacro Check-Error-Message (expected-error expected-error-regexp &rest body)
+      (defmacro Check-Error-Message (expected-error expected-error-regexp
+						    &rest body)
 	(let ((quoted-body (if (= 1 (length body))
 			       `(quote ,(car body)) `(quote (progn ,@body)))))
 	  `(condition-case error-info
 	       (progn
 		 (setq trick-optimizer (progn ,@body))
-		 (princ (format "FAIL: %S executed successfully, but expected error %S\n"
-				,quoted-body
-				',expected-error))
+		 (Print-Failure "%S executed successfully, but expected error %S"
+				,quoted-body ',expected-error)
 		 (incf no-error-failures))
 	     (,expected-error
 	      (let ((error-message (second error-info)))
 		(if (string-match ,expected-error-regexp error-message)
 		    (progn
-		      (princ (format "PASS: %S ==> error %S %S, as expected\n"
-				     ,quoted-body error-message ',expected-error))
+		      (Print-Pass "%S ==> error %S %S, as expected"
+				  ,quoted-body error-message ',expected-error)
 		      (incf passes))
-		  (princ (format "FAIL: %S ==> got error %S as expected, but error message %S did not match regexp %S\n"
-				 ,quoted-body ',expected-error error-message ,expected-error-regexp))
+		  (Print-Failure "%S ==> got error %S as expected, but error message %S did not match regexp %S"
+				 ,quoted-body ',expected-error error-message ,expected-error-regexp)
 		  (incf wrong-error-failures))))
 	     (error
-	      (princ (format "FAIL: %S ==> expected error %S, got error %S instead\n"
-			     ,quoted-body ',expected-error error-info))
+	      (Print-Failure "%S ==> expected error %S, got error %S instead"
+			     ,quoted-body ',expected-error error-info)
 	      (incf wrong-error-failures)))))
-
-      (defun Print-Skip (test reason &optional fmt &rest args)
-	(setq fmt (concat "SKIP: %S.  REASON: %S" fmt))
-	(princ (concat (apply #'format fmt test reason args) "\n")))
 
 
       (defmacro Check-Message (expected-message-regexp &rest body)
-	(if (not (fboundp 'defadvice))
-	    ;; #### This whole thing should go inside a macro Skip-Test
-	    (let* ((reason "advice unavailable")
-		   (count (gethash reason skipped-test-reasons)))
-	      ;(message "%S: %S" reason count)
-	      (puthash reason (if (null count) 1 (1+ count))
-		       skipped-test-reasons)
-	      `(Print-Skip ,expected-message-regexp ,reason))
+	(Skip-Test-Unless (fboundp 'defadvice)
+			  "can't defadvice"
+			  expected-message-regexp
 	  (let ((quoted-body (if (= 1 (length body))
-				 `(quote ,(car body)) `(quote (progn ,@body)))))
+				 `(quote ,(car body))
+			       `(quote (progn ,@body)))))
 	    `(let ((messages ""))
 	       (defadvice message (around collect activate)
 		 (defvar messages)
@@ -218,15 +286,16 @@ The output file's name is made by appending `c' to the end of FILENAME."
 		     (setq trick-optimizer (progn ,@body))
 		     (if (string-match ,expected-message-regexp messages)
 			 (progn
-			   (princ (format "PASS: %S ==> value %S, message %S, matching %S, as expected\n"
-					  ,quoted-body trick-optimizer messages ',expected-message-regexp))
+			   (Print-Pass "%S ==> value %S, message %S, matching %S, as expected"
+				       ,quoted-body trick-optimizer messages ',expected-message-regexp)
 			   (incf passes))
-		       (princ (format "FAIL: %S ==> value %S, message %S, NOT matching expected %S\n"
-				      ,quoted-body  trick-optimizer messages ',expected-message-regexp))
+		       (Print-Failure "%S ==> value %S, message %S, NOT matching expected %S"
+				      ,quoted-body  trick-optimizer messages
+				      ',expected-message-regexp)
 		       (incf missing-message-failures)))
 		 (error
-		  (princ (format "FAIL: %S ==> unexpected error %S\n"
-				 ,quoted-body error-info))
+		  (Print-Failure "%S ==> unexpected error %S"
+				 ,quoted-body error-info)
 		  (incf other-failures)))
 	       (ad-unadvise 'message)))))
 
@@ -251,7 +320,8 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	 (message "Test suite execution aborted." error-info)
 	 ))
       (princ "\nTesting Compiled Lisp\n\n")
-      (let (code)
+      (let (code
+	    (test-harness-test-compiled t))
 	(condition-case error-info
 	    (setq code
 		  ;; our lisp code is often intentionally dubious,
@@ -269,7 +339,7 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	   (message "Unexpected error %S while executing byte-compiled code." error-info)
 	   (message "Test suite execution aborted." error-info)
 	   )))
-      (princ "\nSUMMARY:\n")
+      (princ (format "\nSUMMARY for %s:\n" filename))
       (princ (format "\t%5d passes\n" passes))
       (princ (format "\t%5d assertion failures\n" assertion-failures))
       (princ (format "\t%5d errors that should have been generated, but weren't\n" no-error-failures))
@@ -285,14 +355,16 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	     (basename (file-name-nondirectory filename))
 	     (summary-msg
 	      (if (> total 0)
-		  (format "%s: %d of %d (%d%%) tests successful."
-			  basename passes total (/ (* 100 passes) total))
-		(format "%s: No tests run" basename)))
+		  (format test-harness-file-summary-template
+			  (concat basename ":")
+			  passes total (/ (* 100 passes) total))
+		(format test-harness-null-summary-template
+			(concat basename ":"))))
 	     (reasons ""))
 	(maphash (lambda (key value)
 		   (setq reasons
 			 (concat reasons
-				 (format "\n    %d tests skipped because %s"
+				 (format "\n    %d tests skipped because %s."
 					 value key))))
 		 skipped-test-reasons)
 	(when (> (length reasons) 1)
@@ -300,6 +372,9 @@ The output file's name is made by appending `c' to the end of FILENAME."
     Probably XEmacs cannot find your installed packages.  Set EMACSPACKAGEPATH
     to the package hierarchy root or configure with --package-path to enable
     the skipped tests.")))
+	(setq test-harness-file-results-alist
+	      (cons (list filename passes total)
+		    test-harness-file-results-alist))
 	(message "%s" summary-msg))
       (when unexpected-test-suite-failure
 	(message "Test suite execution failed unexpectedly."))
@@ -309,6 +384,9 @@ The output file's name is made by appending `c' to the end of FILENAME."
       (fmakunbound 'Check-Error-Message)
       (fmakunbound 'Ignore-Ebola)
       (fmakunbound 'Int-to-Marker)
+      (and noninteractive
+	   (message "%s" (buffer-substring-no-properties
+			  nil nil "*Test-Log*")))
       )))
 
 (defvar test-harness-results-point-max nil)
@@ -388,8 +466,45 @@ For example, invoke \"xemacs -batch -f batch-test-emacs tests/*.el\""
 		  (setq error t))))
 	(or (batch-test-emacs-1 file)
 	    (setq error t))))
-    ;;(message "%s" (buffer-string nil nil "*Test-Log*"))
-    (message "Done")
+    (let ((namelen 0)
+	  (succlen 0)
+	  (testlen 0)
+	  (results test-harness-file-results-alist))
+      ;; compute maximum lengths of variable components of report
+      ;; probably should just use (length "byte-compiler-tests.el")
+      ;; and 5-place sizes -- this will also work for the file-by-file
+      ;; printing when Adrian's kludge gets reverted
+      (flet ((print-width (i)
+	       (let ((x 10) (y 1))
+		 (while (>= i x)
+		   (setq x (* 10 x) y (1+ y)))
+		 y)))
+	(while results
+	  (let* ((head (car results))
+		 (nn (length (file-name-nondirectory (first head))))
+		 (ss (print-width (second head)))
+		 (tt (print-width (third head))))
+	    (when (> nn namelen) (setq namelen nn))
+	    (when (> ss succlen) (setq succlen ss))
+	    (when (> tt testlen) (setq testlen tt)))
+	  (setq results (cdr results))))
+      ;; create format and print
+      (let ((results (reverse test-harness-file-results-alist)))
+	(while results
+	  (let* ((head (car results))
+		 (basename (file-name-nondirectory (first head)))
+		 (nsucc (second head))
+		 (ntest (third head)))
+	    (if (> ntest 0)
+		(message test-harness-file-summary-template
+			 (concat basename ":")
+			 nsucc
+			 ntest
+			 (/ (* 100 nsucc) ntest))
+	      (message test-harness-null-summary-template
+		       (concat basename ":")))
+	    (setq results (cdr results))))))
+    (message "\nDone")
     (kill-emacs (if error 1 0))))
 
 (provide 'test-harness)

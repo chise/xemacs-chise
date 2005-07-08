@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL TWO DOT LEADER")
     (general-category	punctuation other) ; Informative Category
@@ -6,8 +6,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2025)
     (=ucs		. #xFE30)	; ï¸°
-    (=cns11643-1	. #x212B)	; ø»‘‚¦
-    (=big5		. #xA14A)	; ý¢€Š…Š
+    (=cns11643-1	. #x212B)	; &I-C1-212B; [01-11]
+    (=big5		. #xA14A)	; &I-B-A14A;
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EM DASH")
@@ -16,8 +16,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2014)
     (=ucs		. #xFE31)	; ï¸±
-    (=cns11643-1	. #x2136)	; ø»‘‚±
-    (=big5		. #xA157)	; ý¢€Š…—
+    (=cns11643-1	. #x2136)	; &I-C1-2136; [01-22]
+    (=big5		. #xA157)	; &I-B-A157;
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EN DASH")
@@ -26,7 +26,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2013)
     (=ucs		. #xFE32)	; ï¸²
-    (=cns11643-1	. #x2138)	; ø»‘‚³
+    (=cns11643-1	. #x2138)	; &I-C1-2138; [01-24]
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL LOW LINE")
@@ -35,7 +35,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
     (=ucs		. #xFE33)	; ï¸³
-    (=big5		. #xA159)	; ý¢€Š…™
+    (=cns11643-1	. #x213A)	; &I-C1-213A; [01-26]
+    (=big5		. #xA159)	; &I-B-A159;
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL WAVY LOW LINE")
@@ -44,15 +45,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
     (=ucs		. #xFE34)	; ï¸´
-    ))
-(define-char
-  '((name . "presentation form for vertical book name mark")
-    (=>ucs		. #xFE34)	; ï¸´
-    (general-category	punctuation connector) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x213C)	; ø»‘‚·
-    (=big5		. #xA15B)	; ý¢€Š…›
+    (=cns11643-1	. #x213C)	; &I-C1-213C; [01-28]
+    (=big5		. #xA15B)	; &I-B-A15B;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS")
@@ -61,8 +55,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x0028)
     (=ucs		. #xFE35)	; ï¸µ
-    (=cns11643-1	. #x2140)	; ø»‘‚»
-    (=big5		. #xA15F)	; ý¢€Š…Ÿ
+    (=cns11643-1	. #x2140)	; &I-C1-2140; [01-32]
+    (=big5		. #xA15F)	; &I-B-A15F;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT PARENTHESIS")
@@ -71,8 +65,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x0029)
     (=ucs		. #xFE36)	; ï¸¶
-    (=cns11643-1	. #x2141)	; ø»‘‚¼
-    (=big5		. #xA160)	; ý¢€Š… 
+    (=cns11643-1	. #x2141)	; &I-C1-2141; [01-33]
+    (=big5		. #xA160)	; &I-B-A160;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CURLY BRACKET")
@@ -81,8 +75,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x007B)
     (=ucs		. #xFE37)	; ï¸·
-    (=cns11643-1	. #x2144)	; ø»‘‚¿
-    (=big5		. #xA163)	; ý¢€Š…£
+    (=cns11643-1	. #x2144)	; &I-C1-2144; [01-36]
+    (=big5		. #xA163)	; &I-B-A163;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET")
@@ -91,8 +85,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x007D)
     (=ucs		. #xFE38)	; ï¸¸
-    (=cns11643-1	. #x2145)	; ø»‘ƒ€
-    (=big5		. #xA164)	; ý¢€Š…¤
+    (=cns11643-1	. #x2145)	; &I-C1-2145; [01-37]
+    (=big5		. #xA164)	; &I-B-A164;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT TORTOISE SHELL BRACKET")
@@ -101,8 +95,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3014)
     (=ucs		. #xFE39)	; ï¸¹
-    (=cns11643-1	. #x2148)	; ø»‘ƒƒ
-    (=big5		. #xA167)	; ý¢€Š…§
+    (=cns11643-1	. #x2148)	; &I-C1-2148; [01-40]
+    (=big5		. #xA167)	; &I-B-A167;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET")
@@ -111,8 +105,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3015)
     (=ucs		. #xFE3A)	; ï¸º
-    (=cns11643-1	. #x2149)	; ø»‘ƒ„
-    (=big5		. #xA168)	; ý¢€Š…¨
+    (=cns11643-1	. #x2149)	; &I-C1-2149; [01-41]
+    (=big5		. #xA168)	; &I-B-A168;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT BLACK LENTICULAR BRACKET")
@@ -121,8 +115,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3010)
     (=ucs		. #xFE3B)	; ï¸»
-    (=cns11643-1	. #x214C)	; ø»‘ƒ‡
-    (=big5		. #xA16B)	; ý¢€Š…«
+    (=cns11643-1	. #x214C)	; &I-C1-214C; [01-44]
+    (=big5		. #xA16B)	; &I-B-A16B;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT BLACK LENTICULAR BRACKET")
@@ -131,8 +125,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3011)
     (=ucs		. #xFE3C)	; ï¸¼
-    (=cns11643-1	. #x214D)	; ø»‘ƒˆ
-    (=big5		. #xA16C)	; ý¢€Š…¬
+    (=cns11643-1	. #x214D)	; &I-C1-214D; [01-45]
+    (=big5		. #xA16C)	; &I-B-A16C;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET")
@@ -141,8 +135,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300A)
     (=ucs		. #xFE3D)	; ï¸½
-    (=cns11643-1	. #x2150)	; ø»‘ƒ‹
-    (=big5		. #xA16F)	; ý¢€Š…¯
+    (=cns11643-1	. #x2150)	; &I-C1-2150; [01-48]
+    (=big5		. #xA16F)	; &I-B-A16F;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET")
@@ -151,8 +145,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300B)
     (=ucs		. #xFE3E)	; ï¸¾
-    (=cns11643-1	. #x2151)	; ø»‘ƒŒ
-    (=big5		. #xA170)	; ý¢€Š…°
+    (=cns11643-1	. #x2151)	; &I-C1-2151; [01-49]
+    (=big5		. #xA170)	; &I-B-A170;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET")
@@ -161,8 +155,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3008)
     (=ucs		. #xFE3F)	; ï¸¿
-    (=cns11643-1	. #x2154)	; ø»‘ƒ
-    (=big5		. #xA173)	; ý¢€Š…³
+    (=cns11643-1	. #x2154)	; &I-C1-2154; [01-52]
+    (=big5		. #xA173)	; &I-B-A173;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET")
@@ -171,8 +165,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3009)
     (=ucs		. #xFE40)	; ï¹€
-    (=cns11643-1	. #x2155)	; ø»‘ƒ
-    (=big5		. #xA174)	; ý¢€Š…´
+    (=cns11643-1	. #x2155)	; &I-C1-2155; [01-53]
+    (=big5		. #xA174)	; &I-B-A174;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CORNER BRACKET")
@@ -181,8 +175,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300C)
     (=ucs		. #xFE41)	; ï¹
-    (=cns11643-1	. #x2158)	; ø»‘ƒ“
-    (=big5		. #xA177)	; ý¢€Š…·
+    (=cns11643-1	. #x2158)	; &I-C1-2158; [01-56]
+    (=big5		. #xA177)	; &I-B-A177;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CORNER BRACKET")
@@ -191,8 +185,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300D)
     (=ucs		. #xFE42)	; ï¹‚
-    (=cns11643-1	. #x2159)	; ø»‘ƒ”
-    (=big5		. #xA178)	; ý¢€Š…¸
+    (=cns11643-1	. #x2159)	; &I-C1-2159; [01-57]
+    (=big5		. #xA178)	; &I-B-A178;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT WHITE CORNER BRACKET")
@@ -201,8 +195,8 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300E)
     (=ucs		. #xFE43)	; ï¹ƒ
-    (=cns11643-1	. #x215C)	; ø»‘ƒ—
-    (=big5		. #xA17B)	; ý¢€Š…»
+    (=cns11643-1	. #x215C)	; &I-C1-215C; [01-60]
+    (=big5		. #xA17B)	; &I-B-A17B;
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT WHITE CORNER BRACKET")
@@ -211,18 +205,18 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300F)
     (=ucs		. #xFE44)	; ï¹„
-    (=cns11643-1	. #x215D)	; ø»‘ƒ˜
-    (=big5		. #xA17C)	; ý¢€Š…¼
+    (=cns11643-1	. #x215D)	; &I-C1-215D; [01-61]
+    (=big5		. #xA17C)	; &I-B-A17C;
     ))
 (define-char
   '((name		. "SESAME DOT")
     (=ucs		. #xFE45)	; ï¹…
-    (=jis-x0213-1-2000	. #x233E)	; ø»¢–•
+    (=jis-x0213-1-2000	. #x233E)	; &I-JX1-233E; [03-30]
     ))
 (define-char
   '((name		. "WHITE SESAME DOT")
     (=ucs		. #xFE46)	; ï¹†
-    (=jis-x0213-1-2000	. #x233D)	; ø»¢–”
+    (=jis-x0213-1-2000	. #x233D)	; &I-JX1-233D; [03-29]
     ))
 (define-char
   '((name		. "DASHED OVERLINE")
@@ -231,8 +225,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (=ucs		. #xFE49)	; ï¹‰
-    (=cns11643-1	. #x2227)	; ø»‘„€
-    (=big5		. #xA1C6)	; ý¢€Š‡†
+    (=cns11643-1	. #x2227)	; &I-C1-2227; [02-07]
+    (=big5		. #xA1C6)	; &I-B-A1C6;
     ))
 (define-char
   '((name		. "CENTRELINE OVERLINE")
@@ -241,8 +235,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (=ucs		. #xFE4A)	; ï¹Š
-    (=cns11643-1	. #x2228)	; ø»‘„
-    (=big5		. #xA1C7)	; ý¢€Š‡‡
+    (=cns11643-1	. #x2228)	; &I-C1-2228; [02-08]
+    (=big5		. #xA1C7)	; &I-B-A1C7;
     ))
 (define-char
   '((name		. "WAVY OVERLINE")
@@ -251,8 +245,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (=ucs		. #xFE4B)	; ï¹‹
-    (=cns11643-1	. #x222B)	; ø»‘„„
-    (=big5		. #xA1CA)	; ý¢€Š‡Š
+    (=cns11643-1	. #x222B)	; &I-C1-222B; [02-11]
+    (=big5		. #xA1CA)	; &I-B-A1CA;
     ))
 (define-char
   '((name		. "DOUBLE WAVY OVERLINE")
@@ -261,8 +255,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (=ucs		. #xFE4C)	; ï¹Œ
-    (=cns11643-1	. #x222C)	; ø»‘„…
-    (=big5		. #xA1CB)	; ý¢€Š‡‹
+    (=cns11643-1	. #x222C)	; &I-C1-222C; [02-12]
+    (=big5		. #xA1CB)	; &I-B-A1CB;
     ))
 (define-char
   '((name		. "DASHED LOW LINE")
@@ -271,8 +265,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (=ucs		. #xFE4D)	; ï¹
-    (=cns11643-1	. #x2229)	; ø»‘„‚
-    (=big5		. #xA1C8)	; ý¢€Š‡ˆ
+    (=cns11643-1	. #x2229)	; &I-C1-2229; [02-09]
+    (=big5		. #xA1C8)	; &I-B-A1C8;
     ))
 (define-char
   '((name		. "CENTRELINE LOW LINE")
@@ -281,8 +275,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (=ucs		. #xFE4E)	; ï¹Ž
-    (=cns11643-1	. #x222A)	; ø»‘„ƒ
-    (=big5		. #xA1C9)	; ý¢€Š‡‰
+    (=cns11643-1	. #x222A)	; &I-C1-222A; [02-10]
+    (=big5		. #xA1C9)	; &I-B-A1C9;
     ))
 (define-char
   '((name		. "WAVY LOW LINE")
@@ -291,13 +285,6 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (=ucs		. #xFE4F)	; ï¹
-    ))
-(define-char
-  '((name		. "book name mark")
-    (=>ucs		. #xFE4F)	; ï¹
-    (general-category	punctuation connector) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x213D)	; ø»‘‚¸
-    (=big5		. #xA15C)	; ý¢€Š…œ
+    (=cns11643-1	. #x213D)	; &I-C1-213D; [01-29]
+    (=big5		. #xA15C)	; &I-B-A15C;
     ))

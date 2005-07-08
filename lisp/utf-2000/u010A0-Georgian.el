@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "GEORGIAN CAPITAL LETTER AN")
     (general-category	letter uppercase) ; Normative Category

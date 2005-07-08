@@ -103,8 +103,6 @@
 
   (let ((k-sum 0) (v-sum 0))
     (maphash #'(lambda (k v) (incf k-sum k) (incf v-sum v)) ht)
-    (print k-sum)
-    (print v-sum)
     (Assert (= k-sum (/ (* size (- size 1)) 2)))
     (Assert (= v-sum (- k-sum))))
 

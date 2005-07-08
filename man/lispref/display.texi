@@ -1244,7 +1244,7 @@ This function reads in an audio file and adds it to @code{sound-alist}.
 The sound file must be in the Sun/NeXT U-LAW format.  @var{sound-name}
 should be a symbol, specifying the name of the sound.  If @var{volume}
 is specified, the sound will be played at that volume; otherwise, the
-value of @var{bell-volume} will be used.
+value of @code{bell-volume} will be used.
 @end deffn
 
 @defun play-sound sound &optional volume device

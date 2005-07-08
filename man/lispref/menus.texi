@@ -677,14 +677,14 @@ accelerator keys can be used regardless of the value of this variable.
 precedence over bindings in the current keymap(s).  @code{menu-fallback} means
 that bindings in the current keymap take precedence over menu accelerator keys.
 Thus a top level menu with an accelerator of "T" would be activated on a
-keypress of Meta-t if @var{menu-accelerator-enabled} is @code{menu-force}.
-However, if @var{menu-accelerator-enabled} is @code{menu-fallback}, then
+keypress of Meta-t if @code{menu-accelerator-enabled} is @code{menu-force}.
+However, if @code{menu-accelerator-enabled} is @code{menu-fallback}, then
 Meta-t will not activate the menubar and will instead run the function
 transpose-words, to which it is normally bound.
 
 The default value is @code{nil}.
 
-See also @var{menu-accelerator-modifiers} and @var{menu-accelerator-prefix}.
+See also @code{menu-accelerator-modifiers} and @code{menu-accelerator-prefix}.
 @end defvar
 
 @defvar menu-accelerator-map
@@ -698,12 +698,12 @@ accelerator in order for the top level menu to be activated in response to
 a keystroke.  The default value of @code{(meta)} mirrors the usage of the alt key
 as a menu accelerator in popular PC operating systems.
 
-The modifier keys in @var{menu-accelerator-modifiers} must match exactly the
+The modifier keys in @code{menu-accelerator-modifiers} must match exactly the
 modifiers present in the keypress.  The only exception is that the shift
-modifier is accepted in conjunction with alphabetic keys even if it is not
-a menu accelerator modifier.
+modifier is accepted in conjunction with alphabetic keys even if it is not a
+menu accelerator modifier.
 
-See also @var{menu-accelerator-enabled} and @var{menu-accelerator-prefix}.
+See also @code{menu-accelerator-enabled} and @code{menu-accelerator-prefix}.
 @end defvar
 
 @defvar menu-accelerator-prefix

@@ -56,8 +56,8 @@
 (setq path-separator ";")
 
 ;; Set the null device (for compile.el).
-;; #### There should be such a global thingy as null-device - kkm
-(setq grep-null-device "NUL")
+;; Backward-compatibility; recent compile.el uses null-device if available.
+(setq grep-null-device null-device)
 
 ;; Set the grep regexp to match entries with drive letters.
 (setq grep-regexp-alist

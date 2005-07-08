@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION LINKING MARK")
     (general-category	symbol other) ; Informative Category

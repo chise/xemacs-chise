@@ -136,7 +136,8 @@
 (defun package-net-batch-generate-bin-ini ()
   "Convert the package index to ini file format."
   (unless noninteractive
-    (error "`package-net-batch-generate-bin-ini' is to be used only with -batch"))
+    (error 'invalid-operation
+	   "`package-net-batch-generate-bin-ini' is to be used only with -batch"))
   (package-net-generate-bin-ini package-net-setup-version))
 
 ;;;###autoload

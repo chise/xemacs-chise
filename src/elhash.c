@@ -809,7 +809,7 @@ Use Common Lisp style keywords to specify hash table properties.
 Keyword :test can be `eq', `eql' (default) or `equal'.
 Comparison between keys is done using this function.
 If speed is important, consider using `eq'.
-When storing strings in the hash table, you will likely need to use `equal'.
+When hash table keys may be strings, you will likely need to use `equal'.
 
 Keyword :size specifies the number of keys likely to be inserted.
 This number of entries can be inserted without enlarging the hash table.

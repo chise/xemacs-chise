@@ -1136,7 +1136,7 @@ static const char *re_error_msgid[] =
    exactly that if always used MAX_FAILURE_SPACE each time we failed.
    This is a variable only so users of regex can assign to it; we never
    change it ourselves.  */
-#if defined (MATCH_MAY_ALLOCATE)
+#if defined (MATCH_MAY_ALLOCATE) || defined (REGEX_MALLOC)
 /* 4400 was enough to cause a crash on Alpha OSF/1,
    whose default stack limit is 2mb.  */
 int re_max_failures = 20000;
@@ -1591,13 +1591,6 @@ static unsigned char reg_unset_dummy;
    `char *', to avoid warnings when a string constant is passed.  But
    when we use a character as a subscript we must make it unsigned.  */
 #define TRANSLATE(d) (TRANSLATE_P (translate) ? RE_TRANSLATE (d) : (d))
-
-#ifdef MULE
-
-#define TRANSLATE_EXTENDED_UNSAFE(emch) \
-  (TRANSLATE_P (translate) && emch < 0x80 ? RE_TRANSLATE (emch) : (emch))
-
-#endif
 
 /* Macros for outputting the compiled pattern into `buffer'.  */
 
@@ -4145,10 +4138,12 @@ re_search_2 (struct re_pattern_buffer *bufp, const char *str1,
 		  {
 #ifdef MULE
 		    Emchar buf_ch;
+		    Bufbyte str[MAX_EMCHAR_LEN];
 
 		    buf_ch = charptr_emchar (d);
 		    buf_ch = RE_TRANSLATE (buf_ch);
-		    if (buf_ch >= 0200 || fastmap[(unsigned char) buf_ch])
+		    set_charptr_emchar (str, buf_ch);
+		    if (buf_ch >= 0200 || fastmap[(unsigned char) *str])
 		      break;
 #else
 		    if (fastmap[(unsigned char)RE_TRANSLATE (*d)])
@@ -4902,7 +4897,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
 	    REGEX_PREFETCH ();
 	    c = charptr_emchar ((const Bufbyte *) d);
-	    c = TRANSLATE_EXTENDED_UNSAFE (c); /* The character to match.  */
+	    c = TRANSLATE (c); /* The character to match.  */
 
 	    if (EQ (Qt, unified_range_table_lookup (p, c, Qnil)))
 	      not_p = !not_p;

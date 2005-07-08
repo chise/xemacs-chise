@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "ARABIC COMMA")
     (general-category	punctuation other) ; Informative Category
@@ -6,7 +6,7 @@
     (mirrored		. nil)
     (=ucs		. #x060C)	; ØŒ
     (arabic-iso8859-6	. #xAC)	; ØŒ
-    (arabic-1-column	. #x25)	; øº©ž
+    (arabic-1-column	. #x25)	; &I-MULE-ARB1-25;
     ))
 (define-char
   '((name		. "ARABIC SEMICOLON")
@@ -15,7 +15,7 @@
     (mirrored		. nil)
     (=ucs		. #x061B)	; Ø›
     (arabic-iso8859-6	. #xBB)	; Ø›
-    (arabic-1-column	. #x28)	; øº©¡
+    (arabic-1-column	. #x28)	; &I-MULE-ARB1-28;
     ))
 (define-char
   '((name		. "ARABIC QUESTION MARK")
@@ -24,7 +24,7 @@
     (mirrored		. nil)
     (=ucs		. #x061F)	; ØŸ
     (arabic-iso8859-6	. #xBF)	; ØŸ
-    (arabic-1-column	. #x29)	; øº©¢
+    (arabic-1-column	. #x29)	; &I-MULE-ARB1-29;
     ))
 (define-char
   '((name		. "ARABIC LETTER HAMZA")
@@ -421,7 +421,7 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (=ucs		. #x0660)	; Ù 
-    (arabic-digit	. #x21)	; øº§¼
+    (arabic-digit	. #x21)	; &I-MULE-ARBD-21;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT ONE")
@@ -432,7 +432,7 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (=ucs		. #x0661)	; Ù¡
-    (arabic-digit	. #x22)	; øº§½
+    (arabic-digit	. #x22)	; &I-MULE-ARBD-22;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT TWO")
@@ -443,7 +443,7 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (=ucs		. #x0662)	; Ù¢
-    (arabic-digit	. #x23)	; øº§¾
+    (arabic-digit	. #x23)	; &I-MULE-ARBD-23;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT THREE")
@@ -454,7 +454,7 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (=ucs		. #x0663)	; Ù£
-    (arabic-digit	. #x24)	; øº§¿
+    (arabic-digit	. #x24)	; &I-MULE-ARBD-24;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT FOUR")
@@ -465,7 +465,7 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (=ucs		. #x0664)	; Ù¤
-    (arabic-digit	. #x25)	; øº¨€
+    (arabic-digit	. #x25)	; &I-MULE-ARBD-25;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT FIVE")
@@ -476,7 +476,7 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (=ucs		. #x0665)	; Ù¥
-    (arabic-digit	. #x26)	; øº¨
+    (arabic-digit	. #x26)	; &I-MULE-ARBD-26;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT SIX")
@@ -487,7 +487,7 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (=ucs		. #x0666)	; Ù¦
-    (arabic-digit	. #x27)	; øº¨‚
+    (arabic-digit	. #x27)	; &I-MULE-ARBD-27;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT SEVEN")
@@ -498,7 +498,7 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (=ucs		. #x0667)	; Ù§
-    (arabic-digit	. #x28)	; øº¨ƒ
+    (arabic-digit	. #x28)	; &I-MULE-ARBD-28;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT EIGHT")
@@ -509,7 +509,7 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (=ucs		. #x0668)	; Ù¨
-    (arabic-digit	. #x29)	; øº¨„
+    (arabic-digit	. #x29)	; &I-MULE-ARBD-29;
     ))
 (define-char
   '((name		. "ARABIC-INDIC DIGIT NINE")
@@ -520,7 +520,7 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (=ucs		. #x0669)	; Ù©
-    (arabic-digit	. #x2A)	; øº¨…
+    (arabic-digit	. #x2A)	; &I-MULE-ARBD-2A;
     ))
 (define-char
   '((name		. "ARABIC PERCENT SIGN")

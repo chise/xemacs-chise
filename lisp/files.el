@@ -198,7 +198,7 @@ nil means make them for files that have some already.
 ;(defvar dired-kept-versions 2
 ;  "*When cleaning directory, number of versions to keep.")
 
-(defcustom delete-old-versions nil
+(defcustom delete-old-versions (when noninteractive 'leave)
   "*If t, delete excess backup versions silently.
 If nil, ask confirmation.  Any other value prevents any trimming."
   :type '(choice (const :tag "Delete" t)

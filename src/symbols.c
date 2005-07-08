@@ -3192,6 +3192,31 @@ variable chain of symbols.
   return follow_varalias_pointers (object, follow_past_lisp_magic);
 }
 
+DEFUN ("variable-binding-locus", Fvariable_binding_locus, 1, 1, 0, /*
+Return a value indicating where VARIABLE's current binding comes from.
+If the current binding is buffer-local, the value is the current buffer.
+If the current binding is global (the default), the value is nil. 
+*/
+       (variable))
+{
+  Lisp_Object valcontents;
+
+  CHECK_SYMBOL (variable);
+  variable = Findirect_variable (variable, Qnil);
+
+  /* Make sure the current binding is actually swapped in.  */
+  find_symbol_value (variable);
+
+  valcontents = XSYMBOL (variable)->value;
+
+  if (SYMBOL_VALUE_MAGIC_P (valcontents)
+      && ((XSYMBOL_VALUE_MAGIC_TYPE (valcontents) == SYMVAL_BUFFER_LOCAL)
+	  || (XSYMBOL_VALUE_MAGIC_TYPE (valcontents) == SYMVAL_SOME_BUFFER_LOCAL))
+      && (!NILP (Flocal_variable_p (variable, Fcurrent_buffer (), Qnil))))
+    return Fcurrent_buffer ();
+  else
+    return Qnil;
+}
 
 /************************************************************************/
 /*                            initialization                            */
@@ -3553,7 +3578,6 @@ syms_of_symbols (void)
   DEFSYMBOL (Qsymbol_value_in_buffer);
   DEFSYMBOL (Qsymbol_value_in_console);
   DEFSYMBOL (Qlocal_variable_p);
-
   DEFSYMBOL (Qconst_integer);
   DEFSYMBOL (Qconst_boolean);
   DEFSYMBOL (Qconst_object);
@@ -3600,6 +3624,7 @@ syms_of_symbols (void)
   DEFSUBR (Fdefvaralias);
   DEFSUBR (Fvariable_alias);
   DEFSUBR (Findirect_variable);
+  DEFSUBR (Fvariable_binding_locus);
   DEFSUBR (Fdontusethis_set_symbol_value_handler);
 }
 

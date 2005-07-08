@@ -1028,7 +1028,7 @@ base of natural logarithms.
 
 @defun log number &optional base
 This function returns the logarithm of @var{number}, with base @var{base}.
-If you don't specify @var{base}, the base @var{e} is used.  If @var{number}
+If you don't specify @var{base}, the base @code{e} is used.  If @var{number}
 is negative, the result is a NaN.
 @end defun
 

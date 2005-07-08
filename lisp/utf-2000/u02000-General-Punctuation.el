@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "EN QUAD")
     (general-category	separator space) ; Normative Category
@@ -30,7 +30,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020)
     (=ucs		. #x2003)	; â€ƒ
-    (=cns11643-1	. #x256D)	; ø»‘‰ 
+    (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     ))
 (define-char
   '((name		. "THREE-PER-EM SPACE")
@@ -129,7 +129,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2010)	; â€
-    (=jis-x0208		. #x213E)	; ø½‰¶™
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "HYPHEN")
+      (=ucs		  . #x2010)	; â€
+      ))
+    (<-fullwidth
+     ((name		  . "HYPHEN")
+      (=ucs		  . #x2010)	; â€
+      ))
+    (=jis-x0208		. #x213E)	; &J90-213E; [01-30]
+    (=ucs@jis		. #x2010)	; &J90-213E;
     ))
 (define-char
   '((name		. "NON-BREAKING HYPHEN")
@@ -152,9 +163,22 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2013)	; â€“
-    (=cns11643-1	. #x2139)	; ø»‘‚´
-    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
-    (=big5		. #xA156)	; ý¢€Š…–
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "EN DASH")
+      (=ucs		  . #x2013)	; â€“
+      ))
+    (<-fullwidth
+     ((name		  . "EN DASH")
+      (=ucs		  . #x2013)	; â€“
+      ))
+    (=cns11643-1	. #x2139)	; &JX1-237C; [01-25]
+    (=jis-x0213-1-2000	. #x237C)	; &I-JX1-237C; [03-92]
+    (=big5		. #xA156)	; &I-B-A156;
+    (=ucs@cns		. #x2013)	; &JX1-237C;
+    (=ucs@jis		. #x2013)	; &JX1-237C;
+    (=ucs@big5		. #x2013)	; &JX1-237C;
     ))
 (define-char
   '((name		. "EM DASH")
@@ -162,9 +186,22 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2014)	; â€”
-    (=jis-x0208		. #x213D)	; ø½‰¶˜
-    (=cns11643-1	. #x2137)	; ø»‘‚²
-    (=big5		. #xA158)	; ý¢€Š…˜
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "EM DASH")
+      (=ucs		  . #x2014)	; â€”
+      ))
+    (<-fullwidth
+     ((name		  . "EM DASH")
+      (=ucs		  . #x2014)	; â€”
+      ))
+    (=jis-x0208		. #x213D)	; &J90-213D; [01-29]
+    (=cns11643-1	. #x2137)	; &I-C1-2137; [01-23]
+    (=big5		. #xA158)	; &I-B-A158;
+    (=ucs@cns		. #x2014)	; &J90-213D;
+    (=ucs@jis		. #x2014)	; &J90-213D;
+    (=ucs@big5		. #x2014)	; &J90-213D;
     ))
 (define-char
   '((name		. "HORIZONTAL BAR")
@@ -172,17 +209,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2015)	; â€•
-    (=gb2312		. #x212A)	; ø»„†
-    (=ks-x1001		. #x212A)	; ø»ˆš•
+    (greek-iso8859-7	. #xAF)	; &I-GREEK-2F;
     ))
 (define-char
-  '((name		. "HALFWIDTH HORIZONTAL BAR")
-    (=>ucs		. #x2015)	; â€•
-    (general-category	punctuation dash) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	narrow #x2015)
-    (greek-iso8859-7	. #xAF)	; øº’»¯
+  '((<-denotational
+     ((name		  . "HORIZONTAL BAR")
+      (=ucs		  . #x2015)	; â€•
+      ))
+    (<-fullwidth
+     ((name		  . "HORIZONTAL BAR")
+      (=ucs		  . #x2015)	; â€•
+      ))
+    (=gb2312		. #x212A)	; &K0-212A; [01-10]
+    (=ks-x1001		. #x212A)	; &I-K0-212A; [01-10]
+    (=ucs@gb		. #x2015)	; &K0-212A;
+    (=ucs@ks		. #x2015)	; &K0-212A;
     ))
 (define-char
   '((name		. "DOUBLE VERTICAL LINE")
@@ -190,9 +231,22 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2016)	; â€–
-    (=jis-x0208		. #x2142)	; ø½‰¶
-    (=gb2312		. #x212C)	; ø»„†
-    (=cns11643-1	. #x225D)	; ø»‘„¶
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOUBLE VERTICAL LINE")
+      (=ucs		  . #x2016)	; â€–
+      ))
+    (<-fullwidth
+     ((name		  . "DOUBLE VERTICAL LINE")
+      (=ucs		  . #x2016)	; â€–
+      ))
+    (=jis-x0208		. #x2142)	; &J90-2142; [01-34]
+    (=gb2312		. #x212C)	; &I-G0-212C; [01-12]
+    (=cns11643-1	. #x225D)	; &I-C1-225D; [02-61]
+    (=ucs@gb		. #x2016)	; &J90-2142;
+    (=ucs@cns		. #x2016)	; &J90-2142;
+    (=ucs@jis		. #x2016)	; &J90-2142;
     ))
 (define-char
   '((name		. "DOUBLE LOW LINE")
@@ -201,7 +255,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0333)
     (=ucs		. #x2017)	; â€—
-    (hebrew-iso8859-8	. #xDF)	; øº’¿Ÿ
+    (hebrew-iso8859-8	. #xDF)	; &I-HEBREW-5F;
     ))
 (define-char
   '((name		. "LEFT SINGLE QUOTATION MARK")
@@ -209,11 +263,26 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2018)	; â€˜
-    (=jis-x0208		. #x2146)	; ø½‰¶¡
-    (=gb2312		. #x212E)	; ø»„†‘
-    (=ks-x1001		. #x212E)	; ø»ˆš™
-    (=cns11643-1	. #x2164)	; ø»‘ƒŸ
-    (=big5		. #xA1A5)	; ý¢€Š†¥
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFT SINGLE QUOTATION MARK")
+      (=ucs		  . #x2018)	; â€˜
+      ))
+    (<-fullwidth
+     ((name		  . "LEFT SINGLE QUOTATION MARK")
+      (=ucs		  . #x2018)	; â€˜
+      ))
+    (=jis-x0208		. #x2146)	; &J90-2146; [01-38]
+    (=gb2312		. #x212E)	; &I-G0-212E; [01-14]
+    (=ks-x1001		. #x212E)	; &I-K0-212E; [01-14]
+    (=cns11643-1	. #x2164)	; &I-C1-2164; [01-68]
+    (=big5		. #xA1A5)	; &I-B-A1A5;
+    (=ucs@gb		. #x2018)	; &J90-2146;
+    (=ucs@cns		. #x2018)	; &J90-2146;
+    (=ucs@jis		. #x2018)	; &J90-2146;
+    (=ucs@ks		. #x2018)	; &J90-2146;
+    (=ucs@big5		. #x2018)	; &J90-2146;
     ))
 (define-char
   '((name		. "RIGHT SINGLE QUOTATION MARK")
@@ -221,11 +290,26 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2019)	; â€™
-    (=jis-x0208		. #x2147)	; ø½‰¶¢
-    (=gb2312		. #x212F)	; ø»„†’
-    (=ks-x1001		. #x212F)	; ø»ˆšš
-    (=cns11643-1	. #x2165)	; ø»‘ƒ 
-    (=big5		. #xA1A6)	; ý¢€Š†¦
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHT SINGLE QUOTATION MARK")
+      (=ucs		  . #x2019)	; â€™
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHT SINGLE QUOTATION MARK")
+      (=ucs		  . #x2019)	; â€™
+      ))
+    (=jis-x0208		. #x2147)	; &J90-2147; [01-39]
+    (=gb2312		. #x212F)	; &I-G0-212F; [01-15]
+    (=ks-x1001		. #x212F)	; &I-K0-212F; [01-15]
+    (=cns11643-1	. #x2165)	; &I-C1-2165; [01-69]
+    (=big5		. #xA1A6)	; &I-B-A1A6;
+    (=ucs@gb		. #x2019)	; &J90-2147;
+    (=ucs@cns		. #x2019)	; &J90-2147;
+    (=ucs@jis		. #x2019)	; &J90-2147;
+    (=ucs@ks		. #x2019)	; &J90-2147;
+    (=ucs@big5		. #x2019)	; &J90-2147;
     ))
 (define-char
   '((name		. "SINGLE LOW-9 QUOTATION MARK")
@@ -247,11 +331,26 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201C)	; â€œ
-    (=jis-x0208		. #x2148)	; ø½‰¶£
-    (=gb2312		. #x2130)	; ø»„†“
-    (=ks-x1001		. #x2130)	; ø»ˆš›
-    (=cns11643-1	. #x2166)	; ø»‘ƒ¡
-    (=big5		. #xA1A7)	; ý¢€Š†§
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFT DOUBLE QUOTATION MARK")
+      (=ucs		  . #x201C)	; â€œ
+      ))
+    (<-fullwidth
+     ((name		  . "LEFT DOUBLE QUOTATION MARK")
+      (=ucs		  . #x201C)	; â€œ
+      ))
+    (=jis-x0208		. #x2148)	; &J90-2148; [01-40]
+    (=gb2312		. #x2130)	; &I-G0-2130; [01-16]
+    (=ks-x1001		. #x2130)	; &I-K0-2130; [01-16]
+    (=cns11643-1	. #x2166)	; &I-C1-2166; [01-70]
+    (=big5		. #xA1A7)	; &I-B-A1A7;
+    (=ucs@gb		. #x201C)	; &J90-2148;
+    (=ucs@cns		. #x201C)	; &J90-2148;
+    (=ucs@jis		. #x201C)	; &J90-2148;
+    (=ucs@ks		. #x201C)	; &J90-2148;
+    (=ucs@big5		. #x201C)	; &J90-2148;
     ))
 (define-char
   '((name		. "RIGHT DOUBLE QUOTATION MARK")
@@ -259,11 +358,26 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201D)	; â€
-    (=jis-x0208		. #x2149)	; ø½‰¶¤
-    (=gb2312		. #x2131)	; ø»„†”
-    (=ks-x1001		. #x2131)	; ø»ˆšœ
-    (=cns11643-1	. #x2167)	; ø»‘ƒ¢
-    (=big5		. #xA1A8)	; ý¢€Š†¨
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHT DOUBLE QUOTATION MARK")
+      (=ucs		  . #x201D)	; â€
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHT DOUBLE QUOTATION MARK")
+      (=ucs		  . #x201D)	; â€
+      ))
+    (=jis-x0208		. #x2149)	; &J90-2149; [01-41]
+    (=gb2312		. #x2131)	; &I-G0-2131; [01-17]
+    (=ks-x1001		. #x2131)	; &I-K0-2131; [01-17]
+    (=cns11643-1	. #x2167)	; &I-C1-2167; [01-71]
+    (=big5		. #xA1A8)	; &I-B-A1A8;
+    (=ucs@gb		. #x201D)	; &J90-2149;
+    (=ucs@cns		. #x201D)	; &J90-2149;
+    (=ucs@jis		. #x201D)	; &J90-2149;
+    (=ucs@ks		. #x201D)	; &J90-2149;
+    (=ucs@big5		. #x201D)	; &J90-2149;
     ))
 (define-char
   '((name		. "DOUBLE LOW-9 QUOTATION MARK")
@@ -285,9 +399,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2020)	; â€ 
-    (=jis-x0208-1983	. #x2277)	; ø»†’¼
-    (=ks-x1001		. #x2253)	; ø»ˆœœ
-    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DAGGER")
+      (=ucs		  . #x2020)	; â€ 
+      ))
+    (<-fullwidth
+     ((name		  . "DAGGER")
+      (=ucs		  . #x2020)	; â€ 
+      ))
+    (=jis-x0208@1983	. #x2277)	; &J90-2277; [02-87]
+    (=ks-x1001		. #x2253)	; &I-K0-2253; [02-51]
+    (=jis-x0208@1990	. #x2277)	; &I-J90-2277; [02-87]
+    (=ucs@jis		. #x2020)	; &J90-2277;
+    (=ucs@ks		. #x2020)	; &J90-2277;
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
@@ -295,9 +421,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2021)	; â€¡
-    (=jis-x0208-1983	. #x2278)	; ø»†’½
-    (=ks-x1001		. #x2254)	; ø»ˆœ
-    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOUBLE DAGGER")
+      (=ucs		  . #x2021)	; â€¡
+      ))
+    (<-fullwidth
+     ((name		  . "DOUBLE DAGGER")
+      (=ucs		  . #x2021)	; â€¡
+      ))
+    (=jis-x0208@1983	. #x2278)	; &J90-2278; [02-88]
+    (=ks-x1001		. #x2254)	; &I-K0-2254; [02-52]
+    (=jis-x0208@1990	. #x2278)	; &I-J90-2278; [02-88]
+    (=ucs@jis		. #x2021)	; &J90-2278;
+    (=ucs@ks		. #x2021)	; &J90-2278;
     ))
 (define-char
   '((name		. "BULLET")
@@ -305,7 +443,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2022)	; â€¢
-    (=jis-x0213-1-2000	. #x2340)	; ø»¢–—
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "BULLET")
+      (=ucs		  . #x2022)	; â€¢
+      ))
+    (<-fullwidth
+     ((name		  . "BULLET")
+      (=ucs		  . #x2022)	; â€¢
+      ))
+    (=jis-x0213-1-2000	. #x2340)	; &JX1-2340; [03-32]
+    (=ucs@jis/fw	. #x2022)	; &JX1-2340;
     ))
 (define-char
   '((name		. "TRIANGULAR BULLET")
@@ -329,10 +478,24 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E)
     (=ucs		. #x2025)	; â€¥
-    (=jis-x0208		. #x2145)	; ø½‰¶ 
-    (=ks-x1001		. #x2125)	; ø»ˆš
-    (=cns11643-1	. #x212D)	; ø»‘‚¨
-    (=big5		. #xA14C)	; ý¢€Š…Œ
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "TWO DOT LEADER")
+      (=ucs		  . #x2025)	; â€¥
+      ))
+    (<-fullwidth
+     ((name		  . "TWO DOT LEADER")
+      (=ucs		  . #x2025)	; â€¥
+      ))
+    (=jis-x0208		. #x2145)	; &J90-2145; [01-37]
+    (=ks-x1001		. #x2125)	; &I-K0-2125; [01-05]
+    (=cns11643-1	. #x212D)	; &I-C1-212D; [01-13]
+    (=big5		. #xA14C)	; &I-B-A14C;
+    (=ucs@cns		. #x2025)	; &J90-2145;
+    (=ucs@jis		. #x2025)	; &J90-2145;
+    (=ucs@ks		. #x2025)	; &J90-2145;
+    (=ucs@big5		. #x2025)	; &J90-2145;
     ))
 (define-char
   '((name		. "HORIZONTAL ELLIPSIS")
@@ -341,11 +504,26 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
     (=ucs		. #x2026)	; â€¦
-    (=jis-x0208		. #x2144)	; ø½‰¶Ÿ
-    (=gb2312		. #x212D)	; ø»„†
-    (=ks-x1001		. #x2126)	; ø»ˆš‘
-    (=cns11643-1	. #x212C)	; ø»‘‚§
-    (=big5		. #xA14B)	; ý¢€Š…‹
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "HORIZONTAL ELLIPSIS")
+      (=ucs		  . #x2026)	; â€¦
+      ))
+    (<-fullwidth
+     ((name		  . "HORIZONTAL ELLIPSIS")
+      (=ucs		  . #x2026)	; â€¦
+      ))
+    (=jis-x0208		. #x2144)	; &J90-2144; [01-36]
+    (=gb2312		. #x212D)	; &I-G0-212D; [01-13]
+    (=ks-x1001		. #x2126)	; &I-K0-2126; [01-06]
+    (=cns11643-1	. #x212C)	; &I-C1-212C; [01-12]
+    (=big5		. #xA14B)	; &I-B-A14B;
+    (=ucs@gb		. #x2026)	; &J90-2144;
+    (=ucs@cns		. #x2026)	; &J90-2144;
+    (=ucs@jis		. #x2026)	; &J90-2144;
+    (=ucs@ks		. #x2026)	; &J90-2144;
+    (=ucs@big5		. #x2026)	; &J90-2144;
     ))
 (define-char
   '((name		. "HYPHENATION POINT")
@@ -353,8 +531,20 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2027)	; â€§
-    (=cns11643-1	. #x2131)	; ø»‘‚¬
-    (=big5		. #xA145)	; ý¢€Š……
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "HYPHENATION POINT")
+      (=ucs		  . #x2027)	; â€§
+      ))
+    (<-fullwidth
+     ((name		  . "HYPHENATION POINT")
+      (=ucs		  . #x2027)	; â€§
+      ))
+    (=cns11643-1	. #x2126)	; &C1-2126; [01-06]
+    (=big5		. #xA145)	; &I-B-A145;
+    (=ucs@cns		. #x2027)	; &C1-2126;
+    (=ucs@big5		. #x2027)	; &C1-2126;
     ))
 (define-char
   '((name		. "LINE SEPARATOR")
@@ -419,10 +609,23 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2030)	; â€°
-    (=gb2312		. #x216B)	; ø»„‡Ž
-    (=jis-x0208-1983	. #x2273)	; ø»†’¸
-    (=ks-x1001		. #x2236)	; ø»ˆ›¿
-    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "PER MILLE SIGN")
+      (=ucs		  . #x2030)	; â€°
+      ))
+    (<-fullwidth
+     ((name		  . "PER MILLE SIGN")
+      (=ucs		  . #x2030)	; â€°
+      ))
+    (=gb2312		. #x216B)	; &J90-2273; [01-75]
+    (=jis-x0208@1983	. #x2273)	; &I-J83-2273; [02-83]
+    (=ks-x1001		. #x2236)	; &I-K0-2236; [02-22]
+    (=jis-x0208@1990	. #x2273)	; &I-J90-2273; [02-83]
+    (=ucs@gb		. #x2030)	; &J90-2273;
+    (=ucs@jis		. #x2030)	; &J90-2273;
+    (=ucs@ks		. #x2030)	; &J90-2273;
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")
@@ -437,11 +640,26 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2032)	; â€²
-    (=jis-x0208		. #x216C)	; ø½‰·‡
-    (=gb2312		. #x2164)	; ø»„‡‡
-    (=ks-x1001		. #x2147)	; ø»ˆš²
-    (=cns11643-1	. #x216B)	; ø»‘ƒ¦
-    (=big5		. #xA1AC)	; ý¢€Š†¬
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; â€²
+      ))
+    (<-fullwidth
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; â€²
+      ))
+    (=jis-x0208		. #x216C)	; &J90-216C; [01-76]
+    (=gb2312		. #x2164)	; &I-G0-2164; [01-68]
+    (=ks-x1001		. #x2147)	; &I-K0-2147; [01-39]
+    (=cns11643-1	. #x216B)	; &I-C1-216B; [01-75]
+    (=big5		. #xA1AC)	; &I-B-A1AC;
+    (=ucs@gb		. #x2032)	; &J90-216C;
+    (=ucs@cns		. #x2032)	; &J90-216C;
+    (=ucs@jis		. #x2032)	; &J90-216C;
+    (=ucs@ks		. #x2032)	; &J90-216C;
+    (=ucs@big5		. #x2032)	; &J90-216C;
     ))
 (define-char
   '((name		. "DOUBLE PRIME")
@@ -450,9 +668,22 @@
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
     (=ucs		. #x2033)	; â€³
-    (=jis-x0208		. #x216D)	; ø½‰·ˆ
-    (=gb2312		. #x2165)	; ø»„‡ˆ
-    (=ks-x1001		. #x2148)	; ø»ˆš³
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOUBLE PRIME")
+      (=ucs		  . #x2033)	; â€³
+      ))
+    (<-fullwidth
+     ((name		  . "DOUBLE PRIME")
+      (=ucs		  . #x2033)	; â€³
+      ))
+    (=jis-x0208		. #x216D)	; &J90-216D; [01-77]
+    (=gb2312		. #x2165)	; &I-G0-2165; [01-69]
+    (=ks-x1001		. #x2148)	; &I-K0-2148; [01-40]
+    (=ucs@gb		. #x2033)	; &J90-216D;
+    (=ucs@jis		. #x2033)	; &J90-216D;
+    (=ucs@ks		. #x2033)	; &J90-216D;
     ))
 (define-char
   '((name		. "TRIPLE PRIME")
@@ -468,8 +699,20 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2035)	; â€µ
-    (=cns11643-1	. #x216A)	; ø»‘ƒ¥
-    (=big5		. #xA1AB)	; ý¢€Š†«
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; â€µ
+      ))
+    (<-fullwidth
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; â€µ
+      ))
+    (=cns11643-1	. #x216A)	; &C1-216A; [01-74]
+    (=big5		. #xA1AB)	; &I-B-A1AB;
+    (=ucs@cns		. #x2035)	; &C1-216A;
+    (=ucs@big5		. #x2035)	; &C1-216A;
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME")
@@ -514,11 +757,26 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x203B)	; â€»
-    (=jis-x0208		. #x2228)	; ø½‰·¡
-    (=gb2312		. #x2179)	; ø»„‡œ
-    (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
-    (=cns11643-1	. #x216F)	; ø»‘ƒª
-    (=big5		. #xA1B0)	; ý¢€Š†°
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "REFERENCE MARK")
+      (=ucs		  . #x203B)	; â€»
+      ))
+    (<-fullwidth
+     ((name		  . "REFERENCE MARK")
+      (=ucs		  . #x203B)	; â€»
+      ))
+    (=jis-x0208		. #x2228)	; &J90-2228; [02-08]
+    (=gb2312		. #x2179)	; &I-G0-2179; [01-89]
+    (=ks-x1001		. #x2158)	; &I-K0-2158; [01-56]
+    (=cns11643-1	. #x216F)	; &I-C1-216F; [01-79]
+    (=big5		. #xA1B0)	; &I-B-A1B0;
+    (=ucs@gb		. #x203B)	; &J90-2228;
+    (=ucs@cns		. #x203B)	; &J90-2228;
+    (=ucs@jis		. #x203B)	; &J90-2228;
+    (=ucs@ks		. #x203B)	; &J90-2228;
+    (=ucs@big5		. #x203B)	; &J90-2228;
     ))
 (define-char
   '((name		. "DOUBLE EXCLAMATION MARK")
@@ -527,7 +785,18 @@
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
     (=ucs		. #x203C)	; â€¼
-    (=jis-x0213-1-2000	. #x286B)	; ø»¢ž˜
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOUBLE EXCLAMATION MARK")
+      (=ucs		  . #x203C)	; â€¼
+      ))
+    (<-fullwidth
+     ((name		  . "DOUBLE EXCLAMATION MARK")
+      (=ucs		  . #x203C)	; â€¼
+      ))
+    (=jis-x0213-1-2000	. #x286B)	; &JX1-286B; [08-75]
+    (=ucs@jis		. #x203C)	; &JX1-286B;
     ))
 (define-char
   '((name		. "INTERROBANG")
@@ -542,44 +811,27 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0305)
-    (->fullwidth
-     ((name		  . "FULLWIDTH OVERLINE")
-      (=jis-x0208	  . #x2131)	; ø½‰¶Œ
-      (=gb2312		  . #x237E)	; ø»„Š
-      (=ks-x1001	  . #x237E)	; ø»ˆž¥
-      (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
-      ))
     (=ucs		. #x203E)	; â€¾
-    (latin-jisx0201	. #x7E)	; øº‘Œ©
-    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
-    ))
-(define-char
-  '((name		. "heavy overline")
-    (=>ucs		. #x203E)	; â€¾
-    (general-category	punctuation other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=cns11643-1	. #x2224)	; ø»‘ƒ½
-    (=big5		. #xA1C3)	; ý¢€Š‡ƒ
-    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
+    (latin-jisx0201	. #x7E)	; &I-LATINJ-7E;
+    (hebrew-iso8859-8	. #xAF)	; &I-HEBREW-2F;
     ))
 (define-char
   '((name		. "FULLWIDTH OVERLINE")
-    (=>ucs		. #x203E)	; â€¾
-    (general-category	punctuation other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x203E)
+    (<-denotational
+     ((name		  . "OVERLINE")
+      (=ucs		  . #x203E)	; â€¾
+      ))
     (<-fullwidth
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
-    (=jis-x0208		. #x2131)	; ø½‰¶Œ
-    (=gb2312		. #x237E)	; ø»„Š
-    (=ks-x1001		. #x237E)	; ø»ˆž¥
-    (=cns11643-1	. #x2223)	; ø»‘ƒ¼
-    (=big5		. #xA1C2)	; ý¢€Š‡‚
-    (=ucs@jis		. #x203E)	; ø½‰¶Œ
+    (=jis-x0208		. #x2131)	; &J90-2131; [01-17]
+    (=gb2312		. #x237E)	; &I-G0-237E; [03-94]
+    (=ks-x1001		. #x237E)	; &I-K0-237E; [03-94]
+    (=cns11643-1	. #x2223)	; &I-C1-2223; [02-03]
+    (=big5		. #xA1C2)	; &I-B-A1C2;
+    (=ucs@gb		. #xFFE3)	; &J90-2131;
+    (=ucs@jis		. #x203E)	; &J90-2131;
     ))
 (define-char
   '((name		. "UNDERTIE")
@@ -609,7 +861,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2042)	; â‚
-    (=jis-x0213-1-2000	. #x2C7E)	; ø»¢¤£
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "ASTERISM")
+      (=ucs		  . #x2042)	; â‚
+      ))
+    (<-fullwidth
+     ((name		  . "ASTERISM")
+      (=ucs		  . #x2042)	; â‚
+      ))
+    (=jis-x0213-1-2000	. #x2C7E)	; &JX1-2C7E; [12-94]
+    (=ucs@jis		. #x2042)	; &JX1-2C7E;
     ))
 (define-char
   '((name		. "HYPHEN BULLET")
@@ -624,7 +887,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2044)	; â„
-    (=cns11643-1	. #x225F)	; ø»‘„¸
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET WITH QUILL")
@@ -642,8 +904,20 @@
     ))
 (define-char
   '((name		. "DOUBLE QUESTION MARK")
+    (general-category	punctuation other) ; Informative Category
     (=ucs		. #x2047)	; â‡
-    (=jis-x0213-1-2000	. #x286C)	; ø»¢ž™
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOUBLE QUESTION MARK")
+      (=ucs		  . #x2047)	; â‡
+      ))
+    (<-fullwidth
+     ((name		  . "DOUBLE QUESTION MARK")
+      (=ucs		  . #x2047)	; â‡
+      ))
+    (=jis-x0213-1-2000	. #x286C)	; &JX1-286C; [08-76]
+    (=ucs@jis		. #x2047)	; &JX1-286C;
     ))
 (define-char
   '((name		. "QUESTION EXCLAMATION MARK")
@@ -652,7 +926,19 @@
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
     (=ucs		. #x2048)	; âˆ
-    (=jis-x0213-1-2000	. #x286D)	; ø»¢žš
+    ))
+(define-char
+  '((->decomposition	compat #xFF1F #xFF01)
+    (<-denotational
+     ((name		  . "QUESTION EXCLAMATION MARK")
+      (=ucs		  . #x2048)	; âˆ
+      ))
+    (<-fullwidth
+     ((name		  . "QUESTION EXCLAMATION MARK")
+      (=ucs		  . #x2048)	; âˆ
+      ))
+    (=jis-x0213-1-2000	. #x286D)	; &JX1-286D; [08-77]
+    (=ucs@jis		. #x2048)	; &JX1-286D;
     ))
 (define-char
   '((name		. "EXCLAMATION QUESTION MARK")
@@ -661,7 +947,18 @@
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
     (=ucs		. #x2049)	; â‰
-    (=jis-x0213-1-2000	. #x286E)	; ø»¢ž›
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "EXCLAMATION QUESTION MARK")
+      (=ucs		  . #x2049)	; â‰
+      ))
+    (<-fullwidth
+     ((name		  . "EXCLAMATION QUESTION MARK")
+      (=ucs		  . #x2049)	; â‰
+      ))
+    (=jis-x0213-1-2000	. #x286E)	; &JX1-286E; [08-78]
+    (=ucs@jis		. #x2049)	; &JX1-286E;
     ))
 (define-char
   '((name		. "TIRONIAN SIGN ET")
@@ -694,7 +991,7 @@
 (define-char
   '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
     (=ucs		. #x2051)	; â‘
-    (=jis-x0213-1-2000	. #x2C7D)	; ø»¢¤¢
+    (=jis-x0213-1-2000	. #x2C7D)	; &I-JX1-2C7D; [12-93]
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")

@@ -84,7 +84,7 @@ AC_MSG_CHECKING(how to produce PIC code)
 wl=
 
 can_build_shared=yes
-if test "$XEGCC" = yes; then
+if test "$XEGCC" = yes -o "$__ICC" = yes; then
   wl='-Wl,'
 
   case "$xehost_os" in
@@ -243,7 +243,7 @@ cc_produces_so=no
 xldf=
 xcldf=
 AC_MSG_CHECKING(if C compiler can produce shared libraries)
-if test "$XEGCC" = yes; then
+if test "$XEGCC" = yes -o "$__ICC" = yes; then
   xcldf="-shared"
   xldf="-shared"
 else # Not using GCC

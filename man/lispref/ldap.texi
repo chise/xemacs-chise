@@ -431,21 +431,21 @@ A function that decodes a LDAP boolean string representation
 @end defun
 
 @defun ldap-decode-string str
-Decode a string @var{str} according to @var{ldap-coding-system}.
+Decode a string @var{str} according to @code{ldap-coding-system}.
 @end defun
 
 @defun ldap-encode-string str
-Encode a string @var{str} according to @var{ldap-coding-system}.
+Encode a string @var{str} according to @code{ldap-coding-system}.
 @end defun
 
 @defun ldap-decode-address str
-Decode an address @var{str} according to @var{ldap-coding-system} and
+Decode an address @var{str} according to @code{ldap-coding-system} and
 replacing $ signs with newlines as specified by LDAP encoding rules for
 addresses.
 @end defun
 
 @defun ldap-encode-address str
-Encode an address @var{str} according to @var{ldap-coding-system} and
+Encode an address @var{str} according to @code{ldap-coding-system} and
 replacing newlines with $ signs as specified by LDAP encoding rules for
 addresses.
 @end defun

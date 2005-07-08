@@ -1,5 +1,5 @@
 /* Copyright (C) 1995 Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2005 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -122,7 +122,7 @@ vars_of_mule (void)
 #ifdef UTF2000
   Fprovide (intern ("utf-2000"));
 
-  Vxemacs_chise_version = build_string("0.21 (Narayama)");
+  Vxemacs_chise_version = build_string("0.22 (Kizu)");
   DEFVAR_LISP ("xemacs-chise-version", &Vxemacs_chise_version /*
 Version number of XEmacs CHISE.
 */ );

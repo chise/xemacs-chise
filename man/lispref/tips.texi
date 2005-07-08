@@ -239,6 +239,13 @@ only for program-generated buffers.)  The users will find Emacs more
 coherent if all libraries use the same conventions.
 
 @item
+Use names starting with a space for temporary buffers (@pxref{Buffer
+Names}), or at least call @code{buffer-disable-undo} on them.  Otherwise
+they may stay referenced by internal undo variable(s) after getting
+killed.  If this happens before dumping (@pxref{Building XEmacs}), this
+may cause fatal error when portable dumper is used.
+
+@item
 Indent each function with @kbd{C-M-q} (@code{indent-sexp}) using the
 default indentation parameters.
 
@@ -488,7 +495,7 @@ at that point.  For example:
 @end group
 @end smallexample
 
-Every function that has no documentation string (because it is use only
+Every function that has no documentation string (because it is used only
 internally within the package it belongs to), should have instead a
 two-semicolon comment right before the function, explaining what the
 function does and how to call it properly.  Explain precisely what each

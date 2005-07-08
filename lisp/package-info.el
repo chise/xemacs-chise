@@ -94,7 +94,8 @@ author-version -- The original Author's version #.
 maintainer -- The package maintainer.
 category -- The build category."
   (unless noninteractive
-    (error "`batch-update-package-info' is to be used only with -batch"))
+    (error 'invalid-operation
+	   "`batch-update-package-info' is to be used only with -batch"))
   (let ((version (nth 0 command-line-args-left))
 	(filename (nth 1 command-line-args-left))
 	(requires (nth 2 command-line-args-left))
