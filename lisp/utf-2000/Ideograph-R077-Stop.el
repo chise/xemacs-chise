@@ -25,8 +25,8 @@
     (<-ideographic-component-forms
      ((=ucs		  . #x6B62)	; 止
       ))
-    (=gt-k		. 00182)	; &GT-K00182;
-    (=gt-pj-k1		. #x3A42)	; &GT-K00182; [26-34]
+    (=gt-k		. 00439)	; &GT-K00439;
+    (=gt-pj-k1		. #x347D)	; &GT-K00439; [20-93]
     ))
 (define-char
   '((=>ucs		. #x6B62)	; 止
@@ -37,8 +37,9 @@
     (<-ideographic-component-forms
      ((=ucs		  . #x6B62)	; 止
       ))
-    (=gt-k		. 00439)	; &GT-K00439;
-    (=gt-pj-k1		. #x347D)	; &GT-K00439; [20-93]
+    (=big5-cdp		. #x8960)	; &CDP-8960;
+    (=gt-k		. 00182)	; &I-GT-K00182;
+    (=gt-pj-k1		. #x3A42)	; &CDP-8960; [26-34]
     ))
 (define-char
   '((=>daikanwa		. 16253)	; 止
@@ -49,8 +50,13 @@
      ((=ucs		  . #x6B62)	; 止
       ))
     (=ucs		. #x9FB0)	; 龰
-    (=gt-k		. 00440)	; &I-GT-K00440;
-    (=gt-pj-k1		. #x3675)	; 龰 [22-85]
+    (->subsumptive
+     ((=big5-cdp	  . #x8B68)	; &CDP-8B68;
+      )
+     ((=gt-k		  . 00440)	; &GT-K00440;
+      (=gt-pj-k1	  . #x3675)	; &GT-K00440; [22-85]
+      (=ucs@unicode	  . #x9FB0)	; &GT-K00440;
+      ))
     ))
 (define-char
   '((=>ucs		. #x23942)	; 𣥂

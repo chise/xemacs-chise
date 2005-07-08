@@ -395,6 +395,19 @@
 		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
 
+  (make-charset '=zinbun-oracle
+		"Oracle Bones Script"
+		`(long-name	"Oracle Bones Script in Zinbun, Kyoto Univ."
+		  chars		256
+		  dimension	2
+		  registry	"zob1968-0"
+		  graphic	2
+		  min-code	#xE70000
+		  max-code	,(+ #xE70000 8192)
+		  code-offset	#xE70000
+		  columns	2
+		  direction	l2r))
+
   (make-charset '=jef-china3
 		"JEF + CHINA3 private characters"
 		'(long-name	"JEF + CHINA3"
@@ -460,6 +473,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@gb))
+  (make-charset '=ucs-bmp@gb
+		"ISO/IEC 10646 BMP for GB"
+		'(long-name	"BMP for GB"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@gb
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@cns
 		"ISO/IEC 10646 for CNS 11643"
 		'(long-name	"UCS for CNS"
@@ -479,6 +503,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@cns))
+  (make-charset '=ucs-bmp@cns
+		"ISO/IEC 10646 BMP for CNS"
+		'(long-name	"BMP for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@jis
 		"ISO/IEC 10646 for JIS X0208/0212/0213"
 		'(long-name	"UCS for JIS"
@@ -498,6 +533,17 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs@jis))
+  (make-charset '=ucs-bmp@jis
+		"ISO/IEC 10646 BMP for JIS"
+		'(long-name	"BMP for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		'(long-name	"UCS for JIS:1990"
@@ -540,6 +586,17 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
+  (make-charset '=ucs-bmp@ks
+		"ISO/IEC 10646 BMP for KS"
+		'(long-name	"BMP for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@ks
+		  min-code	#x0000
+		  max-code	#xFFFF))
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
 		'(long-name	"UCS for Big5"
@@ -616,7 +673,10 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother ucs-bmp
-	       min-code #x2E00 max-code #xA4CF))
+	       min-code #x2E00
+	       max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
   (make-charset
    '=ucs-bmp-cjk@unicode
    "CJK Characters in BMP of Unicode"

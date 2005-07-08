@@ -5,6 +5,7 @@
     (total-strokes	 . 3)
     (=ucs		. #x21C23)	; 𡰣
     (=cns11643-6	. #x213E)	; &I-C6-213E; [01-30]
+    (=big5-cdp		. #x86BA)	; &I-CDP-86BA;
     (=daikanwa		. 07629)	; &I-M-07629;
     ))
 (define-char

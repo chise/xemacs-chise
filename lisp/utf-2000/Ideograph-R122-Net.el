@@ -118,15 +118,14 @@
     (total-strokes	 . 4)
     (=ucs		. #x2626B)	; 𦉫
     (=cns11643-6	. #x2228)	; &I-C6-2228; [02-08]
+    (=big5-cdp		. #x87DC)	; &I-CDP-87DC;
     (=daikanwa		. 28204)	; &I-M-28204;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 267)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 267 1)
     (=ucs		. #x2626D)	; 𦉭
     (=cns11643-6	. #x2544)	; &I-C6-2544; [05-36]
     (=big5-cdp		. #x87BA)	; &I-CDP-87BA;
@@ -771,8 +770,14 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x262A0)	; 𦊠
-    (=cns11643-6	. #x4334)	; &I-C6-4334; [35-20]
-    (=daikanwa		. 28256)	; &I-M-28256;
+    (->subsumptive
+     ((=gt		  . 36405)	; &GT-36405;
+      (=gt-pj-5		  . #x733A)	; &GT-36405; [83-26]
+      (=daikanwa	  . 28256)	; &I-M-28256;
+      )
+     ((=cns11643-6	  . #x4334)	; &C6-4334; [35-20]
+      (=ucs@iso		  . #x262A0)	; &C6-4334;
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -979,6 +984,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x262BE)	; 𦊾
     (=cns11643-4	. #x3A2C)	; &I-C4-3A2C; [26-12]
+    (=gt		. 36416)	; &I-GT-36416;
+    (=gt-pj-5		. #x734D)	; &I-GT-36416; [83-45]
     (=daikanwa		. 28275)	; &I-M-28275;
     ))
 (define-char

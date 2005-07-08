@@ -351,25 +351,48 @@
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs		. #x7232)	; 爲
-    (->subsumptive
-     ((shinjigen-2	  . 4703)
-      (=jis-x0208	  . #x602A)	; &GT-25270; [64-10]
-      (=ks-x1001	  . #x6A53)	; &I-K0-6A53; [74-51]
-      (=big5-cdp	  . #xACB0)	; &I-B-ACB0;
-      (=gt		  . 25270)	; &I-GT-25270;
-      (=gt-k		  . 09209)	; &I-GT-K09209;
-      (=gt-pj-1		  . #x602A)	; &I-GT-25270; [64-10]
-      (=daikanwa	  . 19686)	; &I-M-19686;
-      (=ucs@jis		  . #x7232)	; &GT-25270;
-      )
-     ((=cns11643-3	  . #x3D22)	; &GT-25271; [29-02]
-      (=gb12345		  . #x4E2A)	; &GT-25271; [46-10]
-      (=gt		  . 25271)	; &I-GT-25271;
-      (=gt-k		  . 09877)	; &I-GT-K09877;
-      (=gt-pj-9		  . #x6633)	; &I-GT-25271; [70-19]
-      (=ucs@unicode	  . #x7232)	; &GT-25271;
+    (<-denotational
+     ((=big5		  . #xACB0)	; &B-ACB0;
       ))
+    (=ucs		. #x7232)	; 爲
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x7232)	; 爲
+      ))
+    (shinjigen-1	. 4703)
+    (shinjigen-2	. 4703)
+    (=jis-x0208		. #x602A)	; &GT-25270; [64-10]
+    (=ks-x1001		. #x6A53)	; &I-K0-6A53; [74-51]
+    (=big5-cdp		. #x89D1)	; &I-CDP-89D1;
+    (=gt		. 25270)	; &I-GT-25270;
+    (=gt-k		. 09209)	; &I-GT-K09209;
+    (=gt-pj-1		. #x602A)	; &I-GT-25270; [64-10]
+    (=daikanwa		. 19686)	; &I-M-19686;
+    (=ucs@jis		. #x7232)	; &GT-25270;
+    ))
+(define-char
+  '((ideographic-radical@simplified . 86)	; ⽕
+    (ideographic-radical@traditional . 87)	; ⽖
+    (=big5		. #xACB0)	; &B-ACB0;
+    (=ucs@big5		. #x70BA)	; &B-ACB0;
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x7232)	; 爲
+      ))
+    (=cns11643-3	. #x3D22)	; &GT-25271; [29-02]
+    (=gb12345		. #x4E2A)	; &GT-25271; [46-10]
+    (=gt		. 25271)	; &I-GT-25271;
+    (=gt-k		. 09877)	; &I-GT-K09877;
+    (=gt-pj-9		. #x6633)	; &I-GT-25271; [70-19]
+    (=ucs@unicode	. #x7232)	; &GT-25271;
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖

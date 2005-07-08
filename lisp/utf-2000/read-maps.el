@@ -69,6 +69,10 @@
      "^B-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@big5
      "\tBU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=ks-x1001
+     "^K0-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@ks
+     "\tKU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=jef-china3     
      "^JC3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      nil
@@ -149,9 +153,13 @@ UCS-REGEXP is a regular expression to match against
 			     (encode-char chr '=ucs@jis/fw 'defined-only))
 			    ((eq ucs-ccs '=ucs@gb)
 			     (encode-char chr '=ucs@gb/fw 'defined-only))
+                            ;; ((eq ucs-ccs '=ucs@cns)
+                            ;;  (encode-char chr '=ucs@cns/fw 'defined-only))
                             ;; ((eq ucs-ccs '=ucs@big5)
                             ;;  nil)
-			    (t
+                            ;; ((eq ucs-ccs '=ucs@ks)
+                            ;;  (encode-char chr '=ucs@ks/fw 'defined-only))
+                            (t
 			     (char-feature chr '=>ucs))))
 			  ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
@@ -161,7 +169,9 @@ UCS-REGEXP is a regular expression to match against
 							    =ucs@jis/1990
                                                             =ucs@jis/2000
 							    =ucs@gb
+							    =ucs@cns
 							    =ucs@big5
+							    =ucs@ks
 							    )))
 				       (char-feature chr '=>ucs)))
 			      ucs)))

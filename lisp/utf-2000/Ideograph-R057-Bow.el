@@ -134,7 +134,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8A6E)	; &CDP-8A6E;
+     ((=jis-x0212	  . #x3C77)	; &GT-12503; [28-87]
+      (=cns11643-3	  . #x2140)	; &I-C3-2140; [01-32]
+      (=daikanwa	  . 09908)	; &I-M-09908;
       )
      ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
       ))

@@ -634,39 +634,52 @@
     (sound@ja/kun	"usi")
     (sound@ja/on/kan	"tIu")
     (=ucs		. #x4E11)	; 丑
-    (->subsumptive
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (shinjigen-1	. 16)
+    (shinjigen-2	. 16)
+    (=jis-x0208		. #x312F)	; &GT-00033; [17-15]
+    (=ks-x1001		. #x7564)	; &I-K0-7564; [85-68]
+    (=cns11643-1	. #x4460)	; &I-C1-4460; [36-64]
+    (=big5		. #xA4A1)	; &I-B-A4A1;
+    (=gt		. 00033)	; &I-GT-00033;
+    (=gt-k		. 00398)	; &I-GT-K00398;
+    (=gt-pj-1		. #x312F)	; &I-GT-00033; [17-15]
+    (=daikanwa		. 00023)	; &I-M-00023;
+    (=ucs@jis		. #x4E11)	; &GT-00033;
+    (=ucs@big5		. #x4E11)	; &GT-00033;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (<-simplified@CN
+     ((=gb12345		  . #x3373)	; &UU+919C; [19-83]
+      ))
+    (<-vulgar
      ((shinjigen-1	  . 16)
-      (shinjigen-2	  . 16)
       (=jis-x0208	  . #x312F)	; &GT-00033; [17-15]
       (=ks-x1001	  . #x7564)	; &I-K0-7564; [85-68]
       (=cns11643-1	  . #x4460)	; &I-C1-4460; [36-64]
-      (=big5		  . #xA4A1)	; &I-B-A4A1;
-      (=gt		  . 00033)	; &I-GT-00033;
-      (=gt-k		  . 00398)	; &I-GT-K00398;
-      (=gt-pj-1		  . #x312F)	; &I-GT-00033; [17-15]
       (=daikanwa	  . 00023)	; &I-M-00023;
-      (=ucs@jis		  . #x4E11)	; &GT-00033;
-      (=ucs@big5	  . #x4E11)	; &GT-00033;
-      (mojikyo		  . 000023)	; &MCS-60000017;
-      )
-     ((<-simplified@CN
-       ((=gb12345	    . #x3373)	; &UU+919C; [19-83]
-	))
-      (<-vulgar
-       ((shinjigen-1	    . 16)
-	(=jis-x0208	    . #x312F)	; &GT-00033; [17-15]
-	(=ks-x1001	    . #x7564)	; &I-K0-7564; [85-68]
-	(=cns11643-1	    . #x4460)	; &I-C1-4460; [36-64]
-	(=daikanwa	    . 00023)	; &I-M-00023;
-	))
-      (<-vulgar*sources
-       shinjigen-1)
-      (shinjigen-1	  . 17)
-      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
-      (=gt		  . 00035)	; &I-GT-00035;
-      (=gt-pj-9		  . #x4B23)	; &I-GT-00035; [43-03]
-      (=ucs@unicode	  . #x4E11)	; &GT-00035;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
+    (shinjigen-1	. 17)
+    (=gb2312		. #x3373)	; &GT-00035; [19-83]
+    (=big5-cdp		. #x89D2)	; &I-CDP-89D2;
+    (=gt		. 00035)	; &I-GT-00035;
+    (=gt-pj-9		. #x4B23)	; &I-GT-00035; [43-03]
+    (=ucs@unicode	. #x4E11)	; &GT-00035;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -2421,9 +2434,7 @@
 	  )
 	 ((=ucs		      . #x5182)	; 冂
 	  )
-	 ((=jis-x0208	      . #x5469)	; &GT-07201; [52-73]
-	  (=cns11643-3	      . #x2139)	; &I-C3-2139; [01-25]
-	  (=daikanwa	      . 05691)	; &I-M-05691;
+	 ((=ucs		      . #x5902)	; 夂
 	  ))
 	)
        ((=ucs		    . #x4E5E)	; 乞

@@ -54,7 +54,8 @@
     (total-strokes	 . 5)
     (=ucs		. #x5974)	; 奴
     (->subsumptive
-     ((shinjigen-2	  . 1600)
+     ((shinjigen-1	  . 1600)
+      (shinjigen-2	  . 1600)
       (=jis-x0208	  . #x455B)	; &GT-07627; [37-59]
       (=gb2312		  . #x452B)	; &I-G0-452B; [37-11]
       (=ks-x1001	  . #x523F)	; &I-K0-523F; [50-31]

@@ -1976,7 +1976,7 @@
   '((=>ucs*		. #x6700)	; 最
     (=>ucs@gb		. #x6700)	; &G0-576E;
     (=>ucs@jis		. #x6700)	; &GT-18101;
-    (=>ucs@ks		. #x6700)	; &G0-576E;
+    (=>ucs@ks		. #x6700)	; &GT-18101;
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
@@ -2002,6 +2002,7 @@
       (=daikanwa	  . 14301)	; &I-M-14301;
       (=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
+      (=ucs@ks		  . #x6700)	; &GT-18101;
       )
      ((=gb2312		  . #x576E)	; &G0-576E; [55-78]
       (=ucs@unicode	  . #x6700)	; &G0-576E;

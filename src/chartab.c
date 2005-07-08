@@ -3513,7 +3513,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				  "fullwidth\\|halfwidth"
 				  "\\|simplified\\|vulgar\\|wrong"
 				  "\\|same\\|original\\|ancient"
-				  "\\)[^*]*$"),
+				  "\\|Oracle-Bones\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )
     {
@@ -3648,6 +3648,10 @@ open_chise_data_source_maybe ()
 			 0 /* DB_HASH */, modemask);
       if (default_chise_data_source == NULL)
 	return -1;
+#if 0
+      chise_ds_set_make_string_function (default_chise_data_source,
+					 &make_string);
+#endif
     }
   return 0;
 }
@@ -3723,8 +3727,13 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 
   if (!status)
     {
+#if 0
       val = Fread (make_string (chise_value_data (&value),
 				chise_value_size (&value) ));
+#else
+      val = read_from_c_string (chise_value_data (&value),
+				chise_value_size (&value) );
+#endif
     }
   else
     val = Qunbound;
@@ -3839,7 +3848,7 @@ Save values of ATTRIBUTE into database file.
 		     (build_string ("^\\(<-\\|->\\)\\(simplified"
 				    "\\|same\\|vulgar\\|wrong"
 				    "\\|original\\|ancient"
-				    "\\)[^*]*$"),
+				    "\\|Oracle-Bones\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;

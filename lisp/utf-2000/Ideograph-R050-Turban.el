@@ -4138,7 +4138,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x83AB)	; &UU+83AB;
+     ((=jis-x0208	  . #x477C)	; &GT-40490; [39-92]
+      (=gb2312		  . #x442A)	; &I-G0-442A; [36-10]
+      (=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -4199,7 +4201,9 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ucs@unicode	  . #x83AB)	; &UU+83AB;
+     ((=jis-x0208	  . #x477C)	; &GT-40490; [39-92]
+      (=gb2312		  . #x442A)	; &I-G0-442A; [36-10]
+      (=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
       ))
     (=big5		. #xE1B3)	; &B-E1B3;
     (=ucs@unicode	. #x5E59)	; &B-E1B3;

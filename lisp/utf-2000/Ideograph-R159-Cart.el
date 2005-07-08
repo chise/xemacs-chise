@@ -4829,8 +4829,15 @@
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (=cns11643-7	. #x5957)	; &M-38586; [57-55]
-    (=daikanwa		. 38586)	; &I-M-38586;
+    (=ucs		. #x283D6)	; 𨏖
+    (->subsumptive
+     ((=cns11643-7	  . #x5957)	; &M-38586; [57-55]
+      (=daikanwa	  . 38586)	; &I-M-38586;
+      )
+     ((=gt		  . 51493)	; &GT-51493;
+      (=gt-pj-7		  . #x5425)	; &GT-51493; [52-05]
+      (=ucs@iso		  . #x283D6)	; &GT-51493;
+      ))
     ))
 (define-char
   '((=>ucs		. #x8F61)	; 轡

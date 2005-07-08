@@ -805,7 +805,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (<-vulgar
-     ((=ucs		  . #x52DE)	; 勞
+     ((=jis-x0208	  . #x5229)	; &GT-03104; [50-09]
+      (=ks-x1001	  . #x564C)	; &I-K0-564C; [54-44]
       (=daikanwa	  . 02410)	; &I-M-02410;
       ))
     (<-vulgar*sources
@@ -833,8 +834,8 @@
     (total-strokes	 . 7)
     (<-simplified@JP/Jouyou
      ((shinjigen-1	  . 718)
-      (=ucs		  . #x52DE)	; 勞
-      (=jis-x0208	  . #x5229)	; &I-J90-5229; [50-09]
+      (=jis-x0208	  . #x5229)	; &GT-03104; [50-09]
+      (=ks-x1001	  . #x564C)	; &I-K0-564C; [54-44]
       (=daikanwa	  . 02410)	; &I-M-02410;
       ))
     (<-simplified@JP/Jouyou*sources
@@ -2662,26 +2663,30 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 376 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8BE3)	; &CDP-8BE3;
-      )
-     ((=ucs		  . #x529B)	; 力
-      ))
-    (shinjigen-1	. 718)
-    (shinjigen-2	. 718)
     (=ucs		. #x52DE)	; 勞
-    (=jis-x0208		. #x5229)	; &I-J90-5229; [50-09]
-    (=ks-x1001		. #x564C)	; &I-K0-564C; [54-44]
-    (=cns11643-1	. #x5E38)	; &I-C1-5E38; [62-24]
-    (=gb12345		. #x404D)	; 勞 [32-45]
-    (=big5		. #xB3D2)	; &I-B-B3D2;
-    (=gt		. 03104)	; &I-GT-03104;
-    (=gt-k		. 09167)	; &I-GT-K09167;
-    (=gt-pj-1		. #x5229)	; &I-GT-03104; [50-09]
-    (=daikanwa		. 02410)	; &I-M-02410;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8BE3)	; &CDP-8BE3;
+	)
+       ((=ucs		    . #x529B)	; 力
+	))
+      (shinjigen-1	  . 718)
+      (shinjigen-2	  . 718)
+      (=jis-x0208	  . #x5229)	; &GT-03104; [50-09]
+      (=ks-x1001	  . #x564C)	; &I-K0-564C; [54-44]
+      (=gb12345		  . #x404D)	; &GT-03104; [32-45]
+      (=big5		  . #xB3D2)	; &I-B-B3D2;
+      (=gt		  . 03104)	; &I-GT-03104;
+      (=gt-k		  . 09167)	; &I-GT-K09167;
+      (=gt-pj-1		  . #x5229)	; &I-GT-03104; [50-09]
+      (=daikanwa	  . 02410)	; &I-M-02410;
+      (=ucs@unicode	  . #x52DE)	; &GT-03104;
+      )
+     ((=cns11643-1	  . #x5E38)	; &C1-5E38; [62-24]
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒

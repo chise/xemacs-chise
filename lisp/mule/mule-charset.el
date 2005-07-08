@@ -314,6 +314,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
 	  =ruimoku-v6
+	  =zinbun-oracle
 	  =hanziku-1
 	  =hanziku-2
 	  =hanziku-3

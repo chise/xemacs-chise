@@ -6037,6 +6037,7 @@
       (=daikanwa	  . 35556)	; &I-M-35556;
       (=jef-china3	  . #x65A8)	; &I-JC3-65A8;
       (=ucs@JP		  . #x8AAA)	; &GT-47736;
+      (=ucs@ks		  . #x8AAA)	; &GT-47736;
       )
      ((=cns11643-1	  . #x6B29)	; &C1-6B29; [75-09]
       )
