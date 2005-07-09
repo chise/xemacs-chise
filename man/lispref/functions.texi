@@ -3,8 +3,8 @@
 @c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/functions.info
-@node Functions, Macros, Variables, Top
-@chapter Functions
+@node Functions and Commands, Macros, Variables, Top
+@chapter Functions and Commands
 
   A Lisp program is composed mainly of Lisp functions.  This chapter
 explains what functions are, how they accept arguments, and how to
@@ -45,6 +45,39 @@ arguments in a Lisp program.  In some cases, we use it more
 specifically to mean a function written in Lisp.  Special forms and
 macros are not functions.
 
+@item command
+@cindex command
+
+A @dfn{command} is a possible definition for a key sequence---we count
+mouse events and menu accesses as key sequences for this purpose. More
+formally, within XEmacs lisp, a command is something that
+@code{command-execute} can invoke. 
+
+Some functions are commands; a function written in Lisp is a command if
+it contains an interactive declaration. A trivial interactive
+declaration is a line @code{(interactive)} immediately after the
+documentation string. For more complex examples, with prompting and
+completion, see @xref{Defining Commands}. Such a function can be called
+from Lisp expressions like other functions; in this case, the fact that
+the function is a command makes no difference.
+
+Keyboard macros (strings and vectors) are commands also, even though
+they are not functions.  A symbol is a command if its function
+definition is a command; such symbols can be invoked with @kbd{M-x}.
+The symbol is a function as well if the definition is a function.
+
+In the case where you want to call a command in reaction to a
+user-generated event, you'll need to bind it to that event.  For how to
+do this, see @xref{Key Binding Commands}. 
+@xref{Command Overview}.
+
+@item keystroke command
+@cindex keystroke command
+A @dfn{keystroke command} is a command that is bound to a key sequence
+(typically one to three keystrokes).  The distinction is made here
+merely to avoid confusion with the meaning of ``command'' in non-Emacs
+editors; for Lisp programs, the distinction is normally unimportant.
+
 @item primitive
 @cindex primitive
 @cindex subr
@@ -83,28 +116,6 @@ write into an equivalent expression to be evaluated instead of the
 original expression.  Macros enable Lisp programmers to do the sorts of
 things that special forms can do.  @xref{Macros}, for how to define and
 use macros.
-
-@item command
-@cindex command
-A @dfn{command} is an object that @code{command-execute} can invoke; it
-is a possible definition for a key sequence.  Some functions are
-commands; a function written in Lisp is a command if it contains an
-interactive declaration (@pxref{Defining Commands}).  Such a function
-can be called from Lisp expressions like other functions; in this case,
-the fact that the function is a command makes no difference.
-
-Keyboard macros (strings and vectors) are commands also, even though
-they are not functions.  A symbol is a command if its function
-definition is a command; such symbols can be invoked with @kbd{M-x}.
-The symbol is a function as well if the definition is a function.
-@xref{Command Overview}.
-
-@item keystroke command
-@cindex keystroke command
-A @dfn{keystroke command} is a command that is bound to a key sequence
-(typically one to three keystrokes).  The distinction is made here
-merely to avoid confusion with the meaning of ``command'' in non-Emacs
-editors; for Lisp programs, the distinction is normally unimportant.
 
 @item compiled function
 A @dfn{compiled function} is a function that has been compiled by the

@@ -4017,8 +4017,9 @@ Perl_functions (inf)
 
 /*
  * Python support
- * Look for /^def[ \t\n]+[^ \t\n(:]+/ or /^class[ \t\n]+[^ \t\n(:]+/
+ * Look for /^[ \t\n]*def[ \t\n]+[^ \t\n(:]+/ or /^class[ \t\n]+[^ \t\n(:]+/
  * Eric S. Raymond <esr@thyrsus.com> (1997)
+ * Sean Legassick <sean@informage.net> (2004)
  */
 static void
 Python_functions (inf)
@@ -4028,6 +4029,7 @@ Python_functions (inf)
 
   LOOP_ON_INPUT_LINES (inf, lb, cp)
     {
+      cp = skip_spaces (cp);
       if (*cp++ == 'd'
 	  && *cp++ == 'e'
 	  && *cp++ == 'f' && iswhite (*cp++))
@@ -5144,6 +5146,7 @@ add_regex (regexp_pattern, ignore_case, lang)
      bool ignore_case;
      language *lang;
 {
+  static struct re_pattern_buffer zeropattern;
   char *name;
   const char *err;
   struct re_pattern_buffer *patbuf;
@@ -5164,11 +5167,9 @@ add_regex (regexp_pattern, ignore_case, lang)
   (void) scan_separators (name);
 
   patbuf = xnew (1, struct re_pattern_buffer);
+  *patbuf = zeropattern;
   /* Translation table to fold case if appropriate. */
   patbuf->translate = (ignore_case) ? lc_trans : NULL;
-  patbuf->fastmap = NULL;
-  patbuf->buffer = NULL;
-  patbuf->allocated = 0;
 
   err = re_compile_pattern (regexp_pattern, strlen (regexp_pattern), patbuf);
   if (err != NULL)

@@ -676,7 +676,7 @@ users of that function should be told to use the newer one instead.
 XEmacs Lisp lets you mark a function or variable as @dfn{obsolete},
 and indicate what should be used instead.
 
-@deffn Command make-obsolete function new
+@deffn Command make-obsolete function new &optional when
 This function indicates that @var{function} is an obsolete function,
 and the function @var{new} should be used instead.  The byte compiler
 will issue a warning to this effect when it encounters a usage of the
@@ -684,7 +684,9 @@ older function, and the help system will also note this in the function's
 documentation.  @var{new} can also be a string (if there is not a single
 function with the same functionality any more), and should be a descriptive
 statement, such as "use @var{foo} or @var{bar} instead" or "this function is
-unnecessary".
+unnecessary".  If provided, @var{when} should be a string indicating when
+the function was first made obsolete, for example a date or a release
+number.
 @end deffn
 
 @deffn Command make-obsolete-variable variable new

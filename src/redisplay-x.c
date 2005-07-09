@@ -482,7 +482,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		    case IMAGE_TEXT:
 		    case IMAGE_POINTER:
 		    default:
-		      abort ();
+		      ABORT ();
 		    }
 		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT
 		    (XIMAGE_INSTANCE (instance)) = 0;
@@ -492,7 +492,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	      elt++;
 	    }
 	  else
-	    abort ();
+	    ABORT ();
 	}
     }
 
@@ -972,8 +972,9 @@ x_output_string (struct window *w, struct display_line *dl,
       /* We draw underlines in the same color as the text. */
       if (cachel->underline)
 	{
-	  unsigned long upos;
-	  unsigned long uthick;
+	  /* upos is naturally signed, why would anyone think otherwise?
+	     uthick is signed to avoid unsigned propagation. */
+	  long upos, uthick;
 	  XFontStruct *xfont;
 
 	  xfont = FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font));
@@ -1001,7 +1002,9 @@ x_output_string (struct window *w, struct display_line *dl,
 	}
 
       if (cachel->strikethru) {
-	unsigned long ascent,descent,upos, uthick;
+	/* ascent, descent, and upos are naturally signed; why would anyone
+	   think otherwise?  uthick is signed to avoid unsigned propagation. */
+	long ascent, descent, upos, uthick;
 	XFontStruct *xfont;
 
 	xfont = FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font));

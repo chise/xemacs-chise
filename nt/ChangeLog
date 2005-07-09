@@ -1,3 +1,39 @@
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-01-29  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak:
+	* xemacs.mak (USE_PORTABLE_DUMPER):
+	Enable portable dumper just in case it's not specified in config.inc.
+	
+	* xemacs.mak:
+	* xemacs.mak (INCLUDES):
+	Put our own directories first in case of conflict (e.g. config.h
+	in compface).
+	
+	* xemacs.mak ($(BLDLIB_SRC)/minitar.exe):
+	* xemacs.mak (LIB_SRC_TOOLS):
+	Use MSVCRT to avoid link problems.
+
+	* xemacs.mak ({$(MANDIR)}.texi{$(INFODIR)}.info):
+	Use filename only when calling makeinfo, or it chokes on index
+	generation.
+	
+2005-01-28  Ben Wing  <ben@xemacs.org>
+
+	* config.inc.samp:
+	* config.inc.samp (PNG_DIR):
+	* config.inc.samp (MAKEINFO):
+	Update directory locations to correspond to current optional-libs.exe
+	and Cygwin makeinfo.  Update GTK comment.  Enable TIFF and COMPFACE
+	since we can now compile with them.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

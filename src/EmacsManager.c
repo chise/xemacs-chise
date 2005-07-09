@@ -240,11 +240,15 @@ EmacsManagerChangeSize (Widget w, Dimension width, Dimension height)
 
   /* do nothing if we're already that size */
   if (w->core.width != width || w->core.height != height)
-    if (XtMakeResizeRequest (w, width, height, &w->core.width, &w->core.height)
-	== XtGeometryAlmost)
-      XtMakeResizeRequest (w, w->core.width, w->core.height, NULL, NULL);
-
-  Resize (w);
+    {
+      XtGeometryResult result =
+	XtMakeResizeRequest (w, width, height, &w->core.width, &w->core.height);
+      if (result == XtGeometryNo)
+	return;
+      if (result == XtGeometryAlmost)
+	XtMakeResizeRequest (w, w->core.width, w->core.height, NULL, NULL);
+      Resize (w);
+    }
 }
 
 

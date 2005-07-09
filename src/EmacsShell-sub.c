@@ -90,6 +90,8 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/VendorP.h>
 #include "EmacsShellP.h"
 
+#define ABORT abort
+
 #if defined (DEFINE_TOP_LEVEL_EMACS_SHELL)
 #define EMACS_SHELL_WIDGET TopLevelEmacsShellWidget
 #define SUPERCLASS_WIDGET_CLASS topLevelShellWidgetClass
@@ -286,7 +288,7 @@ SuperClassRootGeometryManager (Widget gw,
     }
 
   if (!gcer)
-    abort ();
+    ABORT ();
 
   /* call it to actually make the geometry request */
   scer = (ShellClassExtensionRec *) gcer;
@@ -304,7 +306,7 @@ RootGeometryManager (Widget gw,
   XtGeometryResult result;
 
   if (reentrant)
-    abort ();
+    ABORT ();
   reentrant++;
 
 #ifdef DEBUG_GEOMETRY_MANAGEMENT

@@ -1,4 +1,4 @@
-/* scrollbar implementation -- X interface.
+/* scrollbar implementation -- GTK interface.
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1994 Amdhal Corporation.
    Copyright (C) 1995 Sun Microsystems, Inc.
@@ -98,8 +98,9 @@ gtk_create_scrollbar_instance (struct frame *f, int vertical,
   SCROLLBAR_GTK_VDRAG_ORIG_VALUE (instance) = -1;
   SCROLLBAR_GTK_LAST_VALUE (instance) = adj->value;
 
-  gtk_object_set_data (GTK_OBJECT (adj), "xemacs::gui_id", (void *) SCROLLBAR_GTK_ID (instance));
-  gtk_object_set_data (GTK_OBJECT (adj), "xemacs::frame", f);
+  gtk_object_set_data (GTK_OBJECT (adj), GTK_DATA_GUI_IDENTIFIER,
+		       (void *) SCROLLBAR_GTK_ID (instance));
+  gtk_object_set_data (GTK_OBJECT (adj), GTK_DATA_FRAME_IDENTIFIER, f);
   gtk_object_set_data (GTK_OBJECT (adj), "xemacs::sb_instance", instance);
 
   sb = GTK_SCROLLBAR (vertical ? gtk_vscrollbar_new (adj) : gtk_hscrollbar_new (adj));
@@ -217,6 +218,21 @@ gtk_update_scrollbar_instance_status (struct window *w, int active, int size,
 	      gtk_widget_set_usize (wid,
 				    pos_data->scrollbar_width,
 				    pos_data->scrollbar_height);
+
+	      /*
+		UGLY! UGLY! UGLY!  Changes to wid->allocation are queued and
+		not performed until the GTK event loop.  However, when the
+		fontlock progress bar is run, the vertical scrollbar's height
+		is change and then changed back before events are again
+		processed.  This means that the change back is not seen and
+		the scrollbar is left too short.  Fix this by making the
+		change manually so the test above sees the change.  This does
+		not seem to cause problems in other cases.
+	       */
+
+	      wid->allocation.width = pos_data->scrollbar_width;
+	      wid->allocation.height = pos_data->scrollbar_height;
+
 	      modified_p = 1;
 	    }
 
@@ -228,6 +244,21 @@ gtk_update_scrollbar_instance_status (struct window *w, int active, int size,
 			      wid,
 			      pos_data->scrollbar_x,
 			      pos_data->scrollbar_y);
+
+	      /*
+		UGLY! UGLY! UGLY!  Changes to wid->allocation are queued and
+		not performed until the GTK event loop.  However, when the
+		fontlock progress bar is run, the horizontal scrollbar's
+		position is change and then changed back before events are
+		again processed.  This means that the change back is not seen
+		and the scrollbar is left in the wrong position.  Fix this by
+		making the change manually so the test above sees the change.
+		This does not seem to cause problems in other cases.
+	       */
+
+	      wid->allocation.x = pos_data->scrollbar_x;
+	      wid->allocation.y = pos_data->scrollbar_y;
+
 	      modified_p = 1;
 	    }
 
@@ -333,7 +364,7 @@ gtk_scrollbar_loop (enum gtk_scrollbar_loop type, Lisp_Object window,
 		}
 	      break;
 	    default:
-	      abort ();
+	      ABORT ();
 	    }
 	}
 
@@ -359,9 +390,9 @@ scrollbar_cb (GtkAdjustment *adj, gpointer user_data)
 {
   /* This function can GC */
   int vertical = (int) user_data;
-  struct frame *f = gtk_object_get_data (GTK_OBJECT (adj), "xemacs::frame");
+  struct frame *f = gtk_object_get_data (GTK_OBJECT (adj), GTK_DATA_FRAME_IDENTIFIER);
   struct scrollbar_instance *instance = gtk_object_get_data (GTK_OBJECT (adj), "xemacs::sb_instance");
-  GUI_ID id = (GUI_ID) gtk_object_get_data (GTK_OBJECT (adj), "xemacs::gui_id");
+  GUI_ID id = (GUI_ID) gtk_object_get_data (GTK_OBJECT (adj), GTK_DATA_GUI_IDENTIFIER);
   Lisp_Object win, frame;
   struct window_mirror *mirror;
   Lisp_Object event_type = Qnil;
@@ -407,7 +438,7 @@ scrollbar_cb (GtkAdjustment *adj, gpointer user_data)
       event_data = Fcons (win, make_int ((int)adj->value));
       break;
     default:
-      abort();
+      ABORT();
     }
 
   signal_special_gtk_user_event (frame, event_type, event_data);
@@ -431,13 +462,13 @@ gtk_scrollbar_pointer_changed_in_window (struct window *w)
 void
 gtk_update_frame_scrollbars (struct frame *f)
 {
-  /* Consider this code to be "in_display" so that we abort() if Fsignal()
+  /* Consider this code to be "in_display" so that we ABORT() if Fsignal()
      gets called. */
   in_display++;
   gtk_scrollbar_loop (GTK_UPDATE_FRAME_SCROLLBARS, f->root_window, f->root_mirror,
 		      0, (GdkWindow *) NULL);
   in_display--;
-  if (in_display < 0) abort ();
+  if (in_display < 0) ABORT ();
 }
 
 #ifdef MEMORY_USAGE_STATS

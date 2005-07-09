@@ -26,14 +26,15 @@ which handle comments use the mode to determine how to delimit comments.
 Many major modes redefine the syntactical properties of characters
 appearing in the buffer.  @xref{Syntax}.
 
-  The major modes fall into three major groups.  Lisp mode (which has
-several variants), C mode, and Muddle mode are for specific programming
-languages.  Text mode, Nroff mode, @TeX{} mode, and Outline mode are for
-editing English text.  The remaining major modes are not intended for use
-on users' files; they are used in buffers created by Emacs for specific
-purposes and include Dired mode for buffers made by Dired (@pxref{Dired}),
-Mail mode for buffers made by @kbd{C-x m} (@pxref{Sending Mail}), and Shell
-mode for buffers used for communicating with an inferior shell process
+  The major modes fall into three major groups.  Programming modes
+(@pxref{Programs}) are for specific programming languages.  Text modes
+(like Nroff mode, @TeX{} mode, Outline mode, XML mode, etc.@:) are for
+editing human readable text.  The remaining major modes are not intended
+for direct use in editing user files; they are used in buffers created
+by Emacs for specific purposes. Examples of such modes include Dired
+mode which is used for buffers made by Dired (@pxref{Dired}), Mail mode
+for buffers made by @kbd{C-x m} (@pxref{Sending Mail}), and Shell mode
+for buffers used for communicating with an inferior shell process
 (@pxref{Interactive Shell}).
 
   Most programming language major modes specify that only blank lines
@@ -44,9 +45,10 @@ in a program are usually indented.  @xref{Indentation}.
 
 @menu
 * Choosing Modes::     How major modes are specified or chosen.
+* Mode Hooks::         Customizing a major mode
 @end menu
 
-@node Choosing Modes,,Major Modes,Major Modes
+@node Choosing Modes, Mode Hooks, Major Modes, Major Modes
 @section Choosing Major Modes
 
   You can select a major mode explicitly for the current buffer, but
@@ -111,3 +113,49 @@ specified by the variable @code{default-major-mode}.  Normally this
 value is the symbol @code{fundamental-mode}, which specifies Fundamental
 mode.  If @code{default-major-mode} is @code{nil}, the major mode is
 taken from the previously selected buffer.
+
+@node Mode Hooks,  , Choosing Modes, Major Modes
+@section Mode Hook Variables
+
+@cindex Hook variables
+@cindex mode hook
+@findex add-hook
+@findex remove-hook
+@vindex lisp-mode-hook
+@vindex emacs-lisp-mode-hook
+@vindex lisp-interaction-mode-hook
+@vindex scheme-mode-hook
+
+  The last step taken by a major mode, by convention, is to invoke a
+list of user supplied functions that are stored in a ``hook'' variable.
+This allows a user to further customize the major mode, and is
+particularly convenient for setting up buffer local variables
+(@pxref{Locals}).
+
+  The name of the hook variable is created by appending the string
+@code{-hook} to the name of the major mode.  For example, the hook
+variable used by @code{text-mode} would be named @code{text-mode-hook}.
+By convention the mode hook function receives no arguments. If a hook
+variable does not exist, or it has the value @code{nil}, the major mode
+simply ignores it.
+
+  The recommended way to add functions to a hook variable is with the
+@code{add-hook} function.  For example, to automatically turn on the
+Auto Fill mode when Text mode is invoked the following code can be used in
+the initialization file (@pxref{Init File})
+
+@example
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+@end example
+
+The @code{add-hook} function will check that the function is not already
+listed in the hook variable before adding it. It will also create a hook
+variable with the value @code{nil} if one does not exist before adding
+the function. @code{add-hook} adds functions to the front of the hook
+variable list. This means that the last hook added is run first by the
+major mode. It is considered very poor style to write hook functions
+that depend on the order that hooks are executed.
+
+Hooks can be removed from hook variables with @code{remove-hook}.
+
+

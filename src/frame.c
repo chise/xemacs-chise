@@ -779,7 +779,7 @@ selected_frame (void)
 /* use this instead of XFRAME (DEVICE_SELECTED_FRAME (d)) to catch
    the possibility of there being no frames on the device (just created).
    There is no point doing this inside of redisplay because errors
-   cause an abort(), indicating a flaw in the logic, and error_check_frame()
+   cause an ABORT(), indicating a flaw in the logic, and error_check_frame()
    will catch this just as well. */
 
 struct frame *
@@ -1633,7 +1633,7 @@ delete_frame_internal (struct frame *f, int force,
 	     that is prohibited at the top; you can't delete surrogate
 	     minibuffer frames.  */
 	  if (NILP (frame_with_minibuf))
-	    abort ();
+	    ABORT ();
 
 	  con->default_minibuffer_frame = frame_with_minibuf;
 	}
@@ -1707,7 +1707,7 @@ mouse_pixel_position_1 (struct device *d, Lisp_Object *frame,
       break;
 
     default:
-      abort (); /* method is incorrectly written */
+      ABORT (); /* method is incorrectly written */
     }
 
   return 0;
@@ -2951,7 +2951,7 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
      `left' coordinates to be recomputed even though no frame size
      change occurs. --kyle */
   if (in_display)
-    abort ();
+    ABORT ();
 
   XSETFRAME (frame, f);
 

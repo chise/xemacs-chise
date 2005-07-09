@@ -364,7 +364,7 @@ least one line unless it is empty.
 With optional @var{ignore-invisible-lines-flag} non-@code{nil}, lines
 collapsed with selective-display are excluded from the line count.
 
-@strong{Note:} The expression to return the current line number is not
+@strong{N.B.} The expression to return the current line number is not
 obvious:
 
 @example

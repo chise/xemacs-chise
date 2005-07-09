@@ -114,6 +114,7 @@ See the documentation for `list-load-path-shadows' for further information."
 			      '("subdirs"
 				"auto-autoloads"
 				"custom-load"
+				"custom-defines"
 				"dumped-lisp"
 				"_pkg"
 				"lpath")))

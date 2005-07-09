@@ -210,14 +210,14 @@ decode_x_frame (Lisp_Object frame)
 void
 x_wm_mark_shell_size_user_specified (Widget wmshell)
 {
-  if (! XtIsWMShell (wmshell)) abort ();
+  if (! XtIsWMShell (wmshell)) ABORT ();
   EmacsShellSetSizeUserSpecified (wmshell);
 }
 
 void
 x_wm_mark_shell_position_user_specified (Widget wmshell)
 {
-  if (! XtIsWMShell (wmshell)) abort ();
+  if (! XtIsWMShell (wmshell)) ABORT ();
   EmacsShellSetPositionUserSpecified (wmshell);
 }
 
@@ -226,7 +226,7 @@ x_wm_mark_shell_position_user_specified (Widget wmshell)
 void
 x_wm_set_shell_iconic_p (Widget shell, int iconic_p)
 {
-  if (! XtIsWMShell (shell)) abort ();
+  if (! XtIsWMShell (shell)) ABORT ();
 
   /* Because of questionable logic in Shell.c, this sequence can't work:
 
@@ -256,9 +256,9 @@ x_wm_set_cell_size (Widget wmshell, int cw, int ch)
   Arg al [2];
 
   if (!XtIsWMShell (wmshell))
-    abort ();
+    ABORT ();
   if (cw <= 0 || ch <= 0)
-    abort ();
+    ABORT ();
 
   XtSetArg (al [0], XtNwidthInc,  cw);
   XtSetArg (al [1], XtNheightInc, ch);
@@ -271,7 +271,7 @@ x_wm_set_variable_size (Widget wmshell, int width, int height)
   Arg al [2];
 
   if (!XtIsWMShell (wmshell))
-    abort ();
+    ABORT ();
 #ifdef DEBUG_GEOMETRY_MANAGEMENT
   /* See comment in EmacsShell.c */
   printf ("x_wm_set_variable_size: %d %d\n", width, height);
@@ -338,7 +338,7 @@ x_wm_store_class_hints (Widget shell, char *frame_name)
   XClassHint classhint;
 
   if (!XtIsWMShell (shell))
-    abort ();
+    ABORT ();
 
   XtGetApplicationNameAndClass (dpy, &app_name, &app_class);
   classhint.res_name = frame_name;
@@ -354,7 +354,7 @@ x_wm_maybe_store_wm_command (struct frame *f)
   struct device *d = XDEVICE (FRAME_DEVICE (f));
 
   if (!XtIsWMShell (w))
-    abort ();
+    ABORT ();
 
   if (NILP (DEVICE_X_WM_COMMAND_FRAME (d)))
     {
@@ -1637,7 +1637,7 @@ x_initialize_frame_size (struct frame *f)
   /* OK, we're a top-level shell. */
 
   if (!XtIsWMShell (wmshell))
-    abort ();
+    ABORT ();
 
   /* If the EmacsFrame doesn't have a geometry but the shell does,
      treat that as the geometry of the frame.
@@ -2755,7 +2755,7 @@ x_update_frame_external_traits (struct frame* frm, Lisp_Object name)
        }
    }
   else
-   abort ();
+   ABORT ();
 
   XtSetValues (FRAME_X_TEXT_WIDGET (frm), al, ac);
 

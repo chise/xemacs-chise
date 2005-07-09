@@ -277,7 +277,7 @@ In either case, the output is inserted after point (leaving mark after it)."
       (if (string-match "[ \t]*&[ \t]*$" command)
 	  ;; Command ending with ampersand means asynchronous.
 	  (progn
-	    (background (substring command 0 (match-beginning 0))))
+	    (background (substring command 0 (match-beginning 0)) output-buffer))
 	(shell-command-on-region (point) (point) command output-buffer)))))
 
 ;; We have a sentinel to prevent insertion of a termination message

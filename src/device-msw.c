@@ -804,7 +804,7 @@ mswindows_get_default_margin (Lisp_Object prop)
   if (EQ (prop, Qright_margin)) return 1440;
   if (EQ (prop, Qtop_margin)) return 720;
   if (EQ (prop, Qbottom_margin)) return 720;
-  abort ();
+  ABORT ();
   return 0;
 }
 

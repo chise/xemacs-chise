@@ -31,7 +31,12 @@ user.  For related topics such as keymaps and syntax tables, see
 @cindex Fundamental mode
 
   Major modes specialize XEmacs for editing particular kinds of text.
-Each buffer has only one major mode at a time.
+Each buffer has only one major mode at a time.  For each major mode
+there is a function to switch to that mode in the current buffer; its
+name should end in @samp{-mode}.  These functions work by setting
+buffer-local variable bindings and other data associated with the
+buffer, such as a local keymap.  The effect lasts until you switch
+to another major mode in the same buffer.
 
   The least specialized major mode is called @dfn{Fundamental mode}.
 This mode has no mode-specific definitions or variable settings, so each
@@ -54,6 +59,11 @@ Modes}).  For example, Rmail Edit mode, which is in
 @file{emacs/lisp/rmailedit.el}, is a major mode that is very similar to
 Text mode except that it provides three additional commands.  Its
 definition is distinct from that of Text mode, but was derived from it.
+
+  Even if the new mode is not an obvious derivative of any other mode,
+it is convenient to use @code{define-derived-mode} with a @code{nil}
+parent argument, since it automatically enforces the most important
+coding conventions for you.
 
   Rmail Edit mode is an example of a case where one piece of text is put
 temporarily into a different major mode so it can be edited in a
@@ -187,6 +197,16 @@ For example, @code{indented-text-mode} runs @code{text-mode-hook} as
 well as @code{indented-text-mode-hook}.  It may run these other hooks
 immediately before the mode's own hook (that is, after everything else),
 or it may run them earlier.
+
+@item
+The major mode command may start by calling some other major mode
+command (called the @dfn{parent mode}) and then alter some of its
+settings.  A mode that does this is called a @dfn{derived mode}.  The
+recommended way to define one is to use @code{define-derived-mode},
+but this is not required.  Such a mode should use
+@code{delay-mode-hooks} around its entire body, including the call to
+the parent mode command and the final call to @code{run-mode-hooks}.
+(Using @code{define-derived-mode} does this automatically.)
 
 @item
 If something special should be done if the user switches a buffer from
@@ -743,6 +763,9 @@ Here is a hypothetical example:
 (define-key hypertext-mode-map
   [down-mouse-3] 'do-hyper-link)
 @end example
+
+Do not write an @code{interactive} spec in the definition;
+@code{define-derived-mode} does that automatically.
 @end defmac
 
 @node Minor Modes
@@ -1398,6 +1421,41 @@ For example, here's how @code{emacs-lisp-mode} runs its mode hook:
 @end example
 @end defun
 
+@defun run-mode-hooks &rest hookvars
+Like @code{run-hooks}, but is affected by the @code{delay-mode-hooks}
+macro.
+@end defun
+
+@defmac delay-mode-hooks body...
+This macro executes the @var{body} forms but defers all calls to
+@code{run-mode-hooks} within them until the end of @var{body}.
+This macro enables a derived mode to arrange not to run
+its parent modes' mode hooks until the end.
+@end defmac
+
+@defun run-hook-with-args hook &rest args
+This function is the way to run an abnormal hook and always call all
+of the hook functions.  It calls each of the hook functions one by
+one, passing each of them the arguments @var{args}.
+@end defun
+
+@defun run-hook-with-args-until-failure hook &rest args
+This function is the way to run an abnormal hook until one of the hook
+functions fails.  It calls each of the hook functions, passing each of
+them the arguments @var{args}, until some hook function returns
+@code{nil}.  It then stops and returns @code{nil}.  If none of the
+hook functions return @code{nil}, it returns a non-@code{nil} value.
+@end defun
+
+@defun run-hook-with-args-until-success hook &rest args
+This function is the way to run an abnormal hook until a hook function
+succeeds.  It calls each of the hook functions, passing each of them
+the arguments @var{args}, until some hook function returns
+non-@code{nil}.  Then it stops, and returns whatever was returned by
+the last hook function that was called.  If all hook functions return
+@code{nil}, it returns @code{nil} as well.
+@end defun
+ 
 @defun add-hook hook function &optional append local
 This function is the handy way to add function @var{function} to hook
 variable @var{hook}.  The argument @var{function} may be any valid Lisp

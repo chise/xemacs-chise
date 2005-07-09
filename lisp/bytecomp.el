@@ -2894,7 +2894,7 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (byte-defop-compiler char-after		0-1+1)
 (byte-defop-compiler set-buffer		1)
 ;;(byte-defop-compiler set-mark		1) ;; obsolete
-(byte-defop-compiler forward-word	1+1)
+(byte-defop-compiler forward-word	0-1+1)
 (byte-defop-compiler char-syntax	1+1)
 (byte-defop-compiler nreverse		1)
 (byte-defop-compiler car-safe		1)

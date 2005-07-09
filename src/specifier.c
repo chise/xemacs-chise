@@ -1787,7 +1787,7 @@ specifier_add_spec (Lisp_Object specifier, Lisp_Object locale,
     tem = nconc2 (*orig_inst_list, list_to_build_up);
   else
     {
-      abort ();
+      ABORT ();
       tem = Qnil;
     }
 
@@ -2494,7 +2494,7 @@ specifier_instance_from_inst_list (Lisp_Object specifier,
   /* The instantiate method is allowed to call eval.  Since it
      is quite common for this function to get called from somewhere in
      redisplay we need to make sure that quits are ignored.  Otherwise
-     Fsignal will abort. */
+     Fsignal will ABORT. */
     specbind (Qinhibit_quit, Qt);
 
   LIST_LOOP (rest, inst_list)
@@ -2580,7 +2580,7 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
 
        No. Errors are handled in Lisp primitives implementation.
        Invalid domain is a design error here - kkm. */
-    abort ();
+    ABORT ();
 
   if (NILP (buffer) && !NILP (window))
     buffer = WINDOW_BUFFER (XWINDOW (window));
@@ -2591,7 +2591,7 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
        really went wrong. */
     device = FRAME_DEVICE (XFRAME (frame));
 
-  /* device had better be determined by now; abort if not. */
+  /* device had better be determined by now; ABORT if not. */
   tag = DEVICE_CLASS (XDEVICE (device));
 
   depth = make_int (1 + XINT (depth));

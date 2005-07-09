@@ -1921,7 +1921,7 @@ read_atom (Lisp_Object readcharfun,
 		else if (sizeof (long) == sizeof (EMACS_INT))
 		  number = atol (read_buffer);
 		else
-		  abort ();
+		  ABORT ();
 		return make_int (number);
 	      }
 #else

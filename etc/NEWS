@@ -34,6 +34,22 @@ consulted for a more detailed list of changes.
 
 ** Summary of user-visible changes:
 
+  -- PUI related changes (Package User Interface)
+    - A minor rearrangement of the "Tools -> Packages" menu.
+    - Only a single package download site can be selected.
+    - Managing packages via the `customize' interface is no longer
+      supported. 
+    - Non-Mule XEmacsen can not install Mule packages.
+    - The "mule-base" package is not needed to "bootstrap" PUI for
+      Mule enabled XEmacsen.
+    - The default for PGP verifying the package-index file is "off" in
+      21.4.
+    - The default package-index filename has changed to
+      `package-index.LATEST.gpg'.
+    - The location of the local index file is customisable.  See
+      `package-get-package-index-file-location'. 
+    - `pui-add-install-directory' has been obsoleted and replaced by
+      `pui-set-local-package-get-directory'.  
   -- The delete key now deletes forward by default.
   -- Shifted motion keys now select text by default.
   -- You can now build XEmacs with support for GTK+ widget set.

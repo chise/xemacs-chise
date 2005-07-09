@@ -1216,7 +1216,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		    case IMAGE_TEXT:
 		    case IMAGE_POINTER:
 		    default:
-		      abort ();
+		      ABORT ();
 		    }
 		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
 		    (XIMAGE_INSTANCE (instance)) = 0;
@@ -1225,7 +1225,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	      elt++;
 	    }
 	  else
-	    abort ();
+	    ABORT ();
 	}
     }
 

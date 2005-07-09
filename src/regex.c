@@ -119,6 +119,8 @@ complex_vars_of_regex (void)
 
 #else  /* not emacs */
 
+#define ABORT abort
+
 /* If we are not linking with Emacs proper,
    we can't use the relocating allocator
    even if config.h says that we can.  */
@@ -418,7 +420,7 @@ typedef enum
 
         /* Start remembering the text that is matched, for storing in a
            register.  Followed by one byte with the register number, in
-           the range 0 to one less than the pattern buffer's re_nsub
+           the range 1 to the pattern buffer's re_ngroups
            field.  Then followed by one byte with the number of groups
            inner to this one.  (This last has to be part of the
            start_memory only because we need it in the on_failure_jump
@@ -427,7 +429,7 @@ typedef enum
 
         /* Stop remembering the text that is matched and store it in a
            memory register.  Followed by one byte with the register
-           number, in the range 0 to one less than `re_nsub' in the
+           number, in the range 1 to `re_ngroups' in the
            pattern buffer, and one byte with the number of inner groups,
            just like `start_memory'.  (We need the number of inner
            groups here because we don't have any easy way of finding the
@@ -974,6 +976,7 @@ print_compiled_pattern (struct re_pattern_buffer *bufp)
     }
 
   printf ("re_nsub: %ld\t", (long)bufp->re_nsub);
+  printf ("re_ngroups: %ld\t", (long)bufp->re_ngroups);
   printf ("regs_alloc: %d\t", bufp->regs_allocated);
   printf ("can_be_null: %d\t", bufp->can_be_null);
   printf ("newline_anchor: %d\n", bufp->newline_anchor);
@@ -983,6 +986,20 @@ print_compiled_pattern (struct re_pattern_buffer *bufp)
   printf ("syntax: %d\n", bufp->syntax);
   /* Perhaps we should print the translate table?  */
   /* and maybe the category table? */
+
+  if (bufp->external_to_internal_register)
+    {
+      int i;
+
+      printf ("external_to_internal_register:\n");
+      for (i = 0; i <= bufp->re_nsub; i++)
+	{
+	  if (i > 0)
+	    printf (", ");
+	  printf ("%d -> %d", i, bufp->external_to_internal_register[i]);
+	}
+      printf ("\n");
+    }
 }
 
 
@@ -1693,6 +1710,7 @@ static unsigned char reg_unset_dummy;
    ignore the excess.  */
 typedef unsigned regnum_t;
 
+#define INIT_REG_TRANSLATE_SIZE 5
 
 /* Macros for the compile stack.  */
 
@@ -1843,7 +1861,7 @@ static register_info_type *reg_info_dummy;
 /* Make the register vectors big enough for NUM_REGS registers,
    but don't make them smaller.  */
 
-static
+static void
 regex_grow_registers (int num_regs)
 {
   if (num_regs > regs_allocated_size)
@@ -1876,7 +1894,9 @@ regex_grow_registers (int num_regs)
      `syntax' is set to SYNTAX;
      `used' is set to the length of the compiled pattern;
      `fastmap_accurate' is zero;
-     `re_nsub' is the number of subexpressions in PATTERN;
+     `re_ngroups' is the number of groups/subexpressions (including shy
+        groups) in PATTERN;
+     `re_nsub' is the number of non-shy groups in PATTERN;
      `not_bol' and `not_eol' are zero;
 
    The `fastmap' and `newline_anchor' fields are neither
@@ -1974,6 +1994,25 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
 
   /* Always count groups, whether or not bufp->no_sub is set.  */
   bufp->re_nsub = 0;
+  bufp->re_ngroups = 0;
+
+  /* Allocate index translation array if needed. */
+  if (bufp->external_to_internal_register == 0)
+    {
+      bufp->external_to_internal_register_size = INIT_REG_TRANSLATE_SIZE;
+      RETALLOC (bufp->external_to_internal_register,
+		bufp->external_to_internal_register_size,
+		int);
+    }
+
+  /* Initialize translations to impossible value to aid debugging. */
+  {
+    int i;
+
+    bufp->external_to_internal_register[0] = 0;
+    for (i = 1; i < bufp->external_to_internal_register_size; i++)
+      bufp->external_to_internal_register[i] = (int) 0xDEADBEEF;
+  }
 
 #if !defined (emacs) && !defined (SYNTAX_TABLE)
   /* Initialize the syntax table.  */
@@ -2556,6 +2595,7 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
             handle_open:
               {
                 regnum_t r;
+		int shy = 0;
 
                 if (!(syntax & RE_NO_SHY_GROUPS)
                     && p != pend
@@ -2566,7 +2606,7 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
                     switch (c)
                       {
                       case ':': /* shy groups */
-                        r = MAX_REGNUM + 1;
+                        shy = 1;
                         break;
 
                       /* All others are reserved for future constructs. */
@@ -2574,11 +2614,34 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
                         FREE_STACK_RETURN (REG_BADPAT);
                       }
                   }
-                else
-                  {
-                    bufp->re_nsub++;
-                    r = ++regnum;
-                  }
+
+		r = ++regnum;
+		bufp->re_ngroups++;
+		if (!shy)
+		  /* Record the translation from capturing group index to
+		     register number, reallocating table as needed. */
+		  {
+		    bufp->re_nsub++;
+		    while (bufp->external_to_internal_register_size <=
+			   bufp->re_nsub)
+		      {
+			int i;
+			int old_size =
+			  bufp->external_to_internal_register_size;
+			bufp->external_to_internal_register_size += 5;
+			RETALLOC (bufp->external_to_internal_register,
+				  bufp->external_to_internal_register_size,
+				  int);
+			/* debugging */
+			for (i = old_size;
+			     i < bufp->external_to_internal_register_size; i++)
+			  bufp->external_to_internal_register[i] =
+			    (int) 0xDEADBEEF;
+		      }
+
+		    bufp->external_to_internal_register[bufp->re_nsub] =
+		      bufp->re_ngroups;
+		  }
 
                 if (COMPILE_STACK_FULL)
                   {
@@ -2602,7 +2665,10 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
                 /* We will eventually replace the 0 with the number of
                    groups inner to this one.  But do not push a
                    start_memory for groups beyond the last one we can
-                   represent in the compiled pattern.  */
+                   represent in the compiled pattern.
+		   #### bad bad bad.  this will fail in lots of ways, if we
+		   ever have to backtrack for these groups.
+		*/
                 if (r <= MAX_REGNUM)
                   {
                     COMPILE_STACK_TOP.inner_group_offset
@@ -2992,16 +3058,21 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
             case '1': case '2': case '3': case '4': case '5':
             case '6': case '7': case '8': case '9':
 	      {
-		regnum_t reg;
+		int reg;
+
 		if (syntax & RE_NO_BK_REFS)
 		  goto normal_char;
 
+		/* External register indexing. */
 		reg = c - '0';
 
-		if (reg > regnum)
+		if (reg > bufp->re_nsub)
 		  FREE_STACK_RETURN (REG_ESUBREG);
 
-		/* Can't back reference to a subexpression if inside of it.  */
+		/* Convert external to internal as soon as possible. */
+		reg = bufp->external_to_internal_register[reg];
+
+		/* Can't back reference to a subexpression if inside it. */
 		if (group_in_compile_stack (compile_stack, reg))
 		  goto normal_char;
 
@@ -3121,7 +3192,7 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
      isn't necessary unless we're trying to avoid calling alloca in
      the search and match routines.  */
   {
-    int num_regs = bufp->re_nsub + 1;
+    int num_regs = bufp->re_ngroups + 1;
 
     /* Since DOUBLE_FAIL_STACK refuses to double only if the current size
        is strictly greater than re_max_failures, the largest possible stack
@@ -3854,7 +3925,7 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 
 
 	default:
-          abort (); /* We have listed all the cases.  */
+          ABORT (); /* We have listed all the cases.  */
         } /* switch *p++ */
 
       /* Getting here means we have found the possible starting
@@ -4384,7 +4455,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
   /* We fill all the registers internally, independent of what we
      return, for use in backreferences.  The number here includes
      an element for register zero.  */
-  int num_regs = bufp->re_nsub + 1;
+  int num_regs = bufp->re_ngroups + 1;
 
   /* The currently active registers.  */
   int lowest_active_reg = NO_LOWEST_ACTIVE_REG;
@@ -4470,7 +4541,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
      there are groups, we include space for register 0 (the whole
      pattern), even though we never use it, since it simplifies the
      array indexing.  We should fix this.  */
-  if (bufp->re_nsub)
+  if (bufp->re_ngroups)
     {
       regstart       = REGEX_TALLOC (num_regs, re_char *);
       regend         = REGEX_TALLOC (num_regs, re_char *);
@@ -4645,104 +4716,112 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	succeed_label:
           DEBUG_PRINT1 ("Accepting match.\n");
 
-          /* If caller wants register contents data back, do it.  */
-          if (regs && !bufp->no_sub)
-	    {
-              /* Have the register data arrays been allocated?  */
-              if (bufp->regs_allocated == REGS_UNALLOCATED)
-                { /* No.  So allocate them with malloc.  We need one
-                     extra element beyond `num_regs' for the `-1' marker
-                     GNU code uses.  */
-                  regs->num_regs = MAX (RE_NREGS, num_regs + 1);
-                  regs->start = TALLOC (regs->num_regs, regoff_t);
-                  regs->end = TALLOC (regs->num_regs, regoff_t);
-                  if (regs->start == NULL || regs->end == NULL)
-		    {
-		      FREE_VARIABLES ();
-		      return -2;
-		    }
-                  bufp->regs_allocated = REGS_REALLOCATE;
-                }
-              else if (bufp->regs_allocated == REGS_REALLOCATE)
-                { /* Yes.  If we need more elements than were already
-                     allocated, reallocate them.  If we need fewer, just
-                     leave it alone.  */
-                  if (regs->num_regs < num_regs + 1)
-                    {
-                      regs->num_regs = num_regs + 1;
-                      RETALLOC (regs->start, regs->num_regs, regoff_t);
-                      RETALLOC (regs->end, regs->num_regs, regoff_t);
-                      if (regs->start == NULL || regs->end == NULL)
-			{
-			  FREE_VARIABLES ();
-			  return -2;
-			}
-                    }
-                }
-              else
-		{
-		  /* These braces fend off a "empty body in an else-statement"
-		     warning under GCC when assert expands to nothing.  */
-		  assert (bufp->regs_allocated == REGS_FIXED);
-		}
+	  {
+	    /* If caller wants register contents data back, fill REGS.  */
+	    int num_nonshy_regs = bufp->re_nsub + 1;
+	    if (regs && !bufp->no_sub)
+	      {
+		/* Have the register data arrays been allocated?  */
+		if (bufp->regs_allocated == REGS_UNALLOCATED)
+		  { /* No.  So allocate them with malloc.  We need one
+		       extra element beyond `num_regs' for the `-1' marker
+		       GNU code uses.  */
+		    regs->num_regs = MAX (RE_NREGS, num_nonshy_regs + 1);
+		    regs->start = TALLOC (regs->num_regs, regoff_t);
+		    regs->end = TALLOC (regs->num_regs, regoff_t);
+		    if (regs->start == NULL || regs->end == NULL)
+		      {
+			FREE_VARIABLES ();
+			return -2;
+		      }
+		    bufp->regs_allocated = REGS_REALLOCATE;
+		  }
+		else if (bufp->regs_allocated == REGS_REALLOCATE)
+		  { /* Yes.  If we need more elements than were already
+		       allocated, reallocate them.  If we need fewer, just
+		       leave it alone.  */
+		    if (regs->num_regs < num_nonshy_regs + 1)
+		      {
+			regs->num_regs = num_nonshy_regs + 1;
+			RETALLOC (regs->start, regs->num_regs, regoff_t);
+			RETALLOC (regs->end, regs->num_regs, regoff_t);
+			if (regs->start == NULL || regs->end == NULL)
+			  {
+			    FREE_VARIABLES ();
+			    return -2;
+			  }
+		      }
+		  }
+		else
+		  {
+		    /* The braces fend off a "empty body in an else-statement"
+		       warning under GCC when assert expands to nothing.  */
+		    assert (bufp->regs_allocated == REGS_FIXED);
+		  }
 
-              /* Convert the pointer data in `regstart' and `regend' to
-                 indices.  Register zero has to be set differently,
-                 since we haven't kept track of any info for it.  */
-              if (regs->num_regs > 0)
-                {
-                  regs->start[0] = pos;
-                  regs->end[0] = (MATCHING_IN_FIRST_STRING
-				  ? ((regoff_t) (d - string1))
-			          : ((regoff_t) (d - string2 + size1)));
-                }
+		/* Convert the pointer data in `regstart' and `regend' to
+		   indices.  Register zero has to be set differently,
+		   since we haven't kept track of any info for it.  */
+		if (regs->num_regs > 0)
+		  {
+		    regs->start[0] = pos;
+		    regs->end[0] = (MATCHING_IN_FIRST_STRING
+				    ? ((regoff_t) (d - string1))
+				    : ((regoff_t) (d - string2 + size1)));
+		  }
 
-              /* Go through the first `min (num_regs, regs->num_regs)'
-                 registers, since that is all we initialized.  */
-	      for (mcnt = 1; mcnt < MIN (num_regs, regs->num_regs); mcnt++)
-		{
-                  if (REG_UNSET (regstart[mcnt]) || REG_UNSET (regend[mcnt]))
-                    regs->start[mcnt] = regs->end[mcnt] = -1;
-                  else
-                    {
-		      regs->start[mcnt]
-			= (regoff_t) POINTER_TO_OFFSET (regstart[mcnt]);
-                      regs->end[mcnt]
-			= (regoff_t) POINTER_TO_OFFSET (regend[mcnt]);
-                    }
-		}
-	    } /* regs && !bufp->no_sub */
+		/* Map over the NUM_NONSHY_REGS non-shy internal registers.
+		   Copy each into the corresponding external register.
+		   N.B. MCNT indexes external registers. */
+		for (mcnt = 1;
+		     mcnt < MIN (num_nonshy_regs, regs->num_regs);
+		     mcnt++)
+		  {
+		    int ireg = bufp->external_to_internal_register[mcnt];
 
-	  /* If we have regs and the regs structure has more elements than
-             were in the pattern, set the extra elements to -1.  If we
-	     (re)allocated the registers, this is the case, because we
-	     always allocate enough to have at least one -1 at the end.
+		    if (REG_UNSET (regstart[ireg]) || REG_UNSET (regend[ireg]))
+		      regs->start[mcnt] = regs->end[mcnt] = -1;
+		    else
+		      {
+			regs->start[mcnt]
+			  = (regoff_t) POINTER_TO_OFFSET (regstart[ireg]);
+			regs->end[mcnt]
+			  = (regoff_t) POINTER_TO_OFFSET (regend[ireg]);
+		      }
+		  }
+	      } /* regs && !bufp->no_sub */
 
-	     We do this even when no_sub is set because some applications
-             (XEmacs) reuse register structures which may contain stale
-	     information, and permit attempts to access those registers.
+	    /* If we have regs and the regs structure has more elements than
+	       were in the pattern, set the extra elements to -1.  If we
+	       (re)allocated the registers, this is the case, because we
+	       always allocate enough to have at least one -1 at the end.
 
-	     It would be possible to require the caller to do this, but we'd
-	     have to change the API for this function to reflect that, and
-	     audit all callers. */
-	  if (regs && regs->num_regs > 0)
-	    for (mcnt = num_regs; mcnt < regs->num_regs; mcnt++)
-	      regs->start[mcnt] = regs->end[mcnt] = -1;
+	       We do this even when no_sub is set because some applications
+	       (XEmacs) reuse register structures which may contain stale
+	       information, and permit attempts to access those registers.
 
-          DEBUG_PRINT4 ("%u failure points pushed, %u popped (%u remain).\n",
-                        nfailure_points_pushed, nfailure_points_popped,
-                        nfailure_points_pushed - nfailure_points_popped);
-          DEBUG_PRINT2 ("%u registers pushed.\n", num_regs_pushed);
+	       It would be possible to require the caller to do this, but we'd
+	       have to change the API for this function to reflect that, and
+	       audit all callers. */
+	    if (regs && regs->num_regs > 0)
+	      for (mcnt = num_nonshy_regs; mcnt < regs->num_regs; mcnt++)
+		regs->start[mcnt] = regs->end[mcnt] = -1;
+	  }
 
-          mcnt = d - pos - (MATCHING_IN_FIRST_STRING
+	  DEBUG_PRINT4 ("%u failure points pushed, %u popped (%u remain).\n",
+			nfailure_points_pushed, nfailure_points_popped,
+			nfailure_points_pushed - nfailure_points_popped);
+	  DEBUG_PRINT2 ("%u registers pushed.\n", num_regs_pushed);
+
+	  mcnt = d - pos - (MATCHING_IN_FIRST_STRING
 			    ? string1
 			    : string2 - size1);
 
-          DEBUG_PRINT2 ("Returning %d from re_match_2.\n", mcnt);
+	  DEBUG_PRINT2 ("Returning %d from re_match_2.\n", mcnt);
 
-          FREE_VARIABLES ();
-          return mcnt;
-        }
+	  FREE_VARIABLES ();
+	  return mcnt;
+	}
 
       /* Otherwise match next pattern command.  */
       switch (SWITCH_ENUM_CAST ((re_opcode_t) *p++))
@@ -5071,11 +5150,15 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
 
 	/* \<digit> has been turned into a `duplicate' command which is
-           followed by the numeric value of <digit> as the register number.  */
+           followed by the numeric value of <digit> as the register number.
+	   (Already passed through external-to-internal-register mapping,
+	   so it refers to the actual group number, not the non-shy-only
+	   numbering used in the external world.) */
         case duplicate:
 	  {
 	    REGISTER re_char *d2, *dend2;
-	    int regno = *p++;   /* Get which register to match against.  */
+	    /* Get which register to match against.  */
+	    int regno = *p++;
 	    DEBUG_PRINT2 ("EXECUTING duplicate %d.\n", regno);
 
 	    /* Can't back reference a group which we've never matched.  */
@@ -5548,7 +5631,8 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	       emch1, emch2 is the character at d, and syn2 is the
 	       syntax of emch2. */
 	    Emchar emch1, emch2;
-	    int syn1, syn2;
+	    /* GCC isn't smart enough to see these are initialized if used. */
+	    int syn1 = 0, syn2 = 0;
 	    re_char *d_before, *d_after;
 	    int result,
 		at_beg = AT_STRINGS_BEG (d),
@@ -5804,7 +5888,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 #endif /* emacs */
 
         default:
-          abort ();
+          ABORT ();
 	}
       continue;  /* Successfully executed one pattern command; keep going.  */
 
@@ -5881,7 +5965,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
 static re_bool
 group_match_null_string_p (unsigned char **p, unsigned char *end,
-			   register_info_type *reg_info)
+			   register_info_type *register_info)
 {
   int mcnt;
   /* Point to after the args to the start_memory.  */
@@ -5930,7 +6014,7 @@ group_match_null_string_p (unsigned char **p, unsigned char *end,
                      its number.  */
 
                   if (!alt_match_null_string_p (p1, p1 + mcnt - 3,
-				                      reg_info))
+				                      register_info))
                     return false;
 
                   /* Move to right after this alternative, including the
@@ -5959,7 +6043,7 @@ group_match_null_string_p (unsigned char **p, unsigned char *end,
                  the length of the alternative.  */
               EXTRACT_NUMBER (mcnt, p1 - 2);
 
-              if (!alt_match_null_string_p (p1, p1 + mcnt, reg_info))
+              if (!alt_match_null_string_p (p1, p1 + mcnt, register_info))
                 return false;
 
               p1 += mcnt;	/* Get past the n-th alternative.  */
@@ -5974,7 +6058,7 @@ group_match_null_string_p (unsigned char **p, unsigned char *end,
 
 
         default:
-          if (!common_op_match_null_string_p (&p1, end, reg_info))
+          if (!common_op_match_null_string_p (&p1, end, register_info))
             return false;
         }
     } /* while p1 < end */
@@ -5989,7 +6073,7 @@ group_match_null_string_p (unsigned char **p, unsigned char *end,
 
 static re_bool
 alt_match_null_string_p (unsigned char *p, unsigned char *end,
-			 register_info_type *reg_info)
+			 register_info_type *register_info)
 {
   int mcnt;
   unsigned char *p1 = p;
@@ -6009,7 +6093,7 @@ alt_match_null_string_p (unsigned char *p, unsigned char *end,
           break;
 
 	default:
-          if (!common_op_match_null_string_p (&p1, end, reg_info))
+          if (!common_op_match_null_string_p (&p1, end, register_info))
             return false;
         }
     }  /* while p1 < end */
@@ -6025,7 +6109,7 @@ alt_match_null_string_p (unsigned char *p, unsigned char *end,
 
 static re_bool
 common_op_match_null_string_p (unsigned char **p, unsigned char *end,
-			       register_info_type *reg_info)
+			       register_info_type *register_info)
 {
   int mcnt;
   re_bool ret;
@@ -6053,13 +6137,14 @@ common_op_match_null_string_p (unsigned char **p, unsigned char *end,
     case start_memory:
       reg_no = *p1;
       assert (reg_no > 0 && reg_no <= MAX_REGNUM);
-      ret = group_match_null_string_p (&p1, end, reg_info);
+      ret = group_match_null_string_p (&p1, end, register_info);
 
       /* Have to set this here in case we're checking a group which
          contains a group and a back reference to it.  */
 
-      if (REG_MATCH_NULL_STRING_P (reg_info[reg_no]) == MATCH_NULL_UNSET_VALUE)
-        REG_MATCH_NULL_STRING_P (reg_info[reg_no]) = ret;
+      if (REG_MATCH_NULL_STRING_P (register_info[reg_no]) ==
+	  MATCH_NULL_UNSET_VALUE)
+        REG_MATCH_NULL_STRING_P (register_info[reg_no]) = ret;
 
       if (!ret)
         return false;
@@ -6090,7 +6175,7 @@ common_op_match_null_string_p (unsigned char **p, unsigned char *end,
       break;
 
     case duplicate:
-      if (!REG_MATCH_NULL_STRING_P (reg_info[*p1]))
+      if (!REG_MATCH_NULL_STRING_P (register_info[*p1]))
         return false;
       break;
 
@@ -6252,6 +6337,8 @@ re_exec (const char *s)
      `newline_anchor' to REG_NEWLINE being set in CFLAGS;
      `fastmap' and `fastmap_accurate' to zero;
      `re_nsub' to the number of subexpressions in PATTERN.
+     (non-shy of course.  POSIX probably doesn't know about
+     shy ones, and in any case they should be invisible.)
 
    PATTERN is the address of the pattern string.
 
@@ -6294,7 +6381,7 @@ regcomp (regex_t *preg, const char *pattern, int cflags)
 
   if (cflags & REG_ICASE)
     {
-      unsigned i;
+      int i;
 
       preg->translate = (char *) malloc (CHAR_SET_SIZE);
       if (preg->translate == NULL)
@@ -6421,7 +6508,7 @@ regerror (int errcode, const regex_t *preg, char *errbuf,
        to this routine.  If we are given anything else, or if other regex
        code generates an invalid error code, then the program has a bug.
        Dump core so we can fix it.  */
-    abort ();
+    ABORT ();
 
   msg = gettext (re_error_msgid[errcode]);
 

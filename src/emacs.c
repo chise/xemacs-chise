@@ -344,7 +344,7 @@ uintptr_t bss_end = 0;
 #endif
 
 /* Number of bytes of writable memory we can expect to be able to get */
-unsigned int lim_data;
+unsigned long lim_data;
 
 /* WARNING!
 
@@ -560,7 +560,7 @@ DEFUN ("force-debugging-signal", Fforce_debugging_signal, 0, 1, 0, /*
 Cause XEmacs to enter the debugger.
 On some systems, there may be no way to do this gracefully; if so,
 nothing happens unless ABORT is non-nil, in which case XEmacs will
-abort() -- a sure-fire way to immediately get back to the debugger,
+ABORT() -- a sure-fire way to immediately get back to the debugger,
 but also a sure-fire way to kill XEmacs (and dump core on Unix
 systems)!
 */
@@ -568,7 +568,7 @@ systems)!
 {
   debugging_breakpoint ();
   if (!NILP (abort_))
-    abort ();
+    ABORT ();
   return Qnil;
 }
 
@@ -2656,7 +2656,7 @@ sort_args (int argc, char **argv)
 	}
 
       if (best < 0)
-	abort ();
+	ABORT ();
 
       /* Copy the highest priority remaining option, with its args, to NEW_ARGV.  */
       new_argv[to++] = argv[best];
@@ -2821,7 +2821,7 @@ main (int argc, char **argv, char **envp)
     {
 #ifdef DOUG_LEA_MALLOC
       if (mallopt (M_MMAP_MAX, 0) != 1)
-	abort();
+	ABORT();
 #endif
       run_temacs_argc = 0;
       if (! SETJMP (run_temacs_catch))
@@ -2868,7 +2868,7 @@ main (int argc, char **argv, char **envp)
       if (rc != 0)
 	{
 	  stderr_out ("malloc_set_state failed, rc = %d\n", rc);
-	  abort ();
+	  ABORT ();
 	}
 #if 0
       free (malloc_state_ptr);
@@ -2879,7 +2879,7 @@ main (int argc, char **argv, char **envp)
     (defined(__GLIBC__) && __GLIBC_MINOR__ < 1 && !defined(MULE)) || \
     defined(DEBUG_DOUG_LEA_MALLOC)
       if(mallopt (M_MMAP_MAX, 0) != 1)
-	abort();
+	ABORT();
 #endif
 #ifdef REL_ALLOC
       r_alloc_reinit ();
@@ -3356,7 +3356,6 @@ Non-nil return value means XEmacs is running without interactive terminal.
    in one session without having to recompile. */
 /* #define ASSERTIONS_DONT_ABORT */
 
-#ifdef USE_ASSERTIONS
 /* This highly dubious kludge ... shut up Jamie, I'm tired of your slagging. */
 
 static int in_assert_failed;
@@ -3367,8 +3366,6 @@ static const char *assert_failed_expr;
 #ifdef fprintf
 #undef fprintf
 #endif
-
-#undef abort	/* avoid infinite #define loop... */
 
 #if defined (WIN32_NATIVE) && defined (DEBUG_XEMACS)
 #define enter_debugger() DebugBreak ()
@@ -3426,12 +3423,11 @@ assert_failed (const char *file, int line, const char *expr)
 
   enter_debugger ();
 #if !defined (ASSERTIONS_DONT_ABORT)
-  abort ();
+  abort (); /* The real abort(), this time */
 #endif
   inhibit_non_essential_printing_operations = 0;
   in_assert_failed = 0;
 }
-#endif /* USE_ASSERTIONS */
 
 #ifdef QUANTIFY
 DEFUN ("quantify-start-recording-data", Fquantify_start_recording_data,

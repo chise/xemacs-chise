@@ -305,13 +305,6 @@ RadioExpose (Widget w,
 	 * but it bears thinking on.
 	 */
 
-	/* Command widget may sometimes override the label GC in order
-	 * to draw inverse video.  We don't use inverse video, so we need
-	 * to restore the label's normal GC.
-	 */
-	rw->label.normal_GC = rw->command.normal_GC ;
-
-
 	/* Let label widget draw the label.  If there was an lbm_x
 	 * field, we could let Label draw the bitmap too.  But there
 	 * isn't, so we need to temporarily remove the bitmap and

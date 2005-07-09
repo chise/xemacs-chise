@@ -198,7 +198,7 @@ gtk_init_device (struct device *d, Lisp_Object props)
   XSETDEVICE (device, d);
 
   /* gtk_init() and even gtk_check_init() are so brain dead that
-     getting an empty argv array causes them to abort. */
+     getting an empty argv array causes them to ABORT. */
   if (NILP (Vgtk_initial_argv_list))
     {
       signal_simple_error ("gtk-initial-argv-list must be set before creating Gtk devices", Vgtk_initial_argv_list);

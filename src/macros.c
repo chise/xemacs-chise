@@ -179,7 +179,7 @@ store_kbd_macro_event (Lisp_Object event)
 void
 pop_kbd_macro_event (Lisp_Object event)
 {
-  if (NILP (Vexecuting_macro)) abort ();
+  if (NILP (Vexecuting_macro)) ABORT ();
 
   if (STRINGP (Vexecuting_macro) || VECTORP (Vexecuting_macro))
     {

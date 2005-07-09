@@ -1,3 +1,55 @@
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-02-01  Vin Shelton  <acs@xemacs.org>
+
+	* automated/regexp-tests.el: Added an additional shy groups test
+	authored by Arnaud Giersch <arnaud.giersch@free.fr>
+
+2005-01-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/mule-tests.el (file-system character conversion):
+	Improve Mac OS X compatibility.
+
+2005-01-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el:
+	Test trivial subpatterns and backreferences with shy groups.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2004-10-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/os-tests.el: New file.  Add tests for bug reported by
+	Katsumi Yamaoka 2004-10-26 <b9yvfcyuscf.fsf@jpl.org>.  Test
+	suggested by Katsumi Yamaoka <b9yoeipvwn0.fsf@jpl.org>.
+
+2004-10-07  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el: Add tests for bug identified by
+	Steve Youngs 2004-09-30 <microsoft-free.87ekkjhj7t.fsf@youngs.au.com>
+
+2004-09-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el: Add tests for bug identified by
+	Katsumi Yamaoka 2004-09-03 <b9ywtzbbpue.fsf_-_@jpl.org>.
+
+2004-05-11  Vin Shelton  <acs@xemacs.org>
+
+	* automated/tag-test.el: Use a temp directory to avoid conflicts
+	with extra TAGS files.
+
+2004-05-08  Vin Shelton  <acs@xemacs.org>
+
+	* automated/tag-test.el: Created.
+
+2004-04-19  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* automated/mule-tests.el: Inhibit GC to speed up BIG_STRING tests.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

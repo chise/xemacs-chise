@@ -977,9 +977,9 @@ long_to_string (char *buffer, long number)
       number = -number;
     }
 
-#define FROB(figure) do {						\
-    if (force || number >= figure)					\
-      *p++ = number / figure + '0', number %= figure, force = 1;	\
+#define FROB(figure) do {						    \
+    if (force || number >= figure)					    \
+      *p++ = (char) (number / figure + '0'), number %= figure, force = 1;   \
     } while (0)
 #if SIZEOF_LONG == 8
   FROB (1000000000000000000L);
@@ -1002,7 +1002,7 @@ long_to_string (char *buffer, long number)
   FROB (100);
   FROB (10);
 #undef FROB
-  *p++ = number + '0';
+  *p++ = (char) (number + '0');
   *p = '\0';
   return p;
 #endif /* (SIZEOF_LONG == 4) || (SIZEOF_LONG == 8) */
@@ -1246,12 +1246,12 @@ printing_major_badness (Lisp_Object printcharfun,
       break;
     }
 
-  /* Don't abort or signal if called from debug_print() or already
+  /* Don't ABORT or signal if called from debug_print() or already
      crashing */
   if (!inhibit_non_essential_printing_operations)
     {
 #ifdef ERROR_CHECK_TYPES
-      abort ();
+      ABORT ();
 #else  /* not ERROR_CHECK_TYPES */
       if (print_readably)
 	type_error (Qinternal_error, "printing %s", buf);

@@ -385,3 +385,67 @@ baaaa
 			  (string-match "b" a)
 			  (match-string 1 a))
 		   a)))
+
+;; bug identified by Katsumi Yamaoka 2004-09-03 <b9ywtzbbpue.fsf_-_@jpl.org>
+;; fix submitted by sjt 2004-09-08
+;; trailing comments are values from buggy 21.4.15
+(let ((text "abc"))
+  (Assert (eq 0 (string-match "\\(?:ab+\\)*c" text)))	; 2
+  (Assert (eq 0 (string-match "^\\(?:ab+\\)*c" text)))	; nil
+  (Assert (eq 0 (string-match "^\\(?:ab+\\)*" text)))	; 0
+  (Assert (eq 0 (string-match "^\\(?:ab+\\)c" text)))	; 0
+  (Assert (eq 0 (string-match "^\\(?:ab\\)*c" text)))	; 0
+  (Assert (eq 0 (string-match "^\\(?:a+\\)*b" text)))	; nil
+  (Assert (eq 0 (string-match "^\\(?:a\\)*b" text)))	; 0
+)
+
+;; per Steve Youngs 2004-09-30 <microsoft-free.87ekkjhj7t.fsf@youngs.au.com>
+;; fix submitted by sjt 2004-10-07
+;; trailing comments are values from buggy 21.4.pre16
+(let ((text "abc"))
+  (Assert (eq 0 (string-match "\\(?:a\\(b\\)\\)" text)))	; 0
+  (Assert (string= (match-string 1 text) "b"))			; ab
+  (Assert (null (match-string 2 text)))				; b
+  (Assert (null (match-string 3 text)))				; nil
+  (Assert (eq 0 (string-match "\\(?:a\\(?:b\\(c\\)\\)\\)" text)))	; 0
+  (Assert (string= (match-string 1 text) "c"))			; abc
+  (Assert (null (match-string 2 text)))				; ab
+  (Assert (null (match-string 3 text)))				; c
+  (Assert (null (match-string 4 text)))				; nil
+)
+
+;; trivial subpatterns and backreferences with shy groups
+(let ((text1 "abb")
+      (text2 "aba")
+      (re0 "\\(a\\)\\(b\\)\\2")
+      (re1 "\\(?:a\\)\\(b\\)\\2")
+      (re2 "\\(?:a\\)\\(b\\)\\1")
+      (re3 "\\(a\\)\\(?:b\\)\\1"))
+
+  (Assert (eq 0 (string-match re0 text1)))
+  (Assert (string= text1 (match-string 0 text1)))
+  (Assert (string= "a" (match-string 1 text1)))
+  (Assert (string= "b" (match-string 2 text1)))
+  (Assert (null (string-match re0 text2)))
+
+  (Check-Error-Message 'invalid-regexp "Invalid back reference"
+		       (string-match re1 text1))
+
+  (Assert (eq 0 (string-match re2 text1)))
+  (Assert (string= text1 (match-string 0 text1)))
+  (Assert (string= "b" (match-string 1 text1)))
+  (Assert (null (match-string 2 text1)))
+  (Assert (null (string-match re2 text2)))
+
+  (Assert (null (string-match re3 text1)))
+  (Assert (eq 0 (string-match re3 text2)))
+  (Assert (string= text2 (match-string 0 text2)))
+  (Assert (string= "a" (match-string 1 text2)))
+  (Assert (null (match-string 2 text2)))
+
+  ;; Test Arnaud Giersch's shy group fix
+  (Assert (progn (string-match "\\(a\\)" "a")  
+		 (string-match "\\(?:a\\)" "a")  
+		 (not (match-beginning 1))))
+)
+

@@ -1391,7 +1391,7 @@ The `read-key-sequence' function replaces any subsequence bound by
 keymaps have no binding for the current key sequence but
 `function-key-map' binds a suffix of the sequence to a vector or string,
 `read-key-sequence' replaces the matching suffix with its binding, and
-continues with the new sequence.
+continues with the new sequence.  See `key-binding'.
 
 The events that come from bindings in `function-key-map' are not
 themselves looked up in `function-key-map'.
@@ -1465,7 +1465,7 @@ buffer's local map, and the minor mode keymaps and text property keymaps.
   if ((XINT (console_local_flags.slot) != -2 &&			\
          XINT (console_local_flags.slot) != -3)			\
       != !(NILP (XCONSOLE (Vconsole_local_symbols)->slot)))	\
-  abort ()
+  ABORT ()
 #include "conslots.h"
 #undef MARKED_SLOT
 }

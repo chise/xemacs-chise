@@ -223,7 +223,7 @@ poll_fds_for_input (SELECT_TYPE mask)
 	return retval;
       if (errno != EINTR)
 	{
-	  /* Something went seriously wrong; don't abort since maybe
+	  /* Something went seriously wrong; don't ABORT since maybe
 	     the TTY just died at the wrong time. */
 	  stderr_out ("xemacs: select failed: errno = %d\n", errno);
 	  return 0;

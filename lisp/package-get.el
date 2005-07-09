@@ -171,8 +171,7 @@ one version of a package available.")
 
 ;;;###autoload
 (defcustom package-get-package-index-file-location 
-  (or (getenv "EMACSPACKAGEPATH")
-      user-init-directory)
+  (car (split-path (or (getenv "EMACSPACKAGEPATH") user-init-directory)))
   "*The directory where the package-index file can be found."
   :type 'directory
   :group 'package-get)
@@ -414,16 +413,12 @@ Returns t if both are found, nil otherwise.  As a side effect, set
 	result
       nil)))
 
-(defcustom package-get-require-signed-base-updates (package-get-pgp-available-p)
+(defcustom package-get-require-signed-base-updates nil
   "*If non-nil, try to verify the package index database via PGP.
 
 If nil, no PGP verification is done.  If the package index database
 entries are not PGP signed and this variable is non-nil, require user
-confirmation to continue with the package-get procedure.
-
-The default for this variable is the return value of
-`package-get-pgp-available-p', non-nil if both the \"Mailcrypt\"
-package and a suitable PGP executable are available, nil otherwise."
+confirmation to continue with the package-get procedure."
   :type 'boolean
   :group 'package-get)
 
@@ -576,6 +571,10 @@ Unless FORCE-CURRENT is non-nil never try to update the database."
 	      (package-get-maybe-save-index db-file)))
       (kill-buffer buf))))
 
+;; This is here because the `process-error' datum doesn't exist in
+;; 21.4. --SY.
+(define-error 'process-error "Process error")
+
 ;;;###autoload
 (defun package-get-update-base-from-buffer (&optional buf)
   "Update the package-get database with entries from BUFFER.
@@ -583,7 +582,9 @@ BUFFER defaults to the current buffer.  This command can be
 used interactively, for example from a mail or news buffer."
   (interactive)
   (setq buf (or buf (current-buffer)))
-  (let (content-beg content-end)
+  (let ((coding-system-for-read 'binary)
+	(coding-system-for-write 'binary)
+	content-beg content-end)
     (save-excursion
       (set-buffer buf)
       (goto-char (point-min))

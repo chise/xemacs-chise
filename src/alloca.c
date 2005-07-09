@@ -387,7 +387,7 @@ i00afunc (long *address)
      a fatal error if "trailer" is null.  */
 
   if (trailer == 0)
-    abort ();
+    ABORT ();
 
   /* Discard segments that do not contain our argument address.  */
 
@@ -396,7 +396,7 @@ i00afunc (long *address)
       block = (long *) trailer->this_address;
       size = trailer->this_size;
       if (block == 0 || size == 0)
-	abort ();
+	ABORT ();
       trailer = (struct stk_trailer *) trailer->link;
       if ((block <= address) && (address < (block + size)))
 	break;
@@ -415,7 +415,7 @@ i00afunc (long *address)
   do
     {
       if (trailer->this_size <= 0)
-	abort ();
+	ABORT ();
       result += trailer->this_size;
       trailer = (struct stk_trailer *) trailer->link;
     }

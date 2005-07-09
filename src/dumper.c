@@ -440,7 +440,7 @@ pdump_get_indirect_count (EMACS_INT code,
       stderr_out ("Unsupported count type : %d (line = %d, code=%ld)\n",
 		  idesc[line].type, line, (long)code);
       pdump_backtrace ();
-      abort ();
+      ABORT ();
     }
   count += delta;
   return count;
@@ -540,7 +540,7 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	default:
 	  stderr_out ("Unsupported dump type : %d\n", desc[pos].type);
 	  pdump_backtrace ();
-	  abort ();
+	  ABORT ();
 	};
     }
 }
@@ -569,7 +569,7 @@ pdump_register_object (Lisp_Object obj)
       if (me>65536)
 	{
 	  stderr_out ("Backtrace overflow, loop ?\n");
-	  abort ();
+	  ABORT ();
 	}
       backtrace[me].obj = objh;
       backtrace[me].position = 0;
@@ -604,7 +604,7 @@ pdump_register_struct (const void *data,
       if (me>65536)
 	{
 	  stderr_out ("Backtrace overflow, loop ?\n");
-	  abort ();
+	  ABORT ();
 	}
       backtrace[me].obj = 0;
       backtrace[me].position = 0;
@@ -717,7 +717,7 @@ pdump_dump_data (pdump_entry_list_elt *elt,
 		  }
 		default:
 		  stderr_out ("Unsupported dump type : %d\n", desc[pos].type);
-		  abort ();
+		  ABORT ();
 		}
 	    }
 	}
@@ -795,7 +795,7 @@ pdump_reloc_one (void *data, EMACS_INT delta,
 	  }
 	default:
 	  stderr_out ("Unsupported dump type : %d\n", desc[pos].type);
-	  abort ();
+	  ABORT ();
 	};
     }
 }

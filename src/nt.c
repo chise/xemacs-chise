@@ -629,16 +629,16 @@ init_environment (void)
      renaming or deleting directories.  (We also don't call chdir when
      running subprocesses for the same reason.)  */
   if (!GetCurrentDirectory (MAXPATHLEN, startup_dir))
-    abort ();
+    ABORT ();
 
   {
     char *p;
     char modname[MAX_PATH];
 
     if (!GetModuleFileName (NULL, modname, MAX_PATH))
-      abort ();
+      ABORT ();
     if ((p = strrchr (modname, '\\')) == NULL)
-      abort ();
+      ABORT ();
     *p = 0;
 
     SetCurrentDirectory (modname);
@@ -1356,7 +1356,7 @@ generate_inode_val (const char * name)
      doesn't resolve aliasing due to subst commands, or recognize hard
      links.  */
   if (!win32_get_long_filename ((char *)name, fullname, MAX_PATH))
-    abort ();
+    ABORT ();
 
   parse_root (fullname, &p);
   /* Normal Win32 filesystems are still case insensitive. */

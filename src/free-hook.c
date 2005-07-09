@@ -141,7 +141,7 @@ check_free (void *ptr)
 	  /* I originally wrote:  "There's really no need to drop core."
 	     I have seen the error of my ways. -slb */
 	  if (strict_free_check)
-	    abort ();
+	    ABORT ();
 #endif
 	  printf("Freeing unmalloc'ed memory at %p\n", ptr);
 	  __free_hook = check_free;
@@ -155,7 +155,7 @@ check_free (void *ptr)
 #if !defined(__linux__)
 	  /* See above comment. */
 	  if (strict_free_check)
-	    abort ();
+	    ABORT ();
 #endif
 	  printf("Freeing %p twice\n", ptr);
 	  __free_hook = check_free;
@@ -264,7 +264,7 @@ check_realloc (void * ptr, size_t size)
        come from malloc. */
 #if !defined(__linux__)
       /* see comment in check_free(). */
-      abort ();
+      ABORT ();
 #endif
       printf("Realloc'ing unmalloc'ed pointer at %p\n", ptr);
     }
@@ -445,7 +445,7 @@ block_input_history blhist[BLHISTLIMIT];
 note_block_input (char *file, int line)
 {
   note_block (file, line, block_type);
-  if (interrupt_input_blocked > 2) abort();
+  if (interrupt_input_blocked > 2) ABORT();
 }
 
 note_unblock_input (char* file, int line)
@@ -485,15 +485,15 @@ log_gcpro (char *file, int line, struct gcpro *value, blocktype type)
   if (type == ungcpro_type)
     {
       if (value == gcprolist) goto OK;
-      if (! gcprolist) abort ();
+      if (! gcprolist) ABORT ();
       if (value == gcprolist->next) goto OK;
-      if (! gcprolist->next) abort ();
+      if (! gcprolist->next) ABORT ();
       if (value == gcprolist->next->next) goto OK;
-      if (! gcprolist->next->next) abort ();
+      if (! gcprolist->next->next) ABORT ();
       if (value == gcprolist->next->next->next) goto OK;
-      if (! gcprolist->next->next->next) abort ();
+      if (! gcprolist->next->next->next) ABORT ();
       if (value == gcprolist->next->next->next->next) goto OK;
-      abort ();
+      ABORT ();
     OK:;
     }
   gcprohist[gcprohistptr].file = file;

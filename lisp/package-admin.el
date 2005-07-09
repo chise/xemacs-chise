@@ -173,14 +173,16 @@ Note:  Type \"site\" is not yet fully supported."
 	(let ((path-list (paths-decode-directory-path env-value 'drop-empties)))
 	  (cond ((eq type 'std)
 		 (while path-list
-		   (if (equal (substring (car path-list) -16) 
-			      (concat "xemacs-packages" (char-to-string directory-sep-char)))
+		   (if (equal (file-name-nondirectory 
+			       (directory-file-name (car path-list)))
+			      "xemacs-packages")
 		       (setq top-dir (car path-list)))
 		   (setq path-list (cdr path-list))))
 		((eq type 'mule)
 		 (while path-list
-		   (if (equal (substring (car path-list) -14) 
-			      (concat "mule-packages" (char-to-string directory-sep-char)))
+		   (if (equal (file-name-nondirectory 
+			       (directory-file-name (car path-list)))
+			      "mule-packages")
 		       (setq top-dir (car path-list)))
 		   (setq path-list (cdr path-list)))))))
     ;; Wasn't in the environment, try `user-init-directory' if
@@ -200,14 +202,16 @@ Note:  Type \"site\" is not yet fully supported."
 				 (packages-compute-package-locations user-init-directory)))))
 	  (cond ((eq type 'std)
 		 (while path-list
-		   (if (equal (substring (car path-list) -16) 
-			      (concat "xemacs-packages" (char-to-string directory-sep-char)))
+		   (if (equal (file-name-nondirectory 
+			       (directory-file-name (car path-list)))
+			      "xemacs-packages")
 		       (setq top-dir (car path-list)))
 		   (setq path-list (cdr path-list))))
 		((eq type 'mule)
 		 (while path-list
-		   (if (equal (substring (car path-list) -14) 
-			      (concat "mule-packages" (char-to-string directory-sep-char)))
+		   (if (equal (file-name-nondirectory 
+			       (directory-file-name (car path-list)))
+			      "mule-packages")
 		       (setq top-dir (car path-list)))
 		   (setq path-list (cdr path-list)))))))
     ;; Now return either the directory or nil.

@@ -143,7 +143,7 @@ extern void seed_random (long arg);
 DEFUN ("random", Frandom, 0, 1, 0, /*
 Return a pseudo-random number.
 All integers representable in Lisp are equally likely.
-  On most systems, this is 28 bits' worth.
+  On most systems, this is 31 bits' worth.
 With positive integer argument N, return random number in interval [0,N).
 With argument t, set the random number seed from the current time and pid.
 */
@@ -163,7 +163,7 @@ With argument t, set the random number seed from the current time and pid.
 	 it's possible to get a quotient larger than limit; discarding
 	 these values eliminates the bias that would otherwise appear
 	 when using a large limit.  */
-      denominator = ((unsigned long)1 << VALBITS) / XINT (limit);
+      denominator = ((unsigned long)1 << INT_VALBITS) / XINT (limit);
       do
 	val = get_random () / denominator;
       while (val >= XINT (limit));
@@ -712,7 +712,7 @@ concat (int nargs, Lisp_Object *args,
         break;
       default:
 	val = Qnil;
-        abort ();
+        ABORT ();
       }
   }
 
@@ -1001,7 +1001,7 @@ are copied to the new string.
     }
   else
     {
-      abort (); /* unreachable, since Flength (sequence) did not get
+      ABORT (); /* unreachable, since Flength (sequence) did not get
                    an error */
       return Qnil;
     }
@@ -3020,7 +3020,7 @@ mapcar1 (size_t leni, Lisp_Object *vals,
 	}
     }
   else
-    abort (); /* unreachable, since Flength (sequence) did not get an error */
+    ABORT (); /* unreachable, since Flength (sequence) did not get an error */
 
   if (vals)
     UNGCPRO;
@@ -3637,7 +3637,7 @@ into shorter lines.
   encoded_length = base64_encode_1 (XLSTREAM (input), encoded,
 				    NILP (no_line_break));
   if (encoded_length > allength)
-    abort ();
+    ABORT ();
   Lstream_delete (XLSTREAM (input));
 
   /* Now we have encoded the region, so we insert the new contents
@@ -3679,7 +3679,7 @@ into shorter lines.
   encoded_length = base64_encode_1 (XLSTREAM (input), encoded,
 				    NILP (no_line_break));
   if (encoded_length > allength)
-    abort ();
+    ABORT ();
   Lstream_delete (XLSTREAM (input));
   result = make_string (encoded, encoded_length);
   XMALLOC_UNBIND (encoded, allength, speccount);
@@ -3712,7 +3712,7 @@ Characters out of the base64 alphabet are ignored.
   XMALLOC_OR_ALLOCA (decoded, length * MAX_EMCHAR_LEN, Bufbyte);
   decoded_length = base64_decode_1 (XLSTREAM (input), decoded, &cc_decoded_length);
   if (decoded_length > length * MAX_EMCHAR_LEN)
-    abort ();
+    ABORT ();
   Lstream_delete (XLSTREAM (input));
 
   /* Now we have decoded the region, so we insert the new contents
@@ -3753,7 +3753,7 @@ Characters out of the base64 alphabet are ignored.
   decoded_length = base64_decode_1 (XLSTREAM (input), decoded,
 				    &cc_decoded_length);
   if (decoded_length > length * MAX_EMCHAR_LEN)
-    abort ();
+    ABORT ();
   Lstream_delete (XLSTREAM (input));
 
   result = make_string (decoded, decoded_length);

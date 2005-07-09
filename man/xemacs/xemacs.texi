@@ -460,6 +460,7 @@ Editing Programs
 * Change Log::          Maintaining a change history for your program.
 * Tags::                Go directly to any function in your program in one
                          command.  Tags remembers which file it is in.
+* CC Mode::             Modes for C, C++, Java and similar languages
 * Fortran::		Fortran mode and its special features.
 * Asm Mode::            Asm mode and its special features.
 
@@ -468,7 +469,6 @@ Indentation for Programs
 * Basic Indent::
 * Multi-line Indent::   Commands to reindent many lines at once.
 * Lisp Indent::		Specifying how each Lisp function should be indented.
-* C Indent::		Choosing an indentation style for C code.
 
 Tags Tables
 

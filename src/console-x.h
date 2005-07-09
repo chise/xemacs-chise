@@ -35,10 +35,13 @@ Boston, MA 02111-1307, USA.  */
 #ifdef HAVE_X_WINDOWS
 
 #include "console.h"
+/* must come before Xutil.h, which is included indirectly from xintrinsic.h,
+   to avoid breakage in keysym-parsing macros from X11R6, at least X.org as
+   of 2005-01-17, and probably XFree86 too from reports on c.e.x */
+#include <X11/keysym.h>
 #include "xintrinsic.h"
 
 #include <X11/cursorfont.h>
-#include <X11/keysym.h>
 #include <X11/Xatom.h>
 #include <X11/StringDefs.h>
 

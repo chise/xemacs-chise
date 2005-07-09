@@ -1903,7 +1903,7 @@ init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
       break;
 
     default:
-      abort ();
+      ABORT ();
     }
 }
 
@@ -1976,6 +1976,9 @@ mswindows_xbm_instantiate (Lisp_Object image_instance,
 #define SYSV32
 #ifdef __cplusplus
 extern "C" {
+#endif
+#ifndef __STDC__ /* Needed to avoid prototype warnings */
+#define __STDC__
 #endif
 #include <compface.h>
 #ifdef __cplusplus

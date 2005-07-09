@@ -147,7 +147,7 @@ x_get_composed_input (XKeyPressedEvent *x_key_event, XIC context,
     case XLookupChars:
       break;
     default:
-      abort ();
+      ABORT ();
     }
 
   new_event.type = ClientMessage;

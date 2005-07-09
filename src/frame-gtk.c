@@ -27,6 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
+#include "elhash.h"
 #include "console-gtk.h"
 #include "ui-gtk.h"
 #include "glyphs-gtk.h"
@@ -54,7 +55,6 @@ Boston, MA 02111-1307, USA.  */
 #define INTERNAL_BORDER_WIDTH 0
 
 #define TRANSIENT_DATA_IDENTIFIER "xemacs::transient_for"
-#define FRAME_DATA_IDENTIFIER "xemacs::frame"
 #define UNMAPPED_DATA_IDENTIFIER "xemacs::initially_unmapped"
 
 #define STUPID_X_SPECIFIC_GTK_STUFF
@@ -97,6 +97,23 @@ static guint dnd_n_targets = sizeof(dnd_target_table) / sizeof(dnd_target_table[
 /************************************************************************/
 /*                          helper functions                            */
 /************************************************************************/
+
+/* Return the Emacs frame-object which contains the given widget. */
+struct frame *
+gtk_widget_to_frame (GtkWidget *w)
+{
+  struct frame *f = NULL;
+
+  for (; w; w = w->parent)
+    {
+      if ((f = (struct frame *) gtk_object_get_data (GTK_OBJECT (w),
+						     GTK_DATA_FRAME_IDENTIFIER)))
+	return (f);
+    }
+
+  return (selected_frame());
+}
+
 
 /* Return the Emacs frame-object corresponding to an X window */
 struct frame *
@@ -811,7 +828,7 @@ gtk_create_widgets (struct frame *f, Lisp_Object lisp_window_id, Lisp_Object par
 
   gtk_container_set_border_width (GTK_CONTAINER (shell), 0);
 
-  gtk_object_set_data (GTK_OBJECT (shell), FRAME_DATA_IDENTIFIER, f);
+  gtk_object_set_data (GTK_OBJECT (shell), GTK_DATA_FRAME_IDENTIFIER, f);
 
   FRAME_GTK_SHELL_WIDGET (f) = shell;
 
@@ -937,6 +954,18 @@ allocate_gtk_frame_struct (struct frame *f)
   /* yeah, except the lisp ones */
   FRAME_GTK_ICON_PIXMAP (f) = Qnil;
   FRAME_GTK_ICON_PIXMAP_MASK (f) = Qnil;
+
+  /*
+    Hashtables of callback data for glyphs on the frame.  Make them EQ because
+    we only use ints as keys.  Otherwise we run into stickiness in redisplay
+    because internal_equal() can QUIT.  See enter_redisplay_critical_section().
+  */
+  FRAME_GTK_WIDGET_INSTANCE_HASH_TABLE (f) =
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQ);
+  FRAME_GTK_WIDGET_CALLBACK_HASH_TABLE (f) =
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQ);
+  FRAME_GTK_WIDGET_CALLBACK_EX_HASH_TABLE (f) =
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQ);
 }
 
 
@@ -1022,6 +1051,9 @@ gtk_mark_frame (struct frame *f)
   mark_object (FRAME_GTK_LISP_WIDGETS (f)[0]);
   mark_object (FRAME_GTK_LISP_WIDGETS (f)[1]);
   mark_object (FRAME_GTK_LISP_WIDGETS (f)[2]);
+  mark_object (FRAME_GTK_WIDGET_INSTANCE_HASH_TABLE (f));
+  mark_object (FRAME_GTK_WIDGET_CALLBACK_HASH_TABLE (f));
+  mark_object (FRAME_GTK_WIDGET_CALLBACK_EX_HASH_TABLE (f));
 }
 
 static void
@@ -1057,7 +1089,7 @@ gtk_set_frame_pointer (struct frame *f)
     }
   else
     {
-      /* abort()? */
+      /* ABORT()? */
       stderr_out ("POINTER_IMAGE_INSTANCEP (f->pointer) failed!\n");
     }
 }
@@ -1219,7 +1251,7 @@ gtk_lower_frame (struct frame *f)
 static void
 gtk_make_frame_visible (struct frame *f)
 {
-    gtk_widget_show_all (FRAME_GTK_SHELL_WIDGET (f));
+    gtk_widget_map (FRAME_GTK_SHELL_WIDGET (f));
     gtk_raise_frame_1 (f, 0);
 }
 
@@ -1227,7 +1259,7 @@ gtk_make_frame_visible (struct frame *f)
 static void
 gtk_make_frame_invisible (struct frame *f)
 {
-    gtk_widget_hide (FRAME_GTK_SHELL_WIDGET (f));
+    gtk_widget_unmap(FRAME_GTK_SHELL_WIDGET (f));
 }
 
 static int
@@ -1367,7 +1399,7 @@ gtk_update_frame_external_traits (struct frame* frm, Lisp_Object name)
      }
    }
   else
-   abort ();
+   ABORT ();
 
 #ifdef HAVE_TOOLBARS
   /* Setting the background clears the entire frame area

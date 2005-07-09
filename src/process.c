@@ -352,7 +352,7 @@ get_process (Lisp_Object name)
 #endif
 
   /* This may be called during a GC from process_send_signal() from
-     kill_buffer_processes() if emacs decides to abort(). */
+     kill_buffer_processes() if emacs decides to ABORT(). */
   if (PROCESSP (name))
     return name;
   else if (STRINGP (name))

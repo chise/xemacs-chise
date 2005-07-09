@@ -100,6 +100,9 @@ Another interface over GNU patch.
 *** erc
 ERC is an Emacs InternetRelayChat client.
 
+*** escreen
+Multiple editing sessions withing a single frame (like screen).
+
 *** eshell
 Command shell implemented entirely in Emacs Lisp.
 
@@ -338,12 +341,18 @@ XEmacs Lisp developer support.  This package contains utilities for
 supporting Lisp development.  It is a single-file package so it may be 
 tailored.
 
+*** xlib
+Emacs interface to X server.
+
 *** xslide
 XSL editing support.
 
 *** xslt-process
 A minor mode for (X)Emacs which allows running an XSLT processor on a
 buffer.
+
+*** xwem
+X Emacs Window Manager.
 
 *** zenirc
 ZENIRC IRC Client.
