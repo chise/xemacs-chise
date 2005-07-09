@@ -1,3 +1,33 @@
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-01-29  Vin Shelton  <acs@xemacs.org>
+
+	* movemail.c (popmail): Pass error string as format parameter
+	instead of as part of format string. Security fixes for
+	CAN-2005-0100.
+
+2005-01-09  Steve Youngs  <steve@sxemacs.org>
+
+	From Andrey Slusar <anrays@gmail.com>:
+
+	* fakemail.c (CURRENT_USER): Define it if FreeBSD version is >=
+	400000.  Also, when FreeBSD version is >= 400000 geteuid returns
+	uid_t instead of unsigned short.
+
+2004-12-17  Vin Shelton  <acs@xemacs.org>
+	* etags.c (add_regex): Use zeropattern to initialize patbuf and
+	thus avoid a segv.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2004-06-23  Sean Legassick <sean@informage.net>
+
+	* etags.c: Allow whitespace before python function definitions.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

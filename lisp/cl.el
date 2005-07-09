@@ -217,7 +217,7 @@ Keywords supported:  :test :test-not :key"
 (defun cl-set-substring (str start end val)
   (if end (if (< end 0) (incf end (length str)))
     (setq end (length str)))
-  (if (< start 0) (incf start str))
+  (if (< start 0) (incf start (length str)))
   (concat (and (> start 0) (substring str 0 start))
 	  val
 	  (and (< end (length str)) (substring str end))))
@@ -319,7 +319,10 @@ definitions to shadow the loaded ones for use in file byte-compilation."
 
 (defun gensym (&optional arg)
   "Generate a new uninterned symbol.
-The name is made by appending a number to PREFIX, default \"G\"."
+The name is made by appending a number to a prefix.  If ARG is a string, it
+is the prefix, otherwise the prefix defaults to \"G\".  If ARG is an integer,
+the internal counter is reset to that number before creating the name.
+There is no way to specify both using this function."
   (let ((prefix (if (stringp arg) arg "G"))
 	(num (if (integerp arg) arg
 	       (prog1 *gensym-counter*
@@ -328,7 +331,8 @@ The name is made by appending a number to PREFIX, default \"G\"."
 
 (defun gentemp (&optional arg)
   "Generate a new interned symbol with a unique name.
-The name is made by appending a number to PREFIX, default \"G\"."
+The name is made by appending a number to ARG, default \"G\".
+If ARG is not a string, it is ignored."
   (let ((prefix (if (stringp arg) arg "G"))
 	name)
     (while (intern-soft (setq name (format "%s%d" prefix *gensym-counter*)))

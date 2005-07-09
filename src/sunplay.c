@@ -76,7 +76,7 @@ init_device (int volume, unsigned char *data, int fd,
   reset_volume_p = 0;
   reset_device_p = 0;
 
-  if (data && fd) abort (); /* one or the other */
+  if (data && fd) ABORT (); /* one or the other */
 
   if (AUDIO_SUCCESS != audio_get_play_config (audio_fd, &dev_hdr))
     {

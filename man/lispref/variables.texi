@@ -3,7 +3,7 @@
 @c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/variables.info
-@node Variables, Functions, Control Structures, Top
+@node Variables, Functions and Commands, Control Structures, Top
 @chapter Variables
 @cindex variable
 
@@ -225,7 +225,7 @@ bindings:
 
 @itemize @bullet
 @item
-Function calls (@pxref{Functions}).
+Function calls (@pxref{Functions and Commands}).
 
 @item
 Macro calls (@pxref{Macros}).

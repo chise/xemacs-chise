@@ -144,8 +144,10 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Evaluation::              How Lisp expressions are evaluated.
 * Control Structures::      Conditionals, loops, nonlocal exits.
 * Variables::               Using symbols in programs to stand for values.
-* Functions::               A function is a Lisp program
-                              that can be invoked from other functions.
+
+* Functions and Commands::  A function is a Lisp program that can be
+                            invoked from other functions.
+
 * Macros::                  Macros are a way to extend the Lisp language.
 * Customization::           Writing customization declarations.
 

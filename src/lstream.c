@@ -284,7 +284,7 @@ Lstream_delete (Lstream *lstr)
 	}
     }
 
-  abort ();
+  ABORT ();
 }
 
 #define Lstream_internal_error(reason, lstr) \
@@ -658,7 +658,7 @@ Lstream_seekable_p (Lstream *lstr)
 static int
 Lstream_pseudo_close (Lstream *lstr)
 {
-  if (!lstr->flags & LSTREAM_FL_IS_OPEN)
+  if (! (lstr->flags & LSTREAM_FL_IS_OPEN))
     Lstream_internal_error ("lstream is not open", lstr);
 
   /* don't check errors here -- best not to risk file descriptor loss */
@@ -1484,7 +1484,7 @@ make_lisp_buffer_stream_1 (struct buffer *buf, Bufpos start, Bufpos end,
 
   /* Make sure the luser didn't pass "w" in. */
   if (!strcmp (mode, "w"))
-    abort ();
+    ABORT ();
 
   if (flags & LSTR_IGNORE_ACCESSIBLE)
     {

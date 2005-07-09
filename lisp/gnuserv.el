@@ -89,6 +89,14 @@
   :group 'processes
   :group 'terminals)
 
+;;;###autoload
+(defcustom gnuserv-mode-line-string " Server"
+  "*String to display in the modeline when Gnuserv is active.
+Set this to nil if you don't want a modeline indicator."
+:type '(choice string
+		 (const :tag "none" nil))
+:group 'gnuserv)
+
 
 ;; Provide the old variables as aliases, to avoid breaking .emacs
 ;; files.  However, they are obsolete and should be converted to the
@@ -261,9 +269,10 @@ Each element is a gnuclient structure that identifies a client.")
 ;; We want the client-infested buffers to have some modeline
 ;; identification, so we'll make a "minor mode".
 (defvar gnuserv-minor-mode nil)
-(make-variable-buffer-local 'gnuserv-mode)
-(pushnew '(gnuserv-minor-mode " Server") minor-mode-alist
-	  :test 'equal)
+(make-variable-buffer-local 'gnuserv-minor-mode)
+;;(pushnew '(gnuserv-minor-mode "Server") minor-mode-alist
+;;	 :test 'equal)
+(add-minor-mode 'gnuserv-minor-mode 'gnuserv-mode-line-string)
 
 
 ;; Sample gnuserv-frame functions
@@ -399,6 +408,13 @@ This order is important as not to keep the client waiting."
   (eval form))
 
 
+
+(defun make-x-device-with-gtk-fallback (device)
+  (or (condition-case ()
+          (make-x-device device)
+        (error nil))
+      (make-gtk-device)))
+
 ;; "Execute" a client connection, called by gnuclient.  This is the
 ;; backbone of gnuserv.el.
 (defun gnuserv-edit-files (type list &rest flags)
@@ -431,7 +447,7 @@ If a flag is `view', view the files read-only."
 			  (case (car type)
 			    (tty (apply 'make-tty-device (cdr type)))
 			    (gtk (make-gtk-device))
-			    (x   (make-x-device (cadr type)))
+			    (x   (make-x-device-with-gtk-fallback (cadr type)))
 			    (mswindows   (make-mswindows-device))
 			    (t   (error "Invalid device type"))))
 			 (t

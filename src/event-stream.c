@@ -423,7 +423,7 @@ check_event_stream_ok (enum event_stream_operation op)
 	case EVENT_STREAM_READ:
 	  error ("Can't read events in -batch mode");
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
   else if (!event_stream)
@@ -1387,7 +1387,7 @@ is a race condition.  That's why the RESIGNAL argument exists.
   Lisp_Object lid;
   id = event_stream_generate_wakeup (msecs, msecs2, function, object, 0);
   lid = make_int (id);
-  if (id != XINT (lid)) abort ();
+  if (id != XINT (lid)) ABORT ();
   return lid;
 }
 
@@ -1466,7 +1466,7 @@ is a race condition.  That's why the RESIGNAL argument exists.
   Lisp_Object lid;
   id = event_stream_generate_wakeup (msecs, msecs2, function, object, 1);
   lid = make_int (id);
-  if (id != XINT (lid)) abort ();
+  if (id != XINT (lid)) ABORT ();
   return lid;
 }
 
@@ -2466,7 +2466,7 @@ A user event is a key press, button press, button release, or
     }
 
   if (!NILP (command_event_queue) || !NILP (command_event_queue_tail))
-    abort ();
+    ABORT ();
 
   /* Now tack our chain of events back on to the front of the queue.
      Actually, since the queue is now drained, we can just replace it.
@@ -3041,7 +3041,7 @@ execute_internal_event (Lisp_Object event)
 	return;
       }
     default:
-      abort ();
+      ABORT ();
     }
 }
 
@@ -3409,7 +3409,7 @@ modify them.
     Lisp_Object e = XVECTOR_DATA (Vrecent_keys_ring)[j];
 
     if (NILP (e))
-      abort ();
+      ABORT ();
     XVECTOR_DATA (val)[i] = Fcopy_event (e, Qnil);
     if (++j >= recent_keys_ring_size)
       j = 0;
@@ -3553,7 +3553,7 @@ extract_this_command_keys_nth_mouse_event (int n)
 	{
 	  if (!n)
 	    {
-	      /* must copy to avoid an abort() in next_event_internal() */
+	      /* must copy to avoid an ABORT() in next_event_internal() */
 	      if (!NILP (XEVENT_NEXT (event)))
                 return Fcopy_event (event, Qnil);
 	      else
@@ -3684,7 +3684,7 @@ lookup_command_event (struct command_builder *command_builder,
 		 || e->event_type == button_release_event)
 	  e->event.button.modifiers |= XEMACS_MOD_META;
 	else
-	  abort ();
+	  ABORT ();
 
 	{
 	  int tckn = event_chain_count (Vthis_command_keys);
@@ -4481,7 +4481,7 @@ CONSOLE defaults to the selected console if omitted.
   /* This junk is so that timestamps don't get to be negative, but contain
      as many bits as this particular emacs will allow.
    */
-  return make_int (((1L << (VALBITS - 1)) - 1) & tiempo);
+  return make_int (EMACS_INT_MAX & tiempo);
 }
 
 

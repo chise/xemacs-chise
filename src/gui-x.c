@@ -207,7 +207,10 @@ free_popup_widget_value_tree (widget_value *wv)
 }
 
 /* The following is actually called from somewhere within XtDispatchEvent(),
-   called from XtAppProcessEvent() in event-Xt.c */
+   called from XtAppProcessEvent() in event-Xt.c
+
+   Callback function for widgets and menus.
+ */
 
 void
 popup_selection_callback (Widget widget, LWLIB_ID ignored_id,

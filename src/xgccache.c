@@ -158,8 +158,8 @@ gc_cache_lookup (struct gc_cache *cache, XGCValues *gcv, unsigned long mask)
   struct gc_cache_cell *cell, *next, *prev;
   struct gcv_and_mask gcvm;
 
-  if ((!!cache->head) != (!!cache->tail)) abort ();
-  if (cache->head && (cache->head->prev || cache->tail->next)) abort ();
+  if ((!!cache->head) != (!!cache->tail)) ABORT ();
+  if (cache->head && (cache->head->prev || cache->tail->next)) ABORT ();
 
   gcvm.mask = mask;
   gcvm.gcv = *gcv;	/* this copies... */
@@ -206,10 +206,10 @@ gc_cache_lookup (struct gc_cache *cache, XGCValues *gcv, unsigned long mask)
       cell->prev = cache->tail;
       cache->tail->next = cell;
       cache->tail = cell;
-      if (cache->head == cell) abort ();
-      if (cell->next) abort ();
-      if (cache->head->prev) abort ();
-      if (cache->tail->next) abort ();
+      if (cache->head == cell) ABORT ();
+      if (cell->next) ABORT ();
+      if (cache->head->prev) ABORT ();
+      if (cache->tail->next) ABORT ();
       return cell->gc;
     }
 
@@ -231,7 +231,7 @@ gc_cache_lookup (struct gc_cache *cache, XGCValues *gcv, unsigned long mask)
 #endif
     }
   else if (cache->size > GC_CACHE_SIZE)
-    abort ();
+    ABORT ();
   else
     {
       /* Allocate a new cell (don't put it in the list or table yet). */

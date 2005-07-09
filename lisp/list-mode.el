@@ -330,19 +330,13 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 	(let ((win-width
 	       (or cl-window-width
 		   (if bufferp
-		       ;; This needs fixing for the case of windows 
-		       ;; that aren't the same width's the frame.
-		       ;; Sadly, the window it will appear in is not known
-		       ;; until after the text has been made.
-
 		       ;; We have to use last-nonminibuf-frame here
 		       ;; and not selected-frame because if a
 		       ;; minibuffer-only frame is being used it will
 		       ;; be the selected-frame at the point this is
 		       ;; run.  We keep the selected-frame call around
 		       ;; just in case.
-		       (frame-width (or (last-nonminibuf-frame)
-					(selected-frame)))
+               (window-width (get-lru-window (last-nonminibuf-frame)))
 		     80))))
 	  (let ((count 0)
 		(max-width 0)

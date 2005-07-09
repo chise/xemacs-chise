@@ -1075,7 +1075,8 @@ part of the documentation of internal subroutines."
   (let ((doc (condition-case nil
 		 (or (documentation function)
 		     (gettext "not documented"))
-	       (void-function ""))))
+	       (void-function "(alias for undefined function)")
+	       (error "(unexpected error from `documention')"))))
     (if (and strip-arglist
 	     (string-match "[\n\t ]*\narguments: ?(\\(.*\\))\n?\\'" doc))
 	(setq doc (substring doc 0 (match-beginning 0))))
@@ -1185,7 +1186,10 @@ part of the documentation of internal subroutines."
 			 (documentation-property sym
 						 'variable-documentation t)))
 	       (fun (and sym (fboundp sym)
-			 (documentation sym t))))
+			 (condition-case nil
+			     (documentation sym t)
+			   (void-function "(alias for undefined function)")
+			   (error "(unexpected error from `documention')")))))
 	  (when (or var fun)
 	    (let ((ex (make-extent b e)))
 	      (require 'hyper-apropos)

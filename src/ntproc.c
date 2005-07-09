@@ -170,7 +170,7 @@ delete_child (child_process *cp)
   /* Should not be deleting a child that is still needed. */
   for (i = 0; i < MAXDESC; i++)
     if (fd_info[i].cp == cp)
-      abort ();
+      ABORT ();
 
   if (!CHILD_ACTIVE (cp))
     return;
@@ -252,7 +252,7 @@ _sys_read_ahead (int fd)
       || (fd_info[fd].flags & FILE_READ) == 0)
     {
       /* fd is not a pipe or socket */
-      abort ();
+      ABORT ();
     }
   
   cp->status = STATUS_READ_IN_PROGRESS;
@@ -404,7 +404,7 @@ create_child (const char *exe, char *cmdline, char *env,
   SECURITY_DESCRIPTOR sec_desc;
   char dir[ MAXPATHLEN ];
   
-  if (cp == NULL) abort ();
+  if (cp == NULL) ABORT ();
   
   xzero (start);
   start.cb = sizeof (start);

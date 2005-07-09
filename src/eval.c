@@ -1408,7 +1408,7 @@ throw_or_bomb_out (Lisp_Object tag, Lisp_Object val, int bomb_out_p,
 #ifdef DEFEND_AGAINST_THROW_RECURSION
   /* die if we recurse more than is reasonable */
   if (++throw_level > 20)
-    abort();
+    ABORT();
 #endif
 
   /* If bomb_out_p is t, this is being called from Fsignal as a
@@ -1877,13 +1877,13 @@ signal_1 (Lisp_Object sig, Lisp_Object data)
       /* let's not use stderr_out() here, because that does a bunch of
 	 things that might not be safe yet. */
       fprintf (stderr, "Error before initialization is complete!\n");
-      abort ();
+      ABORT ();
     }
 
   if (gc_in_progress || in_display)
     /* This is one of many reasons why you can't run lisp code from redisplay.
        There is no sensible way to handle errors there. */
-    abort ();
+    ABORT ();
 
   conditions = Fget (sig, Qerror_conditions, Qnil);
 
@@ -2048,7 +2048,7 @@ user invokes the "return from signal" option.
 	warn_when_safe_lispobj (Vcurrent_warning_class, Qwarning,
 				Fcons (error_symbol, data));
       Fthrow (Qunbound_suspended_errors_tag, Qnil);
-      abort (); /* Better not get here! */
+      ABORT (); /* Better not get here! */
     }
   RETURN_UNGCPRO (signal_1 (error_symbol, data));
 }

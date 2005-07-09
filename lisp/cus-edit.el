@@ -232,7 +232,7 @@
   :group 'customize)
 
 (defgroup alloc nil
-  "Storage allocation and gc for GNU Emacs Lisp interpreter."
+  "Storage allocation and gc for XEmacs Lisp interpreter."
   :tag "Storage Allocation"
   :group 'internal)
 
@@ -1225,7 +1225,7 @@ item in another window.\n\n"))
   (goto-char (point-min)))
 
 (define-widget 'custom-browse-visibility 'item
-  "Control visibility of of items in the customize tree browser."
+  "Control visibility of items in the customize tree browser."
   :format "%[[%t]%]"
   :action 'custom-browse-visibility-action)
 
@@ -2032,7 +2032,7 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
 	  ;; Don't push it !!! Custom assumes that the first child is the
 	  ;; value one.
 	  (setq children (append children (list comment-widget)))))
-      ;; Update the rest of the properties properties.
+      ;; Update the rest of the properties.
       (widget-put widget :custom-form form)
       (widget-put widget :children children)
       ;; Now update the state.
@@ -2293,7 +2293,7 @@ standard setting."
       (put symbol 'saved-value nil)
       (custom-push-theme 'theme-value symbol 'user 'reset 'standard)
       ;; As a special optimizations we do not (explictly)
-      ;; save resets to standard when no theme set the value.
+      ;; save resets to standard when no theme sets the value.
       (if (null (cdr (get symbol 'theme-value)))
 	  (put symbol 'theme-value nil))
       (put symbol 'saved-variable-comment nil)
@@ -3386,43 +3386,57 @@ Leave point at the location of the call, or after the last expression."
      (custom-save-delete 'custom-set-variables)
      (custom-save-loaded-themes)
      (custom-save-resets 'theme-value 'custom-reset-variables nil)
+
      (let ((standard-output (current-buffer)))
        (unless (bolp)
- 	(princ "\n"))
+	 (princ "\n"))
        (princ "(custom-set-variables")
-       (mapatoms (lambda (symbol)
-		  (let ((spec (car-safe (get symbol 'theme-value)))
- 			(requests (get symbol 'custom-requests))
- 			(now (not (or (get symbol 'standard-value)
- 				      (and (not (boundp symbol))
- 					   (not (eq (get symbol 'force-value)
-						    'rogue))))))
-			(comment (get symbol 'saved-variable-comment)))
- 		    (when (or (and spec
-				   (eq (car spec) 'user)
-				   (eq (second spec) 'set))
-			      comment
-			      ;; support non-themed vars
-			      (and (null spec) (get symbol 'saved-value)))
- 		      (princ "\n '(")
- 		      (prin1 symbol)
- 		      (princ " ")
-		      ;; This comment stuff is in the way ####
-		      ;; Is (eq (third spec) (car saved-value)) ????
- 		      ;; (prin1 (third spec))
-		      (prin1 (car (get symbol 'saved-value)))
-		      (when (or now requests comment)
-			(princ (if now " t" " nil")))
-		      (when (or comment requests)
-			(princ " ")
-			(prin1 requests))
-		      (when comment
-			(princ " ")
-			(prin1 comment))
-		      (princ ")")))))
-      (princ ")")
-      (unless (looking-at "\n")
-	(princ "\n")))))
+
+       ;; Get the list of variables to save...
+       (let (varlist)
+	 (mapatoms (lambda (symbol)
+		     (let ((spec (car-safe (get symbol 'theme-value)))
+			   (comment (get symbol 'saved-variable-comment)))
+		       (when (or (and spec
+				      (eq (first spec) 'user)
+				      (eq (second spec) 'set))
+				 comment
+				 ;; support non-themed vars
+				 (and (null spec) (get symbol 'saved-value)))
+			 (push symbol varlist)))))
+
+	 ;; ...and sort it by name, so our output can be easily diffed, etc.
+	 (setq varlist (sort varlist #'string-lessp))
+
+	 ;; Generate the output for each var.
+	 (dolist (symbol varlist)
+	   (let ((requests (get symbol 'custom-requests))
+		 (now (not (or (get symbol 'standard-value)
+			       (and (not (boundp symbol))
+				    (not (eq (get symbol 'force-value)
+					     'rogue))))))
+		 (comment (get symbol 'saved-variable-comment))
+		 ;; Print everything, no placeholders `...'
+		 (print-level nil)
+		 (print-length nil))
+	     (princ "\n '(")
+	     (prin1 symbol)
+	     (princ " ")
+	     (prin1 (car (get symbol 'saved-value)))
+	     (when (or now requests comment)
+	       (princ (if now " t" " nil")))
+	     (when (or comment requests)
+	       (princ " ")
+	       (prin1 requests))
+	     (when comment
+	       (princ " ")
+	       (prin1 comment))
+	     (princ ")"))))
+
+       ;; Finish the output.
+       (princ ")")
+       (unless (looking-at "\n")
+	 (princ "\n")))))
 
 (defvar custom-save-face-ignoring nil)
 
@@ -3431,7 +3445,10 @@ Leave point at the location of the call, or after the last expression."
 	(comment (get symbol 'saved-face-comment))
 	(now (not (or (get symbol 'face-defface-spec)
 	      (and (not (find-face symbol))
-		   (not (eq (get symbol 'force-face) 'rogue)))))))
+		   (not (eq (get symbol 'force-face) 'rogue))))))
+        ;; Print everything, no placeholders `...'
+        (print-level nil)
+        (print-length nil))
     (when (or (and (not (memq symbol custom-save-face-ignoring))
 		   ;; Don't print default face here.
 		   (or (and theme-spec
@@ -3458,14 +3475,33 @@ Leave point at the location of the call, or after the last expression."
     (custom-save-delete 'custom-reset-faces)
     (custom-save-delete 'custom-set-faces)
     (custom-save-resets 'theme-face 'custom-reset-faces '(default))
-    (let ((standard-output (current-buffer)))
+    (let ((standard-output (current-buffer))
+          (sorted-list ()))
+      ;; Create a sorted list of faces
+      (mapatoms
+       (lambda (symbol)
+	 (let ((theme-spec (car-safe (get symbol 'theme-face)))
+	       (comment (get symbol 'saved-face-comment)))
+	   (when
+	       (or (and (not (memq symbol custom-save-face-ignoring))
+			;; Don't print default face here.
+			(or (and theme-spec
+				 (eq (car theme-spec) 'user)
+				 (eq (second theme-spec) 'set))
+			    ;; cope with non-themed faces
+			    (and (null theme-spec)
+				 (get symbol 'saved-face))))
+		   comment)
+	     (push symbol sorted-list)))))
+      (setq sorted-list (sort sorted-list 'string<))
       (unless (bolp)
 	(princ "\n"))
       (princ "(custom-set-faces")
 	;; The default face must be first, since it affects the others.
       (custom-save-face-internal 'default)
       (let ((custom-save-face-ignoring '(default)))
-	(mapatoms #'custom-save-face-internal))
+	(mapc 'custom-save-face-internal
+              sorted-list))
       (princ ")")
       (unless (looking-at "\n")
 	(princ "\n")))))
@@ -3476,7 +3512,9 @@ Leave point at the location of the call, or after the last expression."
     ;; (custom-save-delete setter) Done by caller
     (let ((standard-output (current-buffer))
 	  (mapper `(lambda (object)
-		    (let ((spec (car-safe (get object (quote ,property)))))
+		    (let ((spec (car-safe (get object (quote ,property))))
+			  (print-level nil)
+			  (print-length nil))
 		      (when (and (not (memq object ignored-special))
 				 (eq (car spec) 'user)
 				 (eq (second spec) 'reset))
@@ -3496,13 +3534,14 @@ Leave point at the location of the call, or after the last expression."
       (setq ignored-special special)
       (mapatoms mapper)
       (when started-writing
-	(princ ")\n"))))
-    )
+	(princ ")\n")))))
 
 
 (defun custom-save-loaded-themes ()
   (let ((themes (reverse (get 'user 'theme-loads-themes)))
-	(standard-output (current-buffer)))
+	(standard-output (current-buffer))
+        (print-level nil)
+        (print-length nil))
     (when themes
       (unless (bolp) (princ "\n"))
       (princ "(custom-load-themes")

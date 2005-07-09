@@ -642,7 +642,7 @@ EmacsFrameRecomputeCellSize (Widget w)
   struct frame *f = ew->emacs_frame.frame;
 
   if (! XtIsSubclass (w, emacsFrameClass))
-    abort ();
+    ABORT ();
 
   default_face_height_and_width (make_frame (f), &ch, &cw);
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))

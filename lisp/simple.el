@@ -1966,7 +1966,7 @@ intervening text will be added to the active region.
 
 When the region has been enabled or augmented as a result of a shifted
 motion key, an unshifted motion key will normally deselect the region.
-However, if `unshifted-motion-keys-deselect-region' is t, the region
+However, if `unshifted-motion-keys-deselect-region' is nil, the region
 will remain active, augmented by the characters moved over by this
 motion key.
 

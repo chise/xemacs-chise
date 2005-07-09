@@ -475,6 +475,14 @@ typedef struct {
 # include <sys/exec_elf.h>
 #endif
 
+#if defined(__FreeBSD__) && (defined(__alpha__) || defined(__amd64__))
+# ifdef __STDC__
+#  define ElfW(type)   Elf64_##type
+# else
+#  define ElfW(type)   Elf64_/**/type
+# endif
+#endif
+
 #if __GNU_LIBRARY__ - 0 >= 6
 # include <link.h>	/* get ElfW etc */
 #endif

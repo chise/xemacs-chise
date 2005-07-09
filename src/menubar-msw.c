@@ -678,12 +678,12 @@ prune_menubar (struct frame *f)
   if (menubar == NULL)
     return;
 
-  /* #### If a filter function has set desc to Qnil, this abort()
+  /* #### If a filter function has set desc to Qnil, this ABORT()
      triggers. To resolve, we must prevent filters explicitly from
      mangling with the active menu. In apply_filter probably?
      Is copy-tree on the whole menu too expensive? */
   if (NILP (desc))
-    /* abort(); */
+    /* ABORT(); */
     return;
 
   GCPRO1 (desc); /* just to be safe -- see above */

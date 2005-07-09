@@ -45,10 +45,10 @@ all: ${DUMP_TARGET}
 .SUFFIXES: .c .h .o .i .s .dep
 
 #ifdef USE_GNU_MAKE
-RECURSIVE_MAKE=$(MAKE)
+RECURSIVE_MAKE_ARGS=
 #else
 @SET_MAKE@
-RECURSIVE_MAKE=@RECURSIVE_MAKE@
+RECURSIVE_MAKE_ARGS=@RECURSIVE_MAKE_ARGS@
 #endif
 
 SHELL=/bin/sh
@@ -122,7 +122,7 @@ LWLIB_SRCDIR = ${srcdir}/../lwlib
 lwlib_libs = ../lwlib/liblw.a
 lwlib_deps = $(lwlib_libs)
 $(lwlib_libs) :
-	cd ../lwlib && $(RECURSIVE_MAKE)
+	cd ../lwlib && $(MAKE) $(RECURSIVE_MAKE_ARGS)
 
 x_objs=console-x.o device-x.o event-Xt.o frame-x.o\
  glyphs-x.o objects-x.o redisplay-x.o select-x.o xgccache.o
@@ -151,13 +151,14 @@ profile_objs=profile.o
 
 cppflags = $(CPPFLAGS) -Demacs -I. $(c_switch_all)
 cflags   = $(CFLAGS) $(cppflags)
-#if defined (WIN32_NATIVE) || defined (CYGWIN)
+#if defined (WIN32_NATIVE)
 ldflags  = $(LDFLAGS) -mwindows -e _mainCRTStartup $(ld_switch_all) $(ld_dynamic_link_flags)
-# if defined (CYGWIN)
-ldflags += -Wl,--script=s/cygwin.sc
-# endif
 #else
 ldflags  = $(LDFLAGS) $(ld_switch_all) $(ld_dynamic_link_flags)
+#endif
+
+#if defined (CYGWIN) && !defined (PDUMP)
+ldflags += -Wl,--script=s/cygwin.sc
 #endif
 
 #ifdef SOLARIS2
@@ -391,7 +392,7 @@ dortl : $(obj_rtl) $(otherrtls)
 #ifdef DYNODUMP
 dynodump_deps = ../dynodump/dynodump.so
 ../dynodump/dynodump.so:
-	cd ../dynodump && $(RECURSIVE_MAKE)
+	cd ../dynodump && $(MAKE) $(RECURSIVE_MAKE_ARGS)
 #endif /* DYNODUMP */
 
 ${libsrc}DOC: ${EXE_TARGET} update-elc.stamp
@@ -406,7 +407,7 @@ dump-elcs: ${EXE_TARGET}
 	-${DUMPENV} ./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/update-elc.el
 
 all-elc all-elcs:
-	cd .. && $(RECURSIVE_MAKE) all-elc
+	cd .. && $(MAKE) $(RECURSIVE_MAKE_ARGS) all-elc
 
 #ifdef I18N3
 
@@ -430,18 +431,18 @@ ${mo_dir}emacs.mo: ${mo_dir}emacs.po
 	cd ${mo_dir} && ${msgfmt} -o emacs.mo emacs.po
 
 ${libsrc}make-msgfile:
-	cd ${libsrc} && $(RECURSIVE_MAKE) make-msgfile
+	cd ${libsrc} && $(MAKE) $(RECURSIVE_MAKE_ARGS) make-msgfile
 
 ${libsrc}make-po:
-	cd ${libsrc} && $(RECURSIVE_MAKE) make-po
+	cd ${libsrc} && $(MAKE) $(RECURSIVE_MAKE_ARGS) make-po
 
 #endif /* I18N3 */
 
 ${libsrc}make-dump-id:
-	cd ${libsrc} && $(RECURSIVE_MAKE) make-dump-id
+	cd ${libsrc} && $(MAKE) $(RECURSIVE_MAKE_ARGS) make-dump-id
 
 ${libsrc}make-docfile:
-	cd ${libsrc} && $(RECURSIVE_MAKE) make-docfile
+	cd ${libsrc} && $(MAKE) $(RECURSIVE_MAKE_ARGS) make-docfile
 
 ## Lint Section
 LINT.c=$(LINT) $(LINTFLAGS) $(LINTINCLUDES)

@@ -280,7 +280,7 @@ x_update_scrollbar_instance_status (struct window *w, int active, int size,
 	    }
 	}
 
-      if (!wv->scrollbar_data) abort ();
+      if (!wv->scrollbar_data) ABORT ();
       free_widget_value_tree (wv);
     }
   else if (managed)
@@ -366,7 +366,7 @@ x_scrollbar_loop (enum x_scrollbar_loop type, Lisp_Object window,
 		}
 	      break;
 	    default:
-	      abort ();
+	      ABORT ();
 	    }
 	}
 
@@ -685,13 +685,13 @@ x_scrollbar_pointer_changed_in_window (struct window *w)
 void
 x_update_frame_scrollbars (struct frame *f)
 {
-  /* Consider this code to be "in_display" so that we abort() if Fsignal()
+  /* Consider this code to be "in_display" so that we ABORT() if Fsignal()
      gets called. */
   in_display++;
   x_scrollbar_loop (X_UPDATE_FRAME_SCROLLBARS, f->root_window, f->root_mirror,
 		    0, (Window) NULL);
   in_display--;
-  if (in_display < 0) abort ();
+  if (in_display < 0) ABORT ();
 }
 
 #ifdef MEMORY_USAGE_STATS

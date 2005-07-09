@@ -1778,7 +1778,7 @@ in that frame; otherwise change each frame."
 (make-face 'underline "Underlined text.")
 (or (face-differs-from-default-p 'underline)
     (set-face-underline-p 'underline t 'global '(default)))
-(make-face 'zmacs-region "Used on highlightes region between point and mark.")
+(make-face 'zmacs-region "Used on highlighted region between point and mark.")
 (make-face 'isearch "Used on region matched by isearch.")
 (make-face 'isearch-secondary "Face to use for highlighting all matches.")
 (make-face 'list-mode-item-selected

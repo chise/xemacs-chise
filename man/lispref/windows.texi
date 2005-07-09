@@ -48,7 +48,7 @@ multiple nonoverlapping Emacs windows.
 
   In each frame, at any time, one and only one window is designated as
 @dfn{selected within the frame}.  The frame's cursor appears in that
-window.  At ant time, one frame is the selected frame; and the window
+window.  At any time, one frame is the selected frame; and the window
 selected within that frame is @dfn{the selected window}.  The selected
 window's buffer is usually the current buffer (except when
 @code{set-buffer} has been used).  @xref{Current Buffer}.

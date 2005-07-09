@@ -140,7 +140,7 @@ the directory to be ignored."
 	  ((< (package-get-key name :version) version)
 	   (error 'search-failed
 		  (format "Need version %g of package %s, got version %g"
-			  version name (cdr pkg))))
+			  version name (package-get-key name :version))))
 	  (t t))))
 
 (defun package-delete-name (name)

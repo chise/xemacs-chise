@@ -2127,6 +2127,7 @@ along with the characters; this includes such diverse functions as
 * Special Properties::		Particular properties with special meanings.
 * Saving Properties::           Saving text properties in files, and reading
                                   them back.
+* Fields::			Emacs-compatible text fields.
 @end menu
 
 @node Examining Properties
@@ -2458,6 +2459,126 @@ difficult to write, and slow.  Instead, choose a set of possible data
 types that are reasonably flexible, and not too hard to encode.
 
 @xref{Format Conversion}, for a related feature.
+
+@node Fields
+@subsection Fields
+@cindex text fields
+@cindex fields
+
+Emacs supplies a notion of a @emph{text field}, which is a region of
+text where every character has the same value of the @code{field}
+property.  It is used to identify regions of a buffer used for
+communicating with an external process, for example.  XEmacs supplies a
+compatible interface.  In XEmacs, the @code{field} property can be set
+as either an extent property or a text property, mirroring the Emacs
+capability of using either overlays or text properties.
+
+The field manipulating functions take a buffer position as the
+field-identifying argument, defaulting to point.  This really means the
+field containing that buffer position.  Consecutive buffer positions
+with no @code{field} property are considered an ``empty'' field.  There
+is some ambiguity when a specified buffer position falls at the very
+beginning or the very end of a field: does it belong to the preceding or
+the following field?  The answer depends on the openness or closedness
+of the corresponding extents (@pxref{Extent Endpoints}).  A buffer
+position corresponds to the field whose property would be inherited by a
+character inserted at that position.  If the buffer position is between
+an end-open and a start-open extent, then it corresponds to an empty
+field at that position, since an inserted character will belong to
+neither extent.
+
+@defvar inhibit-field-text-motion
+This variable controls whether the text motion commands notice fields or
+not.  When it is nil (the default), commands such as beginning-of-line
+will try to move only within fields.
+@end defvar
+
+@defun make-field value from to &optional buffer
+There is no Emacs counterpart to this function.  The default open and
+closedness of extents in XEmacs is opposite to the default for Emacs
+overlays.  Hence, fields based on extents in XEmacs behave differently
+from the equivalent fields based on overlays in Emacs.  This function
+creates a field with value @var{value} over the region @var{from} to
+@var{to} in @var{buffer}, which defaults to the current buffer, with the
+default Emacs open and closedness.
+@end defun
+
+@defun find-field &optional pos merge-at-boundary beg-limit end-limit
+There is no (Lisp-visible) Emacs counterpart to this function.  It is
+the workhorse for the other functions.  It returns a dotted pair
+@code{(start . stop)} holding the endpoints of the field matching a
+specification.  If @var{pos} is non-@code{nil}, it specifies a buffer
+position whose enclosing field should be found; otherwise, the value of
+point is used.
+
+If @var{merge-at-boundary} is non-@code{nil}, then two changes are made
+to the search algorithm.  First, if @var{pos} is at the very first
+position of a field, then the beginning of the previous field is
+returned instead of the beginning of @var{pos}'s field.  Second, if the
+value of the @code{field} property at @var{pos} is the symbol
+@code{boundary}, then the beginning of the field before the boundary
+field and the end of the field after the boundary field are returned.
+
+If @var{beg-limit} is a buffer position, and the start position that
+would be returned is less than @var{beg-limit}, then @var{beg-limit} is
+returned instead.  Likewise, if @var{end-limit} is a buffer position,
+and the stop position that would be returned is greater than
+@var{end-limit}, then @var{end-limit} is returned instead.
+@end defun
+
+@defun delete-field &optional pos
+Delete the text of the field at @var{pos}.
+@end defun
+
+@defun field-string &optional pos
+Return the contents of the field at @var{pos} as a string.
+@end defun
+
+@defun field-string-no-properties &optional pos
+Return the contents of the field at @var{pos} as a string, without text
+properties.
+@end defun
+
+@defun field-beginning &optional pos escape-from-edge limit
+Return the beginning of the field at @var{pos}.  If
+@var{escape-from-edge} is non-nil and @var{pos} is at the beginning of a
+field, then the beginning of the field that ends at @var{pos} is
+returned instead.  If @var{limit} is a buffer position and the returned
+value would be less than @var{limit}, then @var{limit} is returned
+instead.
+@end defun
+
+@defun field-end &optional pos escape-from-edge limit
+Return the end of the field at @var{pos}.  If @var{escape-from-edge} is
+non-nil and @var{pos} is at the end of a field, then the end of the
+field that begins at @var{pos} is returned instead.  If @var{limit} is a
+buffer position and the returned value would be greater than
+@var{limit}, then @var{limit} is returned instead.
+@end defun
+
+@defun constrain-to-field new-pos old-pos &optional escape-from-edge only-in-line inhibit-capture-property
+Return the position closest to @var{new-pos} that is in the same field
+as @var{old-pos}.  If @var{new-pos} is @code{nil}, then the value of
+point is used instead @emph{and} point is set to the value that is
+returned.
+
+If @var{escape-from-edge} is non-@code{nil} and @var{old-pos} is at the
+boundary of two fields, then the two adjacent fields are considered one
+field.  Furthermore, if @var{new-pos} is in a field whose @code{field}
+property is the symbol @code{boundary}, then the preceding field, the
+boundary field, and the following field are considered one field.
+
+If @var{only-in-line} is non-@code{nil} and the returned position would
+be on a different line than @var{new-pos}, return @var{new-pos} instead.
+
+If @var{inhibit-capture-property} is non-@code{nil} and the character at
+@var{old-pos} has a property of the same name as the value of
+@var{inhibit-capture-property}, then all field boundaries are ignored;
+i.e., @var{new-pos} is returned.
+
+If @var{inhibit-field-text-motion} is non-@code{nil}, then all field
+boundaries are ignored and this function always returns @var{new-pos}.
+@end defun
 
 @node Substitution
 @section Substituting for a Character Code

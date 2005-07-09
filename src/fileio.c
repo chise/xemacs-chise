@@ -3199,6 +3199,11 @@ of the CODESYS argument under XEmacs/Mule. (When Mule support is not
 present, both functions are identical and ignore the CODESYS argument.)
 If support for Mule exists in this Emacs, the file is encoded according
 to the value of CODESYS.  If this is nil, no code conversion occurs.
+
+As a special kludge to support auto-saving, when START is nil START and
+END are set to the beginning and end, respectively, of the buffer,
+regardless of any restrictions.  Don't use this feature.  It is documented
+here because write-region handler writers need to be aware of it.
 */
        (start, end, filename, append, visit, lockname, codesys))
 {
@@ -3923,7 +3928,7 @@ do_auto_save_unwind_2 (Lisp_Object old_auto_saving)
    and if so, tries to avoid touching lisp objects.
 
    The only time that Fdo_auto_save() is called while GC is in progress
-   is if we're going down, as a result of an abort() or a kill signal.
+   is if we're going down, as a result of an ABORT() or a kill signal.
    It's fairly important that we generate autosave files in that case!
  */
 

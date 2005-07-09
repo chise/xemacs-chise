@@ -439,7 +439,7 @@ interrupt_signal (int sig)
         c = getc (stdin);
       stdout_out ("Abort (and dump core)? (y or n) ");
       if (((c = getc (stdin)) & ~040) == 'Y')
-	abort ();
+	ABORT ();
       while (c != '\n')
         c = getc (stdin);
       stdout_out ("Continuing...\n");

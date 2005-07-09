@@ -149,9 +149,17 @@ extern int fclose (), pclose ();
 extern char *malloc (), *realloc ();
 #endif
 
+#if defined(__FreeBSD_version) && __FreeBSD_version >= 400000
+#define CURRENT_USER
+#endif
+
 #ifdef CURRENT_USER
 extern struct passwd *getpwuid ();
+#if defined(__FreeBSD_version) && __FreeBSD_version >= 400000
+extern uid_t geteuid ();
+#else
 extern unsigned short geteuid ();
+#endif
 static struct passwd *my_entry;
 #define cuserid(s)				\
 (my_entry = getpwuid ((int) geteuid ()),	\

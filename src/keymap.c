@@ -472,7 +472,7 @@ keymap_lookup_directly (Lisp_Object keymap,
   if ((modifiers & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_META | XEMACS_MOD_SUPER
 		     | XEMACS_MOD_HYPER | XEMACS_MOD_ALT | XEMACS_MOD_SHIFT))
       != 0)
-    abort ();
+    ABORT ();
 
   k = XKEYMAP (keymap);
 
@@ -547,7 +547,7 @@ keymap_delete_inverse_internal (Lisp_Object inverse_table,
   Lisp_Object *prev;
 
   if (UNBOUNDP (keys))
-    abort ();
+    ABORT ();
 
   for (prev = &new_keys, tail = new_keys;
        ;
@@ -1719,7 +1719,7 @@ ensure_meta_prefix_char_keymapp (Lisp_Object keys, int indx,
   else
     {
       new_keys = Qnil;
-      abort ();
+      ABORT ();
     }
 
   if (EQ (keys, new_keys))
@@ -3060,10 +3060,10 @@ accessible_keymaps_mapper_1 (Lisp_Object keysym, Lisp_Object contents,
       key.modifiers = modifiers;
 
       if (NILP (cmd))
-	abort ();
+	ABORT ();
       cmd = get_keymap (cmd, 0, 1);
       if (!KEYMAPP (cmd))
-	abort ();
+	ABORT ();
 
       vec = make_vector (XVECTOR_LENGTH (thisseq) + 1, Qnil);
       len = XVECTOR_LENGTH (thisseq);
@@ -3589,7 +3589,7 @@ where_is_recursive_mapper (Lisp_Object map, void *arg)
 	  /* OK, the key is for real */
 	  if (target_buffer)
 	    {
-	      if (!firstonly) abort ();
+	      if (!firstonly) ABORT ();
 	      format_raw_keys (so_far, keys_count + 1, target_buffer);
 	      return make_int (1);
 	    }
@@ -4352,8 +4352,28 @@ You should *bind* this, not set it.
 
   DEFVAR_LISP ("key-translation-map", &Vkey_translation_map /*
 Keymap of key translations that can override keymaps.
-This keymap works like `function-key-map', but comes after that,
+
+This keymap works like `function-key-map', but is searched before it,
 and applies even for keys that have ordinary bindings.
+
+The `read-key-sequence' function replaces any subsequence bound by
+`key-translation-map' with its binding.  More precisely, when the active
+keymaps have no binding for the current key sequence but
+`key-translation-map' binds a suffix of the sequence to a vector or string,
+`read-key-sequence' replaces the matching suffix with its binding, and
+continues with the new sequence.  See `key-binding' for details.
+
+The events that come from bindings in `key-translation-map' are not
+themselves looked up in `key-translation-map'.
+
+#### FIXME: stolen from `function-key-map'; need better example.
+#### I guess you could implement a Dvorak keyboard with this?
+For example, suppose `key-translation-map' binds `ESC O P' to [f1].
+Typing `ESC O P' to `read-key-sequence' would return
+\[#<keypress-event f1>].  Typing `C-x ESC O P' would return
+\[#<keypress-event control-X> #<keypress-event f1>].  If [f1]
+were a prefix key, typing `ESC O P x' would return
+\[#<keypress-event f1> #<keypress-event x>].
 */ );
   Vkey_translation_map = Qnil;
 

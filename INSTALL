@@ -42,10 +42,10 @@ Lisp libraries, miscellaneous data files, and on-line documentation. The
 exact amount depends greatly on the number of extra lisp packages that are
 installed 
 
-XEmacs requires an ANSI C compiler, such as GCC.  If you wish to build
-the documentation yourself, you will need at least version 1.68 of
-makeinfo (GNU texinfo-3.11).  GNU Texinfo 4.2 is recommended; it is
-necessary for building packages, and we may move to it for the core.
+XEmacs requires an ANSI C compiler, such as GCC.  If you wish to build the
+documentation yourself, you will need at least version 1.68 of makeinfo (GNU
+texinfo-3.11).  GNU Texinfo 4.2 is recommended; it is necessary for building
+Lisp packages, and we may move to it for the core.
 
 ADD-ON LIBRARIES
 ================

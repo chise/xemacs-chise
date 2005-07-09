@@ -1054,7 +1054,7 @@ nt_send_process (Lisp_Object proc, struct lstream* lstream)
 
       chunklen = Lstream_read (lstream, chunkbuf, 512);
       if (chunklen <= 0)
-	break; /* perhaps should abort() if < 0?
+	break; /* perhaps should ABORT() if < 0?
 		  This should never happen. */
 
       /* Lstream_write() will never successfully write less than the

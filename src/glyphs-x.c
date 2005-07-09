@@ -1150,7 +1150,7 @@ init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
       break;
 
     default:
-      abort ();
+      ABORT ();
     }
 }
 
@@ -1277,7 +1277,7 @@ extract_xpm_color_names (XpmAttributes *xpmattrs, Lisp_Object device,
       /* Duplicate the pixel value so that we still have a lock on it if
 	 the pixel we were passed is later freed. */
       if (! XAllocColor (dpy, cmap, &color))
-	abort ();  /* it must be allocable since we're just duplicating it */
+	ABORT ();  /* it must be allocable since we're just duplicating it */
 
       symbols [i].name = (char *) XSTRING_DATA (XCAR (cons));
       symbols [i].pixel = color.pixel;
@@ -1632,7 +1632,7 @@ x_xpm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       break;
 
     default:
-      abort ();
+      ABORT ();
     }
 
   xpm_free (&xpmattrs);	/* after we've read pixels and hotspot */

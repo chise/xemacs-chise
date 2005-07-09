@@ -572,7 +572,7 @@ set_frame_menubar (struct frame *f, int deep_p, int first_time_p)
 
   data = compute_menubar_data (f, menubar, deep_p);
   if (!data || (!data->next && !data->contents))
-    abort ();
+    ABORT ();
 
   if (NILP (FRAME_MENUBAR_DATA (f)))
     {

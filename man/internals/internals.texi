@@ -3109,7 +3109,7 @@ Speed up redisplay.
 @item
 Speed up syntax highlighting.  It was suggested that ``maybe moving some
 of the syntax highlighting capabilities into C would make a
-difference.''  Wrong idea, I think.  When processing one large file a
+difference.''  Wrong idea, I think.  When processing one 400kB file a
 particular low-level routine was being called 40 @emph{million} times
 simply for @emph{one} call to @code{newline-and-indent}.  Syntax
 highlighting needs to be rewritten to use a reliable, fast parser, then
@@ -3248,21 +3248,24 @@ All @file{.c} files should @code{#include <config.h>} first.  Almost all
 @file{.c} files should @code{#include "lisp.h"} second.
 
 @item
-Generated header files should be included using the @code{#include <...>} syntax,
-not the @code{#include "..."} syntax.  The generated headers are:
+Generated header files should be included using the @samp{#include <...>}
+syntax, not the @samp{#include "..."} syntax.  The generated headers are:
 
 @file{config.h sheap-adjust.h paths.h Emacs.ad.h}
 
-The basic rule is that you should assume builds using @code{--srcdir}
-and the @code{#include <...>} syntax needs to be used when the
+The basic rule is that you should assume builds using @samp{--srcdir}
+and the @samp{#include <...>} syntax needs to be used when the
 to-be-included generated file is in a potentially different directory
-@emph{at compile time}.  The non-obvious C rule is that @code{#include "..."}
-means to search for the included file in the same directory as the
-including file, @emph{not} in the current directory.
+@emph{at compile time}.  The non-obvious C rule is that
+@samp{#include "..."} means to search for the included file in the same
+directory as the including file, @emph{not} in the current directory.
+Normally this is not a problem but when building with @samp{--srcdir},
+@file{make} will search the @samp{VPATH} for you, while the C compiler
+knows nothing about it.
 
 @item
-Header files should @emph{not} include @code{<config.h>} and
-@code{"lisp.h"}.  It is the responsibility of the @file{.c} files that
+Header files should @emph{not} include @samp{<config.h>} and
+@samp{"lisp.h"}.  It is the responsibility of the @file{.c} files that
 use it to do so.
 
 @end itemize
@@ -4569,6 +4572,37 @@ delimiter.  The @samp{newline} character is given (single-character)
 sequence'' @emph{flag}.  The ``comment-end'' class allows the scanner to
 determine that no second character is needed to terminate the comment.
 
+There used to be a syntax class @samp{Sextword}.  A character of
+@samp{Sextword} class is a word-constituent but a word boundary may
+exist between two such characters.  Ken'ichi HANDA <handa@@etl.go.jp>
+explains the purpose of the Sextword syntax category:
+
+@quotation
+Japanese words are not separated by spaces, which makes finding word
+boundaries very difficult.  Theoretically it's impossible without
+using natural language processing techniques.  But, by defining
+pseudo-words as below (much simplified for letting you understand it
+easily) for Japanese, we can have a convenient forward-word function
+for Japanese.
+
+@display
+A Japanese word is a sequence of characters that consists of
+zero or more Kanji characters followed by zero or more
+Hiragana characters.
+@end display
+
+Then, the problem is that now we can't say that a sequence of
+word-constituents makes up a word.  For instance, both Hiragana "A"
+and Kanji "KAN" are word-constituents but the sequence of these two
+letters can't be a single word.
+
+So, we introduced Sextword for Japanese letters.
+@end quotation
+
+There seems to have been some controversy about this category, as it has
+been removed, readded, and removed again.  Currently neither GNU Emacs
+(21.3.99) nor XEmacs (21.5.17) seems to use it.
+
 
 @example
 casefiddle.c
@@ -5090,8 +5124,8 @@ to specify conversions of names of files and directories.  The standard
 C I/O functions like @samp{open()} are wrapped so that conversion occurs
 automatically.
 
-@file{mule.c} provides a few miscellaneous things that should probably
-be elsewhere.
+@file{mule.c} contains a few miscellaneous things.  It currently seems
+to be unused and probably should be removed.
 
 
 
@@ -5136,6 +5170,7 @@ mule-tests.el
 regexp-tests.el
 symbol-tests.el
 syntax-tests.el
+tag-tests.el
 @end example
 
 @file{test-harness.el} defines the macros @code{Assert},
@@ -9549,6 +9584,15 @@ In XEmacs, glyphs represent the uninstantiated state of graphical
 elements, i.e. they hold all the information necessary to produce an
 image on-screen but the image need not exist at this stage, and multiple
 screen images can be instantiated from a single glyph.
+
+@c #### find a place for this discussion
+@c The decision to make image specifiers a separate type is debatable.
+@c In fact, the design decision to create a separate image specifier
+@c type, rather than make glyphs themselves be specifiers, is
+@c debatable---the other properties of glyphs are rarely used and could
+@c conceivably have been incorporated into the glyph's instantiator.
+@c The rarely used glyph types (buffer, pointer, icon) could also have
+@c been incorporated into the instantiator.
 
 Glyphs are lazily instantiated by calling one of the glyph
 functions. This usually occurs within redisplay when
