@@ -1,3 +1,8 @@
+2005-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fget_range_char_table): Fix serious problem when
+	`range' is nil.
+
 2005-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (char_table_get_db): Use `read_from_c_string'.
