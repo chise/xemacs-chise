@@ -25,18 +25,6 @@
 
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; IPA (International Phonetic Alphabet)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(make-charset 'ipa "International Phonetic Alphabet"
-	      '(registry "MuleIPA"
-		dimension 1
-		chars 96
-		final ?0
-		graphic 1
-		))		; for XEmacs
-
 (defun setup-ipa-environment ()
   "Setup multilingual environment (MULE) for IPA."
   (interactive)
