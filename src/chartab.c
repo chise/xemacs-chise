@@ -2328,6 +2328,11 @@ If there is more than one value, return MULTI (defaults to nil).
 #endif /* not UTF2000 */
 #endif /* not MULE */
 
+#ifdef UTF2000
+    case CHARTAB_RANGE_DEFAULT:
+      return ct->default_value;
+#endif /* not UTF2000 */
+
     default:
       ABORT ();
     }
