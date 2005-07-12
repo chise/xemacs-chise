@@ -416,7 +416,7 @@ update_syntax_cache (int pos, int count)
   else
     {
       tmp_table = Qnil;	/* silence compiler */
-      /* Always aborts.  #### Is there another sensible thing to do here? */
+      /* Always ABORTs.  #### Is there another sensible thing to do here? */
       assert (BUFFERP (syntax_cache.object) || STRINGP (syntax_cache.object));
     }
 

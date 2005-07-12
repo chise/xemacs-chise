@@ -222,7 +222,7 @@ parse_doprnt_spec (const Bufbyte *format, Bytecount format_length)
 		case ' ': spec.space_flag  = 1; break;
 		case '#': spec.number_flag = 1; break;
 		case '0': spec.zero_flag   = 1; break;
-		default: abort ();
+		default: ABORT ();
 		}
 	      NEXT_ASCII_BYTE (ch);
 	    }
@@ -383,7 +383,7 @@ get_doprnt_args (printf_spec_dynarr *specs, va_list vargs)
 	arg.d = va_arg (vargs, double);
       else if (strchr (string_converters, ch))
 	arg.bp = va_arg (vargs, Bufbyte *);
-      else abort ();
+      else ABORT ();
 
       Dynarr_add (args, arg);
     }

@@ -412,7 +412,7 @@ free_lcrecord (struct lcrecord_header *lcrecord)
 	      break;
 	    }
 	  else if (next == 0)
-	    abort ();
+	    ABORT ();
 	  else
 	    header = next;
 	}

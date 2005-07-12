@@ -58,6 +58,10 @@ Boston, MA 02111-1307, USA.  */
 #include "dragdrop.h"
 #endif
 
+#ifdef HAVE_MENUBARS
+# include "menubar.h"
+#endif
+
 #if defined (HAVE_OFFIX_DND)
 #include "offix.h"
 #endif
@@ -88,12 +92,25 @@ static int last_quit_check_signal_tick_count;
 Lisp_Object Qkey_mapping;
 Lisp_Object Qsans_modifiers;
 
-static void enqueue_gtk_dispatch_event (Lisp_Object event);
+void enqueue_gtk_dispatch_event (Lisp_Object event);
 
+/*
+ * Identify if the keysym is a modifier.  This implementation mirrors x.org's
+ * IsModifierKey(), but for GDK keysyms.
+ */
+#ifdef GDK_ISO_Lock
+#define IS_MODIFIER_KEY(keysym)  \
+  ((((keysym) >= GDK_Shift_L) && ((keysym) <= GDK_Hyper_R)) \
+   || (((keysym) >= GDK_ISO_Lock) && \
+       ((keysym) <= GDK_ISO_Last_Group_Lock)) \
+   || ((keysym) == GDK_Mode_switch) \
+   || ((keysym) == GDK_Num_Lock))
+#else
 #define IS_MODIFIER_KEY(keysym)  \
   ((((keysym) >= GDK_Shift_L) && ((keysym) <= GDK_Hyper_R)) \
    || ((keysym) == GDK_Mode_switch) \
    || ((keysym) == GDK_Num_Lock))
+#endif
 
 
 
@@ -1090,7 +1107,7 @@ dragndrop_dropped (GtkWidget *widget,
 
 static Lisp_Object dispatch_event_queue, dispatch_event_queue_tail;
 
-static void
+void
 enqueue_gtk_dispatch_event (Lisp_Object event)
 {
   enqueue_event (event, &dispatch_event_queue, &dispatch_event_queue_tail);
@@ -1290,6 +1307,22 @@ gtk_event_to_emacs_event (struct frame *frame, GdkEvent *gdk_event, struct Lisp_
 	  {
 	    GdkEventKey *key_event = &gdk_event->key;
 	    Lisp_Object keysym;
+
+#ifdef HAVE_MENUBARS
+	    /* If the user wants see if the event is a menu bar accelerator.
+	       The process of checking absorbs the event and starts menu
+	       processing so send a null event into XEmacs to make sure it
+	       does nothing.
+	    */
+	    if (!NILP (Vmenu_accelerator_enabled)
+		&& gtk_accel_groups_activate(GTK_OBJECT (FRAME_GTK_SHELL_WIDGET(frame)),
+					     key_event->keyval,
+					     *state))
+	      {
+		zero_event(emacs_event);
+		return 1;
+	      }
+#endif
 
 	    /* This used to compute the frame from the given X window and
 	       store it here, but we really don't care about the frame. */

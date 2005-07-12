@@ -520,7 +520,7 @@ find_context (struct buffer *buf, Bufpos pt)
 	      context_cache.context = context_comment;
 	      context_cache.ccontext = ccontext_none;
 	      context_cache.style = SINGLE_SYNTAX_STYLE (syncode);
-	      if (context_cache.style == comment_style_none) abort ();
+	      if (context_cache.style == comment_style_none) ABORT ();
 	    }
 	  break;
 
@@ -612,7 +612,7 @@ find_context (struct buffer *buf, Bufpos pt)
 	{
 	  context_cache.ccontext = ccontext_start2;
 	  context_cache.style = SYNTAX_START_STYLE (prev_syncode, syncode);
-	  if (context_cache.style == comment_style_none) abort ();
+	  if (context_cache.style == comment_style_none) ABORT ();
 	}
       else if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 		SYNTAX_FIRST_CHAR_START) &&
@@ -653,18 +653,18 @@ find_context (struct buffer *buf, Bufpos pt)
 	   comment-end sequence. ie, '/xxx foo xxx/' or '/xxx foo x/',
 	   where 'x' = '*' -- mct */
 	{
-	  if (context_cache.style == comment_style_none) abort ();
+	  if (context_cache.style == comment_style_none) ABORT ();
 	  context_cache.ccontext = ccontext_end1;
 	}
 
       else if (context_cache.ccontext == ccontext_start1)
 	{
-	  if (context_cache.context != context_none) abort ();
+	  if (context_cache.context != context_none) ABORT ();
 	  context_cache.ccontext = ccontext_none;
 	}
       else if (context_cache.ccontext == ccontext_end1)
 	{
-	  if (context_cache.context != context_block_comment) abort ();
+	  if (context_cache.context != context_block_comment) ABORT ();
 	  context_cache.context = context_none;
 	  context_cache.ccontext = ccontext_start2;
 	}
@@ -673,7 +673,7 @@ find_context (struct buffer *buf, Bufpos pt)
 	  context_cache.context == context_none)
 	{
 	  context_cache.context = context_block_comment;
-	  if (context_cache.style == comment_style_none) abort ();
+	  if (context_cache.style == comment_style_none) ABORT ();
 	}
       else if (context_cache.ccontext == ccontext_none &&
 	       context_cache.context == context_block_comment)
@@ -696,7 +696,7 @@ context_to_symbol (enum syntactic_context context)
     case context_block_comment:		return Qblock_comment;
     case context_generic_comment:	return Qblock_comment;
     case context_generic_string:	return Qstring;
-    default: abort (); return Qnil; /* suppress compiler warning */
+    default: ABORT (); return Qnil; /* suppress compiler warning */
     }
 }
 

@@ -1332,6 +1332,259 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-01-29  Ben Wing  <ben@xemacs.org>
+
+	* shadow.el (find-emacs-lisp-shadows):
+	Add custom-defines to list of ignored files.
+
+2005-01-17  Adrian Aichner  <adrian@xemacs.org>
+
+	* simple.el (shifted-motion-keys-select-region): Fix statement
+	about unshifted-motion-keys-deselect-region.
+
+2004-12-15  Ville Skyttä  <scop@xemacs.org>
+
+	* bytecomp-runtime.el (make-obsolete): Add 3rd argument (no-op for
+	now) for GNU Emacs compatibility.
+	(make-obsolete-variable): Ditto.
+
+2004-01-08  Ben Wing  <ben@xemacs.org>
+
+	* code-files.el (load):
+	File positions are 0 based not 1 based. Thanks to Steve Youngs.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2004-12-04  Vin Shelton  <acs@xemacs.org>
+
+	* auto-autoloads.el: Regenerated.
+
+	* custom-load.el: Regenerated.
+
+2004-09-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Fix bug: apropos errors if a defalias refers to an undefined
+	function.  <87pt4pmdcs.fsf@tleepslib.sk.tsukuba.ac.jp>
+
+	* apropos.el (apropos):
+	(apropos-command):
+	* help.el (frob-help-extents):
+	* help-macro.el (make-help-screen):
+	* hyper-apropos.el (hyper-apropos-grok-functions):
+	(hyper-apropos-get-doc):
+	Catch void-function error thrown by `documentation'.
+
+2004-09-02  Steve Youngs  <steve@youngs.au.com>
+
+	* packages.el (package-require): Fix incorrect arg to format.
+	This fixes a `format specifier' error.
+
+2004-08-13  Jerry James  <james@xemacs.org>
+
+	* bytecomp.el (forward-word): Tell the byte compiler the correct
+	number of arguments to forward-word.
+
+2004-08-12  Sven Grundmann  <sven@xemacs.org>
+
+	* etags.el: Fixed loading of include files for tag completion. Now
+	you can make a tag file for a library, include it into your
+	project and it will be reloaded only if it changed. Infinte
+	include loops are detected and the correct tag files are loaded.
+	* etags.el (buffer-tag-table-list): Load and verify tag files in
+	the external function buffer-tag-table-list-load.
+	* etags.el (buffer-tag-table-list-load): New. Load and verify the
+	tag files. Also load the included tag files. The priority of the
+	included files is right below their parent file. If multiple
+	matches occur then the symbols from the parent file are found
+	first.
+	* etags.el (tag-table-include-files): Corrected comment
+	string. Switched to pattern constant tags-include-pattern to have
+	it at a central location.
+	* etags.el (tags-include-pattern): Added doc string.
+	* etags.el (add-to-tag-completion-table): Removed obsolete
+	comments as the include files are allready returned by
+	buffer-tag-table-list and loaded.
+	* etags.el (find-tag-internal): The include files are allready
+	included in tag-tables as buffer-tag-table-list returns them now.
+
+2004-07-02  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* widgets-gtk.el (gtk-widget-instantiate-notebook-internal):
+	Loading items into the notebook is now done by C code.
+	* widgets-gtk.el (gtk-widget-instantiate-internal):
+	Style no longer changed.
+
+2004-06-28  Nix  <nix@esperi.org.uk>
+
+	* cmdloop.el (truncate-command-history-for-gc): Delay
+        execution of all things that look up variable bindings,
+        via `enqueue-eval-event'.
+
+2004-06-24  Vin Shelton  <acs@xemacs.org>
+
+	* package-get.el (package-get-require-signed-base-updates):
+	now defaults to nil.
+
+2004-06-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* subr.el (split-string): Clean up docstring.
+
+2002-01-24  John Paul Wallington  <jpw@shootybangbang.com>
+
+	* faces.el (zmacs-region): fix typo in docstring.
+
+2004-06-07  Jerry James  <james@xemacs.org>
+
+	* derived.el: Synch with Emacs 21.3.
+	* subr.el (with-local-quit): New, from Emacs 21.3.
+	* subr.el (delayed-mode-hooks): New variable, from Emacs 21.3.
+	* subr.el (run-mode-hooks): New function, from Emacs 21.3.
+	* subr.el (delay-mode-hooks): New macro, from Emacs 21.3.
+
+2004-06-16  Jerry James  <james@xemacs.org>
+
+	* cl.el (cl-set-substring): Increment start by the length of the
+	string, not the string itself.
+
+2004-05-19  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* etags.el (tag-table-include-files): Expand included TAGS file
+	paths to avoid problems with relative paths.  Thanks to Peter
+	Chubb <peterc@gelato.unsw.edu.au>.
+	* etags.el (tags-include-pattern): New.
+	* etags.el (add-to-tag-completion-table): Parse and ignore
+	trailing include lines.
+
+2004-06-21  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-ui.el (pui-help-echo): Fix false cvs conflict by
+	avoiding line solely composed of equal signs.
+
+2004-06-10  Adrian Aichner  <adrian@xemacs.org>
+
+	* cus-edit.el (alloc): Typo fix.
+	* cus-edit.el (custom-browse-visibility): Ditto.
+	* cus-edit.el (custom-variable-value-create): Ditto.
+	* cus-edit.el (custom-variable-pre-reset-standard): Ditto.
+	* cus-edit.el (custom-save-variables): Bind print-length and
+	print-level to nil to avoid value abbreviation.
+	* cus-edit.el (custom-save-face-internal): Ditto.
+	* cus-edit.el (custom-save-faces): Save in sorted order.
+	* cus-edit.el (custom-save-resets): Bind print-length and
+	print-level to nil to avoid value abbreviation.
+	* cus-edit.el (custom-save-loaded-themes): Ditto.
+
+2004-06-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* subr.el (split-string-default-separators): New.
+	(split-string): Synch to 21.5/GNU Emacs version.  *New semantics*,
+	see comment in source.
+
+2004-01-29  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule/japanese.el (paragraph-start, paragraph-separate):
+	Remove anchor to BOL.
+
+2004-04-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* cl.el (gensym, gentemp): Improve docstrings.
+
+2004-05-10  Vin Shelton  <acs@xemacs.org>
+
+	* etags.el: Sync with 21.5 version.
+
+2004-04-21  Sven Grundmann  <sven@hellerhof.de>
+
+	* etags.el:
+	* etags.el (tags-exuberant-ctags-optimization-p): Enable optimization
+	only for use with exuberant ctags. This will also enable building of 
+	completion tables with exuberant ctags. This will not work with
+	xemacs ctags. 
+	* etags.el (get-tag-table-buffer): New function for creating of
+	completion table is used if tags-exuberant-ctags-optimization-p ist t
+	* etags.el (tags-explicit-name-pattern): Hold the name pattern for
+	finding the tag names. New.
+	* etags.el (add-to-tag-completion-table-exuberant-ctags): Defun for
+	building tag completion table with exuberant ctags. New.
+	* etags.el (find-tag-internal): Improve exact tag matching for tags
+	with name fields. Before the patch return types of functions or
+	function parameters (with exuberant ctags) were found as matches.
+
+2004-04-21  Sven Grundmann  <sven@hellerhof.de>
+
+	* list-mode.el (display-completion-list): Fixed completion list was
+	taking the width of the frame and not of the window for displaying
+	the selection methods.
+
+2004-04-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* menubar-items.el (default-menubar): Options are saved to custom.el.
+
+
+2004-02-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* isearch-mode.el (isearch-abort): Preserve successful search target.
+
+2004-03-27  Adrian Aichner  <adrian@xemacs.org>
+
+	* gnuserv.el: Sync with 21.5 version, inspired by bugreport and
+	(make-variable-buffer-local 'gnuserv-minor-mode) patch by Robert
+	Bihlmeyer.
+	* gnuserv.el (gnuserv-mode-line-string): New.
+	* gnuserv.el (gnuserv-minor-mode): Make it buffer-local, not
+	gnuserv-mode.
+	* gnuserv.el (make-x-device-with-gtk-fallback): New.
+	* gnuserv.el (gnuserv-edit-files): Use
+	make-x-device-with-gtk-fallback.
+
+2004-03-23  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* gtk-widgets.el: New import: gtk-accel-group-new.
+	* dialog-gtk.el:
+	* dialog-gtk.el (gtk-popup-convert-underscores): New.
+	* dialog-gtk.el (popup-builtin-question-dialog):
+	Added support for dialog button mnemonics.
+
+2004-03-22  Chris Green <cmg@dok.org>
+
+	* process.el (shell-command): Output buffer was ignored when a
+	background process was run via shell-command.
+
+2004-03-19  Hrvoje Niksic  <hniksic@xemacs.org>
+
+	* cus-edit.el (custom-save-variables): Retrieve a list of
+	variables to save first, sort it, and make sure the variables are
+	saved in sorted order.
+
+2004-02-23  Steve Youngs  <sryoungs@bigpond.net.au>
+ 
+	* package-get.el (package-get-update-base-from-buffer): Force
+ 	binary coding system for verifying GnuPG signature in the
+ 	package-index file.
+ 
+2003-07-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-package-index-file-location): Handle
+	missing "EMACSPACKAGEPATH" environment variable.
+
+2003-07-05  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-admin.el (package-admin-find-top-directory): Simplify
+	directory comparisions and fix substring errors on short path
+	components.
+	* package-get.el (package-get-package-index-file-location):
+	Default to first component of "EMACSPACKAGEPATH", if set.
+
+2004-02-16  Steve Youngs  <sryoungs@bigpond.net.au>
+
+	* package-get.el (process-error): New error datum.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

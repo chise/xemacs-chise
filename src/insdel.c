@@ -495,7 +495,7 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
     }
 #ifdef ERROR_CHECK_BUFPOS
   else if (x >= bufmin)
-    abort ();
+    ABORT ();
 #endif
   else
     {
@@ -783,7 +783,7 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
     }
 #ifdef ERROR_CHECK_BUFPOS
   else if (x >= bytmin)
-    abort ();
+    ABORT ();
 #endif
   else
     {
@@ -1825,7 +1825,7 @@ static void
 move_gap (struct buffer *buf, Bytind pos)
 {
   if (! BUF_BEG_ADDR (buf))
-    abort ();
+    ABORT ();
   if (pos < BI_BUF_GPT (buf))
     gap_left (buf, pos);
   else if (pos > BI_BUF_GPT (buf))

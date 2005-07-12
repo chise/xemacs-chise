@@ -1643,7 +1643,7 @@ add_propagation_runes (prop_block_dynarr **prop, pos_data *data)
 	  }
 	  break;
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
 
@@ -1838,7 +1838,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 
 	  /* Otherwise something is screwed up. */
 	  else
-	    abort ();
+	    ABORT ();
 	}
 
       face = glyph_face (gb->glyph, data->window);
@@ -1946,7 +1946,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 	  return NULL;
 	}
       else
-	abort ();	/* there are no unknown types */
+	ABORT ();	/* there are no unknown types */
     }
 
   return NULL;
@@ -2519,7 +2519,7 @@ create_text_block (struct window *w, struct display_line *dl,
 
 	      /* This had better be a newline but doing it this way
                  we'll see obvious incorrect results if it isn't.  No
-                 need to abort here. */
+                 need to ABORT here. */
 	      data.ch = BI_BUF_FETCH_CHAR (b, data.bi_bufpos);
 
 	      goto done;
@@ -2996,7 +2996,7 @@ add_margin_runes (struct display_line *dl, struct display_block *db, int start,
       struct glyph_block *gb = Dynarr_atp (gbd, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have been handled in add_glyph_rune */
+	ABORT ();	/* these should have been handled in add_glyph_rune */
 
       if (gb->active &&
 	  ((side == LEFT_GLYPHS &&
@@ -3081,7 +3081,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
       struct glyph_block *gb = Dynarr_atp (dl->left_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have been handled in add_glyph_rune */
+	ABORT ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_begin_glyph_layout (XEXTENT (gb->extent)) == GL_WHITESPACE)
 	{
@@ -3133,7 +3133,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
 	struct glyph_block *gb = Dynarr_atp (dl->left_glyphs, elt);
 
 	if (NILP (gb->extent))
-	  abort ();	/* these should have been handled in add_glyph_rune */
+	  ABORT ();	/* these should have been handled in add_glyph_rune */
 
 	if (extent_begin_glyph_layout (XEXTENT (gb->extent)) ==
 	    GL_INSIDE_MARGIN)
@@ -3202,7 +3202,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
 	struct glyph_block *gb = Dynarr_atp (dl->left_glyphs, elt);
 
 	if (NILP (gb->extent))
-	  abort ();	/* these should have been handled in add_glyph_rune */
+	  ABORT ();	/* these should have been handled in add_glyph_rune */
 
 	if (extent_begin_glyph_layout (XEXTENT (gb->extent)) ==
 	    GL_INSIDE_MARGIN)
@@ -3244,7 +3244,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
       struct glyph_block *gb = Dynarr_atp (dl->left_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have been handled in add_glyph_rune */
+	ABORT ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_begin_glyph_layout (XEXTENT (gb->extent)) ==
 	  GL_OUTSIDE_MARGIN)
@@ -3402,7 +3402,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
       struct glyph_block *gb = Dynarr_atp (dl->right_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have been handled in add_glyph_rune */
+	ABORT ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_end_glyph_layout (XEXTENT (gb->extent)) == GL_WHITESPACE)
 	{
@@ -3452,7 +3452,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
 	struct glyph_block *gb = Dynarr_atp (dl->right_glyphs, elt);
 
 	if (NILP (gb->extent))
-	  abort ();	/* these should have been handled in add_glyph_rune */
+	  ABORT ();	/* these should have been handled in add_glyph_rune */
 
 	if (extent_end_glyph_layout (XEXTENT (gb->extent)) == GL_INSIDE_MARGIN)
 	  {
@@ -3516,7 +3516,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
 	struct glyph_block *gb = Dynarr_atp (dl->right_glyphs, elt);
 
 	if (NILP (gb->extent))
-	  abort ();	/* these should have been handled in add_glyph_rune */
+	  ABORT ();	/* these should have been handled in add_glyph_rune */
 
 	if (extent_end_glyph_layout (XEXTENT (gb->extent)) == GL_INSIDE_MARGIN)
 	  {
@@ -3557,7 +3557,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
       struct glyph_block *gb = Dynarr_atp (dl->right_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have been handled in add_glyph_rune */
+	ABORT ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_end_glyph_layout (XEXTENT (gb->extent)) == GL_OUTSIDE_MARGIN)
 	{
@@ -4748,7 +4748,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 	  else if (data.bi_bufpos == bi_string_zv)
 	    goto done;
 	  else if (data.bi_bufpos < 0)
-	    /* #### urk urk urk! Aborts are not very fun! Fix this please! */
+	    /* #### urk urk urk! ABORTs are not very fun! Fix this please! */
 	    data.bi_bufpos = 0;
 	  else
 	    INC_CHARBYTIND (string_data (s), data.bi_bufpos);
@@ -5298,7 +5298,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 
   /* The lines had better exist by this point. */
   if (!(dla = window_display_lines (w, type)))
-    abort ();
+    ABORT ();
   Dynarr_reset (dla);
   w->max_line_len = 0;
 
@@ -5490,7 +5490,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 	    dla_start = 0;			\
 	  }					\
 	else					\
-	  abort ();	/* structs differ */	\
+	  ABORT ();	/* structs differ */	\
 						\
 	dla_end = Dynarr_length (cdla) - 1;	\
       }						\
@@ -6512,7 +6512,7 @@ redisplay_frame (struct frame *f, int preemption_check)
   /* The menubar, toolbar, and icon updates must be done before
      hold_frame_size_changes is called and we are officially
      'in_display'.  They may eval lisp code which may call Fsignal.
-     If in_display is set Fsignal will abort. */
+     If in_display is set Fsignal will ABORT. */
 
 #ifdef HAVE_MENUBARS
   /* Update the menubar.  It is done first since it could change
@@ -6572,10 +6572,10 @@ redisplay_frame (struct frame *f, int preemption_check)
      We need to remove them.
 
      If Fsignal() is called during this critical section, we
-     will abort().
+     will ABORT().
 
      If garbage collection is called during this critical section,
-     we simply return. #### We should abort instead.
+     we simply return. #### We should ABORT instead.
 
      #### If a frame-size change does occur we should probably
      actually be preempting redisplay. */
@@ -7500,7 +7500,7 @@ point_in_line_start_cache (struct window *w, Bufpos point, int min_past)
       int win_char_height = window_char_height (w, 1);
 
       /* Occasionally we get here with a 0 height
-         window. find_next_newline_no_quit will abort if we pass it a
+         window. find_next_newline_no_quit will ABORT if we pass it a
          count of 0 so handle that case. */
       if (!win_char_height)
 	win_char_height = 1;
@@ -7652,7 +7652,7 @@ find_point_loop:
       else if (point < start)
 	top = pos - 1;
       else
-	abort ();
+	ABORT ();
 
       new_pos = (bottom + top + 1) >> 1;
       if (pos == new_pos)

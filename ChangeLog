@@ -89,6 +89,116 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-01-29  Ben Wing  <ben@xemacs.org>
+
+	* configure.in (AC_INIT_NOTICE):
+	* configure.in (XE_COMPUTE_RUNPATH):
+	Copy LDAP fixes from 21.5.
+
+	Port Marcus Crestani's patches of 2004-11-12:
+
+	* Makefile.in.in (install-arch-dep): Fix installation for Cygwin.
+	* configure:
+	* configure.in: Make pdump default for Cygwin.
+
+2005-01-30  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* Makefile.in.in (dump-elc): Depend on ${PROGNAME} to fix parallel
+	builds.
+
+2004-11-22  Adrian Aichner  <adrian@xemacs.org>
+
+	* etc/TUTORIAL: Typo fixes, courtesy of Andreas Eder
+	<Andreas.Eder@gmx.net>.
+
+2004-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (HAVE_GPM): Die if GPM requested but not found.
+
+2005-01-23  Vin Shelton  <acs@xemacs.org>
+
+	* Makefile.in.in (finder): Force removal of lisp/finder-inf.el.
+
+2005-01-10  Vin Shelton  <acs@xemacs.org>
+
+	* Makefile.in.in (RECURSIVE_MAKE_ARGS): Remove last few.
+
+2004-11-21  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* INSTALL: A POSIX compatible Make is no longer required for builds.
+	* Makefile.in.in (RECURSIVE_MAKE): Removed.
+	* Makefile.in.in (RECURSIVE_MAKE_ARGS): New.
+	* configure.in (RECURSIVE_MAKE): Removed.
+	* configure.in (RECURSIVE_MAKE_ARGS): New.
+	Always refer to make as $(MAKE) and use $(RECURSIVE_MAKE_ARGS) for
+	other parameters.  This allows -j to work in GNU Make while
+	removing need for POSIX compatible make on all systems.
+
+2004-09-08  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* INSTALL: A POSIX compatible Make is required for builds.
+	* Makefile.in.in: Enable support for parallel builds.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2004-08-12  "Johann 'Myrkraverk' Oskarsson" <myrkraverk@users.sourceforge.net>
+
+	* config.guess: Detect PlayStation 2.
+
+2004-08-10  Jerry James  <james@xemacs.org>
+
+	* etc/SERVICE: Update to latest version from www.gnu.org.
+
+2004-07-06  Steve Youngs  <steve@youngs.au.com>
+
+	* etc/NEWS: Document the major user visible changes to PUI.
+
+2003-07-21  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* etc/gtkrc: New file.  This is the GTK equivalent of the
+	app-default file.
+
+2004-03-30  Norbert Koch  <viteno@xemacs.org>
+
+	* PACKAGES: Introduce new packages escreen, xlib, and xwem.
+
+2004-03-23  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* configure (GTK_CONFIG): Check GTK version validity only when the
+	right instance of gtk-config is found.
+
+2004-03-20  Adrian Aichner  <adrian@xemacs.org>
+
+	* etc/sample.init.el: Sync typo and copycat fix from 21.5.
+	* etc/sample.init.el ((console-on-window-system-p)): Sync
+	"\C-x\C-c" definition from 21.5.
+
+2004-03-20  Vin Shelton  <acs@xemacs.org>
+
+	* configure.usage (--use-regex-malloc): Correct warning about
+	disabling regex-malloc.
+
+2004-03-04  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* configure.in (src/Makefile): No longer include a special linker
+	script for PowerPC Linux.  Thanks to Stefan Bruda for reporting
+	this bug.
+
+2004-02-10  Vin Shelton  <acs@xemacs.org>
+
+	* etc/OXYMORONS: Added Jumbo Shrimp for 21.4.17.
+
+2004-02-03  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in (XE_COMPUTE_RUNPATH): lucid_prefers_motif is a
+	variable, not a command.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

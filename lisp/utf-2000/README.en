@@ -56,9 +56,10 @@ describes meaning of keys:
 		kangxi					康煕字典
 		guangyun (kouin)			広韻
 		daikanwa (morohashi-daikanwa)		大漢和辞典
+		(goonruiju)				五音類聚
 		ruijumyougishou (ruishuu-meigishou)	類聚名義抄
 		zhengyun (seiin)			正韻
-		zhengzi-tong (seiji-tsuu)		正字通
+		zhengzitong (zhengzi-tong, seiji-tsuu)	正字通
 		shuowen-tongxun-dingsheng
 			(setsumon-tsuukun-teisei)	説文通訓定聲
 		shuowen					説文

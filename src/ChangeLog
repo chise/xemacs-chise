@@ -5579,6 +5579,646 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2005-01-31  Ben Wing  <ben@xemacs.org>
+
+	* emacs.c:
+	Define assert_failed() always.
+	* lisp.h:
+	Always define ABORT().
+
+2005-01-25  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in:
+	* Makefile.in.in (%.o):
+	Don't compile executable as Windows (-mwindows) under Cygwin.
+	Semi-recent changes to Cygwin's executable-startup handling make
+	it impossible to access the TTY this way.
+
+	Don't use special linker file under Cygwin (cygwin.sc) except
+	when non-PDUMP (even in this case it is highly questionable); you
+	get errors like
+
+      1 [main] temacs 1364 fhandler_console::fixup_after_exec: error opening input console handle after exec, errno 13, Win32 error 5
+   5820 [main] temacs 1364 fhandler_console::fixup_after_exec: error opening output console handle after exec, errno 13, Win32 error 5
+
+2005-01-29  Ben Wing  <ben@xemacs.org>
+
+	Port this: 2003-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule-charset.c (get_unallocated_leading_byte): Compiler quietus.
+
+2005-01-29  Ben Wing  <ben@xemacs.org>
+
+	* bytecode.c (optimize_compiled_function):
+	* print.c (FROB):
+	* print.c (long_to_string):
+	Add casts to avoid warning.
+	
+	* glyphs-eimage.c:
+	Some really nasty hacks to allow TIFF and JPEG to both be compiled.
+	#### The better solution is to move the TIFF and JPEG code to
+	different files.
+	
+	* glyphs-msw.c (mswindows_xbm_instantiate):
+	Define __STDC__ to avoid problems with compface.h.
+	
+	* EmacsFrame.c (EmacsFrameRecomputeCellSize):
+	* EmacsShell-sub.c:
+	* EmacsShell-sub.c (ABORT):
+	* EmacsShell-sub.c (SuperClassRootGeometryManager):
+	* EmacsShell-sub.c (RootGeometryManager):
+	* EmacsShell.c:
+	* EmacsShell.c (ABORT):
+	* EmacsShell.c (EmacsShellUpdateSizeHints):
+	* alloc.c (free_lcrecord):
+	* alloca.c (i00afunc):
+	* buffer.c (delete_from_buffer_alist):
+	* buffer.c (MARKED_SLOT):
+	* bytecode.c (execute_rare_opcode):
+	* bytecode.c (optimize_byte_code):
+	* bytecode.c (Ffetch_bytecode):
+	* chartab.c (char_table_type_to_symbol):
+	* chartab.c (Freset_char_table):
+	* chartab.c (decode_char_table_range):
+	* chartab.c (Fget_range_char_table):
+	* chartab.c (check_valid_char_table_value):
+	* chartab.c (map_char_table):
+	* chartab.c (slow_map_char_table_fun):
+	* chartab.c (chartab_instantiate):
+	* cm.c (cmcheckmagic):
+	* console-msw.c (DHEADER):
+	* console.c (MARKED_SLOT):
+	* data.c (finish_marking_weak_lists):
+	* data.c (encode_weak_list_type):
+	* debug.h (DASSERT):
+	* device-gtk.c (gtk_init_device):
+	* device-msw.c (mswindows_get_default_margin):
+	* device-tty.c (tty_init_device):
+	* device-x.c (get_device_from_display):
+	* device-x.c (x_get_visual_depth):
+	* doprnt.c (parse_doprnt_spec):
+	* doprnt.c (get_doprnt_args):
+	* dumper.c (pdump_get_indirect_count):
+	* dumper.c (pdump_register_sub):
+	* dumper.c (pdump_register_object):
+	* dumper.c (pdump_register_struct):
+	* dumper.c (pdump_dump_data):
+	* dumper.c (pdump_reloc_one):
+	* elhash.c (print_hash_table):
+	* elhash.c (make_standard_lisp_hash_table):
+	* elhash.c (hash_table_instantiate):
+	* emacs.c:
+	* emacs.c (Fforce_debugging_signal):
+	* emacs.c (sort_args):
+	* emacs.c (main):
+	* emacs.c (assert_failed):
+	* eval.c (throw_or_bomb_out):
+	* eval.c (signal_1):
+	* eval.c (Fsignal):
+	* event-Xt.c:
+	* event-Xt.c (emacs_Xt_mapping_action):
+	* event-Xt.c (Xt_process_to_emacs_event):
+	* event-msw.c:
+	* event-stream.c (check_event_stream_ok):
+	* event-stream.c (Fadd_timeout):
+	* event-stream.c (Fadd_async_timeout):
+	* event-stream.c (Fdiscard_input):
+	* event-stream.c (execute_internal_event):
+	* event-stream.c (Frecent_keys):
+	* event-stream.c (extract_this_command_keys_nth_mouse_event):
+	* event-stream.c (lookup_command_event):
+	* event-unixoid.c (poll_fds_for_input):
+	* events.c:
+	* events.c (mark_event):
+	* events.c (event_equal):
+	* events.c (event_hash):
+	* events.c (Fmake_event):
+	* events.c (Fdeallocate_event):
+	* events.c (event_chain_find_previous):
+	* events.c (event_to_character):
+	* events.c (format_event_object):
+	* events.c (Fevent_type):
+	* events.c (event_pixel_translation):
+	* events.c (Fevent_properties):
+	* extents.c (extent_in_region_p):
+	* extents.c (print_extent):
+	* extents.c (process_extents_for_insertion_mapper):
+	* extents.c (report_extent_modification_mapper):
+	* extents.c (glyph_layout_to_symbol):
+	* faces.c (face_validate):
+	* file-coding.c (eol_type_to_symbol):
+	* file-coding.c (subsidiary_coding_system):
+	* file-coding.c (Fcoding_system_type):
+	* file-coding.c (Fcoding_system_property):
+	* file-coding.c (mule_decode):
+	* file-coding.c (mule_encode):
+	* file-coding.c (encode_coding_ucs4):
+	* file-coding.c (encode_coding_utf8):
+	* file-coding.c (parse_iso2022_esc):
+	* file-coding.c (encode_coding_iso2022):
+	* fileio.c:
+	* fns.c (concat):
+	* fns.c (Fsubseq):
+	* fns.c (mapcar1):
+	* fns.c (Fbase64_encode_region):
+	* fns.c (Fbase64_encode_string):
+	* fns.c (Fbase64_decode_region):
+	* fns.c (Fbase64_decode_string):
+	* font-lock.c (find_context):
+	* font-lock.c (context_to_symbol):
+	* frame-gtk.c (gtk_set_frame_pointer):
+	* frame-gtk.c (gtk_update_frame_external_traits):
+	* frame-x.c (x_wm_mark_shell_size_user_specified):
+	* frame-x.c (x_wm_mark_shell_position_user_specified):
+	* frame-x.c (x_wm_set_shell_iconic_p):
+	* frame-x.c (x_wm_set_cell_size):
+	* frame-x.c (x_wm_set_variable_size):
+	* frame-x.c (x_wm_store_class_hints):
+	* frame-x.c (x_wm_maybe_store_wm_command):
+	* frame-x.c (x_initialize_frame_size):
+	* frame-x.c (x_update_frame_external_traits):
+	* frame.c:
+	* frame.c (delete_frame_internal):
+	* frame.c (mouse_pixel_position_1):
+	* frame.c (change_frame_size_1):
+	* free-hook.c (check_free):
+	* free-hook.c (check_realloc):
+	* free-hook.c (note_block_input):
+	* free-hook.c (log_gcpro):
+	* gccache-gtk.c (gc_cache_lookup):
+	* glyphs-eimage.c (tiff_memory_write):
+	* glyphs-gtk.c (gtk_finalize_image_instance):
+	* glyphs-gtk.c (init_image_instance_from_gdk_pixmap):
+	* glyphs-gtk.c (init_image_instance_from_xbm_inline):
+	* glyphs-gtk.c (gtk_xpm_instantiate):
+	* glyphs-gtk.c (gtk_unmap_subwindow):
+	* glyphs-gtk.c (gtk_map_subwindow):
+	* glyphs-gtk.c (gtk_button_redisplay):
+	* glyphs-msw.c:
+	* glyphs-msw.c (init_image_instance_from_xbm_inline):
+	* glyphs-x.c (init_image_instance_from_xbm_inline):
+	* glyphs-x.c (extract_xpm_color_names):
+	* glyphs-x.c (x_xpm_instantiate):
+	* glyphs.c (get_image_instantiator_governing_domain):
+	* glyphs.c (print_image_instance):
+	* glyphs.c (image_instance_equal):
+	* glyphs.c (image_instance_hash):
+	* glyphs.c (encode_image_instance_type):
+	* glyphs.c (make_image_instance_1):
+	* glyphs.c (inherit_instantiate):
+	* glyphs.c (image_instantiate):
+	* glyphs.c (allocate_glyph):
+	* glyphs.c (Fglyph_type):
+	* glyphs.c (redisplay_subwindow):
+	* glyphs.c (display_table_entry):
+	* gtk-glue.c (xemacs_list_to_gtklist):
+	* gtk-glue.c (xemacs_gtklist_to_list):
+	* gtk-glue.c (xemacs_list_to_array):
+	* gutter.c (SET_GUTTER_WAS_VISIBLE_FLAG):
+	* gutter.c (gutter_was_visible):
+	* gutter.c (get_gutter_coords):
+	* input-method-xlib.c (get_XIM_input):
+	* insdel.c (bufpos_to_bytind_func):
+	* insdel.c (bytind_to_bufpos_func):
+	* insdel.c (move_gap):
+	* intl.c (x_get_composed_input):
+	* keymap.c (keymap_lookup_directly):
+	* keymap.c (keymap_delete_inverse_internal):
+	* keymap.c (ensure_meta_prefix_char_keymapp):
+	* keymap.c (accessible_keymaps_mapper_1):
+	* keymap.c (where_is_recursive_mapper):
+	* lisp.h:
+	* lisp.h (ABORT):
+	* lread.c (read_atom):
+	* lstream.c (Lstream_delete):
+	* lstream.c (make_lisp_buffer_stream_1):
+	* macros.c (pop_kbd_macro_event):
+	* malloc.c (malloc):
+	* malloc.c (free):
+	* marker.c (bi_marker_position):
+	* marker.c (set_bi_marker_position):
+	* menubar-gtk.c (menu_descriptor_to_widget_1):
+	* menubar-msw.c (prune_menubar):
+	* menubar-x.c (set_frame_menubar):
+	* mule-charset.c (get_unallocated_leading_byte):
+	* mule-charset.h (CHAR_LEADING_BYTE):
+	* native-gtk-toolbar.c (SET_TOOLBAR_WAS_VISIBLE_FLAG):
+	* nt.c (init_environment):
+	* nt.c (generate_inode_val):
+	* ntproc.c (delete_child):
+	* ntproc.c (_sys_read_ahead):
+	* ntproc.c (create_child):
+	* objects.c (color_instantiate):
+	* objects.c (font_instantiate):
+	* objects.c (face_boolean_instantiate):
+	* print.c (printing_major_badness):
+	* process-nt.c (nt_send_process):
+	* process-unix.c (unix_send_process):
+	* process.c (get_process):
+	* ralloc.c (obtain):
+	* ralloc.c (relinquish):
+	* ralloc.c (relocate_blocs):
+	* ralloc.c (resize_bloc):
+	* ralloc.c (r_alloc_free):
+	* ralloc.c (r_re_alloc):
+	* ralloc.c (r_alloc_thaw):
+	* ralloc.c (init_ralloc):
+	* ralloc.c (Free_Addr_Block):
+	* ralloc.c (r_alloc):
+	* redisplay-gtk.c (gtk_output_display_block):
+	* redisplay-msw.c (mswindows_output_display_block):
+	* redisplay-output.c (get_next_display_block):
+	* redisplay-output.c (get_cursor_size_and_location):
+	* redisplay-output.c (redisplay_output_layout):
+	* redisplay-output.c (redisplay_clear_region):
+	* redisplay-tty.c (tty_output_display_block):
+	* redisplay-x.c (x_output_display_block):
+	* redisplay.c (add_propagation_runes):
+	* redisplay.c (add_glyph_rune):
+	* redisplay.c (create_text_block):
+	* redisplay.c (add_margin_runes):
+	* redisplay.c (create_left_glyph_block):
+	* redisplay.c (create_right_glyph_block):
+	* redisplay.c (create_string_text_block):
+	* redisplay.c (regenerate_window):
+	* redisplay.c (REGEN_INC_FIND_START_END):
+	* redisplay.c (redisplay_frame):
+	* redisplay.c (point_in_line_start_cache):
+	* regex.c:
+	* regex.c (ABORT):
+	* regex.c (re_compile_fastmap):
+	* regex.c (re_match_2_internal):
+	* regex.c (regerror):
+	* scrollbar-gtk.c (gtk_scrollbar_loop):
+	* scrollbar-gtk.c (scrollbar_cb):
+	* scrollbar-gtk.c (gtk_update_frame_scrollbars):
+	* scrollbar-msw.c (mswindows_handle_scrollbar_event):
+	* scrollbar-x.c (x_update_scrollbar_instance_status):
+	* scrollbar-x.c (x_scrollbar_loop):
+	* scrollbar-x.c (x_update_frame_scrollbars):
+	* search.c (search_command):
+	* search.c (Fmatch_data):
+	* select-x.c (motif_clipboard_cb):
+	* signal.c (interrupt_signal):
+	* specifier.c (specifier_add_spec):
+	* specifier.c (specifier_instance_from_inst_list):
+	* specifier.c (specifier_instance):
+	* specifier.h:
+	* specifier.h (struct specifier_methods):
+	* strftime.c (add_num_time_t):
+	* sunplay.c (init_device):
+	* symbols.c (Fsetplist):
+	* symbols.c (do_symval_forwarding):
+	* symbols.c (store_symval_forwarding):
+	* symbols.c (Fset):
+	* symbols.c (Fbuilt_in_variable_type):
+	* symbols.c (decode_magic_handler_type):
+	* symbols.c (handler_type_from_function_symbol):
+	* syntax.c (update_syntax_cache):
+	* sysdep.c (init_baud_rate):
+	* toolbar-gtk.c (SET_TOOLBAR_WAS_VISIBLE_FLAG):
+	* toolbar-msw.c (SET_TOOLBAR_WAS_VISIBLE_FLAG):
+	* toolbar-x.c (SET_TOOLBAR_WAS_VISIBLE_FLAG):
+	* toolbar.c (get_toolbar_coords):
+	* ui-gtk.c (build_gtk_boxed):
+	* ui-gtk.c (describe_gtk_arg):
+	* ui-gtk.c (gtk_type_to_lisp):
+	* ui-gtk.c (lisp_to_gtk_type):
+	* ui-gtk.c (lisp_to_gtk_ret_type):
+	* ui-gtk.c (lisp_to_flag):
+	* unexnt.c (read_in_bss):
+	* unexnt.c (map_in_heap):
+	* window.c (real_window):
+	* window.c (window_display_lines):
+	* window.c (window_display_buffer):
+	* window.c (set_window_display_buffer):
+	* window.c (window_modeline_height):
+	* window.c (unshow_buffer):
+	* window.c (window_loop):
+	* window.c (Fget_lru_window):
+	* window.c (Fsplit_window):
+	* window.c (Fset_window_configuration):
+	* window.c (saved_window_index):
+	* xgccache.c (gc_cache_lookup):
+	abort() -> ABORT().  Eliminate preprocessor games with abort()
+	since it creates huge problems in VC7, solvable only by including
+	massive amounts of files in every compile (and not worth it).
+
+	* sysdep.c:
+	* sysproc.h:
+	Inclusion of process.h does not need to be before lisp.h any more.
+	Move later and remove comment about abort().
+
+2005-01-26  Arnaud Giersch  <arnaud.giersch@free.fr>
+
+	* regex.c (re_match_2_internal):
+	Correctly initialize loop which clears uninitialized registers.
+
+2005-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* sheap.c (more_static_core): Applied Ben's version of the long
+	string patch.
+
+2005-01-24  Vin Shelton  <acs@xemacs.org>
+
+	* sheap.c (more_static_core): Reformatted printf string so
+	gcc-3.3.3 will compile this on Cygwin.
+
+2004-02-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* console.c (function_key_map): Reference `key-binding'.
+
+	* keymap.c (Vkey_translation_map): Improve docstring.
+
+2004-03-30  Zajcev Evgeny  <zevlg@yandex.ru>
+
+	* window.c: Declare `allow_deletion_of_last_visible_frame' extern.
+	* window.c (window_loop): [fix] Take into account
+	`allow-deletion-of-last-visible-frame' variable.
+	* window.c (replace-buffer-in-windows): Ditto.
+
+2004-12-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* EmacsManager.c (EmacsManagerChangeSize): Respect XtGeometryNo.
+
+2005-01-20  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* event-gtk.c: Recognise AltGr as a valid modifier.
+
+2005-01-12  Ville Skyttä  <scop@xemacs.org>
+
+	* console-x.h: #include X11/keysym.h before xintrinsic.h.
+
+2005-01-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Fix backreference bug caught by test suite.
+
+	* regex.c (regex_compile):
+	Make backref duplicate internal register.
+
+2005-01-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Documentation, code clarification, and warning suppression.
+	
+	* regex.c (regex_compile):
+	Improve comments.
+	(re_match_2_internal):
+	Improve comments and avoid redundant braces.  [Most of the big hunk
+	at l. 4710 is indentation; use diff -w to see the real changes.]
+	(alt_match_null_string_p):
+	(common_op_match_null_string_p):
+	Avoid shadowing global on Mac OS X 10.4, at least.
+
+2004-09-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (regcomp): Fix "unsigned comparison" warning (maybe
+	introduced with shy groups fix).  [Already applied, probably
+	with the second "fix shy groups" patch of 2004-10-07.] 
+
+2005-01-10  Steve Youngs  <steve@sxemacs.org>
+
+	From Andrey Slusar <anrays@gmail.com>:
+
+	* unexelf.c: define `Elfw(type)' for FreeBSD alpha and amd64.
+
+2004-11-21  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* Makefile (RECURSIVE_MAKE): Removed.
+	* Makefile (RECURSIVE_MAKE_ARGS): New.  The new method for
+	handling parallel builds.
+
+2004-09-08  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* Makefile.in.in: Enable support for parallel builds.
+
+2005-01-09  Steve Youngs  <steve@sxemacs.org>
+
+	From Andrey Slusar <anrays@gmail.com>:
+
+	* s/freebsd.h (LIBS_SYSTEM): Only set to "-lutil -lxpg4" if
+	FreeBSD version is >= 199701 _and_ < 600006.
+
+2005-01-06  Zajcev Evgeny <zevlg@yandex.ru>
+
+	* scrollbar.c (compute_scrollbar_instance_usage):
+	Only call device method compute_scrollbar_instance_usage() if it
+	is defined.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2004-12-04  Vin Shelton  <acs@xemacs.org>
+
+	* depend: Regenerated.
+
+2004-10-07  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_match_2_internal): Map internal to external
+	registers.  Fixes bug identified by Steve Youngs 2004-09-30
+	<microsoft-free.87ekkjhj7t.fsf@youngs.au.com>.
+
+2004-09-02  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c (Frecord_buffer): Make sure the argument is buffer
+	to fix a crash.  Also, check the buffer is live and it
+	really exists in buffer_list.  If the buffer is not in the list,
+	prepend it.
+
+2004-09-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Fix shy groups by implementing recording of all groups for
+	repetition and backtracking.  Backport from 21.5.
+	
+	* regex.h (struct re_pattern_buffer): Add members re_ngroups,
+	external_to_internal_register, external_to_internal_register_size,
+	and update comments for re_nsub.
+
+	* regex.c (re_opcode_t): Update comments.
+	(print_compiled_pattern): Ouput external_to_internal_register,
+	external_to_internal_register_size, and re_ngroups for debugging.
+	(INIT_REG_TRANSLATE_SIZE): New manifest constant.
+	(regex_compile): Update header comment.
+	Ensure that all groups are recorded so that repeat matches and
+	backtracking work correctly.  Comment related warning for groups >
+	255.
+	(re_search_2): Construct map of API indexes (which count only
+	nonshy groups) to internal register numbers, and keep it updated.
+
+2004-07-27  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* frame-gtk.c (gtk_make_frame_visible):
+	* frame-gtk.c (gtk_make_frame_invisible): Use map/unmap instead of
+	show/hide.  This is what X uses and is prevents previously hidden
+	widgets from suddenly reappearing.
+	* gtk-xemacs.c (gtk_xemacs_paint):
+	* gtk-xemacs.c (gtk_xemacs_draw):
+	* gtk-xemacs.c (gtk_xemacs_expose): Only operate if the widget is
+	drawable.
+	* scrollbar-gtk.c (gtk_update_scrollbar_instance_status): Force
+	size and location changes so that they can be seen before the next
+	idle event.  Without this rapid changes to scrollbar properties
+	are not seen.
+
+2004-07-02  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* console-gtk.h:
+	* console-gtk.h (struct gtk_frame):
+	* console-gtk.h (FRAME_GTK_WIDGET_INSTANCE_HASH_TABLE):
+	  Add hash tables track tab_control callback data.
+	  Added #defines for GTK object data names.
+	  Declaration of gtk_widget_to_frame().
+	* event-gtk.c (enqueue_gtk_dispatch_event) No longer static:
+	* frame-gtk.c (gtk_widget_to_frame): New.
+	* frame-gtk.c (gtk_create_widgets):
+	* frame-gtk.c (allocate_gtk_frame_struct):
+	* frame-gtk.c (gtk_mark_frame):
+	Manage frame callbakc hash tables.
+	* glyphs-gtk.c (gtk_map_subwindow): Fix size and moving bugs.
+	* glyphs-gtk.c (gtk_redisplay_widget): Use correct size for widgets.
+	* glyphs-gtk.c (gtk_widget_instantiate_1): Force reconsideration
+	of widget size.
+	* glyphs-gtk.c (gtk_widget_query_geometry): New
+	* glyphs-gtk.c (gtk_register_gui_item): New
+	* glyphs-gtk.c (gtk_add_tab_item): New
+	* glyphs-gtk.c (gtk_tab_control_callback): New
+	* glyphs-gtk.c (gtk_tab_control_instantiate): New
+	* glyphs-gtk.c (gtk_tab_control_redisplay): Set notebook page.
+	Use correct list when loading item.
+	* glyphs-gtk.c (image_instantiator_format_create_glyphs_gtk):
+	Register new methods.
+	* gtk-xemacs.c (gtk_xemacs_size_allocate): Use XEmacs size, not
+	default size, for widgets.
+	* gui-x.c:  Improved comment.
+	* menubar-gtk.c (__generic_button_callback): Use
+	gtk_widget_to_frame instead of __get_channel.
+	* scrollbar-gtk.c:
+	* ui-gtk.c: Use symbolic names for GTK object data.
+
+2004-06-23  Ilya N. Golubev <gin@mo.msk.ru>
+
+	* s/usg5-4.h (NSIG): Define only inside emacs binary.
+
+2002-03-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* fileio.c (Fwrite_region_internal): Document use of start == Qnil.
+
+2004-06-16  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* malloc.c (morecore): siz is a long because in some architectures
+	(eg ia-64) an int cannot hold the address range.  Additional patch
+	from the SuSe distribution.
+
+2004-06-13  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* emacs.c:
+	* malloc.c: lim_data is a long because in some architectures
+	(eg ia-64) an int cannot hold the address range.
+	* mem-limits.h: lim-data is a long.  Linux uses getrlimit()
+	instead of ulimit() because ulimit() always returns -1.
+
+2004-06-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c: Reenable an ansync semaphore.  Remove bogus comments.
+
+2004-06-11  David Kastrup  <dak@gnu.org>
+
+	* search.c (match_limit): Don't flag an error if match-data
+	exceeding the allocated search_regs.num_regs gets requested, just
+	return Qnil.
+
+2003-07-21  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* glyphs-gtk.c (gtk_xpm_instantiate): Rewrite the XPM data to
+	replace symbolic color entries with the real colors specified in
+	xpm-color-symbols, before passing the XPM to gtk.
+        * glyphs-gtk.h: Use the generic pixmap_image_instance.mask for masks,
+        instead of a GTK specific field, so that it is used in by generic
+        code.
+
+2004-05-05  Chuck Hines <chuck.hines@baesystems.com>
+
+       * dgif_lib.c (DGifSlurp): Changed do-while to while to stop
+        coredump from deref of NULL ptr (ExtData)
+
+2004-04-19  Jerry James  <james@xemacs.org>
+
+	* data.c (sign_extend_lisp_int): Use INT_VALBITS instead of
+	VALBITS to compute the location of the sign bit.
+	* event-stream.c (Fcurrent_event_timestamp): Replace incorrect use
+	of VALBITS with EMACS_INT_MAX.
+	* events.c (Fevent_timestamp): Ditto.
+	* events.c (TIMESTAMP_HALFSPACE): Change VALBITS to INT_VALBITS to
+	compute the halfway point to timestamp wraparound.
+	* floatfns.c (float_to_int): Compare against EMACS_INT_MAX and
+	EMACS_INT_MIN instead of using VALBITS.
+	* floatfns.c (Flogb): Use EMACS_INT_MIN instead of building an
+	incorrect number with VALBITS.
+	* fns.c (Frandom): Correct number of integer bits in docstring.
+	Use INT_VALBITS instead of VALBITS to compute the denominator.
+	* sysdep.c (get_random): Use INT_VALBITS instead of VALBITS to
+	build random numbers.
+
+2004-03-23  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+	* event-gtk.c:
+	* event-gtk.c (gtk_event_to_emacs_event):
+	* menubar-gtk.c:
+	* menubar-gtk.c (gtk_xemacs_menubar_class_init):
+	* menubar-gtk.c (gtk_xemacs_menubar_size_request):
+	* menubar-gtk.c (gtk_xemacs_accel_label_get_type):
+	* menubar-gtk.c (gtk_xemacs_set_accel_keys):
+	* menubar-gtk.c (__activate_menu):
+	* menubar-gtk.c (convert_underscores):
+	* menubar-gtk.c (remove_underscores):
+	* menubar-gtk.c (menu_convert):
+	* menubar-gtk.c (menu_descriptor_to_widget_1):
+	* menubar-gtk.c (menu_descriptor_to_widget):
+	* menubar-gtk.c (menu_can_reuse_widget):
+	* menubar-gtk.c (menu_create_menubar):
+	* menubar-gtk.c (gtk_popup_menu):
+	* menubar-gtk.c (Fgtk_build_xemacs_menu):
+	Added support for Gtk menu bar and menu item mnemonics.
+
+2004-03-23  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* sysdll.c: (dll_function): Added support for finding symbols in
+	Darwin shared libraries as well in Darwin bundles.
+	* sysdll.c (image_for_address): New
+	* sysdll.c (my_find_image): New
+	* sysdll.c (search_linked_libs): New
+
+2004-03-23  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* ui-gtk.c (__internal_callback_marshal): Marshalling data to
+	return to GTK requires a different API to marshalling data to use
+	as GTK parameters.
+	* ui-gtk.c (lisp_to_gtk_ret_type): New.
+
+2004-03-08  Lutz Euler  <lutz.euler@freenet.de>
+
+	* lstream.c (Lstream_pseudo_close): Fix test for LSTREAM_FL_IS_OPEN.
+
+2004-02-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* glyphs.c (process_image_string_instantiator):
+	(Fset_console_type_image_conversion_list):
+	Stop GCC from warning about shadowing of `exp'.
+
+	* redisplay-x.c (x_output_string): Fix unsigned lossage.
+
+2004-02-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_match_2_internal): Shut up GCC about syn1, syn2.
+
+2004-02-03  Vin Shelton  <acs@xemacs.org>
+
+	* glyphs.c (image_instance_layout): Remove pointless assertion.
+	* regex.c (regex_grow_registers): Return type is void.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

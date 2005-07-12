@@ -433,7 +433,7 @@ eol_type_to_symbol (eol_type_t type)
 {
   switch (type)
     {
-    default: abort ();
+    default: ABORT ();
     case EOL_LF:         return Qlf;
     case EOL_CRLF:       return Qcrlf;
     case EOL_CR:         return Qcr;
@@ -1222,7 +1222,7 @@ subsidiary_coding_system (Lisp_Object coding_system, eol_type_t type)
     case EOL_LF:   new_coding_system = CODING_SYSTEM_EOL_LF   (cs); break;
     case EOL_CR:   new_coding_system = CODING_SYSTEM_EOL_CR   (cs); break;
     case EOL_CRLF: new_coding_system = CODING_SYSTEM_EOL_CRLF (cs); break;
-    default:       abort (); return Qnil;
+    default:       ABORT (); return Qnil;
     }
 
   return NILP (new_coding_system) ? coding_system : new_coding_system;
@@ -1260,7 +1260,7 @@ Return the type of CODING-SYSTEM.
 {
   switch (XCODING_SYSTEM_TYPE (Fget_coding_system (coding_system)))
     {
-    default: abort ();
+    default: ABORT ();
     case CODESYS_AUTODETECT:	return Qundecided;
 #ifdef MULE
     case CODESYS_SHIFT_JIS:	return Qshift_jis;
@@ -1336,7 +1336,7 @@ Return the PROP property of CODING-SYSTEM.
 	    break;
 #endif /* MULE */
 	  default:
-	    abort ();
+	    ABORT ();
 	  }
       }
 
@@ -1404,7 +1404,7 @@ Return the PROP property of CODING-SYSTEM.
 	  unparse_charset_conversion_specs
 	    (XCODING_SYSTEM (coding_system)->iso2022.output_conv);
       else
-	abort ();
+	ABORT ();
     }
   else if (type == CODESYS_CCL)
     {
@@ -1413,11 +1413,11 @@ Return the PROP property of CODING-SYSTEM.
       else if (EQ (prop, Qencode))
 	return XCODING_SYSTEM_CCL_ENCODE (coding_system);
       else
-	abort ();
+	ABORT ();
     }
 #endif /* MULE */
   else
-    abort ();
+    ABORT ();
 
   return Qnil; /* not reached */
 }
@@ -2514,7 +2514,7 @@ mule_decode (Lstream *decoding, const Extbyte *src,
       break;
 #endif /* MULE */
     default:
-      abort ();
+      ABORT ();
     }
 }
 
@@ -2933,7 +2933,7 @@ mule_encode (Lstream *encoding, const Bufbyte *src,
       break;
 #endif /* MULE */
     default:
-      abort ();
+      ABORT ();
     }
 }
 
@@ -3926,7 +3926,7 @@ encode_coding_ucs4 (Lstream *encoding, const Bufbyte *src,
 		    }
 		  break;
 		default:
-		  abort ();
+		  ABORT ();
 		}
 	    }
 	}
@@ -4279,7 +4279,7 @@ encode_coding_utf8 (Lstream *encoding, const Bufbyte *src,
 		    }
 		  break;
 		default:
-		  abort ();
+		  ABORT ();
 		}
 	    }
 	}
@@ -4832,7 +4832,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	else
 	  {
 	    /* Can this ever be reached? -slb */
-	    abort();
+	    ABORT();
 	    return 0;
 	  }
 
@@ -5855,7 +5855,7 @@ encode_coding_iso2022 (Lstream *encoding, const Bufbyte *src,
 		  break;
 
 		default:
-		  abort ();
+		  ABORT ();
 		}
 	    }
 	  char_boundary = 0;
@@ -5938,7 +5938,7 @@ encode_coding_iso2022 (Lstream *encoding, const Bufbyte *src,
 		    }
 		  break;
 		default:
-		  abort ();
+		  ABORT ();
 		}
 	    }
 	}

@@ -170,6 +170,12 @@ struct gtk_frame
   /* Are we iconfied right now? */
   unsigned int iconified_p :1;
 
+  /* Data for widget callbacks.  It is impossible to pass all the necessary
+     data through the GTK signal API so instead it is registered here and the
+     hash key is passed instead. */
+  Lisp_Object widget_instance_hash_table;
+  Lisp_Object widget_callback_hash_table;
+  Lisp_Object widget_callback_ex_hash_table;
 };
 
 #define FRAME_GTK_DATA(f) FRAME_TYPE_DATA (f, gtk)
@@ -191,6 +197,17 @@ struct gtk_frame
 #define FRAME_GTK_TOTALLY_VISIBLE_P(f) (FRAME_GTK_DATA (f)->totally_visible_p)
 #define FRAME_GTK_VISIBLE_P(f) (FRAME_GTK_DATA (f)->visible_p)
 #define FRAME_GTK_TOP_LEVEL_FRAME_P(f) (FRAME_GTK_DATA (f)->top_level_frame_p)
+#define FRAME_GTK_WIDGET_INSTANCE_HASH_TABLE(f) (FRAME_GTK_DATA (f)->widget_instance_hash_table)
+#define FRAME_GTK_WIDGET_CALLBACK_HASH_TABLE(f) (FRAME_GTK_DATA (f)->widget_callback_hash_table)
+#define FRAME_GTK_WIDGET_CALLBACK_EX_HASH_TABLE(f) (FRAME_GTK_DATA (f)->widget_callback_ex_hash_table)
+
+/* Special data used to quickly identify the frame that contains a widget. */
+#define GTK_DATA_FRAME_IDENTIFIER "xemacs::frame"
+
+/* The hashcode in the frame hash table of a tab_control tab's callback data. */
+#define GTK_DATA_TAB_HASHCODE_IDENTIFIER "xemacs::tab_hashcode"
+
+#define GTK_DATA_GUI_IDENTIFIER "xemacs::gui_id"
 
 /* Variables associated with the X display frame this emacs is using. */
 
@@ -205,6 +222,7 @@ extern int gtk_interline_space;
 
 extern int gtk_selection_timeout;
 
+struct frame *gtk_widget_to_frame (GtkWidget *);
 struct frame *gtk_any_window_to_frame (struct device *d, GdkWindow *);
 struct frame *gtk_window_to_frame (struct device *d, GdkWindow *);
 struct frame *gtk_any_widget_or_parent_to_frame (struct device *d, GtkWidget *widget);

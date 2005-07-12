@@ -53,10 +53,10 @@
 #include "src/config.h"
 
 #ifdef USE_GNU_MAKE
-RECURSIVE_MAKE=$(MAKE)
+RECURSIVE_MAKE_ARGS=
 #else
 @SET_MAKE@
-RECURSIVE_MAKE=@RECURSIVE_MAKE@
+RECURSIVE_MAKE_ARGS=@RECURSIVE_MAKE_ARGS@
 #endif
 
 SHELL = /bin/sh
@@ -284,11 +284,11 @@ ${srcdir}/lib-src/config.values.in : ${srcdir}/configure
 	cd ${srcdir} && $(SHELL) lib-src/config.values.sh
 
 depend ${srcdir}/src/depend:
-	cd ./src && $(RECURSIVE_MAKE) depend
+	cd ./src && $(MAKE) $(RECURSIVE_MAKE_ARGS) depend
 
 ## Build XEmacs and recompile out-of-date and missing .elc files along
 ## the way.
-all-elc all-elcs: autoloads dump-elcs
+all-elc all-elcs: ${PROGNAME} autoloads dump-elcs
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l update-elc-2.el -f batch-update-elc-2 lisp
 #ifdef UTF2000
@@ -297,13 +297,13 @@ all-elc all-elcs: autoloads dump-elcs
 #endif
 
 ## Sub-target for all-elc.
-dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs
-	cd ./src && $(RECURSIVE_MAKE) dump-elcs
+dump-elc dump-elcs: ${PROGNAME} ${GENERATED_HEADERS} FRC.dump-elcs
+	cd ./src && $(MAKE) $(RECURSIVE_MAKE_ARGS) dump-elcs
 
 autoloads: lib-src lwlib src lisp/auto-autoloads.el lisp/custom-load.el
 
 FRC.lisp.auto.autoloads.el:
-lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
+lisp/auto-autoloads.el:	${PROGNAME} FRC.lisp.auto.autoloads.el
 	$(RM) lisp/auto-autoloads.el
 	${blddir}/src/${PROGNAME} -batch -no-autoloads \
 		-l autoload -f batch-update-directory lisp
@@ -328,19 +328,20 @@ lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
 #endif
 
 FRC.lisp.custom.load.el:
-lisp/custom-load.el: FRC.lisp.custom.load.el lisp/auto-autoloads.el
+lisp/custom-load.el: ${PROGNAME} FRC.lisp.custom.load.el lisp/auto-autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla -l cus-dep \
 		-f Custom-make-dependencies lisp
 
 finder: src
 	@echo "Building finder database ..."
+	$(RM) lisp/finder-inf.el
 	@(cd ./lisp; \
 		${blddir}/src/${PROGNAME} -batch -vanilla \
 		-eval '(setq finder-compile-keywords-quiet t)' \
 		-l finder -f finder-compile-keywords )
 	@echo "Building finder database ...(done)"
 
-lisp/finder-inf.el:
+lisp/finder-inf.el: src
 	@echo "Building finder database ..."
 	@(cd ./lisp; \
 		${blddir}/src/${PROGNAME} -batch -vanilla \
@@ -375,9 +376,12 @@ FRC.src FRC.lib-src FRC.lwlib FRC.dynodump pkg-src/FRC.tree-x:
 FRC.lisp.finder-inf.el:
 
 ${SUBDIR}: ${SUBDIR_MAKEFILES} ${GENERATED_HEADERS} FRC
-	cd ./$@ && $(RECURSIVE_MAKE) all
+	cd ./$@ && $(MAKE) $(RECURSIVE_MAKE_ARGS) all
 
-Makefile: ${srcdir}/Makefile.in config.status
+## Building modules depends on ellcc, found in lib-src.
+modules/sample modules/ldap modules/zlib modules/base64: lib-src
+
+Makefile: ${srcdir}/Makefile.in.in config.status
 	./config.status
 
 src/Makefile: ${srcdir}/src/Makefile.in.in ${srcdir}/src/depend config.status
@@ -436,7 +440,7 @@ install: all check-features install-arch-dep install-arch-indep
 
 install-arch-dep: mkdir
 	for subdir in ${INSTALL_ARCH_DEP_SUBDIR}; do \
-	(cd ./$${subdir} && $(RECURSIVE_MAKE) install prefix=${prefix} \
+	(cd ./$${subdir} && $(MAKE) $(RECURSIVE_MAKE_ARGS) install prefix=${prefix} \
 	    exec_prefix=${exec_prefix} bindir=${bindir} libdir=${libdir} \
 	    archlibdir=${archlibdir}) ; done
 	if test "`(cd ${archlibdir} && $(pwd))`" != \
@@ -456,11 +460,13 @@ install-arch-dep: mkdir
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}
 	-chmod 0755 ${bindir}/${PROGNAME}
 #else
-	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}
-	-chmod 0755 ${bindir}/${PROGNAME}-${version}
 # ifdef CYGWIN
+	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}.exe
+	-chmod 0755 ${bindir}/${PROGNAME}-${version}.exe
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version}.exe ./${PROGNAME}
 # else
+	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}
+	-chmod 0755 ${bindir}/${PROGNAME}-${version}
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
 # endif /* CYGWIN */
 #endif /* WIN32_NATIVE */
@@ -570,7 +576,7 @@ mkdir: FRC.mkdir
 #### would be extremely dangerous for anyone to use it.
 ##uninstall:
 ##	(cd ./lib-src; 					\
-##	 $(RECURSIVE_MAKE) uninstall			\
+##	 $(MAKE) $(RECURSIVE_MAKE_ARGS) uninstall			\
 ##	    prefix=${prefix} exec_prefix=${exec_prefix}	\
 ##	    bindir=${bindir} libdir=${libdir} archlibdir=${archlibdir})
 ##	for dir in ${lispdir} ${etcdir} ; do 		\
@@ -604,7 +610,7 @@ FRC.mostlyclean FRC.clean FRC.distclean FRC.realclean FRC.tags:
 ##      target for GCC does not delete `libgcc.a', because recompiling it
 ##      is rarely necessary and takes a lot of time.
 mostlyclean: FRC.mostlyclean
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR); do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 
 ## `clean'
 ##      Delete all files from the current directory that are normally
@@ -615,7 +621,7 @@ mostlyclean: FRC.mostlyclean
 
 ##      Delete `.dvi' files here if they are not part of the distribution.
 clean: FRC.clean
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR); do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	$(RM) core
 
 ## `distclean'
@@ -631,7 +637,7 @@ top_distclean=\
 	$(RM) -r site-packages xemacs-packages mule-packages site-lisp
 
 distclean: FRC.distclean
-	for d in $(SUBDIR_DISTCLEAN); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR_DISTCLEAN); do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	-${top_distclean}
 
 ## `realclean'
@@ -646,7 +652,7 @@ distclean: FRC.distclean
 ##      anything that needs to exist in order to run `configure' and then
 ##      begin to build the program.
 realclean: FRC.realclean
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR); do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	-${top_distclean}
 	$(RM) TAGS
 
@@ -655,7 +661,7 @@ realclean: FRC.realclean
 ## the coding standards seem to come from.  It's like distclean, but
 ## it deletes backup and autosave files too.
 extraclean:
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR); do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	$(RM) *~ \#*
 	-${top_distclean}
 
@@ -677,7 +683,7 @@ SOURCES = ChangeLog GETTING.GNU.SOFTWARE INSTALL Makefile.in PROBLEMS \
 unlock:
 	chmod u+w $(SOURCES) cpp/*
 	-cd ./elisp && chmod u+w Makefile README *.texi
-	for d in src etc lib-src lisp; do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in src etc lib-src lisp; do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	cd ./lisp/term && chmod u+w README *.el
 	cd ./man && chmod u+w *texi* ChangeLog split-man
 	cd ./lwlib && chmod u+w *.[ch] Makefile.in.in
@@ -685,7 +691,7 @@ unlock:
 relock:
 	chmod u-w $(SOURCES) cpp/*
 	-cd ./elisp && chmod u-w Makefile README *.texi
-	for d in src etc lib-src lisp; do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in src etc lib-src lisp; do (cd ./$$d && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@); done
 	cd ./lisp/term && chmod u+w README *.el
 	cd ./man && chmod u+w *texi* ChangeLog split-man
 	cd ./lwlib && chmod u+w *.[ch] Makefile.in.in
@@ -704,13 +710,13 @@ TAGS tags: FRC.tags
 	  xargs etags -a -l none -r "/^(def\\(var\\|un\\|alias\\|const\\|macro\\|subst\\|struct\\|face\\|group\\|custom\\|ine-\\(function\\|compiler-macro\\|[a-z-]+alias\\)\\)[ 	]+'?\\([^ 	]+\\)/\\3/"
 
 check:
-	cd ./src && $(RECURSIVE_MAKE) $@
+	cd ./src && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@
 
 info: FRC.info
-	cd ${srcdir}/man && $(RECURSIVE_MAKE) $@
+	cd ${srcdir}/man && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@
 
 dvi:
-	cd ${srcdir}/man && $(RECURSIVE_MAKE) $@
+	cd ${srcdir}/man && $(MAKE) $(RECURSIVE_MAKE_ARGS) $@
 
 ## Fix up version information in executables (Solaris-only)
 mcs:
