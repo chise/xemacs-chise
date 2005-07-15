@@ -1,6 +1,49 @@
+2005-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (K0-5622): Add `<-ancient' for K0-5627.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002458D): Use
+	`->subsumptive'.
+	(M-19791): Add `<-subsumptive' for U-0002458D; add `<-ancient' for
+	U+FA67.
+
+	* Ideograph-R157-Foot.el (U+8E02): Use `->subsumptive'.
+	(U+8E03): Use `->denotational' and `->subsumptive'.
+	(U-00028048): New character.
+	(C6-6277): Use `<-subsumptive' for U-00028048; separate M-37565.
+
+	* Ideograph-R060-Step.el (U-000224F5): Use `->subsumptive'.
+	(U-000224F6): Add `<-ancient' for M-38892.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL WALK ONE>): Add
+	`<-ideographic-component-forms' for U+8FB5.
+
+	* Ideograph-R077-Stop.el (U-0002394D): Add `<-ancient' for
+	M-38752.
+
+2005-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-relation-feature): New function.
+	(insert-char-attributes): Use `char-db-insert-relation-feature'.
+
+2005-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (GT-K01418): Use
+	`<-simplified@component' instead of `<-simplified@misc'.
+	(U+4495): Use `->denotational' instead of `->subsumptive'.
+
+2005-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R132-Self.el (U+81F2): Use `->subsumptive'.
+
 2005-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el: New file.
+
+2005-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+6577): Use `->denotational' and
+	`->subsumptive'.
 
 2005-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
