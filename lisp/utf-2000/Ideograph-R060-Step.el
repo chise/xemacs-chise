@@ -1148,20 +1148,23 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x224F5)	; 𢓵
-    (=daikanwa		. 10123)	; &I-M-10123;
-    ))
-(define-char
-  '((=>ucs		. #x224F5)	; 𢓵
-    (morohashi-daikanwa	10123 0 0)
-    (ideographic-radical . 60)	; ⼻
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=cns11643-5	. #x2D4A)	; &C5-2D4A; [13-42]
+    (->subsumptive
+     ((=daikanwa	  . 10123)	; &M-10123;
+      (=ucs@iso		  . #x224F5)	; &M-10123;
+      )
+     ((=cns11643-5	  . #x2D4A)	; &C5-2D4A; [13-42]
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (<-ancient
+     ((=ks-x1001	  . #x7757)	; &M-38892; [87-55]
+      (=daikanwa	  . 38892)	; &I-M-38892;
+      ))
+    (<-ancient*sources
+     zihui-bei daikanwa)
     (=ucs		. #x224F6)	; 𢓶
     (=cns11643-6	. #x3749)	; &I-C6-3749; [23-41]
     (=daikanwa		. 10124)	; &I-M-10124;
