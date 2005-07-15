@@ -439,6 +439,101 @@
 		      (- (logand value 255) 32))))
   (insert line-breaking))
 
+(defun char-db-insert-relation-feature (char name value line-breaking
+					     ccss readable)
+  (insert (format "(%-18s%s " name line-breaking))
+  (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
+	separator cell sources required-features
+	ret)
+    (while (consp value)
+      (setq cell (car value))
+      (if (integerp cell)
+	  (setq cell (decode-char '=ucs cell)))
+      (cond
+       ((eq name '->subsumptive)
+	(when (or (not (some (lambda (atr)
+			       (get-char-attribute cell atr))
+			     char-db-ignored-attributes))
+		  (some (lambda (ccs)
+			  (encode-char cell ccs 'defined-only))
+			ccss))
+	  (if separator
+	      (insert lbs))
+	  (let ((char-db-ignored-attributes
+		 (cons '<-subsumptive
+		       char-db-ignored-attributes)))
+	    (insert-char-attributes cell readable))
+	  (setq separator lbs))
+	)
+       ((characterp cell)
+	(setq sources
+	      (get-char-attribute
+	       char (intern (format "%s*sources" name))))
+	(setq required-features nil)
+	(dolist (source sources)
+	  (cond
+	   ((memq source '(JP JP/Jouyou shinjigen-1))
+	    (setq required-features
+		  (union required-features
+			 '(=jis-x0208
+			   =jis-x0208@1990
+			   =jis-x0213-1-2000
+			   =jis-x0213-2-2000
+			   =jis-x0212
+			   =jis-x0208@1983
+			   =jis-x0208@1978))))
+	   ((eq source 'CN)
+	    (setq required-features
+		  (union required-features
+			 '(=gb2312
+			   =gb12345
+			   =iso-ir165)))))
+	  (cond
+	   ((find-charset (setq ret (intern (format "=%s" source))))
+	    (setq required-features
+		  (cons ret required-features)))
+	   (t (setq required-features
+		    (cons source required-features)))))
+	(cond ((string-match "@JP" (symbol-name name))
+	       (setq required-features
+		     (union required-features
+			    '(=jis-x0208
+			      =jis-x0208@1990
+			      =jis-x0213-1-2000
+			      =jis-x0213-2-2000
+			      =jis-x0212
+			      =jis-x0208@1983
+			      =jis-x0208@1978))))
+	      ((string-match "@CN" (symbol-name name))
+	       (setq required-features
+		     (union required-features
+			    '(=gb2312
+			      =gb12345
+			      =iso-ir165)))))
+	(if separator
+	    (insert lbs))
+	(if readable
+	    (insert (format "%S" cell))
+	  (char-db-insert-char-spec cell readable
+				    nil
+				    required-features))
+	(setq separator lbs))
+       ((consp cell)
+	(if separator
+	    (insert lbs))
+	(if (consp (car cell))
+	    (char-db-insert-char-spec cell readable)
+	  (char-db-insert-char-reference cell readable))
+	(setq separator lbs))
+       (t
+	(if separator
+	    (insert separator))
+	(insert (prin1-to-string cell))
+	(setq separator " ")))
+      (setq value (cdr value)))
+    (insert ")")
+    (insert line-breaking)))
+
 (defun insert-char-attributes (char &optional readable attributes column)
   (unless column
     (setq column (current-column)))
@@ -449,8 +544,7 @@
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
 	key al cal
-	dest-ccss
-	sources required-features
+	dest-ccss ; sources required-features
 	ccss)
     (let (atr-d)
       (setq attributes
@@ -934,101 +1028,9 @@
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
-		 (insert (format "(%-18s%s " name line-breaking))
-		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
-		       separator nil)
-		 (while (consp value)
-		   (setq cell (car value))
-                   (if (integerp cell)
-		       (setq cell (decode-char '=ucs cell)))
-		   (cond ((eq name '->subsumptive)
-			  (when (or (not
-				     (some (lambda (atr)
-					     (get-char-attribute cell atr))
-					   char-db-ignored-attributes))
-				    (some (lambda (ccs)
-					    (encode-char cell ccs
-							 'defined-only))
-					  ccss))
-			    (if separator
-				(insert lbs))
-			    (let ((char-db-ignored-attributes
-				   (cons '<-subsumptive
-					 char-db-ignored-attributes)))
-			      (insert-char-attributes cell readable))
-			    (setq separator lbs))
-			  )
-			 ((characterp cell)
-			  (setq sources
-				(get-char-attribute
-				 char
-				 (intern (format "%s*sources" name))))
-			  (setq required-features nil)
-			  (dolist (source sources)
-			    (cond
-			     ((memq source '(JP JP/Jouyou
-						shinjigen-1))
-			      (setq required-features
-				    (union required-features
-					   '(=jis-x0208
-					     =jis-x0208@1990
-					     =jis-x0213-1-2000
-					     =jis-x0213-2-2000
-					     =jis-x0212
-					     =jis-x0208@1983
-					     =jis-x0208@1978))))
-			     ((eq source 'CN)
-			      (setq required-features
-				    (union required-features
-					   '(=gb2312
-					     =gb12345
-					     =iso-ir165)))))
-			    (cond
-			     ((find-charset
-			       (setq ret (intern (format "=%s" source))))
-			      (setq required-features
-				    (cons ret required-features)))
-			     (t (setq required-features
-				      (cons source required-features)))))
-			  (cond ((string-match "@JP" (symbol-name name))
-				 (setq required-features
-				       (union required-features
-					      '(=jis-x0208
-						=jis-x0208@1990
-						=jis-x0213-1-2000
-						=jis-x0213-2-2000
-						=jis-x0212
-						=jis-x0208@1983
-						=jis-x0208@1978))))
-				((string-match "@CN" (symbol-name name))
-				 (setq required-features
-				       (union required-features
-					      '(=gb2312
-						=gb12345
-						=iso-ir165)))))
-			  (if separator
-			      (insert lbs))
-			  (if readable
-			      (insert (format "%S" cell))
-			    (char-db-insert-char-spec cell readable
-						      nil
-						      required-features))
-			  (setq separator lbs))
-			 ((consp cell)
-			  (if separator
-			      (insert lbs))
-			  (if (consp (car cell))
-			      (char-db-insert-char-spec cell readable)
-			    (char-db-insert-char-reference cell readable))
-			  (setq separator lbs))
-			 (t
-			  (if separator
-			      (insert separator))
-			  (insert (prin1-to-string cell))
-			  (setq separator " ")))
-		   (setq value (cdr value)))
-		 (insert ")")
-		 (insert line-breaking))
+		 (char-db-insert-relation-feature char name value
+						  line-breaking
+						  ccss readable))
 		((memq name '(ideograph=
 			      original-ideograph-of
 			      ancient-ideograph-of
