@@ -1,5 +1,7 @@
 2005-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R064-Hand.el (U+6316): Use `->subsumptive'.
+
 	* Ideograph-R096-Jade.el (K0-5622): Add `<-ancient' for K0-5627.
 
 	* Ideograph-R090-Half-Tree-Trunk.el (U-0002458D): Use
