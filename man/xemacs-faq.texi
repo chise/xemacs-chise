@@ -3955,7 +3955,9 @@ is what happens when you select a region (with the mouse or keyboard)
 and you press a key to replace the selected region by the key you typed.
 Usually backspace kills the selected region.
 
-To get this behavior, add the following lines to your @file{init.el}/@file{.emacs}:
+To get this behavior, ensure that you have the @file{pc} package
+installed, and add the following lines to your
+@file{init.el}/@file{.emacs}:
 
 @lisp
 (cond

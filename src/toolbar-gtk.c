@@ -389,7 +389,7 @@ gtk_get_button_size (struct frame *f, Lisp_Object window,
 	(frame)->right_toolbar_was_visible = flag;			\
 	break;								\
       default:								\
-	abort ();							\
+	ABORT ();							\
       }									\
   } while (0)
 

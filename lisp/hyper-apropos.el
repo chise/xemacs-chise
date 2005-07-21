@@ -310,10 +310,12 @@ a = autoloaded, b = byte-compiled, i = internal, l = lambda, m = macro.\n\n"
 			 (if (natnump l) l 0)))
       (and hyper-apropos-show-brief-docs
 	   (setq doc
-	   ;; A symbol's function slot can point to an unbound symbol.
-	   ;; In that case, `documentation' will fail.
-		 (ignore-errors
-		   (documentation fn)))
+		 ;; A symbol's function slot can point to an unbound symbol.
+		 ;; In that case, `documentation' will fail.
+		 (condition-case nil
+		     (documentation fn)
+		   (void-function "(alias for undefined function)")
+		   (error "(unexpected error from `documentation')")))
 	   (if  (string-match
 		 "^([^\n\t )]+[\t ]*\\([^\n)]+\\)?)\\(:[\t ]*\\|\n?\\'\\)"
 		 doc)
@@ -726,7 +728,12 @@ See also `hyper-apropos' and `hyper-describe-function'."
 		     local (current-local-map)
 		     global (current-global-map)
 		     obsolete (get symbol 'byte-obsolete-info)
-		     doc (or (documentation symbol) "function not documented"))
+		     doc (or (condition-case nil
+				 (documentation symbol)
+			       (void-function
+				"(alias for undefined function)")
+			       (error "(unexpected error from `documention')"))
+			     "function not documented"))
 	       (save-excursion
 		 (set-buffer hyper-apropos-help-buf)
 		 (goto-char (point-max))

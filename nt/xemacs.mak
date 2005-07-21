@@ -1,6 +1,6 @@
 #   Makefile for Microsoft NMAKE
 #   Copyright (C) 1995 Board of Trustees, University of Illinois.
-#   Copyright (C) 1995, 1996, 2000 Ben Wing.
+#   Copyright (C) 1995, 1996, 2000, 2005 Ben Wing.
 #   Copyright (C) 1995 Sun Microsystems, Inc.
 #   Copyright (C) 1998 Free Software Foundation, Inc.
 #
@@ -177,12 +177,17 @@ USE_UNION_TYPE=0
 USE_MINITAR=$(HAVE_ZLIB)
 !endif
 !if !defined(USE_PORTABLE_DUMPER)
-USE_PORTABLE_DUMPER=0
+USE_PORTABLE_DUMPER=1
 !endif
 
 # A little bit of adhockery. Default to use system malloc and
 # DLL version of the C runtime library when using portable
 # dumping. These are the optimal settings.
+#
+# NOTE: The various graphics libraries are generally compiled to use
+# MSVCRT.DLL (the same that we use in USE_CRTDLL, more or less), so using
+# this is a good thing.
+
 !if !defined(USE_SYSTEM_MALLOC)
 USE_SYSTEM_MALLOC=$(USE_PORTABLE_DUMPER)
 !endif
@@ -480,7 +485,7 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 
 # Generic variables
 
-INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(LWLIB_SRCDIR)
+INCLUDES=$(X_INCLUDES) -I$(NT)\inc -I$(SRC) $(MSW_INCLUDES) -I$(LWLIB_SRCDIR)
 
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) $(UNION_DEFINES) \
 	$(DUMPER_DEFINES) $(MALLOC_DEFINES) $(QUICK_DEFINES) \
@@ -560,7 +565,7 @@ $(LIB_SRC)/winclient.exe: $(LIB_SRC)/winclient.c
 	cd $(NT)
 
 $(LIB_SRC)/minitar.exe : $(NT)/minitar.c
-	$(CCV) $(CFLAGS_NO_LIB) -I"$(ZLIB_DIR)" $(LIB_SRC_DEFINES) -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
+	$(CCV) $(CFLAGS_NO_LIB) -I"$(ZLIB_DIR)" $(LIB_SRC_DEFINES) -MD -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/etags.exe		\
@@ -1175,7 +1180,7 @@ INFO_FILES= \
 
 {$(MANDIR)}.texi{$(INFODIR)}.info:
 	cd $(MANDIR)
-	$(MAKEINFO) $**
+	$(MAKEINFO) $(**F)
 
 XEMACS_SRCS = \
 	$(MANDIR)\xemacs\abbrevs.texi \

@@ -187,11 +187,26 @@ or go back to just one window (by deleting all but the selected window)."
 
 
 (defun truncate-command-history-for-gc ()
-  (let ((tail (nthcdr 30 command-history)))
-    (if tail (setcdr tail nil)))
-  (let ((tail (nthcdr 30 values)))
-    (if tail (setcdr tail nil)))
-  )
+  ;; We should try to avoid accessing any bindings to speak of in this
+  ;; function; as this hook is called asynchronously, the search for
+  ;; those bindings might search local bindings from essentially
+  ;; arbitrary functions. We force the body of the function to run at
+  ;; command-loop level, where the danger of local bindings is much
+  ;; reduced; the code can still do its job because the command history
+  ;; and values list will not grow before then anyway.
+  ;;
+  ;; Nothing is done in batch mode, both because it is a waste of time
+  ;; (there is no command loop!) and because this any GCs during dumping
+  ;; will invoke this code, and if it were to enqueue an eval event,
+  ;; the portable dumper would try to dump it and fail.
+  (if (not (noninteractive))
+      (enqueue-eval-event
+       #'(lambda (arg)
+           (let ((tail (nthcdr 30 command-history)))
+             (if tail (setcdr tail nil)))
+           (let ((tail (nthcdr 30 values)))
+             (if tail (setcdr tail nil))))
+       nil)))
 
 (add-hook 'pre-gc-hook 'truncate-command-history-for-gc)
 

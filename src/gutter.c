@@ -70,7 +70,7 @@ update_gutter_geometry (struct frame *f, enum gutter_pos pos);
 	(frame)->right_gutter_was_visible = flag;	\
 	break;						\
       default:						\
-	abort ();					\
+	ABORT ();					\
       }							\
   } while (0)
 
@@ -87,7 +87,7 @@ static int gutter_was_visible (struct frame* frame, enum gutter_pos pos)
     case RIGHT_GUTTER:
       return frame->right_gutter_was_visible;
     default:
-      abort ();
+      ABORT ();
 	return 0;	/* To keep the compiler happy */
     }
 }
@@ -214,7 +214,7 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
       break;
 
     default:
-      abort ();
+      ABORT ();
     }
 }
 

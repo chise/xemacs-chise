@@ -740,11 +740,11 @@ void DGifSlurp(GifFileType *GifFile)
 	    case EXTENSION_RECORD_TYPE:
 		DGifGetExtension(GifFile,&sp->Function,&ExtData);
 		
-		do {
+		while (ExtData != NULL) {
     		    if (AddExtensionBlock(sp, ExtData[0], ExtData+1) == GIF_ERROR)
 			GifInternError(GifFile, D_GIF_ERR_NOT_ENOUGH_MEM);
 		    DGifGetExtensionNext(GifFile, &ExtData);
-		} while (ExtData != NULL);
+		}
 		break;
 
 	    case TERMINATE_RECORD_TYPE:

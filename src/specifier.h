@@ -154,7 +154,7 @@ struct specifier_methods
 
      This method must presume that both INSTANTIATOR and MATCHSPEC are
      already validated by the corresponding validate_* methods, and
-     may abort if they are invalid.
+     may ABORT if they are invalid.
 
      Return value is an instance, which is returned immediately to the
      caller, or Qunbound to continue instantiation lookup chain.
@@ -417,7 +417,7 @@ struct specifier_caching
 
 /* #### get image instances out of domains! */
 
-/* #### I think the following should abort() rather than return nil
+/* #### I think the following should ABORT() rather than return nil
    when an invalid domain is given; much more likely we'll catch design
    errors early. --ben */
 

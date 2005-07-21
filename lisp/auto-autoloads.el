@@ -864,8 +864,7 @@ in the tag table that matches the tagname used in the previous find-tag.
 the tag.
 
 This version of this function supports multiple active tags tables,
-and completion. See also the commands `\\[push-tag-mark]' and
-`\\[pop-tag-mark]'.
+and completion.
 
 Variables of note:
 
@@ -1248,6 +1247,8 @@ Return a font descriptor object for FONTNAME, appropriate for DEVICE." nil nil)
 
 ;;;### (autoloads (gnuserv-start gnuserv-running-p) "gnuserv" "lisp/gnuserv.el")
 
+(defcustom gnuserv-mode-line-string " Server" "*String to display in the modeline when Gnuserv is active.\nSet this to nil if you don't want a modeline indicator." :type '(choice string (const :tag "none" nil)) :group 'gnuserv)
+
 (defcustom gnuserv-frame nil "*The frame to be used to display all edited files.\nIf nil, then a new frame is created for each file edited.\nIf t, then the currently selected frame will be used.\nIf a function, then this will be called with a symbol `x' or `tty' as the\nonly argument, and its return value will be interpreted as above." :tag "Gnuserv Frame" :type '(radio (const :tag "Create new frame each time" nil) (const :tag "Use selected frame" t) (function-item :tag "Use main Emacs frame" gnuserv-main-frame-function) (function-item :tag "Use visible frame, otherwise create new" gnuserv-visible-frame-function) (function-item :tag "Create special Gnuserv frame and use it" gnuserv-special-frame-function) (function :tag "Other")) :group 'gnuserv :group 'frames)
 
 (autoload 'gnuserv-running-p "gnuserv" "\
@@ -1501,7 +1502,7 @@ recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
 
-(defcustom package-get-package-index-file-location (or (getenv "EMACSPACKAGEPATH") user-init-directory) "*The directory where the package-index file can be found." :type 'directory :group 'package-get)
+(defcustom package-get-package-index-file-location (car (split-path (or (getenv "EMACSPACKAGEPATH") user-init-directory))) "*The directory where the package-index file can be found." :type 'directory :group 'package-get)
 
 (defcustom package-get-install-to-user-init-directory nil "*If non-nil install packages under `user-init-directory'." :type 'boolean :group 'package-get)
 

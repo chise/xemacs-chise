@@ -99,7 +99,7 @@ cmcheckmagic (void)
   if (curX == FrameCols)
     {
       if (!MagicWrap || curY >= FrameRows - 1)
-	abort ();
+	ABORT ();
       if (termscript)
 	putc ('\r', termscript);
       putchar ('\r');

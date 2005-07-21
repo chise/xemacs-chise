@@ -1,13 +1,16 @@
 
 @node Programs, Running, Text, Top
 @chapter Editing Programs
+@cindex Programming Languages
 @cindex Lisp
-@cindex C
 
-  Emacs has many commands designed to understand the syntax of programming
-languages such as Lisp and C.  These commands can:
+  XEmacs provides specialized support for editing source files for many
+different programming languages. For example it is possible to 
 
 @itemize @bullet
+@item
+Follow the usual indentation conventions of the language
+(@pxref{Grinding}).
 @item
 Move over or kill balanced expressions or @dfn{sexps} (@pxref{Lists}).
 @item
@@ -18,8 +21,7 @@ Show how parentheses balance (@pxref{Matching}).
 @item
 Insert, kill, or align comments (@pxref{Comments}).
 @item
-Follow the usual indentation conventions of the language
-(@pxref{Grinding}).
+Find functions and symbols in program by name (@pxref{Tags}).
 @end itemize
 
   The commands available for words, sentences, and paragraphs are useful in
@@ -52,6 +54,7 @@ on the screen.
 * Change Log::          Maintaining a change history for your program.
 * Tags::                Go direct to any function in your program in one
                          command.  Tags remembers which file it is in.
+* CC Mode::             Modes for C, C++, Java and similar languages
 * Fortran::		Fortran mode and its special features.
 * Asm Mode::            Asm mode and its special features.
 @end menu
@@ -60,24 +63,49 @@ on the screen.
 @section Major Modes for Programming Languages
 
 @cindex Lisp mode
-@cindex C mode
-@cindex Scheme mode
-  Emacs has several major modes for the programming languages Lisp, Scheme (a
-variant of Lisp), C, Fortran, and Muddle.  Ideally, a major mode should be
-implemented for each programming language you might want to edit with
-Emacs; but often the mode for one language can serve for other
-syntactically similar languages.  The language modes that exist are those
-that someone decided to take the trouble to write.
+  Emacs has several major modes (@pxref{Major Modes}) to support
+programming languages. These major modes will typically understand
+language syntax, provide automatic indentation features, syntax based
+highlighting of text, and will often provide interfaces to the
+programming environment to assist in compiling, executing and debugging
+programs.
 
-  There are several variants of Lisp mode, which differ in the way they
-interface to Lisp execution.  @xref{Lisp Modes}.
+  A language mode exist when someone decides to take the trouble to
+write it. At this time many widely used programming languages are
+supported by XEmacs. Examples include Ada, Awk, C, C++, CORBA (IDL),
+Fortran, Java, Lisp, Modula 2, Objective-C, Perl, Pike, Prolog, Python,
+Ruby, Scheme, Simula, SQL, Tcl, Unix Shell scripts, and VHDL. Some of
+these language have seperate manuals, and some times more than one mode
+may be available for a language.  For example, there are several
+variants of Lisp mode, which differ in the way they interface to Lisp
+execution.  @xref{Lisp Modes}. 
 
-  Each of the programming language modes defines the @key{TAB} key to run
-an indentation function that knows the indentation conventions of that
-language and updates the current line's indentation accordingly.  For
-example, in C mode @key{TAB} is bound to @code{c-indent-line}.  @key{LFD}
-is normally defined to do @key{RET} followed by @key{TAB}; thus it, too,
-indents in a mode-specific fashion.
+  Major modes for programming language support are distributed in
+optional XEmacs packages (@pxref{Packages}) that must be installed
+before use. A notable exception to this rule is that a Lisp Mode is
+integral to XEmacs. The Programming Mode Package (@file{prog-modes})
+contains many such modes. Some languages are supported by packages of
+their own; prominent examples of such packages include @file{cc-mode}
+for C, C++, Java, Objective C etc.@:, @file{python-modes} for Python,
+and @file{scheme} for Scheme.
+
+  For a language named @var{lang} the major mode for the language will
+typically be named @code{@var{lang}-mode}.  For example, the mode for C
+is called @code{c-mode}, that for Bourne shell scripts is called
+@code{sh-mode} and so on.  These modes will invoke the functions listed
+in the corresponding hook variables as a last step. @xref{Mode Hooks}.
+
+  A mode can be invoked by typing @kbd{M-x @var{lang}-mode
+@key{RET}}. However this step is not normally required. If the package
+for a language mode is installed XEmacs usually knows when to
+automatically invoke the mode. This is normally done based on examining
+the file name to determine the language. @ref{Choosing Modes}.
+
+  Each of the programming language modes defines the @key{TAB} key to
+run an indentation function that knows the indentation conventions of
+that language and updates the current line's indentation accordingly.
+@key{LFD} is normally defined to do @key{RET} followed by @key{TAB};
+thus it, too, indents in a mode-specific fashion.
 
 @kindex DEL
 @findex backward-delete-char-untabify
@@ -93,22 +121,6 @@ character before point.
 blank lines, so that the paragraph commands remain useful.  Auto Fill mode,
 if enabled in a programming language major mode, indents the new lines
 which it creates.
-
-@cindex mode hook
-@vindex c-mode-hook
-@vindex lisp-mode-hook
-@vindex emacs-lisp-mode-hook
-@vindex lisp-interaction-mode-hook
-@vindex scheme-mode-hook
-@vindex muddle-mode-hook
-  Turning on a major mode calls a user-supplied function called the
-@dfn{mode hook}, which is the value of a Lisp variable.  For example,
-turning on C mode calls the value of the variable @code{c-mode-hook} if
-that value exists and is non-@code{nil}.  Mode hook variables for other
-programming language modes include @code{lisp-mode-hook},
-@code{emacs-lisp-mode-hook}, @code{lisp-interaction-mode-hook},
-@code{scheme-mode-hook}, and @code{muddle-mode-hook}.  The mode hook
-function receives no arguments.@refill
 
 @node Lists, Defuns, Program Modes, Programs
 @section Lists and Sexps
@@ -197,13 +209,6 @@ over them as well.
   @kbd{C-M-f} or @kbd{C-M-b} with an argument repeats that operation the
 specified number of times; with a negative argument, it moves in the
 opposite direction.
-
-In languages such as C where the comment-terminator can be recognized,
-the sexp commands move across comments as if they were whitespace.  In
-Lisp and other languages where comments run until the end of a line, it
-is very difficult to ignore comments when parsing backwards; therefore,
-in such languages the sexp commands treat the text of comments as if it
-were code.
 
 @kindex C-M-k
 @findex kill-sexp
@@ -338,7 +343,6 @@ all of the lines inside a single parenthetical grouping.
 * Basic Indent::
 * Multi-line Indent::   Commands to reindent many lines at once.
 * Lisp Indent::		Specifying how each Lisp function should be indented.
-* C Indent::		Choosing an indentation style for C code.
 @end menu
 
 @node Basic Indent, Multi-line Indent, Grinding, Grinding
@@ -434,7 +438,7 @@ preprocessor lines when in C mode.
 mark.  The command @kbd{C-M-\} (@code{indent-region}) applies @key{TAB}
 to every line whose first character is between point and mark.
 
-@node Lisp Indent, C Indent, Multi-line Indent, Grinding
+@node Lisp Indent,  , Multi-line Indent, Grinding
 @subsection Customizing Lisp Indentation
 @cindex customization
 
@@ -508,184 +512,6 @@ indentation is computed by @kbd{C-M-q}; if the value is a number,
 until the end of the list.
 @end table
 
-@node C Indent,  , Lisp Indent, Grinding
-@subsection Customizing C Indentation
-
-  Two variables control which commands perform C indentation and when.
-
-@vindex c-auto-newline
-  If @code{c-auto-newline} is non-@code{nil}, newlines are inserted both
-before and after braces that you insert and after colons and semicolons.
-Correct C indentation is done on all the lines that are made this way.
-
-@vindex c-tab-always-indent
-  If @code{c-tab-always-indent} is non-@code{nil}, the @key{TAB} command
-in C mode does indentation only if point is at the left margin or within
-the line's indentation.  If there is non-whitespace to the left of point,
-@key{TAB} just inserts a tab character in the buffer.  Normally,
-this variable is @code{nil}, and @key{TAB} always reindents the current line.
-
-  C does not have anything analogous to particular function names for which
-special forms of indentation are desirable.  However, it has a different
-need for customization facilities: many different styles of C indentation
-are in common use.
-
-  There are six variables you can set to control the style that Emacs C
-mode will use.
-
-@table @code
-@item c-indent-level
-Indentation of C statements within surrounding block.  The surrounding
-block's indentation is the indentation of the line on which the
-open-brace appears.
-@item c-continued-statement-offset
-Extra indentation given to a substatement, such as the then-clause of
-an @code{if} or body of a @code{while}.
-@item c-brace-offset
-Extra indentation for lines that start with an open brace.
-@item c-brace-imaginary-offset
-An open brace following other text is treated as if it were this far
-to the right of the start of its line.
-@item c-argdecl-indent
-Indentation level of declarations of C function arguments.
-@item c-label-offset
-Extra indentation for a line that is a label, case, or default.
-@end table
-
-@vindex c-indent-level
-  The variable @code{c-indent-level} controls the indentation for C
-statements with respect to the surrounding block.  In the example:
-
-@example
-    @{
-      foo ();
-@end example
-
-@noindent
-the difference in indentation between the lines is @code{c-indent-level}.
-Its standard value is 2.
-
-If the open-brace beginning the compound statement is not at the beginning
-of its line, the @code{c-indent-level} is added to the indentation of the
-line, not the column of the open-brace.  For example,
-
-@example
-if (losing) @{
-  do_this ();
-@end example
-
-@noindent
-One popular indentation style is that which results from setting
-@code{c-indent-level} to 8 and putting open-braces at the end of a line
-in this way.  Another popular style prefers to put the open-brace on a
-separate line.
-
-@vindex c-brace-imaginary-offset
-  In fact, the value of the variable @code{c-brace-imaginary-offset} is
-also added to the indentation of such a statement.  Normally this variable
-is zero.  Think of this variable as the imaginary position of the open
-brace, relative to the first non-blank character on the line.  By setting
-the variable to 4 and @code{c-indent-level} to 0, you can get this style:
-
-@example
-if (x == y) @{
-    do_it ();
-    @}
-@end example
-
-  When @code{c-indent-level} is zero, the statements inside most braces
-line up exactly under the open brace.  An exception are braces in column
-zero, like those surrounding a function's body.  The statements inside
-those braces are not placed at column zero.  Instead,
-@code{c-brace-offset} and @code{c-continued-statement-offset} (see
-below) are added to produce a typical offset between brace levels, and
-the statements are indented that far.
-
-@vindex c-continued-statement-offset
-  @code{c-continued-statement-offset} controls the extra indentation for
-a line that starts within a statement (but not within parentheses or
-brackets).  These lines are usually statements inside other statements,
-like the then-clauses of @code{if} statements and the bodies of
-@code{while} statements.  The @code{c-continued-statement-offset}
-parameter determines the difference in indentation between the two lines in:
-
-@example
-if (x == y)
-  do_it ();
-@end example
-
-@noindent
-The default value for @code{c-continued-statement-offset} is 2.  Some
-popular indentation styles correspond to a value of zero for
-@code{c-continued-statement-offset}.
-
-@vindex c-brace-offset
-  @code{c-brace-offset} is the extra indentation given to a line that
-starts with an open-brace.  Its standard value is zero;
-compare:
-
-@example
-if (x == y)
-  @{
-@end example
-
-@noindent
-with:
-
-@example
-if (x == y)
-  do_it ();
-@end example
-
-@noindent
-If you set @code{c-brace-offset} to 4, the first example becomes:
-
-@example
-if (x == y)
-      @{
-@end example
-
-@vindex c-argdecl-indent
-  @code{c-argdecl-indent} controls the indentation of declarations of the
-arguments of a C function.  It is absolute: argument declarations receive
-exactly @code{c-argdecl-indent} spaces.  The standard value is 5 and
-results in code like this:
-
-@example
-char *
-index (string, char)
-     char *string;
-     int char;
-@end example
-
-@vindex c-label-offset
-  @code{c-label-offset} is the extra indentation given to a line that
-contains a label, a case statement, or a @code{default:} statement.  Its
-standard value is @minus{}2 and results in code like this:
-
-@example
-switch (c)
-  @{
-  case 'x':
-@end example
-
-@noindent
-If @code{c-label-offset} were zero, the same code would be indented as:
-
-@example
-switch (c)
-  @{
-    case 'x':
-@end example
-
-@noindent
-This example assumes that the other variables above also have their
-default values. 
-
-Using the indentation style produced by the default settings of the
-variables just discussed and putting open braces on separate lines
-produces clear and readable files.  For an example, look at any of the C
-source files of XEmacs.
 
 @node Matching, Comments, Grinding, Programs
 @section Automatic Display of Matching Parentheses
@@ -1003,7 +829,7 @@ Tue Jun 25 05:25:33 1985  Richard M. Stallman  (rms at mit-prep)
         not displayed), set it again in final compute_motion.
 @end smallexample
 
-@node Tags, Fortran, Change Log, Programs
+@node Tags, CC Mode, Change Log, Programs
 @section Tags Tables
 @cindex tags table
 
@@ -1705,7 +1531,169 @@ name recorded in the tags table contains that directory.
 then finds all the tags in the selected tags table whose entries match that
 regexp, and displays the tag names found.
 
-@node Fortran, Asm Mode, Tags, Programs
+@node CC Mode, Fortran, Tags, Programs
+@section Modes for C, C++, Java and similar languages
+@cindex C Mode
+@cindex C++ Mode
+@cindex Java Mode
+@cindex AWK Mode
+@cindex Objective C Mode
+@cindex CORBA IDL Mode
+@findex c-mode
+@findex c++-mode
+@findex java-mode
+@findex idl-mode
+@findex awk-mode
+@findex pike-mode
+@findex objc-mode
+@vindex c-mode-hook
+@vindex c++-mode-hook
+@vindex java-mode-hook
+@vindex idl-mode-hook
+@vindex awk-mode-hook
+@vindex pike-mode-hook
+@vindex objc-mode-hook
+@vindex c-mode-common-hook
+@vindex c-initialization-hook
+
+  The recommended means for supporting the ``C--like'' programming
+languages in XEmacs is the @file{cc-mode} package.  CC Mode is not
+included in the basic XEmacs distribution but is available as an
+optional package. If loading a file whose names ends in the @file{.cc}
+extension does not automatically invoke a C++ Mode then the
+@file{cc-mode} package is probably not yet installed. @xref{Packages}.
+
+  CC Mode provides modes for editing source files in Awk
+(@code{awk-mode}), C (@code{c-mode}), C++ (@code{c++-mode}), CORBA IDL
+(@code{idl-mode}), Java (@code{java-mode}), Objective C
+(@code{objc-mode}), and Pike (@code{pike-mode}). All these languages are
+supported with an sophisticated ``indentation engine'' that is feature
+rich, customizable and quite efficient.
+
+  Each language major mode runs hooks in the conventionally named hook
+variables (@pxref{Mode Hooks}). In addition to this conventional
+behavior all the CC Mode major modes will also run hooks in
+@code{c-mode-common-hook} @emph{before} invoking the major mode specific
+hook. 
+
+  CC Mode runs any hooks in @code{c-initialization-hook} exactly once
+when it is first loaded.
+  
+  CC Mode is a very comprehensive and flexible system and full
+description of its capabilities is beyond the scope of this manual.  It
+is strongly recommended that the reader consult the CC Mode
+documentation for details once the package has been
+installed. @xref{Top,CC Mode,,cc-mode, The CC Mode Manual}.
+
+@menu
+* Older Modes::             Older Modes for C and AWK
+* Customizing CC Mode::     An Introduction to Customizing CC Mode.
+@end menu
+
+
+@node Older Modes, Customizing CC Mode, CC Mode, CC Mode
+@subsection Older Modes for C and AWK
+@cindex Old C Mode
+@cindex Old AWK Mode
+@cindex C Mode without CC Mode
+@cindex AWK Mode without CC Mode
+@cindex old-c-mode
+
+  XEmacs provides older versions of a C Mode and an AWK Mode in the
+@file{prog-modes} package. These older modes do not share the
+indentation engine in CC Mode have have their own specific means of
+customizing indentation. To use these modes the @file{prog-modes}
+package must be installed.
+
+  This older C mode is known simply as the ``Old C Mode''. It supports
+only the C language and it lacks many of the features of CC Mode.
+However the old C mode offers modest space requirements and very fast
+operation.  Old C Mode might be useful in space constrained
+environments, on slow machines, or for editing very large files. This
+old C mode is available in the @file{old-c-mode}
+library. @xref{old-c-mode,Old C Mode,old-c-mode,prog-modes,The
+Programming Modes Package Manual}.
+
+  The old AWK mode exists for similar reasons. It is available in the
+@file{awk-mode} library.  @xref{awk-mode,Old AWK
+Mode,awk-mode,prog-modes,The Programming Modes Package Manual}.
+
+  Note that the prog-modes package will never automatically invoke these
+older modes for a user. However installing the @file{cc-mode} package
+@emph{will} make CC Mode's versions available automatically.  As a
+result a user who wants to use these older modes must explicitly load
+the old libraries to use them.
+
+@node Customizing CC Mode,  , Older Modes, CC Mode
+@subsection Customizing Indentation in CC Mode
+
+  A very brief introduction is included here on customizing CC Mode. CC
+Mode has many features, including useful minor modes, that are
+completely documented in its own manual.
+
+  CC Mode implements several different ``styles'' for C code (and the
+other languages supported by CC Mode). If you need to change the
+indentation style for CC Mode it is recommended that you first see if an
+existing style meets your requirements. The style chosen will affect the
+placement of language elements like braces, function declarations and
+comments. You can choose a style interactively by typing @kbd{C-c .} and
+pressing the space bar at the prompt to get a list of supported
+styles. @kbd{C-c .} runs the function @code{c-set-style} which applies
+to all CC Mode language modes though its name might suggest otherwise. A
+few of the the supported styles are listed below.
+
+@itemize @bullet
+@item
+``gnu'' --- The recommeded style from the Free Software Foundation for
+GNU software. 
+@item
+``k&r'' --- The classic style from Kernighan and Ritchie.
+@item
+``linux'' --- The style recommended for code in the Linux kernel.
+@item
+``bsd'' --- The style recommended for software developed in BSD.
+@item
+``java --- The ``traditional'' Java style.
+@end itemize
+
+  The default style in XEmacs is ``gnu'' except for Java mode where it
+is the ``java'' style (this is governed by the variable
+@code{c-default-style}).
+
+  The styles included in CC Mode all use a buffer local variable called
+@code{c-basic-offset} as the basic indentation level (this buffer local
+variable is used in all CC Mode language modes though its name might
+suggest otherwise). All indentation is, by default, expressed in
+multiples of @code{c-basic-offset}. 
+
+  Each style defines a default value for @code{c-basic-offset}, for the
+``gnu'' style sets it to 2. A very common customization scenario is
+where a user wants to use an existing style but with a different basic
+offset value. An easy way to do this is to set @code{c-basic-offset} in
+the language mode hook after selecting the chosen style.
+
+  For example, a user might want to follow a local coding convention of
+using the ``k&r'' style for C code with indentation in two columns
+multiples (instead of the five column default provided by the CC Mode
+``k&r'' style). This can be achieved with the following code in the
+initialization file (@pxref{Init File})
+
+@example
+(defun my-c-mode-hook ()
+  (c-set-style "k&r")
+  (setq c-basic-offset 2))
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+@end example
+
+  Most customizations for indentation in various CC modes can be
+accomplished by choosing a style and then choosing value for
+@code{c-basic-offset} that meets the local coding convention. CC Mode
+has a very customizable indentation engine and a furthur discussion is
+really beyond the scope of this manual. @xref{Indentation
+Engine,,,cc-mode,The CC Mode Manual}.
+
+
+@node Fortran, Asm Mode, CC Mode, Programs
 @section Fortran Mode
 @cindex Fortran mode
 

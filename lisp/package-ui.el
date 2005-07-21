@@ -480,8 +480,7 @@ attached to the extent as properties)."
 	  (if (featurep 'balloon-help)
 	      (progn
 		(setq balloon (format "
-Package Information:  [For package: \"%s\"]
-================
+Package Information:  [For package: \"%s\"]\n================
 Installed Upstream Ver: %s  Available Upstream Ver: %s
 Maintainer : %s
 Released : %s

@@ -908,7 +908,7 @@ get_toolbar_coords (struct frame *f, enum toolbar_pos pos, int *x, int *y,
       *vert = 1;
       break;
     default:
-      abort ();
+      ABORT ();
     }
 }
 

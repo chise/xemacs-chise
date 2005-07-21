@@ -32,6 +32,31 @@
 (require 'gtk-password-dialog)
 (require 'gtk-file-dialog)
 
+(defun gtk-popup-convert-underscores (str)
+  ;; Convert the XEmacs button accelerator representation to Gtk mnemonic
+  ;; form.  If no accelerator has been provided, put one at the start of the
+  ;; string (this mirrors the behaviour under X). This algorithm is also found
+  ;; in menubar-gtk.c:convert_underscores().
+  (let ((new-str (string))
+	(i 0)
+	(found-accel nil))
+    (while (< i (length str))
+      (let ((c (aref str i)))
+	(cond ((eq c ?%)
+	       (setq i (1+ i))
+	       (if (and (not (eq (aref str i) ?_)) (not (eq (aref str i) ?%)))
+		   (setq i (1- i)))
+	       (setq found-accel 1)
+	       )
+	      ((eq c ?_)
+	       	(setq new-str (concat new-str "_")))
+	       ))
+	(setq new-str (concat new-str (string (aref str i))))
+	(setq i (1+ i))
+	)
+    (if found-accel new-str (concat "_" new-str)) 
+    ))
+
 (defun popup-builtin-open-dialog (keys)
   ;; Allowed keywords are:
   ;;
@@ -183,6 +208,10 @@
 	(callback nil)
 	(flushrightp nil)
 	(length nil)
+	(label nil)
+	(gui-button nil)
+	(accel-group (gtk-accel-group-new))
+	(accel-key nil)
 	(errp t))
     (if (not buttons-descr)
 	(error 'syntax-error
@@ -230,7 +259,22 @@
 			(setq activep (plist-get plist :active)
 			      callback (plist-get plist :callback)))))
 
-		    (push (gtk-button-new-with-label (aref button 0)) buttons)
+		    ;; Create the label and determine what the mnemonic key is.
+		    (setq label (gtk-label-new ""))
+		    (setq accel-key (gtk-label-parse-uline label
+							   (gtk-popup-convert-underscores (aref button 0))))
+		    ;; Place the label in the button.
+		    (gtk-misc-set-alignment label 0.5 0.5)
+		    (setq gui-button (gtk-button-new))
+		    (gtk-container-add gui-button label)
+		    ;; Add ALT-mnemonic to the dialog's accelerator group.
+		    (gtk-widget-add-accelerator gui-button "clicked" accel-group
+						accel-key
+						8 ; GDK_MOD1_MASK
+						4 ; GTK_ACCEL_LOCKED
+						)
+		    
+		    (push gui-button buttons)
 		    (gtk-widget-set-sensitive (car buttons) (eval activep))
 		    
 		    ;; Apply the callback
@@ -259,6 +303,9 @@
 	  (gtk-window-set-transient-for dialog (frame-property nil 'shell-widget))
 	  (put dialog 'type 'dialog)
 	  (put dialog 'modal t)
+	  ;; Make the dialog listen for global mnemonic keys.
+	  (gtk-window-add-accel-group dialog accel-group)
+
 	  (gtk-widget-show-all dialog)
 	  (gtk-main)
 	  (gtk-widget-destroy dialog)

@@ -110,7 +110,6 @@ Lisp_Object Vskip_chars_range_table;
 
 static void set_search_regs (struct buffer *buf, Bufpos beg, Charcount len);
 static void clear_unused_search_regs (struct re_registers *regp, int no_sub);
-/* #### according to comment in 21.5, unnecessary */
 static void save_search_regs (void);
 static Bufpos simple_search (struct buffer *buf, Bufbyte *base_pat,
 			     Bytecount len, Bytind pos, Bytind lim,
@@ -1090,7 +1089,7 @@ search_command (Lisp_Object string, Lisp_Object limit, Lisp_Object noerror,
       if (!EQ (noerror, Qt))
 	{
 	  if (lim < BUF_BEGV (buf) || lim > BUF_ZV (buf))
-	    abort ();
+	    ABORT ();
 	  BUF_SET_PT (buf, lim);
 	  return Qnil;
 #if 0 /* This would be clean, but maybe programs depend on
@@ -1103,7 +1102,7 @@ search_command (Lisp_Object string, Lisp_Object limit, Lisp_Object noerror,
     }
 
   if (np < BUF_BEGV (buf) || np > BUF_ZV (buf))
-    abort ();
+    ABORT ();
 
   BUF_SET_PT (buf, np);
 
@@ -2778,9 +2777,9 @@ match_limit (Lisp_Object num, int beginningp)
 
   CHECK_INT (num);
   n = XINT (num);
-  if (n < 0 || n >= search_regs.num_regs)
+  if (n < 0 || search_regs.num_regs <= 0)
     args_out_of_range (num, make_int (search_regs.num_regs));
-  if (search_regs.num_regs == 0 ||
+  if (n >= search_regs.num_regs ||
       search_regs.start[n] < 0)
     return Qnil;
   return make_int (beginningp ? search_regs.start[n] : search_regs.end[n]);
@@ -2859,7 +2858,7 @@ to hold all the values, and if INTEGERS is non-nil, no consing is done.
 	    }
 	  else
 	    /* last_thing_searched must always be Qt, a buffer, or Qnil.  */
-	    abort ();
+	    ABORT ();
 
 	  len = i;
 	}
@@ -2901,11 +2900,8 @@ LIST should have been created by calling `match-data' previously.
   int num_regs;
   int length;
 
-#if 0
-  /* #### according to 21.5 comment, unnecessary */
   if (running_asynch_code)
     save_search_regs ();
-#endif
 
   CONCHECK_LIST (list);
 
@@ -2968,7 +2964,6 @@ LIST should have been created by calling `match-data' previously.
   return Qnil;
 }
 
-/* #### according to 21.5 comment, unnecessary */
 /* If non-zero the match data have been saved in saved_search_regs
    during the execution of a sentinel or filter. */
 static int search_regs_saved;
@@ -2992,8 +2987,6 @@ save_search_regs (void)
     }
 }
 
-/* #### according to 21.5 comment, unnecessary
-   prototype in lisp.h, all calls in process.c */
 /* Called upon exit from filters and sentinels. */
 void
 restore_match_data (void)

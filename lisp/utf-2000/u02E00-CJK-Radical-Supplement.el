@@ -1077,6 +1077,12 @@
     (<-denotational
      ((=ucs		  . #x8FB6)	; 辶
       ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8FB5)	; 辵
+      (=daikanwa	  . 38700)	; &I-M-38700;
+      ))
+    (<-ideographic-component-forms*sources
+     zihui-jianzi daikanwa)
     (=ucs		. #x2ECD)	; ⻍
     (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
     (=jis-x0213-2-2000	. #x796A)	; &I-JX2-796A; [89-74]

@@ -741,14 +741,14 @@ popmail (char *user, char *outfile, char *password)
   server = pop_open (0, user, password, POP_NO_GETPASS);
   if (! server)
     {
-      error (pop_error, NULL, NULL);
+      error ("%s", pop_error, NULL);
       return (1);
     }
 
   VERBOSE(("stat'ing messages\n"));
   if (pop_stat (server, &nmsgs, &nbytes))
     {
-      error (pop_error, NULL, NULL);
+      error ("%s", pop_error, NULL);
       return (1);
     }
 
@@ -796,7 +796,7 @@ popmail (char *user, char *outfile, char *password)
           mbx_delimit_begin (mbf);
 	  if (pop_retr (server, i, mbx_write, mbf) != POP_RETRIEVED)
 	    {
-	      error (Errmsg, NULL, NULL);
+	      error ("%s", Errmsg, NULL);
 	      close (mbfi);
 	      return (1);
 	    }
@@ -844,7 +844,7 @@ popmail (char *user, char *outfile, char *password)
 	      VERBOSE(("deleting message %d     \n", i));
 	      if (pop_delete (server, i))
 		{
-		  error (pop_error, NULL, NULL);
+		  error ("%s", pop_error, NULL);
 		  pop_close (server);
 		  return (1);
 		}
@@ -855,7 +855,7 @@ popmail (char *user, char *outfile, char *password)
   VERBOSE(("closing server             \n"));
   if (pop_quit (server))
     {
-      error (pop_error, NULL, NULL);
+      error ("%s", pop_error, NULL);
       return (1);
     }
     

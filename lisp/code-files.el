@@ -284,7 +284,7 @@ Return t if file exists."
 		 (set-buffer (get-buffer-create " *load*"))
 		 (erase-buffer)
 		 (let ((coding-system-for-read 'raw-text))
-		   (insert-file-contents path nil 1 3001))
+		   (insert-file-contents path nil 0 3000))
 		 (find-coding-system-magic-cookie))
 	       (if elc
 		   ;; if reading a byte-compiled file and we didn't find

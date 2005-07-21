@@ -97,8 +97,10 @@
        "。"
        "\\)"
        "[ \t\n]*"))
-(setq paragraph-start    "^[ 　\t\n\f]")
-(setq paragraph-separate "^[ 　\t\f]*$")
+
+;; allow paragraphs to start with a zenkaku space
+(setq paragraph-start    "[ 　\t\n\f]")
+(setq paragraph-separate "[ 　\t\f]*$")
 
 ;; EGG specific setup
 (define-egg-environment 'japanese

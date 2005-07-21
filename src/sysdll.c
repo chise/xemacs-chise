@@ -280,19 +280,164 @@ dll_close (dll_handle h)
   return NSUnLinkModule((NSModule)h, NSUNLINKMODULE_OPTION_NONE);
 }
 
+/* Given an address, return the mach_header for the image containing it
+ * or zero if the given address is not contained in any loaded images.
+ *
+ * Note: image_for_address(), my_find_image() and search_linked_libs() are
+ * based on code from the dlcompat library
+ * (http://www.opendarwin.org/projects/dlcompat).
+ */
+
+static struct mach_header*
+image_for_address(void *address)
+{
+  unsigned long i;
+  unsigned long count = _dyld_image_count();
+  struct mach_header *mh = 0;
+
+  for (i = 0; i < count; i++)
+    {
+      unsigned long addr = (unsigned long)address -
+	_dyld_get_image_vmaddr_slide(i);
+      mh = _dyld_get_image_header(i);
+
+      if (mh)
+	{
+	  struct load_command *lc =
+	    (struct load_command *)((char *)mh + sizeof(struct mach_header));
+	  unsigned long j;
+
+	  for (j = 0; j < mh->ncmds;
+	       j++, lc = (struct load_command *)((char *)lc + lc->cmdsize))
+	    {
+	      if (LC_SEGMENT == lc->cmd &&
+		  addr >= ((struct segment_command *)lc)->vmaddr &&
+		  addr <
+		  ((struct segment_command *)lc)->vmaddr +
+		  ((struct segment_command *)lc)->vmsize)
+		{
+		  goto image_found;
+		}
+	    }
+	}
+
+      mh = 0;
+    }
+
+ image_found:
+  return mh;
+}
+
+static const struct mach_header*
+my_find_image(const char *name)
+{
+  const struct mach_header *mh = (struct mach_header *)
+    NSAddImage(name, NSADDIMAGE_OPTION_RETURN_ONLY_IF_LOADED |
+	       NSADDIMAGE_OPTION_RETURN_ON_ERROR);
+
+  if (!mh)
+    {
+      int count = _dyld_image_count();
+      int j;
+
+      for (j = 0; j < count; j++)
+	{
+	  const char *id = _dyld_get_image_name(j);
+
+	  if (!strcmp(id, name))
+	    {
+	      mh = _dyld_get_image_header(j);
+	      break;
+	    }
+	}
+    }
+
+  return mh;
+}
+
+/*
+ * dyld adds libraries by first adding the directly dependant libraries in
+ * link order, and then adding the dependencies for those libraries, so we
+ * should do the same... but we don't bother adding the extra dependencies, if
+ * the symbols are neither in the loaded image nor any of it's direct
+ * dependencies, then it probably isn't there.
+ */
+static NSSymbol
+search_linked_libs(const struct mach_header * mh, const char *symbol)
+{
+  int n;
+  NSSymbol nssym = 0;
+
+  struct load_command *lc =
+    (struct load_command *)((char *)mh + sizeof(struct mach_header));
+
+  for (n = 0; n < mh->ncmds;
+       n++, lc = (struct load_command *)((char *)lc + lc->cmdsize))
+    {
+      if ((LC_LOAD_DYLIB == lc->cmd) || (LC_LOAD_WEAK_DYLIB == lc->cmd))
+	{
+	  struct mach_header *wh;
+
+	  if ((wh = (struct mach_header *)
+	       my_find_image((char *)(((struct dylib_command *)lc)->dylib.name.offset +
+				      (char *)lc))))
+	    {
+	      if (NSIsSymbolNameDefinedInImage(wh, symbol))
+		{
+		  nssym =
+		    NSLookupSymbolInImage(wh,
+					  symbol,
+					  NSLOOKUPSYMBOLINIMAGE_OPTION_BIND |
+					  NSLOOKUPSYMBOLINIMAGE_OPTION_RETURN_ON_ERROR);
+		  break;
+		}
+	    }
+	}
+    }
+
+  return nssym;
+}
+
 dll_func
 dll_function (dll_handle h, const char *n)
 {
-  NSSymbol sym;
+  NSSymbol sym = 0;
 #ifdef DLSYM_NEEDS_UNDERSCORE
   char *buf = alloca_array (char, strlen (n) + 2);
   *buf = '_';
   strcpy (buf + 1, n);
   n = buf;
 #endif
-  sym = NSLookupSymbolInModule((NSModule)h, n);
-  if (sym == 0) return 0;
-  return (dll_func)NSAddressOfSymbol(sym);
+
+  /* NULL means the program image and shared libraries, not bundles. */
+
+  if (h == NULL)
+    {
+      /* NOTE: This assumes that this function is included in the main program
+	 and not in a shared library. */
+      const struct mach_header* my_mh = image_for_address(&dll_function);
+
+      if (NSIsSymbolNameDefinedInImage(my_mh, n))
+	{
+	  sym =
+	    NSLookupSymbolInImage(my_mh,
+				  n,
+				  NSLOOKUPSYMBOLINIMAGE_OPTION_BIND |
+				  NSLOOKUPSYMBOLINIMAGE_OPTION_RETURN_ON_ERROR);
+	}
+
+      if (!sym)
+	{
+	  sym = search_linked_libs(my_mh, n);
+	}
+    }
+  else
+    {
+      sym = NSLookupSymbolInModule((NSModule)h, n);
+    }
+
+   if (sym == 0) return 0;
+   return (dll_func)NSAddressOfSymbol(sym);
 }
 
 dll_var

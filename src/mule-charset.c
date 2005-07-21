@@ -908,15 +908,22 @@ get_unallocated_leading_byte (int dimension)
 #else
   if (dimension == 1)
     {
-      if (chlook->next_allocated_1_byte_leading_byte > MAX_LEADING_BYTE_PRIVATE_1)
+      if (chlook->next_allocated_1_byte_leading_byte >
+	  MAX_LEADING_BYTE_PRIVATE_1)
 	lb = 0;
       else
 	lb = chlook->next_allocated_1_byte_leading_byte++;
     }
   else
     {
-      if (chlook->next_allocated_2_byte_leading_byte > MAX_LEADING_BYTE_PRIVATE_2)
-	lb = 0;
+      /* awfully fragile, but correct */
+#if MAX_LEADING_BYTE_PRIVATE_2 == 255
+      if (chlook->next_allocated_2_byte_leading_byte == 0)
+#else
+      if (chlook->next_allocated_2_byte_leading_byte >
+	  MAX_LEADING_BYTE_PRIVATE_2)
+#endif
+        lb = 0;
       else
 	lb = chlook->next_allocated_2_byte_leading_byte++;
     }

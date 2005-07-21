@@ -210,7 +210,7 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
       /* "0 as the second parameter" refers to the call to real_window
      above.  This comment was taken from Ben's 21.5 code that differs
      somewhat from this, I don't think the 21.4 code ever had a 0
-     there.  #### we're still hitting an abort here with 0 as the
+     there.  #### we're still hitting an ABORT here with 0 as the
      second parameter, although only occasionally.  It seems that
      sometimes we receive events for scrollbars that don't exist
      anymore.  I assume it must happen like this: The user does

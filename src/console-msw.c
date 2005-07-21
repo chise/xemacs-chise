@@ -272,7 +272,7 @@ This function can be used as the STREAM argument of Fprint() or the like.
 /*
  * Random helper functions for debugging.
  * Intended for use in the MSVC "Watch" window which doesn't like
- * the aborts that the error_check_foo() functions can make.
+ * the ABORTs that the error_check_foo() functions can make.
  */
 struct lrecord_header *DHEADER (Lisp_Object obj);
 struct lrecord_header *

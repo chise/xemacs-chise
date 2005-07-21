@@ -29,7 +29,7 @@
 #ifndef __FreeBSD_version
 #include <osreldate.h>
 #endif
-#if __FreeBSD_version >= 199701
+#if __FreeBSD_version >= 199701 && __FreeBSD_version < 600006
 #define LIBS_SYSTEM "-lutil -lxpg4"
 #else
 #define LIBS_SYSTEM "-lutil"

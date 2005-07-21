@@ -6,7 +6,7 @@ define([AC_INIT_NOTICE],
 #### Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000 Free Software Foundation, Inc.
 #### Copyright (C) 1993-1995 Board of Trustees, University of Illinois.
 #### Copyright (C) 1996, 1997 Sun Microsystems, Inc.
-#### Copyright (C) 1995, 1996 Ben Wing.
+#### Copyright (C) 1995, 1996, 2005 Ben Wing.
 #### Copyright (C) 2000, 2001 Martin Buchholz.
 #### Copyright (C) 1998, 1999 J. Kean Johnston.
 
@@ -1592,6 +1592,7 @@ if test -z "$pdump"; then
   case "$opsys" in
     linux* )  pdump=yes ;;    dnl glibc 2.3.1 seems to hose unexec
     darwin )  pdump=yes ;;    dnl No "native" working dumper available
+    cygwin* ) pdump=yes ;;    dnl unexec is broken
     *)        pdump=no ;;
   esac
 fi
@@ -2099,7 +2100,9 @@ fi
 dnl Feed s&m crud to src/Makefile
 
 dnl Linux/powerpc needs the following magic for some reason
-test "$machine$opsys" = "powerpclinux" && start_flags="-T $srcdir/src/ppc.ldscript"
+dnl [Not needed with YellowDog 2.3 and causes link problems with YellowDog 3.0,
+dnl the two most popular PowerPC distributions.]
+dnl test "$machine$opsys" = "powerpclinux" && start_flags="-T $srcdir/src/ppc.ldscript"
 
 if test "$unexec" = "unexaix.o"; then
 dnl AIX needs various hacks to make static linking work.
@@ -2635,16 +2638,16 @@ if test "$with_gtk" != "no";then
       possible_version=`${possible} --version 2> /dev/null`
       if test "x${possible_version}" != "x"; then
               GTK_CONFIG="${possible}"
+	      case "${possible_version}" in
+        	1.0.*) AC_MSG_WARN([GTK 1.2 is required, please upgrade your version of GTK.]); with_gtk=no;;
+	        1.3.*) AC_MSG_WARN([GTK 1.3 is not supported right now]); with_gtk=no;;
+		1.2.*)
+			with_gtk=yes
+			break
+			;;
+	        *)     AC_MSG_WARN([Found unsupported version of GTK: $possible_version]);;
+	      esac
       fi
-      case "${possible_version}" in
-        1.0.*) AC_MSG_WARN([GTK 1.2 is required, please upgrade your version of GTK.]); with_gtk=no;;
-        1.3.*) AC_MSG_WARN([GTK 1.3 is not supported right now]); with_gtk=no;;
-	1.2.*)
-		with_gtk=yes
-		break
-		;;
-        *)     AC_MSG_WARN([Found unsupported version of GTK: $possible_version]);;
-      esac
    done
    AC_MSG_RESULT([${GTK_CONFIG}])
 fi
@@ -3209,28 +3212,32 @@ AC_CHECKING(for LDAP)
 test -z "$with_ldap" && { AC_CHECK_HEADER(ldap.h, ,with_ldap=no) }
 test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
 if test "$with_ldap" != "no"; then
-  AC_CHECK_LIB(ldap, ldap_search, with_ldap_nolber=yes, with_ldap_nolber=no)
-  test "$with_ldap_nolber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_lber=yes, with_ldap_lber=no, -llber) }
-  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krb=yes, with_ldap_krb=no, -llber -lkrb) }
-  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" -a "$with_ldap_krb" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krbdes=yes, with_ldap_krbdes=no, -llber -lkrb -ldes) }
-  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" -o "$with_ldap_krb" = "yes" -o "$with_ldap_krbdes" = "yes" \) && with_ldap=yes
+  AC_CHECK_LIB(ldap, ldap_search, with_ldap=yes)
+  dnl Check for other libraries we need to link with to get the main routines.
+  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes], , -llber) }
+  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes with_ldap_krb=yes], , -llber -lkrb) }
+  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes with_ldap_krb=yes with_ldap_des=yes], , -llber -lkrb -ldes) }
+  dnl Recently, we need -lber even though the main routines are elsewhere,
+  dnl because otherwise be get link errors w.r.t. ber_pvt_opt_on.  So just
+  dnl check for that (it's a variable not a fun but that doesn't seem to
+  dnl matter in these checks)  and stick in -lber if so.  Can't hurt (even to
+  dnl stick it in always shouldn't hurt, I don't think) ... #### Someone who
+  dnl #### understands LDAP needs to fix this properly.
+  test "$with_ldap_lber" != "yes" && { AC_CHECK_LIB(lber, ber_pvt_opt_on, with_ldap_lber=yes) }
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
   XE_ADD_OBJS(eldap.o)
-  if test "$with_ldap_nolber" = "yes" ; then
-    XE_PREPEND(-lldap, LIBS)
-  else
-    if test "$with_ldap_krb" = "yes" ; then
-      XE_PREPEND(-lkrb, LIBS)
-    fi
-    if test "$with_ldap_krbdes" = "yes" ; then
-      XE_PREPEND(-ldes, LIBS)
-      XE_PREPEND(-lkrb, LIBS)
-    fi
-    XE_PREPEND(-llber, LIBS)
-    XE_PREPEND(-lldap, LIBS)
+  if test "$with_ldap_des" = "yes" ; then
+    XE_PREPEND(-ldes, LIBS)
   fi
+  if test "$with_ldap_krb" = "yes" ; then
+    XE_PREPEND(-lkrb, LIBS)
+  fi
+  if test "$with_ldap_lber" = "yes" ; then
+    XE_PREPEND(-llber, LIBS)
+  fi
+  XE_PREPEND(-lldap, LIBS)
   AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
 fi
 
@@ -3590,8 +3597,8 @@ dnl Not all toolkits support all widgets
 
 dnl Avoid using Motif :-(
 case "$opsys" in
-  *linux* )  lucid_prefers_motif = "no"  ;;
-  * )        lucid_prefers_motif = "yes" ;;
+  *linux* )  lucid_prefers_motif="no"  ;;
+  * )        lucid_prefers_motif="yes" ;;
 esac
 
 case "$with_menubars" in "" | "yes" | "athena" )
@@ -4423,13 +4430,20 @@ if test "$with_tty" = "yes"  ; then
   AC_DEFINE_UNQUOTED(CURSES_H_FILE, "${curses_h_file-curses.h}")
   AC_DEFINE_UNQUOTED(TERM_H_FILE, "${term_h_file-term.h}")
 
-  dnl Autodetect gpm
-  test -z "$with_gpm" && { AC_CHECK_HEADER(gpm.h, , with_gpm=no) }
-  test -z "$with_gpm" && { AC_CHECK_LIB(gpm, Gpm_Open, with_gpm=yes, with_gpm=no) }
-  if test "$with_gpm" = "yes"; then
-    AC_DEFINE(HAVE_GPM)
-    XE_ADD_OBJS(gpmevent.o)
-    XE_PREPEND(-lgpm, LIBS)
+  dnl General Purpose Mouse (libgpm) support
+  if test "$with_gpm" != "no"; then
+    AC_CHECK_HEADER(gpm.h, [
+      AC_CHECK_LIB(gpm, Gpm_Open, have_gpm=yes)])
+    if test "$have_gpm" = "yes"; then
+      with_gpm=yes
+      AC_DEFINE(HAVE_GPM)
+      XE_ADD_OBJS(gpmevent.o)
+      XE_PREPEND(-lgpm, LIBS)
+    elif test "$with_gpm" = "yes"; then
+      XE_DIE(["GPM requested, but gpm.h or libgpm seems to be missing."])
+    else
+      with_gpm=no
+    fi
   fi
 
 else dnl "$with_tty" = "no"
@@ -4940,8 +4954,8 @@ AC_SUBST(ld_libs_all)
 AC_SUBST(CFLAGS)
 AC_SUBST(CPPFLAGS)
 AC_SUBST(LDFLAGS)
-RECURSIVE_MAKE="\$(MAKE) \$(MFLAGS) CC='\$(CC)' CFLAGS='\$(CFLAGS)' LDFLAGS='\$(LDFLAGS)' CPPFLAGS='\$(CPPFLAGS)'"
-AC_SUBST(RECURSIVE_MAKE)
+RECURSIVE_MAKE_ARGS="\$(MFLAGS) CC='\$(CC)' CFLAGS='\$(CFLAGS)' LDFLAGS='\$(LDFLAGS)' CPPFLAGS='\$(CPPFLAGS)'"
+AC_SUBST(RECURSIVE_MAKE_ARGS)
 
 AC_SUBST(native_sound_lib)
 AC_SUBST(sound_cflags)

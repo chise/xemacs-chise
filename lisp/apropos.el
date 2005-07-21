@@ -175,7 +175,10 @@ variables."
 				  ;; XEmacs change: if obsolete,
 				  ;; only mention that.
 				  (or (function-obsoleteness-doc symbol)
-				      (documentation symbol t)))
+				      (condition-case nil
+					  (documentation symbol t)
+					(void-function "(aliased to undefined function)")
+					(error "(unexpected error from `documention')"))))
 			    (substring doc 0 (string-match "\n" doc))
 			  "(not documented)"))
 		    (and do-all
@@ -225,7 +228,10 @@ Returns list of symbols and documentation found."
 				  ;; XEmacs change: if obsolete,
 				  ;; only mention that.
 				  (or (function-obsoleteness-doc symbol)
-				      (documentation symbol t)))
+				      (condition-case nil
+					  (documentation symbol t)
+					(void-function "(aliased to undefined function)")
+					(error "(unexpected error from `documention')"))))
 			    (substring doc 0 (string-match "\n" doc))
 			  "(not documented)"))
 		    (if (boundp symbol)

@@ -460,7 +460,7 @@ gtk_output_display_block (struct window *w, struct display_line *dl, int block,
 		    break;
 
 		  case IMAGE_POINTER:
-		    abort ();
+		    ABORT ();
 
 		  case IMAGE_WIDGET:
 		      if (EQ (XIMAGE_INSTANCE_WIDGET_TYPE (instance),
@@ -484,14 +484,14 @@ gtk_output_display_block (struct window *w, struct display_line *dl, int block,
 		    break;
 
 		  default:
-		    abort ();
+		    ABORT ();
 		  }
 
 	      xpos += rb->width;
 	      elt++;
 	    }
 	  else
-	    abort ();
+	    ABORT ();
 	}
     }
 

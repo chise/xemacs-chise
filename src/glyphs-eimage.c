@@ -2,7 +2,7 @@
    Copyright (C) 1993, 1994, 1998 Free Software Foundation, Inc.
    Copyright (C) 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1995 Tinker Systems
-   Copyright (C) 1995, 1996 Ben Wing
+   Copyright (C) 1995, 1996, 2005 Ben Wing
    Copyright (C) 1995 Sun Microsystems
 
 This file is part of XEmacs.
@@ -105,6 +105,19 @@ Lisp_Object Qpng;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifdef WIN32_NATIVE
+/* #### Yuck!  More horrifitude.  tiffio.h, below, includes <windows.h>,
+   which defines INT32 and INT16, the former differently and incompatibly
+   from jmorecfg.h, included by jpeglib.h.  We can disable the stuff in
+   jmorecfg.h by defining XMD_H (clever, huh?); then we define these
+   typedefs the way that <windows.h> wants them (which is more correct,
+   anyway; jmorecfg.h defines INT32 as `long'). */
+#define XMD_H
+typedef signed int INT32;
+typedef signed short INT16;
+#endif
+
 #include <jpeglib.h>
 #include <jerror.h>
 #ifdef __cplusplus
@@ -1103,7 +1116,7 @@ tiff_memory_read(thandle_t data, tdata_t buf, tsize_t size)
 
 static size_t tiff_memory_write(thandle_t data, tdata_t buf, tsize_t size)
 {
-  abort();
+  ABORT();
   return 0;			/* Shut up warnings. */
 }
 

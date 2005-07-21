@@ -240,7 +240,8 @@ compute_scrollbar_instance_usage (struct device *d,
 {
   int total = 0;
 
-  total += DEVMETH (d, compute_scrollbar_instance_usage, (d, inst, ovstats));
+  if (HAS_DEVMETH_P(d, compute_scrollbar_instance_usage))
+    total += DEVMETH (d, compute_scrollbar_instance_usage, (d, inst, ovstats));
 
   while (inst)
     {

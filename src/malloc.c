@@ -285,7 +285,7 @@ static struct mhead *nextf[30];
 static char busy[30];
 
 /* Number of bytes of writable memory we can expect to be able to get */
-extern unsigned int lim_data;
+extern unsigned long lim_data;
 
 /* Level number of warnings already issued.
   0 -- no warnings issued.
@@ -339,7 +339,7 @@ morecore (nu)			/* ask system for more memory */
 {
   char *cp;
   int nblks;
-  unsigned int siz;
+  unsigned long siz;
   int oldmask;
 
 #ifdef BSD
@@ -525,7 +525,7 @@ malloc (n)		/* get a block */
 #ifdef rcheck
     botch ("block on free list clobbered");
 #else /* not rcheck */
-    abort ();
+    ABORT ();
 #endif /* not rcheck */
 
   /* Fill in the info, and if range checking, set up the magic numbers */
@@ -569,7 +569,7 @@ free (mem)
 
 #ifndef rcheck
     if (p -> mh_alloc != ISALLOC)
-      abort ();
+      ABORT ();
 
 #else /* rcheck */
     if (p -> mh_alloc != ISALLOC)

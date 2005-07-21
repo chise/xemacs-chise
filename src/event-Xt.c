@@ -868,7 +868,7 @@ emacs_Xt_mapping_action (Widget w, XEvent* event)
     case MappingKeyboard:  x_reset_key_mapping      (d); break;
     case MappingModifier:  x_reset_modifier_mapping (d); break;
     case MappingPointer:   /* Do something here? */      break;
-    default: abort();
+    default: ABORT();
     }
 }
 
@@ -2380,7 +2380,7 @@ Xt_process_to_emacs_event (Lisp_Event *emacs_event)
 	  return;
 	}
     }
-  abort ();
+  ABORT ();
 }
 
 static void
@@ -3173,7 +3173,7 @@ XtConvertArgRec Const colorConvertArgs[] = {
 
 /* JH: We use this because I think there's a possibility this
    is called before the device is properly set up, in which case
-   I don't want to abort. */
+   I don't want to ABORT. */
 extern struct device *get_device_from_display_1 (Display *dpy);
 
 static

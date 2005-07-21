@@ -339,7 +339,7 @@ bi_marker_position (Lisp_Object marker)
 
 #ifdef ERROR_CHECK_BUFPOS
   if (pos < BI_BUF_BEG (buf) || pos > BI_BUF_Z (buf))
-    abort ();
+    ABORT ();
 #endif
 
   return pos;
@@ -367,7 +367,7 @@ set_bi_marker_position (Lisp_Object marker, Bytind pos)
 
 #ifdef ERROR_CHECK_BUFPOS
   if (pos < BI_BUF_BEG (buf) || pos > BI_BUF_Z (buf))
-    abort ();
+    ABORT ();
 #endif
 
   m->memind = bytind_to_memind (buf, pos);

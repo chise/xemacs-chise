@@ -1,3 +1,100 @@
+2005-02-06  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.17 is released
+
+2004-10-17  Shyamal Prasad  <shyamal@member.fsf.org>
+
+	* xemacs/programs.texi (Program Modes): Updated it to reflect
+	current status of programming modes.
+	* xemacs/programs.texi (CC Mode): New section introduces CC
+	Mode. Introduces customization with reference to CC Mode
+	manual. Also introduce C/AWK modes in prog-modes package
+	* xemacs/programs.texi (C Ident): Removed - it was
+	obsolete. prog-modes package documentation now contains
+	indentation description for old C mode 
+	* xemacs/major.texi (Mode Hooks): Add description of major mode
+	hooks. Cleaned up and updated programming mode descriptions.
+	* xemacs/xemacs.texi (Top): Updated Detailed Node listing for new
+	CC Mode section in programs.texi
+
+2005-01-19  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* man/lispref/functions.texi (Functions): Rename to "Functions and
+	 Commands"
+	* man/lispref/functions.texi (What Is a Function): Move the definition
+	of a command further up the list, give information on a trivial
+	(interactive) declaration, and cross-reference to the key binding
+	detail. Cf. 87vf9wgd08.fsf@tleepslib.sk.tsukuba.ac.jp
+	(comp.emacs.xemacs, 2005-01-18). 
+	* man/lispref/eval.texi man/lispref/lispref.texi
+	  man/lispref/macros.texi man/lispref/symbols.texi 
+	man/lispref/variables.texi: Fix cross references.
+
+2004-11-21  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* Makefile (RECURSIVE_MAKE): Removed.
+	* Makefile (RECURSIVE_MAKE_ARGS): New.  The new method for
+	handling parallel builds.
+
+2004-12-15  Ville Skyttä  <scop@xemacs.org>
+
+	* lispref/help.texi: Document 3rd arg to `make-obsolete'.
+
+2004-12-05  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.16 is released
+
+2003-07-18  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* lispref/windows.texi (Basic Windows): Fix typo.
+
+2004-09-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/searching.texi (Syntax of Regexps): Add example of use
+	of shy groups in variable subexpression, correct rumor that there
+	may be substantial performance gain.
+
+2004-08-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/positions.texi (Text Lines): makeinfo doesn't like Note:.
+
+2004-03-31  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* xemacs/help.texi (Misc Help): Info-goto-emacs-key-command-node
+	to function index.  Document Info-goto-emacs-command-node.
+
+2004-06-29  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (Modules for Other Aspects of the Lisp
+	Interpreter and Object System): Add description of Sextword syntax
+	class (now obsolete).
+
+2004-06-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (Techniques for XEmacs Developers): Be
+	specific when discussing optimization.
+	(Techniques for XEmacs Developers): Fragments that are meaningless
+	by themselves or contain placeholders should be @samp, not @code.
+	(Modules for Regression Testing): Add tag-tests.el to list.
+
+2004-07-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q3.10.2): Mention that `pending-delete' is in
+	the "pc" package.
+
+2004-06-07  Jerry James  <james@xemacs.org>
+
+	* lispref/modes.texi (Major Modes): Document -mode functions, and
+	the use of a nil argument to defined-derived mode.
+	* lispref/modes.texi (Major Mode Conventions): Describe the use of
+	delay-mode-hooks and define-derived-mode.
+	* lispref/modes.texi (Derived Modes): Warn against the use of
+	interactive specs in derived mode definitions.
+	* lispref/modes.texi (Hooks): Document run-mode-hooks,
+	delay-mode-hooks, run-hook-with-args,
+	run-hook-with-args-until-failure, and
+	run-hook-with-args-until-success.
+
 2004-02-02  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released

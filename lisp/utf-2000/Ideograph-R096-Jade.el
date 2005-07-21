@@ -5102,6 +5102,10 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (<-ancient
+     ((=ks-x1001	  . #x5627)	; &M-38902; [54-07]
+      (=daikanwa	  . 38902)	; &I-M-38902;
+      ))
     (<-denotational
      ((=ucs		  . #x7489)	; 璉
       ))

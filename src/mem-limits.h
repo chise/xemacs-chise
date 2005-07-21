@@ -58,20 +58,14 @@ extern int etext, __data_start; weak_symbol (__data_start)
 #endif
 
 #if defined(__bsdi__) || defined(__NetBSD__) || defined(__linux__) || defined(__OpenBSD__)
-#if defined(__linux__) && defined (powerpc)	/*Added by Fukui*/
-#else					/*Added by Fukui*/
 #define BSD4_2
-#endif					/*Added by Fukui*/
 #endif
 
 #ifndef BSD4_2
 #ifndef USG
 #ifndef WIN32_NATIVE
 #ifndef CYGWIN
-#if defined(__linux__) && defined(powerpc)	/*Added Kaoru Fukui*/
-#else						/*Added Kaoru Fukui*/
 #include <sys/vlimit.h>
-#endif				/*Added by Fukui*/
 #endif /* not CYGWIN */
 #endif /* not WIN32_NATIVE */
 #endif /* not USG */
@@ -115,7 +109,7 @@ extern char etext;
 static POINTER data_space_start;
 
 /* Number of bytes of writable memory we can expect to be able to get */
-extern unsigned int lim_data;
+extern unsigned long lim_data;
 
 #if defined (HEAP_IN_DATA) && !defined(PDUMP)
 extern unsigned long static_heap_size;
@@ -125,11 +119,11 @@ get_lim_data (void)
 {
   if (!initialized)
     {
-      lim_data = (unsigned int) -1; /* static_heap_size; */
+      lim_data = (unsigned long) -1; /* static_heap_size; */
     }
   else
     {
-      lim_data = (unsigned int) -1;
+      lim_data = (unsigned long) -1;
     }
 }
 #else
@@ -137,25 +131,25 @@ get_lim_data (void)
 static void
 get_lim_data (void)
 {
-  lim_data = (unsigned int) -1;
+  lim_data = (unsigned long) -1;
 }
 #else /* not NO_LIM_DATA */
 
-#ifdef USG
+#if defined(USG) && !defined(LINUX)
 
 static void
 get_lim_data (void)
 {
-  lim_data = (unsigned int) -1;
+  lim_data = (unsigned long) -1;
 
   /* Use the ulimit call, if we seem to have it.  */
-#if !defined (ULIMIT_BREAK_VALUE) || defined (LINUX)
+#if !defined (ULIMIT_BREAK_VALUE)
   lim_data = ulimit (3, 0);
 #endif
 
   /* If that didn't work, just use the macro's value.  */
 #ifdef ULIMIT_BREAK_VALUE
-  if (lim_data == (unsigned int) -1)
+  if (lim_data == (unsigned long) -1)
     lim_data = ULIMIT_BREAK_VALUE;
 #endif
 
@@ -173,7 +167,7 @@ get_lim_data (void)
 }
 
 #else
-#if !defined (BSD4_2) && !defined (__osf__)
+#if !defined (BSD4_2) && !defined (__osf__) && !defined(LINUX)
 
 static void
 get_lim_data (void)

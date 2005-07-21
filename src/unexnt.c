@@ -511,17 +511,17 @@ read_in_bss (char *filename)
   file = CreateFile (filename, GENERIC_READ, FILE_SHARE_READ, NULL,
 		     OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
   if (file == INVALID_HANDLE_VALUE)
-    abort ();
+    ABORT ();
   
   /* Seek to where the .bss section is tucked away after the heap...  */
   index = heap_index_in_executable + get_committed_heap_size ();
   if (SetFilePointer (file, index, NULL, FILE_BEGIN) == 0xFFFFFFFF) 
-    abort ();
+    ABORT ();
 
   /* Ok, read in the saved .bss section and initialize all 
      uninitialized variables.  */
   if (!ReadFile (file, bss_start, bss_size, &n_read, NULL))
-    abort ();
+    ABORT ();
 
   CloseHandle (file);
 #endif
@@ -539,13 +539,13 @@ map_in_heap (char *filename)
   file = CreateFile (filename, GENERIC_READ, FILE_SHARE_READ, NULL,
 		     OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
   if (file == INVALID_HANDLE_VALUE) 
-    abort ();
+    ABORT ();
 
   size = GetFileSize (file, &upper_size);
   file_mapping = CreateFileMapping (file, NULL, PAGE_WRITECOPY, 
 				    0, size, NULL);
   if (!file_mapping) 
-    abort ();
+    ABORT ();
 
   size = get_committed_heap_size ();
   file_base = MapViewOfFileEx (file_mapping, FILE_MAP_COPY, 0, 
@@ -563,17 +563,17 @@ map_in_heap (char *filename)
 
   if (VirtualAlloc (get_heap_start (), get_committed_heap_size (),
 		    MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE) == NULL)
-    abort ();
+    ABORT ();
 
   /* Seek to the location of the heap data in the executable.  */
   if (SetFilePointer (file, heap_index_in_executable,
 		      NULL, FILE_BEGIN) == 0xFFFFFFFF)
-    abort ();
+    ABORT ();
 
   /* Read in the data.  */
   if (!ReadFile (file, get_heap_start (), 
 		 get_committed_heap_size (), &n_read, NULL))
-    abort ();
+    ABORT ();
 
   CloseHandle (file);
 }

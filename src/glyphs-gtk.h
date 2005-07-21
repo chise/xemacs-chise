@@ -40,7 +40,6 @@ Boston, MA 02111-1307, USA.  */
 struct gtk_image_instance_data
 {
   GdkPixmap **pixmaps;
-  GdkPixmap *mask;
   GdkCursor *cursor;
 
   /* If depth>0, then that means that other colors were allocated when
@@ -87,7 +86,7 @@ void init_image_instance_from_gdk_pixmap (struct Lisp_Image_Instance *ii,
      (GTK_IMAGE_INSTANCE_DATA (i)->pixmaps[slice])
 #define IMAGE_INSTANCE_GTK_PIXMAP_SLICES(i) \
      (GTK_IMAGE_INSTANCE_DATA (i)->pixmaps)
-#define IMAGE_INSTANCE_GTK_MASK(i) (GTK_IMAGE_INSTANCE_DATA (i)->mask)
+#define IMAGE_INSTANCE_GTK_MASK(i) (GdkPixmap*)(IMAGE_INSTANCE_PIXMAP_MASK (i))
 #define IMAGE_INSTANCE_GTK_CURSOR(i) (GTK_IMAGE_INSTANCE_DATA (i)->cursor)
 #define IMAGE_INSTANCE_GTK_COLORMAP(i) (GTK_IMAGE_INSTANCE_DATA (i)->colormap)
 #define IMAGE_INSTANCE_GTK_PIXELS(i) (GTK_IMAGE_INSTANCE_DATA (i)->pixels)

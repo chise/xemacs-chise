@@ -74,7 +74,7 @@ recursively, so that its value can be passed as an argument to the
 function @code{car}.
 
   Evaluation of a function call ultimately calls the function specified
-in it.  @xref{Functions}.  The execution of the function may itself work
+in it.  @xref{Functions and Commands}.  The execution of the function may itself work
 by evaluating the function definition; or the function may be a Lisp
 primitive implemented in C, or it may be a byte-compiled function
 (@pxref{Byte Compilation}).

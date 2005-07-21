@@ -27,7 +27,7 @@ RM = rm -f
 .SUFFIXES:
 .SUFFIXES: .info .texi .dvi
 
-RECURSIVE_MAKE = $(MAKE) $(MFLAGS) MAKEINFO='$(MAKEINFO)' TEXI2DVI='$(TEXI2DVI)'
+RECURSIVE_MAKE_ARGS = $(MAKE) $(MFLAGS) MAKEINFO='$(MAKEINFO)' TEXI2DVI='$(TEXI2DVI)'
 
 all : info
 
@@ -266,9 +266,9 @@ new-users-guide.info : $(INFODIR)/new-users-guide.info
 info : $(info_files)
 
 # tm: FRC.tm
-#	cd ./tm && $(RECURSIVE_MAKE)
+#	cd ./tm && $(MAKE) $(RECURSIVE_MAKE_ARGS)
 # gnats: FRC.gnats
-#	cd ./gnats && $(RECURSIVE_MAKE)
+#	cd ./gnats && $(MAKE) $(RECURSIVE_MAKE_ARGS)
 # FRC.xemacs FRC.lispref FRC.new-users-guide FRC.internals FRC.tm FRC.gnats:
 
 .PHONY: info dvi

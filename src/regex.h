@@ -358,8 +358,13 @@ struct re_pattern_buffer
            when it is matched.  */
   RE_TRANSLATE_TYPE translate;
 
-	/* Number of subexpressions found by the compiler.  */
+	/* Number of returnable groups found by the compiler. (This does
+           not count shy groups.) */
   Element_count re_nsub;
+
+	/* Total number of groups found by the compiler. (Including
+	   shy ones.) */
+  Element_count re_ngroups;
 
         /* Zero if this pattern cannot match the empty string, one else.
            Well, in truth it's used only in `re_search_2', to see
@@ -394,6 +399,12 @@ struct re_pattern_buffer
 
         /* If true, an anchor at a newline matches.  */
   unsigned newline_anchor : 1;
+
+	/* Mapping between back references and groups (may not be
+	   equivalent with shy groups). */
+  int *external_to_internal_register;
+
+  int external_to_internal_register_size;
 
 /* [[[end pattern_buffer]]] */
 };

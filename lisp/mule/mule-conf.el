@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000,2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -182,6 +182,15 @@
 	      chars 94
 	      mother =jis-x0208
 	      ;; final ?B
+	      graphic 0))
+  (make-charset
+   '=jis-x0208@1978/i1
+   "The first impression of JIS X 0208:1978."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+	      ;; final ?@
 	      graphic 0))
 
   (make-charset '=big5-cdp

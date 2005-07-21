@@ -873,7 +873,7 @@ Use `isearch-exit' to quit without signaling."
       ;; and really do quit.
       (progn (goto-char isearch-opoint)
 	     (setq isearch-success nil)
-	     (isearch-done t)   ; exit isearch
+	     (isearch-done)		 ; exit and push target string
 	     (signal 'quit '(isearch)))  ; and pass on quit signal
     ;; If search is failing, or has an incomplete regexp,
     ;; rub out until it is once more successful.

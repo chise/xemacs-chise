@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "console-x.h"	/* for x_event_name prototype */
 #include "console-gtk.h" /* for gtk_event_name prototype */
-#include "extents.h"	/* Just for the EXTENTP abort check... */
+#include "extents.h"	/* Just for the EXTENTP ABORT check... */
 #include "events.h"
 #include "frame.h"
 #include "glyphs.h"
@@ -125,7 +125,7 @@ mark_event (Lisp_Object obj)
     case dead_event:
       break;
     default:
-      abort ();
+      ABORT ();
     }
   mark_object (event->channel);
   return event->next;
@@ -219,7 +219,7 @@ event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 /*  if (e1->timestamp != e2->timestamp) return 0; */
   switch (e1->event_type)
     {
-    default: abort ();
+    default: ABORT ();
 
     case process_event:
       return EQ (e1->event.process.process, e2->event.process.process);
@@ -291,7 +291,7 @@ event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 			  &e2->event.magic.underlying_mswindows_event,
 			  sizeof (union magic_data)));
 #endif
-	abort ();
+	ABORT ();
 	return 1; /* not reached */
       }
 
@@ -361,7 +361,7 @@ event_hash (Lisp_Object obj, int depth)
 	if (CONSOLE_MSWINDOWS_P (con))
 	  return HASH2 (hash, e->event.magic.underlying_mswindows_event);
 #endif
-	abort ();
+	ABORT ();
 	return 0;
       }
 
@@ -370,7 +370,7 @@ event_hash (Lisp_Object obj, int depth)
       return hash;
 
     default:
-      abort ();
+      ABORT ();
     }
 
   return 0; /* unreached */
@@ -686,7 +686,7 @@ WARNING: the event object returned may be a reused one; see the function
 	  e->event.misc.y = coord_y;
 	  break;
 	default:
-	  abort();
+	  ABORT();
 	}
     }
 
@@ -747,18 +747,18 @@ that it is safe to do so.
     if (EQ (event, Vlast_command_event) ||
 	EQ (event, Vlast_input_event)   ||
 	EQ (event, Vunread_command_event))
-      abort ();
+      ABORT ();
 
     len = XVECTOR_LENGTH (Vthis_command_keys);
     for (i = 0; i < len; i++)
       if (EQ (event, XVECTOR_DATA (Vthis_command_keys) [i]))
-	abort ();
+	ABORT ();
     if (!NILP (Vrecent_keys_ring))
       {
 	int recent_ring_len = XVECTOR_LENGTH (Vrecent_keys_ring);
 	for (i = 0; i < recent_ring_len; i++)
 	  if (EQ (event, XVECTOR_DATA (Vrecent_keys_ring) [i]))
-	    abort ();
+	    ABORT ();
       }
   }
 #endif /* 0 */
@@ -825,7 +825,7 @@ deallocate_event_chain (Lisp_Object event_chain)
 
 /* Return the last event in a chain.
    NOTE: You cannot pass nil as a value here!  The routine will
-   abort if you do. */
+   ABORT if you do. */
 
 Lisp_Object
 event_chain_tail (Lisp_Object event_chain)
@@ -912,7 +912,7 @@ event_chain_count (Lisp_Object event_chain)
   return n;
 }
 
-/* Find the event before EVENT in an event chain.  This aborts
+/* Find the event before EVENT in an event chain.  This ABORTs
    if the event is not in the chain. */
 
 Lisp_Object
@@ -928,7 +928,7 @@ event_chain_find_previous (Lisp_Object event_chain, Lisp_Object event)
       event_chain = XEVENT_NEXT (event_chain);
     }
 
-  abort ();
+  ABORT ();
   return Qnil;
 }
 
@@ -1082,7 +1082,7 @@ event_to_character (Lisp_Event *event,
   if (CHAR_OR_CHAR_INTP (event->event.key.keysym))
     c = XCHAR_OR_CHAR_INT (event->event.key.keysym);
   else if (!SYMBOLP (event->event.key.keysym))
-    abort ();
+    ABORT ();
   else if (allow_non_ascii && !NILP (Vcharacter_set_property)
 	   /* Allow window-system-specific extensibility of
 	      keysym->code mapping */
@@ -1307,7 +1307,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
     case empty_event:		strcpy (buf, "empty");	    return;
     case dead_event:		strcpy (buf, "DEAD-EVENT"); return;
     default:
-      abort ();
+      ABORT ();
       return;
     }
 #define modprint1(x)  do { strcpy (buf, (x)); buf += sizeof (x)-1; } while (0)
@@ -1359,7 +1359,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
 	}
     }
   else
-    abort ();
+    ABORT ();
   if (mouse_p)
     strncpy (buf, "up", 4);
 }
@@ -1465,7 +1465,7 @@ empty		The event has been allocated but not assigned.
       return Qempty;
 
     default:
-      abort ();
+      ABORT ();
       return Qnil;
     }
 }
@@ -1483,11 +1483,10 @@ See also `current-event-timestamp'.
   /* This junk is so that timestamps don't get to be negative, but contain
      as many bits as this particular emacs will allow.
    */
-  return make_int (((1L << (VALBITS - 1)) - 1) &
-		      XEVENT (event)->timestamp);
+  return make_int (EMACS_INT_MAX & XEVENT (event)->timestamp);
 }
 
-#define TIMESTAMP_HALFSPACE (1L << (VALBITS - 2))
+#define TIMESTAMP_HALFSPACE (1L << (INT_VALBITS - 2))
 
 DEFUN ("event-timestamp<", Fevent_timestamp_lessp, 2, 2, 0, /*
 Return true if timestamp TIME1 is earlier than timestamp TIME2.
@@ -1859,9 +1858,9 @@ event_pixel_translation (Lisp_Object event, int *char_x, int *char_y,
 			    || TOOLBAR_BUTTONP (ret_obj1)
 #endif
      ))
-    abort ();
+    ABORT ();
   if (!NILP (ret_obj2) && !(EXTENTP (ret_obj2) || CONSP (ret_obj2)))
-    abort ();
+    ABORT ();
 
   if (char_x)
     *char_x = ret_x;
@@ -2212,7 +2211,7 @@ This is in the form of a property list (alternating keyword/value pairs).
 
   switch (e->event_type)
     {
-    default: abort ();
+    default: ABORT ();
 
     case process_event:
       props = cons3 (Qprocess, e->event.process.process, props);

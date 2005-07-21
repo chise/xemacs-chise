@@ -1570,7 +1570,7 @@ See also `menu-split-long-menu'."
        (progn (find-file (or user-init-file "~/.xemacs/init.el"))
 	      (or (eq major-mode 'emacs-lisp-mode)
 		  (emacs-lisp-mode)))]
-      ["%_Save Options to Init File" customize-save-customized]
+      ["%_Save Options to Custom File" customize-save-customized]
       )
 
      ("%_Buffers"

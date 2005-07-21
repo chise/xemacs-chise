@@ -1074,7 +1074,7 @@ mswindows_dequeue_dispatch_event (void)
  * Timeout event matches if interval_id is equal to that of the given event.
  * Keypress event matches if logical AND between modifiers bitmask of the
  * event in the queue and that of the given event is non-zero.
- * For all other event types, this function aborts.
+ * For all other event types, this function ABORTs.
  */
 
 Lisp_Object

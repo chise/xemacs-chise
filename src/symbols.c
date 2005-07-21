@@ -735,7 +735,7 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
 #if 0 /* Inserted for debugging 6/28/1997 -slb */
   /* Somebody is setting a property list of integer 0, who? */
   /* Not this way apparently. */
-  if (EQ(newplist, Qzero)) abort();
+  if (EQ(newplist, Qzero)) ABORT();
 #endif
 
   XSYMBOL (symbol)->plist = newplist;
@@ -1118,7 +1118,7 @@ do_symval_forwarding (Lisp_Object valcontents, struct buffer *buffer,
       return valcontents;
 
     default:
-      abort ();
+      ABORT ();
     }
   return Qnil;	/* suppress compiler warning */
 }
@@ -1294,7 +1294,7 @@ store_symval_forwarding (Lisp_Object sym, Lisp_Object ovalue,
 	  return;
 
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
 }
@@ -1890,7 +1890,7 @@ Set SYMBOL's value to NEWVAL, and return NEWVAL.
 	break;
       }
     default:
-      abort ();
+      ABORT ();
     }
   store_symval_forwarding (symbol, valcontents, newval);
 
@@ -2159,7 +2159,7 @@ sets it.
 	  return variable;
 
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
 
@@ -2269,7 +2269,7 @@ Use `make-local-hook' instead.
 	  }
 
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
 
@@ -2344,7 +2344,7 @@ Use `make-local-hook' instead.
 	  break;
 
 	default:
-	  abort ();
+	  ABORT ();
 	}
     }
 
@@ -2662,7 +2662,7 @@ The returned info will be a symbol, one of
     case SYMVAL_UNBOUND_MARKER:			return Qnil;
 
     default:
-      abort (); return Qnil;
+      ABORT (); return Qnil;
     }
 }
 
@@ -2860,7 +2860,7 @@ decode_magic_handler_type (Lisp_Object symbol)
   if (EQ (symbol, Qmake_local))      return MAGIC_HANDLER_MAKE_LOCAL;
 
   signal_simple_error ("Unrecognized symbol value handler type", symbol);
-  abort ();
+  ABORT ();
   return MAGIC_HANDLER_MAX;
 }
 
@@ -2893,7 +2893,7 @@ handler_type_from_function_symbol (Lisp_Object funsym, int abort_if_not_found)
     return MAGIC_HANDLER_MAKE_LOCAL;
 
   if (abort_if_not_found)
-    abort ();
+    ABORT ();
   signal_simple_error ("Unrecognized symbol-value function", funsym);
   return MAGIC_HANDLER_MAX;
 }

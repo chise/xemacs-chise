@@ -597,15 +597,18 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x2458D)	; 𤖍
-    (=daikanwa		. 19791)	; &I-M-19791;
-    ))
-(define-char
-  '((=>ucs		. #x2458D)	; 𤖍
-    (morohashi-daikanwa	19791 0 1)
-    (ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=cns11643-6	. #x546E)	; &C6-546E; [52-78]
+    (->subsumptive
+     ((<-ancient
+       ((=ucs		    . #xFA67)	; 逸
+	(=daikanwa	    . 38951)	; &I-M-38951;
+	))
+      (<-ancient*sources
+       jiyun daikanwa)
+      (=daikanwa	  . 19791)	; &M-19791;
+      (=ucs@iso		  . #x2458D)	; &M-19791;
+      )
+     ((=cns11643-6	  . #x546E)	; &C6-546E; [52-78]
+      ))
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙

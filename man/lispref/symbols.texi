@@ -11,8 +11,8 @@
 describes symbols, their components, their property lists, and how they
 are created and interned.  Separate chapters describe the use of symbols
 as variables and as function names; see @ref{Variables}, and
-@ref{Functions}.  For the precise read syntax for symbols, see
-@ref{Symbol Type}.
+@ref{Functions and Commands}.  For the precise read syntax for symbols,
+see @ref{Symbol Type}.
 
   You can test whether an arbitrary Lisp object is a symbol
 with @code{symbolp}:
@@ -154,7 +154,7 @@ lambda expression thus becomes the function definition of the symbol.
 cell, is derived from the idea that @code{defun} gives the symbol its
 definition as a function.)  @code{defsubst}, @code{define-function} and
 @code{defalias} are other ways of defining a function.
-@xref{Functions}.
+@xref{Functions and Commands}.
 
   @code{defmacro} defines a symbol as a macro.  It creates a macro
 object and stores it in the function cell of the symbol.  Note that a

@@ -385,13 +385,16 @@ the file.
 @kindex C-h C-k
 @findex Info-elisp-ref
 @findex Info-goto-emacs-command-node
+@findex Info-goto-emacs-key-command-node
   There are two special help commands for accessing XEmacs documentation
 through Info.  @kbd{C-h C-f @var{function} @key{RET}} enters Info and
 goes straight to the documentation of the XEmacs function
 @var{function}.  @kbd{C-h C-k @var{key}} enters Info and goes straight
 to the documentation of the key @var{key}.  These two keys run the
 commands @code{Info-elisp-ref} and
-@code{Info-goto-emacs-key-command-node}.
+@code{Info-goto-emacs-key-command-node}.  (GNU Emacs binds @kbd{C-h C-f}
+to @code{Info-goto-emacs-command-node}, but this is less helpful to
+programmers.)
 
 @kindex C-h l
 @findex view-lossage

@@ -91,9 +91,9 @@ Boston, MA 02111-1307, USA.  */
  * constant to dimension an array.  So wire in the appropriate value here.
  */
 
-#ifndef NSIG
+#if defined(emacs) && !defined(NSIG)
 #define NSIG	32
-#endif
+#endif /* defined(emacs) && !defined(NSIG) */
 
 /* We need bss_end from emacs.c for undumping */
 

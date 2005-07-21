@@ -233,7 +233,7 @@ the Assert macro checks for correctness."
   ;; Test strings waxing and waning across the 8k BIG_STRING limit (see alloc.c)
   ;;---------------------------------------------------------------
   (defun charset-char-string (charset)
-    (let (lo hi string n)
+    (let (lo hi string n (gc-cons-threshold most-positive-fixnum))
       (if (= (charset-chars charset) 94)
 	  (setq lo 33 hi 126)
 	(setq lo 32 hi 127))
@@ -245,6 +245,7 @@ the Assert macro checks for correctness."
 	      (progn
 		(aset string n (make-char charset j))
 		(incf n)))
+	    (garbage-collect)
 	    string)
 	(progn
 	  (setq string (make-string (* (1+ (- hi lo)) (1+ (- hi lo))) ??))
@@ -254,6 +255,7 @@ the Assert macro checks for correctness."
 	      (progn
 		(aset string n (make-char charset j k))
 		(incf n))))
+	  (garbage-collect)
 	  string))))
 
   ;; The following two used to crash xemacs!
@@ -302,6 +304,12 @@ the Assert macro checks for correctness."
     ;; This is how you suppress output from `message', called by `write-region'
     (flet ((append-message (&rest args) ()))
       (Assert (not (equal name1 name2)))
+      ;; Kludge to handle Mac OS X which groks only UTF-8.
+      (cond ((eq system-type 'darwin)
+	     (Check-Error-Message 'file-error "Opening output file"
+	      (write-region (point-min) (point-max) name1))
+	     (require 'un-define)
+	     (setq file-name-coding-system 'utf-8)))
       (Assert (not (file-exists-p name1)))
       (write-region (point-min) (point-max) name1)
       (Assert (file-exists-p name1))

@@ -88,7 +88,7 @@ time, so it would be of great benefit if you learn them now.
 >> Move into the line with C-f's and then up with C-p's.
    See what C-p does when the cursor is in the middle of the line.
 
-Each of text line ends with a Newline character, which serves to
+Each line of text ends with a Newline character, which serves to
 separate it from the following line.  The last line in your file ought
 to have a Newline at the end (but Emacs does not require it to have
 one).
@@ -577,7 +577,7 @@ C-x C-f.  This way you can get quite a number of files inside Emacs.
 
 Emacs stores each file's text inside an object called a "buffer."
 Finding a file makes a new buffer inside Emacs.  To see a list of the
-buffers that current exist in your Emacs job, type
+buffers that currently exist in your Emacs job, type
 
 	C-x C-b   List buffers
 
@@ -749,7 +749,7 @@ Emacs deletes its auto save file.
 
 If the computer crashes, you can recover your auto-saved editing by
 finding the file normally (the file you were editing, not the auto
-save file) and then typing M-x recover file<return>.  When it asks for
+save file) and then typing M-x recover-file<return>.  When it asks for
 confirmation, type yes<return> to go ahead and recover the auto-save
 data.
 

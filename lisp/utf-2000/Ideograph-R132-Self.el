@@ -411,10 +411,13 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x81F2)	; 臲
-    (=jis-x0212		. #x5666)	; &I-JSP-5666; [54-70]
-    (=cns11643-2	. #x5960)	; &I-C2-5960; [57-64]
     (=big5		. #xEAF4)	; &I-B-EAF4;
-    (=daikanwa		. 30130)	; &I-M-30130;
+    (->subsumptive
+     ((=jis-x0212	  . #x5666)	; &M-30130; [54-70]
+      (=cns11643-2	  . #x5960)	; &I-C2-5960; [57-64]
+      (=daikanwa	  . 30130)	; &I-M-30130;
+      (=ucs@unicode	  . #x81F2)	; &M-30130;
+      ))
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃

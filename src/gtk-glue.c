@@ -91,7 +91,7 @@ xemacs_list_to_gtklist (Lisp_Object obj, GtkArg *arg)
     }
   else
     {
-      abort();
+      ABORT();
     }
 }
 
@@ -128,7 +128,7 @@ xemacs_gtklist_to_list (GtkArg *arg)
 	}
       else
 	{
-	  abort();
+	  ABORT();
 	}
     }
   return (rval);
@@ -179,7 +179,7 @@ xemacs_list_to_array (Lisp_Object obj, GtkArg *arg)
     }
   else
     {
-      abort();
+      ABORT();
     }
 #undef FROB
 }

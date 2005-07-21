@@ -446,7 +446,7 @@ Here is an explanation of this feature:
 matches the same text that matched the @var{digit}th occurrence of a
 @samp{\( @dots{} \)} construct.
 
-In other words, after the end of a @samp{\( @dots{} \)} construct.  the
+In other words, after the end of a @samp{\( @dots{} \)} construct, the
 matcher remembers the beginning and end of the text matched by that
 construct.  Then, later on in the regular expression, you can use
 @samp{\} followed by @var{digit} to match that same text, whatever it
@@ -473,19 +473,28 @@ substring to be recorded for future reference.
 This is useful when you need a lot of grouping @samp{\( @dots{} \)}
 constructs, but only want to remember one or two -- or if you have
 more than nine groupings and need to use backreferences to refer to
-the groupings at the end.
+the groupings at the end.  It also allows construction of regular
+expressions from variable subexpressions that contain varying numbers of
+non-capturing subexpressions, without disturbing the group counts for
+the main expression.  For example
 
-Using @samp{\(?: @dots{} \)} rather than @samp{\( @dots{} \)} when you
-don't need the captured substrings ought to speed up your programs some,
-since it shortens the code path followed by the regular expression
-engine, as well as the amount of memory allocation and string copying it
-must do.  The actual performance gain to be observed has not been
-measured or quantified as of this writing.
-@c This is used to good advantage by the font-locking code, and by
-@c `regexp-opt.el'.
+@example
+(let ((sre (if foo "\\(?:bar\\|baz\\)" "quux")))
+  (re-search-forward (format "a\\(b+ %s c+\\) d" sre) nil t)
+  (match-string 1))
+@end example
 
-The shy grouping operator has been borrowed from Perl, and has not been
-available prior to XEmacs 20.3, nor is it available in FSF Emacs.
+It is very tedious to write this kind of code without shy groups, even
+if you know what all the alternative subexpressions will look like.
+
+Using @samp{\(?: @dots{} \)} rather than @samp{\( @dots{} \)} should
+give little performance gain, as the start of each group must be
+recorded for the purpose of back-tracking in any case, and no string
+copying is done until @code{match-string} is called.
+
+The shy grouping operator has been borrowed from Perl, and was not
+available prior to XEmacs 20.3, and has only been available in GNU Emacs
+since version 21.
 
 @item \w
 @cindex @samp{\w} in regexp

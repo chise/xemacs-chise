@@ -254,7 +254,7 @@ obtain (POINTER address, size_t size)
     }
 
   if (! heap)
-    abort ();
+    ABORT ();
 
   /* If we can't fit SIZE bytes in that heap,
      try successive later heaps.  */
@@ -360,7 +360,7 @@ relinquish (void)
 	  /* This heap should have no blocs in it.  */
 	  if (last_heap->first_bloc != NIL_BLOC
 	      || last_heap->last_bloc != NIL_BLOC)
-	    abort ();
+	    ABORT ();
 
 	  /* Return the last heap, with its header, to the system.  */
 	  excess = (char *)last_heap->end - (char *)last_heap->start;
@@ -375,7 +375,7 @@ relinquish (void)
 	}
 
       if ((*real_morecore) (- excess) == 0)
-	abort ();
+	ABORT ();
     }
 }
 
@@ -478,7 +478,7 @@ relocate_blocs (bloc_ptr bloc, heap_ptr heap, POINTER address)
 
   /* No need to ever call this if arena is frozen, bug somewhere!  */
   if (r_alloc_freeze_level)
-    abort();
+    ABORT();
 
   while (b)
     {
@@ -633,7 +633,7 @@ resize_bloc (bloc_ptr bloc, size_t size)
 
   /* No need to ever call this if arena is frozen, bug somewhere!  */
   if (r_alloc_freeze_level)
-    abort();
+    ABORT();
 
   if (bloc == NIL_BLOC || size == bloc->size)
     return 1;
@@ -645,7 +645,7 @@ resize_bloc (bloc_ptr bloc, size_t size)
     }
 
   if (heap == NIL_HEAP)
-    abort ();
+    ABORT ();
 
   old_size = bloc->size;
   bloc->size = size;
@@ -972,7 +972,7 @@ r_alloc_free (POINTER *ptr)
 
   dead_bloc = find_bloc (ptr);
   if (dead_bloc == NIL_BLOC)
-    abort ();
+    ABORT ();
 
   free_bloc (dead_bloc);
   *ptr = 0;
@@ -1015,7 +1015,7 @@ r_re_alloc (POINTER *ptr, size_t size)
 
   bloc = find_bloc (ptr);
   if (bloc == NIL_BLOC)
-    abort ();
+    ABORT ();
 
   if (size < bloc->size)
     {
@@ -1085,7 +1085,7 @@ r_alloc_thaw (void)
     init_ralloc ();
 
   if (--r_alloc_freeze_level < 0)
-    abort ();
+    ABORT ();
 
   /* This frees all unused blocs.  It is not too inefficient, as the resize
      and memmove is done only once.  Afterwards, all unreferenced blocs are
@@ -1129,7 +1129,7 @@ init_ralloc (void)
   first_heap->start = first_heap->bloc_start
     = virtual_break_value = break_value = (*real_morecore) (0);
   if (break_value == NIL)
-    abort ();
+    ABORT ();
 
   page_size = PAGE;
   extra_bytes = ROUNDUP (50000);
@@ -1805,13 +1805,13 @@ Free_Addr_Block (VM_ADDR addr, size_t sz)
     {
       if (p->addr == addr)
 	{
-	  if (p->sz != sz) abort(); /* ACK! Shouldn't happen at all. */
+	  if (p->sz != sz) ABORT(); /* ACK! Shouldn't happen at all. */
 	  munmap( (VM_ADDR) p->addr, p->sz );
 	  p->flag = empty;
 	  break;
 	}
     }
-  if (!p) abort(); /* Can't happen... we've got a block to free which is not in
+  if (!p) ABORT(); /* Can't happen... we've got a block to free which is not in
 		      the address list. */
   Coalesce_Addr_Blocks();
 }
@@ -1857,7 +1857,7 @@ r_alloc (POINTER *ptr, size_t size)
   switch(r_alloc_initialized)
     {
     case 0:
-      abort();
+      ABORT();
     case 1:
       *ptr = (POINTER) UNDERLYING_MALLOC(size);
       break;
@@ -1898,7 +1898,7 @@ r_alloc_free (POINTER *ptr)
 {
   switch( r_alloc_initialized) {
     case 0:
-      abort();
+      ABORT();
 
     case 1:
       UNDERLYING_FREE( *ptr );		/* Certain this is from the heap. */
@@ -1940,7 +1940,7 @@ r_re_alloc (POINTER *ptr, size_t sz)
 {
   if (r_alloc_initialized == 0)
     {
-      abort ();
+      ABORT ();
       return 0; /* suppress compiler warning */
     }
   else if (r_alloc_initialized == 1)

@@ -275,6 +275,12 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (<-ancient
+     ((=ks-x1001	  . #x504E)	; &M-38752; [48-46]
+      (=daikanwa	  . 38752)	; &I-M-38752;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
     (hanyu-dazidian	2 1441 6)
     (=ucs		. #x2394D)	; 𣥍
     (=cns11643-6	. #x2C3C)	; &I-C6-2C3C; [12-28]

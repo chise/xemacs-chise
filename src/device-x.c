@@ -141,7 +141,7 @@ get_device_from_display (Display *dpy)
        (STRINGP (Vinvocation_name) ?
 	(char *) XSTRING_DATA (Vinvocation_name) : FALLBACK_RESOURCE_NAME),
        DisplayString (dpy) ? DisplayString (dpy) : "???");
-    abort();
+    ABORT();
   }
 
 #undef FALLBACK_RESOURCE_NAME
@@ -420,7 +420,7 @@ x_get_visual_depth (Display *dpy, Visual *visual)
   vi_in.visualid = XVisualIDFromVisual (visual);
   vi_out = XGetVisualInfo (dpy, /*VisualScreenMask|*/VisualIDMask,
 			   &vi_in, &out_count);
-  if (! vi_out) abort ();
+  if (! vi_out) ABORT ();
   d = vi_out [0].depth;
   XFree ((char *) vi_out);
   return d;
