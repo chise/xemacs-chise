@@ -77,12 +77,12 @@
     (=big5		. #xA459)	; &I-B-A459;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E38)	; 丸
       ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (shinjigen-1	. 39)
     (shinjigen-2	. 39)
     (=jis-x0208		. #x345D)	; &GT-00131; [20-61]
@@ -96,12 +96,12 @@
     (=ucs@unicode	. #x4E38)	; &GT-00131;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E38)	; 丸
       ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (hanyu-dazidian	1 42 11)
     (=cns11643-1	. #x443A)	; &GT-00132; [36-26]
     (=gt		. 00132)	; &I-GT-00132;
@@ -210,12 +210,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E39)	; 丹
       ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (<-ideographic-component-forms
      ((=ucs		  . #x4E39)	; 丹
       ))
@@ -393,7 +393,10 @@
     (=ucs		. #x4E3D)	; 丽
     ))
 (define-char
-  '((ideographic-radical@daikanwa . 3)	; ⼂
+  '((<-denotational
+     ((=ucs		  . #x4E3D)	; 丽
+      ))
+    (ideographic-radical@daikanwa . 3)	; ⼂
     (ideographic-strokes@daikanwa . 7)
     (ideographic-radical@daikanwa*sources
      daikanwa gt)
@@ -410,9 +413,6 @@
       ))
     (<-ancient*sources
      daikanwa)
-    (<-denotational
-     ((=ucs		  . #x4E3D)	; 丽
-      ))
     (<-same
      ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
       (=daikanwa	  . 00059)	; &I-M-00059;
@@ -434,12 +434,12 @@
     (=ucs@cns		. #x4E3D)	; &GT-00145;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E3D)	; 丽
       ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
     (<-simplified@CN
      ((=gb12345		  . #x4076)	; &UU+9E97; [32-86]
       ))
@@ -478,12 +478,12 @@
     (=ucs@unicode	. #x4E3D)	; &HZK01-A86E;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E3D)	; 丽
       ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
     (<-ideographic-component-forms
      ((=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
       (=daikanwa	  . 00104)	; &I-M-00104;

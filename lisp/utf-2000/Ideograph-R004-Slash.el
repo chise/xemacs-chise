@@ -420,7 +420,10 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	3118 1)
+  '((<-denotational
+     ((=ucs		  . #x53CA)	; 及
+      ))
+    (morohashi-daikanwa	3118 1)
     (ideographic-radical@ucs . 29)	; ⼜
     (ideographic-strokes@ucs . 2)
     (total-strokes@ucs	     . 4)
@@ -429,9 +432,6 @@
     (ideographic-radical@gt . 4)	; ⼃
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
-    (<-denotational
-     ((=ucs		  . #x53CA)	; 及
-      ))
     (hanyu-dazidian	1 35 1)
     (shinjigen-1	. 900)
     (shinjigen-2	. 900)
