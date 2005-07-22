@@ -18,13 +18,12 @@
     (=daikanwa		. 02774)	; &I-M-02774;
     ))
 (define-char
-  '((=>daikanwa		. 02774)	; 卜
+  '((<-denotational
+     ((=ucs		  . #x535C)	; 卜
+      ))
     (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-denotational
-     ((=ucs		  . #x535C)	; 卜
-      ))
     (=gt-k		. 00061)	; &GT-K00061;
     (=gt-pj-k1		. #x3671)	; &GT-K00061; [22-81]
     ))
@@ -717,12 +716,12 @@
     (=ucs		. #x5368)	; 卨
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5368)	; 卨
       ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	1 95 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -742,12 +741,12 @@
     (=cbeta		. 05348)	; &I-CB05348;
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5368)	; 卨
       ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

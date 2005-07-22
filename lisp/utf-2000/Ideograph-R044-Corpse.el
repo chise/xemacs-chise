@@ -739,12 +739,12 @@
     (=daikanwa		. 07691)	; &I-M-07691;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x5622)	; &J97-5622; [54-02]
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x5622)	; &M-07734; [54-02]
       (=ks-x1001	  . #x5C33)	; &I-K0-5C33; [60-19]
@@ -961,12 +961,12 @@
     (=jis-x0208@1997	. #x367D)	; 屑 [22-93]
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C51)	; 屑
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (=jis-x0208@1978	. #x367D)	; &M-07709; [22-93]
     (=ks-x1001		. #x605A)	; &I-K0-605A; [64-58]
     (=big5		. #xAE68)	; &I-B-AE68;
@@ -974,12 +974,12 @@
     (=ucs@big5		. #x5C51)	; &M-07709;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C51)	; 屑
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (->subsumptive
      ((<-simplified@JP
        ((=jis-x0208@1978    . #x367D)	; &M-07709; [22-93]
@@ -1306,12 +1306,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x5622)	; &J97-5622; [54-02]
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (=ucs		. #x5C5B)	; 屛
     (->subsumptive
      ((=jis-x0208@1978	  . #x5622)	; &M-07734; [54-02]
@@ -1577,12 +1577,12 @@
     (=jis-x0208@1997	. #x454B)	; 屠 [37-43]
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C60)	; 屠
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (->subsumptive
      ((=jis-x0208@1978	  . #x454B)	; &M-07761; [37-43]
       (=ks-x1001	  . #x5375)	; &I-K0-5375; [51-85]
@@ -1594,12 +1594,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C60)	; 屠
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x454B)	; &M-07761; [37-43]
       (=ks-x1001	  . #x5375)	; &I-K0-5375; [51-85]
@@ -1692,12 +1692,12 @@
     (=daikanwa		. 07769)	; &I-M-07769;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3C48)	; &J97-3C48; [28-40]
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=ucs		. #x5C61)	; 屡
     (->subsumptive
      ((<-simplified@JP
@@ -1881,31 +1881,31 @@
     (=ucs		. #x21CBE)	; 𡲾
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x21CBE)	; 𡲾
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (=daikanwa		. 07786)	; &M-07786;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x21CBE)	; 𡲾
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (=cns11643-6	. #x5228)	; &C6-5228; [50-08]
     (=ucs@iso		. #x21CBE)	; &C6-5228;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3C48)	; &J97-3C48; [28-40]
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=ucs		. #x5C62)	; 屢
     (->subsumptive
      ((=jis-x0208@1978	  . #x3C48)	; &M-07787; [28-40]
@@ -2049,12 +2049,12 @@
     (=jis-x0208@1997	. #x4158)	; 層 [33-56]
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C64)	; 層
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (=big5		. #xBC68)	; &B-BC68;
     (->subsumptive
      ((=>ucs*		  . #x5C64)	; 層
@@ -2072,12 +2072,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C64)	; 層
       ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA3B)	; 層
       (=jis-x0213-1-2000  . #x4F61)	; &I-JX1-4F61; [47-65]

@@ -181,15 +181,15 @@
     (=big5		. #xA8B5)	; &I-B-A8B5;
     ))
 (define-char
-  '((=>ucs*		. #x5DE1)	; 巡
+  '((<-denotational
+     ((=ucs		  . #x5DE1)	; 巡
+      ))
+    (=>ucs*		. #x5DE1)	; 巡
     (=>ucs@gb		. #x5DE1)	; &GT-10953;
     (=>ucs@jis		. #x5DE1)	; &GT-10953;
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-denotational
-     ((=ucs		  . #x5DE1)	; 巡
-      ))
     (=ucs		. #x2F881)	; 巡
     (->subsumptive
      ((morohashi-daikanwa	8680 1)
@@ -296,12 +296,12 @@
     (=daikanwa		. 08683)	; &I-M-08683;
     ))
 (define-char
-  '((ideographic-radical . 47)	; ⼮
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5DE1)	; 巡
       ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=ks-x1001		. #x625E)	; &M-08684; [66-62]
     (=daikanwa		. 08684)	; &I-M-08684;
     (=jef-china3	. #x67AA)	; &I-JC3-67AA;

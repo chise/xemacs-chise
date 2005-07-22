@@ -5,12 +5,12 @@
     (=ucs		. #x7259)	; 牙
     ))
 (define-char
-  '((ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7259)	; 牙
       ))
+    (ideographic-radical . 92)	; ⽛
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (->subsumptive
      ((=cns11643-1	  . #x455B)	; &M-19909; [37-59]
       (=daikanwa	  . 19909)	; &I-M-19909;
@@ -21,12 +21,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7259)	; 牙
       ))
+    (ideographic-radical . 92)	; ⽛
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (=jis-x0208		. #x3267)	; &GT-25560; [18-71]
     (=ks-x1001		. #x6433)	; &I-K0-6433; [68-19]
     (=gt		. 25560)	; &I-GT-25560;

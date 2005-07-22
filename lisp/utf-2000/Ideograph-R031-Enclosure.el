@@ -652,12 +652,12 @@
     (=ucs		. #x56E7)	; 囧
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x56E7)	; 囧
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=big5		. #xCAA8)	; &B-CAA8;
     (->subsumptive
      ((ideographic-structure
@@ -687,12 +687,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x56E7)	; 囧
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=ucs@unicode	. #x56E7)	; &UU+56E7;
     ))
 (define-char
@@ -742,23 +742,23 @@
     (=ucs		. #x56F1)	; 囱
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x56F1)	; 囱
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=jis-x0212		. #x367C)	; &M-04710; [22-92]
     (=daikanwa		. 04710)	; &I-M-04710;
     (=ucs@jis		. #x56F1)	; &M-04710;
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x56F1)	; 囱
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=gb2312		. #x3451)	; &G0-3451; [20-49]
     (=jef-china3	. #x8CD8)	; &I-JC3-8CD8;
     (=ucs@unicode	. #x56F1)	; &G0-3451;
@@ -2438,12 +2438,12 @@
     (=big5		. #xD4AB)	; &I-B-D4AB;
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x570A)	; 圊
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
@@ -2459,12 +2459,12 @@
     (=ucs@jis		. #x570A)	; &M-04797;
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x570A)	; 圊
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (->subsumptive
      ((hanyu-dazidian	  1 720 6)
       (ideographic-structure
@@ -2878,12 +2878,12 @@
     (=ucs		. #x5712)	; 園
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5712)	; 園
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (shinjigen-1	. 1334)
     (shinjigen-2	. 1334)
     (=jis-x0208		. #x3160)	; &GT-06057; [17-64]
@@ -2897,12 +2897,12 @@
     (=ucs@unicode	. #x5712)	; &GT-06057;
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5712)	; 園
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴

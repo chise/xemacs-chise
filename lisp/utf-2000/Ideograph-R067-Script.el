@@ -27,12 +27,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6587)	; 文
       ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (<-ideographic-component-forms
      ((=jis-x0208	  . #x4A38)	; &GT-17008; [42-24]
       ))
@@ -391,12 +391,12 @@
     (=ucs		. #x6592)	; 斒
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6592)	; 斒
       ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=big5		. #xDDBD)	; &B-DDBD;
     (=ucs@big5		. #x6592)	; &B-DDBD;
     (->subsumptive
@@ -409,12 +409,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6592)	; 斒
       ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=ucs@unicode	. #x6592)	; &UU+6592;
     ))
 (define-char
@@ -554,12 +554,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
-    (ideographic-strokes . 14)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=daikanwa	  . 38667)	; &M-38667;
       ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
     (<-original
      ((=jis-x0208	  . #x4843)	; &GT-17031; [40-35]
       (=ks-x1001	  . #x5A68)	; &I-K0-5A68; [58-72]

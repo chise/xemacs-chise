@@ -5,12 +5,12 @@
     (=ucs		. #x5EFE)	; 廾
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5EFE)	; 廾
       ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=jis-x0208		. #x5730)	; &GT-12077; [55-16]
     (=gb2312		. #x5E43)	; &I-G0-5E43; [62-35]
     (=cns11643-1	. #x445C)	; &I-C1-445C; [36-60]
@@ -22,13 +22,13 @@
     (=ucs@unicode	. #x5EFE)	; &GT-12077;
     ))
 (define-char
-  '((=>ucs*		. #x5EFE)	; 廾
+  '((<-denotational
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=>ucs*		. #x5EFE)	; 廾
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x5EFE)	; 廾
-      ))
     (=ucs		. #x2F890)	; 廾
     (=cns11643-6	. #x2174)	; &I-C6-2174; [01-84]
     (=big5-cdp		. #x887D)	; &I-CDP-887D;
@@ -143,21 +143,21 @@
     (=ucs		. #x5F02)	; 异
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F02)	; 异
       ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (=daikanwa		. 09591)	; &M-09591;
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F02)	; 异
       ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (=jis-x0212		. #x3C5C)	; &JX1-7432; [28-60]
     (=cns11643-2	. #x223D)	; &I-C2-223D; [02-29]
     (=jis-x0213-1-2000	. #x7432)	; &I-JX1-7432; [84-18]
@@ -165,12 +165,12 @@
     (=ucs@jis		. #x5F02)	; &JX1-7432;
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F02)	; 异
       ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (=gb2312		. #x526C)	; &G0-526C; [50-76]
     (=ucs@unicode	. #x5F02)	; &G0-526C;
     (->subsumptive

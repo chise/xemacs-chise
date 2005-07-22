@@ -25,12 +25,12 @@
     (=ucs		. #x722B)	; 爫
     ))
 (define-char
-  '((ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x722B)	; 爫
       ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=jis-x0212		. #x4A48)	; &M-19655; [42-40]
     (=cns11643-4	. #x2151)	; &I-C4-2151; [01-49]
     (=jis-x0213-2-2000	. #x702A)	; &I-JX2-702A; [80-10]
@@ -38,29 +38,29 @@
     (=ucs@jis		. #x722B)	; &M-19655;
     ))
 (define-char
-  '((name		. "CJK RADICAL PAW TWO")
+  '((<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    (name		. "CJK RADICAL PAW TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-denotational
-     ((=ucs		  . #x722B)	; 爫
-      ))
     (<-radical
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x2EA5)	; ⺥
     ))
 (define-char
-  '((name		. "CJK RADICAL PAW ONE")
+  '((<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    (name		. "CJK RADICAL PAW ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x722B)	; 爫
-      ))
     (=ucs		. #x2EA4)	; ⺤
     (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
     (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
@@ -348,21 +348,21 @@
     (=cns11643-6	. #x4158)	; &I-C6-4158; [33-56]
     ))
 (define-char
-  '((ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=big5		  . #xACB0)	; &B-ACB0;
       ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=ucs		. #x7232)	; 爲
     ))
 (define-char
-  '((ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7232)	; 爲
       ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (shinjigen-1	. 4703)
     (shinjigen-2	. 4703)
     (=jis-x0208		. #x602A)	; &GT-25270; [64-10]
@@ -381,12 +381,12 @@
     (=ucs@big5		. #x70BA)	; &B-ACB0;
     ))
 (define-char
-  '((ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7232)	; 爲
       ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=cns11643-3	. #x3D22)	; &GT-25271; [29-02]
     (=gb12345		. #x4E2A)	; &GT-25271; [46-10]
     (=gt		. 25271)	; &I-GT-25271;
@@ -407,7 +407,6 @@
        zhengzi-tong shuowen danchuu daikanwa)
       (<-same
        ((=jis-x0208	    . #x502C)	; &GT-00285; [48-12]
-	(=ks-x1001	    . #x552F)	; &I-K0-552F; [53-15]
 	(=daikanwa	    . 00214)	; &I-M-00214;
 	))
       (<-same*sources

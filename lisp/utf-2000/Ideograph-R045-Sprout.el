@@ -6,13 +6,13 @@
     (=ucs		. #x5C6E)	; 屮
     ))
 (define-char
-  '((=>ucs*		. #x5C6E)	; 屮
+  '((<-denotational
+     ((=ucs		  . #x5C6E)	; 屮
+      ))
+    (=>ucs*		. #x5C6E)	; 屮
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-denotational
-     ((=ucs		  . #x5C6E)	; 屮
-      ))
     (=ucs		. #xFA3C)	; 屮
     (=gb2312		. #x6578)	; &I-G0-6578; [69-88]
     (=cns11643-2	. #x212B)	; &I-C2-212B; [01-11]
@@ -25,7 +25,10 @@
     (=ucs@jis/2000	. #xFA3C)	; 屮
     ))
 (define-char
-  '((ideographic-radical . 45)	; ⼬
+  '((<-denotational
+     ((=ucs		  . #x5C6E)	; 屮
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (->mistakable
@@ -38,9 +41,6 @@
       ))
     (->synonyms*sources
      shuowen daikanwa)
-    (<-denotational
-     ((=ucs		  . #x5C6E)	; 屮
-      ))
     (=ucs		. #x2F878)	; 屮
     (=jis-x0208		. #x5625)	; &I-J90-5625; [54-05]
     (=cns11643-4	. #x2135)	; &I-C4-2135; [01-21]

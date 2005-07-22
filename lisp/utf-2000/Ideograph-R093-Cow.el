@@ -1308,21 +1308,21 @@
     (=big5		. #xDA6A)	; &I-B-DA6A;
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7286)	; 犆
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=daikanwa		. 20057)	; &M-20057;
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7286)	; 犆
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (->subsumptive
      ((=ucs@unicode	  . #x7286)	; &UU+7286;
       )
@@ -2141,12 +2141,12 @@
     (=ucs		. #x3E4C)	; 㹌
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x3E4C)	; 㹌
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (->subsumptive
      ((=daikanwa	  . 20139)	; &M-20139;
       )
@@ -2154,12 +2154,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x3E4C)	; 㹌
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (=ucs@unicode	. #x3E4C)	; &UU+3E4C;
     ))
 (define-char
@@ -2169,12 +2169,12 @@
     (=ucs		. #x7298)	; 犘
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7298)	; 犘
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (=big5		. #xE673)	; &B-E673;
     (->subsumptive
      ((=daikanwa	  . 20141)	; &M-20141;
@@ -2184,12 +2184,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7298)	; 犘
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (=ucs@unicode	. #x7298)	; &UU+7298;
     ))
 (define-char
@@ -2739,23 +2739,23 @@
     (=ucs		. #x72A1)	; 犡
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 15)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x72A1)	; 犡
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
     (=cns11643-2	. #x657C)	; &M-20195; [69-92]
     (=daikanwa		. 20195)	; &I-M-20195;
     (=ucs@cns		. #x72A1)	; &M-20195;
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 14)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x72A1)	; 犡
       ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
     (=big5		. #xF272)	; &B-F272;
     (->subsumptive
      ((=ucs@unicode	  . #x72A1)	; &UU+72A1;

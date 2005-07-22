@@ -42,13 +42,13 @@
     (=gt-pj-k1		. #x3974)	; &GT-K00267; [25-84]
     ))
 (define-char
-  '((name		. "CJK RADICAL SNOUT TWO")
+  '((<-denotational
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (name		. "CJK RADICAL SNOUT TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-denotational
-     ((=ucs		  . #x5F50)	; 彐
-      ))
     (<-radical
      ((=ucs		  . #x5F50)	; 彐
       ))
@@ -279,22 +279,22 @@
     (=ucs		. #x22457)	; 𢑗
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x22457)	; 𢑗
       ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=daikanwa		. 09921)	; &M-09921;
     (=ucs@iso		. #x22457)	; &M-09921;
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x22457)	; 𢑗
       ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=cns11643-6	. #x3124)	; &C6-3124; [17-04]
     ))
 (define-char
@@ -766,12 +766,12 @@
     (=ucs		. #x5F60)	; 彠
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 23)
-    (total-strokes	 . 26)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F60)	; 彠
       ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 23)
+    (total-strokes	 . 26)
     (->subsumptive
      ((=daikanwa	  . 09960)	; &M-09960;
       )
@@ -779,21 +779,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 22)
-    (total-strokes	 . 25)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F60)	; 彠
       ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 22)
+    (total-strokes	 . 25)
     (=ucs@unicode	. #x5F60)	; &UU+5F60;
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 22)
-    (total-strokes	 . 25)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5F60)	; 彠
       ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 22)
+    (total-strokes	 . 25)
     (=jis-x0212		. #x3C7B)	; &JSP-3C7B; [28-91]
     (=ucs@jis		. #x5F60)	; &JSP-3C7B;
     ))

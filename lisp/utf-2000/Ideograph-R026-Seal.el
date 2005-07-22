@@ -29,13 +29,13 @@
     (=daikanwa		. 02837)	; &I-M-02837;
     ))
 (define-char
-  '((name		. "CJK RADICAL SEAL")
+  '((<-denotational
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (name		. "CJK RADICAL SEAL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-denotational
-     ((=ucs		  . #x353E)	; 㔾
-      ))
     (<-ideographic-component-forms
      ((=ucs		  . #x5369)	; 卩
       ))
@@ -924,13 +924,13 @@
     (=jis-x0208@1997	. #x362A)	; 卿 [22-10]
     ))
 (define-char
-  '((=>ucs*		. #x537F)	; 卿
+  '((<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
+    (=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x537F)	; 卿
-      ))
     (=ucs		. #x2F831)	; 卿
     (->subsumptive
      ((<-vulgar
@@ -946,13 +946,13 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 02877)	; &M-02877;
+  '((<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
+    (=>daikanwa		. 02877)	; &M-02877;
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x537F)	; 卿
-      ))
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
@@ -986,13 +986,13 @@
     (=ucs@unicode	. #x537F)	; &GT-03656;
     ))
 (define-char
-  '((=>ucs*		. #x537F)	; 卿
+  '((<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
+    (=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x537F)	; 卿
-      ))
     (<-vulgar
      ((=ucs		  . #x2F833)	; 卿
       (=daikanwa	  . 02879)	; &I-M-02879;
@@ -1004,7 +1004,10 @@
     (=daikanwa		. 02878)	; &I-M-02878;
     ))
 (define-char
-  '((=>ucs*		. #x537F)	; 卿
+  '((<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
+    (=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -1016,9 +1019,6 @@
       ))
     (->same*sources
      shinjigen-1)
-    (<-denotational
-     ((=ucs		  . #x537F)	; 卿
-      ))
     (shinjigen-1	. 869)
     (shinjigen-2	. 869)
     (=ucs		. #x2F833)	; 卿
@@ -1026,12 +1026,12 @@
     (=daikanwa		. 02879)	; &I-M-02879;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 10)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2F833)	; 卿
       ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
     (<-same
      ((=ucs		  . #x2F833)	; 卿
       (=daikanwa	  . 02879)	; &I-M-02879;

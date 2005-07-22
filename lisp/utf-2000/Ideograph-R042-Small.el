@@ -23,12 +23,12 @@
     (=big5		. #xC95C)	; &I-B-C95C;
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C10)	; 尐
       ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (->subsumptive
      ((=daikanwa	  . 07474)	; &M-07474;
       )
@@ -36,12 +36,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C10)	; 尐
       ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (=cns11643-2	. #x213C)	; &C2-213C; [01-28]
     (=ucs@cns		. #x5C10)	; &C2-213C;
     ))
@@ -269,12 +269,12 @@
     (=cns11643-6	. #x2722)	; &C6-2722; [07-02]
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=big5		  . #xA97C)	; &B-A97C;
       ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (=ucs		. #x5C19)	; 尙
     (->subsumptive
      ((=ks-x1001	  . #x5F46)	; &M-07493; [63-38]
@@ -294,13 +294,13 @@
     (=ucs@big5		. #x5C1A)	; &B-A97C;
     ))
 (define-char
-  '((morohashi-daikanwa	7493 1)
+  '((<-denotational
+     ((=big5		  . #xA97C)	; &B-A97C;
+      ))
+    (morohashi-daikanwa	7493 1)
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-denotational
-     ((=big5		  . #xA97C)	; &B-A97C;
-      ))
     (=ucs		. #x5C1A)	; 尚
     (=jis-x0208		. #x3E30)	; &I-J90-3E30; [30-16]
     (=gb2312		. #x4950)	; &I-G0-4950; [41-48]
@@ -310,12 +310,12 @@
     (=gt-pj-1		. #x3E30)	; &I-GT-09446; [30-16]
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5C1A)	; 尚
       ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (<-ideographic-component-forms
      ((=ucs		  . #x5C1A)	; 尚
       ))

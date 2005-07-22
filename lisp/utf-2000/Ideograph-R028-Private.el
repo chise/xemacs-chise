@@ -20,12 +20,12 @@
     (=ucs		. #x20AD3)	; 𠫓
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x20AD3)	; 𠫓
       ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (->subsumptive
      ((=big5-cdp	  . #x8B7E)	; &CDP-8B7E;
       (=daikanwa	  . 03058)	; &I-M-03058;
@@ -35,12 +35,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x20AD3)	; 𠫓
       ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -168,12 +168,12 @@
     (=jef-china3	. #x8EAF)	; &I-JC3-8EAF;
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x20AD7)	; 𠫗
       ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (->subsumptive
      ((=daikanwa	  . 03066)	; &M-03066;
       )
@@ -213,15 +213,15 @@
     (=ucs		. #x20AD7)	; 𠫗
     ))
 (define-char
-  '((morohashi-daikanwa	ho 45)
+  '((<-denotational
+     ((=ucs		  . #x20AD7)	; 𠫗
+      ))
+    (morohashi-daikanwa	ho 45)
     (ideographic-radical@ucs . 28)	; ⼛
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 16)	; ⼏
     (ideographic-strokes@daikanwa . 2)
     (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x20AD7)	; 𠫗
-      ))
     (hanyu-dazidian	1 276 8)
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]
@@ -1141,21 +1141,21 @@
     (=ucs		. #x20B0D)	; 𠬍
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x20B0D)	; 𠬍
       ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
     (=ucs@iso		. #x20B0D)	; &U-00020B0D;
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x20B0D)	; 𠬍
       ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
     (hanyu-dazidian	1 389 10)
     (=hanziku-1		. #xF5F6)	; &HZK01-F5F6;
     ))

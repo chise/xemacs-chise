@@ -249,15 +249,15 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 45)
+  '((<-denotational
+     ((=ucs		  . #x20AD7)	; 𠫗
+      ))
+    (morohashi-daikanwa	ho 45)
     (ideographic-radical@ucs . 28)	; ⼛
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 16)	; ⼏
     (ideographic-strokes@daikanwa . 2)
     (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x20AD7)	; 𠫗
-      ))
     (hanyu-dazidian	1 276 8)
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]

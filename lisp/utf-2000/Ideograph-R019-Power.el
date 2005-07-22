@@ -1558,11 +1558,11 @@
       ))
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
-    (morohashi-daikanwa	2360 1)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52C7)	; 勇
       ))
+    (script		JP Jouyou Ideograph)
+    (morohashi-daikanwa	2360 1)
     (<-vulgar
      ((shinjigen-1	  . 731)
       (=ucs		  . #xFA76)	; 勇
@@ -1606,13 +1606,13 @@
     (=ucs		. #x52C9)	; 勉
     ))
 (define-char
-  '((=>ucs*		. #x52C9)	; 勉
+  '((<-denotational
+     ((=ucs		  . #x52C9)	; 勉
+      ))
+    (=>ucs*		. #x52C9)	; 勉
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x52C9)	; 勉
-      ))
     (<-same
      ((shinjigen-1	  . 735)
       (=jis-x0208	  . #x4A59)	; &GT-03050; [42-57]
@@ -2033,14 +2033,14 @@
     (=daikanwa		. 02384)	; &M-02384;
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
+  '((<-denotational
+     ((=ucs		  . #x52C9)	; 勉
+      ))
+    (script		JP Jouyou Ideograph)
     (morohashi-daikanwa	2384 1)
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x52C9)	; 勉
-      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA33)	; 勉
       (=jis-x0213-1-2000  . #x2E63)	; &I-JX1-2E63; [14-67]
@@ -2196,12 +2196,12 @@
     (=ucs		. #x52D6)	; 勖
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52D6)	; 勖
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2222,12 +2222,12 @@
     (=ucs@unicode	. #x52D6)	; &M-02391;
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52D6)	; 勖
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2247,12 +2247,12 @@
     (=ucs		. #x52D7)	; 勗
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52D7)	; 勗
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (<-vulgar
      ((shinjigen-1	  . 740)
       (=gb2312		  . #x5B43)	; &M-02391; [59-35]
@@ -2278,16 +2278,16 @@
     (=daikanwa		. 02392)	; &M-02392;
     ))
 (define-char
-  '((ideographic-radical@ucs . 19)	; ⼒
+  '((<-denotational
+     ((=ucs		  . #x52D7)	; 勗
+      ))
+    (ideographic-radical@ucs . 19)	; ⼒
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
     (ideographic-radical@cns . 73)	; ⽈
     (ideographic-strokes@cns . 7)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x52D7)	; 勗
-      ))
     (hanyu-dazidian	2 1512 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2733,15 +2733,15 @@
     (=ucs		. #x52E4)	; 勤
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
+  '((<-denotational
+     ((=ucs		  . #x52E4)	; 勤
+      ))
+    (script		JP Jouyou Ideograph)
     (=>ucs*		. #x52E4)	; 勤
     (morohashi-daikanwa	2415 1)
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=ucs		  . #x52E4)	; 勤
-      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA34)	; 勤
       (=jis-x0213-1-2000  . #x2E68)	; &I-JX1-2E68; [14-72]
@@ -2953,12 +2953,12 @@
     (=ucs		. #x52E2)	; 勢
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52E2)	; 勢
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (=big5		. #xB6D5)	; &B-B6D5;
     (->subsumptive
      ((ideographic-structure
@@ -2993,12 +2993,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52E2)	; 勢
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -3033,13 +3033,13 @@
     (=daikanwa		. 02423)	; &I-M-02423;
     ))
 (define-char
-  '((=>ucs*		. #x52E4)	; 勤
+  '((<-denotational
+     ((=ucs		  . #x52E4)	; 勤
+      ))
+    (=>ucs*		. #x52E4)	; 勤
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (<-denotational
-     ((=ucs		  . #x52E4)	; 勤
-      ))
     (hanyu-dazidian	1 378 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3629,12 +3629,12 @@
     (=ucs		. #x52F1)	; 勱
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 13)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52F1)	; 勱
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
     (hanyu-dazidian	1 380 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3650,12 +3650,12 @@
     (=ucs@cns		. #x52F1)	; &M-02459;
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x52F1)	; 勱
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

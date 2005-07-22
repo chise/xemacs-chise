@@ -1397,12 +1397,12 @@
     (=daikanwa		. 21842)	; &I-M-21842;
     ))
 (define-char
-  '((ideographic-radical . 102)	; ⽥
-    (ideographic-strokes . 6)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x305B)	; &J97-305B; [16-59]
       ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
     (shinjigen-2	. 5054)
     (=ucs		. #x7570)	; 異
     (=jis-x0208		. #x305B)	; &I-J90-305B; [16-59]
@@ -1691,13 +1691,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x7570)	; 異
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x305B)	; &J97-305B; [16-59]
+      ))
+    (=>ucs*		. #x7570)	; 異
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=jis-x0208@1997	  . #x305B)	; &J97-305B; [16-59]
-      ))
     (shinjigen-1	. 5055)
     (shinjigen-2	. 5055)
     (=ucs		. #x2F938)	; 異

@@ -196,12 +196,12 @@
     (=ucs		. #x751D)	; 甝
     ))
 (define-char
-  '((ideographic-radical . 99)	; ⽢
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x751D)	; 甝
       ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
     (=big5		. #xDEC3)	; &B-DEC3;
     (->subsumptive
      ((=daikanwa	  . 21658)	; &M-21658;
@@ -211,12 +211,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 99)	; ⽢
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x751D)	; 甝
       ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
     (=ucs@unicode	. #x751D)	; &UU+751D;
     ))
 (define-char

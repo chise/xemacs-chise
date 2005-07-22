@@ -1203,12 +1203,12 @@
     (=ucs		. #x539C)	; 厜
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x539C)	; 厜
       ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	1 74 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1226,12 +1226,12 @@
     (=ucs@unicode	. #x539C)	; &M-02960;
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x539C)	; 厜
       ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -2091,12 +2091,12 @@
     (=jis-x0208@1997	. #x3139)	; 厩 [17-25]
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x53A9)	; 厩
       ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2131,12 +2131,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x53A9)	; 厩
       ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (<-vulgar
      ((shinjigen-1	  . 2207)
       (=gt		  . 11902)	; &GT-11902;
@@ -2157,10 +2157,10 @@
     (=gt-pj-11		. #x3B44)	; &GT-03811; [27-36]
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x53A9)	; 厩
       ))
+    (ideographic-radical . 27)	; ⼚
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)

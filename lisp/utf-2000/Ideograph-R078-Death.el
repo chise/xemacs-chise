@@ -1173,12 +1173,12 @@
     (=ucs		. #x6B8B)	; 残
     ))
 (define-char
-  '((ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6B8B)	; 残
       ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=ucs		    . #x6B98)	; 殘
@@ -1197,13 +1197,13 @@
       ))
     ))
 (define-char
-  '((script		CN Simplified Ideograph)
+  '((<-denotational
+     ((=ucs		  . #x6B8B)	; 残
+      ))
+    (script		CN Simplified Ideograph)
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x6B8B)	; 残
-      ))
     (=gb2312		. #x3250)	; &G0-3250; [18-48]
     (=ucs@unicode	. #x6B8B)	; &G0-3250;
     ))
@@ -2069,12 +2069,12 @@
     (=ucs		. #x6B9B)	; 殛
     ))
 (define-char
-  '((ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6B9B)	; 殛
       ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (shinjigen-1	. 3978)
     (=jis-x0212		. #x4625)	; &M-16517; [38-05]
     (=cns11643-2	. #x4423)	; &I-C2-4423; [36-03]
@@ -2086,12 +2086,12 @@
     (=ucs@jis		. #x6B9B)	; &M-16517;
     ))
 (define-char
-  '((ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6B9B)	; 殛
       ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=gb2312		. #x696A)	; &G0-696A; [73-74]
     (=ucs@unicode	. #x6B9B)	; &G0-696A;
     ))

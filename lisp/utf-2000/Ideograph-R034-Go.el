@@ -38,12 +38,12 @@
     (=big5		. #xC95A)	; &I-B-C95A;
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5903)	; 夃
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (->subsumptive
      ((=gt		  . 07202)	; &GT-07202;
       (=gt-pj-2		  . #x652C)	; &GT-07202; [69-12]
@@ -54,12 +54,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5903)	; 夃
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
@@ -85,12 +85,12 @@
     (=ucs		. #x5904)	; 处
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5904)	; 处
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
     (hanyu-dazidian	2 867 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -106,12 +106,12 @@
     (=ucs@unicode	. #x5904)	; &HZK03-AEB6;
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5904)	; 处
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
@@ -279,12 +279,12 @@
     (=ucs		. #x5909)	; 変
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5909)	; 変
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]
@@ -313,12 +313,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5909)	; 変
       ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -1,11 +1,11 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x5238)	; &J97-5238; [50-24]
       ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 261 15)
     (shinjigen-1	. 783)
     (shinjigen-2	. 783)
@@ -28,24 +28,24 @@
     (=jis-x0208@1997	. #x5238)	; &J97-5238; [50-24]
     ))
 (define-char
-  '((ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5315)	; 匕
       ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (<-ideographic-component-forms
      ((=ucs		  . #x5315)	; 匕
       ))
     (=big5-cdp		. #x895F)	; &CDP-895F;
     ))
 (define-char
-  '((ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x5238)	; &J97-5238; [50-24]
       ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 262 1)
     (=ucs		. #x2090E)	; 𠤎
     (->subsumptive
@@ -68,12 +68,12 @@
     (=big5		. #xA4C6)	; &I-B-A4C6;
     ))
 (define-char
-  '((ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5316)	; 化
       ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 109 4)
     (->subsumptive
      ((ideographic-structure
@@ -104,12 +104,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5316)	; 化
       ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

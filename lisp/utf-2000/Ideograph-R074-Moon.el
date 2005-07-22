@@ -171,23 +171,23 @@
     (=jis-x0208@1997	. #x497E)	; 服 [41-94]
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x670D)	; 服
       ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (=daikanwa		. 14345)	; &M-14345;
     (=jef-china3	. #x52B4)	; &I-JC3-52B4;
     ))
 (define-char
-  '((morohashi-daikanwa	14345 1)
+  '((<-denotational
+     ((=ucs		  . #x670D)	; 服
+      ))
+    (morohashi-daikanwa	14345 1)
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (<-denotational
-     ((=ucs		  . #x670D)	; 服
-      ))
     (=jis-x0208		. #x497E)	; &GT-18171; [41-94]
     (=gb2312		. #x377E)	; &I-G0-377E; [23-94]
     (=ks-x1001		. #x5C57)	; &I-K0-5C57; [60-55]
@@ -756,23 +756,23 @@
     (=jis-x0208@1997	. #x442B)	; &J97-442B; [36-11]
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x442B)	; &J97-442B; [36-11]
       ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=daikanwa		. 14374)	; &M-14374;
     (=jef-china3	. #x52AF)	; &I-JC3-52AF;
     ))
 (define-char
-  '((morohashi-daikanwa	14374 1)
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x442B)	; &J97-442B; [36-11]
+      ))
+    (morohashi-daikanwa	14374 1)
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=jis-x0208@1997	  . #x442B)	; &J97-442B; [36-11]
-      ))
     (=ucs		. #x671D)	; 朝
     (=jis-x0208		. #x442B)	; &I-J90-442B; [36-11]
     (=gb2312		. #x332F)	; &I-G0-332F; [19-15]
@@ -886,12 +886,12 @@
     (=ucs		. #x6720)	; 朠
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6720)	; 朠
       ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (->subsumptive
      ((=daikanwa	  . 14385)	; &M-14385;
       (=jef-china3	  . #x52D6)	; &I-JC3-52D6;
@@ -901,12 +901,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6720)	; 朠
       ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=jis-x0212		. #x4274)	; &JSP-4274; [34-84]
     (=big5		. #xDDC8)	; &I-B-DDC8;
     (=ucs@unicode	. #x6720)	; &JSP-4274;
@@ -943,12 +943,12 @@
     (=ucs		. #x6721)	; 朡
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6721)	; 朡
       ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=big5		. #xDF7A)	; &B-DF7A;
     (=ucs@big5		. #x6721)	; &B-DF7A;
     (->subsumptive

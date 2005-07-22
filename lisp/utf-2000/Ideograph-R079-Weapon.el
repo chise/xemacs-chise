@@ -257,13 +257,13 @@
     (=ucs		. #x6BBA)	; 殺
     ))
 (define-char
-  '((=>ucs@cns		. #x2F8F5)	; 殺
+  '((<-denotational
+     ((=ucs		  . #x6BBA)	; 殺
+      ))
+    (=>ucs@cns		. #x2F8F5)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x6BBA)	; 殺
-      ))
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=ks-x1001	    . #x5F2F)	; &M-16638; [63-15]
@@ -291,28 +291,28 @@
       ))
     ))
 (define-char
-  '((=>ucs@cns		. #x2F8F5)	; 殺
+  '((<-denotational
+     ((=ucs		  . #x6BBA)	; 殺
+      ))
+    (=>ucs@cns		. #x2F8F5)	; 殺
     (=>daikanwa		. 16629)	; &GT-21319;
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x6BBA)	; 殺
-      ))
     (=gb12345		. #x4931)	; &UU+6BBA; [41-17]
     (=ucs@unicode	. #x6BBA)	; &UU+6BBA;
     ))
 (define-char
-  '((=>ucs*		. #x6BBA)	; 殺
+  '((<-denotational
+     ((=ucs		  . #x6BBA)	; 殺
+      ))
+    (=>ucs*		. #x6BBA)	; 殺
     (=>ucs@gb		. #x6BBA)	; &UU+6BBA;
     (=>ucs@jis		. #x6BBA)	; &GT-21319;
     (=>daikanwa		. 16629)	; &GT-21319;
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x6BBA)	; 殺
-      ))
     (=ucs		. #x2F8F5)	; 殺
     (=cns11643-4	. #x2D65)	; &I-C4-2D65; [13-69]
     ))
@@ -455,12 +455,12 @@
     (=cns11643-6	. #x4076)	; &C6-4076; [32-86]
     ))
 (define-char
-  '((ideographic-radical . 79)	; ⽎
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6BBA)	; 殺
       ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
     (->subsumptive
      ((shinjigen-1	  . 3997)
       (=ks-x1001	  . #x5F2F)	; &M-16638; [63-15]
