@@ -1,3 +1,16 @@
+2005-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U-000206A3): Use
+	`->ideographic-variants' instead of `variant-of-shinjigen-1'.
+	(U+5239): Use `->subsumptive'.
+
+	* Ideograph-R010-Legs.el (G0-3364): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R005-Second.el (J0-502C): Change hierarchy.
+
+	* Ideograph-R001-One.el (U-00020030): Use `->subsumptive'.
+
 2005-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Add some character relations.
