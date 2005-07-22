@@ -68,12 +68,12 @@
     (=ucs		. #x2010D)	; 𠄍
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2010D)	; 𠄍
       ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (->subsumptive
      ((=daikanwa	  . 00227)	; &M-00227;
       )
@@ -82,12 +82,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2010D)	; 𠄍
       ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 49 3)
     (=hanziku-1		. #xAE40)	; &HZK01-AE40;
     (=ucs@iso		. #x2010D)	; &HZK01-AE40;

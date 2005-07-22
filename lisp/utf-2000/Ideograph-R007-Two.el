@@ -20,12 +20,12 @@
     (=daikanwa		. 00247)	; &I-M-00247;
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E8C)	; 二
       ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (<-ideographic-component-forms
      ((=ucs		  . #x4E8C)	; 二
       ))
@@ -113,12 +113,12 @@
     (=jef-china3	. #x41CF)	; &I-JC3-41CF;
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E8D)	; 亍
       ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (<-ideographic-component-forms
      ((=ucs		  . #x4E8D)	; 亍
       ))
