@@ -103,12 +103,12 @@
     (=big5		. #xBB52)	; &I-B-BB52;
     ))
 (define-char
-  '((ideographic-radical . 136)	; ⾇
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x821E)	; 舞
       ))
+    (ideographic-radical . 136)	; ⾇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=gb2312		  . #x4E68)	; &M-30342; [46-72]
       (=daikanwa	  . 30342)	; &I-M-30342;
@@ -119,13 +119,13 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	30342 1)
+  '((<-denotational
+     ((=ucs		  . #x821E)	; 舞
+      ))
+    (morohashi-daikanwa	30342 1)
     (ideographic-radical . 136)	; ⾇
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (<-denotational
-     ((=ucs		  . #x821E)	; 舞
-      ))
     (shinjigen-1	. 6639)
     (=jis-x0208		. #x4971)	; &GT-39251; [41-81]
     (=ks-x1001		. #x5971)	; &I-K0-5971; [57-81]

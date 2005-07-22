@@ -1099,24 +1099,24 @@
     (=ucs		. #x8DDA)	; 跚
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 5)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8DDA)	; 跚
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 5)
+    (total-strokes	 . 12)
     (=jis-x0208@1978	. #x6C69)	; &M-37477; [76-73]
     (=gb2312		. #x7547)	; &I-G0-7547; [85-39]
     (=daikanwa		. 37477)	; &I-M-37477;
     (=ucs@unicode	. #x8DDA)	; &M-37477;
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 5)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8DDA)	; 跚
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 5)
+    (total-strokes	 . 12)
     (->subsumptive
      ((=jis-x0208@1983	  . #x6C69)	; &GT-50064; [76-73]
       (=jis-x0208@1990	  . #x6C69)	; &I-J90-6C69; [76-73]
@@ -2063,21 +2063,21 @@
     (=ucs		. #x8E03)	; 踃
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 7)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8E03)	; 踃
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
     (=daikanwa		. 37564)	; &M-37564;
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 7)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8E03)	; 踃
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=ucs@unicode	  . #x8E03)	; &UU+8E03;
       )
@@ -6769,12 +6769,12 @@
     (=ucs		. #x8E91)	; 躑
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 15)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8E91)	; 躑
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 15)
+    (total-strokes	 . 22)
     (->subsumptive
      ((=daikanwa	  . 37963)	; &M-37963;
       )
@@ -6789,12 +6789,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 15)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8E91)	; 躑
       ))
+    (ideographic-radical . 157)	; ⾜
+    (ideographic-strokes . 15)
+    (total-strokes	 . 22)
     (->subsumptive
      ((=cns11643-1	  . #x7B77)	; &C1-7B77; [91-87]
       )

@@ -23,16 +23,16 @@
     (=daikanwa		. 39270)	; &I-M-39270;
     ))
 (define-char
-  '((name		. "CJK RADICAL CITY")
+  '((<-denotational
+     ((=ucs		  . #x961D)	; 阝
+      ))
+    (name		. "CJK RADICAL CITY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-denotational
-     ((=ucs		  . #x961D)	; 阝
-      ))
     (<-ideographic-component-forms
      ((=ucs		  . #x9091)	; 邑
       ))
@@ -667,12 +667,12 @@
     (=ucs		. #x90AA)	; 邪
     ))
 (define-char
-  '((ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x90AA)	; 邪
       ))
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (=gb2312		. #x5030)	; &M-39319; [48-16]
     (=cns11643-1	. #x4B59)	; &I-C1-4B59; [43-57]
     (=big5		. #xA8B8)	; &I-B-A8B8;
@@ -1067,12 +1067,12 @@
     (=daikanwa		. 39355)	; &I-M-39355;
     ))
 (define-char
-  '((ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x90AA)	; 邪
       ))
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (->subsumptive
      ((morohashi-daikanwa	39357 1)
       (=jis-x0208@1978	  . #x3C59)	; &J83-3C59; [28-57]
@@ -2838,13 +2838,13 @@
     (=ucs		. #x90FD)	; 都
     ))
 (define-char
-  '((morohashi-daikanwa	39497 1)
+  '((<-denotational
+     ((=ucs		  . #x90FD)	; 都
+      ))
+    (morohashi-daikanwa	39497 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x90FD)	; 都
-      ))
     (<-simplified@JP/Jouyou
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA26")
       (=ucs		  . #xFA26)	; 都
@@ -3034,14 +3034,14 @@
     (=big5		. #xDC54)	; &B-DC54;
     ))
 (define-char
-  '((name		. "CJK COMPATIBILITY IDEOGRAPH-FA26")
+  '((<-denotational
+     ((=ucs		  . #x90FD)	; 都
+      ))
+    (name		. "CJK COMPATIBILITY IDEOGRAPH-FA26")
     (=>ucs*		. #x90FD)	; 都
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=ucs		  . #x90FD)	; 都
-      ))
     (shinjigen-1	. 8456)
     (=ucs		. #xFA26)	; 都
     (=ks-x1001		. #x5434)	; &I-K0-5434; [52-20]
@@ -4785,12 +4785,12 @@
     (=big5		. #xBE47)	; &I-B-BE47;
     ))
 (define-char
-  '((ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x912D)	; 鄭
       ))
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (->subsumptive
      ((=daikanwa	  . 39647)	; &M-39647;
       )
@@ -4801,12 +4801,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x912D)	; 鄭
       ))
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (->subsumptive
      ((=cns11643-1	  . #x6F51)	; &C1-6F51; [79-49]
       )

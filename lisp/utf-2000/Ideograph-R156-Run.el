@@ -3155,12 +3155,12 @@
     (=ucs		. #x27F9D)	; 𧾝
     ))
 (define-char
-  '((ideographic-radical . 156)	; ⾛
-    (ideographic-strokes . 14)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x27F9D)	; 𧾝
       ))
+    (ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 14)
+    (total-strokes	 . 21)
     (->subsumptive
      ((=daikanwa	  . 37333)	; &M-37333;
       )
@@ -3170,12 +3170,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 156)	; ⾛
-    (ideographic-strokes . 14)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x27F9D)	; 𧾝
       ))
+    (ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 14)
+    (total-strokes	 . 21)
     (=ucs@iso		. #x27F9D)	; &U-00027F9D;
     ))
 (define-char

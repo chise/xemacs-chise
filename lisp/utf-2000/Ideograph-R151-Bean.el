@@ -16,12 +16,12 @@
     (=daikanwa		. 36245)	; &I-M-36245;
     ))
 (define-char
-  '((ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8C46)	; 豆
       ))
+    (ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (<-ideographic-component-forms
      ((=ucs		  . #x8C46)	; 豆
       ))
@@ -544,24 +544,24 @@
     (=big5		. #xEEB1)	; &I-B-EEB1;
     ))
 (define-char
-  '((ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 10)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8C4F)	; 豏
       ))
+    (ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 10)
+    (total-strokes	 . 17)
     (=jis-x0212		. #x5E6A)	; &M-36292; [62-74]
     (=jis-x0213-2-2000	. #x787D)	; &I-JX2-787D; [88-93]
     (=daikanwa		. 36292)	; &I-M-36292;
     (=ucs@jis		. #x8C4F)	; &M-36292;
     ))
 (define-char
-  '((ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 10)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8C4F)	; 豏
       ))
+    (ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 10)
+    (total-strokes	 . 17)
     (=cns11643-2	. #x5F5D)	; &C2-5F5D; [63-61]
     (=ucs@unicode	. #x8C4F)	; &C2-5F5D;
     ))

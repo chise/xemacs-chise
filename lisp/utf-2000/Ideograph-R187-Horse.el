@@ -15,13 +15,13 @@
     (=daikanwa		. 44572)	; &I-M-44572;
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED HORSE")
+  '((<-denotational
+     ((=ucs		  . #x9A6C)	; 马
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED HORSE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-denotational
-     ((=ucs		  . #x9A6C)	; 马
-      ))
     (<-ideographic-component-forms
      ((=ucs		  . #x99AC)	; 馬
       ))
@@ -4623,30 +4623,30 @@
     (=ucs		. #x4BB1)	; 䮱
     ))
 (define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4BB1)	; 䮱
       ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
     (=daikanwa		. 44970)	; &M-44970;
     ))
 (define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 10)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4BB1)	; 䮱
       ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 10)
+    (total-strokes	 . 20)
     (=ucs@unicode	. #x4BB1)	; &UU+4BB1;
     ))
 (define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4BB1)	; 䮱
       ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
     (=cns11643-4	. #x6828)	; &C4-6828; [72-08]
     ))
 (define-char
@@ -4995,12 +4995,12 @@
     (=daikanwa		. 45001)	; &I-M-45001;
     ))
 (define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 12)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x424D)	; &J97-424D; [34-45]
       ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 12)
+    (total-strokes	 . 22)
     (=ucs		. #x9A52)	; 驒
     (=jis-x0208@1978	. #x424D)	; &I-J78-424D; [34-45]
     (=cns11643-2	. #x6E4F)	; &I-C2-6E4F; [78-47]
@@ -5012,12 +5012,12 @@
     (=jis-x0208@1997	. #x424D)	; &J97-424D; [34-45]
     ))
 (define-char
-  '((ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x424D)	; &J97-424D; [34-45]
       ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 19)
     (<-simplified@JP
      ((=ucs		  . #x9A52)	; 驒
       (=jis-x0208@1978	  . #x424D)	; &I-J78-424D; [34-45]

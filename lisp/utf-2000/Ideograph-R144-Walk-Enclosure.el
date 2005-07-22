@@ -188,12 +188,12 @@
     (=ucs		. #x8853)	; 術
     ))
 (define-char
-  '((ideographic-radical . 144)	; ⾏
-    (ideographic-strokes . 5)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8853)	; 術
       ))
+    (ideographic-radical . 144)	; ⾏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
     (=big5		. #xB34E)	; &B-B34E;
     (->subsumptive
      ((shinjigen-1	  . 7325)
@@ -206,23 +206,23 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 144)	; ⾏
-    (ideographic-strokes . 5)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8853)	; 術
       ))
+    (ideographic-radical . 144)	; ⾏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
     (=gb12345		. #x4A75)	; &UU+8853; [42-85]
     (=ucs@unicode	. #x8853)	; &UU+8853;
     ))
 (define-char
-  '((morohashi-daikanwa	34046 1)
+  '((<-denotational
+     ((=ucs		  . #x8853)	; 術
+      ))
+    (morohashi-daikanwa	34046 1)
     (ideographic-radical . 144)	; ⾏
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x8853)	; 術
-      ))
     (shinjigen-1	. 7324)
     (=jis-x0208		. #x3D51)	; &GT-45917; [29-49]
     (=gt		. 45917)	; &I-GT-45917;
@@ -578,14 +578,14 @@
     (=ucs		. #x8860)	; 衠
     ))
 (define-char
-  '((=>ucs*		. #x8860)	; 衠
+  '((<-denotational
+     ((=ucs		  . #x8860)	; 衠
+      ))
+    (=>ucs*		. #x8860)	; 衠
     (=>ucs@jis		. #x8860)	; &M-34076;
     (ideographic-radical . 144)	; ⾏
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x8860)	; 衠
-      ))
     (=ucs		. #x2F9C3)	; 衠
     (->subsumptive
      ((=jis-x0212	  . #x5C32)	; &M-34076; [60-18]
@@ -598,12 +598,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 144)	; ⾏
-    (ideographic-strokes . 10)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8860)	; 衠
       ))
+    (ideographic-radical . 144)	; ⾏
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
     (=cns11643-4	. #x534B)	; &C4-534B; [51-43]
     (=ucs@unicode	. #x8860)	; &C4-534B;
     ))

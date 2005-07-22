@@ -3701,12 +3701,12 @@
     (=ucs		. #x95DE)	; 闞
     ))
 (define-char
-  '((ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 12)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x95DE)	; 闞
       ))
+    (ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 12)
+    (total-strokes	 . 20)
     (->subsumptive
      ((=daikanwa	  . 41484)	; &M-41484;
       )
@@ -3718,12 +3718,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 11)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x95DE)	; 闞
       ))
+    (ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 11)
+    (total-strokes	 . 19)
     (=gb12345		. #x635B)	; &UU+95DE; [67-59]
     (=ucs@unicode	. #x95DE)	; &UU+95DE;
     ))

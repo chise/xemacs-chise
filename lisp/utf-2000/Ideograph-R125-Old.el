@@ -169,12 +169,12 @@
     (=big5		. #xAACC)	; &I-B-AACC;
     ))
 (define-char
-  '((ideographic-radical . 125)	; ⽼
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8005)	; 者
       ))
+    (ideographic-radical . 125)	; ⽼
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA5B)	; 者
       (=jis-x0213-1-2000  . #x7A44)	; &I-JX1-7A44; [90-36]
@@ -191,16 +191,16 @@
     (=ucs@unicode	. #x8005)	; &GT-37308;
     ))
 (define-char
-  '((=>ucs*		. #x8005)	; 者
+  '((<-denotational
+     ((=ucs		  . #x8005)	; 者
+      ))
+    (=>ucs*		. #x8005)	; 者
     (=>ucs@cns		. #x2F97A)	; 者
     (=>ucs@jis		. #xFA5B)	; 者
     (=>ucs@ks		. #x8005)	; 者
     (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x8005)	; 者
-      ))
     (->subsumptive
      ((shinjigen-1	  . 6343)
       (=ucs		  . #xFA5B)	; 者

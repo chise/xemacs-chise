@@ -441,13 +441,13 @@
     (=cns11643-5	. #x4929)	; &I-C5-4929; [41-09]
     ))
 (define-char
-  '((=>ucs*		. #x8F9E)	; 辞
+  '((<-denotational
+     ((=ucs		  . #x8F9E)	; 辞
+      ))
+    (=>ucs*		. #x8F9E)	; 辞
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (<-denotational
-     ((=ucs		  . #x8F9E)	; 辞
-      ))
     (=ucs		. #x2F98D)	; 辞
     (->subsumptive
      ((->identical

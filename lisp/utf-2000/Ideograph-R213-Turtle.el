@@ -44,12 +44,12 @@
     (=ucs		. #x9F9C)	; 龜
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9C)	; 龜
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
     (->subsumptive
      ((shinjigen-1	  . 9918)
       (shinjigen-2	  . 9917)
@@ -68,12 +68,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9C)	; 龜
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 15)
     (->subsumptive
      ((<-original
        ((shinjigen-1	    . 9918)
@@ -126,12 +126,12 @@
     (=ucs		. #x4DAF)	; 䶯
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 3)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4DAF)	; 䶯
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 3)
+    (total-strokes	 . 19)
     (->subsumptive
      ((=daikanwa	  . 48851)	; &M-48851;
       )
@@ -139,12 +139,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 3)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4DAF)	; 䶯
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 3)
+    (total-strokes	 . 19)
     (=ucs@unicode	. #x4DAF)	; &UU+4DAF;
     ))
 (define-char
@@ -244,12 +244,12 @@
     (=ucs		. #x4DB1)	; 䶱
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4DB1)	; 䶱
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 5)
+    (total-strokes	 . 21)
     (->subsumptive
      ((=daikanwa	  . 48862)	; &M-48862;
       )
@@ -257,12 +257,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4DB1)	; 䶱
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 5)
+    (total-strokes	 . 20)
     (=ucs@unicode	. #x4DB1)	; &UU+4DB1;
     ))
 (define-char
@@ -334,12 +334,12 @@
     (=ucs		. #x9F9D)	; 龝
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9D)	; 龝
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 5)
+    (total-strokes	 . 21)
     (->subsumptive
      ((<-ancient
        ((=jis-x0208	    . #x3D29)	; &GT-32182; [29-09]
@@ -360,12 +360,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9D)	; 龝
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 5)
+    (total-strokes	 . 20)
     (=ucs@unicode	. #x9F9D)	; &UU+9F9D;
     ))
 (define-char
@@ -452,12 +452,12 @@
     (=ucs		. #x9F9E)	; 龞
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 12)
-    (total-strokes	 . 27)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9E)	; 龞
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 12)
+    (total-strokes	 . 27)
     (->subsumptive
      ((=daikanwa	  . 48880)	; &M-48880;
       )
@@ -466,21 +466,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 12)
-    (total-strokes	 . 26)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9E)	; 龞
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 12)
+    (total-strokes	 . 26)
     (=ucs@unicode	. #x9F9E)	; &UU+9F9E;
     ))
 (define-char
-  '((ideographic-radical . 213)	; ⿔
-    (ideographic-strokes . 12)
-    (total-strokes	 . 27)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F9E)	; 龞
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 12)
+    (total-strokes	 . 27)
     (=cns11643-4	. #x6E33)	; &C4-6E33; [78-19]
     ))
 (define-char

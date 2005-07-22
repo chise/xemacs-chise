@@ -67,16 +67,16 @@
     (=ucs		. #x5568)	; 啨
     ))
 (define-char
-  '((ideographic-radical@ucs . 30)	; ⼝
+  '((<-denotational
+     ((=ucs		  . #x5568)	; 啨
+      ))
+    (ideographic-radical@ucs . 30)	; ⼝
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
      cns11643 ucs)
     (ideographic-radical@daikanwa . 174)	; ⾭
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x5568)	; 啨
-      ))
     (hanyu-dazidian	1 635 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -143,12 +143,12 @@
     (=ucs		. #x9756)	; 靖
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
-    (ideographic-strokes . 5)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9756)	; 靖
       ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
     (=ks-x1001		. #x6F7E)	; &GT-57137; [79-94]
     (=gt		. 57137)	; &I-GT-57137;
     (=gt-pj-8		. #x3745)	; &I-GT-57137; [23-37]
@@ -156,12 +156,12 @@
     (=jef-china3	. #x5DE5)	; &I-JC3-5DE5;
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
-    (ideographic-strokes . 5)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9756)	; 靖
       ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
     (->subsumptive
      ((morohashi-daikanwa	42570 1)
       (=jis-x0208	  . #x4C77)	; &GT-57138; [44-87]

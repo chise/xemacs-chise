@@ -1693,12 +1693,12 @@
     (=ucs		. #x2639E)	; 𦎞
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2639E)	; 𦎞
       ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=daikanwa	  . 28525)	; &M-28525;
       )
@@ -1707,12 +1707,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2639E)	; 𦎞
       ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=ucs@iso		. #x2639E)	; &U-0002639E;
     ))
 (define-char

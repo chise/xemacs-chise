@@ -2996,24 +2996,24 @@
     (=ucs		. #x787C)	; 硼
     ))
 (define-char
-  '((ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x787C)	; 硼
       ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
     (=jis-x0208@1978	. #x626F)	; &GT-31068; [66-79]
     (=gt		. 31068)	; &I-GT-31068;
     (=gt-pj-5		. #x4B7B)	; &I-GT-31068; [43-91]
     (=daikanwa		. 24254)	; &I-M-24254;
     ))
 (define-char
-  '((ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x787C)	; 硼
       ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x626F)	; &GT-31068; [66-79]
       (=daikanwa	  . 24254)	; &I-M-24254;
@@ -5045,32 +5045,32 @@
     (=ucs		. #x78D3)	; 磓
     ))
 (define-char
-  '((ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x78D3)	; 磓
       ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (=jis-x0212		. #x502A)	; &M-24404; [48-10]
     (=daikanwa		. 24404)	; &I-M-24404;
     (=ucs@jis		. #x78D3)	; &M-24404;
     ))
 (define-char
-  '((ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x78D3)	; 磓
       ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
     (=ucs@unicode	. #x78D3)	; &UU+78D3;
     ))
 (define-char
-  '((ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x78D3)	; 磓
       ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (=cns11643-3	. #x4D49)	; &C3-4D49; [45-41]
     ))
 (define-char

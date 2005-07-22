@@ -20,12 +20,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8F9B)	; 辛
       ))
+    (ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (<-ideographic-component-forms
      ((=ucs		  . #x8F9B)	; 辛
       ))
@@ -225,12 +225,12 @@
     (=ucs		. #x8F9E)	; 辞
     ))
 (define-char
-  '((ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8F9E)	; 辞
       ))
+    (ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x6D66)	; &GT-51611; [77-70]

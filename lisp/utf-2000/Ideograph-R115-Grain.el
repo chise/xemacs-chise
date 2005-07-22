@@ -1013,12 +1013,12 @@
     (=ucs		. #x79F0)	; 称
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x79F0)	; 称
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
     (->subsumptive
      ((=gb2312		  . #x3346)	; &M-25016; [19-38]
       (=daikanwa	  . 25016)	; &I-M-25016;
@@ -1030,13 +1030,13 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	25016 1)
+  '((<-denotational
+     ((=ucs		  . #x79F0)	; 称
+      ))
+    (morohashi-daikanwa	25016 1)
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x79F0)	; 称
-      ))
     (<-simplified@JP/Jouyou
      ((=jis-x0208@1983	  . #x634A)	; &GT-32460; [67-42]
       (=jis-x0208@1990	  . #x634A)	; &I-J90-634A; [67-42]
@@ -1611,12 +1611,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=big5		  . #xB57C)	; &B-B57C;
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
     (=ucs		. #x7A05)	; 稅
     (->subsumptive
      ((=ks-x1001	  . #x612A)	; &M-25070; [65-10]
@@ -1636,13 +1636,13 @@
     (=ucs@big5		. #x7A05)	; &B-B57C;
     ))
 (define-char
-  '((morohashi-daikanwa	25070 1)
+  '((<-denotational
+     ((=big5		  . #xB57C)	; &B-B57C;
+      ))
+    (morohashi-daikanwa	25070 1)
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=big5		  . #xB57C)	; &B-B57C;
-      ))
     (=ucs		. #x7A0E)	; 税
     (=jis-x0208		. #x4047)	; &I-J90-4047; [32-39]
     (=gb2312		. #x4B30)	; &I-G0-4B30; [43-16]
@@ -1738,12 +1738,12 @@
     (=ucs		. #x7A0B)	; 程
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A0B)	; 程
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
     (=ks-x1001		. #x6F6F)	; &M-25081; [79-79]
     (=cns11643-1	. #x6123)	; &I-C1-6123; [65-03]
     (=big5		. #xB57B)	; &I-B-B57B;
@@ -1751,13 +1751,13 @@
     (=jef-china3	. #x5DAC)	; &I-JC3-5DAC;
     ))
 (define-char
-  '((morohashi-daikanwa	25081 1)
+  '((<-denotational
+     ((=ucs		  . #x7A0B)	; 程
+      ))
+    (morohashi-daikanwa	25081 1)
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=ucs		  . #x7A0B)	; 程
-      ))
     (=jis-x0208		. #x4478)	; &GT-32340; [36-88]
     (=gb2312		. #x334C)	; &I-G0-334C; [19-44]
     (=gt		. 32340)	; &I-GT-32340;
@@ -2782,14 +2782,14 @@
     (=daikanwa		. 25188)	; &I-M-25188;
     ))
 (define-char
-  '((=>ucs*		. #x7A40)	; 穀
+  '((<-denotational
+     ((=ucs		  . #x7A40)	; 穀
+      ))
+    (=>ucs*		. #x7A40)	; 穀
     (=>ucs@jis		. #x7A40)	; &GT-32448;
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 9)
     (japanese-strokes	 . 14)
-    (<-denotational
-     ((=ucs		  . #x7A40)	; 穀
-      ))
     (=ucs		. #x2F959)	; 穀
     (->subsumptive
      ((morohashi-daikanwa	25188 1)
@@ -3326,12 +3326,12 @@
     (=ucs		. #x7A3D)	; 稽
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A3D)	; 稽
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (->subsumptive
      ((shinjigen-2	  . 5649)
       (=gb2312		  . #x3B7C)	; &GT-32500; [27-92]
@@ -3347,13 +3347,13 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 25218)	; &GT-32500;
+  '((<-denotational
+     ((=ucs		  . #x7A3D)	; 稽
+      ))
+    (=>daikanwa		. 25218)	; &GT-32500;
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x7A3D)	; 稽
-      ))
     (=jis-x0208@1978	. #x374E)	; &J78-374E; [23-46]
     (=ks-x1001		. #x4D26)	; &I-K0-4D26; [45-06]
     ))
@@ -3829,13 +3829,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x7A4A)	; 穊
+  '((<-denotational
+     ((=ucs		  . #x7A4A)	; 穊
+      ))
+    (=>ucs*		. #x7A4A)	; 穊
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x7A4A)	; 穊
-      ))
     (=ucs		. #x2F95A)	; 穊
     (->subsumptive
      ((=daikanwa	  . 25261)	; &M-25261;
@@ -4062,21 +4062,21 @@
     (=ucs		. #x7A4F)	; 穏
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A4F)	; 穏
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
     (=daikanwa		. 25280)	; &M-25280;
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A4F)	; 穏
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
     (->subsumptive
      ((morohashi-daikanwa	25280 1)
       (<-simplified@JP/Jouyou
@@ -4813,12 +4813,12 @@
     (=ucs		. #x7A6B)	; 穫
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 13)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A6B)	; 穫
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
     (->subsumptive
      ((morohashi-daikanwa	25334 1)
       (=jis-x0208	  . #x334F)	; &GT-32672; [19-47]
@@ -4985,12 +4985,12 @@
     (=jef-china3	. #x5DC4)	; &I-JC3-5DC4;
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 14)
-    (total-strokes	 . 19)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7A6B)	; 穫
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
     (->subsumptive
      ((=daikanwa	  . 25346)	; &M-25346;
       )
@@ -5313,7 +5313,10 @@
     (=ucs		. #x9F9D)	; 龝
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
+  '((<-denotational
+     ((=ucs		  . #x9F9D)	; 龝
+      ))
+    (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
     (<-ancient
@@ -5324,9 +5327,6 @@
       ))
     (<-ancient*sources
      zihui daikanwa)
-    (<-denotational
-     ((=ucs		  . #x9F9D)	; 龝
-      ))
     (=cns11643-3	. #x5E47)	; &M-25381; [62-39]
     (=daikanwa		. 25381)	; &I-M-25381;
     ))

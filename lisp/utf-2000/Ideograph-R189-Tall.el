@@ -1,11 +1,11 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 189)	; ⾼
-    (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3962)	; &J97-3962; [25-66]
       ))
+    (ideographic-radical . 189)	; ⾼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 10)
     (=ucs		. #x9AD8)	; 高
     (->subsumptive
      ((shinjigen-1	  . 9450)
@@ -30,12 +30,12 @@
     (=jis-x0208@1997	. #x3962)	; &J97-3962; [25-66]
     ))
 (define-char
-  '((ideographic-radical . 189)	; ⾼
-    (ideographic-strokes . 0)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3962)	; &J97-3962; [25-66]
       ))
+    (ideographic-radical . 189)	; ⾼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
      ((<-vulgar

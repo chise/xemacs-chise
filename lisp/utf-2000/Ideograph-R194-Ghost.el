@@ -1648,12 +1648,12 @@
     (=ucs		. #x9B54)	; 魔
     ))
 (define-char
-  '((ideographic-radical . 194)	; ⿁
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9B54)	; 魔
       ))
+    (ideographic-radical . 194)	; ⿁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
     (->subsumptive
      ((=ks-x1001	  . #x582A)	; &M-45906; [56-10]
       (=daikanwa	  . 45906)	; &I-M-45906;
@@ -1662,11 +1662,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 194)	; ⿁
-    (ideographic-strokes . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9B54)	; 魔
       ))
+    (ideographic-radical . 194)	; ⿁
+    (ideographic-strokes . 11)
     (->subsumptive
      ((morohashi-daikanwa	45906 1)
       (total-strokes	   . 21)

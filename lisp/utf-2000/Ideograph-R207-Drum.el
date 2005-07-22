@@ -444,12 +444,12 @@
     (=ucs		. #x9F1C)	; 鼜
     ))
 (define-char
-  '((ideographic-radical . 207)	; ⿎
-    (ideographic-strokes . 10)
-    (total-strokes	 . 23)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F1C)	; 鼜
       ))
+    (ideographic-radical . 207)	; ⿎
+    (ideographic-strokes . 10)
+    (total-strokes	 . 23)
     (->subsumptive
      ((=daikanwa	  . 48374)	; &M-48374;
       )
@@ -457,12 +457,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 207)	; ⿎
-    (ideographic-strokes . 9)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9F1C)	; 鼜
       ))
+    (ideographic-radical . 207)	; ⿎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 22)
     (=ucs@unicode	. #x9F1C)	; &UU+9F1C;
     ))
 (define-char

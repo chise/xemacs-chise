@@ -675,13 +675,13 @@
     (=ucs		. #x97FF)	; 響
     ))
 (define-char
-  '((morohashi-daikanwa	43318 1)
+  '((<-denotational
+     ((=ucs		  . #x97FF)	; 響
+      ))
+    (morohashi-daikanwa	43318 1)
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (<-denotational
-     ((=ucs		  . #x97FF)	; 響
-      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA69)	; 響
       (=jis-x0213-1-2000  . #x7D76)	; &I-JX1-7D76; [93-86]
@@ -767,36 +767,36 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 180)	; ⾳
-    (ideographic-strokes . 13)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x97FF)	; 響
       ))
+    (ideographic-radical . 180)	; ⾳
+    (ideographic-strokes . 13)
+    (total-strokes	 . 22)
     (=ks-x1001		. #x7A42)	; &M-43325; [90-34]
     (=daikanwa		. 43325)	; &I-M-43325;
     ))
 (define-char
-  '((=>daikanwa		. 43325)	; &M-43325;
+  '((<-denotational
+     ((=ucs		  . #x97FF)	; 響
+      ))
+    (=>daikanwa		. 43325)	; &M-43325;
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (<-denotational
-     ((=ucs		  . #x97FF)	; 響
-      ))
     (=cns11643-1	. #x7B40)	; &C1-7B40; [91-32]
     (=gb12345		. #x4F6C)	; &C1-7B40; [47-76]
     (=ucs@unicode	. #x97FF)	; &C1-7B40;
     ))
 (define-char
-  '((=>ucs*		. #x97FF)	; 響
+  '((<-denotational
+     ((=ucs		  . #x97FF)	; 響
+      ))
+    (=>ucs*		. #x97FF)	; 響
     (=>daikanwa		. 43325)	; &M-43325;
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
-    (<-denotational
-     ((=ucs		  . #x97FF)	; 響
-      ))
     (=ucs		. #xFA69)	; 響
     (=jis-x0213-1-2000	. #x7D76)	; &I-JX1-7D76; [93-86]
     ))

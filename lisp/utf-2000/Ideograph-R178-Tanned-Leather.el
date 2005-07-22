@@ -1171,13 +1171,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x97E0)	; 韠
+  '((<-denotational
+     ((=ucs		  . #x97E0)	; 韠
+      ))
+    (=>ucs*		. #x97E0)	; 韠
     (ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (<-denotational
-     ((=ucs		  . #x97E0)	; 韠
-      ))
     (=ucs		. #x2F9FA)	; 韠
     (->subsumptive
      ((=daikanwa	  . 43197)	; &M-43197;

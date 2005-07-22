@@ -15,13 +15,13 @@
     (=daikanwa		. 40152)	; &I-M-40152;
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED GOLD")
+  '((<-denotational
+     ((=ucs		  . #x9485)	; 钅
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED GOLD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-denotational
-     ((=ucs		  . #x9485)	; 钅
-      ))
     (<-ideographic-component-forms
      ((=ucs		  . #x91D1)	; 金
       ))
@@ -5437,24 +5437,24 @@
     (=ucs		. #x9306)	; 錆
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 8)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9306)	; 錆
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 8)
+    (total-strokes	 . 16)
     (=jis-x0208@1978	. #x3B2C)	; &GT-54506; [27-12]
     (=gt		. 54506)	; &I-GT-54506;
     (=gt-pj-7		. #x6746)	; &I-GT-54506; [71-38]
     (=daikanwa		. 40523)	; &I-M-40523;
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 8)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9306)	; 錆
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 8)
+    (total-strokes	 . 16)
     (->subsumptive
      ((<-simplified@JP
        ((=jis-x0208@1978    . #x3B2C)	; &GT-54506; [27-12]
@@ -8141,12 +8141,12 @@
     (=ucs		. #x939A)	; 鎚
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x939A)	; 鎚
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
     (=jis-x0208@1978	. #x444A)	; &GT-54783; [36-42]
     (=ks-x1001		. #x7560)	; &I-K0-7560; [85-64]
     (=gt		. 54783)	; &I-GT-54783;
@@ -8154,12 +8154,12 @@
     (=daikanwa		. 40715)	; &I-M-40715;
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 9)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x939A)	; 鎚
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 9)
+    (total-strokes	 . 17)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x444A)	; &GT-54783; [36-42]
       (=ks-x1001	  . #x7560)	; &I-K0-7560; [85-64]
@@ -8173,12 +8173,12 @@
     (=ucs@unicode	. #x939A)	; &GT-54670;
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x939A)	; 鎚
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
     (=cns11643-1	. #x775C)	; &C1-775C; [87-60]
     ))
 (define-char
@@ -11736,24 +11736,24 @@
     (=ucs		. #x9453)	; 鑓
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 14)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9453)	; 鑓
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 14)
+    (total-strokes	 . 22)
     (=jis-x0208@1978	. #x4C7A)	; &GT-55156; [44-90]
     (=gt		. 55156)	; &I-GT-55156;
     (=gt-pj-7		. #x6B7A)	; &I-GT-55156; [75-90]
     (=daikanwa		. 40998)	; &I-M-40998;
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 13)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9453)	; 鑓
       ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 13)
+    (total-strokes	 . 21)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x4C7A)	; &GT-55156; [44-90]
       (=daikanwa	  . 40998)	; &I-M-40998;

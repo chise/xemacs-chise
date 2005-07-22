@@ -16,12 +16,12 @@
     (=daikanwa		. 29215)	; &I-M-29215;
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x807F)	; 聿
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
     (<-ideographic-component-forms
      ((=ucs		  . #x807F)	; 聿
       ))
@@ -202,12 +202,12 @@
     (=ucs		. #x8087)	; 肇
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8087)	; 肇
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=ks-x1001		. #x705C)	; &GT-37849; [80-60]
     (=cns11643-1	. #x6A4E)	; &I-C1-6A4E; [74-46]
     (=big5		. #xBB46)	; &I-B-BB46;
@@ -217,22 +217,22 @@
     (=jef-china3	. #x60D7)	; &I-JC3-60D7;
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8087)	; 肇
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=gb2312		. #x5558)	; &G0-5558; [53-56]
     (=ucs@unicode	. #x8087)	; &G0-5558;
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8087)	; 肇
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (<-simplified@JP
      ((=ks-x1001	  . #x705C)	; &GT-37849; [80-60]
       (=cns11643-1	  . #x6A4E)	; &I-C1-6A4E; [74-46]
@@ -250,12 +250,12 @@
     (=ucs		. #x8088)	; 肈
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8088)	; 肈
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=jis-x0212	  . #x556B)	; &GT-37850; [53-75]
       (=gt		  . 37850)	; &I-GT-37850;
@@ -267,12 +267,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 129)	; ⾀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8088)	; 肈
       ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=ucs@unicode	. #x8088)	; &UU+8088;
     ))
 (define-char

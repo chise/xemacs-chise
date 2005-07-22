@@ -22,16 +22,16 @@
     (=daikanwa		. 41535)	; &I-M-41535;
     ))
 (define-char
-  '((name		. "CJK RADICAL MOUND TWO")
+  '((<-denotational
+     ((=ucs		  . #x961D)	; 阝
+      ))
+    (name		. "CJK RADICAL MOUND TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-denotational
-     ((=ucs		  . #x961D)	; 阝
-      ))
     (<-radical
      ((=ucs		  . #x961D)	; 阝
       ))
@@ -3084,19 +3084,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3764)	; &J97-3764; [23-68]
       ))
+    (ideographic-radical . 170)	; ⾩
     (=ucs		. #x9699)	; 隙
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9699)	; 隙
       ))
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (->subsumptive
      ((=gb2312		  . #x4F36)	; &M-41792; [47-22]
       (=daikanwa	  . 41792)	; &I-M-41792;
@@ -3117,12 +3117,12 @@
     (=jis-x0208@1997	. #x3764)	; &J97-3764; [23-68]
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9699)	; 隙
       ))
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=cns11643-1	. #x6B61)	; &C1-6B61; [75-65]
     ))
 (define-char
@@ -3320,12 +3320,12 @@
     (=cns11643-4	. #x4828)	; &I-C4-4828; [40-08]
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3764)	; &J97-3764; [23-68]
       ))
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=ucs		. #x28EF6)	; 𨻶
     (->subsumptive
      ((<-vulgar
