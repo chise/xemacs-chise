@@ -816,11 +816,11 @@
     (hebrew-iso8859-8	. #xAF)	; &I-HEBREW-2F;
     ))
 (define-char
-  '((name		. "FULLWIDTH OVERLINE")
-    (<-denotational
+  '((<-denotational
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; ‾
       ))
+    (name		. "FULLWIDTH OVERLINE")
     (<-fullwidth
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; ‾
@@ -928,11 +928,11 @@
     (=ucs		. #x2048)	; ⁈
     ))
 (define-char
-  '((->decomposition	compat #xFF1F #xFF01)
-    (<-denotational
+  '((<-denotational
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈
       ))
+    (->decomposition	compat #xFF1F #xFF01)
     (<-fullwidth
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈

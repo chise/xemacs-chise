@@ -1327,11 +1327,11 @@
     (=ucs		. #x2260)	; ≠
     ))
 (define-char
-  '((->decomposition	#xFF1D #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT EQUAL TO")
       (=ucs		  . #x2260)	; ≠
       ))
+    (->decomposition	#xFF1D #x0338)
     (<-fullwidth
      ((name		  . "NOT EQUAL TO")
       (=ucs		  . #x2260)	; ≠
@@ -1384,11 +1384,11 @@
     (=ucs		. #x2262)	; ≢
     ))
 (define-char
-  '((->decomposition	#xEC41B7 #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT IDENTICAL TO")
       (=ucs		  . #x2262)	; ≢
       ))
+    (->decomposition	#xEC41B7 #x0338)
     (<-fullwidth
      ((name		  . "NOT IDENTICAL TO")
       (=ucs		  . #x2262)	; ≢
@@ -1575,11 +1575,11 @@
     (=ucs		. #x226E)	; ≮
     ))
 (define-char
-  '((->decomposition	#xFF1C #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT LESS-THAN")
       (=ucs		  . #x226E)	; ≮
       ))
+    (->decomposition	#xFF1C #x0338)
     (<-fullwidth
      ((name		  . "NOT LESS-THAN")
       (=ucs		  . #x226E)	; ≮
@@ -1596,11 +1596,11 @@
     (=ucs		. #x226F)	; ≯
     ))
 (define-char
-  '((->decomposition	#xFF1E #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT GREATER-THAN")
       (=ucs		  . #x226F)	; ≯
       ))
+    (->decomposition	#xFF1E #x0338)
     (<-fullwidth
      ((name		  . "NOT GREATER-THAN")
       (=ucs		  . #x226F)	; ≯

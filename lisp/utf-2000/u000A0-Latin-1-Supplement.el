@@ -788,15 +788,15 @@
     (latin-viscii-upper . #xE0)	; &I-MULE-VIET-U-60;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
+      (=ucs		  . #x00C0)	; À
+      ))
+    (->decomposition	#xFF21 #x0300)
     (->lowercase
      ((=gb2312		  . #x2824)	; &JX1-2956; [08-04]
       (=jis-x0212	  . #x2B22)	; &I-JSP-2B22; [11-02]
       (=jis-x0213-1-2000  . #x2956)	; &I-JX1-2956; [09-54]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
-      (=ucs		  . #x00C0)	; À
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
@@ -827,15 +827,15 @@
     (latin-viscii-upper . #xE1)	; &I-MULE-VIET-U-61;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
+      (=ucs		  . #x00C1)	; Á
+      ))
+    (->decomposition	#xFF21 #x0301)
     (->lowercase
      ((=gb2312		  . #x2822)	; &JX1-2957; [08-02]
       (=jis-x0212	  . #x2B21)	; &I-JSP-2B21; [11-01]
       (=jis-x0213-1-2000  . #x2957)	; &I-JX1-2957; [09-55]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
-      (=ucs		  . #x00C1)	; Á
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
@@ -867,14 +867,14 @@
     (latin-viscii-upper . #xE2)	; &I-MULE-VIET-U-62;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
+      (=ucs		  . #x00C2)	; Â
+      ))
+    (->decomposition	#xFF21 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958; [09-56]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
-      (=ucs		  . #x00C2)	; Â
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
@@ -903,14 +903,14 @@
     (latin-viscii-upper . #xE3)	; &I-MULE-VIET-U-63;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x0303)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
+      (=ucs		  . #x00C3)	; Ã
+      ))
+    (->decomposition	#xFF21 #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B2A)	; &JX1-2959; [11-10]
       (=jis-x0213-1-2000  . #x2959)	; &I-JX1-2959; [09-57]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
-      (=ucs		  . #x00C3)	; Ã
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
@@ -939,14 +939,14 @@
     (latin-iso8859-9	. #xC4)	; &I-LATIN5-44;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
+      (=ucs		  . #x00C4)	; Ä
+      ))
+    (->decomposition	#xFF21 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B23)	; &JX1-295A; [11-03]
       (=jis-x0213-1-2000  . #x295A)	; &I-JX1-295A; [09-58]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
-      (=ucs		  . #x00C4)	; Ä
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
@@ -973,14 +973,14 @@
     (latin-iso8859-9	. #xC5)	; &I-LATIN5-45;
     ))
 (define-char
-  '((->decomposition	#xFF21 #x030A)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
+      (=ucs		  . #x00C5)	; Å
+      ))
+    (->decomposition	#xFF21 #x030A)
     (->lowercase
      ((=jis-x0212	  . #x2B29)	; &JX1-295B; [11-09]
       (=jis-x0213-1-2000  . #x295B)	; &I-JX1-295B; [09-59]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
-      (=ucs		  . #x00C5)	; Å
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
@@ -1007,14 +1007,14 @@
     (latin-iso8859-9	. #xC6)	; &I-LATIN5-46;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER AE")
+      (=ucs		  . #x00C6)	; Æ
+      ))
+    (->lowercase
      ((=ks-x1001	  . #x2921)	; &JX1-295C; [09-01]
       (=jis-x0212	  . #x2941)	; &I-JSP-2941; [09-33]
       (=jis-x0213-1-2000  . #x295C)	; &I-JX1-295C; [09-60]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER AE")
-      (=ucs		  . #x00C6)	; Æ
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER AE")
@@ -1043,14 +1043,14 @@
     (latin-iso8859-9	. #xC7)	; &I-LATIN5-47;
     ))
 (define-char
-  '((->decomposition	#xFF23 #x0327)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
+      (=ucs		  . #x00C7)	; Ç
+      ))
+    (->decomposition	#xFF23 #x0327)
     (->lowercase
      ((=jis-x0212	  . #x2B2E)	; &JX1-295D; [11-14]
       (=jis-x0213-1-2000  . #x295D)	; &I-JX1-295D; [09-61]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
-      (=ucs		  . #x00C7)	; Ç
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
@@ -1079,15 +1079,15 @@
     (latin-viscii-upper . #xE8)	; &I-MULE-VIET-U-68;
     ))
 (define-char
-  '((->decomposition	#xFF25 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
+      (=ucs		  . #x00C8)	; È
+      ))
+    (->decomposition	#xFF25 #x0300)
     (->lowercase
      ((=gb2312		  . #x2828)	; &JX1-295E; [08-08]
       (=jis-x0212	  . #x2B32)	; &I-JSP-2B32; [11-18]
       (=jis-x0213-1-2000  . #x295E)	; &I-JX1-295E; [09-62]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
-      (=ucs		  . #x00C8)	; È
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
@@ -1118,15 +1118,15 @@
     (latin-viscii-upper . #xE9)	; &I-MULE-VIET-U-69;
     ))
 (define-char
-  '((->decomposition	#xFF25 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
+      (=ucs		  . #x00C9)	; É
+      ))
+    (->decomposition	#xFF25 #x0301)
     (->lowercase
      ((=gb2312		  . #x2826)	; &JX1-295F; [08-06]
       (=jis-x0212	  . #x2B31)	; &I-JSP-2B31; [11-17]
       (=jis-x0213-1-2000  . #x295F)	; &I-JX1-295F; [09-63]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
-      (=ucs		  . #x00C9)	; É
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
@@ -1156,15 +1156,15 @@
     (latin-viscii-upper . #xEA)	; &I-MULE-VIET-U-6A;
     ))
 (define-char
-  '((->decomposition	#xFF25 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
+      (=ucs		  . #x00CA)	; Ê
+      ))
+    (->decomposition	#xFF25 #x0302)
     (->lowercase
      ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
       (=jis-x0213-1-2000  . #x2960)	; &I-JX1-2960; [09-64]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
-      (=ucs		  . #x00CA)	; Ê
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
@@ -1193,14 +1193,14 @@
     (latin-iso8859-9	. #xCB)	; &I-LATIN5-4B;
     ))
 (define-char
-  '((->decomposition	#xFF25 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
+      (=ucs		  . #x00CB)	; Ë
+      ))
+    (->decomposition	#xFF25 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B33)	; &JX1-2961; [11-19]
       (=jis-x0213-1-2000  . #x2961)	; &I-JX1-2961; [09-65]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
-      (=ucs		  . #x00CB)	; Ë
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
@@ -1229,15 +1229,15 @@
     (latin-viscii-upper . #xEC)	; &I-MULE-VIET-U-6C;
     ))
 (define-char
-  '((->decomposition	#xFF29 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
+      (=ucs		  . #x00CC)	; Ì
+      ))
+    (->decomposition	#xFF29 #x0300)
     (->lowercase
      ((=gb2312		  . #x282C)	; &JX1-2962; [08-12]
       (=jis-x0212	  . #x2B40)	; &I-JSP-2B40; [11-32]
       (=jis-x0213-1-2000  . #x2962)	; &I-JX1-2962; [09-66]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
-      (=ucs		  . #x00CC)	; Ì
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
@@ -1268,15 +1268,15 @@
     (latin-viscii-upper . #xED)	; &I-MULE-VIET-U-6D;
     ))
 (define-char
-  '((->decomposition	#xFF29 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
+      (=ucs		  . #x00CD)	; Í
+      ))
+    (->decomposition	#xFF29 #x0301)
     (->lowercase
      ((=gb2312		  . #x282A)	; &JX1-2963; [08-10]
       (=jis-x0212	  . #x2B3F)	; &I-JSP-2B3F; [11-31]
       (=jis-x0213-1-2000  . #x2963)	; &I-JX1-2963; [09-67]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
-      (=ucs		  . #x00CD)	; Í
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
@@ -1305,14 +1305,14 @@
     (latin-iso8859-9	. #xCE)	; &I-LATIN5-4E;
     ))
 (define-char
-  '((->decomposition	#xFF29 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
+      (=ucs		  . #x00CE)	; Î
+      ))
+    (->decomposition	#xFF29 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B42)	; &JX1-2964; [11-34]
       (=jis-x0213-1-2000  . #x2964)	; &I-JX1-2964; [09-68]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
-      (=ucs		  . #x00CE)	; Î
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
@@ -1339,14 +1339,14 @@
     (latin-iso8859-9	. #xCF)	; &I-LATIN5-4F;
     ))
 (define-char
-  '((->decomposition	#xFF29 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
+      (=ucs		  . #x00CF)	; Ï
+      ))
+    (->decomposition	#xFF29 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B41)	; &JX1-2965; [11-33]
       (=jis-x0213-1-2000  . #x2965)	; &I-JX1-2965; [09-69]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
-      (=ucs		  . #x00CF)	; Ï
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
@@ -1371,14 +1371,14 @@
     (latin-iso8859-1	. #xD0)	; &I-LATIN1-50;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER ETH")
+      (=ucs		  . #x00D0)	; Ð
+      ))
+    (->lowercase
      ((=ks-x1001	  . #x2923)	; &JX1-2966; [09-03]
       (=jis-x0212	  . #x2943)	; &I-JSP-2943; [09-35]
       (=jis-x0213-1-2000  . #x2966)	; &I-JX1-2966; [09-70]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER ETH")
-      (=ucs		  . #x00D0)	; Ð
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER ETH")
@@ -1404,14 +1404,14 @@
     (latin-iso8859-9	. #xD1)	; &I-LATIN5-51;
     ))
 (define-char
-  '((->decomposition	#xFF2E #x0303)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
+      (=ucs		  . #x00D1)	; Ñ
+      ))
+    (->decomposition	#xFF2E #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B50)	; &JX1-2967; [11-48]
       (=jis-x0213-1-2000  . #x2967)	; &I-JX1-2967; [09-71]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
-      (=ucs		  . #x00D1)	; Ñ
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
@@ -1440,15 +1440,15 @@
     (latin-viscii-upper . #xF2)	; &I-MULE-VIET-U-72;
     ))
 (define-char
-  '((->decomposition	#xFF2F #x0300)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
+      (=ucs		  . #x00D2)	; Ò
+      ))
+    (->decomposition	#xFF2F #x0300)
     (->lowercase
      ((=gb2312		  . #x2830)	; &JX1-2968; [08-16]
       (=jis-x0212	  . #x2B52)	; &I-JSP-2B52; [11-50]
       (=jis-x0213-1-2000  . #x2968)	; &I-JX1-2968; [09-72]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
-      (=ucs		  . #x00D2)	; Ò
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
@@ -1478,15 +1478,15 @@
     (latin-viscii-upper . #xF3)	; &I-MULE-VIET-U-73;
     ))
 (define-char
-  '((->decomposition	#xFF2F #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
+      (=ucs		  . #x00D3)	; Ó
+      ))
+    (->decomposition	#xFF2F #x0301)
     (->lowercase
      ((=gb2312		  . #x282E)	; &JX1-2969; [08-14]
       (=jis-x0212	  . #x2B51)	; &I-JSP-2B51; [11-49]
       (=jis-x0213-1-2000  . #x2969)	; &I-JX1-2969; [09-73]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
-      (=ucs		  . #x00D3)	; Ó
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
@@ -1518,14 +1518,14 @@
     (latin-viscii-upper . #xF4)	; &I-MULE-VIET-U-74;
     ))
 (define-char
-  '((->decomposition	#xFF2F #x0302)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
+      (=ucs		  . #x00D4)	; Ô
+      ))
+    (->decomposition	#xFF2F #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A; [09-74]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
-      (=ucs		  . #x00D4)	; Ô
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
@@ -1554,14 +1554,14 @@
     (latin-viscii-upper . #xF5)	; &I-MULE-VIET-U-75;
     ))
 (define-char
-  '((->decomposition	#xFF2F #x0303)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
+      (=ucs		  . #x00D5)	; Õ
+      ))
+    (->decomposition	#xFF2F #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B58)	; &JX1-296B; [11-56]
       (=jis-x0213-1-2000  . #x296B)	; &I-JX1-296B; [09-75]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
-      (=ucs		  . #x00D5)	; Õ
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
@@ -1590,14 +1590,14 @@
     (latin-iso8859-9	. #xD6)	; &I-LATIN5-56;
     ))
 (define-char
-  '((->decomposition	#xFF2F #x0308)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
+      (=ucs		  . #x00D6)	; Ö
+      ))
+    (->decomposition	#xFF2F #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B53)	; &JX1-296C; [11-51]
       (=jis-x0213-1-2000  . #x296C)	; &I-JX1-296C; [09-76]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
-      (=ucs		  . #x00D6)	; Ö
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
@@ -1653,14 +1653,14 @@
     (latin-iso8859-9	. #xD8)	; &I-LATIN5-58;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER O WITH STROKE")
+      (=ucs		  . #x00D8)	; Ø
+      ))
+    (->lowercase
      ((=ks-x1001	  . #x292A)	; &JX1-296D; [09-10]
       (=jis-x0212	  . #x294C)	; &I-JSP-294C; [09-44]
       (=jis-x0213-1-2000  . #x296D)	; &I-JX1-296D; [09-77]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER O WITH STROKE")
-      (=ucs		  . #x00D8)	; Ø
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH STROKE")
@@ -1690,15 +1690,15 @@
     (latin-viscii-upper . #xF9)	; &I-MULE-VIET-U-79;
     ))
 (define-char
-  '((->decomposition	#xFF35 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
+      (=ucs		  . #x00D9)	; Ù
+      ))
+    (->decomposition	#xFF35 #x0300)
     (->lowercase
      ((=gb2312		  . #x2834)	; &JX1-296E; [08-20]
       (=jis-x0212	  . #x2B63)	; &I-JSP-2B63; [11-67]
       (=jis-x0213-1-2000  . #x296E)	; &I-JX1-296E; [09-78]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
-      (=ucs		  . #x00D9)	; Ù
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
@@ -1729,15 +1729,15 @@
     (latin-viscii-upper . #xFA)	; &I-MULE-VIET-U-7A;
     ))
 (define-char
-  '((->decomposition	#xFF35 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
+      (=ucs		  . #x00DA)	; Ú
+      ))
+    (->decomposition	#xFF35 #x0301)
     (->lowercase
      ((=gb2312		  . #x2832)	; &JX1-296F; [08-18]
       (=jis-x0212	  . #x2B62)	; &I-JSP-2B62; [11-66]
       (=jis-x0213-1-2000  . #x296F)	; &I-JX1-296F; [09-79]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
-      (=ucs		  . #x00DA)	; Ú
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
@@ -1765,14 +1765,14 @@
     (latin-iso8859-9	. #xDB)	; &I-LATIN5-5B;
     ))
 (define-char
-  '((->decomposition	#xFF35 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
+      (=ucs		  . #x00DB)	; Û
+      ))
+    (->decomposition	#xFF35 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B65)	; &JX1-2970; [11-69]
       (=jis-x0213-1-2000  . #x2970)	; &I-JX1-2970; [09-80]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
-      (=ucs		  . #x00DB)	; Û
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
@@ -1801,15 +1801,15 @@
     (latin-iso8859-9	. #xDC)	; &I-LATIN5-5C;
     ))
 (define-char
-  '((->decomposition	#xFF35 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
+      (=ucs		  . #x00DC)	; Ü
+      ))
+    (->decomposition	#xFF35 #x0308)
     (->lowercase
      ((=gb2312		  . #x2839)	; &JX1-2971; [08-25]
       (=jis-x0212	  . #x2B64)	; &I-JSP-2B64; [11-68]
       (=jis-x0213-1-2000  . #x2971)	; &I-JX1-2971; [09-81]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
-      (=ucs		  . #x00DC)	; Ü
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
@@ -1837,14 +1837,14 @@
     (latin-viscii-upper . #xFD)	; &I-MULE-VIET-U-7D;
     ))
 (define-char
-  '((->decomposition	#xFF39 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
+      (=ucs		  . #x00DD)	; Ý
+      ))
+    (->decomposition	#xFF39 #x0301)
     (->lowercase
      ((=jis-x0212	  . #x2B72)	; &JX1-2972; [11-82]
       (=jis-x0213-1-2000  . #x2972)	; &I-JX1-2972; [09-82]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
-      (=ucs		  . #x00DD)	; Ý
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
@@ -1869,14 +1869,14 @@
     (latin-iso8859-1	. #xDE)	; &I-LATIN1-5E;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "LATIN CAPITAL LETTER THORN")
+      (=ucs		  . #x00DE)	; Þ
+      ))
+    (->lowercase
      ((=ks-x1001	  . #x292D)	; &JX1-2973; [09-13]
       (=jis-x0212	  . #x2950)	; &I-JSP-2950; [09-48]
       (=jis-x0213-1-2000  . #x2973)	; &I-JX1-2973; [09-83]
-      ))
-    (<-denotational
-     ((name		  . "LATIN CAPITAL LETTER THORN")
-      (=ucs		  . #x00DE)	; Þ
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER THORN")
@@ -1935,14 +1935,14 @@
     (latin-viscii-lower . #xE0)	; &I-MULE-VIET-L-60;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
+      (=ucs		  . #x00E0)	; à
+      ))
+    (->decomposition	#xFF41 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A22)	; &JX1-2937; [10-02]
       (=jis-x0213-1-2000  . #x2937)	; &I-JX1-2937; [09-23]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
-      (=ucs		  . #x00E0)	; à
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
@@ -1976,14 +1976,14 @@
     (latin-viscii-lower . #xE1)	; &I-MULE-VIET-L-61;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
+      (=ucs		  . #x00E1)	; á
+      ))
+    (->decomposition	#xFF41 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A21)	; &JX1-2938; [10-01]
       (=jis-x0213-1-2000  . #x2938)	; &I-JX1-2938; [09-24]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
-      (=ucs		  . #x00E1)	; á
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
@@ -2017,14 +2017,14 @@
     (latin-viscii-lower . #xE2)	; &I-MULE-VIET-L-62;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
+      (=ucs		  . #x00E2)	; â
+      ))
+    (->decomposition	#xFF41 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939; [09-25]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
-      (=ucs		  . #x00E2)	; â
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
@@ -2054,14 +2054,14 @@
     (latin-viscii-lower . #xE3)	; &I-MULE-VIET-L-63;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x0303)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH TILDE")
+      (=ucs		  . #x00E3)	; ã
+      ))
+    (->decomposition	#xFF41 #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A2A)	; &JX1-293A; [10-10]
       (=jis-x0213-1-2000  . #x293A)	; &I-JX1-293A; [09-26]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH TILDE")
-      (=ucs		  . #x00E3)	; ã
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
@@ -2090,14 +2090,14 @@
     (latin-iso8859-9	. #xE4)	; &I-LATIN5-64;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
+      (=ucs		  . #x00E4)	; ä
+      ))
+    (->decomposition	#xFF41 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A23)	; &JX1-293B; [10-03]
       (=jis-x0213-1-2000  . #x293B)	; &I-JX1-293B; [09-27]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
-      (=ucs		  . #x00E4)	; ä
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
@@ -2124,14 +2124,14 @@
     (latin-iso8859-9	. #xE5)	; &I-LATIN5-65;
     ))
 (define-char
-  '((->decomposition	#xFF41 #x030A)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
+      (=ucs		  . #x00E5)	; å
+      ))
+    (->decomposition	#xFF41 #x030A)
     (->uppercase
      ((=jis-x0212	  . #x2A29)	; &JX1-293C; [10-09]
       (=jis-x0213-1-2000  . #x293C)	; &I-JX1-293C; [09-28]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
-      (=ucs		  . #x00E5)	; å
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
@@ -2159,14 +2159,14 @@
     (ipa		. #xA4)	; &I-MULE-IPA-24;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER AE")
+      (=ucs		  . #x00E6)	; æ
+      ))
+    (->uppercase
      ((=ks-x1001	  . #x2821)	; &JX1-293D; [08-01]
       (=jis-x0212	  . #x2921)	; &I-JSP-2921; [09-01]
       (=jis-x0213-1-2000  . #x293D)	; &I-JX1-293D; [09-29]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER AE")
-      (=ucs		  . #x00E6)	; æ
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER AE")
@@ -2196,14 +2196,14 @@
     (ipa		. #xCE)	; &I-MULE-IPA-4E;
     ))
 (define-char
-  '((->decomposition	#xFF43 #x0327)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
+      (=ucs		  . #x00E7)	; ç
+      ))
+    (->decomposition	#xFF43 #x0327)
     (->uppercase
      ((=jis-x0212	  . #x2A2E)	; &JX1-293E; [10-14]
       (=jis-x0213-1-2000  . #x293E)	; &I-JX1-293E; [09-30]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
-      (=ucs		  . #x00E7)	; ç
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
@@ -2233,14 +2233,14 @@
     (latin-viscii-lower . #xE8)	; &I-MULE-VIET-L-68;
     ))
 (define-char
-  '((->decomposition	#xFF45 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
+      (=ucs		  . #x00E8)	; è
+      ))
+    (->decomposition	#xFF45 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A32)	; &JX1-293F; [10-18]
       (=jis-x0213-1-2000  . #x293F)	; &I-JX1-293F; [09-31]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
-      (=ucs		  . #x00E8)	; è
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
@@ -2274,14 +2274,14 @@
     (latin-viscii-lower . #xE9)	; &I-MULE-VIET-L-69;
     ))
 (define-char
-  '((->decomposition	#xFF45 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
+      (=ucs		  . #x00E9)	; é
+      ))
+    (->decomposition	#xFF45 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A31)	; &JX1-2940; [10-17]
       (=jis-x0213-1-2000  . #x2940)	; &I-JX1-2940; [09-32]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
-      (=ucs		  . #x00E9)	; é
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
@@ -2313,14 +2313,14 @@
     (latin-viscii-lower . #xEA)	; &I-MULE-VIET-L-6A;
     ))
 (define-char
-  '((->decomposition	#xFF45 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
+      (=ucs		  . #x00EA)	; ê
+      ))
+    (->decomposition	#xFF45 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941; [09-33]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
-      (=ucs		  . #x00EA)	; ê
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
@@ -2351,14 +2351,14 @@
     (latin-iso8859-9	. #xEB)	; &I-LATIN5-6B;
     ))
 (define-char
-  '((->decomposition	#xFF45 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
+      (=ucs		  . #x00EB)	; ë
+      ))
+    (->decomposition	#xFF45 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A33)	; &JX1-2942; [10-19]
       (=jis-x0213-1-2000  . #x2942)	; &I-JX1-2942; [09-34]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
-      (=ucs		  . #x00EB)	; ë
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
@@ -2388,14 +2388,14 @@
     (latin-viscii-lower . #xEC)	; &I-MULE-VIET-L-6C;
     ))
 (define-char
-  '((->decomposition	#xFF49 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
+      (=ucs		  . #x00EC)	; ì
+      ))
+    (->decomposition	#xFF49 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A40)	; &JX1-2943; [10-32]
       (=jis-x0213-1-2000  . #x2943)	; &I-JX1-2943; [09-35]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
-      (=ucs		  . #x00EC)	; ì
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
@@ -2428,14 +2428,14 @@
     (latin-viscii-lower . #xED)	; &I-MULE-VIET-L-6D;
     ))
 (define-char
-  '((->decomposition	#xFF49 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
+      (=ucs		  . #x00ED)	; í
+      ))
+    (->decomposition	#xFF49 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A3F)	; &JX1-2944; [10-31]
       (=jis-x0213-1-2000  . #x2944)	; &I-JX1-2944; [09-36]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
-      (=ucs		  . #x00ED)	; í
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
@@ -2465,14 +2465,14 @@
     (latin-iso8859-9	. #xEE)	; &I-LATIN5-6E;
     ))
 (define-char
-  '((->decomposition	#xFF49 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
+      (=ucs		  . #x00EE)	; î
+      ))
+    (->decomposition	#xFF49 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A42)	; &JX1-2945; [10-34]
       (=jis-x0213-1-2000  . #x2945)	; &I-JX1-2945; [09-37]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
-      (=ucs		  . #x00EE)	; î
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
@@ -2498,14 +2498,14 @@
     (latin-iso8859-9	. #xEF)	; &I-LATIN5-6F;
     ))
 (define-char
-  '((->decomposition	#xFF49 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
+      (=ucs		  . #x00EF)	; ï
+      ))
+    (->decomposition	#xFF49 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A41)	; &JX1-2946; [10-33]
       (=jis-x0213-1-2000  . #x2946)	; &I-JX1-2946; [09-38]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
-      (=ucs		  . #x00EF)	; ï
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
@@ -2531,13 +2531,13 @@
     (ipa		. #xC9)	; &I-MULE-IPA-49;
     ))
 (define-char
-  '((->uppercase
-     ((=ks-x1001	  . #x2822)	; &JX1-2947; [08-02]
-      (=jis-x0213-1-2000  . #x2947)	; &I-JX1-2947; [09-39]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "LATIN SMALL LETTER ETH")
       (=ucs		  . #x00F0)	; ð
+      ))
+    (->uppercase
+     ((=ks-x1001	  . #x2822)	; &JX1-2947; [08-02]
+      (=jis-x0213-1-2000  . #x2947)	; &I-JX1-2947; [09-39]
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER ETH")
@@ -2565,14 +2565,14 @@
     (latin-iso8859-9	. #xF1)	; &I-LATIN5-71;
     ))
 (define-char
-  '((->decomposition	#xFF4E #x0303)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER N WITH TILDE")
+      (=ucs		  . #x00F1)	; ñ
+      ))
+    (->decomposition	#xFF4E #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A50)	; &JX1-2948; [10-48]
       (=jis-x0213-1-2000  . #x2948)	; &I-JX1-2948; [09-40]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER N WITH TILDE")
-      (=ucs		  . #x00F1)	; ñ
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
@@ -2602,14 +2602,14 @@
     (latin-viscii-lower . #xF2)	; &I-MULE-VIET-L-72;
     ))
 (define-char
-  '((->decomposition	#xFF4F #x0300)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
+      (=ucs		  . #x00F2)	; ò
+      ))
+    (->decomposition	#xFF4F #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A52)	; &JX1-2949; [10-50]
       (=jis-x0213-1-2000  . #x2949)	; &I-JX1-2949; [09-41]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
-      (=ucs		  . #x00F2)	; ò
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
@@ -2642,14 +2642,14 @@
     (latin-viscii-lower . #xF3)	; &I-MULE-VIET-L-73;
     ))
 (define-char
-  '((->decomposition	#xFF4F #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
+      (=ucs		  . #x00F3)	; ó
+      ))
+    (->decomposition	#xFF4F #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A51)	; &JX1-294A; [10-49]
       (=jis-x0213-1-2000  . #x294A)	; &I-JX1-294A; [09-42]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
-      (=ucs		  . #x00F3)	; ó
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
@@ -2683,14 +2683,14 @@
     (latin-viscii-lower . #xF4)	; &I-MULE-VIET-L-74;
     ))
 (define-char
-  '((->decomposition	#xFF4F #x0302)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
+      (=ucs		  . #x00F4)	; ô
+      ))
+    (->decomposition	#xFF4F #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B; [09-43]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
-      (=ucs		  . #x00F4)	; ô
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
@@ -2720,14 +2720,14 @@
     (latin-viscii-lower . #xF5)	; &I-MULE-VIET-L-75;
     ))
 (define-char
-  '((->decomposition	#xFF4F #x0303)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH TILDE")
+      (=ucs		  . #x00F5)	; õ
+      ))
+    (->decomposition	#xFF4F #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A58)	; &JX1-294C; [10-56]
       (=jis-x0213-1-2000  . #x294C)	; &I-JX1-294C; [09-44]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH TILDE")
-      (=ucs		  . #x00F5)	; õ
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
@@ -2756,14 +2756,14 @@
     (latin-iso8859-9	. #xF6)	; &I-LATIN5-76;
     ))
 (define-char
-  '((->decomposition	#xFF4F #x0308)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
+      (=ucs		  . #x00F6)	; ö
+      ))
+    (->decomposition	#xFF4F #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A53)	; &JX1-294D; [10-51]
       (=jis-x0213-1-2000  . #x294D)	; &I-JX1-294D; [09-45]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
-      (=ucs		  . #x00F6)	; ö
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
@@ -2820,14 +2820,14 @@
     (ipa		. #xAF)	; &I-MULE-IPA-2F;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER O WITH STROKE")
+      (=ucs		  . #x00F8)	; ø
+      ))
+    (->uppercase
      ((=ks-x1001	  . #x282A)	; &JX1-294E; [08-10]
       (=jis-x0212	  . #x292C)	; &I-JSP-292C; [09-12]
       (=jis-x0213-1-2000  . #x294E)	; &I-JX1-294E; [09-46]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER O WITH STROKE")
-      (=ucs		  . #x00F8)	; ø
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH STROKE")
@@ -2858,14 +2858,14 @@
     (latin-viscii-lower . #xF9)	; &I-MULE-VIET-L-79;
     ))
 (define-char
-  '((->decomposition	#xFF55 #x0300)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
+      (=ucs		  . #x00F9)	; ù
+      ))
+    (->decomposition	#xFF55 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A63)	; &JX1-294F; [10-67]
       (=jis-x0213-1-2000  . #x294F)	; &I-JX1-294F; [09-47]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
-      (=ucs		  . #x00F9)	; ù
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
@@ -2899,14 +2899,14 @@
     (latin-viscii-lower . #xFA)	; &I-MULE-VIET-L-7A;
     ))
 (define-char
-  '((->decomposition	#xFF55 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
+      (=ucs		  . #x00FA)	; ú
+      ))
+    (->decomposition	#xFF55 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A62)	; &JX1-2950; [10-66]
       (=jis-x0213-1-2000  . #x2950)	; &I-JX1-2950; [09-48]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
-      (=ucs		  . #x00FA)	; ú
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
@@ -2936,14 +2936,14 @@
     (latin-iso8859-9	. #xFB)	; &I-LATIN5-7B;
     ))
 (define-char
-  '((->decomposition	#xFF55 #x0302)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
+      (=ucs		  . #x00FB)	; û
+      ))
+    (->decomposition	#xFF55 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A65)	; &JX1-2951; [10-69]
       (=jis-x0213-1-2000  . #x2951)	; &I-JX1-2951; [09-49]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
-      (=ucs		  . #x00FB)	; û
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
@@ -2972,14 +2972,14 @@
     (latin-iso8859-9	. #xFC)	; &I-LATIN5-7C;
     ))
 (define-char
-  '((->decomposition	#xFF55 #x0308)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
+      (=ucs		  . #x00FC)	; ü
+      ))
+    (->decomposition	#xFF55 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A64)	; &JX1-2952; [10-68]
       (=jis-x0213-1-2000  . #x2952)	; &I-JX1-2952; [09-50]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
-      (=ucs		  . #x00FC)	; ü
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
@@ -3010,14 +3010,14 @@
     (latin-viscii-lower . #xFD)	; &I-MULE-VIET-L-7D;
     ))
 (define-char
-  '((->decomposition	#xFF59 #x0301)
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
+      (=ucs		  . #x00FD)	; ý
+      ))
+    (->decomposition	#xFF59 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A72)	; &JX1-2953; [10-82]
       (=jis-x0213-1-2000  . #x2953)	; &I-JX1-2953; [09-51]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
-      (=ucs		  . #x00FD)	; ý
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
@@ -3042,14 +3042,14 @@
     (latin-iso8859-1	. #xFE)	; &I-LATIN1-7E;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "LATIN SMALL LETTER THORN")
+      (=ucs		  . #x00FE)	; þ
+      ))
+    (->uppercase
      ((=ks-x1001	  . #x282D)	; &JX1-2954; [08-13]
       (=jis-x0212	  . #x2930)	; &I-JSP-2930; [09-16]
       (=jis-x0213-1-2000  . #x2954)	; &I-JX1-2954; [09-52]
-      ))
-    (<-denotational
-     ((name		  . "LATIN SMALL LETTER THORN")
-      (=ucs		  . #x00FE)	; þ
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER THORN")
@@ -3076,13 +3076,13 @@
     (latin-iso8859-9	. #xFF)	; &I-LATIN5-7F;
     ))
 (define-char
-  '((->decomposition	#xFF59 #x0308)
-    (->uppercase
-     ((=jis-x0212	  . #x2A73)	; &JSP-2A73; [10-83]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "LATIN SMALL LETTER Y WITH DIAERESIS")
       (=ucs		  . #x00FF)	; ÿ
+      ))
+    (->decomposition	#xFF59 #x0308)
+    (->uppercase
+     ((=jis-x0212	  . #x2A73)	; &JSP-2A73; [10-83]
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y WITH DIAERESIS")

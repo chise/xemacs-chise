@@ -322,12 +322,12 @@
     (=ucs		. #x0260)	; ɠ
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0213-1-2000  . #x2B29)	; &JX1-2B29; [11-09]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "LATIN SMALL LETTER G WITH HOOK")
       (=ucs		  . #x0260)	; ɠ
+      ))
+    (->uppercase
+     ((=jis-x0213-1-2000  . #x2B29)	; &JX1-2B29; [11-09]
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH HOOK")

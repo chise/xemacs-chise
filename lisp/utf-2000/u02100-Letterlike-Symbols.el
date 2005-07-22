@@ -32,11 +32,11 @@
     (=ucs		. #x2103)	; ℃
     ))
 (define-char
-  '((->decomposition	compat #x00B0 #xFF23)
-    (<-denotational
+  '((<-denotational
      ((name		  . "DEGREE CELSIUS")
       (=ucs		  . #x2103)	; ℃
       ))
+    (->decomposition	compat #x00B0 #xFF23)
     (<-fullwidth
      ((name		  . "DEGREE CELSIUS")
       (=ucs		  . #x2103)	; ℃
@@ -65,11 +65,11 @@
     (=ucs		. #x2105)	; ℅
     ))
 (define-char
-  '((->decomposition	compat #x0063 #xFF0F #x006F)
-    (<-denotational
+  '((<-denotational
      ((name		  . "CARE OF")
       (=ucs		  . #x2105)	; ℅
       ))
+    (->decomposition	compat #x0063 #xFF0F #x006F)
     (<-fullwidth
      ((name		  . "CARE OF")
       (=ucs		  . #x2105)	; ℅
@@ -111,11 +111,11 @@
     (=ucs		. #x2109)	; ℉
     ))
 (define-char
-  '((->decomposition	compat #x00B0 #xFF26)
-    (<-denotational
+  '((<-denotational
      ((name		  . "DEGREE FAHRENHEIT")
       (=ucs		  . #x2109)	; ℉
       ))
+    (->decomposition	compat #x00B0 #xFF26)
     (<-fullwidth
      ((name		  . "DEGREE FAHRENHEIT")
       (=ucs		  . #x2109)	; ℉
@@ -217,11 +217,11 @@
     (=ucs		. #x2113)	; ℓ
     ))
 (define-char
-  '((->decomposition	font #xFF4C)
-    (<-denotational
+  '((<-denotational
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
       ))
+    (->decomposition	font #xFF4C)
     (<-fullwidth
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
@@ -377,11 +377,11 @@
     (=ucs		. #x2122)	; ™
     ))
 (define-char
-  '((->decomposition	super #xFF34 #xFF2D)
-    (<-denotational
+  '((<-denotational
      ((name		  . "TRADE MARK SIGN")
       (=ucs		  . #x2122)	; ™
       ))
+    (->decomposition	super #xFF34 #xFF2D)
     (<-fullwidth
      ((name		  . "TRADE MARK SIGN")
       (=ucs		  . #x2122)	; ™
