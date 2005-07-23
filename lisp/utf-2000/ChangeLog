@@ -1,5 +1,9 @@
 2005-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el (JSP-3153): Modify
+	`ideographic-structure'; delete `=ucs@big5'.
+	(U-000203E2): Use `->denotational'.
+
 	* Ideograph-R018-Knife.el (U-000206A3): Use
 	`->ideographic-variants' instead of `variant-of-shinjigen-1'.
 	(U+5239): Use `->subsumptive'.
