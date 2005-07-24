@@ -375,7 +375,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0CBF #x0CD5)
+    (=decomposition
+     ((name		  . "KANNADA VOWEL SIGN I")
+      (=ucs		  . #x0CBF)	; ಿ
+      )
+     ((name		  . "KANNADA LENGTH MARK")
+      (=ucs		  . #x0CD5)	; ೕ
+      ))
     (=ucs		. #x0CC0)	; ೀ
     ))
 (define-char
@@ -418,7 +424,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0CC6 #x0CD5)
+    (=decomposition
+     ((name		  . "KANNADA VOWEL SIGN E")
+      (=ucs		  . #x0CC6)	; ೆ
+      )
+     ((name		  . "KANNADA LENGTH MARK")
+      (=ucs		  . #x0CD5)	; ೕ
+      ))
     (=ucs		. #x0CC7)	; ೇ
     ))
 (define-char
@@ -426,7 +438,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0CC6 #x0CD6)
+    (=decomposition
+     ((name		  . "KANNADA VOWEL SIGN E")
+      (=ucs		  . #x0CC6)	; ೆ
+      )
+     ((name		  . "KANNADA AI LENGTH MARK")
+      (=ucs		  . #x0CD6)	; ೖ
+      ))
     (=ucs		. #x0CC8)	; ೈ
     ))
 (define-char
@@ -434,7 +452,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0CC6 #x0CC2)
+    (=decomposition
+     ((name		  . "KANNADA VOWEL SIGN E")
+      (=ucs		  . #x0CC6)	; ೆ
+      )
+     ((name		  . "KANNADA VOWEL SIGN UU")
+      (=ucs		  . #x0CC2)	; ೂ
+      ))
     (=ucs		. #x0CCA)	; ೊ
     ))
 (define-char
@@ -442,7 +466,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0CCA #x0CD5)
+    (=decomposition
+     ((name		  . "KANNADA VOWEL SIGN O")
+      (=ucs		  . #x0CCA)	; ೊ
+      )
+     ((name		  . "KANNADA LENGTH MARK")
+      (=ucs		  . #x0CD5)	; ೕ
+      ))
     (=ucs		. #x0CCB)	; ೋ
     ))
 (define-char

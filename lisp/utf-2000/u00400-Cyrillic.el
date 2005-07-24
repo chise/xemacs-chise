@@ -4,10 +4,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0415 #x0300)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER IE WITH GRAVE")
       (=ucs		  . #x0450)	; ѐ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER IE")
+      (=ucs		  . #x0415)	; Е
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x0400)	; Ѐ
     ))
@@ -16,27 +22,41 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0415 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER IO")
       (=ucs		  . #x0451)	; ё
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER IE")
+      (=ucs		  . #x0415)	; Е
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x0401)	; Ё
     (cyrillic-iso8859-5 . #xA1)	; &I-CYRILLIC-21;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER IO")
+      (=ucs		  . #x0401)	; Ё
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2757)	; &J90-2757; [07-55]
       (=gb2312		  . #x2757)	; &I-G0-2757; [07-55]
       (=ks-x1001	  . #x2C57)	; &I-K0-2C57; [12-55]
       ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER IO")
-      (=ucs		  . #x0401)	; Ё
-      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IO")
       (=ucs		  . #x0401)	; Ё
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x2726)	; &J90-2726; [07-06]
+      (=gb2312		  . #x2726)	; &I-G0-2726; [07-06]
+      (=ks-x1001	  . #x2C26)	; &I-K0-2C26; [12-06]
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0208		. #x2727)	; &J90-2727; [07-07]
     (=gb2312		. #x2727)	; &I-G0-2727; [07-07]
@@ -59,12 +79,12 @@
     (cyrillic-iso8859-5 . #xA2)	; &I-CYRILLIC-22;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2772)	; &JSP-2772; [07-82]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER DJE")
       (=ucs		  . #x0402)	; Ђ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2772)	; &JSP-2772; [07-82]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DJE")
@@ -78,25 +98,39 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0413 #x0301)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (=ucs		  . #x0453)	; ѓ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER GHE")
+      (=ucs		  . #x0413)	; Г
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x0403)	; Ѓ
     (cyrillic-iso8859-5 . #xA3)	; &I-CYRILLIC-23;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2773)	; &JSP-2773; [07-83]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (=ucs		  . #x0403)	; Ѓ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2773)	; &JSP-2773; [07-83]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (=ucs		  . #x0403)	; Ѓ
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x2724)	; &J90-2724; [07-04]
+      (=gb2312		  . #x2724)	; &I-G0-2724; [07-04]
+      (=ks-x1001	  . #x2C24)	; &I-K0-2C24; [12-04]
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2743)	; &JSP-2743; [07-35]
     (=ucs@jis/fw	. #x0403)	; &JSP-2743;
@@ -114,12 +148,12 @@
     (cyrillic-iso8859-5 . #xA4)	; &I-CYRILLIC-24;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2774)	; &JSP-2774; [07-84]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
       (=ucs		  . #x0404)	; Є
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2774)	; &JSP-2774; [07-84]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
@@ -141,12 +175,12 @@
     (cyrillic-iso8859-5 . #xA5)	; &I-CYRILLIC-25;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2775)	; &JSP-2775; [07-85]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER DZE")
       (=ucs		  . #x0405)	; Ѕ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2775)	; &JSP-2775; [07-85]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DZE")
@@ -168,12 +202,12 @@
     (cyrillic-iso8859-5 . #xA6)	; &I-CYRILLIC-26;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2776)	; &JSP-2776; [07-86]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
       (=ucs		  . #x0406)	; І
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2776)	; &JSP-2776; [07-86]
       ))
     (<-fullwidth
      ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -188,25 +222,37 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Ukrainian")
-    (->decomposition	#x0406 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (=ucs		  . #x0457)	; ї
+      ))
+    (=decomposition
+     ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
+      (=ucs		  . #x0406)	; І
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x0407)	; Ї
     (cyrillic-iso8859-5 . #xA7)	; &I-CYRILLIC-27;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2777)	; &JSP-2777; [07-87]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (=ucs		  . #x0407)	; Ї
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2777)	; &JSP-2777; [07-87]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (=ucs		  . #x0407)	; Ї
+      ))
+    (=decomposition
+     ((=jis-x0212	  . #x2746)	; &JSP-2746; [07-38]
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2747)	; &JSP-2747; [07-39]
     (=ucs@jis/fw	. #x0407)	; &JSP-2747;
@@ -224,12 +270,12 @@
     (cyrillic-iso8859-5 . #xA8)	; &I-CYRILLIC-28;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2778)	; &JSP-2778; [07-88]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER JE")
       (=ucs		  . #x0408)	; Ј
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2778)	; &JSP-2778; [07-88]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER JE")
@@ -251,12 +297,12 @@
     (cyrillic-iso8859-5 . #xA9)	; &I-CYRILLIC-29;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x2779)	; &JSP-2779; [07-89]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER LJE")
       (=ucs		  . #x0409)	; Љ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x2779)	; &JSP-2779; [07-89]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER LJE")
@@ -278,12 +324,12 @@
     (cyrillic-iso8859-5 . #xAA)	; &I-CYRILLIC-2A;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x277A)	; &JSP-277A; [07-90]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER NJE")
       (=ucs		  . #x040A)	; Њ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x277A)	; &JSP-277A; [07-90]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER NJE")
@@ -306,12 +352,12 @@
     (cyrillic-iso8859-5 . #xAB)	; &I-CYRILLIC-2B;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x277B)	; &JSP-277B; [07-91]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER TSHE")
       (=ucs		  . #x040B)	; Ћ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x277B)	; &JSP-277B; [07-91]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TSHE")
@@ -325,21 +371,27 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x041A #x0301)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (=ucs		  . #x045C)	; ќ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER KA")
+      (=ucs		  . #x041A)	; К
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x040C)	; Ќ
     (cyrillic-iso8859-5 . #xAC)	; &I-CYRILLIC-2C;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x277C)	; &JSP-277C; [07-92]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
       (=ucs		  . #x040C)	; Ќ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x277C)	; &JSP-277C; [07-92]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
@@ -353,10 +405,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0418 #x0300)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER I WITH GRAVE")
       (=ucs		  . #x045D)	; ѝ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER I")
+      (=ucs		  . #x0418)	; И
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x040D)	; Ѝ
     ))
@@ -366,21 +424,27 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Byelorussian")
-    (->decomposition	#x0423 #x0306)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (=ucs		  . #x045E)	; ў
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER U")
+      (=ucs		  . #x0423)	; У
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x040E)	; Ў
     (cyrillic-iso8859-5 . #xAE)	; &I-CYRILLIC-2E;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x277D)	; &JSP-277D; [07-93]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
       (=ucs		  . #x040E)	; Ў
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x277D)	; &JSP-277D; [07-93]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
@@ -402,12 +466,12 @@
     (cyrillic-iso8859-5 . #xAF)	; &I-CYRILLIC-2F;
     ))
 (define-char
-  '((->lowercase
-     ((=jis-x0212	  . #x277E)	; &JSP-277E; [07-94]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC CAPITAL LETTER DZHE")
       (=ucs		  . #x040F)	; Џ
+      ))
+    (->lowercase
+     ((=jis-x0212	  . #x277E)	; &JSP-277E; [07-94]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DZHE")
@@ -429,14 +493,14 @@
     (cyrillic-iso8859-5 . #xB0)	; &I-CYRILLIC-30;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER A")
+      (=ucs		  . #x0410)	; А
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2751)	; &J90-2751; [07-49]
       (=gb2312		  . #x2751)	; &I-G0-2751; [07-49]
       (=ks-x1001	  . #x2C51)	; &I-K0-2C51; [12-49]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER A")
-      (=ucs		  . #x0410)	; А
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER A")
@@ -462,14 +526,14 @@
     (cyrillic-iso8859-5 . #xB1)	; &I-CYRILLIC-31;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER BE")
+      (=ucs		  . #x0411)	; Б
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2752)	; &J90-2752; [07-50]
       (=gb2312		  . #x2752)	; &I-G0-2752; [07-50]
       (=ks-x1001	  . #x2C52)	; &I-K0-2C52; [12-50]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER BE")
-      (=ucs		  . #x0411)	; Б
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER BE")
@@ -495,14 +559,14 @@
     (cyrillic-iso8859-5 . #xB2)	; &I-CYRILLIC-32;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER VE")
+      (=ucs		  . #x0412)	; В
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2753)	; &J90-2753; [07-51]
       (=gb2312		  . #x2753)	; &I-G0-2753; [07-51]
       (=ks-x1001	  . #x2C53)	; &I-K0-2C53; [12-51]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER VE")
-      (=ucs		  . #x0412)	; В
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER VE")
@@ -528,14 +592,14 @@
     (cyrillic-iso8859-5 . #xB3)	; &I-CYRILLIC-33;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER GHE")
+      (=ucs		  . #x0413)	; Г
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2754)	; &J90-2754; [07-52]
       (=gb2312		  . #x2754)	; &I-G0-2754; [07-52]
       (=ks-x1001	  . #x2C54)	; &I-K0-2C54; [12-52]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER GHE")
-      (=ucs		  . #x0413)	; Г
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GHE")
@@ -561,14 +625,14 @@
     (cyrillic-iso8859-5 . #xB4)	; &I-CYRILLIC-34;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER DE")
+      (=ucs		  . #x0414)	; Д
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2755)	; &J90-2755; [07-53]
       (=gb2312		  . #x2755)	; &I-G0-2755; [07-53]
       (=ks-x1001	  . #x2C55)	; &I-K0-2C55; [12-53]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER DE")
-      (=ucs		  . #x0414)	; Д
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DE")
@@ -594,14 +658,14 @@
     (cyrillic-iso8859-5 . #xB5)	; &I-CYRILLIC-35;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER IE")
+      (=ucs		  . #x0415)	; Е
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2756)	; &J90-2756; [07-54]
       (=gb2312		  . #x2756)	; &I-G0-2756; [07-54]
       (=ks-x1001	  . #x2C56)	; &I-K0-2C56; [12-54]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER IE")
-      (=ucs		  . #x0415)	; Е
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IE")
@@ -627,14 +691,14 @@
     (cyrillic-iso8859-5 . #xB6)	; &I-CYRILLIC-36;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
+      (=ucs		  . #x0416)	; Ж
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2758)	; &J90-2758; [07-56]
       (=gb2312		  . #x2758)	; &I-G0-2758; [07-56]
       (=ks-x1001	  . #x2C58)	; &I-K0-2C58; [12-56]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
-      (=ucs		  . #x0416)	; Ж
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
@@ -660,14 +724,14 @@
     (cyrillic-iso8859-5 . #xB7)	; &I-CYRILLIC-37;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER ZE")
+      (=ucs		  . #x0417)	; З
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2759)	; &J90-2759; [07-57]
       (=gb2312		  . #x2759)	; &I-G0-2759; [07-57]
       (=ks-x1001	  . #x2C59)	; &I-K0-2C59; [12-57]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER ZE")
-      (=ucs		  . #x0417)	; З
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZE")
@@ -693,14 +757,14 @@
     (cyrillic-iso8859-5 . #xB8)	; &I-CYRILLIC-38;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER I")
+      (=ucs		  . #x0418)	; И
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275A)	; &J90-275A; [07-58]
       (=gb2312		  . #x275A)	; &I-G0-275A; [07-58]
       (=ks-x1001	  . #x2C5A)	; &I-K0-2C5A; [12-58]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER I")
-      (=ucs		  . #x0418)	; И
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER I")
@@ -718,23 +782,29 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0418 #x0306)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER SHORT I")
       (=ucs		  . #x0439)	; й
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER I")
+      (=ucs		  . #x0418)	; И
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x0419)	; Й
     (cyrillic-iso8859-5 . #xB9)	; &I-CYRILLIC-39;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
+      (=ucs		  . #x0419)	; Й
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275B)	; &J90-275B; [07-59]
       (=gb2312		  . #x275B)	; &I-G0-275B; [07-59]
       (=ks-x1001	  . #x2C5B)	; &I-K0-2C5B; [12-59]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
-      (=ucs		  . #x0419)	; Й
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
@@ -760,14 +830,14 @@
     (cyrillic-iso8859-5 . #xBA)	; &I-CYRILLIC-3A;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER KA")
+      (=ucs		  . #x041A)	; К
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275C)	; &J90-275C; [07-60]
       (=gb2312		  . #x275C)	; &I-G0-275C; [07-60]
       (=ks-x1001	  . #x2C5C)	; &I-K0-2C5C; [12-60]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER KA")
-      (=ucs		  . #x041A)	; К
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER KA")
@@ -793,14 +863,14 @@
     (cyrillic-iso8859-5 . #xBB)	; &I-CYRILLIC-3B;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER EL")
+      (=ucs		  . #x041B)	; Л
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275D)	; &J90-275D; [07-61]
       (=gb2312		  . #x275D)	; &I-G0-275D; [07-61]
       (=ks-x1001	  . #x2C5D)	; &I-K0-2C5D; [12-61]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER EL")
-      (=ucs		  . #x041B)	; Л
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EL")
@@ -826,14 +896,14 @@
     (cyrillic-iso8859-5 . #xBC)	; &I-CYRILLIC-3C;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER EM")
+      (=ucs		  . #x041C)	; М
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275E)	; &J90-275E; [07-62]
       (=gb2312		  . #x275E)	; &I-G0-275E; [07-62]
       (=ks-x1001	  . #x2C5E)	; &I-K0-2C5E; [12-62]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER EM")
-      (=ucs		  . #x041C)	; М
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EM")
@@ -859,14 +929,14 @@
     (cyrillic-iso8859-5 . #xBD)	; &I-CYRILLIC-3D;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER EN")
+      (=ucs		  . #x041D)	; Н
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x275F)	; &J90-275F; [07-63]
       (=gb2312		  . #x275F)	; &I-G0-275F; [07-63]
       (=ks-x1001	  . #x2C5F)	; &I-K0-2C5F; [12-63]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER EN")
-      (=ucs		  . #x041D)	; Н
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EN")
@@ -892,14 +962,14 @@
     (cyrillic-iso8859-5 . #xBE)	; &I-CYRILLIC-3E;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER O")
+      (=ucs		  . #x041E)	; О
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2760)	; &J90-2760; [07-64]
       (=gb2312		  . #x2760)	; &I-G0-2760; [07-64]
       (=ks-x1001	  . #x2C60)	; &I-K0-2C60; [12-64]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER O")
-      (=ucs		  . #x041E)	; О
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER O")
@@ -925,14 +995,14 @@
     (cyrillic-iso8859-5 . #xBF)	; &I-CYRILLIC-3F;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER PE")
+      (=ucs		  . #x041F)	; П
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2761)	; &J90-2761; [07-65]
       (=gb2312		  . #x2761)	; &I-G0-2761; [07-65]
       (=ks-x1001	  . #x2C61)	; &I-K0-2C61; [12-65]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER PE")
-      (=ucs		  . #x041F)	; П
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER PE")
@@ -958,14 +1028,14 @@
     (cyrillic-iso8859-5 . #xC0)	; &I-CYRILLIC-40;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER ER")
+      (=ucs		  . #x0420)	; Р
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2762)	; &J90-2762; [07-66]
       (=gb2312		  . #x2762)	; &I-G0-2762; [07-66]
       (=ks-x1001	  . #x2C62)	; &I-K0-2C62; [12-66]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER ER")
-      (=ucs		  . #x0420)	; Р
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ER")
@@ -991,14 +1061,14 @@
     (cyrillic-iso8859-5 . #xC1)	; &I-CYRILLIC-41;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER ES")
+      (=ucs		  . #x0421)	; С
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2763)	; &J90-2763; [07-67]
       (=gb2312		  . #x2763)	; &I-G0-2763; [07-67]
       (=ks-x1001	  . #x2C63)	; &I-K0-2C63; [12-67]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER ES")
-      (=ucs		  . #x0421)	; С
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ES")
@@ -1024,14 +1094,14 @@
     (cyrillic-iso8859-5 . #xC2)	; &I-CYRILLIC-42;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER TE")
+      (=ucs		  . #x0422)	; Т
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2764)	; &J90-2764; [07-68]
       (=gb2312		  . #x2764)	; &I-G0-2764; [07-68]
       (=ks-x1001	  . #x2C64)	; &I-K0-2C64; [12-68]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER TE")
-      (=ucs		  . #x0422)	; Т
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TE")
@@ -1057,14 +1127,14 @@
     (cyrillic-iso8859-5 . #xC3)	; &I-CYRILLIC-43;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER U")
+      (=ucs		  . #x0423)	; У
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2765)	; &J90-2765; [07-69]
       (=gb2312		  . #x2765)	; &I-G0-2765; [07-69]
       (=ks-x1001	  . #x2C65)	; &I-K0-2C65; [12-69]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER U")
-      (=ucs		  . #x0423)	; У
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER U")
@@ -1090,14 +1160,14 @@
     (cyrillic-iso8859-5 . #xC4)	; &I-CYRILLIC-44;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER EF")
+      (=ucs		  . #x0424)	; Ф
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2766)	; &J90-2766; [07-70]
       (=gb2312		  . #x2766)	; &I-G0-2766; [07-70]
       (=ks-x1001	  . #x2C66)	; &I-K0-2C66; [12-70]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER EF")
-      (=ucs		  . #x0424)	; Ф
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EF")
@@ -1123,14 +1193,14 @@
     (cyrillic-iso8859-5 . #xC5)	; &I-CYRILLIC-45;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER HA")
+      (=ucs		  . #x0425)	; Х
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2767)	; &J90-2767; [07-71]
       (=gb2312		  . #x2767)	; &I-G0-2767; [07-71]
       (=ks-x1001	  . #x2C67)	; &I-K0-2C67; [12-71]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER HA")
-      (=ucs		  . #x0425)	; Х
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HA")
@@ -1156,14 +1226,14 @@
     (cyrillic-iso8859-5 . #xC6)	; &I-CYRILLIC-46;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER TSE")
+      (=ucs		  . #x0426)	; Ц
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2768)	; &J90-2768; [07-72]
       (=gb2312		  . #x2768)	; &I-G0-2768; [07-72]
       (=ks-x1001	  . #x2C68)	; &I-K0-2C68; [12-72]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER TSE")
-      (=ucs		  . #x0426)	; Ц
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TSE")
@@ -1189,14 +1259,14 @@
     (cyrillic-iso8859-5 . #xC7)	; &I-CYRILLIC-47;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER CHE")
+      (=ucs		  . #x0427)	; Ч
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2769)	; &J90-2769; [07-73]
       (=gb2312		  . #x2769)	; &I-G0-2769; [07-73]
       (=ks-x1001	  . #x2C69)	; &I-K0-2C69; [12-73]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER CHE")
-      (=ucs		  . #x0427)	; Ч
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER CHE")
@@ -1222,14 +1292,14 @@
     (cyrillic-iso8859-5 . #xC8)	; &I-CYRILLIC-48;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER SHA")
+      (=ucs		  . #x0428)	; Ш
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276A)	; &J90-276A; [07-74]
       (=gb2312		  . #x276A)	; &I-G0-276A; [07-74]
       (=ks-x1001	  . #x2C6A)	; &I-K0-2C6A; [12-74]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER SHA")
-      (=ucs		  . #x0428)	; Ш
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHA")
@@ -1255,14 +1325,14 @@
     (cyrillic-iso8859-5 . #xC9)	; &I-CYRILLIC-49;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
+      (=ucs		  . #x0429)	; Щ
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276B)	; &J90-276B; [07-75]
       (=gb2312		  . #x276B)	; &I-G0-276B; [07-75]
       (=ks-x1001	  . #x2C6B)	; &I-K0-2C6B; [12-75]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
-      (=ucs		  . #x0429)	; Щ
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
@@ -1288,14 +1358,14 @@
     (cyrillic-iso8859-5 . #xCA)	; &I-CYRILLIC-4A;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
+      (=ucs		  . #x042A)	; Ъ
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276C)	; &J90-276C; [07-76]
       (=gb2312		  . #x276C)	; &I-G0-276C; [07-76]
       (=ks-x1001	  . #x2C6C)	; &I-K0-2C6C; [12-76]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
-      (=ucs		  . #x042A)	; Ъ
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
@@ -1321,14 +1391,14 @@
     (cyrillic-iso8859-5 . #xCB)	; &I-CYRILLIC-4B;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER YERU")
+      (=ucs		  . #x042B)	; Ы
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276D)	; &J90-276D; [07-77]
       (=gb2312		  . #x276D)	; &I-G0-276D; [07-77]
       (=ks-x1001	  . #x2C6D)	; &I-K0-2C6D; [12-77]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER YERU")
-      (=ucs		  . #x042B)	; Ы
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YERU")
@@ -1354,14 +1424,14 @@
     (cyrillic-iso8859-5 . #xCC)	; &I-CYRILLIC-4C;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
+      (=ucs		  . #x042C)	; Ь
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276E)	; &J90-276E; [07-78]
       (=gb2312		  . #x276E)	; &I-G0-276E; [07-78]
       (=ks-x1001	  . #x2C6E)	; &I-K0-2C6E; [12-78]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
-      (=ucs		  . #x042C)	; Ь
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
@@ -1387,14 +1457,14 @@
     (cyrillic-iso8859-5 . #xCD)	; &I-CYRILLIC-4D;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER E")
+      (=ucs		  . #x042D)	; Э
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x276F)	; &J90-276F; [07-79]
       (=gb2312		  . #x276F)	; &I-G0-276F; [07-79]
       (=ks-x1001	  . #x2C6F)	; &I-K0-2C6F; [12-79]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER E")
-      (=ucs		  . #x042D)	; Э
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER E")
@@ -1420,14 +1490,14 @@
     (cyrillic-iso8859-5 . #xCE)	; &I-CYRILLIC-4E;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER YU")
+      (=ucs		  . #x042E)	; Ю
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2770)	; &J90-2770; [07-80]
       (=gb2312		  . #x2770)	; &I-G0-2770; [07-80]
       (=ks-x1001	  . #x2C70)	; &I-K0-2C70; [12-80]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER YU")
-      (=ucs		  . #x042E)	; Ю
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YU")
@@ -1453,14 +1523,14 @@
     (cyrillic-iso8859-5 . #xCF)	; &I-CYRILLIC-4F;
     ))
 (define-char
-  '((->lowercase
+  '((<-denotational
+     ((name		  . "CYRILLIC CAPITAL LETTER YA")
+      (=ucs		  . #x042F)	; Я
+      ))
+    (->lowercase
      ((=jis-x0208	  . #x2771)	; &J90-2771; [07-81]
       (=gb2312		  . #x2771)	; &I-G0-2771; [07-81]
       (=ks-x1001	  . #x2C71)	; &I-K0-2C71; [12-81]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC CAPITAL LETTER YA")
-      (=ucs		  . #x042F)	; Я
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YA")
@@ -1486,14 +1556,14 @@
     (cyrillic-iso8859-5 . #xD0)	; &I-CYRILLIC-50;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER A")
+      (=ucs		  . #x0430)	; а
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2721)	; &J90-2721; [07-01]
       (=gb2312		  . #x2721)	; &I-G0-2721; [07-01]
       (=ks-x1001	  . #x2C21)	; &I-K0-2C21; [12-01]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER A")
-      (=ucs		  . #x0430)	; а
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER A")
@@ -1519,14 +1589,14 @@
     (cyrillic-iso8859-5 . #xD1)	; &I-CYRILLIC-51;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER BE")
+      (=ucs		  . #x0431)	; б
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2722)	; &J90-2722; [07-02]
       (=gb2312		  . #x2722)	; &I-G0-2722; [07-02]
       (=ks-x1001	  . #x2C22)	; &I-K0-2C22; [12-02]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER BE")
-      (=ucs		  . #x0431)	; б
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER BE")
@@ -1552,14 +1622,14 @@
     (cyrillic-iso8859-5 . #xD2)	; &I-CYRILLIC-52;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER VE")
+      (=ucs		  . #x0432)	; в
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2723)	; &J90-2723; [07-03]
       (=gb2312		  . #x2723)	; &I-G0-2723; [07-03]
       (=ks-x1001	  . #x2C23)	; &I-K0-2C23; [12-03]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER VE")
-      (=ucs		  . #x0432)	; в
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER VE")
@@ -1585,14 +1655,14 @@
     (cyrillic-iso8859-5 . #xD3)	; &I-CYRILLIC-53;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER GHE")
+      (=ucs		  . #x0433)	; г
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2724)	; &J90-2724; [07-04]
       (=gb2312		  . #x2724)	; &I-G0-2724; [07-04]
       (=ks-x1001	  . #x2C24)	; &I-K0-2C24; [12-04]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER GHE")
-      (=ucs		  . #x0433)	; г
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GHE")
@@ -1618,14 +1688,14 @@
     (cyrillic-iso8859-5 . #xD4)	; &I-CYRILLIC-54;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER DE")
+      (=ucs		  . #x0434)	; д
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2725)	; &J90-2725; [07-05]
       (=gb2312		  . #x2725)	; &I-G0-2725; [07-05]
       (=ks-x1001	  . #x2C25)	; &I-K0-2C25; [12-05]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER DE")
-      (=ucs		  . #x0434)	; д
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DE")
@@ -1651,14 +1721,14 @@
     (cyrillic-iso8859-5 . #xD5)	; &I-CYRILLIC-55;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER IE")
+      (=ucs		  . #x0435)	; е
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2726)	; &J90-2726; [07-06]
       (=gb2312		  . #x2726)	; &I-G0-2726; [07-06]
       (=ks-x1001	  . #x2C26)	; &I-K0-2C26; [12-06]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER IE")
-      (=ucs		  . #x0435)	; е
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IE")
@@ -1684,14 +1754,14 @@
     (cyrillic-iso8859-5 . #xD6)	; &I-CYRILLIC-56;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER ZHE")
+      (=ucs		  . #x0436)	; ж
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2728)	; &J90-2728; [07-08]
       (=gb2312		  . #x2728)	; &I-G0-2728; [07-08]
       (=ks-x1001	  . #x2C28)	; &I-K0-2C28; [12-08]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER ZHE")
-      (=ucs		  . #x0436)	; ж
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZHE")
@@ -1717,14 +1787,14 @@
     (cyrillic-iso8859-5 . #xD7)	; &I-CYRILLIC-57;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER ZE")
+      (=ucs		  . #x0437)	; з
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2729)	; &J90-2729; [07-09]
       (=gb2312		  . #x2729)	; &I-G0-2729; [07-09]
       (=ks-x1001	  . #x2C29)	; &I-K0-2C29; [12-09]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER ZE")
-      (=ucs		  . #x0437)	; з
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZE")
@@ -1750,14 +1820,14 @@
     (cyrillic-iso8859-5 . #xD8)	; &I-CYRILLIC-58;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER I")
+      (=ucs		  . #x0438)	; и
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272A)	; &J90-272A; [07-10]
       (=gb2312		  . #x272A)	; &I-G0-272A; [07-10]
       (=ks-x1001	  . #x2C2A)	; &I-K0-2C2A; [12-10]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER I")
-      (=ucs		  . #x0438)	; и
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER I")
@@ -1775,27 +1845,41 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0438 #x0306)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
       (=ucs		  . #x0419)	; Й
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER I")
+      (=ucs		  . #x0438)	; и
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x0439)	; й
     (cyrillic-iso8859-5 . #xD9)	; &I-CYRILLIC-59;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER SHORT I")
+      (=ucs		  . #x0439)	; й
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272B)	; &J90-272B; [07-11]
       (=gb2312		  . #x272B)	; &I-G0-272B; [07-11]
       (=ks-x1001	  . #x2C2B)	; &I-K0-2C2B; [12-11]
       ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER SHORT I")
-      (=ucs		  . #x0439)	; й
-      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT I")
       (=ucs		  . #x0439)	; й
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x275A)	; &J90-275A; [07-58]
+      (=gb2312		  . #x275A)	; &I-G0-275A; [07-58]
+      (=ks-x1001	  . #x2C5A)	; &I-K0-2C5A; [12-58]
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=jis-x0208		. #x275B)	; &J90-275B; [07-59]
     (=gb2312		. #x275B)	; &I-G0-275B; [07-59]
@@ -1817,14 +1901,14 @@
     (cyrillic-iso8859-5 . #xDA)	; &I-CYRILLIC-5A;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER KA")
+      (=ucs		  . #x043A)	; к
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272C)	; &J90-272C; [07-12]
       (=gb2312		  . #x272C)	; &I-G0-272C; [07-12]
       (=ks-x1001	  . #x2C2C)	; &I-K0-2C2C; [12-12]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER KA")
-      (=ucs		  . #x043A)	; к
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KA")
@@ -1850,14 +1934,14 @@
     (cyrillic-iso8859-5 . #xDB)	; &I-CYRILLIC-5B;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER EL")
+      (=ucs		  . #x043B)	; л
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272D)	; &J90-272D; [07-13]
       (=gb2312		  . #x272D)	; &I-G0-272D; [07-13]
       (=ks-x1001	  . #x2C2D)	; &I-K0-2C2D; [12-13]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER EL")
-      (=ucs		  . #x043B)	; л
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EL")
@@ -1883,14 +1967,14 @@
     (cyrillic-iso8859-5 . #xDC)	; &I-CYRILLIC-5C;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER EM")
+      (=ucs		  . #x043C)	; м
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272E)	; &J90-272E; [07-14]
       (=gb2312		  . #x272E)	; &I-G0-272E; [07-14]
       (=ks-x1001	  . #x2C2E)	; &I-K0-2C2E; [12-14]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER EM")
-      (=ucs		  . #x043C)	; м
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EM")
@@ -1916,14 +2000,14 @@
     (cyrillic-iso8859-5 . #xDD)	; &I-CYRILLIC-5D;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER EN")
+      (=ucs		  . #x043D)	; н
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x272F)	; &J90-272F; [07-15]
       (=gb2312		  . #x272F)	; &I-G0-272F; [07-15]
       (=ks-x1001	  . #x2C2F)	; &I-K0-2C2F; [12-15]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER EN")
-      (=ucs		  . #x043D)	; н
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EN")
@@ -1949,14 +2033,14 @@
     (cyrillic-iso8859-5 . #xDE)	; &I-CYRILLIC-5E;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER O")
+      (=ucs		  . #x043E)	; о
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2730)	; &J90-2730; [07-16]
       (=gb2312		  . #x2730)	; &I-G0-2730; [07-16]
       (=ks-x1001	  . #x2C30)	; &I-K0-2C30; [12-16]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER O")
-      (=ucs		  . #x043E)	; о
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER O")
@@ -1982,14 +2066,14 @@
     (cyrillic-iso8859-5 . #xDF)	; &I-CYRILLIC-5F;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER PE")
+      (=ucs		  . #x043F)	; п
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2731)	; &J90-2731; [07-17]
       (=gb2312		  . #x2731)	; &I-G0-2731; [07-17]
       (=ks-x1001	  . #x2C31)	; &I-K0-2C31; [12-17]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER PE")
-      (=ucs		  . #x043F)	; п
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER PE")
@@ -2015,14 +2099,14 @@
     (cyrillic-iso8859-5 . #xE0)	; &I-CYRILLIC-60;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER ER")
+      (=ucs		  . #x0440)	; р
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2732)	; &J90-2732; [07-18]
       (=gb2312		  . #x2732)	; &I-G0-2732; [07-18]
       (=ks-x1001	  . #x2C32)	; &I-K0-2C32; [12-18]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER ER")
-      (=ucs		  . #x0440)	; р
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ER")
@@ -2048,14 +2132,14 @@
     (cyrillic-iso8859-5 . #xE1)	; &I-CYRILLIC-61;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER ES")
+      (=ucs		  . #x0441)	; с
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2733)	; &J90-2733; [07-19]
       (=gb2312		  . #x2733)	; &I-G0-2733; [07-19]
       (=ks-x1001	  . #x2C33)	; &I-K0-2C33; [12-19]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER ES")
-      (=ucs		  . #x0441)	; с
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ES")
@@ -2081,14 +2165,14 @@
     (cyrillic-iso8859-5 . #xE2)	; &I-CYRILLIC-62;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER TE")
+      (=ucs		  . #x0442)	; т
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2734)	; &J90-2734; [07-20]
       (=gb2312		  . #x2734)	; &I-G0-2734; [07-20]
       (=ks-x1001	  . #x2C34)	; &I-K0-2C34; [12-20]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER TE")
-      (=ucs		  . #x0442)	; т
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TE")
@@ -2114,14 +2198,14 @@
     (cyrillic-iso8859-5 . #xE3)	; &I-CYRILLIC-63;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER U")
+      (=ucs		  . #x0443)	; у
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2735)	; &J90-2735; [07-21]
       (=gb2312		  . #x2735)	; &I-G0-2735; [07-21]
       (=ks-x1001	  . #x2C35)	; &I-K0-2C35; [12-21]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER U")
-      (=ucs		  . #x0443)	; у
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER U")
@@ -2147,14 +2231,14 @@
     (cyrillic-iso8859-5 . #xE4)	; &I-CYRILLIC-64;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER EF")
+      (=ucs		  . #x0444)	; ф
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2736)	; &J90-2736; [07-22]
       (=gb2312		  . #x2736)	; &I-G0-2736; [07-22]
       (=ks-x1001	  . #x2C36)	; &I-K0-2C36; [12-22]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER EF")
-      (=ucs		  . #x0444)	; ф
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EF")
@@ -2180,14 +2264,14 @@
     (cyrillic-iso8859-5 . #xE5)	; &I-CYRILLIC-65;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER HA")
+      (=ucs		  . #x0445)	; х
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2737)	; &J90-2737; [07-23]
       (=gb2312		  . #x2737)	; &I-G0-2737; [07-23]
       (=ks-x1001	  . #x2C37)	; &I-K0-2C37; [12-23]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER HA")
-      (=ucs		  . #x0445)	; х
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HA")
@@ -2213,14 +2297,14 @@
     (cyrillic-iso8859-5 . #xE6)	; &I-CYRILLIC-66;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER TSE")
+      (=ucs		  . #x0446)	; ц
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2738)	; &J90-2738; [07-24]
       (=gb2312		  . #x2738)	; &I-G0-2738; [07-24]
       (=ks-x1001	  . #x2C38)	; &I-K0-2C38; [12-24]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER TSE")
-      (=ucs		  . #x0446)	; ц
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TSE")
@@ -2246,14 +2330,14 @@
     (cyrillic-iso8859-5 . #xE7)	; &I-CYRILLIC-67;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER CHE")
+      (=ucs		  . #x0447)	; ч
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2739)	; &J90-2739; [07-25]
       (=gb2312		  . #x2739)	; &I-G0-2739; [07-25]
       (=ks-x1001	  . #x2C39)	; &I-K0-2C39; [12-25]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER CHE")
-      (=ucs		  . #x0447)	; ч
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER CHE")
@@ -2279,14 +2363,14 @@
     (cyrillic-iso8859-5 . #xE8)	; &I-CYRILLIC-68;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER SHA")
+      (=ucs		  . #x0448)	; ш
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273A)	; &J90-273A; [07-26]
       (=gb2312		  . #x273A)	; &I-G0-273A; [07-26]
       (=ks-x1001	  . #x2C3A)	; &I-K0-2C3A; [12-26]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER SHA")
-      (=ucs		  . #x0448)	; ш
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHA")
@@ -2312,14 +2396,14 @@
     (cyrillic-iso8859-5 . #xE9)	; &I-CYRILLIC-69;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER SHCHA")
+      (=ucs		  . #x0449)	; щ
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273B)	; &J90-273B; [07-27]
       (=gb2312		  . #x273B)	; &I-G0-273B; [07-27]
       (=ks-x1001	  . #x2C3B)	; &I-K0-2C3B; [12-27]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER SHCHA")
-      (=ucs		  . #x0449)	; щ
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHCHA")
@@ -2345,14 +2429,14 @@
     (cyrillic-iso8859-5 . #xEA)	; &I-CYRILLIC-6A;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
+      (=ucs		  . #x044A)	; ъ
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273C)	; &J90-273C; [07-28]
       (=gb2312		  . #x273C)	; &I-G0-273C; [07-28]
       (=ks-x1001	  . #x2C3C)	; &I-K0-2C3C; [12-28]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
-      (=ucs		  . #x044A)	; ъ
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
@@ -2378,14 +2462,14 @@
     (cyrillic-iso8859-5 . #xEB)	; &I-CYRILLIC-6B;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER YERU")
+      (=ucs		  . #x044B)	; ы
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273D)	; &J90-273D; [07-29]
       (=gb2312		  . #x273D)	; &I-G0-273D; [07-29]
       (=ks-x1001	  . #x2C3D)	; &I-K0-2C3D; [12-29]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER YERU")
-      (=ucs		  . #x044B)	; ы
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YERU")
@@ -2411,14 +2495,14 @@
     (cyrillic-iso8859-5 . #xEC)	; &I-CYRILLIC-6C;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
+      (=ucs		  . #x044C)	; ь
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273E)	; &J90-273E; [07-30]
       (=gb2312		  . #x273E)	; &I-G0-273E; [07-30]
       (=ks-x1001	  . #x2C3E)	; &I-K0-2C3E; [12-30]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
-      (=ucs		  . #x044C)	; ь
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
@@ -2444,14 +2528,14 @@
     (cyrillic-iso8859-5 . #xED)	; &I-CYRILLIC-6D;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER E")
+      (=ucs		  . #x044D)	; э
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x273F)	; &J90-273F; [07-31]
       (=gb2312		  . #x273F)	; &I-G0-273F; [07-31]
       (=ks-x1001	  . #x2C3F)	; &I-K0-2C3F; [12-31]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER E")
-      (=ucs		  . #x044D)	; э
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER E")
@@ -2477,14 +2561,14 @@
     (cyrillic-iso8859-5 . #xEE)	; &I-CYRILLIC-6E;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER YU")
+      (=ucs		  . #x044E)	; ю
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2740)	; &J90-2740; [07-32]
       (=gb2312		  . #x2740)	; &I-G0-2740; [07-32]
       (=ks-x1001	  . #x2C40)	; &I-K0-2C40; [12-32]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER YU")
-      (=ucs		  . #x044E)	; ю
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YU")
@@ -2510,14 +2594,14 @@
     (cyrillic-iso8859-5 . #xEF)	; &I-CYRILLIC-6F;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER YA")
+      (=ucs		  . #x044F)	; я
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2741)	; &J90-2741; [07-33]
       (=gb2312		  . #x2741)	; &I-G0-2741; [07-33]
       (=ks-x1001	  . #x2C41)	; &I-K0-2C41; [12-33]
-      ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER YA")
-      (=ucs		  . #x044F)	; я
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YA")
@@ -2535,10 +2619,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0435 #x0300)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER IE WITH GRAVE")
       (=ucs		  . #x0400)	; Ѐ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER IE")
+      (=ucs		  . #x0435)	; е
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x0450)	; ѐ
     ))
@@ -2547,27 +2637,41 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0435 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER IO")
       (=ucs		  . #x0401)	; Ё
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER IE")
+      (=ucs		  . #x0435)	; е
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x0451)	; ё
     (cyrillic-iso8859-5 . #xF1)	; &I-CYRILLIC-71;
     ))
 (define-char
-  '((->uppercase
+  '((<-denotational
+     ((name		  . "CYRILLIC SMALL LETTER IO")
+      (=ucs		  . #x0451)	; ё
+      ))
+    (->uppercase
      ((=jis-x0208	  . #x2727)	; &J90-2727; [07-07]
       (=gb2312		  . #x2727)	; &I-G0-2727; [07-07]
       (=ks-x1001	  . #x2C27)	; &I-K0-2C27; [12-07]
       ))
-    (<-denotational
-     ((name		  . "CYRILLIC SMALL LETTER IO")
-      (=ucs		  . #x0451)	; ё
-      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IO")
       (=ucs		  . #x0451)	; ё
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x2756)	; &J90-2756; [07-54]
+      (=gb2312		  . #x2756)	; &I-G0-2756; [07-54]
+      (=ks-x1001	  . #x2C56)	; &I-K0-2C56; [12-54]
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0208		. #x2757)	; &J90-2757; [07-55]
     (=gb2312		. #x2757)	; &I-G0-2757; [07-55]
@@ -2590,12 +2694,12 @@
     (cyrillic-iso8859-5 . #xF2)	; &I-CYRILLIC-72;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2742)	; &JSP-2742; [07-34]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER DJE")
       (=ucs		  . #x0452)	; ђ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2742)	; &JSP-2742; [07-34]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DJE")
@@ -2609,25 +2713,39 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0433 #x0301)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (=ucs		  . #x0403)	; Ѓ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER GHE")
+      (=ucs		  . #x0433)	; г
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x0453)	; ѓ
     (cyrillic-iso8859-5 . #xF3)	; &I-CYRILLIC-73;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2743)	; &JSP-2743; [07-35]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (=ucs		  . #x0453)	; ѓ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2743)	; &JSP-2743; [07-35]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (=ucs		  . #x0453)	; ѓ
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x2754)	; &J90-2754; [07-52]
+      (=gb2312		  . #x2754)	; &I-G0-2754; [07-52]
+      (=ks-x1001	  . #x2C54)	; &I-K0-2C54; [12-52]
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2773)	; &JSP-2773; [07-83]
     (=ucs@jis/fw	. #x0453)	; &JSP-2773;
@@ -2645,12 +2763,12 @@
     (cyrillic-iso8859-5 . #xF4)	; &I-CYRILLIC-74;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2744)	; &JSP-2744; [07-36]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER UKRAINIAN IE")
       (=ucs		  . #x0454)	; є
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2744)	; &JSP-2744; [07-36]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER UKRAINIAN IE")
@@ -2672,12 +2790,12 @@
     (cyrillic-iso8859-5 . #xF5)	; &I-CYRILLIC-75;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2745)	; &JSP-2745; [07-37]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER DZE")
       (=ucs		  . #x0455)	; ѕ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2745)	; &JSP-2745; [07-37]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DZE")
@@ -2699,12 +2817,12 @@
     (cyrillic-iso8859-5 . #xF6)	; &I-CYRILLIC-76;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2746)	; &JSP-2746; [07-38]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
       (=ucs		  . #x0456)	; і
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2746)	; &JSP-2746; [07-38]
       ))
     (<-fullwidth
      ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -2719,25 +2837,37 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Ukrainian")
-    (->decomposition	#x0456 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (=ucs		  . #x0407)	; Ї
+      ))
+    (=decomposition
+     ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
+      (=ucs		  . #x0456)	; і
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x0457)	; ї
     (cyrillic-iso8859-5 . #xF7)	; &I-CYRILLIC-77;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2747)	; &JSP-2747; [07-39]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (=ucs		  . #x0457)	; ї
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2747)	; &JSP-2747; [07-39]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (=ucs		  . #x0457)	; ї
+      ))
+    (=decomposition
+     ((=jis-x0212	  . #x2776)	; &JSP-2776; [07-86]
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2777)	; &JSP-2777; [07-87]
     (=ucs@jis/fw	. #x0457)	; &JSP-2777;
@@ -2755,12 +2885,12 @@
     (cyrillic-iso8859-5 . #xF8)	; &I-CYRILLIC-78;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2748)	; &JSP-2748; [07-40]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER JE")
       (=ucs		  . #x0458)	; ј
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2748)	; &JSP-2748; [07-40]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER JE")
@@ -2782,12 +2912,12 @@
     (cyrillic-iso8859-5 . #xF9)	; &I-CYRILLIC-79;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x2749)	; &JSP-2749; [07-41]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER LJE")
       (=ucs		  . #x0459)	; љ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x2749)	; &JSP-2749; [07-41]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER LJE")
@@ -2809,12 +2939,12 @@
     (cyrillic-iso8859-5 . #xFA)	; &I-CYRILLIC-7A;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x274A)	; &JSP-274A; [07-42]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER NJE")
       (=ucs		  . #x045A)	; њ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x274A)	; &JSP-274A; [07-42]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER NJE")
@@ -2837,12 +2967,12 @@
     (cyrillic-iso8859-5 . #xFB)	; &I-CYRILLIC-7B;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x274B)	; &JSP-274B; [07-43]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER TSHE")
       (=ucs		  . #x045B)	; ћ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x274B)	; &JSP-274B; [07-43]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TSHE")
@@ -2856,25 +2986,39 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x043A #x0301)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
       (=ucs		  . #x040C)	; Ќ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER KA")
+      (=ucs		  . #x043A)	; к
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x045C)	; ќ
     (cyrillic-iso8859-5 . #xFC)	; &I-CYRILLIC-7C;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x274C)	; &JSP-274C; [07-44]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (=ucs		  . #x045C)	; ќ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x274C)	; &JSP-274C; [07-44]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (=ucs		  . #x045C)	; ќ
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x275C)	; &J90-275C; [07-60]
+      (=gb2312		  . #x275C)	; &I-G0-275C; [07-60]
+      (=ks-x1001	  . #x2C5C)	; &I-K0-2C5C; [12-60]
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x277C)	; &JSP-277C; [07-92]
     (=ucs@jis/fw	. #x045C)	; &JSP-277C;
@@ -2884,10 +3028,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0438 #x0300)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER I WITH GRAVE")
       (=ucs		  . #x040D)	; Ѝ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER I")
+      (=ucs		  . #x0438)	; и
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x045D)	; ѝ
     ))
@@ -2897,25 +3047,39 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Byelorussian")
-    (->decomposition	#x0443 #x0306)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
       (=ucs		  . #x040E)	; Ў
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER U")
+      (=ucs		  . #x0443)	; у
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x045E)	; ў
     (cyrillic-iso8859-5 . #xFE)	; &I-CYRILLIC-7E;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x274D)	; &JSP-274D; [07-45]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (=ucs		  . #x045E)	; ў
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x274D)	; &JSP-274D; [07-45]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (=ucs		  . #x045E)	; ў
+      ))
+    (=decomposition
+     ((=jis-x0208	  . #x2765)	; &J90-2765; [07-69]
+      (=gb2312		  . #x2765)	; &I-G0-2765; [07-69]
+      (=ks-x1001	  . #x2C65)	; &I-K0-2C65; [12-69]
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=jis-x0212		. #x277D)	; &JSP-277D; [07-93]
     (=ucs@jis/fw	. #x045E)	; &JSP-277D;
@@ -2933,12 +3097,12 @@
     (cyrillic-iso8859-5 . #xFF)	; &I-CYRILLIC-7F;
     ))
 (define-char
-  '((->uppercase
-     ((=jis-x0212	  . #x274E)	; &JSP-274E; [07-46]
-      ))
-    (<-denotational
+  '((<-denotational
      ((name		  . "CYRILLIC SMALL LETTER DZHE")
       (=ucs		  . #x045F)	; џ
+      ))
+    (->uppercase
+     ((=jis-x0212	  . #x274E)	; &JSP-274E; [07-46]
       ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DZHE")
@@ -3194,10 +3358,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0474 #x030F)
     (->lowercase
      ((name . "CYRILLIC SMALL LETTER IZHITSA WITH DOUBLE GRAVE ACCENT")
       (=ucs		  . #x0477)	; ѷ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER IZHITSA")
+      (=ucs		  . #x0474)	; Ѵ
+      )
+     ((name		  . "COMBINING DOUBLE GRAVE ACCENT")
+      (=ucs		  . #x030F)	; ̏
       ))
     (=ucs		. #x0476)	; Ѷ
     ))
@@ -3206,10 +3376,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0475 #x030F)
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER IZHITSA WITH DOUBLE GRAVE ACCENT")
       (=ucs		  . #x0476)	; Ѷ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER IZHITSA")
+      (=ucs		  . #x0475)	; ѵ
+      )
+     ((name		  . "COMBINING DOUBLE GRAVE ACCENT")
+      (=ucs		  . #x030F)	; ̏
       ))
     (=ucs		. #x0477)	; ѷ
     ))
@@ -3960,10 +4136,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0416 #x0306)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER ZHE WITH BREVE")
       (=ucs		  . #x04C2)	; ӂ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
+      (=ucs		  . #x0416)	; Ж
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04C1)	; Ӂ
     ))
@@ -3972,10 +4154,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0436 #x0306)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE WITH BREVE")
       (=ucs		  . #x04C1)	; Ӂ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER ZHE")
+      (=ucs		  . #x0436)	; ж
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04C2)	; ӂ
     ))
@@ -4050,10 +4238,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0410 #x0306)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER A WITH BREVE")
       (=ucs		  . #x04D1)	; ӑ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER A")
+      (=ucs		  . #x0410)	; А
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04D0)	; Ӑ
     ))
@@ -4062,10 +4256,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0430 #x0306)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER A WITH BREVE")
       (=ucs		  . #x04D0)	; Ӑ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER A")
+      (=ucs		  . #x0430)	; а
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04D1)	; ӑ
     ))
@@ -4074,10 +4274,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0410 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER A WITH DIAERESIS")
       (=ucs		  . #x04D3)	; ӓ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER A")
+      (=ucs		  . #x0410)	; А
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04D2)	; Ӓ
     ))
@@ -4086,10 +4292,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0430 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER A WITH DIAERESIS")
       (=ucs		  . #x04D2)	; Ӓ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER A")
+      (=ucs		  . #x0430)	; а
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04D3)	; ӓ
     ))
@@ -4120,10 +4332,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0415 #x0306)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER IE WITH BREVE")
       (=ucs		  . #x04D7)	; ӗ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER IE")
+      (=ucs		  . #x0415)	; Е
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04D6)	; Ӗ
     ))
@@ -4132,10 +4350,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0435 #x0306)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER IE WITH BREVE")
       (=ucs		  . #x04D6)	; Ӗ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER IE")
+      (=ucs		  . #x0435)	; е
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
       ))
     (=ucs		. #x04D7)	; ӗ
     ))
@@ -4166,10 +4390,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x04D8 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER SCHWA WITH DIAERESIS")
       (=ucs		  . #x04DB)	; ӛ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER SCHWA")
+      (=ucs		  . #x04D8)	; Ә
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DA)	; Ӛ
     ))
@@ -4178,10 +4408,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x04D9 #x0308)
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER SCHWA WITH DIAERESIS")
       (=ucs		  . #x04DA)	; Ӛ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER SCHWA")
+      (=ucs		  . #x04D9)	; ә
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DB)	; ӛ
     ))
@@ -4190,10 +4426,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0416 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER ZHE WITH DIAERESIS")
       (=ucs		  . #x04DD)	; ӝ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
+      (=ucs		  . #x0416)	; Ж
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DC)	; Ӝ
     ))
@@ -4202,10 +4444,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0436 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE WITH DIAERESIS")
       (=ucs		  . #x04DC)	; Ӝ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER ZHE")
+      (=ucs		  . #x0436)	; ж
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DD)	; ӝ
     ))
@@ -4214,10 +4462,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0417 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER ZE WITH DIAERESIS")
       (=ucs		  . #x04DF)	; ӟ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER ZE")
+      (=ucs		  . #x0417)	; З
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DE)	; Ӟ
     ))
@@ -4226,10 +4480,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0437 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER ZE WITH DIAERESIS")
       (=ucs		  . #x04DE)	; Ӟ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER ZE")
+      (=ucs		  . #x0437)	; з
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04DF)	; ӟ
     ))
@@ -4260,10 +4520,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0418 #x0304)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER I WITH MACRON")
       (=ucs		  . #x04E3)	; ӣ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER I")
+      (=ucs		  . #x0418)	; И
+      )
+     ((name		  . "COMBINING MACRON")
+      (=ucs		  . #x0304)	; ̄
       ))
     (=ucs		. #x04E2)	; Ӣ
     ))
@@ -4272,10 +4538,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0438 #x0304)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER I WITH MACRON")
       (=ucs		  . #x04E2)	; Ӣ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER I")
+      (=ucs		  . #x0438)	; и
+      )
+     ((name		  . "COMBINING MACRON")
+      (=ucs		  . #x0304)	; ̄
       ))
     (=ucs		. #x04E3)	; ӣ
     ))
@@ -4284,10 +4556,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0418 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER I WITH DIAERESIS")
       (=ucs		  . #x04E5)	; ӥ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER I")
+      (=ucs		  . #x0418)	; И
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04E4)	; Ӥ
     ))
@@ -4296,10 +4574,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0438 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER I WITH DIAERESIS")
       (=ucs		  . #x04E4)	; Ӥ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER I")
+      (=ucs		  . #x0438)	; и
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04E5)	; ӥ
     ))
@@ -4308,10 +4592,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x041E #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER O WITH DIAERESIS")
       (=ucs		  . #x04E7)	; ӧ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER O")
+      (=ucs		  . #x041E)	; О
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04E6)	; Ӧ
     ))
@@ -4320,10 +4610,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x043E #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER O WITH DIAERESIS")
       (=ucs		  . #x04E6)	; Ӧ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER O")
+      (=ucs		  . #x043E)	; о
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04E7)	; ӧ
     ))
@@ -4354,10 +4650,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x04E8 #x0308)
     (->lowercase
      ((name . "CYRILLIC SMALL LETTER BARRED O WITH DIAERESIS")
       (=ucs		  . #x04EB)	; ӫ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER BARRED O")
+      (=ucs		  . #x04E8)	; Ө
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04EA)	; Ӫ
     ))
@@ -4366,10 +4668,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x04E9 #x0308)
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER BARRED O WITH DIAERESIS")
       (=ucs		  . #x04EA)	; Ӫ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER BARRED O")
+      (=ucs		  . #x04E9)	; ө
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04EB)	; ӫ
     ))
@@ -4378,10 +4686,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x042D #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER E WITH DIAERESIS")
       (=ucs		  . #x04ED)	; ӭ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER E")
+      (=ucs		  . #x042D)	; Э
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04EC)	; Ӭ
     ))
@@ -4390,10 +4704,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x044D #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER E WITH DIAERESIS")
       (=ucs		  . #x04EC)	; Ӭ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER E")
+      (=ucs		  . #x044D)	; э
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04ED)	; ӭ
     ))
@@ -4402,10 +4722,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0423 #x0304)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER U WITH MACRON")
       (=ucs		  . #x04EF)	; ӯ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER U")
+      (=ucs		  . #x0423)	; У
+      )
+     ((name		  . "COMBINING MACRON")
+      (=ucs		  . #x0304)	; ̄
       ))
     (=ucs		. #x04EE)	; Ӯ
     ))
@@ -4414,10 +4740,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0443 #x0304)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER U WITH MACRON")
       (=ucs		  . #x04EE)	; Ӯ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER U")
+      (=ucs		  . #x0443)	; у
+      )
+     ((name		  . "COMBINING MACRON")
+      (=ucs		  . #x0304)	; ̄
       ))
     (=ucs		. #x04EF)	; ӯ
     ))
@@ -4426,10 +4758,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0423 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER U WITH DIAERESIS")
       (=ucs		  . #x04F1)	; ӱ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER U")
+      (=ucs		  . #x0423)	; У
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F0)	; Ӱ
     ))
@@ -4438,10 +4776,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0443 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER U WITH DIAERESIS")
       (=ucs		  . #x04F0)	; Ӱ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER U")
+      (=ucs		  . #x0443)	; у
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F1)	; ӱ
     ))
@@ -4450,10 +4794,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0423 #x030B)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER U WITH DOUBLE ACUTE")
       (=ucs		  . #x04F3)	; ӳ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER U")
+      (=ucs		  . #x0423)	; У
+      )
+     ((name		  . "COMBINING DOUBLE ACUTE ACCENT")
+      (=ucs		  . #x030B)	; ̋
       ))
     (=ucs		. #x04F2)	; Ӳ
     ))
@@ -4462,10 +4812,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0443 #x030B)
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER U WITH DOUBLE ACUTE")
       (=ucs		  . #x04F2)	; Ӳ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER U")
+      (=ucs		  . #x0443)	; у
+      )
+     ((name		  . "COMBINING DOUBLE ACUTE ACCENT")
+      (=ucs		  . #x030B)	; ̋
       ))
     (=ucs		. #x04F3)	; ӳ
     ))
@@ -4474,10 +4830,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0427 #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER CHE WITH DIAERESIS")
       (=ucs		  . #x04F5)	; ӵ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER CHE")
+      (=ucs		  . #x0427)	; Ч
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F4)	; Ӵ
     ))
@@ -4486,10 +4848,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0447 #x0308)
     (->uppercase
      ((name		  . "CYRILLIC CAPITAL LETTER CHE WITH DIAERESIS")
       (=ucs		  . #x04F4)	; Ӵ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER CHE")
+      (=ucs		  . #x0447)	; ч
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F5)	; ӵ
     ))
@@ -4498,10 +4866,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x042B #x0308)
     (->lowercase
      ((name		  . "CYRILLIC SMALL LETTER YERU WITH DIAERESIS")
       (=ucs		  . #x04F9)	; ӹ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC CAPITAL LETTER YERU")
+      (=ucs		  . #x042B)	; Ы
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F8)	; Ӹ
     ))
@@ -4510,10 +4884,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x044B #x0308)
     (->uppercase
      ((name . "CYRILLIC CAPITAL LETTER YERU WITH DIAERESIS")
       (=ucs		  . #x04F8)	; Ӹ
+      ))
+    (=decomposition
+     ((name		  . "CYRILLIC SMALL LETTER YERU")
+      (=ucs		  . #x044B)	; ы
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x04F9)	; ӹ
     ))

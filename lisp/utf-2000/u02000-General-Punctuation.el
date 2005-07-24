@@ -4,7 +4,10 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	#x2002)
+    (=decomposition
+     ((name		  . "EN SPACE")
+      (=ucs		  . #x2002)	;  
+      ))
     (=ucs		. #x2000)	;  
     ))
 (define-char
@@ -12,7 +15,10 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	#x2003)
+    (=decomposition
+     ((name		  . "EM SPACE")
+      (=ucs		  . #x2003)	;  
+      ))
     (=ucs		. #x2001)	;  
     ))
 (define-char
@@ -20,7 +26,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2002)	;  
     ))
 (define-char
@@ -28,7 +38,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2003)	;  
     (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     ))
@@ -37,7 +51,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2004)	;  
     ))
 (define-char
@@ -45,7 +63,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2005)	;  
     ))
 (define-char
@@ -53,7 +75,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2006)	;  
     ))
 (define-char
@@ -61,7 +87,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	noBreak #x0020)
+    (=decomposition
+     noBreak
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2007)	;  
     ))
 (define-char
@@ -69,7 +99,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2008)	;  
     ))
 (define-char
@@ -77,7 +111,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x2009)	;  
     ))
 (define-char
@@ -85,7 +123,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	compat #x0020)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x200A)	;  
     ))
 (define-char
@@ -147,7 +189,11 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	noBreak #x2010)
+    (=decomposition
+     noBreak
+     ((name		  . "HYPHEN")
+      (=ucs		  . #x2010)	; ‐
+      ))
     (=ucs		. #x2011)	; ‑
     ))
 (define-char
@@ -253,7 +299,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0333)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING DOUBLE LOW LINE")
+      (=ucs		  . #x0333)	; ̳
+      ))
     (=ucs		. #x2017)	; ‗
     (hebrew-iso8859-8	. #xDF)	; &I-HEBREW-5F;
     ))
@@ -468,7 +521,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x002E)
+    (=decomposition
+     compat
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2024)	; ․
     ))
 (define-char
@@ -476,7 +533,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x002E #x002E)
+    (=decomposition
+     compat
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2025)	; ‥
     ))
 (define-char
@@ -502,7 +566,17 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x002E #x002E #x002E)
+    (=decomposition
+     compat
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2026)	; …
     ))
 (define-char
@@ -600,7 +674,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	noBreak #x0020)
+    (=decomposition
+     noBreak
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x202F)	;  
     ))
 (define-char
@@ -666,7 +744,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	compat #x2032 #x2032)
+    (=decomposition
+     compat
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; ′
+      )
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; ′
+      ))
     (=ucs		. #x2033)	; ″
     ))
 (define-char
@@ -690,7 +775,17 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	compat #x2032 #x2032 #x2032)
+    (=decomposition
+     compat
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; ′
+      )
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; ′
+      )
+     ((name		  . "PRIME")
+      (=ucs		  . #x2032)	; ′
+      ))
     (=ucs		. #x2034)	; ‴
     ))
 (define-char
@@ -719,7 +814,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x2035 #x2035)
+    (=decomposition
+     compat
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; ‵
+      )
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; ‵
+      ))
     (=ucs		. #x2036)	; ‶
     ))
 (define-char
@@ -727,7 +829,17 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x2035 #x2035 #x2035)
+    (=decomposition
+     compat
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; ‵
+      )
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; ‵
+      )
+     ((name		  . "REVERSED PRIME")
+      (=ucs		  . #x2035)	; ‵
+      ))
     (=ucs		. #x2037)	; ‷
     ))
 (define-char
@@ -783,7 +895,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0021 #x0021)
+    (=decomposition
+     compat
+     ((name		  . "EXCLAMATION MARK")
+      (=ucs		  . #x0021)	; !
+      )
+     ((name		  . "EXCLAMATION MARK")
+      (=ucs		  . #x0021)	; !
+      ))
     (=ucs		. #x203C)	; ‼
     ))
 (define-char
@@ -810,7 +929,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0305)
+    (=decomposition
+     compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING OVERLINE")
+      (=ucs		  . #x0305)	; ̅
+      ))
     (=ucs		. #x203E)	; ‾
     (latin-jisx0201	. #x7E)	; &I-LATINJ-7E;
     (hebrew-iso8859-8	. #xAF)	; &I-HEBREW-2F;
@@ -924,7 +1050,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x003F #x0021)
+    (=decomposition
+     compat
+     ((name		  . "QUESTION MARK")
+      (=ucs		  . #x003F)	; ?
+      )
+     ((name		  . "EXCLAMATION MARK")
+      (=ucs		  . #x0021)	; !
+      ))
     (=ucs		. #x2048)	; ⁈
     ))
 (define-char
@@ -932,7 +1065,6 @@
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈
       ))
-    (->decomposition	compat #xFF1F #xFF01)
     (<-fullwidth
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈
@@ -945,7 +1077,14 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0021 #x003F)
+    (=decomposition
+     compat
+     ((name		  . "EXCLAMATION MARK")
+      (=ucs		  . #x0021)	; !
+      )
+     ((name		  . "QUESTION MARK")
+      (=ucs		  . #x003F)	; ?
+      ))
     (=ucs		. #x2049)	; ⁉
     ))
 (define-char

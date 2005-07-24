@@ -403,7 +403,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B47 #x0B56)
+    (=decomposition
+     ((name		  . "ORIYA VOWEL SIGN E")
+      (=ucs		  . #x0B47)	; େ
+      )
+     ((name		  . "ORIYA AI LENGTH MARK")
+      (=ucs		  . #x0B56)	; ୖ
+      ))
     (=ucs		. #x0B48)	; ୈ
     ))
 (define-char
@@ -411,7 +417,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B47 #x0B3E)
+    (=decomposition
+     ((name		  . "ORIYA VOWEL SIGN E")
+      (=ucs		  . #x0B47)	; େ
+      )
+     ((name		  . "ORIYA VOWEL SIGN AA")
+      (=ucs		  . #x0B3E)	; ା
+      ))
     (=ucs		. #x0B4B)	; ୋ
     ))
 (define-char
@@ -419,7 +431,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B47 #x0B57)
+    (=decomposition
+     ((name		  . "ORIYA VOWEL SIGN E")
+      (=ucs		  . #x0B47)	; େ
+      )
+     ((name		  . "ORIYA AU LENGTH MARK")
+      (=ucs		  . #x0B57)	; ୗ
+      ))
     (=ucs		. #x0B4C)	; ୌ
     ))
 (define-char
@@ -448,7 +466,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B21 #x0B3C)
+    (=decomposition
+     ((name		  . "ORIYA LETTER DDA")
+      (=ucs		  . #x0B21)	; ଡ
+      )
+     ((name		  . "ORIYA SIGN NUKTA")
+      (=ucs		  . #x0B3C)	; ଼
+      ))
     (=ucs		. #x0B5C)	; ଡ଼
     ))
 (define-char
@@ -456,7 +480,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B22 #x0B3C)
+    (=decomposition
+     ((name		  . "ORIYA LETTER DDHA")
+      (=ucs		  . #x0B22)	; ଢ
+      )
+     ((name		  . "ORIYA SIGN NUKTA")
+      (=ucs		  . #x0B3C)	; ଼
+      ))
     (=ucs		. #x0B5D)	; ଢ଼
     ))
 (define-char

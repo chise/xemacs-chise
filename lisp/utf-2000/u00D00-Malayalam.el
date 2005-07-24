@@ -431,7 +431,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0D46 #x0D3E)
+    (=decomposition
+     ((name		  . "MALAYALAM VOWEL SIGN E")
+      (=ucs		  . #x0D46)	; െ
+      )
+     ((name		  . "MALAYALAM VOWEL SIGN AA")
+      (=ucs		  . #x0D3E)	; ാ
+      ))
     (=ucs		. #x0D4A)	; ൊ
     ))
 (define-char
@@ -439,7 +445,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0D47 #x0D3E)
+    (=decomposition
+     ((name		  . "MALAYALAM VOWEL SIGN EE")
+      (=ucs		  . #x0D47)	; േ
+      )
+     ((name		  . "MALAYALAM VOWEL SIGN AA")
+      (=ucs		  . #x0D3E)	; ാ
+      ))
     (=ucs		. #x0D4B)	; ോ
     ))
 (define-char
@@ -447,7 +459,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0D46 #x0D57)
+    (=decomposition
+     ((name		  . "MALAYALAM VOWEL SIGN E")
+      (=ucs		  . #x0D46)	; െ
+      )
+     ((name		  . "MALAYALAM AU LENGTH MARK")
+      (=ucs		  . #x0D57)	; ൗ
+      ))
     (=ucs		. #x0D4C)	; ൌ
     ))
 (define-char

@@ -95,7 +95,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0B92 #x0BD7)
+    (=decomposition
+     ((name		  . "TAMIL LETTER O")
+      (=ucs		  . #x0B92)	; ஒ
+      )
+     ((name		  . "TAMIL AU LENGTH MARK")
+      (=ucs		  . #x0BD7)	; ௗ
+      ))
     (=ucs		. #x0B94)	; ஔ
     ))
 (define-char
@@ -313,7 +319,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0BC6 #x0BBE)
+    (=decomposition
+     ((name		  . "TAMIL VOWEL SIGN E")
+      (=ucs		  . #x0BC6)	; ெ
+      )
+     ((name		  . "TAMIL VOWEL SIGN AA")
+      (=ucs		  . #x0BBE)	; ா
+      ))
     (=ucs		. #x0BCA)	; ொ
     ))
 (define-char
@@ -321,7 +333,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0BC7 #x0BBE)
+    (=decomposition
+     ((name		  . "TAMIL VOWEL SIGN EE")
+      (=ucs		  . #x0BC7)	; ே
+      )
+     ((name		  . "TAMIL VOWEL SIGN AA")
+      (=ucs		  . #x0BBE)	; ா
+      ))
     (=ucs		. #x0BCB)	; ோ
     ))
 (define-char
@@ -329,7 +347,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0BC6 #x0BD7)
+    (=decomposition
+     ((name		  . "TAMIL VOWEL SIGN E")
+      (=ucs		  . #x0BC6)	; ெ
+      )
+     ((name		  . "TAMIL AU LENGTH MARK")
+      (=ucs		  . #x0BD7)	; ௗ
+      ))
     (=ucs		. #x0BCC)	; ௌ
     ))
 (define-char

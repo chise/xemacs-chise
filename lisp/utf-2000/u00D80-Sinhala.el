@@ -501,7 +501,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0DD9 #x0DCA)
+    (=decomposition
+     ((name		  . "SINHALA VOWEL SIGN KOMBUVA")
+      (=ucs		  . #x0DD9)	; ෙ
+      )
+     ((name		  . "SINHALA SIGN AL-LAKUNA")
+      (=ucs		  . #x0DCA)	; ්
+      ))
     (=ucs		. #x0DDA)	; ේ
     ))
 (define-char
@@ -516,7 +522,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0DD9 #x0DCF)
+    (=decomposition
+     ((name		  . "SINHALA VOWEL SIGN KOMBUVA")
+      (=ucs		  . #x0DD9)	; ෙ
+      )
+     ((name		  . "SINHALA VOWEL SIGN AELA-PILLA")
+      (=ucs		  . #x0DCF)	; ා
+      ))
     (=ucs		. #x0DDC)	; ො
     ))
 (define-char
@@ -524,7 +536,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0DDC #x0DCA)
+    (=decomposition
+     ((name		  . "SINHALA VOWEL SIGN KOMBUVA HAA AELA-PILLA")
+      (=ucs		  . #x0DDC)	; ො
+      )
+     ((name		  . "SINHALA SIGN AL-LAKUNA")
+      (=ucs		  . #x0DCA)	; ්
+      ))
     (=ucs		. #x0DDD)	; ෝ
     ))
 (define-char
@@ -532,7 +550,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0DD9 #x0DDF)
+    (=decomposition
+     ((name		  . "SINHALA VOWEL SIGN KOMBUVA")
+      (=ucs		  . #x0DD9)	; ෙ
+      )
+     ((name		  . "SINHALA VOWEL SIGN GAYANUKITTA")
+      (=ucs		  . #x0DDF)	; ෟ
+      ))
     (=ucs		. #x0DDE)	; ෞ
     ))
 (define-char
