@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1130,6 +1130,7 @@ make_char_id_table (Lisp_Object initval)
 
 
 Lisp_Object Qcomposition;
+Lisp_Object Qmap_decomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3484,8 +3485,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
-  else if (EQ (attribute, Q_decomposition))
+  else if (EQ (attribute, Qmap_decomposition))
     put_char_composition (character, value);
+  else if (EQ (attribute, Q_decomposition))
+    {
+      attribute = Qmap_decomposition;
+      put_char_composition (character, value);
+    }
   else if (EQ (attribute, Qto_ucs))
     {
       Lisp_Object ret;
@@ -4630,6 +4636,7 @@ syms_of_chartab (void)
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
+  defsymbol (&Qmap_decomposition,	"=decomposition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
