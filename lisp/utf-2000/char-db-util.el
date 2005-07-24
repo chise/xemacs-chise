@@ -565,6 +565,19 @@
 		    atr-d)
 		  #'char-attribute-name<)))
     (insert "(")
+    (when (memq '<-subsumptive attributes)
+      (unless readable
+	(when (setq value (get-char-attribute char '<-subsumptive))
+	  (char-db-insert-relation-feature char '<-subsumptive value
+					   line-breaking
+					   ccss readable)))
+      (setq attributes (delq '<-subsumptive attributes)))
+    (when (and (memq '<-denotational attributes)
+	       (setq value (get-char-attribute char '<-denotational)))
+      (char-db-insert-relation-feature char '<-denotational value
+				       line-breaking
+				       ccss readable)
+      (setq attributes (delq '<-denotational attributes)))
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
       (insert (format
@@ -591,14 +604,6 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
-    ;; (when (and (memq '<-denotational attributes)
-    ;;            (setq value (get-char-attribute char '<-denotational))
-    ;;            (null (cdr value))
-    ;;            (setq value (encode-char (car value) 'ucs 'defined-only)))
-    ;;   (insert (format "(%-18s . #x%04X)\t; %c%s"
-    ;;                   '=>ucs value (decode-char 'ucs value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '<-denotational attributes)))
     (dolist (name '(=>ucs =>ucs*))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -926,26 +931,26 @@
 		      line-breaking))
       (setq attributes (delq '->ideograph attributes))
       )
-    (when (and (memq '->decomposition attributes)
-	       (setq value (get-char-attribute char '->decomposition)))
-      (insert (format "(->decomposition\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((characterp code)
-					  (if readable
-					      (format "%S" code)
-					    (format "#x%04X"
-						    (char-int code))
-					    ))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s%S" line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->decomposition attributes))
-      )
+    ;; (when (and (memq '->decomposition attributes)
+    ;;            (setq value (get-char-attribute char '->decomposition)))
+    ;;   (insert (format "(->decomposition\t%s)%s"
+    ;;                   (mapconcat (lambda (code)
+    ;;                                (cond ((symbolp code)
+    ;;                                       (symbol-name code))
+    ;;                                      ((characterp code)
+    ;;                                       (if readable
+    ;;                                           (format "%S" code)
+    ;;                                         (format "#x%04X"
+    ;;                                                 (char-int code))
+    ;;                                         ))
+    ;;                                      ((integerp code)
+    ;;                                       (format "#x%04X" code))
+    ;;                                      (t
+    ;;                                       (format "%s%S" line-breaking code))))
+    ;;                              value " ")
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->decomposition attributes))
+    ;;   )
     (if (equal (get-char-attribute char '->titlecase)
 	       (get-char-attribute char '->uppercase))
 	(setq attributes (delq '->titlecase attributes)))
@@ -1027,6 +1032,7 @@
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
+		     (eq name '=decomposition)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
 		 (char-db-insert-relation-feature char name value
 						  line-breaking
