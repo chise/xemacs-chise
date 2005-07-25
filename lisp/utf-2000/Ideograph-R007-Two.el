@@ -179,11 +179,11 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 75)
-		 (=daikanwa	     . 00252)	; &I-M-00252;
-		 )
+     ((shinjigen-1	  . 75)
+      (=daikanwa	  . 00252)	; &I-M-00252;
       ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     (hanyu-dazidian	1 5 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
