@@ -16150,11 +16150,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 211)
-		 (=daikanwa	     . 00577)	; &I-M-00577;
-		 )
+     ((shinjigen-1	  . 211)
+      (=daikanwa	  . 00577)	; &I-M-00577;
       ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     (hanyu-dazidian	1 191 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
