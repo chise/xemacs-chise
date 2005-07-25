@@ -1,3 +1,10 @@
+2005-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qmap_decomposition): New variable.
+	(Fput_char_attribute): Convert `->decomposition' to
+	`=decomposition'.
+	(syms_of_chartab): Add new symbol `=decomposition'.
+
 2005-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fget_range_char_table): Fix serious problem when
