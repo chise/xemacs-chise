@@ -1,3 +1,14 @@
+2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_canonical): New variable.
+	(put_char_composition): Return a feature name: return
+	`->canonical' if argument `value' specifies single character.
+	(Fput_char_attribute): Use `put_char_composition' to determine
+	feature name for `=decomposition' or `->denotational'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `->canonical'.
+	(syms_of_chartab): Add new symbol `->canonical'.
+
 2005-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Qmap_decomposition): New variable.
