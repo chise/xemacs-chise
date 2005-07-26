@@ -1131,6 +1131,7 @@ make_char_id_table (Lisp_Object initval)
 
 Lisp_Object Qcomposition;
 Lisp_Object Qmap_decomposition;
+Lisp_Object Q_canonical;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3385,12 +3386,13 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
-void put_char_composition (Lisp_Object character, Lisp_Object value);
-void
+Lisp_Object
+put_char_composition (Lisp_Object character, Lisp_Object value);
+Lisp_Object
 put_char_composition (Lisp_Object character, Lisp_Object value)
 {
   if (!CONSP (value))
-    signal_simple_error ("Invalid value for ->decomposition",
+    signal_simple_error ("Invalid value for =decomposition",
 			 value);
 
   if (CONSP (Fcdr (value)))
@@ -3428,6 +3430,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
     }
   else
     {
+      return Q_canonical;
+#if 0
       Lisp_Object v = Fcar (value);
 
       if (INTP (v))
@@ -3448,7 +3452,9 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 				   Fcons (character, ret));
 	    }
 	}
+#endif
     }
+  return Qmap_decomposition;
 }
 
 static Lisp_Object
@@ -3485,12 +3491,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
-  else if (EQ (attribute, Qmap_decomposition))
-    put_char_composition (character, value);
-  else if (EQ (attribute, Q_decomposition))
+  else if ( EQ (attribute, Qmap_decomposition) ||
+	    EQ (attribute, Q_decomposition) )
     {
-      attribute = Qmap_decomposition;
-      put_char_composition (character, value);
+      attribute = put_char_composition (character, value);
     }
   else if (EQ (attribute, Qto_ucs))
     {
@@ -3511,22 +3515,23 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	Fput_char_attribute (make_char (c), Q_ucs_unified,
 			     Fcons (character, ret));
     }
-  else if ( EQ (attribute, Q_subsumptive) ||
-	    EQ (attribute, Q_subsumptive_from) ||
-	    EQ (attribute, Q_denotational) ||
-	    EQ (attribute, Q_denotational_from) ||
-	    EQ (attribute, Q_identical) ||
-	    EQ (attribute, Q_identical_from) ||
-	    EQ (attribute, Q_component) ||
-	    EQ (attribute, Q_component_of) ||
-	    !NILP (Fstring_match
-		   (build_string ("^\\(<-\\|->\\)\\("
-				  "fullwidth\\|halfwidth"
-				  "\\|simplified\\|vulgar\\|wrong"
-				  "\\|same\\|original\\|ancient"
-				  "\\|Oracle-Bones\\)[^*]*$"),
-		    Fsymbol_name (attribute),
-		    Qnil, Qnil)) )
+  if ( EQ (attribute, Q_subsumptive)		||
+       EQ (attribute, Q_subsumptive_from)	||
+       EQ (attribute, Q_denotational)		||
+       EQ (attribute, Q_denotational_from)	||
+       EQ (attribute, Q_identical)		||
+       EQ (attribute, Q_identical_from)		||
+       EQ (attribute, Q_canonical)		||
+       EQ (attribute, Q_component)		||
+       EQ (attribute, Q_component_of)		||
+       !NILP (Fstring_match
+	      (build_string ("^\\(<-\\|->\\)\\("
+			     "fullwidth\\|halfwidth"
+			     "\\|simplified\\|vulgar\\|wrong"
+			     "\\|same\\|original\\|ancient"
+			     "\\|Oracle-Bones\\)[^*]*$"),
+	       Fsymbol_name (attribute),
+	       Qnil, Qnil)) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3583,7 +3588,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
 	  if (CONSP (ret))
 	    ret = Fdefine_char (ret);
-	  
+	  else if (INTP (ret))
+	    {
+	      int code_point = XINT (ret);
+	      Emchar cid = DECODE_CHAR (Vcharset_ucs, code_point, 0);
+
+	      if (cid >= 0)
+		ret = make_char (cid);
+	      else
+		ret = make_char (code_point);
+	    }
+
 	  if ( !NILP (ret) && !EQ (ret, character) )
 	    {
 	      Lisp_Object ffv;
@@ -3852,16 +3867,17 @@ Save values of ATTRIBUTE into database file.
 
       if ( !NILP (Ffind_charset (attribute)) )
 	filter = NULL;
-      else if ( EQ (attribute, Qideographic_structure)
-	   || EQ (attribute, Q_identical)
-	   || EQ (attribute, Q_identical_from)
-	   || !NILP (Fstring_match
-		     (build_string ("^\\(<-\\|->\\)\\(simplified"
-				    "\\|same\\|vulgar\\|wrong"
-				    "\\|original\\|ancient"
-				    "\\|Oracle-Bones\\)[^*]*$"),
-		      Fsymbol_name (attribute),
-		      Qnil, Qnil)) )
+      else if ( EQ (attribute, Qideographic_structure)	||
+		EQ (attribute, Q_identical)		||
+		EQ (attribute, Q_identical_from)	||
+		EQ (attribute, Q_canonical)		||
+		!NILP (Fstring_match
+		       (build_string ("^\\(<-\\|->\\)\\(simplified"
+				      "\\|same\\|vulgar\\|wrong"
+				      "\\|original\\|ancient"
+				      "\\|Oracle-Bones\\)[^*]*$"),
+			Fsymbol_name (attribute),
+			Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
       else
 	filter = NULL;
@@ -4637,6 +4653,7 @@ syms_of_chartab (void)
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Qmap_decomposition,	"=decomposition");
+  defsymbol (&Q_canonical,		"->canonical");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
