@@ -5,6 +5,10 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Varia")
+    (<-canonical
+     ((name		  . "COMBINING GRAVE TONE MARK")
+      (=ucs		  . #x0340)	; ̀
+      ))
     (=ucs		. #x0300)	; ̀
     (=jis-x0213-1-2000	. #x2B5C)	; &I-JX1-2B5C; [11-60]
     (latin-tcvn5712	. #xB0)	; &I-VSCII2-30;
@@ -15,6 +19,10 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Oxia")
+    (<-canonical
+     ((name		  . "COMBINING ACUTE TONE MARK")
+      (=ucs		  . #x0341)	; ́
+      ))
     (=ucs		. #x0301)	; ́
     (=jis-x0213-1-2000	. #x2B5A)	; &I-JX1-2B5A; [11-58]
     (latin-tcvn5712	. #xB3)	; &I-VSCII2-33;
@@ -157,6 +165,10 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Psili")
+    (<-canonical
+     ((name		  . "COMBINING GREEK KORONIS")
+      (=ucs		  . #x0343)	; ̓
+      ))
     (=ucs		. #x0313)	; ̓
     ))
 (define-char
@@ -496,7 +508,10 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
-    (->decomposition	#x0300)
+    (->canonical
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
+      ))
     (=ucs		. #x0340)	; ̀
     ))
 (define-char
@@ -505,7 +520,10 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
-    (->decomposition	#x0301)
+    (->canonical
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
+      ))
     (=ucs		. #x0341)	; ́
     ))
 (define-char
@@ -520,7 +538,10 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0313)
+    (->canonical
+     ((name		  . "COMBINING COMMA ABOVE")
+      (=ucs		  . #x0313)	; ̓
+      ))
     (=ucs		. #x0343)	; ̓
     ))
 (define-char
@@ -528,7 +549,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0308 #x0301)
+    (=decomposition
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
+      ))
     (=ucs		. #x0344)	; ̈́
     ))
 (define-char
