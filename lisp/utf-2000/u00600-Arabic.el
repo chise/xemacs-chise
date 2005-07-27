@@ -620,8 +620,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "ARABIC LETTER ALEF")
       (=ucs		  . #x0627)	; ا
       )
@@ -635,8 +634,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "ARABIC LETTER WAW")
       (=ucs		  . #x0648)	; و
       )
@@ -650,8 +648,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "ARABIC LETTER U")
       (=ucs		  . #x06C7)	; ۇ
       )
@@ -665,8 +662,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "ARABIC LETTER YEH")
       (=ucs		  . #x064A)	; ي
       )

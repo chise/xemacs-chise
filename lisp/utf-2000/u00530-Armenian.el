@@ -889,7 +889,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0565 #x0582)
+    (=>decomposition@compat
+     ((name		  . "ARMENIAN SMALL LETTER ECH")
+      (=ucs		  . #x0565)	; ե
+      )
+     ((name		  . "ARMENIAN SMALL LETTER YIWN")
+      (=ucs		  . #x0582)	; ւ
+      ))
     (=ucs		. #x0587)	; և
     ))
 (define-char
