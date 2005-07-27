@@ -779,8 +779,7 @@
      ((name . "LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON")
       (=ucs		  . #x01C5)	; ǅ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       )
@@ -802,8 +801,7 @@
      ((name		  . "LATIN CAPITAL LETTER DZ WITH CARON")
       (=ucs		  . #x01C4)	; Ǆ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       )
@@ -825,8 +823,7 @@
      ((name		  . "LATIN CAPITAL LETTER DZ WITH CARON")
       (=ucs		  . #x01C4)	; Ǆ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       )
@@ -848,8 +845,7 @@
      ((name		  . "LATIN CAPITAL LETTER L WITH SMALL LETTER J")
       (=ucs		  . #x01C8)	; ǈ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       )
@@ -871,8 +867,7 @@
      ((name		  . "LATIN CAPITAL LETTER LJ")
       (=ucs		  . #x01C7)	; Ǉ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       )
@@ -894,8 +889,7 @@
      ((name		  . "LATIN CAPITAL LETTER LJ")
       (=ucs		  . #x01C7)	; Ǉ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       )
@@ -917,8 +911,7 @@
      ((name		  . "LATIN CAPITAL LETTER N WITH SMALL LETTER J")
       (=ucs		  . #x01CB)	; ǋ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       )
@@ -940,8 +933,7 @@
      ((name		  . "LATIN CAPITAL LETTER NJ")
       (=ucs		  . #x01CA)	; Ǌ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       )
@@ -963,8 +955,7 @@
      ((name		  . "LATIN CAPITAL LETTER NJ")
       (=ucs		  . #x01CA)	; Ǌ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER N")
       (=ucs		  . #x006E)	; n
       )
@@ -1958,8 +1949,7 @@
      ((name		  . "LATIN CAPITAL LETTER D WITH SMALL LETTER Z")
       (=ucs		  . #x01F2)	; ǲ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       )
@@ -1981,8 +1971,7 @@
      ((name		  . "LATIN CAPITAL LETTER DZ")
       (=ucs		  . #x01F1)	; Ǳ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       )
@@ -2004,8 +1993,7 @@
      ((name		  . "LATIN CAPITAL LETTER DZ")
       (=ucs		  . #x01F1)	; Ǳ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       )
