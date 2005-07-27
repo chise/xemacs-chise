@@ -2017,8 +2017,7 @@
      ((name		  . "LATIN SMALL LIGATURE IJ")
       (=ucs		  . #x0133)	; ĳ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       )
@@ -2053,8 +2052,7 @@
      ((name		  . "LATIN CAPITAL LIGATURE IJ")
       (=ucs		  . #x0132)	; Ĳ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
       )
@@ -2541,8 +2539,7 @@
      ((name		  . "LATIN SMALL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x0140)	; ŀ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       )
@@ -2564,8 +2561,7 @@
      ((name		  . "LATIN CAPITAL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x013F)	; Ŀ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER L")
       (=ucs		  . #xFF2C)	; Ｌ
       )
@@ -2585,8 +2581,7 @@
      ((name		  . "LATIN CAPITAL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x013F)	; Ŀ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       )
@@ -2608,8 +2603,7 @@
      ((name		  . "LATIN SMALL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x0140)	; ŀ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
       (=ucs		  . #xFF4C)	; ｌ
       )
@@ -2956,8 +2950,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "MODIFIER LETTER APOSTROPHE")
       (=ucs		  . #x02BC)	; ʼ
       )
@@ -2975,8 +2968,7 @@
      ((name . "LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
       (=ucs		  . #x0149)	; ŉ
       ))
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "MODIFIER LETTER APOSTROPHE")
       (=ucs		  . #x02BC)	; ʼ
       )
@@ -5191,8 +5183,7 @@
      ((name		  . "LATIN CAPITAL LETTER S")
       (=ucs		  . #x0053)	; S
       ))
-    (=decomposition
-     compat
+    (<-compat/formed
      ((name		  . "LATIN SMALL LETTER S")
       (=ucs		  . #x0073)	; s
       ))
