@@ -1,5 +1,17 @@
 2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (Q_compatibility_of): New variable.
+	(put_char_composition): Use XCAR/XCDR instead of Fcar/Fcdr if an
+	object is proved to be a cons cell; return `<-compatibility' if
+	the first element of argument `value' is `compat'.
+	(Fput_char_attribute): Eliminate the first value if
+	`put_char_composition' returns `<-compatibility'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-compatibility'.
+	(syms_of_chartab): Add new symbol `<-compatibility'.
+
+2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (Q_canonical): New variable.
 	(put_char_composition): Return a feature name: return
 	`->canonical' if argument `value' specifies single character.
