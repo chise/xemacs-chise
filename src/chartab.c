@@ -1132,6 +1132,7 @@ make_char_id_table (Lisp_Object initval)
 Lisp_Object Qcomposition;
 Lisp_Object Qmap_decomposition;
 Lisp_Object Q_canonical;
+Lisp_Object Q_compatibility_of;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3395,12 +3396,12 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
     signal_simple_error ("Invalid value for =decomposition",
 			 value);
 
-  if (CONSP (Fcdr (value)))
+  if (CONSP (XCDR (value)))
     {
-      if (NILP (Fcdr (Fcdr (value))))
+      if (NILP (Fcdr (XCDR (value))))
 	{
-	  Lisp_Object base = Fcar (value);
-	  Lisp_Object modifier = Fcar (Fcdr (value));
+	  Lisp_Object base = XCAR (value);
+	  Lisp_Object modifier = XCAR (XCDR (value));
 
 	  if (INTP (base))
 	    {
@@ -3410,7 +3411,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	  if (INTP (modifier))
 	    {
 	      modifier = make_char (XINT (modifier));
-	      Fsetcar (Fcdr (value), modifier);
+	      Fsetcar (XCDR (value), modifier);
 	    }
 	  if (CHARP (base))
 	    {
@@ -3426,6 +3427,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	      else
 		Fsetcdr (ret, character);
 	    }
+	  else if (EQ (base, Qcompat))
+	    return Q_compatibility_of;
 	}
     }
   else
@@ -3495,6 +3498,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_decomposition) )
     {
       attribute = put_char_composition (character, value);
+      if (EQ (attribute, Q_compatibility_of))
+	value = XCDR (value);
     }
   else if (EQ (attribute, Qto_ucs))
     {
@@ -3522,11 +3527,14 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_identical)		||
        EQ (attribute, Q_identical_from)		||
        EQ (attribute, Q_canonical)		||
+       EQ (attribute, Q_compatibility_of)	||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
        !NILP (Fstring_match
 	      (build_string ("^\\(<-\\|->\\)\\("
-			     "fullwidth\\|halfwidth"
+			     "canonical"
+			     "\\|compatibility"
+			     "\\|fullwidth\\|halfwidth"
 			     "\\|simplified\\|vulgar\\|wrong"
 			     "\\|same\\|original\\|ancient"
 			     "\\|Oracle-Bones\\)[^*]*$"),
@@ -3871,6 +3879,7 @@ Save values of ATTRIBUTE into database file.
 		EQ (attribute, Q_identical)		||
 		EQ (attribute, Q_identical_from)	||
 		EQ (attribute, Q_canonical)		||
+		EQ (attribute, Q_compatibility_of)	||
 		!NILP (Fstring_match
 		       (build_string ("^\\(<-\\|->\\)\\(simplified"
 				      "\\|same\\|vulgar\\|wrong"
@@ -4654,6 +4663,7 @@ syms_of_chartab (void)
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Qmap_decomposition,	"=decomposition");
   defsymbol (&Q_canonical,		"->canonical");
+  defsymbol (&Q_compatibility_of,	"<-compatibility");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
