@@ -1,3 +1,26 @@
+2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00100-Latin-Extended-A.el: Use `=>decomposition@compat' instead
+	of `=decomposition' for compatibility decomposition mapping.
+	(<LATIN SMALL LETTER LONG S>): Use `<-compat/formed' instead of
+	`=decomposition'.
+
+	* u00600-Arabic.el, u00530-Armenian.el: Use
+	`=>decomposition@compat' instead of `=decomposition' for
+	compatibility decomposition mapping.
+
+	* u00370-Greek.el:
+	- Use `->canonical' instead of `->decomposition' for canonical
+	  mapping to single character.
+	- Add some auto-generated `<-canonical' features.
+	- Use `=>decomposition@compat' instead of `=decomposition' for
+	  compatibility decomposition mapping.
+	- Use `=decomposition' instead of `->decomposition' for canonical
+	  decomposition mapping.
+
+	* u00180-Latin-Extended-B.el: Use `=>decomposition@compat' instead
+	of `=decomposition' for compatibility decomposition mapping.
+
 2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u03130-Hangul-Compatibility-Jamo.el: Use `<-compatibility'
