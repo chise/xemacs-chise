@@ -1822,13 +1822,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
+      (=ucs		  . #x03AC)	; ά
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH OXIA")
       (=ucs		  . #x1FBB)	; Ά
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
-      (=ucs		  . #x03AC)	; ά
       ))
     (=ucs		. #x1F71)	; ά
     ))
@@ -1890,13 +1890,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
+      (=ucs		  . #x03AD)	; έ
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH OXIA")
       (=ucs		  . #x1FC9)	; Έ
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
-      (=ucs		  . #x03AD)	; έ
       ))
     (=ucs		. #x1F73)	; έ
     ))
@@ -1942,13 +1942,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
+      (=ucs		  . #x03AE)	; ή
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ETA WITH OXIA")
       (=ucs		  . #x1FCB)	; Ή
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
-      (=ucs		  . #x03AE)	; ή
       ))
     (=ucs		. #x1F75)	; ή
     ))
@@ -1975,13 +1975,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
+      (=ucs		  . #x03AF)	; ί
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH OXIA")
       (=ucs		  . #x1FDB)	; Ί
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
-      (=ucs		  . #x03AF)	; ί
       ))
     (=ucs		. #x1F77)	; ί
     ))
@@ -2008,13 +2008,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
+      (=ucs		  . #x03CC)	; ό
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH OXIA")
       (=ucs		  . #x1FF9)	; Ό
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
-      (=ucs		  . #x03CC)	; ό
       ))
     (=ucs		. #x1F79)	; ό
     ))
@@ -2041,13 +2041,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
+      (=ucs		  . #x03CD)	; ύ
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH OXIA")
       (=ucs		  . #x1FEB)	; Ύ
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
-      (=ucs		  . #x03CD)	; ύ
       ))
     (=ucs		. #x1F7B)	; ύ
     ))
@@ -2074,13 +2074,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
+      (=ucs		  . #x03CE)	; ώ
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH OXIA")
       (=ucs		  . #x1FFB)	; Ώ
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
-      (=ucs		  . #x03CE)	; ώ
       ))
     (=ucs		. #x1F7D)	; ώ
     ))
@@ -3117,13 +3117,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
+      (=ucs		  . #x0386)	; Ά
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ALPHA WITH OXIA")
       (=ucs		  . #x1F71)	; ά
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
-      (=ucs		  . #x0386)	; Ά
       ))
     (=ucs		. #x1FBB)	; Ά
     ))
@@ -3150,8 +3150,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -3165,13 +3164,13 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK SMALL LETTER IOTA")
+      (=ucs		  . #x03B9)	; ι
+      ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Ι
-      ))
-    (=decomposition
-     ((name		  . "GREEK SMALL LETTER IOTA")
-      (=ucs		  . #x03B9)	; ι
       ))
     (=ucs		. #x1FBE)	; ι
     ))
@@ -3180,8 +3179,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -3195,8 +3193,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -3316,13 +3313,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
+      (=ucs		  . #x0388)	; Έ
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER EPSILON WITH OXIA")
       (=ucs		  . #x1F73)	; έ
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
-      (=ucs		  . #x0388)	; Έ
       ))
     (=ucs		. #x1FC9)	; Έ
     ))
@@ -3349,13 +3346,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
+      (=ucs		  . #x0389)	; Ή
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ETA WITH OXIA")
       (=ucs		  . #x1F75)	; ή
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
-      (=ucs		  . #x0389)	; Ή
       ))
     (=ucs		. #x1FCB)	; Ή
     ))
@@ -3474,7 +3471,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x0390)	; ΐ
       ))
@@ -3567,13 +3564,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
+      (=ucs		  . #x038A)	; Ί
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA WITH OXIA")
       (=ucs		  . #x1F77)	; ί
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
-      (=ucs		  . #x038A)	; Ί
       ))
     (=ucs		. #x1FDB)	; Ί
     ))
@@ -3674,7 +3671,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x03B0)	; ΰ
       ))
@@ -3799,13 +3796,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
+      (=ucs		  . #x038E)	; Ύ
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON WITH OXIA")
       (=ucs		  . #x1F7B)	; ύ
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
-      (=ucs		  . #x038E)	; Ύ
       ))
     (=ucs		. #x1FEB)	; Ύ
     ))
@@ -3846,7 +3843,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name		  . "GREEK DIALYTIKA TONOS")
       (=ucs		  . #x0385)	; ΅
       ))
@@ -3857,7 +3854,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name		  . "GRAVE ACCENT")
       (=ucs		  . #x0060)	; `
       ))
@@ -3960,13 +3957,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
+      (=ucs		  . #x038C)	; Ό
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMICRON WITH OXIA")
       (=ucs		  . #x1F79)	; ό
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
-      (=ucs		  . #x038C)	; Ό
       ))
     (=ucs		. #x1FF9)	; Ό
     ))
@@ -3993,13 +3990,13 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
+      (=ucs		  . #x038F)	; Ώ
+      ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMEGA WITH OXIA")
       (=ucs		  . #x1F7D)	; ώ
-      ))
-    (=decomposition
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
-      (=ucs		  . #x038F)	; Ώ
       ))
     (=ucs		. #x1FFB)	; Ώ
     ))
@@ -4026,7 +4023,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name		  . "ACUTE ACCENT")
       (=ucs		  . #x00B4)	; ´
       ))
@@ -4037,8 +4034,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
