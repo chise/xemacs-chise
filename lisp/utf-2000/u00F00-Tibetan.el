@@ -100,7 +100,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "tsek tar")
-    (->decomposition	noBreak #x0F0B)
+    (=decomposition
+     noBreak
+     ((name		  . "TIBETAN MARK INTERSYLLABIC TSHEG")
+      (=ucs		  . #x0F0B)	; ་
+      ))
     (=ucs		. #x0F0C)	; ༌
     ))
 (define-char
@@ -547,7 +551,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F42 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER GA")
+      (=ucs		  . #x0F42)	; ག
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F43)	; གྷ
     ))
 (define-char
@@ -611,7 +621,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F4C #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER DDA")
+      (=ucs		  . #x0F4C)	; ཌ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F4D)	; ཌྷ
     ))
 (define-char
@@ -647,7 +663,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F51 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER DA")
+      (=ucs		  . #x0F51)	; ད
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F52)	; དྷ
     ))
 (define-char
@@ -683,7 +705,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F56 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER BA")
+      (=ucs		  . #x0F56)	; བ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F57)	; བྷ
     ))
 (define-char
@@ -719,7 +747,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F5B #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER DZA")
+      (=ucs		  . #x0F5B)	; ཛ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F5C)	; ཛྷ
     ))
 (define-char
@@ -812,7 +846,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0F40 #x0FB5)
+    (=decomposition
+     ((name		  . "TIBETAN LETTER KA")
+      (=ucs		  . #x0F40)	; ཀ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER SSA")
+      (=ucs		  . #x0FB5)	; ྵ
+      ))
     (=ucs		. #x0F69)	; ཀྵ
     ))
 (define-char
@@ -841,7 +881,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F71 #x0F72)
+    (=decomposition
+     ((name		  . "TIBETAN VOWEL SIGN AA")
+      (=ucs		  . #x0F71)	; ཱ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN I")
+      (=ucs		  . #x0F72)	; ི
+      ))
     (=ucs		. #x0F73)	; ཱི
     ))
 (define-char
@@ -856,7 +902,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F71 #x0F74)
+    (=decomposition
+     ((name		  . "TIBETAN VOWEL SIGN AA")
+      (=ucs		  . #x0F71)	; ཱ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN U")
+      (=ucs		  . #x0F74)	; ུ
+      ))
     (=ucs		. #x0F75)	; ཱུ
     ))
 (define-char
@@ -864,7 +916,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0FB2 #x0F80)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER RA")
+      (=ucs		  . #x0FB2)	; ྲ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN REVERSED I")
+      (=ucs		  . #x0F80)	; ྀ
+      ))
     (=ucs		. #x0F76)	; ྲྀ
     ))
 (define-char
@@ -872,7 +930,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	compat #x0FB2 #x0F81)
+    (=>decomposition@compat
+     ((name		  . "TIBETAN SUBJOINED LETTER RA")
+      (=ucs		  . #x0FB2)	; ྲ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN REVERSED II")
+      (=ucs		  . #x0F81)	; ཱྀ
+      ))
     (=ucs		. #x0F77)	; ཷ
     ))
 (define-char
@@ -880,7 +944,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0FB3 #x0F80)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER LA")
+      (=ucs		  . #x0FB3)	; ླ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN REVERSED I")
+      (=ucs		  . #x0F80)	; ྀ
+      ))
     (=ucs		. #x0F78)	; ླྀ
     ))
 (define-char
@@ -888,7 +958,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	compat #x0FB3 #x0F81)
+    (=>decomposition@compat
+     ((name		  . "TIBETAN SUBJOINED LETTER LA")
+      (=ucs		  . #x0FB3)	; ླ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN REVERSED II")
+      (=ucs		  . #x0F81)	; ཱྀ
+      ))
     (=ucs		. #x0F79)	; ཹ
     ))
 (define-char
@@ -947,7 +1023,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F71 #x0F80)
+    (=decomposition
+     ((name		  . "TIBETAN VOWEL SIGN AA")
+      (=ucs		  . #x0F71)	; ཱ
+      )
+     ((name		  . "TIBETAN VOWEL SIGN REVERSED I")
+      (=ucs		  . #x0F80)	; ྀ
+      ))
     (=ucs		. #x0F81)	; ཱྀ
     ))
 (define-char
@@ -1054,7 +1136,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F92 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER GA")
+      (=ucs		  . #x0F92)	; ྒ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F93)	; ྒྷ
     ))
 (define-char
@@ -1118,7 +1206,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F9C #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER DDA")
+      (=ucs		  . #x0F9C)	; ྜ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0F9D)	; ྜྷ
     ))
 (define-char
@@ -1154,7 +1248,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0FA1 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER DA")
+      (=ucs		  . #x0FA1)	; ྡ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0FA2)	; ྡྷ
     ))
 (define-char
@@ -1190,7 +1290,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0FA6 #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER BA")
+      (=ucs		  . #x0FA6)	; ྦ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0FA7)	; ྦྷ
     ))
 (define-char
@@ -1226,7 +1332,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0FAB #x0FB7)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER DZA")
+      (=ucs		  . #x0FAB)	; ྫ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER HA")
+      (=ucs		  . #x0FB7)	; ྷ
+      ))
     (=ucs		. #x0FAC)	; ྫྷ
     ))
 (define-char
@@ -1319,7 +1431,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0F90 #x0FB5)
+    (=decomposition
+     ((name		  . "TIBETAN SUBJOINED LETTER KA")
+      (=ucs		  . #x0F90)	; ྐ
+      )
+     ((name		  . "TIBETAN SUBJOINED LETTER SSA")
+      (=ucs		  . #x0FB5)	; ྵ
+      ))
     (=ucs		. #x0FB9)	; ྐྵ
     ))
 (define-char
