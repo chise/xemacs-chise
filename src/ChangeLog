@@ -1,3 +1,15 @@
+2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qto_decomposition_at_compat): New variable.
+	(Q_compat_of): Renamed from `Q_compatibility_of'.
+	(put_char_composition): Rename `Q_compatibility_of' to
+	`Q_compat_of'; return `=>decomposition@compat' for compatibility
+	decomposition mapping.
+	(Fsave_char_attribute_table): Rename `Q_compatibility_of' to
+	`Q_compat_of'.
+	(syms_of_chartab): Add new symbol `=>decomposition@compat'; rename
+	`<-compatibility' to `<-compat'.
+
 2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_compatibility_of): New variable.
