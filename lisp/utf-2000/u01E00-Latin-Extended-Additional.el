@@ -2950,8 +2950,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "LATIN SMALL LETTER A")
       (=ucs		  . #x0061)	; a
       )
