@@ -1011,6 +1011,7 @@
 			     (intern (format "%s*sources" name))))
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
+			  (string-match "^->compat" (symbol-name name))
 			  (string-match "^->halfwidth" (symbol-name name))
 			  (and
 			   (string-match "^->fullwidth" (symbol-name name))
@@ -1033,6 +1034,7 @@
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
 		     (eq name '=decomposition)
+		     (string-match "^=>decomposition" (symbol-name name))
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
 		 (char-db-insert-relation-feature char name value
 						  line-breaking
