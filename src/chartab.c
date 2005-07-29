@@ -1131,8 +1131,9 @@ make_char_id_table (Lisp_Object initval)
 
 Lisp_Object Qcomposition;
 Lisp_Object Qmap_decomposition;
+Lisp_Object Qto_decomposition_at_compat;
 Lisp_Object Q_canonical;
-Lisp_Object Q_compatibility_of;
+Lisp_Object Q_compat_of;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3428,8 +3429,10 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 		Fsetcdr (ret, character);
 	    }
 	  else if (EQ (base, Qcompat))
-	    return Q_compatibility_of;
+	    return Q_compat_of;
 	}
+      else if (EQ (XCAR (value), Qcompat))
+	return Qto_decomposition_at_compat;
     }
   else
     {
@@ -3498,7 +3501,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_decomposition) )
     {
       attribute = put_char_composition (character, value);
-      if (EQ (attribute, Q_compatibility_of))
+      if ( EQ (attribute, Q_compat_of) ||
+	   EQ (attribute, Qto_decomposition_at_compat) )
 	value = XCDR (value);
     }
   else if (EQ (attribute, Qto_ucs))
@@ -3527,13 +3531,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_identical)		||
        EQ (attribute, Q_identical_from)		||
        EQ (attribute, Q_canonical)		||
-       EQ (attribute, Q_compatibility_of)	||
+       EQ (attribute, Q_compat_of)	||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
        !NILP (Fstring_match
 	      (build_string ("^\\(<-\\|->\\)\\("
 			     "canonical"
-			     "\\|compatibility"
+			     "\\|compat"
 			     "\\|fullwidth\\|halfwidth"
 			     "\\|simplified\\|vulgar\\|wrong"
 			     "\\|same\\|original\\|ancient"
@@ -3625,7 +3629,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       UNGCPRO;
     }
 #if 1
-  else if (EQ (attribute, Qideographic_structure))
+  else if ( EQ (attribute, Qideographic_structure) ||
+	    !NILP (Fstring_match
+		   (build_string ("^=>decomposition\\(\\|@[^*]+\\)$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil)) )
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
 #endif
   return put_char_attribute (character, attribute, value);
@@ -3879,7 +3887,7 @@ Save values of ATTRIBUTE into database file.
 		EQ (attribute, Q_identical)		||
 		EQ (attribute, Q_identical_from)	||
 		EQ (attribute, Q_canonical)		||
-		EQ (attribute, Q_compatibility_of)	||
+		EQ (attribute, Q_compat_of)		||
 		!NILP (Fstring_match
 		       (build_string ("^\\(<-\\|->\\)\\(simplified"
 				      "\\|same\\|vulgar\\|wrong"
@@ -4662,8 +4670,9 @@ syms_of_chartab (void)
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Qmap_decomposition,	"=decomposition");
+  defsymbol (&Qto_decomposition_at_compat, "=>decomposition@compat");
   defsymbol (&Q_canonical,		"->canonical");
-  defsymbol (&Q_compatibility_of,	"<-compatibility");
+  defsymbol (&Q_compat_of,		"<-compat");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
