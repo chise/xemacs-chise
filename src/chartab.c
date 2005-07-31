@@ -3433,6 +3433,12 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	}
       else if (EQ (XCAR (value), Qcompat))
 	return Qto_decomposition_at_compat;
+      else
+	return
+	  Fintern
+	  (concat2 (build_string ("=>decomposition@"),
+		    symbol_name (XSYMBOL (XCAR (value)))),
+	   Qnil);
     }
   else
     {
@@ -3501,8 +3507,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_decomposition) )
     {
       attribute = put_char_composition (character, value);
-      if ( EQ (attribute, Q_compat_of) ||
-	   EQ (attribute, Qto_decomposition_at_compat) )
+      if ( /*
+	     EQ (attribute, Q_compat_of) ||
+	     EQ (attribute, Qto_decomposition_at_compat)
+	   */
+	  /* SYMBOLP (XCAR (value)) */
+	  !EQ (attribute, Qmap_decomposition) )
 	value = XCDR (value);
     }
   else if (EQ (attribute, Qto_ucs))
