@@ -1,3 +1,9 @@
+2005-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_composition): Return `=>decomposition@FOO'
+	for compatibility decomposition mapping tagged FOO.
+	(Fput_char_attribute): Modify for `put_char_composition'.
+
 2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Qto_decomposition_at_compat): New variable.
