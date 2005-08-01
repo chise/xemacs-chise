@@ -4,7 +4,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name		  . "EN SPACE")
       (=ucs		  . #x2002)	;  
       ))
@@ -15,7 +15,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
+    (->canonical
      ((name		  . "EM SPACE")
       (=ucs		  . #x2003)	;  
       ))
@@ -26,8 +26,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-canonical
+     ((name		  . "EN QUAD")
+      (=ucs		  . #x2000)	;  
+      ))
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -38,8 +41,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-canonical
+     ((name		  . "EM QUAD")
+      (=ucs		  . #x2001)	;  
+      ))
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -51,8 +57,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -63,8 +68,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -75,8 +79,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -99,8 +102,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -111,8 +113,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -123,8 +124,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -299,8 +299,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -521,8 +520,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (<-compat
      ((name		  . "FULL STOP")
       (=ucs		  . #x002E)	; .
       ))
@@ -533,8 +531,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "FULL STOP")
       (=ucs		  . #x002E)	; .
       )
@@ -566,8 +563,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "FULL STOP")
       (=ucs		  . #x002E)	; .
       )
@@ -744,8 +740,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "PRIME")
       (=ucs		  . #x2032)	; ′
       )
@@ -775,8 +770,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "PRIME")
       (=ucs		  . #x2032)	; ′
       )
@@ -814,8 +808,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "REVERSED PRIME")
       (=ucs		  . #x2035)	; ‵
       )
@@ -829,8 +822,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "REVERSED PRIME")
       (=ucs		  . #x2035)	; ‵
       )
@@ -895,8 +887,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "EXCLAMATION MARK")
       (=ucs		  . #x0021)	; !
       )
@@ -929,8 +920,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -1050,8 +1040,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "QUESTION MARK")
       (=ucs		  . #x003F)	; ?
       )
@@ -1077,8 +1066,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "EXCLAMATION MARK")
       (=ucs		  . #x0021)	; !
       )
