@@ -1131,7 +1131,7 @@ make_char_id_table (Lisp_Object initval)
 
 Lisp_Object Qcomposition;
 Lisp_Object Qmap_decomposition;
-Lisp_Object Qto_decomposition_at_compat;
+Lisp_Object Qto_decomposition_at_superscript;
 Lisp_Object Q_canonical;
 Lisp_Object Q_compat_of;
 Lisp_Object Q_decomposition;
@@ -3431,14 +3431,13 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	  else if (EQ (base, Qcompat))
 	    return Q_compat_of;
 	}
-      else if (EQ (XCAR (value), Qcompat))
-	return Qto_decomposition_at_compat;
+      else if (EQ (XCAR (value), Qsuper))
+	return Qto_decomposition_at_superscript;
       else
 	return
-	  Fintern
-	  (concat2 (build_string ("=>decomposition@"),
-		    symbol_name (XSYMBOL (XCAR (value)))),
-	   Qnil);
+	  Fintern (concat2 (build_string ("=>decomposition@"),
+			    symbol_name (XSYMBOL (XCAR (value)))),
+		   Qnil);
     }
   else
     {
@@ -3507,12 +3506,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_decomposition) )
     {
       attribute = put_char_composition (character, value);
-      if ( /*
-	     EQ (attribute, Q_compat_of) ||
-	     EQ (attribute, Qto_decomposition_at_compat)
-	   */
-	  /* SYMBOLP (XCAR (value)) */
-	  !EQ (attribute, Qmap_decomposition) )
+      if ( !EQ (attribute, Qmap_decomposition) &&
+	   SYMBOLP (XCAR (value)) )
 	value = XCDR (value);
     }
   else if (EQ (attribute, Qto_ucs))
@@ -3541,7 +3536,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_identical)		||
        EQ (attribute, Q_identical_from)		||
        EQ (attribute, Q_canonical)		||
-       EQ (attribute, Q_compat_of)	||
+       EQ (attribute, Q_compat_of)		||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
        !NILP (Fstring_match
@@ -4680,7 +4675,8 @@ syms_of_chartab (void)
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Qmap_decomposition,	"=decomposition");
-  defsymbol (&Qto_decomposition_at_compat, "=>decomposition@compat");
+  defsymbol (&Qto_decomposition_at_superscript,
+	     "=>decomposition@superscript");
   defsymbol (&Q_canonical,		"->canonical");
   defsymbol (&Q_compat_of,		"<-compat");
   defsymbol (&Q_decomposition,		"->decomposition");
