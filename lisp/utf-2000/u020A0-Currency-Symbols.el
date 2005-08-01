@@ -60,7 +60,13 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	compat #x0052 #x0073)
+    (=>decomposition@compat
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x20A8)	; ₨
     ))
 (define-char
