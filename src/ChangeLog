@@ -1,3 +1,14 @@
+2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qto_decomposition_at_compat): Deleted.
+	(Qto_decomposition_at_superscript): New variable.
+	(put_char_composition): Use `=>decomposition@superscript' instead
+	of `=decomposition' for compatibility decomposition mapping tagged
+	`super'.
+	(Fput_char_attribute): Fix condition about `put_char_composition'.
+	(syms_of_chartab): Delete builtin symbol `=>decomposition@compat';
+	add news symbol `=>decomposition@superscript'.
+
 2005-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (put_char_composition): Return `=>decomposition@FOO'
