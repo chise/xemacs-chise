@@ -1,9 +1,44 @@
+2005-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u020A0-Currency-Symbols.el (<RUPEE SIGN>): Use
+	`=>decomposition@compat' instead of `->decomposition'.
+
+2005-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02000-General-Punctuation.el:
+	- Use `->canonical' instead of `=decomposition' for canonical
+	  mapping to single character.
+	- Add some auto-generated `<-canonical' features.
+	- Use `<-compat' instead of `=decomposition' for compatibility
+	  mapping to single character.
+	- Use `=>decomposition@compat' instead of `=decomposition' for
+	  compatibility decomposition mapping.
+
 2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u00100-Latin-Extended-A.el: Use `=>decomposition@compat' instead
 	of `=decomposition' for compatibility decomposition mapping.
 	(<LATIN SMALL LETTER LONG S>): Use `<-compat/formed' instead of
 	`=decomposition'.
+
+	* u01F00-Greek-Extended.el:
+	- Use `->canonical' instead of `=decomposition' for canonical
+	  mapping to single character.
+	- Use `=>decomposition@compat' instead of `=decomposition' for
+	  compatibility decomposition mapping.
+
+	* u01E00-Latin-Extended-Additional.el: Use
+	`=>decomposition@compat' instead of `=decomposition' for
+	compatibility decomposition mapping.
+
+	* u00F00-Tibetan.el:
+	- Use `=decomposition' instead of `->decomposition'.
+	- Use `=>decomposition@compat' instead of `=decomposition' for
+	  compatibility decomposition mapping.
+
+	* u00E80-Lao.el, u00E00-Thai.el: Use `=>decomposition@compat'
+	instead of `=decomposition' for compatibility decomposition
+	mapping.
 
 	* u00600-Arabic.el, u00530-Armenian.el: Use
 	`=>decomposition@compat' instead of `=decomposition' for
@@ -20,6 +55,12 @@
 
 	* u00180-Latin-Extended-B.el: Use `=>decomposition@compat' instead
 	of `=decomposition' for compatibility decomposition mapping.
+
+2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->compat' when running with non-readable mode; format
+	`=>decomposition' as a list of char-specs.
 
 2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
