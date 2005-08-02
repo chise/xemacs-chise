@@ -1011,6 +1011,7 @@
 			     (intern (format "%s*sources" name))))
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
+			  (eq name '->superscript)
 			  (string-match "^->compat" (symbol-name name))
 			  (string-match "^->halfwidth" (symbol-name name))
 			  (and
