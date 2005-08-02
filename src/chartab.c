@@ -1134,6 +1134,7 @@ Lisp_Object Qmap_decomposition;
 Lisp_Object Qto_decomposition_at_superscript;
 Lisp_Object Q_canonical;
 Lisp_Object Q_superscript_of;
+Lisp_Object Q_subscript_of;
 Lisp_Object Q_compat_of;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
@@ -3431,6 +3432,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	    }
 	  else if (EQ (base, Qsuper))
 	    return Q_superscript_of;
+	  else if (EQ (base, Qsub))
+	    return Q_subscript_of;
 	  else if (EQ (base, Qcompat))
 	    return Q_compat_of;
 	}
@@ -3540,13 +3543,14 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_identical_from)		||
        EQ (attribute, Q_canonical)		||
        EQ (attribute, Q_superscript_of)		||
+       EQ (attribute, Q_subscript_of)		||
        EQ (attribute, Q_compat_of)		||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
        !NILP (Fstring_match
 	      (build_string ("^\\(<-\\|->\\)\\("
 			     "canonical"
-			     "\\|superscript\\|compat"
+			     "\\|superscript\\|subscript\\|compat"
 			     "\\|fullwidth\\|halfwidth"
 			     "\\|simplified\\|vulgar\\|wrong"
 			     "\\|same\\|original\\|ancient"
@@ -3897,6 +3901,7 @@ Save values of ATTRIBUTE into database file.
 		EQ (attribute, Q_identical_from)	||
 		EQ (attribute, Q_canonical)		||
 		EQ (attribute, Q_superscript_of)	||
+		EQ (attribute, Q_subscript_of)		||
 		EQ (attribute, Q_compat_of)		||
 		!NILP (Fstring_match
 		       (build_string ("^\\(<-\\|->\\)\\(simplified"
@@ -4684,6 +4689,7 @@ syms_of_chartab (void)
 	     "=>decomposition@superscript");
   defsymbol (&Q_canonical,		"->canonical");
   defsymbol (&Q_superscript_of,		"<-superscript");
+  defsymbol (&Q_subscript_of,		"<-subscript");
   defsymbol (&Q_compat_of,		"<-compat");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
