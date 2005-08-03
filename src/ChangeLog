@@ -1,5 +1,13 @@
 2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (Qto_decomposition_at_circled): New variable.
+	(put_char_composition): Return `=>decomposition@circled' instead
+	of `=decomposition' for compatibility decomposition mapping tagged
+	`circle'.
+	(syms_of_chartab): Add new symbol `=>decomposition@circled'.
+
+2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (Q_subscript_of): New variable.
 	(put_char_composition): Return `<-subscript' instead of
 	`=decomposition' for compatibility mapping to single character
