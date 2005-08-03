@@ -5,7 +5,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/3)
-    (->decomposition	fraction #x0031 #x2044 #x0033)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x2153)	; ⅓
     (=ks-x1001		. #x2877)	; &I-K0-2877; [08-87]
     (=jis-x0213-1-2000	. #x2778)	; &I-JX1-2778; [07-88]
@@ -16,7 +25,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 2/3)
-    (->decomposition	fraction #x0032 #x2044 #x0033)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x2154)	; ⅔
     (=ks-x1001		. #x2878)	; &I-K0-2878; [08-88]
     (=jis-x0213-1-2000	. #x2779)	; &I-JX1-2779; [07-89]
@@ -27,7 +45,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/5)
-    (->decomposition	fraction #x0031 #x2044 #x0035)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2155)	; ⅕
     (=jis-x0213-1-2000	. #x277A)	; &I-JX1-277A; [07-90]
     ))
@@ -37,7 +64,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 2/5)
-    (->decomposition	fraction #x0032 #x2044 #x0035)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2156)	; ⅖
     ))
 (define-char
@@ -46,7 +82,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 3/5)
-    (->decomposition	fraction #x0033 #x2044 #x0035)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2157)	; ⅗
     ))
 (define-char
@@ -55,7 +100,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 4/5)
-    (->decomposition	fraction #x0034 #x2044 #x0035)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2158)	; ⅘
     ))
 (define-char
@@ -64,7 +118,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/6)
-    (->decomposition	fraction #x0031 #x2044 #x0036)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x2159)	; ⅙
     ))
 (define-char
@@ -73,7 +136,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 5/6)
-    (->decomposition	fraction #x0035 #x2044 #x0036)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x215A)	; ⅚
     ))
 (define-char
@@ -82,7 +154,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/8)
-    (->decomposition	fraction #x0031 #x2044 #x0038)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x215B)	; ⅛
     (=ks-x1001		. #x287B)	; &I-K0-287B; [08-91]
     ))
@@ -92,7 +173,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 3/8)
-    (->decomposition	fraction #x0033 #x2044 #x0038)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x215C)	; ⅜
     (=ks-x1001		. #x287C)	; &I-K0-287C; [08-92]
     ))
@@ -102,7 +192,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 5/8)
-    (->decomposition	fraction #x0035 #x2044 #x0038)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x215D)	; ⅝
     (=ks-x1001		. #x287D)	; &I-K0-287D; [08-93]
     ))
@@ -112,7 +211,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 7/8)
-    (->decomposition	fraction #x0037 #x2044 #x0038)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x215E)	; ⅞
     (=ks-x1001		. #x287E)	; &I-K0-287E; [08-94]
     ))
@@ -122,7 +230,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->decomposition	fraction #x0031 #x2044)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      ))
     (=ucs		. #x215F)	; ⅟
     ))
 (define-char
@@ -131,10 +245,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->decomposition	compat #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE")
       (=ucs		  . #x2170)	; ⅰ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2160)	; Ⅰ
     (=gb2312		. #x2271)	; &I-G0-2271; [02-81]
@@ -150,10 +267,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (->decomposition	compat #x0049 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL TWO")
       (=ucs		  . #x2171)	; ⅱ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2161)	; Ⅱ
     (=gb2312		. #x2272)	; &I-G0-2272; [02-82]
@@ -169,10 +292,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (->decomposition	compat #x0049 #x0049 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL THREE")
       (=ucs		  . #x2172)	; ⅲ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2162)	; Ⅲ
     (=gb2312		. #x2273)	; &I-G0-2273; [02-83]
@@ -188,10 +320,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (->decomposition	compat #x0049 #x0056)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FOUR")
       (=ucs		  . #x2173)	; ⅳ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #x2163)	; Ⅳ
     (=gb2312		. #x2274)	; &I-G0-2274; [02-84]
@@ -207,10 +345,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (->decomposition	compat #x0056)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIVE")
       (=ucs		  . #x2174)	; ⅴ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #x2164)	; Ⅴ
     (=gb2312		. #x2275)	; &I-G0-2275; [02-85]
@@ -226,10 +367,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (->decomposition	compat #x0056 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL SIX")
       (=ucs		  . #x2175)	; ⅵ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2165)	; Ⅵ
     (=gb2312		. #x2276)	; &I-G0-2276; [02-86]
@@ -245,10 +392,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (->decomposition	compat #x0056 #x0049 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL SEVEN")
       (=ucs		  . #x2176)	; ⅶ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2166)	; Ⅶ
     (=gb2312		. #x2277)	; &I-G0-2277; [02-87]
@@ -264,10 +420,22 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (->decomposition	compat #x0056 #x0049 #x0049 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL EIGHT")
       (=ucs		  . #x2177)	; ⅷ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x2167)	; Ⅷ
     (=gb2312		. #x2278)	; &I-G0-2278; [02-88]
@@ -283,10 +451,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (->decomposition	compat #x0049 #x0058)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL NINE")
       (=ucs		  . #x2178)	; ⅸ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #x2168)	; Ⅸ
     (=gb2312		. #x2279)	; &I-G0-2279; [02-89]
@@ -302,10 +476,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x0058)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL TEN")
       (=ucs		  . #x2179)	; ⅹ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #x2169)	; Ⅹ
     (=gb2312		. #x227A)	; &I-G0-227A; [02-90]
@@ -321,10 +498,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->decomposition	compat #x0058 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ELEVEN")
       (=ucs		  . #x217A)	; ⅺ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x216A)	; Ⅺ
     (=gb2312		. #x227B)	; &I-G0-227B; [02-91]
@@ -336,10 +519,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->decomposition	compat #x0058 #x0049 #x0049)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL TWELVE")
       (=ucs		  . #x217B)	; ⅻ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x216B)	; Ⅻ
     (=gb2312		. #x227C)	; &I-G0-227C; [02-92]
@@ -351,10 +543,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
-    (->decomposition	compat #x004C)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIFTY")
       (=ucs		  . #x217C)	; ⅼ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER L")
+      (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #x216C)	; Ⅼ
     ))
@@ -364,10 +559,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
-    (->decomposition	compat #x0043)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE HUNDRED")
       (=ucs		  . #x217D)	; ⅽ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #x216D)	; Ⅽ
     ))
@@ -377,10 +575,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
-    (->decomposition	compat #x0044)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIVE HUNDRED")
       (=ucs		  . #x217E)	; ⅾ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER D")
+      (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #x216E)	; Ⅾ
     ))
@@ -390,10 +591,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
-    (->decomposition	compat #x004D)
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE THOUSAND")
       (=ucs		  . #x217F)	; ⅿ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #x216F)	; Ⅿ
     ))
@@ -403,10 +607,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->decomposition	compat #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE")
       (=ucs		  . #x2160)	; Ⅰ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2170)	; ⅰ
     (=ks-x1001		. #x2521)	; &I-K0-2521; [05-01]
@@ -421,10 +628,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (->decomposition	compat #x0069 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL TWO")
       (=ucs		  . #x2161)	; Ⅱ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2171)	; ⅱ
     (=ks-x1001		. #x2522)	; &I-K0-2522; [05-02]
@@ -439,10 +652,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (->decomposition	compat #x0069 #x0069 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL THREE")
       (=ucs		  . #x2162)	; Ⅲ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2172)	; ⅲ
     (=ks-x1001		. #x2523)	; &I-K0-2523; [05-03]
@@ -457,10 +679,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (->decomposition	compat #x0069 #x0076)
     (->uppercase
      ((name		  . "ROMAN NUMERAL FOUR")
       (=ucs		  . #x2163)	; Ⅳ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #x2173)	; ⅳ
     (=ks-x1001		. #x2524)	; &I-K0-2524; [05-04]
@@ -475,10 +703,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (->decomposition	compat #x0076)
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIVE")
       (=ucs		  . #x2164)	; Ⅴ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #x2174)	; ⅴ
     (=ks-x1001		. #x2525)	; &I-K0-2525; [05-05]
@@ -493,10 +724,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (->decomposition	compat #x0076 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL SIX")
       (=ucs		  . #x2165)	; Ⅵ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2175)	; ⅵ
     (=ks-x1001		. #x2526)	; &I-K0-2526; [05-06]
@@ -511,10 +748,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (->decomposition	compat #x0076 #x0069 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL SEVEN")
       (=ucs		  . #x2166)	; Ⅶ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2176)	; ⅶ
     (=ks-x1001		. #x2527)	; &I-K0-2527; [05-07]
@@ -529,10 +775,22 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (->decomposition	compat #x0076 #x0069 #x0069 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL EIGHT")
       (=ucs		  . #x2167)	; Ⅷ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x2177)	; ⅷ
     (=ks-x1001		. #x2528)	; &I-K0-2528; [05-08]
@@ -547,10 +805,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (->decomposition	compat #x0069 #x0078)
     (->uppercase
      ((name		  . "ROMAN NUMERAL NINE")
       (=ucs		  . #x2168)	; Ⅸ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #x2178)	; ⅸ
     (=ks-x1001		. #x2529)	; &I-K0-2529; [05-09]
@@ -565,10 +829,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x0078)
     (->uppercase
      ((name		  . "ROMAN NUMERAL TEN")
       (=ucs		  . #x2169)	; Ⅹ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #x2179)	; ⅹ
     (=ks-x1001		. #x252A)	; &I-K0-252A; [05-10]
@@ -583,10 +850,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->decomposition	compat #x0078 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL ELEVEN")
       (=ucs		  . #x216A)	; Ⅺ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x217A)	; ⅺ
     (=jis-x0213-1-2000	. #x2C3F)	; &I-JX1-2C3F; [12-31]
@@ -597,10 +870,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->decomposition	compat #x0078 #x0069 #x0069)
     (->uppercase
      ((name		  . "ROMAN NUMERAL TWELVE")
       (=ucs		  . #x216B)	; Ⅻ
+      ))
+    (=>decomposition@compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x217B)	; ⅻ
     (=jis-x0213-1-2000	. #x2C40)	; &I-JX1-2C40; [12-32]
@@ -611,10 +893,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
-    (->decomposition	compat #x006C)
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIFTY")
       (=ucs		  . #x216C)	; Ⅼ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #x217C)	; ⅼ
     ))
@@ -624,10 +909,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
-    (->decomposition	compat #x0063)
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE HUNDRED")
       (=ucs		  . #x216D)	; Ⅽ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #x217D)	; ⅽ
     ))
@@ -637,10 +925,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
-    (->decomposition	compat #x0064)
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIVE HUNDRED")
       (=ucs		  . #x216E)	; Ⅾ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #x217E)	; ⅾ
     ))
@@ -650,10 +941,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
-    (->decomposition	compat #x006D)
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE THOUSAND")
       (=ucs		  . #x216F)	; Ⅿ
+      ))
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #x217F)	; ⅿ
     ))
