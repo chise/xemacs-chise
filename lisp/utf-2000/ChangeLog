@@ -1,4 +1,22 @@
+2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->subscript' when running with non-readable mode.
+
+2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02080-Subscripts.el: Use `<-subscript' instead of
+	`->decomposition' for compatibility mapping to single character
+	tagged `super'.
+
 2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u002B0-Spacing-Modifier-Letters.el (<MODIFIER LETTER PRIME>):
+	Add some auto-generated `<-canonical' features.
+	- Use `<-superscript' instead of `->decomposition' for
+	  compatibility mapping to single character tagged `super'.
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
 
 	* char-db-util.el (insert-char-attributes): Don't display
 	`->superscript' when running with non-readable mode.
@@ -7,10 +25,56 @@
 	`->decomposition' for compatibility decomposition mapping tagged
 	`super'.
 
+2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02100-Letterlike-Symbols.el (<DEGREE CELSIUS>): Use
+	`=>decomposition@compat/unit' instead of `->decomposition'.
+	(J0-216E): Likewise.
+	(C1-2222): Omit `->decomposition'.
+	(<EULER CONSTANT>): Use `<-compat/math' instead of
+	`->decomposition' for <LATIN CAPITAL LETTER OPEN E>.
+	(<DEGREE FAHRENHEIT>): Use `=>decomposition@compat/unit' instead
+	of `->decomposition'.
+	(K0-2235): Likewise.
+	(<SERVICE MARK>): Use `=>decomposition@superscript' instead of
+	`->decomposition'.
+	(<TRADE MARK SIGN>): Use `=>decomposition@superscript' instead of
+	`->decomposition'.
+	(K0-2262): Omit `->decomposition'.
+	(<ALEF SYMBOL>): Use `<-compat/math' instead of `->decomposition'
+	for <HEBREW LETTER ALEF>.
+	(<BET SYMBOL>): Use `<-compat/math' instead of `->decomposition'
+	for <HEBREW LETTER BET>.
+	(<GIMEL SYMBOL>): Use `<-compat/math' instead of `->decomposition'
+	for <HEBREW LETTER GIMEL>.
+	(<DALET SYMBOL>): Use `<-compat/math' instead of `->decomposition'
+	for <HEBREW LETTER DALET>.
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
+	- Use `=decomposition' instead of `->decomposition'.
+	- Use `->canonical' instead of `=decomposition' for canonical
+	  mapping to single character.
+
+2005-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02150-Number-Forms.el:
+	- Use `=>decomposition@fraction' instead of `->decomposition' for
+	  compatibility decomposition mapping tagged `fraction'.
+	- Use `<-compat/Roman-Numeral' instead of `->decomposition' for
+	  compatibility mapping from Roman-Numeral to single character.
+	- Use `=>decomposition@compat/Roman-Numeral' instead of
+	  `->decomposition' for compatibility mapping from Roman-Numeral.
+
 2005-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u020A0-Currency-Symbols.el (<RUPEE SIGN>): Use
 	`=>decomposition@compat' instead of `->decomposition'.
+
+2005-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02200-Mathematical-Operators.el: Use `=>decomposition@compat'
+	instead of `=decomposition' for compatibility decomposition
+	mapping.
 
 2005-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -70,6 +134,11 @@
 	* char-db-util.el (insert-char-attributes): Don't display
 	`->compat' when running with non-readable mode; format
 	`=>decomposition' as a list of char-specs.
+
+2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02300-Miscellaneous-Technical.el: Use `->canonical' instead of
+	`=decomposition' for canonical mapping to single character.
 
 2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
