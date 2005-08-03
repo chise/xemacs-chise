@@ -4,7 +4,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0061 #x002F #x0063)
+    (=>decomposition@compat
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "SOLIDUS")
+      (=ucs		  . #x002F)	; /
+      )
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      ))
     (=ucs		. #x2100)	; ℀
     ))
 (define-char
@@ -12,7 +21,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0061 #x002F #x0073)
+    (=>decomposition@compat
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "SOLIDUS")
+      (=ucs		  . #x002F)	; /
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x2101)	; ℁
     ))
 (define-char
@@ -20,7 +38,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0043)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      ))
     (=ucs		. #x2102)	; ℂ
     ))
 (define-char
@@ -28,7 +50,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x00B0 #x0043)
+    (=>decomposition@compat/unit
+     ((name		  . "DEGREE SIGN")
+      (=ucs		  . #x00B0)	; °
+      )
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      ))
     (=ucs		. #x2103)	; ℃
     ))
 (define-char
@@ -36,10 +64,16 @@
      ((name		  . "DEGREE CELSIUS")
       (=ucs		  . #x2103)	; ℃
       ))
-    (->decomposition	compat #x00B0 #xFF23)
     (<-fullwidth
      ((name		  . "DEGREE CELSIUS")
       (=ucs		  . #x2103)	; ℃
+      ))
+    (=>decomposition@compat/unit
+     ((name		  . "DEGREE SIGN")
+      (=ucs		  . #x00B0)	; °
+      )
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER C")
+      (=ucs		  . #xFF23)	; Ｃ
       ))
     (=jis-x0208		. #x216E)	; &J90-216E; [01-78]
     (=gb2312		. #x2166)	; &I-G0-2166; [01-70]
@@ -61,7 +95,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0063 #x002F #x006F)
+    (=>decomposition@compat
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "SOLIDUS")
+      (=ucs		  . #x002F)	; /
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      ))
     (=ucs		. #x2105)	; ℅
     ))
 (define-char
@@ -69,7 +112,6 @@
      ((name		  . "CARE OF")
       (=ucs		  . #x2105)	; ℅
       ))
-    (->decomposition	compat #x0063 #xFF0F #x006F)
     (<-fullwidth
      ((name		  . "CARE OF")
       (=ucs		  . #x2105)	; ℅
@@ -84,7 +126,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0063 #x002F #x0075)
+    (=>decomposition@compat
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "SOLIDUS")
+      (=ucs		  . #x002F)	; /
+      )
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      ))
     (=ucs		. #x2106)	; ℆
     ))
 (define-char
@@ -92,7 +143,10 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0190)
+    (<-compat/math
+     ((name		  . "LATIN CAPITAL LETTER OPEN E")
+      (=ucs		  . #x0190)	; Ɛ
+      ))
     (=ucs		. #x2107)	; ℇ
     ))
 (define-char
@@ -107,7 +161,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x00B0 #x0046)
+    (=>decomposition@compat/unit
+     ((name		  . "DEGREE SIGN")
+      (=ucs		  . #x00B0)	; °
+      )
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
+      ))
     (=ucs		. #x2109)	; ℉
     ))
 (define-char
@@ -115,10 +175,16 @@
      ((name		  . "DEGREE FAHRENHEIT")
       (=ucs		  . #x2109)	; ℉
       ))
-    (->decomposition	compat #x00B0 #xFF26)
     (<-fullwidth
      ((name		  . "DEGREE FAHRENHEIT")
       (=ucs		  . #x2109)	; ℉
+      ))
+    (=>decomposition@compat/unit
+     ((name		  . "DEGREE SIGN")
+      (=ucs		  . #x00B0)	; °
+      )
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER F")
+      (=ucs		  . #xFF26)	; Ｆ
       ))
     (=ks-x1001		. #x2235)	; &C1-226B; [02-21]
     (=cns11643-1	. #x226B)	; &I-C1-226B; [02-75]
@@ -129,7 +195,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0067)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x210A)	; ℊ
     ))
 (define-char
@@ -137,7 +207,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0048)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      ))
     (=ucs		. #x210B)	; ℋ
     ))
 (define-char
@@ -145,7 +219,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0048)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      ))
     (=ucs		. #x210C)	; ℌ
     ))
 (define-char
@@ -153,7 +231,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0048)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      ))
     (=ucs		. #x210D)	; ℍ
     ))
 (define-char
@@ -161,7 +243,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0068)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
+      ))
     (=ucs		. #x210E)	; ℎ
     ))
 (define-char
@@ -169,7 +255,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0127)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER H WITH STROKE")
+      (=ucs		  . #x0127)	; ħ
+      ))
     (=ucs		. #x210F)	; ℏ
     ))
 (define-char
@@ -189,7 +279,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0049)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      ))
     (=ucs		. #x2110)	; ℐ
     ))
 (define-char
@@ -197,7 +291,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0049)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      ))
     (=ucs		. #x2111)	; ℑ
     ))
 (define-char
@@ -205,7 +303,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x004C)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER L")
+      (=ucs		  . #x004C)	; L
+      ))
     (=ucs		. #x2112)	; ℒ
     ))
 (define-char
@@ -213,7 +315,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x006C)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x2113)	; ℓ
     ))
 (define-char
@@ -221,10 +327,14 @@
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
       ))
-    (->decomposition	font #xFF4C)
     (<-fullwidth
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
+      ))
+    (=decomposition
+     font
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
+      (=ucs		  . #xFF4C)	; ｌ
       ))
     (=ks-x1001		. #x2724)	; &JX1-235F; [07-04]
     (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F; [03-63]
@@ -242,7 +352,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x004E)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER N")
+      (=ucs		  . #x004E)	; N
+      ))
     (=ucs		. #x2115)	; ℕ
     ))
 (define-char
@@ -250,7 +364,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x004E #x006F)
+    (=>decomposition@compat
+     ((name		  . "LATIN CAPITAL LETTER N")
+      (=ucs		  . #x004E)	; N
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      ))
     (=ucs		. #x2116)	; №
     (cyrillic-iso8859-5 . #xF0)	; &I-CYRILLIC-70;
     ))
@@ -289,7 +409,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0050)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      ))
     (=ucs		. #x2119)	; ℙ
     ))
 (define-char
@@ -297,7 +421,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0051)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER Q")
+      (=ucs		  . #x0051)	; Q
+      ))
     (=ucs		. #x211A)	; ℚ
     ))
 (define-char
@@ -305,7 +433,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0052)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
+      ))
     (=ucs		. #x211B)	; ℛ
     ))
 (define-char
@@ -313,7 +445,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0052)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
+      ))
     (=ucs		. #x211C)	; ℜ
     ))
 (define-char
@@ -321,7 +457,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0052)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
+      ))
     (=ucs		. #x211D)	; ℝ
     ))
 (define-char
@@ -343,7 +483,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	super #x0053 #x004D)
+    (=>decomposition@superscript
+     ((name		  . "LATIN CAPITAL LETTER S")
+      (=ucs		  . #x0053)	; S
+      )
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      ))
     (=ucs		. #x2120)	; ℠
     ))
 (define-char
@@ -351,7 +497,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0054 #x0045 #x004C)
+    (=>decomposition@compat
+     ((name		  . "LATIN CAPITAL LETTER T")
+      (=ucs		  . #x0054)	; T
+      )
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      )
+     ((name		  . "LATIN CAPITAL LETTER L")
+      (=ucs		  . #x004C)	; L
+      ))
     (=ucs		. #x2121)	; ℡
     ))
 (define-char
@@ -373,7 +528,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	super #x0054 #x004D)
+    (=>decomposition@superscript
+     ((name		  . "LATIN CAPITAL LETTER T")
+      (=ucs		  . #x0054)	; T
+      )
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      ))
     (=ucs		. #x2122)	; ™
     ))
 (define-char
@@ -381,7 +542,6 @@
      ((name		  . "TRADE MARK SIGN")
       (=ucs		  . #x2122)	; ™
       ))
-    (->decomposition	super #xFF34 #xFF2D)
     (<-fullwidth
      ((name		  . "TRADE MARK SIGN")
       (=ucs		  . #x2122)	; ™
@@ -402,7 +562,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x005A)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER Z")
+      (=ucs		  . #x005A)	; Z
+      ))
     (=ucs		. #x2124)	; ℤ
     ))
 (define-char
@@ -417,7 +581,10 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x03A9)
+    (->canonical
+     ((name		  . "GREEK CAPITAL LETTER OMEGA")
+      (=ucs		  . #x03A9)	; Ω
+      ))
     (=ucs		. #x2126)	; Ω
     ))
 (define-char
@@ -455,7 +622,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x005A)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER Z")
+      (=ucs		  . #x005A)	; Z
+      ))
     (=ucs		. #x2128)	; ℨ
     ))
 (define-char
@@ -470,7 +641,10 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004B)
+    (->canonical
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
+      ))
     (=ucs		. #x212A)	; K
     ))
 (define-char
@@ -478,7 +652,10 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x00C5)
+    (->canonical
+     ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
+      (=ucs		  . #x00C5)	; Å
+      ))
     (=ucs		. #x212B)	; Å
     ))
 (define-char
@@ -500,7 +677,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0042)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      ))
     (=ucs		. #x212C)	; ℬ
     ))
 (define-char
@@ -508,7 +689,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0043)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      ))
     (=ucs		. #x212D)	; ℭ
     ))
 (define-char
@@ -523,7 +708,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0065)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      ))
     (=ucs		. #x212F)	; ℯ
     ))
 (define-char
@@ -531,7 +720,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0045)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      ))
     (=ucs		. #x2130)	; ℰ
     ))
 (define-char
@@ -539,7 +732,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0046)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
+      ))
     (=ucs		. #x2131)	; ℱ
     ))
 (define-char
@@ -554,7 +751,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x004D)
+    (=decomposition
+     font
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      ))
     (=ucs		. #x2133)	; ℳ
     ))
 (define-char
@@ -562,7 +763,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x006F)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      ))
     (=ucs		. #x2134)	; ℴ
     ))
 (define-char
@@ -570,7 +775,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x05D0)
+    (<-compat/math
+     ((name		  . "HEBREW LETTER ALEF")
+      (=ucs		  . #x05D0)	; א
+      ))
     (=ucs		. #x2135)	; ℵ
     ))
 (define-char
@@ -590,7 +798,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x05D1)
+    (<-compat/math
+     ((name		  . "HEBREW LETTER BET")
+      (=ucs		  . #x05D1)	; ב
+      ))
     (=ucs		. #x2136)	; ℶ
     ))
 (define-char
@@ -598,7 +809,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x05D2)
+    (<-compat/math
+     ((name		  . "HEBREW LETTER GIMEL")
+      (=ucs		  . #x05D2)	; ג
+      ))
     (=ucs		. #x2137)	; ℷ
     ))
 (define-char
@@ -606,7 +820,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x05D3)
+    (<-compat/math
+     ((name		  . "HEBREW LETTER DALET")
+      (=ucs		  . #x05D3)	; ד
+      ))
     (=ucs		. #x2138)	; ℸ
     ))
 (define-char
@@ -614,7 +831,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	font #x0069)
+    (=decomposition
+     font
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      ))
     (=ucs		. #x2139)	; ℹ
     ))
 (define-char
