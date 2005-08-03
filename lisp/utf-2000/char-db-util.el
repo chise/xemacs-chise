@@ -1012,6 +1012,7 @@
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
 			  (eq name '->superscript)
+			  (eq name '->subscript)
 			  (string-match "^->compat" (symbol-name name))
 			  (string-match "^->halfwidth" (symbol-name name))
 			  (and
