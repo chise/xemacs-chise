@@ -1132,6 +1132,7 @@ make_char_id_table (Lisp_Object initval)
 Lisp_Object Qcomposition;
 Lisp_Object Qmap_decomposition;
 Lisp_Object Qto_decomposition_at_superscript;
+Lisp_Object Qto_decomposition_at_circled;
 Lisp_Object Q_canonical;
 Lisp_Object Q_superscript_of;
 Lisp_Object Q_subscript_of;
@@ -3439,6 +3440,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	}
       else if (EQ (XCAR (value), Qsuper))
 	return Qto_decomposition_at_superscript;
+      else if (EQ (XCAR (value), Qcircle))
+	return Qto_decomposition_at_circled;
       else
 	return
 	  Fintern (concat2 (build_string ("=>decomposition@"),
@@ -4687,6 +4690,7 @@ syms_of_chartab (void)
   defsymbol (&Qmap_decomposition,	"=decomposition");
   defsymbol (&Qto_decomposition_at_superscript,
 	     "=>decomposition@superscript");
+  defsymbol (&Qto_decomposition_at_circled, "=>decomposition@circled");
   defsymbol (&Q_canonical,		"->canonical");
   defsymbol (&Q_superscript_of,		"<-superscript");
   defsymbol (&Q_subscript_of,		"<-subscript");
