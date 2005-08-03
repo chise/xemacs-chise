@@ -776,8 +776,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "INTEGRAL")
       (=ucs		  . #x222B)	; ∫
       )
@@ -807,8 +806,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "INTEGRAL")
       (=ucs		  . #x222B)	; ∫
       )
@@ -852,8 +850,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "CONTOUR INTEGRAL")
       (=ucs		  . #x222E)	; ∮
       )
@@ -867,8 +864,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "CONTOUR INTEGRAL")
       (=ucs		  . #x222E)	; ∮
       )
