@@ -4,7 +4,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0068)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
+      ))
     (=ucs		. #x02B0)	; ʰ
     ))
 (define-char
@@ -12,7 +15,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0266)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER H WITH HOOK")
+      (=ucs		  . #x0266)	; ɦ
+      ))
     (=ucs		. #x02B1)	; ʱ
     ))
 (define-char
@@ -20,7 +26,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x006A)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER J")
+      (=ucs		  . #x006A)	; j
+      ))
     (=ucs		. #x02B2)	; ʲ
     ))
 (define-char
@@ -28,7 +37,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0072)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      ))
     (=ucs		. #x02B3)	; ʳ
     ))
 (define-char
@@ -36,7 +48,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0279)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER TURNED R")
+      (=ucs		  . #x0279)	; ɹ
+      ))
     (=ucs		. #x02B4)	; ʴ
     ))
 (define-char
@@ -44,7 +59,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x027B)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER TURNED R WITH HOOK")
+      (=ucs		  . #x027B)	; ɻ
+      ))
     (=ucs		. #x02B5)	; ʵ
     ))
 (define-char
@@ -52,7 +70,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0281)
+    (<-superscript
+     ((name		  . "LATIN LETTER SMALL CAPITAL INVERTED R")
+      (=ucs		  . #x0281)	; ʁ
+      ))
     (=ucs		. #x02B6)	; ʶ
     ))
 (define-char
@@ -60,7 +81,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0077)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER W")
+      (=ucs		  . #x0077)	; w
+      ))
     (=ucs		. #x02B7)	; ʷ
     ))
 (define-char
@@ -68,7 +92,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0079)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
+      ))
     (=ucs		. #x02B8)	; ʸ
     ))
 (define-char
@@ -76,6 +103,10 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-canonical
+     ((name		  . "GREEK NUMERAL SIGN")
+      (=ucs		  . #x0374)	; ʹ
+      ))
     (=ucs		. #x02B9)	; ʹ
     ))
 (define-char
@@ -420,7 +451,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0306)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING BREVE")
+      (=ucs		  . #x0306)	; ̆
+      ))
     (=ucs		. #x02D8)	; ˘
     (latin-iso8859-2	. #xA2)	; &I-LATIN2-22;
     (latin-iso8859-3	. #xA2)	; &I-LATIN3-22;
@@ -446,7 +483,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
-    (->decomposition	compat #x0020 #x0307)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING DOT ABOVE")
+      (=ucs		  . #x0307)	; ̇
+      ))
     (=ucs		. #x02D9)	; ˙
     (latin-iso8859-2	. #xFF)	; &I-LATIN2-7F;
     (latin-iso8859-3	. #xFF)	; &I-LATIN3-7F;
@@ -474,7 +517,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x030A)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING RING ABOVE")
+      (=ucs		  . #x030A)	; ̊
+      ))
     (=ucs		. #x02DA)	; ˚
     ))
 (define-char
@@ -496,7 +545,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0328)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING OGONEK")
+      (=ucs		  . #x0328)	; ̨
+      ))
     (=ucs		. #x02DB)	; ˛
     (latin-iso8859-2	. #xB2)	; &I-LATIN2-32;
     (latin-iso8859-4	. #xB2)	; &I-LATIN4-32;
@@ -521,7 +576,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0303)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
+      ))
     (=ucs		. #x02DC)	; ˜
     ))
 (define-char
@@ -529,7 +590,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x030B)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING DOUBLE ACUTE ACCENT")
+      (=ucs		  . #x030B)	; ̋
+      ))
     (=ucs		. #x02DD)	; ˝
     (latin-iso8859-2	. #xBD)	; &I-LATIN2-3D;
     ))
@@ -579,7 +646,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0263)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER GAMMA")
+      (=ucs		  . #x0263)	; ɣ
+      ))
     (=ucs		. #x02E0)	; ˠ
     ))
 (define-char
@@ -587,7 +657,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x006C)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x02E1)	; ˡ
     ))
 (define-char
@@ -595,7 +668,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0073)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x02E2)	; ˢ
     ))
 (define-char
@@ -603,7 +679,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0078)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      ))
     (=ucs		. #x02E3)	; ˣ
     ))
 (define-char
@@ -611,7 +690,10 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0295)
+    (<-superscript
+     ((name		  . "LATIN LETTER PHARYNGEAL VOICED FRICATIVE")
+      (=ucs		  . #x0295)	; ʕ
+      ))
     (=ucs		. #x02E4)	; ˤ
     ))
 (define-char
