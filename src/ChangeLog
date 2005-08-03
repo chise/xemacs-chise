@@ -1,3 +1,15 @@
+2005-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_circled_of): New variable.
+	(put_char_composition): Return `<-circled' instead of
+	`=decomposition' for compatibility mapping to single character
+	tagged `circle'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}circled[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-circled'.
+	(syms_of_chartab): Add new symbol `<-circled'.
+
 2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Qto_decomposition_at_circled): New variable.
