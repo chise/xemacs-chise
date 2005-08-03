@@ -7,7 +7,10 @@
     (decimal-digit-value . 0)
     (digit-value	 . 0)
     (numeric-value	 . 0)
-    (->decomposition	sub #x0030)
+    (<-subscript
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x2080)	; ₀
     ))
 (define-char
@@ -18,7 +21,10 @@
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
-    (->decomposition	sub #x0031)
+    (<-subscript
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x2081)	; ₁
     ))
 (define-char
@@ -40,7 +46,10 @@
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
-    (->decomposition	sub #x0032)
+    (<-subscript
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x2082)	; ₂
     ))
 (define-char
@@ -62,7 +71,10 @@
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
-    (->decomposition	sub #x0033)
+    (<-subscript
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x2083)	; ₃
     ))
 (define-char
@@ -84,7 +96,10 @@
     (decimal-digit-value . 4)
     (digit-value	 . 4)
     (numeric-value	 . 4)
-    (->decomposition	sub #x0034)
+    (<-subscript
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x2084)	; ₄
     ))
 (define-char
@@ -106,7 +121,10 @@
     (decimal-digit-value . 5)
     (digit-value	 . 5)
     (numeric-value	 . 5)
-    (->decomposition	sub #x0035)
+    (<-subscript
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2085)	; ₅
     ))
 (define-char
@@ -117,7 +135,10 @@
     (decimal-digit-value . 6)
     (digit-value	 . 6)
     (numeric-value	 . 6)
-    (->decomposition	sub #x0036)
+    (<-subscript
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x2086)	; ₆
     ))
 (define-char
@@ -128,7 +149,10 @@
     (decimal-digit-value . 7)
     (digit-value	 . 7)
     (numeric-value	 . 7)
-    (->decomposition	sub #x0037)
+    (<-subscript
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x2087)	; ₇
     ))
 (define-char
@@ -139,7 +163,10 @@
     (decimal-digit-value . 8)
     (digit-value	 . 8)
     (numeric-value	 . 8)
-    (->decomposition	sub #x0038)
+    (<-subscript
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x2088)	; ₈
     ))
 (define-char
@@ -150,7 +177,10 @@
     (decimal-digit-value . 9)
     (digit-value	 . 9)
     (numeric-value	 . 9)
-    (->decomposition	sub #x0039)
+    (<-subscript
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x2089)	; ₉
     ))
 (define-char
@@ -158,7 +188,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	sub #x002B)
+    (<-subscript
+     ((name		  . "PLUS SIGN")
+      (=ucs		  . #x002B)	; +
+      ))
     (=ucs		. #x208A)	; ₊
     ))
 (define-char
@@ -166,7 +199,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	sub #x2212)
+    (<-subscript
+     ((name		  . "MINUS SIGN")
+      (=ucs		  . #x2212)	; −
+      ))
     (=ucs		. #x208B)	; ₋
     ))
 (define-char
@@ -174,7 +210,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	sub #x003D)
+    (<-subscript
+     ((name		  . "EQUALS SIGN")
+      (=ucs		  . #x003D)	; =
+      ))
     (=ucs		. #x208C)	; ₌
     ))
 (define-char
@@ -182,7 +221,10 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	sub #x0028)
+    (<-subscript
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      ))
     (=ucs		. #x208D)	; ₍
     ))
 (define-char
@@ -190,6 +232,9 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	sub #x0029)
+    (<-subscript
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x208E)	; ₎
     ))
