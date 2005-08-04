@@ -1142,8 +1142,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
@@ -1158,8 +1157,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     compat
+    (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       )
