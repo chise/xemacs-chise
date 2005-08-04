@@ -1014,6 +1014,7 @@
 			  (eq name '->superscript)
 			  (eq name '->subscript)
 			  (eq name '->circled)
+			  (string-match "^->font" (symbol-name name))
 			  (string-match "^->compat" (symbol-name name))
 			  (string-match "^->halfwidth" (symbol-name name))
 			  (and
