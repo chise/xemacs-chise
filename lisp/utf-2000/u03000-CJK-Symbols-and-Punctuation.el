@@ -101,6 +101,10 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (<-canonical
+     ((name		  . "LEFT-POINTING ANGLE BRACKET")
+      (=ucs		  . #x2329)	; 〈
+      ))
     (=ucs		. #x3008)	; 〈
     (=jis-x0208		. #x2152)	; &I-J90-2152; [01-50]
     (=gb2312		. #x2134)	; &I-G0-2134; [01-20]
@@ -113,6 +117,10 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (<-canonical
+     ((name		  . "RIGHT-POINTING ANGLE BRACKET")
+      (=ucs		  . #x232A)	; 〉
+      ))
     (=ucs		. #x3009)	; 〉
     (=jis-x0208		. #x2153)	; &I-J90-2153; [01-51]
     (=gb2312		. #x2135)	; &I-G0-2135; [01-21]
@@ -533,7 +541,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x3012)
+    (<-compat/circled
+     ((name		  . "POSTAL MARK")
+      (=ucs		  . #x3012)	; 〒
+      ))
     (=ucs		. #x3036)	; 〶
     ))
 (define-char
@@ -549,7 +560,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x5341)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x3038)	; 〸
     (=cns11643-1	. #x243E)	; &I-C1-243E; [04-30]
     (=big5		. #xA2CC)	; &I-B-A2CC;
@@ -560,7 +573,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (->decomposition	compat #x5344)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5344)	; 卄
+      ))
     (=ucs		. #x3039)	; 〹
     (=cns11643-1	. #x243F)	; &I-C1-243F; [04-31]
     (=big5		. #xA2CD)	; &I-B-A2CD;
@@ -571,7 +586,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 30)
-    (->decomposition	compat #x5345)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5345)	; 卅
+      ))
     (=ucs		. #x303A)	; 〺
     (=cns11643-1	. #x2440)	; &I-C1-2440; [04-32]
     (=big5		. #xA2CE)	; &I-B-A2CE;
