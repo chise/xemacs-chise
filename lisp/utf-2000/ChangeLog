@@ -1,4 +1,32 @@
+2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display `->font'
+	when running with non-readable mode.
+
+	* u02100-Letterlike-Symbols.el (<DOUBLE-STRUCK CAPITAL foo>): Use
+	`<-font/double-struck' instead of `=decomposition' for <LATIN
+	CAPITAL LETTER foo>'.
+	(<SCRIPT {CAPITAL|SMALL} foo>): Use `<-font/script' instead of
+	`=decomposition' for <LATIN {CAPITAL|SMALL} LETTER foo>.
+	(<BLACK-LETTER CAPITAL foo>): Use `<-font/black-letter' instead of
+	`=decomposition' for <LATIN CAPITAL LETTER foo>.
+	(<PLANCK CONSTANT>): Use `<-font/script/physical' instead of
+	`=decomposition' for <LATIN SMALL LETTER H>.
+	(<PLANCK CONSTANT OVER TWO PI>): Use `<-font/script/physical'
+	instead of `=decomposition' for <LATIN SMALL LETTER H WITH
+	STROKE>.
+	(<INFORMATION SOURCE>): Use `<-font' instead of `=decomposition'
+	for <LATIN SMALL LETTER I>.
+
 2005-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02460-Enclosed-Alphanumerics.el:
+	- Use `<-circled' instead of `->decomposition' for compatibility
+	  mapping to single character tagged `circle'.
+	- Use `=>decomposition@circled' instead of `->decomposition' for
+	  compatibility decomposition mapping tagged `circle'.
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
 
 	* char-db-util.el (insert-char-attributes): Don't display
 	`->circled' when running with non-readable mode.
