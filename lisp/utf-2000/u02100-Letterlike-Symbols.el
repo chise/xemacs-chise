@@ -38,8 +38,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
@@ -195,8 +194,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN SMALL LETTER G")
       (=ucs		  . #x0067)	; g
       ))
@@ -207,8 +205,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
@@ -219,8 +216,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/black-letter
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
@@ -231,8 +227,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
@@ -243,8 +238,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script/physical
      ((name		  . "LATIN SMALL LETTER H")
       (=ucs		  . #x0068)	; h
       ))
@@ -255,8 +249,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script/physical
      ((name		  . "LATIN SMALL LETTER H WITH STROKE")
       (=ucs		  . #x0127)	; ħ
       ))
@@ -279,8 +272,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       ))
@@ -291,8 +283,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/black-letter
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       ))
@@ -303,8 +294,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
@@ -315,8 +305,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
@@ -327,14 +316,13 @@
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
       ))
+    (<-font/script
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
+      (=ucs		  . #xFF4C)	; ｌ
+      ))
     (<-fullwidth
      ((name		  . "SCRIPT SMALL L")
       (=ucs		  . #x2113)	; ℓ
-      ))
-    (=decomposition
-     font
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
-      (=ucs		  . #xFF4C)	; ｌ
       ))
     (=ks-x1001		. #x2724)	; &JX1-235F; [07-04]
     (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F; [03-63]
@@ -352,8 +340,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       ))
@@ -409,8 +396,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER P")
       (=ucs		  . #x0050)	; P
       ))
@@ -421,8 +407,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER Q")
       (=ucs		  . #x0051)	; Q
       ))
@@ -433,8 +418,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
@@ -445,8 +429,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/black-letter
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
@@ -457,8 +440,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
@@ -562,8 +544,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/double-struck
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
       ))
@@ -622,8 +603,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/black-letter
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
       ))
@@ -677,8 +657,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER B")
       (=ucs		  . #x0042)	; B
       ))
@@ -689,8 +668,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/black-letter
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
@@ -708,8 +686,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN SMALL LETTER E")
       (=ucs		  . #x0065)	; e
       ))
@@ -720,8 +697,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER E")
       (=ucs		  . #x0045)	; E
       ))
@@ -732,8 +708,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER F")
       (=ucs		  . #x0046)	; F
       ))
@@ -751,8 +726,7 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
@@ -763,8 +737,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font/script
      ((name		  . "LATIN SMALL LETTER O")
       (=ucs		  . #x006F)	; o
       ))
@@ -831,8 +804,7 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (=decomposition
-     font
+    (<-font
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
       ))
