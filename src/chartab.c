@@ -1137,7 +1137,6 @@ Lisp_Object Q_canonical;
 Lisp_Object Q_superscript_of;
 Lisp_Object Q_subscript_of;
 Lisp_Object Q_circled_of;
-Lisp_Object Q_compat_of;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3438,8 +3437,11 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	    return Q_subscript_of;
 	  else if (EQ (base, Qcircle))
 	    return Q_circled_of;
-	  else if (EQ (base, Qcompat))
-	    return Q_compat_of;
+	  else if (SYMBOLP (base))
+	    return
+	      Fintern (concat2 (build_string ("<-"),
+				Fsymbol_name (base)),
+		       Qnil);
 	}
       else if (EQ (XCAR (value), Qsuper))
 	return Qto_decomposition_at_superscript;
@@ -3448,7 +3450,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
       else
 	return
 	  Fintern (concat2 (build_string ("=>decomposition@"),
-			    symbol_name (XSYMBOL (XCAR (value)))),
+			    Fsymbol_name (XCAR (value))),
 		   Qnil);
     }
   else
@@ -3551,14 +3553,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_superscript_of)		||
        EQ (attribute, Q_subscript_of)		||
        EQ (attribute, Q_circled_of)		||
-       EQ (attribute, Q_compat_of)		||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
        !NILP (Fstring_match
 	      (build_string ("^\\(<-\\|->\\)\\("
 			     "canonical"
 			     "\\|superscript\\|subscript"
-			     "\\|circled\\|compat"
+			     "\\|circled\\|font\\|compat"
 			     "\\|fullwidth\\|halfwidth"
 			     "\\|simplified\\|vulgar\\|wrong"
 			     "\\|same\\|original\\|ancient"
@@ -3911,7 +3912,6 @@ Save values of ATTRIBUTE into database file.
 		EQ (attribute, Q_superscript_of)	||
 		EQ (attribute, Q_subscript_of)		||
 		EQ (attribute, Q_circled_of)		||
-		EQ (attribute, Q_compat_of)		||
 		!NILP (Fstring_match
 		       (build_string ("^\\(<-\\|->\\)\\(simplified"
 				      "\\|same\\|vulgar\\|wrong"
@@ -4701,7 +4701,6 @@ syms_of_chartab (void)
   defsymbol (&Q_superscript_of,		"<-superscript");
   defsymbol (&Q_subscript_of,		"<-subscript");
   defsymbol (&Q_circled_of,		"<-circled");
-  defsymbol (&Q_compat_of,		"<-compat");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
