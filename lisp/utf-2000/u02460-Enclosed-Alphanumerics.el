@@ -6,7 +6,10 @@
     (mirrored		. nil)
     (digit-value	. 1)
     (numeric-value	. 1)
-    (->decomposition	circle #x0031)
+    (<-circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x2460)	; ①
     (=gb2312		. #x2259)	; &I-G0-2259; [02-57]
     (=ks-x1001		. #x2867)	; &I-K0-2867; [08-71]
@@ -22,7 +25,10 @@
     (mirrored		. nil)
     (digit-value	. 2)
     (numeric-value	. 2)
-    (->decomposition	circle #x0032)
+    (<-circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x2461)	; ②
     (=gb2312		. #x225A)	; &I-G0-225A; [02-58]
     (=ks-x1001		. #x2868)	; &I-K0-2868; [08-72]
@@ -38,7 +44,10 @@
     (mirrored		. nil)
     (digit-value	. 3)
     (numeric-value	. 3)
-    (->decomposition	circle #x0033)
+    (<-circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x2462)	; ③
     (=gb2312		. #x225B)	; &I-G0-225B; [02-59]
     (=ks-x1001		. #x2869)	; &I-K0-2869; [08-73]
@@ -54,7 +63,10 @@
     (mirrored		. nil)
     (digit-value	. 4)
     (numeric-value	. 4)
-    (->decomposition	circle #x0034)
+    (<-circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x2463)	; ④
     (=gb2312		. #x225C)	; &I-G0-225C; [02-60]
     (=ks-x1001		. #x286A)	; &I-K0-286A; [08-74]
@@ -70,7 +82,10 @@
     (mirrored		. nil)
     (digit-value	. 5)
     (numeric-value	. 5)
-    (->decomposition	circle #x0035)
+    (<-circled
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2464)	; ⑤
     (=gb2312		. #x225D)	; &I-G0-225D; [02-61]
     (=ks-x1001		. #x286B)	; &I-K0-286B; [08-75]
@@ -86,7 +101,10 @@
     (mirrored		. nil)
     (digit-value	. 6)
     (numeric-value	. 6)
-    (->decomposition	circle #x0036)
+    (<-circled
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x2465)	; ⑥
     (=gb2312		. #x225E)	; &I-G0-225E; [02-62]
     (=ks-x1001		. #x286C)	; &I-K0-286C; [08-76]
@@ -102,7 +120,10 @@
     (mirrored		. nil)
     (digit-value	. 7)
     (numeric-value	. 7)
-    (->decomposition	circle #x0037)
+    (<-circled
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x2466)	; ⑦
     (=gb2312		. #x225F)	; &I-G0-225F; [02-63]
     (=ks-x1001		. #x286D)	; &I-K0-286D; [08-77]
@@ -118,7 +139,10 @@
     (mirrored		. nil)
     (digit-value	. 8)
     (numeric-value	. 8)
-    (->decomposition	circle #x0038)
+    (<-circled
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x2467)	; ⑧
     (=gb2312		. #x2260)	; &I-G0-2260; [02-64]
     (=ks-x1001		. #x286E)	; &I-K0-286E; [08-78]
@@ -134,7 +158,10 @@
     (mirrored		. nil)
     (digit-value	. 9)
     (numeric-value	. 9)
-    (->decomposition	circle #x0039)
+    (<-circled
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x2468)	; ⑨
     (=gb2312		. #x2261)	; &I-G0-2261; [02-65]
     (=ks-x1001		. #x286F)	; &I-K0-286F; [08-79]
@@ -149,7 +176,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	circle #x0031 #x0030)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x2469)	; ⑩
     (=gb2312		. #x2262)	; &I-G0-2262; [02-66]
     (=ks-x1001		. #x2870)	; &I-K0-2870; [08-80]
@@ -164,7 +197,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->decomposition	circle #x0031 #x0031)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x246A)	; ⑪
     (=ks-x1001		. #x2871)	; &I-K0-2871; [08-81]
     (=jis-x0213-1-2000	. #x2D2B)	; &I-JX1-2D2B; [13-11]
@@ -176,7 +215,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->decomposition	circle #x0031 #x0032)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x246B)	; ⑫
     (=ks-x1001		. #x2872)	; &I-K0-2872; [08-82]
     (=jis-x0213-1-2000	. #x2D2C)	; &I-JX1-2D2C; [13-12]
@@ -188,7 +233,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 13)
-    (->decomposition	circle #x0031 #x0033)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x246C)	; ⑬
     (=ks-x1001		. #x2873)	; &I-K0-2873; [08-83]
     (=jis-x0213-1-2000	. #x2D2D)	; &I-JX1-2D2D; [13-13]
@@ -200,7 +251,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 14)
-    (->decomposition	circle #x0031 #x0034)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x246D)	; ⑭
     (=ks-x1001		. #x2874)	; &I-K0-2874; [08-84]
     (=jis-x0213-1-2000	. #x2D2E)	; &I-JX1-2D2E; [13-14]
@@ -212,7 +269,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 15)
-    (->decomposition	circle #x0031 #x0035)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x246E)	; ⑮
     (=ks-x1001		. #x2875)	; &I-K0-2875; [08-85]
     (=jis-x0213-1-2000	. #x2D2F)	; &I-JX1-2D2F; [13-15]
@@ -224,7 +287,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 16)
-    (->decomposition	circle #x0031 #x0036)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x246F)	; ⑯
     (=jis-x0213-1-2000	. #x2D30)	; &I-JX1-2D30; [13-16]
     (=jef-china3	. #x77D8)	; &I-JC3-77D8;
@@ -235,7 +304,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 17)
-    (->decomposition	circle #x0031 #x0037)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x2470)	; ⑰
     (=jis-x0213-1-2000	. #x2D31)	; &I-JX1-2D31; [13-17]
     (=jef-china3	. #x77D9)	; &I-JC3-77D9;
@@ -246,7 +321,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 18)
-    (->decomposition	circle #x0031 #x0038)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x2471)	; ⑱
     (=jis-x0213-1-2000	. #x2D32)	; &I-JX1-2D32; [13-18]
     (=jef-china3	. #x77DA)	; &I-JC3-77DA;
@@ -257,7 +338,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 19)
-    (->decomposition	circle #x0031 #x0039)
+    (=>decomposition@circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x2472)	; ⑲
     (=jis-x0213-1-2000	. #x2D33)	; &I-JX1-2D33; [13-19]
     (=jef-china3	. #x77DB)	; &I-JC3-77DB;
@@ -268,7 +355,13 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (->decomposition	circle #x0032 #x0030)
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x2473)	; ⑳
     (=jis-x0213-1-2000	. #x2D34)	; &I-JX1-2D34; [13-20]
     (=jef-china3	. #x77DC)	; &I-JC3-77DC;
@@ -280,7 +373,16 @@
     (mirrored		. nil)
     (digit-value	. 1)
     (numeric-value	. 1)
-    (->decomposition	compat #x0028 #x0031 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2474)	; ⑴
     (=gb2312		. #x2245)	; &I-G0-2245; [02-37]
     (=ks-x1001		. #x2967)	; &I-K0-2967; [09-71]
@@ -294,7 +396,16 @@
     (mirrored		. nil)
     (digit-value	. 2)
     (numeric-value	. 2)
-    (->decomposition	compat #x0028 #x0032 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2475)	; ⑵
     (=gb2312		. #x2246)	; &I-G0-2246; [02-38]
     (=ks-x1001		. #x2968)	; &I-K0-2968; [09-72]
@@ -308,7 +419,16 @@
     (mirrored		. nil)
     (digit-value	. 3)
     (numeric-value	. 3)
-    (->decomposition	compat #x0028 #x0033 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2476)	; ⑶
     (=gb2312		. #x2247)	; &I-G0-2247; [02-39]
     (=ks-x1001		. #x2969)	; &I-K0-2969; [09-73]
@@ -322,7 +442,16 @@
     (mirrored		. nil)
     (digit-value	. 4)
     (numeric-value	. 4)
-    (->decomposition	compat #x0028 #x0034 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2477)	; ⑷
     (=gb2312		. #x2248)	; &I-G0-2248; [02-40]
     (=ks-x1001		. #x296A)	; &I-K0-296A; [09-74]
@@ -336,7 +465,16 @@
     (mirrored		. nil)
     (digit-value	. 5)
     (numeric-value	. 5)
-    (->decomposition	compat #x0028 #x0035 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2478)	; ⑸
     (=gb2312		. #x2249)	; &I-G0-2249; [02-41]
     (=ks-x1001		. #x296B)	; &I-K0-296B; [09-75]
@@ -350,7 +488,16 @@
     (mirrored		. nil)
     (digit-value	. 6)
     (numeric-value	. 6)
-    (->decomposition	compat #x0028 #x0036 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2479)	; ⑹
     (=gb2312		. #x224A)	; &I-G0-224A; [02-42]
     (=ks-x1001		. #x296C)	; &I-K0-296C; [09-76]
@@ -364,7 +511,16 @@
     (mirrored		. nil)
     (digit-value	. 7)
     (numeric-value	. 7)
-    (->decomposition	compat #x0028 #x0037 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247A)	; ⑺
     (=gb2312		. #x224B)	; &I-G0-224B; [02-43]
     (=ks-x1001		. #x296D)	; &I-K0-296D; [09-77]
@@ -378,7 +534,16 @@
     (mirrored		. nil)
     (digit-value	. 8)
     (numeric-value	. 8)
-    (->decomposition	compat #x0028 #x0038 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247B)	; ⑻
     (=gb2312		. #x224C)	; &I-G0-224C; [02-44]
     (=ks-x1001		. #x296E)	; &I-K0-296E; [09-78]
@@ -392,7 +557,16 @@
     (mirrored		. nil)
     (digit-value	. 9)
     (numeric-value	. 9)
-    (->decomposition	compat #x0028 #x0039 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247C)	; ⑼
     (=gb2312		. #x224D)	; &I-G0-224D; [02-45]
     (=ks-x1001		. #x296F)	; &I-K0-296F; [09-79]
@@ -405,7 +579,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x0028 #x0031 #x0030 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247D)	; ⑽
     (=gb2312		. #x224E)	; &I-G0-224E; [02-46]
     (=ks-x1001		. #x2970)	; &I-K0-2970; [09-80]
@@ -418,7 +604,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->decomposition	compat #x0028 #x0031 #x0031 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247E)	; ⑾
     (=gb2312		. #x224F)	; &I-G0-224F; [02-47]
     (=ks-x1001		. #x2971)	; &I-K0-2971; [09-81]
@@ -429,7 +627,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->decomposition	compat #x0028 #x0031 #x0032 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x247F)	; ⑿
     (=gb2312		. #x2250)	; &I-G0-2250; [02-48]
     (=ks-x1001		. #x2972)	; &I-K0-2972; [09-82]
@@ -440,7 +650,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 13)
-    (->decomposition	compat #x0028 #x0031 #x0033 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2480)	; ⒀
     (=gb2312		. #x2251)	; &I-G0-2251; [02-49]
     (=ks-x1001		. #x2973)	; &I-K0-2973; [09-83]
@@ -451,7 +673,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 14)
-    (->decomposition	compat #x0028 #x0031 #x0034 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2481)	; ⒁
     (=gb2312		. #x2252)	; &I-G0-2252; [02-50]
     (=ks-x1001		. #x2974)	; &I-K0-2974; [09-84]
@@ -462,7 +696,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 15)
-    (->decomposition	compat #x0028 #x0031 #x0035 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2482)	; ⒂
     (=gb2312		. #x2253)	; &I-G0-2253; [02-51]
     (=ks-x1001		. #x2975)	; &I-K0-2975; [09-85]
@@ -473,7 +719,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 16)
-    (->decomposition	compat #x0028 #x0031 #x0036 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2483)	; ⒃
     (=gb2312		. #x2254)	; &I-G0-2254; [02-52]
     ))
@@ -483,7 +741,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 17)
-    (->decomposition	compat #x0028 #x0031 #x0037 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2484)	; ⒄
     (=gb2312		. #x2255)	; &I-G0-2255; [02-53]
     ))
@@ -493,7 +763,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 18)
-    (->decomposition	compat #x0028 #x0031 #x0038 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2485)	; ⒅
     (=gb2312		. #x2256)	; &I-G0-2256; [02-54]
     ))
@@ -503,7 +785,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 19)
-    (->decomposition	compat #x0028 #x0031 #x0039 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2486)	; ⒆
     (=gb2312		. #x2257)	; &I-G0-2257; [02-55]
     ))
@@ -513,7 +807,19 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (->decomposition	compat #x0028 #x0032 #x0030 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x2487)	; ⒇
     (=gb2312		. #x2258)	; &I-G0-2258; [02-56]
     ))
@@ -524,7 +830,13 @@
     (mirrored		. nil)
     (digit-value	. 1)
     (numeric-value	. 1)
-    (->decomposition	compat #x0031 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2488)	; ⒈
     (=gb2312		. #x2231)	; &I-G0-2231; [02-17]
     ))
@@ -535,7 +847,13 @@
     (mirrored		. nil)
     (digit-value	. 2)
     (numeric-value	. 2)
-    (->decomposition	compat #x0032 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2489)	; ⒉
     (=gb2312		. #x2232)	; &I-G0-2232; [02-18]
     ))
@@ -546,7 +864,13 @@
     (mirrored		. nil)
     (digit-value	. 3)
     (numeric-value	. 3)
-    (->decomposition	compat #x0033 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248A)	; ⒊
     (=gb2312		. #x2233)	; &I-G0-2233; [02-19]
     ))
@@ -557,7 +881,13 @@
     (mirrored		. nil)
     (digit-value	. 4)
     (numeric-value	. 4)
-    (->decomposition	compat #x0034 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248B)	; ⒋
     (=gb2312		. #x2234)	; &I-G0-2234; [02-20]
     ))
@@ -568,7 +898,13 @@
     (mirrored		. nil)
     (digit-value	. 5)
     (numeric-value	. 5)
-    (->decomposition	compat #x0035 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248C)	; ⒌
     (=gb2312		. #x2235)	; &I-G0-2235; [02-21]
     ))
@@ -579,7 +915,13 @@
     (mirrored		. nil)
     (digit-value	. 6)
     (numeric-value	. 6)
-    (->decomposition	compat #x0036 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248D)	; ⒍
     (=gb2312		. #x2236)	; &I-G0-2236; [02-22]
     ))
@@ -590,7 +932,13 @@
     (mirrored		. nil)
     (digit-value	. 7)
     (numeric-value	. 7)
-    (->decomposition	compat #x0037 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248E)	; ⒎
     (=gb2312		. #x2237)	; &I-G0-2237; [02-23]
     ))
@@ -601,7 +949,13 @@
     (mirrored		. nil)
     (digit-value	. 8)
     (numeric-value	. 8)
-    (->decomposition	compat #x0038 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x248F)	; ⒏
     (=gb2312		. #x2238)	; &I-G0-2238; [02-24]
     ))
@@ -612,7 +966,13 @@
     (mirrored		. nil)
     (digit-value	. 9)
     (numeric-value	. 9)
-    (->decomposition	compat #x0039 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2490)	; ⒐
     (=gb2312		. #x2239)	; &I-G0-2239; [02-25]
     ))
@@ -622,7 +982,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x0031 #x0030 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2491)	; ⒑
     (=gb2312		. #x223A)	; &I-G0-223A; [02-26]
     ))
@@ -632,7 +1001,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->decomposition	compat #x0031 #x0031 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2492)	; ⒒
     (=gb2312		. #x223B)	; &I-G0-223B; [02-27]
     ))
@@ -642,7 +1020,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->decomposition	compat #x0031 #x0032 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2493)	; ⒓
     (=gb2312		. #x223C)	; &I-G0-223C; [02-28]
     ))
@@ -652,7 +1039,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 13)
-    (->decomposition	compat #x0031 #x0033 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2494)	; ⒔
     (=gb2312		. #x223D)	; &I-G0-223D; [02-29]
     ))
@@ -662,7 +1058,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 14)
-    (->decomposition	compat #x0031 #x0034 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2495)	; ⒕
     (=gb2312		. #x223E)	; &I-G0-223E; [02-30]
     ))
@@ -672,7 +1077,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 15)
-    (->decomposition	compat #x0031 #x0035 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2496)	; ⒖
     (=gb2312		. #x223F)	; &I-G0-223F; [02-31]
     ))
@@ -682,7 +1096,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 16)
-    (->decomposition	compat #x0031 #x0036 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2497)	; ⒗
     (=gb2312		. #x2240)	; &I-G0-2240; [02-32]
     ))
@@ -692,7 +1115,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 17)
-    (->decomposition	compat #x0031 #x0037 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2498)	; ⒘
     (=gb2312		. #x2241)	; &I-G0-2241; [02-33]
     ))
@@ -702,7 +1134,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 18)
-    (->decomposition	compat #x0031 #x0038 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x2499)	; ⒙
     (=gb2312		. #x2242)	; &I-G0-2242; [02-34]
     ))
@@ -712,7 +1153,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 19)
-    (->decomposition	compat #x0031 #x0039 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x249A)	; ⒚
     (=gb2312		. #x2243)	; &I-G0-2243; [02-35]
     ))
@@ -722,7 +1172,16 @@
     (bidi-category	. "EN")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (->decomposition	compat #x0032 #x0030 #x002E)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x249B)	; ⒛
     (=gb2312		. #x2244)	; &I-G0-2244; [02-36]
     ))
@@ -731,7 +1190,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0061 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x249C)	; ⒜
     ))
 (define-char
@@ -752,7 +1220,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0062 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER B")
+      (=ucs		  . #x0062)	; b
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x249D)	; ⒝
     ))
 (define-char
@@ -773,7 +1250,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0063 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x249E)	; ⒞
     ))
 (define-char
@@ -794,7 +1280,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0064 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x249F)	; ⒟
     ))
 (define-char
@@ -815,7 +1310,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0065 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A0)	; ⒠
     ))
 (define-char
@@ -836,7 +1340,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0066 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER F")
+      (=ucs		  . #x0066)	; f
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A1)	; ⒡
     ))
 (define-char
@@ -857,7 +1370,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0067 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A2)	; ⒢
     ))
 (define-char
@@ -878,7 +1400,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0068 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A3)	; ⒣
     ))
 (define-char
@@ -899,7 +1430,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0069 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A4)	; ⒤
     ))
 (define-char
@@ -920,7 +1460,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006A #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER J")
+      (=ucs		  . #x006A)	; j
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A5)	; ⒥
     ))
 (define-char
@@ -941,7 +1490,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006B #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A6)	; ⒦
     ))
 (define-char
@@ -962,7 +1520,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006C #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A7)	; ⒧
     ))
 (define-char
@@ -983,7 +1550,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A8)	; ⒨
     ))
 (define-char
@@ -1004,7 +1580,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006E #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24A9)	; ⒩
     ))
 (define-char
@@ -1025,7 +1610,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x006F #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AA)	; ⒪
     ))
 (define-char
@@ -1046,7 +1640,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0070 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AB)	; ⒫
     ))
 (define-char
@@ -1067,7 +1670,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0071 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER Q")
+      (=ucs		  . #x0071)	; q
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AC)	; ⒬
     ))
 (define-char
@@ -1088,7 +1700,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0072 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AD)	; ⒭
     ))
 (define-char
@@ -1109,7 +1730,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0073 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AE)	; ⒮
     ))
 (define-char
@@ -1130,7 +1760,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0074 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER T")
+      (=ucs		  . #x0074)	; t
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24AF)	; ⒯
     ))
 (define-char
@@ -1151,7 +1790,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0075 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B0)	; ⒰
     ))
 (define-char
@@ -1172,7 +1820,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0076 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B1)	; ⒱
     ))
 (define-char
@@ -1193,7 +1850,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0077 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER W")
+      (=ucs		  . #x0077)	; w
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B2)	; ⒲
     ))
 (define-char
@@ -1214,7 +1880,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0078 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B3)	; ⒳
     ))
 (define-char
@@ -1235,7 +1910,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x0079 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B4)	; ⒴
     ))
 (define-char
@@ -1256,7 +1940,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x007A #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x24B5)	; ⒵
     ))
 (define-char
@@ -1277,10 +1970,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0041)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER A")
       (=ucs		  . #x24D0)	; ⓐ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
       ))
     (=ucs		. #x24B6)	; Ⓐ
     ))
@@ -1289,10 +1985,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0042)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER B")
       (=ucs		  . #x24D1)	; ⓑ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
       ))
     (=ucs		. #x24B7)	; Ⓑ
     ))
@@ -1301,10 +2000,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0043)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER C")
       (=ucs		  . #x24D2)	; ⓒ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #x24B8)	; Ⓒ
     ))
@@ -1313,10 +2015,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0044)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER D")
       (=ucs		  . #x24D3)	; ⓓ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER D")
+      (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #x24B9)	; Ⓓ
     ))
@@ -1325,10 +2030,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0045)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER E")
       (=ucs		  . #x24D4)	; ⓔ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
       ))
     (=ucs		. #x24BA)	; Ⓔ
     ))
@@ -1337,10 +2045,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0046)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER F")
       (=ucs		  . #x24D5)	; ⓕ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
       ))
     (=ucs		. #x24BB)	; Ⓕ
     ))
@@ -1349,10 +2060,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0047)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER G")
       (=ucs		  . #x24D6)	; ⓖ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (=ucs		  . #x0047)	; G
       ))
     (=ucs		. #x24BC)	; Ⓖ
     ))
@@ -1361,10 +2075,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0048)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER H")
       (=ucs		  . #x24D7)	; ⓗ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
       ))
     (=ucs		. #x24BD)	; Ⓗ
     ))
@@ -1373,10 +2090,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0049)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER I")
       (=ucs		  . #x24D8)	; ⓘ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x24BE)	; Ⓘ
     ))
@@ -1385,10 +2105,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004A)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER J")
       (=ucs		  . #x24D9)	; ⓙ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER J")
+      (=ucs		  . #x004A)	; J
       ))
     (=ucs		. #x24BF)	; Ⓙ
     ))
@@ -1397,10 +2120,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004B)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER K")
       (=ucs		  . #x24DA)	; ⓚ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
       ))
     (=ucs		. #x24C0)	; Ⓚ
     ))
@@ -1409,10 +2135,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004C)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER L")
       (=ucs		  . #x24DB)	; ⓛ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER L")
+      (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #x24C1)	; Ⓛ
     ))
@@ -1421,10 +2150,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004D)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER M")
       (=ucs		  . #x24DC)	; ⓜ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #x24C2)	; Ⓜ
     ))
@@ -1433,10 +2165,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004E)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER N")
       (=ucs		  . #x24DD)	; ⓝ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER N")
+      (=ucs		  . #x004E)	; N
       ))
     (=ucs		. #x24C3)	; Ⓝ
     ))
@@ -1445,10 +2180,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x004F)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER O")
       (=ucs		  . #x24DE)	; ⓞ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
       ))
     (=ucs		. #x24C4)	; Ⓞ
     ))
@@ -1457,10 +2195,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0050)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER P")
       (=ucs		  . #x24DF)	; ⓟ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
       ))
     (=ucs		. #x24C5)	; Ⓟ
     ))
@@ -1469,10 +2210,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0051)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Q")
       (=ucs		  . #x24E0)	; ⓠ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER Q")
+      (=ucs		  . #x0051)	; Q
       ))
     (=ucs		. #x24C6)	; Ⓠ
     ))
@@ -1481,10 +2225,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0052)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER R")
       (=ucs		  . #x24E1)	; ⓡ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
       ))
     (=ucs		. #x24C7)	; Ⓡ
     ))
@@ -1493,10 +2240,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0053)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER S")
       (=ucs		  . #x24E2)	; ⓢ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER S")
+      (=ucs		  . #x0053)	; S
       ))
     (=ucs		. #x24C8)	; Ⓢ
     ))
@@ -1505,10 +2255,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0054)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER T")
       (=ucs		  . #x24E3)	; ⓣ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER T")
+      (=ucs		  . #x0054)	; T
       ))
     (=ucs		. #x24C9)	; Ⓣ
     ))
@@ -1517,10 +2270,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0055)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER U")
       (=ucs		  . #x24E4)	; ⓤ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
       ))
     (=ucs		. #x24CA)	; Ⓤ
     ))
@@ -1529,10 +2285,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0056)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER V")
       (=ucs		  . #x24E5)	; ⓥ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #x24CB)	; Ⓥ
     ))
@@ -1541,10 +2300,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0057)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER W")
       (=ucs		  . #x24E6)	; ⓦ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
       ))
     (=ucs		. #x24CC)	; Ⓦ
     ))
@@ -1553,10 +2315,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0058)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER X")
       (=ucs		  . #x24E7)	; ⓧ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #x24CD)	; Ⓧ
     ))
@@ -1565,10 +2330,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0059)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Y")
       (=ucs		  . #x24E8)	; ⓨ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER Y")
+      (=ucs		  . #x0059)	; Y
       ))
     (=ucs		. #x24CE)	; Ⓨ
     ))
@@ -1577,10 +2345,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x005A)
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Z")
       (=ucs		  . #x24E9)	; ⓩ
+      ))
+    (<-circled
+     ((name		  . "LATIN CAPITAL LETTER Z")
+      (=ucs		  . #x005A)	; Z
       ))
     (=ucs		. #x24CF)	; Ⓩ
     ))
@@ -1589,10 +2360,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0061)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER A")
       (=ucs		  . #x24B6)	; Ⓐ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
       ))
     (=ucs		. #x24D0)	; ⓐ
     ))
@@ -1615,10 +2389,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0062)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER B")
       (=ucs		  . #x24B7)	; Ⓑ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER B")
+      (=ucs		  . #x0062)	; b
       ))
     (=ucs		. #x24D1)	; ⓑ
     ))
@@ -1641,10 +2418,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0063)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER C")
       (=ucs		  . #x24B8)	; Ⓒ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #x24D2)	; ⓒ
     ))
@@ -1667,10 +2447,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0064)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER D")
       (=ucs		  . #x24B9)	; Ⓓ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #x24D3)	; ⓓ
     ))
@@ -1693,10 +2476,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0065)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER E")
       (=ucs		  . #x24BA)	; Ⓔ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
       ))
     (=ucs		. #x24D4)	; ⓔ
     ))
@@ -1719,10 +2505,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0066)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER F")
       (=ucs		  . #x24BB)	; Ⓕ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER F")
+      (=ucs		  . #x0066)	; f
       ))
     (=ucs		. #x24D5)	; ⓕ
     ))
@@ -1745,10 +2534,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0067)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER G")
       (=ucs		  . #x24BC)	; Ⓖ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
       ))
     (=ucs		. #x24D6)	; ⓖ
     ))
@@ -1771,10 +2563,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0068)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER H")
       (=ucs		  . #x24BD)	; Ⓗ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
       ))
     (=ucs		. #x24D7)	; ⓗ
     ))
@@ -1797,10 +2592,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0069)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER I")
       (=ucs		  . #x24BE)	; Ⓘ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x24D8)	; ⓘ
     ))
@@ -1823,10 +2621,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006A)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER J")
       (=ucs		  . #x24BF)	; Ⓙ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER J")
+      (=ucs		  . #x006A)	; j
       ))
     (=ucs		. #x24D9)	; ⓙ
     ))
@@ -1849,10 +2650,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006B)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER K")
       (=ucs		  . #x24C0)	; Ⓚ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
       ))
     (=ucs		. #x24DA)	; ⓚ
     ))
@@ -1875,10 +2679,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006C)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER L")
       (=ucs		  . #x24C1)	; Ⓛ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #x24DB)	; ⓛ
     ))
@@ -1901,10 +2708,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006D)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER M")
       (=ucs		  . #x24C2)	; Ⓜ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #x24DC)	; ⓜ
     ))
@@ -1927,10 +2737,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006E)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER N")
       (=ucs		  . #x24C3)	; Ⓝ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
       ))
     (=ucs		. #x24DD)	; ⓝ
     ))
@@ -1953,10 +2766,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x006F)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER O")
       (=ucs		  . #x24C4)	; Ⓞ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
       ))
     (=ucs		. #x24DE)	; ⓞ
     ))
@@ -1979,10 +2795,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0070)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER P")
       (=ucs		  . #x24C5)	; Ⓟ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
       ))
     (=ucs		. #x24DF)	; ⓟ
     ))
@@ -2005,10 +2824,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0071)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Q")
       (=ucs		  . #x24C6)	; Ⓠ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER Q")
+      (=ucs		  . #x0071)	; q
       ))
     (=ucs		. #x24E0)	; ⓠ
     ))
@@ -2031,10 +2853,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0072)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER R")
       (=ucs		  . #x24C7)	; Ⓡ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
       ))
     (=ucs		. #x24E1)	; ⓡ
     ))
@@ -2057,10 +2882,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0073)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER S")
       (=ucs		  . #x24C8)	; Ⓢ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
       ))
     (=ucs		. #x24E2)	; ⓢ
     ))
@@ -2083,10 +2911,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0074)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER T")
       (=ucs		  . #x24C9)	; Ⓣ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER T")
+      (=ucs		  . #x0074)	; t
       ))
     (=ucs		. #x24E3)	; ⓣ
     ))
@@ -2109,10 +2940,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0075)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER U")
       (=ucs		  . #x24CA)	; Ⓤ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
       ))
     (=ucs		. #x24E4)	; ⓤ
     ))
@@ -2135,10 +2969,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0076)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER V")
       (=ucs		  . #x24CB)	; Ⓥ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #x24E5)	; ⓥ
     ))
@@ -2161,10 +2998,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0077)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER W")
       (=ucs		  . #x24CC)	; Ⓦ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER W")
+      (=ucs		  . #x0077)	; w
       ))
     (=ucs		. #x24E6)	; ⓦ
     ))
@@ -2187,10 +3027,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0078)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER X")
       (=ucs		  . #x24CD)	; Ⓧ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #x24E7)	; ⓧ
     ))
@@ -2213,10 +3056,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x0079)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Y")
       (=ucs		  . #x24CE)	; Ⓨ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
       ))
     (=ucs		. #x24E8)	; ⓨ
     ))
@@ -2239,10 +3085,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x007A)
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Z")
       (=ucs		  . #x24CF)	; Ⓩ
+      ))
+    (<-circled
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
       ))
     (=ucs		. #x24E9)	; ⓩ
     ))
@@ -2267,7 +3116,10 @@
     (mirrored		. nil)
     (digit-value	. 0)
     (numeric-value	. 0)
-    (->decomposition	circle #x0030)
+    (<-circled
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x24EA)	; ⓪
     ))
 (define-char
