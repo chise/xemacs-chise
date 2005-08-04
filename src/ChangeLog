@@ -1,3 +1,14 @@
+2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_compat_of): Deleted.
+	(put_char_composition): Return `<-FOO' for compatibility mapping
+	to single character tagged `FOO'; use `Fsymbol_name (...)' instead
+	of `symbol_name (XSYMBOL(...))'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}font[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Don't refer Q_compat_of.
+	(syms_of_chartab): Delete builtin symbol `<-compat'.
+
 2005-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_circled_of): New variable.
