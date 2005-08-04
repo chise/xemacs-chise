@@ -1,3 +1,8 @@
+2005-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->circled' when running with non-readable mode.
+
 2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Don't display
