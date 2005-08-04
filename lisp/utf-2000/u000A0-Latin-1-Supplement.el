@@ -4,7 +4,10 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "CS")
     (mirrored		. nil)
-    (->decomposition	noBreak #x0020)
+    (<-noBreak
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     (=ucs		. #x00A0)	;  
     (latin-iso8859-1	. #xA0)	; &I-LATIN1-20;
     (latin-iso8859-2	. #xA0)	; &I-LATIN2-20;
@@ -177,7 +180,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0308)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
+      ))
     (=ucs		. #x00A8)	; ¨
     (latin-iso8859-1	. #xA8)	; &I-LATIN1-28;
     (latin-iso8859-2	. #xA8)	; &I-LATIN2-28;
@@ -233,7 +242,10 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x0061)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x00AA)	; ª
     (latin-iso8859-1	. #xAA)	; &I-LATIN1-2A;
     (latin-iso8859-9	. #xAA)	; &I-LATIN5-2A;
@@ -348,10 +360,16 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0304)
     (->fullwidth
      ((name		  . "FULLWIDTH MACRON")
       (=ucs		  . #xFFE3)	; ￣
+      ))
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING MACRON")
+      (=ucs		  . #x0304)	; ̄
       ))
     (=ucs		. #x00AF)	; ¯
     (latin-iso8859-1	. #xAF)	; &I-LATIN1-2F;
@@ -425,7 +443,10 @@
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
-    (->decomposition	super #x0032)
+    (<-superscript
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x00B2)	; ²
     (latin-iso8859-1	. #xB2)	; &I-LATIN1-32;
     (latin-iso8859-3	. #xB2)	; &I-LATIN3-32;
@@ -454,7 +475,10 @@
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
-    (->decomposition	super #x0033)
+    (<-superscript
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x00B3)	; ³
     (latin-iso8859-1	. #xB3)	; &I-LATIN1-33;
     (latin-iso8859-3	. #xB3)	; &I-LATIN3-33;
@@ -480,7 +504,17 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0301)
+    (<-canonical
+     ((name		  . "GREEK OXIA")
+      (=ucs		  . #x1FFD)	; ´
+      ))
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
+      ))
     (=ucs		. #x00B4)	; ´
     (latin-iso8859-1	. #xB4)	; &I-LATIN1-34;
     (latin-iso8859-2	. #xB4)	; &I-LATIN2-34;
@@ -508,7 +542,10 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x03BC)
+    (<-compat/unit
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      ))
     (=ucs		. #x00B5)	; µ
     (latin-iso8859-1	. #xB5)	; &I-LATIN1-35;
     (latin-iso8859-3	. #xB5)	; &I-LATIN3-35;
@@ -544,6 +581,10 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-canonical
+     ((name		  . "GREEK ANO TELEIA")
+      (=ucs		  . #x0387)	; ·
+      ))
     (=ucs		. #x00B7)	; ·
     (latin-iso8859-1	. #xB7)	; &I-LATIN1-37;
     (latin-iso8859-3	. #xB7)	; &I-LATIN3-37;
@@ -571,7 +612,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x0327)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "COMBINING CEDILLA")
+      (=ucs		  . #x0327)	; ̧
+      ))
     (=ucs		. #x00B8)	; ¸
     (latin-iso8859-1	. #xB8)	; &I-LATIN1-38;
     (latin-iso8859-2	. #xB8)	; &I-LATIN2-38;
@@ -603,7 +650,10 @@
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
-    (->decomposition	super #x0031)
+    (<-superscript
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x00B9)	; ¹
     (latin-iso8859-1	. #xB9)	; &I-LATIN1-39;
     (hebrew-iso8859-8	. #xB9)	; &I-HEBREW-39;
@@ -627,7 +677,10 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x006F)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      ))
     (=ucs		. #x00BA)	; º
     (latin-iso8859-1	. #xBA)	; &I-LATIN1-3A;
     (latin-iso8859-9	. #xBA)	; &I-LATIN5-3A;
@@ -676,7 +729,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/4)
-    (->decomposition	fraction #x0031 #x2044 #x0034)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x00BC)	; ¼
     (latin-iso8859-1	. #xBC)	; &I-LATIN1-3C;
     (hebrew-iso8859-8	. #xBC)	; &I-HEBREW-3C;
@@ -701,7 +763,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/2)
-    (->decomposition	fraction #x0031 #x2044 #x0032)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x00BD)	; ½
     (latin-iso8859-1	. #xBD)	; &I-LATIN1-3D;
     (latin-iso8859-3	. #xBD)	; &I-LATIN3-3D;
@@ -728,7 +799,16 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 3/4)
-    (->decomposition	fraction #x0033 #x2044 #x0034)
+    (=>decomposition@fraction
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "FRACTION SLASH")
+      (=ucs		  . #x2044)	; ⁄
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x00BE)	; ¾
     (latin-iso8859-1	. #xBE)	; &I-LATIN1-3E;
     (hebrew-iso8859-8	. #xBE)	; &I-HEBREW-3E;
@@ -775,10 +855,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x0300)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
       (=ucs		  . #x00E0)	; à
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00C0)	; À
     (latin-iso8859-1	. #xC0)	; &I-LATIN1-40;
@@ -792,7 +878,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
       (=ucs		  . #x00C0)	; À
       ))
-    (->decomposition	#xFF21 #x0300)
     (->lowercase
      ((=gb2312		  . #x2824)	; &JX1-2956; [08-04]
       (=jis-x0212	  . #x2B22)	; &I-JSP-2B22; [11-02]
@@ -801,6 +886,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
       (=ucs		  . #x00C0)	; À
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=jis-x0212		. #x2A22)	; &JX1-2937; [10-02]
     (=jis-x0213-1-2000	. #x2937)	; &I-JX1-2937; [09-23]
@@ -812,10 +904,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
       (=ucs		  . #x00E1)	; á
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00C1)	; Á
     (latin-iso8859-1	. #xC1)	; &I-LATIN1-41;
@@ -831,7 +929,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
       (=ucs		  . #x00C1)	; Á
       ))
-    (->decomposition	#xFF21 #x0301)
     (->lowercase
      ((=gb2312		  . #x2822)	; &JX1-2957; [08-02]
       (=jis-x0212	  . #x2B21)	; &I-JSP-2B21; [11-01]
@@ -840,6 +937,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
       (=ucs		  . #x00C1)	; Á
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A21)	; &JX1-2938; [10-01]
     (=jis-x0213-1-2000	. #x2938)	; &I-JX1-2938; [09-24]
@@ -851,10 +955,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x0302)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00E2)	; â
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00C2)	; Â
     (latin-iso8859-1	. #xC2)	; &I-LATIN1-42;
@@ -871,7 +981,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00C2)	; Â
       ))
-    (->decomposition	#xFF21 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958; [09-56]
@@ -879,6 +988,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00C2)	; Â
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2A24)	; &JX1-2939; [10-04]
     (=jis-x0213-1-2000	. #x2939)	; &I-JX1-2939; [09-25]
@@ -890,10 +1006,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x0303)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
       (=ucs		  . #x00E3)	; ã
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00C3)	; Ã
     (latin-iso8859-1	. #xC3)	; &I-LATIN1-43;
@@ -907,7 +1029,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
       (=ucs		  . #x00C3)	; Ã
       ))
-    (->decomposition	#xFF21 #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B2A)	; &JX1-2959; [11-10]
       (=jis-x0213-1-2000  . #x2959)	; &I-JX1-2959; [09-57]
@@ -915,6 +1036,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
       (=ucs		  . #x00C3)	; Ã
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2A2A)	; &JX1-293A; [10-10]
     (=jis-x0213-1-2000	. #x293A)	; &I-JX1-293A; [09-26]
@@ -926,10 +1054,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x0308)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00E4)	; ä
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00C4)	; Ä
     (latin-iso8859-1	. #xC4)	; &I-LATIN1-44;
@@ -943,7 +1077,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00C4)	; Ä
       ))
-    (->decomposition	#xFF21 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B23)	; &JX1-295A; [11-03]
       (=jis-x0213-1-2000  . #x295A)	; &I-JX1-295A; [09-58]
@@ -951,6 +1084,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00C4)	; Ä
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2A23)	; &JX1-293B; [10-03]
     (=jis-x0213-1-2000	. #x293B)	; &I-JX1-293B; [09-27]
@@ -962,10 +1102,20 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0041 #x030A)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00E5)	; å
+      ))
+    (<-canonical
+     ((name		  . "ANGSTROM SIGN")
+      (=ucs		  . #x212B)	; Å
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "COMBINING RING ABOVE")
+      (=ucs		  . #x030A)	; ̊
       ))
     (=ucs		. #x00C5)	; Å
     (latin-iso8859-1	. #xC5)	; &I-LATIN1-45;
@@ -977,7 +1127,6 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00C5)	; Å
       ))
-    (->decomposition	#xFF21 #x030A)
     (->lowercase
      ((=jis-x0212	  . #x2B29)	; &JX1-295B; [11-09]
       (=jis-x0213-1-2000  . #x295B)	; &I-JX1-295B; [09-59]
@@ -985,6 +1134,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00C5)	; Å
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      )
+     ((name		  . "COMBINING RING ABOVE")
+      (=ucs		  . #x030A)	; ̊
       ))
     (=jis-x0212		. #x2A29)	; &JX1-293C; [10-09]
     (=jis-x0213-1-2000	. #x293C)	; &I-JX1-293C; [09-28]
@@ -1031,10 +1187,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0043 #x0327)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
       (=ucs		  . #x00E7)	; ç
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      )
+     ((name		  . "COMBINING CEDILLA")
+      (=ucs		  . #x0327)	; ̧
       ))
     (=ucs		. #x00C7)	; Ç
     (latin-iso8859-1	. #xC7)	; &I-LATIN1-47;
@@ -1047,7 +1209,6 @@
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
       (=ucs		  . #x00C7)	; Ç
       ))
-    (->decomposition	#xFF23 #x0327)
     (->lowercase
      ((=jis-x0212	  . #x2B2E)	; &JX1-295D; [11-14]
       (=jis-x0213-1-2000  . #x295D)	; &I-JX1-295D; [09-61]
@@ -1055,6 +1216,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
       (=ucs		  . #x00C7)	; Ç
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER C")
+      (=ucs		  . #xFF23)	; Ｃ
+      )
+     ((name		  . "COMBINING CEDILLA")
+      (=ucs		  . #x0327)	; ̧
       ))
     (=jis-x0212		. #x2A2E)	; &JX1-293E; [10-14]
     (=jis-x0213-1-2000	. #x293E)	; &I-JX1-293E; [09-30]
@@ -1066,10 +1234,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0045 #x0300)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
       (=ucs		  . #x00E8)	; è
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00C8)	; È
     (latin-iso8859-1	. #xC8)	; &I-LATIN1-48;
@@ -1083,7 +1257,6 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
       (=ucs		  . #x00C8)	; È
       ))
-    (->decomposition	#xFF25 #x0300)
     (->lowercase
      ((=gb2312		  . #x2828)	; &JX1-295E; [08-08]
       (=jis-x0212	  . #x2B32)	; &I-JSP-2B32; [11-18]
@@ -1092,6 +1265,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
       (=ucs		  . #x00C8)	; È
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (=ucs		  . #xFF25)	; Ｅ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=jis-x0212		. #x2A32)	; &JX1-293F; [10-18]
     (=jis-x0213-1-2000	. #x293F)	; &I-JX1-293F; [09-31]
@@ -1103,10 +1283,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0045 #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
       (=ucs		  . #x00E9)	; é
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00C9)	; É
     (latin-iso8859-1	. #xC9)	; &I-LATIN1-49;
@@ -1122,7 +1308,6 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
       (=ucs		  . #x00C9)	; É
       ))
-    (->decomposition	#xFF25 #x0301)
     (->lowercase
      ((=gb2312		  . #x2826)	; &JX1-295F; [08-06]
       (=jis-x0212	  . #x2B31)	; &I-JSP-2B31; [11-17]
@@ -1131,6 +1316,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
       (=ucs		  . #x00C9)	; É
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (=ucs		  . #xFF25)	; Ｅ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A31)	; &JX1-2940; [10-17]
     (=jis-x0213-1-2000	. #x2940)	; &I-JX1-2940; [09-32]
@@ -1142,10 +1334,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0045 #x0302)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00EA)	; ê
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00CA)	; Ê
     (latin-iso8859-1	. #xCA)	; &I-LATIN1-4A;
@@ -1160,7 +1358,6 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00CA)	; Ê
       ))
-    (->decomposition	#xFF25 #x0302)
     (->lowercase
      ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
@@ -1169,6 +1366,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00CA)	; Ê
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (=ucs		  . #xFF25)	; Ｅ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2A34)	; &JX1-2941; [10-20]
     (=jis-x0213-1-2000	. #x2941)	; &I-JX1-2941; [09-33]
@@ -1180,10 +1384,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0045 #x0308)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00EB)	; ë
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER E")
+      (=ucs		  . #x0045)	; E
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00CB)	; Ë
     (latin-iso8859-1	. #xCB)	; &I-LATIN1-4B;
@@ -1197,7 +1407,6 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00CB)	; Ë
       ))
-    (->decomposition	#xFF25 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B33)	; &JX1-2961; [11-19]
       (=jis-x0213-1-2000  . #x2961)	; &I-JX1-2961; [09-65]
@@ -1205,6 +1414,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00CB)	; Ë
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (=ucs		  . #xFF25)	; Ｅ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2A33)	; &JX1-2942; [10-19]
     (=jis-x0213-1-2000	. #x2942)	; &I-JX1-2942; [09-34]
@@ -1216,10 +1432,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0049 #x0300)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
       (=ucs		  . #x00EC)	; ì
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00CC)	; Ì
     (latin-iso8859-1	. #xCC)	; &I-LATIN1-4C;
@@ -1233,7 +1455,6 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
       (=ucs		  . #x00CC)	; Ì
       ))
-    (->decomposition	#xFF29 #x0300)
     (->lowercase
      ((=gb2312		  . #x282C)	; &JX1-2962; [08-12]
       (=jis-x0212	  . #x2B40)	; &I-JSP-2B40; [11-32]
@@ -1242,6 +1463,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
       (=ucs		  . #x00CC)	; Ì
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (=ucs		  . #xFF29)	; Ｉ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=jis-x0212		. #x2A40)	; &JX1-2943; [10-32]
     (=jis-x0213-1-2000	. #x2943)	; &I-JX1-2943; [09-35]
@@ -1253,10 +1481,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0049 #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
       (=ucs		  . #x00ED)	; í
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00CD)	; Í
     (latin-iso8859-1	. #xCD)	; &I-LATIN1-4D;
@@ -1272,7 +1506,6 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
       (=ucs		  . #x00CD)	; Í
       ))
-    (->decomposition	#xFF29 #x0301)
     (->lowercase
      ((=gb2312		  . #x282A)	; &JX1-2963; [08-10]
       (=jis-x0212	  . #x2B3F)	; &I-JSP-2B3F; [11-31]
@@ -1281,6 +1514,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
       (=ucs		  . #x00CD)	; Í
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (=ucs		  . #xFF29)	; Ｉ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A3F)	; &JX1-2944; [10-31]
     (=jis-x0213-1-2000	. #x2944)	; &I-JX1-2944; [09-36]
@@ -1292,10 +1532,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0049 #x0302)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00EE)	; î
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00CE)	; Î
     (latin-iso8859-1	. #xCE)	; &I-LATIN1-4E;
@@ -1309,7 +1555,6 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00CE)	; Î
       ))
-    (->decomposition	#xFF29 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B42)	; &JX1-2964; [11-34]
       (=jis-x0213-1-2000  . #x2964)	; &I-JX1-2964; [09-68]
@@ -1317,6 +1562,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00CE)	; Î
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (=ucs		  . #xFF29)	; Ｉ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2A42)	; &JX1-2945; [10-34]
     (=jis-x0213-1-2000	. #x2945)	; &I-JX1-2945; [09-37]
@@ -1328,10 +1580,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0049 #x0308)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00EF)	; ï
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00CF)	; Ï
     (latin-iso8859-1	. #xCF)	; &I-LATIN1-4F;
@@ -1343,7 +1601,6 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00CF)	; Ï
       ))
-    (->decomposition	#xFF29 #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B41)	; &JX1-2965; [11-33]
       (=jis-x0213-1-2000  . #x2965)	; &I-JX1-2965; [09-69]
@@ -1351,6 +1608,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00CF)	; Ï
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (=ucs		  . #xFF29)	; Ｉ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2A41)	; &JX1-2946; [10-33]
     (=jis-x0213-1-2000	. #x2946)	; &I-JX1-2946; [09-38]
@@ -1393,10 +1657,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004E #x0303)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
       (=ucs		  . #x00F1)	; ñ
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER N")
+      (=ucs		  . #x004E)	; N
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00D1)	; Ñ
     (latin-iso8859-1	. #xD1)	; &I-LATIN1-51;
@@ -1408,7 +1678,6 @@
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
       (=ucs		  . #x00D1)	; Ñ
       ))
-    (->decomposition	#xFF2E #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B50)	; &JX1-2967; [11-48]
       (=jis-x0213-1-2000  . #x2967)	; &I-JX1-2967; [09-71]
@@ -1416,6 +1685,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
       (=ucs		  . #x00D1)	; Ñ
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER N")
+      (=ucs		  . #xFF2E)	; Ｎ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2A50)	; &JX1-2948; [10-48]
     (=jis-x0213-1-2000	. #x2948)	; &I-JX1-2948; [09-40]
@@ -1427,10 +1703,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004F #x0300)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
       (=ucs		  . #x00F2)	; ò
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00D2)	; Ò
     (latin-iso8859-1	. #xD2)	; &I-LATIN1-52;
@@ -1444,7 +1726,6 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
       (=ucs		  . #x00D2)	; Ò
       ))
-    (->decomposition	#xFF2F #x0300)
     (->lowercase
      ((=gb2312		  . #x2830)	; &JX1-2968; [08-16]
       (=jis-x0212	  . #x2B52)	; &I-JSP-2B52; [11-50]
@@ -1453,6 +1734,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
       (=ucs		  . #x00D2)	; Ò
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=jis-x0212		. #x2A52)	; &JX1-2949; [10-50]
     (=jis-x0213-1-2000	. #x2949)	; &I-JX1-2949; [09-41]
@@ -1464,10 +1752,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004F #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
       (=ucs		  . #x00F3)	; ó
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00D3)	; Ó
     (latin-iso8859-1	. #xD3)	; &I-LATIN1-53;
@@ -1482,7 +1776,6 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
       (=ucs		  . #x00D3)	; Ó
       ))
-    (->decomposition	#xFF2F #x0301)
     (->lowercase
      ((=gb2312		  . #x282E)	; &JX1-2969; [08-14]
       (=jis-x0212	  . #x2B51)	; &I-JSP-2B51; [11-49]
@@ -1491,6 +1784,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
       (=ucs		  . #x00D3)	; Ó
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A51)	; &JX1-294A; [10-49]
     (=jis-x0213-1-2000	. #x294A)	; &I-JX1-294A; [09-42]
@@ -1502,10 +1802,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004F #x0302)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00F4)	; ô
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00D4)	; Ô
     (latin-iso8859-1	. #xD4)	; &I-LATIN1-54;
@@ -1522,7 +1828,6 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00D4)	; Ô
       ))
-    (->decomposition	#xFF2F #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A; [09-74]
@@ -1530,6 +1835,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00D4)	; Ô
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2A54)	; &JX1-294B; [10-52]
     (=jis-x0213-1-2000	. #x294B)	; &I-JX1-294B; [09-43]
@@ -1541,10 +1853,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004F #x0303)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
       (=ucs		  . #x00F5)	; õ
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00D5)	; Õ
     (latin-iso8859-1	. #xD5)	; &I-LATIN1-55;
@@ -1558,7 +1876,6 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
       (=ucs		  . #x00D5)	; Õ
       ))
-    (->decomposition	#xFF2F #x0303)
     (->lowercase
      ((=jis-x0212	  . #x2B58)	; &JX1-296B; [11-56]
       (=jis-x0213-1-2000  . #x296B)	; &I-JX1-296B; [09-75]
@@ -1566,6 +1883,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
       (=ucs		  . #x00D5)	; Õ
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2A58)	; &JX1-294C; [10-56]
     (=jis-x0213-1-2000	. #x294C)	; &I-JX1-294C; [09-44]
@@ -1577,10 +1901,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x004F #x0308)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00F6)	; ö
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER O")
+      (=ucs		  . #x004F)	; O
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00D6)	; Ö
     (latin-iso8859-1	. #xD6)	; &I-LATIN1-56;
@@ -1594,7 +1924,6 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00D6)	; Ö
       ))
-    (->decomposition	#xFF2F #x0308)
     (->lowercase
      ((=jis-x0212	  . #x2B53)	; &JX1-296C; [11-51]
       (=jis-x0213-1-2000  . #x296C)	; &I-JX1-296C; [09-76]
@@ -1602,6 +1931,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00D6)	; Ö
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2A53)	; &JX1-294D; [10-51]
     (=jis-x0213-1-2000	. #x294D)	; &I-JX1-294D; [09-45]
@@ -1677,10 +2013,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0055 #x0300)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
       (=ucs		  . #x00F9)	; ù
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00D9)	; Ù
     (latin-iso8859-1	. #xD9)	; &I-LATIN1-59;
@@ -1694,7 +2036,6 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
       (=ucs		  . #x00D9)	; Ù
       ))
-    (->decomposition	#xFF35 #x0300)
     (->lowercase
      ((=gb2312		  . #x2834)	; &JX1-296E; [08-20]
       (=jis-x0212	  . #x2B63)	; &I-JSP-2B63; [11-67]
@@ -1703,6 +2044,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
       (=ucs		  . #x00D9)	; Ù
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (=ucs		  . #xFF35)	; Ｕ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=jis-x0212		. #x2A63)	; &JX1-294F; [10-67]
     (=jis-x0213-1-2000	. #x294F)	; &I-JX1-294F; [09-47]
@@ -1714,10 +2062,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0055 #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
       (=ucs		  . #x00FA)	; ú
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00DA)	; Ú
     (latin-iso8859-1	. #xDA)	; &I-LATIN1-5A;
@@ -1733,7 +2087,6 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
       (=ucs		  . #x00DA)	; Ú
       ))
-    (->decomposition	#xFF35 #x0301)
     (->lowercase
      ((=gb2312		  . #x2832)	; &JX1-296F; [08-18]
       (=jis-x0212	  . #x2B62)	; &I-JSP-2B62; [11-66]
@@ -1742,6 +2095,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
       (=ucs		  . #x00DA)	; Ú
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (=ucs		  . #xFF35)	; Ｕ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A62)	; &JX1-2950; [10-66]
     (=jis-x0213-1-2000	. #x2950)	; &I-JX1-2950; [09-48]
@@ -1753,10 +2113,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0055 #x0302)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00FB)	; û
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00DB)	; Û
     (latin-iso8859-1	. #xDB)	; &I-LATIN1-5B;
@@ -1769,7 +2135,6 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00DB)	; Û
       ))
-    (->decomposition	#xFF35 #x0302)
     (->lowercase
      ((=jis-x0212	  . #x2B65)	; &JX1-2970; [11-69]
       (=jis-x0213-1-2000  . #x2970)	; &I-JX1-2970; [09-80]
@@ -1777,6 +2142,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00DB)	; Û
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (=ucs		  . #xFF35)	; Ｕ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2A65)	; &JX1-2951; [10-69]
     (=jis-x0213-1-2000	. #x2951)	; &I-JX1-2951; [09-49]
@@ -1788,10 +2160,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0055 #x0308)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00FC)	; ü
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00DC)	; Ü
     (latin-iso8859-1	. #xDC)	; &I-LATIN1-5C;
@@ -1805,7 +2183,6 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00DC)	; Ü
       ))
-    (->decomposition	#xFF35 #x0308)
     (->lowercase
      ((=gb2312		  . #x2839)	; &JX1-2971; [08-25]
       (=jis-x0212	  . #x2B64)	; &I-JSP-2B64; [11-68]
@@ -1814,6 +2191,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00DC)	; Ü
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (=ucs		  . #xFF35)	; Ｕ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2A64)	; &JX1-2952; [10-68]
     (=jis-x0213-1-2000	. #x2952)	; &I-JX1-2952; [09-50]
@@ -1825,10 +2209,16 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0059 #x0301)
     (->lowercase
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
       (=ucs		  . #x00FD)	; ý
+      ))
+    (=decomposition
+     ((name		  . "LATIN CAPITAL LETTER Y")
+      (=ucs		  . #x0059)	; Y
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00DD)	; Ý
     (latin-iso8859-1	. #xDD)	; &I-LATIN1-5D;
@@ -1841,7 +2231,6 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
       (=ucs		  . #x00DD)	; Ý
       ))
-    (->decomposition	#xFF39 #x0301)
     (->lowercase
      ((=jis-x0212	  . #x2B72)	; &JX1-2972; [11-82]
       (=jis-x0213-1-2000  . #x2972)	; &I-JX1-2972; [09-82]
@@ -1849,6 +2238,13 @@
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
       (=ucs		  . #x00DD)	; Ý
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Y")
+      (=ucs		  . #xFF39)	; Ｙ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2A72)	; &JX1-2953; [10-82]
     (=jis-x0213-1-2000	. #x2953)	; &I-JX1-2953; [09-51]
@@ -1921,10 +2317,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x0300)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
       (=ucs		  . #x00C0)	; À
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00E0)	; à
     (latin-iso8859-1	. #xE0)	; &I-LATIN1-60;
@@ -1939,7 +2341,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
       (=ucs		  . #x00E0)	; à
       ))
-    (->decomposition	#xFF41 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A22)	; &JX1-2937; [10-02]
       (=jis-x0213-1-2000  . #x2937)	; &I-JX1-2937; [09-23]
@@ -1947,6 +2348,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
       (=ucs		  . #x00E0)	; à
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=gb2312		. #x2824)	; &JX1-2956; [08-04]
     (=jis-x0212		. #x2B22)	; &I-JSP-2B22; [11-02]
@@ -1960,10 +2368,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
       (=ucs		  . #x00C1)	; Á
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00E1)	; á
     (latin-iso8859-1	. #xE1)	; &I-LATIN1-61;
@@ -1980,7 +2394,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
       (=ucs		  . #x00E1)	; á
       ))
-    (->decomposition	#xFF41 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A21)	; &JX1-2938; [10-01]
       (=jis-x0213-1-2000  . #x2938)	; &I-JX1-2938; [09-24]
@@ -1988,6 +2401,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
       (=ucs		  . #x00E1)	; á
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=gb2312		. #x2822)	; &JX1-2957; [08-02]
     (=jis-x0212		. #x2B21)	; &I-JSP-2B21; [11-01]
@@ -2001,10 +2421,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x0302)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00C2)	; Â
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00E2)	; â
     (latin-iso8859-1	. #xE2)	; &I-LATIN1-62;
@@ -2021,7 +2447,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00E2)	; â
       ))
-    (->decomposition	#xFF41 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939; [09-25]
@@ -2029,6 +2454,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00E2)	; â
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2B24)	; &JX1-2958; [11-04]
     (=jis-x0213-1-2000	. #x2958)	; &I-JX1-2958; [09-56]
@@ -2040,10 +2472,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x0303)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
       (=ucs		  . #x00C3)	; Ã
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00E3)	; ã
     (latin-iso8859-1	. #xE3)	; &I-LATIN1-63;
@@ -2058,7 +2496,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
       (=ucs		  . #x00E3)	; ã
       ))
-    (->decomposition	#xFF41 #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A2A)	; &JX1-293A; [10-10]
       (=jis-x0213-1-2000  . #x293A)	; &I-JX1-293A; [09-26]
@@ -2066,6 +2503,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
       (=ucs		  . #x00E3)	; ã
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2B2A)	; &JX1-2959; [11-10]
     (=jis-x0213-1-2000	. #x2959)	; &I-JX1-2959; [09-57]
@@ -2077,10 +2521,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00C4)	; Ä
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00E4)	; ä
     (latin-iso8859-1	. #xE4)	; &I-LATIN1-64;
@@ -2094,7 +2544,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00E4)	; ä
       ))
-    (->decomposition	#xFF41 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A23)	; &JX1-293B; [10-03]
       (=jis-x0213-1-2000  . #x293B)	; &I-JX1-293B; [09-27]
@@ -2102,6 +2551,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00E4)	; ä
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2B23)	; &JX1-295A; [11-03]
     (=jis-x0213-1-2000	. #x295A)	; &I-JX1-295A; [09-58]
@@ -2113,10 +2569,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0061 #x030A)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00C5)	; Å
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "COMBINING RING ABOVE")
+      (=ucs		  . #x030A)	; ̊
       ))
     (=ucs		. #x00E5)	; å
     (latin-iso8859-1	. #xE5)	; &I-LATIN1-65;
@@ -2128,7 +2590,6 @@
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00E5)	; å
       ))
-    (->decomposition	#xFF41 #x030A)
     (->uppercase
      ((=jis-x0212	  . #x2A29)	; &JX1-293C; [10-09]
       (=jis-x0213-1-2000  . #x293C)	; &I-JX1-293C; [09-28]
@@ -2136,6 +2597,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00E5)	; å
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      )
+     ((name		  . "COMBINING RING ABOVE")
+      (=ucs		  . #x030A)	; ̊
       ))
     (=jis-x0212		. #x2B29)	; &JX1-295B; [11-09]
     (=jis-x0213-1-2000	. #x295B)	; &I-JX1-295B; [09-59]
@@ -2183,10 +2651,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0063 #x0327)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
       (=ucs		  . #x00C7)	; Ç
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "COMBINING CEDILLA")
+      (=ucs		  . #x0327)	; ̧
       ))
     (=ucs		. #x00E7)	; ç
     (latin-iso8859-1	. #xE7)	; &I-LATIN1-67;
@@ -2200,7 +2674,6 @@
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
       (=ucs		  . #x00E7)	; ç
       ))
-    (->decomposition	#xFF43 #x0327)
     (->uppercase
      ((=jis-x0212	  . #x2A2E)	; &JX1-293E; [10-14]
       (=jis-x0213-1-2000  . #x293E)	; &I-JX1-293E; [09-30]
@@ -2208,6 +2681,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
       (=ucs		  . #x00E7)	; ç
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER C")
+      (=ucs		  . #xFF43)	; ｃ
+      )
+     ((name		  . "COMBINING CEDILLA")
+      (=ucs		  . #x0327)	; ̧
       ))
     (=jis-x0212		. #x2B2E)	; &JX1-295D; [11-14]
     (=jis-x0213-1-2000	. #x295D)	; &I-JX1-295D; [09-61]
@@ -2219,10 +2699,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0065 #x0300)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
       (=ucs		  . #x00C8)	; È
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00E8)	; è
     (latin-iso8859-1	. #xE8)	; &I-LATIN1-68;
@@ -2237,7 +2723,6 @@
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
       (=ucs		  . #x00E8)	; è
       ))
-    (->decomposition	#xFF45 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A32)	; &JX1-293F; [10-18]
       (=jis-x0213-1-2000  . #x293F)	; &I-JX1-293F; [09-31]
@@ -2245,6 +2730,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
       (=ucs		  . #x00E8)	; è
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (=ucs		  . #xFF45)	; ｅ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=gb2312		. #x2828)	; &JX1-295E; [08-08]
     (=jis-x0212		. #x2B32)	; &I-JSP-2B32; [11-18]
@@ -2258,10 +2750,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0065 #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
       (=ucs		  . #x00C9)	; É
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00E9)	; é
     (latin-iso8859-1	. #xE9)	; &I-LATIN1-69;
@@ -2278,7 +2776,6 @@
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
       (=ucs		  . #x00E9)	; é
       ))
-    (->decomposition	#xFF45 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A31)	; &JX1-2940; [10-17]
       (=jis-x0213-1-2000  . #x2940)	; &I-JX1-2940; [09-32]
@@ -2286,6 +2783,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
       (=ucs		  . #x00E9)	; é
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (=ucs		  . #xFF45)	; ｅ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=gb2312		. #x2826)	; &JX1-295F; [08-06]
     (=jis-x0212		. #x2B31)	; &I-JSP-2B31; [11-17]
@@ -2299,10 +2803,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0065 #x0302)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00CA)	; Ê
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00EA)	; ê
     (latin-iso8859-1	. #xEA)	; &I-LATIN1-6A;
@@ -2317,7 +2827,6 @@
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00EA)	; ê
       ))
-    (->decomposition	#xFF45 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941; [09-33]
@@ -2325,6 +2834,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00EA)	; ê
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (=ucs		  . #xFF45)	; ｅ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=gb2312		. #x283A)	; &JX1-2960; [08-26]
     (=jis-x0212		. #x2B34)	; &I-JSP-2B34; [11-20]
@@ -2338,10 +2854,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0065 #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00CB)	; Ë
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER E")
+      (=ucs		  . #x0065)	; e
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00EB)	; ë
     (latin-iso8859-1	. #xEB)	; &I-LATIN1-6B;
@@ -2355,7 +2877,6 @@
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00EB)	; ë
       ))
-    (->decomposition	#xFF45 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A33)	; &JX1-2942; [10-19]
       (=jis-x0213-1-2000  . #x2942)	; &I-JX1-2942; [09-34]
@@ -2363,6 +2884,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00EB)	; ë
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (=ucs		  . #xFF45)	; ｅ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2B33)	; &JX1-2961; [11-19]
     (=jis-x0213-1-2000	. #x2961)	; &I-JX1-2961; [09-65]
@@ -2374,10 +2902,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0069 #x0300)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
       (=ucs		  . #x00CC)	; Ì
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00EC)	; ì
     (latin-iso8859-1	. #xEC)	; &I-LATIN1-6C;
@@ -2392,7 +2926,6 @@
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
       (=ucs		  . #x00EC)	; ì
       ))
-    (->decomposition	#xFF49 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A40)	; &JX1-2943; [10-32]
       (=jis-x0213-1-2000  . #x2943)	; &I-JX1-2943; [09-35]
@@ -2400,6 +2933,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
       (=ucs		  . #x00EC)	; ì
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (=ucs		  . #xFF49)	; ｉ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=gb2312		. #x282C)	; &JX1-2962; [08-12]
     (=jis-x0212		. #x2B40)	; &I-JSP-2B40; [11-32]
@@ -2412,10 +2952,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0069 #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
       (=ucs		  . #x00CD)	; Í
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00ED)	; í
     (latin-iso8859-1	. #xED)	; &I-LATIN1-6D;
@@ -2432,7 +2978,6 @@
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
       (=ucs		  . #x00ED)	; í
       ))
-    (->decomposition	#xFF49 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A3F)	; &JX1-2944; [10-31]
       (=jis-x0213-1-2000  . #x2944)	; &I-JX1-2944; [09-36]
@@ -2440,6 +2985,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
       (=ucs		  . #x00ED)	; í
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (=ucs		  . #xFF49)	; ｉ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=gb2312		. #x282A)	; &JX1-2963; [08-10]
     (=jis-x0212		. #x2B3F)	; &I-JSP-2B3F; [11-31]
@@ -2452,10 +3004,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0069 #x0302)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00CE)	; Î
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00EE)	; î
     (latin-iso8859-1	. #xEE)	; &I-LATIN1-6E;
@@ -2469,7 +3027,6 @@
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00EE)	; î
       ))
-    (->decomposition	#xFF49 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A42)	; &JX1-2945; [10-34]
       (=jis-x0213-1-2000  . #x2945)	; &I-JX1-2945; [09-37]
@@ -2477,6 +3034,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00EE)	; î
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (=ucs		  . #xFF49)	; ｉ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2B42)	; &JX1-2964; [11-34]
     (=jis-x0213-1-2000	. #x2964)	; &I-JX1-2964; [09-68]
@@ -2487,10 +3051,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0069 #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00CF)	; Ï
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00EF)	; ï
     (latin-iso8859-1	. #xEF)	; &I-LATIN1-6F;
@@ -2502,7 +3072,6 @@
      ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00EF)	; ï
       ))
-    (->decomposition	#xFF49 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A41)	; &JX1-2946; [10-33]
       (=jis-x0213-1-2000  . #x2946)	; &I-JX1-2946; [09-38]
@@ -2510,6 +3079,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00EF)	; ï
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (=ucs		  . #xFF49)	; ｉ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2B41)	; &JX1-2965; [11-33]
     (=jis-x0213-1-2000	. #x2965)	; &I-JX1-2965; [09-69]
@@ -2554,10 +3130,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006E #x0303)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
       (=ucs		  . #x00D1)	; Ñ
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00F1)	; ñ
     (latin-iso8859-1	. #xF1)	; &I-LATIN1-71;
@@ -2569,7 +3151,6 @@
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
       (=ucs		  . #x00F1)	; ñ
       ))
-    (->decomposition	#xFF4E #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A50)	; &JX1-2948; [10-48]
       (=jis-x0213-1-2000  . #x2948)	; &I-JX1-2948; [09-40]
@@ -2577,6 +3158,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
       (=ucs		  . #x00F1)	; ñ
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER N")
+      (=ucs		  . #xFF4E)	; ｎ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2B50)	; &JX1-2967; [11-48]
     (=jis-x0213-1-2000	. #x2967)	; &I-JX1-2967; [09-71]
@@ -2588,10 +3176,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006F #x0300)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
       (=ucs		  . #x00D2)	; Ò
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00F2)	; ò
     (latin-iso8859-1	. #xF2)	; &I-LATIN1-72;
@@ -2606,7 +3200,6 @@
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
       (=ucs		  . #x00F2)	; ò
       ))
-    (->decomposition	#xFF4F #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A52)	; &JX1-2949; [10-50]
       (=jis-x0213-1-2000  . #x2949)	; &I-JX1-2949; [09-41]
@@ -2614,6 +3207,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
       (=ucs		  . #x00F2)	; ò
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=gb2312		. #x2830)	; &JX1-2968; [08-16]
     (=jis-x0212		. #x2B52)	; &I-JSP-2B52; [11-50]
@@ -2627,10 +3227,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006F #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
       (=ucs		  . #x00D3)	; Ó
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00F3)	; ó
     (latin-iso8859-1	. #xF3)	; &I-LATIN1-73;
@@ -2646,7 +3252,6 @@
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
       (=ucs		  . #x00F3)	; ó
       ))
-    (->decomposition	#xFF4F #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A51)	; &JX1-294A; [10-49]
       (=jis-x0213-1-2000  . #x294A)	; &I-JX1-294A; [09-42]
@@ -2654,6 +3259,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
       (=ucs		  . #x00F3)	; ó
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=gb2312		. #x282E)	; &JX1-2969; [08-14]
     (=jis-x0212		. #x2B51)	; &I-JSP-2B51; [11-49]
@@ -2667,10 +3279,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006F #x0302)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00D4)	; Ô
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00F4)	; ô
     (latin-iso8859-1	. #xF4)	; &I-LATIN1-74;
@@ -2687,7 +3305,6 @@
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00F4)	; ô
       ))
-    (->decomposition	#xFF4F #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B; [09-43]
@@ -2695,6 +3312,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00F4)	; ô
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2B54)	; &JX1-296A; [11-52]
     (=jis-x0213-1-2000	. #x296A)	; &I-JX1-296A; [09-74]
@@ -2706,10 +3330,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006F #x0303)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
       (=ucs		  . #x00D5)	; Õ
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=ucs		. #x00F5)	; õ
     (latin-iso8859-1	. #xF5)	; &I-LATIN1-75;
@@ -2724,7 +3354,6 @@
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
       (=ucs		  . #x00F5)	; õ
       ))
-    (->decomposition	#xFF4F #x0303)
     (->uppercase
      ((=jis-x0212	  . #x2A58)	; &JX1-294C; [10-56]
       (=jis-x0213-1-2000  . #x294C)	; &I-JX1-294C; [09-44]
@@ -2732,6 +3361,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
       (=ucs		  . #x00F5)	; õ
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      )
+     ((name		  . "COMBINING TILDE")
+      (=ucs		  . #x0303)	; ̃
       ))
     (=jis-x0212		. #x2B58)	; &JX1-296B; [11-56]
     (=jis-x0213-1-2000	. #x296B)	; &I-JX1-296B; [09-75]
@@ -2743,10 +3379,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x006F #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00D6)	; Ö
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00F6)	; ö
     (latin-iso8859-1	. #xF6)	; &I-LATIN1-76;
@@ -2760,7 +3402,6 @@
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00F6)	; ö
       ))
-    (->decomposition	#xFF4F #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A53)	; &JX1-294D; [10-51]
       (=jis-x0213-1-2000  . #x294D)	; &I-JX1-294D; [09-45]
@@ -2768,6 +3409,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00F6)	; ö
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2B53)	; &JX1-296C; [11-51]
     (=jis-x0213-1-2000	. #x296C)	; &I-JX1-296C; [09-76]
@@ -2844,10 +3492,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0075 #x0300)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
       (=ucs		  . #x00D9)	; Ù
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=ucs		. #x00F9)	; ù
     (latin-iso8859-1	. #xF9)	; &I-LATIN1-79;
@@ -2862,7 +3516,6 @@
      ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
       (=ucs		  . #x00F9)	; ù
       ))
-    (->decomposition	#xFF55 #x0300)
     (->uppercase
      ((=jis-x0212	  . #x2A63)	; &JX1-294F; [10-67]
       (=jis-x0213-1-2000  . #x294F)	; &I-JX1-294F; [09-47]
@@ -2870,6 +3523,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
       (=ucs		  . #x00F9)	; ù
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (=ucs		  . #xFF55)	; ｕ
+      )
+     ((name		  . "COMBINING GRAVE ACCENT")
+      (=ucs		  . #x0300)	; ̀
       ))
     (=gb2312		. #x2834)	; &JX1-296E; [08-20]
     (=jis-x0212		. #x2B63)	; &I-JSP-2B63; [11-67]
@@ -2883,10 +3543,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0075 #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
       (=ucs		  . #x00DA)	; Ú
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00FA)	; ú
     (latin-iso8859-1	. #xFA)	; &I-LATIN1-7A;
@@ -2903,7 +3569,6 @@
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
       (=ucs		  . #x00FA)	; ú
       ))
-    (->decomposition	#xFF55 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A62)	; &JX1-2950; [10-66]
       (=jis-x0213-1-2000  . #x2950)	; &I-JX1-2950; [09-48]
@@ -2911,6 +3576,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
       (=ucs		  . #x00FA)	; ú
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (=ucs		  . #xFF55)	; ｕ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=gb2312		. #x2832)	; &JX1-296F; [08-18]
     (=jis-x0212		. #x2B62)	; &I-JSP-2B62; [11-66]
@@ -2924,10 +3596,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0075 #x0302)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00DB)	; Û
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=ucs		. #x00FB)	; û
     (latin-iso8859-1	. #xFB)	; &I-LATIN1-7B;
@@ -2940,7 +3618,6 @@
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00FB)	; û
       ))
-    (->decomposition	#xFF55 #x0302)
     (->uppercase
      ((=jis-x0212	  . #x2A65)	; &JX1-2951; [10-69]
       (=jis-x0213-1-2000  . #x2951)	; &I-JX1-2951; [09-49]
@@ -2948,6 +3625,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00FB)	; û
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (=ucs		  . #xFF55)	; ｕ
+      )
+     ((name		  . "COMBINING CIRCUMFLEX ACCENT")
+      (=ucs		  . #x0302)	; ̂
       ))
     (=jis-x0212		. #x2B65)	; &JX1-2970; [11-69]
     (=jis-x0213-1-2000	. #x2970)	; &I-JX1-2970; [09-80]
@@ -2959,10 +3643,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0075 #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00DC)	; Ü
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER U")
+      (=ucs		  . #x0075)	; u
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00FC)	; ü
     (latin-iso8859-1	. #xFC)	; &I-LATIN1-7C;
@@ -2976,7 +3666,6 @@
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00FC)	; ü
       ))
-    (->decomposition	#xFF55 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A64)	; &JX1-2952; [10-68]
       (=jis-x0213-1-2000  . #x2952)	; &I-JX1-2952; [09-50]
@@ -2984,6 +3673,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00FC)	; ü
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (=ucs		  . #xFF55)	; ｕ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=gb2312		. #x2839)	; &JX1-2971; [08-25]
     (=jis-x0212		. #x2B64)	; &I-JSP-2B64; [11-68]
@@ -2997,10 +3693,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0079 #x0301)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
       (=ucs		  . #x00DD)	; Ý
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=ucs		. #x00FD)	; ý
     (latin-iso8859-1	. #xFD)	; &I-LATIN1-7D;
@@ -3014,7 +3716,6 @@
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
       (=ucs		  . #x00FD)	; ý
       ))
-    (->decomposition	#xFF59 #x0301)
     (->uppercase
      ((=jis-x0212	  . #x2A72)	; &JX1-2953; [10-82]
       (=jis-x0213-1-2000  . #x2953)	; &I-JX1-2953; [09-51]
@@ -3022,6 +3723,13 @@
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
       (=ucs		  . #x00FD)	; ý
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Y")
+      (=ucs		  . #xFF59)	; ｙ
+      )
+     ((name		  . "COMBINING ACUTE ACCENT")
+      (=ucs		  . #x0301)	; ́
       ))
     (=jis-x0212		. #x2B72)	; &JX1-2972; [11-82]
     (=jis-x0213-1-2000	. #x2972)	; &I-JX1-2972; [09-82]
@@ -3066,10 +3774,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0079 #x0308)
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER Y WITH DIAERESIS")
       (=ucs		  . #x0178)	; Ÿ
+      ))
+    (=decomposition
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=ucs		. #x00FF)	; ÿ
     (latin-iso8859-1	. #xFF)	; &I-LATIN1-7F;
@@ -3080,13 +3794,19 @@
      ((name		  . "LATIN SMALL LETTER Y WITH DIAERESIS")
       (=ucs		  . #x00FF)	; ÿ
       ))
-    (->decomposition	#xFF59 #x0308)
     (->uppercase
      ((=jis-x0212	  . #x2A73)	; &JSP-2A73; [10-83]
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y WITH DIAERESIS")
       (=ucs		  . #x00FF)	; ÿ
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Y")
+      (=ucs		  . #xFF59)	; ｙ
+      )
+     ((name		  . "COMBINING DIAERESIS")
+      (=ucs		  . #x0308)	; ̈
       ))
     (=jis-x0212		. #x2B73)	; &JX1-2974; [11-83]
     (=jis-x0213-1-2000	. #x2974)	; &I-JX1-2974; [09-84]
