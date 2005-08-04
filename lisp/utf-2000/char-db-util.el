@@ -1013,6 +1013,7 @@
 		      (or (eq name '<-identical)
 			  (eq name '->superscript)
 			  (eq name '->subscript)
+			  (eq name '->circled)
 			  (string-match "^->compat" (symbol-name name))
 			  (string-match "^->halfwidth" (symbol-name name))
 			  (and
