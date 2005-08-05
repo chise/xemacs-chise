@@ -1,5 +1,61 @@
 2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u03300-CJK-Compatibility.el: Use `=>decomposition@square'
+	instead of `->decomposition' for compatibility decomposition
+	mapping tagged `square'.
+
+	* u0FB00-Alphabetic-Presentation-Forms.el:
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
+	- Use `=decomposition' instead of `->decomposition'.
+	- Use `<-font' instead of `->decomposition' for compatibility
+	  mapping to single character tagged `font'.
+
+2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el:
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
+	- Use `<-circled' instead of `->decomposition' for compatibility
+	  mapping to single character tagged `circle'.
+	- Use `=>decomposition@circled' instead of `->decomposition' for
+	  compatibility decomposition mapping tagged `circle'.
+
+	* u02000-General-Punctuation.el (<FIGURE SPACE>): Use `<-noBreak'
+	instead of `=decomposition' for <SPACE>.
+	(<NON-BREAKING HYPHEN>): Use `<-noBreak' instead of
+	`=decomposition' for <HYPHEN>.
+	(<NARROW NO-BREAK SPACE>): Use `<-noBreak' instead of
+	`=decomposition' for <SPACE>.
+
+	* u00F00-Tibetan.el (<TIBETAN MARK DELIMITER TSHEG BSTAR>): Use
+	`<-noBreak' instead of `=decomposition' for <TIBETAN MARK
+	INTERSYLLABIC TSHEG>.
+
+	* u000A0-Latin-1-Supplement.el (<MICRO SIGN>): Use `<-compat/unit'
+	instead of `->decomposition' for <GREEK SMALL LETTER MU>.	
+	- Use `<-noBreak' instead of `->decomposition' for compatibility
+	  mapping to single character tagged `noBreak'.
+	- Use `=>decomposition@compat' instead of `->decomposition' for
+	  compatibility decomposition mapping.
+	- Use `<-superscript' instead of `->decomposition' for compatibility
+	  mapping to single character tagged `super'.
+	- Add some auto-generated `<-canonical' features.
+	- Use `=>decomposition@fraction' instead of `->decomposition' for
+	  compatibility decomposition mapping tagged `fraction'.
+	- Use `=decomposition' instead of `->decomposition'.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (<CIRCLED POSTAL MARK>):
+	Use `<-compat/circled' instead of `->decomposition' for <POSTAL
+	MARK>.
+	(<HANGZHOU NUMERAL TEN>): Use `<-compat/Hangzhou-Numeral' instead
+	of `->decomposition' for U+5341.
+	(<HANGZHOU NUMERAL TWENTY>): Use `<-compat/Hangzhou-Numeral'
+	instead of `->decomposition' for U+5344.
+	(<HANGZHOU NUMERAL THIRTY>): Use `<-compat/Hangzhou-Numeral'
+	instead of `->decomposition' for U+5345.
+	- Add some auto-generated `<-canonical' features.
+
 	* char-db-util.el (insert-char-attributes): Don't display `->font'
 	when running with non-readable mode.
 
@@ -33,6 +89,10 @@
 
 2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u03190-Kanbun.el: Use `<-superscript' instead of
+	`->decomposition' for compatibility mapping to single character
+	tagged `super'.
+
 	* char-db-util.el (insert-char-attributes): Don't display
 	`->subscript' when running with non-readable mode.
 
@@ -59,6 +119,9 @@
 	`super'.
 
 2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03040-Hiragana.el: Use `=>decomposition@compat' instead of
+	`->decomposition' for compatibility decomposition mapping.
 
 	* u02100-Letterlike-Symbols.el (<DEGREE CELSIUS>): Use
 	`=>decomposition@compat/unit' instead of `->decomposition'.
