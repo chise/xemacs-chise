@@ -100,8 +100,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "tsek tar")
-    (=decomposition
-     noBreak
+    (<-noBreak
      ((name		  . "TIBETAN MARK INTERSYLLABIC TSHEG")
       (=ucs		  . #x0F0B)	; ་
       ))
