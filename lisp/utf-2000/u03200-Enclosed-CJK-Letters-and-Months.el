@@ -4,7 +4,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1100 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG KIYEOK")
+      (=ucs		  . #x1100)	; ᄀ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3200)	; ㈀
     (=ks-x1001		. #x2931)	; &I-K0-2931; [09-17]
     ))
@@ -13,7 +22,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1102 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG NIEUN")
+      (=ucs		  . #x1102)	; ᄂ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3201)	; ㈁
     (=ks-x1001		. #x2932)	; &I-K0-2932; [09-18]
     ))
@@ -22,7 +40,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1103 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG TIKEUT")
+      (=ucs		  . #x1103)	; ᄃ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3202)	; ㈂
     (=ks-x1001		. #x2933)	; &I-K0-2933; [09-19]
     ))
@@ -31,7 +58,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1105 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG RIEUL")
+      (=ucs		  . #x1105)	; ᄅ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3203)	; ㈃
     (=ks-x1001		. #x2934)	; &I-K0-2934; [09-20]
     ))
@@ -40,7 +76,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1106 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG MIEUM")
+      (=ucs		  . #x1106)	; ᄆ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3204)	; ㈄
     (=ks-x1001		. #x2935)	; &I-K0-2935; [09-21]
     ))
@@ -49,7 +94,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1107 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG PIEUP")
+      (=ucs		  . #x1107)	; ᄇ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3205)	; ㈅
     (=ks-x1001		. #x2936)	; &I-K0-2936; [09-22]
     ))
@@ -58,7 +112,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1109 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG SIOS")
+      (=ucs		  . #x1109)	; ᄉ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3206)	; ㈆
     (=ks-x1001		. #x2937)	; &I-K0-2937; [09-23]
     ))
@@ -67,7 +130,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110B #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG IEUNG")
+      (=ucs		  . #x110B)	; ᄋ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3207)	; ㈇
     (=ks-x1001		. #x2938)	; &I-K0-2938; [09-24]
     ))
@@ -76,7 +148,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110C #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3208)	; ㈈
     (=ks-x1001		. #x2939)	; &I-K0-2939; [09-25]
     ))
@@ -85,7 +166,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110E #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG CHIEUCH")
+      (=ucs		  . #x110E)	; ᄎ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3209)	; ㈉
     (=ks-x1001		. #x293A)	; &I-K0-293A; [09-26]
     ))
@@ -94,7 +184,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110F #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG KHIEUKH")
+      (=ucs		  . #x110F)	; ᄏ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320A)	; ㈊
     (=ks-x1001		. #x293B)	; &I-K0-293B; [09-27]
     ))
@@ -103,7 +202,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1110 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG THIEUTH")
+      (=ucs		  . #x1110)	; ᄐ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320B)	; ㈋
     (=ks-x1001		. #x293C)	; &I-K0-293C; [09-28]
     ))
@@ -112,7 +220,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1111 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG PHIEUPH")
+      (=ucs		  . #x1111)	; ᄑ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320C)	; ㈌
     (=ks-x1001		. #x293D)	; &I-K0-293D; [09-29]
     ))
@@ -121,7 +238,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1112 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG HIEUH")
+      (=ucs		  . #x1112)	; ᄒ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320D)	; ㈍
     (=ks-x1001		. #x293E)	; &I-K0-293E; [09-30]
     ))
@@ -130,7 +256,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1100 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG KIYEOK")
+      (=ucs		  . #x1100)	; ᄀ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320E)	; ㈎
     (=ks-x1001		. #x293F)	; &I-K0-293F; [09-31]
     ))
@@ -139,7 +277,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1102 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG NIEUN")
+      (=ucs		  . #x1102)	; ᄂ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x320F)	; ㈏
     (=ks-x1001		. #x2940)	; &I-K0-2940; [09-32]
     ))
@@ -148,7 +298,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1103 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG TIKEUT")
+      (=ucs		  . #x1103)	; ᄃ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3210)	; ㈐
     (=ks-x1001		. #x2941)	; &I-K0-2941; [09-33]
     ))
@@ -157,7 +319,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1105 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG RIEUL")
+      (=ucs		  . #x1105)	; ᄅ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3211)	; ㈑
     (=ks-x1001		. #x2942)	; &I-K0-2942; [09-34]
     ))
@@ -166,7 +340,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1106 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG MIEUM")
+      (=ucs		  . #x1106)	; ᄆ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3212)	; ㈒
     (=ks-x1001		. #x2943)	; &I-K0-2943; [09-35]
     ))
@@ -175,7 +361,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1107 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG PIEUP")
+      (=ucs		  . #x1107)	; ᄇ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3213)	; ㈓
     (=ks-x1001		. #x2944)	; &I-K0-2944; [09-36]
     ))
@@ -184,7 +382,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1109 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG SIOS")
+      (=ucs		  . #x1109)	; ᄉ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3214)	; ㈔
     (=ks-x1001		. #x2945)	; &I-K0-2945; [09-37]
     ))
@@ -193,7 +403,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110B #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG IEUNG")
+      (=ucs		  . #x110B)	; ᄋ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3215)	; ㈕
     (=ks-x1001		. #x2946)	; &I-K0-2946; [09-38]
     ))
@@ -202,7 +424,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110C #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3216)	; ㈖
     (=ks-x1001		. #x2947)	; &I-K0-2947; [09-39]
     ))
@@ -211,7 +445,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110E #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG CHIEUCH")
+      (=ucs		  . #x110E)	; ᄎ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3217)	; ㈗
     (=ks-x1001		. #x2948)	; &I-K0-2948; [09-40]
     ))
@@ -220,7 +466,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110F #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG KHIEUKH")
+      (=ucs		  . #x110F)	; ᄏ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3218)	; ㈘
     (=ks-x1001		. #x2949)	; &I-K0-2949; [09-41]
     ))
@@ -229,7 +487,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1110 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG THIEUTH")
+      (=ucs		  . #x1110)	; ᄐ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3219)	; ㈙
     (=ks-x1001		. #x294A)	; &I-K0-294A; [09-42]
     ))
@@ -238,7 +508,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1111 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG PHIEUPH")
+      (=ucs		  . #x1111)	; ᄑ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x321A)	; ㈚
     (=ks-x1001		. #x294B)	; &I-K0-294B; [09-43]
     ))
@@ -247,7 +529,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x1112 #x1161 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG HIEUH")
+      (=ucs		  . #x1112)	; ᄒ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x321B)	; ㈛
     (=ks-x1001		. #x294C)	; &I-K0-294C; [09-44]
     ))
@@ -256,7 +550,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x110C #x116E #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      )
+     ((name		  . "HANGUL JUNGSEONG U")
+      (=ucs		  . #x116E)	; ᅮ
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x321C)	; ㈜
     (=ks-x1001		. #x225F)	; &I-K0-225F; [02-63]
     ))
@@ -265,7 +571,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E00 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3220)	; ㈠
     (=gb2312		. #x2265)	; &I-G0-2265; [02-69]
     ))
@@ -274,7 +588,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E8C #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3221)	; ㈡
     (=gb2312		. #x2266)	; &I-G0-2266; [02-70]
     ))
@@ -283,7 +605,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E09 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E09)	; 三
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3222)	; ㈢
     (=gb2312		. #x2267)	; &I-G0-2267; [02-71]
     ))
@@ -292,7 +622,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x56DB #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x56DB)	; 四
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3223)	; ㈣
     (=gb2312		. #x2268)	; &I-G0-2268; [02-72]
     ))
@@ -301,7 +639,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E94 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E94)	; 五
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3224)	; ㈤
     (=gb2312		. #x2269)	; &I-G0-2269; [02-73]
     ))
@@ -310,7 +656,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x516D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x516D)	; 六
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3225)	; ㈥
     (=gb2312		. #x226A)	; &I-G0-226A; [02-74]
     ))
@@ -319,7 +673,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E03 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E03)	; 七
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3226)	; ㈦
     (=gb2312		. #x226B)	; &I-G0-226B; [02-75]
     ))
@@ -328,7 +690,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x516B #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3227)	; ㈧
     (=gb2312		. #x226C)	; &I-G0-226C; [02-76]
     ))
@@ -337,7 +707,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4E5D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3228)	; ㈨
     (=gb2312		. #x226D)	; &I-G0-226D; [02-77]
     ))
@@ -346,7 +724,15 @@
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x5341 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3229)	; ㈩
     (=gb2312		. #x226E)	; &I-G0-226E; [02-78]
     ))
@@ -355,7 +741,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x6708 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x6708)	; 月
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322A)	; ㈪
     ))
 (define-char
@@ -363,7 +757,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x706B #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322B)	; ㈫
     ))
 (define-char
@@ -371,7 +773,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x6C34 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x6C34)	; 水
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322C)	; ㈬
     ))
 (define-char
@@ -379,7 +789,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x6728 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322D)	; ㈭
     ))
 (define-char
@@ -387,7 +805,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x91D1 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x91D1)	; 金
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322E)	; ㈮
     ))
 (define-char
@@ -395,7 +821,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x571F #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x322F)	; ㈯
     ))
 (define-char
@@ -403,7 +837,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x65E5 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3230)	; ㈰
     ))
 (define-char
@@ -411,7 +853,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x682A #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x682A)	; 株
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3231)	; ㈱
     (=jis-x0213-1-2000	. #x2D6A)	; &I-JX1-2D6A; [13-74]
     (=big5-eten		. #xC8D1)	; &B-C8D1;
@@ -422,7 +872,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x6709 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x6709)	; 有
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3232)	; ㈲
     (=jis-x0213-1-2000	. #x2D6B)	; &I-JX1-2D6B; [13-75]
     (=jef-china3	. #x78CF)	; &I-JC3-78CF;
@@ -432,7 +890,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x793E #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x793E)	; 社
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3233)	; ㈳
     (=jef-china3	. #x78D0)	; &I-JC3-78D0;
     ))
@@ -441,7 +907,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x540D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x540D)	; 名
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3234)	; ㈴
     (=jef-china3	. #x78CD)	; &I-JC3-78CD;
     ))
@@ -450,7 +924,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x7279 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x7279)	; 特
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3235)	; ㈵
     (=jef-china3	. #x78D6)	; &I-JC3-78D6;
     ))
@@ -459,7 +941,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x8CA1 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x8CA1)	; 財
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3236)	; ㈶
     (=jef-china3	. #x78D4)	; &I-JC3-78D4;
     ))
@@ -468,7 +958,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x795D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x795D)	; 祝
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3237)	; ㈷
     ))
 (define-char
@@ -476,7 +974,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x52B4 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x52B4)	; 労
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3238)	; ㈸
     ))
 (define-char
@@ -484,7 +990,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4EE3 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4EE3)	; 代
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3239)	; ㈹
     (=jis-x0213-1-2000	. #x2D6C)	; &I-JX1-2D6C; [13-76]
     (=jef-china3	. #x78CB)	; &I-JC3-78CB;
@@ -494,7 +1008,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x547C #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x547C)	; 呼
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323A)	; ㈺
     (=jef-china3	. #x78D9)	; &I-JC3-78D9;
     ))
@@ -503,7 +1025,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x5B66 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x5B66)	; 学
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323B)	; ㈻
     (=jef-china3	. #x78D7)	; &I-JC3-78D7;
     ))
@@ -512,7 +1042,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x76E3 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x76E3)	; 監
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323C)	; ㈼
     (=jef-china3	. #x78D1)	; &I-JC3-78D1;
     ))
@@ -521,7 +1059,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4F01 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4F01)	; 企
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323D)	; ㈽
     (=jef-china3	. #x78CA)	; &I-JC3-78CA;
     ))
@@ -530,7 +1076,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x8CC7 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x8CC7)	; 資
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323E)	; ㈾
     (=jef-china3	. #x78D3)	; &I-JC3-78D3;
     ))
@@ -539,7 +1093,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x5354 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x5354)	; 協
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x323F)	; ㈿
     (=jef-china3	. #x78CC)	; &I-JC3-78CC;
     ))
@@ -548,7 +1110,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x796D #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x796D)	; 祭
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3240)	; ㉀
     (=jef-china3	. #x78D8)	; &I-JC3-78D8;
     ))
@@ -557,7 +1127,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x4F11 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x4F11)	; 休
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3241)	; ㉁
     ))
 (define-char
@@ -565,7 +1143,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x81EA #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x81EA)	; 自
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3242)	; ㉂
     (=jef-china3	. #x78D2)	; &I-JC3-78D2;
     ))
@@ -574,7 +1160,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0028 #x81F3 #x0029)
+    (=>decomposition@compat
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      )
+     ((=ucs		  . #x81F3)	; 至
+      )
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x3243)	; ㉃
     (=jef-china3	. #x78C9)	; &I-JC3-78C9;
     ))
@@ -658,7 +1252,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1100)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG KIYEOK")
+      (=ucs		  . #x1100)	; ᄀ
+      ))
     (=ucs		. #x3260)	; ㉠
     (=ks-x1001		. #x2831)	; &I-K0-2831; [08-17]
     ))
@@ -667,7 +1264,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1102)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG NIEUN")
+      (=ucs		  . #x1102)	; ᄂ
+      ))
     (=ucs		. #x3261)	; ㉡
     (=ks-x1001		. #x2832)	; &I-K0-2832; [08-18]
     ))
@@ -676,7 +1276,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1103)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG TIKEUT")
+      (=ucs		  . #x1103)	; ᄃ
+      ))
     (=ucs		. #x3262)	; ㉢
     (=ks-x1001		. #x2833)	; &I-K0-2833; [08-19]
     ))
@@ -685,7 +1288,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1105)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG RIEUL")
+      (=ucs		  . #x1105)	; ᄅ
+      ))
     (=ucs		. #x3263)	; ㉣
     (=ks-x1001		. #x2834)	; &I-K0-2834; [08-20]
     ))
@@ -694,7 +1300,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1106)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG MIEUM")
+      (=ucs		  . #x1106)	; ᄆ
+      ))
     (=ucs		. #x3264)	; ㉤
     (=ks-x1001		. #x2835)	; &I-K0-2835; [08-21]
     ))
@@ -703,7 +1312,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1107)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG PIEUP")
+      (=ucs		  . #x1107)	; ᄇ
+      ))
     (=ucs		. #x3265)	; ㉥
     (=ks-x1001		. #x2836)	; &I-K0-2836; [08-22]
     ))
@@ -712,7 +1324,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1109)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG SIOS")
+      (=ucs		  . #x1109)	; ᄉ
+      ))
     (=ucs		. #x3266)	; ㉦
     (=ks-x1001		. #x2837)	; &I-K0-2837; [08-23]
     ))
@@ -721,7 +1336,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110B)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG IEUNG")
+      (=ucs		  . #x110B)	; ᄋ
+      ))
     (=ucs		. #x3267)	; ㉧
     (=ks-x1001		. #x2838)	; &I-K0-2838; [08-24]
     ))
@@ -730,7 +1348,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110C)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      ))
     (=ucs		. #x3268)	; ㉨
     (=ks-x1001		. #x2839)	; &I-K0-2839; [08-25]
     ))
@@ -739,7 +1360,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110E)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG CHIEUCH")
+      (=ucs		  . #x110E)	; ᄎ
+      ))
     (=ucs		. #x3269)	; ㉩
     (=ks-x1001		. #x283A)	; &I-K0-283A; [08-26]
     ))
@@ -748,7 +1372,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110F)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG KHIEUKH")
+      (=ucs		  . #x110F)	; ᄏ
+      ))
     (=ucs		. #x326A)	; ㉪
     (=ks-x1001		. #x283B)	; &I-K0-283B; [08-27]
     ))
@@ -757,7 +1384,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1110)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG THIEUTH")
+      (=ucs		  . #x1110)	; ᄐ
+      ))
     (=ucs		. #x326B)	; ㉫
     (=ks-x1001		. #x283C)	; &I-K0-283C; [08-28]
     ))
@@ -766,7 +1396,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1111)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG PHIEUPH")
+      (=ucs		  . #x1111)	; ᄑ
+      ))
     (=ucs		. #x326C)	; ㉬
     (=ks-x1001		. #x283D)	; &I-K0-283D; [08-29]
     ))
@@ -775,7 +1408,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1112)
+    (<-circled
+     ((name		  . "HANGUL CHOSEONG HIEUH")
+      (=ucs		  . #x1112)	; ᄒ
+      ))
     (=ucs		. #x326D)	; ㉭
     (=ks-x1001		. #x283E)	; &I-K0-283E; [08-30]
     ))
@@ -784,7 +1420,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1100 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG KIYEOK")
+      (=ucs		  . #x1100)	; ᄀ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x326E)	; ㉮
     (=ks-x1001		. #x283F)	; &I-K0-283F; [08-31]
     ))
@@ -793,7 +1435,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1102 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG NIEUN")
+      (=ucs		  . #x1102)	; ᄂ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x326F)	; ㉯
     (=ks-x1001		. #x2840)	; &I-K0-2840; [08-32]
     ))
@@ -802,7 +1450,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1103 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG TIKEUT")
+      (=ucs		  . #x1103)	; ᄃ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3270)	; ㉰
     (=ks-x1001		. #x2841)	; &I-K0-2841; [08-33]
     ))
@@ -811,7 +1465,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1105 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG RIEUL")
+      (=ucs		  . #x1105)	; ᄅ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3271)	; ㉱
     (=ks-x1001		. #x2842)	; &I-K0-2842; [08-34]
     ))
@@ -820,7 +1480,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1106 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG MIEUM")
+      (=ucs		  . #x1106)	; ᄆ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3272)	; ㉲
     (=ks-x1001		. #x2843)	; &I-K0-2843; [08-35]
     ))
@@ -829,7 +1495,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1107 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG PIEUP")
+      (=ucs		  . #x1107)	; ᄇ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3273)	; ㉳
     (=ks-x1001		. #x2844)	; &I-K0-2844; [08-36]
     ))
@@ -838,7 +1510,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1109 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG SIOS")
+      (=ucs		  . #x1109)	; ᄉ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3274)	; ㉴
     (=ks-x1001		. #x2845)	; &I-K0-2845; [08-37]
     ))
@@ -847,7 +1525,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110B #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG IEUNG")
+      (=ucs		  . #x110B)	; ᄋ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3275)	; ㉵
     (=ks-x1001		. #x2846)	; &I-K0-2846; [08-38]
     ))
@@ -856,7 +1540,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110C #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3276)	; ㉶
     (=ks-x1001		. #x2847)	; &I-K0-2847; [08-39]
     ))
@@ -865,7 +1555,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110E #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG CHIEUCH")
+      (=ucs		  . #x110E)	; ᄎ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3277)	; ㉷
     (=ks-x1001		. #x2848)	; &I-K0-2848; [08-40]
     ))
@@ -874,7 +1570,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x110F #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG KHIEUKH")
+      (=ucs		  . #x110F)	; ᄏ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3278)	; ㉸
     (=ks-x1001		. #x2849)	; &I-K0-2849; [08-41]
     ))
@@ -883,7 +1585,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1110 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG THIEUTH")
+      (=ucs		  . #x1110)	; ᄐ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x3279)	; ㉹
     (=ks-x1001		. #x284A)	; &I-K0-284A; [08-42]
     ))
@@ -892,7 +1600,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1111 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG PHIEUPH")
+      (=ucs		  . #x1111)	; ᄑ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x327A)	; ㉺
     (=ks-x1001		. #x284B)	; &I-K0-284B; [08-43]
     ))
@@ -901,7 +1615,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x1112 #x1161)
+    (=>decomposition@circled
+     ((name		  . "HANGUL CHOSEONG HIEUH")
+      (=ucs		  . #x1112)	; ᄒ
+      )
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x327B)	; ㉻
     (=ks-x1001		. #x284C)	; &I-K0-284C; [08-44]
     ))
@@ -919,7 +1639,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->decomposition	circle #x4E00)
+    (<-circled
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x3280)	; ㊀
     ))
 (define-char
@@ -928,7 +1650,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (->decomposition	circle #x4E8C)
+    (<-circled
+     ((=ucs		  . #x4E8C)	; 二
+      ))
     (=ucs		. #x3281)	; ㊁
     ))
 (define-char
@@ -937,7 +1661,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (->decomposition	circle #x4E09)
+    (<-circled
+     ((=ucs		  . #x4E09)	; 三
+      ))
     (=ucs		. #x3282)	; ㊂
     ))
 (define-char
@@ -946,7 +1672,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (->decomposition	circle #x56DB)
+    (<-circled
+     ((=ucs		  . #x56DB)	; 四
+      ))
     (=ucs		. #x3283)	; ㊃
     ))
 (define-char
@@ -955,7 +1683,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (->decomposition	circle #x4E94)
+    (<-circled
+     ((=ucs		  . #x4E94)	; 五
+      ))
     (=ucs		. #x3284)	; ㊄
     ))
 (define-char
@@ -964,7 +1694,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (->decomposition	circle #x516D)
+    (<-circled
+     ((=ucs		  . #x516D)	; 六
+      ))
     (=ucs		. #x3285)	; ㊅
     ))
 (define-char
@@ -973,7 +1705,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (->decomposition	circle #x4E03)
+    (<-circled
+     ((=ucs		  . #x4E03)	; 七
+      ))
     (=ucs		. #x3286)	; ㊆
     ))
 (define-char
@@ -982,7 +1716,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (->decomposition	circle #x516B)
+    (<-circled
+     ((=ucs		  . #x516B)	; 八
+      ))
     (=ucs		. #x3287)	; ㊇
     ))
 (define-char
@@ -991,7 +1727,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (->decomposition	circle #x4E5D)
+    (<-circled
+     ((=ucs		  . #x4E5D)	; 九
+      ))
     (=ucs		. #x3288)	; ㊈
     ))
 (define-char
@@ -1000,7 +1738,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	circle #x5341)
+    (<-circled
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x3289)	; ㊉
     ))
 (define-char
@@ -1008,7 +1748,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6708)
+    (<-circled
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x328A)	; ㊊
     ))
 (define-char
@@ -1016,7 +1758,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x706B)
+    (<-circled
+     ((=ucs		  . #x706B)	; 火
+      ))
     (=ucs		. #x328B)	; ㊋
     ))
 (define-char
@@ -1024,7 +1768,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6C34)
+    (<-circled
+     ((=ucs		  . #x6C34)	; 水
+      ))
     (=ucs		. #x328C)	; ㊌
     ))
 (define-char
@@ -1032,7 +1778,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6728)
+    (<-circled
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs		. #x328D)	; ㊍
     ))
 (define-char
@@ -1040,7 +1788,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x91D1)
+    (<-circled
+     ((=ucs		  . #x91D1)	; 金
+      ))
     (=ucs		. #x328E)	; ㊎
     ))
 (define-char
@@ -1048,7 +1798,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x571F)
+    (<-circled
+     ((=ucs		  . #x571F)	; 土
+      ))
     (=ucs		. #x328F)	; ㊏
     ))
 (define-char
@@ -1056,7 +1808,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x65E5)
+    (<-circled
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x3290)	; ㊐
     ))
 (define-char
@@ -1064,7 +1818,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x682A)
+    (<-circled
+     ((=ucs		  . #x682A)	; 株
+      ))
     (=ucs		. #x3291)	; ㊑
     (=jef-china3	. #x78E6)	; &I-JC3-78E6;
     ))
@@ -1073,7 +1829,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6709)
+    (<-circled
+     ((=ucs		  . #x6709)	; 有
+      ))
     (=ucs		. #x3292)	; ㊒
     (=jef-china3	. #x78E5)	; &I-JC3-78E5;
     ))
@@ -1082,7 +1840,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x793E)
+    (<-circled
+     ((=ucs		  . #x793E)	; 社
+      ))
     (=ucs		. #x3293)	; ㊓
     (=jef-china3	. #x78E7)	; &I-JC3-78E7;
     ))
@@ -1091,7 +1851,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x540D)
+    (<-circled
+     ((=ucs		  . #x540D)	; 名
+      ))
     (=ucs		. #x3294)	; ㊔
     (=jef-china3	. #x78E1)	; &I-JC3-78E1;
     ))
@@ -1100,7 +1862,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x7279)
+    (<-circled
+     ((=ucs		  . #x7279)	; 特
+      ))
     (=ucs		. #x3295)	; ㊕
     ))
 (define-char
@@ -1108,7 +1872,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x8CA1)
+    (<-circled
+     ((=ucs		  . #x8CA1)	; 財
+      ))
     (=ucs		. #x3296)	; ㊖
     (=jef-china3	. #x78EA)	; &I-JC3-78EA;
     ))
@@ -1117,7 +1883,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x795D)
+    (<-circled
+     ((=ucs		  . #x795D)	; 祝
+      ))
     (=ucs		. #x3297)	; ㊗
     ))
 (define-char
@@ -1125,7 +1893,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x52B4)
+    (<-circled
+     ((=ucs		  . #x52B4)	; 労
+      ))
     (=ucs		. #x3298)	; ㊘
     (=jef-china3	. #x78E3)	; &I-JC3-78E3;
     ))
@@ -1134,7 +1904,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x79D8)
+    (<-circled
+     ((=ucs		  . #x79D8)	; 秘
+      ))
     (=ucs		. #x3299)	; ㊙
     ))
 (define-char
@@ -1142,7 +1914,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x7537)
+    (<-circled
+     ((=ucs		  . #x7537)	; 男
+      ))
     (=ucs		. #x329A)	; ㊚
     ))
 (define-char
@@ -1150,7 +1924,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5973)
+    (<-circled
+     ((=ucs		  . #x5973)	; 女
+      ))
     (=ucs		. #x329B)	; ㊛
     ))
 (define-char
@@ -1158,7 +1934,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x9069)
+    (<-circled
+     ((=ucs		  . #x9069)	; 適
+      ))
     (=ucs		. #x329C)	; ㊜
     ))
 (define-char
@@ -1166,7 +1944,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x512A)
+    (<-circled
+     ((=ucs		  . #x512A)	; 優
+      ))
     (=ucs		. #x329D)	; ㊝
     ))
 (define-char
@@ -1174,7 +1954,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5370)
+    (<-circled
+     ((=ucs		  . #x5370)	; 印
+      ))
     (=ucs		. #x329E)	; ㊞
     ))
 (define-char
@@ -1182,7 +1964,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6CE8)
+    (<-circled
+     ((=ucs		  . #x6CE8)	; 注
+      ))
     (=ucs		. #x329F)	; ㊟
     ))
 (define-char
@@ -1190,7 +1974,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x9805)
+    (<-circled
+     ((=ucs		  . #x9805)	; 項
+      ))
     (=ucs		. #x32A0)	; ㊠
     ))
 (define-char
@@ -1198,7 +1984,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x4F11)
+    (<-circled
+     ((=ucs		  . #x4F11)	; 休
+      ))
     (=ucs		. #x32A1)	; ㊡
     ))
 (define-char
@@ -1206,7 +1994,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5199)
+    (<-circled
+     ((=ucs		  . #x5199)	; 写
+      ))
     (=ucs		. #x32A2)	; ㊢
     ))
 (define-char
@@ -1214,7 +2004,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x6B63)
+    (<-circled
+     ((=ucs		  . #x6B63)	; 正
+      ))
     (=ucs		. #x32A3)	; ㊣
     (=cns11643-1	. #x2221)	; &I-C1-2221; [02-01]
     (=big5		. #xA1C0)	; &I-B-A1C0;
@@ -1224,7 +2016,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x4E0A)
+    (<-circled
+     ((=ucs		  . #x4E0A)	; 上
+      ))
     (=ucs		. #x32A4)	; ㊤
     (=jis-x0213-1-2000	. #x2D65)	; &I-JX1-2D65; [13-69]
     ))
@@ -1233,7 +2027,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x4E2D)
+    (<-circled
+     ((=ucs		  . #x4E2D)	; 中
+      ))
     (=ucs		. #x32A5)	; ㊥
     (=jis-x0213-1-2000	. #x2D66)	; &I-JX1-2D66; [13-70]
     ))
@@ -1242,7 +2038,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x4E0B)
+    (<-circled
+     ((=ucs		  . #x4E0B)	; 下
+      ))
     (=ucs		. #x32A6)	; ㊦
     (=jis-x0213-1-2000	. #x2D67)	; &I-JX1-2D67; [13-71]
     ))
@@ -1251,7 +2049,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5DE6)
+    (<-circled
+     ((=ucs		  . #x5DE6)	; 左
+      ))
     (=ucs		. #x32A7)	; ㊧
     (=jis-x0213-1-2000	. #x2D68)	; &I-JX1-2D68; [13-72]
     ))
@@ -1260,7 +2060,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x53F3)
+    (<-circled
+     ((=ucs		  . #x53F3)	; 右
+      ))
     (=ucs		. #x32A8)	; ㊨
     (=jis-x0213-1-2000	. #x2D69)	; &I-JX1-2D69; [13-73]
     ))
@@ -1269,7 +2071,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x533B)
+    (<-circled
+     ((=ucs		  . #x533B)	; 医
+      ))
     (=ucs		. #x32A9)	; ㊩
     (=jef-china3	. #x78DF)	; &I-JC3-78DF;
     ))
@@ -1278,7 +2082,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5B97)
+    (<-circled
+     ((=ucs		  . #x5B97)	; 宗
+      ))
     (=ucs		. #x32AA)	; ㊪
     (=jef-china3	. #x78E2)	; &I-JC3-78E2;
     ))
@@ -1287,7 +2093,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5B66)
+    (<-circled
+     ((=ucs		  . #x5B66)	; 学
+      ))
     (=ucs		. #x32AB)	; ㊫
     (=jef-china3	. #x78E4)	; &I-JC3-78E4;
     ))
@@ -1296,7 +2104,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x76E3)
+    (<-circled
+     ((=ucs		  . #x76E3)	; 監
+      ))
     (=ucs		. #x32AC)	; ㊬
     (=jef-china3	. #x78E8)	; &I-JC3-78E8;
     ))
@@ -1305,7 +2115,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x4F01)
+    (<-circled
+     ((=ucs		  . #x4F01)	; 企
+      ))
     (=ucs		. #x32AD)	; ㊭
     (=jef-china3	. #x78DE)	; &I-JC3-78DE;
     ))
@@ -1314,7 +2126,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x8CC7)
+    (<-circled
+     ((=ucs		  . #x8CC7)	; 資
+      ))
     (=ucs		. #x32AE)	; ㊮
     (=jef-china3	. #x78E9)	; &I-JC3-78E9;
     ))
@@ -1323,7 +2137,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x5354)
+    (<-circled
+     ((=ucs		  . #x5354)	; 協
+      ))
     (=ucs		. #x32AF)	; ㊯
     (=jef-china3	. #x78E0)	; &I-JC3-78E0;
     ))
@@ -1332,7 +2148,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x591C)
+    (<-circled
+     ((=ucs		  . #x591C)	; 夜
+      ))
     (=ucs		. #x32B0)	; ㊰
     (=jef-china3	. #x78DD)	; &I-JC3-78DD;
     ))
@@ -1416,7 +2234,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C0)	; ㋀
     ))
 (define-char
@@ -1424,7 +2247,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C1)	; ㋁
     ))
 (define-char
@@ -1432,7 +2260,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0033 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C2)	; ㋂
     ))
 (define-char
@@ -1440,7 +2273,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0034 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C3)	; ㋃
     ))
 (define-char
@@ -1448,7 +2286,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0035 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C4)	; ㋄
     ))
 (define-char
@@ -1456,7 +2299,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0036 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C5)	; ㋅
     ))
 (define-char
@@ -1464,7 +2312,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0037 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C6)	; ㋆
     ))
 (define-char
@@ -1472,7 +2325,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0038 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C7)	; ㋇
     ))
 (define-char
@@ -1480,7 +2338,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0039 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C8)	; ㋈
     ))
 (define-char
@@ -1488,7 +2351,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0030 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32C9)	; ㋉
     ))
 (define-char
@@ -1496,7 +2367,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0031 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32CA)	; ㋊
     ))
 (define-char
@@ -1504,7 +2383,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0032 #x6708)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
     (=ucs		. #x32CB)	; ㋋
     ))
 (define-char
@@ -1512,7 +2399,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30A2)
+    (<-circled
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      ))
     (=ucs		. #x32D0)	; ㋐
     (=jis-x0213-1-2000	. #x2C5B)	; &I-JX1-2C5B; [12-59]
     ))
@@ -1521,7 +2411,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30A4)
+    (<-circled
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      ))
     (=ucs		. #x32D1)	; ㋑
     (=jis-x0213-1-2000	. #x2C5C)	; &I-JX1-2C5C; [12-60]
     ))
@@ -1530,7 +2423,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30A6)
+    (<-circled
+     ((name		  . "KATAKANA LETTER U")
+      (=ucs		  . #x30A6)	; ウ
+      ))
     (=ucs		. #x32D2)	; ㋒
     (=jis-x0213-1-2000	. #x2C5D)	; &I-JX1-2C5D; [12-61]
     ))
@@ -1539,7 +2435,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30A8)
+    (<-circled
+     ((name		  . "KATAKANA LETTER E")
+      (=ucs		  . #x30A8)	; エ
+      ))
     (=ucs		. #x32D3)	; ㋓
     (=jis-x0213-1-2000	. #x2C5E)	; &I-JX1-2C5E; [12-62]
     ))
@@ -1548,7 +2447,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30AA)
+    (<-circled
+     ((name		  . "KATAKANA LETTER O")
+      (=ucs		  . #x30AA)	; オ
+      ))
     (=ucs		. #x32D4)	; ㋔
     (=jis-x0213-1-2000	. #x2C5F)	; &I-JX1-2C5F; [12-63]
     ))
@@ -1557,7 +2459,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30AB)
+    (<-circled
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; カ
+      ))
     (=ucs		. #x32D5)	; ㋕
     (=jis-x0213-1-2000	. #x2C60)	; &I-JX1-2C60; [12-64]
     ))
@@ -1566,7 +2471,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30AD)
+    (<-circled
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      ))
     (=ucs		. #x32D6)	; ㋖
     (=jis-x0213-1-2000	. #x2C61)	; &I-JX1-2C61; [12-65]
     ))
@@ -1575,7 +2483,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30AF)
+    (<-circled
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      ))
     (=ucs		. #x32D7)	; ㋗
     (=jis-x0213-1-2000	. #x2C62)	; &I-JX1-2C62; [12-66]
     ))
@@ -1584,7 +2495,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30B1)
+    (<-circled
+     ((name		  . "KATAKANA LETTER KE")
+      (=ucs		  . #x30B1)	; ケ
+      ))
     (=ucs		. #x32D8)	; ㋘
     (=jis-x0213-1-2000	. #x2C63)	; &I-JX1-2C63; [12-67]
     ))
@@ -1593,7 +2507,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30B3)
+    (<-circled
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; コ
+      ))
     (=ucs		. #x32D9)	; ㋙
     (=jis-x0213-1-2000	. #x2C64)	; &I-JX1-2C64; [12-68]
     ))
@@ -1602,7 +2519,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30B5)
+    (<-circled
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      ))
     (=ucs		. #x32DA)	; ㋚
     (=jis-x0213-1-2000	. #x2C65)	; &I-JX1-2C65; [12-69]
     ))
@@ -1611,7 +2531,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30B7)
+    (<-circled
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; シ
+      ))
     (=ucs		. #x32DB)	; ㋛
     (=jis-x0213-1-2000	. #x2C66)	; &I-JX1-2C66; [12-70]
     ))
@@ -1620,7 +2543,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30B9)
+    (<-circled
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      ))
     (=ucs		. #x32DC)	; ㋜
     (=jis-x0213-1-2000	. #x2C67)	; &I-JX1-2C67; [12-71]
     ))
@@ -1629,7 +2555,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30BB)
+    (<-circled
+     ((name		  . "KATAKANA LETTER SE")
+      (=ucs		  . #x30BB)	; セ
+      ))
     (=ucs		. #x32DD)	; ㋝
     (=jis-x0213-1-2000	. #x2C68)	; &I-JX1-2C68; [12-72]
     ))
@@ -1638,7 +2567,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30BD)
+    (<-circled
+     ((name		  . "KATAKANA LETTER SO")
+      (=ucs		  . #x30BD)	; ソ
+      ))
     (=ucs		. #x32DE)	; ㋞
     (=jis-x0213-1-2000	. #x2C69)	; &I-JX1-2C69; [12-73]
     ))
@@ -1647,7 +2579,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30BF)
+    (<-circled
+     ((name		  . "KATAKANA LETTER TA")
+      (=ucs		  . #x30BF)	; タ
+      ))
     (=ucs		. #x32DF)	; ㋟
     (=jis-x0213-1-2000	. #x2C6A)	; &I-JX1-2C6A; [12-74]
     ))
@@ -1656,7 +2591,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30C1)
+    (<-circled
+     ((name		  . "KATAKANA LETTER TI")
+      (=ucs		  . #x30C1)	; チ
+      ))
     (=ucs		. #x32E0)	; ㋠
     (=jis-x0213-1-2000	. #x2C6B)	; &I-JX1-2C6B; [12-75]
     ))
@@ -1665,7 +2603,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30C4)
+    (<-circled
+     ((name		  . "KATAKANA LETTER TU")
+      (=ucs		  . #x30C4)	; ツ
+      ))
     (=ucs		. #x32E1)	; ㋡
     (=jis-x0213-1-2000	. #x2C6C)	; &I-JX1-2C6C; [12-76]
     ))
@@ -1674,7 +2615,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30C6)
+    (<-circled
+     ((name		  . "KATAKANA LETTER TE")
+      (=ucs		  . #x30C6)	; テ
+      ))
     (=ucs		. #x32E2)	; ㋢
     (=jis-x0213-1-2000	. #x2C6D)	; &I-JX1-2C6D; [12-77]
     ))
@@ -1683,7 +2627,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30C8)
+    (<-circled
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x32E3)	; ㋣
     (=jis-x0213-1-2000	. #x2C6E)	; &I-JX1-2C6E; [12-78]
     ))
@@ -1692,7 +2639,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CA)
+    (<-circled
+     ((name		  . "KATAKANA LETTER NA")
+      (=ucs		  . #x30CA)	; ナ
+      ))
     (=ucs		. #x32E4)	; ㋤
     ))
 (define-char
@@ -1700,7 +2650,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CB)
+    (<-circled
+     ((name		  . "KATAKANA LETTER NI")
+      (=ucs		  . #x30CB)	; ニ
+      ))
     (=ucs		. #x32E5)	; ㋥
     (=jis-x0213-1-2000	. #x2C71)	; &I-JX1-2C71; [12-81]
     ))
@@ -1709,7 +2662,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CC)
+    (<-circled
+     ((name		  . "KATAKANA LETTER NU")
+      (=ucs		  . #x30CC)	; ヌ
+      ))
     (=ucs		. #x32E6)	; ㋦
     ))
 (define-char
@@ -1717,7 +2673,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CD)
+    (<-circled
+     ((name		  . "KATAKANA LETTER NE")
+      (=ucs		  . #x30CD)	; ネ
+      ))
     (=ucs		. #x32E7)	; ㋧
     ))
 (define-char
@@ -1725,7 +2684,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CE)
+    (<-circled
+     ((name		  . "KATAKANA LETTER NO")
+      (=ucs		  . #x30CE)	; ノ
+      ))
     (=ucs		. #x32E8)	; ㋨
     ))
 (define-char
@@ -1733,7 +2695,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30CF)
+    (<-circled
+     ((name		  . "KATAKANA LETTER HA")
+      (=ucs		  . #x30CF)	; ハ
+      ))
     (=ucs		. #x32E9)	; ㋩
     (=jis-x0213-1-2000	. #x2C70)	; &I-JX1-2C70; [12-80]
     ))
@@ -1742,7 +2707,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30D2)
+    (<-circled
+     ((name		  . "KATAKANA LETTER HI")
+      (=ucs		  . #x30D2)	; ヒ
+      ))
     (=ucs		. #x32EA)	; ㋪
     ))
 (define-char
@@ -1750,7 +2718,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30D5)
+    (<-circled
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; フ
+      ))
     (=ucs		. #x32EB)	; ㋫
     ))
 (define-char
@@ -1758,7 +2729,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30D8)
+    (<-circled
+     ((name		  . "KATAKANA LETTER HE")
+      (=ucs		  . #x30D8)	; ヘ
+      ))
     (=ucs		. #x32EC)	; ㋬
     (=jis-x0213-1-2000	. #x2C73)	; &I-JX1-2C73; [12-83]
     ))
@@ -1767,7 +2741,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30DB)
+    (<-circled
+     ((name		  . "KATAKANA LETTER HO")
+      (=ucs		  . #x30DB)	; ホ
+      ))
     (=ucs		. #x32ED)	; ㋭
     (=jis-x0213-1-2000	. #x2C72)	; &I-JX1-2C72; [12-82]
     ))
@@ -1776,7 +2753,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30DE)
+    (<-circled
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      ))
     (=ucs		. #x32EE)	; ㋮
     ))
 (define-char
@@ -1784,7 +2764,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30DF)
+    (<-circled
+     ((name		  . "KATAKANA LETTER MI")
+      (=ucs		  . #x30DF)	; ミ
+      ))
     (=ucs		. #x32EF)	; ㋯
     ))
 (define-char
@@ -1792,7 +2775,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E0)
+    (<-circled
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x32F0)	; ㋰
     ))
 (define-char
@@ -1800,7 +2786,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E1)
+    (<-circled
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; メ
+      ))
     (=ucs		. #x32F1)	; ㋱
     ))
 (define-char
@@ -1808,7 +2797,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E2)
+    (<-circled
+     ((name		  . "KATAKANA LETTER MO")
+      (=ucs		  . #x30E2)	; モ
+      ))
     (=ucs		. #x32F2)	; ㋲
     ))
 (define-char
@@ -1816,7 +2808,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E4)
+    (<-circled
+     ((name		  . "KATAKANA LETTER YA")
+      (=ucs		  . #x30E4)	; ヤ
+      ))
     (=ucs		. #x32F3)	; ㋳
     ))
 (define-char
@@ -1824,7 +2819,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E6)
+    (<-circled
+     ((name		  . "KATAKANA LETTER YU")
+      (=ucs		  . #x30E6)	; ユ
+      ))
     (=ucs		. #x32F4)	; ㋴
     ))
 (define-char
@@ -1832,7 +2830,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E8)
+    (<-circled
+     ((name		  . "KATAKANA LETTER YO")
+      (=ucs		  . #x30E8)	; ヨ
+      ))
     (=ucs		. #x32F5)	; ㋵
     ))
 (define-char
@@ -1840,7 +2841,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30E9)
+    (<-circled
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      ))
     (=ucs		. #x32F6)	; ㋶
     ))
 (define-char
@@ -1848,7 +2852,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30EA)
+    (<-circled
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      ))
     (=ucs		. #x32F7)	; ㋷
     ))
 (define-char
@@ -1856,7 +2863,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30EB)
+    (<-circled
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x32F8)	; ㋸
     ))
 (define-char
@@ -1864,7 +2874,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30EC)
+    (<-circled
+     ((name		  . "KATAKANA LETTER RE")
+      (=ucs		  . #x30EC)	; レ
+      ))
     (=ucs		. #x32F9)	; ㋹
     ))
 (define-char
@@ -1872,7 +2885,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30ED)
+    (<-circled
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      ))
     (=ucs		. #x32FA)	; ㋺
     (=jis-x0213-1-2000	. #x2C6F)	; &I-JX1-2C6F; [12-79]
     ))
@@ -1881,7 +2897,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30EF)
+    (<-circled
+     ((name		  . "KATAKANA LETTER WA")
+      (=ucs		  . #x30EF)	; ワ
+      ))
     (=ucs		. #x32FB)	; ㋻
     ))
 (define-char
@@ -1889,7 +2908,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30F0)
+    (<-circled
+     ((name		  . "KATAKANA LETTER WI")
+      (=ucs		  . #x30F0)	; ヰ
+      ))
     (=ucs		. #x32FC)	; ㋼
     ))
 (define-char
@@ -1897,7 +2919,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30F1)
+    (<-circled
+     ((name		  . "KATAKANA LETTER WE")
+      (=ucs		  . #x30F1)	; ヱ
+      ))
     (=ucs		. #x32FD)	; ㋽
     ))
 (define-char
@@ -1905,6 +2930,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	circle #x30F2)
+    (<-circled
+     ((name		  . "KATAKANA LETTER WO")
+      (=ucs		  . #x30F2)	; ヲ
+      ))
     (=ucs		. #x32FE)	; ㋾
     ))
