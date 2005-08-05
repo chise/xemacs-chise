@@ -90,8 +90,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     noBreak
+    (<-noBreak
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
@@ -189,8 +188,7 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=decomposition
-     noBreak
+    (<-noBreak
      ((name		  . "HYPHEN")
       (=ucs		  . #x2010)	; ‐
       ))
@@ -670,8 +668,7 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=decomposition
-     noBreak
+    (<-noBreak
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
