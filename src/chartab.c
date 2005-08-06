@@ -3437,6 +3437,14 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	    return Q_subscript_of;
 	  else if (EQ (base, Qcircle))
 	    return Q_circled_of;
+	  else if ( EQ (base, Qisolated)||
+		    EQ (base, Qinitial)	||
+		    EQ (base, Qmedial)	||
+		    EQ (base, Qfinal) )
+	    return
+	      Fintern (concat2 (build_string ("<-formed@"),
+				Fsymbol_name (base)),
+		       Qnil);
 	  else if (SYMBOLP (base))
 	    return
 	      Fintern (concat2 (build_string ("<-"),
