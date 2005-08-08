@@ -1,3 +1,19 @@
+2005-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE50-Small-Form-Variants.el: Use `<-small' instead of
+	`->decomposition' for compatibility mapping to single character
+	tagged `small'.
+
+2005-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FB50-Arabic-Presentation-Forms-A.el:
+	- Use `<-formed@{isolated|initial|medial|final}' instead of
+	  `->decomposition' for compatibility mapping to single character
+	  tagged `{isolated|initial|medial|final}'.
+	- Use `=>decomposition@{isolated|initial|medial|final}' instead of
+	  `->decomposition' for compatibility decomposition mapping tagged
+	  `{isolated|initial|medial|final}'.
+
 2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FE30-CJK-Compatibility-Forms.el:
