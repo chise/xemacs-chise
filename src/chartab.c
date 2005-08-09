@@ -1134,6 +1134,7 @@ Lisp_Object Qmap_decomposition;
 Lisp_Object Qto_decomposition_at_superscript;
 Lisp_Object Qto_decomposition_at_circled;
 Lisp_Object Q_canonical;
+Lisp_Object Q_halfwidth_of;
 Lisp_Object Q_superscript_of;
 Lisp_Object Q_subscript_of;
 Lisp_Object Q_circled_of;
@@ -3431,6 +3432,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	      else
 		Fsetcdr (ret, character);
 	    }
+	  else if (EQ (base, Qnarrow))
+	    return Q_halfwidth_of;
 	  else if (EQ (base, Qsuper))
 	    return Q_superscript_of;
 	  else if (EQ (base, Qsub))
@@ -3558,6 +3561,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_identical)		||
        EQ (attribute, Q_identical_from)		||
        EQ (attribute, Q_canonical)		||
+       EQ (attribute, Q_halfwidth_of)		||
        EQ (attribute, Q_superscript_of)		||
        EQ (attribute, Q_subscript_of)		||
        EQ (attribute, Q_circled_of)		||
@@ -3566,7 +3570,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        !NILP (Fstring_match
 	      (build_string ("^\\(<-\\|->\\)\\("
 			     "canonical"
-			     "\\|superscript\\|subscript"
+			     "\\|halfwidth\\|superscript\\|subscript"
 			     "\\|circled\\|font\\|compat"
 			     "\\|fullwidth\\|halfwidth"
 			     "\\|simplified\\|vulgar\\|wrong"
@@ -3917,6 +3921,7 @@ Save values of ATTRIBUTE into database file.
 		EQ (attribute, Q_identical)		||
 		EQ (attribute, Q_identical_from)	||
 		EQ (attribute, Q_canonical)		||
+		EQ (attribute, Q_halfwidth_of)		||
 		EQ (attribute, Q_superscript_of)	||
 		EQ (attribute, Q_subscript_of)		||
 		EQ (attribute, Q_circled_of)		||
@@ -4706,6 +4711,7 @@ syms_of_chartab (void)
 	     "=>decomposition@superscript");
   defsymbol (&Qto_decomposition_at_circled, "=>decomposition@circled");
   defsymbol (&Q_canonical,		"->canonical");
+  defsymbol (&Q_halfwidth_of,		"<-halfwidth");
   defsymbol (&Q_superscript_of,		"<-superscript");
   defsymbol (&Q_subscript_of,		"<-subscript");
   defsymbol (&Q_circled_of,		"<-circled");
