@@ -1768,7 +1768,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x3002)
     (<-halfwidth
      ((name		  . "IDEOGRAPHIC FULL STOP")
       (=ucs		  . #x3002)	; 。
@@ -1781,7 +1780,6 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x300C)
     (<-halfwidth
      ((name		  . "LEFT CORNER BRACKET")
       (=ucs		  . #x300C)	; 「
@@ -1794,7 +1792,6 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x300D)
     (<-halfwidth
      ((name		  . "RIGHT CORNER BRACKET")
       (=ucs		  . #x300D)	; 」
@@ -1807,7 +1804,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x3001)
     (<-halfwidth
      ((name		  . "IDEOGRAPHIC COMMA")
       (=ucs		  . #x3001)	; 、
@@ -1820,7 +1816,6 @@
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x30FB)
     (<-halfwidth
      ((name		  . "KATAKANA MIDDLE DOT")
       (=ucs		  . #x30FB)	; ・
@@ -1833,7 +1828,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30F2)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER WO")
       (=ucs		  . #x30F2)	; ヲ
@@ -1846,7 +1840,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A1)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL A")
       (=ucs		  . #x30A1)	; ァ
@@ -1859,7 +1852,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A3)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL I")
       (=ucs		  . #x30A3)	; ィ
@@ -1872,7 +1864,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A5)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL U")
       (=ucs		  . #x30A5)	; ゥ
@@ -1885,7 +1876,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A7)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL E")
       (=ucs		  . #x30A7)	; ェ
@@ -1898,7 +1888,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A9)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL O")
       (=ucs		  . #x30A9)	; ォ
@@ -1911,7 +1900,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E3)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL YA")
       (=ucs		  . #x30E3)	; ャ
@@ -1924,7 +1912,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E5)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL YU")
       (=ucs		  . #x30E5)	; ュ
@@ -1937,7 +1924,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E7)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL YO")
       (=ucs		  . #x30E7)	; ョ
@@ -1950,7 +1936,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30C3)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SMALL TU")
       (=ucs		  . #x30C3)	; ッ
@@ -1963,7 +1948,6 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30FC)
     (<-halfwidth
      ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
       (=ucs		  . #x30FC)	; ー
@@ -1976,7 +1960,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A2)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER A")
       (=ucs		  . #x30A2)	; ア
@@ -1989,7 +1972,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A4)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER I")
       (=ucs		  . #x30A4)	; イ
@@ -2002,7 +1984,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A6)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER U")
       (=ucs		  . #x30A6)	; ウ
@@ -2015,7 +1996,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30A8)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER E")
       (=ucs		  . #x30A8)	; エ
@@ -2028,7 +2008,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30AA)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER O")
       (=ucs		  . #x30AA)	; オ
@@ -2041,7 +2020,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30AB)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER KA")
       (=ucs		  . #x30AB)	; カ
@@ -2054,7 +2032,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30AD)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER KI")
       (=ucs		  . #x30AD)	; キ
@@ -2067,7 +2044,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30AF)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER KU")
       (=ucs		  . #x30AF)	; ク
@@ -2080,7 +2056,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30B1)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER KE")
       (=ucs		  . #x30B1)	; ケ
@@ -2093,7 +2068,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30B3)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER KO")
       (=ucs		  . #x30B3)	; コ
@@ -2106,7 +2080,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30B5)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SA")
       (=ucs		  . #x30B5)	; サ
@@ -2119,7 +2092,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30B7)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SI")
       (=ucs		  . #x30B7)	; シ
@@ -2132,7 +2104,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30B9)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SU")
       (=ucs		  . #x30B9)	; ス
@@ -2145,7 +2116,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30BB)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SE")
       (=ucs		  . #x30BB)	; セ
@@ -2158,7 +2128,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30BD)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER SO")
       (=ucs		  . #x30BD)	; ソ
@@ -2171,7 +2140,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30BF)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER TA")
       (=ucs		  . #x30BF)	; タ
@@ -2184,7 +2152,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30C1)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER TI")
       (=ucs		  . #x30C1)	; チ
@@ -2197,7 +2164,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30C4)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER TU")
       (=ucs		  . #x30C4)	; ツ
@@ -2210,7 +2176,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30C6)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER TE")
       (=ucs		  . #x30C6)	; テ
@@ -2223,7 +2188,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30C8)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER TO")
       (=ucs		  . #x30C8)	; ト
@@ -2236,7 +2200,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CA)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER NA")
       (=ucs		  . #x30CA)	; ナ
@@ -2249,7 +2212,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CB)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER NI")
       (=ucs		  . #x30CB)	; ニ
@@ -2262,7 +2224,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CC)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER NU")
       (=ucs		  . #x30CC)	; ヌ
@@ -2275,7 +2236,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CD)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER NE")
       (=ucs		  . #x30CD)	; ネ
@@ -2288,7 +2248,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CE)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER NO")
       (=ucs		  . #x30CE)	; ノ
@@ -2301,7 +2260,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30CF)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER HA")
       (=ucs		  . #x30CF)	; ハ
@@ -2314,7 +2272,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30D2)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER HI")
       (=ucs		  . #x30D2)	; ヒ
@@ -2327,7 +2284,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30D5)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER HU")
       (=ucs		  . #x30D5)	; フ
@@ -2340,7 +2296,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30D8)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER HE")
       (=ucs		  . #x30D8)	; ヘ
@@ -2353,7 +2308,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30DB)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER HO")
       (=ucs		  . #x30DB)	; ホ
@@ -2366,7 +2320,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30DE)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER MA")
       (=ucs		  . #x30DE)	; マ
@@ -2379,7 +2332,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30DF)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER MI")
       (=ucs		  . #x30DF)	; ミ
@@ -2392,7 +2344,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E0)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER MU")
       (=ucs		  . #x30E0)	; ム
@@ -2405,7 +2356,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E1)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER ME")
       (=ucs		  . #x30E1)	; メ
@@ -2418,7 +2368,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E2)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER MO")
       (=ucs		  . #x30E2)	; モ
@@ -2431,7 +2380,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E4)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER YA")
       (=ucs		  . #x30E4)	; ヤ
@@ -2444,7 +2392,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E6)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER YU")
       (=ucs		  . #x30E6)	; ユ
@@ -2457,7 +2404,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E8)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER YO")
       (=ucs		  . #x30E8)	; ヨ
@@ -2470,7 +2416,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30E9)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER RA")
       (=ucs		  . #x30E9)	; ラ
@@ -2483,7 +2428,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30EA)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER RI")
       (=ucs		  . #x30EA)	; リ
@@ -2496,7 +2440,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30EB)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER RU")
       (=ucs		  . #x30EB)	; ル
@@ -2509,7 +2452,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30EC)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER RE")
       (=ucs		  . #x30EC)	; レ
@@ -2522,7 +2464,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30ED)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER RO")
       (=ucs		  . #x30ED)	; ロ
@@ -2535,7 +2476,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30EF)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER WA")
       (=ucs		  . #x30EF)	; ワ
@@ -2548,7 +2488,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x30F3)
     (<-halfwidth
      ((name		  . "KATAKANA LETTER N")
       (=ucs		  . #x30F3)	; ン
@@ -2562,7 +2501,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "halfwidth katakana-hiragana voiced sound mark")
-    (->decomposition	narrow #x3099)
     (<-halfwidth
      ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
       (=ucs		  . #x3099)	; ゙
@@ -2576,7 +2514,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "halfwidth katakana-hiragana semi-voiced sound mark")
-    (->decomposition	narrow #x309A)
     (<-halfwidth
      ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
       (=ucs		  . #x309A)	; ゚
@@ -2589,7 +2526,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3164)
     (<-halfwidth
      ((name		  . "HANGUL FILLER")
       (=ucs		  . #x3164)	; ㅤ
@@ -2601,7 +2537,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3131)
     (<-halfwidth
      ((name		  . "HANGUL LETTER KIYEOK")
       (=ucs		  . #x3131)	; ㄱ
@@ -2613,7 +2548,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3132)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SSANGKIYEOK")
       (=ucs		  . #x3132)	; ㄲ
@@ -2625,7 +2559,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3133)
     (<-halfwidth
      ((name		  . "HANGUL LETTER KIYEOK-SIOS")
       (=ucs		  . #x3133)	; ㄳ
@@ -2637,7 +2570,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3134)
     (<-halfwidth
      ((name		  . "HANGUL LETTER NIEUN")
       (=ucs		  . #x3134)	; ㄴ
@@ -2649,7 +2581,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3135)
     (<-halfwidth
      ((name		  . "HANGUL LETTER NIEUN-CIEUC")
       (=ucs		  . #x3135)	; ㄵ
@@ -2661,7 +2592,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3136)
     (<-halfwidth
      ((name		  . "HANGUL LETTER NIEUN-HIEUH")
       (=ucs		  . #x3136)	; ㄶ
@@ -2673,7 +2603,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3137)
     (<-halfwidth
      ((name		  . "HANGUL LETTER TIKEUT")
       (=ucs		  . #x3137)	; ㄷ
@@ -2685,7 +2614,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3138)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SSANGTIKEUT")
       (=ucs		  . #x3138)	; ㄸ
@@ -2697,7 +2625,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3139)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL")
       (=ucs		  . #x3139)	; ㄹ
@@ -2709,7 +2636,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313A)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-KIYEOK")
       (=ucs		  . #x313A)	; ㄺ
@@ -2721,7 +2647,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313B)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-MIEUM")
       (=ucs		  . #x313B)	; ㄻ
@@ -2733,7 +2658,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313C)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-PIEUP")
       (=ucs		  . #x313C)	; ㄼ
@@ -2745,7 +2669,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313D)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-SIOS")
       (=ucs		  . #x313D)	; ㄽ
@@ -2757,7 +2680,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313E)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-THIEUTH")
       (=ucs		  . #x313E)	; ㄾ
@@ -2769,7 +2691,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x313F)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-PHIEUPH")
       (=ucs		  . #x313F)	; ㄿ
@@ -2781,7 +2702,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3140)
     (<-halfwidth
      ((name		  . "HANGUL LETTER RIEUL-HIEUH")
       (=ucs		  . #x3140)	; ㅀ
@@ -2793,7 +2713,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3141)
     (<-halfwidth
      ((name		  . "HANGUL LETTER MIEUM")
       (=ucs		  . #x3141)	; ㅁ
@@ -2805,7 +2724,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3142)
     (<-halfwidth
      ((name		  . "HANGUL LETTER PIEUP")
       (=ucs		  . #x3142)	; ㅂ
@@ -2817,7 +2735,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3143)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SSANGPIEUP")
       (=ucs		  . #x3143)	; ㅃ
@@ -2829,7 +2746,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3144)
     (<-halfwidth
      ((name		  . "HANGUL LETTER PIEUP-SIOS")
       (=ucs		  . #x3144)	; ㅄ
@@ -2841,7 +2757,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3145)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SIOS")
       (=ucs		  . #x3145)	; ㅅ
@@ -2853,7 +2768,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3146)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SSANGSIOS")
       (=ucs		  . #x3146)	; ㅆ
@@ -2865,7 +2779,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3147)
     (<-halfwidth
      ((name		  . "HANGUL LETTER IEUNG")
       (=ucs		  . #x3147)	; ㅇ
@@ -2877,7 +2790,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3148)
     (<-halfwidth
      ((name		  . "HANGUL LETTER CIEUC")
       (=ucs		  . #x3148)	; ㅈ
@@ -2889,7 +2801,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3149)
     (<-halfwidth
      ((name		  . "HANGUL LETTER SSANGCIEUC")
       (=ucs		  . #x3149)	; ㅉ
@@ -2901,7 +2812,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314A)
     (<-halfwidth
      ((name		  . "HANGUL LETTER CHIEUCH")
       (=ucs		  . #x314A)	; ㅊ
@@ -2913,7 +2823,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314B)
     (<-halfwidth
      ((name		  . "HANGUL LETTER KHIEUKH")
       (=ucs		  . #x314B)	; ㅋ
@@ -2925,7 +2834,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314C)
     (<-halfwidth
      ((name		  . "HANGUL LETTER THIEUTH")
       (=ucs		  . #x314C)	; ㅌ
@@ -2937,7 +2845,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314D)
     (<-halfwidth
      ((name		  . "HANGUL LETTER PHIEUPH")
       (=ucs		  . #x314D)	; ㅍ
@@ -2949,7 +2856,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314E)
     (<-halfwidth
      ((name		  . "HANGUL LETTER HIEUH")
       (=ucs		  . #x314E)	; ㅎ
@@ -2961,7 +2867,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x314F)
     (<-halfwidth
      ((name		  . "HANGUL LETTER A")
       (=ucs		  . #x314F)	; ㅏ
@@ -2973,7 +2878,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3150)
     (<-halfwidth
      ((name		  . "HANGUL LETTER AE")
       (=ucs		  . #x3150)	; ㅐ
@@ -2985,7 +2889,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3151)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YA")
       (=ucs		  . #x3151)	; ㅑ
@@ -2997,7 +2900,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3152)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YAE")
       (=ucs		  . #x3152)	; ㅒ
@@ -3009,7 +2911,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3153)
     (<-halfwidth
      ((name		  . "HANGUL LETTER EO")
       (=ucs		  . #x3153)	; ㅓ
@@ -3021,7 +2922,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3154)
     (<-halfwidth
      ((name		  . "HANGUL LETTER E")
       (=ucs		  . #x3154)	; ㅔ
@@ -3033,7 +2933,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3155)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YEO")
       (=ucs		  . #x3155)	; ㅕ
@@ -3045,7 +2944,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3156)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YE")
       (=ucs		  . #x3156)	; ㅖ
@@ -3057,7 +2955,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3157)
     (<-halfwidth
      ((name		  . "HANGUL LETTER O")
       (=ucs		  . #x3157)	; ㅗ
@@ -3069,7 +2966,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3158)
     (<-halfwidth
      ((name		  . "HANGUL LETTER WA")
       (=ucs		  . #x3158)	; ㅘ
@@ -3081,7 +2977,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3159)
     (<-halfwidth
      ((name		  . "HANGUL LETTER WAE")
       (=ucs		  . #x3159)	; ㅙ
@@ -3093,7 +2988,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315A)
     (<-halfwidth
      ((name		  . "HANGUL LETTER OE")
       (=ucs		  . #x315A)	; ㅚ
@@ -3105,7 +2999,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315B)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YO")
       (=ucs		  . #x315B)	; ㅛ
@@ -3117,7 +3010,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315C)
     (<-halfwidth
      ((name		  . "HANGUL LETTER U")
       (=ucs		  . #x315C)	; ㅜ
@@ -3129,7 +3021,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315D)
     (<-halfwidth
      ((name		  . "HANGUL LETTER WEO")
       (=ucs		  . #x315D)	; ㅝ
@@ -3141,7 +3032,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315E)
     (<-halfwidth
      ((name		  . "HANGUL LETTER WE")
       (=ucs		  . #x315E)	; ㅞ
@@ -3153,7 +3043,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x315F)
     (<-halfwidth
      ((name		  . "HANGUL LETTER WI")
       (=ucs		  . #x315F)	; ㅟ
@@ -3165,7 +3054,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3160)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YU")
       (=ucs		  . #x3160)	; ㅠ
@@ -3177,7 +3065,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3161)
     (<-halfwidth
      ((name		  . "HANGUL LETTER EU")
       (=ucs		  . #x3161)	; ㅡ
@@ -3189,7 +3076,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3162)
     (<-halfwidth
      ((name		  . "HANGUL LETTER YI")
       (=ucs		  . #x3162)	; ㅢ
@@ -3201,7 +3087,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	narrow #x3163)
     (<-halfwidth
      ((name		  . "HANGUL LETTER I")
       (=ucs		  . #x3163)	; ㅣ
@@ -3318,7 +3203,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x2502)
     (<-halfwidth
      ((name		  . "BOX DRAWINGS LIGHT VERTICAL")
       (=ucs		  . #x2502)	; │
@@ -3330,7 +3214,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x2190)
     (<-halfwidth
      ((name		  . "LEFTWARDS ARROW")
       (=ucs		  . #x2190)	; ←
@@ -3342,7 +3225,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x2191)
     (<-halfwidth
      ((name		  . "UPWARDS ARROW")
       (=ucs		  . #x2191)	; ↑
@@ -3354,7 +3236,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x2192)
     (<-halfwidth
      ((name		  . "RIGHTWARDS ARROW")
       (=ucs		  . #x2192)	; →
@@ -3366,7 +3247,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x2193)
     (<-halfwidth
      ((name		  . "DOWNWARDS ARROW")
       (=ucs		  . #x2193)	; ↓
@@ -3378,7 +3258,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x25A0)
     (<-halfwidth
      ((name		  . "BLACK SQUARE")
       (=ucs		  . #x25A0)	; ■
@@ -3390,7 +3269,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	narrow #x25CB)
     (<-halfwidth
      ((name		  . "WHITE CIRCLE")
       (=ucs		  . #x25CB)	; ○
