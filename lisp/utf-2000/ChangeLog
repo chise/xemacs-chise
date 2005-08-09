@@ -1,3 +1,19 @@
+2005-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Omit `->decomposition'
+	for compatibility mapping to single character tagged `narrow' if
+	the same information is stored in `<-halfwidth' field.
+
+2005-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE70-Arabic-Presentation-Forms-B.el:
+	- Use `=>decomposition@{isolated|medial|final}' instead of
+	  `->decomposition' for compatibility decomposition mapping tagged
+	  `{isolated|medial|final}'.
+	- Use `<-formed@{isolated|initial|medial|final}' instead of
+	  `->decomposition' for compatibility mapping to single character
+	  tagged `{isolated|initial|medial|final}'.
+
 2005-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FE50-Small-Form-Variants.el: Use `<-small' instead of
