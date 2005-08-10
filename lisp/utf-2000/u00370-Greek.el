@@ -77,10 +77,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "GREEK DIALYTIKA AND OXIA")
-      (=ucs		  . #x1FEE)	; ΅
-      ))
     (=decomposition
      ((name		  . "DIAERESIS")
       (=ucs		  . #x00A8)	; ¨
@@ -111,10 +107,6 @@
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x03AC)	; ά
-      ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH OXIA")
-      (=ucs		  . #x1FBB)	; Ά
       ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
@@ -170,10 +162,6 @@
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x03AD)	; έ
       ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER EPSILON WITH OXIA")
-      (=ucs		  . #x1FC9)	; Έ
-      ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
       (=ucs		  . #x0395)	; Ε
@@ -216,10 +204,6 @@
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (=ucs		  . #x03AE)	; ή
-      ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH OXIA")
-      (=ucs		  . #x1FCB)	; Ή
       ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER ETA")
@@ -264,10 +248,6 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (=ucs		  . #x03AF)	; ί
       ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH OXIA")
-      (=ucs		  . #x1FDB)	; Ί
-      ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Ι
@@ -310,10 +290,6 @@
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x03CC)	; ό
-      ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER OMICRON WITH OXIA")
-      (=ucs		  . #x1FF9)	; Ό
       ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
@@ -358,10 +334,6 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x03CD)	; ύ
       ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH OXIA")
-      (=ucs		  . #x1FEB)	; Ύ
-      ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (=ucs		  . #x03A5)	; Υ
@@ -405,10 +377,6 @@
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x03CE)	; ώ
       ))
-    (<-canonical
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH OXIA")
-      (=ucs		  . #x1FFB)	; Ώ
-      ))
     (=decomposition
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (=ucs		  . #x03A9)	; Ω
@@ -448,10 +416,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-canonical
-     ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA")
-      (=ucs		  . #x1FD3)	; ΐ
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03CA)	; ϊ
@@ -1288,10 +1252,6 @@
      ((name		  . "GREEK SMALL LETTER OMEGA")
       (=ucs		  . #x03C9)	; ω
       ))
-    (<-canonical
-     ((name		  . "OHM SIGN")
-      (=ucs		  . #x2126)	; Ω
-      ))
     (=ucs		. #x03A9)	; Ω
     (greek-iso8859-7	. #xD9)	; &I-GREEK-59;
     ))
@@ -1395,10 +1355,6 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x0386)	; Ά
       ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH OXIA")
-      (=ucs		  . #x1F71)	; ά
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER ALPHA")
       (=ucs		  . #x03B1)	; α
@@ -1432,10 +1388,6 @@
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x0388)	; Έ
-      ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH OXIA")
-      (=ucs		  . #x1F73)	; έ
       ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER EPSILON")
@@ -1471,10 +1423,6 @@
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
       (=ucs		  . #x0389)	; Ή
       ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER ETA WITH OXIA")
-      (=ucs		  . #x1F75)	; ή
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER ETA")
       (=ucs		  . #x03B7)	; η
@@ -1509,10 +1457,6 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
       (=ucs		  . #x038A)	; Ί
       ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER IOTA WITH OXIA")
-      (=ucs		  . #x1F77)	; ί
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER IOTA")
       (=ucs		  . #x03B9)	; ι
@@ -1543,10 +1487,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-canonical
-     ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND OXIA")
-      (=ucs		  . #x1FE3)	; ΰ
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03CB)	; ϋ
@@ -1858,10 +1798,6 @@
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Ι
-      ))
-    (<-canonical
-     ((name		  . "GREEK PROSGEGRAMMENI")
-      (=ucs		  . #x1FBE)	; ι
       ))
     (=ucs		. #x03B9)	; ι
     (greek-iso8859-7	. #xE9)	; &I-GREEK-69;
@@ -2522,10 +2458,6 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x038C)	; Ό
       ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH OXIA")
-      (=ucs		  . #x1F79)	; ό
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER OMICRON")
       (=ucs		  . #x03BF)	; ο
@@ -2560,10 +2492,6 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x038E)	; Ύ
       ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER UPSILON WITH OXIA")
-      (=ucs		  . #x1F7B)	; ύ
-      ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER UPSILON")
       (=ucs		  . #x03C5)	; υ
@@ -2597,10 +2525,6 @@
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x038F)	; Ώ
-      ))
-    (<-canonical
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH OXIA")
-      (=ucs		  . #x1F7D)	; ώ
       ))
     (=decomposition
      ((name		  . "GREEK SMALL LETTER OMEGA")

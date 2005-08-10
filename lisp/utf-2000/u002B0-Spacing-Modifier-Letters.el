@@ -103,10 +103,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "GREEK NUMERAL SIGN")
-      (=ucs		  . #x0374)	; ʹ
-      ))
     (=ucs		. #x02B9)	; ʹ
     ))
 (define-char

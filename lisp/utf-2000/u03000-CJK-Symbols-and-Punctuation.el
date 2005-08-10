@@ -101,10 +101,6 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (<-canonical
-     ((name		  . "LEFT-POINTING ANGLE BRACKET")
-      (=ucs		  . #x2329)	; 〈
-      ))
     (=ucs		. #x3008)	; 〈
     (=jis-x0208		. #x2152)	; &I-J90-2152; [01-50]
     (=gb2312		. #x2134)	; &I-G0-2134; [01-20]
@@ -117,10 +113,6 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (<-canonical
-     ((name		  . "RIGHT-POINTING ANGLE BRACKET")
-      (=ucs		  . #x232A)	; 〉
-      ))
     (=ucs		. #x3009)	; 〉
     (=jis-x0208		. #x2153)	; &I-J90-2153; [01-51]
     (=gb2312		. #x2135)	; &I-G0-2135; [01-21]

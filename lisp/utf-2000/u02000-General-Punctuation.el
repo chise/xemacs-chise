@@ -26,10 +26,6 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "EN QUAD")
-      (=ucs		  . #x2000)	;  
-      ))
     (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
@@ -41,10 +37,6 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "EM QUAD")
-      (=ucs		  . #x2001)	;  
-      ))
     (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
