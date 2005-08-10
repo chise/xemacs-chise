@@ -566,7 +566,7 @@
 		  #'char-attribute-name<)))
     (insert "(")
     (when (memq '<-subsumptive attributes)
-      (unless readable
+      (when readable
 	(when (setq value (get-char-attribute char '<-subsumptive))
 	  (char-db-insert-relation-feature char '<-subsumptive value
 					   line-breaking
@@ -1011,6 +1011,7 @@
 			     (intern (format "%s*sources" name))))
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
+			  (eq name '<-canonical)
 			  (eq name '->superscript)
 			  (eq name '->subscript)
 			  (eq name '->circled)
