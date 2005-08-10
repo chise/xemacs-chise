@@ -1,3 +1,19 @@
+2005-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el: Use `=decomposition' instead of `->decomposition'.
+
+	* u03000-CJK-Symbols-and-Punctuation.el,
+	u02000-General-Punctuation.el, u00370-Greek.el,
+	u00300-Combining-Diacritical-Marks.el,
+	u002B0-Spacing-Modifier-Letters.el, u000A0-Latin-1-Supplement.el:
+	Omit `<-canonical'.
+
+2005-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Fix condition about
+	`<-subsumptive'; don't display `<-canonical' when running with
+	non-readable mode.
+
 2005-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Omit `->decomposition'
