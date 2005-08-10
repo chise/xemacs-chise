@@ -504,10 +504,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "GREEK OXIA")
-      (=ucs		  . #x1FFD)	; ´
-      ))
     (=>decomposition@compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
@@ -581,10 +577,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-canonical
-     ((name		  . "GREEK ANO TELEIA")
-      (=ucs		  . #x0387)	; ·
-      ))
     (=ucs		. #x00B7)	; ·
     (latin-iso8859-1	. #xB7)	; &I-LATIN1-37;
     (latin-iso8859-3	. #xB7)	; &I-LATIN3-37;
@@ -1105,10 +1097,6 @@
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00E5)	; å
-      ))
-    (<-canonical
-     ((name		  . "ANGSTROM SIGN")
-      (=ucs		  . #x212B)	; Å
       ))
     (=decomposition
      ((name		  . "LATIN CAPITAL LETTER A")
