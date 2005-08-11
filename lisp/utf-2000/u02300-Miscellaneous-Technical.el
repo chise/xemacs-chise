@@ -1283,17 +1283,17 @@
     (=ucs@jis		. #x23C5)	; &JX1-2749;
     ))
 (define-char
-  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
     (general-category	symbol other) ; Informative Category
     (=ucs		. #x23C6)	; ⏆
     ))
 (define-char
   '((<-denotational
-     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
       ))
     (<-fullwidth
-     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
       ))
     (=jis-x0213-1-2000	. #x274A)	; &JX1-274A; [07-42]
