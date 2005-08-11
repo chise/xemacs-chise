@@ -393,6 +393,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6BCD)	; 母
+      ))
     (<-radical
      ((=ucs		  . #x6BCD)	; 母
       ))
@@ -466,7 +469,11 @@
     (=ucs@unicode	. #x722B)	; ⺤
     (=ucs@jis		. #xFA49)	; ⺤
     (->subsumptive
-     ((=>ucs*		  . #x722B)	; 爫
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
+      (=>ucs*		  . #x722B)	; 爫
+      (->canonical
+       ((=ucs		    . #x722B)	; 爫
+	))
       (=ucs		  . #xFA49)	; 爫
       ))
     ))
@@ -899,7 +906,11 @@
     (=ucs@cns		. #x8279)	; ⺿
     (=ucs@jis		. #xFA5E)	; ⺿
     (->subsumptive
-     ((=>ucs*		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
+      (=>ucs*		  . #x8279)	; 艹
+      (->canonical
+       ((=ucs		    . #x8279)	; 艹
+	))
       (=ucs		  . #xFA5E)	; 艹
       ))
     ))
@@ -921,7 +932,11 @@
     (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
     (=ucs@jis		. #xFA5D)	; ⻀
     (->subsumptive
-     ((=>ucs*		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
+      (=>ucs*		  . #x8279)	; 艹
+      (->canonical
+       ((=ucs		    . #x8279)	; 艹
+	))
       (=ucs		  . #xFA5D)	; 艹
       ))
     ))
@@ -1544,6 +1559,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F9F)	; 龟
+      ))
     (<-radical
      ((=ucs		  . #x9F9F)	; 龟
       ))
