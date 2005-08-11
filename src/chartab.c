@@ -3530,6 +3530,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   else if ( EQ (attribute, Qmap_decomposition) ||
 	    EQ (attribute, Q_decomposition) )
     {
+      value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
       attribute = put_char_composition (character, value);
       if ( !EQ (attribute, Qmap_decomposition) &&
 	   SYMBOLP (XCAR (value)) )
