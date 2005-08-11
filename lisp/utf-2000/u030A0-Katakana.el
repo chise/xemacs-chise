@@ -1249,6 +1249,13 @@
     ))
 (define-char
   '((name		. "KATAKANA DIGRAPH KOTO")
+    (=>decomposition@vertical
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; コ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x30FF)	; ヿ
     (=jis-x0213-1-2000	. #x2238)	; &I-JX1-2238; [02-24]
     ))
