@@ -1,3 +1,33 @@
+2005-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03130-Hangul-Compatibility-Jamo.el: Rename `<-compatibility' to
+	`<-compat'.
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el (<CIRCLED NUMBER *>):
+	Add `=>decomposition@circled'.
+
+	* u030A0-Katakana.el (<KATAKANA DIGRAPH KOTO>): Add
+	`=>decomposition@vertical'.
+
+	* u03040-Hiragana.el (<HIRAGANA DIGRAPH YORI>): Add
+	`=>decomposition@vertical'.
+
+	* u02F00-Kangxi-Radicals.el: Add `<-compat'.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MOTHER>): Add
+	`<-compat' for U+6BCD.
+	(U+FA49): Add `name'; add `->canonical' for U+722B.
+	(U+FA5E): Add `name'; add `->canonical' for U+8279.
+	(U+FA5D): Add `name'; add `->canonical' for U+8279.
+	(<CJK RADICAL C-SIMPLIFIED TURTLE>): Add `<-compat' for U+9F9F.
+
+	* u02300-Miscellaneous-Technical.el (<DENTISTRY SYMBOL LIGHT
+	VERTICAL AND WAVE>): Renamed from <DENTISTRY SYMBOL LIGHT VERTICAL
+	WITH WAVE>.
+
+	* u02000-General-Punctuation.el (<DOUBLE QUESTION MARK>): Add
+	`=>decomposition@compat'.
+
 2005-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el: Use `=decomposition' instead of `->decomposition'.
