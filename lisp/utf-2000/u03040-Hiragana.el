@@ -1194,6 +1194,13 @@
     ))
 (define-char
   '((name		. "HIRAGANA DIGRAPH YORI")
+    (=>decomposition@vertical
+     ((name		  . "HIRAGANA LETTER YO")
+      (=ucs		  . #x3088)	; よ
+      )
+     ((name		  . "HIRAGANA LETTER RI")
+      (=ucs		  . #x308A)	; り
+      ))
     (=ucs		. #x309F)	; ゟ
     (=jis-x0213-1-2000	. #x2239)	; &I-JX1-2239; [02-25]
     ))
