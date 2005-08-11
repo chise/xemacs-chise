@@ -4,6 +4,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (<-radical
      ((=ucs		  . #x4E00)	; 一
       ))
@@ -15,6 +18,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E28)	; 丨
+      ))
     (<-radical
      ((=ucs		  . #x4E28)	; 丨
       ))
@@ -26,6 +32,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (<-radical
      ((=ucs		  . #x4E36)	; 丶
       ))
@@ -38,6 +47,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
     (<-radical
      ((=ucs		  . #x4E3F)	; 丿
       ))
@@ -50,6 +62,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     (<-radical
      ((=ucs		  . #x4E59)	; 乙
       ))
@@ -61,6 +76,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E85)	; 亅
+      ))
     (<-radical
      ((=ucs		  . #x4E85)	; 亅
       ))
@@ -73,6 +91,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4E8C)	; 二
+      ))
     (<-radical
      ((=ucs		  . #x4E8C)	; 二
       ))
@@ -84,6 +105,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4EA0)	; 亠
+      ))
     (<-radical
      ((=ucs		  . #x4EA0)	; 亠
       ))
@@ -96,6 +120,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (<-radical
      ((=ucs		  . #x4EBA)	; 人
       ))
@@ -107,6 +134,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x513F)	; 儿
+      ))
     (<-radical
      ((=ucs		  . #x513F)	; 儿
       ))
@@ -118,6 +148,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5165)	; 入
+      ))
     (<-radical
      ((=ucs		  . #x5165)	; 入
       ))
@@ -129,6 +162,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x516B)	; 八
+      ))
     (<-radical
      ((=ucs		  . #x516B)	; 八
       ))
@@ -140,6 +176,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5182)	; 冂
+      ))
     (<-radical
      ((=ucs		  . #x5182)	; 冂
       ))
@@ -152,6 +191,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5196)	; 冖
+      ))
     (<-radical
      ((=ucs		  . #x5196)	; 冖
       ))
@@ -164,6 +206,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x51AB)	; 冫
+      ))
     (<-radical
      ((=ucs		  . #x51AB)	; 冫
       ))
@@ -176,6 +221,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x51E0)	; 几
+      ))
     (<-radical
      ((=ucs		  . #x51E0)	; 几
       ))
@@ -187,6 +235,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x51F5)	; 凵
+      ))
     (<-radical
      ((=ucs		  . #x51F5)	; 凵
       ))
@@ -198,6 +249,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5200)	; 刀
+      ))
     (<-radical
      ((=ucs		  . #x5200)	; 刀
       ))
@@ -209,6 +263,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x529B)	; 力
+      ))
     (<-radical
      ((=ucs		  . #x529B)	; 力
       ))
@@ -220,6 +277,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x52F9)	; 勹
+      ))
     (<-radical
      ((=ucs		  . #x52F9)	; 勹
       ))
@@ -232,6 +292,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5315)	; 匕
+      ))
     (<-radical
      ((=ucs		  . #x5315)	; 匕
       ))
@@ -243,6 +306,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x531A)	; 匚
+      ))
     (<-radical
      ((=ucs		  . #x531A)	; 匚
       ))
@@ -254,6 +320,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5338)	; 匸
+      ))
     (<-radical
      ((=ucs		  . #x5338)	; 匸
       ))
@@ -266,6 +335,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5341)	; 十
+      ))
     (<-radical
      ((=ucs		  . #x5341)	; 十
       ))
@@ -277,6 +349,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x535C)	; 卜
+      ))
     (<-radical
      ((=ucs		  . #x535C)	; 卜
       ))
@@ -288,6 +363,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (<-radical
      ((=ucs		  . #x5369)	; 卩
       ))
@@ -300,6 +378,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5382)	; 厂
+      ))
     (<-radical
      ((=ucs		  . #x5382)	; 厂
       ))
@@ -311,6 +392,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x53B6)	; 厶
+      ))
     (<-radical
      ((=ucs		  . #x53B6)	; 厶
       ))
@@ -323,6 +407,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (<-radical
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -334,6 +421,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (<-radical
      ((=ucs		  . #x53E3)	; 口
       ))
@@ -345,6 +435,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x56D7)	; 囗
+      ))
     (<-radical
      ((=ucs		  . #x56D7)	; 囗
       ))
@@ -356,6 +449,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x571F)	; 土
+      ))
     (<-radical
      ((=ucs		  . #x571F)	; 土
       ))
@@ -367,6 +463,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x58EB)	; 士
+      ))
     (<-radical
      ((=ucs		  . #x58EB)	; 士
       ))
@@ -378,6 +477,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5902)	; 夂
+      ))
     (<-radical
      ((=ucs		  . #x5902)	; 夂
       ))
@@ -388,6 +490,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x590A)	; 夊
+      ))
     (<-radical
      ((=ucs		  . #x590A)	; 夊
       ))
@@ -400,6 +505,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5915)	; 夕
+      ))
     (<-radical
      ((=ucs		  . #x5915)	; 夕
       ))
@@ -411,6 +519,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5927)	; 大
+      ))
     (<-radical
      ((=ucs		  . #x5927)	; 大
       ))
@@ -422,6 +533,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5973)	; 女
+      ))
     (<-radical
      ((=ucs		  . #x5973)	; 女
       ))
@@ -433,6 +547,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5B50)	; 子
+      ))
     (<-radical
      ((=ucs		  . #x5B50)	; 子
       ))
@@ -444,6 +561,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5B80)	; 宀
+      ))
     (<-radical
      ((=ucs		  . #x5B80)	; 宀
       ))
@@ -456,6 +576,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (<-radical
      ((=ucs		  . #x5BF8)	; 寸
       ))
@@ -467,6 +590,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5C0F)	; 小
+      ))
     (<-radical
      ((=ucs		  . #x5C0F)	; 小
       ))
@@ -478,6 +604,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5C22)	; 尢
+      ))
     (<-radical
      ((=ucs		  . #x5C22)	; 尢
       ))
@@ -489,6 +618,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5C38)	; 尸
+      ))
     (<-radical
      ((=ucs		  . #x5C38)	; 尸
       ))
@@ -500,6 +632,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5C6E)	; 屮
+      ))
     (<-radical
      ((=ucs		  . #x5C6E)	; 屮
       ))
@@ -511,6 +646,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5C71)	; 山
+      ))
     (<-radical
      ((=ucs		  . #x5C71)	; 山
       ))
@@ -522,6 +660,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5DDB)	; 巛
+      ))
     (<-radical
      ((=ucs		  . #x5DDB)	; 巛
       ))
@@ -534,6 +675,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (<-radical
      ((=ucs		  . #x5DE5)	; 工
       ))
@@ -545,6 +689,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5DF1)	; 己
+      ))
     (<-radical
      ((=ucs		  . #x5DF1)	; 己
       ))
@@ -556,6 +703,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (<-radical
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -567,6 +717,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5E72)	; 干
+      ))
     (<-radical
      ((=ucs		  . #x5E72)	; 干
       ))
@@ -578,6 +731,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
     (<-radical
      ((=ucs		  . #x5E7A)	; 幺
       ))
@@ -590,6 +746,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5E7F)	; 广
+      ))
     (<-radical
      ((=ucs		  . #x5E7F)	; 广
       ))
@@ -602,6 +761,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5EF4)	; 廴
+      ))
     (<-radical
      ((=ucs		  . #x5EF4)	; 廴
       ))
@@ -614,6 +776,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
     (<-radical
      ((=ucs		  . #x5EFE)	; 廾
       ))
@@ -625,6 +790,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5F0B)	; 弋
+      ))
     (<-radical
      ((=ucs		  . #x5F0B)	; 弋
       ))
@@ -636,6 +804,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5F13)	; 弓
+      ))
     (<-radical
      ((=ucs		  . #x5F13)	; 弓
       ))
@@ -647,6 +818,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5F50)	; 彐
+      ))
     (<-radical
      ((=ucs		  . #x5F50)	; 彐
       ))
@@ -659,6 +833,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5F61)	; 彡
+      ))
     (<-radical
      ((=ucs		  . #x5F61)	; 彡
       ))
@@ -671,6 +848,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5F73)	; 彳
+      ))
     (<-radical
      ((=ucs		  . #x5F73)	; 彳
       ))
@@ -682,6 +862,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (<-radical
      ((=ucs		  . #x5FC3)	; 心
       ))
@@ -693,6 +876,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6208)	; 戈
+      ))
     (<-radical
      ((=ucs		  . #x6208)	; 戈
       ))
@@ -704,6 +890,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6236)	; 戶
+      ))
     (<-radical
      ((=ucs		  . #x6236)	; 戶
       ))
@@ -715,6 +904,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x624B)	; 手
+      ))
     (<-radical
      ((=ucs		  . #x624B)	; 手
       ))
@@ -726,6 +918,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x652F)	; 支
+      ))
     (<-radical
      ((=ucs		  . #x652F)	; 支
       ))
@@ -737,6 +932,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (<-radical
      ((=ucs		  . #x6534)	; 攴
       ))
@@ -749,6 +947,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6587)	; 文
+      ))
     (<-radical
      ((=ucs		  . #x6587)	; 文
       ))
@@ -760,6 +961,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6597)	; 斗
+      ))
     (<-radical
      ((=ucs		  . #x6597)	; 斗
       ))
@@ -771,6 +975,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x65A4)	; 斤
+      ))
     (<-radical
      ((=ucs		  . #x65A4)	; 斤
       ))
@@ -782,6 +989,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x65B9)	; 方
+      ))
     (<-radical
      ((=ucs		  . #x65B9)	; 方
       ))
@@ -793,6 +1003,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x65E0)	; 无
+      ))
     (<-radical
      ((=ucs		  . #x65E0)	; 无
       ))
@@ -805,6 +1018,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (<-radical
      ((=ucs		  . #x65E5)	; 日
       ))
@@ -816,6 +1032,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x66F0)	; 曰
+      ))
     (<-radical
      ((=ucs		  . #x66F0)	; 曰
       ))
@@ -827,6 +1046,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6708)	; 月
+      ))
     (<-radical
      ((=ucs		  . #x6708)	; 月
       ))
@@ -838,6 +1060,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6728)	; 木
+      ))
     (<-radical
      ((=ucs		  . #x6728)	; 木
       ))
@@ -849,6 +1074,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (<-radical
      ((=ucs		  . #x6B20)	; 欠
       ))
@@ -860,6 +1088,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6B62)	; 止
+      ))
     (<-radical
      ((=ucs		  . #x6B62)	; 止
       ))
@@ -871,6 +1102,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6B79)	; 歹
+      ))
     (<-radical
      ((=ucs		  . #x6B79)	; 歹
       ))
@@ -882,6 +1116,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
     (<-radical
      ((=ucs		  . #x6BB3)	; 殳
       ))
@@ -893,6 +1130,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6BCB)	; 毋
+      ))
     (<-radical
      ((=ucs		  . #x6BCB)	; 毋
       ))
@@ -904,6 +1144,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6BD4)	; 比
+      ))
     (<-radical
      ((=ucs		  . #x6BD4)	; 比
       ))
@@ -915,6 +1158,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
     (<-radical
      ((=ucs		  . #x6BDB)	; 毛
       ))
@@ -926,6 +1172,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6C0F)	; 氏
+      ))
     (<-radical
      ((=ucs		  . #x6C0F)	; 氏
       ))
@@ -937,6 +1186,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6C14)	; 气
+      ))
     (<-radical
      ((=ucs		  . #x6C14)	; 气
       ))
@@ -948,6 +1200,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x6C34)	; 水
+      ))
     (<-radical
      ((=ucs		  . #x6C34)	; 水
       ))
@@ -959,6 +1214,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x706B)	; 火
+      ))
     (<-radical
      ((=ucs		  . #x706B)	; 火
       ))
@@ -970,6 +1228,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x722A)	; 爪
+      ))
     (<-radical
      ((=ucs		  . #x722A)	; 爪
       ))
@@ -981,6 +1242,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7236)	; 父
+      ))
     (<-radical
      ((=ucs		  . #x7236)	; 父
       ))
@@ -992,6 +1256,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x723B)	; 爻
+      ))
     (<-radical
      ((=ucs		  . #x723B)	; 爻
       ))
@@ -1003,6 +1270,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x723F)	; 爿
+      ))
     (<-radical
      ((=ucs		  . #x723F)	; 爿
       ))
@@ -1014,6 +1284,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7247)	; 片
+      ))
     (<-radical
      ((=ucs		  . #x7247)	; 片
       ))
@@ -1025,6 +1298,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7259)	; 牙
+      ))
     (<-radical
      ((=ucs		  . #x7259)	; 牙
       ))
@@ -1036,6 +1312,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x725B)	; 牛
+      ))
     (<-radical
      ((=ucs		  . #x725B)	; 牛
       ))
@@ -1047,6 +1326,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x72AC)	; 犬
+      ))
     (<-radical
      ((=ucs		  . #x72AC)	; 犬
       ))
@@ -1058,6 +1340,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7384)	; 玄
+      ))
     (<-radical
      ((=ucs		  . #x7384)	; 玄
       ))
@@ -1069,6 +1354,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7389)	; 玉
+      ))
     (<-radical
      ((=ucs		  . #x7389)	; 玉
       ))
@@ -1080,6 +1368,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x74DC)	; 瓜
+      ))
     (<-radical
      ((=ucs		  . #x74DC)	; 瓜
       ))
@@ -1091,6 +1382,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
     (<-radical
      ((=ucs		  . #x74E6)	; 瓦
       ))
@@ -1102,6 +1396,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7518)	; 甘
+      ))
     (<-radical
      ((=ucs		  . #x7518)	; 甘
       ))
@@ -1113,6 +1410,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x751F)	; 生
+      ))
     (<-radical
      ((=ucs		  . #x751F)	; 生
       ))
@@ -1124,6 +1424,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7528)	; 用
+      ))
     (<-radical
      ((=ucs		  . #x7528)	; 用
       ))
@@ -1135,6 +1438,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7530)	; 田
+      ))
     (<-radical
      ((=ucs		  . #x7530)	; 田
       ))
@@ -1146,6 +1452,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x758B)	; 疋
+      ))
     (<-radical
      ((=ucs		  . #x758B)	; 疋
       ))
@@ -1157,6 +1466,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7592)	; 疒
+      ))
     (<-radical
      ((=ucs		  . #x7592)	; 疒
       ))
@@ -1169,6 +1481,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7676)	; 癶
+      ))
     (<-radical
      ((=ucs		  . #x7676)	; 癶
       ))
@@ -1181,6 +1496,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x767D)	; 白
+      ))
     (<-radical
      ((=ucs		  . #x767D)	; 白
       ))
@@ -1192,6 +1510,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x76AE)	; 皮
+      ))
     (<-radical
      ((=ucs		  . #x76AE)	; 皮
       ))
@@ -1203,6 +1524,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x76BF)	; 皿
+      ))
     (<-radical
      ((=ucs		  . #x76BF)	; 皿
       ))
@@ -1214,6 +1538,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x76EE)	; 目
+      ))
     (<-radical
      ((=ucs		  . #x76EE)	; 目
       ))
@@ -1225,6 +1552,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x77DB)	; 矛
+      ))
     (<-radical
      ((=ucs		  . #x77DB)	; 矛
       ))
@@ -1236,6 +1566,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x77E2)	; 矢
+      ))
     (<-radical
      ((=ucs		  . #x77E2)	; 矢
       ))
@@ -1247,6 +1580,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x77F3)	; 石
+      ))
     (<-radical
      ((=ucs		  . #x77F3)	; 石
       ))
@@ -1258,6 +1594,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x793A)	; 示
+      ))
     (<-radical
      ((=ucs		  . #x793A)	; 示
       ))
@@ -1269,6 +1608,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x79B8)	; 禸
+      ))
     (<-radical
      ((=ucs		  . #x79B8)	; 禸
       ))
@@ -1280,6 +1622,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x79BE)	; 禾
+      ))
     (<-radical
      ((=ucs		  . #x79BE)	; 禾
       ))
@@ -1291,6 +1636,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7A74)	; 穴
+      ))
     (<-radical
      ((=ucs		  . #x7A74)	; 穴
       ))
@@ -1302,6 +1650,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7ACB)	; 立
+      ))
     (<-radical
      ((=ucs		  . #x7ACB)	; 立
       ))
@@ -1313,6 +1664,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7AF9)	; 竹
+      ))
     (<-radical
      ((=ucs		  . #x7AF9)	; 竹
       ))
@@ -1324,6 +1678,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7C73)	; 米
+      ))
     (<-radical
      ((=ucs		  . #x7C73)	; 米
       ))
@@ -1335,6 +1692,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
     (<-radical
      ((=ucs		  . #x7CF8)	; 糸
       ))
@@ -1346,6 +1706,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7F36)	; 缶
+      ))
     (<-radical
      ((=ucs		  . #x7F36)	; 缶
       ))
@@ -1357,6 +1720,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7F51)	; 网
+      ))
     (<-radical
      ((=ucs		  . #x7F51)	; 网
       ))
@@ -1368,6 +1734,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
     (<-radical
      ((=ucs		  . #x7F8A)	; 羊
       ))
@@ -1379,6 +1748,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x7FBD)	; 羽
+      ))
     (<-radical
      ((=ucs		  . #x7FBD)	; 羽
       ))
@@ -1390,6 +1762,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8001)	; 老
+      ))
     (<-radical
      ((=ucs		  . #x8001)	; 老
       ))
@@ -1401,6 +1776,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x800C)	; 而
+      ))
     (<-radical
      ((=ucs		  . #x800C)	; 而
       ))
@@ -1412,6 +1790,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8012)	; 耒
+      ))
     (<-radical
      ((=ucs		  . #x8012)	; 耒
       ))
@@ -1423,6 +1804,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8033)	; 耳
+      ))
     (<-radical
      ((=ucs		  . #x8033)	; 耳
       ))
@@ -1434,6 +1818,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x807F)	; 聿
+      ))
     (<-radical
      ((=ucs		  . #x807F)	; 聿
       ))
@@ -1445,6 +1832,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8089)	; 肉
+      ))
     (<-radical
      ((=ucs		  . #x8089)	; 肉
       ))
@@ -1456,6 +1846,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x81E3)	; 臣
+      ))
     (<-radical
      ((=ucs		  . #x81E3)	; 臣
       ))
@@ -1467,6 +1860,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x81EA)	; 自
+      ))
     (<-radical
      ((=ucs		  . #x81EA)	; 自
       ))
@@ -1478,6 +1874,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x81F3)	; 至
+      ))
     (<-radical
      ((=ucs		  . #x81F3)	; 至
       ))
@@ -1489,6 +1888,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x81FC)	; 臼
+      ))
     (<-radical
      ((=ucs		  . #x81FC)	; 臼
       ))
@@ -1501,6 +1903,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 6)
+    (<-compat
+     ((=ucs		  . #x820C)	; 舌
+      ))
     (<-radical
      ((=ucs		  . #x820C)	; 舌
       ))
@@ -1524,6 +1929,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x821B)	; 舛
+      ))
     (<-radical
      ((=ucs		  . #x821B)	; 舛
       ))
@@ -1535,6 +1943,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x821F)	; 舟
+      ))
     (<-radical
      ((=ucs		  . #x821F)	; 舟
       ))
@@ -1546,6 +1957,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x826E)	; 艮
+      ))
     (<-radical
      ((=ucs		  . #x826E)	; 艮
       ))
@@ -1557,6 +1971,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8272)	; 色
+      ))
     (<-radical
      ((=ucs		  . #x8272)	; 色
       ))
@@ -1568,6 +1985,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8278)	; 艸
+      ))
     (<-radical
      ((=ucs		  . #x8278)	; 艸
       ))
@@ -1579,6 +1999,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x864D)	; 虍
+      ))
     (<-radical
      ((=ucs		  . #x864D)	; 虍
       ))
@@ -1590,6 +2013,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x866B)	; 虫
+      ))
     (<-radical
      ((=ucs		  . #x866B)	; 虫
       ))
@@ -1601,6 +2027,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8840)	; 血
+      ))
     (<-radical
      ((=ucs		  . #x8840)	; 血
       ))
@@ -1612,6 +2041,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x884C)	; 行
+      ))
     (<-radical
      ((=ucs		  . #x884C)	; 行
       ))
@@ -1623,6 +2055,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8863)	; 衣
+      ))
     (<-radical
      ((=ucs		  . #x8863)	; 衣
       ))
@@ -1634,6 +2069,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x897E)	; 襾
+      ))
     (<-radical
      ((=ucs		  . #x897E)	; 襾
       ))
@@ -1645,6 +2083,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x898B)	; 見
+      ))
     (<-radical
      ((=ucs		  . #x898B)	; 見
       ))
@@ -1656,6 +2097,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x89D2)	; 角
+      ))
     (<-radical
      ((=ucs		  . #x89D2)	; 角
       ))
@@ -1667,6 +2111,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8A00)	; 言
+      ))
     (<-radical
      ((=ucs		  . #x8A00)	; 言
       ))
@@ -1678,6 +2125,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8C37)	; 谷
+      ))
     (<-radical
      ((=ucs		  . #x8C37)	; 谷
       ))
@@ -1689,6 +2139,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8C46)	; 豆
+      ))
     (<-radical
      ((=ucs		  . #x8C46)	; 豆
       ))
@@ -1700,6 +2153,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8C55)	; 豕
+      ))
     (<-radical
      ((=ucs		  . #x8C55)	; 豕
       ))
@@ -1711,6 +2167,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8C78)	; 豸
+      ))
     (<-radical
      ((=ucs		  . #x8C78)	; 豸
       ))
@@ -1722,6 +2181,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
     (<-radical
      ((=ucs		  . #x8C9D)	; 貝
       ))
@@ -1733,6 +2195,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8D64)	; 赤
+      ))
     (<-radical
      ((=ucs		  . #x8D64)	; 赤
       ))
@@ -1744,6 +2209,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8D70)	; 走
+      ))
     (<-radical
      ((=ucs		  . #x8D70)	; 走
       ))
@@ -1755,6 +2223,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8DB3)	; 足
+      ))
     (<-radical
      ((=ucs		  . #x8DB3)	; 足
       ))
@@ -1766,6 +2237,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8EAB)	; 身
+      ))
     (<-radical
      ((=ucs		  . #x8EAB)	; 身
       ))
@@ -1777,6 +2251,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8ECA)	; 車
+      ))
     (<-radical
      ((=ucs		  . #x8ECA)	; 車
       ))
@@ -1788,6 +2265,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8F9B)	; 辛
+      ))
     (<-radical
      ((=ucs		  . #x8F9B)	; 辛
       ))
@@ -1799,6 +2279,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8FB0)	; 辰
+      ))
     (<-radical
      ((=ucs		  . #x8FB0)	; 辰
       ))
@@ -1810,6 +2293,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x8FB5)	; 辵
+      ))
     (<-radical
      ((=ucs		  . #x8FB5)	; 辵
       ))
@@ -1822,6 +2308,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9091)	; 邑
+      ))
     (<-radical
      ((=ucs		  . #x9091)	; 邑
       ))
@@ -1833,6 +2322,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9149)	; 酉
+      ))
     (<-radical
      ((=ucs		  . #x9149)	; 酉
       ))
@@ -1844,6 +2336,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x91C6)	; 釆
+      ))
     (<-radical
      ((=ucs		  . #x91C6)	; 釆
       ))
@@ -1855,6 +2350,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x91CC)	; 里
+      ))
     (<-radical
      ((=ucs		  . #x91CC)	; 里
       ))
@@ -1866,6 +2364,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x91D1)	; 金
+      ))
     (<-radical
      ((=ucs		  . #x91D1)	; 金
       ))
@@ -1877,6 +2378,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9577)	; 長
+      ))
     (<-radical
      ((=ucs		  . #x9577)	; 長
       ))
@@ -1888,6 +2392,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9580)	; 門
+      ))
     (<-radical
      ((=ucs		  . #x9580)	; 門
       ))
@@ -1899,6 +2406,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x961C)	; 阜
+      ))
     (<-radical
      ((=ucs		  . #x961C)	; 阜
       ))
@@ -1910,6 +2420,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x96B6)	; 隶
+      ))
     (<-radical
      ((=ucs		  . #x96B6)	; 隶
       ))
@@ -1922,6 +2435,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x96B9)	; 隹
+      ))
     (<-radical
      ((=ucs		  . #x96B9)	; 隹
       ))
@@ -1933,6 +2449,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x96E8)	; 雨
+      ))
     (<-radical
      ((=ucs		  . #x96E8)	; 雨
       ))
@@ -1944,6 +2463,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9751)	; 靑
+      ))
     (<-radical
      ((=ucs		  . #x9751)	; 靑
       ))
@@ -1955,6 +2477,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x975E)	; 非
+      ))
     (<-radical
      ((=ucs		  . #x975E)	; 非
       ))
@@ -1966,6 +2491,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9762)	; 面
+      ))
     (<-radical
      ((=ucs		  . #x9762)	; 面
       ))
@@ -1977,6 +2505,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9769)	; 革
+      ))
     (<-radical
      ((=ucs		  . #x9769)	; 革
       ))
@@ -1988,6 +2519,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x97CB)	; 韋
+      ))
     (<-radical
      ((=ucs		  . #x97CB)	; 韋
       ))
@@ -1999,6 +2533,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x97ED)	; 韭
+      ))
     (<-radical
      ((=ucs		  . #x97ED)	; 韭
       ))
@@ -2010,6 +2547,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x97F3)	; 音
+      ))
     (<-radical
      ((=ucs		  . #x97F3)	; 音
       ))
@@ -2021,6 +2561,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9801)	; 頁
+      ))
     (<-radical
      ((=ucs		  . #x9801)	; 頁
       ))
@@ -2032,6 +2575,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x98A8)	; 風
+      ))
     (<-radical
      ((=ucs		  . #x98A8)	; 風
       ))
@@ -2043,6 +2589,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x98DB)	; 飛
+      ))
     (<-radical
      ((=ucs		  . #x98DB)	; 飛
       ))
@@ -2054,6 +2603,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x98DF)	; 食
+      ))
     (<-radical
      ((=ucs		  . #x98DF)	; 食
       ))
@@ -2065,6 +2617,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9996)	; 首
+      ))
     (<-radical
      ((=ucs		  . #x9996)	; 首
       ))
@@ -2076,6 +2631,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9999)	; 香
+      ))
     (<-radical
      ((=ucs		  . #x9999)	; 香
       ))
@@ -2087,6 +2645,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x99AC)	; 馬
+      ))
     (<-radical
      ((=ucs		  . #x99AC)	; 馬
       ))
@@ -2098,6 +2659,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
     (<-radical
      ((=ucs		  . #x9AA8)	; 骨
       ))
@@ -2109,6 +2673,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9AD8)	; 高
+      ))
     (<-radical
      ((=ucs		  . #x9AD8)	; 高
       ))
@@ -2120,6 +2687,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9ADF)	; 髟
+      ))
     (<-radical
      ((=ucs		  . #x9ADF)	; 髟
       ))
@@ -2131,6 +2701,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9B25)	; 鬥
+      ))
     (<-radical
      ((=ucs		  . #x9B25)	; 鬥
       ))
@@ -2142,6 +2715,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9B2F)	; 鬯
+      ))
     (<-radical
      ((=ucs		  . #x9B2F)	; 鬯
       ))
@@ -2153,6 +2729,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9B32)	; 鬲
+      ))
     (<-radical
      ((=ucs		  . #x9B32)	; 鬲
       ))
@@ -2164,6 +2743,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
     (<-radical
      ((=ucs		  . #x9B3C)	; 鬼
       ))
@@ -2175,6 +2757,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9B5A)	; 魚
+      ))
     (<-radical
      ((=ucs		  . #x9B5A)	; 魚
       ))
@@ -2186,6 +2771,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9CE5)	; 鳥
+      ))
     (<-radical
      ((=ucs		  . #x9CE5)	; 鳥
       ))
@@ -2197,6 +2785,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9E75)	; 鹵
+      ))
     (<-radical
      ((=ucs		  . #x9E75)	; 鹵
       ))
@@ -2208,6 +2799,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9E7F)	; 鹿
+      ))
     (<-radical
      ((=ucs		  . #x9E7F)	; 鹿
       ))
@@ -2219,6 +2813,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9EA5)	; 麥
+      ))
     (<-radical
      ((=ucs		  . #x9EA5)	; 麥
       ))
@@ -2230,6 +2827,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9EBB)	; 麻
+      ))
     (<-radical
      ((=ucs		  . #x9EBB)	; 麻
       ))
@@ -2241,6 +2841,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9EC3)	; 黃
+      ))
     (<-radical
      ((=ucs		  . #x9EC3)	; 黃
       ))
@@ -2252,6 +2855,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9ECD)	; 黍
+      ))
     (<-radical
      ((=ucs		  . #x9ECD)	; 黍
       ))
@@ -2263,6 +2869,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9ED1)	; 黑
+      ))
     (<-radical
      ((=ucs		  . #x9ED1)	; 黑
       ))
@@ -2274,6 +2883,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9EF9)	; 黹
+      ))
     (<-radical
      ((=ucs		  . #x9EF9)	; 黹
       ))
@@ -2285,6 +2897,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9EFD)	; 黽
+      ))
     (<-radical
      ((=ucs		  . #x9EFD)	; 黽
       ))
@@ -2296,6 +2911,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F0E)	; 鼎
+      ))
     (<-radical
      ((=ucs		  . #x9F0E)	; 鼎
       ))
@@ -2307,6 +2925,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F13)	; 鼓
+      ))
     (<-radical
      ((=ucs		  . #x9F13)	; 鼓
       ))
@@ -2318,6 +2939,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F20)	; 鼠
+      ))
     (<-radical
      ((=ucs		  . #x9F20)	; 鼠
       ))
@@ -2329,6 +2953,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F3B)	; 鼻
+      ))
     (<-radical
      ((=ucs		  . #x9F3B)	; 鼻
       ))
@@ -2340,6 +2967,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F4A)	; 齊
+      ))
     (<-radical
      ((=ucs		  . #x9F4A)	; 齊
       ))
@@ -2351,6 +2981,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F52)	; 齒
+      ))
     (<-radical
      ((=ucs		  . #x9F52)	; 齒
       ))
@@ -2362,6 +2995,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F8D)	; 龍
+      ))
     (<-radical
      ((=ucs		  . #x9F8D)	; 龍
       ))
@@ -2373,6 +3009,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
     (<-radical
      ((=ucs		  . #x9F9C)	; 龜
       ))
@@ -2384,6 +3023,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9FA0)	; 龠
+      ))
     (<-radical
      ((=ucs		  . #x9FA0)	; 龠
       ))
