@@ -1,3 +1,9 @@
+2005-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Use
+	`Fchar_refs_simplify_char_specs' for `=>decomposition' before
+	calling `put_char_composition'.
+
 2005-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_halfwidth_of): New variable.
