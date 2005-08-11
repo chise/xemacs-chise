@@ -67,7 +67,11 @@
     (=ucs@unicode	. #x722B)	; ⺤
     (=ucs@jis		. #xFA49)	; ⺤
     (->subsumptive
-     ((=>ucs*		  . #x722B)	; 爫
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
+      (=>ucs*		  . #x722B)	; 爫
+      (->canonical
+       ((=ucs		    . #x722B)	; 爫
+	))
       (=ucs		  . #xFA49)	; 爫
       ))
     ))
