@@ -1174,76 +1174,181 @@
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY ONE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x3251)	; ㉑
     (=jis-x0213-1-2000	. #x2841)	; &I-JX1-2841; [08-33]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY TWO")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x3252)	; ㉒
     (=jis-x0213-1-2000	. #x2842)	; &I-JX1-2842; [08-34]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY THREE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x3253)	; ㉓
     (=jis-x0213-1-2000	. #x2843)	; &I-JX1-2843; [08-35]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FOUR")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x3254)	; ㉔
     (=jis-x0213-1-2000	. #x2844)	; &I-JX1-2844; [08-36]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FIVE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x3255)	; ㉕
     (=jis-x0213-1-2000	. #x2845)	; &I-JX1-2845; [08-37]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SIX")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x3256)	; ㉖
     (=jis-x0213-1-2000	. #x2846)	; &I-JX1-2846; [08-38]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SEVEN")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x3257)	; ㉗
     (=jis-x0213-1-2000	. #x2847)	; &I-JX1-2847; [08-39]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY EIGHT")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x3258)	; ㉘
     (=jis-x0213-1-2000	. #x2848)	; &I-JX1-2848; [08-40]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY NINE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x3259)	; ㉙
     (=jis-x0213-1-2000	. #x2849)	; &I-JX1-2849; [08-41]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x325A)	; ㉚
     (=jis-x0213-1-2000	. #x284A)	; &I-JX1-284A; [08-42]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY ONE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x325B)	; ㉛
     (=jis-x0213-1-2000	. #x284B)	; &I-JX1-284B; [08-43]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY TWO")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x325C)	; ㉜
     (=jis-x0213-1-2000	. #x284C)	; &I-JX1-284C; [08-44]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY THREE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x325D)	; ㉝
     (=jis-x0213-1-2000	. #x284D)	; &I-JX1-284D; [08-45]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FOUR")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x325E)	; ㉞
     (=jis-x0213-1-2000	. #x284E)	; &I-JX1-284E; [08-46]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FIVE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x325F)	; ㉟
     (=jis-x0213-1-2000	. #x284F)	; &I-JX1-284F; [08-47]
     ))
@@ -2156,76 +2261,181 @@
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SIX")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x32B1)	; ㊱
     (=jis-x0213-1-2000	. #x2850)	; &I-JX1-2850; [08-48]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SEVEN")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x32B2)	; ㊲
     (=jis-x0213-1-2000	. #x2851)	; &I-JX1-2851; [08-49]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY EIGHT")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x32B3)	; ㊳
     (=jis-x0213-1-2000	. #x2852)	; &I-JX1-2852; [08-50]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY NINE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x32B4)	; ㊴
     (=jis-x0213-1-2000	. #x2853)	; &I-JX1-2853; [08-51]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x32B5)	; ㊵
     (=jis-x0213-1-2000	. #x2854)	; &I-JX1-2854; [08-52]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY ONE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     (=ucs		. #x32B6)	; ㊶
     (=jis-x0213-1-2000	. #x2855)	; &I-JX1-2855; [08-53]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY TWO")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     (=ucs		. #x32B7)	; ㊷
     (=jis-x0213-1-2000	. #x2856)	; &I-JX1-2856; [08-54]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY THREE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     (=ucs		. #x32B8)	; ㊸
     (=jis-x0213-1-2000	. #x2857)	; &I-JX1-2857; [08-55]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FOUR")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x32B9)	; ㊹
     (=jis-x0213-1-2000	. #x2858)	; &I-JX1-2858; [08-56]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FIVE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x32BA)	; ㊺
     (=jis-x0213-1-2000	. #x2859)	; &I-JX1-2859; [08-57]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SIX")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x32BB)	; ㊻
     (=jis-x0213-1-2000	. #x285A)	; &I-JX1-285A; [08-58]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SEVEN")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x32BC)	; ㊼
     (=jis-x0213-1-2000	. #x285B)	; &I-JX1-285B; [08-59]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY EIGHT")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x32BD)	; ㊽
     (=jis-x0213-1-2000	. #x285C)	; &I-JX1-285C; [08-60]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY NINE")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x32BE)	; ㊾
     (=jis-x0213-1-2000	. #x285D)	; &I-JX1-285D; [08-61]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FIFTY")
+    (=>decomposition@circled
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x32BF)	; ㊿
     (=jis-x0213-1-2000	. #x285E)	; &I-JX1-285E; [08-62]
     ))
