@@ -36,7 +36,11 @@
     (=ucs@cns		. #x8279)	; ⺿
     (=ucs@jis		. #xFA5E)	; ⺿
     (->subsumptive
-     ((=>ucs*		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
+      (=>ucs*		  . #x8279)	; 艹
+      (->canonical
+       ((=ucs		    . #x8279)	; 艹
+	))
       (=ucs		  . #xFA5E)	; 艹
       ))
     ))
@@ -87,7 +91,11 @@
     (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
     (=ucs@jis		. #xFA5D)	; ⻀
     (->subsumptive
-     ((=>ucs*		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
+      (=>ucs*		  . #x8279)	; 艹
+      (->canonical
+       ((=ucs		    . #x8279)	; 艹
+	))
       (=ucs		  . #xFA5D)	; 艹
       ))
     ))
