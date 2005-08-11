@@ -1010,6 +1010,13 @@
 (define-char
   '((name		. "DOUBLE QUESTION MARK")
     (general-category	punctuation other) ; Informative Category
+    (=>decomposition@compat
+     ((name		  . "QUESTION MARK")
+      (=ucs		  . #x003F)	; ?
+      )
+     ((name		  . "QUESTION MARK")
+      (=ucs		  . #x003F)	; ?
+      ))
     (=ucs		. #x2047)	; ⁇
     ))
 (define-char
