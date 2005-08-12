@@ -1742,7 +1742,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #xFA49)	; 爫
+	 ((name		      . "CJK RADICAL PAW ONE")
+	  (=ucs		      . #x2EA4)	; ⺤
 	  )
 	 ((=jis-x0208	      . #x3B65)	; &GT-35079; [27-69]
 	  (=cns11643-1	      . #x484E)	; &I-C1-484E; [40-46]
@@ -1764,7 +1765,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #xFA49)	; 爫
+	 ((name		      . "CJK RADICAL PAW ONE")
+	  (=ucs		      . #x2EA4)	; ⺤
 	  )
 	 ((=gb2312	      . #x7469)	; &G0-7469; [84-73]
 	  ))
