@@ -1,3 +1,8 @@
+2005-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Put `->FOO' into the
+	last place before `->subsumptive' and `->denotational'.
+
 2005-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R005-Second.el (C2-334E): Use <CJK RADICAL PAW ONE>
