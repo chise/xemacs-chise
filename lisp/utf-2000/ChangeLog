@@ -1,4 +1,19 @@
+2005-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (C2-334E): Use <CJK RADICAL PAW ONE>
+	instead of U+FA49 in `ideographic-structure'.
+	(UU+4E7F): Likewise.
+
+2005-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+FA5E): Add `name'; add `->canonical'
+	for U+8279.
+	(U+FA5D): Add `name'; add `->canonical' for U+8279.
+
 2005-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el (U+FA49): Add `name'; add `->canonical'
+	for U+722B.
 
 	* u03130-Hangul-Compatibility-Jamo.el: Rename `<-compatibility' to
 	`<-compat'.
