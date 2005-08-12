@@ -134,12 +134,6 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->vulgar
-     ((=ucs		  . #x6C37)	; 氷
-      (=daikanwa	  . 17087)	; &I-M-17087;
-      ))
-    (->vulgar*sources
-     zhengzi-tong daikanwa)
     (<-original
      ((shinjigen-1	  . 4051)
       (=ucs		  . #x6C37)	; 氷
@@ -173,6 +167,12 @@
     (=gt-k		. 01713)	; &I-GT-K01713;
     (=gt-pj-1		. #x5156)	; &I-GT-02139; [49-54]
     (=daikanwa		. 01612)	; &I-M-01612;
+    (->vulgar
+     ((=ucs		  . #x6C37)	; 氷
+      (=daikanwa	  . 17087)	; &I-M-17087;
+      ))
+    (->vulgar*sources
+     zhengzi-tong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎

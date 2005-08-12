@@ -177,6 +177,10 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (shinjigen-1	. 589)
+    (=ucs		. #x206A3)	; 𠚣
+    (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
+    (=daikanwa		. 01851)	; &I-M-01851;
     (->ideographic-variants
      ((shinjigen-1	  . 588)
       (shinjigen-2	  . 588)
@@ -185,10 +189,6 @@
       ))
     (->ideographic-variants*sources
      shinjigen-1)
-    (shinjigen-1	. 589)
-    (=ucs		. #x206A3)	; 𠚣
-    (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
-    (=daikanwa		. 01851)	; &I-M-01851;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2868,16 +2868,16 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (shinjigen-1	. 610)
+    (=ucs		. #x20702)	; 𠜂
+    (=cns11643-6	. #x2968)	; &I-C6-2968; [09-72]
+    (=daikanwa		. 48938)	; &I-M-48938;
     (->ideographic-variants
      ((shinjigen-1	  . 609)
       (=daikanwa	  . 01917)	; &I-M-01917;
       ))
     (->ideographic-variants*sources
      shinjigen-1)
-    (shinjigen-1	. 610)
-    (=ucs		. #x20702)	; 𠜂
-    (=cns11643-6	. #x2968)	; &I-C6-2968; [09-72]
-    (=daikanwa		. 48938)	; &I-M-48938;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
