@@ -178,12 +178,6 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (->ideographic-variants
-     ((shinjigen-1	  . 75)
-      (=daikanwa	  . 00252)	; &I-M-00252;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     (hanyu-dazidian	1 5 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -199,6 +193,12 @@
     (=big5-cdp		. #x8A42)	; &I-CDP-8A42;
     (=gt		. 00333)	; &I-GT-00333;
     (=gt-pj-9		. #x4B26)	; &I-GT-00333; [43-06]
+    (->ideographic-variants
+     ((shinjigen-1	  . 75)
+      (=daikanwa	  . 00252)	; &I-M-00252;
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
