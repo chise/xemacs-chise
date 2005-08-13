@@ -1359,31 +1359,44 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=ucs		. #x351C)	; 㔜
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=jis-x0208	    . #x5555)	; &GT-08748; [53-53]
-	(=ks-x1001	    . #x5D21)	; &I-K0-5D21; [61-01]
-	(=daikanwa	    . 06948)	; &I-M-06948;
-	)
-       ((=ucs		    . #x529B)	; 力
-	))
-      (=daikanwa	  . 02352)	; &M-02352;
-      (=cbeta		  . 06289)	; &I-CB06289;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5B5A)	; 孚
-	)
-       ((=ucs		    . #x529B)	; 力
-	))
-      (=cns11643-6	  . #x2F27)	; &C6-2F27; [15-07]
-      (=ucs@unicode	  . #x351C)	; &C6-2F27;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x351C)	; 㔜
       ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=jis-x0208	  . #x5555)	; &GT-08748; [53-53]
+      (=ks-x1001	  . #x5D21)	; &I-K0-5D21; [61-01]
+      (=daikanwa	  . 06948)	; &I-M-06948;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=daikanwa		. 02352)	; &M-02352;
+    (=cbeta		. 06289)	; &I-CB06289;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x351C)	; 㔜
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5B5A)	; &UU+5B5A;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=cns11643-6	. #x2F27)	; &C6-2F27; [15-07]
+    (=ucs@unicode	. #x351C)	; &C6-2F27;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -1410,12 +1423,6 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->synonyms
-     ((ideographic-radical . 66)	; ⽁
-      (=daikanwa	  . 13225)	; &I-M-13225;
-      ))
-    (->synonyms*sources
-     jiyun zhengzi-tong daikanwa)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x6555)	; 敕
       (=jis-x0208	  . #x5A45)	; &I-J90-5A45; [58-37]
@@ -1447,6 +1454,12 @@
     (=daikanwa		. 02354)	; &I-M-02354;
     (=hanziku-1		. #xF263)	; &I-HZK01-F263;
     (=cbeta		. 00330)	; &I-CB00330;
+    (->synonyms
+     ((ideographic-radical . 66)	; ⽁
+      (=daikanwa	  . 13225)	; &I-M-13225;
+      ))
+    (->synonyms*sources
+     jiyun zhengzi-tong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
