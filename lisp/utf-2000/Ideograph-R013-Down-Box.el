@@ -455,12 +455,6 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (->ideographic-variants
-     ((shinjigen-1	  . 508)
-      (=daikanwa	  . 01515)	; &I-M-01515;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     (hanyu-dazidian	1 99 4)
     (shinjigen-1	. 511)
     (=ucs		. #x20541)	; 𠕁
@@ -469,6 +463,13 @@
     (=gt		. 01990)	; &I-GT-01990;
     (=gt-pj-2		. #x3D33)	; &I-GT-01990; [29-19]
     (=daikanwa		. 48932)	; &I-M-48932;
+    (->ideographic-variants
+     ((shinjigen-1	  . 508)
+      (=ucs		  . #x518A)	; 冊
+      (=daikanwa	  . 01515)	; &I-M-01515;
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     ))
 (define-char
   '((<-denotational
@@ -504,9 +505,6 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (->mistakable
-     ((=ucs		  . #x26270)	; 𦉰
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
@@ -518,6 +516,9 @@
       ))
     (=gt-k		. 01266)	; &GT-K01266;
     (=gt-pj-k2		. #x4122)	; &GT-K01266; [33-02]
+    (->mistakable
+     ((=ucs		  . #x26270)	; 𦉰
+      ))
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -1263,14 +1264,14 @@
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)
+      (=gt		  . 02031)	; &GT-02031;
+      (=gt-pj-2		  . #x3D48)	; &GT-02031; [29-40]
+      (=daikanwa	  . 01546)	; &I-M-01546;
       (->mistakable
        ((=daikanwa	    . 13950)	; &I-M-13950;
 	))
       (->mistakable*sources
        kangxi daikanwa)
-      (=gt		  . 02031)	; &GT-02031;
-      (=gt-pj-2		  . #x3D48)	; &GT-02031; [29-40]
-      (=daikanwa	  . 01546)	; &I-M-01546;
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 10)
