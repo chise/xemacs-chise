@@ -469,12 +469,6 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (->ideographic-variants
-     ((shinjigen-1	  . 772)
-      (=ucs		  . #x5306)	; 匆
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
@@ -488,9 +482,15 @@
     (=ucs		. #x2F82A)	; 匆
     (=cns11643-3	. #x2225)	; &I-C3-2225; [02-05]
     (=daikanwa		. 02511)	; &I-M-02511;
+    (->ideographic-variants
+     ((shinjigen-1	  . 772)
+      (=ucs		  . #x5306)	; 匆
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     ))
 (define-char
-  '((morohashi-daikanwa	2511 0 2)
+  '((=>daikanwa		. 02511)	; 匆
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -515,37 +515,30 @@
     (=gt-pj-1		. #x5232)	; &I-GT-03219; [50-18]
     ))
 (define-char
-  '((=>ucs		. #x5307)	; 匇
-    (morohashi-daikanwa	2511 0 7)
-    (ideographic-radical . 20)	; ⼓
+  '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (->ideographic-variants
-     ((=daikanwa	  . 02511)	; &I-M-02511;
-      ))
-    (=jis-x0213-1-2000	. #x2E6C)	; &CB05526; [14-76]
-    (=cbeta		. 05526)	; &I-CB05526;
-    (=ucs@jis		. #x5307)	; &CB05526;
-    ))
-(define-char
-  '((morohashi-daikanwa	2511 0 8)
-    (ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (->ideographic-variants
-     ((=daikanwa	  . 02511)	; &I-M-02511;
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      )
-     ((=ucs		  . #x52F9)	; 勹
-      )
-     ((=ucs		  . #x5915)	; 夕
-      ))
     (=ucs		. #x5307)	; 匇
-    (=cns11643-3	. #x2224)	; &I-C3-2224; [02-04]
-    (=jef-china3	. #x45A8)	; &I-JC3-45A8;
+    (->ideographic-variants
+     ((=daikanwa	  . 02511)	; &I-M-02511;
+      ))
+    (->subsumptive
+     ((=jis-x0213-1-2000  . #x2E6C)	; &CB05526; [14-76]
+      (=cbeta		  . 05526)	; &I-CB05526;
+      (=ucs@jis		  . #x5307)	; &CB05526;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x52F9)	; 勹
+	)
+       ((=ucs		    . #x5915)	; 夕
+	))
+      (=cns11643-3	  . #x2224)	; &C3-2224; [02-04]
+      (=jef-china3	  . #x45A8)	; &I-JC3-45A8;
+      (=ucs@unicode	  . #x5307)	; &C3-2224;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
