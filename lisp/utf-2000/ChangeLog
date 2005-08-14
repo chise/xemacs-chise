@@ -1,5 +1,24 @@
 2005-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R025-Divination.el (U+5361): Use `->subsumptive' to
+	integrate JC3-82B5.
+	(JC3-82B5): Use `<-subsumptive' instead of `->identical' for
+	U+5361.
+
+	* Ideograph-R020-Wrap.el (U+5306): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'.
+	(U+5307): Use `->subsumptive'; don't use `morohashi-daikanwa'.
+
+	* Ideograph-R019-Power.el (U+351C): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R004-Slash.el (U+4E57): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (U-00020000): Use `->subsumptive'.
+	(M-00005): Unify GT-00038.
+	(M-00019): Use `->subsumptive'.
+	(U+4E0E): Use `->denotational' instead of `->subsumptive'.
+
 	* char-db-util.el (char-attribute-name<): Put `->FOO' into the
 	last place before `->subsumptive' and `->denotational'.
 
