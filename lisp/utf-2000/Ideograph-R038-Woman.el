@@ -83,9 +83,6 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (->mistakable
-     ((=daikanwa	  . 00395)	; &M-00395;
-      ))
     (<-ancient
      ((=jis-x0208	  . #x455B)	; &GT-07627; [37-59]
       (=gb2312		  . #x452B)	; &I-G0-452B; [37-11]
@@ -96,6 +93,9 @@
      shuowen daikanwa)
     (=daikanwa		. 06040)	; &M-06040;
     (=ucs@unicode	. #x36A2)	; &M-06040;
+    (->mistakable
+     ((=daikanwa	  . 00395)	; &M-00395;
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥

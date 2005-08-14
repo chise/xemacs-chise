@@ -6695,15 +6695,15 @@
     (total-strokes	 . 12)
     (=ucs		. #x583A)	; 堺
     (->subsumptive
-     ((->ideographic-variants
+     ((shinjigen-1	  . 5033)
+      (shinjigen-2	  . 5033)
+      (=daikanwa	  . 05289)	; &M-05289;
+      (->ideographic-variants
        ((shinjigen-2	    . 5031)
 	(=jis-x0208	    . #x3326)	; &M-21775; [19-06]
 	))
       (->ideographic-variants*sources
        shinjigen-1)
-      (shinjigen-1	  . 5033)
-      (shinjigen-2	  . 5033)
-      (=daikanwa	  . 05289)	; &M-05289;
       )
      ((hanyu-dazidian	  1 463 8)
       (ideographic-structure

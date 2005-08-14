@@ -65,13 +65,6 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (->mistakable
-     ((=daikanwa	  . 02843)	; &I-M-02843;
-      )
-     ((=daikanwa	  . 02847)	; &I-M-02847;
-      ))
-    (->mistakable*sources
-     kangxi daikanwa)
     (<-same
      ((=ucs		  . #x5917)	; 夗
       (=daikanwa	  . 05752)	; &I-M-05752;
@@ -105,6 +98,13 @@
     (=daikanwa		. 05753)	; &I-M-05753;
     (=hanziku-3		. #xAD64)	; &I-HZK03-AD64;
     (=cbeta		. 06470)	; &I-CB06470;
+    (->mistakable
+     ((=daikanwa	  . 02843)	; &I-M-02843;
+      )
+     ((=daikanwa	  . 02847)	; &I-M-02847;
+      ))
+    (->mistakable*sources
+     kangxi daikanwa)
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
