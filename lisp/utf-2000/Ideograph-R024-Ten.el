@@ -545,16 +545,18 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->ideographic-variants
-     (:char	((shinjigen-1	     . 816)
-		 (=daikanwa	     . 02706)	; &I-M-02706;
-		 )
-      :sources	(shinjigen-1)))
     (shinjigen-1	. 818)
     (shinjigen-2	. 818)
     (=ucs		. #x2F82C)	; 卉
     (=cns11643-3	. #x2329)	; &I-C3-2329; [03-09]
     (=daikanwa		. 02720)	; &I-M-02720;
+    (->ideographic-variants
+     ((shinjigen-1	  . 816)
+      (=ucs		  . #x5349)	; 卉
+      (=daikanwa	  . 02706)	; &I-M-02706;
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
