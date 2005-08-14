@@ -181,16 +181,11 @@
     (=jis-x0213-1-2000	. #x2E6F)	; &I-JX1-2E6F; [14-79]
     (=big5		. #xA564)	; &I-B-A564;
     (=daikanwa		. 02781)	; &I-M-02781;
-    (=jef-china3	. #x45CB)	; &I-JC3-45CB;
-    ))
-(define-char
-  '((->identical
-     ((=ucs		  . #x5361)	; 卡
-      (=jef-china3	  . #x45CB)	; &I-JC3-45CB;
+    (->subsumptive
+     ((=jef-china3	  . #x45CB)	; &JC3-45CB;
+      )
+     ((=jef-china3	  . #x82B5)	; &JC3-82B5;
       ))
-    (->identical*sources
-     jef-china3)
-    (=jef-china3	. #x82B5)	; &JC3-82B5;
     ))
 (define-char
   '((=>ucs		. #x209D3)	; 𠧓
