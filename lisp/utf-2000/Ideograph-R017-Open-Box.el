@@ -761,16 +761,26 @@
     (=daikanwa		. 01844)	; &M-01844;
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 18)
+  '((ideographic-radical@ucs . 17)	; ⼐
+    (ideographic-strokes@ucs . 18)
+    (ideographic-radical@cns . 87)	; ⽖
+    (ideographic-strokes@cns . 16)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 20)
-    (->identical
-     ((=cns11643-7	  . #x4E3E)	; &C7-4E3E; [46-30]
-      ))
-    (<-same
-     ((=daikanwa	  . 49274)	; &M-49274;
-      ))
     (=ucs		. #x206A1)	; 𠚡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x206A1)	; 𠚡
+      ))
+    (ideographic-radical@ucs . 17)	; ⼐
+    (ideographic-strokes@ucs . 18)
+    (ideographic-radical@cns . 87)	; ⽖
+    (ideographic-strokes@cns . 16)
+    (total-strokes	 . 20)
+    (=cns11643-7	. #x4E3E)	; &C7-4E3E; [46-30]
+    (=ucs@iso		. #x206A1)	; &C7-4E3E;
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
