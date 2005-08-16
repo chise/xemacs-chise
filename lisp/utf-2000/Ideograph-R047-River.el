@@ -19,13 +19,6 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (->mistakable
-     ((=daikanwa	  . 08669)	; &I-M-08669;
-      )
-     ((=daikanwa	  . 08675)	; &I-M-08675;
-      ))
-    (->mistakable*sources
-     kangxi)
     (<-ancient
      ((=ucs		  . #x5764)	; 坤
       (=daikanwa	  . 04969)	; &I-M-04969;
@@ -35,6 +28,13 @@
     (=gt		. 10943)	; &GT-10943;
     (=gt-pj-3		. #x3D72)	; &GT-10943; [29-82]
     (=daikanwa		. 08670)	; &I-M-08670;
+    (->mistakable
+     ((=daikanwa	  . 08669)	; &I-M-08669;
+      )
+     ((=daikanwa	  . 08675)	; &I-M-08675;
+      ))
+    (->mistakable*sources
+     kangxi)
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
