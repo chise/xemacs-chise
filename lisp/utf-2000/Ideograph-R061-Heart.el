@@ -4096,7 +4096,14 @@
     (=cns11643-3	. #x3078)	; &I-C3-3078; [16-88]
     ))
 (define-char
-  '((=>ucs*		. #x6094)	; 悔
+  '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x6094)	; 悔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6094)	; 悔
+      ))
+    (=>ucs*		. #x6094)	; 悔
     (morohashi-daikanwa	10617 1)
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
@@ -4707,7 +4714,10 @@
     (=jef-china3	. #x4EAC)	; &I-JC3-4EAC;
     ))
 (define-char
-  '((=>ucs*		. #x6094)	; 悔
+  '((<-denotational
+     ((=ucs		  . #x6094)	; 悔
+      ))
+    (=>ucs*		. #x6094)	; 悔
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -4719,21 +4729,8 @@
     (=big5		. #xAEAC)	; &I-B-AEAC;
     (=daikanwa		. 10659)	; &I-M-10659;
     (=jef-china3	. #x4EAD)	; &I-JC3-4EAD;
-    (=ucs@gb		. #x6094)	; 悔
-    (=ucs@cns		. #x6094)	; 悔
-    (=ucs@ks		. #x6094)	; 悔
-    (=ucs@big5		. #x6094)	; 悔
-    ))
-(define-char
-  '((=>ucs@jis		. #xFA3D)	; 悔
-    (morohashi-daikanwa	10659 0 0)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (->identical
-     ((=ucs		  . #xFA3D)	; 悔
-      ))
-    (=ucs		. #x6094)	; 悔
+    (=ucs@unicode	. #x6094)	; 悔
+    (=ucs@jis		. #xFA3D)	; 悔
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
