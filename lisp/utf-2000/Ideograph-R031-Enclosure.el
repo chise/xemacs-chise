@@ -2695,22 +2695,22 @@
     (=hanziku-2		. #xE6C7)	; &HZK02-E6C7;
     ))
 (define-char
-  '((=>ucs		. #x24517)	; 𤔗
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 9)
+  '((ideographic-radical@ucs . 87)	; ⽖
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 31)	; ⼞
+    (ideographic-strokes@cns . 9)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 12)
-    (=daikanwa		. 04811)	; &M-04811;
-    ))
-(define-char
-  '((=>ucs		. #x24517)	; 𤔗
-    (morohashi-daikanwa	4811 0 0)
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (->identical
-     ((=ucs		  . #x24517)	; 𤔗
+    (=ucs		. #x24517)	; 𤔗
+    (->subsumptive
+     ((=daikanwa	  . 04811)	; &M-04811;
+      )
+     ((hanyu-dazidian	  3 2033 18)
+      (=cns11643-6	  . #x4743)	; &HZK05-F8B3; [39-35]
+      (=hanziku-5	  . #xF8B3)	; &I-HZK05-F8B3;
+      (=ucs@iso		  . #x24517)	; &HZK05-F8B3;
       ))
-    (=cns11643-6	. #x4743)	; &C6-4743; [39-35]
     ))
 (define-char
   '((=>ucs		. #x21207)	; 𡈇
