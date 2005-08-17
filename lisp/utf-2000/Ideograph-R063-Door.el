@@ -133,36 +133,56 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x623B)	; 戻
-    (->subsumptive
-     ((->mistakable
-       ((=daikanwa	    . 11712)	; &I-M-11712;
-	))
-      (->mistakable*sources
-       zihui zhengzi-tong daikanwa)
-      (=cns11643-3	  . #x2628)	; &GT-14762; [06-08]
-      (=gt		  . 14762)	; &I-GT-14762;
-      (=gt-k		  . 02657)	; &I-GT-K02657;
-      (=gt-pj-3		  . #x5B34)	; &I-GT-14762; [59-20]
-      (=daikanwa	  . 11707)	; &I-M-11707;
-      )
-     ((<-simplified@JP/Jouyou
-       ((=ks-x1001	    . #x5568)	; &M-11712; [53-72]
-	(=cns11643-1	    . #x4D53)	; &I-C1-4D53; [45-51]
-	(=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
-	(=daikanwa	    . 11712)	; &I-M-11712;
-	))
-      (shinjigen-1	  . 2795)
-      (shinjigen-2	  . 2795)
-      (=jis-x0208	  . #x4C61)	; &GT-14766; [44-65]
-      (=gt		  . 14766)	; &I-GT-14766;
-      (=gt-k		  . 02658)	; &I-GT-K02658;
-      (=gt-pj-1		  . #x4C61)	; &I-GT-14766; [44-65]
-      (=ucs@jis		  . #x623B)	; &GT-14766;
-      )
-     ((hanyu-dazidian	  3 2257 9)
-      (=hanziku-6	  . #xD2FB)	; &HZK06-D2FB;
-      (=ucs@iso		  . #x623B)	; &HZK06-D2FB;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623B)	; 戻
       ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=cns11643-3	. #x2628)	; &GT-14762; [06-08]
+    (=gt		. 14762)	; &I-GT-14762;
+    (=gt-k		. 02657)	; &I-GT-K02657;
+    (=gt-pj-3		. #x5B34)	; &I-GT-14762; [59-20]
+    (=daikanwa		. 11707)	; &I-M-11707;
+    (->mistakable
+     ((=daikanwa	  . 11712)	; &I-M-11712;
+      ))
+    (->mistakable*sources
+     zihui zhengzi-tong daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623B)	; 戻
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
+      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
+      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
+      (=daikanwa	  . 11712)	; &I-M-11712;
+      ))
+    (shinjigen-1	. 2795)
+    (shinjigen-2	. 2795)
+    (=jis-x0208		. #x4C61)	; &GT-14766; [44-65]
+    (=gt		. 14766)	; &I-GT-14766;
+    (=gt-k		. 02658)	; &I-GT-K02658;
+    (=gt-pj-1		. #x4C61)	; &I-GT-14766; [44-65]
+    (=ucs@jis		. #x623B)	; &GT-14766;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623B)	; 戻
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	3 2257 9)
+    (=hanziku-6		. #xD2FB)	; &HZK06-D2FB;
+    (=ucs@iso		. #x623B)	; &HZK06-D2FB;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
