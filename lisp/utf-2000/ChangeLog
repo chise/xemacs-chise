@@ -1,9 +1,31 @@
+2005-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+6094): Use `->denotational'.
+	(U+FA3D): Use `<-denotational' for U+6094; use `=ucs@unicode'
+	instead of `=ucs@{gb|cns|ks|big5}' for U+6094; add `=ucs@jis' for
+	U+FA3D.
+
+	* Ideograph-R063-Door.el (U+623B): Use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+5055): Use `->subsumptive'.
+	(U+5056): Use `->denotational'.
+	(U+5057): Use `->subsumptive'.
+	(U+5058): Add `<-same' for J0-3426.
+
 2005-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R031-Enclosure.el (U-00024517): Copied from
 	Ideograph-R087-Claw.el; use `->subsumptive'.
 	(C6-4743): Use `<-subsumptive' for U-00024517; unify H5-F8B3 and
 	IU-00024517 instead of using `->identical' for U-00024517.
+
+	* Ideograph-R029-Again.el (U-00020B81): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; don't use `->identical' for
+	C6-537B and `<-same' for M-16642; use `->denotational'.
+	(C6-537B): Copied from Ideograph-R079-Weapon.el.
 
 2005-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
