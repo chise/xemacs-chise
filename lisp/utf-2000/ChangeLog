@@ -1,3 +1,26 @@
+2005-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (U-00024517): Copied from
+	Ideograph-R087-Claw.el; use `->subsumptive'.
+	(C6-4743): Use `<-subsumptive' for U-00024517; unify H5-F8B3 and
+	IU-00024517 instead of using `->identical' for U-00024517.
+
+2005-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el (U-000206A1): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'; use `->denotational' instead of
+	`->identical' and `<-same'.
+	(IU-000206A1): Unify C7-4E3E.
+
+2005-08-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (U-0002F82C): Use
+	`->ideographic-variants*sources' instead of char-ref in
+	`->ideographic-variants'.
+
 2005-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R025-Divination.el (U+5361): Use `->subsumptive' to
