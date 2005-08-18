@@ -8151,11 +8151,12 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (->ideographic-variants
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 11883)	; &I-M-11883;
-		 )
+    (<-same
+     ((=ucs		  . #x6291)	; 抑
+      (=daikanwa	  . 11883)	; &I-M-11883;
       ))
+    (<-same*sources
+     daikanwa)
     (=ucs		. #x22BAE)	; 𢮮
     (=cns11643-6	. #x402E)	; &I-C6-402E; [32-14]
     (=daikanwa		. 49129)	; &I-M-49129;
