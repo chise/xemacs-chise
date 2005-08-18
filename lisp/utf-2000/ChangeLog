@@ -1,5 +1,10 @@
 2005-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (C1-454B): Use `->mistakable' instead of
+	`->confusing'.
+
+2005-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R061-Heart.el (U+6094): Use `->denotational'.
 	(U+FA3D): Use `<-denotational' for U+6094; use `=ucs@unicode'
 	instead of `=ucs@{gb|cns|ks|big5}' for U+6094; add `=ucs@jis' for
