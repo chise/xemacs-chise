@@ -1,7 +1,35 @@
+2005-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U-00022BAE): Use `<-same' and
+	`<-same*sources' instead of `->ideographic-variants' with char-ref
+	for M-11883.
+
 2005-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+537B): Move `->ideographic-variants'
+	to J0-524A.
+	(J0-524A): Use `->ideographic-variants*sources' instead of
+	char-ref in `->ideographic-variants'.
+	(U+537D): Use `->subsumptive'.
+	(U-0002F833): Use `<-same' instead of `->same' for M-02880.
+
+	* Ideograph-R013-Down-Box.el (U+5192): Use `->denotational'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@jis' and
+	`ideographic-radical@jis*sources'.
 
 	* Ideograph-R073-Say.el (C1-454B): Use `->mistakable' instead of
 	`->confusing'.
+
+	* Ideograph-R066-Rap.el (U+654F): Use `->denotational'.
+	(U-0002F8C8): Use `<-denotational' instead of `=>ucs' for U+654F;
+	add `=>ucs*' for U+654F.
+	(U+654C): Use `ideographic-{radical|strokes}@{ucs|daikanwa}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+	(U+FA41): Add `<-denotational' for U+654F; use `=ucs@unicode'
+	instead of `=ucs@{gb|cns|ks|big5}' for U+654F; add `=ucs@jis' for
+	U+FA41.
 
 2005-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
