@@ -1112,7 +1112,14 @@
     (=cns11643-5	. #x326A)	; &I-C5-326A; [18-74]
     ))
 (define-char
-  '((=>ucs		. #x654F)	; 敏
+  '((ideographic-radical . 66)	; ⽁
+    (=ucs		. #x654F)	; 敏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x654F)	; 敏
+      ))
+    (=>ucs*		. #x654F)	; 敏
     (morohashi-daikanwa	13202 1)
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 6)
@@ -1130,10 +1137,12 @@
     (=ucs@jis		. #x654F)	; 敏
     ))
 (define-char
-  '((ideographic-	(:radical	135 ; ⾆
-			 :strokes	4)
-			(:radical	66 ; ⽁
-			 :strokes	6))
+  '((ideographic-radical@ucs . 66)	; ⽁
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     cns11643 ucs)
+    (ideographic-radical@daikanwa . 135)	; ⾆
+    (ideographic-strokes@daikanwa . 4)
     (total-strokes	 . 10)
     (=ucs		. #x654C)	; 敌
     (=gb2312		. #x3550)	; &I-G0-3550; [21-48]
@@ -1365,7 +1374,10 @@
     (=cns11643-4	. #x322D)	; &I-C4-322D; [18-13]
     ))
 (define-char
-  '((=>ucs*		. #x654F)	; 敏
+  '((<-denotational
+     ((=ucs		  . #x654F)	; 敏
+      ))
+    (=>ucs*		. #x654F)	; 敏
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -1377,21 +1389,8 @@
     (=big5		. #xB1D3)	; &I-B-B1D3;
     (=daikanwa		. 13217)	; &I-M-13217;
     (=jef-china3	. #x50CA)	; &I-JC3-50CA;
-    (=ucs@gb		. #x654F)	; 敏
-    (=ucs@cns		. #x654F)	; 敏
-    (=ucs@ks		. #x654F)	; 敏
-    (=ucs@big5		. #x654F)	; 敏
-    ))
-(define-char
-  '((=>ucs@jis		. #xFA41)	; 敏
-    (morohashi-daikanwa	13217 0 0)
-    (ideographic-radical . 66)	; ⽁
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (->identical
-     ((=ucs		  . #xFA41)	; 敏
-      ))
-    (=ucs		. #x654F)	; 敏
+    (=ucs@unicode	. #x654F)	; 敏
+    (=ucs@jis		. #xFA41)	; 敏
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
