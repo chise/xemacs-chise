@@ -16,10 +16,10 @@
       (=daikanwa	  . 14278)	; &I-M-14278;
       (=ucs@unicode	  . #x66F0)	; &GT-18071;
       )
-     ((->confusing
+     ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
+      (->mistakable
        ((=ucs		    . #x65E5)	; 日
 	))
-      (=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
       ))
     ))
 (define-char
