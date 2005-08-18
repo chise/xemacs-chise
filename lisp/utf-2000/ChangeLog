@@ -1,5 +1,24 @@
 2005-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el (JSP-3C77): Add
+	`ideographic-{radical|strokes}' and `total-strokes'.
+	(BC-8BAB): Likewise; use `->subsumptive' to integrate GT-K00267.
+	(GT-K00266): Use `->subsumptive' to integrate <CJK RADICAL SNOUT
+	TWO> and BC-897C.
+	(<CJK RADICAL SNOUT TWO>): Separate GT-K00266; unify G0-6566 and
+	UU+5F50.
+	(U+5F54): Use `->subsumptive'.
+	(U+5F55): Likewise; add `=>daikanwa' for M-09918.
+	(C6-2B39): Unify U-0002F896.
+	(U-00022456): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R009-Man.el (JSP-305F): Use <CJK RADICAL PERSON>
+	instead of U+4EBB in `ideographic-structure'.
+
 	* Ideograph-R064-Hand.el (U-00022BAE): Use `<-same' and
 	`<-same*sources' instead of `->ideographic-variants' with char-ref
 	for M-11883.
