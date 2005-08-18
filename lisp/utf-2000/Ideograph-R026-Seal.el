@@ -419,8 +419,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x537D)	; 卽
+     ((=ks-x1001	  . #x716D)	; &M-02872; [81-77]
+      (=cns11643-3	  . #x2B4B)	; &I-C3-2B4B; [11-43]
       (=jis-x0213-1-2000  . #x2E71)	; &I-JX1-2E71; [14-81]
+      (=daikanwa	  . 02872)	; &I-M-02872;
       ))
     (<-vulgar
      ((=daikanwa	  . 02873)	; &M-02873;
@@ -629,11 +631,6 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (->mistakable
-     ((=daikanwa	  . 39379)	; &I-M-39379;
-      ))
-    (->mistakable*sources
-     zihui daikanwa)
     (<-vulgar
      ((=jis-x0208	  . #x524A)	; &GT-03647; [50-42]
       (=daikanwa	  . 02867)	; &I-M-02867;
@@ -653,6 +650,11 @@
     (=cns11643-4	. #x2556)	; &I-C4-2556; [05-54]
     (=daikanwa		. 02863)	; &I-M-02863;
     (=hanziku-1		. #xE6E0)	; &I-HZK01-E6E0;
+    (->mistakable
+     ((=daikanwa	  . 39379)	; &I-M-39379;
+      ))
+    (->mistakable*sources
+     zihui daikanwa)
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
@@ -719,11 +721,6 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->ideographic-variants
-     (:char	((shinjigen-1	     . 855)
-		 (=daikanwa	     . 02856)	; &I-M-02856;
-		 )
-      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 317 2)
     (=ucs		. #x537B)	; 卻
     (->subsumptive
@@ -735,6 +732,13 @@
       (=gt-pj-1		  . #x524A)	; &I-GT-03647; [50-42]
       (=daikanwa	  . 02867)	; &I-M-02867;
       (=ucs@jis		  . #x537B)	; &GT-03647;
+      (->ideographic-variants
+       ((shinjigen-1	    . 855)
+	(=ucs		    . #x5374)	; 却
+	(=daikanwa	    . 02856)	; &I-M-02856;
+	))
+      (->ideographic-variants*sources
+       shinjigen-1)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -801,45 +805,37 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->ideographic-variants
-     (:char	((shinjigen-1	     . 859)
-		 (=daikanwa	     . 02855)	; &I-M-02855;
-		 )
-      :sources	(shinjigen-1)))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7680)	; 皀
-      )
-     ((=ucs		  . #x5369)	; 卩
-      ))
-    (shinjigen-1	. 861)
-    (shinjigen-2	. 861)
     (=ucs		. #x537D)	; 卽
-    (=ks-x1001		. #x716D)	; &I-K0-716D; [81-77]
-    (=cns11643-3	. #x2B4B)	; &I-C3-2B4B; [11-43]
-    (=jis-x0213-1-2000	. #x2E71)	; &I-JX1-2E71; [14-81]
-    (=daikanwa		. 02872)	; &I-M-02872;
-    (=jef-china3	. #x45D4)	; &I-JC3-45D4;
-    ))
-(define-char
-  '((=>ucs		. #x537D)	; 卽
-    (morohashi-daikanwa	2872 0 0)
-    (ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 316 2)
-    (=cns11643-6	. #x2F3D)	; &C6-2F3D; [15-29]
-    ))
-(define-char
-  '((=>ucs		. #x537D)	; 卽
-    (morohashi-daikanwa	2872 0 1)
-    (ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 316 2)
-    (=hanziku-1		. #xE742)	; &HZK01-E742;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x7680)	; &GT-29075;
+	)
+       ((=ucs		    . #x5369)	; 卩
+	))
+      (shinjigen-1	  . 861)
+      (shinjigen-2	  . 861)
+      (=ks-x1001	  . #x716D)	; &M-02872; [81-77]
+      (=cns11643-3	  . #x2B4B)	; &I-C3-2B4B; [11-43]
+      (=jis-x0213-1-2000  . #x2E71)	; &I-JX1-2E71; [14-81]
+      (=daikanwa	  . 02872)	; &I-M-02872;
+      (=jef-china3	  . #x45D4)	; &I-JC3-45D4;
+      (=ucs@unicode	  . #x537D)	; &M-02872;
+      (->ideographic-variants
+       ((shinjigen-1	    . 859)
+	(=ucs		    . #x5373)	; 即
+	(=daikanwa	    . 02855)	; &I-M-02855;
+	))
+      (->ideographic-variants*sources
+       shinjigen-1)
+      )
+     ((=cns11643-6	  . #x2F3D)	; &C6-2F3D; [15-29]
+      )
+     ((hanyu-dazidian	  1 316 2)
+      (=hanziku-1	  . #xE742)	; &HZK01-E742;
+      ))
     ))
 (define-char
   '((=>ucs		. #x537D)	; 卽
@@ -1011,13 +1007,13 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((shinjigen-1	  . 868)
       (=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
       (=daikanwa	  . 02880)	; &I-M-02880;
       ))
-    (->same*sources
+    (<-same*sources
      shinjigen-1)
     (shinjigen-1	. 869)
     (shinjigen-2	. 869)
