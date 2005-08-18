@@ -4269,7 +4269,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EBB)	; 亻
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=cns11643-3	    . #x223F)	; &CDP-88C2; [02-31]
 	))
@@ -4288,7 +4289,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5C14)	; &UU+5C14;
+       ((=gb2312	    . #x367B)	; &M-07479; [22-91]
+	(=daikanwa	    . 07479)	; &I-M-07479;
 	))
       (=gb2312		  . #x4463)	; &G0-4463; [36-67]
       (=ucs@unicode	  . #x4F60)	; &G0-4463;
