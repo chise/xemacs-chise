@@ -1,5 +1,14 @@
 2005-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+549C): Use `->subsumptive'.
+	(JSP-352A): Use `<-vulgar' instead of `->ideographic-variants' for
+	J0-5323.
+	(U+54A4): Use `->subsumptive'.
+	(C3-3A40): Modify `ideographic-structure'.
+	(J0-5344): Add `ideographic-structure'.
+
+2005-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R058-Snout.el (JSP-3C77): Add
 	`ideographic-{radical|strokes}' and `total-strokes'.
 	(BC-8BAB): Likewise; use `->subsumptive' to integrate GT-K00267.
