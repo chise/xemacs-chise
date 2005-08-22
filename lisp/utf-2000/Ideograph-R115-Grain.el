@@ -985,13 +985,11 @@
     (=ucs		. #x79EF)	; 积
     (=gb2312		. #x3B7D)	; &I-G0-3B7D; [27-93]
     (=daikanwa		. 25011)	; &I-M-25011;
-    (=jef-china3	. #x5DA1)	; &I-JC3-5DA1;
-    ))
-(define-char
-  '((->identical
-     ((=ucs		  . #x79EF)	; 积
+    (->subsumptive
+     ((=jef-china3	  . #x5DA1)	; &JC3-5DA1;
+      )
+     ((=jef-china3	  . #x81D7)	; &JC3-81D7;
       ))
-    (=jef-china3	. #x81D7)	; &JC3-81D7;
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
