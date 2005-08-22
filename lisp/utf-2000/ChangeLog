@@ -1,3 +1,25 @@
+2005-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U-00026B5D): Use `->denotational'
+	instead of `->identical' and `<-same'; use
+	`ideographic-{radical|strokes}@ucs'; add
+	`ideographic-{radical|strokes}@cns'.
+	(C6-333E): Copied from Ideograph-R109-Eye.el.
+
+	* Ideograph-R135-Tongue.el (U+654C): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'; add `ideographic-radical@ucs*sources'.
+
+	* Ideograph-R115-Grain.el (U+79EF): Use `->subsumptive' to
+	integrate JC3-81D7.
+
+	* Ideograph-R109-Eye.el (U-00026B5D): Copied from
+	Ideograph-R140-Grass.el; use `->denotational'.
+	(U+7707): Use `->subsumptive'.
+	(U+7708): Add S1-5281.
+	(U+7709): Add S1-5283.
+	(U-00025116): Use `->subsumptive'.
+
 2005-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+549C): Use `->subsumptive'.
@@ -27,6 +49,8 @@
 
 	* Ideograph-R009-Man.el (JSP-305F): Use <CJK RADICAL PERSON>
 	instead of U+4EBB in `ideographic-structure'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5575.
 
 	* Ideograph-R064-Hand.el (U-00022BAE): Use `<-same' and
 	`<-same*sources' instead of `->ideographic-variants' with char-ref
