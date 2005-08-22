@@ -75,12 +75,12 @@
     (total-strokes	 . 15)
     (=ucs		. #x2FA1A)	; 鼏
     (->subsumptive
-     ((->mistakable
+     ((=daikanwa	  . 48320)	; &M-48320;
+      (->mistakable
        ((=daikanwa	    . 48317)	; &I-M-48317;
 	))
       (->mistakable*sources
        zihui daikanwa)
-      (=daikanwa	  . 48320)	; &M-48320;
       )
      ((=ucs@iso		  . #x2FA1A)	; &U-0002FA1A;
       )
