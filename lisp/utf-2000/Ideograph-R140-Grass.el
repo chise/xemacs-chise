@@ -38,10 +38,10 @@
     (->subsumptive
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
       (=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5E)	; 艹
       (->canonical
        ((=ucs		    . #x8279)	; 艹
 	))
-      (=ucs		  . #xFA5E)	; 艹
       ))
     ))
 (define-char
@@ -93,10 +93,10 @@
     (->subsumptive
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
       (=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5D)	; 艹
       (->canonical
        ((=ucs		    . #x8279)	; 艹
 	))
-      (=ucs		  . #xFA5D)	; 艹
       ))
     ))
 (define-char
@@ -4567,16 +4567,26 @@
     (=hanziku-8		. #xEC68)	; &I-HZK08-EC68;
     ))
 (define-char
-  '((ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 5)
+  '((ideographic-radical@ucs . 140)	; ⾋
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 109)	; ⽬
+    (ideographic-strokes@cns . 4)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 9)
-    (->identical
-     ((=cns11643-6	  . #x333E)	; &C6-333E; [19-30]
-      ))
-    (<-same
-     ((=daikanwa	  . 23187)	; &M-23187;
-      ))
     (=ucs		. #x26B5D)	; 𦭝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26B5D)	; 𦭝
+      ))
+    (ideographic-radical@ucs . 140)	; ⾋
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 109)	; ⽬
+    (ideographic-strokes@cns . 4)
+    (total-strokes	 . 9)
+    (=cns11643-6	. #x333E)	; &C6-333E; [19-30]
+    (=ucs@iso		. #x26B5D)	; &C6-333E;
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
