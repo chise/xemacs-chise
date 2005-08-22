@@ -35,9 +35,6 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (->mistakable
-     ((=ucs		  . #x8289)	; 芉
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -49,14 +46,14 @@
       ))
     (=ucs		. #x2EB8)	; ⺸
     (=cbeta		. 06151)	; &I-CB06151;
+    (->mistakable
+     ((=ucs		  . #x8289)	; 芉
+      ))
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (->mistakable
-     ((=ucs		  . #x2EB7)	; ⺷
-      ))
     (<-wrong
      ((=ucs		  . #x22189)	; 𢆉
       (=daikanwa	  . 09166)	; &I-M-09166;
@@ -68,6 +65,9 @@
     (=cns11643-4	. #x232C)	; &I-C4-232C; [03-12]
     (=jis-x0213-2-2000	. #x7472)	; &I-JX2-7472; [84-82]
     (=daikanwa		. 28427)	; &I-M-28427;
+    (->mistakable
+     ((=ucs		  . #x2EB7)	; ⺷
+      ))
     ))
 (define-char
   '((=>ucs		. #x2EB6)	; ⺶
