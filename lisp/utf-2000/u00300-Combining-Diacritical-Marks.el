@@ -496,11 +496,11 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
+    (=ucs		. #x0340)	; ̀
     (->canonical
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=ucs		. #x0340)	; ̀
     ))
 (define-char
   '((name		. "COMBINING ACUTE TONE MARK")
@@ -508,11 +508,11 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
+    (=ucs		. #x0341)	; ́
     (->canonical
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs		. #x0341)	; ́
     ))
 (define-char
   '((name		. "COMBINING GREEK PERISPOMENI")
@@ -526,11 +526,11 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (=ucs		. #x0343)	; ̓
     (->canonical
      ((name		  . "COMBINING COMMA ABOVE")
       (=ucs		  . #x0313)	; ̓
       ))
-    (=ucs		. #x0343)	; ̓
     ))
 (define-char
   '((name		. "COMBINING GREEK DIALYTIKA TONOS")
@@ -551,11 +551,11 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (=ucs		. #x0345)	; ͅ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Ι
       ))
-    (=ucs		. #x0345)	; ͅ
     ))
 (define-char
   '((name		. "COMBINING BRIDGE ABOVE")

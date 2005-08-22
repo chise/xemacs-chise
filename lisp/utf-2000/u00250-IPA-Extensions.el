@@ -64,11 +64,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0253)	; ɓ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER B WITH HOOK")
       (=ucs		  . #x0181)	; Ɓ
       ))
-    (=ucs		. #x0253)	; ɓ
     ))
 (define-char
   '((<-denotational
@@ -87,12 +87,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0254)	; ɔ
+    (ipa		. #xB7)	; &I-MULE-IPA-37;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN O")
       (=ucs		  . #x0186)	; Ɔ
       ))
-    (=ucs		. #x0254)	; ɔ
-    (ipa		. #xB7)	; &I-MULE-IPA-37;
     ))
 (define-char
   '((<-denotational
@@ -130,11 +130,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0256)	; ɖ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER AFRICAN D")
       (=ucs		  . #x0189)	; Ɖ
       ))
-    (=ucs		. #x0256)	; ɖ
     ))
 (define-char
   '((<-denotational
@@ -153,11 +153,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0257)	; ɗ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER D WITH HOOK")
       (=ucs		  . #x018A)	; Ɗ
       ))
-    (=ucs		. #x0257)	; ɗ
     ))
 (define-char
   '((<-denotational
@@ -195,12 +195,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0259)	; ə
+    (ipa		. #xA7)	; &I-MULE-IPA-27;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER SCHWA")
       (=ucs		  . #x018F)	; Ə
       ))
-    (=ucs		. #x0259)	; ə
-    (ipa		. #xA7)	; &I-MULE-IPA-27;
     ))
 (define-char
   '((<-denotational
@@ -239,12 +239,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x025B)	; ɛ
+    (ipa		. #xA3)	; &I-MULE-IPA-23;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E")
       (=ucs		  . #x0190)	; Ɛ
       ))
-    (=ucs		. #x025B)	; ɛ
-    (ipa		. #xA3)	; &I-MULE-IPA-23;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E")
@@ -315,19 +315,16 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0260)	; ɠ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER G WITH HOOK")
       (=ucs		  . #x0193)	; Ɠ
       ))
-    (=ucs		. #x0260)	; ɠ
     ))
 (define-char
   '((<-denotational
      ((name		  . "LATIN SMALL LETTER G WITH HOOK")
       (=ucs		  . #x0260)	; ɠ
-      ))
-    (->uppercase
-     ((=jis-x0213-1-2000  . #x2B29)	; &JX1-2B29; [11-09]
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH HOOK")
@@ -335,6 +332,9 @@
       ))
     (=jis-x0213-1-2000	. #x2B28)	; &JX1-2B28; [11-08]
     (=ucs@jis/fw	. #x0260)	; &JX1-2B28;
+    (->uppercase
+     ((=jis-x0213-1-2000  . #x2B29)	; &JX1-2B29; [11-09]
+      ))
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCRIPT G")
@@ -367,11 +367,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0263)	; ɣ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER GAMMA")
       (=ucs		  . #x0194)	; Ɣ
       ))
-    (=ucs		. #x0263)	; ɣ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER RAMS HORN")
@@ -456,12 +456,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0268)	; ɨ
+    (ipa		. #xA6)	; &I-MULE-IPA-26;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH STROKE")
       (=ucs		  . #x0197)	; Ɨ
       ))
-    (=ucs		. #x0268)	; ɨ
-    (ipa		. #xA6)	; &I-MULE-IPA-26;
     ))
 (define-char
   '((<-denotational
@@ -480,11 +480,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0269)	; ɩ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER IOTA")
       (=ucs		  . #x0196)	; Ɩ
       ))
-    (=ucs		. #x0269)	; ɩ
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL I")
@@ -563,12 +563,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x026F)	; ɯ
+    (ipa		. #xA9)	; &I-MULE-IPA-29;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER TURNED M")
       (=ucs		  . #x019C)	; Ɯ
       ))
-    (=ucs		. #x026F)	; ɯ
-    (ipa		. #xA9)	; &I-MULE-IPA-29;
     ))
 (define-char
   '((<-denotational
@@ -626,12 +626,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0272)	; ɲ
+    (ipa		. #xD4)	; &I-MULE-IPA-54;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER N WITH LEFT HOOK")
       (=ucs		  . #x019D)	; Ɲ
       ))
-    (=ucs		. #x0272)	; ɲ
-    (ipa		. #xD4)	; &I-MULE-IPA-54;
     ))
 (define-char
   '((<-denotational
@@ -676,12 +676,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0275)	; ɵ
+    (ipa		. #xB3)	; &I-MULE-IPA-33;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH MIDDLE TILDE")
       (=ucs		  . #x019F)	; Ɵ
       ))
-    (=ucs		. #x0275)	; ɵ
-    (ipa		. #xB3)	; &I-MULE-IPA-33;
     ))
 (define-char
   '((<-denotational
@@ -832,12 +832,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0280)	; ʀ
+    (ipa		. #xD7)	; &I-MULE-IPA-57;
     (->uppercase
      ((name		  . "LATIN LETTER YR")
       (=ucs		  . #x01A6)	; Ʀ
       ))
-    (=ucs		. #x0280)	; ʀ
-    (ipa		. #xD7)	; &I-MULE-IPA-57;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL INVERTED R")
@@ -883,12 +883,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0283)	; ʃ
+    (ipa		. #xCC)	; &I-MULE-IPA-4C;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER ESH")
       (=ucs		  . #x01A9)	; Ʃ
       ))
-    (=ucs		. #x0283)	; ʃ
-    (ipa		. #xCC)	; &I-MULE-IPA-4C;
     ))
 (define-char
   '((<-denotational
@@ -947,11 +947,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0288)	; ʈ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER T WITH RETROFLEX HOOK")
       (=ucs		  . #x01AE)	; Ʈ
       ))
-    (=ucs		. #x0288)	; ʈ
     ))
 (define-char
   '((<-denotational
@@ -990,12 +990,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x028A)	; ʊ
+    (ipa		. #xB5)	; &I-MULE-IPA-35;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER UPSILON")
       (=ucs		  . #x01B1)	; Ʊ
       ))
-    (=ucs		. #x028A)	; ʊ
-    (ipa		. #xB5)	; &I-MULE-IPA-35;
     ))
 (define-char
   '((<-denotational
@@ -1014,11 +1014,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x028B)	; ʋ
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER V WITH HOOK")
       (=ucs		  . #x01B2)	; Ʋ
       ))
-    (=ucs		. #x028B)	; ʋ
     ))
 (define-char
   '((<-denotational
@@ -1143,12 +1143,12 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x0292)	; ʒ
+    (ipa		. #xCD)	; &I-MULE-IPA-4D;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER EZH")
       (=ucs		  . #x01B7)	; Ʒ
       ))
-    (=ucs		. #x0292)	; ʒ
-    (ipa		. #xCD)	; &I-MULE-IPA-4D;
     ))
 (define-char
   '((<-denotational

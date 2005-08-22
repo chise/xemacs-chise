@@ -4,22 +4,22 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
+    (=ucs		. #x2000)	;  
     (->canonical
      ((name		  . "EN SPACE")
       (=ucs		  . #x2002)	;  
       ))
-    (=ucs		. #x2000)	;  
     ))
 (define-char
   '((name		. "EM QUAD")
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
+    (=ucs		. #x2001)	;  
     (->canonical
      ((name		  . "EM SPACE")
       (=ucs		  . #x2003)	;  
       ))
-    (=ucs		. #x2001)	;  
     ))
 (define-char
   '((name		. "EN SPACE")

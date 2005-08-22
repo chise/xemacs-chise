@@ -74,11 +74,11 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (=ucs		. #x20A9)	; ₩
     (->fullwidth
      ((name		  . "FULLWIDTH WON SIGN")
       (=ucs		  . #xFFE6)	; ￦
       ))
-    (=ucs		. #x20A9)	; ₩
     ))
 (define-char
   '((name		. "NEW SHEQEL SIGN")
