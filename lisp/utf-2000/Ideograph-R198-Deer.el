@@ -1342,7 +1342,8 @@
     (total-strokes	 . 23)
     (=ucs		. #x9E9F)	; 麟
     (->subsumptive
-     ((->synonyms@daikanwa
+     ((=daikanwa	  . 47690)	; &M-47690;
+      (->synonyms@daikanwa
        ((=daikanwa	    . 19417)	; &I-M-19417;
 	))
       (->synonyms@daikanwa*sources
@@ -1352,7 +1353,6 @@
 	))
       (->synonyms@shuowen-tongxun-dingsheng*sources
        shuowen-tongxun-dingsheng daikanwa)
-      (=daikanwa	  . 47690)	; &M-47690;
       )
      ((=gb2312		  . #x776B)	; &G0-776B; [87-75]
       (=ucs@unicode	  . #x9E9F)	; &G0-776B;

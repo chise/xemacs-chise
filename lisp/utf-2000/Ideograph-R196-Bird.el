@@ -3765,15 +3765,15 @@
   '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 7)
     (total-strokes	 . 18)
+    (=ucs		. #x2A0F9)	; 𪃹
+    (=cns11643-7	. #x455A)	; &I-C7-455A; [37-58]
+    (=jis-x0213-2-2000	. #x7E32)	; &I-JX2-7E32; [94-18]
+    (=daikanwa		. 46976)	; &I-M-46976;
     (->synonyms
      ((=daikanwa	  . 47115)	; &M-47115;
       ))
     (->synonyms*sources
      zihui-bei daikanwa)
-    (=ucs		. #x2A0F9)	; 𪃹
-    (=cns11643-7	. #x455A)	; &I-C7-455A; [37-58]
-    (=jis-x0213-2-2000	. #x7E32)	; &I-JX2-7E32; [94-18]
-    (=daikanwa		. 46976)	; &I-M-46976;
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃

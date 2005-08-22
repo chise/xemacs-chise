@@ -3460,6 +3460,11 @@
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
+    (shinjigen-1	. 7174)
+    (=ucs		. #x45B8)	; 䖸
+    (=cns11643-3	. #x444B)	; &I-C3-444B; [36-43]
+    (=jis-x0213-2-2000	. #x774F)	; &I-JX2-774F; [87-47]
+    (=daikanwa		. 33083)	; &I-M-33083;
     (->ideographic-variants
      ((shinjigen-1	  . 7173)
       (shinjigen-2	  . 7173)
@@ -3468,11 +3473,6 @@
       ))
     (->ideographic-variants*sources
      shinjigen-1)
-    (shinjigen-1	. 7174)
-    (=ucs		. #x45B8)	; 䖸
-    (=cns11643-3	. #x444B)	; &I-C3-444B; [36-43]
-    (=jis-x0213-2-2000	. #x774F)	; &I-JX2-774F; [87-47]
-    (=daikanwa		. 33083)	; &I-M-33083;
     ))
 (define-char
   '((=>ucs		. #x45B9)	; 䖹
