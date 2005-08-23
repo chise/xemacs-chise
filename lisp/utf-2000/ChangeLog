@@ -1,3 +1,12 @@
+2005-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U+5FBC): Use `->subsumptive'.
+
+	* Ideograph-R031-Enclosure.el (U-00021209): Use `->denotational'.
+	(U-00021207): Likewise.
+	(M-04814): Unify U-00021205 and H2-E6C9.
+	(M-04815): Unify U-00021206 and H2-E6CD.
+
 2005-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U-00026B5D): Use `->denotational'
