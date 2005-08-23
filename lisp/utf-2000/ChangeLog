@@ -1,3 +1,16 @@
+2005-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R042-Small.el (U+5C11): Use `->subsumptive'.
+	(U+5C12): Omit `=>daikanwa'.
+	(M-07477): Unify GT-09427 and GT-K01236; add S1-4716; separate
+	JC3-41E1.
+	(C2-2155): Unify GT-09430 and JC3-41E1.
+	(U+5C13): Add `<-denotational' for J97-5575; use `->subsumptive'.
+	(J97-5575): New abstract character.
+	(U+5C14): Add `<-denotational' for J97-5575; use `->subsumptive'.
+	(U+5C16): Use `->subsumptive'.
+	(U-00021B59): Use `->subsumptive'.
+
 2005-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el (U+5FBC): Use `->subsumptive'.
