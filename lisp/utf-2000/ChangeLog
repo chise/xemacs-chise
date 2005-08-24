@@ -1,5 +1,59 @@
 2005-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R072-Sun.el (U+3AD2): Unify M-13755.
+	(U+3AD3): Unify M-13763.
+	(U+3AD4): Unify M-13769.
+	(UU+3AD5): Unify M-13770.
+	(U+65F6): Use `->subsumptive' to integrate JC3-81C3.
+	(U-00023150): Use `->subsumptive'.
+	(U-0002315A): Likewise.
+	(IU-0002315A): Unify M-13779.
+	(U+6600): Use `->denotational' and `->subsumptive'.
+	(U-0002315B): Unify M-13784.
+	(U-00023166): Unify M-13786; add S1-3288; add `<-formed' for
+	U+6603.
+	(U-00023173): Use `->subsumptive'.
+	(IU-00023173): Unify M-13787.
+	(U+6606): Use `->subsumptive'.
+	(U-0002315C): Use `->subsumptive'.
+	(IU-0002315C): Unify M-13793.
+	(U+6607): Add S1-3284.
+	(U+6609): Use `->subsumptive'.
+	(U+6618): Use `->subsumptive'.
+	(U-0002315D): Use `->subsumptive'; map to M-13798.
+	(U+660A): Use `->subsumptive'.
+	(U-0002315E): Likewise; map to M-13801.
+	(U+660C): Add S1-3285.
+	(U+660D): Use `->subsumptive'.
+	(U+660E): Use `->subsumptive' to separate M-13801 and JC3-51C1.
+	(M-13805): Unify GT-17473 and GT-K04329; add S1-3292.
+	(U+660F): Add S1-3281.
+	(U+3ADA): Unify M-13813.
+	(U-00023161): Use `->subsumptive'.
+	(IU-00023161): Unify M-13815.
+	(U+5192): Use `->denotational'.
+	(U+661B): Use `->subsumptive'.
+	(U+661C): Add S1-3315.
+	(U+3AE7): Use `->subsumptive'.
+	(UU+3AE7): Unify M-13901.
+	(U-00023196): Use `->subsumptive'; map to M-13907.
+	(U+3AE6): Unify M-13909.
+	(U-00023198): Use `->subsumptive'; map to M-13911.
+	(U+664F): Use `->subsumptive'.
+	(U+6650): Likewise.
+	(U-000231A0): Unify M-13923.
+	(U+6652): Use `->subsumptive'.
+	(U+3AE9): Use `->denotational'.
+	(C3-3147): Use `<-denotational' for U+3AE9; unify M-13925.
+	(U-000231A7): Use `->subsumptive'; map to M-13927.
+	(U+3AEA): Use `->subsumptive'.
+	(U+66FB): Use `->subsumptive'.
+	(U+3AEE): Use `->subsumptive'.
+	(U-000231B3): Use `->subsumptive'.
+	(U+6657): Use `->subsumptive'.
+
+2005-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R042-Small.el (U+5C11): Use `->subsumptive'.
 	(U+5C12): Omit `=>daikanwa'.
 	(M-07477): Unify GT-09427 and GT-K01236; add S1-4716; separate
