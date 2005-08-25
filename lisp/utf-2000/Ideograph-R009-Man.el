@@ -13221,25 +13221,28 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 170 6)
     (=ucs		. #x5016)	; 倖
+    (=big5		. #xADC6)	; &I-B-ADC6;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x4EBB)	; 亻
-	)
-       ((=ucs@unicode	    . #x5E78)	; &C1-4D31;
-	))
-      (=cns11643-1	  . #x5429)	; &M-00771; [52-09]
-      (=big5		  . #xADC6)	; &I-B-ADC6;
-      (=daikanwa	  . 00771)	; &I-M-00771;
-      (=ucs@unicode	  . #x5016)	; &M-00771;
+     ((=daikanwa	  . 00771)	; &M-00771;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EBB)	; 亻
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((=ucs@unicode	    . #x5E78)	; &C1-4D31;
+	))
+      (=cns11643-1	  . #x5429)	; &C1-5429; [52-09]
+      (=ucs@unicode	  . #x5016)	; &C1-5429;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=jis-x0208	    . #x392C)	; &GT-11561; [25-12]
 	(=ks-x1001	    . #x7A39)	; &I-K0-7A39; [90-25]
@@ -13271,9 +13274,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x4EBB)	; 亻
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
       )
-     ((=daikanwa	  . 14340)	; &M-14340;
+     ((=gt		  . 18172)	; &GT-18172;
+      (=daikanwa	  . 14340)	; &I-M-14340;
       ))
     (=jis-x0212		. #x3152)	; &M-00772; [17-50]
     (=daikanwa		. 00772)	; &I-M-00772;
@@ -13292,7 +13297,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x4EBB)	; 亻
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
       )
      ((=ucs@unicode	  . #x670B)	; &UU+670B;
       ))
