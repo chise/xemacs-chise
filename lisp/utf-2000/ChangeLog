@@ -1,3 +1,11 @@
+2005-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+5016): Unify B-ADC6.
+	(C1-5429): Separate B-ADC6 and M-00771.
+	(JSP-3152): Use <CJK RADICAL PERSON> instead of U+4EBB in
+	`ideographic-structure'.
+	(C2-2D77): Likewise.
+
 2005-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R072-Sun.el (U+3AD2): Unify M-13755.
