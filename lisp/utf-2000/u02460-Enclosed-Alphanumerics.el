@@ -1970,405 +1970,405 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER A")
-      (=ucs		  . #x24D0)	; ⓐ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER A")
       (=ucs		  . #x0041)	; A
       ))
     (=ucs		. #x24B6)	; Ⓐ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER A")
+      (=ucs		  . #x24D0)	; ⓐ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER B")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER B")
-      (=ucs		  . #x24D1)	; ⓑ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER B")
       (=ucs		  . #x0042)	; B
       ))
     (=ucs		. #x24B7)	; Ⓑ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER B")
+      (=ucs		  . #x24D1)	; ⓑ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER C")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER C")
-      (=ucs		  . #x24D2)	; ⓒ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #x24B8)	; Ⓒ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER C")
+      (=ucs		  . #x24D2)	; ⓒ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER D")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER D")
-      (=ucs		  . #x24D3)	; ⓓ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #x24B9)	; Ⓓ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER D")
+      (=ucs		  . #x24D3)	; ⓓ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER E")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER E")
-      (=ucs		  . #x24D4)	; ⓔ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER E")
       (=ucs		  . #x0045)	; E
       ))
     (=ucs		. #x24BA)	; Ⓔ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER E")
+      (=ucs		  . #x24D4)	; ⓔ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER F")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER F")
-      (=ucs		  . #x24D5)	; ⓕ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER F")
       (=ucs		  . #x0046)	; F
       ))
     (=ucs		. #x24BB)	; Ⓕ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER F")
+      (=ucs		  . #x24D5)	; ⓕ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER G")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER G")
-      (=ucs		  . #x24D6)	; ⓖ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER G")
       (=ucs		  . #x0047)	; G
       ))
     (=ucs		. #x24BC)	; Ⓖ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER G")
+      (=ucs		  . #x24D6)	; ⓖ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER H")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER H")
-      (=ucs		  . #x24D7)	; ⓗ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
     (=ucs		. #x24BD)	; Ⓗ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER H")
+      (=ucs		  . #x24D7)	; ⓗ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER I")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER I")
-      (=ucs		  . #x24D8)	; ⓘ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x24BE)	; Ⓘ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER I")
+      (=ucs		  . #x24D8)	; ⓘ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER J")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER J")
-      (=ucs		  . #x24D9)	; ⓙ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER J")
       (=ucs		  . #x004A)	; J
       ))
     (=ucs		. #x24BF)	; Ⓙ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER J")
+      (=ucs		  . #x24D9)	; ⓙ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER K")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER K")
-      (=ucs		  . #x24DA)	; ⓚ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER K")
       (=ucs		  . #x004B)	; K
       ))
     (=ucs		. #x24C0)	; Ⓚ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER K")
+      (=ucs		  . #x24DA)	; ⓚ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER L")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER L")
-      (=ucs		  . #x24DB)	; ⓛ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #x24C1)	; Ⓛ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER L")
+      (=ucs		  . #x24DB)	; ⓛ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER M")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER M")
-      (=ucs		  . #x24DC)	; ⓜ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #x24C2)	; Ⓜ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER M")
+      (=ucs		  . #x24DC)	; ⓜ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER N")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER N")
-      (=ucs		  . #x24DD)	; ⓝ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       ))
     (=ucs		. #x24C3)	; Ⓝ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER N")
+      (=ucs		  . #x24DD)	; ⓝ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER O")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER O")
-      (=ucs		  . #x24DE)	; ⓞ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER O")
       (=ucs		  . #x004F)	; O
       ))
     (=ucs		. #x24C4)	; Ⓞ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER O")
+      (=ucs		  . #x24DE)	; ⓞ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER P")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER P")
-      (=ucs		  . #x24DF)	; ⓟ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER P")
       (=ucs		  . #x0050)	; P
       ))
     (=ucs		. #x24C5)	; Ⓟ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER P")
+      (=ucs		  . #x24DF)	; ⓟ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER Q")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER Q")
-      (=ucs		  . #x24E0)	; ⓠ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Q")
       (=ucs		  . #x0051)	; Q
       ))
     (=ucs		. #x24C6)	; Ⓠ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER Q")
+      (=ucs		  . #x24E0)	; ⓠ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER R")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER R")
-      (=ucs		  . #x24E1)	; ⓡ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
     (=ucs		. #x24C7)	; Ⓡ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER R")
+      (=ucs		  . #x24E1)	; ⓡ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER S")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER S")
-      (=ucs		  . #x24E2)	; ⓢ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER S")
       (=ucs		  . #x0053)	; S
       ))
     (=ucs		. #x24C8)	; Ⓢ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER S")
+      (=ucs		  . #x24E2)	; ⓢ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER T")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER T")
-      (=ucs		  . #x24E3)	; ⓣ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER T")
       (=ucs		  . #x0054)	; T
       ))
     (=ucs		. #x24C9)	; Ⓣ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER T")
+      (=ucs		  . #x24E3)	; ⓣ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER U")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER U")
-      (=ucs		  . #x24E4)	; ⓤ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER U")
       (=ucs		  . #x0055)	; U
       ))
     (=ucs		. #x24CA)	; Ⓤ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER U")
+      (=ucs		  . #x24E4)	; ⓤ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER V")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER V")
-      (=ucs		  . #x24E5)	; ⓥ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #x24CB)	; Ⓥ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER V")
+      (=ucs		  . #x24E5)	; ⓥ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER W")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER W")
-      (=ucs		  . #x24E6)	; ⓦ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER W")
       (=ucs		  . #x0057)	; W
       ))
     (=ucs		. #x24CC)	; Ⓦ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER W")
+      (=ucs		  . #x24E6)	; ⓦ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER X")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER X")
-      (=ucs		  . #x24E7)	; ⓧ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #x24CD)	; Ⓧ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER X")
+      (=ucs		  . #x24E7)	; ⓧ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER Y")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER Y")
-      (=ucs		  . #x24E8)	; ⓨ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Y")
       (=ucs		  . #x0059)	; Y
       ))
     (=ucs		. #x24CE)	; Ⓨ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER Y")
+      (=ucs		  . #x24E8)	; ⓨ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER Z")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "CIRCLED LATIN SMALL LETTER Z")
-      (=ucs		  . #x24E9)	; ⓩ
-      ))
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
       ))
     (=ucs		. #x24CF)	; Ⓩ
+    (->lowercase
+     ((name		  . "CIRCLED LATIN SMALL LETTER Z")
+      (=ucs		  . #x24E9)	; ⓩ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER A")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER A")
-      (=ucs		  . #x24B6)	; Ⓐ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER A")
       (=ucs		  . #x0061)	; a
       ))
     (=ucs		. #x24D0)	; ⓐ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER A")
+      (=ucs		  . #x24B6)	; Ⓐ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2389,15 +2389,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER B")
-      (=ucs		  . #x24B7)	; Ⓑ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER B")
       (=ucs		  . #x0062)	; b
       ))
     (=ucs		. #x24D1)	; ⓑ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER B")
+      (=ucs		  . #x24B7)	; Ⓑ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2418,15 +2418,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER C")
-      (=ucs		  . #x24B8)	; Ⓒ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #x24D2)	; ⓒ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER C")
+      (=ucs		  . #x24B8)	; Ⓒ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2447,15 +2447,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER D")
-      (=ucs		  . #x24B9)	; Ⓓ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #x24D3)	; ⓓ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER D")
+      (=ucs		  . #x24B9)	; Ⓓ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2476,15 +2476,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER E")
-      (=ucs		  . #x24BA)	; Ⓔ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER E")
       (=ucs		  . #x0065)	; e
       ))
     (=ucs		. #x24D4)	; ⓔ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER E")
+      (=ucs		  . #x24BA)	; Ⓔ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2505,15 +2505,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER F")
-      (=ucs		  . #x24BB)	; Ⓕ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER F")
       (=ucs		  . #x0066)	; f
       ))
     (=ucs		. #x24D5)	; ⓕ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER F")
+      (=ucs		  . #x24BB)	; Ⓕ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2534,15 +2534,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER G")
-      (=ucs		  . #x24BC)	; Ⓖ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER G")
       (=ucs		  . #x0067)	; g
       ))
     (=ucs		. #x24D6)	; ⓖ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER G")
+      (=ucs		  . #x24BC)	; Ⓖ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2563,15 +2563,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER H")
-      (=ucs		  . #x24BD)	; Ⓗ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER H")
       (=ucs		  . #x0068)	; h
       ))
     (=ucs		. #x24D7)	; ⓗ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER H")
+      (=ucs		  . #x24BD)	; Ⓗ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2592,15 +2592,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER I")
-      (=ucs		  . #x24BE)	; Ⓘ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x24D8)	; ⓘ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER I")
+      (=ucs		  . #x24BE)	; Ⓘ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2621,15 +2621,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER J")
-      (=ucs		  . #x24BF)	; Ⓙ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER J")
       (=ucs		  . #x006A)	; j
       ))
     (=ucs		. #x24D9)	; ⓙ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER J")
+      (=ucs		  . #x24BF)	; Ⓙ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2650,15 +2650,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER K")
-      (=ucs		  . #x24C0)	; Ⓚ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER K")
       (=ucs		  . #x006B)	; k
       ))
     (=ucs		. #x24DA)	; ⓚ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER K")
+      (=ucs		  . #x24C0)	; Ⓚ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2679,15 +2679,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER L")
-      (=ucs		  . #x24C1)	; Ⓛ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #x24DB)	; ⓛ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER L")
+      (=ucs		  . #x24C1)	; Ⓛ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2708,15 +2708,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER M")
-      (=ucs		  . #x24C2)	; Ⓜ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #x24DC)	; ⓜ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER M")
+      (=ucs		  . #x24C2)	; Ⓜ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2737,15 +2737,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER N")
-      (=ucs		  . #x24C3)	; Ⓝ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER N")
       (=ucs		  . #x006E)	; n
       ))
     (=ucs		. #x24DD)	; ⓝ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER N")
+      (=ucs		  . #x24C3)	; Ⓝ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2766,15 +2766,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER O")
-      (=ucs		  . #x24C4)	; Ⓞ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER O")
       (=ucs		  . #x006F)	; o
       ))
     (=ucs		. #x24DE)	; ⓞ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER O")
+      (=ucs		  . #x24C4)	; Ⓞ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2795,15 +2795,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER P")
-      (=ucs		  . #x24C5)	; Ⓟ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER P")
       (=ucs		  . #x0070)	; p
       ))
     (=ucs		. #x24DF)	; ⓟ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER P")
+      (=ucs		  . #x24C5)	; Ⓟ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2824,15 +2824,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER Q")
-      (=ucs		  . #x24C6)	; Ⓠ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER Q")
       (=ucs		  . #x0071)	; q
       ))
     (=ucs		. #x24E0)	; ⓠ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER Q")
+      (=ucs		  . #x24C6)	; Ⓠ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2853,15 +2853,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER R")
-      (=ucs		  . #x24C7)	; Ⓡ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER R")
       (=ucs		  . #x0072)	; r
       ))
     (=ucs		. #x24E1)	; ⓡ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER R")
+      (=ucs		  . #x24C7)	; Ⓡ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2882,15 +2882,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER S")
-      (=ucs		  . #x24C8)	; Ⓢ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER S")
       (=ucs		  . #x0073)	; s
       ))
     (=ucs		. #x24E2)	; ⓢ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER S")
+      (=ucs		  . #x24C8)	; Ⓢ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2911,15 +2911,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER T")
-      (=ucs		  . #x24C9)	; Ⓣ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER T")
       (=ucs		  . #x0074)	; t
       ))
     (=ucs		. #x24E3)	; ⓣ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER T")
+      (=ucs		  . #x24C9)	; Ⓣ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2940,15 +2940,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER U")
-      (=ucs		  . #x24CA)	; Ⓤ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER U")
       (=ucs		  . #x0075)	; u
       ))
     (=ucs		. #x24E4)	; ⓤ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER U")
+      (=ucs		  . #x24CA)	; Ⓤ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2969,15 +2969,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER V")
-      (=ucs		  . #x24CB)	; Ⓥ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #x24E5)	; ⓥ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER V")
+      (=ucs		  . #x24CB)	; Ⓥ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2998,15 +2998,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER W")
-      (=ucs		  . #x24CC)	; Ⓦ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER W")
       (=ucs		  . #x0077)	; w
       ))
     (=ucs		. #x24E6)	; ⓦ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER W")
+      (=ucs		  . #x24CC)	; Ⓦ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3027,15 +3027,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER X")
-      (=ucs		  . #x24CD)	; Ⓧ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #x24E7)	; ⓧ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER X")
+      (=ucs		  . #x24CD)	; Ⓧ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3056,15 +3056,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER Y")
-      (=ucs		  . #x24CE)	; Ⓨ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER Y")
       (=ucs		  . #x0079)	; y
       ))
     (=ucs		. #x24E8)	; ⓨ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER Y")
+      (=ucs		  . #x24CE)	; Ⓨ
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3085,15 +3085,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "CIRCLED LATIN CAPITAL LETTER Z")
-      (=ucs		  . #x24CF)	; Ⓩ
-      ))
     (<-circled
      ((name		  . "LATIN SMALL LETTER Z")
       (=ucs		  . #x007A)	; z
       ))
     (=ucs		. #x24E9)	; ⓩ
+    (->uppercase
+     ((name		  . "CIRCLED LATIN CAPITAL LETTER Z")
+      (=ucs		  . #x24CF)	; Ⓩ
+      ))
     ))
 (define-char
   '((<-denotational

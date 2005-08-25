@@ -245,10 +245,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL ONE")
-      (=ucs		  . #x2170)	; ⅰ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -260,6 +256,10 @@
     (=jis-x0213-1-2000	. #x2D35)	; &I-JX1-2D35; [13-21]
     (=big5		. #xA2B9)	; &I-B-A2B9;
     (=jef-china3	. #x77DE)	; &I-JC3-77DE;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE")
+      (=ucs		  . #x2170)	; ⅰ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWO")
@@ -267,10 +267,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL TWO")
-      (=ucs		  . #x2171)	; ⅱ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -285,6 +281,10 @@
     (=jis-x0213-1-2000	. #x2D36)	; &I-JX1-2D36; [13-22]
     (=big5		. #xA2BA)	; &I-B-A2BA;
     (=jef-china3	. #x77DF)	; &I-JC3-77DF;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TWO")
+      (=ucs		  . #x2171)	; ⅱ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL THREE")
@@ -292,10 +292,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL THREE")
-      (=ucs		  . #x2172)	; ⅲ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -313,6 +309,10 @@
     (=jis-x0213-1-2000	. #x2D37)	; &I-JX1-2D37; [13-23]
     (=big5		. #xA2BB)	; &I-B-A2BB;
     (=jef-china3	. #x77E0)	; &I-JC3-77E0;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL THREE")
+      (=ucs		  . #x2172)	; ⅲ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FOUR")
@@ -320,10 +320,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL FOUR")
-      (=ucs		  . #x2173)	; ⅳ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -338,6 +334,10 @@
     (=jis-x0213-1-2000	. #x2D38)	; &I-JX1-2D38; [13-24]
     (=big5		. #xA2BC)	; &I-B-A2BC;
     (=jef-china3	. #x77E1)	; &I-JC3-77E1;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FOUR")
+      (=ucs		  . #x2173)	; ⅳ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIVE")
@@ -345,10 +345,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL FIVE")
-      (=ucs		  . #x2174)	; ⅴ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
@@ -360,6 +356,10 @@
     (=jis-x0213-1-2000	. #x2D39)	; &I-JX1-2D39; [13-25]
     (=big5		. #xA2BD)	; &I-B-A2BD;
     (=jef-china3	. #x77E2)	; &I-JC3-77E2;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIVE")
+      (=ucs		  . #x2174)	; ⅴ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SIX")
@@ -367,10 +367,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL SIX")
-      (=ucs		  . #x2175)	; ⅵ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
@@ -385,6 +381,10 @@
     (=jis-x0213-1-2000	. #x2D3A)	; &I-JX1-2D3A; [13-26]
     (=big5		. #xA2BE)	; &I-B-A2BE;
     (=jef-china3	. #x77E3)	; &I-JC3-77E3;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL SIX")
+      (=ucs		  . #x2175)	; ⅵ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SEVEN")
@@ -392,10 +392,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL SEVEN")
-      (=ucs		  . #x2176)	; ⅶ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
@@ -413,6 +409,10 @@
     (=jis-x0213-1-2000	. #x2D3B)	; &I-JX1-2D3B; [13-27]
     (=big5		. #xA2BF)	; &I-B-A2BF;
     (=jef-china3	. #x77E4)	; &I-JC3-77E4;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL SEVEN")
+      (=ucs		  . #x2176)	; ⅶ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL EIGHT")
@@ -420,10 +420,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL EIGHT")
-      (=ucs		  . #x2177)	; ⅷ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
@@ -444,6 +440,10 @@
     (=jis-x0213-1-2000	. #x2D3C)	; &I-JX1-2D3C; [13-28]
     (=big5		. #xA2C0)	; &I-B-A2C0;
     (=jef-china3	. #x77E5)	; &I-JC3-77E5;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL EIGHT")
+      (=ucs		  . #x2177)	; ⅷ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL NINE")
@@ -451,10 +451,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL NINE")
-      (=ucs		  . #x2178)	; ⅸ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -469,6 +465,10 @@
     (=jis-x0213-1-2000	. #x2D3D)	; &I-JX1-2D3D; [13-29]
     (=big5		. #xA2C1)	; &I-B-A2C1;
     (=jef-china3	. #x77E6)	; &I-JC3-77E6;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL NINE")
+      (=ucs		  . #x2178)	; ⅸ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TEN")
@@ -476,10 +476,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL TEN")
-      (=ucs		  . #x2179)	; ⅹ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
@@ -491,6 +487,10 @@
     (=jis-x0213-1-2000	. #x2D3E)	; &I-JX1-2D3E; [13-30]
     (=big5		. #xA2C2)	; &I-B-A2C2;
     (=jef-china3	. #x77E7)	; &I-JC3-77E7;
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TEN")
+      (=ucs		  . #x2179)	; ⅹ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ELEVEN")
@@ -498,10 +498,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL ELEVEN")
-      (=ucs		  . #x217A)	; ⅺ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
@@ -512,6 +508,10 @@
     (=ucs		. #x216A)	; Ⅺ
     (=gb2312		. #x227B)	; &I-G0-227B; [02-91]
     (=jis-x0213-1-2000	. #x2D3F)	; &I-JX1-2D3F; [13-31]
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ELEVEN")
+      (=ucs		  . #x217A)	; ⅺ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWELVE")
@@ -519,10 +519,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL TWELVE")
-      (=ucs		  . #x217B)	; ⅻ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
@@ -536,6 +532,10 @@
     (=ucs		. #x216B)	; Ⅻ
     (=gb2312		. #x227C)	; &I-G0-227C; [02-92]
     (=jis-x0213-1-2000	. #x2D57)	; &I-JX1-2D57; [13-55]
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TWELVE")
+      (=ucs		  . #x217B)	; ⅻ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIFTY")
@@ -543,15 +543,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL FIFTY")
-      (=ucs		  . #x217C)	; ⅼ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #x216C)	; Ⅼ
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIFTY")
+      (=ucs		  . #x217C)	; ⅼ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ONE HUNDRED")
@@ -559,15 +559,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL ONE HUNDRED")
-      (=ucs		  . #x217D)	; ⅽ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #x216D)	; Ⅽ
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE HUNDRED")
+      (=ucs		  . #x217D)	; ⅽ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIVE HUNDRED")
@@ -575,15 +575,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL FIVE HUNDRED")
-      (=ucs		  . #x217E)	; ⅾ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #x216E)	; Ⅾ
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIVE HUNDRED")
+      (=ucs		  . #x217E)	; ⅾ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ONE THOUSAND")
@@ -591,15 +591,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
-    (->lowercase
-     ((name		  . "SMALL ROMAN NUMERAL ONE THOUSAND")
-      (=ucs		  . #x217F)	; ⅿ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #x216F)	; Ⅿ
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE THOUSAND")
+      (=ucs		  . #x217F)	; ⅿ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ONE")
@@ -607,10 +607,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL ONE")
-      (=ucs		  . #x2160)	; Ⅰ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -621,6 +617,10 @@
     (=jis-x0213-1-2000	. #x2C35)	; &I-JX1-2C35; [12-21]
     (=big5-eten		. #xC6B5)	; &B-C6B5;
     (=jef-china3	. #x77EB)	; &I-JC3-77EB;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE")
+      (=ucs		  . #x2160)	; Ⅰ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWO")
@@ -628,10 +628,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL TWO")
-      (=ucs		  . #x2161)	; Ⅱ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -645,6 +641,10 @@
     (=jis-x0213-1-2000	. #x2C36)	; &I-JX1-2C36; [12-22]
     (=big5-eten		. #xC6B6)	; &B-C6B6;
     (=jef-china3	. #x77EC)	; &I-JC3-77EC;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TWO")
+      (=ucs		  . #x2161)	; Ⅱ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL THREE")
@@ -652,10 +652,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL THREE")
-      (=ucs		  . #x2162)	; Ⅲ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -672,6 +668,10 @@
     (=jis-x0213-1-2000	. #x2C37)	; &I-JX1-2C37; [12-23]
     (=big5-eten		. #xC6B7)	; &B-C6B7;
     (=jef-china3	. #x77ED)	; &I-JC3-77ED;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL THREE")
+      (=ucs		  . #x2162)	; Ⅲ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FOUR")
@@ -679,10 +679,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL FOUR")
-      (=ucs		  . #x2163)	; Ⅳ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -696,6 +692,10 @@
     (=jis-x0213-1-2000	. #x2C38)	; &I-JX1-2C38; [12-24]
     (=big5-eten		. #xC6B8)	; &B-C6B8;
     (=jef-china3	. #x77EE)	; &I-JC3-77EE;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FOUR")
+      (=ucs		  . #x2163)	; Ⅳ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIVE")
@@ -703,10 +703,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL FIVE")
-      (=ucs		  . #x2164)	; Ⅴ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
@@ -717,6 +713,10 @@
     (=jis-x0213-1-2000	. #x2C39)	; &I-JX1-2C39; [12-25]
     (=big5-eten		. #xC6B9)	; &B-C6B9;
     (=jef-china3	. #x77EF)	; &I-JC3-77EF;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIVE")
+      (=ucs		  . #x2164)	; Ⅴ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SIX")
@@ -724,10 +724,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL SIX")
-      (=ucs		  . #x2165)	; Ⅵ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
@@ -741,6 +737,10 @@
     (=jis-x0213-1-2000	. #x2C3A)	; &I-JX1-2C3A; [12-26]
     (=big5-eten		. #xC6BA)	; &B-C6BA;
     (=jef-china3	. #x77F0)	; &I-JC3-77F0;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL SIX")
+      (=ucs		  . #x2165)	; Ⅵ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SEVEN")
@@ -748,10 +748,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL SEVEN")
-      (=ucs		  . #x2166)	; Ⅶ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
@@ -768,6 +764,10 @@
     (=jis-x0213-1-2000	. #x2C3B)	; &I-JX1-2C3B; [12-27]
     (=big5-eten		. #xC6BB)	; &B-C6BB;
     (=jef-china3	. #x77F1)	; &I-JC3-77F1;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL SEVEN")
+      (=ucs		  . #x2166)	; Ⅶ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL EIGHT")
@@ -775,10 +775,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL EIGHT")
-      (=ucs		  . #x2167)	; Ⅷ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
@@ -798,6 +794,10 @@
     (=jis-x0213-1-2000	. #x2C3C)	; &I-JX1-2C3C; [12-28]
     (=big5-eten		. #xC6BC)	; &B-C6BC;
     (=jef-china3	. #x77F2)	; &I-JC3-77F2;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL EIGHT")
+      (=ucs		  . #x2167)	; Ⅷ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL NINE")
@@ -805,10 +805,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL NINE")
-      (=ucs		  . #x2168)	; Ⅸ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -822,6 +818,10 @@
     (=jis-x0213-1-2000	. #x2C3D)	; &I-JX1-2C3D; [12-29]
     (=big5-eten		. #xC6BD)	; &B-C6BD;
     (=jef-china3	. #x77F3)	; &I-JC3-77F3;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL NINE")
+      (=ucs		  . #x2168)	; Ⅸ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TEN")
@@ -829,10 +829,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL TEN")
-      (=ucs		  . #x2169)	; Ⅹ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
@@ -843,6 +839,10 @@
     (=jis-x0213-1-2000	. #x2C3E)	; &I-JX1-2C3E; [12-30]
     (=big5-eten		. #xC6BE)	; &B-C6BE;
     (=jef-china3	. #x77F4)	; &I-JC3-77F4;
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TEN")
+      (=ucs		  . #x2169)	; Ⅹ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ELEVEN")
@@ -850,10 +850,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 11)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL ELEVEN")
-      (=ucs		  . #x216A)	; Ⅺ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
@@ -863,6 +859,10 @@
       ))
     (=ucs		. #x217A)	; ⅺ
     (=jis-x0213-1-2000	. #x2C3F)	; &I-JX1-2C3F; [12-31]
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ELEVEN")
+      (=ucs		  . #x216A)	; Ⅺ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWELVE")
@@ -870,10 +870,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 12)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL TWELVE")
-      (=ucs		  . #x216B)	; Ⅻ
-      ))
     (=>decomposition@compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
@@ -886,6 +882,10 @@
       ))
     (=ucs		. #x217B)	; ⅻ
     (=jis-x0213-1-2000	. #x2C40)	; &I-JX1-2C40; [12-32]
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TWELVE")
+      (=ucs		  . #x216B)	; Ⅻ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIFTY")
@@ -893,15 +893,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL FIFTY")
-      (=ucs		  . #x216C)	; Ⅼ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #x217C)	; ⅼ
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIFTY")
+      (=ucs		  . #x216C)	; Ⅼ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ONE HUNDRED")
@@ -909,15 +909,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL ONE HUNDRED")
-      (=ucs		  . #x216D)	; Ⅽ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #x217D)	; ⅽ
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE HUNDRED")
+      (=ucs		  . #x216D)	; Ⅽ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIVE HUNDRED")
@@ -925,15 +925,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL FIVE HUNDRED")
-      (=ucs		  . #x216E)	; Ⅾ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #x217E)	; ⅾ
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIVE HUNDRED")
+      (=ucs		  . #x216E)	; Ⅾ
+      ))
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ONE THOUSAND")
@@ -941,15 +941,15 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
-    (->uppercase
-     ((name		  . "ROMAN NUMERAL ONE THOUSAND")
-      (=ucs		  . #x216F)	; Ⅿ
-      ))
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #x217F)	; ⅿ
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE THOUSAND")
+      (=ucs		  . #x216F)	; Ⅿ
+      ))
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ONE THOUSAND C D")

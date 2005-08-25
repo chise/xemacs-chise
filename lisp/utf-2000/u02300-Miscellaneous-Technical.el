@@ -344,22 +344,22 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (=ucs		. #x2329)	; 〈
     (->canonical
      ((name		  . "LEFT ANGLE BRACKET")
       (=ucs		  . #x3008)	; 〈
       ))
-    (=ucs		. #x2329)	; 〈
     ))
 (define-char
   '((name		. "RIGHT-POINTING ANGLE BRACKET")
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (=ucs		. #x232A)	; 〉
     (->canonical
      ((name		  . "RIGHT ANGLE BRACKET")
       (=ucs		  . #x3009)	; 〉
       ))
-    (=ucs		. #x232A)	; 〉
     ))
 (define-char
   '((name		. "ERASE TO THE LEFT")

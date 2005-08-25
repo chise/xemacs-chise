@@ -562,11 +562,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x2126)	; Ω
     (->canonical
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (=ucs		  . #x03A9)	; Ω
       ))
-    (=ucs		. #x2126)	; Ω
     ))
 (define-char
   '((<-denotational
@@ -621,22 +621,22 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x212A)	; K
     (->canonical
      ((name		  . "LATIN CAPITAL LETTER K")
       (=ucs		  . #x004B)	; K
       ))
-    (=ucs		. #x212A)	; K
     ))
 (define-char
   '((name		. "ANGSTROM SIGN")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x212B)	; Å
     (->canonical
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00C5)	; Å
       ))
-    (=ucs		. #x212B)	; Å
     ))
 (define-char
   '((<-denotational

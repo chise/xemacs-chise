@@ -544,10 +544,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
-      (=ucs		  . #xFF41)	; ａ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A")
       (=ucs		  . #x0041)	; A
@@ -558,16 +554,16 @@
     (=ks-x1001		. #x2341)	; &I-K0-2341; [03-33]
     (=cns11643-1	. #x2441)	; &I-C1-2441; [04-33]
     (=big5		. #xA2CF)	; &I-B-A2CF;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER A")
+      (=ucs		  . #xFF41)	; ａ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER B")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER B")
-      (=ucs		  . #xFF42)	; ｂ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER B")
       (=ucs		  . #x0042)	; B
@@ -578,16 +574,16 @@
     (=ks-x1001		. #x2342)	; &I-K0-2342; [03-34]
     (=cns11643-1	. #x2442)	; &I-C1-2442; [04-34]
     (=big5		. #xA2D0)	; &I-B-A2D0;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER B")
+      (=ucs		  . #xFF42)	; ｂ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER C")
-      (=ucs		  . #xFF43)	; ｃ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
@@ -598,16 +594,16 @@
     (=ks-x1001		. #x2343)	; &I-K0-2343; [03-35]
     (=cns11643-1	. #x2443)	; &I-C1-2443; [04-35]
     (=big5		. #xA2D1)	; &I-B-A2D1;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER C")
+      (=ucs		  . #xFF43)	; ｃ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER D")
-      (=ucs		  . #xFF44)	; ｄ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
@@ -618,16 +614,16 @@
     (=ks-x1001		. #x2344)	; &I-K0-2344; [03-36]
     (=cns11643-1	. #x2444)	; &I-C1-2444; [04-36]
     (=big5		. #xA2D2)	; &I-B-A2D2;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER D")
+      (=ucs		  . #xFF44)	; ｄ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
-      (=ucs		  . #xFF45)	; ｅ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E")
       (=ucs		  . #x0045)	; E
@@ -638,16 +634,16 @@
     (=ks-x1001		. #x2345)	; &I-K0-2345; [03-37]
     (=cns11643-1	. #x2445)	; &I-C1-2445; [04-37]
     (=big5		. #xA2D3)	; &I-B-A2D3;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER E")
+      (=ucs		  . #xFF45)	; ｅ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER F")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER F")
-      (=ucs		  . #xFF46)	; ｆ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER F")
       (=ucs		  . #x0046)	; F
@@ -658,16 +654,16 @@
     (=ks-x1001		. #x2346)	; &I-K0-2346; [03-38]
     (=cns11643-1	. #x2446)	; &I-C1-2446; [04-38]
     (=big5		. #xA2D4)	; &I-B-A2D4;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER F")
+      (=ucs		  . #xFF46)	; ｆ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER G")
-      (=ucs		  . #xFF47)	; ｇ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G")
       (=ucs		  . #x0047)	; G
@@ -678,16 +674,16 @@
     (=ks-x1001		. #x2347)	; &I-K0-2347; [03-39]
     (=cns11643-1	. #x2447)	; &I-C1-2447; [04-39]
     (=big5		. #xA2D5)	; &I-B-A2D5;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER G")
+      (=ucs		  . #xFF47)	; ｇ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER H")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER H")
-      (=ucs		  . #xFF48)	; ｈ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
@@ -698,16 +694,16 @@
     (=ks-x1001		. #x2348)	; &I-K0-2348; [03-40]
     (=cns11643-1	. #x2448)	; &I-C1-2448; [04-40]
     (=big5		. #xA2D6)	; &I-B-A2D6;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER H")
+      (=ucs		  . #xFF48)	; ｈ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
-      (=ucs		  . #xFF49)	; ｉ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
@@ -718,16 +714,16 @@
     (=ks-x1001		. #x2349)	; &I-K0-2349; [03-41]
     (=cns11643-1	. #x2449)	; &I-C1-2449; [04-41]
     (=big5		. #xA2D7)	; &I-B-A2D7;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER I")
+      (=ucs		  . #xFF49)	; ｉ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER J")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER J")
-      (=ucs		  . #xFF4A)	; ｊ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER J")
       (=ucs		  . #x004A)	; J
@@ -738,16 +734,16 @@
     (=ks-x1001		. #x234A)	; &I-K0-234A; [03-42]
     (=cns11643-1	. #x244A)	; &I-C1-244A; [04-42]
     (=big5		. #xA2D8)	; &I-B-A2D8;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER J")
+      (=ucs		  . #xFF4A)	; ｊ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER K")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER K")
-      (=ucs		  . #xFF4B)	; ｋ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER K")
       (=ucs		  . #x004B)	; K
@@ -758,16 +754,16 @@
     (=ks-x1001		. #x234B)	; &I-K0-234B; [03-43]
     (=cns11643-1	. #x244B)	; &I-C1-244B; [04-43]
     (=big5		. #xA2D9)	; &I-B-A2D9;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER K")
+      (=ucs		  . #xFF4B)	; ｋ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
-      (=ucs		  . #xFF4C)	; ｌ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
@@ -778,16 +774,16 @@
     (=ks-x1001		. #x234C)	; &I-K0-234C; [03-44]
     (=cns11643-1	. #x244C)	; &I-C1-244C; [04-44]
     (=big5		. #xA2DA)	; &I-B-A2DA;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
+      (=ucs		  . #xFF4C)	; ｌ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER M")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER M")
-      (=ucs		  . #xFF4D)	; ｍ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
@@ -798,16 +794,16 @@
     (=ks-x1001		. #x234D)	; &I-K0-234D; [03-45]
     (=cns11643-1	. #x244D)	; &I-C1-244D; [04-45]
     (=big5		. #xA2DB)	; &I-B-A2DB;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER M")
+      (=ucs		  . #xFF4D)	; ｍ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER N")
-      (=ucs		  . #xFF4E)	; ｎ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
@@ -818,16 +814,16 @@
     (=ks-x1001		. #x234E)	; &I-K0-234E; [03-46]
     (=cns11643-1	. #x244E)	; &I-C1-244E; [04-46]
     (=big5		. #xA2DC)	; &I-B-A2DC;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER N")
+      (=ucs		  . #xFF4E)	; ｎ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER O")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
-      (=ucs		  . #xFF4F)	; ｏ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O")
       (=ucs		  . #x004F)	; O
@@ -838,16 +834,16 @@
     (=ks-x1001		. #x234F)	; &I-K0-234F; [03-47]
     (=cns11643-1	. #x244F)	; &I-C1-244F; [04-47]
     (=big5		. #xA2DD)	; &I-B-A2DD;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER O")
+      (=ucs		  . #xFF4F)	; ｏ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER P")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER P")
-      (=ucs		  . #xFF50)	; ｐ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER P")
       (=ucs		  . #x0050)	; P
@@ -858,16 +854,16 @@
     (=ks-x1001		. #x2350)	; &I-K0-2350; [03-48]
     (=cns11643-1	. #x2450)	; &I-C1-2450; [04-48]
     (=big5		. #xA2DE)	; &I-B-A2DE;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER P")
+      (=ucs		  . #xFF50)	; ｐ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Q")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER Q")
-      (=ucs		  . #xFF51)	; ｑ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Q")
       (=ucs		  . #x0051)	; Q
@@ -878,16 +874,16 @@
     (=ks-x1001		. #x2351)	; &I-K0-2351; [03-49]
     (=cns11643-1	. #x2451)	; &I-C1-2451; [04-49]
     (=big5		. #xA2DF)	; &I-B-A2DF;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Q")
+      (=ucs		  . #xFF51)	; ｑ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER R")
-      (=ucs		  . #xFF52)	; ｒ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
@@ -898,16 +894,16 @@
     (=ks-x1001		. #x2352)	; &I-K0-2352; [03-50]
     (=cns11643-1	. #x2452)	; &I-C1-2452; [04-50]
     (=big5		. #xA2E0)	; &I-B-A2E0;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER R")
+      (=ucs		  . #xFF52)	; ｒ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER S")
-      (=ucs		  . #xFF53)	; ｓ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER S")
       (=ucs		  . #x0053)	; S
@@ -918,16 +914,16 @@
     (=ks-x1001		. #x2353)	; &I-K0-2353; [03-51]
     (=cns11643-1	. #x2453)	; &I-C1-2453; [04-51]
     (=big5		. #xA2E1)	; &I-B-A2E1;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER S")
+      (=ucs		  . #xFF53)	; ｓ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER T")
-      (=ucs		  . #xFF54)	; ｔ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER T")
       (=ucs		  . #x0054)	; T
@@ -938,16 +934,16 @@
     (=ks-x1001		. #x2354)	; &I-K0-2354; [03-52]
     (=cns11643-1	. #x2454)	; &I-C1-2454; [04-52]
     (=big5		. #xA2E2)	; &I-B-A2E2;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER T")
+      (=ucs		  . #xFF54)	; ｔ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
-      (=ucs		  . #xFF55)	; ｕ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U")
       (=ucs		  . #x0055)	; U
@@ -958,16 +954,16 @@
     (=ks-x1001		. #x2355)	; &I-K0-2355; [03-53]
     (=cns11643-1	. #x2455)	; &I-C1-2455; [04-53]
     (=big5		. #xA2E3)	; &I-B-A2E3;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER U")
+      (=ucs		  . #xFF55)	; ｕ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER V")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER V")
-      (=ucs		  . #xFF56)	; ｖ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
@@ -978,16 +974,16 @@
     (=ks-x1001		. #x2356)	; &I-K0-2356; [03-54]
     (=cns11643-1	. #x2456)	; &I-C1-2456; [04-54]
     (=big5		. #xA2E4)	; &I-B-A2E4;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER V")
+      (=ucs		  . #xFF56)	; ｖ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER W")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER W")
-      (=ucs		  . #xFF57)	; ｗ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER W")
       (=ucs		  . #x0057)	; W
@@ -998,16 +994,16 @@
     (=ks-x1001		. #x2357)	; &I-K0-2357; [03-55]
     (=cns11643-1	. #x2457)	; &I-C1-2457; [04-55]
     (=big5		. #xA2E5)	; &I-B-A2E5;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER W")
+      (=ucs		  . #xFF57)	; ｗ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER X")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER X")
-      (=ucs		  . #xFF58)	; ｘ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
@@ -1018,16 +1014,16 @@
     (=ks-x1001		. #x2358)	; &I-K0-2358; [03-56]
     (=cns11643-1	. #x2458)	; &I-C1-2458; [04-56]
     (=big5		. #xA2E6)	; &I-B-A2E6;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER X")
+      (=ucs		  . #xFF58)	; ｘ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Y")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER Y")
-      (=ucs		  . #xFF59)	; ｙ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Y")
       (=ucs		  . #x0059)	; Y
@@ -1038,16 +1034,16 @@
     (=ks-x1001		. #x2359)	; &I-K0-2359; [03-57]
     (=cns11643-1	. #x2459)	; &I-C1-2459; [04-57]
     (=big5		. #xA2E7)	; &I-B-A2E7;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Y")
+      (=ucs		  . #xFF59)	; ｙ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER Z")
-      (=ucs		  . #xFF5A)	; ｚ
-      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
@@ -1058,6 +1054,10 @@
     (=ks-x1001		. #x235A)	; &I-K0-235A; [03-58]
     (=cns11643-1	. #x245A)	; &I-C1-245A; [04-58]
     (=big5		. #xA2E8)	; &I-B-A2E8;
+    (->lowercase
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER Z")
+      (=ucs		  . #xFF5A)	; ｚ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT SQUARE BRACKET")
@@ -1156,10 +1156,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
-      (=ucs		  . #xFF21)	; Ａ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A")
       (=ucs		  . #x0061)	; a
@@ -1171,16 +1167,16 @@
     (=cns11643-1	. #x245B)	; &I-C1-245B; [04-59]
     (=big5		. #xA2E9)	; &I-B-A2E9;
     (=jef-china3	. #x83E1)	; &I-JC3-83E1;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER A")
+      (=ucs		  . #xFF21)	; Ａ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER B")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER B")
-      (=ucs		  . #xFF22)	; Ｂ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER B")
       (=ucs		  . #x0062)	; b
@@ -1191,16 +1187,16 @@
     (=ks-x1001		. #x2362)	; &I-K0-2362; [03-66]
     (=cns11643-1	. #x245C)	; &I-C1-245C; [04-60]
     (=big5		. #xA2EA)	; &I-B-A2EA;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER B")
+      (=ucs		  . #xFF22)	; Ｂ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER C")
-      (=ucs		  . #xFF23)	; Ｃ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
@@ -1212,16 +1208,16 @@
     (=cns11643-1	. #x245D)	; &I-C1-245D; [04-61]
     (=big5		. #xA2EB)	; &I-B-A2EB;
     (=jef-china3	. #x83E2)	; &I-JC3-83E2;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER C")
+      (=ucs		  . #xFF23)	; Ｃ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER D")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER D")
-      (=ucs		  . #xFF24)	; Ｄ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
@@ -1233,16 +1229,16 @@
     (=cns11643-1	. #x245E)	; &I-C1-245E; [04-62]
     (=big5		. #xA2EC)	; &I-B-A2EC;
     (=jef-china3	. #x83E3)	; &I-JC3-83E3;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER D")
+      (=ucs		  . #xFF24)	; Ｄ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
-      (=ucs		  . #xFF25)	; Ｅ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E")
       (=ucs		  . #x0065)	; e
@@ -1254,16 +1250,16 @@
     (=cns11643-1	. #x245F)	; &I-C1-245F; [04-63]
     (=big5		. #xA2ED)	; &I-B-A2ED;
     (=jef-china3	. #x83E4)	; &I-JC3-83E4;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E")
+      (=ucs		  . #xFF25)	; Ｅ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER F")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER F")
-      (=ucs		  . #xFF26)	; Ｆ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER F")
       (=ucs		  . #x0066)	; f
@@ -1274,16 +1270,16 @@
     (=ks-x1001		. #x2366)	; &I-K0-2366; [03-70]
     (=cns11643-1	. #x2460)	; &I-C1-2460; [04-64]
     (=big5		. #xA2EE)	; &I-B-A2EE;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER F")
+      (=ucs		  . #xFF26)	; Ｆ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER G")
-      (=ucs		  . #xFF27)	; Ｇ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G")
       (=ucs		  . #x0067)	; g
@@ -1295,16 +1291,16 @@
     (=cns11643-1	. #x2461)	; &I-C1-2461; [04-65]
     (=big5		. #xA2EF)	; &I-B-A2EF;
     (=jef-china3	. #x83E5)	; &I-JC3-83E5;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER G")
+      (=ucs		  . #xFF27)	; Ｇ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER H")
-      (=ucs		  . #xFF28)	; Ｈ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER H")
       (=ucs		  . #x0068)	; h
@@ -1316,16 +1312,16 @@
     (=cns11643-1	. #x2462)	; &I-C1-2462; [04-66]
     (=big5		. #xA2F0)	; &I-B-A2F0;
     (=jef-china3	. #x83E6)	; &I-JC3-83E6;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER H")
+      (=ucs		  . #xFF28)	; Ｈ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
-      (=ucs		  . #xFF29)	; Ｉ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
@@ -1337,16 +1333,16 @@
     (=cns11643-1	. #x2463)	; &I-C1-2463; [04-67]
     (=big5		. #xA2F1)	; &I-B-A2F1;
     (=jef-china3	. #x83E7)	; &I-JC3-83E7;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER I")
+      (=ucs		  . #xFF29)	; Ｉ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER J")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER J")
-      (=ucs		  . #xFF2A)	; Ｊ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER J")
       (=ucs		  . #x006A)	; j
@@ -1358,16 +1354,16 @@
     (=cns11643-1	. #x2464)	; &I-C1-2464; [04-68]
     (=big5		. #xA2F2)	; &I-B-A2F2;
     (=jef-china3	. #x83E8)	; &I-JC3-83E8;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER J")
+      (=ucs		  . #xFF2A)	; Ｊ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER K")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER K")
-      (=ucs		  . #xFF2B)	; Ｋ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER K")
       (=ucs		  . #x006B)	; k
@@ -1378,16 +1374,16 @@
     (=ks-x1001		. #x236B)	; &I-K0-236B; [03-75]
     (=cns11643-1	. #x2465)	; &I-C1-2465; [04-69]
     (=big5		. #xA2F3)	; &I-B-A2F3;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER K")
+      (=ucs		  . #xFF2B)	; Ｋ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER L")
-      (=ucs		  . #xFF2C)	; Ｌ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
@@ -1399,16 +1395,16 @@
     (=cns11643-1	. #x2466)	; &I-C1-2466; [04-70]
     (=big5		. #xA2F4)	; &I-B-A2F4;
     (=jef-china3	. #x83E9)	; &I-JC3-83E9;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER L")
+      (=ucs		  . #xFF2C)	; Ｌ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER M")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER M")
-      (=ucs		  . #xFF2D)	; Ｍ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
@@ -1420,16 +1416,16 @@
     (=cns11643-1	. #x2467)	; &I-C1-2467; [04-71]
     (=big5		. #xA2F5)	; &I-B-A2F5;
     (=jef-china3	. #x83EA)	; &I-JC3-83EA;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER M")
+      (=ucs		  . #xFF2D)	; Ｍ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER N")
-      (=ucs		  . #xFF2E)	; Ｎ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N")
       (=ucs		  . #x006E)	; n
@@ -1441,16 +1437,16 @@
     (=cns11643-1	. #x2468)	; &I-C1-2468; [04-72]
     (=big5		. #xA2F6)	; &I-B-A2F6;
     (=jef-china3	. #x83EB)	; &I-JC3-83EB;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER N")
+      (=ucs		  . #xFF2E)	; Ｎ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER O")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
-      (=ucs		  . #xFF2F)	; Ｏ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O")
       (=ucs		  . #x006F)	; o
@@ -1462,16 +1458,16 @@
     (=cns11643-1	. #x2469)	; &I-C1-2469; [04-73]
     (=big5		. #xA2F7)	; &I-B-A2F7;
     (=jef-china3	. #x83EC)	; &I-JC3-83EC;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER O")
+      (=ucs		  . #xFF2F)	; Ｏ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER P")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER P")
-      (=ucs		  . #xFF30)	; Ｐ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER P")
       (=ucs		  . #x0070)	; p
@@ -1482,16 +1478,16 @@
     (=ks-x1001		. #x2370)	; &I-K0-2370; [03-80]
     (=cns11643-1	. #x246A)	; &I-C1-246A; [04-74]
     (=big5		. #xA2F8)	; &I-B-A2F8;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER P")
+      (=ucs		  . #xFF30)	; Ｐ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Q")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Q")
-      (=ucs		  . #xFF31)	; Ｑ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Q")
       (=ucs		  . #x0071)	; q
@@ -1502,16 +1498,16 @@
     (=ks-x1001		. #x2371)	; &I-K0-2371; [03-81]
     (=cns11643-1	. #x246B)	; &I-C1-246B; [04-75]
     (=big5		. #xA2F9)	; &I-B-A2F9;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Q")
+      (=ucs		  . #xFF31)	; Ｑ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER R")
-      (=ucs		  . #xFF32)	; Ｒ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER R")
       (=ucs		  . #x0072)	; r
@@ -1523,16 +1519,16 @@
     (=cns11643-1	. #x246C)	; &I-C1-246C; [04-76]
     (=big5		. #xA2FA)	; &I-B-A2FA;
     (=jef-china3	. #x83ED)	; &I-JC3-83ED;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER R")
+      (=ucs		  . #xFF32)	; Ｒ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER S")
-      (=ucs		  . #xFF33)	; Ｓ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER S")
       (=ucs		  . #x0073)	; s
@@ -1544,16 +1540,16 @@
     (=cns11643-1	. #x246D)	; &I-C1-246D; [04-77]
     (=big5		. #xA2FB)	; &I-B-A2FB;
     (=jef-china3	. #x83EE)	; &I-JC3-83EE;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER S")
+      (=ucs		  . #xFF33)	; Ｓ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER T")
-      (=ucs		  . #xFF34)	; Ｔ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER T")
       (=ucs		  . #x0074)	; t
@@ -1565,16 +1561,16 @@
     (=cns11643-1	. #x246E)	; &I-C1-246E; [04-78]
     (=big5		. #xA2FC)	; &I-B-A2FC;
     (=jef-china3	. #x83EF)	; &I-JC3-83EF;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER T")
+      (=ucs		  . #xFF34)	; Ｔ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
-      (=ucs		  . #xFF35)	; Ｕ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U")
       (=ucs		  . #x0075)	; u
@@ -1586,16 +1582,16 @@
     (=cns11643-1	. #x246F)	; &I-C1-246F; [04-79]
     (=big5		. #xA2FD)	; &I-B-A2FD;
     (=jef-china3	. #x83F0)	; &I-JC3-83F0;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER U")
+      (=ucs		  . #xFF35)	; Ｕ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER V")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER V")
-      (=ucs		  . #xFF36)	; Ｖ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
@@ -1606,16 +1602,16 @@
     (=ks-x1001		. #x2376)	; &I-K0-2376; [03-86]
     (=cns11643-1	. #x2470)	; &I-C1-2470; [04-80]
     (=big5		. #xA2FE)	; &I-B-A2FE;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER V")
+      (=ucs		  . #xFF36)	; Ｖ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER W")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER W")
-      (=ucs		  . #xFF37)	; Ｗ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER W")
       (=ucs		  . #x0077)	; w
@@ -1626,16 +1622,16 @@
     (=ks-x1001		. #x2377)	; &I-K0-2377; [03-87]
     (=cns11643-1	. #x2471)	; &I-C1-2471; [04-81]
     (=big5		. #xA340)	; &I-B-A340;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER W")
+      (=ucs		  . #xFF37)	; Ｗ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER X")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER X")
-      (=ucs		  . #xFF38)	; Ｘ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
@@ -1646,16 +1642,16 @@
     (=ks-x1001		. #x2378)	; &I-K0-2378; [03-88]
     (=cns11643-1	. #x2472)	; &I-C1-2472; [04-82]
     (=big5		. #xA341)	; &I-B-A341;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER X")
+      (=ucs		  . #xFF38)	; Ｘ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Y")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Y")
-      (=ucs		  . #xFF39)	; Ｙ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y")
       (=ucs		  . #x0079)	; y
@@ -1667,16 +1663,16 @@
     (=cns11643-1	. #x2473)	; &I-C1-2473; [04-83]
     (=big5		. #xA342)	; &I-B-A342;
     (=jef-china3	. #x83F1)	; &I-JC3-83F1;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Y")
+      (=ucs		  . #xFF39)	; Ｙ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Z")
-      (=ucs		  . #xFF3A)	; Ｚ
-      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Z")
       (=ucs		  . #x007A)	; z
@@ -1688,6 +1684,10 @@
     (=cns11643-1	. #x2474)	; &I-C1-2474; [04-84]
     (=big5		. #xA343)	; &I-B-A343;
     (=jef-china3	. #x83F2)	; &I-JC3-83F2;
+    (->uppercase
+     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Z")
+      (=ucs		  . #xFF3A)	; Ｚ
+      ))
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT CURLY BRACKET")
