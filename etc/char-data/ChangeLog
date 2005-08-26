@@ -1,3 +1,7 @@
+2005-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt (JX1-7649): Don't map to U+6BBA.
+
 2005-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* K0-to-UCS.txt: New file.
