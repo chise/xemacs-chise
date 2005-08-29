@@ -3485,11 +3485,38 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x7890)	; 碐
-    (=cns11643-3	. #x432A)	; &I-C3-432A; [35-10]
-    (=daikanwa		. 24288)	; &I-M-24288;
     ))
 (define-char
-  '((=>ucs*		. #x7891)	; 碑
+  '((<-denotational
+     ((=ucs		  . #x7890)	; 碐
+      ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (->subsumptive
+     ((=daikanwa	  . 24288)	; &M-24288;
+      )
+     ((=cns11643-3	  . #x432A)	; &C3-432A; [35-10]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7890)	; 碐
+      ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x7890)	; &UU+7890;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (=ucs		. #x7891)	; 碑
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7891)	; 碑
+      ))
+    (=>ucs*		. #x7891)	; 碑
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
@@ -3501,21 +3528,8 @@
     (=big5		. #xB84F)	; &I-B-B84F;
     (=daikanwa		. 24289)	; &I-M-24289;
     (=jef-china3	. #x5CB3)	; &I-JC3-5CB3;
-    (=ucs@gb		. #x7891)	; 碑
-    (=ucs@cns		. #x7891)	; 碑
-    (=ucs@ks		. #x7891)	; 碑
-    (=ucs@big5		. #x7891)	; 碑
-    ))
-(define-char
-  '((=>ucs@jis		. #xFA4B)	; 碑
-    (morohashi-daikanwa	24289 0 0)
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (->identical
-     ((=ucs		  . #xFA4B)	; 碑
-      ))
-    (=ucs		. #x7891)	; 碑
+    (=ucs@unicode	. #x7891)	; 碑
+    (=ucs@jis		. #xFA4B)	; 碑
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
@@ -4468,6 +4482,7 @@
   '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (shinjigen-1	. 5455)
     (shinjigen-2	. 5455)
     (=ucs		. #x78C1)	; 磁
     (=jis-x0208		. #x3C27)	; &I-J90-3C27; [28-07]
@@ -4480,7 +4495,9 @@
     (=daikanwa		. 24364)	; &I-M-24364;
     ))
 (define-char
-  '((=>ucs		. #x7891)	; 碑
+  '((<-denotational
+     ((=ucs		  . #x7891)	; 碑
+      ))
     (morohashi-daikanwa	24364 1)
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 9)
@@ -6116,73 +6133,87 @@
     (=daikanwa		. 24474)	; &I-M-24474;
     ))
 (define-char
-  '((=>ucs		. #x2F951)	; 䃣
+  '((ideographic-radical . 112)	; ⽯
+    (=ucs		. #x40E3)	; 䃣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x40E3)	; 䃣
+      ))
     (=>ucs*		. #x40E3)	; 䃣
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=ucs		. #x2F951)	; 䃣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2F951)	; 䃣
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=daikanwa		. 24475)	; &M-24475;
     ))
 (define-char
-  '((=>ucs*		. #x40E3)	; 䃣
-    (morohashi-daikanwa	24475 0 2)
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 12)
-    (total-strokes	 . 17)
-    (=ucs		. #x2F951)	; 䃣
-    (=cns11643-7	. #x396D)	; &I-C7-396D; [25-77]
-    ))
-(define-char
-  '((morohashi-daikanwa	24475 0 3)
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 12)
-    (total-strokes	 . 17)
-    (->identical
-     ((=ucs		  . #x2F951)	; 䃣
+  '((<-denotational
+     ((=ucs		  . #x40E3)	; 䃣
       ))
-    (=ucs		. #x40E3)	; 䃣
-    ))
-(define-char
-  '((=>ucs		. #x40E3)	; 䃣
-    (morohashi-daikanwa	24475 0 5)
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=cns11643-3	. #x4842)	; &C3-4842; [40-34]
     ))
 (define-char
-  '((=>ucs		. #x78F3)	; 磳
+  '((<-denotational
+     ((=ucs		  . #x2F951)	; 䃣
+      ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=cns11643-7	. #x396D)	; &C7-396D; [25-77]
+    (=ucs@iso		. #x2F951)	; &C7-396D;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=ucs		. #x78F3)	; 磳
+    (=big5		. #xEDA5)	; &I-B-EDA5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x78F3)	; 磳
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=jis-x0212		. #x5035)	; &M-24476; [48-21]
-    (=big5		. #xEDA5)	; &I-B-EDA5;
     (=daikanwa		. 24476)	; &I-M-24476;
     (=jef-china3	. #x5CC1)	; &I-JC3-5CC1;
     (=ucs@jis		. #x78F3)	; &M-24476;
     ))
 (define-char
-  '((morohashi-daikanwa	24476 0 2)
+  '((<-denotational
+     ((=ucs		  . #x78F3)	; 磳
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=ucs		. #x78F3)	; 磳
-    (=cns11643-2	. #x5D6F)	; &I-C2-5D6F; [61-79]
+    (=cns11643-2	. #x5D6F)	; &C2-5D6F; [61-79]
+    (=ucs@unicode	. #x78F3)	; &C2-5D6F;
     ))
 (define-char
-  '((=>ucs		. #x40E4)	; 䃤
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 12)
-    (total-strokes	 . 17)
-    (=daikanwa		. 24477)	; &M-24477;
-    ))
-(define-char
-  '((morohashi-daikanwa	24477 0 0)
-    (ideographic-radical . 112)	; ⽯
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=ucs		. #x40E4)	; 䃤
-    (=cns11643-4	. #x5739)	; &I-C4-5739; [55-25]
+    (->subsumptive
+     ((=daikanwa	  . 24477)	; &M-24477;
+      (=ucs@unicode	  . #x40E4)	; &M-24477;
+      )
+     ((=cns11643-4	  . #x5739)	; &C4-5739; [55-25]
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
@@ -6203,11 +6234,15 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=ucs		. #x7900)	; 礀
-    (=jis-x0212		. #x5036)	; &I-JSP-5036; [48-22]
-    (=cns11643-4	. #x5740)	; &I-C4-5740; [55-32]
-    (=jis-x0213-1-2000	. #x792D)	; &I-JX1-792D; [89-13]
-    (=daikanwa		. 24479)	; &I-M-24479;
-    (=jef-china3	. #x5CC2)	; &I-JC3-5CC2;
+    (->subsumptive
+     ((=daikanwa	  . 24479)	; &M-24479;
+      )
+     ((=jis-x0212	  . #x5036)	; &JX1-792D; [48-22]
+      (=cns11643-4	  . #x5740)	; &I-C4-5740; [55-32]
+      (=jis-x0213-1-2000  . #x792D)	; &I-JX1-792D; [89-13]
+      (=jef-china3	  . #x5CC2)	; &I-JC3-5CC2;
+      (=ucs@unicode	  . #x7900)	; &JX1-792D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
