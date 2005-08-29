@@ -1,5 +1,81 @@
 2005-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el (U+7890): Use `->denotational' and
+	`->subsumptive'.
+	(U+7891): Use `->denotational'.
+	(U+FA4B): Add `<-denotational' for U+7891; unify UU+7891 and
+	JU+FA4B.
+	(U+78C1): Add S1-5455.
+	(J0-486A): Add `<-denotational' for U+7891.
+	(U+40E3): Use `->denotational'.
+	(U-0002F951): Add `<-denotational' for U+40E3; use
+	`->denotational'.
+	(M-24475): Use `<-denotational' for U-0002F951.
+	(C3-4842): Use `<-denotational' for U+40E3.
+	(C7-396D): Use `<-denotational' for U-0002F951; unify IU-0002F951.
+	(U+78F3): Use `->denotational'.
+	(U+40E4): Use `->subsumptive'.
+	(U+7900): Likewise.
+
+	* Ideograph-R120-Silk.el (U+4320): Copied from
+	Ideograph-R076-Lack.el.
+	(U-00026183): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; don't use `->identical' for
+	C7-474B; use `->subsumptive'; map to M-27969.
+	(U+7E84): Use `->denotational'.
+
+	* Ideograph-R102-Field.el (U-00024C23): Use `->denotational' and
+	`->subsumptive'; map to M-21754.
+	(U-00022456): Copied from Ideograph-R058-Snout.el; use
+	`->subsumptive'.
+	(U+7546): Use `->subsumptive'.
+	(U-00024C63): Use `->denotational'.
+	(U-00024C5E): Use `->subsumptive'.
+	(U-00024C64): Likewise.
+	(U+7560): Use `->subsumptive'; add S1-5053.
+
+	* Ideograph-R087-Claw.el (U-00024517): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'; don't use `->identical' for
+	C6-4743 and `<-same' for M-04811.
+	(U-00024522): Use `->denotational'; map to M-19695.
+	(U-00024523): Use `->denotational'; map to M-19696.
+	(U-00024524): Unify M-19697.
+	(U-00024526): Use `->denotational'; map to M-19698.
+	(U+3E15): Use `->subsumptive'; map to M-19699.
+	(U-00024525): Use `->denotational'; map to M-19700.
+	(U-00024529): Use `->denotational' and `->subsumptive'.
+	(U-00024540): Likewise.
+	(U-00024545): Likewise.
+	(U-000206A1): Copied from Ideograph-R018-Knife.el; use
+	`->denotational' and `->subsumptive'.
+	(U-00024548): Use `->denotational'.
+	(U-00024549): Use `->denotational' and `->subsumptive'.
+
+2005-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U-00023D11): Use `->subsumptive'.
+	(U-00023D14): Likewise.
+	(U+6D77): Use `->denotational'.
+	(U-0002F901): Add `<-denotational' for U+6D77.
+	(U+6D69): Use `->denotational'.
+	(U-00023D21): Use `->subsumptive'.
+	(U+6D6A): Use `->subsumptive'.
+	(U+6D6B): Likewise.
+	(U+6D6C): Add S1-4244.
+	(U+6D6D): Use `->subsumptive'.
+	(U+6D6E): Use `->denotational'.
+	(U+6D6F): Use `->subsumptive' to integrate JC3-70DE.
+	(U+6D73): Use `->denotational' and `->subsumptive'.
+	(U+6D74): Add S1-4243.
+	(U+6D75): Use `->subsumptive'.
+	(U+6D76): Likewise.
+	(U+FA45): Add `<-denotational' for U+6D77; unify UU+6D77 and
+	JU+FA45.
+
 	* Ideograph-R075-Tree.el (U+6885): Use `->denotational'.
 	(U-0002F8E2): Use `<-denotational' for U+6885.
 	(U+6881): Use `->subsumptive'.
