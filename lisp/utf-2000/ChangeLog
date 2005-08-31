@@ -1,3 +1,45 @@
+2005-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (U+6708): Use `->subsumptive'.
+	(U-0002335D): Use `->subsumptive' to integrate M-14331.
+	(U+6709): Use `->subsumptive'.
+	(U-0002335E): Use `->denotational' to integrate M-14333.
+	(U-00023360): Use `->subsumptive'; map to M-14335.
+	(U-00023363): Use `->subsumptive'; map to M-14336.
+	(U-00023361): Use `->subsumptive'; map to M-14337.
+	(U+670A): Use `->subsumptive'.
+	(J97-4A7E): New abstract character.
+	(M-14340): Add `<-denotational' for J97-4A7E; unify GT-18172 and
+	GT-K04938; add S1-3431.
+	(U+670B): Add `<-denotational' for J97-4A7E; add S1-3430.
+	(U+3B33): Use `->subsumptive'.
+	(GT-K04876): Use `->subsumptive' to integrate BC-8BB5.
+	(U+670E): Use `->subsumptive'.
+	(U+670F): Likewise.
+	(U-00023367): Likewise.
+	(U+6710): Likewise.
+	(U+440B): Likewise; map to M-14379.
+	(U+3B38): Use `->denotational' and `->subsumptive'; map to
+	M-14380.
+	(U-0002337A): Use `->subsumptive'; map to M-14382.
+	(U-00023384): Use `->subsumptive'; map to M-14384.
+	(M-14385): Separate JC3-52D6.
+	(U-00023385): Use `->subsumptive'.
+	(U-0002338D): Likewise.
+	(U+3B3B): Use `->denotational'.
+	(U+6722): Use `->denotational' and `->subsumptive'.
+	(U-000267C1): Copied from Ideograph-R130-Meat.el; use
+	`->subsumptive'.
+	(M-49158): Use `<-subsumptive' for U-000267C1.
+	(C6-5D5C): Likewise; unify IU-000267C1.
+	(H6-B15A): Copied from Ideograph-R130-Meat.el; use `<-subsumptive'
+	for U-000267C1.
+	(U-00023392): Use `->denotational'.
+	(U+3B3F): Use `->subsumptive'.
+	(U-0002339A): Use `->subsumptive'.
+	(U+6723): Use `->subsumptive'.
+	(U+6724): Use `->subsumptive'.
+
 2005-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R112-Stone.el (U+7890): Use `->denotational' and
