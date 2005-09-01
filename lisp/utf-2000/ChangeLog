@@ -1,5 +1,76 @@
 2005-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R130-Meat.el (U-00026634): Use `->subsumptive'.
+	(U+8094): Likewise.
+	(GT-K05506): Use `->subsumptive' to integrate BC-8CA9.
+	(U-0002669D): Use `->denotational' and `->subsumptive'.
+	(U+43E6): Use `->subsumptive'.
+	(U-000267C1): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'; use `->subsumptive'; don't use
+	`->identical' for C6-5D5C and `<-same' for M-49158.
+	(U+8192): Use `->denotational'.
+	(U-000267D8): Use `->subsumptive'.
+	(U+8193): Likewise.
+	(U+8194): Likewise.
+
+	* Ideograph-R076-Lack.el (U+3C44): Use `->subsumptive'; map to
+	M-16199.
+	(U+6B58): Use `->subsumptive'.
+	(U-00023918): Use `->subsumptive'; map to M-16203.
+	(U+6B59): Use `->denotational' and `->subsumptive'.
+	(U-00023919): Use `->subsumptive'; map to M-16205.
+	(U+3C45): Use `->subsumptive'; map to M-16206.
+	(U-0002391A): Use `->subsumptive'; map to M-16207.
+	(U-0002391C): Use `->subsumptive'; map to M-16208.
+	(U+6B5B): Use `->subsumptive'.
+	(U+3C46): Likewise; map to M-16211.
+	(U+3C47): Use `->subsumptive'.
+	(U+3C48): Likewise.
+	(U+6B5C): Likewise.
+	(U+6B55): Use `->denotational'.
+	(U+3C49): Use `->subsumptive'; map to M-16219.
+	(U+6B5D): Use `->subsumptive'.
+	(U-00023923): Likewise; map to M-16221.
+	(U-00023925): Use `->subsumptive'; map to M-16222.
+	(U+6B5E): Use `->subsumptive'.
+	(U-00023929): Use `->denotational'; map to M-16225.
+	(U+6B5F): Use `->subsumptive'.
+	(U+6B60): Use `->subsumptive'.
+	(U+3C4A): Use `->denotational' and `->subsumptive'; map to
+	M-16229.
+	(U-0002392C): Use `->subsumptive'; map to M-16230.
+	(U-00026183): Copied from Ideograph-R120-Silk.el; use
+	`->subsumptive'; map to M-27969.
+	(C7-474B): Use `<-subsumptive' for U-00026183; don't use
+	`->identical' for U-00026183.
+	(U+4320): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@ucs*sources'; use `->subsumptive'; map to
+	M-27968.
+	(U-0002392D): Use `->subsumptive'.
+	(U+3C4B): Use `->subsumptive'; map to M-16234.
+	(U-00023932): Use `->subsumptive'; map to M-16235.
+	(U-00023931): Use `->subsumptive'; map to M-16236.
+	(U-00023934): Use `->subsumptive'; map to M-16237.
+	(U-00023935): Use `->subsumptive'; map to M-16238.
+	(U-00023937): Use `->subsumptive'; map to M-16239.
+	(U-00023936): Use `->subsumptive'; map to M-16241.
+	(U+6B61): Use `->denotational' and `->subsumptive'.
+	(U+3C4C): Use `->subsumptive'; map to M-16244.
+	(U-0002393F): Use `->denotational' and `->subsumptive'; map to
+	M-16249.
+	(U-00023940): Use `->denotational' and `->subsumptive'; map to
+	M-16250.
+	(U+3C4E): Use `->denotational' and `->subsumptive'; map to
+	M-16251.
+	(U-00023941): Use `->denotational' and `->subsumptive'; map to
+	M-16252.
+
+2005-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R074-Moon.el (U+6708): Use `->subsumptive'.
 	(U-0002335D): Use `->subsumptive' to integrate M-14331.
 	(U+6709): Use `->subsumptive'.
