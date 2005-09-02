@@ -235,7 +235,6 @@
     (mirrored		. nil)
     (<-bopomofo
      ((=ucs		  . #x20000)	; 𠀀
-      (=daikanwa	  . 00004)	; &I-M-00004;
       ))
     (=ucs		. #x311B)	; ㄛ
     (=gb2312		. #x285B)	; &I-G0-285B; [08-59]
@@ -249,7 +248,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (<-bopomofo
-     ((=daikanwa	  . 00005)	; &M-00005;
+     ((=gt		  . 00038)	; &GT-00038;
+      (=daikanwa	  . 00005)	; &I-M-00005;
       ))
     (=ucs		. #x311C)	; ㄜ
     (=gb2312		. #x285C)	; &I-G0-285C; [08-60]
