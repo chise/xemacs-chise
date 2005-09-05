@@ -43,7 +43,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9AA8)	; 骨
       ))
     (=ucs		. #x2EE3)	; ⻣
