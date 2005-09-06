@@ -3,6 +3,7 @@
   '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (shinjigen-1	. 8850)
     (shinjigen-2	. 8850)
     (=ucs		. #x961C)	; 阜
     (=jis-x0208		. #x496C)	; &I-J90-496C; [41-76]
@@ -32,7 +33,10 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-radical
+    (<-formed@component/connect-right
+     ((=ucs		  . #x961C)	; 阜
+      ))
+    (<-identical@component/connect-right
      ((=ucs		  . #x961D)	; 阝
       ))
     (=ucs		. #x2ED6)	; ⻖
