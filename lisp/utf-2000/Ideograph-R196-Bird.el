@@ -3,6 +3,7 @@
   '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
+    (shinjigen-1	. 9645)
     (shinjigen-2	. 9645)
     (=ucs		. #x9CE5)	; 鳥
     (=jis-x0208		. #x443B)	; &I-J90-443B; [36-27]
@@ -15,9 +16,26 @@
     (=daikanwa		. 46634)	; &I-M-46634;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x9E1F)	; 鸟
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED BIRD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9E1F)	; 鸟
+      ))
+    (=ucs		. #x2EE6)	; ⻦
+    ))
+(define-char
   '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-simplified@CN
+     ((=ucs		  . #x9CE5)	; 鳥
+      (=gb12345		  . #x4471)	; 鳥 [36-81]
+      ))
     (=ucs		. #x9E1F)	; 鸟
     (=gb2312		. #x4471)	; &I-G0-4471; [36-81]
     ))
