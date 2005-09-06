@@ -30,11 +30,12 @@
     (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
+    (=big5		. #xAAEA)	; &B-AAEA;
     (->subsumptive
-     ((shinjigen-2	  . 7080)
+     ((shinjigen-1	  . 7080)
+      (shinjigen-2	  . 7080)
       (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
       (=ks-x1001	  . #x7B5B)	; &I-K0-7B5B; [91-59]
-      (=big5		  . #xAAEA)	; &I-B-AAEA;
       (=gt		  . 44178)	; &I-GT-44178;
       (=gt-k		  . 03697)	; &I-GT-K03697;
       (=gt-pj-1		  . #x3857)	; &I-GT-44178; [24-55]
@@ -43,6 +44,19 @@
       )
      ((=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x864E)	; 虎
+      ))
+    (name		. "CJK RADICAL TIGER")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x864E)	; 虎
+      ))
+    (=ucs		. #x2EC1)	; ⻁
     ))
 (define-char
   '((<-denotational
