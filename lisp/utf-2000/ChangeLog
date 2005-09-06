@@ -1,3 +1,55 @@
+2005-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (U+7CF9): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'; unify BC-8AFB.
+	(<CJK RADICAL SILK>): Use `<-formed@component' instead of
+	`<-formed@component' for U+7CF8; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+7CF9; separate BC-8AFB.
+	(<CJK RADICAL C-SIMPLIFIED SILK>): Use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+7E9F; use `<-simplified@CN/component/connect-right' instead of
+	`<-ideographic-component-forms' for U+7CF8; separate BC-895B.
+	(U+7E9F): Add `<-simplified@CN/component' for U+7CF8; unify
+	BC-895B.
+
+	* Ideograph-R117-Stand.el (J0-4E35): Add S1-9912.
+	(<CJK RADICAL J-SIMPLIFIED DRAGON>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(BC-8B48): Use `<-formed@component' instead of
+	`<-ideographic-component-forms'.
+
+2005-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R201-Yellow.el (<CJK RADICAL SIMPLIFIED YELLOW>):
+	Copied from u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R170-Mound.el (U+961C): Add S1-8850.
+	(<CJK RADICAL MOUND TWO>): Use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+961D; add `<-formed@component/connect-right' for U+961C.
+
+	* Ideograph-R167-Gold.el (<CJK RADICAL C-SIMPLIFIED GOLD>): Use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+9485; use `<-simplified@CN/component/connect-right' instead of
+	`<-ideographic-component-forms' for U+91D1; separate BC-895A.
+	(U+91D2): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+91D1.
+	(U+9485): Use `<-simplified@CN/component' instead of
+	`<-ideographic-component-forms' for U+91D1; unify BC-895A.
+	(BC-8DE3): Omit `<-ideographic-component-forms' for U+91D1.
+
+	* Ideograph-R058-Snout.el (GT-K00266): Use `->denotational'
+	instead of `->subsumptive'.
+
+2005-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (<CJK RADICAL BONE>): Use
+	`<-identical@component' instead of `<-radical' for U+9AA8.
+
 2005-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R156-Run.el (U+8D77): Use `->denotational'.
