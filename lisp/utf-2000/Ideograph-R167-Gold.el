@@ -22,20 +22,20 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x91D1)	; 金
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x9485)	; 钅
       ))
+    (<-simplified@CN/component/connect-right
+     ((=ucs		  . #x91D1)	; 金
+      (=gb2312		  . #x3D70)	; &I-G0-3D70; [29-80]
+      ))
     (=ucs		. #x2ED0)	; ⻐
-    (=big5-cdp		. #x895A)	; &I-CDP-895A;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x91D1)	; 金
       ))
     (=ucs		. #x91D2)	; 釒
@@ -45,23 +45,22 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x91D1)	; 金
-      ))
     (<-simplified@CN
      ((=ucs		  . #x91D2)	; 釒
       (=gb12345		  . #x6E44)	; 釒 [78-36]
       ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x91D1)	; 金
+      (=gb2312		  . #x3D70)	; &I-G0-3D70; [29-80]
+      ))
     (=ucs		. #x9485)	; 钅
     (=gb2312		. #x6E44)	; &I-G0-6E44; [78-36]
+    (=big5-cdp		. #x895A)	; &I-CDP-895A;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x91D1)	; 金
-      ))
     (<-simplified@component
      ((=ucs		  . #x91D1)	; 金
       ))
