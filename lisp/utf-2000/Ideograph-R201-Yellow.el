@@ -47,6 +47,20 @@
     (=gt-pj-1		. #x322B)	; &I-GT-65323; [18-11]
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x9EC4)	; 黄
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED YELLOW")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9EC4)	; 黄
+      ))
+    (=ucs		. #x2EE9)	; ⻩
+    (=big5-cdp		. #x8A5E)	; &I-CDP-8A5E;
+    ))
+(define-char
   '((ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 3)
     (total-strokes	 . 15)
