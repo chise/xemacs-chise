@@ -17,11 +17,29 @@
     (=daikanwa		. 23105)	; &I-M-23105;
     ))
 (define-char
+  '((<-denotational
+     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+      ))
+    (name		. "CJK RADICAL EYE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (<-identical@component/connect-right
+     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+      (=gt		  . 36329)	; &I-GT-36329;
+      (=gt-k		  . 01549)	; &I-GT-K01549;
+      ))
+    (=ucs		. #x2EAB)	; ⺫
+    ))
+(define-char
   '((=>ucs		. #x2EAB)	; ⺫
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x76EE)	; 目
       ))
     (=big5-cdp		. #x8B48)	; &GT-36329;
