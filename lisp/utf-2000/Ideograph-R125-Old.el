@@ -21,9 +21,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x8002)	; 耂
+      ))
+    (name		. "CJK RADICAL OLD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x8002)	; 耂
+      ))
+    (=ucs		. #x2EB9)	; ⺹
+    ))
+(define-char
   '((ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x8001)	; 老
+      ))
     (=ucs		. #x8002)	; 耂
     (=jis-x0213-2-2000	. #x7522)	; &I-JX2-7522; [85-02]
     (=big5-cdp		. #x8B52)	; &I-CDP-8B52;
