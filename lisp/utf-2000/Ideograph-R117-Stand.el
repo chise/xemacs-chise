@@ -471,6 +471,7 @@
 	(=ks-x1001	    . #x5723)	; &I-K0-5723; [55-03]
 	(=daikanwa	    . 48818)	; &I-M-48818;
 	))
+      (shinjigen-1	  . 9912)
       (shinjigen-2	  . 9912)
       (=jis-x0208	  . #x4E35)	; &GT-33220; [46-21]
       (=gt		  . 33220)	; &I-GT-33220;
@@ -483,6 +484,19 @@
       (=cns11643-3	  . #x3327)	; &I-C3-3327; [19-07]
       (=ucs@unicode	  . #x7ADC)	; &C3-3327;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7ADC)	; 竜
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x7ADC)	; 竜
+      ))
+    (=ucs		. #x2EEF)	; ⻯
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
