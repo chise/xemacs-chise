@@ -401,6 +401,7 @@
     (shinjigen-2	. 3269)
     (=ucs		. #x3AD6)	; 㫖
     (=jis-x0213-2-2000	. #x2D71)	; &I-JX2-2D71; [13-81]
+    (=cbeta		. 11730)	; &I-CB11730;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
