@@ -3,6 +3,7 @@
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 4696)
     (shinjigen-2	. 4696)
     (=ucs		. #x722A)	; 爪
     (=jis-x0208		. #x445E)	; &I-J90-445E; [36-62]
@@ -19,7 +20,7 @@
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x722B)	; 爫
@@ -45,7 +46,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component/connect-below
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x2EA5)	; ⺥
@@ -54,26 +55,33 @@
   '((<-denotational
      ((=ucs		  . #x722B)	; 爫
       ))
+    (name		. "CJK COMPATIBILITY IDEOGRAPH-FA49")
+    (=>ucs*		. #x722B)	; 爫
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #xFA49)	; 爫
+    (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
+    (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
+    (=ucs@unicode	. #x722B)	; 爫
+    (=ucs@jis		. #xFA49)	; 爫
+    (->canonical
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
+      (=ucs		  . #xFA49)	; 爫
+      ))
     (name		. "CJK RADICAL PAW ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x2EA4)	; ⺤
-    (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
-    (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
-    (=ucs@unicode	. #x722B)	; ⺤
-    (=ucs@jis		. #xFA49)	; ⺤
-    (->subsumptive
-     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
-      (=>ucs*		  . #x722B)	; 爫
-      (=ucs		  . #xFA49)	; 爫
-      (->canonical
-       ((=ucs		    . #x722B)	; 爫
-	))
+    (<-identical@component/connect-below
+     ((=ucs		  . #xFA49)	; 爫
       ))
+    (=ucs		. #x2EA4)	; ⺤
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
