@@ -50,7 +50,8 @@
      ((=ucs		  . #x5382)	; 厂
       (=daikanwa	  . 02890)	; &I-M-02890;
       )
-     ((=ucs		  . #x2E81)	; ⺁
+     ((name		  . "CJK RADICAL CLIFF")
+      (=ucs		  . #x2E81)	; ⺁
       ))
     (->mistakable*sources
      kangxi daikanwa)
