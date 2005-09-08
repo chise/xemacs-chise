@@ -18,22 +18,43 @@
     (=daikanwa		. 00344)	; &I-M-00344;
     ))
 (define-char
-  '((=>ucs		. #x4EBA)	; 人
-    (morohashi-daikanwa	344 0 0)
+  '((<-denotational
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-formed@component
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (=gt-k		. 00049)	; &GT-K00049;
     (=gt-pj-k1		. #x3357)	; &GT-K00049; [19-55]
     ))
 (define-char
-  '((name*		. "ideographic component person as roof")
-    (=>ucs		. #x4EBA)	; 人
-    (morohashi-daikanwa	344 0 1)
+  '((<-denotational
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (name*		. "ideographic component person as left roof")
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -70)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=gt-k		. 00058)	; &GT-K00058;
+    (=gt-pj-k1		. #x3C53)	; &GT-K00058; [28-51]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (name*		. "ideographic component person as roof")
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (=big5-cdp		. #x8B5D)	; &GT-00458;
     (=gt		. 00458)	; &I-GT-00458;
     (=gt-k		. 00057)	; &I-GT-K00057;
@@ -41,22 +62,30 @@
     (=jef-china3	. #x71FA)	; &I-JC3-71FA;
     ))
 (define-char
-  '((name*		. "ideographic component person as left roof")
-    (=>ucs		. #x4EBA)	; 人
-    (morohashi-daikanwa	344 0 2)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 0)
+  '((<-denotational
+     ((=ucs		  . #x4EBB)	; 亻
+      ))
+    (name		. "CJK RADICAL PERSON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (total-strokes	 . 2)
-    (=gt-k		. 00058)	; &GT-K00058;
-    (=gt-pj-k1		. #x3C53)	; &GT-K00058; [28-51]
+    (<-identical@component/connect-right
+     ((=ucs		  . #x4EBB)	; 亻
+      ))
+    (=ucs		. #x2E85)	; ⺅
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (=ucs		. #x4EBB)	; 亻
     (=gb2312		. #x5869)	; &I-G0-5869; [56-73]
     (=jis-x0213-2-2000	. #x2135)	; &I-JX2-2135; [01-21]
+    (=big5-cdp		. #x8AF5)	; &I-CDP-8AF5;
     (=gt		. 00457)	; &I-GT-00457;
     (=gt-k		. 00141)	; &I-GT-K00141;
     (=gt-pj-9		. #x4D4D)	; &I-GT-00457; [45-45]
