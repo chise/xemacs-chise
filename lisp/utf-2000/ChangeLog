@@ -1,5 +1,14 @@
 2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R026-Seal.el (U+353E): Add `<-same' for U+5369.
+	(<CJK RADICAL SEAL>): Use `<-formed@component/connect-above'
+	instead of `<-ideographic-component-forms' for U+5369; use
+	`<-identical@component/connect-above' instead of `<-radical' for
+	U+353E.
+	(JC3-71F7): New character.
+	(BC-8A60): Use `<-formed@component' instead of
+	`<-ideographic-component-forms'.
+
 	* Ideograph-R009-Man.el (GT-K00049): Use `<-denotational' for
 	U+4EBA; add `<-formed@component' for U+4EBA.
 	(GT-K00058): Use `<-denotational' for U+4EBA; add
