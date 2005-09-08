@@ -1,4 +1,32 @@
+2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (GT-K00049): Use `<-denotational' for
+	U+4EBA; add `<-formed@component' for U+4EBA.
+	(GT-K00058): Use `<-denotational' for U+4EBA; add
+	`<-formed@component/connect-below' for U+4EBA.
+	(BC-8B5D): Likewise.
+	(<CJK RADICAL PERSON>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+4EBB): Add `<-formed@component/connect-right' for U+4EBA; unify
+	BC-8AF5.
+
+2005-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (U+9CE5): Add S1-9645.
+	(<CJK RADICAL C-SIMPLIFIED BIRD>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9E1F): Add `<-simplified@CN' for U+9CE5.
+
+	* Ideograph-R141-Tiger.el (J0-3857): Move B-AAEA to the mother;
+	add S1-7080.
+	(<CJK RADICAL TIGER>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 2005-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (<CJK RADICAL OLD>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+8002): Add `<-formed@component/connect-below' for U+8001.
 
 	* Ideograph-R120-Silk.el (U+7CF9): Use `<-formed@component'
 	instead of `<-ideographic-component-forms'; unify BC-8AFB.
