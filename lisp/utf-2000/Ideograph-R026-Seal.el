@@ -20,6 +20,12 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-same
+     ((=ucs		  . #x5369)	; 卩
+      (=daikanwa	  . 02836)	; &I-M-02836;
+      ))
+    (<-same*sources
+     zihui daikanwa)
     (hanyu-dazidian	1 310 10)
     (=ucs		. #x353E)	; 㔾
     (=cns11643-4	. #x212B)	; &I-C4-212B; [01-11]
@@ -36,20 +42,26 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-above
      ((=ucs		  . #x5369)	; 卩
       ))
-    (<-radical
+    (<-identical@component/connect-above
      ((=ucs		  . #x353E)	; 㔾
       ))
     (=ucs		. #x2E8B)	; ⺋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=jef-china3	. #x71F7)	; &JC3-71F7;
     ))
 (define-char
   '((=>ucs		. #x5369)	; 卩
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x5369)	; 卩
       ))
     (=big5-cdp		. #x8A60)	; &CDP-8A60;
