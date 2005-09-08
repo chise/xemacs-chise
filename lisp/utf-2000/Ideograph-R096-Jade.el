@@ -49,11 +49,11 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x7389)	; 玉
       (=daikanwa	  . 20821)	; &I-M-20821;
       ))
-    (<-ideographic-component-forms*sources
+    (<-formed@component/connect-right*sources
      zihui/char-index daikanwa)
     (shinjigen-1	. 4874)
     (=ucs		. #x248E9)	; 𤣩
@@ -61,6 +61,26 @@
     (=gt		. 26658)	; &I-GT-26658;
     (=gt-pj-4		. #x6D74)	; &I-GT-26658; [77-84]
     (=daikanwa		. 20824)	; &I-M-20824;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x248E9)	; 𤣩
+      ))
+    (name		. "CJK RADICAL JADE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x738B)	; 王
+      )
+     ((=ucs		  . #x7389)	; 玉
+      ))
+    (<-identical@component/connect-right
+     ((=ucs		  . #x248E9)	; 𤣩
+      ))
+    (=ucs		. #x2EA9)	; ⺩
+    (=gt-k		. 00402)	; &I-GT-K00402;
+    (=gt-pj-k1		. #x3467)	; ⺩ [20-71]
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
