@@ -45,6 +45,12 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-formed@component/connect-left
+     ((=ucs		  . #x5200)	; 刀
+      (=daikanwa	  . 01845)	; &I-M-01845;
+      ))
+    (<-formed@component/connect-left*sources
+     zhengzitong daikanwa)
     (hanyu-dazidian	1 320 1)
     (=ucs		. #x5202)	; 刂
     (=gb2312		. #x5856)	; &I-G0-5856; [56-54]
@@ -56,7 +62,21 @@
     (=gt-k		. 00110)	; &I-GT-K00110;
     (=gt-pj-2		. #x402D)	; &I-GT-02405; [32-13]
     (=daikanwa		. 01847)	; &I-M-01847;
+    (=big5-eten		. #xC87D)	; &B-C87D;
     (=jef-china3	. #x44B2)	; &I-JC3-44B2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (name		. "CJK RADICAL KNIFE TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-left
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x2E89)	; ⺉
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
