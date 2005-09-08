@@ -1,5 +1,18 @@
 2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R096-Jade.el (U-000248E9): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms'.
+	(<CJK RADICAL JADE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+5202): Add
+	`<-formed@component/connect-left' for U+5200; unify BE-C87D.
+	(<CJK RADICAL KNIFE TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 	* Ideograph-R026-Seal.el (U+353E): Add `<-same' for U+5369.
 	(<CJK RADICAL SEAL>): Use `<-formed@component/connect-above'
 	instead of `<-ideographic-component-forms' for U+5369; use
