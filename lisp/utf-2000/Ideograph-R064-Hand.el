@@ -3,6 +3,7 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (shinjigen-1	. 2807)
     (shinjigen-2	. 2807)
     (=ucs		. #x624B)	; 手
     (=jis-x0208		. #x3C6A)	; &I-J90-3C6A; [28-74]
@@ -16,14 +17,23 @@
     (=daikanwa		. 11768)	; &I-M-11768;
     ))
 (define-char
-  '((=>ucs		. #x624D)	; 才
+  '((ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs		. #x624D)	; 才
+    (=big5		. #xA47E)	; &I-B-A47E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x624D)	; 才
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2806)
     (shinjigen-2	. 2806)
     (=jis-x0208		. #x3A4D)	; &GT-14886; [26-45]
     (=ks-x1001		. #x6E26)	; &I-K0-6E26; [78-06]
-    (=big5		. #xA47E)	; &I-B-A47E;
     (=gt		. 14886)	; &I-GT-14886;
     (=gt-k		. 00175)	; &I-GT-K00175;
     (=gt-pj-1		. #x3A4D)	; &I-GT-14886; [26-45]
@@ -32,29 +42,50 @@
     (=ucs@big5		. #x624D)	; &GT-14886;
     ))
 (define-char
-  '((morohashi-daikanwa	11769 0 1)
+  '((<-denotational
+     ((=ucs		  . #x624D)	; 才
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=ucs		. #x624D)	; 才
-    (=gb2312		. #x3245)	; &I-G0-3245; [18-37]
+    (=gb2312		. #x3245)	; &C1-445F; [18-37]
     (=cns11643-1	. #x445F)	; &I-C1-445F; [36-63]
+    (=ucs@unicode	. #x624D)	; &C1-445F;
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x624B)	; 手
+      ))
+    (<-formed@component/connect-right*sources
+     kangxi/char-index daikanwa)
     (=ucs		. #x624C)	; 扌
     (=gb2312		. #x5E50)	; &I-G0-5E50; [62-48]
     (=jis-x0212		. #x3F37)	; &I-JSP-3F37; [31-23]
     (=cns11643-4	. #x2137)	; &I-C4-2137; [01-23]
     (=jis-x0213-2-2000	. #x2C77)	; &I-JX2-2C77; [12-87]
+    (=big5-cdp		. #x8AFA)	; &I-CDP-8AFA;
     (=gt		. 14887)	; &I-GT-14887;
     (=gt-k		. 00334)	; &I-GT-K00334;
     (=gt-pj-3		. #x5B72)	; &I-GT-14887; [59-82]
     (=daikanwa		. 11770)	; &I-M-11770;
     (=cbeta		. 02854)	; &I-CB02854;
     (=jef-china3	. #x4FA3)	; &I-JC3-4FA3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x624C)	; 扌
+      ))
+    (name		. "CJK RADICAL HAND")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x624C)	; 扌
+      ))
+    (=ucs		. #x2E98)	; ⺘
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -67,6 +98,7 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (shinjigen-1	. 2808)
     (shinjigen-2	. 2808)
     (=ucs		. #x624E)	; 扎
     (=jis-x0208		. #x5929)	; &I-J90-5929; [57-09]
