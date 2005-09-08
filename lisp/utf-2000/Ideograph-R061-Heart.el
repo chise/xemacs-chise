@@ -30,22 +30,83 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (<-formed@component/connect-right*sources
+     leibian daikanwa)
     (=ucs		. #x5FC4)	; 忄
     (=gb2312		. #x6260)	; &I-G0-6260; [66-64]
     (=jis-x0212		. #x3D38)	; &I-JSP-3D38; [29-24]
     (=cns11643-4	. #x2136)	; &I-C4-2136; [01-22]
     (=jis-x0213-2-2000	. #x2C3A)	; &I-JX2-2C3A; [12-26]
+    (=big5-cdp		. #x8B51)	; &I-CDP-8B51;
+    (=gt		. 12992)	; &I-GT-12992;
+    (=gt-k		. 00302)	; &I-GT-K00302;
+    (=gt-pj-3		. #x4D5F)	; &I-GT-12992; [45-63]
     (=daikanwa		. 10297)	; &I-M-10297;
     (=jef-china3	. #x4DC3)	; &I-JC3-4DC3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5FC4)	; 忄
+      ))
+    (name		. "CJK RADICAL HEART ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x5FC4)	; 忄
+      ))
+    (=ucs		. #x2E96)	; ⺖
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x38FA)	; 㣺
-    (=cns11643-6	. #x217E)	; &I-C6-217E; [01-94]
-    (=jis-x0213-2-2000	. #x2C3B)	; &I-JX2-2C3B; [12-27]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38FA)	; 㣺
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-formed@component/connect-above
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (<-formed@component/connect-above*sources
+     leibian daikanwa)
+    (=cns11643-6	. #x217E)	; &M-10298; [01-94]
     (=daikanwa		. 10298)	; &I-M-10298;
+    (=ucs@unicode	. #x38FA)	; &M-10298;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38FA)	; 㣺
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-formed@component/connect-above
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=jis-x0213-2-2000	. #x2C3B)	; &JX2-2C3B; [12-27]
+    (=ucs@jis		. #x38FA)	; &JX2-2C3B;
+    ))
+(define-char
+  '((<-denotational
+     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
+      ))
+    (name		. "CJK RADICAL HEART TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-above
+     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
+      ))
+    (=ucs		. #x2E97)	; ⺗
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
