@@ -33,7 +33,7 @@
     (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=jis-x0208	  . #x4A38)	; &GT-17008; [42-24]
       ))
     (=gt-k		. 00488)	; &GT-K00488;
@@ -60,10 +60,30 @@
        songyuan-yilai-suzipu daikanwa)
       (=daikanwa	  . 13451)	; &M-13451;
       )
-     ((=gb2312		  . #x466B)	; &C3-2370; [38-75]
+     ((<-simplified@CN
+       ((=cns11643-1	    . #x6B7D)	; &C1-6B7D; [75-93]
+	(=gb12345	    . #x466B)	; &C1-6B7D; [38-75]
+	))
+      (=gb2312		  . #x466B)	; &C3-2370; [38-75]
       (=cns11643-3	  . #x2370)	; &I-C3-2370; [03-80]
       (=ucs@unicode	  . #x9F50)	; &C3-2370;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED EVEN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x9F4A)	; 齊
+      ))
+    (=ucs		. #x2EEC)	; ⻬
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
@@ -128,6 +148,7 @@
 	(=ks-x1001	    . #x703A)	; &I-K0-703A; [80-26]
 	(=daikanwa	    . 48560)	; &I-M-48560;
 	))
+      (shinjigen-1	  . 9880)
       (shinjigen-2	  . 9880)
       (=jis-x0208	  . #x4046)	; &GT-17014; [32-38]
       (=gt		  . 17014)	; &I-GT-17014;
@@ -138,6 +159,19 @@
      ((=cns11643-3	  . #x2939)	; &C3-2939; [09-25]
       (=ucs@unicode	  . #x6589)	; &C3-2939;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6589)	; 斉
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED EVEN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x6589)	; 斉
+      ))
+    (=ucs		. #x2EEB)	; ⻫
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
