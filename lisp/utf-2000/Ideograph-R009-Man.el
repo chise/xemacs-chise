@@ -16228,6 +16228,15 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (<-formed
+     ((shinjigen-1	  . 211)
+      (=jis-x0208	  . #x3426)	; &GT-00718; [20-06]
+      (=gb2312		  . #x5929)	; &I-G0-5929; [57-09]
+      (=ks-x1001	  . #x4A49)	; &I-K0-4A49; [42-41]
+      (=daikanwa	  . 00577)	; &I-M-00577;
+      ))
+    (<-formed*sources
+     shinjigen-1)
     (<-same
      ((=jis-x0208	  . #x3426)	; &GT-00718; [20-06]
       (=gb2312		  . #x5929)	; &I-G0-5929; [57-09]
@@ -16252,12 +16261,6 @@
     (=hanziku-1		. #xCDBC)	; &I-HZK01-CDBC;
     (=cbeta		. 00130)	; &I-CB00130;
     (=jef-china3	. #x91A6)	; &I-JC3-91A6;
-    (->ideographic-variants
-     ((shinjigen-1	  . 211)
-      (=daikanwa	  . 00577)	; &I-M-00577;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
