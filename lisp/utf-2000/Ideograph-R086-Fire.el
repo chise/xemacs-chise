@@ -24,6 +24,16 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-above
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (<-formed@component/connect-above*sources
+     jiyun zhengzitong daikanwa)
+    (<-s/active
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (<-s/active*sources
+     jiyun daikanwa)
     (=ucs		. #x706C)	; 灬
     (=gb2312		. #x6C61)	; &I-G0-6C61; [76-65]
     (=jis-x0212		. #x4944)	; &I-JSP-4944; [41-36]
@@ -34,6 +44,19 @@
     (=gt-pj-k1		. #x376C)	; 灬 [23-76]
     (=daikanwa		. 18851)	; &I-M-18851;
     (=jef-china3	. #x57CA)	; &I-JC3-57CA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (name		. "CJK RADICAL FIRE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-above
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (=ucs		. #x2EA3)	; ⺣
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
