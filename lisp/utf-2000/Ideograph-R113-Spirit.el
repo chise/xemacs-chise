@@ -21,6 +21,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (name		. "CJK RADICAL SPIRIT ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=ucs		. #x2EAC)	; ⺬
+    ))
+(define-char
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
@@ -38,9 +51,18 @@
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x793A)	; 示
+      ))
     (=ucs		. #x793B)	; 礻
     (->subsumptive
-     ((=jis-x0212	  . #x504B)	; &GT-31488; [48-43]
+     ((<-vulgar@component/connect-right
+       ((=cns11643-1	    . #x467C)	; &M-24623; [38-92]
+	(=daikanwa	    . 24623)	; &I-M-24623;
+	))
+      (<-vulgar@component/connect-right*sources
+       daikanwa)
+      (=jis-x0212	  . #x504B)	; &GT-31488; [48-43]
       (=jis-x0213-2-2000  . #x7260)	; &I-JX2-7260; [82-64]
       (=gt		  . 31488)	; &I-GT-31488;
       (=gt-k		  . 00734)	; &I-GT-K00734;
@@ -49,9 +71,23 @@
       (=jef-china3	  . #x72FE)	; &I-JC3-72FE;
       (=ucs@jis		  . #x793B)	; &GT-31488;
       )
-     ((=gb2312		  . #x6C6A)	; &G0-6C6A; [76-74]
-      (=ucs@unicode	  . #x793B)	; &G0-6C6A;
+     ((=gb2312		  . #x6C6A)	; &CDP-8B70; [76-74]
+      (=big5-cdp	  . #x8B70)	; &I-CDP-8B70;
+      (=ucs@unicode	  . #x793B)	; &CDP-8B70;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x793B)	; 礻
+      ))
+    (name		. "CJK RADICAL SPIRIT TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x793B)	; 礻
+      ))
+    (=ucs		. #x2EAD)	; ⺭
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
