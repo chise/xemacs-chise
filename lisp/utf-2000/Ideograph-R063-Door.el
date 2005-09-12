@@ -147,7 +147,10 @@
     (=gt-pj-3		. #x5B34)	; &I-GT-14762; [59-20]
     (=daikanwa		. 11707)	; &I-M-11707;
     (->mistakable
-     ((=daikanwa	  . 11712)	; &I-M-11712;
+     ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
+      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
+      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
+      (=daikanwa	  . 11712)	; &I-M-11712;
       ))
     (->mistakable*sources
      zihui zhengzi-tong daikanwa)
