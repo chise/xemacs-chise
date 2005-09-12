@@ -79,7 +79,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-identical@component/connect-below
-     ((=ucs		  . #xFA49)	; 爫
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
+      (=ucs		  . #xFA49)	; 爫
       ))
     (=ucs		. #x2EA4)	; ⺤
     ))

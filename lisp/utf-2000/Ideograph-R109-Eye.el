@@ -29,8 +29,6 @@
       ))
     (<-identical@component/connect-right
      ((=big5-cdp	  . #x8B48)	; &GT-36329;
-      (=gt		  . 36329)	; &I-GT-36329;
-      (=gt-k		  . 01549)	; &I-GT-K01549;
       ))
     (=ucs		. #x2EAB)	; ⺫
     ))
