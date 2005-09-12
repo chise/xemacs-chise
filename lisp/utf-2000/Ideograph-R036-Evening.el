@@ -99,9 +99,11 @@
     (=hanziku-3		. #xAD64)	; &I-HZK03-AD64;
     (=cbeta		. 06470)	; &I-CB06470;
     (->mistakable
-     ((=daikanwa	  . 02843)	; &I-M-02843;
+     ((=ucs		  . #x20A0D)	; 𠨍
+      (=daikanwa	  . 02843)	; &I-M-02843;
       )
-     ((=daikanwa	  . 02847)	; &I-M-02847;
+     ((=ucs		  . #x536F)	; 卯
+      (=daikanwa	  . 02847)	; &I-M-02847;
       ))
     (->mistakable*sources
      kangxi daikanwa)
