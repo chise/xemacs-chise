@@ -26,13 +26,33 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x6C34)	; 水
+      (=daikanwa	  . 17083)	; &I-M-17083;
+      ))
+    (<-formed@component/connect-right*sources
+     zihui/char-index daikanwa)
     (=ucs		. #x6C35)	; 氵
     (=gb2312		. #x635F)	; &I-G0-635F; [67-63]
     (=jis-x0212		. #x4653)	; &I-JSP-4653; [38-51]
     (=jis-x0213-2-2000	. #x6E31)	; &I-JX2-6E31; [78-17]
+    (=big5-cdp		. #x8AF6)	; &I-CDP-8AF6;
     (=daikanwa		. 17085)	; &I-M-17085;
     (=cbeta		. 01416)	; &I-CB01416;
     (=jef-china3	. #x55B0)	; &I-JC3-55B0;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C35)	; 氵
+      ))
+    (name		. "CJK RADICAL WATER ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x6C35)	; 氵
+      ))
+    (=ucs		. #x2EA1)	; ⺡
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
@@ -84,22 +104,48 @@
 (define-char
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 1)
-    (kangxi-radical	 . 5)	; ⼄
-    (kangxi-strokes	 . 5)
     (total-strokes	 . 5)
     (=ucs		. #x6C39)	; 氹
-    (=cns11643-3	. #x2254)	; &I-C3-2254; [02-52]
-    (=daikanwa		. 17091)	; &I-M-17091;
+    (->subsumptive
+     ((=cns11643-3	  . #x2254)	; &M-17091; [02-52]
+      (=daikanwa	  . 17091)	; &I-M-17091;
+      )
+     ((=ucs@unicode	  . #x6C39)	; &UU+6C39;
+      ))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6C3A)	; 氺
-    (=jis-x0212		. #x4655)	; &I-JSP-4655; [38-53]
-    (=jis-x0213-2-2000	. #x6E33)	; &I-JX2-6E33; [78-19]
-    (=daikanwa		. 17092)	; &I-M-17092;
-    (=cbeta		. 06162)	; &I-CB06162;
+    (->subsumptive
+     ((<-formed@component/connect-above
+       ((=ucs		    . #x6C34)	; 水
+	(=daikanwa	    . 17083)	; &I-M-17083;
+	))
+      (<-formed@component/connect-above*sources
+       zihui/char-index daikanwa)
+      (=jis-x0212	  . #x4655)	; &M-17092; [38-53]
+      (=jis-x0213-2-2000  . #x6E33)	; &I-JX2-6E33; [78-19]
+      (=daikanwa	  . 17092)	; &I-M-17092;
+      (=ucs@unicode	  . #x6C3A)	; &M-17092;
+      )
+     ((=cbeta		  . 06162)	; &CB06162;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (name		. "CJK RADICAL WATER TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (=ucs		. #x2EA2)	; ⺢
+    (=big5-cdp		. #x8C43)	; &I-CDP-8C43;
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
