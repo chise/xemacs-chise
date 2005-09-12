@@ -21,7 +21,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (<-unknown
-     ((=daikanwa	  . 01800)	; &I-M-01800;
+     ((=ucs		  . #x51F5)	; 凵
       ))
     (=ucs		. #x2F81D)	; 凵
     (=cns11643-5	. #x2129)	; &I-C5-2129; [01-09]
