@@ -29,12 +29,14 @@
     (=gt-pj-3		. #x3D72)	; &GT-10943; [29-82]
     (=daikanwa		. 08670)	; &I-M-08670;
     (->mistakable
-     ((=daikanwa	  . 08669)	; &I-M-08669;
+     ((=ucs		  . #x5DDB)	; 巛
+      (=daikanwa	  . 08669)	; &I-M-08669;
       )
-     ((=daikanwa	  . 08675)	; &I-M-08675;
+     ((=ucs		  . #x21FE7)	; 𡿧
+      (=daikanwa	  . 08675)	; &I-M-08675;
       ))
     (->mistakable*sources
-     kangxi)
+     kangxi daikanwa)
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
