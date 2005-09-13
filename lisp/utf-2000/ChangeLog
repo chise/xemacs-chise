@@ -1,4 +1,110 @@
+2005-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U-0002F82A): Add `<-denotational' for
+	J97-5232; use `<-formed' instead of `->ideographic-variants'.
+	(J97-5232): New abstract character.
+	(U+5306): Add `<-denotational' for J97-5232.
+	(U+5307): Add `<-formed' instead of `->ideographic-variants'; use
+	`->denotational'.
+
+	* Ideograph-R024-Ten.el (U-0002F82C): Use `<-formed' instead of
+	`->ideographic-variants' for U+5349; add `<-vulgar' for U+5349.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Add
+	`<-formed@component/connect-below' for U+7F51; add `<-simplified'
+	for U+7F51; add `<-simplified@CN' for U+5CA1.
+
+2005-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U+4E90): Add `<-formed' instead of
+	`->ideographic-variants' for U+4E8E.
+	(U+4E9E): Add `<-formed' for M-38945.
+	(U+4E9F): Use `->denotational' instead of `->subsumptive'.
+
+2005-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6C35): Add
+	`<-formed@component/connect-right' for U+6C34; unify BC-8AF6.
+	(<CJK RADICAL WATER ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+6C39): Use `->subsumptive'.
+	(U+6C3A): Use `->subsumptive'.
+	(<CJK RADICAL WATER TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+2005-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (<CJK RADICAL SPIRIT ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+793B): Add `<-formed@component/connect-right' for U+793A.
+	(JSP-504B): Add `<-vulgar@component/connect-right' for C1-467C.
+	(G0-6C6A): Unify BC-8B70.
+	(<CJK RADICAL SPIRIT TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R009-Man.el (U+5058): Use `<-formed' instead of
+	`->ideographic-variants'.
+
 2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el (U+722A): Add S1-4696.
+	(U+722B): Use `<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms'.
+	(<CJK RADICAL PAW TWO>): Use `<-identical@component/connect-below'
+	instead of `<-radical'.
+	(<CJK COMPATIBILITY IDEOGRAPH-FA49>): Use `<-denotational' for
+	U+722B instead of `<-subsumptive' for <CJK RADICAL PAW ONE>; unify
+	JX2-7029 and BC-8B58.
+	(<CJK RADICAL PAW ONE>): Use `<-denotational' for <CJK
+	COMPATIBILITY IDEOGRAPH-FA49> instead of U+722B; separate JX2-7029
+	and BC-8B58; add `<-identical@component/connect-below' for U+FA49.
+
+	* Ideograph-R072-Sun.el (U+3AD6): Unify CB11730.
+
+	* Ideograph-R064-Hand.el (U+624B): Add S1-2807.
+	(U+624D): Use `->denotational'.
+	(U+624C): Add `<-formed@component/connect-right' for U+624B; unify
+	BC-8AFA.
+	(<CJK RADICAL HAND>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+624E): Add S1-2808.
+
+	* Ideograph-R061-Heart.el (U+5FC4): Add
+	`<-formed@component/connect-right' for U+5FC3; unify BC-8B51,
+	GT-12992 and GT-K00302.
+	(<CJK RADICAL HEART ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+38FA): Use `->denotational'.
+	(<CJK RADICAL HEART TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.
+
+2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el (U+6B6F): Use `->subsumptive'.
+	(<CJK RADICAL J-SIMPLIFIED TOOTH>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R025-Divination.el (U-000209DC): Use `->subsumptive'.
+	(U+5364): Add `<-Zhouwen' for U+38B4; add `<-same' for J0-403E;
+	add `<-simplified@CN' for U+9E75 and U+6EF7.
+	(<CJK RADICAL C-SIMPLIFIED SALT>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R086-Fire.el (U+706C): Add
+	`<-formed@component/connect-above' for U+706B; add `<-s/active'
+	for U+706B.
+	(<CJK RADICAL FIRE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R067-Script.el (GT-K00488): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms'.
+	(G0-466B): Add `<-simplified@CN' for G1-466B.
+	(<CJK RADICAL C-SIMPLIFIED EVEN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(J0-4046): Add S1-9880.
+	(<CJK RADICAL J-SIMPLIFIED EVEN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
 
 	* Ideograph-R096-Jade.el (U-000248E9): Use
 	`<-formed@component/connect-right' instead of
