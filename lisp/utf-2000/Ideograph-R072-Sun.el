@@ -786,7 +786,6 @@
     (total-strokes	 . 8)
     (<-formed
      ((shinjigen-1	  . 3287)
-      (shinjigen-2	  . 3287)
       (=ucs		  . #x6603)	; 昃
       (=jis-x0208	  . #x5A60)	; &I-J90-5A60; [58-64]
       ))
@@ -2558,7 +2557,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (<-Large-Seal
-     ((=daikanwa	  . 13948)	; &I-M-13948;
+     ((=ucs		  . #x665D)	; 晝
+      (=daikanwa	  . 13948)	; &I-M-13948;
       ))
     (<-Large-Seal*sources
      shuowen daikanwa)
@@ -2572,7 +2572,8 @@
     (=cns11643-6	. #x3836)	; &I-C6-3836; [24-22]
     (=daikanwa		. 13928)	; &I-M-13928;
     (->mistakable
-     ((=daikanwa	  . 14294)	; &I-M-14294;
+     ((=ucs		  . #x66F8)	; 書
+      (=daikanwa	  . 14294)	; &I-M-14294;
       ))
     (->mistakable*sources
      daikanwa)
@@ -2937,7 +2938,8 @@
      ((ideographic-strokes . 7)
       (total-strokes	   . 11)
       (<-unknown
-       ((=daikanwa	    . 01546)	; &I-M-01546;
+       ((=gt		    . 02031)	; &GT-02031;
+	(=daikanwa	    . 01546)	; &I-M-01546;
 	))
       (shinjigen-1	  . 3333)
       (=jis-x0208@1978	  . #x5A70)	; &M-13950; [58-80]
@@ -5535,7 +5537,9 @@
     (=daikanwa		. 14132)	; &M-14132;
     (=jef-china3	. #x51EA)	; &I-JC3-51EA;
     (->synonyms
-     ((=daikanwa	  . 00279)	; &I-M-00279;
+     ((=jis-x0208	  . #x5034)	; &GT-00358; [48-20]
+      (=cns11643-1	  . #x4F67)	; &I-C1-4F67; [47-71]
+      (=daikanwa	  . 00279)	; &I-M-00279;
       ))
     (->synonyms*sources
      shuowen-tongxun-dingsheng daikanwa)
