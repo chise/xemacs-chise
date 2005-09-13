@@ -32,6 +32,7 @@
     (total-strokes	 . 3)
     (<-formed@component/connect-right
      ((=ucs		  . #x5FC3)	; 心
+      (=daikanwa	  . 10295)	; &I-M-10295;
       ))
     (<-formed@component/connect-right*sources
      leibian daikanwa)
@@ -75,6 +76,7 @@
     (total-strokes	 . 4)
     (<-formed@component/connect-above
      ((=ucs		  . #x5FC3)	; 心
+      (=daikanwa	  . 10295)	; &I-M-10295;
       ))
     (<-formed@component/connect-above*sources
      leibian daikanwa)
