@@ -141,6 +141,21 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (<-formed
+     ((shinjigen-1	  . 515)
+      (=jis-x0212	  . #x3273)	; &GT-01997; [18-83]
+      (=cns11643-4	  . #x2236)	; &I-C4-2236; [02-22]
+      (=daikanwa	  . 01525)	; &I-M-01525;
+      ))
+    (<-formed*sources
+     jiyun shinjigen-1)
+    (<-same
+     ((=jis-x0212	  . #x3273)	; &GT-01997; [18-83]
+      (=cns11643-4	  . #x2236)	; &I-C4-2236; [02-22]
+      (=daikanwa	  . 01525)	; &I-M-01525;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (hanyu-dazidian	1 574 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -160,12 +175,6 @@
     (=daikanwa		. 03236)	; &I-M-03236;
     (=hanziku-2		. #xC5E9)	; &I-HZK02-C5E9;
     (=jef-china3	. #x91AE)	; &I-JC3-91AE;
-    (->ideographic-variants
-     ((shinjigen-1	  . 515)
-      (=daikanwa	  . 01525)	; &I-M-01525;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -2466,7 +2475,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x5C6F)	; &UU+5C6F;
+       ((=ucs@unicode	    . #x5C6F)	; &C1-453A;
 	))
       (=gb2312		  . #x3656)	; &C2-2344; [22-54]
       (=cns11643-2	  . #x2344)	; &I-C2-2344; [03-36]
@@ -2963,10 +2972,28 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (->subsumptive
-     ((=cns11643-1	  . #x4947)	; &M-03363; [41-39]
+     ((<-formed
+       ((=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+	(=daikanwa	    . 38896)	; &I-M-38896;
+	))
+      (<-formed*sources
+       jiyun shiwen)
+      (<-same
+       ((=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+	(=daikanwa	    . 38896)	; &I-M-38896;
+	))
+      (<-same*sources
+       jiyun shiwen daikanwa)
+      (=cns11643-1	  . #x4947)	; &M-03363; [41-39]
       (=big5		  . #xA765)	; &I-B-A765;
       (=daikanwa	  . 03363)	; &I-M-03363;
       (=ucs@big5	  . #x5448)	; &M-03363;
+      (->original
+       ((=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+	(=daikanwa	    . 38896)	; &I-M-38896;
+	))
+      (->original*sources
+       shiwen)
       )
      ((=jef-china3	  . #x45F8)	; &JC3-45F8;
       ))
@@ -6575,6 +6602,19 @@
     (=ucs		. #x9EFE)	; 黾
     (=gb2312		. #x763C)	; &I-G0-763C; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EFE)	; 黾
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED FROG")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9EFE)	; 黾
+      ))
+    (=ucs		. #x2EEA)	; ⻪
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
