@@ -1,5 +1,44 @@
 2005-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R047-River.el (M-08670): Add `daikanwa' into
+	`->mistakable*sources'.
+
+	* Ideograph-R045-Sprout.el (U+FA3C): Use `=ucs@jis' instead of
+	`=ucs@jis/2000' for U+FA3C.
+	(U+5C6F): Use `->subsumptive'.
+
+	* Ideograph-R039-Child.el (U-00021966): Add `<-Large-Seal' for
+	K0-7264.
+	(J0-4239): Add S1-1792; add `<-formed' for J78-423D.
+
+	* Ideograph-R030-Mouth.el (U+53E7): Use `<-formed' instead of
+	`->ideographic-variants' for JSP-3273; add `<-same' for JSP-3273.
+	(C1-4947): Add `<-formed' for K0-5641; add `<-same' for K0-5641;
+	add `->original' for K0-5641.
+	(<CJK RADICAL C-SIMPLIFIED FROG>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R026-Seal.el (U+5374): Add `<-vulgar' for J0-524A.
+	(J0-524A): Use `<-formed' instead of `->ideographic-variants' for
+	U+5374; add `->vulgar' for U+5374 and U+3541.
+	(U+537C): Use `->denotational'.
+	(U-00020A1C): Use `->subsumptive'.
+	(K0-716D): Use `<-formed' instead of `->ideographic-variants' for
+	U+5373.
+
+	* Ideograph-R019-Power.el (U+52DC): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+52DD): Likewise.
+	(J0-5229): Add `<-formed' for J78-4E4B.
+
+	* Ideograph-R018-Knife.el (U-000206A3): Add `<-Small-Seal' for
+	U+5200; use `<-formed' instead of `->ideographic-variants' for
+	U+5200; add `->bopomofo' for U+3109.
+	(U+523C): Use `->denotational' and `->subsumptive'.
+	(U+523D): Use `->subsumptive'.
+	(U-00020702): Use `<-formed' instead of `->ideographic-variants'
+	for U+522A; add `<-same' for U-000206F9.
+
 	* Ideograph-R020-Wrap.el (U-0002F82A): Add `<-denotational' for
 	J97-5232; use `<-formed' instead of `->ideographic-variants'.
 	(J97-5232): New abstract character.
