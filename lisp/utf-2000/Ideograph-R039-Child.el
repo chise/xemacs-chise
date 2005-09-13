@@ -755,6 +755,10 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (<-Large-Seal
+     ((=ks-x1001	  . #x7264)	; &M-38943; [82-68]
+      (=daikanwa	  . 38943)	; &I-M-38943;
+      ))
     (=ucs		. #x21966)	; 𡥦
     (=cns11643-6	. #x3022)	; &I-C6-3022; [16-02]
     (=daikanwa		. 06982)	; &I-M-06982;
@@ -803,7 +807,13 @@
     (total-strokes	 . 10)
     (=ucs		. #x5B6B)	; 孫
     (->subsumptive
-     ((shinjigen-2	  . 1792)
+     ((<-formed
+       ((=jis-x0208@1978    . #x423D)	; &M-39038; [34-29]
+	(=ks-x1001	    . #x6161)	; &I-K0-6161; [65-65]
+	(=daikanwa	    . 39038)	; &I-M-39038;
+	))
+      (shinjigen-1	  . 1792)
+      (shinjigen-2	  . 1792)
       (=jis-x0208	  . #x4239)	; &GT-08784; [34-25]
       (=ks-x1001	  . #x615D)	; &I-K0-615D; [65-61]
       (=big5		  . #xAE5D)	; &I-B-AE5D;
