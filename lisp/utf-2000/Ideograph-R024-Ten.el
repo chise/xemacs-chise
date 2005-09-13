@@ -545,18 +545,24 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (<-formed
+     ((shinjigen-1	  . 816)
+      (=ucs		  . #x5349)	; 卉
+      (=jis-x0208	  . #x5243)	; &I-J90-5243; [50-35]
+      ))
+    (<-formed*sources
+     shinjigen-1)
+    (<-vulgar
+     ((=ucs		  . #x5349)	; 卉
+      (=daikanwa	  . 02706)	; &I-M-02706;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     (shinjigen-1	. 818)
     (shinjigen-2	. 818)
     (=ucs		. #x2F82C)	; 卉
     (=cns11643-3	. #x2329)	; &I-C3-2329; [03-09]
     (=daikanwa		. 02720)	; &I-M-02720;
-    (->ideographic-variants
-     ((shinjigen-1	  . 816)
-      (=ucs		  . #x5349)	; 卉
-      (=daikanwa	  . 02706)	; &I-M-02706;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
