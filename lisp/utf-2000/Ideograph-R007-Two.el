@@ -799,8 +799,8 @@
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
-    (sound@ja/on	"kyoku")
     (hanyu-dazidian	1 55 7)
+    (sound@ja/on	"kyoku")
     (=ucs		. #x4E9F)	; 亟
     ))
 (define-char
