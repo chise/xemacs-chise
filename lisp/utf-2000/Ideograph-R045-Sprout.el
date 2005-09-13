@@ -22,7 +22,7 @@
     (=gt-pj-k1		. #x3A6F)	; 屮 [26-79]
     (=daikanwa		. 07825)	; &I-M-07825;
     (=ucs@unicode	. #x5C6E)	; 屮
-    (=ucs@jis/2000	. #xFA3C)	; 屮
+    (=ucs@jis		. #xFA3C)	; 屮
     ))
 (define-char
   '((<-denotational
@@ -41,7 +41,8 @@
     (=daikanwa		. 07826)	; &I-M-07826;
     (=ucs@jis		. #x5C6E)	; 屮
     (->mistakable
-     ((=daikanwa	  . 07825)	; &I-M-07825;
+     ((=ucs		  . #xFA3C)	; 屮
+      (=daikanwa	  . 07825)	; &I-M-07825;
       ))
     (->mistakable*sources
      daikanwa)
@@ -62,28 +63,26 @@
     (=daikanwa		. 07827)	; &I-M-07827;
     ))
 (define-char
-  '((=>ucs		. #x5C6F)	; 屯
-    (ideographic-radical . 45)	; ⼬
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (shinjigen-2	. 1953)
-    (=jis-x0208		. #x4656)	; &GT-09854; [38-54]
-    (=ks-x1001		. #x546A)	; &I-K0-546A; [52-74]
-    (=gt		. 09854)	; &I-GT-09854;
-    (=gt-k		. 00470)	; &I-GT-K00470;
-    (=gt-pj-1		. #x4656)	; &I-GT-09854; [38-54]
-    (=daikanwa		. 07828)	; &I-M-07828;
-    (=ucs@jis		. #x5C6F)	; &GT-09854;
-    ))
-(define-char
-  '((morohashi-daikanwa	7828 0 0)
-    (ideographic-radical . 45)	; ⼬
+  '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C6F)	; 屯
-    (=gb2312		. #x4D4D)	; &I-G0-4D4D; [45-45]
-    (=cns11643-1	. #x453A)	; &I-C1-453A; [37-26]
-    (=big5		. #xA4D9)	; &I-B-A4D9;
+    (->subsumptive
+     ((shinjigen-1	  . 1953)
+      (shinjigen-2	  . 1953)
+      (=jis-x0208	  . #x4656)	; &GT-09854; [38-54]
+      (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
+      (=gt		  . 09854)	; &I-GT-09854;
+      (=gt-k		  . 00470)	; &I-GT-K00470;
+      (=gt-pj-1		  . #x4656)	; &I-GT-09854; [38-54]
+      (=daikanwa	  . 07828)	; &I-M-07828;
+      (=ucs@jis		  . #x5C6F)	; &GT-09854;
+      )
+     ((=gb2312		  . #x4D4D)	; &C1-453A; [45-45]
+      (=cns11643-1	  . #x453A)	; &I-C1-453A; [37-26]
+      (=big5		  . #xA4D9)	; &I-B-A4D9;
+      (=ucs@unicode	  . #x5C6F)	; &C1-453A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
