@@ -96,6 +96,15 @@
 	(U+4E9E): Add `<-formed' for M-38945.
 	(U+4E9F): Use `->denotational' instead of `->subsumptive'.
 
+2005-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ruimoku-v6'.
+	(insert-char-attributes): Don't display `->FOO' (except
+	`->subsumptive', `->bopomofo', `->mistakable',
+	`->ideographic-variants' and `->canonical') which is not attended
+	`->FOO*sources' when running with non-readable mode.
+
 2005-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el (U+6C35): Add
