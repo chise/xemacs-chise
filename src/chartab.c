@@ -3568,17 +3568,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
        EQ (attribute, Q_circled_of)		||
        EQ (attribute, Q_component)		||
        EQ (attribute, Q_component_of)		||
-       !NILP (Fstring_match
-	      (build_string ("^\\(<-\\|->\\)\\("
-			     "canonical"
-			     "\\|halfwidth\\|superscript\\|subscript"
-			     "\\|circled\\|font\\|compat"
-			     "\\|fullwidth\\|halfwidth"
-			     "\\|simplified\\|vulgar\\|wrong"
-			     "\\|same\\|original\\|ancient"
-			     "\\|Oracle-Bones\\)[^*]*$"),
-	       Fsymbol_name (attribute),
-	       Qnil, Qnil)) )
+       ( !EQ (attribute, Q_ucs_unified)
+	 && !NILP (Fstring_match
+		   (build_string ("^\\(<-\\|->\\)[^*]*$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil))
+	 )
+       )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
