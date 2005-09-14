@@ -1,3 +1,8 @@
+2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): For each character relation
+	feature `{<-|->}FOO', set up the reversed link `{->|<-}FOO'.
+
 2005-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Use
