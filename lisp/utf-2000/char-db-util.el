@@ -192,6 +192,7 @@
     =big5-eten
     =jis-x0208@1997
     =zinbun-oracle
+    =ruimoku-v6
     =jef-china3))
 
 (defun char-db-make-char-spec (char)
@@ -1016,35 +1017,32 @@
 				 name value
 				 line-breaking))
 		 )
-		((and (not readable)
-		      (null (get-char-attribute
-			     char
-			     (intern (format "%s*sources" name))))
-		      (not (string-match "\\*sources$" (symbol-name name)))
-		      (or (eq name '<-identical)
-			  (eq name '<-canonical)
-			  (eq name '->superscript)
-			  (eq name '->subscript)
-			  (eq name '->circled)
-			  (string-match "^->font" (symbol-name name))
-			  (string-match "^->compat" (symbol-name name))
-			  (string-match "^->halfwidth" (symbol-name name))
-			  (and
-			   (string-match "^->fullwidth" (symbol-name name))
-			   (not
-			    (and (consp value)
-				 (characterp (car value))
-				 (encode-char
-				  (car value) '=ucs 'defined-only))))
-			  (string-match "^->simplified" (symbol-name name))
-			  (string-match "^->vulgar" (symbol-name name))
-			  (string-match "^->wrong" (symbol-name name))
-			  (string-match "^->same" (symbol-name name))
-			  (string-match "^->formed" (symbol-name name))
-			  (string-match "^->original" (symbol-name name))
-			  (string-match "^->ancient" (symbol-name name))
-			  (string-match "^->Oracle-Bones" (symbol-name name))
-			  ))
+		((and
+		  (not readable)
+		  (not (eq name '->subsumptive))
+		  (not (eq name '->bopomofo))
+		  (not (eq name '->mistakable))
+		  (not (eq name '->ideographic-variants))
+		  (not (eq name '->canonical))
+		  (null (get-char-attribute
+			 char (intern (format "%s*sources" name))))
+		  (not (string-match "\\*sources$" (symbol-name name)))
+		  (or (eq name '<-identical)
+		      (eq name '<-canonical)
+		      (eq name '<-ideographic-variants)
+                      ;; (eq name '<-synonyms)
+		      (string-match "^<-synonyms" (symbol-name name))
+		      (eq name '<-mistakable)
+		      (when (string-match "^->" (symbol-name name))
+			(cond
+			 ((string-match "^->fullwidth" (symbol-name name))
+			  (not (and (consp value)
+				    (characterp (car value))
+				    (encode-char
+				     (car value) '=ucs 'defined-only)))
+			  )
+			 (t)))
+		      ))
 		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-combination)
