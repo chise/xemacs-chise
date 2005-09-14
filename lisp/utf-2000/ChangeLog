@@ -1,5 +1,23 @@
 2005-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el (U-000224D7): Use `->subsumptive'.
+	(U+5F81): Add `<-formed' for M-38796; add S1-2339.
+	(U+5F82): Add S1-2341.
+	(U+5FA6): Add `<-formed' for J0-6E22.
+	(U+5FA7): Use `->denotational'.
+	(U-0002251F): Use `->subsumptive'.
+	(U-00022521): Likewise.
+	(U+5FA8): Add `<-formed' for J0-6E23; add S1-2370.
+	(U-00022522): Use `->denotational'.
+	(U-00022523): Use `->subsumptive'.
+	(U+38EC): Use `->subsumptive'.
+	(U+5FA9): Use `->denotational' and `->subsumptive'.
+	(U+38ED): Use `->denotational' and `->subsumptive'.
+	(U-00022525): Use `->subsumptive'.
+	(J0-5755): Add `<-formed' for J0-6E33; add `<-same' for J0-6E33;
+	add S1-2388.
+	(M-10262): Unify U-0002257D.
+
 	* Ideograph-R013-Down-Box.el (U-00020541): Use `<-formed' instead
 	of `->ideographic-variants' for U+518A; add `<-same' for U+518A.
 
