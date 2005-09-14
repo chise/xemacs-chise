@@ -1,3 +1,8 @@
+2005-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el (U-00020541): Use `<-formed' instead
+	of `->ideographic-variants' for U+518A; add `<-same' for U+518A.
+
 2005-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (M-05289): Use `<-formed' instead of
