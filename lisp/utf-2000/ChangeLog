@@ -1,5 +1,18 @@
 2005-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R032-Earth.el (M-05289): Use `<-formed' instead of
+	`->ideographic-variants'; unify J0-3A66, K0-4C77 and GT-06605.
+	(H2-AF6B): Separate J0-3A66, K0-4C77 and GT-06605.
+	(U-0002145F): Use `->denotational'.
+	(U+58BF): Use `->subsumptive'.
+	(U+3670): Use `->denotational'.
+	(U-00021460): Use `->subsumptive'.
+	(U+3671): Use `->denotational'.
+	(U+58C0): Use `->subsumptive'.
+	(U+58C1): Likewise.
+	(U+58C2): Likewise.
+	(U-00021462): Likewise.
+
 	* Ideograph-R047-River.el (M-08670): Add `daikanwa' into
 	`->mistakable*sources'.
 
