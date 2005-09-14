@@ -471,6 +471,19 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (<-formed
+     ((shinjigen-1	  . 508)
+      (=ucs		  . #x518A)	; 冊
+      (=jis-x0208	  . #x3A7D)	; &I-J90-3A7D; [26-93]
+      ))
+    (<-formed*sources
+     shinjigen-1)
+    (<-same
+     ((=ucs		  . #x518A)	; 冊
+      (=daikanwa	  . 01515)	; &I-M-01515;
+      ))
+    (<-same*sources
+     daikanwa)
     (hanyu-dazidian	1 99 4)
     (shinjigen-1	. 511)
     (=ucs		. #x20541)	; 𠕁
@@ -479,13 +492,6 @@
     (=gt		. 01990)	; &I-GT-01990;
     (=gt-pj-2		. #x3D33)	; &I-GT-01990; [29-19]
     (=daikanwa		. 48932)	; &I-M-48932;
-    (->ideographic-variants
-     ((shinjigen-1	  . 508)
-      (=ucs		  . #x518A)	; 冊
-      (=daikanwa	  . 01515)	; &I-M-01515;
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     ))
 (define-char
   '((<-denotational
