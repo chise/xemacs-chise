@@ -620,7 +620,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x72C3)	; 狃
     (->subsumptive
-     ((shinjigen-2	  . 4765)
+     ((shinjigen-1	  . 4765)
+      (shinjigen-2	  . 4765)
       (=jis-x0208	  . #x603D)	; &GT-25993; [64-29]
       (=cns11643-2	  . #x2463)	; &I-C2-2463; [04-67]
       (=big5		  . #xCB63)	; &I-B-CB63;
@@ -639,39 +640,39 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 4767)
     (=ucs		. #x72C4)	; 狄
-    (=jis-x0208		. #x603F)	; &I-J90-603F; [64-31]
-    (=gb2312		. #x3552)	; &I-G0-3552; [21-50]
-    (=ks-x1001		. #x6E5A)	; &I-K0-6E5A; [78-58]
-    (=big5		. #xA866)	; &I-B-A866;
-    (=gt		. 26001)	; &I-GT-26001;
-    (=gt-k		. 02718)	; &I-GT-K02718;
-    (=gt-pj-1		. #x603F)	; &I-GT-26001; [64-31]
-    (=daikanwa		. 20290)	; &I-M-20290;
-    ))
-(define-char
-  '((=>ucs		. #x72C4)	; 狄
-    (morohashi-daikanwa	20290 0 0)
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=cns11643-1	. #x4B29)	; &C1-4B29; [43-09]
+    (->subsumptive
+     ((<-formed
+       ((=jis-x0208	    . #x6D78)	; &GT-52140; [77-88]
+	(=daikanwa	    . 38886)	; &I-M-38886;
+	))
+      (shinjigen-1	  . 4767)
+      (shinjigen-2	  . 4767)
+      (=jis-x0208	  . #x603F)	; &GT-26001; [64-31]
+      (=gb2312		  . #x3552)	; &I-G0-3552; [21-50]
+      (=ks-x1001	  . #x6E5A)	; &I-K0-6E5A; [78-58]
+      (=big5		  . #xA866)	; &I-B-A866;
+      (=gt		  . 26001)	; &I-GT-26001;
+      (=gt-k		  . 02718)	; &I-GT-K02718;
+      (=gt-pj-1		  . #x603F)	; &I-GT-26001; [64-31]
+      (=daikanwa	  . 20290)	; &I-M-20290;
+      (=ucs@unicode	  . #x72C4)	; &GT-26001;
+      )
+     ((=cns11643-1	  . #x4B29)	; &C1-4B29; [43-09]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x2473E)	; 𤜾
-    (=daikanwa		. 20291)	; &I-M-20291;
-    ))
-(define-char
-  '((=>ucs		. #x2473E)	; 𤜾
-    (morohashi-daikanwa	20291 0 1)
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=cns11643-6	. #x285A)	; &C6-285A; [08-58]
+    (->subsumptive
+     ((=daikanwa	  . 20291)	; &M-20291;
+      )
+     ((=ucs@iso		  . #x2473E)	; &U-0002473E;
+      )
+     ((=cns11643-6	  . #x285A)	; &C6-285A; [08-58]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
