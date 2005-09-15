@@ -17,11 +17,36 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-formed@component/connect-below*sources
+     zihui/char-index daikanwa)
+    (<-wrong
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa)
     (=ucs		. #x7F52)	; 罒
     (=jis-x0212		. #x5474)	; &I-JSP-5474; [52-84]
     (=cns11643-4	. #x2221)	; &I-C4-2221; [02-01]
     (=jis-x0213-2-2000	. #x746A)	; &I-JX2-746A; [84-74]
     (=daikanwa		. 28200)	; &I-M-28200;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (name		. "CJK RADICAL NET TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-below
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (=ucs		. #x2EB2)	; ⺲
     ))
 (define-char
   '((ideographic-radical@ucs . 13)	; ⼌
@@ -33,6 +58,22 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 4)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-formed@component/connect-below*sources
+     zihui/char-index daikanwa)
+    (<-simplified
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-simplified*sources
+     zhengzitong daikanwa)
+    (<-simplified@CN
+     ((=ucs		  . #x5CA1)	; 岡
+      (=gb12345		  . #x3854)	; 岡 [24-52]
+      ))
     (hanyu-dazidian	1 97 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -54,7 +95,10 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-unknown
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component/connect-below
      ((=ucs		  . #x5188)	; 冈
       ))
     (ideographic-structure
@@ -78,7 +122,7 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-radical
+    (<-identical@component/connect-below
      ((=ucs		  . #x7F53)	; 罓
       ))
     (=ucs		. #x2EB1)	; ⺱
