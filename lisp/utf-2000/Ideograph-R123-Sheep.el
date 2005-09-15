@@ -66,7 +66,8 @@
     (=jis-x0213-2-2000	. #x7472)	; &I-JX2-7472; [84-82]
     (=daikanwa		. 28427)	; &I-M-28427;
     (->mistakable
-     ((=ucs		  . #x2EB7)	; ⺷
+     ((name		  . "CJK RADICAL RAM")
+      (=ucs		  . #x2EB7)	; ⺷
       ))
     ))
 (define-char
@@ -105,7 +106,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (<-unknown
-     ((=daikanwa	  . 28426)	; &I-M-28426;
+     ((=ucs		  . #x2634B)	; 𦍋
       )
      ((=daikanwa	  . 28428)	; &I-M-28428;
       ))
