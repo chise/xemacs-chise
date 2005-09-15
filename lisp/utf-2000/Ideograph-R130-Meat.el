@@ -506,13 +506,17 @@
     (->subsumptive
      ((=daikanwa	  . 29262)	; &M-29262;
       (->synonyms@jiyun
-       ((=daikanwa	    . 43109)	; &M-43109;
+       ((=gb12345	    . #x484D)	; &M-43109; [40-45]
+	(=daikanwa	    . 43109)	; &M-43109;
 	)
-       ((=daikanwa	    . 42715)	; &I-M-42715;
+       ((=jis-x0208@1978    . #x7057)	; &GT-57333; [80-55]
+	(=ks-x1001	    . #x6C65)	; &I-K0-6C65; [76-69]
+	(=daikanwa	    . 42715)	; &I-M-42715;
 	)
        ((=daikanwa	    . 10312)	; &M-10312;
 	)
-       ((=daikanwa	    . 01848)	; &I-M-01848;
+       ((=gt		    . 02406)	; &GT-02406;
+	(=daikanwa	    . 01848)	; &I-M-01848;
 	))
       (->synonyms@jiyun*sources
        jiyun daikanwa)

@@ -67,7 +67,8 @@
 	(ideographic-strokes . 10)
 	(=daikanwa	    . 03104)	; &M-03104;
 	(->synonyms
-	 ((=daikanwa	      . 13502)	; &I-M-13502;
+	 ((=ucs		      . #x659A)	; 斚
+	  (=daikanwa	      . 13502)	; &I-M-13502;
 	  ))
 	(->synonyms*sources
 	 pianhai-leibian daikanwa)
