@@ -1,4 +1,56 @@
+2005-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U+7F52): Add
+	`<-formed@component/connect-below' for U+7F51; add `<-wrong' for
+	U+7F51.
+	(<CJK RADICAL NET TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+5188): Add `<-formed@component/connect-below' for U+7F51; add
+	`<-simplified' for U+7F51; add `<-simplified@CN' for U+5CA1.
+	(U+7F53): Use `<-same@component/connect-below' instead of
+	`<-unknown' for U+5188; add `<-formed@component/connect-below'.
+	(<CJK RADICAL NET ONE>): Use `<-identical@component/connect-below'
+	instead of `<-radical' for U+7F53.
+
 2005-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (J0-603D): Add S1-4765.
+	(U+72C4): Use `->subsumptive'.
+	(U-0002473E): Use `->subsumptive'.
+
+2005-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+6765): Add S1-240.
+	(U+3B45): New character.
+	(U+6767): Use `->subsumptive'.
+	(U-000233FB): Likewise.
+	(U-000233F6): Use `->subsumptive'.
+	(M-14574): Unify U-000233F9.
+	(U+67A0): Add S1-3525.
+	(U+67A1): Add S1-3524.
+	(U+67A2): Use `->denotational'.
+	(U+3B4D): New character.
+	(U+3B4E): New character.
+	(U+3B4F): New character.
+	(U+67A6): Use `->denotational' instead of `->subsumptive'.
+	(M-14676): Unify U-0002342D.
+	(U+3B56): New character.
+
+	* Ideograph-R064-Hand.el (U+62B8): Use `->subsumptive'.
+	(U-00022AB6): Unify M-11925.
+	(U-00022ABC): Use `->subsumptive'.
+	(U-00022ABE): Use `->denotational'.
+	(M-11976): Add `<-denotational' for U-00022ABE; unify H5-D3D6.
+	(CB03635): Unify U-00022AC8.
+	(U+62EA): Use `->subsumptive'.
+	(U+62EC): Add `<-formed' for K0-4E41; add S1-2899.
+	(U+62ED): Add S1-2918.
+	(U+62EE): Add S1-2900.
+	(U+62EF): Add S1-2916.
+	(U+63F8): Use `->denotational' and `->subsumptive'.
+	(U+63F9): Use `->subsumptive'.
+	(U+6416): Likewise.
+	(U+6417): Add S1-3047.
 
 	* Ideograph-R060-Step.el (U-000224D7): Use `->subsumptive'.
 	(U+5F81): Add `<-formed' for M-38796; add S1-2339.
