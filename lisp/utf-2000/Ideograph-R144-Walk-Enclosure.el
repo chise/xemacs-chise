@@ -196,7 +196,11 @@
     (total-strokes	 . 11)
     (=big5		. #xB34E)	; &B-B34E;
     (->subsumptive
-     ((shinjigen-1	  . 7325)
+     ((<-formed
+       ((=ks-x1001	    . #x627B)	; &M-38803; [66-91]
+	(=daikanwa	    . 38803)	; &I-M-38803;
+	))
+      (shinjigen-1	  . 7325)
       (=ks-x1001	  . #x627A)	; &M-34046; [66-90]
       (=daikanwa	  . 34046)	; &I-M-34046;
       (=jef-china3	  . #x63E7)	; &I-JC3-63E7;
