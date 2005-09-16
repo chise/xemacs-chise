@@ -1,5 +1,39 @@
 2005-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R118-Bamboo.el (U+7B8E): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+7B8F): Likewise.
+	(U+7B90): Likewise.
+	(U+7B91): Add `<-formed' for M-39120.
+	(U+7B92): Use `->denotational' instead of `->subsumptive'.
+	(U+7B93): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (U+8278): Add `<-Zhouwen' for U+FA5E.
+	(U+8279): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+8278.
+	(U+FA5E): Use `<-denotational' for U+8279 instead of
+	`<-subsumptive' for <CJK RADICAL GRASS TWO>; add
+	`<-formed@component/connect-below' for U+8278; unify C4-2153,
+	JX2-7575, BC-8AFE, GT-39643, GT-K00671 and M-30639; add
+	`->Zhouwen' for U+8278.
+	(<CJK RADICAL GRASS TWO>): Use `<-denotational' for U+FA5E instead
+	of U+8279; separate C4-2153, JX2-7575, BC-8AFE, GT-39643,
+	GT-K00671 and M-30639; add `<-identical@component' for U+FA5E.
+	(U+FA5D): Use `<-denotational' for U+8279 instead of
+	`<-subsumptive' for <CJK RADICAL GRASS THREE>; unify JX2-7574,
+	GT-39645 and GT-K00569.
+	(<CJK RADICAL GRASS THREE>): Use `<-denotational' for U+FA5D
+	instead of U+8279; add `<-identical@component' for U+FA5D;
+	separate JX2-7574, GT-39645 and GT-K00569.
+	(U-00026AF3): Use `->denotational'.
+	(U-00026D1A): Likewise.
+	(M-31525): Use `<-denotational' for U-00026D1A; add `<-formed' for
+	J0-6D6B; add `<-same' for J0-6D6B.
+
+	* Ideograph-R142-Insect.el (U+45B8): Use `<-formed' instead of
+	`->ideographic-variants'.
+	(U-0002F9C0): Add `<-formed' for J0-6D7B.
+
 	* Ideograph-R122-Net.el (U+7F52): Add
 	`<-formed@component/connect-below' for U+7F51; add `<-wrong' for
 	U+7F51.
@@ -158,6 +192,9 @@
 	`->FOO*sources' when running with non-readable mode.
 
 2005-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R144-Walk-Enclosure.el (K0-627A): Add S1-7325; add
+	`<-formed' for K0-627B.
 
 	* Ideograph-R085-Water.el (U+6C35): Add
 	`<-formed@component/connect-right' for U+6C34; unify BC-8AF6.
