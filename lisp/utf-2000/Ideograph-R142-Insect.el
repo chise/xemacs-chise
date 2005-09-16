@@ -3460,19 +3460,18 @@
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
+    (<-formed
+     ((shinjigen-1	  . 7173)
+      (=ucs		  . #x86FE)	; 蛾
+      (=jis-x0208	  . #x326B)	; &I-J90-326B; [18-75]
+      ))
+    (<-formed*sources
+     shinjigen-1)
     (shinjigen-1	. 7174)
     (=ucs		. #x45B8)	; 䖸
     (=cns11643-3	. #x444B)	; &I-C3-444B; [36-43]
     (=jis-x0213-2-2000	. #x774F)	; &I-JX2-774F; [87-47]
     (=daikanwa		. 33083)	; &I-M-33083;
-    (->ideographic-variants
-     ((shinjigen-1	  . 7173)
-      (shinjigen-2	  . 7173)
-      (=ucs		  . #x86FE)	; 蛾
-      (=jis-x0208	  . #x326B)	; &I-J90-326B; [18-75]
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
     ))
 (define-char
   '((=>ucs		. #x45B9)	; 䖹
@@ -10220,6 +10219,10 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
+    (<-formed
+     ((=jis-x0208	  . #x6D7B)	; &GT-52182; [77-91]
+      (=daikanwa	  . 38949)	; &I-M-38949;
+      ))
     (=ucs		. #x2F9C0)	; 蟡
     (=cns11643-7	. #x425F)	; &I-C7-425F; [34-63]
     (=daikanwa		. 33594)	; &I-M-33594;
