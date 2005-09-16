@@ -1700,6 +1700,18 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
+    (<-formed
+     ((=jis-x0208	  . #x6D70)	; &GT-51977; [77-80]
+      (=ks-x1001	  . #x7D31)	; &I-K0-7D31; [93-17]
+      (=daikanwa	  . 38848)	; &I-M-38848;
+      ))
+    (<-same
+     ((=jis-x0208	  . #x6D70)	; &GT-51977; [77-80]
+      (=ks-x1001	  . #x7D31)	; &I-K0-7D31; [93-17]
+      (=daikanwa	  . 38848)	; &I-M-38848;
+      ))
+    (<-same*sources
+     jiyun database)
     (=jis-x0208@1978	. #x6B32)	; &GT-47018; [75-18]
     (=gt		. 47018)	; &I-GT-47018;
     (=gt-pj-6		. #x737B)	; &I-GT-47018; [83-91]
