@@ -1,3 +1,73 @@
+2005-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (U+8C9D): Add S1-7856.
+	(<CJK RADICAL C-SIMPLIFIED SHELL>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+8D1D): Add `<-simplified@CN' for U+8C9D; delete
+	`morohashi-daikanwa'.
+	(U-00027D24): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(U-00027D88): New character.
+	(M-36784): Add `<-denotational' for U-00027D88.
+	(C6-6264): Likewise; use `->subsumptive' to integrate IU-00027D88.
+
+	* Ideograph-R145-Clothes.el (U+8863): Use `->subsumptive'.
+	(C6-2553): Unify U-0002F9C4; use `<-denotational' for U+8863; add
+	`=>ucs*' for U+8863.
+	(U+8864): Use `->subsumptive'; add
+	`<-formed@component/connect-right' for U+8863.
+	(<CJK RADICAL CLOTHES>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R113-Spirit.el (U+793A): Unify B-A5DC.
+	(J0-3C28): Separate B-A5DC.
+	(U-00025688): Use `->denotational'.
+	(U+7979): Use `->denotational' instead of `->subsumptive'.
+	(U+410C): Use `->denotational' and `->subsumptive'; map to
+	M-24731.
+	(U+797A): Use `->denotational' instead of `->subsumptive'.
+	(U+797B): Likewise.
+	(U+410F): Use `->denotational'; map to M-24736.
+	(U-00025689): Use `->denotational'; map to M-24737.
+	(U+797C): Use `->denotational' instead of `->subsumptive'.
+	(U+797D): Likewise.
+	(U+797F): Likewise.
+	(J0-4F3D): Add S1-5557.
+	(J0-6349): Add S1-5641.
+	(J0-3658): Add S1-5556.
+	(U+7982): Use `->denotational' instead of `->subsumptive'.
+	(U+4110): Use `->subsumptive'; map to M-24745.
+	(U-0002568B): Use `->subsumptive'; map to M-24746.
+	(U-0002568A): Use `->denotational' and `->subsumptive'; map to
+	M-24747.
+	(U+7983): Use `->denotational' instead of `->subsumptive'.
+	(U+7987): Likewise.
+	(U+7988): Likewise.
+	(U+7989): Likewise.
+	(U+4113): Likewise.
+	(U+798A): Unify B-E2F9.
+	(U+798B): Unify B-E2FA.
+	(C2-4C42): Separate B-E2FA.
+	(U+4114): Use `->denotational' instead of `->subsumptive'.
+	(U+798C): Likewise.
+	(U+798D): Unify B-BAD7; modify hierarchy.
+	(U+798E): Unify B-BAD5.
+	(C1-697C): Separate B-BAD5.
+	(U+798F): Unify B-BAD6.
+	(U+FA1B): Add `<-formed' for J78-492F; add S1-5573.
+	(J0-4A21): Add S1-5572.
+	(G0-3823): Separate B-BAD6.
+	(U+7990): Use `->denotational' instead of `->subsumptive'.
+	(U+7991): Likewise.
+	(U+7992): Likewise.
+	(U+7993): Likewise.
+	(U+7994): Likewise.
+	(U+7995): Likewise.
+
+2005-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (J78-6B32): Add `<-formed' for J0-6D70;
+	add `<-same' for J0-6D70.
+
 2005-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el (U+7B8E): Use `->denotational' instead
