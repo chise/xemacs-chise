@@ -1,53 +1,77 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x8863)	; 衣
-    (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (shinjigen-2	. 7335)
-    (=jis-x0208		. #x3061)	; &GT-45972; [16-65]
-    (=ks-x1001		. #x6B7D)	; &I-K0-6B7D; [75-93]
-    (=big5		. #xA6E7)	; &I-B-A6E7;
-    (=gt		. 45972)	; &I-GT-45972;
-    (=gt-k		. 01559)	; &I-GT-K01559;
-    (=gt-pj-1		. #x3061)	; &I-GT-45972; [16-65]
-    (=daikanwa		. 34091)	; &I-M-34091;
-    (=ucs@jis		. #x8863)	; &GT-45972;
-    ))
-(define-char
-  '((morohashi-daikanwa	34091 0 0)
-    (ideographic-radical . 145)	; ⾐
+  '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8863)	; 衣
-    (=gb2312		. #x5242)	; &I-G0-5242; [50-34]
-    (=cns11643-1	. #x4868)	; &I-C1-4868; [40-72]
+    (=big5		. #xA6E7)	; &I-B-A6E7;
+    (->subsumptive
+     ((shinjigen-1	  . 7335)
+      (shinjigen-2	  . 7335)
+      (=jis-x0208	  . #x3061)	; &GT-45972; [16-65]
+      (=ks-x1001	  . #x6B7D)	; &I-K0-6B7D; [75-93]
+      (=gt		  . 45972)	; &I-GT-45972;
+      (=gt-k		  . 01559)	; &I-GT-K01559;
+      (=gt-pj-1		  . #x3061)	; &I-GT-45972; [16-65]
+      (=daikanwa	  . 34091)	; &I-M-34091;
+      (=ucs@jis		  . #x8863)	; &GT-45972;
+      )
+     ((=gb2312		  . #x5242)	; &C1-4868; [50-34]
+      (=cns11643-1	  . #x4868)	; &I-C1-4868; [40-72]
+      (=ucs@unicode	  . #x8863)	; &C1-4868;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	34091 0 1)
+  '((<-denotational
+     ((=ucs		  . #x8863)	; 衣
+      ))
+    (=>ucs*		. #x8863)	; 衣
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=cns11643-6	. #x2553)	; &C6-2553; [05-51]
+    (=ucs		. #x2F9C4)	; 衣
+    (=cns11643-6	. #x2553)	; &I-C6-2553; [05-51]
     ))
 (define-char
-  '((=>ucs		. #x8864)	; 衤
-    (ideographic-radical . 145)	; ⾐
+  '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=jis-x0212		. #x5C33)	; &M-34092; [60-19]
-    (=jis-x0213-2-2000	. #x7828)	; &I-JX2-7828; [88-08]
-    (=daikanwa		. 34092)	; &I-M-34092;
-    (=jef-china3	. #x63F0)	; &I-JC3-63F0;
-    (=ucs@jis		. #x8864)	; &M-34092;
-    ))
-(define-char
-  '((morohashi-daikanwa	34092 0 0)
-    (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x8863)	; 衣
+      ))
     (=ucs		. #x8864)	; 衤
-    (=gb2312		. #x7142)	; &I-G0-7142; [81-34]
+    (->subsumptive
+     ((<-formed@component/connect-right
+       ((=jis-x0208	    . #x3061)	; &GT-45972; [16-65]
+	(=ks-x1001	    . #x6B7D)	; &I-K0-6B7D; [75-93]
+	(=daikanwa	    . 34091)	; &I-M-34091;
+	))
+      (<-formed@component/connect-right*sources
+       daikanwa)
+      (=jis-x0212	  . #x5C33)	; &M-34092; [60-19]
+      (=jis-x0213-2-2000  . #x7828)	; &I-JX2-7828; [88-08]
+      (=daikanwa	  . 34092)	; &I-M-34092;
+      (=jef-china3	  . #x63F0)	; &I-JC3-63F0;
+      (=ucs@jis		  . #x8864)	; &M-34092;
+      )
+     ((=gb2312		  . #x7142)	; &CDP-8BB1; [81-34]
+      (=big5-cdp	  . #x8BB1)	; &I-CDP-8BB1;
+      (=ucs@unicode	  . #x8864)	; &CDP-8BB1;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8864)	; 衤
+      ))
+    (name		. "CJK RADICAL CLOTHES")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (total-strokes	 . 5)
+    (<-identical@component/connect-right
+     ((=ucs		  . #x8864)	; 衤
+      ))
+    (=ucs		. #x2EC2)	; ⻂
     ))
 (define-char
   '((=>ucs		. #x27608)	; 𧘈
