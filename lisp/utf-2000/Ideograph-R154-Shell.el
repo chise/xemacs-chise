@@ -3,6 +3,7 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (shinjigen-1	. 7856)
     (shinjigen-2	. 7856)
     (=ucs		. #x8C9D)	; 貝
     (=jis-x0208		. #x332D)	; &I-J90-332D; [19-13]
@@ -15,10 +16,26 @@
     (=daikanwa		. 36656)	; &I-M-36656;
     ))
 (define-char
-  '((morohashi-daikanwa	36656 0 5)
-    (ideographic-radical . 154)	; ⾙
+  '((<-denotational
+     ((=ucs		  . #x8D1D)	; 贝
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SHELL")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x8D1D)	; 贝
+      ))
+    (=ucs		. #x2EC9)	; ⻉
+    ))
+(define-char
+  '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=ucs		  . #x8C9D)	; 貝
+      (=gb12345		  . #x3134)	; 貝 [17-20]
+      ))
     (hanyu-dazidian	6 3622 2)
     (=ucs		. #x8D1D)	; 贝
     (=gb2312		. #x3134)	; &I-G0-3134; [17-20]
@@ -32,7 +49,7 @@
     (=daikanwa		. 36657)	; &M-36657;
     ))
 (define-char
-  '((morohashi-daikanwa	36657 0 1)
+  '((=>daikanwa		. 36657)	; &M-36657;
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
@@ -1882,14 +1899,29 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=daikanwa		. 36784)	; &M-36784;
+    (=ucs		. #x27D88)	; 𧶈
     ))
 (define-char
-  '((morohashi-daikanwa	36784 0 2)
+  '((<-denotational
+     ((=ucs		  . #x27D88)	; 𧶈
+      ))
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x6264)	; &C6-6264; [66-68]
+    (=daikanwa		. 36784)	; &M-36784;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27D88)	; 𧶈
+      ))
+    (ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
+    (->subsumptive
+     ((=ucs@iso		  . #x27D88)	; &U-00027D88;
+      )
+     ((=cns11643-6	  . #x6264)	; &C6-6264; [66-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
