@@ -3,6 +3,7 @@
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (shinjigen-1	. 8108)
     (shinjigen-2	. 8108)
     (=ucs		. #x8ECA)	; 車
     (=jis-x0208		. #x3C56)	; &I-J90-3C56; [28-54]
@@ -15,16 +16,36 @@
     (=daikanwa		. 38172)	; &I-M-38172;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x8F66)	; 车
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED CART")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x8F66)	; 车
+      ))
+    (=ucs		. #x2ECB)	; ⻋
+    (=big5-cdp		. #x8967)	; &I-CDP-8967;
+    ))
+(define-char
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=ucs		  . #x8ECA)	; 車
+      (=gb12345		  . #x3335)	; 車 [19-21]
+      ))
     (=ucs		. #x8F66)	; 车
     (=gb2312		. #x3335)	; &I-G0-3335; [19-21]
+    (=jef-china3	. #x81C7)	; &I-JC3-81C7;
     ))
 (define-char
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
+    (shinjigen-1	. 8109)
     (shinjigen-2	. 8109)
     (=ucs		. #x8ECB)	; 軋
     (=jis-x0208		. #x6D42)	; &I-J90-6D42; [77-34]
@@ -40,6 +61,10 @@
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
+    (<-simplified@CN
+     ((=ucs		  . #x8ECB)	; 軋
+      (=gb12345		  . #x547E)	; 軋 [52-94]
+      ))
     (=ucs		. #x8F67)	; 轧
     (=gb2312		. #x547E)	; &I-G0-547E; [52-94]
     ))
