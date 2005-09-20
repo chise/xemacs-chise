@@ -3,6 +3,7 @@
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
+    (shinjigen-1	. 9326)
     (shinjigen-2	. 9326)
     (=ucs		. #x99AC)	; 馬
     (=jis-x0208		. #x474F)	; &I-J90-474F; [39-47]
@@ -22,10 +23,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x99AC)	; 馬
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9A6C)	; 马
       ))
     (=ucs		. #x2EE2)	; ⻢
@@ -35,6 +33,10 @@
   '((ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=ucs		  . #x99AC)	; 馬
+      (=gb12345		  . #x426D)	; 馬 [34-77]
+      ))
     (=ucs		. #x9A6C)	; 马
     (=gb2312		. #x426D)	; &I-G0-426D; [34-77]
     (=jef-china3	. #x81EC)	; &I-JC3-81EC;
