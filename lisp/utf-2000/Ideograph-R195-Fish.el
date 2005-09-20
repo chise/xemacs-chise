@@ -3,6 +3,7 @@
   '((ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
+    (shinjigen-1	. 9533)
     (shinjigen-2	. 9533)
     (=ucs		. #x9B5A)	; 魚
     (=jis-x0208		. #x357B)	; &I-J90-357B; [21-91]
@@ -26,15 +27,20 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (=ucs		. #x29D4B)	; 𩵋
-    (=daikanwa		. 45958)	; &I-M-45958;
-    ))
-(define-char
-  '((=>ucs		. #x29D4B)	; 𩵋
-    (morohashi-daikanwa	45958 0 0)
-    (ideographic-radical . 195)	; ⿂
-    (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (=cns11643-4	. #x3043)	; &C4-3043; [16-35]
+    (->subsumptive
+     ((<-vulgar
+       ((shinjigen-1	    . 9533)
+	(=ucs		    . #x9B5A)	; 魚
+	(=jis-x0208	    . #x357B)	; &I-J90-357B; [21-91]
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (shinjigen-1	  . 9534)
+      (=daikanwa	  . 45958)	; &M-45958;
+      (=ucs@iso		  . #x29D4B)	; &M-45958;
+      )
+     ((=cns11643-4	  . #x3043)	; &C4-3043; [16-35]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -44,10 +50,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x9B5A)	; 魚
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9C7C)	; 鱼
       ))
     (=ucs		. #x2EE5)	; ⻥
@@ -57,6 +60,10 @@
   '((ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (<-simplified@CN
+     ((=ucs		  . #x9B5A)	; 魚
+      (=gb12345		  . #x5363)	; 魚 [51-67]
+      ))
     (=ucs		. #x9C7C)	; 鱼
     (=gb2312		. #x5363)	; &I-G0-5363; [51-67]
     ))
