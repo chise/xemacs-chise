@@ -1,4 +1,16 @@
+2005-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+35CD): Use `->subsumptive'.
+	(U+55B0): Use `->denotational' instead of `->subsumptive'.
+
 2005-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (U+8ECA): Add S1-8108.
+	(<CJK RADICAL C-SIMPLIFIED CART>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+8F66): Add `<-simplified@CN' for U+8ECA; unify JC3-81C7.
+	(U+8ECB): Add S1-8109.
+	(U+8F67): Add `<-simplified@CN' for U+8ECB.
 
 	* Ideograph-R154-Shell.el (U+8C9D): Add S1-7856.
 	(<CJK RADICAL C-SIMPLIFIED SHELL>): Copied from
@@ -392,6 +404,19 @@
 	add S1-7080.
 	(<CJK RADICAL TIGER>): Copied from
 	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R195-Fish.el (U+9B5A): Add S1-9533.
+	(U-00029D4B): Use `->subsumptive'.
+	(<CJK RADICAL C-SIMPLIFIED FISH>): Use `<-identical@component'
+	instead of `<-radical'; omit `<-ideographic-component-forms'.
+	(U+9C7C): Add `<-simplified@CN' for U+9B5A.
+
+2005-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U+99AC): Add S1-9326.
+	(<CJK RADICAL C-SIMPLIFIED HORSE>): Use `<-identical@component'
+	instead of `<-radical'; omit `<-ideographic-component-forms'.
+	(U+9A6C): Add `<-simplified@CN' for U+99AC.
 
 2005-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
