@@ -1,3 +1,12 @@
+2005-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (J0-3F49): Add S1-8196.
+	(GT-51556): Map to U-0002840B; add `<-same' for M-25722.
+	(C6-292B): Use `=>daikanwa' instead of `morohashi-daikanwa'; unify
+	U-0002840B and H10-F0FA.
+	(U-0002840C): Use `->subsumptive'.
+	(J0-6D64): Add `<-formed' for K0-792D; add S1-8202.
+
 2005-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+35CD): Use `->subsumptive'.
