@@ -1,3 +1,63 @@
+2005-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (U+8DB3): Add S1-7971.
+	(J78-4437): Add `<-formed' for K0-5431.
+	(M-37565): Add `<-formed' for JSP-613E and M-38879; add
+	`<-same@p1' for JSP-613E; add `<-same@p2' for M-38879.
+	(U+8E1B): Use `->denotational' and `->subsumptive'.
+	(U+8E1C): Likewise.
+	(M-37638): Unify C7-2944; unify U-0002F9DC; add `<-formed' for
+	JSP-6155; add `<-same@p1+p2' for JSP-6155.
+	(U+4809): Use `->subsumptive'.
+	(U+8E1D): Add S1-8017.
+	(U+8E1E): Add S1-8019.
+	(U+480A): Use `->denotational' and `->subsumptive'.
+	(U-00028082): Use `->subsumptive'.
+	(U+8E1F): Add S1-8024.
+	(U+8E20): Use `->subsumptive'.
+	(U+8E21): Use `->denotational'.
+	(U+8E22): Add `<-formed' for K0-7277; add `<-same' for K0-7277.
+	(U+8E23): Use `->subsumptive'.
+	(U+8E24): Likewise.
+	(U-00028083): Use `->denotational'.
+	(U-00028084): Likewise.
+	(U+8E25): Use `->subsumptive'.
+
+2005-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U-00024298): Use `->subsumptive'.
+	(U-0002429C): Likewise.
+	(U+716E): Add J97-3C51.
+	(M-19166): Add `=>ucs*' for U-00020525.
+	(U-0002F91B): Likewise; use `=>daikanwa' instead of
+	`morohashi-daikanwa'.
+	(U+713C): Add S1-4609.
+	(U-0002427B): Use `->subsumptive'.
+	(U-00024299): Likewise.
+	(U+3DCD): Likewise.
+	(U+71CE): Likewise.
+	(U+71CF): Use `->denotational' instead of `->subsumptive'.
+	(U-000243A6): Use `->subsumptive'.
+	(U+71D0): Likewise.
+	(U+71D1): Likewise.
+	(U-000243A7): Use `->subsumptive'.
+	(U+71D2): Use `->subsumptive'.
+	(U+71D3): Use `->subsumptive'.
+	(U-000243A8): Use `->denotational' and `->subsumptive'.
+	(U-000243F0): Use `->denotational'.
+	(U-000243A9): Use `->denotational' and `->subsumptive'.
+
+2005-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R168-Long.el (U+9577): Add S1-8793.
+	(<CJK RADICAL LONG ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9578): Add `<-formed' for U+9577.
+	(<CJK RADICAL LONG TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL C-SIMPLIFIED LONG>): Likewise.
+	(U+957F): Add `<-simplified@CN' for U+9577; unify JC3-81E1.
+
 2005-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (J0-3F49): Add S1-8196.
