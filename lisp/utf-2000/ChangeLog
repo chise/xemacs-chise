@@ -1,3 +1,23 @@
+2005-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+92DD): Use `->denotational'.
+
+	* Ideograph-R156-Run.el (C6-4F34): Unify U-00027EBA; add
+	`<-formed' for M-38736; add `<-same@s1' for U+47DB and M-38736;
+	add `<-same@s2' for J0-7231.
+	(C6-4F31): Map to U-00027EBB.
+	(U+47AC): Add `<-formed' for K0-7762; add `<-same' for K0-7762.
+	(U+8D9C): Use `->subsumptive'.
+	(U+47B3): Likewise.
+	(U+8D9D): Likewise.
+	(U-00027F0E): Use `->subsumptive'.
+	(U-00027F0F): Likewise.
+	(U-00027F10): Use `->subsumptive'.
+	(U+47B4): Use `->denotational'.
+	(U+8D9F): Likewise.
+	(U+47B5): Use `->subsumptive'.
+	(U+8DA0): Add `<-formed' for JSP-6158; add `<-same' for JSP-6158.
+
 2005-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el (U+8DB3): Add S1-7971.
