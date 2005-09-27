@@ -21,9 +21,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x95E8)	; 门
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED GATE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x95E8)	; 门
+      ))
+    (=ucs		. #x2ED4)	; ⻔
+    ))
+(define-char
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=jis-x0208	  . #x4C67)	; &GT-55423; [44-71]
+      (=ks-x1001	  . #x5A26)	; &I-K0-5A26; [58-06]
+      (=cns11643-1	  . #x4F5C)	; &I-C1-4F5C; [47-60]
+      (=gb12345		  . #x4345)	; &GT-55423; [35-37]
+      ))
     (=ucs		. #x95E8)	; 门
     (=gb2312		. #x4345)	; &I-G0-4345; [35-37]
     (=big5-cdp		. #x896B)	; &I-CDP-896B;
@@ -33,49 +52,54 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 9)
     (=ucs		. #x9581)	; 閁
-    (=cns11643-3	. #x2F40)	; &I-C3-2F40; [15-32]
-    (=daikanwa		. 41209)	; &I-M-41209;
-    ))
-(define-char
-  '((ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 1)
-    (total-strokes	 . 9)
-    (=daikanwa		. 41210)	; &M-41210;
-    ))
-(define-char
-  '((=>ucs		. #x9582)	; 閂
-    (ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 1)
-    (total-strokes	 . 9)
-    (=daikanwa		. 41211)	; &M-41211;
-    ))
-(define-char
-  '((morohashi-daikanwa	41211 0 0)
-    (ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 1)
-    (total-strokes	 . 9)
-    (shinjigen-2	. 8796)
-    (=ucs		. #x9582)	; 閂
-    (=jis-x0208		. #x6F59)	; &I-J90-6F59; [79-57]
-    (=cns11643-1	. #x536D)	; &I-C1-536D; [51-77]
-    (=gb12345		. #x6345)	; 閂 [67-37]
-    (=gt		. 55425)	; &I-GT-55425;
-    (=gt-k		. 05297)	; &I-GT-K05297;
-    (=gt-pj-1		. #x6F59)	; &I-GT-55425; [79-57]
-    ))
-(define-char
-  '((ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (=ucs		. #x95E9)	; 闩
-    (=gb2312		. #x6345)	; &I-G0-6345; [67-37]
+    (->subsumptive
+     ((=daikanwa	  . 41209)	; &M-41209;
+      )
+     ((=cns11643-3	  . #x2F40)	; &C3-2F40; [15-32]
+      (=ucs@unicode	  . #x9581)	; &C3-2F40;
+      ))
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 1)
     (total-strokes	 . 9)
     (=ucs		. #x28CC9)	; 𨳉
-    (=cns11643-5	. #x2B61)	; &I-C5-2B61; [11-65]
+    (->subsumptive
+     ((=daikanwa	  . 41210)	; &M-41210;
+      )
+     ((=cns11643-5	  . #x2B61)	; &C5-2B61; [11-65]
+      (=ucs@iso		  . #x28CC9)	; &C5-2B61;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 1)
+    (total-strokes	 . 9)
+    (=ucs		. #x9582)	; 閂
+    (->subsumptive
+     ((=daikanwa	  . 41211)	; &M-41211;
+      )
+     ((shinjigen-2	  . 8796)
+      (=jis-x0208	  . #x6F59)	; &GT-55425; [79-57]
+      (=cns11643-1	  . #x536D)	; &I-C1-536D; [51-77]
+      (=gb12345		  . #x6345)	; &GT-55425; [67-37]
+      (=gt		  . 55425)	; &I-GT-55425;
+      (=gt-k		  . 05297)	; &I-GT-K05297;
+      (=gt-pj-1		  . #x6F59)	; &I-GT-55425; [79-57]
+      (=ucs@unicode	  . #x9582)	; &GT-55425;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=jis-x0208	  . #x6F59)	; &GT-55425; [79-57]
+      (=cns11643-1	  . #x536D)	; &I-C1-536D; [51-77]
+      (=gb12345		  . #x6345)	; &GT-55425; [67-37]
+      ))
+    (=ucs		. #x95E9)	; 闩
+    (=gb2312		. #x6345)	; &I-G0-6345; [67-37]
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
