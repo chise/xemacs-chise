@@ -2433,6 +2433,15 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (<-ancient@r060
+     ((=ucs		  . #x5F81)	; 征
+      (=daikanwa	  . 10077)	; &I-M-10077;
+      ))
+    (<-ancient@r060*sources
+     jiyun daikanwa)
+    (<-ancient@r162
+     ((=daikanwa	  . 38796)	; &M-38796;
+      ))
     (=ucs		. #x5FB0)	; 徰
     (=jis-x0212		. #x3D35)	; &I-JSP-3D35; [29-21]
     (=cns11643-4	. #x3D34)	; &I-C4-3D34; [29-20]
