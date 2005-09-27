@@ -1,5 +1,13 @@
 2005-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R169-Gate.el (<CJK RADICAL C-SIMPLIFIED GATE>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+95E8): Add `<-simplified@CN' for G1-4345.
+	(U+9581): Use `->subsumptive'.
+	(U-00028CC9): Use `->subsumptive'; map to M-41210.
+	(U+9582): Use `->subsumptive'.
+	(U+95E9): Use `<-simplified@CN' for G1-6345.
+
 	* Ideograph-R167-Gold.el (U+92DD): Use `->denotational'.
 
 	* Ideograph-R156-Run.el (C6-4F34): Unify U-00027EBA; add
@@ -91,6 +99,13 @@
 
 	* Ideograph-R030-Mouth.el (U+35CD): Use `->subsumptive'.
 	(U+55B0): Use `->denotational' instead of `->subsumptive'.
+
+2005-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el (J0-736E): Add S1-9881.
+	(<CJK RADICAL C-SIMPLIFIED EVEN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(G0-466B): Add `<-simplified@CN' for G1-466B.
 
 2005-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -481,6 +496,13 @@
 	u02E00-CJK-Radical-Supplement.el.
 	(U+4EBB): Add `<-formed@component/connect-right' for U+4EBA; unify
 	BC-8AF5.
+
+2005-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (U+9F8D): Use `->subsumptive'.
+	(<CJK RADICAL C-SIMPLIFIED DRAGON>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9F99): Add `<-simplified@CN' for G1-417A.
 
 2005-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
