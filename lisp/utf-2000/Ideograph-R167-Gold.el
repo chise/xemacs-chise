@@ -4531,22 +4531,36 @@
     (=daikanwa		. 40469)	; &I-M-40469;
     ))
 (define-char
-  '((=>ucs		. #x92DD)	; 鋝
+  '((ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (=ucs		. #x92DD)	; 鋝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x92DD)	; 鋝
+      ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
+    (<-formed
+     ((=ks-x1001	  . #x6054)	; &M-39127; [64-52]
+      (=daikanwa	  . 39127)	; &I-M-39127;
+      ))
     (=jis-x0212		. #x6445)	; &M-40470; [68-37]
     (=daikanwa		. 40470)	; &I-M-40470;
     (=ucs@jis		. #x92DD)	; &M-40470;
     ))
 (define-char
-  '((morohashi-daikanwa	40470 0 2)
+  '((<-denotational
+     ((=ucs		  . #x92DD)	; 鋝
+      ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (=ucs		. #x92DD)	; 鋝
-    (=cns11643-2	. #x5538)	; &I-C2-5538; [53-24]
-    (=gb12345		. #x6F32)	; 鋝 [79-18]
+    (=cns11643-2	. #x5538)	; &C2-5538; [53-24]
+    (=gb12345		. #x6F32)	; &C2-5538; [79-18]
+    (=ucs@unicode	. #x92DD)	; &C2-5538;
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
