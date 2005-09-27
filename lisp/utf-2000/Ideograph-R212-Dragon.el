@@ -1,47 +1,48 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x9F8D)	; 龍
-    (ideographic-radical . 212)	; ⿓
-    (ideographic-strokes . 0)
-    (total-strokes	 . 16)
-    (shinjigen-1	. 9913)
-    (shinjigen-2	. 9913)
-    (=jis-x0208		. #x4E36)	; &GT-66672; [46-22]
-    (=ks-x1001		. #x5723)	; &I-K0-5723; [55-03]
-    (=gt		. 66672)	; &I-GT-66672;
-    (=gt-pj-1		. #x4E36)	; &I-GT-66672; [46-22]
-    (=daikanwa		. 48818)	; &I-M-48818;
-    (=ucs@jis		. #x9F8D)	; &GT-66672;
-    ))
-(define-char
-  '((morohashi-daikanwa	48818 0 0)
-    (ideographic-radical . 212)	; ⿓
+  '((ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (=ucs		. #x9F8D)	; 龍
-    (=gb12345		. #x417A)	; 龍 [33-90]
+    (->subsumptive
+     ((shinjigen-1	  . 9913)
+      (shinjigen-2	  . 9913)
+      (=jis-x0208	  . #x4E36)	; &GT-66672; [46-22]
+      (=ks-x1001	  . #x5723)	; &I-K0-5723; [55-03]
+      (=gt		  . 66672)	; &I-GT-66672;
+      (=gt-pj-1		  . #x4E36)	; &I-GT-66672; [46-22]
+      (=daikanwa	  . 48818)	; &I-M-48818;
+      (=ucs@jis		  . #x9F8D)	; &GT-66672;
+      )
+     ((=gb12345		  . #x417A)	; &UU+9F8D; [33-90]
+      (=ucs@unicode	  . #x9F8D)	; &UU+9F8D;
+      )
+     ((=cns11643-1	  . #x733E)	; &C1-733E; [83-30]
+      )
+     ((shinjigen-1	  . 9914)
+      (=jef-china3	  . #x70A4)	; &JC3-70A4;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9F8D)	; 龍
-    (morohashi-daikanwa	48818 0 1)
-    (ideographic-radical . 212)	; ⿓
-    (ideographic-strokes . 0)
-    (total-strokes	 . 16)
-    (=cns11643-1	. #x733E)	; &C1-733E; [83-30]
-    ))
-(define-char
-  '((=>ucs		. #x9F8D)	; 龍
-    (morohashi-daikanwa	48818 0 2)
-    (ideographic-radical . 212)	; ⿓
-    (ideographic-strokes . 0)
-    (total-strokes	 . 16)
-    (shinjigen-1	. 9914)
-    (=jef-china3	. #x70A4)	; &JC3-70A4;
+  '((<-denotational
+     ((=ucs		  . #x9F99)	; 龙
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED DRAGON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9F99)	; 龙
+      ))
+    (=ucs		. #x2EF0)	; ⻰
     ))
 (define-char
   '((ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (<-simplified@CN
+     ((=gb12345		  . #x417A)	; &UU+9F8D; [33-90]
+      ))
     (=ucs		. #x9F99)	; 龙
     (=gb2312		. #x417A)	; &I-G0-417A; [33-90]
     (=jef-china3	. #x82AD)	; &I-JC3-82AD;
