@@ -1,5 +1,22 @@
 2005-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R004-Slash.el, Ideograph-R001-One.el: Rename
+	`->bopomofo' to `->Bopomofo'.
+
+	* Ideograph-R030-Mouth.el (U+9EFE): Add `<-simplified@CN' for
+	G1-763C.
+
+2005-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el (U+9EA5): Use `->denotational'.
+	(U+9EA6): Add `<-simplified@CN' for G1-4273; add S1-9791.
+	(<CJK RADICAL SIMPLIFIED WHEAT>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R170-Mound.el (U+96A7): Use `->denotational'.
+	(U+96A8): Likewise.
+	(U+96A9): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R060-Step.el (U+5FB0): Add `<-ancient@r060' for
 	U+5F81; add `<-ancient@r162' for M-38796.
 
