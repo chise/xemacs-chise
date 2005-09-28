@@ -74,23 +74,28 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (->subsumptive
-     ((<-original
-       ((shinjigen-1	    . 9918)
-	(=jis-x0208@1983    . #x737D)	; &M-48847; [83-93]
-	(=ks-x1001	    . #x4F4F)	; &I-K0-4F4F; [47-47]
-	(=jis-x0208@1990    . #x737D)	; &I-J90-737D; [83-93]
-	(=daikanwa	    . 48847)	; &I-M-48847;
-	))
-      (<-original*sources
-       zhengzi-tong daikanwa shinjigen-1)
-      (shinjigen-1	  . 9919)
-      (=cns11643-7	  . #x2C3A)	; &M-48848; [12-26]
-      (=daikanwa	  . 48848)	; &I-M-48848;
-      )
-     ((=gb12345		  . #x396A)	; &UU+9F9C; [25-74]
-      (=ucs@unicode	  . #x9F9C)	; &UU+9F9C;
+    (=gb12345		. #x396A)	; &UU+9F9C; [25-74]
+    (=ucs@unicode	. #x9F9C)	; &UU+9F9C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F9C)	; 龜
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 15)
+    (<-original
+     ((shinjigen-1	  . 9918)
+      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
+      (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
+      (=daikanwa	  . 48847)	; &I-M-48847;
+      ))
+    (<-original*sources
+     zhengzi-tong daikanwa shinjigen-1)
+    (shinjigen-1	. 9919)
+    (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
+    (=daikanwa		. 48848)	; &I-M-48848;
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
@@ -100,9 +105,28 @@
     (=daikanwa		. 48849)	; &I-M-48849;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x9F9F)	; 龟
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED TURTLE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-compat
+     ((=ucs		  . #x9F9F)	; 龟
+      ))
+    (<-identical@component
+     ((=ucs		  . #x9F9F)	; 龟
+      ))
+    (=ucs		. #x2EF3)	; ⻳
+    ))
+(define-char
   '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (<-simplified@CN
+     ((=gb12345		  . #x396A)	; &UU+9F9C; [25-74]
+      ))
     (=ucs		. #x9F9F)	; 龟
     (=gb2312		. #x396A)	; &I-G0-396A; [25-74]
     ))
