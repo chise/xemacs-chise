@@ -1,4 +1,95 @@
+2005-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (<CJK RADICAL WALK ONE>): Add
+	`<-formed@component' for U+8FB5.
+	(U+8FB6): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+8FB5.
+	(JX2-7969): Unify U+FA66 instead of <CJK RADICAL SIMPLIFIED WALK>;
+	move BC-8966 to <CJK RADICAL SIMPLIFIED WALK>.
+	(<CJK RADICAL SIMPLIFIED WALK>): Use `<-denotational' for U+FA66
+	instead of U+8FB6; add `<-identical@component' for U+FA66; use
+	`<-simplified' instead of `<-simplified@component' for <CJK
+	RADICAL WALK ONE>; separate G0-6541, JX2-7969 and JC3-67A3.
+	(U+8FB7): Use `->denotational'.
+	(JSP-6136): Add `<-formed' for K0-5339; add `<-same' for M-01179
+	and K0-5339.
+	(UU+488C): Fix `total-strokes'.
+	(K0-504E): Add S1-8224.
+	(J0-3661): Add S1-8223.
+	(U-0002846B): Use `->denotational' instead of `->subsumptive'.
+	(JSP-6140): Add `<-formed' for M-38894.
+	(M-38776): Add `<-formed' for U+5F82; add S1-2342.
+	(JSP-6143): Use `<-same@p3' instead of `<-same' for JSP-6146; add
+	`<-formed' for JSP-6146.
+	(G0-6546): Fix `total-strokes'.
+	(J78-3260): Add `<-formed' for M-38987 and J0-6E30.
+	(J78-6D6E): Add `<-formed' for J78-4676.
+	(G0-6547): Use `<-denotational' for U+8FE9 instead of
+	`->subsumptive'.
+	(J83-4676): Likewise.
+	(U-0002848C): Use `->denotational'.
+	(M-38796): Use `<-denotational' for U-0002848C; add `<-formed' for
+	U+5F81; use `->ancient@r162' instead of `<-ancient' for U+5FB0.
+	(U-000284A8): Use `->denotational' instead of `->subsumptive'.
+	(U+8FF9): Use `->denotational'.
+	(U-000284AA): Likewise.
+	(U+489A): Use `->denotational'.
+	(U+9012): Use `->denotational'.
+	(U+9013): Likewise.
+	(J0-6D78): Add S1-8287.
+	(G0-6551): Add `total-strokes'.
+	(JSP-6150): Add `<-formed' for JSP-613B.
+	(K0-5641): Add `<-original' for C1-4947.
+	(U+901F): Add J97-422E.
+	(K0-615C): Use `->Large-Seal' for M-39080 instead of M-39079; add
+	`->Large-Seal*sources@daikanwa/fixed*note'; use `->subsumptive' to
+	integrate JC3-67C8.
+	(U+9020): Use `->denotational'.
+	(U+489D): Use `->denotational'.
+	(U+9033): Likewise.
+	(M-38981): Add `<-formed' for JSP-614E.
+	(U-00028523): Use `->denotational'.
+	(J0-6E22): Add S1-8320.
+	(U+48A2): Use `->denotational'.
+	(M-39041): Add `<-formed' for K0-7063.
+	(J0-6E2A): Add `<-formed' for J78-4042.
+	(U+48A4): Use `->denotational'.
+	(U+9062): Use `->denotational'.
+	(U+906A): Use `->denotational'.
+	(U+906B): Use `->denotational'.
+	(U+906C): Use `->denotational'.
+	(M-39081): Add `<-formed' for J0-6D71; add `<-same' for J0-6D71.
+	(J0-3D65): Use `->subsumptive'.
+	(U-000285B7): Use `->denotational' instead of `->subsumptive'.
+	(M-39139): Add `<-formed' for JSP-6154.
+	(U+48AD): Use `->denotational'.
+	(U+9080): Use `->denotational'.
+	(U+9081): Use `->denotational'.
+	(U+9082): Use `->denotational'.
+	(U+9083): Use `->denotational'.
+	(U+48AF): Use `->denotational'.
+	(M-39258): Add `<-formed' for M-39169.
+
+	* Ideograph-R001-One.el (U+4E07): Use `<-simplified@CN' and
+	`<-simplified@JP/Jouyou' instead of `<-simplified' for J0-685F.
+
 2005-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (G1-396A): Use `<-denotational' for
+	U+9F9C instead of `<-subsumptive'.
+	(C7-2C3A): Likewise.
+	(<CJK RADICAL C-SIMPLIFIED TURTLE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9F9F): Add `<-simplified@CN' for G1-396A.
+
+	* Ideograph-R205-Frog.el (U+9EFD): Use `->subsumptive'.
+	(U+9EFE): Add `<-simplified@CN' for G1-763C.
+	(<CJK RADICAL C-SIMPLIFIED FROG>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R196-Bird.el (U+9CE9): Use `->subsumptive'.
+
+	* Ideograph-R018-Knife.el: Rename `->bopomofo' to `->Bopomofo'.
 
 	* Ideograph-R004-Slash.el, Ideograph-R001-One.el: Rename
 	`->bopomofo' to `->Bopomofo'.
