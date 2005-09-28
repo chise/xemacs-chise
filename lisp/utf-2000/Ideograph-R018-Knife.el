@@ -214,7 +214,7 @@
     (=ucs		. #x206A3)	; 𠚣
     (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
     (=daikanwa		. 01851)	; &I-M-01851;
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER D")
       (=ucs		  . #x3109)	; ㄉ
       ))
