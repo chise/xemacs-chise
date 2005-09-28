@@ -3,19 +3,30 @@
   '((ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (shinjigen-2	. 9792)
     (=ucs		. #x9EA5)	; 麥
-    (=jis-x0208		. #x734E)	; &I-J90-734E; [83-46]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EA5)	; 麥
+      ))
+    (ideographic-radical . 199)	; ⿆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
+    (shinjigen-1	. 9792)
+    (shinjigen-2	. 9792)
+    (=jis-x0208		. #x734E)	; &GT-64933; [83-46]
     (=ks-x1001		. #x586A)	; &I-K0-586A; [56-74]
-    (=gb12345		. #x4273)	; 麥 [34-83]
+    (=gb12345		. #x4273)	; &GT-64933; [34-83]
     (=gt		. 64933)	; &I-GT-64933;
     (=gt-k		. 07988)	; &I-GT-K07988;
     (=gt-pj-1		. #x734E)	; &I-GT-64933; [83-46]
     (=daikanwa		. 47717)	; &I-M-47717;
+    (=ucs@jis		. #x9EA5)	; &GT-64933;
     ))
 (define-char
-  '((=>ucs		. #x9EA5)	; 麥
-    (morohashi-daikanwa	47717 0 0)
+  '((<-denotational
+     ((=ucs		  . #x9EA5)	; 麥
+      ))
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
@@ -25,10 +36,18 @@
   '((ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EA5)	; 麥
-      (=jis-x0208	  . #x734E)	; &I-J90-734E; [83-46]
+    (<-simplified@CN
+     ((=jis-x0208	  . #x734E)	; &GT-64933; [83-46]
+      (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
+      (=gb12345		  . #x4273)	; &GT-64933; [34-83]
+      (=daikanwa	  . 47717)	; &I-M-47717;
       ))
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x734E)	; &GT-64933; [83-46]
+      (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
+      (=daikanwa	  . 47717)	; &I-M-47717;
+      ))
+    (shinjigen-1	. 9791)
     (shinjigen-2	. 9791)
     (=ucs		. #x9EA6)	; 麦
     (=jis-x0208		. #x477E)	; &I-J90-477E; [39-94]
@@ -37,6 +56,19 @@
     (=gt-k		. 02633)	; &I-GT-K02633;
     (=gt-pj-1		. #x477E)	; &I-GT-64905; [39-94]
     (=daikanwa		. 47718)	; &I-M-47718;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED WHEAT")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
+    (=ucs		. #x2EE8)	; ⻨
     ))
 (define-char
   '((ideographic-radical . 199)	; ⿆
