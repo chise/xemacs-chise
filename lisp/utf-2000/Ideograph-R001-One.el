@@ -244,13 +244,15 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (<-simplified
+    (<-simplified@CN
      ((=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
       (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
       (=gb12345		  . #x4D72)	; &GT-41264; [45-82]
       ))
-    (<-simplified*sources
-     JP/Jouyou CN)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
+      (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
+      ))
     (hanyu-dazidian	1 9 3)
     (shinjigen-1	. 12)
     (shinjigen-2	. 12)
