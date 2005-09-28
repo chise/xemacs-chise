@@ -613,8 +613,7 @@
       (=jis-x0212	  . #x343C)	; &I-JSP-343C; [20-28]
       (=jis-x0213-1-2000  . #x2E70)	; &I-JX1-2E70; [14-80]
       ))
-    (<-ancient*denied
-     shuowen-tongxun-dingsheng daikanwa)
+    (<-ancient*denied	shuowen-tongxun-dingsheng daikanwa)
     (<-ancient*sources
      shinjigen-1)
     (shinjigen-1	. 840)
