@@ -6599,6 +6599,9 @@
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 5)
     (total-strokes	 . 8)
+    (<-simplified@CN
+     ((=gb12345		  . #x763C)	; &GT-65951; [86-28]
+      ))
     (=ucs		. #x9EFE)	; 黾
     (=gb2312		. #x763C)	; &I-G0-763C; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
