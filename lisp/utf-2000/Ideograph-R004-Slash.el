@@ -196,7 +196,7 @@
     (=gt-k		. 00107)	; &I-GT-K00107;
     (=gt-pj-2		. #x3079)	; &I-GT-00155; [16-89]
     (=daikanwa		. 00115)	; &I-M-00115;
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER U")
       (=ucs		  . #x3128)	; ㄨ
       ))

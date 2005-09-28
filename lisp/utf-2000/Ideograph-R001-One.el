@@ -68,7 +68,7 @@
     (=gt-pj-2		. #x3021)	; &I-GT-00003; [16-01]
     (=daikanwa		. 00003)	; &I-M-00003;
     (=jef-china3	. #x41A1)	; &I-JC3-41A1;
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER K")
       (=ucs		  . #x310E)	; ㄎ
       ))
@@ -84,7 +84,7 @@
     (total-strokes@gt	    . 4)
     (hanyu-dazidian	1 11 7)
     (=ucs		. #x20000)	; 𠀀
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER O")
       (=ucs		  . #x311B)	; ㄛ
       ))
@@ -111,7 +111,7 @@
     (=gt		. 00038)	; &GT-00038;
     (=gt-pj-2		. #x3023)	; &GT-00038; [16-03]
     (=daikanwa		. 00005)	; &I-M-00005;
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER E")
       (=ucs		  . #x311C)	; ㄜ
       ))
@@ -182,7 +182,7 @@
     (=gt		. 00005)	; &GT-00005;
     (=gt-pj-2		. #x3026)	; &GT-00005; [16-06]
     (=daikanwa		. 00009)	; &I-M-00009;
-    (->bopomofo
+    (->Bopomofo
      ((name		  . "BOPOMOFO LETTER C")
       (=ucs		  . #x3118)	; ㄘ
       ))
