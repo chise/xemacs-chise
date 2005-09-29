@@ -46,6 +46,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (name		. "CJK RADICAL CHOKE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (=ucs		. #x2E9B)	; ⺛
+    ))
+(define-char
   '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
