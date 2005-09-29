@@ -27,7 +27,7 @@
     (<-formed@component/connect-below
      ((=ucs		  . #x76EE)	; 目
       ))
-    (<-identical@component/connect-right
+    (<-identical@component/connect-below
      ((=big5-cdp	  . #x8B48)	; &GT-36329;
       ))
     (=ucs		. #x2EAB)	; ⺫
