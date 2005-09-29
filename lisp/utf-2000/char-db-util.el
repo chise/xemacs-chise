@@ -1020,14 +1020,23 @@
 		((and
 		  (not readable)
 		  (not (eq name '->subsumptive))
-		  (not (eq name '->bopomofo))
+		  (not (eq name '->uppercase))
+		  (not (eq name '->lowercase))
+		  (not (eq name '->titlecase))
+		  (not (eq name '->canonical))
+		  (not (eq name '->Bopomofo))
 		  (not (eq name '->mistakable))
 		  (not (eq name '->ideographic-variants))
-		  (not (eq name '->canonical))
 		  (null (get-char-attribute
 			 char (intern (format "%s*sources" name))))
 		  (not (string-match "\\*sources$" (symbol-name name)))
+		  (null (get-char-attribute
+			 char (intern (format "%s*note" name))))
+		  (not (string-match "\\*note$" (symbol-name name)))
 		  (or (eq name '<-identical)
+		      (eq name '<-uppercase)
+		      (eq name '<-lowercase)
+		      (eq name '<-titlecase)
 		      (eq name '<-canonical)
 		      (eq name '<-ideographic-variants)
                       ;; (eq name '<-synonyms)
@@ -1049,7 +1058,10 @@
 		     (eq name 'ideographic-)
 		     (eq name '=decomposition)
 		     (string-match "^=>decomposition" (symbol-name name))
-		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
+		     (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
+		     (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
+				   (symbol-name name))
+		     )
 		 (char-db-insert-relation-feature char name value
 						  line-breaking
 						  ccss readable))
@@ -1122,9 +1134,18 @@
 		 (insert ")")
 		 (insert line-breaking))
 		(t
-		 (insert (format "(%-18s . %S)%s"
-				 name value
-				 line-breaking)))
+                 (insert (format "(%-18s" name))
+		 (setq ret (prin1-to-string value))
+		 (unless (< (+ (current-column)
+			       (length ret)
+			       3)
+			    76)
+		   (insert line-breaking))
+		 (insert " . " ret ")" line-breaking)
+		 ;; (insert (format "(%-18s . %S)%s"
+                 ;;                 name value
+                 ;;                 line-breaking))
+		 )
 		))
       (setq attributes (cdr attributes)))
     (insert ")")))
