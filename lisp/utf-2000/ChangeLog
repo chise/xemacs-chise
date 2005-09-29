@@ -1,7 +1,54 @@
 2005-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (U+9F52): Add S1-9883.
+	(<CJK RADICAL C-SIMPLIFIED TOOTH>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9F7F): Add `<-simplified@CN' for U+9F52.
+	(U+9F53): Use `->subsumptive'.
+	(U+9F54): Use `->denotational'.
+	(U+9F80): Add `<-simplified@CN' for G1-7633.
+	(U+9F55): Use `->subsumptive'.
+	(U+4D94): Likewise.
+	(U-0002A5D9): Likewise.
+	(U+9F81): Add `<-simplified@CN' for UU+9F55.
+	(U+4D95): Use `->subsumptive'.
+
+2005-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002028A): Use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-strokes@{ucs|cns}', `ideographic-radical@cns',
+	`ideographic-radical@cns*sources' and `total-strokes'; use
+	`->subsumptive'; map to M-44018 and C6-3521.
+	(U-00029681): Moved to Ideograph-R184-Eat.el.
+	(U-00029683): Likewise.
+
 	* u03100-Bopomofo.el: Rename `<-bopomofo' to `<-Bopomofo'.
 	(<BOPOMOFO LETTER D>): Add `<-Bopomofo' for U-000206A3.
+
+	* Ideograph-R184-Eat.el (U+98DF): Use `->denotational'.
+	(<CJK RADICAL EAT ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(C6-347C): Add `<-original' for K0-635D.
+	(M-44016): Add `<-vulgar' for K0-635D; unify H1-C3C2; map to
+	U-00029681; use `->subsumptive'.
+	(C6-347E): Unify U-00029683 and H1-C3C5; add `<-ancient' for
+	K0-635D.
+	(M-44018): Add `<-original' for K0-635D; unify H1-C94D; map to
+	U-0002028A; use `->subsumptive'.
+	(<CJK RADICAL EAT TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL EAT THREE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL C-SIMPLIFIED EAT>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+98E0): Add `<-formed@component/connect-right' for U+98DF; use
+	`->denotational'.
+	(U+9963): Add `<-simplified@CN' for G1-623B; add
+	`<-simplified@CN/component/connect-right' for G0-4A33.
+	(GT-59030): Unify U-0002967F and JX2-7C4C; use
+	`<-formed@component/connect-right' for K0-635D instead of
+	`<-ideographic-component-forms' for U+98DF.
 
 	* Ideograph-R162-Walk.el (<CJK RADICAL WALK ONE>): Add
 	`<-formed@component' for U+8FB5.
