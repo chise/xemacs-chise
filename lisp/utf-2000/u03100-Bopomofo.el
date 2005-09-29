@@ -44,6 +44,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (<-Bopomofo
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
     (=ucs		. #x3109)	; ㄉ
     (=gb2312		. #x2849)	; &I-G0-2849; [08-41]
     (=cns11643-1	. #x254B)	; &I-C1-254B; [05-43]
@@ -95,7 +98,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x4E02)	; 丂
       ))
     (=ucs		. #x310E)	; ㄎ
@@ -199,8 +202,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
-     ((=daikanwa	  . 00009)	; &I-M-00009;
+    (<-Bopomofo
+     ((=gt		  . 00005)	; &GT-00005;
+      (=daikanwa	  . 00009)	; &I-M-00009;
       ))
     (=ucs		. #x3118)	; ㄘ
     (=gb2312		. #x2858)	; &I-G0-2858; [08-56]
@@ -233,7 +237,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x20000)	; 𠀀
       ))
     (=ucs		. #x311B)	; ㄛ
@@ -247,7 +251,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=gt		  . 00038)	; &GT-00038;
       (=daikanwa	  . 00005)	; &I-M-00005;
       ))
@@ -372,7 +376,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x3405)	; 㐅
       ))
     (=ucs		. #x3128)	; ㄨ
