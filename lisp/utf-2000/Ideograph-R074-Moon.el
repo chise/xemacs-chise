@@ -25,6 +25,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (name		. "CJK RADICAL MOON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (=ucs		. #x2E9D)	; ⺝
+    ))
+(define-char
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
