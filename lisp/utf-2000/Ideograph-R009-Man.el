@@ -11462,6 +11462,49 @@
     (=hanziku-1		. #xC440)	; &I-HZK01-C440;
     ))
 (define-char
+  '((ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 184)	; ⾷
+    (ideographic-strokes@cns . 0)
+    (ideographic-radical@cns*sources
+     cns11643 daikanwa)
+    (total-strokes	 . 9)
+    (=ucs		. #x2028A)	; 𠊊
+    (->subsumptive
+     ((<-original
+       ((=ks-x1001	    . #x635D)	; &GT-59026; [67-61]
+	(=cns11643-1	    . #x537A)	; &I-C1-537A; [51-90]
+	(=daikanwa	    . 44014)	; &I-M-44014;
+	))
+      (<-original*sources
+       zhonghua-dazidian daikanwa)
+      (hanyu-dazidian	  1 169 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
+	)
+       ((=jis-x0208	    . #x6225)	; &GT-29075; [66-05]
+	(=cns11643-3	    . #x2674)	; &I-C3-2674; [06-84]
+	(=daikanwa	    . 22683)	; &I-M-22683;
+	))
+      (=daikanwa	  . 44018)	; &M-44018;
+      (=hanziku-1	  . #xC94D)	; &I-HZK01-C94D;
+      (=ucs@iso		  . #x2028A)	; &M-44018;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
+	)
+       ((=big5-cdp	    . #x8ABE)	; &CDP-8ABE;
+	))
+      (=cns11643-6	  . #x3521)	; &C6-3521; [21-01]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -32743,20 +32786,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 169 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
-      )
-     ((=ucs		  . #x7680)	; 皀
-      ))
-    (=ucs		. #x2028A)	; 𠊊
-    (=hanziku-1		. #xC94D)	; &I-HZK01-C94D;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 169 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -33704,38 +33733,6 @@
       ))
     (=ucs		. #x29680)	; 𩚀
     (=hanziku-1		. #xC94E)	; &I-HZK01-C94E;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 155 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
-      )
-     ((=big5-cdp	  . #x8AB7)	; &CDP-8AB7;
-      ))
-    (=ucs		. #x29681)	; 𩚁
-    (=hanziku-1		. #xC3C2)	; &I-HZK01-C3C2;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 155 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((name		  . "CJK RADICAL DIVINATION")
-      (=ucs		  . #x2E8A)	; ⺊
-      )
-     ((=ucs		  . #x65E6)	; 旦
-      ))
-    (=ucs		. #x29683)	; 𩚃
-    (=hanziku-1		. #xC3C5)	; &I-HZK01-C3C5;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
