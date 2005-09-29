@@ -12743,7 +12743,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (->subsumptive
-     ((morohashi-daikanwa 39118 1)
+     ((morohashi-daikanwa	39118 1)
       (=jis-x0208	  . #x3D65)	; &GT-52530; [29-69]
       (=gt		  . 52530)	; &I-GT-52530;
       (=gt-pj-1		  . #x3D65)	; &I-GT-52530; [29-69]
