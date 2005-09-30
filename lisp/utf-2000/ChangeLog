@@ -1,5 +1,14 @@
 2005-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R078-Death.el (U-000239B6): Use `->subsumptive'.
+	(U-000239B5): Likewise.
+	(U+6B7A): Add `<-same' for U+6B79.
+	(<CJK RADICAL DEATH>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U-000239B7): Unify M-16363.
+	(U+3C59): Unify M-16364.
+	(U+6B7B): Use `->subsumptive'.
+
 	* u03100-Bopomofo.el (<BOPOMOFO LETTER P>): Add `<-Bopomofo' for
 	U+6535.
 
