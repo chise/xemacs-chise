@@ -1,3 +1,36 @@
+2005-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (BC-89AF): Use `<-denotational' for
+	U+9F99.
+
+	* Ideograph-R199-Wheat.el (U+9EA6): Use `->denotational'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'.
+	(J0-477E): Use `<-denotational' for U+9EA6; fix `total-strokes'.
+
+	* Ideograph-R184-Eat.el (K0-635D): Unify JC3-6DAB.
+
+	* Ideograph-R013-Down-Box.el (<ideographic component hood>): Use
+	`<-denotational' for U+5183; add `=>ucs' for <CJK RADICAL SUN>;
+	add `<-same@component/connect-below' for U+5183.
+
+	* Ideograph-R162-Walk.el (<CJK RADICAL WALK ONE>): Omit
+	`<-ideographic-component-forms' and
+	`<-ideographic-component-forms*sources' because
+	`<-formed@component' and `<-formed@component*sources' has been
+	already added.
+
+	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Use
+	`<-identical@component/connect-below' instead of
+	`<-identical@component/connect-right' for BC-8B48.
+
+	* Ideograph-R074-Moon.el (<CJK RADICAL MOON>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R071-Not.el (<CJK RADICAL CHOKE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 2005-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (U+9F52): Add S1-9883.
