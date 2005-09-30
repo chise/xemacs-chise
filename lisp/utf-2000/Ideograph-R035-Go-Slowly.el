@@ -108,38 +108,56 @@
     (=ucs@jis		. #x590B)	; &JX2-253A;
     ))
 (define-char
-  '((=>ucs		. #x21560)	; 𡕠
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=daikanwa		. 05712)	; &M-05712;
-    ))
-(define-char
-  '((morohashi-daikanwa	5712 0 0)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21560)	; 𡕠
-    (=cns11643-5	. #x2364)	; &I-C5-2364; [03-68]
+    (->subsumptive
+     ((=daikanwa	  . 05712)	; &M-05712;
+      )
+     ((=cns11643-5	  . #x2364)	; &C5-2364; [03-68]
+      (=ucs@iso		  . #x21560)	; &C5-2364;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x21561)	; 𡕡
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=daikanwa		. 05713)	; &M-05713;
-    ))
-(define-char
-  '((morohashi-daikanwa	5713 0 1)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21561)	; 𡕡
-    (=cns11643-5	. #x2363)	; &I-C5-2363; [03-67]
+    (->subsumptive
+     ((=daikanwa	  . 05713)	; &M-05713;
+      )
+     ((=cns11643-5	  . #x2363)	; &C5-2363; [03-67]
+      (=ucs@unicode	  . #x21561)	; &C5-2363;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9EA6)	; 麦
-    (morohashi-daikanwa	47718 0 0)
+  '((<-denotational
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED WHEAT")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
+    (=ucs		. #x2EE8)	; ⻨
+    ))
+(define-char
+  '((ideographic-radical@ucs . 199)	; ⿆
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 35)	; ⼢
+    (ideographic-strokes@cns . 4)
+    (total-strokes	 . 7)
+    (=ucs		. #x9EA6)	; 麦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
