@@ -18,6 +18,12 @@
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-left
+     ((=ucs		  . #x6534)	; 攴
+      (=daikanwa	  . 13108)	; &I-M-13108;
+      ))
+    (<-formed@component/connect-left*sources
+     zhengzitong daikanwa)
     (=ucs		. #x6535)	; 攵
     (=jis-x0208		. #x5A3E)	; &I-J90-5A3E; [58-30]
     (=gb2312		. #x6B36)	; &I-G0-6B36; [75-22]
@@ -27,6 +33,25 @@
     (=gt-k		. 00530)	; &I-GT-K00530;
     (=gt-pj-1		. #x5A3E)	; &I-GT-16577; [58-30]
     (=daikanwa		. 13109)	; &I-M-13109;
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER P")
+      (=ucs		  . #x3106)	; ㄆ
+      ))
+    (->Bopomofo*sources
+     daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (name		. "CJK RADICAL RAP")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component/connect-left
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs		. #x2E99)	; ⺙
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
