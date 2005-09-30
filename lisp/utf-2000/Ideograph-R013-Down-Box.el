@@ -67,13 +67,17 @@
     (=daikanwa		. 01508)	; &I-M-01508;
     ))
 (define-char
-  '((name*		. "ideographic component hood")
-    (=>ucs		. #x5183)	; 冃
-    (morohashi-daikanwa	1508 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (name*		. "ideographic component hood")
+    (=>ucs		. #x2E9C)	; ⺜
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (ideograph-cdp	. -412)
+    (<-same@component/connect-below
+     ((=ucs		  . #x5183)	; 冃
+      ))
     (=big5-cdp		. #x8A78)	; &CDP-8A78;
     ))
 (define-char
