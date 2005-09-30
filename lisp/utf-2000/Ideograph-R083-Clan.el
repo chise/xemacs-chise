@@ -51,6 +51,19 @@
     (=daikanwa		. 17028)	; &I-M-17028;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (name		. "CJK RADICAL CIVILIAN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (=ucs		. #x2EA0)	; ⺠
+    ))
+(define-char
   '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
