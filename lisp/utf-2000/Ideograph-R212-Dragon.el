@@ -48,7 +48,9 @@
     (=jef-china3	. #x82AD)	; &I-JC3-82AD;
     ))
 (define-char
-  '((=>ucs		. #x9F99)	; 龙
+  '((<-denotational
+     ((=ucs		  . #x9F99)	; 龙
+      ))
     (ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
