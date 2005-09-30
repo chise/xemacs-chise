@@ -1,3 +1,25 @@
+2005-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER P>): Add `<-Bopomofo' for
+	U+6535.
+
+	* Ideograph-R066-Rap.el (U+6535): Add
+	`<-formed@component/connect-left' for U+6534; add `->Bopomofo' for
+	<BOPOMOFO LETTER P>.
+	(U+2E99): Copied from u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021560): Use `->subsumptive'.
+	(U-00021561): Likewise.
+	(<CJK RADICAL SIMPLIFIED WHEAT>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+9EA6): Copied from Ideograph-R199-Wheat.el.
+	(C3-2547): Use `<-denotational' for U+9EA6.
+
+2005-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R083-Clan.el (<CJK RADICAL CIVILIAN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 2005-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el (BC-89AF): Use `<-denotational' for
