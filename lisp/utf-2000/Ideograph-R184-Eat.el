@@ -28,6 +28,7 @@
     (=gt-k		. 05344)	; &I-GT-K05344;
     (=gt-pj-8		. #x462F)	; &I-GT-59026; [38-15]
     (=daikanwa		. 44014)	; &I-M-44014;
+    (=jef-china3	. #x6DAB)	; &I-JC3-6DAB;
     ))
 (define-char
   '((<-denotational
