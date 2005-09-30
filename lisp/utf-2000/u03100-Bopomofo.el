@@ -14,6 +14,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (<-Bopomofo
+     ((=ucs		  . #x6535)	; 攵
+      ))
     (=ucs		. #x3106)	; ㄆ
     (=gb2312		. #x2846)	; &I-G0-2846; [08-38]
     (=cns11643-1	. #x2548)	; &I-C1-2548; [05-40]
