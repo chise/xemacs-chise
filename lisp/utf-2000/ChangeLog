@@ -1,5 +1,30 @@
 2005-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R052-Short-Thread.el (U+5E7A): Add S1-2160.
+	(<CJK RADICAL THREAD>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+5E7B): Add S1-2161.
+
+	* Ideograph-R013-Down-Box.el (GT-K00079): Use `=>daikanwa' instead
+	of `morohashi-daikanwa'; add `<-formed@component' for U+5182.
+	(<CJK RADICAL BOX>): Copied from u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R018-Knife.el (U-000206A3): Use `->Bopomofo*sources'
+	instead of `->bopomofo*sources'.
+
+2005-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el (U+6BCB): Use `->denotational'.
+	(U+6BCC): Add S1-4006; add `sound@ja/on'.
+	(U+6BCD): Add S1-4008; add `sound@ja/*'.
+	(<CJK RADICAL MOTHER>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+6BCE): Add `<-denotational' for J97-4B68.
+	(J97-4B68): New abstract character.
+	(U+6BCF): Add `<-denotational' for J97-4B68.
+	(U-00023AED): Use `->subsumptive'.
+	(U+6BD0): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R078-Death.el (U-000239B6): Use `->subsumptive'.
 	(U-000239B5): Likewise.
 	(U+6B7A): Add `<-same' for U+6B79.
