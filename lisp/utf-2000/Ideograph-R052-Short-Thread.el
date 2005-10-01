@@ -3,6 +3,7 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2160)
     (shinjigen-2	. 2160)
     (=ucs		. #x5E7A)	; 幺
     (=jis-x0208		. #x5676)	; &I-J90-5676; [54-86]
@@ -13,6 +14,19 @@
     (=gt-k		. 00225)	; &I-GT-K00225;
     (=gt-pj-1		. #x5676)	; &I-GT-11582; [54-86]
     (=daikanwa		. 09189)	; &I-M-09189;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
+    (name		. "CJK RADICAL THREAD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
+    (=ucs		. #x2E93)	; ⺓
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
@@ -27,6 +41,7 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (shinjigen-1	. 2161)
     (shinjigen-2	. 2161)
     (=ucs		. #x5E7B)	; 幻
     (=jis-x0208		. #x3838)	; &I-J90-3838; [24-24]
