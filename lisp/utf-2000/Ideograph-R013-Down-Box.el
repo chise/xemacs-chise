@@ -16,12 +16,29 @@
     ))
 (define-char
   '((=>ucs		. #x5182)	; 冂
-    (morohashi-daikanwa	1506 0 1)
+    (=>daikanwa		. 01506)	; 冂
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-formed@component
+     ((=ucs		  . #x5182)	; 冂
+      ))
     (=gt-k		. 00079)	; &GT-K00079;
     (=gt-pj-k1		. #x3D6D)	; &GT-K00079; [29-77]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (name		. "CJK RADICAL BOX")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (total-strokes	 . 2)
+    (<-identical@component
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=ucs		. #x2E86)	; ⺆
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
