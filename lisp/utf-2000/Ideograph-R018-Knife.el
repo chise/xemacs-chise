@@ -218,7 +218,7 @@
      ((name		  . "BOPOMOFO LETTER D")
       (=ucs		  . #x3109)	; ㄉ
       ))
-    (->bopomofo*sources
+    (->Bopomofo*sources
      daikanwa)
     ))
 (define-char
