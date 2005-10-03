@@ -76,6 +76,13 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-same
+     ((=jis-x0212	  . #x3C77)	; &GT-12503; [28-87]
+      (=cns11643-3	  . #x2140)	; &I-C3-2140; [01-32]
+      (=daikanwa	  . 09908)	; &I-M-09908;
+      ))
+    (<-same*sources
+     guangyun daikanwa)
     (=ucs		. #x5F51)	; 彑
     (=jis-x0208		. #x5740)	; &I-J90-5740; [55-32]
     (=cns11643-3	. #x2141)	; &I-C3-2141; [01-33]
@@ -84,6 +91,22 @@
     (=gt-k		. 00234)	; &I-GT-K00234;
     (=gt-pj-1		. #x5740)	; &I-GT-12504; [55-32]
     (=daikanwa		. 09909)	; &I-M-09909;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F51)	; 彑
+      ))
+    (name		. "CJK RADICAL SNOUT ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (<-identical@component
+     ((=ucs		  . #x5F51)	; 彑
+      ))
+    (=ucs		. #x2E94)	; ⺔
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
