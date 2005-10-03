@@ -1,3 +1,14 @@
+2005-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+5F51): Add `<-same' for JSP-3C77.
+	(<CJK RADICAL SNOUT ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R016-Table.el (<CJK RADICAL TABLE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(M-01738): Add `->mistakable' for U+513F and U+51E0.
+	(U-00020627): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+
 2005-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R049-Oneself.el (U+5DF1): Add S1-2069.
