@@ -1,5 +1,21 @@
 2005-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R043-Lame.el (U+5C22): Add J97-5577.
+	(<CJK RADICAL LAME THREE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+5C23): Use `->subsumptive'.
+	(<CJK RADICAL LAME TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(BC-8DEF): Use `<-denotational' for JSP-3A6D instead of `=>ucs'
+	for U+5C23; add `<-formed@component' for C1-4452; add
+	`<-identical@component' for JSP-3A6D.
+	(U-00021BC2): Use `->subsumptive'.
+	(<CJK RADICAL LAME FOUR>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(M-07542): Add `=>ucs*' for U+5140.
+	(<CJK RADICAL LAME ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 	* Ideograph-R058-Snout.el (U+5F51): Add `<-same' for JSP-3C77.
 	(<CJK RADICAL SNOUT ONE>): Copied from
 	u02E00-CJK-Radical-Supplement.el.
