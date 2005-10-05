@@ -1,5 +1,8 @@
 2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R137-Boat.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
 	* Ideograph-R123-Sheep.el (GT-K01701): Use
 	`<-formed@component/connect-right' instead of
 	`<-ideographic-component-forms' for U+7F8A.
