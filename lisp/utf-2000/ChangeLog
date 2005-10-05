@@ -1,5 +1,15 @@
 2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R122-Net.el (U-0002626A): Add
+	`<-formed@component/connect-below' for U+7F51; add `<-wrong' for
+	U+7F51.
+	(<CJK RADICAL NET THREE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL NET FOUR>): Likewise.
+	(U-0002626B): Add `<-formed@component/connect-below' for U+7F51.
+	(<CJK RADICAL MESH>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 	* Ideograph-R137-Boat.el: Add some mappings between CNS 11643-6
 	and CJK Ext-B code points.
 
