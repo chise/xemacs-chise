@@ -41,6 +41,22 @@
     (=daikanwa		. 29216)	; &I-M-29216;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x8080)	; 肀
+      ))
+    (name		. "CJK RADICAL BRUSH ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (<-identical@component
+     ((=ucs		  . #x8080)	; 肀
+      ))
+    (=ucs		. #x2EBA)	; ⺺
+    ))
+(define-char
   '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
