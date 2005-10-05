@@ -20,6 +20,12 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-formed@component/connect-right
+     ((=ucs		  . #x72AC)	; 犬
+      (=daikanwa	  . 20234)	; &I-M-20234;
+      ))
+    (<-formed@component/connect-right*sources
+     zihui/char-index daikanwa)
     (=ucs		. #x72AD)	; 犭
     (=gb2312		. #x616B)	; &I-G0-616B; [65-75]
     (=jis-x0212		. #x4A6D)	; &I-JSP-4A6D; [42-77]
@@ -27,6 +33,20 @@
     (=jis-x0213-2-2000	. #x703A)	; &I-JX2-703A; [80-26]
     (=daikanwa		. 20235)	; &I-M-20235;
     (=jef-china3	. #x58D2)	; &I-JC3-58D2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x72AD)	; 犭
+      ))
+    (name		. "CJK RADICAL DOG")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x72AD)	; 犭
+      ))
+    (=ucs		. #x2EA8)	; ⺨
+    (=big5-cdp		. #x8BAF)	; &I-CDP-8BAF;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
