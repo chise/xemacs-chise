@@ -144,9 +144,55 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-formed@component/connect-below*sources
+     zihui daikanwa)
+    (<-wrong
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa)
     (=ucs		. #x2626A)	; 𦉪
     (=cns11643-6	. #x2229)	; &I-C6-2229; [02-09]
     (=daikanwa		. 28202)	; &I-M-28202;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (name		. "CJK RADICAL NET THREE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component/connect-below
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (=ucs		. #x2EB3)	; ⺳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (name		. "CJK RADICAL NET FOUR")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component
+     ((=ucs		  . #x2626A)	; 𦉪
+      )
+     ((=ucs		  . #x34C1)	; 㓁
+      ))
+    (=ucs		. #x2EB4)	; ⺴
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
@@ -160,10 +206,32 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-formed@component/connect-below*sources
+     zihui/char-index daikanwa)
     (=ucs		. #x2626B)	; 𦉫
     (=cns11643-6	. #x2228)	; &I-C6-2228; [02-08]
     (=big5-cdp		. #x87DC)	; &I-CDP-87DC;
     (=daikanwa		. 28204)	; &I-M-28204;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2626B)	; 𦉫
+      ))
+    (name		. "CJK RADICAL MESH")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component
+     ((=ucs		  . #x2626B)	; 𦉫
+      ))
+    (=ucs		. #x2EB5)	; ⺵
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
