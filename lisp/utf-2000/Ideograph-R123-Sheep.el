@@ -75,7 +75,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=gt-k		. 01701)	; &GT-K01701;
@@ -86,7 +86,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8970)	; &CDP-8970;
@@ -96,7 +96,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
