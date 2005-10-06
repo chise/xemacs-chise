@@ -23,12 +23,18 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x8089)	; 肉
       ))
     (=ucs		. #x2EBC)	; ⺼
     (->subsumptive
-     ((=gt		  . 37857)	; &GT-37857;
+     ((<-formed@component/connect-right
+       ((=ucs		    . #x8089)	; 肉
+	(=daikanwa	    . 29236)	; &I-M-29236;
+	))
+      (<-formed@component/connect-right*sources
+       zihui/char-index zhengzitong daikanwa)
+      (=gt		  . 37857)	; &GT-37857;
       (=gt-pj-6		  . #x3879)	; &GT-37857; [24-89]
       (=daikanwa	  . 29237)	; &I-M-29237;
       )
@@ -36,7 +42,10 @@
       )
      ((=big5-cdp	  . #x8A73)	; &CDP-8A73;
       )
-     ((=big5-cdp	  . #x8958)	; &CDP-8958;
+     ((<-formed@component/connect-above
+       ((=ucs		    . #x8089)	; 肉
+	))
+      (=big5-cdp	  . #x8958)	; &CDP-8958;
       (=gt-k		  . 00417)	; &I-GT-K00417;
       (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
       ))
@@ -49,7 +58,7 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x8089)	; 肉
       ))
     (=big5-cdp		. #x88F0)	; &CDP-88F0;
