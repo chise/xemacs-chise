@@ -19,6 +19,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x96E8)	; 雨
+      ))
+    (name		. "CJK RADICAL RAIN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x96E8)	; 雨
+      ))
+    (=ucs		. #x2ED7)	; ⻗
+    ))
+(define-char
   '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 2)
     (total-strokes	 . 10)
