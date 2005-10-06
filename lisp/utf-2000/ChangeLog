@@ -1,5 +1,26 @@
 2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R173-Rain.el (<CJK RADICAL RAIN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R130-Meat.el (<CJK RADICAL MEAT>): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+8089.
+	(GT-37857): Add `<-formed@component/connect-right' for U+8089.
+	(BC-8958): Add `<-formed@component/connect-above' for U+8089.
+	(BC-88F0): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+8089.
+
+2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R129-Brush.el (<CJK RADICAL BRUSH ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R123-Sheep.el (<CJK RADICAL EWE>): Add `<-s/female'
+	for U+7F8A.
+
+2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R122-Net.el (U-0002626A): Add
 	`<-formed@component/connect-below' for U+7F51; add `<-wrong' for
 	U+7F51.
