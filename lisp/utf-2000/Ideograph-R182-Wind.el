@@ -20,9 +20,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x98CE)	; 风
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED WIND")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x98CE)	; 风
+      ))
+    (=ucs		. #x2EDB)	; ⻛
+    ))
+(define-char
   '((ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
+      (=ks-x1001	  . #x7926)	; &I-K0-7926; [89-06]
+      (=gb12345		  . #x3767)	; &GT-58717; [23-71]
+      (=daikanwa	  . 43756)	; &I-M-43756;
+      ))
     (=ucs		. #x98CE)	; 风
     (=gb2312		. #x3767)	; &I-G0-3767; [23-71]
     ))
