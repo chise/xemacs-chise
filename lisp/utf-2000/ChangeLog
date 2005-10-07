@@ -1,5 +1,35 @@
 2005-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R194-Ghost.el (U+9B3C): Use `->subsumptive'.
+	(<CJK RADICAL GHOST>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R183-Fly.el (<CJK RADICAL C-SIMPLIFIED FLY>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+98DE): Add `<-simplified@CN' for G1-3749; unify JC3-81F1;
+	separate BC-89F8.
+
+	* Ideograph-R182-Wind.el (<CJK RADICAL C-SIMPLIFIED WIND>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+98CE): Add `<-simplified@CN' for G1-3767.
+
+	* Ideograph-R181-Leaf.el (<CJK RADICAL C-SIMPLIFIED LEAF>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+9875): Add `<-simplified@CN' for U+9801.
+
+	* Ideograph-R178-Tanned-Leather.el (<CJK RADICAL C-SIMPLIFIED
+	TANNED LEATHER>): Copied from u02E00-CJK-Radical-Supplement.el.
+	(U+97E6): Add `<-simplified@CN' for G1-4E24.
+
+	* Ideograph-R174-Blue.el (J0-4044): Add `<-same' for K0-746C.
+	(<CJK RADICAL BLUE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R163-City.el (<CJK RADICAL CITY>): Use
+	`<-formed@component/connect-left' instead of
+	`<-ideographic-component-forms' for U+9091; add
+	`<-identical@component/connect-left' for U+961D.
+
 	* Ideograph-R173-Rain.el (<CJK RADICAL RAIN>): Copied from
 	u02E00-CJK-Radical-Supplement.el.
 
