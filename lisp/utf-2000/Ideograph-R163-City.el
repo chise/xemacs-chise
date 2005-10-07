@@ -33,8 +33,11 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-left
      ((=ucs		  . #x9091)	; 邑
+      ))
+    (<-identical@component/connect-left
+     ((=ucs		  . #x961D)	; 阝
       ))
     (=ucs		. #x2ECF)	; ⻏
     ))
