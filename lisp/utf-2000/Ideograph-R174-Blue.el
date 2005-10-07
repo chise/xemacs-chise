@@ -20,6 +20,12 @@
     (=ucs		. #x9752)	; 青
     (->subsumptive
      ((morohashi-daikanwa	42564 1)
+      (<-same
+       ((=ks-x1001	    . #x746C)	; &M-42564; [84-76]
+	(=daikanwa	    . 42564)	; &I-M-42564;
+	))
+      (<-same*sources
+       daikanwa)
       (=jis-x0208	  . #x4044)	; &GT-57125; [32-36]
       (=gb2312		  . #x4760)	; &I-G0-4760; [39-64]
       (=gt		  . 57125)	; &I-GT-57125;
@@ -29,6 +35,22 @@
       )
      ((=cns11643-1	  . #x4F65)	; &C1-4F65; [47-69]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9752)	; 青
+      ))
+    (name		. "CJK RADICAL BLUE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x9751)	; 靑
+      ))
+    (<-identical@component
+     ((=ucs		  . #x9752)	; 青
+      ))
+    (=ucs		. #x2ED8)	; ⻘
     ))
 (define-char
   '((ideographic-radical . 174)	; ⾭
