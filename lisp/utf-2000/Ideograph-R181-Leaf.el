@@ -22,9 +22,26 @@
     (=daikanwa		. 43334)	; &I-M-43334;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x9875)	; 页
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED LEAF")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9875)	; 页
+      ))
+    (=ucs		. #x2EDA)	; ⻚
+    ))
+(define-char
   '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (<-simplified@CN
+     ((=ucs		  . #x9801)	; 頁
+      (=gb12345		  . #x5233)	; 頁 [50-19]
+      ))
     (=ucs		. #x9875)	; 页
     (=gb2312		. #x5233)	; &I-G0-5233; [50-19]
     ))
