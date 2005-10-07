@@ -105,6 +105,26 @@
     (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
     ))
 (define-char
+  '((name		. "CJK RADICAL RAM")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (<-s/male
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (=ucs		. #x2EB7)	; ⺷
+    (=big5-cdp		. #x8B4E)	; &I-CDP-8B4E;
+    (->mistakable
+     ((=ucs		  . #x2634C)	; 𦍌
+      ))
+    ))
+(define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
