@@ -1,26 +1,38 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x9B3C)	; 鬼
-    (ideographic-radical . 194)	; ⿁
+  '((ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (shinjigen-2	. 9516)
-    (=jis-x0208		. #x3534)	; &GT-61541; [21-20]
-    (=ks-x1001		. #x5021)	; &I-K0-5021; [48-01]
-    (=cns11643-1	. #x5870)	; &I-C1-5870; [56-80]
-    (=gt		. 61541)	; &I-GT-61541;
-    (=gt-k		. 06398)	; &I-GT-K06398;
-    (=gt-pj-1		. #x3534)	; &I-GT-61541; [21-20]
-    (=daikanwa		. 45758)	; &I-M-45758;
-    (=ucs@jis		. #x9B3C)	; &GT-61541;
+    (=ucs		. #x9B3C)	; 鬼
+    (->subsumptive
+     ((total-strokes	   . 10)
+      (shinjigen-2	  . 9516)
+      (=jis-x0208	  . #x3534)	; &GT-61541; [21-20]
+      (=ks-x1001	  . #x5021)	; &I-K0-5021; [48-01]
+      (=cns11643-1	  . #x5870)	; &I-C1-5870; [56-80]
+      (=gt		  . 61541)	; &I-GT-61541;
+      (=gt-k		  . 06398)	; &I-GT-K06398;
+      (=gt-pj-1		  . #x3534)	; &I-GT-61541; [21-20]
+      (=daikanwa	  . 45758)	; &I-M-45758;
+      (=ucs@jis		  . #x9B3C)	; &GT-61541;
+      )
+     ((total-strokes	   . 9)
+      (=gb2312		  . #x396D)	; &G0-396D; [25-77]
+      (=ucs@unicode	  . #x9B3C)	; &G0-396D;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	45758 0 1)
-    (ideographic-radical . 194)	; ⿁
-    (ideographic-strokes . 0)
-    (total-strokes	 . 9)
-    (=ucs		. #x9B3C)	; 鬼
-    (=gb2312		. #x396D)	; &I-G0-396D; [25-77]
+  '((<-denotational
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
+    (name		. "CJK RADICAL GHOST")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
+    (=ucs		. #x2EE4)	; ⻤
+    (=big5-cdp		. #x8A5D)	; &I-CDP-8A5D;
     ))
 (define-char
   '((ideographic-radical . 194)	; ⿁
