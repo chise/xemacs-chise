@@ -45,9 +45,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-formed@component
-     ((=ucs		  . #x7CF8)	; 糸
-      ))
     (<-formed@component/connect-right
      ((=ucs		  . #x7CF8)	; 糸
       ))
