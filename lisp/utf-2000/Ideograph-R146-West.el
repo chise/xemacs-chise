@@ -34,10 +34,38 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 34763)	; &GT-46803;
-    (ideographic-radical . 146)	; ⾑
+  '((<-denotational
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (name		. "CJK RADICAL WEST TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (=ucs		. #x2EC4)	; ⻄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8980)	; 覀
+      ))
+    (name		. "CJK RADICAL WEST ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x8980)	; 覀
+      ))
+    (=ucs		. #x2EC3)	; ⻃
+    ))
+(define-char
+  '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (<-formed@component
+     ((=ucs		  . #x897F)	; 西
+      ))
     (=ucs		. #x8980)	; 覀
     (->subsumptive
      ((=big5-cdp	  . #x8BD5)	; &CDP-8BD5;
