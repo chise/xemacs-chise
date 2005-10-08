@@ -1,3 +1,28 @@
+2005-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el (U+89D2): Use `->denotational' instead of
+	`->subsumptive'.
+	(<CJK RADICAL SIMPLIFIED HORN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U-000278B2): Use `->subsumptive'.
+
+	* Ideograph-R147-See.el (<CJK RADICAL C-SIMPLIFIED SEE>): Copied
+	from u02E00-CJK-Radical-Supplement.el.
+	(U+89C1): Add `<-simplified@CN' for G1-3C7B.
+
+	* Ideograph-R146-West.el (<CJK RADICAL WEST TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL WEST ONE>): Likewise.
+	(U+8980): Add `<-formed@component' for U+897F.
+
+	* Ideograph-R120-Silk.el (<CJK RADICAL SILK>): Delete
+	`<-formed@component' for U+7CF8 because
+	`<-formed@component/connect-right' for U+7CF8 has been already
+	added.
+
+	* Ideograph-R013-Down-Box.el (<CJK RADICAL SUN>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 2005-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R123-Sheep.el (<CJK RADICAL RAM>): Copied from
