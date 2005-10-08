@@ -4,21 +4,47 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=ucs		. #x89D2)	; 角
-    (->subsumptive
-     ((shinjigen-2	  . 7510)
-      (=jis-x0208	  . #x3351)	; &GT-47107; [19-49]
-      (=ks-x1001	  . #x4A47)	; &I-K0-4A47; [42-39]
-      (=cns11643-1	  . #x4B45)	; &I-C1-4B45; [43-37]
-      (=big5		  . #xA8A4)	; &I-B-A8A4;
-      (=gt		  . 47107)	; &I-GT-47107;
-      (=gt-k		  . 02511)	; &I-GT-K02511;
-      (=gt-pj-1		  . #x3351)	; &I-GT-47107; [19-49]
-      (=daikanwa	  . 35003)	; &I-M-35003;
-      (=ucs@jis		  . #x89D2)	; &GT-47107;
-      )
-     ((=gb2312		  . #x3D47)	; &G0-3D47; [29-39]
-      (=ucs@unicode	  . #x89D2)	; &G0-3D47;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x89D2)	; 角
       ))
+    (ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (shinjigen-2	. 7510)
+    (=jis-x0208		. #x3351)	; &GT-47107; [19-49]
+    (=ks-x1001		. #x4A47)	; &I-K0-4A47; [42-39]
+    (=cns11643-1	. #x4B45)	; &I-C1-4B45; [43-37]
+    (=big5		. #xA8A4)	; &I-B-A8A4;
+    (=gt		. 47107)	; &I-GT-47107;
+    (=gt-k		. 02511)	; &I-GT-K02511;
+    (=gt-pj-1		. #x3351)	; &I-GT-47107; [19-49]
+    (=daikanwa		. 35003)	; &I-M-35003;
+    (=ucs@jis		. #x89D2)	; &GT-47107;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x89D2)	; 角
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED HORN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x89D2)	; 角
+      ))
+    (=ucs		. #x2EC6)	; ⻆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x89D2)	; 角
+      ))
+    (ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (=gb2312		. #x3D47)	; &G0-3D47; [29-39]
+    (=ucs@unicode	. #x89D2)	; &G0-3D47;
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
@@ -35,10 +61,29 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
     (=ucs		. #x278B2)	; 𧢲
-    (=cns11643-6	. #x2E2E)	; &I-C6-2E2E; [14-14]
-    (=gt		. 47108)	; &I-GT-47108;
-    (=gt-pj-7		. #x3057)	; &I-GT-47108; [16-55]
-    (=daikanwa		. 35005)	; &I-M-35005;
+    (->subsumptive
+     ((=gt		  . 47108)	; &GT-47108;
+      (=gt-pj-7		  . #x3057)	; &GT-47108; [16-55]
+      (=daikanwa	  . 35005)	; &I-M-35005;
+      )
+     ((=ucs@iso		  . #x278B2)	; &U-000278B2;
+      )
+     ((=cns11643-6	  . #x2E2E)	; &C6-2E2E; [14-14]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x278B2)	; 𧢲
+      ))
+    (name		. "CJK RADICAL HORN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=gt		  . 47108)	; &GT-47108;
+      (=daikanwa	  . 35005)	; &I-M-35005;
+      ))
+    (=ucs		. #x2EC7)	; ⻇
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
