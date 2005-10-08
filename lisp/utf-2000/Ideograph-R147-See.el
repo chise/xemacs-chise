@@ -16,9 +16,27 @@
     (=daikanwa		. 34796)	; &I-M-34796;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x89C1)	; 见
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SEE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x89C1)	; 见
+      ))
+    (=ucs		. #x2EC5)	; ⻅
+    (=big5-cdp		. #x89A1)	; &I-CDP-89A1;
+    ))
+(define-char
   '((ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=ucs		  . #x898B)	; 見
+      (=gb12345		  . #x3C7B)	; 見 [28-91]
+      ))
     (=ucs		. #x89C1)	; 见
     (=gb2312		. #x3C7B)	; &I-G0-3C7B; [28-91]
     ))
