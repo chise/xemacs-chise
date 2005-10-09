@@ -1,5 +1,16 @@
 2005-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R149-Speech.el (U+8A01): Add `<-denotational' for
+	G0-5154; add `<-identical@component' for G0-5154.
+	(U-0002795B): Use `->subsumptive'.
+	(U-0002795C): Likewise.
+	(<CJK RADICAL C-SIMPLIFIED SPEECH>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(U+8BA0): Add `<-simplified@CN' for U+8A01; add
+	`<-simplified@CN/component' for G0-5154; unify BC-8963.
+
+2005-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u02E00-CJK-Radical-Supplement.el:
 	- Use `<-formed@component' instead of
 	  `<-ideographic-component-forms'.
