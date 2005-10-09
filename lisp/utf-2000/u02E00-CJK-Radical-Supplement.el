@@ -4,7 +4,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x20120)	; 𠄠
       ))
     (=ucs		. #x2E80)	; ⺀
@@ -14,7 +14,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x5382)	; 厂
       ))
     (=ucs		. #x2E81)	; ⺁
@@ -24,7 +24,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-unknown
      ((=ucs		  . #x4E5B)	; 乛
       ))
     (=ucs		. #x2E82)	; ⺂
@@ -35,11 +35,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 1)
-    (<-radical
-     ((=ucs		  . #x4E5A)	; 乚
-      ))
     (=ucs		. #x2E83)	; ⺃
     (=big5-cdp		. #x8C5D)	; &I-CDP-8C5D;
+    (->mistakable
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL SECOND THREE")
@@ -59,27 +59,29 @@
     (=gt-pj-k1		. #x302D)	; &GT-K00007; [16-13]
     ))
 (define-char
-  '((name		. "CJK RADICAL PERSON")
+  '((<-denotational
+     ((=ucs		  . #x4EBB)	; 亻
+      ))
+    (name		. "CJK RADICAL PERSON")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x4EBA)	; 人
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x4EBB)	; 亻
       ))
     (=ucs		. #x2E85)	; ⺅
-    (=big5-cdp		. #x8AF5)	; &I-CDP-8AF5;
     ))
 (define-char
-  '((name		. "CJK RADICAL BOX")
+  '((<-denotational
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (name		. "CJK RADICAL BOX")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5182)	; 冂
       ))
     (=ucs		. #x2E86)	; ⺆
@@ -92,12 +94,15 @@
     (=gt-pj-k1		. #x3D6C)	; &CDP-8BF2; [29-76]
     ))
 (define-char
-  '((name		. "CJK RADICAL TABLE")
+  '((<-denotational
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (name		. "CJK RADICAL TABLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x51E0)	; 几
       ))
     (=ucs		. #x2E87)	; ⺇
@@ -111,7 +116,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x5200)	; 刀
       ))
     (=ucs		. #x2E88)	; ⺈
@@ -119,19 +124,17 @@
     (=gt-pj-k1		. #x3234)	; ⺈ [18-20]
     ))
 (define-char
-  '((name		. "CJK RADICAL KNIFE TWO")
+  '((<-denotational
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (name		. "CJK RADICAL KNIFE TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x5200)	; 刀
-      ))
-    (<-radical
+    (<-identical@component/connect-left
      ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x2E89)	; ⺉
-    (=big5-eten		. #xC87D)	; &B-C87D;
-    (=ucs@big5		. #x5202)	; ⺉
     ))
 (define-char
   '((name		. "CJK RADICAL DIVINATION")
@@ -139,7 +142,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x535C)	; 卜
       ))
     (=ucs		. #x2E8A)	; ⺊
@@ -155,24 +158,20 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-above
      ((=ucs		  . #x5369)	; 卩
       ))
-    (<-radical
+    (<-identical@component/connect-above
      ((=ucs		  . #x353E)	; 㔾
       ))
     (=ucs		. #x2E8B)	; ⺋
-    ))
-(define-char
-  '((=>ucs		. #x353E)	; 㔾
-    (=jef-china3	. #x71F7)	; &JC3-71F7;
     ))
 (define-char
   '((name		. "CJK RADICAL SMALL ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
     (=ucs		. #x2E8C)	; ⺌
@@ -182,7 +181,7 @@
     ))
 (define-char
   '((=>ucs		. #x2E8C)	; ⺌
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
     (=gt-k		. 00305)	; &GT-K00305;
@@ -193,7 +192,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
     (=ucs		. #x2E8D)	; ⺍
@@ -201,281 +200,342 @@
     (=gt-pj-k1		. #x3251)	; ⺍ [18-49]
     ))
 (define-char
-  '((name		. "CJK RADICAL LAME ONE")
+  '((<-denotational
+     ((=daikanwa	  . 07542)	; &M-07542;
+      ))
+    (name		. "CJK RADICAL LAME ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((=ucs		  . #x5140)	; 兀
+    (<-formed@component
+     ((=ucs		  . #x5C22)	; 尢
+      ))
+    (<-identical@component
+     ((=daikanwa	  . 07542)	; &M-07542;
       ))
     (=ucs		. #x2E8E)	; ⺎
     ))
 (define-char
-  '((name		. "CJK RADICAL LAME TWO")
+  '((<-denotational
+     ((=ucs		  . #x5C23)	; 尣
+      ))
+    (name		. "CJK RADICAL LAME TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5C23)	; 尣
       ))
     (=ucs		. #x2E8F)	; ⺏
     ))
 (define-char
-  '((name		. "CJK RADICAL LAME THREE")
+  '((<-denotational
+     ((=ucs		  . #x5C22)	; 尢
+      ))
+    (name		. "CJK RADICAL LAME THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5C22)	; 尢
       ))
     (=ucs		. #x2E90)	; ⺐
     ))
 (define-char
-  '((name		. "CJK RADICAL LAME FOUR")
+  '((<-denotational
+     ((=ucs		  . #x21BC2)	; 𡯂
+      ))
+    (name		. "CJK RADICAL LAME FOUR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((=ucs		  . #x21BC2)	; 𡯂
+    (<-identical@component
+     ((=daikanwa	  . 07541)	; &M-07541;
       ))
     (=ucs		. #x2E91)	; ⺑
     ))
 (define-char
-  '((name		. "CJK RADICAL SNAKE")
+  '((<-denotational
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (name		. "CJK RADICAL SNAKE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5DF3)	; 巳
       ))
     (=ucs		. #x2E92)	; ⺒
     ))
 (define-char
-  '((name		. "CJK RADICAL THREAD")
+  '((<-denotational
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
+    (name		. "CJK RADICAL THREAD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5E7A)	; 幺
       ))
     (=ucs		. #x2E93)	; ⺓
     ))
 (define-char
-  '((name		. "CJK RADICAL SNOUT ONE")
+  '((<-denotational
+     ((=ucs		  . #x5F51)	; 彑
+      ))
+    (name		. "CJK RADICAL SNOUT ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-formed@component
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (<-identical@component
      ((=ucs		  . #x5F51)	; 彑
       ))
     (=ucs		. #x2E94)	; ⺔
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F50)	; 彐
+     ((=gt-k		  . 00266)	; &GT-K00266;
       ))
     (name		. "CJK RADICAL SNOUT TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((=ucs		  . #x5F50)	; 彐
-      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x2E95)	; ⺕
-    (=gt-k		. 00266)	; &I-GT-K00266;
-    (=gt-pj-k1		. #x3663)	; ⺕ [22-67]
+    (=gb2312		. #x6566)	; &I-G0-6566; [69-70]
+    (=ucs@unicode	. #x5F50)	; ⺕
     ))
 (define-char
   '((<-denotational
-     ((name		  . "CJK RADICAL SNOUT TWO")
-      (=ucs		  . #x2E95)	; ⺕
+     ((=ucs		  . #x5F50)	; 彐
       ))
+    (=>ucs		. #x2E95)	; ⺕
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=gt-k		. 00266)	; &GT-K00266;
+    (=gt-pj-k1		. #x3663)	; &GT-K00266; [22-67]
+    ))
+(define-char
+  '((<-denotational
+     ((=gt-k		  . 00266)	; &GT-K00266;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=big5-cdp		. #x897C)	; &CDP-897C;
     ))
 (define-char
-  '((name		. "CJK RADICAL HEART ONE")
+  '((<-denotational
+     ((=ucs		  . #x5FC4)	; 忄
+      ))
+    (name		. "CJK RADICAL HEART ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x5FC3)	; 心
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x5FC4)	; 忄
       ))
     (=ucs		. #x2E96)	; ⺖
-    (=big5-cdp		. #x8B51)	; &I-CDP-8B51;
-    (=gt		. 12992)	; &I-GT-12992;
-    (=gt-k		. 00302)	; &I-GT-K00302;
-    (=gt-pj-3		. #x4D5F)	; &I-GT-12992; [45-63]
     ))
 (define-char
-  '((name		. "CJK RADICAL HEART TWO")
+  '((<-denotational
+     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
+      ))
+    (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x5FC3)	; 心
-      ))
-    (<-radical
-     ((=ucs		  . #x38FA)	; 㣺
+    (<-identical@component/connect-above
+     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
       ))
     (=ucs		. #x2E97)	; ⺗
     ))
 (define-char
-  '((name		. "CJK RADICAL HAND")
+  '((<-denotational
+     ((=ucs		  . #x624C)	; 扌
+      ))
+    (name		. "CJK RADICAL HAND")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x624B)	; 手
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x624C)	; 扌
       ))
     (=ucs		. #x2E98)	; ⺘
-    (=big5-cdp		. #x8AFA)	; &I-CDP-8AFA;
     ))
 (define-char
-  '((name		. "CJK RADICAL RAP")
+  '((<-denotational
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (name		. "CJK RADICAL RAP")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component/connect-left
      ((=ucs		  . #x6535)	; 攵
       ))
     (=ucs		. #x2E99)	; ⺙
     ))
 (define-char
-  '((name		. "CJK RADICAL CHOKE")
+  '((<-denotational
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (name		. "CJK RADICAL CHOKE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x65E1)	; 旡
       ))
     (=ucs		. #x2E9B)	; ⺛
     ))
 (define-char
-  '((name		. "CJK RADICAL SUN")
+  '((<-denotational
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+      ))
+    (name		. "CJK RADICAL SUN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((=big5-cdp	  . #x8A78)	; &CDP-8A78;
+    (<-identical@component/connect-below
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
       ))
     (=ucs		. #x2E9C)	; ⺜
     (=gt-k		. 00565)	; &I-GT-K00565;
     (=gt-pj-k1		. #x3229)	; ⺜ [18-09]
     ))
 (define-char
-  '((name		. "CJK RADICAL MOON")
+  '((<-denotational
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (name*		. "ideographic component hood")
+    (=>ucs		. #x2E9C)	; ⺜
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (<-same@component/connect-below
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (=big5-cdp		. #x8A78)	; &CDP-8A78;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (name		. "CJK RADICAL MOON")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6708)	; 月
       ))
     (=ucs		. #x2E9D)	; ⺝
     ))
 (define-char
-  '((name		. "CJK RADICAL DEATH")
+  '((<-denotational
+     ((=ucs		  . #x6B7A)	; 歺
+      ))
+    (name		. "CJK RADICAL DEATH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6B7A)	; 歺
       ))
     (=ucs		. #x2E9E)	; ⺞
     ))
 (define-char
-  '((name		. "CJK RADICAL MOTHER")
+  '((<-denotational
+     ((=ucs		  . #x6BCD)	; 母
+      ))
+    (name		. "CJK RADICAL MOTHER")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-compat
      ((=ucs		  . #x6BCD)	; 母
       ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6BCD)	; 母
       ))
     (=ucs		. #x2E9F)	; ⺟
     ))
 (define-char
-  '((name		. "CJK RADICAL CIVILIAN")
+  '((<-denotational
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (name		. "CJK RADICAL CIVILIAN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6C11)	; 民
       ))
     (=ucs		. #x2EA0)	; ⺠
     ))
 (define-char
-  '((name		. "CJK RADICAL WATER ONE")
+  '((<-denotational
+     ((=ucs		  . #x6C35)	; 氵
+      ))
+    (name		. "CJK RADICAL WATER ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x6C34)	; 水
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x6C35)	; 氵
       ))
     (=ucs		. #x2EA1)	; ⺡
-    (=big5-cdp		. #x8AF6)	; &I-CDP-8AF6;
     ))
 (define-char
-  '((name		. "CJK RADICAL WATER TWO")
+  '((<-denotational
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (name		. "CJK RADICAL WATER TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x6C34)	; 水
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6C3A)	; 氺
       ))
     (=ucs		. #x2EA2)	; ⺢
     (=big5-cdp		. #x8C43)	; &I-CDP-8C43;
     ))
 (define-char
-  '((name		. "CJK RADICAL FIRE")
+  '((<-denotational
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (name		. "CJK RADICAL FIRE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x706B)	; 火
-      ))
-    (<-radical
+    (<-identical@component/connect-above
      ((=ucs		  . #x706C)	; 灬
       ))
     (=ucs		. #x2EA3)	; ⺣
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x722B)	; 爫
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
+      (=ucs		  . #xFA49)	; 爫
       ))
     (name		. "CJK RADICAL PAW ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x2EA4)	; ⺤
-    (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
-    (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
-    (=ucs@unicode	. #x722B)	; ⺤
-    (=ucs@jis		. #xFA49)	; ⺤
-    (->subsumptive
+    (<-identical@component/connect-below
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA49")
-      (=>ucs*		  . #x722B)	; 爫
-      (->canonical
-       ((=ucs		    . #x722B)	; 爫
-	))
       (=ucs		  . #xFA49)	; 爫
       ))
+    (=ucs		. #x2EA4)	; ⺤
     ))
 (define-char
   '((<-denotational
@@ -485,7 +545,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component/connect-below
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x2EA5)	; ⺥
@@ -495,6 +555,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-same@component
+     ((=ucs		  . #x723F)	; 爿
+      ))
     (=ucs		. #x2EA6)	; ⺦
     ))
 (define-char
@@ -502,34 +565,40 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x725B)	; 牛
       ))
     (=ucs		. #x2EA7)	; ⺧
     (=big5-cdp		. #x8B66)	; &I-CDP-8B66;
     ))
 (define-char
-  '((name		. "CJK RADICAL DOG")
+  '((<-denotational
+     ((=ucs		  . #x72AD)	; 犭
+      ))
+    (name		. "CJK RADICAL DOG")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x72AD)	; 犭
       ))
     (=ucs		. #x2EA8)	; ⺨
     (=big5-cdp		. #x8BAF)	; &I-CDP-8BAF;
     ))
 (define-char
-  '((name		. "CJK RADICAL JADE")
+  '((<-denotational
+     ((=ucs		  . #x248E9)	; 𤣩
+      ))
+    (name		. "CJK RADICAL JADE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x738B)	; 王
       )
      ((=ucs		  . #x7389)	; 玉
       ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x248E9)	; 𤣩
       ))
     (=ucs		. #x2EA9)	; ⺩
@@ -541,25 +610,31 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x758B)	; 疋
       ))
     (=ucs		. #x2EAA)	; ⺪
     ))
 (define-char
   '((=>ucs		. #x2EAA)	; ⺪
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x758B)	; 疋
       ))
     (=big5-cdp		. #x8DC5)	; &CDP-8DC5;
     ))
 (define-char
-  '((name		. "CJK RADICAL EYE")
+  '((<-denotational
+     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+      ))
+    (name		. "CJK RADICAL EYE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x76EE)	; 目
+      ))
+    (<-identical@component/connect-below
+     ((=big5-cdp	  . #x8B48)	; &GT-36329;
       ))
     (=ucs		. #x2EAB)	; ⺫
     ))
@@ -568,7 +643,7 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x76EE)	; 目
       ))
     (=big5-cdp		. #x8B48)	; &GT-36329;
@@ -577,38 +652,37 @@
     (=gt-pj-5		. #x7264)	; &I-GT-36329; [82-68]
     ))
 (define-char
-  '((name		. "CJK RADICAL SPIRIT ONE")
+  '((<-denotational
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (name		. "CJK RADICAL SPIRIT ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x793A)	; 示
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x793A)	; 示
       ))
     (=ucs		. #x2EAC)	; ⺬
     ))
 (define-char
-  '((name		. "CJK RADICAL SPIRIT TWO")
+  '((<-denotational
+     ((=ucs		  . #x793B)	; 礻
+      ))
+    (name		. "CJK RADICAL SPIRIT TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x793A)	; 示
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x793B)	; 礻
       ))
     (=ucs		. #x2EAD)	; ⺭
-    (=big5-cdp		. #x8B70)	; &I-CDP-8B70;
     ))
 (define-char
   '((name		. "CJK RADICAL BAMBOO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x7AF9)	; 竹
       ))
     (=ucs		. #x2EAE)	; ⺮
@@ -624,14 +698,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x7CF8)	; 糸
       ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x7CF9)	; 糹
       ))
     (=ucs		. #x2EAF)	; ⺯
-    (=big5-cdp		. #x8AFB)	; &I-CDP-8AFB;
     ))
 (define-char
   '((<-denotational
@@ -641,18 +714,17 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x7CF8)	; 糸
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x7E9F)	; 纟
       ))
     (<-simplified@CN
      ((name		  . "CJK RADICAL SILK")
       (=ucs		  . #x2EAF)	; ⺯
       ))
+    (<-simplified@CN/component/connect-right
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
     (=ucs		. #x2EB0)	; ⺰
-    (=big5-cdp		. #x895B)	; &I-CDP-895B;
     ))
 (define-char
   '((<-denotational
@@ -665,44 +737,73 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-radical
+    (<-identical@component/connect-below
      ((=ucs		  . #x7F53)	; 罓
       ))
     (=ucs		. #x2EB1)	; ⺱
     (=ucs@unicode	. #x7F53)	; ⺱
     ))
 (define-char
-  '((name		. "CJK RADICAL NET TWO")
+  '((<-denotational
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (name		. "CJK RADICAL NET TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component/connect-below
      ((=ucs		  . #x7F52)	; 罒
       ))
     (=ucs		. #x2EB2)	; ⺲
     ))
 (define-char
-  '((name		. "CJK RADICAL NET THREE")
+  '((<-denotational
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (name		. "CJK RADICAL NET THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component/connect-below
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
     (=ucs		. #x2EB3)	; ⺳
     ))
 (define-char
-  '((name		. "CJK RADICAL NET FOUR")
+  '((<-denotational
+     ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (name		. "CJK RADICAL NET FOUR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-formed@component
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component
+     ((=ucs		  . #x2626A)	; 𦉪
+      )
      ((=ucs		  . #x34C1)	; 㓁
       ))
     (=ucs		. #x2EB4)	; ⺴
     ))
 (define-char
-  '((name		. "CJK RADICAL MESH")
+  '((<-denotational
+     ((=ucs		  . #x2626B)	; 𦉫
+      ))
+    (name		. "CJK RADICAL MESH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    (<-same@component
+     ((=ucs		  . #x2626B)	; 𦉫
+      ))
     (=ucs		. #x2EB5)	; ⺵
     ))
 (define-char
@@ -710,7 +811,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=ucs		. #x2EB6)	; ⺶
@@ -720,7 +821,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=gt-k		. 01701)	; &GT-K01701;
@@ -731,7 +832,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8970)	; &CDP-8970;
@@ -741,7 +842,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
@@ -751,14 +852,20 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->mistakable
-     ((=ucs		  . #x2634C)	; 𦍌
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F8A)	; 羊
       ))
-    (<-ideographic-component-forms
+    (<-s/male
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=ucs		. #x2EB7)	; ⺷
     (=big5-cdp		. #x8B4E)	; &I-CDP-8B4E;
+    (->mistakable
+     ((=ucs		  . #x2634C)	; 𦍌
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL EWE")
@@ -769,8 +876,8 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (->mistakable
-     ((=ucs		  . #x8289)	; 芉
+    (<-s/female
+     ((=ucs		  . #x7F8A)	; 羊
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -783,26 +890,35 @@
       ))
     (=ucs		. #x2EB8)	; ⺸
     (=cbeta		. 06151)	; &I-CB06151;
+    (->mistakable
+     ((=ucs		  . #x8289)	; 芉
+      ))
     ))
 (define-char
-  '((name		. "CJK RADICAL OLD")
+  '((<-denotational
+     ((=ucs		  . #x8002)	; 耂
+      ))
+    (name		. "CJK RADICAL OLD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x8001)	; 老
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x8002)	; 耂
       ))
     (=ucs		. #x2EB9)	; ⺹
     ))
 (define-char
-  '((name		. "CJK RADICAL BRUSH ONE")
+  '((<-denotational
+     ((=ucs		  . #x8080)	; 肀
+      ))
+    (name		. "CJK RADICAL BRUSH ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-formed@component
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (<-identical@component
      ((=ucs		  . #x8080)	; 肀
       ))
     (=ucs		. #x2EBA)	; ⺺
@@ -812,6 +928,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x807F)	; 聿
+      ))
     (=ucs		. #x2EBB)	; ⺻
     ))
 (define-char
@@ -822,12 +941,18 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x8089)	; 肉
       ))
     (=ucs		. #x2EBC)	; ⺼
     (->subsumptive
-     ((=gt		  . 37857)	; &GT-37857;
+     ((<-formed@component/connect-right
+       ((=ucs		    . #x8089)	; 肉
+	(=daikanwa	    . 29236)	; &I-M-29236;
+	))
+      (<-formed@component/connect-right*sources
+       zihui/char-index zhengzitong daikanwa)
+      (=gt		  . 37857)	; &GT-37857;
       (=gt-pj-6		  . #x3879)	; &GT-37857; [24-89]
       (=daikanwa	  . 29237)	; &I-M-29237;
       )
@@ -835,7 +960,10 @@
       )
      ((=big5-cdp	  . #x8A73)	; &CDP-8A73;
       )
-     ((=big5-cdp	  . #x8958)	; &CDP-8958;
+     ((<-formed@component/connect-above
+       ((=ucs		    . #x8089)	; 肉
+	))
+      (=big5-cdp	  . #x8958)	; &CDP-8958;
       (=gt-k		  . 00417)	; &I-GT-K00417;
       (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
       ))
@@ -848,7 +976,7 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x8089)	; 肉
       ))
     (=big5-cdp		. #x88F0)	; &CDP-88F0;
@@ -858,7 +986,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x26951)	; 𦥑
       ))
     (=ucs		. #x2EBD)	; ⺽
@@ -886,151 +1014,150 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
+      (=ucs		  . #xFA5E)	; 艹
       ))
     (name		. "CJK RADICAL GRASS TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x2EBF)	; ⺿
-    (=cns11643-4	. #x2153)	; &I-C4-2153; [01-51]
-    (=jis-x0213-2-2000	. #x7575)	; &I-JX2-7575; [85-85]
-    (=big5-cdp		. #x8AFE)	; &I-CDP-8AFE;
-    (=gt		. 39643)	; &I-GT-39643;
-    (=gt-k		. 00671)	; &I-GT-K00671;
-    (=gt-pj-6		. #x4664)	; &I-GT-39643; [38-68]
-    (=daikanwa		. 30639)	; &I-M-30639;
-    (=ucs@cns		. #x8279)	; ⺿
-    (=ucs@jis		. #xFA5E)	; ⺿
-    (->subsumptive
+    (<-identical@component
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
-      (=>ucs*		  . #x8279)	; 艹
-      (->canonical
-       ((=ucs		    . #x8279)	; 艹
-	))
       (=ucs		  . #xFA5E)	; 艹
       ))
+    (=ucs		. #x2EBF)	; ⺿
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8279)	; 艹
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
+      (=ucs		  . #xFA5D)	; 艹
       ))
     (name		. "CJK RADICAL GRASS THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x2EC0)	; ⻀
-    (=jis-x0213-2-2000	. #x7574)	; &I-JX2-7574; [85-84]
-    (=gt		. 39645)	; &I-GT-39645;
-    (=gt-k		. 00569)	; &I-GT-K00569;
-    (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
-    (=ucs@jis		. #xFA5D)	; ⻀
-    (->subsumptive
+    (<-identical@component
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
-      (=>ucs*		  . #x8279)	; 艹
-      (->canonical
-       ((=ucs		    . #x8279)	; 艹
-	))
       (=ucs		  . #xFA5D)	; 艹
       ))
+    (=ucs		. #x2EC0)	; ⻀
     ))
 (define-char
-  '((name		. "CJK RADICAL TIGER")
+  '((<-denotational
+     ((=ucs		  . #x864E)	; 虎
+      ))
+    (name		. "CJK RADICAL TIGER")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x864E)	; 虎
       ))
     (=ucs		. #x2EC1)	; ⻁
     ))
 (define-char
-  '((name		. "CJK RADICAL CLOTHES")
+  '((<-denotational
+     ((=ucs		  . #x8864)	; 衤
+      ))
+    (name		. "CJK RADICAL CLOTHES")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 5)
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x8864)	; 衤
       ))
-    (ideograph-cdp	. -849)
     (=ucs		. #x2EC2)	; ⻂
-    (=big5-cdp		. #x8BB1)	; &I-CDP-8BB1;
     ))
 (define-char
-  '((name		. "CJK RADICAL WEST ONE")
+  '((<-denotational
+     ((=ucs		  . #x8980)	; 覀
+      ))
+    (name		. "CJK RADICAL WEST ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x8980)	; 覀
       ))
     (=ucs		. #x2EC3)	; ⻃
     ))
 (define-char
-  '((name		. "CJK RADICAL WEST TWO")
+  '((<-denotational
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (name		. "CJK RADICAL WEST TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x897F)	; 西
       ))
     (=ucs		. #x2EC4)	; ⻄
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED SEE")
+  '((<-denotational
+     ((=ucs		  . #x89C1)	; 见
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SEE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x89C1)	; 见
       ))
     (=ucs		. #x2EC5)	; ⻅
     (=big5-cdp		. #x89A1)	; &I-CDP-89A1;
     ))
 (define-char
-  '((name		. "CJK RADICAL SIMPLIFIED HORN")
+  '((<-denotational
+     ((=ucs		  . #x89D2)	; 角
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED HORN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x89D2)	; 角
       ))
     (=ucs		. #x2EC6)	; ⻆
     ))
 (define-char
-  '((name		. "CJK RADICAL HORN")
+  '((<-denotational
+     ((=ucs		  . #x278B2)	; 𧢲
+      ))
+    (name		. "CJK RADICAL HORN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((=daikanwa	  . 35005)	; &I-M-35005;
+    (<-identical@component
+     ((=gt		  . 47108)	; &GT-47108;
+      (=daikanwa	  . 35005)	; &I-M-35005;
       ))
     (=ucs		. #x2EC7)	; ⻇
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED SPEECH")
+  '((<-denotational
+     ((=ucs		  . #x8BA0)	; 讠
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SPEECH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x8BA0)	; 讠
       ))
     (=ucs		. #x2EC8)	; ⻈
-    (=big5-cdp		. #x8963)	; &I-CDP-8963;
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED SHELL")
+  '((<-denotational
+     ((=ucs		  . #x8D1D)	; 贝
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SHELL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x8D1D)	; 贝
       ))
     (=ucs		. #x2EC9)	; ⻉
@@ -1040,7 +1167,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x8DB3)	; 足
       ))
     (=ucs		. #x2ECA)	; ⻊
@@ -1048,11 +1175,14 @@
     (=gt-pj-k1		. #x3436)	; ⻊ [20-22]
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED CART")
+  '((<-denotational
+     ((=ucs		  . #x8F66)	; 车
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED CART")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x8F66)	; 车
       ))
     (=ucs		. #x2ECB)	; ⻋
@@ -1060,26 +1190,21 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8FB6)	; 辶
+     ((=ucs		  . #xFA66)	; 辶
       ))
     (name		. "CJK RADICAL SIMPLIFIED WALK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (<-simplified@component
+    (<-identical@component
+     ((=ucs		  . #xFA66)	; 辶
+      ))
+    (<-simplified
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
       ))
     (=ucs		. #x2ECC)	; ⻌
-    (=gb2312		. #x6541)	; &I-G0-6541; [69-33]
-    (=jis-x0213-2-2000	. #x7969)	; &I-JX2-7969; [89-73]
     (=big5-cdp		. #x8966)	; &I-CDP-8966;
-    (=jef-china3	. #x67A3)	; &I-JC3-67A3;
-    (=ucs@gb		. #x8FB6)	; ⻌
-    (=ucs@jis		. #xFA66)	; ⻌
     ))
 (define-char
   '((<-denotational
@@ -1092,11 +1217,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x8FB5)	; 辵
       (=daikanwa	  . 38700)	; &I-M-38700;
       ))
-    (<-ideographic-component-forms*sources
+    (<-formed@component*sources
      zihui-jianzi daikanwa)
     (=ucs		. #x2ECD)	; ⻍
     (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
@@ -1138,8 +1263,11 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-left
      ((=ucs		  . #x9091)	; 邑
+      ))
+    (<-identical@component/connect-left
+     ((=ucs		  . #x961D)	; 阝
       ))
     (=ucs		. #x2ECF)	; ⻏
     ))
@@ -1151,61 +1279,79 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x91D1)	; 金
-      ))
-    (<-radical
+    (<-identical@component/connect-right
      ((=ucs		  . #x9485)	; 钅
       ))
+    (<-simplified@CN/component/connect-right
+     ((=ucs		  . #x91D1)	; 金
+      (=gb2312		  . #x3D70)	; &I-G0-3D70; [29-80]
+      ))
     (=ucs		. #x2ED0)	; ⻐
-    (=big5-cdp		. #x895A)	; &I-CDP-895A;
     ))
 (define-char
-  '((name		. "CJK RADICAL LONG ONE")
+  '((<-denotational
+     ((=ucs		  . #x9577)	; 長
+      ))
+    (name		. "CJK RADICAL LONG ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9577)	; 長
       ))
     (=ucs		. #x2ED1)	; ⻑
     ))
 (define-char
-  '((name		. "CJK RADICAL LONG TWO")
+  '((<-denotational
+     ((=ucs		  . #x9578)	; 镸
+      ))
+    (name		. "CJK RADICAL LONG TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-formed@component
+     ((=ucs		  . #x9577)	; 長
+      ))
+    (<-identical@component
      ((=ucs		  . #x9578)	; 镸
       ))
     (=ucs		. #x2ED2)	; ⻒
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED LONG")
+  '((<-denotational
+     ((=ucs		  . #x957F)	; 长
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED LONG")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x957F)	; 长
       ))
     (=ucs		. #x2ED3)	; ⻓
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED GATE")
+  '((<-denotational
+     ((=ucs		  . #x95E8)	; 门
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED GATE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x95E8)	; 门
       ))
     (=ucs		. #x2ED4)	; ⻔
     ))
 (define-char
-  '((name		. "CJK RADICAL MOUND ONE")
+  '((<-denotational
+     ((=daikanwa	  . 41535)	; &I-M-41535;
+      ))
+    (name		. "CJK RADICAL MOUND ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=daikanwa	  . 41535)	; &I-M-41535;
       ))
     (=ucs		. #x2ED5)	; ⻕
@@ -1221,7 +1367,10 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-radical
+    (<-formed@component/connect-right
+     ((=ucs		  . #x961C)	; 阜
+      ))
+    (<-identical@component/connect-right
      ((=ucs		  . #x961D)	; 阝
       ))
     (=ucs		. #x2ED6)	; ⻖
@@ -1230,130 +1379,151 @@
     (=ucs@unicode	. #x961D)	; ⻖
     ))
 (define-char
-  '((name		. "CJK RADICAL RAIN")
+  '((<-denotational
+     ((=ucs		  . #x96E8)	; 雨
+      ))
+    (name		. "CJK RADICAL RAIN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-below
      ((=ucs		  . #x96E8)	; 雨
       ))
     (=ucs		. #x2ED7)	; ⻗
     ))
 (define-char
-  '((name		. "CJK RADICAL BLUE")
+  '((<-denotational
+     ((=ucs		  . #x9752)	; 青
+      ))
+    (name		. "CJK RADICAL BLUE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-formed@component
+     ((=ucs		  . #x9751)	; 靑
+      ))
+    (<-identical@component
      ((=ucs		  . #x9752)	; 青
       ))
     (=ucs		. #x2ED8)	; ⻘
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED TANNED LEATHER")
+  '((<-denotational
+     ((=ucs		  . #x97E6)	; 韦
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED TANNED LEATHER")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x97E6)	; 韦
       ))
     (=ucs		. #x2ED9)	; ⻙
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED LEAF")
+  '((<-denotational
+     ((=ucs		  . #x9875)	; 页
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED LEAF")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9875)	; 页
       ))
     (=ucs		. #x2EDA)	; ⻚
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED WIND")
+  '((<-denotational
+     ((=ucs		  . #x98CE)	; 风
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED WIND")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x98CE)	; 风
       ))
     (=ucs		. #x2EDB)	; ⻛
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED FLY")
+  '((<-denotational
+     ((=ucs		  . #x98DE)	; 飞
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED FLY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x98DE)	; 飞
       ))
     (=ucs		. #x2EDC)	; ⻜
+    (=big5-cdp		. #x89F8)	; &I-CDP-89F8;
     ))
 (define-char
-  '((name		. "CJK RADICAL EAT ONE")
+  '((<-denotational
+     ((=ucs		  . #x98DF)	; 食
+      ))
+    (name		. "CJK RADICAL EAT ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x98DF)	; 食
       ))
     (=ucs		. #x2EDD)	; ⻝
     ))
 (define-char
-  '((name		. "CJK RADICAL EAT TWO")
+  '((<-denotational
+     ((=ucs		  . #x2967F)	; 𩙿
+      ))
+    (name		. "CJK RADICAL EAT TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x98DF)	; 食
+      ))
+    (<-identical@component/connect-right
+     ((=ucs		  . #x2967F)	; 𩙿
       ))
     (=ucs		. #x2EDE)	; ⻞
     ))
 (define-char
-  '((=>ucs		. #x2EDE)	; ⻞
-    (morohashi-daikanwa	44014 0 6)
-    (ideographic-radical . 184)	; ⾷
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x98DF)	; 食
+  '((<-denotational
+     ((=ucs		  . #x98E0)	; 飠
       ))
-    (=gt		. 59030)	; &GT-59030;
-    (=gt-k		. 06140)	; &I-GT-K06140;
-    (=gt-pj-9		. #x4F28)	; &GT-59030; [47-08]
-    ))
-(define-char
-  '((name		. "CJK RADICAL EAT THREE")
+    (name		. "CJK RADICAL EAT THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x98DF)	; 食
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x98E0)	; 飠
       ))
     (=ucs		. #x2EDF)	; ⻟
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED EAT")
+  '((<-denotational
+     ((=ucs		  . #x9963)	; 饣
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED EAT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x98DF)	; 食
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9963)	; 饣
       ))
     (=ucs		. #x2EE0)	; ⻠
     ))
 (define-char
-  '((name		. "CJK RADICAL HEAD")
+  '((<-denotational
+     ((=daikanwa	  . 44490)	; &I-M-44490;
+      ))
+    (name		. "CJK RADICAL HEAD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=daikanwa	  . 44490)	; &I-M-44490;
       ))
     (=ucs		. #x2EE1)	; ⻡
@@ -1366,10 +1536,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x99AC)	; 馬
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9A6C)	; 马
       ))
     (=ucs		. #x2EE2)	; ⻢
@@ -1383,7 +1550,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9AA8)	; 骨
       ))
     (=ucs		. #x2EE3)	; ⻣
@@ -1396,11 +1563,14 @@
     (=big5-cdp		. #x8A5C)	; &CDP-8A5C;
     ))
 (define-char
-  '((name		. "CJK RADICAL GHOST")
+  '((<-denotational
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
+    (name		. "CJK RADICAL GHOST")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9B3C)	; 鬼
       ))
     (=ucs		. #x2EE4)	; ⻤
@@ -1414,155 +1584,197 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x9B5A)	; 魚
-      ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9C7C)	; 鱼
       ))
     (=ucs		. #x2EE5)	; ⻥
     (=big5-cdp		. #x8A5B)	; &I-CDP-8A5B;
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED BIRD")
+  '((<-denotational
+     ((=ucs		  . #x9E1F)	; 鸟
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED BIRD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9E1F)	; 鸟
       ))
     (=ucs		. #x2EE6)	; ⻦
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED SALT")
+  '((<-denotational
+     ((=ucs		  . #x5364)	; 卤
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED SALT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x5364)	; 卤
       ))
     (=ucs		. #x2EE7)	; ⻧
     ))
 (define-char
-  '((name		. "CJK RADICAL SIMPLIFIED WHEAT")
+  '((<-denotational
+     ((=ucs		  . #x9EA6)	; 麦
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED WHEAT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9EA6)	; 麦
       ))
     (=ucs		. #x2EE8)	; ⻨
     ))
 (define-char
-  '((name		. "CJK RADICAL SIMPLIFIED YELLOW")
+  '((<-denotational
+     ((=ucs		  . #x9EC4)	; 黄
+      ))
+    (name		. "CJK RADICAL SIMPLIFIED YELLOW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9EC4)	; 黄
       ))
     (=ucs		. #x2EE9)	; ⻩
     (=big5-cdp		. #x8A5E)	; &I-CDP-8A5E;
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED FROG")
+  '((<-denotational
+     ((=ucs		  . #x9EFE)	; 黾
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED FROG")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9EFE)	; 黾
       ))
     (=ucs		. #x2EEA)	; ⻪
     ))
 (define-char
-  '((name		. "CJK RADICAL J-SIMPLIFIED EVEN")
+  '((<-denotational
+     ((=ucs		  . #x6589)	; 斉
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED EVEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6589)	; 斉
       ))
     (=ucs		. #x2EEB)	; ⻫
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED EVEN")
+  '((<-denotational
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED EVEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9F50)	; 齐
+      ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x9F4A)	; 齊
       ))
     (=ucs		. #x2EEC)	; ⻬
     ))
 (define-char
-  '((name		. "CJK RADICAL J-SIMPLIFIED TOOTH")
+  '((<-denotational
+     ((=ucs		  . #x6B6F)	; 歯
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED TOOTH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x6B6F)	; 歯
       ))
     (=ucs		. #x2EED)	; ⻭
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED TOOTH")
+  '((<-denotational
+     ((=ucs		  . #x9F7F)	; 齿
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED TOOTH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9F7F)	; 齿
       ))
     (=ucs		. #x2EEE)	; ⻮
     ))
 (define-char
-  '((name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
+  '((<-denotational
+     ((=ucs		  . #x7ADC)	; 竜
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x7ADC)	; 竜
       ))
     (=ucs		. #x2EEF)	; ⻯
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED DRAGON")
+  '((<-denotational
+     ((=ucs		  . #x9F99)	; 龙
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED DRAGON")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9F99)	; 龙
       ))
     (=ucs		. #x2EF0)	; ⻰
     ))
 (define-char
-  '((name		. "CJK RADICAL TURTLE")
+  '((<-denotational
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
+    (name		. "CJK RADICAL TURTLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9F9C)	; 龜
       ))
     (=ucs		. #x2EF1)	; ⻱
     ))
 (define-char
-  '((name		. "CJK RADICAL J-SIMPLIFIED TURTLE")
+  '((<-denotational
+     ((=ucs		  . #x4E80)	; 亀
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED TURTLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x4E80)	; 亀
       ))
     (=ucs		. #x2EF2)	; ⻲
     ))
 (define-char
-  '((name		. "CJK RADICAL C-SIMPLIFIED TURTLE")
+  '((<-denotational
+     ((=ucs		  . #x9F9F)	; 龟
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED TURTLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-compat
      ((=ucs		  . #x9F9F)	; 龟
       ))
-    (<-radical
+    (<-identical@component
      ((=ucs		  . #x9F9F)	; 龟
       ))
     (=ucs		. #x2EF3)	; ⻳
