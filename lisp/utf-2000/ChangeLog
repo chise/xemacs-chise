@@ -1,3 +1,156 @@
+2005-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el:
+	- Use `<-formed@component' instead of
+	  `<-ideographic-component-forms'.
+	- Add `<-denotational' for corresponding Ideograph Object.
+	- Use `<-identical@component' instead of `<-radical'.
+	(<CJK RADICAL SECOND ONE>): Use `<-unknown' instead of `<-radical'
+	for U+4E5B.
+	(<CJK RADICAL SECOND TWO>): Use `->mistakable' instead of
+	`<-radical' for U+4E5A.
+	(<CJK RADICAL PERSON>): Add `<-denotational' for U+4EBB; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+4EBB; omit `<-ideographic-component-forms' for U+4EBA; separate
+	BC-8AF5.
+	(<CJK RADICAL KNIFE ONE>): Use `<-formed@component/connect-below'
+	instead of `<-ideographic-component-forms' for U+5200.
+	(<CJK RADICAL KNIFE TWO>): Add `<-denotational' for U+5202; use
+	`<-identical@component/connect-left' instead of `<-radical' for
+	U+5202; omit `<-ideographic-component-forms' for U+5200; separate
+	BE-C87D.
+	(<CJK RADICAL SEAL>): Use `<-formed@component/connect-above'
+	instead of `<-ideographic-component-forms' for U+5369; use
+	`<-identical@component/connect-above' instead of `<-radical' for
+	U+353E.
+	(JC3-71F7): Moved to Ideograph-R026-Seal.el.
+	(<CJK RADICAL SMALL ONE>): Use `<-formed@component/connect-below'
+	instead of `<-ideographic-component-forms' for U+5C0F.
+	(GT-K00305): Use `<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+5C0F.
+	(<CJK RADICAL SMALL TWO>): Likewise.
+	(<CJK RADICAL LAME ONE>): Add `<-denotational' for M-07542; add
+	`<-formed@component' for U+5C22; use `<-identical@component' for
+	M-07542 instead of `<-radical' for U+5140.
+	(<CJK RADICAL LAME FOUR>): Add `<-denotational' for U-00021BC2;
+	use `<-identical@component' for M-07541 instead of `<-radical' for
+	U-00021BC2.
+	(<CJK RADICAL SNOUT ONE>): Add `<-denotational' for U+5F51; add
+	`<-formed@component'; use `<-identical@component' instead of
+	`<-radical' for U+5F51.
+	(<CJK RADICAL SNOUT TWO>): Separate GT-K00266; use
+	`<-denotational' for GT-K00266 instead of `<-denotational' for
+	U+5F50; unify G0-6566.
+	(BC-897C): Use `<-denotational' for GT-K00266 instead of
+	`<-denotational' for <CJK RADICAL SNOUT TWO>.
+	(<CJK RADICAL HEART ONE>): Add `<-denotational' for U+5FC4; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+5FC4; omit `<-ideographic-component-forms' for U+5FC3; separate
+	BC-8B51, GT-12992 and GT-K00302.
+	(<CJK RADICAL HEART TWO>): Add `<-denotational' for JX2-2C3B; add
+	`<-identical@component/connect-above' for JX2-2C3B; omit
+	`<-ideographic-component-forms' for U+5FC3; delete `<-radical' for
+	U+38FA.
+	(<CJK RADICAL HAND>): Add `<-denotational' for U+624C; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+624C; omit `<-ideographic-component-forms' for U+624B; separate
+	BC-8AFA.
+	(<CJK RADICAL SUN>): Add `<-denotational' for <ideographic
+	component hood>; use `<-identical@component/connect-below' instead
+	of `<-radical' for BC-8A78.
+	(<ideographic component hood>): Copied from
+	Ideograph-R013-Down-Box.el.
+	(<CJK RADICAL WATER ONE>): Add `<-denotational' for U+6C35; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+6C35; omit `<-ideographic-component-forms' for U+6C34; separate
+	BC-8AF6.
+	(<CJK RADICAL PAW ONE>): Use `<-denotational' for U+FA49 instead
+	of U+722B; add `<-identical@component/connect-below' for U+FA49;
+	separate JX2-7029 and BC-8B58; don't use `->subsumptive' for
+	U+FA49.
+	(<CJK RADICAL SIMPLIFIED HALF TREE TRUNK>): Add `<-same@component'
+	for U+723F.
+	(<CJK RADICAL EYE>): Add `<-denotational' for BC-8B48; use
+	`<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+76EE; add
+	`<-identical@component/connect-below' for U+8B48.
+	(<CJK RADICAL SPIRIT TWO>): Add `<-denotational' for U+793B; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+793B; omit `<-ideographic-component-forms' for U+793A; separate
+	BC-8B70.
+	(<CJK RADICAL SILK>): Use `<-formed@component/connect-right'
+	instead of `<-ideographic-component-forms' for U+7CF8; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+7CF9; separate BC-8AFB.
+	(<CJK RADICAL C-SIMPLIFIED SILK>): Use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+7E9F; omit `<-ideographic-component-forms' for U+7CF8; add
+	`<-simplified@CN/component/connect-right' for U+7CF8; separate
+	BC-895B.
+	(<CJK RADICAL NET THREE>): Add `<-denotational' for U-0002626A;
+	add `<-formed@component/connect-below' for U+7F51; add
+	`<-same@component/connect-below' for U-0002626A.
+	(<CJK RADICAL NET FOUR>): Add `<-denotational' for U-0002626A; use
+	`<-same@component' instead of `<-radical' for U+34C1; add
+	`<-formed@component' for U+7F51; add `<-same@component' for
+	U-0002626A.
+	(<CJK RADICAL MESH>): Add `<-denotational' for U-0002626B; add
+	`<-formed@component/connect-below' for U+7F51; add
+	`<-same@component' for U-0002626B.
+	(<CJK RADICAL RAM>): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; use `<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+7F8A; add `<-s/male' for
+	U+7F8A.
+	(<CJK RADICAL EWE>): Add `<-s/female' for U+7F8A.
+	(<CJK RADICAL BRUSH TWO>): Add `<-formed@component' for U+807F.
+	(GT-37857): Add `<-formed@component/connect-right' for U+8089.
+	(BC-8958): Add `<-formed@component/connect-above' for U+8089.
+	(<CJK RADICAL GRASS TWO>): Use `<-denotational' for U+FA5E instead
+	of U+8279; add `<-identical@component' for U+FA5E; separate
+	C4-2153, JX2-7575, BC-8AFE, GT-39643, GT-K00671 and M-30639; don't
+	use `->subsumptive' for U+FA5E.
+	(<CJK RADICAL GRASS THREE>): Use `<-denotational' for U+FA5D
+	instead of U+8279; add `<-identical@component' for U+FA5D;
+	separate JX2-7574, GT-39645 and GT-K00569; don't use
+	`->subsumptive' for U+FA5D.
+	(<CJK RADICAL CLOTHES>): Add `<-denotational' for U+8864; use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+8864; separate BC-8BB1.
+	(<CJK RADICAL C-SIMPLIFIED SPEECH>): Add `<-denotational' for
+	U+8BA0; use `<-identical@component/connect-right' instead of
+	`<-radical' for U+8BA0; separate BC-8963.
+	(<CJK RADICAL SIMPLIFIED WALK>): Use `<-denotational' for U+FA66
+	instead of U+8FB6; add `<-identical@component' for U+FA66; use
+	`<-simplified' instead of `<-simplified@component' for <CJK
+	RADICAL WALK ONE>; separate G0-6541, JX2-7969 and JC3-67A3.
+	(<CJK RADICAL CITY>): Use `<-formed@component/connect-left'
+	instead of `<-ideographic-component-forms' for U+9091; add
+	`<-identical@component/connect-left' for U+961D.
+	(<CJK RADICAL C-SIMPLIFIED GOLD>): Use
+	`<-identical@component/connect-right' instead of `<-radical' for
+	U+9485; use `<-simplified@CN/component/connect-right' instead of
+	`<-ideographic-component-forms' for U+91D1; separate BC-895A.
+	(<CJK RADICAL LONG TWO>): Add `<-denotational' for U+9578; use
+	`<-identical@component' instead of `<-radical' for U+9578; add
+	`<-formed@component' for U+9577.
+	(<CJK RADICAL MOUND TWO>): Add `<-formed@component/connect-right'
+	for U+961C; use `<-identical@component/connect-right' instead of
+	`<-radical' for U+961D.
+	(<CJK RADICAL BLUE>): Add `<-denotational' for U+9752; add
+	`<-formed@component' for U+9751; use `<-identical@component'
+	instead of `<-radical' for U+9752.
+	(<CJK RADICAL C-SIMPLIFIED FLY>): Add `<-denotational' for U+98DE;
+	use `<-identical@component' instead of `<-radical' for U+98DE;
+	unify BC-89F8.
+	(<CJK RADICAL EAT TWO>): Add `<-denotational' for U-0002967F; use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+98DF; add
+	`<-identical@component/connect-right' for U-0002967F.
+	(GT-59030): Omitted.
+	(<CJK RADICAL C-SIMPLIFIED EVEN>): Add `<-denotational' for
+	U+9F50; use `<-identical@component' instead of `<-radical' for
+	U+9F50; add `<-simplified@CN/component' for U+9F4A.
+
 2005-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R148-Horn.el (U+89D2): Use `->denotational' instead of
