@@ -105,7 +105,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
-     ((=gt-k		  . 00079)	; &GT-K00079;
+     ((=big5-cdp	  . #x8BC0)	; &CDP-8BC0;
       )
      ((=ucs		  . #x3405)	; 㐅
       ))
