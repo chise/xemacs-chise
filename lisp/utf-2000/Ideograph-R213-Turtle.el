@@ -39,6 +39,19 @@
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E80)	; 亀
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED TURTLE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x4E80)	; 亀
+      ))
+    (=ucs		. #x2EF2)	; ⻲
+    ))
+(define-char
   '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (=ucs		. #x9F9C)	; 龜
@@ -66,6 +79,19 @@
       )
      ((=jis-x0208@1978	  . #x737D)	; &J78-737D; [83-93]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
+    (name		. "CJK RADICAL TURTLE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
+    (=ucs		. #x2EF1)	; ⻱
     ))
 (define-char
   '((<-denotational
@@ -117,6 +143,13 @@
       ))
     (<-identical@component
      ((=ucs		  . #x9F9F)	; 龟
+      ))
+    (<-simplified@CN
+     ((name		  . "CJK RADICAL TURTLE")
+      (=ucs		  . #x2EF1)	; ⻱
+      ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x9F9C)	; 龜
       ))
     (=ucs		. #x2EF3)	; ⻳
     ))
