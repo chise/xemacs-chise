@@ -1,5 +1,18 @@
 2005-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL C-SIMPLIFIED
+	TURTLE>): Add `<-simplified@CN' for <CJK RADICAL TURTLE>; add
+	`<-simplified@CN/component' for U+9F9C.
+
+	* Ideograph-R213-Turtle.el (<CJK RADICAL J-SIMPLIFIED TURTLE>):
+	Copied from u02E00-CJK-Radical-Supplement.el.
+	(<CJK RADICAL TURTLE>): Likewise.
+	(<CJK RADICAL C-SIMPLIFIED TURTLE>): Add `<-simplified@CN' for
+	<CJK RADICAL TURTLE>; add `<-simplified@CN/component' for U+9F9C.
+
+	* Ideograph-R013-Down-Box.el (GT-K00079): Unify BC-8BC0; use
+	`<-denotational' for U+5182.
+
 	* Ideograph-R149-Speech.el (U+8A01): Add `<-denotational' for
 	G0-5154; add `<-identical@component' for G0-5154.
 	(U-0002795B): Use `->subsumptive'.
