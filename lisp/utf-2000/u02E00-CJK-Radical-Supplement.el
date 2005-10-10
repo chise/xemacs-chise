@@ -1777,5 +1777,12 @@
     (<-identical@component
      ((=ucs		  . #x9F9F)	; 龟
       ))
+    (<-simplified@CN
+     ((name		  . "CJK RADICAL TURTLE")
+      (=ucs		  . #x2EF1)	; ⻱
+      ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
     (=ucs		. #x2EF3)	; ⻳
     ))
