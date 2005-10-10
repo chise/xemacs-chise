@@ -15,18 +15,6 @@
     (=daikanwa		. 01506)	; &I-M-01506;
     ))
 (define-char
-  '((=>ucs		. #x5182)	; 冂
-    (=>daikanwa		. 01506)	; 冂
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (<-formed@component
-     ((=ucs		  . #x5182)	; 冂
-      ))
-    (=gt-k		. 00079)	; &GT-K00079;
-    (=gt-pj-k1		. #x3D6D)	; &GT-K00079; [29-77]
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x5182)	; 冂
       ))
@@ -39,6 +27,20 @@
      ((=ucs		  . #x5182)	; 冂
       ))
     (=ucs		. #x2E86)	; ⺆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (<-formed@component
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=big5-cdp		. #x8BC0)	; &CDP-8BC0;
+    (=gt-k		. 00079)	; &I-GT-K00079;
+    (=gt-pj-k1		. #x3D6D)	; &CDP-8BC0; [29-77]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
