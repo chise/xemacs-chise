@@ -1,3 +1,13 @@
+2005-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-000219BD): Use `->subsumptive'.
+	(U+5B88): Likewise.
+
+	* Ideograph-R005-Second.el (<CJK RADICAL J-SIMPLIFIED TURTLE>):
+	Copied from u02E00-CJK-Radical-Supplement.el.
+	(U-000200FF): Use `->denotational'.
+	(U+3424): Use `->denotational' instead of `->subsumptive'.
+
 2005-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL C-SIMPLIFIED
