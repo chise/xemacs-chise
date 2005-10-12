@@ -321,12 +321,12 @@
     (=ucs		. #x533D)	; 匽
     ))
 (define-char
-  '((ideographic-radical . 23)	; ⼖
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x533D)	; 匽
       ))
+    (ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -357,12 +357,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 23)	; ⼖
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x533D)	; 匽
       ))
+    (ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (hanyu-dazidian	1 85 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")

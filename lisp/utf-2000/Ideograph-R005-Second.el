@@ -976,7 +976,6 @@
       ))
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x502C)	; &GT-00285; [48-12]
-      (=ks-x1001	  . #x552F)	; &I-K0-552F; [53-15]
       (=daikanwa	  . 00214)	; &I-M-00214;
       ))
     (hanyu-dazidian	1 53 17)
@@ -1126,12 +1125,12 @@
     (=big5		. #xA8C5)	; &I-B-A8C5;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E73)	; 乳
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1154,12 +1153,12 @@
     (mojikyo		. 000190)	; &MCS-600000BE;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E73)	; 乳
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1748,12 +1747,12 @@
     (=big5		. #xD44B)	; &I-B-D44B;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 10)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E7F)	; 乿
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1783,12 +1782,12 @@
     (mojikyo		. 000205)	; &MCS-600000CD;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 10)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E7F)	; 乿
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1798,7 +1797,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #xFA49)	; 爫
+	 ((name		      . "CJK RADICAL PAW ONE")
+	  (=ucs		      . #x2EA4)	; ⺤
 	  )
 	 ((=jis-x0208	      . #x3B65)	; &GT-35079; [27-69]
 	  (=cns11643-1	      . #x484E)	; &I-C1-484E; [40-46]
@@ -1820,7 +1820,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #xFA49)	; 爫
+	 ((name		      . "CJK RADICAL PAW ONE")
+	  (=ucs		      . #x2EA4)	; ⺤
 	  )
 	 ((=gb2312	      . #x7469)	; &G0-7469; [84-73]
 	  ))
@@ -1885,12 +1886,12 @@
     (=ucs		. #x200FD)	; 𠃽
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 10)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x200FD)	; 𠃽
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1917,12 +1918,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 10)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x200FD)	; 𠃽
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2029,7 +2030,29 @@
     (mojikyo		. 000210)	; &MCS-600000D2;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E80)	; 亀
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED TURTLE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x4E80)	; 亀
+      ))
+    (=ucs		. #x2EF2)	; ⻲
+    ))
+(define-char
   '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (=ucs		. #x200FF)	; 𠃿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200FF)	; 𠃿
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -2043,15 +2066,18 @@
        ((name		    . "CJK RADICAL PAW ONE")
 	(=ucs		    . #x2EA4)	; ⺤
 	)
-       ((=ucs		    . #x5B88)	; 守
+       ((=gb2312	    . #x4A58)	; &C1-4776; [42-56]
+	(=cns11643-1	    . #x4776)	; &I-C1-4776; [39-86]
 	))
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
-    (=ucs		. #x200FF)	; 𠃿
+    (=ucs@iso		. #x200FF)	; &U-000200FF;
     ))
 (define-char
-  '((=>ucs		. #x200FF)	; 𠃿
+  '((<-denotational
+     ((=ucs		  . #x200FF)	; 𠃿
+      ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
@@ -2064,10 +2090,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((name		    . "CJK RADICAL PAW TWO")
-	(=ucs		    . #x2EA5)	; ⺥
+       ((=jis-x0212	    . #x4A48)	; &M-19655; [42-40]
+	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
+	(=jis-x0213-2-2000  . #x702A)	; &I-JX2-702A; [80-10]
+	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
-       ((=ucs		    . #x5B88)	; 守
+       ((=gb2312	    . #x4A58)	; &C1-4776; [42-56]
+	(=cns11643-1	    . #x4776)	; &I-C1-4776; [39-86]
 	))
       )
      ((=ucs		  . #x4E5A)	; 乚
@@ -2075,25 +2104,47 @@
     (=hanziku-1		. #xAFC5)	; &HZK01-AFC5;
     ))
 (define-char
-  '((=>daikanwa		. 00211)	; &GT-00280;
-    (ideographic-radical . 5)	; ⼄
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 11)
     (total-strokes	 . 12)
     (=ucs		. #x3424)	; 㐤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3424)	; 㐤
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
     (->subsumptive
-     ((hanyu-dazidian	  1 263 7)
-      (=gt		  . 00280)	; &GT-00280;
+     ((=gt		  . 00280)	; &GT-00280;
       (=gt-pj-2		  . #x316C)	; &GT-00280; [17-76]
       (=daikanwa	  . 00211)	; &I-M-00211;
-      (=hanziku-1	  . #xDC66)	; &I-HZK01-DC66;
       (mojikyo		  . 000211)	; &MCS-600000D3;
       )
-     ((=gt		  . 00281)	; &GT-00281;
-      (=gt-pj-9		  . #x5122)	; &GT-00281; [49-02]
-      )
-     ((=cns11643-3	  . #x396D)	; &C3-396D; [25-77]
-      (=ucs@unicode	  . #x3424)	; &C3-396D;
+     ((hanyu-dazidian	  1 263 7)
+      (=hanziku-1	  . #xDC66)	; &HZK01-DC66;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3424)	; 㐤
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (=cns11643-3	. #x396D)	; &C3-396D; [25-77]
+    (=ucs@unicode	. #x3424)	; &C3-396D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3424)	; 㐤
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (=gt		. 00281)	; &GT-00281;
+    (=gt-pj-9		. #x5122)	; &GT-00281; [49-02]
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
@@ -2122,12 +2173,12 @@
     (=ucs		. #x4E81)	; 亁
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 11)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E81)	; 亁
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
     (hanyu-dazidian	1 57 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2152,12 +2203,12 @@
     (mojikyo		. 000213)	; &MCS-600000D5;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 11)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E81)	; 亁
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2196,37 +2247,36 @@
     (=big5		. #xB6C3)	; &I-B-B6C3;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 12)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E82)	; 亂
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 12)
+    (total-strokes	 . 13)
+    (shinjigen-1	. 61)
+    (shinjigen-2	. 61)
+    (=jis-x0208		. #x502C)	; &GT-00285; [48-12]
+    (=gt		. 00285)	; &I-GT-00285;
+    (=gt-k		. 10403)	; &I-GT-K10403;
+    (=gt-pj-1		. #x502C)	; &I-GT-00285; [48-12]
+    (=daikanwa		. 00214)	; &I-M-00214;
+    (=ucs@jis		. #x4E82)	; &GT-00285;
+    (mojikyo		. 000214)	; &MCS-600000D6;
     (->subsumptive
-     ((shinjigen-1	  . 61)
-      (shinjigen-2	  . 61)
-      (=jis-x0208	  . #x502C)	; &GT-00285; [48-12]
-      (=ks-x1001	  . #x552F)	; &I-K0-552F; [53-15]
-      (=gt		  . 00285)	; &I-GT-00285;
-      (=gt-k		  . 10403)	; &I-GT-K10403;
-      (=gt-pj-1		  . #x502C)	; &I-GT-00285; [48-12]
-      (=daikanwa	  . 00214)	; &I-M-00214;
-      (=ucs@jis		  . #x4E82)	; &GT-00285;
-      (=ucs@ks		  . #x4E82)	; &GT-00285;
-      (=ucs@big5	  . #x4E82)	; &GT-00285;
-      (mojikyo		  . 000214)	; &MCS-600000D6;
+     ((=ks-x1001	  . #x552F)	; &K0-552F; [53-15]
+      (=ucs@ks		  . #x4E82)	; &K0-552F;
       )
      ((=ucs		  . #xF91B)	; 亂
       (=ks-x1001	  . #x516A)	; &I-K0-516A; [49-74]
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 12)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4E82)	; 亂
       ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 12)
+    (total-strokes	 . 13)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

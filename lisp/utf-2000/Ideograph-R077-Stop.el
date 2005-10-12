@@ -620,24 +620,24 @@
     (=ucs		. #x6B6D)	; 歭
     ))
 (define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6B6D)	; 歭
       ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (=big5		. #xD1FA)	; &M-16293;
     (=daikanwa		. 16293)	; &I-M-16293;
     (=ucs@unicode	. #x6B6D)	; &M-16293;
     (mojikyo		. 016293)	; &MCS-60003FA5;
     ))
 (define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x6B6D)	; 歭
       ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (=cns11643-2	. #x2F7C)	; &C2-2F7C; [15-92]
     (=ucs@cns		. #x6B6D)	; &C2-2F7C;
     ))
@@ -1062,25 +1062,43 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9F52)	; 齒
-      (=jis-x0208	  . #x736F)	; &I-J90-736F; [83-79]
-      ))
-    (shinjigen-2	. 9882)
     (=ucs		. #x6B6F)	; 歯
-    (=jis-x0208		. #x3B75)	; &I-J90-3B75; [27-85]
-    (=gt		. 66384)	; &I-GT-66384;
-    (=gt-k		. 09061)	; &I-GT-K09061;
-    (=gt-pj-1		. #x3B75)	; &I-GT-66384; [27-85]
-    (=daikanwa		. 16323)	; &I-M-16323;
+    (->subsumptive
+     ((<-simplified@JP/Jouyou
+       ((=ucs		    . #x9F52)	; 齒
+	(=jis-x0208	    . #x736F)	; &I-J90-736F; [83-79]
+	))
+      (<-vulgar
+       ((=ucs		    . #x9F52)	; 齒
+	(=daikanwa	    . 48583)	; &I-M-48583;
+	))
+      (<-vulgar*sources
+       songyuan-yilai-suzipu daikanwa)
+      (=jis-x0208	  . #x3B75)	; &GT-66384; [27-85]
+      (=gt		  . 66384)	; &I-GT-66384;
+      (=gt-k		  . 09061)	; &I-GT-K09061;
+      (=gt-pj-1		  . #x3B75)	; &I-GT-66384; [27-85]
+      (=daikanwa	  . 16323)	; &I-M-16323;
+      (=ucs@unicode	  . #x6B6F)	; &GT-66384;
+      )
+     ((shinjigen-1	  . 9882)
+      (shinjigen-2	  . 9882)
+      )
+     ((=cns11643-3	  . #x3C47)	; &C3-3C47; [28-39]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x6B6F)	; 歯
-    (morohashi-daikanwa	16323 0 1)
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-3	. #x3C47)	; &C3-3C47; [28-39]
+  '((<-denotational
+     ((=ucs		  . #x6B6F)	; 歯
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED TOOTH")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x6B6F)	; 歯
+      ))
+    (=ucs		. #x2EED)	; ⻭
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
@@ -1140,12 +1158,12 @@
     (=daikanwa		. 16325)	; &I-M-16325;
     ))
 (define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
       ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=ucs		. #x6B72)	; 歲
     (->subsumptive
      ((=cns11643-1	  . #x6459)	; &M-16326; [68-57]
@@ -1166,13 +1184,13 @@
     (=jis-x0208@1997	. #x3A50)	; &J97-3A50; [26-48]
     ))
 (define-char
-  '((morohashi-daikanwa	16326 1)
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
+      ))
+    (morohashi-daikanwa	16326 1)
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (<-denotational
-     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
-      ))
     (<-simplified@JP
      ((=cns11643-1	  . #x6459)	; &M-16326; [68-57]
       (=daikanwa	  . 16326)	; &I-M-16326;

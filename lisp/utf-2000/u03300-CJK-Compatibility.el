@@ -4,7 +4,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A2 #x30D1 #x30FC #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA LETTER PA")
+      (=ucs		  . #x30D1)	; パ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3300)	; ㌀
     (=jef-china3	. #x76EC)	; &I-JC3-76EC;
     ))
@@ -13,7 +25,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A2 #x30EB #x30D5 #x30A1)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; フ
+      )
+     ((name		  . "KATAKANA LETTER SMALL A")
+      (=ucs		  . #x30A1)	; ァ
+      ))
     (=ucs		. #x3301)	; ㌁
     ))
 (define-char
@@ -21,7 +45,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A2 #x30F3 #x30DA #x30A2)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER PE")
+      (=ucs		  . #x30DA)	; ペ
+      )
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      ))
     (=ucs		. #x3302)	; ㌂
     ))
 (define-char
@@ -29,7 +65,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A2 #x30FC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3303)	; ㌃
     (=jis-x0213-1-2000	. #x2D46)	; &I-JX1-2D46; [13-38]
     (=jef-china3	. #x76E1)	; &I-JC3-76E1;
@@ -39,7 +84,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A4 #x30CB #x30F3 #x30B0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER NI")
+      (=ucs		  . #x30CB)	; ニ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER GU")
+      (=ucs		  . #x30B0)	; グ
+      ))
     (=ucs		. #x3304)	; ㌄
     ))
 (define-char
@@ -47,7 +104,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A4 #x30F3 #x30C1)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TI")
+      (=ucs		  . #x30C1)	; チ
+      ))
     (=ucs		. #x3305)	; ㌅
     (=jef-china3	. #x76F1)	; &I-JC3-76F1;
     ))
@@ -56,7 +122,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A6 #x30A9 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER U")
+      (=ucs		  . #x30A6)	; ウ
+      )
+     ((name		  . "KATAKANA LETTER SMALL O")
+      (=ucs		  . #x30A9)	; ォ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3306)	; ㌆
     ))
 (define-char
@@ -64,7 +139,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A8 #x30B9 #x30AF #x30FC #x30C9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER E")
+      (=ucs		  . #x30A8)	; エ
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER DO")
+      (=ucs		  . #x30C9)	; ド
+      ))
     (=ucs		. #x3307)	; ㌇
     ))
 (define-char
@@ -72,7 +162,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30A8 #x30FC #x30AB #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER E")
+      (=ucs		  . #x30A8)	; エ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; カ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x3308)	; ㌈
     ))
 (define-char
@@ -80,7 +182,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AA #x30F3 #x30B9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER O")
+      (=ucs		  . #x30AA)	; オ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      ))
     (=ucs		. #x3309)	; ㌉
     ))
 (define-char
@@ -88,7 +199,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AA #x30FC #x30E0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER O")
+      (=ucs		  . #x30AA)	; オ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x330A)	; ㌊
     ))
 (define-char
@@ -96,7 +216,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AB #x30A4 #x30EA)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; カ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      ))
     (=ucs		. #x330B)	; ㌋
     ))
 (define-char
@@ -104,7 +233,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AB #x30E9 #x30C3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; カ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x330C)	; ㌌
     ))
 (define-char
@@ -112,7 +253,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AB #x30ED #x30EA #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; カ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x330D)	; ㌍
     (=jis-x0213-1-2000	. #x2D4A)	; &I-JX1-2D4A; [13-42]
     (=jef-china3	. #x76E6)	; &I-JC3-76E6;
@@ -122,7 +275,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AC #x30ED #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GA")
+      (=ucs		  . #x30AC)	; ガ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x330E)	; ㌎
     ))
 (define-char
@@ -130,7 +292,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AC #x30F3 #x30DE)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GA")
+      (=ucs		  . #x30AC)	; ガ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      ))
     (=ucs		. #x330F)	; ㌏
     ))
 (define-char
@@ -138,7 +309,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AE #x30AC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GI")
+      (=ucs		  . #x30AE)	; ギ
+      )
+     ((name		  . "KATAKANA LETTER GA")
+      (=ucs		  . #x30AC)	; ガ
+      ))
     (=ucs		. #x3310)	; ㌐
     ))
 (define-char
@@ -146,7 +323,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AE #x30CB #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GI")
+      (=ucs		  . #x30AE)	; ギ
+      )
+     ((name		  . "KATAKANA LETTER NI")
+      (=ucs		  . #x30CB)	; ニ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x3311)	; ㌑
     ))
 (define-char
@@ -154,7 +340,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AD #x30E5 #x30EA #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      )
+     ((name		  . "KATAKANA LETTER SMALL YU")
+      (=ucs		  . #x30E5)	; ュ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x3312)	; ㌒
     ))
 (define-char
@@ -162,7 +360,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AE #x30EB #x30C0 #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GI")
+      (=ucs		  . #x30AE)	; ギ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER DA")
+      (=ucs		  . #x30C0)	; ダ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x3313)	; ㌓
     ))
 (define-char
@@ -170,7 +380,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AD #x30ED)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      ))
     (=ucs		. #x3314)	; ㌔
     (=jis-x0213-1-2000	. #x2D41)	; &I-JX1-2D41; [13-33]
     (=jef-china3	. #x76DC)	; &I-JC3-76DC;
@@ -180,7 +396,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AD #x30ED #x30B0 #x30E9 #x30E0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER GU")
+      (=ucs		  . #x30B0)	; グ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x3315)	; ㌕
     (=jef-china3	. #x76DF)	; &I-JC3-76DF;
     ))
@@ -189,7 +420,25 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AD #x30ED #x30E1 #x30FC #x30C8 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; メ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3316)	; ㌖
     (=jef-china3	. #x76DD)	; &I-JC3-76DD;
     ))
@@ -198,7 +447,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AD #x30ED #x30EF #x30C3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; キ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER WA")
+      (=ucs		  . #x30EF)	; ワ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3317)	; ㌗
     ))
 (define-char
@@ -206,7 +470,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B0 #x30E9 #x30E0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GU")
+      (=ucs		  . #x30B0)	; グ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x3318)	; ㌘
     (=jis-x0213-1-2000	. #x2D44)	; &I-JX1-2D44; [13-36]
     (=jef-china3	. #x76DE)	; &I-JC3-76DE;
@@ -216,7 +489,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B0 #x30E9 #x30E0 #x30C8 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER GU")
+      (=ucs		  . #x30B0)	; グ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3319)	; ㌙
     ))
 (define-char
@@ -224,7 +512,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AF #x30EB #x30BC #x30A4 #x30ED)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER ZE")
+      (=ucs		  . #x30BC)	; ゼ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      ))
     (=ucs		. #x331A)	; ㌚
     ))
 (define-char
@@ -232,7 +535,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30AF #x30ED #x30FC #x30CD)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER NE")
+      (=ucs		  . #x30CD)	; ネ
+      ))
     (=ucs		. #x331B)	; ㌛
     ))
 (define-char
@@ -240,7 +555,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B1 #x30FC #x30B9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KE")
+      (=ucs		  . #x30B1)	; ケ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      ))
     (=ucs		. #x331C)	; ㌜
     ))
 (define-char
@@ -248,7 +572,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B3 #x30EB #x30CA)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; コ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER NA")
+      (=ucs		  . #x30CA)	; ナ
+      ))
     (=ucs		. #x331D)	; ㌝
     ))
 (define-char
@@ -256,7 +589,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B3 #x30FC #x30DD)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; コ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER PO")
+      (=ucs		  . #x30DD)	; ポ
+      ))
     (=ucs		. #x331E)	; ㌞
     (=jef-china3	. #x76EF)	; &I-JC3-76EF;
     ))
@@ -265,7 +607,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B5 #x30A4 #x30AF #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x331F)	; ㌟
     ))
 (define-char
@@ -273,7 +627,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B5 #x30F3 #x30C1 #x30FC #x30E0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TI")
+      (=ucs		  . #x30C1)	; チ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x3320)	; ㌠
     ))
 (define-char
@@ -281,7 +650,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30B7 #x30EA #x30F3 #x30B0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; シ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER GU")
+      (=ucs		  . #x30B0)	; グ
+      ))
     (=ucs		. #x3321)	; ㌡
     ))
 (define-char
@@ -289,7 +670,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30BB #x30F3 #x30C1)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER SE")
+      (=ucs		  . #x30BB)	; セ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TI")
+      (=ucs		  . #x30C1)	; チ
+      ))
     (=ucs		. #x3322)	; ㌢
     (=jis-x0213-1-2000	. #x2D42)	; &I-JX1-2D42; [13-34]
     (=jef-china3	. #x76DB)	; &I-JC3-76DB;
@@ -299,7 +689,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30BB #x30F3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER SE")
+      (=ucs		  . #x30BB)	; セ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3323)	; ㌣
     (=jis-x0213-1-2000	. #x2D4C)	; &I-JX1-2D4C; [13-44]
     (=jef-china3	. #x76E4)	; &I-JC3-76E4;
@@ -309,7 +708,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30C0 #x30FC #x30B9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER DA")
+      (=ucs		  . #x30C0)	; ダ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      ))
     (=ucs		. #x3324)	; ㌤
     ))
 (define-char
@@ -317,7 +725,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30C7 #x30B7)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER DE")
+      (=ucs		  . #x30C7)	; デ
+      )
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; シ
+      ))
     (=ucs		. #x3325)	; ㌥
     ))
 (define-char
@@ -325,7 +739,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30C9 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER DO")
+      (=ucs		  . #x30C9)	; ド
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3326)	; ㌦
     (=jis-x0213-1-2000	. #x2D4B)	; &I-JX1-2D4B; [13-43]
     (=jef-china3	. #x76E3)	; &I-JC3-76E3;
@@ -335,7 +755,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30C8 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3327)	; ㌧
     (=jis-x0213-1-2000	. #x2D45)	; &I-JX1-2D45; [13-37]
     (=jef-china3	. #x76E0)	; &I-JC3-76E0;
@@ -345,7 +771,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30CA #x30CE)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER NA")
+      (=ucs		  . #x30CA)	; ナ
+      )
+     ((name		  . "KATAKANA LETTER NO")
+      (=ucs		  . #x30CE)	; ノ
+      ))
     (=ucs		. #x3328)	; ㌨
     ))
 (define-char
@@ -353,7 +785,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30CE #x30C3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER NO")
+      (=ucs		  . #x30CE)	; ノ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3329)	; ㌩
     ))
 (define-char
@@ -361,7 +802,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30CF #x30A4 #x30C4)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HA")
+      (=ucs		  . #x30CF)	; ハ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER TU")
+      (=ucs		  . #x30C4)	; ツ
+      ))
     (=ucs		. #x332A)	; ㌪
     (=jef-china3	. #x76F0)	; &I-JC3-76F0;
     ))
@@ -370,7 +820,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D1 #x30FC #x30BB #x30F3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PA")
+      (=ucs		  . #x30D1)	; パ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER SE")
+      (=ucs		  . #x30BB)	; セ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x332B)	; ㌫
     (=jis-x0213-1-2000	. #x2D4D)	; &I-JX1-2D4D; [13-45]
     (=jef-china3	. #x76E5)	; &I-JC3-76E5;
@@ -380,7 +845,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D1 #x30FC #x30C4)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PA")
+      (=ucs		  . #x30D1)	; パ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TU")
+      (=ucs		  . #x30C4)	; ツ
+      ))
     (=ucs		. #x332C)	; ㌬
     ))
 (define-char
@@ -388,7 +862,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D0 #x30FC #x30EC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER BA")
+      (=ucs		  . #x30D0)	; バ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RE")
+      (=ucs		  . #x30EC)	; レ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x332D)	; ㌭
     ))
 (define-char
@@ -396,7 +882,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D4 #x30A2 #x30B9 #x30C8 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PI")
+      (=ucs		  . #x30D4)	; ピ
+      )
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x332E)	; ㌮
     ))
 (define-char
@@ -404,7 +905,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D4 #x30AF #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PI")
+      (=ucs		  . #x30D4)	; ピ
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x332F)	; ㌯
     ))
 (define-char
@@ -412,7 +922,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D4 #x30B3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PI")
+      (=ucs		  . #x30D4)	; ピ
+      )
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; コ
+      ))
     (=ucs		. #x3330)	; ㌰
     ))
 (define-char
@@ -420,7 +936,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D3 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER BI")
+      (=ucs		  . #x30D3)	; ビ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3331)	; ㌱
     (=jef-china3	. #x76ED)	; &I-JC3-76ED;
     ))
@@ -429,7 +951,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D5 #x30A1 #x30E9 #x30C3 #x30C9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; フ
+      )
+     ((name		  . "KATAKANA LETTER SMALL A")
+      (=ucs		  . #x30A1)	; ァ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER DO")
+      (=ucs		  . #x30C9)	; ド
+      ))
     (=ucs		. #x3332)	; ㌲
     ))
 (define-char
@@ -437,7 +974,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D5 #x30A3 #x30FC #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; フ
+      )
+     ((name		  . "KATAKANA LETTER SMALL I")
+      (=ucs		  . #x30A3)	; ィ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3333)	; ㌳
     ))
 (define-char
@@ -445,7 +994,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D6 #x30C3 #x30B7 #x30A7 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER BU")
+      (=ucs		  . #x30D6)	; ブ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; シ
+      )
+     ((name		  . "KATAKANA LETTER SMALL E")
+      (=ucs		  . #x30A7)	; ェ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3334)	; ㌴
     ))
 (define-char
@@ -453,7 +1017,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D5 #x30E9 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; フ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3335)	; ㌵
     ))
 (define-char
@@ -461,7 +1034,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D8 #x30AF #x30BF #x30FC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HE")
+      (=ucs		  . #x30D8)	; ヘ
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER TA")
+      (=ucs		  . #x30BF)	; タ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3336)	; ㌶
     (=jis-x0213-1-2000	. #x2D47)	; &I-JX1-2D47; [13-39]
     (=jef-china3	. #x76E2)	; &I-JC3-76E2;
@@ -471,7 +1059,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DA #x30BD)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PE")
+      (=ucs		  . #x30DA)	; ペ
+      )
+     ((name		  . "KATAKANA LETTER SO")
+      (=ucs		  . #x30BD)	; ソ
+      ))
     (=ucs		. #x3337)	; ㌷
     ))
 (define-char
@@ -479,7 +1073,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DA #x30CB #x30D2)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PE")
+      (=ucs		  . #x30DA)	; ペ
+      )
+     ((name		  . "KATAKANA LETTER NI")
+      (=ucs		  . #x30CB)	; ニ
+      )
+     ((name		  . "KATAKANA LETTER HI")
+      (=ucs		  . #x30D2)	; ヒ
+      ))
     (=ucs		. #x3338)	; ㌸
     ))
 (define-char
@@ -487,7 +1090,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D8 #x30EB #x30C4)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HE")
+      (=ucs		  . #x30D8)	; ヘ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER TU")
+      (=ucs		  . #x30C4)	; ツ
+      ))
     (=ucs		. #x3339)	; ㌹
     (=jef-china3	. #x76EA)	; &I-JC3-76EA;
     ))
@@ -496,7 +1108,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DA #x30F3 #x30B9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PE")
+      (=ucs		  . #x30DA)	; ペ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ス
+      ))
     (=ucs		. #x333A)	; ㌺
     ))
 (define-char
@@ -504,7 +1125,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DA #x30FC #x30B8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PE")
+      (=ucs		  . #x30DA)	; ペ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER ZI")
+      (=ucs		  . #x30B8)	; ジ
+      ))
     (=ucs		. #x333B)	; ㌻
     (=jis-x0213-1-2000	. #x2D4F)	; &I-JX1-2D4F; [13-47]
     (=jef-china3	. #x76EB)	; &I-JC3-76EB;
@@ -514,7 +1144,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30D9 #x30FC #x30BF)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER BE")
+      (=ucs		  . #x30D9)	; ベ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TA")
+      (=ucs		  . #x30BF)	; タ
+      ))
     (=ucs		. #x333C)	; ㌼
     ))
 (define-char
@@ -522,7 +1161,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DD #x30A4 #x30F3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PO")
+      (=ucs		  . #x30DD)	; ポ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x333D)	; ㌽
     ))
 (define-char
@@ -530,7 +1181,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DC #x30EB #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER BO")
+      (=ucs		  . #x30DC)	; ボ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x333E)	; ㌾
     ))
 (define-char
@@ -538,7 +1198,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DB #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HO")
+      (=ucs		  . #x30DB)	; ホ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x333F)	; ㌿
     ))
 (define-char
@@ -546,7 +1212,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DD #x30F3 #x30C9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER PO")
+      (=ucs		  . #x30DD)	; ポ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER DO")
+      (=ucs		  . #x30C9)	; ド
+      ))
     (=ucs		. #x3340)	; ㍀
     ))
 (define-char
@@ -554,7 +1229,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DB #x30FC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HO")
+      (=ucs		  . #x30DB)	; ホ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3341)	; ㍁
     ))
 (define-char
@@ -562,7 +1246,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DB #x30FC #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER HO")
+      (=ucs		  . #x30DB)	; ホ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3342)	; ㍂
     (=jef-china3	. #x76E8)	; &I-JC3-76E8;
     ))
@@ -571,7 +1264,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DE #x30A4 #x30AF #x30ED)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      ))
     (=ucs		. #x3343)	; ㍃
     ))
 (define-char
@@ -579,7 +1284,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DE #x30A4 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      )
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; イ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3344)	; ㍄
     ))
 (define-char
@@ -587,7 +1301,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DE #x30C3 #x30CF)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER HA")
+      (=ucs		  . #x30CF)	; ハ
+      ))
     (=ucs		. #x3345)	; ㍅
     ))
 (define-char
@@ -595,7 +1318,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DE #x30EB #x30AF)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      ))
     (=ucs		. #x3346)	; ㍆
     ))
 (define-char
@@ -603,7 +1335,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DE #x30F3 #x30B7 #x30E7 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; マ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; シ
+      )
+     ((name		  . "KATAKANA LETTER SMALL YO")
+      (=ucs		  . #x30E7)	; ョ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3347)	; ㍇
     (=jef-china3	. #x76EE)	; &I-JC3-76EE;
     ))
@@ -612,7 +1359,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DF #x30AF #x30ED #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MI")
+      (=ucs		  . #x30DF)	; ミ
+      )
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ク
+      )
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ロ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3348)	; ㍈
     ))
 (define-char
@@ -620,7 +1379,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DF #x30EA)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MI")
+      (=ucs		  . #x30DF)	; ミ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      ))
     (=ucs		. #x3349)	; ㍉
     (=jis-x0213-1-2000	. #x2D40)	; &I-JX1-2D40; [13-32]
     (=jef-china3	. #x76DA)	; &I-JC3-76DA;
@@ -630,7 +1395,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30DF #x30EA #x30D0 #x30FC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER MI")
+      (=ucs		  . #x30DF)	; ミ
+      )
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA LETTER BA")
+      (=ucs		  . #x30D0)	; バ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x334A)	; ㍊
     (=jis-x0213-1-2000	. #x2D4E)	; &I-JX1-2D4E; [13-46]
     (=jef-china3	. #x76E9)	; &I-JC3-76E9;
@@ -640,7 +1420,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E1 #x30AC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; メ
+      )
+     ((name		  . "KATAKANA LETTER GA")
+      (=ucs		  . #x30AC)	; ガ
+      ))
     (=ucs		. #x334B)	; ㍋
     ))
 (define-char
@@ -648,7 +1434,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E1 #x30AC #x30C8 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; メ
+      )
+     ((name		  . "KATAKANA LETTER GA")
+      (=ucs		  . #x30AC)	; ガ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x334C)	; ㍌
     ))
 (define-char
@@ -656,7 +1454,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E1 #x30FC #x30C8 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; メ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x334D)	; ㍍
     (=jis-x0213-1-2000	. #x2D43)	; &I-JX1-2D43; [13-35]
     (=jef-china3	. #x76D9)	; &I-JC3-76D9;
@@ -666,7 +1476,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E4 #x30FC #x30C9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER YA")
+      (=ucs		  . #x30E4)	; ヤ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER DO")
+      (=ucs		  . #x30C9)	; ド
+      ))
     (=ucs		. #x334E)	; ㍎
     ))
 (define-char
@@ -674,7 +1493,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E4 #x30FC #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER YA")
+      (=ucs		  . #x30E4)	; ヤ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x334F)	; ㍏
     ))
 (define-char
@@ -682,7 +1510,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30E6 #x30A2 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER YU")
+      (=ucs		  . #x30E6)	; ユ
+      )
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ア
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3350)	; ㍐
     ))
 (define-char
@@ -690,7 +1527,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EA #x30C3 #x30C8 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3351)	; ㍑
     (=jis-x0213-1-2000	. #x2D48)	; &I-JX1-2D48; [13-40]
     ))
@@ -699,7 +1548,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EA #x30E9)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; リ
+      )
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ラ
+      ))
     (=ucs		. #x3352)	; ㍒
     ))
 (define-char
@@ -707,7 +1562,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EB #x30D4 #x30FC)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA LETTER PI")
+      (=ucs		  . #x30D4)	; ピ
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      ))
     (=ucs		. #x3353)	; ㍓
     ))
 (define-char
@@ -715,7 +1579,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EB #x30FC #x30D6 #x30EB)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      )
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ー
+      )
+     ((name		  . "KATAKANA LETTER BU")
+      (=ucs		  . #x30D6)	; ブ
+      )
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ル
+      ))
     (=ucs		. #x3354)	; ㍔
     ))
 (define-char
@@ -723,7 +1599,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EC #x30E0)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RE")
+      (=ucs		  . #x30EC)	; レ
+      )
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ム
+      ))
     (=ucs		. #x3355)	; ㍕
     ))
 (define-char
@@ -731,7 +1613,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EC #x30F3 #x30C8 #x30B2 #x30F3)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER RE")
+      (=ucs		  . #x30EC)	; レ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      )
+     ((name		  . "KATAKANA LETTER GE")
+      (=ucs		  . #x30B2)	; ゲ
+      )
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ン
+      ))
     (=ucs		. #x3356)	; ㍖
     ))
 (define-char
@@ -739,7 +1636,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x30EF #x30C3 #x30C8)
+    (=>decomposition@square
+     ((name		  . "KATAKANA LETTER WA")
+      (=ucs		  . #x30EF)	; ワ
+      )
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ッ
+      )
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ト
+      ))
     (=ucs		. #x3357)	; ㍗
     (=jis-x0213-1-2000	. #x2D49)	; &I-JX1-2D49; [13-41]
     (=jef-china3	. #x76E7)	; &I-JC3-76E7;
@@ -749,7 +1655,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0030 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3358)	; ㍘
     ))
 (define-char
@@ -757,7 +1668,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3359)	; ㍙
     ))
 (define-char
@@ -765,7 +1681,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335A)	; ㍚
     ))
 (define-char
@@ -773,7 +1694,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0033 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335B)	; ㍛
     ))
 (define-char
@@ -781,7 +1707,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0034 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335C)	; ㍜
     ))
 (define-char
@@ -789,7 +1720,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0035 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335D)	; ㍝
     ))
 (define-char
@@ -797,7 +1733,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0036 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335E)	; ㍞
     ))
 (define-char
@@ -805,7 +1746,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0037 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x335F)	; ㍟
     ))
 (define-char
@@ -813,7 +1759,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0038 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3360)	; ㍠
     ))
 (define-char
@@ -821,7 +1772,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0039 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3361)	; ㍡
     ))
 (define-char
@@ -829,7 +1785,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0030 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3362)	; ㍢
     ))
 (define-char
@@ -837,7 +1801,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0031 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3363)	; ㍣
     ))
 (define-char
@@ -845,7 +1817,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0032 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3364)	; ㍤
     ))
 (define-char
@@ -853,7 +1833,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0033 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3365)	; ㍥
     ))
 (define-char
@@ -861,7 +1849,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0034 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3366)	; ㍦
     ))
 (define-char
@@ -869,7 +1865,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0035 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3367)	; ㍧
     ))
 (define-char
@@ -877,7 +1881,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0036 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3368)	; ㍨
     ))
 (define-char
@@ -885,7 +1897,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0037 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3369)	; ㍩
     ))
 (define-char
@@ -893,7 +1913,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0038 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336A)	; ㍪
     ))
 (define-char
@@ -901,7 +1929,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0039 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336B)	; ㍫
     ))
 (define-char
@@ -909,7 +1945,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0030 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336C)	; ㍬
     ))
 (define-char
@@ -917,7 +1961,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0031 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336D)	; ㍭
     ))
 (define-char
@@ -925,7 +1977,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0032 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336E)	; ㍮
     ))
 (define-char
@@ -933,7 +1993,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0033 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x336F)	; ㍯
     ))
 (define-char
@@ -941,7 +2009,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0034 #x70B9)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x70B9)	; 点
+      ))
     (=ucs		. #x3370)	; ㍰
     ))
 (define-char
@@ -949,7 +2025,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0068 #x0050 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x3371)	; ㍱
     ))
 (define-char
@@ -957,7 +2042,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0064 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x3372)	; ㍲
     ))
 (define-char
@@ -965,7 +2056,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0041 #x0055)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      )
+     ((name		  . "LATIN CAPITAL LETTER U")
+      (=ucs		  . #x0055)	; U
+      ))
     (=ucs		. #x3373)	; ㍳
     ))
 (define-char
@@ -973,7 +2070,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0062 #x0061 #x0072)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER B")
+      (=ucs		  . #x0062)	; b
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      ))
     (=ucs		. #x3374)	; ㍴
     ))
 (define-char
@@ -981,7 +2087,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006F #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x3375)	; ㍵
     ))
 (define-char
@@ -989,7 +2101,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0063)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      ))
     (=ucs		. #x3376)	; ㍶
     ))
 (define-char
@@ -997,7 +2115,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x5E73 #x6210)
+    (=>decomposition@square
+     ((=ucs		  . #x5E73)	; 平
+      )
+     ((=ucs		  . #x6210)	; 成
+      ))
     (=ucs		. #x337B)	; ㍻
     (=jis-x0213-1-2000	. #x2D5F)	; &I-JX1-2D5F; [13-63]
     ))
@@ -1006,7 +2128,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x662D #x548C)
+    (=>decomposition@square
+     ((=ucs		  . #x662D)	; 昭
+      )
+     ((=ucs		  . #x548C)	; 和
+      ))
     (=ucs		. #x337C)	; ㍼
     (=jis-x0213-1-2000	. #x2D6F)	; &I-JX1-2D6F; [13-79]
     ))
@@ -1015,7 +2141,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x5927 #x6B63)
+    (=>decomposition@square
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x6B63)	; 正
+      ))
     (=ucs		. #x337D)	; ㍽
     (=jis-x0213-1-2000	. #x2D6E)	; &I-JX1-2D6E; [13-78]
     ))
@@ -1024,7 +2154,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x660E #x6CBB)
+    (=>decomposition@square
+     ((=ucs		  . #x660E)	; 明
+      )
+     ((=ucs		  . #x6CBB)	; 治
+      ))
     (=ucs		. #x337E)	; ㍾
     (=jis-x0213-1-2000	. #x2D6D)	; &I-JX1-2D6D; [13-77]
     ))
@@ -1033,7 +2167,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x682A #x5F0F #x4F1A #x793E)
+    (=>decomposition@square
+     ((=ucs		  . #x682A)	; 株
+      )
+     ((=ucs		  . #x5F0F)	; 式
+      )
+     ((=ucs		  . #x4F1A)	; 会
+      )
+     ((=ucs		  . #x793E)	; 社
+      ))
     (=ucs		. #x337F)	; ㍿
     (=jef-china3	. #x76F5)	; &I-JC3-76F5;
     ))
@@ -1042,7 +2184,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0041)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      ))
     (=ucs		. #x3380)	; ㎀
     (=ks-x1001		. #x2749)	; &I-K0-2749; [07-41]
     ))
@@ -1051,7 +2199,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x0041)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      ))
     (=ucs		. #x3381)	; ㎁
     (=ks-x1001		. #x274A)	; &I-K0-274A; [07-42]
     ))
@@ -1060,7 +2214,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0041)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      ))
     (=ucs		. #x3382)	; ㎂
     (=ks-x1001		. #x274B)	; &I-K0-274B; [07-43]
     ))
@@ -1069,7 +2229,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0041)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      ))
     (=ucs		. #x3383)	; ㎃
     (=ks-x1001		. #x274C)	; &I-K0-274C; [07-44]
     ))
@@ -1078,7 +2244,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0041)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN CAPITAL LETTER A")
+      (=ucs		  . #x0041)	; A
+      ))
     (=ucs		. #x3384)	; ㎄
     (=ks-x1001		. #x274D)	; &I-K0-274D; [07-45]
     ))
@@ -1087,7 +2259,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004B #x0042)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
+      )
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      ))
     (=ucs		. #x3385)	; ㎅
     (=jef-china3	. #x76CE)	; &I-JC3-76CE;
     ))
@@ -1096,7 +2274,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x0042)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      ))
     (=ucs		. #x3386)	; ㎆
     (=jef-china3	. #x76CF)	; &I-JC3-76CF;
     ))
@@ -1105,7 +2289,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0047 #x0042)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (=ucs		  . #x0047)	; G
+      )
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      ))
     (=ucs		. #x3387)	; ㎇
     (=jef-china3	. #x76D0)	; &I-JC3-76D0;
     ))
@@ -1114,7 +2304,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x0061 #x006C)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x3388)	; ㎈
     (=ks-x1001		. #x273A)	; &I-K0-273A; [07-26]
     ))
@@ -1123,7 +2322,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0063 #x0061 #x006C)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x3389)	; ㎉
     (=ks-x1001		. #x273B)	; &I-K0-273B; [07-27]
     ))
@@ -1132,7 +2343,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0046)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
+      ))
     (=ucs		. #x338A)	; ㎊
     (=ks-x1001		. #x275C)	; &I-K0-275C; [07-60]
     ))
@@ -1141,7 +2358,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x0046)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
+      ))
     (=ucs		. #x338B)	; ㎋
     (=ks-x1001		. #x275D)	; &I-K0-275D; [07-61]
     ))
@@ -1150,7 +2373,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0046)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN CAPITAL LETTER F")
+      (=ucs		  . #x0046)	; F
+      ))
     (=ucs		. #x338C)	; ㎌
     (=ks-x1001		. #x275E)	; &I-K0-275E; [07-62]
     ))
@@ -1159,7 +2388,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0067)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x338D)	; ㎍
     (=ks-x1001		. #x2736)	; &I-K0-2736; [07-22]
     ))
@@ -1168,7 +2403,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0067)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x338E)	; ㎎
     (=ks-x1001		. #x2737)	; &I-K0-2737; [07-23]
     (=cns11643-1	. #x2275)	; &I-C1-2275; [02-85]
@@ -1181,7 +2422,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0067)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x338F)	; ㎏
     (=ks-x1001		. #x2738)	; &I-K0-2738; [07-24]
     (=cns11643-1	. #x2276)	; &I-C1-2276; [02-86]
@@ -1194,7 +2441,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0048 #x007A)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      ))
     (=ucs		. #x3390)	; ㎐
     (=ks-x1001		. #x2754)	; &I-K0-2754; [07-52]
     (=jef-china3	. #x76D4)	; &I-JC3-76D4;
@@ -1204,7 +2457,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0048 #x007A)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      ))
     (=ucs		. #x3391)	; ㎑
     (=ks-x1001		. #x2755)	; &I-K0-2755; [07-53]
     ))
@@ -1213,7 +2475,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x0048 #x007A)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      ))
     (=ucs		. #x3392)	; ㎒
     (=ks-x1001		. #x2756)	; &I-K0-2756; [07-54]
     ))
@@ -1222,7 +2493,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0047 #x0048 #x007A)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (=ucs		  . #x0047)	; G
+      )
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      ))
     (=ucs		. #x3393)	; ㎓
     (=ks-x1001		. #x2757)	; &I-K0-2757; [07-55]
     ))
@@ -1231,7 +2511,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0054 #x0048 #x007A)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER T")
+      (=ucs		  . #x0054)	; T
+      )
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN SMALL LETTER Z")
+      (=ucs		  . #x007A)	; z
+      ))
     (=ucs		. #x3394)	; ㎔
     (=ks-x1001		. #x2758)	; &I-K0-2758; [07-56]
     ))
@@ -1240,7 +2529,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x2113)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
     (=ucs		. #x3395)	; ㎕
     (=ks-x1001		. #x2721)	; &I-K0-2721; [07-01]
     ))
@@ -1249,7 +2544,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x2113)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
     (=ucs		. #x3396)	; ㎖
     (=ks-x1001		. #x2722)	; &I-K0-2722; [07-02]
     (=jef-china3	. #x76D7)	; &I-JC3-76D7;
@@ -1259,7 +2560,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0064 #x2113)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
     (=ucs		. #x3397)	; ㎗
     (=ks-x1001		. #x2723)	; &I-K0-2723; [07-03]
     ))
@@ -1268,7 +2575,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x2113)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
     (=ucs		. #x3398)	; ㎘
     (=ks-x1001		. #x2725)	; &I-K0-2725; [07-05]
     ))
@@ -1277,7 +2590,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0066 #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER F")
+      (=ucs		  . #x0066)	; f
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x3399)	; ㎙
     (=ks-x1001		. #x272B)	; &I-K0-272B; [07-11]
     ))
@@ -1286,7 +2605,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x339A)	; ㎚
     (=ks-x1001		. #x272C)	; &I-K0-272C; [07-12]
     ))
@@ -1295,7 +2620,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x006D)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x339B)	; ㎛
     (=ks-x1001		. #x272D)	; &I-K0-272D; [07-13]
     ))
@@ -1304,7 +2635,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x339C)	; ㎜
     (=ks-x1001		. #x272E)	; &I-K0-272E; [07-14]
     (=cns11643-1	. #x2270)	; &I-C1-2270; [02-80]
@@ -1317,7 +2654,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x339D)	; ㎝
     (=ks-x1001		. #x272F)	; &I-K0-272F; [07-15]
     (=cns11643-1	. #x2271)	; &I-C1-2271; [02-81]
@@ -1330,7 +2673,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x339E)	; ㎞
     (=ks-x1001		. #x2730)	; &I-K0-2730; [07-16]
     (=cns11643-1	. #x2272)	; &I-C1-2272; [02-82]
@@ -1343,7 +2692,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x006D #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x339F)	; ㎟
     (=ks-x1001		. #x2731)	; &I-K0-2731; [07-17]
     ))
@@ -1352,7 +2710,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x006D #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x33A0)	; ㎠
     (=ks-x1001		. #x2732)	; &I-K0-2732; [07-18]
     (=jef-china3	. #x76BF)	; &I-JC3-76BF;
@@ -1362,7 +2729,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x33A1)	; ㎡
     (=ks-x1001		. #x2733)	; &I-K0-2733; [07-19]
     (=cns11643-1	. #x2274)	; &I-C1-2274; [02-84]
@@ -1375,7 +2748,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x006D #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x33A2)	; ㎢
     (=ks-x1001		. #x2734)	; &I-K0-2734; [07-20]
     (=jef-china3	. #x76C1)	; &I-JC3-76C1;
@@ -1385,7 +2767,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x006D #x00B3)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT THREE")
+      (=ucs		  . #x00B3)	; ³
+      ))
     (=ucs		. #x33A3)	; ㎣
     (=ks-x1001		. #x2727)	; &I-K0-2727; [07-07]
     ))
@@ -1394,7 +2785,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x006D #x00B3)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT THREE")
+      (=ucs		  . #x00B3)	; ³
+      ))
     (=ucs		. #x33A4)	; ㎤
     (=ks-x1001		. #x2728)	; &I-K0-2728; [07-08]
     (=jef-china3	. #x76C2)	; &I-JC3-76C2;
@@ -1404,7 +2804,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x00B3)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT THREE")
+      (=ucs		  . #x00B3)	; ³
+      ))
     (=ucs		. #x33A5)	; ㎥
     (=ks-x1001		. #x2729)	; &I-K0-2729; [07-09]
     (=jef-china3	. #x76C3)	; &I-JC3-76C3;
@@ -1414,7 +2820,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x006D #x00B3)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "SUPERSCRIPT THREE")
+      (=ucs		  . #x00B3)	; ³
+      ))
     (=ucs		. #x33A6)	; ㎦
     (=ks-x1001		. #x272A)	; &I-K0-272A; [07-10]
     ))
@@ -1423,7 +2838,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x2215 #x0073)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "DIVISION SLASH")
+      (=ucs		  . #x2215)	; ∕
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33A7)	; ㎧
     (=ks-x1001		. #x273D)	; &I-K0-273D; [07-29]
     ))
@@ -1432,7 +2856,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x2215 #x0073 #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "DIVISION SLASH")
+      (=ucs		  . #x2215)	; ∕
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x33A8)	; ㎨
     (=ks-x1001		. #x273E)	; &I-K0-273E; [07-30]
     ))
@@ -1441,7 +2877,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0050 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x33A9)	; ㎩
     (=ks-x1001		. #x2765)	; &I-K0-2765; [07-69]
     ))
@@ -1450,7 +2892,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0050 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x33AA)	; ㎪
     (=ks-x1001		. #x2766)	; &I-K0-2766; [07-70]
     ))
@@ -1459,7 +2910,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x0050 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x33AB)	; ㎫
     (=ks-x1001		. #x2767)	; &I-K0-2767; [07-71]
     ))
@@ -1468,7 +2928,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0047 #x0050 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (=ucs		  . #x0047)	; G
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x33AC)	; ㎬
     (=ks-x1001		. #x2768)	; &I-K0-2768; [07-72]
     ))
@@ -1477,7 +2946,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0072 #x0061 #x0064)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      ))
     (=ucs		. #x33AD)	; ㎭
     (=ks-x1001		. #x2761)	; &I-K0-2761; [07-65]
     ))
@@ -1486,7 +2964,22 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "DIVISION SLASH")
+      (=ucs		  . #x2215)	; ∕
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33AE)	; ㎮
     (=ks-x1001		. #x2762)	; &I-K0-2762; [07-66]
     ))
@@ -1495,7 +2988,25 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073 #x00B2)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "DIVISION SLASH")
+      (=ucs		  . #x2215)	; ∕
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      )
+     ((name		  . "SUPERSCRIPT TWO")
+      (=ucs		  . #x00B2)	; ²
+      ))
     (=ucs		. #x33AF)	; ㎯
     (=ks-x1001		. #x2763)	; &I-K0-2763; [07-67]
     ))
@@ -1504,7 +3015,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0073)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33B0)	; ㎰
     (=ks-x1001		. #x273F)	; &I-K0-273F; [07-31]
     (=jef-china3	. #x76CD)	; &I-JC3-76CD;
@@ -1514,7 +3031,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x0073)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33B1)	; ㎱
     (=ks-x1001		. #x2740)	; &I-K0-2740; [07-32]
     (=jef-china3	. #x76CC)	; &I-JC3-76CC;
@@ -1524,7 +3047,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0073)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33B2)	; ㎲
     (=ks-x1001		. #x2741)	; &I-K0-2741; [07-33]
     (=jef-china3	. #x76CB)	; &I-JC3-76CB;
@@ -1534,7 +3063,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0073)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      ))
     (=ucs		. #x33B3)	; ㎳
     (=ks-x1001		. #x2742)	; &I-K0-2742; [07-34]
     (=jef-china3	. #x76CA)	; &I-JC3-76CA;
@@ -1544,7 +3079,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B4)	; ㎴
     (=ks-x1001		. #x2743)	; &I-K0-2743; [07-35]
     ))
@@ -1553,7 +3094,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B5)	; ㎵
     (=ks-x1001		. #x2744)	; &I-K0-2744; [07-36]
     ))
@@ -1562,7 +3109,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0056)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B6)	; ㎶
     (=ks-x1001		. #x2745)	; &I-K0-2745; [07-37]
     ))
@@ -1571,7 +3124,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B7)	; ㎷
     (=ks-x1001		. #x2746)	; &I-K0-2746; [07-38]
     ))
@@ -1580,7 +3139,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B8)	; ㎸
     (=ks-x1001		. #x2747)	; &I-K0-2747; [07-39]
     ))
@@ -1589,7 +3154,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x0056)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (=ucs		. #x33B9)	; ㎹
     (=ks-x1001		. #x2748)	; &I-K0-2748; [07-40]
     ))
@@ -1598,7 +3169,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x0057)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BA)	; ㎺
     (=ks-x1001		. #x274E)	; &I-K0-274E; [07-46]
     ))
@@ -1607,7 +3184,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006E #x0057)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BB)	; ㎻
     (=ks-x1001		. #x274F)	; &I-K0-274F; [07-47]
     ))
@@ -1616,7 +3199,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x03BC #x0057)
+    (=>decomposition@square
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BC)	; ㎼
     (=ks-x1001		. #x2750)	; &I-K0-2750; [07-48]
     ))
@@ -1625,7 +3214,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0057)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BD)	; ㎽
     (=ks-x1001		. #x2751)	; &I-K0-2751; [07-49]
     ))
@@ -1634,7 +3229,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0057)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BE)	; ㎾
     (=ks-x1001		. #x2752)	; &I-K0-2752; [07-50]
     ))
@@ -1643,7 +3244,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x0057)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      ))
     (=ucs		. #x33BF)	; ㎿
     (=ks-x1001		. #x2753)	; &I-K0-2753; [07-51]
     ))
@@ -1652,7 +3259,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x03A9)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "GREEK CAPITAL LETTER OMEGA")
+      (=ucs		  . #x03A9)	; Ω
+      ))
     (=ucs		. #x33C0)	; ㏀
     (=ks-x1001		. #x275A)	; &I-K0-275A; [07-58]
     ))
@@ -1661,7 +3274,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004D #x03A9)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      )
+     ((name		  . "GREEK CAPITAL LETTER OMEGA")
+      (=ucs		  . #x03A9)	; Ω
+      ))
     (=ucs		. #x33C1)	; ㏁
     (=ks-x1001		. #x275B)	; &I-K0-275B; [07-59]
     ))
@@ -1670,7 +3289,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0061 #x002E #x006D #x002E)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x33C2)	; ㏂
     (=ks-x1001		. #x2263)	; &I-K0-2263; [02-67]
     ))
@@ -1679,7 +3310,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0042 #x0071)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      )
+     ((name		  . "LATIN SMALL LETTER Q")
+      (=ucs		  . #x0071)	; q
+      ))
     (=ucs		. #x33C3)	; ㏃
     (=ks-x1001		. #x276C)	; &I-K0-276C; [07-76]
     ))
@@ -1688,7 +3325,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x0063)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      ))
     (=ucs		. #x33C4)	; ㏄
     (=ks-x1001		. #x2726)	; &I-K0-2726; [07-06]
     (=cns11643-1	. #x2277)	; &I-C1-2277; [02-87]
@@ -1701,7 +3344,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0063 #x0064)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER C")
+      (=ucs		  . #x0063)	; c
+      )
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      ))
     (=ucs		. #x33C5)	; ㏅
     (=ks-x1001		. #x2760)	; &I-K0-2760; [07-64]
     ))
@@ -1710,7 +3359,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0043 #x2215 #x006B #x0067)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      )
+     ((name		  . "DIVISION SLASH")
+      (=ucs		  . #x2215)	; ∕
+      )
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x33C6)	; ㏆
     (=ks-x1001		. #x276F)	; &I-K0-276F; [07-79]
     ))
@@ -1719,7 +3380,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0043 #x006F #x002E)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER C")
+      (=ucs		  . #x0043)	; C
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x33C7)	; ㏇
     (=ks-x1001		. #x2261)	; &I-K0-2261; [02-65]
     ))
@@ -1728,7 +3398,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0064 #x0042)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER D")
+      (=ucs		  . #x0064)	; d
+      )
+     ((name		  . "LATIN CAPITAL LETTER B")
+      (=ucs		  . #x0042)	; B
+      ))
     (=ucs		. #x33C8)	; ㏈
     (=ks-x1001		. #x273C)	; &I-K0-273C; [07-28]
     ))
@@ -1737,7 +3413,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0047 #x0079)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER G")
+      (=ucs		  . #x0047)	; G
+      )
+     ((name		  . "LATIN SMALL LETTER Y")
+      (=ucs		  . #x0079)	; y
+      ))
     (=ucs		. #x33C9)	; ㏉
     (=ks-x1001		. #x276D)	; &I-K0-276D; [07-77]
     ))
@@ -1746,7 +3428,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0068 #x0061)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER H")
+      (=ucs		  . #x0068)	; h
+      )
+     ((name		  . "LATIN SMALL LETTER A")
+      (=ucs		  . #x0061)	; a
+      ))
     (=ucs		. #x33CA)	; ㏊
     (=ks-x1001		. #x2735)	; &I-K0-2735; [07-21]
     ))
@@ -1755,7 +3443,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0048 #x0050)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      ))
     (=ucs		. #x33CB)	; ㏋
     (=jis-x0213-1-2000	. #x235E)	; &I-JX1-235E; [03-62]
     (=jef-china3	. #x76D2)	; &I-JC3-76D2;
@@ -1765,7 +3459,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0069 #x006E)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      ))
     (=ucs		. #x33CC)	; ㏌
     (=jef-china3	. #x76D6)	; &I-JC3-76D6;
     ))
@@ -1774,7 +3474,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004B #x004B)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
+      )
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
+      ))
     (=ucs		. #x33CD)	; ㏍
     (=jis-x0213-1-2000	. #x2D63)	; &I-JX1-2D63; [13-67]
     ))
@@ -1783,7 +3489,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x004B #x004D)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER K")
+      (=ucs		  . #x004B)	; K
+      )
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      ))
     (=ucs		. #x33CE)	; ㏎
     (=cns11643-1	. #x2273)	; &I-C1-2273; [02-83]
     (=big5		. #xA253)	; &I-B-A253;
@@ -1793,7 +3505,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006B #x0074)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER K")
+      (=ucs		  . #x006B)	; k
+      )
+     ((name		  . "LATIN SMALL LETTER T")
+      (=ucs		  . #x0074)	; t
+      ))
     (=ucs		. #x33CF)	; ㏏
     (=ks-x1001		. #x2739)	; &I-K0-2739; [07-25]
     ))
@@ -1802,7 +3520,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006C #x006D)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      ))
     (=ucs		. #x33D0)	; ㏐
     (=ks-x1001		. #x276A)	; &I-K0-276A; [07-74]
     ))
@@ -1811,7 +3535,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006C #x006E)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      )
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      ))
     (=ucs		. #x33D1)	; ㏑
     (=cns11643-1	. #x224C)	; &I-C1-224C; [02-44]
     (=big5		. #xA1EB)	; &I-B-A1EB;
@@ -1821,7 +3551,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006C #x006F #x0067)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "LATIN SMALL LETTER G")
+      (=ucs		  . #x0067)	; g
+      ))
     (=ucs		. #x33D2)	; ㏒
     (=cns11643-1	. #x224B)	; &I-C1-224B; [02-43]
     (=big5		. #xA1EA)	; &I-B-A1EA;
@@ -1831,7 +3570,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006C #x0078)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      )
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      ))
     (=ucs		. #x33D3)	; ㏓
     (=ks-x1001		. #x276B)	; &I-K0-276B; [07-75]
     ))
@@ -1840,7 +3585,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0062)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER B")
+      (=ucs		  . #x0062)	; b
+      ))
     (=ucs		. #x33D4)	; ㏔
     (=jef-china3	. #x76D5)	; &I-JC3-76D5;
     ))
@@ -1849,7 +3600,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x0069 #x006C)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      )
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x33D5)	; ㏕
     (=cns11643-1	. #x226F)	; &I-C1-226F; [02-79]
     (=big5		. #xA24F)	; &I-B-A24F;
@@ -1859,7 +3619,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x006D #x006F #x006C)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "LATIN SMALL LETTER O")
+      (=ucs		  . #x006F)	; o
+      )
+     ((name		  . "LATIN SMALL LETTER L")
+      (=ucs		  . #x006C)	; l
+      ))
     (=ucs		. #x33D6)	; ㏖
     (=ks-x1001		. #x275F)	; &I-K0-275F; [07-63]
     ))
@@ -1868,7 +3637,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0050 #x0048)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN CAPITAL LETTER H")
+      (=ucs		  . #x0048)	; H
+      ))
     (=ucs		. #x33D7)	; ㏗
     ))
 (define-char
@@ -1876,7 +3651,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0070 #x002E #x006D #x002E)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER P")
+      (=ucs		  . #x0070)	; p
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      )
+     ((name		  . "LATIN SMALL LETTER M")
+      (=ucs		  . #x006D)	; m
+      )
+     ((name		  . "FULL STOP")
+      (=ucs		  . #x002E)	; .
+      ))
     (=ucs		. #x33D8)	; ㏘
     (=ks-x1001		. #x2264)	; &I-K0-2264; [02-68]
     ))
@@ -1885,7 +3672,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0050 #x0050 #x004D)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN CAPITAL LETTER M")
+      (=ucs		  . #x004D)	; M
+      ))
     (=ucs		. #x33D9)	; ㏙
     ))
 (define-char
@@ -1893,7 +3689,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0050 #x0052)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER P")
+      (=ucs		  . #x0050)	; P
+      )
+     ((name		  . "LATIN CAPITAL LETTER R")
+      (=ucs		  . #x0052)	; R
+      ))
     (=ucs		. #x33DA)	; ㏚
     ))
 (define-char
@@ -1901,7 +3703,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0073 #x0072)
+    (=>decomposition@square
+     ((name		  . "LATIN SMALL LETTER S")
+      (=ucs		  . #x0073)	; s
+      )
+     ((name		  . "LATIN SMALL LETTER R")
+      (=ucs		  . #x0072)	; r
+      ))
     (=ucs		. #x33DB)	; ㏛
     (=ks-x1001		. #x2764)	; &I-K0-2764; [07-68]
     ))
@@ -1910,7 +3718,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0053 #x0076)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER S")
+      (=ucs		  . #x0053)	; S
+      )
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      ))
     (=ucs		. #x33DC)	; ㏜
     (=ks-x1001		. #x276E)	; &I-K0-276E; [07-78]
     ))
@@ -1919,7 +3733,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	square #x0057 #x0062)
+    (=>decomposition@square
+     ((name		  . "LATIN CAPITAL LETTER W")
+      (=ucs		  . #x0057)	; W
+      )
+     ((name		  . "LATIN SMALL LETTER B")
+      (=ucs		  . #x0062)	; b
+      ))
     (=ucs		. #x33DD)	; ㏝
     (=ks-x1001		. #x2769)	; &I-K0-2769; [07-73]
     ))
@@ -1928,7 +3748,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E0)	; ㏠
     ))
 (define-char
@@ -1936,7 +3761,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E1)	; ㏡
     ))
 (define-char
@@ -1944,7 +3774,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0033 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E2)	; ㏢
     ))
 (define-char
@@ -1952,7 +3787,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0034 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E3)	; ㏣
     ))
 (define-char
@@ -1960,7 +3800,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0035 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E4)	; ㏤
     ))
 (define-char
@@ -1968,7 +3813,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0036 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E5)	; ㏥
     ))
 (define-char
@@ -1976,7 +3826,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0037 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E6)	; ㏦
     ))
 (define-char
@@ -1984,7 +3839,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0038 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E7)	; ㏧
     ))
 (define-char
@@ -1992,7 +3852,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0039 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E8)	; ㏨
     ))
 (define-char
@@ -2000,7 +3865,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0030 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33E9)	; ㏩
     ))
 (define-char
@@ -2008,7 +3881,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0031 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33EA)	; ㏪
     ))
 (define-char
@@ -2016,7 +3897,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0032 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33EB)	; ㏫
     ))
 (define-char
@@ -2024,7 +3913,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0033 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33EC)	; ㏬
     ))
 (define-char
@@ -2032,7 +3929,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0034 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33ED)	; ㏭
     ))
 (define-char
@@ -2040,7 +3945,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0035 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33EE)	; ㏮
     ))
 (define-char
@@ -2048,7 +3961,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0036 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33EF)	; ㏯
     ))
 (define-char
@@ -2056,7 +3977,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0037 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F0)	; ㏰
     ))
 (define-char
@@ -2064,7 +3993,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0038 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F1)	; ㏱
     ))
 (define-char
@@ -2072,7 +4009,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0031 #x0039 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F2)	; ㏲
     ))
 (define-char
@@ -2080,7 +4025,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0030 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F3)	; ㏳
     ))
 (define-char
@@ -2088,7 +4041,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0031 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F4)	; ㏴
     ))
 (define-char
@@ -2096,7 +4057,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0032 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F5)	; ㏵
     ))
 (define-char
@@ -2104,7 +4073,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0033 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F6)	; ㏶
     ))
 (define-char
@@ -2112,7 +4089,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0034 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F7)	; ㏷
     ))
 (define-char
@@ -2120,7 +4105,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0035 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F8)	; ㏸
     ))
 (define-char
@@ -2128,7 +4121,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0036 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33F9)	; ㏹
     ))
 (define-char
@@ -2136,7 +4137,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0037 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33FA)	; ㏺
     ))
 (define-char
@@ -2144,7 +4153,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0038 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33FB)	; ㏻
     ))
 (define-char
@@ -2152,7 +4169,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0032 #x0039 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      )
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33FC)	; ㏼
     ))
 (define-char
@@ -2160,7 +4185,15 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0033 #x0030 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33FD)	; ㏽
     ))
 (define-char
@@ -2168,6 +4201,14 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0033 #x0031 #x65E5)
+    (=>decomposition@compat
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      )
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x33FE)	; ㏾
     ))

@@ -35,8 +35,8 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (->mistakable
-     ((=ucs		  . #x8289)	; 芉
+    (<-s/female
+     ((=ucs		  . #x7F8A)	; 羊
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -49,23 +49,24 @@
       ))
     (=ucs		. #x2EB8)	; ⺸
     (=cbeta		. 06151)	; &I-CB06151;
+    (->mistakable
+     ((=ucs		  . #x8289)	; 芉
+      ))
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2634B)	; 𦍋
       ))
+    (=>daikanwa		. 28426)	; 𦍋
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (mojikyo		. 028426)	; &MCS-60006F0A;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (->mistakable
-     ((=ucs		  . #x2EB7)	; ⺷
-      ))
     (<-wrong
      ((=ucs		  . #x22189)	; 𢆉
       (=daikanwa	  . 09166)	; &I-M-09166;
@@ -77,13 +78,17 @@
     (=cns11643-4	. #x232C)	; &I-C4-232C; [03-12]
     (=jis-x0213-2-2000	. #x7472)	; &I-JX2-7472; [84-82]
     (=daikanwa		. 28427)	; &I-M-28427;
+    (->mistakable
+     ((name		  . "CJK RADICAL RAM")
+      (=ucs		  . #x2EB7)	; ⺷
+      ))
     ))
 (define-char
   '((=>ucs		. #x2EB6)	; ⺶
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component/connect-right
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=gt-k		. 01701)	; &GT-K01701;
@@ -94,7 +99,7 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8970)	; &CDP-8970;
@@ -104,17 +109,37 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (<-ideographic-component-forms
+    (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
+    ))
+(define-char
+  '((name		. "CJK RADICAL RAM")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (<-s/male
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (=ucs		. #x2EB7)	; ⺷
+    (=big5-cdp		. #x8B4E)	; &I-CDP-8B4E;
+    (->mistakable
+     ((=ucs		  . #x2634C)	; 𦍌
+      ))
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (<-unknown
-     ((=daikanwa	  . 28426)	; &I-M-28426;
+     ((=ucs		  . #x2634B)	; 𦍋
       )
      ((=daikanwa	  . 28428)	; &I-M-28428;
       ))
@@ -1744,12 +1769,12 @@
     (=ucs		. #x2639E)	; 𦎞
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2639E)	; 𦎞
       ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=daikanwa	  . 28525)	; &M-28525;
       )
@@ -1758,12 +1783,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2639E)	; 𦎞
       ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=ucs@iso		. #x2639E)	; &U-0002639E;
     ))
 (define-char

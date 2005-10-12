@@ -40,12 +40,12 @@
     (=ucs		. #x4D51)	; 䵑
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 3)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D51)	; 䵑
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 3)
+    (total-strokes	 . 15)
     (->subsumptive
      ((=daikanwa	  . 47993)	; &M-47993;
       )
@@ -53,12 +53,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 3)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D51)	; 䵑
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 3)
+    (total-strokes	 . 15)
     (=cns11643-7	. #x2C33)	; &C7-2C33; [12-19]
     ))
 (define-char
@@ -260,21 +260,21 @@
     (=ucs		. #x2A402)	; 𪐂
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 8)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A402)	; 𪐂
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 20)
     (=daikanwa		. 48014)	; &M-48014;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 8)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A402)	; 𪐂
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 20)
     (=cns11643-4	. #x6578)	; &C4-6578; [69-88]
     (=ucs@unicode	. #x2A402)	; &C4-6578;
     ))
@@ -390,21 +390,21 @@
     (=ucs		. #x2A40B)	; 𪐋
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A40B)	; 𪐋
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 22)
     (=daikanwa		. 48025)	; &M-48025;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A40B)	; 𪐋
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 22)
     (=cns11643-5	. #x7550)	; &C5-7550; [85-48]
     (=ucs@iso		. #x2A40B)	; &C5-7550;
     ))
@@ -415,21 +415,21 @@
     (=ucs		. #x4D5A)	; 䵚
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D5A)	; 䵚
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 22)
     (=daikanwa		. 48026)	; &M-48026;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D5A)	; 䵚
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 22)
     (=cns11643-4	. #x6A31)	; &C4-6A31; [74-17]
     (=ucs@unicode	. #x4D5A)	; &C4-6A31;
     ))
@@ -440,12 +440,12 @@
     (=ucs		. #x9ED0)	; 黐
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 11)
-    (total-strokes	 . 23)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9ED0)	; 黐
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 11)
+    (total-strokes	 . 23)
     (->subsumptive
      ((=jis-x0208	  . #x7357)	; &GT-65504; [83-55]
       (=gt		  . 65504)	; &I-GT-65504;
@@ -457,12 +457,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 11)
-    (total-strokes	 . 23)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9ED0)	; 黐
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 11)
+    (total-strokes	 . 23)
     (=cns11643-2	. #x7025)	; &C2-7025; [80-05]
     ))
 (define-char
@@ -485,30 +485,30 @@
     (=ucs		. #x2A40D)	; 𪐍
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 11)
-    (total-strokes	 . 23)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A40D)	; 𪐍
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 11)
+    (total-strokes	 . 23)
     (=daikanwa		. 48029)	; &M-48029;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A40D)	; 𪐍
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 22)
     (=ucs@iso		. #x2A40D)	; &U-0002A40D;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 11)
-    (total-strokes	 . 23)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A40D)	; 𪐍
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 11)
+    (total-strokes	 . 23)
     (=cns11643-5	. #x7742)	; &C5-7742; [87-34]
     ))
 (define-char
@@ -587,30 +587,30 @@
     (=ucs		. #x2A414)	; 𪐔
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 16)
-    (total-strokes	 . 28)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A414)	; 𪐔
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 16)
+    (total-strokes	 . 28)
     (=daikanwa		. 48036)	; &M-48036;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 15)
-    (total-strokes	 . 27)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A414)	; 𪐔
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 15)
+    (total-strokes	 . 27)
     (=ucs@iso		. #x2A414)	; &U-0002A414;
     ))
 (define-char
-  '((ideographic-radical . 202)	; ⿉
-    (ideographic-strokes . 16)
-    (total-strokes	 . 28)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A414)	; 𪐔
       ))
+    (ideographic-radical . 202)	; ⿉
+    (ideographic-strokes . 16)
+    (total-strokes	 . 28)
     (=cns11643-5	. #x7B5A)	; &C5-7B5A; [91-58]
     ))
 (define-char

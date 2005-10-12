@@ -16,12 +16,12 @@
     (=daikanwa		. 23929)	; &I-M-23929;
     ))
 (define-char
-  '((ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x77E2)	; 矢
       ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (<-ideographic-component-forms
      ((=ucs		  . #x77E2)	; 矢
       ))

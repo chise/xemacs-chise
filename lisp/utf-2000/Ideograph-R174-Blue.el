@@ -21,6 +21,12 @@
     (=ucs		. #x9752)	; 青
     (->subsumptive
      ((morohashi-daikanwa	42564 1)
+      (<-same
+       ((=ks-x1001	    . #x746C)	; &M-42564; [84-76]
+	(=daikanwa	    . 42564)	; &I-M-42564;
+	))
+      (<-same*sources
+       daikanwa)
       (=jis-x0208	  . #x4044)	; &GT-57125; [32-36]
       (=gb2312		  . #x4760)	; &I-G0-4760; [39-64]
       (=gt		  . 57125)	; &I-GT-57125;
@@ -31,6 +37,22 @@
       )
      ((=cns11643-1	  . #x4F65)	; &C1-4F65; [47-69]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9752)	; 青
+      ))
+    (name		. "CJK RADICAL BLUE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-formed@component
+     ((=ucs		  . #x9751)	; 靑
+      ))
+    (<-identical@component
+     ((=ucs		  . #x9752)	; 青
+      ))
+    (=ucs		. #x2ED8)	; ⻘
     ))
 (define-char
   '((ideographic-radical . 174)	; ⾭
@@ -69,16 +91,16 @@
     (=ucs		. #x5568)	; 啨
     ))
 (define-char
-  '((ideographic-radical@ucs . 30)	; ⼝
+  '((<-denotational
+     ((=ucs		  . #x5568)	; 啨
+      ))
+    (ideographic-radical@ucs . 30)	; ⼝
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
      cns11643 ucs)
     (ideographic-radical@daikanwa . 174)	; ⾭
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x5568)	; 啨
-      ))
     (hanyu-dazidian	1 635 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -145,12 +167,12 @@
     (=ucs		. #x9756)	; 靖
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
-    (ideographic-strokes . 5)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9756)	; 靖
       ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
     (=ks-x1001		. #x6F7E)	; &GT-57137; [79-94]
     (=gt		. 57137)	; &I-GT-57137;
     (=gt-pj-8		. #x3745)	; &I-GT-57137; [23-37]
@@ -159,12 +181,12 @@
     (mojikyo		. 042570)	; &MCS-6000A64A;
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
-    (ideographic-strokes . 5)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9756)	; 靖
       ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
     (->subsumptive
      ((morohashi-daikanwa	42570 1)
       (=jis-x0208	  . #x4C77)	; &GT-57138; [44-87]

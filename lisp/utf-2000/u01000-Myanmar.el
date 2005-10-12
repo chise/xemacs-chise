@@ -263,7 +263,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x1025 #x102E)
+    (=decomposition
+     ((name		  . "MYANMAR LETTER U")
+      (=ucs		  . #x1025)	; ဥ
+      )
+     ((name		  . "MYANMAR VOWEL SIGN II")
+      (=ucs		  . #x102E)	; ီ
+      ))
     (=ucs		. #x1026)	; ဦ
     ))
 (define-char

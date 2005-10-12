@@ -26,9 +26,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x97E6)	; 韦
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED TANNED LEATHER")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x97E6)	; 韦
+      ))
+    (=ucs		. #x2ED9)	; ⻙
+    ))
+(define-char
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=gb12345		  . #x4E24)	; &GT-57812; [46-04]
+      (=daikanwa	  . 43108)	; &I-M-43108;
+      ))
     (=ucs		. #x97E6)	; 韦
     (=gb2312		. #x4E24)	; &I-G0-4E24; [46-04]
     (=big5-cdp		. #x89D6)	; &I-CDP-89D6;
@@ -1173,13 +1190,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x97E0)	; 韠
+  '((<-denotational
+     ((=ucs		  . #x97E0)	; 韠
+      ))
+    (=>ucs*		. #x97E0)	; 韠
     (ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (<-denotational
-     ((=ucs		  . #x97E0)	; 韠
-      ))
     (=ucs		. #x2F9FA)	; 韠
     (->subsumptive
      ((=daikanwa	  . 43197)	; &M-43197;

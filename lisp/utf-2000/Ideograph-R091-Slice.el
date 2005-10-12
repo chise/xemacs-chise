@@ -265,21 +265,21 @@
     (=big5		. #xCFB8)	; &I-B-CFB8;
     ))
 (define-char
-  '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7249)	; 牉
       ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=daikanwa		. 19829)	; &M-19829;
     ))
 (define-char
-  '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7249)	; 牉
       ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (->subsumptive
      ((=ucs@unicode	  . #x7249)	; &UU+7249;
       )
@@ -969,23 +969,23 @@
     (=ucs		. #x724F)	; 牏
     ))
 (define-char
-  '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x724F)	; 牏
       ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=jis-x0212		. #x4A52)	; &M-19868; [42-50]
     (=daikanwa		. 19868)	; &I-M-19868;
     (=ucs@jis		. #x724F)	; &M-19868;
     ))
 (define-char
-  '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x724F)	; 牏
       ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=big5		. #xDEA4)	; &B-DEA4;
     (->subsumptive
      ((=ucs@unicode	  . #x724F)	; &UU+724F;

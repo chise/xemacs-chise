@@ -252,7 +252,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0ECD #x0EB2)
+    (=>decomposition@compat
+     ((name		  . "LAO NIGGAHITA")
+      (=ucs		  . #x0ECD)	; ໍ
+      )
+     ((name		  . "LAO VOWEL SIGN AA")
+      (=ucs		  . #x0EB2)	; າ
+      ))
     (=ucs		. #x0EB3)	; ຳ
     (lao		. #xD3)	; &I-MULE-LAO-53;
     ))
@@ -539,7 +545,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0EAB #x0E99)
+    (=>decomposition@compat
+     ((name		  . "LAO LETTER HO SUNG")
+      (=ucs		  . #x0EAB)	; ຫ
+      )
+     ((name		  . "LAO LETTER NO")
+      (=ucs		  . #x0E99)	; ນ
+      ))
     (=ucs		. #x0EDC)	; ໜ
     (lao		. #xFC)	; &I-MULE-LAO-7C;
     ))
@@ -548,7 +560,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0EAB #x0EA1)
+    (=>decomposition@compat
+     ((name		  . "LAO LETTER HO SUNG")
+      (=ucs		  . #x0EAB)	; ຫ
+      )
+     ((name		  . "LAO LETTER MO")
+      (=ucs		  . #x0EA1)	; ມ
+      ))
     (=ucs		. #x0EDD)	; ໝ
     (lao		. #xFD)	; &I-MULE-LAO-7D;
     ))

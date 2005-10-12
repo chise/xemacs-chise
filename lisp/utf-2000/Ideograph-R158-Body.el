@@ -908,12 +908,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 158)	; ⾝
-    (ideographic-strokes . 11)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x366D)	; &J97-366D; [22-77]
       ))
+    (ideographic-radical . 158)	; ⾝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 18)
     (=ucs		. #x8EC0)	; 軀
     (->subsumptive
      ((=jis-x0208@1978	  . #x366D)	; &M-38137; [22-77]
@@ -934,12 +934,12 @@
     (=jis-x0208@1997	. #x366D)	; &J97-366D; [22-77]
     ))
 (define-char
-  '((ideographic-radical . 158)	; ⾝
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=jis-x0208@1997	  . #x366D)	; &J97-366D; [22-77]
       ))
+    (ideographic-radical . 158)	; ⾝
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
     (=ucs		. #x8EAF)	; 躯
     (->subsumptive
      ((<-denotational

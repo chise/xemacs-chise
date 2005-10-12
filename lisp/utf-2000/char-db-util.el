@@ -96,6 +96,17 @@
     nil)
    ((eq '->subsumptive ka)
     nil)
+   ((and (symbolp ka)
+	 (string-match "^->" (symbol-name ka)))
+    (cond ((and (symbolp kb)
+		(string-match "^->" (symbol-name kb)))
+	   (string< (symbol-name ka)
+		    (symbol-name kb))
+	   ))
+    )
+   ((and (symbolp kb)
+	 (string-match "^->" (symbol-name kb)))
+    t)
    ((find-charset ka)
     (if (find-charset kb)
 	(if (<= (charset-id ka) 1)
@@ -181,6 +192,7 @@
     =big5-eten
     =jis-x0208@1997
     =zinbun-oracle
+    =ruimoku-v6
     =jef-china3))
 
 (defun char-db-make-char-spec (char)
@@ -565,6 +577,19 @@
 		    atr-d)
 		  #'char-attribute-name<)))
     (insert "(")
+    (when (memq '<-subsumptive attributes)
+      (when readable
+	(when (setq value (get-char-attribute char '<-subsumptive))
+	  (char-db-insert-relation-feature char '<-subsumptive value
+					   line-breaking
+					   ccss readable)))
+      (setq attributes (delq '<-subsumptive attributes)))
+    (when (and (memq '<-denotational attributes)
+	       (setq value (get-char-attribute char '<-denotational)))
+      (char-db-insert-relation-feature char '<-denotational value
+				       line-breaking
+				       ccss readable)
+      (setq attributes (delq '<-denotational attributes)))
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
       (insert (format
@@ -591,14 +616,6 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
-    ;; (when (and (memq '<-denotational attributes)
-    ;;            (setq value (get-char-attribute char '<-denotational))
-    ;;            (null (cdr value))
-    ;;            (setq value (encode-char (car value) 'ucs 'defined-only)))
-    ;;   (insert (format "(%-18s . #x%04X)\t; %c%s"
-    ;;                   '=>ucs value (decode-char 'ucs value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '<-denotational attributes)))
     (dolist (name '(=>ucs =>ucs*))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -926,26 +943,26 @@
 		      line-breaking))
       (setq attributes (delq '->ideograph attributes))
       )
-    (when (and (memq '->decomposition attributes)
-	       (setq value (get-char-attribute char '->decomposition)))
-      (insert (format "(->decomposition\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((characterp code)
-					  (if readable
-					      (format "%S" code)
-					    (format "#x%04X"
-						    (char-int code))
-					    ))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s%S" line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->decomposition attributes))
-      )
+    ;; (when (and (memq '->decomposition attributes)
+    ;;            (setq value (get-char-attribute char '->decomposition)))
+    ;;   (insert (format "(->decomposition\t%s)%s"
+    ;;                   (mapconcat (lambda (code)
+    ;;                                (cond ((symbolp code)
+    ;;                                       (symbol-name code))
+    ;;                                      ((characterp code)
+    ;;                                       (if readable
+    ;;                                           (format "%S" code)
+    ;;                                         (format "#x%04X"
+    ;;                                                 (char-int code))
+    ;;                                         ))
+    ;;                                      ((integerp code)
+    ;;                                       (format "#x%04X" code))
+    ;;                                      (t
+    ;;                                       (format "%s%S" line-breaking code))))
+    ;;                              value " ")
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->decomposition attributes))
+    ;;   )
     (if (equal (get-char-attribute char '->titlecase)
 	       (get-char-attribute char '->uppercase))
 	(setq attributes (delq '->titlecase attributes)))
@@ -1000,34 +1017,51 @@
 				 name value
 				 line-breaking))
 		 )
-		((and (not readable)
-		      (null (get-char-attribute
-			     char
-			     (intern (format "%s*sources" name))))
-		      (not (string-match "\\*sources$" (symbol-name name)))
-		      (or (eq name '<-identical)
-			  (string-match "^->halfwidth" (symbol-name name))
-			  (and
-			   (string-match "^->fullwidth" (symbol-name name))
-			   (not
-			    (and (consp value)
-				 (characterp (car value))
-				 (encode-char
-				  (car value) '=ucs 'defined-only))))
-			  (string-match "^->simplified" (symbol-name name))
-			  (string-match "^->vulgar" (symbol-name name))
-			  (string-match "^->wrong" (symbol-name name))
-			  (string-match "^->same" (symbol-name name))
-			  (string-match "^->formed" (symbol-name name))
-			  (string-match "^->original" (symbol-name name))
-			  (string-match "^->ancient" (symbol-name name))
-			  (string-match "^->Oracle-Bones" (symbol-name name))
-			  ))
+		((and
+		  (not readable)
+		  (not (eq name '->subsumptive))
+		  (not (eq name '->uppercase))
+		  (not (eq name '->lowercase))
+		  (not (eq name '->titlecase))
+		  (not (eq name '->canonical))
+		  (not (eq name '->Bopomofo))
+		  (not (eq name '->mistakable))
+		  (not (eq name '->ideographic-variants))
+		  (null (get-char-attribute
+			 char (intern (format "%s*sources" name))))
+		  (not (string-match "\\*sources$" (symbol-name name)))
+		  (null (get-char-attribute
+			 char (intern (format "%s*note" name))))
+		  (not (string-match "\\*note$" (symbol-name name)))
+		  (or (eq name '<-identical)
+		      (eq name '<-uppercase)
+		      (eq name '<-lowercase)
+		      (eq name '<-titlecase)
+		      (eq name '<-canonical)
+		      (eq name '<-ideographic-variants)
+                      ;; (eq name '<-synonyms)
+		      (string-match "^<-synonyms" (symbol-name name))
+		      (eq name '<-mistakable)
+		      (when (string-match "^->" (symbol-name name))
+			(cond
+			 ((string-match "^->fullwidth" (symbol-name name))
+			  (not (and (consp value)
+				    (characterp (car value))
+				    (encode-char
+				     (car value) '=ucs 'defined-only)))
+			  )
+			 (t)))
+		      ))
 		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
-		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
+		     (eq name '=decomposition)
+		     (string-match "^=>decomposition" (symbol-name name))
+		     (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
+		     (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
+				   (symbol-name name))
+		     )
 		 (char-db-insert-relation-feature char name value
 						  line-breaking
 						  ccss readable))
@@ -1100,9 +1134,18 @@
 		 (insert ")")
 		 (insert line-breaking))
 		(t
-		 (insert (format "(%-18s . %S)%s"
-				 name value
-				 line-breaking)))
+                 (insert (format "(%-18s" name))
+		 (setq ret (prin1-to-string value))
+		 (unless (< (+ (current-column)
+			       (length ret)
+			       3)
+			    76)
+		   (insert line-breaking))
+		 (insert " . " ret ")" line-breaking)
+		 ;; (insert (format "(%-18s . %S)%s"
+                 ;;                 name value
+                 ;;                 line-breaking))
+		 )
 		))
       (setq attributes (cdr attributes)))
     (insert ")")))

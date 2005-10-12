@@ -46,6 +46,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (name		. "CJK RADICAL CHOKE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (=ucs		. #x2E9B)	; ⺛
+    ))
+(define-char
   '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
@@ -125,11 +138,11 @@
     (=ucs		. #x65E3)	; 旣
     ))
 (define-char
-  '((ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x65E3)	; 旣
       ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 7)
     (->subsumptive
      ((total-strokes	   . 11)
       (=daikanwa	  . 13724)	; &M-13724;
@@ -149,13 +162,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x65E2)	; 既
+  '((<-denotational
+     ((=ucs		  . #x65E3)	; 旣
+      ))
+    (=>ucs*		. #x65E2)	; 既
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (<-denotational
-     ((=ucs		  . #x65E3)	; 旣
-      ))
     (=ucs		. #xFA42)	; 既
     (->subsumptive
      ((=daikanwa	  . 13725)	; &M-13725;
@@ -220,10 +233,10 @@
     (=ucs		. #x65E4)	; 旤
     ))
 (define-char
-  '((ideographic-radical . 71)	; ⽆
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x65E4)	; 旤
       ))
+    (ideographic-radical . 71)	; ⽆
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 13)
@@ -260,12 +273,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x65E4)	; 旤
       ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

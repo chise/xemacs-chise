@@ -21,12 +21,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 119)	; ⽶
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7C73)	; 米
       ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
     (<-ideographic-component-forms
      ((=ucs		  . #x7C73)	; 米
       ))
@@ -2033,12 +2033,12 @@
     (=ucs		. #x7CBE)	; 精
     ))
 (define-char
-  '((ideographic-radical . 119)	; ⽶
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7CBE)	; 精
       ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (=ks-x1001		. #x6F71)	; &GT-34788; [79-81]
     (=gt		. 34788)	; &I-GT-34788;
     (=gt-k		. 11255)	; &I-GT-K11255;
@@ -2048,12 +2048,12 @@
     (mojikyo		. 026997)	; &MCS-60006975;
     ))
 (define-char
-  '((ideographic-radical . 119)	; ⽶
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7CBE)	; 精
       ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (->subsumptive
      ((morohashi-daikanwa	26997 1)
       (=jis-x0208	  . #x403A)	; &GT-34789; [32-26]
@@ -3521,27 +3521,27 @@
     (=ucs		. #x7CE8)	; 糨
     ))
 (define-char
-  '((ideographic-radical . 119)	; ⽶
-    (ideographic-strokes . 11)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7CE8)	; 糨
       ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
     (=cns11643-2	. #x5E3C)	; &M-27114; [62-28]
     (=big5		. #xEDCF)	; &I-B-EDCF;
     (=daikanwa		. 27114)	; &I-M-27114;
     (=ucs@cns		. #x7CE8)	; &M-27114;
     ))
 (define-char
-  '((=>ucs@gb		. #x7CE8)	; &G0-745D;
+  '((<-denotational
+     ((=ucs		  . #x7CE8)	; 糨
+      ))
+    (=>ucs@gb		. #x7CE8)	; &G0-745D;
     (=>ucs@cns		. #x2F968)	; 糨
     (=>daikanwa		. 27114)	; &M-27114;
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (<-denotational
-     ((=ucs		  . #x7CE8)	; 糨
-      ))
     (->subsumptive
      ((=gb2312		  . #x745D)	; &G0-745D; [84-61]
       (=ucs@unicode	  . #x7CE8)	; &G0-745D;

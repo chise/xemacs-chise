@@ -21,7 +21,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E00)
+    (<-superscript
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x3192)	; ㆒
     ))
 (define-char
@@ -30,7 +32,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E8C)
+    (<-superscript
+     ((=ucs		  . #x4E8C)	; 二
+      ))
     (=ucs		. #x3193)	; ㆓
     ))
 (define-char
@@ -39,7 +43,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E09)
+    (<-superscript
+     ((=ucs		  . #x4E09)	; 三
+      ))
     (=ucs		. #x3194)	; ㆔
     ))
 (define-char
@@ -48,7 +54,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x56DB)
+    (<-superscript
+     ((=ucs		  . #x56DB)	; 四
+      ))
     (=ucs		. #x3195)	; ㆕
     ))
 (define-char
@@ -57,7 +65,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E0A)
+    (<-superscript
+     ((=ucs		  . #x4E0A)	; 上
+      ))
     (=ucs		. #x3196)	; ㆖
     ))
 (define-char
@@ -66,7 +76,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E2D)
+    (<-superscript
+     ((=ucs		  . #x4E2D)	; 中
+      ))
     (=ucs		. #x3197)	; ㆗
     ))
 (define-char
@@ -75,7 +87,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E0B)
+    (<-superscript
+     ((=ucs		  . #x4E0B)	; 下
+      ))
     (=ucs		. #x3198)	; ㆘
     ))
 (define-char
@@ -84,7 +98,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x7532)
+    (<-superscript
+     ((=ucs		  . #x7532)	; 甲
+      ))
     (=ucs		. #x3199)	; ㆙
     ))
 (define-char
@@ -93,7 +109,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E59)
+    (<-superscript
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     (=ucs		. #x319A)	; ㆚
     ))
 (define-char
@@ -102,7 +120,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E19)
+    (<-superscript
+     ((=ucs		  . #x4E19)	; 丙
+      ))
     (=ucs		. #x319B)	; ㆛
     ))
 (define-char
@@ -111,7 +131,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4E01)
+    (<-superscript
+     ((=ucs		  . #x4E01)	; 丁
+      ))
     (=ucs		. #x319C)	; ㆜
     ))
 (define-char
@@ -120,7 +142,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x5929)
+    (<-superscript
+     ((=ucs		  . #x5929)	; 天
+      ))
     (=ucs		. #x319D)	; ㆝
     ))
 (define-char
@@ -129,7 +153,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x5730)
+    (<-superscript
+     ((=ucs		  . #x5730)	; 地
+      ))
     (=ucs		. #x319E)	; ㆞
     ))
 (define-char
@@ -138,6 +164,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (->decomposition	super #x4EBA)
+    (<-superscript
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (=ucs		. #x319F)	; ㆟
     ))

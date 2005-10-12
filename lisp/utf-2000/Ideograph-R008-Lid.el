@@ -1162,19 +1162,37 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 7)
+  '((ideographic-radical@ucs . 117)	; ⽴
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa=25736 jis-x0208 cns11643 ucs)
+    (ideographic-radical@misc . 8)	; ⼇
+    (ideographic-strokes@misc . 7)
+    (ideographic-radical@misc*sources
+     daikanwa=00310 cbeta)
     (total-strokes	 . 9)
-    (->identical
+    (=ucs		. #x7AD2)	; 竒
+    (->subsumptive
      ((=jis-x0208	  . #x5474)	; &GT-00400; [52-84]
-      (=daikanwa	  . 25736)	; &I-M-25736;
+      (=gt		  . 00400)	; &I-GT-00400;
+      (=gt-k		  . 05227)	; &I-GT-K05227;
+      (=gt-pj-1		  . #x5474)	; &I-GT-00400; [52-84]
+      (=cbeta		  . 00282)	; &I-CB00282;
+      (=ucs@jis		  . #x7AD2)	; &GT-00400;
+      (mojikyo		  . 000310)	; &MCS-60000136;
+      (->subsumptive
+       ((ideographic-radical . 117)	; ⽴
+	(ideographic-strokes . 4)
+	(=daikanwa	    . 25736)	; &M-25736;
+	)
+       ((ideographic-radical . 8)	; ⼇
+	(ideographic-strokes . 7)
+	(=daikanwa	    . 00310)	; &M-00310;
+	))
+      )
+     ((=cns11643-3	  . #x2E4F)	; &C3-2E4F; [14-47]
+      (=ucs@unicode	  . #x7AD2)	; &C3-2E4F;
       ))
-    (<-denotational
-     ((=ucs		  . #x7AD2)	; 竒
-      ))
-    (=daikanwa		. 00310)	; &M-00310;
-    (=cbeta		. 00282)	; &I-CB00282;
-    (mojikyo		. 000310)	; &MCS-60000136;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
@@ -3346,12 +3364,12 @@
     (=ucs		. #x4EB9)	; 亹
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 20)
-    (total-strokes	 . 22)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4EB9)	; 亹
       ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 20)
+    (total-strokes	 . 22)
     (=big5		. #xF6D6)	; &B-F6D6;
     (=ucs@big5		. #x4EB9)	; &B-F6D6;
     (->subsumptive
@@ -3386,12 +3404,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 19)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4EB9)	; 亹
       ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 19)
+    (total-strokes	 . 21)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

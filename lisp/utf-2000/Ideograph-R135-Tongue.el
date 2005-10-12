@@ -186,10 +186,12 @@
     (=cns11643-4	. #x2F4D)	; &I-C4-2F4D; [15-45]
     ))
 (define-char
-  '((ideographic-	(:radical	135 ; ⾆
-			 :strokes	4)
-			(:radical	66 ; ⽁
-			 :strokes	6))
+  '((ideographic-radical@ucs . 66)	; ⽁
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     cns11643 ucs)
+    (ideographic-radical@daikanwa . 135)	; ⾆
+    (ideographic-strokes@daikanwa . 4)
     (total-strokes	 . 10)
     (=ucs		. #x654C)	; 敌
     (=gb2312		. #x3550)	; &I-G0-3550; [21-48]
@@ -445,22 +447,16 @@
     (=cns11643-5	. #x4929)	; &I-C5-4929; [41-09]
     ))
 (define-char
-  '((=>ucs*		. #x8F9E)	; 辞
+  '((<-denotational
+     ((=ucs		  . #x8F9E)	; 辞
+      ))
+    (=>ucs*		. #x8F9E)	; 辞
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (<-denotational
-     ((=ucs		  . #x8F9E)	; 辞
-      ))
     (=ucs		. #x2F98D)	; 辞
     (->subsumptive
-     ((->identical
-       ((=jis-x0208	    . #x3C2D)	; &GT-51568; [28-13]
-	(=daikanwa	    . 38638)	; &I-M-38638;
-	))
-      (<-same*sources
-       daikanwa)
-      (<-vulgar@jiyun
+     ((<-vulgar@jiyun
        ((=jis-x0212	    . #x6130)	; &M-38649; [65-16]
 	(=jis-x0213-2-2000  . #x7967)	; &I-JX2-7967; [89-71]
 	(=daikanwa	    . 38649)	; &I-M-38649;
@@ -475,6 +471,12 @@
       (<-vulgar@zhengzi-tong*sources
        daikanwa)
       (=daikanwa	  . 30307)	; &M-30307;
+      (->identical
+       ((=jis-x0208	    . #x3C2D)	; &GT-51568; [28-13]
+	(=daikanwa	    . 38638)	; &I-M-38638;
+	))
+      (->identical*sources
+       daikanwa)
       )
      ((=cns11643-3	  . #x4425)	; &C3-4425; [36-05]
       (=ucs@iso		  . #x2F98D)	; &C3-4425;

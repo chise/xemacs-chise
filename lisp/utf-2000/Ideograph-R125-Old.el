@@ -21,9 +21,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x8002)	; 耂
+      ))
+    (name		. "CJK RADICAL OLD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x8002)	; 耂
+      ))
+    (=ucs		. #x2EB9)	; ⺹
+    ))
+(define-char
   '((ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-formed@component/connect-below
+     ((=ucs		  . #x8001)	; 老
+      ))
     (=ucs		. #x8002)	; 耂
     (=jis-x0213-2-2000	. #x7522)	; &I-JX2-7522; [85-02]
     (=big5-cdp		. #x8B52)	; &I-CDP-8B52;
@@ -169,12 +185,12 @@
     (=big5		. #xAACC)	; &I-B-AACC;
     ))
 (define-char
-  '((ideographic-radical . 125)	; ⽼
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8005)	; 者
       ))
+    (ideographic-radical . 125)	; ⽼
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA5B)	; 者
       (=jis-x0213-1-2000  . #x7A44)	; &I-JX1-7A44; [90-36]
@@ -191,16 +207,16 @@
     (=ucs@unicode	. #x8005)	; &GT-37308;
     ))
 (define-char
-  '((=>ucs*		. #x8005)	; 者
+  '((<-denotational
+     ((=ucs		  . #x8005)	; 者
+      ))
+    (=>ucs*		. #x8005)	; 者
     (=>ucs@cns		. #x2F97A)	; 者
     (=>ucs@jis		. #xFA5B)	; 者
     (=>ucs@ks		. #x8005)	; 者
     (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x8005)	; 者
-      ))
     (->subsumptive
      ((shinjigen-1	  . 6343)
       (=ucs		  . #xFA5B)	; 者

@@ -5,7 +5,8 @@
     (total-strokes	 . 14)
     (=ucs		. #x9F4A)	; 齊
     (->subsumptive
-     ((shinjigen-2	  . 9881)
+     ((shinjigen-1	  . 9881)
+      (shinjigen-2	  . 9881)
       (=jis-x0208	  . #x736E)	; &GT-66354; [83-78]
       (=ks-x1001	  . #x703A)	; &I-K0-703A; [80-26]
       (=gt		  . 66354)	; &I-GT-66354;
@@ -19,6 +20,22 @@
       (=gb12345		  . #x466B)	; &C1-6B7D; [38-75]
       (=ucs@unicode	  . #x9F4A)	; &C1-6B7D;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED EVEN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (<-simplified@CN/component
+     ((=ucs		  . #x9F4A)	; 齊
+      ))
+    (=ucs		. #x2EEC)	; ⻬
     ))
 (define-char
   '((ideographic-radical@ucs . 210)	; ⿑
@@ -41,7 +58,11 @@
        songyuan-yilai-suzipu daikanwa)
       (=daikanwa	  . 13451)	; &M-13451;
       )
-     ((=gb2312		  . #x466B)	; &C3-2370; [38-75]
+     ((<-simplified@CN
+       ((=cns11643-1	    . #x6B7D)	; &C1-6B7D; [75-93]
+	(=gb12345	    . #x466B)	; &C1-6B7D; [38-75]
+	))
+      (=gb2312		  . #x466B)	; &C3-2370; [38-75]
       (=cns11643-3	  . #x2370)	; &I-C3-2370; [03-80]
       (=ucs@unicode	  . #x9F50)	; &C3-2370;
       ))
@@ -344,31 +365,31 @@
     (=ucs		. #x2A5D0)	; 𪗐
     ))
 (define-char
-  '((ideographic-radical . 210)	; ⿑
-    (ideographic-strokes . 11)
-    (total-strokes	 . 24)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A5D0)	; 𪗐
       ))
+    (ideographic-radical . 210)	; ⿑
+    (ideographic-strokes . 11)
+    (total-strokes	 . 24)
     (=daikanwa		. 48580)	; &M-48580;
     ))
 (define-char
-  '((ideographic-radical . 210)	; ⿑
-    (ideographic-strokes . 12)
-    (total-strokes	 . 25)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A5D0)	; 𪗐
       ))
+    (ideographic-radical . 210)	; ⿑
+    (ideographic-strokes . 12)
+    (total-strokes	 . 25)
     (=cns11643-5	. #x7A22)	; &C5-7A22; [90-02]
     (=ucs@iso		. #x2A5D0)	; &C5-7A22;
     ))
 (define-char
-  '((ideographic-radical . 210)	; ⿑
-    (ideographic-strokes . 12)
-    (total-strokes	 . 25)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x2A5D0)	; 𪗐
       ))
+    (ideographic-radical . 210)	; ⿑
+    (ideographic-strokes . 12)
+    (total-strokes	 . 25)
     (hanyu-dazidian	1 294 18)
     (=hanziku-1		. #xE2C5)	; &HZK01-E2C5;
     ))

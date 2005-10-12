@@ -205,12 +205,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x39AE)	; 㦮
       ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
     (<-ideographic-component-forms
      ((=ucs		  . #x39AE)	; 㦮
       ))

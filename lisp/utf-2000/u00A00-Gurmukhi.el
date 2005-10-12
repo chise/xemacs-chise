@@ -277,7 +277,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A32 #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER LA")
+      (=ucs		  . #x0A32)	; ਲ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A33)	; ਲ਼
     ))
 (define-char
@@ -292,7 +298,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A38 #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER SA")
+      (=ucs		  . #x0A38)	; ਸ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A36)	; ਸ਼
     ))
 (define-char
@@ -391,7 +403,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A16 #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER KHA")
+      (=ucs		  . #x0A16)	; ਖ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A59)	; ਖ਼
     ))
 (define-char
@@ -399,7 +417,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A17 #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER GA")
+      (=ucs		  . #x0A17)	; ਗ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A5A)	; ਗ਼
     ))
 (define-char
@@ -407,7 +431,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A1C #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER JA")
+      (=ucs		  . #x0A1C)	; ਜ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A5B)	; ਜ਼
     ))
 (define-char
@@ -422,7 +452,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0A2B #x0A3C)
+    (=decomposition
+     ((name		  . "GURMUKHI LETTER PHA")
+      (=ucs		  . #x0A2B)	; ਫ
+      )
+     ((name		  . "GURMUKHI SIGN NUKTA")
+      (=ucs		  . #x0A3C)	; ਼
+      ))
     (=ucs		. #x0A5E)	; ਫ਼
     ))
 (define-char

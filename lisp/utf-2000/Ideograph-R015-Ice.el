@@ -135,12 +135,6 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->vulgar
-     ((=ucs		  . #x6C37)	; 氷
-      (=daikanwa	  . 17087)	; &I-M-17087;
-      ))
-    (->vulgar*sources
-     zhengzi-tong daikanwa)
     (<-original
      ((shinjigen-1	  . 4051)
       (=ucs		  . #x6C37)	; 氷
@@ -174,6 +168,12 @@
     (=gt-k		. 01713)	; &I-GT-K01713;
     (=gt-pj-1		. #x5156)	; &I-GT-02139; [49-54]
     (=daikanwa		. 01612)	; &I-M-01612;
+    (->vulgar
+     ((=ucs		  . #x6C37)	; 氷
+      (=daikanwa	  . 17087)	; &I-M-17087;
+      ))
+    (->vulgar*sources
+     zhengzi-tong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -1320,12 +1320,12 @@
     (=big5		. #xD0E1)	; &I-B-D0E1;
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x51CA)	; 凊
       ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1340,12 +1340,12 @@
     (=ucs@jis		. #x51CA)	; &M-01666;
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x51CA)	; 凊
       ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2566,12 +2566,12 @@
     (=big5		. #xE8F9)	; &I-B-E8F9;
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x51DE)	; 凞
       ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
     (hanyu-dazidian	1 301 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2604,12 +2604,12 @@
     (=ucs@jis		. #x51DE)	; &M-01721;
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x51DE)	; 凞
       ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
     (hanyu-dazidian	1 301 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2637,12 +2637,12 @@
     (=jef-china3	. #x70E2)	; &I-JC3-70E2;
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x51DE)	; 凞
       ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
     (hanyu-dazidian	1 301 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

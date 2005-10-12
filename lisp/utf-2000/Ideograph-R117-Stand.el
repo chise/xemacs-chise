@@ -25,12 +25,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 117)	; ⽴
-    (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7ACB)	; 立
       ))
+    (ideographic-radical . 117)	; ⽴
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (<-ideographic-component-forms
      ((=jis-x0208	  . #x4E29)	; &GT-33181; [46-09]
       (=ks-x1001	  . #x5821)	; &I-K0-5821; [56-01]
@@ -227,8 +227,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 117)	; ⽴
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 117)	; ⽴
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa=25736 jis-x0208 cns11643 ucs)
+    (ideographic-radical@misc . 8)	; ⼇
+    (ideographic-strokes@misc . 7)
+    (ideographic-radical@misc*sources
+     daikanwa=00310 cbeta)
     (total-strokes	 . 9)
     (=ucs		. #x7AD2)	; 竒
     (->subsumptive
@@ -236,8 +242,18 @@
       (=gt		  . 00400)	; &I-GT-00400;
       (=gt-k		  . 05227)	; &I-GT-K05227;
       (=gt-pj-1		  . #x5474)	; &I-GT-00400; [52-84]
-      (=daikanwa	  . 25736)	; &I-M-25736;
+      (=cbeta		  . 00282)	; &I-CB00282;
       (=ucs@jis		  . #x7AD2)	; &GT-00400;
+      (mojikyo		  . 000310)	; &MCS-60000136;
+      (->subsumptive
+       ((ideographic-radical . 117)	; ⽴
+	(ideographic-strokes . 4)
+	(=daikanwa	    . 25736)	; &M-25736;
+	)
+       ((ideographic-radical . 8)	; ⼇
+	(ideographic-strokes . 7)
+	(=daikanwa	    . 00310)	; &M-00310;
+	))
       )
      ((=cns11643-3	  . #x2E4F)	; &C3-2E4F; [14-47]
       (=ucs@unicode	  . #x7AD2)	; &C3-2E4F;
@@ -457,6 +473,7 @@
 	(=ks-x1001	    . #x5723)	; &I-K0-5723; [55-03]
 	(=daikanwa	    . 48818)	; &I-M-48818;
 	))
+      (shinjigen-1	  . 9912)
       (shinjigen-2	  . 9912)
       (=jis-x0208	  . #x4E35)	; &GT-33220; [46-21]
       (=gt		  . 33220)	; &I-GT-33220;
@@ -469,6 +486,19 @@
       (=cns11643-3	  . #x3327)	; &I-C3-3327; [19-07]
       (=ucs@unicode	  . #x7ADC)	; &C3-3327;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7ADC)	; 竜
+      ))
+    (name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x7ADC)	; 竜
+      ))
+    (=ucs		. #x2EEF)	; ⻯
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
@@ -1205,12 +1235,12 @@
     (=ucs		. #x7AEE)	; 竮
     ))
 (define-char
-  '((ideographic-radical . 117)	; ⽴
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7AEE)	; 竮
       ))
+    (ideographic-radical . 117)	; ⽴
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
     (=big5		. #xE34D)	; &B-E34D;
     (->subsumptive
      ((=daikanwa	  . 25804)	; &M-25804;
@@ -1350,13 +1380,13 @@
     (=cns11643-7	. #x263E)	; &C7-263E; [06-30]
     ))
 (define-char
-  '((=>ucs*		. #x7AEE)	; 竮
+  '((<-denotational
+     ((=ucs		  . #x7AEE)	; 竮
+      ))
+    (=>ucs*		. #x7AEE)	; 竮
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x7AEE)	; 竮
-      ))
     (=ucs		. #x2F95F)	; 竮
     (->subsumptive
      ((=daikanwa	  . 25814)	; &M-25814;

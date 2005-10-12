@@ -97,21 +97,21 @@
     (=ucs		. #x26ACD)	; 𦫍
     ))
 (define-char
-  '((ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 5)
-    (total-strokes	 . 11)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x26ACD)	; 𦫍
       ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
     (=daikanwa		. 30599)	; &M-30599;
     ))
 (define-char
-  '((ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x26ACD)	; 𦫍
       ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
     (=ucs@iso		. #x26ACD)	; &U-00026ACD;
     ))
 (define-char

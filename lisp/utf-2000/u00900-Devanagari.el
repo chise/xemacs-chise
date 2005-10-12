@@ -277,7 +277,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0928 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER NA")
+      (=ucs		  . #x0928)	; न
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x0929)	; ऩ
     ))
 (define-char
@@ -334,7 +340,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0930 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER RA")
+      (=ucs		  . #x0930)	; र
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x0931)	; ऱ
     ))
 (define-char
@@ -356,7 +368,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0933 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER LLA")
+      (=ucs		  . #x0933)	; ळ
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x0934)	; ऴ
     ))
 (define-char
@@ -560,7 +578,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0915 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER KA")
+      (=ucs		  . #x0915)	; क
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x0958)	; क़
     ))
 (define-char
@@ -568,7 +592,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0916 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER KHA")
+      (=ucs		  . #x0916)	; ख
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x0959)	; ख़
     ))
 (define-char
@@ -576,7 +606,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0917 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER GA")
+      (=ucs		  . #x0917)	; ग
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095A)	; ग़
     ))
 (define-char
@@ -584,7 +620,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x091C #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER JA")
+      (=ucs		  . #x091C)	; ज
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095B)	; ज़
     ))
 (define-char
@@ -592,7 +634,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0921 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER DDA")
+      (=ucs		  . #x0921)	; ड
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095C)	; ड़
     ))
 (define-char
@@ -600,7 +648,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x0922 #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER DDHA")
+      (=ucs		  . #x0922)	; ढ
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095D)	; ढ़
     ))
 (define-char
@@ -608,7 +662,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x092B #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER PHA")
+      (=ucs		  . #x092B)	; फ
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095E)	; फ़
     ))
 (define-char
@@ -616,7 +676,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x092F #x093C)
+    (=decomposition
+     ((name		  . "DEVANAGARI LETTER YA")
+      (=ucs		  . #x092F)	; य
+      )
+     ((name		  . "DEVANAGARI SIGN NUKTA")
+      (=ucs		  . #x093C)	; ़
+      ))
     (=ucs		. #x095F)	; य़
     ))
 (define-char

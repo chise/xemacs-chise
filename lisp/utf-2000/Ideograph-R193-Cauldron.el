@@ -6,12 +6,12 @@
     (=ucs		. #x9B32)	; 鬲
     ))
 (define-char
-  '((ideographic-radical . 193)	; ⿀
-    (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9B32)	; 鬲
       ))
+    (ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 10)
     (->subsumptive
      ((shinjigen-2	  . 9503)
       (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
@@ -24,12 +24,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 193)	; ⿀
-    (ideographic-strokes . 0)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x9B32)	; 鬲
       ))
+    (ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 10)
     (=gb2312		. #x582A)	; &C1-586F; [56-10]
     (=cns11643-1	. #x586F)	; &I-C1-586F; [56-79]
     (=ucs@unicode	. #x9B32)	; &C1-586F;

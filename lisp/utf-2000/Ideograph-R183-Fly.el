@@ -15,12 +15,30 @@
     (=daikanwa		. 44000)	; &I-M-44000;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x98DE)	; 飞
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED FLY")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x98DE)	; 飞
+      ))
+    (=ucs		. #x2EDC)	; ⻜
+    (=big5-cdp		. #x89F8)	; &I-CDP-89F8;
+    ))
+(define-char
   '((ideographic-radical . 183)	; ⾶
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=ucs		  . #x98DB)	; 飛
+      (=gb12345		  . #x3749)	; 飛 [23-41]
+      ))
     (=ucs		. #x98DE)	; 飞
     (=gb2312		. #x3749)	; &I-G0-3749; [23-41]
-    (=big5-cdp		. #x89F8)	; &I-CDP-89F8;
+    (=jef-china3	. #x81F1)	; &I-JC3-81F1;
     ))
 (define-char
   '((ideographic-radical . 183)	; ⾶

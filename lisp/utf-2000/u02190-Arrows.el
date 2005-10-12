@@ -256,7 +256,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x2190 #x0338)
+    (=decomposition
+     ((name		  . "LEFTWARDS ARROW")
+      (=ucs		  . #x2190)	; ←
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x219A)	; ↚
     ))
 (define-char
@@ -264,7 +270,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x2192 #x0338)
+    (=decomposition
+     ((name		  . "RIGHTWARDS ARROW")
+      (=ucs		  . #x2192)	; →
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x219B)	; ↛
     ))
 (define-char
@@ -398,7 +410,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x2194 #x0338)
+    (=decomposition
+     ((name		  . "LEFT RIGHT ARROW")
+      (=ucs		  . #x2194)	; ↔
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x21AE)	; ↮
     ))
 (define-char
@@ -652,7 +670,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x21D0 #x0338)
+    (=decomposition
+     ((name		  . "LEFTWARDS DOUBLE ARROW")
+      (=ucs		  . #x21D0)	; ⇐
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x21CD)	; ⇍
     ))
 (define-char
@@ -660,7 +684,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x21D4 #x0338)
+    (=decomposition
+     ((name		  . "LEFT RIGHT DOUBLE ARROW")
+      (=ucs		  . #x21D4)	; ⇔
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x21CE)	; ⇎
     ))
 (define-char
@@ -668,7 +698,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x21D2 #x0338)
+    (=decomposition
+     ((name		  . "RIGHTWARDS DOUBLE ARROW")
+      (=ucs		  . #x21D2)	; ⇒
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x21CF)	; ⇏
     ))
 (define-char

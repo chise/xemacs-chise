@@ -3,6 +3,7 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2069)
     (shinjigen-2	. 2069)
     (=ucs		. #x5DF1)	; 己
     (=jis-x0208		. #x384A)	; &I-J90-384A; [24-42]
@@ -16,17 +17,22 @@
     (=daikanwa		. 08742)	; &I-M-08742;
     ))
 (define-char
-  '((=>ucs		. #x5DF1)	; 己
-    (morohashi-daikanwa	8742 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5DF1)	; 己
+      ))
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-formed@component
+     ((=ucs		  . #x5DF1)	; 己
+      ))
     (=big5-cdp		. #x896D)	; &CDP-896D;
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2068)
     (shinjigen-2	. 2068)
     (=ucs		. #x5DF2)	; 已
     (=jis-x0208		. #x5661)	; &I-J90-5661; [54-65]
@@ -43,6 +49,7 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (shinjigen-1	. 2070)
     (shinjigen-2	. 2070)
     (=ucs		. #x5DF3)	; 巳
     (=jis-x0208		. #x4C26)	; &I-J90-4C26; [44-06]
@@ -56,9 +63,23 @@
     (=daikanwa		. 08744)	; &I-M-08744;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (name		. "CJK RADICAL SNAKE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-identical@component
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs		. #x2E92)	; ⺒
+    ))
+(define-char
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (shinjigen-1	. 2071)
     (shinjigen-2	. 2071)
     (=ucs		. #x5DF4)	; 巴
     (=jis-x0208		. #x4743)	; &I-J90-4743; [39-35]
@@ -167,12 +188,12 @@
     (=jis-x0208@1997	. #x392B)	; 巷 [25-11]
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5DF7)	; 巷
       ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=jis-x0208@1978	. #x392B)	; &GT-11040; [25-11]
     (=gb2312		. #x4F6F)	; &I-G0-4F6F; [47-79]
     (=ks-x1001		. #x7975)	; &I-K0-7975; [89-85]
@@ -184,12 +205,12 @@
     (=ucs@unicode	. #x5DF7)	; &GT-11040;
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5DF7)	; 巷
       ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=jis-x0208@1983	. #x392B)	; &GT-11041; [25-11]
     (=jis-x0208@1990	. #x392B)	; &I-J90-392B; [25-11]
     (=gt		. 11041)	; &I-GT-11041;
@@ -348,12 +369,12 @@
     (=jis-x0208@1997	. #x4327)	; 巽 [35-07]
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5DFD)	; 巽
       ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (->subsumptive
      ((=jis-x0208@1978	  . #x4327)	; &GT-11052; [35-07]
       (=gb2312		  . #x5963)	; &I-G0-5963; [57-67]
@@ -369,12 +390,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5DFD)	; 巽
       ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (<-simplified@JP
      ((=jis-x0208@1978	  . #x4327)	; &GT-11052; [35-07]
       (=gb2312		  . #x5963)	; &I-G0-5963; [57-67]

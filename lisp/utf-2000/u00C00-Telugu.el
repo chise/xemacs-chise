@@ -431,7 +431,13 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (->decomposition	#x0C46 #x0C56)
+    (=decomposition
+     ((name		  . "TELUGU VOWEL SIGN E")
+      (=ucs		  . #x0C46)	; ె
+      )
+     ((name		  . "TELUGU AI LENGTH MARK")
+      (=ucs		  . #x0C56)	; ౖ
+      ))
     (=ucs		. #x0C48)	; ై
     ))
 (define-char

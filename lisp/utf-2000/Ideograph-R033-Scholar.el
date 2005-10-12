@@ -258,12 +258,12 @@
     (=ucs		. #x58F3)	; 壳
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x58F3)	; 壳
       ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -288,12 +288,12 @@
     (=ucs@jis		. #x58F3)	; &M-05648;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x58F3)	; 壳
       ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (hanyu-dazidian	1 428 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -813,12 +813,12 @@
     (=big5		. #xE553)	; &I-B-E553;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x58FF)	; 壿
       ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -830,12 +830,12 @@
     (=daikanwa		. 05678)	; &M-05678;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x58FF)	; 壿
       ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

@@ -14,6 +14,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (<-Bopomofo
+     ((=ucs		  . #x6535)	; 攵
+      ))
     (=ucs		. #x3106)	; ㄆ
     (=gb2312		. #x2846)	; &I-G0-2846; [08-38]
     (=cns11643-1	. #x2548)	; &I-C1-2548; [05-40]
@@ -44,6 +47,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (<-Bopomofo
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
     (=ucs		. #x3109)	; ㄉ
     (=gb2312		. #x2849)	; &I-G0-2849; [08-41]
     (=cns11643-1	. #x254B)	; &I-C1-254B; [05-43]
@@ -95,7 +101,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x4E02)	; 丂
       ))
     (=ucs		. #x310E)	; ㄎ
@@ -199,8 +205,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
-     ((=daikanwa	  . 00009)	; &I-M-00009;
+    (<-Bopomofo
+     ((=gt		  . 00005)	; &GT-00005;
+      (=daikanwa	  . 00009)	; &I-M-00009;
       ))
     (=ucs		. #x3118)	; ㄘ
     (=gb2312		. #x2858)	; &I-G0-2858; [08-56]
@@ -233,9 +240,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x20000)	; 𠀀
-      (=daikanwa	  . 00004)	; &I-M-00004;
       ))
     (=ucs		. #x311B)	; ㄛ
     (=gb2312		. #x285B)	; &I-G0-285B; [08-59]
@@ -248,8 +254,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
-     ((=daikanwa	  . 00005)	; &M-00005;
+    (<-Bopomofo
+     ((=gt		  . 00038)	; &GT-00038;
+      (=daikanwa	  . 00005)	; &I-M-00005;
       ))
     (=ucs		. #x311C)	; ㄜ
     (=gb2312		. #x285C)	; &I-G0-285C; [08-60]
@@ -372,7 +379,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-bopomofo
+    (<-Bopomofo
      ((=ucs		  . #x3405)	; 㐅
       ))
     (=ucs		. #x3128)	; ㄨ

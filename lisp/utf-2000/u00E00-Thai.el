@@ -405,7 +405,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x0E4D #x0E32)
+    (=>decomposition@compat
+     ((name		  . "THAI CHARACTER NIKHAHIT")
+      (=ucs		  . #x0E4D)	; ํ
+      )
+     ((name		  . "THAI CHARACTER SARA AA")
+      (=ucs		  . #x0E32)	; า
+      ))
     (=ucs		. #x0E33)	; ำ
     (thai-tis620	. #xD3)	; &I-THAI-53;
     ))

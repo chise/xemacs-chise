@@ -403,7 +403,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x09C7 #x09BE)
+    (=decomposition
+     ((name		  . "BENGALI VOWEL SIGN E")
+      (=ucs		  . #x09C7)	; ে
+      )
+     ((name		  . "BENGALI VOWEL SIGN AA")
+      (=ucs		  . #x09BE)	; া
+      ))
     (=ucs		. #x09CB)	; ো
     ))
 (define-char
@@ -411,7 +417,13 @@
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x09C7 #x09D7)
+    (=decomposition
+     ((name		  . "BENGALI VOWEL SIGN E")
+      (=ucs		  . #x09C7)	; ে
+      )
+     ((name		  . "BENGALI AU LENGTH MARK")
+      (=ucs		  . #x09D7)	; ৗ
+      ))
     (=ucs		. #x09CC)	; ৌ
     ))
 (define-char
@@ -433,7 +445,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x09A1 #x09BC)
+    (=decomposition
+     ((name		  . "BENGALI LETTER DDA")
+      (=ucs		  . #x09A1)	; ড
+      )
+     ((name		  . "BENGALI SIGN NUKTA")
+      (=ucs		  . #x09BC)	; ়
+      ))
     (=ucs		. #x09DC)	; ড়
     ))
 (define-char
@@ -441,7 +459,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x09A2 #x09BC)
+    (=decomposition
+     ((name		  . "BENGALI LETTER DDHA")
+      (=ucs		  . #x09A2)	; ঢ
+      )
+     ((name		  . "BENGALI SIGN NUKTA")
+      (=ucs		  . #x09BC)	; ়
+      ))
     (=ucs		. #x09DD)	; ঢ়
     ))
 (define-char
@@ -449,7 +473,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x09AF #x09BC)
+    (=decomposition
+     ((name		  . "BENGALI LETTER YA")
+      (=ucs		  . #x09AF)	; য
+      )
+     ((name		  . "BENGALI SIGN NUKTA")
+      (=ucs		  . #x09BC)	; ়
+      ))
     (=ucs		. #x09DF)	; য়
     ))
 (define-char

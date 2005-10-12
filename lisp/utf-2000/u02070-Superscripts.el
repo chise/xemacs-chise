@@ -7,7 +7,10 @@
     (decimal-digit-value . 0)
     (digit-value	 . 0)
     (numeric-value	 . 0)
-    (->decomposition	super #x0030)
+    (<-superscript
+     ((name		  . "DIGIT ZERO")
+      (=ucs		  . #x0030)	; 0
+      ))
     (=ucs		. #x2070)	; ⁰
     ))
 (define-char
@@ -18,7 +21,10 @@
     (decimal-digit-value . 4)
     (digit-value	 . 4)
     (numeric-value	 . 4)
-    (->decomposition	super #x0034)
+    (<-superscript
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     (=ucs		. #x2074)	; ⁴
     ))
 (define-char
@@ -40,7 +46,10 @@
     (decimal-digit-value . 5)
     (digit-value	 . 5)
     (numeric-value	 . 5)
-    (->decomposition	super #x0035)
+    (<-superscript
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     (=ucs		. #x2075)	; ⁵
     ))
 (define-char
@@ -51,7 +60,10 @@
     (decimal-digit-value . 6)
     (digit-value	 . 6)
     (numeric-value	 . 6)
-    (->decomposition	super #x0036)
+    (<-superscript
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     (=ucs		. #x2076)	; ⁶
     ))
 (define-char
@@ -62,7 +74,10 @@
     (decimal-digit-value . 7)
     (digit-value	 . 7)
     (numeric-value	 . 7)
-    (->decomposition	super #x0037)
+    (<-superscript
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     (=ucs		. #x2077)	; ⁷
     ))
 (define-char
@@ -73,7 +88,10 @@
     (decimal-digit-value . 8)
     (digit-value	 . 8)
     (numeric-value	 . 8)
-    (->decomposition	super #x0038)
+    (<-superscript
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     (=ucs		. #x2078)	; ⁸
     ))
 (define-char
@@ -84,7 +102,10 @@
     (decimal-digit-value . 9)
     (digit-value	 . 9)
     (numeric-value	 . 9)
-    (->decomposition	super #x0039)
+    (<-superscript
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     (=ucs		. #x2079)	; ⁹
     ))
 (define-char
@@ -92,7 +113,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	super #x002B)
+    (<-superscript
+     ((name		  . "PLUS SIGN")
+      (=ucs		  . #x002B)	; +
+      ))
     (=ucs		. #x207A)	; ⁺
     ))
 (define-char
@@ -100,7 +124,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	super #x2212)
+    (<-superscript
+     ((name		  . "MINUS SIGN")
+      (=ucs		  . #x2212)	; −
+      ))
     (=ucs		. #x207B)	; ⁻
     ))
 (define-char
@@ -108,7 +135,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	super #x003D)
+    (<-superscript
+     ((name		  . "EQUALS SIGN")
+      (=ucs		  . #x003D)	; =
+      ))
     (=ucs		. #x207C)	; ⁼
     ))
 (define-char
@@ -116,7 +146,10 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	super #x0028)
+    (<-superscript
+     ((name		  . "LEFT PARENTHESIS")
+      (=ucs		  . #x0028)	; (
+      ))
     (=ucs		. #x207D)	; ⁽
     ))
 (define-char
@@ -124,7 +157,10 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	super #x0029)
+    (<-superscript
+     ((name		  . "RIGHT PARENTHESIS")
+      (=ucs		  . #x0029)	; )
+      ))
     (=ucs		. #x207E)	; ⁾
     ))
 (define-char
@@ -132,7 +168,10 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	super #x006E)
+    (<-superscript
+     ((name		  . "LATIN SMALL LETTER N")
+      (=ucs		  . #x006E)	; n
+      ))
     (=ucs		. #x207F)	; ⁿ
     ))
 (define-char

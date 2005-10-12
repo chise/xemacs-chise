@@ -344,16 +344,22 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x3008)
     (=ucs		. #x2329)	; 〈
+    (->canonical
+     ((name		  . "LEFT ANGLE BRACKET")
+      (=ucs		  . #x3008)	; 〈
+      ))
     ))
 (define-char
   '((name		. "RIGHT-POINTING ANGLE BRACKET")
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x3009)
     (=ucs		. #x232A)	; 〉
+    (->canonical
+     ((name		  . "RIGHT ANGLE BRACKET")
+      (=ucs		  . #x3009)	; 〉
+      ))
     ))
 (define-char
   '((name		. "ERASE TO THE LEFT")
@@ -1277,17 +1283,17 @@
     (=ucs@jis		. #x23C5)	; &JX1-2749;
     ))
 (define-char
-  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
     (general-category	symbol other) ; Informative Category
     (=ucs		. #x23C6)	; ⏆
     ))
 (define-char
   '((<-denotational
-     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
       ))
     (<-fullwidth
-     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+     ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
       ))
     (=jis-x0213-1-2000	. #x274A)	; &JX1-274A; [07-42]

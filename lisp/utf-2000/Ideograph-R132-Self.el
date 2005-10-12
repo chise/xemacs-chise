@@ -87,13 +87,13 @@
     (=ucs		. #x81ED)	; 臭
     ))
 (define-char
-  '((morohashi-daikanwa	30103 1)
+  '((<-denotational
+     ((=ucs		  . #x81ED)	; 臭
+      ))
+    (morohashi-daikanwa	30103 1)
     (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x81ED)	; 臭
-      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA5C)	; 臭
       (=jis-x0213-1-2000  . #x7A58)	; &I-JX1-7A58; [90-56]
@@ -157,13 +157,13 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x81ED)	; 臭
+  '((<-denotational
+     ((=ucs		  . #x81ED)	; 臭
+      ))
+    (=>ucs*		. #x81ED)	; 臭
     (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (<-denotational
-     ((=ucs		  . #x81ED)	; 臭
-      ))
     (=ucs		. #xFA5C)	; 臭
     (=gb2312		. #x3374)	; &I-G0-3374; [19-84]
     (=ks-x1001		. #x762B)	; &I-K0-762B; [86-11]
@@ -239,21 +239,21 @@
     (=ucs		. #x81EE)	; 臮
     ))
 (define-char
-  '((ideographic-radical . 132)	; ⾃
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x81EE)	; 臮
       ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=daikanwa		. 30116)	; &M-30116;
     ))
 (define-char
-  '((ideographic-radical . 132)	; ⾃
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x81EE)	; 臮
       ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=big5		. #xDB53)	; &B-DB53;
     (->subsumptive
      ((=cns11643-2	  . #x3F38)	; &C2-3F38; [31-24]

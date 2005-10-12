@@ -534,7 +534,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x3012)
+    (<-compat/circled
+     ((name		  . "POSTAL MARK")
+      (=ucs		  . #x3012)	; 〒
+      ))
     (=ucs		. #x3036)	; 〶
     ))
 (define-char
@@ -550,7 +553,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (->decomposition	compat #x5341)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x3038)	; 〸
     (=cns11643-1	. #x243E)	; &I-C1-243E; [04-30]
     (=big5		. #xA2CC)	; &I-B-A2CC;
@@ -561,7 +566,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (->decomposition	compat #x5344)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5344)	; 卄
+      ))
     (=ucs		. #x3039)	; 〹
     (=cns11643-1	. #x243F)	; &I-C1-243F; [04-31]
     (=big5		. #xA2CD)	; &I-B-A2CD;
@@ -572,7 +579,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 30)
-    (->decomposition	compat #x5345)
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5345)	; 卅
+      ))
     (=ucs		. #x303A)	; 〺
     (=cns11643-1	. #x2440)	; &I-C1-2440; [04-32]
     (=big5		. #xA2CE)	; &I-B-A2CE;

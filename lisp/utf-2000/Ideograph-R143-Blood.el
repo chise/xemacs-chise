@@ -265,21 +265,21 @@
     (=ucs		. #x275B4)	; 𧖴
     ))
 (define-char
-  '((ideographic-radical . 143)	; ⾎
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x275B4)	; 𧖴
       ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=daikanwa		. 33983)	; &M-33983;
     ))
 (define-char
-  '((ideographic-radical . 143)	; ⾎
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x275B4)	; 𧖴
       ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=cns11643-6	. #x4E50)	; &C6-4E50; [46-48]
     (=ucs@iso		. #x275B4)	; &C6-4E50;
     ))
@@ -641,23 +641,23 @@
     (=ucs		. #x884A)	; 衊
     ))
 (define-char
-  '((ideographic-radical . 143)	; ⾎
-    (ideographic-strokes . 15)
-    (total-strokes	 . 21)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x884A)	; 衊
       ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 15)
+    (total-strokes	 . 21)
     (=cns11643-2	. #x6C36)	; &M-34023; [76-22]
     (=daikanwa		. 34023)	; &I-M-34023;
     (=jef-china3	. #x63E3)	; &I-JC3-63E3;
     ))
 (define-char
-  '((ideographic-radical . 143)	; ⾎
-    (ideographic-strokes . 14)
-    (total-strokes	 . 20)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x884A)	; 衊
       ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
     (=big5		. #xF647)	; &B-F647;
     (->subsumptive
      ((=jis-x0212	  . #x5C28)	; &JX2-7825; [60-08]

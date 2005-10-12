@@ -4,7 +4,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1100)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KIYEOK")
+      (=ucs		  . #x1100)	; ᄀ
+      ))
     (=ucs		. #x3131)	; ㄱ
     (=ks-x1001		. #x2421)	; &I-K0-2421; [04-01]
     ))
@@ -13,7 +16,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1101)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGKIYEOK")
+      (=ucs		  . #x1101)	; ᄁ
+      ))
     (=ucs		. #x3132)	; ㄲ
     (=ks-x1001		. #x2422)	; &I-K0-2422; [04-02]
     ))
@@ -22,7 +28,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11AA)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG KIYEOK-SIOS")
+      (=ucs		  . #x11AA)	; ᆪ
+      ))
     (=ucs		. #x3133)	; ㄳ
     (=ks-x1001		. #x2423)	; &I-K0-2423; [04-03]
     ))
@@ -31,7 +40,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1102)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG NIEUN")
+      (=ucs		  . #x1102)	; ᄂ
+      ))
     (=ucs		. #x3134)	; ㄴ
     (=ks-x1001		. #x2424)	; &I-K0-2424; [04-04]
     ))
@@ -40,7 +52,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11AC)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG NIEUN-CIEUC")
+      (=ucs		  . #x11AC)	; ᆬ
+      ))
     (=ucs		. #x3135)	; ㄵ
     (=ks-x1001		. #x2425)	; &I-K0-2425; [04-05]
     ))
@@ -49,7 +64,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11AD)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG NIEUN-HIEUH")
+      (=ucs		  . #x11AD)	; ᆭ
+      ))
     (=ucs		. #x3136)	; ㄶ
     (=ks-x1001		. #x2426)	; &I-K0-2426; [04-06]
     ))
@@ -58,7 +76,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1103)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG TIKEUT")
+      (=ucs		  . #x1103)	; ᄃ
+      ))
     (=ucs		. #x3137)	; ㄷ
     (=ks-x1001		. #x2427)	; &I-K0-2427; [04-07]
     ))
@@ -67,7 +88,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1104)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGTIKEUT")
+      (=ucs		  . #x1104)	; ᄄ
+      ))
     (=ucs		. #x3138)	; ㄸ
     (=ks-x1001		. #x2428)	; &I-K0-2428; [04-08]
     ))
@@ -76,7 +100,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1105)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG RIEUL")
+      (=ucs		  . #x1105)	; ᄅ
+      ))
     (=ucs		. #x3139)	; ㄹ
     (=ks-x1001		. #x2429)	; &I-K0-2429; [04-09]
     ))
@@ -85,7 +112,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B0)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-KIYEOK")
+      (=ucs		  . #x11B0)	; ᆰ
+      ))
     (=ucs		. #x313A)	; ㄺ
     (=ks-x1001		. #x242A)	; &I-K0-242A; [04-10]
     ))
@@ -94,7 +124,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B1)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-MIEUM")
+      (=ucs		  . #x11B1)	; ᆱ
+      ))
     (=ucs		. #x313B)	; ㄻ
     (=ks-x1001		. #x242B)	; &I-K0-242B; [04-11]
     ))
@@ -103,7 +136,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B2)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-PIEUP")
+      (=ucs		  . #x11B2)	; ᆲ
+      ))
     (=ucs		. #x313C)	; ㄼ
     (=ks-x1001		. #x242C)	; &I-K0-242C; [04-12]
     ))
@@ -112,7 +148,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B3)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-SIOS")
+      (=ucs		  . #x11B3)	; ᆳ
+      ))
     (=ucs		. #x313D)	; ㄽ
     (=ks-x1001		. #x242D)	; &I-K0-242D; [04-13]
     ))
@@ -121,7 +160,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B4)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-THIEUTH")
+      (=ucs		  . #x11B4)	; ᆴ
+      ))
     (=ucs		. #x313E)	; ㄾ
     (=ks-x1001		. #x242E)	; &I-K0-242E; [04-14]
     ))
@@ -130,7 +172,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11B5)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-PHIEUPH")
+      (=ucs		  . #x11B5)	; ᆵ
+      ))
     (=ucs		. #x313F)	; ㄿ
     (=ks-x1001		. #x242F)	; &I-K0-242F; [04-15]
     ))
@@ -139,7 +184,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x111A)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG RIEUL-HIEUH")
+      (=ucs		  . #x111A)	; ᄚ
+      ))
     (=ucs		. #x3140)	; ㅀ
     (=ks-x1001		. #x2430)	; &I-K0-2430; [04-16]
     ))
@@ -148,7 +196,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1106)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG MIEUM")
+      (=ucs		  . #x1106)	; ᄆ
+      ))
     (=ucs		. #x3141)	; ㅁ
     (=ks-x1001		. #x2431)	; &I-K0-2431; [04-17]
     ))
@@ -157,7 +208,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1107)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP")
+      (=ucs		  . #x1107)	; ᄇ
+      ))
     (=ucs		. #x3142)	; ㅂ
     (=ks-x1001		. #x2432)	; &I-K0-2432; [04-18]
     ))
@@ -166,7 +220,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1108)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGPIEUP")
+      (=ucs		  . #x1108)	; ᄈ
+      ))
     (=ucs		. #x3143)	; ㅃ
     (=ks-x1001		. #x2433)	; &I-K0-2433; [04-19]
     ))
@@ -175,7 +232,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1121)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-SIOS")
+      (=ucs		  . #x1121)	; ᄡ
+      ))
     (=ucs		. #x3144)	; ㅄ
     (=ks-x1001		. #x2434)	; &I-K0-2434; [04-20]
     ))
@@ -184,7 +244,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1109)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS")
+      (=ucs		  . #x1109)	; ᄉ
+      ))
     (=ucs		. #x3145)	; ㅅ
     (=ks-x1001		. #x2435)	; &I-K0-2435; [04-21]
     ))
@@ -193,7 +256,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110A)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGSIOS")
+      (=ucs		  . #x110A)	; ᄊ
+      ))
     (=ucs		. #x3146)	; ㅆ
     (=ks-x1001		. #x2436)	; &I-K0-2436; [04-22]
     ))
@@ -202,7 +268,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110B)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG IEUNG")
+      (=ucs		  . #x110B)	; ᄋ
+      ))
     (=ucs		. #x3147)	; ㅇ
     (=ks-x1001		. #x2437)	; &I-K0-2437; [04-23]
     ))
@@ -211,7 +280,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110C)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG CIEUC")
+      (=ucs		  . #x110C)	; ᄌ
+      ))
     (=ucs		. #x3148)	; ㅈ
     (=ks-x1001		. #x2438)	; &I-K0-2438; [04-24]
     ))
@@ -220,7 +292,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110D)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGCIEUC")
+      (=ucs		  . #x110D)	; ᄍ
+      ))
     (=ucs		. #x3149)	; ㅉ
     (=ks-x1001		. #x2439)	; &I-K0-2439; [04-25]
     ))
@@ -229,7 +304,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110E)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG CHIEUCH")
+      (=ucs		  . #x110E)	; ᄎ
+      ))
     (=ucs		. #x314A)	; ㅊ
     (=ks-x1001		. #x243A)	; &I-K0-243A; [04-26]
     ))
@@ -238,7 +316,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x110F)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KHIEUKH")
+      (=ucs		  . #x110F)	; ᄏ
+      ))
     (=ucs		. #x314B)	; ㅋ
     (=ks-x1001		. #x243B)	; &I-K0-243B; [04-27]
     ))
@@ -247,7 +328,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1110)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG THIEUTH")
+      (=ucs		  . #x1110)	; ᄐ
+      ))
     (=ucs		. #x314C)	; ㅌ
     (=ks-x1001		. #x243C)	; &I-K0-243C; [04-28]
     ))
@@ -256,7 +340,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1111)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PHIEUPH")
+      (=ucs		  . #x1111)	; ᄑ
+      ))
     (=ucs		. #x314D)	; ㅍ
     (=ks-x1001		. #x243D)	; &I-K0-243D; [04-29]
     ))
@@ -265,7 +352,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1112)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG HIEUH")
+      (=ucs		  . #x1112)	; ᄒ
+      ))
     (=ucs		. #x314E)	; ㅎ
     (=ks-x1001		. #x243E)	; &I-K0-243E; [04-30]
     ))
@@ -274,7 +364,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1161)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG A")
+      (=ucs		  . #x1161)	; ᅡ
+      ))
     (=ucs		. #x314F)	; ㅏ
     (=ks-x1001		. #x243F)	; &I-K0-243F; [04-31]
     ))
@@ -283,7 +376,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1162)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG AE")
+      (=ucs		  . #x1162)	; ᅢ
+      ))
     (=ucs		. #x3150)	; ㅐ
     (=ks-x1001		. #x2440)	; &I-K0-2440; [04-32]
     ))
@@ -292,7 +388,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1163)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YA")
+      (=ucs		  . #x1163)	; ᅣ
+      ))
     (=ucs		. #x3151)	; ㅑ
     (=ks-x1001		. #x2441)	; &I-K0-2441; [04-33]
     ))
@@ -301,7 +400,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1164)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YAE")
+      (=ucs		  . #x1164)	; ᅤ
+      ))
     (=ucs		. #x3152)	; ㅒ
     (=ks-x1001		. #x2442)	; &I-K0-2442; [04-34]
     ))
@@ -310,7 +412,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1165)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG EO")
+      (=ucs		  . #x1165)	; ᅥ
+      ))
     (=ucs		. #x3153)	; ㅓ
     (=ks-x1001		. #x2443)	; &I-K0-2443; [04-35]
     ))
@@ -319,7 +424,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1166)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG E")
+      (=ucs		  . #x1166)	; ᅦ
+      ))
     (=ucs		. #x3154)	; ㅔ
     (=ks-x1001		. #x2444)	; &I-K0-2444; [04-36]
     ))
@@ -328,7 +436,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1167)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YEO")
+      (=ucs		  . #x1167)	; ᅧ
+      ))
     (=ucs		. #x3155)	; ㅕ
     (=ks-x1001		. #x2445)	; &I-K0-2445; [04-37]
     ))
@@ -337,7 +448,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1168)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YE")
+      (=ucs		  . #x1168)	; ᅨ
+      ))
     (=ucs		. #x3156)	; ㅖ
     (=ks-x1001		. #x2446)	; &I-K0-2446; [04-38]
     ))
@@ -346,7 +460,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1169)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG O")
+      (=ucs		  . #x1169)	; ᅩ
+      ))
     (=ucs		. #x3157)	; ㅗ
     (=ks-x1001		. #x2447)	; &I-K0-2447; [04-39]
     ))
@@ -355,7 +472,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116A)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG WA")
+      (=ucs		  . #x116A)	; ᅪ
+      ))
     (=ucs		. #x3158)	; ㅘ
     (=ks-x1001		. #x2448)	; &I-K0-2448; [04-40]
     ))
@@ -364,7 +484,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116B)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG WAE")
+      (=ucs		  . #x116B)	; ᅫ
+      ))
     (=ucs		. #x3159)	; ㅙ
     (=ks-x1001		. #x2449)	; &I-K0-2449; [04-41]
     ))
@@ -373,7 +496,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116C)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG OE")
+      (=ucs		  . #x116C)	; ᅬ
+      ))
     (=ucs		. #x315A)	; ㅚ
     (=ks-x1001		. #x244A)	; &I-K0-244A; [04-42]
     ))
@@ -382,7 +508,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116D)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YO")
+      (=ucs		  . #x116D)	; ᅭ
+      ))
     (=ucs		. #x315B)	; ㅛ
     (=ks-x1001		. #x244B)	; &I-K0-244B; [04-43]
     ))
@@ -391,7 +520,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116E)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG U")
+      (=ucs		  . #x116E)	; ᅮ
+      ))
     (=ucs		. #x315C)	; ㅜ
     (=ks-x1001		. #x244C)	; &I-K0-244C; [04-44]
     ))
@@ -400,7 +532,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x116F)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG WEO")
+      (=ucs		  . #x116F)	; ᅯ
+      ))
     (=ucs		. #x315D)	; ㅝ
     (=ks-x1001		. #x244D)	; &I-K0-244D; [04-45]
     ))
@@ -409,7 +544,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1170)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG WE")
+      (=ucs		  . #x1170)	; ᅰ
+      ))
     (=ucs		. #x315E)	; ㅞ
     (=ks-x1001		. #x244E)	; &I-K0-244E; [04-46]
     ))
@@ -418,7 +556,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1171)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG WI")
+      (=ucs		  . #x1171)	; ᅱ
+      ))
     (=ucs		. #x315F)	; ㅟ
     (=ks-x1001		. #x244F)	; &I-K0-244F; [04-47]
     ))
@@ -427,7 +568,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1172)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YU")
+      (=ucs		  . #x1172)	; ᅲ
+      ))
     (=ucs		. #x3160)	; ㅠ
     (=ks-x1001		. #x2450)	; &I-K0-2450; [04-48]
     ))
@@ -436,7 +580,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1173)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG EU")
+      (=ucs		  . #x1173)	; ᅳ
+      ))
     (=ucs		. #x3161)	; ㅡ
     (=ks-x1001		. #x2451)	; &I-K0-2451; [04-49]
     ))
@@ -445,7 +592,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1174)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YI")
+      (=ucs		  . #x1174)	; ᅴ
+      ))
     (=ucs		. #x3162)	; ㅢ
     (=ks-x1001		. #x2452)	; &I-K0-2452; [04-50]
     ))
@@ -454,7 +604,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1175)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG I")
+      (=ucs		  . #x1175)	; ᅵ
+      ))
     (=ucs		. #x3163)	; ㅣ
     (=ks-x1001		. #x2453)	; &I-K0-2453; [04-51]
     ))
@@ -463,7 +616,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1160)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG FILLER")
+      (=ucs		  . #x1160)	; ᅠ
+      ))
     (=ucs		. #x3164)	; ㅤ
     (=ks-x1001		. #x2454)	; &I-K0-2454; [04-52]
     ))
@@ -472,7 +628,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1114)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGNIEUN")
+      (=ucs		  . #x1114)	; ᄔ
+      ))
     (=ucs		. #x3165)	; ㅥ
     (=ks-x1001		. #x2455)	; &I-K0-2455; [04-53]
     ))
@@ -481,7 +640,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1115)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG NIEUN-TIKEUT")
+      (=ucs		  . #x1115)	; ᄕ
+      ))
     (=ucs		. #x3166)	; ㅦ
     (=ks-x1001		. #x2456)	; &I-K0-2456; [04-54]
     ))
@@ -490,7 +652,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11C7)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG NIEUN-SIOS")
+      (=ucs		  . #x11C7)	; ᇇ
+      ))
     (=ucs		. #x3167)	; ㅧ
     (=ks-x1001		. #x2457)	; &I-K0-2457; [04-55]
     ))
@@ -499,7 +664,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11C8)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG NIEUN-PANSIOS")
+      (=ucs		  . #x11C8)	; ᇈ
+      ))
     (=ucs		. #x3168)	; ㅨ
     (=ks-x1001		. #x2458)	; &I-K0-2458; [04-56]
     ))
@@ -508,7 +676,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11CC)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-KIYEOK-SIOS")
+      (=ucs		  . #x11CC)	; ᇌ
+      ))
     (=ucs		. #x3169)	; ㅩ
     (=ks-x1001		. #x2459)	; &I-K0-2459; [04-57]
     ))
@@ -517,7 +688,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11CE)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-TIKEUT")
+      (=ucs		  . #x11CE)	; ᇎ
+      ))
     (=ucs		. #x316A)	; ㅪ
     (=ks-x1001		. #x245A)	; &I-K0-245A; [04-58]
     ))
@@ -526,7 +700,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11D3)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-PIEUP-SIOS")
+      (=ucs		  . #x11D3)	; ᇓ
+      ))
     (=ucs		. #x316B)	; ㅫ
     (=ks-x1001		. #x245B)	; &I-K0-245B; [04-59]
     ))
@@ -535,7 +712,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11D7)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-PANSIOS")
+      (=ucs		  . #x11D7)	; ᇗ
+      ))
     (=ucs		. #x316C)	; ㅬ
     (=ks-x1001		. #x245C)	; &I-K0-245C; [04-60]
     ))
@@ -544,7 +724,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11D9)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG RIEUL-YEORINHIEUH")
+      (=ucs		  . #x11D9)	; ᇙ
+      ))
     (=ucs		. #x316D)	; ㅭ
     (=ks-x1001		. #x245D)	; &I-K0-245D; [04-61]
     ))
@@ -553,7 +736,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x111C)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG MIEUM-PIEUP")
+      (=ucs		  . #x111C)	; ᄜ
+      ))
     (=ucs		. #x316E)	; ㅮ
     (=ks-x1001		. #x245E)	; &I-K0-245E; [04-62]
     ))
@@ -562,7 +748,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11DD)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG MIEUM-SIOS")
+      (=ucs		  . #x11DD)	; ᇝ
+      ))
     (=ucs		. #x316F)	; ㅯ
     (=ks-x1001		. #x245F)	; &I-K0-245F; [04-63]
     ))
@@ -571,7 +760,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11DF)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG MIEUM-PANSIOS")
+      (=ucs		  . #x11DF)	; ᇟ
+      ))
     (=ucs		. #x3170)	; ㅰ
     (=ks-x1001		. #x2460)	; &I-K0-2460; [04-64]
     ))
@@ -580,7 +772,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x111D)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KAPYEOUNMIEUM")
+      (=ucs		  . #x111D)	; ᄝ
+      ))
     (=ucs		. #x3171)	; ㅱ
     (=ks-x1001		. #x2461)	; &I-K0-2461; [04-65]
     ))
@@ -589,7 +784,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x111E)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-KIYEOK")
+      (=ucs		  . #x111E)	; ᄞ
+      ))
     (=ucs		. #x3172)	; ㅲ
     (=ks-x1001		. #x2462)	; &I-K0-2462; [04-66]
     ))
@@ -598,7 +796,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1120)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-TIKEUT")
+      (=ucs		  . #x1120)	; ᄠ
+      ))
     (=ucs		. #x3173)	; ㅳ
     (=ks-x1001		. #x2463)	; &I-K0-2463; [04-67]
     ))
@@ -607,7 +808,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1122)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-SIOS-KIYEOK")
+      (=ucs		  . #x1122)	; ᄢ
+      ))
     (=ucs		. #x3174)	; ㅴ
     (=ks-x1001		. #x2464)	; &I-K0-2464; [04-68]
     ))
@@ -616,7 +820,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1123)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-SIOS-TIKEUT")
+      (=ucs		  . #x1123)	; ᄣ
+      ))
     (=ucs		. #x3175)	; ㅵ
     (=ks-x1001		. #x2465)	; &I-K0-2465; [04-69]
     ))
@@ -625,7 +832,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1127)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-CIEUC")
+      (=ucs		  . #x1127)	; ᄧ
+      ))
     (=ucs		. #x3176)	; ㅶ
     (=ks-x1001		. #x2466)	; &I-K0-2466; [04-70]
     ))
@@ -634,7 +844,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1129)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PIEUP-THIEUTH")
+      (=ucs		  . #x1129)	; ᄩ
+      ))
     (=ucs		. #x3177)	; ㅷ
     (=ks-x1001		. #x2467)	; &I-K0-2467; [04-71]
     ))
@@ -643,7 +856,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x112B)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KAPYEOUNPIEUP")
+      (=ucs		  . #x112B)	; ᄫ
+      ))
     (=ucs		. #x3178)	; ㅸ
     (=ks-x1001		. #x2468)	; &I-K0-2468; [04-72]
     ))
@@ -652,7 +868,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x112C)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KAPYEOUNSSANGPIEUP")
+      (=ucs		  . #x112C)	; ᄬ
+      ))
     (=ucs		. #x3179)	; ㅹ
     (=ks-x1001		. #x2469)	; &I-K0-2469; [04-73]
     ))
@@ -661,7 +880,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x112D)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS-KIYEOK")
+      (=ucs		  . #x112D)	; ᄭ
+      ))
     (=ucs		. #x317A)	; ㅺ
     (=ks-x1001		. #x246A)	; &I-K0-246A; [04-74]
     ))
@@ -670,7 +892,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x112E)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS-NIEUN")
+      (=ucs		  . #x112E)	; ᄮ
+      ))
     (=ucs		. #x317B)	; ㅻ
     (=ks-x1001		. #x246B)	; &I-K0-246B; [04-75]
     ))
@@ -679,7 +904,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x112F)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS-TIKEUT")
+      (=ucs		  . #x112F)	; ᄯ
+      ))
     (=ucs		. #x317C)	; ㅼ
     (=ks-x1001		. #x246C)	; &I-K0-246C; [04-76]
     ))
@@ -688,7 +916,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1132)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS-PIEUP")
+      (=ucs		  . #x1132)	; ᄲ
+      ))
     (=ucs		. #x317D)	; ㅽ
     (=ks-x1001		. #x246D)	; &I-K0-246D; [04-77]
     ))
@@ -697,7 +928,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1136)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SIOS-CIEUC")
+      (=ucs		  . #x1136)	; ᄶ
+      ))
     (=ucs		. #x317E)	; ㅾ
     (=ks-x1001		. #x246E)	; &I-K0-246E; [04-78]
     ))
@@ -706,7 +940,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1140)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG PANSIOS")
+      (=ucs		  . #x1140)	; ᅀ
+      ))
     (=ucs		. #x317F)	; ㅿ
     (=ks-x1001		. #x246F)	; &I-K0-246F; [04-79]
     ))
@@ -715,7 +952,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1147)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGIEUNG")
+      (=ucs		  . #x1147)	; ᅇ
+      ))
     (=ucs		. #x3180)	; ㆀ
     (=ks-x1001		. #x2470)	; &I-K0-2470; [04-80]
     ))
@@ -724,7 +964,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x114C)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG YESIEUNG")
+      (=ucs		  . #x114C)	; ᅌ
+      ))
     (=ucs		. #x3181)	; ㆁ
     (=ks-x1001		. #x2471)	; &I-K0-2471; [04-81]
     ))
@@ -733,7 +976,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11F1)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG YESIEUNG-SIOS")
+      (=ucs		  . #x11F1)	; ᇱ
+      ))
     (=ucs		. #x3182)	; ㆂ
     (=ks-x1001		. #x2472)	; &I-K0-2472; [04-82]
     ))
@@ -742,7 +988,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11F2)
+    (<-compat
+     ((name		  . "HANGUL JONGSEONG YESIEUNG-PANSIOS")
+      (=ucs		  . #x11F2)	; ᇲ
+      ))
     (=ucs		. #x3183)	; ㆃ
     (=ks-x1001		. #x2473)	; &I-K0-2473; [04-83]
     ))
@@ -751,7 +1000,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1157)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG KAPYEOUNPHIEUPH")
+      (=ucs		  . #x1157)	; ᅗ
+      ))
     (=ucs		. #x3184)	; ㆄ
     (=ks-x1001		. #x2474)	; &I-K0-2474; [04-84]
     ))
@@ -760,7 +1012,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1158)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG SSANGHIEUH")
+      (=ucs		  . #x1158)	; ᅘ
+      ))
     (=ucs		. #x3185)	; ㆅ
     (=ks-x1001		. #x2475)	; &I-K0-2475; [04-85]
     ))
@@ -769,7 +1024,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1159)
+    (<-compat
+     ((name		  . "HANGUL CHOSEONG YEORINHIEUH")
+      (=ucs		  . #x1159)	; ᅙ
+      ))
     (=ucs		. #x3186)	; ㆆ
     (=ks-x1001		. #x2476)	; &I-K0-2476; [04-86]
     ))
@@ -778,7 +1036,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1184)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YO-YA")
+      (=ucs		  . #x1184)	; ᆄ
+      ))
     (=ucs		. #x3187)	; ㆇ
     (=ks-x1001		. #x2477)	; &I-K0-2477; [04-87]
     ))
@@ -787,7 +1048,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1185)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YO-YAE")
+      (=ucs		  . #x1185)	; ᆅ
+      ))
     (=ucs		. #x3188)	; ㆈ
     (=ks-x1001		. #x2478)	; &I-K0-2478; [04-88]
     ))
@@ -796,7 +1060,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1188)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YO-I")
+      (=ucs		  . #x1188)	; ᆈ
+      ))
     (=ucs		. #x3189)	; ㆉ
     (=ks-x1001		. #x2479)	; &I-K0-2479; [04-89]
     ))
@@ -805,7 +1072,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1191)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YU-YEO")
+      (=ucs		  . #x1191)	; ᆑ
+      ))
     (=ucs		. #x318A)	; ㆊ
     (=ks-x1001		. #x247A)	; &I-K0-247A; [04-90]
     ))
@@ -814,7 +1084,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1192)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YU-YE")
+      (=ucs		  . #x1192)	; ᆒ
+      ))
     (=ucs		. #x318B)	; ㆋ
     (=ks-x1001		. #x247B)	; &I-K0-247B; [04-91]
     ))
@@ -823,7 +1096,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x1194)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG YU-I")
+      (=ucs		  . #x1194)	; ᆔ
+      ))
     (=ucs		. #x318C)	; ㆌ
     (=ks-x1001		. #x247C)	; &I-K0-247C; [04-92]
     ))
@@ -832,7 +1108,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x119E)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG ARAEA")
+      (=ucs		  . #x119E)	; ᆞ
+      ))
     (=ucs		. #x318D)	; ㆍ
     (=ks-x1001		. #x247D)	; &I-K0-247D; [04-93]
     ))
@@ -841,7 +1120,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	compat #x11A1)
+    (<-compat
+     ((name		  . "HANGUL JUNGSEONG ARAEA-I")
+      (=ucs		  . #x11A1)	; ᆡ
+      ))
     (=ucs		. #x318E)	; ㆎ
     (=ks-x1001		. #x247E)	; &I-K0-247E; [04-94]
     ))

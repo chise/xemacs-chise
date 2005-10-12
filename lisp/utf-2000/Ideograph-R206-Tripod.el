@@ -75,12 +75,13 @@
     (total-strokes	 . 15)
     (=ucs		. #x2FA1A)	; 鼏
     (->subsumptive
-     ((->mistakable
-       ((=daikanwa	    . 48317)	; &I-M-48317;
+     ((=daikanwa	  . 48320)	; &M-48320;
+      (->mistakable
+       ((=jis-x0212	    . #x6D26)	; &M-48317; [77-06]
+	(=daikanwa	    . 48317)	; &I-M-48317;
 	))
       (->mistakable*sources
        zihui daikanwa)
-      (=daikanwa	  . 48320)	; &M-48320;
       )
      ((=ucs@iso		  . #x2FA1A)	; &U-0002FA1A;
       )
@@ -148,12 +149,12 @@
     (=ucs		. #x4D7B)	; 䵻
     ))
 (define-char
-  '((ideographic-radical . 206)	; ⿍
-    (ideographic-strokes . 11)
-    (total-strokes	 . 24)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D7B)	; 䵻
       ))
+    (ideographic-radical . 206)	; ⿍
+    (ideographic-strokes . 11)
+    (total-strokes	 . 24)
     (->subsumptive
      ((=daikanwa	  . 48327)	; &M-48327;
       )
@@ -161,12 +162,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 206)	; ⿍
-    (ideographic-strokes . 11)
-    (total-strokes	 . 24)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x4D7B)	; 䵻
       ))
+    (ideographic-radical . 206)	; ⿍
+    (ideographic-strokes . 11)
+    (total-strokes	 . 24)
     (=ucs@unicode	. #x4D7B)	; &UU+4D7B;
     ))
 (define-char

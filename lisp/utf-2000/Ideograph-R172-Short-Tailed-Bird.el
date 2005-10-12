@@ -1992,13 +1992,13 @@
     (=ucs		. #x5DB2)	; 嶲
     ))
 (define-char
-  '((=>ucs*		. #x5DB2)	; 嶲
+  '((<-denotational
+     ((=ucs		  . #x5DB2)	; 嶲
+      ))
+    (=>ucs*		. #x5DB2)	; 嶲
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x5DB2)	; 嶲
-      ))
     (=>ucs@jis-1990	. #x5DB2)	; 嶲
     (=ucs		. #x2F9F4)	; 嶲
     (->subsumptive
@@ -3176,13 +3176,13 @@
     (=ucs		. #x96E3)	; 難
     ))
 (define-char
-  '((=>ucs@jis		. #xFA68)	; 難
+  '((<-denotational
+     ((=ucs		  . #x96E3)	; 難
+      ))
+    (=>ucs@jis		. #xFA68)	; 難
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (<-denotational
-     ((=ucs		  . #x96E3)	; 難
-      ))
     (->subsumptive
      ((=>ucs*		  . #x96E3)	; 難
       (=ucs		  . #xFA68)	; 難
@@ -3197,12 +3197,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 172)	; ⾫
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x96E3)	; 難
       ))
+    (ideographic-radical . 172)	; ⾫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA68)	; 難
       (=jis-x0213-1-2000  . #x7D63)	; &I-JX1-7D63; [93-67]

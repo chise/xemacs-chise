@@ -80,7 +80,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2203 #x0338)
+    (=decomposition
+     ((name		  . "THERE EXISTS")
+      (=ucs		  . #x2203)	; ∃
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2204)	; ∄
     ))
 (define-char
@@ -162,7 +168,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2208 #x0338)
+    (=decomposition
+     ((name		  . "ELEMENT OF")
+      (=ucs		  . #x2208)	; ∈
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2209)	; ∉
     ))
 (define-char
@@ -212,7 +224,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x220B #x0338)
+    (=decomposition
+     ((name		  . "CONTAINS AS MEMBER")
+      (=ucs		  . #x220B)	; ∋
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x220C)	; ∌
     ))
 (define-char
@@ -556,7 +574,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2223 #x0338)
+    (=decomposition
+     ((name		  . "DIVIDES")
+      (=ucs		  . #x2223)	; ∣
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2224)	; ∤
     ))
 (define-char
@@ -589,7 +613,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2225 #x0338)
+    (=decomposition
+     ((name		  . "PARALLEL TO")
+      (=ucs		  . #x2225)	; ∥
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2226)	; ∦
     ))
 (define-char
@@ -746,7 +776,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	compat #x222B #x222B)
+    (=>decomposition@compat
+     ((name		  . "INTEGRAL")
+      (=ucs		  . #x222B)	; ∫
+      )
+     ((name		  . "INTEGRAL")
+      (=ucs		  . #x222B)	; ∫
+      ))
     (=ucs		. #x222C)	; ∬
     ))
 (define-char
@@ -770,7 +806,16 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	compat #x222B #x222B #x222B)
+    (=>decomposition@compat
+     ((name		  . "INTEGRAL")
+      (=ucs		  . #x222B)	; ∫
+      )
+     ((name		  . "INTEGRAL")
+      (=ucs		  . #x222B)	; ∫
+      )
+     ((name		  . "INTEGRAL")
+      (=ucs		  . #x222B)	; ∫
+      ))
     (=ucs		. #x222D)	; ∭
     ))
 (define-char
@@ -805,7 +850,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	compat #x222E #x222E)
+    (=>decomposition@compat
+     ((name		  . "CONTOUR INTEGRAL")
+      (=ucs		  . #x222E)	; ∮
+      )
+     ((name		  . "CONTOUR INTEGRAL")
+      (=ucs		  . #x222E)	; ∮
+      ))
     (=ucs		. #x222F)	; ∯
     ))
 (define-char
@@ -813,7 +864,16 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	compat #x222E #x222E #x222E)
+    (=>decomposition@compat
+     ((name		  . "CONTOUR INTEGRAL")
+      (=ucs		  . #x222E)	; ∮
+      )
+     ((name		  . "CONTOUR INTEGRAL")
+      (=ucs		  . #x222E)	; ∮
+      )
+     ((name		  . "CONTOUR INTEGRAL")
+      (=ucs		  . #x222E)	; ∮
+      ))
     (=ucs		. #x2230)	; ∰
     ))
 (define-char
@@ -1033,7 +1093,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x223C #x0338)
+    (=decomposition
+     ((name		  . "TILDE OPERATOR")
+      (=ucs		  . #x223C)	; ∼
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2241)	; ≁
     ))
 (define-char
@@ -1067,7 +1133,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2243 #x0338)
+    (=decomposition
+     ((name		  . "ASYMPTOTICALLY EQUAL TO")
+      (=ucs		  . #x2243)	; ≃
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2244)	; ≄
     ))
 (define-char
@@ -1101,7 +1173,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2245 #x0338)
+    (=decomposition
+     ((name		  . "APPROXIMATELY EQUAL TO")
+      (=ucs		  . #x2245)	; ≅
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2247)	; ≇
     ))
 (define-char
@@ -1130,7 +1208,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2248 #x0338)
+    (=decomposition
+     ((name		  . "ALMOST EQUAL TO")
+      (=ucs		  . #x2248)	; ≈
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2249)	; ≉
     ))
 (define-char
@@ -1323,18 +1407,30 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x003D #x0338)
+    (=decomposition
+     ((name		  . "EQUALS SIGN")
+      (=ucs		  . #x003D)	; =
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2260)	; ≠
     ))
 (define-char
-  '((->decomposition	#xFF1D #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT EQUAL TO")
       (=ucs		  . #x2260)	; ≠
       ))
     (<-fullwidth
      ((name		  . "NOT EQUAL TO")
       (=ucs		  . #x2260)	; ≠
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH EQUALS SIGN")
+      (=ucs		  . #xFF1D)	; ＝
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
       ))
     (=jis-x0208		. #x2162)	; &J90-2162; [01-66]
     (=gb2312		. #x2159)	; &I-G0-2159; [01-57]
@@ -1380,18 +1476,32 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2261 #x0338)
+    (=decomposition
+     ((name		  . "IDENTICAL TO")
+      (=ucs		  . #x2261)	; ≡
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2262)	; ≢
     ))
 (define-char
-  '((->decomposition	#xEC41B7 #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT IDENTICAL TO")
       (=ucs		  . #x2262)	; ≢
       ))
     (<-fullwidth
      ((name		  . "NOT IDENTICAL TO")
       (=ucs		  . #x2262)	; ≢
+      ))
+    (=decomposition
+     ((=gb2312		  . #x2154)	; &J90-2261; [01-52]
+      (=jis-x0208@1983	  . #x2261)	; &I-J83-2261; [02-65]
+      (=ks-x1001	  . #x2155)	; &I-K0-2155; [01-53]
+      (=cns11643-1	  . #x223E)	; &I-C1-223E; [02-30]
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
       ))
     (=jis-x0213-1-2000	. #x226B)	; &JX1-226B; [02-75]
     (=ucs@jis		. #x2262)	; &JX1-226B;
@@ -1563,7 +1673,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	#x224D #x0338)
+    (=decomposition
+     ((name		  . "EQUIVALENT TO")
+      (=ucs		  . #x224D)	; ≍
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x226D)	; ≭
     ))
 (define-char
@@ -1571,18 +1687,30 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x003C #x0338)
+    (=decomposition
+     ((name		  . "LESS-THAN SIGN")
+      (=ucs		  . #x003C)	; <
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x226E)	; ≮
     ))
 (define-char
-  '((->decomposition	#xFF1C #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT LESS-THAN")
       (=ucs		  . #x226E)	; ≮
       ))
     (<-fullwidth
      ((name		  . "NOT LESS-THAN")
       (=ucs		  . #x226E)	; ≮
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH LESS-THAN SIGN")
+      (=ucs		  . #xFF1C)	; ＜
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
       ))
     (=gb2312		. #x215A)	; &G0-215A; [01-58]
     (=ucs@gb		. #x226E)	; &G0-215A;
@@ -1592,18 +1720,30 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x003E #x0338)
+    (=decomposition
+     ((name		  . "GREATER-THAN SIGN")
+      (=ucs		  . #x003E)	; >
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x226F)	; ≯
     ))
 (define-char
-  '((->decomposition	#xFF1E #x0338)
-    (<-denotational
+  '((<-denotational
      ((name		  . "NOT GREATER-THAN")
       (=ucs		  . #x226F)	; ≯
       ))
     (<-fullwidth
      ((name		  . "NOT GREATER-THAN")
       (=ucs		  . #x226F)	; ≯
+      ))
+    (=decomposition
+     ((name		  . "FULLWIDTH GREATER-THAN SIGN")
+      (=ucs		  . #xFF1E)	; ＞
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
       ))
     (=gb2312		. #x215B)	; &G0-215B; [01-59]
     (=ucs@gb		. #x226F)	; &G0-215B;
@@ -1613,7 +1753,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2264 #x0338)
+    (=decomposition
+     ((name		  . "LESS-THAN OR EQUAL TO")
+      (=ucs		  . #x2264)	; ≤
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2270)	; ≰
     ))
 (define-char
@@ -1621,7 +1767,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2265 #x0338)
+    (=decomposition
+     ((name		  . "GREATER-THAN OR EQUAL TO")
+      (=ucs		  . #x2265)	; ≥
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2271)	; ≱
     ))
 (define-char
@@ -1643,7 +1795,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2272 #x0338)
+    (=decomposition
+     ((name		  . "LESS-THAN OR EQUIVALENT TO")
+      (=ucs		  . #x2272)	; ≲
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2274)	; ≴
     ))
 (define-char
@@ -1651,7 +1809,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2273 #x0338)
+    (=decomposition
+     ((name		  . "GREATER-THAN OR EQUIVALENT TO")
+      (=ucs		  . #x2273)	; ≳
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2275)	; ≵
     ))
 (define-char
@@ -1697,7 +1861,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2276 #x0338)
+    (=decomposition
+     ((name		  . "LESS-THAN OR GREATER-THAN")
+      (=ucs		  . #x2276)	; ≶
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2278)	; ≸
     ))
 (define-char
@@ -1705,7 +1875,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2277 #x0338)
+    (=decomposition
+     ((name		  . "GREATER-THAN OR LESS-THAN")
+      (=ucs		  . #x2277)	; ≷
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2279)	; ≹
     ))
 (define-char
@@ -1755,7 +1931,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x227A #x0338)
+    (=decomposition
+     ((name		  . "PRECEDES")
+      (=ucs		  . #x227A)	; ≺
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2280)	; ⊀
     ))
 (define-char
@@ -1763,7 +1945,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x227B #x0338)
+    (=decomposition
+     ((name		  . "SUCCEEDS")
+      (=ucs		  . #x227B)	; ≻
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2281)	; ⊁
     ))
 (define-char
@@ -1817,7 +2005,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2282 #x0338)
+    (=decomposition
+     ((name		  . "SUBSET OF")
+      (=ucs		  . #x2282)	; ⊂
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2284)	; ⊄
     ))
 (define-char
@@ -1837,7 +2031,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2283 #x0338)
+    (=decomposition
+     ((name		  . "SUPERSET OF")
+      (=ucs		  . #x2283)	; ⊃
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2285)	; ⊅
     ))
 (define-char
@@ -1903,7 +2103,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2286 #x0338)
+    (=decomposition
+     ((name		  . "SUBSET OF OR EQUAL TO")
+      (=ucs		  . #x2286)	; ⊆
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2288)	; ⊈
     ))
 (define-char
@@ -1911,7 +2117,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2287 #x0338)
+    (=decomposition
+     ((name		  . "SUPERSET OF OR EQUAL TO")
+      (=ucs		  . #x2287)	; ⊇
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x2289)	; ⊉
     ))
 (define-char
@@ -2260,7 +2472,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22A2 #x0338)
+    (=decomposition
+     ((name		  . "RIGHT TACK")
+      (=ucs		  . #x22A2)	; ⊢
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22AC)	; ⊬
     ))
 (define-char
@@ -2268,7 +2486,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22A8 #x0338)
+    (=decomposition
+     ((name		  . "TRUE")
+      (=ucs		  . #x22A8)	; ⊨
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22AD)	; ⊭
     ))
 (define-char
@@ -2276,7 +2500,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22A9 #x0338)
+    (=decomposition
+     ((name		  . "FORCES")
+      (=ucs		  . #x22A9)	; ⊩
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22AE)	; ⊮
     ))
 (define-char
@@ -2284,7 +2514,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22AB #x0338)
+    (=decomposition
+     ((name		  . "DOUBLE VERTICAL BAR DOUBLE RIGHT TURNSTILE")
+      (=ucs		  . #x22AB)	; ⊫
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22AF)	; ⊯
     ))
 (define-char
@@ -2668,7 +2904,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x227C #x0338)
+    (=decomposition
+     ((name		  . "PRECEDES OR EQUAL TO")
+      (=ucs		  . #x227C)	; ≼
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22E0)	; ⋠
     ))
 (define-char
@@ -2676,7 +2918,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x227D #x0338)
+    (=decomposition
+     ((name		  . "SUCCEEDS OR EQUAL TO")
+      (=ucs		  . #x227D)	; ≽
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22E1)	; ⋡
     ))
 (define-char
@@ -2684,7 +2932,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2291 #x0338)
+    (=decomposition
+     ((name		  . "SQUARE IMAGE OF OR EQUAL TO")
+      (=ucs		  . #x2291)	; ⊑
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22E2)	; ⋢
     ))
 (define-char
@@ -2692,7 +2946,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x2292 #x0338)
+    (=decomposition
+     ((name		  . "SQUARE ORIGINAL OF OR EQUAL TO")
+      (=ucs		  . #x2292)	; ⊒
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22E3)	; ⋣
     ))
 (define-char
@@ -2742,7 +3002,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22B2 #x0338)
+    (=decomposition
+     ((name		  . "NORMAL SUBGROUP OF")
+      (=ucs		  . #x22B2)	; ⊲
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22EA)	; ⋪
     ))
 (define-char
@@ -2750,7 +3016,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22B3 #x0338)
+    (=decomposition
+     ((name		  . "CONTAINS AS NORMAL SUBGROUP")
+      (=ucs		  . #x22B3)	; ⊳
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22EB)	; ⋫
     ))
 (define-char
@@ -2758,7 +3030,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22B4 #x0338)
+    (=decomposition
+     ((name		  . "NORMAL SUBGROUP OF OR EQUAL TO")
+      (=ucs		  . #x22B4)	; ⊴
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22EC)	; ⋬
     ))
 (define-char
@@ -2766,7 +3044,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	#x22B5 #x0338)
+    (=decomposition
+     ((name		  . "CONTAINS AS NORMAL SUBGROUP OR EQUAL TO")
+      (=ucs		  . #x22B5)	; ⊵
+      )
+     ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
+      (=ucs		  . #x0338)	; ̸
+      ))
     (=ucs		. #x22ED)	; ⋭
     ))
 (define-char

@@ -141,7 +141,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x304B #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER KA")
+      (=ucs		  . #x304B)	; か
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x304C)	; が
     (=jis-x0208		. #x242C)	; &I-J90-242C; [04-12]
     (=gb2312		. #x242C)	; &I-G0-242C; [04-12]
@@ -166,7 +172,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x304D #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER KI")
+      (=ucs		  . #x304D)	; き
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x304E)	; ぎ
     (=jis-x0208		. #x242E)	; &I-J90-242E; [04-14]
     (=gb2312		. #x242E)	; &I-G0-242E; [04-14]
@@ -191,7 +203,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x304F #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER KU")
+      (=ucs		  . #x304F)	; く
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3050)	; ぐ
     (=jis-x0208		. #x2430)	; &I-J90-2430; [04-16]
     (=gb2312		. #x2430)	; &I-G0-2430; [04-16]
@@ -216,7 +234,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3051 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER KE")
+      (=ucs		  . #x3051)	; け
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3052)	; げ
     (=jis-x0208		. #x2432)	; &I-J90-2432; [04-18]
     (=gb2312		. #x2432)	; &I-G0-2432; [04-18]
@@ -241,7 +265,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3053 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER KO")
+      (=ucs		  . #x3053)	; こ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3054)	; ご
     (=jis-x0208		. #x2434)	; &I-J90-2434; [04-20]
     (=gb2312		. #x2434)	; &I-G0-2434; [04-20]
@@ -266,7 +296,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3055 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER SA")
+      (=ucs		  . #x3055)	; さ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3056)	; ざ
     (=jis-x0208		. #x2436)	; &I-J90-2436; [04-22]
     (=gb2312		. #x2436)	; &I-G0-2436; [04-22]
@@ -291,7 +327,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3057 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER SI")
+      (=ucs		  . #x3057)	; し
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3058)	; じ
     (=jis-x0208		. #x2438)	; &I-J90-2438; [04-24]
     (=gb2312		. #x2438)	; &I-G0-2438; [04-24]
@@ -316,7 +358,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3059 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER SU")
+      (=ucs		  . #x3059)	; す
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x305A)	; ず
     (=jis-x0208		. #x243A)	; &I-J90-243A; [04-26]
     (=gb2312		. #x243A)	; &I-G0-243A; [04-26]
@@ -341,7 +389,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x305B #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER SE")
+      (=ucs		  . #x305B)	; せ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x305C)	; ぜ
     (=jis-x0208		. #x243C)	; &I-J90-243C; [04-28]
     (=gb2312		. #x243C)	; &I-G0-243C; [04-28]
@@ -366,7 +420,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x305D #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER SO")
+      (=ucs		  . #x305D)	; そ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x305E)	; ぞ
     (=jis-x0208		. #x243E)	; &I-J90-243E; [04-30]
     (=gb2312		. #x243E)	; &I-G0-243E; [04-30]
@@ -391,7 +451,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x305F #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER TA")
+      (=ucs		  . #x305F)	; た
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3060)	; だ
     (=jis-x0208		. #x2440)	; &I-J90-2440; [04-32]
     (=gb2312		. #x2440)	; &I-G0-2440; [04-32]
@@ -416,7 +482,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3061 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER TI")
+      (=ucs		  . #x3061)	; ち
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3062)	; ぢ
     (=jis-x0208		. #x2442)	; &I-J90-2442; [04-34]
     (=gb2312		. #x2442)	; &I-G0-2442; [04-34]
@@ -454,7 +526,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3064 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER TU")
+      (=ucs		  . #x3064)	; つ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3065)	; づ
     (=jis-x0208		. #x2445)	; &I-J90-2445; [04-37]
     (=gb2312		. #x2445)	; &I-G0-2445; [04-37]
@@ -479,7 +557,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3066 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER TE")
+      (=ucs		  . #x3066)	; て
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3067)	; で
     (=jis-x0208		. #x2447)	; &I-J90-2447; [04-39]
     (=gb2312		. #x2447)	; &I-G0-2447; [04-39]
@@ -504,7 +588,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3068 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER TO")
+      (=ucs		  . #x3068)	; と
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3069)	; ど
     (=jis-x0208		. #x2449)	; &I-J90-2449; [04-41]
     (=gb2312		. #x2449)	; &I-G0-2449; [04-41]
@@ -589,7 +679,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x306F #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HA")
+      (=ucs		  . #x306F)	; は
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3070)	; ば
     (=jis-x0208		. #x2450)	; &I-J90-2450; [04-48]
     (=gb2312		. #x2450)	; &I-G0-2450; [04-48]
@@ -602,7 +698,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x306F #x309A)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HA")
+      (=ucs		  . #x306F)	; は
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x3071)	; ぱ
     (=jis-x0208		. #x2451)	; &I-J90-2451; [04-49]
     (=gb2312		. #x2451)	; &I-G0-2451; [04-49]
@@ -627,7 +729,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3072 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HI")
+      (=ucs		  . #x3072)	; ひ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3073)	; び
     (=jis-x0208		. #x2453)	; &I-J90-2453; [04-51]
     (=gb2312		. #x2453)	; &I-G0-2453; [04-51]
@@ -640,7 +748,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3072 #x309A)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HI")
+      (=ucs		  . #x3072)	; ひ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x3074)	; ぴ
     (=jis-x0208		. #x2454)	; &I-J90-2454; [04-52]
     (=gb2312		. #x2454)	; &I-G0-2454; [04-52]
@@ -665,7 +779,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3075 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HU")
+      (=ucs		  . #x3075)	; ふ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3076)	; ぶ
     (=jis-x0208		. #x2456)	; &I-J90-2456; [04-54]
     (=gb2312		. #x2456)	; &I-G0-2456; [04-54]
@@ -678,7 +798,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3075 #x309A)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HU")
+      (=ucs		  . #x3075)	; ふ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x3077)	; ぷ
     (=jis-x0208		. #x2457)	; &I-J90-2457; [04-55]
     (=gb2312		. #x2457)	; &I-G0-2457; [04-55]
@@ -703,7 +829,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3078 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HE")
+      (=ucs		  . #x3078)	; へ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3079)	; べ
     (=jis-x0208		. #x2459)	; &I-J90-2459; [04-57]
     (=gb2312		. #x2459)	; &I-G0-2459; [04-57]
@@ -716,7 +848,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3078 #x309A)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HE")
+      (=ucs		  . #x3078)	; へ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x307A)	; ぺ
     (=jis-x0208		. #x245A)	; &I-J90-245A; [04-58]
     (=gb2312		. #x245A)	; &I-G0-245A; [04-58]
@@ -741,7 +879,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x307B #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HO")
+      (=ucs		  . #x307B)	; ほ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x307C)	; ぼ
     (=jis-x0208		. #x245C)	; &I-J90-245C; [04-60]
     (=gb2312		. #x245C)	; &I-G0-245C; [04-60]
@@ -754,7 +898,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x307B #x309A)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER HO")
+      (=ucs		  . #x307B)	; ほ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x307D)	; ぽ
     (=jis-x0208		. #x245D)	; &I-J90-245D; [04-61]
     (=gb2312		. #x245D)	; &I-G0-245D; [04-61]
@@ -1035,7 +1185,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x3046 #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA LETTER U")
+      (=ucs		  . #x3046)	; う
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x3094)	; ゔ
     (=jis-x0213-1-2000	. #x2474)	; &I-JX1-2474; [04-84]
     (=jef-china3	. #x78C5)	; &I-JC3-78C5;
@@ -1069,7 +1225,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x3099)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x309B)	; ゛
     (=jis-x0208		. #x212B)	; &I-J90-212B; [01-11]
     ))
@@ -1078,7 +1240,13 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	compat #x0020 #x309A)
+    (=>decomposition@compat
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ゚
+      ))
     (=ucs		. #x309C)	; ゜
     (=jis-x0208		. #x212C)	; &I-J90-212C; [01-12]
     ))
@@ -1096,13 +1264,26 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	#x309D #x3099)
+    (=decomposition
+     ((name		  . "HIRAGANA ITERATION MARK")
+      (=ucs		  . #x309D)	; ゝ
+      )
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ゙
+      ))
     (=ucs		. #x309E)	; ゞ
     (=jis-x0208		. #x2136)	; &I-J90-2136; [01-22]
     (=big5-eten		. #xC6DD)	; &B-C6DD;
     ))
 (define-char
   '((name		. "HIRAGANA DIGRAPH YORI")
+    (=>decomposition@vertical
+     ((name		  . "HIRAGANA LETTER YO")
+      (=ucs		  . #x3088)	; よ
+      )
+     ((name		  . "HIRAGANA LETTER RI")
+      (=ucs		  . #x308A)	; り
+      ))
     (=ucs		. #x309F)	; ゟ
     (=jis-x0213-1-2000	. #x2239)	; &I-JX1-2239; [02-25]
     ))

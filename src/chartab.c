@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1130,6 +1130,14 @@ make_char_id_table (Lisp_Object initval)
 
 
 Lisp_Object Qcomposition;
+Lisp_Object Qmap_decomposition;
+Lisp_Object Qto_decomposition_at_superscript;
+Lisp_Object Qto_decomposition_at_circled;
+Lisp_Object Q_canonical;
+Lisp_Object Q_halfwidth_of;
+Lisp_Object Q_superscript_of;
+Lisp_Object Q_subscript_of;
+Lisp_Object Q_circled_of;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
 Lisp_Object Q_identical_from;
@@ -3384,20 +3392,21 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
-void put_char_composition (Lisp_Object character, Lisp_Object value);
-void
+Lisp_Object
+put_char_composition (Lisp_Object character, Lisp_Object value);
+Lisp_Object
 put_char_composition (Lisp_Object character, Lisp_Object value)
 {
   if (!CONSP (value))
-    signal_simple_error ("Invalid value for ->decomposition",
+    signal_simple_error ("Invalid value for =decomposition",
 			 value);
 
-  if (CONSP (Fcdr (value)))
+  if (CONSP (XCDR (value)))
     {
-      if (NILP (Fcdr (Fcdr (value))))
+      if (NILP (Fcdr (XCDR (value))))
 	{
-	  Lisp_Object base = Fcar (value);
-	  Lisp_Object modifier = Fcar (Fcdr (value));
+	  Lisp_Object base = XCAR (value);
+	  Lisp_Object modifier = XCAR (XCDR (value));
 
 	  if (INTP (base))
 	    {
@@ -3407,7 +3416,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	  if (INTP (modifier))
 	    {
 	      modifier = make_char (XINT (modifier));
-	      Fsetcar (Fcdr (value), modifier);
+	      Fsetcar (XCDR (value), modifier);
 	    }
 	  if (CHARP (base))
 	    {
@@ -3423,10 +3432,42 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	      else
 		Fsetcdr (ret, character);
 	    }
+	  else if (EQ (base, Qnarrow))
+	    return Q_halfwidth_of;
+	  else if (EQ (base, Qsuper))
+	    return Q_superscript_of;
+	  else if (EQ (base, Qsub))
+	    return Q_subscript_of;
+	  else if (EQ (base, Qcircle))
+	    return Q_circled_of;
+	  else if ( EQ (base, Qisolated)||
+		    EQ (base, Qinitial)	||
+		    EQ (base, Qmedial)	||
+		    EQ (base, Qfinal) )
+	    return
+	      Fintern (concat2 (build_string ("<-formed@"),
+				Fsymbol_name (base)),
+		       Qnil);
+	  else if (SYMBOLP (base))
+	    return
+	      Fintern (concat2 (build_string ("<-"),
+				Fsymbol_name (base)),
+		       Qnil);
 	}
+      else if (EQ (XCAR (value), Qsuper))
+	return Qto_decomposition_at_superscript;
+      else if (EQ (XCAR (value), Qcircle))
+	return Qto_decomposition_at_circled;
+      else
+	return
+	  Fintern (concat2 (build_string ("=>decomposition@"),
+			    Fsymbol_name (XCAR (value))),
+		   Qnil);
     }
   else
     {
+      return Q_canonical;
+#if 0
       Lisp_Object v = Fcar (value);
 
       if (INTP (v))
@@ -3447,7 +3488,9 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 				   Fcons (character, ret));
 	    }
 	}
+#endif
     }
+  return Qmap_decomposition;
 }
 
 static Lisp_Object
@@ -3484,8 +3527,15 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
-  else if (EQ (attribute, Q_decomposition))
-    put_char_composition (character, value);
+  else if ( EQ (attribute, Qmap_decomposition) ||
+	    EQ (attribute, Q_decomposition) )
+    {
+      value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
+      attribute = put_char_composition (character, value);
+      if ( !EQ (attribute, Qmap_decomposition) &&
+	   SYMBOLP (XCAR (value)) )
+	value = XCDR (value);
+    }
   else if (EQ (attribute, Qto_ucs))
     {
       Lisp_Object ret;
@@ -3505,22 +3555,26 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	Fput_char_attribute (make_char (c), Q_ucs_unified,
 			     Fcons (character, ret));
     }
-  else if ( EQ (attribute, Q_subsumptive) ||
-	    EQ (attribute, Q_subsumptive_from) ||
-	    EQ (attribute, Q_denotational) ||
-	    EQ (attribute, Q_denotational_from) ||
-	    EQ (attribute, Q_identical) ||
-	    EQ (attribute, Q_identical_from) ||
-	    EQ (attribute, Q_component) ||
-	    EQ (attribute, Q_component_of) ||
-	    !NILP (Fstring_match
-		   (build_string ("^\\(<-\\|->\\)\\("
-				  "fullwidth\\|halfwidth"
-				  "\\|simplified\\|vulgar\\|wrong"
-				  "\\|same\\|original\\|ancient"
-				  "\\|Oracle-Bones\\)[^*]*$"),
+  if ( EQ (attribute, Q_subsumptive)		||
+       EQ (attribute, Q_subsumptive_from)	||
+       EQ (attribute, Q_denotational)		||
+       EQ (attribute, Q_denotational_from)	||
+       EQ (attribute, Q_identical)		||
+       EQ (attribute, Q_identical_from)		||
+       EQ (attribute, Q_canonical)		||
+       EQ (attribute, Q_halfwidth_of)		||
+       EQ (attribute, Q_superscript_of)		||
+       EQ (attribute, Q_subscript_of)		||
+       EQ (attribute, Q_circled_of)		||
+       EQ (attribute, Q_component)		||
+       EQ (attribute, Q_component_of)		||
+       ( !EQ (attribute, Q_ucs_unified)
+	 && !NILP (Fstring_match
+		   (build_string ("^\\(<-\\|->\\)[^*]*$"),
 		    Fsymbol_name (attribute),
-		    Qnil, Qnil)) )
+		    Qnil, Qnil))
+	 )
+       )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3577,7 +3631,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
 	  if (CONSP (ret))
 	    ret = Fdefine_char (ret);
-	  
+	  else if (INTP (ret))
+	    {
+	      int code_point = XINT (ret);
+	      Emchar cid = DECODE_CHAR (Vcharset_ucs, code_point, 0);
+
+	      if (cid >= 0)
+		ret = make_char (cid);
+	      else
+		ret = make_char (code_point);
+	    }
+
 	  if ( !NILP (ret) && !EQ (ret, character) )
 	    {
 	      Lisp_Object ffv;
@@ -3596,7 +3660,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       UNGCPRO;
     }
 #if 1
-  else if (EQ (attribute, Qideographic_structure))
+  else if ( EQ (attribute, Qideographic_structure) ||
+	    !NILP (Fstring_match
+		   (build_string ("^=>decomposition\\(\\|@[^*]+\\)$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil)) )
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
 #endif
   return put_char_attribute (character, attribute, value);
@@ -3846,16 +3914,21 @@ Save values of ATTRIBUTE into database file.
 
       if ( !NILP (Ffind_charset (attribute)) )
 	filter = NULL;
-      else if ( EQ (attribute, Qideographic_structure)
-	   || EQ (attribute, Q_identical)
-	   || EQ (attribute, Q_identical_from)
-	   || !NILP (Fstring_match
-		     (build_string ("^\\(<-\\|->\\)\\(simplified"
-				    "\\|same\\|vulgar\\|wrong"
-				    "\\|original\\|ancient"
-				    "\\|Oracle-Bones\\)[^*]*$"),
-		      Fsymbol_name (attribute),
-		      Qnil, Qnil)) )
+      else if ( EQ (attribute, Qideographic_structure)	||
+		EQ (attribute, Q_identical)		||
+		EQ (attribute, Q_identical_from)	||
+		EQ (attribute, Q_canonical)		||
+		EQ (attribute, Q_halfwidth_of)		||
+		EQ (attribute, Q_superscript_of)	||
+		EQ (attribute, Q_subscript_of)		||
+		EQ (attribute, Q_circled_of)		||
+		!NILP (Fstring_match
+		       (build_string ("^\\(<-\\|->\\)\\(simplified"
+				      "\\|same\\|vulgar\\|wrong"
+				      "\\|original\\|ancient"
+				      "\\|Oracle-Bones\\)[^*]*$"),
+			Fsymbol_name (attribute),
+			Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
       else
 	filter = NULL;
@@ -4630,6 +4703,15 @@ syms_of_chartab (void)
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
+  defsymbol (&Qmap_decomposition,	"=decomposition");
+  defsymbol (&Qto_decomposition_at_superscript,
+	     "=>decomposition@superscript");
+  defsymbol (&Qto_decomposition_at_circled, "=>decomposition@circled");
+  defsymbol (&Q_canonical,		"->canonical");
+  defsymbol (&Q_halfwidth_of,		"<-halfwidth");
+  defsymbol (&Q_superscript_of,		"<-superscript");
+  defsymbol (&Q_subscript_of,		"<-subscript");
+  defsymbol (&Q_circled_of,		"<-circled");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");

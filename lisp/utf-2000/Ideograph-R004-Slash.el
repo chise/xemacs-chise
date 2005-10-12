@@ -48,14 +48,6 @@
      daikanwa cns11643 ucs)
     (ideographic-strokes@gt . 1)
     (total-strokes@gt	    . 2)
-    (->mistakable
-     ((=ucs		  . #x5382)	; 厂
-      (=daikanwa	  . 02890)	; &I-M-02890;
-      )
-     ((=ucs		  . #x2E81)	; ⺁
-      ))
-    (->mistakable*sources
-     kangxi daikanwa)
     (hanyu-dazidian	1 67 17)
     (=ucs		. #x20086)	; 𠂆
     (=cns11643-4	. #x2121)	; &I-C4-2121; [01-01]
@@ -65,6 +57,15 @@
     (=gt-pj-2		. #x3074)	; &I-GT-00152; [16-84]
     (=daikanwa		. 00108)	; &I-M-00108;
     (mojikyo		. 000108)	; &MCS-6000006C;
+    (->mistakable
+     ((=ucs		  . #x5382)	; 厂
+      (=daikanwa	  . 02890)	; &I-M-02890;
+      )
+     ((name		  . "CJK RADICAL CLIFF")
+      (=ucs		  . #x2E81)	; ⺁
+      ))
+    (->mistakable*sources
+     kangxi daikanwa)
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -198,10 +199,6 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (->bopomofo
-     ((name		  . "BOPOMOFO LETTER U")
-      (=ucs		  . #x3128)	; ㄨ
-      ))
     (<-ancient
      ((=ucs		  . #x4E94)	; 五
       (=daikanwa	  . 00257)	; &I-M-00257;
@@ -217,6 +214,10 @@
     (=gt-pj-2		. #x3079)	; &I-GT-00155; [16-89]
     (=daikanwa		. 00115)	; &I-M-00115;
     (mojikyo		. 000115)	; &MCS-60000073;
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER U")
+      (=ucs		  . #x3128)	; ㄨ
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -454,7 +455,10 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	3118 1)
+  '((<-denotational
+     ((=ucs		  . #x53CA)	; 及
+      ))
+    (morohashi-daikanwa	3118 1)
     (ideographic-radical@ucs . 29)	; ⼜
     (ideographic-strokes@ucs . 2)
     (total-strokes@ucs	     . 4)
@@ -463,9 +467,6 @@
     (ideographic-radical@gt . 4)	; ⼃
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
-    (<-denotational
-     ((=ucs		  . #x53CA)	; 及
-      ))
     (hanyu-dazidian	1 35 1)
     (shinjigen-1	. 900)
     (shinjigen-2	. 900)
@@ -1610,24 +1611,29 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x4E58)	; 乘
-      (=jis-x0208	  . #x502B)	; &I-J90-502B; [48-11]
-      ))
     (hanyu-dazidian	1 39 8)
-    (shinjigen-1	. 54)
-    (shinjigen-2	. 54)
     (sound@ja/kun	"no+r5" "no-s+eru")
     (sound@ja/on/go	"zyou")
     (=ucs		. #x4E57)	; 乗
-    (=jis-x0208		. #x3E68)	; &I-J90-3E68; [30-72]
-    (=cns11643-3	. #x2B22)	; &I-C3-2B22; [11-02]
-    (=big5-cdp		. #x8A46)	; &I-CDP-8A46;
-    (=gt		. 00208)	; &I-GT-00208;
-    (=gt-k		. 05108)	; &I-GT-K05108;
-    (=gt-pj-1		. #x3E68)	; &I-GT-00208; [30-72]
-    (=daikanwa		. 00153)	; &I-M-00153;
-    (mojikyo		. 000153)	; &MCS-60000099;
+    (->subsumptive
+     ((<-simplified@JP/Jouyou
+       ((=ucs		    . #x4E58)	; 乘
+	(=jis-x0208	    . #x502B)	; &I-J90-502B; [48-11]
+	))
+      (shinjigen-1	  . 54)
+      (shinjigen-2	  . 54)
+      (=jis-x0208	  . #x3E68)	; &GT-00208; [30-72]
+      (=big5-cdp	  . #x8A46)	; &I-CDP-8A46;
+      (=gt		  . 00208)	; &I-GT-00208;
+      (=gt-k		  . 05108)	; &I-GT-K05108;
+      (=gt-pj-1		  . #x3E68)	; &I-GT-00208; [30-72]
+      (=daikanwa	  . 00153)	; &I-M-00153;
+      (=ucs@unicode	  . #x4E57)	; &GT-00208;
+      (mojikyo		  . 000153)	; &MCS-60000099;
+      )
+     ((=cns11643-3	  . #x2B22)	; &C3-2B22; [11-02]
+      (=ucs@cns		  . #x4E57)	; &C3-2B22;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -1775,12 +1781,6 @@
     (ideographic-radical@cns*sources
      cns11643 daikanwa)
     (total-strokes	 . 10)
-    (->vulgar
-     ((=ucs		  . #x754F)	; 畏
-      (=daikanwa	  . 21778)	; &I-M-21778;
-      ))
-    (->vulgar*sources
-     daikanwa)
     (hanyu-dazidian	1 41 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1801,6 +1801,12 @@
     (=cns11643-6	. #x3964)	; &I-C6-3964; [25-68]
     (=daikanwa		. 49333)	; &I-M-49333;
     (=hanziku-1		. #xAC7B)	; &I-HZK01-AC7B;
+    (->vulgar
+     ((=ucs		  . #x754F)	; 畏
+      (=daikanwa	  . 21778)	; &I-M-21778;
+      ))
+    (->vulgar*sources
+     daikanwa)
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃

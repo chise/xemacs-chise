@@ -199,13 +199,13 @@
     (=ucs		. #x7A81)	; 突
     ))
 (define-char
-  '((=>ucs@jis		. #x7A81)	; &GT-32811;
+  '((<-denotational
+     ((=ucs		  . #x7A81)	; 突
+      ))
+    (=>ucs@jis		. #x7A81)	; &GT-32811;
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (<-denotational
-     ((=ucs		  . #x7A81)	; 突
-      ))
     (=ucs		. #x2592E)	; 𥤮
     (->subsumptive
      ((<-simplified@JP/Jouyou
@@ -377,13 +377,13 @@
       ))
     ))
 (define-char
-  '((=>ucs@jis		. #xFA55)	; 突
+  '((<-denotational
+     ((=ucs		  . #x7A81)	; 突
+      ))
+    (=>ucs@jis		. #xFA55)	; 突
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (<-denotational
-     ((=ucs		  . #x7A81)	; 突
-      ))
     (=big5		. #xACF0)	; &B-ACF0;
     (->subsumptive
      ((=>ucs*		  . #x7A81)	; 突
@@ -733,17 +733,10 @@
       (=jef-china3	  . #x5DCF)	; &I-JC3-5DCF;
       (=ucs@jis		  . #x7A8A)	; &JX2-732E;
       )
+     ((mojikyo		  . 025467)	; &MCS-6000637B;
+      )
      ((=cns11643-2	  . #x315E)	; &C2-315E; [17-62]
       ))
-    ))
-(define-char
-  '((ideographic-radical . 116)	; ⽳
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (<-denotational
-     ((=cns11643-2	  . #x315E)	; &C2-315E; [17-62]
-      ))
-    (mojikyo		. 025467)	; &MCS-6000637B;
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
@@ -2413,12 +2406,12 @@
     (=ucs		. #x7AB4)	; 窴
     ))
 (define-char
-  '((ideographic-radical . 116)	; ⽳
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7AB4)	; 窴
       ))
+    (ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (=daikanwa		. 25598)	; &M-25598;
     ))
 (define-char
@@ -2676,12 +2669,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 116)	; ⽳
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x7AB4)	; 窴
       ))
+    (ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (=big5		. #xE6D4)	; &B-E6D4;
     (->subsumptive
      ((=daikanwa	  . 25618)	; &M-25618;

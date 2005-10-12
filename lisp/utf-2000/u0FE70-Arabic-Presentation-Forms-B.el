@@ -4,7 +4,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x064B)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC FATHATAN")
+      (=ucs		  . #x064B)	; ً
+      ))
     (=ucs		. #xFE70)	; ﹰ
     ))
 (define-char
@@ -12,7 +18,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x064B)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC FATHATAN")
+      (=ucs		  . #x064B)	; ً
+      ))
     (=ucs		. #xFE71)	; ﹱ
     ))
 (define-char
@@ -20,7 +32,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x064C)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC DAMMATAN")
+      (=ucs		  . #x064C)	; ٌ
+      ))
     (=ucs		. #xFE72)	; ﹲ
     ))
 (define-char
@@ -28,7 +46,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x064D)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC KASRATAN")
+      (=ucs		  . #x064D)	; ٍ
+      ))
     (=ucs		. #xFE74)	; ﹴ
     ))
 (define-char
@@ -36,7 +60,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x064E)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC FATHA")
+      (=ucs		  . #x064E)	; َ
+      ))
     (=ucs		. #xFE76)	; ﹶ
     ))
 (define-char
@@ -44,7 +74,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x064E)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC FATHA")
+      (=ucs		  . #x064E)	; َ
+      ))
     (=ucs		. #xFE77)	; ﹷ
     ))
 (define-char
@@ -52,7 +88,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x064F)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC DAMMA")
+      (=ucs		  . #x064F)	; ُ
+      ))
     (=ucs		. #xFE78)	; ﹸ
     ))
 (define-char
@@ -60,7 +102,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x064F)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC DAMMA")
+      (=ucs		  . #x064F)	; ُ
+      ))
     (=ucs		. #xFE79)	; ﹹ
     ))
 (define-char
@@ -68,7 +116,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x0650)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC KASRA")
+      (=ucs		  . #x0650)	; ِ
+      ))
     (=ucs		. #xFE7A)	; ﹺ
     ))
 (define-char
@@ -76,7 +130,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x0650)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC KASRA")
+      (=ucs		  . #x0650)	; ِ
+      ))
     (=ucs		. #xFE7B)	; ﹻ
     ))
 (define-char
@@ -84,7 +144,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x0651)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC SHADDA")
+      (=ucs		  . #x0651)	; ّ
+      ))
     (=ucs		. #xFE7C)	; ﹼ
     ))
 (define-char
@@ -92,7 +158,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x0651)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC SHADDA")
+      (=ucs		  . #x0651)	; ّ
+      ))
     (=ucs		. #xFE7D)	; ﹽ
     ))
 (define-char
@@ -100,7 +172,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0020 #x0652)
+    (=>decomposition@isolated
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      )
+     ((name		  . "ARABIC SUKUN")
+      (=ucs		  . #x0652)	; ْ
+      ))
     (=ucs		. #xFE7E)	; ﹾ
     ))
 (define-char
@@ -108,7 +186,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0640 #x0652)
+    (=>decomposition@medial
+     ((name		  . "ARABIC TATWEEL")
+      (=ucs		  . #x0640)	; ـ
+      )
+     ((name		  . "ARABIC SUKUN")
+      (=ucs		  . #x0652)	; ْ
+      ))
     (=ucs		. #xFE7F)	; ﹿ
     ))
 (define-char
@@ -116,7 +200,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0621)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER HAMZA")
+      (=ucs		  . #x0621)	; ء
+      ))
     (=ucs		. #xFE80)	; ﺀ
     (arabic-1-column	. #x2D)	; &I-MULE-ARB1-2D;
     ))
@@ -125,7 +212,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0622)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ALEF WITH MADDA ABOVE")
+      (=ucs		  . #x0622)	; آ
+      ))
     (=ucs		. #xFE81)	; ﺁ
     (arabic-1-column	. #x2E)	; &I-MULE-ARB1-2E;
     ))
@@ -134,7 +224,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0622)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ALEF WITH MADDA ABOVE")
+      (=ucs		  . #x0622)	; آ
+      ))
     (=ucs		. #xFE82)	; ﺂ
     (arabic-1-column	. #x2F)	; &I-MULE-ARB1-2F;
     ))
@@ -143,7 +236,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0623)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA ABOVE")
+      (=ucs		  . #x0623)	; أ
+      ))
     (=ucs		. #xFE83)	; ﺃ
     (arabic-1-column	. #x30)	; &I-MULE-ARB1-30;
     ))
@@ -152,7 +248,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0623)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA ABOVE")
+      (=ucs		  . #x0623)	; أ
+      ))
     (=ucs		. #xFE84)	; ﺄ
     (arabic-1-column	. #x31)	; &I-MULE-ARB1-31;
     ))
@@ -161,7 +260,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0624)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER WAW WITH HAMZA ABOVE")
+      (=ucs		  . #x0624)	; ؤ
+      ))
     (=ucs		. #xFE85)	; ﺅ
     (arabic-1-column	. #x32)	; &I-MULE-ARB1-32;
     ))
@@ -170,7 +272,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0624)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER WAW WITH HAMZA ABOVE")
+      (=ucs		  . #x0624)	; ؤ
+      ))
     (=ucs		. #xFE86)	; ﺆ
     (arabic-1-column	. #x33)	; &I-MULE-ARB1-33;
     ))
@@ -179,7 +284,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0625)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA BELOW")
+      (=ucs		  . #x0625)	; إ
+      ))
     (=ucs		. #xFE87)	; ﺇ
     (arabic-1-column	. #x34)	; &I-MULE-ARB1-34;
     ))
@@ -188,7 +296,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0625)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA BELOW")
+      (=ucs		  . #x0625)	; إ
+      ))
     (=ucs		. #xFE88)	; ﺈ
     (arabic-1-column	. #x35)	; &I-MULE-ARB1-35;
     ))
@@ -197,7 +308,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0626)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER YEH WITH HAMZA ABOVE")
+      (=ucs		  . #x0626)	; ئ
+      ))
     (=ucs		. #xFE89)	; ﺉ
     (arabic-2-column	. #x21)	; &I-MULE-ARB2-21;
     ))
@@ -206,7 +320,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0626)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER YEH WITH HAMZA ABOVE")
+      (=ucs		  . #x0626)	; ئ
+      ))
     (=ucs		. #xFE8A)	; ﺊ
     (arabic-2-column	. #x22)	; &I-MULE-ARB2-22;
     ))
@@ -215,7 +332,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0626)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER YEH WITH HAMZA ABOVE")
+      (=ucs		  . #x0626)	; ئ
+      ))
     (=ucs		. #xFE8B)	; ﺋ
     (arabic-1-column	. #x36)	; &I-MULE-ARB1-36;
     ))
@@ -224,7 +344,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0626)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER YEH WITH HAMZA ABOVE")
+      (=ucs		  . #x0626)	; ئ
+      ))
     (=ucs		. #xFE8C)	; ﺌ
     (arabic-1-column	. #x37)	; &I-MULE-ARB1-37;
     ))
@@ -233,7 +356,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0627)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ALEF")
+      (=ucs		  . #x0627)	; ا
+      ))
     (=ucs		. #xFE8D)	; ﺍ
     (arabic-1-column	. #x38)	; &I-MULE-ARB1-38;
     ))
@@ -242,7 +368,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0627)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ALEF")
+      (=ucs		  . #x0627)	; ا
+      ))
     (=ucs		. #xFE8E)	; ﺎ
     (arabic-1-column	. #x39)	; &I-MULE-ARB1-39;
     ))
@@ -251,7 +380,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0628)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER BEH")
+      (=ucs		  . #x0628)	; ب
+      ))
     (=ucs		. #xFE8F)	; ﺏ
     (arabic-2-column	. #x23)	; &I-MULE-ARB2-23;
     ))
@@ -260,7 +392,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0628)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER BEH")
+      (=ucs		  . #x0628)	; ب
+      ))
     (=ucs		. #xFE90)	; ﺐ
     (arabic-2-column	. #x24)	; &I-MULE-ARB2-24;
     ))
@@ -269,7 +404,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0628)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER BEH")
+      (=ucs		  . #x0628)	; ب
+      ))
     (=ucs		. #xFE91)	; ﺑ
     (arabic-1-column	. #x3A)	; &I-MULE-ARB1-3A;
     ))
@@ -278,7 +416,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0628)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER BEH")
+      (=ucs		  . #x0628)	; ب
+      ))
     (=ucs		. #xFE92)	; ﺒ
     (arabic-1-column	. #x3B)	; &I-MULE-ARB1-3B;
     ))
@@ -287,7 +428,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0629)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER TEH MARBUTA")
+      (=ucs		  . #x0629)	; ة
+      ))
     (=ucs		. #xFE93)	; ﺓ
     (arabic-1-column	. #x3C)	; &I-MULE-ARB1-3C;
     ))
@@ -296,7 +440,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0629)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER TEH MARBUTA")
+      (=ucs		  . #x0629)	; ة
+      ))
     (=ucs		. #xFE94)	; ﺔ
     (arabic-1-column	. #x3D)	; &I-MULE-ARB1-3D;
     ))
@@ -305,7 +452,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062A)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER TEH")
+      (=ucs		  . #x062A)	; ت
+      ))
     (=ucs		. #xFE95)	; ﺕ
     (arabic-2-column	. #x25)	; &I-MULE-ARB2-25;
     ))
@@ -314,7 +464,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062A)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER TEH")
+      (=ucs		  . #x062A)	; ت
+      ))
     (=ucs		. #xFE96)	; ﺖ
     (arabic-2-column	. #x26)	; &I-MULE-ARB2-26;
     ))
@@ -323,7 +476,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x062A)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER TEH")
+      (=ucs		  . #x062A)	; ت
+      ))
     (=ucs		. #xFE97)	; ﺗ
     (arabic-1-column	. #x3E)	; &I-MULE-ARB1-3E;
     ))
@@ -332,7 +488,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x062A)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER TEH")
+      (=ucs		  . #x062A)	; ت
+      ))
     (=ucs		. #xFE98)	; ﺘ
     (arabic-1-column	. #x3F)	; &I-MULE-ARB1-3F;
     ))
@@ -341,7 +500,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062B)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER THEH")
+      (=ucs		  . #x062B)	; ث
+      ))
     (=ucs		. #xFE99)	; ﺙ
     (arabic-2-column	. #x27)	; &I-MULE-ARB2-27;
     ))
@@ -350,7 +512,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062B)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER THEH")
+      (=ucs		  . #x062B)	; ث
+      ))
     (=ucs		. #xFE9A)	; ﺚ
     (arabic-2-column	. #x28)	; &I-MULE-ARB2-28;
     ))
@@ -359,7 +524,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x062B)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER THEH")
+      (=ucs		  . #x062B)	; ث
+      ))
     (=ucs		. #xFE9B)	; ﺛ
     (arabic-1-column	. #x40)	; &I-MULE-ARB1-40;
     ))
@@ -368,7 +536,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x062B)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER THEH")
+      (=ucs		  . #x062B)	; ث
+      ))
     (=ucs		. #xFE9C)	; ﺜ
     (arabic-1-column	. #x41)	; &I-MULE-ARB1-41;
     ))
@@ -377,7 +548,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062C)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER JEEM")
+      (=ucs		  . #x062C)	; ج
+      ))
     (=ucs		. #xFE9D)	; ﺝ
     (arabic-2-column	. #x29)	; &I-MULE-ARB2-29;
     ))
@@ -386,7 +560,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062C)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER JEEM")
+      (=ucs		  . #x062C)	; ج
+      ))
     (=ucs		. #xFE9E)	; ﺞ
     (arabic-2-column	. #x2C)	; &I-MULE-ARB2-2C;
     ))
@@ -395,7 +572,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x062C)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER JEEM")
+      (=ucs		  . #x062C)	; ج
+      ))
     (=ucs		. #xFE9F)	; ﺟ
     (arabic-2-column	. #x2A)	; &I-MULE-ARB2-2A;
     ))
@@ -404,7 +584,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x062C)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER JEEM")
+      (=ucs		  . #x062C)	; ج
+      ))
     (=ucs		. #xFEA0)	; ﺠ
     (arabic-2-column	. #x2B)	; &I-MULE-ARB2-2B;
     ))
@@ -413,7 +596,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062D)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER HAH")
+      (=ucs		  . #x062D)	; ح
+      ))
     (=ucs		. #xFEA1)	; ﺡ
     (arabic-2-column	. #x2D)	; &I-MULE-ARB2-2D;
     ))
@@ -422,7 +608,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062D)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER HAH")
+      (=ucs		  . #x062D)	; ح
+      ))
     (=ucs		. #xFEA2)	; ﺢ
     (arabic-2-column	. #x30)	; &I-MULE-ARB2-30;
     ))
@@ -431,7 +620,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x062D)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER HAH")
+      (=ucs		  . #x062D)	; ح
+      ))
     (=ucs		. #xFEA3)	; ﺣ
     (arabic-2-column	. #x2E)	; &I-MULE-ARB2-2E;
     ))
@@ -440,7 +632,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x062D)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER HAH")
+      (=ucs		  . #x062D)	; ح
+      ))
     (=ucs		. #xFEA4)	; ﺤ
     (arabic-2-column	. #x2F)	; &I-MULE-ARB2-2F;
     ))
@@ -449,7 +644,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062E)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER KHAH")
+      (=ucs		  . #x062E)	; خ
+      ))
     (=ucs		. #xFEA5)	; ﺥ
     (arabic-2-column	. #x31)	; &I-MULE-ARB2-31;
     ))
@@ -458,7 +656,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062E)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER KHAH")
+      (=ucs		  . #x062E)	; خ
+      ))
     (=ucs		. #xFEA6)	; ﺦ
     (arabic-2-column	. #x34)	; &I-MULE-ARB2-34;
     ))
@@ -467,7 +668,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x062E)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER KHAH")
+      (=ucs		  . #x062E)	; خ
+      ))
     (=ucs		. #xFEA7)	; ﺧ
     (arabic-2-column	. #x32)	; &I-MULE-ARB2-32;
     ))
@@ -476,7 +680,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x062E)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER KHAH")
+      (=ucs		  . #x062E)	; خ
+      ))
     (=ucs		. #xFEA8)	; ﺨ
     (arabic-2-column	. #x33)	; &I-MULE-ARB2-33;
     ))
@@ -485,7 +692,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x062F)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER DAL")
+      (=ucs		  . #x062F)	; د
+      ))
     (=ucs		. #xFEA9)	; ﺩ
     (arabic-1-column	. #x42)	; &I-MULE-ARB1-42;
     ))
@@ -494,7 +704,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x062F)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER DAL")
+      (=ucs		  . #x062F)	; د
+      ))
     (=ucs		. #xFEAA)	; ﺪ
     (arabic-1-column	. #x43)	; &I-MULE-ARB1-43;
     ))
@@ -503,7 +716,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0630)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER THAL")
+      (=ucs		  . #x0630)	; ذ
+      ))
     (=ucs		. #xFEAB)	; ﺫ
     (arabic-1-column	. #x44)	; &I-MULE-ARB1-44;
     ))
@@ -512,7 +728,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0630)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER THAL")
+      (=ucs		  . #x0630)	; ذ
+      ))
     (=ucs		. #xFEAC)	; ﺬ
     (arabic-1-column	. #x45)	; &I-MULE-ARB1-45;
     ))
@@ -521,7 +740,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0631)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER REH")
+      (=ucs		  . #x0631)	; ر
+      ))
     (=ucs		. #xFEAD)	; ﺭ
     (arabic-1-column	. #x46)	; &I-MULE-ARB1-46;
     ))
@@ -530,7 +752,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0631)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER REH")
+      (=ucs		  . #x0631)	; ر
+      ))
     (=ucs		. #xFEAE)	; ﺮ
     (arabic-1-column	. #x47)	; &I-MULE-ARB1-47;
     ))
@@ -539,7 +764,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0632)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ZAIN")
+      (=ucs		  . #x0632)	; ز
+      ))
     (=ucs		. #xFEAF)	; ﺯ
     (arabic-1-column	. #x48)	; &I-MULE-ARB1-48;
     ))
@@ -548,7 +776,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0632)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ZAIN")
+      (=ucs		  . #x0632)	; ز
+      ))
     (=ucs		. #xFEB0)	; ﺰ
     (arabic-1-column	. #x49)	; &I-MULE-ARB1-49;
     ))
@@ -557,7 +788,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0633)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER SEEN")
+      (=ucs		  . #x0633)	; س
+      ))
     (=ucs		. #xFEB1)	; ﺱ
     (arabic-2-column	. #x35)	; &I-MULE-ARB2-35;
     ))
@@ -566,7 +800,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0633)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER SEEN")
+      (=ucs		  . #x0633)	; س
+      ))
     (=ucs		. #xFEB2)	; ﺲ
     (arabic-2-column	. #x38)	; &I-MULE-ARB2-38;
     ))
@@ -575,7 +812,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0633)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER SEEN")
+      (=ucs		  . #x0633)	; س
+      ))
     (=ucs		. #xFEB3)	; ﺳ
     (arabic-2-column	. #x36)	; &I-MULE-ARB2-36;
     ))
@@ -584,7 +824,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0633)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER SEEN")
+      (=ucs		  . #x0633)	; س
+      ))
     (=ucs		. #xFEB4)	; ﺴ
     (arabic-2-column	. #x37)	; &I-MULE-ARB2-37;
     ))
@@ -593,7 +836,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0634)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER SHEEN")
+      (=ucs		  . #x0634)	; ش
+      ))
     (=ucs		. #xFEB5)	; ﺵ
     (arabic-2-column	. #x39)	; &I-MULE-ARB2-39;
     ))
@@ -602,7 +848,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0634)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER SHEEN")
+      (=ucs		  . #x0634)	; ش
+      ))
     (=ucs		. #xFEB6)	; ﺶ
     (arabic-2-column	. #x3C)	; &I-MULE-ARB2-3C;
     ))
@@ -611,7 +860,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0634)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER SHEEN")
+      (=ucs		  . #x0634)	; ش
+      ))
     (=ucs		. #xFEB7)	; ﺷ
     (arabic-2-column	. #x3A)	; &I-MULE-ARB2-3A;
     ))
@@ -620,7 +872,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0634)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER SHEEN")
+      (=ucs		  . #x0634)	; ش
+      ))
     (=ucs		. #xFEB8)	; ﺸ
     (arabic-2-column	. #x3B)	; &I-MULE-ARB2-3B;
     ))
@@ -629,7 +884,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0635)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER SAD")
+      (=ucs		  . #x0635)	; ص
+      ))
     (=ucs		. #xFEB9)	; ﺹ
     (arabic-2-column	. #x3D)	; &I-MULE-ARB2-3D;
     ))
@@ -638,7 +896,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0635)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER SAD")
+      (=ucs		  . #x0635)	; ص
+      ))
     (=ucs		. #xFEBA)	; ﺺ
     (arabic-2-column	. #x40)	; &I-MULE-ARB2-40;
     ))
@@ -647,7 +908,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0635)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER SAD")
+      (=ucs		  . #x0635)	; ص
+      ))
     (=ucs		. #xFEBB)	; ﺻ
     (arabic-2-column	. #x3E)	; &I-MULE-ARB2-3E;
     ))
@@ -656,7 +920,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0635)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER SAD")
+      (=ucs		  . #x0635)	; ص
+      ))
     (=ucs		. #xFEBC)	; ﺼ
     (arabic-2-column	. #x3F)	; &I-MULE-ARB2-3F;
     ))
@@ -665,7 +932,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0636)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER DAD")
+      (=ucs		  . #x0636)	; ض
+      ))
     (=ucs		. #xFEBD)	; ﺽ
     (arabic-2-column	. #x41)	; &I-MULE-ARB2-41;
     ))
@@ -674,7 +944,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0636)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER DAD")
+      (=ucs		  . #x0636)	; ض
+      ))
     (=ucs		. #xFEBE)	; ﺾ
     (arabic-2-column	. #x44)	; &I-MULE-ARB2-44;
     ))
@@ -683,7 +956,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0636)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER DAD")
+      (=ucs		  . #x0636)	; ض
+      ))
     (=ucs		. #xFEBF)	; ﺿ
     (arabic-2-column	. #x42)	; &I-MULE-ARB2-42;
     ))
@@ -692,7 +968,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0636)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER DAD")
+      (=ucs		  . #x0636)	; ض
+      ))
     (=ucs		. #xFEC0)	; ﻀ
     (arabic-2-column	. #x43)	; &I-MULE-ARB2-43;
     ))
@@ -701,7 +980,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0637)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER TAH")
+      (=ucs		  . #x0637)	; ط
+      ))
     (=ucs		. #xFEC1)	; ﻁ
     (arabic-2-column	. #x45)	; &I-MULE-ARB2-45;
     ))
@@ -710,7 +992,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0637)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER TAH")
+      (=ucs		  . #x0637)	; ط
+      ))
     (=ucs		. #xFEC2)	; ﻂ
     (arabic-2-column	. #x48)	; &I-MULE-ARB2-48;
     ))
@@ -719,7 +1004,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0637)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER TAH")
+      (=ucs		  . #x0637)	; ط
+      ))
     (=ucs		. #xFEC3)	; ﻃ
     (arabic-2-column	. #x46)	; &I-MULE-ARB2-46;
     ))
@@ -728,7 +1016,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0637)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER TAH")
+      (=ucs		  . #x0637)	; ط
+      ))
     (=ucs		. #xFEC4)	; ﻄ
     (arabic-2-column	. #x47)	; &I-MULE-ARB2-47;
     ))
@@ -737,7 +1028,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0638)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ZAH")
+      (=ucs		  . #x0638)	; ظ
+      ))
     (=ucs		. #xFEC5)	; ﻅ
     (arabic-2-column	. #x49)	; &I-MULE-ARB2-49;
     ))
@@ -746,7 +1040,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0638)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ZAH")
+      (=ucs		  . #x0638)	; ظ
+      ))
     (=ucs		. #xFEC6)	; ﻆ
     (arabic-2-column	. #x4C)	; &I-MULE-ARB2-4C;
     ))
@@ -755,7 +1052,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0638)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER ZAH")
+      (=ucs		  . #x0638)	; ظ
+      ))
     (=ucs		. #xFEC7)	; ﻇ
     (arabic-2-column	. #x4A)	; &I-MULE-ARB2-4A;
     ))
@@ -764,7 +1064,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0638)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER ZAH")
+      (=ucs		  . #x0638)	; ظ
+      ))
     (=ucs		. #xFEC8)	; ﻈ
     (arabic-2-column	. #x4B)	; &I-MULE-ARB2-4B;
     ))
@@ -773,7 +1076,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0639)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER AIN")
+      (=ucs		  . #x0639)	; ع
+      ))
     (=ucs		. #xFEC9)	; ﻉ
     (arabic-2-column	. #x4D)	; &I-MULE-ARB2-4D;
     ))
@@ -782,7 +1088,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0639)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER AIN")
+      (=ucs		  . #x0639)	; ع
+      ))
     (=ucs		. #xFECA)	; ﻊ
     (arabic-2-column	. #x4E)	; &I-MULE-ARB2-4E;
     ))
@@ -791,7 +1100,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0639)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER AIN")
+      (=ucs		  . #x0639)	; ع
+      ))
     (=ucs		. #xFECB)	; ﻋ
     (arabic-1-column	. #x4A)	; &I-MULE-ARB1-4A;
     ))
@@ -800,7 +1112,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0639)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER AIN")
+      (=ucs		  . #x0639)	; ع
+      ))
     (=ucs		. #xFECC)	; ﻌ
     (arabic-1-column	. #x4B)	; &I-MULE-ARB1-4B;
     ))
@@ -809,7 +1124,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x063A)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER GHAIN")
+      (=ucs		  . #x063A)	; غ
+      ))
     (=ucs		. #xFECD)	; ﻍ
     (arabic-2-column	. #x4F)	; &I-MULE-ARB2-4F;
     ))
@@ -818,7 +1136,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x063A)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER GHAIN")
+      (=ucs		  . #x063A)	; غ
+      ))
     (=ucs		. #xFECE)	; ﻎ
     (arabic-2-column	. #x50)	; &I-MULE-ARB2-50;
     ))
@@ -827,7 +1148,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x063A)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER GHAIN")
+      (=ucs		  . #x063A)	; غ
+      ))
     (=ucs		. #xFECF)	; ﻏ
     (arabic-1-column	. #x4C)	; &I-MULE-ARB1-4C;
     ))
@@ -836,7 +1160,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x063A)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER GHAIN")
+      (=ucs		  . #x063A)	; غ
+      ))
     (=ucs		. #xFED0)	; ﻐ
     (arabic-1-column	. #x4D)	; &I-MULE-ARB1-4D;
     ))
@@ -845,7 +1172,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0641)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER FEH")
+      (=ucs		  . #x0641)	; ف
+      ))
     (=ucs		. #xFED1)	; ﻑ
     (arabic-2-column	. #x51)	; &I-MULE-ARB2-51;
     ))
@@ -854,7 +1184,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0641)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER FEH")
+      (=ucs		  . #x0641)	; ف
+      ))
     (=ucs		. #xFED2)	; ﻒ
     (arabic-2-column	. #x52)	; &I-MULE-ARB2-52;
     ))
@@ -863,7 +1196,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0641)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER FEH")
+      (=ucs		  . #x0641)	; ف
+      ))
     (=ucs		. #xFED3)	; ﻓ
     (arabic-1-column	. #x4E)	; &I-MULE-ARB1-4E;
     ))
@@ -872,7 +1208,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0641)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER FEH")
+      (=ucs		  . #x0641)	; ف
+      ))
     (=ucs		. #xFED4)	; ﻔ
     (arabic-1-column	. #x4F)	; &I-MULE-ARB1-4F;
     ))
@@ -881,7 +1220,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0642)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER QAF")
+      (=ucs		  . #x0642)	; ق
+      ))
     (=ucs		. #xFED5)	; ﻕ
     (arabic-2-column	. #x53)	; &I-MULE-ARB2-53;
     ))
@@ -890,7 +1232,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0642)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER QAF")
+      (=ucs		  . #x0642)	; ق
+      ))
     (=ucs		. #xFED6)	; ﻖ
     (arabic-2-column	. #x54)	; &I-MULE-ARB2-54;
     ))
@@ -899,7 +1244,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0642)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER QAF")
+      (=ucs		  . #x0642)	; ق
+      ))
     (=ucs		. #xFED7)	; ﻗ
     (arabic-1-column	. #x50)	; &I-MULE-ARB1-50;
     ))
@@ -908,7 +1256,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0642)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER QAF")
+      (=ucs		  . #x0642)	; ق
+      ))
     (=ucs		. #xFED8)	; ﻘ
     (arabic-1-column	. #x51)	; &I-MULE-ARB1-51;
     ))
@@ -917,7 +1268,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0643)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER KAF")
+      (=ucs		  . #x0643)	; ك
+      ))
     (=ucs		. #xFED9)	; ﻙ
     (arabic-2-column	. #x55)	; &I-MULE-ARB2-55;
     ))
@@ -926,7 +1280,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0643)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER KAF")
+      (=ucs		  . #x0643)	; ك
+      ))
     (=ucs		. #xFEDA)	; ﻚ
     (arabic-2-column	. #x58)	; &I-MULE-ARB2-58;
     ))
@@ -935,7 +1292,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0643)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER KAF")
+      (=ucs		  . #x0643)	; ك
+      ))
     (=ucs		. #xFEDB)	; ﻛ
     (arabic-2-column	. #x56)	; &I-MULE-ARB2-56;
     ))
@@ -944,7 +1304,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0643)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER KAF")
+      (=ucs		  . #x0643)	; ك
+      ))
     (=ucs		. #xFEDC)	; ﻜ
     (arabic-2-column	. #x57)	; &I-MULE-ARB2-57;
     ))
@@ -953,7 +1316,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0644)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      ))
     (=ucs		. #xFEDD)	; ﻝ
     (arabic-2-column	. #x59)	; &I-MULE-ARB2-59;
     ))
@@ -962,7 +1328,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0644)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      ))
     (=ucs		. #xFEDE)	; ﻞ
     (arabic-2-column	. #x5A)	; &I-MULE-ARB2-5A;
     ))
@@ -971,7 +1340,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0644)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      ))
     (=ucs		. #xFEDF)	; ﻟ
     (arabic-1-column	. #x52)	; &I-MULE-ARB1-52;
     ))
@@ -980,7 +1352,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0644)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      ))
     (=ucs		. #xFEE0)	; ﻠ
     (arabic-1-column	. #x53)	; &I-MULE-ARB1-53;
     ))
@@ -989,7 +1364,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0645)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER MEEM")
+      (=ucs		  . #x0645)	; م
+      ))
     (=ucs		. #xFEE1)	; ﻡ
     (arabic-1-column	. #x54)	; &I-MULE-ARB1-54;
     ))
@@ -998,7 +1376,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0645)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER MEEM")
+      (=ucs		  . #x0645)	; م
+      ))
     (=ucs		. #xFEE2)	; ﻢ
     (arabic-1-column	. #x57)	; &I-MULE-ARB1-57;
     ))
@@ -1007,7 +1388,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0645)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER MEEM")
+      (=ucs		  . #x0645)	; م
+      ))
     (=ucs		. #xFEE3)	; ﻣ
     (arabic-1-column	. #x55)	; &I-MULE-ARB1-55;
     ))
@@ -1016,7 +1400,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0645)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER MEEM")
+      (=ucs		  . #x0645)	; م
+      ))
     (=ucs		. #xFEE4)	; ﻤ
     (arabic-1-column	. #x56)	; &I-MULE-ARB1-56;
     ))
@@ -1025,7 +1412,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0646)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER NOON")
+      (=ucs		  . #x0646)	; ن
+      ))
     (=ucs		. #xFEE5)	; ﻥ
     (arabic-2-column	. #x5B)	; &I-MULE-ARB2-5B;
     ))
@@ -1034,7 +1424,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0646)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER NOON")
+      (=ucs		  . #x0646)	; ن
+      ))
     (=ucs		. #xFEE6)	; ﻦ
     (arabic-2-column	. #x5C)	; &I-MULE-ARB2-5C;
     ))
@@ -1043,7 +1436,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0646)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER NOON")
+      (=ucs		  . #x0646)	; ن
+      ))
     (=ucs		. #xFEE7)	; ﻧ
     (arabic-1-column	. #x58)	; &I-MULE-ARB1-58;
     ))
@@ -1052,7 +1448,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0646)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER NOON")
+      (=ucs		  . #x0646)	; ن
+      ))
     (=ucs		. #xFEE8)	; ﻨ
     (arabic-1-column	. #x59)	; &I-MULE-ARB1-59;
     ))
@@ -1061,7 +1460,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0647)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER HEH")
+      (=ucs		  . #x0647)	; ه
+      ))
     (=ucs		. #xFEE9)	; ﻩ
     (arabic-1-column	. #x5A)	; &I-MULE-ARB1-5A;
     ))
@@ -1070,7 +1472,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0647)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER HEH")
+      (=ucs		  . #x0647)	; ه
+      ))
     (=ucs		. #xFEEA)	; ﻪ
     (arabic-1-column	. #x5D)	; &I-MULE-ARB1-5D;
     ))
@@ -1079,7 +1484,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x0647)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER HEH")
+      (=ucs		  . #x0647)	; ه
+      ))
     (=ucs		. #xFEEB)	; ﻫ
     (arabic-1-column	. #x5B)	; &I-MULE-ARB1-5B;
     ))
@@ -1088,7 +1496,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x0647)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER HEH")
+      (=ucs		  . #x0647)	; ه
+      ))
     (=ucs		. #xFEEC)	; ﻬ
     (arabic-1-column	. #x5C)	; &I-MULE-ARB1-5C;
     ))
@@ -1097,7 +1508,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0648)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER WAW")
+      (=ucs		  . #x0648)	; و
+      ))
     (=ucs		. #xFEED)	; ﻭ
     (arabic-1-column	. #x5E)	; &I-MULE-ARB1-5E;
     ))
@@ -1106,7 +1520,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0648)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER WAW")
+      (=ucs		  . #x0648)	; و
+      ))
     (=ucs		. #xFEEE)	; ﻮ
     (arabic-1-column	. #x5F)	; &I-MULE-ARB1-5F;
     ))
@@ -1115,7 +1532,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0649)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER ALEF MAKSURA")
+      (=ucs		  . #x0649)	; ى
+      ))
     (=ucs		. #xFEEF)	; ﻯ
     (arabic-2-column	. #x5D)	; &I-MULE-ARB2-5D;
     ))
@@ -1124,7 +1544,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0649)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER ALEF MAKSURA")
+      (=ucs		  . #x0649)	; ى
+      ))
     (=ucs		. #xFEF0)	; ﻰ
     (arabic-2-column	. #x5E)	; &I-MULE-ARB2-5E;
     ))
@@ -1133,7 +1556,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x064A)
+    (<-formed@isolated
+     ((name		  . "ARABIC LETTER YEH")
+      (=ucs		  . #x064A)	; ي
+      ))
     (=ucs		. #xFEF1)	; ﻱ
     (arabic-2-column	. #x5F)	; &I-MULE-ARB2-5F;
     ))
@@ -1142,7 +1568,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x064A)
+    (<-formed@final
+     ((name		  . "ARABIC LETTER YEH")
+      (=ucs		  . #x064A)	; ي
+      ))
     (=ucs		. #xFEF2)	; ﻲ
     (arabic-2-column	. #x60)	; &I-MULE-ARB2-60;
     ))
@@ -1151,7 +1580,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	initial #x064A)
+    (<-formed@initial
+     ((name		  . "ARABIC LETTER YEH")
+      (=ucs		  . #x064A)	; ي
+      ))
     (=ucs		. #xFEF3)	; ﻳ
     (arabic-1-column	. #x60)	; &I-MULE-ARB1-60;
     ))
@@ -1160,7 +1592,10 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	medial #x064A)
+    (<-formed@medial
+     ((name		  . "ARABIC LETTER YEH")
+      (=ucs		  . #x064A)	; ي
+      ))
     (=ucs		. #xFEF4)	; ﻴ
     (arabic-1-column	. #x61)	; &I-MULE-ARB1-61;
     ))
@@ -1169,7 +1604,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0644 #x0622)
+    (=>decomposition@isolated
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH MADDA ABOVE")
+      (=ucs		  . #x0622)	; آ
+      ))
     (=ucs		. #xFEF5)	; ﻵ
     (arabic-1-column	. #x62)	; &I-MULE-ARB1-62;
     ))
@@ -1178,7 +1619,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0644 #x0622)
+    (=>decomposition@final
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH MADDA ABOVE")
+      (=ucs		  . #x0622)	; آ
+      ))
     (=ucs		. #xFEF6)	; ﻶ
     (arabic-2-column	. #x61)	; &I-MULE-ARB2-61;
     ))
@@ -1187,7 +1634,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0644 #x0623)
+    (=>decomposition@isolated
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA ABOVE")
+      (=ucs		  . #x0623)	; أ
+      ))
     (=ucs		. #xFEF7)	; ﻷ
     (arabic-1-column	. #x63)	; &I-MULE-ARB1-63;
     ))
@@ -1196,7 +1649,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0644 #x0623)
+    (=>decomposition@final
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA ABOVE")
+      (=ucs		  . #x0623)	; أ
+      ))
     (=ucs		. #xFEF8)	; ﻸ
     (arabic-2-column	. #x62)	; &I-MULE-ARB2-62;
     ))
@@ -1205,7 +1664,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0644 #x0625)
+    (=>decomposition@isolated
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA BELOW")
+      (=ucs		  . #x0625)	; إ
+      ))
     (=ucs		. #xFEF9)	; ﻹ
     (arabic-1-column	. #x64)	; &I-MULE-ARB1-64;
     ))
@@ -1214,7 +1679,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0644 #x0625)
+    (=>decomposition@final
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF WITH HAMZA BELOW")
+      (=ucs		  . #x0625)	; إ
+      ))
     (=ucs		. #xFEFA)	; ﻺ
     (arabic-2-column	. #x63)	; &I-MULE-ARB2-63;
     ))
@@ -1223,7 +1694,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	isolated #x0644 #x0627)
+    (=>decomposition@isolated
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF")
+      (=ucs		  . #x0627)	; ا
+      ))
     (=ucs		. #xFEFB)	; ﻻ
     (arabic-1-column	. #x65)	; &I-MULE-ARB1-65;
     ))
@@ -1232,7 +1709,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (->decomposition	final #x0644 #x0627)
+    (=>decomposition@final
+     ((name		  . "ARABIC LETTER LAM")
+      (=ucs		  . #x0644)	; ل
+      )
+     ((name		  . "ARABIC LETTER ALEF")
+      (=ucs		  . #x0627)	; ا
+      ))
     (=ucs		. #xFEFC)	; ﻼ
     (arabic-2-column	. #x64)	; &I-MULE-ARB2-64;
     ))

@@ -23,12 +23,12 @@
     (=ucs		. #x389F)	; 㢟
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x389F)	; 㢟
       ))
+    (ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (->subsumptive
      ((=daikanwa	  . 09567)	; &M-09567;
       )
@@ -36,12 +36,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x389F)	; 㢟
       ))
+    (ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (->subsumptive
      ((=big5-cdp	  . #x88F4)	; &CDP-88F4;
       )

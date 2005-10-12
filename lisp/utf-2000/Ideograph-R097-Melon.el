@@ -29,21 +29,21 @@
     (=big5		. #xCD6E)	; &I-B-CD6E;
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x74DD)	; 瓝
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
     (=daikanwa		. 21372)	; &M-21372;
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x74DD)	; 瓝
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
     (->subsumptive
      ((=ucs@unicode	  . #x74DD)	; &UU+74DD;
       )
@@ -488,12 +488,12 @@
     (=ucs		. #x3F10)	; 㼐
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x3F10)	; 㼐
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=daikanwa	  . 21405)	; &M-21405;
       )
@@ -501,12 +501,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x3F10)	; 㼐
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
     (=ucs@unicode	. #x3F10)	; &UU+3F10;
     ))
 (define-char
@@ -727,21 +727,21 @@
     (=ucs		. #x24B1A)	; 𤬚
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 13)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x24B1A)	; 𤬚
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
     (=daikanwa		. 21424)	; &M-21424;
     ))
 (define-char
-  '((ideographic-radical . 97)	; ⽠
-    (ideographic-strokes . 13)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x24B1A)	; 𤬚
       ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
     (->subsumptive
      ((=ucs@iso		  . #x24B1A)	; &U-00024B1A;
       )

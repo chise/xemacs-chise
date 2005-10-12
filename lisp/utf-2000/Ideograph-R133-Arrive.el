@@ -75,12 +75,12 @@
     (=jis-x0208@1997	. #x4357)	; 致 [35-55]
     ))
 (define-char
-  '((ideographic-radical . 133)	; ⾄
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x81F4)	; 致
       ))
+    (ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
     (=ucs		. #x26936)	; 𦤶
     (=cns11643-1	. #x5333)	; &I-C1-5333; [51-19]
     (=daikanwa		. 30146)	; &I-M-30146;
@@ -102,12 +102,12 @@
     (=daikanwa		. 30148)	; &I-M-30148;
     ))
 (define-char
-  '((ideographic-radical . 133)	; ⾄
-    (ideographic-strokes . 4)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x81F4)	; 致
       ))
+    (ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
     (shinjigen-2	. 6603)
     (=jis-x0208		. #x4357)	; &GT-39001; [35-55]
     (=gb2312		. #x5642)	; &I-G0-5642; [54-34]

@@ -5,7 +5,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x8F9B)	; 辛
     (->subsumptive
-     ((shinjigen-2	  . 8196)
+     ((shinjigen-1	  . 8196)
+      (shinjigen-2	  . 8196)
       (=jis-x0208	  . #x3F49)	; &GT-51557; [31-41]
       (=ks-x1001	  . #x6374)	; &I-K0-6374; [67-84]
       (=gt		  . 51557)	; &I-GT-51557;
@@ -20,12 +21,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8F9B)	; 辛
       ))
+    (ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (<-ideographic-component-forms
      ((=ucs		  . #x8F9B)	; 辛
       ))
@@ -33,41 +34,47 @@
     (=gt-pj-k1		. #x3D69)	; &GT-K02585; [29-73]
     ))
 (define-char
-  '((morohashi-daikanwa	38630 1)
+  '((=>ucs		. #x2840B)	; 𨐋
+    (morohashi-daikanwa	38630 1)
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (<-same
+     ((=daikanwa	  . 25722)	; &M-25722;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (=gt		. 51556)	; &GT-51556;
     (=gt-pj-7		. #x5451)	; &GT-51556; [52-49]
     ))
 (define-char
-  '((morohashi-daikanwa	38630 1 9)
+  '((=>daikanwa		38630 1)	; 𨐋
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (=cns11643-6	. #x292B)	; &C6-292B; [09-11]
+    (hanyu-dazidian	6 4036 2)
+    (=ucs		. #x2840B)	; 𨐋
+    (=cns11643-6	. #x292B)	; &I-C6-292B; [09-11]
+    (=hanziku-10	. #xF0FA)	; &I-HZK10-F0FA;
     ))
 (define-char
-  '((=>ucs		. #x2840C)	; 𨐌
-    (ideographic-radical . 160)	; ⾟
+  '((ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
-    (=jis-x0213-2-2000	. #x7966)	; &GT-51558; [89-70]
-    (=gt		. 51558)	; &I-GT-51558;
-    (=gt-k		. 04246)	; &I-GT-K04246;
-    (=gt-pj-7		. #x5452)	; &I-GT-51558; [52-50]
-    (=daikanwa		. 38631)	; &I-M-38631;
-    (=ucs@jis		. #x2840C)	; &GT-51558;
-    ))
-(define-char
-  '((morohashi-daikanwa	38631 0 0)
-    (ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 1)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	6 4036 3)
     (=ucs		. #x2840C)	; 𨐌
-    (=cns11643-6	. #x2E36)	; &I-C6-2E36; [14-22]
-    (=hanziku-10	. #xF0FB)	; &I-HZK10-F0FB;
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x7966)	; &GT-51558; [89-70]
+      (=gt		  . 51558)	; &I-GT-51558;
+      (=gt-k		  . 04246)	; &I-GT-K04246;
+      (=gt-pj-7		  . #x5452)	; &I-GT-51558; [52-50]
+      (=daikanwa	  . 38631)	; &I-M-38631;
+      (=ucs@jis		  . #x2840C)	; &GT-51558;
+      )
+     ((hanyu-dazidian	  6 4036 3)
+      (=cns11643-6	  . #x2E36)	; &HZK10-F0FB; [14-22]
+      (=hanziku-10	  . #xF0FB)	; &I-HZK10-F0FB;
+      (=ucs@iso		  . #x2840C)	; &HZK10-F0FB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟
@@ -225,12 +232,12 @@
     (=ucs		. #x8F9E)	; 辞
     ))
 (define-char
-  '((ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x8F9E)	; 辞
       ))
+    (ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x6D66)	; &GT-51611; [77-70]
@@ -308,7 +315,12 @@
     (total-strokes	 . 13)
     (=ucs		. #x8F9F)	; 辟
     (->subsumptive
-     ((shinjigen-2	  . 8202)
+     ((<-formed
+       ((=ks-x1001	    . #x792D)	; &M-39163; [89-13]
+	(=daikanwa	    . 39163)	; &I-M-39163;
+	))
+      (shinjigen-1	  . 8202)
+      (shinjigen-2	  . 8202)
       (=jis-x0208	  . #x6D64)	; &GT-51571; [77-68]
       (=gt		  . 51571)	; &I-GT-51571;
       (=gt-k		  . 10359)	; &I-GT-K10359;
@@ -931,12 +943,6 @@
     (total-strokes	 . 30)
     (=cns11643-7	. #x6567)	; &M-38681; [69-71]
     (=daikanwa		. 38681)	; &I-M-38681;
-    ))
-(define-char
-  '((ideographic-radical . 160)	; ⾟
-    (hanyu-dazidian	6 4036 2)
-    (=ucs		. #x2840B)	; 𨐋
-    (=hanziku-10	. #xF0FA)	; &I-HZK10-F0FA;
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟

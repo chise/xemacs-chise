@@ -1,3 +1,147 @@
+2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): For each character relation
+	feature `{<-|->}FOO', set up the reversed link `{->|<-}FOO'.
+
+2005-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Use
+	`Fchar_refs_simplify_char_specs' for `=>decomposition' before
+	calling `put_char_composition'.
+
+2005-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_halfwidth_of): New variable.
+	(put_char_composition): Return `<-halfwidth' instead of
+	`=decomposition' for compatibility mapping to single character
+	tagged `narrow'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}halfwidth[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-halfwidth'.
+	(syms_of_chartab): Add new symbol `<-halfwidth'.
+
+2005-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_composition): Return
+	`<-formed@{isolated|initial|medial|final}' for compatibility
+	mapping to single character tagged
+	`{isolated|initial|medial|final}'.
+
+2005-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_compat_of): Deleted.
+	(put_char_composition): Return `<-FOO' for compatibility mapping
+	to single character tagged `FOO'; use `Fsymbol_name (...)' instead
+	of `symbol_name (XSYMBOL(...))'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}font[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Don't refer Q_compat_of.
+	(syms_of_chartab): Delete builtin symbol `<-compat'.
+
+2005-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_circled_of): New variable.
+	(put_char_composition): Return `<-circled' instead of
+	`=decomposition' for compatibility mapping to single character
+	tagged `circle'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}circled[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-circled'.
+	(syms_of_chartab): Add new symbol `<-circled'.
+
+2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qto_decomposition_at_circled): New variable.
+	(put_char_composition): Return `=>decomposition@circled' instead
+	of `=decomposition' for compatibility decomposition mapping tagged
+	`circle'.
+	(syms_of_chartab): Add new symbol `=>decomposition@circled'.
+
+2005-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_subscript_of): New variable.
+	(put_char_composition): Return `<-subscript' instead of
+	`=decomposition' for compatibility mapping to single character
+	tagged `sub'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}subscript[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-subscript'.
+	(syms_of_chartab): Add new symbol `<-subscript'.
+
+2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_superscript_of): New variable.
+	(put_char_composition): Return `<-superscript' instead of
+	`=decomposition' for compatibility mapping to single character
+	tagged `super'.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}superscript[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-superscript'.
+	(syms_of_chartab): Add new symbol `<-superscript'.
+
+2005-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qto_decomposition_at_compat): Deleted.
+	(Qto_decomposition_at_superscript): New variable.
+	(put_char_composition): Use `=>decomposition@superscript' instead
+	of `=decomposition' for compatibility decomposition mapping tagged
+	`super'.
+	(Fput_char_attribute): Fix condition about `put_char_composition'.
+	(syms_of_chartab): Delete builtin symbol `=>decomposition@compat';
+	add news symbol `=>decomposition@superscript'.
+
+2005-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_composition): Return `=>decomposition@FOO'
+	for compatibility decomposition mapping tagged FOO.
+	(Fput_char_attribute): Modify for `put_char_composition'.
+
+2005-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qto_decomposition_at_compat): New variable.
+	(Q_compat_of): Renamed from `Q_compatibility_of'.
+	(put_char_composition): Rename `Q_compatibility_of' to
+	`Q_compat_of'; return `=>decomposition@compat' for compatibility
+	decomposition mapping.
+	(Fsave_char_attribute_table): Rename `Q_compatibility_of' to
+	`Q_compat_of'.
+	(syms_of_chartab): Add new symbol `=>decomposition@compat'; rename
+	`<-compatibility' to `<-compat'.
+
+2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_compatibility_of): New variable.
+	(put_char_composition): Use XCAR/XCDR instead of Fcar/Fcdr if an
+	object is proved to be a cons cell; return `<-compatibility' if
+	the first element of argument `value' is `compat'.
+	(Fput_char_attribute): Eliminate the first value if
+	`put_char_composition' returns `<-compatibility'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `<-compatibility'.
+	(syms_of_chartab): Add new symbol `<-compatibility'.
+
+2005-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_canonical): New variable.
+	(put_char_composition): Return a feature name: return
+	`->canonical' if argument `value' specifies single character.
+	(Fput_char_attribute): Use `put_char_composition' to determine
+	feature name for `=decomposition' or `->denotational'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `->canonical'.
+	(syms_of_chartab): Add new symbol `->canonical'.
+
+2005-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Qmap_decomposition): New variable.
+	(Fput_char_attribute): Convert `->decomposition' to
+	`=decomposition'.
+	(syms_of_chartab): Add new symbol `=decomposition'.
+
 2005-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fget_range_char_table): Fix serious problem when

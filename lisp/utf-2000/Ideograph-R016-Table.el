@@ -17,14 +17,41 @@
     (=daikanwa		. 01737)	; &I-M-01737;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (name		. "CJK RADICAL TABLE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (total-strokes	 . 2)
+    (<-identical@component
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs		. #x2E87)	; ⺇
+    (=big5-cdp		. #x8D66)	; &I-CDP-8D66;
+    (=gt		. 02284)	; &I-GT-02284;
+    (=gt-k		. 00086)	; &I-GT-K00086;
+    (=gt-pj-9		. #x505D)	; &I-GT-02284; [48-61]
+    ))
+(define-char
   '((=>ucs		. #x20627)	; 𠘧
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=daikanwa		. 01738)	; &M-01738;
+    (->mistakable
+     ((=ucs		  . #x513F)	; 儿
+      (=daikanwa	  . 01336)	; &I-M-01336;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      (=daikanwa	  . 01737)	; &I-M-01737;
+      ))
+    (->mistakable*sources
+     zihui daikanwa)
     ))
 (define-char
-  '((morohashi-daikanwa	1738 0 0)
+  '((=>daikanwa		. 01738)	; &M-01738;
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
@@ -250,15 +277,15 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 45)
+  '((<-denotational
+     ((=ucs		  . #x20AD7)	; 𠫗
+      ))
+    (morohashi-daikanwa	ho 45)
     (ideographic-radical@ucs . 28)	; ⼛
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 16)	; ⼏
     (ideographic-strokes@daikanwa . 2)
     (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x20AD7)	; 𠫗
-      ))
     (hanyu-dazidian	1 276 8)
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]

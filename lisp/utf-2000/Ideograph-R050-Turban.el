@@ -968,12 +968,12 @@
     (=ucs		. #x5E17)	; 帗
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E17)	; 帗
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -991,12 +991,12 @@
     (=ucs@cns		. #x5E17)	; &M-08850;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E17)	; 帗
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1216,12 +1216,12 @@
     (=ucs		. #x5E1D)	; 帝
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E1D)	; 帝
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1236,12 +1236,12 @@
     (=jef-china3	. #x4BFB)	; &I-JC3-4BFB;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E1D)	; 帝
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=big5		. #xABD2)	; &B-ABD2;
     (->subsumptive
      ((ideographic-structure
@@ -1778,12 +1778,12 @@
     (=big5		. #xD174)	; &I-B-D174;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E28)	; 帨
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1813,12 +1813,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E28)	; 帨
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1874,12 +1874,12 @@
     (=big5		. #xD173)	; &I-B-D173;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E29)	; 帩
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1892,12 +1892,12 @@
     (=daikanwa		. 08910)	; &M-08910;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E29)	; 帩
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2209,12 +2209,12 @@
     (=jis-x0208@1997	. #x3522)	; 帰 [21-02]
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E30)	; 帰
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (->subsumptive
      ((shinjigen-1	  . 3959)
       (shinjigen-2	  . 3959)
@@ -2237,12 +2237,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E30)	; 帰
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (->subsumptive
      ((hanyu-dazidian	  1 739 16)
       (=hanziku-2	  . #xEA5C)	; &HZK02-EA5C;
@@ -2846,21 +2846,21 @@
     (=ucs		. #x384F)	; 㡏
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x384F)	; 㡏
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=daikanwa		. 08969)	; &M-08969;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x384F)	; 㡏
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (->subsumptive
      ((=ucs@unicode	  . #x384F)	; &UU+384F;
       )
@@ -2882,12 +2882,12 @@
     (=ucs		. #x5E3D)	; 帽
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E3D)	; 帽
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2906,12 +2906,12 @@
     (=ucs@unicode	. #x5E3D)	; &GT-11336;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E3D)	; 帽
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -3437,14 +3437,14 @@
     (=ucs		. #x5E42)	; 幂
     ))
 (define-char
-  '((ideographic-radical@ucs . 50)	; ⼱
+  '((<-denotational
+     ((=ucs		  . #x5E42)	; 幂
+      ))
+    (ideographic-radical@ucs . 50)	; ⼱
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 14)	; ⼍
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 12)
-    (<-denotational
-     ((=ucs		  . #x5E42)	; 幂
-      ))
     (hanyu-dazidian	1 305 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -4061,12 +4061,12 @@
     (=ucs		. #x5E54)	; 幔
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E54)	; 幔
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4082,12 +4082,12 @@
     (=daikanwa		. 09050)	; &I-M-09050;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E54)	; 幔
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4110,12 +4110,12 @@
     (=ucs		. #x5E55)	; 幕
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E55)	; 幕
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4128,12 +4128,12 @@
     (=daikanwa		. 09051)	; &I-M-09051;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E55)	; 幕
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4158,12 +4158,12 @@
     (=ucs		. #x5E59)	; 幙
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E59)	; 幙
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4189,12 +4189,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E59)	; 幙
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4763,12 +4763,12 @@
     (=big5		. #xB9F4)	; &I-B-B9F4;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E63)	; 幣
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4783,10 +4783,10 @@
     (=ucs@big5		. #x5E63)	; &M-09088;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E63)	; 幣
       ))
+    (ideographic-radical . 50)	; ⼱
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
@@ -5121,24 +5121,24 @@
     (=ucs		. #x5E69)	; 幩
     ))
 (define-char
-  '((=>ucs*		. #x5E69)	; 幩
+  '((<-denotational
+     ((=ucs		  . #x5E69)	; 幩
+      ))
+    (=>ucs*		. #x5E69)	; 幩
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (<-denotational
-     ((=ucs		  . #x5E69)	; 幩
-      ))
     (=ucs		. #x2F887)	; 幩
     (=cns11643-7	. #x2D53)	; &I-C7-2D53; [13-51]
     (=daikanwa		. 09109)	; &I-M-09109;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E69)	; 幩
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -5297,12 +5297,12 @@
     (=ucs		. #x5E6A)	; 幪
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E6A)	; 幪
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5328,12 +5328,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E6A)	; 幪
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5510,12 +5510,12 @@
     (=big5		. #xEFC5)	; &I-B-EFC5;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E6D)	; 幭
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -5530,21 +5530,21 @@
     (=ucs@cns		. #x5E6D)	; &M-09133;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E6D)	; 幭
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
     (=jef-china3	. #x4CAC)	; &JC3-4CAC;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (<-denotational
+  '((<-denotational
      ((=ucs		  . #x5E6D)	; 幭
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
