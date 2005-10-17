@@ -1912,6 +1912,8 @@
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((mojikyo	    . 028635)	; &MCS-60006FDB;
+	)
+       ((=ucs		    . #x4E5A)	; 乚
 	))
       (=hanziku-1	  . #xAFC7)	; &HZK01-AFC7;
       (mojikyo		  . 000207)	; &MCS-600000CF;
