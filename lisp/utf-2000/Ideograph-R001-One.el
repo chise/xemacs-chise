@@ -562,8 +562,7 @@
       (=jef-china3	  . #x82A6)	; &I-JC3-82A6;
       (=ucs@unicode	  . #x4E0E)	; &GT-00023;
       (mojikyo		  . 000020)	; &MCS-60000014;
-      )
-     ((->synonyms
+      (->synonyms
        ((=daikanwa	    . 30212)	; &I-M-30212;
 	))
       (->synonyms*sources
