@@ -1,3 +1,7 @@
+2005-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (U+6BBA): Unify B-B1FE.
+
 2005-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U-000219BD): Use `->subsumptive'.
