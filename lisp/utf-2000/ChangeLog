@@ -1,5 +1,10 @@
 2005-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R122-Net.el (U-00026316): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (JSP-334A): Unify GT-02776.
+
 	* Ideograph-R079-Weapon.el (U+6BBA): Unify B-B1FE.
 
 2005-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
