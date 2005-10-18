@@ -6256,11 +6256,13 @@
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
-      (=jis-x0212	  . #x334A)	; &M-02143; [19-42]
+      (=jis-x0212	  . #x334A)	; &GT-02776; [19-42]
       (=jis-x0213-2-2000  . #x233C)	; &I-JX2-233C; [03-28]
+      (=gt		  . 02776)	; &I-GT-02776;
+      (=gt-pj-2		  . #x4274)	; &I-GT-02776; [34-84]
       (=daikanwa	  . 02143)	; &I-M-02143;
       (=jef-china3	  . #x44C8)	; &I-JC3-44C8;
-      (=ucs@jis		  . #x5277)	; &M-02143;
+      (=ucs@jis		  . #x5277)	; &GT-02776;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
