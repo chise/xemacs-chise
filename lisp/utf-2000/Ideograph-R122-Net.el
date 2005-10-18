@@ -2278,12 +2278,25 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=ucs		. #x26316)	; 𦌖
-    (->subsumptive
-     ((=daikanwa	  . 28373)	; &M-28373;
-      )
-     ((=cns11643-7	  . #x3A4C)	; &C7-3A4C; [26-44]
-      (=ucs@iso		  . #x26316)	; &C7-3A4C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26316)	; 𦌖
       ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=daikanwa		. 28373)	; &M-28373;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26316)	; 𦌖
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=cns11643-7	. #x3A4C)	; &C7-3A4C; [26-44]
+    (=ucs@iso		. #x26316)	; &C7-3A4C;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
