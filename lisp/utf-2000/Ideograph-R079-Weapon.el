@@ -255,6 +255,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6BBA)	; 殺
+    (=big5		. #xB1FE)	; &I-B-B1FE;
     ))
 (define-char
   '((<-denotational
@@ -283,9 +284,6 @@
       (=gt-pj-1		  . #x3B26)	; &I-GT-21319; [27-06]
       (=daikanwa	  . 16629)	; &I-M-16629;
       (=ucs@jis		  . #x6BBA)	; &GT-21319;
-      )
-     ((=big5		  . #xB1FE)	; &B-B1FE;
-      (=ucs@big5	  . #x6BBA)	; &B-B1FE;
       ))
     ))
 (define-char
