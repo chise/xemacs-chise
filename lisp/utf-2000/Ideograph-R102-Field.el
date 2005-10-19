@@ -1675,6 +1675,7 @@
     (=gt		. 28077)	; &I-GT-28077;
     (=gt-pj-1		. #x6142)	; &I-GT-28077; [65-34]
     (=daikanwa		. 21861)	; &I-M-21861;
+    (=hanziku-7		. #xB7AD)	; &I-HZK07-B7AD;
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
