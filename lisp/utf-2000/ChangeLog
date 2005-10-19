@@ -1,3 +1,7 @@
+2005-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U+756D): Unify H7-B7AD.
+
 2005-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R122-Net.el (U-00026316): Use `->denotational' instead
