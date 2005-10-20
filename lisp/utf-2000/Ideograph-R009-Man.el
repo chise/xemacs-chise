@@ -19836,7 +19836,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x8338)	; &UU+8338;
+     ((=ucs@unicode	  . #x8338)	; &G0-4857;
       ))
     (=ucs@unicode	. #x5087)	; &UU+5087;
     ))
@@ -35053,23 +35053,6 @@
       ))
     (=ucs		. #x204F2)	; 𠓲
     (=hanziku-1		. #xCF5A)	; &I-HZK01-CF5A;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 185 10)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((name		  . "CJK RADICAL GRASS TWO")
-      (=ucs		  . #x2EBF)	; ⺿
-      )
-     ((=ucs		  . #x5C38)	; 尸
-      )
-     ((=ucs		  . #x529B)	; 力
-      )
-     ((=ucs		  . #x4EBA)	; 人
-      ))
-    (=ucs		. #x26BF4)	; 𦯴
-    (=hanziku-1		. #xCC79)	; &I-HZK01-CC79;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈

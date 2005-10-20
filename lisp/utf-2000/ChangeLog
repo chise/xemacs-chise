@@ -1,3 +1,29 @@
+2005-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
+2005-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U-00026273): Use `->subsumptive'.
+	(GT-K02494): New character.
+
+	* Ideograph-R009-Man.el (U-00026BF4): Moved to
+	Ideograph-R140-Grass.el.
+
+2005-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U+756D): Unify H7-B7AD.
+
+2005-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U-00026316): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (JSP-334A): Unify GT-02776.
+
+	* Ideograph-R079-Weapon.el (U+6BBA): Unify B-B1FE.
+
 2005-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U-000219BD): Use `->subsumptive'.
