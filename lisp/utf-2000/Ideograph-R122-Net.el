@@ -199,8 +199,37 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x26273)	; 𦉳
-    (=cns11643-6	. #x2543)	; &I-C6-2543; [05-35]
-    (=daikanwa		. 28203)	; &I-M-28203;
+    (->subsumptive
+     ((=daikanwa	  . 28203)	; &M-28203;
+      (=ucs@iso		  . #x26273)	; &M-28203;
+      )
+     ((=cns11643-6	  . #x2543)	; &C6-2543; [05-35]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26273)	; 𦉳
+      ))
+    (<-formed@component/connect-below
+     ((=ucs		  . #x26273)	; 𦉳
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8BC0)	; &CDP-8BC0;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	))
+      ))
+    (=gt-k		. 02494)	; &GT-K02494;
+    (=gt-pj-k1		. #x6162)	; &GT-K02494; [65-66]
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
