@@ -29,13 +29,7 @@
     (total-strokes	 . 3)
     (=ucs		. #x204DB)	; 𠓛
     (->subsumptive
-     ((<-wrong
-       ((=ucs		    . #x4EBC)	; 亼
-	(=daikanwa	    . 00345)	; &I-M-00345;
-	))
-      (<-wrong*sources
-       zhengzi-tong daikanwa)
-      (hanyu-dazidian	  1 102 3)
+     ((hanyu-dazidian	  1 102 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -48,6 +42,12 @@
 	))
       (=daikanwa	  . 01416)	; &M-01416;
       (=hanziku-1	  . #xB8E0)	; &I-HZK01-B8E0;
+      (<-wrong
+       ((=ucs		    . #x4EBC)	; 亼
+	(=daikanwa	    . 00345)	; &I-M-00345;
+	))
+      (<-wrong*sources
+       zhengzitong daikanwa)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -279,14 +279,7 @@
     (total-strokes	 . 5)
     (=ucs		. #x34B0)	; 㒰
     (->subsumptive
-     ((<-vulgar
-       ((shinjigen-1	    . 4875)
-	(=ucs		    . #xFA72)	; 全
-	(=jis-x0208	    . #x4134)	; &I-J90-4134; [33-20]
-	))
-      (<-vulgar*sources
-       shinjigen-1)
-      (hanyu-dazidian	  1 111 3)
+     ((hanyu-dazidian	  1 111 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -300,6 +293,13 @@
       (shinjigen-1	  . 4877)
       (=daikanwa	  . 01422)	; &M-01422;
       (=hanziku-1	  . #xBAC6)	; &I-HZK01-BAC6;
+      (<-vulgar
+       ((shinjigen-1	    . 4875)
+	(=ucs		    . #xFA72)	; 全
+	(=jis-x0208	    . #x4134)	; &I-J90-4134; [33-20]
+	))
+      (<-vulgar*sources
+       shinjigen-1)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
