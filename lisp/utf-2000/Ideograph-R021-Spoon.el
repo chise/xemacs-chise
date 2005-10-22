@@ -34,10 +34,10 @@
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-ideographic-component-forms
+    (=big5-cdp		. #x895F)	; &CDP-895F;
+    (<-formed@component
      ((=ucs		  . #x5315)	; 匕
       ))
-    (=big5-cdp		. #x895F)	; &CDP-895F;
     ))
 (define-char
   '((<-denotational
