@@ -125,20 +125,20 @@
     (total-strokes	 . 4)
     (=ucs		. #x5300)	; 匀
     (->subsumptive
-     ((<-vulgar
-       ((shinjigen-1	    . 764)
-	(=jis-x0213-1-2000  . #x2E6A)	; &M-02496; [14-74]
-	(=daikanwa	    . 02496)	; &I-M-02496;
-	))
-      (<-vulgar*sources
-       zhengzi-tong daikanwa shinjigen-1)
-      (shinjigen-1	  . 764)
+     ((shinjigen-1	  . 764)
       (shinjigen-2	  . 765)
       (=jis-x0212	  . #x337B)	; &M-02497; [19-91]
       (=jis-x0213-1-2000  . #x2E6B)	; &I-JX1-2E6B; [14-75]
       (=daikanwa	  . 02497)	; &I-M-02497;
       (=jef-china3	  . #x45A3)	; &I-JC3-45A3;
       (=ucs@jis		  . #x5300)	; &M-02497;
+      (<-vulgar
+       ((shinjigen-1	    . 764)
+	(=jis-x0213-1-2000  . #x2E6A)	; &M-02496; [14-74]
+	(=daikanwa	    . 02496)	; &I-M-02496;
+	))
+      (<-vulgar*sources
+       zhengzitong daikanwa shinjigen-1)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -260,10 +260,6 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-same
-     ((=gt		  . 00176)	; &GT-00176;
-      (=daikanwa	  . 00129)	; &I-M-00129;
-      ))
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
@@ -279,6 +275,10 @@
     (=gt		. 03212)	; &I-GT-03212;
     (=gt-pj-1		. #x4C68)	; &I-GT-03212; [44-72]
     (=daikanwa		. 02502)	; &I-M-02502;
+    (<-same
+     ((=gt		  . 00176)	; &GT-00176;
+      (=daikanwa	  . 00129)	; &I-M-00129;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
@@ -472,13 +472,6 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-formed
-     ((shinjigen-1	  . 772)
-      (=ucs		  . #x5306)	; 匆
-      (=jis-x0208	  . #x5232)	; &I-J90-5232; [50-18]
-      ))
-    (<-formed*sources
-     shinjigen-1)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
@@ -492,6 +485,13 @@
     (=ucs		. #x2F82A)	; 匆
     (=cns11643-3	. #x2225)	; &I-C3-2225; [02-05]
     (=daikanwa		. 02511)	; &I-M-02511;
+    (<-formed
+     ((shinjigen-1	  . 772)
+      (=ucs		  . #x5306)	; 匆
+      (=jis-x0208	  . #x5232)	; &I-J90-5232; [50-18]
+      ))
+    (<-formed*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
@@ -530,10 +530,10 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=ucs		. #x5307)	; 匇
     (<-formed
      ((=ucs		  . #x2F82A)	; 匆
       ))
-    (=ucs		. #x5307)	; 匇
     ))
 (define-char
   '((<-denotational
