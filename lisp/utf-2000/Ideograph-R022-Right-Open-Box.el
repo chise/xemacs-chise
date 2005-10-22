@@ -98,14 +98,6 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-vulgar
-     ((shinjigen-1	  . 2079)
-      (=ucs		  . #x5E00)	; 帀
-      (=jis-x0212	  . #x3C24)	; &I-JSP-3C24; [28-04]
-      (=jis-x0213-2-2000  . #x2870)	; &I-JX2-2870; [08-80]
-      ))
-    (<-vulgar*sources
-     shinjigen-1)
     (hanyu-dazidian	1 82 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -126,6 +118,14 @@
     (=gt-k		. 00969)	; &I-GT-K00969;
     (=gt-pj-1		. #x4159)	; &I-GT-03333; [33-57]
     (=daikanwa		. 02599)	; &I-M-02599;
+    (<-vulgar
+     ((shinjigen-1	  . 2079)
+      (=ucs		  . #x5E00)	; 帀
+      (=jis-x0212	  . #x3C24)	; &I-JSP-3C24; [28-04]
+      (=jis-x0213-2-2000  . #x2870)	; &I-JX2-2870; [08-80]
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
@@ -1210,14 +1210,6 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (<-vulgar
-     ((shinjigen-1	  . 796)
-      (=ucs		  . #x5333)	; 匳
-      (=jis-x0208	  . #x523D)	; &I-J90-523D; [50-29]
-      (=daikanwa	  . 02655)	; &I-M-02655;
-      ))
-    (<-vulgar*sources
-     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 89 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -1235,6 +1227,14 @@
     (=hanziku-1		. #xB662)	; &I-HZK01-B662;
     (=cbeta		. 02324)	; &I-CB02324;
     (=jef-china3	. #x45BC)	; &I-JC3-45BC;
+    (<-vulgar
+     ((shinjigen-1	  . 796)
+      (=ucs		  . #x5333)	; 匳
+      (=jis-x0208	  . #x523D)	; &I-J90-523D; [50-29]
+      (=daikanwa	  . 02655)	; &I-M-02655;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
   '((=>ucs		. #x2095A)	; 𠥚
