@@ -1,4 +1,21 @@
+2005-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U+53BA): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-original*sources'.
+	(U+53C2): Use `JP Jouyou' instead of `JP-Jouyou' in `script'; put
+	`CN Simplified' into `script'; add `<-simplified@CN' for G1-324E;
+	add `<-simplified@ucs' for U+53C3.
+	(U-00020AFF): Use `->subsumptive'.
+
 2005-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533A): Add
+	`<-simplified@ucs' for U+5340.
+	(J0-3668): Add `CN Simplified' into `script'; add
+	`<-simplified@CN' for G1-4778.
+	(U+533B): Use `->denotational'; add `<-simplified@ucs' for U+91AB.
+	(J0-3065): Use `<-denotational' for U+91AB; add `<-simplified@CN'
+	for G1-523D.
 
 	* Ideograph-R024-Ten.el (GT-K01097): Use
 	`<-formed@component/connect-right' instead of
