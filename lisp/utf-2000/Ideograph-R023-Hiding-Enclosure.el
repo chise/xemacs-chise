@@ -97,14 +97,11 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x533A)	; 区
+    (<-simplified@ucs
+     ((=ucs		  . #x5340)	; 區
+      ))
     (->subsumptive
-     ((<-simplified
-       ((=cns11643-1	    . #x5934)	; &M-02691; [57-20]
-	(=daikanwa	    . 02691)	; &I-M-02691;
-	))
-      (<-simplified*sources
-       daikanwa)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
 	)
@@ -116,19 +113,14 @@
 	))
       (=cns11643-3	  . #x2157)	; &M-02674; [01-55]
       (=daikanwa	  . 02674)	; &I-M-02674;
-      )
-     ((script		JP Jouyou Ideograph)
       (<-simplified
-       ((shinjigen-1	    . 802)
-	(=cns11643-1	    . #x5934)	; &M-02691; [57-20]
+       ((=cns11643-1	    . #x5934)	; &M-02691; [57-20]
 	(=daikanwa	    . 02691)	; &I-M-02691;
 	))
       (<-simplified*sources
-       shinjigen-1)
-      (<-simplified@JP/Jouyou
-       ((=ks-x1001	    . #x4F21)	; &GT-03378; [47-01]
-	(=jis-x0208@1990    . #x523F)	; &I-J90-523F; [50-31]
-	))
+       daikanwa)
+      )
+     ((script		JP Jouyou CN Simplified Ideograph)
       (hanyu-dazidian	  1 81 5)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -147,6 +139,20 @@
       (=gt-pj-1		  . #x3668)	; &I-GT-03327; [22-72]
       (=hanziku-1	  . #xB4B6)	; &I-HZK01-B4B6;
       (=ucs@unicode	  . #x533A)	; &GT-03327;
+      (<-simplified
+       ((shinjigen-1	    . 802)
+	(=cns11643-1	    . #x5934)	; &M-02691; [57-20]
+	(=daikanwa	    . 02691)	; &I-M-02691;
+	))
+      (<-simplified*sources
+       shinjigen-1)
+      (<-simplified@CN
+       ((=gb12345	    . #x4778)	; &GT-03378; [39-88]
+	))
+      (<-simplified@JP/Jouyou
+       ((=ks-x1001	    . #x4F21)	; &GT-03378; [47-01]
+	(=jis-x0208@1990    . #x523F)	; &I-J90-523F; [50-31]
+	))
       ))
     ))
 (define-char
@@ -210,7 +216,18 @@
     (=daikanwa		. 02679)	; &I-M-02679;
     ))
 (define-char
-  '((=>ucs		. #x533B)	; 医
+  '((ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=ucs		. #x533B)	; 医
+    (<-simplified@ucs
+     ((=ucs		  . #x91AB)	; 醫
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x533B)	; 医
+      ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -219,40 +236,47 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
-     ((=ucs		  . #x5338)	; 匸
+     ((=jis-x0208	  . #x523E)	; &GT-03427; [50-30]
+      (=cns11643-3	  . #x2129)	; &I-C3-2129; [01-09]
+      (=daikanwa	  . 02672)	; &I-M-02672;
       )
-     ((=ucs		  . #x77E2)	; 矢
+     ((=gt-k		  . 01013)	; &GT-K01013;
       ))
     (=cns11643-3	. #x2466)	; &CDP-8CD3; [04-70]
     (=big5-cdp		. #x8CD3)	; &I-CDP-8CD3;
     (=daikanwa		. 02680)	; &I-M-02680;
     ))
 (define-char
-  '((morohashi-daikanwa	2680 0 1)
+  '((<-denotational
+     ((=ucs		  . #x533B)	; 医
+      ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6E50)	; &GT-53782; [78-48]
-      (=ks-x1001	  . #x6C22)	; &I-K0-6C22; [76-02]
-      (=daikanwa	  . 40006)	; &I-M-40006;
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
      ((=ucs		  . #x531A)	; 匚
       )
-     ((=ucs		  . #x77E2)	; 矢
+     ((=gt-k		  . 01013)	; &GT-K01013;
       ))
     (shinjigen-1	. 8537)
     (shinjigen-2	. 8537)
-    (=ucs		. #x533B)	; 医
-    (=jis-x0208		. #x3065)	; &I-J90-3065; [16-69]
+    (=jis-x0208		. #x3065)	; &GT-03344; [16-69]
     (=gb2312		. #x523D)	; &I-G0-523D; [50-29]
     (=gt		. 03344)	; &I-GT-03344;
     (=gt-k		. 02502)	; &I-GT-K02502;
     (=gt-pj-1		. #x3065)	; &I-GT-03344; [16-69]
+    (=ucs@unicode	. #x533B)	; &GT-03344;
+    (<-simplified@CN
+     ((=gb12345		  . #x523D)	; 醫 [50-29]
+      ))
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6E50)	; &GT-53782; [78-48]
+      (=ks-x1001	  . #x6C22)	; &I-K0-6C22; [76-02]
+      (=daikanwa	  . 40006)	; &I-M-40006;
+      ))
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
