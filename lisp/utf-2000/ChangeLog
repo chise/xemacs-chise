@@ -1,3 +1,74 @@
+2005-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (GT-K01097): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+534A.
+	(U-00020983): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+	(U-00024C1E): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+9FBA): Use `<-identical@component/connect-right' instead of
+	`<-ideographic-component-forms' for U-0002099D.
+
+2005-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (U+51B0): Use `zhengzitong' instead of
+	`zhengzi-tong' in `->vulgar*sources'.
+	(U-000205B1): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+51C8): Use `->denotational' instead of `->subsumptive'.
+	(J0-5245): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U-0002060D): Use `->subsumptive'.
+
+	* Ideograph-R006-Hook.el (U+4E89): Add `<-simplified@CN' for
+	G1-5579; add `<-simplified@ucs' for U+722D.
+	(U-00020029): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'.
+
+	* Ideograph-R005-Second.el (U+4E77): Use `->subsumptive'.
+	(U-000200F0): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'; don't use
+	`<-same' for M-21712.
+
+	* Ideograph-R003-Dot.el (BC-87D2): Add `=>daikanwa' for M-02840.
+	(GT-K04581): Use `<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for C3-2740.
+
+	* Ideograph-R002-Line.el (U-00020064): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'; don't use
+	`<-same' for M-04684.
+
+2005-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Use `zhengzitong'
+	instead of `zhengzi-tong' in `<-vulgar*sources'.
+
+	* Ideograph-R021-Spoon.el (BC-895F): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'.
+
+	* Ideograph-R020-Wrap.el (JSP-337B): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+
+	* Ideograph-R017-Open-Box.el (U+51FE): Use `zhengzitong' instead
+	of `zhengzi-tong' in `<-vulgar*sources'.
+
+	* Ideograph-R016-Table.el (U+51E2): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+
+	* Ideograph-R011-Enter.el (M-01416): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-wrong*sources'.
+
+	* Ideograph-R007-Two.el (GT-K00083): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'.
+	(GT-K00327): Use `<-formed@component/connect-left' instead of
+	`<-ideographic-component-forms'.
+	(U+4E8F): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+
 2005-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el: Add some mappings between CNS 11643-6
