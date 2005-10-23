@@ -166,10 +166,6 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8C6B)	; 豫
-      (=jis-x0208	  . #x502E)	; &I-J90-502E; [48-14]
-      ))
     (hanyu-dazidian	1 52 2)
     (shinjigen-1	. 67)
     (shinjigen-2	. 67)
@@ -185,6 +181,10 @@
     (=gt-k		. 00505)	; &I-GT-K00505;
     (=gt-pj-1		. #x4D3D)	; &I-GT-00312; [45-29]
     (=daikanwa		. 00231)	; &I-M-00231;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x8C6B)	; 豫
+      (=jis-x0208	  . #x502E)	; &I-J90-502E; [48-14]
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -258,11 +258,6 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6027)	; &GT-25238; [64-07]
-      (=ks-x1001	  . #x6E33)	; &I-K0-6E33; [78-19]
-      (=daikanwa	  . 19663)	; &I-M-19663;
-      ))
     (hanyu-dazidian	1 324 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -285,6 +280,17 @@
     (=gt-pj-1		. #x4168)	; &I-GT-00313; [33-72]
     (=daikanwa		. 00236)	; &I-M-00236;
     (=hanziku-1		. #xE8D1)	; &I-HZK01-E8D1;
+    (<-simplified@CN
+     ((=gb12345		  . #x5579)	; &C1-4E68; [53-89]
+      ))
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6027)	; &GT-25238; [64-07]
+      (=ks-x1001	  . #x6E33)	; &I-K0-6E33; [78-19]
+      (=daikanwa	  . 19663)	; &I-M-19663;
+      ))
+    (<-simplified@ucs
+     ((=ucs		  . #x722D)	; 爭
+      ))
     ))
 (define-char
   '((=>daikanwa		. 00237)	; &M-00237;
@@ -339,30 +345,28 @@
     (=hanziku-1		. #xB8A3)	; &I-HZK01-B8A3;
     ))
 (define-char
-  '((ideographic-	(:radical	1 ; ⼀
-			 :strokes	6)
-			(:radical	6 ; ⼅
-			 :strokes	6))
+  '((ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@cns . 6)	; ⼅
+    (ideographic-strokes@cns . 6)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 553 5)
     (=ucs		. #x20029)	; 𠀩
-    (=cns11643-6	. #x2563)	; &I-C6-2563; [05-67]
-    (=daikanwa		. 00239)	; &I-M-00239;
-    (=hanziku-2		. #xC1C0)	; &I-HZK02-C1C0;
+    (->subsumptive
+     ((=cns11643-6	  . #x2563)	; &M-00239; [05-67]
+      (=daikanwa	  . 00239)	; &I-M-00239;
+      (=ucs@iso		  . #x20029)	; &M-00239;
+      )
+     ((hanyu-dazidian	  1 553 5)
+      (=hanziku-2	  . #xC1C0)	; &HZK02-C1C0;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	ho 7)
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (<-vulgar
-     ((shinjigen-1	  . 69)
-      (=ucs		  . #x4E8B)	; 事
-      (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
-      (=daikanwa	  . 00241)	; &I-M-00241;
-      ))
-    (<-vulgar*sources
-     songyuan-yilai-suzipu daikanwa shinjigen-1)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
     (sound@ja/kun	"koto")
@@ -371,6 +375,14 @@
     (=jis-x0208		. #x502F)	; &I-J90-502F; [48-15]
     (=gt		. 00315)	; &I-GT-00315;
     (=gt-pj-1		. #x502F)	; &I-GT-00315; [48-15]
+    (<-vulgar
+     ((shinjigen-1	  . 69)
+      (=ucs		  . #x4E8B)	; 事
+      (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
+      (=daikanwa	  . 00241)	; &I-M-00241;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
