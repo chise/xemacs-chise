@@ -27,12 +27,12 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-ideographic-component-forms
+    (=gt-k		. 00218)	; &GT-K00218;
+    (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
+    (<-identical@component/connect-below
      ((=jis-x0208	  . #x546A)	; &GT-07225; [52-74]
       (=daikanwa	  . 05708)	; &I-M-05708;
       ))
-    (=gt-k		. 00218)	; &GT-K00218;
-    (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
     ))
 (define-char
   '((=>ucs		. #x2155E)	; 𡕞
@@ -139,10 +139,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE8)	; ⻨
     (<-identical@component
      ((=ucs		  . #x9EA6)	; 麦
       ))
-    (=ucs		. #x2EE8)	; ⻨
     ))
 (define-char
   '((ideographic-radical@ucs . 199)	; ⿆
