@@ -146,6 +146,10 @@
 	(U-00021D18): Use `zhengzitong' instead of `zhengzi-tong' in
 	`<-original*sources'.
 
+	* char-db-util.el (char-attribute-name<): Put `<-FOO' (except
+	`<-simplified' and `<-denotational') into the last place before
+	`<-BAR'.
+
 2005-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el: Add some mappings between CNS 11643-6
