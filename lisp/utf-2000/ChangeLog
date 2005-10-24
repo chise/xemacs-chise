@@ -1,5 +1,23 @@
 2005-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R036-Evening.el (U+591B): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+	(U-0002158A): Use `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (J0-5163): Use `zhengzitong' instead of
+	`zhengzi-tong'.
+	(U+5226): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-same*sources'.
+	(U+5227): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-same*sources'.
+	(C3-2B43): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+5264): Use `->subsumptive'.
+	(U+5266): Use `->subsumptive'.
+	(U+5270): Use `->denotational' and `->subsumptive'.
+	(U+5271): Likewise.
+	(U+5284): Use `guangyun' instead of `kouin' in `<-same*sources'.
+
 	* Ideograph-R035-Go-Slowly.el (GT-K00218): Use
 	`<-identical@component/connect-below' instead of
 	`<-ideographic-component-forms' for J0-546A.
@@ -54,6 +72,9 @@
 	`<-vulgar*sources'.
 	(U+9FBA): Use `<-identical@component/connect-right' instead of
 	`<-ideographic-component-forms' for U-0002099D.
+
+	* Ideograph-R013-Down-Box.el (C1-5E32): Use `zhengzitong' instead
+	of `zhengzi-tong' in `<-original*sources'.
 
 2005-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -112,6 +133,17 @@
 	(GT-K00327): Use `<-formed@component/connect-left' instead of
 	`<-ideographic-component-forms'.
 	(U+4E8F): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+
+2005-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U+4E46): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-wrong*sources'.
+	(U+51E2): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U-0002008B): Use `<-formed@component' instead of
+	`<-ideographic-component-forms'.
+	(U-00021D18): Use `zhengzitong' instead of `zhengzi-tong' in
 	`<-original*sources'.
 
 2005-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
