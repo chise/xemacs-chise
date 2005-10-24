@@ -1,4 +1,32 @@
+2005-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (GT-K00218): Use
+	`<-identical@component/connect-below' instead of
+	`<-ideographic-component-forms' for J0-546A.
+
 2005-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R033-Scholar.el (U+58EE): Add `<-simplified@CN' for
+	G1-5733; add `<-simplified@ucs' for U+58EF.
+	(J0-5463): Add S1-1527.
+	(U+58F0): Add S1-6398; add `<-simplified@CN' for G1-4979; add
+	`<-simplified@ucs' for U+8072.
+	(U-0002151E): Use `->denotational' and `->subsumptive'.
+	(U+58F1): Add S1-1528.
+	(U+58F9): Add S1-1529.
+
+	* Ideograph-R008-Lid.el (parent of BC-8BAA): Use
+	`<-simplified@component/connect-below' instead of `<-simplified'
+	for J0-3962.
+	(BC-8C4D): Likewise.
+	(GT-K04733): New character.
+	(M-00316): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U-00020170): Use `->subsumptive' to integrate M-23981 and
+	C6-4C2D; use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'.
 
 	* Ideograph-R028-Private.el (U+53BA): Use `zhengzitong' instead of
 	`zhengzi-tong' in `<-original*sources'.
