@@ -428,27 +428,27 @@
     (total-strokes	 . 7)
     (=ucs		. #x6588)	; 斈
     (->subsumptive
-     ((<-vulgar
+     ((=jis-x0208	  . #x555D)	; &M-13453; [53-61]
+      (=daikanwa	  . 13453)	; &I-M-13453;
+      (=ucs@jis		  . #x6588)	; &M-13453;
+      (<-vulgar
        ((=ucs		    . #x5B78)	; 學
 	(=daikanwa	    . 07033)	; &I-M-07033;
 	))
       (<-vulgar*sources
        daikanwa)
-      (=jis-x0208	  . #x555D)	; &M-13453; [53-61]
-      (=daikanwa	  . 13453)	; &I-M-13453;
-      (=ucs@jis		  . #x6588)	; &M-13453;
       )
-     ((<-vulgar
+     ((shinjigen-1	  . 1786)
+      (shinjigen-2	  . 1786)
+      (=gt		  . 17011)	; &GT-17011;
+      (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
+      (<-vulgar
        ((shinjigen-1	    . 1783)
 	(=ucs		    . #x5B78)	; 學
 	(=jis-x0208	    . #x555C)	; &I-J90-555C; [53-60]
 	))
       (<-vulgar*sources
        shinjigen-1)
-      (shinjigen-1	  . 1786)
-      (shinjigen-2	  . 1786)
-      (=gt		  . 17011)	; &GT-17011;
-      (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
       )
      ((=cns11643-3	  . #x2558)	; &C3-2558; [05-56]
       (=ucs@unicode	  . #x6588)	; &C3-2558;
@@ -651,10 +651,7 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5B78)	; 學
-      (=jis-x0208	  . #x555C)	; &I-J90-555C; [53-60]
-      ))
+    (shinjigen-1	. 1782)
     (shinjigen-2	. 1782)
     (=ucs		. #x5B66)	; 学
     (=jis-x0208		. #x3358)	; &I-J90-3358; [19-56]
@@ -664,6 +661,17 @@
     (=gt-k		. 03657)	; &I-GT-K03657;
     (=gt-pj-1		. #x3358)	; &I-GT-08752; [19-56]
     (=daikanwa		. 06974)	; &I-M-06974;
+    (<-simplified@CN
+     ((=ucs		  . #x5B78)	; 學
+      (=gb12345		  . #x5127)	; 學 [49-07]
+      ))
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5B78)	; 學
+      (=jis-x0208	  . #x555C)	; &I-J90-555C; [53-60]
+      ))
+    (<-simplified@ucs
+     ((=ucs		  . #x5B78)	; 學
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
@@ -755,27 +763,28 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs		. #x21966)	; 𡥦
+    (=cns11643-6	. #x3022)	; &I-C6-3022; [16-02]
+    (=daikanwa		. 06982)	; &I-M-06982;
     (<-Large-Seal
      ((=ks-x1001	  . #x7264)	; &M-38943; [82-68]
       (=daikanwa	  . 38943)	; &I-M-38943;
       ))
-    (=ucs		. #x21966)	; 𡥦
-    (=cns11643-6	. #x3022)	; &I-C6-3022; [16-02]
-    (=daikanwa		. 06982)	; &I-M-06982;
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5B6A)	; 孪
-    (=gb2312		. #x424F)	; &I-G0-424F; [34-47]
-    ))
-(define-char
-  '((=>ucs		. #x5B6A)	; 孪
-    (ideographic-radical . 39)	; ⼦
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=cns11643-3	. #x2C2F)	; &C3-2C2F; [12-15]
+    (->subsumptive
+     ((=cns11643-3	  . #x2C2F)	; &C3-2C2F; [12-15]
+      )
+     ((=gb2312		  . #x424F)	; &G0-424F; [34-47]
+      (=ucs@unicode	  . #x5B6A)	; &G0-424F;
+      (<-simplified@CN
+       ((=gb12345	    . #x424F)	; 孿 [34-47]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
@@ -807,12 +816,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x5B6B)	; 孫
     (->subsumptive
-     ((<-formed
-       ((=jis-x0208@1978    . #x423D)	; &M-39038; [34-29]
-	(=ks-x1001	    . #x6161)	; &I-K0-6161; [65-65]
-	(=daikanwa	    . 39038)	; &I-M-39038;
-	))
-      (shinjigen-1	  . 1792)
+     ((shinjigen-1	  . 1792)
       (shinjigen-2	  . 1792)
       (=jis-x0208	  . #x4239)	; &GT-08784; [34-25]
       (=ks-x1001	  . #x615D)	; &I-K0-615D; [65-61]
@@ -823,6 +827,11 @@
       (=daikanwa	  . 06987)	; &I-M-06987;
       (=ucs@jis		  . #x5B6B)	; &GT-08784;
       (=ucs@big5	  . #x5B6B)	; &GT-08784;
+      (<-formed
+       ((=jis-x0208@1978    . #x423D)	; &M-39038; [34-29]
+	(=ks-x1001	    . #x6161)	; &I-K0-6161; [65-65]
+	(=daikanwa	    . 39038)	; &I-M-39038;
+	))
       )
      ((=gb12345		  . #x4B6F)	; &UU+5B6B; [43-79]
       (=ucs@unicode	  . #x5B6B)	; &UU+5B6B;
