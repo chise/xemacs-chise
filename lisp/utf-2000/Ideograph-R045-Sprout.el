@@ -301,17 +301,17 @@
     ))
 (define-char
   '((total-strokes	 . 10)
+    (hanyu-dazidian	2 1022 17)
+    (=ucs		. #x21D18)	; 𡴘
+    (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
+    (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
     (<-original
      ((=jis-x0208	  . #x392C)	; &GT-11561; [25-12]
       (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
-     zhengzi-tong zhonghua-dazidian daikanwa)
-    (hanyu-dazidian	2 1022 17)
-    (=ucs		. #x21D18)	; 𡴘
-    (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
-    (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
+     zhengzitong zhonghua-dazidian daikanwa)
     (->subsumptive
      ((ideographic-radical . 4)	; ⼃
       (ideographic-strokes . 9)
