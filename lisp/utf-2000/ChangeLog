@@ -1,5 +1,35 @@
 2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el (U+53A6): Use `->denotational' instead
+	of `->subsumptive'.
+	(M-03003): Unify U-00020A90 and H1-B3B7.
+	(M-03031): Use `<-subsumptive' for U-00020AA7 to integrate
+	U-00020AA7 and H1-B476.
+	(M-03032): Unify U-00020AA3 and H1-B3DC.
+	(U+53B0): Use `->denotational' instead of `->subsumptive'.
+	(U-00020ABC): Use `->subsumptive'.
+	(U+53B3): Use `->denotational' instead of `->subsumptive'.
+	(U-00020AA7): Use `->subsumptive' to integrate M-03031.
+
+	* Ideograph-R026-Seal.el (U+3541): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+	(U-00020A1B): Use `->subsumptive'.
+	(U-00020A1E): Use `->subsumptive'.
+	(J78-362A): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-same*sources'.
+
+	* Ideograph-R019-Power.el (U+52B1): Add `CN Simplified' into
+	`script'; add `<-simplified@CN' for G1-4078; add
+	`<-simplified@ucs' for U+52F5.
+	(U+52B3): Add `<-simplified@CN' for G1-404D.
+	(J0-387A): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+52C5): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources' and `->synonyms*sources'.
+	(U+FA76): Unify JC3-44D4.
+	(J0-4D26): Separate JC3-44D4.
+	(M-02432): Map to U-0002089A.
+
 	* Ideograph-R012-Eight.el (GT-K00059): Use
 	`<-formed@component/connect-above' instead of
 	`<-ideographic-component-forms' for U+516B.
