@@ -4890,7 +4890,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x5944)	; &UU+5944;
+       ((=jis-x0208	    . #x3162)	; &GT-07418; [17-66]
+	(=gb2312	    . #x5159)	; &I-G0-5159; [49-57]
+	(=ks-x1001	    . #x6572)	; &I-K0-6572; [69-82]
+	(=daikanwa	    . 05881)	; &I-M-05881;
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
@@ -5429,7 +5432,7 @@
     (->subsumptive
      ((=daikanwa	  . 02103)	; &M-02103;
       (<-wrong
-       ((=ucs		    . #x34FC)	; 㓼
+       ((=cns11643-5	    . #x3D70)	; &M-02144; [29-80]
 	(=daikanwa	    . 02144)	; &I-M-02144;
 	))
       (<-wrong*sources
@@ -5443,13 +5446,20 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=daikanwa		. 02104)	; &M-02104;
+    (=ucs		. #x20772)	; 𠝲
+    (=daikanwa		. 02104)	; &I-M-02104;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=daikanwa		. 02105)	; &M-02105;
+    (=ucs		. #x20773)	; 𠝳
+    (->subsumptive
+     ((=daikanwa	  . 02105)	; &M-02105;
+      )
+     ((=hanziku-1	  . #xEDDA)	; &HZK01-EDDA;
+      (=ucs@iso		  . #x20773)	; &HZK01-EDDA;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -6280,7 +6290,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 21684)	; &I-M-21684;
+       ((=daikanwa	    . 21684)	; &M-21684;
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
@@ -6296,7 +6306,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7522)	; &UU+7522;
+       ((=cns11643-1	    . #x5C28)	; &C1-5C28; [60-08]
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
@@ -6329,12 +6339,16 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 353 1)
     (=ucs		. #x34FC)	; 㓼
-    (=cns11643-5	. #x3D70)	; &I-C5-3D70; [29-80]
-    (=daikanwa		. 02144)	; &I-M-02144;
-    (=hanziku-1		. #xEEB8)	; &I-HZK01-EEB8;
-    (=cbeta		. 04565)	; &I-CB04565;
+    (->subsumptive
+     ((hanyu-dazidian	  1 353 1)
+      (=cns11643-5	  . #x3D70)	; &M-02144; [29-80]
+      (=daikanwa	  . 02144)	; &I-M-02144;
+      (=hanziku-1	  . #xEEB8)	; &I-HZK01-EEB8;
+      (=ucs@unicode	  . #x34FC)	; &M-02144;
+      )
+     ((=cbeta		  . 04565)	; &CB04565;
+      ))
     ))
 (define-char
   '((=>ucs		. #x207A5)	; 𠞥
