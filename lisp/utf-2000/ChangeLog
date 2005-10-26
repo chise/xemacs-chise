@@ -1,5 +1,7 @@
 2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* isolated-char.el: Fix code to read etc/char-data/GT-RS.txt.
+
 	* Ideograph-R018-Knife.el (M-02104): Unify U-00020772.
 	(M-02105): Map to U-00020773.
 	(U+34FC): Use `->subsumptive'.
