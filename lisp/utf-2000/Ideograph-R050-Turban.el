@@ -2185,11 +2185,8 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5E36)	; 帶
-      (=jis-x0208	  . #x5668)	; &I-J90-5668; [54-72]
-      ))
     (hanyu-dazidian	1 739 12)
+    (shinjigen-1	. 2108)
     (shinjigen-2	. 2108)
     (=ucs		. #x5E2F)	; 帯
     (=jis-x0208		. #x4253)	; &I-J90-4253; [34-51]
@@ -2199,6 +2196,10 @@
     (=gt-pj-1		. #x4253)	; &I-GT-11232; [34-51]
     (=daikanwa		. 08929)	; &I-M-08929;
     (=hanziku-2		. #xEA58)	; &I-HZK02-EA58;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5E36)	; 帶
+      (=jis-x0208	  . #x5668)	; &I-J90-5668; [54-72]
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -2225,14 +2226,14 @@
       (=daikanwa	  . 08930)	; &I-M-08930;
       (=ucs@unicode	  . #x5E30)	; &GT-11209;
       )
-     ((<-simplified@JP/Jouyou
+     ((=jis-x0208@1990	  . #x3522)	; &J90-3522; [21-02]
+      (=ucs@jis		  . #x5E30)	; &J90-3522;
+      (<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x5D45)	; &GT-20995; [61-37]
 	(=ks-x1001	    . #x4F7D)	; &I-K0-4F7D; [47-93]
 	(=cns11643-1	    . #x7657)	; &I-C1-7657; [86-55]
 	(=daikanwa	    . 16349)	; &I-M-16349;
 	))
-      (=jis-x0208@1990	  . #x3522)	; &J90-3522; [21-02]
-      (=ucs@jis		  . #x5E30)	; &J90-3522;
       ))
     ))
 (define-char
@@ -2549,6 +2550,7 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
+    (shinjigen-1	. 2109)
     (shinjigen-2	. 2109)
     (=ucs		. #x5E36)	; 帶
     (=jis-x0208		. #x5668)	; &I-J90-5668; [54-72]
