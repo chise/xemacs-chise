@@ -23,10 +23,10 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=big5-cdp		. #x896D)	; &CDP-896D;
     (<-formed@component
      ((=ucs		  . #x5DF1)	; 己
       ))
-    (=big5-cdp		. #x896D)	; &CDP-896D;
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
@@ -70,10 +70,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2E92)	; ⺒
     (<-identical@component
      ((=ucs		  . #x5DF3)	; 巳
       ))
-    (=ucs		. #x2E92)	; ⺒
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
@@ -261,17 +261,17 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x524B)	; &GT-03636; [50-43]
-      (=ks-x1001	  . #x4F69)	; &I-K0-4F69; [47-73]
-      (=daikanwa	  . 02860)	; &I-M-02860;
-      ))
     (=ucs		. #x5DFB)	; 巻
     (=jis-x0208		. #x342C)	; &I-J90-342C; [20-12]
     (=cns11643-3	. #x2C44)	; &I-C3-2C44; [12-36]
     (=gt		. 11038)	; &I-GT-11038;
     (=gt-k		. 05217)	; &I-GT-K05217;
     (=gt-pj-1		. #x342C)	; &I-GT-11038; [20-12]
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x524B)	; &GT-03636; [50-43]
+      (=ks-x1001	  . #x4F69)	; &I-K0-4F69; [47-73]
+      (=daikanwa	  . 02860)	; &I-M-02860;
+      ))
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
@@ -393,13 +393,6 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified@JP
-     ((=jis-x0208@1978	  . #x4327)	; &GT-11052; [35-07]
-      (=gb2312		  . #x5963)	; &I-G0-5963; [57-67]
-      (=ks-x1001	  . #x615E)	; &I-K0-615E; [65-62]
-      (=cns11643-6	  . #x4837)	; &I-C6-4837; [40-23]
-      (=daikanwa	  . 08765)	; &I-M-08765;
-      ))
     (=jis-x0208@1983	. #x4327)	; &GT-11054; [35-07]
     (=jis-x0208@1990	. #x4327)	; &I-J90-4327; [35-07]
     (=gt		. 11054)	; &I-GT-11054;
@@ -407,6 +400,13 @@
     (=gt-pj-1		. #x4327)	; &I-GT-11054; [35-07]
     (=jef-china3	. #x4BF5)	; &I-JC3-4BF5;
     (=ucs@jis		. #x5DFD)	; &GT-11054;
+    (<-simplified@JP
+     ((=jis-x0208@1978	  . #x4327)	; &GT-11052; [35-07]
+      (=gb2312		  . #x5963)	; &I-G0-5963; [57-67]
+      (=ks-x1001	  . #x615E)	; &I-K0-615E; [65-62]
+      (=cns11643-6	  . #x4837)	; &I-C6-4837; [40-23]
+      (=daikanwa	  . 08765)	; &I-M-08765;
+      ))
     ))
 (define-char
   '((=>ucs		. #x22045)	; 𢁅
