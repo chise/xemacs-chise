@@ -1,5 +1,9 @@
 2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R018-Knife.el (M-02104): Unify U-00020772.
+	(M-02105): Map to U-00020773.
+	(U+34FC): Use `->subsumptive'.
+
 	* Ideograph-R027-Cliff.el (U+53A6): Use `->denotational' instead
 	of `->subsumptive'.
 	(M-03003): Unify U-00020A90 and H1-B3B7.
@@ -36,6 +40,9 @@
 	(U-00020500): Use `->subsumptive'.
 	(U-00020502): Use `->denotational' and `->subsumptive'.
 	(U+517C): Use `->denotational'.
+
+	* Ideograph-R050-Turban.el (U+5E2F): Add S1-2108.
+	(U+5E36): Add S1-2109.
 
 2005-10-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
