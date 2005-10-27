@@ -1222,7 +1222,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x7ACB)	; &C1-4721;
+       ((=gb2312	    . #x4122)	; &C1-4721; [33-02]
+	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
 	)
        ((=ucs		    . #x6729)	; 朩
 	))
@@ -3357,7 +3358,7 @@
 	)
        ((=jis-x0208	    . #x5035)	; &GT-00376; [48-21]
 	)
-       ((=ucs@unicode	    . #x820B)	; &B-F4B5;
+       ((=ucs@unicode	    . #x820B)	; &UU+820B;
 	))
       (shinjigen-2	  . 112)
       (=jis-x0212	  . #x3042)	; &M-00342; [16-34]
@@ -3373,7 +3374,7 @@
        ((=gb2312	    . #x596F)	; &GT-00375; [57-79]
 	(=daikanwa	    . 00286)	; &I-M-00286;
 	)
-       ((=ucs@unicode	    . #x820B)	; &B-F4B5;
+       ((=ucs@unicode	    . #x820B)	; &UU+820B;
 	))
       (=cns11643-2	  . #x6D44)	; &C2-6D44; [77-36]
       (=ucs@unicode	  . #x4EB9)	; &C2-6D44;
