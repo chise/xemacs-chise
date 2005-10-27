@@ -462,7 +462,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516C)	; &GT-01893;
+       ((=gb2312	    . #x392B)	; &GT-01893; [25-11]
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
