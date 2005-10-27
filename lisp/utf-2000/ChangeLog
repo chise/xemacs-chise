@@ -1,5 +1,11 @@
 2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R057-Bow.el (U-000223A4): Use `->subsumptive'.
+	(U-0002240A): Use `->subsumptive'.
+	(U+5F3F): Use `->subsumptive'.
+
+2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R044-Corpse.el (U+5C3D): Add S1-5256; add
 	`<-simplified@CN' for U+76E1 and U+5118; add `<-simplified@ucs'
 	for U+76E1.
