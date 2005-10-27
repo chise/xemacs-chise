@@ -1,6 +1,34 @@
 2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R043-Lame.el (M-07542): Use `wuyinjiyun' instead of
+	`goon-shuuin' in `<-same*sources'.
+	(U-00021BED): Use `->subsumptive'.
+
+	* Ideograph-R042-Small.el (G0-367B): Add `<-simplified@CN' for
+	G1-367B.
+	(GT-K05014): Use `<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms'.
+
+	* Ideograph-R041-Inch.el (U+5BF9): Add S1-1882; add `<-vulgar' for
+	U+5C0D.
+	(U+5BFD): Use `->denotational' instead of `->subsumptive'.
+	(J0-4250): Add S1-1880.
+	(U+5BFF): Use `->subsumptive'.
+	(J0-3C4D): Add S1-1888.
+	(U+5C06): Add `<-simplified@ucs' for U+5C07.
+	(G0-3D2B): Add `<-simplified@CN' for G1-3D2B.
+	(J0-3E2D): Add S1-1889.
+	(J0-5572): Add S1-1890.
+	(U+5C0D): Add S1-1881.
+	(U-00021B4E): Use `->denotational'.
+	(U-00021B52): Use `->denotational' instead of `->subsumptive'.
+
+2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* isolated-char.el: Fix code to read etc/char-data/GT-RS.txt.
+
+	* Ideograph-R047-River.el (U+5DDE): Use `->denotational'.
+	(U-00021FEB): Use `->subsumptive'.
 
 	* Ideograph-R018-Knife.el (M-02104): Unify U-00020772.
 	(M-02105): Map to U-00020773.
