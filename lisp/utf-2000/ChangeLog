@@ -1,3 +1,31 @@
+2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5B9D): Use `->subsumptive'.
+	(U+5B9E): Likewise.
+	(U+5B9F): Likewise.
+	(GT-K07616): Use `<-denotational' for BC-8D7C; use
+	`<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+5BB7; put BC-8D7C into
+	`<-formed@component/connect-below'.
+	(BC-8D7C): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+5BB7.
+	(J83-5563): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(J0-3432): Add S1-1854.
+	(U+5BDD): Add `<-simplified@ucs' for U+5BE2.
+	(G0-475E): Add `<-simplified@CN' for G1-475E.
+	(U+5BE4): Use `->subsumptive'.
+	(U+5BE5): Use `->denotational' and `->subsumptive'.
+	(U-00021A7E): Use `->denotational' and `->subsumptive'.
+	(U+5BE6): Use `->subsumptive'.
+	(U+5BEC): Use `->denotational' instead of `->subsumptive'.
+	(U-00021AA2): Use `->subsumptive'.
+	(U+5BED): Use `->subsumptive'.
+	(U+5BEE): Use `->subsumptive'.
+	(U+5BF5): Use `->subsumptive'.
+
+	* Ideograph-R055-Two-Hands.el (U+5F01): Add S1-2244.
+
 2005-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R043-Lame.el (M-07542): Use `wuyinjiyun' instead of
