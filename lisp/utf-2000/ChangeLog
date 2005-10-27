@@ -1,5 +1,75 @@
 2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el (U+5C3D): Add S1-5256; add
+	`<-simplified@CN' for U+76E1 and U+5118; add `<-simplified@ucs'
+	for U+76E1.
+	(U+5C46): Use `->denotational'.
+	(U+5C4A): Add S1-1927.
+	(U+5C48): Add S1-1930.
+	(U+5C4F): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+663C): Add `<-simplified@CN' for U+665D; add `<-simplified@ucs'
+	for U+665D.
+	(U+5C5E): Add `<-simplified@CN' for G1-4A74; add
+	`<-simplified@ucs' for U+5C6C.
+	(U+5C61): Add `<-simplified@ucs' for U+5C62.
+	(G0-4245): Add S1-1949; add `<-simplified@CN' for G1-4245.
+	(C3-3544): Use `total-strokes@cns' instead of `cns-total-strokes'.
+	(J78-3C48): Add S1-1948.
+
+	* Ideograph-R052-Short-Thread.el (BC-895C): Use
+	`<-simplified@component' instead of `<-simplified' for U+5E7A.
+	(M-09199): Map to U-000221BA.
+
+	* Ideograph-R037-Big.el (U-000215F1): Use `->subsumptive'.
+	(U+5943): Use `->denotational'.
+	(U+5944): Use `->subsumptive'.
+	(U-0000215FA): Use `->subsumptive'.
+	(U+5955): Likewise.
+	(M-05923): Map to U-00021619.
+	(M-05924): Unify U-0002161B and H2-BEFA.
+	(M-05925): Map to U-00021621.
+	(U-0002161A): Use `->subsumptive'.
+	(U-00021621): Use `->denotational'; integrate M-05925.
+	(U-0002165A): Use `->subsumptive'.
+	(U-0002164E): Use `->subsumptive'.
+	(U+5965): Use `->subsumptive'.
+	(U-0002164C): Use `->subsumptive'.
+	(U-00021655): Use `->subsumptive'.
+	(U+5967): Use `->subsumptive'.
+	(M-05990): Map to U-00021664.
+	(U+5968): Use `->subsumptive'.
+	(U-00021619): Use `->denotational'; integrate M-05923.
+	(U-00021664): Use `->denotational'; integrate M-05990.
+
+	* Ideograph-R032-Earth.el (U+571F): Add S1-1337.
+	(GT-K00199): Use `<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+571F.
+	(U+5728): Add S1-1347.
+	(U-0002128F): Use `->denotational' to integrate C6-2641 and
+	M-48957.
+	(U-0002F855): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+	(UU+5829): Unify U-00021377 and C4-3673.
+	(U-00021390): Use `->denotational' and `->subsumptive'.
+	(U+3657): Unify H2-AF69.
+	(U+5815): Add `<-simplified@CN' for U+58AE; add `<-simplified@ucs'
+	for U+58AE.
+	(U+5842): Use `->denotational'.
+	(U+5859): Use `->subsumptive'.
+	(U+5869): Add S1-9769.
+	(U+588C): Use `->subsumptive' and `->denotational'.
+	(U+588D): Add `<-denotational' for B-D8A7; use `->subsumptive'.
+	(B-D8A7): Use `->denotational'.
+	(JC3-47D8): Add `<-denotational' for B-D8A7.
+	(U+5848): Add `<-denotational' for B-D8A7; use `->subsumptive'.
+	(U-000213F2): Use `->subsumptive'.
+	(U-00021414): Likewise.
+	(M-05482): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-same*sources'.
+	(U+58B0): Use `->denotational'.
+	(U-00021485): Use `->subsumptive'.
+
 	* Ideograph-R040-Roof.el (U+5B9D): Use `->subsumptive'.
 	(U+5B9E): Likewise.
 	(U+5B9F): Likewise.
