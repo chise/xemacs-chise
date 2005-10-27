@@ -133,16 +133,20 @@
     (total-strokes	 . 5)
     (=ucs		. #x5C14)	; 尔
     (->subsumptive
-     ((<-same
+     ((=gb2312		  . #x367B)	; &M-07479; [22-91]
+      (=daikanwa	  . 07479)	; &I-M-07479;
+      (=cbeta		  . 00380)	; &I-CB00380;
+      (=ucs@unicode	  . #x5C14)	; &M-07479;
+      (<-same
        ((=gt		    . 09427)	; &GT-09427;
 	(=daikanwa	    . 07477)	; &I-M-07477;
 	))
       (<-same*sources
        jiyun daikanwa)
-      (=gb2312		  . #x367B)	; &M-07479; [22-91]
-      (=daikanwa	  . 07479)	; &I-M-07479;
-      (=cbeta		  . 00380)	; &I-CB00380;
-      (=ucs@unicode	  . #x5C14)	; &M-07479;
+      (<-simplified@CN
+       ((=ucs		    . #x723E)	; 爾
+	(=gb12345	    . #x367B)	; 爾 [22-91]
+	))
       )
      ((=cns11643-3	  . #x223F)	; &GT-09429; [02-31]
       (=big5-cdp	  . #x88C2)	; &I-CDP-88C2;
@@ -340,9 +344,6 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x5C1A)	; 尚
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -361,6 +362,9 @@
       ))
     (=gt-k		. 05014)	; &GT-K05014;
     (=gt-pj-k1		. #x3242)	; &GT-K05014; [18-34]
+    (<-formed@component/connect-below
+     ((=ucs		  . #x5C1A)	; 尚
+      ))
     ))
 (define-char
   '((=>ucs		. #x21B65)	; 𡭥
@@ -608,8 +612,7 @@
     (=cns11643-6	. #x3E60)	; &I-C6-3E60; [30-64]
     ))
 (define-char
-  '((=>daikanwa		. 07516)	; &M-07516;
-    (ideographic-radical@ucs . 9)	; ⼈
+  '((ideographic-radical@ucs . 9)	; ⼈
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@daikanwa . 42)	; ⼩
     (ideographic-strokes@daikanwa . 8)
