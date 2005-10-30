@@ -1130,7 +1130,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5B5A)	; &UU+5B5A;
+     ((=gb2312		  . #x665A)	; &C1-4977; [70-58]
+      (=cns11643-1	  . #x4977)	; &I-C1-4977; [41-87]
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
@@ -1314,7 +1315,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x6C99)	; &GT-21980;
+       ((=jis-x0208	    . #x3A3B)	; &GT-21980; [26-27]
+	(=ks-x1001	    . #x5E5E)	; &I-K0-5E5E; [62-62]
+	(=daikanwa	    . 17212)	; &I-M-17212;
 	)
        ((=ucs		    . #x4E59)	; 乙
 	))
@@ -1324,7 +1327,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x6C99)	; &UU+6C99;
+       ((=gb2312	    . #x4933)	; &C1-4A67; [41-19]
+	(=cns11643-1	    . #x4A67)	; &I-C1-4A67; [42-71]
 	)
        ((=ucs		    . #x4E59)	; 乙
 	))
@@ -1903,7 +1907,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7FC1)	; &GT-36866;
+       ((=gb2312	    . #x4E4C)	; &GT-36866; [46-44]
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
@@ -2259,7 +2263,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7CA6)	; &CDP-8CB9;
+       ((=iso-ir165	    . #x2F7B)	; &CDP-8CB9; [15-91]
+	(=daikanwa	    . 26939)	; &I-M-26939;
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
