@@ -1,5 +1,15 @@
 2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el (G0-3969): Add `<-simplified@CN' for
+	U+6B78.
+	(U-00022451): Use `->subsumptive'.
+	(U+5F53): Add `<-simplified@CN' for U+7576 and U+5679; add
+	`<-simplified@ucs' for U+7576.
+	(U-00022453): Use `->subsumptive'.
+	(U-00022454): Likewise.
+
+	* Ideograph-R033-Scholar.el (U-0002138E): Use `->subsumptive'.
+
 	* Ideograph-R057-Bow.el (U-000223A4): Use `->subsumptive'.
 	(U-0002240A): Use `->subsumptive'.
 	(U+5F3F): Use `->subsumptive'.
