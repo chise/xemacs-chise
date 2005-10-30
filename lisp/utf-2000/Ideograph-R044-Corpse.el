@@ -1787,7 +1787,7 @@
       (<-vulgar*sources
        songyuan-yilai-suzipu daikanwa shinjigen-1)
       )
-     ((total-strokes@cns  . 11)
+     ((total-strokes@cns       . 11)
       (=cns11643-3	  . #x3544)	; &C3-3544; [21-36]
       ))
     ))
