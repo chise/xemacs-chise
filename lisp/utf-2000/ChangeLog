@@ -1,3 +1,16 @@
+2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U-00021946): Use `->denotational' and
+	`->subsumptive'.
+	(U+5B5A): Use `->denotational'.
+
+2005-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (U-000205DA): Use `->subsumptive'.
+	(U+51CB): Use `->denotational' instead of `->subsumptive'.
+	(U+51CC): Use `->denotational' and `->subsumptive'.
+	(U-000205FD): Likewise.
+
 2005-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el (G0-3969): Add `<-simplified@CN' for
