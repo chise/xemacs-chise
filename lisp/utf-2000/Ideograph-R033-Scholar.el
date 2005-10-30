@@ -593,7 +593,10 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@unicode	    . #x80E5)	; &GT-38009;
+       ((=jis-x0208	    . #x6671)	; &GT-38009; [70-81]
+	(=gb2312	    . #x7163)	; &I-G0-7163; [81-67]
+	(=ks-x1001	    . #x6021)	; &I-K0-6021; [64-01]
+	(=daikanwa	    . 29406)	; &I-M-29406;
 	))
       (shinjigen-1	  . 1704)
       (shinjigen-2	  . 1704)
@@ -617,19 +620,16 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2138E)	; 𡎎
-    (ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=daikanwa		. 05665)	; &M-05665;
-    ))
-(define-char
-  '((morohashi-daikanwa	5665 0 0)
-    (ideographic-radical . 33)	; ⼠
+  '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x2138E)	; 𡎎
-    (=cns11643-6	. #x4751)	; &I-C6-4751; [39-49]
+    (->subsumptive
+     ((=daikanwa	  . 05665)	; &M-05665;
+      )
+     ((=cns11643-6	  . #x4751)	; &C6-4751; [39-49]
+      (=ucs@iso		  . #x2138E)	; &C6-4751;
+      ))
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
