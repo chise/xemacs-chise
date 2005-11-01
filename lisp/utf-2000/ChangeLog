@@ -1,3 +1,18 @@
+2005-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-000219B9): Use `->subsumptive'.
+	(U+5B81): Likewise.
+	(U+5B82): Use `->denotational' and `->subsumptive'.
+	(U+5B83): Use `->subsumptive'.
+	(U+5B84): Likewise.
+	(U+374A): Likewise.
+	(U+374B): Likewise.
+	(U+5B85): Likewise.
+	(U+374C): Likewise.
+
+	* Ideograph-R032-Earth.el (U-000213B7): Use `->subsumptive'.
+	(U+5862): Add S1-8916.
+
 2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R067-Script.el (M-13460): Add S1-5547; add `<-vulgar'
