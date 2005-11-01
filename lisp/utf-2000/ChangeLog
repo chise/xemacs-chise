@@ -1,5 +1,79 @@
 2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R067-Script.el (M-13460): Add S1-5547; add `<-vulgar'
+	for J0-6337.
+	(M-13483): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+
+	* Ideograph-R059-Bristle.el (U-0002F89A): Use `->subsumptive'; add
+	`<-denotational' for J97-4426.
+	(J97-4426): New abstract character; unify B-B16E.
+	(U+5F6B): Add `<-denotational' for J97-4426; separate B-B16E.
+
+	* Ideograph-R031-Enclosure.el (U-00020064): Use `->subsumptive';
+	use `ideographic-{radical|strokes}@cns' instead
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@cns*sources'.
+	(U+56E2): Separate M-04701.
+	(M-04702): Unify U-000211B1 and H2-E4E0.
+	(M-04703): Unify U-000211AF and H2-E4DD.
+	(U-000211B4): Use `->subsumptive'.
+	(U+56EF): Add S1-1321; add `<-vulgar' for U+570B.
+	(U+56F0): Use `->subsumptive'.
+	(U-000211B6): Use `->denotational' and `->subsumptive'.
+	(U-000211C6): Use `->subsumptive'.
+	(U-000211C7): Likewise.
+	(M-04731): Unify U-0002314D; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(M-04732): Map to U-000211C2.
+	(M-04733): Map to U-000211C0.
+	(M-04734): Map to U-000211BD.
+	(U-000211C5): Use `->subsumptive'.
+	(U+56F5): Use `CN Simplified' instead of `C-Simplified' in
+	`script'; use `<-simplified@CN' instead of `<-simplified' for
+	U+5707.
+	(U+56FD): Add S1-1318; add `<-simplified@CN' for G1-397A; add
+	`<-simplified@ucs' for U+570B.
+	(U-000211D2): Use `->subsumptive'.
+	(U+56FF): Use `->subsumptive'.
+	(U-000211D4): Likewise.
+	(U-000211D5): Likewise.
+	(U+5700): Use `->denotational' and `->subsumptive'.
+	(U+570B): Add S1-1319.
+	(U-000211FD): Use `->subsumptive'.
+	(U-000211FE): Likewise.
+
+2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+623A): Use `->denotational'.
+	(U+39BE): Use `->denotational' instead of `->subsumptive'.
+	(C3-2628): Use `zhengzitong' instead of `zhengzi-tong' in
+	`->mistakable*sources'.
+	(U+623C): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+	(U-00022A2E): Use `->denotational'.
+
+	* Ideograph-R038-Woman.el (U+59BB): Use `->subsumptive'.
+	(U+59D3): Use `->subsumptive'.
+	(U-000216E1): Use `->subsumptive'.
+	(U+36B9): Use `->subsumptive'.
+	(U+59D4): Use `->subsumptive'.
+	(U+36BA): Use `->subsumptive'.
+	(U+59D5): Use `->subsumptive'.
+	(U-000216E2): Likewise.
+	(U+59D6): Use `->subsumptive'.
+	(U+36BB): Likewise.
+	(U+36BC): Likewise.
+	(U+36C1): Use `->denotational' and `->subsumptive'.
+	(U-00021701): Use `->subsumptive'.
+	(U+36BD): Use `->subsumptive'.
+	(U-000216FE): Use `->subsumptive'.
+	(U+36BE): Use `->subsumptive'.
+	(U+5B22): Use `->subsumptive'.
+
 	* Ideograph-R039-Child.el (U-00021946): Use `->denotational' and
 	`->subsumptive'.
 	(U+5B5A): Use `->denotational'.
