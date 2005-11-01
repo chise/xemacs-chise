@@ -33,11 +33,11 @@
     (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=gt-k		. 00488)	; &GT-K00488;
+    (=gt-pj-k1		. #x3437)	; &GT-K00488; [20-23]
     (<-formed@component/connect-right
      ((=jis-x0208	  . #x4A38)	; &GT-17008; [42-24]
       ))
-    (=gt-k		. 00488)	; &GT-K00488;
-    (=gt-pj-k1		. #x3437)	; &GT-K00488; [20-23]
     ))
 (define-char
   '((ideographic-radical@ucs . 210)	; ⿑
@@ -51,6 +51,7 @@
     (->subsumptive
      ((ideographic-radical . 67)	; ⽂
       (ideographic-strokes . 2)
+      (=daikanwa	  . 13451)	; &M-13451;
       (<-vulgar
        ((=jis-x0208	    . #x736E)	; &GT-66354; [83-78]
 	(=ks-x1001	    . #x703A)	; &I-K0-703A; [80-26]
@@ -58,15 +59,14 @@
 	))
       (<-vulgar*sources
        songyuan-yilai-suzipu daikanwa)
-      (=daikanwa	  . 13451)	; &M-13451;
       )
-     ((<-simplified@CN
+     ((=gb2312		  . #x466B)	; &C3-2370; [38-75]
+      (=cns11643-3	  . #x2370)	; &I-C3-2370; [03-80]
+      (=ucs@unicode	  . #x9F50)	; &C3-2370;
+      (<-simplified@CN
        ((=cns11643-1	    . #x6B7D)	; &C1-6B7D; [75-93]
 	(=gb12345	    . #x466B)	; &C1-6B7D; [38-75]
 	))
-      (=gb2312		  . #x466B)	; &C3-2370; [38-75]
-      (=cns11643-3	  . #x2370)	; &I-C3-2370; [03-80]
-      (=ucs@unicode	  . #x9F50)	; &C3-2370;
       ))
     ))
 (define-char
@@ -77,13 +77,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EEC)	; ⻬
     (<-identical@component
      ((=ucs		  . #x9F50)	; 齐
       ))
     (<-simplified@CN/component
      ((=ucs		  . #x9F4A)	; 齊
       ))
-    (=ucs		. #x2EEC)	; ⻬
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
@@ -109,27 +109,27 @@
     (total-strokes	 . 7)
     (=ucs		. #x6588)	; 斈
     (->subsumptive
-     ((<-vulgar
+     ((=jis-x0208	  . #x555D)	; &M-13453; [53-61]
+      (=daikanwa	  . 13453)	; &I-M-13453;
+      (=ucs@jis		  . #x6588)	; &M-13453;
+      (<-vulgar
        ((=ucs		    . #x5B78)	; 學
 	(=daikanwa	    . 07033)	; &I-M-07033;
 	))
       (<-vulgar*sources
        daikanwa)
-      (=jis-x0208	  . #x555D)	; &M-13453; [53-61]
-      (=daikanwa	  . 13453)	; &I-M-13453;
-      (=ucs@jis		  . #x6588)	; &M-13453;
       )
-     ((<-vulgar
+     ((shinjigen-1	  . 1786)
+      (shinjigen-2	  . 1786)
+      (=gt		  . 17011)	; &GT-17011;
+      (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
+      (<-vulgar
        ((shinjigen-1	    . 1783)
 	(=ucs		    . #x5B78)	; 學
 	(=jis-x0208	    . #x555C)	; &I-J90-555C; [53-60]
 	))
       (<-vulgar*sources
        shinjigen-1)
-      (shinjigen-1	  . 1786)
-      (shinjigen-2	  . 1786)
-      (=gt		  . 17011)	; &GT-17011;
-      (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
       )
      ((=cns11643-3	  . #x2558)	; &C3-2558; [05-56]
       (=ucs@unicode	  . #x6588)	; &C3-2558;
@@ -143,18 +143,18 @@
     (->subsumptive
      ((=daikanwa	  . 13454)	; &M-13454;
       )
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x736E)	; &GT-66354; [83-78]
-	(=ks-x1001	    . #x703A)	; &I-K0-703A; [80-26]
-	(=daikanwa	    . 48560)	; &I-M-48560;
-	))
-      (shinjigen-1	  . 9880)
+     ((shinjigen-1	  . 9880)
       (shinjigen-2	  . 9880)
       (=jis-x0208	  . #x4046)	; &GT-17014; [32-38]
       (=gt		  . 17014)	; &I-GT-17014;
       (=gt-k		  . 03759)	; &I-GT-K03759;
       (=gt-pj-1		  . #x4046)	; &I-GT-17014; [32-38]
       (=ucs@jis		  . #x6589)	; &GT-17014;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x736E)	; &GT-66354; [83-78]
+	(=ks-x1001	    . #x703A)	; &I-K0-703A; [80-26]
+	(=daikanwa	    . 48560)	; &I-M-48560;
+	))
       )
      ((=cns11643-3	  . #x2939)	; &C3-2939; [09-25]
       (=ucs@unicode	  . #x6589)	; &C3-2939;
@@ -168,10 +168,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EEB)	; ⻫
     (<-identical@component
      ((=ucs		  . #x6589)	; 斉
       ))
-    (=ucs		. #x2EEB)	; ⻫
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
@@ -244,7 +244,14 @@
     (total-strokes	 . 10)
     (=ucs		. #x658B)	; 斋
     (->subsumptive
-     ((=daikanwa	  . 13460)	; &M-13460;
+     ((shinjigen-1	  . 5547)
+      (=daikanwa	  . 13460)	; &M-13460;
+      (<-vulgar
+       ((=jis-x0208	    . #x6337)	; &GT-66359; [67-23]
+	(=daikanwa	    . 48565)	; &I-M-48565;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
       )
      ((=gb2312		  . #x552B)	; &C3-3140; [53-11]
       (=cns11643-3	  . #x3140)	; &I-C3-3140; [17-32]
@@ -323,18 +330,20 @@
     (->subsumptive
      ((=daikanwa	  . 13467)	; &M-13467;
       )
+     ((shinjigen-1	  . 5545)
+      )
      ((=cns11643-3	  . #x3639)	; &C3-3639; [22-25]
       )
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x6337)	; &GT-66359; [67-23]
-	(=daikanwa	    . 48565)	; &I-M-48565;
-	))
-      (shinjigen-2	  . 5545)
+     ((shinjigen-2	  . 5545)
       (=jis-x0208	  . #x3A58)	; &GT-17026; [26-56]
       (=gt		  . 17026)	; &I-GT-17026;
       (=gt-k		  . 07766)	; &I-GT-K07766;
       (=gt-pj-1		  . #x3A58)	; &I-GT-17026; [26-56]
       (=ucs@jis		  . #x658E)	; &GT-17026;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x6337)	; &GT-66359; [67-23]
+	(=daikanwa	    . 48565)	; &I-M-48565;
+	))
       )
      ((=ucs@unicode	  . #x658E)	; &UU+658E;
       ))
@@ -594,14 +603,14 @@
     (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=daikanwa		. 13483)	; &M-13483;
     (<-original
      ((=jis-x0208	  . #x4843)	; &GT-17031; [40-35]
       (=ks-x1001	  . #x5A68)	; &I-K0-5A68; [58-72]
       (=daikanwa	  . 13470)	; &I-M-13470;
       ))
     (<-original*sources
-     zhengzi-tong daikanwa)
-    (=daikanwa		. 13483)	; &M-13483;
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
