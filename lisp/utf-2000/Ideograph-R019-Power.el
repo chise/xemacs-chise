@@ -2374,7 +2374,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x751A)	; &UU+751A;
+       ((=gb2312	    . #x4975)	; &G0-4975; [41-85]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -3670,7 +3670,13 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=daikanwa		. 02457)	; &M-02457;
+    (=ucs		. #x208B5)	; 𠢵
+    (->subsumptive
+     ((=daikanwa	  . 02457)	; &M-02457;
+      )
+     ((=hanziku-1	  . #xF46E)	; &HZK01-F46E;
+      (=ucs@iso		  . #x208B5)	; &HZK01-F46E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -3732,7 +3738,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x842C)	; &GT-41264;
+     ((=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
+      (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
       )
      ((=ucs		  . #x529B)	; 力
       ))
