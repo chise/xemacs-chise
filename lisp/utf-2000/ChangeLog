@@ -75,6 +75,8 @@
 	* Ideograph-R032-Earth.el (U-000213B7): Use `->subsumptive'.
 	(U+5862): Add S1-8916.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5A4B.
+
 2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R067-Script.el (M-13460): Add S1-5547; add `<-vulgar'
