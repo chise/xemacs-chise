@@ -243,6 +243,7 @@
 				       '(=daikanwa
 					 =daikanwa@rev2
 					 ;; =gt-k
+					 =jis-x0208@1997
 					 )))
 			     (setq ccs (charset-name ccs))
 			     (null (assq ccs char-spec))
