@@ -125,6 +125,10 @@
 
 2005-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-make-char-spec): Add `=jis-x0208@1997'
+	if a character has the code-point of it and the character does not
+	have a code-point of `=ucs'.
+
 	* Ideograph-R063-Door.el (U+623A): Use `->denotational'.
 	(U+39BE): Use `->denotational' instead of `->subsumptive'.
 	(C3-2628): Use `zhengzitong' instead of `zhengzi-tong' in
