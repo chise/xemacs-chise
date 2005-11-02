@@ -129,39 +129,33 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x23B35)	; 𣬵
-    (=cns11643-5	. #x2643)	; &I-C5-2643; [06-35]
+    (->subsumptive
+     ((=ucs@iso		  . #x23B35)	; &U-00023B35;
+      )
+     ((=cns11643-5	  . #x2643)	; &C5-2643; [06-35]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x65BD)	; 施
-    (ideographic-radical . 70)	; ⽅
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (shinjigen-2	. 3239)
-    (=jis-x0208		. #x3B5C)	; &GT-17227; [27-60]
-    (=ks-x1001		. #x633F)	; &I-K0-633F; [67-31]
-    (=big5		. #xAC49)	; &I-B-AC49;
-    (=gt		. 17227)	; &I-GT-17227;
-    (=gt-k		. 05089)	; &I-GT-K05089;
-    (=gt-pj-1		. #x3B5C)	; &I-GT-17227; [27-60]
-    (=daikanwa		. 13629)	; &I-M-13629;
-    (=ucs@jis		. #x65BD)	; &GT-17227;
-    (=ucs@big5		. #x65BD)	; &GT-17227;
-    ))
-(define-char
-  '((morohashi-daikanwa	13629 0 0)
-    (ideographic-radical . 70)	; ⽅
+  '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x65BD)	; 施
-    (=gb2312		. #x4A29)	; &I-G0-4A29; [42-09]
-    ))
-(define-char
-  '((=>ucs		. #x65BD)	; 施
-    (morohashi-daikanwa	13629 0 1)
-    (ideographic-radical . 70)	; ⽅
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=cns11643-1	. #x514C)	; &C1-514C; [49-44]
+    (=big5		. #xAC49)	; &I-B-AC49;
+    (->subsumptive
+     ((shinjigen-2	  . 3239)
+      (=jis-x0208	  . #x3B5C)	; &GT-17227; [27-60]
+      (=ks-x1001	  . #x633F)	; &I-K0-633F; [67-31]
+      (=gt		  . 17227)	; &I-GT-17227;
+      (=gt-k		  . 05089)	; &I-GT-K05089;
+      (=gt-pj-1		  . #x3B5C)	; &I-GT-17227; [27-60]
+      (=daikanwa	  . 13629)	; &I-M-13629;
+      (=ucs@jis		  . #x65BD)	; &GT-17227;
+      )
+     ((=gb2312		  . #x4A29)	; &G0-4A29; [42-09]
+      (=ucs@unicode	  . #x65BD)	; &G0-4A29;
+      )
+     ((=cns11643-1	  . #x514C)	; &C1-514C; [49-44]
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
@@ -169,16 +163,16 @@
     (total-strokes	 . 9)
     (=ucs		. #x65BE)	; 斾
     (->subsumptive
-     ((<-vulgar
+     ((shinjigen-1	  . 3246)
+      (=daikanwa	  . 13630)	; &M-13630;
+      (=cbeta		  . 01816)	; &I-CB01816;
+      (<-vulgar
        ((shinjigen-1	    . 3245)
 	(=jis-x0208	    . #x5A54)	; &GT-17240; [58-52]
 	(=daikanwa	    . 13646)	; &I-M-13646;
 	))
       (<-vulgar*sources
        shinjigen-1)
-      (shinjigen-1	  . 3246)
-      (=daikanwa	  . 13630)	; &M-13630;
-      (=cbeta		  . 01816)	; &I-CB01816;
       )
      ((=cns11643-3	  . #x2C77)	; &C3-2C77; [12-87]
       (=ucs@unicode	  . #x65BE)	; &C3-2C77;
