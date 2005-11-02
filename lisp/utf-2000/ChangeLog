@@ -1,3 +1,65 @@
+2005-11-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R069-Axe.el (U+65AD): Add S1-3228.
+	(U+65B7): Add S1-3229.
+	(M-13613): Map to U-000230CE.
+	(M-13616): Unify U-000230D2.
+	(U-000230D4): Use `->subsumptive'.
+	(U-000230D6): Likewise.
+	(U+65B8): Likewise.
+
+	* Ideograph-R024-Ten.el (U-00024C1E): Use `->denotational' and
+	`->subsumptive'.
+	(U+5352): Use `->subsumptive'.
+
+	* Ideograph-R019-Power.el (M-02457): Map to U-000208B5.
+
+	* Ideograph-R070-Square.el (U-00023B35): Use `->subsumptive'.
+	(U+65BD): Use `->subsumptive'.
+
+	* Ideograph-R060-Step.el (M-10079): Unify U-000224D9.
+	(U-000224D8): Use `->subsumptive'.
+	(U+5F84): Add `<-simplified@ucs'; use `->denotational'.
+	(U+38E0): Use `->subsumptive'.
+	(M-10128): Map to U-000224FB.
+	(U-000224FD): Use `->subsumptive'.
+	(M-10131): Unify U-000224FF.
+	(U-000224FC): Use `->subsumptive'.
+	(U-00022538): Likewise.
+	(M-10209): Unify U-00022539.
+	(U-0002255F): Use `->denotational'.
+	(M-10236): Map to U-00022566.
+	(U-00022567): Use `->subsumptive'.
+	(U+5FB3): Use `->subsumptive'.
+	(M-10238): Map to U-00022568.
+	(U+5FB4): Use `->subsumptive'; add `<-denotational' for J97-4427.
+	(J97-4427): New abstract character.
+	(U+5FB5): Use `->subsumptive' and `->subsumptive'; add
+	`<-denotational' for J97-4427.
+	(U+5FBD): Add J97-352B.
+
+	* Ideograph-R046-Mountain.el (U+5CB3): Add S1-1962.
+	(U+5CE0): Use `->subsumptive'.
+	(U+5CE1): Add `<-simplified@ucs' for U+5CFD; use `->subsumptive'.
+	(U+5CFD): Use `->subsumptive'.
+	(U-00021E1C): Use `->denotational'.
+	(U+5D12): Use `->subsumptive'.
+	(U+5D13): Likewise.
+	(U+5D14): Likewise.
+	(U+5D15): Likewise.
+	(U+5D16): Add S1-1993.
+	(U+5D5C): Use `->subsumptive'.
+	(U+5D5B): Use `->subsumptive'.
+	(U-00021F3D): Use `->denotational' and `->subsumptive'.
+	(U+5DA9): Use `->subsumptive'.
+	(U+5DAB): Use `->subsumptive'.
+	(U+5DBD): Likewise.
+	(U+5DBE): Use `->denotational'.
+	(U-00021F78): Likewise.
+
+	* Ideograph-R035-Go-Slowly.el (U-00020B76): Use `->denotational'
+	and `->subsumptive'.
+
 2005-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U-000219B9): Use `->subsumptive'.
