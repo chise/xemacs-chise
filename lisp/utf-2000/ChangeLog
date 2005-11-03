@@ -1,3 +1,47 @@
+2005-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (M-11533): Map to U-0002298C.
+	(M-11534): Map to U-0002298D.
+	(U+620B): Don't separate G0-6A27 and BC-89DC.
+	(U+620E): Use `->subsumptive'.
+	(M-11541): Map to U-00022991.
+	(GT-K02180): Use `<-identical@component/connect-left' instead of
+	`<-ideographic-component-forms' for U+39AE.
+	(U-000229DC): Use `->subsumptive'.
+	(M-11660): Unify U-000229FD.
+	(M-11661): Unify U-00022A02.
+	(M-11662): Unify U-00022A01.
+	(U-000229FF): Use `->subsumptive'.
+	(U+622F): Likewise.
+	(U+6232): Add S1-2786.
+
+	* Ideograph-R056-Shoot.el (U-0002237F): Use `->subsumptive'.
+	(U-00022380): Use `->subsumptive'.
+	(M-09669): Unify U-00022382.
+	(M-09671): Map to U-00022385.
+	(U-00022386): Use `->subsumptive'.
+	(U+38A5): Use `->subsumptive'.
+	(M-09676): Unify U-00022388.
+	(M-09677): Unify U-00022389.
+	(M-09678): Unify U-0002238B and H2-C2EF.
+	(U+5F11): Use `->denotational'; add `<-denotational' for J97-5736.
+	(J97-5736): New abstract character.
+	(U-0002238E): Use `->subsumptive'.
+	(U+38A6): Use `->denotational'.
+	(M-09684): Unify U-0002398F and H2-C342; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U+5F12): Use `->subsumptive'; add `<-denotational' for J97-5736.
+
+	* Ideograph-R049-Oneself.el (U+5DFB): Use `->subsumptive'.
+
+	* Ideograph-R040-Roof.el (U+5B8B): Use `->subsumptive'.
+	(U+5B8C): Likewise.
+	(U-000219CB): Likewise.
+
+	* Ideograph-R026-Seal.el (U+5377): Use `->denotational'.
+
 2005-11-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R069-Axe.el (U+65AD): Add S1-3228.
