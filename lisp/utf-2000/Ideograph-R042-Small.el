@@ -224,81 +224,87 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5C18)	; 尘
-    (=gb2312		. #x333E)	; &I-G0-333E; [19-30]
-    (=cns11643-3	. #x2352)	; &I-C3-2352; [03-50]
-    (=daikanwa		. 07484)	; &I-M-07484;
-    (=jef-china3	. #x81D4)	; &I-JC3-81D4;
+    (->subsumptive
+     ((=daikanwa	  . 07484)	; &M-07484;
+      )
+     ((=gb2312		  . #x333E)	; &C3-2352; [19-30]
+      (=cns11643-3	  . #x2352)	; &I-C3-2352; [03-50]
+      (=jef-china3	  . #x81D4)	; &I-JC3-81D4;
+      (=ucs@unicode	  . #x5C18)	; &C3-2352;
+      ))
+    ))
+(define-char
+  '((=>ucs*		. #x5F53)	; 当
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x2F874)	; 当
+    (->subsumptive
+     ((=daikanwa	  . 07486)	; &M-07486;
+      (<-simplified
+       ((=ucs		    . #x7576)	; 當
+	(=daikanwa	    . 21890)	; &I-M-21890;
+	))
+      (<-simplified*sources
+       daikanwa)
+      )
+     ((=cns11643-6	  . #x244B)	; &C6-244B; [04-43]
+      (=ucs@iso		  . #x2F874)	; &C6-244B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=cns11643-6	. #x244B)	; &M-07486; [04-43]
-    (=daikanwa		. 07486)	; &I-M-07486;
-    ))
-(define-char
-  '((=>ucs		. #x21B5D)	; 𡭝
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=daikanwa		. 07487)	; &M-07487;
-    ))
-(define-char
-  '((morohashi-daikanwa	7487 0 0)
-    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B5D)	; 𡭝
-    (=cns11643-6	. #x2724)	; &I-C6-2724; [07-04]
+    (->subsumptive
+     ((=daikanwa	  . 07487)	; &M-07487;
+      )
+     ((=cns11643-6	  . #x2724)	; &C6-2724; [07-04]
+      (=ucs@iso		  . #x21B5D)	; &C6-2724;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x21B5E)	; 𡭞
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=daikanwa		. 07488)	; &M-07488;
-    ))
-(define-char
-  '((morohashi-daikanwa	7488 0 0)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B5E)	; 𡭞
-    (=cns11643-4	. #x2372)	; &I-C4-2372; [03-82]
+    (->subsumptive
+     ((=daikanwa	  . 07488)	; &M-07488;
+      )
+     ((=ucs@iso		  . #x21B5E)	; &U-00021B5E;
+      )
+     ((=cns11643-4	  . #x2372)	; &C4-2372; [03-82]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x21B5F)	; 𡭟
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=daikanwa		. 07489)	; &M-07489;
-    ))
-(define-char
-  '((morohashi-daikanwa	7489 0 0)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B5F)	; 𡭟
-    (=cns11643-6	. #x2723)	; &I-C6-2723; [07-03]
+    (->subsumptive
+     ((=daikanwa	  . 07489)	; &M-07489;
+      )
+     ((=cns11643-6	  . #x2723)	; &C6-2723; [07-03]
+      (=ucs@iso		  . #x21B5F)	; &C6-2723;
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B60)	; 𡭠
-    (=daikanwa		. 07490)	; &I-M-07490;
-    ))
-(define-char
-  '((=>ucs		. #x21B60)	; 𡭠
-    (morohashi-daikanwa	7490 0 1)
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=cns11643-6	. #x2722)	; &C6-2722; [07-02]
+    (->subsumptive
+     ((=daikanwa	  . 07490)	; &M-07490;
+      (=ucs@iso		  . #x21B60)	; &M-07490;
+      )
+     ((=cns11643-6	  . #x2722)	; &C6-2722; [07-02]
+      ))
     ))
 (define-char
   '((<-denotational
      ((=big5		  . #xA97C)	; &B-A97C;
+      (=jis-x0208@1997	  . #x3E30)	; &B-A97C; [30-16]
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
@@ -324,6 +330,7 @@
 (define-char
   '((<-denotational
      ((=big5		  . #xA97C)	; &B-A97C;
+      (=jis-x0208@1997	  . #x3E30)	; &B-A97C; [30-16]
       ))
     (morohashi-daikanwa	7493 1)
     (ideographic-radical . 42)	; ⼩
