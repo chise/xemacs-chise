@@ -1,3 +1,62 @@
+2005-11-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U-00022F2C): Use `->subsumptive'.
+	(M-13196): Unify U-00022F37 and H4-D67A.
+	(M-13197): Map to U-00022F32.
+	(M-13199): Unify U-00022F31.
+	(M-13200): Map to U-00022F35.
+	(M-13201): Unify U-00022F30 and H4-D5E7.
+	(U-00022F57): Unify M-13202; use
+	`ideographic-strokes@{daikanwa|cns}' and
+	`total-strokes@{daikanwa|cns}'.
+	(U+6570): Add `<-simplified@ucs' for U+6578; use `->subsumptive'.
+	(U+3AA5): Use `->subsumptive'.
+	(U+6575): Use `->denotational' and `->subsumptive'.
+	(M-13355): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+	(U+3AA6): Use `->subsumptive'.
+	(U-00022FD0): Use `->subsumptive'.
+	(U+6578): Use `->subsumptive'.
+	(U+6585): Add S1-1784; add `<-original' for U+5B78.
+	(U+6586): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+
+2005-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (C6-2328): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-original*sources'.
+	(U+62C4): Use `->denotational'.
+	(U+39D6): Use `->denotational'.
+	(U+62C6): Use `->subsumptive'.
+	(U+62C7): Add S1-2888.
+	(U+62C8): Add S1-2880.
+	(U+62DB): Add S1-2865.
+	(U+62DC): Use `->subsumptive'.
+	(U+62DD): Add S1-2881.
+	(U+62E0): Use `->subsumptive'.
+	(U+62E1): Likewise.
+	(U+6318): Use `->subsumptive'.
+	(U+631F): Add `<-simplified@CN' for G1-502E; add
+	`<-simplified@ucs' for U+633E.
+	(U+633F): Add S1-3013; add `<-vulgar' for U+63D2.
+	(U+6358): Use `->denotational' instead of `->subsumptive'.
+	(M-12163): Map to U-00022B47.
+	(U-00022B52): Use `->subsumptive'.
+	(U-00022B47): Use `<-denotational'.
+	(U+63D2): Use `->subsumptive'.
+	(U-00022C98): Use `->subsumptive'.
+	(U+3A3F): Use `->subsumptive'.
+	(U+6483): Likewise.
+	(U-00022D00): Likewise.
+	(U+3A40): Use `->denotational' and `->subsumptive'; integrate
+	M-49134.
+
+	* Ideograph-R042-Small.el (U+5C18): Use `->subsumptive'.
+	(C6-244B): Map to U-0002F874.
+	(U-00021B5D): Use `->subsumptive'.
+	(U-00021B5E): Use `->subsumptive'.
+	(U-00021B5F): Use `->subsumptive'.
+	(U-00021B60): Likewise.
+
 2005-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R062-Halberd.el (M-11533): Map to U-0002298C.
