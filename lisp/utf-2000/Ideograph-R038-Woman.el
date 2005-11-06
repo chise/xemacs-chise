@@ -1798,49 +1798,102 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5973)	; 女
-      )
-     ((=ucs		  . #x5360)	; 占
-      ))
     (=ucs		. #x36B2)	; 㚲
-    (=cns11643-4	. #x257B)	; &I-C4-257B; [05-91]
-    (=daikanwa		. 06146)	; &I-M-06146;
-    (=cbeta		. 01754)	; &I-CB01754;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x3D77)	; &GT-07623; [29-87]
+	(=gb2312	    . #x452E)	; &I-G0-452E; [37-14]
+	(=ks-x1001	    . #x5233)	; &I-K0-5233; [50-19]
+	(=daikanwa	    . 06036)	; &I-M-06036;
+	)
+       ((=ucs		    . #x5360)	; 占
+	))
+      (=daikanwa	  . 06146)	; &M-06146;
+      (=cbeta		  . 01754)	; &I-CB01754;
+      (=ucs@unicode	  . #x36B2)	; &M-06146;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x444C)	; &C1-444C; [36-44]
+	)
+       ((=ucs		    . #x5360)	; 占
+	))
+      (=cns11643-4	  . #x257B)	; &C4-257B; [05-91]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x59BE)	; 妾
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (shinjigen-2	. 1631)
-    (=jis-x0208		. #x3E2A)	; &GT-07757; [30-10]
-    (=ks-x1001		. #x745D)	; &I-K0-745D; [84-61]
-    (=gt		. 07757)	; &I-GT-07757;
-    (=gt-k		. 03742)	; &I-GT-K03742;
-    (=gt-pj-1		. #x3E2A)	; &I-GT-07757; [30-10]
-    (=daikanwa		. 06147)	; &I-M-06147;
-    (=ucs@jis		. #x59BE)	; &GT-07757;
-    ))
-(define-char
-  '((morohashi-daikanwa	6147 0 0)
-    (ideographic-radical . 38)	; ⼥
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x59BE)	; 妾
-    (=gb2312		. #x662A)	; &I-G0-662A; [70-10]
     (=big5		. #xA963)	; &I-B-A963;
-    ))
-(define-char
-  '((=>ucs		. #x59BE)	; 妾
-    (morohashi-daikanwa	6147 0 1)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (=cns11643-1	. #x4C65)	; &C1-4C65; [44-69]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x4E29)	; &GT-33181; [46-09]
+	(=ks-x1001	    . #x5821)	; &I-K0-5821; [56-01]
+	(=daikanwa	    . 25721)	; &I-M-25721;
+	)
+       ((=jis-x0208	    . #x3D77)	; &GT-07623; [29-87]
+	(=gb2312	    . #x452E)	; &I-G0-452E; [37-14]
+	(=ks-x1001	    . #x5233)	; &I-K0-5233; [50-19]
+	(=daikanwa	    . 06036)	; &I-M-06036;
+	))
+      (shinjigen-2	  . 1631)
+      (=jis-x0208	  . #x3E2A)	; &GT-07757; [30-10]
+      (=ks-x1001	  . #x745D)	; &I-K0-745D; [84-61]
+      (=gt		  . 07757)	; &I-GT-07757;
+      (=gt-k		  . 03742)	; &I-GT-K03742;
+      (=gt-pj-1		  . #x3E2A)	; &I-GT-07757; [30-10]
+      (=daikanwa	  . 06147)	; &I-M-06147;
+      (=ucs@jis		  . #x59BE)	; &GT-07757;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x4122)	; &C1-4721; [33-02]
+	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
+	)
+       ((=jis-x0208	    . #x3D77)	; &GT-07623; [29-87]
+	(=gb2312	    . #x452E)	; &I-G0-452E; [37-14]
+	(=ks-x1001	    . #x5233)	; &I-K0-5233; [50-19]
+	(=daikanwa	    . 06036)	; &I-M-06036;
+	))
+      (=gb2312		  . #x662A)	; &G0-662A; [70-10]
+      (=ucs@unicode	  . #x59BE)	; &G0-662A;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x4122)	; &C1-4721; [33-02]
+	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
+	)
+       ((=cns11643-1	    . #x444C)	; &C1-444C; [36-44]
+	))
+      (=cns11643-1	  . #x4C65)	; &C1-4C65; [44-69]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gt-k		    . 01020)	; &GT-K01020;
+	)
+       ((=jis-x0208	    . #x3D77)	; &GT-07623; [29-87]
+	(=gb2312	    . #x452E)	; &I-G0-452E; [37-14]
+	(=ks-x1001	    . #x5233)	; &I-K0-5233; [50-19]
+	(=daikanwa	    . 06036)	; &I-M-06036;
+	))
+      (shinjigen-1	  . 1631)
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
