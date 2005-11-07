@@ -361,6 +361,10 @@
     (ideographic-radical@shinjigen*sources
      shinjigen-1 jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
+    (hanyu-dazidian	2 1516 8)
+    (shinjigen-1	. 926)
+    (=cns11643-1	. #x5E32)	; &M-01597; [62-18]
+    (=daikanwa		. 01597)	; &I-M-01597;
     (<-original
      ((shinjigen-1	  . 925)
       (=jis-x0208	  . #x3A47)	; &GT-18101; [26-39]
@@ -369,11 +373,7 @@
       (=daikanwa	  . 14301)	; &I-M-14301;
       ))
     (<-original*sources
-     zhengzi-tong daikanwa shinjigen-1)
-    (hanyu-dazidian	2 1516 8)
-    (shinjigen-1	. 926)
-    (=cns11643-1	. #x5E32)	; &M-01597; [62-18]
-    (=daikanwa		. 01597)	; &I-M-01597;
+     zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
   '((=>ucs		. #x66FE)	; 曾
