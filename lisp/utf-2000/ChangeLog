@@ -1,4 +1,50 @@
+2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+5FDB): Use `->denotational'.
+	(M-10345): Unify U-000225BF and H6-D5BD.
+	(M-10346): Unify U-000225C0.
+	(U+5FDC): Use `->subsumptive'.
+	(U+5FF3): Likewise.
+	(U+5FF4): Use `->subsumptive'.
+	(U+5FF5): Use `->subsumptive'.
+	(M-10536): Map to U-00022639.
+	(U+604B): Use `->denotational' and `->subsumptive'; add
+	`<-simplified@ucs' for U+6200.
+	(U+6072): Use `->subsumptive'.
+	(U-0002264E): Use `->subsumptive'.
+	(M-10615): Unify U-0002266F and H6-D9CE.
+	(U+6074): Use `->subsumptive'.
+	(U+60E8): Use `->denotational'; add `<-simplified@ucs' for U+6158.
+	(U-00022797): Use `->subsumptive'.
+	(U+6139): Use `->subsumptive'.
+	(U+613A): Use `->denotational'.
+	(U-00022799): Use `->subsumptive'.
+	(U+613B): Use `->subsumptive'.
+	(U+613C): Use `->subsumptive'.
+	(U+614E): Use `->denotational'.
+	(U+3972): Likewise.
+	(U+3980): Use `->denotational'.
+	(M-11188): Map to U-0002284C.
+	(U+618E): Use `->denotational'; add J97-417E.
+	(U-0002F8AB): Add `<-denotational' for U+618E.
+	(B-BCA8): Use `<-denotational' for U+618E; use `->denotational'.
+	(U+FA3F): Use `<-denotational' for B-BCA8.
+	(G0-5477): Likewise.
+	(U+398C): Use `->subsumptive'.
+	(M-11350): Unify U-000228B9.
+	(U+61D0): Use `->subsumptive'.
+	(U-000228B1): Use `->denotational'.
+	(U-00022928): Use `->subsumptive'.
+	(U-00022929): Likewise.
+	(U+39A4): Likewise.
+
 2005-11-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (C1-5E32): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-original*sources'.
+
+	* Ideograph-R038-Woman.el (U+36B2): Use `->subsumptive'.
+	(U+59BE): Use `->subsumptive'.
 
 	* Ideograph-R066-Rap.el (U-00022F2C): Use `->subsumptive'.
 	(M-13196): Unify U-00022F37 and H4-D67A.
