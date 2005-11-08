@@ -1324,45 +1324,39 @@
     (=cns11643-1	. #x5059)	; &C1-5059; [48-57]
     ))
 (define-char
-  '((=>ucs		. #x5951)	; 契
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=big5		. #xABB4)	; &GT-07464;
-    (=gt		. 07464)	; &I-GT-07464;
-    (=gt-k		. 05057)	; &I-GT-K05057;
-    (=gt-pj-2		. #x6735)	; &I-GT-07464; [71-21]
-    (=daikanwa		. 05917)	; &I-M-05917;
-    (=ucs@big5		. #x5951)	; &GT-07464;
-    ))
-(define-char
-  '((=>ucs		. #x5951)	; 契
-    (morohashi-daikanwa	5917 0 0)
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ks-x1001		. #x4C78)	; &K0-4C78; [44-88]
-    (=jef-china3	. #x48EA)	; &I-JC3-48EA;
-    ))
-(define-char
-  '((=>ucs		. #x5951)	; 契
-    (morohashi-daikanwa	5917 0 1)
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=cns11643-1	. #x5056)	; &C1-5056; [48-54]
-    ))
-(define-char
-  '((morohashi-daikanwa	5917 0 2)
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5951)	; 契
-    (=gb2312		. #x4675)	; &I-G0-4675; [38-85]
     ))
 (define-char
-  '((=>ucs		. #x5951)	; 契
-    (morohashi-daikanwa	5917 0 3)
+  '((<-denotational
+     ((=ucs		  . #x5951)	; 契
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=big5		. #xABB4)	; &B-ABB4;
+    (=ucs@big5		. #x5951)	; &B-ABB4;
+    (->subsumptive
+     ((=gt		  . 07464)	; &GT-07464;
+      (=gt-k		  . 05057)	; &I-GT-K05057;
+      (=gt-pj-2		  . #x6735)	; &GT-07464; [71-21]
+      (=daikanwa	  . 05917)	; &I-M-05917;
+      )
+     ((=ks-x1001	  . #x4C78)	; &K0-4C78; [44-88]
+      (=jef-china3	  . #x48EA)	; &I-JC3-48EA;
+      )
+     ((=cns11643-1	  . #x5056)	; &C1-5056; [48-54]
+      )
+     ((=gb2312		  . #x4675)	; &G0-4675; [38-85]
+      (=ucs@unicode	  . #x5951)	; &G0-4675;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5951)	; 契
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
