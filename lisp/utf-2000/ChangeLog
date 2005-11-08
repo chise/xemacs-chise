@@ -40,6 +40,14 @@
 
 2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el (U+52D8): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R011-Enter.el (U+516A): Use `->denotational' and
+	`->subsumptive'.
+
+2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R040-Roof.el (U+3753): Use `->subsumptive'.
 	(U-000219EA): Use `->subsumptive'.
 	(U+5BA2): Likewise.
