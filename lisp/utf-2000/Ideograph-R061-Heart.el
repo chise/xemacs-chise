@@ -9972,7 +9972,7 @@
     (total-strokes	 . 14)
     (=ucs		. #x613B)	; 愻
     (->subsumptive
-     ((=cns11643-2	  . #x4A39)	; &I-M-11023; [42-25]
+     ((=cns11643-2	  . #x4A39)	; &M-11023; [42-25]
       (=big5		  . #xE1D2)	; &I-B-E1D2;
       (=daikanwa	  . 11023)	; &I-M-11023;
       )
