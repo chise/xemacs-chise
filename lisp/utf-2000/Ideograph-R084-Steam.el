@@ -75,16 +75,16 @@
     (ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x5D66)	; &GT-21850; [61-70]
-      (=ks-x1001	  . #x5128)	; &I-K0-5128; [49-08]
-      (=daikanwa	  . 17059)	; &I-M-17059;
-      ))
     (=ucs		. #x6C17)	; 気
     (=jis-x0208		. #x3524)	; &I-J90-3524; [21-04]
     (=gt		. 21830)	; &I-GT-21830;
     (=gt-k		. 01586)	; &I-GT-K01586;
     (=gt-pj-1		. #x3524)	; &I-GT-21830; [21-04]
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5D66)	; &GT-21850; [61-70]
+      (=ks-x1001	  . #x5128)	; &I-K0-5128; [49-08]
+      (=daikanwa	  . 17059)	; &I-M-17059;
+      ))
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓
