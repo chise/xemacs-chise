@@ -38,6 +38,17 @@
 	(U-00022929): Likewise.
 	(U+39A4): Likewise.
 
+2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+3753): Use `->subsumptive'.
+	(U-000219EA): Use `->subsumptive'.
+	(U+5BA2): Likewise.
+
+2005-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (U+5951): Use `->denotational' and
+	`->subsumptive'.
+
 2005-11-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (C1-5E32): Use `zhengzitong' instead of
