@@ -1,3 +1,16 @@
+2005-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R078-Death.el (U+6B8A): Add S1-3974.
+	(U+6B8B): Add `<-simplified@ucs' for U+6B98.
+	(J0-3B44): Add S1-3972.
+	(G0-3250): Add `<-simplified@CN' for G1-3250.
+	(U+6B98): Add S1-3973.
+
+	* Ideograph-R004-Slash.el (U-000200B1): Use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}@daikanwa'; add
+	`ideographic-radical@cns*sources'.
+
 2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (U+5FDB): Use `->denotational'.
