@@ -43,16 +43,16 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (=ucs		. #x6B7A)	; 歺
+    (=cns11643-3	. #x2253)	; &I-C3-2253; [02-51]
+    (=jis-x0213-2-2000	. #x2F7D)	; &I-JX2-2F7D; [15-93]
+    (=daikanwa		. 16362)	; &I-M-16362;
     (<-same
      ((=ucs		  . #x6B79)	; 歹
       (=daikanwa	  . 16359)	; &I-M-16359;
       ))
     (<-same*sources
      zhengzitong daikanwa)
-    (=ucs		. #x6B7A)	; 歺
-    (=cns11643-3	. #x2253)	; &I-C3-2253; [02-51]
-    (=jis-x0213-2-2000	. #x2F7D)	; &I-JX2-2F7D; [15-93]
-    (=daikanwa		. 16362)	; &I-M-16362;
     ))
 (define-char
   '((<-denotational
@@ -62,10 +62,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2E9E)	; ⺞
     (<-identical@component
      ((=ucs		  . #x6B7A)	; 歺
       ))
-    (=ucs		. #x2E9E)	; ⺞
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
@@ -1157,6 +1157,7 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (shinjigen-1	. 3974)
     (shinjigen-2	. 3974)
     (=ucs		. #x6B8A)	; 殊
     (=jis-x0208		. #x3C6C)	; &I-J90-3C6C; [28-76]
@@ -1171,6 +1172,9 @@
 (define-char
   '((ideographic-radical . 78)	; ⽍
     (=ucs		. #x6B8B)	; 残
+    (<-simplified@ucs
+     ((=ucs		  . #x6B98)	; 殘
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1180,10 +1184,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (->subsumptive
-     ((<-simplified@JP/Jouyou
-       ((=ucs		    . #x6B98)	; 殘
-	(=jis-x0208	    . #x5D4C)	; &I-J90-5D4C; [61-44]
-	))
+     ((shinjigen-1	  . 3972)
       (shinjigen-2	  . 3972)
       (=jis-x0208	  . #x3B44)	; &GT-21090; [27-36]
       (=gt		  . 21090)	; &I-GT-21090;
@@ -1191,6 +1192,10 @@
       (=gt-pj-1		  . #x3B44)	; &I-GT-21090; [27-36]
       (=daikanwa	  . 16459)	; &I-M-16459;
       (=ucs@jis		  . #x6B8B)	; &GT-21090;
+      (<-simplified@JP/Jouyou
+       ((=ucs		    . #x6B98)	; 殘
+	(=jis-x0208	    . #x5D4C)	; &I-J90-5D4C; [61-44]
+	))
       )
      ((=cns11643-3	  . #x316A)	; &C3-316A; [17-74]
       (=ucs@cns		  . #x6B8B)	; &C3-316A;
@@ -1206,6 +1211,10 @@
     (total-strokes	 . 9)
     (=gb2312		. #x3250)	; &G0-3250; [18-48]
     (=ucs@unicode	. #x6B8B)	; &G0-3250;
+    (<-simplified@CN
+     ((=ucs		  . #x6B98)	; 殘
+      (=gb12345		  . #x3250)	; 殘 [18-48]
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 129)	; ⾀
@@ -1938,6 +1947,7 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (shinjigen-1	. 3973)
     (shinjigen-2	. 3973)
     (=ucs		. #x6B98)	; 殘
     (=jis-x0208		. #x5D4C)	; &I-J90-5D4C; [61-44]
