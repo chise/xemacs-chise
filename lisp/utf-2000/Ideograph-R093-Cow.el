@@ -17,14 +17,13 @@
     (=daikanwa		. 19922)	; &I-M-19922;
     ))
 (define-char
-  '((=>daikanwa		. 19923)	; &CDP-8BA9;
-    (ideographic-radical . 93)	; ⽜
+  '((ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-ideographic-component-forms
+    (=ucs		. #x725C)	; 牜
+    (<-formed@component/connect-right
      ((=ucs		  . #x725B)	; 牛
       ))
-    (=ucs		. #x725C)	; 牜
     (->subsumptive
      ((=big5-cdp	  . #x8BA9)	; &CDP-8BA9;
       (=daikanwa	  . 19923)	; &I-M-19923;
@@ -2680,14 +2679,14 @@
     (ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x72A7)	; 犧
-      (=jis-x0208	  . #x603A)	; &I-J90-603A; [64-26]
-      ))
     (=ucs		. #x72A0)	; 犠
     (=jis-x0208		. #x353E)	; &I-J90-353E; [21-30]
     (=gt		. 25890)	; &I-GT-25890;
     (=gt-pj-1		. #x353E)	; &I-GT-25890; [21-30]
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x72A7)	; 犧
+      (=jis-x0208	  . #x603A)	; &I-J90-603A; [64-26]
+      ))
     ))
 (define-char
   '((ideographic-radical . 93)	; ⽜
