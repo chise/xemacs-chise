@@ -1386,11 +1386,12 @@
     (=hanziku-1		. #xABF8)	; &I-HZK01-ABF8;
     ))
 (define-char
-  '((=>daikanwa		. 16744)	; &M-16744;
-    (ideographic-radical@ucs . 4)	; ⼃
+  '((ideographic-radical@ucs . 4)	; ⼃
     (ideographic-strokes@ucs . 7)
-    (ideographic-radical@daikanwa . 81)	; ⽐
-    (ideographic-strokes@daikanwa . 3)
+    (ideographic-radical@cns . 81)	; ⽐
+    (ideographic-strokes@cns . 3)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 8)
     (=ucs		. #x200B1)	; 𠂱
     (->subsumptive
