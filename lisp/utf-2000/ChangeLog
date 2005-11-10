@@ -1,3 +1,18 @@
+2005-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el (GT-K01019): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for J0-4E29.
+	(BC-8BAE): Use `<-simplified@component' instead of `<-simplified'
+	for J0-3E4F.
+	(J0-636D): Add S1-5733.
+
+2005-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el (U+725C): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+725B.
+
 2005-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R078-Death.el (U+6B8A): Add S1-3974.
