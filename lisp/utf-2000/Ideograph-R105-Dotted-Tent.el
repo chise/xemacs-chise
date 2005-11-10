@@ -92,17 +92,17 @@
     (ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=ucs		. #x767A)	; 発
+    (=jis-x0208		. #x482F)	; &I-J90-482F; [40-15]
+    (=gt		. 29048)	; &I-GT-29048;
+    (=gt-k		. 05161)	; &I-GT-K05161;
+    (=gt-pj-1		. #x482F)	; &I-GT-29048; [40-15]
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x6224)	; &GT-29057; [66-04]
       (=ks-x1001	  . #x5B21)	; &I-K0-5B21; [59-01]
       (=cns11643-1	  . #x6075)	; &I-C1-6075; [64-85]
       (=daikanwa	  . 22669)	; &I-M-22669;
       ))
-    (=ucs		. #x767A)	; 発
-    (=jis-x0208		. #x482F)	; &I-J90-482F; [40-15]
-    (=gt		. 29048)	; &I-GT-29048;
-    (=gt-k		. 05161)	; &I-GT-K05161;
-    (=gt-pj-1		. #x482F)	; &I-GT-29048; [40-15]
     ))
 (define-char
   '((ideographic-radical . 105)	; ⽨
