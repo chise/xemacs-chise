@@ -167,6 +167,7 @@
     =jis-x0208@1983
     japanese-jisx0212
     chinese-gb2312
+    =jis-x0208@1990
     chinese-cns11643-1
     chinese-cns11643-2
     chinese-cns11643-3
@@ -174,7 +175,6 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0208@1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
