@@ -2,6 +2,10 @@
 
 	* JX1-to-UCS.txt (JX1-754E): Delete mapping for U-0002F8D8.
 
+2005-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-52AD): Map to U+F929 instead of U-0002F8D8.
+
 2005-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-8DF4): Map to U+65F4 instead of U+65F0.
