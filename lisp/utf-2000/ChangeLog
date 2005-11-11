@@ -1,3 +1,12 @@
+2005-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el (J0-3D22): Separate M-07599.
+
+	* Ideograph-R013-Down-Box.el (U+5193): Use `->denotational'
+	instead of `->subsumptive'.
+
+	* Ideograph-R006-Hook.el (U-00020112): Use `->subsumptive'.
+
 2005-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R117-Stand.el (GT-K01019): Use
@@ -6,6 +15,11 @@
 	(BC-8BAE): Use `<-simplified@component' instead of `<-simplified'
 	for J0-3E4F.
 	(J0-636D): Add S1-5733.
+
+2005-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=jis-x0208@1990' to `chinese-cns11643-1'.
 
 2005-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
