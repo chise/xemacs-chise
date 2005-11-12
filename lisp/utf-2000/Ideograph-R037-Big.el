@@ -1230,20 +1230,17 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 540 7)
     (=ucs		. #x2160F)	; 𡘏
-    (=gt		. 07470)	; &I-GT-07470;
-    (=gt-pj-2		. #x6732)	; &I-GT-07470; [71-18]
-    (=daikanwa		. 05913)	; &I-M-05913;
-    (=hanziku-2		. #xBEF9)	; &I-HZK02-BEF9;
-    ))
-(define-char
-  '((=>ucs		. #x2160F)	; 𡘏
-    (morohashi-daikanwa	5913 0 0)
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=cns11643-5	. #x2862)	; &C5-2862; [08-66]
+    (->subsumptive
+     ((hanyu-dazidian	  1 540 7)
+      (=gt		  . 07470)	; &GT-07470;
+      (=gt-pj-2		  . #x6732)	; &GT-07470; [71-18]
+      (=daikanwa	  . 05913)	; &I-M-05913;
+      (=hanziku-2	  . #xBEF9)	; &I-HZK02-BEF9;
+      (=ucs@iso		  . #x2160F)	; &GT-07470;
+      )
+     ((=cns11643-5	  . #x2862)	; &C5-2862; [08-66]
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -1257,7 +1254,15 @@
     (=daikanwa		. 05914)	; &I-M-05914;
     ))
 (define-char
-  '((=>ucs		. #x594F)	; 奏
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x594F)	; 奏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x594F)	; 奏
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1267,57 +1272,66 @@
     (=daikanwa		. 05915)	; &I-M-05915;
     ))
 (define-char
-  '((=>ucs		. #x594F)	; 奏
-    (morohashi-daikanwa	5915 0 2)
+  '((<-denotational
+     ((=ucs		  . #x594F)	; 奏
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (shinjigen-2	. 1582)
-    (=jis-x0208		. #x4155)	; &GT-07472; [33-53]
-    (=ks-x1001		. #x7134)	; &I-K0-7134; [81-20]
-    (=gt		. 07472)	; &I-GT-07472;
-    (=gt-k		. 05366)	; &I-GT-K05366;
-    (=gt-pj-1		. #x4155)	; &I-GT-07472; [33-53]
-    (=ucs@jis		. #x594F)	; &GT-07472;
+    (->subsumptive
+     ((shinjigen-1	  . 1582)
+      (shinjigen-2	  . 1582)
+      (=jis-x0208	  . #x4155)	; &GT-07472; [33-53]
+      (=ks-x1001	  . #x7134)	; &I-K0-7134; [81-20]
+      (=gt		  . 07472)	; &I-GT-07472;
+      (=gt-k		  . 05366)	; &I-GT-K05366;
+      (=gt-pj-1		  . #x4155)	; &I-GT-07472; [33-53]
+      (=ucs@jis		  . #x594F)	; &GT-07472;
+      )
+     ((=gb2312		  . #x5760)	; &C1-5057; [55-64]
+      (=cns11643-1	  . #x5057)	; &I-C1-5057; [48-55]
+      (=big5		  . #xABB5)	; &I-B-ABB5;
+      (=ucs@unicode	  . #x594F)	; &C1-5057;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	5915 0 3)
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x594F)	; 奏
-    (=gb2312		. #x5760)	; &I-G0-5760; [55-64]
-    (=cns11643-1	. #x5057)	; &I-C1-5057; [48-55]
-    (=big5		. #xABB5)	; &I-B-ABB5;
+    (=ucs		. #x5950)	; 奐
+    (=big5		. #xABB7)	; &I-B-ABB7;
     ))
 (define-char
-  '((=>ucs		. #x5950)	; 奐
+  '((<-denotational
+     ((=ucs		  . #x5950)	; 奐
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (shinjigen-1	. 1576)
     (shinjigen-2	. 1576)
     (=jis-x0208		. #x5476)	; &GT-07458; [52-86]
     (=ks-x1001		. #x7C31)	; &I-K0-7C31; [92-17]
-    (=big5		. #xABB7)	; &I-B-ABB7;
     (=gt		. 07458)	; &I-GT-07458;
     (=gt-k		. 05229)	; &I-GT-K05229;
     (=gt-pj-1		. #x5476)	; &I-GT-07458; [52-86]
     (=daikanwa		. 05916)	; &I-M-05916;
     (=ucs@jis		. #x5950)	; &GT-07458;
-    (=ucs@big5		. #x5950)	; &GT-07458;
     ))
 (define-char
-  '((morohashi-daikanwa	5916 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5950)	; 奐
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (shinjigen-2	. 1576)
-    (=ucs		. #x5950)	; 奐
-    (=gb12345		. #x5B3C)	; 奐 [59-28]
+    (=gb12345		. #x5B3C)	; &UU+5950; [59-28]
+    (=ucs@unicode	. #x5950)	; &UU+5950;
     ))
 (define-char
-  '((=>ucs		. #x5950)	; 奐
-    (morohashi-daikanwa	5916 0 5)
+  '((<-denotational
+     ((=ucs		  . #x5950)	; 奐
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
