@@ -1,5 +1,26 @@
 2005-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R053-Dotted-Cliff.el: Use `->subsumptive' for some
+	characters.
+	(M-09225): Add S1-1810; add `<-ancient' for J0-4270.
+	(M-09317): Unify CB10989; map to U-00022213.
+	(M-09318): Map to U-00022212.
+	(U+5EAC): Use `->denotational' instead of `->subsumptive'; add
+	B-D178.
+	(M-09333): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'; separate S1-879, JSP-3C4A and JX2-2C25.
+	(C2-2E7A): Separate B-D178 and UU+5EAC.
+	(U+3890): Use `->denotational'.
+	(U-0002226D): Use `->denotational' instead of
+	`morohashi-daikanwa'.
+	(M-09424): Map to U-00022275.
+
+	* Ideograph-R037-Big.el (U-0002160F): Use `->subsumptive'.
+	(U+594F): Use `->denotational' and `->subsumptive'.
+	(U+5950): Use `->denotational'.
+
+	* Ideograph-R020-Wrap.el (U-000208F8): Use `->denotational'.
+
 	* Ideograph-R043-Lame.el (J0-3D22): Separate M-07599.
 
 	* Ideograph-R013-Down-Box.el (U+5193): Use `->denotational'
