@@ -28,24 +28,24 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EB9)	; ⺹
     (<-identical@component
      ((=ucs		  . #x8002)	; 耂
       ))
-    (=ucs		. #x2EB9)	; ⺹
     ))
 (define-char
   '((ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-formed@component/connect-below
-     ((=ucs		  . #x8001)	; 老
-      ))
     (=ucs		. #x8002)	; 耂
     (=jis-x0213-2-2000	. #x7522)	; &I-JX2-7522; [85-02]
     (=big5-cdp		. #x8B52)	; &I-CDP-8B52;
     (=gt		. 37304)	; &I-GT-37304;
     (=gt-pj-9		. #x4E52)	; &I-GT-37304; [46-50]
     (=jef-china3	. #x72FC)	; &I-JC3-72FC;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x8001)	; 老
+      ))
     ))
 (define-char
   '((ideographic-radical . 125)	; ⽼
@@ -191,10 +191,6 @@
     (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA5B)	; 者
-      (=jis-x0213-1-2000  . #x7A44)	; &I-JX1-7A44; [90-36]
-      ))
     (shinjigen-1	. 6342)
     (shinjigen-2	. 6342)
     (=jis-x0208		. #x3C54)	; &GT-37308; [28-52]
@@ -205,6 +201,10 @@
     (=gt-pj-1		. #x3C54)	; &I-GT-37308; [28-52]
     (=daikanwa		. 28852)	; &I-M-28852;
     (=ucs@unicode	. #x8005)	; &GT-37308;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA5B)	; 者
+      (=jis-x0213-1-2000  . #x7A44)	; &I-JX1-7A44; [90-36]
+      ))
     ))
 (define-char
   '((<-denotational
