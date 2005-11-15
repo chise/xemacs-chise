@@ -1,3 +1,35 @@
+2005-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+5A73): Use `->subsumptive'.
+	(U+5A74): Add `<-simplified@CN' for U+5B30; delete
+	`morohashi-daikanwa'.
+	(U+5A77): Use `->subsumptive'.
+	(U+5A78): Use `->subsumptive'.
+	(U-0002179C): Use `->denotational'.
+	(U-000218D4): Use `->subsumptive'.
+	(U+5B2F): Use `->subsumptive'.
+	(U+5B30): Use `->subsumptive'.
+	(U-000218CB): Likewise.
+	(U+5B31): Use `->subsumptive'.
+	(U+5B32): Likewise.
+	(U+5B33): Use `->denotational' and `->subsumptive'.
+	(U-000218CC): Likewise.
+
+	* Ideograph-R072-Sun.el (U-0002314D): Copied from
+	Ideograph-R031-Enclosure.el.
+	(U+65F0): Separate JC3-8DF4.
+	(U+65F4): Unify JC3-8DF4.
+	(U+663C): Add `<-simplified@CN' for G1-5667; add
+	`<-simplified@ucs' for U+665D.
+	(U+6667): Use `->denotational'.
+	(U+6681): Use `->subsumptive'.
+
+2005-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (U-00020A87): Use `->subsumptive'.
+	(U-00020A9B): Likewise.
+	(U+3550): Use `->denotational'.
+
 2005-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el: Use `->subsumptive' for some
