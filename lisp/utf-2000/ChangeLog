@@ -1,5 +1,28 @@
 2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el (U+5BB2): Use `->denotational' and
+	`->subsumptive'.
+	(U+5BB3): Use `->denotational' and `->subsumptive'.
+	(U+5BB4): Use `->subsumptive'.
+	(U-00021A05): Use `->subsumptive'.
+	(U+5BB5): Use `->denotational'.
+	(U+5BB6): Use `->subsumptive'.
+	(U+5BB7): Likewise.
+
+	* Ideograph-R018-Knife.el (U+5260): Use `->subsumptive'.
+	(U-00020759): Use `->subsumptive'.
+	(U-0002075A): Use `->subsumptive'.
+	(M-02074): Map to U-0002075C.
+	(U-0002075C): New character; map to M-02074.
+	(M-02075): Map to U-00020751.
+	(U-0002074B): New character; map to M-02075.
+	(U+34F8): Use `->subsumptive'.
+	(U+5280): Use `->denotational' instead of `->subsumptive'.
+	(U+5281): Use `->subsumptive'.
+	(U-000207C4): Use `->subsumptive'.
+	(U+3506): Use `->denotational' and `->subsumptive'.
+	(U+3507): Use `->subsumptive'.
+
 	* Ideograph-R061-Heart.el (U+5FFC): Use `->subsumptive'.
 	(U+390A): Use `->subsumptive'.
 	(U+616E): Use `->subsumptive'.
