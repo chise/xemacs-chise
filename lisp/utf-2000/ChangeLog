@@ -1,3 +1,22 @@
+2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+5FFC): Use `->subsumptive'.
+	(U+390A): Use `->subsumptive'.
+	(U+616E): Use `->subsumptive'.
+	(U-000227EC): Use `->subsumptive'.
+	(U+6170): Use `->subsumptive'.
+	(M-11136): Unify GT-13957.
+	(U-00022820): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-11136.
+	(U+6172): Use `->subsumptive'.
+	(U-000227EE): Use `->denotational' and `->subsumptive'.
+	(U+3983): Use `->denotational' and `->subsumptive'.
+	(U+3984): Use `->denotational' and `->subsumptive'.
+	(U+6174): Use `->denotational' and `->subsumptive'.
+	(U+6175): Use `->subsumptive'.
+	(U+6176): Use `->denotational' and `->subsumptive'.
+	(U+6177): Use `->subsumptive'.
+
 2005-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+5A73): Use `->subsumptive'.
@@ -52,6 +71,8 @@
 	(U+5950): Use `->denotational'.
 
 	* Ideograph-R020-Wrap.el (U-000208F8): Use `->denotational'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3647.
 
 	* Ideograph-R043-Lame.el (J0-3D22): Separate M-07599.
 
