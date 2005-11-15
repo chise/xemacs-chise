@@ -1,5 +1,44 @@
 2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R066-Rap.el (U+655E): Use `->denotational'.
+	(U-00022F5D): Use `->subsumptive'.
+	(U-00022F5E): Use `->subsumptive'.
+	(U+3A96): Use `->denotational'.
+	(U+6566): Use `->subsumptive'.
+	(M-13277): Separate B-D977.
+	(U+6568): Unify B-D977; use `->same' for M-13277; use
+	`->subsumptive'.
+	(U-00022F92): Use `->subsumptive'.
+	(U-00022F93): Likewise.
+	(U-00022F94): Use `->subsumptive'.
+	(U+3A9F): Use `->subsumptive'.
+
+2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (J97-4A7E): Unify U+670B.
+	(J0-4A7E): Move U+670B to J97-4A7E.
+	(U-00023365): Use `->subsumptive' to integrate M-14349.
+	(U-00023366): Use `->subsumptive' to integrate M-14350.
+	(U-0002336C): Use `->subsumptive' to integrate M-14354.
+	(U+3B34): Use `->subsumptive' to integrate M-14355.
+	(U+6712): Use `->subsumptive'.
+	(U-000266B9): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; use
+	`->subsumptive' to integrate M-14357.
+	(U+6713): Use `->subsumptive'.
+	(U+6714): Likewise.
+	(U-0002336E): Use `->subsumptive' to integrate M-14360.
+	(U+6715): Use `->denotational' and `->subsumptive'.
+	(U+3B35): Use `->subsumptive'.
+	(U+6717): Use `->denotational' and `->subsumptive'.
+	(U+6716): Use `->subsumptive'.
+	(U-0002F8D8): Use `->subsumptive'; use `<-denotational' for
+	U+6717.
+	(U+6718): Use `->denotational' instead of `->subsumptive'.
+	(U+6719): Likewise.
+	(U+671A): Use `->subsumptive'.
+	(U+671B): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R040-Roof.el (U+5BB2): Use `->denotational' and
 	`->subsumptive'.
 	(U+5BB3): Use `->denotational' and `->subsumptive'.
