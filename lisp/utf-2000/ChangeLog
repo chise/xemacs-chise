@@ -1,4 +1,47 @@
+2005-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el (BC-8C42): Use
+	`<-simplified@component' instead of
+	`<-ideographic-component-forms' and `<-simplified' for J0-4E49.
+
+	* Ideograph-R070-Square.el (M-13621): Unify BC-8A7E and CB08182.
+	(CB09247): New character.
+	(U-000230D8): Map to M-13623.
+	(U-000230D9): Map to M-13624.
+	(U+65BA): Use `->subsumptive'.
+	(U+65BB): Use `=>daikanwa' instead of `morohashi-daikanwa'; add
+	`<-same' for M-13626; use `->subsumptive'.
+	(U+3AC4): Use `->subsumptive'.
+	(U-000230DD): Map to M-13631; use `->subsumptive'.
+	(U+65BF): Use `->subsumptive'.
+	(U-000230DE): Use `->subsumptive' to integrate M-13633.
+	(U-000230DF): Map to M-13634; use `->denotational' and
+	`->subsumptive'.
+	(M-13635): New character; map to U-000230E2.
+	(U-000230E2): Map to M-13635; add `<-unknown' for M-13635.
+	(U+65C1): Use `->subsumptive'.
+	(U+65C2): Likewise.
+	(U-000230E6): Use `->subsumptive' to integrate M-13639.
+	(U+65C3): Use `->denotational'.
+	(U-000230EF): Use `->subsumptive' to integrate M-13641.
+	(U+65C4): Use `->subsumptive'.
+	(K0-5569): Unify GT-17246 and GT-K06560.
+	(U-000230E8): Use `->subsumptive' to integrate M-13645.
+	(U+3AC5): Use `->subsumptive' to integrate M-13647.
+	(U-000230E9): Use `->subsumptive' to integrate M-13648.
+	(U-000230EA): Use `->denotational' and `->subsumptive'; map to
+	M-13649.
+	(U+65C7): Use `->subsumptive'.
+	(U+65C8): Likewise.
+	(U+65C9): Likewise.
+	(U+65CA): Use `->subsumptive'.
+	(U+65CB): Use `->subsumptive'.
+	(U+3ACA): Use `->subsumptive' to integrate M-13657.
+	(U+65CC): Use `->subsumptive'.
+
 2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-343F.
 
 	* Ideograph-R066-Rap.el (U+655E): Use `->denotational'.
 	(U-00022F5D): Use `->subsumptive'.
@@ -12,6 +55,21 @@
 	(U-00022F93): Likewise.
 	(U-00022F94): Use `->subsumptive'.
 	(U+3A9F): Use `->subsumptive'.
+
+	* Ideograph-R073-Say.el (U+66FD): Add `<-simplified@JP/misc' for
+	J0-413D; delete `morohashi-daikanwa'.
+	(U+66FE): Use `->denotational'.
+	(U+66FF): Use `->subsumptive'.
+	(U+6701): Use `->denotational' and `->subsumptive'.
+	(U-0002333D): Use `->subsumptive'.
+	(C6-5D5B): Map to U-0002F8D5.
+	(U-00023346): Use `->subsumptive'.
+	(U-00023347): Use `->subsumptive'.
+	(U-00023348): Likewise.
+	(U+3B31): Use `->subsumptive'.
+	(U+6706): Use `->denotational'.
+	(U-0002334F): Use `->subsumptive'.
+	(U+3B32): Use `->denotational' and `->subsumptive'.
 
 2005-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -78,6 +136,14 @@
 	(U+6175): Use `->subsumptive'.
 	(U+6176): Use `->denotational' and `->subsumptive'.
 	(U+6177): Use `->subsumptive'.
+
+2005-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (Gt-K01687): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms'.
+	(U+7C8B): Add S1-5902.
+	(J0-646F): Add S1-5903.
 
 2005-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
