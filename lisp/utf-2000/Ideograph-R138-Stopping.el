@@ -40,17 +40,12 @@
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
-     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=daikanwa	  . 30597)	; &I-M-30597;
-      ))
-    (<-simplified
-     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=daikanwa	  . 30597)	; &I-M-30597;
-      ))
     (=big5-cdp		. #x8C42)	; &CDP-8C42;
+    (<-simplified@component
+     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
+      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
+      (=daikanwa	  . 30597)	; &I-M-30597;
+      ))
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
