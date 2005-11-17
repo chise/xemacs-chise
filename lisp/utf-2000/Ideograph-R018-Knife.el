@@ -5153,7 +5153,16 @@
     (=hanziku-1		. #xEDB5)	; &I-HZK01-EDB5;
     ))
 (define-char
-  '((=>ucs		. #x526A)	; 剪
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 347 9)
+    (=ucs		. #x526A)	; 剪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x526A)	; 剪
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
@@ -5176,30 +5185,37 @@
     (=ucs@jis		. #x526A)	; &GT-02704;
     ))
 (define-char
-  '((morohashi-daikanwa	2088 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	1 347 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x524D)	; 前
-      )
-     ((=ucs		  . #x5200)	; 刀
+  '((<-denotational
+     ((=ucs		  . #x526A)	; 剪
       ))
-    (=ucs		. #x526A)	; 剪
-    (=gb2312		. #x3C74)	; &I-G0-3C74; [28-84]
-    (=big5		. #xB0C5)	; &I-B-B0C5;
-    ))
-(define-char
-  '((=>ucs		. #x526A)	; 剪
-    (morohashi-daikanwa	2088 0 2)
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=cns11643-1	. #x592A)	; &C1-592A; [57-10]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x4130)	; &GT-02595; [33-16]
+	(=gb2312	    . #x4730)	; &I-G0-4730; [39-16]
+	(=ks-x1001	    . #x6E71)	; &I-K0-6E71; [78-81]
+	)
+       ((=ucs		    . #x5200)	; 刀
+	))
+      (=gb2312		  . #x3C74)	; &G0-3C74; [28-84]
+      (=big5		  . #xB0C5)	; &I-B-B0C5;
+      (=ucs@unicode	  . #x526A)	; &G0-3C74;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x5029)	; &C1-5029; [48-09]
+	)
+       ((=ucs		    . #x5200)	; 刀
+	))
+      (=cns11643-1	  . #x592A)	; &C1-592A; [57-10]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
