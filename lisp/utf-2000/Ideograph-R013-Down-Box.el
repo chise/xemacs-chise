@@ -1373,7 +1373,10 @@
       (=gt-pj-2		  . #x3D48)	; &GT-02031; [29-40]
       (=daikanwa	  . 01546)	; &I-M-01546;
       (->mistakable
-       ((=daikanwa	    . 13950)	; &I-M-13950;
+       ((=jis-x0208@1978    . #x5A70)	; &M-13950; [58-80]
+	(=jis-x0208@1983    . #x5A70)	; &I-J83-5A70; [58-80]
+	(=ks-x1001	    . #x6079)	; &I-K0-6079; [64-89]
+	(=daikanwa	    . 13950)	; &I-M-13950;
 	))
       (->mistakable*sources
        kangxi daikanwa)
