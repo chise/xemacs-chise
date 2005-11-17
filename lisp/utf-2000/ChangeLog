@@ -1,5 +1,7 @@
 2005-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4337.
+
 	* Ideograph-R012-Eight.el (U-00020510): Use `->subsumptive'.
 	(U-00020511): Use `->subsumptive'; integrate M-01476.
 
