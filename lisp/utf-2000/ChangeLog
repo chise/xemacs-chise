@@ -1,4 +1,21 @@
+2005-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (U-00020510): Use `->subsumptive'.
+	(U-00020511): Use `->subsumptive'; integrate M-01476.
+
+	* Ideograph-R057-Bow.el (GT-12408): Unify U-0002241A and H3-CCAD.
+	(U+5F45): Use `->denotational'.
+
+	* Ideograph-R018-Knife.el (U+526A): Use `->denotational' and
+	`->subsumptive'.
+
 2005-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R048-Work.el (U+5DEE): Use `->denotational'.
+
+	* Ideograph-R014-Cover.el (U+51A2): Use `->subsumptive'.
+	(U+51A5): Use `->subsumptive'.
+	(U-0002058C): Use `->subsumptive'.
 
 	* Ideograph-R138-Stopping.el (BC-8C42): Use
 	`<-simplified@component' instead of
