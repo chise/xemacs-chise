@@ -1,5 +1,44 @@
 2005-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R077-Stop.el (GT-K00439): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+6B62.
+	(BC-8960): Use `<-formed@component' instead of
+	`<-ideographic-component-forms' for U+6B62.
+	(U+9FB0): Use `<-formed@component/connect-above' instead of
+	`<-ideographic-component-forms' for U+6B62.
+	(U-00023942): Use `->subsumptive'.
+	(U+6B63): Add S1-3948.
+	(U+6B65): Use `->subsumptive'.
+	(U-0002394A): Likewise.
+	(U-00023949): Add `morohashi-daikanwa' for M-16283'.
+	(U+6B69): Use `->subsumptive'.
+	(U-00023960): Likewise.
+	(M-16306): Unify U-00023977 and H4-D360.
+	(U-00023979): Unify M-16307.
+	(U+3C55): Use `->denotational' instead of `->subsumptive'.
+	(U+3C56): Use `->subsumptive'.
+	(U-00023985): Likewise.
+	(U-0002398F): Unify M-09684; use `ideographic-radical@ucs' instead
+	of `ideographic-radical'; add `ideographic-strokes@ucs',
+	`ideographic-{radical|strokes}@daikanwa' and `total-strokes'.
+	(U-00023987): Use `->denotational' and `->subsumptive'.
+	(U-00023988): Use `->subsumptive'.
+	(U-00023989): Likewise.
+	(M-16330): Unify U-0002469C.
+	(M-16331): Map to U-0002398C.
+	(M-16333): Unify U-00023990 and H4-D3B7.
+	(M-16334): Unify U-00023991 and H4-D3B9.
+	(U+6B74): Use `->subsumptive'.
+	(U+6B77): Use `->subsumptive'.
+	(U-0002398C): Use `->subsumptive' to integrate M-16331.
+
+	* Ideograph-R066-Rap.el (U-00022F22): Use `->denotational'.
+	(M-13185): Unify U-00022F24 and H4-D5F8.
+	(U+6548): Use `->subsumptive'.
+	(U-00022F2D): Use `=>daikanwa' instead of `morohashi-daikanwa';
+	add `<-unknown' for U-00022F26.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4337.
 
 	* Ideograph-R012-Eight.el (U-00020510): Use `->subsumptive'.
