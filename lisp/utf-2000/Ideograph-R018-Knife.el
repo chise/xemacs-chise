@@ -6652,7 +6652,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5D29)	; &UU+5D29;
+     ((=jis-x0208	  . #x4A78)	; &GT-10360; [42-88]
+      (=gb2312		  . #x3140)	; &I-G0-3140; [17-32]
+      (=ks-x1001	  . #x5D5A)	; &I-K0-5D5A; [61-58]
+      (=cns11643-1	  . #x597D)	; &I-C1-597D; [57-93]
       )
      ((=ucs		  . #x5202)	; 刂
       ))
