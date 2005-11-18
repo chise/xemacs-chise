@@ -578,7 +578,6 @@
     (=gt-pj-1		. #x524B)	; &I-GT-03636; [50-43]
     (=daikanwa		. 02860)	; &I-M-02860;
     (=ucs@jis		. #x5377)	; &GT-03636;
-    (=ucs@big5		. #x5377)	; &GT-03636;
     ))
 (define-char
   '((<-denotational
@@ -679,7 +678,8 @@
     (<-wrong*sources
      shinjigen-1)
     (->mistakable
-     ((=daikanwa	  . 39379)	; &I-M-39379;
+     ((=ucs		  . #x90C4)	; 郄
+      (=daikanwa	  . 39379)	; &I-M-39379;
       ))
     (->mistakable*sources
      zihui daikanwa)
@@ -870,7 +870,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7680)	; &GT-29075;
+       ((=jis-x0208	    . #x6225)	; &GT-29075; [66-05]
+	(=cns11643-3	    . #x2674)	; &I-C3-2674; [06-84]
+	(=daikanwa	    . 22683)	; &I-M-22683;
 	)
        ((=ucs		    . #x5369)	; 卩
 	))
