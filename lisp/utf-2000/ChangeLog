@@ -1,3 +1,24 @@
+2005-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el (U+6BD1): Use `->subsumptive'.
+	(U+6BD2): Use `->denotational'.
+	(U-00023AEF): Use `->denotational'.
+	(M-16732): Unify U-00023AF1 and H6-ECC1.
+	(U-00023AF0): Fix `ideographic-strokes'.
+	(U-00021E46): Use `->denotational'.
+	(M-16735): Unify U-00023AF3 and H6-ECC3.
+	(U-00023AF4): Use `->denotational'.
+	(M-16737): Unify U-00023AF5 and H6-ECE1.
+	(M-16738): Map to U-00023AF6.
+	(U-00023AF9): Use `->denotational'.
+	(U+6BD3): Use `->subsumptive'.
+	(M-16741): Map to U-00023AFB.
+	(U-00023AFA): Use `->denotational' and `->subsumptive'.
+
+2005-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (J0-524B): Delete `=ucs@big5'.
+
 2005-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R077-Stop.el (GT-K00439): Use
