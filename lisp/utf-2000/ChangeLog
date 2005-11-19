@@ -1,5 +1,31 @@
 2005-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R062-Halberd.el (U-000229FE): Use `->subsumptive'.
+	(U-000229FA): Use `->subsumptive'.
+	(U-00022A0A): Likewise.
+	(U-00022A0C): Use `->subsumptive'.
+	(U-00022A0D): Use `->subsumptive'.
+	(U-00022A0E): Use `->subsumptive'.
+	(M-11677): Map to U-00022A0F.
+	(U-00022A13): Use `->denotational'.
+	(U+39BD): Use `->subsumptive'.
+	(U+6232): Likewise.
+	(M-11682): Unify U-00022A16.
+	(M-11683): Map to U-00022A17.
+	(U+6233): Use `->denotational' and `->subsumptive'.
+	(U-00022A19): Use `->subsumptive'.
+	(U-00022A1B): Use `->subsumptive'.
+	(M-11687): Unify U-00022A1C.
+	(M-11688): Map to U-00022A1D.
+	(U-00022A1E): Use `->denotational'.
+
+2005-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5D29): Use `->denotational'.
+	(U+5D52): Add `->mistakable' for U+55A6.  (RUI6-E008): Use J0-3123
+	instead of U+96A0 in `ideographic-structure'.  (U+3825): Use
+	`->subsumptive'.
+
 	* Ideograph-R080-Do-Not.el (U+6BD1): Use `->subsumptive'.
 	(U+6BD2): Use `->denotational'.
 	(U-00023AEF): Use `->denotational'.
