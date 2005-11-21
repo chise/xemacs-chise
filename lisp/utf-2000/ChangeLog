@@ -1,4 +1,76 @@
+2005-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (GT-K02519): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms'.
+	(U+6C97): Use `->denotational'.
+	(U+6C98): Use `->subsumptive'.
+	(U+6C99): Likewise.
+	(U+6CA1): Likewise.
+	(U+6CE0): Likewise.
+	(M-17428): Use `zhengzitong' instead of `zhengzi-tong' in
+	`->vulgar*sources'.
+	(U+6D5D): Use `->denotational' and `->subsumptive'.
+	(U+6D99): Use `->denotational'.
+	(U-00023D69): Use `->subsumptive'.
+	(U-00023D68): Likewise.
+	(U+6DEC): Use `->subsumptive'.
+	(U+6DF7): Likewise.
+	(U+6DF9): Likewise.
+	(U+6DFB): Use `->denotational'.
+	(U+6E08): Use `->subsumptive'.
+	(U+6E09): Likewise.
+	(U+6E13): Delete `morohashi-daikanwa'.
+	(U+6E1F): Use `->subsumptive'.
+	(U+6E20): Use `->subsumptive'.
+	(U+6E26): Use `->denotational'.
+	(U+6E27): Use `->subsumptive'.
+	(U+6EAA): Use `->denotational'.
+	(U+6EDD): Use `->subsumptive'.
+	(U+6EDE): Use `->denotational'; add `<-simplified@ucs' for U+6EEF.
+	(U-0002F914): Moved to parent; use `<-denotational' for U+701E.
+	(J83-4654): Use `<-subsumptive' for U-0002F914.
+	(C4-565D): Separate U-0002F914; use `<-subsumptive' for
+	U-0002F914.
+	(U+6FEB): Use `->denotational'.
+	(U+7016): Simplify hierarchy.
+
 2005-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+60A2): Use `->subsumptive'.
+	(U-00022685): Likewise.
+	(U+60A4): Use `->denotational'.
+	(U+6182): Use `->denotational' and `->subsumptive'.
+	(U+6183): Use `->subsumptive'.
+	(U+6184): Use `->denotational'.
+
+	* Ideograph-R081-Compare.el (U+6BD4): Use `->subsumptive'.
+	(U-000200B1): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}@daikanwa'; add
+	`ideographic-radical@cns*sources'.
+	(U-00023B03): Use `->subsumptive'.
+	(U-00023B02): Likewise.
+	(U-00023B10): Likewise.
+	(U-00023B11): Likewise.
+	(U-00023B12): Likewise.
+	(U-00023B13): Use `->subsumptive'.
+	(U-00023B15): Use `->subsumptive'.
+	(U-00023B14): Use `->subsumptive'.
+	(U+6BDA): Likewise.
+
+	* Ideograph-R079-Weapon.el (U+3C7C): Use `->subsumptive'.
+	(U+3C7D): Use `->subsumptive'.
+	(U-00023A82): Use `->denotational'.
+	(M-16617): Map to U-00023A84.
+	(U-00023A83): Use `->subsumptive'.
+	(U+6BB4): Use `->denotational' and `->subsumptive'.
+	(U+6BB5): Use `->subsumptive'.
+	(U-00023A85): Use `->subsumptive'.
+	(U-00023A86): Likewise.
+	(U+6BB6): Use `->denotational'.
+	(M-16623): Map to U-00023A87.
+	(U-00023A88): Use `->subsumptive'.
+	(U+6BBD): Simplify hierarchy.
 
 	* Ideograph-R062-Halberd.el (U-000229FE): Use `->subsumptive'.
 	(U-000229FA): Use `->subsumptive'.
