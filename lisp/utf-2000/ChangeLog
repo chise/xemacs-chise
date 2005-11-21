@@ -1,3 +1,48 @@
+2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el: Use `->subsumptive' for some character.
+	(U+4F4E): Use `->denotational'.
+	(U+4F4F): Likewise.
+	(U+345A): Use `->denotational' instead of `->subsumptive'.
+	(U-00020266): Complete `ideographic-structure'.
+	(U+5025): Use `->denotational'.
+	(U+5026): Use `->denotational' instead of `->subsumptive'.
+	(U+5030): Likewise.
+	(U+5050): Use `->denotational'.
+	(U+5061): Use `->denotational' instead of `->subsumptive'.
+	(U-000202B3): Complete `ideographic-structure'.
+	(U-000202DC): Use `->denotational' to integrate M-00915.
+	(M-00916): Map to U+48CF; add `ideographic-structure'; add
+	`<-unknown' for U+48CF.
+	(M-00919): Unify U-000202DE and H1-CDB7.
+	(U+507A): Use `->denotational' instead of `->subsumptive'.
+	(U+508B): Use `->denotational'.
+	(U+5094): Likewise.
+	(U+509D): Likewise.
+	(U-00020300): Use `->denotational' instead of `->subsumptive'.
+	(U+50B2): Use `->denotational' and `->subsumptive'.
+	(U-0002032F): Likewise.
+	(U+50C8): Use `->denotational'.
+	(U-0002F80A): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(U+50D0): Use `->denotational' instead of `->subsumptive'.
+	(U+3486): Likewise.
+	(U+50E7): Use `->subsumptive'.
+	(U+3488): Use `->denotational' instead of `->subsumptive'.
+	(U-00020375): Unify M-01121; use `ideographic-strokes@ucs' and
+	`total-strokes@ucs' instead of `ideographic-strokes' and
+	`total-strokes'; add `ideographic-strokes@cns' and
+	`total-strokes@cns'.
+	(U+50EA): Use `->denotational' instead of `->subsumptive'.
+	(U+50ED): Likewise.
+	(U-000203BB): Use `->denotational'.
+	(U-00020409): Use `->denotational' and `->subsumptive'.
+	(U-0002040E): Use `->denotational'.
+	(M-01266): Unify U-00020420 and H1-D6B0.
+	(U+5130): Use `->denotational'.
+	(U-0002043E): Modify `ideographic-structure'.
+	(U+5136): Use `->denotational' instead of `->subsumptive'.
+	(U+34A7): Likewise.
+
 2005-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el (GT-K02519): Use
