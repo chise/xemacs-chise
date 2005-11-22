@@ -1,6 +1,28 @@
 2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R009-Man.el: Use `->subsumptive' for some character.
+	* Ideograph-R066-Rap.el (U+6556): Use `->denotational' and
+	`->subsumptive'.
+	(U-00022F40): Use `->subsumptive'.
+	(U-00022F41): Use `->denotational'.
+	(U-00022F42): Use `->subsumptive'.
+
+	* Ideograph-R053-Dotted-Cliff.el: Use `->subsumptive' for some
+	characters.
+	(U-00022241): Use `->denotational'.
+	(M-09385): Map to U-00022247.
+	(U-0002225A): Use `->denotational'.
+	(M-09390): Map to U-00022257.
+	(M-09391): Map to U-00022251.
+	(M-09392): Map to U-00022253.
+	(U-00022246): Use `->subsumptive'; fix `ideographic-strokes' and
+	`total-strokes'.
+
+	* Ideograph-R050-Turban.el (U+3865): Use `->denotational' instead
+	of `->subsumptive'.
+
+2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el: Use `->subsumptive' for some characters.
 	(U+4F4E): Use `->denotational'.
 	(U+4F4F): Likewise.
 	(U+345A): Use `->denotational' instead of `->subsumptive'.
