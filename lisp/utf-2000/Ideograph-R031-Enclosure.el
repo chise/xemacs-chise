@@ -2444,42 +2444,55 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 720 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ucs		  . #x5E78)	; 幸
-      ))
-    (shinjigen-2	. 1327)
     (=ucs		. #x5709)	; 圉
-    (=jis-x0208		. #x537E)	; &I-J90-537E; [51-94]
-    (=gb2312		. #x6076)	; &I-G0-6076; [64-86]
-    (=cns11643-1	. #x5950)	; &I-C1-5950; [57-48]
-    (=big5		. #xB0EB)	; &I-B-B0EB;
-    (=gt		. 06021)	; &I-GT-06021;
-    (=gt-k		. 07916)	; &I-GT-K07916;
-    (=gt-pj-1		. #x537E)	; &I-GT-06021; [51-94]
-    (=daikanwa		. 04793)	; &I-M-04793;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=jis-x0208	    . #x392C)	; &GT-11561; [25-12]
+	(=ks-x1001	    . #x7A39)	; &I-K0-7A39; [90-25]
+	(=daikanwa	    . 09176)	; &I-M-09176;
+	))
+      (=jis-x0208	  . #x537E)	; &GT-06021; [51-94]
+      (=big5		  . #xB0EB)	; &I-B-B0EB;
+      (=gt		  . 06021)	; &I-GT-06021;
+      (=gt-k		  . 07916)	; &I-GT-K07916;
+      (=gt-pj-1		  . #x537E)	; &I-GT-06021; [51-94]
+      (=daikanwa	  . 04793)	; &I-M-04793;
+      (=ucs@jis		  . #x5709)	; &GT-06021;
+      )
+     ((hanyu-dazidian	  1 720 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=gb2312	    . #x5052)	; &C1-4D31; [48-50]
+	(=cns11643-1	    . #x4D31)	; &I-C1-4D31; [45-17]
+	))
+      (shinjigen-2	  . 1327)
+      (=gb2312		  . #x6076)	; &C1-5950; [64-86]
+      (=cns11643-1	  . #x5950)	; &I-C1-5950; [57-48]
+      (=ucs@unicode	  . #x5709)	; &C1-5950;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x211F5)	; 𡇵
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=daikanwa		. 04794)	; &M-04794;
-    ))
-(define-char
-  '((morohashi-daikanwa	4794 0 0)
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	1 722 1)
     (=ucs		. #x211F5)	; 𡇵
-    (=cns11643-6	. #x3E23)	; &I-C6-3E23; [30-03]
-    (=hanziku-2		. #xE6C3)	; &I-HZK02-E6C3;
+    (->subsumptive
+     ((=daikanwa	  . 04794)	; &M-04794;
+      )
+     ((hanyu-dazidian	  1 722 1)
+      (=cns11643-6	  . #x3E23)	; &HZK02-E6C3; [30-03]
+      (=hanziku-2	  . #xE6C3)	; &I-HZK02-E6C3;
+      (=ucs@iso		  . #x211F5)	; &HZK02-E6C3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
