@@ -1,3 +1,22 @@
+2005-11-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5B90): Use `->denotational'.
+	(U+5B98): Use `->subsumptive'.
+	(U+5B99): Likewise.
+	(U+5B9A): Likewise.
+	(U+5B9B): Likewise.
+	(U+5B9C): Likewise.
+	(U+3752): Likewise.
+
+2005-11-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Use `->subsumptive' for some
+	characters.
+	(U+5A3D): Use `->denotational'.
+
+	* Ideograph-R031-Enclosure.el (U+5709): Use `->subsumptive'.
+	(U-000211F5): Use `->subsumptive'.
+
 2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (U+6556): Use `->denotational' and
