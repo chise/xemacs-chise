@@ -1,3 +1,8 @@
+2005-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=adobe-japan1-[0..6]): New coded-charset for
+	XEmacs CHISE.
+
 2005-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0208@1978/i1): New coded-charset for
