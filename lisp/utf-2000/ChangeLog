@@ -1,3 +1,113 @@
+2005-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+53F0): Add S1-949; add
+	`<-simplified@CN' for G1-4C28, U+6AAF and U+98B1; add
+	`<-simplified@ucs' for U+81FA.
+	(U+53F7): Add S1-939; add `<-simplified@CN' for G1-3A45; add
+	`<-simplified@ucs' for U+865F.
+	(U-00020BD3): Unify M-03351.
+	(U+5434): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+543F): Add `<-denotational' for J97-3970.
+	(J97-3970): New abstract character; unify B-A769.
+	(U+544A): Add `<-denotational' for J97-3970; separate B-A769.
+	(U-00020BD8): Use `->denotational'.
+	(U+3571): Use `->subsumptive'.
+	(U-00020BD9): Use `->subsumptive'.
+	(M-03419): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-wrong*sources'.
+	(U+5467): Use `->denotational' instead of `->subsumptive'.
+	(U+5471): Use `->denotational' and `->subsumptive'.
+	(U+54EA): Use `->denotational' instead of `->subsumptive'.
+	(U-00020CB4): Use `->subsumptive'.
+	(U+5503): Use `->denotational' instead of `->subsumptive'.
+	(U+5519): Use `->subsumptive'.
+	(U+551A): Use `->denotational'.
+	(U-00020CF9): Use `->subsumptive'.
+	(U-00020CEB): Use `->subsumptive'; integrate C6-395E and M-21715;
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; don't use `<-same' for
+	C6-395E.
+	(U-00020CFD): Use `->denotational' and `->subsumptive'.
+	(U-00020D2C): Use `->subsumptive'.
+	(U+5534): Use `->denotational'.
+	(U+5535): Use `->subsumptive'.
+	(U+5537): Likewise.
+	(U+554C): Use `->denotational'.
+	(U+554D): Use `->subsumptive'.
+	(U+35A8): Use `->denotational' and `->subsumptive'.
+	(U+557E): Use `->subsumptive'.
+	(U-00020DD8): Likewise.
+	(U+557F): Use `->denotational'.
+	(U+35B8): Use `->subsumptive'.
+	(M-03897): Unify H2-DAC9; add `<-subsumptive' for U-00020DB9.
+	(U+558B): Use `->subsumptive'.
+	(U+35BC): Likewise.
+	(U+5592): Use `->denotational' instead of `->subsumptive'.
+	(U+35C2): Use `->subsumptive'.
+	(U-00020DC9): Use `->denotational'.
+	(U+5599): Use `->subsumptive'.
+	(U+559A): Use `->denotational' instead of `->subsumptive'.
+	(U+35C8): Use `->subsumptive'.
+	(U+55A6): Add `->mistakable' for U+5D52.
+	(J0-3776): Add S1-1155.
+	(U-00020DCF): Use `->subsumptive'.
+	(U-00020DD5): Likewise.
+	(U-00020048): Use `->denotational'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'; don't use
+	`<-same' for C6-472D.
+	(U-00020E50): Use `->denotational' and `->subsumptive'.
+	(U+35D7): Use `->denotational' instead of `->subsumptive'.
+	(U+55DE): Use `->denotational'.
+	(U+35DC): Use `->subsumptive'.
+	(U+35DA): Likewise.
+	(CB06695): New character; add `<-denotational' for U+55E4.
+	(U-00020E62): Use `->subsumptive'.
+	(U-00020ED5): Likewise.
+	(U+55F7): Modify hierarchy.
+	(U+55F8): Use `->denotational' and `->subsumptive'.
+	(U+5600): Use `->subsumptive'.
+	(U+5602): Likewise.
+	(U+5603): Use `->subsumptive'.
+	(U+5604): Use `->subsumptive'.
+	(U-00020EE0): Likewise.
+	(U+5607): Use `->subsumptive'.
+	(U+35E5): Use `->subsumptive'.
+	(U-00020EE1): Likewise.
+	(U-00020EEB): Likewise.
+	(U-00020EEC): Unify M-04209.
+	(U-00020EED): Use `->subsumptive'.
+	(U+5631): Add S1-1237; add `<-simplified@CN' for C1-7C5D; add
+	`<-simplified@ucs' for U+56D1.
+	(U+35F5): Use `->subsumptive'.
+	(U+5646): Use `->denotational' and `->subsumptive'.
+	(U+5647): Use `->subsumptive'.
+	(U+564A): Use `->denotational' instead of `->subsumptive'.
+	(U+564B): Use `->subsumptive'.
+	(U-00020F7D): Likewise.
+	(G0-6061): Separate JC3-70B8.
+	(J83-4139): Unify JC3-70B8.
+	(U+35F6): Use `->subsumptive'.
+	(U+564D): Likewise.
+	(U-00020F81): Likewise.
+	(U+5657): Likewise.
+	(U+5659): Use `->denotational' and `->subsumptive'.
+	(U+565A): Use `->denotational'.
+	(U+5662): Use `->denotational' and `->subsumptive'.
+	(U-00021099): Use `->denotational' and `->subsumptive'.
+	(U-00021117): Use `->subsumptive'.
+	(U+56B5): Likewise.
+	(U+56B6): Use `->subsumptive'.
+	(U-00021118): Use `->subsumptive'.
+	(U-0002111A): Use `->denotational'.
+	(M-04599): Map to U-00021122.
+	(U-00021159): Use `->subsumptive'.
+	(J0-5376): Add S1-1238.
+	(U-00020DB9): Use `->subsumptive' to integrate M-03897.
+	(U-00021122): Use `->subsumptive' to integrate M-04599.
+
 2005-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U-000200A0): Use `->subsumptive'.
