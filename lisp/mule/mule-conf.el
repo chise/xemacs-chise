@@ -192,6 +192,15 @@
 	      mother =jis-x0208@1978
 	      ;; final ?@
 	      graphic 0))
+  (make-charset
+   '=jis-x0208@1978/i-4
+   "The second and third impressions of JIS X 0208:1978."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+	      ;; final ?@
+	      graphic 0))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
