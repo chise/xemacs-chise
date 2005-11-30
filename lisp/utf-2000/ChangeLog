@@ -1,3 +1,22 @@
+2005-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el: Use `->subsumptive' for some characters.
+	(U+706F): Use `->subsumptive'; add `<-simplified@ucs' for U+71C8.
+	(U+7089): Use `->denotational' and `->subsumptive'; add
+	`<-simplified@ucs' for U+7210.
+	(C6-3248): Move U-0002F91A to parent.
+	(U+70B9): Add `<-simplified@CN' for U+9EDE; add `<-simplified@ucs'
+	for U+9EDE.
+	(U-000241C7): Use `->denotational' and `->subsumptive'.
+	(J90-4079): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for J78-4079.
+	(J90-407A): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for K0-6043.
+	(U+71D6): Use `->denotational' instead of `->subsumptive'.
+	(U+71D7): Add `<-denotational' for J97-5F73.
+	(J97-5F73): New abstract character.
+	(U-000243D0): Add `<-denotational' for J97-5F73.
+
 2005-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+53F0): Add S1-949; add
