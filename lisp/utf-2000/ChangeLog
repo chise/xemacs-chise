@@ -1,3 +1,27 @@
+2005-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el (U-000244EF): Use `->subsumptive';
+	integrate M-19654.
+	(U-000244F1): Unify M-19656.
+	(U-000244F2): Use `->denotational' and `->subsumptive'; integrate
+	M-19657.
+	(M-19658): New character; map to U-000244F3.
+	(U-000244F3): Map to M-19658.
+	(U-000244FD): Use `->denotational'; integrate M-19667.
+	(U-000244FE): Use `->subsumptive'; integrate M-19668.
+	(U+722F): Use `->denotational'.
+	(U+7230): Likewise.
+	(M-19673): New character; map to U-00024500.
+	(U-00024500): Use `->subsumptive'; map to M-19673.
+	(M-19674): New character; map to U-00024501.
+	(U-00024501): Use `->subsumptive'; map to M-19674.
+	(U-00024510): Use `->subsumptive'.
+	(U-00024511): Unify M-19683.
+	(M-19684): New character; map to U-00024512.
+	(U-00024512): Map to M-19684.
+	(U-00024514): Use `->denotational' instead of `->subsumptive'.
+	(U-00024515): Likewise.
+
 2005-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el: Use `->subsumptive' for some characters.
@@ -157,6 +181,9 @@
 	(U-000211F5): Use `->subsumptive'.
 
 2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format each value
+	of `=adobe-*' as a digit value.
 
 	* Ideograph-R066-Rap.el (U+6556): Use `->denotational' and
 	`->subsumptive'.
@@ -405,6 +432,16 @@
 	* Ideograph-R138-Stopping.el (BC-8C42): Use
 	`<-simplified@component' instead of
 	`<-ideographic-component-forms' and `<-simplified' for J0-4E49.
+
+	* Ideograph-R100-Life.el (U+9FB6): Use
+	`<-formed@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+751F.
+	(GT-K00587): Use `<-denotational' for U+9FB6; use
+	`<-formed@component/connect-right' for U+9FB6 instead of
+	`<-ideographic-component-forms' for U+751F and U+9FB6.
+	(U+7522): Use `->subsumptive'; add `<-denotational' for J97-3B3A.
+	(J97-3B3A): New abstract character.
+	(U+7523): Use `->subsumptive'; add `<-denotational' for J97-3B3A.
 
 	* Ideograph-R070-Square.el (M-13621): Unify BC-8A7E and CB08182.
 	(CB09247): New character.
