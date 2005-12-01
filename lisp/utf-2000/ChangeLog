@@ -1,3 +1,9 @@
+2005-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (BC-8DC9): New character; map to
+	U-000206A3; add `<-formed@component' for U-000206A3, U+5200 and
+	U+52FA.
+
 2005-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R087-Claw.el (U-000244EF): Use `->subsumptive';
