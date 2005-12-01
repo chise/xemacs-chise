@@ -1,5 +1,27 @@
 2005-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R101-Use.el (U-000200F0): Use `->subsumptive'; don't
+	use `ideographic-'.
+	(U-00024C07): Use `->denotational' and `->subsumptive'.
+	(U-00020CEB): Copied from Ideograph-R030-Mouth.el.
+	(C6-395E): Use `<-subsumptive' for U-00020CEB; separate M-21715.
+
+	* Ideograph-R099-Sweet.el (U-00024BBC): Use `->subsumptive'.
+	(U+751A): Use `->denotational'.
+	(M-21649): Unify U-00024BC2 and H6-F2F6.
+	(M-21651): Unify U-00024BC4 and H6-F2F7.
+	(M-21653): Unify U-00024BC5 and H6-F2F9.
+
+	* Ideograph-R096-Jade.el (U+73CE): Use `->denotational' instead of
+	`->subsumptive'.
+	(J90-6076): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP'.
+	(U-000249EB): Use `->denotational'.
+	(U+7465): Use `->denotational'.
+	(U+7488): Use `->denotational' instead of `->subsumptive'.
+
+2005-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R018-Knife.el (BC-8DC9): New character; map to
 	U-000206A3; add `<-formed@component' for U-000206A3, U+5200 and
 	U+52FA.
