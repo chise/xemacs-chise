@@ -222,6 +222,20 @@
      daikanwa)
     ))
 (define-char
+  '((=>ucs		. #x206A3)	; 𠚣
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8DC9)	; &CDP-8DC9;
+    (<-formed@component
+     ((=ucs		  . #x206A3)	; 𠚣
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs		  . #x52FA)	; 勺
+      ))
+    ))
+(define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
