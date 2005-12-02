@@ -1,3 +1,13 @@
+2005-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R095-Profound.el (U+7384): Use `->subsumptive'.
+	(U+7385): Likewise.
+	(U+7386): Likewise.
+	(U+7387): Use `->denotational' and `->subsumptive'.
+	(U+7388): Use `->subsumptive'.
+	(U-000248E7): Likewise.
+	(U-000248E8): Likewise.
+
 2005-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R101-Use.el (U-000200F0): Use `->subsumptive'; don't
