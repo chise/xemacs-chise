@@ -1,5 +1,62 @@
 2005-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R102-Field.el (U+3F55): Use `->subsumptive'; integrate
+	M-21733.
+	(U+3540): Use `->subsumptive'.
+	(U+753B): Use `->denotational'.
+	(U+755F): Use `->denotational' instead of `->subsumptive'.
+	(U+7562): Use `->denotational' and `->subsumptive'.
+	(U+3F5F): Unify M-21857.
+	(U+756A): Use `->subsumptive'.
+	(U+7572): Use `->subsumptive'.
+	(U-00024C7C): Unify M-21863.
+	(U+756F): Use `->denotational' instead of `->subsumptive'.
+	(U-00024C83): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-49335.
+	(U-00024C84): Use `->subsumptive'.
+	(U+7574): Use `->subsumptive'.
+
+	* Ideograph-R094-Dog.el: Use `->denotational' and/or
+	`->subsumptive' for some character definitions.
+	(M-20252): Unify U-0002472E and H4-BA6C.
+	(M-20254): Unify U-00024727 and H4-BA4C.
+	(M-20255): Unify U-00024729.
+	(U+72B6): Add S1-4762; add `<-simplified@CN' for K0-5F52; add
+	`<-simplified@ucs' for U+72C0.
+	(J0-603F): Add S1-4767.
+	(M-20398): Unify U-0002478D.
+	(M-20399): Map to U-0002478E.
+	(M-20400): Map to U-00024789; integrate CB06088.
+	(M-20402): Unify U-0002478B and H4-BCB5.
+	(M-20403): Unify CB06343; map to U-0002478C; integrate H4-BCF8.
+	(M-20404): Unify U-0002478A and H4-BC79.
+	(U+72EC): Add `<-simplified@CN' for U+7368; add `<-simplified@ucs'
+	for U+7368.
+	(U+72ED): Add `<-simplified@CN' for U+72F9; add `<-simplified@ucs'
+	for U+72F9.
+	(U+732E): Use `<-simplified@CN' for U+4F57; add `<-simplified@ucs'
+	for U+737B.
+	(M-20712): Unify H4-C1A8; map to U-00024884.
+	(M-20713): Unify U-00024880 and H4-C16C.
+	(U+7376): Use `->denotational' instead of `->subsumptive'.
+	(M-20776): Map to U-000248BC.
+	(M-20781): Map to U-000248C6; integrate H4-C366.
+	(M-20786): Unify U-000248CC and H4-C3A9; add `total-strokes'.
+
+	* Ideograph-R076-Lack.el:
+	- Use `->denotational' and/or `->subsumptive' for some character
+	  definitions.
+	- Add some mappings to Daikanwa numbers.
+	(U+6B27): Use `->denotational'; add `<-simplified@ucs' for U+6B50.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591): Use `->subsumptive'.
+	(M-22009): Unify U-00024D1F, C5-5563, H7-E4CF and CB08514; fix
+	strokes.
+	(U-00024D20): Use `->denotational'.
+	(M-22012): Map to U-00024D22.
+	(M-22013): Map to U-00024D23.
+	(U-00024D24): Use `->subsumptive'.
+
 	* Ideograph-R075-Tree.el:
 	- Use `->denotational' and/or `->subsumptive' for some character
 	  definitions.
