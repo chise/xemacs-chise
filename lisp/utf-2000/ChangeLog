@@ -1,3 +1,36 @@
+2005-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el:
+	- Use `->denotational' and/or `->subsumptive' for some character
+	  definitions.
+	- Add some mappings to Daikanwa numbers.
+	(GT-K02598): Use `<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms'.
+	(U+6802): Add S1-3581.
+	(J90-466A): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP'.
+	(J90-4F31): Likewise.
+	(U+69C5): Use `->denotational' instead of `->subsumptive'.
+	(G0-6933): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP'.
+	(J90-3A67): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP'.
+
+2005-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el (U+727D): Use `->subsumptive'.
+	(U+3E3D): Unify M-20026.
+	(U-0002465E): Use `->subsumptive'; integrate M-20027.
+	(U+3E3E): Use `->subsumptive'; integrate M-20029.
+	(U-00024660): Use `->subsumptive'; integrate M-20031.
+	(U-00024662): Use `->denotational'; integrate M-20034.
+	(U-00024664): Use `->denotational'.
+	(U-0002466B): Use `->subsumptive'.
+	(U+7280): Use `->subsumptive'.
+	(U+7283): Use `->subsumptive'.
+	(U+7289): Use `->subsumptive'.
+	(U-0002468A): Use `->subsumptive'; integrate M-20065.
+
 2005-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R095-Profound.el (U+7384): Use `->subsumptive'.
