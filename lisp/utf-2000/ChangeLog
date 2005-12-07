@@ -88,6 +88,8 @@
 	(U+7289): Use `->subsumptive'.
 	(U-0002468A): Use `->subsumptive'; integrate M-20065.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-492D.
+
 2005-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R095-Profound.el (U+7384): Use `->subsumptive'.
