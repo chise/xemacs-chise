@@ -727,18 +727,18 @@
     (total-strokes	 . 11)
     (=ucs		. #x76D7)	; 盗
     (->subsumptive
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x5D39)	; &GT-29483; [61-25]
-	(=ks-x1001	    . #x5428)	; &I-K0-5428; [52-08]
-	(=daikanwa	    . 23006)	; &I-M-23006;
-	))
-      (shinjigen-2	  . 3915)
+     ((shinjigen-2	  . 3915)
       (=jis-x0208	  . #x4570)	; &GT-29466; [37-80]
       (=gt		  . 29466)	; &I-GT-29466;
       (=gt-k		  . 07845)	; &I-GT-K07845;
       (=gt-pj-1		  . #x4570)	; &I-GT-29466; [37-80]
       (=daikanwa	  . 23000)	; &I-M-23000;
       (=ucs@jis		  . #x76D7)	; &GT-29466;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x5D39)	; &GT-29483; [61-25]
+	(=ks-x1001	    . #x5428)	; &I-K0-5428; [52-08]
+	(=daikanwa	    . 23006)	; &I-M-23006;
+	))
       )
      ((=gb2312		  . #x3541)	; &G0-3541; [21-33]
       (=ucs@unicode	  . #x76D7)	; &G0-3541;
@@ -762,11 +762,6 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (<-simplified
-     ((=daikanwa	  . 23005)	; &M-23005;
-      ))
-    (<-simplified*sources
-     daikanwa)
     (=jis-x0208		. #x4039)	; &GT-29465; [32-25]
     (=gb2312		. #x4A22)	; &I-G0-4A22; [42-02]
     (=ks-x1001		. #x607C)	; &I-K0-607C; [64-92]
@@ -776,6 +771,11 @@
     (=gt-k		. 08006)	; &I-GT-K08006;
     (=gt-pj-1		. #x4039)	; &I-GT-29465; [32-25]
     (=ucs@unicode	. #x76DB)	; &GT-29465;
+    (<-simplified
+     ((=daikanwa	  . 23005)	; &M-23005;
+      ))
+    (<-simplified*sources
+     daikanwa)
     ))
 (define-char
   '((script		CN Simplified Ideograph)
