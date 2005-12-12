@@ -1,5 +1,12 @@
 2005-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R106-White.el (U+7697): Use `->denotational' instead
+	of `->subsumptive'.
+	(U-00024F7A): Use `->denotational'.
+	(U+7698): Use `->denotational' instead of `->subsumptive'.
+
+2005-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R102-Field.el (U+3F55): Use `->subsumptive'; integrate
 	M-21733.
 	(U+3540): Use `->subsumptive'.
