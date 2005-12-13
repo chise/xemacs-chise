@@ -1,3 +1,28 @@
+2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7676): Use `->subsumptive'.
+	(M-22659): Map to U-00024F26; integrate H7-E671.
+	(U+7678): Use `->subsumptive'.
+	(U-00024F2C): Likewise.
+	(M-22666): Unify U-00024F2E and H7-E679.
+	(U+767B): Use `->subsumptive'.
+	(U+767C): Likewise.
+	(U-00024F31): Use `->denotational'.
+	(M-22672): Map to U-00024F33; integrate H7-E6F2.
+	(M-22673): Unify U-00024F34 and H7-E6F3.
+	(M-22674): Unify U-00024F36 and H7-E6F5.
+
+2005-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (BC-8BB2): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'.
+	(U+76F7): Use `->denotational' and `->subsumptive'.
+	(U+7701): Use `->subsumptive'.
+	(U+771E): Likewise.
+	(U+771F): Use `->denotational' and `->subsumptive'.
+	(M-23237): Map to U-0002F947; add `<-original' for J0-6243; add
+	`<-simplified' for J0-6243.
+
 2005-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R106-White.el (U+7697): Use `->denotational' instead
