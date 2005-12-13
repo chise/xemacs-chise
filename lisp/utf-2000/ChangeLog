@@ -1,5 +1,8 @@
 2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R113-Spirit.el (M-24824): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+
 	* Ideograph-R105-Dotted-Tent.el (U+7676): Use `->subsumptive'.
 	(M-22659): Map to U-00024F26; integrate H7-E671.
 	(U+7678): Use `->subsumptive'.
