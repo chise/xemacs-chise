@@ -1,5 +1,33 @@
 2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R111-Arrow.el (GT-K01013): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+77E2.
+	(U-000253A9): Use `->subsumptive'.
+	(U-00020170): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@cns*sources' and
+	`ideographic-{radical|strokes}@ucs'; use `->subsumptive'.
+	(U-000253D9): Use `->denotational'.
+	(U+4094): Use `->subsumptive'.
+	(U-000253DA): Likewise.
+	(M-23994): New character; map to U-000253DF.
+	(U-000253DF): Map to M-23994.
+	(U+77EE): Use `->subsumptive'.
+
+2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JSP-4466): Add `ideographic-structure'.
+	(U+4CB7): Use `->denotational'.
+	(U-00023664): Use `->subsumptive'; integrate M-15460.
+	(U-0002362D): Use `->subsumptive'; integrate M-15462.
+	(U+6A26): Use `->denotational'.
+	(U-0002362E): Use `->denotational'; integrate M-15465.
+	(U-0002362F): Use `->denotational'; integrate M-15466.
+	(U-00023633): Use `->denotational'; integrate M-15471.
+	(U-00023672): Use `->denotational'; integrate M-15477.
+	(U-0002365B): Use `->subsumptive'; integrate M-15482.
+
 	* Ideograph-R113-Spirit.el (M-24824): Use `zhengzitong' instead of
 	`zhengzi-tong' in `<-vulgar*sources'.
 
