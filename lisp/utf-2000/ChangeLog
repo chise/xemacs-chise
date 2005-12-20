@@ -1,4 +1,60 @@
+2005-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (U+42D4): Use `->subsumptive'; integrate
+	M-27393.
+	(J90-6546): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-6546.
+	(U+7DD2): Add `<-denotational' for J97-3D6F.
+	(J97-3D6F): New abstract character.
+	(U+7DD6): Add `<-denotational' for J97-3D6F.
+	(U+430A): Use `->denotational' instead of `->subsumptive'.
+	(J90-3752): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3752.
+	(M-28007): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+
+	* Ideograph-R115-Grain.el (U-0002577C): Unify M-24974.
+	(U-00025780): Use `->subsumptive'; integrate M-24979.
+	(U+79DA): Use `->denotational' instead of `->subsumptive'.
+	(U+4136): Unify M-24984.
+	(U+4173): Use `->subsumptive'; integrate M-25206.
+	(U+7A37): Use `->denotational' instead of `->subsumptive'.
+	(U+7A43): Use `->subsumptive'.
+	(U-00025900): Use `->subsumptive'; integrate M-25376.
+	(U-00025901): Use `->subsumptive'; integrate M-25377.
+	(U+418A): Use `->subsumptive'; integrate M-25378.
+	(U-00025902): Use `->subsumptive'; integrate M-25379.
+	(U+418D): Use `->subsumptive'; integrate M-25382.
+	(U-0002A6BC): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@ucs*sources'; use `->subsumptive'; integrate
+	M-48870.
+
+2005-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el:
+	- Use `->denotational' and/or `->subsumptive' for some character
+	  definitions.
+	- Add some mappings to Daikanwa numbers.
+
+	* Ideograph-R112-Stone.el (U+7809): Use `->denotational'.
+	(U+409A): Use `->subsumptive'; map to M-24057.
+	(U+780A): Use `->subsumptive'.
+	(U+409C): Use `->denotational'; map to M-24060.
+	(U+7812): Use `->subsumptive'.
+	(U+7813): Likewise.
+	(U+409D): Use `->subsumptive'; map to M-24074.
+	(U+7814): Add `<-denotational' for J97-3826; separate B-ACE3.
+	(J97-3826): New abstract character; add B-ACE3.
+	(U+40AE): Use `->subsumptive'.
+	(U+784F): Use `->denotational'; add `<-denotational' for J97-3826.
+	(K0-665A): Delete BC-ACE3.
+
 2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (U+4193): Use `->denotational' instead of
+	`->subsumptive'; integrate M-25430.
 
 	* Ideograph-R111-Arrow.el (GT-K01013): Use
 	`<-formed@component/connect-right' instead of
