@@ -212,11 +212,19 @@
   '((ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
+    (shinjigen-1	. 951)
     (=ucs		. #x4453)	; 䑓
     (=cns11643-3	. #x4424)	; &I-C3-4424; [36-04]
     (=jis-x0213-1-2000	. #x7A59)	; &I-JX1-7A59; [90-57]
     (=daikanwa		. 30158)	; &I-M-30158;
     (=jef-china3	. #x60EA)	; &I-JC3-60EA;
+    (<-vulgar
+     ((shinjigen-1	  . 950)
+      (=ucs		  . #x81FA)	; 臺
+      (=jis-x0208	  . #x674A)	; &I-J90-674A; [71-42]
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -240,6 +248,7 @@
   '((ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
+    (shinjigen-1	. 950)
     (shinjigen-2	. 950)
     (=ucs		. #x81FA)	; 臺
     (=jis-x0208		. #x674A)	; &I-J90-674A; [71-42]
