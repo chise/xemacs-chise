@@ -3,10 +3,6 @@
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6625)	; &GT-36314; [70-05]
-      (=ks-x1001	  . #x4E38)	; &I-K0-4E38; [46-24]
-      ))
     (shinjigen-1	. 6223)
     (shinjigen-2	. 6223)
     (=ucs		. #x7F36)	; 缶
@@ -19,6 +15,10 @@
     (=gt-k		. 01582)	; &I-GT-K01582;
     (=gt-pj-1		. #x344C)	; &I-GT-36221; [20-44]
     (=daikanwa		. 28108)	; &I-M-28108;
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6625)	; &GT-36314; [70-05]
+      (=ks-x1001	  . #x4E38)	; &I-K0-4E38; [46-24]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -28,11 +28,11 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x7F36)	; 缶
-      ))
     (=gt-k		. 01231)	; &GT-K01231;
     (=gt-pj-k1		. #x385C)	; &GT-K01231; [24-60]
+    (<-formed@component
+     ((=ucs		  . #x7F36)	; 缶
+      ))
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -194,12 +194,12 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x4343)	; 䍃
-      ))
     (=gt		. 36228)	; &GT-36228;
     (=gt-k		. 06075)	; &I-GT-K06075;
     (=gt-pj-9		. #x7230)	; &GT-36228; [82-16]
+    (<-formed@component
+     ((=ucs		  . #x4343)	; 䍃
+      ))
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -417,14 +417,14 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (<-original
-     ((=daikanwa	  . 28119)	; &M-28119;
-      ))
-    (<-original*sources
-     zhengzi-tong daikanwa)
     (=ucs		. #x2F972)	; 𦈨
     (->subsumptive
      ((=daikanwa	  . 28139)	; &M-28139;
+      (<-original
+       ((=daikanwa	    . 28119)	; &M-28119;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
       )
      ((=cns11643-6	  . #x4C72)	; &C6-4C72; [44-82]
       (=ucs@iso		  . #x2F972)	; &C6-4C72;
