@@ -1,3 +1,11 @@
+2005-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el (GT-K01231): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'.
+	(GT-36228): Likewise.
+	(M-28139): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+
 2005-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el (U+42D4): Use `->subsumptive'; integrate
@@ -832,6 +840,12 @@
 	`<-ideographic-component-forms'.
 	(U+7C8B): Add S1-5902.
 	(J0-646F): Add S1-5903.
+
+2005-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+4453): Add S1-951; add `<-vulgar'
+	for U+81FA.
+	(U+81FA): Add S1-950.
 
 2005-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
