@@ -1,3 +1,26 @@
+2005-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (J90-416F): Use `<-simplified@JP/misc'
+	instead of `<-simplified@JP'.
+	(J83-6660): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+2005-12-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U-0002666B): Use `->subsumptive'.
+	(U+80C6): Likewise.
+	(U+43DF): Likewise.
+	(U-000266B9): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; use
+	`->subsumptive'.
+	(U+81A4): Use `->denotational'.
+
+	* Ideograph-R123-Sheep.el (<CJK RADICAL SHEEP>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add
+	`ideographic-{radical|strokes}' and `total-strokes'.
+	(U+7F8B): Use `->denotational'.
+	(U+7F8C): Likewise.
+
 2005-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R129-Brush.el (J0-4825): Use `<-simplified@JP/misc'
