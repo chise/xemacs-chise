@@ -573,6 +573,9 @@ void *alloca ();
    if you're working with ASCII files. */
 #undef MULE
 
+/* Define this if you want CONCORD support */
+#undef HAVE_CONCORD
+
 /* Define this if you want CHISE support
    (CHaracter Information Service Environment) */
 #undef HAVE_CHISE
