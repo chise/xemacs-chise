@@ -1589,6 +1589,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_postgresql ();
 #endif
 
+#ifdef HAVE_CONCORD
+      syms_of_concord ();
+#endif
+
       /* Now create the subtypes for the types that have them.
 	 We do this before the vars_*() because more symbols
 	 may get initialized here. */
@@ -2042,6 +2046,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_POSTGRESQL
       vars_of_postgresql();
+#endif
+
+#ifdef HAVE_CONCORD
+      vars_of_concord ();
 #endif
 
 #ifdef HAVE_GPM
