@@ -187,6 +187,8 @@ enum lrecord_type
   lrecord_type_tooltalk_message,
   lrecord_type_tooltalk_pattern,
   lrecord_type_ldap,
+  lrecord_type_concord_ds,
+  lrecord_type_concord_object,
   lrecord_type_pgconn,
   lrecord_type_pgresult,
   lrecord_type_devmode,
