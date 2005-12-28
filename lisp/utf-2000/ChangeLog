@@ -1,3 +1,46 @@
+2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el (M-30307): Use `<-vulgar@zhengzitong'
+	instead of `<-vulgar@zhengzi-tong'.
+
+2005-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (UU+820B): Move B-F4B5 to the parent.
+
+2005-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+41F6): Use `->denotational'; map to
+	M-26038.
+	(U+41F7): Use `->denotational'; map to M-26039.
+	(U+41F8): Use `->denotational'; map to M-26043.
+	(U+7B65): Use `->denotational' instead of `->subsumptive'.
+	(U+41FB): Use `->subsumptive'; map to M-26055.
+	(U-00025B85): Use `->subsumptive'.
+	(U-00025B77): Use `->denotational'.
+	(U+4201): Unify M-26106.
+	(U+7B89): Use `->denotational' instead of `->subsumptive'.
+	(U+7B8B): Use `->subsumptive'.
+	(U+4206): Use `->denotational'; map to M-26125.
+	(U+4208): Use `->subsumptive'; map to M-26131.
+	(U+4209): Use `->subsumptive'; map to M-26137.
+	(J90-6439): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+7BA0): Use `->denotational' instead of `->subsumptive'.
+	(U+420A): Use `->denotational' and `->subsumptive'; map to
+	M-26161.
+	(U+7BA2): Use `->subsumptive'.
+	(U+5284): Use `guangyun' instead of `kouin' in `<-same*sources'.
+	(U-00025BF9): Use `->subsumptive'.
+	(U+4225): Use `->denotational'.
+	(U+4226): Use `->denotational'.
+	(U-00025BFA): Use `->subsumptive'.
+	(U-00025BFD): Use `->subsumptive'.
+	(G0-736C): Separate JC3-5EC2.
+	(J90-433D): Unify JC3-5EC2; use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+7C1F): Use `->denotational' instead of `->subsumptive'.
+	(U+424D): Use `->subsumptive'.
+
 2005-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R128-Ear.el (J90-416F): Use `<-simplified@JP/misc'
