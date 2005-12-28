@@ -17,7 +17,9 @@
       (=daikanwa	  . 30277)	; &I-M-30277;
       (=ucs@unicode	  . #x820C)	; &GT-39171;
       )
-     ((<-original
+     ((shinjigen-1	  . 6629)
+      (=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
+      (<-original
        ((shinjigen-1	    . 6628)
 	(=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
 	(=gb2312	    . #x4960)	; &I-G0-4960; [41-64]
@@ -26,8 +28,6 @@
 	))
       (<-original*sources
        shinjigen-1)
-      (shinjigen-1	  . 6629)
-      (=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
       ))
     ))
 (define-char
@@ -452,21 +452,21 @@
     (total-strokes	 . 13)
     (=ucs		. #x2F98D)	; 辞
     (->subsumptive
-     ((<-vulgar@jiyun
+     ((=daikanwa	  . 30307)	; &M-30307;
+      (<-vulgar@jiyun
        ((=jis-x0212	    . #x6130)	; &M-38649; [65-16]
 	(=jis-x0213-2-2000  . #x7967)	; &I-JX2-7967; [89-71]
 	(=daikanwa	    . 38649)	; &I-M-38649;
 	))
       (<-vulgar@jiyun*sources
        daikanwa)
-      (<-vulgar@zhengzi-tong
+      (<-vulgar@zhengzitong
        ((=jis-x0208	    . #x6D66)	; &GT-51611; [77-70]
 	(=ks-x1001	    . #x5E76)	; &I-K0-5E76; [62-86]
 	(=daikanwa	    . 38671)	; &I-M-38671;
 	))
-      (<-vulgar@zhengzi-tong*sources
+      (<-vulgar@zhengzitong*sources
        daikanwa)
-      (=daikanwa	  . 30307)	; &M-30307;
       (->identical
        ((=jis-x0208	    . #x3C2D)	; &GT-51568; [28-13]
 	(=daikanwa	    . 38638)	; &I-M-38638;
