@@ -1014,15 +1014,22 @@
   '((ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (shinjigen-2	. 68)
     (=ucs		. #x8C6B)	; 豫
-    (=jis-x0208		. #x502E)	; &I-J90-502E; [48-14]
-    (=gb2312		. #x5425)	; &I-G0-5425; [52-05]
-    (=ks-x1001		. #x6763)	; &I-K0-6763; [71-67]
-    (=cns11643-1	. #x7247)	; &I-C1-7247; [82-39]
-    (=gt		. 48859)	; &I-GT-48859;
-    (=gt-pj-1		. #x502E)	; &I-GT-48859; [48-14]
-    (=daikanwa		. 36425)	; &I-M-36425;
+    (->subsumptive
+     ((shinjigen-2	  . 68)
+      (=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
+      (=ks-x1001	  . #x6763)	; &I-K0-6763; [71-67]
+      (=gt		  . 48859)	; &I-GT-48859;
+      (=gt-pj-1		  . #x502E)	; &I-GT-48859; [48-14]
+      (=daikanwa	  . 36425)	; &I-M-36425;
+      (=ucs@jis		  . #x8C6B)	; &GT-48859;
+      )
+     ((=gb2312		  . #x5425)	; &G0-5425; [52-05]
+      (=ucs@unicode	  . #x8C6B)	; &G0-5425;
+      )
+     ((shinjigen-1	  . 68)
+      (=cns11643-1	  . #x7247)	; &C1-7247; [82-39]
+      ))
     ))
 (define-char
   '((ideographic-radical . 152)	; ⾗
