@@ -31,10 +31,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EC6)	; ⻆
     (<-identical@component
      ((=ucs		  . #x89D2)	; 角
       ))
-    (=ucs		. #x2EC6)	; ⻆
     ))
 (define-char
   '((<-denotational
@@ -79,11 +79,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EC7)	; ⻇
     (<-identical@component
      ((=gt		  . 47108)	; &GT-47108;
       (=daikanwa	  . 35005)	; &I-M-35005;
       ))
-    (=ucs		. #x2EC7)	; ⻇
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
@@ -1151,12 +1151,6 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6B3D)	; &GT-47320; [75-29]
-      (=ks-x1001	  . #x753A)	; &I-K0-753A; [85-26]
-      (=cns11643-1	  . #x7A3D)	; &I-C1-7A3D; [90-29]
-      (=daikanwa	  . 35181)	; &I-M-35181;
-      ))
     (shinjigen-2	. 7519)
     (=jis-x0208		. #x3F28)	; &GT-47183; [31-08]
     (=cns11643-2	. #x474A)	; &I-C2-474A; [39-42]
@@ -1165,6 +1159,12 @@
     (=gt-pj-1		. #x3F28)	; &I-GT-47183; [31-08]
     (=daikanwa		. 35070)	; &I-M-35070;
     (=ucs@jis		. #x89E6)	; &GT-47183;
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6B3D)	; &GT-47320; [75-29]
+      (=ks-x1001	  . #x753A)	; &I-K0-753A; [85-26]
+      (=cns11643-1	  . #x7A3D)	; &I-C1-7A3D; [90-29]
+      (=daikanwa	  . 35181)	; &I-M-35181;
+      ))
     ))
 (define-char
   '((<-denotational
