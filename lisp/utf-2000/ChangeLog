@@ -1,4 +1,17 @@
+2005-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R144-Walk-Enclosure.el (J78-3152): Add S1-7331.
+	(U+885E): Add S1-7332.
+
 2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R151-Bean.el (GT-K02620): Use
+	`<-formed@component/connect-right' instead of
+	`<-ideographic-component-forms' for U+8C46.
+
+2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (U+8C6B): Use `->subsumptive'.
 
 	* Ideograph-R137-Boat.el (GT-K00606): Use `<-formed@component'
 	instead of `<-ideographic-component-forms'.
