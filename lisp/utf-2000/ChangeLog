@@ -1,5 +1,26 @@
 2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R137-Boat.el (GT-K00606): Use `<-formed@component'
+	instead of `<-ideographic-component-forms'.
+	(GT-K00607): Likewise.
+	(U-00026A07): Use `->subsumptive'.
+	(U-000200A8): Copied from Ideograph-R004-Slash.el.
+	(M-30352): Add `<-subsumptive' for U-000200A8; unify H1-ABE2.
+	(J90-6764): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-6764.
+
+	* Ideograph-R049-Oneself.el (U-000200AC): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'.
+
+	* Ideograph-R004-Slash.el (U-000200AC): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'; add `ideographic-radical@cns*sources'.
+	(U-000200A8): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@daikanwa'; use `->subsumptive';
+	integrate M-30352.
+
 	* Ideograph-R135-Tongue.el (M-30307): Use `<-vulgar@zhengzitong'
 	instead of `<-vulgar@zhengzi-tong'.
 
