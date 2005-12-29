@@ -128,10 +128,12 @@
     (=daikanwa		. 08748)	; &I-M-08748;
     ))
 (define-char
-  '((ideographic-	(:radical	49 ; ⼰
-			 :strokes	3)
-			(:radical	4 ; ⼃
-			 :strokes	5))
+  '((ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 49)	; ⼰
+    (ideographic-strokes@cns . 3)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 69 21)
     (=ucs		. #x200AC)	; 𠂬
