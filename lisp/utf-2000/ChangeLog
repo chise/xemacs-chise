@@ -1,9 +1,120 @@
 2005-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R146-West.el (<CJK RADICAL WEST ONE>): Use
+	`<-identical@component/connect-below' instead of
+	`<-identical@component'.
+	(U+8987): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R142-Insect.el (U+86EE): Use `->subsumptive'.
+	(U-000272A5): Use `->denotational'.
+	(J90-3F2A): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3F2A.
+	(J90-4768): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4768.
+	(J90-4066): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4066.
+	(U+874B): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4F39.
+	(U+86CE): Use `<-simplified@JP/misc' instead of `<-simplified@JP'
+	for C1-7B24; add `<-simplified@JP/jis' for J90-695A.
+
+	* Ideograph-R140-Grass.el (J90-6769): Use `<-simplified@JP/misc'
+	instead of `<-simplified@JP' for M-30674; add
+	`<-simplified@JP/jis' for J78-6769.
+	(J90-6772): Unify JC3-63A5; use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-30776; add `<-simplified@JP/jis' for
+	J78-6772.
+	(U+8332): Use `->denotational'.
+	(U+8345): Likewise.
+	(C2-3869): Unify JC3-70E6.
+	(J90-683B): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for C2-3869; add `<-simplified@JP/jis' for
+	J78-683B.
+	(U+44C6): Use `->denotational'.
+	(U+8377): Use `->denotational'.
+	(U+83D0): Use `->subsumptive'.
+	(J90-4D69): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for C1-6162; add `<-simplified@JP/jis' for
+	J78-4D69.
+	(M-31322): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-original*sources'.
+	(J90-336B): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-31420; add `<-simplified@JP/jis' for
+	J78-336B.
+	(J90-4B29): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-31720; add `<-simplified@JP/jis' for
+	J78-4B29.
+	(J90-4F21): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-31722; add `<-simplified@JP/jis' for
+	J78-4F21.
+	(J90-3E55): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-31820; add `<-simplified@JP/jis' for
+	J78-3E55.
+	(U+85A8): Use `->denotational' and `->subsumptive'.
+	(U+85AA): Likewise.
+	(U-00026F50): Use `->subsumptive'.
+	(U+85AB): Use `->denotational'.
+	(U+85AC): Use `->denotational'.
+	(U+85AE): Use `<-simplified@JP/misc' instead of `<-simplified@JP'
+	for M-32348; add `<-simplified@JP/jis' for J78-4C79.
+	(M-32190): Map to U-00026F2D; use `->subsumptive'.
+	(K0-6023): Unify J78-3D72.
+	(J90-3D72): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-32191; add `<-simplified@JP/jis' for
+	J78-3D72.
+	(M-32410): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+862D): Use `->denotational' and `->subsumptive'.
+	(M-49656): Don't map to U+4572 and C4-6436.
+	(U+4572): Use `->denotational'.
+
+	* Ideograph-R137-Boat.el (J90-6764): Unify JC3-60FE.
+
+	* Ideograph-R154-Shell.el (U+8CA0): Use `->denotational'.
+	(U+8CAA): Use `->subsumptive'.
+	(U+476F): Use `->subsumptive'; integrate JC3-66A2.
+	(U+8CC1): Add `<-denotational' for J97-6C4C; use `->subsumptive'.
+	(J97-6C4C): New abstract character.
+	(C6-585C): Add `<-denotational' for J97-6C4C.
+	(U+8CCE): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J90-6C4D.
+	(U+8CD4): Use `->subsumptive'.
+	(M-36839): Unify U-00027DA9.
+	(J90-3958): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for GT-49385; move it to the parent.
+	(U+8D08): Use `->denotational'.
+	(U+FA65): Add `<-denotational' for U+8D08; unify JC3-66AF.
+	(C1-7925): Use `<-denotational' for U+8D08; use `=>daikanwa'
+	instead of `morohashi-daikanwa' for M-36929; add `=>ucs@jis' for
+	U+FA65.
+
 	* Ideograph-R144-Walk-Enclosure.el (J78-3152): Add S1-7331.
 	(U+885E): Add S1-7332.
 
 2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (GT-K01762): Use
+	`<-same@component/connect-below' instead of
+	`<-ideographic-component-forms'.
+	(U-00026407): Use `->denotational'.
+	(J90-344D): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-344D.
+	(U+7FFC): Add B-C16C.
+	(U+4397): Use `->denotational' and `->subsumptive'.
+	(U-00026493): Likewise.
+	(U+7FFB): Use `->denotational'.
+	(M-28818): Use `<-denotational' for U+7FFC; add
+	`ideographic-structure'.
+	(K0-6C4F): Likewise; move B-C16C to U+7FFC; use `=>daikanwa'
+	instead of `morohashi-daikanwa' for M-28818.
+
+	* Ideograph-R122-Net.el (U-000262DA): Use `->subsumptive'.
+	(U-000262D9): Separate M-28309; use `->subsumptive'.
+	(U-000262D7): Use `->subsumptive'.
+	(U-000262D8): Likewise.
+	(U+7F72): Add J97-3D70.
+	(M-28313): Add `total-strokes'.
+	(U-000262DE): Use `->denotational' instead of `->subsumptive'.
 
 	* Ideograph-R151-Bean.el (GT-K02620): Use
 	`<-formed@component/connect-right' instead of
