@@ -41,10 +41,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EC4)	; ⻄
     (<-identical@component
      ((=ucs		  . #x897F)	; 西
       ))
-    (=ucs		. #x2EC4)	; ⻄
     ))
 (define-char
   '((<-denotational
@@ -54,19 +54,19 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-identical@component
+    (=ucs		. #x2EC3)	; ⻃
+    (<-identical@component/connect-below
      ((=ucs		  . #x8980)	; 覀
       ))
-    (=ucs		. #x2EC3)	; ⻃
     ))
 (define-char
   '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (=ucs		. #x8980)	; 覀
     (<-formed@component
      ((=ucs		  . #x897F)	; 西
       ))
-    (=ucs		. #x8980)	; 覀
     (->subsumptive
      ((=big5-cdp	  . #x8BD5)	; &CDP-8BD5;
       )
@@ -515,48 +515,50 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x8987)	; 覇
-    (ideographic-radical . 146)	; ⾑
+  '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (=gt		. 46843)	; &GT-46843;
-    (=gt-pj-6		. #x7254)	; &GT-46843; [82-52]
-    (=daikanwa		. 34790)	; &I-M-34790;
-    ))
-(define-char
-  '((=>ucs		. #x8987)	; 覇
-    (morohashi-daikanwa	34790 0 0)
-    (ideographic-radical . 146)	; ⾑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 19)
-    (=cns11643-3	. #x5B2F)	; &GT-46845; [59-15]
-    (=gt		. 46845)	; &I-GT-46845;
-    (=gt-pj-11		. #x3E23)	; &I-GT-46845; [30-03]
-    (=jef-china3	. #x64BB)	; &I-JC3-64BB;
-    ))
-(define-char
-  '((=>ucs		. #x8987)	; 覇
-    (morohashi-daikanwa	34790 0 3)
-    (ideographic-radical . 146)	; ⾑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 19)
-    (=gt		. 46846)	; &GT-46846;
-    (=gt-pj-11		. #x3E44)	; &GT-46846; [30-36]
-    ))
-(define-char
-  '((morohashi-daikanwa	34790 0 4)
-    (ideographic-radical . 146)	; ⾑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 19)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9738)	; 霸
-      (=jis-x0208	  . #x5B31)	; &I-J90-5B31; [59-17]
-      ))
     (=ucs		. #x8987)	; 覇
-    (=jis-x0208		. #x4746)	; &I-J90-4746; [39-38]
-    (=ks-x1001		. #x782E)	; &I-K0-782E; [88-14]
-    (=gt		. 46844)	; &I-GT-46844;
-    (=gt-pj-1		. #x4746)	; &I-GT-46844; [39-38]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8987)	; 覇
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 19)
+    (->subsumptive
+     ((=gt		  . 46843)	; &GT-46843;
+      (=gt-pj-6		  . #x7254)	; &GT-46843; [82-52]
+      (=daikanwa	  . 34790)	; &I-M-34790;
+      )
+     ((=cns11643-3	  . #x5B2F)	; &GT-46845; [59-15]
+      (=gt		  . 46845)	; &I-GT-46845;
+      (=gt-pj-11	  . #x3E23)	; &I-GT-46845; [30-03]
+      (=jef-china3	  . #x64BB)	; &I-JC3-64BB;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8987)	; 覇
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 19)
+    (->subsumptive
+     ((=gt		  . 46846)	; &GT-46846;
+      (=gt-pj-11	  . #x3E44)	; &GT-46846; [30-36]
+      )
+     ((=jis-x0208	  . #x4746)	; &GT-46844; [39-38]
+      (=ks-x1001	  . #x782E)	; &I-K0-782E; [88-14]
+      (=gt		  . 46844)	; &I-GT-46844;
+      (=gt-pj-1		  . #x4746)	; &I-GT-46844; [39-38]
+      (=ucs@unicode	  . #x8987)	; &GT-46844;
+      (<-simplified@JP/Jouyou
+       ((=ucs		    . #x9738)	; 霸
+	(=jis-x0208	    . #x5B31)	; &I-J90-5B31; [59-17]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 146)	; ⾑
