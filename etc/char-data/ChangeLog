@@ -1,3 +1,10 @@
+2005-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JC3-to-UCS.txt (JC3-63AB): Map to U+F936 instead of U+865C.
+	(JC3-63EE): Map to U+FA60 instead of U+8910.
+
+	* JX1-to-UCS.txt (JX1-7B4F): Don't map to U+865C.
+
 2005-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-66AF): Map to U+FA65 instead of U+8D08.
