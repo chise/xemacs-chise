@@ -1,3 +1,38 @@
+2006-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Use `->subsumptive' for character
+	definitions.
+	(U+46E2): Use `->denotational' and `->subsumptive'; integrate
+	M-35524.
+	(U+8B01): Use `->denotational'.
+	(U+8AF8): Use `->subsumptive'; add `<-denotational' for J97-3D74.
+	(J97-3D74): New abstract character.
+	(<CJK COMPATIBILITY IDEOGRAPH-FA22>): Add `<-denotational' for
+	J97-3D74.
+	(U+46FD): Use `->subsumptive'; integrate M-35755.
+	(U+8B00): Use `->subsumptive'.
+	(U+FA62): Use `->subsumptive'; add `<-denotational' for U+8B01;
+	add `=>ucs@jis' for JU+FA62; add `=>ucs@ks' for KU+8B01.
+	(U+8B21): Use `->denotational'.
+	(U+4701): Use `->subsumptive'; integrate M-35774.
+	(U+8B04): Use `->denotational' and `->subsumptive'.
+	(U+8B0A): Use `->denotational' and `->subsumptive'.
+	(U+8B39): Use `->denotational'.
+	(U+4700): Use `->denotational' and `->subsumptive'.
+	(J90-4935): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4935.
+	(U+FA63): Use `->subsumptive'; add `<-denotational' for U+8B39.
+	(U+9FBB): Use `<-identical@component/connect-below' instead of
+	`<-ideographic-component-forms' for U+470C.
+
+2005-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R141-Tiger.el (K0-5249): Move <CJK COMPATIBILITY
+	IDEOGRAPH-F936> to grand mother.
+	(U+4590): Use `->denotational' instead of `->subsumptive'.
+	(U+4591): Likewise.
+	(C4-404F): Move U-0002F9B4 to parent.
+
 2005-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R146-West.el (<CJK RADICAL WEST ONE>): Use
