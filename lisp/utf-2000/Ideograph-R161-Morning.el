@@ -40,14 +40,32 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x8FB1)	; 辱
-    (=jis-x0208		. #x3F2B)	; &I-J90-3F2B; [31-11]
-    (=gb2312		. #x4868)	; &I-G0-4868; [40-72]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8FB1)	; 辱
+      ))
+    (ideographic-radical . 161)	; ⾠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (=jis-x0208		. #x3F2B)	; &GT-51624; [31-11]
     (=ks-x1001		. #x6934)	; &I-K0-6934; [73-20]
-    (=cns11643-1	. #x5849)	; &I-C1-5849; [56-41]
     (=gt		. 51624)	; &I-GT-51624;
     (=gt-k		. 06472)	; &I-GT-K06472;
     (=gt-pj-1		. #x3F2B)	; &I-GT-51624; [31-11]
     (=daikanwa		. 38686)	; &I-M-38686;
+    (=ucs@jis		. #x8FB1)	; &GT-51624;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8FB1)	; 辱
+      ))
+    (ideographic-radical . 161)	; ⾠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (=gb2312		. #x4868)	; &C1-5849; [40-72]
+    (=cns11643-1	. #x5849)	; &I-C1-5849; [56-41]
+    (=ucs@unicode	. #x8FB1)	; &C1-5849;
     ))
 (define-char
   '((ideographic-radical . 161)	; ⾠
