@@ -1,5 +1,41 @@
 2006-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R157-Foot.el (U+8DF1): Use `->denotational'.
+	(U+8DF4): Use `->subsumptive'.
+	(U+8DF5): Use `->denotational'.
+	(U+47F5): Use `->subsumptive'.
+	(U+8E04): Likewise.
+	(U+4808): Likewise.
+	(U+8E22): Likewise.
+
+	* Ideograph-R145-Clothes.el (M-34094): Use `zhengzitong' instead
+	of `zhengzi-tong' in `<-original*sources'.
+	(U+88C5): Use `->subsumptive'.
+	(U-000276DA): Likewise.
+	(U+8910): Use `->denotational' and `->subsumptive'.
+	(U+8911): Use `->denotational'.
+	(U+8912): Use `->subsumptive'.
+	(U+8913): Likewise.
+	(U+8914): Use `->subsumptive'.
+	(U+8944): Use `->subsumptive'.
+	(U+465C): Use `->denotational'.
+	(Parent of J90-3228): Unify JC3-63EF.
+	(J90-3228): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3228.
+
+	* Ideograph-R161-Morning.el (U+8FB1): Use `->denotational'.
+
+	* Ideograph-R160-Bitter.el (GT-K02585): Use
+	`<-formed@component/connect-right' for J0-3F49 instead of
+	`<-ideographic-component-forms' for U+8F9B.
+	(J0-3C2D): Use `<-vulgar@zhengzitong' instead of
+	`<-vulgar@zhengzi-tong' for J0-6D66; use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar@zhengzitong*sources'.
+	(U-00028414): Use `->subsumptive'.
+
+	* Ideograph-R156-Run.el (U+47AC): Use `->subsumptive'.
+	(U-00027EF1): Likewise.
+
 	* Ideograph-R149-Speech.el: Use `->subsumptive' for character
 	definitions.
 	(U+46E2): Use `->denotational' and `->subsumptive'; integrate
