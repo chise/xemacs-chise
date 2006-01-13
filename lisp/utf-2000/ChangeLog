@@ -1,5 +1,11 @@
 2006-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R159-Cart.el (U+484E): Use `->denotational'.
+	(U+8EEE): Use `->subsumptive'.
+	(U+8EEF): Use `->denotational'.
+
+2006-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R157-Foot.el (U+8DF1): Use `->denotational'.
 	(U+8DF4): Use `->subsumptive'.
 	(U+8DF5): Use `->denotational'.
