@@ -1,3 +1,88 @@
+2006-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U-00028485): Use `->denotational'
+	instead of `->subsumptive'.
+	(U-0002848D): Likewise.
+	(U+8FEC): Use `->denotational'.
+	(K0-7277): Unify JC3-67B5.
+	(U+8FEF): Use `->denotational'.
+	(K0-627B): Unify JC3-67B7.
+	(U-0002849A): Use `->denotational'.
+	(U+8FF2): Use `->denotational'.
+	(U-000284C1): Use `->denotational' instead of `->subsumptive'.
+	(U+9008): Use `->denotational'.
+	(U-000284C8): Likewise.
+	(U+9018): Use `->denotational'.
+	(U-000284EC): Use `->denotational' instead of `->subsumptive'.
+	(U+9030): Likewise.
+	(U+9037): Use `->denotational'.
+	(U-00028522): Likewise.
+	(U+9046): Use `->denotational'.
+	(U-0002852F): Use `->denotational' instead of `->subsumptive'.
+	(J90-4D5A): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4D5A.
+	(U+905A): Use `->denotational'.
+	(U+905B): Likewise.
+	(U+905F): Likewise.
+	(U+9063): Use `->denotational'.
+	(U-00028567): Use `->denotational' instead of `->subsumptive'.
+	(U+48A5): Use `->denotational'.
+	(U+9066): Use `->denotational'.
+	(U+48A6): Use `->denotational'.
+	(U+906D): Use `->denotational'.
+	(U-0002858B): Use `->denotational'.
+	(U-0002858C): Use `->denotational' instead of `->subsumptive'.
+	(U-0002858D): Use `->denotational'.
+	(U-0002858F): Use `->denotational' instead of `->subsumptive'.
+	(U-00028590): Use `->denotational'.
+	(U+48A9): Use `->denotational'.
+	(U-000285AE): Use `->denotational' instead of `->subsumptive'.
+	(U-000285B9): Use `->denotational' instead of `->subsumptive'.
+	(U+9079): Use `->denotational'.
+	(U+48AA): Use `->denotational'.
+	(U-000285D2): Use `->denotational'.
+	(U-0002F9E0): Add `<-denotational' for U-000285D2.
+	(U+48AB): Use `->denotational'.
+	(U+48AC): Use `->denotational'.
+	(K0-792D): Unify JC3-67ED.
+	(U+48AE): Use `->denotational' instead of `->subsumptive'.
+	(U+48B0): Use `->denotational'.
+	(U-00028609): Use `->denotational'.
+	(U+9088): Use `->denotational'.
+	(U+908A): Use `->denotational'.
+	(U+908D): Use `->denotational'.
+	(U-00028640): Use `->denotational' instead of `->subsumptive'.
+	(U-00028642): Use `->denotational'.
+	(U+908E): Use `->denotational' instead of `->subsumptive'.
+	(U-00028652): Likewise.
+	(U+908F): Use `->denotational'.
+	(U+9090): Use `->denotational'.
+
+2006-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+48C0): Use `->subsumptive'.
+	(U+90C4): Unify JC3-68A1.
+	(U+90CE): Use `->subsumptive'; add `<-denotational' for J97-4F3A.
+	(J97-4F3A): New abstract character.
+	(U+90DE): Use `->subsumptive'; add `<-denotational' for J97-4F3A.
+	(U+90ED): Use `->subsumptive'.
+	(U+48CF): Unify CB07051.
+	(U+90F7): Add `<-denotational' for J97-363F.
+	(J97-363F): New abstract character.
+	(U+9115): Use `->denotational' instead of `->subsumptive'; add
+	`<-denotational' for B-B66D.
+	(B-B66D): Changed to abstract character; add `<-denotational' for
+	J97-363F.
+	(U+9109): Move B-B66D to parent; add `<-denotational' for B-B66D.
+	(JX1-7C6C): Use `<-denotational' for U+9115.
+
+2006-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R165-Distinguish.el (GT-53949): Use `=>ucs' instead of
+	`<-denotational' for U+91C8.
+	(J0-3C61): Unify U+91C8.
+	(U+91C9): Use `->denotational' instead of `->subsumptive'.
+
 2006-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R159-Cart.el (U+484E): Use `->denotational'.
