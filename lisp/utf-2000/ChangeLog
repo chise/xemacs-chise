@@ -1,5 +1,7 @@
 2006-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3F6C.
+
 	* Ideograph-R162-Walk.el (U-00028485): Use `->denotational'
 	instead of `->subsumptive'.
 	(U-0002848D): Likewise.
