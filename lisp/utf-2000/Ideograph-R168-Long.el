@@ -23,15 +23,21 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2ED1)	; ⻑
     (<-identical@component
      ((=ucs		  . #x9577)	; 長
       ))
-    (=ucs		. #x2ED1)	; ⻑
     ))
 (define-char
   '((ideographic-radical . 168)	; ⾧
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (shinjigen-1	. 8794)
+    (=ucs		. #x9578)	; 镸
+    (=jis-x0212		. #x657D)	; &I-JSP-657D; [69-93]
+    (=cns11643-4	. #x252B)	; &I-C4-252B; [05-11]
+    (=jis-x0213-2-2000	. #x7B52)	; &I-JX2-7B52; [91-50]
+    (=daikanwa		. 41101)	; &I-M-41101;
     (<-formed
      ((shinjigen-1	  . 8793)
       (=ucs		  . #x9577)	; 長
@@ -39,12 +45,6 @@
       ))
     (<-formed*sources
      shinjigen-1)
-    (shinjigen-1	. 8794)
-    (=ucs		. #x9578)	; 镸
-    (=jis-x0212		. #x657D)	; &I-JSP-657D; [69-93]
-    (=cns11643-4	. #x252B)	; &I-C4-252B; [05-11]
-    (=jis-x0213-2-2000	. #x7B52)	; &I-JX2-7B52; [91-50]
-    (=daikanwa		. 41101)	; &I-M-41101;
     ))
 (define-char
   '((<-denotational
@@ -54,13 +54,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2ED2)	; ⻒
     (<-formed@component
      ((=ucs		  . #x9577)	; 長
       ))
     (<-identical@component
      ((=ucs		  . #x9578)	; 镸
       ))
-    (=ucs		. #x2ED2)	; ⻒
     ))
 (define-char
   '((ideographic-radical . 168)	; ⾧
@@ -84,23 +84,23 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2ED3)	; ⻓
     (<-identical@component
      ((=ucs		  . #x957F)	; 长
       ))
-    (=ucs		. #x2ED3)	; ⻓
     ))
 (define-char
   '((ideographic-radical . 168)	; ⾧
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-simplified@CN
-     ((=ucs		  . #x9577)	; 長
-      (=gb12345		  . #x3324)	; 長 [19-04]
-      ))
     (=ucs		. #x957F)	; 长
     (=gb2312		. #x3324)	; &I-G0-3324; [19-04]
     (=big5-cdp		. #x89A5)	; &I-CDP-89A5;
     (=jef-china3	. #x81E1)	; &I-JC3-81E1;
+    (<-simplified@CN
+     ((=ucs		  . #x9577)	; 長
+      (=gb12345		  . #x3324)	; 長 [19-04]
+      ))
     ))
 (define-char
   '((ideographic-radical . 168)	; ⾧
