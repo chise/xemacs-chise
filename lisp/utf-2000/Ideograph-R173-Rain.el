@@ -26,10 +26,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2ED7)	; ⻗
     (<-formed@component/connect-below
      ((=ucs		  . #x96E8)	; 雨
       ))
-    (=ucs		. #x2ED7)	; ⻗
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
@@ -1429,30 +1429,38 @@
     (=ucs		. #x970A)	; 霊
     (->subsumptive
      ((morohashi-daikanwa	42309 1)
-      (<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x704D)	; &GT-57085; [80-45]
-	(=ks-x1001	    . #x5644)	; &I-K0-5644; [54-36]
-	(=daikanwa	    . 42532)	; &I-M-42532;
-	))
       (=jis-x0208	  . #x4E6E)	; &GT-56803; [46-78]
       (=gt		  . 56803)	; &I-GT-56803;
       (=gt-k		  . 11961)	; &I-GT-K11961;
       (=gt-pj-1		  . #x4E6E)	; &I-GT-56803; [46-78]
       (=ucs@unicode	  . #x970A)	; &GT-56803;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x704D)	; &GT-57085; [80-45]
+	(=ks-x1001	    . #x5644)	; &I-K0-5644; [54-36]
+	(=daikanwa	    . 42532)	; &I-M-42532;
+	))
       )
      ((=cns11643-3	  . #x4F60)	; &C3-4F60; [47-64]
       ))
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
-    (ideographic-strokes . 8)
-    (total-strokes	 . 16)
     (=ucs		. #x290D2)	; 𩃒
-    (=daikanwa		. 42310)	; &I-M-42310;
     ))
 (define-char
-  '((=>ucs		. #x290D2)	; 𩃒
-    (morohashi-daikanwa	42310 0 0)
+  '((<-denotational
+     ((=ucs		  . #x290D2)	; 𩃒
+      ))
+    (ideographic-radical . 173)	; ⾬
+    (ideographic-strokes . 8)
+    (total-strokes	 . 16)
+    (=daikanwa		. 42310)	; &M-42310;
+    (=ucs@iso		. #x290D2)	; &M-42310;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x290D2)	; 𩃒
+      ))
     (ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
