@@ -3972,7 +3972,8 @@
     (total-strokes	 . 16)
     (=ucs		. #x7A4E)	; 穎
     (->subsumptive
-     ((shinjigen-2	  . 5659)
+     ((shinjigen-1	  . 5659)
+      (shinjigen-2	  . 5659)
       (=jis-x0208	  . #x314F)	; &GT-32559; [17-47]
       (=ks-x1001	  . #x6744)	; &I-K0-6744; [71-36]
       (=gb12345		  . #x5331)	; &GT-32559; [51-17]
