@@ -313,6 +313,7 @@
 	  ( =ucs@ks	                    	  "KU+" 4 X)
 	  ( =ucs@ks	                    	  "KU-" 8 X)
 	  ( =jis-x0208@1997                      "J97-" 4 X)
+	  ( =jis-x0208@1978/i1                 "J78i1-" 4 X)
 	  ))
 
   (make-coding-system
