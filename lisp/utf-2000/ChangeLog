@@ -1,5 +1,12 @@
 2006-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el (J0-314F): Add S1-5659.
+
+	* Ideograph-R180-Sound.el (U+97FF): Add J97-3641.
+	(U+9800): Use `->denotational' instead of `->subsumptive'.
+
+2006-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R177-Leather.el (J90-3F59): Use `<-simplified@JP/misc'
 	instead of `<-simplified@JP' for J78-7057.
 	(U+4A52): Unify M-42721.
