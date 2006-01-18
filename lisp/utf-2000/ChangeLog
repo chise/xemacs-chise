@@ -1,3 +1,37 @@
+2006-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (J90-3F59): Use `<-simplified@JP/misc'
+	instead of `<-simplified@JP' for J78-7057.
+	(U+4A52): Unify M-42721.
+	(U+9772): Use `->subsumptive'.
+
+	* Ideograph-R170-Mound.el (U+9686): Use `->denotational'.
+	(U+F9DC): Use `->subsumptive'; add `<-denotational' for U+9686.
+	(U+9687): Use `->subsumptive'.
+	(U-00028EF5): Use `->subsumptive'.
+	(J78-3764): Use `zhengzitong' instead of `zhengzi-tong' in
+	`<-vulgar*sources'.
+	(U+96A0): Use `->denotational'.
+	(U+96B1): Use `->denotational'.
+
+2006-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (U+9159): Use `->subsumptive'.
+	(U-00028807): Likewise.
+	(U+9154): Likewise.
+	(U+915A): Use `->subsumptive'.
+	(U+915B): Use `->subsumptive'.
+	(U+48ED): Likewise.
+	(U+48FE): Use `->subsumptive'.
+	(U+9189): Likewise.
+	(U+918A): Use `->subsumptive'.
+	(U+91B8): Use `->subsumptive'.
+	(U-000288E6): Use `->subsumptive'.
+	(U+4913): Use `->denotational' and `->subsumptive'.
+	(U-000288E7): Use `->subsumptive'.
+	(U+4914): Use `->subsumptive'.
+	(U+91B9): Use `->subsumptive'.
+
 2006-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R173-Rain.el (U-000290D2): Use `->denotational'.
