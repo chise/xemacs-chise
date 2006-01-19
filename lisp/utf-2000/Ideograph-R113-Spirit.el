@@ -4816,11 +4816,20 @@
       )
      ((=cns11643-3	  . #x5228)	; &C3-5228; [50-08]
       )
-     ((shinjigen-2	  . 5660)
+     ((shinjigen-1	  . 5660)
+      (shinjigen-2	  . 5660)
       (=jis-x0208	  . #x3150)	; &GT-31942; [17-48]
       (=gt		  . 31942)	; &I-GT-31942;
       (=gt-pj-1		  . #x3150)	; &I-GT-31942; [17-48]
       (=ucs@unicode	  . #x9834)	; &GT-31942;
+      (<-vulgar
+       ((shinjigen-1	    . 5659)
+	(=jis-x0208	    . #x314F)	; &GT-32559; [17-47]
+	(=ks-x1001	    . #x6744)	; &I-K0-6744; [71-36]
+	(=daikanwa	    . 25267)	; &I-M-25267;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
       ))
     ))
 (define-char
