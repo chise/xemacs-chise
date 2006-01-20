@@ -1,3 +1,35 @@
+2006-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R182-Wind.el (U+4AF8): Use `->subsumptive'.
+
+	* Ideograph-R181-Leaf.el (M-24824): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-vulgar*sources'.
+	(J0-3150): Add S1-5660; add `<-vulgar' for J0-314F.
+	(U+4AC3): Use `->subsumptive'.
+	(U-000294AE): Likewise.
+	(U+4AC4): Use `->denotational'.
+	(U+982C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for U+9830.
+	(U+9831): Use `->denotational' instead of `->subsumptive'.
+	(U+985B): Use `->denotational' instead of `->subsumptive'.
+	(U-00029520): Use `->subsumptive'.
+
+2006-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96BA): Use
+	`->subsumptive'.
+	(U+96BB): Use `->subsumptive'.
+	(M-41956): Map to U-00028F8C.
+	(GT-56364): Delete `=>daikanwa' for M-42120.
+	(U-00028F92): Use `->subsumptive'.
+	(U+96D1): Use `->denotational' and `->subsumptive'.
+	(U-00028FBB): Use `->subsumptive'.
+	(U+96DA): Use `->denotational' instead of `->subsumptive'.
+	(JX1-7D63): Move U+FA68 to parent.
+
+	* Ideograph-R113-Spirit.el (J0-3150): Add S1-5660; add `<-vulgar'
+	for J0-314F.
+
 2006-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (J0-314F): Add S1-5659.
