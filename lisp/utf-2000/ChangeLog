@@ -1,3 +1,59 @@
+2006-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el: Use `->subsumptive' for some character
+	definitions.
+	(U-00028CDB): Use `->denotational' instead of `->subsumptive'.
+	(U-00028CDD): Use `->subsumptive'.
+	(U+95BB): Use `->subsumptive'; add `<-denotational' for J97-6F65.
+	(J97-6F65): New abstract character.
+	(J78i1-6F65): New character.
+	(U+95CD): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R167-Gold.el (U+91D2): Use
+	`<-same@component/connect-right' instead of `<-formed@component'
+	for U+91D1.
+	(U+91EE): Use `->subsumptive'.
+	(U+91EF): Use `->subsumptive'.
+	(U+91F0): Use `->denotational'; add `<-denotational' for J97-6E5F.
+	(J97-6E5F): New abstract character.
+	(U+91FC): Use `->subsumptive'; add `<-denotational' for J97-6E5F.
+	(U+922C): Use `<-simplified@JP/jis' for J0-4278 instead of
+	`<-simplified' for U+9438.
+	(U+9242): Use `->subsumptive'.
+	(U+9243): Use `->subsumptive'.
+	(U+9245): Use `->subsumptive'.
+	(U+9247): Likewise.
+	(U+92AD): Use `->subsumptive'.
+	(U+92F3): Use `->subsumptive'.
+	(U+9303): Use `->subsumptive'.
+	(U+9304): Use `->subsumptive'; add `<-denotational' for J97-4F3F.
+	(J97-4F3F): New abstract character.
+	(U+9332): Use `->subsumptive'; add `<-denotational' for J97-4F3F.
+	(U-000289E7): Use `->subsumptive'.
+	(U-000289E8): Use `->subsumptive'.
+	(J90-3B2C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3B2C.
+	(U+932D): Use `->denotational'.
+	(U-00028A89): Use `->subsumptive'.
+	(U+4940): Use `->denotational'.
+	(U+9399): Use `->subsumptive'.
+	(U-00028A8A): Use `->subsumptive'.
+	(J90-444A): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-444A.
+	(U-00028A8B): Use `->denotational'.
+	(U-00028A8C): Use `->subsumptive'.
+	(U+939B): Use `->subsumptive'.
+	(U+4941): Likewise.
+	(U+939C): Likewise.
+	(U+939D): Use `->denotational'.
+	(U+939E): Use `->subsumptive'.
+	(U+4942): Likewise.
+	(U+939F): Use `->subsumptive'.
+	(U+93AD): Use `->denotational'.
+	(U+93AE): Use `->denotational' and `->subsumptive'.
+	(J90-4C7A): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4C7A.
+
 2006-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R182-Wind.el (U+4AF8): Use `->subsumptive'.
