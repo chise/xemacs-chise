@@ -1,5 +1,15 @@
 2006-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R188-Bone.el (U+9AC4): Use `->denotational'.
+
+	* Ideograph-R186-Fragrant.el (U+999A): Use `->subsumptive'.
+	(M-44522): Unify U-0002983D.
+	(M-44523): Map to U-0002983E.
+	(U+999B): Use `->denotational'.
+	(U+999C): Use `->subsumptive'.
+
+2006-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R184-Eat.el (U+98E7): Use `->subsumptive'.
 	(J90-303B): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
 	for J78-303B.
