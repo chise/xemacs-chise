@@ -1,5 +1,16 @@
 2006-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R184-Eat.el (U+98E7): Use `->subsumptive'.
+	(J90-303B): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-303B.
+	(U+4B2E): Use `->denotational' instead of `->subsumptive'.
+	(J90-4C5F): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4C5F.
+	(J90-3142): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP' for M-44146; add `<-simplified@JP/jis' for
+	J78-3142.
+	(U-000296CF): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R169-Gate.el: Use `->subsumptive' for some character
 	definitions.
 	(U-00028CDB): Use `->denotational' instead of `->subsumptive'.
