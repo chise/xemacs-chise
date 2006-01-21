@@ -327,17 +327,17 @@
     (ideographic-radical . 190)	; ⾽
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
+    (=ucs		. #x9AEA)	; 髪
+    (=jis-x0208		. #x4831)	; &I-J90-4831; [40-17]
+    (=cns11643-3	. #x4A72)	; &I-C3-4A72; [42-82]
+    (=gt		. 61080)	; &I-GT-61080;
+    (=gt-pj-1		. #x4831)	; &I-GT-61080; [40-17]
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x717B)	; &GT-61108; [81-91]
       (=ks-x1001	  . #x5B25)	; &I-K0-5B25; [59-05]
       (=cns11643-1	  . #x7021)	; &I-C1-7021; [80-01]
       (=daikanwa	  . 45400)	; &I-M-45400;
       ))
-    (=ucs		. #x9AEA)	; 髪
-    (=jis-x0208		. #x4831)	; &I-J90-4831; [40-17]
-    (=cns11643-3	. #x4A72)	; &I-C3-4A72; [42-82]
-    (=gt		. 61080)	; &I-GT-61080;
-    (=gt-pj-1		. #x4831)	; &I-GT-61080; [40-17]
     ))
 (define-char
   '((ideographic-radical . 190)	; ⾽

@@ -38,15 +38,15 @@
     (total-strokes	 . 11)
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
-     ((<-vulgar
+     ((shinjigen-1	  . 9451)
+      (=daikanwa	  . 45314)	; &M-45314;
+      (<-vulgar
        ((=jis-x0208	    . #x3962)	; &GT-60968; [25-66]
 	(=ks-x1001	    . #x4D54)	; &I-K0-4D54; [45-52]
 	(=daikanwa	    . 45313)	; &I-M-45313;
 	))
       (<-vulgar*sources
        yunhai daikanwa)
-      (shinjigen-1	  . 9451)
-      (=daikanwa	  . 45314)	; &M-45314;
       )
      ((hanyu-dazidian	  7 4594 1)
       (=cns11643-4	  . #x362D)	; &HZK12-B9E2; [22-13]
