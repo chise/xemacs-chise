@@ -1,3 +1,8 @@
+2006-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R197-Salt.el (U+9E78): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for U+9E7C.
+
 2006-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R187-Horse.el (J90-424D): Use `<-simplified@JP/jis'
