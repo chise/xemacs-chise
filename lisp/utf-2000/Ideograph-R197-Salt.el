@@ -530,17 +530,17 @@
     (ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
-    (<-simplified@JP
-     ((=ucs		  . #x9E7C)	; 鹼
-      (=jis-x0208@1978	  . #x3834)	; &I-J78-3834; [24-20]
-      (=jis-x0212	  . #x6C5B)	; &I-JSP-6C5B; [76-59]
-      (=jis-x0213-1-2000  . #x7E6A)	; &I-JX1-7E6A; [94-74]
-      ))
     (=ucs		. #x9E78)	; 鹸
     (=jis-x0208@1983	. #x3834)	; &I-J83-3834; [24-20]
     (=jis-x0208@1990	. #x3834)	; &I-J90-3834; [24-20]
     (=gt		. 64711)	; &I-GT-64711;
     (=gt-pj-1		. #x3834)	; &I-GT-64711; [24-20]
+    (<-simplified@JP/jis
+     ((=ucs		  . #x9E7C)	; 鹼
+      (=jis-x0208@1978	  . #x3834)	; &I-J78-3834; [24-20]
+      (=jis-x0212	  . #x6C5B)	; &I-JSP-6C5B; [76-59]
+      (=jis-x0213-1-2000  . #x7E6A)	; &I-JX1-7E6A; [94-74]
+      ))
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄
