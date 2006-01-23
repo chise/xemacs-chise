@@ -1,3 +1,10 @@
+2006-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (J90-424D): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP'.
+	(U+9A53): Use `->denotational' instead of `->subsumptive'.
+	(U+9A54): Likewise.
+
 2006-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el (U+9AC4): Use `->denotational'.
