@@ -38,20 +38,17 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (<-unknown
-     ((=ucs		  . #x215DB)	; 𡗛
-      ))
     (sources		bos=A016462-00003 bos=A016430-00004
 			bos=A016594-00007)
     (=ruimoku-v6	. #xE006)	; &RUI6-E006;
+    (<-unknown
+     ((=ucs		  . #x215DB)	; 𡗛
+      ))
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-error@abos/2001
-     ((=ruimoku-v6	  . #xE00F)	; &RUI6-E00F;
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -61,6 +58,9 @@
      ((=ucs		  . #x5369)	; 卩
       ))
     (=ruimoku-v6	. #xE007)	; &RUI6-E007;
+    (<-error@abos/2001
+     ((=ruimoku-v6	  . #xE00F)	; &RUI6-E00F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -72,13 +72,24 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs		  . #x96A0)	; 隠
+     ((=jis-x0208	  . #x3123)	; &GT-56168; [17-03]
       ))
     (sources		bos=A015330-00006)
     (=ruimoku-v6	. #xE008)	; &RUI6-E008;
     ))
 (define-char
-  '((sources		bos=A015412-00003)
+  '((ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=jis-x0208	  . #x555F)	; &GT-08869; [53-63]
+      (=daikanwa	  . 07054)	; &I-M-07054;
+      )
+     ((=ucs		  . #x9FB6)	; 龶
+      )
+     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+      ))
+    (sources		bos=A015412-00003)
     (=ruimoku-v6	. #xE009)	; &RUI6-E009;
     ))
 (define-char
@@ -122,12 +133,12 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified
-     ((=ucs		  . #x5C70)	; 屰
-      ))
     (sources		bos=A016219-00020)
     (=big5-cdp		. #x8B75)	; &RUI6-E00E;
     (=ruimoku-v6	. #xE00E)	; &I-RUI6-E00E;
+    (<-simplified
+     ((=ucs		  . #x5C70)	; 屰
+      ))
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
