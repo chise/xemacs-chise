@@ -9,13 +9,6 @@
     (ideographic-radical@cns*sources
      shinjigen-1 cns11643 gt)
     (total-strokes	 . 11)
-    (<-vulgar
-     ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
-      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
-      (=daikanwa	  . 48847)	; &I-M-48847;
-      ))
-    (<-vulgar*sources
-     daikanwa)
     (hanyu-dazidian	8 10 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -37,6 +30,13 @@
     (=gt-pj-1		. #x3535)	; &I-GT-66701; [21-21]
     (=daikanwa		. 00210)	; &I-M-00210;
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
+    (<-vulgar
+     ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
+      (=daikanwa	  . 48847)	; &I-M-48847;
+      ))
+    (<-vulgar*sources
+     daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -46,10 +46,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EF2)	; ⻲
     (<-identical@component
      ((=ucs		  . #x4E80)	; 亀
       ))
-    (=ucs		. #x2EF2)	; ⻲
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
@@ -88,10 +88,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EF1)	; ⻱
     (<-identical@component
      ((=ucs		  . #x9F9C)	; 龜
       ))
-    (=ucs		. #x2EF1)	; ⻱
     ))
 (define-char
   '((<-denotational
@@ -110,6 +110,9 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
+    (shinjigen-1	. 9919)
+    (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
+    (=daikanwa		. 48848)	; &I-M-48848;
     (<-original
      ((shinjigen-1	  . 9918)
       (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
@@ -118,10 +121,7 @@
       (=daikanwa	  . 48847)	; &I-M-48847;
       ))
     (<-original*sources
-     zhengzi-tong daikanwa shinjigen-1)
-    (shinjigen-1	. 9919)
-    (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
-    (=daikanwa		. 48848)	; &I-M-48848;
+     zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
@@ -138,6 +138,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EF3)	; ⻳
     (<-compat
      ((=ucs		  . #x9F9F)	; 龟
       ))
@@ -151,17 +152,16 @@
     (<-simplified@CN/component
      ((=ucs		  . #x9F9C)	; 龜
       ))
-    (=ucs		. #x2EF3)	; ⻳
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (=ucs		. #x9F9F)	; 龟
+    (=gb2312		. #x396A)	; &I-G0-396A; [25-74]
     (<-simplified@CN
      ((=gb12345		  . #x396A)	; &UU+9F9C; [25-74]
       ))
-    (=ucs		. #x9F9F)	; 龟
-    (=gb2312		. #x396A)	; &I-G0-396A; [25-74]
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
@@ -398,7 +398,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 21)
     (->subsumptive
-     ((<-ancient
+     ((=jis-x0208@1978	  . #x6354)	; &M-48869; [67-52]
+      (=daikanwa	  . 48869)	; &I-M-48869;
+      (<-ancient
        ((=jis-x0208	    . #x3D29)	; &GT-32182; [29-09]
 	(=gb2312	    . #x476F)	; &I-G0-476F; [39-79]
 	(=ks-x1001	    . #x7555)	; &I-K0-7555; [85-53]
@@ -406,8 +408,6 @@
 	))
       (<-ancient*sources
        zihui daikanwa)
-      (=jis-x0208@1978	  . #x6354)	; &M-48869; [67-52]
-      (=daikanwa	  . 48869)	; &I-M-48869;
       )
      ((=jis-x0208@1983	  . #x6354)	; &GT-32753; [67-52]
       (=jis-x0208@1990	  . #x6354)	; &I-J90-6354; [67-52]
@@ -424,6 +424,29 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 20)
     (=ucs@unicode	. #x9F9D)	; &UU+9F9D;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 213)	; ⿔
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 115)	; ⽲
+    (ideographic-strokes@cns . 16)
+    (total-strokes	 . 21)
+    (=ucs		. #x2A6BC)	; 𪚼
+    (->subsumptive
+     ((ideographic-radical . 213)	; ⿔
+      (ideographic-strokes . 5)
+      (=daikanwa	  . 48870)	; &M-48870;
+      )
+     ((ideographic-radical . 115)	; ⽲
+      (ideographic-strokes . 16)
+      (=cns11643-7	  . #x542A)	; &C7-542A; [52-10]
+      )
+     ((ideographic-radical . 213)	; ⿔
+      (ideographic-strokes . 5)
+      (=ucs@iso		  . #x2A6BC)	; &U-0002A6BC;
+      ))
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
