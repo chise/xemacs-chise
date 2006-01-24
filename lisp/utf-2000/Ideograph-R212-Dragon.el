@@ -31,21 +31,21 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EF0)	; ⻰
     (<-identical@component
      ((=ucs		  . #x9F99)	; 龙
       ))
-    (=ucs		. #x2EF0)	; ⻰
     ))
 (define-char
   '((ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-simplified@CN
-     ((=gb12345		  . #x417A)	; &UU+9F8D; [33-90]
-      ))
     (=ucs		. #x9F99)	; 龙
     (=gb2312		. #x417A)	; &I-G0-417A; [33-90]
     (=jef-china3	. #x82AD)	; &I-JC3-82AD;
+    (<-simplified@CN
+     ((=gb12345		  . #x417A)	; &UU+9F8D; [33-90]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -388,6 +388,9 @@
   '((ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 17)
     (total-strokes	 . 33)
+    (sound@ja/kun	"okami")
+    (sound@ja/on	"ryou")
+    (sound@ja/on/name	"(n)ou")
     (=ucs		. #x9F97)	; 龗
     (->subsumptive
      ((=jis-x0212	  . #x6D5E)	; &M-48844; [77-62]
