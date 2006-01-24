@@ -1,5 +1,32 @@
 2006-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ruimoku6.el (RUI6-E009): Add `ideographic-structure'.
+
+2006-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (C7-2C3A): Use `zhengzitong' instead of
+	`zhengzi-tong' in `<-original*sources'.
+	(U-0002A6BC): Copied from Ideograph-R115-Grain.el.
+
+	* Ideograph-R205-Frog.el (U-0002FA18): Use `zhengzitong' instead
+	of `zhengzi-tong' in `<-vulgar*sources'.
+
+	* Ideograph-R212-Dragon.el (U+9F97): Add
+	`sound@ja/{kun|on|on/name}'.
+
+	* Ideograph-R196-Bird.el (U+9D2C): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-3229.
+	(U+9D8E): Use `->subsumptive'.
+	(J90-7337): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J0-7336.
+	(U+9DD7): Use `->denotational' instead of `->subsumptive'.
+	(U+4CFC): Likewise.
+
+	* Ideograph-R195-Fish.el (U+9BF5): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-3033.
+	(U+9C3B): Use `->denotational'.
+	(U+9C3C): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R197-Salt.el (U+9E78): Use `<-simplified@JP/jis'
 	instead of `<-simplified@JP' for U+9E7C.
 
