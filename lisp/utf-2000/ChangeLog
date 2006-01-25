@@ -1,5 +1,13 @@
 2006-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (U+9F60): Use `->denotational' and
+	`->subsumptive'.
+	(GT-66395): Use `<-denotational' for U+9F60; fix `total-strokes';
+	add `<-simplified@JP/misc' for GT-66454.
+	(U+9F61): Use `->subsumptive'.
+	(U+9F62): Use `->subsumptive'.
+	(U-0002A5F2): Use `->subsumptive'.
+
 	* Ideograph-R061-Heart.el (U+61B2): Use `->denotational' and
 	`->subsumptive'.
 
