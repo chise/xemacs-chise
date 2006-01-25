@@ -886,10 +886,6 @@
      ((name		  . "LATIN CAPITAL LETTER K WITH ACUTE")
       (=ucs		  . #x1E30)	; Ḱ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER K WITH ACUTE")
-      (=ucs		  . #x1E30)	; Ḱ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER K")
       (=ucs		  . #xFF2B)	; Ｋ
@@ -898,6 +894,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85DC)	; &JC3-85DC;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER K WITH ACUTE")
+      (=ucs		  . #x1E30)	; Ḱ
+      ))
     (->lowercase
      ((=jef-china3	  . #x85F2)	; &JC3-85F2;
       ))
@@ -925,10 +925,6 @@
      ((name		  . "LATIN SMALL LETTER K WITH ACUTE")
       (=ucs		  . #x1E31)	; ḱ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER K WITH ACUTE")
-      (=ucs		  . #x1E31)	; ḱ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN SMALL LETTER K")
       (=ucs		  . #xFF4B)	; ｋ
@@ -937,6 +933,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85F2)	; &JC3-85F2;
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER K WITH ACUTE")
+      (=ucs		  . #x1E31)	; ḱ
+      ))
     (->uppercase
      ((=jef-china3	  . #x85DC)	; &JC3-85DC;
       ))
@@ -1180,10 +1180,6 @@
      ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
       (=ucs		  . #x1E3E)	; Ḿ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
-      (=ucs		  . #x1E3E)	; Ḿ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER M")
       (=ucs		  . #xFF2D)	; Ｍ
@@ -1194,6 +1190,10 @@
     (=jis-x0213-1-2000	. #x2872)	; &JX1-2872; [08-82]
     (=jef-china3	. #x85DE)	; &I-JC3-85DE;
     (=ucs@jis/fw	. #x1E3E)	; &JX1-2872;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
+      (=ucs		  . #x1E3E)	; Ḿ
+      ))
     (->lowercase
      ((=jis-x0213-1-2000  . #x2873)	; &JX1-2873; [08-83]
       ))
@@ -1221,10 +1221,6 @@
      ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
       (=ucs		  . #x1E3F)	; ḿ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
-      (=ucs		  . #x1E3F)	; ḿ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN SMALL LETTER M")
       (=ucs		  . #xFF4D)	; ｍ
@@ -1235,6 +1231,10 @@
     (=jis-x0213-1-2000	. #x2873)	; &JX1-2873; [08-83]
     (=jef-china3	. #x85F4)	; &I-JC3-85F4;
     (=ucs@jis/fw	. #x1E3F)	; &JX1-2873;
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
+      (=ucs		  . #x1E3F)	; ḿ
+      ))
     (->uppercase
      ((=jis-x0213-1-2000  . #x2872)	; &JX1-2872; [08-82]
       ))
@@ -1622,10 +1622,6 @@
      ((name		  . "LATIN CAPITAL LETTER P WITH ACUTE")
       (=ucs		  . #x1E54)	; Ṕ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER P WITH ACUTE")
-      (=ucs		  . #x1E54)	; Ṕ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER P")
       (=ucs		  . #xFF30)	; Ｐ
@@ -1634,6 +1630,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85E1)	; &JC3-85E1;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER P WITH ACUTE")
+      (=ucs		  . #x1E54)	; Ṕ
+      ))
     (->lowercase
      ((=jef-china3	  . #x85F7)	; &JC3-85F7;
       ))
@@ -1661,10 +1661,6 @@
      ((name		  . "LATIN SMALL LETTER P WITH ACUTE")
       (=ucs		  . #x1E55)	; ṕ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER P WITH ACUTE")
-      (=ucs		  . #x1E55)	; ṕ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN SMALL LETTER P")
       (=ucs		  . #xFF50)	; ｐ
@@ -1673,6 +1669,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85F7)	; &JC3-85F7;
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER P WITH ACUTE")
+      (=ucs		  . #x1E55)	; ṕ
+      ))
     (->uppercase
      ((=jef-china3	  . #x85E1)	; &JC3-85E1;
       ))
@@ -1916,10 +1916,6 @@
      ((name		  . "LATIN CAPITAL LETTER S WITH DOT BELOW")
       (=ucs		  . #x1E62)	; Ṣ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER S WITH DOT BELOW")
-      (=ucs		  . #x1E62)	; Ṣ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER S")
       (=ucs		  . #xFF33)	; Ｓ
@@ -1928,6 +1924,10 @@
       (=ucs		  . #x0323)	; ̣
       ))
     (=jef-china3	. #x8AC2)	; &JC3-8AC2;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER S WITH DOT BELOW")
+      (=ucs		  . #x1E62)	; Ṣ
+      ))
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S WITH DOT BELOW")
@@ -2510,10 +2510,6 @@
      ((name		  . "LATIN CAPITAL LETTER W WITH ACUTE")
       (=ucs		  . #x1E82)	; Ẃ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER W WITH ACUTE")
-      (=ucs		  . #x1E82)	; Ẃ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER W")
       (=ucs		  . #xFF37)	; Ｗ
@@ -2522,6 +2518,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85E8)	; &JC3-85E8;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER W WITH ACUTE")
+      (=ucs		  . #x1E82)	; Ẃ
+      ))
     (->lowercase
      ((=jef-china3	  . #x85FE)	; &JC3-85FE;
       ))
@@ -2549,10 +2549,6 @@
      ((name		  . "LATIN SMALL LETTER W WITH ACUTE")
       (=ucs		  . #x1E83)	; ẃ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER W WITH ACUTE")
-      (=ucs		  . #x1E83)	; ẃ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN SMALL LETTER W")
       (=ucs		  . #xFF57)	; ｗ
@@ -2561,6 +2557,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x85FE)	; &JC3-85FE;
+    (<-fullwidth
+     ((name		  . "LATIN SMALL LETTER W WITH ACUTE")
+      (=ucs		  . #x1E83)	; ẃ
+      ))
     (->uppercase
      ((=jef-china3	  . #x85E8)	; &JC3-85E8;
       ))
@@ -3085,10 +3085,6 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EA4)	; Ấ
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1EA4)	; Ấ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939; [09-25]
@@ -3097,6 +3093,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86A7)	; &JC3-86A7;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1EA4)	; Ấ
+      ))
     (->lowercase
      ((=jef-china3	  . #x86AA)	; &JC3-86AA;
       ))
@@ -3127,10 +3127,6 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EA5)	; ấ
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1EA5)	; ấ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958; [09-56]
@@ -3139,6 +3135,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86AA)	; &JC3-86AA;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1EA5)	; ấ
+      ))
     (->uppercase
      ((=jef-china3	  . #x86A7)	; &JC3-86A7;
       ))
@@ -3169,10 +3169,6 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EA6)	; Ầ
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1EA6)	; Ầ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939; [09-25]
@@ -3181,6 +3177,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B1)	; &JC3-85B1;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1EA6)	; Ầ
+      ))
     (->lowercase
      ((=jef-china3	  . #x85B4)	; &JC3-85B4;
       ))
@@ -3211,10 +3211,6 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EA7)	; ầ
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1EA7)	; ầ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958; [09-56]
@@ -3223,6 +3219,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B4)	; &JC3-85B4;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1EA7)	; ầ
+      ))
     (->uppercase
      ((=jef-china3	  . #x85B1)	; &JC3-85B1;
       ))
@@ -3710,10 +3710,6 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EBE)	; Ế
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1EBE)	; Ế
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941; [09-33]
@@ -3722,6 +3718,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86A8)	; &JC3-86A8;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1EBE)	; Ế
+      ))
     (->lowercase
      ((=jef-china3	  . #x86AB)	; &JC3-86AB;
       ))
@@ -3752,10 +3752,6 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EBF)	; ế
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1EBF)	; ế
-      ))
     (=decomposition
      ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
@@ -3765,6 +3761,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86AB)	; &JC3-86AB;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1EBF)	; ế
+      ))
     (->uppercase
      ((=jef-china3	  . #x86A8)	; &JC3-86A8;
       ))
@@ -3795,10 +3795,6 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EC0)	; Ề
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1EC0)	; Ề
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941; [09-33]
@@ -3807,6 +3803,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B2)	; &JC3-85B2;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1EC0)	; Ề
+      ))
     (->lowercase
      ((=jef-china3	  . #x85B5)	; &JC3-85B5;
       ))
@@ -3837,10 +3837,6 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EC1)	; ề
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1EC1)	; ề
-      ))
     (=decomposition
      ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
@@ -3850,6 +3846,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B5)	; &JC3-85B5;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1EC1)	; ề
+      ))
     (->uppercase
      ((=jef-china3	  . #x85B2)	; &JC3-85B2;
       ))
@@ -4169,10 +4169,6 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1ED0)	; Ố
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1ED0)	; Ố
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B; [09-43]
@@ -4181,6 +4177,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86A9)	; &JC3-86A9;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1ED0)	; Ố
+      ))
     (->lowercase
      ((=jef-china3	  . #x86AC)	; &JC3-86AC;
       ))
@@ -4211,10 +4211,6 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1ED1)	; ố
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
-      (=ucs		  . #x1ED1)	; ố
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A; [09-74]
@@ -4223,6 +4219,10 @@
       (=ucs		  . #x0301)	; ́
       ))
     (=jef-china3	. #x86AC)	; &JC3-86AC;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
+      (=ucs		  . #x1ED1)	; ố
+      ))
     (->uppercase
      ((=jef-china3	  . #x86A9)	; &JC3-86A9;
       ))
@@ -4253,10 +4253,6 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1ED2)	; Ồ
       ))
-    (<-fullwidth
-     ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1ED2)	; Ồ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B; [09-43]
@@ -4265,6 +4261,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B3)	; &JC3-85B3;
+    (<-fullwidth
+     ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1ED2)	; Ồ
+      ))
     (->lowercase
      ((=jef-china3	  . #x85B6)	; &JC3-85B6;
       ))
@@ -4295,10 +4295,6 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1ED3)	; ồ
       ))
-    (<-fullwidth
-     ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
-      (=ucs		  . #x1ED3)	; ồ
-      ))
     (=decomposition
      ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A; [09-74]
@@ -4307,6 +4303,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85B6)	; &JC3-85B6;
+    (<-fullwidth
+     ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
+      (=ucs		  . #x1ED3)	; ồ
+      ))
     (->uppercase
      ((=jef-china3	  . #x85B3)	; &JC3-85B3;
       ))
@@ -4953,10 +4953,6 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH GRAVE")
       (=ucs		  . #x1EF2)	; Ỳ
       ))
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER Y WITH GRAVE")
-      (=ucs		  . #x1EF2)	; Ỳ
-      ))
     (=decomposition
      ((name		  . "FULLWIDTH LATIN CAPITAL LETTER Y")
       (=ucs		  . #xFF39)	; Ｙ
@@ -4965,6 +4961,10 @@
       (=ucs		  . #x0300)	; ̀
       ))
     (=jef-china3	. #x85C0)	; &JC3-85C0;
+    (<-fullwidth
+     ((name		  . "LATIN CAPITAL LETTER Y WITH GRAVE")
+      (=ucs		  . #x1EF2)	; Ỳ
+      ))
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH GRAVE")
