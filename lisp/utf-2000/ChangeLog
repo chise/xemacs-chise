@@ -1182,9 +1182,10 @@
 2005-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (U+5D29): Use `->denotational'.
-	(U+5D52): Add `->mistakable' for U+55A6.  (RUI6-E008): Use J0-3123
-	instead of U+96A0 in `ideographic-structure'.  (U+3825): Use
-	`->subsumptive'.
+	(U+5D52): Add `->mistakable' for U+55A6.
+	(RUI6-E008): Use J0-3123 instead of U+96A0 in
+	`ideographic-structure'.
+	(U+3825): Use `->subsumptive'.
 
 	* Ideograph-R080-Do-Not.el (U+6BD1): Use `->subsumptive'.
 	(U+6BD2): Use `->denotational'.
