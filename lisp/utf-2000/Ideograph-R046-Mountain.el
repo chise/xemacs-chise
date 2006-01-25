@@ -445,6 +445,22 @@
     (=gb12345		. #x7C59)	; 岃 [92-57]
     ))
 (define-char
+  '((ideographic-radical@ucs . 38)	; ⼥
+    (ideographic-radical@jis . 46)	; ⼭
+    (ideographic-radical@jis*sources
+     jis-x0213@2000)
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x216B4)	; 𡚴
+    (->subsumptive
+     ((sound@ja/kun/place "aken")
+      (=jis-x0213-1-2000  . #x4F63)	; &JX1-4F63; [47-67]
+      (=ucs@jis		  . #x216B4)	; &JX1-4F63;
+      )
+     ((=ucs@iso		  . #x216B4)	; &U-000216B4;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
