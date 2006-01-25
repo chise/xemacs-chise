@@ -1,4 +1,17 @@
+2006-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+61B2): Use `->denotational' and
+	`->subsumptive'.
+
 2006-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el (U+4C17): Use `->denotational' and
+	`->subsumptive'.
+	(U+9B2A): Use `->subsumptive'.
+	(U+4C18): Use `->denotational' and `->subsumptive'.
+	(U+9B2B): Use `->denotational' and `->subsumptive'.
+	(U+9B2D): Use `->subsumptive'.
+	(U+9B2C): Use `->subsumptive'.
 
 	* u00180-Latin-Extended-B.el (JX1-2B45): Add `=decomposition'.
 
