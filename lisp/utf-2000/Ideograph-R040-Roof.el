@@ -3465,10 +3465,32 @@
     (total-strokes	 . 12)
     (=ucs		. #x21A5C)	; 𡩜
     (->subsumptive
-     ((sources		  bos=A015412-00003)
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=jis-x0208	    . #x555F)	; &GT-08869; [53-63]
+	(=daikanwa	    . 07054)	; &I-M-07054;
+	)
+       ((=ucs		    . #x9FB6)	; 龶
+	)
+       ((=big5-cdp	    . #x8B48)	; &GT-36329;
+	))
+      (sources		  bos=A015412-00003)
       (=ruimoku-v6	  . #xE009)	; &RUI6-E009;
       )
-     ((=hanziku-12	  . #xECD1)	; &HZK12-ECD1;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=gb2312	    . #x6532)	; &C3-213B; [69-18]
+	(=cns11643-3	    . #x213B)	; &I-C3-213B; [01-27]
+	)
+       ((=ucs		    . #x9FB6)	; 龶
+	)
+       ((=big5-cdp	    . #x8B48)	; &GT-36329;
+	))
+      (=hanziku-12	  . #xECD1)	; &HZK12-ECD1;
       (=ucs@iso		  . #x21A5C)	; &HZK12-ECD1;
       ))
     ))
