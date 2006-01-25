@@ -35,21 +35,21 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EEE)	; ⻮
     (<-identical@component
      ((=ucs		  . #x9F7F)	; 齿
       ))
-    (=ucs		. #x2EEE)	; ⻮
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (=ucs		. #x9F7F)	; 齿
+    (=gb2312		. #x335D)	; &I-G0-335D; [19-61]
     (<-simplified@CN
      ((=ucs		  . #x9F52)	; 齒
       (=gb12345		  . #x335D)	; 齒 [19-61]
       ))
-    (=ucs		. #x9F7F)	; 齿
-    (=gb2312		. #x335D)	; &I-G0-335D; [19-61]
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒
@@ -123,11 +123,11 @@
   '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 2)
     (total-strokes	 . 10)
+    (=ucs		. #x9F80)	; 龀
+    (=gb2312		. #x7633)	; &I-G0-7633; [86-19]
     (<-simplified@CN
      ((=gb12345		  . #x7633)	; &UU+9F54; [86-19]
       ))
-    (=ucs		. #x9F80)	; 龀
-    (=gb2312		. #x7633)	; &I-G0-7633; [86-19]
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒
@@ -187,11 +187,11 @@
   '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
+    (=ucs		. #x9F81)	; 龁
+    (=iso-ir165		. #x7E7B)	; &I-EGB-7E7B; [94-91]
     (<-simplified@CN
      ((=ucs@unicode	  . #x9F55)	; &UU+9F55;
       ))
-    (=ucs		. #x9F81)	; 龁
-    (=iso-ir165		. #x7E7B)	; &I-EGB-7E7B; [94-91]
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒
@@ -529,7 +529,15 @@
     (=daikanwa		. 48629)	; &I-M-48629;
     ))
 (define-char
-  '((=>ucs		. #x9F60)	; 齠
+  '((ideographic-radical . 211)	; ⿒
+    (ideographic-strokes . 5)
+    (total-strokes	 . 20)
+    (=ucs		. #x9F60)	; 齠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F60)	; 齠
+      ))
     (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
     (total-strokes	 . 20)
@@ -538,92 +546,90 @@
     (=daikanwa		. 48631)	; &I-M-48631;
     ))
 (define-char
-  '((morohashi-daikanwa	48631 0 2)
+  '((<-denotational
+     ((=ucs		  . #x9F60)	; 齠
+      ))
     (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
-    (total-strokes	 . 20)
-    (=ucs		. #x9F60)	; 齠
-    (=jis-x0208		. #x7373)	; &I-J90-7373; [83-83]
-    (=cns11643-2	. #x6B49)	; &I-C2-6B49; [75-41]
-    (=gb12345		. #x7636)	; 齠 [86-22]
-    (=gt		. 66455)	; &I-GT-66455;
-    (=gt-pj-1		. #x7373)	; &I-GT-66455; [83-83]
-    ))
-(define-char
-  '((=>ucs		. #x9F60)	; 齠
-    (morohashi-daikanwa	48631 0 4)
-    (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 5)
-    (total-strokes	 . 20)
+    (total-strokes	 . 17)
     (=gt		. 66395)	; &GT-66395;
     (=gt-pj-10		. #x5A23)	; &GT-66395; [58-03]
+    (<-simplified@JP/misc
+     ((=gt		  . 66454)	; &GT-66454;
+      (=daikanwa	  . 48631)	; &I-M-48631;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9F61)	; 齡
+  '((<-denotational
+     ((=ucs		  . #x9F60)	; 齠
+      ))
     (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
     (total-strokes	 . 20)
-    (shinjigen-2	. 9897)
-    (=jis-x0208		. #x7374)	; &GT-66459; [83-84]
-    (=ks-x1001		. #x5646)	; &I-K0-5646; [54-38]
-    (=gt		. 66459)	; &I-GT-66459;
-    (=gt-pj-1		. #x7374)	; &I-GT-66459; [83-84]
-    (=daikanwa		. 48632)	; &I-M-48632;
-    (=ucs@jis		. #x9F61)	; &GT-66459;
+    (->subsumptive
+     ((=jis-x0208	  . #x7373)	; &GT-66455; [83-83]
+      (=cns11643-2	  . #x6B49)	; &I-C2-6B49; [75-41]
+      (=gt		  . 66455)	; &I-GT-66455;
+      (=gt-pj-1		  . #x7373)	; &I-GT-66455; [83-83]
+      (=ucs@jis		  . #x9F60)	; &GT-66455;
+      )
+     ((=gb12345		  . #x7636)	; &UU+9F60; [86-22]
+      (=ucs@unicode	  . #x9F60)	; &UU+9F60;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9F61)	; 齡
-    (morohashi-daikanwa	48632 0 1)
-    (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 5)
-    (total-strokes	 . 20)
-    (=cns11643-1	. #x7A61)	; &C1-7A61; [90-65]
-    ))
-(define-char
-  '((morohashi-daikanwa	48632 0 2)
-    (ideographic-radical . 211)	; ⿒
+  '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
     (total-strokes	 . 20)
     (=ucs		. #x9F61)	; 齡
-    (=gb12345		. #x4164)	; 齡 [33-68]
-    ))
-(define-char
-  '((=>ucs		. #x9F62)	; 齢
-    (morohashi-daikanwa	48632 1)
-    (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 5)
-    (total-strokes	 . 17)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x7374)	; &GT-66459; [83-84]
+    (->subsumptive
+     ((shinjigen-1	  . 9897)
+      (shinjigen-2	  . 9897)
+      (=jis-x0208	  . #x7374)	; &GT-66459; [83-84]
       (=ks-x1001	  . #x5646)	; &I-K0-5646; [54-38]
+      (=gt		  . 66459)	; &I-GT-66459;
+      (=gt-pj-1		  . #x7374)	; &I-GT-66459; [83-84]
       (=daikanwa	  . 48632)	; &I-M-48632;
+      (=ucs@jis		  . #x9F61)	; &GT-66459;
+      )
+     ((=cns11643-1	  . #x7A61)	; &C1-7A61; [90-65]
+      )
+     ((=gb12345		  . #x4164)	; &UU+9F61; [33-68]
+      (=ucs@unicode	  . #x9F61)	; &UU+9F61;
       ))
-    (=jis-x0208		. #x4E70)	; &GT-66398; [46-80]
-    (=gt		. 66398)	; &I-GT-66398;
-    (=gt-pj-1		. #x4E70)	; &I-GT-66398; [46-80]
-    (=ucs@jis		. #x9F62)	; &GT-66398;
     ))
 (define-char
-  '((morohashi-daikanwa	48632 1 1)
-    (ideographic-radical . 211)	; ⿒
+  '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
     (=ucs		. #x9F62)	; 齢
+    (->subsumptive
+     ((morohashi-daikanwa	48632 1)
+      (shinjigen-1	  . 9896)
+      (=jis-x0208	  . #x4E70)	; &GT-66398; [46-80]
+      (=gt		  . 66398)	; &I-GT-66398;
+      (=gt-pj-1		  . #x4E70)	; &I-GT-66398; [46-80]
+      (=ucs@jis		  . #x9F62)	; &GT-66398;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x7374)	; &GT-66459; [83-84]
+	(=ks-x1001	    . #x5646)	; &I-K0-5646; [54-38]
+	(=daikanwa	    . 48632)	; &I-M-48632;
+	))
+      )
+     ((=ucs@unicode	  . #x9F62)	; &UU+9F62;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x2A5F2)	; 𪗲
-    (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=daikanwa		. 48633)	; &M-48633;
-    ))
-(define-char
-  '((morohashi-daikanwa	48633 0 1)
-    (ideographic-radical . 211)	; ⿒
+  '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=ucs		. #x2A5F2)	; 𪗲
-    (=cns11643-4	. #x4878)	; &I-C4-4878; [40-88]
+    (->subsumptive
+     ((=daikanwa	  . 48633)	; &M-48633;
+      )
+     ((=cns11643-4	  . #x4878)	; &C4-4878; [40-88]
+      (=ucs@iso		  . #x2A5F2)	; &C4-4878;
+      ))
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒
