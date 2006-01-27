@@ -6,10 +6,6 @@
     (mirrored		. nil)
     (digit-value	. 1)
     (numeric-value	. 1)
-    (<-circled
-     ((name		  . "DIGIT ONE")
-      (=ucs		  . #x0031)	; 1
-      ))
     (=ucs		. #x2460)	; ①
     (=gb2312		. #x2259)	; &I-G0-2259; [02-57]
     (=ks-x1001		. #x2867)	; &I-K0-2867; [08-71]
@@ -17,6 +13,10 @@
     (=jis-x0213-1-2000	. #x2D21)	; &I-JX1-2D21; [13-01]
     (=big5-eten		. #xC6A1)	; &B-C6A1;
     (=jef-china3	. #x77C9)	; &I-JC3-77C9;
+    (<-circled
+     ((name		  . "DIGIT ONE")
+      (=ucs		  . #x0031)	; 1
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT TWO")
@@ -25,10 +25,6 @@
     (mirrored		. nil)
     (digit-value	. 2)
     (numeric-value	. 2)
-    (<-circled
-     ((name		  . "DIGIT TWO")
-      (=ucs		  . #x0032)	; 2
-      ))
     (=ucs		. #x2461)	; ②
     (=gb2312		. #x225A)	; &I-G0-225A; [02-58]
     (=ks-x1001		. #x2868)	; &I-K0-2868; [08-72]
@@ -36,6 +32,10 @@
     (=jis-x0213-1-2000	. #x2D22)	; &I-JX1-2D22; [13-02]
     (=big5-eten		. #xC6A2)	; &B-C6A2;
     (=jef-china3	. #x77CA)	; &I-JC3-77CA;
+    (<-circled
+     ((name		  . "DIGIT TWO")
+      (=ucs		  . #x0032)	; 2
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT THREE")
@@ -44,10 +44,6 @@
     (mirrored		. nil)
     (digit-value	. 3)
     (numeric-value	. 3)
-    (<-circled
-     ((name		  . "DIGIT THREE")
-      (=ucs		  . #x0033)	; 3
-      ))
     (=ucs		. #x2462)	; ③
     (=gb2312		. #x225B)	; &I-G0-225B; [02-59]
     (=ks-x1001		. #x2869)	; &I-K0-2869; [08-73]
@@ -55,6 +51,10 @@
     (=jis-x0213-1-2000	. #x2D23)	; &I-JX1-2D23; [13-03]
     (=big5-eten		. #xC6A3)	; &B-C6A3;
     (=jef-china3	. #x77CB)	; &I-JC3-77CB;
+    (<-circled
+     ((name		  . "DIGIT THREE")
+      (=ucs		  . #x0033)	; 3
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT FOUR")
@@ -63,10 +63,6 @@
     (mirrored		. nil)
     (digit-value	. 4)
     (numeric-value	. 4)
-    (<-circled
-     ((name		  . "DIGIT FOUR")
-      (=ucs		  . #x0034)	; 4
-      ))
     (=ucs		. #x2463)	; ④
     (=gb2312		. #x225C)	; &I-G0-225C; [02-60]
     (=ks-x1001		. #x286A)	; &I-K0-286A; [08-74]
@@ -74,6 +70,10 @@
     (=jis-x0213-1-2000	. #x2D24)	; &I-JX1-2D24; [13-04]
     (=big5-eten		. #xC6A4)	; &B-C6A4;
     (=jef-china3	. #x77CC)	; &I-JC3-77CC;
+    (<-circled
+     ((name		  . "DIGIT FOUR")
+      (=ucs		  . #x0034)	; 4
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT FIVE")
@@ -82,10 +82,6 @@
     (mirrored		. nil)
     (digit-value	. 5)
     (numeric-value	. 5)
-    (<-circled
-     ((name		  . "DIGIT FIVE")
-      (=ucs		  . #x0035)	; 5
-      ))
     (=ucs		. #x2464)	; ⑤
     (=gb2312		. #x225D)	; &I-G0-225D; [02-61]
     (=ks-x1001		. #x286B)	; &I-K0-286B; [08-75]
@@ -93,6 +89,10 @@
     (=jis-x0213-1-2000	. #x2D25)	; &I-JX1-2D25; [13-05]
     (=big5-eten		. #xC6A5)	; &B-C6A5;
     (=jef-china3	. #x77CD)	; &I-JC3-77CD;
+    (<-circled
+     ((name		  . "DIGIT FIVE")
+      (=ucs		  . #x0035)	; 5
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT SIX")
@@ -101,10 +101,6 @@
     (mirrored		. nil)
     (digit-value	. 6)
     (numeric-value	. 6)
-    (<-circled
-     ((name		  . "DIGIT SIX")
-      (=ucs		  . #x0036)	; 6
-      ))
     (=ucs		. #x2465)	; ⑥
     (=gb2312		. #x225E)	; &I-G0-225E; [02-62]
     (=ks-x1001		. #x286C)	; &I-K0-286C; [08-76]
@@ -112,6 +108,10 @@
     (=jis-x0213-1-2000	. #x2D26)	; &I-JX1-2D26; [13-06]
     (=big5-eten		. #xC6A6)	; &B-C6A6;
     (=jef-china3	. #x77CE)	; &I-JC3-77CE;
+    (<-circled
+     ((name		  . "DIGIT SIX")
+      (=ucs		  . #x0036)	; 6
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT SEVEN")
@@ -120,10 +120,6 @@
     (mirrored		. nil)
     (digit-value	. 7)
     (numeric-value	. 7)
-    (<-circled
-     ((name		  . "DIGIT SEVEN")
-      (=ucs		  . #x0037)	; 7
-      ))
     (=ucs		. #x2466)	; ⑦
     (=gb2312		. #x225F)	; &I-G0-225F; [02-63]
     (=ks-x1001		. #x286D)	; &I-K0-286D; [08-77]
@@ -131,6 +127,10 @@
     (=jis-x0213-1-2000	. #x2D27)	; &I-JX1-2D27; [13-07]
     (=big5-eten		. #xC6A7)	; &B-C6A7;
     (=jef-china3	. #x77CF)	; &I-JC3-77CF;
+    (<-circled
+     ((name		  . "DIGIT SEVEN")
+      (=ucs		  . #x0037)	; 7
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT EIGHT")
@@ -139,10 +139,6 @@
     (mirrored		. nil)
     (digit-value	. 8)
     (numeric-value	. 8)
-    (<-circled
-     ((name		  . "DIGIT EIGHT")
-      (=ucs		  . #x0038)	; 8
-      ))
     (=ucs		. #x2467)	; ⑧
     (=gb2312		. #x2260)	; &I-G0-2260; [02-64]
     (=ks-x1001		. #x286E)	; &I-K0-286E; [08-78]
@@ -150,6 +146,10 @@
     (=jis-x0213-1-2000	. #x2D28)	; &I-JX1-2D28; [13-08]
     (=big5-eten		. #xC6A8)	; &B-C6A8;
     (=jef-china3	. #x77D0)	; &I-JC3-77D0;
+    (<-circled
+     ((name		  . "DIGIT EIGHT")
+      (=ucs		  . #x0038)	; 8
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT NINE")
@@ -158,10 +158,6 @@
     (mirrored		. nil)
     (digit-value	. 9)
     (numeric-value	. 9)
-    (<-circled
-     ((name		  . "DIGIT NINE")
-      (=ucs		  . #x0039)	; 9
-      ))
     (=ucs		. #x2468)	; ⑨
     (=gb2312		. #x2261)	; &I-G0-2261; [02-65]
     (=ks-x1001		. #x286F)	; &I-K0-286F; [08-79]
@@ -169,6 +165,10 @@
     (=jis-x0213-1-2000	. #x2D29)	; &I-JX1-2D29; [13-09]
     (=big5-eten		. #xC6A9)	; &B-C6A9;
     (=jef-china3	. #x77D1)	; &I-JC3-77D1;
+    (<-circled
+     ((name		  . "DIGIT NINE")
+      (=ucs		  . #x0039)	; 9
+      ))
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TEN")
@@ -1207,13 +1207,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER A")
       (=ucs		  . #x249C)	; ⒜
       ))
+    (=ks-x1001		. #x294D)	; &K0-294D; [09-45]
+    (=jef-china3	. #x78A1)	; &I-JC3-78A1;
+    (=ucs@ks		. #x249C)	; &K0-294D;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER A")
       (=ucs		  . #x249C)	; ⒜
       ))
-    (=ks-x1001		. #x294D)	; &K0-294D; [09-45]
-    (=jef-china3	. #x78A1)	; &I-JC3-78A1;
-    (=ucs@ks		. #x249C)	; &K0-294D;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER B")
@@ -1237,13 +1237,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER B")
       (=ucs		  . #x249D)	; ⒝
       ))
+    (=ks-x1001		. #x294E)	; &K0-294E; [09-46]
+    (=jef-china3	. #x78A2)	; &I-JC3-78A2;
+    (=ucs@ks		. #x249D)	; &K0-294E;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER B")
       (=ucs		  . #x249D)	; ⒝
       ))
-    (=ks-x1001		. #x294E)	; &K0-294E; [09-46]
-    (=jef-china3	. #x78A2)	; &I-JC3-78A2;
-    (=ucs@ks		. #x249D)	; &K0-294E;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER C")
@@ -1267,13 +1267,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER C")
       (=ucs		  . #x249E)	; ⒞
       ))
+    (=ks-x1001		. #x294F)	; &K0-294F; [09-47]
+    (=jef-china3	. #x78A3)	; &I-JC3-78A3;
+    (=ucs@ks		. #x249E)	; &K0-294F;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER C")
       (=ucs		  . #x249E)	; ⒞
       ))
-    (=ks-x1001		. #x294F)	; &K0-294F; [09-47]
-    (=jef-china3	. #x78A3)	; &I-JC3-78A3;
-    (=ucs@ks		. #x249E)	; &K0-294F;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER D")
@@ -1297,13 +1297,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER D")
       (=ucs		  . #x249F)	; ⒟
       ))
+    (=ks-x1001		. #x2950)	; &K0-2950; [09-48]
+    (=jef-china3	. #x78A4)	; &I-JC3-78A4;
+    (=ucs@ks		. #x249F)	; &K0-2950;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER D")
       (=ucs		  . #x249F)	; ⒟
       ))
-    (=ks-x1001		. #x2950)	; &K0-2950; [09-48]
-    (=jef-china3	. #x78A4)	; &I-JC3-78A4;
-    (=ucs@ks		. #x249F)	; &K0-2950;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER E")
@@ -1327,13 +1327,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER E")
       (=ucs		  . #x24A0)	; ⒠
       ))
+    (=ks-x1001		. #x2951)	; &K0-2951; [09-49]
+    (=jef-china3	. #x78A5)	; &I-JC3-78A5;
+    (=ucs@ks		. #x24A0)	; &K0-2951;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER E")
       (=ucs		  . #x24A0)	; ⒠
       ))
-    (=ks-x1001		. #x2951)	; &K0-2951; [09-49]
-    (=jef-china3	. #x78A5)	; &I-JC3-78A5;
-    (=ucs@ks		. #x24A0)	; &K0-2951;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER F")
@@ -1357,13 +1357,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER F")
       (=ucs		  . #x24A1)	; ⒡
       ))
+    (=ks-x1001		. #x2952)	; &K0-2952; [09-50]
+    (=jef-china3	. #x78A6)	; &I-JC3-78A6;
+    (=ucs@ks		. #x24A1)	; &K0-2952;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER F")
       (=ucs		  . #x24A1)	; ⒡
       ))
-    (=ks-x1001		. #x2952)	; &K0-2952; [09-50]
-    (=jef-china3	. #x78A6)	; &I-JC3-78A6;
-    (=ucs@ks		. #x24A1)	; &K0-2952;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER G")
@@ -1387,13 +1387,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER G")
       (=ucs		  . #x24A2)	; ⒢
       ))
+    (=ks-x1001		. #x2953)	; &K0-2953; [09-51]
+    (=jef-china3	. #x78A7)	; &I-JC3-78A7;
+    (=ucs@ks		. #x24A2)	; &K0-2953;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER G")
       (=ucs		  . #x24A2)	; ⒢
       ))
-    (=ks-x1001		. #x2953)	; &K0-2953; [09-51]
-    (=jef-china3	. #x78A7)	; &I-JC3-78A7;
-    (=ucs@ks		. #x24A2)	; &K0-2953;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER H")
@@ -1417,13 +1417,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER H")
       (=ucs		  . #x24A3)	; ⒣
       ))
+    (=ks-x1001		. #x2954)	; &K0-2954; [09-52]
+    (=jef-china3	. #x78A8)	; &I-JC3-78A8;
+    (=ucs@ks		. #x24A3)	; &K0-2954;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER H")
       (=ucs		  . #x24A3)	; ⒣
       ))
-    (=ks-x1001		. #x2954)	; &K0-2954; [09-52]
-    (=jef-china3	. #x78A8)	; &I-JC3-78A8;
-    (=ucs@ks		. #x24A3)	; &K0-2954;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER I")
@@ -1447,13 +1447,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER I")
       (=ucs		  . #x24A4)	; ⒤
       ))
+    (=ks-x1001		. #x2955)	; &K0-2955; [09-53]
+    (=jef-china3	. #x78A9)	; &I-JC3-78A9;
+    (=ucs@ks		. #x24A4)	; &K0-2955;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER I")
       (=ucs		  . #x24A4)	; ⒤
       ))
-    (=ks-x1001		. #x2955)	; &K0-2955; [09-53]
-    (=jef-china3	. #x78A9)	; &I-JC3-78A9;
-    (=ucs@ks		. #x24A4)	; &K0-2955;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER J")
@@ -1477,13 +1477,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER J")
       (=ucs		  . #x24A5)	; ⒥
       ))
+    (=ks-x1001		. #x2956)	; &K0-2956; [09-54]
+    (=jef-china3	. #x78AA)	; &I-JC3-78AA;
+    (=ucs@ks		. #x24A5)	; &K0-2956;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER J")
       (=ucs		  . #x24A5)	; ⒥
       ))
-    (=ks-x1001		. #x2956)	; &K0-2956; [09-54]
-    (=jef-china3	. #x78AA)	; &I-JC3-78AA;
-    (=ucs@ks		. #x24A5)	; &K0-2956;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER K")
@@ -1507,13 +1507,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER K")
       (=ucs		  . #x24A6)	; ⒦
       ))
+    (=ks-x1001		. #x2957)	; &K0-2957; [09-55]
+    (=jef-china3	. #x78AB)	; &I-JC3-78AB;
+    (=ucs@ks		. #x24A6)	; &K0-2957;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER K")
       (=ucs		  . #x24A6)	; ⒦
       ))
-    (=ks-x1001		. #x2957)	; &K0-2957; [09-55]
-    (=jef-china3	. #x78AB)	; &I-JC3-78AB;
-    (=ucs@ks		. #x24A6)	; &K0-2957;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER L")
@@ -1537,13 +1537,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER L")
       (=ucs		  . #x24A7)	; ⒧
       ))
+    (=ks-x1001		. #x2958)	; &K0-2958; [09-56]
+    (=jef-china3	. #x78AC)	; &I-JC3-78AC;
+    (=ucs@ks		. #x24A7)	; &K0-2958;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER L")
       (=ucs		  . #x24A7)	; ⒧
       ))
-    (=ks-x1001		. #x2958)	; &K0-2958; [09-56]
-    (=jef-china3	. #x78AC)	; &I-JC3-78AC;
-    (=ucs@ks		. #x24A7)	; &K0-2958;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER M")
@@ -1567,13 +1567,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER M")
       (=ucs		  . #x24A8)	; ⒨
       ))
+    (=ks-x1001		. #x2959)	; &K0-2959; [09-57]
+    (=jef-china3	. #x78AD)	; &I-JC3-78AD;
+    (=ucs@ks		. #x24A8)	; &K0-2959;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER M")
       (=ucs		  . #x24A8)	; ⒨
       ))
-    (=ks-x1001		. #x2959)	; &K0-2959; [09-57]
-    (=jef-china3	. #x78AD)	; &I-JC3-78AD;
-    (=ucs@ks		. #x24A8)	; &K0-2959;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER N")
@@ -1597,13 +1597,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER N")
       (=ucs		  . #x24A9)	; ⒩
       ))
+    (=ks-x1001		. #x295A)	; &K0-295A; [09-58]
+    (=jef-china3	. #x78AE)	; &I-JC3-78AE;
+    (=ucs@ks		. #x24A9)	; &K0-295A;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER N")
       (=ucs		  . #x24A9)	; ⒩
       ))
-    (=ks-x1001		. #x295A)	; &K0-295A; [09-58]
-    (=jef-china3	. #x78AE)	; &I-JC3-78AE;
-    (=ucs@ks		. #x24A9)	; &K0-295A;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER O")
@@ -1627,13 +1627,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER O")
       (=ucs		  . #x24AA)	; ⒪
       ))
+    (=ks-x1001		. #x295B)	; &K0-295B; [09-59]
+    (=jef-china3	. #x78AF)	; &I-JC3-78AF;
+    (=ucs@ks		. #x24AA)	; &K0-295B;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER O")
       (=ucs		  . #x24AA)	; ⒪
       ))
-    (=ks-x1001		. #x295B)	; &K0-295B; [09-59]
-    (=jef-china3	. #x78AF)	; &I-JC3-78AF;
-    (=ucs@ks		. #x24AA)	; &K0-295B;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER P")
@@ -1657,13 +1657,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER P")
       (=ucs		  . #x24AB)	; ⒫
       ))
+    (=ks-x1001		. #x295C)	; &K0-295C; [09-60]
+    (=jef-china3	. #x78B0)	; &I-JC3-78B0;
+    (=ucs@ks		. #x24AB)	; &K0-295C;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER P")
       (=ucs		  . #x24AB)	; ⒫
       ))
-    (=ks-x1001		. #x295C)	; &K0-295C; [09-60]
-    (=jef-china3	. #x78B0)	; &I-JC3-78B0;
-    (=ucs@ks		. #x24AB)	; &K0-295C;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER Q")
@@ -1687,13 +1687,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Q")
       (=ucs		  . #x24AC)	; ⒬
       ))
+    (=ks-x1001		. #x295D)	; &K0-295D; [09-61]
+    (=jef-china3	. #x78B1)	; &I-JC3-78B1;
+    (=ucs@ks		. #x24AC)	; &K0-295D;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Q")
       (=ucs		  . #x24AC)	; ⒬
       ))
-    (=ks-x1001		. #x295D)	; &K0-295D; [09-61]
-    (=jef-china3	. #x78B1)	; &I-JC3-78B1;
-    (=ucs@ks		. #x24AC)	; &K0-295D;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER R")
@@ -1717,13 +1717,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER R")
       (=ucs		  . #x24AD)	; ⒭
       ))
+    (=ks-x1001		. #x295E)	; &K0-295E; [09-62]
+    (=jef-china3	. #x78B2)	; &I-JC3-78B2;
+    (=ucs@ks		. #x24AD)	; &K0-295E;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER R")
       (=ucs		  . #x24AD)	; ⒭
       ))
-    (=ks-x1001		. #x295E)	; &K0-295E; [09-62]
-    (=jef-china3	. #x78B2)	; &I-JC3-78B2;
-    (=ucs@ks		. #x24AD)	; &K0-295E;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER S")
@@ -1747,13 +1747,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER S")
       (=ucs		  . #x24AE)	; ⒮
       ))
+    (=ks-x1001		. #x295F)	; &K0-295F; [09-63]
+    (=jef-china3	. #x78B3)	; &I-JC3-78B3;
+    (=ucs@ks		. #x24AE)	; &K0-295F;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER S")
       (=ucs		  . #x24AE)	; ⒮
       ))
-    (=ks-x1001		. #x295F)	; &K0-295F; [09-63]
-    (=jef-china3	. #x78B3)	; &I-JC3-78B3;
-    (=ucs@ks		. #x24AE)	; &K0-295F;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER T")
@@ -1777,13 +1777,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER T")
       (=ucs		  . #x24AF)	; ⒯
       ))
+    (=ks-x1001		. #x2960)	; &K0-2960; [09-64]
+    (=jef-china3	. #x78B4)	; &I-JC3-78B4;
+    (=ucs@ks		. #x24AF)	; &K0-2960;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER T")
       (=ucs		  . #x24AF)	; ⒯
       ))
-    (=ks-x1001		. #x2960)	; &K0-2960; [09-64]
-    (=jef-china3	. #x78B4)	; &I-JC3-78B4;
-    (=ucs@ks		. #x24AF)	; &K0-2960;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER U")
@@ -1807,13 +1807,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER U")
       (=ucs		  . #x24B0)	; ⒰
       ))
+    (=ks-x1001		. #x2961)	; &K0-2961; [09-65]
+    (=jef-china3	. #x78B5)	; &I-JC3-78B5;
+    (=ucs@ks		. #x24B0)	; &K0-2961;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER U")
       (=ucs		  . #x24B0)	; ⒰
       ))
-    (=ks-x1001		. #x2961)	; &K0-2961; [09-65]
-    (=jef-china3	. #x78B5)	; &I-JC3-78B5;
-    (=ucs@ks		. #x24B0)	; &K0-2961;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER V")
@@ -1837,13 +1837,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER V")
       (=ucs		  . #x24B1)	; ⒱
       ))
+    (=ks-x1001		. #x2962)	; &K0-2962; [09-66]
+    (=jef-china3	. #x78B6)	; &I-JC3-78B6;
+    (=ucs@ks		. #x24B1)	; &K0-2962;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER V")
       (=ucs		  . #x24B1)	; ⒱
       ))
-    (=ks-x1001		. #x2962)	; &K0-2962; [09-66]
-    (=jef-china3	. #x78B6)	; &I-JC3-78B6;
-    (=ucs@ks		. #x24B1)	; &K0-2962;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER W")
@@ -1867,13 +1867,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER W")
       (=ucs		  . #x24B2)	; ⒲
       ))
+    (=ks-x1001		. #x2963)	; &K0-2963; [09-67]
+    (=jef-china3	. #x78B7)	; &I-JC3-78B7;
+    (=ucs@ks		. #x24B2)	; &K0-2963;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER W")
       (=ucs		  . #x24B2)	; ⒲
       ))
-    (=ks-x1001		. #x2963)	; &K0-2963; [09-67]
-    (=jef-china3	. #x78B7)	; &I-JC3-78B7;
-    (=ucs@ks		. #x24B2)	; &K0-2963;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER X")
@@ -1897,13 +1897,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER X")
       (=ucs		  . #x24B3)	; ⒳
       ))
+    (=ks-x1001		. #x2964)	; &K0-2964; [09-68]
+    (=jef-china3	. #x78B8)	; &I-JC3-78B8;
+    (=ucs@ks		. #x24B3)	; &K0-2964;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER X")
       (=ucs		  . #x24B3)	; ⒳
       ))
-    (=ks-x1001		. #x2964)	; &K0-2964; [09-68]
-    (=jef-china3	. #x78B8)	; &I-JC3-78B8;
-    (=ucs@ks		. #x24B3)	; &K0-2964;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER Y")
@@ -1927,13 +1927,13 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Y")
       (=ucs		  . #x24B4)	; ⒴
       ))
+    (=ks-x1001		. #x2965)	; &K0-2965; [09-69]
+    (=jef-china3	. #x78B9)	; &I-JC3-78B9;
+    (=ucs@ks		. #x24B4)	; &K0-2965;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Y")
       (=ucs		  . #x24B4)	; ⒴
       ))
-    (=ks-x1001		. #x2965)	; &K0-2965; [09-69]
-    (=jef-china3	. #x78B9)	; &I-JC3-78B9;
-    (=ucs@ks		. #x24B4)	; &K0-2965;
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER Z")
@@ -1957,24 +1957,24 @@
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Z")
       (=ucs		  . #x24B5)	; ⒵
       ))
+    (=ks-x1001		. #x2966)	; &K0-2966; [09-70]
+    (=jef-china3	. #x78BA)	; &I-JC3-78BA;
+    (=ucs@ks		. #x24B5)	; &K0-2966;
     (<-fullwidth
      ((name		  . "PARENTHESIZED LATIN SMALL LETTER Z")
       (=ucs		  . #x24B5)	; ⒵
       ))
-    (=ks-x1001		. #x2966)	; &K0-2966; [09-70]
-    (=jef-china3	. #x78BA)	; &I-JC3-78BA;
-    (=ucs@ks		. #x24B5)	; &K0-2966;
     ))
 (define-char
   '((name		. "CIRCLED LATIN CAPITAL LETTER A")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24B6)	; Ⓐ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER A")
       (=ucs		  . #x0041)	; A
       ))
-    (=ucs		. #x24B6)	; Ⓐ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER A")
       (=ucs		  . #x24D0)	; ⓐ
@@ -1985,11 +1985,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24B7)	; Ⓑ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER B")
       (=ucs		  . #x0042)	; B
       ))
-    (=ucs		. #x24B7)	; Ⓑ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER B")
       (=ucs		  . #x24D1)	; ⓑ
@@ -2000,11 +2000,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24B8)	; Ⓒ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
-    (=ucs		. #x24B8)	; Ⓒ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER C")
       (=ucs		  . #x24D2)	; ⓒ
@@ -2015,11 +2015,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24B9)	; Ⓓ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       ))
-    (=ucs		. #x24B9)	; Ⓓ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER D")
       (=ucs		  . #x24D3)	; ⓓ
@@ -2030,11 +2030,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BA)	; Ⓔ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER E")
       (=ucs		  . #x0045)	; E
       ))
-    (=ucs		. #x24BA)	; Ⓔ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER E")
       (=ucs		  . #x24D4)	; ⓔ
@@ -2045,11 +2045,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BB)	; Ⓕ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER F")
       (=ucs		  . #x0046)	; F
       ))
-    (=ucs		. #x24BB)	; Ⓕ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER F")
       (=ucs		  . #x24D5)	; ⓕ
@@ -2060,11 +2060,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BC)	; Ⓖ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER G")
       (=ucs		  . #x0047)	; G
       ))
-    (=ucs		. #x24BC)	; Ⓖ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER G")
       (=ucs		  . #x24D6)	; ⓖ
@@ -2075,11 +2075,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BD)	; Ⓗ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
-    (=ucs		. #x24BD)	; Ⓗ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER H")
       (=ucs		  . #x24D7)	; ⓗ
@@ -2090,11 +2090,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BE)	; Ⓘ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       ))
-    (=ucs		. #x24BE)	; Ⓘ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER I")
       (=ucs		  . #x24D8)	; ⓘ
@@ -2105,11 +2105,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24BF)	; Ⓙ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER J")
       (=ucs		  . #x004A)	; J
       ))
-    (=ucs		. #x24BF)	; Ⓙ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER J")
       (=ucs		  . #x24D9)	; ⓙ
@@ -2120,11 +2120,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C0)	; Ⓚ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER K")
       (=ucs		  . #x004B)	; K
       ))
-    (=ucs		. #x24C0)	; Ⓚ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER K")
       (=ucs		  . #x24DA)	; ⓚ
@@ -2135,11 +2135,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C1)	; Ⓛ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
-    (=ucs		. #x24C1)	; Ⓛ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER L")
       (=ucs		  . #x24DB)	; ⓛ
@@ -2150,11 +2150,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C2)	; Ⓜ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
-    (=ucs		. #x24C2)	; Ⓜ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER M")
       (=ucs		  . #x24DC)	; ⓜ
@@ -2165,11 +2165,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C3)	; Ⓝ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       ))
-    (=ucs		. #x24C3)	; Ⓝ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER N")
       (=ucs		  . #x24DD)	; ⓝ
@@ -2180,11 +2180,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C4)	; Ⓞ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER O")
       (=ucs		  . #x004F)	; O
       ))
-    (=ucs		. #x24C4)	; Ⓞ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER O")
       (=ucs		  . #x24DE)	; ⓞ
@@ -2195,11 +2195,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C5)	; Ⓟ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER P")
       (=ucs		  . #x0050)	; P
       ))
-    (=ucs		. #x24C5)	; Ⓟ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER P")
       (=ucs		  . #x24DF)	; ⓟ
@@ -2210,11 +2210,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C6)	; Ⓠ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Q")
       (=ucs		  . #x0051)	; Q
       ))
-    (=ucs		. #x24C6)	; Ⓠ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Q")
       (=ucs		  . #x24E0)	; ⓠ
@@ -2225,11 +2225,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C7)	; Ⓡ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
-    (=ucs		. #x24C7)	; Ⓡ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER R")
       (=ucs		  . #x24E1)	; ⓡ
@@ -2240,11 +2240,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C8)	; Ⓢ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER S")
       (=ucs		  . #x0053)	; S
       ))
-    (=ucs		. #x24C8)	; Ⓢ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER S")
       (=ucs		  . #x24E2)	; ⓢ
@@ -2255,11 +2255,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24C9)	; Ⓣ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER T")
       (=ucs		  . #x0054)	; T
       ))
-    (=ucs		. #x24C9)	; Ⓣ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER T")
       (=ucs		  . #x24E3)	; ⓣ
@@ -2270,11 +2270,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CA)	; Ⓤ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER U")
       (=ucs		  . #x0055)	; U
       ))
-    (=ucs		. #x24CA)	; Ⓤ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER U")
       (=ucs		  . #x24E4)	; ⓤ
@@ -2285,11 +2285,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CB)	; Ⓥ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
       ))
-    (=ucs		. #x24CB)	; Ⓥ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER V")
       (=ucs		  . #x24E5)	; ⓥ
@@ -2300,11 +2300,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CC)	; Ⓦ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER W")
       (=ucs		  . #x0057)	; W
       ))
-    (=ucs		. #x24CC)	; Ⓦ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER W")
       (=ucs		  . #x24E6)	; ⓦ
@@ -2315,11 +2315,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CD)	; Ⓧ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
       ))
-    (=ucs		. #x24CD)	; Ⓧ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER X")
       (=ucs		  . #x24E7)	; ⓧ
@@ -2330,11 +2330,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CE)	; Ⓨ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Y")
       (=ucs		  . #x0059)	; Y
       ))
-    (=ucs		. #x24CE)	; Ⓨ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Y")
       (=ucs		  . #x24E8)	; ⓨ
@@ -2345,11 +2345,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24CF)	; Ⓩ
     (<-circled
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
       ))
-    (=ucs		. #x24CF)	; Ⓩ
     (->lowercase
      ((name		  . "CIRCLED LATIN SMALL LETTER Z")
       (=ucs		  . #x24E9)	; ⓩ
@@ -2360,11 +2360,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D0)	; ⓐ
     (<-circled
      ((name		  . "LATIN SMALL LETTER A")
       (=ucs		  . #x0061)	; a
       ))
-    (=ucs		. #x24D0)	; ⓐ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER A")
       (=ucs		  . #x24B6)	; Ⓐ
@@ -2375,25 +2375,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER A")
       (=ucs		  . #x24D0)	; ⓐ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER A")
-      (=ucs		  . #x24D0)	; ⓐ
-      ))
     (=ks-x1001		. #x284D)	; &JX1-2C41; [08-45]
     (=jis-x0213-1-2000	. #x2C41)	; &I-JX1-2C41; [12-33]
     (=ucs@jis		. #x24D0)	; &JX1-2C41;
     (=ucs@ks		. #x24D0)	; &JX1-2C41;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER A")
+      (=ucs		  . #x24D0)	; ⓐ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER B")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D1)	; ⓑ
     (<-circled
      ((name		  . "LATIN SMALL LETTER B")
       (=ucs		  . #x0062)	; b
       ))
-    (=ucs		. #x24D1)	; ⓑ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER B")
       (=ucs		  . #x24B7)	; Ⓑ
@@ -2404,25 +2404,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER B")
       (=ucs		  . #x24D1)	; ⓑ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER B")
-      (=ucs		  . #x24D1)	; ⓑ
-      ))
     (=ks-x1001		. #x284E)	; &JX1-2C42; [08-46]
     (=jis-x0213-1-2000	. #x2C42)	; &I-JX1-2C42; [12-34]
     (=ucs@jis		. #x24D1)	; &JX1-2C42;
     (=ucs@ks		. #x24D1)	; &JX1-2C42;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER B")
+      (=ucs		  . #x24D1)	; ⓑ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER C")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D2)	; ⓒ
     (<-circled
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
       ))
-    (=ucs		. #x24D2)	; ⓒ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER C")
       (=ucs		  . #x24B8)	; Ⓒ
@@ -2433,25 +2433,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER C")
       (=ucs		  . #x24D2)	; ⓒ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER C")
-      (=ucs		  . #x24D2)	; ⓒ
-      ))
     (=ks-x1001		. #x284F)	; &JX1-2C43; [08-47]
     (=jis-x0213-1-2000	. #x2C43)	; &I-JX1-2C43; [12-35]
     (=ucs@jis		. #x24D2)	; &JX1-2C43;
     (=ucs@ks		. #x24D2)	; &JX1-2C43;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER C")
+      (=ucs		  . #x24D2)	; ⓒ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER D")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D3)	; ⓓ
     (<-circled
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       ))
-    (=ucs		. #x24D3)	; ⓓ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER D")
       (=ucs		  . #x24B9)	; Ⓓ
@@ -2462,25 +2462,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER D")
       (=ucs		  . #x24D3)	; ⓓ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER D")
-      (=ucs		  . #x24D3)	; ⓓ
-      ))
     (=ks-x1001		. #x2850)	; &JX1-2C44; [08-48]
     (=jis-x0213-1-2000	. #x2C44)	; &I-JX1-2C44; [12-36]
     (=ucs@jis		. #x24D3)	; &JX1-2C44;
     (=ucs@ks		. #x24D3)	; &JX1-2C44;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER D")
+      (=ucs		  . #x24D3)	; ⓓ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER E")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D4)	; ⓔ
     (<-circled
      ((name		  . "LATIN SMALL LETTER E")
       (=ucs		  . #x0065)	; e
       ))
-    (=ucs		. #x24D4)	; ⓔ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER E")
       (=ucs		  . #x24BA)	; Ⓔ
@@ -2491,25 +2491,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER E")
       (=ucs		  . #x24D4)	; ⓔ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER E")
-      (=ucs		  . #x24D4)	; ⓔ
-      ))
     (=ks-x1001		. #x2851)	; &JX1-2C45; [08-49]
     (=jis-x0213-1-2000	. #x2C45)	; &I-JX1-2C45; [12-37]
     (=ucs@jis		. #x24D4)	; &JX1-2C45;
     (=ucs@ks		. #x24D4)	; &JX1-2C45;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER E")
+      (=ucs		  . #x24D4)	; ⓔ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER F")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D5)	; ⓕ
     (<-circled
      ((name		  . "LATIN SMALL LETTER F")
       (=ucs		  . #x0066)	; f
       ))
-    (=ucs		. #x24D5)	; ⓕ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER F")
       (=ucs		  . #x24BB)	; Ⓕ
@@ -2520,25 +2520,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER F")
       (=ucs		  . #x24D5)	; ⓕ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER F")
-      (=ucs		  . #x24D5)	; ⓕ
-      ))
     (=ks-x1001		. #x2852)	; &JX1-2C46; [08-50]
     (=jis-x0213-1-2000	. #x2C46)	; &I-JX1-2C46; [12-38]
     (=ucs@jis		. #x24D5)	; &JX1-2C46;
     (=ucs@ks		. #x24D5)	; &JX1-2C46;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER F")
+      (=ucs		  . #x24D5)	; ⓕ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER G")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D6)	; ⓖ
     (<-circled
      ((name		  . "LATIN SMALL LETTER G")
       (=ucs		  . #x0067)	; g
       ))
-    (=ucs		. #x24D6)	; ⓖ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER G")
       (=ucs		  . #x24BC)	; Ⓖ
@@ -2549,25 +2549,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER G")
       (=ucs		  . #x24D6)	; ⓖ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER G")
-      (=ucs		  . #x24D6)	; ⓖ
-      ))
     (=ks-x1001		. #x2853)	; &JX1-2C47; [08-51]
     (=jis-x0213-1-2000	. #x2C47)	; &I-JX1-2C47; [12-39]
     (=ucs@jis		. #x24D6)	; &JX1-2C47;
     (=ucs@ks		. #x24D6)	; &JX1-2C47;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER G")
+      (=ucs		  . #x24D6)	; ⓖ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER H")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D7)	; ⓗ
     (<-circled
      ((name		  . "LATIN SMALL LETTER H")
       (=ucs		  . #x0068)	; h
       ))
-    (=ucs		. #x24D7)	; ⓗ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER H")
       (=ucs		  . #x24BD)	; Ⓗ
@@ -2578,25 +2578,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER H")
       (=ucs		  . #x24D7)	; ⓗ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER H")
-      (=ucs		  . #x24D7)	; ⓗ
-      ))
     (=ks-x1001		. #x2854)	; &JX1-2C48; [08-52]
     (=jis-x0213-1-2000	. #x2C48)	; &I-JX1-2C48; [12-40]
     (=ucs@jis		. #x24D7)	; &JX1-2C48;
     (=ucs@ks		. #x24D7)	; &JX1-2C48;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER H")
+      (=ucs		  . #x24D7)	; ⓗ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER I")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D8)	; ⓘ
     (<-circled
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
       ))
-    (=ucs		. #x24D8)	; ⓘ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER I")
       (=ucs		  . #x24BE)	; Ⓘ
@@ -2607,25 +2607,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER I")
       (=ucs		  . #x24D8)	; ⓘ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER I")
-      (=ucs		  . #x24D8)	; ⓘ
-      ))
     (=ks-x1001		. #x2855)	; &JX1-2C49; [08-53]
     (=jis-x0213-1-2000	. #x2C49)	; &I-JX1-2C49; [12-41]
     (=ucs@jis		. #x24D8)	; &JX1-2C49;
     (=ucs@ks		. #x24D8)	; &JX1-2C49;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER I")
+      (=ucs		  . #x24D8)	; ⓘ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER J")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24D9)	; ⓙ
     (<-circled
      ((name		  . "LATIN SMALL LETTER J")
       (=ucs		  . #x006A)	; j
       ))
-    (=ucs		. #x24D9)	; ⓙ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER J")
       (=ucs		  . #x24BF)	; Ⓙ
@@ -2636,25 +2636,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER J")
       (=ucs		  . #x24D9)	; ⓙ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER J")
-      (=ucs		  . #x24D9)	; ⓙ
-      ))
     (=ks-x1001		. #x2856)	; &JX1-2C4A; [08-54]
     (=jis-x0213-1-2000	. #x2C4A)	; &I-JX1-2C4A; [12-42]
     (=ucs@jis		. #x24D9)	; &JX1-2C4A;
     (=ucs@ks		. #x24D9)	; &JX1-2C4A;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER J")
+      (=ucs		  . #x24D9)	; ⓙ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER K")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DA)	; ⓚ
     (<-circled
      ((name		  . "LATIN SMALL LETTER K")
       (=ucs		  . #x006B)	; k
       ))
-    (=ucs		. #x24DA)	; ⓚ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER K")
       (=ucs		  . #x24C0)	; Ⓚ
@@ -2665,25 +2665,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER K")
       (=ucs		  . #x24DA)	; ⓚ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER K")
-      (=ucs		  . #x24DA)	; ⓚ
-      ))
     (=ks-x1001		. #x2857)	; &JX1-2C4B; [08-55]
     (=jis-x0213-1-2000	. #x2C4B)	; &I-JX1-2C4B; [12-43]
     (=ucs@jis		. #x24DA)	; &JX1-2C4B;
     (=ucs@ks		. #x24DA)	; &JX1-2C4B;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER K")
+      (=ucs		  . #x24DA)	; ⓚ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER L")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DB)	; ⓛ
     (<-circled
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
-    (=ucs		. #x24DB)	; ⓛ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER L")
       (=ucs		  . #x24C1)	; Ⓛ
@@ -2694,25 +2694,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER L")
       (=ucs		  . #x24DB)	; ⓛ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER L")
-      (=ucs		  . #x24DB)	; ⓛ
-      ))
     (=ks-x1001		. #x2858)	; &JX1-2C4C; [08-56]
     (=jis-x0213-1-2000	. #x2C4C)	; &I-JX1-2C4C; [12-44]
     (=ucs@jis		. #x24DB)	; &JX1-2C4C;
     (=ucs@ks		. #x24DB)	; &JX1-2C4C;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER L")
+      (=ucs		  . #x24DB)	; ⓛ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER M")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DC)	; ⓜ
     (<-circled
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
       ))
-    (=ucs		. #x24DC)	; ⓜ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER M")
       (=ucs		  . #x24C2)	; Ⓜ
@@ -2723,25 +2723,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER M")
       (=ucs		  . #x24DC)	; ⓜ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER M")
-      (=ucs		  . #x24DC)	; ⓜ
-      ))
     (=ks-x1001		. #x2859)	; &JX1-2C4D; [08-57]
     (=jis-x0213-1-2000	. #x2C4D)	; &I-JX1-2C4D; [12-45]
     (=ucs@jis		. #x24DC)	; &JX1-2C4D;
     (=ucs@ks		. #x24DC)	; &JX1-2C4D;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER M")
+      (=ucs		  . #x24DC)	; ⓜ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER N")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DD)	; ⓝ
     (<-circled
      ((name		  . "LATIN SMALL LETTER N")
       (=ucs		  . #x006E)	; n
       ))
-    (=ucs		. #x24DD)	; ⓝ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER N")
       (=ucs		  . #x24C3)	; Ⓝ
@@ -2752,25 +2752,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER N")
       (=ucs		  . #x24DD)	; ⓝ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER N")
-      (=ucs		  . #x24DD)	; ⓝ
-      ))
     (=ks-x1001		. #x285A)	; &JX1-2C4E; [08-58]
     (=jis-x0213-1-2000	. #x2C4E)	; &I-JX1-2C4E; [12-46]
     (=ucs@jis		. #x24DD)	; &JX1-2C4E;
     (=ucs@ks		. #x24DD)	; &JX1-2C4E;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER N")
+      (=ucs		  . #x24DD)	; ⓝ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER O")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DE)	; ⓞ
     (<-circled
      ((name		  . "LATIN SMALL LETTER O")
       (=ucs		  . #x006F)	; o
       ))
-    (=ucs		. #x24DE)	; ⓞ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER O")
       (=ucs		  . #x24C4)	; Ⓞ
@@ -2781,25 +2781,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER O")
       (=ucs		  . #x24DE)	; ⓞ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER O")
-      (=ucs		  . #x24DE)	; ⓞ
-      ))
     (=ks-x1001		. #x285B)	; &JX1-2C4F; [08-59]
     (=jis-x0213-1-2000	. #x2C4F)	; &I-JX1-2C4F; [12-47]
     (=ucs@jis		. #x24DE)	; &JX1-2C4F;
     (=ucs@ks		. #x24DE)	; &JX1-2C4F;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER O")
+      (=ucs		  . #x24DE)	; ⓞ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER P")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24DF)	; ⓟ
     (<-circled
      ((name		  . "LATIN SMALL LETTER P")
       (=ucs		  . #x0070)	; p
       ))
-    (=ucs		. #x24DF)	; ⓟ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER P")
       (=ucs		  . #x24C5)	; Ⓟ
@@ -2810,25 +2810,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER P")
       (=ucs		  . #x24DF)	; ⓟ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER P")
-      (=ucs		  . #x24DF)	; ⓟ
-      ))
     (=ks-x1001		. #x285C)	; &JX1-2C50; [08-60]
     (=jis-x0213-1-2000	. #x2C50)	; &I-JX1-2C50; [12-48]
     (=ucs@jis		. #x24DF)	; &JX1-2C50;
     (=ucs@ks		. #x24DF)	; &JX1-2C50;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER P")
+      (=ucs		  . #x24DF)	; ⓟ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Q")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E0)	; ⓠ
     (<-circled
      ((name		  . "LATIN SMALL LETTER Q")
       (=ucs		  . #x0071)	; q
       ))
-    (=ucs		. #x24E0)	; ⓠ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Q")
       (=ucs		  . #x24C6)	; Ⓠ
@@ -2839,25 +2839,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER Q")
       (=ucs		  . #x24E0)	; ⓠ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER Q")
-      (=ucs		  . #x24E0)	; ⓠ
-      ))
     (=ks-x1001		. #x285D)	; &JX1-2C51; [08-61]
     (=jis-x0213-1-2000	. #x2C51)	; &I-JX1-2C51; [12-49]
     (=ucs@jis		. #x24E0)	; &JX1-2C51;
     (=ucs@ks		. #x24E0)	; &JX1-2C51;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER Q")
+      (=ucs		  . #x24E0)	; ⓠ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER R")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E1)	; ⓡ
     (<-circled
      ((name		  . "LATIN SMALL LETTER R")
       (=ucs		  . #x0072)	; r
       ))
-    (=ucs		. #x24E1)	; ⓡ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER R")
       (=ucs		  . #x24C7)	; Ⓡ
@@ -2868,25 +2868,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER R")
       (=ucs		  . #x24E1)	; ⓡ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER R")
-      (=ucs		  . #x24E1)	; ⓡ
-      ))
     (=ks-x1001		. #x285E)	; &JX1-2C52; [08-62]
     (=jis-x0213-1-2000	. #x2C52)	; &I-JX1-2C52; [12-50]
     (=ucs@jis		. #x24E1)	; &JX1-2C52;
     (=ucs@ks		. #x24E1)	; &JX1-2C52;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER R")
+      (=ucs		  . #x24E1)	; ⓡ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER S")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E2)	; ⓢ
     (<-circled
      ((name		  . "LATIN SMALL LETTER S")
       (=ucs		  . #x0073)	; s
       ))
-    (=ucs		. #x24E2)	; ⓢ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER S")
       (=ucs		  . #x24C8)	; Ⓢ
@@ -2897,25 +2897,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER S")
       (=ucs		  . #x24E2)	; ⓢ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER S")
-      (=ucs		  . #x24E2)	; ⓢ
-      ))
     (=ks-x1001		. #x285F)	; &JX1-2C53; [08-63]
     (=jis-x0213-1-2000	. #x2C53)	; &I-JX1-2C53; [12-51]
     (=ucs@jis		. #x24E2)	; &JX1-2C53;
     (=ucs@ks		. #x24E2)	; &JX1-2C53;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER S")
+      (=ucs		  . #x24E2)	; ⓢ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER T")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E3)	; ⓣ
     (<-circled
      ((name		  . "LATIN SMALL LETTER T")
       (=ucs		  . #x0074)	; t
       ))
-    (=ucs		. #x24E3)	; ⓣ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER T")
       (=ucs		  . #x24C9)	; Ⓣ
@@ -2926,25 +2926,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER T")
       (=ucs		  . #x24E3)	; ⓣ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER T")
-      (=ucs		  . #x24E3)	; ⓣ
-      ))
     (=ks-x1001		. #x2860)	; &JX1-2C54; [08-64]
     (=jis-x0213-1-2000	. #x2C54)	; &I-JX1-2C54; [12-52]
     (=ucs@jis		. #x24E3)	; &JX1-2C54;
     (=ucs@ks		. #x24E3)	; &JX1-2C54;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER T")
+      (=ucs		  . #x24E3)	; ⓣ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER U")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E4)	; ⓤ
     (<-circled
      ((name		  . "LATIN SMALL LETTER U")
       (=ucs		  . #x0075)	; u
       ))
-    (=ucs		. #x24E4)	; ⓤ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER U")
       (=ucs		  . #x24CA)	; Ⓤ
@@ -2955,25 +2955,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER U")
       (=ucs		  . #x24E4)	; ⓤ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER U")
-      (=ucs		  . #x24E4)	; ⓤ
-      ))
     (=ks-x1001		. #x2861)	; &JX1-2C55; [08-65]
     (=jis-x0213-1-2000	. #x2C55)	; &I-JX1-2C55; [12-53]
     (=ucs@jis		. #x24E4)	; &JX1-2C55;
     (=ucs@ks		. #x24E4)	; &JX1-2C55;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER U")
+      (=ucs		  . #x24E4)	; ⓤ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER V")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E5)	; ⓥ
     (<-circled
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
       ))
-    (=ucs		. #x24E5)	; ⓥ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER V")
       (=ucs		  . #x24CB)	; Ⓥ
@@ -2984,25 +2984,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER V")
       (=ucs		  . #x24E5)	; ⓥ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER V")
-      (=ucs		  . #x24E5)	; ⓥ
-      ))
     (=ks-x1001		. #x2862)	; &JX1-2C56; [08-66]
     (=jis-x0213-1-2000	. #x2C56)	; &I-JX1-2C56; [12-54]
     (=ucs@jis		. #x24E5)	; &JX1-2C56;
     (=ucs@ks		. #x24E5)	; &JX1-2C56;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER V")
+      (=ucs		  . #x24E5)	; ⓥ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER W")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E6)	; ⓦ
     (<-circled
      ((name		  . "LATIN SMALL LETTER W")
       (=ucs		  . #x0077)	; w
       ))
-    (=ucs		. #x24E6)	; ⓦ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER W")
       (=ucs		  . #x24CC)	; Ⓦ
@@ -3013,25 +3013,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER W")
       (=ucs		  . #x24E6)	; ⓦ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER W")
-      (=ucs		  . #x24E6)	; ⓦ
-      ))
     (=ks-x1001		. #x2863)	; &JX1-2C57; [08-67]
     (=jis-x0213-1-2000	. #x2C57)	; &I-JX1-2C57; [12-55]
     (=ucs@jis		. #x24E6)	; &JX1-2C57;
     (=ucs@ks		. #x24E6)	; &JX1-2C57;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER W")
+      (=ucs		  . #x24E6)	; ⓦ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER X")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E7)	; ⓧ
     (<-circled
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
       ))
-    (=ucs		. #x24E7)	; ⓧ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER X")
       (=ucs		  . #x24CD)	; Ⓧ
@@ -3042,25 +3042,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER X")
       (=ucs		  . #x24E7)	; ⓧ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER X")
-      (=ucs		  . #x24E7)	; ⓧ
-      ))
     (=ks-x1001		. #x2864)	; &JX1-2C58; [08-68]
     (=jis-x0213-1-2000	. #x2C58)	; &I-JX1-2C58; [12-56]
     (=ucs@jis		. #x24E7)	; &JX1-2C58;
     (=ucs@ks		. #x24E7)	; &JX1-2C58;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER X")
+      (=ucs		  . #x24E7)	; ⓧ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Y")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E8)	; ⓨ
     (<-circled
      ((name		  . "LATIN SMALL LETTER Y")
       (=ucs		  . #x0079)	; y
       ))
-    (=ucs		. #x24E8)	; ⓨ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Y")
       (=ucs		  . #x24CE)	; Ⓨ
@@ -3071,25 +3071,25 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER Y")
       (=ucs		  . #x24E8)	; ⓨ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER Y")
-      (=ucs		  . #x24E8)	; ⓨ
-      ))
     (=ks-x1001		. #x2865)	; &JX1-2C59; [08-69]
     (=jis-x0213-1-2000	. #x2C59)	; &I-JX1-2C59; [12-57]
     (=ucs@jis		. #x24E8)	; &JX1-2C59;
     (=ucs@ks		. #x24E8)	; &JX1-2C59;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER Y")
+      (=ucs		  . #x24E8)	; ⓨ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Z")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x24E9)	; ⓩ
     (<-circled
      ((name		  . "LATIN SMALL LETTER Z")
       (=ucs		  . #x007A)	; z
       ))
-    (=ucs		. #x24E9)	; ⓩ
     (->uppercase
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Z")
       (=ucs		  . #x24CF)	; Ⓩ
@@ -3100,14 +3100,14 @@
      ((name		  . "CIRCLED LATIN SMALL LETTER Z")
       (=ucs		  . #x24E9)	; ⓩ
       ))
-    (<-fullwidth
-     ((name		  . "CIRCLED LATIN SMALL LETTER Z")
-      (=ucs		  . #x24E9)	; ⓩ
-      ))
     (=ks-x1001		. #x2866)	; &JX1-2C5A; [08-70]
     (=jis-x0213-1-2000	. #x2C5A)	; &I-JX1-2C5A; [12-58]
     (=ucs@jis		. #x24E9)	; &JX1-2C5A;
     (=ucs@ks		. #x24E9)	; &JX1-2C5A;
+    (<-fullwidth
+     ((name		  . "CIRCLED LATIN SMALL LETTER Z")
+      (=ucs		  . #x24E9)	; ⓩ
+      ))
     ))
 (define-char
   '((name		. "CIRCLED DIGIT ZERO")
@@ -3116,11 +3116,11 @@
     (mirrored		. nil)
     (digit-value	. 0)
     (numeric-value	. 0)
+    (=ucs		. #x24EA)	; ⓪
     (<-circled
      ((name		  . "DIGIT ZERO")
       (=ucs		  . #x0030)	; 0
       ))
-    (=ucs		. #x24EA)	; ⓪
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER ELEVEN")
