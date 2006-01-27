@@ -1,3 +1,37 @@
+2006-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Use `->subsumptive' for some character
+	definitions.
+	(U+5986): Use `->subsumptive'; delete `morohashi-daikanwa'.
+	(G0-5731): Use `<-subsumptive' for U+5986; add `<-simplified@CN'
+	for G1-5731.
+	(U-000216B4): New character.
+	(U+598D): Use `->subsumptive'; add `<-denotational' for J97-552B.
+	(J97-552B): New abstract character.
+	(U+5992): Use `->denotational' and `->subsumptive'.
+	(U+36AB): Use `->denotational' and `->subsumptive'.
+	(U+599B): Use `->denotational' and `->subsumptive'.
+	(J0-562C): Add `<-denotational' for U+599B; add
+	`<-error@jis-x0208' for JX1-4F63; add `<-unknown' for JSP-397B.
+	(U+59AA): Delete `morohashi-daikanwa'; add `<-simplified@CN' for
+	G1-657D.
+	(U+59AD): Use `->denotational' and `->subsumptive'.
+	(U+59F8): Add `<-denotational' for J97-552B.
+	(K0-6641): Unify JC3-49B5.
+	(U-00021769): Use `->denotational' and `->subsumptive'.
+	(U+5ADA): Use `->denotational' instead of `->subsumptive'.
+
+2006-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (U+9ED1): Unify JC3-6FD6.
+	(U+4D61): Use `->subsumptive'.
+	(U+9ED7): Use `->subsumptive'.
+	(U+9ED8): Use `->subsumptive'.
+	(U+9ED9): Use `->denotational'.
+	(J90-4263): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4263.
+	(U+9EDC): Use `->subsumptive'.
+
 2006-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (U+9F60): Use `->denotational' and
