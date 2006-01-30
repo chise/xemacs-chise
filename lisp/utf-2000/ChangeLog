@@ -1,3 +1,13 @@
+2006-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R185-Head.el (C6-3C79): Unify U-00029810.
+	(<CJK RADICAL HEAD>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
+	* Ideograph-R170-Mound.el (C6-2E45): Unify U-00028E0F.
+	(<CJK RADICAL MOUND ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+
 2006-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R210-Even.el (U-0002A5C5): Use `->subsumptive'.
