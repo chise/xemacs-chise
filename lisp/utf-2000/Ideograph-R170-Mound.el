@@ -19,8 +19,22 @@
   '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2E45)	; &M-41535; [14-37]
+    (=ucs		. #x28E0F)	; 𨸏
+    (=cns11643-6	. #x2E45)	; &I-C6-2E45; [14-37]
     (=daikanwa		. 41535)	; &I-M-41535;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28E0F)	; 𨸏
+      ))
+    (name		. "CJK RADICAL MOUND ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2ED5)	; ⻕
+    (<-identical@component
+     ((=ucs		  . #x28E0F)	; 𨸏
+      ))
     ))
 (define-char
   '((<-denotational
