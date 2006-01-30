@@ -1,5 +1,14 @@
 2006-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R210-Even.el (U-0002A5C5): Use `->subsumptive'.
+	(U-0002A5C6): Use `->subsumptive'.
+	(U+4D93): Use `->subsumptive'.
+	(U+9F4B): Use `->subsumptive'.
+	(U+4D92): Use `->subsumptive'.
+	(U+9F4C): Use `->subsumptive'.
+
+2006-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R038-Woman.el: Use `->subsumptive' for some character
 	definitions.
 	(U+5986): Use `->subsumptive'; delete `morohashi-daikanwa'.
