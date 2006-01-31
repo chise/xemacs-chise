@@ -256,7 +256,8 @@
     (->subsumptive
      ((=ucs@iso		  . #x24C07)	; &U-00024C07;
       )
-     ((=cns11643-6	  . #x395D)	; &C6-395D; [25-61]
+     ((=cns11643-6	  . #x395D)	; &CDP-8C73; [25-61]
+      (=big5-cdp	  . #x8C73)	; &I-CDP-8C73;
       ))
     ))
 (define-char
