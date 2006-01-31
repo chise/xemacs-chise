@@ -15853,6 +15853,30 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (=ucs		. #x20E04)	; 𠸄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20E04)	; 𠸄
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	8 13 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=jis-x0208	  . #x3151)	; &GT-39838; [17-49]
+      (=gb2312		  . #x5322)	; &I-G0-5322; [51-02]
+      (=ks-x1001	  . #x6748)	; &I-K0-6748; [71-40]
+      ))
+    (=hanziku-12	. #xEC4A)	; &HZK12-EC4A;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -19686,6 +19710,36 @@
     (total-strokes	 . 12)
     (=ucs		. #x20DE7)	; 𠷧
     (=cns11643-5	. #x3673)	; &I-C5-3673; [22-83]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20E04)	; 𠸄
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=daikanwa	    . 30808)	; &M-30808;
+	))
+      (sources		  bos=A021761-00005)
+      (=ruimoku-v6	  . #xE01A)	; &RUI6-E01A;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=cns11643-1	    . #x5341)	; &C1-5341; [51-33]
+	))
+      (=ucs@iso		  . #x20E04)	; &U-00020E04;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -36944,12 +36998,6 @@
     (hanyu-dazidian	1 663 2)
     (=ucs		. #x20E03)	; 𠸃
     (=hanziku-2		. #xDAC0)	; &I-HZK02-DAC0;
-    ))
-(define-char
-  '((ideographic-radical . 30)	; ⼝
-    (hanyu-dazidian	8 13 19)
-    (=ucs		. #x20E04)	; 𠸄
-    (=hanziku-12	. #xEC4A)	; &I-HZK12-EC4A;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
