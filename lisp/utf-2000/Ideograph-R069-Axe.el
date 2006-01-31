@@ -200,7 +200,24 @@
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 13549)	; &M-13549;
+    (=ucs		. #x3ABD)	; 㪽
+    (=daikanwa		. 13549)	; &I-M-13549;
+    (=hanziku-5		. #xF6BC)	; &I-HZK05-F6BC;
+    ))
+(define-char
+  '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x211A5)	; 𡆥
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (sources		bos=A2001-16138-00013)
+    (=ruimoku-v6	. #xE00B)	; &RUI6-E00B;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -214,38 +231,39 @@
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=daikanwa		. 13551)	; &M-13551;
+    (=ucs		. #x2309D)	; 𣂝
+    (=daikanwa		. 13551)	; &I-M-13551;
+    (=hanziku-5		. #xF6C3)	; &I-HZK05-F6C3;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=daikanwa		. 13552)	; &M-13552;
+    (=ucs		. #x2309C)	; 𣂜
+    (=daikanwa		. 13552)	; &I-M-13552;
+    (=hanziku-5		. #xF6C2)	; &I-HZK05-F6C2;
     ))
 (define-char
-  '((morohashi-daikanwa	13552 0 9)
+  '((=>ucs		. #x2309C)	; 𣂜
+    (=>daikanwa		. 13552)	; 𣂜
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=jef-china3	. #x8FCF)	; &JC3-8FCF;
     ))
 (define-char
-  '((=>ucs		. #x230A0)	; 𣂠
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=daikanwa		. 13553)	; &M-13553;
-    ))
-(define-char
-  '((morohashi-daikanwa	13553 0 0)
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
+  '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes@daikanwa . 6)
+    (total-strokes@daikanwa	  . 10)
+    (ideographic-strokes@cns . 7)
+    (total-strokes@cns	     . 11)
     (=ucs		. #x230A0)	; 𣂠
     (=cns11643-6	. #x4047)	; &I-C6-4047; [32-39]
+    (=daikanwa		. 13553)	; &I-M-13553;
     ))
 (define-char
-  '((ideographic-radical . 69)	; ⽄
+  '((morohashi-daikanwa	13553 1)
+    (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x3ABF)	; 㪿
