@@ -847,6 +847,7 @@
     (total-strokes	 . 9)
     (=ucs		. #x21C52)	; 𡱒
     (=cns11643-6	. #x303E)	; &I-C6-303E; [16-30]
+    (=big5-cdp		. #x8DBE)	; &I-CDP-8DBE;
     (=daikanwa		. 07696)	; &I-M-07696;
     ))
 (define-char
