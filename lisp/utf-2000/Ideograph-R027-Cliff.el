@@ -1200,7 +1200,23 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x653C)	; 攼
+      ))
+    (sources		bos=A2003-10271-00006)
+    (=ruimoku-v6	. #xE022)	; &RUI6-E022;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (=ucs		. #x539C)	; 厜
+    (=big5		. #xD470)	; &I-B-D470;
     ))
 (define-char
   '((<-denotational
@@ -1221,8 +1237,7 @@
       (=ks-x1001	  . #x6177)	; &I-K0-6177; [65-87]
       (=daikanwa	  . 05012)	; &I-M-05012;
       ))
-    (=big5		. #xD470)	; &M-02960;
-    (=daikanwa		. 02960)	; &I-M-02960;
+    (=daikanwa		. 02960)	; &M-02960;
     (=ucs@unicode	. #x539C)	; &M-02960;
     ))
 (define-char
