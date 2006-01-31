@@ -676,6 +676,21 @@
     (=ucs@jis		. #x517B)	; &JX2-7474;
     ))
 (define-char
+  '((ideographic-radical@ucs . 85)	; ⽔
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     jis/x0213@2000 ucs)
+    (ideographic-radical@misc . 123)	; ⽺
+    (ideographic-strokes@misc . 4)
+    (ideographic-radical@misc*sources
+     jis/x0213@2000)
+    (total-strokes	 . 10)
+    (sound@ja/kun/name	"suke" "tugu" "yosi")
+    (sound@ja/on/name	"syAu" "yAu")
+    (=ucs		. #x23D0E)	; 𣴎
+    (=jis-x0213-2-2000	. #x7475)	; &I-JX2-7475; [84-85]
+    ))
+(define-char
   '((=>ucs		. #x2635B)	; 𦍛
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 5)
