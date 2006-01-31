@@ -1357,168 +1357,168 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3260)	; ㉠
+    (=ks-x1001		. #x2831)	; &I-K0-2831; [08-17]
     (<-circled
      ((name		  . "HANGUL CHOSEONG KIYEOK")
       (=ucs		  . #x1100)	; ᄀ
       ))
-    (=ucs		. #x3260)	; ㉠
-    (=ks-x1001		. #x2831)	; &I-K0-2831; [08-17]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL NIEUN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3261)	; ㉡
+    (=ks-x1001		. #x2832)	; &I-K0-2832; [08-18]
     (<-circled
      ((name		  . "HANGUL CHOSEONG NIEUN")
       (=ucs		  . #x1102)	; ᄂ
       ))
-    (=ucs		. #x3261)	; ㉡
-    (=ks-x1001		. #x2832)	; &I-K0-2832; [08-18]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL TIKEUT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3262)	; ㉢
+    (=ks-x1001		. #x2833)	; &I-K0-2833; [08-19]
     (<-circled
      ((name		  . "HANGUL CHOSEONG TIKEUT")
       (=ucs		  . #x1103)	; ᄃ
       ))
-    (=ucs		. #x3262)	; ㉢
-    (=ks-x1001		. #x2833)	; &I-K0-2833; [08-19]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL RIEUL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3263)	; ㉣
+    (=ks-x1001		. #x2834)	; &I-K0-2834; [08-20]
     (<-circled
      ((name		  . "HANGUL CHOSEONG RIEUL")
       (=ucs		  . #x1105)	; ᄅ
       ))
-    (=ucs		. #x3263)	; ㉣
-    (=ks-x1001		. #x2834)	; &I-K0-2834; [08-20]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL MIEUM")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3264)	; ㉤
+    (=ks-x1001		. #x2835)	; &I-K0-2835; [08-21]
     (<-circled
      ((name		  . "HANGUL CHOSEONG MIEUM")
       (=ucs		  . #x1106)	; ᄆ
       ))
-    (=ucs		. #x3264)	; ㉤
-    (=ks-x1001		. #x2835)	; &I-K0-2835; [08-21]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PIEUP")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3265)	; ㉥
+    (=ks-x1001		. #x2836)	; &I-K0-2836; [08-22]
     (<-circled
      ((name		  . "HANGUL CHOSEONG PIEUP")
       (=ucs		  . #x1107)	; ᄇ
       ))
-    (=ucs		. #x3265)	; ㉥
-    (=ks-x1001		. #x2836)	; &I-K0-2836; [08-22]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL SIOS")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3266)	; ㉦
+    (=ks-x1001		. #x2837)	; &I-K0-2837; [08-23]
     (<-circled
      ((name		  . "HANGUL CHOSEONG SIOS")
       (=ucs		  . #x1109)	; ᄉ
       ))
-    (=ucs		. #x3266)	; ㉦
-    (=ks-x1001		. #x2837)	; &I-K0-2837; [08-23]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL IEUNG")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3267)	; ㉧
+    (=ks-x1001		. #x2838)	; &I-K0-2838; [08-24]
     (<-circled
      ((name		  . "HANGUL CHOSEONG IEUNG")
       (=ucs		  . #x110B)	; ᄋ
       ))
-    (=ucs		. #x3267)	; ㉧
-    (=ks-x1001		. #x2838)	; &I-K0-2838; [08-24]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CIEUC")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3268)	; ㉨
+    (=ks-x1001		. #x2839)	; &I-K0-2839; [08-25]
     (<-circled
      ((name		  . "HANGUL CHOSEONG CIEUC")
       (=ucs		  . #x110C)	; ᄌ
       ))
-    (=ucs		. #x3268)	; ㉨
-    (=ks-x1001		. #x2839)	; &I-K0-2839; [08-25]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CHIEUCH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3269)	; ㉩
+    (=ks-x1001		. #x283A)	; &I-K0-283A; [08-26]
     (<-circled
      ((name		  . "HANGUL CHOSEONG CHIEUCH")
       (=ucs		  . #x110E)	; ᄎ
       ))
-    (=ucs		. #x3269)	; ㉩
-    (=ks-x1001		. #x283A)	; &I-K0-283A; [08-26]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KHIEUKH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x326A)	; ㉪
+    (=ks-x1001		. #x283B)	; &I-K0-283B; [08-27]
     (<-circled
      ((name		  . "HANGUL CHOSEONG KHIEUKH")
       (=ucs		  . #x110F)	; ᄏ
       ))
-    (=ucs		. #x326A)	; ㉪
-    (=ks-x1001		. #x283B)	; &I-K0-283B; [08-27]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL THIEUTH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x326B)	; ㉫
+    (=ks-x1001		. #x283C)	; &I-K0-283C; [08-28]
     (<-circled
      ((name		  . "HANGUL CHOSEONG THIEUTH")
       (=ucs		  . #x1110)	; ᄐ
       ))
-    (=ucs		. #x326B)	; ㉫
-    (=ks-x1001		. #x283C)	; &I-K0-283C; [08-28]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PHIEUPH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x326C)	; ㉬
+    (=ks-x1001		. #x283D)	; &I-K0-283D; [08-29]
     (<-circled
      ((name		  . "HANGUL CHOSEONG PHIEUPH")
       (=ucs		  . #x1111)	; ᄑ
       ))
-    (=ucs		. #x326C)	; ㉬
-    (=ks-x1001		. #x283D)	; &I-K0-283D; [08-29]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL HIEUH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x326D)	; ㉭
+    (=ks-x1001		. #x283E)	; &I-K0-283E; [08-30]
     (<-circled
      ((name		  . "HANGUL CHOSEONG HIEUH")
       (=ucs		  . #x1112)	; ᄒ
       ))
-    (=ucs		. #x326D)	; ㉭
-    (=ks-x1001		. #x283E)	; &I-K0-283E; [08-30]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK A")
@@ -1744,10 +1744,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
+    (=ucs		. #x3280)	; ㊀
     (<-circled
      ((=ucs		  . #x4E00)	; 一
       ))
-    (=ucs		. #x3280)	; ㊀
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH TWO")
@@ -1755,10 +1755,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
+    (=ucs		. #x3281)	; ㊁
     (<-circled
      ((=ucs		  . #x4E8C)	; 二
       ))
-    (=ucs		. #x3281)	; ㊁
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH THREE")
@@ -1766,10 +1766,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
+    (=ucs		. #x3282)	; ㊂
     (<-circled
      ((=ucs		  . #x4E09)	; 三
       ))
-    (=ucs		. #x3282)	; ㊂
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH FOUR")
@@ -1777,10 +1777,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
+    (=ucs		. #x3283)	; ㊃
     (<-circled
      ((=ucs		  . #x56DB)	; 四
       ))
-    (=ucs		. #x3283)	; ㊃
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH FIVE")
@@ -1788,10 +1788,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
+    (=ucs		. #x3284)	; ㊄
     (<-circled
      ((=ucs		  . #x4E94)	; 五
       ))
-    (=ucs		. #x3284)	; ㊄
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SIX")
@@ -1799,10 +1799,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
+    (=ucs		. #x3285)	; ㊅
     (<-circled
      ((=ucs		  . #x516D)	; 六
       ))
-    (=ucs		. #x3285)	; ㊅
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SEVEN")
@@ -1810,10 +1810,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
+    (=ucs		. #x3286)	; ㊆
     (<-circled
      ((=ucs		  . #x4E03)	; 七
       ))
-    (=ucs		. #x3286)	; ㊆
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH EIGHT")
@@ -1821,10 +1821,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
+    (=ucs		. #x3287)	; ㊇
     (<-circled
      ((=ucs		  . #x516B)	; 八
       ))
-    (=ucs		. #x3287)	; ㊇
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH NINE")
@@ -1832,10 +1832,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
+    (=ucs		. #x3288)	; ㊈
     (<-circled
      ((=ucs		  . #x4E5D)	; 九
       ))
-    (=ucs		. #x3288)	; ㊈
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH TEN")
@@ -1843,421 +1843,421 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
+    (=ucs		. #x3289)	; ㊉
     (<-circled
      ((=ucs		  . #x5341)	; 十
       ))
-    (=ucs		. #x3289)	; ㊉
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MOON")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328A)	; ㊊
     (<-circled
      ((=ucs		  . #x6708)	; 月
       ))
-    (=ucs		. #x328A)	; ㊊
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH FIRE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328B)	; ㊋
     (<-circled
      ((=ucs		  . #x706B)	; 火
       ))
-    (=ucs		. #x328B)	; ㊋
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH WATER")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328C)	; ㊌
     (<-circled
      ((=ucs		  . #x6C34)	; 水
       ))
-    (=ucs		. #x328C)	; ㊌
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH WOOD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328D)	; ㊍
     (<-circled
      ((=ucs		  . #x6728)	; 木
       ))
-    (=ucs		. #x328D)	; ㊍
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH METAL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328E)	; ㊎
     (<-circled
      ((=ucs		  . #x91D1)	; 金
       ))
-    (=ucs		. #x328E)	; ㊎
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH EARTH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x328F)	; ㊏
     (<-circled
      ((=ucs		  . #x571F)	; 土
       ))
-    (=ucs		. #x328F)	; ㊏
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SUN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3290)	; ㊐
     (<-circled
      ((=ucs		  . #x65E5)	; 日
       ))
-    (=ucs		. #x3290)	; ㊐
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH STOCK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3291)	; ㊑
+    (=jef-china3	. #x78E6)	; &I-JC3-78E6;
     (<-circled
      ((=ucs		  . #x682A)	; 株
       ))
-    (=ucs		. #x3291)	; ㊑
-    (=jef-china3	. #x78E6)	; &I-JC3-78E6;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH HAVE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3292)	; ㊒
+    (=jef-china3	. #x78E5)	; &I-JC3-78E5;
     (<-circled
      ((=ucs		  . #x6709)	; 有
       ))
-    (=ucs		. #x3292)	; ㊒
-    (=jef-china3	. #x78E5)	; &I-JC3-78E5;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SOCIETY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3293)	; ㊓
+    (=jef-china3	. #x78E7)	; &I-JC3-78E7;
     (<-circled
      ((=ucs		  . #x793E)	; 社
       ))
-    (=ucs		. #x3293)	; ㊓
-    (=jef-china3	. #x78E7)	; &I-JC3-78E7;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH NAME")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3294)	; ㊔
+    (=jef-china3	. #x78E1)	; &I-JC3-78E1;
     (<-circled
      ((=ucs		  . #x540D)	; 名
       ))
-    (=ucs		. #x3294)	; ㊔
-    (=jef-china3	. #x78E1)	; &I-JC3-78E1;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SPECIAL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3295)	; ㊕
     (<-circled
      ((=ucs		  . #x7279)	; 特
       ))
-    (=ucs		. #x3295)	; ㊕
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH FINANCIAL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3296)	; ㊖
+    (=jef-china3	. #x78EA)	; &I-JC3-78EA;
     (<-circled
      ((=ucs		  . #x8CA1)	; 財
       ))
-    (=ucs		. #x3296)	; ㊖
-    (=jef-china3	. #x78EA)	; &I-JC3-78EA;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CONGRATULATION")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3297)	; ㊗
     (<-circled
      ((=ucs		  . #x795D)	; 祝
       ))
-    (=ucs		. #x3297)	; ㊗
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LABOR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3298)	; ㊘
+    (=jef-china3	. #x78E3)	; &I-JC3-78E3;
     (<-circled
      ((=ucs		  . #x52B4)	; 労
       ))
-    (=ucs		. #x3298)	; ㊘
-    (=jef-china3	. #x78E3)	; &I-JC3-78E3;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SECRET")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x3299)	; ㊙
     (<-circled
      ((=ucs		  . #x79D8)	; 秘
       ))
-    (=ucs		. #x3299)	; ㊙
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MALE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329A)	; ㊚
     (<-circled
      ((=ucs		  . #x7537)	; 男
       ))
-    (=ucs		. #x329A)	; ㊚
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH FEMALE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329B)	; ㊛
     (<-circled
      ((=ucs		  . #x5973)	; 女
       ))
-    (=ucs		. #x329B)	; ㊛
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SUITABLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329C)	; ㊜
     (<-circled
      ((=ucs		  . #x9069)	; 適
       ))
-    (=ucs		. #x329C)	; ㊜
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH EXCELLENT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329D)	; ㊝
     (<-circled
      ((=ucs		  . #x512A)	; 優
       ))
-    (=ucs		. #x329D)	; ㊝
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH PRINT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329E)	; ㊞
     (<-circled
      ((=ucs		  . #x5370)	; 印
       ))
-    (=ucs		. #x329E)	; ㊞
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ATTENTION")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x329F)	; ㊟
     (<-circled
      ((=ucs		  . #x6CE8)	; 注
       ))
-    (=ucs		. #x329F)	; ㊟
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ITEM")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A0)	; ㊠
     (<-circled
      ((=ucs		  . #x9805)	; 項
       ))
-    (=ucs		. #x32A0)	; ㊠
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH REST")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A1)	; ㊡
     (<-circled
      ((=ucs		  . #x4F11)	; 休
       ))
-    (=ucs		. #x32A1)	; ㊡
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH COPY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A2)	; ㊢
     (<-circled
      ((=ucs		  . #x5199)	; 写
       ))
-    (=ucs		. #x32A2)	; ㊢
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CORRECT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (<-circled
-     ((=ucs		  . #x6B63)	; 正
-      ))
     (=ucs		. #x32A3)	; ㊣
     (=cns11643-1	. #x2221)	; &I-C1-2221; [02-01]
     (=big5		. #xA1C0)	; &I-B-A1C0;
+    (<-circled
+     ((=ucs		  . #x6B63)	; 正
+      ))
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH HIGH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A4)	; ㊤
+    (=jis-x0213-1-2000	. #x2D65)	; &I-JX1-2D65; [13-69]
     (<-circled
      ((=ucs		  . #x4E0A)	; 上
       ))
-    (=ucs		. #x32A4)	; ㊤
-    (=jis-x0213-1-2000	. #x2D65)	; &I-JX1-2D65; [13-69]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CENTRE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A5)	; ㊥
+    (=jis-x0213-1-2000	. #x2D66)	; &I-JX1-2D66; [13-70]
     (<-circled
      ((=ucs		  . #x4E2D)	; 中
       ))
-    (=ucs		. #x32A5)	; ㊥
-    (=jis-x0213-1-2000	. #x2D66)	; &I-JX1-2D66; [13-70]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LOW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A6)	; ㊦
+    (=jis-x0213-1-2000	. #x2D67)	; &I-JX1-2D67; [13-71]
     (<-circled
      ((=ucs		  . #x4E0B)	; 下
       ))
-    (=ucs		. #x32A6)	; ㊦
-    (=jis-x0213-1-2000	. #x2D67)	; &I-JX1-2D67; [13-71]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LEFT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A7)	; ㊧
+    (=jis-x0213-1-2000	. #x2D68)	; &I-JX1-2D68; [13-72]
     (<-circled
      ((=ucs		  . #x5DE6)	; 左
       ))
-    (=ucs		. #x32A7)	; ㊧
-    (=jis-x0213-1-2000	. #x2D68)	; &I-JX1-2D68; [13-72]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A8)	; ㊨
+    (=jis-x0213-1-2000	. #x2D69)	; &I-JX1-2D69; [13-73]
     (<-circled
      ((=ucs		  . #x53F3)	; 右
       ))
-    (=ucs		. #x32A8)	; ㊨
-    (=jis-x0213-1-2000	. #x2D69)	; &I-JX1-2D69; [13-73]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MEDICINE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32A9)	; ㊩
+    (=jef-china3	. #x78DF)	; &I-JC3-78DF;
     (<-circled
      ((=ucs		  . #x533B)	; 医
       ))
-    (=ucs		. #x32A9)	; ㊩
-    (=jef-china3	. #x78DF)	; &I-JC3-78DF;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RELIGION")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AA)	; ㊪
+    (=jef-china3	. #x78E2)	; &I-JC3-78E2;
     (<-circled
      ((=ucs		  . #x5B97)	; 宗
       ))
-    (=ucs		. #x32AA)	; ㊪
-    (=jef-china3	. #x78E2)	; &I-JC3-78E2;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH STUDY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AB)	; ㊫
+    (=jef-china3	. #x78E4)	; &I-JC3-78E4;
     (<-circled
      ((=ucs		  . #x5B66)	; 学
       ))
-    (=ucs		. #x32AB)	; ㊫
-    (=jef-china3	. #x78E4)	; &I-JC3-78E4;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SUPERVISE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AC)	; ㊬
+    (=jef-china3	. #x78E8)	; &I-JC3-78E8;
     (<-circled
      ((=ucs		  . #x76E3)	; 監
       ))
-    (=ucs		. #x32AC)	; ㊬
-    (=jef-china3	. #x78E8)	; &I-JC3-78E8;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ENTERPRISE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AD)	; ㊭
+    (=jef-china3	. #x78DE)	; &I-JC3-78DE;
     (<-circled
      ((=ucs		  . #x4F01)	; 企
       ))
-    (=ucs		. #x32AD)	; ㊭
-    (=jef-china3	. #x78DE)	; &I-JC3-78DE;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RESOURCE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AE)	; ㊮
+    (=jef-china3	. #x78E9)	; &I-JC3-78E9;
     (<-circled
      ((=ucs		  . #x8CC7)	; 資
       ))
-    (=ucs		. #x32AE)	; ㊮
-    (=jef-china3	. #x78E9)	; &I-JC3-78E9;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ALLIANCE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32AF)	; ㊯
+    (=jef-china3	. #x78E0)	; &I-JC3-78E0;
     (<-circled
      ((=ucs		  . #x5354)	; 協
       ))
-    (=ucs		. #x32AF)	; ㊯
-    (=jef-china3	. #x78E0)	; &I-JC3-78E0;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH NIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32B0)	; ㊰
+    (=jef-china3	. #x78DD)	; &I-JC3-78DD;
     (<-circled
      ((=ucs		  . #x591C)	; 夜
       ))
-    (=ucs		. #x32B0)	; ㊰
-    (=jef-china3	. #x78DD)	; &I-JC3-78DD;
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SIX")
@@ -2609,540 +2609,540 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D0)	; ㋐
+    (=jis-x0213-1-2000	. #x2C5B)	; &I-JX1-2C5B; [12-59]
     (<-circled
      ((name		  . "KATAKANA LETTER A")
       (=ucs		  . #x30A2)	; ア
       ))
-    (=ucs		. #x32D0)	; ㋐
-    (=jis-x0213-1-2000	. #x2C5B)	; &I-JX1-2C5B; [12-59]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA I")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D1)	; ㋑
+    (=jis-x0213-1-2000	. #x2C5C)	; &I-JX1-2C5C; [12-60]
     (<-circled
      ((name		  . "KATAKANA LETTER I")
       (=ucs		  . #x30A4)	; イ
       ))
-    (=ucs		. #x32D1)	; ㋑
-    (=jis-x0213-1-2000	. #x2C5C)	; &I-JX1-2C5C; [12-60]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA U")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D2)	; ㋒
+    (=jis-x0213-1-2000	. #x2C5D)	; &I-JX1-2C5D; [12-61]
     (<-circled
      ((name		  . "KATAKANA LETTER U")
       (=ucs		  . #x30A6)	; ウ
       ))
-    (=ucs		. #x32D2)	; ㋒
-    (=jis-x0213-1-2000	. #x2C5D)	; &I-JX1-2C5D; [12-61]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA E")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D3)	; ㋓
+    (=jis-x0213-1-2000	. #x2C5E)	; &I-JX1-2C5E; [12-62]
     (<-circled
      ((name		  . "KATAKANA LETTER E")
       (=ucs		  . #x30A8)	; エ
       ))
-    (=ucs		. #x32D3)	; ㋓
-    (=jis-x0213-1-2000	. #x2C5E)	; &I-JX1-2C5E; [12-62]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA O")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D4)	; ㋔
+    (=jis-x0213-1-2000	. #x2C5F)	; &I-JX1-2C5F; [12-63]
     (<-circled
      ((name		  . "KATAKANA LETTER O")
       (=ucs		  . #x30AA)	; オ
       ))
-    (=ucs		. #x32D4)	; ㋔
-    (=jis-x0213-1-2000	. #x2C5F)	; &I-JX1-2C5F; [12-63]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D5)	; ㋕
+    (=jis-x0213-1-2000	. #x2C60)	; &I-JX1-2C60; [12-64]
     (<-circled
      ((name		  . "KATAKANA LETTER KA")
       (=ucs		  . #x30AB)	; カ
       ))
-    (=ucs		. #x32D5)	; ㋕
-    (=jis-x0213-1-2000	. #x2C60)	; &I-JX1-2C60; [12-64]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D6)	; ㋖
+    (=jis-x0213-1-2000	. #x2C61)	; &I-JX1-2C61; [12-65]
     (<-circled
      ((name		  . "KATAKANA LETTER KI")
       (=ucs		  . #x30AD)	; キ
       ))
-    (=ucs		. #x32D6)	; ㋖
-    (=jis-x0213-1-2000	. #x2C61)	; &I-JX1-2C61; [12-65]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D7)	; ㋗
+    (=jis-x0213-1-2000	. #x2C62)	; &I-JX1-2C62; [12-66]
     (<-circled
      ((name		  . "KATAKANA LETTER KU")
       (=ucs		  . #x30AF)	; ク
       ))
-    (=ucs		. #x32D7)	; ㋗
-    (=jis-x0213-1-2000	. #x2C62)	; &I-JX1-2C62; [12-66]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D8)	; ㋘
+    (=jis-x0213-1-2000	. #x2C63)	; &I-JX1-2C63; [12-67]
     (<-circled
      ((name		  . "KATAKANA LETTER KE")
       (=ucs		  . #x30B1)	; ケ
       ))
-    (=ucs		. #x32D8)	; ㋘
-    (=jis-x0213-1-2000	. #x2C63)	; &I-JX1-2C63; [12-67]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32D9)	; ㋙
+    (=jis-x0213-1-2000	. #x2C64)	; &I-JX1-2C64; [12-68]
     (<-circled
      ((name		  . "KATAKANA LETTER KO")
       (=ucs		  . #x30B3)	; コ
       ))
-    (=ucs		. #x32D9)	; ㋙
-    (=jis-x0213-1-2000	. #x2C64)	; &I-JX1-2C64; [12-68]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DA)	; ㋚
+    (=jis-x0213-1-2000	. #x2C65)	; &I-JX1-2C65; [12-69]
     (<-circled
      ((name		  . "KATAKANA LETTER SA")
       (=ucs		  . #x30B5)	; サ
       ))
-    (=ucs		. #x32DA)	; ㋚
-    (=jis-x0213-1-2000	. #x2C65)	; &I-JX1-2C65; [12-69]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DB)	; ㋛
+    (=jis-x0213-1-2000	. #x2C66)	; &I-JX1-2C66; [12-70]
     (<-circled
      ((name		  . "KATAKANA LETTER SI")
       (=ucs		  . #x30B7)	; シ
       ))
-    (=ucs		. #x32DB)	; ㋛
-    (=jis-x0213-1-2000	. #x2C66)	; &I-JX1-2C66; [12-70]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DC)	; ㋜
+    (=jis-x0213-1-2000	. #x2C67)	; &I-JX1-2C67; [12-71]
     (<-circled
      ((name		  . "KATAKANA LETTER SU")
       (=ucs		  . #x30B9)	; ス
       ))
-    (=ucs		. #x32DC)	; ㋜
-    (=jis-x0213-1-2000	. #x2C67)	; &I-JX1-2C67; [12-71]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DD)	; ㋝
+    (=jis-x0213-1-2000	. #x2C68)	; &I-JX1-2C68; [12-72]
     (<-circled
      ((name		  . "KATAKANA LETTER SE")
       (=ucs		  . #x30BB)	; セ
       ))
-    (=ucs		. #x32DD)	; ㋝
-    (=jis-x0213-1-2000	. #x2C68)	; &I-JX1-2C68; [12-72]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DE)	; ㋞
+    (=jis-x0213-1-2000	. #x2C69)	; &I-JX1-2C69; [12-73]
     (<-circled
      ((name		  . "KATAKANA LETTER SO")
       (=ucs		  . #x30BD)	; ソ
       ))
-    (=ucs		. #x32DE)	; ㋞
-    (=jis-x0213-1-2000	. #x2C69)	; &I-JX1-2C69; [12-73]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32DF)	; ㋟
+    (=jis-x0213-1-2000	. #x2C6A)	; &I-JX1-2C6A; [12-74]
     (<-circled
      ((name		  . "KATAKANA LETTER TA")
       (=ucs		  . #x30BF)	; タ
       ))
-    (=ucs		. #x32DF)	; ㋟
-    (=jis-x0213-1-2000	. #x2C6A)	; &I-JX1-2C6A; [12-74]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E0)	; ㋠
+    (=jis-x0213-1-2000	. #x2C6B)	; &I-JX1-2C6B; [12-75]
     (<-circled
      ((name		  . "KATAKANA LETTER TI")
       (=ucs		  . #x30C1)	; チ
       ))
-    (=ucs		. #x32E0)	; ㋠
-    (=jis-x0213-1-2000	. #x2C6B)	; &I-JX1-2C6B; [12-75]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E1)	; ㋡
+    (=jis-x0213-1-2000	. #x2C6C)	; &I-JX1-2C6C; [12-76]
     (<-circled
      ((name		  . "KATAKANA LETTER TU")
       (=ucs		  . #x30C4)	; ツ
       ))
-    (=ucs		. #x32E1)	; ㋡
-    (=jis-x0213-1-2000	. #x2C6C)	; &I-JX1-2C6C; [12-76]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E2)	; ㋢
+    (=jis-x0213-1-2000	. #x2C6D)	; &I-JX1-2C6D; [12-77]
     (<-circled
      ((name		  . "KATAKANA LETTER TE")
       (=ucs		  . #x30C6)	; テ
       ))
-    (=ucs		. #x32E2)	; ㋢
-    (=jis-x0213-1-2000	. #x2C6D)	; &I-JX1-2C6D; [12-77]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E3)	; ㋣
+    (=jis-x0213-1-2000	. #x2C6E)	; &I-JX1-2C6E; [12-78]
     (<-circled
      ((name		  . "KATAKANA LETTER TO")
       (=ucs		  . #x30C8)	; ト
       ))
-    (=ucs		. #x32E3)	; ㋣
-    (=jis-x0213-1-2000	. #x2C6E)	; &I-JX1-2C6E; [12-78]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E4)	; ㋤
     (<-circled
      ((name		  . "KATAKANA LETTER NA")
       (=ucs		  . #x30CA)	; ナ
       ))
-    (=ucs		. #x32E4)	; ㋤
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E5)	; ㋥
+    (=jis-x0213-1-2000	. #x2C71)	; &I-JX1-2C71; [12-81]
     (<-circled
      ((name		  . "KATAKANA LETTER NI")
       (=ucs		  . #x30CB)	; ニ
       ))
-    (=ucs		. #x32E5)	; ㋥
-    (=jis-x0213-1-2000	. #x2C71)	; &I-JX1-2C71; [12-81]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E6)	; ㋦
     (<-circled
      ((name		  . "KATAKANA LETTER NU")
       (=ucs		  . #x30CC)	; ヌ
       ))
-    (=ucs		. #x32E6)	; ㋦
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E7)	; ㋧
     (<-circled
      ((name		  . "KATAKANA LETTER NE")
       (=ucs		  . #x30CD)	; ネ
       ))
-    (=ucs		. #x32E7)	; ㋧
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E8)	; ㋨
     (<-circled
      ((name		  . "KATAKANA LETTER NO")
       (=ucs		  . #x30CE)	; ノ
       ))
-    (=ucs		. #x32E8)	; ㋨
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32E9)	; ㋩
+    (=jis-x0213-1-2000	. #x2C70)	; &I-JX1-2C70; [12-80]
     (<-circled
      ((name		  . "KATAKANA LETTER HA")
       (=ucs		  . #x30CF)	; ハ
       ))
-    (=ucs		. #x32E9)	; ㋩
-    (=jis-x0213-1-2000	. #x2C70)	; &I-JX1-2C70; [12-80]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32EA)	; ㋪
     (<-circled
      ((name		  . "KATAKANA LETTER HI")
       (=ucs		  . #x30D2)	; ヒ
       ))
-    (=ucs		. #x32EA)	; ㋪
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32EB)	; ㋫
     (<-circled
      ((name		  . "KATAKANA LETTER HU")
       (=ucs		  . #x30D5)	; フ
       ))
-    (=ucs		. #x32EB)	; ㋫
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32EC)	; ㋬
+    (=jis-x0213-1-2000	. #x2C73)	; &I-JX1-2C73; [12-83]
     (<-circled
      ((name		  . "KATAKANA LETTER HE")
       (=ucs		  . #x30D8)	; ヘ
       ))
-    (=ucs		. #x32EC)	; ㋬
-    (=jis-x0213-1-2000	. #x2C73)	; &I-JX1-2C73; [12-83]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32ED)	; ㋭
+    (=jis-x0213-1-2000	. #x2C72)	; &I-JX1-2C72; [12-82]
     (<-circled
      ((name		  . "KATAKANA LETTER HO")
       (=ucs		  . #x30DB)	; ホ
       ))
-    (=ucs		. #x32ED)	; ㋭
-    (=jis-x0213-1-2000	. #x2C72)	; &I-JX1-2C72; [12-82]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32EE)	; ㋮
     (<-circled
      ((name		  . "KATAKANA LETTER MA")
       (=ucs		  . #x30DE)	; マ
       ))
-    (=ucs		. #x32EE)	; ㋮
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32EF)	; ㋯
     (<-circled
      ((name		  . "KATAKANA LETTER MI")
       (=ucs		  . #x30DF)	; ミ
       ))
-    (=ucs		. #x32EF)	; ㋯
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F0)	; ㋰
     (<-circled
      ((name		  . "KATAKANA LETTER MU")
       (=ucs		  . #x30E0)	; ム
       ))
-    (=ucs		. #x32F0)	; ㋰
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA ME")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F1)	; ㋱
     (<-circled
      ((name		  . "KATAKANA LETTER ME")
       (=ucs		  . #x30E1)	; メ
       ))
-    (=ucs		. #x32F1)	; ㋱
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F2)	; ㋲
     (<-circled
      ((name		  . "KATAKANA LETTER MO")
       (=ucs		  . #x30E2)	; モ
       ))
-    (=ucs		. #x32F2)	; ㋲
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA YA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F3)	; ㋳
     (<-circled
      ((name		  . "KATAKANA LETTER YA")
       (=ucs		  . #x30E4)	; ヤ
       ))
-    (=ucs		. #x32F3)	; ㋳
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA YU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F4)	; ㋴
     (<-circled
      ((name		  . "KATAKANA LETTER YU")
       (=ucs		  . #x30E6)	; ユ
       ))
-    (=ucs		. #x32F4)	; ㋴
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA YO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F5)	; ㋵
     (<-circled
      ((name		  . "KATAKANA LETTER YO")
       (=ucs		  . #x30E8)	; ヨ
       ))
-    (=ucs		. #x32F5)	; ㋵
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA RA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F6)	; ㋶
     (<-circled
      ((name		  . "KATAKANA LETTER RA")
       (=ucs		  . #x30E9)	; ラ
       ))
-    (=ucs		. #x32F6)	; ㋶
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA RI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F7)	; ㋷
     (<-circled
      ((name		  . "KATAKANA LETTER RI")
       (=ucs		  . #x30EA)	; リ
       ))
-    (=ucs		. #x32F7)	; ㋷
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA RU")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F8)	; ㋸
     (<-circled
      ((name		  . "KATAKANA LETTER RU")
       (=ucs		  . #x30EB)	; ル
       ))
-    (=ucs		. #x32F8)	; ㋸
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA RE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32F9)	; ㋹
     (<-circled
      ((name		  . "KATAKANA LETTER RE")
       (=ucs		  . #x30EC)	; レ
       ))
-    (=ucs		. #x32F9)	; ㋹
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA RO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32FA)	; ㋺
+    (=jis-x0213-1-2000	. #x2C6F)	; &I-JX1-2C6F; [12-79]
     (<-circled
      ((name		  . "KATAKANA LETTER RO")
       (=ucs		  . #x30ED)	; ロ
       ))
-    (=ucs		. #x32FA)	; ㋺
-    (=jis-x0213-1-2000	. #x2C6F)	; &I-JX1-2C6F; [12-79]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32FB)	; ㋻
     (<-circled
      ((name		  . "KATAKANA LETTER WA")
       (=ucs		  . #x30EF)	; ワ
       ))
-    (=ucs		. #x32FB)	; ㋻
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WI")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32FC)	; ㋼
     (<-circled
      ((name		  . "KATAKANA LETTER WI")
       (=ucs		  . #x30F0)	; ヰ
       ))
-    (=ucs		. #x32FC)	; ㋼
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32FD)	; ㋽
     (<-circled
      ((name		  . "KATAKANA LETTER WE")
       (=ucs		  . #x30F1)	; ヱ
       ))
-    (=ucs		. #x32FD)	; ㋽
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x32FE)	; ㋾
     (<-circled
      ((name		  . "KATAKANA LETTER WO")
       (=ucs		  . #x30F2)	; ヲ
       ))
-    (=ucs		. #x32FE)	; ㋾
     ))
