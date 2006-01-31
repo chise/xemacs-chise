@@ -1,5 +1,12 @@
 2006-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R037-Big.el (U+3694): Unify RUI6-E01C.
+
+	* Ideograph-R030-Mouth.el (U-00020E04): Use `->denotational' and
+	`->subsumptive'; integrate RUI6-E01A.
+
+	* Ideograph-R027-Cliff.el (RUI-E022): New character.
+
 	* ruimoku6.el (RUI6-E00B): Add `ideographic-{radical|strokes}',
 	`total-strokes' and `ideographic-structure'.
 	(RUI6-{E010|...|E024}): New characters.
