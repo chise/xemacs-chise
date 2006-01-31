@@ -831,9 +831,11 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (sources		bos=A2003-10837-00013)
     (=ucs		. #x3694)	; 㚔
     (=cns11643-4	. #x2571)	; &I-C4-2571; [05-81]
     (=daikanwa		. 05884)	; &I-M-05884;
+    (=ruimoku-v6	. #xE01C)	; &I-RUI6-E01C;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
