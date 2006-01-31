@@ -1,3 +1,15 @@
+2006-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E00B): Add `ideographic-{radical|strokes}',
+	`total-strokes' and `ideographic-structure'.
+	(RUI6-{E010|...|E024}): New characters.
+
+2006-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (RUI6-E01D): New character.
+
+	* Ideograph-R074-Moon.el (U-00023386): New character.
+
 2006-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R185-Head.el (C6-3C79): Unify U-00029810.
