@@ -1,3 +1,32 @@
+2006-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R168-Long.el (U+9578): Unify BC-8D72.
+
+	* Ideograph-R164-Wine.el (G0-4775): Unify JC3-43E9.
+
+	* Ideograph-R138-Stopping.el (BC-8B7C): New character.
+
+	* Ideograph-R123-Sheep.el (U-00023D0E): New character.
+
+	* Ideograph-R104-Sickness.el (RUI6-24F08): New character.
+	(U+766C): Use `->subsumptive'.
+
+	* Ideograph-R101-Use.el (C6-395D): Unify BC-8C73.
+
+	* Ideograph-R079-Weapon.el (RUI6-E01E): New character.
+	(U+6BBE): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R069-Axe.el (M-13549): Unify U+3ABD and H5-F6BC.
+	(RUI6-E00B): Copied from ruimoku6.el.
+	(M-13551): Unify U-0002309D and H5-F6C3.
+	(M-13552): Unify U-0002309C and H5-F6C2.
+	(JC3-8FCF): Map to U-0002309C and M-13552.
+	(U-000230A0): Unify M-13553; use
+	`{ideographic|total}-strokes@{daikanwa|cns}'.
+	(U+3ABF): Add `morohashi-daikanwa' for M-13553'.
+
+	* Ideograph-R044-Corpse.el (U-00021C52): Unify BC-8DBE.
+
 2006-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el (U+3694): Unify RUI6-E01C.
