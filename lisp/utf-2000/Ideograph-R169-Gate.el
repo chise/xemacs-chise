@@ -2106,6 +2106,23 @@
     (=cns11643-5	. #x5226)	; &I-C5-5226; [50-06]
     ))
 (define-char
+  '((ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=jis-x0208	  . #x4C67)	; &GT-55423; [44-71]
+      (=ks-x1001	  . #x5A26)	; &I-K0-5A26; [58-06]
+      (=cns11643-1	  . #x4F5C)	; &I-C1-4F5C; [47-60]
+      )
+     ((=ucs		  . #x4E32)	; 串
+      ))
+    (sources		bos=A2003-10922-00012)
+    (=ruimoku-v6	. #xE01D)	; &RUI6-E01D;
+    ))
+(define-char
   '((=>ucs		. #x95B5)	; 閵
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
