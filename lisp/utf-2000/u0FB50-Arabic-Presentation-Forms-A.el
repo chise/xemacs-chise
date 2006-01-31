@@ -4,1345 +4,1345 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB50)	; ﭐ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER ALEF WASLA")
       (=ucs		  . #x0671)	; ٱ
       ))
-    (=ucs		. #xFB50)	; ﭐ
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF WASLA FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB51)	; ﭑ
     (<-formed@final
      ((name		  . "ARABIC LETTER ALEF WASLA")
       (=ucs		  . #x0671)	; ٱ
       ))
-    (=ucs		. #xFB51)	; ﭑ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB52)	; ﭒ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER BEEH")
       (=ucs		  . #x067B)	; ٻ
       ))
-    (=ucs		. #xFB52)	; ﭒ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB53)	; ﭓ
     (<-formed@final
      ((name		  . "ARABIC LETTER BEEH")
       (=ucs		  . #x067B)	; ٻ
       ))
-    (=ucs		. #xFB53)	; ﭓ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB54)	; ﭔ
     (<-formed@initial
      ((name		  . "ARABIC LETTER BEEH")
       (=ucs		  . #x067B)	; ٻ
       ))
-    (=ucs		. #xFB54)	; ﭔ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB55)	; ﭕ
     (<-formed@medial
      ((name		  . "ARABIC LETTER BEEH")
       (=ucs		  . #x067B)	; ٻ
       ))
-    (=ucs		. #xFB55)	; ﭕ
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB56)	; ﭖ
+    (arabic-2-column	. #x65)	; &I-MULE-ARB2-65;
     (<-formed@isolated
      ((name		  . "ARABIC LETTER PEH")
       (=ucs		  . #x067E)	; پ
       ))
-    (=ucs		. #xFB56)	; ﭖ
-    (arabic-2-column	. #x65)	; &I-MULE-ARB2-65;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB57)	; ﭗ
+    (arabic-2-column	. #x66)	; &I-MULE-ARB2-66;
     (<-formed@final
      ((name		  . "ARABIC LETTER PEH")
       (=ucs		  . #x067E)	; پ
       ))
-    (=ucs		. #xFB57)	; ﭗ
-    (arabic-2-column	. #x66)	; &I-MULE-ARB2-66;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB58)	; ﭘ
+    (arabic-1-column	. #x66)	; &I-MULE-ARB1-66;
     (<-formed@initial
      ((name		  . "ARABIC LETTER PEH")
       (=ucs		  . #x067E)	; پ
       ))
-    (=ucs		. #xFB58)	; ﭘ
-    (arabic-1-column	. #x66)	; &I-MULE-ARB1-66;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB59)	; ﭙ
+    (arabic-1-column	. #x67)	; &I-MULE-ARB1-67;
     (<-formed@medial
      ((name		  . "ARABIC LETTER PEH")
       (=ucs		  . #x067E)	; پ
       ))
-    (=ucs		. #xFB59)	; ﭙ
-    (arabic-1-column	. #x67)	; &I-MULE-ARB1-67;
     ))
 (define-char
   '((name		. "ARABIC LETTER BEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5A)	; ﭚ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER BEHEH")
       (=ucs		  . #x0680)	; ڀ
       ))
-    (=ucs		. #xFB5A)	; ﭚ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5B)	; ﭛ
     (<-formed@final
      ((name		  . "ARABIC LETTER BEHEH")
       (=ucs		  . #x0680)	; ڀ
       ))
-    (=ucs		. #xFB5B)	; ﭛ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5C)	; ﭜ
     (<-formed@initial
      ((name		  . "ARABIC LETTER BEHEH")
       (=ucs		  . #x0680)	; ڀ
       ))
-    (=ucs		. #xFB5C)	; ﭜ
     ))
 (define-char
   '((name		. "ARABIC LETTER BEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5D)	; ﭝ
     (<-formed@medial
      ((name		  . "ARABIC LETTER BEHEH")
       (=ucs		  . #x0680)	; ڀ
       ))
-    (=ucs		. #xFB5D)	; ﭝ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5E)	; ﭞ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER TTEHEH")
       (=ucs		  . #x067A)	; ٺ
       ))
-    (=ucs		. #xFB5E)	; ﭞ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB5F)	; ﭟ
     (<-formed@final
      ((name		  . "ARABIC LETTER TTEHEH")
       (=ucs		  . #x067A)	; ٺ
       ))
-    (=ucs		. #xFB5F)	; ﭟ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB60)	; ﭠ
     (<-formed@initial
      ((name		  . "ARABIC LETTER TTEHEH")
       (=ucs		  . #x067A)	; ٺ
       ))
-    (=ucs		. #xFB60)	; ﭠ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB61)	; ﭡ
     (<-formed@medial
      ((name		  . "ARABIC LETTER TTEHEH")
       (=ucs		  . #x067A)	; ٺ
       ))
-    (=ucs		. #xFB61)	; ﭡ
     ))
 (define-char
   '((name		. "ARABIC LETTER TEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB62)	; ﭢ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER TEHEH")
       (=ucs		  . #x067F)	; ٿ
       ))
-    (=ucs		. #xFB62)	; ﭢ
     ))
 (define-char
   '((name		. "ARABIC LETTER TEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB63)	; ﭣ
     (<-formed@final
      ((name		  . "ARABIC LETTER TEHEH")
       (=ucs		  . #x067F)	; ٿ
       ))
-    (=ucs		. #xFB63)	; ﭣ
     ))
 (define-char
   '((name		. "ARABIC LETTER TEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB64)	; ﭤ
     (<-formed@initial
      ((name		  . "ARABIC LETTER TEHEH")
       (=ucs		  . #x067F)	; ٿ
       ))
-    (=ucs		. #xFB64)	; ﭤ
     ))
 (define-char
   '((name		. "ARABIC LETTER TEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB65)	; ﭥ
     (<-formed@medial
      ((name		  . "ARABIC LETTER TEHEH")
       (=ucs		  . #x067F)	; ٿ
       ))
-    (=ucs		. #xFB65)	; ﭥ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB66)	; ﭦ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER TTEH")
       (=ucs		  . #x0679)	; ٹ
       ))
-    (=ucs		. #xFB66)	; ﭦ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB67)	; ﭧ
     (<-formed@final
      ((name		  . "ARABIC LETTER TTEH")
       (=ucs		  . #x0679)	; ٹ
       ))
-    (=ucs		. #xFB67)	; ﭧ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB68)	; ﭨ
     (<-formed@initial
      ((name		  . "ARABIC LETTER TTEH")
       (=ucs		  . #x0679)	; ٹ
       ))
-    (=ucs		. #xFB68)	; ﭨ
     ))
 (define-char
   '((name		. "ARABIC LETTER TTEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB69)	; ﭩ
     (<-formed@medial
      ((name		  . "ARABIC LETTER TTEH")
       (=ucs		  . #x0679)	; ٹ
       ))
-    (=ucs		. #xFB69)	; ﭩ
     ))
 (define-char
   '((name		. "ARABIC LETTER VEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6A)	; ﭪ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER VEH")
       (=ucs		  . #x06A4)	; ڤ
       ))
-    (=ucs		. #xFB6A)	; ﭪ
     ))
 (define-char
   '((name		. "ARABIC LETTER VEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6B)	; ﭫ
     (<-formed@final
      ((name		  . "ARABIC LETTER VEH")
       (=ucs		  . #x06A4)	; ڤ
       ))
-    (=ucs		. #xFB6B)	; ﭫ
     ))
 (define-char
   '((name		. "ARABIC LETTER VEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6C)	; ﭬ
     (<-formed@initial
      ((name		  . "ARABIC LETTER VEH")
       (=ucs		  . #x06A4)	; ڤ
       ))
-    (=ucs		. #xFB6C)	; ﭬ
     ))
 (define-char
   '((name		. "ARABIC LETTER VEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6D)	; ﭭ
     (<-formed@medial
      ((name		  . "ARABIC LETTER VEH")
       (=ucs		  . #x06A4)	; ڤ
       ))
-    (=ucs		. #xFB6D)	; ﭭ
     ))
 (define-char
   '((name		. "ARABIC LETTER PEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6E)	; ﭮ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER PEHEH")
       (=ucs		  . #x06A6)	; ڦ
       ))
-    (=ucs		. #xFB6E)	; ﭮ
     ))
 (define-char
   '((name		. "ARABIC LETTER PEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB6F)	; ﭯ
     (<-formed@final
      ((name		  . "ARABIC LETTER PEHEH")
       (=ucs		  . #x06A6)	; ڦ
       ))
-    (=ucs		. #xFB6F)	; ﭯ
     ))
 (define-char
   '((name		. "ARABIC LETTER PEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB70)	; ﭰ
     (<-formed@initial
      ((name		  . "ARABIC LETTER PEHEH")
       (=ucs		  . #x06A6)	; ڦ
       ))
-    (=ucs		. #xFB70)	; ﭰ
     ))
 (define-char
   '((name		. "ARABIC LETTER PEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB71)	; ﭱ
     (<-formed@medial
      ((name		  . "ARABIC LETTER PEHEH")
       (=ucs		  . #x06A6)	; ڦ
       ))
-    (=ucs		. #xFB71)	; ﭱ
     ))
 (define-char
   '((name		. "ARABIC LETTER DYEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB72)	; ﭲ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER DYEH")
       (=ucs		  . #x0684)	; ڄ
       ))
-    (=ucs		. #xFB72)	; ﭲ
     ))
 (define-char
   '((name		. "ARABIC LETTER DYEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB73)	; ﭳ
     (<-formed@final
      ((name		  . "ARABIC LETTER DYEH")
       (=ucs		  . #x0684)	; ڄ
       ))
-    (=ucs		. #xFB73)	; ﭳ
     ))
 (define-char
   '((name		. "ARABIC LETTER DYEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB74)	; ﭴ
     (<-formed@initial
      ((name		  . "ARABIC LETTER DYEH")
       (=ucs		  . #x0684)	; ڄ
       ))
-    (=ucs		. #xFB74)	; ﭴ
     ))
 (define-char
   '((name		. "ARABIC LETTER DYEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB75)	; ﭵ
     (<-formed@medial
      ((name		  . "ARABIC LETTER DYEH")
       (=ucs		  . #x0684)	; ڄ
       ))
-    (=ucs		. #xFB75)	; ﭵ
     ))
 (define-char
   '((name		. "ARABIC LETTER NYEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB76)	; ﭶ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER NYEH")
       (=ucs		  . #x0683)	; ڃ
       ))
-    (=ucs		. #xFB76)	; ﭶ
     ))
 (define-char
   '((name		. "ARABIC LETTER NYEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB77)	; ﭷ
     (<-formed@final
      ((name		  . "ARABIC LETTER NYEH")
       (=ucs		  . #x0683)	; ڃ
       ))
-    (=ucs		. #xFB77)	; ﭷ
     ))
 (define-char
   '((name		. "ARABIC LETTER NYEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB78)	; ﭸ
     (<-formed@initial
      ((name		  . "ARABIC LETTER NYEH")
       (=ucs		  . #x0683)	; ڃ
       ))
-    (=ucs		. #xFB78)	; ﭸ
     ))
 (define-char
   '((name		. "ARABIC LETTER NYEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB79)	; ﭹ
     (<-formed@medial
      ((name		  . "ARABIC LETTER NYEH")
       (=ucs		  . #x0683)	; ڃ
       ))
-    (=ucs		. #xFB79)	; ﭹ
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7A)	; ﭺ
+    (arabic-2-column	. #x67)	; &I-MULE-ARB2-67;
     (<-formed@isolated
      ((name		  . "ARABIC LETTER TCHEH")
       (=ucs		  . #x0686)	; چ
       ))
-    (=ucs		. #xFB7A)	; ﭺ
-    (arabic-2-column	. #x67)	; &I-MULE-ARB2-67;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7B)	; ﭻ
+    (arabic-2-column	. #x6A)	; &I-MULE-ARB2-6A;
     (<-formed@final
      ((name		  . "ARABIC LETTER TCHEH")
       (=ucs		  . #x0686)	; چ
       ))
-    (=ucs		. #xFB7B)	; ﭻ
-    (arabic-2-column	. #x6A)	; &I-MULE-ARB2-6A;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7C)	; ﭼ
+    (arabic-2-column	. #x68)	; &I-MULE-ARB2-68;
     (<-formed@initial
      ((name		  . "ARABIC LETTER TCHEH")
       (=ucs		  . #x0686)	; چ
       ))
-    (=ucs		. #xFB7C)	; ﭼ
-    (arabic-2-column	. #x68)	; &I-MULE-ARB2-68;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7D)	; ﭽ
+    (arabic-2-column	. #x69)	; &I-MULE-ARB2-69;
     (<-formed@medial
      ((name		  . "ARABIC LETTER TCHEH")
       (=ucs		  . #x0686)	; چ
       ))
-    (=ucs		. #xFB7D)	; ﭽ
-    (arabic-2-column	. #x69)	; &I-MULE-ARB2-69;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7E)	; ﭾ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER TCHEHEH")
       (=ucs		  . #x0687)	; ڇ
       ))
-    (=ucs		. #xFB7E)	; ﭾ
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB7F)	; ﭿ
     (<-formed@final
      ((name		  . "ARABIC LETTER TCHEHEH")
       (=ucs		  . #x0687)	; ڇ
       ))
-    (=ucs		. #xFB7F)	; ﭿ
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB80)	; ﮀ
     (<-formed@initial
      ((name		  . "ARABIC LETTER TCHEHEH")
       (=ucs		  . #x0687)	; ڇ
       ))
-    (=ucs		. #xFB80)	; ﮀ
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB81)	; ﮁ
     (<-formed@medial
      ((name		  . "ARABIC LETTER TCHEHEH")
       (=ucs		  . #x0687)	; ڇ
       ))
-    (=ucs		. #xFB81)	; ﮁ
     ))
 (define-char
   '((name		. "ARABIC LETTER DDAHAL ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB82)	; ﮂ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER DDAHAL")
       (=ucs		  . #x068D)	; ڍ
       ))
-    (=ucs		. #xFB82)	; ﮂ
     ))
 (define-char
   '((name		. "ARABIC LETTER DDAHAL FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB83)	; ﮃ
     (<-formed@final
      ((name		  . "ARABIC LETTER DDAHAL")
       (=ucs		  . #x068D)	; ڍ
       ))
-    (=ucs		. #xFB83)	; ﮃ
     ))
 (define-char
   '((name		. "ARABIC LETTER DAHAL ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB84)	; ﮄ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER DAHAL")
       (=ucs		  . #x068C)	; ڌ
       ))
-    (=ucs		. #xFB84)	; ﮄ
     ))
 (define-char
   '((name		. "ARABIC LETTER DAHAL FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB85)	; ﮅ
     (<-formed@final
      ((name		  . "ARABIC LETTER DAHAL")
       (=ucs		  . #x068C)	; ڌ
       ))
-    (=ucs		. #xFB85)	; ﮅ
     ))
 (define-char
   '((name		. "ARABIC LETTER DUL ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB86)	; ﮆ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER DUL")
       (=ucs		  . #x068E)	; ڎ
       ))
-    (=ucs		. #xFB86)	; ﮆ
     ))
 (define-char
   '((name		. "ARABIC LETTER DUL FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB87)	; ﮇ
     (<-formed@final
      ((name		  . "ARABIC LETTER DUL")
       (=ucs		  . #x068E)	; ڎ
       ))
-    (=ucs		. #xFB87)	; ﮇ
     ))
 (define-char
   '((name		. "ARABIC LETTER DDAL ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB88)	; ﮈ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER DDAL")
       (=ucs		  . #x0688)	; ڈ
       ))
-    (=ucs		. #xFB88)	; ﮈ
     ))
 (define-char
   '((name		. "ARABIC LETTER DDAL FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB89)	; ﮉ
     (<-formed@final
      ((name		  . "ARABIC LETTER DDAL")
       (=ucs		  . #x0688)	; ڈ
       ))
-    (=ucs		. #xFB89)	; ﮉ
     ))
 (define-char
   '((name		. "ARABIC LETTER JEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8A)	; ﮊ
+    (arabic-1-column	. #x68)	; &I-MULE-ARB1-68;
     (<-formed@isolated
      ((name		  . "ARABIC LETTER JEH")
       (=ucs		  . #x0698)	; ژ
       ))
-    (=ucs		. #xFB8A)	; ﮊ
-    (arabic-1-column	. #x68)	; &I-MULE-ARB1-68;
     ))
 (define-char
   '((name		. "ARABIC LETTER JEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8B)	; ﮋ
+    (arabic-1-column	. #x69)	; &I-MULE-ARB1-69;
     (<-formed@final
      ((name		  . "ARABIC LETTER JEH")
       (=ucs		  . #x0698)	; ژ
       ))
-    (=ucs		. #xFB8B)	; ﮋ
-    (arabic-1-column	. #x69)	; &I-MULE-ARB1-69;
     ))
 (define-char
   '((name		. "ARABIC LETTER RREH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8C)	; ﮌ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER RREH")
       (=ucs		  . #x0691)	; ڑ
       ))
-    (=ucs		. #xFB8C)	; ﮌ
     ))
 (define-char
   '((name		. "ARABIC LETTER RREH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8D)	; ﮍ
     (<-formed@final
      ((name		  . "ARABIC LETTER RREH")
       (=ucs		  . #x0691)	; ڑ
       ))
-    (=ucs		. #xFB8D)	; ﮍ
     ))
 (define-char
   '((name		. "ARABIC LETTER KEHEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8E)	; ﮎ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER KEHEH")
       (=ucs		  . #x06A9)	; ک
       ))
-    (=ucs		. #xFB8E)	; ﮎ
     ))
 (define-char
   '((name		. "ARABIC LETTER KEHEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB8F)	; ﮏ
     (<-formed@final
      ((name		  . "ARABIC LETTER KEHEH")
       (=ucs		  . #x06A9)	; ک
       ))
-    (=ucs		. #xFB8F)	; ﮏ
     ))
 (define-char
   '((name		. "ARABIC LETTER KEHEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB90)	; ﮐ
     (<-formed@initial
      ((name		  . "ARABIC LETTER KEHEH")
       (=ucs		  . #x06A9)	; ک
       ))
-    (=ucs		. #xFB90)	; ﮐ
     ))
 (define-char
   '((name		. "ARABIC LETTER KEHEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB91)	; ﮑ
     (<-formed@medial
      ((name		  . "ARABIC LETTER KEHEH")
       (=ucs		  . #x06A9)	; ک
       ))
-    (=ucs		. #xFB91)	; ﮑ
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB92)	; ﮒ
+    (arabic-2-column	. #x6B)	; &I-MULE-ARB2-6B;
     (<-formed@isolated
      ((name		  . "ARABIC LETTER GAF")
       (=ucs		  . #x06AF)	; گ
       ))
-    (=ucs		. #xFB92)	; ﮒ
-    (arabic-2-column	. #x6B)	; &I-MULE-ARB2-6B;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB93)	; ﮓ
+    (arabic-2-column	. #x6E)	; &I-MULE-ARB2-6E;
     (<-formed@final
      ((name		  . "ARABIC LETTER GAF")
       (=ucs		  . #x06AF)	; گ
       ))
-    (=ucs		. #xFB93)	; ﮓ
-    (arabic-2-column	. #x6E)	; &I-MULE-ARB2-6E;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB94)	; ﮔ
+    (arabic-2-column	. #x6C)	; &I-MULE-ARB2-6C;
     (<-formed@initial
      ((name		  . "ARABIC LETTER GAF")
       (=ucs		  . #x06AF)	; گ
       ))
-    (=ucs		. #xFB94)	; ﮔ
-    (arabic-2-column	. #x6C)	; &I-MULE-ARB2-6C;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB95)	; ﮕ
+    (arabic-2-column	. #x6D)	; &I-MULE-ARB2-6D;
     (<-formed@medial
      ((name		  . "ARABIC LETTER GAF")
       (=ucs		  . #x06AF)	; گ
       ))
-    (=ucs		. #xFB95)	; ﮕ
-    (arabic-2-column	. #x6D)	; &I-MULE-ARB2-6D;
     ))
 (define-char
   '((name		. "ARABIC LETTER GUEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB96)	; ﮖ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER GUEH")
       (=ucs		  . #x06B3)	; ڳ
       ))
-    (=ucs		. #xFB96)	; ﮖ
     ))
 (define-char
   '((name		. "ARABIC LETTER GUEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB97)	; ﮗ
     (<-formed@final
      ((name		  . "ARABIC LETTER GUEH")
       (=ucs		  . #x06B3)	; ڳ
       ))
-    (=ucs		. #xFB97)	; ﮗ
     ))
 (define-char
   '((name		. "ARABIC LETTER GUEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB98)	; ﮘ
     (<-formed@initial
      ((name		  . "ARABIC LETTER GUEH")
       (=ucs		  . #x06B3)	; ڳ
       ))
-    (=ucs		. #xFB98)	; ﮘ
     ))
 (define-char
   '((name		. "ARABIC LETTER GUEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB99)	; ﮙ
     (<-formed@medial
      ((name		  . "ARABIC LETTER GUEH")
       (=ucs		  . #x06B3)	; ڳ
       ))
-    (=ucs		. #xFB99)	; ﮙ
     ))
 (define-char
   '((name		. "ARABIC LETTER NGOEH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9A)	; ﮚ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER NGOEH")
       (=ucs		  . #x06B1)	; ڱ
       ))
-    (=ucs		. #xFB9A)	; ﮚ
     ))
 (define-char
   '((name		. "ARABIC LETTER NGOEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9B)	; ﮛ
     (<-formed@final
      ((name		  . "ARABIC LETTER NGOEH")
       (=ucs		  . #x06B1)	; ڱ
       ))
-    (=ucs		. #xFB9B)	; ﮛ
     ))
 (define-char
   '((name		. "ARABIC LETTER NGOEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9C)	; ﮜ
     (<-formed@initial
      ((name		  . "ARABIC LETTER NGOEH")
       (=ucs		  . #x06B1)	; ڱ
       ))
-    (=ucs		. #xFB9C)	; ﮜ
     ))
 (define-char
   '((name		. "ARABIC LETTER NGOEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9D)	; ﮝ
     (<-formed@medial
      ((name		  . "ARABIC LETTER NGOEH")
       (=ucs		  . #x06B1)	; ڱ
       ))
-    (=ucs		. #xFB9D)	; ﮝ
     ))
 (define-char
   '((name		. "ARABIC LETTER NOON GHUNNA ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9E)	; ﮞ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER NOON GHUNNA")
       (=ucs		  . #x06BA)	; ں
       ))
-    (=ucs		. #xFB9E)	; ﮞ
     ))
 (define-char
   '((name		. "ARABIC LETTER NOON GHUNNA FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFB9F)	; ﮟ
     (<-formed@final
      ((name		  . "ARABIC LETTER NOON GHUNNA")
       (=ucs		  . #x06BA)	; ں
       ))
-    (=ucs		. #xFB9F)	; ﮟ
     ))
 (define-char
   '((name		. "ARABIC LETTER RNOON ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA0)	; ﮠ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER RNOON")
       (=ucs		  . #x06BB)	; ڻ
       ))
-    (=ucs		. #xFBA0)	; ﮠ
     ))
 (define-char
   '((name		. "ARABIC LETTER RNOON FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA1)	; ﮡ
     (<-formed@final
      ((name		  . "ARABIC LETTER RNOON")
       (=ucs		  . #x06BB)	; ڻ
       ))
-    (=ucs		. #xFBA1)	; ﮡ
     ))
 (define-char
   '((name		. "ARABIC LETTER RNOON INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA2)	; ﮢ
     (<-formed@initial
      ((name		  . "ARABIC LETTER RNOON")
       (=ucs		  . #x06BB)	; ڻ
       ))
-    (=ucs		. #xFBA2)	; ﮢ
     ))
 (define-char
   '((name		. "ARABIC LETTER RNOON MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA3)	; ﮣ
     (<-formed@medial
      ((name		  . "ARABIC LETTER RNOON")
       (=ucs		  . #x06BB)	; ڻ
       ))
-    (=ucs		. #xFBA3)	; ﮣ
     ))
 (define-char
   '((name . "ARABIC LETTER HEH WITH YEH ABOVE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA4)	; ﮤ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER HEH WITH YEH ABOVE")
       (=ucs		  . #x06C0)	; ۀ
       ))
-    (=ucs		. #xFBA4)	; ﮤ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH WITH YEH ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA5)	; ﮥ
     (<-formed@final
      ((name		  . "ARABIC LETTER HEH WITH YEH ABOVE")
       (=ucs		  . #x06C0)	; ۀ
       ))
-    (=ucs		. #xFBA5)	; ﮥ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH GOAL ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA6)	; ﮦ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER HEH GOAL")
       (=ucs		  . #x06C1)	; ہ
       ))
-    (=ucs		. #xFBA6)	; ﮦ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH GOAL FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA7)	; ﮧ
     (<-formed@final
      ((name		  . "ARABIC LETTER HEH GOAL")
       (=ucs		  . #x06C1)	; ہ
       ))
-    (=ucs		. #xFBA7)	; ﮧ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH GOAL INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA8)	; ﮨ
     (<-formed@initial
      ((name		  . "ARABIC LETTER HEH GOAL")
       (=ucs		  . #x06C1)	; ہ
       ))
-    (=ucs		. #xFBA8)	; ﮨ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH GOAL MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBA9)	; ﮩ
     (<-formed@medial
      ((name		  . "ARABIC LETTER HEH GOAL")
       (=ucs		  . #x06C1)	; ہ
       ))
-    (=ucs		. #xFBA9)	; ﮩ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH DOACHASHMEE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAA)	; ﮪ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER HEH DOACHASHMEE")
       (=ucs		  . #x06BE)	; ھ
       ))
-    (=ucs		. #xFBAA)	; ﮪ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH DOACHASHMEE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAB)	; ﮫ
     (<-formed@final
      ((name		  . "ARABIC LETTER HEH DOACHASHMEE")
       (=ucs		  . #x06BE)	; ھ
       ))
-    (=ucs		. #xFBAB)	; ﮫ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH DOACHASHMEE INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAC)	; ﮬ
     (<-formed@initial
      ((name		  . "ARABIC LETTER HEH DOACHASHMEE")
       (=ucs		  . #x06BE)	; ھ
       ))
-    (=ucs		. #xFBAC)	; ﮬ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH DOACHASHMEE MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAD)	; ﮭ
     (<-formed@medial
      ((name		  . "ARABIC LETTER HEH DOACHASHMEE")
       (=ucs		  . #x06BE)	; ھ
       ))
-    (=ucs		. #xFBAD)	; ﮭ
     ))
 (define-char
   '((name		. "ARABIC LETTER YEH BARREE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAE)	; ﮮ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER YEH BARREE")
       (=ucs		  . #x06D2)	; ے
       ))
-    (=ucs		. #xFBAE)	; ﮮ
     ))
 (define-char
   '((name		. "ARABIC LETTER YEH BARREE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBAF)	; ﮯ
     (<-formed@final
      ((name		  . "ARABIC LETTER YEH BARREE")
       (=ucs		  . #x06D2)	; ے
       ))
-    (=ucs		. #xFBAF)	; ﮯ
     ))
 (define-char
   '((name . "ARABIC LETTER YEH BARREE WITH HAMZA ABOVE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBB0)	; ﮰ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER YEH BARREE WITH HAMZA ABOVE")
       (=ucs		  . #x06D3)	; ۓ
       ))
-    (=ucs		. #xFBB0)	; ﮰ
     ))
 (define-char
   '((name . "ARABIC LETTER YEH BARREE WITH HAMZA ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBB1)	; ﮱ
     (<-formed@final
      ((name		  . "ARABIC LETTER YEH BARREE WITH HAMZA ABOVE")
       (=ucs		  . #x06D3)	; ۓ
       ))
-    (=ucs		. #xFBB1)	; ﮱ
     ))
 (define-char
   '((name		. "ARABIC LETTER NG ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD3)	; ﯓ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER NG")
       (=ucs		  . #x06AD)	; ڭ
       ))
-    (=ucs		. #xFBD3)	; ﯓ
     ))
 (define-char
   '((name		. "ARABIC LETTER NG FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD4)	; ﯔ
     (<-formed@final
      ((name		  . "ARABIC LETTER NG")
       (=ucs		  . #x06AD)	; ڭ
       ))
-    (=ucs		. #xFBD4)	; ﯔ
     ))
 (define-char
   '((name		. "ARABIC LETTER NG INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD5)	; ﯕ
     (<-formed@initial
      ((name		  . "ARABIC LETTER NG")
       (=ucs		  . #x06AD)	; ڭ
       ))
-    (=ucs		. #xFBD5)	; ﯕ
     ))
 (define-char
   '((name		. "ARABIC LETTER NG MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD6)	; ﯖ
     (<-formed@medial
      ((name		  . "ARABIC LETTER NG")
       (=ucs		  . #x06AD)	; ڭ
       ))
-    (=ucs		. #xFBD6)	; ﯖ
     ))
 (define-char
   '((name		. "ARABIC LETTER U ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD7)	; ﯗ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER U")
       (=ucs		  . #x06C7)	; ۇ
       ))
-    (=ucs		. #xFBD7)	; ﯗ
     ))
 (define-char
   '((name		. "ARABIC LETTER U FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD8)	; ﯘ
     (<-formed@final
      ((name		  . "ARABIC LETTER U")
       (=ucs		  . #x06C7)	; ۇ
       ))
-    (=ucs		. #xFBD8)	; ﯘ
     ))
 (define-char
   '((name		. "ARABIC LETTER OE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBD9)	; ﯙ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER OE")
       (=ucs		  . #x06C6)	; ۆ
       ))
-    (=ucs		. #xFBD9)	; ﯙ
     ))
 (define-char
   '((name		. "ARABIC LETTER OE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDA)	; ﯚ
     (<-formed@final
      ((name		  . "ARABIC LETTER OE")
       (=ucs		  . #x06C6)	; ۆ
       ))
-    (=ucs		. #xFBDA)	; ﯚ
     ))
 (define-char
   '((name		. "ARABIC LETTER YU ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDB)	; ﯛ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER YU")
       (=ucs		  . #x06C8)	; ۈ
       ))
-    (=ucs		. #xFBDB)	; ﯛ
     ))
 (define-char
   '((name		. "ARABIC LETTER YU FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDC)	; ﯜ
     (<-formed@final
      ((name		  . "ARABIC LETTER YU")
       (=ucs		  . #x06C8)	; ۈ
       ))
-    (=ucs		. #xFBDC)	; ﯜ
     ))
 (define-char
   '((name . "ARABIC LETTER U WITH HAMZA ABOVE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDD)	; ﯝ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER U WITH HAMZA ABOVE")
       (=ucs		  . #x0677)	; ٷ
       ))
-    (=ucs		. #xFBDD)	; ﯝ
     ))
 (define-char
   '((name		. "ARABIC LETTER VE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDE)	; ﯞ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER VE")
       (=ucs		  . #x06CB)	; ۋ
       ))
-    (=ucs		. #xFBDE)	; ﯞ
     ))
 (define-char
   '((name		. "ARABIC LETTER VE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBDF)	; ﯟ
     (<-formed@final
      ((name		  . "ARABIC LETTER VE")
       (=ucs		  . #x06CB)	; ۋ
       ))
-    (=ucs		. #xFBDF)	; ﯟ
     ))
 (define-char
   '((name		. "ARABIC LETTER KIRGHIZ OE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE0)	; ﯠ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER KIRGHIZ OE")
       (=ucs		  . #x06C5)	; ۅ
       ))
-    (=ucs		. #xFBE0)	; ﯠ
     ))
 (define-char
   '((name		. "ARABIC LETTER KIRGHIZ OE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE1)	; ﯡ
     (<-formed@final
      ((name		  . "ARABIC LETTER KIRGHIZ OE")
       (=ucs		  . #x06C5)	; ۅ
       ))
-    (=ucs		. #xFBE1)	; ﯡ
     ))
 (define-char
   '((name		. "ARABIC LETTER KIRGHIZ YU ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE2)	; ﯢ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER KIRGHIZ YU")
       (=ucs		  . #x06C9)	; ۉ
       ))
-    (=ucs		. #xFBE2)	; ﯢ
     ))
 (define-char
   '((name		. "ARABIC LETTER KIRGHIZ YU FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE3)	; ﯣ
     (<-formed@final
      ((name		  . "ARABIC LETTER KIRGHIZ YU")
       (=ucs		  . #x06C9)	; ۉ
       ))
-    (=ucs		. #xFBE3)	; ﯣ
     ))
 (define-char
   '((name		. "ARABIC LETTER E ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE4)	; ﯤ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER E")
       (=ucs		  . #x06D0)	; ې
       ))
-    (=ucs		. #xFBE4)	; ﯤ
     ))
 (define-char
   '((name		. "ARABIC LETTER E FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE5)	; ﯥ
     (<-formed@final
      ((name		  . "ARABIC LETTER E")
       (=ucs		  . #x06D0)	; ې
       ))
-    (=ucs		. #xFBE5)	; ﯥ
     ))
 (define-char
   '((name		. "ARABIC LETTER E INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE6)	; ﯦ
     (<-formed@initial
      ((name		  . "ARABIC LETTER E")
       (=ucs		  . #x06D0)	; ې
       ))
-    (=ucs		. #xFBE6)	; ﯦ
     ))
 (define-char
   '((name		. "ARABIC LETTER E MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE7)	; ﯧ
     (<-formed@medial
      ((name		  . "ARABIC LETTER E")
       (=ucs		  . #x06D0)	; ې
       ))
-    (=ucs		. #xFBE7)	; ﯧ
     ))
 (define-char
   '((name . "ARABIC LETTER UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE8)	; ﯨ
     (<-formed@initial
      ((name		  . "ARABIC LETTER ALEF MAKSURA")
       (=ucs		  . #x0649)	; ى
       ))
-    (=ucs		. #xFBE8)	; ﯨ
     ))
 (define-char
   '((name . "ARABIC LETTER UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBE9)	; ﯩ
     (<-formed@medial
      ((name		  . "ARABIC LETTER ALEF MAKSURA")
       (=ucs		  . #x0649)	; ى
       ))
-    (=ucs		. #xFBE9)	; ﯩ
     ))
 (define-char
   '((name . "ARABIC LIGATURE YEH WITH HAMZA ABOVE WITH ALEF ISOLATED FORM")
@@ -1601,44 +1601,44 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBFC)	; ﯼ
     (<-formed@isolated
      ((name		  . "ARABIC LETTER FARSI YEH")
       (=ucs		  . #x06CC)	; ی
       ))
-    (=ucs		. #xFBFC)	; ﯼ
     ))
 (define-char
   '((name		. "ARABIC LETTER FARSI YEH FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBFD)	; ﯽ
     (<-formed@final
      ((name		  . "ARABIC LETTER FARSI YEH")
       (=ucs		  . #x06CC)	; ی
       ))
-    (=ucs		. #xFBFD)	; ﯽ
     ))
 (define-char
   '((name		. "ARABIC LETTER FARSI YEH INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBFE)	; ﯾ
     (<-formed@initial
      ((name		  . "ARABIC LETTER FARSI YEH")
       (=ucs		  . #x06CC)	; ی
       ))
-    (=ucs		. #xFBFE)	; ﯾ
     ))
 (define-char
   '((name		. "ARABIC LETTER FARSI YEH MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (=ucs		. #xFBFF)	; ﯿ
     (<-formed@medial
      ((name		  . "ARABIC LETTER FARSI YEH")
       (=ucs		  . #x06CC)	; ی
       ))
-    (=ucs		. #xFBFF)	; ﯿ
     ))
 (define-char
   '((name . "ARABIC LIGATURE YEH WITH HAMZA ABOVE WITH JEEM ISOLATED FORM")

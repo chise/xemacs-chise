@@ -213,110 +213,110 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB20)	; ﬠ
     (<-font
      ((name		  . "HEBREW LETTER AYIN")
       (=ucs		  . #x05E2)	; ע
       ))
-    (=ucs		. #xFB20)	; ﬠ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE ALEF")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB21)	; ﬡ
     (<-font
      ((name		  . "HEBREW LETTER ALEF")
       (=ucs		  . #x05D0)	; א
       ))
-    (=ucs		. #xFB21)	; ﬡ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE DALET")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB22)	; ﬢ
     (<-font
      ((name		  . "HEBREW LETTER DALET")
       (=ucs		  . #x05D3)	; ד
       ))
-    (=ucs		. #xFB22)	; ﬢ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE HE")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB23)	; ﬣ
     (<-font
      ((name		  . "HEBREW LETTER HE")
       (=ucs		  . #x05D4)	; ה
       ))
-    (=ucs		. #xFB23)	; ﬣ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE KAF")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB24)	; ﬤ
     (<-font
      ((name		  . "HEBREW LETTER KAF")
       (=ucs		  . #x05DB)	; כ
       ))
-    (=ucs		. #xFB24)	; ﬤ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE LAMED")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB25)	; ﬥ
     (<-font
      ((name		  . "HEBREW LETTER LAMED")
       (=ucs		  . #x05DC)	; ל
       ))
-    (=ucs		. #xFB25)	; ﬥ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE FINAL MEM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB26)	; ﬦ
     (<-font
      ((name		  . "HEBREW LETTER FINAL MEM")
       (=ucs		  . #x05DD)	; ם
       ))
-    (=ucs		. #xFB26)	; ﬦ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE RESH")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB27)	; ﬧ
     (<-font
      ((name		  . "HEBREW LETTER RESH")
       (=ucs		  . #x05E8)	; ר
       ))
-    (=ucs		. #xFB27)	; ﬧ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE TAV")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "R")
     (mirrored		. nil)
+    (=ucs		. #xFB28)	; ﬨ
     (<-font
      ((name		  . "HEBREW LETTER TAV")
       (=ucs		  . #x05EA)	; ת
       ))
-    (=ucs		. #xFB28)	; ﬨ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALTERNATIVE PLUS SIGN")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (=ucs		. #xFB29)	; ﬩
     (<-font
      ((name		  . "PLUS SIGN")
       (=ucs		  . #x002B)	; +
       ))
-    (=ucs		. #xFB29)	; ﬩
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH SHIN DOT")
