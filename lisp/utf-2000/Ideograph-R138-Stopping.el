@@ -17,6 +17,15 @@
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8B7C)	; &CDP-8B7C;
+    (<-simplified@component
+     ((=ucs		  . #x826E)	; 艮
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x826F)	; 良
