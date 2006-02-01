@@ -42,7 +42,7 @@ Boston, MA 02111-1307, USA.  */
 #include "objects-msw.h"
 
 #ifdef MULE
-#include "mule-charset.h"
+#include "character.h"
 #endif
 
 #include "buffer.h"
