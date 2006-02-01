@@ -4627,6 +4627,18 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs		. #x23D15)	; 𣴕
+    (->subsumptive
+     ((=daikanwa	  . 17420)	; &M-17420;
+      (=ucs@iso		  . #x23D15)	; &M-17420;
+      )
+     ((=cns11643-6	  . #x3237)	; &C6-3237; [18-23]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=ucs		. #x6D39)	; 洹
     (=gb2312		. #x6421)	; &I-G0-6421; [68-01]
     (=ks-x1001		. #x6A37)	; &I-K0-6A37; [74-23]
@@ -5265,11 +5277,19 @@
     (=cns11643-5	. #x297E)	; &I-C5-297E; [09-94]
     ))
 (define-char
-  '((ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ucs		. #x23D15)	; 𣴕
-    (=cns11643-6	. #x3237)	; &I-C6-3237; [18-23]
+  '((ideographic-radical@ucs . 85)	; ⽔
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     jis/x0213@2000 ucs)
+    (ideographic-radical@misc . 123)	; ⽺
+    (ideographic-strokes@misc . 4)
+    (ideographic-radical@misc*sources
+     jis/x0213@2000)
+    (total-strokes	 . 10)
+    (sound@ja/kun/name	"suke" "tugu" "yosi")
+    (sound@ja/on/name	"syAu" "yAu")
+    (=ucs		. #x23D0E)	; 𣴎
+    (=jis-x0213-2-2000	. #x7475)	; &I-JX2-7475; [84-85]
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
