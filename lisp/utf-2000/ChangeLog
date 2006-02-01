@@ -1,3 +1,23 @@
+2006-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (U+8B50): Use `->denotational' and
+	`->subsumptive'.
+	(U-00027B0B): Use `->subsumptive'; integrate M-35960.
+	(U+8B51): Use `->subsumptive'.
+	(U+8B52): Use `->subsumptive'.
+	(U-00027B0C): Use `->denotational' and `->subsumptive'.
+	(U+8B53): Use `->subsumptive'.
+	(RUI6-E01F): New character.
+	(U+8B4D): Use `->subsumptive'.
+	(C7-5033): Use `->denotational' and `->subsumptive'; map to
+	U-00027B12; integrate GT-48359 and H10-EE7E.
+	(U+8B5D): Use `->subsumptive'.
+	(U+4712): Use `->denotational' and `->subsumptive'.
+	(U+8B5E): Use `->subsumptive'.
+	(U+4713): Use `->denotational' and `->subsumptive'.
+	(U+4714): Use `->denotational'.
+	(U-00027B12): Use `->subsumptive'; integrate C7-5033 and GT-48359.
+
 2006-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R130-Meat.el (U+8163): Use `->subsumptive'.
