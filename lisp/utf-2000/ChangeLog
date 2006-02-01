@@ -1,5 +1,17 @@
 2006-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R057-Bow.el (M-09742): Unify U-000223C3 and H3-CABA.
+	(M-09743): Unify U-000223C4 and H3-CABE.  (M-09744): Unify
+	U-000223C2 and H3-CAB8.  (BC-8B7D): New character.  (U+5F21): Use
+	`->subsumptive'.  (U+38AE): Use `->subsumptive'.  (U+5F22): Use
+	`->subsumptive'.
+
+	* Ideograph-R066-Rap.el (U-00025626): Delete `=>daikanwa'.
+	(U-00022F20): Use `->subsumptive'; integrate M-13181; use
+	`{ideographic|total}-strokes@{ucs|cns}' instead of
+	`{ideographic|total}-strokes'; add
+	`ideographic-strokes@ucs*sources'.
+
 	* Ideograph-R149-Speech.el (U+8B50): Use `->denotational' and
 	`->subsumptive'.
 	(U-00027B0B): Use `->subsumptive'; integrate M-35960.
