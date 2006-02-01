@@ -1,5 +1,25 @@
 2006-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R130-Meat.el (U+8163): Use `->subsumptive'.
+	(U+440F): Likewise.
+	(U-00026760): Use `->subsumptive'; integrate BC-8ADA.
+	(U-00023386): Copied from Ideograph-R074-Moon.el.
+	(CB12237): New character; add `<-denotational' for U-00026760.
+	(U+4410): Use `->subsumptive'.
+
+	* Ideograph-R120-Silk.el (U+7E6D): Use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R085-Water.el (U-00023D15): Use `->subsumptive';
+	integrate M-17420.
+	(U-00023D0E): New character.
+
+	* Ideograph-R029-Again.el (BC-8BA1): New character; add
+	`<-denotational' for U-00020B1B.
+
+	* Ideograph-R113-Spirit.el (CB-11755): New character.
+	(BC-8C6A): Likewise.
+
 	* Ideograph-R168-Long.el (U+9578): Unify BC-8D72.
 
 	* Ideograph-R164-Wine.el (G0-4775): Unify JC3-43E9.
