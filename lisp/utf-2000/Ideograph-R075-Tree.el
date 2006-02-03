@@ -16037,16 +16037,20 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=ucs		  . #x54E5)	; 哥
-      ))
     (=ucs		. #x23601)	; 𣘁
-    (=cbeta		. 04052)	; &I-CB04052;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6728)	; 木
+	)
+       ((=gb2312	    . #x3867)	; &G0-3867; [24-71]
+	))
+      (=ucs@iso		  . #x23601)	; &U-00023601;
+      )
+     ((=cbeta		  . 04052)	; &CB04052;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
