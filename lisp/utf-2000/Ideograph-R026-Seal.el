@@ -1022,7 +1022,7 @@
     (=gt-pj-1		. #x362A)	; &I-GT-03656; [22-10]
     (=jef-china3	. #x45D5)	; &I-JC3-45D5;
     (=ucs@unicode	. #x537F)	; &GT-03656;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
       (=daikanwa	  . 02880)	; &I-M-02880;
