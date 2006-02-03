@@ -1,3 +1,19 @@
+2006-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (J90-3D6D): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-3D6D.
+	(J90-4375): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4375.
+
+	* Ideograph-R072-Sun.el (J90-3322): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-3322.
+
+	* Ideograph-R032-Earth.el (J90-4564): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-4564.
+
+	* Ideograph-R026-Seal.el (J90-362A): Use `<-simplified@JP/jis'
+	instead of `<-simplified@JP' for J78-362A.
+
 2006-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R057-Bow.el (M-09742): Unify U-000223C3 and H3-CABA.
