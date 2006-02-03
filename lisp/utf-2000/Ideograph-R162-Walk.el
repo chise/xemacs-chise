@@ -12303,6 +12303,11 @@
     (mojikyo		. 050529)	; &MCS-6000C561;
     ))
 (define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 11)
+    (=ucs		. #x2858B)	; 𨖋
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x2858B)	; 𨖋
       ))
