@@ -7783,7 +7783,7 @@
     (=gt-pj-1		. #x4564)	; &I-GT-06767; [37-68]
     (=jef-china3	. #x48C7)	; &I-JC3-48C7;
     (=ucs@jis		. #x5858)	; &GT-06767;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x4564)	; &GT-06766; [37-68]
       (=ks-x1001	  . #x5352)	; &I-K0-5352; [51-50]
       (=daikanwa	  . 05340)	; &I-M-05340;
