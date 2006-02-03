@@ -3132,7 +3132,7 @@
     (=gt-pj-1		. #x3322)	; &I-GT-17551; [19-02]
     (=jef-china3	. #x51FD)	; &I-JC3-51FD;
     (=ucs@jis		. #x6666)	; &GT-17551;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x3322)	; &M-13960; [19-02]
       (=gb2312		  . #x3B5E)	; &I-G0-3B5E; [27-62]
       (=ks-x1001	  . #x7C64)	; &I-K0-7C64; [92-68]
