@@ -65,12 +65,12 @@
      ((name		  . "GREEK TONOS")
       (=ucs		  . #x0384)	; ΄
       ))
+    (=jis-x0212		. #x2238)	; &JSP-2238; [02-24]
+    (=ucs@jis/fw	. #x0384)	; &JSP-2238;
     (<-fullwidth
      ((name		  . "GREEK TONOS")
       (=ucs		  . #x0384)	; ΄
       ))
-    (=jis-x0212		. #x2238)	; &JSP-2238; [02-24]
-    (=ucs@jis/fw	. #x0384)	; &JSP-2238;
     ))
 (define-char
   '((name		. "GREEK DIALYTIKA TONOS")
@@ -92,12 +92,12 @@
      ((name		  . "GREEK DIALYTIKA TONOS")
       (=ucs		  . #x0385)	; ΅
       ))
+    (=jis-x0212		. #x2239)	; &JSP-2239; [02-25]
+    (=ucs@jis/fw	. #x0385)	; &JSP-2239;
     (<-fullwidth
      ((name		  . "GREEK DIALYTIKA TONOS")
       (=ucs		  . #x0385)	; ΅
       ))
-    (=jis-x0212		. #x2239)	; &JSP-2239; [02-25]
-    (=ucs@jis/fw	. #x0385)	; &JSP-2239;
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ALPHA WITH TONOS")
@@ -123,10 +123,6 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x0386)	; Ά
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
-      (=ucs		  . #x0386)	; Ά
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2621)	; &J90-2621; [06-01]
       (=gb2312		  . #x2621)	; &I-G0-2621; [06-01]
@@ -138,6 +134,10 @@
       ))
     (=jis-x0212		. #x2661)	; &JSP-2661; [06-65]
     (=ucs@jis/fw	. #x0386)	; &JSP-2661;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
+      (=ucs		  . #x0386)	; Ά
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2671)	; &JSP-2671; [06-81]
       ))
@@ -177,10 +177,6 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x0388)	; Έ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
-      (=ucs		  . #x0388)	; Έ
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2625)	; &J90-2625; [06-05]
       (=gb2312		  . #x2625)	; &I-G0-2625; [06-05]
@@ -192,6 +188,10 @@
       ))
     (=jis-x0212		. #x2662)	; &JSP-2662; [06-66]
     (=ucs@jis/fw	. #x0388)	; &JSP-2662;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
+      (=ucs		  . #x0388)	; Έ
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2672)	; &JSP-2672; [06-82]
       ))
@@ -220,10 +220,6 @@
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
       (=ucs		  . #x0389)	; Ή
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
-      (=ucs		  . #x0389)	; Ή
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2627)	; &J90-2627; [06-07]
       (=gb2312		  . #x2627)	; &I-G0-2627; [06-07]
@@ -235,6 +231,10 @@
       ))
     (=jis-x0212		. #x2663)	; &JSP-2663; [06-67]
     (=ucs@jis/fw	. #x0389)	; &JSP-2663;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
+      (=ucs		  . #x0389)	; Ή
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2673)	; &JSP-2673; [06-83]
       ))
@@ -263,10 +263,6 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
       (=ucs		  . #x038A)	; Ί
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
-      (=ucs		  . #x038A)	; Ί
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2629)	; &J90-2629; [06-09]
       (=gb2312		  . #x2629)	; &I-G0-2629; [06-09]
@@ -278,6 +274,10 @@
       ))
     (=jis-x0212		. #x2664)	; &JSP-2664; [06-68]
     (=ucs@jis/fw	. #x038A)	; &JSP-2664;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
+      (=ucs		  . #x038A)	; Ί
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2674)	; &JSP-2674; [06-84]
       ))
@@ -306,10 +306,6 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x038C)	; Ό
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
-      (=ucs		  . #x038C)	; Ό
-      ))
     (=decomposition
      ((=jis-x0208	  . #x262F)	; &J90-262F; [06-15]
       (=gb2312		  . #x262F)	; &I-G0-262F; [06-15]
@@ -321,6 +317,10 @@
       ))
     (=jis-x0212		. #x2667)	; &JSP-2667; [06-71]
     (=ucs@jis/fw	. #x038C)	; &JSP-2667;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
+      (=ucs		  . #x038C)	; Ό
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2677)	; &JSP-2677; [06-87]
       ))
@@ -349,10 +349,6 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x038E)	; Ύ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
-      (=ucs		  . #x038E)	; Ύ
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2634)	; &J90-2634; [06-20]
       (=gb2312		  . #x2634)	; &I-G0-2634; [06-20]
@@ -364,6 +360,10 @@
       ))
     (=jis-x0212		. #x2669)	; &JSP-2669; [06-73]
     (=ucs@jis/fw	. #x038E)	; &JSP-2669;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
+      (=ucs		  . #x038E)	; Ύ
+      ))
     (->lowercase
      ((=jis-x0212	  . #x2679)	; &JSP-2679; [06-89]
       ))
@@ -392,10 +392,6 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x038F)	; Ώ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
-      (=ucs		  . #x038F)	; Ώ
-      ))
     (=decomposition
      ((=jis-x0208	  . #x2638)	; &J90-2638; [06-24]
       (=gb2312		  . #x2638)	; &I-G0-2638; [06-24]
@@ -407,6 +403,10 @@
       ))
     (=jis-x0212		. #x266C)	; &JSP-266C; [06-76]
     (=ucs@jis/fw	. #x038F)	; &JSP-266C;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
+      (=ucs		  . #x038F)	; Ώ
+      ))
     (->lowercase
      ((=jis-x0212	  . #x267C)	; &JSP-267C; [06-92]
       ))
@@ -431,12 +431,12 @@
      ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x0390)	; ΐ
       ))
+    (=jis-x0212		. #x2676)	; &JSP-2676; [06-86]
+    (=ucs@jis/fw	. #x0390)	; &JSP-2676;
     (<-fullwidth
      ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x0390)	; ΐ
       ))
-    (=jis-x0212		. #x2676)	; &JSP-2676; [06-86]
-    (=ucs@jis/fw	. #x0390)	; &JSP-2676;
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ALPHA")
@@ -455,10 +455,6 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
       (=ucs		  . #x0391)	; Α
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER ALPHA")
-      (=ucs		  . #x0391)	; Α
-      ))
     (=jis-x0208		. #x2621)	; &J90-2621; [06-01]
     (=gb2312		. #x2621)	; &I-G0-2621; [06-01]
     (=ks-x1001		. #x2541)	; &I-K0-2541; [05-33]
@@ -466,6 +462,10 @@
     (=big5		. #xA344)	; &I-B-A344;
     (=ucs@gb/fw		. #x0391)	; &J90-2621;
     (=ucs@jis/fw	. #x0391)	; &J90-2621;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER ALPHA")
+      (=ucs		  . #x0391)	; Α
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2641)	; &J90-2641; [06-33]
       (=gb2312		  . #x2641)	; &I-G0-2641; [06-33]
@@ -490,10 +490,6 @@
      ((name		  . "GREEK CAPITAL LETTER BETA")
       (=ucs		  . #x0392)	; Β
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER BETA")
-      (=ucs		  . #x0392)	; Β
-      ))
     (=jis-x0208		. #x2622)	; &J90-2622; [06-02]
     (=gb2312		. #x2622)	; &I-G0-2622; [06-02]
     (=ks-x1001		. #x2542)	; &I-K0-2542; [05-34]
@@ -501,6 +497,10 @@
     (=big5		. #xA345)	; &I-B-A345;
     (=ucs@gb/fw		. #x0392)	; &J90-2622;
     (=ucs@jis/fw	. #x0392)	; &J90-2622;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER BETA")
+      (=ucs		  . #x0392)	; Β
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2642)	; &J90-2642; [06-34]
       (=gb2312		  . #x2642)	; &I-G0-2642; [06-34]
@@ -525,10 +525,6 @@
      ((name		  . "GREEK CAPITAL LETTER GAMMA")
       (=ucs		  . #x0393)	; Γ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER GAMMA")
-      (=ucs		  . #x0393)	; Γ
-      ))
     (=jis-x0208		. #x2623)	; &J90-2623; [06-03]
     (=gb2312		. #x2623)	; &I-G0-2623; [06-03]
     (=ks-x1001		. #x2543)	; &I-K0-2543; [05-35]
@@ -536,6 +532,10 @@
     (=big5		. #xA346)	; &I-B-A346;
     (=ucs@gb/fw		. #x0393)	; &J90-2623;
     (=ucs@jis/fw	. #x0393)	; &J90-2623;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER GAMMA")
+      (=ucs		  . #x0393)	; Γ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2643)	; &J90-2643; [06-35]
       (=gb2312		  . #x2643)	; &I-G0-2643; [06-35]
@@ -560,10 +560,6 @@
      ((name		  . "GREEK CAPITAL LETTER DELTA")
       (=ucs		  . #x0394)	; Δ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER DELTA")
-      (=ucs		  . #x0394)	; Δ
-      ))
     (=jis-x0208		. #x2624)	; &J90-2624; [06-04]
     (=gb2312		. #x2624)	; &I-G0-2624; [06-04]
     (=ks-x1001		. #x2544)	; &I-K0-2544; [05-36]
@@ -571,6 +567,10 @@
     (=big5		. #xA347)	; &I-B-A347;
     (=ucs@gb/fw		. #x0394)	; &J90-2624;
     (=ucs@jis/fw	. #x0394)	; &J90-2624;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER DELTA")
+      (=ucs		  . #x0394)	; Δ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2644)	; &J90-2644; [06-36]
       (=gb2312		  . #x2644)	; &I-G0-2644; [06-36]
@@ -595,10 +595,6 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
       (=ucs		  . #x0395)	; Ε
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER EPSILON")
-      (=ucs		  . #x0395)	; Ε
-      ))
     (=jis-x0208		. #x2625)	; &J90-2625; [06-05]
     (=gb2312		. #x2625)	; &I-G0-2625; [06-05]
     (=ks-x1001		. #x2545)	; &I-K0-2545; [05-37]
@@ -606,6 +602,10 @@
     (=big5		. #xA348)	; &I-B-A348;
     (=ucs@gb/fw		. #x0395)	; &J90-2625;
     (=ucs@jis/fw	. #x0395)	; &J90-2625;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER EPSILON")
+      (=ucs		  . #x0395)	; Ε
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2645)	; &J90-2645; [06-37]
       (=gb2312		  . #x2645)	; &I-G0-2645; [06-37]
@@ -630,10 +630,6 @@
      ((name		  . "GREEK CAPITAL LETTER ZETA")
       (=ucs		  . #x0396)	; Ζ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER ZETA")
-      (=ucs		  . #x0396)	; Ζ
-      ))
     (=jis-x0208		. #x2626)	; &J90-2626; [06-06]
     (=gb2312		. #x2626)	; &I-G0-2626; [06-06]
     (=ks-x1001		. #x2546)	; &I-K0-2546; [05-38]
@@ -641,6 +637,10 @@
     (=big5		. #xA349)	; &I-B-A349;
     (=ucs@gb/fw		. #x0396)	; &J90-2626;
     (=ucs@jis/fw	. #x0396)	; &J90-2626;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER ZETA")
+      (=ucs		  . #x0396)	; Ζ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2646)	; &J90-2646; [06-38]
       (=gb2312		  . #x2646)	; &I-G0-2646; [06-38]
@@ -665,10 +665,6 @@
      ((name		  . "GREEK CAPITAL LETTER ETA")
       (=ucs		  . #x0397)	; Η
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER ETA")
-      (=ucs		  . #x0397)	; Η
-      ))
     (=jis-x0208		. #x2627)	; &J90-2627; [06-07]
     (=gb2312		. #x2627)	; &I-G0-2627; [06-07]
     (=ks-x1001		. #x2547)	; &I-K0-2547; [05-39]
@@ -676,6 +672,10 @@
     (=big5		. #xA34A)	; &I-B-A34A;
     (=ucs@gb/fw		. #x0397)	; &J90-2627;
     (=ucs@jis/fw	. #x0397)	; &J90-2627;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER ETA")
+      (=ucs		  . #x0397)	; Η
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2647)	; &J90-2647; [06-39]
       (=gb2312		  . #x2647)	; &I-G0-2647; [06-39]
@@ -700,10 +700,6 @@
      ((name		  . "GREEK CAPITAL LETTER THETA")
       (=ucs		  . #x0398)	; Θ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER THETA")
-      (=ucs		  . #x0398)	; Θ
-      ))
     (=jis-x0208		. #x2628)	; &J90-2628; [06-08]
     (=gb2312		. #x2628)	; &I-G0-2628; [06-08]
     (=ks-x1001		. #x2548)	; &I-K0-2548; [05-40]
@@ -711,6 +707,10 @@
     (=big5		. #xA34B)	; &I-B-A34B;
     (=ucs@gb/fw		. #x0398)	; &J90-2628;
     (=ucs@jis/fw	. #x0398)	; &J90-2628;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER THETA")
+      (=ucs		  . #x0398)	; Θ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2648)	; &J90-2648; [06-40]
       (=gb2312		  . #x2648)	; &I-G0-2648; [06-40]
@@ -735,10 +735,6 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (=ucs		  . #x0399)	; Ι
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER IOTA")
-      (=ucs		  . #x0399)	; Ι
-      ))
     (=jis-x0208		. #x2629)	; &J90-2629; [06-09]
     (=gb2312		. #x2629)	; &I-G0-2629; [06-09]
     (=ks-x1001		. #x2549)	; &I-K0-2549; [05-41]
@@ -746,6 +742,10 @@
     (=big5		. #xA34C)	; &I-B-A34C;
     (=ucs@gb/fw		. #x0399)	; &J90-2629;
     (=ucs@jis/fw	. #x0399)	; &J90-2629;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER IOTA")
+      (=ucs		  . #x0399)	; Ι
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2649)	; &J90-2649; [06-41]
       (=gb2312		  . #x2649)	; &I-G0-2649; [06-41]
@@ -770,10 +770,6 @@
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
       (=ucs		  . #x039A)	; Κ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER KAPPA")
-      (=ucs		  . #x039A)	; Κ
-      ))
     (=jis-x0208		. #x262A)	; &J90-262A; [06-10]
     (=gb2312		. #x262A)	; &I-G0-262A; [06-10]
     (=ks-x1001		. #x254A)	; &I-K0-254A; [05-42]
@@ -781,6 +777,10 @@
     (=big5		. #xA34D)	; &I-B-A34D;
     (=ucs@gb/fw		. #x039A)	; &J90-262A;
     (=ucs@jis/fw	. #x039A)	; &J90-262A;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER KAPPA")
+      (=ucs		  . #x039A)	; Κ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264A)	; &J90-264A; [06-42]
       (=gb2312		  . #x264A)	; &I-G0-264A; [06-42]
@@ -805,10 +805,6 @@
      ((name		  . "GREEK CAPITAL LETTER LAMDA")
       (=ucs		  . #x039B)	; Λ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER LAMDA")
-      (=ucs		  . #x039B)	; Λ
-      ))
     (=jis-x0208		. #x262B)	; &J90-262B; [06-11]
     (=gb2312		. #x262B)	; &I-G0-262B; [06-11]
     (=ks-x1001		. #x254B)	; &I-K0-254B; [05-43]
@@ -816,6 +812,10 @@
     (=big5		. #xA34E)	; &I-B-A34E;
     (=ucs@gb/fw		. #x039B)	; &J90-262B;
     (=ucs@jis/fw	. #x039B)	; &J90-262B;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER LAMDA")
+      (=ucs		  . #x039B)	; Λ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264B)	; &J90-264B; [06-43]
       (=gb2312		  . #x264B)	; &I-G0-264B; [06-43]
@@ -840,10 +840,6 @@
      ((name		  . "GREEK CAPITAL LETTER MU")
       (=ucs		  . #x039C)	; Μ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER MU")
-      (=ucs		  . #x039C)	; Μ
-      ))
     (=jis-x0208		. #x262C)	; &J90-262C; [06-12]
     (=gb2312		. #x262C)	; &I-G0-262C; [06-12]
     (=ks-x1001		. #x254C)	; &I-K0-254C; [05-44]
@@ -851,6 +847,10 @@
     (=big5		. #xA34F)	; &I-B-A34F;
     (=ucs@gb/fw		. #x039C)	; &J90-262C;
     (=ucs@jis/fw	. #x039C)	; &J90-262C;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER MU")
+      (=ucs		  . #x039C)	; Μ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264C)	; &J90-264C; [06-44]
       (=gb2312		  . #x264C)	; &I-G0-264C; [06-44]
@@ -875,10 +875,6 @@
      ((name		  . "GREEK CAPITAL LETTER NU")
       (=ucs		  . #x039D)	; Ν
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER NU")
-      (=ucs		  . #x039D)	; Ν
-      ))
     (=jis-x0208		. #x262D)	; &J90-262D; [06-13]
     (=gb2312		. #x262D)	; &I-G0-262D; [06-13]
     (=ks-x1001		. #x254D)	; &I-K0-254D; [05-45]
@@ -886,6 +882,10 @@
     (=big5		. #xA350)	; &I-B-A350;
     (=ucs@gb/fw		. #x039D)	; &J90-262D;
     (=ucs@jis/fw	. #x039D)	; &J90-262D;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER NU")
+      (=ucs		  . #x039D)	; Ν
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264D)	; &J90-264D; [06-45]
       (=gb2312		  . #x264D)	; &I-G0-264D; [06-45]
@@ -910,10 +910,6 @@
      ((name		  . "GREEK CAPITAL LETTER XI")
       (=ucs		  . #x039E)	; Ξ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER XI")
-      (=ucs		  . #x039E)	; Ξ
-      ))
     (=jis-x0208		. #x262E)	; &J90-262E; [06-14]
     (=gb2312		. #x262E)	; &I-G0-262E; [06-14]
     (=ks-x1001		. #x254E)	; &I-K0-254E; [05-46]
@@ -921,6 +917,10 @@
     (=big5		. #xA351)	; &I-B-A351;
     (=ucs@gb/fw		. #x039E)	; &J90-262E;
     (=ucs@jis/fw	. #x039E)	; &J90-262E;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER XI")
+      (=ucs		  . #x039E)	; Ξ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264E)	; &J90-264E; [06-46]
       (=gb2312		  . #x264E)	; &I-G0-264E; [06-46]
@@ -945,10 +945,6 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
       (=ucs		  . #x039F)	; Ο
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER OMICRON")
-      (=ucs		  . #x039F)	; Ο
-      ))
     (=jis-x0208		. #x262F)	; &J90-262F; [06-15]
     (=gb2312		. #x262F)	; &I-G0-262F; [06-15]
     (=ks-x1001		. #x254F)	; &I-K0-254F; [05-47]
@@ -956,6 +952,10 @@
     (=big5		. #xA352)	; &I-B-A352;
     (=ucs@gb/fw		. #x039F)	; &J90-262F;
     (=ucs@jis/fw	. #x039F)	; &J90-262F;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER OMICRON")
+      (=ucs		  . #x039F)	; Ο
+      ))
     (->lowercase
      ((=jis-x0208	  . #x264F)	; &J90-264F; [06-47]
       (=gb2312		  . #x264F)	; &I-G0-264F; [06-47]
@@ -980,10 +980,6 @@
      ((name		  . "GREEK CAPITAL LETTER PI")
       (=ucs		  . #x03A0)	; Π
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER PI")
-      (=ucs		  . #x03A0)	; Π
-      ))
     (=jis-x0208		. #x2630)	; &J90-2630; [06-16]
     (=gb2312		. #x2630)	; &I-G0-2630; [06-16]
     (=ks-x1001		. #x2550)	; &I-K0-2550; [05-48]
@@ -991,6 +987,10 @@
     (=big5		. #xA353)	; &I-B-A353;
     (=ucs@gb/fw		. #x03A0)	; &J90-2630;
     (=ucs@jis/fw	. #x03A0)	; &J90-2630;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER PI")
+      (=ucs		  . #x03A0)	; Π
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2650)	; &J90-2650; [06-48]
       (=gb2312		  . #x2650)	; &I-G0-2650; [06-48]
@@ -1015,10 +1015,6 @@
      ((name		  . "GREEK CAPITAL LETTER RHO")
       (=ucs		  . #x03A1)	; Ρ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER RHO")
-      (=ucs		  . #x03A1)	; Ρ
-      ))
     (=jis-x0208		. #x2631)	; &J90-2631; [06-17]
     (=gb2312		. #x2631)	; &I-G0-2631; [06-17]
     (=ks-x1001		. #x2551)	; &I-K0-2551; [05-49]
@@ -1026,6 +1022,10 @@
     (=big5		. #xA354)	; &I-B-A354;
     (=ucs@gb/fw		. #x03A1)	; &J90-2631;
     (=ucs@jis/fw	. #x03A1)	; &J90-2631;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER RHO")
+      (=ucs		  . #x03A1)	; Ρ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2651)	; &J90-2651; [06-49]
       (=gb2312		  . #x2651)	; &I-G0-2651; [06-49]
@@ -1050,10 +1050,6 @@
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
       (=ucs		  . #x03A3)	; Σ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER SIGMA")
-      (=ucs		  . #x03A3)	; Σ
-      ))
     (=jis-x0208		. #x2632)	; &J90-2632; [06-18]
     (=gb2312		. #x2632)	; &I-G0-2632; [06-18]
     (=ks-x1001		. #x2552)	; &I-K0-2552; [05-50]
@@ -1061,6 +1057,10 @@
     (=big5		. #xA355)	; &I-B-A355;
     (=ucs@gb/fw		. #x03A3)	; &J90-2632;
     (=ucs@jis/fw	. #x03A3)	; &J90-2632;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER SIGMA")
+      (=ucs		  . #x03A3)	; Σ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2652)	; &J90-2652; [06-50]
       (=gb2312		  . #x2652)	; &I-G0-2652; [06-50]
@@ -1085,10 +1085,6 @@
      ((name		  . "GREEK CAPITAL LETTER TAU")
       (=ucs		  . #x03A4)	; Τ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER TAU")
-      (=ucs		  . #x03A4)	; Τ
-      ))
     (=jis-x0208		. #x2633)	; &J90-2633; [06-19]
     (=gb2312		. #x2633)	; &I-G0-2633; [06-19]
     (=ks-x1001		. #x2553)	; &I-K0-2553; [05-51]
@@ -1096,6 +1092,10 @@
     (=big5		. #xA356)	; &I-B-A356;
     (=ucs@gb/fw		. #x03A4)	; &J90-2633;
     (=ucs@jis/fw	. #x03A4)	; &J90-2633;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER TAU")
+      (=ucs		  . #x03A4)	; Τ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2653)	; &J90-2653; [06-51]
       (=gb2312		  . #x2653)	; &I-G0-2653; [06-51]
@@ -1120,10 +1120,6 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (=ucs		  . #x03A5)	; Υ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER UPSILON")
-      (=ucs		  . #x03A5)	; Υ
-      ))
     (=jis-x0208		. #x2634)	; &J90-2634; [06-20]
     (=gb2312		. #x2634)	; &I-G0-2634; [06-20]
     (=ks-x1001		. #x2554)	; &I-K0-2554; [05-52]
@@ -1131,6 +1127,10 @@
     (=big5		. #xA357)	; &I-B-A357;
     (=ucs@gb/fw		. #x03A5)	; &J90-2634;
     (=ucs@jis/fw	. #x03A5)	; &J90-2634;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER UPSILON")
+      (=ucs		  . #x03A5)	; Υ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2654)	; &J90-2654; [06-52]
       (=gb2312		  . #x2654)	; &I-G0-2654; [06-52]
@@ -1155,10 +1155,6 @@
      ((name		  . "GREEK CAPITAL LETTER PHI")
       (=ucs		  . #x03A6)	; Φ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER PHI")
-      (=ucs		  . #x03A6)	; Φ
-      ))
     (=jis-x0208		. #x2635)	; &J90-2635; [06-21]
     (=gb2312		. #x2635)	; &I-G0-2635; [06-21]
     (=ks-x1001		. #x2555)	; &I-K0-2555; [05-53]
@@ -1166,6 +1162,10 @@
     (=big5		. #xA358)	; &I-B-A358;
     (=ucs@gb/fw		. #x03A6)	; &J90-2635;
     (=ucs@jis/fw	. #x03A6)	; &J90-2635;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER PHI")
+      (=ucs		  . #x03A6)	; Φ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2655)	; &J90-2655; [06-53]
       (=gb2312		  . #x2655)	; &I-G0-2655; [06-53]
@@ -1190,10 +1190,6 @@
      ((name		  . "GREEK CAPITAL LETTER CHI")
       (=ucs		  . #x03A7)	; Χ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER CHI")
-      (=ucs		  . #x03A7)	; Χ
-      ))
     (=jis-x0208		. #x2636)	; &J90-2636; [06-22]
     (=gb2312		. #x2636)	; &I-G0-2636; [06-22]
     (=ks-x1001		. #x2556)	; &I-K0-2556; [05-54]
@@ -1201,6 +1197,10 @@
     (=big5		. #xA359)	; &I-B-A359;
     (=ucs@gb/fw		. #x03A7)	; &J90-2636;
     (=ucs@jis/fw	. #x03A7)	; &J90-2636;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER CHI")
+      (=ucs		  . #x03A7)	; Χ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2656)	; &J90-2656; [06-54]
       (=gb2312		  . #x2656)	; &I-G0-2656; [06-54]
@@ -1225,10 +1225,6 @@
      ((name		  . "GREEK CAPITAL LETTER PSI")
       (=ucs		  . #x03A8)	; Ψ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER PSI")
-      (=ucs		  . #x03A8)	; Ψ
-      ))
     (=jis-x0208		. #x2637)	; &J90-2637; [06-23]
     (=gb2312		. #x2637)	; &I-G0-2637; [06-23]
     (=ks-x1001		. #x2557)	; &I-K0-2557; [05-55]
@@ -1236,6 +1232,10 @@
     (=big5		. #xA35A)	; &I-B-A35A;
     (=ucs@gb/fw		. #x03A8)	; &J90-2637;
     (=ucs@jis/fw	. #x03A8)	; &J90-2637;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER PSI")
+      (=ucs		  . #x03A8)	; Ψ
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2657)	; &J90-2657; [06-55]
       (=gb2312		  . #x2657)	; &I-G0-2657; [06-55]
@@ -1260,10 +1260,6 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (=ucs		  . #x03A9)	; Ω
       ))
-    (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER OMEGA")
-      (=ucs		  . #x03A9)	; Ω
-      ))
     (=jis-x0208		. #x2638)	; &J90-2638; [06-24]
     (=gb2312		. #x2638)	; &I-G0-2638; [06-24]
     (=ks-x1001		. #x2558)	; &I-K0-2558; [05-56]
@@ -1271,6 +1267,10 @@
     (=big5		. #xA35B)	; &I-B-A35B;
     (=ucs@gb/fw		. #x03A9)	; &J90-2638;
     (=ucs@jis/fw	. #x03A9)	; &J90-2638;
+    (<-fullwidth
+     ((name		  . "GREEK CAPITAL LETTER OMEGA")
+      (=ucs		  . #x03A9)	; Ω
+      ))
     (->lowercase
      ((=jis-x0208	  . #x2658)	; &J90-2658; [06-56]
       (=gb2312		  . #x2658)	; &I-G0-2658; [06-56]
@@ -1302,12 +1302,12 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03AA)	; Ϊ
       ))
+    (=jis-x0212		. #x2665)	; &JSP-2665; [06-69]
+    (=ucs@jis/fw	. #x03AA)	; &JSP-2665;
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03AA)	; Ϊ
       ))
-    (=jis-x0212		. #x2665)	; &JSP-2665; [06-69]
-    (=ucs@jis/fw	. #x03AA)	; &JSP-2665;
     (->lowercase
      ((=jis-x0212	  . #x2675)	; &JSP-2675; [06-85]
       ))
@@ -1336,12 +1336,12 @@
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03AB)	; Ϋ
       ))
+    (=jis-x0212		. #x266A)	; &JSP-266A; [06-74]
+    (=ucs@jis/fw	. #x03AB)	; &JSP-266A;
     (<-fullwidth
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03AB)	; Ϋ
       ))
-    (=jis-x0212		. #x266A)	; &JSP-266A; [06-74]
-    (=ucs@jis/fw	. #x03AB)	; &JSP-266A;
     (->lowercase
      ((=jis-x0212	  . #x267A)	; &JSP-267A; [06-90]
       ))
@@ -1370,12 +1370,12 @@
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x03AC)	; ά
       ))
+    (=jis-x0212		. #x2671)	; &JSP-2671; [06-81]
+    (=ucs@jis/fw	. #x03AC)	; &JSP-2671;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x03AC)	; ά
       ))
-    (=jis-x0212		. #x2671)	; &JSP-2671; [06-81]
-    (=ucs@jis/fw	. #x03AC)	; &JSP-2671;
     (->uppercase
      ((=jis-x0212	  . #x2661)	; &JSP-2661; [06-65]
       ))
@@ -1404,12 +1404,12 @@
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x03AD)	; έ
       ))
+    (=jis-x0212		. #x2672)	; &JSP-2672; [06-82]
+    (=ucs@jis/fw	. #x03AD)	; &JSP-2672;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x03AD)	; έ
       ))
-    (=jis-x0212		. #x2672)	; &JSP-2672; [06-82]
-    (=ucs@jis/fw	. #x03AD)	; &JSP-2672;
     (->uppercase
      ((=jis-x0212	  . #x2662)	; &JSP-2662; [06-66]
       ))
@@ -1438,12 +1438,12 @@
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (=ucs		  . #x03AE)	; ή
       ))
+    (=jis-x0212		. #x2673)	; &JSP-2673; [06-83]
+    (=ucs@jis/fw	. #x03AE)	; &JSP-2673;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (=ucs		  . #x03AE)	; ή
       ))
-    (=jis-x0212		. #x2673)	; &JSP-2673; [06-83]
-    (=ucs@jis/fw	. #x03AE)	; &JSP-2673;
     (->uppercase
      ((=jis-x0212	  . #x2663)	; &JSP-2663; [06-67]
       ))
@@ -1472,12 +1472,12 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (=ucs		  . #x03AF)	; ί
       ))
+    (=jis-x0212		. #x2674)	; &JSP-2674; [06-84]
+    (=ucs@jis/fw	. #x03AF)	; &JSP-2674;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (=ucs		  . #x03AF)	; ί
       ))
-    (=jis-x0212		. #x2674)	; &JSP-2674; [06-84]
-    (=ucs@jis/fw	. #x03AF)	; &JSP-2674;
     (->uppercase
      ((=jis-x0212	  . #x2664)	; &JSP-2664; [06-68]
       ))
@@ -1502,12 +1502,12 @@
      ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x03B0)	; ΰ
       ))
+    (=jis-x0212		. #x267B)	; &JSP-267B; [06-91]
+    (=ucs@jis/fw	. #x03B0)	; &JSP-267B;
     (<-fullwidth
      ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x03B0)	; ΰ
       ))
-    (=jis-x0212		. #x267B)	; &JSP-267B; [06-91]
-    (=ucs@jis/fw	. #x03B0)	; &JSP-267B;
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA")
@@ -1526,10 +1526,6 @@
      ((name		  . "GREEK SMALL LETTER ALPHA")
       (=ucs		  . #x03B1)	; α
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER ALPHA")
-      (=ucs		  . #x03B1)	; α
-      ))
     (=jis-x0208		. #x2641)	; &J90-2641; [06-33]
     (=gb2312		. #x2641)	; &I-G0-2641; [06-33]
     (=ks-x1001		. #x2561)	; &I-K0-2561; [05-65]
@@ -1537,6 +1533,10 @@
     (=big5		. #xA35C)	; &I-B-A35C;
     (=ucs@gb/fw		. #x03B1)	; &J90-2641;
     (=ucs@jis/fw	. #x03B1)	; &J90-2641;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER ALPHA")
+      (=ucs		  . #x03B1)	; α
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2621)	; &J90-2621; [06-01]
       (=gb2312		  . #x2621)	; &I-G0-2621; [06-01]
@@ -1561,10 +1561,6 @@
      ((name		  . "GREEK SMALL LETTER BETA")
       (=ucs		  . #x03B2)	; β
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER BETA")
-      (=ucs		  . #x03B2)	; β
-      ))
     (=jis-x0208		. #x2642)	; &J90-2642; [06-34]
     (=gb2312		. #x2642)	; &I-G0-2642; [06-34]
     (=ks-x1001		. #x2562)	; &I-K0-2562; [05-66]
@@ -1572,6 +1568,10 @@
     (=big5		. #xA35D)	; &I-B-A35D;
     (=ucs@gb/fw		. #x03B2)	; &J90-2642;
     (=ucs@jis/fw	. #x03B2)	; &J90-2642;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER BETA")
+      (=ucs		  . #x03B2)	; β
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2622)	; &J90-2622; [06-02]
       (=gb2312		  . #x2622)	; &I-G0-2622; [06-02]
@@ -1596,10 +1596,6 @@
      ((name		  . "GREEK SMALL LETTER GAMMA")
       (=ucs		  . #x03B3)	; γ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER GAMMA")
-      (=ucs		  . #x03B3)	; γ
-      ))
     (=jis-x0208		. #x2643)	; &J90-2643; [06-35]
     (=gb2312		. #x2643)	; &I-G0-2643; [06-35]
     (=ks-x1001		. #x2563)	; &I-K0-2563; [05-67]
@@ -1607,6 +1603,10 @@
     (=big5		. #xA35E)	; &I-B-A35E;
     (=ucs@gb/fw		. #x03B3)	; &J90-2643;
     (=ucs@jis/fw	. #x03B3)	; &J90-2643;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER GAMMA")
+      (=ucs		  . #x03B3)	; γ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2623)	; &J90-2623; [06-03]
       (=gb2312		  . #x2623)	; &I-G0-2623; [06-03]
@@ -1631,10 +1631,6 @@
      ((name		  . "GREEK SMALL LETTER DELTA")
       (=ucs		  . #x03B4)	; δ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER DELTA")
-      (=ucs		  . #x03B4)	; δ
-      ))
     (=jis-x0208		. #x2644)	; &J90-2644; [06-36]
     (=gb2312		. #x2644)	; &I-G0-2644; [06-36]
     (=ks-x1001		. #x2564)	; &I-K0-2564; [05-68]
@@ -1642,6 +1638,10 @@
     (=big5		. #xA35F)	; &I-B-A35F;
     (=ucs@gb/fw		. #x03B4)	; &J90-2644;
     (=ucs@jis/fw	. #x03B4)	; &J90-2644;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER DELTA")
+      (=ucs		  . #x03B4)	; δ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2624)	; &J90-2624; [06-04]
       (=gb2312		  . #x2624)	; &I-G0-2624; [06-04]
@@ -1666,10 +1666,6 @@
      ((name		  . "GREEK SMALL LETTER EPSILON")
       (=ucs		  . #x03B5)	; ε
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER EPSILON")
-      (=ucs		  . #x03B5)	; ε
-      ))
     (=jis-x0208		. #x2645)	; &J90-2645; [06-37]
     (=gb2312		. #x2645)	; &I-G0-2645; [06-37]
     (=ks-x1001		. #x2565)	; &I-K0-2565; [05-69]
@@ -1677,6 +1673,10 @@
     (=big5		. #xA360)	; &I-B-A360;
     (=ucs@gb/fw		. #x03B5)	; &J90-2645;
     (=ucs@jis/fw	. #x03B5)	; &J90-2645;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER EPSILON")
+      (=ucs		  . #x03B5)	; ε
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2625)	; &J90-2625; [06-05]
       (=gb2312		  . #x2625)	; &I-G0-2625; [06-05]
@@ -1701,10 +1701,6 @@
      ((name		  . "GREEK SMALL LETTER ZETA")
       (=ucs		  . #x03B6)	; ζ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER ZETA")
-      (=ucs		  . #x03B6)	; ζ
-      ))
     (=jis-x0208		. #x2646)	; &J90-2646; [06-38]
     (=gb2312		. #x2646)	; &I-G0-2646; [06-38]
     (=ks-x1001		. #x2566)	; &I-K0-2566; [05-70]
@@ -1712,6 +1708,10 @@
     (=big5		. #xA361)	; &I-B-A361;
     (=ucs@gb/fw		. #x03B6)	; &J90-2646;
     (=ucs@jis/fw	. #x03B6)	; &J90-2646;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER ZETA")
+      (=ucs		  . #x03B6)	; ζ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2626)	; &J90-2626; [06-06]
       (=gb2312		  . #x2626)	; &I-G0-2626; [06-06]
@@ -1736,10 +1736,6 @@
      ((name		  . "GREEK SMALL LETTER ETA")
       (=ucs		  . #x03B7)	; η
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER ETA")
-      (=ucs		  . #x03B7)	; η
-      ))
     (=jis-x0208		. #x2647)	; &J90-2647; [06-39]
     (=gb2312		. #x2647)	; &I-G0-2647; [06-39]
     (=ks-x1001		. #x2567)	; &I-K0-2567; [05-71]
@@ -1747,6 +1743,10 @@
     (=big5		. #xA362)	; &I-B-A362;
     (=ucs@gb/fw		. #x03B7)	; &J90-2647;
     (=ucs@jis/fw	. #x03B7)	; &J90-2647;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER ETA")
+      (=ucs		  . #x03B7)	; η
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2627)	; &J90-2627; [06-07]
       (=gb2312		  . #x2627)	; &I-G0-2627; [06-07]
@@ -1772,10 +1772,6 @@
      ((name		  . "GREEK SMALL LETTER THETA")
       (=ucs		  . #x03B8)	; θ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER THETA")
-      (=ucs		  . #x03B8)	; θ
-      ))
     (=jis-x0208		. #x2648)	; &J90-2648; [06-40]
     (=gb2312		. #x2648)	; &I-G0-2648; [06-40]
     (=ks-x1001		. #x2568)	; &I-K0-2568; [05-72]
@@ -1783,6 +1779,10 @@
     (=big5		. #xA363)	; &I-B-A363;
     (=ucs@gb/fw		. #x03B8)	; &J90-2648;
     (=ucs@jis/fw	. #x03B8)	; &J90-2648;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER THETA")
+      (=ucs		  . #x03B8)	; θ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2628)	; &J90-2628; [06-08]
       (=gb2312		  . #x2628)	; &I-G0-2628; [06-08]
@@ -1807,10 +1807,6 @@
      ((name		  . "GREEK SMALL LETTER IOTA")
       (=ucs		  . #x03B9)	; ι
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER IOTA")
-      (=ucs		  . #x03B9)	; ι
-      ))
     (=jis-x0208		. #x2649)	; &J90-2649; [06-41]
     (=gb2312		. #x2649)	; &I-G0-2649; [06-41]
     (=ks-x1001		. #x2569)	; &I-K0-2569; [05-73]
@@ -1818,6 +1814,10 @@
     (=big5		. #xA364)	; &I-B-A364;
     (=ucs@gb/fw		. #x03B9)	; &J90-2649;
     (=ucs@jis/fw	. #x03B9)	; &J90-2649;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER IOTA")
+      (=ucs		  . #x03B9)	; ι
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2629)	; &J90-2629; [06-09]
       (=gb2312		  . #x2629)	; &I-G0-2629; [06-09]
@@ -1842,10 +1842,6 @@
      ((name		  . "GREEK SMALL LETTER KAPPA")
       (=ucs		  . #x03BA)	; κ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER KAPPA")
-      (=ucs		  . #x03BA)	; κ
-      ))
     (=jis-x0208		. #x264A)	; &J90-264A; [06-42]
     (=gb2312		. #x264A)	; &I-G0-264A; [06-42]
     (=ks-x1001		. #x256A)	; &I-K0-256A; [05-74]
@@ -1853,6 +1849,10 @@
     (=big5		. #xA365)	; &I-B-A365;
     (=ucs@gb/fw		. #x03BA)	; &J90-264A;
     (=ucs@jis/fw	. #x03BA)	; &J90-264A;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER KAPPA")
+      (=ucs		  . #x03BA)	; κ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262A)	; &J90-262A; [06-10]
       (=gb2312		  . #x262A)	; &I-G0-262A; [06-10]
@@ -1877,10 +1877,6 @@
      ((name		  . "GREEK SMALL LETTER LAMDA")
       (=ucs		  . #x03BB)	; λ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER LAMDA")
-      (=ucs		  . #x03BB)	; λ
-      ))
     (=jis-x0208		. #x264B)	; &J90-264B; [06-43]
     (=gb2312		. #x264B)	; &I-G0-264B; [06-43]
     (=ks-x1001		. #x256B)	; &I-K0-256B; [05-75]
@@ -1888,6 +1884,10 @@
     (=big5		. #xA366)	; &I-B-A366;
     (=ucs@gb/fw		. #x03BB)	; &J90-264B;
     (=ucs@jis/fw	. #x03BB)	; &J90-264B;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER LAMDA")
+      (=ucs		  . #x03BB)	; λ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262B)	; &J90-262B; [06-11]
       (=gb2312		  . #x262B)	; &I-G0-262B; [06-11]
@@ -1912,10 +1912,6 @@
      ((name		  . "GREEK SMALL LETTER MU")
       (=ucs		  . #x03BC)	; μ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER MU")
-      (=ucs		  . #x03BC)	; μ
-      ))
     (=jis-x0208		. #x264C)	; &J90-264C; [06-44]
     (=gb2312		. #x264C)	; &I-G0-264C; [06-44]
     (=ks-x1001		. #x256C)	; &I-K0-256C; [05-76]
@@ -1923,6 +1919,10 @@
     (=big5		. #xA367)	; &I-B-A367;
     (=ucs@gb/fw		. #x03BC)	; &J90-264C;
     (=ucs@jis/fw	. #x03BC)	; &J90-264C;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER MU")
+      (=ucs		  . #x03BC)	; μ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262C)	; &J90-262C; [06-12]
       (=gb2312		  . #x262C)	; &I-G0-262C; [06-12]
@@ -1947,10 +1947,6 @@
      ((name		  . "GREEK SMALL LETTER NU")
       (=ucs		  . #x03BD)	; ν
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER NU")
-      (=ucs		  . #x03BD)	; ν
-      ))
     (=jis-x0208		. #x264D)	; &J90-264D; [06-45]
     (=gb2312		. #x264D)	; &I-G0-264D; [06-45]
     (=ks-x1001		. #x256D)	; &I-K0-256D; [05-77]
@@ -1958,6 +1954,10 @@
     (=big5		. #xA368)	; &I-B-A368;
     (=ucs@gb/fw		. #x03BD)	; &J90-264D;
     (=ucs@jis/fw	. #x03BD)	; &J90-264D;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER NU")
+      (=ucs		  . #x03BD)	; ν
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262D)	; &J90-262D; [06-13]
       (=gb2312		  . #x262D)	; &I-G0-262D; [06-13]
@@ -1982,10 +1982,6 @@
      ((name		  . "GREEK SMALL LETTER XI")
       (=ucs		  . #x03BE)	; ξ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER XI")
-      (=ucs		  . #x03BE)	; ξ
-      ))
     (=jis-x0208		. #x264E)	; &J90-264E; [06-46]
     (=gb2312		. #x264E)	; &I-G0-264E; [06-46]
     (=ks-x1001		. #x256E)	; &I-K0-256E; [05-78]
@@ -1993,6 +1989,10 @@
     (=big5		. #xA369)	; &I-B-A369;
     (=ucs@gb/fw		. #x03BE)	; &J90-264E;
     (=ucs@jis/fw	. #x03BE)	; &J90-264E;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER XI")
+      (=ucs		  . #x03BE)	; ξ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262E)	; &J90-262E; [06-14]
       (=gb2312		  . #x262E)	; &I-G0-262E; [06-14]
@@ -2017,10 +2017,6 @@
      ((name		  . "GREEK SMALL LETTER OMICRON")
       (=ucs		  . #x03BF)	; ο
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER OMICRON")
-      (=ucs		  . #x03BF)	; ο
-      ))
     (=jis-x0208		. #x264F)	; &J90-264F; [06-47]
     (=gb2312		. #x264F)	; &I-G0-264F; [06-47]
     (=ks-x1001		. #x256F)	; &I-K0-256F; [05-79]
@@ -2028,6 +2024,10 @@
     (=big5		. #xA36A)	; &I-B-A36A;
     (=ucs@gb/fw		. #x03BF)	; &J90-264F;
     (=ucs@jis/fw	. #x03BF)	; &J90-264F;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER OMICRON")
+      (=ucs		  . #x03BF)	; ο
+      ))
     (->uppercase
      ((=jis-x0208	  . #x262F)	; &J90-262F; [06-15]
       (=gb2312		  . #x262F)	; &I-G0-262F; [06-15]
@@ -2052,10 +2052,6 @@
      ((name		  . "GREEK SMALL LETTER PI")
       (=ucs		  . #x03C0)	; π
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER PI")
-      (=ucs		  . #x03C0)	; π
-      ))
     (=jis-x0208		. #x2650)	; &J90-2650; [06-48]
     (=gb2312		. #x2650)	; &I-G0-2650; [06-48]
     (=ks-x1001		. #x2570)	; &I-K0-2570; [05-80]
@@ -2063,6 +2059,10 @@
     (=big5		. #xA36B)	; &I-B-A36B;
     (=ucs@gb/fw		. #x03C0)	; &J90-2650;
     (=ucs@jis/fw	. #x03C0)	; &J90-2650;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER PI")
+      (=ucs		  . #x03C0)	; π
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2630)	; &J90-2630; [06-16]
       (=gb2312		  . #x2630)	; &I-G0-2630; [06-16]
@@ -2087,10 +2087,6 @@
      ((name		  . "GREEK SMALL LETTER RHO")
       (=ucs		  . #x03C1)	; ρ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER RHO")
-      (=ucs		  . #x03C1)	; ρ
-      ))
     (=jis-x0208		. #x2651)	; &J90-2651; [06-49]
     (=gb2312		. #x2651)	; &I-G0-2651; [06-49]
     (=ks-x1001		. #x2571)	; &I-K0-2571; [05-81]
@@ -2098,6 +2094,10 @@
     (=big5		. #xA36C)	; &I-B-A36C;
     (=ucs@gb/fw		. #x03C1)	; &J90-2651;
     (=ucs@jis/fw	. #x03C1)	; &J90-2651;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER RHO")
+      (=ucs		  . #x03C1)	; ρ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2631)	; &J90-2631; [06-17]
       (=gb2312		  . #x2631)	; &I-G0-2631; [06-17]
@@ -2122,13 +2122,13 @@
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (=ucs		  . #x03C2)	; ς
       ))
+    (=jis-x0212		. #x2678)	; &JX1-2659; [06-88]
+    (=jis-x0213-1-2000	. #x2659)	; &I-JX1-2659; [06-57]
+    (=ucs@jis/fw	. #x03C2)	; &JX1-2659;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (=ucs		  . #x03C2)	; ς
       ))
-    (=jis-x0212		. #x2678)	; &JX1-2659; [06-88]
-    (=jis-x0213-1-2000	. #x2659)	; &I-JX1-2659; [06-57]
-    (=ucs@jis/fw	. #x03C2)	; &JX1-2659;
     (->uppercase
      ((=jis-x0208	  . #x2632)	; &J90-2632; [06-18]
       (=gb2312		  . #x2632)	; &I-G0-2632; [06-18]
@@ -2153,10 +2153,6 @@
      ((name		  . "GREEK SMALL LETTER SIGMA")
       (=ucs		  . #x03C3)	; σ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER SIGMA")
-      (=ucs		  . #x03C3)	; σ
-      ))
     (=jis-x0208		. #x2652)	; &J90-2652; [06-50]
     (=gb2312		. #x2652)	; &I-G0-2652; [06-50]
     (=ks-x1001		. #x2572)	; &I-K0-2572; [05-82]
@@ -2164,6 +2160,10 @@
     (=big5		. #xA36D)	; &I-B-A36D;
     (=ucs@gb/fw		. #x03C3)	; &J90-2652;
     (=ucs@jis/fw	. #x03C3)	; &J90-2652;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER SIGMA")
+      (=ucs		  . #x03C3)	; σ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2632)	; &J90-2632; [06-18]
       (=gb2312		  . #x2632)	; &I-G0-2632; [06-18]
@@ -2188,10 +2188,6 @@
      ((name		  . "GREEK SMALL LETTER TAU")
       (=ucs		  . #x03C4)	; τ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER TAU")
-      (=ucs		  . #x03C4)	; τ
-      ))
     (=jis-x0208		. #x2653)	; &J90-2653; [06-51]
     (=gb2312		. #x2653)	; &I-G0-2653; [06-51]
     (=ks-x1001		. #x2573)	; &I-K0-2573; [05-83]
@@ -2199,6 +2195,10 @@
     (=big5		. #xA36E)	; &I-B-A36E;
     (=ucs@gb/fw		. #x03C4)	; &J90-2653;
     (=ucs@jis/fw	. #x03C4)	; &J90-2653;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER TAU")
+      (=ucs		  . #x03C4)	; τ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2633)	; &J90-2633; [06-19]
       (=gb2312		  . #x2633)	; &I-G0-2633; [06-19]
@@ -2223,10 +2223,6 @@
      ((name		  . "GREEK SMALL LETTER UPSILON")
       (=ucs		  . #x03C5)	; υ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER UPSILON")
-      (=ucs		  . #x03C5)	; υ
-      ))
     (=jis-x0208		. #x2654)	; &J90-2654; [06-52]
     (=gb2312		. #x2654)	; &I-G0-2654; [06-52]
     (=ks-x1001		. #x2574)	; &I-K0-2574; [05-84]
@@ -2234,6 +2230,10 @@
     (=big5		. #xA36F)	; &I-B-A36F;
     (=ucs@gb/fw		. #x03C5)	; &J90-2654;
     (=ucs@jis/fw	. #x03C5)	; &J90-2654;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER UPSILON")
+      (=ucs		  . #x03C5)	; υ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2634)	; &J90-2634; [06-20]
       (=gb2312		  . #x2634)	; &I-G0-2634; [06-20]
@@ -2258,10 +2258,6 @@
      ((name		  . "GREEK SMALL LETTER PHI")
       (=ucs		  . #x03C6)	; φ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER PHI")
-      (=ucs		  . #x03C6)	; φ
-      ))
     (=jis-x0208		. #x2655)	; &J90-2655; [06-53]
     (=gb2312		. #x2655)	; &I-G0-2655; [06-53]
     (=ks-x1001		. #x2575)	; &I-K0-2575; [05-85]
@@ -2269,6 +2265,10 @@
     (=big5		. #xA370)	; &I-B-A370;
     (=ucs@gb/fw		. #x03C6)	; &J90-2655;
     (=ucs@jis/fw	. #x03C6)	; &J90-2655;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER PHI")
+      (=ucs		  . #x03C6)	; φ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2635)	; &J90-2635; [06-21]
       (=gb2312		  . #x2635)	; &I-G0-2635; [06-21]
@@ -2293,10 +2293,6 @@
      ((name		  . "GREEK SMALL LETTER CHI")
       (=ucs		  . #x03C7)	; χ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER CHI")
-      (=ucs		  . #x03C7)	; χ
-      ))
     (=jis-x0208		. #x2656)	; &J90-2656; [06-54]
     (=gb2312		. #x2656)	; &I-G0-2656; [06-54]
     (=ks-x1001		. #x2576)	; &I-K0-2576; [05-86]
@@ -2304,6 +2300,10 @@
     (=big5		. #xA371)	; &I-B-A371;
     (=ucs@gb/fw		. #x03C7)	; &J90-2656;
     (=ucs@jis/fw	. #x03C7)	; &J90-2656;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER CHI")
+      (=ucs		  . #x03C7)	; χ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2636)	; &J90-2636; [06-22]
       (=gb2312		  . #x2636)	; &I-G0-2636; [06-22]
@@ -2328,10 +2328,6 @@
      ((name		  . "GREEK SMALL LETTER PSI")
       (=ucs		  . #x03C8)	; ψ
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER PSI")
-      (=ucs		  . #x03C8)	; ψ
-      ))
     (=jis-x0208		. #x2657)	; &J90-2657; [06-55]
     (=gb2312		. #x2657)	; &I-G0-2657; [06-55]
     (=ks-x1001		. #x2577)	; &I-K0-2577; [05-87]
@@ -2339,6 +2335,10 @@
     (=big5		. #xA372)	; &I-B-A372;
     (=ucs@gb/fw		. #x03C8)	; &J90-2657;
     (=ucs@jis/fw	. #x03C8)	; &J90-2657;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER PSI")
+      (=ucs		  . #x03C8)	; ψ
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2637)	; &J90-2637; [06-23]
       (=gb2312		  . #x2637)	; &I-G0-2637; [06-23]
@@ -2363,10 +2363,6 @@
      ((name		  . "GREEK SMALL LETTER OMEGA")
       (=ucs		  . #x03C9)	; ω
       ))
-    (<-fullwidth
-     ((name		  . "GREEK SMALL LETTER OMEGA")
-      (=ucs		  . #x03C9)	; ω
-      ))
     (=jis-x0208		. #x2658)	; &J90-2658; [06-56]
     (=gb2312		. #x2658)	; &I-G0-2658; [06-56]
     (=ks-x1001		. #x2578)	; &I-K0-2578; [05-88]
@@ -2374,6 +2370,10 @@
     (=big5		. #xA373)	; &I-B-A373;
     (=ucs@gb/fw		. #x03C9)	; &J90-2658;
     (=ucs@jis/fw	. #x03C9)	; &J90-2658;
+    (<-fullwidth
+     ((name		  . "GREEK SMALL LETTER OMEGA")
+      (=ucs		  . #x03C9)	; ω
+      ))
     (->uppercase
      ((=jis-x0208	  . #x2638)	; &J90-2638; [06-24]
       (=gb2312		  . #x2638)	; &I-G0-2638; [06-24]
@@ -2405,12 +2405,12 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03CA)	; ϊ
       ))
+    (=jis-x0212		. #x2675)	; &JSP-2675; [06-85]
+    (=ucs@jis/fw	. #x03CA)	; &JSP-2675;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03CA)	; ϊ
       ))
-    (=jis-x0212		. #x2675)	; &JSP-2675; [06-85]
-    (=ucs@jis/fw	. #x03CA)	; &JSP-2675;
     (->uppercase
      ((=jis-x0212	  . #x2665)	; &JSP-2665; [06-69]
       ))
@@ -2439,12 +2439,12 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03CB)	; ϋ
       ))
+    (=jis-x0212		. #x267A)	; &JSP-267A; [06-90]
+    (=ucs@jis/fw	. #x03CB)	; &JSP-267A;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03CB)	; ϋ
       ))
-    (=jis-x0212		. #x267A)	; &JSP-267A; [06-90]
-    (=ucs@jis/fw	. #x03CB)	; &JSP-267A;
     (->uppercase
      ((=jis-x0212	  . #x266A)	; &JSP-266A; [06-74]
       ))
@@ -2473,12 +2473,12 @@
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x03CC)	; ό
       ))
+    (=jis-x0212		. #x2677)	; &JSP-2677; [06-87]
+    (=ucs@jis/fw	. #x03CC)	; &JSP-2677;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x03CC)	; ό
       ))
-    (=jis-x0212		. #x2677)	; &JSP-2677; [06-87]
-    (=ucs@jis/fw	. #x03CC)	; &JSP-2677;
     (->uppercase
      ((=jis-x0212	  . #x2667)	; &JSP-2667; [06-71]
       ))
@@ -2507,12 +2507,12 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x03CD)	; ύ
       ))
+    (=jis-x0212		. #x2679)	; &JSP-2679; [06-89]
+    (=ucs@jis/fw	. #x03CD)	; &JSP-2679;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x03CD)	; ύ
       ))
-    (=jis-x0212		. #x2679)	; &JSP-2679; [06-89]
-    (=ucs@jis/fw	. #x03CD)	; &JSP-2679;
     (->uppercase
      ((=jis-x0212	  . #x2669)	; &JSP-2669; [06-73]
       ))
@@ -2541,12 +2541,12 @@
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x03CE)	; ώ
       ))
+    (=jis-x0212		. #x267C)	; &JSP-267C; [06-92]
+    (=ucs@jis/fw	. #x03CE)	; &JSP-267C;
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x03CE)	; ώ
       ))
-    (=jis-x0212		. #x267C)	; &JSP-267C; [06-92]
-    (=ucs@jis/fw	. #x03CE)	; &JSP-267C;
     (->uppercase
      ((=jis-x0212	  . #x266C)	; &JSP-266C; [06-76]
       ))
@@ -2556,11 +2556,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03D0)	; ϐ
     (<-compat
      ((name		  . "GREEK SMALL LETTER BETA")
       (=ucs		  . #x03B2)	; β
       ))
-    (=ucs		. #x03D0)	; ϐ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER BETA")
       (=ucs		  . #x0392)	; Β
@@ -2571,11 +2571,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03D1)	; ϑ
     (<-compat
      ((name		  . "GREEK SMALL LETTER THETA")
       (=ucs		  . #x03B8)	; θ
       ))
-    (=ucs		. #x03D1)	; ϑ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER THETA")
       (=ucs		  . #x0398)	; Θ
@@ -2586,11 +2586,11 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03D2)	; ϒ
     (<-compat
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (=ucs		  . #x03A5)	; Υ
       ))
-    (=ucs		. #x03D2)	; ϒ
     ))
 (define-char
   '((name		. "GREEK UPSILON WITH ACUTE AND HOOK SYMBOL")
@@ -2625,11 +2625,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03D5)	; ϕ
     (<-compat
      ((name		  . "GREEK SMALL LETTER PHI")
       (=ucs		  . #x03C6)	; φ
       ))
-    (=ucs		. #x03D5)	; ϕ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER PHI")
       (=ucs		  . #x03A6)	; Φ
@@ -2640,11 +2640,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03D6)	; ϖ
     (<-compat
      ((name		  . "GREEK SMALL LETTER PI")
       (=ucs		  . #x03C0)	; π
       ))
-    (=ucs		. #x03D6)	; ϖ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER PI")
       (=ucs		  . #x03A0)	; Π
@@ -2904,11 +2904,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03F0)	; ϰ
     (<-compat
      ((name		  . "GREEK SMALL LETTER KAPPA")
       (=ucs		  . #x03BA)	; κ
       ))
-    (=ucs		. #x03F0)	; ϰ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
       (=ucs		  . #x039A)	; Κ
@@ -2919,11 +2919,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03F1)	; ϱ
     (<-compat
      ((name		  . "GREEK SMALL LETTER RHO")
       (=ucs		  . #x03C1)	; ρ
       ))
-    (=ucs		. #x03F1)	; ϱ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER RHO")
       (=ucs		  . #x03A1)	; Ρ
@@ -2934,11 +2934,11 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (=ucs		. #x03F2)	; ϲ
     (<-compat
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (=ucs		  . #x03C2)	; ς
       ))
-    (=ucs		. #x03F2)	; ϲ
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
       (=ucs		  . #x03A3)	; Σ

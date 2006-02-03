@@ -21,12 +21,6 @@
     (=ucs		. #x9752)	; 青
     (->subsumptive
      ((morohashi-daikanwa	42564 1)
-      (<-same
-       ((=ks-x1001	    . #x746C)	; &M-42564; [84-76]
-	(=daikanwa	    . 42564)	; &I-M-42564;
-	))
-      (<-same*sources
-       daikanwa)
       (=jis-x0208	  . #x4044)	; &GT-57125; [32-36]
       (=gb2312		  . #x4760)	; &I-G0-4760; [39-64]
       (=gt		  . 57125)	; &I-GT-57125;
@@ -34,6 +28,12 @@
       (=gt-pj-1		  . #x4044)	; &I-GT-57125; [32-36]
       (=ucs@unicode	  . #x9752)	; &GT-57125;
       (mojikyo		  . 050568)	; &MCS-6000C588;
+      (<-same
+       ((=ks-x1001	    . #x746C)	; &M-42564; [84-76]
+	(=daikanwa	    . 42564)	; &I-M-42564;
+	))
+      (<-same*sources
+       daikanwa)
       )
      ((=cns11643-1	  . #x4F65)	; &C1-4F65; [47-69]
       ))
@@ -46,13 +46,13 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2ED8)	; ⻘
     (<-formed@component
      ((=ucs		  . #x9751)	; 靑
       ))
     (<-identical@component
      ((=ucs		  . #x9752)	; 青
       ))
-    (=ucs		. #x2ED8)	; ⻘
     ))
 (define-char
   '((ideographic-radical . 174)	; ⾭
@@ -266,11 +266,6 @@
     (=ucs		. #x9759)	; 静
     (->subsumptive
      ((morohashi-daikanwa	42574 1)
-      (<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x7050)	; &GT-57156; [80-48]
-	(=ks-x1001	    . #x7021)	; &I-K0-7021; [80-01]
-	(=daikanwa	    . 42578)	; &I-M-42578;
-	))
       (=jis-x0208	  . #x4045)	; &GT-57143; [32-37]
       (=gb2312		  . #x3E32)	; &I-G0-3E32; [30-18]
       (=gt		  . 57143)	; &I-GT-57143;
@@ -278,6 +273,11 @@
       (=gt-pj-1		  . #x4045)	; &I-GT-57143; [32-37]
       (=ucs@unicode	  . #x9759)	; &GT-57143;
       (mojikyo		  . 050570)	; &MCS-6000C58A;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x7050)	; &GT-57156; [80-48]
+	(=ks-x1001	    . #x7021)	; &I-K0-7021; [80-01]
+	(=daikanwa	    . 42578)	; &I-M-42578;
+	))
       )
      ((=cns11643-3	  . #x4A4C)	; &C3-4A4C; [42-44]
       ))

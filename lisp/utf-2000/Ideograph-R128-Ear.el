@@ -1557,7 +1557,11 @@
     (total-strokes	 . 14)
     (=ucs		. #x805F)	; 聟
     (->subsumptive
-     ((<-vulgar
+     ((shinjigen-1	  . 1705)
+      (=gt		  . 37686)	; &GT-37686;
+      (=gt-pj-1		  . #x665D)	; &GT-37686; [70-61]
+      (=daikanwa	  . 29106)	; &I-M-29106;
+      (<-vulgar
        ((shinjigen-1	    . 1704)
 	(=jis-x0208	    . #x5466)	; &GT-07170; [52-70]
 	(=ks-x1001	    . #x5F6B)	; &I-K0-5F6B; [63-75]
@@ -1565,10 +1569,6 @@
 	))
       (<-vulgar*sources
        goonruiju daikanwa shinjigen-1)
-      (shinjigen-1	  . 1705)
-      (=gt		  . 37686)	; &GT-37686;
-      (=gt-pj-1		  . #x665D)	; &GT-37686; [70-61]
-      (=daikanwa	  . 29106)	; &I-M-29106;
       )
      ((shinjigen-2	  . 1705)
       (=jis-x0208@1990	  . #x665D)	; &J90-665D; [70-61]
@@ -1603,23 +1603,24 @@
     (->subsumptive
      ((=daikanwa	  . 29109)	; &M-29109;
       )
-     ((<-vulgar
+     ((shinjigen-1	  . 6392)
+      (shinjigen-2	  . 6392)
+      (=cns11643-3	  . #x4925)	; &C3-4925; [41-05]
+      (<-vulgar
        ((shinjigen-1	    . 6393)
 	(=cns11643-1	    . #x7479)	; &C1-7479; [84-89]
 	))
       (<-vulgar*sources
        shinjigen-1)
-      (shinjigen-1	  . 6392)
-      (shinjigen-2	  . 6392)
-      (=cns11643-3	  . #x4925)	; &C3-4925; [41-05]
       )
-     ((<-simplified@JP
-       ((=jis-x0208@1990    . #x6662)	; &I-J90-6662; [70-66]
-	))
-      (=jis-x0208@1990	  . #x416F)	; &GT-37689; [33-79]
+     ((=jis-x0208@1990	  . #x416F)	; &GT-37689; [33-79]
       (=gt		  . 37689)	; &I-GT-37689;
       (=gt-pj-1		  . #x416F)	; &I-GT-37689; [33-79]
       (=ucs@jis		  . #x8061)	; &GT-37689;
+      (<-simplified@JP/misc
+       ((=ks-x1001	    . #x7546)	; &GT-37761; [85-38]
+	(=jis-x0208@1990    . #x6662)	; &I-J90-6662; [70-66]
+	))
       )
      ((=jis-x0208@1978	  . #x416F)	; &J83-416F; [33-79]
       (=jis-x0208@1983	  . #x416F)	; &I-J83-416F; [33-79]
@@ -2500,11 +2501,11 @@
     (ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (<-simplified@JP
-     ((=jis-x0208@1990	  . #x6660)	; &J90-6660; [70-64]
-      ))
     (=jis-x0208@1978	. #x6660)	; &J83-6660; [70-64]
     (=jis-x0208@1983	. #x6660)	; &I-J83-6660; [70-64]
+    (<-simplified@JP/jis
+     ((=jis-x0208@1990	  . #x6660)	; &J90-6660; [70-64]
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
@@ -2581,14 +2582,14 @@
       (=daikanwa	  . 29173)	; &I-M-29173;
       (=ucs@unicode	  . #x8074)	; &M-29173;
       )
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x6665)	; &GT-37822; [70-69]
-	(=daikanwa	    . 29211)	; &I-M-29211;
-	))
-      (=jis-x0208@1990	  . #x4430)	; &GT-37765; [36-16]
+     ((=jis-x0208@1990	  . #x4430)	; &GT-37765; [36-16]
       (=gt		  . 37765)	; &I-GT-37765;
       (=gt-pj-1		  . #x4430)	; &I-GT-37765; [36-16]
       (=ucs@jis		  . #x8074)	; &GT-37765;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x6665)	; &GT-37822; [70-69]
+	(=daikanwa	    . 29211)	; &I-M-29211;
+	))
       )
      ((=cns11643-3	  . #x5622)	; &C3-5622; [54-02]
       ))

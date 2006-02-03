@@ -107,6 +107,22 @@
    ((and (symbolp kb)
 	 (string-match "^->" (symbol-name kb)))
     t)
+   ((and (symbolp ka)
+	 (string-match "^<-" (symbol-name ka)))
+    (cond ((symbolp kb)
+	   (cond ((string-match "^<-" (symbol-name kb))
+		  (string< (symbol-name ka)
+			   (symbol-name kb))
+		  )
+                 ;; ((string-match "^->" (symbol-name kb))
+                 ;;  t)
+		 )))
+    )
+   ((and (symbolp kb)
+	 (string-match "^<-" (symbol-name kb)))
+    t
+    ;; (not (string-match "^->" (symbol-name ka)))
+    )
    ((find-charset ka)
     (if (find-charset kb)
 	(if (<= (charset-id ka) 1)
@@ -151,6 +167,7 @@
     =jis-x0208@1983
     japanese-jisx0212
     chinese-gb2312
+    =jis-x0208@1990
     chinese-cns11643-1
     chinese-cns11643-2
     chinese-cns11643-3
@@ -158,7 +175,6 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0208@1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
@@ -227,6 +243,7 @@
 				       '(=daikanwa
 					 =daikanwa@rev2
 					 ;; =gt-k
+					 =jis-x0208@1997
 					 )))
 			     (setq ccs (charset-name ccs))
 			     (null (assq ccs char-spec))
@@ -422,9 +439,10 @@
 (defun char-db-insert-ccs-feature (name value line-breaking)
   (insert
    (format
-    (cond ((memq name '(=daikanwa
-			=daikanwa@rev1 =daikanwa@rev2
-			=gt =gt-k =cbeta =zinbun-oracle))
+    (cond ((or (memq name '(=daikanwa
+			    =daikanwa@rev1 =daikanwa@rev2
+			    =gt =gt-k =cbeta =zinbun-oracle))
+	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
 	  ((eq name 'mojikyo)
 	   "(%-18s . %06d)\t; %c")

@@ -28,11 +28,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE4)	; ⻤
+    (=big5-cdp		. #x8A5D)	; &I-CDP-8A5D;
     (<-identical@component
      ((=ucs		  . #x9B3C)	; 鬼
       ))
-    (=ucs		. #x2EE4)	; ⻤
-    (=big5-cdp		. #x8A5D)	; &I-CDP-8A5D;
     ))
 (define-char
   '((ideographic-radical . 194)	; ⿁
@@ -815,10 +815,10 @@
   '((ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
+    (=daikanwa		. 49922)	; &M-49922;
     (<-unknown
      ((=ucs		  . #x4C23)	; 䰣
       ))
-    (=daikanwa		. 49922)	; &M-49922;
     ))
 (define-char
   '((=>daikanwa		. 49922)	; &M-49922;

@@ -180,42 +180,40 @@
     (=daikanwa		. 21711)	; &I-M-21711;
     ))
 (define-char
-  '((=>ucs		. #x200F0)	; 𠃰
-    (ideographic-radical . 101)	; ⽤
-    (ideographic-strokes . 3)
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 101)	; ⽤
+    (ideographic-strokes@cns . 3)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 8)
-    (=daikanwa		. 21712)	; &M-21712;
-    (mojikyo		. 021712)	; &MCS-600054D0;
-    ))
-(define-char
-  '((morohashi-daikanwa	21712 0 1)
-    (ideographic-	(:radical	101 ; ⽤
-			 :strokes	3)
-			(:radical	5 ; ⼄
-			 :strokes	7))
-    (total-strokes	 . 8)
-    (<-same
-     ((=daikanwa	  . 21712)	; &M-21712;
-      ))
-    (hanyu-dazidian	1 55 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=big5-cdp	    . #x89C2)	; &CDP-89C2;
-	)
-       ((=big5-cdp	    . #x89C7)	; &CDP-89C7;
-	))
-      )
-     ((=ucs		  . #x7528)	; 用
-      ))
     (=ucs		. #x200F0)	; 𠃰
-    (=cns11643-6	. #x2D2C)	; &I-C6-2D2C; [13-12]
-    (=hanziku-1		. #xAF63)	; &I-HZK01-AF63;
+    (->subsumptive
+     ((ideographic-radical . 101)	; ⽤
+      (ideographic-strokes . 3)
+      (=daikanwa	  . 21712)	; &M-21712;
+      (mojikyo		  . 021712)	; &MCS-600054D0;
+      )
+     ((hanyu-dazidian	  1 55 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=big5-cdp	      . #x89C2)	; &CDP-89C2;
+	  )
+	 ((=big5-cdp	      . #x89C7)	; &CDP-89C7;
+	  ))
+	)
+       ((=ucs		    . #x7528)	; 用
+	))
+      (=cns11643-6	  . #x2D2C)	; &HZK01-AF63; [13-12]
+      (=hanziku-1	  . #xAF63)	; &I-HZK01-AF63;
+      (=ucs@iso		  . #x200F0)	; &HZK01-AF63;
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
@@ -236,7 +234,15 @@
     (=big5		. #xCFD9)	; &I-B-CFD9;
     ))
 (define-char
-  '((=>ucs		. #x24C07)	; 𤰇
+  '((ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=ucs		. #x24C07)	; 𤰇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C07)	; 𤰇
+      ))
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
@@ -244,27 +250,38 @@
     (mojikyo		. 021714)	; &MCS-600054D2;
     ))
 (define-char
-  '((morohashi-daikanwa	21714 0 3)
+  '((<-denotational
+     ((=ucs		  . #x24C07)	; 𤰇
+      ))
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ucs		. #x24C07)	; 𤰇
+    (->subsumptive
+     ((=ucs@iso		  . #x24C07)	; &U-00024C07;
+      )
+     ((=cns11643-6	  . #x395D)	; &CDP-8C73; [25-61]
+      (=big5-cdp	  . #x8C73)	; &I-CDP-8C73;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x24C07)	; 𤰇
-    (morohashi-daikanwa	21714 0 4)
-    (ideographic-radical . 101)	; ⽤
-    (ideographic-strokes . 5)
+  '((ideographic-radical@ucs . 30)	; ⼝
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 101)	; ⽤
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x395D)	; &C6-395D; [25-61]
-    ))
-(define-char
-  '((=>ucs		. #x20CEB)	; 𠳫
-    (ideographic-radical . 101)	; ⽤
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (=cns11643-6	. #x395E)	; &M-21715; [25-62]
-    (=daikanwa		. 21715)	; &I-M-21715;
+    (=ucs		. #x20CEB)	; 𠳫
+    (->subsumptive
+     ((hanyu-dazidian	  1 626 2)
+      (=daikanwa	  . 21715)	; &M-21715;
+      (=hanziku-2	  . #xD349)	; &I-HZK02-D349;
+      (=ucs@iso		  . #x20CEB)	; &M-21715;
+      )
+     ((ideographic-radical . 101)	; ⽤
+      (ideographic-strokes . 5)
+      (=cns11643-6	  . #x395E)	; &C6-395E; [25-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤

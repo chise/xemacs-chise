@@ -538,10 +538,10 @@ install-arch-indep: mkdir info
   (while (and (< i len)\
 	      (eq (aref path i) (aref data-dir i)))\
     (setq i (1+ i)))\
-  (setq data-dir (substring data-dir i)\
-	chise-dir (substring path i))\
-  (setq i 0\
-	len (length chise-dir))\
+  (setq data-dir (substring data-dir i))\
+  (setq chise-dir (substring path i))\
+  (setq i 0)\
+  (setq len (length chise-dir))\
   (while (< i len)\
     (if (eq (aref chise-dir i) ?/)\
 	(setq pre (concat pre \"../\")))\

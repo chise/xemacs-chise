@@ -53,10 +53,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2E9B)	; ⺛
     (<-identical@component
      ((=ucs		  . #x65E1)	; 旡
       ))
-    (=ucs		. #x2E9B)	; ⺛
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
@@ -91,6 +91,13 @@
     (=ucs		. #x65E2)	; 既
     (->subsumptive
      ((total-strokes	   . 10)
+      (shinjigen-2	  . 3260)
+      (=jis-x0208	  . #x347B)	; &GT-17338; [20-91]
+      (=gt		  . 17338)	; &I-GT-17338;
+      (=gt-k		  . 06394)	; &I-GT-K06394;
+      (=gt-pj-1		  . #x347B)	; &I-GT-17338; [20-91]
+      (=daikanwa	  . 13721)	; &I-M-13721;
+      (=ucs@jis		  . #x65E2)	; &GT-17338;
       (<-simplified@JP/Jouyou
        ((=jis-x0213-1-2000  . #x752B)	; &JX1-752B; [85-11]
 	))
@@ -99,13 +106,6 @@
 	))
       (<-simplified@daikanwa*sources
        daikanwa)
-      (shinjigen-2	  . 3260)
-      (=jis-x0208	  . #x347B)	; &GT-17338; [20-91]
-      (=gt		  . 17338)	; &I-GT-17338;
-      (=gt-k		  . 06394)	; &I-GT-K06394;
-      (=gt-pj-1		  . #x347B)	; &I-GT-17338; [20-91]
-      (=daikanwa	  . 13721)	; &I-M-13721;
-      (=ucs@jis		  . #x65E2)	; &GT-17338;
       )
      ((total-strokes	   . 9)
       (=gb2312		  . #x3C48)	; &G0-3C48; [28-40]

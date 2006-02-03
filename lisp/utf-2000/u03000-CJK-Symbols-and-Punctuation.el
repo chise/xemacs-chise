@@ -4,16 +4,16 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (<-ideographic
-     ((name		  . "SPACE")
-      (=ucs		  . #x0020)	;
-      ))
     (=ucs		. #x3000)	; 　
     (=jis-x0208		. #x2121)	; &I-J90-2121; [01-01]
     (=gb2312		. #x2121)	; &I-G0-2121; [01-01]
     (=ks-x1001		. #x2121)	; &I-K0-2121; [01-01]
     (=cns11643-1	. #x2121)	; &I-C1-2121; [01-01]
     (=big5		. #xA140)	; &I-B-A140;
+    (<-ideographic
+     ((name		  . "SPACE")
+      (=ucs		  . #x0020)	;
+      ))
     ))
 (define-char
   '((name		. "IDEOGRAPHIC COMMA")
@@ -534,11 +534,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x3036)	; 〶
     (<-compat/circled
      ((name		  . "POSTAL MARK")
       (=ucs		  . #x3012)	; 〒
       ))
-    (=ucs		. #x3036)	; 〶
     ))
 (define-char
   '((name . "IDEOGRAPHIC TELEGRAPH LINE FEED SEPARATOR SYMBOL")
@@ -553,12 +553,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (<-compat/Hangzhou-Numeral
-     ((=ucs		  . #x5341)	; 十
-      ))
     (=ucs		. #x3038)	; 〸
     (=cns11643-1	. #x243E)	; &I-C1-243E; [04-30]
     (=big5		. #xA2CC)	; &I-B-A2CC;
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5341)	; 十
+      ))
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL TWENTY")
@@ -566,12 +566,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (<-compat/Hangzhou-Numeral
-     ((=ucs		  . #x5344)	; 卄
-      ))
     (=ucs		. #x3039)	; 〹
     (=cns11643-1	. #x243F)	; &I-C1-243F; [04-31]
     (=big5		. #xA2CD)	; &I-B-A2CD;
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5344)	; 卄
+      ))
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL THIRTY")
@@ -579,12 +579,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 30)
-    (<-compat/Hangzhou-Numeral
-     ((=ucs		  . #x5345)	; 卅
-      ))
     (=ucs		. #x303A)	; 〺
     (=cns11643-1	. #x2440)	; &I-C1-2440; [04-32]
     (=big5		. #xA2CE)	; &I-B-A2CE;
+    (<-compat/Hangzhou-Numeral
+     ((=ucs		  . #x5345)	; 卅
+      ))
     ))
 (define-char
   '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")

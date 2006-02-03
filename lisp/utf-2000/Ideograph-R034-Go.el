@@ -199,21 +199,21 @@
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=daikanwa		. 05699)	; &M-05699;
     (<-unknown
      ((=ucs		  . #x2F85C)	; 夆
       ))
-    (=daikanwa		. 05699)	; &M-05699;
     ))
 (define-char
   '((=>daikanwa		. 05699)	; &M-05699;
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=ucs		. #x2F85C)	; 夆
+    (=cns11643-5	. #x2362)	; &I-C5-2362; [03-66]
     (<-unknown
      ((=daikanwa	  . 05699)	; &M-05699;
       ))
-    (=ucs		. #x2F85C)	; 夆
-    (=cns11643-5	. #x2362)	; &I-C5-2362; [03-66]
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
@@ -287,12 +287,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (->subsumptive
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]
-	(=ks-x1001	    . #x5C28)	; &I-K0-5C28; [60-08]
-	(=daikanwa	    . 36117)	; &I-M-36117;
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -309,6 +304,11 @@
       (=gt-pj-1		  . #x4A51)	; &I-GT-07215; [42-49]
       (=daikanwa	  . 05703)	; &I-M-05703;
       (=ucs@jis		  . #x5909)	; &GT-07215;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]
+	(=ks-x1001	    . #x5C28)	; &I-K0-5C28; [60-08]
+	(=daikanwa	    . 36117)	; &I-M-36117;
+	))
       )
      ((=ucs@unicode	  . #x5909)	; &UU+5909;
       ))

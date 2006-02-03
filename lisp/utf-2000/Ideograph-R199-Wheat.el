@@ -49,6 +49,15 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (shinjigen-1	. 9791)
+    (shinjigen-2	. 9791)
+    (=jis-x0208		. #x477E)	; &GT-64905; [39-94]
+    (=gb2312		. #x4273)	; &I-G0-4273; [34-83]
+    (=gt		. 64905)	; &I-GT-64905;
+    (=gt-k		. 02633)	; &I-GT-K02633;
+    (=gt-pj-1		. #x477E)	; &I-GT-64905; [39-94]
+    (=daikanwa		. 47718)	; &I-M-47718;
+    (=ucs@unicode	. #x9EA6)	; &GT-64905;
     (<-simplified@CN
      ((=jis-x0208	  . #x734E)	; &GT-64933; [83-46]
       (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
@@ -60,15 +69,6 @@
       (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
       (=daikanwa	  . 47717)	; &I-M-47717;
       ))
-    (shinjigen-1	. 9791)
-    (shinjigen-2	. 9791)
-    (=jis-x0208		. #x477E)	; &GT-64905; [39-94]
-    (=gb2312		. #x4273)	; &I-G0-4273; [34-83]
-    (=gt		. 64905)	; &I-GT-64905;
-    (=gt-k		. 02633)	; &I-GT-K02633;
-    (=gt-pj-1		. #x477E)	; &I-GT-64905; [39-94]
-    (=daikanwa		. 47718)	; &I-M-47718;
-    (=ucs@unicode	. #x9EA6)	; &GT-64905;
     ))
 (define-char
   '((<-denotational
@@ -78,10 +78,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE8)	; ⻨
     (<-identical@component
      ((=ucs		  . #x9EA6)	; 麦
       ))
-    (=ucs		. #x2EE8)	; ⻨
     ))
 (define-char
   '((ideographic-radical . 199)	; ⿆

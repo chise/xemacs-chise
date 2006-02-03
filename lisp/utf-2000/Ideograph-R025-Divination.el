@@ -29,18 +29,18 @@
     ))
 (define-char
   '((total-strokes	 . 2)
-    (<-ancient
-     ((=ucs		  . #x535C)	; 卜
-      (=daikanwa	  . 02774)	; &I-M-02774;
-      ))
-    (<-ancient*sources
-     shuowen daikanwa)
     (hanyu-dazidian	1 28 4)
     (=ucs		. #x20061)	; 𠁡
     (=cns11643-6	. #x212C)	; &I-C6-212C; [01-12]
     (=big5-cdp		. #x87B1)	; &I-CDP-87B1;
     (=gt		. 00103)	; &I-GT-00103;
     (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
+    (<-ancient
+     ((=ucs		  . #x535C)	; 卜
+      (=daikanwa	  . 02774)	; &I-M-02774;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((ideographic-radical . 2)	; ⼁
       (ideographic-strokes . 1)
@@ -332,15 +332,15 @@
     (total-strokes	 . 7)
     (=ucs		. #x209DC)	; 𠧜
     (->subsumptive
-     ((<-same
+     ((=daikanwa	  . 02793)	; &M-02793;
+      (=ucs@iso		  . #x209DC)	; &M-02793;
+      (<-same
        ((=jis-x0208	    . #x403E)	; &GT-46803; [32-30]
 	(=ks-x1001	    . #x6024)	; &I-K0-6024; [64-04]
 	(=daikanwa	    . 34763)	; &I-M-34763;
 	))
       (<-same*sources
        zihui-bu daikanwa)
-      (=daikanwa	  . 02793)	; &M-02793;
-      (=ucs@iso		  . #x209DC)	; &M-02793;
       )
      ((=cns11643-6	  . #x263C)	; &C6-263C; [06-28]
       ))
@@ -349,6 +349,19 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5360)	; 占
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
+    (=ucs		. #x5364)	; 卤
+    (=gb2312		. #x4231)	; &I-G0-4231; [34-17]
+    (=cns11643-4	. #x234D)	; &I-C4-234D; [03-45]
+    (=big5-cdp		. #x8A56)	; &I-CDP-8A56;
+    (=daikanwa		. 02794)	; &I-M-02794;
     (<-Zhouwen
      ((=ucs		  . #x38B4)	; 㢴
       (=daikanwa	  . 09776)	; &I-M-09776;
@@ -369,19 +382,6 @@
      ((=ucs		  . #x6EF7)	; 滷
       (=gb12345		  . #x4231)	; 滷 [34-17]
       ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x5360)	; 占
-      )
-     ((=ucs		  . #x3405)	; 㐅
-      ))
-    (=ucs		. #x5364)	; 卤
-    (=gb2312		. #x4231)	; &I-G0-4231; [34-17]
-    (=cns11643-4	. #x234D)	; &I-C4-234D; [03-45]
-    (=big5-cdp		. #x8A56)	; &I-CDP-8A56;
-    (=daikanwa		. 02794)	; &I-M-02794;
     ))
 (define-char
   '((<-denotational
@@ -391,10 +391,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE7)	; ⻧
     (<-identical@component
      ((=ucs		  . #x5364)	; 卤
       ))
-    (=ucs		. #x2EE7)	; ⻧
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -615,6 +615,11 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (shinjigen-1	. 840)
+    (=ucs		. #x209EA)	; 𠧪
+    (=cns11643-4	. #x2851)	; &I-C4-2851; [08-49]
+    (=big5-cdp		. #x8AA6)	; &I-CDP-8AA6;
+    (=daikanwa		. 02810)	; &I-M-02810;
     (<-ancient
      ((shinjigen-1	  . 839)
       (=ucs		  . #x5363)	; 卣
@@ -624,11 +629,6 @@
     (<-ancient*denied	shuowen-tongxun-dingsheng daikanwa)
     (<-ancient*sources
      shinjigen-1)
-    (shinjigen-1	. 840)
-    (=ucs		. #x209EA)	; 𠧪
-    (=cns11643-4	. #x2851)	; &I-C4-2851; [08-49]
-    (=big5-cdp		. #x8AA6)	; &I-CDP-8AA6;
-    (=daikanwa		. 02810)	; &I-M-02810;
     ))
 (define-char
   '((=>ucs		. #x209EB)	; 𠧫

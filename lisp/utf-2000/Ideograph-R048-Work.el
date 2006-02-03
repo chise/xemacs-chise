@@ -248,10 +248,17 @@
     (mojikyo		. 059574)	; &MCS-6000E8B6;
     ))
 (define-char
-  '((=>ucs		. #x5DEE)	; 差
+  '((ideographic-radical . 48)	; ⼯
+    (=ucs		. #x5DEE)	; 差
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DEE)	; 差
+      ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (shinjigen-1	. 2067)
     (shinjigen-2	. 2067)
     (=jis-x0208		. #x3A39)	; &GT-11011; [26-25]
     (=ks-x1001		. #x732C)	; &I-K0-732C; [83-12]
@@ -265,12 +272,14 @@
     (=ucs@big5		. #x5DEE)	; &GT-11011;
     ))
 (define-char
-  '((morohashi-daikanwa	8732 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5DEE)	; 差
+      ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x5DEE)	; 差
-    (=gb2312		. #x326E)	; &I-G0-326E; [18-78]
+    (=gb2312		. #x326E)	; &G0-326E; [18-78]
+    (=ucs@unicode	. #x5DEE)	; &G0-326E;
     (mojikyo		. 053115)	; &MCS-6000CF7B;
     ))
 (define-char

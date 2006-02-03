@@ -27,12 +27,12 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (<-ideographic-component-forms
+    (=gt-k		. 00218)	; &GT-K00218;
+    (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
+    (<-identical@component/connect-below
      ((=jis-x0208	  . #x546A)	; &GT-07225; [52-74]
       (=daikanwa	  . 05708)	; &I-M-05708;
       ))
-    (=gt-k		. 00218)	; &GT-K00218;
-    (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
     ))
 (define-char
   '((=>ucs		. #x2155E)	; 𡕞
@@ -139,10 +139,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE8)	; ⻨
     (<-identical@component
      ((=ucs		  . #x9EA6)	; 麦
       ))
-    (=ucs		. #x2EE8)	; ⻨
     ))
 (define-char
   '((ideographic-radical@ucs . 199)	; ⿆
@@ -540,23 +540,37 @@
     (=cns11643-6	. #x515C)	; &I-C6-515C; [49-60]
     ))
 (define-char
-  '((=>ucs		. #x20B76)	; 𠭶
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=daikanwa		. 05730)	; &M-05730;
-    ))
-(define-char
-  '((morohashi-daikanwa	5730 0 0)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x20B76)	; 𠭶
-    (=cns11643-6	. #x515B)	; &I-C6-515B; [49-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B76)	; 𠭶
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (->subsumptive
+     ((=daikanwa	  . 05730)	; &M-05730;
+      )
+     ((=cns11643-6	  . #x515B)	; &C6-515B; [49-59]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B76)	; 𠭶
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x20B76)	; &U-00020B76;
     ))
 (define-char
   '((<-denotational
      ((=big5		  . #xE5C0)	; &B-E5C0;
+      (=jis-x0208@1997	  . #x546B)	; &B-E5C0; [52-75]
       ))
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 11)

@@ -27,38 +27,35 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EDB)	; ⻛
     (<-identical@component
      ((=ucs		  . #x98CE)	; 风
       ))
-    (=ucs		. #x2EDB)	; ⻛
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=ucs		. #x98CE)	; 风
+    (=gb2312		. #x3767)	; &I-G0-3767; [23-71]
     (<-simplified@CN
      ((=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
       (=ks-x1001	  . #x7926)	; &I-K0-7926; [89-06]
       (=gb12345		  . #x3767)	; &GT-58717; [23-71]
       (=daikanwa	  . 43756)	; &I-M-43756;
       ))
-    (=ucs		. #x98CE)	; 风
-    (=gb2312		. #x3767)	; &I-G0-3767; [23-71]
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 2)
     (total-strokes	 . 11)
     (=ucs		. #x4AF8)	; 䫸
-    (=daikanwa		. 43759)	; &I-M-43759;
-    ))
-(define-char
-  '((=>ucs		. #x4AF8)	; 䫸
-    (morohashi-daikanwa	43759 0 1)
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 2)
-    (total-strokes	 . 11)
-    (=cns11643-4	. #x362B)	; &C4-362B; [22-11]
+    (->subsumptive
+     ((=daikanwa	  . 43759)	; &M-43759;
+      (=ucs@unicode	  . #x4AF8)	; &M-43759;
+      )
+     ((=cns11643-4	  . #x362B)	; &C4-362B; [22-11]
+      ))
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵

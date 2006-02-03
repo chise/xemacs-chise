@@ -65,19 +65,6 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (<-same
-     ((=ucs		  . #x5917)	; 夗
-      (=daikanwa	  . 05752)	; &I-M-05752;
-      ))
-    (<-same*sources
-     zihui daikanwa)
-    (<-vulgar
-     ((shinjigen-1	  . 848)
-      (=ucs		  . #x536F)	; 卯
-      (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
-      ))
-    (<-vulgar*sources
-     shinjigen-1)
     (hanyu-dazidian	2 861 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -98,6 +85,19 @@
     (=daikanwa		. 05753)	; &I-M-05753;
     (=hanziku-3		. #xAD64)	; &I-HZK03-AD64;
     (=cbeta		. 06470)	; &I-CB06470;
+    (<-same
+     ((=ucs		  . #x5917)	; 夗
+      (=daikanwa	  . 05752)	; &I-M-05752;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (<-vulgar
+     ((shinjigen-1	  . 848)
+      (=ucs		  . #x536F)	; 卯
+      (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (->mistakable
      ((=ucs		  . #x20A0D)	; 𠨍
       (=daikanwa	  . 02843)	; &I-M-02843;
@@ -180,27 +180,21 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (hanyu-dazidian	2 862 1)
+    (=ucs		. #x21587)	; 𡖇
+    (=daikanwa		. 05757)	; &I-M-05757;
+    (=hanziku-3		. #xADA3)	; &I-HZK03-ADA3;
     (<-same
      ((=ucs		  . #x591A)	; 多
       (=daikanwa	  . 05756)	; &I-M-05756;
       ))
     (<-same*sources
      jiyun daikanwa)
-    (hanyu-dazidian	2 862 1)
-    (=ucs		. #x21587)	; 𡖇
-    (=daikanwa		. 05757)	; &I-M-05757;
-    (=hanziku-3		. #xADA3)	; &I-HZK03-ADA3;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-ancient
-     ((=ucs		  . #x591A)	; 多
-      (=daikanwa	  . 05756)	; &I-M-05756;
-      ))
-    (<-ancient*sources
-     jiyun daikanwa)
     (hanyu-dazidian	1 53 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -214,6 +208,12 @@
     (=cns11643-6	. #x243A)	; &I-C6-243A; [04-26]
     (=daikanwa		. 05758)	; &I-M-05758;
     (=hanziku-1		. #xAEE5)	; &I-HZK01-AEE5;
+    (<-ancient
+     ((=ucs		  . #x591A)	; 多
+      (=daikanwa	  . 05756)	; &I-M-05756;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -222,12 +222,6 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-vulgar
-     ((=ucs		  . #x591A)	; 多
-      (=daikanwa	  . 05756)	; &I-M-05756;
-      ))
-    (<-vulgar*sources
-     zhengzi-tong daikanwa)
     (hanyu-dazidian	2 863 1)
     (=ucs		. #x591B)	; 夛
     (=jis-x0208		. #x546C)	; &I-J90-546C; [52-76]
@@ -236,6 +230,12 @@
     (=gt-pj-1		. #x546C)	; &I-GT-07281; [52-76]
     (=daikanwa		. 05759)	; &I-M-05759;
     (=hanziku-3		. #xADC3)	; &I-HZK03-ADC3;
+    (<-vulgar
+     ((=ucs		  . #x591A)	; 多
+      (=daikanwa	  . 05756)	; &I-M-05756;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((=>ucs		. #x591B)	; 夛
@@ -254,21 +254,18 @@
     (shinjigen-1	. 1547)
     ))
 (define-char
-  '((=>ucs		. #x2158A)	; 𡖊
-    (ideographic-radical . 36)	; ⼣
+  '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=daikanwa		. 05760)	; &M-05760;
-    ))
-(define-char
-  '((morohashi-daikanwa	5760 0 0)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	2 863 5)
     (=ucs		. #x2158A)	; 𡖊
-    (=cns11643-6	. #x266E)	; &I-C6-266E; [06-78]
-    (=hanziku-3		. #xADC7)	; &I-HZK03-ADC7;
+    (->subsumptive
+     ((=daikanwa	  . 05760)	; &M-05760;
+      )
+     ((hanyu-dazidian	  2 863 5)
+      (=cns11643-6	  . #x266E)	; &HZK03-ADC7; [06-78]
+      (=hanziku-3	  . #xADC7)	; &I-HZK03-ADC7;
+      (=ucs@iso		  . #x2158A)	; &HZK03-ADC7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -698,13 +695,6 @@
     (ideographic-radical@cns*sources
      daikanwa=05784 cns11643 gt jis)
     (total-strokes	 . 11)
-    (<-vulgar
-     ((shinjigen-1	  . 1550)
-      (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
-      (=daikanwa	  . 05802)	; &I-M-05802;
-      ))
-    (<-vulgar*sources
-     songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
     (hanyu-dazidian	2 863 18)
     (shinjigen-1	. 1552)
     (shinjigen-2	. 1552)
@@ -717,6 +707,13 @@
     (=gt-pj-1		. #x546D)	; &I-GT-07313; [52-77]
     (=hanziku-3		. #xADD4)	; &I-HZK03-ADD4;
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
+    (<-vulgar
+     ((shinjigen-1	  . 1550)
+      (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+      (=daikanwa	  . 05802)	; &I-M-05802;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
     (->subsumptive
      ((ideographic-radical . 36)	; ⼣
       (ideographic-strokes . 8)
@@ -919,13 +916,6 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (<-simplified
-     ((shinjigen-1	  . 1550)
-      (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
-      (=daikanwa	  . 05802)	; &I-M-05802;
-      ))
-    (<-simplified*sources
-     shinjigen-1)
     (shinjigen-1	. 1549)
     (=jis-x0208		. #x4C34)	; &GT-07332; [44-20]
     (=ks-x1001		. #x5953)	; &I-K0-5953; [57-51]
@@ -936,6 +926,13 @@
     (=gt-pj-1		. #x4C34)	; &I-GT-07332; [44-20]
     (=ucs@unicode	. #x5922)	; &GT-07332;
     (mojikyo		. 050144)	; &MCS-6000C3E0;
+    (<-simplified
+     ((shinjigen-1	  . 1550)
+      (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+      (=daikanwa	  . 05802)	; &I-M-05802;
+      ))
+    (<-simplified*sources
+     shinjigen-1)
     ))
 (define-char
   '((<-denotational
@@ -955,6 +952,10 @@
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
+      (shinjigen-1	  . 1553)
+      (=jis-x0212	  . #x3869)	; &M-05803; [24-73]
+      (=daikanwa	  . 05803)	; &I-M-05803;
+      (=ucs@jis		  . #x5923)	; &M-05803;
       (<-vulgar
        ((shinjigen-1	    . 1550)
 	(=cns11643-1	    . #x6842)	; &M-05802; [72-34]
@@ -962,10 +963,6 @@
 	))
       (<-vulgar*sources
        shinjigen-1)
-      (shinjigen-1	  . 1553)
-      (=jis-x0212	  . #x3869)	; &M-05803; [24-73]
-      (=daikanwa	  . 05803)	; &I-M-05803;
-      (=ucs@jis		  . #x5923)	; &M-05803;
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)

@@ -43,10 +43,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE3)	; ⻣
     (<-identical@component
      ((=ucs		  . #x9AA8)	; 骨
       ))
-    (=ucs		. #x2EE3)	; ⻣
     ))
 (define-char
   '((<-denotational
@@ -2020,36 +2020,45 @@
     (=cns11643-7	. #x4C39)	; &C7-4C39; [44-25]
     ))
 (define-char
-  '((=>ucs		. #x9AC4)	; 髄
+  '((ideographic-radical . 188)	; ⾻
+    (=ucs		. #x9AC4)	; 髄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9AC4)	; 髄
+      ))
     (morohashi-daikanwa	45240 1)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x7172)	; &GT-60935; [81-82]
-      (=ks-x1001	  . #x6250)	; &I-K0-6250; [66-48]
-      (=daikanwa	  . 45289)	; &I-M-45289;
-      ))
     (=jis-x0208		. #x3F71)	; &GT-60862; [31-81]
     (=gt		. 60862)	; &I-GT-60862;
     (=gt-pj-1		. #x3F71)	; &I-GT-60862; [31-81]
     (=ucs@jis		. #x9AC4)	; &GT-60862;
     (mojikyo		. 050599)	; &MCS-6000C5A7;
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x7172)	; &GT-60935; [81-82]
+      (=ks-x1001	  . #x6250)	; &I-K0-6250; [66-48]
+      (=daikanwa	  . 45289)	; &I-M-45289;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9AC4)	; 髄
-    (morohashi-daikanwa	45240 1 1)
+  '((<-denotational
+     ((=ucs		  . #x9AC4)	; 髄
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=ucs@unicode	. #x9AC4)	; &UU+9AC4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9AC4)	; 髄
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
     (=cns11643-3	. #x5D61)	; &C3-5D61; [61-65]
-    ))
-(define-char
-  '((morohashi-daikanwa	45240 1 2)
-    (ideographic-radical . 188)	; ⾻
-    (ideographic-strokes . 9)
-    (total-strokes	 . 18)
-    (=ucs		. #x9AC4)	; 髄
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻

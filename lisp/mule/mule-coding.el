@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997,1999,2002,2003,2004,2005 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003,2004,2005,2006 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -313,6 +313,7 @@
 	  ( =ucs@ks	                    	  "KU+" 4 X)
 	  ( =ucs@ks	                    	  "KU-" 8 X)
 	  ( =jis-x0208@1997                      "J97-" 4 X)
+	  ( =jis-x0208@1978/i1                 "J78i1-" 4 X)
 	  ))
 
   (make-coding-system

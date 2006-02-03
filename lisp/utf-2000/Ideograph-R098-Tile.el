@@ -443,11 +443,6 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ks-x1001	  . #x5C3A)	; &M-21537; [60-26]
-      (=jis-x0213-1-2000  . #x7847)	; &I-JX1-7847; [88-39]
-      (=daikanwa	  . 21537)	; &I-M-21537;
-      ))
     (shinjigen-2	. 4989)
     (=ucs		. #x74F6)	; 瓶
     (=jis-x0208		. #x4953)	; &I-J90-4953; [41-51]
@@ -458,6 +453,11 @@
     (=gt-k		. 07865)	; &I-GT-K07865;
     (=gt-pj-1		. #x4953)	; &I-GT-27617; [41-51]
     (=daikanwa		. 21486)	; &I-M-21486;
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5C3A)	; &M-21537; [60-26]
+      (=jis-x0213-1-2000  . #x7847)	; &I-JX1-7847; [88-39]
+      (=daikanwa	  . 21537)	; &I-M-21537;
+      ))
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡

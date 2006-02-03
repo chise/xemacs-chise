@@ -2186,11 +2186,8 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5E36)	; 帶
-      (=jis-x0208	  . #x5668)	; &I-J90-5668; [54-72]
-      ))
     (hanyu-dazidian	1 739 12)
+    (shinjigen-1	. 2108)
     (shinjigen-2	. 2108)
     (=ucs		. #x5E2F)	; 帯
     (=jis-x0208		. #x4253)	; &I-J90-4253; [34-51]
@@ -2200,6 +2197,10 @@
     (=gt-pj-1		. #x4253)	; &I-GT-11232; [34-51]
     (=daikanwa		. 08929)	; &I-M-08929;
     (=hanziku-2		. #xEA58)	; &I-HZK02-EA58;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5E36)	; 帶
+      (=jis-x0208	  . #x5668)	; &I-J90-5668; [54-72]
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -2226,14 +2227,14 @@
       (=daikanwa	  . 08930)	; &I-M-08930;
       (=ucs@unicode	  . #x5E30)	; &GT-11209;
       )
-     ((<-simplified@JP/Jouyou
+     ((=jis-x0208@1990	  . #x3522)	; &J90-3522; [21-02]
+      (=ucs@jis		  . #x5E30)	; &J90-3522;
+      (<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x5D45)	; &GT-20995; [61-37]
 	(=ks-x1001	    . #x4F7D)	; &I-K0-4F7D; [47-93]
 	(=cns11643-1	    . #x7657)	; &I-C1-7657; [86-55]
 	(=daikanwa	    . 16349)	; &I-M-16349;
 	))
-      (=jis-x0208@1990	  . #x3522)	; &J90-3522; [21-02]
-      (=ucs@jis		  . #x5E30)	; &J90-3522;
       ))
     ))
 (define-char
@@ -2550,6 +2551,7 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
+    (shinjigen-1	. 2109)
     (shinjigen-2	. 2109)
     (=ucs		. #x5E36)	; 帶
     (=jis-x0208		. #x5668)	; &I-J90-5668; [54-72]
@@ -3452,7 +3454,9 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=ucs@unicode	  . #x65F2)	; &M-13753;
+     ((=jis-x0212	  . #x416F)	; &M-13753; [33-79]
+      (=jis-x0213-2-2000  . #x2D72)	; &I-JX2-2D72; [13-82]
+      (=daikanwa	  . 13753)	; &I-M-13753;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -4156,6 +4160,7 @@
 (define-char
   '((ideographic-radical . 50)	; ⼱
     (=ucs		. #x5E59)	; 幙
+    (=big5		. #xE1B3)	; &I-B-E1B3;
     ))
 (define-char
   '((<-denotational
@@ -4205,8 +4210,7 @@
       (=gb2312		  . #x442A)	; &I-G0-442A; [36-10]
       (=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
       ))
-    (=big5		. #xE1B3)	; &B-E1B3;
-    (=ucs@unicode	. #x5E59)	; &B-E1B3;
+    (=ucs@unicode	. #x5E59)	; &UU+5E59;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -4233,7 +4237,9 @@
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
-       ((=ucs@unicode	    . #x7968)	; &GT-31700;
+       ((=jis-x0208	    . #x493C)	; &GT-31700; [41-28]
+	(=gb2312	    . #x4631)	; &I-G0-4631; [38-17]
+	(=ks-x1001	    . #x7879)	; &I-K0-7879; [88-89]
 	))
       (=jis-x0212	  . #x3C36)	; &CB00124; [28-22]
       (=jis-x0213-2-2000  . #x287A)	; &I-JX2-287A; [08-90]
@@ -5272,13 +5278,33 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x3865)	; 㡥
-    (->subsumptive
-     ((=daikanwa	  . 09120)	; &M-09120;
-      )
-     ((=cns11643-4	  . #x562D)	; &C4-562D; [54-13]
-      )
-     ((=ucs@unicode	  . #x3865)	; &UU+3865;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3865)	; 㡥
       ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=daikanwa		. 09120)	; &M-09120;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3865)	; 㡥
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=ucs@unicode	. #x3865)	; &UU+3865;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3865)	; 㡥
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=cns11643-4	. #x562D)	; &C4-562D; [54-13]
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -5295,6 +5321,7 @@
 (define-char
   '((ideographic-radical . 50)	; ⼱
     (=ucs		. #x5E6A)	; 幪
+    (=big5		. #xECDC)	; &I-B-ECDC;
     ))
 (define-char
   '((<-denotational
@@ -5353,10 +5380,9 @@
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
-       ((=ucs@unicode	    . #x8499)	; &G0-4349;
+       ((=gb2312	    . #x4349)	; &G0-4349; [35-41]
 	))
       (=iso-ir165	  . #x7A6D)	; &EGB-7A6D; [90-77]
-      (=big5		  . #xECDC)	; &I-B-ECDC;
       (=ucs@unicode	  . #x5E6A)	; &EGB-7A6D;
       ))
     ))

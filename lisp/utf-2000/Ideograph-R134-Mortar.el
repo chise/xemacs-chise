@@ -115,10 +115,10 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
+    (=cbeta		. 07105)	; &CB07105;
     (<-unknown
      ((=ucs		  . #x81FD)	; 臽
       ))
-    (=cbeta		. 07105)	; &CB07105;
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
@@ -164,6 +164,10 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=ucs		. #x2695B)	; 𦥛
+    (=cns11643-6	. #x3B3B)	; &I-C6-3B3B; [27-27]
+    (=big5-cdp		. #x8570)	; &I-CDP-8570;
+    (=daikanwa		. 30182)	; &I-M-30182;
     (<-wrong
      ((=jis-x0212	  . #x566C)	; &M-30180; [54-76]
       (=cns11643-2	  . #x2D2B)	; &I-C2-2D2B; [13-11]
@@ -172,10 +176,6 @@
       ))
     (<-wrong*sources
      zhonghua-dazidian daikanwa)
-    (=ucs		. #x2695B)	; 𦥛
-    (=cns11643-6	. #x3B3B)	; &I-C6-3B3B; [27-27]
-    (=big5-cdp		. #x8570)	; &I-CDP-8570;
-    (=daikanwa		. 30182)	; &I-M-30182;
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
@@ -1307,6 +1307,7 @@
      ((=ucs		  . #x820B)	; 舋
       ))
     (ideographic-radical . 134)	; ⾅
+    (=big5		. #xF4B5)	; &B-F4B5;
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 19)
@@ -1330,8 +1331,7 @@
 	)
        ((=ucs		    . #x4E14)	; 且
 	))
-      (=big5		  . #xF4B5)	; &B-F4B5;
-      (=ucs@unicode	  . #x820B)	; &B-F4B5;
+      (=ucs@unicode	  . #x820B)	; &UU+820B;
       ))
     ))
 (define-char

@@ -31,25 +31,25 @@
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-ideographic-component-forms
+    (=gt-k		. 01019)	; &GT-K01019;
+    (=gt-pj-k1		. #x3478)	; &GT-K01019; [20-88]
+    (<-formed@component/connect-right
      ((=jis-x0208	  . #x4E29)	; &GT-33181; [46-09]
       (=ks-x1001	  . #x5821)	; &I-K0-5821; [56-01]
       (=daikanwa	  . 25721)	; &I-M-25721;
       ))
-    (=gt-k		. 01019)	; &GT-K01019;
-    (=gt-pj-k1		. #x3478)	; &GT-K01019; [20-88]
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (<-simplified
+    (=big5-cdp		. #x8BAE)	; &CDP-8BAE;
+    (mojikyo		. 072621)	; &MCS-60011BAD;
+    (<-simplified@component
      ((=jis-x0208	  . #x3E4F)	; &GT-33228; [30-47]
       (=ks-x1001	  . #x6D71)	; &I-K0-6D71; [77-81]
       (=daikanwa	  . 25761)	; &I-M-25761;
       ))
-    (=big5-cdp		. #x8BAE)	; &CDP-8BAE;
-    (mojikyo		. 072621)	; &MCS-60011BAD;
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
@@ -468,12 +468,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x7ADC)	; 竜
     (->subsumptive
-     ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x4E36)	; &GT-66672; [46-22]
-	(=ks-x1001	    . #x5723)	; &I-K0-5723; [55-03]
-	(=daikanwa	    . 48818)	; &I-M-48818;
-	))
-      (shinjigen-1	  . 9912)
+     ((shinjigen-1	  . 9912)
       (shinjigen-2	  . 9912)
       (=jis-x0208	  . #x4E35)	; &GT-33220; [46-21]
       (=gt		  . 33220)	; &I-GT-33220;
@@ -481,6 +476,11 @@
       (=gt-pj-1		  . #x4E35)	; &I-GT-33220; [46-21]
       (=daikanwa	  . 25751)	; &I-M-25751;
       (=ucs@jis		  . #x7ADC)	; &GT-33220;
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x4E36)	; &GT-66672; [46-22]
+	(=ks-x1001	    . #x5723)	; &I-K0-5723; [55-03]
+	(=daikanwa	    . 48818)	; &I-M-48818;
+	))
       )
      ((=iso-ir165	  . #x2E6B)	; &C3-3327; [14-75]
       (=cns11643-3	  . #x3327)	; &I-C3-3327; [19-07]
@@ -495,10 +495,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EEF)	; ⻯
     (<-identical@component
      ((=ucs		  . #x7ADC)	; 竜
       ))
-    (=ucs		. #x2EEF)	; ⻯
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
@@ -506,7 +506,8 @@
     (total-strokes	 . 10)
     (=ucs		. #x7ADD)	; 竝
     (->subsumptive
-     ((shinjigen-2	  . 5733)
+     ((shinjigen-1	  . 5733)
+      (shinjigen-2	  . 5733)
       (=jis-x0208	  . #x636D)	; &GT-33217; [67-77]
       (=ks-x1001	  . #x5C3D)	; &I-K0-5C3D; [60-29]
       (=gt		  . 33217)	; &I-GT-33217;

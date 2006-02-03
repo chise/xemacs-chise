@@ -504,6 +504,7 @@ while test $# != 0; do
 	with_workshop	| \
 	with_sparcworks | \
 	with_tooltalk	| \
+	with_concord	| \
 	with_ldap	| \
 	with_postgresql	| \
 	with_pop	| \
@@ -3764,6 +3765,29 @@ if test "$with_file_coding" = "yes" && test "$with_mule" = "no"; then
   XE_ADD_OBJS(file-coding.o)
 fi
 
+dnl Autodetect concord
+concord_includes_found=no
+if test "$with_concord" != "no"; then
+   AC_CHECK_HEADER(concord.h, ,with_concord=no)
+fi
+if test "$concord_includes_found" = "no" -a "$with_concord" != "no" -a \
+   -d "/usr/local/concord/include"; then
+  save_c_switch_site="$c_switch_site"
+  c_switch_site="$c_switch_site -I/usr/local/concord/include"
+  AC_CHECK_HEADER(concord.h,concord_includes_found=yes)
+  if test "$concord_includes_found" != "yes"; then
+    c_switch_site="$save_c_switch_site"
+    with_concord="no"
+  fi
+fi
+
+test -z "$with_concord" && with_concord=yes
+if test "$with_concord" = "yes"; then
+  AC_DEFINE(HAVE_CONCORD)
+  XE_PREPEND(-lconcord, libs_x)
+  XE_ADD_OBJS(concord.o)
+fi
+
 test -z "$with_chise" && with_chise=yes
 if test "$with_chise" = "yes"; then
     with_mule=yes
@@ -5318,6 +5342,9 @@ if test "$with_postgresql" = yes; then
   echo "  Compiling in support for PostgreSQL."
   echo "    - Using PostgreSQL header file:  $libpq_fe_h_file"
   test "$with_postgresqlv7" = yes && echo "    - Using PostgreSQL V7 bindings."
+fi
+if test "$with_concord" = yes; then
+  echo "  Compiling in support for CONCORD."
 fi
 
 echo "

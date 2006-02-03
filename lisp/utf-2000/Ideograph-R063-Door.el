@@ -101,9 +101,26 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x623A)	; 戺
-    (=cns11643-2	. #x2428)	; &I-C2-2428; [04-08]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623A)	; 戺
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=cns11643-2	. #x2428)	; &M-11703; [04-08]
     (=big5		. #xCAE6)	; &I-B-CAE6;
     (=daikanwa		. 11703)	; &I-M-11703;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623A)	; 戺
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=ucs@unicode	. #x623A)	; &UU+623A;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
@@ -118,15 +135,30 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x39BE)	; 㦾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x39BE)	; 㦾
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (->subsumptive
      ((->subsumptive
        ((=daikanwa	    . 11705)	; &M-11705;
 	)
        ((=cns11643-6	    . #x276E)	; &C6-276E; [07-78]
 	))
-      )
-     ((=ucs@unicode	  . #x39BE)	; &UU+39BE;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x39BE)	; 㦾
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=ucs@unicode	. #x39BE)	; &UU+39BE;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
@@ -153,7 +185,7 @@
       (=daikanwa	  . 11712)	; &I-M-11712;
       ))
     (->mistakable*sources
-     zihui zhengzi-tong daikanwa)
+     zihui zhengzitong daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -162,12 +194,6 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
-      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
-      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
-      (=daikanwa	  . 11712)	; &I-M-11712;
-      ))
     (shinjigen-1	. 2795)
     (shinjigen-2	. 2795)
     (=jis-x0208		. #x4C61)	; &GT-14766; [44-65]
@@ -175,6 +201,12 @@
     (=gt-k		. 02658)	; &I-GT-K02658;
     (=gt-pj-1		. #x4C61)	; &I-GT-14766; [44-65]
     (=ucs@jis		. #x623B)	; &GT-14766;
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
+      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
+      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
+      (=daikanwa	  . 11712)	; &I-M-11712;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -191,6 +223,12 @@
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 53 15)
+    (shinjigen-1	. 849)
+    (=ucs		. #x623C)	; 戼
+    (=cns11643-3	. #x2629)	; &I-C3-2629; [06-09]
+    (=big5-cdp		. #x89B5)	; &I-CDP-89B5;
+    (=daikanwa		. 11708)	; &I-M-11708;
     (<-original
      ((shinjigen-1	  . 848)
       (=ucs		  . #x536F)	; 卯
@@ -198,24 +236,31 @@
       (=daikanwa	  . 02847)	; &I-M-02847;
       ))
     (<-original*sources
-     zhengzi-tong daikanwa shinjigen-1)
-    (hanyu-dazidian	1 53 15)
-    (shinjigen-1	. 849)
-    (=ucs		. #x623C)	; 戼
-    (=cns11643-3	. #x2629)	; &I-C3-2629; [06-09]
-    (=big5-cdp		. #x89B5)	; &I-CDP-89B5;
-    (=daikanwa		. 11708)	; &I-M-11708;
+     zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x22A2E)	; 𢨮
-    (->subsumptive
-     ((=daikanwa	  . 11709)	; &M-11709;
-      )
-     ((=ucs@iso		  . #x22A2E)	; &U-00022A2E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A2E)	; 𢨮
       ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=daikanwa		. 11709)	; &M-11709;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A2E)	; 𢨮
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=ucs@iso		. #x22A2E)	; &U-00022A2E;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾

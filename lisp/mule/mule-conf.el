@@ -192,6 +192,15 @@
 	      mother =jis-x0208@1978
 	      ;; final ?@
 	      graphic 0))
+  (make-charset
+   '=jis-x0208@1978/i-4
+   "The second and third impressions of JIS X 0208:1978."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+	      ;; final ?@
+	      graphic 0))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
@@ -724,6 +733,83 @@
 	       mother =ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
+
+  (make-charset
+   '=adobe-japan1-0
+   "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=adobe-japan1-1
+   "Adobe-Japan1-1 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-0
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '=adobe-japan1-2
+   "Adobe-Japan1-2 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-2"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-1
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '=adobe-japan1-3
+   "Adobe-Japan1-3 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-3"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-2
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '=adobe-japan1-4
+   "Adobe-Japan1-4 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-4"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-3
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '=adobe-japan1-5
+   "Adobe-Japan1-5 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-5"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-4
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '=adobe-japan1-6
+   "Adobe-Japan1-6 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-6"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-5
+	       registry "AdobeJapan1-6$"))
   )
 
 ;;; mule-conf.el ends here

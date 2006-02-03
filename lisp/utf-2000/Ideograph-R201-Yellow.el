@@ -34,11 +34,6 @@
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
-      (=jis-x0213-1-2000  . #x7E71)	; &I-JX1-7E71; [94-81]
-      (=daikanwa	  . 47926)	; &I-M-47926;
-      ))
     (=ucs		. #x9EC4)	; 黄
     (=jis-x0208		. #x322B)	; &I-J90-322B; [18-11]
     (=gb2312		. #x3B46)	; &I-G0-3B46; [27-38]
@@ -47,6 +42,11 @@
     (=gt-k		. 07722)	; &I-GT-K07722;
     (=gt-pj-1		. #x322B)	; &I-GT-65323; [18-11]
     (mojikyo		. 050608)	; &MCS-6000C5B0;
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
+      (=jis-x0213-1-2000  . #x7E71)	; &I-JX1-7E71; [94-81]
+      (=daikanwa	  . 47926)	; &I-M-47926;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -56,11 +56,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EE9)	; ⻩
+    (=big5-cdp		. #x8A5E)	; &I-CDP-8A5E;
     (<-identical@component
      ((=ucs		  . #x9EC4)	; 黄
       ))
-    (=ucs		. #x2EE9)	; ⻩
-    (=big5-cdp		. #x8A5E)	; &I-CDP-8A5E;
     ))
 (define-char
   '((ideographic-radical . 201)	; ⿈

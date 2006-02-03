@@ -11,12 +11,12 @@
      ((name		  . "BLACK SUN WITH RAYS")
       (=ucs		  . #x2600)	; ☀
       ))
+    (=jis-x0213-1-2000	. #x2668)	; &JX1-2668; [06-72]
+    (=ucs@jis		. #x2600)	; &JX1-2668;
     (<-fullwidth
      ((name		  . "BLACK SUN WITH RAYS")
       (=ucs		  . #x2600)	; ☀
       ))
-    (=jis-x0213-1-2000	. #x2668)	; &JX1-2668; [06-72]
-    (=ucs@jis		. #x2600)	; &JX1-2668;
     ))
 (define-char
   '((name		. "CLOUD")
@@ -30,12 +30,12 @@
      ((name		  . "CLOUD")
       (=ucs		  . #x2601)	; ☁
       ))
+    (=jis-x0213-1-2000	. #x2669)	; &JX1-2669; [06-73]
+    (=ucs@jis		. #x2601)	; &JX1-2669;
     (<-fullwidth
      ((name		  . "CLOUD")
       (=ucs		  . #x2601)	; ☁
       ))
-    (=jis-x0213-1-2000	. #x2669)	; &JX1-2669; [06-73]
-    (=ucs@jis		. #x2601)	; &JX1-2669;
     ))
 (define-char
   '((name		. "UMBRELLA")
@@ -49,12 +49,12 @@
      ((name		  . "UMBRELLA")
       (=ucs		  . #x2602)	; ☂
       ))
+    (=jis-x0213-1-2000	. #x266A)	; &JX1-266A; [06-74]
+    (=ucs@jis		. #x2602)	; &JX1-266A;
     (<-fullwidth
      ((name		  . "UMBRELLA")
       (=ucs		  . #x2602)	; ☂
       ))
-    (=jis-x0213-1-2000	. #x266A)	; &JX1-266A; [06-74]
-    (=ucs@jis		. #x2602)	; &JX1-266A;
     ))
 (define-char
   '((name		. "SNOWMAN")
@@ -68,12 +68,12 @@
      ((name		  . "SNOWMAN")
       (=ucs		  . #x2603)	; ☃
       ))
+    (=jis-x0213-1-2000	. #x266B)	; &JX1-266B; [06-75]
+    (=ucs@jis		. #x2603)	; &JX1-266B;
     (<-fullwidth
      ((name		  . "SNOWMAN")
       (=ucs		  . #x2603)	; ☃
       ))
-    (=jis-x0213-1-2000	. #x266B)	; &JX1-266B; [06-75]
-    (=ucs@jis		. #x2603)	; &JX1-266B;
     ))
 (define-char
   '((name		. "COMET")
@@ -94,10 +94,6 @@
      ((name		  . "BLACK STAR")
       (=ucs		  . #x2605)	; ★
       ))
-    (<-fullwidth
-     ((name		  . "BLACK STAR")
-      (=ucs		  . #x2605)	; ★
-      ))
     (=jis-x0208		. #x217A)	; &J90-217A; [01-90]
     (=gb2312		. #x216F)	; &I-G0-216F; [01-79]
     (=ks-x1001		. #x215A)	; &I-K0-215A; [01-58]
@@ -108,6 +104,10 @@
     (=ucs@jis		. #x2605)	; &J90-217A;
     (=ucs@ks		. #x2605)	; &J90-217A;
     (=ucs@big5		. #x2605)	; &J90-217A;
+    (<-fullwidth
+     ((name		  . "BLACK STAR")
+      (=ucs		  . #x2605)	; ★
+      ))
     ))
 (define-char
   '((name		. "WHITE STAR")
@@ -121,10 +121,6 @@
      ((name		  . "WHITE STAR")
       (=ucs		  . #x2606)	; ☆
       ))
-    (<-fullwidth
-     ((name		  . "WHITE STAR")
-      (=ucs		  . #x2606)	; ☆
-      ))
     (=jis-x0208		. #x2179)	; &J90-2179; [01-89]
     (=gb2312		. #x216E)	; &I-G0-216E; [01-78]
     (=ks-x1001		. #x2159)	; &I-K0-2159; [01-57]
@@ -135,6 +131,10 @@
     (=ucs@jis		. #x2606)	; &J90-2179;
     (=ucs@ks		. #x2606)	; &J90-2179;
     (=ucs@big5		. #x2606)	; &J90-2179;
+    (<-fullwidth
+     ((name		  . "WHITE STAR")
+      (=ucs		  . #x2606)	; ☆
+      ))
     ))
 (define-char
   '((name		. "LIGHTNING")
@@ -197,14 +197,14 @@
      ((name		  . "BLACK TELEPHONE")
       (=ucs		  . #x260E)	; ☎
       ))
-    (<-fullwidth
-     ((name		  . "BLACK TELEPHONE")
-      (=ucs		  . #x260E)	; ☎
-      ))
     (=ks-x1001		. #x224F)	; &JX1-2667; [02-47]
     (=jis-x0213-1-2000	. #x2667)	; &I-JX1-2667; [06-71]
     (=ucs@jis		. #x260E)	; &JX1-2667;
     (=ucs@ks		. #x260E)	; &JX1-2667;
+    (<-fullwidth
+     ((name		  . "BLACK TELEPHONE")
+      (=ucs		  . #x260E)	; ☎
+      ))
     ))
 (define-char
   '((name		. "WHITE TELEPHONE")
@@ -218,12 +218,12 @@
      ((name		  . "WHITE TELEPHONE")
       (=ucs		  . #x260F)	; ☏
       ))
+    (=ks-x1001		. #x224E)	; &K0-224E; [02-46]
+    (=ucs@ks		. #x260F)	; &K0-224E;
     (<-fullwidth
      ((name		  . "WHITE TELEPHONE")
       (=ucs		  . #x260F)	; ☏
       ))
-    (=ks-x1001		. #x224E)	; &K0-224E; [02-46]
-    (=ucs@ks		. #x260F)	; &K0-224E;
     ))
 (define-char
   '((name		. "BALLOT BOX")
@@ -237,11 +237,11 @@
      ((name		  . "BALLOT BOX")
       (=ucs		  . #x2610)	; ☐
       ))
+    (=jef-china3	. #x76B4)	; &JC3-76B4;
     (<-fullwidth
      ((name		  . "BALLOT BOX")
       (=ucs		  . #x2610)	; ☐
       ))
-    (=jef-china3	. #x76B4)	; &JC3-76B4;
     ))
 (define-char
   '((name		. "BALLOT BOX WITH CHECK")
@@ -307,12 +307,12 @@
      ((name		  . "WHITE LEFT POINTING INDEX")
       (=ucs		  . #x261C)	; ☜
       ))
+    (=ks-x1001		. #x2250)	; &K0-2250; [02-48]
+    (=ucs@ks		. #x261C)	; &K0-2250;
     (<-fullwidth
      ((name		  . "WHITE LEFT POINTING INDEX")
       (=ucs		  . #x261C)	; ☜
       ))
-    (=ks-x1001		. #x2250)	; &K0-2250; [02-48]
-    (=ucs@ks		. #x261C)	; &K0-2250;
     ))
 (define-char
   '((name		. "WHITE UP POINTING INDEX")
@@ -333,14 +333,14 @@
      ((name		  . "WHITE RIGHT POINTING INDEX")
       (=ucs		  . #x261E)	; ☞
       ))
-    (<-fullwidth
-     ((name		  . "WHITE RIGHT POINTING INDEX")
-      (=ucs		  . #x261E)	; ☞
-      ))
     (=ks-x1001		. #x2251)	; &JX1-2D7E; [02-49]
     (=jis-x0213-1-2000	. #x2D7E)	; &I-JX1-2D7E; [13-94]
     (=ucs@jis		. #x261E)	; &JX1-2D7E;
     (=ucs@ks		. #x261E)	; &JX1-2D7E;
+    (<-fullwidth
+     ((name		  . "WHITE RIGHT POINTING INDEX")
+      (=ucs		  . #x261E)	; ☞
+      ))
     ))
 (define-char
   '((name		. "WHITE DOWN POINTING INDEX")
@@ -585,10 +585,6 @@
      ((name		  . "FEMALE SIGN")
       (=ucs		  . #x2640)	; ♀
       ))
-    (<-fullwidth
-     ((name		  . "FEMALE SIGN")
-      (=ucs		  . #x2640)	; ♀
-      ))
     (=jis-x0208		. #x216A)	; &J90-216A; [01-74]
     (=gb2312		. #x2162)	; &I-G0-2162; [01-66]
     (=ks-x1001		. #x214F)	; &I-K0-214F; [01-47]
@@ -599,6 +595,10 @@
     (=ucs@jis		. #x2640)	; &J90-216A;
     (=ucs@ks		. #x2640)	; &J90-216A;
     (=ucs@big5		. #x2640)	; &J90-216A;
+    (<-fullwidth
+     ((name		  . "FEMALE SIGN")
+      (=ucs		  . #x2640)	; ♀
+      ))
     ))
 (define-char
   '((name		. "EARTH")
@@ -619,10 +619,6 @@
      ((name		  . "MALE SIGN")
       (=ucs		  . #x2642)	; ♂
       ))
-    (<-fullwidth
-     ((name		  . "MALE SIGN")
-      (=ucs		  . #x2642)	; ♂
-      ))
     (=jis-x0208		. #x2169)	; &J90-2169; [01-73]
     (=gb2312		. #x2161)	; &I-G0-2161; [01-65]
     (=ks-x1001		. #x214E)	; &I-K0-214E; [01-46]
@@ -633,6 +629,10 @@
     (=ucs@jis		. #x2642)	; &J90-2169;
     (=ucs@ks		. #x2642)	; &J90-2169;
     (=ucs@big5		. #x2642)	; &J90-2169;
+    (<-fullwidth
+     ((name		  . "MALE SIGN")
+      (=ucs		  . #x2642)	; ♂
+      ))
     ))
 (define-char
   '((name		. "JUPITER")
@@ -849,14 +849,14 @@
      ((name		  . "BLACK SPADE SUIT")
       (=ucs		  . #x2660)	; ♠
       ))
-    (<-fullwidth
-     ((name		  . "BLACK SPADE SUIT")
-      (=ucs		  . #x2660)	; ♠
-      ))
     (=ks-x1001		. #x223C)	; &JX1-263A; [02-28]
     (=jis-x0213-1-2000	. #x263A)	; &I-JX1-263A; [06-26]
     (=ucs@jis		. #x2660)	; &JX1-263A;
     (=ucs@ks		. #x2660)	; &JX1-263A;
+    (<-fullwidth
+     ((name		  . "BLACK SPADE SUIT")
+      (=ucs		  . #x2660)	; ♠
+      ))
     ))
 (define-char
   '((name		. "WHITE HEART SUIT")
@@ -870,15 +870,15 @@
      ((name		  . "WHITE HEART SUIT")
       (=ucs		  . #x2661)	; ♡
       ))
-    (<-fullwidth
-     ((name		  . "WHITE HEART SUIT")
-      (=ucs		  . #x2661)	; ♡
-      ))
     (=ks-x1001		. #x223D)	; &JX1-263D; [02-29]
     (=jis-x0213-1-2000	. #x263D)	; &I-JX1-263D; [06-29]
     (=jef-china3	. #x76B6)	; &I-JC3-76B6;
     (=ucs@jis		. #x2661)	; &JX1-263D;
     (=ucs@ks		. #x2661)	; &JX1-263D;
+    (<-fullwidth
+     ((name		  . "WHITE HEART SUIT")
+      (=ucs		  . #x2661)	; ♡
+      ))
     ))
 (define-char
   '((name		. "WHITE DIAMOND SUIT")
@@ -892,13 +892,13 @@
      ((name		  . "WHITE DIAMOND SUIT")
       (=ucs		  . #x2662)	; ♢
       ))
+    (=jis-x0213-1-2000	. #x263B)	; &JX1-263B; [06-27]
+    (=jef-china3	. #x76B8)	; &I-JC3-76B8;
+    (=ucs@jis		. #x2662)	; &JX1-263B;
     (<-fullwidth
      ((name		  . "WHITE DIAMOND SUIT")
       (=ucs		  . #x2662)	; ♢
       ))
-    (=jis-x0213-1-2000	. #x263B)	; &JX1-263B; [06-27]
-    (=jef-china3	. #x76B8)	; &I-JC3-76B8;
-    (=ucs@jis		. #x2662)	; &JX1-263B;
     ))
 (define-char
   '((name		. "BLACK CLUB SUIT")
@@ -912,14 +912,14 @@
      ((name		  . "BLACK CLUB SUIT")
       (=ucs		  . #x2663)	; ♣
       ))
-    (<-fullwidth
-     ((name		  . "BLACK CLUB SUIT")
-      (=ucs		  . #x2663)	; ♣
-      ))
     (=ks-x1001		. #x2240)	; &JX1-2640; [02-32]
     (=jis-x0213-1-2000	. #x2640)	; &I-JX1-2640; [06-32]
     (=ucs@jis		. #x2663)	; &JX1-2640;
     (=ucs@ks		. #x2663)	; &JX1-2640;
+    (<-fullwidth
+     ((name		  . "BLACK CLUB SUIT")
+      (=ucs		  . #x2663)	; ♣
+      ))
     ))
 (define-char
   '((name		. "WHITE SPADE SUIT")
@@ -933,15 +933,15 @@
      ((name		  . "WHITE SPADE SUIT")
       (=ucs		  . #x2664)	; ♤
       ))
-    (<-fullwidth
-     ((name		  . "WHITE SPADE SUIT")
-      (=ucs		  . #x2664)	; ♤
-      ))
     (=ks-x1001		. #x223B)	; &JX1-2639; [02-27]
     (=jis-x0213-1-2000	. #x2639)	; &I-JX1-2639; [06-25]
     (=jef-china3	. #x76B7)	; &I-JC3-76B7;
     (=ucs@jis		. #x2664)	; &JX1-2639;
     (=ucs@ks		. #x2664)	; &JX1-2639;
+    (<-fullwidth
+     ((name		  . "WHITE SPADE SUIT")
+      (=ucs		  . #x2664)	; ♤
+      ))
     ))
 (define-char
   '((name		. "BLACK HEART SUIT")
@@ -955,14 +955,14 @@
      ((name		  . "BLACK HEART SUIT")
       (=ucs		  . #x2665)	; ♥
       ))
-    (<-fullwidth
-     ((name		  . "BLACK HEART SUIT")
-      (=ucs		  . #x2665)	; ♥
-      ))
     (=ks-x1001		. #x223E)	; &JX1-263E; [02-30]
     (=jis-x0213-1-2000	. #x263E)	; &I-JX1-263E; [06-30]
     (=ucs@jis		. #x2665)	; &JX1-263E;
     (=ucs@ks		. #x2665)	; &JX1-263E;
+    (<-fullwidth
+     ((name		  . "BLACK HEART SUIT")
+      (=ucs		  . #x2665)	; ♥
+      ))
     ))
 (define-char
   '((name		. "BLACK DIAMOND SUIT")
@@ -976,12 +976,12 @@
      ((name		  . "BLACK DIAMOND SUIT")
       (=ucs		  . #x2666)	; ♦
       ))
+    (=jis-x0213-1-2000	. #x263C)	; &JX1-263C; [06-28]
+    (=ucs@jis		. #x2666)	; &JX1-263C;
     (<-fullwidth
      ((name		  . "BLACK DIAMOND SUIT")
       (=ucs		  . #x2666)	; ♦
       ))
-    (=jis-x0213-1-2000	. #x263C)	; &JX1-263C; [06-28]
-    (=ucs@jis		. #x2666)	; &JX1-263C;
     ))
 (define-char
   '((name		. "WHITE CLUB SUIT")
@@ -995,15 +995,15 @@
      ((name		  . "WHITE CLUB SUIT")
       (=ucs		  . #x2667)	; ♧
       ))
-    (<-fullwidth
-     ((name		  . "WHITE CLUB SUIT")
-      (=ucs		  . #x2667)	; ♧
-      ))
     (=ks-x1001		. #x223F)	; &JX1-263F; [02-31]
     (=jis-x0213-1-2000	. #x263F)	; &I-JX1-263F; [06-31]
     (=jef-china3	. #x76B5)	; &I-JC3-76B5;
     (=ucs@jis		. #x2667)	; &JX1-263F;
     (=ucs@ks		. #x2667)	; &JX1-263F;
+    (<-fullwidth
+     ((name		  . "WHITE CLUB SUIT")
+      (=ucs		  . #x2667)	; ♧
+      ))
     ))
 (define-char
   '((name		. "HOT SPRINGS")
@@ -1017,14 +1017,14 @@
      ((name		  . "HOT SPRINGS")
       (=ucs		  . #x2668)	; ♨
       ))
-    (<-fullwidth
-     ((name		  . "HOT SPRINGS")
-      (=ucs		  . #x2668)	; ♨
-      ))
     (=ks-x1001		. #x224D)	; &JX1-266C; [02-45]
     (=jis-x0213-1-2000	. #x266C)	; &I-JX1-266C; [06-76]
     (=ucs@jis		. #x2668)	; &JX1-266C;
     (=ucs@ks		. #x2668)	; &JX1-266C;
+    (<-fullwidth
+     ((name		  . "HOT SPRINGS")
+      (=ucs		  . #x2668)	; ♨
+      ))
     ))
 (define-char
   '((name		. "QUARTER NOTE")
@@ -1038,14 +1038,14 @@
      ((name		  . "QUARTER NOTE")
       (=ucs		  . #x2669)	; ♩
       ))
-    (<-fullwidth
-     ((name		  . "QUARTER NOTE")
-      (=ucs		  . #x2669)	; ♩
-      ))
     (=ks-x1001		. #x225B)	; &JX1-227D; [02-59]
     (=jis-x0213-1-2000	. #x227D)	; &I-JX1-227D; [02-93]
     (=ucs@jis		. #x2669)	; &JX1-227D;
     (=ucs@ks		. #x2669)	; &JX1-227D;
+    (<-fullwidth
+     ((name		  . "QUARTER NOTE")
+      (=ucs		  . #x2669)	; ♩
+      ))
     ))
 (define-char
   '((name		. "EIGHTH NOTE")
@@ -1059,15 +1059,15 @@
      ((name		  . "EIGHTH NOTE")
       (=ucs		  . #x266A)	; ♪
       ))
-    (<-fullwidth
-     ((name		  . "EIGHTH NOTE")
-      (=ucs		  . #x266A)	; ♪
-      ))
     (=jis-x0208@1983	. #x2276)	; &J90-2276; [02-86]
     (=ks-x1001		. #x225C)	; &I-K0-225C; [02-60]
     (=jis-x0208@1990	. #x2276)	; &I-J90-2276; [02-86]
     (=ucs@jis		. #x266A)	; &J90-2276;
     (=ucs@ks		. #x266A)	; &J90-2276;
+    (<-fullwidth
+     ((name		  . "EIGHTH NOTE")
+      (=ucs		  . #x266A)	; ♪
+      ))
     ))
 (define-char
   '((name		. "BEAMED EIGHTH NOTES")
@@ -1081,12 +1081,12 @@
      ((name		  . "BEAMED EIGHTH NOTES")
       (=ucs		  . #x266B)	; ♫
       ))
+    (=jis-x0213-1-2000	. #x227B)	; &JX1-227B; [02-91]
+    (=ucs@jis		. #x266B)	; &JX1-227B;
     (<-fullwidth
      ((name		  . "BEAMED EIGHTH NOTES")
       (=ucs		  . #x266B)	; ♫
       ))
-    (=jis-x0213-1-2000	. #x227B)	; &JX1-227B; [02-91]
-    (=ucs@jis		. #x266B)	; &JX1-227B;
     ))
 (define-char
   '((name		. "BEAMED SIXTEENTH NOTES")
@@ -1100,14 +1100,14 @@
      ((name		  . "BEAMED SIXTEENTH NOTES")
       (=ucs		  . #x266C)	; ♬
       ))
-    (<-fullwidth
-     ((name		  . "BEAMED SIXTEENTH NOTES")
-      (=ucs		  . #x266C)	; ♬
-      ))
     (=ks-x1001		. #x225D)	; &JX1-227C; [02-61]
     (=jis-x0213-1-2000	. #x227C)	; &I-JX1-227C; [02-92]
     (=ucs@jis		. #x266C)	; &JX1-227C;
     (=ucs@ks		. #x266C)	; &JX1-227C;
+    (<-fullwidth
+     ((name		  . "BEAMED SIXTEENTH NOTES")
+      (=ucs		  . #x266C)	; ♬
+      ))
     ))
 (define-char
   '((name		. "MUSIC FLAT SIGN")
@@ -1121,15 +1121,15 @@
      ((name		  . "MUSIC FLAT SIGN")
       (=ucs		  . #x266D)	; ♭
       ))
-    (<-fullwidth
-     ((name		  . "MUSIC FLAT SIGN")
-      (=ucs		  . #x266D)	; ♭
-      ))
     (=jis-x0208@1983	. #x2275)	; &J90-2275; [02-85]
     (=ks-x1001		. #x225A)	; &I-K0-225A; [02-58]
     (=jis-x0208@1990	. #x2275)	; &I-J90-2275; [02-85]
     (=ucs@jis		. #x266D)	; &J90-2275;
     (=ucs@ks		. #x266D)	; &J90-2275;
+    (<-fullwidth
+     ((name		  . "MUSIC FLAT SIGN")
+      (=ucs		  . #x266D)	; ♭
+      ))
     ))
 (define-char
   '((name		. "MUSIC NATURAL SIGN")
@@ -1143,12 +1143,12 @@
      ((name		  . "MUSIC NATURAL SIGN")
       (=ucs		  . #x266E)	; ♮
       ))
+    (=jis-x0213-1-2000	. #x227A)	; &JX1-227A; [02-90]
+    (=ucs@jis		. #x266E)	; &JX1-227A;
     (<-fullwidth
      ((name		  . "MUSIC NATURAL SIGN")
       (=ucs		  . #x266E)	; ♮
       ))
-    (=jis-x0213-1-2000	. #x227A)	; &JX1-227A; [02-90]
-    (=ucs@jis		. #x266E)	; &JX1-227A;
     ))
 (define-char
   '((name		. "MUSIC SHARP SIGN")
@@ -1162,13 +1162,13 @@
      ((name		  . "MUSIC SHARP SIGN")
       (=ucs		  . #x266F)	; ♯
       ))
+    (=jis-x0208@1983	. #x2274)	; &J90-2274; [02-84]
+    (=jis-x0208@1990	. #x2274)	; &I-J90-2274; [02-84]
+    (=ucs@jis		. #x266F)	; &J90-2274;
     (<-fullwidth
      ((name		  . "MUSIC SHARP SIGN")
       (=ucs		  . #x266F)	; ♯
       ))
-    (=jis-x0208@1983	. #x2274)	; &J90-2274; [02-84]
-    (=jis-x0208@1990	. #x2274)	; &I-J90-2274; [02-84]
-    (=ucs@jis		. #x266F)	; &J90-2274;
     ))
 (define-char
   '((name		. "WEST SYRIAC CROSS")

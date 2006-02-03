@@ -245,10 +245,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN CAPITAL LETTER I")
-      (=ucs		  . #x0049)	; I
-      ))
     (=ucs		. #x2160)	; Ⅰ
     (=gb2312		. #x2271)	; &I-G0-2271; [02-81]
     (=ks-x1001		. #x2530)	; &I-K0-2530; [05-16]
@@ -256,6 +252,10 @@
     (=jis-x0213-1-2000	. #x2D35)	; &I-JX1-2D35; [13-21]
     (=big5		. #xA2B9)	; &I-B-A2B9;
     (=jef-china3	. #x77DE)	; &I-JC3-77DE;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER I")
+      (=ucs		  . #x0049)	; I
+      ))
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE")
       (=ucs		  . #x2170)	; ⅰ
@@ -345,10 +345,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN CAPITAL LETTER V")
-      (=ucs		  . #x0056)	; V
-      ))
     (=ucs		. #x2164)	; Ⅴ
     (=gb2312		. #x2275)	; &I-G0-2275; [02-85]
     (=ks-x1001		. #x2534)	; &I-K0-2534; [05-20]
@@ -356,6 +352,10 @@
     (=jis-x0213-1-2000	. #x2D39)	; &I-JX1-2D39; [13-25]
     (=big5		. #xA2BD)	; &I-B-A2BD;
     (=jef-china3	. #x77E2)	; &I-JC3-77E2;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER V")
+      (=ucs		  . #x0056)	; V
+      ))
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIVE")
       (=ucs		  . #x2174)	; ⅴ
@@ -476,10 +476,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN CAPITAL LETTER X")
-      (=ucs		  . #x0058)	; X
-      ))
     (=ucs		. #x2169)	; Ⅹ
     (=gb2312		. #x227A)	; &I-G0-227A; [02-90]
     (=ks-x1001		. #x2539)	; &I-K0-2539; [05-25]
@@ -487,6 +483,10 @@
     (=jis-x0213-1-2000	. #x2D3E)	; &I-JX1-2D3E; [13-30]
     (=big5		. #xA2C2)	; &I-B-A2C2;
     (=jef-china3	. #x77E7)	; &I-JC3-77E7;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN CAPITAL LETTER X")
+      (=ucs		  . #x0058)	; X
+      ))
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL TEN")
       (=ucs		  . #x2179)	; ⅹ
@@ -543,11 +543,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
+    (=ucs		. #x216C)	; Ⅼ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
-    (=ucs		. #x216C)	; Ⅼ
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIFTY")
       (=ucs		  . #x217C)	; ⅼ
@@ -559,11 +559,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
+    (=ucs		. #x216D)	; Ⅽ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
-    (=ucs		. #x216D)	; Ⅽ
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE HUNDRED")
       (=ucs		  . #x217D)	; ⅽ
@@ -575,11 +575,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
+    (=ucs		. #x216E)	; Ⅾ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       ))
-    (=ucs		. #x216E)	; Ⅾ
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL FIVE HUNDRED")
       (=ucs		  . #x217E)	; ⅾ
@@ -591,11 +591,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
+    (=ucs		. #x216F)	; Ⅿ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
-    (=ucs		. #x216F)	; Ⅿ
     (->lowercase
      ((name		  . "SMALL ROMAN NUMERAL ONE THOUSAND")
       (=ucs		  . #x217F)	; ⅿ
@@ -607,16 +607,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN SMALL LETTER I")
-      (=ucs		  . #x0069)	; i
-      ))
     (=ucs		. #x2170)	; ⅰ
     (=ks-x1001		. #x2521)	; &I-K0-2521; [05-01]
     (=cns11643-1	. #x2635)	; &I-C1-2635; [06-21]
     (=jis-x0213-1-2000	. #x2C35)	; &I-JX1-2C35; [12-21]
     (=big5-eten		. #xC6B5)	; &B-C6B5;
     (=jef-china3	. #x77EB)	; &I-JC3-77EB;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER I")
+      (=ucs		  . #x0069)	; i
+      ))
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE")
       (=ucs		  . #x2160)	; Ⅰ
@@ -703,16 +703,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN SMALL LETTER V")
-      (=ucs		  . #x0076)	; v
-      ))
     (=ucs		. #x2174)	; ⅴ
     (=ks-x1001		. #x2525)	; &I-K0-2525; [05-05]
     (=cns11643-1	. #x2639)	; &I-C1-2639; [06-25]
     (=jis-x0213-1-2000	. #x2C39)	; &I-JX1-2C39; [12-25]
     (=big5-eten		. #xC6B9)	; &B-C6B9;
     (=jef-china3	. #x77EF)	; &I-JC3-77EF;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER V")
+      (=ucs		  . #x0076)	; v
+      ))
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIVE")
       (=ucs		  . #x2164)	; Ⅴ
@@ -829,16 +829,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (<-compat/Roman-Numeral
-     ((name		  . "LATIN SMALL LETTER X")
-      (=ucs		  . #x0078)	; x
-      ))
     (=ucs		. #x2179)	; ⅹ
     (=ks-x1001		. #x252A)	; &I-K0-252A; [05-10]
     (=cns11643-1	. #x263E)	; &I-C1-263E; [06-30]
     (=jis-x0213-1-2000	. #x2C3E)	; &I-JX1-2C3E; [12-30]
     (=big5-eten		. #xC6BE)	; &B-C6BE;
     (=jef-china3	. #x77F4)	; &I-JC3-77F4;
+    (<-compat/Roman-Numeral
+     ((name		  . "LATIN SMALL LETTER X")
+      (=ucs		  . #x0078)	; x
+      ))
     (->uppercase
      ((name		  . "ROMAN NUMERAL TEN")
       (=ucs		  . #x2169)	; Ⅹ
@@ -893,11 +893,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
+    (=ucs		. #x217C)	; ⅼ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
-    (=ucs		. #x217C)	; ⅼ
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIFTY")
       (=ucs		  . #x216C)	; Ⅼ
@@ -909,11 +909,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
+    (=ucs		. #x217D)	; ⅽ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
       ))
-    (=ucs		. #x217D)	; ⅽ
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE HUNDRED")
       (=ucs		  . #x216D)	; Ⅽ
@@ -925,11 +925,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 500)
+    (=ucs		. #x217E)	; ⅾ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       ))
-    (=ucs		. #x217E)	; ⅾ
     (->uppercase
      ((name		  . "ROMAN NUMERAL FIVE HUNDRED")
       (=ucs		  . #x216E)	; Ⅾ
@@ -941,11 +941,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1000)
+    (=ucs		. #x217F)	; ⅿ
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
       ))
-    (=ucs		. #x217F)	; ⅿ
     (->uppercase
      ((name		  . "ROMAN NUMERAL ONE THOUSAND")
       (=ucs		  . #x216F)	; Ⅿ

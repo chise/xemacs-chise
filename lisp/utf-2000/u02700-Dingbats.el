@@ -116,12 +116,12 @@
      ((name		  . "CHECK MARK")
       (=ucs		  . #x2713)	; ✓
       ))
+    (=jis-x0213-1-2000	. #x277B)	; &JX1-277B; [07-91]
+    (=ucs@jis		. #x2713)	; &JX1-277B;
     (<-fullwidth
      ((name		  . "CHECK MARK")
       (=ucs		  . #x2713)	; ✓
       ))
-    (=jis-x0213-1-2000	. #x277B)	; &JX1-277B; [07-91]
-    (=ucs@jis		. #x2713)	; &JX1-277B;
     ))
 (define-char
   '((name		. "HEAVY CHECK MARK")
@@ -415,12 +415,12 @@
      ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
       (=ucs		  . #x273D)	; ✽
       ))
+    (=big5-eten		. #xC6E6)	; &B-C6E6;
+    (=ucs@big5		. #x273D)	; &B-C6E6;
     (<-fullwidth
      ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
       (=ucs		  . #x273D)	; ✽
       ))
-    (=big5-eten		. #xC6E6)	; &B-C6E6;
-    (=ucs@big5		. #x273D)	; &B-C6E6;
     ))
 (define-char
   '((name		. "SIX PETALLED BLACK AND WHITE FLORETTE")
@@ -567,12 +567,12 @@
      ((name		  . "BLACK DIAMOND MINUS WHITE X")
       (=ucs		  . #x2756)	; ❖
       ))
+    (=jis-x0213-1-2000	. #x2D7D)	; &JX1-2D7D; [13-93]
+    (=ucs@jis		. #x2756)	; &JX1-2D7D;
     (<-fullwidth
      ((name		  . "BLACK DIAMOND MINUS WHITE X")
       (=ucs		  . #x2756)	; ❖
       ))
-    (=jis-x0213-1-2000	. #x2D7D)	; &JX1-2D7D; [13-93]
-    (=ucs@jis		. #x2756)	; &JX1-2D7D;
     ))
 (define-char
   '((name		. "LIGHT VERTICAL BAR")

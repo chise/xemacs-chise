@@ -24,15 +24,15 @@
     (ideographic-radical . 205)	; ⿌
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (=ucs		. #x2FA18)	; 黾
+    (=cns11643-4	. #x2834)	; &I-C4-2834; [08-20]
+    (=daikanwa		. 48258)	; &I-M-48258;
     (<-vulgar
      ((=jis-x0208	  . #x7366)	; &M-48257; [83-70]
       (=daikanwa	  . 48257)	; &I-M-48257;
       ))
     (<-vulgar*sources
-     zhengzi-tong daikanwa)
-    (=ucs		. #x2FA18)	; 黾
-    (=cns11643-4	. #x2834)	; &I-C4-2834; [08-20]
-    (=daikanwa		. 48258)	; &I-M-48258;
+     zhengzitong daikanwa)
     ))
 (define-char
   '((=>daikanwa		. 48258)	; 黾
@@ -41,13 +41,13 @@
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 5)
     (total-strokes	 . 8)
-    (<-simplified@CN
-     ((=gb12345		  . #x763C)	; &GT-65951; [86-28]
-      ))
     (=ucs		. #x9EFE)	; 黾
     (=gb2312		. #x763C)	; &I-G0-763C; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
     (mojikyo		. 051084)	; &MCS-6000C78C;
+    (<-simplified@CN
+     ((=gb12345		  . #x763C)	; &GT-65951; [86-28]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -57,10 +57,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EEA)	; ⻪
     (<-identical@component
      ((=ucs		  . #x9EFE)	; 黾
       ))
-    (=ucs		. #x2EEA)	; ⻪
     ))
 (define-char
   '((ideographic-radical . 205)	; ⿌

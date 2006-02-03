@@ -27,22 +27,16 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x4E8C)	; 二
-      ))
     (=gt-k		. 00083)	; &GT-K00083;
     (=gt-pj-k1		. #x3B78)	; &GT-K00083; [27-88]
+    (<-formed@component
+     ((=ucs		  . #x4E8C)	; 二
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-ancient
-     ((=ucs		  . #x4E0A)	; 上
-      (=daikanwa	  . 00013)	; &I-M-00013;
-      ))
-    (<-ancient*sources
-     zhengzitong daikanwa)
     (hanyu-dazidian	1 2 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -58,17 +52,17 @@
     (=gt-pj-2		. #x322C)	; &I-GT-00328; [18-12]
     (=daikanwa		. 00248)	; &I-M-00248;
     (mojikyo		. 000248)	; &MCS-600000F8;
+    (<-ancient
+     ((=ucs		  . #x4E0A)	; 上
+      (=daikanwa	  . 00013)	; &I-M-00013;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-ancient
-     ((=ucs		  . #x4E0B)	; 下
-      (=daikanwa	  . 00014)	; &I-M-00014;
-      ))
-    (<-ancient*sources
-     zhengzitong daikanwa)
     (hanyu-dazidian	1 2 3)
     (=ucs		. #x2011F)	; 𠄟
     (=cns11643-6	. #x2128)	; &I-C6-2128; [01-08]
@@ -78,6 +72,12 @@
     (=gt-pj-2		. #x322D)	; &I-GT-00327; [18-13]
     (=daikanwa		. 00249)	; &I-M-00249;
     (mojikyo		. 000249)	; &MCS-600000F9;
+    (<-ancient
+     ((=ucs		  . #x4E0B)	; 下
+      (=daikanwa	  . 00014)	; &I-M-00014;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -124,11 +124,11 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x4E8D)	; 亍
-      ))
     (=gt-k		. 00327)	; &GT-K00327;
     (=gt-pj-k1		. #x3B38)	; &GT-K00327; [27-24]
+    (<-formed@component/connect-left
+     ((=ucs		  . #x4E8D)	; 亍
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -154,14 +154,6 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-original
-     ((shinjigen-1	  . 75)
-      (=ucs		  . #x4E8E)	; 于
-      (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
-      (=daikanwa	  . 00252)	; &I-M-00252;
-      ))
-    (<-original*sources
-     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 5 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -180,18 +172,19 @@
     (=gt-pj-2		. #x3230)	; &I-GT-00332; [18-16]
     (=daikanwa		. 00253)	; &I-M-00253;
     (mojikyo		. 000253)	; &MCS-600000FD;
+    (<-original
+     ((shinjigen-1	  . 75)
+      (=ucs		  . #x4E8E)	; 于
+      (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
+      (=daikanwa	  . 00252)	; &I-M-00252;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-formed
-     ((shinjigen-1	  . 75)
-      (=ucs		  . #x4E8E)	; 于
-      (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
-      ))
-    (<-formed*sources
-     shinjigen-1)
     (hanyu-dazidian	1 5 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -207,6 +200,13 @@
     (=big5-cdp		. #x8A42)	; &I-CDP-8A42;
     (=gt		. 00333)	; &I-GT-00333;
     (=gt-pj-9		. #x4B26)	; &I-GT-00333; [43-06]
+    (<-formed
+     ((shinjigen-1	  . 75)
+      (=ucs		  . #x4E8E)	; 于
+      (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
+      ))
+    (<-formed*sources
+     shinjigen-1)
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -698,10 +698,6 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x4E9E)	; 亞
-      (=jis-x0208	  . #x5033)	; &I-J90-5033; [48-19]
-      ))
     (hanyu-dazidian	1 21 1)
     (shinjigen-1	. 84)
     (shinjigen-2	. 84)
@@ -715,6 +711,10 @@
     (=gt-pj-1		. #x3021)	; &I-GT-00350; [16-01]
     (=daikanwa		. 00272)	; &I-M-00272;
     (mojikyo		. 000272)	; &MCS-60000110;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x4E9E)	; 亞
+      (=jis-x0208	  . #x5033)	; &I-J90-5033; [48-19]
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -745,9 +745,6 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-formed
-     ((=daikanwa	  . 38945)	; &M-38945;
-      ))
     (hanyu-dazidian	1 23 2)
     (shinjigen-1	. 85)
     (shinjigen-2	. 85)
@@ -763,6 +760,9 @@
     (=gt-pj-1		. #x5033)	; &I-GT-00357; [48-19]
     (=daikanwa		. 00274)	; &I-M-00274;
     (mojikyo		. 000274)	; &MCS-60000112;
+    (<-formed
+     ((=daikanwa	  . 38945)	; &M-38945;
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆

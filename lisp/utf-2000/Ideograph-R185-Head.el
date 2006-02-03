@@ -18,8 +18,22 @@
   '((ideographic-radical . 185)	; ⾸
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3C79)	; &M-44490; [28-89]
+    (=ucs		. #x29810)	; 𩠐
+    (=cns11643-6	. #x3C79)	; &I-C6-3C79; [28-89]
     (=daikanwa		. 44490)	; &I-M-44490;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29810)	; 𩠐
+      ))
+    (name		. "CJK RADICAL HEAD")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2EE1)	; ⻡
+    (<-identical@component
+     ((=ucs		  . #x29810)	; 𩠐
+      ))
     ))
 (define-char
   '((ideographic-radical . 185)	; ⾸

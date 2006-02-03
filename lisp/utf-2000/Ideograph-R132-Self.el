@@ -94,10 +94,6 @@
     (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA5C)	; 臭
-      (=jis-x0213-1-2000  . #x7A58)	; &I-JX1-7A58; [90-56]
-      ))
     (=jis-x0208		. #x3D2D)	; &GT-38944; [29-13]
     (=gt		. 38944)	; &I-GT-38944;
     (=gt-k		. 05097)	; &I-GT-K05097;
@@ -105,12 +101,18 @@
     (=jef-china3	. #x60E3)	; &I-JC3-60E3;
     (=ucs@jis		. #x81ED)	; &GT-38944;
     (mojikyo		. 050380)	; &MCS-6000C4CC;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA5C)	; 臭
+      (=jis-x0213-1-2000  . #x7A58)	; &I-JX1-7A58; [90-56]
+      ))
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=daikanwa		. 30104)	; &M-30104;
+    (=ucs		. #x26901)	; 𦤁
+    (=daikanwa		. 30104)	; &I-M-30104;
+    (=hanziku-8		. #xCDCE)	; &I-HZK08-CDCE;
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃

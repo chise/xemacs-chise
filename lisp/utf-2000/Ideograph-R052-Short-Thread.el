@@ -23,20 +23,20 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2E93)	; ⺓
     (<-identical@component
      ((=ucs		  . #x5E7A)	; 幺
       ))
-    (=ucs		. #x2E93)	; ⺓
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-simplified
-     ((=ucs		  . #x5E7A)	; 幺
-      ))
     (=big5-cdp		. #x895C)	; &CDP-895C;
     (mojikyo		. 072135)	; &MCS-600119C7;
+    (<-simplified@component
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
@@ -147,7 +147,13 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=daikanwa		. 09199)	; &M-09199;
+    (=ucs		. #x221BA)	; 𢆺
+    (->subsumptive
+     ((=daikanwa	  . 09199)	; &M-09199;
+      )
+     ((=hanziku-3	  . #xDF6F)	; &HZK03-DF6F;
+      (=ucs@iso		  . #x221BA)	; &HZK03-DF6F;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 52)	; ⼳
@@ -159,6 +165,10 @@
     (ideographic-radical@cns*sources
      daikanwa=01775 cns11643)
     (total-strokes	 . 8)
+    (hanyu-dazidian	2 1094 6)
+    (=ucs		. #x221BB)	; 𢆻
+    (=cns11643-6	. #x295E)	; &I-C6-295E; [09-62]
+    (=hanziku-3		. #xDF74)	; &I-HZK03-DF74;
     (<-ancient
      ((=jis-x0208	  . #x3476)	; &M-09208; [20-86]
       (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
@@ -166,10 +176,6 @@
       ))
     (<-ancient*sources
      yupian jiyun daikanwa)
-    (hanyu-dazidian	2 1094 6)
-    (=ucs		. #x221BB)	; 𢆻
-    (=cns11643-6	. #x295E)	; &I-C6-295E; [09-62]
-    (=hanziku-3		. #xDF74)	; &I-HZK03-DF74;
     (->subsumptive
      ((=daikanwa	  . 01775)	; &M-01775;
       )

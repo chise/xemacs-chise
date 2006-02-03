@@ -1,3 +1,16 @@
+2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (install-arch-indep): Modify code to make the
+	symbolic link for chise-db-directory/db to avoid error in
+	GNU/Linux.
+
+2005-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in:
+	- Add new option `--with-concord'.
+	- Add code to detect libconcord.
+	- define `HAVE_CONCORD' if the concord feature is enabled.
+
 2005-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Makefile.in.in (install-arch-indep): As the symbolic link for

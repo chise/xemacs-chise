@@ -240,47 +240,53 @@
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 10)
-    (total-strokes	 . 20)
     (=ucs		. #x4C17)	; 䰗
-    (=cns11643-7	. #x517D)	; &I-C7-517D; [49-93]
-    (=daikanwa		. 45648)	; &I-M-45648;
     ))
 (define-char
-  '((=>ucs		. #x4C17)	; 䰗
-    (morohashi-daikanwa	45648 0 9)
+  '((<-denotational
+     ((=ucs		  . #x4C17)	; 䰗
+      ))
+    (ideographic-radical . 191)	; ⾾
+    (ideographic-strokes . 10)
+    (total-strokes	 . 20)
+    (->subsumptive
+     ((=daikanwa	  . 45648)	; &M-45648;
+      )
+     ((=ucs@unicode	  . #x4C17)	; &UU+4C17;
+      )
+     ((=cns11643-7	  . #x517D)	; &C7-517D; [49-93]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4C17)	; 䰗
+      ))
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 11)
-    (total-strokes	 . 20)
+    (total-strokes	 . 21)
+    (sound@ja/kun/name	"kuzi" "kuti" "^guti")
+    (sound@ja/kun/place "kuzi" "kuzu")
     (=jis-x0213-1-2000	. #x7E3E)	; &JX1-7E3E; [94-30]
+    (=jef-china3	. #x6EB8)	; &I-JC3-6EB8;
     (=ucs@jis		. #x4C17)	; &JX1-7E3E;
     ))
 (define-char
-  '((=>ucs		. #x9B2A)	; 鬪
-    (ideographic-radical . 191)	; ⾾
+  '((ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
-    (=daikanwa		. 45649)	; &M-45649;
-    ))
-(define-char
-  '((morohashi-daikanwa	45649 0 0)
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 10)
-    (total-strokes	 . 20)
-    (shinjigen-2	. 9498)
     (=ucs		. #x9B2A)	; 鬪
-    (=jis-x0208		. #x722C)	; &I-J90-722C; [82-12]
-    (=ks-x1001		. #x7763)	; &I-K0-7763; [87-67]
-    (=gt		. 61402)	; &I-GT-61402;
-    (=gt-pj-1		. #x722C)	; &I-GT-61402; [82-12]
-    ))
-(define-char
-  '((=>ucs		. #x9B2A)	; 鬪
-    (morohashi-daikanwa	45649 0 1)
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 10)
-    (total-strokes	 . 20)
-    (=cns11643-3	. #x5D62)	; &C3-5D62; [61-66]
+    (->subsumptive
+     ((=daikanwa	  . 45649)	; &M-45649;
+      )
+     ((shinjigen-2	  . 9498)
+      (=jis-x0208	  . #x722C)	; &GT-61402; [82-12]
+      (=ks-x1001	  . #x7763)	; &I-K0-7763; [87-67]
+      (=gt		  . 61402)	; &I-GT-61402;
+      (=gt-pj-1		  . #x722C)	; &I-GT-61402; [82-12]
+      (=ucs@unicode	  . #x9B2A)	; &GT-61402;
+      )
+     ((=cns11643-3	  . #x5D62)	; &C3-5D62; [61-66]
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	45649 1)
@@ -288,17 +294,16 @@
     (ideographic-radical@daikanwa . 191)	; ⾾
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9B2D)	; 鬭
-      (=jis-x0212	  . #x6A32)	; &I-JSP-6A32; [74-18]
-      (=jis-x0213-1-2000  . #x7E3F)	; &I-JX1-7E3F; [94-31]
-      ))
     (=ucs		. #x95D8)	; 闘
     (=jis-x0208		. #x462E)	; &I-J90-462E; [38-14]
     (=cns11643-3	. #x594A)	; &I-C3-594A; [57-42]
     (=gt		. 61399)	; &I-GT-61399;
     (=gt-pj-1		. #x462E)	; &I-GT-61399; [38-14]
     (mojikyo		. 050601)	; &MCS-6000C5A9;
+    (<-simplified@JP/Jouyou
+     ((=jis-x0212	  . #x6A32)	; &CB10823; [74-18]
+      (=jis-x0213-1-2000  . #x7E3F)	; &I-JX1-7E3F; [94-31]
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -308,19 +313,32 @@
     (=daikanwa		. 45650)	; &I-M-45650;
     ))
 (define-char
-  '((=>ucs		. #x4C18)	; 䰘
+  '((ideographic-radical . 191)	; ⾾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
+    (=ucs		. #x4C18)	; 䰘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4C18)	; 䰘
+      ))
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
     (=daikanwa		. 45651)	; &M-45651;
     ))
 (define-char
-  '((morohashi-daikanwa	45651 0 2)
+  '((<-denotational
+     ((=ucs		  . #x4C18)	; 䰘
+      ))
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=ucs		. #x4C18)	; 䰘
-    (=cns11643-5	. #x7241)	; &I-C5-7241; [82-33]
+    (->subsumptive
+     ((=ucs@unicode	  . #x4C18)	; &UU+4C18;
+      )
+     ((=cns11643-5	  . #x7241)	; &C5-7241; [82-33]
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -337,13 +355,32 @@
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
+    (=ucs		. #x9B2B)	; 鬫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9B2B)	; 鬫
+      ))
+    (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (=ucs		. #x9B2B)	; 鬫
-    (=jis-x0212		. #x6A31)	; &I-JSP-6A31; [74-17]
-    (=cns11643-2	. #x6E53)	; &I-C2-6E53; [78-51]
-    (=jis-x0213-2-2000	. #x7D3C)	; &I-JX2-7D3C; [93-28]
-    (=daikanwa		. 45653)	; &I-M-45653;
+    (->subsumptive
+     ((=daikanwa	  . 45653)	; &M-45653;
+      )
+     ((=jis-x0212	  . #x6A31)	; &JX2-7D3C; [74-17]
+      (=cns11643-2	  . #x6E53)	; &I-C2-6E53; [78-51]
+      (=jis-x0213-2-2000  . #x7D3C)	; &I-JX2-7D3C; [93-28]
+      (=ucs@jis		  . #x9B2B)	; &JX2-7D3C;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9B2B)	; 鬫
+      ))
+    (ideographic-radical . 191)	; ⾾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
+    (=ucs@unicode	. #x9B2B)	; &UU+9B2B;
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -373,22 +410,20 @@
     (=daikanwa		. 45656)	; &I-M-45656;
     ))
 (define-char
-  '((=>ucs		. #x9B2D)	; 鬭
-    (ideographic-radical . 191)	; ⾾
-    (ideographic-strokes . 14)
-    (total-strokes	 . 25)
-    (=daikanwa		. 45657)	; &M-45657;
-    ))
-(define-char
-  '((morohashi-daikanwa	45657 0 0)
-    (ideographic-radical . 191)	; ⾾
+  '((ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 14)
     (total-strokes	 . 25)
     (=ucs		. #x9B2D)	; 鬭
-    (=jis-x0212		. #x6A32)	; &I-JSP-6A32; [74-18]
-    (=cns11643-4	. #x6D37)	; &I-C4-6D37; [77-23]
-    (=jis-x0213-1-2000	. #x7E3F)	; &I-JX1-7E3F; [94-31]
-    (=cbeta		. 10823)	; &I-CB10823;
+    (->subsumptive
+     ((=daikanwa	  . 45657)	; &M-45657;
+      )
+     ((=jis-x0212	  . #x6A32)	; &CB10823; [74-18]
+      (=jis-x0213-1-2000  . #x7E3F)	; &I-JX1-7E3F; [94-31]
+      (=cbeta		  . 10823)	; &I-CB10823;
+      (=ucs@unicode	  . #x9B2D)	; &CB10823;
+      )
+     ((=cns11643-4	  . #x6D37)	; &C4-6D37; [77-23]
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -408,7 +443,11 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 24)
     (=ucs		. #x9B2C)	; 鬬
-    (=cns11643-3	. #x612E)	; &I-C3-612E; [65-14]
+    (->subsumptive
+     ((=ucs@unicode	  . #x9B2C)	; &UU+9B2C;
+      )
+     ((=cns11643-3	  . #x612E)	; &C3-612E; [65-14]
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾

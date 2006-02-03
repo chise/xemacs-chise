@@ -48,11 +48,11 @@
     (ideographic-radical@unicode . 10)	; ⼉
     (ideographic-strokes@unicode . 1)
     (total-strokes	 . 3)
+    (=ucs		. #xFA0C)	; 兀
+    (=big5		. #xC94A)	; &I-B-C94A;
     (<-unknown
      ((=daikanwa	  . 07542)	; &M-07542;
       ))
-    (=ucs		. #xFA0C)	; 兀
-    (=big5		. #xC94A)	; &I-B-C94A;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -479,7 +479,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516C)	; &GT-01893;
+       ((=gb2312	    . #x392B)	; &GT-01893; [25-11]
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
@@ -792,10 +792,6 @@
       ))
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA32)	; 免
-      (=jis-x0213-1-2000  . #x2E50)	; &I-JX1-2E50; [14-48]
-      ))
     (shinjigen-1	. 470)
     (shinjigen-2	. 470)
     (=jis-x0208		. #x4C48)	; &GT-01783; [44-40]
@@ -804,6 +800,10 @@
     (=gt-pj-1		. #x4C48)	; &I-GT-01783; [44-40]
     (=ucs@jis		. #x514D)	; &GT-01783;
     (mojikyo		. 054386)	; &MCS-6000D472;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA32)	; 免
+      (=jis-x0213-1-2000  . #x2E50)	; &I-JX1-2E50; [14-48]
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -950,10 +950,6 @@
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5152)	; 兒
-      (=jis-x0208	  . #x513B)	; &I-J90-513B; [49-27]
-      ))
     (hanyu-dazidian	1 270 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -977,6 +973,10 @@
     (=daikanwa		. 01364)	; &I-M-01364;
     (=hanziku-1		. #xDDC6)	; &I-HZK01-DDC6;
     (mojikyo		. 001364)	; &MCS-60000554;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5152)	; 兒
+      (=jis-x0208	  . #x513B)	; &I-J90-513B; [49-27]
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -1523,10 +1523,6 @@
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EE8)	; 黨
-      (=jis-x0208	  . #x735E)	; &I-J90-735E; [83-62]
-      ))
     (hanyu-dazidian	1 273 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1549,6 +1545,10 @@
     (=gt-pj-1		. #x455E)	; &I-GT-01799; [37-62]
     (=daikanwa		. 01381)	; &I-M-01381;
     (mojikyo		. 001381)	; &MCS-60000565;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x9EE8)	; 黨
+      (=jis-x0208	  . #x735E)	; &I-J90-735E; [83-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -2659,7 +2659,7 @@
       )
      ((=ucs		  . #x5149)	; 光
       )
-     ((=ucs@unicode	  . #x862D)	; &UU+862D;
+     ((=ks-x1001	  . #x5535)	; &GT-43788; [53-21]
       ))
     (=hanziku-1		. #xDED9)	; &HZK01-DED9;
     ))

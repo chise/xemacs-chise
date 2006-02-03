@@ -1,3 +1,22 @@
+2005-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c: New file.
+
+2005-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (enum lrecord_type): Add `lrecord_type_concord_ds' and
+	`lrecord_type_concord_object'.
+
+2005-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* symsinit.h (syms_of_concord): New prototype.
+	(vars_of_concord): New prototype.
+
+	* emacs.c (main_1): Setup symbols and variable about concord if
+	HAVE_CONCORD is defined.
+
+	* config.h.in (HAVE_CONCORD): New macro.
+
 2005-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): For each character relation

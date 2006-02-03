@@ -17,6 +17,15 @@
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8B7C)	; &CDP-8B7C;
+    (<-simplified@component
+     ((=ucs		  . #x826E)	; 艮
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x826F)	; 良
@@ -40,18 +49,13 @@
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
-     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=daikanwa	  . 30597)	; &I-M-30597;
-      ))
-    (<-simplified
-     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=daikanwa	  . 30597)	; &I-M-30597;
-      ))
     (=big5-cdp		. #x8C42)	; &CDP-8C42;
     (mojikyo		. 075143)	; &MCS-60012587;
+    (<-simplified@component
+     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
+      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
+      (=daikanwa	  . 30597)	; &I-M-30597;
+      ))
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉

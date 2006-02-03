@@ -100,11 +100,11 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "tsek tar")
+    (=ucs		. #x0F0C)	; ༌
     (<-noBreak
      ((name		  . "TIBETAN MARK INTERSYLLABIC TSHEG")
       (=ucs		  . #x0F0B)	; ་
       ))
-    (=ucs		. #x0F0C)	; ༌
     ))
 (define-char
   '((name		. "TIBETAN MARK SHAD")

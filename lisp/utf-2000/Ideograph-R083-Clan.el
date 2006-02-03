@@ -58,10 +58,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2EA0)	; ⺠
     (<-identical@component
      ((=ucs		  . #x6C11)	; 民
       ))
-    (=ucs		. #x2EA0)	; ⺠
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
