@@ -1,5 +1,7 @@
 2006-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (U-00023601): Use `->subsumptive'.
+
 	* Ideograph-R085-Water.el (J90-3D6D): Use `<-simplified@JP/jis'
 	instead of `<-simplified@JP' for J78-3D6D.
 	(J90-4375): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
