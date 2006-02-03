@@ -9778,7 +9778,7 @@
     (=gt-pj-1		. #x3D6D)	; &I-GT-22563; [29-77]
     (=jef-china3	. #x55AF)	; &I-JC3-55AF;
     (=ucs@unicode	. #x6E1A)	; &GT-22563;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=ucs		  . #xFA46)	; 渚
       (=jis-x0208@1978	  . #x3D6D)	; &I-J78-3D6D; [29-77]
       (=jis-x0213-1-2000  . #x7677)	; &I-JX1-7677; [86-87]
@@ -23034,7 +23034,7 @@
     (=gt-pj-1		. #x4375)	; &I-GT-23825; [35-85]
     (=jef-china3	. #x70D5)	; &I-JC3-70D5;
     (=ucs@unicode	. #x7026)	; &GT-23825;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x4375)	; &M-18670; [35-85]
       (=daikanwa	  . 18670)	; &I-M-18670;
       ))
