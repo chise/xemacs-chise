@@ -68,6 +68,7 @@
     (=gt-pj-2		. #x3021)	; &I-GT-00003; [16-01]
     (=daikanwa		. 00003)	; &I-M-00003;
     (=jef-china3	. #x41A1)	; &I-JC3-41A1;
+    (=adobe-japan1-5	. 17234)	; 丂
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER K")
       (=ucs		  . #x310E)	; ㄎ
@@ -387,6 +388,7 @@
     (=gt		. 00015)	; &I-GT-00015;
     (=gt-pj-2		. #x3028)	; &I-GT-00015; [16-08]
     (=daikanwa		. 00015)	; &I-M-00015;
+    (=adobe-japan1-5	. 19140)	; 丌
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -576,6 +578,7 @@
     (=gt-pj-2		. #x302D)	; &I-GT-00037; [16-13]
     (=daikanwa		. 00021)	; &I-M-00021;
     (=jef-china3	. #x97C5)	; &I-JC3-97C5;
+    (=adobe-japan1-5	. 17235)	; 丏
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -767,6 +770,7 @@
     (=gt-pj-2		. #x3032)	; &I-GT-00034; [16-18]
     (=daikanwa		. 00028)	; &I-M-00028;
     (=jef-china3	. #x41A8)	; &I-JC3-41A8;
+    (=adobe-japan1-5	. 17236)	; 丒
     ))
 (define-char
   '((ideographic-radical@ucs . 12)	; ⼋
