@@ -1,3 +1,19 @@
+2006-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+357B): Use `->subsumptive'.
+	(U+5485): Use `->subsumptive'.
+	(U+566B): Integrate S1-1255.
+
+2005-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (JX2-2132): Unify AJ-17246.
+
+	* Ideograph-R007-Two.el (U+5F00): Unify AJ-16854.
+	(U+4E9D): Unify AJ-17245.
+
+	* Ideograph-R002-Line.el (JX2-2125): Unify AJ-17237.
+	(U+4E2E): Unify AJ-17238.
+
 2006-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U+5BCA): Use `->subsumptive'.
