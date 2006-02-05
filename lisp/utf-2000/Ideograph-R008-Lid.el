@@ -539,6 +539,7 @@
 	(=daikanwa	    . 00296)	; &I-M-00296;
 	(=jef-china3	    . #x41D7)	; &I-JC3-41D7;
 	(=ucs@jis	    . #x342C)	; &M-00296;
+	(=adobe-japan1-5    . 17246)	; &M-00296;
 	)
        ((=ucs@unicode	    . #x342C)	; &UU+342C;
 	)
