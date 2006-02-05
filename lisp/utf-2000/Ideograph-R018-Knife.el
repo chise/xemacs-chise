@@ -2488,7 +2488,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=jis-x0213-2-2000  . #x2327)	; &GT-K01768; [03-07]
+     ((=jis-x0213-2-2000  . #x2327)	; &GT-01905; [03-07]
       )
      ((=ucs		  . #x5200)	; 刀
       ))
