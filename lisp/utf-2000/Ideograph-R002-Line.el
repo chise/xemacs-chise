@@ -31,6 +31,7 @@
       (=gt-pj-2		  . #x3054)	; &I-GT-00102; [16-52]
       (=daikanwa	  . 00068)	; &I-M-00068;
       (=ucs@unicode	  . #x4E29)	; &GT-00102;
+      (=adobe-japan1-5	  . 17237)	; &GT-00102;
       )
      ((=cns11643-4	  . #x2127)	; &GT-K00068; [01-07]
       (=gt-k		  . 00068)	; &I-GT-K00068;
@@ -195,6 +196,7 @@
     (=gt-pj-2		. #x3058)	; &I-GT-00108; [16-56]
     (=daikanwa		. 00074)	; &I-M-00074;
     (=jef-china3	. #x41AF)	; &I-JC3-41AF;
+    (=adobe-japan1-5	. 17238)	; 丮
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
