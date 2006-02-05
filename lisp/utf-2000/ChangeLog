@@ -1,3 +1,13 @@
+2006-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+4E69): Add AJ1-17244.
+	(U+4E79): Add AJ1-19143.
+
+	* Ideograph-R001-One.el (U+4E02): Add AJ1-17234.
+	(U+4E0C): Add AJ1-19140.
+	(U+4E0F): Add AJ1-17235.
+	(U+4E12): Add AJ1-17236.
+
 2006-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+357B): Use `->subsumptive'.
