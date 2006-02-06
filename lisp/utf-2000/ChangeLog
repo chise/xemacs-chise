@@ -1,5 +1,15 @@
 2006-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-5 code points.
+	(U-000200A2): Use `->denotational'.
+	(U+3406): Use `->subsumptive'.
+
+	* Ideograph-R015-Ice.el (U+34C7): Unify GT-02131, GT-K02347 and
+	AJ1-17307.
+
+	* Ideograph-R012-Eight.el (JX2-2327): Unify GT-01905 and
+	AJ1-17299.
+
 	* Ideograph-R005-Second.el (U+4E69): Add AJ1-17244.
 	(U+4E79): Add AJ1-19143.
 
