@@ -1165,6 +1165,7 @@
     (=jis-x0213-1-2000	. #x2E51)	; &I-JX1-2E51; [14-49]
     (=big5		. #xA8E1)	; &I-B-A8E1;
     (=daikanwa		. 01369)	; &I-M-01369;
+    (=adobe-japan1-5	. 16791)	; 兕
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -1336,15 +1337,17 @@
       (=daikanwa	  . 01375)	; &I-M-01375;
       (=jef-china3	  . #x43D7)	; &I-JC3-43D7;
       (=ucs@jis		  . #x5157)	; &M-01375;
+      (=adobe-japan1-5	  . 16792)	; &M-01375;
       )
      ((hanyu-dazidian	  1 273 10)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x4EA0)	; 亠
+       ((=gb2312	    . #x596F)	; &GT-00375; [57-79]
+	(=daikanwa	    . 00286)	; &I-M-00286;
 	)
-       ((=ucs		    . #x514C)	; 兌
+       ((=ucs@unicode	    . #x514C)	; &UU+514C;
 	))
       (=cns11643-1	  . #x5022)	; &C1-5022; [48-02]
       (=ucs@unicode	  . #x5157)	; &C1-5022;
@@ -1790,6 +1793,7 @@
     (=jis-x0213-2-2000	. #x2326)	; &I-JX2-2326; [03-06]
     (=daikanwa		. 01393)	; &I-M-01393;
     (=hanziku-1		. #xDEAA)	; &I-HZK01-DEAA;
+    (=adobe-japan1-5	. 17298)	; 兠
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
