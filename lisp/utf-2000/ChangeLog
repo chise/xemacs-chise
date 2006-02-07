@@ -1,5 +1,29 @@
 2006-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el (U+610B): Use `->denotational'.
+	(U+610C): Use `->denotational'.
+	(U+610E): Use `->denotational' and `->subsumptive'.
+	(U+610F): Use `->subsumptive'.
+	(U-00022743): Use `->subsumptive'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (K0-4D52): Unify JC3-6BFB.
+
+	* Ideograph-R040-Roof.el (U-00021A8F): Use `->subsumptive'.
+	(U+376C): Use `->denotational' and `->subsumptive'.
+	(JX1-2828): Use `<-subsumptive'; unify GT-09170 and AJ1-17532.
+
+	* Ideograph-R030-Mouth.el (JX2-2367): Unify GT-04288 and
+	AJ1-17348.
+	(JX2-2437): Unify GT-05050 and AJ1-17385.
+	(U+35F4): Use `->denotational' and `->subsumptive'.
+	(JX2-2442): Separate U+35F4, C4-492D and M-04277; use
+	`<-denotational' for U+35F4; unify GT-05465 and AJ1-17395.
+	(U-00020F75): Use `->denotational'.
+
+	* Ideograph-R019-Power.el (U+3524): Use `->subsumptive'.
+	(U+52F5): Use `->denotational' instead of `->subsumptive'.
+	(JX2-234A): Unify GT-03173 and AJ1-17327.
+
 	* Ideograph-R054-Long-Stride.el (JX2-2C2B): Unify GT-12059 and
 	AJ1-17605.
 
