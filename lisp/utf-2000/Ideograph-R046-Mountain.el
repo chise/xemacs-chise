@@ -2748,20 +2748,21 @@
     (=daikanwa		. 08098)	; &I-M-08098;
     ))
 (define-char
-  '((=>ucs		. #x21DE0)	; 𡷠
-    (ideographic-radical . 46)	; ⼭
-    (ideographic-strokes . 7)
-    (=jis-x0213-2-2000	. #x284A)	; &M-08099; [08-42]
-    (=daikanwa		. 08099)	; &I-M-08099;
-    (=ucs@jis		. #x21DE0)	; &M-08099;
-    ))
-(define-char
-  '((morohashi-daikanwa	8099 0 0)
-    (ideographic-radical . 46)	; ⼭
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x21DE0)	; 𡷠
-    (=cns11643-5	. #x2D31)	; &I-C5-2D31; [13-17]
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x284A)	; &GT-10222; [08-42]
+      (=gt		  . 10222)	; &I-GT-10222;
+      (=gt-pj-3		  . #x382E)	; &I-GT-10222; [24-14]
+      (=daikanwa	  . 08099)	; &I-M-08099;
+      (=ucs@jis		  . #x21DE0)	; &GT-10222;
+      (=adobe-japan1-5	  . 17561)	; &GT-10222;
+      )
+     ((=cns11643-5	  . #x2D31)	; &C5-2D31; [13-17]
+      (=ucs@unicode	  . #x21DE0)	; &C5-2D31;
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -3997,10 +3998,13 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=jis-x0213-2-2000	. #x284F)	; &M-08196; [08-47]
+    (=jis-x0213-2-2000	. #x284F)	; &GT-10335; [08-47]
+    (=gt		. 10335)	; &I-GT-10335;
+    (=gt-pj-3		. #x3923)	; &I-GT-10335; [25-03]
     (=daikanwa		. 08196)	; &I-M-08196;
     (=jef-china3	. #x4BCA)	; &I-JC3-4BCA;
-    (=ucs@jis		. #x5D1D)	; &M-08196;
+    (=ucs@jis		. #x5D1D)	; &GT-10335;
+    (=adobe-japan1-5	. 17566)	; &GT-10335;
     ))
 (define-char
   '((<-denotational
