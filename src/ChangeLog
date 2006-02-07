@@ -1,3 +1,12 @@
+2006-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (struct closure_for_each_object): Add new member
+	`ret'.
+	(func_for_each_object): Setup the return value to
+	`for_each_object_closure->ret'.
+	(Fconcord_foreach_object_in_feature): If FUNCTION returns non-nil,
+	returns the value instead of Qt.
+
 2005-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c: New file.
