@@ -595,6 +595,7 @@ struct closure_for_each_object
   Lisp_Object function;
   Lisp_Object genre;
   Lisp_Object ds;
+  Lisp_Object ret;
 } *for_each_object_closure;
 
 static int
@@ -628,6 +629,7 @@ func_for_each_object (CONCORD_String object_id,
 				 Qnil, Qnil));
 #endif
   ret = call2 (for_each_object_closure->function, obj, val);
+  for_each_object_closure->ret = ret;
   return !NILP (ret);
 }
 
@@ -673,8 +675,10 @@ When the FUNCTION returns non-nil, it breaks the repeat.
   for_each_object_closure->function = function;
   for_each_object_closure->genre = genre;
   for_each_object_closure->ds = ds;
+  for_each_object_closure->ret = Qnil;
   concord_feature_foreach_obj_string (c_feature, func_for_each_object);
-  return Qt;
+  /* return Qt; */
+  return for_each_object_closure->ret;
 }
 
 void
