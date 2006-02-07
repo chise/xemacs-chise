@@ -1,3 +1,11 @@
+2006-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R054-Long-Stride.el (JX2-2C2B): Unify GT-12059 and
+	AJ1-17605.
+
+	* Ideograph-R050-Turban.el (JX2-2C22): Unify GT-11529 and
+	AJ1-17599.
+
 2006-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (U-00021DE0): Use `->subsumptive'.
