@@ -360,7 +360,15 @@
     (=daikanwa		. 00122)	; &I-M-00122;
     ))
 (define-char
-  '((total-strokes	 . 3)
+  '((ideographic-radical@ucs . 16)	; ⼏
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa=01740 jis-x0213-2000 ucs)
+    (ideographic-radical@cns . 4)	; ⼃
+    (ideographic-strokes@cns . 2)
+    (ideographic-radical@cns*sources
+     daikanwa=00123 cns11643)
+    (total-strokes	 . 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -388,12 +396,10 @@
     (->subsumptive
      ((ideographic-radical . 4)	; ⼃
       (ideographic-strokes . 2)
-      (ideographic-radical*sources daikanwa cns11643)
       (=daikanwa	  . 00123)	; &M-00123;
       )
      ((ideographic-radical . 16)	; ⼏
       (ideographic-strokes . 1)
-      (ideographic-radical*sources daikanwa jis-x0213-2000 ucs)
       (=daikanwa	  . 01740)	; &M-01740;
       ))
     ))
