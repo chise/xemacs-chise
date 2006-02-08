@@ -1,5 +1,17 @@
 2006-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (K0-616A): Unify JC3-67BC.
+
+	* Ideograph-R055-Two-Hands.el (U+5F00): Unify AJ1-16854.
+	(JX1-7432): Add KU+5F02; unify AJ1-16855.
+	(JX2-2C2D): Unify AJ1-17607.
+	(M-09639): Unify AJ1-20171.
+
+	* Ideograph-R013-Down-Box.el (U+5183): Unify AJ1-17301.
+	(U+5184): Unify AJ1-19173.
+	(U+518B): Unify AJ1-17302.
+	(JX2-232B): Unify AJ1-17303.
+
 	* Ideograph-R051-Dry.el (U+5F00): Unify AJ1-16854.
 
 	* Ideograph-R014-Cover.el (U+5198): Unify AJ1-17304.
@@ -11,6 +23,10 @@
 	`ideographic-radical@daikanwa=01783' and
 	`ideographic-radical@daikanwa=01783*sources'.
 	(U-0002015A): Use `->subsumptive'; integrate M-00315.
+
+	* Ideograph-R004-Slash.el (U+51E2): Add
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources'.
 
 	* Ideograph-R027-Cliff.el (U+53B2): Use `->denotational'.
 	(U-00020AAF): Use `->subsumptive'.
