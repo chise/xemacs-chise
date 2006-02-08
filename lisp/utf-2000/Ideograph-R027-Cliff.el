@@ -2896,7 +2896,14 @@
     (=hanziku-1		. #xB47B)	; &I-HZK01-B47B;
     ))
 (define-char
-  '((=>ucs		. #x53B2)	; 厲
+  '((ideographic-radical . 27)	; ⼚
+    (=ucs		. #x53B2)	; 厲
+    (=big5		. #xBC46)	; &I-B-BC46;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53B2)	; 厲
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
@@ -2917,7 +2924,9 @@
     (=jef-china3	. #x45E2)	; &I-JC3-45E2;
     ))
 (define-char
-  '((morohashi-daikanwa	3041 0 2)
+  '((<-denotational
+     ((=ucs		  . #x53B2)	; 厲
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
@@ -2927,31 +2936,27 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs		  . #x842C)	; 萬
+     ((=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
+      (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
       ))
-    (=ucs		. #x53B2)	; 厲
-    (=jis-x0212		. #x3450)	; &I-JSP-3450; [20-48]
+    (=jis-x0212		. #x3450)	; &JX1-2E74; [20-48]
     (=jis-x0213-1-2000	. #x2E74)	; &I-JX1-2E74; [14-84]
-    (=gb12345		. #x4077)	; 厲 [32-87]
-    (=big5		. #xBC46)	; &I-B-BC46;
-    (=ucs@big5		. #x53B2)	; 厲
+    (=gb12345		. #x4077)	; &JX1-2E74; [32-87]
+    (=ucs@unicode	. #x53B2)	; &JX1-2E74;
     ))
 (define-char
-  '((=>ucs		. #x20AAF)	; 𠪯
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=daikanwa		. 03042)	; &M-03042;
-    ))
-(define-char
-  '((morohashi-daikanwa	3042 0 1)
-    (ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 13)
-    (total-strokes	 . 15)
-    (hanyu-dazidian	1 80 10)
     (=ucs		. #x20AAF)	; 𠪯
-    (=cns11643-5	. #x4C30)	; &I-C5-4C30; [44-16]
-    (=hanziku-1		. #xB479)	; &I-HZK01-B479;
+    (->subsumptive
+     ((=daikanwa	  . 03042)	; &M-03042;
+      )
+     ((hanyu-dazidian	  1 80 10)
+      (=cns11643-5	  . #x4C30)	; &HZK01-B479; [44-16]
+      (=hanziku-1	  . #xB479)	; &I-HZK01-B479;
+      (=ucs@iso		  . #x20AAF)	; &HZK01-B479;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -2967,13 +2972,23 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=daikanwa		. 03044)	; &M-03044;
+    (=ucs		. #x20AB7)	; 𠪷
+    (->subsumptive
+     ((hanyu-dazidian	  1 80 9)
+      (=daikanwa	  . 03044)	; &M-03044;
+      (=hanziku-1	  . #xB478)	; &I-HZK01-B478;
+      )
+     ((=ucs@iso		  . #x20AB7)	; &U-00020AB7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=daikanwa		. 03045)	; &M-03045;
+    (hanyu-dazidian	1 80 8)
+    (=ucs		. #x20AB6)	; 𠪶
+    (=daikanwa		. 03045)	; &I-M-03045;
+    (=hanziku-1		. #xB477)	; &I-HZK01-B477;
     ))
 (define-char
   '((=>ucs		. #x20AB3)	; 𠪳
@@ -3442,18 +3457,6 @@
     (hanyu-dazidian	8 7 22)
     (=ucs		. #x20AA9)	; 𠪩
     (=hanziku-12	. #xEB55)	; &I-HZK12-EB55;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 80 8)
-    (=ucs		. #x20AB6)	; 𠪶
-    (=hanziku-1		. #xB477)	; &I-HZK01-B477;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 80 9)
-    (=ucs		. #x20AB7)	; 𠪷
-    (=hanziku-1		. #xB478)	; &I-HZK01-B478;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
