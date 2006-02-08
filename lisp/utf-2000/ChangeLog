@@ -1,5 +1,13 @@
 2006-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (U-00020652): Copied from
+	Ideograph-R016-Table.el.
+	(M-36670): Use `<-subsumptive' for U-00020652.
+	(U-00027D2E): New character.
+	(U+8CA5): Use `->subsumptive'.
+
+2006-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R061-Heart.el (U+610B): Use `->denotational'.
 	(U+610C): Use `->denotational'.
 	(U+610E): Use `->denotational' and `->subsumptive'.
