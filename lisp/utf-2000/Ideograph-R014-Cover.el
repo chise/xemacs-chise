@@ -77,6 +77,7 @@
     (=jis-x0213-2-2000	. #x232C)	; &I-JX2-232C; [03-12]
     (=big5		. #xC955)	; &I-B-C955;
     (=daikanwa		. 01567)	; &I-M-01567;
+    (=adobe-japan1-5	. 17304)	; 冘
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
@@ -559,6 +560,7 @@
       (=daikanwa	  . 01586)	; &I-M-01586;
       (=ucs@cns		  . #x51A3)	; &M-01586;
       (=ucs@jis		  . #x51A3)	; &M-01586;
+      (=adobe-japan1-5	  . 17305)	; &M-01586;
       )
      ((hanyu-dazidian	  1 304 8)
       (ideographic-structure
