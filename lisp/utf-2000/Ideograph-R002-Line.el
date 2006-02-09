@@ -655,7 +655,13 @@
     (ideographic-strokes@cns . 12)
     (total-strokes	 . 13)
     (=ucs		. #x23244)	; 𣉄
-    (=cns11643-5	. #x3D55)	; &I-C5-3D55; [29-53]
+    (->subsumptive
+     ((=cns11643-5	  . #x3D55)	; &C5-3D55; [29-53]
+      (=ucs@iso		  . #x23244)	; &C5-3D55;
+      )
+     ((hanyu-dazidian	  2 1522 15)
+      (=hanziku-4	  . #xE3AE)	; &HZK04-E3AE;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 2)	; ⼁
