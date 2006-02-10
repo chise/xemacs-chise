@@ -1,3 +1,10 @@
+2006-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el (U+6C0A): Use `->subsumptive'.
+
+	* Ideograph-R079-Weapon.el (JX2-6E23): Unify GT-21338 and
+	AJ1-17897.
+
 2006-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R016-Table.el: Add some Adobe-Japan1-5 code points.
