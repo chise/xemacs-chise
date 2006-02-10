@@ -1,5 +1,49 @@
 2006-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R016-Table.el: Add some Adobe-Japan1-5 code points.
+	(U+51E2): Add `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources'.
+	(U+51E3): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-01740.
+	(U-00020652): Use `->subsumptive' to integrate M-36670; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources',
+	`ideographic-{radical|strokes}@daikanwa=36670' and
+	`ideographic-radical@daikanwa=36670*sources'.
+	(M-01781): Unify U-00020654 and H1-DF6D.
+	(M-01782): Unify U-00020655 and H1-DF6E.
+	(U-0002015E): Copied from Ideograph-R008-Lid.el; integrate
+	M-01783.
+	(U-00020662): Use `->subsumptive'.
+	(M-01795): Unify U-00020049 and H1-A97C; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00020664): Use `->subsumptive'; integrate M-01796.
+
+	* Ideograph-R015-Ice.el: Add some Adobe-Japan1-5 code points.
+	(U+51AD): Use `->subsumptive'.
+	(U+51B8): Use `->denotational'.
+	(U+51B9): Use `->denotational'.
+	(U-000205E5): Use `->subsumptive'.
+	(U-000205E8): Use `->subsumptive'.
+	(M-01682): Unify U-000205E9 and H1-E3CB.
+	(U+51D1): Use `->denotational'.
+	(U+34D7): Use `->subsumptive'.
+	(U-00020604): Use `->subsumptive'.
+	(U-00020605): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R012-Eight.el: Add some Adobe-Japan1-5 code points.
+	(U-0002050A): Use `->subsumptive'.
+	(U-0002050B): Use `->subsumptive'.
+	(U-0002050C): Use `->subsumptive'.
+	(U+34B6): Use `->subsumptive'.
+	(U-0002050D): Use `->subsumptive'; integrate M-01468.
+	(U-0002050E): Use `->subsumptive'; integrate M-01469.
+	(U-0002050F): Use `->subsumptive'.
+	(U+517B): Use `->denotational'.
+
 	* Ideograph-R001-One.el (U-00020049): Unify M-01795; use
 	`ideographic-{radical|strokes}@ucs' instead of
 	`ideographic-{radical|strokes}'; add
