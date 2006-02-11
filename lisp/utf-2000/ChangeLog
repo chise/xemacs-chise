@@ -1,3 +1,23 @@
+2006-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+7769): Use `->denotational' and
+	`->subsumptive'.
+	(U+776A): Use `->subsumptive'.
+
+2006-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (U+8C65): Use `->subsumptive'.
+	(U+8C66): Likewise.
+
+	* Ideograph-R072-Sun.el: Add some mappings to Daikanwa numbers.
+	(U+65EA): Use `<-formed' and `<-formed*sources' instead of
+	`variant-of-shinjigen-1' for S1-0722.
+
+	* Ideograph-R009-Man.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+5DC2): Use
+	`->denotational' instead of `->subsumptive'.
+
 2006-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R082-Fur.el (U+6C0A): Use `->subsumptive'.
