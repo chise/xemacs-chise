@@ -2935,23 +2935,22 @@
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 18)
     (=ucs		. #x5DC2)	; 巂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DC2)	; 巂
+      ))
+    (total-strokes	 . 18)
+    (=big5		. #xF172)	; &B-F172;
     (->subsumptive
-     ((=big5		  . #xF172)	; &B-F172;
-      (->subsumptive
-       ((ideographic-radical . 46)	; ⼭
-	(ideographic-strokes . 15)
-	(=daikanwa	    . 08595)	; &M-08595;
-	)
-       ((ideographic-radical . 172)	; ⾫
-	(ideographic-strokes . 10)
-	(=cns11643-2	    . #x643E)	; &C2-643E; [68-30]
-	(=ucs@cns	    . #x5DC2)	; &C2-643E;
-	))
-      )
      ((ideographic-radical . 46)	; ⼭
       (ideographic-strokes . 15)
-      (=iso-ir165	  . #x7B22)	; &EGB-7B22; [91-02]
-      (=ucs@unicode	  . #x5DC2)	; &EGB-7B22;
+      (=daikanwa	  . 08595)	; &M-08595;
+      )
+     ((ideographic-radical . 172)	; ⾫
+      (ideographic-strokes . 10)
+      (=cns11643-2	  . #x643E)	; &C2-643E; [68-30]
+      (=ucs@cns		  . #x5DC2)	; &C2-643E;
       ))
     ))
 (define-char
