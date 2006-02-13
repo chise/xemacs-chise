@@ -1,5 +1,17 @@
 2006-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el (U+5FDD): Use `->denotational'.
+	(U+5FDE): Use `->subsumptive'.
+	(U+5FDF): Use `->subsumptive'.
+	(U-000225C9): Use `->subsumptive'.
+	(M-11290): Unify U-00022875.
+	(M-11291): Unify U-00022879.
+	(M-11292): Map to U-00022882; integrate H6-E77D.
+	(U-00022870): Copied from Ideograph-R072-Sun.el.
+	(U-00022865): Use `->subsumptive'.
+
+2006-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R109-Eye.el (U+7769): Use `->denotational' and
 	`->subsumptive'.
 	(U+776A): Use `->subsumptive'.
