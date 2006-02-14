@@ -1,5 +1,35 @@
 2006-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R046-Mountain.el:
+	- Use `->subsumptive' for some character definitions.
+	- Add some mappings to Daikanwa numbers.
+	(U+37B5): Don't map to M-07913.
+	(M-07913): Map to U-00021D56.
+	(U-00021D56): Use `->subsumptive'; integrate M-07913.
+	(U-00021DB2): New character.
+	(U-00021E0C): Use `->denotational' and `->subsumptive'; integrate
+	M-08137.
+	(U-00021E0E): Use `->denotational'; integrate M-08303.
+	(M-08304): New character.
+	(U-00021E87): New character.
+	(U-00021E95): New character.
+	(U+5D56): Use `->denotational' and `->subsumptive'.
+	(C6-4835): Map to M-49025 and U-0002F87D.
+	(U-00021EB7): Use `->denotational' and `->subsumptive'.
+	(M-08352): Map to U-00021EB8.
+	(U-00021EB9): Use `->denotational'.
+	(M-08354): Unify U-0002F87F and C6-5233; use `=>ucs*' instead of
+	`=>ucs' for U+5D6B.
+	(U+5D6B): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-08354.
+	(C6-5233): Unify U-0002F87F.
+	(U-00021F3B): New character.
+	(U-00021F58): Unify M-08498; use `{ideographic|total}-strokes@cns'
+	instead of `{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@daikanwa'.
+	(U+5DC2): Use `<-denotational' instead of `->subsumptive'.
+	(U-00021FD5): Use `->denotational'; integrate M-08656.
+
 	* Ideograph-R061-Heart.el (U+5FDD): Use `->denotational'.
 	(U+5FDE): Use `->subsumptive'.
 	(U+5FDF): Use `->subsumptive'.
