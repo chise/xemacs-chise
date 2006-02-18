@@ -222,27 +222,24 @@
     (=daikanwa		. 23946)	; &I-M-23946;
     ))
 (define-char
-  '((=>ucs		. #x77E9)	; 矩
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (=cns11643-1	. #x567B)	; &M-23947; [54-91]
-    (=daikanwa		. 23947)	; &I-M-23947;
-    ))
-(define-char
-  '((morohashi-daikanwa	23947 0 1)
-    (ideographic-radical . 111)	; ⽮
+  '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x77E9)	; 矩
-    (=jis-x0208		. #x366B)	; &I-J90-366B; [22-75]
-    (=gb2312		. #x3E58)	; &I-G0-3E58; [30-56]
-    (=ks-x1001		. #x4F3B)	; &I-K0-4F3B; [47-27]
     (=big5		. #xAF78)	; &I-B-AF78;
-    (=gt		. 30637)	; &I-GT-30637;
-    (=gt-k		. 06406)	; &I-GT-K06406;
-    (=gt-pj-1		. #x366B)	; &I-GT-30637; [22-75]
-    (=jef-china3	. #x5BEC)	; &I-JC3-5BEC;
+    (->subsumptive
+     ((=cns11643-1	  . #x567B)	; &M-23947; [54-91]
+      (=daikanwa	  . 23947)	; &I-M-23947;
+      )
+     ((=jis-x0208	  . #x366B)	; &GT-30637; [22-75]
+      (=gb2312		  . #x3E58)	; &I-G0-3E58; [30-56]
+      (=ks-x1001	  . #x4F3B)	; &I-K0-4F3B; [47-27]
+      (=gt		  . 30637)	; &I-GT-30637;
+      (=gt-k		  . 06406)	; &I-GT-K06406;
+      (=gt-pj-1		  . #x366B)	; &I-GT-30637; [22-75]
+      (=jef-china3	  . #x5BEC)	; &I-JC3-5BEC;
+      (=ucs@unicode	  . #x77E9)	; &GT-30637;
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
