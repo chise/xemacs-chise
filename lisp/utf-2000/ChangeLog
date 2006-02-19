@@ -1,3 +1,7 @@
+2006-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R111-Arrow.el (U+77E9): Use `->subsumptive'.
+
 2006-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el:
