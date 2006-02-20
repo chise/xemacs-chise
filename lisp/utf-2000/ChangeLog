@@ -1,3 +1,23 @@
+2006-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el: Use `->subsumptive' for some character
+	definitions.
+	(U+6902): Use `->denotational' and `->subsumptive'.
+	(U+6903): Likewise.
+	(U+3B87): Use `->denotational'.
+	(JX2-2F28): Use `<-denotational' for U+3B87; unify GT-19138 and
+	AJ1-17826.
+	(U+6982): Use `<-denotational' for B-B7A7.
+	(B-B7A7): New abstract character.
+	(JX2-2F34): Unify GT-19532 and AJ1-17834.
+	(U+6997): Use `->denotational'.
+	(U+69E9): Use `->denotational' and `->subsumptive'; integrate
+	AJ1-16912 and GT-19860.
+	(U+69EA): Use `->denotational' and `->subsumptive'.
+	(U+3BCD): Use `->subsumptive'; integrate AJ1-17848.
+	(U-0002383D): Use `->denotational'.
+	(JX2-2F75): Unify GT-20507 and AJ1-17885.
+
 2006-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R111-Arrow.el (U+77E9): Use `->subsumptive'.
