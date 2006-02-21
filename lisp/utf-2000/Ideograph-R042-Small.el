@@ -168,6 +168,14 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x9FB8)	; 龸
+    (=gt-k		. 01410)	; &I-GT-K01410;
+    (=gt-pj-k1		. #x3D7A)	; 龸 [29-90]
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5C16)	; 尖
