@@ -1585,6 +1585,7 @@
     (total-strokes	 . 13)
     (=ucs		. #x9C8E)	; 鲎
     (=gb2312		. #x7657)	; &I-G0-7657; [86-55]
+    (=hanziku-12	. #xCEBF)	; &I-HZK12-CEBF;
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂
