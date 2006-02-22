@@ -2769,6 +2769,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x3B4E)	; 㭎
+    (=hanziku-3		. #xEEE0)	; &I-HZK03-EEE0;
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
