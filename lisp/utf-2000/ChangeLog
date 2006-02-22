@@ -1,3 +1,13 @@
+2006-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9C8E): Unify H12-CEBF.
+
+	* Ideograph-R157-Foot.el (U+47EB): Unify CB01610.
+
+	* Ideograph-R075-Tree.el (U+3B4E): Unify H3-EEE0.
+
+	* Ideograph-R039-Child.el (U+5B66): Unify H3-CF41.
+
 2006-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R042-Small.el (U+9FB8): New character.
