@@ -691,14 +691,20 @@
     (total-strokes	 . 9)
     (=ucs		. #x89C9)	; 觉
     (=gb2312		. #x3E75)	; &I-G0-3E75; [30-85]
+    (=hanziku-9		. #xF8F6)	; &I-HZK09-F8F6;
     ))
 (define-char
   '((ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x4680)	; 䚀
-    (=cns11643-3	. #x4450)	; &I-C3-4450; [36-48]
-    (=daikanwa		. 34847)	; &I-M-34847;
+    (->subsumptive
+     ((=daikanwa	  . 34847)	; &M-34847;
+      )
+     ((=cns11643-3	  . #x4450)	; &C3-4450; [36-48]
+      )
+     ((=ucs@unicode	  . #x4680)	; &UU+4680;
+      ))
     ))
 (define-char
   '((ideographic-radical . 147)	; ⾒
