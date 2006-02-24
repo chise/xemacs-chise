@@ -1,5 +1,26 @@
 2006-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R042-Small.el (U+9FB8): Add `ideographic-structure'.
+	(M-07490): Unify H2-C3C4.
+	(GT-K05014): Compact `ideographic-structure'.
+	(U+5C1D): Unify H2-C3EB.
+	(U+3778): Use `->subsumptive'.
+	(U-00021B8E): Use `->subsumptive'.
+	(U-00021B95): Unify H2-C450.
+	(U+5C1F): Use `->subsumptive'.
+
+2006-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R201-Yellow.el (U+9EC8): Use `->denotational' and
+	`->subsumptive'.
+	(U+9EC9): Unify H12-BAAF.
+	(U+4D4B): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R147-See.el (U+89C9): Unify H9-F8F6.
+	(U+4680): Use `->subsumptive'.
+
+2006-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R195-Fish.el (U+9C8E): Unify H12-CEBF.
 
 	* Ideograph-R157-Foot.el (U+47EB): Unify CB01610.
