@@ -2048,24 +2048,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 290 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL HAND")
-	(=ucs		    . #x2E98)	; ⺘
-	)
-       ((=ucs		    . #x4E38)	; 丸
-	))
-      )
-     ((=big5-cdp	  . #x8B67)	; &CDP-8B67;
-      ))
     (=ucs		. #x4EB5)	; 亵
     (=gb2312		. #x5974)	; &I-G0-5974; [57-84]
     (=hanziku-1		. #xE1D2)	; &I-HZK01-E1D2;
@@ -2284,14 +2266,6 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x4EA7)	; 产
-      )
-     ((=ucs		  . #x517C)	; 兼
-      ))
     (=ucs		. #x4EB7)	; 亷
     (=cns11643-3	. #x4033)	; &I-C3-4033; [32-19]
     ))
