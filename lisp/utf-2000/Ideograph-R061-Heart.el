@@ -11253,18 +11253,45 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x6160)	; 慠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6160)	; 慠
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x6160)	; 慠
-    (=jis-x0212		. #x3E54)	; &I-JSP-3E54; [30-52]
-    (=cns11643-3	. #x4671)	; &I-C3-4671; [38-81]
+    (=jis-x0212		. #x3E54)	; &M-11106; [30-52]
     (=jis-x0213-2-2000	. #x2C63)	; &I-JX2-2C63; [12-67]
     (=daikanwa		. 11106)	; &I-M-11106;
     (=cbeta		. 00392)	; &I-CB00392;
     (=jef-china3	. #x4ED5)	; &I-JC3-4ED5;
+    (=ucs@jis		. #x6160)	; &M-11106;
     ))
 (define-char
-  '((=>ucs		. #x397F)	; 㥿
+  '((<-denotational
+     ((=ucs		  . #x6160)	; 慠
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (->subsumptive
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 13)
+      (=ucs@unicode	  . #x6160)	; &UU+6160;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (=cns11643-3	  . #x4671)	; &C3-4671; [38-81]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x397F)	; 㥿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x397F)	; 㥿
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
@@ -11282,20 +11309,35 @@
     (=cbeta		. 02573)	; &I-CB02573;
     ))
 (define-char
-  '((morohashi-daikanwa	11107 0 2)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=cns11643-1	  . #x5A72)	; &C1-5A72; [58-82]
-      )
-     ((=ucs		  . #x5FC3)	; 心
+  '((<-denotational
+     ((=ucs		  . #x397F)	; 㥿
       ))
-    (=ucs		. #x397F)	; 㥿
-    (=cns11643-3	. #x4B7D)	; &I-C3-4B7D; [43-93]
+    (ideographic-radical . 61)	; ⼼
+    (->subsumptive
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 14)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x303D)	; &G0-303D; [16-29]
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (=ucs@unicode	  . #x397F)	; &UU+397F;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 15)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x5A72)	; &C1-5A72; [58-82]
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (=cns11643-3	  . #x4B7D)	; &C3-4B7D; [43-93]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
