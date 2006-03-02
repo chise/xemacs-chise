@@ -80,7 +80,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EBB)	; 亻
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=jis-x0208@1978    . #x5238)	; &J83-5238; [50-24]
 	(=jis-x0208@1983    . #x5238)	; &I-J83-5238; [50-24]
@@ -94,7 +95,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EBB)	; 亻
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=big5-cdp	    . #x8BBA)	; &CDP-8BBA;
 	(=daikanwa	    . 02571)	; &I-M-02571;
