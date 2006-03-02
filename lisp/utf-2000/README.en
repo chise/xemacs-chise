@@ -48,7 +48,7 @@ describes meaning of keys:
 		yunhai (inkai)				韻会
 		yunhai-bei (inkaiho)			韻会補
 		zihui (jii)				字彙
-		zihui-bei (jiiho)			字彙補
+		zihui-bu (zihui-bei, jiiho)		字彙補
 		cihai (jikai)				辞海
 		jiyun (shuuin)				集韻
 		wuyinjiyun (goon-shuuin)		五音集韻
@@ -68,8 +68,9 @@ describes meaning of keys:
 			(sougen-irai-zokujifu)		宋元以来俗字譜
 		yuquan					玉泉
 		chuanpian (senhen)			川篇
-		kanjo					漢書
-		ronkou					論衡
+		hanshu (kanjo)				漢書
+		lunheng (ronkou)			論衡
+		hougen
 
 ** Features
 
