@@ -1,3 +1,18 @@
+2006-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+63CD): Use `->denotational' and
+	`->subsumptive'.
+	(U+63CE): Use `->subsumptive'.
+	(U+63CF): Use `->denotational'.
+	(U+3A0C): Use `->subsumptive'.
+
+2006-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (U-000209D7): Unify GT-03556 and
+	GT-K01787.
+	(U-000209D8): Use `->subsumptive'.
+	(M-02786): Map to U-000209D6.
+
 2006-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (U+6160): Use `->denotational' and
@@ -2765,6 +2780,12 @@
 	`ideographic-{radical|strokes}@{ucs|cns}' instead of
 	`ideographic-'; add `ideographic-radical@cns*sources'; don't use
 	`<-same' for M-04684.
+
+2005-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* README.en (zihui-bu): Renamed from `zihui-bei'.
+	(hanshu): Renamed from `kanjo'.
+	(lunheng): Renamed from `ronkou'.
 
 2005-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
