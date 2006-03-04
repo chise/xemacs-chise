@@ -9874,6 +9874,7 @@
     (total-strokes	 . 13)
     (=ks-x1001		. #x4E26)	; &M-39002; [46-06]
     (=daikanwa		. 39002)	; &I-M-39002;
+    (=jef-china3	. #x67DE)	; &I-JC3-67DE;
     (<-synonyms
      ((=daikanwa	  . 28421)	; &M-28421;
       ))
