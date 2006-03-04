@@ -92,6 +92,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=big5		. #xA462)	; &B-A462;
+    (=ucs@big5		. #x5203)	; &B-A462;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -116,7 +117,6 @@
        ((=ucs		    . #x4E36)	; 丶
 	))
       (=cns11643-1	  . #x4443)	; &C1-4443; [36-35]
-      (=ucs@big5	  . #x5203)	; &C1-4443;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -2885,16 +2885,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53BB)	; 去
-      )
-     ((=gb2312		  . #x4850)	; &K0-6C53; [40-48]
-      (=ks-x1001	  . #x6C53)	; &I-K0-6C53; [76-51]
-      ))
-    (=ucs@unicode	. #x523C)	; &UU+523C;
+    (=jef-china3	. #x80A2)	; &JC3-80A2;
     ))
 (define-char
   '((<-denotational
@@ -2903,7 +2894,28 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=jef-china3	. #x80A2)	; &JC3-80A2;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53BB)	; 去
+	)
+       ((=cns11643-1	    . #x4443)	; &C1-4443; [36-35]
+	))
+      (=hanziku-12	  . #xEBB6)	; &HZK12-EBB6;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53BB)	; 去
+	)
+       ((=gb2312	    . #x4850)	; &K0-6C53; [40-48]
+	(=ks-x1001	    . #x6C53)	; &I-K0-6C53; [76-51]
+	))
+      (=ucs@unicode	  . #x523C)	; &UU+523C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
