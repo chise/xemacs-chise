@@ -1,4 +1,24 @@
+2006-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R200-Hemp.el (K0-582B): Unify JC3-6FC6.
+
+	* Ideograph-R181-Leaf.el (J90-453F): Unify JC3-6CF4.
+	(C1-794D): Unify JC3-6CFC.
+
+	* Ideograph-R170-Mound.el (U+9697): Use `->subsumptive'.
+
+	* Ideograph-R130-Meat.el (U+43CC): Use `->subsumptive'.
+
+	* Ideograph-R124-Feather.el (U+7FEB): Unify JC3-60B3.
+
+	* Ideograph-R094-Dog.el (U+72CA): Unify B-CFBE.
+	(M-20320): Separate B-CFBE.
+
 2006-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+523C): Integrate H12-EBB6.
+
+	* Ideograph-R162-Walk.el (K0-4E26): Unify JC3-67DE.
 
 	* Ideograph-R021-Spoon.el (M-02572): Use <CJK RADICAL PERSON>
 	instead of U+4EBB in `ideographic-structure'.
