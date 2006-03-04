@@ -3637,6 +3637,7 @@
     (total-strokes	 . 15)
     (=ucs		. #x7FEB)	; 翫
     (=big5		. #xE6F6)	; &I-B-E6F6;
+    (=jef-china3	. #x60B3)	; &I-JC3-60B3;
     ))
 (define-char
   '((<-denotational
