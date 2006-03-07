@@ -1,3 +1,11 @@
+2006-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+55A2): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R012-Eight.el (U-0002F811): Compact
+	`ideographic-structure'.
+
 2006-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R200-Hemp.el (K0-582B): Unify JC3-6FC6.
