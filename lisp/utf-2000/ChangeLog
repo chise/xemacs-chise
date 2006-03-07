@@ -1,3 +1,11 @@
+2006-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+5371): Use `->denotational'.
+	(U-00020A12): Use `->subsumptive'.
+
+	* Ideograph-R024-Ten.el (M-02705): Map to U-0002097F.
+	(U+4EDF): Copied from Ideograph-R009-Man.el.
+
 2006-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+55A2): Use `->denotational' instead
