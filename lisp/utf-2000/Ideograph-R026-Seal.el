@@ -316,7 +316,17 @@
     (=big5		. #xA64C)	; &I-B-A64C;
     ))
 (define-char
-  '((=>ucs		. #x5371)	; 危
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 312 3)
+    (=ucs		. #x5371)	; 危
+    (=big5		. #xA64D)	; &I-B-A64D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5371)	; 危
+      ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -327,11 +337,12 @@
     (=jef-china3	. #x45CF)	; &I-JC3-45CF;
     ))
 (define-char
-  '((morohashi-daikanwa	2849 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5371)	; 危
+      ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 312 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -342,29 +353,25 @@
       ))
     (shinjigen-1	. 853)
     (shinjigen-2	. 853)
-    (=ucs		. #x5371)	; 危
-    (=jis-x0208		. #x346D)	; &I-J90-346D; [20-77]
+    (=jis-x0208		. #x346D)	; &GT-03626; [20-77]
     (=gb2312		. #x4E23)	; &I-G0-4E23; [46-03]
     (=cns11643-1	. #x474E)	; &I-C1-474E; [39-46]
-    (=big5		. #xA64D)	; &I-B-A64D;
     (=gt		. 03626)	; &I-GT-03626;
     (=gt-k		. 01585)	; &I-GT-K01585;
     (=gt-pj-1		. #x346D)	; &I-GT-03626; [20-77]
+    (=ucs@unicode	. #x5371)	; &GT-03626;
     ))
 (define-char
-  '((=>ucs		. #x20A12)	; 𠨒
-    (ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=daikanwa		. 02850)	; &M-02850;
-    ))
-(define-char
-  '((morohashi-daikanwa	2850 0 0)
-    (ideographic-radical . 26)	; ⼙
+  '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x20A12)	; 𠨒
-    (=cns11643-4	. #x2246)	; &I-C4-2246; [02-38]
+    (->subsumptive
+     ((=daikanwa	  . 02850)	; &M-02850;
+      )
+     ((=cns11643-4	  . #x2246)	; &C4-2246; [02-38]
+      (=ucs@iso		  . #x20A12)	; &C4-2246;
+      ))
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
