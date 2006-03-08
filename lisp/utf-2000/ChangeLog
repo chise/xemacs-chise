@@ -1,3 +1,44 @@
+2006-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (JX1-7449): Use `->subsumptive' to
+	integrate JC3-90ED with JC3-4DC9.
+	(U+5FEA): Use `->subsumptive'.
+	(U-0002278B): Delete incomplete `ideographic-structure'.
+	(M-10974): Map to U-00022778; unify H6-E1AA.
+	(M-10976): Map to U-0002276F.
+	(M-10977): Unify U-00022773 and H6-E0DE.
+	(M-10978): Unify U-00022774.
+	(U+6123): Use `->subsumptive'.
+	(U-000227B6): Likewise.
+
+	* Ideograph-R037-Big.el (U-00021636): Use `->denotational' and
+	`->subsumptive'.
+	(U+595C): Use `->subsumptive'.
+	(U+595D): Use `->denotational'.
+	(U+595E): Use `->subsumptive'.
+
+2006-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5D6B): Use `->denotational' and
+	`->subsumptive'.
+	(U+5D6C): Use `->subsumptive'.
+	(U+37F4): Likewise.
+
+2006-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (M-07056): Unify CB08762.
+	(C3-223D): Unify H3-B7A1.
+	(U-00021A7F): Use `->subsumptive'.
+	(U+5BE7): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R031-Enclosure.el (U+56E6): Use `->subsumptive'.
+	(C1-504C): Add `ideographic-structure'.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021580): Use `->denotational'
+	and `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U+53D3): Use `->subsumptive'.
+
 2006-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R026-Seal.el (U+5371): Use `->denotational'.
