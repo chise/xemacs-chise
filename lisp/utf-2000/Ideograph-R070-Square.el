@@ -111,6 +111,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x3AC4)	; 㫄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AC4)	; 㫄
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (->subsumptive
      ((=daikanwa	  . 13627)	; &M-13627;
       (=jef-china3	  . #x50EA)	; &I-JC3-50EA;
@@ -118,6 +126,15 @@
      ((=cns11643-6	  . #x2B70)	; &C6-2B70; [11-80]
       (=ucs@unicode	  . #x3AC4)	; &C6-2B70;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AC4)	; 㫄
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=hanziku-6		. #xBFE2)	; &HZK06-BFE2;
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
