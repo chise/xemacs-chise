@@ -1,3 +1,17 @@
+2006-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R070-Square.el (U+3AC4): Use `->denotational' instead
+	of `->subsumptive'; integrate H6-BFE2.
+
+	* Ideograph-R066-Rap.el (U+653E): Use `->subsumptive'.
+	(U-00022EF9): Likewise.
+	(U+656B): Likewise.
+
+2006-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el: Use <CJK RADICAL PERSON> instead of
+	U+4EBB in `ideographic-structure'.
+
 2006-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (JX1-7449): Use `->subsumptive' to
