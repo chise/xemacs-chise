@@ -1,3 +1,13 @@
+2006-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+3A24): Use `->subsumptive'.
+	(U-00022C6C): Use `->subsumptive'.
+	(U+6431): Use `->subsumptive'.
+	(U+6432): Likewise.
+	(U+6433): Use `->denotational' and `->subsumptive'.
+	(U+3A25): Likewise.
+	(U+6434): Use `->subsumptive'.
+
 2006-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R070-Square.el (U+3AC4): Use `->denotational' instead
