@@ -13,6 +13,8 @@
 	(U+69AD): Use `->subsumptive'.
 	(U+69AE): Likewise.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-353D.
+
 2006-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+3A24): Use `->subsumptive'.
