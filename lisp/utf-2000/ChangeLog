@@ -1,3 +1,18 @@
+2006-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6CE3): Use `->subsumptive'.
+	(U+6CF0): Use `->subsumptive'.
+	(U+6CF1): Use `->subsumptive'.
+
+2006-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+68DE): Use `->subsumptive'.
+	(U+3B7A): Use `->subsumptive'.
+	(U+68E0): Likewise.
+	(U-000235B7): Likewise.
+	(U+69AD): Use `->subsumptive'.
+	(U+69AE): Likewise.
+
 2006-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+3A24): Use `->subsumptive'.
