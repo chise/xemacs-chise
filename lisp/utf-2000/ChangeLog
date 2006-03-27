@@ -1,3 +1,39 @@
+2006-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+71EE): Use `->subsumptive'.
+	(U-000243FB): Likewise.
+	(U+71EF): Likewise.
+	(U-000243FC): Use `->denotational'.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3886): Use `->subsumptive'.
+	(U-00022225): Likewise.
+	(M-09345): Map to U-00022226.
+	(U-0002222C): Use `->subsumptive'.
+	(M-09347): Map to U-0002222F.
+	(U-0002222D): Use `->denotational' and `->subsumptive'.
+	(U+5EB0): Use `->denotational'.
+	(U-00022233): Use `->subsumptive'.
+	(U+3888): Likewise.
+	(U+3889): Use `->subsumptive'.
+	(U-00022234): Likewise.
+	(U+388A): Likewise.
+	(U+5EB1): Use `->denotational' and `->subsumptive'.
+	(U-00022235): Use `->subsumptive'.
+	(U+5EB2): Use `->subsumptive'.
+	(U-00022236): Use `->subsumptive'.
+	(U+5EB3): Use `->subsumptive'.
+	(U-00022237): Use `->subsumptive'.
+	(U-00022238): Likewise.
+	(U-00022239): Likewise.
+	(U-0002223A): Likewise.
+	(U-0002223B): Likewise.
+	(U-0002223C): Likewise.
+	(U-0002223D): Likewise.
+	(U+5EB4): Use `->subsumptive'.
+	(U+388B): Use `->subsumptive'.
+	(U-00022281): Use `->subsumptive'.
+	(U+5ECC): Use `->subsumptive'.
+
 2006-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el (U+6CE3): Use `->subsumptive'.
