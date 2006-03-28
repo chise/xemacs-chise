@@ -1,3 +1,10 @@
+2006-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U-0002531A): Use `->subsumptive'.
+	(U-0002531B): Use `->subsumptive'.
+	(U+77CD): Use `->subsumptive'.
+	(U-0002531C): Likewise.
+
 2006-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el (U+71EE): Use `->subsumptive'.
