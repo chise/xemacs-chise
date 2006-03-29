@@ -1,3 +1,24 @@
+2006-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U-00026951): Unify BC-8AA3.
+	(U-00026952): Use `->subsumptive'.
+	(U+8200): Use `->denotational'.
+	(M-30192): Map to U-00026963.
+	(U-00026967): Use `->subsumptive'; integrate M-30192' and
+	GT-39041; use `{ideographic|total}-strokes@cns' instead of
+	`{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@cns*sources' and
+	`{ideographic|total}-strokes@gt'.
+	(U-0002696B): Use `->denotational'.
+	(U-00026965): Unify M-30193.
+	(U+8202): Use `->subsumptive'.
+	(U-00026968): Use `->subsumptive'.
+	(U-00026969): Use `->subsumptive'.
+	(M-30199): Unify U-0002696A and H6-CC4D.
+	(M-30200): Unify U-0002696C, H8-CC4E and CB11966.
+	(U+4455): Use `->subsumptive'.
+	(U-00024518): Use `->denotational'.
+
 2006-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el (U-0002531A): Use `->subsumptive'.
@@ -130,6 +151,18 @@
 
 	* Ideograph-R024-Ten.el (M-02705): Map to U-0002097F.
 	(U+4EDF): Copied from Ideograph-R009-Man.el.
+
+2006-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U+99E6): Use `->denotational' and
+	`->subsumptive'.
+	(M-44709): Use `<-denotational' for U+99E6; unify JC3-6DDB.
+
+	* Ideograph-R173-Rain.el (U+96F6): Use `->subsumptive'.
+	(U+9700): Likewise.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96CB): Use
+	`->subsumptive'.
 
 2006-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
