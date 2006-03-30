@@ -1,5 +1,9 @@
 2006-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (JX1-7C38): Unify JC3-65F4.
+
+2006-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R134-Mortar.el (U-00026951): Unify BC-8AA3.
 	(U-00026952): Use `->subsumptive'.
 	(U+8200): Use `->denotational'.
