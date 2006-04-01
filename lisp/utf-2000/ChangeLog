@@ -1,3 +1,29 @@
+2006-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (U+46B1): Use `->subsumptive'.
+	(U+8A0C): Use `->subsumptive'.
+	(U+8A0D): Use `->subsumptive'.
+	(U-00027963): Use `->subsumptive'.
+	(U+8A0E): Use `->subsumptive'.
+
+	* Ideograph-R146-West.el (U-000277E9): Use `->subsumptive'.
+	(U+4673): Use `->subsumptive'.
+	(U-000277EA): Use `->subsumptive'.
+	(U+4674): Use `->denotational'.
+	(M-34776): Unify U-000277EC and H7-EFF4.
+	(U+4675): Use `->denotational'.
+
+2006-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U-0002764F): New character.
+	(U+8921): Use `->denotational' and `->subsumptive'.
+	(U+8922): Use `->subsumptive'.
+	(U+8923): Use `->subsumptive'.
+	(U+892F): Use `->subsumptive'.
+	(U+8930): Use `->subsumptive'.
+	(U+8931): Use `->subsumptive'.
+	(U-00027708): Use `->denotational'.
+
 2006-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el (JX1-7C38): Unify JC3-65F4.
