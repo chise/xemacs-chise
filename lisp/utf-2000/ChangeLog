@@ -1,3 +1,8 @@
+2006-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (U-00028D92): New character.
+	(U+95D9): Use `->denotational' and `->subsumptive'.
+
 2006-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el (U+46B1): Use `->subsumptive'.
