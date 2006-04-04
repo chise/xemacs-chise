@@ -1,5 +1,10 @@
 2006-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R184-Eat.el (K0-5146): Unify JC3-6DB1.
+	(U+98E3): Use `->denotational' and `->subsumptive'.
+	(U+98E4): Use `->denotational' and `->subsumptive'; integrate
+	JC3-8EA7.
+
 	* Ideograph-R198-Deer.el (U+9E83): Use `->subsumptive'; integrate
 	JC3-6FB9.
 	(M-47605): Map to U-0002A292.
