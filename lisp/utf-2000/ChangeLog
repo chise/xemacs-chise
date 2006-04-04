@@ -1,3 +1,13 @@
+2006-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R198-Deer.el (U+9E83): Use `->subsumptive'; integrate
+	JC3-6FB9.
+	(M-47605): Map to U-0002A292.
+	(U+9E84): Use `->subsumptive'.
+	(U+4D21): Likewise.
+	(U+4D22): Use `->subsumptive'.
+	(U+4D23): Use `->subsumptive'.
+
 2006-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R169-Gate.el (U-00028D92): New character.
