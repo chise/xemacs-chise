@@ -1,3 +1,8 @@
+2006-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs-bmp-cjk@unicode): Change `max-code' to
+	#x9FA5 temporarily.
+
 2006-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
