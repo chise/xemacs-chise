@@ -706,7 +706,10 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother =ucs@unicode
-	       min-code #x2E00 max-code #xA4CF))
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
   (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"
