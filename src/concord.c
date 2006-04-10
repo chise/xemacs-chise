@@ -1,5 +1,5 @@
 /* XEmacs routines to deal with CONCORD.
-   Copyright (C) 2005 MORIOKA Tomohiko
+   Copyright (C) 2005,2006 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -34,6 +34,10 @@ EXFUN (Fread_from_string, 3);
 
 
 Lisp_Object Qconcord;
+
+
+Lisp_Object Vconcord_ds_hash_table;
+Lisp_Object Vconcord_genre_hash_table;
 
 
 typedef struct Lisp_CONCORD_DS Lisp_CONCORD_DS;
@@ -126,12 +130,12 @@ Return t if OBJECT is a concord-ds.
 }
 
 DEFUN ("concord-open-ds", Fconcord_open_ds, 1, 4, 0, /*
-Return a new concord_ds object opened on PATH.
+Return a new concord-ds object opened on DIRECTORY.
 Optional arguments TYPE and SUBTYPE specify the concord_ds type.
-Optional argument MODE gives the permissions to use when opening PATH,
+Optional argument MODE gives the permissions to use when opening DIRECTORY,
 and defaults to 0755.
 */
-       (path, type, subtype, mode))
+       (directory, type, subtype, mode))
 {
   Lisp_Object retval;
   Lisp_CONCORD_DS* lds = NULL;
@@ -140,12 +144,18 @@ and defaults to 0755.
   char *pathname;
   struct gcpro gcpro1;
 
-  CHECK_STRING (path);
-  GCPRO1 (path);
-  path = Fexpand_file_name (path, Qnil);
+  CHECK_STRING (directory);
+  GCPRO1 (directory);
+  directory = Ffile_name_as_directory (Fexpand_file_name (directory, Qnil));
   UNGCPRO;
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, path,
+  retval = Fgethash (directory, Vconcord_ds_hash_table, Qunbound);
+  if (!UNBOUNDP (retval))
+    {
+      return retval;
+    }
+
+  TO_EXTERNAL_FORMAT (LISP_STRING, directory,
 		      C_STRING_ALLOCA, pathname,
 		      Qfile_name);
 
@@ -167,7 +177,90 @@ and defaults to 0755.
   lds = allocate_concord_ds ();
   lds->ds = ds;
   XSET_CONCORD_DS (retval, lds);
+  Fputhash (directory, retval, Vconcord_ds_hash_table);
   return retval;
+}
+
+DEFUN ("concord-ds-directory", Fconcord_ds_directory, 1, 1, 0, /*
+Return directory of concord-ds DS.
+*/
+       (ds))
+{
+  Lisp_CONCORD_DS* lds;
+  unsigned char* directory;
+
+  CHECK_CONCORD_DS (ds);
+  lds = XCONCORD_DS (ds);
+  if (lds->ds == NULL)
+    return Qnil;
+
+  directory = concord_ds_location (lds->ds);
+  if (directory == NULL)
+    return Qnil;
+
+  return build_ext_string (directory, Qfile_name);
+}
+
+
+DEFUN ("concord-assign-genre", Fconcord_assign_genre, 2, 2, 0, /*
+Assign data-source DIRECTORY to GENRE.
+*/
+       (genre, directory))
+{
+  struct gcpro gcpro1;
+
+  CHECK_SYMBOL (genre);
+  if ( CONCORD_DS_P (directory) )
+    {
+    }
+  else
+    {
+      CHECK_STRING (directory);
+      GCPRO1 (directory);
+      directory
+	= Ffile_name_as_directory (Fexpand_file_name (directory, Qnil));
+      UNGCPRO;
+    }
+  Fputhash (genre, directory, Vconcord_genre_hash_table);
+  return directory;
+}
+
+DEFUN ("concord-genre-directory", Fconcord_genre_directory, 1, 1, 0, /*
+Return pathname of GENRE.
+*/
+       (genre))
+{
+  Lisp_Object retval;
+  CHECK_SYMBOL (genre);
+
+  retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+  if ( STRINGP (retval) )
+    return retval;
+  else if ( CONCORD_DS_P (retval) )
+    return Fconcord_ds_directory (retval);
+  return Qnil;
+}
+
+DEFUN ("concord-genre-ds", Fconcord_genre_ds, 1, 1, 0, /*
+Return concord-ds of GENRE.
+*/
+       (genre))
+{
+  Lisp_Object retval;
+
+  CHECK_SYMBOL (genre);
+
+  retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+  if ( STRINGP (retval) )
+    {
+      retval = Fconcord_open_ds (retval, Qnil, Qnil, Qnil);
+      if ( !NILP (retval) )
+	Fputhash (genre, retval, Vconcord_genre_hash_table);
+      return retval;
+    }
+  else if ( CONCORD_DS_P (retval) )
+    return retval;
+  return Qnil;
 }
 
 
@@ -195,12 +288,14 @@ Return the list of all existing features in GENRE.
   CONCORD_Genre c_genre;
   struct gcpro gcpro1;
 
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  CHECK_SYMBOL (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
+  genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -321,12 +416,14 @@ Optional argument DS specifies the data-source of the GENRE.
   Lisp_CONCORD_Object* lcobj;
   Lisp_Object retval;
 
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
+  if ( !STRINGP(genre) )
+    genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -379,15 +476,16 @@ Optional argument DS specifies the data-source of the GENRE.
   Lisp_Object obj;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4, gcpro5;
 
-  if ( !STRINGP(feature) )
-    feature = Fsymbol_name (feature);
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
-
+  if ( !STRINGP(feature) )
+    feature = Fsymbol_name (feature);
+  if ( !STRINGP(genre) )
+    genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -648,14 +746,16 @@ When the FUNCTION returns non-nil, it breaks the repeat.
   unsigned char* feature_name;
   CONCORD_Feature c_feature;
 
-  if ( !STRINGP(feature) )
-    feature = Fsymbol_name (feature);
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
+  if ( !STRINGP(feature) )
+    feature = Fsymbol_name (feature);
+  if ( !STRINGP(genre) )
+    genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -694,7 +794,13 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_open_ds);
   DEFSUBR (Fconcord_ds_p);
   DEFSUBR (Fconcord_close_ds);
+  DEFSUBR (Fconcord_ds_directory);
+
+  DEFSUBR (Fconcord_assign_genre);
+  DEFSUBR (Fconcord_genre_directory);
+  DEFSUBR (Fconcord_genre_ds);
   DEFSUBR (Fconcord_feature_list);
+
   DEFSUBR (Fconcord_make_object);
   DEFSUBR (Fconcord_object_p);
   DEFSUBR (Fconcord_object_id);
@@ -709,4 +815,12 @@ void
 vars_of_concord (void)
 {
   Fprovide (Qconcord);
+
+  staticpro (&Vconcord_ds_hash_table);
+  Vconcord_ds_hash_table
+    = make_lisp_hash_table (8, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
+
+  staticpro (&Vconcord_genre_hash_table);
+  Vconcord_genre_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 }
