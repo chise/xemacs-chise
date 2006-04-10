@@ -1,3 +1,22 @@
+2006-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Vconcord_ds_hash_table): New variable.
+	(Vconcord_genre_hash_table): New variable.
+	(Fconcord_open_ds): Use Vconcord_ds_hash_table.
+	(Fconcord_ds_directory): New function.
+	(Fconcord_assign_genre): New function.
+	(Fconcord_genre_directory): New function.
+	(Fconcord_genre_ds): New function.
+	(Fconcord_feature_list): Allow to omit `ds'.
+	(Fconcord_make_object): Likewise.
+	(Fconcord_decode_object): Likewise.
+	(Fconcord_foreach_object_in_feature): Likewise.
+	(syms_of_concord): Add new builtin function Fconcord_ds_directory,
+	Fconcord_assign_genre, Fconcord_genre_directory and
+	Fconcord_genre_ds.
+	(vars_of_concord): Setup Vconcord_ds_hash_table and
+	Vconcord_genre_hash_table.
+
 2006-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (struct closure_for_each_object): Add new member
