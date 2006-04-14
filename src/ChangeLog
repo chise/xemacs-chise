@@ -1,3 +1,41 @@
+2006-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* emacs.c (main_1): Call `structure_type_create_concord' when
+	HAVE_CONCORD is defined.
+
+	* symsinit.h (structure_type_create_concord): New prototype.
+
+	* concord.c (Qconcord_object): New variable.
+	(Qgenre): Likewise.
+	(Q_id): Likewise.
+	(Fconcord_ds_directory): Use <char*> instead of <unsigned char*>
+	for directory.
+	(add_feature_to_list_mapper): Use <char*> instead of <unsigned
+	char*> for genre-name.
+	(Fconcord_feature_list): Likewise.
+	(Fconcord_make_object): Likewise.
+	(Fconcord_decode_object): Likewise; use <char*> instead of
+	<unsigned char*> for feature_name and strid.
+	(Fconcord_object_get): Use <char*> instead of <unsigned char*> for
+	c_obj and feature_name.
+	(Fconcord_object_put): Likewise; use <char*> instead of <unsigned
+	char*> for c_value.
+	(struct closure_for_object_spec): Use <char*> instead of <unsigned
+	char*> for member `object_id'.
+	(add_feature_to_spec_mapper): Use <char*> instead of <unsigned
+	char*> for feature-name.
+	(Fconcord_object_spec): Use <char*> instead of <unsigned char*>
+	for c_obj.
+	(func_for_each_object): Cast to avoid warnings.
+	(Fconcord_foreach_object_in_feature): Use <char*> instead of
+	<unsigned char*> for genre_name and feature_name.
+	(concord_name_validate): New function.
+	(concord_object_validate): Likewise.
+	(concord_object_instantiate): Likewise.
+	(syms_of_concord): Add new builtin symbols `concord-object',
+	`genre' and `=id'.
+	(structure_type_create_concord): New function.
+
 2006-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Vconcord_ds_hash_table): New variable.
