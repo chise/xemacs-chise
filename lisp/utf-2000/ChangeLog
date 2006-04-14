@@ -1,3 +1,18 @@
+2006-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el:
+	- Add some missing mappings between UCS and Daikanwa.
+	- Use `->subsumptive' for some character definitions.
+	(U-000238AE): Use `->denotational'; integrate M-16059.
+	(U-000238AF): Use `->denotational' and `->subsumptive'; integrate
+	M-16060.
+	(U-000238B6): New character.
+	(M-16076): New character.
+	(CB03389): Add `<-unknown' for U+6B36.
+	(U-000238A3): Use `->denotational'; integrate M-16083.
+	(U+6B34): Use `->denotational' and `->subsumptive'.
+	(U-000238CB): Use `->denotational' and `->subsumptive'.
+
 2006-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el (K0-5146): Unify JC3-6DB1.
