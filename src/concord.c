@@ -362,20 +362,30 @@ print_concord_object (Lisp_Object obj,
   struct gcpro gcpro1, gcpro2;
 
   if (print_readably)
-    error ("printing unreadable object #<concord_object 0x%x>",
-	   lcobj->header.uid);
-
-  write_c_string ("#<concord_object \"", printcharfun);
-  write_c_string (concord_ds_location
-		  (concord_genre_get_data_source (lcobj->genre)),
-		  printcharfun);
-  write_c_string (":", printcharfun);
-  write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
-  write_c_string (";", printcharfun);
-  GCPRO2 (obj, printcharfun);
-  print_internal (lcobj->id, printcharfun, escapeflag);
-  UNGCPRO;
-  write_c_string ("\">", printcharfun);
+    {
+      write_c_string ("#s(concord-object", printcharfun);
+      write_c_string (" genre ", printcharfun);
+      write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
+      write_c_string (" =id ", printcharfun);
+      GCPRO2 (obj, printcharfun);
+      print_internal (lcobj->id, printcharfun, escapeflag);
+      UNGCPRO;
+      write_c_string (")", printcharfun);
+    }
+  else
+    {
+      write_c_string ("#<concord-object \"", printcharfun);
+      write_c_string (concord_ds_location
+		      (concord_genre_get_data_source (lcobj->genre)),
+		      printcharfun);
+      write_c_string (":", printcharfun);
+      write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
+      write_c_string (";", printcharfun);
+      GCPRO2 (obj, printcharfun);
+      print_internal (lcobj->id, printcharfun, escapeflag);
+      UNGCPRO;
+      write_c_string ("\">", printcharfun);
+    }
 }
 
 static void
