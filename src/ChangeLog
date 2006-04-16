@@ -1,3 +1,7 @@
+2006-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (print_concord_object): Support readable form.
+
 2006-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* emacs.c (main_1): Call `structure_type_create_concord' when
