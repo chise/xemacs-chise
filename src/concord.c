@@ -485,6 +485,7 @@ Optional argument DS specifies the data-source of the GENRE.
   CONCORD_String_Tank st_id;
   int status;
   Lisp_Object obj;
+  int previous_print_readably;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4, gcpro5;
 
   if (NILP (ds))
@@ -515,9 +516,12 @@ Optional argument DS specifies the data-source of the GENRE.
       return Qnil;
     }
 
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO5 (feature, value, genre, ds, value_string);
   value_string = Fprin1_to_string (value, Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING,
 		      value_string, C_STRING_ALLOCA, strid,
 		      Qfile_name);
@@ -548,6 +552,7 @@ Return the value of OBJECT's FEATURE.
        (object, feature))
 {
   struct gcpro gcpro1, gcpro2;
+  int previous_print_readably;
   Lisp_Object obj_string;
   char* c_obj;
   CONCORD_Genre c_genre;
@@ -559,9 +564,12 @@ Return the value of OBJECT's FEATURE.
   CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO2 (object, feature);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
@@ -594,6 +602,7 @@ Store a VALUE of OBJECT's FEATURE.
        (object, feature, value))
 {
   struct gcpro gcpro1, gcpro2, gcpro3;
+  int previous_print_readably;
   Lisp_Object obj_string;
   char* c_obj;
   CONCORD_Genre c_genre;
@@ -606,9 +615,12 @@ Store a VALUE of OBJECT's FEATURE.
   CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO3 (object, feature, value);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
@@ -620,9 +632,12 @@ Store a VALUE of OBJECT's FEATURE.
     {
       return Qnil;
     }
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO3 (object, feature, value);
   value_string = Fprin1_to_string (value, Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, value_string,
 		      C_STRING_ALLOCA, c_value,
 		      Qfile_name);
@@ -681,11 +696,15 @@ Return the spec of OBJECT.
   char* c_obj;
   CONCORD_Genre c_genre;
   struct gcpro gcpro1, gcpro2;
+  int previous_print_readably;
 
   CHECK_CONCORD_OBJECT (object);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO1 (object);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
