@@ -1,5 +1,16 @@
 2006-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* concord.c (Fconcord_decode_object): Try to use readable print
+	form as a key of Concord-index.
+	(Fconcord_object_get): Try to use readable print form as an ID of
+	Concord-object.
+	(Fconcord_object_put): Try to use readable print form as an ID of
+	Concord-object and a feature value.
+	(Fconcord_object_spec): Try to use readable print form as an ID of
+	Concord-object.
+
+2006-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* concord.c (print_concord_object): Support readable form.
 
 2006-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
