@@ -1,3 +1,7 @@
+2006-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_object_put): Setup index for `=FOO' feature.
+
 2006-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Fconcord_decode_object): Try to use readable print
