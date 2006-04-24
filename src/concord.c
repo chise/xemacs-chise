@@ -545,7 +545,9 @@ Optional argument DS specifies the data-source of the GENRE.
   status = concord_index_strid_get_obj_string (c_index, strid, &st_id);
   if (!status)
     {
-      GCPRO3 (genre, ds, obj);
+      Lisp_Object retval;
+
+      GCPRO4 (genre, ds, obj, retval);
 #if 0
       obj = read_from_c_string (CONCORD_String_data (&st_id),
 				CONCORD_String_size (&st_id) );
@@ -556,8 +558,9 @@ Optional argument DS specifies the data-source of the GENRE.
 				      Qfile_name),
 				     Qnil, Qnil));
 #endif
+      retval = Fconcord_make_object (genre, obj, ds);
       UNGCPRO;
-      return Fconcord_make_object (genre, obj, ds);
+      return retval;
     }
   return Qnil;
 }
@@ -754,6 +757,7 @@ func_for_each_object (CONCORD_String object_id,
 		      CONCORD_Feature feature,
 		      CONCORD_String value)
 {
+  struct gcpro gcpro1, gcpro2, gcpro3;
   Lisp_Object obj, val, ret;
 
 #if 0
@@ -766,9 +770,11 @@ func_for_each_object (CONCORD_String object_id,
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
+  GCPRO1 (obj);
   obj = Fconcord_make_object (for_each_object_closure->genre,
 			      obj,
 			      for_each_object_closure->ds);
+  UNGCPRO;
 #if 0
   val = read_from_c_string (CONCORD_String_data (value),
 			    CONCORD_String_size (value) );
@@ -779,7 +785,9 @@ func_for_each_object (CONCORD_String object_id,
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
+  GCPRO3 (obj, val, ret);
   ret = call2 (for_each_object_closure->function, obj, val);
+  UNGCPRO;
   for_each_object_closure->ret = ret;
   return !NILP (ret);
 }
@@ -793,6 +801,7 @@ When the FUNCTION returns non-nil, it breaks the repeat.
 */
        (function, feature, genre, ds))
 {
+  struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
   Lisp_CONCORD_DS* lds;
   char* genre_name;
   CONCORD_Genre c_genre;
@@ -829,7 +838,12 @@ When the FUNCTION returns non-nil, it breaks the repeat.
   for_each_object_closure->genre = genre;
   for_each_object_closure->ds = ds;
   for_each_object_closure->ret = Qnil;
+  GCPRO4 (for_each_object_closure->function,
+	  for_each_object_closure->genre,
+	  for_each_object_closure->ds,
+	  for_each_object_closure->ret);
   concord_feature_foreach_obj_string (c_feature, func_for_each_object);
+  UNGCPRO;
   /* return Qt; */
   return for_each_object_closure->ret;
 }
@@ -851,6 +865,8 @@ concord_name_validate (Lisp_Object keyword, Lisp_Object value,
 static int
 concord_object_validate (Lisp_Object data, Error_behavior errb)
 {
+  struct gcpro gcpro1, gcpro2, gcpro3;
+  Lisp_Object retval;
   Lisp_Object valw = Qnil;
   Lisp_Object genre = Qnil;
   Lisp_Object oid = Qnil;
@@ -882,7 +898,10 @@ concord_object_validate (Lisp_Object data, Error_behavior errb)
       return 0;
     }
 
-  if (NILP (Fconcord_make_object (genre, oid, Qnil)))
+  GCPRO3 (genre, oid, retval);
+  retval = Fconcord_make_object (genre, oid, Qnil);
+  UNGCPRO;
+  if (NILP (retval))
     {
       maybe_signal_simple_error_2 ("No such Concord-object",
 				   oid, genre, Qconcord_object, errb);
