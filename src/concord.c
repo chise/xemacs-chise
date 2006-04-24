@@ -33,6 +33,9 @@ Boston, MA 02111-1307, USA.  */
 EXFUN (Fread_from_string, 3);
 
 
+EXFUN (Fconcord_decode_object, 4);
+EXFUN (Fconcord_object_put, 3);
+
 Lisp_Object Qconcord;
 Lisp_Object Qconcord_object;
 Lisp_Object Qgenre, Q_id;
@@ -414,12 +417,11 @@ DEFINE_LRECORD_IMPLEMENTATION ("concord_object", concord_object,
 			       concord_object_description,
 			       Lisp_CONCORD_Object);
 
-DEFUN ("concord-make-object",
-       Fconcord_make_object, 1, 3, 0, /*
+DEFUN ("concord-make-object", Fconcord_make_object, 1, 3, 0, /*
 Make and return a Concord-object from ID and GENRE.
 Optional argument DS specifies the data-source of the GENRE.
 */
-       (id, genre, ds))
+       (genre, id, ds))
 {
   Lisp_CONCORD_DS* lds;
   char* genre_name;
@@ -441,15 +443,32 @@ Optional argument DS specifies the data-source of the GENRE.
   c_genre = concord_ds_get_genre (lds->ds, genre_name);
   if (c_genre == NULL)
     return Qnil;
+#if 0
+  if (!NILP (id))
+    {
+      retval = Fconcord_decode_object (Q_id, id, genre, ds);
+      if (!NILP (retval))
+	return retval;
+    }
+#endif
   lcobj = allocate_concord_object ();
   lcobj->genre = c_genre;
   lcobj->id = id;
   XSET_CONCORD_OBJECT (retval, lcobj);
+#if 0
+  if (!NILP (id))
+    {
+      struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
+
+      GCPRO4 (retval, id, genre, ds);
+      Fconcord_object_put (retval, Q_id, id);
+      UNGCPRO;
+    }
+#endif
   return retval;
 }
 
-DEFUN ("concord-object-p",
-       Fconcord_object_p, 1, 1, 0, /*
+DEFUN ("concord-object-p", Fconcord_object_p, 1, 1, 0, /*
 Return t if OBJECT is a concord-object.
 */
        (object))
@@ -457,8 +476,7 @@ Return t if OBJECT is a concord-object.
   return CONCORD_OBJECT_P (object) ? Qt : Qnil;
 }
 
-DEFUN ("concord-object-id",
-       Fconcord_object_id, 1, 1, 0, /*
+DEFUN ("concord-object-id", Fconcord_object_id, 1, 1, 0, /*
 Return an id of Concord-object OBJECT.
 */
        (object))
@@ -467,8 +485,7 @@ Return an id of Concord-object OBJECT.
   return XCONCORD_OBJECT_ID (object);
 }
 
-DEFUN ("concord-decode-object",
-       Fconcord_decode_object, 2, 4, 0, /*
+DEFUN ("concord-decode-object", Fconcord_decode_object, 2, 4, 0, /*
 Make and return a Concord-object from FEATURE and VALUE.
 Optional argument GENRE specifies the GENRE of the object.
 Optional argument DS specifies the data-source of the GENRE.
@@ -540,13 +557,12 @@ Optional argument DS specifies the data-source of the GENRE.
 				     Qnil, Qnil));
 #endif
       UNGCPRO;
-      return Fconcord_make_object (obj, genre, ds);
+      return Fconcord_make_object (genre, obj, ds);
     }
   return Qnil;
 }
 
-DEFUN ("concord-object-get",
-       Fconcord_object_get, 2, 2, 0, /*
+DEFUN ("concord-object-get", Fconcord_object_get, 2, 2, 0, /*
 Return the value of OBJECT's FEATURE.
 */
        (object, feature))
@@ -750,8 +766,8 @@ func_for_each_object (CONCORD_String object_id,
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
-  obj = Fconcord_make_object (obj,
-			      for_each_object_closure->genre,
+  obj = Fconcord_make_object (for_each_object_closure->genre,
+			      obj,
 			      for_each_object_closure->ds);
 #if 0
   val = read_from_c_string (CONCORD_String_data (value),
@@ -866,7 +882,7 @@ concord_object_validate (Lisp_Object data, Error_behavior errb)
       return 0;
     }
 
-  if (NILP (Fconcord_make_object (oid, genre, Qnil)))
+  if (NILP (Fconcord_make_object (genre, oid, Qnil)))
     {
       maybe_signal_simple_error_2 ("No such Concord-object",
 				   oid, genre, Qconcord_object, errb);
@@ -879,9 +895,15 @@ concord_object_validate (Lisp_Object data, Error_behavior errb)
 static Lisp_Object
 concord_object_instantiate (Lisp_Object data)
 {
-  return Fconcord_make_object (Fplist_get (data, Q_id, Qnil),
-			       Fplist_get (data, Qgenre, Qnil),
-			       Qnil);
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object retval;
+
+  GCPRO2 (data, retval);
+  retval = Fconcord_make_object (Fplist_get (data, Qgenre, Qnil),
+				 Fplist_get (data, Q_id, Qnil),
+				 Qnil);
+  UNGCPRO;
+  return retval;
 }
 
 
