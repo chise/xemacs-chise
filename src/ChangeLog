@@ -1,5 +1,15 @@
 2006-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* concord.c: Add EXFUNs for Fconcord_decode_object and
+	Fconcord_object_put.
+	(Fconcord_make_object): Change order of arguments.
+	(Fconcord_decode_object): Modify for Fconcord_make_object.
+	(func_for_each_object): Likewise.
+	(concord_object_validate): Likewise.
+	(concord_object_instantiate): Use GCPRO2 for `data' and `retval'.
+
+2006-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* concord.c (Fconcord_object_put): Setup index for `=FOO' feature.
 
 2006-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
