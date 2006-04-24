@@ -1,5 +1,16 @@
 2006-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* concord.c (Fconcord_decode_object): Do GCPRO for
+	Fconcord_make_object.
+	(func_for_each_object): Likewise; do GCPRO for
+	for_each_object_closure->function.
+	(Fconcord_foreach_object_in_feature): Use GCPRO4 for
+	for_each_object_closure->function, for_each_object_closure->genre,
+	for_each_object_closure->ds and for_each_object_closure->ret.
+	(concord_object_validate): Do GCPRO for Fconcord_make_object.
+
+2006-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* concord.c: Add EXFUNs for Fconcord_decode_object and
 	Fconcord_object_put.
 	(Fconcord_make_object): Change order of arguments.
