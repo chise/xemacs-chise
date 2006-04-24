@@ -595,8 +595,7 @@ Return the value of OBJECT's FEATURE.
   return Qnil;
 }
 
-DEFUN ("concord-object-put",
-       Fconcord_object_put, 3, 3, 0, /*
+DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
 Store a VALUE of OBJECT's FEATURE.
 */
        (object, feature, value))
@@ -648,6 +647,13 @@ Store a VALUE of OBJECT's FEATURE.
   status = chise_feature_sync (c_feature);
   if (status)
     return Qnil;
+  if (feature_name[0] == '=')
+    {
+      CONCORD_INDEX c_index
+	= concord_genre_get_index (c_genre, feature_name);
+
+      status = concord_index_strid_put_obj (c_index, c_value, c_obj);
+    }
   return Qt;
 }
 
