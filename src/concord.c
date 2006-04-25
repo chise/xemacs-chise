@@ -35,6 +35,7 @@ EXFUN (Fread_from_string, 3);
 
 EXFUN (Fconcord_decode_object, 4);
 EXFUN (Fconcord_object_put, 3);
+EXFUN (Fconcord_object_get, 2);
 
 Lisp_Object Qconcord;
 Lisp_Object Qconcord_object;
@@ -42,6 +43,7 @@ Lisp_Object Qgenre, Q_id;
 
 Lisp_Object Vconcord_ds_hash_table;
 Lisp_Object Vconcord_genre_hash_table;
+Lisp_Object Vconcord_genre_object_hash_table;
 
 
 typedef struct Lisp_CONCORD_DS Lisp_CONCORD_DS;
@@ -417,6 +419,33 @@ DEFINE_LRECORD_IMPLEMENTATION ("concord_object", concord_object,
 			       concord_object_description,
 			       Lisp_CONCORD_Object);
 
+static Lisp_Object
+concord_genre_cache_get_object (Lisp_Object genre, Lisp_Object id)
+{
+  Lisp_Object obj_hash;
+  
+  obj_hash = Fgethash (genre, Vconcord_genre_object_hash_table, Qunbound);
+  if (UNBOUNDP (obj_hash))
+    return Qunbound;
+  return Fgethash (id, obj_hash, Qunbound);
+}
+
+static Lisp_Object
+concord_genre_cache_put_object (Lisp_Object genre, Lisp_Object id,
+				Lisp_Object object)
+{
+  Lisp_Object obj_hash;
+
+  obj_hash = Fgethash (genre, Vconcord_genre_object_hash_table, Qunbound);
+  if (UNBOUNDP (obj_hash))
+    {
+      obj_hash
+	= make_lisp_hash_table (256, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+      Fputhash (genre, obj_hash, Vconcord_genre_object_hash_table);
+    }
+  return Fputhash (id, object, obj_hash);
+}
+
 DEFUN ("concord-make-object", Fconcord_make_object, 1, 3, 0, /*
 Make and return a Concord-object from ID and GENRE.
 Optional argument DS specifies the data-source of the GENRE.
@@ -424,47 +453,52 @@ Optional argument DS specifies the data-source of the GENRE.
        (genre, id, ds))
 {
   Lisp_CONCORD_DS* lds;
-  char* genre_name;
+  Lisp_Object genre_string;
+  char* genre_name_str;
   CONCORD_Genre c_genre;
   Lisp_CONCORD_Object* lcobj;
   Lisp_Object retval;
 
+  if (!NILP (id))
+    {
+      retval = concord_genre_cache_get_object (genre, id);
+      if (!UNBOUNDP (retval))
+	{
+	  return retval;
+	}
+    }
   if (NILP (ds))
     ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
-  TO_EXTERNAL_FORMAT (LISP_STRING, genre,
-		      C_STRING_ALLOCA, genre_name,
+  if ( STRINGP(genre) )
+    genre_string = genre;
+  else
+    genre_string = Fsymbol_name (genre);
+  TO_EXTERNAL_FORMAT (LISP_STRING, genre_string,
+		      C_STRING_ALLOCA, genre_name_str,
 		      Qfile_name);
-  c_genre = concord_ds_get_genre (lds->ds, genre_name);
+  c_genre = concord_ds_get_genre (lds->ds, genre_name_str);
   if (c_genre == NULL)
     return Qnil;
-#if 0
-  if (!NILP (id))
-    {
-      retval = Fconcord_decode_object (Q_id, id, genre, ds);
-      if (!NILP (retval))
-	return retval;
-    }
-#endif
   lcobj = allocate_concord_object ();
   lcobj->genre = c_genre;
   lcobj->id = id;
   XSET_CONCORD_OBJECT (retval, lcobj);
-#if 0
   if (!NILP (id))
     {
       struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
       GCPRO4 (retval, id, genre, ds);
-      Fconcord_object_put (retval, Q_id, id);
+      concord_genre_cache_put_object (genre, id, retval);
+#if 1
+      if (!EQ (Fconcord_object_get (retval, Q_id), id))
+	Fconcord_object_put (retval, Q_id, id);
+#endif
       UNGCPRO;
     }
-#endif
   return retval;
 }
 
@@ -671,7 +705,8 @@ Store a VALUE of OBJECT's FEATURE.
       CONCORD_INDEX c_index
 	= concord_genre_get_index (c_genre, feature_name);
 
-      status = concord_index_strid_put_obj (c_index, c_value, c_obj);
+      concord_index_strid_put_obj (c_index, c_value, c_obj);
+      concord_index_sync (c_index);
     }
   return Qt;
 }
@@ -983,5 +1018,9 @@ vars_of_concord (void)
 
   staticpro (&Vconcord_genre_hash_table);
   Vconcord_genre_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+
+  staticpro (&Vconcord_genre_object_hash_table);
+  Vconcord_genre_object_hash_table
     = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 }
