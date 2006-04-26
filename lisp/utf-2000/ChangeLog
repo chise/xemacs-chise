@@ -1,3 +1,29 @@
+2006-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
+2006-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U+45AA): Use `->subsumptive'; use
+	`{ideographic|total}-strokes@{daikanwa|cns}'.
+	(M-32972): Don't relate with U+86CA; use `->subsumptive' to
+	integrate H7-F7E5.
+	(U+86CA): Unify M-32974 instead of M-32972.
+	(U+8723): Use `->denotational' instead of `->subsumptive'.
+	(parent of M-33217): Unify U-00027351; delete `<-denotational' for
+	U+8744; add `<-unknown' for U+8744 instead.
+	(U+8746): Use `->denotational' instead of `->subsumptive'.
+	(U-00027388): Use `->denotational'.
+	(U+8747): Use `->denotational'.
+	(C6-6178): Map to U-0002733B and M-49685.
+	(U-00027380): New character; add `ideographic-strokes@daikanwa';
+	it may be a mistake.
+	(M-33350): Use `<-subsumptive' for U-00027380.
+	(C6-6177): Likewise.
+
 2006-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el:
