@@ -864,6 +864,9 @@ set_tty_modes (struct console *c)
   OUTPUT1_IF (c, TTY_SD (c).init_motion);
   OUTPUT1_IF (c, TTY_SD (c).cursor_visible);
   OUTPUT1_IF (c, TTY_SD (c).keypad_on);
+
+  if (TTY_FLAGS (c).auto_margins)
+    OUTPUT1_IF (c, TTY_SD (c).disable_auto_margins);
 }
 
 /*****************************************************************************
@@ -881,6 +884,9 @@ reset_tty_modes (struct console *c)
   OUTPUT1_IF (c, TTY_SD (c).keypad_off);
   OUTPUT1_IF (c, TTY_SD (c).cursor_normal);
   OUTPUT1_IF (c, TTY_SD (c).end_motion);
+
+  if (TTY_FLAGS (c).auto_margins)
+    OUTPUT1_IF (c, TTY_SD (c).enable_auto_margins);
 
   {
     Lisp_Object frm = CONSOLE_SELECTED_FRAME (c);
@@ -1185,12 +1191,14 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
       TTY_SD (c).audio_bell = "\07";
     }
 
-  TTY_SD (c).cursor_visible = tgetstr ("ve", &bufptr);
-  TTY_SD (c).cursor_normal = tgetstr ("vs", &bufptr);
+  TTY_SD (c).cursor_visible = tgetstr ("vs", &bufptr);
+  TTY_SD (c).cursor_normal = tgetstr ("ve", &bufptr);
   TTY_SD (c).init_motion = tgetstr ("ti", &bufptr);
   TTY_SD (c).end_motion = tgetstr ("te", &bufptr);
   TTY_SD (c).keypad_on = tgetstr ("ks", &bufptr);
   TTY_SD (c).keypad_off = tgetstr ("ke", &bufptr);
+  TTY_SD (c).disable_auto_margins = tgetstr ("RA", &bufptr);
+  TTY_SD (c).enable_auto_margins = tgetstr ("SA", &bufptr);
 
 
   /*
@@ -1203,6 +1211,7 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
   TTY_FLAGS (c).memory_below_frame = tgetflag ("db");
   TTY_FLAGS (c).standout_width = tgetnum ("sg");
   TTY_FLAGS (c).underline_width = tgetnum ("ug");
+  TTY_FLAGS (c).auto_margins = tgetflag ("am");
 
   if (TTY_FLAGS (c).standout_width == -1)
     TTY_FLAGS (c).standout_width = 0;

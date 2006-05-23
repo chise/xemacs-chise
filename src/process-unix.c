@@ -1293,26 +1293,38 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
       Bufbyte chunkbuf[512];
       Bytecount chunklen;
 
-      while (1)
+      do
 	{
 	  Lstream_data_count writeret;
 
 	  chunklen = Lstream_read (lstream, chunkbuf, 512);
-	  if (chunklen <= 0)
-	    break; /* perhaps should ABORT() if < 0?
-		      This should never happen. */
 	  old_sigpipe =
 	    (SIGTYPE (*) (int)) signal (SIGPIPE, send_process_trap);
-	  /* Lstream_write() will never successfully write less than
-	     the amount sent in.  In the worst case, it just buffers
-	     the unwritten data. */
-	  writeret = Lstream_write (XLSTREAM (DATA_OUTSTREAM(p)), chunkbuf,
-				    chunklen);
-	  signal (SIGPIPE, old_sigpipe);
-	  if (writeret < 0)
-	    /* This is a real error.  Blocking errors are handled
-	       specially inside of the filedesc stream. */
-	    report_file_error ("writing to process", list1 (proc));
+	  if (chunklen > 0)
+	    {
+	      int save_errno;
+
+	      /* Lstream_write() will never successfully write less than
+		 the amount sent in.  In the worst case, it just buffers
+		 the unwritten data. */
+	      writeret = Lstream_write (XLSTREAM (DATA_OUTSTREAM(p)), chunkbuf,
+					chunklen);
+	      save_errno = errno;
+	      signal (SIGPIPE, old_sigpipe);
+	      errno = save_errno;
+	      if (writeret < 0)
+		/* This is a real error.  Blocking errors are handled
+		   specially inside of the filedesc stream. */
+		report_file_error ("writing to process", list1 (proc));
+	    }
+	  else
+	    {
+	      /* Need to make sure that everything up to and including the
+		 last chunk is flushed, even when the pipe is currently
+		 blocked. */
+	      Lstream_flush (XLSTREAM (DATA_OUTSTREAM(p)));
+	      signal (SIGPIPE, old_sigpipe);
+	    }
 	  while (Lstream_was_blocked_p (XLSTREAM (p->pipe_outstream)))
 	    {
 	      /* Buffer is full.  Wait, accepting input;
@@ -1327,7 +1339,9 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 	      Lstream_flush (XLSTREAM (p->pipe_outstream));
 	      signal (SIGPIPE, old_sigpipe);
 	    }
+	  /* Perhaps should abort() if < 0?  This should never happen. */
 	}
+      while (chunklen > 0);
     }
   else
     { /* We got here from a longjmp() from the SIGPIPE handler */
@@ -1670,13 +1684,13 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
     volatile int xerrno = 0;
     volatile int failed_connect = 0;
     char *ext_host;
+    char portbuf[sizeof(long)*3 + 2];
     /*
      * Caution: service can either be a string or int.
      * Convert to a C string for later use by getaddrinfo.
      */
     if (INTP (service))
       {
-	char portbuf[128];
 	snprintf (portbuf, sizeof (portbuf), "%ld", (long) XINT (service));
 	portstring = portbuf;
 	port = htons ((unsigned short) XINT (service));

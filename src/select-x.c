@@ -509,14 +509,41 @@ x_reply_selection_request (XSelectionRequestEvent *event, int format,
     }
   else
     {
+#ifndef HAVE_XTREGISTERDRAWABLE
+      invalid_operation("Copying that much data requires X11R6.", Qunbound);
+#else
       /* Send an INCR selection. */
       int prop_id;
+      Widget widget = FRAME_X_TEXT_WIDGET (XFRAME(DEVICE_SELECTED_FRAME(d)));
 
       if (x_window_to_frame (d, window)) /* #### debug */
 	error ("attempt to transfer an INCR to ourself!");
 #if 0
       stderr_out ("\nINCR %d\n", bytes_remaining);
 #endif
+      /* Tell Xt not to drop PropertyNotify events that arrive for the
+	 target window, rather, pass them to us. This would be a hack, but
+	 the Xt selection routines are broken for our purposes--we can't
+	 pass them callbacks from Lisp, for example. Let's call it a
+	 workaround.
+ 
+	 The call to wait_for_property_change means we can break out of that
+	 function, switch to another frame on the same display (which will
+	 be another Xt widget), select a huge amount of text, and have the
+	 same (foreign) app ask for another incremental selection
+	 transfer. Programming like X11 made sense, would mean that, in that
+	 case, XtRegisterDrawable is called twice with different widgets.
+ 
+	 Since the results of calling XtRegisterDrawable when the drawable
+	 is already registered with another widget are undefined, we want to
+	 avoid that--so, only call it when XtWindowToWidget returns NULL,
+	 which it will only do with a valid Window if it's not already
+	 registered. */
+      if (NULL == XtWindowToWidget(display, window))
+      {
+	XtRegisterDrawable(display, (Drawable)window, widget);
+      }
+      
       prop_id = expect_property_change (display, window, reply.property,
 					PropertyDelete);
 
@@ -560,10 +587,14 @@ x_reply_selection_request (XSelectionRequestEvent *event, int format,
       stderr_out ("  INCR done\n");
 #endif
       if (! waiting_for_other_props_on_window (display, window))
-	XSelectInput (display, window, 0L);
+      {
+        XSelectInput (display, window, 0L);
+        XtUnregisterDrawable(display, (Drawable)window);
+      }
 
       XChangeProperty (display, window, reply.property, type, format,
 		       PropModeReplace, data, 0);
+#endif /* HAVE_XTREGISTERDRAWABLE */
     }
 }
 

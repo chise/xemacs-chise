@@ -91,7 +91,7 @@ blocktype.o: $(LISP_H) blocktype.h
 buffer.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h elhash.h extents.h faces.h file-coding.h frame.h frameslots.h glyphs.h gui.h insdel.h lstream.h mule-charset.h process.h redisplay.h scrollbar.h select.h specifier.h syntax.h sysdep.h sysfile.h toolbar.h window.h winslots.h
 bytecode.o: $(LISP_H) backtrace.h buffer.h bufslots.h bytecode.h casetab.h chartab.h mule-charset.h opaque.h syntax.h
 callint.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h commands.h events.h insdel.h mule-charset.h redisplay.h scrollbar.h systime.h window.h winslots.h
-callproc.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h file-coding.h insdel.h lstream.h mule-charset.h nt.h process.h redisplay.h scrollbar.h sysdep.h sysfile.h sysproc.h syssignal.h systime.h systty.h syswindows.h window.h winslots.h
+callproc.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h file-coding.h insdel.h lstream.h mule-charset.h ndir.h nt.h process.h redisplay.h scrollbar.h sysdep.h sysdir.h sysfile.h sysproc.h syssignal.h systime.h systty.h syswindows.h window.h winslots.h
 casefiddle.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h insdel.h mule-charset.h syntax.h
 casetab.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h mule-charset.h opaque.h
 chartab.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h mule-charset.h syntax.h

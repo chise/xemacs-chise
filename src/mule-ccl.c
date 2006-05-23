@@ -1303,6 +1303,13 @@ ccl_driver (struct ccl_program *ccl,
 		    reg[RRR] = i;
 		    reg[rrr] = (*src++ & 0x7F);
 		  }
+		else if (LEADING_BYTE_CONTROL_1 == i)
+		  {
+		    if (src >= src_end)
+		      goto ccl_read_multibyte_character_suspend;
+		    reg[RRR] = i;
+		    reg[rrr] = (*src++ - 0xA0);
+		  }
 		else if (i <= MAX_LEADING_BYTE_OFFICIAL_2)
 		  {
 		    if ((src + 1) >= src_end)
@@ -1350,7 +1357,7 @@ ccl_driver (struct ccl_program *ccl,
 
 	    case CCL_WriteMultibyteChar2:
 	      i = reg[RRR]; /* charset */
-	      if (i == LEADING_BYTE_ASCII)
+	      if (i == LEADING_BYTE_ASCII || i == LEADING_BYTE_CONTROL_1)
 		i = reg[rrr] & 0xFF;
 	      else if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
 		i = (((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)

@@ -376,6 +376,10 @@ OVERRIDE-FRAME was specified.
 
 If `pop-up-frames' is non-nil, make a new frame if no window shows BUFFER.
 
+If the buffer name is a member of the `same-window-buffer-names' list,
+or matches one of the `same-window-regexps' expressions, display the
+buffer in the currently selected window.
+
 Returns the window displaying BUFFER."
   (interactive "BDisplay buffer:\nP")
 

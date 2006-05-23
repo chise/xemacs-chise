@@ -310,8 +310,8 @@ Canonical sizes are in points.  If SPEC is null, nil is returned.  If SPEC is
 a number, it is interpreted as the desired point size and returned unchanged.
 Otherwise SPEC must be a string consisting of a number and an optional type.
 The type may be the strings \"px\", \"pix\", or \"pixel\" (pixels), \"pt\" or
-\"point\" (points), \"pa\" or \"pica\" (picas), \"in\" or \"inch\" (inches), \"cm\"
-(centimeters), or \"mm\" (millimeters).
+\"point\" (points), \"pa\" or \"pica\" (picas), \"in\" or \"inch\" (inches),
+\"cm\" (centimeters), or \"mm\" (millimeters).
 
 1 in = 2.54 cm = 6 pa = 25.4 mm = 72 pt.  Pixel size is device-dependent."
   (cond
@@ -350,7 +350,7 @@ The type may be the strings \"px\", \"pix\", or \"pixel\" (pixels), \"pt\" or
       (setq num (string-to-number spec))
       (cond
        ((member type '("pixel" "px" "pix"))
-	(setq retval (* num (/ pix-width mm-width) (/ 25.4 72.0))))
+	(setq retval (* num (/ mm-width pix-width) (/ 72.0 25.4))))
        ((member type '("point" "pt"))
 	(setq retval num))
        ((member type '("pica" "pa"))

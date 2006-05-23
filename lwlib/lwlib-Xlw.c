@@ -324,13 +324,21 @@ xlw_update_scrollbar (widget_instance *instance, Widget widget,
 #ifdef LWLIB_TABS_LUCID
 /* tab control
    
-   lwlib is such an incredible hairy crock. I just cannot believe
+   [[ lwlib is such an incredible hairy crock. I just cannot believe
    it! There are random dependencies between functions, there is a
    total lack of genericity, even though it initially appears to be
    generic. It should all be junked and begun again. Building tabs are
    an example - in theory we should be able to reuse a lot of the
    general stuff because we want to put labels of whatever toolkit we
-   are using in the tab. Instead we have to hack it by hand. */
+   are using in the tab. Instead we have to hack it by hand. ]]
+   While lwlib is a hairy crock, whoever wrote that seems to misunderstand
+   Falk's tab control widget.  The tab control widget has *two* kinds of
+   children: *widgets*, which all occupy a *single* pane below the row of
+   tabs---this is where the labels created in build_tabs_in_widget go, and
+   *gadgets*, the tabs themselves, which do *not* draw themselves, but
+   rather are drawn by the control.  In fact, in XEmacs the true widget
+   children are *never* visible!  So this case is not a problem in the
+   design of lwlib, but rather of Falk's widget. -- sjt */
 static void
 xlw_tab_control_callback (Widget w, XtPointer client_data, XtPointer call_data)
 {
@@ -380,9 +388,8 @@ xlw_create_tab_control (widget_instance *instance)
   widget_value* val = instance->info->val;
 
   XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
-  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNmappedWhenManaged, False);		ac++;
   XtSetArg (al [ac], XtNorientation, XtorientHorizontal);	ac++;
-  XtSetArg (al [ac], XtNresizable, False);			ac++;
 
   /* add any args the user supplied for creation time */
   lw_add_value_args_to_args (val, al, &ac);
@@ -401,15 +408,22 @@ static void build_tabs_in_widget (widget_instance* instance, Widget widget,
 				  widget_value* val)
 {
   widget_value* cur = val;
+  Arg al[1];
+
+  /* Children are always invisible, don't permit resizing. */
+  XtSetArg (al[0], XtNresizable, False);
+
   for (cur = val; cur; cur = cur->next)
     {
       if (cur->value)
 	{
+	  Widget w;
 #ifdef LWLIB_WIDGETS_MOTIF
-	  xm_create_label (widget, cur);
+	  w = xm_create_label (widget, cur);
 #else
-	  xaw_create_label (widget, cur);
+	  w = xaw_create_label (widget, cur);
 #endif
+	  XtSetValues (w, al, 1);
 	}
       cur->change = NO_CHANGE;
     }

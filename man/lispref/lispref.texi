@@ -994,38 +994,56 @@ Colors
 
 Glyphs
 
-* Glyph Functions::	Functions for working with glyphs.
-* Images::		Graphical images displayed in a frame.
-* Glyph Types::         Each glyph has a particular type.
-* Mouse Pointer::	Controlling the mouse pointer.
-* Redisplay Glyphs::    Glyphs controlling various redisplay functions.
-* Subwindows::          Inserting an externally-controlled subwindow
-                          into a buffer.
-* Glyph Examples::      Examples of how to work with glyphs.
-
-Glyph Functions
-
-* Creating Glyphs::	Creating new glyphs.
-* Glyph Properties::	Accessing and modifying a glyph's properties.
-* Glyph Convenience Functions::
-			Convenience functions for accessing particular
-			  properties of a glyph.
-* Glyph Dimensions::    Determining the height, width, etc. of a glyph.
+* Glyph Intro::		Glyphs are abstract image specifications.
+* Images::		Specifying the appearance of glyphs.
+* Using Glyphs::	Creating and displaying glyphs.
+* Manipulating Glyphs::	Getting and setting glyph properties.
+* Glyph Examples::	Examples of how to work with glyphs.
 
 Images
 
-* Image Specifiers::		Specifying how an image will appear.
-* Image Instantiator Conversion::
-				Conversion is applied to image instantiators
-				  at the time they are added to an
-				  image specifier or at the time they
-				  are passed to @code{make-image-instance}.
-* Image Instances::		What an image specifier gets instanced as.
+* Image Specifiers::			Specifying an image's appearance.
+* Image Instantiator Conversion::	Lazy realization of graphics.
+* Image Instantiator Formats::		A catalog of image descriptors.
+* Image Instances::			Classes of graphical objects.
 
 Image Instances
 
 * Image Instance Types::         Each image instances has a particular type.
 * Image Instance Functions::	 Functions for working with image instances.
+
+Using Glyphs
+
+
+Image Instances
+
+* Image Instance Types::         Each image instances has a particular type.
+* Image Instance Functions::	 Functions for working with image instances.
+
+Using Glyphs
+
+* Creating Glyphs::	Creating new glyphs.
+* Buffer Glyphs::	Annotations are glyphs that appear in a buffer.
+* Redisplay Glyphs::	Glyphs controlling various redisplay functions.
+* Frame Glyphs::	Displaying glyphs in GUI components of the frame.
+* External Glyphs::	Icons and mouse pointers for the window system.
+* Native GUI Widgets::	Complex active elements treated as a single glyph.
+* Subwindows::		Externally-controlled subwindows in buffers.
+
+Native GUI Widgets
+
+* Introduction to Widgets::     Native widgets provide tight integration of
+                                GUI features with the platform GUI.
+* Lisp API to Native Widgets::  Native widgets are glyphs.
+* Layouts::                     Specifying composite widgets from Lisp.
+* Primitive Widgets::           Catalogue of available native widgets.
+
+Manipulating Glyphs
+
+* Glyph Properties::	Accessing and modifying a glyph's properties.
+* Glyph Convenience Functions::  Accessing particular properties of a glyph.
+* Glyph Dimensions::	Determining the height, width, etc. of a glyph.
+* Glyph Types::		Each glyph has a particular type.
 
 Annotations
 
