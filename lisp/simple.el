@@ -3898,7 +3898,7 @@ This correctly caters to the user's setting of `zmacs-regions'."
 
 ;; XEmacs
 (defun region-active-p ()
-  "Return non-nil if the region is active.
+  "Return non-nil if the region is active in the current buffer.
 If `zmacs-regions' is true, this is equivalent to `region-exists-p'.
 Otherwise, this function always returns false.
 
@@ -3908,7 +3908,8 @@ want grayed out when the region is not active.  Instead, use this:
   [ ... ... :active (region-exists-p)]
 
 Which correctly caters to the user's setting of `zmacs-regions'."
-  (and zmacs-regions zmacs-region-extent))
+  (and zmacs-regions zmacs-region-extent
+       (eq (current-buffer) (zmacs-region-buffer))))
 
 (defvar zmacs-activate-region-hook nil
   "Function or functions called when the region becomes active;

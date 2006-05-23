@@ -165,13 +165,13 @@ specified default value, @code{saved-value} for a value saved by the
 user, and @code{variable-documentation} for the documentation string.
 
 Use @code{custom-add-option} to specify that a specific function is
-useful as an member of a hook.
+useful as a member of a hook.
 
 @defun custom-add-option symbol option
 To the variable @var{symbol} add @var{option}.
 
 If @var{symbol} is a hook variable, @var{option} should be a hook
-member.  For other types variables, the effect is undefined."
+member.  For other types of variables, the effect is undefined."
 @end defun
 
 @node Declaring Faces, Usage for Package Authors, Declaring Variables, Top

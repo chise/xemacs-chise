@@ -1,3 +1,41 @@
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
+2005-12-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* custom.texi (Declaring Variables): Typo fixes.
+
+2005-01-19  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* lispref/mule.texi (CCL Example): Detail an implementation of the
+	web's URL encoding as a CCL coding system example. 
+
+2005-03-26  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* lispref/mule.texi (CCL Example):
+	char-int -> char-to-int, and hex 41 is decimal 65, both problems
+	with my previous patch pointed out by Stephen.
+	* lispref/mule.texi (The actual coding system):
+	Give information on the make-coding-system call, and where the
+	actual package can be found.
+
+2005-02-23  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* lispref/searching.texi (Syntax of Regexps):
+	Mention the \c and \C regular expression constructs; cross
+	reference to the Category Table documentation. 
+
+2005-02-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/glyphs.texi: Complete reorganization, some content updated.
+	* lispref/lispref.texi (Top): Update menu to match.
+	* lispref/extents.texi (Extent Properties): Update xref.
+ 	* lispref/faces.texi (Face Properties): Background pixmaps can be
+	used on GTK and MS Windows.
+ 	(Face Convenience Functions): Cross-reference glyph interface.
+ 	Background pixmap is an image specifier, not a glyph.
+
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released

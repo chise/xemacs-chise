@@ -234,6 +234,9 @@ Deprecated collection of DTDs for psgml.
 *** python-modes
 Python support.
 
+*** re-builder
+Interactive development tool for regular expressions.
+
 *** reftex
 Emacs support for LaTeX cross-references, citations.
 
@@ -341,6 +344,9 @@ XEmacs Lisp developer support.  This package contains utilities for
 supporting Lisp development.  It is a single-file package so it may be 
 tailored.
 
+*** xetla
+(setq mm-coding-system-priorities '(iso-8859-1 iso-8859-15 utf-8))
+
 *** xlib
 Emacs interface to X server.
 
@@ -370,6 +376,9 @@ MULE: Lisp Interface to EDICT, Kanji Dictionary.
 *** egg-its
 MULE: Wnn (4.2 and 6) support.  SJ3 support.
 
+*** latin-euro-standards
+MULE: Support for the Latin{7,8,9,10} character sets & coding systems.
+
 *** latin-unity
 MULE: find single ISO 8859 character set to encode a buffer.
 
@@ -383,7 +392,7 @@ MULE: Localized menubars and localized splash screens.
 MULE: Dictionary support.
 
 *** mule-base
-MULE: Basic Mule support, required for building with Mule.
+MULE: Basic Mule support.
 
 *** mule-ucs
 MULE: Extended coding systems (including Unicode) for XEmacs.

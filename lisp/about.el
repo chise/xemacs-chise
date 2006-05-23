@@ -1,6 +1,6 @@
 ;;; about.el --- the About The Authors page (shameless self promotion).
 
-;; Copyright (c) 1997 Free Software Foundation, Inc.
+;; Copyright (c) 1997, 2005 Free Software Foundation, Inc.
 ;; Copyright (C) 2001 Ben Wing.
 
 ;; Keywords: extensions
@@ -123,6 +123,7 @@
     (hobley   "David hobley"      "hobley@xemacs.org")
     (jan      "Jan Vroonhof"      "jan@xemacs.org")
     (jareth   "Jareth Hein"       "jareth@xemacs.org")
+    (jas      "Simon Josefsson"   "simon@xemacs.org")
     (jason    "Jason R. Mastaler" "jason@xemacs.org")
     (jens     "Jens Lautenbacher" "jens@xemacs.org")
     (jmiller  "Jeff Miller"       "jmiller@xemacs.org")
@@ -178,7 +179,7 @@
 
 (defvar about-once-and-future-hackers
   '(ajc baw bw chr cthomp darrylo devin dkindred dmoore eb hbs hmuller
-	hobley jens juhp jwz kyle marcpa mcook mly ograf pelegri pez
+	hobley jas jens juhp jwz kyle marcpa mcook mly ograf pelegri pez
 	rickc rose rossini slb stig stigb thiessel vladimir))
 
 ;; The CAR of alist elements is a valid argument to `about-url-link'.
@@ -201,6 +202,7 @@
     (dv         . "http://www.lrde.epita.fr/~didier/")
     (fabrice    . "http://www.ese-metz.fr/~popineau/")
     (fptex      . "http://www.fptex.org/")
+    (jas	. "http://josefsson.org/")
     (jason      . "http://www.mastaler.com/")
     (juhp       . "http://www.01.246.ne.jp/~juhp/")
     (jwz        . "http://www.jwz.org/")
@@ -1059,6 +1061,25 @@ portable, implements a language, includes a non-trivial bit of
 graphics and a garbage collector, but is multithreaded to boot!
 Unfortunately his XEmacs time is directly limited by the amount of
 traffic on the M40.\n"))
+    (jas
+     (widget-insert "\
+
+Simon lives in Stockholm where he has discovered that computers
+can be a powerful procrastinating tool.  Combined with a
+frustrating desire to see computers simply work, he spends most
+of his time complaining.  Occasionally he rises up to the task
+and produces something that others may complain about, which
+brings him increased satisfaction with every bug report.  Today
+he is pretending to be a network security guy, with a preference
+for standardization issues, while secretly longing to start a
+cafe or becoming a theoretical computer scientist.  His personal
+interest is literature, and to some extent traveling, but will
+try anything for fun, such as juggling, skiing, wine, and
+long-distance biking.
+
+See: ")
+     (about-url-link 'jas nil "Visit Simon's homepage")
+     (widget-insert ".\n"))
     (jareth
      (widget-insert "\
 Jareth Hein is a mountain boy who abandoned his home state of Colorado
@@ -1609,6 +1630,14 @@ of the XEmacs custom subsystem and gnuserv.\n"))
      (widget-insert "\
 Owner of cvs.xemacs.org, the machine that holds the XEmacs CVS
 repository, and author of some of the graphics code in XEmacs.\n"))
+    (jas
+     (widget-insert "\
+Wrote and/or integrated several packages for Gnus, such as
+support for IMAP, Sieve, format=flowed, GnuTLS, S/MIME, and PGP.
+Irregularly synchronizes lisp code between Emacs and XEmacs.  He
+maintains the mail-lib, sieve, sasl, pgg and ecrypto XEmacs
+packages.  Operates the secondary DNS and mail server for
+xemacs.org.\n"))
     (jason
      (widget-insert "\
 Beta tester, manager of the various XEmacs mailing lists and binary

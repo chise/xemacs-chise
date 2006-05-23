@@ -287,7 +287,7 @@ arguments compiles from `load-path'."
 	  found)
       (while (and dirs (not found))
 	(if (file-exists-p (expand-file-name (concat file ".el") (car dirs)))
-	    (setq found (expand-file-name file (car dirs)))
+	    (setq found (expand-file-name (concat file ".el") (car dirs)))
 	  (if (file-exists-p (expand-file-name file (car dirs)))
 	      (setq found (expand-file-name file (car dirs)))))
 	(setq dirs (cdr dirs)))

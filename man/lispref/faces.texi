@@ -164,7 +164,7 @@ The display table of the face.
 
 @item background-pixmap
 The pixmap displayed in the background of the face.  Only used by faces
-on X devices.
+on GUI devices, currently X11, GTK, and Microsoft Windows.
 
 @item underline
 Underline all text covered by this face.
@@ -373,6 +373,14 @@ returned by @code{make-glyph} (@pxref{Glyphs}).  The argument may also
 be a list of the form @code{(@var{width} @var{height} @var{data})} where
 @var{width} and @var{height} are the size in pixels, and @var{data} is a
 string, containing the raw bits of the bitmap.
+
+Similarly to how the glyph's image specifier works @xref{Creating
+Glyphs}, you don't create your own image specifier, but rather add
+specifications to the existing one.  Note that the image instance that is
+generated in order to actually display the background pixmap is of type
+@code{mono-pixmap}, meaning that it's a two-color image and the
+foreground and background of the image get filled in with the
+corresponding colors from the face.  (#### Is this still true?)
 @end deffn
 
 @deffn Command set-face-font face font &optional locale tag-set how-to-add
@@ -393,7 +401,7 @@ specifier of face @var{face}.
 @end defun
 
 @defun face-background-pixmap face &optional locale tag-set exact-p
-This function return the background-pixmap glyph object of face
+This function returns the background-pixmap image specifier of face
 @var{face}.
 @end defun
 

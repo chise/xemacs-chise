@@ -117,6 +117,7 @@ consulted for a more detailed list of changes.
     - In Perl, the --globals option tags global variables.
     - Python now supported.
     - New file extensions recognized: .ss, .pdb, .psw.
+  -- Fixed ldap libraries configuration.
 
 ** The delete key now deletes forward by default.
 
@@ -598,6 +599,11 @@ def and class at the beginning of a line are tags.
 *** New file extensions recognized: .ss, .pdb, .psw.
 .ss files are Scheme files, .pdb is Postscript with C syntax, .psw is
 for PSWrap.
+
+** Fixed ldap libraries configuration.
+
+It used to fail when `-lldap' requires `-llber'.  Introduced in
+upstream `configure.in' revision 1.151.2.31 (2005/01/31 02:54:47 +0).
 
 
 * Lisp and internal changes in XEmacs 21.4

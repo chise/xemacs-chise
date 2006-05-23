@@ -263,11 +263,23 @@ dll_handle
 dll_open (const char *fname)
 {
   NSObjectFileImage file;
-  NSObjectFileImageReturnCode ret = 
-    NSCreateObjectFileImageFromFile(fname, &file);
+  NSObjectFileImageReturnCode ret;
+
+  /*
+   * MacOS X dll support is for bundles, not the current executable, so return
+   * NULL is this case.  However, dll_function() uses a special hack where a
+   * NULL handle can be used to find executable symbols.  This satisfies the
+   * needs of ui-gtk.c but is not a general solution.
+   */
+  if (fname == NULL)
+    return NULL;
+
+  ret = NSCreateObjectFileImageFromFile(fname, &file);
+
   if (ret != NSObjectFileImageSuccess) {
     return NULL;
   }
+
   return (dll_handle)NSLinkModule(file, fname, 
 				  NSLINKMODULE_OPTION_BINDNOW |
 				  NSLINKMODULE_OPTION_PRIVATE |

@@ -203,7 +203,7 @@ is a list of menu items, as above."
   "Remove MENU from the current menu bar."
   (when (featurep 'menubar)
     (setq easy-menu-all-popups (delq menu easy-menu-all-popups)
-	  mode-popup-menu (if (< (length easy-menu-all-popups) 1)
+	  mode-popup-menu (if (> (length easy-menu-all-popups) 1)
 			      (cons (easy-menu-title)
 				    (reverse easy-menu-all-popups))
 			    (let ((same-as-menu

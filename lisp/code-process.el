@@ -50,6 +50,8 @@ or a cons of coding systems which are used as above.")
 The program's input comes from file INFILE (nil means `/dev/null').
 Insert output in BUFFER before point; t means current buffer;
  nil for BUFFER means discard it; 0 means discard and don't wait.
+If BUFFER is a string, then find or create a buffer with that name,
+then insert the output in that buffer, before point.
 BUFFER can also have the form (REAL-BUFFER STDERR-FILE); in that case,
 REAL-BUFFER says what to do with standard output, as above,
 while STDERR-FILE says what to do with standard error in the child.
@@ -100,6 +102,8 @@ Delete the text if fourth arg DELETEP is non-nil.
 
 Insert output in BUFFER before point; t means current buffer;
  nil for BUFFER means discard it; 0 means discard and don't wait.
+If BUFFER is a string, then find or create a buffer with that name,
+then insert the output in that buffer, before point.
 BUFFER can also have the form (REAL-BUFFER STDERR-FILE); in that case,
 REAL-BUFFER says what to do with standard output, as above,
 while STDERR-FILE says what to do with standard error in the child.
@@ -158,10 +162,10 @@ found, they default to `nil' for both input and output."
 Args are NAME BUFFER PROGRAM &rest PROGRAM-ARGS
 NAME is name for process.  It is modified if necessary to make it unique.
 BUFFER is the buffer or (buffer-name) to associate with the process.
- Process output goes at end of that buffer, unless you specify
- an output stream or filter function to handle the output.
- BUFFER may be also nil, meaning that this process is not associated
- with any buffer
+Process output goes at end of that buffer, unless you specify
+an output stream or filter function to handle the output.
+BUFFER may also be nil, meaning that this process is not associated
+with any buffer.
 Third arg is program file name.  It is searched for as in the shell.
 Remaining arguments are strings to give program as arguments.
 
