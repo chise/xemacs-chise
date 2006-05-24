@@ -3,7 +3,7 @@
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 2000, 2002 Ben Wing.
-   Copyright (C) 2000,2002 MORIOKA Tomohiko.
+   Copyright (C) 2000,2002,2005,2006 MORIOKA Tomohiko.
 
 This file is part of XEmacs.
 
@@ -1719,6 +1719,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       structure_type_create_faces ();
       structure_type_create_rangetab ();
       structure_type_create_hash_table ();
+#ifdef HAVE_CONCORD
+      structure_type_create_concord ();
+#endif
 
       /* Now initialize the image instantiator formats and associated symbols.
          Other than the first function below, the functions may
@@ -2226,6 +2229,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       structure_type_create_faces ();
       structure_type_create_rangetab ();
       structure_type_create_hash_table ();
+#ifdef HAVE_CONCORD
+      structure_type_create_concord ();
+#endif
 
       lstream_type_create ();
 #ifdef FILE_CODING

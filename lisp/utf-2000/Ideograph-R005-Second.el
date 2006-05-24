@@ -738,6 +738,7 @@
     (=gt-pj-2		. #x3152)	; &I-GT-00243; [17-50]
     (=daikanwa		. 00182)	; &I-M-00182;
     (=jef-china3	. #x95BC)	; &I-JC3-95BC;
+    (=adobe-japan1-5	. 17244)	; 乩
     (mojikyo		. 000182)	; &MCS-600000B6;
     ))
 (define-char
@@ -1436,6 +1437,7 @@
     (=gt-pj-2		. #x315D)	; &I-GT-00261; [17-61]
     (=daikanwa		. 00194)	; &I-M-00194;
     (=hanziku-1		. #xAFA3)	; &I-HZK01-AFA3;
+    (=adobe-japan1-5	. 19143)	; 乹
     (mojikyo		. 000194)	; &MCS-600000C2;
     ))
 (define-char

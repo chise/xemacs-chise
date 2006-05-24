@@ -387,6 +387,7 @@
     (=gt-k		. 08023)	; &I-GT-K08023;
     (=gt-pj-8		. #x4638)	; &I-GT-59043; [38-24]
     (=daikanwa		. 44023)	; &I-M-44023;
+    (=jef-china3	. #x6DB1)	; &I-JC3-6DB1;
     (mojikyo		. 044023)	; &MCS-6000ABF7;
     ))
 (define-char
@@ -414,34 +415,60 @@
 (define-char
   '((ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 2)
-    (total-strokes	 . 11)
     (=ucs		. #x98E3)	; 飣
-    (=jis-x0212		. #x6849)	; &I-JSP-6849; [72-41]
-    (=jis-x0213-2-2000	. #x7C4E)	; &I-JX2-7C4E; [92-46]
-    (=daikanwa		. 44024)	; &I-M-44024;
     ))
 (define-char
-  '((=>ucs		. #x98E3)	; 飣
-    (morohashi-daikanwa	44024 0 1)
+  '((<-denotational
+     ((=ucs		  . #x98E3)	; 飣
+      ))
+    (ideographic-radical . 184)	; ⾷
+    (ideographic-strokes . 2)
+    (total-strokes	 . 11)
+    (=jis-x0212		. #x6849)	; &M-44024; [72-41]
+    (=jis-x0213-2-2000	. #x7C4E)	; &I-JX2-7C4E; [92-46]
+    (=daikanwa		. 44024)	; &I-M-44024;
+    (=ucs@jis		. #x98E3)	; &M-44024;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x98E3)	; 飣
+      ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 2)
     (total-strokes	 . 10)
-    (=cns11643-2	. #x334B)	; &C2-334B; [19-43]
+    (->subsumptive
+     ((=cns11643-2	  . #x334B)	; &C2-334B; [19-43]
+      )
+     ((=ucs@unicode	  . #x98E3)	; &UU+98E3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 2)
-    (total-strokes	 . 11)
     (=ucs		. #x98E4)	; 飤
-    (=daikanwa		. 44025)	; &I-M-44025;
     ))
 (define-char
-  '((=>ucs		. #x98E4)	; 飤
-    (morohashi-daikanwa	44025 0 1)
+  '((<-denotational
+     ((=ucs		  . #x98E4)	; 飤
+      ))
+    (ideographic-radical . 184)	; ⾷
+    (ideographic-strokes . 2)
+    (total-strokes	 . 11)
+    (=daikanwa		. 44025)	; &M-44025;
+    (=jef-china3	. #x8EA7)	; &I-JC3-8EA7;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x98E4)	; 飤
+      ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 2)
     (total-strokes	 . 10)
-    (=cns11643-4	. #x3042)	; &C4-3042; [16-34]
+    (->subsumptive
+     ((=cns11643-4	  . #x3042)	; &C4-3042; [16-34]
+      )
+     ((=ucs@unicode	  . #x98E4)	; &UU+98E4;
+      ))
     ))
 (define-char
   '((ideographic-radical . 184)	; ⾷

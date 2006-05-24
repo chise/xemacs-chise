@@ -17,6 +17,7 @@
      ((shinjigen-1	  . 9805)
       (=ks-x1001	  . #x582B)	; &M-47887; [56-11]
       (=daikanwa	  . 47887)	; &I-M-47887;
+      (=jef-china3	  . #x6FC6)	; &I-JC3-6FC6;
       )
      ((=cns11643-1	  . #x5E28)	; &C1-5E28; [62-08]
       (=ucs@cns		  . #x9EBB)	; &C1-5E28;

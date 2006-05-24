@@ -1,5 +1,5 @@
 /* XEmacs routines to deal with CONCORD.
-   Copyright (C) 2005 MORIOKA Tomohiko
+   Copyright (C) 2005,2006 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -33,7 +33,17 @@ Boston, MA 02111-1307, USA.  */
 EXFUN (Fread_from_string, 3);
 
 
+EXFUN (Fconcord_decode_object, 4);
+EXFUN (Fconcord_object_put, 3);
+EXFUN (Fconcord_object_get, 2);
+
 Lisp_Object Qconcord;
+Lisp_Object Qconcord_object;
+Lisp_Object Qgenre, Q_id;
+
+Lisp_Object Vconcord_ds_hash_table;
+Lisp_Object Vconcord_genre_hash_table;
+Lisp_Object Vconcord_genre_object_hash_table;
 
 
 typedef struct Lisp_CONCORD_DS Lisp_CONCORD_DS;
@@ -126,12 +136,12 @@ Return t if OBJECT is a concord-ds.
 }
 
 DEFUN ("concord-open-ds", Fconcord_open_ds, 1, 4, 0, /*
-Return a new concord_ds object opened on PATH.
+Return a new concord-ds object opened on DIRECTORY.
 Optional arguments TYPE and SUBTYPE specify the concord_ds type.
-Optional argument MODE gives the permissions to use when opening PATH,
+Optional argument MODE gives the permissions to use when opening DIRECTORY,
 and defaults to 0755.
 */
-       (path, type, subtype, mode))
+       (directory, type, subtype, mode))
 {
   Lisp_Object retval;
   Lisp_CONCORD_DS* lds = NULL;
@@ -140,12 +150,18 @@ and defaults to 0755.
   char *pathname;
   struct gcpro gcpro1;
 
-  CHECK_STRING (path);
-  GCPRO1 (path);
-  path = Fexpand_file_name (path, Qnil);
+  CHECK_STRING (directory);
+  GCPRO1 (directory);
+  directory = Ffile_name_as_directory (Fexpand_file_name (directory, Qnil));
   UNGCPRO;
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, path,
+  retval = Fgethash (directory, Vconcord_ds_hash_table, Qunbound);
+  if (!UNBOUNDP (retval))
+    {
+      return retval;
+    }
+
+  TO_EXTERNAL_FORMAT (LISP_STRING, directory,
 		      C_STRING_ALLOCA, pathname,
 		      Qfile_name);
 
@@ -167,7 +183,90 @@ and defaults to 0755.
   lds = allocate_concord_ds ();
   lds->ds = ds;
   XSET_CONCORD_DS (retval, lds);
+  Fputhash (directory, retval, Vconcord_ds_hash_table);
   return retval;
+}
+
+DEFUN ("concord-ds-directory", Fconcord_ds_directory, 1, 1, 0, /*
+Return directory of concord-ds DS.
+*/
+       (ds))
+{
+  Lisp_CONCORD_DS* lds;
+  char* directory;
+
+  CHECK_CONCORD_DS (ds);
+  lds = XCONCORD_DS (ds);
+  if (lds->ds == NULL)
+    return Qnil;
+
+  directory = concord_ds_location (lds->ds);
+  if (directory == NULL)
+    return Qnil;
+
+  return build_ext_string (directory, Qfile_name);
+}
+
+
+DEFUN ("concord-assign-genre", Fconcord_assign_genre, 2, 2, 0, /*
+Assign data-source DIRECTORY to GENRE.
+*/
+       (genre, directory))
+{
+  struct gcpro gcpro1;
+
+  CHECK_SYMBOL (genre);
+  if ( CONCORD_DS_P (directory) )
+    {
+    }
+  else
+    {
+      CHECK_STRING (directory);
+      GCPRO1 (directory);
+      directory
+	= Ffile_name_as_directory (Fexpand_file_name (directory, Qnil));
+      UNGCPRO;
+    }
+  Fputhash (genre, directory, Vconcord_genre_hash_table);
+  return directory;
+}
+
+DEFUN ("concord-genre-directory", Fconcord_genre_directory, 1, 1, 0, /*
+Return pathname of GENRE.
+*/
+       (genre))
+{
+  Lisp_Object retval;
+  CHECK_SYMBOL (genre);
+
+  retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+  if ( STRINGP (retval) )
+    return retval;
+  else if ( CONCORD_DS_P (retval) )
+    return Fconcord_ds_directory (retval);
+  return Qnil;
+}
+
+DEFUN ("concord-genre-ds", Fconcord_genre_ds, 1, 1, 0, /*
+Return concord-ds of GENRE.
+*/
+       (genre))
+{
+  Lisp_Object retval;
+
+  CHECK_SYMBOL (genre);
+
+  retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+  if ( STRINGP (retval) )
+    {
+      retval = Fconcord_open_ds (retval, Qnil, Qnil, Qnil);
+      if ( !NILP (retval) )
+	Fputhash (genre, retval, Vconcord_genre_hash_table);
+      return retval;
+    }
+  else if ( CONCORD_DS_P (retval) )
+    return retval;
+  return Qnil;
 }
 
 
@@ -177,7 +276,7 @@ struct closure_to_list_feature
 } *concord_feature_list_closure;
 
 static int
-add_feature_to_list_mapper (CONCORD_Genre genre, unsigned char* name)
+add_feature_to_list_mapper (CONCORD_Genre genre, char* name)
 {
   /* This function can GC */
   concord_feature_list_closure->feature_list
@@ -191,16 +290,18 @@ Return the list of all existing features in GENRE.
        (genre, ds))
 {
   Lisp_CONCORD_DS* lds;
-  unsigned char* genre_name;
+  char* genre_name;
   CONCORD_Genre c_genre;
   struct gcpro gcpro1;
 
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  CHECK_SYMBOL (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
+  genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -266,20 +367,30 @@ print_concord_object (Lisp_Object obj,
   struct gcpro gcpro1, gcpro2;
 
   if (print_readably)
-    error ("printing unreadable object #<concord_object 0x%x>",
-	   lcobj->header.uid);
-
-  write_c_string ("#<concord_object \"", printcharfun);
-  write_c_string (concord_ds_location
-		  (concord_genre_get_data_source (lcobj->genre)),
-		  printcharfun);
-  write_c_string (":", printcharfun);
-  write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
-  write_c_string (";", printcharfun);
-  GCPRO2 (obj, printcharfun);
-  print_internal (lcobj->id, printcharfun, escapeflag);
-  UNGCPRO;
-  write_c_string ("\">", printcharfun);
+    {
+      write_c_string ("#s(concord-object", printcharfun);
+      write_c_string (" genre ", printcharfun);
+      write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
+      write_c_string (" =id ", printcharfun);
+      GCPRO2 (obj, printcharfun);
+      print_internal (lcobj->id, printcharfun, escapeflag);
+      UNGCPRO;
+      write_c_string (")", printcharfun);
+    }
+  else
+    {
+      write_c_string ("#<concord-object \"", printcharfun);
+      write_c_string (concord_ds_location
+		      (concord_genre_get_data_source (lcobj->genre)),
+		      printcharfun);
+      write_c_string (":", printcharfun);
+      write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
+      write_c_string (";", printcharfun);
+      GCPRO2 (obj, printcharfun);
+      print_internal (lcobj->id, printcharfun, escapeflag);
+      UNGCPRO;
+      write_c_string ("\">", printcharfun);
+    }
 }
 
 static void
@@ -308,40 +419,90 @@ DEFINE_LRECORD_IMPLEMENTATION ("concord_object", concord_object,
 			       concord_object_description,
 			       Lisp_CONCORD_Object);
 
-DEFUN ("concord-make-object",
-       Fconcord_make_object, 1, 3, 0, /*
+static Lisp_Object
+concord_genre_cache_get_object (Lisp_Object genre, Lisp_Object id)
+{
+  Lisp_Object obj_hash;
+  
+  obj_hash = Fgethash (genre, Vconcord_genre_object_hash_table, Qunbound);
+  if (UNBOUNDP (obj_hash))
+    return Qunbound;
+  return Fgethash (id, obj_hash, Qunbound);
+}
+
+static Lisp_Object
+concord_genre_cache_put_object (Lisp_Object genre, Lisp_Object id,
+				Lisp_Object object)
+{
+  Lisp_Object obj_hash;
+
+  obj_hash = Fgethash (genre, Vconcord_genre_object_hash_table, Qunbound);
+  if (UNBOUNDP (obj_hash))
+    {
+      obj_hash
+	= make_lisp_hash_table (256, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+      Fputhash (genre, obj_hash, Vconcord_genre_object_hash_table);
+    }
+  return Fputhash (id, object, obj_hash);
+}
+
+DEFUN ("concord-make-object", Fconcord_make_object, 1, 3, 0, /*
 Make and return a Concord-object from ID and GENRE.
 Optional argument DS specifies the data-source of the GENRE.
 */
-       (id, genre, ds))
+       (genre, id, ds))
 {
   Lisp_CONCORD_DS* lds;
-  unsigned char* genre_name;
+  Lisp_Object genre_string;
+  char* genre_name_str;
   CONCORD_Genre c_genre;
   Lisp_CONCORD_Object* lcobj;
   Lisp_Object retval;
 
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (!NILP (id))
+    {
+      retval = concord_genre_cache_get_object (genre, id);
+      if (!UNBOUNDP (retval))
+	{
+	  return retval;
+	}
+    }
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
-  TO_EXTERNAL_FORMAT (LISP_STRING, genre,
-		      C_STRING_ALLOCA, genre_name,
+  if ( STRINGP(genre) )
+    genre_string = genre;
+  else
+    genre_string = Fsymbol_name (genre);
+  TO_EXTERNAL_FORMAT (LISP_STRING, genre_string,
+		      C_STRING_ALLOCA, genre_name_str,
 		      Qfile_name);
-  c_genre = concord_ds_get_genre (lds->ds, genre_name);
+  c_genre = concord_ds_get_genre (lds->ds, genre_name_str);
   if (c_genre == NULL)
     return Qnil;
   lcobj = allocate_concord_object ();
   lcobj->genre = c_genre;
   lcobj->id = id;
   XSET_CONCORD_OBJECT (retval, lcobj);
+  if (!NILP (id))
+    {
+      struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
+
+      GCPRO4 (retval, id, genre, ds);
+      concord_genre_cache_put_object (genre, id, retval);
+#if 1
+      if (!EQ (Fconcord_object_get (retval, Q_id), id))
+	Fconcord_object_put (retval, Q_id, id);
+#endif
+      UNGCPRO;
+    }
   return retval;
 }
 
-DEFUN ("concord-object-p",
-       Fconcord_object_p, 1, 1, 0, /*
+DEFUN ("concord-object-p", Fconcord_object_p, 1, 1, 0, /*
 Return t if OBJECT is a concord-object.
 */
        (object))
@@ -349,8 +510,7 @@ Return t if OBJECT is a concord-object.
   return CONCORD_OBJECT_P (object) ? Qt : Qnil;
 }
 
-DEFUN ("concord-object-id",
-       Fconcord_object_id, 1, 1, 0, /*
+DEFUN ("concord-object-id", Fconcord_object_id, 1, 1, 0, /*
 Return an id of Concord-object OBJECT.
 */
        (object))
@@ -359,8 +519,7 @@ Return an id of Concord-object OBJECT.
   return XCONCORD_OBJECT_ID (object);
 }
 
-DEFUN ("concord-decode-object",
-       Fconcord_decode_object, 2, 4, 0, /*
+DEFUN ("concord-decode-object", Fconcord_decode_object, 2, 4, 0, /*
 Make and return a Concord-object from FEATURE and VALUE.
 Optional argument GENRE specifies the GENRE of the object.
 Optional argument DS specifies the data-source of the GENRE.
@@ -368,26 +527,28 @@ Optional argument DS specifies the data-source of the GENRE.
        (feature, value, genre, ds))
 {
   Lisp_CONCORD_DS* lds;
-  unsigned char* genre_name;
+  char* genre_name;
   CONCORD_Genre c_genre;
-  unsigned char* feature_name;
+  char* feature_name;
   CONCORD_INDEX c_index;
   Lisp_Object value_string;
-  unsigned char* strid;
+  char* strid;
   CONCORD_String_Tank st_id;
   int status;
   Lisp_Object obj;
+  int previous_print_readably;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4, gcpro5;
 
-  if ( !STRINGP(feature) )
-    feature = Fsymbol_name (feature);
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
-
+  if ( !STRINGP(feature) )
+    feature = Fsymbol_name (feature);
+  if ( !STRINGP(genre) )
+    genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -406,43 +567,49 @@ Optional argument DS specifies the data-source of the GENRE.
       return Qnil;
     }
 
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO5 (feature, value, genre, ds, value_string);
   value_string = Fprin1_to_string (value, Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING,
 		      value_string, C_STRING_ALLOCA, strid,
 		      Qfile_name);
   status = concord_index_strid_get_obj_string (c_index, strid, &st_id);
   if (!status)
     {
-      GCPRO3 (genre, ds, obj);
+      Lisp_Object retval;
+
+      GCPRO4 (genre, ds, obj, retval);
 #if 0
       obj = read_from_c_string (CONCORD_String_data (&st_id),
 				CONCORD_String_size (&st_id) );
 #else
       obj = Fcar (Fread_from_string (make_ext_string
-				     (CONCORD_String_data (&st_id),
+				     ((char*)CONCORD_String_data (&st_id),
 				      CONCORD_String_size (&st_id),
 				      Qfile_name),
 				     Qnil, Qnil));
 #endif
+      retval = Fconcord_make_object (genre, obj, ds);
       UNGCPRO;
-      return Fconcord_make_object (obj, genre, ds);
+      return retval;
     }
   return Qnil;
 }
 
-DEFUN ("concord-object-get",
-       Fconcord_object_get, 2, 2, 0, /*
+DEFUN ("concord-object-get", Fconcord_object_get, 2, 2, 0, /*
 Return the value of OBJECT's FEATURE.
 */
        (object, feature))
 {
   struct gcpro gcpro1, gcpro2;
+  int previous_print_readably;
   Lisp_Object obj_string;
-  unsigned char* c_obj;
+  char* c_obj;
   CONCORD_Genre c_genre;
-  unsigned char* feature_name;
+  char* feature_name;
   CONCORD_Feature c_feature;
   int status;
   CONCORD_String_Tank st_value;
@@ -450,9 +617,12 @@ Return the value of OBJECT's FEATURE.
   CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO2 (object, feature);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
@@ -470,7 +640,7 @@ Return the value of OBJECT's FEATURE.
     {
       return
 	Fcar (Fread_from_string (make_ext_string
-				 (CONCORD_String_data (&st_value),
+				 ((char*)CONCORD_String_data (&st_value),
 				  CONCORD_String_size (&st_value),
 				  Qfile_name),
 				 Qnil, Qnil));
@@ -478,28 +648,31 @@ Return the value of OBJECT's FEATURE.
   return Qnil;
 }
 
-DEFUN ("concord-object-put",
-       Fconcord_object_put, 3, 3, 0, /*
+DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
 Store a VALUE of OBJECT's FEATURE.
 */
        (object, feature, value))
 {
   struct gcpro gcpro1, gcpro2, gcpro3;
+  int previous_print_readably;
   Lisp_Object obj_string;
-  unsigned char* c_obj;
+  char* c_obj;
   CONCORD_Genre c_genre;
-  unsigned char* feature_name;
+  char* feature_name;
   CONCORD_Feature c_feature;
   int status;
   Lisp_Object value_string;
-  unsigned char* c_value;
+  char* c_value;
 
   CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO3 (object, feature, value);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
@@ -511,29 +684,41 @@ Store a VALUE of OBJECT's FEATURE.
     {
       return Qnil;
     }
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO3 (object, feature, value);
   value_string = Fprin1_to_string (value, Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, value_string,
 		      C_STRING_ALLOCA, c_value,
 		      Qfile_name);
-  status = concord_obj_put_feature_value_str (c_obj, c_feature, c_value);
+  status = concord_obj_put_feature_value_str (c_obj, c_feature,
+					      (unsigned char*)c_value);
   if (status)
     return Qnil;
   status = chise_feature_sync (c_feature);
   if (status)
     return Qnil;
+  if (feature_name[0] == '=')
+    {
+      CONCORD_INDEX c_index
+	= concord_genre_get_index (c_genre, feature_name);
+
+      concord_index_strid_put_obj (c_index, c_value, c_obj);
+      concord_index_sync (c_index);
+    }
   return Qt;
 }
 
 struct closure_for_object_spec
 {
-  unsigned char* object_id;
+  char* object_id;
   Lisp_Object spec;
 } *concord_object_spec_closure;
 
 static int
-add_feature_to_spec_mapper (CONCORD_Genre genre, unsigned char* name)
+add_feature_to_spec_mapper (CONCORD_Genre genre, char* name)
 {
   /* This function can GC */
   CONCORD_String_Tank st_value;
@@ -553,7 +738,7 @@ add_feature_to_spec_mapper (CONCORD_Genre genre, unsigned char* name)
 	= Fcons (Fcons (intern (name),
 			Fcar (Fread_from_string
 			      (make_ext_string
-			       (CONCORD_String_data (&st_value),
+			       ((char*)CONCORD_String_data (&st_value),
 				CONCORD_String_size (&st_value),
 				Qfile_name),
 			       Qnil, Qnil))),
@@ -568,14 +753,18 @@ Return the spec of OBJECT.
        (object))
 {
   Lisp_Object obj_string;
-  unsigned char* c_obj;
+  char* c_obj;
   CONCORD_Genre c_genre;
   struct gcpro gcpro1, gcpro2;
+  int previous_print_readably;
 
   CHECK_CONCORD_OBJECT (object);
+  previous_print_readably = print_readably;
+  print_readably = 1;
   GCPRO1 (object);
   obj_string = Fprin1_to_string (XCONCORD_OBJECT_ID(object), Qnil);
   UNGCPRO;
+  print_readably = previous_print_readably;
   TO_EXTERNAL_FORMAT (LISP_STRING, obj_string,
 		      C_STRING_ALLOCA, c_obj, Qfile_name);
   c_genre = XCONCORD_OBJECT_GENRE(object);
@@ -595,6 +784,7 @@ struct closure_for_each_object
   Lisp_Object function;
   Lisp_Object genre;
   Lisp_Object ds;
+  Lisp_Object ret;
 } *for_each_object_closure;
 
 static int
@@ -602,6 +792,7 @@ func_for_each_object (CONCORD_String object_id,
 		      CONCORD_Feature feature,
 		      CONCORD_String value)
 {
+  struct gcpro gcpro1, gcpro2, gcpro3;
   Lisp_Object obj, val, ret;
 
 #if 0
@@ -609,25 +800,30 @@ func_for_each_object (CONCORD_String object_id,
 			    CONCORD_String_size (object_id) );
 #else
   obj = Fcar (Fread_from_string (make_ext_string
-				 (CONCORD_String_data (object_id),
+				 ((char*)CONCORD_String_data (object_id),
 				  CONCORD_String_size (object_id),
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
-  obj = Fconcord_make_object (obj,
-			      for_each_object_closure->genre,
+  GCPRO1 (obj);
+  obj = Fconcord_make_object (for_each_object_closure->genre,
+			      obj,
 			      for_each_object_closure->ds);
+  UNGCPRO;
 #if 0
   val = read_from_c_string (CONCORD_String_data (value),
 			    CONCORD_String_size (value) );
 #else
   val = Fcar (Fread_from_string (make_ext_string
-				 (CONCORD_String_data (value),
+				 ((char*)CONCORD_String_data (value),
 				  CONCORD_String_size (value),
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
+  GCPRO3 (obj, val, ret);
   ret = call2 (for_each_object_closure->function, obj, val);
+  UNGCPRO;
+  for_each_object_closure->ret = ret;
   return !NILP (ret);
 }
 
@@ -640,20 +836,23 @@ When the FUNCTION returns non-nil, it breaks the repeat.
 */
        (function, feature, genre, ds))
 {
+  struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
   Lisp_CONCORD_DS* lds;
-  unsigned char* genre_name;
+  char* genre_name;
   CONCORD_Genre c_genre;
-  unsigned char* feature_name;
+  char* feature_name;
   CONCORD_Feature c_feature;
 
-  if ( !STRINGP(feature) )
-    feature = Fsymbol_name (feature);
-  if ( !STRINGP(genre) )
-    genre = Fsymbol_name (genre);
+  if (NILP (ds))
+    ds = Fconcord_genre_ds (genre);
   CHECK_CONCORD_DS (ds);
   lds = XCONCORD_DS (ds);
   if (lds->ds == NULL)
     return Qnil;
+  if ( !STRINGP(feature) )
+    feature = Fsymbol_name (feature);
+  if ( !STRINGP(genre) )
+    genre = Fsymbol_name (genre);
   TO_EXTERNAL_FORMAT (LISP_STRING, genre,
 		      C_STRING_ALLOCA, genre_name,
 		      Qfile_name);
@@ -673,9 +872,94 @@ When the FUNCTION returns non-nil, it breaks the repeat.
   for_each_object_closure->function = function;
   for_each_object_closure->genre = genre;
   for_each_object_closure->ds = ds;
+  for_each_object_closure->ret = Qnil;
+  GCPRO4 (for_each_object_closure->function,
+	  for_each_object_closure->genre,
+	  for_each_object_closure->ds,
+	  for_each_object_closure->ret);
   concord_feature_foreach_obj_string (c_feature, func_for_each_object);
-  return Qt;
+  UNGCPRO;
+  /* return Qt; */
+  return for_each_object_closure->ret;
 }
+
+
+static int
+concord_name_validate (Lisp_Object keyword, Lisp_Object value,
+		       Error_behavior errb)
+{
+  if (ERRB_EQ (errb, ERROR_ME))
+    {
+      CHECK_SYMBOL (value);
+      return 1;
+    }
+
+  return SYMBOLP (value);
+}
+
+static int
+concord_object_validate (Lisp_Object data, Error_behavior errb)
+{
+  struct gcpro gcpro1, gcpro2, gcpro3;
+  Lisp_Object retval;
+  Lisp_Object valw = Qnil;
+  Lisp_Object genre = Qnil;
+  Lisp_Object oid = Qnil;
+
+  data = Fcdr (data); /* skip over Qconcord_object */
+  while (!NILP (data))
+    {
+      Lisp_Object keyw = Fcar (data);
+
+      data = Fcdr (data);
+      valw = Fcar (data);
+      data = Fcdr (data);
+      if (EQ (keyw, Qgenre))
+	genre = valw;
+      else if (EQ (keyw, Q_id))
+	oid = valw;
+      else
+	ABORT ();
+    }
+
+  if (NILP (genre))
+    {
+      maybe_error (Qconcord_object, errb, "No genre given");
+      return 0;
+    }
+  if (NILP (oid))
+    {
+      maybe_error (Qconcord_object, errb, "No object-id given");
+      return 0;
+    }
+
+  GCPRO3 (genre, oid, retval);
+  retval = Fconcord_make_object (genre, oid, Qnil);
+  UNGCPRO;
+  if (NILP (retval))
+    {
+      maybe_signal_simple_error_2 ("No such Concord-object",
+				   oid, genre, Qconcord_object, errb);
+      return 0;
+    }
+
+  return 1;
+}
+
+static Lisp_Object
+concord_object_instantiate (Lisp_Object data)
+{
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object retval;
+
+  GCPRO2 (data, retval);
+  retval = Fconcord_make_object (Fplist_get (data, Qgenre, Qnil),
+				 Fplist_get (data, Q_id, Qnil),
+				 Qnil);
+  UNGCPRO;
+  return retval;
+}
+
 
 void
 syms_of_concord (void)
@@ -686,11 +970,20 @@ syms_of_concord (void)
   defsymbol (&Qconcord, "concord");
   defsymbol (&Qconcord_dsp, "concord-dsp");
   defsymbol (&Qconcord_objectp, "concord-objectp");
+  defsymbol (&Qconcord_object, "concord-object");
+  defsymbol (&Qgenre, "genre");
+  defsymbol (&Q_id, "=id");
 
   DEFSUBR (Fconcord_open_ds);
   DEFSUBR (Fconcord_ds_p);
   DEFSUBR (Fconcord_close_ds);
+  DEFSUBR (Fconcord_ds_directory);
+
+  DEFSUBR (Fconcord_assign_genre);
+  DEFSUBR (Fconcord_genre_directory);
+  DEFSUBR (Fconcord_genre_ds);
   DEFSUBR (Fconcord_feature_list);
+
   DEFSUBR (Fconcord_make_object);
   DEFSUBR (Fconcord_object_p);
   DEFSUBR (Fconcord_object_id);
@@ -702,7 +995,32 @@ syms_of_concord (void)
 }
 
 void
+structure_type_create_concord (void)
+{
+  struct structure_type *st;
+
+  st = define_structure_type (Qconcord_object,
+			      concord_object_validate,
+			      concord_object_instantiate);
+
+  define_structure_type_keyword (st, Qgenre, concord_name_validate);
+  define_structure_type_keyword (st, Q_id, concord_name_validate);
+}
+
+void
 vars_of_concord (void)
 {
   Fprovide (Qconcord);
+
+  staticpro (&Vconcord_ds_hash_table);
+  Vconcord_ds_hash_table
+    = make_lisp_hash_table (8, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
+
+  staticpro (&Vconcord_genre_hash_table);
+  Vconcord_genre_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+
+  staticpro (&Vconcord_genre_object_hash_table);
+  Vconcord_genre_object_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 }

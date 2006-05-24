@@ -678,6 +678,7 @@
     (=gt-k		. 03657)	; &I-GT-K03657;
     (=gt-pj-1		. #x3358)	; &I-GT-08752; [19-56]
     (=daikanwa		. 06974)	; &I-M-06974;
+    (=hanziku-3		. #xCF41)	; &I-HZK03-CF41;
     (<-simplified@CN
      ((=ucs		  . #x5B78)	; 學
       (=gb12345		  . #x5127)	; 學 [49-07]

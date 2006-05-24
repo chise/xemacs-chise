@@ -259,10 +259,29 @@
     (=daikanwa		. 36669)	; &I-M-36669;
     ))
 (define-char
-  '((ideographic-radical . 154)	; ⾙
-    (ideographic-strokes . 3)
+  '((ideographic-radical@ucs . 16)	; ⼏
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@ucs*sources
+     daikanwa=01780 cns11643 ucs)
+    (ideographic-radical@daikanwa=36670 . 154)	; ⾙
+    (ideographic-strokes@daikanwa=36670 . 3)
+    (ideographic-radical@daikanwa=36670*sources
+     daikanwa=36670)
     (total-strokes	 . 10)
-    (=daikanwa		. 36670)	; &M-36670;
+    (hanyu-dazidian	1 278 4)
+    (=ucs		. #x20652)	; 𠙒
+    (=cns11643-6	. #x3547)	; &I-C6-3547; [21-39]
+    (=hanziku-1		. #xDF6C)	; &I-HZK01-DF6C;
+    (mojikyo		. 036670)	; &MCS-60008F3E;
+    (->subsumptive
+     ((ideographic-radical . 16)	; ⼏
+      (ideographic-strokes . 8)
+      (=daikanwa	  . 01780)	; &M-01780;
+      )
+     ((ideographic-radical . 154)	; ⾙
+      (ideographic-strokes . 3)
+      (=daikanwa	  . 36670)	; &M-36670;
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
@@ -297,19 +316,22 @@
     (=hanziku-9		. #xF074)	; &I-HZK09-F074;
     ))
 (define-char
-  '((=>ucs		. #x8CA5)	; 貥
-    (ideographic-radical . 154)	; ⾙
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (=daikanwa		. 36673)	; &M-36673;
+  '((ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (=ucs		. #x27D2E)	; 𧴮
     ))
 (define-char
-  '((morohashi-daikanwa	36673 0 0)
-    (ideographic-radical . 154)	; ⾙
+  '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x8CA5)	; 貥
-    (=cns11643-2	. #x3955)	; &I-C2-3955; [25-53]
+    (->subsumptive
+     ((=daikanwa	  . 36673)	; &M-36673;
+      )
+     ((=cns11643-2	  . #x3955)	; &C2-3955; [25-53]
+      (=ucs@unicode	  . #x8CA5)	; &C2-3955;
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
@@ -2006,6 +2028,7 @@
      ((=ks-x1001	  . #x5E39)	; &M-36788; [62-25]
       (=jis-x0213-1-2000  . #x7C38)	; &I-JX1-7C38; [92-24]
       (=daikanwa	  . 36788)	; &I-M-36788;
+      (=jef-china3	  . #x65F4)	; &I-JC3-65F4;
       (=ucs@unicode	  . #xFA64)	; &M-36788;
       (=ucs@ks		  . #x8CD3)	; &M-36788;
       )

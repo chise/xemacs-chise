@@ -555,49 +555,39 @@
     (=daikanwa		. 36389)	; &I-M-36389;
     ))
 (define-char
-  '((=>ucs		. #x8C65)	; 豥
-    (ideographic-radical . 152)	; ⾗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=gt		. 48794)	; &GT-48794;
-    (=gt-pj-7		. #x3D7B)	; &GT-48794; [29-91]
-    (=daikanwa		. 36390)	; &I-M-36390;
-    ))
-(define-char
-  '((morohashi-daikanwa	36390 0 0)
-    (ideographic-radical . 152)	; ⾗
+  '((ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x8C65)	; 豥
-    (=cns11643-2	. #x475B)	; &I-C2-475B; [39-59]
+    (->subsumptive
+     ((=gt		  . 48794)	; &GT-48794;
+      (=gt-pj-7		  . #x3D7B)	; &GT-48794; [29-91]
+      (=daikanwa	  . 36390)	; &I-M-36390;
+      )
+     ((=cns11643-2	  . #x475B)	; &C2-475B; [39-59]
+      (=ucs@unicode	  . #x8C65)	; &C2-475B;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x8C66)	; 豦
-    (ideographic-radical . 152)	; ⾗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=jis-x0212		. #x5E75)	; &GT-48799; [62-85]
-    (=gt		. 48799)	; &I-GT-48799;
-    (=gt-k		. 10720)	; &I-GT-K10720;
-    (=gt-pj-7		. #x3D7C)	; &I-GT-48799; [29-92]
-    (=daikanwa		. 36391)	; &I-M-36391;
-    (=ucs@jis		. #x8C66)	; &GT-48799;
-    ))
-(define-char
-  '((morohashi-daikanwa	36391 0 0)
-    (ideographic-radical . 152)	; ⾗
+  '((ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x8C66)	; 豦
-    ))
-(define-char
-  '((=>ucs		. #x8C66)	; 豦
-    (morohashi-daikanwa	36391 0 1)
-    (ideographic-radical . 152)	; ⾗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=cns11643-2	. #x475D)	; &C2-475D; [39-61]
-    (=ucs@cns		. #x8C66)	; &C2-475D;
+    (->subsumptive
+     ((=jis-x0212	  . #x5E75)	; &GT-48799; [62-85]
+      (=gt		  . 48799)	; &I-GT-48799;
+      (=gt-k		  . 10720)	; &I-GT-K10720;
+      (=gt-pj-7		  . #x3D7C)	; &I-GT-48799; [29-92]
+      (=daikanwa	  . 36391)	; &I-M-36391;
+      (=ucs@jis		  . #x8C66)	; &GT-48799;
+      )
+     ((=ucs@unicode	  . #x8C66)	; &UU+8C66;
+      )
+     ((=jef-china3	  . #x65E6)	; &JC3-65E6;
+      )
+     ((=cns11643-2	  . #x475D)	; &C2-475D; [39-61]
+      (=ucs@cns		  . #x8C66)	; &C2-475D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 152)	; ⾗

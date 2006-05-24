@@ -1018,9 +1018,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x72CA)	; 狊
+    (=big5		. #xCFBE)	; &I-B-CFBE;
     (->subsumptive
-     ((=big5		  . #xCFBE)	; &M-20320;
-      (=daikanwa	  . 20320)	; &I-M-20320;
+     ((=daikanwa	  . 20320)	; &M-20320;
       (=ucs@unicode	  . #x72CA)	; &M-20320;
       )
      ((=cns11643-2	  . #x2B7E)	; &C2-2B7E; [11-94]

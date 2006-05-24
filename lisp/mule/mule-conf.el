@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005,2006 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -706,7 +706,10 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother =ucs@unicode
-	       min-code #x2E00 max-code #xA4CF))
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
   (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"

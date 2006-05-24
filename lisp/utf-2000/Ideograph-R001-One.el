@@ -70,6 +70,7 @@
     (=gt-pj-2		. #x3021)	; &I-GT-00003; [16-01]
     (=daikanwa		. 00003)	; &I-M-00003;
     (=jef-china3	. #x41A1)	; &I-JC3-41A1;
+    (=adobe-japan1-5	. 17234)	; 丂
     (mojikyo		. 000003)	; &MCS-60000003;
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER K")
@@ -414,6 +415,7 @@
     (=gt		. 00015)	; &I-GT-00015;
     (=gt-pj-2		. #x3028)	; &I-GT-00015; [16-08]
     (=daikanwa		. 00015)	; &I-M-00015;
+    (=adobe-japan1-5	. 19140)	; 丌
     (mojikyo		. 000015)	; &MCS-6000000F;
     ))
 (define-char
@@ -610,6 +612,7 @@
     (=gt-pj-2		. #x302D)	; &I-GT-00037; [16-13]
     (=daikanwa		. 00021)	; &I-M-00021;
     (=jef-china3	. #x97C5)	; &I-JC3-97C5;
+    (=adobe-japan1-5	. 17235)	; 丏
     (mojikyo		. 000021)	; &MCS-60000015;
     ))
 (define-char
@@ -808,6 +811,7 @@
     (=gt-pj-2		. #x3032)	; &I-GT-00034; [16-18]
     (=daikanwa		. 00028)	; &I-M-00028;
     (=jef-china3	. #x41A8)	; &I-JC3-41A8;
+    (=adobe-japan1-5	. 17236)	; 丒
     (mojikyo		. 000028)	; &MCS-6000001C;
     ))
 (define-char
@@ -2600,6 +2604,25 @@
 (define-char
   '((ideographic-radical@ucs . 1)	; ⼀
     (ideographic-strokes@ucs . 11)
+    (ideographic-radical@daikanwa . 16)	; ⼏
+    (ideographic-strokes@daikanwa . 10)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	1 26 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x51F0)	; 凰
+      ))
+    (=ucs		. #x20049)	; 𠁉
+    (=daikanwa		. 01795)	; &I-M-01795;
+    (=hanziku-1		. #xA97C)	; &I-HZK01-A97C;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 11)
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 9)
     (ideographic-radical@cns*sources
@@ -2645,22 +2668,6 @@
     (=daikanwa		. 04020)	; &M-04020;
     (=hanziku-1		. #xA979)	; &I-HZK01-A979;
     (=ucs@iso		. #x20048)	; &M-04020;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 11)
-    (total-strokes	 . 12)
-    (hanyu-dazidian	1 26 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x51F0)	; 凰
-      ))
-    (=ucs		. #x20049)	; 𠁉
-    (=hanziku-1		. #xA97C)	; &I-HZK01-A97C;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

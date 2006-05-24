@@ -1025,6 +1025,7 @@
     (=ucs		. #x47EB)	; 䟫
     (=cns11643-3	. #x3F3C)	; &I-C3-3F3C; [31-28]
     (=daikanwa		. 37470)	; &I-M-37470;
+    (=cbeta		. 01610)	; &I-CB01610;
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜

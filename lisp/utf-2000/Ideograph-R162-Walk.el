@@ -4777,6 +4777,7 @@
     (total-strokes	 . 10)
     (=ks-x1001		. #x616A)	; &M-38842; [65-74]
     (=daikanwa		. 38842)	; &I-M-38842;
+    (=jef-china3	. #x67BC)	; &I-JC3-67BC;
     ))
 (define-char
   '((<-denotational
@@ -9925,6 +9926,7 @@
     (total-strokes	 . 13)
     (=ks-x1001		. #x4E26)	; &M-39002; [46-06]
     (=daikanwa		. 39002)	; &I-M-39002;
+    (=jef-china3	. #x67DE)	; &I-JC3-67DE;
     (<-synonyms
      ((=daikanwa	  . 28421)	; &M-28421;
       ))

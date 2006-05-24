@@ -653,21 +653,26 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 715 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ucs		  . #x6C34)	; 水
-      ))
     (=ucs		. #x56E6)	; 囦
-    (=jis-x0212		. #x3679)	; &I-JSP-3679; [22-89]
-    (=cns11643-3	. #x252C)	; &I-C3-252C; [05-12]
-    (=daikanwa		. 04706)	; &I-M-04706;
-    (=hanziku-2		. #xE560)	; &I-HZK02-E560;
-    (=cbeta		. 00639)	; &I-CB00639;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=ucs		    . #x6C34)	; 水
+	))
+      (=jis-x0212	  . #x3679)	; &M-04706; [22-89]
+      (=cns11643-3	  . #x252C)	; &I-C3-252C; [05-12]
+      (=daikanwa	  . 04706)	; &I-M-04706;
+      (=cbeta		  . 00639)	; &I-CB00639;
+      (=ucs@jis		  . #x56E6)	; &M-04706;
+      )
+     ((hanyu-dazidian	  1 715 3)
+      (=hanziku-2	  . #xE560)	; &HZK02-E560;
+      (=ucs@unicode	  . #x56E6)	; &HZK02-E560;
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -1770,7 +1775,10 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@unicode	    . #x6709)	; &GT-18146;
+       ((=jis-x0208	    . #x4D2D)	; &GT-18146; [45-13]
+	(=gb2312	    . #x5350)	; &I-G0-5350; [51-48]
+	(=ks-x1001	    . #x6A73)	; &I-K0-6A73; [74-83]
+	(=daikanwa	    . 14332)	; &I-M-14332;
 	))
       (shinjigen-1	  . 1323)
       (shinjigen-2	  . 1323)
@@ -1782,7 +1790,15 @@
       (=daikanwa	  . 04756)	; &I-M-04756;
       (=ucs@unicode	  . #x56FF)	; &GT-05992;
       )
-     ((=cns11643-1	  . #x504C)	; &C1-504C; [48-44]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=cns11643-1	    . #x4834)	; &C1-4834; [40-20]
+	))
+      (=cns11643-1	  . #x504C)	; &C1-504C; [48-44]
       ))
     ))
 (define-char

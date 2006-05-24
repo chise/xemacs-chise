@@ -238,28 +238,35 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x9EC8)	; 黈
+  '((ideographic-radical . 201)	; ⿈
+    (ideographic-strokes . 5)
+    (=ucs		. #x9EC8)	; 黈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EC8)	; 黈
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (=jis-x0212		. #x6C72)	; &M-47937; [76-82]
-    (=daikanwa		. 47937)	; &I-M-47937;
-    (=ucs@jis		. #x9EC8)	; &M-47937;
+    (->subsumptive
+     ((=jis-x0212	  . #x6C72)	; &M-47937; [76-82]
+      (=daikanwa	  . 47937)	; &I-M-47937;
+      (=ucs@jis		  . #x9EC8)	; &M-47937;
+      )
+     ((=jef-china3	  . #x6FCE)	; &JC3-6FCE;
+      )
+     ((=cns11643-2	  . #x613A)	; &C2-613A; [65-26]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9EC8)	; 黈
-    (morohashi-daikanwa	47937 0 1)
-    (ideographic-radical . 201)	; ⿈
-    (ideographic-strokes . 5)
-    (total-strokes	 . 17)
-    (=cns11643-2	. #x613A)	; &C2-613A; [65-26]
-    ))
-(define-char
-  '((morohashi-daikanwa	47937 0 3)
+  '((<-denotational
+     ((=ucs		  . #x9EC8)	; 黈
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
-    (=ucs		. #x9EC8)	; 黈
+    (=ucs@unicode	. #x9EC8)	; &UU+9EC8;
     ))
 (define-char
   '((ideographic-radical . 201)	; ⿈
@@ -267,28 +274,34 @@
     (total-strokes	 . 16)
     (=ucs		. #x9EC9)	; 黉
     (=gb2312		. #x5964)	; &I-G0-5964; [57-68]
+    (=hanziku-12	. #xBAAF)	; &I-HZK12-BAAF;
     ))
 (define-char
-  '((=>ucs		. #x4D4B)	; 䵋
+  '((ideographic-radical . 201)	; ⿈
+    (ideographic-strokes . 6)
+    (=ucs		. #x4D4B)	; 䵋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4D4B)	; 䵋
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 6)
     (total-strokes	 . 18)
-    (=daikanwa		. 47938)	; &M-47938;
+    (->subsumptive
+     ((=daikanwa	  . 47938)	; &M-47938;
+      )
+     ((=cns11643-4	  . #x5F3D)	; &C4-5F3D; [63-29]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x4D4B)	; 䵋
-    (morohashi-daikanwa	47938 0 1)
-    (ideographic-radical . 201)	; ⿈
-    (ideographic-strokes . 6)
-    (total-strokes	 . 18)
-    (=cns11643-4	. #x5F3D)	; &C4-5F3D; [63-29]
-    ))
-(define-char
-  '((morohashi-daikanwa	47938 0 3)
+  '((<-denotational
+     ((=ucs		  . #x4D4B)	; 䵋
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
-    (=ucs		. #x4D4B)	; 䵋
+    (=ucs@unicode	. #x4D4B)	; &UU+4D4B;
     ))
 (define-char
   '((ideographic-radical . 201)	; ⿈

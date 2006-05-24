@@ -1620,20 +1620,34 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x99E6)	; 駦
+  '((ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 6)
+    (total-strokes	 . 16)
+    (=ucs		. #x99E6)	; 駦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x99E6)	; 駦
+      ))
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (=daikanwa		. 44709)	; &M-44709;
+    (=jef-china3	. #x6DDB)	; &I-JC3-6DDB;
     ))
 (define-char
-  '((morohashi-daikanwa	44709 0 2)
+  '((<-denotational
+     ((=ucs		  . #x99E6)	; 駦
+      ))
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (=ucs		. #x99E6)	; 駦
-    (=cns11643-3	. #x5371)	; &I-C3-5371; [51-81]
-    (=big5-cdp		. #x8DC0)	; &I-CDP-8DC0;
+    (->subsumptive
+     ((=big5-cdp	  . #x8DC0)	; &CDP-8DC0;
+      )
+     ((=cns11643-3	  . #x5371)	; &C3-5371; [51-81]
+      (=ucs@unicode	  . #x99E6)	; &C3-5371;
+      ))
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺

@@ -3753,6 +3753,7 @@
     (=jis-x0208@1990	. #x453F)	; &I-J90-453F; [37-31]
     (=gt		. 58557)	; &I-GT-58557;
     (=gt-pj-1		. #x453F)	; &I-GT-58557; [37-31]
+    (=jef-china3	. #x6CF4)	; &I-JC3-6CF4;
     (=ucs@jis		. #x985B)	; &GT-58557;
     (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x453F)	; &GT-58555; [37-31]
@@ -3771,6 +3772,7 @@
     (total-strokes	 . 19)
     (=cns11643-1	. #x794D)	; &C1-794D; [89-45]
     (=gb12345		. #x355F)	; &C1-794D; [21-63]
+    (=jef-china3	. #x6CFC)	; &I-JC3-6CFC;
     (=ucs@unicode	. #x985B)	; &C1-794D;
     ))
 (define-char
