@@ -1628,6 +1628,14 @@ Set the value of the named CUTBUFFER (typically CUT_BUFFER0) to STRING.
 	  continue;
 	}
 
+#ifdef UTF2000
+      if ((*ptr) <= 0xC3)
+	{
+	  chartypes = LATIN_1;
+	  ptr += 2;
+	  continue;
+	}
+#else
       if ((*ptr) == LEADING_BYTE_LATIN_ISO8859_1 ||
 	  (*ptr) == LEADING_BYTE_CONTROL_1)
 	{
@@ -1635,6 +1643,7 @@ Set the value of the named CUTBUFFER (typically CUT_BUFFER0) to STRING.
 	  ptr += 2;
 	  continue;
 	}
+#endif
 
       chartypes = WORLD;
       break;
