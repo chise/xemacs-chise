@@ -70,20 +70,20 @@
 
 (defvar format-alist
   '(
-;    (image/jpeg "JPEG image" "\377\330\377\340\000\020JFIF"
-;		image-decode-jpeg nil t image-mode)
-;    (image/gif "GIF image" "GIF8[79]"
-;	       image-decode-gif nil t image-mode)
-;    (image/png "Portable Network Graphics" "\211PNG"
-;	       image-decode-png nil t image-mode)
-;    (image/x-xpm "XPM image" "/\\* XPM \\*/"
-;		 image-decode-xpm nil t image-mode)
+    (image/jpeg "JPEG image" "\377\330\377\340\000\020JFIF"
+		image-decode-jpeg nil t image-mode)
+    (image/gif "GIF image" "GIF8[79]"
+	       image-decode-gif nil t image-mode)
+    (image/png "Portable Network Graphics" "\211PNG"
+	       image-decode-png nil t image-mode)
+    (image/x-xpm "XPM image" "/\\* XPM \\*/"
+		 image-decode-xpm nil t image-mode)
 
-;    ;; TIFF files have lousy magic
-;    (image/tiff "TIFF image" "II\\*\000"
-;		image-decode-tiff nil t image-mode) ;; TIFF 6.0 big-endian
-;    (image/tiff "TIFF image" "MM\000\\*"
-;		image-decode-tiff nil t image-mode) ;; TIFF 6.0 little-endian
+    ;; TIFF files have lousy magic
+    (image/tiff "TIFF image" "II\\*\000"
+		image-decode-tiff nil t image-mode) ;; TIFF 6.0 big-endian
+    (image/tiff "TIFF image" "MM\000\\*"
+		image-decode-tiff nil t image-mode) ;; TIFF 6.0 little-endian
 
     (text/enriched "Extended MIME text/enriched format."
 		   "Content-[Tt]ype:[ \t]*text/enriched"
