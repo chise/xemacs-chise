@@ -5870,6 +5870,98 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
+2005-11-27  Kean Johnston <kean@armory.com>
+
+	* redisplay-tty.c (set_tty_modes):
+	(reset_tty_modes): disable auto-margins if the terminal supports
+	them.
+	(init_tty_for_redisplay): fix cursor shape.
+
+2005-04-05  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* mule-ccl.c (ccl_driver): Calculate the charset and position code
+	for control-1 characters properly, both when reading multibyte
+	characters and writing them. 
+
+2005-03-12  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* config.h.in: Make HAVE_XTREGISTERDRAWABLE available. 
+	* select-x.c (x_reply_selection_request): Use it; fix the bug we
+	were seeing with incremental selection transfer failing. 
+
+2005-11-26  Vin Shelton  <acs@xemacs.org>
+
+	* callproc.c (Fold_call_process_internal): Create the buffer if it
+	does not already exist.  The original patch came from Ben Wing in
+	http://list-archive.xemacs.org/xemacs-patches/200205/msg00117.html
+
+2002-05-13  Adrian Aichner  <adrian@xemacs.org>
+
+	* callproc.c: Process-related docstring improvements spurred by
+	Norbert Koch.
+
+2005-11-25  Vin Shelton  <acs@xemacs.org>
+
+	* depend: Regenerated.
+
+2005-07-11  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* glyphs-gtk.c:  Rename a local static variable because gcc 4.0
+	says it clashes with a global with the same name.
+
+2005-07-11  Atanu Ghosh <atanu@icsi.berkeley.edu>
+
+	* sysdll.c (dll_open): Under MacOS X return NULL under the
+	filename is NULL.  Fixes problems finding local symbols under 10.4
+	(Tiger)
+
+2005-11-15  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+	
+	* config.h.in: New HAVE_U_INT*_T defines.
+	
+	* database.c: Only use u_int*_t typedefs if not already
+	defined.
+
+2005-04-07 15:08  Enrico Scholz <enrico.scholz@informatik.tu-chemnitz.de>
+
+	* src/process-unix.c (unix_open_network_stream): moved
+	  'portbuf' buffer out of an inner block as it is used in the
+	  entire function. With gcc4, the stack may get corrupted
+	  after leaving this block. This patches adjusts the size of
+	  the used buffer also; static '128' bytes are far too much
+	  currently and might not suffice for future architectures
+	  (e.g. for 512 bit ones ;)). Instead of, use only the really
+	  required space (max octets * ln(256)/ln(10) chars + space
+	  for '\0' and the sign)
+
+2005-04-08  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* callproc.c: Include sysdir.h, so any necessary Mule processing
+	is done on the current directory name before starting a new
+	process.
+
+2005-04-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* chartab.c (Fchar_table_p):
+	(Fget_range_char_table):
+	(Fput_char_table):
+	(Fmap_char_table):
+	Describe range representation and fix typo.
+
+2005-02-12  Vin Shelton  <acs@xemacs.org>
+
+	* emacs.c (shut_down_emacs): Advise users to send email to the
+	xemacs-beta list instead of crashes@xemacs.org.
+
+2005-02-03  David Evers  <extsw@appliedgenerics.com>
+
+	* process-unix.c (unix_send_process): Flush the last chunk, even
+	when the pipe is blocked.
+
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released
@@ -6240,7 +6332,7 @@
 
 	* event-gtk.c: Recognise AltGr as a valid modifier.
 
-2005-01-12  Ville Skytt‰  <scop@xemacs.org>
+2005-01-12  Ville Skytt√§  <scop@xemacs.org>
 
 	* console-x.h: #include X11/keysym.h before xintrinsic.h.
 
@@ -6626,7 +6718,7 @@
 
 	* sysdll.c: configure sets HAVE_DLD_INIT, not HAVE_INIT_DLD.
 
-2003-07-31  RenÈ Kyllingstad  <listmailxemacs@kyllingstad.com>
+2003-07-31  Ren√© Kyllingstad  <listmailxemacs@kyllingstad.com>
 
 	* event-msw.c (mswindows_enqueue_mouse_button_event):
 	* event-msw.c (mswindows_wnd_proc):

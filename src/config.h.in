@@ -205,6 +205,7 @@ void *alloca ();
 #undef THIS_IS_X11R6
 
 #undef HAVE_XCONVERTCASE
+#undef HAVE_XTREGISTERDRAWABLE
 
 #undef HAVE_BALLOON_HELP
 
@@ -421,6 +422,15 @@ void *alloca ();
 
 /* Compile in support for DBM databases?  May require libgdbm or libdbm. */
 #undef HAVE_DBM
+
+/* Define to 1 if the system has the type `u_int8_t'. */
+#undef HAVE_U_INT8_T
+/* Define to 1 if the system has the type `u_int16_t'. */
+#undef HAVE_U_INT16_T
+/* Define to 1 if the system has the type `u_int32_t'. */
+#undef HAVE_U_INT32_T
+/* Define to 1 if the system has the type `u_int64_t'. */
+#undef HAVE_U_INT64_T
 
 /* Compile in support for Berkeley DB style databases?  May require libdb. */
 #undef HAVE_BERKELEY_DB

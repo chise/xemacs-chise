@@ -3086,7 +3086,7 @@ shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save)
 #else
 	 "Please report this bug by invoking M-x report-emacs-bug,\n"
 	 "or by selecting `Send Bug Report' from the Help menu.  If necessary, send\n"
-	 "ordinary email to `crashes@xemacs.org'.  *MAKE SURE* to include the XEmacs\n"
+	 "ordinary email to `xemacs-beta@xemacs.org'.  *MAKE SURE* to include the XEmacs\n"
 	 "configuration from M-x describe-installation, or equivalently the file\n"
 	 "Installation in the top of the build tree.\n"
 #endif

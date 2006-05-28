@@ -2094,8 +2094,6 @@ else
     *86*    ) dynodump_arch=i386  ;;
     powerpc ) dynodump_arch=ppc   ;;
   esac
-  dnl Dynodump requires the system linker
-  test "$GCC" = "yes" && XE_APPEND(-fno-gnu-linker, ld_switch_site)
 fi
 
 dnl Feed s&m crud to src/Makefile
@@ -2917,7 +2915,7 @@ dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
     esac
   fi
 
-  AC_CHECK_FUNCS(XConvertCase)
+  AC_CHECK_FUNCS(XConvertCase XtRegisterDrawable)
 
   AC_CHECK_HEADERS(X11/Xlocale.h)
 
@@ -3212,33 +3210,63 @@ dnl Autodetect LDAP
 AC_CHECKING(for LDAP)
 test -z "$with_ldap" && { AC_CHECK_HEADER(ldap.h, ,with_ldap=no) }
 test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
-if test "$with_ldap" != "no"; then
-  AC_CHECK_LIB(ldap, ldap_search, with_ldap=yes)
-  dnl Check for other libraries we need to link with to get the main routines.
-  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes], , -llber) }
-  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes with_ldap_krb=yes], , -llber -lkrb) }
-  test "$with_ldap" != "yes" && { AC_CHECK_LIB(ldap, ldap_open, [with_ldap=yes with_ldap_lber=yes with_ldap_krb=yes with_ldap_des=yes], , -llber -lkrb -ldes) }
-  dnl Recently, we need -lber even though the main routines are elsewhere,
-  dnl because otherwise be get link errors w.r.t. ber_pvt_opt_on.  So just
-  dnl check for that (it's a variable not a fun but that doesn't seem to
-  dnl matter in these checks)  and stick in -lber if so.  Can't hurt (even to
-  dnl stick it in always shouldn't hurt, I don't think) ... #### Someone who
-  dnl #### understands LDAP needs to fix this properly.
-  test "$with_ldap_lber" != "yes" && { AC_CHECK_LIB(lber, ber_pvt_opt_on, with_ldap_lber=yes) }
+if test no != "$with_ldap";then
+  if test . != "${ldap_libs+.}";then
+    ldap_libs=
+    AC_CHECK_FUNC(ldap_open,dnl Allow it to be in generic "$LIBS"
+      [with_ldap=yes
+      test yes = "$extra_verbose" &&
+	echo "Setting ldap_libs to $ldap_libs"],dnl
+      [AC_CHECK_LIB(ldap, ldap_open,dnl
+	[with_ldap=yes],dnl
+	[ldap_needs_lber=yes ldap_other_libs=-llber
+dnl This requires `AC_CACHE_VAL' (which is called by `AC_CHECK_LIB')
+dnl to be redefined to ignore cached (shell variable) value, as it is
+dnl done above, because the same variable is used in all
+dnl `AC_CHECK_LIB' expansions in macro invocation below.  Worse, if it
+dnl is not done, there is no portable way to compensate for this
+dnl locally since `unset' command is not supported by all shells.  The
+dnl other solution would be changing `AC_CHECK_LIB' so that cache
+dnl variable name depends on the macro OTHER-LIBRARIES argument.
+	AC_CHECK_LIB(ldap, ldap_open,dnl
+	  [with_ldap=yes],dnl
+	  [ldap_needs_krb=yes ldap_other_libs="$ldap_other_libs -lkrb"
+	  AC_CHECK_LIB(ldap, ldap_open,dnl
+	    [with_ldap=yes],dnl
+	    [ldap_needs_des=yes ldap_other_libs="$ldap_other_libs -ldes"
+	    AC_CHECK_LIB(ldap, ldap_open,dnl
+	      [with_ldap=yes],dnl
+	      [with_ldap=no],dnl
+	      $ldap_other_libs)],dnl
+	    $ldap_other_libs)],dnl
+	  $ldap_other_libs)])
+      if test yes = "$with_ldap";then
+	if test yes = "$ldap_needs_des";then
+	  XE_PREPEND(-ldes, ldap_libs)
+	fi
+	if test yes = "$ldap_needs_krb";then
+	  XE_PREPEND(-lkrb, ldap_libs)
+	fi
+	if test yes = "$ldap_needs_lber";then
+	  XE_PREPEND(-llber, ldap_libs)
+	fi
+	XE_PREPEND(-lldap, ldap_libs)
+      fi])
+  else
+dnl Allow builder to override "$ldap_libs".
+    save_LIBS="$LIBS" LIBS="$ldap_libs $LIBS"
+    AC_CHECK_FUNC(ldap_open,dnl
+      [with_ldap=yes
+      test yes = "$extra_verbose" &&
+	echo "Setting ldap_libs to $ldap_libs"],dnl
+      [with_ldap=no])
+    LIBS="$save_LIBS"
+  fi
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
   XE_ADD_OBJS(eldap.o)
-  if test "$with_ldap_des" = "yes" ; then
-    XE_PREPEND(-ldes, LIBS)
-  fi
-  if test "$with_ldap_krb" = "yes" ; then
-    XE_PREPEND(-lkrb, LIBS)
-  fi
-  if test "$with_ldap_lber" = "yes" ; then
-    XE_PREPEND(-llber, LIBS)
-  fi
-  XE_PREPEND(-lldap, LIBS)
+  LIBS="$ldap_libs $LIBS"
   AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
 fi
 
@@ -3598,7 +3626,7 @@ dnl Not all toolkits support all widgets
 
 dnl Avoid using Motif :-(
 case "$opsys" in
-  *linux* )  lucid_prefers_motif="no"  ;;
+  *linux* | cygwin* )  lucid_prefers_motif="no"  ;;
   * )        lucid_prefers_motif="yes" ;;
 esac
 
@@ -4526,6 +4554,24 @@ test "$with_database_gdbm" = "yes" -o \
      "$with_database_dbm"  = "yes" && \
   AC_DEFINE(HAVE_DBM)
 
+dnl Check for u_int*_t typedefs.
+AC_CHECK_TYPE(u_int8_t, uint8_t)
+if test $ac_cv_type_u_int8_t = yes; then
+AC_DEFINE(HAVE_U_INT8_T,1)
+fi
+AC_CHECK_TYPE(u_int16_t, uint16_t)
+if test $ac_cv_type_u_int16_t = yes; then
+AC_DEFINE(HAVE_U_INT16_T,1)
+fi
+AC_CHECK_TYPE(u_int32_t, uint32_t)
+if test $ac_cv_type_u_int32_t = yes; then
+AC_DEFINE(HAVE_U_INT32_T,1)
+fi
+AC_CHECK_TYPE(u_int64_t, uint64_t)
+if test $ac_cv_type_u_int64_t = yes; then
+AC_DEFINE(HAVE_U_INT64_T,1)
+fi
+
 dnl Check for Berkeley DB.
 if test "$with_database_berkdb" != "no"; then
   AC_MSG_CHECKING(for Berkeley db.h)
@@ -4550,11 +4596,19 @@ if test "$with_database_berkdb" != "no"; then
 #ifdef HAVE_INTTYPES_H
 #define __BIT_TYPES_DEFINED__
 #include <inttypes.h>
+#if !HAVE_U_INT8_T
 typedef uint8_t  u_int8_t;
+#endif
+#if !HAVE_U_INT16_T
 typedef uint16_t u_int16_t;
+#endif
+#if !HAVE_U_INT32_T
 typedef uint32_t u_int32_t;
+#endif
 #ifdef WE_DONT_NEED_QUADS
+#if !HAVE_U_INT64_T
 typedef uint64_t u_int64_t;
+#endif
 #endif
 #endif
 #endif
@@ -5104,8 +5158,8 @@ echo "  Compiler:                          $CC $CFLAGS"
 dnl Let's save some helpful-for-debugging info like compiler and libc versions..
 dnl First, see if it's gcc - the same check works everyplace...
 case "$CC" in
-  gcc*)	echo "  Compiler version:                  `$CC --version | head -1`"
-        echo "  Compiler specs file:               `$CC -v 2>&1 | sed 's/.* \([[^ ]]\)/\1/' | head -1`"
+  gcc*)	echo "  Compiler version:                  `$CC --version | sed 1q`"
+        echo "  Compiler specs file:               `$CC -v 2>&1 | sed 's/.* \([[^ ]]\)/\1/' | sed 1q`"
 	;;
 dnl non-gcc machine-specific magic - contributions welcome
   *) case "$canonical" in
@@ -5136,7 +5190,7 @@ dnl non-gcc machine-specific magic - contributions welcome
 	;;
 	
 	*-*-solaris*)
-	  ccvers=`$CC -V 2>&1 | head -1`
+	  ccvers=`$CC -V 2>&1 | sed 1q`
 	  if test ! -z "$ccvers" ; then
 	    echo "  Compiler version:                  $ccvers"
 	  fi

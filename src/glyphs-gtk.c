@@ -2999,7 +2999,7 @@ complex_vars_of_glyphs_gtk (void)
 
 /* shared data for the image read/parse logic */
 static short hexTable[256];		/* conversion value */
-static int initialized = FALSE;	/* easier to fill in at run time */
+static int hexTable_initialized = FALSE;	/* easier to fill in at run time */
 
 /*
  *	Table index for the hex values. Initialized once, first time.
@@ -3032,7 +3032,7 @@ static void initHexTable()
     hexTable['}'] = -1;	hexTable['\n'] = -1;
     hexTable['\t'] = -1;
 	
-    initialized = TRUE;
+    hexTable_initialized = TRUE;
 }
 
 /*
@@ -3089,7 +3089,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 #define Xmalloc(size) malloc(size)
 
     /* first time initialization */
-    if (initialized == FALSE) initHexTable();
+    if (hexTable_initialized == FALSE) initHexTable();
 
     /* error cleanup and return macro	*/
 #define	RETURN(code) { if (data) free (data); return code; }

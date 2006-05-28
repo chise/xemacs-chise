@@ -46,13 +46,21 @@ Boston, MA 02111-1307, USA.  */
 #define __BIT_TYPES_DEFINED__
 #include <inttypes.h>
 #ifndef __FreeBSD__
+#if !HAVE_U_INT8_T
 typedef uint8_t  u_int8_t;
+#endif
+#if !HAVE_U_INT16_T
 typedef uint16_t u_int16_t;
+#endif
+#if !HAVE_U_INT32_T
 typedef uint32_t u_int32_t;
+#endif
 #ifdef WE_DONT_NEED_QUADS
+#if !HAVE_U_INT64_T
 typedef uint64_t u_int64_t;
 #endif
 #endif /* WE_DONT_NEED_QUADS */
+#endif /* !defined(__FreeBSD__) */
 #endif /* HAVE_INTTYPES_H */
 #endif /* !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1) */
 /* Berkeley DB wants __STDC__ to be defined; else if does `#define const' */

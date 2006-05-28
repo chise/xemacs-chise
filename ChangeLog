@@ -102,6 +102,63 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
+2005-12-01  Vin Shelton  <acs@xemacs.org>
+
+	* etc/TUTORIAL.cs: copied from 21.5.
+	* etc/TUTORIAL.sl: copied from 21.5.
+
+2005-11-29  Ilya Golubev  <golubev@xemacs.org>
+
+	* configure.in: Merge revision 1.19 change: fix ldap libraries
+	configuration lossage when `-lldap -llber' links and but `-lldap'
+	does not; allow `ldap_libs' to be empty or overridden by builder.
+	The lossage was introduced in upstream revision 1.151.2.31
+	(2005/01/31 02:54:47 vins) by (extremely hasty and unwise) merge
+	of revision 1.232 change.
+	* etc/NEWS: Document it.
+
+2005-03-12  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* configure.in (XE_COMPUTE_RUNPATH): Check XtRegisterDrawable
+	availability. 
+
+2005-04-11  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/PACKAGES: etc/PACKAGES: Announce re-builder, xetla.
+
+2005-11-15  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+
+	* configure.in: Avoid using Motif also for cygwin
+
+2005-11-15  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+
+	* configure.in: Check for u_int*_t typedefs and use them in
+	Berkeley DB detection.
+
+2005-04-11  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/PACKAGES: etc/PACKAGES: Announce re-builder, xetla.
+
+2005-03-23  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in: Remove -fno-gnu-linker option from Solaris
+	dynodump builds; it doesn't do anything.
+
+	Don't use 'head -1' - it's deprecated by coreutils-5.3.0 on some
+	platforms.
+
+2005-02-19  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/PACKAGES: Announce latin-euro-standards, update mule-base.
+
+2005-02-12  Vin Shelton  <acs@xemacs.org>
+
+	* etc/OXYMORONS: New list.
+
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released
@@ -562,7 +619,7 @@
 
 	* Emacs.ad: Add charsets to *menubar*FontSet and *popup*FontSet.
 
-2002-08-29  Ville Skyttä  <ville.skytta@xemacs.org>
+2002-08-29  Ville SkyttÃ¤  <ville.skytta@xemacs.org>
 
 	* Emacs.ad: Add *menubar*FontSet and *popup*FontSet entries,
 	(self-)obtained from Red Hat.
@@ -1205,7 +1262,7 @@
 
 	* XEmacs 21.2.38 is released.
 
-2000-11-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+2000-11-26  BjÃ¶rn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* configure.in: Only show message about DnD API if compiling with DnD
 
@@ -2550,7 +2607,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  BjÃ¶rn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 
