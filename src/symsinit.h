@@ -155,6 +155,7 @@ void syms_of_window (void);
 void syms_of_select_x (void);
 void syms_of_eldap (void);
 void syms_of_postgresql (void);
+void syms_of_concord (void);
 void syms_of_gpmevent (void);
 void syms_of_win32 (void);
 
@@ -215,6 +216,7 @@ void structure_type_create_chartab (void);
 void structure_type_create_faces (void);
 void structure_type_create_rangetab (void);
 void structure_type_create_hash_table (void);
+void structure_type_create_concord (void);
 
 /* Initialize the image instantiator types (dump-time only). */
 
@@ -383,6 +385,7 @@ void vars_of_select_x (void);
 void reinit_vars_of_select_x (void);
 void vars_of_eldap (void);
 void vars_of_postgresql (void);
+void vars_of_concord (void);
 void vars_of_gpmevent (void);
 
 /* Initialize specifier variables (dump-time only). */
