@@ -155,3 +155,42 @@
 
       ;; this last used to crash
       (parse-partial-sexp point (point-max)))))
+
+;; Test backward-up-list
+;; Known-Bug: report = Evgeny Zacjev ca 2005-12-01, confirm = Aidan Kehoe
+
+(with-temp-buffer
+  ;; We are now using the standard syntax table.  Thus there's no need to
+  ;; worry about a bogus syntax setting, eg, in a Gnus Article buffer the
+  ;; bug doesn't manifest.
+
+  ;; value of point to the immediate left of this character
+  ;;       0          1           2
+  ;;       1234 56789 012 34567 890 12 3456 7
+  (insert "a ( \"b (c\" (\"defg\") \")\") h\n")
+
+  ;; #### This test should check *every* position.
+  (flet ((backward-up-list-moves-point-from-to (start expected-end)
+	   (goto-char start)
+	   (backward-up-list 1)
+	   (= (point) expected-end)))
+    (Known-Bug-Expect-Failure
+     ;; Evgeny's case
+     (Assert (backward-up-list-moves-point-from-to 16 12)))
+    (Assert (backward-up-list-moves-point-from-to 19 12))
+    (Assert (backward-up-list-moves-point-from-to 20 3))
+    (Known-Bug-Expect-Failure
+     (Assert (backward-up-list-moves-point-from-to 22 3)))
+    (Known-Bug-Expect-Failure
+     (Assert (backward-up-list-moves-point-from-to 23 3)))
+    (Assert (backward-up-list-moves-point-from-to 24 3))
+    ;; This is maybe a little tricky, since we don't expect the position
+    ;; check to happen -- so use an illegal expected position
+    ;; I don't think there's any other way for this to fail that way,
+    ;; barring hardware error....
+    (Check-Error-Message syntax-error
+			 "Unbalanced parentheses"
+			 (backward-up-list-moves-point-from-to 25 nil))
+    ;; special-case check that point didn't move
+    (Assert (= (point) 25))))
+

@@ -1357,6 +1357,51 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-03  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* easymenu.el: Update copyright. 
+	* easymenu.el (easy-menu-all-popups):
+	Add a docstring. 
+	* easymenu.el (easy-menu-add):
+	Document a bug, rework the function to preserve any existing
+	non-default mode-popup-menu instead of overwriting it, and not to
+	bother normalising the menu title (nothing else does).
+	* easymenu.el (easy-menu-remove):
+	Restore the default mode-popup-menu instead of leaving an empty
+	one when we remove the last easy-menu popup. 
+
+2006-01-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add pt.xemacs.org,
+	as suggested by Rodrigo Ventura.
+	* package-get.el (package-get-pre-release-download-sites): Ditto,
+	with replacement of xemacs-21.5 by beta, which is the logical path
+	to our beta core and package pre-releases.
+
+2005-12-17  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add Hong Kong
+	download site.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2005-12-26  Vin Shelton  <acs@xemacs.org>
+
+	* find-paths.el:
+	* find-paths.el (paths-emacs-root-p): Add search for package root.
+	* find-paths.el (paths-find-emacs-root): Replaced with
+	paths-find-invocation-roots, which returns a list of roots.
+	* find-paths.el (paths-find-invocation-roots): New.
+	* find-paths.el (paths-find-emacs-roots): Call paths-find-invocation-roots.
+
+2005-12-05  Ville Skytt√§  <scop@xemacs.org>
+
+	* minibuf.el (x-library-search-path): Add /usr(/local)/share/X11.
+	* font.el (font-lookup-rgb-components): Ditto, remove stale comment.
+
 2005-12-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.18 is released
@@ -1412,7 +1457,7 @@
 	<mincy@rcn.com> fixing false temporary load-path shadows reported
 	after package installation and simplifying code.
 
-2005-10-18  Ville Skytt‰  <scop@xemacs.org>
+2005-10-18  Ville Skytt√§  <scop@xemacs.org>
 
 	* package-get.el (package-get-download-sites): Sync mirrors list
 	with the XEmacs website.
@@ -1459,7 +1504,7 @@
 	* simple.el (shifted-motion-keys-select-region): Fix statement
 	about unshifted-motion-keys-deselect-region.
 
-2004-12-15  Ville Skytt‰  <scop@xemacs.org>
+2004-12-15  Ville Skytt√§  <scop@xemacs.org>
 
 	* bytecomp-runtime.el (make-obsolete): Add 3rd argument (no-op for
 	now) for GNU Emacs compatibility.
@@ -2039,7 +2084,7 @@
 
 	* isearch-mode.el (isearch-mode-map): GR (and C1) is printable.
 
-2003-01-06  Ville Skytt‰  <scop@xemacs.org>
+2003-01-06  Ville Skytt√§  <scop@xemacs.org>
 
 	* menubar-items.el (default-menubar): Use browse-url-mozilla
 	instead of browse-url-gnome-moz for Mozilla.
@@ -2048,13 +2093,13 @@
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
 
-2002-12-27  Ville Skytt‰  <scop@xemacs.org>
+2002-12-27  Ville Skytt√§  <scop@xemacs.org>
 
 	* files.el (auto-mode-alist): Remove redundant entries for modes
 	that live in packages.
 	(interpreter-mode-alist): Ditto.
 
-2002-03-17  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-03-17  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* menubar-items.el (default-menubar): Sync with current
 	browse-url-xemacs.el.
@@ -2078,7 +2123,7 @@
 	(font-lock-fontify-keywords-region): Supply the argument to
 	font-lock-compile-keywords.
 
-2002-09-22  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-09-22  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* package-get.el (package-get-download-sites): Bring sites list
 	up to date, prefer xx.xemacs.org addresses.
@@ -2098,7 +2143,7 @@
 	* gutter-items.el (set-progress-feedback-instantiator): Fix bad
 	merge.
 
-2002-09-02  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-09-02  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* bytecomp-runtime.el (make-obsolete): Docstring argument nit.
 	(make-obsolete-variable): Ditto.
@@ -2130,7 +2175,7 @@
 
 	* XEmacs 21.4.9 "Informed Management" is released.
 
-2002-06-22  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-06-22  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* subr.el (add-to-list): Sync with GNU Emacs 21.2, adding the
 	"&optional append" argument.
@@ -2150,7 +2195,7 @@
 
 	* simple.el (join-line): New alias for `delete-indentation'.
 
-2002-08-02  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-08-02  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* font-lock.el: Some faces and doc typo fixes from GNU Emacs.
 	(font-lock-doc-face): New alias to font-lock-doc-string-face.
@@ -2229,7 +2274,7 @@
 	* find-paths.el (paths-find-architecture-directory): Search in
 	`system-configuration'/`base', not `base'`system-configuration'.
 
-2002-06-23  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-06-23  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* info.el (Info-index): Add missing \ in [ t].
 
@@ -2399,7 +2444,7 @@
 	* startup.el (normal-top-level): Prevent migration code from
 	trashing .emacs on an error in loading the init files.
 
-2002-03-14  Ville Skytt‰  <ville.skytta@xemacs.org>
+2002-03-14  Ville Skytt√§  <ville.skytta@xemacs.org>
 
 	* files.el (auto-mode-alist): GNUmakefile is a Makefile,
 	"system default" Xdefaults and friends get xrdb-mode.
@@ -2442,7 +2487,7 @@
 2002-02-03  Adrian Aichner  <adrian@xemacs.org>
 
 	* printer.el (generic-print-region): Pass correct arguments to
-	lpr-region.  Thanks to Nevin Kapur <nevin@jhu.edu> and Bjˆrn
+	lpr-region.  Thanks to Nevin Kapur <nevin@jhu.edu> and Bj√∂rn
 	Torkelsson <torkel@acc.umu.se>.
 
 2002-01-09  John Paul Wallington  <jpw@shootybangbang.com>
