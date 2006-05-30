@@ -33,7 +33,10 @@ consulted for a more detailed list of changes.
 ========================
 
 ** Summary of user-visible changes:
-
+  -- Motif is now deprecated on linux and cygwin.
+  -- On UNIX and linux, '--with-widgets=no' is now the default.  If
+     you want buffer tabs or the progress bar, you must run configure
+     with the option '--with-widgets=lucid' or a different toolkit.
   -- PUI related changes (Package User Interface)
     - A minor rearrangement of the "Tools -> Packages" menu.
     - Only a single package download site can be selected.
@@ -118,6 +121,7 @@ consulted for a more detailed list of changes.
     - Python now supported.
     - New file extensions recognized: .ss, .pdb, .psw.
   -- Fixed ldap libraries configuration.
+  -- Fixed `LDAP_OPT_ON' libraries configuration.
 
 ** The delete key now deletes forward by default.
 
@@ -605,19 +609,28 @@ for PSWrap.
 It used to fail when `-lldap' requires `-llber'.  Introduced in
 upstream `configure.in' revision 1.151.2.31 (2005/01/31 02:54:47 +0).
 
+*** Fixed `LDAP_OPT_ON' libraries configuration.
+
+The original fix of local `configure.in' revision 1.19 (2004/12/19
+21:10:02 +0) introduced lossage on another class of systems.  In some
+openldap versions `ldap_*' functions may link successfully without
+`-lber', but compiling and linking program with `LDAP_OPT_ON' may
+require `-lber'.  When configuring ldap libraries, check for such
+systems, and in a cleaner way than in upstream.
+
 
 * Lisp and internal changes in XEmacs 21.4
 ==========================================
 
-** A new portable dumper is available for beta testing.
+** A new portable dumper is available.
 
 Olivier Galibert has written a portable dumper for XEmacs, based on
-initial work by Kyle Jones.  To perform even the most basic editor,
-XEmacs requires some amount of Lisp code to be loaded.  To avoid
-repeating the expensive loading process at every startup, XEmacs is
-built in a special way.  Its C sources link into an executable called
-`temacs', which loads the bootstrap Lisp code and uses a special
-"unexec" call to dump the resulting memory image into a proper
+initial work by Kyle Jones.  To perform even the most basic editor
+functions, XEmacs requires some amount of Lisp code to be loaded.  To
+avoid repeating the expensive loading process at every startup, XEmacs
+is built in a special way.  Its C sources link into an executable
+called `temacs', which loads the bootstrap Lisp code and uses a
+special "unexec" call to dump the resulting memory image into a proper
 `xemacs' executable on disk.  The unexec() process is hard to
 implement correctly and makes XEmacs very hard to port to new
 operating systems, or even to new releases of old systems.
@@ -629,11 +642,10 @@ running XEmacs only needs to mmap that file and relocate a bit to get
 to the initialized data.  In that scheme, there is no difference
 between `temacs' and `xemacs'.
 
-Unfortunately, the portable dumper has not been completely finished
-for this release, and will not be used by default.  However, if you
-wish to experiment with it, or if you need to compile XEmacs on a new
-and unsupported platform, you can test it by configuring XEmacs with
-`--pdump' flag.
+The portable dumper will not be used by default in this release,
+however, if you wish to experiment with it, or if you need to compile
+XEmacs on a new and unsupported platform, you can test it by
+configuring XEmacs using the `--pdump' flag.
 
 ** Much effort has been invested to make XEmacs Lisp faster:
 

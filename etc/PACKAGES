@@ -345,7 +345,7 @@ supporting Lisp development.  It is a single-file package so it may be
 tailored.
 
 *** xetla
-(setq mm-coding-system-priorities '(iso-8859-1 iso-8859-15 utf-8))
+Frontend to GNU/arch (tla).
 
 *** xlib
 Emacs interface to X server.
