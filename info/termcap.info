@@ -1,4 +1,4 @@
-This is ../info/termcap.info, produced by makeinfo version 4.6 from
+This is ../info/termcap.info, produced by makeinfo version 4.8 from
 termcap.texi.
 
 START-INFO-DIR-ENTRY
@@ -84,8 +84,8 @@ and the mostly-portable optimizing C compiler, send one dollar to
 
 File: termcap.info,  Node: Library,  Next: Data Base,  Prev: Introduction,  Up: Top
 
-The Termcap Library
-*******************
+1 The Termcap Library
+*********************
 
 The termcap library is the application programmer's interface to the
 termcap data base.  It contains functions for the following purposes:
@@ -113,8 +113,8 @@ termcap data base.  It contains functions for the following purposes:
 
 File: termcap.info,  Node: Preparation,  Next: Find,  Prev: Library,  Up: Library
 
-Preparing to Use the Termcap Library
-====================================
+1.1 Preparing to Use the Termcap Library
+========================================
 
 To use the termcap library in a program, you need two kinds of
 preparation:
@@ -143,8 +143,8 @@ preparation:
 
 File: termcap.info,  Node: Find,  Next: Interrogate,  Prev: Preparation,  Up: Library
 
-Finding a Terminal Description: `tgetent'
-=========================================
+1.2 Finding a Terminal Description: `tgetent'
+=============================================
 
 An application program that is going to use termcap must first look up
 the description of the terminal type in use.  This is done by calling
@@ -195,15 +195,15 @@ value otherwise.
      #else
      #define term_buffer 0
      #endif
-     
+
      init_terminal_data ()
      {
        char *termtype = getenv ("TERM");
        int success;
-     
+
        if (termtype == 0)
          fatal ("Specify a terminal type with `setenv TERM <yourtype>'.\n");
-     
+
        success = tgetent (term_buffer, termtype);
        if (success < 0)
          fatal ("Could not access the termcap data base.\n");
@@ -226,8 +226,8 @@ terminal description.
 
 File: termcap.info,  Node: Interrogate,  Next: Initialize,  Prev: Find,  Up: Library
 
-Interrogating the Terminal Description
-======================================
+1.3 Interrogating the Terminal Description
+==========================================
 
 Each piece of information recorded in a terminal description is called a
 "capability".  Each defined terminal capability has a two-letter code
@@ -314,16 +314,16 @@ various capabilities, with conditionals to select between the Unix and
 GNU methods of providing buffer space.
 
      char *tgetstr ();
-     
+
      char *cl_string, *cm_string;
      int height;
      int width;
      int auto_wrap;
-     
+
      char PC;   /* For tputs.  */
      char *BC;  /* For tgoto.  */
      char *UP;
-     
+
      interrogate_terminal ()
      {
      #ifdef UNIX
@@ -335,16 +335,16 @@ GNU methods of providing buffer space.
      #else
      #define BUFFADDR 0
      #endif
-     
+
        char *temp;
-     
+
        /* Extract information we will use.  */
        cl_string = tgetstr ("cl", BUFFADDR);
        cm_string = tgetstr ("cm", BUFFADDR);
        auto_wrap = tgetflag ("am");
        height = tgetnum ("li");
        width = tgetnum ("co");
-     
+
        /* Extract information that termcap functions use.  */
        temp = tgetstr ("pc", BUFFADDR);
        PC = temp ? *temp : 0;
@@ -358,8 +358,8 @@ Parameters::, for information on `UP' and `BC'.
 
 File: termcap.info,  Node: Initialize,  Next: Padding,  Prev: Interrogate,  Up: Library
 
-Initialization for Use of Termcap
-=================================
+1.4 Initialization for Use of Termcap
+=====================================
 
 Before starting to output commands to a terminal using termcap, an
 application program should do two things:
@@ -395,8 +395,8 @@ kernel's terminal flags unaltered.
 
 File: termcap.info,  Node: Padding,  Next: Parameters,  Prev: Initialize,  Up: Library
 
-Padding
-=======
+1.5 Padding
+===========
 
 "Padding" means outputting null characters following a terminal display
 command that takes a long time to execute.  The terminal description
@@ -413,8 +413,8 @@ padding information, and then outputs the padding that is necessary.
 
 File: termcap.info,  Node: Why Pad,  Next: Describe Padding,  Prev: Padding,  Up: Padding
 
-Why Pad, and How
-----------------
+1.5.1 Why Pad, and How
+----------------------
 
 Most types of terminal have commands that take longer to execute than
 they do to send over a high-speed line.  For example, clearing the
@@ -445,8 +445,8 @@ to fill up 20msec.
 
 File: termcap.info,  Node: Describe Padding,  Next: Output Padding,  Prev: Why Pad,  Up: Padding
 
-Specifying Padding in a Terminal Description
---------------------------------------------
+1.5.2 Specifying Padding in a Terminal Description
+--------------------------------------------------
 
 In the terminal description, the amount of padding required by each
 display command is recorded as a sequence of digits at the front of the
@@ -479,8 +479,8 @@ most terminals.  *Note Pad Specs::.
 
 File: termcap.info,  Node: Output Padding,  Prev: Describe Padding,  Up: Padding
 
-Performing Padding with `tputs'
--------------------------------
+1.5.3 Performing Padding with `tputs'
+-------------------------------------
 
 Use the termcap function `tputs' to output a string containing an
 optional padding spec of the form described above (*note Describe
@@ -490,7 +490,7 @@ padding.  Here is its declaration in ANSI C:
 
      char PC;
      short ospeed;
-     
+
      int tputs (char *STRING, int NLINES, int (*OUTFUN) ());
 
    Here STRING is the string (including padding spec) to be output;
@@ -551,8 +551,8 @@ programs.
 
 File: termcap.info,  Node: Parameters,  Prev: Padding,  Up: Library
 
-Filling In Parameters
-=====================
+1.6 Filling In Parameters
+=========================
 
 Some terminal control strings require numeric "parameters".  For
 example, when you move the cursor, you need to say what horizontal and
@@ -588,8 +588,8 @@ Padding::).
 
 File: termcap.info,  Node: Encode Parameters,  Next: Using Parameters,  Prev: Parameters,  Up: Parameters
 
-Describing the Encoding
------------------------
+1.6.1 Describing the Encoding
+-----------------------------
 
 A terminal command string that requires parameters contains special
 character sequences starting with `%' to say how to encode the
@@ -750,8 +750,8 @@ defined in standard Unix termcap.
 
 File: termcap.info,  Node: Using Parameters,  Prev: Encode Parameters,  Up: Parameters
 
-Sending Display Commands with Parameters
-----------------------------------------
+1.6.2 Sending Display Commands with Parameters
+----------------------------------------------
 
 The termcap library functions `tparam' and `tgoto' serve as the analog
 of `printf' for terminal string parameters.  The newer function
@@ -767,8 +767,8 @@ preferable for cursor motion.
 
 File: termcap.info,  Node: tparam,  Next: tgoto,  Prev: Using Parameters,  Up: Using Parameters
 
-`tparam'
-........
+1.6.2.1 `tparam'
+................
 
 The function `tparam' can encode display commands with any number of
 parameters and allows you to specify the buffer space.  It is the
@@ -799,7 +799,7 @@ produced by `tparam'.  *Note Padding::.  Here is an example.
      {
        char *buf;
        char buffer[40];
-     
+
        buf = tparam (command, buffer, 40, parm);
        tputs (buf, 1, fputchar);
        if (buf != buffer)
@@ -816,8 +816,8 @@ capability.
 
 File: termcap.info,  Node: tgoto,  Prev: tparam,  Up: Using Parameters
 
-`tgoto'
-.......
+1.6.2.2 `tgoto'
+...............
 
 The special case of cursor motion is handled by `tgoto'.  There are two
 reasons why you might choose to use `tgoto':
@@ -870,8 +870,8 @@ parameter to `tgoto' as the "vertical position".
 
 File: termcap.info,  Node: Data Base,  Next: Capabilities,  Prev: Library,  Up: Top
 
-The Format of the Data Base
-***************************
+2 The Format of the Data Base
+*****************************
 
 The termcap data base of terminal descriptions is stored in the file
 `/etc/termcap'.  It contains terminal descriptions, blank lines, and
@@ -893,8 +893,8 @@ meanings (*note Capabilities::) and their values describe the terminal.
 
 File: termcap.info,  Node: Format,  Next: Capability Format,  Prev: Data Base,  Up: Data Base
 
-Terminal Description Format
-===========================
+2.1 Terminal Description Format
+===============================
 
 Aside from comments (lines starting with `#', which are ignored), each
 nonblank line in the termcap data base is a terminal description.  A
@@ -936,8 +936,8 @@ string" or `li' for "number of display lines".
 
 File: termcap.info,  Node: Capability Format,  Next: Naming,  Prev: Format,  Up: Data Base
 
-Writing the Capabilities
-========================
+2.2 Writing the Capabilities
+============================
 
 There are three kinds of capabilities: flags, numbers, and strings.
 Each kind has its own way of being written in the description.  Each
@@ -1000,8 +1000,8 @@ capabilities are defined elsewhere (*note Capabilities::).
 
 File: termcap.info,  Node: Naming,  Next: Inheriting,  Prev: Capability Format,  Up: Data Base
 
-Terminal Type Name Conventions
-==============================
+2.3 Terminal Type Name Conventions
+==================================
 
 There are conventions for choosing names of terminal types.  For one
 thing, all letters should be in lower case.  The terminal type for a
@@ -1102,8 +1102,8 @@ are used for two reasons:
 
 File: termcap.info,  Node: Inheriting,  Prev: Naming,  Up: Data Base
 
-Inheriting from Related Descriptions
-====================================
+2.4 Inheriting from Related Descriptions
+========================================
 
 When two terminal descriptions are similar, their identical parts do not
 need to be given twice.  Instead, one of the two can be defined in
@@ -1151,8 +1151,8 @@ the capability name, as follows:
 
 File: termcap.info,  Node: Capabilities,  Next: Summary,  Prev: Data Base,  Up: Top
 
-Definitions of the Terminal Capabilities
-****************************************
+3 Definitions of the Terminal Capabilities
+******************************************
 
 This section is divided into many subsections, each for one aspect of
 use of display terminals.  For writing a display program, you usually
@@ -1208,8 +1208,8 @@ should be omitted from terminal descriptions as well.
 
 File: termcap.info,  Node: Basic,  Next: Screen Size,  Prev: Capabilities,  Up: Capabilities
 
-Basic Characteristics
-=====================
+3.1 Basic Characteristics
+=========================
 
 This section documents the capabilities that describe the basic and
 nature of the terminal, and also those that are relevant to the output
@@ -1293,8 +1293,8 @@ of graphic characters.
 
 File: termcap.info,  Node: Screen Size,  Next: Cursor Motion,  Prev: Basic,  Up: Capabilities
 
-Screen Size
-===========
+3.2 Screen Size
+===============
 
 A terminal description has two capabilities, `co' and `li', that
 describe the screen size in columns and lines.  But there is more to
@@ -1332,8 +1332,8 @@ to learn the new screen size.
 
 File: termcap.info,  Node: Cursor Motion,  Next: Wrapping,  Prev: Screen Size,  Up: Capabilities
 
-Cursor Motion
-=============
+3.3 Cursor Motion
+=================
 
 Termcap assumes that the terminal has a "cursor", a spot on the screen
 where a visible mark is displayed, and that most display commands take
@@ -1545,8 +1545,8 @@ programs.
 
 File: termcap.info,  Node: Wrapping,  Next: Scrolling,  Prev: Cursor Motion,  Up: Capabilities
 
-Wrapping
-========
+3.4 Wrapping
+============
 
 "Wrapping" means moving the cursor from the right margin to the left
 margin of the following line.  Some terminals wrap automatically when a
@@ -1605,8 +1605,8 @@ column.
 
 File: termcap.info,  Node: Scrolling,  Next: Windows,  Prev: Wrapping,  Up: Capabilities
 
-Scrolling
-=========
+3.5 Scrolling
+=============
 
 "Scrolling" means moving the contents of the screen up or down one or
 more lines.  Moving the contents up is "forward scrolling"; moving them
@@ -1724,8 +1724,8 @@ this number of lines.  *Note Padding::.
 
 File: termcap.info,  Node: Windows,  Next: Clearing,  Prev: Scrolling,  Up: Capabilities
 
-Windows
-=======
+3.6 Windows
+===========
 
 A "window", in termcap, is a rectangular portion of the screen to which
 all display operations are restricted.  Wrapping, clearing, scrolling,
@@ -1748,8 +1748,8 @@ the screen there was.
 
 File: termcap.info,  Node: Clearing,  Next: Insdel Line,  Prev: Windows,  Up: Capabilities
 
-Clearing Parts of the Screen
-============================
+3.7 Clearing Parts of the Screen
+================================
 
 There are several terminal capabilities for clearing parts of the screen
 to blank.  All display terminals support the `cl' string, and most
@@ -1789,8 +1789,8 @@ the display terminals that fail to support `ce'.
 
 File: termcap.info,  Node: Insdel Line,  Next: Insdel Char,  Prev: Clearing,  Up: Capabilities
 
-Insert/Delete Line
-==================
+3.8 Insert/Delete Line
+======================
 
 "Inserting a line" means creating a blank line in the middle of the
 screen, and pushing the existing lines of text apart.  In fact, the
@@ -1890,8 +1890,8 @@ with `AL' as to insert one line with `al'.
 
 File: termcap.info,  Node: Insdel Char,  Next: Standout,  Prev: Insdel Line,  Up: Capabilities
 
-Insert/Delete Character
-=======================
+3.9 Insert/Delete Character
+===========================
 
 "Inserting a character" means creating a blank space in the middle of a
 line, and pushing the rest of the line rightward.  The character in the
@@ -2127,8 +2127,8 @@ insert/delete mode and reentering it.
 
 File: termcap.info,  Node: Standout,  Next: Underlining,  Prev: Insdel Char,  Up: Capabilities
 
-Standout and Appearance Modes
-=============================
+3.10 Standout and Appearance Modes
+==================================
 
 "Appearance modes" are modifications to the ways characters are
 displayed.  Typical appearance modes include reverse video, dim, bright,
@@ -2320,8 +2320,8 @@ Cursor Motion::).
 
 File: termcap.info,  Node: Underlining,  Next: Cursor Visibility,  Prev: Standout,  Up: Capabilities
 
-Underlining
-===========
+3.11 Underlining
+================
 
 Underlining on most terminals is a kind of appearance mode, much like
 standout mode.  Therefore, it may be implemented using magic cookies or
@@ -2376,8 +2376,8 @@ provide these capabilities when appropriate.
 
 File: termcap.info,  Node: Cursor Visibility,  Next: Bell,  Prev: Underlining,  Up: Capabilities
 
-Cursor Visibility
-=================
+3.12 Cursor Visibility
+======================
 
 Some terminals have the ability to make the cursor invisible, or to
 enhance it.  Enhancing the cursor is often done by programs that plan
@@ -2400,8 +2400,8 @@ normal on exit.
 
 File: termcap.info,  Node: Bell,  Next: Keypad,  Prev: Cursor Visibility,  Up: Capabilities
 
-Bell
-====
+3.13 Bell
+=========
 
 Here we describe commands to make the terminal ask for the user to pay
 attention to it.
@@ -2419,8 +2419,8 @@ attention to it.
 
 File: termcap.info,  Node: Keypad,  Next: Meta Key,  Prev: Bell,  Up: Capabilities
 
-Keypad and Function Keys
-========================
+3.14 Keypad and Function Keys
+=============================
 
 Many terminals have arrow and function keys that transmit specific
 character sequences to the computer.  Since the precise sequences used
@@ -2566,8 +2566,8 @@ Such programs should also send the `ke' string when exiting.
 
 File: termcap.info,  Node: Meta Key,  Next: Initialization,  Prev: Keypad,  Up: Capabilities
 
-Meta Key
-========
+3.15 Meta Key
+=============
 
 A Meta key is a key on the keyboard that modifies each character you
 type by controlling the 0200 bit.  This bit is on if and only if the
@@ -2593,8 +2593,8 @@ would ever not want it to be on.
 
 File: termcap.info,  Node: Initialization,  Next: Pad Specs,  Prev: Meta Key,  Up: Capabilities
 
-Initialization
-==============
+3.16 Initialization
+===================
 
 `ti'
      String of commands to put the terminal into whatever special modes
@@ -2655,8 +2655,8 @@ Initialization
 
 File: termcap.info,  Node: Pad Specs,  Next: Status Line,  Prev: Initialization,  Up: Capabilities
 
-Padding Capabilities
-====================
+3.17 Padding Capabilities
+=========================
 
 There are two terminal capabilities that exist just to explain the
 proper way to obey the padding specifications in all the command string
@@ -2711,8 +2711,8 @@ either of these things.
 
 File: termcap.info,  Node: Status Line,  Next: Half-Line,  Prev: Pad Specs,  Up: Capabilities
 
-Status Line
-===========
+3.18 Status Line
+================
 
 A "status line" is a line on the terminal that is not used for ordinary
 display output but instead used for a special message.  The intended
@@ -2759,8 +2759,8 @@ of this section are used.
 
 File: termcap.info,  Node: Half-Line,  Next: Printer,  Prev: Status Line,  Up: Capabilities
 
-Half-Line Motion
-================
+3.19 Half-Line Motion
+=====================
 
 Some terminals have commands for moving the cursor vertically by
 half-lines, useful for outputting subscripts and superscripts.  Mostly
@@ -2781,8 +2781,8 @@ it is hardcopy terminals that have such features.
 
 File: termcap.info,  Node: Printer,  Prev: Half-Line,  Up: Capabilities
 
-Controlling Printers Attached to Terminals
-==========================================
+3.20 Controlling Printers Attached to Terminals
+===============================================
 
 Some terminals have attached hardcopy printer ports.  They may be able
 to copy the screen contents to the printer; they may also be able to
@@ -2822,8 +2822,8 @@ that are provided, and use it in its own appropriate fashion.
 
 File: termcap.info,  Node: Summary,  Next: Var Index,  Prev: Capabilities,  Up: Top
 
-Summary of Capability Names
-***************************
+4 Summary of Capability Names
+*****************************
 
 Here are all the terminal capability names in alphabetical order with a
 brief description of each.  For cross references to their definitions,
@@ -3321,19 +3321,20 @@ File: termcap.info,  Node: Var Index,  Next: Cap Index,  Prev: Summary,  Up: Top
 Variable and Function Index
 ***************************
 
+ [index ]
 * Menu:
 
-* BC:                                    tgoto.
-* ospeed:                                Output Padding.
-* PC:                                    Output Padding.
-* tgetent:                               Find.
-* tgetflag:                              Interrogate.
-* tgetnum:                               Interrogate.
-* tgetstr:                               Interrogate.
-* tgoto:                                 tgoto.
-* tparam:                                tparam.
-* tputs:                                 Output Padding.
-* UP:                                    tgoto.
+* BC:                                    tgoto.                (line 25)
+* ospeed:                                Output Padding.       (line 24)
+* PC:                                    Output Padding.       (line 24)
+* tgetent:                               Find.                 (line  6)
+* tgetflag:                              Interrogate.          (line 28)
+* tgetnum:                               Interrogate.          (line 28)
+* tgetstr:                               Interrogate.          (line 28)
+* tgoto:                                 tgoto.                (line  6)
+* tparam:                                tparam.               (line  6)
+* tputs:                                 Output Padding.       (line  6)
+* UP:                                    tgoto.                (line 25)
 
 
 File: termcap.info,  Node: Cap Index,  Next: Index,  Prev: Var Index,  Up: Top
@@ -3341,141 +3342,142 @@ File: termcap.info,  Node: Cap Index,  Next: Index,  Prev: Var Index,  Up: Top
 Capability Index
 ****************
 
+ [index ]
 * Menu:
 
-* ae:                                    Standout.
-* AL:                                    Insdel Line.
-* al:                                    Insdel Line.
-* am:                                    Wrapping.
-* as:                                    Standout.
-* bc:                                    Cursor Motion.
-* bl:                                    Bell.
-* bs:                                    Cursor Motion.
-* bt:                                    Cursor Motion.
-* bw:                                    Cursor Motion.
-* CC:                                    Basic.
-* cd:                                    Clearing.
-* ce:                                    Clearing.
-* ch:                                    Cursor Motion.
-* cl:                                    Clearing.
-* CM:                                    Cursor Motion.
-* cm:                                    Cursor Motion.
-* co:                                    Screen Size.
-* cr:                                    Cursor Motion.
-* cS:                                    Scrolling.
-* cs:                                    Scrolling.
-* ct:                                    Initialization.
-* cv:                                    Cursor Motion.
-* da:                                    Scrolling.
-* dB:                                    Pad Specs.
-* db:                                    Scrolling.
-* dC:                                    Pad Specs.
-* DC:                                    Insdel Char.
-* dc:                                    Insdel Char.
-* dF:                                    Pad Specs.
-* DL:                                    Insdel Line.
-* dl:                                    Insdel Line.
-* dm:                                    Insdel Char.
-* dN:                                    Pad Specs.
-* DO:                                    Cursor Motion.
-* do:                                    Cursor Motion.
-* ds:                                    Status Line.
-* dT:                                    Pad Specs.
-* ec:                                    Clearing.
-* ed:                                    Insdel Char.
-* ei:                                    Insdel Char.
-* eo:                                    Basic.
-* es:                                    Status Line.
-* ff:                                    Cursor Motion.
-* fs:                                    Status Line.
-* gn:                                    Basic.
-* hc:                                    Basic.
-* hd:                                    Half-Line.
-* ho:                                    Cursor Motion.
-* hs:                                    Status Line.
-* hu:                                    Half-Line.
-* hz:                                    Basic.
-* i1:                                    Initialization.
-* i3:                                    Initialization.
-* IC:                                    Insdel Char.
-* ic:                                    Insdel Char.
-* if:                                    Initialization.
-* im:                                    Insdel Char.
-* in:                                    Insdel Char.
-* ip:                                    Insdel Char.
-* is:                                    Initialization.
-* it:                                    Initialization.
-* K1...K5:                               Keypad.
-* k1...k9:                               Keypad.
-* kA...kT:                               Keypad.
-* ka...ku:                               Keypad.
-* km:                                    Meta Key.
-* l0...l9:                               Keypad.
-* LE:                                    Cursor Motion.
-* le:                                    Cursor Motion.
-* li:                                    Screen Size.
-* ll:                                    Cursor Motion.
-* lm:                                    Scrolling.
-* mb:                                    Standout.
-* md:                                    Standout.
-* me:                                    Standout.
-* mh:                                    Standout.
-* mi:                                    Insdel Char.
-* mk:                                    Standout.
-* mm:                                    Meta Key.
-* mo:                                    Meta Key.
-* mp:                                    Standout.
-* mr:                                    Standout.
-* ms <1>:                                Underlining.
-* ms:                                    Standout.
-* nc:                                    Cursor Motion.
-* nd:                                    Cursor Motion.
-* nl:                                    Cursor Motion.
-* ns:                                    Scrolling.
-* nw:                                    Cursor Motion.
-* os:                                    Basic.
-* pb:                                    Pad Specs.
-* pc:                                    Pad Specs.
-* pf:                                    Printer.
-* pO:                                    Printer.
-* po:                                    Printer.
-* ps:                                    Printer.
-* rc:                                    Cursor Motion.
-* RI:                                    Cursor Motion.
-* rp:                                    Basic.
-* rs:                                    Initialization.
-* sa:                                    Standout.
-* sc:                                    Cursor Motion.
-* se:                                    Standout.
-* SF:                                    Scrolling.
-* sf:                                    Scrolling.
-* sg:                                    Standout.
-* so:                                    Standout.
-* SR:                                    Scrolling.
-* sr:                                    Scrolling.
-* st:                                    Initialization.
-* ta:                                    Cursor Motion.
-* te:                                    Initialization.
-* ti:                                    Initialization.
-* ts:                                    Status Line.
-* uc:                                    Underlining.
-* ue:                                    Underlining.
-* ug:                                    Underlining.
-* ul:                                    Underlining.
-* UP:                                    Cursor Motion.
-* up:                                    Cursor Motion.
-* us:                                    Underlining.
-* vb:                                    Bell.
-* ve:                                    Cursor Visibility.
-* vi:                                    Cursor Visibility.
-* vs:                                    Cursor Visibility.
-* wi:                                    Windows.
-* ws:                                    Status Line.
-* xb:                                    Basic.
-* xn:                                    Wrapping.
-* xs:                                    Standout.
-* xt <1>:                                Standout.
-* xt:                                    Cursor Motion.
+* ae:                                    Standout.            (line 180)
+* AL:                                    Insdel Line.         (line  49)
+* al:                                    Insdel Line.         (line  29)
+* am:                                    Wrapping.            (line  15)
+* as:                                    Standout.            (line 174)
+* bc:                                    Cursor Motion.       (line 195)
+* bl:                                    Bell.                (line  10)
+* bs:                                    Cursor Motion.       (line 198)
+* bt:                                    Cursor Motion.       (line 160)
+* bw:                                    Cursor Motion.       (line 100)
+* CC:                                    Basic.               (line  65)
+* cd:                                    Clearing.            (line  15)
+* ce:                                    Clearing.            (line  21)
+* ch:                                    Cursor Motion.       (line 124)
+* cl:                                    Clearing.            (line  11)
+* CM:                                    Cursor Motion.       (line 117)
+* cm:                                    Cursor Motion.       (line  36)
+* co:                                    Screen Size.         (line  33)
+* cr:                                    Cursor Motion.       (line  65)
+* cS:                                    Scrolling.           (line  53)
+* cs:                                    Scrolling.           (line  37)
+* ct:                                    Initialization.      (line  56)
+* cv:                                    Cursor Motion.       (line 132)
+* da:                                    Scrolling.           (line  85)
+* dB:                                    Pad Specs.           (line  36)
+* db:                                    Scrolling.           (line  93)
+* dC:                                    Pad Specs.           (line  28)
+* DC:                                    Insdel Char.         (line 199)
+* dc:                                    Insdel Char.         (line 195)
+* dF:                                    Pad Specs.           (line  40)
+* DL:                                    Insdel Line.         (line  54)
+* dl:                                    Insdel Line.         (line  39)
+* dm:                                    Insdel Char.         (line 204)
+* dN:                                    Pad Specs.           (line  32)
+* DO:                                    Cursor Motion.       (line 110)
+* do:                                    Cursor Motion.       (line  87)
+* ds:                                    Status Line.         (line  37)
+* dT:                                    Pad Specs.           (line  44)
+* ec:                                    Clearing.            (line  25)
+* ed:                                    Insdel Char.         (line 209)
+* ei:                                    Insdel Char.         (line  79)
+* eo:                                    Basic.               (line  18)
+* es:                                    Status Line.         (line  30)
+* ff:                                    Cursor Motion.       (line 150)
+* fs:                                    Status Line.         (line  26)
+* gn:                                    Basic.               (line  23)
+* hc:                                    Basic.               (line  39)
+* hd:                                    Half-Line.           (line  18)
+* ho:                                    Cursor Motion.       (line  45)
+* hs:                                    Status Line.         (line  16)
+* hu:                                    Half-Line.           (line  11)
+* hz:                                    Basic.               (line  53)
+* i1:                                    Initialization.      (line  28)
+* i3:                                    Initialization.      (line  28)
+* IC:                                    Insdel Char.         (line 114)
+* ic:                                    Insdel Char.         (line  93)
+* if:                                    Initialization.      (line  22)
+* im:                                    Insdel Char.         (line  68)
+* in:                                    Insdel Char.         (line 126)
+* ip:                                    Insdel Char.         (line 108)
+* is:                                    Initialization.      (line  18)
+* it:                                    Initialization.      (line  47)
+* K1...K5:                               Keypad.              (line  44)
+* k1...k9:                               Keypad.              (line  55)
+* kA...kT:                               Keypad.              (line  69)
+* ka...ku:                               Keypad.              (line  18)
+* km:                                    Meta Key.            (line  13)
+* l0...l9:                               Keypad.              (line  63)
+* LE:                                    Cursor Motion.       (line 110)
+* le:                                    Cursor Motion.       (line  70)
+* li:                                    Screen Size.         (line  37)
+* ll:                                    Cursor Motion.       (line  57)
+* lm:                                    Scrolling.           (line  97)
+* mb:                                    Standout.            (line 150)
+* md:                                    Standout.            (line 153)
+* me:                                    Standout.            (line 168)
+* mh:                                    Standout.            (line 156)
+* mi:                                    Insdel Char.         (line 122)
+* mk:                                    Standout.            (line 159)
+* mm:                                    Meta Key.            (line  16)
+* mo:                                    Meta Key.            (line  19)
+* mp:                                    Standout.            (line 162)
+* mr:                                    Standout.            (line 165)
+* ms <1>:                                Underlining.         (line  31)
+* ms:                                    Standout.            (line 131)
+* nc:                                    Cursor Motion.       (line 170)
+* nd:                                    Cursor Motion.       (line  77)
+* nl:                                    Cursor Motion.       (line 202)
+* ns:                                    Scrolling.           (line  74)
+* nw:                                    Cursor Motion.       (line 105)
+* os:                                    Basic.               (line  11)
+* pb:                                    Pad Specs.           (line  11)
+* pc:                                    Pad Specs.           (line  16)
+* pf:                                    Printer.             (line  20)
+* pO:                                    Printer.             (line  25)
+* po:                                    Printer.             (line  17)
+* ps:                                    Printer.             (line  13)
+* rc:                                    Cursor Motion.       (line 145)
+* RI:                                    Cursor Motion.       (line 110)
+* rp:                                    Basic.               (line  42)
+* rs:                                    Initialization.      (line  39)
+* sa:                                    Standout.            (line 183)
+* sc:                                    Cursor Motion.       (line 139)
+* se:                                    Standout.            (line 123)
+* SF:                                    Scrolling.           (line  29)
+* sf:                                    Scrolling.           (line  21)
+* sg:                                    Standout.            (line 126)
+* so:                                    Standout.            (line 120)
+* SR:                                    Scrolling.           (line  33)
+* sr:                                    Scrolling.           (line  25)
+* st:                                    Initialization.      (line  59)
+* ta:                                    Cursor Motion.       (line 154)
+* te:                                    Initialization.      (line  13)
+* ti:                                    Initialization.      (line   7)
+* ts:                                    Status Line.         (line  21)
+* uc:                                    Underlining.         (line  45)
+* ue:                                    Underlining.         (line  23)
+* ug:                                    Underlining.         (line  27)
+* ul:                                    Underlining.         (line  49)
+* UP:                                    Cursor Motion.       (line 110)
+* up:                                    Cursor Motion.       (line  82)
+* us:                                    Underlining.         (line  19)
+* vb:                                    Bell.                (line  15)
+* ve:                                    Cursor Visibility.   (line  20)
+* vi:                                    Cursor Visibility.   (line  17)
+* vs:                                    Cursor Visibility.   (line  14)
+* wi:                                    Windows.             (line  12)
+* ws:                                    Status Line.         (line  42)
+* xb:                                    Basic.               (line  78)
+* xn:                                    Wrapping.            (line  31)
+* xs:                                    Standout.            (line 137)
+* xt <1>:                                Standout.            (line 144)
+* xt:                                    Cursor Motion.       (line 181)
 
 
 File: termcap.info,  Node: Index,  Prev: Cap Index,  Up: Top
@@ -3483,52 +3485,53 @@ File: termcap.info,  Node: Index,  Prev: Cap Index,  Up: Top
 Concept Index
 *************
 
+ [index ]
 * Menu:
 
-* %:                                     Encode Parameters.
-* appearance modes:                      Standout.
-* bell:                                  Bell.
-* clearing the screen:                   Clearing.
-* command character:                     Basic.
-* cursor motion:                         Cursor Motion.
-* delete character:                      Insdel Char.
-* delete line:                           Insdel Line.
-* delete mode:                           Insdel Char.
-* description format:                    Format.
-* erasing:                               Clearing.
-* generic terminal type:                 Basic.
-* home position:                         Cursor Motion.
-* inheritance:                           Inheriting.
-* initialization:                        Initialization.
-* insert character:                      Insdel Char.
-* insert line:                           Insdel Line.
-* insert mode:                           Insdel Char.
-* line speed:                            Output Padding.
-* magic cookie:                          Standout.
-* meta key:                              Meta Key.
-* names of terminal types:               Naming.
-* overstrike:                            Basic.
-* padding <1>:                           Pad Specs.
-* padding:                               Padding.
-* parameters:                            Parameters.
-* printer:                               Printer.
-* repeat output:                         Basic.
-* reset:                                 Initialization.
-* screen size <1>:                       Screen Size.
-* screen size:                           Naming.
-* scrolling:                             Scrolling.
-* standout:                              Standout.
-* status line:                           Status Line.
-* Superbee:                              Basic.
-* tab stops:                             Initialization.
-* termcap:                               Introduction.
-* terminal flags (kernel):               Initialize.
-* underlining:                           Underlining.
-* visibility:                            Cursor Visibility.
-* visible bell:                          Bell.
-* window:                                Windows.
-* wrapping <1>:                          Wrapping.
-* wrapping:                              Naming.
+* %:                                     Encode Parameters.    (line  6)
+* appearance modes:                      Standout.             (line  6)
+* bell:                                  Bell.                 (line  6)
+* clearing the screen:                   Clearing.             (line  6)
+* command character:                     Basic.                (line 65)
+* cursor motion:                         Cursor Motion.        (line  6)
+* delete character:                      Insdel Char.          (line  6)
+* delete line:                           Insdel Line.          (line  6)
+* delete mode:                           Insdel Char.          (line 40)
+* description format:                    Format.               (line  6)
+* erasing:                               Clearing.             (line  6)
+* generic terminal type:                 Basic.                (line 23)
+* home position:                         Cursor Motion.        (line 45)
+* inheritance:                           Inheriting.           (line  6)
+* initialization:                        Initialization.       (line  6)
+* insert character:                      Insdel Char.          (line  6)
+* insert line:                           Insdel Line.          (line  6)
+* insert mode:                           Insdel Char.          (line 24)
+* line speed:                            Output Padding.       (line  6)
+* magic cookie:                          Standout.             (line  6)
+* meta key:                              Meta Key.             (line  6)
+* names of terminal types:               Naming.               (line  6)
+* overstrike:                            Basic.                (line 11)
+* padding <1>:                           Pad Specs.            (line  6)
+* padding:                               Padding.              (line  6)
+* parameters:                            Parameters.           (line  6)
+* printer:                               Printer.              (line  6)
+* repeat output:                         Basic.                (line 42)
+* reset:                                 Initialization.       (line  6)
+* screen size <1>:                       Screen Size.          (line  6)
+* screen size:                           Naming.               (line 32)
+* scrolling:                             Scrolling.            (line  6)
+* standout:                              Standout.             (line  6)
+* status line:                           Status Line.          (line  6)
+* Superbee:                              Basic.                (line 78)
+* tab stops:                             Initialization.       (line  6)
+* termcap:                               Introduction.         (line  6)
+* terminal flags (kernel):               Initialize.           (line  6)
+* underlining:                           Underlining.          (line  6)
+* visibility:                            Cursor Visibility.    (line  6)
+* visible bell:                          Bell.                 (line  6)
+* window:                                Windows.              (line  6)
+* wrapping <1>:                          Wrapping.             (line  6)
+* wrapping:                              Naming.               (line 20)
 
 
 
@@ -3536,48 +3539,48 @@ Tag Table:
 Node: Top959
 Node: Introduction1604
 Node: Library3328
-Node: Preparation4342
-Node: Find5538
-Node: Interrogate9082
-Node: Initialize14386
-Node: Padding16021
-Node: Why Pad16679
-Node: Describe Padding18320
-Node: Output Padding19792
-Node: Parameters23402
-Node: Encode Parameters25057
-Node: Using Parameters31159
-Node: tparam31745
-Node: tgoto33807
-Node: Data Base36359
-Node: Format37233
-Node: Capability Format39322
-Node: Naming42369
-Node: Inheriting46933
-Node: Capabilities49156
-Node: Basic51996
-Node: Screen Size55837
-Node: Cursor Motion57574
-Node: Wrapping67221
-Node: Scrolling70042
-Node: Windows75059
-Node: Clearing75790
-Node: Insdel Line77549
-Node: Insdel Char82452
-Node: Standout92433
-Node: Underlining101487
-Node: Cursor Visibility103903
-Node: Bell104648
-Node: Keypad105194
-Node: Meta Key109912
-Node: Initialization110863
-Node: Pad Specs113227
-Node: Status Line115277
-Node: Half-Line117158
-Node: Printer117957
-Node: Summary119633
-Node: Var Index129835
-Node: Cap Index130559
-Node: Index137750
+Node: Preparation4346
+Node: Find5550
+Node: Interrogate9087
+Node: Initialize14369
+Node: Padding16012
+Node: Why Pad16678
+Node: Describe Padding18331
+Node: Output Padding19815
+Node: Parameters23432
+Node: Encode Parameters25095
+Node: Using Parameters31209
+Node: tparam31807
+Node: tgoto33880
+Node: Data Base36448
+Node: Format37326
+Node: Capability Format39423
+Node: Naming42478
+Node: Inheriting47050
+Node: Capabilities49281
+Node: Basic52125
+Node: Screen Size55974
+Node: Cursor Motion57719
+Node: Wrapping67374
+Node: Scrolling70203
+Node: Windows75228
+Node: Clearing75967
+Node: Insdel Line77734
+Node: Insdel Char82645
+Node: Standout92634
+Node: Underlining101698
+Node: Cursor Visibility104124
+Node: Bell104879
+Node: Keypad105435
+Node: Meta Key110163
+Node: Initialization111124
+Node: Pad Specs113498
+Node: Status Line115558
+Node: Half-Line117449
+Node: Printer118258
+Node: Summary119944
+Node: Var Index130150
+Node: Cap Index131116
+Node: Index140964
 
 End Tag Table

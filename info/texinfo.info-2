@@ -1,4 +1,4 @@
-This is ../info/texinfo.info, produced by makeinfo version 4.6 from
+This is ../info/texinfo.info, produced by makeinfo version 4.8 from
 texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -33,10 +33,93 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
+File: texinfo.info,  Node: Def Cmd Template,  Next: Optional Arguments,  Prev: Definition Commands,  Up: Definition Commands
+
+15.1 The Template for a Definition
+==================================
+
+The `@deffn' command is used for definitions of entities that resemble
+functions.  To write a definition using the `@deffn' command, write the
+`@deffn' command at the beginning of a line and follow it on the same
+line by the category of the entity, the name of the entity itself, and
+its arguments (if any).  Then write the body of the definition on
+succeeding lines.  (You may embed examples in the body.)  Finally, end
+the definition with an `@end deffn' command written on a line of its
+own.  (The other definition commands follow the same format.)
+
+  The template for a definition looks like this:
+
+     @deffn CATEGORY NAME ARGUMENTS...
+     BODY-OF-DEFINITION
+     @end deffn
+
+For example,
+
+     @deffn Command forward-word count
+     This command moves point forward @var{count} words
+     (or backward if @var{count} is negative). ...
+     @end deffn
+
+produces
+
+      -- Command: forward-word count
+          This function moves point forward COUNT words (or backward if
+          COUNT is negative). ...
+
+  Capitalize the category name like a title.  If the name of the
+category contains spaces, as in the phrase `Interactive Command', write
+braces around it.  For example:
+
+     @deffn {Interactive Command} isearch-forward
+     ...
+     @end deffn
+
+Otherwise, the second word will be mistaken for the name of the entity.
+
+  Some of the definition commands are more general than others.  The
+`@deffn' command, for example, is the general definition command for
+functions and the like--for entities that may take arguments.  When you
+use this command, you specify the category to which the entity belongs.
+The `@deffn' command possesses three predefined, specialized
+variations, `@defun', `@defmac', and `@defspec', that specify the
+category for you: "Function", "Macro", and "Special Form" respectively.
+(In Lisp, a special form is an entity much like a function.)  The
+`@defvr' command also is accompanied by several predefined, specialized
+variations for describing particular kinds of variables.
+
+  The template for a specialized definition, such as `@defun', is
+similar to the template for a generalized definition, except that you
+do not need to specify the category:
+
+     @defun NAME ARGUMENTS...
+     BODY-OF-DEFINITION
+     @end defun
+
+Thus,
+
+     @defun buffer-end flag
+     This function returns @code{(point-min)} if @var{flag}
+     is less than 1, @code{(point-max)} otherwise.
+     ...
+     @end defun
+
+produces
+
+      -- Function: buffer-end flag
+          This function returns `(point-min)' if FLAG is less than 1,
+          `(point-max)' otherwise.  ...
+
+*Note Sample Function Definition: Sample Function Definition, for a
+more detailed example of a function definition, including the use of
+`@example' inside the definition.
+
+  The other specialized commands work like `@defun'.
+
+
 File: texinfo.info,  Node: Optional Arguments,  Next: deffnx,  Prev: Def Cmd Template,  Up: Definition Commands
 
-Optional and Repeated Arguments
-===============================
+15.2 Optional and Repeated Arguments
+====================================
 
 Some entities take optional or repeated arguments, which may be
 specified by a distinctive glyph that uses square brackets and
@@ -54,7 +137,7 @@ list structure in Lisp.
   Here is the `@defspec' line of an example of an imaginary special
 form:
 
-      - Special Form: foobar (VAR [FROM TO [INC]]) BODY...
+      -- Special Form: foobar (VAR [FROM TO [INC]]) BODY...
 
 In this example, the arguments FROM and TO are optional, but must both
 be present or both absent.  If they are present, INC may optionally be
@@ -73,8 +156,8 @@ The function is listed in the Command and Variable Index under `foobar'.
 
 File: texinfo.info,  Node: deffnx,  Next: Def Cmds in Detail,  Prev: Optional Arguments,  Up: Definition Commands
 
-Two or More `First' Lines
-=========================
+15.3 Two or More `First' Lines
+==============================
 
 To create two or more `first' or header lines for a definition, follow
 the first `@deffn' line by a line beginning with `@deffnx'.  The
@@ -90,8 +173,8 @@ generate extra vertical white space between it and the preceding line.
 
 produces
 
- - Interactive Command: isearch-forward
- - Interactive Command: isearch-backward
+ -- Interactive Command: isearch-forward
+ -- Interactive Command: isearch-backward
      These two search commands are similar except ...
 
   Each of the other definition commands has an `x' form: `@defunx',
@@ -102,8 +185,8 @@ produces
 
 File: texinfo.info,  Node: Def Cmds in Detail,  Next: Def Cmd Conventions,  Prev: deffnx,  Up: Definition Commands
 
-The Definition Commands
-=======================
+15.4 The Definition Commands
+============================
 
 Texinfo provides more than a dozen definition commands, all of which
 are described in this section.
@@ -128,8 +211,8 @@ can be used for other programming languages.
 
 File: texinfo.info,  Node: Functions Commands,  Next: Variables Commands,  Prev: Def Cmds in Detail,  Up: Def Cmds in Detail
 
-Functions and Similar Entities
-------------------------------
+15.4.1 Functions and Similar Entities
+-------------------------------------
 
 This section describes the commands for describing functions and similar
 entities:
@@ -200,14 +283,14 @@ entities:
 `@defspec NAME ARGUMENTS...'
      The `@defspec' command is the definition command for special
      forms.  (In Lisp, a special form is an entity much like a function,
-     *note Special Forms: (lispref)Special Forms..)  `@defspec' is
+     *note Special Forms: (lispref)Special Forms.)  `@defspec' is
      equivalent to `@deffn {Special Form} ...' and works like `@defun'.
 
 
 File: texinfo.info,  Node: Variables Commands,  Next: Typed Functions,  Prev: Functions Commands,  Up: Def Cmds in Detail
 
-Variables and Similar Entities
-------------------------------
+15.4.2 Variables and Similar Entities
+-------------------------------------
 
 Here are the commands for defining variables and similar entities:
 
@@ -269,8 +352,8 @@ Here are the commands for defining variables and similar entities:
 
 File: texinfo.info,  Node: Typed Functions,  Next: Typed Variables,  Prev: Variables Commands,  Up: Def Cmds in Detail
 
-Functions in Typed Languages
-----------------------------
+15.4.3 Functions in Typed Languages
+-----------------------------------
 
 The `@deftypefn' command and its variations are for describing
 functions in languages in which you must declare types of variables and
@@ -368,8 +451,8 @@ functions, such as C and C++.
 
 File: texinfo.info,  Node: Typed Variables,  Next: Abstract Objects,  Prev: Typed Functions,  Up: Def Cmds in Detail
 
-Variables in Typed Languages
-----------------------------
+15.4.4 Variables in Typed Languages
+-----------------------------------
 
 Variables in typed languages are handled in a manner similar to
 functions in typed languages.  *Note Typed Functions::.  The general
@@ -434,8 +517,8 @@ specialized definition command `@deftypevar' corresponds to
 
 File: texinfo.info,  Node: Abstract Objects,  Next: Data Types,  Prev: Typed Variables,  Up: Def Cmds in Detail
 
-Object-Oriented Programming
----------------------------
+15.4.5 Object-Oriented Programming
+----------------------------------
 
 Here are the commands for formatting descriptions about abstract
 objects, such as are used in object-oriented programming.  A class is a
@@ -566,8 +649,8 @@ it.  Otherwise, it is printed in the usual text font.
 
 File: texinfo.info,  Node: Data Types,  Prev: Abstract Objects,  Up: Def Cmds in Detail
 
-Data Types
-----------
+15.4.6 Data Types
+-----------------
 
 Here is the command for data types:
 
@@ -602,8 +685,8 @@ Here is the command for data types:
 
 File: texinfo.info,  Node: Def Cmd Conventions,  Next: Sample Function Definition,  Prev: Def Cmds in Detail,  Up: Definition Commands
 
-Conventions for Writing Definitions
-===================================
+15.5 Conventions for Writing Definitions
+========================================
 
 When you write a definition using `@deffn', `@defun', or one of the
 other definition commands, please take care to use arguments that
@@ -615,8 +698,8 @@ type.
 
 File: texinfo.info,  Node: Sample Function Definition,  Prev: Def Cmd Conventions,  Up: Definition Commands
 
-A Sample Function Definition
-============================
+15.6 A Sample Function Definition
+=================================
 
 A function definition uses the `@defun' and `@end defun' commands.  The
 name of the function follows immediately after the `@defun' command and
@@ -625,7 +708,7 @@ it is followed, on the same line, by the parameter list.
   Here is a definition from *Note Calling Functions: (lispref)Calling
 Functions.
 
-      - Function: apply function &rest arguments
+      -- Function: apply function &rest arguments
           `apply' calls FUNCTION with ARGUMENTS, just like `funcall'
           but with one difference: the last of ARGUMENTS is a list of
           arguments to give to FUNCTION, rather than a single argument.
@@ -645,7 +728,7 @@ Functions.
                     => 10
                (apply '+ '(1 2 3 4))
                     => 10
-               
+
                (apply 'append '((a b c) nil (x y z) nil))
                     => (a b c x y z)
 
@@ -655,20 +738,20 @@ Functions.
   In the Texinfo source file, this example looks like this:
 
      @defun apply function &rest arguments
-     
+
      @code{apply} calls @var{function} with
      @var{arguments}, just like @code{funcall} but with one
      difference: the last of @var{arguments} is a list of
      arguments to give to @var{function}, rather than a single
      argument.  We also say that this list is @dfn{appended}
      to the other arguments.
-     
+
      @code{apply} returns the result of calling
      @var{function}.  As with @code{funcall},
      @var{function} must either be a Lisp function or a
      primitive function; special forms and macros do not make
      sense in @code{apply}.
-     
+
      @example
      (setq f 'list)
           @result{} list
@@ -678,11 +761,11 @@ Functions.
           @result{} 10
      (apply '+ '(1 2 3 4))
           @result{} 10
-     
+
      (apply 'append '((a b c) nil (x y z) nil))
           @result{} (a b c x y z)
      @end example
-     
+
      An interesting example of using @code{apply} is found
      in the description of @code{mapcar}.@refill
      @end defun
@@ -696,8 +779,8 @@ that for functions except that variables do not take arguments.
 
 File: texinfo.info,  Node: Footnotes,  Next: Conditionals,  Prev: Definition Commands,  Up: Top
 
-Footnotes
-*********
+16 Footnotes
+************
 
 A "footnote" is for a reference that documents or elucidates the
 primary text.(1) (*note Footnotes-Footnote-1::)
@@ -718,8 +801,8 @@ of Style', which is published by the University of Chicago Press.
 
 File: texinfo.info,  Node: Footnote Commands,  Next: Footnote Styles,  Prev: Footnotes,  Up: Footnotes
 
-Footnote Commands
-=================
+16.1 Footnote Commands
+======================
 
 In Texinfo, footnotes are created with the `@footnote' command.  This
 command is followed immediately by a left brace, then by the text of
@@ -760,8 +843,8 @@ File: texinfo.info,  Node: Footnote Commands-Footnotes,  Up: Footnote Commands
 
 File: texinfo.info,  Node: Footnote Styles,  Prev: Footnote Commands,  Up: Footnotes
 
-Footnote Styles
-===============
+16.2 Footnote Styles
+====================
 
 Info has two footnote styles, which determine where the text of the
 footnote is located:
@@ -774,7 +857,7 @@ footnote is located:
      Here is an example of a single footnote in the end of node style:
 
            --------- Footnotes ---------
-          
+
           (1)  Here is a sample footnote.
 
    * In the `Separate' node style, all the footnotes for a single node
@@ -793,7 +876,7 @@ footnote is located:
      formatted for Info in the separate node style:
 
           File: texinfo.info  Node: Overview-Footnotes, Up: Overview
-          
+
           (1) Note that the first syllable of "Texinfo" is
           pronounced like "speck", not "hex". ...
 
@@ -808,8 +891,7 @@ separate node style.
   For example,
 
      @footnotestyle end
-
-or
+  or
      @footnotestyle separate
 
   Write an `@footnotestyle' command before or shortly after the
@@ -828,8 +910,8 @@ the `end' style.
 
 File: texinfo.info,  Node: Conditionals,  Next: Macros,  Prev: Footnotes,  Up: Top
 
-Conditionally Visible Text
-**************************
+17 Conditionally Visible Text
+*****************************
 
 Sometimes it is good to use different text for a printed manual and its
 corresponding Info file.  In this case, you can use the "conditional
@@ -887,17 +969,16 @@ used for making the title and copyright pages of the printed manual.
 
 File: texinfo.info,  Node: Conditional Not Commands,  Next: Raw Formatter Commands,  Prev: Conditional Commands,  Up: Conditionals
 
-Conditional Not Commands
-========================
+17.1 Conditional Not Commands
+=============================
 
 You can specify text to be included in any output format _other_ than
 some given one with the `@ifnot...' commands:
      @ifnothtml ... @end ifnothtml
      @ifnotinfo ... @end ifnotinfo
      @ifnottex ... @end ifnottex
-
-(The `@ifnot...' command and the `@end' command must actually appear on
-lines by themselves.)
+  (The `@ifnot...' command and the `@end' command must actually appear
+on lines by themselves.)
 
   If the output file is not being made for the given format, the region
 is included.  Otherwise, it is ignored.
@@ -908,8 +989,8 @@ with `@iftex', not raw formatter source as with `@tex'.
 
 File: texinfo.info,  Node: Raw Formatter Commands,  Next: set clear value,  Prev: Conditional Not Commands,  Up: Conditionals
 
-Raw Formatter Commands
-======================
+17.2 Raw Formatter Commands
+===========================
 
 Inside a region delineated by `@iftex' and `@end iftex', you can embed
 some raw TeX commands.  Info will ignore these commands since they are
@@ -950,8 +1031,8 @@ character, so the `@end' command can be recognized.)
 
 File: texinfo.info,  Node: set clear value,  Prev: Raw Formatter Commands,  Up: Conditionals
 
-`@set', `@clear', and `@value'
-==============================
+17.3 `@set', `@clear', and `@value'
+===================================
 
 You can direct the Texinfo formatting commands to format or ignore parts
 of a Texinfo file with the `@set', `@clear', `@ifset', and `@ifclear'
@@ -971,8 +1052,8 @@ string.  You can use `@set', for example, to set a date and use
 
 File: texinfo.info,  Node: ifset ifclear,  Next: value,  Prev: set clear value,  Up: set clear value
 
-`@ifset' and `@ifclear'
------------------------
+17.3.1 `@ifset' and `@ifclear'
+------------------------------
 
 When a FLAG is set, the Texinfo formatting commands format text between
 subsequent pairs of `@ifset FLAG' and `@end ifset' commands.  When the
@@ -980,7 +1061,7 @@ FLAG is cleared, the Texinfo formatting commands do _not_ format the
 text.
 
   Use the `@set FLAG' command to turn on, or "set", a FLAG; a "flag"
-can be any single word.  The format for the command looks like this:
+can be any single word.  The format for the command looks like this: 
 
      @set FLAG
 
@@ -996,13 +1077,13 @@ as a manual for a `large' and `small' model:
 
      You can use this machine to dig up shrubs
      without hurting them.
-     
+
      @set large
-     
+
      @ifset large
      It can also dig up fully grown trees.
      @end ifset
-     
+
      Remember to replant promptly ...
 
 In the example, the formatting commands will format the text between
@@ -1062,8 +1143,8 @@ and an `@end ifclear' command; rather, they ignore that text.  An
 
 File: texinfo.info,  Node: value,  Next: value Example,  Prev: ifset ifclear,  Up: set clear value
 
-`@value'
---------
+17.3.2 `@value'
+---------------
 
 You can use the `@set' command to specify a value for a flag, which is
 expanded by the `@value' command.  The value is a string a characters.
@@ -1119,8 +1200,8 @@ into
 
 File: texinfo.info,  Node: value Example,  Prev: value,  Up: set clear value
 
-`@value' Example
-----------------
+17.3.3 `@value' Example
+-----------------------
 
 You can use the `@value' command to limit the number of places you need
 to change when you record an update to a manual.  Here is how it is
@@ -1170,8 +1251,8 @@ do not need to rewrite the three sections.
 
 File: texinfo.info,  Node: Macros,  Next: Format/Print Hardcopy,  Prev: Conditionals,  Up: Top
 
-Macros: Defining New Texinfo Commands
-*************************************
+18 Macros: Defining New Texinfo Commands
+****************************************
 
 A Texinfo "macro" allows you to define a new Texinfo command as any
 sequence of text and/or existing commands (including other macros).  The
@@ -1188,8 +1269,8 @@ Cmd Template::.)
 
 File: texinfo.info,  Node: Defining Macros,  Next: Invoking Macros,  Prev: Macros,  Up: Macros
 
-Defining Macros
-===============
+18.1 Defining Macros
+====================
 
 You use the Texinfo `@macro' command to define a macro.  For example:
 
@@ -1219,8 +1300,8 @@ to undefine a macro that is already undefined.  For example:
 
 File: texinfo.info,  Node: Invoking Macros,  Prev: Defining Macros,  Up: Macros
 
-Invoking Macros
-===============
+18.2 Invoking Macros
+====================
 
 After a macro is defined (see the previous section), you can use
 ("invoke") it in your document like this:
@@ -1265,8 +1346,8 @@ produces:
 
 File: texinfo.info,  Node: Format/Print Hardcopy,  Next: Create an Info File,  Prev: Macros,  Up: Top
 
-Format and Print Hardcopy
-*************************
+19 Format and Print Hardcopy
+****************************
 
 There are three major shell commands for making a printed manual from a
 Texinfo file: one for converting the Texinfo file into a file that will
@@ -1317,8 +1398,8 @@ Info File::.
 
 File: texinfo.info,  Node: Format with tex/texindex,  Next: Format with texi2dvi,  Prev: Use TeX,  Up: Format/Print Hardcopy
 
-Format using `tex' and `texindex'
-=================================
+19.1 Format using `tex' and `texindex'
+======================================
 
 Format the Texinfo file with the shell command `tex' followed by the
 name of the Texinfo file.  For example:
@@ -1398,8 +1479,8 @@ This is usually ok while you are debugging.
 
 File: texinfo.info,  Node: Format with texi2dvi,  Next: Print with lpr,  Prev: Format with tex/texindex,  Up: Format/Print Hardcopy
 
-Format using `texi2dvi'
-=======================
+19.2 Format using `texi2dvi'
+============================
 
 The `texi2dvi' command automatically runs both `tex' and `texindex' as
 many times as necessary to produce a DVI file with up-to-date, sorted
@@ -1416,8 +1497,8 @@ prompt):
 
 File: texinfo.info,  Node: Print with lpr,  Next: Within Emacs,  Prev: Format with texi2dvi,  Up: Format/Print Hardcopy
 
-Shell Print Using `lpr -d'
-==========================
+19.3 Shell Print Using `lpr -d'
+===============================
 
 The precise command to print a DVI file depends on your system
 installation, but `lpr -d' is common.  The command may require the DVI
@@ -1443,8 +1524,8 @@ these are commonly used versions.)
 
 File: texinfo.info,  Node: Within Emacs,  Next: Texinfo Mode Printing,  Prev: Print with lpr,  Up: Format/Print Hardcopy
 
-From an Emacs Shell
-===================
+19.4 From an Emacs Shell
+========================
 
 You can give formatting and printing commands from a shell within GNU
 Emacs.  To create a shell within Emacs, type `M-x shell'.  In this
@@ -1468,8 +1549,8 @@ and printing in Texinfo mode.
 
 File: texinfo.info,  Node: Texinfo Mode Printing,  Next: Compile-Command,  Prev: Within Emacs,  Up: Format/Print Hardcopy
 
-Formatting and Printing in Texinfo Mode
-=======================================
+19.5 Formatting and Printing in Texinfo Mode
+============================================
 
 Texinfo mode provides several predefined key commands for TeX
 formatting and printing.  These include commands for sorting indices,
@@ -1541,7 +1622,7 @@ would any other shell buffer.
 variables.  The default values are:
 
           Variable                              Default value
-     
+
      texinfo-texi2dvi-command                  "texi2dvi"
      texinfo-tex-command                       "tex"
      texinfo-texindex-command                  "texindex"
@@ -1561,8 +1642,8 @@ initialization file (*note Init File: (xemacs)Init File.).
 
 File: texinfo.info,  Node: Compile-Command,  Next: Requirements Summary,  Prev: Texinfo Mode Printing,  Up: Format/Print Hardcopy
 
-Using the Local Variables List
-==============================
+19.6 Using the Local Variables List
+===================================
 
 Yet another way to apply the TeX formatting command to a Texinfo file
 is to put that command in a "local variables list" at the end of the
@@ -1582,8 +1663,8 @@ programs this way; see *Note Compilation: (xemacs)Compilation.
 
 File: texinfo.info,  Node: Requirements Summary,  Next: Preparing for TeX,  Prev: Compile-Command,  Up: Format/Print Hardcopy
 
-TeX Formatting Requirements Summary
-===================================
+19.7 TeX Formatting Requirements Summary
+========================================
 
 Every Texinfo file that is to be input to TeX must begin with a
 `\input' command and must contain an `@setfilename' command:
@@ -1619,8 +1700,8 @@ For more information, see
 
 File: texinfo.info,  Node: Preparing for TeX,  Next: Overfull hboxes,  Prev: Requirements Summary,  Up: Format/Print Hardcopy
 
-Preparing to Use TeX
-====================
+19.8 Preparing to Use TeX
+=========================
 
 TeX needs to know where to find the `texinfo.tex' file that you have
 told it to input with the `\input texinfo' command at the beginning of
@@ -1681,8 +1762,8 @@ directory, indicated by the `.', then in a hypothetical user's
 
 File: texinfo.info,  Node: Overfull hboxes,  Next: smallbook,  Prev: Preparing for TeX,  Up: Format/Print Hardcopy
 
-Overfull "hboxes"
-=================
+19.9 Overfull "hboxes"
+======================
 
 TeX is sometimes unable to typeset a line without extending it into the
 right margin.  This can occur when TeX comes upon what it interprets as
@@ -1720,8 +1801,8 @@ before the `@titlepage' command:
 
 File: texinfo.info,  Node: smallbook,  Next: A4 Paper,  Prev: Overfull hboxes,  Up: Format/Print Hardcopy
 
-Printing "Small" Books
-======================
+19.10 Printing "Small" Books
+============================
 
 By default, TeX typesets pages for printing in an 8.5 by 11 inch
 format.  However, you can direct TeX to typeset a document in a 7 by
@@ -1756,8 +1837,8 @@ differently.
 
 File: texinfo.info,  Node: A4 Paper,  Next: Cropmarks and Magnification,  Prev: smallbook,  Up: Format/Print Hardcopy
 
-Printing on A4 Paper
-====================
+19.11 Printing on A4 Paper
+==========================
 
 You can tell TeX to typeset a document for printing on European size A4
 paper with the `@afourpaper' command.  Write the command on a line by
@@ -1790,8 +1871,8 @@ that paper size in effect.
 
 File: texinfo.info,  Node: Cropmarks and Magnification,  Prev: A4 Paper,  Up: Format/Print Hardcopy
 
-Cropmarks and Magnification
-===========================
+19.12 Cropmarks and Magnification
+=================================
 
 You can attempt to direct TeX to print cropmarks at the corners of
 pages with the `@cropmarks' command.  Write the `@cropmarks' command on
@@ -1836,8 +1917,8 @@ certain magnifications.  Be prepared to experiment.
 
 File: texinfo.info,  Node: Create an Info File,  Next: Install an Info File,  Prev: Format/Print Hardcopy,  Up: Top
 
-Creating an Info File
-*********************
+20 Creating an Info File
+************************
 
 `makeinfo' is a utility that converts a Texinfo file into an Info file;
 `texinfo-format-region' and `texinfo-format-buffer' are GNU Emacs
@@ -1885,8 +1966,8 @@ they format short regions or buffers more quickly than `makeinfo'.
 
 File: texinfo.info,  Node: Invoking makeinfo,  Next: makeinfo options,  Prev: makeinfo advantages,  Up: Create an Info File
 
-Running `makeinfo' from a Shell
-===============================
+20.1 Running `makeinfo' from a Shell
+====================================
 
 To create an Info file from a Texinfo file, type `makeinfo' followed by
 the name of the Texinfo file.  Thus, to create the Info file for Bison,
@@ -1906,8 +1987,8 @@ to discover which version of `makeinfo' you are using, type:
 
 File: texinfo.info,  Node: makeinfo options,  Next: Pointer Validation,  Prev: Invoking makeinfo,  Up: Create an Info File
 
-Options for `makeinfo'
-======================
+20.2 Options for `makeinfo'
+===========================
 
 The `makeinfo' command takes a number of options.  Most often, options
 are used to set the value of the fill column and specify the footnote
@@ -2048,8 +2129,8 @@ and would also set the fill column to 70.
 
 File: texinfo.info,  Node: Pointer Validation,  Next: makeinfo in Emacs,  Prev: makeinfo options,  Up: Create an Info File
 
-Pointer Validation
-==================
+20.3 Pointer Validation
+=======================
 
 If you do not suppress pointer-validation, `makeinfo' will check the
 validity of the final Info file.  Mostly, this means ensuring that
@@ -2079,8 +2160,8 @@ is checked:
 
 File: texinfo.info,  Node: makeinfo in Emacs,  Next: texinfo-format commands,  Prev: Pointer Validation,  Up: Create an Info File
 
-Running `makeinfo' inside Emacs
-===============================
+20.4 Running `makeinfo' inside Emacs
+====================================
 
 You can run `makeinfo' in GNU Emacs Texinfo mode by using either the
 `makeinfo-region' or the `makeinfo-buffer' commands.  In Texinfo mode,
@@ -2088,11 +2169,11 @@ the commands are bound to `C-c C-m C-r' and `C-c C-m C-b' by default.
 
 `C-c C-m C-r'
 `M-x makeinfo-region'
-     Format the current region for Info.
+     Format the current region for Info.  
 
 `C-c C-m C-b'
 `M-x makeinfo-buffer'
-     Format the current buffer for Info.
+     Format the current buffer for Info.  
 
   When you invoke either `makeinfo-region' or `makeinfo-buffer', Emacs
 prompts for a file name, offering the name of the visited file as the
@@ -2145,8 +2226,8 @@ For more information, see
 
 File: texinfo.info,  Node: texinfo-format commands,  Next: Batch Formatting,  Prev: makeinfo in Emacs,  Up: Create an Info File
 
-The `texinfo-format...' Commands
-================================
+20.5 The `texinfo-format...' Commands
+=====================================
 
 In GNU Emacs in Texinfo mode, you can format part or all of a Texinfo
 file with the `texinfo-format-region' command.  This formats the
@@ -2161,11 +2242,11 @@ of the Texinfo file.
 
 `C-c C-e C-r'
 ``texinfo-format-region''
-     Format the current region for Info.
+     Format the current region for Info.  
 
 `C-c C-e C-b'
 ``texinfo-format-buffer''
-     Format the current buffer for Info.
+     Format the current buffer for Info.  
 
   The `texinfo-format-region' and `texinfo-format-buffer' commands
 provide you with some error checking, and other functions can provide
@@ -2177,8 +2258,8 @@ checking (*note makeinfo in Emacs::).
 
 File: texinfo.info,  Node: Batch Formatting,  Next: Tag and Split Files,  Prev: texinfo-format commands,  Up: Create an Info File
 
-Batch Formatting
-================
+20.6 Batch Formatting
+=====================
 
 You can format Texinfo files for Info using `batch-texinfo-format' and
 Emacs Batch mode.  You can run Emacs in Batch mode from any shell,
@@ -2206,8 +2287,8 @@ until the command finishes.)
 
 File: texinfo.info,  Node: Tag and Split Files,  Prev: Batch Formatting,  Up: Create an Info File
 
-Tag Files and Split Files
-=========================
+20.7 Tag Files and Split Files
+==============================
 
 If a Texinfo file has more than 30,000 bytes, `texinfo-format-buffer'
 automatically creates a tag table for its Info file;  `makeinfo' always
@@ -2244,7 +2325,7 @@ saved as `test-texinfo' and that file looked like this:
      Info file: test-texinfo,    -*-Text-*-
      produced by texinfo-format-buffer
      from file: new-texinfo-manual.texinfo
-     
+
      ^_
      Indirect:
      test-texinfo-1: 102
@@ -2283,8 +2364,8 @@ Info-validate::.
 
 File: texinfo.info,  Node: Install an Info File,  Next: Command List,  Prev: Create an Info File,  Up: Top
 
-Installing an Info File
-***********************
+21 Installing an Info File
+**************************
 
 Info files are usually kept in the `info' directory.  You can read Info
 files using the standalone Info program or the Info reader built into
@@ -2316,7 +2397,7 @@ to see the pathname to the `info' directory.)
 menu for all the Info files in the system.  The menu looks like this:
 
      * Menu:
-     
+
      * Info:    (info).     Documentation browsing system.
      * Emacs:   (emacs).    The extensible, self-documenting
                             text editor.
@@ -2347,8 +2428,8 @@ it cannot find the name as written.)
 
 File: texinfo.info,  Node: New Info File,  Next: Other Info Directories,  Prev: Directory file,  Up: Install an Info File
 
-Listing a New Info File
-=======================
+21.1 Listing a New Info File
+============================
 
 To add a new Info file to your system, you must write a menu entry to
 add to the menu in the `dir' file in the `info' directory.  For
@@ -2371,8 +2452,8 @@ use just `gdb' for the file name, not `gdb.info'.
 
 File: texinfo.info,  Node: Other Info Directories,  Next: Installing Dir Entries,  Prev: New Info File,  Up: Install an Info File
 
-Info Files in Other Directories
-===============================
+21.2 Info Files in Other Directories
+====================================
 
 If an Info file is not in the `info' directory, there are three ways to
 specify its location:
@@ -2451,8 +2532,8 @@ Leading or doubled colons are not treated specially.
 
 File: texinfo.info,  Node: Installing Dir Entries,  Next: Invoking install-info,  Prev: Other Info Directories,  Up: Install an Info File
 
-Installing Info Directory Files
-===============================
+21.3 Installing Info Directory Files
+====================================
 
 When you install an Info file onto your system, you can use the program
 `install-info' to update the Info directory file `dir'.  Normally the
@@ -2499,8 +2580,8 @@ specified categories.
 
 File: texinfo.info,  Node: Invoking install-info,  Prev: Installing Dir Entries,  Up: Install an Info File
 
-Invoking install-info
-=====================
+21.4 Invoking install-info
+==========================
 
 `install-info' inserts menu entries from an Info file into the
 top-level `dir' file in the Info system (see the previous sections for
@@ -2570,8 +2651,8 @@ creates it if possible (with no entries).
 
 File: texinfo.info,  Node: Command List,  Next: Tips,  Prev: Install an Info File,  Up: Top
 
-@-Command List
-**************
+Appendix A @-Command List
+*************************
 
 Here is an alphabetical list of the @-commands in Texinfo.  Square
 brackets, [ ], indicate optional arguments; an ellipsis, `...',
@@ -3562,8 +3643,8 @@ indicates repeated text.
 
 File: texinfo.info,  Node: Tips,  Next: Sample Texinfo File,  Prev: Command List,  Up: Top
 
-Tips and Hints
-**************
+Appendix B Tips and Hints
+*************************
 
 Here are some tips for writing Texinfo documentation:
 
@@ -3619,7 +3700,7 @@ split across pages.
           @section The Dog and the Fox
           @cindex Jumping, in general
           @cindex Leaping
-          
+
           @cindex Dog, lazy, jumped over
           @cindex Lazy dog jumped over
           @cindex Fox, jumps over dog
@@ -3646,11 +3727,11 @@ Blank Lines
      For example,
 
           Types of fox:
-          
+
           @table @samp
           @item Quick
           Jump over lazy dogs.
-          
+
           @item Brown
           Also jump over lazy dogs.
           @end table
@@ -3697,7 +3778,7 @@ For example:
      @c in *three* places:
      @c   1. First ifinfo section  2. title page  3. top node
      @c To find the locations, search for !!set
-     
+
      @ifinfo
      @c !!set edition, date, version
      This is Edition 4.03, January 1992,
@@ -3843,7 +3924,7 @@ writing the same argument names, again highlighted with `@var'.
   Avoid the obsolete style that looks like this:
 
      #include <dld.h>
-     
+
      dld_init (path)
      char *path;
 
@@ -3892,8 +3973,8 @@ And Finally ...
 
 File: texinfo.info,  Node: Sample Texinfo File,  Next: Sample Permissions,  Prev: Tips,  Up: Top
 
-A Sample Texinfo File
-*********************
+Appendix C A Sample Texinfo File
+********************************
 
 Here is a complete, short sample Texinfo file, without any commentary.
 You can see this file, with comments, in the first chapter.  *Note A
@@ -3905,72 +3986,72 @@ Short Sample Texinfo File: Short Sample.
      @setfilename sample.info
      @settitle Sample Document
      @c %**end of header
-     
+
      @setchapternewpage odd
-     
+
      @ifinfo
      This is a short example of a complete Texinfo file.
-     
+
      Copyright 1990 Free Software Foundation, Inc.
      @end ifinfo
-     
+
      @titlepage
      @sp 10
      @comment The title is printed in a large font.
      @center @titlefont{Sample Title}
-     
+
      @c The following two commands start the copyright page.
      @page
      @vskip 0pt plus 1filll
      Copyright @copyright{} 1990 Free Software Foundation, Inc.
      @end titlepage
-     
+
      @node    Top,       First Chapter,         , (dir)
      @comment node-name, next,          previous, up
-     
+
      @menu
      * First Chapter::    The first chapter is the
                           only chapter in this sample.
      * Concept Index::    This index has two entries.
      @end menu
-     
+
      @node    First Chapter, Concept Index, Top,      Top
      @comment node-name,     next,          previous, up
      @chapter First Chapter
      @cindex Sample index entry
-     
+
      This is the contents of the first chapter.
      @cindex Another sample index entry
-     
+
      Here is a numbered list.
-     
+
      @enumerate
      @item
      This is the first item.
-     
+
      @item
      This is the second item.
      @end enumerate
-     
+
      The @code{makeinfo} and @code{texinfo-format-buffer}
      commands transform a Texinfo file such as this into
      an Info file; and @TeX{} typesets it for a printed
      manual.
-     
+
      @node    Concept Index,    ,  First Chapter, Top
      @comment node-name,    next,  previous,      up
      @unnumbered Concept Index
-     
+
      @printindex cp
-     
+
      @contents
      @bye
 
 
 File: texinfo.info,  Node: Sample Permissions,  Next: Include Files,  Prev: Sample Texinfo File,  Up: Top
 
-Sample Permissions
-******************
+Appendix D Sample Permissions
+*****************************
 
 Texinfo files should contain sections that tell the readers that they
 have the right to copy and distribute the Texinfo file, the Info file,
@@ -3994,8 +4075,8 @@ you with rights.
 
 File: texinfo.info,  Node: Inserting Permissions,  Next: ifinfo Permissions,  Prev: Sample Permissions,  Up: Sample Permissions
 
-Inserting Permissions
-=====================
+D.1 Inserting Permissions
+=========================
 
   In a Texinfo file, the first `@ifinfo' section usually begins with a
 line that says what the file documents.  This is what a person reading
@@ -4039,27 +4120,27 @@ the rest of the sentence.
 
 File: texinfo.info,  Node: ifinfo Permissions,  Next: Titlepage Permissions,  Prev: Inserting Permissions,  Up: Sample Permissions
 
-`ifinfo' Copying Permissions
-============================
+D.2 `ifinfo' Copying Permissions
+================================
 
 In the `@ifinfo' section of a Texinfo file, the standard Free Software
 Foundation permission notice reads as follows:
 
      This file documents ...
-     
+
      Copyright 1998 Free Software Foundation, Inc.
-     
+
      Permission is granted to make and distribute verbatim
      copies of this manual provided the copyright notice and
      this permission notice are preserved on all copies.
-     
+
      @ignore
      Permission is granted to process this file through TeX
      and print the results, provided the printed document
      carries a copying permission notice identical to this
      one except for the removal of this paragraph (this
      paragraph not being relevant to the printed manual).
-     
+
      @end ignore
      Permission is granted to copy and distribute modified
      versions of this manual under the conditions for
@@ -4069,7 +4150,7 @@ Foundation permission notice reads as follows:
      that the entire resulting derived work is distributed
      under the terms of a permission notice identical to this
      one.
-     
+
      Permission is granted to copy and distribute
      translations of this manual into another language,
      under the above conditions for modified versions,
@@ -4079,8 +4160,8 @@ Foundation permission notice reads as follows:
 
 File: texinfo.info,  Node: Titlepage Permissions,  Prev: ifinfo Permissions,  Up: Sample Permissions
 
-Titlepage Copying Permissions
-=============================
+D.3 Titlepage Copying Permissions
+=================================
 
 In the `@titlepage' section of a Texinfo file, the standard Free
 Software Foundation copying permission notice follows the copyright
@@ -4089,7 +4170,7 @@ notice and publishing information.  The standard phrasing is as follows:
      Permission is granted to make and distribute verbatim
      copies of this manual provided the copyright notice and
      this permission notice are preserved on all copies.
-     
+
      Permission is granted to copy and distribute modified
      versions of this manual under the conditions for
      verbatim copying, provided also that the sections
@@ -4098,7 +4179,7 @@ notice and publishing information.  The standard phrasing is as follows:
      that the entire resulting derived work is distributed
      under the terms of a permission notice identical to this
      one.
-     
+
      Permission is granted to copy and distribute
      translations of this manual into another language,
      under the above conditions for modified versions,
@@ -4108,8 +4189,8 @@ notice and publishing information.  The standard phrasing is as follows:
 
 File: texinfo.info,  Node: Include Files,  Next: Headings,  Prev: Sample Permissions,  Up: Top
 
-Include Files
-*************
+Appendix E Include Files
+************************
 
 When TeX or an Info formatting command sees an `@include' command in a
 Texinfo file, it processes the contents of the file named by the
@@ -4134,8 +4215,8 @@ conveniently small parts.
 
 File: texinfo.info,  Node: Using Include Files,  Next: texinfo-multiple-files-update,  Prev: Include Files,  Up: Include Files
 
-How to Use Include Files
-========================
+E.1 How to Use Include Files
+============================
 
 To include another file within a Texinfo file, write the `@include'
 command at the beginning of a line and follow it on the same line by
@@ -4173,8 +4254,8 @@ command, `texinfo-multiple-files-update', that is designed for
 
 File: texinfo.info,  Node: texinfo-multiple-files-update,  Next: Include File Requirements,  Prev: Using Include Files,  Up: Include Files
 
-`texinfo-multiple-files-update'
-===============================
+E.2 `texinfo-multiple-files-update'
+===================================
 
 GNU Emacs Texinfo mode provides the `texinfo-multiple-files-update'
 command.  This command creates or updates `Next', `Previous', and `Up'
@@ -4233,8 +4314,8 @@ files and then inserts a master menu.
 
 File: texinfo.info,  Node: Include File Requirements,  Next: Sample Include File,  Prev: texinfo-multiple-files-update,  Up: Include Files
 
-Include File Requirements
-=========================
+E.3 Include File Requirements
+=============================
 
 If you plan to use the `texinfo-multiple-files-update' command, the
 outer Texinfo file that lists included files within it should contain
@@ -4259,8 +4340,8 @@ should _not_ contain any nodes besides the single `Top' node.  The
 
 File: texinfo.info,  Node: Sample Include File,  Next: Include Files Evolution,  Prev: Include File Requirements,  Up: Include Files
 
-Sample File with `@include'
-===========================
+E.4 Sample File with `@include'
+===============================
 
 Here is an example of a complete outer Texinfo file with `@include'
 files within it before running `texinfo-multiple-files-update', which
@@ -4269,38 +4350,38 @@ would insert a main or master menu:
      \input texinfo @c -*-texinfo-*-
      @setfilename  include-example.info
      @settitle Include Example
-     
+
      @setchapternewpage odd
      @titlepage
      @sp 12
      @center @titlefont{Include Example}
      @sp 2
      @center by Whom Ever
-     
+
      @page
      @vskip 0pt plus 1filll
      Copyright @copyright{} 1998 Free Software Foundation, Inc.
      @end titlepage
-     
+
      @ifinfo
      @node Top, First, , (dir)
      @top Master Menu
      @end ifinfo
-     
+
      @include foo.texinfo
      @include bar.texinfo
      @include concept-index.texinfo
-     
+
      @summarycontents
      @contents
-     
+
      @bye
 
   An included file, such as `foo.texinfo', might look like this:
 
      @node First, Second, , Top
      @chapter First Chapter
-     
+
      Contents of first chapter ...
 
   The full contents of `concept-index.texinfo' might be as simple as
@@ -4308,7 +4389,7 @@ this:
 
      @node Concept Index, , Second, Top
      @unnumbered Concept Index
-     
+
      @printindex cp
 
   The outer Texinfo source file for `The XEmacs Lisp Reference Manual'
@@ -4318,8 +4399,8 @@ entries and a list of 41 `@include' files.
 
 File: texinfo.info,  Node: Include Files Evolution,  Prev: Sample Include File,  Up: Include Files
 
-Evolution of Include Files
-==========================
+E.5 Evolution of Include Files
+==============================
 
 When Info was first created, it was customary to create many small Info
 files on one subject.  Each Info file was formatted from its own
@@ -4359,8 +4440,8 @@ files.
 
 File: texinfo.info,  Node: Headings,  Next: Catching Mistakes,  Prev: Include Files,  Up: Top
 
-Page Headings
-*************
+Appendix F Page Headings
+************************
 
 Most printed manuals contain headings along the top of every page
 except the title and copyright pages.  Some manuals also contain
@@ -4415,8 +4496,8 @@ right part is set flushright.
 
 File: texinfo.info,  Node: Heading Format,  Next: Heading Choice,  Prev: Headings Introduced,  Up: Headings
 
-Standard Heading Formats
-========================
+F.1 Standard Heading Formats
+============================
 
 Texinfo provides two standard heading formats, one for manuals printed
 on one side of each sheet of paper, and the other for manuals printed
@@ -4472,8 +4553,8 @@ manual.
 
 File: texinfo.info,  Node: Heading Choice,  Next: Custom Headings,  Prev: Heading Format,  Up: Headings
 
-Specifying the Type of Heading
-==============================
+F.2 Specifying the Type of Heading
+==================================
 
 TeX does not begin to generate page headings for a standard Texinfo
 file until it reaches the `@end titlepage' command.  Thus, the title
@@ -4508,8 +4589,8 @@ Texinfo lacks an `@setchapternewpage even' command.
 
 File: texinfo.info,  Node: Custom Headings,  Prev: Heading Choice,  Up: Headings
 
-How to Make Your Own Headings
-=============================
+F.3 How to Make Your Own Headings
+=================================
 
 You can use the standard headings provided with Texinfo or specify your
 own.  By default, Texinfo has no footers, so if you specify them, the
@@ -4597,7 +4678,7 @@ and `@end iftex' commands.
      information about `@include' files.)
 
 You can also use the `@today{}' command, which expands to the current
-date, in `1 Jan 1900' format.
+date, in `1 Jan 1900' format.  
 
   Other @-commands and text are printed in a header or footer just as
 if they were in the body of a page.  It is useful to incorporate text,
@@ -4615,8 +4696,8 @@ header or footer and blot it out.
 
 File: texinfo.info,  Node: Catching Mistakes,  Next: Refilling Paragraphs,  Prev: Headings,  Up: Top
 
-Formatting Mistakes
-*******************
+Appendix G Formatting Mistakes
+******************************
 
 Besides mistakes in the content of your documentation, there are two
 kinds of mistake you can make with Texinfo:  you can make mistakes with
@@ -4666,8 +4747,8 @@ in this appendix.
 
 File: texinfo.info,  Node: Debugging with Info,  Next: Debugging with TeX,  Prev: makeinfo Preferred,  Up: Catching Mistakes
 
-Catching Errors with Info Formatting
-====================================
+G.1 Catching Errors with Info Formatting
+========================================
 
 After you have written part of a Texinfo file, you can use the
 `texinfo-format-region' or the `makeinfo-region' command to see whether
@@ -4697,7 +4778,7 @@ or not long after it.  The buffer will look like this:
 
      ---------- Buffer: *Info Region* ----------
      * Menu:
-     
+
      * Using texinfo-show-structure::  How to use
                                        `texinfo-show-structure'
                                        to catch mistakes.
@@ -4748,8 +4829,8 @@ Mistakes' node by typing `l' (`Info-last').)
 
 File: texinfo.info,  Node: Debugging with TeX,  Next: Using texinfo-show-structure,  Prev: Debugging with Info,  Up: Catching Mistakes
 
-Catching Errors with TeX Formatting
-===================================
+G.2 Catching Errors with TeX Formatting
+=======================================
 
 You can also catch mistakes when you format a file with TeX.
 
@@ -4781,7 +4862,7 @@ following output, after which it stopped:
      <to be read again>
                         @par
      l.27
-     
+
      ?
      ---------- Buffer: *tex-shell* ----------
 
@@ -4854,8 +4935,8 @@ Texinfo.)
 
 File: texinfo.info,  Node: Using texinfo-show-structure,  Next: Using occur,  Prev: Debugging with TeX,  Up: Catching Mistakes
 
-Using `texinfo-show-structure'
-==============================
+G.3 Using `texinfo-show-structure'
+==================================
 
 It is not always easy to keep track of the nodes, chapters, sections,
 and subsections of a Texinfo file.  This is especially true if you are
@@ -4918,8 +4999,8 @@ or left out a section, you can correct the mistake.
 
 File: texinfo.info,  Node: Using occur,  Next: Running Info-Validate,  Prev: Using texinfo-show-structure,  Up: Catching Mistakes
 
-Using `occur'
-=============
+G.4 Using `occur'
+=================
 
 Sometimes the `texinfo-show-structure' command produces too much
 information.  Perhaps you want to remind yourself of the overall
@@ -4954,8 +5035,8 @@ information.
 
 File: texinfo.info,  Node: Running Info-Validate,  Prev: Using occur,  Up: Catching Mistakes
 
-Finding Badly Referenced Nodes
-==============================
+G.5 Finding Badly Referenced Nodes
+==================================
 
 You can use the `Info-validate' command to check whether any of the
 `Next', `Previous', `Up' or other node pointers fail to point to a
@@ -4980,8 +5061,8 @@ Info file from scratch.
 
 File: texinfo.info,  Node: Using Info-validate,  Next: Unsplit,  Prev: Running Info-Validate,  Up: Running Info-Validate
 
-Running `Info-validate'
------------------------
+G.5.1 Running `Info-validate'
+-----------------------------
 
 To use `Info-validate', visit the Info file you wish to check and type:
 
@@ -5027,8 +5108,8 @@ for the unsplit file.
 
 File: texinfo.info,  Node: Unsplit,  Next: Tagifying,  Prev: Using Info-validate,  Up: Running Info-Validate
 
-Creating an Unsplit File
-------------------------
+G.5.2 Creating an Unsplit File
+------------------------------
 
 You can run `Info-validate' only on a single Info file that has a tag
 table.  The command will not work on the indirect subfiles that are
@@ -5050,13 +5131,13 @@ or else
      C-u C-c C-e C-b
 
 When you do this, Texinfo will not split the file and will not create a
-tag table for it.
+tag table for it.  
 
 
 File: texinfo.info,  Node: Tagifying,  Next: Splitting,  Prev: Unsplit,  Up: Running Info-Validate
 
-Tagifying a File
-----------------
+G.5.3 Tagifying a File
+----------------------
 
 After creating an unsplit Info file, you must create a tag table for
 it.  Visit the Info file you wish to tagify and type:
@@ -5084,8 +5165,8 @@ and split the file manually.
 
 File: texinfo.info,  Node: Splitting,  Prev: Tagifying,  Up: Running Info-Validate
 
-Splitting a File Manually
--------------------------
+G.5.4 Splitting a File Manually
+-------------------------------
 
 You should split a large file or else let the `texinfo-format-buffer'
 or `makeinfo-buffer' command do it for you automatically.  (Generally
@@ -5125,8 +5206,8 @@ the tag table and a directory of subfiles.
 
 File: texinfo.info,  Node: Refilling Paragraphs,  Next: Command Syntax,  Prev: Catching Mistakes,  Up: Top
 
-Refilling Paragraphs
-********************
+Appendix H Refilling Paragraphs
+*******************************
 
 The `@refill' command refills and, optionally, indents the first line
 of a paragraph.(1) (*note Refilling Paragraphs-Footnote-1::) The
@@ -5164,8 +5245,8 @@ chosen before indenting was possible.
 
 File: texinfo.info,  Node: Command Syntax,  Next: Obtaining TeX,  Prev: Refilling Paragraphs,  Up: Top
 
-@-Command Syntax
-****************
+Appendix I @-Command Syntax
+***************************
 
 The character `@' is used to start special Texinfo commands.  (It has
 the same meaning that `\' has in plain TeX.)  Texinfo has four types of
@@ -5222,8 +5303,8 @@ because it cannot appear at the beginning of a line.
 
 File: texinfo.info,  Node: Obtaining TeX,  Next: Command and Variable Index,  Prev: Command Syntax,  Up: Top
 
-How to Obtain TeX
-*****************
+Appendix J How to Obtain TeX
+****************************
 
 TeX is freely redistributable.  You can obtain TeX for Unix systems via
 anonymous ftp or on physical media.  The core material consists of the
@@ -5245,7 +5326,7 @@ the TeX Users Group co-sponsors a complete CD-ROM TeX distribution.
           59 Temple Place Suite 330
           Boston, MA   02111-1307
           USA
-          
+
           Telephone: +1-617-542-5942
           Fax: (including Japan) +1-617-542-2652
           Free Dial Fax (in Japan):
@@ -5287,277 +5368,333 @@ This is an alphabetical list of all the @-commands, assorted Emacs Lisp
 functions, and several variables.  To make the list easier to use, the
 commands are listed without their preceding `@'.
 
+ [index ]
 * Menu:
 
-* ! (end of sentence):                   Ending a Sentence.
-* ":                                     Inserting Accents.
-* ':                                     Inserting Accents.
-* (newline):                             Multiple Spaces.
-* (space):                               Multiple Spaces.
-* (tab):                                 Multiple Spaces.
-* * (force line break):                  Line Breaks.
-* ,:                                     Inserting Accents.
-* -:                                     - and hyphenation.
-* .  (end of sentence):                  Ending a Sentence.
+* ! (end of sentence):                   Ending a Sentence.   (line   6)
+* ":                                     Inserting Accents.   (line  13)
+* ':                                     Inserting Accents.   (line  13)
+* (newline):                             Multiple Spaces.     (line   6)
+* (space):                               Multiple Spaces.     (line   6)
+* (tab):                                 Multiple Spaces.     (line   6)
+* * (force line break):                  Line Breaks.         (line   6)
+* ,:                                     Inserting Accents.   (line  13)
+* -:                                     - and hyphenation.   (line   6)
+* .  (end of sentence):                  Ending a Sentence.   (line   6)
 * : (suppress widening):                 Not Ending a Sentence.
-* =:                                     Inserting Accents.
-* ? (end of sentence):                   Ending a Sentence.
-* @ (single @):                          Inserting An Atsign.
-* ^:                                     Inserting Accents.
-* `:                                     Inserting Accents.
-* AA:                                    Inserting Accents.
-* aa:                                    Inserting Accents.
-* AE:                                    Inserting Accents.
-* ae:                                    Inserting Accents.
-* afourpaper:                            A4 Paper.
+                                                              (line  16)
+* =:                                     Inserting Accents.   (line  13)
+* ? (end of sentence):                   Ending a Sentence.   (line   6)
+* @ (single @):                          Inserting An Atsign. (line   6)
+* ^:                                     Inserting Accents.   (line  13)
+* `:                                     Inserting Accents.   (line  13)
+* AA:                                    Inserting Accents.   (line  33)
+* aa:                                    Inserting Accents.   (line  33)
+* AE:                                    Inserting Accents.   (line  33)
+* ae:                                    Inserting Accents.   (line  33)
+* afourpaper:                            A4 Paper.            (line   6)
 * appendix:                              unnumbered & appendix.
+                                                              (line   6)
 * appendixsec:                           unnumberedsec appendixsec heading.
+                                                              (line   6)
 * appendixsection:                       unnumberedsec appendixsec heading.
+                                                              (line  18)
 * appendixsubsec:                        unnumberedsubsec appendixsubsec subheading.
-* appendixsubsubsec:                     subsubsection.
+                                                              (line   6)
+* appendixsubsubsec:                     subsubsection.       (line   6)
 * apply:                                 Sample Function Definition.
-* asis:                                  table.
+                                                              (line  14)
+* asis:                                  table.               (line  19)
 * author:                                title subtitle author.
-* b (bold font):                         Fonts.
-* buffer-end:                            Def Cmd Template.
-* bullet:                                bullet.
-* bye <1>:                               File End.
-* bye:                                   Ending a File.
-* c (comment):                           Comments.
-* cartouche:                             cartouche.
-* center:                                titlefont center sp.
-* centerchap:                            chapter.
+                                                              (line   6)
+* b (bold font):                         Fonts.               (line   6)
+* buffer-end:                            Def Cmd Template.    (line  74)
+* bullet:                                bullet.              (line   6)
+* bye <1>:                               File End.            (line   6)
+* bye:                                   Ending a File.       (line   6)
+* c (comment):                           Comments.            (line  16)
+* cartouche:                             cartouche.           (line   6)
+* center:                                titlefont center sp. (line   6)
+* centerchap:                            chapter.             (line  25)
 * chapheading:                           majorheading & chapheading.
-* chapter:                               chapter.
-* cindex:                                Indexing Commands.
-* cite:                                  cite.
-* clear:                                 ifset ifclear.
-* code:                                  code.
+                                                              (line   6)
+* chapter:                               chapter.             (line   6)
+* cindex:                                Indexing Commands.   (line  56)
+* cite:                                  cite.                (line   6)
+* clear:                                 ifset ifclear.       (line  40)
+* code:                                  code.                (line   6)
 * columnfractions:                       Multitable Column Widths.
-* comment:                               Comments.
-* contents:                              Contents.
-* copyright <1>:                         copyright symbol.
+                                                              (line  11)
+* comment:                               Comments.            (line  16)
+* contents:                              Contents.            (line   6)
+* copyright <1>:                         copyright symbol.    (line   6)
 * copyright:                             Copyright & Permissions.
+                                                              (line  30)
 * cropmarks:                             Cropmarks and Magnification.
-* defcodeindex:                          New Indices.
-* defcv:                                 Abstract Objects.
-* deffn:                                 Functions Commands.
-* deffnx:                                deffnx.
-* defindex:                              New Indices.
+                                                              (line   6)
+* defcodeindex:                          New Indices.         (line   6)
+* defcv:                                 Abstract Objects.    (line  17)
+* deffn:                                 Functions Commands.  (line   9)
+* deffnx:                                deffnx.              (line   6)
+* defindex:                              New Indices.         (line   6)
 * definfoenclose:                        Customized Highlighting.
-* defivar:                               Abstract Objects.
-* defmac:                                Functions Commands.
-* defmethod:                             Abstract Objects.
-* defop:                                 Abstract Objects.
-* defopt:                                Variables Commands.
-* defspec:                               Functions Commands.
-* deftp:                                 Data Types.
-* deftypefn:                             Typed Functions.
-* deftypefun:                            Typed Functions.
-* deftypevar:                            Typed Variables.
-* deftypevr:                             Typed Variables.
-* defun:                                 Functions Commands.
-* defvar:                                Variables Commands.
-* defvr:                                 Variables Commands.
-* dfn:                                   dfn.
+                                                              (line  12)
+* defivar:                               Abstract Objects.    (line  39)
+* defmac:                                Functions Commands.  (line  67)
+* defmethod:                             Abstract Objects.    (line  96)
+* defop:                                 Abstract Objects.    (line  52)
+* defopt:                                Variables Commands.  (line  56)
+* defspec:                               Functions Commands.  (line  72)
+* deftp:                                 Data Types.          (line   8)
+* deftypefn:                             Typed Functions.     (line  10)
+* deftypefun:                            Typed Functions.     (line  75)
+* deftypevar:                            Typed Variables.     (line  42)
+* deftypevr:                             Typed Variables.     (line  12)
+* defun:                                 Functions Commands.  (line  42)
+* defvar:                                Variables Commands.  (line  38)
+* defvr:                                 Variables Commands.  (line   8)
+* dfn:                                   dfn.                 (line   6)
 * dircategory:                           Installing Dir Entries.
+                                                              (line  11)
 * direntry:                              Installing Dir Entries.
-* display:                               display.
-* dmn:                                   dmn.
-* dotaccent:                             Inserting Accents.
-* dotless:                               Inserting Accents.
-* dots:                                  dots.
-* email:                                 email.
-* emph:                                  emph & strong.
-* end <1>:                               Introducing Lists.
+                                                              (line  11)
+* display:                               display.             (line   6)
+* dmn:                                   dmn.                 (line   6)
+* dotaccent:                             Inserting Accents.   (line  13)
+* dotless:                               Inserting Accents.   (line  33)
+* dots:                                  dots.                (line   6)
+* email:                                 email.               (line   6)
+* emph:                                  emph & strong.       (line   6)
+* end <1>:                               Introducing Lists.   (line  20)
 * end:                                   Quotations and Examples.
-* end titlepage:                         end titlepage.
-* enumerate:                             enumerate.
-* evenfooting:                           Custom Headings.
-* evenheading:                           Custom Headings.
-* everyfooting:                          Custom Headings.
-* everyheading:                          Custom Headings.
-* example:                               example.
-* exclamdown:                            Inserting Accents.
-* exdent:                                exdent.
-* file:                                  file.
+                                                              (line  15)
+* end titlepage:                         end titlepage.       (line   6)
+* enumerate:                             enumerate.           (line   6)
+* evenfooting:                           Custom Headings.     (line  53)
+* evenheading:                           Custom Headings.     (line  53)
+* everyfooting:                          Custom Headings.     (line  46)
+* everyheading:                          Custom Headings.     (line  46)
+* example:                               example.             (line   6)
+* exclamdown:                            Inserting Accents.   (line  33)
+* exdent:                                exdent.              (line   6)
+* file:                                  file.                (line   6)
 * filll:                                 Copyright & Permissions.
-* finalout:                              Overfull hboxes.
-* findex:                                Indexing Commands.
+                                                              (line  16)
+* finalout:                              Overfull hboxes.     (line  33)
+* findex:                                Indexing Commands.   (line  59)
 * flushleft:                             flushleft & flushright.
+                                                              (line   6)
 * flushright:                            flushleft & flushright.
-* foobar:                                Optional Arguments.
-* footnote:                              Footnotes.
-* footnotestyle:                         Footnote Styles.
-* format:                                format.
-* forward-word:                          Def Cmd Template.
-* ftable:                                ftable vtable.
-* group:                                 group.
-* H:                                     Inserting Accents.
+                                                              (line   6)
+* foobar:                                Optional Arguments.  (line  23)
+* footnote:                              Footnotes.           (line   6)
+* footnotestyle:                         Footnote Styles.     (line  43)
+* format:                                format.              (line   6)
+* forward-word:                          Def Cmd Template.    (line  31)
+* ftable:                                ftable vtable.       (line   6)
+* group:                                 group.               (line   6)
+* H:                                     Inserting Accents.   (line  13)
 * heading:                               unnumberedsec appendixsec heading.
-* headings:                              headings on off.
+                                                              (line   6)
+* headings:                              headings on off.     (line   6)
 * html:                                  Raw Formatter Commands.
-* hyphenation:                           - and hyphenation.
-* i (italic font):                       Fonts.
-* ifclear:                               ifset ifclear.
+                                                              (line  37)
+* hyphenation:                           - and hyphenation.   (line   6)
+* i (italic font):                       Fonts.               (line   6)
+* ifclear:                               ifset ifclear.       (line  60)
 * ifhtml <1>:                            Raw Formatter Commands.
+                                                              (line  37)
 * ifhtml:                                Conditional Commands.
+                                                              (line  14)
 * ifinfo:                                Conditional Commands.
+                                                              (line   6)
 * ifnothtml:                             Conditional Not Commands.
+                                                              (line   6)
 * ifnotinfo:                             Conditional Not Commands.
+                                                              (line   6)
 * ifnottex:                              Conditional Not Commands.
-* ifset:                                 ifset ifclear.
+                                                              (line   6)
+* ifset:                                 ifset ifclear.       (line   6)
 * iftex:                                 Conditional Commands.
-* ignore:                                Comments.
-* image:                                 Images.
-* include:                               Using Include Files.
+                                                              (line  14)
+* ignore:                                Comments.            (line  26)
+* image:                                 Images.              (line   6)
+* include:                               Using Include Files. (line   6)
 * Info-validate:                         Running Info-Validate.
-* inforef:                               inforef.
-* input (TeX command):                   Minimum.
-* isearch-backward:                      deffnx.
-* isearch-forward:                       deffnx.
-* item <1>:                              Multitable Rows.
-* item <2>:                              table.
-* item:                                  itemize.
-* itemize:                               itemize.
-* itemx:                                 itemx.
-* kbd:                                   kbd.
-* kbdinputstyle:                         kbd.
-* key:                                   key.
-* kindex:                                Indexing Commands.
-* L:                                     Inserting Accents.
-* l:                                     Inserting Accents.
-* lisp:                                  Lisp Example.
+                                                              (line   6)
+* inforef:                               inforef.             (line   6)
+* input (TeX command):                   Minimum.             (line  24)
+* isearch-backward:                      deffnx.              (line  22)
+* isearch-forward:                       deffnx.              (line  21)
+* item <1>:                              Multitable Rows.     (line   6)
+* item <2>:                              table.               (line  35)
+* item:                                  itemize.             (line  23)
+* itemize:                               itemize.             (line   6)
+* itemx:                                 itemx.               (line   6)
+* kbd:                                   kbd.                 (line   6)
+* kbdinputstyle:                         kbd.                 (line  20)
+* key:                                   key.                 (line   6)
+* kindex:                                Indexing Commands.   (line  65)
+* L:                                     Inserting Accents.   (line  33)
+* l:                                     Inserting Accents.   (line  33)
+* lisp:                                  Lisp Example.        (line   6)
 * lowersections:                         Raise/lower sections.
-* macro:                                 Defining Macros.
+                                                              (line   6)
+* macro:                                 Defining Macros.     (line   6)
 * mag (TeX command):                     Cropmarks and Magnification.
+                                                              (line  24)
 * majorheading:                          majorheading & chapheading.
-* makeinfo-buffer:                       makeinfo in Emacs.
-* makeinfo-kill-job:                     makeinfo in Emacs.
-* makeinfo-recenter-output-buffer:       makeinfo in Emacs.
-* makeinfo-region:                       makeinfo in Emacs.
-* math:                                  math.
-* menu:                                  Menus.
-* minus:                                 minus.
-* multitable:                            Multi-column Tables.
-* need:                                  need.
-* next-error:                            makeinfo in Emacs.
-* noindent:                              noindent.
-* O:                                     Inserting Accents.
-* o:                                     Inserting Accents.
-* occur:                                 Using occur.
+                                                              (line   6)
+* makeinfo-buffer:                       makeinfo in Emacs.   (line  16)
+* makeinfo-kill-job:                     makeinfo in Emacs.   (line  38)
+* makeinfo-recenter-output-buffer:       makeinfo in Emacs.   (line  43)
+* makeinfo-region:                       makeinfo in Emacs.   (line  12)
+* math:                                  math.                (line   6)
+* menu:                                  Menus.               (line   6)
+* minus:                                 minus.               (line   6)
+* multitable:                            Multi-column Tables. (line   6)
+* need:                                  need.                (line   6)
+* next-error:                            makeinfo in Emacs.   (line  27)
+* noindent:                              noindent.            (line   6)
+* O:                                     Inserting Accents.   (line  33)
+* o:                                     Inserting Accents.   (line  33)
+* occur:                                 Using occur.         (line   6)
 * occur-mode-goto-occurrence:            Showing the Structure.
-* oddfooting:                            Custom Headings.
-* oddheading:                            Custom Headings.
-* OE:                                    Inserting Accents.
-* oe:                                    Inserting Accents.
-* page:                                  page.
-* paragraphindent:                       paragraphindent.
-* pindex:                                Indexing Commands.
-* pounds:                                pounds.
+                                                              (line  22)
+* oddfooting:                            Custom Headings.     (line  53)
+* oddheading:                            Custom Headings.     (line  53)
+* OE:                                    Inserting Accents.   (line  33)
+* oe:                                    Inserting Accents.   (line  33)
+* page:                                  page.                (line   6)
+* paragraphindent:                       paragraphindent.     (line   6)
+* pindex:                                Indexing Commands.   (line  68)
+* pounds:                                pounds.              (line   6)
 * printindex:                            Printing Indices & Menus.
-* pxref:                                 pxref.
-* questiondown:                          Inserting Accents.
-* quotation:                             quotation.
-* r (Roman font):                        Fonts.
+                                                              (line   6)
+* pxref:                                 pxref.               (line   6)
+* questiondown:                          Inserting Accents.   (line  33)
+* quotation:                             quotation.           (line   6)
+* r (Roman font):                        Fonts.               (line   6)
 * raisesections:                         Raise/lower sections.
-* ref:                                   ref.
+                                                              (line   6)
+* ref:                                   ref.                 (line   6)
 * refill:                                Refilling Paragraphs.
-* ringaccent:                            Inserting Accents.
-* samp:                                  samp.
-* sc (small caps font):                  Smallcaps.
-* section:                               section.
-* set:                                   ifset ifclear.
-* setchapternewpage:                     setchapternewpage.
-* setfilename:                           setfilename.
-* settitle:                              settitle.
-* shortcontents:                         Contents.
-* shorttitlepage:                        titlepage.
-* smallbook:                             smallbook.
+                                                              (line   6)
+* ringaccent:                            Inserting Accents.   (line  13)
+* samp:                                  samp.                (line   6)
+* sc (small caps font):                  Smallcaps.           (line   6)
+* section:                               section.             (line   6)
+* set:                                   ifset ifclear.       (line  12)
+* setchapternewpage:                     setchapternewpage.   (line   6)
+* setfilename:                           setfilename.         (line   6)
+* settitle:                              settitle.            (line   6)
+* shortcontents:                         Contents.            (line   6)
+* shorttitlepage:                        titlepage.           (line  40)
+* smallbook:                             smallbook.           (line   6)
 * smallexample:                          smallexample & smalllisp.
+                                                              (line   6)
 * smalllisp:                             smallexample & smalllisp.
-* sp (line spacing):                     sp.
-* sp (titlepage line spacing):           titlefont center sp.
-* ss:                                    Inserting Accents.
-* strong:                                emph & strong.
+                                                              (line   6)
+* sp (line spacing):                     sp.                  (line   6)
+* sp (titlepage line spacing):           titlefont center sp. (line   6)
+* ss:                                    Inserting Accents.   (line  33)
+* strong:                                emph & strong.       (line   6)
 * subheading:                            unnumberedsubsec appendixsubsec subheading.
-* subsection:                            subsection.
-* subsubheading:                         subsubsection.
-* subsubsection:                         subsubsection.
+                                                              (line   6)
+* subsection:                            subsection.          (line   6)
+* subsubheading:                         subsubsection.       (line   6)
+* subsubsection:                         subsubsection.       (line   6)
 * subtitle:                              title subtitle author.
-* summarycontents:                       Contents.
-* syncodeindex:                          syncodeindex.
-* synindex:                              synindex.
-* t (typewriter font):                   Fonts.
-* table:                                 Two-column Tables.
+                                                              (line   6)
+* summarycontents:                       Contents.            (line   6)
+* syncodeindex:                          syncodeindex.        (line   6)
+* synindex:                              synindex.            (line   6)
+* t (typewriter font):                   Fonts.               (line   6)
+* table:                                 Two-column Tables.   (line   6)
 * tex:                                   Raw Formatter Commands.
-* tex (command):                         tex.
-* texinfo-all-menus-update:              Updating Commands.
-* texinfo-every-node-update:             Updating Commands.
+                                                              (line  19)
+* tex (command):                         tex.                 (line   6)
+* texinfo-all-menus-update:              Updating Commands.   (line 112)
+* texinfo-every-node-update:             Updating Commands.   (line 107)
 * texinfo-format-buffer <1>:             texinfo-format commands.
-* texinfo-format-buffer:                 Info Formatting.
+                                                              (line   6)
+* texinfo-format-buffer:                 Info Formatting.     (line  22)
 * texinfo-format-region <1>:             texinfo-format commands.
-* texinfo-format-region:                 Info Formatting.
+                                                              (line   6)
+* texinfo-format-region:                 Info Formatting.     (line  13)
 * texinfo-indent-menu-description:       Other Updating Commands.
-* texinfo-insert-@code:                  Inserting.
-* texinfo-insert-@dfn:                   Inserting.
-* texinfo-insert-@end:                   Inserting.
-* texinfo-insert-@example:               Inserting.
-* texinfo-insert-@item:                  Inserting.
-* texinfo-insert-@kbd:                   Inserting.
-* texinfo-insert-@node:                  Inserting.
-* texinfo-insert-@noindent:              Inserting.
-* texinfo-insert-@samp:                  Inserting.
-* texinfo-insert-@table:                 Inserting.
-* texinfo-insert-@var:                   Inserting.
-* texinfo-insert-braces:                 Inserting.
+                                                              (line  45)
+* texinfo-insert-@code:                  Inserting.           (line  15)
+* texinfo-insert-@dfn:                   Inserting.           (line  19)
+* texinfo-insert-@end:                   Inserting.           (line  23)
+* texinfo-insert-@example:               Inserting.           (line  62)
+* texinfo-insert-@item:                  Inserting.           (line  30)
+* texinfo-insert-@kbd:                   Inserting.           (line  35)
+* texinfo-insert-@node:                  Inserting.           (line  39)
+* texinfo-insert-@noindent:              Inserting.           (line  44)
+* texinfo-insert-@samp:                  Inserting.           (line  49)
+* texinfo-insert-@table:                 Inserting.           (line  53)
+* texinfo-insert-@var:                   Inserting.           (line  58)
+* texinfo-insert-braces:                 Inserting.           (line  67)
 * texinfo-insert-node-lines:             Other Updating Commands.
-* texinfo-make-menu:                     Updating Commands.
-* texinfo-master-menu:                   Updating Commands.
+                                                              (line  10)
+* texinfo-make-menu:                     Updating Commands.   (line  93)
+* texinfo-master-menu:                   Updating Commands.   (line  55)
 * texinfo-multiple-files-update:         texinfo-multiple-files-update.
+                                                              (line   6)
 * texinfo-multiple-files-update (in brief): Other Updating Commands.
+                                                              (line  34)
 * texinfo-sequential-node-update:        Other Updating Commands.
+                                                              (line  54)
 * texinfo-show-structure <1>:            Using texinfo-show-structure.
+                                                              (line   6)
 * texinfo-show-structure:                Showing the Structure.
-* texinfo-start-menu-description:        Inserting.
-* texinfo-tex-buffer:                    Printing.
-* texinfo-tex-print:                     Printing.
-* texinfo-tex-region:                    Printing.
-* texinfo-update-node:                   Updating Commands.
-* thischapter:                           Custom Headings.
-* thischaptername:                       Custom Headings.
-* thisfile:                              Custom Headings.
-* thispage:                              Custom Headings.
-* thistitle:                             Custom Headings.
-* tieaccent:                             Inserting Accents.
-* tindex:                                Indexing Commands.
+                                                              (line  18)
+* texinfo-start-menu-description:        Inserting.           (line  94)
+* texinfo-tex-buffer:                    Printing.            (line  21)
+* texinfo-tex-print:                     Printing.            (line  42)
+* texinfo-tex-region:                    Printing.            (line  27)
+* texinfo-update-node:                   Updating Commands.   (line  83)
+* thischapter:                           Custom Headings.     (line  75)
+* thischaptername:                       Custom Headings.     (line  72)
+* thisfile:                              Custom Headings.     (line  83)
+* thispage:                              Custom Headings.     (line  69)
+* thistitle:                             Custom Headings.     (line  79)
+* tieaccent:                             Inserting Accents.   (line  13)
+* tindex:                                Indexing Commands.   (line  71)
 * title:                                 title subtitle author.
-* titlefont:                             titlefont center sp.
-* titlepage:                             titlepage.
-* today:                                 Custom Headings.
+                                                              (line   6)
+* titlefont:                             titlefont center sp. (line   6)
+* titlepage:                             titlepage.           (line   6)
+* today:                                 Custom Headings.     (line  92)
 * top (@-command):                       makeinfo top command.
-* u:                                     Inserting Accents.
-* ubaraccent:                            Inserting Accents.
-* udotaccent:                            Inserting Accents.
-* unmacro:                               Defining Macros.
+                                                              (line   6)
+* u:                                     Inserting Accents.   (line  13)
+* ubaraccent:                            Inserting Accents.   (line  13)
+* udotaccent:                            Inserting Accents.   (line  13)
+* unmacro:                               Defining Macros.     (line  26)
 * unnumbered:                            unnumbered & appendix.
+                                                              (line   6)
 * unnumberedsec:                         unnumberedsec appendixsec heading.
+                                                              (line   6)
 * unnumberedsubsec:                      unnumberedsubsec appendixsubsec subheading.
-* unnumberedsubsubsec:                   subsubsection.
-* up-list:                               Inserting.
-* uref:                                  uref.
-* url:                                   url.
-* v:                                     Inserting Accents.
-* value:                                 value.
-* var:                                   var.
-* vindex:                                Indexing Commands.
+                                                              (line   6)
+* unnumberedsubsubsec:                   subsubsection.       (line   6)
+* up-list:                               Inserting.           (line  72)
+* uref:                                  uref.                (line   6)
+* url:                                   url.                 (line   6)
+* v:                                     Inserting Accents.   (line  13)
+* value:                                 value.               (line   6)
+* var:                                   var.                 (line   6)
+* vindex:                                Indexing Commands.   (line  62)
 * vskip:                                 Copyright & Permissions.
-* vtable:                                ftable vtable.
-* w (prevent line break):                w.
-* xref:                                  xref.
-* { (single {):                          Inserting Braces.
-* } (single }):                          Inserting Braces.
-* ~:                                     Inserting Accents.
+                                                              (line  16)
+* vtable:                                ftable vtable.       (line   6)
+* w (prevent line break):                w.                   (line   6)
+* xref:                                  xref.                (line   6)
+* { (single {):                          Inserting Braces.    (line   6)
+* } (single }):                          Inserting Braces.    (line   6)
+* ~:                                     Inserting Accents.   (line  13)
 
 
 File: texinfo.info,  Node: Concept Index,  Prev: Command and Variable Index,  Up: Top
@@ -5565,604 +5702,743 @@ File: texinfo.info,  Node: Concept Index,  Prev: Command and Variable Index,  Up
 Concept Index
 *************
 
+ [index ]
 * Menu:
 
-* !:                                     Inserting Accents.
-* (dir) as Up node of Top node:          First Node.
+* !:                                     Inserting Accents.   (line  33)
+* (dir) as Up node of Top node:          First Node.          (line  11)
 * --delete:                              Invoking install-info.
+                                                              (line  25)
 * --dir-file=NAME:                       Invoking install-info.
+                                                              (line  30)
 * --entry=TEXT:                          Invoking install-info.
-* --error-limit=LIMIT:                   makeinfo options.
-* --fill-column=WIDTH:                   makeinfo options.
-* --footnote-style=STYLE:                makeinfo options.
-* --force:                               makeinfo options.
+                                                              (line  34)
+* --error-limit=LIMIT:                   makeinfo options.    (line  32)
+* --fill-column=WIDTH:                   makeinfo options.    (line  37)
+* --footnote-style=STYLE:                makeinfo options.    (line  45)
+* --force:                               makeinfo options.    (line  55)
 * --help <1>:                            Invoking install-info.
-* --help:                                makeinfo options.
+                                                              (line  41)
+* --help:                                makeinfo options.    (line  59)
 * --info-dir=DIR:                        Invoking install-info.
+                                                              (line  49)
 * --info-file=FILE:                      Invoking install-info.
+                                                              (line  45)
 * --item=TEXT:                           Invoking install-info.
-* --no-headers:                          makeinfo options.
-* --no-number-footnotes:                 makeinfo options.
-* --no-pointer-validate:                 makeinfo options.
-* --no-split:                            makeinfo options.
-* --no-validate:                         makeinfo options.
-* --no-warn:                             makeinfo options.
-* --output=FILE:                         makeinfo options.
-* --paragraph-indent=INDENT:             makeinfo options.
+                                                              (line  52)
+* --no-headers:                          makeinfo options.    (line  68)
+* --no-number-footnotes:                 makeinfo options.    (line  93)
+* --no-pointer-validate:                 makeinfo options.    (line  81)
+* --no-split:                            makeinfo options.    (line  75)
+* --no-validate:                         makeinfo options.    (line  81)
+* --no-warn:                             makeinfo options.    (line  87)
+* --output=FILE:                         makeinfo options.    (line  99)
+* --paragraph-indent=INDENT:             makeinfo options.    (line 109)
 * --quiet:                               Invoking install-info.
-* --reference-limit=LIMIT:               makeinfo options.
+                                                              (line  56)
+* --reference-limit=LIMIT:               makeinfo options.    (line 124)
 * --remove:                              Invoking install-info.
+                                                              (line  59)
 * --section=SEC:                         Invoking install-info.
-* --verbose:                             makeinfo options.
+                                                              (line  62)
+* --verbose:                             makeinfo options.    (line 134)
 * --version <1>:                         Invoking install-info.
-* --version:                             makeinfo options.
-* -D VAR:                                makeinfo options.
-* -I DIR:                                makeinfo options.
-* -o FILE:                               makeinfo options.
-* -P DIR:                                makeinfo options.
-* .cshrc initialization file:            Preparing for TeX.
-* .profile initialization file:          Preparing for TeX.
-* /L:                                    Inserting Accents.
-* /l:                                    Inserting Accents.
-* /O:                                    Inserting Accents.
-* /o:                                    Inserting Accents.
-* ?:                                     Inserting Accents.
+                                                              (line  68)
+* --version:                             makeinfo options.    (line 139)
+* -D VAR:                                makeinfo options.    (line  28)
+* -I DIR:                                makeinfo options.    (line  63)
+* -o FILE:                               makeinfo options.    (line  99)
+* -P DIR:                                makeinfo options.    (line 105)
+* .cshrc initialization file:            Preparing for TeX.   (line   6)
+* .profile initialization file:          Preparing for TeX.   (line   6)
+* /L:                                    Inserting Accents.   (line  33)
+* /l:                                    Inserting Accents.   (line  33)
+* /O:                                    Inserting Accents.   (line  33)
+* /o:                                    Inserting Accents.   (line  33)
+* ?:                                     Inserting Accents.   (line  33)
 * @-command in nodename:                 Node Line Requirements.
-* @-command list:                        Command List.
-* @-command syntax:                      Command Syntax.
-* @-commands:                            Formatting Commands.
-* @include file sample:                  Sample Include File.
-* @menu parts:                           Menu Parts.
-* @node line writing:                    Writing a Node.
-* A4 paper, printing on:                 A4 Paper.
-* AA:                                    Inserting Accents.
-* aa:                                    Inserting Accents.
-* Abbreviations for keys:                key.
-* Accents, inserting:                    Inserting Accents.
-* Acute accent:                          Inserting Accents.
-* Adding a new info file:                New Info File.
-* AE:                                    Inserting Accents.
-* ae:                                    Inserting Accents.
-* Alphabetical @-command list:           Command List.
+                                                              (line  23)
+* @-command list:                        Command List.        (line   6)
+* @-command syntax:                      Command Syntax.      (line   6)
+* @-commands:                            Formatting Commands. (line   6)
+* @include file sample:                  Sample Include File. (line   6)
+* @menu parts:                           Menu Parts.          (line   6)
+* @node line writing:                    Writing a Node.      (line   6)
+* A4 paper, printing on:                 A4 Paper.            (line   6)
+* AA:                                    Inserting Accents.   (line  33)
+* aa:                                    Inserting Accents.   (line  33)
+* Abbreviations for keys:                key.                 (line  19)
+* Accents, inserting:                    Inserting Accents.   (line   6)
+* Acute accent:                          Inserting Accents.   (line  13)
+* Adding a new info file:                New Info File.       (line   6)
+* AE:                                    Inserting Accents.   (line  33)
+* ae:                                    Inserting Accents.   (line  33)
+* Alphabetical @-command list:           Command List.        (line   6)
 * Another Info directory:                Other Info Directories.
+                                                              (line   6)
 * Apostrophe in nodename:                Node Line Requirements.
-* Arguments, repeated and optional:      Optional Arguments.
-* Aspect ratio of images:                Images.
+                                                              (line  34)
+* Arguments, repeated and optional:      Optional Arguments.  (line   6)
+* Aspect ratio of images:                Images.              (line  16)
 * Automatic pointer creation with makeinfo: makeinfo Pointer Creation.
+                                                              (line   6)
 * Automatically insert nodes, menus:     Updating Nodes and Menus.
-* Backslash, and macros:                 Invoking Macros.
+                                                              (line   6)
+* Backslash, and macros:                 Invoking Macros.     (line  23)
 * Badly referenced nodes:                Running Info-Validate.
-* Batch formatting for Info:             Batch Formatting.
-* Beginning a Texinfo file:              Beginning a File.
-* Beginning line of a Texinfo file:      First Line.
-* Berry, Karl:                           Acknowledgements.
-* Big points:                            Images.
-* Black rectangle in hardcopy:           Overfull hboxes.
-* Blank lines:                           sp.
-* Body of a macro:                       Defining Macros.
-* Book characteristics, printed:         Printed Books.
-* Book, printing small:                  smallbook.
-* Box with rounded corners:              cartouche.
-* Braces and argument syntax:            Command Syntax.
-* Braces, inserting:                     Braces Atsigns.
-* Braces, when to use:                   Formatting Commands.
-* Breaks in a line:                      Line Breaks.
-* Breve accent:                          Inserting Accents.
-* Buffer formatting and printing:        Printing.
-* Bullets, inserting:                    Dots Bullets.
+                                                              (line   6)
+* Batch formatting for Info:             Batch Formatting.    (line   6)
+* Beginning a Texinfo file:              Beginning a File.    (line   6)
+* Beginning line of a Texinfo file:      First Line.          (line   6)
+* Berry, Karl:                           Acknowledgements.    (line   6)
+* Big points:                            Images.              (line  33)
+* Black rectangle in hardcopy:           Overfull hboxes.     (line  28)
+* Blank lines:                           sp.                  (line   6)
+* Body of a macro:                       Defining Macros.     (line  19)
+* Book characteristics, printed:         Printed Books.       (line   6)
+* Book, printing small:                  smallbook.           (line   6)
+* Box with rounded corners:              cartouche.           (line   6)
+* Braces and argument syntax:            Command Syntax.      (line  40)
+* Braces, inserting:                     Braces Atsigns.      (line   6)
+* Braces, when to use:                   Formatting Commands. (line  49)
+* Breaks in a line:                      Line Breaks.         (line   6)
+* Breve accent:                          Inserting Accents.   (line  13)
+* Buffer formatting and printing:        Printing.            (line   6)
+* Bullets, inserting:                    Dots Bullets.        (line   6)
 * Case in nodename:                      Node Line Requirements.
-* Catching errors with Info formatting:  Debugging with Info.
-* Catching errors with TeX formatting:   Debugging with TeX.
-* Catching mistakes:                     Catching Mistakes.
-* Cedilla accent:                        Inserting Accents.
-* Centimeters:                           Images.
-* Chapter structuring:                   Structuring.
-* Characteristics, printed books or manuals: Printed Books.
-* Chassell, Robert J.:                   Acknowledgements.
-* Check accent:                          Inserting Accents.
+                                                              (line  45)
+* Catching errors with Info formatting:  Debugging with Info. (line   6)
+* Catching errors with TeX formatting:   Debugging with TeX.  (line   6)
+* Catching mistakes:                     Catching Mistakes.   (line   6)
+* Cedilla accent:                        Inserting Accents.   (line  13)
+* Centimeters:                           Images.              (line  39)
+* Chapter structuring:                   Structuring.         (line   6)
+* Characteristics, printed books or manuals: Printed Books.   (line   6)
+* Chassell, Robert J.:                   Acknowledgements.    (line   6)
+* Check accent:                          Inserting Accents.   (line  13)
 * Checking for badly referenced nodes:   Running Info-Validate.
-* Ciceros:                               Images.
-* Circumflex accent:                     Inserting Accents.
-* code, arg to @kbdinputstyle:           kbd.
+                                                              (line   6)
+* Ciceros:                               Images.              (line  48)
+* Circumflex accent:                     Inserting Accents.   (line  13)
+* code, arg to @kbdinputstyle:           kbd.                 (line  24)
 * colon last in INFOPATH:                Other Info Directories.
+                                                              (line  69)
 * Column widths, defining for multitables: Multitable Column Widths.
-* Combining indices:                     Combining Indices.
+                                                              (line   6)
+* Combining indices:                     Combining Indices.   (line   6)
 * Comma in nodename:                     Node Line Requirements.
+                                                              (line  34)
 * Command definitions:                   Sample Function Definition.
-* Commands to insert special characters: Braces Atsigns.
+                                                              (line   6)
+* Commands to insert special characters: Braces Atsigns.      (line   6)
 * Commands using raw HTML:               Raw Formatter Commands.
+                                                              (line   6)
 * Commands using raw TeX:                Raw Formatter Commands.
-* Commands, inserting them:              Inserting.
-* Comments:                              Comments.
-* Compile command for formatting:        Compile-Command.
-* Conditionally visible text:            Conditionals.
-* Conditions for copying Texinfo:        Copying.
-* Contents, Table of:                    Contents.
+                                                              (line   6)
+* Commands, inserting them:              Inserting.           (line   6)
+* Comments:                              Comments.            (line  16)
+* Compile command for formatting:        Compile-Command.     (line   6)
+* Conditionally visible text:            Conditionals.        (line   6)
+* Conditions for copying Texinfo:        Copying.             (line   6)
+* Contents, Table of:                    Contents.            (line   6)
 * Contents-like outline of file structure: Showing the Structure.
-* Conventions for writing definitions:   Def Cmd Conventions.
-* Conventions, syntactic:                Conventions.
-* Copying conditions:                    Copying.
-* Copying permissions:                   Sample Permissions.
+                                                              (line   6)
+* Conventions for writing definitions:   Def Cmd Conventions. (line   6)
+* Conventions, syntactic:                Conventions.         (line   6)
+* Copying conditions:                    Copying.             (line   6)
+* Copying permissions:                   Sample Permissions.  (line   6)
 * Copying software:                      Software Copying Permissions.
+                                                              (line   6)
 * Copyright page:                        Copyright & Permissions.
-* Correcting mistakes:                   Catching Mistakes.
+                                                              (line   6)
+* Correcting mistakes:                   Catching Mistakes.   (line   6)
 * Create nodes, menus automatically:     Updating Nodes and Menus.
-* Creating an Info file:                 Create an Info File.
-* Creating an unsplit file:              Unsplit.
-* Creating index entries:                Indexing Commands.
-* Creating indices:                      Indices.
+                                                              (line   6)
+* Creating an Info file:                 Create an Info File. (line   6)
+* Creating an unsplit file:              Unsplit.             (line   6)
+* Creating index entries:                Indexing Commands.   (line   6)
+* Creating indices:                      Indices.             (line   6)
 * Creating pointers with makeinfo:       makeinfo Pointer Creation.
+                                                              (line   6)
 * Cropmarks for printing:                Cropmarks and Magnification.
+                                                              (line   6)
 * Cross reference parts:                 Cross Reference Parts.
-* Cross references:                      Cross References.
-* Cross references using @inforef:       inforef.
-* Cross references using @pxref:         pxref.
-* Cross references using @ref:           ref.
-* Cross references using @xref:          xref.
+                                                              (line   6)
+* Cross references:                      Cross References.    (line   6)
+* Cross references using @inforef:       inforef.             (line   6)
+* Cross references using @pxref:         pxref.               (line   6)
+* Cross references using @ref:           ref.                 (line   6)
+* Cross references using @xref:          xref.                (line   6)
 * Customized highlighting:               Customized Highlighting.
-* Customizing of TeX for Texinfo:        Preparing for TeX.
-* Debugging the Texinfo structure:       Catching Mistakes.
-* Debugging with Info formatting:        Debugging with Info.
-* Debugging with TeX formatting:         Debugging with TeX.
-* Defining indexing entries:             Indexing Commands.
-* Defining macros:                       Defining Macros.
-* Defining new indices:                  New Indices.
-* Defining new Texinfo commands:         Macros.
-* Definition commands:                   Definition Commands.
-* Definition conventions:                Def Cmd Conventions.
-* Definition template:                   Def Cmd Template.
-* Definitions grouped together:          deffnx.
-* Description for menu, start:           Inserting.
-* Dido^t points:                         Images.
+                                                              (line   6)
+* Customizing of TeX for Texinfo:        Preparing for TeX.   (line  24)
+* Debugging the Texinfo structure:       Catching Mistakes.   (line   6)
+* Debugging with Info formatting:        Debugging with Info. (line   6)
+* Debugging with TeX formatting:         Debugging with TeX.  (line   6)
+* Defining indexing entries:             Indexing Commands.   (line   6)
+* Defining macros:                       Defining Macros.     (line   6)
+* Defining new indices:                  New Indices.         (line   6)
+* Defining new Texinfo commands:         Macros.              (line   6)
+* Definition commands:                   Definition Commands. (line   6)
+* Definition conventions:                Def Cmd Conventions. (line   6)
+* Definition template:                   Def Cmd Template.    (line   6)
+* Definitions grouped together:          deffnx.              (line   6)
+* Description for menu, start:           Inserting.           (line  94)
+* Dido^t points:                         Images.              (line  45)
 * Different cross reference commands:    Cross Reference Commands.
-* Dimension formatting:                  dmn.
-* Dimensions and image sizes:            Images.
+                                                              (line   6)
+* Dimension formatting:                  dmn.                 (line   6)
+* Dimensions and image sizes:            Images.              (line  23)
 * dir directory for Info installation:   Install an Info File.
-* dir file listing:                      New Info File.
+                                                              (line   6)
+* dir file listing:                      New Info File.       (line   6)
 * dir, created by install-info:          Invoking install-info.
-* Display formatting:                    display.
-* distinct, arg to @kbdinputstyle:       kbd.
-* Distorting images:                     Images.
+                                                              (line  19)
+* Display formatting:                    display.             (line   6)
+* distinct, arg to @kbdinputstyle:       kbd.                 (line  24)
+* Distorting images:                     Images.              (line  16)
 * Distribution:                          Software Copying Permissions.
-* Dot accent:                            Inserting Accents.
-* Dotless i, j:                          Inserting Accents.
-* Dots, inserting <1>:                   dots.
-* Dots, inserting:                       Dots Bullets.
+                                                              (line   6)
+* Dot accent:                            Inserting Accents.   (line  13)
+* Dotless i, j:                          Inserting Accents.   (line  33)
+* Dots, inserting <1>:                   dots.                (line   6)
+* Dots, inserting:                       Dots Bullets.        (line   6)
 * Double-colon menu entries:             Less Cluttered Menu Entry.
+                                                              (line   6)
 * DVI file:                              Format with tex/texindex.
-* Ellipsis, inserting:                   Dots Bullets.
-* Emacs:                                 Texinfo Mode.
-* Emacs shell, format, print from:       Within Emacs.
-* Emphasizing text:                      Emphasis.
-* Emphasizing text, font for:            emph & strong.
+                                                              (line   6)
+* Ellipsis, inserting:                   Dots Bullets.        (line   6)
+* Emacs:                                 Texinfo Mode.        (line   6)
+* Emacs shell, format, print from:       Within Emacs.        (line   6)
+* Emphasizing text:                      Emphasis.            (line   6)
+* Emphasizing text, font for:            emph & strong.       (line   6)
 * Enclosure command for Info:            Customized Highlighting.
-* End node footnote style:               Footnote Styles.
-* End of header line:                    End of Header.
-* End titlepage starts headings:         end titlepage.
-* Ending a Sentence:                     Ending a Sentence.
-* Ending a Texinfo file:                 Ending a File.
-* Entries for an index:                  Indexing Commands.
-* Entries, making index:                 Index Entries.
-* Enumeration:                           enumerate.
-* epsf.tex:                              Images.
-* epsf.tex, installing:                  Preparing for TeX.
-* Equivalence, indicating it:            Equivalence.
-* Error message, indicating it:          Error Glyph.
-* Errors, parsing:                       makeinfo in Emacs.
-* Es-zet:                                Inserting Accents.
-* European A4 paper:                     A4 Paper.
-* Evaluation glyph:                      result.
+                                                              (line  12)
+* End node footnote style:               Footnote Styles.     (line   9)
+* End of header line:                    End of Header.       (line   6)
+* End titlepage starts headings:         end titlepage.       (line   6)
+* Ending a Sentence:                     Ending a Sentence.   (line   6)
+* Ending a Texinfo file:                 Ending a File.       (line   6)
+* Entries for an index:                  Indexing Commands.   (line   6)
+* Entries, making index:                 Index Entries.       (line   6)
+* Enumeration:                           enumerate.           (line   6)
+* epsf.tex:                              Images.              (line  58)
+* epsf.tex, installing:                  Preparing for TeX.   (line  19)
+* Equivalence, indicating it:            Equivalence.         (line   6)
+* Error message, indicating it:          Error Glyph.         (line   6)
+* Errors, parsing:                       makeinfo in Emacs.   (line  27)
+* Es-zet:                                Inserting Accents.   (line  33)
+* European A4 paper:                     A4 Paper.            (line   6)
+* Evaluation glyph:                      result.              (line   6)
 * Example for a small book:              smallexample & smalllisp.
-* Example menu:                          Menu Example.
-* example, arg to @kbdinputstyle:        kbd.
-* Examples, formatting them:             example.
-* Expansion, indicating it:              expansion.
-* File beginning:                        Beginning a File.
-* File ending:                           Ending a File.
+                                                              (line   6)
+* Example menu:                          Menu Example.        (line   6)
+* example, arg to @kbdinputstyle:        kbd.                 (line  24)
+* Examples, formatting them:             example.             (line   6)
+* Expansion, indicating it:              expansion.           (line   6)
+* File beginning:                        Beginning a File.    (line   6)
+* File ending:                           Ending a File.       (line   6)
 * File section structure, showing it:    Showing the Structure.
+                                                              (line   6)
 * Filling paragraphs:                    Refilling Paragraphs.
-* Final output:                          Overfull hboxes.
+                                                              (line   6)
+* Final output:                          Overfull hboxes.     (line   6)
 * Finding badly referenced nodes:        Running Info-Validate.
-* Fine-tuning, and hyphenation:          - and hyphenation.
-* First line of a Texinfo file:          First Line.
-* First node:                            First Node.
-* Floating accents, inserting:           Inserting Accents.
-* Fonts for indices:                     syncodeindex.
-* Fonts for printing, not for Info:      Fonts.
-* Footings:                              Headings.
-* Footnotes:                             Footnotes.
-* Format a dimension:                    dmn.
+                                                              (line   6)
+* Fine-tuning, and hyphenation:          - and hyphenation.   (line   6)
+* First line of a Texinfo file:          First Line.          (line   6)
+* First node:                            First Node.          (line   6)
+* Floating accents, inserting:           Inserting Accents.   (line   6)
+* Fonts for indices:                     syncodeindex.        (line  52)
+* Fonts for printing, not for Info:      Fonts.               (line   6)
+* Footings:                              Headings.            (line   6)
+* Footnotes:                             Footnotes.           (line   6)
+* Format a dimension:                    dmn.                 (line   6)
 * Format and print hardcopy:             Format/Print Hardcopy.
+                                                              (line   6)
 * Format and print in Texinfo mode:      Texinfo Mode Printing.
-* Format with the compile command:       Compile-Command.
-* Format, print from Emacs shell:        Within Emacs.
-* Formats for images:                    Images.
-* Formatting a file for Info:            Create an Info File.
-* Formatting commands:                   Formatting Commands.
-* Formatting examples:                   example.
-* Formatting for Info:                   Info Formatting.
-* Formatting for printing:               Printing.
-* Formatting headings and footings:      Headings.
+                                                              (line   6)
+* Format with the compile command:       Compile-Command.     (line   6)
+* Format, print from Emacs shell:        Within Emacs.        (line   6)
+* Formats for images:                    Images.              (line  10)
+* Formatting a file for Info:            Create an Info File. (line   6)
+* Formatting commands:                   Formatting Commands. (line   6)
+* Formatting examples:                   example.             (line   6)
+* Formatting for Info:                   Info Formatting.     (line   6)
+* Formatting for printing:               Printing.            (line   6)
+* Formatting headings and footings:      Headings.            (line   6)
 * Formatting requirements:               Requirements Summary.
+                                                              (line   6)
 * Formatting with tex and texindex:      Format with tex/texindex.
-* Frequently used commands, inserting:   Inserting.
+                                                              (line   6)
+* Frequently used commands, inserting:   Inserting.           (line   6)
 * Function definitions:                  Sample Function Definition.
-* General syntactic conventions:         Conventions.
+                                                              (line   6)
+* General syntactic conventions:         Conventions.         (line   6)
 * Generating menus with indices:         Printing Indices & Menus.
-* German S:                              Inserting Accents.
+                                                              (line   6)
+* German S:                              Inserting Accents.   (line  33)
 * Globbing:                              Format with tex/texindex.
-* Glyphs:                                Glyphs.
-* GNU Emacs:                             Texinfo Mode.
-* GNU Emacs shell, format, print from:   Within Emacs.
-* Going to other Info files' nodes:      Other Info Files.
-* Grave accent:                          Inserting Accents.
-* Group (hold text together vertically): group.
-* Grouping two definitions together:     deffnx.
+                                                              (line  32)
+* Glyphs:                                Glyphs.              (line   6)
+* GNU Emacs:                             Texinfo Mode.        (line   6)
+* GNU Emacs shell, format, print from:   Within Emacs.        (line   6)
+* Going to other Info files' nodes:      Other Info Files.    (line   6)
+* Grave accent:                          Inserting Accents.   (line  13)
+* Group (hold text together vertically): group.               (line   6)
+* Grouping two definitions together:     deffnx.              (line   6)
 * Hardcopy, printing it:                 Format/Print Hardcopy.
-* hboxes, overfull:                      Overfull hboxes.
-* Header for Texinfo files:              Header.
-* Header of a Texinfo file:              First Line.
-* Headings:                              Headings.
-* Headings, page, begin to appear:       end titlepage.
-* Height of images:                      Images.
-* Highlighting text:                     Indicating.
+                                                              (line   6)
+* hboxes, overfull:                      Overfull hboxes.     (line   6)
+* Header for Texinfo files:              Header.              (line   6)
+* Header of a Texinfo file:              First Line.          (line   6)
+* Headings:                              Headings.            (line   6)
+* Headings, page, begin to appear:       end titlepage.       (line   6)
+* Height of images:                      Images.              (line  16)
+* Highlighting text:                     Indicating.          (line   6)
 * Highlighting, customized:              Customized Highlighting.
-* Hints:                                 Tips.
-* Holding text together vertically:      group.
+                                                              (line   6)
+* Hints:                                 Tips.                (line   8)
+* Holding text together vertically:      group.               (line   6)
 * HTML commands, using ordinary:         Raw Formatter Commands.
-* Hungariam umlaut accent:               Inserting Accents.
-* Hyphenation, helping TeX do:           - and hyphenation.
-* Hyphenation, preventing:               w.
-* i:                                     Inserting Accents.
-* If text conditionally visible:         Conditionals.
-* ifinfo permissions:                    ifinfo Permissions.
-* Ignored before @setfilename:           setfilename.
-* Ignored text:                          Comments.
-* Image formats:                         Images.
-* Images, inserting:                     Images.
-* Inches:                                Images.
+                                                              (line   6)
+* Hungariam umlaut accent:               Inserting Accents.   (line  13)
+* Hyphenation, helping TeX do:           - and hyphenation.   (line   6)
+* Hyphenation, preventing:               w.                   (line   6)
+* i:                                     Inserting Accents.   (line  33)
+* If text conditionally visible:         Conditionals.        (line   6)
+* ifinfo permissions:                    ifinfo Permissions.  (line   6)
+* Ignored before @setfilename:           setfilename.         (line  32)
+* Ignored text:                          Comments.            (line  26)
+* Image formats:                         Images.              (line  10)
+* Images, inserting:                     Images.              (line   6)
+* Inches:                                Images.              (line  36)
 * Include file requirements:             Include File Requirements.
-* Include file sample:                   Sample Include File.
-* Include files:                         Include Files.
+                                                              (line   6)
+* Include file sample:                   Sample Include File. (line   6)
+* Include files:                         Include Files.       (line   6)
 * Include files, and section levels:     Raise/lower sections.
-* Indentation undoing:                   exdent.
-* Indenting paragraphs:                  paragraphindent.
-* Index entries:                         Indexing Commands.
-* Index entries, making:                 Index Entries.
-* Index entry writing:                   Indexing Commands.
-* Index font types:                      Indexing Commands.
-* Indexing commands, predefined:         Indexing Commands.
-* Indexing table entries automatically:  ftable vtable.
-* Indicating commands, definitions, etc.: Indicating.
-* Indicating evaluation:                 result.
-* Indices:                               Indices.
-* Indices, combining them:               Combining Indices.
-* Indices, defining new:                 New Indices.
+                                                              (line  12)
+* Indentation undoing:                   exdent.              (line   6)
+* Indenting paragraphs:                  paragraphindent.     (line   6)
+* Index entries:                         Indexing Commands.   (line   6)
+* Index entries, making:                 Index Entries.       (line   6)
+* Index entry writing:                   Indexing Commands.   (line  26)
+* Index font types:                      Indexing Commands.   (line  51)
+* Indexing commands, predefined:         Indexing Commands.   (line  53)
+* Indexing table entries automatically:  ftable vtable.       (line   6)
+* Indicating commands, definitions, etc.: Indicating.         (line   6)
+* Indicating evaluation:                 result.              (line   6)
+* Indices:                               Indices.             (line   6)
+* Indices, combining them:               Combining Indices.   (line   6)
+* Indices, defining new:                 New Indices.         (line   6)
 * Indices, printing and menus:           Printing Indices & Menus.
+                                                              (line   6)
 * Indices, sorting:                      Format/Print Hardcopy.
-* Indices, two letter names:             syncodeindex.
-* Indirect subfiles:                     Tag and Split Files.
-* Info batch formatting:                 Batch Formatting.
+                                                              (line   6)
+* Indices, two letter names:             syncodeindex.        (line  17)
+* Indirect subfiles:                     Tag and Split Files. (line  11)
+* Info batch formatting:                 Batch Formatting.    (line   6)
 * Info file installation:                Install an Info File.
-* Info file requires @setfilename:       setfilename.
-* Info file, listing new one:            New Info File.
-* Info file, splitting manually:         Splitting.
-* Info files:                            Info Files.
-* Info formatting:                       Info Formatting.
+                                                              (line   6)
+* Info file requires @setfilename:       setfilename.         (line   6)
+* Info file, listing new one:            New Info File.       (line   6)
+* Info file, splitting manually:         Splitting.           (line   6)
+* Info files:                            Info Files.          (line   6)
+* Info formatting:                       Info Formatting.     (line   6)
 * Info installed in another directory:   Other Info Directories.
-* Info validating a large file:          Using Info-validate.
-* Info, creating an on-line file:        Create an Info File.
+                                                              (line   6)
+* Info validating a large file:          Using Info-validate. (line   6)
+* Info, creating an on-line file:        Create an Info File. (line   6)
 * Info-directory-list:                   Other Info Directories.
-* Info; other files' nodes:              Other Info Files.
+                                                              (line  36)
+* Info; other files' nodes:              Other Info Files.    (line   6)
 * INFOPATH:                              Other Info Directories.
-* Initialization file for TeX input:     Preparing for TeX.
+                                                              (line  47)
+* Initialization file for TeX input:     Preparing for TeX.   (line   6)
 * Insert nodes, menus automatically:     Updating Nodes and Menus.
-* Inserting @, braces:                   Braces Atsigns.
-* Inserting accents:                     Inserting Accents.
-* Inserting dots <1>:                    dots.
-* Inserting dots:                        Dots Bullets.
-* Inserting ellipsis:                    Dots Bullets.
-* Inserting frequently used commands:    Inserting.
-* Inserting space:                       Inserting Space.
-* Inserting special characters and symbols: Insertions.
+                                                              (line   6)
+* Inserting @, braces:                   Braces Atsigns.      (line   6)
+* Inserting accents:                     Inserting Accents.   (line   6)
+* Inserting dots <1>:                    dots.                (line   6)
+* Inserting dots:                        Dots Bullets.        (line   6)
+* Inserting ellipsis:                    Dots Bullets.        (line   6)
+* Inserting frequently used commands:    Inserting.           (line   6)
+* Inserting space:                       Inserting Space.     (line   6)
+* Inserting special characters and symbols: Insertions.       (line   6)
 * install-info:                          Invoking install-info.
+                                                              (line   6)
 * Installing an Info file:               Install an Info File.
+                                                              (line   6)
 * Installing Info in another directory:  Other Info Directories.
+                                                              (line   6)
 * Introduction, as part of file:         Software Copying Permissions.
-* Invoking macros:                       Invoking Macros.
-* Itemization:                           itemize.
-* j:                                     Inserting Accents.
-* keyboard input:                        kbd.
-* Keys, recommended names:               key.
-* Knuth, Donald:                         Printed Books.
+                                                              (line  16)
+* Invoking macros:                       Invoking Macros.     (line   6)
+* Itemization:                           itemize.             (line   6)
+* j:                                     Inserting Accents.   (line  33)
+* keyboard input:                        kbd.                 (line   6)
+* Keys, recommended names:               key.                 (line  19)
+* Knuth, Donald:                         Printed Books.       (line   6)
 * Larger or smaller pages:               Cropmarks and Magnification.
+                                                              (line  24)
 * Less cluttered menu entry:             Less Cluttered Menu Entry.
+                                                              (line   6)
 * License agreement:                     Software Copying Permissions.
-* Line breaks:                           Line Breaks.
-* Line breaks, preventing:               w.
+                                                              (line   6)
+* Line breaks:                           Line Breaks.         (line   6)
+* Line breaks, preventing:               w.                   (line   6)
 * Line length, column widths as fraction of: Multitable Column Widths.
-* Line spacing:                          sp.
-* Lisp example:                          Lisp Example.
+                                                              (line  11)
+* Line spacing:                          sp.                  (line   6)
+* Lisp example:                          Lisp Example.        (line   6)
 * Lisp example for a small book:         smallexample & smalllisp.
-* List of  @-commands:                   Command List.
-* Listing a new info file:               New Info File.
-* Lists and tables, making:              Lists and Tables.
-* Local variables:                       Compile-Command.
-* Location of menus:                     Menu Location.
+                                                              (line   6)
+* List of  @-commands:                   Command List.        (line   6)
+* Listing a new info file:               New Info File.       (line   6)
+* Lists and tables, making:              Lists and Tables.    (line   6)
+* Local variables:                       Compile-Command.     (line   6)
+* Location of menus:                     Menu Location.       (line   6)
 * Looking for badly referenced nodes:    Running Info-Validate.
-* lpr (DVI print command):               Print with lpr.
-* Macro definitions <1>:                 Defining Macros.
+                                                              (line   6)
+* lpr (DVI print command):               Print with lpr.      (line   6)
+* Macro definitions <1>:                 Defining Macros.     (line   6)
 * Macro definitions:                     Sample Function Definition.
-* Macro invocation:                      Invoking Macros.
-* Macron accent:                         Inserting Accents.
-* Macros:                                Macros.
-* Macros, undefining:                    Defining Macros.
+                                                              (line   6)
+* Macro invocation:                      Invoking Macros.     (line   6)
+* Macron accent:                         Inserting Accents.   (line  13)
+* Macros:                                Macros.              (line   6)
+* Macros, undefining:                    Defining Macros.     (line  26)
 * Magnified printing:                    Cropmarks and Magnification.
-* mailto link:                           email.
-* makeinfo inside Emacs:                 makeinfo in Emacs.
-* makeinfo options:                      makeinfo options.
+                                                              (line  24)
+* mailto link:                           email.               (line  10)
+* makeinfo inside Emacs:                 makeinfo in Emacs.   (line   6)
+* makeinfo options:                      makeinfo options.    (line   6)
 * Making a printed manual:               Format/Print Hardcopy.
-* Making a tag table automatically:      Tag and Split Files.
-* Making a tag table manually:           Unsplit.
-* Making cross references:               Cross References.
-* Making line and page breaks:           Breaks.
-* Making lists and tables:               Lists and Tables.
-* Manual characteristics, printed:       Printed Books.
-* Marking text within a paragraph:       Marking Text.
-* Marking words and phrases:             Marking Text.
-* Master menu:                           The Top Node.
-* Master menu parts:                     Master Menu Parts.
+                                                              (line   6)
+* Making a tag table automatically:      Tag and Split Files. (line   6)
+* Making a tag table manually:           Unsplit.             (line  26)
+* Making cross references:               Cross References.    (line   6)
+* Making line and page breaks:           Breaks.              (line   6)
+* Making lists and tables:               Lists and Tables.    (line   6)
+* Manual characteristics, printed:       Printed Books.       (line   6)
+* Marking text within a paragraph:       Marking Text.        (line   6)
+* Marking words and phrases:             Marking Text.        (line   6)
+* Master menu:                           The Top Node.        (line   6)
+* Master menu parts:                     Master Menu Parts.   (line   6)
 * Mathematical expressions <1>:          Raw Formatter Commands.
-* Mathematical expressions:              math.
-* Menu description, start:               Inserting.
+                                                              (line  25)
+* Mathematical expressions:              math.                (line   6)
+* Menu description, start:               Inserting.           (line  94)
 * Menu entries with two colons:          Less Cluttered Menu Entry.
-* Menu example:                          Menu Example.
-* Menu location:                         Menu Location.
-* Menu parts:                            Menu Parts.
-* Menu writing:                          Writing a Menu.
-* Menus:                                 Menus.
+                                                              (line   6)
+* Menu example:                          Menu Example.        (line   6)
+* Menu location:                         Menu Location.       (line   6)
+* Menu parts:                            Menu Parts.          (line   6)
+* Menu writing:                          Writing a Menu.      (line   6)
+* Menus:                                 Menus.               (line   6)
 * Menus generated with indices:          Printing Indices & Menus.
-* META key:                              key.
-* Meta-syntactic chars for arguments:    Optional Arguments.
-* Millimeters:                           Images.
+                                                              (line   6)
+* META key:                              key.                 (line  53)
+* Meta-syntactic chars for arguments:    Optional Arguments.  (line   6)
+* Millimeters:                           Images.              (line  42)
 * Minimal requirements for formatting:   Requirements Summary.
-* Minimal Texinfo file (requirements):   Minimum.
-* Mistakes, catching:                    Catching Mistakes.
-* Mode, using Texinfo:                   Texinfo Mode.
-* Multiple spaces:                       Multiple Spaces.
+                                                              (line   6)
+* Minimal Texinfo file (requirements):   Minimum.             (line   6)
+* Mistakes, catching:                    Catching Mistakes.   (line   6)
+* Mode, using Texinfo:                   Texinfo Mode.        (line   6)
+* Multiple spaces:                       Multiple Spaces.     (line   6)
 * Multitable column widths:              Multitable Column Widths.
-* Multitable rows:                       Multitable Rows.
-* Must have in Texinfo file:             Minimum.
-* Mutually recursive macros:             Defining Macros.
-* Names for indices:                     syncodeindex.
+                                                              (line   6)
+* Multitable rows:                       Multitable Rows.     (line   6)
+* Must have in Texinfo file:             Minimum.             (line   6)
+* Mutually recursive macros:             Defining Macros.     (line  19)
+* Names for indices:                     syncodeindex.        (line  17)
 * Names of index files:                  Format with tex/texindex.
-* Names recommended for keys:            key.
-* Naming a `Top' Node in references:     Top Node Naming.
-* Need space at page bottom:             need.
-* New index defining:                    New Indices.
-* New info file, listing it in dir file: New Info File.
-* New Texinfo commands, defining:        Macros.
+                                                              (line  24)
+* Names recommended for keys:            key.                 (line  19)
+* Naming a `Top' Node in references:     Top Node Naming.     (line   6)
+* Need space at page bottom:             need.                (line   6)
+* New index defining:                    New Indices.         (line   6)
+* New info file, listing it in dir file: New Info File.       (line   6)
+* New Texinfo commands, defining:        Macros.              (line   6)
 * Node line requirements:                Node Line Requirements.
-* Node line writing:                     Writing a Node.
-* Node, `Top':                           The Top Node.
-* Node, defined:                         node.
+                                                              (line   6)
+* Node line writing:                     Writing a Node.      (line   6)
+* Node, `Top':                           The Top Node.        (line   6)
+* Node, defined:                         node.                (line   6)
 * Nodename must be unique:               Node Line Requirements.
+                                                              (line   8)
 * Nodename, cannot contain:              Node Line Requirements.
-* Nodes for menus are short:             Menu Location.
-* Nodes in other Info files:             Other Info Files.
-* Nodes, catching mistakes:              Catching Mistakes.
+                                                              (line  23)
+* Nodes for menus are short:             Menu Location.       (line   6)
+* Nodes in other Info files:             Other Info Files.    (line   6)
+* Nodes, catching mistakes:              Catching Mistakes.   (line   6)
 * Nodes, checking for badly referenced:  Running Info-Validate.
+                                                              (line   6)
 * Not ending a sentence:                 Not Ending a Sentence.
-* Obtaining TeX:                         Obtaining TeX.
-* Occurrences, listing with @occur:      Using occur.
-* OE:                                    Inserting Accents.
-* oe:                                    Inserting Accents.
-* Optional and repeated arguments:       Optional Arguments.
-* Options for makeinfo:                  makeinfo options.
+                                                              (line   6)
+* Obtaining TeX:                         Obtaining TeX.       (line   6)
+* Occurrences, listing with @occur:      Using occur.         (line   6)
+* OE:                                    Inserting Accents.   (line  33)
+* oe:                                    Inserting Accents.   (line  33)
+* Optional and repeated arguments:       Optional Arguments.  (line   6)
+* Options for makeinfo:                  makeinfo options.    (line   6)
 * Ordinary HTML commands, using:         Raw Formatter Commands.
+                                                              (line   6)
 * Ordinary TeX commands, using:          Raw Formatter Commands.
-* Other Info files' nodes:               Other Info Files.
+                                                              (line   6)
+* Other Info files' nodes:               Other Info Files.    (line   6)
 * Outline of file structure, showing it: Showing the Structure.
-* Overfull hboxes:                       Overfull hboxes.
-* Overview of Texinfo:                   Overview.
-* Page breaks:                           page.
+                                                              (line   6)
+* Overfull hboxes:                       Overfull hboxes.     (line   6)
+* Overview of Texinfo:                   Overview.            (line   6)
+* Page breaks:                           page.                (line   6)
 * Page delimiter in Texinfo mode:        Showing the Structure.
-* Page headings:                         Headings.
-* Page numbering:                        Headings.
-* Page sizes for books:                  smallbook.
+                                                              (line  43)
+* Page headings:                         Headings.            (line   6)
+* Page numbering:                        Headings.            (line   6)
+* Page sizes for books:                  smallbook.           (line   6)
 * page-delimiter:                        Showing the Structure.
-* Pages, starting odd:                   setchapternewpage.
-* Paper size, European A4:               A4 Paper.
-* Paragraph indentation:                 paragraphindent.
-* Paragraph, marking text within:        Marking Text.
-* Parsing errors:                        makeinfo in Emacs.
-* Part of file formatting and printing:  Printing.
+                                                              (line  43)
+* Pages, starting odd:                   setchapternewpage.   (line   6)
+* Paper size, European A4:               A4 Paper.            (line   6)
+* Paragraph indentation:                 paragraphindent.     (line   6)
+* Paragraph, marking text within:        Marking Text.        (line   6)
+* Parsing errors:                        makeinfo in Emacs.   (line  27)
+* Part of file formatting and printing:  Printing.            (line   6)
 * Parts of a cross reference:            Cross Reference Parts.
-* Parts of a master menu:                Master Menu Parts.
-* Parts of a menu:                       Menu Parts.
+                                                              (line   6)
+* Parts of a master menu:                Master Menu Parts.   (line   6)
+* Parts of a menu:                       Menu Parts.          (line   6)
 * Periods, inserting:                    Not Ending a Sentence.
-* Permissions:                           Sample Permissions.
+                                                              (line   6)
+* Permissions:                           Sample Permissions.  (line   6)
 * Permissions, printed:                  Copyright & Permissions.
-* Picas:                                 Images.
-* Pictures, inserting:                   Images.
-* Pinard, Franc,ois:                     Acknowledgements.
+                                                              (line   6)
+* Picas:                                 Images.              (line  30)
+* Pictures, inserting:                   Images.              (line   6)
+* Pinard, Franc,ois:                     Acknowledgements.    (line  11)
 * plain TeX:                             Raw Formatter Commands.
-* Point, indicating it in a buffer:      Point Glyph.
+                                                              (line   6)
+* Point, indicating it in a buffer:      Point Glyph.         (line   6)
 * Pointer creation with makeinfo:        makeinfo Pointer Creation.
-* Pointer validation with makeinfo:      Pointer Validation.
-* Points (dimension):                    Images.
-* Predefined indexing commands:          Indexing Commands.
-* Predefined names for indices:          syncodeindex.
-* Preparing to use TeX:                  Preparing for TeX.
-* Preventing line and page breaks:       Breaks.
-* Previous node of Top node:             First Node.
+                                                              (line   6)
+* Pointer validation with makeinfo:      Pointer Validation.  (line   6)
+* Points (dimension):                    Images.              (line  27)
+* Predefined indexing commands:          Indexing Commands.   (line  53)
+* Predefined names for indices:          syncodeindex.        (line  17)
+* Preparing to use TeX:                  Preparing for TeX.   (line   6)
+* Preventing line and page breaks:       Breaks.              (line   6)
+* Previous node of Top node:             First Node.          (line  25)
 * Print and format in Texinfo mode:      Texinfo Mode Printing.
-* Print, format from Emacs shell:        Within Emacs.
-* Printed book and manual characteristics: Printed Books.
-* Printed output, indicating it:         Print Glyph.
+                                                              (line   6)
+* Print, format from Emacs shell:        Within Emacs.        (line   6)
+* Printed book and manual characteristics: Printed Books.     (line   6)
+* Printed output, indicating it:         Print Glyph.         (line   6)
 * Printed permissions:                   Copyright & Permissions.
-* Printing a region or buffer:           Printing.
+                                                              (line   6)
+* Printing a region or buffer:           Printing.            (line   6)
 * Printing an index:                     Printing Indices & Menus.
+                                                              (line   6)
 * Printing cropmarks:                    Cropmarks and Magnification.
-* Problems, catching:                    Catching Mistakes.
+                                                              (line   6)
+* Problems, catching:                    Catching Mistakes.   (line   6)
 * Prototype row, column widths defined by: Multitable Column Widths.
-* Quotations:                            quotation.
+                                                              (line  21)
+* Quotations:                            quotation.           (line   6)
 * Raising and lowering sections:         Raise/lower sections.
+                                                              (line   6)
 * Raw formatter commands:                Raw Formatter Commands.
-* Recommended names for keys:            key.
-* Rectangle, ugly, black in hardcopy:    Overfull hboxes.
-* Recursion, mutual:                     Defining Macros.
-* References:                            Cross References.
-* References using @inforef:             inforef.
-* References using @pxref:               pxref.
-* References using @ref:                 ref.
-* References using @xref:                xref.
-* Referring to other Info files:         Other Info Files.
+                                                              (line   6)
+* Recommended names for keys:            key.                 (line  19)
+* Rectangle, ugly, black in hardcopy:    Overfull hboxes.     (line  28)
+* Recursion, mutual:                     Defining Macros.     (line  19)
+* References:                            Cross References.    (line   6)
+* References using @inforef:             inforef.             (line   6)
+* References using @pxref:               pxref.               (line   6)
+* References using @ref:                 ref.                 (line   6)
+* References using @xref:                xref.                (line   6)
+* Referring to other Info files:         Other Info Files.    (line   6)
 * Refilling paragraphs:                  Refilling Paragraphs.
-* Region formatting and printing:        Printing.
+                                                              (line   6)
+* Region formatting and printing:        Printing.            (line   6)
 * Region printing in Texinfo mode:       Texinfo Mode Printing.
-* Repeated and optional arguments:       Optional Arguments.
-* Required in Texinfo file:              Minimum.
+                                                              (line   6)
+* Repeated and optional arguments:       Optional Arguments.  (line   6)
+* Required in Texinfo file:              Minimum.             (line   6)
 * Requirements for formatting:           Requirements Summary.
+                                                              (line   6)
 * Requirements for include files:        Include File Requirements.
+                                                              (line   6)
 * Requirements for updating commands:    Updating Requirements.
-* Result of an expression:               result.
-* ridt.eps:                              Images.
-* Ring accent:                           Inserting Accents.
-* Rows, of a multitable:                 Multitable Rows.
-* Running an Info formatter:             Info Formatting.
-* Running Info-validate:                 Using Info-validate.
-* Running makeinfo in Emacs:             makeinfo in Emacs.
-* Sample @include file:                  Sample Include File.
+                                                              (line   6)
+* Result of an expression:               result.              (line   6)
+* ridt.eps:                              Images.              (line  53)
+* Ring accent:                           Inserting Accents.   (line  13)
+* Rows, of a multitable:                 Multitable Rows.     (line   6)
+* Running an Info formatter:             Info Formatting.     (line   6)
+* Running Info-validate:                 Using Info-validate. (line   6)
+* Running makeinfo in Emacs:             makeinfo in Emacs.   (line   6)
+* Sample @include file:                  Sample Include File. (line   6)
 * Sample function definition:            Sample Function Definition.
-* Sample Texinfo file:                   Short Sample.
-* Sample Texinfo file, no comments:      Sample Texinfo File.
-* Scaled points:                         Images.
+                                                              (line   6)
+* Sample Texinfo file:                   Short Sample.        (line   6)
+* Sample Texinfo file, no comments:      Sample Texinfo File. (line   6)
+* Scaled points:                         Images.              (line  51)
 * Section structure of a file, showing it: Showing the Structure.
+                                                              (line   6)
 * Sections, raising and lowering:        Raise/lower sections.
-* Sentence ending punctuation:           Ending a Sentence.
+                                                              (line   6)
+* Sentence ending punctuation:           Ending a Sentence.   (line   6)
 * Sentence non-ending punctuation:       Not Ending a Sentence.
-* Separate footnote style:               Footnote Styles.
-* Sharp S:                               Inserting Accents.
+                                                              (line   6)
+* Separate footnote style:               Footnote Styles.     (line  20)
+* Sharp S:                               Inserting Accents.   (line  33)
 * Shell formatting with tex and texindex: Format with tex/texindex.
-* Shell, format, print from:             Within Emacs.
-* Shell, running makeinfo in:            makeinfo in Emacs.
-* Short nodes for menus:                 Menu Location.
+                                                              (line   6)
+* Shell, format, print from:             Within Emacs.        (line   6)
+* Shell, running makeinfo in:            makeinfo in Emacs.   (line   6)
+* Short nodes for menus:                 Menu Location.       (line   6)
 * Showing the section structure of a file: Showing the Structure.
+                                                              (line   6)
 * Showing the structure of a file:       Using texinfo-show-structure.
-* Site-wide Texinfo configuration file:  Preparing for TeX.
-* Size of printed book:                  smallbook.
-* slanted typewriter font, for @kbd:     kbd.
+                                                              (line   6)
+* Site-wide Texinfo configuration file:  Preparing for TeX.   (line  24)
+* Size of printed book:                  smallbook.           (line   6)
+* slanted typewriter font, for @kbd:     kbd.                 (line  15)
 * Small book example:                    smallexample & smalllisp.
-* Small book size:                       smallbook.
-* Small caps font:                       Smallcaps.
+                                                              (line   6)
+* Small book size:                       smallbook.           (line   6)
+* Small caps font:                       Smallcaps.           (line   6)
 * Software copying permissions:          Software Copying Permissions.
+                                                              (line   6)
 * Sorting indices:                       Format/Print Hardcopy.
-* Spaces (blank lines):                  sp.
-* Spacing, inserting:                    Inserting Space.
-* Special characters, commands to insert: Braces Atsigns.
-* Special insertions:                    Insertions.
-* Special typesetting commands:          Dots Bullets.
-* Specifying index entries:              Indexing Commands.
-* Splitting an Info file manually:       Splitting.
-* ss:                                    Inserting Accents.
-* Stallman, Richard M.:                  Acknowledgements.
-* Start of header line:                  Start of Header.
-* Starting chapters:                     setchapternewpage.
+                                                              (line   6)
+* Spaces (blank lines):                  sp.                  (line   6)
+* Spacing, inserting:                    Inserting Space.     (line   6)
+* Special characters, commands to insert: Braces Atsigns.     (line   6)
+* Special insertions:                    Insertions.          (line   6)
+* Special typesetting commands:          Dots Bullets.        (line   6)
+* Specifying index entries:              Indexing Commands.   (line   6)
+* Splitting an Info file manually:       Splitting.           (line   6)
+* ss:                                    Inserting Accents.   (line  33)
+* Stallman, Richard M.:                  Acknowledgements.    (line   6)
+* Start of header line:                  Start of Header.     (line   6)
+* Starting chapters:                     setchapternewpage.   (line   6)
 * Structure of a file, showing it:       Showing the Structure.
-* Structure, catching mistakes in:       Catching Mistakes.
-* Structuring of chapters:               Structuring.
+                                                              (line   6)
+* Structure, catching mistakes in:       Catching Mistakes.   (line   6)
+* Structuring of chapters:               Structuring.         (line   6)
 * Subsection-like commands:              unnumberedsubsec appendixsubsec subheading.
-* Subsub commands:                       subsubsection.
-* Syntactic conventions:                 Conventions.
-* Syntax, optional & repeated arguments: Optional Arguments.
-* tab:                                   Multitable Rows.
-* Table of contents:                     Contents.
-* Tables and lists, making:              Lists and Tables.
-* Tables with indexes:                   ftable vtable.
-* Tables, making multi-column:           Multi-column Tables.
-* Tables, making two-column:             Two-column Tables.
-* Tabs; don't use!:                      Conventions.
-* Tag table, making automatically:       Tag and Split Files.
-* Tag table, making manually:            Unsplit.
-* Template for a definition:             Def Cmd Template.
+                                                              (line   6)
+* Subsub commands:                       subsubsection.       (line   6)
+* Syntactic conventions:                 Conventions.         (line   6)
+* Syntax, optional & repeated arguments: Optional Arguments.  (line   6)
+* tab:                                   Multitable Rows.     (line   6)
+* Table of contents:                     Contents.            (line   6)
+* Tables and lists, making:              Lists and Tables.    (line   6)
+* Tables with indexes:                   ftable vtable.       (line   6)
+* Tables, making multi-column:           Multi-column Tables. (line   6)
+* Tables, making two-column:             Two-column Tables.   (line   6)
+* Tabs; don't use!:                      Conventions.         (line  38)
+* Tag table, making automatically:       Tag and Split Files. (line   6)
+* Tag table, making manually:            Unsplit.             (line  26)
+* Template for a definition:             Def Cmd Template.    (line   6)
 * TeX commands, using ordinary:          Raw Formatter Commands.
+                                                              (line   6)
 * TeX index sorting:                     Format/Print Hardcopy.
-* TeX input initialization:              Preparing for TeX.
-* TeX, how to obtain:                    Obtaining TeX.
+                                                              (line   6)
+* TeX input initialization:              Preparing for TeX.   (line   6)
+* TeX, how to obtain:                    Obtaining TeX.       (line   6)
 * texi2dvi:                              Format with tex/texindex.
+                                                              (line  74)
 * texi2dvi (shell script):               Format with texi2dvi.
+                                                              (line   6)
 * texindex <1>:                          Format with tex/texindex.
+                                                              (line  16)
 * texindex:                              Format/Print Hardcopy.
-* Texinfo commands, defining new:        Macros.
-* Texinfo file beginning:                Beginning a File.
-* Texinfo file ending:                   Ending a File.
-* Texinfo file header:                   Header.
-* Texinfo file minimum:                  Minimum.
+                                                              (line   6)
+* Texinfo commands, defining new:        Macros.              (line   6)
+* Texinfo file beginning:                Beginning a File.    (line   6)
+* Texinfo file ending:                   Ending a File.       (line   6)
+* Texinfo file header:                   Header.              (line   6)
+* Texinfo file minimum:                  Minimum.             (line   6)
 * Texinfo file section structure, showing it: Showing the Structure.
-* Texinfo mode:                          Texinfo Mode.
-* Texinfo overview:                      Overview.
-* Texinfo printed book characteristics:  Printed Books.
-* texinfo.cnf <1>:                       A4 Paper.
-* texinfo.cnf:                           setfilename.
-* texinfo.cnf installation:              Preparing for TeX.
-* texinfo.tex, installing:               Preparing for TeX.
-* TEXINPUTS:                             Preparing for TeX.
-* TEXINPUTS environment variable:        Preparing for TeX.
-* Text, conditionally visible:           Conditionals.
-* Thin space between number, dimension:  dmn.
-* Tie-after accent:                      Inserting Accents.
-* Tilde accent:                          Inserting Accents.
-* Tips:                                  Tips.
-* Title page:                            titlepage.
-* Titlepage end starts headings:         end titlepage.
+                                                              (line   6)
+* Texinfo mode:                          Texinfo Mode.        (line   6)
+* Texinfo overview:                      Overview.            (line   6)
+* Texinfo printed book characteristics:  Printed Books.       (line   6)
+* texinfo.cnf <1>:                       A4 Paper.            (line  29)
+* texinfo.cnf:                           setfilename.         (line  36)
+* texinfo.cnf installation:              Preparing for TeX.   (line  24)
+* texinfo.tex, installing:               Preparing for TeX.   (line  11)
+* TEXINPUTS:                             Preparing for TeX.   (line   6)
+* TEXINPUTS environment variable:        Preparing for TeX.   (line   6)
+* Text, conditionally visible:           Conditionals.        (line   6)
+* Thin space between number, dimension:  dmn.                 (line   6)
+* Tie-after accent:                      Inserting Accents.   (line  13)
+* Tilde accent:                          Inserting Accents.   (line  13)
+* Tips:                                  Tips.                (line   8)
+* Title page:                            titlepage.           (line   6)
+* Titlepage end starts headings:         end titlepage.       (line   6)
 * Titlepage permissions:                 Titlepage Permissions.
-* Top node:                              The Top Node.
-* Top node is first:                     First Node.
-* Top node naming for references:        Top Node Naming.
-* Top node summary:                      Top Node Summary.
-* Tree structuring:                      Tree Structuring.
-* Two `First' Lines for @deffn:          deffnx.
-* Two letter names for indices:          syncodeindex.
-* Two named items for @table:            itemx.
+                                                              (line   6)
+* Top node:                              The Top Node.        (line   6)
+* Top node is first:                     First Node.          (line   6)
+* Top node naming for references:        Top Node Naming.     (line   6)
+* Top node summary:                      Top Node Summary.    (line   6)
+* Tree structuring:                      Tree Structuring.    (line   6)
+* Two `First' Lines for @deffn:          deffnx.              (line   6)
+* Two letter names for indices:          syncodeindex.        (line  17)
+* Two named items for @table:            itemx.               (line   6)
 * Two part menu entry:                   Less Cluttered Menu Entry.
-* Typesetting commands for dots, etc.:   Dots Bullets.
-* Umlaut accent:                         Inserting Accents.
+                                                              (line   6)
+* Typesetting commands for dots, etc.:   Dots Bullets.        (line   6)
+* Umlaut accent:                         Inserting Accents.   (line  13)
 * Uncluttered menu entry:                Less Cluttered Menu Entry.
-* Undefining macros:                     Defining Macros.
-* Underbar accent:                       Inserting Accents.
-* Underdot accent:                       Inserting Accents.
-* Uniform resource locator, indicating:  url.
-* Uniform resource locator, referring to: uref.
+                                                              (line   6)
+* Undefining macros:                     Defining Macros.     (line  26)
+* Underbar accent:                       Inserting Accents.   (line  13)
+* Underdot accent:                       Inserting Accents.   (line  13)
+* Uniform resource locator, indicating:  url.                 (line   6)
+* Uniform resource locator, referring to: uref.               (line   6)
 * Unique nodename requirement:           Node Line Requirements.
-* Unprocessed text:                      Comments.
-* Unsplit file creation:                 Unsplit.
-* Up node of Top node:                   First Node.
+                                                              (line   8)
+* Unprocessed text:                      Comments.            (line  26)
+* Unsplit file creation:                 Unsplit.             (line   6)
+* Up node of Top node:                   First Node.          (line  11)
 * Updating nodes and menus:              Updating Nodes and Menus.
+                                                              (line   6)
 * Updating requirements:                 Updating Requirements.
-* URL, indicating:                       url.
-* URL, referring to:                     uref.
-* Usage tips:                            Tips.
-* user input:                            kbd.
-* User options, marking:                 Variables Commands.
-* User-defined Texinfo commands:         Macros.
-* Validating a large file:               Using Info-validate.
-* Validation of pointers:                Pointer Validation.
-* Value of an expression, indicating:    result.
+                                                              (line   6)
+* URL, indicating:                       url.                 (line   6)
+* URL, referring to:                     uref.                (line   6)
+* Usage tips:                            Tips.                (line   8)
+* user input:                            kbd.                 (line  15)
+* User options, marking:                 Variables Commands.  (line  57)
+* User-defined Texinfo commands:         Macros.              (line   6)
+* Validating a large file:               Using Info-validate. (line   6)
+* Validation of pointers:                Pointer Validation.  (line   6)
+* Value of an expression, indicating:    result.              (line   6)
 * version number, finding:               Invoking install-info.
+                                                              (line  68)
 * Vertical whitespace (vskip):           Copyright & Permissions.
-* Vertically holding text together:      group.
-* Visibility of conditional text:        Conditionals.
-* Weisshaus, Melissa:                    Acknowledgements.
-* Whitespace, inserting <1>:             Multiple Spaces.
-* Whitespace, inserting:                 Inserting Space.
-* Width of images:                       Images.
+                                                              (line  16)
+* Vertically holding text together:      group.               (line   6)
+* Visibility of conditional text:        Conditionals.        (line   6)
+* Weisshaus, Melissa:                    Acknowledgements.    (line  11)
+* Whitespace, inserting <1>:             Multiple Spaces.     (line   6)
+* Whitespace, inserting:                 Inserting Space.     (line   6)
+* Width of images:                       Images.              (line  16)
 * Widths, defining multitable column:    Multitable Column Widths.
+                                                              (line   6)
 * Wildcards:                             Format with tex/texindex.
-* Words and phrases, marking them:       Marking Text.
-* Writing a menu:                        Writing a Menu.
-* Writing an @node line:                 Writing a Node.
-* Writing index entries:                 Indexing Commands.
-* Zuhn, David D.:                        Acknowledgements.
+                                                              (line  32)
+* Words and phrases, marking them:       Marking Text.        (line   6)
+* Writing a menu:                        Writing a Menu.      (line   6)
+* Writing an @node line:                 Writing a Node.      (line   6)
+* Writing index entries:                 Indexing Commands.   (line  26)
+* Zuhn, David D.:                        Acknowledgements.    (line  11)
 
 

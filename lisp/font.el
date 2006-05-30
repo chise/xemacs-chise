@@ -1078,8 +1078,6 @@ for use in the 'weight' field of an mswindows font string.")
 The list (R G B) is returned, or an error is signaled if the lookup fails."
   (let ((lib-list (if (boundp 'x-library-search-path)
 		      x-library-search-path
-		    ;; This default is from XEmacs 19.13 - hope it covers
-		    ;; everyone.
 		    (list "/usr/X11R6/lib/X11/"
 			  "/usr/X11R5/lib/X11/"
 			  "/usr/lib/X11R6/X11/"
@@ -1090,7 +1088,9 @@ The list (R G B) is returned, or an error is signaled if the lookup fails."
 			  "/usr/local/lib/X11R5/X11/"
 			  "/usr/X11/lib/X11/"
 			  "/usr/lib/X11/"
+			  "/usr/share/X11/"
 			  "/usr/local/lib/X11/"
+			  "/usr/local/share/X11/"
 			  "/usr/X386/lib/X11/"
 			  "/usr/x386/lib/X11/"
 			  "/usr/XFree86/lib/X11/"

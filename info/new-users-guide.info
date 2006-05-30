@@ -1,4 +1,4 @@
-This is ../info/new-users-guide.info, produced by makeinfo version 4.6
+This is ../info/new-users-guide.info, produced by makeinfo version 4.8
 from new-users-guide/new-users-guide.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -177,8 +177,8 @@ anybody can use it afterward.
 
 File: new-users-guide.info,  Node: Entering,  Next: Windows and Menus,  Prev: Concept Index,  Up: Top
 
-Entering and Exiting Emacs
-**************************
+1 Entering and Exiting Emacs
+****************************
 
 While using Emacs you should be familiar with the following three terms:
 
@@ -214,8 +214,8 @@ Windows
 
 File: new-users-guide.info,  Node: Enter,  Next: Frame,  Prev: Entering,  Up: Entering
 
-Entering Emacs
-==============
+1.1 Entering Emacs
+==================
 
 To enter Emacs type `xemacs' and press the Return key at the shell i.e.
 `xemacs <RET>'.  This will bring up an emacs window with `*scratch*' as
@@ -231,8 +231,8 @@ the buffer.
 
 File: new-users-guide.info,  Node: Frame,  Next: Exiting,  Prev: Enter,  Up: Entering
 
-Emacs Frame
-===========
+1.2 Emacs Frame
+===============
 
 When you run XEmacs under X, a menu bar on top of the Emacs frame
 provides access to pull-down menus of file, edit, and help-related
@@ -265,8 +265,8 @@ switching between buffers.
 
 File: new-users-guide.info,  Node: Exiting,  Next: Mode Line,  Prev: Frame,  Up: Entering
 
-Exiting Emacs
-=============
+1.3 Exiting Emacs
+=================
 
 There are two commands for exiting Emacs, one for "suspending" Emacs
 and the other for "killing" Emacs. "Suspending" means stopping Emacs
@@ -292,8 +292,8 @@ the same editing session after it has been killed.
 
 File: new-users-guide.info,  Node: Mode Line,  Next: Echo Area,  Prev: Exiting,  Up: Entering
 
-The Mode Line
-=============
+1.4 The Mode Line
+=================
 
 When you enter XEmacs, each text window's last line is a "mode line"
 which describes what is going on in that window. Normally, the mode
@@ -353,8 +353,8 @@ information on various minor modes and how to enable them.
 
 File: new-users-guide.info,  Node: Echo Area,  Prev: Mode Line,  Up: Entering
 
-The Echo Area
-=============
+1.5 The Echo Area
+=================
 
 The line at the bottom of the frame (below the mode line) is the "echo
 area".  Emacs uses this area to communicate with you:
@@ -386,8 +386,8 @@ area".  Emacs uses this area to communicate with you:
 
 File: new-users-guide.info,  Node: Windows and Menus,  Next: Edit,  Prev: Entering,  Up: Top
 
-XEmacs Windows and Menus
-************************
+2 XEmacs Windows and Menus
+**************************
 
 The first section of this chapter will show you how you can manipulate
 XEmacs Windows and the other section will explain the Pull-down Menus of
@@ -401,8 +401,8 @@ an XEmacs window.
 
 File: new-users-guide.info,  Node: XEmacs Window,  Next: Pull-down Menus,  Prev: Windows and Menus,  Up: Windows and Menus
 
-XEmacs Windows
-==============
+2.1 XEmacs Windows
+==================
 
 When you use XEmacs under X, you can open multiple windows and each
 window can display one buffer or multiple parts of one buffer. Each
@@ -440,9 +440,8 @@ there is only one "selected window" and the buffer it displays is the
      This will split the selected window into two windows positioned
      side by side (`split-window-horizontally'). A line of vertical
      bars will separate the window.
-
-You can select a buffer in another window by using some other commands.
-These commands all have a prefix key `C-x 4'
+   You can select a buffer in another window by using some other
+commands. These commands all have a prefix key `C-x 4'
 `C-x 4 b BUFNAME <RET>'
      This command will select a buffer BUFNAME in another window.  This
      runs `switch-to-buffer-other-window'. It will prompt you for a
@@ -466,7 +465,7 @@ These commands all have a prefix key `C-x 4'
      using Rmail.
 
    If you click the right button on the mouse on a mode line, you will
-get a menu with following options:
+get a menu with following options: 
 Delete Window
      Choosing this menu will remove the window above this modeline from
      the frame.
@@ -490,8 +489,8 @@ Balance Windows
 
 File: new-users-guide.info,  Node: Pull-down Menus,  Prev: XEmacs Window,  Up: Windows and Menus
 
-XEmacs Pull-down Menus
-======================
+2.2 XEmacs Pull-down Menus
+==========================
 
 When you run XEmacs under X, each Emacs frame has a menu-bar at the top
 which provides commands for editing, help and other options. All these
@@ -512,8 +511,8 @@ default menus on the menu bar:
 
 File: new-users-guide.info,  Node: File menu,  Next: Edit menu,  Prev: Pull-down Menus,  Up: Pull-down Menus
 
-The File Menu
--------------
+2.2.1 The File Menu
+-------------------
 
 The File menu bar contains the following items. To choose a particular
 option, press the left mouse button and drag it to the item you wish to
@@ -524,7 +523,6 @@ Open...
      message in the echo area:
 
           Find File:
-
      After Find File, there might be a directory path also. After you
      type the file name and press <RET> the file will be loaded into a
      new buffer.
@@ -541,7 +539,6 @@ Insert File...
      the following message in the echo area:
 
           Insert file:
-
      Insert the file name and press <RET>.
 
 Save <Buffername>
@@ -603,8 +600,8 @@ Exit Emacs
 
 File: new-users-guide.info,  Node: Edit menu,  Next: Options Menu,  Prev: File menu,  Up: Pull-down Menus
 
-The Edit Menu
--------------
+2.2.2 The Edit Menu
+-------------------
 
 Most of the commands in this menu work on a block of text or a selected
 region. The text will be highlighted as you select it.
@@ -660,8 +657,8 @@ Execute Last Macro
 
 File: new-users-guide.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Edit menu,  Up: Pull-down Menus
 
-The Options Menu
-----------------
+2.2.3 The Options Menu
+----------------------
 
 There are sub-menus for some of the menus which you will need to
 select. If sub-menus exist for an item, they will be displayed
@@ -762,8 +759,8 @@ Save Options
 
 File: new-users-guide.info,  Node: Buffers Menu,  Next: Help menu,  Prev: Options Menu,  Up: Pull-down Menus
 
-The Buffers Menu
-----------------
+2.2.4 The Buffers Menu
+----------------------
 
 The Buffers menu provides a selection of up to ten buffers and the item
 List All Buffers, which provides a Buffer List. If you select Buffers
@@ -773,8 +770,8 @@ of the buffer listing.
 
 File: new-users-guide.info,  Node: Help menu,  Prev: Buffers Menu,  Up: Pull-down Menus
 
-The Help Menu
--------------
+2.2.5 The Help Menu
+-------------------
 
 The Help Menu gives you access to Emacs Info and provides a menu
 equivalent for some of the choices you have when using `C-h'.  *Note
@@ -788,8 +785,8 @@ option.
 
 File: new-users-guide.info,  Node: Edit,  Next: Customization Basics,  Prev: Windows and Menus,  Up: Top
 
-Basic Editing Commands
-**********************
+3 Basic Editing Commands
+************************
 
 This chapter will introduce you to some basic editing commands. You can
 also learn the basic editing commands by typing `Control-h t'
@@ -841,8 +838,8 @@ or the <META> key. The following abbreviations will be used for the
 
 File: new-users-guide.info,  Node: Insert,  Next: Cursor Position,  Prev: Edit,  Up: Edit
 
-Inserting Text
-==============
+3.1 Inserting Text
+==================
 
 To insert printing characters into the text you are editing, just type
 them. Emacs will automatically insert the characters that you type into
@@ -870,8 +867,8 @@ turn on a special mode called "Auto Fill" mode.  *Note Filling:
 
 File: new-users-guide.info,  Node: Cursor Position,  Next: Erase,  Prev: Insert,  Up: Edit
 
-Moving Around
-=============
+3.2 Moving Around
+=================
 
 The following commands will allow you to move the cursor around the
 screen. The actual function names corresponding to these commands are
@@ -935,8 +932,8 @@ given in parenthesis. You can also invoke these commands by typing `M-x
 
 File: new-users-guide.info,  Node: Erase,  Next: Numeric Argument,  Prev: Cursor Position,  Up: Edit
 
-Erasing Text
-============
+3.3 Erasing Text
+================
 
 `<DEL>'
      If you press <DEL> i.e. the "delete" key, it will delete the
@@ -974,8 +971,8 @@ Erasing Text
 
 File: new-users-guide.info,  Node: Numeric Argument,  Next: Undo,  Prev: Erase,  Up: Edit
 
-Giving Numeric Arguments
-========================
+3.4 Giving Numeric Arguments
+============================
 
 Any Emacs command can be given a "numeric argument".  Some commands
 interpret the argument as a repetition count.  For example, if you want
@@ -986,27 +983,23 @@ character). Negative arguments are also allowed. Often they tell a
 command to move or act backwards. For example, if you want to move down
 ten lines, type the following:
      C-u 10 C-n RET
-
-After you press <RET> key, the cursor will move ten lines downward. You
-can also type:
+   After you press <RET> key, the cursor will move ten lines downward.
+You can also type:
      M-10 C-n RET
-
-Both `C-u' and `M-' allow you to give numeric arguments. If you want to
-move ten lines backward, you can also give negative arguments, like:
+   Both `C-u' and `M-' allow you to give numeric arguments. If you want
+to move ten lines backward, you can also give negative arguments, like:
      C-u -10 C-n RET
-
-OR you could also type:
+   OR you could also type:
      M--10 C-n RET
-
-You can obviously use `C-b' to move backward rather than giving
+   You can obviously use `C-b' to move backward rather than giving
 negative arguments to `C-n'. *Note Numeric Arguments: (xemacs)Numeric
 Arguments, for more information on numeric arguments.
 
 
 File: new-users-guide.info,  Node: Undo,  Prev: Numeric Argument,  Up: Edit
 
-Undoing Changes
-===============
+3.5 Undoing Changes
+===================
 
 When you are editing a buffer, you might type something by mistake.
 Emacs allows you to undo all changes you make to a buffer (but not more
@@ -1028,8 +1021,8 @@ on undoing changes.
 
 File: new-users-guide.info,  Node: Customization Basics,  Next: Help,  Prev: Edit,  Up: Top
 
-Customize key bindings and menus
-********************************
+4 Customize key bindings and menus
+**********************************
 
 When you start Emacs, it reads the file `~/.xemacs/init.el' in the
 `.xemacs/' subdirectory of your home directory. You can use this file
@@ -1055,8 +1048,8 @@ customizations in that Emacs session only (*note Lisp Eval:
 
 File: new-users-guide.info,  Node: Customizing key Bindings,  Next: Customizing Menus,  Prev: Customization Basics,  Up: Customization Basics
 
-Customize key bindings
-======================
+4.1 Customize key bindings
+==========================
 
 Most of Emacs commands use key sequences. *Note Keystrokes:
 (xemacs)Keystrokes, for more information about Keys and Commands. In
@@ -1071,10 +1064,9 @@ next-line. To bind keys to globally run commands you need to use the
 following syntax in your init.el file:
 
      `(global-set-key KEYS CMD)'
-
-Here, `global-set-key' is a function which will bind the "keys" to the
-specified "cmd". For example, if you type the following in your init.el
-file:
+   Here, `global-set-key' is a function which will bind the "keys" to
+the specified "cmd". For example, if you type the following in your
+init.el file:
 
      (global-set-key "\C-p" 'next-line)
      (global-set-key "\C-n" 'previous-line)
@@ -1142,8 +1134,8 @@ in XEmacs.
 
 File: new-users-guide.info,  Node: Customizing Menus,  Prev: Customizing key Bindings,  Up: Customization Basics
 
-Customizing Menus
-=================
+4.2 Customizing Menus
+=====================
 
 You can customize any of the  XEmacs Pull-down-Menus. You can create
 your own menu, delete an existing one, enable a menu or disable a menu.
@@ -1222,7 +1214,6 @@ are:
           (add-menu-item '("File" "Management") "Copy File" 'copy-file t)
           (add-menu-item '("File" "Management") "Delete File" 'delete-file t)
           (add-menu-item '("File" "Management") "Rename File" 'rename-file t)
-
      This will create a sub-menu Management under the File menu. When
      you select the submenu Management, it will contain three submenus:
      Copy File, Delete File and Rename File.
@@ -1234,16 +1225,16 @@ are:
 
           ;; deletes the "Replace String" menu item created earlier
           (delete-menu-item '("Edit" "Replace String"))
-          
+
           ;; deletes the "Bot" menu created earlier
           (delete-menu-item '("Bot"))
-          
+
           ;; deletes the sub-menu "Copy File" created earlier
           (delete-menu-item '("File" "File Management" "Copy File"))
-          
+
           ;; deletes the sub-menu "Delete File" created earlier
           (delete-menu-item '("File" "Management" "Delete File"))
-          
+
           ;; deletes the sub-menu "Rename File" created earlier
           (delete-menu-item '("File" "Management" "Rename File"))
 
@@ -1276,8 +1267,8 @@ are:
 
 File: new-users-guide.info,  Node: Help,  Next: Modes,  Prev: Customization Basics,  Up: Top
 
-Help
-****
+5 Help
+******
 
 XEmacs provides a comprehensive Help facility. On the extreme right of
 the menu-bar there is a Help menu. There are several help commands
@@ -1295,8 +1286,8 @@ you can type and what they will do. Initially if you want help, type
 
 File: new-users-guide.info,  Node: The Help Menu,  Prev: Help,  Up: Help
 
-Help menu
-=========
+5.1 Help menu
+=============
 
 When you click on the Help menu with any of the mouse buttons you will
 get the following menu items:
@@ -1327,18 +1318,18 @@ Hyper Apropos...
      at the bottom:
 
           auto-fill-mode
-          
+
           Function, Command:
-          
+
             Toggle auto-fill mode.
             With arg, turn auto-fill mode on if and only if arg is positive.
             In auto-fill mode, inserting a space at a column beyond `fill-column'
             automatically breaks the line at a previous space.
-          
+
           Variable:
-          
+
             value = nil
-          
+
             variable not documented
 
 Command Apropos...
@@ -1372,7 +1363,6 @@ List Keybindings
           C-c C-c v       texinfo-insert-@var
           C-c C-c x       texinfo-insert-@example
           C-c C-c {      texinfo-insert-braces
-
      These keybindings apply only to "Texinfo" mode. *Note Modes::, for
      more information on various modes.
 
@@ -1395,7 +1385,6 @@ Describe Function...
      echo area:
 
           Describe function (default <some function name>):
-
      If you hit <RET> without giving a function name, you will get
      documentation for that default function name, otherwise if you
      type a function name and hit <RET>, you will get documentation for
@@ -1412,7 +1401,6 @@ Unix Manual...
      message in the echo area:
 
           Manual entry: (default <some name>)
-
      Now you can type any command, for example type `who' and press
      <RET>. You will get the man page for the Unix command `who' which
      lists who is on the system.
@@ -1431,8 +1419,8 @@ Emacs News
 
 File: new-users-guide.info,  Node: Modes,  Next: Files,  Prev: Help,  Up: Top
 
-Major and Minor Modes
-*********************
+6 Major and Minor Modes
+***********************
 
 XEmacs is "language sensitive". It has several "major" and "minor"
 modes.  The major modes customize Emacs to edit text of a particular
@@ -1453,8 +1441,8 @@ documentation about those modes.
 
 File: new-users-guide.info,  Node: Major Modes,  Next: Minor Modes,  Prev: Modes,  Up: Modes
 
-Major Modes
-===========
+6.1 Major Modes
+===============
 
 Emacs has several major modes which customize Emacs to edit text of
 various sorts. You can have only one major mode at any time. Within each
@@ -1472,7 +1460,7 @@ To explicitly select a mode type the following command:
 
      ;;; selects lisp mode
      M-x lisp-mode
-     
+
      ;;; selects C mode
      M-x c-mode
 
@@ -1551,8 +1539,8 @@ mode look at the manual for Calendar Mode and Diary.
 
 File: new-users-guide.info,  Node: Minor Modes,  Prev: Major Modes,  Up: Modes
 
-Minor Modes
-===========
+6.2 Minor Modes
+===============
 
 The minor modes in Emacs provide some optional features which you can
 turn on or off. Any number of minor modes can be active at the same time
@@ -1561,9 +1549,8 @@ disable it in other mode. To enable a minor mode, for example the
 font-lock mode type the following command:
 
      M-x font-lock-mode
-
-To enable the other minor modes, replace the "font-lock" with the name
-of the minor mode. To disable the mode type the command again. A
+   To enable the other minor modes, replace the "font-lock" with the
+name of the minor mode. To disable the mode type the command again. A
 positive argument will always turn the mode on. Whenever you type this
 command, it will turn the mode on if it was off, OR it will turn it off
 if it was on i.e. it toggles. Look at the mode-line at the bottom of the
@@ -1645,8 +1632,8 @@ and the associated files.
 
 File: new-users-guide.info,  Node: Files,  Next: Other Customizations,  Prev: Modes,  Up: Top
 
-Files
-*****
+7 Files
+*******
 
 The basic unit of stored data in Unix is the "file".  To edit a file,
 you must tell Emacs to read the file into a buffer. This is called
@@ -1665,8 +1652,8 @@ rename, and append to files, and operate on file directories.
 
 File: new-users-guide.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
 
-File Names
-==========
+7.1 File Names
+==============
 
 Most of the Emacs commands that operate on a file require you to
 specify a file name. For example, you might specify the file name
@@ -1708,8 +1695,8 @@ directory. For more information on file names, *Note File Names:
 
 File: new-users-guide.info,  Node: Visiting,  Next: Saving Files,  Prev: File Names,  Up: Files
 
-Visiting Files
-==============
+7.2 Visiting Files
+==================
 
 To edit a file in Emacs you need to "visit" it. "Visiting" a file means
 copying its contents (or reading them) into the current buffer. Emacs
@@ -1753,8 +1740,8 @@ Once you are in XEmacs, you can use the following commands:
 
 File: new-users-guide.info,  Node: Saving Files,  Prev: Visiting,  Up: Files
 
-Saving Files
-============
+7.3 Saving Files
+================
 
 The changes that you make after visiting a file will not be saved
 unless you save the buffer. When you save the buffer, Emacs writes the
@@ -1830,8 +1817,8 @@ against simultaneous editing, *Note Interlocking: (xemacs)Interlocking.
 
 File: new-users-guide.info,  Node: Other Customizations,  Next: Select and Move,  Prev: Files,  Up: Top
 
-Other Customizations
-********************
+8 Other Customizations
+**********************
 
 You can modify the behavior of Emacs in minor ways permanently by
 putting your changes in your `init.el' file. This file contains Lisp
@@ -1862,10 +1849,10 @@ the statements do.
 
      ;;; enables the font-lock-mode in Lisp Mode
      (add-hook 'lisp-mode-hook    'turn-on-font-lock)
-     
+
      ;;; enables the font-lock-mode in Texinfo Mode
      (add-hook 'texinfo-mode-hook    'turn-on-font-lock)
-     
+
      ;;; enables the font-lock mode in C Mode
      (add-hook 'c-mode-hook          'turn-on-font-lock)
 
@@ -1876,7 +1863,7 @@ functions, comments or other keywords  should be displayed in :
 
      ;;; the function names will now be displayed in blue color
      (set-face-foreground 'font-lock-function-name-face "blue")
-     
+
      ;;; the comments will be displayed in forest green
       (set-face-foreground 'font-lock-comment-face "forest green")
 
@@ -1892,8 +1879,8 @@ For other customizations regarding the font-lock face, look at the file
 
 File: new-users-guide.info,  Node: Setting Variables,  Next: Init File,  Prev: Other Customizations,  Up: Other Customizations
 
-Other Customizations
-====================
+8.1 Other Customizations
+========================
 
 In XEmacs, "variables" are used for internal record-keeping and
 customizations. There are some variables called "options" which you can
@@ -1911,7 +1898,7 @@ and you will see the following message in that window:
 
      case-fold-search's value is t
      This value is specific to the current buffer.
-     
+
      Documentation:
      *Non-nil if searches should ignore case.
      Automatically becomes buffer-local when set in any fashion.
@@ -1954,7 +1941,7 @@ customization type:
 
      ;;; displays a buffer listing names, values and documentation of options
      M-x list-options
-     
+
      ;;; displays options and allows you to edit those list of options
      M-x edit-options
 
@@ -1983,8 +1970,8 @@ values to use for certain Emacs variables when you edit that file.
 
 File: new-users-guide.info,  Node: Init File,  Prev: Setting Variables,  Up: Other Customizations
 
-Init File Examples
-==================
+8.2 Init File Examples
+======================
 
 For customizing Emacs, you need to put Lisp expressions in your
 `init.el' file. The following are some useful Lisp expressions. If you
@@ -2141,8 +2128,8 @@ in Emacs.
 
 File: new-users-guide.info,  Node: Select and Move,  Next: Search and Replace,  Prev: Other Customizations,  Up: Top
 
-Selecting and Moving Text
-*************************
+9 Selecting and Moving Text
+***************************
 
 Many Emacs commands operate on an arbitrary contiguous part of the
 current buffer. You can select some part of the buffer and edit only
@@ -2166,8 +2153,8 @@ can select text in two ways:
 
 File: new-users-guide.info,  Node: Selecting Text,  Next: Mouse,  Prev: Select and Move,  Up: Select and Move
 
-Setting the Mark
-================
+9.1 Setting the Mark
+====================
 
 To define a region you need to set "the mark" at one end of it and move
 the cursor to the other end. Once you set the mark, it remains there
@@ -2196,15 +2183,14 @@ mark). To set "the mark", you can use the following commands:
 `C->'
      This command will push the mark at the end of the buffer without
      changing the position of your cursor.
-
-You can also give arguments to `C-<' or `C->'. *Note The Mark and the
-Region: (xemacs)The Mark and the Region, for more information.
+   You can also give arguments to `C-<' or `C->'. *Note The Mark and
+the Region: (xemacs)The Mark and the Region, for more information.
 
 
 File: new-users-guide.info,  Node: Mouse,  Next: Region Operation,  Prev: Selecting Text,  Up: Select and Move
 
-Selecting Text with Mouse
-=========================
+9.2 Selecting Text with Mouse
+=============================
 
 If you are using XEmacs under X, you can use the mouse to select text.
 The selected text will always be highlighted, so just by looking at the
@@ -2234,11 +2220,11 @@ operations.
 
 File: new-users-guide.info,  Node: Region Operation,  Next: Moving Text,  Prev: Mouse,  Up: Select and Move
 
-Operating on the Region
-=======================
+9.3 Operating on the Region
+===========================
 
 Once you have selected a region you can do a lot of things to the text
-in the region:
+in the region: 
    * Kill the text with `C-w'. For example if you want to kill a
      paragraph, position the cursor to the beginning of the paragraph
      and type `C-SPC'. Then go to the end of the paragraph and type
@@ -2264,8 +2250,8 @@ in the region:
 
 File: new-users-guide.info,  Node: Moving Text,  Next: Accumulating text,  Prev: Region Operation,  Up: Select and Move
 
-Moving Text
-===========
+9.4 Moving Text
+===============
 
 The most common way to move or copy text in Emacs is through "killing"
 or `cutting' it and then "yanking" or `pasting' it. You can also use
@@ -2293,8 +2279,8 @@ text you can use the following commands:
 
 File: new-users-guide.info,  Node: Accumulating text,  Prev: Moving Text,  Up: Select and Move
 
-Accumulating Text
-=================
+9.5 Accumulating Text
+=====================
 
 The following commands can be used for accumulating text from different
 buffers into one place or for copying one region of text into many
@@ -2306,7 +2292,6 @@ buffers:
      <RET>, Emacs will prompt you for a buffer name. You will see a
      message in the echo area:
           Append to buffer: (default <buffer name>)
-
      After you type in a buffer name, a copy of the region will be
      inserted at the location of the cursor into that buffer. If there
      is no buffer with the name given by you, Emacs will create a new
@@ -2348,8 +2333,8 @@ registers *Note Registers: (xemacs)Registers.
 
 File: new-users-guide.info,  Node: Search and Replace,  Prev: Select and Move,  Up: Top
 
-Searching and Replacing
-***********************
+10 Searching and Replacing
+**************************
 
 Emacs provides commands for searching for occurrences of a particular
 string. The search is incremental i.e. it begins even before you
@@ -2409,7 +2394,7 @@ you have typed the whole string you can use the following commands:
 expressions, *Note Search: (xemacs)Search.
 
    To replace all occurrences of a string in Emacs, you can use the
-following command:
+following command: 
      M-x replace-string
 
 After you type `M-x replace-string', you will be prompted for a string
@@ -2446,65 +2431,66 @@ File: new-users-guide.info,  Node: Key Index,  Next: Command Index,  Prev: Intro
 Key (Character) Index
 *********************
 
+ [index ]
 * Menu:
 
-* C-<:                                   Selecting Text.
-* C->:                                   Selecting Text.
-* C-a:                                   Cursor Position.
-* C-b:                                   Cursor Position.
-* C-d:                                   Erase.
-* C-e:                                   Cursor Position.
-* C-fx:                                  Cursor Position.
-* C-g:                                   The Help Menu.
-* C-h d:                                 The Help Menu.
-* C-h k:                                 The Help Menu.
-* C-h t:                                 Edit.
-* C-k:                                   Erase.
-* C-M-\:                                 Region Operation.
-* C-n:                                   Cursor Position.
-* C-p:                                   Cursor Position.
-* C-r:                                   Search and Replace.
-* C-s:                                   Search and Replace.
-* C-SPC <1>:                             Region Operation.
-* C-SPC:                                 Selecting Text.
-* C-t:                                   Cursor Position.
-* C-u:                                   Numeric Argument.
-* C-v:                                   Cursor Position.
-* C-w:                                   Region Operation.
-* C-x 0:                                 XEmacs Window.
-* C-x 1:                                 XEmacs Window.
-* C-x 2:                                 XEmacs Window.
-* C-x 3:                                 XEmacs Window.
-* C-x 4:                                 XEmacs Window.
-* C-x 4 b:                               XEmacs Window.
-* C-x 4 d:                               XEmacs Window.
-* C-x 4 f:                               XEmacs Window.
-* C-x 4 m:                               XEmacs Window.
-* C-x 5 C-f:                             Visiting.
-* C-x C-c:                               Exiting.
-* C-x C-f:                               Visiting.
-* C-x C-l:                               Region Operation.
-* C-x C-s:                               Saving Files.
-* C-x C-u:                               Region Operation.
-* C-x C-v:                               Visiting.
-* C-x C-w:                               Saving Files.
-* C-x C-x:                               Selecting Text.
-* C-x s:                                 Saving Files.
-* C-x TAB:                               Region Operation.
-* C-x u:                                 Undo.
-* C-y:                                   Moving Text.
-* C-z:                                   Exiting.
-* DEL:                                   Insert.
-* M--:                                   Numeric Argument.
-* M-<:                                   Cursor Position.
-* M->:                                   Cursor Position.
-* M-C-v:                                 XEmacs Window.
-* M-d:                                   Erase.
-* M-DEL:                                 Erase.
-* M-k:                                   Erase.
-* M-v:                                   Cursor Position.
-* M-z:                                   Erase.
-* RET:                                   Insert.
+* C-<:                                   Selecting Text.      (line   6)
+* C->:                                   Selecting Text.      (line   6)
+* C-a:                                   Cursor Position.     (line  11)
+* C-b:                                   Cursor Position.     (line  11)
+* C-d:                                   Erase.               (line   6)
+* C-e:                                   Cursor Position.     (line  11)
+* C-fx:                                  Cursor Position.     (line  11)
+* C-g:                                   The Help Menu.       (line  92)
+* C-h d:                                 The Help Menu.       (line  96)
+* C-h k:                                 The Help Menu.       (line 107)
+* C-h t:                                 Edit.                (line   6)
+* C-k:                                   Erase.               (line   6)
+* C-M-\:                                 Region Operation.    (line   7)
+* C-n:                                   Cursor Position.     (line  11)
+* C-p:                                   Cursor Position.     (line  11)
+* C-r:                                   Search and Replace.  (line  33)
+* C-s:                                   Search and Replace.  (line  18)
+* C-SPC <1>:                             Region Operation.    (line   7)
+* C-SPC:                                 Selecting Text.      (line   6)
+* C-t:                                   Cursor Position.     (line  11)
+* C-u:                                   Numeric Argument.    (line   6)
+* C-v:                                   Cursor Position.     (line  11)
+* C-w:                                   Region Operation.    (line   7)
+* C-x 0:                                 XEmacs Window.       (line  12)
+* C-x 1:                                 XEmacs Window.       (line  12)
+* C-x 2:                                 XEmacs Window.       (line  12)
+* C-x 3:                                 XEmacs Window.       (line  12)
+* C-x 4:                                 XEmacs Window.       (line  12)
+* C-x 4 b:                               XEmacs Window.       (line  44)
+* C-x 4 d:                               XEmacs Window.       (line  44)
+* C-x 4 f:                               XEmacs Window.       (line  44)
+* C-x 4 m:                               XEmacs Window.       (line  44)
+* C-x 5 C-f:                             Visiting.            (line  38)
+* C-x C-c:                               Exiting.             (line  15)
+* C-x C-f:                               Visiting.            (line  19)
+* C-x C-l:                               Region Operation.    (line   7)
+* C-x C-s:                               Saving Files.        (line  12)
+* C-x C-u:                               Region Operation.    (line   7)
+* C-x C-v:                               Visiting.            (line  33)
+* C-x C-w:                               Saving Files.        (line  37)
+* C-x C-x:                               Selecting Text.      (line   6)
+* C-x s:                                 Saving Files.        (line  28)
+* C-x TAB:                               Region Operation.    (line   7)
+* C-x u:                                 Undo.                (line  12)
+* C-y:                                   Moving Text.         (line   6)
+* C-z:                                   Exiting.             (line  15)
+* DEL:                                   Insert.              (line  13)
+* M--:                                   Numeric Argument.    (line   6)
+* M-<:                                   Cursor Position.     (line  11)
+* M->:                                   Cursor Position.     (line  11)
+* M-C-v:                                 XEmacs Window.       (line  12)
+* M-d:                                   Erase.               (line   6)
+* M-DEL:                                 Erase.               (line   6)
+* M-k:                                   Erase.               (line   6)
+* M-v:                                   Cursor Position.     (line  11)
+* M-z:                                   Erase.               (line   6)
+* RET:                                   Insert.              (line  19)
 
 
 File: new-users-guide.info,  Node: Command Index,  Next: Variable Index,  Prev: Key Index,  Up: Top
@@ -2512,78 +2498,81 @@ File: new-users-guide.info,  Node: Command Index,  Next: Variable Index,  Prev: 
 Command and Function Index
 **************************
 
+ [index ]
 * Menu:
 
-* add-menu-item:                         Customizing Menus.
-* append-to-buffer:                      Accumulating text.
-* append-to-file:                        Accumulating text.
-* auto-fill-mode <1>:                    Minor Modes.
-* auto-fill-mode:                        Insert.
-* backward-char:                         Cursor Position.
-* backward-kill-word:                    Erase.
-* backward-word:                         Cursor Position.
-* beginning-of-buffer:                   Cursor Position.
-* beginning-of-line:                     Cursor Position.
-* copy-to-buffer:                        Accumulating text.
-* delete-backward-char:                  Erase.
-* delete-char:                           Erase.
-* delete-menu-item:                      Customizing Menus.
-* delete-other-windows <1>:              XEmacs Window.
-* delete-other-windows:                  Windows and Menus.
-* delete-window <1>:                     XEmacs Window.
-* delete-window:                         Windows and Menus.
-* describe-variable:                     Setting Variables.
-* dired-other-window:                    XEmacs Window.
-* disable-menu-item:                     Customizing Menus.
-* edit-options:                          Setting Variables.
-* enable-menu-item:                      Customizing Menus.
-* end-of-buffer:                         Cursor Position.
-* end-of-line:                           Cursor Position.
-* eval-expression:                       Init File.
+* add-menu-item:                         Customizing Menus.   (line   6)
+* append-to-buffer:                      Accumulating text.   (line   6)
+* append-to-file:                        Accumulating text.   (line   6)
+* auto-fill-mode <1>:                    Minor Modes.         (line  49)
+* auto-fill-mode:                        Insert.              (line  19)
+* backward-char:                         Cursor Position.     (line  11)
+* backward-kill-word:                    Erase.               (line   6)
+* backward-word:                         Cursor Position.     (line  33)
+* beginning-of-buffer:                   Cursor Position.     (line  11)
+* beginning-of-line:                     Cursor Position.     (line  11)
+* copy-to-buffer:                        Accumulating text.   (line   6)
+* delete-backward-char:                  Erase.               (line   6)
+* delete-char:                           Erase.               (line   6)
+* delete-menu-item:                      Customizing Menus.   (line  87)
+* delete-other-windows <1>:              XEmacs Window.       (line  22)
+* delete-other-windows:                  Windows and Menus.   (line   6)
+* delete-window <1>:                     XEmacs Window.       (line  16)
+* delete-window:                         Windows and Menus.   (line   6)
+* describe-variable:                     Setting Variables.   (line   6)
+* dired-other-window:                    XEmacs Window.       (line  44)
+* disable-menu-item:                     Customizing Menus.   (line 107)
+* edit-options:                          Setting Variables.   (line  62)
+* enable-menu-item:                      Customizing Menus.   (line 116)
+* end-of-buffer:                         Cursor Position.     (line  11)
+* end-of-line:                           Cursor Position.     (line  11)
+* eval-expression:                       Init File.           (line  37)
 * eval-region:                           Customization Basics.
-* exchange-point-and-mark:               Selecting Text.
-* find-alternate-file:                   Visiting.
-* find-file:                             Visiting.
-* find-file-other-frame:                 Visiting.
-* find-file-other-window:                XEmacs Window.
-* forward-char:                          Cursor Position.
-* forward-word:                          Cursor Position.
-* goto-char:                             Cursor Position.
-* goto-line:                             Cursor Position.
-* help-with-tutorial:                    Edit.
-* isearch-backward:                      Search and Replace.
-* isearch-forward:                       Search and Replace.
-* kill-line:                             Erase.
-* kill-sentence:                         Erase.
-* kill-word:                             Erase.
-* list-options:                          Setting Variables.
-* mail-other-window:                     XEmacs Window.
-* make-directory:                        File Names.
+                                                              (line   6)
+* exchange-point-and-mark:               Selecting Text.      (line   6)
+* find-alternate-file:                   Visiting.            (line  33)
+* find-file:                             Visiting.            (line  19)
+* find-file-other-frame:                 Visiting.            (line  38)
+* find-file-other-window:                XEmacs Window.       (line  44)
+* forward-char:                          Cursor Position.     (line  11)
+* forward-word:                          Cursor Position.     (line  30)
+* goto-char:                             Cursor Position.     (line  11)
+* goto-line:                             Cursor Position.     (line  11)
+* help-with-tutorial:                    Edit.                (line   6)
+* isearch-backward:                      Search and Replace.  (line  33)
+* isearch-forward:                       Search and Replace.  (line  18)
+* kill-line:                             Erase.               (line   6)
+* kill-sentence:                         Erase.               (line   6)
+* kill-word:                             Erase.               (line   6)
+* list-options:                          Setting Variables.   (line  62)
+* mail-other-window:                     XEmacs Window.       (line  44)
+* make-directory:                        File Names.          (line  35)
 * make-symbolic-link:                    Customizing key Bindings.
-* mark-beginning-of-buffer:              Selecting Text.
-* mark-end-of-buffer:                    Selecting Text.
-* next-line:                             Cursor Position.
-* prepend-to-buffer:                     Accumulating text.
-* previous-line:                         Cursor Position.
-* print-region:                          Region Operation.
-* relabel-menu-items:                    Customizing Menus.
-* remove-directory:                      File Names.
-* replace-string:                        Search and Replace.
-* save-buffer:                           Saving Files.
-* save-buffers-kill-emacs:               Exiting.
-* save-some-buffers:                     Saving Files.
-* scroll-other-window <1>:               XEmacs Window.
-* scroll-other-window:                   Windows and Menus.
-* set-mark-command:                      Selecting Text.
-* set-variable:                          Setting Variables.
-* split-window-horizontally:             XEmacs Window.
-* split-window-vertically:               XEmacs Window.
-* suspend-emacs:                         Exiting.
-* switch-to-buffer-other-window:         XEmacs Window.
-* transpose-chars:                       Cursor Position.
-* write file:                            Saving Files.
-* yank:                                  Moving Text.
-* zap-to-char:                           Erase.
+                                                              (line  80)
+* mark-beginning-of-buffer:              Selecting Text.      (line   6)
+* mark-end-of-buffer:                    Selecting Text.      (line   6)
+* next-line:                             Cursor Position.     (line  11)
+* prepend-to-buffer:                     Accumulating text.   (line   6)
+* previous-line:                         Cursor Position.     (line  11)
+* print-region:                          Region Operation.    (line   7)
+* relabel-menu-items:                    Customizing Menus.   (line 124)
+* remove-directory:                      File Names.          (line  35)
+* replace-string:                        Search and Replace.  (line  64)
+* save-buffer:                           Saving Files.        (line  12)
+* save-buffers-kill-emacs:               Exiting.             (line  15)
+* save-some-buffers:                     Saving Files.        (line  28)
+* scroll-other-window <1>:               XEmacs Window.       (line  13)
+* scroll-other-window:                   Windows and Menus.   (line   6)
+* set-mark-command:                      Selecting Text.      (line   6)
+* set-variable:                          Setting Variables.   (line  32)
+* split-window-horizontally:             XEmacs Window.       (line  38)
+* split-window-vertically:               XEmacs Window.       (line  32)
+* suspend-emacs:                         Exiting.             (line  15)
+* switch-to-buffer-other-window:         XEmacs Window.       (line  44)
+* transpose-chars:                       Cursor Position.     (line  11)
+* write file:                            Saving Files.        (line  37)
+* yank:                                  Moving Text.         (line   6)
+* zap-to-char:                           Erase.               (line   6)
 
 
 File: new-users-guide.info,  Node: Variable Index,  Next: Concept Index,  Prev: Command Index,  Up: Top
@@ -2591,16 +2580,17 @@ File: new-users-guide.info,  Node: Variable Index,  Next: Concept Index,  Prev: 
 Variable Index
 **************
 
+ [index ]
 * Menu:
 
-* buffers-menu-max-size:                 Init File.
-* case-fold-search:                      Search and Replace.
-* default-directory:                     File Names.
-* display-time:                          Init File.
-* fill-column:                           Init File.
-* frame-title-format:                    Init File.
-* make-backup-files:                     Saving Files.
-* zmacs-regions:                         Init File.
+* buffers-menu-max-size:                 Init File.           (line 129)
+* case-fold-search:                      Search and Replace.  (line   6)
+* default-directory:                     File Names.          (line  19)
+* display-time:                          Init File.           (line 108)
+* fill-column:                           Init File.           (line  33)
+* frame-title-format:                    Init File.           (line 135)
+* make-backup-files:                     Saving Files.        (line  51)
+* zmacs-regions:                         Init File.           (line 119)
 
 
 File: new-users-guide.info,  Node: Concept Index,  Next: Entering,  Prev: Variable Index,  Up: Top
@@ -2608,145 +2598,154 @@ File: new-users-guide.info,  Node: Concept Index,  Next: Entering,  Prev: Variab
 Concept Index
 *************
 
+ [index ]
 * Menu:
 
-* abbrev-mode:                           Minor Modes.
-* accumulating text:                     Accumulating text.
-* add menus:                             Customizing Menus.
-* asm-mode:                              Major Modes.
-* Auto Delete Selection menu item:       Options Menu.
-* auto saving:                           Saving Files.
-* auto-save-mode:                        Minor Modes.
+* abbrev-mode:                           Minor Modes.         (line  60)
+* accumulating text:                     Accumulating text.   (line   6)
+* add menus:                             Customizing Menus.   (line   6)
+* asm-mode:                              Major Modes.         (line  86)
+* Auto Delete Selection menu item:       Options Menu.        (line   6)
+* auto saving:                           Saving Files.        (line  61)
+* auto-save-mode:                        Minor Modes.         (line  72)
 * binding keys:                          Customizing key Bindings.
-* blink-paren:                           Minor Modes.
-* buffer:                                Entering.
-* Buffers menu:                          Buffers Menu.
-* Buffers Menu Length... menu item:      Options Menu.
-* Buffers Sub-Menus menu item:           Options Menu.
-* c-mode:                                Major Modes.
-* Case Sensitive Search menu item:       Options Menu.
-* Clear menu item:                       Edit menu.
-* clipboard selection:                   Mouse.
-* Copy menu item:                        Edit menu.
-* copying text:                          Accumulating text.
-* creating-directories:                  File Names.
-* cursor control:                        Cursor Position.
-* cursor position:                       Cursor Position.
-* cursor shapes:                         Mouse.
+                                                              (line  18)
+* blink-paren:                           Minor Modes.         (line  81)
+* buffer:                                Entering.            (line   6)
+* Buffers menu:                          Buffers Menu.        (line   6)
+* Buffers Menu Length... menu item:      Options Menu.        (line   6)
+* Buffers Sub-Menus menu item:           Options Menu.        (line   6)
+* c-mode:                                Major Modes.         (line  68)
+* Case Sensitive Search menu item:       Options Menu.        (line   6)
+* Clear menu item:                       Edit menu.           (line   6)
+* clipboard selection:                   Mouse.               (line   6)
+* Copy menu item:                        Edit menu.           (line   6)
+* copying text:                          Accumulating text.   (line   6)
+* creating-directories:                  File Names.          (line  35)
+* cursor control:                        Cursor Position.     (line   6)
+* cursor position:                       Cursor Position.     (line   6)
+* cursor shapes:                         Mouse.               (line   6)
 * customize <1>:                         Other Customizations.
+                                                              (line   6)
 * customize:                             Customization Basics.
-* customize menus:                       Customizing Menus.
-* Cut menu item:                         Edit menu.
-* Delete Frame menu item:                File menu.
-* delete menus:                          Customizing Menus.
-* deleting:                              Erase.
-* deleting menu items:                   Customizing Menus.
-* deletion:                              Insert.
-* digit argument:                        Numeric Argument.
-* disable menus:                         Customizing Menus.
-* disabling menu items:                  Customizing Menus.
-* displaying time:                       Init File.
-* echo area:                             Echo Area.
-* edit-picture:                          Major Modes.
-* enabling menu items:                   Customizing Menus.
-* End Macro Recording menu item:         Edit menu.
-* entering Emacs:                        Enter.
-* entering XEmacs:                       Enter.
-* erasing:                               Erase.
-* Execute Last Macro menu item:          Edit menu.
-* Exit Emacs menu item:                  File menu.
-* exiting:                               Exiting.
-* file:                                  Entering.
-* File menu:                             File menu.
-* file names:                            File Names.
-* files:                                 Files.
-* Font menu item:                        Options Menu.
+                                                              (line   6)
+* customize menus:                       Customizing Menus.   (line   6)
+* Cut menu item:                         Edit menu.           (line   6)
+* Delete Frame menu item:                File menu.           (line   6)
+* delete menus:                          Customizing Menus.   (line   6)
+* deleting:                              Erase.               (line   6)
+* deleting menu items:                   Customizing Menus.   (line  87)
+* deletion:                              Insert.              (line  13)
+* digit argument:                        Numeric Argument.    (line   6)
+* disable menus:                         Customizing Menus.   (line   6)
+* disabling menu items:                  Customizing Menus.   (line 107)
+* displaying time:                       Init File.           (line 108)
+* echo area:                             Echo Area.           (line   6)
+* edit-picture:                          Major Modes.         (line  81)
+* enabling menu items:                   Customizing Menus.   (line 116)
+* End Macro Recording menu item:         Edit menu.           (line   6)
+* entering Emacs:                        Enter.               (line   6)
+* entering XEmacs:                       Enter.               (line   6)
+* erasing:                               Erase.               (line   6)
+* Execute Last Macro menu item:          Edit menu.           (line   6)
+* Exit Emacs menu item:                  File menu.           (line   6)
+* exiting:                               Exiting.             (line   6)
+* file:                                  Entering.            (line   6)
+* File menu:                             File menu.           (line   6)
+* file names:                            File Names.          (line   6)
+* files:                                 Files.               (line   6)
+* Font menu item:                        Options Menu.        (line   6)
 * font-lock-mode <1>:                    Other Customizations.
-* font-lock-mode:                        Minor Modes.
-* fortran-mode:                          Major Modes.
-* fundamental-mode:                      Major Modes.
-* goto-line:                             Cursor Position.
-* help <1>:                              The Help Menu.
-* help:                                  Help.
-* Help menu:                             Help menu.
+                                                              (line   6)
+* font-lock-mode:                        Minor Modes.         (line  25)
+* fortran-mode:                          Major Modes.         (line  76)
+* fundamental-mode:                      Major Modes.         (line  36)
+* goto-line:                             Cursor Position.     (line  55)
+* help <1>:                              The Help Menu.       (line   6)
+* help:                                  Help.                (line   6)
+* Help menu:                             Help menu.           (line   6)
 * hook:                                  Other Customizations.
-* init file examples:                    Init File.
+                                                              (line   6)
+* init file examples:                    Init File.           (line   6)
 * init.el:                               Customization Basics.
-* Insert File... menu item:              File menu.
-* insertion:                             Insert.
+                                                              (line   6)
+* Insert File... menu item:              File menu.           (line   6)
+* insertion:                             Insert.              (line   6)
 * key bindings:                          Customizing key Bindings.
+                                                              (line   6)
 * keystrokes:                            Customizing key Bindings.
-* Kill Buffer menu item:                 File menu.
-* kill ring:                             Moving Text.
-* killing:                               Moving Text.
-* killing Emacs:                         Exiting.
-* line-number-mode:                      Minor Modes.
-* lisp-mode:                             Major Modes.
-* major modes:                           Major Modes.
-* mark:                                  Select and Move.
-* menus:                                 XEmacs Window.
-* minor modes:                           Minor Modes.
-* mistakes, correcting:                  Undo.
-* mode line:                             Mode Line.
-* modes:                                 Modes.
-* mouse selection:                       Mouse.
-* moving text:                           Moving Text.
-* negative argument:                     Numeric Argument.
-* New Frame menu item:                   File menu.
-* newline:                               Insert.
-* nroff-mode:                            Major Modes.
-* numeric argument:                      Numeric Argument.
-* Open ... menu item:                    File menu.
-* open another file:                     Frame.
-* Open in New Frame... menu item:        File menu.
-* Options menu:                          Options Menu.
-* outline-mode:                          Major Modes.
-* overstrike:                            Insert.
-* Overstrike menu item:                  Options Menu.
-* overwrite-mode:                        Minor Modes.
-* Paren Highlighting menu item:          Options Menu.
-* Paste menu item:                       Edit menu.
-* pasting:                               Moving Text.
-* primary selection:                     Mouse.
-* Print Buffer menu item:                File menu.
-* pull-down-menus:                       XEmacs Window.
-* Read Only menu item:                   Options Menu.
-* rectangle commands:                    Accumulating text.
-* region:                                Select and Move.
-* registers:                             Accumulating text.
-* relabelling menu items:                Customizing Menus.
-* removing-directories:                  File Names.
-* replace:                               Search and Replace.
-* Revert Buffer menu item:               File menu.
-* Save Buffer As ... menu item:          File menu.
-* Save Buffer menu item:                 File menu.
-* Save Options:                          Options Menu.
-* saving files:                          Saving Files.
-* searching:                             Search and Replace.
-* selected window:                       Windows and Menus.
-* setting variables:                     Setting Variables.
-* shrinking XEmacs frame:                Exiting.
-* simultaneous editing:                  Saving Files.
-* Size menu item:                        Options Menu.
-* Split Frame:                           File menu.
-* Start Macro Recording menu item:       Edit menu.
-* suspending:                            Exiting.
-* Syntax Highlighting menu item:         Options Menu.
-* Teach Extended Commands menu item:     Options Menu.
-* temporary storage:                     Accumulating text.
-* tex-mode:                              Major Modes.
-* texinfo-mode:                          Major Modes.
-* top level:                             Mode Line.
-* Un-split (Keep Others):                File menu.
-* Un-split (Keep This):                  File menu.
-* undo:                                  Undo.
-* Undo menu item:                        Edit menu.
-* visiting files:                        Visiting.
-* Weight menu item:                      Options Menu.
-* windows <1>:                           XEmacs Window.
-* windows <2>:                           Windows and Menus.
-* windows:                               Entering.
-* yanking:                               Moving Text.
+                                                              (line   6)
+* Kill Buffer menu item:                 File menu.           (line   6)
+* kill ring:                             Moving Text.         (line   6)
+* killing:                               Moving Text.         (line   6)
+* killing Emacs:                         Exiting.             (line   6)
+* line-number-mode:                      Minor Modes.         (line  77)
+* lisp-mode:                             Major Modes.         (line  72)
+* major modes:                           Major Modes.         (line   6)
+* mark:                                  Select and Move.     (line   6)
+* menus:                                 XEmacs Window.       (line  67)
+* minor modes:                           Minor Modes.         (line   6)
+* mistakes, correcting:                  Undo.                (line   6)
+* mode line:                             Mode Line.           (line   6)
+* modes:                                 Modes.               (line   6)
+* mouse selection:                       Mouse.               (line   6)
+* moving text:                           Moving Text.         (line   6)
+* negative argument:                     Numeric Argument.    (line   6)
+* New Frame menu item:                   File menu.           (line   6)
+* newline:                               Insert.              (line  19)
+* nroff-mode:                            Major Modes.         (line  41)
+* numeric argument:                      Numeric Argument.    (line   6)
+* Open ... menu item:                    File menu.           (line   6)
+* open another file:                     Frame.               (line   6)
+* Open in New Frame... menu item:        File menu.           (line   6)
+* Options menu:                          Options Menu.        (line   6)
+* outline-mode:                          Major Modes.         (line  62)
+* overstrike:                            Insert.              (line   6)
+* Overstrike menu item:                  Options Menu.        (line   6)
+* overwrite-mode:                        Minor Modes.         (line  54)
+* Paren Highlighting menu item:          Options Menu.        (line   6)
+* Paste menu item:                       Edit menu.           (line   6)
+* pasting:                               Moving Text.         (line   6)
+* primary selection:                     Mouse.               (line   6)
+* Print Buffer menu item:                File menu.           (line   6)
+* pull-down-menus:                       XEmacs Window.       (line  67)
+* Read Only menu item:                   Options Menu.        (line   6)
+* rectangle commands:                    Accumulating text.   (line   6)
+* region:                                Select and Move.     (line   6)
+* registers:                             Accumulating text.   (line   6)
+* relabelling menu items:                Customizing Menus.   (line 124)
+* removing-directories:                  File Names.          (line  35)
+* replace:                               Search and Replace.  (line   6)
+* Revert Buffer menu item:               File menu.           (line   6)
+* Save Buffer As ... menu item:          File menu.           (line   6)
+* Save Buffer menu item:                 File menu.           (line   6)
+* Save Options:                          Options Menu.        (line   6)
+* saving files:                          Saving Files.        (line   6)
+* searching:                             Search and Replace.  (line   6)
+* selected window:                       Windows and Menus.   (line   6)
+* setting variables:                     Setting Variables.   (line   6)
+* shrinking XEmacs frame:                Exiting.             (line   6)
+* simultaneous editing:                  Saving Files.        (line  70)
+* Size menu item:                        Options Menu.        (line   6)
+* Split Frame:                           File menu.           (line   6)
+* Start Macro Recording menu item:       Edit menu.           (line   6)
+* suspending:                            Exiting.             (line   6)
+* Syntax Highlighting menu item:         Options Menu.        (line   6)
+* Teach Extended Commands menu item:     Options Menu.        (line   6)
+* temporary storage:                     Accumulating text.   (line   6)
+* tex-mode:                              Major Modes.         (line  47)
+* texinfo-mode:                          Major Modes.         (line  53)
+* top level:                             Mode Line.           (line   6)
+* Un-split (Keep Others):                File menu.           (line   6)
+* Un-split (Keep This):                  File menu.           (line   6)
+* undo:                                  Undo.                (line   6)
+* Undo menu item:                        Edit menu.           (line   6)
+* visiting files:                        Visiting.            (line   6)
+* Weight menu item:                      Options Menu.        (line   6)
+* windows <1>:                           XEmacs Window.       (line  67)
+* windows <2>:                           Windows and Menus.   (line   6)
+* windows:                               Entering.            (line   6)
+* yanking:                               Moving Text.         (line   6)
 
 
 
@@ -2754,50 +2753,50 @@ Tag Table:
 Node: Top635
 Node: Intro4610
 Node: Entering7190
-Node: Enter8701
-Node: Frame9380
-Node: Exiting11046
-Node: Mode Line12243
-Node: Echo Area14387
-Node: Windows and Menus15739
-Node: XEmacs Window16189
-Node: Pull-down Menus19807
-Node: File menu20683
-Node: Edit menu23940
-Node: Options Menu26463
-Node: Buffers Menu31245
-Node: Help menu31628
-Node: Edit32123
-Node: Insert33714
-Node: Cursor Position35039
-Node: Erase37108
-Node: Numeric Argument38262
-Node: Undo39443
-Node: Customization Basics40203
-Node: Customizing key Bindings41472
-Node: Customizing Menus44964
-Node: Help50451
-Node: The Help Menu51136
-Node: Modes56100
-Node: Major Modes57013
-Node: Minor Modes60962
-Node: Files65056
-Node: File Names65775
-Node: Visiting67577
-Node: Saving Files69698
-Node: Other Customizations73076
-Node: Setting Variables75557
-Node: Init File78767
-Node: Select and Move84270
-Node: Selecting Text85221
-Node: Mouse86731
-Node: Region Operation88053
-Node: Moving Text89310
-Node: Accumulating text90547
-Node: Search and Replace92865
-Node: Key Index96730
-Node: Command Index100019
-Node: Variable Index104121
-Node: Concept Index104698
+Node: Enter8705
+Node: Frame9392
+Node: Exiting11066
+Node: Mode Line12271
+Node: Echo Area14423
+Node: Windows and Menus15783
+Node: XEmacs Window16237
+Node: Pull-down Menus19866
+Node: File menu20750
+Node: Edit menu24017
+Node: Options Menu26552
+Node: Buffers Menu31346
+Node: Help menu31741
+Node: Edit32248
+Node: Insert33843
+Node: Cursor Position35176
+Node: Erase37253
+Node: Numeric Argument38415
+Node: Undo39612
+Node: Customization Basics40380
+Node: Customizing key Bindings41653
+Node: Customizing Menus45155
+Node: Help50609
+Node: The Help Menu51298
+Node: Modes56217
+Node: Major Modes57134
+Node: Minor Modes61086
+Node: Files65190
+Node: File Names65913
+Node: Visiting67723
+Node: Saving Files69852
+Node: Other Customizations73238
+Node: Setting Variables75708
+Node: Init File78916
+Node: Select and Move84427
+Node: Selecting Text85382
+Node: Mouse86902
+Node: Region Operation88232
+Node: Moving Text89498
+Node: Accumulating text90743
+Node: Search and Replace93068
+Node: Key Index96940
+Node: Command Index101262
+Node: Variable Index106682
+Node: Concept Index107426
 
 End Tag Table

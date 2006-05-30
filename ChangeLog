@@ -1,3 +1,39 @@
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* etc/package-index.LATEST.gpg: Updated with latest package data.
+
+2005-12-18  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	Merge from 21.5.
+	* configure.in: Fixed `LDAP_OPT_ON' libraries configuration
+	introduced in local 2005-03-13 change of `configure.in'.  However,
+	do not check for internal `-lber' `ber_pvt_opt_on' symbol as done
+	in upstream.  This symbol is not part of any published interface,
+	it may exist or not exist, depending on openldap version.  Cryptic
+	comment before using it in upstream 21.5 source did not state
+	precisely under which circumstances checking for it was useful,
+	which sort of user code tried to link the symbol.  So in local
+	21.5 dismissed both the code and the comment without writing a
+	cleaner equivalent.
+	* etc/NEWS: Document.
+
+2005-12-13  Vin Shelton  <acs@xemacs.org>
+
+	* etc/package-index.LATEST.gpg: Updated with latest package data.
+
+2005-12-04  Vin Shelton  <acs@xemacs.org>
+
+	* etc/OXYMORONS: insert 'Social Property' for 21.4.18.
+	* etc/NEWS: document motif deprecation and defaulting
+	--with-widgets to off.
+
+2005-12-04  Ville Skyttä  <scop@xemacs.org>
+	* etc/PACKAGES: Fix description of xetla.
+
 2005-12-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.18 is released
@@ -20,7 +56,7 @@
 2005-03-12  Aidan Kehoe  <kehoea@parhasard.net>
 
 	* configure.in (XE_COMPUTE_RUNPATH): Check XtRegisterDrawable
-	availability. 
+	availability.
 
 2005-04-11  Norbert Koch  <viteno@xemacs.org>
 
@@ -176,10 +212,10 @@
 2004-01-25  Steve Youngs  <youngs@xemacs.org>
 
 	* etc/package-index.LATEST.gpg: New, replaces
-	`package-index.LATEST.pgp'. 
+	`package-index.LATEST.pgp'.
 
 	* etc/package-index.LATEST.pgp: Removed, replaced with
-	`package-index.LATEST.gpg'. 
+	`package-index.LATEST.gpg'.
 
 2004-01-20  Jerry James  <james@xemacs.org>
 
@@ -275,7 +311,7 @@
 
 2003-07-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* etc/README.HYPERBOLE: 
+	* etc/README.HYPERBOLE:
 	* etc/README.OO-BROWSER:
 	Update.
 
@@ -307,7 +343,7 @@
 
 2003-03-20  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* configure.in (INTPTR_T_IN_CYGWIN_TYPES_H): 
+	* configure.in (INTPTR_T_IN_CYGWIN_TYPES_H):
 	Cygwin defines these types in <cygwin/types.h>.  Detect and don't
 	duplicate the definition.
 
@@ -346,7 +382,7 @@
 	gcc changed the name of the `-mthreads' option to `-pthread'
 	on 2000-06-12.
 
-	Be more careful when appending "_r" to various names of xlc, 
+	Be more careful when appending "_r" to various names of xlc,
 	so that users can specify --compiler=/absolute/path/to/xlc
 
 2003-01-27  Martin Buchholz  <martin@xemacs.org>
@@ -356,7 +392,7 @@
 
 2003-01-27  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in (athena_3d): 
+	* configure.in (athena_3d):
 	AC_CHECK_LIB must always take a function as
 	argument, never a global variable.  Some linkers can tell the
 	difference.  So change:
@@ -395,7 +431,7 @@
 
 2003-01-05  Rick Rankin  <rick_rankin@yahoo.com>
 
-        * configure.in: Add -lkernel32 to the list of system libraries 
+        * configure.in: Add -lkernel32 to the list of system libraries
         linked under Cygwin. Needed for IsBadReadPtr().
 
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
@@ -404,8 +440,8 @@
 
 2003-01-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* configure.in (Generate Installation): 
-	* configure.usage (--use-union-type): 
+	* configure.in (Generate Installation):
+	* configure.usage (--use-union-type):
 	* PROBLEMS (XEmacs crashes mysteriously):
 	Deprecate --use-union-type for production builds.
 
@@ -440,7 +476,7 @@
 
 2002-10-31  John Paul Wallington  <jpw@shootybangbang.com>
 
-	* info/dir (File): button1 on a highlighted word doesn't 
+	* info/dir (File): button1 on a highlighted word doesn't
 	follow that cross-reference.
 
 2002-11-11  Stephen J. Turnbull  <steve@tleepslib.sk.tsukuba.ac.jp>
@@ -471,7 +507,7 @@
 2002-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* Makefile.in.in (lisp/auto-autoloads.el):
-	(lisp/custom-load.el): 
+	(lisp/custom-load.el):
 	Use -no-autoloads for these targets; can't load 'em if they ain't.
 
 2002-10-18  Stephen J. Turnbull  <stephen@xemacs.org>
@@ -508,7 +544,7 @@
 	* configure.in (Check for POSIX functions):  New section head.
 	getaddrinfo is detected on HP-UX 11.XX, but appears to be
 	non-functional.  Disable it.  Based on work by Darryl Okahata.
-	
+
 2002-09-27  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* PROBLEMS (Running, General): Missing charset in FontSet warnings.
@@ -629,7 +665,7 @@
 
 	* configure.in: Detect MacOS/X "Darwin".
 	Thanks to Greg Parker <gparker@cs.stanford.edu>.
-	
+
 2002-03-30  Steve Youngs  <youngs@xemacs.org>
 
 	* etc/package-index.LATEST.pgp: Update to current reality.
@@ -650,7 +686,7 @@
 2001-12-13  William M. Perry  <wmperry@gnu.org>
 
 	* configure.in (GTK): add -Wno-shadow.
-	
+
 2002-02-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* etc/BETA: Synch to 21.5.
@@ -736,8 +772,8 @@
 	* configure.usage (--with-dragndrop): added GTK to list of protocols
 	* configure.usage (--mail-locking): added `locking' or `mmdf'. to list
 	of options
-	
-	
+
+
 2001-09-25  Didier Verna  <didier@xemacs.org>
 
 	* configure.ac: new. Autoconf 2.5x guard.
@@ -831,7 +867,7 @@
 
 2001-05-04  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in (opsys): 
+	* configure.in (opsys):
 	Use lower-case `uname -s` as the default value for opsys.
 	The previous code effectively did the non-sensical
 	opsys=$canonical because [] magically disappear in configure.in.
@@ -937,14 +973,14 @@
 	* etc/OXYMORONS: Add 2 oxymorons, clean up numbering, close RFC.
 
 	* etc/NEWS: Fix typo.
-	
+
 	* configure.in:
 	* configure:
 	Fix typo, add -Wsign-compare if GCC, run autoconf.
 
 2001-03-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* etc/gnuserv.1 (UNIX_DOMAIN_SOCKETS: 
+	* etc/gnuserv.1 (UNIX_DOMAIN_SOCKETS:
 	* PROBLEMS (Problems with running XEmacs):
 	Document TMPDIR lossage in gnuserv/gnuclient.
 

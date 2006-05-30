@@ -1,4 +1,4 @@
-This is ../info/external-widget.info, produced by makeinfo version 4.6
+This is ../info/external-widget.info, produced by makeinfo version 4.8
 from external-widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -23,8 +23,8 @@ powerful replacement for standard text widgets.
 
 File: external-widget.info,  Node: Using an External Client Widget,  Next: External Client Widget Resource Settings,  Prev: Top,  Up: Top
 
-Using an External Client Widget
-*******************************
+1 Using an External Client Widget
+*********************************
 
 There are three different implementations of the external client widget.
 One is designed for use in Motif applications and is linked with the
@@ -57,8 +57,8 @@ any other frame in Emacs.
 
 File: external-widget.info,  Node: External Client Widget Resource Settings,  Next: Motif-Specific Info About the External Client Widget,  Prev: Using an External Client Widget,  Up: Top
 
-External Client Widget Resource Settings
-****************************************
+2 External Client Widget Resource Settings
+******************************************
 
 The external client widget is a subclass of the Motif widget XmPrimitive
 and thus inherits all its resources.  In addition, the following new
@@ -113,8 +113,8 @@ made by parent or child widgets.
 
 File: external-widget.info,  Node: Motif-Specific Info About the External Client Widget,  Next: External Client Widget Internals,  Prev: External Client Widget Resource Settings,  Up: Top
 
-Motif-Specific Info About the External Client Widget
-****************************************************
+3 Motif-Specific Info About the External Client Widget
+******************************************************
 
 By default, the external client widget has navigation type
 `XmTAB_GROUP'.
@@ -130,8 +130,8 @@ are not seen by Emacs.
 
 File: external-widget.info,  Node: External Client Widget Internals,  Prev: Motif-Specific Info About the External Client Widget,  Up: Top
 
-External Client Widget Internals
-********************************
+4 External Client Widget Internals
+**********************************
 
 The following text is lifted verbatim from Ben Wing's comments in
 `ExternalShell.c'.
@@ -240,8 +240,8 @@ information.
 Tag Table:
 Node: Top232
 Node: Using an External Client Widget699
-Node: External Client Widget Resource Settings2410
-Node: Motif-Specific Info About the External Client Widget5150
-Node: External Client Widget Internals5961
+Node: External Client Widget Resource Settings2414
+Node: Motif-Specific Info About the External Client Widget5158
+Node: External Client Widget Internals5973
 
 End Tag Table

@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.6 from
+This is ../info/xemacs.info, produced by makeinfo version 4.8 from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -30,10 +30,189 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Lisp Eval,  Next: Lisp Debug,  Prev: Lisp Libraries,  Up: Running
+
+22.4 Evaluating Emacs-Lisp Expressions
+======================================
+
+Lisp programs intended to be run in Emacs should be edited in
+Emacs-Lisp mode; this will happen automatically for file names ending in
+`.el'.  By contrast, Lisp mode itself should be used for editing Lisp
+programs intended for other Lisp systems.  Emacs-Lisp mode can be
+selected with the command `M-x emacs-lisp-mode'.
+
+   For testing of Lisp programs to run in Emacs, it is useful to be able
+to evaluate part of the program as it is found in the Emacs buffer.  For
+example, if you change the text of a Lisp function definition and then
+evaluate the definition, Emacs installs the change for future calls to
+the function.  Evaluation of Lisp expressions is also useful in any
+kind of editing task for invoking non-interactive functions (functions
+that are not commands).
+
+`M-:'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the minibuffer (`eval-expression').
+
+`C-x C-e'
+     Evaluate the Lisp expression before point, and print the value in
+     the minibuffer (`eval-last-sexp').
+
+`C-M-x'
+     Evaluate the defun containing point or after point, and print the
+     value in the minibuffer (`eval-defun').
+
+`M-x eval-region'
+     Evaluate all the Lisp expressions in the region.
+
+`M-x eval-current-buffer'
+     Evaluate all the Lisp expressions in the buffer.
+
+   `M-:' (`eval-expression') is the most basic command for evaluating a
+Lisp expression interactively.  It reads the expression using the
+minibuffer, so you can execute any expression on a buffer regardless of
+what the buffer contains.  When evaluation is complete, the current
+buffer is once again the buffer that was current when `M-:' was typed.
+
+   In Emacs-Lisp mode, the key `C-M-x' is bound to the function
+`eval-defun', which parses the defun containing point or following point
+as a Lisp expression and evaluates it.  The value is printed in the echo
+area.  This command is convenient for installing in the Lisp environment
+changes that you have just made in the text of a function definition.
+
+   The command `C-x C-e' (`eval-last-sexp') performs a similar job but
+is available in all major modes, not just Emacs-Lisp mode.  It finds
+the sexp before point, reads it as a Lisp expression, evaluates it, and
+prints the value in the echo area.  It is sometimes useful to type in an
+expression and then, with point still after it, type `C-x C-e'.
+
+   If `C-M-x' or `C-x C-e' are given a numeric argument, they print the
+value by inserting it into the current buffer at point, rather than in
+the echo area.  The argument value does not matter.
+
+   The most general command for evaluating Lisp expressions from a
+buffer is `eval-region'.  `M-x eval-region' parses the text of the
+region as one or more Lisp expressions, evaluating them one by one.
+`M-x eval-current-buffer' is similar, but it evaluates the entire
+buffer.  This is a reasonable way to install the contents of a file of
+Lisp code that you are just ready to test.  After finding and fixing a
+bug, use `C-M-x' on each function that you change, to keep the Lisp
+world in step with the source file.
+
+
+File: xemacs.info,  Node: Lisp Debug,  Next: Lisp Interaction,  Prev: Lisp Eval,  Up: Running
+
+22.5 The Emacs-Lisp Debugger
+============================
+
+XEmacs contains a debugger for Lisp programs executing inside it.  This
+debugger is normally not used; many commands frequently get Lisp errors
+when invoked in inappropriate contexts (such as `C-f' at the end of the
+buffer) and it would be unpleasant to enter a special debugging mode in
+this case.  When you want to make Lisp errors invoke the debugger, you
+must set the variable `debug-on-error' to non-`nil'.  Quitting with
+`C-g' is not considered an error, and `debug-on-error' has no effect on
+the handling of `C-g'.  However, if you set `debug-on-quit' to be
+non-`nil', `C-g' will invoke the debugger.  This can be useful for
+debugging an infinite loop; type `C-g' once the loop has had time to
+reach its steady state.  `debug-on-quit' has no effect on errors.
+
+   You can make Emacs enter the debugger when a specified function is
+called or at a particular place in Lisp code.  Use `M-x debug-on-entry'
+with argument FUN-NAME to have Emacs enter the debugger as soon as
+FUN-NAME is called. Use `M-x cancel-debug-on-entry' to make the
+function stop entering the debugger when called.  (Redefining the
+function also does this.)  To enter the debugger from some other place
+in Lisp code, you must insert the expression `(debug)' there and
+install the changed code with `C-M-x'.  *Note Lisp Eval::.
+
+   When the debugger is entered, it displays the previously selected
+buffer in one window and a buffer named `*Backtrace*' in another
+window.  The backtrace buffer contains one line for each level of Lisp
+function execution currently going on.  At the beginning of the buffer
+is a message describing the reason that the debugger was invoked, for
+example, an error message if it was invoked due to an error.
+
+   The backtrace buffer is read-only and is in Backtrace mode, a special
+major mode in which letters are defined as debugger commands.  The
+usual Emacs editing commands are available; you can switch windows to
+examine the buffer that was being edited at the time of the error, and
+you can switch buffers, visit files, and perform any other editing
+operations.  However, the debugger is a recursive editing level (*note
+Recursive Edit::); it is a good idea to return to the backtrace buffer
+and explicitly exit the debugger when you don't want to use it any
+more.  Exiting the debugger kills the backtrace buffer.
+
+   The contents of the backtrace buffer show you the functions that are
+executing and the arguments that were given to them.  It also allows you
+to specify a stack frame by moving point to the line describing that
+frame.  The frame whose line point is on is considered the "current
+frame".  Some of the debugger commands operate on the current frame.
+Debugger commands are mainly used for stepping through code one
+expression at a time.  Here is a list of them:
+
+`c'
+     Exit the debugger and continue execution.  In most cases,
+     execution of the program continues as if the debugger had never
+     been entered (aside from the effect of any variables or data
+     structures you may have changed while inside the debugger).  This
+     includes entry to the debugger due to function entry or exit,
+     explicit invocation, and quitting or certain errors.  Most errors
+     cannot be continued; trying to continue an error usually causes
+     the same error to occur again.
+
+`d'
+     Continue execution, but enter the debugger the next time a Lisp
+     function is called.  This allows you to step through the
+     subexpressions of an expression, and see what the subexpressions
+     do and what values they compute.
+
+     When you enter the debugger this way, Emacs flags the stack frame
+     for the function call from which you entered.  The same function
+     is then called when you exit the frame.  To cancel this flag, use
+     `u'.
+
+`b'
+     Set up to enter the debugger when the current frame is exited.
+     Frames that invoke the debugger on exit are flagged with stars.
+
+`u'
+     Don't enter the debugger when the current frame is exited.  This
+     cancels a `b' command on a frame.
+
+`e'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the echo area.  This is equivalent to the command
+     `M-:'.
+
+`q'
+     Terminate the program being debugged; return to top-level Emacs
+     command execution.
+
+     If the debugger was entered due to a `C-g' but you really want to
+     quit, not to debug, use the `q' command.
+
+`r'
+     Return a value from the debugger.  The value is computed by
+     reading an expression with the minibuffer and evaluating it.
+
+     The value returned by the debugger makes a difference when the
+     debugger was invoked due to exit from a Lisp call frame (as
+     requested with `b'); then the value specified in the `r' command
+     is used as the value of that frame.
+
+     The debugger's return value also matters with many errors.  For
+     example, `wrong-type-argument' errors will use the debugger's
+     return value instead of the invalid argument; `no-catch' errors
+     will use the debugger value as a throw tag instead of the tag that
+     was not found.  If an error was signaled by calling the Lisp
+     function `signal', the debugger's return value is returned as the
+     value of `signal'.
+
+
 File: xemacs.info,  Node: Lisp Interaction,  Next: External Lisp,  Prev: Lisp Debug,  Up: Running
 
-Lisp Interaction Buffers
-========================
+22.6 Lisp Interaction Buffers
+=============================
 
 The buffer `*scratch*', which is selected when Emacs starts up, is
 provided for evaluating Lisp expressions interactively inside Emacs.
@@ -61,8 +240,8 @@ Interaction mode.
 
 File: xemacs.info,  Node: External Lisp,  Prev: Lisp Interaction,  Up: Running
 
-Running an External Lisp
-========================
+22.7 Running an External Lisp
+=============================
 
 Emacs has facilities for running programs in other Lisp systems.  You
 can run a Lisp process as an inferior of Emacs, and pass expressions to
@@ -102,8 +281,8 @@ is found.  *Note Lisp Modes::.
 
 File: xemacs.info,  Node: Packages,  Next: Basic,  Prev: Startup Paths,  Up: Top
 
-Packages
-========
+22.8 Packages
+=============
 
 The XEmacs 21 distribution comes only with a very basic set of built-in
 modes and packages.  Most of the packages that were part of the
@@ -127,8 +306,8 @@ File: xemacs.info,  Node: Package Terminology,  Next: Installing Packages,  Up: 
 Package Terminology:
 ====================
 
-Package Flavors
----------------
+22.8.1 Package Flavors
+----------------------
 
 There are two main flavors of packages.
 
@@ -142,8 +321,8 @@ There are two main flavors of packages.
      functionality.  However, we would recommend that you follow this
      rule of thumb: "When in doubt, don't delete".
 
-Package Distributions
----------------------
+22.8.2 Package Distributions
+----------------------------
 
 XEmacs Lisp packages are distributed in two ways, depending on the
 intended use.  Binary Packages are for installers and end-users that can
@@ -151,14 +330,14 @@ be installed directly into an XEmacs package directory.  Source Packages
 are for developers and include all files necessary for rebuilding
 bytecompiled lisp and creating tarballs for distribution.
 
-Binary Packages
----------------
+22.8.3 Binary Packages
+----------------------
 
 Binary packages may be installed directly into an XEmacs package
 hierarchy.
 
-Source Packages
----------------
+22.8.4 Source Packages
+----------------------
 
 Source packages contain all of the Package author's (where appropriate
 in regular packages) source code plus all of the files necessary to
@@ -166,7 +345,7 @@ build distribution tarballs (Unix Tar format files, gzipped for space
 savings).
 
    Currently, source packages are only available via CVS.  See
-<http://cvs.xemacs.org/> for details.
+`http://cvs.xemacs.org/' for details.
 
 
 File: xemacs.info,  Node: Installing Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
@@ -174,8 +353,8 @@ File: xemacs.info,  Node: Installing Packages,  Next: Building Packages,  Prev: 
 Installing Packages:
 ====================
 
-Getting Started
----------------
+22.8.5 Getting Started
+----------------------
 
 When you first download XEmacs 21, you will usually first grab the
 "core distribution", a file called `xemacs-21.x.x.tar.gz'. (Replace the
@@ -185,8 +364,8 @@ in the subdirectory named `lisp'.  This subdirectory used to contain
 all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
 space, most non-essential packages were made optional.
 
-Choosing the Packages You Need
-------------------------------
+22.8.6 Choosing the Packages You Need
+-------------------------------------
 
 The *Note Available Packages:: can currently be found in the same ftp
 directory where you grabbed the core distribution from, and are located
@@ -223,8 +402,8 @@ that you need `thingatpt', type:
    which will return something like `(fsf-compat "1.08")'. You can the
 use one of the methods above for installing the package you want.
 
-XEmacs and Installing Packages
-------------------------------
+22.8.7 XEmacs and Installing Packages
+-------------------------------------
 
 There are three main ways to install packages:
 
@@ -257,9 +436,9 @@ need are:
 
         efs          - To fetch the files from the FTP site or mirrors.
         xemacs-base  - Needed by efs.
-     
+
      and optionally:
-     
+
         mailcrypt    - To do PGP verification of the `package-index'
                        file.
 
@@ -395,9 +574,9 @@ remove the old package first *Note Removing Packages::.
         mkdir $prefix/lib/xemacs/xemacs-packages RET # if it does not exist yet
         cd $prefix/lib/xemacs/xemacs-packages RET
         gunzip -c /path/to/xemacs-base-1.48-pkg.tar.gz | tar xvf - RET
-     
+
      Or if you have GNU tar, the last step can be:
-     
+
         tar zxvf /path/to/xemacs-base-1.48-pkg.tar.gz RET
 
    For MULE related packages, it is best to untar into the mule-packages
@@ -406,9 +585,9 @@ hierarchy, i.e. for the `mule-base' package, version 1.37:
         mkdir $prefix/lib/xemacs/mule-packages RET # if it does not exist yet
         cd $prefix/lib/xemacs/mule-packages RET
         gunzip -c /path/to/mule-base-1.37-pkg.tar.gz | tar xvf - RET
-     
+
      Or if you have GNU tar, the last step can be:
-     
+
         tar zxvf /path/to/mule-base-1.37-pkg.tar.gz RET
 
 
@@ -489,11 +668,11 @@ Building Packages:
 ==================
 
 Currently, source packages are only available via anonymous CVS.  See
-<http://cvs.xemacs.org/> for details of checking out the
+`http://cvs.xemacs.org/' for details of checking out the
 `xemacs-packages' module.
 
-Prerequisites for Building Source Packages
-------------------------------------------
+22.8.8 Prerequisites for Building Source Packages
+-------------------------------------------------
 
 `GNU cp'
 
@@ -516,8 +695,8 @@ Prerequisites for Building Source Packages
      *Note Local.rules File::.
 And of course, XEmacs 21.0 or higher.
 
-What You Can Do With Source Packages
-------------------------------------
+22.8.9 What You Can Do With Source Packages
+-------------------------------------------
 
 The packages CVS sources are most useful for creating XEmacs package
 tarballs for installation into your own XEmacs installations or for
@@ -553,8 +732,8 @@ looking for isn't here, please send a message to the XEmacs Beta list
 
    This data is up to date as of June 27, 2003.
 
-Normal Packages
----------------
+22.8.10 Normal Packages
+-----------------------
 
 A very broad selection of elisp packages.
 
@@ -889,8 +1068,8 @@ A very broad selection of elisp packages.
 `zenirc'
      ZENIRC IRC Client.
 
-Mule Support (mule)
--------------------
+22.8.11 Mule Support (mule)
+---------------------------
 
 MULti-lingual Enhancement.  Support for world scripts such as Latin,
 Arabic, Cyrillic, Chinese, Japanese, Greek, Hebrew etc.  To use these
@@ -932,8 +1111,8 @@ packages your XEmacs must be compiled with Mule support.
 
 File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Running,  Up: Top
 
-Abbrevs
-*******
+23 Abbrevs
+**********
 
 An "abbrev" is a word which "expands" into some different text.
 Abbrevs are defined by the user to expand in specific ways.  For
@@ -978,8 +1157,8 @@ current contents of the buffer.  *Note Dynamic Abbrevs::.
 
 File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
 
-Defining Abbrevs
-================
+23.1 Defining Abbrevs
+=====================
 
 `C-x a g'
      Define an abbrev to expand into some text before point
@@ -1038,8 +1217,8 @@ since those two definitions are independent for one abbrev.
 
 File: xemacs.info,  Node: Expanding Abbrevs,  Next: Editing Abbrevs,  Prev: Defining Abbrevs,  Up: Abbrevs
 
-Controlling Abbrev Expansion
-============================
+23.2 Controlling Abbrev Expansion
+=================================
 
 An abbrev expands whenever it is in a buffer just before point and you
 type a self-inserting punctuation character (<SPC>, comma, etc.).  Most
@@ -1100,8 +1279,8 @@ not enabled.
 
 File: xemacs.info,  Node: Editing Abbrevs,  Next: Saving Abbrevs,  Prev: Expanding Abbrevs,  Up: Abbrevs
 
-Examining and Editing Abbrevs
-=============================
+23.3 Examining and Editing Abbrevs
+==================================
 
 `M-x list-abbrevs'
      Print a list of all abbrev definitions.
@@ -1146,8 +1325,8 @@ displays it in another window.
 
 File: xemacs.info,  Node: Saving Abbrevs,  Next: Dynamic Abbrevs,  Prev: Editing Abbrevs,  Up: Abbrevs
 
-Saving Abbrevs
-==============
+23.4 Saving Abbrevs
+===================
 
 These commands allow you to keep abbrev definitions between editing
 sessions.
@@ -1194,8 +1373,8 @@ the entire current buffer and defines abbrevs accordingly.
 
 File: xemacs.info,  Node: Dynamic Abbrevs,  Prev: Saving Abbrevs,  Up: Abbrevs
 
-Dynamic Abbrev Expansion
-========================
+23.5 Dynamic Abbrev Expansion
+=============================
 
 The abbrev facility described above operates automatically as you insert
 text, but all abbrevs must be defined explicitly.  By contrast,
@@ -1223,8 +1402,8 @@ it has a definition as an ordinary abbrev.
 
 File: xemacs.info,  Node: Picture,  Next: Sending Mail,  Prev: Abbrevs,  Up: Top
 
-Editing Pictures
-****************
+24 Editing Pictures
+*******************
 
 If you want to create a picture made out of text characters (for
 example, a picture of the division of a register into fields, as a
@@ -1276,8 +1455,8 @@ exists and is non-`nil'.
 
 File: xemacs.info,  Node: Basic Picture,  Next: Insert in Picture,  Prev: Picture,  Up: Picture
 
-Basic Editing in Picture Mode
-=============================
+24.1 Basic Editing in Picture Mode
+==================================
 
 Most keys do the same thing in Picture mode that they usually do, but do
 it in a quarter-plane style.  For example, `C-f' is rebound to run
@@ -1322,8 +1501,8 @@ Picture::).
 
 File: xemacs.info,  Node: Insert in Picture,  Next: Tabs in Picture,  Prev: Basic Picture,  Up: Picture
 
-Controlling Motion After Insert
-===============================
+24.2 Controlling Motion After Insert
+====================================
 
 Since "self-inserting" characters just overwrite and move point in
 Picture mode, there is no essential restriction on how point should be
@@ -1367,8 +1546,8 @@ direction as motion after "insertion" currently does, while `C-c C-b'
 
 File: xemacs.info,  Node: Tabs in Picture,  Next: Rectangles in Picture,  Prev: Insert in Picture,  Up: Picture
 
-Picture Mode Tabs
-=================
+24.3 Picture Mode Tabs
+======================
 
 Two kinds of tab-like action are provided in Picture mode.
 Context-based tabbing is done with `M-<TAB>' (`picture-tab-search').
@@ -1397,8 +1576,8 @@ is more convenient in the cases where it is sufficient.
 
 File: xemacs.info,  Node: Rectangles in Picture,  Prev: Tabs in Picture,  Up: Picture
 
-Picture Mode Rectangle Commands
-===============================
+24.4 Picture Mode Rectangle Commands
+====================================
 
 Picture mode defines commands for working on rectangular pieces of the
 text in ways that fit with the quarter-plane model.  The standard
@@ -1445,8 +1624,8 @@ highlighted as a rectangle.
 
 File: xemacs.info,  Node: Sending Mail,  Next: Reading Mail,  Prev: Picture,  Up: Top
 
-Sending Mail
-************
+25 Sending Mail
+***************
 
 To send a message in Emacs, start by typing the command (`C-x m') to
 select and initialize the `*mail*' buffer.  You can then edit the text
@@ -1490,8 +1669,8 @@ it.
 
 File: xemacs.info,  Node: Mail Format,  Next: Mail Headers,  Prev: Sending Mail,  Up: Sending Mail
 
-The Format of the Mail Buffer
-=============================
+25.1 The Format of the Mail Buffer
+==================================
 
 In addition to the "text" or contents, a message has "header fields",
 which say who sent it, when, to whom, why, and so on.  Some header
@@ -1526,8 +1705,8 @@ buffer might look like.
 
 File: xemacs.info,  Node: Mail Headers,  Next: Mail Mode,  Prev: Mail Format,  Up: Sending Mail
 
-Mail Header Fields
-==================
+25.2 Mail Header Fields
+=======================
 
 There are several header fields you can use in the `*mail*' buffer.
 Each header field starts with a field name at the beginning of a line,
@@ -1671,8 +1850,8 @@ field, every message is written into that file when it is sent.
 
 File: xemacs.info,  Node: Mail Mode,  Prev: Mail Headers,  Up: Sending Mail
 
-Mail Mode
-=========
+25.3 Mail Mode
+==============
 
 The major mode used in the `*mail*' buffer is Mail mode.  Mail mode is
 similar to Text mode, but several commands are provided on the `C-c'
@@ -1761,8 +1940,8 @@ the value of `mail-mode-hook' if that is not void or `nil'.
 
 File: xemacs.info,  Node: Reading Mail,  Next: Calendar/Diary,  Prev: Sending Mail,  Up: Top
 
-Reading Mail
-************
+26 Reading Mail
+***************
 
 XEmacs provides several mail-reading packages.  Each one comes with its
 own manual, which is included in each package.
@@ -1799,8 +1978,8 @@ using Gnus, VM, or MH-E instead.
 
 File: xemacs.info,  Node: Calendar/Diary,  Next: Sorting,  Prev: Reading Mail,  Up: Top
 
-Calendar Mode and the Diary
-===========================
+26.1 Calendar Mode and the Diary
+================================
 
 Emacs provides the functions of a desk calendar, with a diary of
 planned or past events.  To enter the calendar, type `M-x calendar';
@@ -1834,8 +2013,8 @@ diary.
 
 File: xemacs.info,  Node: Calendar Motion,  Next: Scroll Calendar,  Prev: Calendar/Diary,  Up: Calendar/Diary
 
-Movement in the Calendar
-------------------------
+26.1.1 Movement in the Calendar
+-------------------------------
 
 Calendar mode lets you move through the calendar in logical units of
 time such as days, weeks, months, and years.  If you move outside the
@@ -1855,8 +2034,8 @@ scroll the calendar.
 
 File: xemacs.info,  Node: Calendar Unit Motion,  Next: Move to Beginning or End,  Prev: Calendar Motion,  Up: Calendar Motion
 
-Motion by Integral Days, Weeks, Months, Years
-.............................................
+26.1.1.1 Motion by Integral Days, Weeks, Months, Years
+......................................................
 
 The commands for movement in the calendar buffer parallel the commands
 for movement in text.  You can move forward and backward by days,
@@ -1915,8 +2094,8 @@ arguments in Calendar mode even without the Meta modifier.  For example,
 
 File: xemacs.info,  Node: Move to Beginning or End,  Next: Specified Dates,  Prev: Calendar Unit Motion,  Up: Calendar Motion
 
-Beginning or End of Week, Month or Year
-.......................................
+26.1.1.2 Beginning or End of Week, Month or Year
+................................................
 
 A week (or month, or year) is not just a quantity of days; we think of
 weeks (months, years) as starting on particular dates.  So Calendar mode
@@ -1924,19 +2103,19 @@ provides commands to move to the beginning or end of a week, month or
 year:
 
 `C-a'
-     Move point to start of week (`calendar-beginning-of-week').
+     Move point to start of week (`calendar-beginning-of-week').  
 
 `C-e'
-     Move point to end of week (`calendar-end-of-week').
+     Move point to end of week (`calendar-end-of-week').  
 
 `M-a'
-     Move point to start of month (`calendar-beginning-of-month').
+     Move point to start of month (`calendar-beginning-of-month').  
 
 `M-e'
-     Move point to end of month (`calendar-end-of-month').
+     Move point to end of month (`calendar-end-of-month').  
 
 `M-<'
-     Move point to start of year (`calendar-beginning-of-year').
+     Move point to start of year (`calendar-beginning-of-year').  
 
 `M->'
      Move point to end of year (`calendar-end-of-year').
@@ -1951,8 +2130,8 @@ instead, set the variable `calendar-week-start-day' to 1.
 
 File: xemacs.info,  Node: Specified Dates,  Prev: Move to Beginning or End,  Up: Calendar Motion
 
-Particular Dates
-................
+26.1.1.3 Particular Dates
+.........................
 
 Calendar mode provides commands for moving to a particular date
 specified in various ways.
@@ -1979,8 +2158,8 @@ centers the three-month calendar around that month.
 
 File: xemacs.info,  Node: Scroll Calendar,  Next: Mark and Region,  Prev: Calendar Motion,  Up: Calendar/Diary
 
-Scrolling the Calendar through Time
------------------------------------
+26.1.2 Scrolling the Calendar through Time
+------------------------------------------
 
 The calendar display scrolls automatically through time when you move
 out of the visible portion.  You can also scroll it manually.  Imagine
@@ -2025,8 +2204,8 @@ M-v' scrolls the calendar backward by a year.
 
 File: xemacs.info,  Node: Mark and Region,  Next: General Calendar,  Prev: Scroll Calendar,  Up: Calendar/Diary
 
-The Mark and the Region
------------------------
+26.1.3 The Mark and the Region
+------------------------------
 
 The concept of the mark applies to the calendar just as to any other
 buffer, but it marks a _date_, not a _position_ in the buffer.  The
@@ -2071,8 +2250,8 @@ one by one.
 
 File: xemacs.info,  Node: General Calendar,  Next: LaTeX Calendar,  Prev: Mark and Region,  Up: Calendar/Diary
 
-Miscellaneous Calendar Commands
--------------------------------
+26.1.4 Miscellaneous Calendar Commands
+--------------------------------------
 
 `p d'
      Display day-in-year (`calendar-print-day-of-year').
@@ -2117,8 +2296,8 @@ iconifies that frame.)
 
 File: xemacs.info,  Node: LaTeX Calendar,  Next: Holidays,  Prev: General Calendar,  Up: Calendar/Diary
 
-LaTeX Calendar
-==============
+26.2 LaTeX Calendar
+===================
 
 The Calendar LaTeX commands produce a buffer of LaTeX code that prints
 as a calendar.  Depending on the command you use, the printed calendar
@@ -2181,8 +2360,8 @@ entries are included also (in weekly and monthly calendars only).
 
 File: xemacs.info,  Node: Holidays,  Next: Sunrise/Sunset,  Prev: LaTeX Calendar,  Up: Calendar/Diary
 
-Holidays
---------
+26.2.1 Holidays
+---------------
 
 The Emacs calendar knows about all major and many minor holidays, and
 can display them.
@@ -2258,8 +2437,8 @@ definition, even though it is wrong for some prior years.
 
 File: xemacs.info,  Node: Sunrise/Sunset,  Next: Lunar Phases,  Prev: Holidays,  Up: Calendar/Diary
 
-Times of Sunrise and Sunset
----------------------------
+26.2.2 Times of Sunrise and Sunset
+----------------------------------
 
 Special calendar commands can tell you, to within a minute or two, the
 times of sunrise and sunset for any date.
@@ -2329,8 +2508,8 @@ machine.  *Note Init File::.
 
 File: xemacs.info,  Node: Lunar Phases,  Next: Other Calendars,  Prev: Sunrise/Sunset,  Up: Calendar/Diary
 
-Phases of the Moon
-------------------
+26.2.3 Phases of the Moon
+-------------------------
 
 These calendar commands display the dates and times of the phases of
 the moon (new moon, first quarter, full moon, last quarter).  This
@@ -2363,8 +2542,8 @@ the variable `calendar-time-zone' is void, Coordinated Universal Time
 
 File: xemacs.info,  Node: Other Calendars,  Next: Calendar Systems,  Prev: Lunar Phases,  Up: Calendar/Diary
 
-Conversion To and From Other Calendars
---------------------------------------
+26.2.4 Conversion To and From Other Calendars
+---------------------------------------------
 
 The Emacs calendar displayed is _always_ the Gregorian calendar,
 sometimes called the "new style" calendar, which is used in most of the
@@ -2395,8 +2574,8 @@ Emacs "prints' the equivalent date in the echo area.
 
 File: xemacs.info,  Node: Calendar Systems,  Next: To Other Calendar,  Prev: Other Calendars,  Up: Other Calendars
 
-Supported Calendar Systems
-==========================
+26.3 Supported Calendar Systems
+===============================
 
 The ISO commercial calendar is used largely in Europe.
 
@@ -2456,55 +2635,55 @@ repeated in a cycle of sixty.
 
 File: xemacs.info,  Node: To Other Calendar,  Next: From Other Calendar,  Prev: Calendar Systems,  Up: Other Calendars
 
-Converting To Other Calendars
-=============================
+26.4 Converting To Other Calendars
+==================================
 
 The following commands describe the selected date (the date at point)
 in various other calendar systems:
 
 `Button2  Other Calendars'
      Display the date that you click on, expressed in various other
-     calendars.
+     calendars.  
 
 `p c'
      Display ISO commercial calendar equivalent for selected day
-     (`calendar-print-iso-date').
+     (`calendar-print-iso-date').  
 
 `p j'
      Display Julian date for selected day
-     (`calendar-print-julian-date').
+     (`calendar-print-julian-date').  
 
 `p a'
      Display astronomical (Julian) day number for selected day
-     (`calendar-print-astro-day-number').
+     (`calendar-print-astro-day-number').  
 
 `p h'
      Display Hebrew date for selected day
-     (`calendar-print-hebrew-date').
+     (`calendar-print-hebrew-date').  
 
 `p i'
      Display Islamic date for selected day
-     (`calendar-print-islamic-date').
+     (`calendar-print-islamic-date').  
 
 `p f'
      Display French Revolutionary date for selected day
-     (`calendar-print-french-date').
+     (`calendar-print-french-date').  
 
 `p C'
      Display Chinese date for selected day
-     (`calendar-print-chinese-date').
+     (`calendar-print-chinese-date').  
 
 `p k'
      Display Coptic date for selected day
-     (`calendar-print-coptic-date').
+     (`calendar-print-coptic-date').  
 
 `p e'
      Display Ethiopic date for selected day
-     (`calendar-print-ethiopic-date').
+     (`calendar-print-ethiopic-date').  
 
 `p p'
      Display Persian date for selected day
-     (`calendar-print-persian-date').
+     (`calendar-print-persian-date').  
 
 `p m'
      Display Mayan date for selected day (`calendar-print-mayan-date').
@@ -2523,8 +2702,8 @@ the appropriate keys.  The `p' is a mnemonic for "print" since Emacs
 
 File: xemacs.info,  Node: From Other Calendar,  Next: Mayan Calendar,  Prev: To Other Calendar,  Up: Other Calendars
 
-Converting From Other Calendars
-===============================
+26.5 Converting From Other Calendars
+====================================
 
 You can use the other supported calendars to specify a date to move to.
 This section describes the commands for doing this using calendars
@@ -2589,8 +2768,8 @@ and then displays the list of yahrzeit dates.
 
 File: xemacs.info,  Node: Mayan Calendar,  Next: Diary,  Prev: From Other Calendar,  Up: Other Calendars
 
-Converting from the Mayan Calendar
-----------------------------------
+26.5.1 Converting from the Mayan Calendar
+-----------------------------------------
 
 Here are the commands to select dates based on the Mayan calendar:
 
@@ -2664,8 +2843,8 @@ you to type a Mayan name, so you don't have to worry about spelling.
 
 File: xemacs.info,  Node: Diary,  Next: Calendar Customization,  Prev: Mayan Calendar,  Up: Calendar/Diary
 
-The Diary
----------
+26.5.2 The Diary
+----------------
 
 The Emacs diary keeps track of appointments or other events on a daily
 basis, in conjunction with the calendar.  To use the diary feature, you
@@ -2707,8 +2886,8 @@ Included Diary Files::).
 
 File: xemacs.info,  Node: Diary Commands,  Next: Format of Diary File,  Prev: Diary,  Up: Diary
 
-Commands Displaying Diary Entries
----------------------------------
+26.5.3 Commands Displaying Diary Entries
+----------------------------------------
 
 Once you have created a `~/diary' file, you can use the calendar to
 view it.  You can also view today's events outside of Calendar mode.
@@ -2790,8 +2969,8 @@ diary-mail-entries'.  A prefix argument specifies how many days
 
 File: xemacs.info,  Node: Format of Diary File,  Next: Date Formats,  Prev: Diary Commands,  Up: Diary
 
-The Diary File
---------------
+26.5.4 The Diary File
+---------------------
 
 Your "diary file" is a file that records events associated with
 particular dates.  The name of the diary file is specified by the
@@ -2850,8 +3029,8 @@ file with `s' (`show-all-diary-entries').
 
 File: xemacs.info,  Node: Date Formats,  Next: Adding to Diary,  Prev: Format of Diary File,  Up: Diary
 
-Date Formats
-------------
+26.5.5 Date Formats
+-------------------
 
 Here are some sample diary entries, illustrating different ways of
 formatting a date.  The examples all show dates in American order
@@ -2903,8 +3082,8 @@ it in full; case is not significant.
 
 File: xemacs.info,  Node: Adding to Diary,  Next: Special Diary Entries,  Prev: Date Formats,  Up: Diary
 
-Commands to Add to the Diary
-----------------------------
+26.5.6 Commands to Add to the Diary
+-----------------------------------
 
 While in the calendar, there are several commands to create diary
 entries:
@@ -2947,8 +3126,8 @@ exiting Emacs.
 
 File: xemacs.info,  Node: Special Diary Entries,  Prev: Adding to Diary,  Up: Diary
 
-Special Diary Entries
----------------------
+26.5.7 Special Diary Entries
+----------------------------
 
 In addition to entries based on calendar dates, the diary file can
 contain "sexp entries" for regular events such as anniversaries.  These
@@ -3068,8 +3247,8 @@ the sexp evaluates to `nil', the entry does _not_ apply to that date.
 
 File: xemacs.info,  Node: Calendar Customization,  Prev: Diary,  Up: Calendar/Diary
 
-Customizing the Calendar and Diary
-----------------------------------
+26.5.8 Customizing the Calendar and Diary
+-----------------------------------------
 
 There are many customizations that you can use to make the calendar and
 diary suit your personal tastes.
@@ -3091,8 +3270,8 @@ diary suit your personal tastes.
 
 File: xemacs.info,  Node: Calendar Customizing,  Next: Holiday Customizing,  Up: Calendar Customization
 
-Customizing the Calendar
-........................
+26.5.8.1 Customizing the Calendar
+.................................
 
 If you set the variable `view-diary-entries-initially' to `t', calling
 up the calendar automatically displays the diary entries for the
@@ -3164,8 +3343,8 @@ current date is _not_ visible in the window.
 
 File: xemacs.info,  Node: Holiday Customizing,  Next: Date Display Format,  Prev: Calendar Customizing,  Up: Calendar Customization
 
-Customizing the Holidays
-........................
+26.5.8.2 Customizing the Holidays
+.................................
 
 Emacs knows about holidays defined by entries on one of several lists.
 You can customize these lists of holidays to your own needs, adding or
@@ -3312,8 +3491,8 @@ window, with descriptive strings, like this:
 
 File: xemacs.info,  Node: Date Display Format,  Next: Time Display Format,  Prev: Holiday Customizing,  Up: Calendar Customization
 
-Date Display Format
-...................
+26.5.8.3 Date Display Format
+............................
 
 You can customize the manner of displaying dates in the diary, in mode
 lines, and in messages by setting `calendar-date-display-form'.  This
@@ -3328,7 +3507,7 @@ while in the European style this value is the default:
 
      ((if dayname (concat dayname ", ")) day " " monthname " " year)
 
-   + The ISO standard date representation is this:
+   +The ISO standard date representation is this:
 
      (year "-" month "-" day)
 
@@ -3339,8 +3518,8 @@ This specifies a typical American format:
 
 File: xemacs.info,  Node: Time Display Format,  Next: Daylight Savings,  Prev: Date Display Format,  Up: Calendar Customization
 
-Time Display Format
-...................
+26.5.8.4 Time Display Format
+............................
 
 The calendar and diary by default display times of day in the
 conventional American style with the hours from 1 through 12, minutes,
@@ -3366,8 +3545,8 @@ defined, and times like `21:07' if they are not.
 
 File: xemacs.info,  Node: Daylight Savings,  Next: Diary Customizing,  Prev: Time Display Format,  Up: Calendar Customization
 
-Daylight Savings Time
-.....................
+26.5.8.5 Daylight Savings Time
+..............................
 
 Emacs understands the difference between standard time and daylight
 savings time--the times given for sunrise, sunset, solstices,
@@ -3437,8 +3616,8 @@ values are 120.
 
 File: xemacs.info,  Node: Diary Customizing,  Next: Hebrew/Islamic Entries,  Prev: Daylight Savings,  Up: Calendar Customization
 
-Customizing the Diary
-.....................
+26.5.8.6 Customizing the Diary
+..............................
 
 Ordinarily, the mode line of the diary buffer window indicates any
 holidays that fall on the date of the diary entries.  The process of
@@ -3530,8 +3709,8 @@ fourth pattern.
 
 File: xemacs.info,  Node: Hebrew/Islamic Entries,  Next: Fancy Diary Display,  Prev: Diary Customizing,  Up: Calendar Customization
 
-Hebrew- and Islamic-Date Diary Entries
-......................................
+26.5.8.7 Hebrew- and Islamic-Date Diary Entries
+...............................................
 
 Your diary file can have entries based on Hebrew or Islamic dates, as
 well as entries based on the world-standard Gregorian calendar.
@@ -3610,8 +3789,8 @@ the diary entry.
 
 File: xemacs.info,  Node: Fancy Diary Display,  Next: Included Diary Files,  Prev: Hebrew/Islamic Entries,  Up: Calendar Customization
 
-Fancy Diary Display
-...................
+26.5.8.8 Fancy Diary Display
+............................
 
 Diary display works by preparing the diary buffer and then running the
 hook `diary-display-hook'.  The default value of this hook
@@ -3653,8 +3832,8 @@ first within each day.
 
 File: xemacs.info,  Node: Included Diary Files,  Next: Sexp Diary Entries,  Prev: Fancy Diary Display,  Up: Calendar Customization
 
-Included Diary Files
-....................
+26.5.8.9 Included Diary Files
+.............................
 
 Fancy diary display also has the ability to process included diary
 files.  This permits a group of people to share a diary file for events
@@ -3677,8 +3856,8 @@ diary file.
 
 File: xemacs.info,  Node: Sexp Diary Entries,  Next: Appt Customizing,  Prev: Included Diary Files,  Up: Calendar Customization
 
-Sexp Entries and the Fancy Diary Display
-........................................
+26.5.8.10 Sexp Entries and the Fancy Diary Display
+..................................................
 
 Sexp diary entries allow you to do more than just have complicated
 conditions under which a diary entry applies.  If you use the fancy
@@ -3818,8 +3997,8 @@ the Hebrew calendar in certain standard ways:
 
 File: xemacs.info,  Node: Appt Customizing,  Prev: Sexp Diary Entries,  Up: Calendar Customization
 
-Customizing Appointment Reminders
-.................................
+26.5.8.11 Customizing Appointment Reminders
+...........................................
 
 You can specify exactly how Emacs reminds you of an appointment, and
 how far in advance it begins doing so, by setting these variables:
@@ -3851,8 +4030,8 @@ how far in advance it begins doing so, by setting these variables:
 
 File: xemacs.info,  Node: Sorting,  Next: Shell,  Prev: Calendar/Diary,  Up: Top
 
-Sorting Text
-============
+26.6 Sorting Text
+=================
 
 XEmacs provides several commands for sorting text in a buffer.  All
 operate on the contents of the region (the text between point and the
@@ -3956,8 +4135,8 @@ Rectangles::.
 
 File: xemacs.info,  Node: Shell,  Next: Narrowing,  Prev: Sorting,  Up: Top
 
-Running Shell Commands from XEmacs
-==================================
+26.7 Running Shell Commands from XEmacs
+=======================================
 
 XEmacs has commands for passing single command lines to inferior shell
 processes; it can also run a shell interactively with input and output
@@ -3993,8 +4172,8 @@ to an XEmacs buffer `*shell*'.
 
 File: xemacs.info,  Node: Single Shell,  Next: Interactive Shell,  Prev: Shell,  Up: Shell
 
-Single Shell Commands
----------------------
+26.7.1 Single Shell Commands
+----------------------------
 
 `M-!' (`shell-command') reads a line of text using the minibuffer and
 creates an inferior shell to execute the line as a command.  Standard
@@ -4026,8 +4205,8 @@ command.
 
 File: xemacs.info,  Node: Interactive Shell,  Next: Shell Mode,  Prev: Single Shell,  Up: Shell
 
-Interactive Inferior Shell
---------------------------
+26.7.2 Interactive Inferior Shell
+---------------------------------
 
 To run a subshell interactively with its typescript in an XEmacs
 buffer, use `M-x shell'.  This creates (or reuses) a buffer named
@@ -4096,8 +4275,8 @@ your input history.  The default is 30.
 
 File: xemacs.info,  Node: Shell Mode,  Next: Terminal emulator,  Prev: Interactive Shell,  Up: Shell
 
-Shell Mode
-----------
+26.7.3 Shell Mode
+-----------------
 
 The shell buffer uses Shell mode, which defines several special keys
 attached to the `C-c' prefix.  They are chosen to resemble the usual
@@ -4170,8 +4349,8 @@ special key bindings of Shell mode:
 
 File: xemacs.info,  Node: Terminal emulator,  Next: Term Mode,  Prev: Shell Mode,  Up: Shell
 
-Interactive Inferior Shell with Terminal Emulator
--------------------------------------------------
+26.7.4 Interactive Inferior Shell with Terminal Emulator
+--------------------------------------------------------
 
 To run a subshell in a terminal emulator, putting its typescript in an
 XEmacs buffer, use `M-x term'.  This creates (or reuses) a buffer named
@@ -4217,8 +4396,8 @@ automatically by bash for version 1.15 and later.
 
 File: xemacs.info,  Node: Term Mode,  Next: Paging in Term,  Prev: Terminal emulator,  Up: Shell
 
-Term Mode
----------
+26.7.5 Term Mode
+----------------
 
 Term uses Term mode, which has two input modes: In line mode, Term
 basically acts like Shell mode.  *Note Shell Mode::.  In Char mode,
@@ -4246,8 +4425,8 @@ the Term escape character, normally `C-c'.
 
 File: xemacs.info,  Node: Paging in Term,  Prev: Term Mode,  Up: Shell
 
-Paging in the terminal emulator
--------------------------------
+26.7.6 Paging in the terminal emulator
+--------------------------------------
 
 Term mode has a pager feature.  When the pager is enabled, term mode
 will pause at the end of each screenful.
@@ -4266,8 +4445,8 @@ interface is similar to the Unix `more' program.
 
 File: xemacs.info,  Node: Narrowing,  Next: Hardcopy,  Prev: Shell,  Up: Top
 
-Narrowing
-=========
+26.8 Narrowing
+==============
 
 "Narrowing" means focusing in on some portion of the buffer, making the
 rest temporarily invisible and inaccessible.  Cancelling the narrowing
@@ -4311,8 +4490,8 @@ buffer you narrowed down.  *Note Position Info::.
 
 File: xemacs.info,  Node: Hardcopy,  Next: Recursive Edit,  Prev: Narrowing,  Up: Top
 
-Hardcopy Output
-===============
+26.9 Hardcopy Output
+====================
 
 The XEmacs commands for making hardcopy derive their names from the
 Unix commands `print' and `lpr'.
@@ -4340,8 +4519,8 @@ example, the value could be `("-Pfoo")' to print on printer `foo'.
 
 File: xemacs.info,  Node: Recursive Edit,  Next: Dissociated Press,  Prev: Hardcopy,  Up: Top
 
-Recursive Editing Levels
-========================
+26.10 Recursive Editing Levels
+==============================
 
 A "recursive edit" is a situation in which you are using XEmacs
 commands to perform arbitrary editing while in the middle of another
@@ -4399,8 +4578,8 @@ was invoked from.
 
 File: xemacs.info,  Node: Dissociated Press,  Next: CONX,  Prev: Recursive Edit,  Up: Top
 
-Dissociated Press
-=================
+26.11 Dissociated Press
+=======================
 
 `M-x dissociated-press' is a command for scrambling a file of text
 either word by word or character by character.  Starting from a buffer
@@ -4448,8 +4627,8 @@ well userenced and properbose.  Have fun.  Your buggestions are welcome.
 
 File: xemacs.info,  Node: CONX,  Next: Amusements,  Prev: Dissociated Press,  Up: Top
 
-CONX
-====
+26.12 CONX
+==========
 
 Besides producing a file of scrambled text with Dissociated Press, you
 can generate random sentences by using CONX.
@@ -4482,8 +4661,8 @@ database, use `M-x conx-init'.
 
 File: xemacs.info,  Node: Amusements,  Next: Emulation,  Prev: CONX,  Up: Top
 
-Other Amusements
-================
+26.13 Other Amusements
+======================
 
 If you are a little bit bored, you can try `M-x hanoi'.  If you are
 considerably bored, give it a numeric argument.  If you are very, very
@@ -4497,8 +4676,8 @@ doctor'.  End each input by typing `RET' twice.
 
 File: xemacs.info,  Node: Emulation,  Next: Customization,  Prev: Amusements,  Up: Top
 
-Emulation
-=========
+26.14 Emulation
+===============
 
 XEmacs can be programmed to emulate (more or less) most other editors.
 Standard facilities can emulate these:
@@ -4545,8 +4724,8 @@ Gosling Emacs
 
 File: xemacs.info,  Node: Customization,  Next: Quitting,  Prev: Emulation,  Up: Top
 
-Customization
-*************
+27 Customization
+****************
 
 This chapter talks about various topics relevant to adapting the
 behavior of Emacs in minor ways.
@@ -4583,8 +4762,8 @@ file to do the customization in each session.  *Note Init File::.
 
 File: xemacs.info,  Node: Minor Modes,  Next: Variables,  Up: Customization
 
-Minor Modes
-===========
+27.1 Minor Modes
+================
 
 Minor modes are options which you can use or not.  For example, Auto
 Fill mode is a minor mode in which <SPC> breaks lines between words as
@@ -4618,8 +4797,8 @@ mode'.  *Note Abbrevs::, for full information.
 
 File: xemacs.info,  Node: Variables,  Next: Keyboard Macros,  Prev: Minor Modes,  Up: Customization
 
-Variables
-=========
+27.2 Variables
+==============
 
 A "variable" is a Lisp symbol which has a value.  Variable names can
 contain any characters, but by convention they are words separated by
@@ -4660,12 +4839,12 @@ from the left margin) to be used by the fill commands (*note Filling::).
 
 File: xemacs.info,  Node: Examining,  Next: Easy Customization,  Up: Variables
 
-Examining and Setting Variables
--------------------------------
+27.2.1 Examining and Setting Variables
+--------------------------------------
 
 `C-h v'
 `M-x describe-variable'
-     Print the value and documentation of a variable.
+     Print the value and documentation of a variable.  
 
 `M-x set-variable'
      Change the value of a variable.
@@ -4680,7 +4859,7 @@ documentation of the variable.
 prints something like:
 
      fill-column's value is 75
-     
+
      Documentation:
      *Column beyond which automatic line-wrapping should happen.
      Automatically becomes local when set in any fashion.
@@ -4705,8 +4884,8 @@ except where explicitly stated, affects only the current Emacs session.
 
 File: xemacs.info,  Node: Easy Customization,  Next: Edit Options,  Prev: Examining,  Up: Variables
 
-Easy Customization Interface
-----------------------------
+27.2.2 Easy Customization Interface
+-----------------------------------
 
 A convenient way to find the user option variables that you want to
 change, and then change them, is with `M-x customize' (or use a
@@ -4729,8 +4908,8 @@ are adding the rest.)
 
 File: xemacs.info,  Node: Customization Groups,  Next: Changing an Option,  Up: Easy Customization
 
-Customization Groups
-....................
+27.2.2.1 Customization Groups
+.............................
 
 For customization purposes, user options are organized into "groups" to
 help you find them.  Groups are collected into bigger groups, all the
@@ -4744,15 +4923,15 @@ immediately under it.  It looks like this, in part:
            [State]: visible group members are all at standard settings.
         Customization of the One True Editor.
         See also [Manual].
-     
+
       [Open] Editing group
      Basic text editing facilities.
-     
+
       [Open] External group
      Interfacing to external utilities.
-     
+
      MORE SECOND-LEVEL GROUPS
-     
+
      \- Emacs group end ------------------------------------------------/
 
 This says that the buffer displays the contents of the `Emacs' group.
@@ -4795,8 +4974,8 @@ to set values in it.
 
 File: xemacs.info,  Node: Changing an Option,  Next: Face Customization,  Prev: Customization Groups,  Up: Easy Customization
 
-Changing an Option
-..................
+27.2.2.2 Changing an Option
+...........................
 
 Here is an example of what a user option looks like in the
 customization buffer:
@@ -4936,8 +5115,8 @@ in the buffer that could meaningfully be set, saved or reset.
 
 File: xemacs.info,  Node: Face Customization,  Next: Specific Customization,  Prev: Changing an Option,  Up: Easy Customization
 
-Customizing Faces
-.................
+27.2.2.3 Customizing Faces
+..........................
 
 In addition to user options, some customization groups also include
 faces.  When you show the contents of a group, both the user options and
@@ -4980,8 +5159,8 @@ from invoking `[State]'.
 
 File: xemacs.info,  Node: Specific Customization,  Prev: Face Customization,  Up: Easy Customization
 
-Customizing Specific Items
-..........................
+27.2.2.4 Customizing Specific Items
+...................................
 
 Instead of finding the options you want to change by moving down
 through the structure of groups, you can specify the particular option,
@@ -5040,8 +5219,8 @@ you have set but not saved.
 
 File: xemacs.info,  Node: Edit Options,  Next: Locals,  Prev: Easy Customization,  Up: Variables
 
-Editing Variable Values
------------------------
+27.2.3 Editing Variable Values
+------------------------------
 
 `M-x list-options'
      Display a buffer listing names, values, and documentation of all
@@ -5093,8 +5272,8 @@ its value:
 
 File: xemacs.info,  Node: Locals,  Next: File Variables,  Prev: Edit Options,  Up: Variables
 
-Local Variables
----------------
+27.2.4 Local Variables
+----------------------
 
 `M-x make-local-variable'
      Make a variable have a local value in the current buffer.
@@ -5168,8 +5347,8 @@ explicitly, as in the case of:
 
 File: xemacs.info,  Node: File Variables,  Prev: Locals,  Up: Variables
 
-Local Variables in Files
-------------------------
+27.2.5 Local Variables in Files
+-------------------------------
 
 A file can contain a "local variables list", which specifies the values
 to use for certain Emacs variables when that file is edited.  Visiting
@@ -5262,8 +5441,8 @@ ignores this variable.
 
 File: xemacs.info,  Node: Keyboard Macros,  Next: Key Bindings,  Prev: Variables,  Up: Customization
 
-Keyboard Macros
-===============
+27.3 Keyboard Macros
+====================
 
 A "keyboard macro" is a command defined by the user to abbreviate a
 sequence of keys.  For example, if you discover that you are about to
@@ -5319,8 +5498,8 @@ commands again by invoking the macro.
 
 File: xemacs.info,  Node: Basic Kbd Macro,  Next: Save Kbd Macro,  Up: Keyboard Macros
 
-Basic Use
----------
+27.3.1 Basic Use
+----------------
 
 To start defining a keyboard macro, type `C-x (' (`start-kbd-macro').
 From then on, anything you type continues to be executed, but also
@@ -5363,8 +5542,8 @@ defined.
 
 File: xemacs.info,  Node: Save Kbd Macro,  Next: Kbd Macro Query,  Prev: Basic Kbd Macro,  Up: Keyboard Macros
 
-Naming and Saving Keyboard Macros
----------------------------------
+27.3.2 Naming and Saving Keyboard Macros
+----------------------------------------
 
 To save a keyboard macro for longer than until you define the next one,
 you must give it a name using `M-x name-last-kbd-macro'.  This reads a
@@ -5397,8 +5576,8 @@ you load the file.
 
 File: xemacs.info,  Node: Kbd Macro Query,  Prev: Save Kbd Macro,  Up: Keyboard Macros
 
-Executing Macros With Variations
---------------------------------
+27.3.3 Executing Macros With Variations
+---------------------------------------
 
 You can use `C-x q' (`kbd-macro-query'), to get an effect similar to
 that of `query-replace'.  The macro asks you  each time whether to make
@@ -5432,11 +5611,11 @@ particularized editing.  *Note Recursive Edit::.
 
 File: xemacs.info,  Node: Key Bindings,  Next: Syntax,  Prev: Keyboard Macros,  Up: Customization
 
-Customizing Key Bindings
-========================
+27.4 Customizing Key Bindings
+=============================
 
 This section deals with the "keymaps" that define the bindings between
-keys and functions, and shows how you can customize these bindings.
+keys and functions, and shows how you can customize these bindings.  
 
    A command is a Lisp function whose definition provides for
 interactive use.  Like every Lisp function, a command has a function
@@ -5455,8 +5634,8 @@ letters and hyphens.
 
 File: xemacs.info,  Node: Keymaps,  Next: Rebinding,  Up: Key Bindings
 
-Keymaps
--------
+27.4.1 Keymaps
+--------------
 
 The bindings between characters and command functions are recorded in
 data structures called "keymaps".  Emacs has many of these.  One, the
@@ -5538,8 +5717,8 @@ for `C-x' commands is used.
 
 File: xemacs.info,  Node: Rebinding,  Next: Disabling,  Prev: Keymaps,  Up: Key Bindings
 
-Changing Key Bindings
----------------------
+27.4.2 Changing Key Bindings
+----------------------------
 
 You can redefine an Emacs key by changing its entry in a keymap.  You
 can change the global keymap, in which case the change is effective in
@@ -5556,8 +5735,8 @@ local map, which affects all buffers using the same major mode.
 
 File: xemacs.info,  Node: Interactive Rebinding,  Next: Programmatic Rebinding,  Up: Rebinding
 
-Changing Key Bindings Interactively
-...................................
+27.4.2.1 Changing Key Bindings Interactively
+............................................
 
 `M-x global-set-key <RET> KEY CMD <RET>'
      Defines KEY globally to run CMD.
@@ -5609,8 +5788,8 @@ old definition to have the new definition instead.
 
 File: xemacs.info,  Node: Programmatic Rebinding,  Next: Key Bindings Using Strings,  Prev: Interactive Rebinding,  Up: Rebinding
 
-Changing Key Bindings Programmatically
-......................................
+27.4.2.2 Changing Key Bindings Programmatically
+...............................................
 
 You can use the functions `global-set-key' and `define-key' to rebind
 keys under program control.
@@ -5674,16 +5853,16 @@ abbreviation:
 
      ;;;  Bind `my-command' to <f1>
      (global-set-key 'f1 'my-command)
-     
+
      ;;;  Bind `my-command' to Shift-f1
      (global-set-key '(shift f1) 'my-command)
-     
+
      ;;; Bind `my-command' to C-c Shift-f1
      (global-set-key '[(control c) (shift f1)] 'my-command)
-     
+
      ;;; Bind `my-command' to the middle mouse button.
      (global-set-key 'button2 'my-command)
-     
+
      ;;; Bind `my-command' to <META> <CTL> <Right Mouse Button>
      ;;; in the keymap that is in force when you are running `dired'.
      (define-key dired-mode-map '(meta control button3) 'my-command)
@@ -5691,8 +5870,8 @@ abbreviation:
 
 File: xemacs.info,  Node: Key Bindings Using Strings,  Prev: Programmatic Rebinding,  Up: Rebinding
 
-Using Strings for Changing Key Bindings
-.......................................
+27.4.2.3 Using Strings for Changing Key Bindings
+................................................
 
 For backward compatibility, you can still use strings to represent key
 sequences.  Thus you can use commands like the following:
@@ -5737,8 +5916,8 @@ fashion:
 
 File: xemacs.info,  Node: Disabling,  Prev: Rebinding,  Up: Key Bindings
 
-Disabling Commands
-------------------
+27.4.3 Disabling Commands
+-------------------------
 
 Disabling a command marks it as requiring confirmation before it can be
 executed.  The purpose of disabling a command is to prevent beginning
@@ -5781,8 +5960,8 @@ programs.
 
 File: xemacs.info,  Node: Syntax,  Next: Init File,  Prev: Key Bindings,  Up: Customization
 
-The Syntax Table
-================
+27.5 The Syntax Table
+=====================
 
 All the Emacs commands which parse words or balance parentheses are
 controlled by the "syntax table".  The syntax table specifies which
@@ -5802,8 +5981,8 @@ of length 256 whose elements are numbers.
 
 File: xemacs.info,  Node: Syntax Entry,  Next: Syntax Change,  Up: Syntax
 
-Information About Each Character
---------------------------------
+27.5.1 Information About Each Character
+---------------------------------------
 
 The syntax table entry for a character is a number that encodes six
 pieces of information:
@@ -5909,8 +6088,8 @@ comment terminator is a newline but not every newline ends a comment.
 
 File: xemacs.info,  Node: Syntax Change,  Prev: Syntax Entry,  Up: Syntax
 
-Altering Syntax Information
----------------------------
+27.5.2 Altering Syntax Information
+----------------------------------
 
 It is possible to alter a character's syntax table entry by storing a
 new number in the appropriate element of the syntax table, but it would
@@ -5963,8 +6142,8 @@ some English to explain that string if necessary.
 
 File: xemacs.info,  Node: Init File,  Next: Audible Bell,  Prev: Syntax,  Up: Customization
 
-The Init File
-=============
+27.6 The Init File
+==================
 
 When you start Emacs, it normally loads either `.xemacs/init.el' or the
 file `.emacs' (whichever comes first) in your home directory.  This
@@ -5998,8 +6177,8 @@ byte-compile it to `~/.xemacs/init.elc' or `~/.emacs.elc'.
 
 File: xemacs.info,  Node: Init Syntax,  Next: Init Examples,  Up: Init File
 
-Init File Syntax
-----------------
+27.6.1 Init File Syntax
+-----------------------
 
 The init file contains one or more Lisp function call expressions.
 Each consists of a function name followed by arguments, all surrounded
@@ -6059,8 +6238,8 @@ Other Lisp objects
 
 File: xemacs.info,  Node: Init Examples,  Next: Terminal Init,  Prev: Init Syntax,  Up: Init File
 
-Init File Examples
-------------------
+27.6.2 Init File Examples
+-------------------------
 
 Here are some examples of doing certain commonly desired things with
 Lisp expressions:
@@ -6180,8 +6359,8 @@ Lisp expressions:
 
 File: xemacs.info,  Node: Terminal Init,  Prev: Init Examples,  Up: Init File
 
-Terminal-Specific Initialization
---------------------------------
+27.6.3 Terminal-Specific Initialization
+---------------------------------------
 
 Each terminal type can have a Lisp library to be loaded into Emacs when
 it is run on that type of terminal.  For a terminal type named
@@ -6216,8 +6395,8 @@ initializations for terminals that do not have a library.
 
 File: xemacs.info,  Node: Audible Bell,  Next: Faces,  Prev: Init File,  Up: Customization
 
-Changing the Bell Sound
-=======================
+27.7 Changing the Bell Sound
+============================
 
 You can now change how the audible bell sounds using the variable
 `sound-alist'.
@@ -6228,7 +6407,7 @@ the symbols, the associated sound data is played instead of the
 standard beep.  This only works if you are logged in on the console of a
 machine with audio hardware. To listen to a sound of the provided type,
 call the function `play-sound' with the argument SOUND. You can also
-set the volume of the sound with the optional argument VOLUME.
+set the volume of the sound with the optional argument VOLUME.  
 
    Each element of `sound-alist' is a list describing a sound.  The
 first element of the list is the name of the sound being defined.
@@ -6312,8 +6491,8 @@ kernel of Emacs uses.
 
 File: xemacs.info,  Node: Faces,  Next: Frame Components,  Prev: Audible Bell,  Up: Customization
 
-Faces
-=====
+27.8 Faces
+==========
 
 XEmacs has objects called extents and faces.  An "extent" is a region
 of text and a "face" is a collection of textual attributes, such as
@@ -6326,8 +6505,8 @@ its buffer is viewed from a different X window.
    The display attributes of faces may be specified either in Lisp or
 through the X resource manager.
 
-Customizing Faces
------------------
+27.8.1 Customizing Faces
+------------------------
 
 You can change the face of an extent with the functions in this
 section.  All the functions prompt for a FACE as an argument; use
@@ -6450,8 +6629,8 @@ otherwise, it is changed in all frames.
 
 File: xemacs.info,  Node: Frame Components,  Next: X Resources,  Prev: Faces,  Up: Customization
 
-Frame Components
-================
+27.9 Frame Components
+=====================
 
 You can control the presence and position of most frame components, such
 as the menubar, toolbars, and gutters.
@@ -6463,8 +6642,8 @@ Intro, and *Note Gutter Intro: (lispref)Gutter Intro.
 
 File: xemacs.info,  Node: X Resources,  Prev: Frame Components,  Up: Customization
 
-X Resources
-===========
+27.10 X Resources
+=================
 
 Historically, XEmacs has used the X resource application class `Emacs'
 for its resources.  Unfortunately, GNU Emacs uses the same application
@@ -6487,12 +6666,10 @@ name passed to the `make-frame' function.
    You can specify resources for all frames with the syntax:
 
      Emacs*parameter: value
-
-or
+   or
 
      Emacs*EmacsFrame.parameter:value
-
-You can specify resources for a particular frame with the syntax:
+   You can specify resources for a particular frame with the syntax:
 
      Emacs*FRAME-NAME.parameter: value
 
@@ -6508,23 +6685,20 @@ You can specify resources for a particular frame with the syntax:
 
 File: xemacs.info,  Node: Geometry Resources,  Next: Iconic Resources,  Up: X Resources
 
-Geometry Resources
-------------------
+27.10.1 Geometry Resources
+--------------------------
 
 To make the default size of all Emacs frames be 80 columns by 55 lines,
 do this:
 
      Emacs*EmacsFrame.geometry: 80x55
-
-To set the geometry of a particular frame named `fred', do this:
+   To set the geometry of a particular frame named `fred', do this:
 
      Emacs*fred.geometry: 80x55
-
-Important! Do not use the following syntax:
+   Important! Do not use the following syntax:
 
      Emacs*geometry: 80x55
-
-You should never use `*geometry' with any X application. It does not
+   You should never use `*geometry' with any X application. It does not
 say "make the geometry of Emacs be 80 columns by 55 lines."  It really
 says, "make Emacs and all subwindows thereof be 80x55 in whatever units
 they care to measure in."  In particular, that is both telling the
@@ -6535,10 +6709,9 @@ to be 80x55 pixels, which is surely not what you want.
 the default size of all Emacs frames to 80 columns by 55 lines):
 
      Emacs.geometry: 80x55
-
-since that is the syntax used with most other applications (since most
-other applications have only one top-level window, unlike Emacs).  In
-general, however, the top-level shell (the unmapped ApplicationShell
+   since that is the syntax used with most other applications (since
+most other applications have only one top-level window, unlike Emacs).
+In general, however, the top-level shell (the unmapped ApplicationShell
 widget named `Emacs' that is the parent of the shell widgets that
 actually manage the individual frames) does not have any interesting
 resources on it, and you should set the resources on the frames instead.
@@ -6572,8 +6745,8 @@ frames created in various ways.
 
 File: xemacs.info,  Node: Iconic Resources,  Next: Resource List,  Prev: Geometry Resources,  Up: X Resources
 
-Iconic Resources
-----------------
+27.10.2 Iconic Resources
+------------------------
 
 Analogous to `-geometry', the `-iconic' command-line option sets the
 iconic flag of the ApplicationShell (`Emacs.iconic') and always applies
@@ -6584,8 +6757,8 @@ the `Emacs*FRAME-NAME.iconic' resource.
 
 File: xemacs.info,  Node: Resource List,  Next: Face Resources,  Prev: Iconic Resources,  Up: X Resources
 
-Resource List
--------------
+27.10.3 Resource List
+---------------------
 
 Emacs frames accept the following resources:
 
@@ -6729,18 +6902,16 @@ Emacs frames accept the following resources:
 
 File: xemacs.info,  Node: Face Resources,  Next: Widgets,  Prev: Resource List,  Up: X Resources
 
-Face Resources
---------------
+27.10.4 Face Resources
+----------------------
 
 The attributes of faces are also per-frame. They can be specified as:
 
      Emacs.FACE_NAME.parameter: value
-
-or
+   or
 
      Emacs*FRAME_NAME.FACE_NAME.parameter: value
-
-Faces accept the following resources:
+   Faces accept the following resources:
 
 `attributeFont' (class `AttributeFont'): font-name
      The font of this face.
@@ -6822,8 +6993,7 @@ specified the default font using the XLFD (X Logical Font Description)
 format, which looks like
 
      *-courier-medium-r-*-*-*-120-*-*-*-*-*-*
-
-If you use any of the other, less strict font name formats, some of
+   If you use any of the other, less strict font name formats, some of
 which look like
 
      lucidasanstypewriter-12
@@ -6838,8 +7008,8 @@ and `xfontsel(1)'.
 
 File: xemacs.info,  Node: Widgets,  Next: Menubar Resources,  Prev: Face Resources,  Up: X Resources
 
-Widgets
--------
+27.10.5 Widgets
+---------------
 
 There are several structural widgets between the terminal EmacsFrame
 widget and the top level ApplicationShell; the exact names and types of
@@ -6860,8 +7030,8 @@ is generally `Emacs'.
 
 File: xemacs.info,  Node: Menubar Resources,  Prev: Widgets,  Up: X Resources
 
-Menubar Resources
------------------
+27.10.6 Menubar Resources
+-------------------------
 
 As the menubar is implemented as a widget which is not a part of XEmacs
 proper, it does not use the face mechanism for specifying fonts and
@@ -6898,8 +7068,8 @@ are appropriate for the toolkit in use.
 
 File: xemacs.info,  Node: Quitting,  Next: Lossage,  Prev: Customization,  Up: Top
 
-Quitting and Aborting
-=====================
+27.11 Quitting and Aborting
+===========================
 
 `C-g'
      Quit.  Cancel running or partially typed command.
@@ -6964,8 +7134,8 @@ finished executing.  *Note Undo::.
 
 File: xemacs.info,  Node: Lossage,  Next: Bugs,  Prev: Quitting,  Up: Top
 
-Dealing With Emacs Trouble
-==========================
+27.12 Dealing With Emacs Trouble
+================================
 
 This section describes various conditions in which Emacs fails to work,
 and how to recognize them and correct them.
@@ -6983,8 +7153,8 @@ and how to recognize them and correct them.
 
 File: xemacs.info,  Node: Stuck Recursive,  Next: Screen Garbled,  Prev: Lossage,  Up: Lossage
 
-Recursive Editing Levels
-------------------------
+27.12.1 Recursive Editing Levels
+--------------------------------
 
 Recursive editing levels are important and useful features of Emacs, but
 they can seem like malfunctions to the user who does not understand
@@ -7000,8 +7170,8 @@ called getting back to top level.  *Note Recursive Edit::.
 
 File: xemacs.info,  Node: Screen Garbled,  Next: Text Garbled,  Prev: Stuck Recursive,  Up: Lossage
 
-Garbage on the Screen
----------------------
+27.12.2 Garbage on the Screen
+-----------------------------
 
 If the data on the screen looks wrong, the first thing to do is see
 whether the text is actually wrong.  Type `C-l', to redisplay the
@@ -7023,8 +7193,8 @@ that have or lack specific features.
 
 File: xemacs.info,  Node: Text Garbled,  Next: Unasked-for Search,  Prev: Screen Garbled,  Up: Lossage
 
-Garbage in the Text
--------------------
+27.12.3 Garbage in the Text
+---------------------------
 
 If `C-l' shows that the text is wrong, try undoing the changes to it
 using `C-x u' until it gets back to a state you consider correct.  Also
@@ -7039,8 +7209,8 @@ visible again, type `C-x n w'.  *Note Narrowing::.
 
 File: xemacs.info,  Node: Unasked-for Search,  Next: Emergency Escape,  Prev: Text Garbled,  Up: Lossage
 
-Spontaneous Entry to Incremental Search
----------------------------------------
+27.12.4 Spontaneous Entry to Incremental Search
+-----------------------------------------------
 
 If Emacs spontaneously displays `I-search:' at the bottom of the
 screen, it means that the terminal is sending `C-s' and `C-q' according
@@ -7056,8 +7226,8 @@ flow control to be used, until you can get a properly designed terminal.
 
 File: xemacs.info,  Node: Emergency Escape,  Next: Total Frustration,  Prev: Unasked-for Search,  Up: Lossage
 
-Emergency Escape
-----------------
+27.12.5 Emergency Escape
+------------------------
 
 Because at times there have been bugs causing Emacs to loop without
 checking `quit-flag', a special feature causes Emacs to be suspended
@@ -7096,8 +7266,8 @@ kill Emacs or to create another window and run another program.
 
 File: xemacs.info,  Node: Total Frustration,  Prev: Emergency Escape,  Up: Lossage
 
-Help for Total Frustration
---------------------------
+27.12.6 Help for Total Frustration
+----------------------------------
 
 If using Emacs (or something else) becomes terribly frustrating and none
 of the techniques described above solve the problem, Emacs can still
@@ -7111,193 +7281,4 @@ help you.
    The doctor will make you feel better.  Each time you say something to
 the doctor, you must end it by typing <RET> <RET>.  This lets the
 doctor know you are finished.
-
-
-File: xemacs.info,  Node: Bugs,  Prev: Lossage,  Up: Top
-
-Reporting Bugs
-==============
-
-Sometimes you will encounter a bug in Emacs.  Although we cannot promise
-we can or will fix the bug, and we might not even agree that it is a
-bug, we want to hear about bugs you encounter in case we do want to fix
-them.
-
-   To make it possible for us to fix a bug, you must report it.  In
-order to do so effectively, you must know when and how to do it.
-
-When Is There a Bug
--------------------
-
-If Emacs executes an illegal instruction, or dies with an operating
-system error message that indicates a problem in the program (as
-opposed to something like "disk full"), then it is certainly a bug.
-
-   If Emacs updates the display in a way that does not correspond to
-what is in the buffer, then it is certainly a bug.  If a command seems
-to do the wrong thing but the problem corrects itself if you type
-`C-l', it is a case of incorrect display updating.
-
-   Taking forever to complete a command can be a bug, but you must make
-certain that it was really Emacs's fault.  Some commands simply take a
-long time.  Type `C-g' and then `C-h l' to see whether the input Emacs
-received was what you intended to type; if the input was such that you
-KNOW it should have been processed quickly, report a bug.  If you don't
-know whether the command should take a long time, find out by looking
-in the manual or by asking for assistance.
-
-   If a command you are familiar with causes an Emacs error message in a
-case where its usual definition ought to be reasonable, it is probably a
-bug.
-
-   If a command does the wrong thing, that is a bug.  But be sure you
-know for certain what it ought to have done.  If you aren't familiar
-with the command, or don't know for certain how the command is supposed
-to work, then it might actually be working right.  Rather than jumping
-to conclusions, show the problem to someone who knows for certain.
-
-   Finally, a command's intended definition may not be best for editing
-with.  This is a very important sort of problem, but it is also a
-matter of judgment.  Also, it is easy to come to such a conclusion out
-of ignorance of some of the existing features.  It is probably best not
-to complain about such a problem until you have checked the
-documentation in the usual ways, feel confident that you understand it,
-and know for certain that what you want is not available.  If you are
-not sure what the command is supposed to do after a careful reading of
-the manual, check the index and glossary for any terms that may be
-unclear.  If you still do not understand, this indicates a bug in the
-manual.  The manual's job is to make everything clear.  It is just as
-important to report documentation bugs as program bugs.
-
-   If the online documentation string of a function or variable
-disagrees with the manual, one of them must be wrong, so report the bug.
-
-How to Report a Bug
--------------------
-
-When you decide that there is a bug, it is important to report it and to
-report it in a way which is useful.  What is most useful is an exact
-description of what commands you type, starting with the shell command
-to run Emacs, until the problem happens.  Always include the version
-number of Emacs that you are using; type `M-x emacs-version' to print
-this.
-
-   The most important principle in reporting a bug is to report FACTS,
-not hypotheses or categorizations.  It is always easier to report the
-facts, but people seem to prefer to strain to posit explanations and
-report them instead.  If the explanations are based on guesses about
-how Emacs is implemented, they will be useless; we will have to try to
-figure out what the facts must have been to lead to such speculations.
-Sometimes this is impossible.  But in any case, it is unnecessary work
-for us.
-
-   For example, suppose that you type `C-x C-f /glorp/baz.ugh <RET>',
-visiting a file which (you know) happens to be rather large, and Emacs
-prints out `I feel pretty today'.  The best way to report the bug is
-with a sentence like the preceding one, because it gives all the facts
-and nothing but the facts.
-
-   Do not assume that the problem is due to the size of the file and
-say, "When I visit a large file, Emacs prints out `I feel pretty
-today'."  This is what we mean by "guessing explanations".  The problem
-is just as likely to be due to the fact that there is a `z' in the file
-name.  If this is so, then when we got your report, we would try out
-the problem with some "large file", probably with no `z' in its name,
-and not find anything wrong.  There is no way in the world that we
-could guess that we should try visiting a file with a `z' in its name.
-
-   Alternatively, the problem might be due to the fact that the file
-starts with exactly 25 spaces.  For this reason, you should make sure
-that you inform us of the exact contents of any file that is needed to
-reproduce the bug.  What if the problem only occurs when you have typed
-the `C-x a l' command previously?  This is why we ask you to give the
-exact sequence of characters you typed since starting to use Emacs.
-
-   You should not even say "visit a file" instead of `C-x C-f' unless
-you know that it makes no difference which visiting command is used.
-Similarly, rather than saying "if I have three characters on the line,"
-say "after I type `<RET> A B C <RET> C-p'," if that is the way you
-entered the text.
-
-   If you are not in Fundamental mode when the problem occurs, you
-should say what mode you are in.
-
-   If the manifestation of the bug is an Emacs error message, it is
-important to report not just the text of the error message but a
-backtrace showing how the Lisp program in Emacs arrived at the error.
-To make the backtrace, you must execute the Lisp expression `(setq
-debug-on-error t)' before the error happens (that is to say, you must
-execute that expression and then make the bug happen).  This causes the
-Lisp debugger to run (*note Lisp Debug::).  The debugger's backtrace
-can be copied as text into the bug report.  This use of the debugger is
-possible only if you know how to make the bug happen again.  Do note
-the error message the first time the bug happens, so if you can't make
-it happen again, you can report at least that.
-
-   Check whether any programs you have loaded into the Lisp world,
-including your init file, set any variables that may affect the
-functioning of Emacs.  *Note Init File::.  Also, see whether the
-problem happens in a freshly started Emacs without loading your init
-file (start Emacs with the `-q' switch to prevent loading the init
-file).  If the problem does NOT occur then, it is essential that we
-know the contents of any programs that you must load into the Lisp
-world in order to cause the problem to occur.
-
-   If the problem does depend on an init file or other Lisp programs
-that are not part of the standard Emacs system, then you should make
-sure it is not a bug in those programs by complaining to their
-maintainers first.  After they verify that they are using Emacs in a
-way that is supposed to work, they should report the bug.
-
-   If you can tell us a way to cause the problem without visiting any
-files, please do so.  This makes it much easier to debug.  If you do
-need files, make sure you arrange for us to see their exact contents.
-For example, it can often matter whether there are spaces at the ends
-of lines, or a newline after the last line in the buffer (nothing ought
-to care whether the last line is terminated, but tell that to the bugs).
-
-   The easy way to record the input to Emacs precisely is to write a
-dribble file; execute the Lisp expression:
-
-     (open-dribble-file "~/dribble")
-
-using `Meta-<ESC>' or from the `*scratch*' buffer just after starting
-Emacs.  From then on, all Emacs input will be written in the specified
-dribble file until the Emacs process is killed.
-
-   For possible display bugs, it is important to report the terminal
-type (the value of environment variable `TERM'), the complete termcap
-entry for the terminal from `/etc/termcap' (since that file is not
-identical on all machines), and the output that Emacs actually sent to
-the terminal.  The way to collect this output is to execute the Lisp
-expression:
-
-     (open-termscript "~/termscript")
-
-using `Meta-<ESC>' or from the `*scratch*' buffer just after starting
-Emacs.  From then on, all output from Emacs to the terminal will be
-written in the specified termscript file as well, until the Emacs
-process is killed.  If the problem happens when Emacs starts up, put
-this expression into your init file so that the termscript file will be
-open when Emacs displays the screen for the first time.  *Note Init
-File::. Be warned: it is often difficult, and sometimes impossible, to
-fix a terminal-dependent bug without access to a terminal of the type
-that stimulates the bug.
-
-   The newsgroup `comp.emacs.xemacs' may be used for bug reports, other
-discussions and requests for assistance.
-
-   If you don't have access to this newgroup, you can subscribe to the
-mailing list version: the newsgroup is bidirectionally gatewayed into
-the mailing list `xemacs@xemacs.org'.
-
-   To be added or removed from this mailing list, send mail to
-`xemacs-request@xemacs.org'.  Do not send requests for addition to the
-mailing list itself.
-
-   The mailing lists and newsgroups are archived on our anonymous FTP
-server, `ftp.xemacs.org', and at various other archive sites around the
-net. You should also check the `FAQ' in `/pub/xemacs' on our anonymous
-FTP server. It provides some introductory information and help for
-initial configuration problems.
 

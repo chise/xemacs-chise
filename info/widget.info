@@ -1,4 +1,4 @@
-This is ../info/widget.info, produced by makeinfo version 4.6 from
+This is ../info/widget.info, produced by makeinfo version 4.8 from
 widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -137,32 +137,32 @@ the foo field, meaning the field tagged with `Foo'. Here is an example
 form:
 
      Here is some documentation.
-     
+
      Name: My Name     *Choose*: This option
      Address:  Some Place
      In some City
      Some country.
-     
+
      See also _other work_ for more information.
-     
+
      Numbers: count to three below
      [INS] [DEL] One
      [INS] [DEL] Eh, two?
      [INS] [DEL] Five!
      [INS]
-     
+
      Select multiple:
-     
+
      [X] This
      [ ] That
      [X] Thus
-     
+
      Select one:
-     
+
      (*) One
      ( ) Another One.
      ( ) A Final One.
-     
+
      [Apply Form] [Reset Form]
 
    The top level widgets in is example are tagged `Name', `Choose',
@@ -187,7 +187,7 @@ middle of another field is prohibited.
    The editing text fields are highlighted with the `widget-field-face'
 face, making them easy to find.
 
- - Face: widget-field-face
+ -- Face: widget-field-face
      Face used for other editing fields.
 
 Buttons
@@ -198,13 +198,13 @@ Some portions of the buffer have an associated "action", which can be
 called "buttons".  The default commands for activating a button are:
 
 `<RET>'
-      - Command: widget-button-press POS &optional EVENT
+      -- Command: widget-button-press POS &optional EVENT
           Invoke the button at POS, defaulting to point.  If point is
           not located on a button, invoke the binding in
           `widget-global-map' (by default the global map).
 
 `mouse-2'
-      - Command: widget-button-click EVENT
+      -- Command: widget-button-click EVENT
           Invoke the button at the location of the mouse pointer.  If
           the mouse pointer is located in an editable text field,
           invoke the binding in `widget-global-map' (by default the
@@ -247,10 +247,10 @@ _The `[Apply Form]' `[Reset Form]' buttons._
 
    To make them easier to locate, buttons are emphasized in the buffer.
 
- - Face: widget-button-face
+ -- Face: widget-button-face
      Face used for buttons.
 
- - User Option: widget-mouse-face
+ -- User Option: widget-mouse-face
      Face used for buttons when the mouse pointer is above it.
 
 Navigation
@@ -260,11 +260,11 @@ You can use all the normal Emacs commands to move around in a form
 buffer, plus you will have these additional commands:
 
 `<TAB>'
-      - Command: widget-forward &optional count
+      -- Command: widget-forward &optional count
           Move point COUNT buttons or editing fields forward.
 
 `<M-TAB>'
-      - Command: widget-backward &optional count
+      -- Command: widget-backward &optional count
           Move point COUNT buttons or editing fields backward.
 
 
@@ -277,12 +277,12 @@ Here is the code to implement the user interface example (see *Note
 User Interface::).
 
      (require 'widget)
-     
+
      (eval-when-compile
        (require 'wid-edit))
-     
+
      (defvar widget-example-repeat)
-     
+
      (defun widget-example ()
        "Create the widgets from the Widget manual."
        (interactive)
@@ -370,17 +370,17 @@ object.  This object can be queried and manipulated by other widget
 functions, until it is deleted with `widget-delete'.  After the widgets
 have been created, `widget-setup' must be called to enable them.
 
- - Function: widget-create type [ keyword argument ]...
+ -- Function: widget-create type [ keyword argument ]...
      Create and return a widget of type TYPE.  The syntax for the TYPE
      argument is described in *Note Basic Types::.
 
      The keyword arguments can be used to overwrite the keyword
      arguments that are part of TYPE.
 
- - Function: widget-delete widget
+ -- Function: widget-delete widget
      Delete WIDGET and remove it from the buffer.
 
- - Function: widget-setup
+ -- Function: widget-setup
      Setup a buffer to support widgets.
 
      This should be called after creating all the widgets and before
@@ -390,19 +390,19 @@ have been created, `widget-setup' must be called to enable them.
    If you want to insert text outside the widgets in the form, the
 recommended way to do that is with `widget-insert'.
 
- - Function: widget-insert
+ -- Function: widget-insert
      Insert the arguments, either strings or characters, at point.  The
      inserted text will be read only.
 
    There is a standard widget keymap which you might find useful.
 
- - Const: widget-keymap
+ -- Const: widget-keymap
      A keymap with the global keymap as its parent.
      <TAB> and `C-<TAB>' are bound to `widget-forward' and
      `widget-backward', respectively.  `<RET>' and `mouse-2' are bound
      to `widget-button-press' and `widget-button-'.
 
- - Variable: widget-global-map
+ -- Variable: widget-global-map
      Keymap used by `widget-button-press' and `widget-button-click'
      when not on a button.  By default this is `global-map'.
 
@@ -437,10 +437,10 @@ widget specific way.
           By default, the text will be shown in `widget-button-face',
           and surrounded by brackets.
 
-           - User Option: widget-button-prefix
+           -- User Option: widget-button-prefix
                String to prefix buttons.
 
-           - User Option: widget-button-suffix
+           -- User Option: widget-button-suffix
                String to suffix buttons.
 
     `%{'
@@ -549,7 +549,7 @@ widget specific way.
 
      The following predefined function can be used:
 
-      - Function: widget-children-validate widget
+      -- Function: widget-children-validate widget
           All the `:children' of WIDGET must be valid.
 
 `:tab-order'
@@ -578,12 +578,12 @@ widget specific way.
      `checkbox' associated with this item.
 
 
- - User Option: widget-glyph-directory
+ -- User Option: widget-glyph-directory
      Directory where glyphs are found.  Widget will look here for a
      file with the same name as specified for the image, with either a
      `.xpm' (if supported) or `.xbm' extension.
 
- - User Option: widget-glyph-enable
+ -- User Option: widget-glyph-enable
      If non-nil, allow glyphs to appear on displays where they are
      supported.
 
@@ -620,10 +620,10 @@ The value should be a string, which will be inserted in the buffer.
 
    By default the link will be shown in brackets.
 
- - User Option: widget-link-prefix
+ -- User Option: widget-link-prefix
      String to prefix links.
 
- - User Option: widget-link-suffix
+ -- User Option: widget-link-suffix
      String to suffix links.
 
 
@@ -667,10 +667,10 @@ The value should be a string, which will be inserted in the buffer.
 
    By default the tag will be shown in brackets.
 
- - User Option: widget-push-button-prefix
+ -- User Option: widget-push-button-prefix
      String to prefix push buttons.
 
- - User Option: widget-push-button-suffix
+ -- User Option: widget-push-button-suffix
      String to suffix push buttons.
 
 
@@ -805,7 +805,7 @@ any value matching at least one of the specified TYPE arguments.
 widget after it has been created with the function
 `widget-radio-add-item'.
 
- - Function: widget-radio-add-item widget type
+ -- Function: widget-radio-add-item widget type
      Add to `radio-button-choice' widget WIDGET a new radio button item
      of type TYPE.
 
@@ -1031,7 +1031,7 @@ of the composite widgets.
    The VALUE, if present, is used to initialize the `:value' property
 and can be any s-expression.
 
- - Widget: const
+ -- Widget: const
      This will display any valid s-expression in an immutable part of
      the buffer.
 
@@ -1041,10 +1041,10 @@ with a variable or function binding.  The major difference from the
 `const' widget is that they will allow the user to see the variable or
 function documentation for the symbol.
 
- - Widget: variable-item
+ -- Widget: variable-item
      An immutable symbol that is bound as a variable.
 
- - Widget: function-item
+ -- Widget: function-item
      An immutable symbol that is bound as a function.
 
 
@@ -1060,7 +1060,7 @@ to edit it inline in the buffer.
 
      TYPE ::= (sexp [KEYWORD ARGUMENT]...  [ VALUE ])
 
- - Widget: sexp
+ -- Widget: sexp
      This will allow you to edit any valid s-expression in an editable
      buffer field.
 
@@ -1088,16 +1088,16 @@ string widget can only be initialized with a string.
    All the atom widgets take the same keyword arguments as the
 `editable-field' widget.
 
- - Widget: string
+ -- Widget: string
      Allows you to edit a string in an editable field.
 
- - Widget: regexp
+ -- Widget: regexp
      Allows you to edit a regular expression in an editable field.
 
- - Widget: character
+ -- Widget: character
      Allows you to enter a character in an editable field.
 
- - Widget: file
+ -- Widget: file
      Allows you to edit a file name in an editable field.  If you invoke
      the tag button, you can edit the file name in the mini-buffer with
      completion.
@@ -1107,27 +1107,27 @@ string widget can only be initialized with a string.
           If this is set to non-nil, only existing file names will be
           allowed in the minibuffer.
 
- - Widget: directory
+ -- Widget: directory
      Allows you to edit a directory name in an editable field.  Similar
      to the `file' widget.
 
- - Widget: symbol
+ -- Widget: symbol
      Allows you to edit a lisp symbol in an editable field.
 
- - Widget: function
+ -- Widget: function
      Allows you to edit a lambda expression, or a function name with
      completion.
 
- - Widget: variable
+ -- Widget: variable
      Allows you to edit a variable name, with completion.
 
- - Widget: integer
+ -- Widget: integer
      Allows you to edit an integer in an editable field.
 
- - Widget: number
+ -- Widget: number
      Allows you to edit a number in an editable field.
 
- - Widget: boolean
+ -- Widget: boolean
      Allows you to edit a boolean.  In lisp this means a variable which
      is either nil meaning false, or non-nil meaning true.
 
@@ -1144,16 +1144,16 @@ The syntax for the composite are
    Where each COMPONENT must be a widget type.  Each component widget
 will be displayed in the buffer, and be editable to the user.
 
- - Widget: cons
+ -- Widget: cons
      The value of a `cons' widget is a cons-cell where the car is the
      value of the first component and the cdr is the value of the second
      component.  There must be exactly two components.
 
- - Widget: list
+ -- Widget: list
      The value of a `list' widget is a list containing the value of
      each of its component.
 
- - Widget: vector
+ -- Widget: vector
      The value of a `vector' widget is a vector containing the value of
      each of its component.
 
@@ -1179,18 +1179,18 @@ t)' or `(file string string)'.
 certainly hard to implement so instead of confusing you more by trying
 to explain it here, I'll just suggest you meditate over it for a while.
 
- - Widget: choice
+ -- Widget: choice
      Allows you to edit a sexp which may have one of a fixed set of
      types.  It is currently implemented with the `choice-menu' basic
      widget, and has a similar syntax.
 
- - Widget: set
+ -- Widget: set
      Allows you to specify a type which must be a list whose elements
      all belong to given set.  The elements of the list is not
      significant.  This is implemented on top of the `checklist' basic
      widget, and has a similar syntax.
 
- - Widget: repeat
+ -- Widget: repeat
      Allows you to specify a variable length list whose members are all
      of the same type.  Implemented on top of the `editable-list' basic
      widget, and has a similar syntax.
@@ -1204,11 +1204,11 @@ Properties
 You can examine or set the value of a widget by using the widget object
 that was returned by `widget-create'.
 
- - Function: widget-value widget
+ -- Function: widget-value widget
      Return the current value contained in WIDGET.  It is an error to
      call this function on an uninitialized widget.
 
- - Function: widget-value-set widget value
+ -- Function: widget-value-set widget value
      Set the value contained in WIDGET to VALUE.  It is an error to
      call this function with an invalid VALUE.
 
@@ -1223,22 +1223,22 @@ widget objects, for example a reference to the item being edited, it
 can be done with `widget-put' and `widget-get'.  The property names
 must begin with a `:'.
 
- - Function: widget-put widget property value
+ -- Function: widget-put widget property value
      In WIDGET set PROPERTY to VALUE.  PROPERTY should be a symbol,
      while VALUE can be anything.
 
- - Function: widget-get widget property
+ -- Function: widget-get widget property
      In WIDGET return the value for PROPERTY.  PROPERTY should be a
      symbol, the value is what was last set by `widget-put' for
      PROPERTY.
 
- - Function: widget-member widget property
+ -- Function: widget-member widget property
      Non-nil if WIDGET has a value (even nil) for property PROPERTY.
 
    Occasionally it can be useful to know which kind of widget you have,
 i.e. the name of the widget type you gave when the widget was created.
 
- - Function: widget-type widget
+ -- Function: widget-type widget
      Return the name of WIDGET, a symbol.
 
    Widgets can be in two states: active, which means they are
@@ -1250,10 +1250,10 @@ following code:
      (if (widget-apply WIDGET :active)
          (message "Widget is active.")
        (message "Widget is inactive.")
-     
+
      ;; Make WIDGET inactive.
      (widget-apply WIDGET :deactivate)
-     
+
      ;; Make WIDGET active.
      (widget-apply WIDGET :activate)
 
@@ -1284,7 +1284,7 @@ to create a shorthand for more complex widgets.  This includes
 specifying component widgets and new default values for the keyword
 arguments.
 
- - Function: define-widget name class doc &rest args
+ -- Function: define-widget name class doc &rest args
      Define a new widget type named NAME from `class'.
 
      NAME and class should both be symbols, `class' should be one of
@@ -1324,11 +1324,11 @@ new widgets:
 
      The following predefined functions can be used here:
 
-      - Function: widget-types-convert-widget widget
+      -- Function: widget-types-convert-widget widget
           Convert each member of `:args' in WIDGET from a widget type
           to a widget.
 
-      - Function: widget-value-convert-widget widget
+      -- Function: widget-value-convert-widget widget
           Initialize `:value' from `(car :args)' in WIDGET, and reset
           `:args'.
 
@@ -1381,7 +1381,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-children-value-delete widget
+      -- Function: widget-children-value-delete widget
           Delete all `:children' and `:buttons' in WIDGET.
 
 `:value-get'
@@ -1390,7 +1390,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-value-value-get widget
+      -- Function: widget-value-value-get widget
           Return the `:value' property of WIDGET.
 
 `:format-handler'
@@ -1411,7 +1411,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-parent-action widget &optional event
+      -- Function: widget-parent-action widget &optional event
           Tell `:parent' of WIDGET to handle the `:action'.
           Optional EVENT is the event that triggered the action.
 
@@ -1427,7 +1427,7 @@ new widgets:
    If you want to define a new widget from scratch, use the `default'
 widget as its base.
 
- - Widget: default
+ -- Widget: default
      Widget used as a base for other widgets.
 
      It provides most of the functionality that is referred to as "by
@@ -1438,20 +1438,20 @@ widget as its base.
 the TYPE arguments to these functions is described in *Note Basic
 Types::.
 
- - Function: widget-create-child-and-convert parent type &rest args
+ -- Function: widget-create-child-and-convert parent type &rest args
      As a child of PARENT, create a widget with type TYPE and value
      VALUE.  TYPE is copied, and the `:widget-contvert' method is
      applied to the optional keyword arguments from ARGS.
 
- - Function: widget-create-child parent type
+ -- Function: widget-create-child parent type
      As a child of PARENT, create a widget with type TYPE.  TYPE is
      copied, but no conversion method is applied.
 
- - Function: widget-create-child-value parent type value
+ -- Function: widget-create-child-value parent type value
      As a child of PARENT, create a widget with type TYPE and value
      VALUE.  TYPE is copied, but no conversion method is applied.
 
- - Function: widget-convert type &rest args
+ -- Function: widget-convert type &rest args
      Convert TYPE to a widget without inserting it in the buffer.  The
      optional ARGS are additional keyword arguments.
 
@@ -1475,15 +1475,15 @@ programmers who want to examine the content of a widget.  The browser
 shows the value of each keyword, but uses links for certain keywords
 such as `:parent', which avoids printing cyclic structures.
 
- - Command: widget-browse WIDGET
+ -- Command: widget-browse WIDGET
      Create a widget browser for WIDGET.  When called interactively,
      prompt for WIDGET.
 
- - Command: widget-browse-other-window WIDGET
+ -- Command: widget-browse-other-window WIDGET
      Create a widget browser for WIDGET and show it in another window.
      When called interactively, prompt for WIDGET.
 
- - Command: widget-browse-at POS
+ -- Command: widget-browse-at POS
      Create a widget browser for the widget at POS.  When called
      interactively, use the position of point.
 
@@ -1497,11 +1497,11 @@ There is a minor mode for manipulating widgets in major modes that
 doesn't provide any support for widgets themselves.  This is mostly
 intended to be useful for programmers doing experiments.
 
- - Command: widget-minor-mode
+ -- Command: widget-minor-mode
      Toggle minor mode for traversing widgets.  With arg, turn widget
      mode on if and only if arg is positive.
 
- - Variable: widget-minor-mode-keymap
+ -- Variable: widget-minor-mode-keymap
      Keymap used in `widget-minor-mode'.
 
 
@@ -1510,12 +1510,12 @@ File: widget.info,  Node: Utilities,  Next: Widget Wishlist,  Prev: Widget Minor
 Utilities.
 ==========
 
- - Function: widget-prompt-value widget prompt [ value unbound ]
+ -- Function: widget-prompt-value widget prompt [ value unbound ]
      Prompt for a value matching WIDGET, using PROMPT.
      The current value is assumed to be VALUE, unless UNBOUND is
      non-nil.
 
- - Function: widget-get-sibling widget
+ -- Function: widget-get-sibling widget
      Get the item WIDGET is assumed to toggle.
      This is only meaningful for radio buttons or checkboxes in a list.
 
@@ -1614,35 +1614,35 @@ Tag Table:
 Node: Top211
 Node: Introduction612
 Node: User Interface4087
-Node: Programming Example8976
-Node: Setting Up the Buffer13123
-Node: Basic Types14837
-Node: link21042
-Node: url-link21553
-Node: info-link21862
-Node: push-button22150
-Node: editable-field22720
-Node: text24200
-Node: menu-choice24495
-Node: radio-button-choice25345
-Node: item26909
-Node: choice-item27294
-Node: toggle27789
-Node: checkbox28523
-Node: checklist28826
-Node: editable-list30267
-Node: group31447
-Node: Sexp Types31733
-Node: constants32043
-Node: generic33114
-Node: atoms33644
-Node: composite35588
-Node: Widget Properties38055
-Node: Defining New Widgets41117
-Node: Widget Browser49281
-Node: Widget Minor Mode50136
-Node: Utilities50690
-Node: Widget Wishlist51171
-Node: Widget Internals52892
+Node: Programming Example8943
+Node: Setting Up the Buffer13075
+Node: Basic Types14795
+Node: link21005
+Node: url-link21518
+Node: info-link21827
+Node: push-button22115
+Node: editable-field22687
+Node: text24167
+Node: menu-choice24462
+Node: radio-button-choice25312
+Node: item26877
+Node: choice-item27262
+Node: toggle27757
+Node: checkbox28491
+Node: checklist28794
+Node: editable-list30235
+Node: group31415
+Node: Sexp Types31701
+Node: constants32011
+Node: generic33085
+Node: atoms33616
+Node: composite35571
+Node: Widget Properties38044
+Node: Defining New Widgets41102
+Node: Widget Browser49277
+Node: Widget Minor Mode50135
+Node: Utilities50691
+Node: Widget Wishlist51174
+Node: Widget Internals52895
 
 End Tag Table

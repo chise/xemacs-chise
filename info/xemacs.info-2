@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.6 from
+This is ../info/xemacs.info, produced by makeinfo version 4.8 from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -30,10 +30,63 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Unconditional Replace,  Next: Regexp Replace,  Prev: Replace,  Up: Replace
+
+12.7.1 Unconditional Replacement
+--------------------------------
+
+`M-x replace-string <RET> STRING <RET> NEWSTRING <RET>'
+     Replace every occurrence of STRING with NEWSTRING.
+
+`M-x replace-regexp <RET> REGEXP <RET> NEWSTRING <RET>'
+     Replace every match for REGEXP with NEWSTRING.
+
+   To replace every instance of `foo' after point with `bar', use the
+command `M-x replace-string' with the two arguments `foo' and `bar'.
+Replacement occurs only after point: if you want to cover the whole
+buffer you must go to the beginning first.  By default, all occurrences
+up to the end of the buffer are replaced.  To limit replacement to part
+of the buffer, narrow to that part of the buffer before doing the
+replacement (*note Narrowing::).
+
+   When `replace-string' exits, point is left at the last occurrence
+replaced.  The value of point when the `replace-string' command was
+issued is remembered on the mark ring; `C-u C-<SPC>' moves back there.
+
+   A numeric argument restricts replacement to matches that are
+surrounded by word boundaries.
+
+
+File: xemacs.info,  Node: Regexp Replace,  Next: Replacement and Case,  Prev: Unconditional Replace,  Up: Replace
+
+12.7.2 Regexp Replacement
+-------------------------
+
+`replace-string' replaces exact matches for a single string.  The
+similar command `replace-regexp' replaces any match for a specified
+pattern.
+
+   In `replace-regexp', the NEWSTRING need not be constant.  It can
+refer to all or part of what is matched by the REGEXP.  `\&' in
+NEWSTRING stands for the entire text being replaced.  `\D' in
+NEWSTRING, where D is a digit, stands for whatever matched the D'th
+parenthesized grouping in REGEXP.  For example,
+
+     M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
+
+would replace (for example) `cadr' with `cadr-safe' and `cddr' with
+`cddr-safe'.
+
+     M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
+
+would perform exactly the opposite replacements.  To include a `\' in
+the text to replace with, you must give `\\'.
+
+
 File: xemacs.info,  Node: Replacement and Case,  Next: Query Replace,  Prev: Regexp Replace,  Up: Replace
 
-Replace Commands and Case
--------------------------
+12.7.3 Replace Commands and Case
+--------------------------------
 
 If the arguments to a replace command are in lower case, the command
 preserves case when it makes a replacement.  Thus, the following
@@ -54,8 +107,8 @@ replace; also, case conversion of the replacement string is not done.
 
 File: xemacs.info,  Node: Query Replace,  Prev: Replacement and Case,  Up: Replace
 
-Query Replace
--------------
+12.7.4 Query Replace
+--------------------
 
 `M-% STRING <RET> NEWSTRING <RET>'
 `M-x query-replace <RET> STRING <RET> NEWSTRING <RET>'
@@ -141,8 +194,8 @@ Repetition.
 
 File: xemacs.info,  Node: Other Repeating Search,  Prev: Replace,  Up: Search
 
-Other Search-and-Loop Commands
-==============================
+12.8 Other Search-and-Loop Commands
+===================================
 
 Here are some other commands that find matches for a regular expression.
 They all operate from point to the end of the buffer.
@@ -177,8 +230,8 @@ They all operate from point to the end of the buffer.
 
 File: xemacs.info,  Node: Fixit,  Next: Files,  Prev: Search,  Up: Top
 
-Commands for Fixing Typos
-*************************
+13 Commands for Fixing Typos
+****************************
 
 This chapter describes commands that are especially useful when you
 catch a mistake in your text just after you have made it, or when you
@@ -194,8 +247,8 @@ change your mind while composing text on line.
 
 File: xemacs.info,  Node: Kill Errors,  Next: Transpose,  Prev: Fixit,  Up: Fixit
 
-Killing Your Mistakes
-=====================
+13.1 Killing Your Mistakes
+==========================
 
 `<DEL>'
      Delete last character (`delete-backward-char').
@@ -227,8 +280,8 @@ less thought to kill the whole word and start over.
 
 File: xemacs.info,  Node: Transpose,  Next: Fixing Case,  Prev: Kill Errors,  Up: Fixit
 
-Transposing Text
-================
+13.2 Transposing Text
+=====================
 
 `C-t'
      Transpose two characters (`transpose-chars').
@@ -281,8 +334,8 @@ command with a repeat count of zero would do nothing).
 
 File: xemacs.info,  Node: Fixing Case,  Next: Spelling,  Prev: Transpose,  Up: Fixit
 
-Case Conversion
-===============
+13.3 Case Conversion
+====================
 
 `M-- M-l'
      Convert last word to lower case.  Note that `Meta--' is
@@ -303,8 +356,8 @@ continue typing.  *Note Case::.
 
 File: xemacs.info,  Node: Spelling,  Prev: Fixing Case,  Up: Fixit
 
-Checking and Correcting Spelling
-================================
+13.4 Checking and Correcting Spelling
+=====================================
 
 `M-$'
      Check and correct spelling of word (`spell-word').
@@ -344,8 +397,8 @@ the answer in the echo area.
 
 File: xemacs.info,  Node: Files,  Next: Buffers,  Prev: Fixit,  Up: Top
 
-File Handling
-*************
+14 File Handling
+****************
 
 The basic unit of stored data in Unix is the "file".  To edit a file,
 you must tell Emacs to examine the file and prepare a buffer containing
@@ -385,8 +438,8 @@ rename, and append to files, and operate on file directories.
 
 File: xemacs.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
 
-File Names
-==========
+14.1 File Names
+===============
 
 Most Emacs commands that operate on a file require you to specify the
 file name.  (Saving and reverting are exceptions; the buffer knows which
@@ -481,8 +534,8 @@ performed only on filenames read as such using the minibuffer.
 
 File: xemacs.info,  Node: Visiting,  Next: Saving,  Prev: File Names,  Up: Files
 
-Visiting Files
-==============
+14.2 Visiting Files
+===================
 
 `C-x C-f'
      Visit a file (`find-file').
@@ -618,8 +671,8 @@ receive no arguments.  Visiting a nonexistent file runs the
 
 File: xemacs.info,  Node: Saving,  Next: Reverting,  Prev: Visiting,  Up: Files
 
-Saving Files
-============
+14.3 Saving Files
+=================
 
 "Saving" a buffer in Emacs means writing its contents back into the file
 that was visited in the buffer.
@@ -726,8 +779,8 @@ functions to be called after writing out a buffer to a file.
 
 File: xemacs.info,  Node: Backup,  Next: Interlocking,  Prev: Saving,  Up: Saving
 
-Backup Files
-------------
+14.3.1 Backup Files
+-------------------
 
 Because Unix does not provide version numbers in file names, rewriting a
 file in Unix automatically destroys all record of what the file used to
@@ -757,8 +810,8 @@ then visit the file again, a new backup file is made by the next save.
 
 File: xemacs.info,  Node: Backup Names,  Next: Backup Deletion,  Prev: Backup,  Up: Backup
 
-Single or Numbered Backups
-..........................
+14.3.1.1 Single or Numbered Backups
+...................................
 
 If you choose to have a single backup file (the default), the backup
 file's name is constructed by appending `~' to the file name being
@@ -796,8 +849,8 @@ only one backup for an Rmail file.  *Note Locals::.
 
 File: xemacs.info,  Node: Backup Deletion,  Next: Backup Copying,  Prev: Backup Names,  Up: Backup
 
-Automatic Deletion of Backups
-.............................
+14.3.1.2 Automatic Deletion of Backups
+......................................
 
 To prevent unlimited consumption of disk space, Emacs can delete
 numbered backup versions automatically.  Generally Emacs keeps the
@@ -820,8 +873,8 @@ asked whether the excess middle versions should really be deleted.
 
 File: xemacs.info,  Node: Backup Copying,  Prev: Backup Deletion,  Up: Backup
 
-Copying vs. Renaming
-....................
+14.3.1.3 Copying vs. Renaming
+.............................
 
 You can make backup files by copying the old file or by renaming it.
 This makes a difference when the old file has multiple names.  If you
@@ -854,8 +907,8 @@ renaming would cause the file's owner or group to change.
 
 File: xemacs.info,  Node: Interlocking,  Prev: Backup,  Up: Saving
 
-Protection Against Simultaneous Editing
----------------------------------------
+14.3.2 Protection Against Simultaneous Editing
+----------------------------------------------
 
 Simultaneous editing occurs when two users visit the same file, both
 make changes, and both save their changes.  If no one was informed that
@@ -937,8 +990,8 @@ files.
 
 File: xemacs.info,  Node: Reverting,  Next: Auto Save,  Prev: Saving,  Up: Files
 
-Reverting a Buffer
-==================
+14.4 Reverting a Buffer
+=======================
 
 If you have made extensive changes to a file and then change your mind
 about them, you can get rid of all changes by reading in the previous
@@ -977,8 +1030,8 @@ Buffers created randomly with `C-x b' cannot be reverted;
 
 File: xemacs.info,  Node: Auto Save,  Next: Version Control,  Prev: Reverting,  Up: Files
 
-Auto-Saving: Protection Against Disasters
-=========================================
+14.5 Auto-Saving: Protection Against Disasters
+==============================================
 
 Emacs saves all the visited files from time to time (based on counting
 your keystrokes) without being asked.  This is called "auto-saving".
@@ -1002,8 +1055,8 @@ have been typing.
 
 File: xemacs.info,  Node: Auto Save Files,  Next: Auto Save Control,  Prev: Auto Save,  Up: Auto Save
 
-Auto-Save Files
----------------
+14.5.1 Auto-Save Files
+----------------------
 
 Auto-saving does not normally write to the files you visited, because
 it can be undesirable to save a program that is in an inconsistent
@@ -1038,8 +1091,8 @@ correspond to the new visited name.
 
 File: xemacs.info,  Node: Auto Save Control,  Next: Recover,  Prev: Auto Save Files,  Up: Auto Save
 
-Controlling Auto-Saving
------------------------
+14.5.2 Controlling Auto-Saving
+------------------------------
 
 Each time you visit a file, auto-saving is turned on for that file's
 buffer if the variable `auto-save-default' is non-`nil' (but not in
@@ -1076,8 +1129,8 @@ buffer.
 
 File: xemacs.info,  Node: Recover,  Prev: Auto Save Control,  Up: Auto Save
 
-Recovering Data from Auto-Saves
--------------------------------
+14.5.3 Recovering Data from Auto-Saves
+--------------------------------------
 
 If you want to use the contents of an auto-save file to recover from a
 loss of data, use the command `M-x recover-file <RET> FILE <RET>'.
@@ -1102,8 +1155,8 @@ to make new changes, turn auto-saving back on with `M-x auto-save-mode'.
 
 File: xemacs.info,  Node: Version Control,  Next: ListDir,  Prev: Auto Save,  Up: Files
 
-Version Control
-===============
+14.6 Version Control
+====================
 
 "Version control systems" are packages that can record multiple
 versions of a source file, usually storing the unchanged parts of the
@@ -1142,8 +1195,8 @@ RCS or SCCS, so you hardly have to know which one of them you are using.
 
 File: xemacs.info,  Node: Concepts of VC,  Next: Editing with VC,  Prev: Version Control,  Up: Version Control
 
-Concepts of Version Control
----------------------------
+14.6.1 Concepts of Version Control
+----------------------------------
 
 When a file is under version control, we also say that it is
 "registered" in the version control system.  Each registered file has a
@@ -1177,8 +1230,8 @@ files that make up a program.  *Note Snapshots::.
 
 File: xemacs.info,  Node: Editing with VC,  Next: Variables for Check-in/out,  Prev: Concepts of VC,  Up: Version Control
 
-Editing with Version Control
-----------------------------
+14.6.2 Editing with Version Control
+-----------------------------------
 
 When you visit a file that is maintained using version control, the
 mode line displays `RCS' or `SCCS' to inform you that version control
@@ -1290,8 +1343,8 @@ it reads the version number with the minibuffer.
 
 File: xemacs.info,  Node: Variables for Check-in/out,  Next: Log Entries,  Prev: Editing with VC,  Up: Version Control
 
-Variables Affecting Check-in and Check-out
-------------------------------------------
+14.6.3 Variables Affecting Check-in and Check-out
+-------------------------------------------------
 
 If `vc-suppress-confirm' is non-`nil', then `C-x C-q' and `C-x v i' can
 save the current buffer without asking, and `C-x v u' also operates
@@ -1329,8 +1382,8 @@ happens automatically.
 
 File: xemacs.info,  Node: Log Entries,  Next: Change Logs and VC,  Prev: Variables for Check-in/out,  Up: Version Control
 
-Log Entries
------------
+14.6.4 Log Entries
+------------------
 
 When you're editing an initial comment or log entry for inclusion in a
 master file, finish your entry by typing `C-c C-c'.
@@ -1359,8 +1412,8 @@ Log mode, which involves running two hooks: `text-mode-hook' and
 
 File: xemacs.info,  Node: Change Logs and VC,  Next: Old Versions,  Prev: Log Entries,  Up: Version Control
 
-Change Logs and VC
-------------------
+14.6.5 Change Logs and VC
+-------------------------
 
 If you use RCS for a program and also maintain a change log file for it
 (*note Change Log::), you can generate change log entries automatically
@@ -1380,7 +1433,7 @@ start with `#'.'.  Then `C-x v a' visits `ChangeLog' and inserts text
 like this:
 
      Fri May  8 21:45:00 1992  Nathaniel Bowditch  (nat@apn.org)
-     
+
              * rcs2log: Ignore log messages that start with `#'.
 
 You can then edit the new change log entry further as you wish.
@@ -1392,7 +1445,7 @@ for `vc.el' is `(vc-do-command): Check call-process status.', then the
 text in `ChangeLog' looks like this:
 
      Wed May  6 10:53:00 1992  Nathaniel Bowditch  (nat@apn.org)
-     
+
              * vc.el (vc-do-command): Check call-process status.
 
    When `C-x v a' adds several change log entries at once, it groups
@@ -1412,9 +1465,9 @@ For `vc-hooks.el':
    They appear like this in `ChangeLog':
 
      Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
-     
+
              * vc.texinfo: Fix expansion typos.
-     
+
              * vc.el, vc-hooks.el: Don't call expand-file-name.
 
    Normally, `C-x v a' separates log entries by a blank line, but you
@@ -1433,7 +1486,7 @@ For `vc-hooks.el':
 Then the text in `ChangeLog' looks like this:
 
      Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
-     
+
              * vc.texinfo: Fix expansion typos.
              * vc.el, vc-hooks.el: Don't call expand-file-name.
 
@@ -1445,8 +1498,8 @@ trivia into `ChangeLog'.
 
 File: xemacs.info,  Node: Old Versions,  Next: VC Status,  Prev: Change Logs and VC,  Up: Version Control
 
-Examining And Comparing Old Versions
-------------------------------------
+14.6.6 Examining And Comparing Old Versions
+-------------------------------------------
 
 `C-x v ~ VERSION <RET>'
      Examine version VERSION of the visited file, in a buffer of its
@@ -1492,8 +1545,8 @@ Files::, for more information about `M-x diff'.
 
 File: xemacs.info,  Node: VC Status,  Next: Renaming and VC,  Prev: Old Versions,  Up: Version Control
 
-VC Status Commands
-------------------
+14.6.7 VC Status Commands
+-------------------------
 
 To view the detailed version control status and history of a file, type
 `C-x v l' (`vc-print-log').  It displays the history of changes to the
@@ -1527,8 +1580,8 @@ change.
 
 File: xemacs.info,  Node: Renaming and VC,  Next: Snapshots,  Prev: VC Status,  Up: Version Control
 
-Renaming VC Work Files and Master Files
----------------------------------------
+14.6.8 Renaming VC Work Files and Master Files
+----------------------------------------------
 
 When you rename a registered file, you must also rename its master file
 correspondingly to get proper results.  Use `vc-rename-file' to rename
@@ -1543,8 +1596,8 @@ else.
 
 File: xemacs.info,  Node: Snapshots,  Next: Version Headers,  Prev: Renaming and VC,  Up: Version Control
 
-Snapshots
----------
+14.6.9 Snapshots
+----------------
 
 A "snapshot" is a named set of file versions (one for each registered
 file) that you can treat as a unit.  One important kind of snapshot is
@@ -1559,8 +1612,8 @@ ready for distribution to users.
 
 File: xemacs.info,  Node: Making Snapshots,  Next: Snapshot Caveats,  Prev: Snapshots,  Up: Snapshots
 
-Making and Using Snapshots
-..........................
+14.6.9.1 Making and Using Snapshots
+...................................
 
 There are two basic commands for snapshots; one makes a snapshot with a
 given name, the other retrieves a named snapshot.
@@ -1592,8 +1645,8 @@ snapshot against a named version.
 
 File: xemacs.info,  Node: Snapshot Caveats,  Prev: Making Snapshots,  Up: Snapshots
 
-Snapshot Caveats
-................
+14.6.9.2 Snapshot Caveats
+.........................
 
 VC's snapshot facilities are modeled on RCS's named-configuration
 support.  They use RCS's native facilities for this, so under VC
@@ -1630,8 +1683,8 @@ won't really work as retrieved.
 
 File: xemacs.info,  Node: Version Headers,  Prev: Snapshots,  Up: Version Control
 
-Inserting Version Control Headers
----------------------------------
+14.6.10 Inserting Version Control Headers
+-----------------------------------------
 
 Sometimes it is convenient to put version identification strings
 directly into working files.  Certain special strings called "version
@@ -1692,8 +1745,8 @@ which specifies insertion of a string of this form:
 
 File: xemacs.info,  Node: ListDir,  Next: Comparing Files,  Prev: Version Control,  Up: Files
 
-Listing a File Directory
-========================
+14.7 Listing a File Directory
+=============================
 
 Files are organized by Unix into "directories".  A "directory listing"
 is a list of all the files in a directory.  Emacs provides directory
@@ -1743,8 +1796,8 @@ to via absolute symbolic links.  Make `TO' the name of the link, and
 
 File: xemacs.info,  Node: Comparing Files,  Next: Dired,  Prev: ListDir,  Up: Files
 
-Comparing Files
-===============
+14.8 Comparing Files
+====================
 
 The command `M-x diff' compares two files, displaying the differences
 in an Emacs buffer named `*Diff*'.  It works by running the `diff'
@@ -1776,8 +1829,8 @@ ignores differences in case as well.
 
 File: xemacs.info,  Node: Dired,  Next: Misc File Ops,  Prev: Comparing Files,  Up: Files
 
-Dired, the Directory Editor
-===========================
+14.9 Dired, the Directory Editor
+================================
 
 Dired makes it easy to delete or visit many of the files in a single
 directory at once.  It creates an Emacs buffer containing a listing of
@@ -1794,8 +1847,8 @@ this buffer and special Dired commands to operate on the files.
 
 File: xemacs.info,  Node: Dired Enter,  Next: Dired Edit,  Prev: Dired,  Up: Dired
 
-Entering Dired
---------------
+14.9.1 Entering Dired
+---------------------
 
 To invoke dired, type `C-x d' or `M-x dired'.  The command reads a
 directory name or wildcard file name pattern as a minibuffer argument
@@ -1814,8 +1867,8 @@ d'.
 
 File: xemacs.info,  Node: Dired Edit,  Next: Dired Deletion,  Prev: Dired Enter,  Up: Dired
 
-Editing in Dired
-----------------
+14.9.2 Editing in Dired
+-----------------------
 
 Once the Dired buffer exists, you can switch freely between it and other
 Emacs buffers.  Whenever the Dired buffer is selected, certain special
@@ -1851,8 +1904,8 @@ buffer are lost when this is done.
 
 File: xemacs.info,  Node: Dired Deletion,  Next: Dired Immed,  Prev: Dired Edit,  Up: Dired
 
-Deleting Files With Dired
--------------------------
+14.9.3 Deleting Files With Dired
+--------------------------------
 
 The primary use of Dired is to flag files for deletion and then delete
 them.
@@ -1927,8 +1980,8 @@ to keep.
 
 File: xemacs.info,  Node: Dired Immed,  Prev: Dired Deletion,  Up: Dired
 
-Immediate File Operations in Dired
-----------------------------------
+14.9.4 Immediate File Operations in Dired
+-----------------------------------------
 
 Some file operations in Dired take place immediately when they are
 requested.
@@ -1962,8 +2015,8 @@ requested.
 
 File: xemacs.info,  Node: Misc File Ops,  Prev: Dired,  Up: Files
 
-Miscellaneous File Operations
-=============================
+14.10 Miscellaneous File Operations
+===================================
 
 Emacs has commands for performing many other operations on files.  All
 operate on one file; they do not accept wildcard file names.
@@ -2015,8 +2068,8 @@ cursor motion commands.  To exit from viewing, type `C-c'.
 
 File: xemacs.info,  Node: Buffers,  Next: Windows,  Prev: Files,  Up: Top
 
-Using Multiple Buffers
-**********************
+15 Using Multiple Buffers
+*************************
 
 Text you are editing in Emacs resides in an object called a "buffer".
 Each time you visit a file, Emacs creates a buffer to hold the file's
@@ -2061,8 +2114,8 @@ from the value in other buffers.  *Note Locals::.
 
 File: xemacs.info,  Node: Select Buffer,  Next: List Buffers,  Prev: Buffers,  Up: Buffers
 
-Creating and Selecting Buffers
-==============================
+15.1 Creating and Selecting Buffers
+===================================
 
 `C-x b BUFFER <RET>'
      Select or create a buffer named BUFFER (`switch-to-buffer').
@@ -2104,8 +2157,8 @@ visiting a file to switch buffers.  *Note Visiting::.
 
 File: xemacs.info,  Node: List Buffers,  Next: Misc Buffer,  Prev: Select Buffer,  Up: Buffers
 
-Listing Existing Buffers
-========================
+15.2 Listing Existing Buffers
+=============================
 
 `C-x C-b'
      List the existing buffers (`list-buffers').
@@ -2143,8 +2196,8 @@ which are bound to keys in the `*Buffer List*' buffer.
 
 File: xemacs.info,  Node: Misc Buffer,  Next: Kill Buffer,  Prev: List Buffers,  Up: Buffers
 
-Miscellaneous Buffer Operations
-===============================
+15.3 Miscellaneous Buffer Operations
+====================================
 
 `C-x C-q'
      Toggle read-only status of buffer (`toggle-read-only').
@@ -2182,8 +2235,8 @@ append-to-buffer' and `M-x insert-buffer'.  *Note Accumulating Text::.
 
 File: xemacs.info,  Node: Kill Buffer,  Next: Several Buffers,  Prev: Misc Buffer,  Up: Buffers
 
-Killing Buffers
-===============
+15.4 Killing Buffers
+====================
 
 After using Emacs for a while, you may accumulate a large number of
 buffers and may want to eliminate the ones you no longer need.  There
@@ -2211,8 +2264,8 @@ asks for confirmation just like `kill-buffer'.
 
 File: xemacs.info,  Node: Several Buffers,  Prev: Kill Buffer,  Up: Buffers
 
-Operating on Several Buffers
-============================
+15.5 Operating on Several Buffers
+=================================
 
 The "buffer-menu" facility is like a "Dired for buffers"; it allows you
 to request operations on various Emacs buffers by editing a buffer
@@ -2313,8 +2366,8 @@ here.
 
 File: xemacs.info,  Node: Windows,  Next: Mule,  Prev: Buffers,  Up: Top
 
-Multiple Windows
-****************
+16 Multiple Windows
+*******************
 
 Emacs can split the frame into two or many windows, which can display
 parts of different buffers or different parts of one buffer.  If you are
@@ -2332,8 +2385,8 @@ contains the Emacs frame have multiple subwindows.
 
 File: xemacs.info,  Node: Basic Window,  Next: Split Window,  Prev: Windows,  Up: Windows
 
-Concepts of Emacs Windows
-=========================
+16.1 Concepts of Emacs Windows
+==============================
 
 When Emacs displays multiple windows, each window has one Emacs buffer
 designated for display.  The same buffer may appear in more than one
@@ -2366,8 +2419,8 @@ line.
 
 File: xemacs.info,  Node: Split Window,  Next: Other Window,  Prev: Basic Window,  Up: Windows
 
-Splitting Windows
-=================
+16.2 Splitting Windows
+======================
 
 `C-x 2'
      Split the selected window into two windows, one above the other
@@ -2417,8 +2470,8 @@ supplying a REGISTER argument to `window-configuration-to-register'
 
 File: xemacs.info,  Node: Other Window,  Next: Pop Up Window,  Prev: Split Window,  Up: Windows
 
-Using Other Windows
-===================
+16.3 Using Other Windows
+========================
 
 `C-x o'
      Select another window (`other-window').  That is the letter `o',
@@ -2475,8 +2528,8 @@ ignored.
 
 File: xemacs.info,  Node: Pop Up Window,  Next: Change Window,  Prev: Other Window,  Up: Windows
 
-Displaying in Another Window
-============================
+16.4 Displaying in Another Window
+=================================
 
 `C-x 4' is a prefix key for commands that select another window
 (splitting the window if there is only one) and select a buffer in that
@@ -2515,8 +2568,8 @@ this function.
 
 File: xemacs.info,  Node: Change Window,  Prev: Pop Up Window,  Up: Windows
 
-Deleting and Rearranging Windows
-================================
+16.5 Deleting and Rearranging Windows
+=====================================
 
 `C-x 0'
      Get rid of the selected window (`delete-window').  That is a zero.
@@ -2588,8 +2641,8 @@ Balance Windows
 
 File: xemacs.info,  Node: Mule,  Next: Major Modes,  Prev: Windows,  Up: Top
 
-World Scripts Support
-*********************
+17 World Scripts Support
+************************
 
 If you compile XEmacs with Mule option, it supports a wide variety of
 world scripts, including Latin script, as well as Arabic script,
@@ -2616,8 +2669,8 @@ Enhancement to GNU Emacs").
 
 File: xemacs.info,  Node: Mule Intro,  Next: Language Environments,  Prev: Mule,  Up: Mule
 
-What is Mule?
-=============
+17.1 What is Mule?
+==================
 
 Mule is the MUltiLingual Extension to XEmacs.  It provides facilities
 not only for handling text written in many different languages, but in
@@ -2687,8 +2740,8 @@ world scripts, coding systems, and input methods.
 
 File: xemacs.info,  Node: Language Environments,  Next: Input Methods,  Prev: Mule Intro,  Up: Mule
 
-Language Environments
-=====================
+17.2 Language Environments
+==========================
 
 All supported character sets are supported in XEmacs buffers if it is
 compiled with Mule; there is no need to select a particular language in
@@ -2731,8 +2784,8 @@ By default, this command describes the chosen language environment.
 
 File: xemacs.info,  Node: Input Methods,  Next: Select Input Method,  Prev: Language Environments,  Up: Mule
 
-Input Methods
-=============
+17.3 Input Methods
+==================
 
 An "input method" is a kind of character conversion designed
 specifically for interactive input.  In XEmacs, typically each language
@@ -2805,8 +2858,8 @@ in the echo area (but not when you are in the minibuffer).
 
 File: xemacs.info,  Node: Select Input Method,  Next: Mule and Fonts,  Prev: Input Methods,  Up: Mule
 
-Selecting an Input Method
-=========================
+17.4 Selecting an Input Method
+==============================
 
 `C-\'
      Enable or disable use of the selected input method.
@@ -2856,8 +2909,8 @@ method, including the string that stands for it in the mode line.
 
 File: xemacs.info,  Node: Mule and Fonts,  Next: Coding Systems,  Prev: Select Input Method,  Up: Mule
 
-Mule and Fonts
-==============
+17.5 Mule and Fonts
+===================
 
 (This section is X11-specific.)
 
@@ -2913,8 +2966,8 @@ but those uses are not described here.
 
 File: xemacs.info,  Node: Coding Systems,  Next: Recognize Coding,  Prev: Mule and Fonts,  Up: Mule
 
-Coding Systems
-==============
+17.6 Coding Systems
+===================
 
 Users of various languages have established many more-or-less standard
 coding systems for representing them.  XEmacs does not use these coding
@@ -3009,8 +3062,8 @@ the usual three variants to specify the kind of end-of-line conversion.
 
 File: xemacs.info,  Node: Recognize Coding,  Next: Specify Coding,  Prev: Coding Systems,  Up: Mule
 
-Recognizing Coding Systems
-==========================
+17.7 Recognizing Coding Systems
+===============================
 
 Most of the time, XEmacs can recognize which coding system to use for
 any given file-once you have specified your preferences.
@@ -3074,8 +3127,8 @@ system, you can specify a different coding system for the buffer using
 
 File: xemacs.info,  Node: Specify Coding,  Prev: Recognize Coding,  Up: Mule
 
-Specifying a Coding System
-==========================
+17.8 Specifying a Coding System
+===============================
 
 In cases where XEmacs does not automatically choose the right coding
 system, you can use these commands to specify one:
@@ -3183,8 +3236,8 @@ cannot use non-Latin-1 characters in file names.
 
 File: xemacs.info,  Node: Major Modes,  Next: Indentation,  Prev: Mule,  Up: Top
 
-Major Modes
-***********
+18 Major Modes
+**************
 
 Emacs has many different "major modes", each of which customizes Emacs
 for editing text of a particular sort.  The major modes are mutually
@@ -3206,15 +3259,16 @@ comments use the mode to determine how to delimit comments.  Many major
 modes redefine the syntactical properties of characters appearing in
 the buffer.  *Note Syntax::.
 
-   The major modes fall into three major groups.  Lisp mode (which has
-several variants), C mode, and Muddle mode are for specific programming
-languages.  Text mode, Nroff mode, TeX mode, and Outline mode are for
-editing English text.  The remaining major modes are not intended for
-use on users' files; they are used in buffers created by Emacs for
-specific purposes and include Dired mode for buffers made by Dired
-(*note Dired::), Mail mode for buffers made by `C-x m' (*note Sending
-Mail::), and Shell mode for buffers used for communicating with an
-inferior shell process (*note Interactive Shell::).
+   The major modes fall into three major groups.  Programming modes
+(*note Programs::) are for specific programming languages.  Text modes
+(like Nroff mode, TeX mode, Outline mode, XML mode, etc.) are for
+editing human readable text.  The remaining major modes are not intended
+for direct use in editing user files; they are used in buffers created
+by Emacs for specific purposes. Examples of such modes include Dired
+mode which is used for buffers made by Dired (*note Dired::), Mail mode
+for buffers made by `C-x m' (*note Sending Mail::), and Shell mode for
+buffers used for communicating with an inferior shell process (*note
+Interactive Shell::).
 
    Most programming language major modes specify that only blank lines
 separate paragraphs.  This is so that the paragraph commands remain
@@ -3226,12 +3280,13 @@ Indentation::.
 * Menu:
 
 * Choosing Modes::     How major modes are specified or chosen.
+* Mode Hooks::         Customizing a major mode
 
 
-File: xemacs.info,  Node: Choosing Modes,  Prev: Major Modes,  Up: Major Modes
+File: xemacs.info,  Node: Choosing Modes,  Next: Mode Hooks,  Prev: Major Modes,  Up: Major Modes
 
-Choosing Major Modes
-====================
+18.1 Choosing Major Modes
+=========================
 
 You can select a major mode explicitly for the current buffer, but most
 of the time Emacs determines which mode to use based on the file name
@@ -3286,10 +3341,44 @@ the symbol `fundamental-mode', which specifies Fundamental mode.  If
 previously selected buffer.
 
 
+File: xemacs.info,  Node: Mode Hooks,  Prev: Choosing Modes,  Up: Major Modes
+
+18.2 Mode Hook Variables
+========================
+
+The last step taken by a major mode, by convention, is to invoke a list
+of user supplied functions that are stored in a "hook" variable.  This
+allows a user to further customize the major mode, and is particularly
+convenient for setting up buffer local variables (*note Locals::).
+
+   The name of the hook variable is created by appending the string
+`-hook' to the name of the major mode.  For example, the hook variable
+used by `text-mode' would be named `text-mode-hook'.  By convention the
+mode hook function receives no arguments. If a hook variable does not
+exist, or it has the value `nil', the major mode simply ignores it.
+
+   The recommended way to add functions to a hook variable is with the
+`add-hook' function.  For example, to automatically turn on the Auto
+Fill mode when Text mode is invoked the following code can be used in
+the initialization file (*note Init File::)
+
+     (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+   The `add-hook' function will check that the function is not already
+listed in the hook variable before adding it. It will also create a hook
+variable with the value `nil' if one does not exist before adding the
+function. `add-hook' adds functions to the front of the hook variable
+list. This means that the last hook added is run first by the major
+mode. It is considered very poor style to write hook functions that
+depend on the order that hooks are executed.
+
+   Hooks can be removed from hook variables with `remove-hook'.
+
+
 File: xemacs.info,  Node: Indentation,  Next: Text,  Prev: Major Modes,  Up: Top
 
-Indentation
-***********
+19 Indentation
+**************
 
 `<TAB>'
      Indent current line "appropriately" in a mode-dependent fashion.
@@ -3351,8 +3440,8 @@ indents to the next tab stop column.  You can set the tab stops with
 
 File: xemacs.info,  Node: Indentation Commands,  Next: Tab Stops,  Prev: Indentation,  Up: Indentation
 
-Indentation Commands and Techniques
-===================================
+19.1 Indentation Commands and Techniques
+========================================
 
 If you just want to insert a tab character in the buffer, you can type
 `C-q <TAB>'.
@@ -3407,8 +3496,8 @@ indentation point is applicable even then, `tab-to-tab-stop' is run
 
 File: xemacs.info,  Node: Tab Stops,  Next: Just Spaces,  Prev: Indentation Commands,  Up: Indentation
 
-Tab Stops
-=========
+19.2 Tab Stops
+==============
 
 For typing in tables, you can use Text mode's definition of <TAB>,
 `tab-to-tab-stop'.  This command inserts indentation before point,
@@ -3449,8 +3538,8 @@ Vars::, for more information on that.
 
 File: xemacs.info,  Node: Just Spaces,  Prev: Tab Stops,  Up: Indentation
 
-Tabs vs. Spaces
-===============
+19.3 Tabs vs. Spaces
+====================
 
 Emacs normally uses both tabs and spaces to indent lines.  If you
 prefer, all indentation can be made from spaces only.  To request this,
@@ -3468,8 +3557,8 @@ corresponding numbers of spaces.
 
 File: xemacs.info,  Node: Text,  Next: Programs,  Prev: Indentation,  Up: Top
 
-Commands for Human Languages
-****************************
+20 Commands for Human Languages
+*******************************
 
 The term "text" has two widespread meanings in our area of the computer
 field.  One is data that is a sequence of characters.  In this sense of
@@ -3510,8 +3599,8 @@ you can use TeX mode; for input to nroff, Nroff mode.
 
 File: xemacs.info,  Node: Text Mode,  Next: Words,  Prev: Text,  Up: Text
 
-Text Mode
-=========
+20.1 Text Mode
+==============
 
 You should use Text mode--rather than Fundamental or Lisp mode--to edit
 files of text in a human language.  Invoke `M-x text-mode' to enter
@@ -3558,8 +3647,8 @@ level structure more visible.
 
 File: xemacs.info,  Node: Nroff Mode,  Next: TeX Mode,  Prev: Text Mode,  Up: Text Mode
 
-Nroff Mode
-----------
+20.1.1 Nroff Mode
+-----------------
 
 Nroff mode is a mode like Text mode but modified to handle nroff
 commands present in the text.  Invoke `M-x nroff-mode' to enter this
@@ -3596,8 +3685,8 @@ the same with the variable `nroff-mode-hook'.
 
 File: xemacs.info,  Node: TeX Mode,  Next: Outline Mode,  Prev: Nroff Mode,  Up: Text Mode
 
-TeX Mode
---------
+20.1.2 TeX Mode
+---------------
 
 TeX is a powerful text formatter written by Donald Knuth; like GNU
 Emacs, it is free.  LaTeX is a simplified input format for TeX,
@@ -3650,8 +3739,8 @@ in cpio format, blocked 5120 bytes, ASCII headers.
 
 File: xemacs.info,  Node: TeX Editing,  Next: TeX Print,  Prev: TeX Mode,  Up: TeX Mode
 
-TeX Editing Commands
-....................
+20.1.2.1 TeX Editing Commands
+.............................
 
 Here are the special commands provided in TeX mode for editing the text
 of the file.
@@ -3728,8 +3817,8 @@ there.
 
 File: xemacs.info,  Node: TeX Print,  Prev: TeX Editing,  Up: TeX Mode
 
-TeX Printing Commands
-.....................
+20.1.2.2 TeX Printing Commands
+..............................
 
 You can invoke TeX as an inferior of Emacs on either the entire
 contents of the buffer or just a region at a time.  Running TeX in this
@@ -3803,8 +3892,8 @@ conditions.
 
 File: xemacs.info,  Node: Outline Mode,  Prev: TeX Mode,  Up: Text Mode
 
-Outline Mode
-------------
+20.1.3 Outline Mode
+-------------------
 
 Outline mode is a major mode similar to Text mode but intended for
 editing outlines.  It allows you to make parts of the text temporarily
@@ -3838,8 +3927,8 @@ invisible.
 
 File: xemacs.info,  Node: Outline Format,  Next: Outline Motion,  Prev: Outline Mode,  Up: Outline Mode
 
-Format of Outlines
-..................
+20.1.3.1 Format of Outlines
+...........................
 
 Outline mode assumes that the lines in the buffer are of two types:
 "heading lines" and "body lines".  A heading line represents a topic in
@@ -3852,24 +3941,24 @@ line.  Body lines belong to the preceding heading line.  Here is an
 example:
 
      * Food
-     
+
      This is the body,
      which says something about the topic of food.
-     
+
      ** Delicious Food
-     
+
      This is the body of the second-level header.
-     
+
      ** Distasteful Food
-     
+
      This could have
      a body too, with
      several lines.
-     
+
      *** Dormitory Food
-     
+
      * Shelter
-     
+
      A second first-level topic with its header line.
 
    A heading line together with all following body lines is called
@@ -3904,8 +3993,8 @@ line inside Emacs.
 
 File: xemacs.info,  Node: Outline Motion,  Next: Outline Visibility,  Prev: Outline Format,  Up: Outline Mode
 
-Outline Motion Commands
-.......................
+20.1.3.2 Outline Motion Commands
+................................
 
 Some special commands in Outline mode move backward and forward to
 heading lines.
@@ -3947,8 +4036,8 @@ deeply nested.
 
 File: xemacs.info,  Node: Outline Visibility,  Prev: Outline Motion,  Up: Outline Mode
 
-Outline Visibility Commands
-...........................
+20.1.3.3 Outline Visibility Commands
+....................................
 
 The other special commands of outline mode are used to make lines
 visible or invisible.  Their names all start with `hide' or `show'.
@@ -4023,8 +4112,8 @@ visible indication of the presence of invisible lines.
 
 File: xemacs.info,  Node: Words,  Next: Sentences,  Prev: Text Mode,  Up: Text
 
-Words
-=====
+20.2 Words
+==========
 
 Emacs has commands for moving over or operating on words.  By
 convention, the keys for them are all `Meta-' characters.
@@ -4094,8 +4183,8 @@ a word delimiter.  *Note Syntax::.
 
 File: xemacs.info,  Node: Sentences,  Next: Paragraphs,  Prev: Words,  Up: Text
 
-Sentences
-=========
+20.3 Sentences
+==============
 
 The Emacs commands for manipulating sentences and paragraphs are mostly
 on `Meta-' keys, and therefore are like the word-handling commands.
@@ -4150,8 +4239,8 @@ This example is explained in the section on regexps.  *Note Regexps::.
 
 File: xemacs.info,  Node: Paragraphs,  Next: Pages,  Prev: Sentences,  Up: Text
 
-Paragraphs
-==========
+20.4 Paragraphs
+===============
 
 The Emacs commands for manipulating paragraphs are also `Meta-' keys.
 
@@ -4204,8 +4293,8 @@ pages.
 
 File: xemacs.info,  Node: Pages,  Next: Filling,  Prev: Paragraphs,  Up: Text
 
-Pages
-=====
+20.5 Pages
+==========
 
 Files are often thought of as divided into "pages" by the "formfeed"
 character (ASCII Control-L, octal code 014).  For example, if a file is
@@ -4265,8 +4354,8 @@ matches a formfeed character at the beginning of a line.
 
 File: xemacs.info,  Node: Filling,  Next: Case,  Prev: Pages,  Up: Text
 
-Filling Text
-============
+20.6 Filling Text
+=================
 
 If you use Auto Fill mode, Emacs "fills" text (breaks it up into lines
 that fit in a specified width) as you insert it.  When you alter
@@ -4282,8 +4371,8 @@ you can use explicit commands for filling.
 
 File: xemacs.info,  Node: Auto Fill,  Next: Fill Commands,  Prev: Filling,  Up: Filling
 
-Auto Fill Mode
---------------
+20.6.1 Auto Fill Mode
+---------------------
 
 "Auto Fill" mode is a minor mode in which lines are broken
 automatically when they become too wide.  Breaking happens only when
@@ -4332,8 +4421,8 @@ for yourself.  *Note Init File::.
 
 File: xemacs.info,  Node: Fill Commands,  Next: Fill Prefix,  Prev: Auto Fill,  Up: Filling
 
-Explicit Fill Commands
-----------------------
+20.6.2 Explicit Fill Commands
+-----------------------------
 
 `M-q'
      Fill current paragraph (`fill-paragraph').
@@ -4390,8 +4479,8 @@ that number as the new fill column.
 
 File: xemacs.info,  Node: Fill Prefix,  Prev: Fill Commands,  Up: Filling
 
-The Fill Prefix
----------------
+20.6.3 The Fill Prefix
+----------------------
 
 To fill a paragraph in which each line starts with a special marker
 (which might be a few spaces, giving an indented paragraph), use the
@@ -4441,8 +4530,8 @@ as a fill prefix.
 
 File: xemacs.info,  Node: Case,  Prev: Filling,  Up: Text
 
-Case Conversion Commands
-========================
+20.7 Case Conversion Commands
+=============================
 
 Emacs has commands for converting either a single word or any arbitrary
 range of text to upper case or to lower case.
@@ -4491,11 +4580,14 @@ point and mark to the specified case.  Point and mark do not move.
 
 File: xemacs.info,  Node: Programs,  Next: Running,  Prev: Text,  Up: Top
 
-Editing Programs
-****************
+21 Editing Programs
+*******************
 
-Emacs has many commands designed to understand the syntax of programming
-languages such as Lisp and C.  These commands can:
+XEmacs provides specialized support for editing source files for many
+different programming languages. For example it is possible to
+
+   * Follow the usual indentation conventions of the language (*note
+     Grinding::).
 
    * Move over or kill balanced expressions or "sexps" (*note Lists::).
 
@@ -4506,8 +4598,7 @@ languages such as Lisp and C.  These commands can:
 
    * Insert, kill, or align comments (*note Comments::).
 
-   * Follow the usual indentation conventions of the language (*note
-     Grinding::).
+   * Find functions and symbols in program by name (*note Tags::).
 
    The commands available for words, sentences, and paragraphs are
 useful in editing code even though their canonical application is for
@@ -4540,31 +4631,59 @@ appear on the screen.
 * Change Log::          Maintaining a change history for your program.
 * Tags::                Go direct to any function in your program in one
                          command.  Tags remembers which file it is in.
+* CC Mode::             Modes for C, C++, Java and similar languages
 * Fortran::		Fortran mode and its special features.
 * Asm Mode::            Asm mode and its special features.
 
 
 File: xemacs.info,  Node: Program Modes,  Next: Lists,  Prev: Programs,  Up: Programs
 
-Major Modes for Programming Languages
-=====================================
+21.1 Major Modes for Programming Languages
+==========================================
 
-Emacs has several major modes for the programming languages Lisp,
-Scheme (a variant of Lisp), C, Fortran, and Muddle.  Ideally, a major
-mode should be implemented for each programming language you might want
-to edit with Emacs; but often the mode for one language can serve for
-other syntactically similar languages.  The language modes that exist
-are those that someone decided to take the trouble to write.
+Emacs has several major modes (*note Major Modes::) to support
+programming languages. These major modes will typically understand
+language syntax, provide automatic indentation features, syntax based
+highlighting of text, and will often provide interfaces to the
+programming environment to assist in compiling, executing and debugging
+programs.
 
-   There are several variants of Lisp mode, which differ in the way they
-interface to Lisp execution.  *Note Lisp Modes::.
+   A language mode exist when someone decides to take the trouble to
+write it. At this time many widely used programming languages are
+supported by XEmacs. Examples include Ada, Awk, C, C++, CORBA (IDL),
+Fortran, Java, Lisp, Modula 2, Objective-C, Perl, Pike, Prolog, Python,
+Ruby, Scheme, Simula, SQL, Tcl, Unix Shell scripts, and VHDL. Some of
+these language have seperate manuals, and some times more than one mode
+may be available for a language.  For example, there are several
+variants of Lisp mode, which differ in the way they interface to Lisp
+execution.  *Note Lisp Modes::.
+
+   Major modes for programming language support are distributed in
+optional XEmacs packages (*note Packages::) that must be installed
+before use. A notable exception to this rule is that a Lisp Mode is
+integral to XEmacs. The Programming Mode Package (`prog-modes')
+contains many such modes. Some languages are supported by packages of
+their own; prominent examples of such packages include `cc-mode' for C,
+C++, Java, Objective C etc., `python-modes' for Python, and `scheme'
+for Scheme.
+
+   For a language named LANG the major mode for the language will
+typically be named `LANG-mode'.  For example, the mode for C is called
+`c-mode', that for Bourne shell scripts is called `sh-mode' and so on.
+These modes will invoke the functions listed in the corresponding hook
+variables as a last step. *Note Mode Hooks::.
+
+   A mode can be invoked by typing `M-x LANG-mode <RET>'. However this
+step is not normally required. If the package for a language mode is
+installed XEmacs usually knows when to automatically invoke the mode.
+This is normally done based on examining the file name to determine the
+language. *Note Choosing Modes::.
 
    Each of the programming language modes defines the <TAB> key to run
 an indentation function that knows the indentation conventions of that
-language and updates the current line's indentation accordingly.  For
-example, in C mode <TAB> is bound to `c-indent-line'.  <LFD> is
-normally defined to do <RET> followed by <TAB>; thus it, too, indents
-in a mode-specific fashion.
+language and updates the current line's indentation accordingly.  <LFD>
+is normally defined to do <RET> followed by <TAB>; thus it, too,
+indents in a mode-specific fashion.
 
    In most programming languages, indentation is likely to vary from
 line to line.  So the major modes for those languages rebind <DEL> to
@@ -4579,20 +4698,11 @@ blank lines, so that the paragraph commands remain useful.  Auto Fill
 mode, if enabled in a programming language major mode, indents the new
 lines which it creates.
 
-   Turning on a major mode calls a user-supplied function called the
-"mode hook", which is the value of a Lisp variable.  For example,
-turning on C mode calls the value of the variable `c-mode-hook' if that
-value exists and is non-`nil'.  Mode hook variables for other
-programming language modes include `lisp-mode-hook',
-`emacs-lisp-mode-hook', `lisp-interaction-mode-hook',
-`scheme-mode-hook', and `muddle-mode-hook'.  The mode hook function
-receives no arguments.
-
 
 File: xemacs.info,  Node: Lists,  Next: Defuns,  Prev: Program Modes,  Up: Programs
 
-Lists and Sexps
-===============
+21.2 Lists and Sexps
+====================
 
 By convention, Emacs keys for dealing with balanced expressions are
 usually `Control-Meta-' characters.  They tend to be analogous in
@@ -4675,13 +4785,6 @@ over them as well.
 specified number of times; with a negative argument, it moves in the
 opposite direction.
 
-   In languages such as C where the comment-terminator can be
-recognized, the sexp commands move across comments as if they were
-whitespace.  In Lisp and other languages where comments run until the
-end of a line, it is very difficult to ignore comments when parsing
-backwards; therefore, in such languages the sexp commands treat the
-text of comments as if it were code.
-
    Killing an sexp at a time can be done with `C-M-k' (`kill-sexp').
 `C-M-k' kills the characters that `C-M-f' would move over.
 
@@ -4723,8 +4826,8 @@ declared to be an opening delimiter and act like an open parenthesis.
 
 File: xemacs.info,  Node: Defuns,  Next: Grinding,  Prev: Lists,  Up: Programs
 
-Defuns
-======
+21.3 Defuns
+===========
 
 In Emacs, a parenthetical grouping at the top level in the buffer is
 called a "defun".  The name derives from the fact that most top-level
@@ -4780,8 +4883,8 @@ right; however, it mandates the convention described above.
 
 File: xemacs.info,  Node: Grinding,  Next: Matching,  Prev: Defuns,  Up: Programs
 
-Indentation for Programs
-========================
+21.4 Indentation for Programs
+=============================
 
 The best way to keep a program properly indented ("ground") is to use
 Emacs to re-indent it as you change the program.  Emacs has commands to
@@ -4793,13 +4896,12 @@ all of the lines inside a single parenthetical grouping.
 * Basic Indent::
 * Multi-line Indent::   Commands to reindent many lines at once.
 * Lisp Indent::		Specifying how each Lisp function should be indented.
-* C Indent::		Choosing an indentation style for C code.
 
 
 File: xemacs.info,  Node: Basic Indent,  Next: Multi-line Indent,  Prev: Grinding,  Up: Grinding
 
-Basic Program Indentation Commands
-----------------------------------
+21.4.1 Basic Program Indentation Commands
+-----------------------------------------
 
 `<TAB>'
      Adjust indentation of current line.
@@ -4843,8 +4945,8 @@ information on this behavior.
 
 File: xemacs.info,  Node: Multi-line Indent,  Next: Lisp Indent,  Prev: Basic Indent,  Up: Grinding
 
-Indenting Several Lines
------------------------
+21.4.2 Indenting Several Lines
+------------------------------
 
 Several commands are available to re-indent several lines of code which
 have been altered or moved to a different level in a list structure.
@@ -4880,10 +4982,10 @@ mark.  The command `C-M-\' (`indent-region') applies <TAB> to every
 line whose first character is between point and mark.
 
 
-File: xemacs.info,  Node: Lisp Indent,  Next: C Indent,  Prev: Multi-line Indent,  Up: Grinding
+File: xemacs.info,  Node: Lisp Indent,  Prev: Multi-line Indent,  Up: Grinding
 
-Customizing Lisp Indentation
-----------------------------
+21.4.3 Customizing Lisp Indentation
+-----------------------------------
 
 The indentation pattern for a Lisp expression can depend on the function
 called by the expression.  For each Lisp function, you can choose among
@@ -4942,7 +5044,6 @@ a symbol, SYMBOL
 
     POS
           The position at which the line being indented begins.
-
      It should return either a number, which is the number of columns of
      indentation for that line, or a list whose first element is such a
      number.  The difference between returning a number and returning a
@@ -4954,160 +5055,10 @@ a symbol, SYMBOL
      for the following lines until the end of the list.
 
 
-File: xemacs.info,  Node: C Indent,  Prev: Lisp Indent,  Up: Grinding
-
-Customizing C Indentation
--------------------------
-
-Two variables control which commands perform C indentation and when.
-
-   If `c-auto-newline' is non-`nil', newlines are inserted both before
-and after braces that you insert and after colons and semicolons.
-Correct C indentation is done on all the lines that are made this way.
-
-   If `c-tab-always-indent' is non-`nil', the <TAB> command in C mode
-does indentation only if point is at the left margin or within the
-line's indentation.  If there is non-whitespace to the left of point,
-<TAB> just inserts a tab character in the buffer.  Normally, this
-variable is `nil', and <TAB> always reindents the current line.
-
-   C does not have anything analogous to particular function names for
-which special forms of indentation are desirable.  However, it has a
-different need for customization facilities: many different styles of C
-indentation are in common use.
-
-   There are six variables you can set to control the style that Emacs C
-mode will use.
-
-`c-indent-level'
-     Indentation of C statements within surrounding block.  The
-     surrounding block's indentation is the indentation of the line on
-     which the open-brace appears.
-
-`c-continued-statement-offset'
-     Extra indentation given to a substatement, such as the then-clause
-     of an `if' or body of a `while'.
-
-`c-brace-offset'
-     Extra indentation for lines that start with an open brace.
-
-`c-brace-imaginary-offset'
-     An open brace following other text is treated as if it were this
-     far to the right of the start of its line.
-
-`c-argdecl-indent'
-     Indentation level of declarations of C function arguments.
-
-`c-label-offset'
-     Extra indentation for a line that is a label, case, or default.
-
-   The variable `c-indent-level' controls the indentation for C
-statements with respect to the surrounding block.  In the example:
-
-         {
-           foo ();
-
-the difference in indentation between the lines is `c-indent-level'.
-Its standard value is 2.
-
-   If the open-brace beginning the compound statement is not at the
-beginning of its line, the `c-indent-level' is added to the indentation
-of the line, not the column of the open-brace.  For example,
-
-     if (losing) {
-       do_this ();
-
-One popular indentation style is that which results from setting
-`c-indent-level' to 8 and putting open-braces at the end of a line in
-this way.  Another popular style prefers to put the open-brace on a
-separate line.
-
-   In fact, the value of the variable `c-brace-imaginary-offset' is
-also added to the indentation of such a statement.  Normally this
-variable is zero.  Think of this variable as the imaginary position of
-the open brace, relative to the first non-blank character on the line.
-By setting the variable to 4 and `c-indent-level' to 0, you can get
-this style:
-
-     if (x == y) {
-         do_it ();
-         }
-
-   When `c-indent-level' is zero, the statements inside most braces
-line up exactly under the open brace.  An exception are braces in column
-zero, like those surrounding a function's body.  The statements inside
-those braces are not placed at column zero.  Instead, `c-brace-offset'
-and `c-continued-statement-offset' (see below) are added to produce a
-typical offset between brace levels, and the statements are indented
-that far.
-
-   `c-continued-statement-offset' controls the extra indentation for a
-line that starts within a statement (but not within parentheses or
-brackets).  These lines are usually statements inside other statements,
-like the then-clauses of `if' statements and the bodies of `while'
-statements.  The `c-continued-statement-offset' parameter determines
-the difference in indentation between the two lines in:
-
-     if (x == y)
-       do_it ();
-
-The default value for `c-continued-statement-offset' is 2.  Some
-popular indentation styles correspond to a value of zero for
-`c-continued-statement-offset'.
-
-   `c-brace-offset' is the extra indentation given to a line that
-starts with an open-brace.  Its standard value is zero; compare:
-
-     if (x == y)
-       {
-
-with:
-
-     if (x == y)
-       do_it ();
-
-If you set `c-brace-offset' to 4, the first example becomes:
-
-     if (x == y)
-           {
-
-   `c-argdecl-indent' controls the indentation of declarations of the
-arguments of a C function.  It is absolute: argument declarations
-receive exactly `c-argdecl-indent' spaces.  The standard value is 5 and
-results in code like this:
-
-     char *
-     index (string, char)
-          char *string;
-          int char;
-
-   `c-label-offset' is the extra indentation given to a line that
-contains a label, a case statement, or a `default:' statement.  Its
-standard value is -2 and results in code like this:
-
-     switch (c)
-       {
-       case 'x':
-
-If `c-label-offset' were zero, the same code would be indented as:
-
-     switch (c)
-       {
-         case 'x':
-
-This example assumes that the other variables above also have their
-default values.
-
-   Using the indentation style produced by the default settings of the
-variables just discussed and putting open braces on separate lines
-produces clear and readable files.  For an example, look at any of the C
-source files of XEmacs.
-
-
 File: xemacs.info,  Node: Matching,  Next: Comments,  Prev: Grinding,  Up: Programs
 
-Automatic Display of Matching Parentheses
-=========================================
+21.5 Automatic Display of Matching Parentheses
+==============================================
 
 The Emacs parenthesis-matching feature shows you automatically how
 parentheses match in the text.  Whenever a self-inserting character that
@@ -5138,8 +5089,8 @@ match.  The default is 4000.
 
 File: xemacs.info,  Node: Comments,  Next: Balanced Editing,  Prev: Matching,  Up: Programs
 
-Manipulating Comments
-=====================
+21.6 Manipulating Comments
+==========================
 
 The comment commands insert, kill and align comments.
 
@@ -5204,8 +5155,8 @@ programmed to call `kill-comment' when called with a negative argument.
 However, `kill-comment' is a valid command which you could bind
 directly to a key if you wanted to.
 
-Multiple Lines of Comments
---------------------------
+21.6.1 Multiple Lines of Comments
+---------------------------------
 
 If you are typing a comment and want to continue it on another line,
 use the command `Meta-<LFD>' (`indent-new-comment-line'), which
@@ -5216,8 +5167,8 @@ comment is continued in just this fashion.  If point is not at the end
 of the line when you type `M-<LFD>', the text on the rest of the line
 becomes part of the new comment line.
 
-Options Controlling Comments
-----------------------------
+21.6.2 Options Controlling Comments
+-----------------------------------
 
 The comment column is stored in the variable `comment-column'.  You can
 explicitly set it to a number.  Alternatively, the command `C-x ;'
@@ -5272,8 +5223,8 @@ that begin an existing comment and on the code in the preceding lines.
 
 File: xemacs.info,  Node: Balanced Editing,  Next: Lisp Completion,  Prev: Comments,  Up: Programs
 
-Editing Without Unbalanced Parentheses
-======================================
+21.7 Editing Without Unbalanced Parentheses
+===========================================
 
 `M-('
      Put parentheses around next sexp(s) (`insert-parentheses').
@@ -5296,8 +5247,8 @@ there is none), and indents with <LFD> after it.
 
 File: xemacs.info,  Node: Lisp Completion,  Next: Documentation,  Prev: Balanced Editing,  Up: Programs
 
-Completion for Lisp Symbols
-===========================
+21.8 Completion for Lisp Symbols
+================================
 
 Completion usually happens in the minibuffer.  An exception is
 completion for Lisp symbol names, which is available in all buffers.
@@ -5320,8 +5271,8 @@ all possible completions is displayed in another window.
 
 File: xemacs.info,  Node: Documentation,  Next: Change Log,  Prev: Lisp Completion,  Up: Programs
 
-Documentation Commands
-======================
+21.9 Documentation Commands
+===========================
 
 As you edit Lisp code to be run in Emacs, you can use the commands `C-h
 f' (`describe-function') and `C-h v' (`describe-variable') to print
@@ -5345,8 +5296,8 @@ followed by the description of the termcap data base from section 5.
 
 File: xemacs.info,  Node: Change Log,  Next: Tags,  Prev: Documentation,  Up: Programs
 
-Change Logs
-===========
+21.10 Change Logs
+=================
 
 The Emacs command `M-x add-change-log-entry' helps you keep a record of
 when and why you have changed a program.  It assumes that you have a
@@ -5377,7 +5328,7 @@ must be indented.  *Note Text Mode::.
 log for Emacs:
 
      Wed Jun 26 19:29:32 1985  Richard M. Stallman  (rms at mit-prep)
-     
+
              * xdisp.c (try_window_id):
              If C-k is done at end of next-to-last line,
              this fn updates window_end_vpos and cannot leave
@@ -5385,12 +5336,12 @@ log for Emacs:
              If display is preempted before lines are output,
              this is inconsistent.  Fix by setting
              blank_end_of_window to nonzero.
-     
+
      Tue Jun 25 05:25:33 1985  Richard M. Stallman  (rms at mit-prep)
-     
+
              * cmds.c (Fnewline):
              Call the auto fill hook if appropriate.
-     
+
              * xdisp.c (try_window_id):
              If point is found by compute_motion after xp, record that
              permanently.  If display_text_line sets point position wrong
@@ -5398,10 +5349,10 @@ log for Emacs:
              not displayed), set it again in final compute_motion.
 
 
-File: xemacs.info,  Node: Tags,  Next: Fortran,  Prev: Change Log,  Up: Programs
+File: xemacs.info,  Node: Tags,  Next: CC Mode,  Prev: Change Log,  Up: Programs
 
-Tags Tables
-===========
+21.11 Tags Tables
+=================
 
 A "tags table" is a description of how a multi-file program is broken
 up into files.  It lists the names of the component files and the names
@@ -5440,8 +5391,8 @@ class browser.  *Note Top: (ebrowse)Top.
 
 File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Up: Tags
 
-Source File Tag Syntax
-----------------------
+21.11.1 Source File Tag Syntax
+------------------------------
 
 Here is how tag syntax is defined for the most popular languages:
 
@@ -5567,8 +5518,8 @@ Regexps::) to handle other formats and languages.
 
 File: xemacs.info,  Node: Create Tags Table,  Next: Etags Regexps,  Prev: Tag Syntax,  Up: Tags
 
-Creating Tags Tables
---------------------
+21.11.2 Creating Tags Tables
+----------------------------
 
 The `etags' program is used to create a tags table file.  It knows the
 syntax of several languages, as described in *Note Tag Syntax::.  Here
@@ -5650,8 +5601,8 @@ all the available `etags' options, together with a short explanation.
 
 File: xemacs.info,  Node: Etags Regexps,  Next: Select Tags Table,  Prev: Create Tags Table,  Up: Tags
 
-Etags Regexps
--------------
+21.11.3 Etags Regexps
+---------------------
 
 The `--regex' option provides a general way of recognizing tags based
 on regexp matching.  You can freely intermix it with file names.  Each
@@ -5759,8 +5710,8 @@ from shell interpretation.
 
 File: xemacs.info,  Node: Select Tags Table,  Next: Find Tag,  Prev: Etags Regexps,  Up: Tags
 
-Selecting a Tags Table
-----------------------
+21.11.4 Selecting a Tags Table
+------------------------------
 
 At any time Emacs has one "selected" tags table, and all the commands
 for working with tags tables use the selected one.  To select a tags
@@ -5841,8 +5792,8 @@ supplanted by the variable `tag-table-alist'.
 
 File: xemacs.info,  Node: Find Tag,  Next: Tags Search,  Prev: Select Tags Table,  Up: Tags
 
-Finding a Tag
--------------
+21.11.5 Finding a Tag
+---------------------
 
 The most important thing that a tags table enables you to do is to find
 the definition of a specific tag.
@@ -5919,8 +5870,8 @@ function.
 
 File: xemacs.info,  Node: Tags Search,  Next: List Tags,  Prev: Find Tag,  Up: Tags
 
-Searching and Replacing with Tags Tables
-----------------------------------------
+21.11.6 Searching and Replacing with Tags Tables
+------------------------------------------------
 
 The commands in this section visit and search all the files listed in
 the selected tags table, one by one.  For these commands, the tags
@@ -5996,8 +5947,8 @@ desired result, you can use `M-x next-file'.
 
 File: xemacs.info,  Node: List Tags,  Prev: Tags Search,  Up: Tags
 
-Tags Table Inquiries
---------------------
+21.11.7 Tags Table Inquiries
+----------------------------
 
 `M-x list-tags'
      Display a list of the tags defined in a specific program file.
@@ -6019,10 +5970,143 @@ then finds all the tags in the selected tags table whose entries match
 that regexp, and displays the tag names found.
 
 
-File: xemacs.info,  Node: Fortran,  Next: Asm Mode,  Prev: Tags,  Up: Programs
+File: xemacs.info,  Node: CC Mode,  Next: Fortran,  Prev: Tags,  Up: Programs
 
-Fortran Mode
-============
+21.12 Modes for C, C++, Java and similar languages
+==================================================
+
+The recommended means for supporting the "C-like" programming languages
+in XEmacs is the `cc-mode' package.  CC Mode is not included in the
+basic XEmacs distribution but is available as an optional package. If
+loading a file whose names ends in the `.cc' extension does not
+automatically invoke a C++ Mode then the `cc-mode' package is probably
+not yet installed. *Note Packages::.
+
+   CC Mode provides modes for editing source files in Awk (`awk-mode'),
+C (`c-mode'), C++ (`c++-mode'), CORBA IDL (`idl-mode'), Java
+(`java-mode'), Objective C (`objc-mode'), and Pike (`pike-mode'). All
+these languages are supported with an sophisticated "indentation
+engine" that is feature rich, customizable and quite efficient.
+
+   Each language major mode runs hooks in the conventionally named hook
+variables (*note Mode Hooks::). In addition to this conventional
+behavior all the CC Mode major modes will also run hooks in
+`c-mode-common-hook' _before_ invoking the major mode specific hook.
+
+   CC Mode runs any hooks in `c-initialization-hook' exactly once when
+it is first loaded.
+
+   CC Mode is a very comprehensive and flexible system and full
+description of its capabilities is beyond the scope of this manual.  It
+is strongly recommended that the reader consult the CC Mode
+documentation for details once the package has been installed. *Note CC
+Mode: (cc-mode)Top.
+
+* Menu:
+
+* Older Modes::             Older Modes for C and AWK
+* Customizing CC Mode::     An Introduction to Customizing CC Mode.
+
+
+File: xemacs.info,  Node: Older Modes,  Next: Customizing CC Mode,  Prev: CC Mode,  Up: CC Mode
+
+21.12.1 Older Modes for C and AWK
+---------------------------------
+
+XEmacs provides older versions of a C Mode and an AWK Mode in the
+`prog-modes' package. These older modes do not share the indentation
+engine in CC Mode have have their own specific means of customizing
+indentation. To use these modes the `prog-modes' package must be
+installed.
+
+   This older C mode is known simply as the "Old C Mode". It supports
+only the C language and it lacks many of the features of CC Mode.
+However the old C mode offers modest space requirements and very fast
+operation.  Old C Mode might be useful in space constrained
+environments, on slow machines, or for editing very large files. This
+old C mode is available in the `old-c-mode' library. *Note Old C Mode:
+(prog-modes)old-c-mode.
+
+   The old AWK mode exists for similar reasons. It is available in the
+`awk-mode' library.  *Note Old AWK Mode: (prog-modes)awk-mode.
+
+   Note that the prog-modes package will never automatically invoke
+these older modes for a user. However installing the `cc-mode' package
+_will_ make CC Mode's versions available automatically.  As a result a
+user who wants to use these older modes must explicitly load the old
+libraries to use them.
+
+
+File: xemacs.info,  Node: Customizing CC Mode,  Prev: Older Modes,  Up: CC Mode
+
+21.12.2 Customizing Indentation in CC Mode
+------------------------------------------
+
+A very brief introduction is included here on customizing CC Mode. CC
+Mode has many features, including useful minor modes, that are
+completely documented in its own manual.
+
+   CC Mode implements several different "styles" for C code (and the
+other languages supported by CC Mode). If you need to change the
+indentation style for CC Mode it is recommended that you first see if an
+existing style meets your requirements. The style chosen will affect the
+placement of language elements like braces, function declarations and
+comments. You can choose a style interactively by typing `C-c .' and
+pressing the space bar at the prompt to get a list of supported styles.
+`C-c .' runs the function `c-set-style' which applies to all CC Mode
+language modes though its name might suggest otherwise. A few of the
+the supported styles are listed below.
+
+   * "gnu" -- The recommeded style from the Free Software Foundation for
+     GNU software.
+
+   * "k&r" -- The classic style from Kernighan and Ritchie.
+
+   * "linux" -- The style recommended for code in the Linux kernel.
+
+   * "bsd" -- The style recommended for software developed in BSD.
+
+   * "java -- The "traditional" Java style.
+
+   The default style in XEmacs is "gnu" except for Java mode where it
+is the "java" style (this is governed by the variable
+`c-default-style').
+
+   The styles included in CC Mode all use a buffer local variable called
+`c-basic-offset' as the basic indentation level (this buffer local
+variable is used in all CC Mode language modes though its name might
+suggest otherwise). All indentation is, by default, expressed in
+multiples of `c-basic-offset'.
+
+   Each style defines a default value for `c-basic-offset', for the
+"gnu" style sets it to 2. A very common customization scenario is where
+a user wants to use an existing style but with a different basic offset
+value. An easy way to do this is to set `c-basic-offset' in the
+language mode hook after selecting the chosen style.
+
+   For example, a user might want to follow a local coding convention of
+using the "k&r" style for C code with indentation in two columns
+multiples (instead of the five column default provided by the CC Mode
+"k&r" style). This can be achieved with the following code in the
+initialization file (*note Init File::)
+
+     (defun my-c-mode-hook ()
+       (c-set-style "k&r")
+       (setq c-basic-offset 2))
+     (add-hook 'c-mode-hook 'my-c-mode-hook)
+
+   Most customizations for indentation in various CC modes can be
+accomplished by choosing a style and then choosing value for
+`c-basic-offset' that meets the local coding convention. CC Mode has a
+very customizable indentation engine and a furthur discussion is really
+beyond the scope of this manual. *Note Indentation Engine:
+(cc-mode)Indentation Engine.
+
+
+File: xemacs.info,  Node: Fortran,  Next: Asm Mode,  Prev: CC Mode,  Up: Programs
+
+21.13 Fortran Mode
+==================
 
 Fortran mode provides special motion commands for Fortran statements and
 subprograms, and indentation commands that understand Fortran
@@ -6051,8 +6135,8 @@ variable has a non-`nil' value.
 
 File: xemacs.info,  Node: Fortran Motion,  Next: Fortran Indent,  Prev: Fortran,  Up: Fortran
 
-Motion Commands
----------------
+21.13.1 Motion Commands
+-----------------------
 
 Fortran mode provides special commands to move by subprograms (functions
 and subroutines) and by statements.  There is also a command to put the
@@ -6081,8 +6165,8 @@ moving it.
 
 File: xemacs.info,  Node: Fortran Indent,  Next: Fortran Comments,  Prev: Fortran Motion,  Up: Fortran
 
-Fortran Indentation
--------------------
+21.13.2 Fortran Indentation
+---------------------------
 
 Special commands and features are available for indenting Fortran code.
 They make sure various syntactic entities (line numbers, comment line
@@ -6099,8 +6183,8 @@ required for standard Fortran.
 
 File: xemacs.info,  Node: ForIndent Commands,  Next: ForIndent Num,  Prev: Fortran Indent,  Up: Fortran Indent
 
-Fortran Indentation Commands
-............................
+21.13.2.1 Fortran Indentation Commands
+......................................
 
 `<TAB>'
      Indent the current line (`fortran-indent-line').
@@ -6130,8 +6214,8 @@ lines.
 
 File: xemacs.info,  Node: ForIndent Num,  Next: ForIndent Conv,  Prev: ForIndent Commands,  Up: Fortran Indent
 
-Line Numbers and Continuation
-.............................
+21.13.2.2 Line Numbers and Continuation
+.......................................
 
 If a number is the first non-whitespace in the line, it is assumed to be
 a line number and is moved to columns 0 through 4.  (Columns are always
@@ -6157,8 +6241,8 @@ is like inserting anything else.
 
 File: xemacs.info,  Node: ForIndent Conv,  Next: ForIndent Vars,  Prev: ForIndent Num,  Up: Fortran Indent
 
-Syntactic Conventions
-.....................
+21.13.2.3 Syntactic Conventions
+...............................
 
 Fortran mode assumes that you follow certain conventions that simplify
 the task of understanding a Fortran program well enough to indent it
@@ -6178,8 +6262,8 @@ followed.
 
 File: xemacs.info,  Node: ForIndent Vars,  Prev: ForIndent Conv,  Up: Fortran Indent
 
-Variables for Fortran Indentation
-.................................
+21.13.2.4 Variables for Fortran Indentation
+...........................................
 
 Several additional variables control how Fortran indentation works.
 
@@ -6211,8 +6295,8 @@ Several additional variables control how Fortran indentation works.
 
 File: xemacs.info,  Node: Fortran Comments,  Next: Fortran Columns,  Prev: Fortran Indent,  Up: Fortran
 
-Comments
---------
+21.13.3 Comments
+----------------
 
 The usual Emacs comment commands assume that a comment can follow a line
 of code.  In Fortran, the standard comment syntax requires an entire
@@ -6292,8 +6376,8 @@ context which one is referred to.
 
 File: xemacs.info,  Node: Fortran Columns,  Next: Fortran Abbrev,  Prev: Fortran Comments,  Up: Fortran
 
-Columns
--------
+21.13.4 Columns
+---------------
 
 `C-c C-r'
      Displays a "column ruler" momentarily above the current line
@@ -6327,8 +6411,8 @@ immediately see when a line gets too wide to be correct Fortran.
 
 File: xemacs.info,  Node: Fortran Abbrev,  Prev: Fortran Columns,  Up: Fortran
 
-Fortran Keyword Abbrevs
------------------------
+21.13.5 Fortran Keyword Abbrevs
+-------------------------------
 
 Fortran mode provides many built-in abbrevs for common keywords and
 declarations.  These are the same sort of abbrevs that you can define
@@ -6350,8 +6434,8 @@ abbrevs and what they stand for.
 
 File: xemacs.info,  Node: Asm Mode,  Prev: Fortran,  Up: Programs
 
-Asm Mode
-========
+21.14 Asm Mode
+==============
 
 Asm mode is a major mode for editing files of assembler code.  It
 defines these commands:
@@ -6375,8 +6459,8 @@ comments in assembler syntax.
 
 File: xemacs.info,  Node: Running,  Next: Abbrevs,  Prev: Programs,  Up: Top
 
-Compiling and Testing Programs
-******************************
+22 Compiling and Testing Programs
+*********************************
 
 The previous chapter discusses the Emacs commands that are useful for
 making changes in programs.  This chapter deals with commands that
@@ -6397,8 +6481,8 @@ assist in the larger process of developing and maintaining programs.
 
 File: xemacs.info,  Node: Compilation,  Next: Lisp Modes,  Prev: Running,  Up: Running
 
-Running "make", or Compilers Generally
-======================================
+22.1 Running "make", or Compilers Generally
+===========================================
 
 Emacs can run compilers for non-interactive languages like C and
 Fortran as inferior processes, feeding the error log into an Emacs
@@ -6497,8 +6581,8 @@ prompt.  Here's how to do it in `csh':
 
 File: xemacs.info,  Node: Lisp Modes,  Next: Lisp Libraries,  Prev: Compilation,  Up: Running
 
-Major Modes for Lisp
-====================
+22.2 Major Modes for Lisp
+=========================
 
 Emacs has four different major modes for Lisp.  They are the same in
 terms of editing commands, but differ in the commands for executing Lisp
@@ -6535,8 +6619,8 @@ Inferior Scheme mode
 
 File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
 
-Libraries of Lisp Code for Emacs
-================================
+22.3 Libraries of Lisp Code for Emacs
+=====================================
 
 Lisp code for Emacs editing commands is stored in files whose names
 conventionally end in `.el'.  This ending tells Emacs to edit them in
@@ -6551,8 +6635,8 @@ Emacs-Lisp mode (*note Lisp Modes::).
 
 File: xemacs.info,  Node: Loading,  Next: Compiling Libraries,  Prev: Lisp Libraries,  Up: Lisp Libraries
 
-Loading Libraries
------------------
+22.3.1 Loading Libraries
+------------------------
 
 `M-x load-file FILE'
      Load the file FILE of Lisp code.
@@ -6641,8 +6725,8 @@ does prevent execution of the rest of the `forms'.
 
 File: xemacs.info,  Node: Compiling Libraries,  Next: Mocklisp,  Prev: Loading,  Up: Lisp Libraries
 
-Compiling Libraries
--------------------
+22.3.2 Compiling Libraries
+--------------------------
 
 Emacs Lisp code can be compiled into byte-code which loads faster,
 takes up less space when loaded, and executes faster.
@@ -6666,7 +6750,7 @@ takes up less space when loaded, and executes faster.
      Recompile every `.el' file in DIRECTORY that needs recompilation.
 
 `M-x disassemble'
-     Print disassembled code for OBJECT on (optional) STREAM.
+     Print disassembled code for OBJECT on (optional) STREAM.  
 
 `M-x make-obsolete FUNCTION NEW'
      Make the byte-compiler warn that FUNCTION is obsolete and NEW
@@ -6710,8 +6794,8 @@ instruction refers to a variable or constant, that is shown, too.
 
 File: xemacs.info,  Node: Mocklisp,  Prev: Compiling Libraries,  Up: Lisp Libraries
 
-Converting Mocklisp to Lisp
----------------------------
+22.3.3 Converting Mocklisp to Lisp
+----------------------------------
 
 XEmacs can run Mocklisp files by converting them to Emacs Lisp first.
 To convert a Mocklisp file, visit it and then type `M-x
@@ -6723,183 +6807,4 @@ library.
 reason is that converted Mocklisp code uses some special Lisp features
 to deal with Mocklisp's incompatible ideas of how arguments are
 evaluated and which values signify "true" or "false".
-
-
-File: xemacs.info,  Node: Lisp Eval,  Next: Lisp Debug,  Prev: Lisp Libraries,  Up: Running
-
-Evaluating Emacs-Lisp Expressions
-=================================
-
-Lisp programs intended to be run in Emacs should be edited in
-Emacs-Lisp mode; this will happen automatically for file names ending in
-`.el'.  By contrast, Lisp mode itself should be used for editing Lisp
-programs intended for other Lisp systems.  Emacs-Lisp mode can be
-selected with the command `M-x emacs-lisp-mode'.
-
-   For testing of Lisp programs to run in Emacs, it is useful to be able
-to evaluate part of the program as it is found in the Emacs buffer.  For
-example, if you change the text of a Lisp function definition and then
-evaluate the definition, Emacs installs the change for future calls to
-the function.  Evaluation of Lisp expressions is also useful in any
-kind of editing task for invoking non-interactive functions (functions
-that are not commands).
-
-`M-:'
-     Read a Lisp expression in the minibuffer, evaluate it, and print
-     the value in the minibuffer (`eval-expression').
-
-`C-x C-e'
-     Evaluate the Lisp expression before point, and print the value in
-     the minibuffer (`eval-last-sexp').
-
-`C-M-x'
-     Evaluate the defun containing point or after point, and print the
-     value in the minibuffer (`eval-defun').
-
-`M-x eval-region'
-     Evaluate all the Lisp expressions in the region.
-
-`M-x eval-current-buffer'
-     Evaluate all the Lisp expressions in the buffer.
-
-   `M-:' (`eval-expression') is the most basic command for evaluating a
-Lisp expression interactively.  It reads the expression using the
-minibuffer, so you can execute any expression on a buffer regardless of
-what the buffer contains.  When evaluation is complete, the current
-buffer is once again the buffer that was current when `M-:' was typed.
-
-   In Emacs-Lisp mode, the key `C-M-x' is bound to the function
-`eval-defun', which parses the defun containing point or following point
-as a Lisp expression and evaluates it.  The value is printed in the echo
-area.  This command is convenient for installing in the Lisp environment
-changes that you have just made in the text of a function definition.
-
-   The command `C-x C-e' (`eval-last-sexp') performs a similar job but
-is available in all major modes, not just Emacs-Lisp mode.  It finds
-the sexp before point, reads it as a Lisp expression, evaluates it, and
-prints the value in the echo area.  It is sometimes useful to type in an
-expression and then, with point still after it, type `C-x C-e'.
-
-   If `C-M-x' or `C-x C-e' are given a numeric argument, they print the
-value by inserting it into the current buffer at point, rather than in
-the echo area.  The argument value does not matter.
-
-   The most general command for evaluating Lisp expressions from a
-buffer is `eval-region'.  `M-x eval-region' parses the text of the
-region as one or more Lisp expressions, evaluating them one by one.
-`M-x eval-current-buffer' is similar, but it evaluates the entire
-buffer.  This is a reasonable way to install the contents of a file of
-Lisp code that you are just ready to test.  After finding and fixing a
-bug, use `C-M-x' on each function that you change, to keep the Lisp
-world in step with the source file.
-
-
-File: xemacs.info,  Node: Lisp Debug,  Next: Lisp Interaction,  Prev: Lisp Eval,  Up: Running
-
-The Emacs-Lisp Debugger
-=======================
-
-XEmacs contains a debugger for Lisp programs executing inside it.  This
-debugger is normally not used; many commands frequently get Lisp errors
-when invoked in inappropriate contexts (such as `C-f' at the end of the
-buffer) and it would be unpleasant to enter a special debugging mode in
-this case.  When you want to make Lisp errors invoke the debugger, you
-must set the variable `debug-on-error' to non-`nil'.  Quitting with
-`C-g' is not considered an error, and `debug-on-error' has no effect on
-the handling of `C-g'.  However, if you set `debug-on-quit' to be
-non-`nil', `C-g' will invoke the debugger.  This can be useful for
-debugging an infinite loop; type `C-g' once the loop has had time to
-reach its steady state.  `debug-on-quit' has no effect on errors.
-
-   You can make Emacs enter the debugger when a specified function is
-called or at a particular place in Lisp code.  Use `M-x debug-on-entry'
-with argument FUN-NAME to have Emacs enter the debugger as soon as
-FUN-NAME is called. Use `M-x cancel-debug-on-entry' to make the
-function stop entering the debugger when called.  (Redefining the
-function also does this.)  To enter the debugger from some other place
-in Lisp code, you must insert the expression `(debug)' there and
-install the changed code with `C-M-x'.  *Note Lisp Eval::.
-
-   When the debugger is entered, it displays the previously selected
-buffer in one window and a buffer named `*Backtrace*' in another
-window.  The backtrace buffer contains one line for each level of Lisp
-function execution currently going on.  At the beginning of the buffer
-is a message describing the reason that the debugger was invoked, for
-example, an error message if it was invoked due to an error.
-
-   The backtrace buffer is read-only and is in Backtrace mode, a special
-major mode in which letters are defined as debugger commands.  The
-usual Emacs editing commands are available; you can switch windows to
-examine the buffer that was being edited at the time of the error, and
-you can switch buffers, visit files, and perform any other editing
-operations.  However, the debugger is a recursive editing level (*note
-Recursive Edit::); it is a good idea to return to the backtrace buffer
-and explicitly exit the debugger when you don't want to use it any
-more.  Exiting the debugger kills the backtrace buffer.
-
-   The contents of the backtrace buffer show you the functions that are
-executing and the arguments that were given to them.  It also allows you
-to specify a stack frame by moving point to the line describing that
-frame.  The frame whose line point is on is considered the "current
-frame".  Some of the debugger commands operate on the current frame.
-Debugger commands are mainly used for stepping through code one
-expression at a time.  Here is a list of them:
-
-`c'
-     Exit the debugger and continue execution.  In most cases,
-     execution of the program continues as if the debugger had never
-     been entered (aside from the effect of any variables or data
-     structures you may have changed while inside the debugger).  This
-     includes entry to the debugger due to function entry or exit,
-     explicit invocation, and quitting or certain errors.  Most errors
-     cannot be continued; trying to continue an error usually causes
-     the same error to occur again.
-
-`d'
-     Continue execution, but enter the debugger the next time a Lisp
-     function is called.  This allows you to step through the
-     subexpressions of an expression, and see what the subexpressions
-     do and what values they compute.
-
-     When you enter the debugger this way, Emacs flags the stack frame
-     for the function call from which you entered.  The same function
-     is then called when you exit the frame.  To cancel this flag, use
-     `u'.
-
-`b'
-     Set up to enter the debugger when the current frame is exited.
-     Frames that invoke the debugger on exit are flagged with stars.
-
-`u'
-     Don't enter the debugger when the current frame is exited.  This
-     cancels a `b' command on a frame.
-
-`e'
-     Read a Lisp expression in the minibuffer, evaluate it, and print
-     the value in the echo area.  This is equivalent to the command
-     `M-:'.
-
-`q'
-     Terminate the program being debugged; return to top-level Emacs
-     command execution.
-
-     If the debugger was entered due to a `C-g' but you really want to
-     quit, not to debug, use the `q' command.
-
-`r'
-     Return a value from the debugger.  The value is computed by
-     reading an expression with the minibuffer and evaluating it.
-
-     The value returned by the debugger makes a difference when the
-     debugger was invoked due to exit from a Lisp call frame (as
-     requested with `b'); then the value specified in the `r' command
-     is used as the value of that frame.
-
-     The debugger's return value also matters with many errors.  For
-     example, `wrong-type-argument' errors will use the debugger's
-     return value instead of the invalid argument; `no-catch' errors
-     will use the debugger value as a throw tag instead of the tag that
-     was not found.  If an error was signaled by calling the Lisp
-     function `signal', the debugger's return value is returned as the
-     value of `signal'.
 

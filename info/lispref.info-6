@@ -1,4 +1,4 @@
-This is ../info/lispref.info, produced by makeinfo version 4.6 from
+This is ../info/lispref.info, produced by makeinfo version 4.8 from
 lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -50,10 +50,172 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Internals of Kill Ring,  Prev: Low-Level Kill Ring,  Up: The Kill Ring
+
+43.8.5 Internals of the Kill Ring
+---------------------------------
+
+The variable `kill-ring' holds the kill ring contents, in the form of a
+list of strings.  The most recent kill is always at the front of the
+list.
+
+   The `kill-ring-yank-pointer' variable points to a link in the kill
+ring list, whose CAR is the text to yank next.  We say it identifies
+the "front" of the ring.  Moving `kill-ring-yank-pointer' to a
+different link is called "rotating the kill ring".  We call the kill
+ring a "ring" because the functions that move the yank pointer wrap
+around from the end of the list to the beginning, or vice-versa.
+Rotation of the kill ring is virtual; it does not change the value of
+`kill-ring'.
+
+   Both `kill-ring' and `kill-ring-yank-pointer' are Lisp variables
+whose values are normally lists.  The word "pointer" in the name of the
+`kill-ring-yank-pointer' indicates that the variable's purpose is to
+identify one element of the list for use by the next yank command.
+
+   The value of `kill-ring-yank-pointer' is always `eq' to one of the
+links in the kill ring list.  The element it identifies is the CAR of
+that link.  Kill commands, which change the kill ring, also set this
+variable to the value of `kill-ring'.  The effect is to rotate the ring
+so that the newly killed text is at the front.
+
+   Here is a diagram that shows the variable `kill-ring-yank-pointer'
+pointing to the second entry in the kill ring `("some text" "a
+different piece of text" "yet older text")'.
+
+     kill-ring       kill-ring-yank-pointer
+       |               |
+       |     ___ ___    --->  ___ ___      ___ ___
+        --> |___|___|------> |___|___|--> |___|___|--> nil
+              |                |            |
+              |                |            |
+              |                |             -->"yet older text"
+              |                |
+              |                 --> "a different piece of text"
+              |
+               --> "some text"
+
+This state of affairs might occur after `C-y' (`yank') immediately
+followed by `M-y' (`yank-pop').
+
+ -- Variable: kill-ring
+     This variable holds the list of killed text sequences, most
+     recently killed first.
+
+ -- Variable: kill-ring-yank-pointer
+     This variable's value indicates which element of the kill ring is
+     at the "front" of the ring for yanking.  More precisely, the value
+     is a tail of the value of `kill-ring', and its CAR is the kill
+     string that `C-y' should yank.
+
+ -- User Option: kill-ring-max
+     The value of this variable is the maximum length to which the kill
+     ring can grow, before elements are thrown away at the end.  The
+     default value for `kill-ring-max' is 30.
+
+
+File: lispref.info,  Node: Undo,  Next: Maintaining Undo,  Prev: The Kill Ring,  Up: Text
+
+43.9 Undo
+=========
+
+Most buffers have an "undo list", which records all changes made to the
+buffer's text so that they can be undone.  (The buffers that don't have
+one are usually special-purpose buffers for which XEmacs assumes that
+undoing is not useful.)  All the primitives that modify the text in the
+buffer automatically add elements to the front of the undo list, which
+is in the variable `buffer-undo-list'.
+
+ -- Variable: buffer-undo-list
+     This variable's value is the undo list of the current buffer.  A
+     value of `t' disables the recording of undo information.
+
+   Here are the kinds of elements an undo list can have:
+
+`INTEGER'
+     This kind of element records a previous value of point.  Ordinary
+     cursor motion does not get any sort of undo record, but deletion
+     commands use these entries to record where point was before the
+     command.
+
+`(START . END)'
+     This kind of element indicates how to delete text that was
+     inserted.  Upon insertion, the text occupied the range START-END
+     in the buffer.
+
+`(TEXT . POSITION)'
+     This kind of element indicates how to reinsert text that was
+     deleted.  The deleted text itself is the string TEXT.  The place to
+     reinsert it is `(abs POSITION)'.
+
+`(t HIGH . LOW)'
+     This kind of element indicates that an unmodified buffer became
+     modified.  The elements HIGH and LOW are two integers, each
+     recording 16 bits of the visited file's modification time as of
+     when it was previously visited or saved.  `primitive-undo' uses
+     those values to determine whether to mark the buffer as unmodified
+     once again; it does so only if the file's modification time
+     matches those numbers.
+
+`(nil PROPERTY VALUE START . END)'
+     This kind of element records a change in a text property.  Here's
+     how you might undo the change:
+
+          (put-text-property START END PROPERTY VALUE)
+
+`POSITION'
+     This element indicates where point was at an earlier time.
+     Undoing this element sets point to POSITION.  Deletion normally
+     creates an element of this kind as well as a reinsertion element.
+
+`nil'
+     This element is a boundary.  The elements between two boundaries
+     are called a "change group"; normally, each change group
+     corresponds to one keyboard command, and undo commands normally
+     undo an entire group as a unit.
+
+ -- Function: undo-boundary
+     This function places a boundary element in the undo list.  The undo
+     command stops at such a boundary, and successive undo commands undo
+     to earlier and earlier boundaries.  This function returns `nil'.
+
+     The editor command loop automatically creates an undo boundary
+     before each key sequence is executed.  Thus, each undo normally
+     undoes the effects of one command.  Self-inserting input
+     characters are an exception.  The command loop makes a boundary
+     for the first such character; the next 19 consecutive
+     self-inserting input characters do not make boundaries, and then
+     the 20th does, and so on as long as self-inserting characters
+     continue.
+
+     All buffer modifications add a boundary whenever the previous
+     undoable change was made in some other buffer.  This way, a
+     command that modifies several buffers makes a boundary in each
+     buffer it changes.
+
+     Calling this function explicitly is useful for splitting the
+     effects of a command into more than one unit.  For example,
+     `query-replace' calls `undo-boundary' after each replacement, so
+     that the user can undo individual replacements one by one.
+
+ -- Function: primitive-undo count list
+     This is the basic function for undoing elements of an undo list.
+     It undoes the first COUNT elements of LIST, returning the rest of
+     LIST.  You could write this function in Lisp, but it is convenient
+     to have it in C.
+
+     `primitive-undo' adds elements to the buffer's undo list when it
+     changes the buffer.  Undo commands avoid confusion by saving the
+     undo list value at the beginning of a sequence of undo operations.
+     Then the undo operations use and update the saved value.  The new
+     elements added by undoing are not part of this saved value, so
+     they don't interfere with continuing to undo.
+
+
 File: lispref.info,  Node: Maintaining Undo,  Next: Filling,  Prev: Undo,  Up: Text
 
-Maintaining Undo Lists
-======================
+43.10 Maintaining Undo Lists
+============================
 
 This section describes how to enable and disable undo information for a
 given buffer.  It also explains how the undo list is truncated
@@ -65,7 +227,7 @@ undo recording is initially disabled.  You can explicitly enable or
 disable undo recording with the following two functions, or by setting
 `buffer-undo-list' yourself.
 
- - Command: buffer-enable-undo &optional buffer-or-name
+ -- Command: buffer-enable-undo &optional buffer-or-name
      This command enables recording undo information for buffer
      BUFFER-OR-NAME, so that subsequent changes can be undone.  If no
      argument is supplied, then the current buffer is used.  This
@@ -75,8 +237,8 @@ disable undo recording with the following two functions, or by setting
      In an interactive call, BUFFER-OR-NAME is the current buffer.  You
      cannot specify any other buffer.
 
- - Command: buffer-disable-undo &optional buffer
- - Command: buffer-flush-undo &optional buffer
+ -- Command: buffer-disable-undo &optional buffer
+ -- Command: buffer-flush-undo &optional buffer
      This function discards the undo list of BUFFER, and disables
      further recording of undo information.  As a result, it is no
      longer possible to undo either previous changes or any subsequent
@@ -96,12 +258,12 @@ an undo list measures the cons cells that make up the list, plus the
 strings of deleted text.)  Two variables control the range of acceptable
 sizes: `undo-limit' and `undo-strong-limit'.
 
- - Variable: undo-limit
+ -- Variable: undo-limit
      This is the soft limit for the acceptable size of an undo list.
      The change group at which this size is exceeded is the last one
      kept.
 
- - Variable: undo-strong-limit
+ -- Variable: undo-strong-limit
      This is the upper limit for the acceptable size of an undo list.
      The change group at which this size is exceeded is discarded
      itself (along with all older change groups).  There is one
@@ -111,8 +273,8 @@ sizes: `undo-limit' and `undo-strong-limit'.
 
 File: lispref.info,  Node: Filling,  Next: Margins,  Prev: Maintaining Undo,  Up: Text
 
-Filling
-=======
+43.11 Filling
+=============
 
 "Filling" means adjusting the lengths of lines (by moving the line
 breaks) so that they are nearly (but no greater than) a specified
@@ -141,20 +303,20 @@ justification style for this part of the text (see
    When you call the filling functions interactively, using a prefix
 argument implies the value `full' for JUSTIFY.
 
- - Command: fill-paragraph justify
+ -- Command: fill-paragraph justify
      This command fills the paragraph at or after point.  If JUSTIFY is
      non-`nil', each line is justified as well.  It uses the ordinary
      paragraph motion commands to find paragraph boundaries.  *Note
      Paragraphs: (xemacs)Paragraphs.
 
- - Command: fill-region start end &optional justify
+ -- Command: fill-region start end &optional justify
      This command fills each of the paragraphs in the region from START
      to END.  It justifies as well if JUSTIFY is non-`nil'.
 
      The variable `paragraph-separate' controls how to distinguish
      paragraphs.  *Note Standard Regexps::.
 
- - Command: fill-individual-paragraphs start end &optional justify
+ -- Command: fill-individual-paragraphs start end &optional justify
           mail-flag
      This command fills each paragraph in the region according to its
      individual fill prefix.  Thus, if the lines of a paragraph were
@@ -174,11 +336,11 @@ argument implies the value `full' for JUSTIFY.
      lines separate paragraphs.  That mode can handle indented
      paragraphs with additional indentation on the first line.
 
- - User Option: fill-individual-varying-indent
+ -- User Option: fill-individual-varying-indent
      This variable alters the action of `fill-individual-paragraphs' as
      described above.
 
- - Command: fill-region-as-paragraph start end &optional justify
+ -- Command: fill-region-as-paragraph start end &optional justify
      This command considers a region of text as a paragraph and fills
      it.  If the region was made up of many paragraphs, the blank lines
      between paragraphs are removed.  This function justifies as well
@@ -191,7 +353,7 @@ argument implies the value `full' for JUSTIFY.
      no fill prefix uses the indentation of the second line of the
      paragraph as the fill prefix.
 
- - Command: justify-current-line how eop nosqueeze
+ -- Command: justify-current-line how eop nosqueeze
      This command inserts spaces between the words of the current line
      so that the line ends exactly at `fill-column'.  It returns `nil'.
 
@@ -209,17 +371,17 @@ argument implies the value `full' for JUSTIFY.
      If NOSQUEEZE is non-`nil', that means do not change interior
      whitespace.
 
- - User Option: default-justification
+ -- User Option: default-justification
      This variable's value specifies the style of justification to use
      for text that doesn't specify a style with a text property.  The
      possible values are `left', `right', `full', `center', or `none'.
      The default value is `left'.
 
- - Function: current-justification
+ -- Function: current-justification
      This function returns the proper justification style to use for
      filling the text around point.
 
- - Variable: fill-paragraph-function
+ -- Variable: fill-paragraph-function
      This variable provides a way for major modes to override the
      filling of paragraphs.  If the value is non-`nil',
      `fill-paragraph' calls this function to do the work.  If the
@@ -233,7 +395,7 @@ argument implies the value `full' for JUSTIFY.
           (let ((fill-paragraph-function nil))
             (fill-paragraph arg))
 
- - Variable: use-hard-newlines
+ -- Variable: use-hard-newlines
      If this variable is non-`nil', the filling functions do not delete
      newlines that have the `hard' text property.  These "hard
      newlines" act as paragraph separators.
@@ -241,10 +403,10 @@ argument implies the value `full' for JUSTIFY.
 
 File: lispref.info,  Node: Margins,  Next: Auto Filling,  Prev: Filling,  Up: Text
 
-Margins for Filling
-===================
+43.12 Margins for Filling
+=========================
 
- - User Option: fill-prefix
+ -- User Option: fill-prefix
      This variable specifies a string of text that appears at the
      beginning of normal text lines and should be disregarded when
      filling them.  Any line that fails to start with the fill prefix
@@ -256,7 +418,7 @@ Margins for Filling
 
      The fill prefix follows the left margin whitespace, if any.
 
- - User Option: fill-column
+ -- User Option: fill-column
      This buffer-local variable specifies the maximum width of filled
      lines.  Its value should be an integer, which is a number of
      columns.  All the filling, justification and centering commands
@@ -268,37 +430,37 @@ Margins for Filling
      the line will be too long for people to read comfortably, and this
      can make the text seem clumsy.
 
- - Variable: default-fill-column
+ -- Variable: default-fill-column
      The value of this variable is the default value for `fill-column'
      in buffers that do not override it.  This is the same as
      `(default-value 'fill-column)'.
 
      The default value for `default-fill-column' is 70.
 
- - Command: set-left-margin from to margin
+ -- Command: set-left-margin from to margin
      This sets the `left-margin' property on the text from FROM to TO
      to the value MARGIN.  If Auto Fill mode is enabled, this command
      also refills the region to fit the new margin.
 
- - Command: set-right-margin from to margin
+ -- Command: set-right-margin from to margin
      This sets the `right-margin' property on the text from FROM to TO
      to the value MARGIN.  If Auto Fill mode is enabled, this command
      also refills the region to fit the new margin.
 
- - Function: current-left-margin
+ -- Function: current-left-margin
      This function returns the proper left margin value to use for
      filling the text around point.  The value is the sum of the
      `left-margin' property of the character at the start of the
      current line (or zero if none), and the value of the variable
      `left-margin'.
 
- - Function: current-fill-column
+ -- Function: current-fill-column
      This function returns the proper fill column value to use for
      filling the text around point.  The value is the value of the
      `fill-column' variable, minus the value of the `right-margin'
      property of the character after point.
 
- - Command: move-to-left-margin &optional n force
+ -- Command: move-to-left-margin &optional n force
      This function moves point to the left margin of the current line.
      The column moved to is determined by calling the function
      `current-left-margin'.  If the argument N is non-`nil',
@@ -307,7 +469,7 @@ Margins for Filling
      If FORCE is non-`nil', that says to fix the line's indentation if
      that doesn't match the left margin value.
 
- - Function: delete-to-left-margin &optional from to
+ -- Function: delete-to-left-margin &optional from to
      This function removes left margin indentation from the text
      between FROM and TO.  The amount of indentation to delete is
      determined by calling `current-left-margin'.  In no case does this
@@ -316,14 +478,14 @@ Margins for Filling
      The arguments FROM and TO are optional; the default is the whole
      buffer.
 
- - Function: indent-to-left-margin
+ -- Function: indent-to-left-margin
      This is the default `indent-line-function', used in Fundamental
      mode, Text mode, etc.  Its effect is to adjust the indentation at
      the beginning of the current line to the value specified by the
      variable `left-margin'.  This may involve either inserting or
      deleting whitespace.
 
- - Variable: left-margin
+ -- Variable: left-margin
      This variable specifies the base left margin column.  In
      Fundamental mode, <LFD> indents to this column.  This variable
      automatically becomes buffer-local when set in any fashion.
@@ -331,8 +493,8 @@ Margins for Filling
 
 File: lispref.info,  Node: Auto Filling,  Next: Sorting,  Prev: Margins,  Up: Text
 
-Auto Filling
-============
+43.13 Auto Filling
+==================
 
 Auto Fill mode is a minor mode that fills lines automatically as text
 is inserted.  This section describes the hook used by Auto Fill mode.
@@ -342,7 +504,7 @@ justify existing text, see *Note Filling::.
    Auto Fill mode also enables the functions that change the margins and
 justification style to refill portions of the text.  *Note Margins::.
 
- - Variable: auto-fill-function
+ -- Variable: auto-fill-function
      The value of this variable should be a function (of no arguments)
      to be called after self-inserting a space or a newline.  It may be
      `nil', in which case nothing special is done in that case.
@@ -359,15 +521,15 @@ justification style to refill portions of the text.  *Note Margins::.
 
 File: lispref.info,  Node: Sorting,  Next: Columns,  Prev: Auto Filling,  Up: Text
 
-Sorting Text
-============
+43.14 Sorting Text
+==================
 
 The sorting functions described in this section all rearrange text in a
 buffer.  This is in contrast to the function `sort', which rearranges
 the order of the elements of a list (*note Rearrangement::).  The
 values returned by these functions are not meaningful.
 
- - Function: sort-subr reverse nextrecfun endrecfun &optional
+ -- Function: sort-subr reverse nextrecfun endrecfun &optional
           startkeyfun endkeyfun
      This function is the general text-sorting routine that divides a
      buffer into records and sorts them.  Most of the commands in this
@@ -450,7 +612,7 @@ values returned by these functions are not meaningful.
                         (skip-chars-forward "\n \t\f")))
                      'forward-paragraph)
 
- - Command: sort-regexp-fields reverse record-regexp key-regexp start
+ -- Command: sort-regexp-fields reverse record-regexp key-regexp start
           end
      This command sorts the region between START and END alphabetically
      as specified by RECORD-REGEXP and KEY-REGEXP.  If REVERSE is a
@@ -513,29 +675,29 @@ values returned by these functions are not meaningful.
      If you call `sort-regexp-fields' interactively, it prompts for
      RECORD-REGEXP and KEY-REGEXP in the minibuffer.
 
- - Command: sort-lines reverse start end
+ -- Command: sort-lines reverse start end
      This command alphabetically sorts lines in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-paragraphs reverse start end
+ -- Command: sort-paragraphs reverse start end
      This command alphabetically sorts paragraphs in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-pages reverse start end
+ -- Command: sort-pages reverse start end
      This command alphabetically sorts pages in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-fields field start end
+ -- Command: sort-fields field start end
      This command sorts lines in the region between START and END,
      comparing them alphabetically by the FIELDth field of each line.
      Fields are separated by whitespace and numbered starting from 1.
      If FIELD is negative, sorting is by the -FIELDth field from the
      end of the line.  This command is useful for sorting tables.
 
- - Command: sort-numeric-fields field start end
+ -- Command: sort-numeric-fields field start end
      This command sorts lines in the region between START and END,
      comparing them numerically by the FIELDth field of each line.  The
      specified field must contain a number in each line of the region.
@@ -543,7 +705,7 @@ values returned by these functions are not meaningful.
      If FIELD is negative, sorting is by the -FIELDth field from the
      end of the line.  This command is useful for sorting tables.
 
- - Command: sort-columns reverse &optional start end
+ -- Command: sort-columns reverse &optional start end
      This command sorts the lines in the region between START and END,
      comparing them alphabetically by a certain range of columns.  The
      column positions of START and END bound the range of columns to
@@ -562,8 +724,8 @@ values returned by these functions are not meaningful.
 
 File: lispref.info,  Node: Columns,  Next: Indentation,  Prev: Sorting,  Up: Text
 
-Counting Columns
-================
+43.15 Counting Columns
+======================
 
 The column functions convert between a character position (counting
 characters from the beginning of the buffer) and a column position
@@ -579,7 +741,7 @@ and on the column where the tab begins.  *Note Usual Display::.
 amount of horizontal scrolling.  Consequently, a column value can be
 arbitrarily high.  The first (or leftmost) column is numbered 0.
 
- - Function: current-column &optional buffer
+ -- Function: current-column &optional buffer
      This function returns the horizontal position of point, measured in
      columns, counting from 0 at the left margin.
 
@@ -601,7 +763,7 @@ arbitrarily high.  The first (or leftmost) column is numbered 0.
      For an example of using `current-column', see the description of
      `count-lines' in *Note Text Lines::.
 
- - Function: move-to-column column &optional force buffer
+ -- Function: move-to-column column &optional force buffer
      This function moves point to COLUMN in the current line.  The
      calculation of COLUMN takes into account the widths of the
      displayed representations of the characters between the start of
@@ -631,8 +793,8 @@ arbitrarily high.  The first (or leftmost) column is numbered 0.
 
 File: lispref.info,  Node: Indentation,  Next: Case Changes,  Prev: Columns,  Up: Text
 
-Indentation
-===========
+43.16 Indentation
+=================
 
 The indentation functions are used to examine, move to, and change
 whitespace that is at the beginning of a line.  Some of the functions
@@ -651,20 +813,20 @@ count from zero at the left margin.
 
 File: lispref.info,  Node: Primitive Indent,  Next: Mode-Specific Indent,  Up: Indentation
 
-Indentation Primitives
-----------------------
+43.16.1 Indentation Primitives
+------------------------------
 
 This section describes the primitive functions used to count and insert
 indentation.  The functions in the following sections use these
 primitives.
 
- - Function: current-indentation &optional buffer
+ -- Function: current-indentation &optional buffer
      This function returns the indentation of the current line, which is
      the horizontal position of the first nonblank character.  If the
      contents are entirely blank, then this is the horizontal position
      of the end of the line.
 
- - Command: indent-to column &optional minimum buffer
+ -- Command: indent-to column &optional minimum buffer
      This function indents from point with tabs and spaces until COLUMN
      is reached.  If MINIMUM is specified and non-`nil', then at least
      that many spaces are inserted even if this requires going beyond
@@ -673,7 +835,7 @@ primitives.
      indentation ends.  If BUFFER is `nil', the current buffer is
      assumed.
 
- - User Option: indent-tabs-mode
+ -- User Option: indent-tabs-mode
      If this variable is non-`nil', indentation functions can insert
      tabs as well as spaces.  Otherwise, they insert only spaces.
      Setting this variable automatically makes it local to the current
@@ -682,15 +844,15 @@ primitives.
 
 File: lispref.info,  Node: Mode-Specific Indent,  Next: Region Indent,  Prev: Primitive Indent,  Up: Indentation
 
-Indentation Controlled by Major Mode
-------------------------------------
+43.16.2 Indentation Controlled by Major Mode
+--------------------------------------------
 
 An important function of each major mode is to customize the <TAB> key
 to indent properly for the language being edited.  This section
 describes the mechanism of the <TAB> key and how to control it.  The
 functions in this section return unpredictable values.
 
- - Variable: indent-line-function
+ -- Variable: indent-line-function
      This variable's value is the function to be used by <TAB> (and
      various commands) to indent the current line.  The command
      `indent-according-to-mode' does no more than call this function.
@@ -701,18 +863,18 @@ functions in this section return unpredictable values.
      for indentation, the value is `indent-to-left-margin' (which is the
      default value).
 
- - Command: indent-according-to-mode
+ -- Command: indent-according-to-mode
      This command calls the function in `indent-line-function' to
      indent the current line in a way appropriate for the current major
      mode.
 
- - Command: indent-for-tab-command &optional prefix-arg
+ -- Command: indent-for-tab-command &optional prefix-arg
      This command calls the function in `indent-line-function' to indent
      the current line; except that if that function is
      `indent-to-left-margin', it calls `insert-tab' instead.  (That is
      a trivial command that inserts a tab character.)
 
- - Command: newline-and-indent
+ -- Command: newline-and-indent
      This function inserts a newline, then indents the new line (the one
      following the newline just inserted) according to the major mode.
 
@@ -722,7 +884,7 @@ functions in this section return unpredictable values.
      `newline-and-indent' indents to the column specified by
      `left-margin'.
 
- - Command: reindent-then-newline-and-indent
+ -- Command: reindent-then-newline-and-indent
      This command reindents the current line, inserts a newline at
      point, and then reindents the new line (the one following the
      newline just inserted).
@@ -737,13 +899,13 @@ functions in this section return unpredictable values.
 
 File: lispref.info,  Node: Region Indent,  Next: Relative Indent,  Prev: Mode-Specific Indent,  Up: Indentation
 
-Indenting an Entire Region
---------------------------
+43.16.3 Indenting an Entire Region
+----------------------------------
 
 This section describes commands that indent all the lines in the
 region.  They return unpredictable values.
 
- - Command: indent-region start end to-column
+ -- Command: indent-region start end to-column
      This command indents each nonblank line starting between START
      (inclusive) and END (exclusive).  If TO-COLUMN is `nil',
      `indent-region' indents each nonblank line by calling the current
@@ -757,7 +919,7 @@ region.  They return unpredictable values.
      If there is a fill prefix, `indent-region' indents each line by
      making it start with the fill prefix.
 
- - Variable: indent-region-function
+ -- Variable: indent-region-function
      The value of this variable is a function that can be used by
      `indent-region' as a short cut.  You should design the function so
      that it will produce the same results as indenting the lines of the
@@ -777,7 +939,7 @@ region.  They return unpredictable values.
      `indent-region' with a non-`nil' argument TO-COLUMN has a
      different meaning and does not use this variable.
 
- - Command: indent-rigidly start end count
+ -- Command: indent-rigidly start end count
      This command indents all lines starting between START (inclusive)
      and END (exclusive) sideways by COUNT columns.  This "preserves
      the shape" of the affected region, moving it as a rigid unit.
@@ -792,7 +954,7 @@ region.  They return unpredictable values.
      `indent-rigidly' to indent the text copied from the message being
      replied to.
 
- - Command: indent-code-rigidly start end columns &optional
+ -- Command: indent-code-rigidly start end columns &optional
           nochange-regexp
      This is like `indent-rigidly', except that it doesn't alter lines
      that start within strings or comments.
@@ -803,13 +965,13 @@ region.  They return unpredictable values.
 
 File: lispref.info,  Node: Relative Indent,  Next: Indent Tabs,  Prev: Region Indent,  Up: Indentation
 
-Indentation Relative to Previous Lines
---------------------------------------
+43.16.4 Indentation Relative to Previous Lines
+----------------------------------------------
 
 This section describes two commands that indent the current line based
 on the contents of previous lines.
 
- - Command: indent-relative &optional unindented-ok
+ -- Command: indent-relative &optional unindented-ok
      This command inserts whitespace at point, extending to the same
      column as the next "indent point" of the previous nonblank line.
      An indent point is a non-whitespace character following
@@ -850,7 +1012,7 @@ on the contents of previous lines.
                       This line is indented twelve spaces.
           The quick brown fox jum  -!-ped.
 
- - Command: indent-relative-maybe
+ -- Command: indent-relative-maybe
      This command indents the current line like the previous nonblank
      line.  It calls `indent-relative' with `t' as the UNINDENTED-OK
      argument.  The return value is unpredictable.
@@ -861,8 +1023,8 @@ on the contents of previous lines.
 
 File: lispref.info,  Node: Indent Tabs,  Next: Motion by Indent,  Prev: Relative Indent,  Up: Indentation
 
-Adjustable "Tab Stops"
-----------------------
+43.16.5 Adjustable "Tab Stops"
+------------------------------
 
 This section explains the mechanism for user-specified "tab stops" and
 the mechanisms that use and set them.  The name "tab stops" is used
@@ -873,14 +1035,14 @@ affect the display of tab characters in the buffer (*note Usual
 Display::).  Note that the <TAB> character as input uses this tab stop
 feature only in a few major modes, such as Text mode.
 
- - Command: tab-to-tab-stop
+ -- Command: tab-to-tab-stop
      This command inserts spaces or tabs up to the next tab stop column
      defined by `tab-stop-list'.  It searches the list for an element
      greater than the current column number, and uses that element as
      the column to indent to.  It does nothing if no such element is
      found.
 
- - User Option: tab-stop-list
+ -- User Option: tab-stop-list
      This variable is the list of tab stop columns used by
      `tab-to-tab-stops'.  The elements should be integers in increasing
      order.  The tab stop columns need not be evenly spaced.
@@ -891,37 +1053,37 @@ feature only in a few major modes, such as Text mode.
 
 File: lispref.info,  Node: Motion by Indent,  Prev: Indent Tabs,  Up: Indentation
 
-Indentation-Based Motion Commands
----------------------------------
+43.16.6 Indentation-Based Motion Commands
+-----------------------------------------
 
 These commands, primarily for interactive use, act based on the
 indentation in the text.
 
- - Command: back-to-indentation
+ -- Command: back-to-indentation
      This command moves point to the first non-whitespace character in
      the current line (which is the line in which point is located).
      It returns `nil'.
 
- - Command: backward-to-indentation arg
+ -- Command: backward-to-indentation arg
      This command moves point backward ARG lines and then to the first
      nonblank character on that line.  It returns `nil'.
 
- - Command: forward-to-indentation arg
+ -- Command: forward-to-indentation arg
      This command moves point forward ARG lines and then to the first
      nonblank character on that line.  It returns `nil'.
 
 
 File: lispref.info,  Node: Case Changes,  Next: Text Properties,  Prev: Indentation,  Up: Text
 
-Case Changes
-============
+43.17 Case Changes
+==================
 
 The case change commands described here work on text in the current
 buffer.  *Note Character Case::, for case conversion commands that work
 on strings and characters.  *Note Case Tables::, for how to customize
 which characters are upper or lower case and how to convert them.
 
- - Command: capitalize-region start end &optional buffer
+ -- Command: capitalize-region start end &optional buffer
      This function capitalizes all words in the region defined by START
      and END.  To capitalize means to convert each word's first
      character to upper case and convert the rest of each word to lower
@@ -936,29 +1098,29 @@ which characters are upper or lower case and how to convert them.
           ---------- Buffer: foo ----------
           This is the contents of the 5th foo.
           ---------- Buffer: foo ----------
-          
+
           (capitalize-region 1 44)
           => nil
-          
+
           ---------- Buffer: foo ----------
           This Is The Contents Of The 5th Foo.
           ---------- Buffer: foo ----------
 
- - Command: downcase-region start end &optional buffer
+ -- Command: downcase-region start end &optional buffer
      This function converts all of the letters in the region defined by
      START and END to lower case.  The function returns `nil'.
 
      When `downcase-region' is called interactively, START and END are
      point and the mark, with the smallest first.
 
- - Command: upcase-region start end &optional buffer
+ -- Command: upcase-region start end &optional buffer
      This function converts all of the letters in the region defined by
      START and END to upper case.  The function returns `nil'.
 
      When `upcase-region' is called interactively, START and END are
      point and the mark, with the smallest first.
 
- - Command: capitalize-word count &optional buffer
+ -- Command: capitalize-word count &optional buffer
      This function capitalizes COUNT words after point, moving point
      over as it does.  To capitalize means to convert each word's first
      character to upper case and convert the rest of each word to lower
@@ -972,7 +1134,7 @@ which characters are upper or lower case and how to convert them.
      When `capitalize-word' is called interactively, COUNT is set to
      the numeric prefix argument.
 
- - Command: downcase-word count &optional buffer
+ -- Command: downcase-word count &optional buffer
      This function converts the COUNT words after point to all lower
      case, moving point over as it does.  If COUNT is negative, it
      converts the -COUNT previous words but does not move point.  The
@@ -981,7 +1143,7 @@ which characters are upper or lower case and how to convert them.
      When `downcase-word' is called interactively, COUNT is set to the
      numeric prefix argument.
 
- - Command: upcase-word count &optional buffer
+ -- Command: upcase-word count &optional buffer
      This function converts the COUNT words after point to all upper
      case, moving point over as it does.  If COUNT is negative, it
      converts the -COUNT previous words but does not move point.  The
@@ -993,8 +1155,8 @@ which characters are upper or lower case and how to convert them.
 
 File: lispref.info,  Node: Text Properties,  Next: Substitution,  Prev: Case Changes,  Up: Text
 
-Text Properties
-===============
+43.18 Text Properties
+=====================
 
 Text properties are an alternative interface to extents (*note
 Extents::), and are built on top of them.  They are useful when you
@@ -1029,12 +1191,13 @@ along with the characters; this includes such diverse functions as
 * Special Properties::		Particular properties with special meanings.
 * Saving Properties::           Saving text properties in files, and reading
                                   them back.
+* Fields::			Emacs-compatible text fields.
 
 
 File: lispref.info,  Node: Examining Properties,  Next: Changing Properties,  Up: Text Properties
 
-Examining Text Properties
--------------------------
+43.18.1 Examining Text Properties
+---------------------------------
 
 The simplest way to examine text properties is to ask for the value of
 a particular property of a particular character.  For that, use
@@ -1046,22 +1209,22 @@ to examine the properties of a number of characters at once.
 positions in a string start from 0, whereas positions in a buffer start
 from 1.)
 
- - Function: get-text-property pos prop &optional object at-flag
+ -- Function: get-text-property pos prop &optional object at-flag
      This function returns the value of the PROP property of the
      character after position POS in OBJECT (a buffer or string).  The
      argument OBJECT is optional and defaults to the current buffer.
 
- - Function: get-char-property pos prop &optional object at-flag
+ -- Function: get-char-property pos prop &optional object at-flag
      This function is like `get-text-property', except that it checks
      all extents, not just text-property extents.
 
 
- - Function: text-properties-at position &optional object
+ -- Function: text-properties-at position &optional object
      This function returns the entire property list of the character at
      POSITION in the string or buffer OBJECT.  If OBJECT is `nil', it
      defaults to the current buffer.
 
- - Variable: default-text-properties
+ -- Variable: default-text-properties
      This variable holds a property list giving default values for text
      properties.  Whenever a character does not specify a value for a
      property, the value stored in this list is used instead.  Here is
@@ -1077,8 +1240,8 @@ from 1.)
 
 File: lispref.info,  Node: Changing Properties,  Next: Property Search,  Prev: Examining Properties,  Up: Text Properties
 
-Changing Text Properties
-------------------------
+43.18.2 Changing Text Properties
+--------------------------------
 
 The primitives for changing properties apply to a specified range of
 text.  The function `set-text-properties' (see end of section) sets the
@@ -1091,12 +1254,12 @@ and can affect how the buffer looks on the screen, any change in the
 text properties is considered a buffer modification.  Buffer text
 property changes are undoable (*note Undo::).
 
- - Function: put-text-property start end prop value &optional object
+ -- Function: put-text-property start end prop value &optional object
      This function sets the PROP property to VALUE for the text between
      START and END in the string or buffer OBJECT.  If OBJECT is `nil',
      it defaults to the current buffer.
 
- - Function: add-text-properties start end props &optional object
+ -- Function: add-text-properties start end props &optional object
      This function modifies the text properties for the text between
      START and END in the string or buffer OBJECT.  If OBJECT is `nil',
      it defaults to the current buffer.
@@ -1116,7 +1279,7 @@ property changes are undoable (*note Undo::).
           (add-text-properties START END
                                '(comment t face highlight))
 
- - Function: remove-text-properties start end props &optional object
+ -- Function: remove-text-properties start end props &optional object
      This function deletes specified text properties from the text
      between START and END in the string or buffer OBJECT.  If OBJECT
      is `nil', it defaults to the current buffer.
@@ -1134,7 +1297,7 @@ property changes are undoable (*note Undo::).
      property's value; `nil' otherwise (if PROPS is `nil' or if no
      character in the specified text had any of those properties).
 
- - Function: set-text-properties start end props &optional object
+ -- Function: set-text-properties start end props &optional object
      This function completely replaces the text property list for the
      text between START and END in the string or buffer OBJECT.  If
      OBJECT is `nil', it defaults to the current buffer.
@@ -1158,8 +1321,8 @@ its properties.
 
 File: lispref.info,  Node: Property Search,  Next: Special Properties,  Prev: Changing Properties,  Up: Text Properties
 
-Property Search Functions
--------------------------
+43.18.3 Property Search Functions
+---------------------------------
 
 In typical use of text properties, most of the time several or many
 consecutive characters have the same value for a property.  Rather than
@@ -1179,7 +1342,7 @@ the buffer, if the property you are interested in does not change.
 position returned by these functions is between two characters with
 different properties.
 
- - Function: next-property-change pos &optional object limit
+ -- Function: next-property-change pos &optional object limit
      The function scans the text forward from position POS in the
      string or buffer OBJECT till it finds a change in some text
      property, then returns the position of the change.  In other
@@ -1207,7 +1370,8 @@ different properties.
               Process text from point to NEXT-CHANGE...
               (goto-char next-change)))
 
- - Function: next-single-property-change pos prop &optional object limit
+ -- Function: next-single-property-change pos prop &optional object
+          limit
      The function scans the text forward from position POS in the
      string or buffer OBJECT till it finds a change in the PROP
      property, then returns the position of the change.  In other
@@ -1224,19 +1388,19 @@ different properties.
      it is a position greater than or equal to POS; it equals POS only
      if LIMIT equals POS.
 
- - Function: previous-property-change pos &optional object limit
+ -- Function: previous-property-change pos &optional object limit
      This is like `next-property-change', but scans backward from POS
      instead of forward.  If the value is non-`nil', it is a position
      less than or equal to POS; it equals POS only if LIMIT equals POS.
 
- - Function: previous-single-property-change pos prop &optional object
+ -- Function: previous-single-property-change pos prop &optional object
           limit
      This is like `next-single-property-change', but scans backward from
      POS instead of forward.  If the value is non-`nil', it is a
      position less than or equal to POS; it equals POS only if LIMIT
      equals POS.
 
- - Function: text-property-any start end prop value &optional object
+ -- Function: text-property-any start end prop value &optional object
      This function returns non-`nil' if at least one character between
      START and END has a property PROP whose value is VALUE.  More
      precisely, it returns the position of the first such character.
@@ -1246,7 +1410,8 @@ different properties.
      buffer to scan.  Positions are relative to OBJECT.  The default
      for OBJECT is the current buffer.
 
- - Function: text-property-not-all start end prop value &optional object
+ -- Function: text-property-not-all start end prop value &optional
+          object
      This function returns non-`nil' if at least one character between
      START and END has a property PROP whose value differs from VALUE.
      More precisely, it returns the position of the first such
@@ -1259,22 +1424,22 @@ different properties.
 
 File: lispref.info,  Node: Special Properties,  Next: Saving Properties,  Prev: Property Search,  Up: Text Properties
 
-Properties with Special Meanings
---------------------------------
+43.18.4 Properties with Special Meanings
+----------------------------------------
 
 The predefined properties are the same as those for extents.  *Note
 Extent Properties::.
 
 
-File: lispref.info,  Node: Saving Properties,  Prev: Special Properties,  Up: Text Properties
+File: lispref.info,  Node: Saving Properties,  Next: Fields,  Prev: Special Properties,  Up: Text Properties
 
-Saving Text Properties in Files
--------------------------------
+43.18.5 Saving Text Properties in Files
+---------------------------------------
 
 You can save text properties in files, and restore text properties when
 inserting the files, using these two hooks:
 
- - Variable: write-region-annotate-functions
+ -- Variable: write-region-annotate-functions
      This variable's value is a list of functions for `write-region' to
      run to encode text properties in some fashion as annotations to
      the text being written in the file.  *Note Writing to Files::.
@@ -1299,7 +1464,7 @@ inserting the files, using these two hooks:
      file, it intermixes the specified annotations at the corresponding
      positions.  All this takes place without modifying the buffer.
 
- - Variable: after-insert-file-functions
+ -- Variable: after-insert-file-functions
      This variable holds a list of functions for `insert-file-contents'
      to call after inserting a file's contents.  These functions should
      scan the inserted text for annotations, and convert them to the
@@ -1333,16 +1498,128 @@ types that are reasonably flexible, and not too hard to encode.
    *Note Format Conversion::, for a related feature.
 
 
+File: lispref.info,  Node: Fields,  Prev: Saving Properties,  Up: Text Properties
+
+43.18.6 Fields
+--------------
+
+Emacs supplies a notion of a _text field_, which is a region of text
+where every character has the same value of the `field' property.  It
+is used to identify regions of a buffer used for communicating with an
+external process, for example.  XEmacs supplies a compatible interface.
+In XEmacs, the `field' property can be set as either an extent
+property or a text property, mirroring the Emacs capability of using
+either overlays or text properties.
+
+   The field manipulating functions take a buffer position as the
+field-identifying argument, defaulting to point.  This really means the
+field containing that buffer position.  Consecutive buffer positions
+with no `field' property are considered an "empty" field.  There is
+some ambiguity when a specified buffer position falls at the very
+beginning or the very end of a field: does it belong to the preceding or
+the following field?  The answer depends on the openness or closedness
+of the corresponding extents (*note Extent Endpoints::).  A buffer
+position corresponds to the field whose property would be inherited by a
+character inserted at that position.  If the buffer position is between
+an end-open and a start-open extent, then it corresponds to an empty
+field at that position, since an inserted character will belong to
+neither extent.
+
+ -- Variable: inhibit-field-text-motion
+     This variable controls whether the text motion commands notice
+     fields or not.  When it is nil (the default), commands such as
+     beginning-of-line will try to move only within fields.
+
+ -- Function: make-field value from to &optional buffer
+     There is no Emacs counterpart to this function.  The default open
+     and closedness of extents in XEmacs is opposite to the default for
+     Emacs overlays.  Hence, fields based on extents in XEmacs behave
+     differently from the equivalent fields based on overlays in Emacs.
+     This function creates a field with value VALUE over the region
+     FROM to TO in BUFFER, which defaults to the current buffer, with
+     the default Emacs open and closedness.
+
+ -- Function: find-field &optional pos merge-at-boundary beg-limit
+          end-limit
+     There is no (Lisp-visible) Emacs counterpart to this function.  It
+     is the workhorse for the other functions.  It returns a dotted pair
+     `(start . stop)' holding the endpoints of the field matching a
+     specification.  If POS is non-`nil', it specifies a buffer
+     position whose enclosing field should be found; otherwise, the
+     value of point is used.
+
+     If MERGE-AT-BOUNDARY is non-`nil', then two changes are made to
+     the search algorithm.  First, if POS is at the very first position
+     of a field, then the beginning of the previous field is returned
+     instead of the beginning of POS's field.  Second, if the value of
+     the `field' property at POS is the symbol `boundary', then the
+     beginning of the field before the boundary field and the end of
+     the field after the boundary field are returned.
+
+     If BEG-LIMIT is a buffer position, and the start position that
+     would be returned is less than BEG-LIMIT, then BEG-LIMIT is
+     returned instead.  Likewise, if END-LIMIT is a buffer position,
+     and the stop position that would be returned is greater than
+     END-LIMIT, then END-LIMIT is returned instead.
+
+ -- Function: delete-field &optional pos
+     Delete the text of the field at POS.
+
+ -- Function: field-string &optional pos
+     Return the contents of the field at POS as a string.
+
+ -- Function: field-string-no-properties &optional pos
+     Return the contents of the field at POS as a string, without text
+     properties.
+
+ -- Function: field-beginning &optional pos escape-from-edge limit
+     Return the beginning of the field at POS.  If ESCAPE-FROM-EDGE is
+     non-nil and POS is at the beginning of a field, then the beginning
+     of the field that ends at POS is returned instead.  If LIMIT is a
+     buffer position and the returned value would be less than LIMIT,
+     then LIMIT is returned instead.
+
+ -- Function: field-end &optional pos escape-from-edge limit
+     Return the end of the field at POS.  If ESCAPE-FROM-EDGE is
+     non-nil and POS is at the end of a field, then the end of the
+     field that begins at POS is returned instead.  If LIMIT is a
+     buffer position and the returned value would be greater than
+     LIMIT, then LIMIT is returned instead.
+
+ -- Function: constrain-to-field new-pos old-pos &optional
+          escape-from-edge only-in-line inhibit-capture-property
+     Return the position closest to NEW-POS that is in the same field
+     as OLD-POS.  If NEW-POS is `nil', then the value of point is used
+     instead _and_ point is set to the value that is returned.
+
+     If ESCAPE-FROM-EDGE is non-`nil' and OLD-POS is at the boundary of
+     two fields, then the two adjacent fields are considered one field.
+     Furthermore, if NEW-POS is in a field whose `field' property is
+     the symbol `boundary', then the preceding field, the boundary
+     field, and the following field are considered one field.
+
+     If ONLY-IN-LINE is non-`nil' and the returned position would be on
+     a different line than NEW-POS, return NEW-POS instead.
+
+     If INHIBIT-CAPTURE-PROPERTY is non-`nil' and the character at
+     OLD-POS has a property of the same name as the value of
+     INHIBIT-CAPTURE-PROPERTY, then all field boundaries are ignored;
+     i.e., NEW-POS is returned.
+
+     If INHIBIT-FIELD-TEXT-MOTION is non-`nil', then all field
+     boundaries are ignored and this function always returns NEW-POS.
+
+
 File: lispref.info,  Node: Substitution,  Next: Registers,  Prev: Text Properties,  Up: Text
 
-Substituting for a Character Code
-=================================
+43.19 Substituting for a Character Code
+=======================================
 
 The following functions replace characters within a specified region
 based on their character codes.
 
- - Function: subst-char-in-region start end old-char new-char &optional
-          noundo
+ -- Function: subst-char-in-region start end old-char new-char
+          &optional noundo
      This function replaces all occurrences of the character OLD-CHAR
      with the character NEW-CHAR in the region of the current buffer
      defined by START and END.
@@ -1357,15 +1634,15 @@ based on their character codes.
           ---------- Buffer: foo ----------
           This is the contents of the buffer before.
           ---------- Buffer: foo ----------
-          
+
           (subst-char-in-region 1 20 ?i ?X)
                => nil
-          
+
           ---------- Buffer: foo ----------
           ThXs Xs the contents of the buffer before.
           ---------- Buffer: foo ----------
 
- - Function: translate-region start end table
+ -- Function: translate-region start end table
      This function applies a translation table to the characters in the
      buffer between positions START and END.  The translation table
      TABLE can be either a string, a vector, or a char-table.
@@ -1401,14 +1678,14 @@ based on their character codes.
           ---------- Buffer: foo ----------
           Here is a sentence in the buffer.
           ---------- Buffer: foo ----------
-          
+
           (let ((table (make-char-table 'generic)))
             (put-char-table ?a "the letter a" table)
             (put-char-table ?b "" table)
             (put-char-table ?c ?\n table)
             (translate-region (point-min) (point-max) table))
                => 3
-          
+
           ---------- Buffer: foo ----------
           Here is the letter a senten
           e in the uffer.
@@ -1417,8 +1694,8 @@ based on their character codes.
 
 File: lispref.info,  Node: Registers,  Next: Transposition,  Prev: Substitution,  Up: Text
 
-Registers
-=========
+43.20 Registers
+===============
 
 A register is a sort of variable used in XEmacs editing that can hold a
 marker, a string, a rectangle, a window configuration (of one frame), or
@@ -1431,7 +1708,7 @@ Emacs Lisp by a character that is its name.
    The functions in this section return unpredictable values unless
 otherwise stated.
 
- - Variable: register-alist
+ -- Variable: register-alist
      This variable is an alist of elements of the form `(NAME .
      CONTENTS)'.  Normally, there is one element for each XEmacs
      register that has been used.
@@ -1443,19 +1720,19 @@ otherwise stated.
      represents a rectangle; its elements are strings, one per line of
      the rectangle.
 
- - Function: get-register register
+ -- Function: get-register register
      This function returns the contents of the register REGISTER, or
      `nil' if it has no contents.
 
- - Function: set-register register value
+ -- Function: set-register register value
      This function sets the contents of register REGISTER to VALUE.  A
      register can be set to any value, but the other register functions
      expect only certain data types.  The return value is VALUE.
 
- - Command: view-register register
+ -- Command: view-register register
      This command displays what is contained in register REGISTER.
 
- - Command: insert-register register &optional beforep
+ -- Command: insert-register register &optional beforep
      This command inserts contents of register REGISTER into the current
      buffer.
 
@@ -1477,12 +1754,12 @@ otherwise stated.
 
 File: lispref.info,  Node: Transposition,  Next: Change Hooks,  Prev: Registers,  Up: Text
 
-Transposition of Text
-=====================
+43.21 Transposition of Text
+===========================
 
 This subroutine is used by the transposition commands.
 
- - Function: transpose-regions start1 end1 start2 end2 &optional
+ -- Function: transpose-regions start1 end1 start2 end2 &optional
           leave-markers
      This function exchanges two nonoverlapping portions of the buffer.
      Arguments START1 and END1 specify the bounds of one portion and
@@ -1498,8 +1775,8 @@ This subroutine is used by the transposition commands.
 
 File: lispref.info,  Node: Change Hooks,  Next: Transformations,  Prev: Transposition,  Up: Text
 
-Change Hooks
-============
+43.22 Change Hooks
+==================
 
 These hook variables let you arrange to take notice of all changes in
 all buffers (or in a particular buffer, if you make them buffer-local).
@@ -1512,14 +1789,14 @@ operations that call them.
    Buffer changes made while executing the following hooks don't
 themselves cause any change hooks to be invoked.
 
- - Variable: before-change-functions
+ -- Variable: before-change-functions
      This variable holds a list of a functions to call before any buffer
      modification.  Each function gets two arguments, the beginning and
      end of the region that is about to change, represented as
      integers.  The buffer that is about to change is always the
      current buffer.
 
- - Variable: after-change-functions
+ -- Variable: after-change-functions
      This variable holds a list of a functions to call after any buffer
      modification.  Each function receives three arguments: the
      beginning and end of the region just changed, and the length of
@@ -1528,25 +1805,25 @@ themselves cause any change hooks to be invoked.
      three arguments are integers.  The buffer that's about to change
      is always the current buffer.
 
- - Variable: before-change-function
+ -- Variable: before-change-function
      This obsolete variable holds one function to call before any buffer
      modification (or `nil' for no function).  It is called just like
      the functions in `before-change-functions'.
 
- - Variable: after-change-function
+ -- Variable: after-change-function
      This obsolete variable holds one function to call after any buffer
      modification (or `nil' for no function).  It is called just like
      the functions in `after-change-functions'.
 
- - Variable: first-change-hook
+ -- Variable: first-change-hook
      This variable is a normal hook that is run whenever a buffer is
      changed that was previously in the unmodified state.
 
 
 File: lispref.info,  Node: Transformations,  Prev: Change Hooks,  Up: Text
 
-Textual transformations--MD5 and base64 support
-===============================================
+43.23 Textual transformations--MD5 and base64 support
+=====================================================
 
 Some textual operations inherently require examining each character in
 turn, and performing arithmetic operations on them.  Such operations
@@ -1564,7 +1841,7 @@ target digest.  MD5 is used heavily by various authentication schemes.
 
    Emacs Lisp interface to MD5 consists of a single function `md5':
 
- - Function: md5 object &optional start end coding noerror
+ -- Function: md5 object &optional start end coding noerror
      This function returns the MD5 message digest of OBJECT, a buffer
      or string.
 
@@ -1586,11 +1863,11 @@ target digest.  MD5 is used heavily by various authentication schemes.
           ;; Calculate the digest of the entire buffer
           (md5 (current-buffer))
                => "8842b04362899b1cda8d2d126dc11712"
-          
+
           ;; Calculate the digest of the current line
           (md5 (current-buffer) (point-at-bol) (point-at-eol))
                => "60614d21e9dee27dfdb01fa4e30d6d00"
-          
+
           ;; Calculate the digest of your name and email address
           (md5 (concat (format "%s <%s>" (user-full-name) user-mail-address)))
                => "0a2188c40fd38922d941fe6032fce516"
@@ -1602,7 +1879,7 @@ binary bodies, and to encode binary characters in message headers.
 
    The Lisp interface to base64 consists of four functions:
 
- - Command: base64-encode-region start end &optional no-line-break
+ -- Command: base64-encode-region start end &optional no-line-break
      This function encodes the region between START and END of the
      current buffer to base64 format.  This means that the original
      region is deleted, and replaced with its base64 equivalent.
@@ -1625,7 +1902,7 @@ binary bodies, and to encode binary characters in message headers.
      The function can also be used interactively, in which case it
      works on the currently active region.
 
- - Function: base64-encode-string string &optional no-line-break
+ -- Function: base64-encode-string string &optional no-line-break
      This function encodes STRING to base64, and returns the encoded
      string.
 
@@ -1639,7 +1916,7 @@ binary bodies, and to encode binary characters in message headers.
           (base64-encode-string "fubar")
               => "ZnViYXI="
 
- - Command: base64-decode-region start end
+ -- Command: base64-decode-region start end
      This function decodes the region between START and END of the
      current buffer.  The region should be in base64 encoding.
 
@@ -1650,7 +1927,7 @@ binary bodies, and to encode binary characters in message headers.
           ;; Decode a base64 buffer, and replace it with the decoded version
           (base64-decode-region (point-min) (point-max))
 
- - Function: base64-decode-string string
+ -- Function: base64-decode-string string
      This function decodes STRING to base64, and returns the decoded
      string.  STRING should be valid base64-encoded text.
 
@@ -1658,15 +1935,15 @@ binary bodies, and to encode binary characters in message headers.
 
           (base64-decode-string "ZnViYXI=")
               => "fubar"
-          
+
           (base64-decode-string "totally bogus")
               => nil
 
 
 File: lispref.info,  Node: Searching and Matching,  Next: Syntax Tables,  Prev: Text,  Up: Top
 
-Searching and Matching
-**********************
+44 Searching and Matching
+*************************
 
 XEmacs provides two ways to search through a buffer for specified text:
 exact string searches and regular expression searches.  After a regular
@@ -1691,15 +1968,15 @@ text matched the whole regular expression or various portions of it.
 
 File: lispref.info,  Node: String Search,  Next: Regular Expressions,  Up: Searching and Matching
 
-Searching for Strings
-=====================
+44.1 Searching for Strings
+==========================
 
 These are the primitive functions for searching through the text in a
 buffer.  They are meant for use in programs, but you may call them
 interactively.  If you do so, they prompt for the search string; LIMIT
 and NOERROR are set to `nil', and COUNT is set to 1.
 
- - Command: search-forward string &optional limit noerror count buffer
+ -- Command: search-forward string &optional limit noerror count buffer
      This function searches forward from point for an exact match for
      STRING.  If successful, it sets point to the end of the occurrence
      found, and returns the new value of point.  If no match is found,
@@ -1712,10 +1989,10 @@ and NOERROR are set to `nil', and COUNT is set to 1.
           ---------- Buffer: foo ----------
           -!-The quick brown fox jumped over the lazy dog.
           ---------- Buffer: foo ----------
-          
+
           (search-forward "fox")
                => 20
-          
+
           ---------- Buffer: foo ----------
           The quick brown fox-!- jumped over the lazy dog.
           ---------- Buffer: foo ----------
@@ -1744,12 +2021,12 @@ and NOERROR are set to `nil', and COUNT is set to 1.
      BUFFER is the buffer to search in, and defaults to the current
      buffer.
 
- - Command: search-backward string &optional limit noerror count buffer
+ -- Command: search-backward string &optional limit noerror count buffer
      This function searches backward from point for STRING.  It is just
      like `search-forward' except that it searches backwards and leaves
      point at the beginning of the match.
 
- - Command: word-search-forward string &optional limit noerror count
+ -- Command: word-search-forward string &optional limit noerror count
           buffer
      This function searches forward from point for a "word" match for
      STRING.  If it finds a match, it sets point to the end of the
@@ -1769,10 +2046,10 @@ and NOERROR are set to `nil', and COUNT is set to 1.
           -!-He said "Please!  Find
           the ball boy!"
           ---------- Buffer: foo ----------
-          
+
           (word-search-forward "Please find the ball, boy.")
                => 35
-          
+
           ---------- Buffer: foo ----------
           He said "Please!  Find
           the ball boy-!-!"
@@ -1794,7 +2071,7 @@ and NOERROR are set to `nil', and COUNT is set to 1.
      BUFFER is the buffer to search in, and defaults to the current
      buffer.
 
- - Command: word-search-backward string &optional limit noerror count
+ -- Command: word-search-backward string &optional limit noerror count
           buffer
      This function searches backward from point for a word match to
      STRING.  This function is just like `word-search-forward' except
@@ -1804,8 +2081,8 @@ and NOERROR are set to `nil', and COUNT is set to 1.
 
 File: lispref.info,  Node: Regular Expressions,  Next: Regexp Search,  Prev: String Search,  Up: Searching and Matching
 
-Regular Expressions
-===================
+44.2 Regular Expressions
+========================
 
 A "regular expression" ("regexp", for short) is a pattern that denotes
 a (possibly infinite) set of strings.  Searching for matches for a
@@ -1834,8 +2111,8 @@ some Perl-like capabilities, described in the next section.
 
 File: lispref.info,  Node: Syntax of Regexps,  Next: Regexp Example,  Up: Regular Expressions
 
-Syntax of Regular Expressions
------------------------------
+44.2.1 Syntax of Regular Expressions
+------------------------------------
 
 Regular expressions have a syntax in which a few characters are special
 constructs and the rest are "ordinary".  An ordinary character is a
@@ -2057,7 +2334,7 @@ constructs:
      matches the same text that matched the DIGITth occurrence of a `\(
      ... \)' construct.
 
-     In other words, after the end of a `\( ... \)' construct.  the
+     In other words, after the end of a `\( ... \)' construct, the
      matcher remembers the beginning and end of the text matched by that
      construct.  Then, later on in the regular expression, you can use
      `\' followed by DIGIT to match that same text, whatever it may
@@ -2082,18 +2359,27 @@ constructs:
      This is useful when you need a lot of grouping `\( ... \)'
      constructs, but only want to remember one or two - or if you have
      more than nine groupings and need to use backreferences to refer to
-     the groupings at the end.
+     the groupings at the end.  It also allows construction of regular
+     expressions from variable subexpressions that contain varying
+     numbers of non-capturing subexpressions, without disturbing the
+     group counts for the main expression.  For example
 
-     Using `\(?: ... \)' rather than `\( ... \)' when you don't need
-     the captured substrings ought to speed up your programs some,
-     since it shortens the code path followed by the regular expression
-     engine, as well as the amount of memory allocation and string
-     copying it must do.  The actual performance gain to be observed
-     has not been measured or quantified as of this writing.
+          (let ((sre (if foo "\\(?:bar\\|baz\\)" "quux")))
+            (re-search-forward (format "a\\(b+ %s c+\\) d" sre) nil t)
+            (match-string 1))
 
-     The shy grouping operator has been borrowed from Perl, and has not
-     been available prior to XEmacs 20.3, nor is it available in FSF
-     Emacs.
+     It is very tedious to write this kind of code without shy groups,
+     even if you know what all the alternative subexpressions will look
+     like.
+
+     Using `\(?: ... \)' rather than `\( ... \)' should give little
+     performance gain, as the start of each group must be recorded for
+     the purpose of back-tracking in any case, and no string copying is
+     done until `match-string' is called.
+
+     The shy grouping operator has been borrowed from Perl, and was not
+     available prior to XEmacs 20.3, and has only been available in GNU
+     Emacs since version 21.
 
 `\w'
      matches any word-constituent character.  The editor syntax table
@@ -2111,6 +2397,17 @@ constructs:
 
 `\SCODE'
      matches any character whose syntax is not CODE.
+
+`\cCATEGORY'
+     matches any character in CATEGORY. Only available under Mule,
+     categories, and category tables, are further described in *Note
+     Category Tables::. They are a mechanism for constructing classes
+     of characters that can be local to a buffer, and that do not
+     require complicated [] expressions every time they are referenced.
+
+`\CCATEGORY'
+     matches any character outside CATEGORY. *Note Category Tables::,
+     again, and note that this is only available under Mule.
 
    The following regular expression constructs match the empty
 string--that is, they don't use up any characters--but whether they
@@ -2150,7 +2447,7 @@ exceptions, such as `[]]'), and so is a string that ends with a single
 `\'.  If an invalid regular expression is passed to any of the search
 functions, an `invalid-regexp' error is signaled.
 
- - Function: regexp-quote string
+ -- Function: regexp-quote string
      This function returns a regular expression string that matches
      exactly STRING and nothing else.  This allows you to request an
      exact string match when calling a function that wants a regular
@@ -2170,8 +2467,8 @@ functions, an `invalid-regexp' error is signaled.
 
 File: lispref.info,  Node: Regexp Example,  Prev: Syntax of Regexps,  Up: Regular Expressions
 
-Complex Regexp Example
-----------------------
+44.2.2 Complex Regexp Example
+-----------------------------
 
 Here is a complicated regexp, used by XEmacs to recognize the end of a
 sentence together with any whitespace that follows.  It is the value of
@@ -2226,8 +2523,8 @@ deciphered as follows:
 
 File: lispref.info,  Node: Regexp Search,  Next: POSIX Regexps,  Prev: Regular Expressions,  Up: Searching and Matching
 
-Regular Expression Searching
-============================
+44.3 Regular Expression Searching
+=================================
 
 In XEmacs, you can search for the next match for a regexp either
 incrementally or not.  Incremental search commands are described in the
@@ -2235,7 +2532,7 @@ incrementally or not.  Incremental search commands are described in the
 (xemacs)Regexp Search.  Here we describe only the search functions
 useful in programs.  The principal one is `re-search-forward'.
 
- - Command: re-search-forward regexp &optional limit noerror count
+ -- Command: re-search-forward regexp &optional limit noerror count
           buffer
      This function searches forward in the current buffer for a string
      of text that is matched by the regular expression REGEXP.  The
@@ -2268,16 +2565,16 @@ useful in programs.  The principal one is `re-search-forward'.
           I read "-!-The cat in the hat
           comes back" twice.
           ---------- Buffer: foo ----------
-          
+
           (re-search-forward "[a-z]+" nil t 5)
                => 27
-          
+
           ---------- Buffer: foo ----------
           I read "The cat in the hat-!-
           comes back" twice.
           ---------- Buffer: foo ----------
 
- - Command: re-search-backward regexp &optional limit noerror count
+ -- Command: re-search-backward regexp &optional limit noerror count
           buffer
      This function searches backward in the current buffer for a string
      of text that is matched by the regular expression REGEXP, leaving
@@ -2297,7 +2594,7 @@ useful in programs.  The principal one is `re-search-forward'.
      feature for matching regexps from end to beginning.  It's not
      worth the trouble of implementing that.
 
- - Function: string-match regexp string &optional start buffer
+ -- Function: string-match regexp string &optional start buffer
      This function returns the index of the start of the first match for
      the regular expression REGEXP in STRING, or `nil' if there is no
      match.  If START is non-`nil', the search starts at that index in
@@ -2326,11 +2623,11 @@ useful in programs.  The principal one is `re-search-forward'.
           (string-match
            "quick" "The quick brown fox jumped quickly." 8)
                => 27
-          
+
           (match-end 0)
                => 32
 
- - Function: split-string string &optional pattern
+ -- Function: split-string string &optional pattern
      This function splits STRING to substrings delimited by PATTERN,
      and returns a list of substrings.  If PATTERN is omitted, it
      defaults to `[ \f\t\n\r\v]+', which means that it splits STRING by
@@ -2338,23 +2635,23 @@ useful in programs.  The principal one is `re-search-forward'.
 
           (split-string "foo bar")
                => ("foo" "bar")
-          
+
           (split-string "something")
                => ("something")
-          
+
           (split-string "a:b:c" ":")
                => ("a" "b" "c")
-          
+
           (split-string ":a::b:c" ":")
                => ("" "a" "" "b" "c")
 
- - Function: split-path path
+ -- Function: split-path path
      This function splits a search path into a list of strings.  The
      path components are separated with the characters specified with
      `path-separator'.  Under Unix, `path-separator' will normally be
      `:', while under Windows, it will be `;'.
 
- - Function: looking-at regexp &optional buffer
+ -- Function: looking-at regexp &optional buffer
      This function determines whether the text in the current buffer
      directly following point matches the regular expression REGEXP.
      "Directly following" means precisely that: the search is
@@ -2373,15 +2670,15 @@ useful in programs.  The principal one is `re-search-forward'.
           I read "-!-The cat in the hat
           comes back" twice.
           ---------- Buffer: foo ----------
-          
+
           (looking-at "The cat in the hat$")
                => t
 
 
 File: lispref.info,  Node: POSIX Regexps,  Next: Search and Replace,  Prev: Regexp Search,  Up: Searching and Matching
 
-POSIX Regular Expression Searching
-==================================
+44.4 POSIX Regular Expression Searching
+=======================================
 
 The usual regular expression functions do backtracking when necessary
 to handle the `\|' and repetition constructs, but they continue this
@@ -2398,24 +2695,24 @@ functions only when you really need the longest match.
    In Emacs versions prior to 19.29, these functions did not exist, and
 the functions described above implemented full POSIX backtracking.
 
- - Command: posix-search-forward regexp &optional limit noerror count
+ -- Command: posix-search-forward regexp &optional limit noerror count
           buffer
      This is like `re-search-forward' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Command: posix-search-backward regexp &optional limit noerror count
+ -- Command: posix-search-backward regexp &optional limit noerror count
           buffer
      This is like `re-search-backward' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Function: posix-looking-at regexp &optional buffer
+ -- Function: posix-looking-at regexp &optional buffer
      This is like `looking-at' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Function: posix-string-match regexp string &optional start buffer
+ -- Function: posix-string-match regexp string &optional start buffer
      This is like `string-match' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
@@ -2427,10 +2724,10 @@ the functions described above implemented full POSIX backtracking.
 
 File: lispref.info,  Node: Search and Replace,  Next: Match Data,  Prev: POSIX Regexps,  Up: Searching and Matching
 
-Search and Replace
-==================
+44.5 Search and Replace
+=======================
 
- - Function: perform-replace from-string replacements query-flag
+ -- Function: perform-replace from-string replacements query-flag
           regexp-flag delimited-flag &optional repeat-count map
      This function is the guts of `query-replace' and related commands.
      It searches for occurrences of FROM-STRING and replaces some or
@@ -2454,7 +2751,7 @@ Search and Replace
      responses for queries.  The argument MAP, if non-`nil', is a
      keymap to use instead of `query-replace-map'.
 
- - Variable: query-replace-map
+ -- Variable: query-replace-map
      This variable holds a special keymap that defines the valid user
      responses for `query-replace' and related functions, as well as
      `y-or-n-p' and `map-y-or-n-p'.  It is unusual in two ways:
@@ -2516,8 +2813,8 @@ of them are meaningful only for `query-replace' and friends.
 
 File: lispref.info,  Node: Match Data,  Next: Searching and Case,  Prev: Search and Replace,  Up: Searching and Matching
 
-The Match Data
-==============
+44.6 The Match Data
+===================
 
 XEmacs keeps track of the positions of the start and end of segments of
 text found during a regular expression search.  This means, for example,
@@ -2542,8 +2839,8 @@ match data around it, to prevent it from being overwritten.
 
 File: lispref.info,  Node: Simple Match Data,  Next: Replacing Match,  Up: Match Data
 
-Simple Match Data Access
-------------------------
+44.6.1 Simple Match Data Access
+-------------------------------
 
 This section explains how to use the match data to find out what was
 matched by the last search or match operation.
@@ -2562,7 +2859,7 @@ numbered 1, the second 2, and so on.  Only regular expressions can have
 subexpressions--after a simple string search, the only information
 available is about the entire match.
 
- - Function: match-string count &optional in-string
+ -- Function: match-string count &optional in-string
      This function returns, as a string, the text matched in the last
      search or match operation.  It returns the entire text if COUNT is
      zero, or just the portion corresponding to the COUNTth
@@ -2577,7 +2874,7 @@ available is about the entire match.
      make sure that the current buffer when you call `match-string' is
      the one in which you did the searching or matching.
 
- - Function: match-beginning count
+ -- Function: match-beginning count
      This function returns the position of the start of text matched by
      the last regular expression searched for, or a subexpression of it.
 
@@ -2589,7 +2886,7 @@ available is about the entire match.
      The value is `nil' for a subexpression inside a `\|' alternative
      that wasn't used in the match.
 
- - Function: match-end count
+ -- Function: match-end count
      This function is like `match-beginning' except that it returns the
      position of the end of the match, rather than the position of the
      beginning.
@@ -2601,23 +2898,23 @@ the positions within the text:
                    "The quick fox jumped quickly.")
                    ;0123456789
           => 4
-     
+
      (match-string 0 "The quick fox jumped quickly.")
           => "quick"
      (match-string 1 "The quick fox jumped quickly.")
           => "qu"
      (match-string 2 "The quick fox jumped quickly.")
           => "ick"
-     
+
      (match-beginning 1)       ; The beginning of the match
           => 4                 ;   with `qu' is at index 4.
-     
+
      (match-beginning 2)       ; The beginning of the match
           => 6                 ;   with `ick' is at index 6.
-     
+
      (match-end 1)             ; The end of the match
           => 6                 ;   with `qu' is at index 6.
-     
+
      (match-end 2)             ; The end of the match
           => 9                 ;   with `ick' is at index 9.
 
@@ -2632,7 +2929,7 @@ subexpression is at the 13th character (`c').
        (match-beginning 0)
        (match-beginning 1))
          => (9 9 13)
-     
+
      ---------- Buffer: foo ----------
      I read "The cat -!-in the hat comes back" twice.
              ^   ^
@@ -2645,13 +2942,13 @@ character of the buffer counts as 1.)
 
 File: lispref.info,  Node: Replacing Match,  Next: Entire Match Data,  Prev: Simple Match Data,  Up: Match Data
 
-Replacing the Text That Matched
--------------------------------
+44.6.2 Replacing the Text That Matched
+--------------------------------------
 
 This function replaces the text matched by the last search with
 REPLACEMENT.
 
- - Function: replace-match replacement &optional fixedcase literal
+ -- Function: replace-match replacement &optional fixedcase literal
           string strbuffer
      This function replaces the text in the buffer (or in STRING) that
      was matched by the last search.  It replaces that text with
@@ -2705,13 +3002,13 @@ REPLACEMENT.
 
 File: lispref.info,  Node: Entire Match Data,  Next: Saving Match Data,  Prev: Replacing Match,  Up: Match Data
 
-Accessing the Entire Match Data
--------------------------------
+44.6.3 Accessing the Entire Match Data
+--------------------------------------
 
 The functions `match-data' and `set-match-data' read or write the
 entire match data, all at once.
 
- - Function: match-data &optional integers reuse
+ -- Function: match-data &optional integers reuse
      This function returns a newly constructed list containing all the
      information on what text the last search matched.  Element zero is
      the position of the beginning of the match for the whole
@@ -2742,7 +3039,7 @@ entire match data, all at once.
                     #<marker at 13 in foo>
                     #<marker at 17 in foo>)
 
- - Function: set-match-data match-list
+ -- Function: set-match-data match-list
      This function sets the match data from the elements of MATCH-LIST,
      which should be a list that was the value of a previous call to
      `match-data'.
@@ -2756,8 +3053,8 @@ entire match data, all at once.
 
 File: lispref.info,  Node: Saving Match Data,  Prev: Entire Match Data,  Up: Match Data
 
-Saving and Restoring the Match Data
------------------------------------
+44.6.4 Saving and Restoring the Match Data
+------------------------------------------
 
 When you call a function that may do a search, you may need to save and
 restore the match data around that call, if you want to preserve the
@@ -2773,7 +3070,7 @@ that shows the problem that arises if you fail to save the match data:
 
    You can save and restore the match data with `save-match-data':
 
- - Special Form: save-match-data body...
+ -- Special Form: save-match-data body...
      This special form executes BODY, saving and restoring the match
      data around it.
 
@@ -2793,8 +3090,8 @@ sentinels (*note Sentinels::).
 
 File: lispref.info,  Node: Searching and Case,  Next: Standard Regexps,  Prev: Match Data,  Up: Searching and Matching
 
-Searching and Case
-==================
+44.7 Searching and Case
+=======================
 
 By default, searches in Emacs ignore the case of the text they are
 searching through; if you specify searching for `FOO', then `Foo' or
@@ -2814,7 +3111,7 @@ a match of either case, but when given an upper case letter, it looks
 for an upper case letter only.  But this has nothing to do with the
 searching functions Lisp functions use.
 
- - User Option: case-replace
+ -- User Option: case-replace
      This variable determines whether the replacement functions should
      preserve case.  If the variable is `nil', that means to use the
      replacement text verbatim.  A non-`nil' value means to convert the
@@ -2823,12 +3120,12 @@ searching functions Lisp functions use.
      The function `replace-match' is where this variable actually has
      its effect.  *Note Replacing Match::.
 
- - User Option: case-fold-search
+ -- User Option: case-fold-search
      This buffer-local variable determines whether searches should
      ignore case.  If the variable is `nil' they do not ignore case;
      otherwise they do ignore case.
 
- - Variable: default-case-fold-search
+ -- Variable: default-case-fold-search
      The value of this variable is the default value for
      `case-fold-search' in buffers that do not override it.  This is the
      same as `(default-value 'case-fold-search)'.
@@ -2836,13 +3133,13 @@ searching functions Lisp functions use.
 
 File: lispref.info,  Node: Standard Regexps,  Prev: Searching and Case,  Up: Searching and Matching
 
-Standard Regular Expressions Used in Editing
-============================================
+44.8 Standard Regular Expressions Used in Editing
+=================================================
 
 This section describes some variables that hold regular expressions
 used for certain purposes in editing:
 
- - Variable: page-delimiter
+ -- Variable: page-delimiter
      This is the regexp describing line-beginnings that separate pages.
      The default value is `"^\014"' (i.e., `"^^L"' or `"^\C-l"'); this
      matches a line that starts with a formfeed character.
@@ -2856,20 +3153,20 @@ that start after the left margin.  In that case, a `^' would be
 incorrect.  However, a `^' is harmless in modes where a left margin is
 never used.
 
- - Variable: paragraph-separate
+ -- Variable: paragraph-separate
      This is the regular expression for recognizing the beginning of a
      line that separates paragraphs.  (If you change this, you may have
      to change `paragraph-start' also.)  The default value is
      `"[ \t\f]*$"', which matches a line that consists entirely of
      spaces, tabs, and form feeds (after its left margin).
 
- - Variable: paragraph-start
+ -- Variable: paragraph-start
      This is the regular expression for recognizing the beginning of a
      line that starts _or_ separates paragraphs.  The default value is
      `"[ \t\n\f]"', which matches a line starting with a space, tab,
      newline, or form feed (after its left margin).
 
- - Variable: sentence-end
+ -- Variable: sentence-end
      This is the regular expression describing the end of a sentence.
      (All paragraph boundaries also end sentences, regardless.)  The
      default value is:
@@ -2886,8 +3183,8 @@ never used.
 
 File: lispref.info,  Node: Syntax Tables,  Next: Abbrevs,  Prev: Searching and Matching,  Up: Top
 
-Syntax Tables
-*************
+45 Syntax Tables
+****************
 
 A "syntax table" specifies the syntactic textual function of each
 character.  This information is used by the parsing commands, the
@@ -2911,8 +3208,8 @@ functions in this chapter.
 
 File: lispref.info,  Node: Syntax Basics,  Next: Syntax Descriptors,  Up: Syntax Tables
 
-Syntax Table Concepts
-=====================
+45.1 Syntax Table Concepts
+==========================
 
 A "syntax table" provides Emacs with the information that determines
 the syntactic use of each character in a buffer.  This information is
@@ -2958,7 +3255,7 @@ useful with character sets such as ISO Latin-1 that have additional
 alphabetic characters in the range 128 to 255.  Just changing the
 standard syntax for these characters affects all major modes.
 
- - Function: syntax-table-p object
+ -- Function: syntax-table-p object
      This function returns `t' if OBJECT is a vector of length 256
      elements.  This means that the vector may be a syntax table.
      However, according to this test, any vector of length 256 is
@@ -2967,8 +3264,8 @@ standard syntax for these characters affects all major modes.
 
 File: lispref.info,  Node: Syntax Descriptors,  Next: Syntax Table Functions,  Prev: Syntax Basics,  Up: Syntax Tables
 
-Syntax Descriptors
-==================
+45.2 Syntax Descriptors
+=======================
 
 This section describes the syntax classes and flags that denote the
 syntax of a character, and how they are represented as a "syntax
@@ -3008,13 +3305,13 @@ a comment-ender).
 
 File: lispref.info,  Node: Syntax Class Table,  Next: Syntax Flags,  Up: Syntax Descriptors
 
-Table of Syntax Classes
------------------------
+45.2.1 Table of Syntax Classes
+------------------------------
 
 Here is a table of syntax classes, the characters that stand for them,
 their meanings, and examples of their use.
 
- - Syntax class: whitespace character
+ -- Syntax class: whitespace character
      "Whitespace characters" (designated with `-') separate symbols and
      words from each other.  Typically, whitespace characters have no
      other syntactic significance, and multiple whitespace characters
@@ -3024,13 +3321,13 @@ their meanings, and examples of their use.
      versions of XEmacs, but is deprecated.  It is invalid in GNU
      Emacs.)
 
- - Syntax class: word constituent
+ -- Syntax class: word constituent
      "Word constituents" (designated with `w') are parts of normal
      English words and are typically used in variable and command names
      in programs.  All upper- and lower-case letters, and the digits,
      are typically word constituents.
 
- - Syntax class: symbol constituent
+ -- Syntax class: symbol constituent
      "Symbol constituents" (designated with `_') are the extra
      characters that are used in variable and command names along with
      word constituents.  For example, the symbol constituents class is
@@ -3040,7 +3337,7 @@ their meanings, and examples of their use.
      non-word-constituent character that is valid in symbols is
      underscore (`_').
 
- - Syntax class: punctuation character
+ -- Syntax class: punctuation character
      "Punctuation characters" (`.') are those characters that are used
      as punctuation in English, or are used in some way in a programming
      language to separate symbols from one another.  Most programming
@@ -3048,8 +3345,8 @@ their meanings, and examples of their use.
      this class since the few characters that are not symbol or word
      constituents all have other uses.
 
- - Syntax class: open parenthesis character
- - Syntax class: close parenthesis character
+ -- Syntax class: open parenthesis character
+ -- Syntax class: close parenthesis character
      Open and close "parenthesis characters" are characters used in
      dissimilar pairs to surround sentences or expressions.  Such a
      grouping is begun with an open parenthesis character and
@@ -3065,7 +3362,7 @@ their meanings, and examples of their use.
      `[]', and `{}'.  In XEmacs Lisp, the delimiters for lists and
      vectors (`()' and `[]') are classified as parenthesis characters.
 
- - Syntax class: string quote
+ -- Syntax class: string quote
      "String quote characters" (designated with `"') are used in many
      languages, including Lisp and C, to delimit string constants.  The
      same string quote character appears at the beginning and the end
@@ -3086,7 +3383,7 @@ their meanings, and examples of their use.
      English, we do not want them to turn off the usual syntactic
      properties of other characters in the quotation.
 
- - Syntax class: escape
+ -- Syntax class: escape
      An "escape character" (designated with `\') starts an escape
      sequence such as is used in C string and character constants.  The
      character `\' belongs to this class in both C and Lisp.  (In C, it
@@ -3096,7 +3393,7 @@ their meanings, and examples of their use.
      Characters in this class count as part of words if
      `words-include-escapes' is non-`nil'.  *Note Word Motion::.
 
- - Syntax class: character quote
+ -- Syntax class: character quote
      A "character quote character" (designated with `/') quotes the
      following character so that it loses its normal syntactic meaning.
      This differs from an escape character in that only the character
@@ -3107,22 +3404,22 @@ their meanings, and examples of their use.
 
      This class is used for backslash in TeX mode.
 
- - Syntax class: paired delimiter
+ -- Syntax class: paired delimiter
      "Paired delimiter characters" (designated with `$') are like
      string quote characters except that the syntactic properties of the
      characters between the delimiters are not suppressed.  Only TeX
      mode uses a paired delimiter presently--the `$' that both enters
      and leaves math mode.
 
- - Syntax class: expression prefix
+ -- Syntax class: expression prefix
      An "expression prefix operator" (designated with `'') is used for
      syntactic operators that are part of an expression if they appear
      next to one.  These characters in Lisp include the apostrophe, `''
      (used for quoting), the comma, `,' (used in macros), and `#' (used
      in the read syntax for certain data types).
 
- - Syntax class: comment starter
- - Syntax class: comment ender
+ -- Syntax class: comment starter
+ -- Syntax class: comment ender
      The "comment starter" and "comment ender" characters are used in
      various languages to delimit comments.  These classes are
      designated with `<' and `>', respectively.
@@ -3130,7 +3427,7 @@ their meanings, and examples of their use.
      English text has no comment characters.  In Lisp, the semicolon
      (`;') starts a comment and a newline or formfeed ends one.
 
- - Syntax class: inherit
+ -- Syntax class: inherit
      This syntax class does not specify a syntax.  It says to look in
      the standard syntax table to find the syntax of this character.
      The designator for this syntax code is `@'.
@@ -3138,8 +3435,8 @@ their meanings, and examples of their use.
 
 File: lispref.info,  Node: Syntax Flags,  Prev: Syntax Class Table,  Up: Syntax Descriptors
 
-Syntax Flags
-------------
+45.2.2 Syntax Flags
+-------------------
 
 In addition to the classes, entries for characters in a syntax table
 can include flags.  There are eleven possible flags, represented by the
@@ -3264,13 +3561,13 @@ newline
 
 File: lispref.info,  Node: Syntax Table Functions,  Next: Motion and Syntax,  Prev: Syntax Descriptors,  Up: Syntax Tables
 
-Syntax Table Functions
-======================
+45.3 Syntax Table Functions
+===========================
 
 In this section we describe functions for creating, accessing and
 altering syntax tables.
 
- - Function: make-syntax-table &optional oldtable
+ -- Function: make-syntax-table &optional oldtable
      This function creates a new syntax table.  Character codes 0
      through 31 and 128 through 255 are set up to inherit from the
      standard syntax table.  The other character codes are set up by
@@ -3278,13 +3575,13 @@ altering syntax tables.
 
      Most major mode syntax tables are created in this way.
 
- - Function: copy-syntax-table &optional syntax-table
+ -- Function: copy-syntax-table &optional syntax-table
      This function constructs a copy of SYNTAX-TABLE and returns it.
      If SYNTAX-TABLE is not supplied (or is `nil'), it returns a copy
      of the current syntax table.  Otherwise, an error is signaled if
      SYNTAX-TABLE is not a syntax table.
 
- - Command: modify-syntax-entry char-range syntax-descriptor &optional
+ -- Command: modify-syntax-entry char-range syntax-descriptor &optional
           syntax-table
      This function sets the syntax entry for CHAR-RANGE according to
      SYNTAX-DESCRIPTOR.  CHAR-RANGE is either a single character or a
@@ -3304,21 +3601,21 @@ altering syntax tables.
      characters.
 
      Examples:
-          
+
           ;; Put the space character in class whitespace.
           (modify-syntax-entry ?\  " ")
                => nil
-          
+
           ;; Make `$' an open parenthesis character,
           ;;   with `^' as its matching close.
           (modify-syntax-entry ?$ "(^")
                => nil
-          
+
           ;; Make `^' a close parenthesis character,
           ;;   with `$' as its matching open.
           (modify-syntax-entry ?^ ")$")
                => nil
-          
+
           ;; Make `/' a punctuation character,
           ;;   the first character of a start-comment sequence,
           ;;   and the second character of an end-comment sequence.
@@ -3326,7 +3623,7 @@ altering syntax tables.
           (modify-syntax-entry ?/ ". 14")
                => nil
 
- - Function: char-syntax character &optional syntax-table
+ -- Function: char-syntax character &optional syntax-table
      This function returns the syntax class of CHARACTER, represented
      by its mnemonic designator character.  This _only_ returns the
      class, not any matching parenthesis or flags.
@@ -3349,40 +3646,40 @@ altering syntax tables.
 
           (char-to-string (char-syntax ?\ ))
                => " "
-          
+
           (char-to-string (char-syntax ?/))
                => "."
-          
+
           (char-to-string (char-syntax ?\())
                => "("
 
- - Function: set-syntax-table syntax-table &optional buffer
+ -- Function: set-syntax-table syntax-table &optional buffer
      This function makes SYNTAX-TABLE the syntax table for BUFFER, which
      defaults to the current buffer if omitted.  It returns
      SYNTAX-TABLE.
 
- - Function: syntax-table &optional buffer
+ -- Function: syntax-table &optional buffer
      This function returns the syntax table for BUFFER, which defaults
      to the current buffer if omitted.
 
 
 File: lispref.info,  Node: Motion and Syntax,  Next: Parsing Expressions,  Prev: Syntax Table Functions,  Up: Syntax Tables
 
-Motion and Syntax
-=================
+45.4 Motion and Syntax
+======================
 
 This section describes functions for moving across characters in
 certain syntax classes.  None of these functions exists in Emacs
 version 18 or earlier.
 
- - Function: skip-syntax-forward syntaxes &optional limit buffer
+ -- Function: skip-syntax-forward syntaxes &optional limit buffer
      This function moves point forward across characters having syntax
      classes mentioned in SYNTAXES.  It stops when it encounters the
      end of the buffer, or position LIMIT (if specified), or a
      character it is not supposed to skip.  Optional argument BUFFER
      defaults to the current buffer if omitted.
 
- - Function: skip-syntax-backward syntaxes &optional limit buffer
+ -- Function: skip-syntax-backward syntaxes &optional limit buffer
      This function moves point backward across characters whose syntax
      classes are mentioned in SYNTAXES.  It stops when it encounters
      the beginning of the buffer, or position LIMIT (if specified), or a
@@ -3390,7 +3687,7 @@ version 18 or earlier.
      defaults to the current buffer if omitted.
 
 
- - Function: backward-prefix-chars &optional buffer
+ -- Function: backward-prefix-chars &optional buffer
      This function moves point backward over any number of characters
      with expression prefix syntax.  This includes both characters in
      the expression prefix syntax class, and characters with the `p'
@@ -3400,8 +3697,8 @@ version 18 or earlier.
 
 File: lispref.info,  Node: Parsing Expressions,  Next: Standard Syntax Tables,  Prev: Motion and Syntax,  Up: Syntax Tables
 
-Parsing Balanced Expressions
-============================
+45.5 Parsing Balanced Expressions
+=================================
 
 Here are several functions for parsing and scanning balanced
 expressions, also known as "sexps", in which parentheses match in
@@ -3410,7 +3707,7 @@ these functions can be used for Lisp expressions when in Lisp mode and
 for C expressions when in C mode.  *Note List Motion::, for convenient
 higher-level functions for moving over balanced expressions.
 
- - Function: parse-partial-sexp start limit &optional target-depth
+ -- Function: parse-partial-sexp start limit &optional target-depth
           stop-before state stop-comment buffer
      This function parses a sexp in the current buffer starting at
      START, not scanning past LIMIT.  It stops at position LIMIT or
@@ -3466,7 +3763,7 @@ higher-level functions for moving over balanced expressions.
      This function is most often used to compute indentation for
      languages that have nested parentheses.
 
- - Function: scan-lists from count depth &optional buffer noerror
+ -- Function: scan-lists from count depth &optional buffer noerror
      This function scans forward COUNT balanced parenthetical groupings
      from character number FROM.  It returns the character position
      where the scan stops.
@@ -3491,7 +3788,7 @@ higher-level functions for moving over balanced expressions.
      If optional arg NOERROR is non-`nil', `scan-lists' will return
      `nil' instead of signalling an error.
 
- - Function: scan-sexps from count &optional buffer noerror
+ -- Function: scan-sexps from count &optional buffer noerror
      This function scans forward COUNT sexps from character position
      FROM.  It returns the character position where the scan stops.
 
@@ -3509,7 +3806,7 @@ higher-level functions for moving over balanced expressions.
      If optional arg NOERROR is non-`nil', `scan-sexps' will return nil
      instead of signalling an error.
 
- - Variable: parse-sexp-ignore-comments
+ -- Variable: parse-sexp-ignore-comments
      If the value is non-`nil', then comments are treated as whitespace
      by the functions in this section and by `forward-sexp'.
 
@@ -3522,7 +3819,7 @@ higher-level functions for moving over balanced expressions.
    You can use `forward-comment' to move forward or backward over one
 comment or several comments.
 
- - Function: forward-comment &optional count buffer
+ -- Function: forward-comment &optional count buffer
      This function moves point forward across COUNT comments (backward,
      if COUNT is negative).  If it finds anything other than a comment
      or whitespace, it stops, leaving point at the place where it
@@ -3539,23 +3836,23 @@ many.
 
 File: lispref.info,  Node: Standard Syntax Tables,  Next: Syntax Table Internals,  Prev: Parsing Expressions,  Up: Syntax Tables
 
-Some Standard Syntax Tables
-===========================
+45.6 Some Standard Syntax Tables
+================================
 
 Most of the major modes in XEmacs have their own syntax tables.  Here
 are several of them:
 
- - Function: standard-syntax-table
+ -- Function: standard-syntax-table
      This function returns the standard syntax table, which is the
      syntax table used in Fundamental mode.
 
- - Variable: text-mode-syntax-table
+ -- Variable: text-mode-syntax-table
      The value of this variable is the syntax table used in Text mode.
 
- - Variable: c-mode-syntax-table
+ -- Variable: c-mode-syntax-table
      The value of this variable is the syntax table for C-mode buffers.
 
- - Variable: emacs-lisp-mode-syntax-table
+ -- Variable: emacs-lisp-mode-syntax-table
      The value of this variable is the syntax table used in Emacs Lisp
      mode by editing commands.  (It has no effect on the Lisp `read'
      function.)
@@ -3563,8 +3860,8 @@ are several of them:
 
 File: lispref.info,  Node: Syntax Table Internals,  Prev: Standard Syntax Tables,  Up: Syntax Tables
 
-Syntax Table Internals
-======================
+45.7 Syntax Table Internals
+===========================
 
 Each element of a syntax table is an integer that encodes the syntax of
 one character: the syntax class, possible matching character, and
@@ -3627,8 +3924,8 @@ The next 6 bits are the flags.
 
 File: lispref.info,  Node: Abbrevs,  Next: Extents,  Prev: Syntax Tables,  Up: Top
 
-Abbrevs And Abbrev Expansion
-****************************
+46 Abbrevs And Abbrev Expansion
+*******************************
 
 An abbreviation or "abbrev" is a string of characters that may be
 expanded to a longer string.  The user can insert the abbrev string and
@@ -3666,13 +3963,13 @@ Therefore, it is safe to use them in an extremely nonstandard way.
 
 File: lispref.info,  Node: Abbrev Mode,  Next: Abbrev Tables,  Up: Abbrevs
 
-Setting Up Abbrev Mode
-======================
+46.1 Setting Up Abbrev Mode
+===========================
 
 Abbrev mode is a minor mode controlled by the value of the variable
 `abbrev-mode'.
 
- - Variable: abbrev-mode
+ -- Variable: abbrev-mode
      A non-`nil' value of this variable turns on the automatic expansion
      of abbrevs when their abbreviations are inserted into a buffer.
      If the value is `nil', abbrevs may be defined, but they are not
@@ -3680,38 +3977,38 @@ Abbrev mode is a minor mode controlled by the value of the variable
 
      This variable automatically becomes local when set in any fashion.
 
- - Variable: default-abbrev-mode
+ -- Variable: default-abbrev-mode
      This is the value of `abbrev-mode' for buffers that do not
      override it.  This is the same as `(default-value 'abbrev-mode)'.
 
 
 File: lispref.info,  Node: Abbrev Tables,  Next: Defining Abbrevs,  Prev: Abbrev Mode,  Up: Abbrevs
 
-Abbrev Tables
-=============
+46.2 Abbrev Tables
+==================
 
 This section describes how to create and manipulate abbrev tables.
 
- - Function: make-abbrev-table
+ -- Function: make-abbrev-table
      This function creates and returns a new, empty abbrev table--an
      obarray containing no symbols.  It is a vector filled with zeros.
 
- - Function: clear-abbrev-table table
+ -- Function: clear-abbrev-table table
      This function undefines all the abbrevs in abbrev table TABLE,
      leaving it empty.  The function returns `nil'.
 
- - Function: define-abbrev-table table-name definitions
+ -- Function: define-abbrev-table table-name definitions
      This function defines TABLE-NAME (a symbol) as an abbrev table
      name, i.e., as a variable whose value is an abbrev table.  It
      defines abbrevs in the table according to DEFINITIONS, a list of
      elements of the form `(ABBREVNAME EXPANSION HOOK USECOUNT)'.  The
      value is always `nil'.
 
- - Variable: abbrev-table-name-list
+ -- Variable: abbrev-table-name-list
      This is a list of symbols whose values are abbrev tables.
      `define-abbrev-table' adds the new abbrev table name to this list.
 
- - Function: insert-abbrev-table-description name &optional human
+ -- Function: insert-abbrev-table-description name &optional human
      This function inserts before point a description of the abbrev
      table named NAME.  The argument NAME is a symbol whose value is an
      abbrev table.  The value is always `nil'.
@@ -3724,14 +4021,14 @@ This section describes how to create and manipulate abbrev tables.
 
 File: lispref.info,  Node: Defining Abbrevs,  Next: Abbrev Files,  Prev: Abbrev Tables,  Up: Abbrevs
 
-Defining Abbrevs
-================
+46.3 Defining Abbrevs
+=====================
 
 These functions define an abbrev in a specified abbrev table.
 `define-abbrev' is the low-level basic function, while `add-abbrev' is
 used by commands that ask for information from the user.
 
- - Function: add-abbrev table type arg
+ -- Function: add-abbrev table type arg
      This function adds an abbreviation to abbrev table TABLE based on
      information from the user.  The argument TYPE is a string
      describing in English the kind of abbrev this will be (typically,
@@ -3742,7 +4039,7 @@ used by commands that ask for information from the user.
      abbrev, or `nil' if the user declines to confirm redefining an
      existing abbrev.
 
- - Function: define-abbrev table name &optional expansion hook count
+ -- Function: define-abbrev table name &optional expansion hook count
      This function defines an abbrev in TABLE named NAME, to expand to
      EXPANSION, and call HOOK.  The return value is an uninterned
      symbol that represents the abbrev inside XEmacs; its name is NAME.
@@ -3757,7 +4054,7 @@ used by commands that ask for information from the user.
 
      The use count of the abbrev is initialized to zero.
 
- - User Option: only-global-abbrevs
+ -- User Option: only-global-abbrevs
      If this variable is non-`nil', it means that the user plans to use
      global abbrevs only.  This tells the commands that define
      mode-specific abbrevs to define global ones instead.  This
@@ -3767,8 +4064,8 @@ used by commands that ask for information from the user.
 
 File: lispref.info,  Node: Abbrev Files,  Next: Abbrev Expansion,  Prev: Defining Abbrevs,  Up: Abbrevs
 
-Saving Abbrevs in Files
-=======================
+46.4 Saving Abbrevs in Files
+============================
 
 A file of saved abbrev definitions is actually a file of Lisp code.
 The abbrevs are saved in the form of a Lisp program to define the same
@@ -3779,10 +4076,10 @@ with `load' (*note How Programs Do Loading::).  However, the function
    User-level facilities such as `save-some-buffers' can save abbrevs
 in a file automatically, under the control of variables described here.
 
- - User Option: abbrev-file-name
+ -- User Option: abbrev-file-name
      This is the default file name for reading and saving abbrevs.
 
- - Function: quietly-read-abbrev-file &optional filename
+ -- Function: quietly-read-abbrev-file &optional filename
      This function reads abbrev definitions from a file named FILENAME,
      previously written with `write-abbrev-file'.  If FILENAME is
      `nil', the file specified in `abbrev-file-name' is used.
@@ -3790,17 +4087,17 @@ in a file automatically, under the control of variables described here.
 
      This function does not display any messages.  It returns `nil'.
 
- - User Option: save-abbrevs
+ -- User Option: save-abbrevs
      A non-`nil' value for `save-abbrev' means that XEmacs should save
      abbrevs when files are saved.  `abbrev-file-name' specifies the
      file to save the abbrevs in.
 
- - Variable: abbrevs-changed
+ -- Variable: abbrevs-changed
      This variable is set non-`nil' by defining or altering any
      abbrevs.  This serves as a flag for various XEmacs commands to
      offer to save your abbrevs.
 
- - Command: write-abbrev-file filename
+ -- Command: write-abbrev-file filename
      Save all abbrev definitions, in all abbrev tables, in the file
      FILENAME, in the form of a Lisp program that when loaded will
      define the same abbrevs.  This function returns `nil'.
@@ -3808,15 +4105,15 @@ in a file automatically, under the control of variables described here.
 
 File: lispref.info,  Node: Abbrev Expansion,  Next: Standard Abbrev Tables,  Prev: Abbrev Files,  Up: Abbrevs
 
-Looking Up and Expanding Abbreviations
-======================================
+46.5 Looking Up and Expanding Abbreviations
+===========================================
 
 Abbrevs are usually expanded by commands for interactive use, including
 `self-insert-command'.  This section describes the subroutines used in
 writing such functions, as well as the variables they use for
 communication.
 
- - Function: abbrev-symbol abbrev &optional table
+ -- Function: abbrev-symbol abbrev &optional table
      This function returns the symbol representing the abbrev named
      ABBREV.  The value returned is `nil' if that abbrev is not
      defined.  The optional second argument TABLE is the abbrev table
@@ -3824,59 +4121,59 @@ communication.
      the current buffer's local abbrev table, and second the global
      abbrev table.
 
- - Function: abbrev-expansion abbrev &optional table
+ -- Function: abbrev-expansion abbrev &optional table
      This function returns the string that ABBREV would expand into (as
      defined by the abbrev tables used for the current buffer).  The
      optional argument TABLE specifies the abbrev table to use, as in
      `abbrev-symbol'.
 
- - Command: expand-abbrev
+ -- Command: expand-abbrev
      This command expands the abbrev before point, if any.  If point
      does not follow an abbrev, this command does nothing.  The command
      returns `t' if it did expansion, `nil' otherwise.
 
- - Command: abbrev-prefix-mark &optional arg
+ -- Command: abbrev-prefix-mark &optional arg
      Mark current point as the beginning of an abbrev.  The next call to
      `expand-abbrev' will use the text from here to point (where it is
      then) as the abbrev to expand, rather than using the previous word
      as usual.
 
- - User Option: abbrev-all-caps
+ -- User Option: abbrev-all-caps
      When this is set non-`nil', an abbrev entered entirely in upper
      case is expanded using all upper case.  Otherwise, an abbrev
      entered entirely in upper case is expanded by capitalizing each
      word of the expansion.
 
- - Variable: abbrev-start-location
+ -- Variable: abbrev-start-location
      This is the buffer position for `expand-abbrev' to use as the start
      of the next abbrev to be expanded.  (`nil' means use the word
      before point instead.)  `abbrev-start-location' is set to `nil'
      each time `expand-abbrev' is called.  This variable is also set by
      `abbrev-prefix-mark'.
 
- - Variable: abbrev-start-location-buffer
+ -- Variable: abbrev-start-location-buffer
      The value of this variable is the buffer for which
      `abbrev-start-location' has been set.  Trying to expand an abbrev
      in any other buffer clears `abbrev-start-location'.  This variable
      is set by `abbrev-prefix-mark'.
 
- - Variable: last-abbrev
+ -- Variable: last-abbrev
      This is the `abbrev-symbol' of the last abbrev expanded.  This
      information is left by `expand-abbrev' for the sake of the
      `unexpand-abbrev' command.
 
- - Variable: last-abbrev-location
+ -- Variable: last-abbrev-location
      This is the location of the last abbrev expanded.  This contains
      information left by `expand-abbrev' for the sake of the
      `unexpand-abbrev' command.
 
- - Variable: last-abbrev-text
+ -- Variable: last-abbrev-text
      This is the exact expansion text of the last abbrev expanded,
      after case conversion (if any).  Its value is `nil' if the abbrev
      has already been unexpanded.  This contains information left by
      `expand-abbrev' for the sake of the `unexpand-abbrev' command.
 
- - Variable: pre-abbrev-expand-hook
+ -- Variable: pre-abbrev-expand-hook
      This is a normal hook whose functions are executed, in sequence,
      just before any expansion of an abbrev.  *Note Hooks::.  Since it
      is a normal hook, the hook functions receive no arguments.
@@ -3890,18 +4187,18 @@ this hook allows the user to decide whether to expand the abbrev, and
 aborts expansion if it is not confirmed.
 
      (add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
-     
+
      ;; This is the function invoked by `pre-abbrev-expand-hook'.
-     
+
      ;; If the user terminated the abbrev with a space, the function does
      ;; nothing (that is, it returns so that the abbrev can expand).  If the
      ;; user entered some other character, this function asks whether
      ;; expansion should continue.
-     
+
      ;; If the user answers the prompt with `y', the function returns
      ;; `nil' (because of the `not' function), but that is
      ;; acceptable; the return value has no effect on expansion.
-     
+
      (defun query-if-not-space ()
        (if (/= ?\  (preceding-char))
            (if (not (y-or-n-p "Do you want to expand this abbrev? "))
@@ -3910,42 +4207,42 @@ aborts expansion if it is not confirmed.
 
 File: lispref.info,  Node: Standard Abbrev Tables,  Prev: Abbrev Expansion,  Up: Abbrevs
 
-Standard Abbrev Tables
-======================
+46.6 Standard Abbrev Tables
+===========================
 
 Here we list the variables that hold the abbrev tables for the
 preloaded major modes of XEmacs.
 
- - Variable: global-abbrev-table
+ -- Variable: global-abbrev-table
      This is the abbrev table for mode-independent abbrevs.  The abbrevs
      defined in it apply to all buffers.  Each buffer may also have a
      local abbrev table, whose abbrev definitions take precedence over
      those in the global table.
 
- - Variable: local-abbrev-table
+ -- Variable: local-abbrev-table
      The value of this buffer-local variable is the (mode-specific)
      abbreviation table of the current buffer.
 
- - Variable: fundamental-mode-abbrev-table
+ -- Variable: fundamental-mode-abbrev-table
      This is the local abbrev table used in Fundamental mode; in other
      words, it is the local abbrev table in all buffers in Fundamental
      mode.
 
- - Variable: text-mode-abbrev-table
+ -- Variable: text-mode-abbrev-table
      This is the local abbrev table used in Text mode.
 
- - Variable: c-mode-abbrev-table
+ -- Variable: c-mode-abbrev-table
      This is the local abbrev table used in C mode.
 
- - Variable: lisp-mode-abbrev-table
+ -- Variable: lisp-mode-abbrev-table
      This is the local abbrev table used in Lisp mode and Emacs Lisp
      mode.
 
 
 File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
 
-Extents
-*******
+47 Extents
+**********
 
 An "extent" is a region of text (a start position and an end position)
 that is displayed in a particular face and can have certain other
@@ -3953,7 +4250,7 @@ properties such as being read-only.  Extents can overlap each other.
 XEmacs efficiently handles buffers with large numbers of extents in
 them.
 
- - Function: extentp object
+ -- Function: extentp object
      This returns `t' if OBJECT is an extent.
 
 * Menu:
@@ -3974,8 +4271,8 @@ them.
 
 File: lispref.info,  Node: Intro to Extents,  Next: Creating and Modifying Extents,  Up: Extents
 
-Introduction to Extents
-=======================
+47.1 Introduction to Extents
+============================
 
 An extent is a region of text within a buffer or string that has
 certain properties associated with it.  The properties of an extent
@@ -4047,10 +4344,10 @@ commands.  *Note Duplicable Extents::.
 
 File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoints,  Prev: Intro to Extents,  Up: Extents
 
-Creating and Modifying Extents
-==============================
+47.2 Creating and Modifying Extents
+===================================
 
- - Function: make-extent from to &optional buffer-or-string
+ -- Function: make-extent from to &optional buffer-or-string
      This function makes an extent for the range [FROM, TO) in
      BUFFER-OR-STRING (a buffer or string).  BUFFER-OR-STRING defaults
      to the current buffer.  Insertions at point TO will be outside of
@@ -4061,28 +4358,28 @@ Creating and Modifying Extents
      to `nil', meaning the extent is in no buffer or string (*note
      Detached Extents::).
 
- - Function: delete-extent extent
+ -- Function: delete-extent extent
      This function removes EXTENT from its buffer and destroys it.
      This does not modify the buffer's text, only its display
      properties.  The extent cannot be used thereafter.  To remove an
      extent in such a way that it can be re-inserted later, use
      `detach-extent'.  *Note Detached Extents::.
 
- - Function: extent-object extent
+ -- Function: extent-object extent
      This function returns the buffer or string that EXTENT is in.  If
      the return value is `nil', this means that the extent is detached;
      however, a detached extent will not necessarily return a value of
      `nil'.
 
- - Function: extent-live-p object
+ -- Function: extent-live-p object
      This function returns `t' if OBJECT is an extent that has not been
      deleted, and `nil' otherwise.
 
 
 File: lispref.info,  Node: Extent Endpoints,  Next: Finding Extents,  Prev: Creating and Modifying Extents,  Up: Extents
 
-Extent Endpoints
-================
+47.3 Extent Endpoints
+=====================
 
 Every extent has a start position and an end position, and logically
 affects the characters between those positions.  Normally the start and
@@ -4121,19 +4418,19 @@ open, the extent remains in the buffer, moving as necessary.
 position, and then by decreasing end position (this is called the
 "display order").
 
- - Function: extent-start-position extent
+ -- Function: extent-start-position extent
      This function returns the start position of EXTENT.
 
- - Function: extent-end-position extent
+ -- Function: extent-end-position extent
      This function returns the end position of EXTENT.
 
- - Function: extent-length extent
+ -- Function: extent-length extent
      This function returns the length of EXTENT in characters.  If the
      extent is detached, this returns `0'.  If the extent is not
      detached, this is equivalent to
           (- (extent-end-position EXTENT) (extent-start-position EXTENT))
 
- - Function: set-extent-endpoints extent start end &optional
+ -- Function: set-extent-endpoints extent start end &optional
           buffer-or-string
      This function sets the start and end position of EXTENT to START
      and END.  If both are `nil', this is equivalent to `detach-extent'.
@@ -4149,8 +4446,8 @@ position, and then by decreasing end position (this is called the
 
 File: lispref.info,  Node: Finding Extents,  Next: Mapping Over Extents,  Prev: Extent Endpoints,  Up: Extents
 
-Finding Extents
-===============
+47.4 Finding Extents
+====================
 
 The following functions provide a simple way of determining the extents
 in a buffer or string.  A number of more sophisticated primitives for
@@ -4159,7 +4456,7 @@ provided (*note Mapping Over Extents::).  When reading through this
 section, keep in mind the way that extents are ordered (*note Extent
 Endpoints::).
 
- - Function: extent-list &optional buffer-or-string from to flags
+ -- Function: extent-list &optional buffer-or-string from to flags
           property value
      This function returns a list of the extents in BUFFER-OR-STRING.
      BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
@@ -4190,7 +4487,7 @@ functions.  To deal with this, functions typically mark their own
 extents by setting a particular property on them.  The following
 function makes it easier to locate those extents.
 
- - Function: extent-at pos &optional object property before at-flag
+ -- Function: extent-at pos &optional object property before at-flag
      This function finds the "smallest" extent (i.e., the last one in
      the display order) at (i.e., overlapping) POS in OBJECT (a buffer
      or string) having PROPERTY set.  OBJECT defaults to the current
@@ -4228,12 +4525,12 @@ you should probably use `mapcar-extents' or `map-extents', or loop
 using the BEFORE argument to `extent-at', rather than creating a loop
 using `next-extent'.
 
- - Function: next-extent extent
+ -- Function: next-extent extent
      Given an extent EXTENT, this function returns the next extent in
      the buffer or string's display order.  If EXTENT is a buffer or
      string, this returns the first extent in the buffer or string.
 
- - Function: previous-extent extent
+ -- Function: previous-extent extent
      Given an extent EXTENT, this function returns the previous extent
      in the buffer or string's display order.  If EXTENT is a buffer or
      string, this returns the last extent in the buffer or string.
@@ -4241,8 +4538,8 @@ using `next-extent'.
 
 File: lispref.info,  Node: Mapping Over Extents,  Next: Extent Properties,  Prev: Finding Extents,  Up: Extents
 
-Mapping Over Extents
-====================
+47.5 Mapping Over Extents
+=========================
 
 The most basic and general function for mapping over extents is called
 `map-extents'.  You should read through the definition of this function
@@ -4251,8 +4548,8 @@ involved.  However, in practice you may find it more convenient to use
 the function `mapcar-extents' or to create a loop using the `before'
 argument to `extent-at' (*note Finding Extents::).
 
- - Function: map-extents function &optional object from to maparg flags
-          property value
+ -- Function: map-extents function &optional object from to maparg
+          flags property value
      This function maps FUNCTION over the extents which overlap a
      region in OBJECT.  OBJECT is normally a buffer or string but could
      be an extent (see below).  The region is normally bounded by
@@ -4348,7 +4645,7 @@ argument to `extent-at' (*note Finding Extents::).
    If you want to map over extents and accumulate a list of results,
 the following function may be more convenient than `map-extents'.
 
- - Function: mapcar-extents function &optional predicate
+ -- Function: mapcar-extents function &optional predicate
           buffer-or-string from to flags property value
      This function applies FUNCTION to all extents which overlap a
      region in BUFFER-OR-STRING.  The region is delimited by FROM and
@@ -4359,7 +4656,7 @@ the following function may be more convenient than `map-extents'.
      VALUE may also be used to control the extents passed to PREDICATE
      or FUNCTION, and have the same meaning as in `map-extents'.
 
- - Function: map-extent-children function &optional object from to
+ -- Function: map-extent-children function &optional object from to
           maparg flags property value
      This function is similar to `map-extents', but differs in that:
 
@@ -4373,15 +4670,15 @@ the following function may be more convenient than `map-extents'.
           (defun walk-extents (buffer &optional ignore)
             (map-extent-children 'walk-extents buffer))
 
- - Function: extent-in-region-p extent &optional from to flags
+ -- Function: extent-in-region-p extent &optional from to flags
      This function returns `t' if `map-extents' would visit EXTENT if
      called with the given arguments.
 
 
 File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
 
-Properties of Extents
-=====================
+47.6 Properties of Extents
+==========================
 
 Each extent has a property list associating property names with values.
 Some property names have predefined meanings, and can usually only
@@ -4400,21 +4697,21 @@ from that parent (or from the root ancestor if the parent in turn has a
 parent), and setting a property of the extent actually sets that
 property on the parent.  *Note Extent Parents::.
 
- - Function: extent-property extent property &optional default
+ -- Function: extent-property extent property &optional default
      This function returns EXTENT's value for PROPERTY, or DEFAULT if
      no such property exists.
 
- - Function: extent-properties extent
+ -- Function: extent-properties extent
      This function returns a list of all of EXTENT's properties that do
      not have the value of `nil' (or the default value, for properties
      with predefined meanings).
 
- - Function: set-extent-property extent property value
+ -- Function: set-extent-property extent property value
      This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
      predefined meaning, only certain values are allowed, and some
      values may be converted to others before being stored.)
 
- - Function: set-extent-properties extent plist
+ -- Function: set-extent-properties extent plist
      Change some properties of EXTENT.  PLIST is a property list.  This
      is useful to change many extent properties at once.
 
@@ -4477,7 +4774,7 @@ along with their allowable values.
      moves over the extent.  This takes precedence over the
      `text-pointer-glyph' and `nontext-pointer-glyph' variables.  If
      for any reason this glyph is an invalid pointer, the standard
-     glyphs will be used as fallbacks.  *Note Mouse Pointer::.
+     glyphs will be used as fallbacks.  *Note External Glyphs::.
 
 `detachable'
      (Boolean) Whether this extent becomes detached when all of the
@@ -4542,7 +4839,7 @@ along with their allowable values.
    The following convenience functions are provided for accessing
 particular properties of an extent.
 
- - Function: extent-face extent
+ -- Function: extent-face extent
      This function returns the `face' property of EXTENT.  This might
      also return a list of face names.  Do not modify this list
      directly!  Instead, use `set-extent-face'.
@@ -4553,7 +4850,7 @@ particular properties of an extent.
      the return value of `extent-face' on the two extents will return
      the identical list.
 
- - Function: extent-mouse-face extent
+ -- Function: extent-mouse-face extent
      This function returns the `mouse-face' property of EXTENT.  This
      might also return a list of face names.  Do not modify this list
      directly!  Instead, use `set-extent-mouse-face'.
@@ -4561,26 +4858,26 @@ particular properties of an extent.
      Note that you can use `eq' to compare lists of faces as returned
      by `extent-mouse-face', just like for `extent-face'.
 
- - Function: extent-priority extent
+ -- Function: extent-priority extent
      This function returns the `priority' property of EXTENT.
 
- - Function: extent-keymap extent
+ -- Function: extent-keymap extent
      This function returns the `keymap' property of EXTENT.
 
- - Function: extent-begin-glyph-layout extent
+ -- Function: extent-begin-glyph-layout extent
      This function returns the `begin-glyph-layout' property of EXTENT,
      i.e. the layout policy associated with the EXTENT's begin glyph.
 
- - Function: extent-end-glyph-layout extent
+ -- Function: extent-end-glyph-layout extent
      This function returns the `end-glyph-layout' property of EXTENT,
      i.e. the layout policy associated with the EXTENT's end glyph.
 
- - Function: extent-begin-glyph extent
+ -- Function: extent-begin-glyph extent
      This function returns the `begin-glyph' property of EXTENT, i.e.
      the glyph object displayed at the beginning of EXTENT.  If there
      is none, `nil' is returned.
 
- - Function: extent-end-glyph extent
+ -- Function: extent-end-glyph extent
      This function returns the `end-glyph' property of EXTENT, i.e. the
      glyph object displayed at the end of EXTENT.  If there is none,
      `nil' is returned.
@@ -4588,46 +4885,46 @@ particular properties of an extent.
    The following convenience functions are provided for setting
 particular properties of an extent.
 
- - Function: set-extent-priority extent priority
+ -- Function: set-extent-priority extent priority
      This function sets the `priority' property of EXTENT to PRIORITY.
 
- - Function: set-extent-face extent face
+ -- Function: set-extent-face extent face
      This function sets the `face' property of EXTENT to FACE.
 
- - Function: set-extent-mouse-face extent face
+ -- Function: set-extent-mouse-face extent face
      This function sets the `mouse-face' property of EXTENT to FACE.
 
- - Function: set-extent-keymap extent keymap
+ -- Function: set-extent-keymap extent keymap
      This function sets the `keymap' property of EXTENT to KEYMAP.
      KEYMAP must be either a keymap object, or `nil'.
 
- - Function: set-extent-begin-glyph-layout extent layout
+ -- Function: set-extent-begin-glyph-layout extent layout
      This function sets the `begin-glyph-layout' property of EXTENT to
      LAYOUT.
 
- - Function: set-extent-end-glyph-layout extent layout
+ -- Function: set-extent-end-glyph-layout extent layout
      This function sets the `end-glyph-layout' property of EXTENT to
      LAYOUT.
 
- - Function: set-extent-begin-glyph extent begin-glyph &optional layout
+ -- Function: set-extent-begin-glyph extent begin-glyph &optional layout
      This function sets the `begin-glyph' and `glyph-layout' properties
      of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
      defaults to `text' if not specified.)
 
- - Function: set-extent-end-glyph extent end-glyph &optional layout
+ -- Function: set-extent-end-glyph extent end-glyph &optional layout
      This function sets the `end-glyph' and `glyph-layout' properties
      of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
      to `text' if not specified.)
 
- - Function: set-extent-initial-redisplay-function extent function
+ -- Function: set-extent-initial-redisplay-function extent function
      This function sets the `initial-redisplay-function' property of the
      extent to FUNCTION.
 
 
 File: lispref.info,  Node: Detached Extents,  Next: Extent Parents,  Prev: Extent Properties,  Up: Extents
 
-Detached Extents
-================
+47.7 Detached Extents
+=====================
 
 A detached extent is an extent that is not attached to a buffer or
 string but can be re-inserted.  Detached extents have a start position
@@ -4638,21 +4935,21 @@ this property is not set, the extent becomes a zero-length extent.
 (Zero-length extents with the `detachable' property set behave
 specially.  *Note zero-length extents: Extent Endpoints.)
 
- - Function: detach-extent extent
+ -- Function: detach-extent extent
      This function detaches EXTENT from its buffer or string.  If
      EXTENT has the `duplicable' property, its detachment is tracked by
      the undo mechanism.  *Note Duplicable Extents::.
 
- - Function: extent-detached-p extent
+ -- Function: extent-detached-p extent
      This function returns `nil' if EXTENT is detached, and `t'
      otherwise.
 
- - Function: copy-extent extent &optional object
+ -- Function: copy-extent extent &optional object
      This function makes a copy of EXTENT.  It is initially detached.
      Optional argument OBJECT defaults to EXTENT's object (normally a
      buffer or string, but could be `nil').
 
- - Function: insert-extent extent &optional start end no-hooks object
+ -- Function: insert-extent extent &optional start end no-hooks object
      This function inserts EXTENT from START to END in OBJECT (a buffer
      or string).  If EXTENT is detached from a different buffer or
      string, or in most cases when EXTENT is already attached, the
@@ -4665,8 +4962,8 @@ specially.  *Note zero-length extents: Extent Endpoints.)
 
 File: lispref.info,  Node: Extent Parents,  Next: Duplicable Extents,  Prev: Detached Extents,  Up: Extents
 
-Extent Parents
-==============
+47.8 Extent Parents
+===================
 
 An extent can have a parent extent set for it.  If this is the case,
 the extent derives all its properties from that extent and has no
@@ -4683,20 +4980,20 @@ you cannot create an inheritance loop--this is explicitly disallowed.
 
    Parent extents are used to implement the extents over the modeline.
 
- - Function: set-extent-parent extent parent
+ -- Function: set-extent-parent extent parent
      This function sets the parent of EXTENT to PARENT.  If PARENT is
      `nil', the extent is set to have no parent.
 
- - Function: extent-parent extent
+ -- Function: extent-parent extent
      This function return the parents (if any) of EXTENT, or `nil'.
 
- - Function: extent-children extent
+ -- Function: extent-children extent
      This function returns a list of the children (if any) of EXTENT.
      The children of an extent are all those extents whose parent is
      that extent.  This function does not recursively trace children of
      children.
 
- - Function: extent-descendants extent
+ -- Function: extent-descendants extent
      This function returns a list of all descendants of EXTENT,
      including EXTENT.  This recursively applies `extent-children' to
      any children of EXTENT, until no more children can be found.
@@ -4704,8 +5001,8 @@ you cannot create an inheritance loop--this is explicitly disallowed.
 
 File: lispref.info,  Node: Duplicable Extents,  Next: Extents and Events,  Prev: Extent Parents,  Up: Extents
 
-Duplicable Extents
-==================
+47.9 Duplicable Extents
+=======================
 
 If an extent has the `duplicable' property, it will be copied into
 strings, so that kill, yank, and undo commands will restore or copy it.
@@ -4770,8 +5067,8 @@ strings, so that kill, yank, and undo commands will restore or copy it.
 
 File: lispref.info,  Node: Extents and Events,  Next: Atomic Extents,  Prev: Duplicable Extents,  Up: Extents
 
-Interaction of Extents with Keyboard and Mouse Events
-=====================================================
+47.10 Interaction of Extents with Keyboard and Mouse Events
+===========================================================
 
 If an extent has the `mouse-face' property set, it will be highlighted
 when the mouse passes over it.  This includes the begin-glyph, but not
@@ -4781,7 +5078,7 @@ The effect is as if a pseudo-extent with the `mouse-face' face were
 inserted after the extent in the display order (*note Extent
 Endpoints::, display order).
 
- - Variable: mouse-highlight-priority
+ -- Variable: mouse-highlight-priority
      This variable holds the priority to use when merging in the
      highlighting pseudo-extent.  The default is 1000.  This is
      purposely set very high so that the highlighting pseudo-extent
@@ -4792,13 +5089,13 @@ Endpoints::, display order).
 extent at a time can be highlighted in this fashion, and any other
 highlighted extent will be de-highlighted.
 
- - Function: highlight-extent extent &optional highlight-p
+ -- Function: highlight-extent extent &optional highlight-p
      This function highlights (if HIGHLIGHT-P is non-`nil') or
      de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
      `mouse-face' property. (Nothing happens if EXTENT does not have
      the `mouse-face' property.)
 
- - Function: force-highlight-extent extent &optional highlight-p
+ -- Function: force-highlight-extent extent &optional highlight-p
      This function is similar to `highlight-extent' but highlights or
      de-highlights the extent regardless of whether it has the
      `mouse-face' property.
@@ -4811,8 +5108,8 @@ defined in the keymap is as normal for the buffer.
 
 File: lispref.info,  Node: Atomic Extents,  Prev: Extents and Events,  Up: Extents
 
-Atomic Extents
-==============
+47.11 Atomic Extents
+====================
 
 If the Lisp file `atomic-extents' is loaded, then the atomic extent
 facility is available.  An "atomic extent" is an extent for which
@@ -4824,8 +5121,8 @@ when selecting text, either all or none of the extent is selected.
 
 File: lispref.info,  Node: Specifiers,  Next: Faces and Window-System Objects,  Prev: Extents,  Up: Top
 
-Specifiers
-**********
+48 Specifiers
+*************
 
 A specifier is an object used to keep track of a property whose value
 should vary according to _display context_, a window, a frame, or
@@ -4836,7 +5133,7 @@ actually a specifier object.  The specifier object, in turn, is
 "instanced" in a particular situation to yield the real value of the
 property in the current context.
 
- - Function: specifierp object
+ -- Function: specifierp object
      This function returns non-`nil' if OBJECT is a specifier.
 
 * Menu:
@@ -4867,8 +5164,8 @@ property in the current context.
 
 File: lispref.info,  Node: Introduction to Specifiers,  Next: Simple Specifier Usage,  Up: Specifiers
 
-Introduction to Specifiers
-==========================
+48.1 Introduction to Specifiers
+===============================
 
 Perhaps the most useful way to explain specifiers is via an analogy.
 Emacs Lisp programmers are used to _buffer-local variables_ *Note
@@ -4950,8 +5247,8 @@ of the default face be
 
 File: lispref.info,  Node: Simple Specifier Usage,  Next: Specifiers In-Depth,  Prev: Introduction to Specifiers,  Up: Specifiers
 
-Simple Specifier Usage
-======================
+48.2 Simple Specifier Usage
+===========================
 
 A useful specifier application is adding a button to a toolbar.  XEmacs
 provides several toolbars, one along each edge of the frame.  Normally
@@ -4983,7 +5280,7 @@ applications.  The rest of the button descriptor is straightforward.
           (lambda () (interactive) (execute-kbd-macro ,last-kbd-macro))
           t
           "Execute a previously defined keyboard macro." ])
-     
+
      (set-specifier default-toolbar
                     (cons toolbar-my-kbd-macro-button
                           (specifier-specs default-toolbar 'global))
@@ -5014,7 +5311,7 @@ my use of Mule.  On non-Mule XEmacsen, just use `specifier-specs'.)
 
      (cdr (first (specifier-specs (face-font 'default) 'global)))
      => "-*--14-*jisx0208*-0"
-     
+
      (specifier-instance (face-font 'default))
      #<font-instance "-*--14-*jisx0208*-0" on #<x-device on ":0.0" 0x970> 0xe0028b 0x176b>
 
@@ -5043,7 +5340,7 @@ useful in a LaTeX buffer!)  Here's one way to implement this:
           (lambda () (interactive) (execute-kbd-macro ,last-kbd-macro))
           t
           "Execute a previously defined keyboard macro." ])
-     
+
      (set-specifier default-toolbar
                     (cons toolbar-my-kbd-macro-button
                           (cond ((specifier-specs default-toolbar
@@ -5082,8 +5379,8 @@ method!)
 
 File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Simple Specifier Usage,  Up: Specifiers
 
-In-Depth Overview of a Specifier
-================================
+48.3 In-Depth Overview of a Specifier
+=====================================
 
 Having variables vary according the editing context is very useful, and
 the buffer is the natural "atomic" unit of editing context.  In a GUI
@@ -5197,8 +5494,8 @@ example.
 
 File: lispref.info,  Node: Specifier Instancing,  Next: Specifier Types,  Prev: Specifiers In-Depth,  Up: Specifiers
 
-How a Specifier Is Instanced
-============================
+48.4 How a Specifier Is Instanced
+=================================
 
 Instancing of a specifier in a particular window domain proceeds as
 follows:
@@ -5259,8 +5556,8 @@ locale.
 
 File: lispref.info,  Node: Specifier Types,  Next: Adding Specifications,  Prev: Specifier Instancing,  Up: Specifiers
 
-Specifier Types
-===============
+48.5 Specifier Types
+====================
 
 There are various different types of specifiers.  The type of a
 specifier controls what sorts of instantiators are valid, how an
@@ -5340,7 +5637,7 @@ fonts, colors, and face-boolean specifiers.  *Note Glyphs::, for more
 information about image specifiers.  *Note Toolbar::, for more
 information on toolbar specifiers.
 
- - Function: specifier-type specifier
+ -- Function: specifier-type specifier
      This function returns the type of SPECIFIER.  The returned value
      will be a symbol: one of `integer', `boolean', etc., as listed in
      the above table.
@@ -5348,41 +5645,41 @@ information on toolbar specifiers.
    Functions are also provided to query whether an object is a
 particular kind of specifier:
 
- - Function: boolean-specifier-p object
+ -- Function: boolean-specifier-p object
      This function returns non-`nil' if OBJECT is a boolean specifier.
 
- - Function: integer-specifier-p object
+ -- Function: integer-specifier-p object
      This function returns non-`nil' if OBJECT is an integer specifier.
 
- - Function: natnum-specifier-p object
+ -- Function: natnum-specifier-p object
      This function returns non-`nil' if OBJECT is a natnum specifier.
 
- - Function: generic-specifier-p object
+ -- Function: generic-specifier-p object
      This function returns non-`nil' if OBJECT is a generic specifier.
 
- - Function: face-boolean-specifier-p object
+ -- Function: face-boolean-specifier-p object
      This function returns non-`nil' if OBJECT is a face-boolean
      specifier.
 
- - Function: toolbar-specifier-p object
+ -- Function: toolbar-specifier-p object
      This function returns non-`nil' if OBJECT is a toolbar specifier.
 
- - Function: font-specifier-p object
+ -- Function: font-specifier-p object
      This function returns non-`nil' if OBJECT is a font specifier.
 
- - Function: color-specifier-p object
+ -- Function: color-specifier-p object
      This function returns non-`nil' if OBJECT is a color specifier.
 
- - Function: image-specifier-p object
+ -- Function: image-specifier-p object
      This function returns non-`nil' if OBJECT is an image specifier.
 
 
 File: lispref.info,  Node: Adding Specifications,  Next: Retrieving Specifications,  Prev: Specifier Types,  Up: Specifiers
 
-Adding specifications to a Specifier
-====================================
+48.6 Adding specifications to a Specifier
+=========================================
 
- - Function: add-spec-to-specifier specifier instantiator &optional
+ -- Function: add-spec-to-specifier specifier instantiator &optional
           locale tag-set how-to-add
      This function adds a specification to SPECIFIER.  The
      specification maps from LOCALE (which should be a window, buffer,
@@ -5435,7 +5732,7 @@ Adding specifications to a Specifier
      locale type with the function `specifier-spec-list' or
      `specifier-specs'.
 
- - Function: add-spec-list-to-specifier specifier spec-list &optional
+ -- Function: add-spec-list-to-specifier specifier spec-list &optional
           how-to-add
      This function adds a "spec-list" (a list of specifications) to
      SPECIFIER.  The format of a spec-list is
@@ -5471,7 +5768,7 @@ Adding specifications to a Specifier
      specifiers.  In those cases it's probably best to use
      `add-spec-to-specifier' or `add-spec-list-to-specifier'.
 
- - Special Form: let-specifier specifier-list &rest body
+ -- Special Form: let-specifier specifier-list &rest body
      This special form temporarily adds specifications to specifiers,
      evaluates forms in BODY and restores the specifiers to their
      previous states.  The specifiers and their temporary
@@ -5505,7 +5802,7 @@ Adding specifications to a Specifier
           (let-specifier ((modeline-shadow-thickness 0 (selected-window)))
             (sit-for 1))
 
- - Function: set-specifier specifier value &optional locale tag-set
+ -- Function: set-specifier specifier value &optional locale tag-set
           how-to-add
      This function adds some specifications to SPECIFIER.  VALUE can be
      a single instantiator or tagged instantiator (added as a global
@@ -5538,7 +5835,7 @@ Adding specifications to a Specifier
      functions always work with fully-qualified spec-lists; thus, there
      is no ambiguity.
 
- - Function: canonicalize-inst-pair inst-pair specifier-type &optional
+ -- Function: canonicalize-inst-pair inst-pair specifier-type &optional
           noerror
      This function canonicalizes the given INST-PAIR.
 
@@ -5553,7 +5850,7 @@ Adding specifications to a Specifier
      If NOERROR is non-`nil', signal an error if the inst-pair is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-inst-list inst-list specifier-type &optional
+ -- Function: canonicalize-inst-list inst-list specifier-type &optional
           noerror
      This function canonicalizes the given INST-LIST (a list of
      inst-pairs).
@@ -5569,7 +5866,7 @@ Adding specifications to a Specifier
      If NOERROR is non-`nil', signal an error if the inst-list is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-spec spec specifier-type &optional noerror
+ -- Function: canonicalize-spec spec specifier-type &optional noerror
      This function canonicalizes the given SPEC (a specification).
 
      SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
@@ -5583,7 +5880,7 @@ Adding specifications to a Specifier
      If NOERROR is `nil', signal an error if the specification is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-spec-list spec-list specifier-type &optional
+ -- Function: canonicalize-spec-list spec-list specifier-type &optional
           noerror
      This function canonicalizes the given SPEC-LIST (a list of
      specifications).
@@ -5653,10 +5950,10 @@ Adding specifications to a Specifier
 
 File: lispref.info,  Node: Retrieving Specifications,  Next: Specifier Tag Functions,  Prev: Adding Specifications,  Up: Specifiers
 
-Retrieving the Specifications from a Specifier
-==============================================
+48.7 Retrieving the Specifications from a Specifier
+===================================================
 
- - Function: specifier-spec-list specifier &optional locale tag-set
+ -- Function: specifier-spec-list specifier &optional locale tag-set
           exact-p
      This function returns the spec-list of specifications for
      SPECIFIER in LOCALE.
@@ -5683,7 +5980,7 @@ Retrieving the Specifications from a Specifier
      is non-`nil', however, TAG-SET must be equal to an instantiator's
      tag set for the instantiator to be returned.
 
- - Function: specifier-specs specifier &optional locale tag-set exact-p
+ -- Function: specifier-specs specifier &optional locale tag-set exact-p
      This function returns the specification(s) for SPECIFIER in LOCALE.
 
      If LOCALE is a single locale or is a list of one element
@@ -5708,7 +6005,7 @@ Retrieving the Specifications from a Specifier
           from there being no instantiators at all.
 
 
- - Function: specifier-fallback specifier
+ -- Function: specifier-fallback specifier
      This function returns the fallback value for SPECIFIER.  Fallback
      values are provided by the C code for certain built-in specifiers
      to make sure that instancing won't fail even if all specs are
@@ -5731,8 +6028,8 @@ Retrieving the Specifications from a Specifier
 
 File: lispref.info,  Node: Specifier Tag Functions,  Next: Specifier Instancing Functions,  Prev: Retrieving Specifications,  Up: Specifiers
 
-Working With Specifier Tags
-===========================
+48.8 Working With Specifier Tags
+================================
 
 A specifier tag set is an entity that is attached to an instantiator
 and can be used to restrict the scope of that instantiator to a
@@ -5757,25 +6054,25 @@ all tags in the tag set attached to that instantiator.
    Most of the time, a tag set is not specified, and the instantiator
 gets a null tag set, which matches all devices.
 
- - Function: valid-specifier-tag-p tag
+ -- Function: valid-specifier-tag-p tag
      This function returns non-`nil' if TAG is a valid specifier tag.
 
- - Function: valid-specifier-tag-set-p tag-set
+ -- Function: valid-specifier-tag-set-p tag-set
      This function returns non-`nil' if TAG-SET is a valid specifier
      tag set.
 
- - Function: canonicalize-tag-set tag-set
+ -- Function: canonicalize-tag-set tag-set
      This function canonicalizes the given tag set.  Two canonicalized
      tag sets can be compared with `equal' to see if they represent the
      same tag set. (Specifically, canonicalizing involves sorting by
      symbol name and removing duplicates.)
 
- - Function: device-matches-specifier-tag-set-p device tag-set
+ -- Function: device-matches-specifier-tag-set-p device tag-set
      This function returns non-`nil' if DEVICE matches specifier tag
      set TAG-SET.  This means that DEVICE matches each tag in the tag
      set.
 
- - Function: define-specifier-tag tag &optional predicate
+ -- Function: define-specifier-tag tag &optional predicate
      This function defines a new specifier tag.  If PREDICATE is
      specified, it should be a function of one argument (a device) that
      specifies whether the tag matches that particular device.  If
@@ -5785,25 +6082,25 @@ gets a null tag set, which matches all devices.
      you cannot redefine the built-in specifier tags (the device types
      and classes) or the symbols `nil', `t', `all', or `global'.
 
- - Function: device-matching-specifier-tag-list &optional device
+ -- Function: device-matching-specifier-tag-list &optional device
      This function returns a list of all specifier tags matching
      DEVICE.  DEVICE defaults to the selected device if omitted.
 
- - Function: specifier-tag-list
+ -- Function: specifier-tag-list
      This function returns a list of all currently-defined specifier
      tags.  This includes the built-in ones (the device types and
      classes).
 
- - Function: specifier-tag-predicate tag
+ -- Function: specifier-tag-predicate tag
      This function returns the predicate for the given specifier tag.
 
 
 File: lispref.info,  Node: Specifier Instancing Functions,  Next: Specifier Examples,  Prev: Specifier Tag Functions,  Up: Specifiers
 
-Functions for Instancing a Specifier
-====================================
+48.9 Functions for Instancing a Specifier
+=========================================
 
- - Function: specifier-instance specifier &optional domain default
+ -- Function: specifier-instance specifier &optional domain default
           no-fallback
      This function instantiates SPECIFIER (returns its value) in
      DOMAIN.  If no instance can be generated for this domain, return
@@ -5857,7 +6154,7 @@ Functions for Instancing a Specifier
      function), the returned value will be a font-instance object.  For
      images, the returned value will be a string, pixmap, or subwindow.
 
- - Function: specifier-matching-instance specifier matchspec &optional
+ -- Function: specifier-matching-instance specifier matchspec &optional
           domain default no-fallback
      This function returns an instance for SPECIFIER in DOMAIN that
      matches MATCHSPEC.  If no instance can be generated for DOMAIN,
@@ -5885,7 +6182,7 @@ Functions for Instancing a Specifier
           display a particular character.  (This is what redisplay
           does, in fact.)
 
- - Function: specifier-instance-from-inst-list specifier domain
+ -- Function: specifier-instance-from-inst-list specifier domain
           inst-list &optional default
      This function attempts to convert a particular inst-list into an
      instance.  This attempts to instantiate INST-LIST in the given
@@ -5897,8 +6194,8 @@ Functions for Instancing a Specifier
 
 File: lispref.info,  Node: Specifier Examples,  Next: Creating Specifiers,  Prev: Specifier Instancing Functions,  Up: Specifiers
 
-Examples of Specifier Usage
-===========================
+48.10 Examples of Specifier Usage
+=================================
 
 Now let us present an example to clarify the theoretical discussions we
 have been through.  In this example, we will use the general specifier
@@ -5966,7 +6263,7 @@ or could be displayed in many different frames on different devices.
 "frame-local" variables.
 
      ;; Implementation
-     
+
      ;; There are probably better ways to write this macro
      ;; Heaven help you if VAR is a buffer-local; you will become very
      ;; confused.  Probably should error on that.
@@ -5976,32 +6273,32 @@ or could be displayed in many different frames on different devices.
          `(progn
            (setq ,var (make-specifier 'generic))
            (add-spec-to-specifier ,var ',val 'global))))
-     
+
      ;; I'm not real happy about this terminology, how can `setq' be a defun?
      ;; But `frame-set' would have people writing "(frame-set 'foo value)".
      (defun frame-setq (var value &optional frame)
        "Set the local value of VAR to VALUE in FRAME.
-     
+
      FRAME defaults to the selected frame."
        (and frame (not (framep frame))
             (error 'invalid-argument "FRAME must be a frame", frame))
        (add-spec-to-specifier var value (or frame (selected-frame))))
-     
+
      (defun frame-value (var &optional frame)
        "Get the local value of VAR in FRAME.
-     
+
      FRAME defaults to the selected frame."
        (and frame (not (framep frame))
             (error 'invalid-argument "FRAME must be a frame", frame))
        ;; this is not just a map from frames to values; it also falls back
        ;; to the global value
        (specifier-instance var (or frame (selected-frame))))
-     
+
      ;; for completeness
      (defun frame-set-default (var value)
        "Set the default value of frame-local variable VAR to VALUE."
        (add-spec-to-specifier var value 'global))
-     
+
      (defun frame-get-default (var)
        "Get the default value of frame-local variable VAR."
        (car (specifier-specs var 'global)))
@@ -6011,72 +6308,72 @@ and switch to `*scratch*' to play.  Things will work differently if you
 already have a variable named `foo'.
 
      ;; Usage
-     
+
      foo
      error--> Symbol's value as variable is void: foo
-     
+
      (define-frame-local-variable foo)
      => nil
-     
+
      ;; the value of foo is a specifier, which is an opaque object;
      ;; you must use accessor functions to get values
-     
+
      foo
      => #<generic-specifier global=(nil) 0x4f5cb>
-     
+
      ;; since no frame-local value is set, the global value (which is the
      ;; constant `nil') is returned
      (frame-value foo)
      => nil
-     
+
      ;; get the default explicitly
      (frame-get-default foo)
      => nil
-     
+
      ;; get the whole specification list
      (specifier-specs foo 'global)
      => (nil)
-     
+
      ;; give foo a frame-local value
-     
+
      (frame-setq foo 'bar)
      => nil
-     
+
      ;; access foo in several ways
-     
+
      ;; Note that the print function for this kind of specifier only
      ;; gives you the global setting.  To get the full list of specs for
      ;; debugging or study purposes, you must use specifier-specs or
      ;; specifier-spec-list.
      foo
      => #<generic-specifier global=(nil) 0x4f5cb>
-     
+
      ;; get the whole specification list
      (specifier-specs foo)
      => ((#<x-frame "Message" 0x1bd66> (nil . bar)) (global (nil)))
-     
+
      ;; get the frame-local value
      (frame-value foo)
      => bar
-     
+
      ;; get the default explicitly
      (frame-get-default foo)
      => nil
-     
+
      ;; Switch to another frame and evaluate:
      ;; C-x 5 o M-: (frame-setq foo 'baz) RET M-: (frame-value foo) RET
      => baz
-     
+
      ;; Switch back.
      ;; C-x 5 o
      (specifier-specs foo)
      => ((#<x-frame "emacs" 0x28ec> (nil . baz))
          (#<x-frame "Message" 0x1bd66> (nil . bar))
          (global (nil)))
-     
+
      (frame-value foo)
      => bar
-     
+
      (frame-get-default foo)
      => nil
 
@@ -6095,10 +6392,10 @@ down.
 
 File: lispref.info,  Node: Creating Specifiers,  Next: Specifier Validation Functions,  Prev: Specifier Examples,  Up: Specifiers
 
-Creating New Specifier Objects
-==============================
+48.11 Creating New Specifier Objects
+====================================
 
- - Function: make-specifier type
+ -- Function: make-specifier type
      This function creates a new specifier.
 
      A specifier is an object that can be used to keep track of a
@@ -6124,7 +6421,7 @@ Creating New Specifier Objects
      `make-image-specifier', `make-face-boolean-specifier', and
      `make-toolbar-specifier'.
 
- - Function: make-specifier-and-init type spec-list &optional
+ -- Function: make-specifier-and-init type spec-list &optional
           dont-canonicalize
      This function creates and initializes a new specifier.
 
@@ -6139,7 +6436,7 @@ Creating New Specifier Objects
      argument DONT-CANONICALIZE is non-`nil', canonicalization is not
      performed, and the SPEC-LIST must already be in full form.
 
- - Function: make-integer-specifier spec-list
+ -- Function: make-integer-specifier spec-list
      Return a new `integer' specifier object with the given
      specification list.  SPEC-LIST can be a list of specifications
      (each of which is a cons of a locale and a list of instantiators),
@@ -6147,7 +6444,7 @@ Creating New Specifier Objects
 
      Valid instantiators for integer specifiers are integers.
 
- - Function: make-boolean-specifier spec-list
+ -- Function: make-boolean-specifier spec-list
      Return a new `boolean' specifier object with the given
      specification list.  SPEC-LIST can be a list of specifications
      (each of which is a cons of a locale and a list of instantiators),
@@ -6155,7 +6452,7 @@ Creating New Specifier Objects
 
      Valid instantiators for boolean specifiers are `t' and `nil'.
 
- - Function: make-natnum-specifier spec-list
+ -- Function: make-natnum-specifier spec-list
      Return a new `natnum' specifier object with the given specification
      list.  SPEC-LIST can be a list of specifications (each of which is
      a cons of a locale and a list of instantiators), a single
@@ -6164,7 +6461,7 @@ Creating New Specifier Objects
      Valid instantiators for natnum specifiers are non-negative
      integers.
 
- - Function: make-generic-specifier spec-list
+ -- Function: make-generic-specifier spec-list
      Return a new `generic' specifier object with the given
      specification list.  SPEC-LIST can be a list of specifications
      (each of which is a cons of a locale and a list of instantiators),
@@ -6173,7 +6470,7 @@ Creating New Specifier Objects
      Valid instantiators for generic specifiers are all Lisp values.
      They are returned back unchanged when a specifier is instantiated.
 
- - Function: make-display-table-specifier spec-list
+ -- Function: make-display-table-specifier spec-list
      Return a new `display-table' specifier object with the given spec
      list.  SPEC-LIST can be a list of specifications (each of which is
      a cons of a locale and a list of instantiators), a single
@@ -6186,66 +6483,66 @@ Creating New Specifier Objects
 
 File: lispref.info,  Node: Specifier Validation Functions,  Next: Other Specification Functions,  Prev: Creating Specifiers,  Up: Specifiers
 
-Functions for Checking the Validity of Specifier Components
-===========================================================
+48.12 Functions for Checking the Validity of Specifier Components
+=================================================================
 
- - Function: valid-specifier-domain-p domain
+ -- Function: valid-specifier-domain-p domain
      This function returns non-`nil' if DOMAIN is a valid specifier
      domain.  A domain is used to instance a specifier (i.e. determine
      the specifier's value in that domain).  Valid domains are a
      window, frame, or device.  (`nil' is not valid.)
 
- - Function: valid-specifier-locale-p locale
+ -- Function: valid-specifier-locale-p locale
      This function returns non-`nil' if LOCALE is a valid specifier
      locale.  Valid locales are a device, a frame, a window, a buffer,
      and `global'.  (`nil' is not valid.)
 
- - Function: valid-specifier-locale-type-p locale-type
+ -- Function: valid-specifier-locale-type-p locale-type
      Given a specifier LOCALE-TYPE, this function returns non-`nil' if
      it is valid.  Valid locale types are the symbols `global',
      `device', `frame', `window', and `buffer'. (Note, however, that in
      functions that accept either a locale or a locale type, `global'
      is considered an individual locale.)
 
- - Function: valid-specifier-type-p specifier-type
+ -- Function: valid-specifier-type-p specifier-type
      Given a SPECIFIER-TYPE, this function returns non-`nil' if it is
      valid.  Valid types are `generic', `integer', `boolean', `color',
      `font', `image', `face-boolean', and `toolbar'.
 
- - Function: valid-specifier-tag-p tag
+ -- Function: valid-specifier-tag-p tag
      This function returns non-`nil' if TAG is a valid specifier tag.
 
- - Function: valid-instantiator-p instantiator specifier-type
+ -- Function: valid-instantiator-p instantiator specifier-type
      This function returns non-`nil' if INSTANTIATOR is valid for
      SPECIFIER-TYPE.
 
- - Function: valid-inst-list-p inst-list type
+ -- Function: valid-inst-list-p inst-list type
      This function returns non-`nil' if INST-LIST is valid for
      specifier type TYPE.
 
- - Function: valid-spec-list-p spec-list type
+ -- Function: valid-spec-list-p spec-list type
      This function returns non-`nil' if SPEC-LIST is valid for
      specifier type TYPE.
 
- - Function: check-valid-instantiator instantiator specifier-type
+ -- Function: check-valid-instantiator instantiator specifier-type
      This function signals an error if INSTANTIATOR is invalid for
      SPECIFIER-TYPE.
 
- - Function: check-valid-inst-list inst-list type
+ -- Function: check-valid-inst-list inst-list type
      This function signals an error if INST-LIST is invalid for
      specifier type TYPE.
 
- - Function: check-valid-spec-list spec-list type
+ -- Function: check-valid-spec-list spec-list type
      This function signals an error if SPEC-LIST is invalid for
      specifier type TYPE.
 
 
 File: lispref.info,  Node: Other Specification Functions,  Prev: Specifier Validation Functions,  Up: Specifiers
 
-Other Functions for Working with Specifications in a Specifier
-==============================================================
+48.13 Other Functions for Working with Specifications in a Specifier
+====================================================================
 
- - Function: copy-specifier specifier &optional dest locale tag-set
+ -- Function: copy-specifier specifier &optional dest locale tag-set
           exact-p how-to-add
      This function copies SPECIFIER to DEST, or creates a new one if
      DEST is `nil'.
@@ -6275,7 +6572,8 @@ Other Functions for Working with Specifications in a Specifier
      types are copied will first be completely erased in DEST.
      Otherwise, it is the same as in `add-spec-to-specifier'.
 
- - Function: remove-specifier specifier &optional locale tag-set exact-p
+ -- Function: remove-specifier specifier &optional locale tag-set
+          exact-p
      This function removes specification(s) for SPECIFIER.
 
      If LOCALE is a particular locale (a buffer, window, frame, device,
@@ -6300,7 +6598,7 @@ Other Functions for Working with Specifications in a Specifier
      is non-`nil', however, TAG-SET must be equal to an instantiator's
      tag set for the instantiator to be removed.
 
- - Function: map-specifier specifier func &optional locale maparg
+ -- Function: map-specifier specifier func &optional locale maparg
      This function applies FUNC to the specification(s) for LOCALE in
      SPECIFIER.
 
@@ -6317,14 +6615,14 @@ Other Functions for Working with Specifications in a Specifier
      will stop and the returned value becomes the value returned from
      `map-specifier'.  Otherwise, `map-specifier' returns `nil'.
 
- - Function: specifier-locale-type-from-locale locale
+ -- Function: specifier-locale-type-from-locale locale
      Given a specifier LOCALE, this function returns its type.
 
 
 File: lispref.info,  Node: Faces and Window-System Objects,  Next: Glyphs,  Prev: Specifiers,  Up: Top
 
-Faces and Window-System Objects
-*******************************
+49 Faces and Window-System Objects
+**********************************
 
 * Menu:
 
@@ -6335,8 +6633,8 @@ Faces and Window-System Objects
 
 File: lispref.info,  Node: Faces,  Next: Fonts,  Up: Faces and Window-System Objects
 
-Faces
-=====
+49.1 Faces
+==========
 
 A "face" is a named collection of graphical properties: font,
 foreground color, background color, background pixmap, optional
@@ -6373,8 +6671,8 @@ mark.
 
 File: lispref.info,  Node: Merging Faces,  Next: Basic Face Functions,  Up: Faces
 
-Merging Faces for Display
--------------------------
+49.1.1 Merging Faces for Display
+--------------------------------
 
 Here are all the ways to specify which face to use for display of text:
 
@@ -6414,8 +6712,8 @@ used to color it.
 
 File: lispref.info,  Node: Basic Face Functions,  Next: Face Properties,  Prev: Merging Faces,  Up: Faces
 
-Basic Functions for Working with Faces
---------------------------------------
+49.1.2 Basic Functions for Working with Faces
+---------------------------------------------
 
 The properties a face can specify include the font, the foreground
 color, the background color, the background pixmap, the underlining,
@@ -6426,7 +6724,7 @@ the corresponding property of the `default' face.
 
    Here are the basic primitives for working with faces.
 
- - Function: make-face name &optional doc-string temporary
+ -- Function: make-face name &optional doc-string temporary
      This function defines and returns a new face named NAME, initially
      with all properties unspecified.  It does nothing if there is
      already a face named NAME.  Optional argument DOC-STRING specifies
@@ -6436,16 +6734,16 @@ the corresponding property of the `default' face.
      or Lisp code (otherwise, the face will continue to exist
      indefinitely even if it is not used).
 
- - Function: face-list &optional temporary
+ -- Function: face-list &optional temporary
      This function returns a list of the names of all defined faces.  If
      TEMPORARY is `nil', only the permanent faces are included.  If it
      is `t', only the temporary faces are included.  If it is any other
      non-`nil' value both permanent and temporary are included.
 
- - Function: facep object
+ -- Function: facep object
      This function returns `t' if OBJECT is a face, else `nil'.
 
- - Function: copy-face old-face new-name &optional locale tag-set
+ -- Function: copy-face old-face new-name &optional locale tag-set
           exact-p how-to-add
      This function defines a new face named NEW-NAME which is a copy of
      the existing face named OLD-FACE.  If there is already a face
@@ -6455,408 +6753,4 @@ the corresponding property of the `default' face.
      LOCALE, TAG-SET, EXACT-P and HOW-TO-ADD let you copy just parts of
      the old face rather than the whole face, and are as in
      `copy-specifier' (*note Specifiers::).
-
-
-File: lispref.info,  Node: Face Properties,  Next: Face Convenience Functions,  Prev: Basic Face Functions,  Up: Faces
-
-Face Properties
----------------
-
-You can examine and modify the properties of an existing face with the
-following functions.
-
-   The following symbols have predefined meanings:
-
-`foreground'
-     The foreground color of the face.
-
-`background'
-     The background color of the face.
-
-`font'
-     The font used to display text covered by this face.
-
-`display-table'
-     The display table of the face.
-
-`background-pixmap'
-     The pixmap displayed in the background of the face.  Only used by
-     faces on X devices.
-
-`underline'
-     Underline all text covered by this face.
-
-`highlight'
-     Highlight all text covered by this face.  Only used by faces on TTY
-     devices.
-
-`dim'
-     Dim all text covered by this face.  Only used by faces on TTY
-     devices.
-
-`blinking'
-     Blink all text covered by this face.  Only used by faces on TTY
-     devices.
-
-`reverse'
-     Reverse the foreground and background colors.  Only used by faces
-     on TTY devices.
-
-`doc-string'
-     Description of what the face's normal use is.  NOTE: This is not a
-     specifier, unlike all the other built-in properties, and cannot
-     contain locale-specific values.
-
- - Function: set-face-property face property value &optional locale
-          tag-set how-to-add
-     This function changes a property of a FACE.
-
-     For built-in properties, the actual value of the property is a
-     specifier and you cannot change this; but you can change the
-     specifications within the specifier, and that is what this
-     function will do.  For user-defined properties, you can use this
-     function to either change the actual value of the property or, if
-     this value is a specifier, change the specifications within it.
-
-     If PROPERTY is a built-in property, the specifications to be added
-     to this property can be supplied in many different ways:
-
-          If VALUE is a simple instantiator (e.g. a string naming a
-          font or color) or a list of instantiators, then the
-          instantiator(s) will be added as a specification of the
-          property for the given LOCALE (which defaults to `global' if
-          omitted).
-
-          If VALUE is a list of specifications (each of which is a cons
-          of a locale and a list of instantiators), then LOCALE must be
-          `nil' (it does not make sense to explicitly specify a locale
-          in this case), and specifications will be added as given.
-
-          If VALUE is a specifier (as would be returned by
-          `face-property' if no LOCALE argument is given), then some or
-          all of the specifications in the specifier will be added to
-          the property.  In this case, the function is really
-          equivalent to `copy-specifier' and LOCALE has the same
-          semantics (if it is a particular locale, the specification
-          for the locale will be copied; if a locale type,
-          specifications for all locales of that type will be copied;
-          if `nil' or `all', then all specifications will be copied).
-
-     HOW-TO-ADD should be either `nil' or one of the symbols `prepend',
-     `append', `remove-tag-set-prepend', `remove-tag-set-append',
-     `remove-locale', `remove-locale-type', or `remove-all'.  See
-     `copy-specifier' and `add-spec-to-specifier' for a description of
-     what each of these means.  Most of the time, you do not need to
-     worry about this argument; the default behavior usually is fine.
-
-     In general, it is OK to pass an instance object (e.g. as returned
-     by `face-property-instance') as an instantiator in place of an
-     actual instantiator.  In such a case, the instantiator used to
-     create that instance object will be used (for example, if you set
-     a font-instance object as the value of the `font' property, then
-     the font name used to create that object will be used instead).
-     If some cases, however, doing this conversion does not make sense,
-     and this will be noted in the documentation for particular types
-     of instance objects.
-
-     If PROPERTY is not a built-in property, then this function will
-     simply set its value if LOCALE is `nil'.  However, if LOCALE is
-     given, then this function will attempt to add VALUE as the
-     instantiator for the given LOCALE, using `add-spec-to-specifier'.
-     If the value of the property is not a specifier, it will
-     automatically be converted into a `generic' specifier.
-
- - Function: remove-face-property face property &optional locale
-          tag-set exact-p
-     This function removes a property of a FACE.
-
-     For built-in properties, this is analogous to `remove-specifier'.
-     For more information, *Note Other Specification Functions::.
-
-     When PROPERTY is not a built-in property, this function will just
-     remove its value if LOCALE is `nil' or `all'.  However, if LOCALE
-     is other than that, this function will attempt to remove VALUE as
-     the instantiator for the given LOCALE with `remove-specifier'.  If
-     the value of the property is not a specifier, it will be converted
-     into a `generic' specifier automatically.
-
- - Function: face-property face property &optional locale tag-set
-          exact-p
-     This function returns FACE's value of the given PROPERTY.
-
-     If LOCALE is omitted, the FACE's actual value for PROPERTY will be
-     returned.  For built-in properties, this will be a specifier
-     object of a type appropriate to the property (e.g. a font or color
-     specifier).  For other properties, this could be anything.
-
-     If LOCALE is supplied, then instead of returning the actual value,
-     the specification(s) for the given locale or locale type will be
-     returned.  This will only work if the actual value of PROPERTY is
-     a specifier (this will always be the case for built-in properties,
-     but not or not may apply to user-defined properties).  If the
-     actual value of PROPERTY is not a specifier, this value will
-     simply be returned regardless of LOCALE.
-
-     The return value will be a list of instantiators (e.g. strings
-     specifying a font or color name), or a list of specifications,
-     each of which is a cons of a locale and a list of instantiators.
-     Specifically, if LOCALE is a particular locale (a buffer, window,
-     frame, device, or `global'), a list of instantiators for that
-     locale will be returned.  Otherwise, if LOCALE is a locale type
-     (one of the symbols `buffer', `window', `frame', or `device'), the
-     specifications for all locales of that type will be returned.
-     Finally, if LOCALE is `all', the specifications for all locales of
-     all types will be returned.
-
-     The specifications in a specifier determine what the value of
-     PROPERTY will be in a particular "domain" or set of circumstances,
-     which is typically a particular Emacs window along with the buffer
-     it contains and the frame and device it lies within.  The value is
-     derived from the instantiator associated with the most specific
-     locale (in the order buffer, window, frame, device, and `global')
-     that matches the domain in question.  In other words, given a
-     domain (i.e. an Emacs window, usually), the specifier for PROPERTY
-     will first be searched for a specification whose locale is the
-     buffer contained within that window; then for a specification
-     whose locale is the window itself; then for a specification whose
-     locale is the frame that the window is contained within; etc.  The
-     first instantiator that is valid for the domain (usually this
-     means that the instantiator is recognized by the device [i.e. the
-     X server or TTY device] that the domain is on).  The function
-     `face-property-instance' actually does all this, and is used to
-     determine how to display the face.
-
- - Function: face-property-instance face property &optional domain
-          default no-fallback
-     This function returns the instance of FACE's PROPERTY in the
-     specified DOMAIN.
-
-     Under most circumstances, DOMAIN will be a particular window, and
-     the returned instance describes how the specified property
-     actually is displayed for that window and the particular buffer in
-     it.  Note that this may not be the same as how the property
-     appears when the buffer is displayed in a different window or
-     frame, or how the property appears in the same window if you
-     switch to another buffer in that window; and in those cases, the
-     returned instance would be different.
-
-     The returned instance will typically be a color-instance,
-     font-instance, or pixmap-instance object, and you can query it
-     using the appropriate object-specific functions.  For example, you
-     could use `color-instance-rgb-components' to find out the RGB
-     (red, green, and blue) components of how the `background' property
-     of the `highlight' face is displayed in a particular window.  The
-     results might be different from the results you would get for
-     another window (perhaps the user specified a different color for
-     the frame that window is on; or perhaps the same color was
-     specified but the window is on a different X server, and that X
-     server has different RGB values for the color from this one).
-
-     DOMAIN defaults to the selected window if omitted.
-
-     DOMAIN can be a frame or device, instead of a window.  The value
-     returned for a such a domain is used in special circumstances when
-     a more specific domain does not apply; for example, a frame value
-     might be used for coloring a toolbar, which is conceptually
-     attached to a frame rather than a particular window.  The value is
-     also useful in determining what the value would be for a
-     particular window within the frame or device, if it is not
-     overridden by a more specific specification.
-
-     If PROPERTY does not name a built-in property, its value will
-     simply be returned unless it is a specifier object, in which case
-     it will be instanced using `specifier-instance'.
-
-     Optional arguments DEFAULT and NO-FALLBACK are the same as in
-     `specifier-instance'.  *Note Specifiers::.
-
-
-File: lispref.info,  Node: Face Convenience Functions,  Next: Other Face Display Functions,  Prev: Face Properties,  Up: Faces
-
-Face Convenience Functions
---------------------------
-
- - Command: set-face-foreground face color &optional locale tag-set
-          how-to-add
- - Command: set-face-background face color &optional locale tag-set
-          how-to-add
-     These functions set the foreground (respectively, background)
-     color of face FACE to COLOR.  The argument COLOR should be a
-     string (the name of a color) or a color object as returned by
-     `make-color' (*note Colors::).
-
- - Command: set-face-background-pixmap face pixmap &optional locale
-          tag-set how-to-add
-     This function sets the background pixmap of face FACE to PIXMAP.
-     The argument PIXMAP should be a string (the name of a bitmap or
-     pixmap file; the directories listed in the variable
-     `x-bitmap-file-path' will be searched) or a glyph object as
-     returned by `make-glyph' (*note Glyphs::).  The argument may also
-     be a list of the form `(WIDTH HEIGHT DATA)' where WIDTH and HEIGHT
-     are the size in pixels, and DATA is a string, containing the raw
-     bits of the bitmap.
-
- - Command: set-face-font face font &optional locale tag-set how-to-add
-     This function sets the font of face FACE.  The argument FONT
-     should be a string or a font object as returned by `make-font'
-     (*note Fonts::).
-
- - Command: set-face-underline-p face underline-p &optional locale
-          tag-set how-to-add
-     This function sets the underline property of face FACE.
-
- - Function: face-foreground face &optional locale tag-set exact-p
- - Function: face-background face &optional locale tag-set exact-p
-     These functions return the foreground (respectively, background)
-     color specifier of face FACE.  *Note Colors::.
-
- - Function: face-background-pixmap face &optional locale tag-set
-          exact-p
-     This function return the background-pixmap glyph object of face
-     FACE.
-
- - Function: face-font face &optional locale tag-set exact-p
-     This function returns the font specifier of face FACE.  (Note:
-     This is not the same as the function `face-font' in FSF Emacs.)
-
-     *Note Fonts::.
-
- - Function: face-font-name face &optional domain
-     This function returns the name of the font of face FACE, or `nil'
-     if it is unspecified.  This is basically equivalent to `(font-name
-     (face-font FACE) DOMAIN)' except that it does not cause an error
-     if FACE's font is `nil'. (This function is named `face-font' in
-     FSF Emacs.)
-
- - Function: face-underline-p face &optional locale
-     This function returns the underline property of face FACE.
-
- - Function: face-foreground-instance face &optional domain
- - Function: face-background-instance face &optional domain
-     These functions return the foreground (respectively, background)
-     color specifier of face FACE.  *Note Colors::.
-
- - Function: face-background-pixmap-instance face &optional domain
-     This function return the background-pixmap glyph object of face
-     FACE.
-
- - Function: face-font-instance face &optional domain
-     This function returns the font specifier of face FACE.  *Note
-     Fonts::.
-
-
-File: lispref.info,  Node: Other Face Display Functions,  Prev: Face Convenience Functions,  Up: Faces
-
-Other Face Display Functions
-----------------------------
-
- - Command: invert-face face &optional locale
-     Swap the foreground and background colors of face FACE.  If the
-     face doesn't specify both foreground and background, then its
-     foreground and background are set to the default background and
-     foreground.
-
- - Function: face-equal face1 face2 &optional domain
-     This returns `t' if the faces FACE1 and FACE2 will display in the
-     same way.  DOMAIN is as in `face-property-instance'.
-
- - Function: face-differs-from-default-p face &optional domain
-     This returns `t' if the face FACE displays differently from the
-     default face.  DOMAIN is as in `face-property-instance'.
-
-
-File: lispref.info,  Node: Fonts,  Next: Colors,  Prev: Faces,  Up: Faces and Window-System Objects
-
-Fonts
-=====
-
-This section describes how to work with font specifier and font
-instance objects, which encapsulate fonts in the window system.
-
-* Menu:
-
-* Font Specifiers::		Specifying how a font will appear.
-* Font Instances::		What a font specifier gets instanced as.
-* Font Instance Names::		The name of a font instance.
-* Font Instance Size::		The size of a font instance.
-* Font Instance Characteristics:: Display characteristics of font instances.
-* Font Convenience Functions::	Convenience functions that automatically
-				  instance and retrieve the properties
-				  of a font specifier.
-
-
-File: lispref.info,  Node: Font Specifiers,  Next: Font Instances,  Up: Fonts
-
-Font Specifiers
----------------
-
- - Function: font-specifier-p object
-     This predicate returns `t' if OBJECT is a font specifier, and
-     `nil' otherwise.
-
- - Function: make-font-specifier spec-list
-     Return a new `font' specifier object with the given specification
-     list.  SPEC-LIST can be a list of specifications (each of which is
-     a cons of a locale and a list of instantiators), a single
-     instantiator, or a list of instantiators.  *Note Specifiers::, for
-     more information about specifiers.
-
-     Valid instantiators for font specifiers are:
-
-        * A string naming a font (e.g. under X this might be
-          "-*-courier-medium-r-*-*-*-140-*-*-*-*-iso8859-*" for a
-          14-point upright medium-weight Courier font).
-
-        * A font instance (use that instance directly if the device
-          matches, or use the string that generated it).
-
-        * A vector of no elements (only on TTY's; this means to set no
-          font at all, thus using the "natural" font of the terminal's
-          text).
-
-        * A vector of one element (a face to inherit from).
-
-
-File: lispref.info,  Node: Font Instances,  Next: Font Instance Names,  Prev: Font Specifiers,  Up: Fonts
-
-Font Instances
---------------
-
- - Function: font-instance-p object
-     This predicate returns `t' if OBJECT is a font instance, and `nil'
-     otherwise.
-
- - Function: make-font-instance name &optional device noerror
-     This function creates a new font-instance object of the specified
-     name.  DEVICE specifies the device this object applies to and
-     defaults to the selected device.  An error is signalled if the
-     font is unknown or cannot be allocated; however, if NOERROR is
-     non-`nil', `nil' is simply returned in this case.
-
-     The returned object is a normal, first-class lisp object.  The way
-     you "deallocate" the font is the way you deallocate any other lisp
-     object: you drop all pointers to it and allow it to be garbage
-     collected.  When these objects are GCed, the underlying X data is
-     deallocated as well.
-
-
-File: lispref.info,  Node: Font Instance Names,  Next: Font Instance Size,  Prev: Font Instances,  Up: Fonts
-
-Font Instance Names
--------------------
-
- - Function: list-fonts pattern &optional device
-     This function returns a list of font names matching the given
-     pattern.  DEVICE specifies which device to search for names, and
-     defaults to the currently selected device.
-
- - Function: font-instance-name font-instance
-     This function returns the name used to allocate FONT-INSTANCE.
-
- - Function: font-instance-truename font-instance
-     This function returns the canonical name of the given font
-     instance.  Font names are patterns which may match any number of
-     fonts, of which the first found is used.  This returns an
-     unambiguous name for that font (but not necessarily its only
-     unambiguous name).
 

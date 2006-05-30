@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.6 from
+This is ../info/internals.info, produced by makeinfo version 4.8 from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -39,10 +39,79 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Catch and Throw,  Prev: Simple Special Forms,  Up: Evaluation; Stack Frames; Bindings
+
+14.4 Catch and Throw
+====================
+
+     struct catchtag
+     {
+       Lisp_Object tag;
+       Lisp_Object val;
+       struct catchtag *next;
+       struct gcpro *gcpro;
+       jmp_buf jmp;
+       struct backtrace *backlist;
+       int lisp_eval_depth;
+       int pdlcount;
+     };
+
+   `catch' is a Lisp function that places a catch around a body of
+code.  A catch is a means of non-local exit from the code.  When a catch
+is created, a tag is specified, and executing a `throw' to this tag
+will exit from the body of code caught with this tag, and its value will
+be the value given in the call to `throw'.  If there is no such call,
+the code will be executed normally.
+
+   Information pertaining to a catch is held in a `struct catchtag',
+which is placed at the head of a linked list pointed to by `catchlist'.
+`internal_catch()' is passed a C function to call (`Fprogn()' when
+Lisp `catch' is called) and arguments to give it, and places a catch
+around the function.  Each `struct catchtag' is held in the stack frame
+of the `internal_catch()' instance that created the catch.
+
+   `internal_catch()' is fairly straightforward.  It stores into the
+`struct catchtag' the tag name and the current values of
+`backtrace_list', `lisp_eval_depth', `gcprolist', and the offset into
+the `specpdl' array, sets a jump point with `_setjmp()' (storing the
+jump point into the `struct catchtag'), and calls the function.
+Control will return to `internal_catch()' either when the function
+exits normally or through a `_longjmp()' to this jump point.  In the
+latter case, `throw' will store the value to be returned into the
+`struct catchtag' before jumping.  When it's done, `internal_catch()'
+removes the `struct catchtag' from the catchlist and returns the proper
+value.
+
+   `Fthrow()' goes up through the catchlist until it finds one with a
+matching tag.  It then calls `unbind_catch()' to restore everything to
+what it was when the appropriate catch was set, stores the return value
+in the `struct catchtag', and jumps (with `_longjmp()') to its jump
+point.
+
+   `unbind_catch()' removes all catches from the catchlist until it
+finds the correct one.  Some of the catches might have been placed for
+error-trapping, and if so, the appropriate entries on the handlerlist
+must be removed (see "errors").  `unbind_catch()' also restores the
+values of `gcprolist', `backtrace_list', and `lisp_eval', and calls
+`unbind_to()' to undo any specbindings created since the catch.
+
+
+File: internals.info,  Node: Symbols and Variables,  Next: Buffers and Textual Representation,  Prev: Evaluation; Stack Frames; Bindings,  Up: Top
+
+15 Symbols and Variables
+************************
+
+* Menu:
+
+* Introduction to Symbols::
+* Obarrays::
+* Symbol Values::
+
+
 File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Up: Symbols and Variables
 
-Introduction to Symbols
-=======================
+15.1 Introduction to Symbols
+============================
 
 A symbol is basically just an object with four fields: a name (a
 string), a value (some Lisp object), a function (some Lisp object), and
@@ -61,8 +130,8 @@ independent of the function and variable namespaces.
 
 File: internals.info,  Node: Obarrays,  Next: Symbol Values,  Prev: Introduction to Symbols,  Up: Symbols and Variables
 
-Obarrays
-========
+15.2 Obarrays
+=============
 
 The identity of symbols with their names is accomplished through a
 structure called an obarray, which is just a poorly-implemented hash
@@ -130,8 +199,8 @@ an obarray.
 
 File: internals.info,  Node: Symbol Values,  Prev: Obarrays,  Up: Symbols and Variables
 
-Symbol Values
-=============
+15.3 Symbol Values
+==================
 
 The value field of a symbol normally contains a Lisp object.  However,
 a symbol can be "unbound", meaning that it logically has no value.
@@ -174,8 +243,8 @@ well-documented in comments in `buffer.c', `symbols.c', and `lisp.h'.
 
 File: internals.info,  Node: Buffers and Textual Representation,  Next: MULE Character Sets and Encodings,  Prev: Symbols and Variables,  Up: Top
 
-Buffers and Textual Representation
-**********************************
+16 Buffers and Textual Representation
+*************************************
 
 * Menu:
 
@@ -189,8 +258,8 @@ Buffers and Textual Representation
 
 File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Up: Buffers and Textual Representation
 
-Introduction to Buffers
-=======================
+16.1 Introduction to Buffers
+============================
 
 A buffer is logically just a Lisp object that holds some text.  In
 this, it is like a string, but a buffer is optimized for frequent
@@ -242,8 +311,8 @@ on windows.)
 
 File: internals.info,  Node: The Text in a Buffer,  Next: Buffer Lists,  Prev: Introduction to Buffers,  Up: Buffers and Textual Representation
 
-The Text in a Buffer
-====================
+16.2 The Text in a Buffer
+=========================
 
 The text in a buffer consists of a sequence of zero or more characters.
 A "character" is an integer that logically represents a letter,
@@ -380,8 +449,8 @@ possible alternative representations (e.g. EUC-encoded text, etc.).
 
 File: internals.info,  Node: Buffer Lists,  Next: Markers and Extents,  Prev: The Text in a Buffer,  Up: Buffers and Textual Representation
 
-Buffer Lists
-============
+16.3 Buffer Lists
+=================
 
 Recall earlier that buffers are "permanent" objects, i.e.  that they
 remain around until explicitly deleted.  This entails that there is a
@@ -418,8 +487,8 @@ like the symbol operation `gensym'.
 
 File: internals.info,  Node: Markers and Extents,  Next: Bufbytes and Emchars,  Prev: Buffer Lists,  Up: Buffers and Textual Representation
 
-Markers and Extents
-===================
+16.4 Markers and Extents
+========================
 
 Among the things associated with a buffer are things that are logically
 attached to certain buffer positions.  This can be used to keep track
@@ -461,16 +530,16 @@ deleted, and primitives do exist to enumerate the extents in a buffer.
 
 File: internals.info,  Node: Bufbytes and Emchars,  Next: The Buffer Object,  Prev: Markers and Extents,  Up: Buffers and Textual Representation
 
-Bufbytes and Emchars
-====================
+16.5 Bufbytes and Emchars
+=========================
 
 Not yet documented.
 
 
 File: internals.info,  Node: The Buffer Object,  Prev: Bufbytes and Emchars,  Up: Buffers and Textual Representation
 
-The Buffer Object
-=================
+16.6 The Buffer Object
+======================
 
 Buffers contain fields not directly accessible by the Lisp programmer.
 We describe them here, naming them by the names used in the C code.
@@ -564,8 +633,8 @@ Many are accessible indirectly in Lisp programs via Lisp primitives.
 
 File: internals.info,  Node: MULE Character Sets and Encodings,  Next: The Lisp Reader and Compiler,  Prev: Buffers and Textual Representation,  Up: Top
 
-MULE Character Sets and Encodings
-*********************************
+17 MULE Character Sets and Encodings
+************************************
 
 Recall that there are two primary ways that text is represented in
 XEmacs.  The "buffer" representation sees the text as a series of bytes
@@ -589,8 +658,8 @@ representation is that it's compact and is compatible with ASCII.
 
 File: internals.info,  Node: Character Sets,  Next: Encodings,  Up: MULE Character Sets and Encodings
 
-Character Sets
-==============
+17.1 Character Sets
+===================
 
 A character set (or "charset") is an ordered set of characters.  A
 particular character in a charset is indexed using one or more
@@ -667,8 +736,8 @@ character sets as follows:
 
 File: internals.info,  Node: Encodings,  Next: Internal Mule Encodings,  Prev: Character Sets,  Up: MULE Character Sets and Encodings
 
-Encodings
-=========
+17.2 Encodings
+==============
 
 An "encoding" is a way of numerically representing characters from one
 or more character sets.  If an encoding only encompasses one character
@@ -696,8 +765,8 @@ common usage of "byte").
 
 File: internals.info,  Node: Japanese EUC (Extended Unix Code),  Next: JIS7,  Up: Encodings
 
-Japanese EUC (Extended Unix Code)
----------------------------------
+17.2.1 Japanese EUC (Extended Unix Code)
+----------------------------------------
 
 This encompasses the character sets Printing-ASCII, Japanese-JISX0201,
 and Japanese-JISX0208-Kana (half-width katakana, the right half of
@@ -718,8 +787,8 @@ charsets, while Japanese-JISX0208 is a 94x94-character charset.
 
 File: internals.info,  Node: JIS7,  Prev: Japanese EUC (Extended Unix Code),  Up: Encodings
 
-JIS7
-----
+17.2.2 JIS7
+-----------
 
 This encompasses the character sets Printing-ASCII,
 Japanese-JISX0201-Roman (the left half of JISX0201; this character set
@@ -739,8 +808,8 @@ the bytes are to be interpreted.  Special sequences of bytes (called
      Japanese-JISX0201-Roman    PC1
      Japanese-JISX0201-Kana     PC1
      Japanese-JISX0208          PC1 PC2
-     
-     
+
+
      Escape sequence   ASCII equivalent   Meaning
      ---------------   ----------------   -------
      0x1B 0x28 0x4A    ESC ( J            invoke Japanese-JISX0201-Roman
@@ -753,8 +822,8 @@ the bytes are to be interpreted.  Special sequences of bytes (called
 
 File: internals.info,  Node: Internal Mule Encodings,  Next: CCL,  Prev: Encodings,  Up: MULE Character Sets and Encodings
 
-Internal Mule Encodings
-=======================
+17.3 Internal Mule Encodings
+============================
 
 In XEmacs/Mule, each character set is assigned a unique number, called a
 "leading byte".  This is used in the encodings of a character.  Leading
@@ -800,8 +869,8 @@ followed later by the exact details.)
 
 File: internals.info,  Node: Internal String Encoding,  Next: Internal Character Encoding,  Up: Internal Mule Encodings
 
-Internal String Encoding
-------------------------
+17.3.1 Internal String Encoding
+-------------------------------
 
 ASCII characters are encoded using their position code directly.  Other
 characters are encoded using their leading byte followed by their
@@ -846,8 +915,8 @@ encodings must satisfy (2), in order to be unambiguous.)
 
 File: internals.info,  Node: Internal Character Encoding,  Prev: Internal String Encoding,  Up: Internal Mule Encodings
 
-Internal Character Encoding
----------------------------
+17.3.2 Internal Character Encoding
+----------------------------------
 
 One 19-bit word represents a single character.  The word is separated
 into three fields:
@@ -881,26 +950,26 @@ encoding" described above.
 
 File: internals.info,  Node: CCL,  Prev: Internal Mule Encodings,  Up: MULE Character Sets and Encodings
 
-CCL
-===
+17.4 CCL
+========
 
      CCL PROGRAM SYNTAX:
           CCL_PROGRAM := (CCL_MAIN_BLOCK
                           [ CCL_EOF_BLOCK ])
-     
+
           CCL_MAIN_BLOCK := CCL_BLOCK
           CCL_EOF_BLOCK := CCL_BLOCK
-     
+
           CCL_BLOCK := STATEMENT | (STATEMENT [STATEMENT ...])
           STATEMENT :=
                   SET | IF | BRANCH | LOOP | REPEAT | BREAK
                   | READ | WRITE
-     
+
           SET := (REG = EXPRESSION) | (REG SELF_OP EXPRESSION)
                  | INT-OR-CHAR
-     
+
           EXPRESSION := ARG | (EXPRESSION OP ARG)
-     
+
           IF := (if EXPRESSION CCL_BLOCK CCL_BLOCK)
           BRANCH := (branch EXPRESSION CCL_BLOCK [CCL_BLOCK ...])
           LOOP := (loop STATEMENT [STATEMENT ...])
@@ -915,7 +984,7 @@ CCL
                   | (write INT-OR-CHAR) | (write STRING) | STRING
                   | (write REG ARRAY)
           END := (end)
-     
+
           REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
           ARG := REG | INT-OR-CHAR
           OP :=   + | - | * | / | % | & | '|' | ^ | << | >> | <8 | >8 | //
@@ -924,25 +993,25 @@ CCL
                   += | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
           ARRAY := '[' INT-OR-CHAR ... ']'
           INT-OR-CHAR := INT | CHAR
-     
+
      MACHINE CODE:
-     
+
      The machine code consists of a vector of 32-bit words.
      The first such word specifies the start of the EOF section of the code;
      this is the code executed to handle any stuff that needs to be done
      (e.g. designating back to ASCII and left-to-right mode) after all
      other encoded/decoded data has been written out.  This is not used for
      charset CCL programs.
-     
+
      REGISTER: 0..7  -- referred by RRR or rrr
-     
+
      OPERATOR BIT FIELD (27-bit): XXXXXXXXXXXXXXX RRR TTTTT
              TTTTT (5-bit): operator type
              RRR (3-bit): register number
              XXXXXXXXXXXXXXXX (15-bit):
                      CCCCCCCCCCCCCCC: constant or address
                      000000000000rrr: register number
-     
+
      AAAA:   00000 +
              00001 -
              00010 *
@@ -951,7 +1020,7 @@ CCL
              00101 &
              00110 |
              00111 ~
-     
+
              01000 <<
              01001 >>
              01010 <8
@@ -960,16 +1029,16 @@ CCL
              01101 not used
              01110 not used
              01111 not used
-     
+
              10000 <
              10001 >
              10010 ==
              10011 <=
              10100 >=
              10101 !=
-     
+
      OPERATORS:      TTTTT RRR XX..
-     
+
      SetCS:          00000 RRR C...C      RRR = C...C
      SetCL:          00001 RRR .....      RRR = c...c
                      c.............c
@@ -977,7 +1046,7 @@ CCL
      SetA:           00011 RRR ..rrr      RRR = array[rrr]
                      C.............C      size of array = C...C
                      c.............c      contents = c...c
-     
+
      Jump:           00100 000 c...c      jump to c...c
      JumpCond:       00101 RRR c...c      if (!RRR) jump to c...c
      WriteJump:      00110 RRR c...c      Write1 RRR, jump to c...c
@@ -1018,7 +1087,7 @@ CCL
                      c.............c      contents = c...c
                      ...
      End:            10110 000 .....      terminate the execution
-     
+
      SetSelfCS:      10111 RRR C...C      RRR AAAAA= C...C
                      ..........AAAAA
      SetSelfCL:      11000 RRR .....      RRR AAAAA= c...c
@@ -1048,16 +1117,16 @@ CCL
 
 File: internals.info,  Node: The Lisp Reader and Compiler,  Next: Lstreams,  Prev: MULE Character Sets and Encodings,  Up: Top
 
-The Lisp Reader and Compiler
-****************************
+18 The Lisp Reader and Compiler
+*******************************
 
 Not yet documented.
 
 
 File: internals.info,  Node: Lstreams,  Next: Consoles; Devices; Frames; Windows,  Prev: The Lisp Reader and Compiler,  Up: Top
 
-Lstreams
-********
+19 Lstreams
+***********
 
 An "lstream" is an internal Lisp object that provides a generic
 buffering stream implementation.  Conceptually, you send data to the
@@ -1079,8 +1148,8 @@ blocking data together in order to achieve efficiency.
 
 File: internals.info,  Node: Creating an Lstream,  Next: Lstream Types,  Up: Lstreams
 
-Creating an Lstream
-===================
+19.1 Creating an Lstream
+========================
 
 Lstreams come in different types, depending on what is being interfaced
 to.  Although the primitive for creating new lstreams is
@@ -1114,8 +1183,8 @@ and he's probably right.
 
 File: internals.info,  Node: Lstream Types,  Next: Lstream Functions,  Prev: Creating an Lstream,  Up: Lstreams
 
-Lstream Types
-=============
+19.2 Lstream Types
+==================
 
 stdio
 
@@ -1140,37 +1209,37 @@ encoding
 
 File: internals.info,  Node: Lstream Functions,  Next: Lstream Methods,  Prev: Lstream Types,  Up: Lstreams
 
-Lstream Functions
-=================
+19.3 Lstream Functions
+======================
 
- - Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
+ -- Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
           char *MODE)
      Allocate and return a new Lstream.  This function is not really
      meant to be called directly; rather, each stream type should
      provide its own stream creation function, which creates the stream
      and does any other necessary creation stuff (e.g. opening a file).
 
- - Function: void Lstream_set_buffering (Lstream *LSTR,
+ -- Function: void Lstream_set_buffering (Lstream *LSTR,
           Lstream_buffering BUFFERING, int BUFFERING_SIZE)
      Change the buffering of a stream.  See `lstream.h'.  By default the
      buffering is `STREAM_BLOCK_BUFFERED'.
 
- - Function: int Lstream_flush (Lstream *LSTR)
+ -- Function: int Lstream_flush (Lstream *LSTR)
      Flush out any pending unwritten data in the stream.  Clear any
      buffered input data.  Returns 0 on success, -1 on error.
 
- - Macro: int Lstream_putc (Lstream *STREAM, int C)
+ -- Macro: int Lstream_putc (Lstream *STREAM, int C)
      Write out one byte to the stream.  This is a macro and so it is
      very efficient.  The C argument is only evaluated once but the
      STREAM argument is evaluated more than once.  Returns 0 on
      success, -1 on error.
 
- - Macro: int Lstream_getc (Lstream *STREAM)
+ -- Macro: int Lstream_getc (Lstream *STREAM)
      Read one byte from the stream.  This is a macro and so it is very
      efficient.  The STREAM argument is evaluated more than once.
      Return value is -1 for EOF or error.
 
- - Macro: void Lstream_ungetc (Lstream *STREAM, int C)
+ -- Macro: void Lstream_ungetc (Lstream *STREAM, int C)
      Push one byte back onto the input queue.  This will be the next
      byte read from the stream.  Any number of bytes can be pushed back
      and will be read in the reverse order they were pushed back--most
@@ -1180,49 +1249,49 @@ Lstream Functions
      and so it is very efficient.  The C argument is only evaluated
      once but the STREAM argument is evaluated more than once.
 
- - Function: int Lstream_fputc (Lstream *STREAM, int C)
- - Function: int Lstream_fgetc (Lstream *STREAM)
- - Function: void Lstream_fungetc (Lstream *STREAM, int C)
+ -- Function: int Lstream_fputc (Lstream *STREAM, int C)
+ -- Function: int Lstream_fgetc (Lstream *STREAM)
+ -- Function: void Lstream_fungetc (Lstream *STREAM, int C)
      Function equivalents of the above macros.
 
- - Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
+ -- Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
           SIZE)
      Read SIZE bytes of DATA from the stream.  Return the number of
      bytes read.  0 means EOF. -1 means an error occurred and no bytes
      were read.
 
- - Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA, size_t
-          SIZE)
+ -- Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA,
+          size_t SIZE)
      Write SIZE bytes of DATA to the stream.  Return the number of
      bytes written.  -1 means an error occurred and no bytes were
      written.
 
- - Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
+ -- Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
           SIZE)
      Push back SIZE bytes of DATA onto the input queue.  The next call
      to `Lstream_read()' with the same size will read the same bytes
      back.  Note that this will be the case even if there is other
      pending unread data.
 
- - Function: int Lstream_close (Lstream *STREAM)
+ -- Function: int Lstream_close (Lstream *STREAM)
      Close the stream.  All data will be flushed out.
 
- - Function: void Lstream_reopen (Lstream *STREAM)
+ -- Function: void Lstream_reopen (Lstream *STREAM)
      Reopen a closed stream.  This enables I/O on it again.  This is not
      meant to be called except from a wrapper routine that reinitializes
      variables and such--the close routine may well have freed some
      necessary storage structures, for example.
 
- - Function: void Lstream_rewind (Lstream *STREAM)
+ -- Function: void Lstream_rewind (Lstream *STREAM)
      Rewind the stream to the beginning.
 
 
 File: internals.info,  Node: Lstream Methods,  Prev: Lstream Functions,  Up: Lstreams
 
-Lstream Methods
-===============
+19.4 Lstream Methods
+====================
 
- - Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
+ -- Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
           *DATA, size_t SIZE)
      Read some data from the stream's end and store it into DATA, which
      can hold SIZE bytes.  Return the number of bytes read.  A return
@@ -1240,8 +1309,8 @@ Lstream Methods
 
      This function can be `NULL' if the stream is output-only.
 
- - Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned char
-          *DATA, size_t SIZE)
+ -- Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned
+          char *DATA, size_t SIZE)
      Send some data to the stream's end.  Data to be sent is in DATA
      and is SIZE bytes.  Return the number of bytes sent.  This
      function can send and return fewer bytes than is passed in; in that
@@ -1253,29 +1322,29 @@ Lstream Methods
      descriptor and are getting `EWOULDBLOCK' errors.)  This function
      can be `NULL' if the stream is input-only.
 
- - Lstream Method: int rewinder (Lstream *STREAM)
+ -- Lstream Method: int rewinder (Lstream *STREAM)
      Rewind the stream.  If this is `NULL', the stream is not seekable.
 
- - Lstream Method: int seekable_p (Lstream *STREAM)
+ -- Lstream Method: int seekable_p (Lstream *STREAM)
      Indicate whether this stream is seekable--i.e. it can be rewound.
      This method is ignored if the stream does not have a rewind
      method.  If this method is not present, the result is determined
      by whether a rewind method is present.
 
- - Lstream Method: int flusher (Lstream *STREAM)
+ -- Lstream Method: int flusher (Lstream *STREAM)
      Perform any additional operations necessary to flush the data in
      this stream.
 
- - Lstream Method: int pseudo_closer (Lstream *STREAM)
+ -- Lstream Method: int pseudo_closer (Lstream *STREAM)
 
- - Lstream Method: int closer (Lstream *STREAM)
+ -- Lstream Method: int closer (Lstream *STREAM)
      Perform any additional operations necessary to close this stream
      down.  May be `NULL'.  This function is called when
      `Lstream_close()' is called or when the stream is
      garbage-collected.  When this function is called, all pending data
      in the stream will already have been written out.
 
- - Lstream Method: Lisp_Object marker (Lisp_Object LSTREAM, void
+ -- Lstream Method: Lisp_Object marker (Lisp_Object LSTREAM, void
           (*MARKFUN) (Lisp_Object))
      Mark this object for garbage collection.  Same semantics as a
      standard `Lisp_Object' marker.  This function can be `NULL'.
@@ -1283,8 +1352,8 @@ Lstream Methods
 
 File: internals.info,  Node: Consoles; Devices; Frames; Windows,  Next: The Redisplay Mechanism,  Prev: Lstreams,  Up: Top
 
-Consoles; Devices; Frames; Windows
-**********************************
+20 Consoles; Devices; Frames; Windows
+*************************************
 
 * Menu:
 
@@ -1296,8 +1365,8 @@ Consoles; Devices; Frames; Windows
 
 File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Up: Consoles; Devices; Frames; Windows
 
-Introduction to Consoles; Devices; Frames; Windows
-==================================================
+20.1 Introduction to Consoles; Devices; Frames; Windows
+=======================================================
 
 A window-system window that you see on the screen is called a "frame"
 in Emacs terminology.  Each frame is subdivided into one or more
@@ -1341,8 +1410,8 @@ to devices and devices to frames.
 
 File: internals.info,  Node: Point,  Next: Window Hierarchy,  Prev: Introduction to Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
 
-Point
-=====
+20.2 Point
+==========
 
 Recall that every buffer has a current insertion position, called
 "point".  Now, two or more windows may be displaying the same buffer,
@@ -1365,8 +1434,8 @@ the buffer's point instead.  This is related to why
 
 File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
 
-Window Hierarchy
-================
+20.3 Window Hierarchy
+=====================
 
 If a frame contains multiple windows (panes), they are always created
 by splitting an existing window along the horizontal or vertical axis.
@@ -1451,8 +1520,8 @@ combination window.
 
 File: internals.info,  Node: The Window Object,  Prev: Window Hierarchy,  Up: Consoles; Devices; Frames; Windows
 
-The Window Object
-=================
+20.4 The Window Object
+======================
 
 Windows have the following accessible fields:
 
@@ -1558,8 +1627,8 @@ Windows have the following accessible fields:
 
 File: internals.info,  Node: The Redisplay Mechanism,  Next: Extents,  Prev: Consoles; Devices; Frames; Windows,  Up: Top
 
-The Redisplay Mechanism
-***********************
+21 The Redisplay Mechanism
+**************************
 
 The redisplay mechanism is one of the most complicated sections of
 XEmacs, especially from a conceptual standpoint.  This is doubly so
@@ -1585,8 +1654,8 @@ of Redisplay:
 
 File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Up: The Redisplay Mechanism
 
-Critical Redisplay Sections
-===========================
+21.1 Critical Redisplay Sections
+================================
 
 Within this section, we are defenseless and assume that the following
 cannot happen:
@@ -1615,8 +1684,8 @@ be preempting redisplay.
 
 File: internals.info,  Node: Line Start Cache,  Next: Redisplay Piece by Piece,  Prev: Critical Redisplay Sections,  Up: The Redisplay Mechanism
 
-Line Start Cache
-================
+21.2 Line Start Cache
+=====================
 
 The traditional scrolling code in Emacs breaks in a variable height
 world.  It depends on the key assumption that the number of lines that
@@ -1677,8 +1746,8 @@ applicable.
 
 File: internals.info,  Node: Redisplay Piece by Piece,  Prev: Line Start Cache,  Up: The Redisplay Mechanism
 
-Redisplay Piece by Piece
-========================
+21.3 Redisplay Piece by Piece
+=============================
 
 As you can begin to see redisplay is complex and also not well
 documented. Chuck no longer works on XEmacs so this section is my take
@@ -1727,8 +1796,8 @@ have been removed.
 
 File: internals.info,  Node: Extents,  Next: Faces,  Prev: The Redisplay Mechanism,  Up: Top
 
-Extents
-*******
+22 Extents
+**********
 
 * Menu:
 
@@ -1742,8 +1811,8 @@ Extents
 
 File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Up: Extents
 
-Introduction to Extents
-=======================
+22.1 Introduction to Extents
+============================
 
 Extents are regions over a buffer, with a start and an end position
 denoting the region of the buffer included in the extent.  In addition,
@@ -1766,8 +1835,8 @@ complexifying and buggifying all the rest of the code.)
 
 File: internals.info,  Node: Extent Ordering,  Next: Format of the Extent Info,  Prev: Introduction to Extents,  Up: Extents
 
-Extent Ordering
-===============
+22.2 Extent Ordering
+====================
 
 Extents are compared using memory indices.  There are two orderings for
 extents and both orders are kept current at all times.  The normal or
@@ -1799,8 +1868,8 @@ all occurrences of "display order" and "e-order", "less than" and
 
 File: internals.info,  Node: Format of the Extent Info,  Next: Zero-Length Extents,  Prev: Extent Ordering,  Up: Extents
 
-Format of the Extent Info
-=========================
+22.3 Format of the Extent Info
+==============================
 
 An extent-info structure consists of a list of the buffer or string's
 extents and a "stack of extents" that lists all of the extents over a
@@ -1836,8 +1905,8 @@ handle integers and linked list equally well).
 
 File: internals.info,  Node: Zero-Length Extents,  Next: Mathematics of Extent Ordering,  Prev: Format of the Extent Info,  Up: Extents
 
-Zero-Length Extents
-===================
+22.4 Zero-Length Extents
+========================
 
 Extents can be zero-length, and will end up that way if their endpoints
 are explicitly set that way or if their detachable property is `nil'
@@ -1865,8 +1934,8 @@ extents behave like the "point-type" marker in Mule.
 
 File: internals.info,  Node: Mathematics of Extent Ordering,  Next: Extent Fragments,  Prev: Zero-Length Extents,  Up: Extents
 
-Mathematics of Extent Ordering
-==============================
+22.5 Mathematics of Extent Ordering
+===================================
 
 The extents in a buffer are ordered by "display order" because that is
 that order that the redisplay mechanism needs to process them in.  The
@@ -1982,8 +2051,8 @@ F2 includes I and thus is in S, and thus F2 >= F.
 
 File: internals.info,  Node: Extent Fragments,  Prev: Mathematics of Extent Ordering,  Up: Extents
 
-Extent Fragments
-================
+22.6 Extent Fragments
+=====================
 
 Imagine that the buffer is divided up into contiguous, non-overlapping
 "runs" of text such that no extent starts or ends within a run (extents
@@ -2006,16 +2075,16 @@ determining which extents overly a particular position.
 
 File: internals.info,  Node: Faces,  Next: Glyphs,  Prev: Extents,  Up: Top
 
-Faces
-*****
+23 Faces
+********
 
 Not yet documented.
 
 
 File: internals.info,  Node: Glyphs,  Next: Specifiers,  Prev: Faces,  Up: Top
 
-Glyphs
-******
+24 Glyphs
+*********
 
 Glyphs are graphical elements that can be displayed in XEmacs buffers or
 gutters. We use the term graphical element here in the broadest possible
@@ -2048,8 +2117,8 @@ widget-glyphs are cached on an XEmacs window basis.
    Any action on a glyph first consults the cache before actually
 instantiating a widget.
 
-Glyph Instantiation
-===================
+24.1 Glyph Instantiation
+========================
 
 Glyph instantiation is a hairy topic and requires some explanation. The
 guts of glyph instantiation is contained within `image_instantiate'. A
@@ -2112,16 +2181,16 @@ other image-instances have a device as the governing-domain. The
 governing domain for an image-instance is determined using the
 governing_domain image-instance method.
 
-Widget-Glyphs
-=============
+24.2 Widget-Glyphs
+==================
 
-Widget-Glyphs in the MS-Windows Environment
-===========================================
+24.3 Widget-Glyphs in the MS-Windows Environment
+================================================
 
 To Do
 
-Widget-Glyphs in the X Environment
-==================================
+24.4 Widget-Glyphs in the X Environment
+=======================================
 
 Widget-glyphs under X make heavy use of lwlib (*note Lucid Widget
 Library::) for manipulating the native toolkit objects. This is
@@ -2150,16 +2219,16 @@ the widget is and how to set its properties.
 
 File: internals.info,  Node: Specifiers,  Next: Menus,  Prev: Glyphs,  Up: Top
 
-Specifiers
-**********
+25 Specifiers
+*************
 
 Not yet documented.
 
 
 File: internals.info,  Node: Menus,  Next: Subprocesses,  Prev: Specifiers,  Up: Top
 
-Menus
-*****
+26 Menus
+********
 
 A menu is set by setting the value of the variable `current-menubar'
 (which may be buffer-local) and then calling `set-menubar-dirty-flag'
@@ -2209,8 +2278,8 @@ description.
 
 File: internals.info,  Node: Subprocesses,  Next: Interface to the X Window System,  Prev: Menus,  Up: Top
 
-Subprocesses
-************
+27 Subprocesses
+***************
 
 The fields of a process are:
 
@@ -2283,8 +2352,8 @@ The fields of a process are:
 
 File: internals.info,  Node: Interface to the X Window System,  Next: Index,  Prev: Subprocesses,  Up: Top
 
-Interface to the X Window System
-********************************
+28 Interface to the X Window System
+***********************************
 
 Mostly undocumented.
 
@@ -2295,8 +2364,8 @@ Mostly undocumented.
 
 File: internals.info,  Node: Lucid Widget Library,  Up: Interface to the X Window System
 
-Lucid Widget Library
-====================
+28.1 Lucid Widget Library
+=========================
 
 Lwlib is extremely poorly documented and quite hairy.  The author(s)
 blame that on X, Xt, and Motif, with some justice, but also sufficient
@@ -2328,8 +2397,8 @@ graphical user interface.
 
 File: internals.info,  Node: Generic Widget Interface,  Next: Scrollbars,  Up: Lucid Widget Library
 
-Generic Widget Interface
-------------------------
+28.1.1 Generic Widget Interface
+-------------------------------
 
 In general in any toolkit a widget may be a composite object.  In Xt,
 all widgets have an X window that they manage, but typically a complex
@@ -2360,7 +2429,7 @@ member of `widget_value'.
                               +-------------+ next +-------------+
                               | grand child |----->| grand child |
                               +-------------+      +-------------+
-     
+
      The `widget_value' hierarchy of a composite widget with two simple
      children and one composite child.
 
@@ -2384,7 +2453,7 @@ tree.  As for the `widget_value', siblings are chained through the
                               +-------------+ next +-------------+
                               | grand child |----->| grand child |
                               +-------------+      +-------------+
-     
+
      The `widget_value' hierarchy of a composite widget with two simple
      children and one composite child.
 
@@ -2406,32 +2475,32 @@ of its tree.  Widget instances are further confi
 
 File: internals.info,  Node: Scrollbars,  Next: Menubars,  Prev: Generic Widget Interface,  Up: Lucid Widget Library
 
-Scrollbars
-----------
+28.1.2 Scrollbars
+-----------------
 
 
 File: internals.info,  Node: Menubars,  Next: Checkboxes and Radio Buttons,  Prev: Scrollbars,  Up: Lucid Widget Library
 
-Menubars
---------
+28.1.3 Menubars
+---------------
 
 
 File: internals.info,  Node: Checkboxes and Radio Buttons,  Next: Progress Bars,  Prev: Menubars,  Up: Lucid Widget Library
 
-Checkboxes and Radio Buttons
-----------------------------
+28.1.4 Checkboxes and Radio Buttons
+-----------------------------------
 
 
 File: internals.info,  Node: Progress Bars,  Next: Tab Controls,  Prev: Checkboxes and Radio Buttons,  Up: Lucid Widget Library
 
-Progress Bars
--------------
+28.1.5 Progress Bars
+--------------------
 
 
 File: internals.info,  Node: Tab Controls,  Prev: Progress Bars,  Up: Lucid Widget Library
 
-Tab Controls
-------------
+28.1.6 Tab Controls
+-------------------
 
 
 File: internals.info,  Node: Index,  Prev: Interface to the X Window System,  Up: Top
@@ -2439,419 +2508,638 @@ File: internals.info,  Node: Index,  Prev: Interface to the X Window System,  Up
 Index
 *****
 
+ [index ]
 * Menu:
 
 * allocation from frob blocks:           Allocation from Frob Blocks.
+                                                              (line   6)
 * allocation of objects in XEmacs Lisp:  Allocation of Objects in XEmacs Lisp.
+                                                              (line   6)
 * allocation, introduction to:           Introduction to Allocation.
+                                                              (line   6)
 * allocation, low-level:                 Low-level allocation.
-* Amdahl Corporation:                    XEmacs.
-* Andreessen, Marc:                      XEmacs.
+                                                              (line   6)
+* Amdahl Corporation:                    XEmacs.              (line   6)
+* Andreessen, Marc:                      XEmacs.              (line   6)
 * asynchronous subprocesses:             Modules for Interfacing with the Operating System.
-* bars, progress:                        Progress Bars.
-* Baur, Steve:                           XEmacs.
-* Benson, Eric:                          Lucid Emacs.
+                                                              (line  18)
+* bars, progress:                        Progress Bars.       (line   6)
+* Baur, Steve:                           XEmacs.              (line   6)
+* Benson, Eric:                          Lucid Emacs.         (line  28)
 * binding; the specbinding stack; unwind-protects, dynamic: Dynamic Binding; The specbinding Stack; Unwind-Protects.
+                                                              (line   6)
 * bindings, evaluation; stack frames;:   Evaluation; Stack Frames; Bindings.
-* bit vector:                            Bit Vector.
+                                                              (line   6)
+* bit vector:                            Bit Vector.          (line   6)
 * bridge, playing:                       XEmacs From the Outside.
-* Buchholz, Martin:                      XEmacs.
+                                                              (line  34)
+* Buchholz, Martin:                      XEmacs.              (line   6)
 * Bufbyte:                               Character-Related Data Types.
+                                                              (line  24)
 * Bufbytes and Emchars:                  Bufbytes and Emchars.
-* buffer lists:                          Buffer Lists.
-* buffer object, the:                    The Buffer Object.
+                                                              (line   6)
+* buffer lists:                          Buffer Lists.        (line   6)
+* buffer object, the:                    The Buffer Object.   (line   6)
 * buffer, the text in a:                 The Text in a Buffer.
+                                                              (line   6)
 * buffers and textual representation:    Buffers and Textual Representation.
+                                                              (line   6)
 * buffers, introduction to:              Introduction to Buffers.
+                                                              (line   6)
 * Bufpos:                                Character-Related Data Types.
+                                                              (line  47)
 * building, XEmacs from the perspective of: XEmacs From the Perspective of Building.
+                                                              (line   6)
 * buttons, checkboxes and radio:         Checkboxes and Radio Buttons.
+                                                              (line   6)
 * byte positions, working with character and: Working With Character and Byte Positions.
+                                                              (line   6)
 * Bytecount:                             Character-Related Data Types.
+                                                              (line  59)
 * bytecount_to_charcount:                Working With Character and Byte Positions.
+                                                              (line  82)
 * Bytind:                                Character-Related Data Types.
+                                                              (line  59)
 * C code, rules when writing new:        Rules When Writing New C Code.
-* C vs. Lisp:                            The Lisp Language.
+                                                              (line   6)
+* C vs. Lisp:                            The Lisp Language.   (line   6)
 * callback routines, the event stream:   The Event Stream Callback Routines.
+                                                              (line   6)
 * caller-protects (GCPRO rule):          Writing Lisp Primitives.
+                                                              (line 169)
 * case table:                            Modules for Other Aspects of the Lisp Interpreter and Object System.
-* catch and throw:                       Catch and Throw.
-* CCL:                                   CCL.
+                                                              (line  44)
+* catch and throw:                       Catch and Throw.     (line   6)
+* CCL:                                   CCL.                 (line   6)
 * character and byte positions, working with: Working With Character and Byte Positions.
+                                                              (line   6)
 * character encoding, internal:          Internal Character Encoding.
-* character sets:                        Character Sets.
+                                                              (line   6)
+* character sets:                        Character Sets.      (line   6)
 * character sets and encodings, Mule:    MULE Character Sets and Encodings.
+                                                              (line   6)
 * character-related data types:          Character-Related Data Types.
+                                                              (line   6)
 * characters, integers and:              Integers and Characters.
+                                                              (line   6)
 * Charcount:                             Character-Related Data Types.
+                                                              (line  47)
 * charcount_to_bytecount:                Working With Character and Byte Positions.
+                                                              (line  88)
 * charptr_emchar:                        Working With Character and Byte Positions.
+                                                              (line  36)
 * charptr_n_addr:                        Working With Character and Byte Positions.
+                                                              (line  94)
 * checkboxes and radio buttons:          Checkboxes and Radio Buttons.
-* closer:                                Lstream Methods.
+                                                              (line   6)
+* closer:                                Lstream Methods.     (line  53)
 * closure:                               The XEmacs Object System (Abstractly Speaking).
+                                                              (line  71)
 * code, an example of Mule-aware:        An Example of Mule-Aware Code.
+                                                              (line   6)
 * code, general guidelines for writing Mule-aware: General Guidelines for Writing Mule-Aware Code.
+                                                              (line   6)
 * code, rules when writing new C:        Rules When Writing New C Code.
+                                                              (line   6)
 * coding conventions:                    A Reader's Guide to XEmacs Coding Conventions.
-* coding for Mule:                       Coding for Mule.
+                                                              (line   6)
+* coding for Mule:                       Coding for Mule.     (line   6)
 * coding rules, general:                 General Coding Rules.
+                                                              (line   6)
 * coding rules, naming:                  A Reader's Guide to XEmacs Coding Conventions.
+                                                              (line   6)
 * command builder, dispatching events; the: Dispatching Events; The Command Builder.
+                                                              (line   6)
 * comments, writing good:                Writing Good Comments.
-* Common Lisp:                           The Lisp Language.
+                                                              (line   6)
+* Common Lisp:                           The Lisp Language.   (line   6)
 * compact_string_chars:                  compact_string_chars.
-* compiled function:                     Compiled Function.
+                                                              (line   6)
+* compiled function:                     Compiled Function.   (line   6)
 * compiler, the Lisp reader and:         The Lisp Reader and Compiler.
-* cons:                                  Cons.
-* conservative garbage collection:       GCPROing.
+                                                              (line   6)
+* cons:                                  Cons.                (line   6)
+* conservative garbage collection:       GCPROing.            (line 131)
 * consoles; devices; frames; windows:    Consoles; Devices; Frames; Windows.
+                                                              (line   6)
 * consoles; devices; frames; windows, introduction to: Introduction to Consoles; Devices; Frames; Windows.
+                                                              (line   6)
 * control flow modules, editor-level:    Editor-Level Control Flow Modules.
+                                                              (line   6)
 * conversion to and from external data:  Conversion to and from External Data.
-* converting events:                     Converting Events.
+                                                              (line   6)
+* converting events:                     Converting Events.   (line   6)
 * copy-on-write:                         General Coding Rules.
+                                                              (line  57)
 * creating Lisp object types:            Techniques for XEmacs Developers.
+                                                              (line 192)
 * critical redisplay sections:           Critical Redisplay Sections.
-* data dumping:                          Data dumping.
+                                                              (line   6)
+* data dumping:                          Data dumping.        (line   6)
 * data types, character-related:         Character-Related Data Types.
+                                                              (line   6)
 * DEC_CHARPTR:                           Working With Character and Byte Positions.
+                                                              (line  72)
 * developers, techniques for XEmacs:     Techniques for XEmacs Developers.
+                                                              (line   6)
 * devices; frames; windows, consoles;:   Consoles; Devices; Frames; Windows.
+                                                              (line   6)
 * devices; frames; windows, introduction to consoles;: Introduction to Consoles; Devices; Frames; Windows.
-* Devin, Matthieu:                       Lucid Emacs.
+                                                              (line   6)
+* Devin, Matthieu:                       Lucid Emacs.         (line  28)
 * dispatching events; the command builder: Dispatching Events; The Command Builder.
+                                                              (line   6)
 * display order of extents:              Mathematics of Extent Ordering.
+                                                              (line   6)
 * display-related Lisp objects, modules for other: Modules for other Display-Related Lisp Objects.
+                                                              (line   6)
 * displayable Lisp objects, modules for the basic: Modules for the Basic Displayable Lisp Objects.
-* dumping:                               Dumping.
-* dumping address allocation:            Address allocation.
-* dumping and its justification, what is: Dumping.
-* dumping data descriptions:             Data descriptions.
-* dumping object inventory:              Object inventory.
-* dumping overview:                      Overview.
-* dumping phase:                         Dumping phase.
-* dumping, data:                         Data dumping.
-* dumping, file loading:                 Reloading phase.
-* dumping, object relocation:            Reloading phase.
-* dumping, pointers:                     Pointers dumping.
-* dumping, putting back the pdump_opaques: Reloading phase.
+                                                              (line   6)
+* dumping:                               Dumping.             (line   6)
+* dumping address allocation:            Address allocation.  (line   6)
+* dumping and its justification, what is: Dumping.            (line   9)
+* dumping data descriptions:             Data descriptions.   (line   6)
+* dumping object inventory:              Object inventory.    (line   6)
+* dumping overview:                      Overview.            (line   6)
+* dumping phase:                         Dumping phase.       (line   6)
+* dumping, data:                         Data dumping.        (line   6)
+* dumping, file loading:                 Reloading phase.     (line   9)
+* dumping, object relocation:            Reloading phase.     (line  32)
+* dumping, pointers:                     Pointers dumping.    (line   6)
+* dumping, putting back the pdump_opaques: Reloading phase.   (line  21)
 * dumping, putting back the pdump_root_objects and pdump_weak_object_chains: Reloading phase.
+                                                              (line  39)
 * dumping, putting back the pdump_root_struct_ptrs: Reloading phase.
-* dumping, reloading phase:              Reloading phase.
-* dumping, remaining issues:             Remaining issues.
-* dumping, reorganize the hash tables:   Reloading phase.
-* dumping, the header:                   The header.
-* dynamic array:                         Low-Level Modules.
+                                                              (line  26)
+* dumping, reloading phase:              Reloading phase.     (line   6)
+* dumping, remaining issues:             Remaining issues.    (line   6)
+* dumping, reorganize the hash tables:   Reloading phase.     (line  44)
+* dumping, the header:                   The header.          (line   6)
+* dynamic array:                         Low-Level Modules.   (line 146)
 * dynamic binding; the specbinding stack; unwind-protects: Dynamic Binding; The specbinding Stack; Unwind-Protects.
-* dynamic scoping:                       The Lisp Language.
-* dynamic types:                         The Lisp Language.
+                                                              (line   6)
+* dynamic scoping:                       The Lisp Language.   (line   6)
+* dynamic types:                         The Lisp Language.   (line   6)
 * editing operations, modules for standard: Modules for Standard Editing Operations.
-* Emacs 19, GNU:                         GNU Emacs 19.
-* Emacs 20, GNU:                         GNU Emacs 20.
-* Emacs, a history of:                   A History of Emacs.
+                                                              (line   6)
+* Emacs 19, GNU:                         GNU Emacs 19.        (line   6)
+* Emacs 20, GNU:                         GNU Emacs 20.        (line   6)
+* Emacs, a history of:                   A History of Emacs.  (line   6)
 * Emchar:                                Character-Related Data Types.
+                                                              (line  13)
 * Emchars, Bufbytes and:                 Bufbytes and Emchars.
+                                                              (line   6)
 * encoding, internal character:          Internal Character Encoding.
+                                                              (line   6)
 * encoding, internal string:             Internal String Encoding.
+                                                              (line   6)
 * encodings, internal Mule:              Internal Mule Encodings.
-* encodings, Mule:                       Encodings.
+                                                              (line   6)
+* encodings, Mule:                       Encodings.           (line   6)
 * encodings, Mule character sets and:    MULE Character Sets and Encodings.
-* Energize:                              Lucid Emacs.
-* Epoch <1>:                             XEmacs.
-* Epoch:                                 Lucid Emacs.
+                                                              (line   6)
+* Energize:                              Lucid Emacs.         (line   6)
+* Epoch <1>:                             XEmacs.              (line   6)
+* Epoch:                                 Lucid Emacs.         (line   6)
 * error checking:                        Techniques for XEmacs Developers.
+                                                              (line  15)
 * EUC (Extended Unix Code), Japanese:    Japanese EUC (Extended Unix Code).
-* evaluation:                            Evaluation.
+                                                              (line   6)
+* evaluation:                            Evaluation.          (line   6)
 * evaluation; stack frames; bindings:    Evaluation; Stack Frames; Bindings.
+                                                              (line   6)
 * event gathering mechanism, specifics of the: Specifics of the Event Gathering Mechanism.
+                                                              (line   6)
 * event loop functions, other:           Other Event Loop Functions.
+                                                              (line   6)
 * event loop, events and the:            Events and the Event Loop.
+                                                              (line   6)
 * event stream callback routines, the:   The Event Stream Callback Routines.
+                                                              (line   6)
 * event, specifics about the Lisp object: Specifics About the Emacs Event.
+                                                              (line   6)
 * events and the event loop:             Events and the Event Loop.
-* events, converting:                    Converting Events.
+                                                              (line   6)
+* events, converting:                    Converting Events.   (line   6)
 * events, introduction to:               Introduction to Events.
-* events, main loop:                     Main Loop.
+                                                              (line   6)
+* events, main loop:                     Main Loop.           (line   6)
 * events; the command builder, dispatching: Dispatching Events; The Command Builder.
+                                                              (line   6)
 * Extbyte:                               Character-Related Data Types.
+                                                              (line  66)
 * Extcount:                              Character-Related Data Types.
+                                                              (line  66)
 * Extended Unix Code, Japanese EUC:      Japanese EUC (Extended Unix Code).
-* extent fragments:                      Extent Fragments.
+                                                              (line   6)
+* extent fragments:                      Extent Fragments.    (line   6)
 * extent info, format of the:            Format of the Extent Info.
+                                                              (line   6)
 * extent mathematics:                    Mathematics of Extent Ordering.
+                                                              (line   6)
 * extent ordering <1>:                   Mathematics of Extent Ordering.
-* extent ordering:                       Extent Ordering.
-* extents:                               Extents.
+                                                              (line   6)
+* extent ordering:                       Extent Ordering.     (line   6)
+* extents:                               Extents.             (line   6)
 * extents, display order:                Mathematics of Extent Ordering.
+                                                              (line   6)
 * extents, introduction to:              Introduction to Extents.
-* extents, markers and:                  Markers and Extents.
-* extents, zero-length:                  Zero-Length Extents.
+                                                              (line   6)
+* extents, markers and:                  Markers and Extents. (line   6)
+* extents, zero-length:                  Zero-Length Extents. (line   6)
 * external data, conversion to and from: Conversion to and from External Data.
+                                                              (line   6)
 * external widget:                       Modules for Interfacing with X Windows.
-* faces:                                 Faces.
+                                                              (line  93)
+* faces:                                 Faces.               (line   6)
 * file system, modules for interfacing with the: Modules for Interfacing with the File System.
-* flusher:                               Lstream Methods.
-* fragments, extent:                     Extent Fragments.
+                                                              (line   6)
+* flusher:                               Lstream Methods.     (line  47)
+* fragments, extent:                     Extent Fragments.    (line   6)
 * frames; windows, consoles; devices;:   Consoles; Devices; Frames; Windows.
+                                                              (line   6)
 * frames; windows, introduction to consoles; devices;: Introduction to Consoles; Devices; Frames; Windows.
-* Free Software Foundation:              A History of Emacs.
+                                                              (line   6)
+* Free Software Foundation:              A History of Emacs.  (line   6)
 * frob blocks, allocation from:          Allocation from Frob Blocks.
-* FSF:                                   A History of Emacs.
-* FSF Emacs <1>:                         GNU Emacs 20.
-* FSF Emacs:                             GNU Emacs 19.
-* function, compiled:                    Compiled Function.
-* garbage collection:                    Garbage Collection.
+                                                              (line   6)
+* FSF:                                   A History of Emacs.  (line   6)
+* FSF Emacs <1>:                         GNU Emacs 20.        (line   6)
+* FSF Emacs:                             GNU Emacs 19.        (line   6)
+* function, compiled:                    Compiled Function.   (line   6)
+* garbage collection:                    Garbage Collection.  (line   6)
 * garbage collection - step by step:     Garbage Collection - Step by Step.
-* garbage collection protection <1>:     GCPROing.
+                                                              (line   6)
+* garbage collection protection <1>:     GCPROing.            (line   6)
 * garbage collection protection:         Writing Lisp Primitives.
-* garbage collection, conservative:      GCPROing.
-* garbage collection, invocation:        Invocation.
-* garbage_collect_1:                     garbage_collect_1.
-* gc_sweep:                              gc_sweep.
-* GCPROing:                              GCPROing.
+                                                              (line  15)
+* garbage collection, conservative:      GCPROing.            (line 131)
+* garbage collection, invocation:        Invocation.          (line   6)
+* garbage_collect_1:                     garbage_collect_1.   (line   6)
+* gc_sweep:                              gc_sweep.            (line   6)
+* GCPROing:                              GCPROing.            (line   6)
 * global Lisp variables, adding:         Adding Global Lisp Variables.
-* glyph instantiation:                   Glyphs.
-* glyphs:                                Glyphs.
-* GNU Emacs 19:                          GNU Emacs 19.
-* GNU Emacs 20:                          GNU Emacs 20.
-* Gosling, James <1>:                    The Lisp Language.
-* Gosling, James:                        Through Version 18.
-* Great Usenet Renaming:                 Through Version 18.
-* Hackers (Steven Levy):                 A History of Emacs.
+                                                              (line   6)
+* glyph instantiation:                   Glyphs.              (line  40)
+* glyphs:                                Glyphs.              (line   6)
+* GNU Emacs 19:                          GNU Emacs 19.        (line   6)
+* GNU Emacs 20:                          GNU Emacs 20.        (line   6)
+* Gosling, James <1>:                    The Lisp Language.   (line   6)
+* Gosling, James:                        Through Version 18.  (line   6)
+* Great Usenet Renaming:                 Through Version 18.  (line   6)
+* Hackers (Steven Levy):                 A History of Emacs.  (line   6)
 * header files, inline functions:        Techniques for XEmacs Developers.
-* hierarchy of windows:                  Window Hierarchy.
-* history of Emacs, a:                   A History of Emacs.
-* Illinois, University of:               XEmacs.
+                                                              (line 146)
+* hierarchy of windows:                  Window Hierarchy.    (line   6)
+* history of Emacs, a:                   A History of Emacs.  (line   6)
+* Illinois, University of:               XEmacs.              (line   6)
 * INC_CHARPTR:                           Working With Character and Byte Positions.
+                                                              (line  72)
 * inline functions:                      Techniques for XEmacs Developers.
+                                                              (line 108)
 * inline functions, headers:             Techniques for XEmacs Developers.
+                                                              (line 146)
 * inside, XEmacs from the:               XEmacs From the Inside.
-* instantiation, glyph:                  Glyphs.
+                                                              (line   6)
+* instantiation, glyph:                  Glyphs.              (line  40)
 * integers and characters:               Integers and Characters.
+                                                              (line   6)
 * interactive:                           Modules for Standard Editing Operations.
+                                                              (line  93)
 * interfacing with the file system, modules for: Modules for Interfacing with the File System.
+                                                              (line   6)
 * interfacing with the operating system, modules for: Modules for Interfacing with the Operating System.
+                                                              (line   6)
 * interfacing with X Windows, modules for: Modules for Interfacing with X Windows.
+                                                              (line   6)
 * internal character encoding:           Internal Character Encoding.
+                                                              (line   6)
 * internal Mule encodings:               Internal Mule Encodings.
+                                                              (line   6)
 * internal string encoding:              Internal String Encoding.
+                                                              (line   6)
 * internationalization, modules for:     Modules for Internationalization.
+                                                              (line   6)
 * interning:                             The XEmacs Object System (Abstractly Speaking).
+                                                              (line 302)
 * interpreter and object system, modules for other aspects of the Lisp: Modules for Other Aspects of the Lisp Interpreter and Object System.
-* ITS (Incompatible Timesharing System): A History of Emacs.
+                                                              (line   6)
+* ITS (Incompatible Timesharing System): A History of Emacs.  (line   6)
 * Japanese EUC (Extended Unix Code):     Japanese EUC (Extended Unix Code).
-* Java:                                  The Lisp Language.
-* Java vs. Lisp:                         The Lisp Language.
-* JIS7:                                  JIS7.
-* Jones, Kyle:                           XEmacs.
-* Kaplan, Simon:                         XEmacs.
-* Levy, Steven:                          A History of Emacs.
+                                                              (line   6)
+* Java:                                  The Lisp Language.   (line   6)
+* Java vs. Lisp:                         The Lisp Language.   (line   6)
+* JIS7:                                  JIS7.                (line   6)
+* Jones, Kyle:                           XEmacs.              (line  45)
+* Kaplan, Simon:                         XEmacs.              (line   6)
+* Levy, Steven:                          A History of Emacs.  (line   6)
 * library, Lucid Widget:                 Lucid Widget Library.
-* line start cache:                      Line Start Cache.
+                                                              (line   6)
+* line start cache:                      Line Start Cache.    (line   6)
 * Lisp interpreter and object system, modules for other aspects of the: Modules for Other Aspects of the Lisp Interpreter and Object System.
-* Lisp language, the:                    The Lisp Language.
-* Lisp modules, basic:                   Basic Lisp Modules.
+                                                              (line   6)
+* Lisp language, the:                    The Lisp Language.   (line   6)
+* Lisp modules, basic:                   Basic Lisp Modules.  (line   6)
 * Lisp object types, creating:           Techniques for XEmacs Developers.
+                                                              (line 192)
 * Lisp objects are represented in C, how: How Lisp Objects Are Represented in C.
+                                                              (line   6)
 * Lisp objects, allocation of in XEmacs: Allocation of Objects in XEmacs Lisp.
+                                                              (line   6)
 * Lisp objects, modules for other display-related: Modules for other Display-Related Lisp Objects.
+                                                              (line   6)
 * Lisp objects, modules for the basic displayable: Modules for the Basic Displayable Lisp Objects.
+                                                              (line   6)
 * Lisp primitives, writing:              Writing Lisp Primitives.
+                                                              (line   6)
 * Lisp reader and compiler, the:         The Lisp Reader and Compiler.
-* Lisp vs. C:                            The Lisp Language.
-* Lisp vs. Java:                         The Lisp Language.
+                                                              (line   6)
+* Lisp vs. C:                            The Lisp Language.   (line   6)
+* Lisp vs. Java:                         The Lisp Language.   (line   6)
 * low-level allocation:                  Low-level allocation.
-* low-level modules:                     Low-Level Modules.
-* lrecords:                              lrecords.
+                                                              (line   6)
+* low-level modules:                     Low-Level Modules.   (line   6)
+* lrecords:                              lrecords.            (line   6)
 * lstream:                               Modules for Interfacing with the File System.
-* lstream functions:                     Lstream Functions.
-* lstream methods:                       Lstream Methods.
-* lstream types:                         Lstream Types.
-* lstream, creating an:                  Creating an Lstream.
-* Lstream_close:                         Lstream Functions.
-* Lstream_fgetc:                         Lstream Functions.
-* Lstream_flush:                         Lstream Functions.
-* Lstream_fputc:                         Lstream Functions.
-* Lstream_fungetc:                       Lstream Functions.
-* Lstream_getc:                          Lstream Functions.
-* Lstream_new:                           Lstream Functions.
-* Lstream_putc:                          Lstream Functions.
-* Lstream_read:                          Lstream Functions.
-* Lstream_reopen:                        Lstream Functions.
-* Lstream_rewind:                        Lstream Functions.
-* Lstream_set_buffering:                 Lstream Functions.
-* Lstream_ungetc:                        Lstream Functions.
-* Lstream_unread:                        Lstream Functions.
-* Lstream_write:                         Lstream Functions.
-* lstreams:                              Lstreams.
-* Lucid Emacs:                           Lucid Emacs.
-* Lucid Inc.:                            Lucid Emacs.
+                                                              (line  20)
+* lstream functions:                     Lstream Functions.   (line   6)
+* lstream methods:                       Lstream Methods.     (line   6)
+* lstream types:                         Lstream Types.       (line   6)
+* lstream, creating an:                  Creating an Lstream. (line   6)
+* Lstream_close:                         Lstream Functions.   (line  68)
+* Lstream_fgetc:                         Lstream Functions.   (line  45)
+* Lstream_flush:                         Lstream Functions.   (line  19)
+* Lstream_fputc:                         Lstream Functions.   (line  44)
+* Lstream_fungetc:                       Lstream Functions.   (line  46)
+* Lstream_getc:                          Lstream Functions.   (line  29)
+* Lstream_new:                           Lstream Functions.   (line   8)
+* Lstream_putc:                          Lstream Functions.   (line  23)
+* Lstream_read:                          Lstream Functions.   (line  50)
+* Lstream_reopen:                        Lstream Functions.   (line  71)
+* Lstream_rewind:                        Lstream Functions.   (line  77)
+* Lstream_set_buffering:                 Lstream Functions.   (line  15)
+* Lstream_ungetc:                        Lstream Functions.   (line  34)
+* Lstream_unread:                        Lstream Functions.   (line  62)
+* Lstream_write:                         Lstream Functions.   (line  56)
+* lstreams:                              Lstreams.            (line   6)
+* Lucid Emacs:                           Lucid Emacs.         (line   6)
+* Lucid Inc.:                            Lucid Emacs.         (line   6)
 * Lucid Widget Library:                  Lucid Widget Library.
+                                                              (line   6)
 * macro hygiene:                         Techniques for XEmacs Developers.
-* main loop:                             Main Loop.
-* mark and sweep:                        Garbage Collection.
-* mark method <1>:                       lrecords.
+                                                              (line  71)
+* main loop:                             Main Loop.           (line   6)
+* mark and sweep:                        Garbage Collection.  (line   6)
+* mark method <1>:                       lrecords.            (line 107)
 * mark method:                           Modules for Other Aspects of the Lisp Interpreter and Object System.
-* mark_object:                           mark_object.
-* marker <1>:                            Lstream Methods.
-* marker:                                Marker.
-* markers and extents:                   Markers and Extents.
+                                                              (line 132)
+* mark_object:                           mark_object.         (line   6)
+* marker <1>:                            Lstream Methods.     (line  61)
+* marker:                                Marker.              (line   6)
+* markers and extents:                   Markers and Extents. (line   6)
 * mathematics of extent ordering:        Mathematics of Extent Ordering.
+                                                              (line   6)
 * MAX_EMCHAR_LEN:                        Working With Character and Byte Positions.
-* menubars:                              Menubars.
-* menus:                                 Menus.
-* merging attempts:                      XEmacs.
-* MIT:                                   A History of Emacs.
-* Mlynarik, Richard:                     GNU Emacs 19.
+                                                              (line  14)
+* menubars:                              Menubars.            (line   6)
+* menus:                                 Menus.               (line   6)
+* merging attempts:                      XEmacs.              (line  52)
+* MIT:                                   A History of Emacs.  (line   6)
+* Mlynarik, Richard:                     GNU Emacs 19.        (line  68)
 * modules for interfacing with the file system: Modules for Interfacing with the File System.
+                                                              (line   6)
 * modules for interfacing with the operating system: Modules for Interfacing with the Operating System.
+                                                              (line   6)
 * modules for interfacing with X Windows: Modules for Interfacing with X Windows.
+                                                              (line   6)
 * modules for internationalization:      Modules for Internationalization.
+                                                              (line   6)
 * modules for other aspects of the Lisp interpreter and object system: Modules for Other Aspects of the Lisp Interpreter and Object System.
+                                                              (line   6)
 * modules for other display-related Lisp objects: Modules for other Display-Related Lisp Objects.
+                                                              (line   6)
 * modules for regression testing:        Modules for Regression Testing.
+                                                              (line   6)
 * modules for standard editing operations: Modules for Standard Editing Operations.
+                                                              (line   6)
 * modules for the basic displayable Lisp objects: Modules for the Basic Displayable Lisp Objects.
+                                                              (line   6)
 * modules for the redisplay mechanism:   Modules for the Redisplay Mechanism.
+                                                              (line   6)
 * modules, a summary of the various XEmacs: A Summary of the Various XEmacs Modules.
-* modules, basic Lisp:                   Basic Lisp Modules.
+                                                              (line   6)
+* modules, basic Lisp:                   Basic Lisp Modules.  (line   6)
 * modules, editor-level control flow:    Editor-Level Control Flow Modules.
-* modules, low-level:                    Low-Level Modules.
-* MS-Windows environment, widget-glyphs in the: Glyphs.
+                                                              (line   6)
+* modules, low-level:                    Low-Level Modules.   (line   6)
+* MS-Windows environment, widget-glyphs in the: Glyphs.       (line 107)
 * Mule character sets and encodings:     MULE Character Sets and Encodings.
-* Mule encodings:                        Encodings.
+                                                              (line   6)
+* Mule encodings:                        Encodings.           (line   6)
 * Mule encodings, internal:              Internal Mule Encodings.
-* MULE merged XEmacs appears:            XEmacs.
-* Mule, coding for:                      Coding for Mule.
+                                                              (line   6)
+* MULE merged XEmacs appears:            XEmacs.              (line  35)
+* Mule, coding for:                      Coding for Mule.     (line   6)
 * Mule-aware code, an example of:        An Example of Mule-Aware Code.
+                                                              (line   6)
 * Mule-aware code, general guidelines for writing: General Guidelines for Writing Mule-Aware Code.
+                                                              (line   6)
 * NAS:                                   Modules for Interfacing with the Operating System.
+                                                              (line 135)
 * native sound:                          Modules for Interfacing with the Operating System.
+                                                              (line 131)
 * network connections:                   Modules for Interfacing with the Operating System.
+                                                              (line  37)
 * network sound:                         Modules for Interfacing with the Operating System.
-* Niksic, Hrvoje:                        XEmacs.
-* obarrays:                              Obarrays.
+                                                              (line 135)
+* Niksic, Hrvoje:                        XEmacs.              (line  45)
+* obarrays:                              Obarrays.            (line   6)
 * object system (abstractly speaking), the XEmacs: The XEmacs Object System (Abstractly Speaking).
+                                                              (line   6)
 * object system, modules for other aspects of the Lisp interpreter and: Modules for Other Aspects of the Lisp Interpreter and Object System.
+                                                              (line   6)
 * object types, creating Lisp:           Techniques for XEmacs Developers.
-* object, the buffer:                    The Buffer Object.
-* object, the window:                    The Window Object.
+                                                              (line 192)
+* object, the buffer:                    The Buffer Object.   (line   6)
+* object, the window:                    The Window Object.   (line   6)
 * objects are represented in C, how Lisp: How Lisp Objects Are Represented in C.
+                                                              (line   6)
 * objects in XEmacs Lisp, allocation of: Allocation of Objects in XEmacs Lisp.
+                                                              (line   6)
 * objects, modules for the basic displayable Lisp: Modules for the Basic Displayable Lisp Objects.
+                                                              (line   6)
 * operating system, modules for interfacing with the: Modules for Interfacing with the Operating System.
+                                                              (line   6)
 * outside, XEmacs from the:              XEmacs From the Outside.
+                                                              (line   6)
 * pane:                                  Modules for the Basic Displayable Lisp Objects.
+                                                              (line  63)
 * permanent objects:                     The XEmacs Object System (Abstractly Speaking).
+                                                              (line 238)
 * pi, calculating:                       XEmacs From the Outside.
-* point:                                 Point.
-* pointers dumping:                      Pointers dumping.
+                                                              (line  34)
+* point:                                 Point.               (line   6)
+* pointers dumping:                      Pointers dumping.    (line   6)
 * positions, working with character and byte: Working With Character and Byte Positions.
+                                                              (line   6)
 * primitives, writing Lisp:              Writing Lisp Primitives.
-* progress bars:                         Progress Bars.
-* protection, garbage collection:        GCPROing.
-* pseudo_closer:                         Lstream Methods.
+                                                              (line   6)
+* progress bars:                         Progress Bars.       (line   6)
+* protection, garbage collection:        GCPROing.            (line   6)
+* pseudo_closer:                         Lstream Methods.     (line  51)
 * Purify:                                Techniques for XEmacs Developers.
+                                                              (line   6)
 * Quantify:                              Techniques for XEmacs Developers.
+                                                              (line   6)
 * radio buttons, checkboxes and:         Checkboxes and Radio Buttons.
+                                                              (line   6)
 * read syntax:                           The XEmacs Object System (Abstractly Speaking).
+                                                              (line 252)
 * read-eval-print:                       XEmacs From the Outside.
-* reader:                                Lstream Methods.
+                                                              (line   6)
+* reader:                                Lstream Methods.     (line   8)
 * reader and compiler, the Lisp:         The Lisp Reader and Compiler.
+                                                              (line   6)
 * reader's guide:                        A Reader's Guide to XEmacs Coding Conventions.
+                                                              (line   6)
 * redisplay mechanism, modules for the:  Modules for the Redisplay Mechanism.
+                                                              (line   6)
 * redisplay mechanism, the:              The Redisplay Mechanism.
+                                                              (line   6)
 * redisplay piece by piece:              Redisplay Piece by Piece.
+                                                              (line   6)
 * redisplay sections, critical:          Critical Redisplay Sections.
+                                                              (line   6)
 * regression testing, modules for:       Modules for Regression Testing.
-* reloading phase:                       Reloading phase.
-* relocating allocator:                  Low-Level Modules.
-* rename to XEmacs:                      XEmacs.
+                                                              (line   6)
+* reloading phase:                       Reloading phase.     (line   6)
+* relocating allocator:                  Low-Level Modules.   (line 105)
+* rename to XEmacs:                      XEmacs.              (line  21)
 * represented in C, how Lisp objects are: How Lisp Objects Are Represented in C.
-* rewinder:                              Lstream Methods.
-* RMS:                                   A History of Emacs.
+                                                              (line   6)
+* rewinder:                              Lstream Methods.     (line  38)
+* RMS:                                   A History of Emacs.  (line   6)
 * scanner:                               Modules for Other Aspects of the Lisp Interpreter and Object System.
-* scoping, dynamic:                      The Lisp Language.
-* scrollbars:                            Scrollbars.
-* seekable_p:                            Lstream Methods.
+                                                              (line  52)
+* scoping, dynamic:                      The Lisp Language.   (line   6)
+* scrollbars:                            Scrollbars.          (line   6)
+* seekable_p:                            Lstream Methods.     (line  41)
 * selections:                            Modules for Interfacing with X Windows.
+                                                              (line  55)
 * set_charptr_emchar:                    Working With Character and Byte Positions.
-* Sexton, Harlan:                        Lucid Emacs.
+                                                              (line  36)
+* Sexton, Harlan:                        Lucid Emacs.         (line  28)
 * sound, native:                         Modules for Interfacing with the Operating System.
+                                                              (line 131)
 * sound, network:                        Modules for Interfacing with the Operating System.
-* SPARCWorks:                            XEmacs.
+                                                              (line 135)
+* SPARCWorks:                            XEmacs.              (line   6)
 * specbinding stack; unwind-protects, dynamic binding; the: Dynamic Binding; The specbinding Stack; Unwind-Protects.
+                                                              (line   6)
 * special forms, simple:                 Simple Special Forms.
-* specifiers:                            Specifiers.
+                                                              (line   6)
+* specifiers:                            Specifiers.          (line   6)
 * stack frames; bindings, evaluation;:   Evaluation; Stack Frames; Bindings.
-* Stallman, Richard:                     A History of Emacs.
-* string:                                String.
+                                                              (line   6)
+* Stallman, Richard:                     A History of Emacs.  (line   6)
+* string:                                String.              (line   6)
 * string encoding, internal:             Internal String Encoding.
-* subprocesses:                          Subprocesses.
+                                                              (line   6)
+* subprocesses:                          Subprocesses.        (line   6)
 * subprocesses, asynchronous:            Modules for Interfacing with the Operating System.
+                                                              (line  18)
 * subprocesses, synchronous:             Modules for Interfacing with the Operating System.
-* Sun Microsystems:                      XEmacs.
-* sweep_bit_vectors_1:                   sweep_bit_vectors_1.
-* sweep_lcrecords_1:                     sweep_lcrecords_1.
-* sweep_strings:                         sweep_strings.
-* symbol:                                Symbol.
-* symbol values:                         Symbol Values.
+                                                              (line  13)
+* Sun Microsystems:                      XEmacs.              (line   6)
+* sweep_bit_vectors_1:                   sweep_bit_vectors_1. (line   6)
+* sweep_lcrecords_1:                     sweep_lcrecords_1.   (line   6)
+* sweep_strings:                         sweep_strings.       (line   6)
+* symbol:                                Symbol.              (line   6)
+* symbol values:                         Symbol Values.       (line   6)
 * symbols and variables:                 Symbols and Variables.
+                                                              (line   6)
 * symbols, introduction to:              Introduction to Symbols.
+                                                              (line   6)
 * synchronous subprocesses:              Modules for Interfacing with the Operating System.
-* tab controls:                          Tab Controls.
+                                                              (line  13)
+* tab controls:                          Tab Controls.        (line   6)
 * taxes, doing:                          XEmacs From the Outside.
+                                                              (line  34)
 * techniques for XEmacs developers:      Techniques for XEmacs Developers.
-* TECO:                                  A History of Emacs.
+                                                              (line   6)
+* TECO:                                  A History of Emacs.  (line   6)
 * temporary objects:                     The XEmacs Object System (Abstractly Speaking).
+                                                              (line 238)
 * testing, regression:                   Regression Testing XEmacs.
+                                                              (line   6)
 * text in a buffer, the:                 The Text in a Buffer.
+                                                              (line   6)
 * textual representation, buffers and:   Buffers and Textual Representation.
-* Thompson, Chuck:                       XEmacs.
-* throw, catch and:                      Catch and Throw.
-* types, dynamic:                        The Lisp Language.
-* types, lstream:                        Lstream Types.
+                                                              (line   6)
+* Thompson, Chuck:                       XEmacs.              (line   6)
+* throw, catch and:                      Catch and Throw.     (line   6)
+* types, dynamic:                        The Lisp Language.   (line   6)
+* types, lstream:                        Lstream Types.       (line   6)
 * types, proper use of unsigned:         Proper Use of Unsigned Types.
-* University of Illinois:                XEmacs.
+                                                              (line   6)
+* University of Illinois:                XEmacs.              (line   6)
 * unsigned types, proper use of:         Proper Use of Unsigned Types.
+                                                              (line   6)
 * unwind-protects, dynamic binding; the specbinding stack;: Dynamic Binding; The specbinding Stack; Unwind-Protects.
-* values, symbol:                        Symbol Values.
+                                                              (line   6)
+* values, symbol:                        Symbol Values.       (line   6)
 * variables, adding global Lisp:         Adding Global Lisp Variables.
+                                                              (line   6)
 * variables, symbols and:                Symbols and Variables.
-* vector:                                Vector.
-* vector, bit:                           Bit Vector.
-* version 18, through:                   Through Version 18.
-* version 19, GNU Emacs:                 GNU Emacs 19.
-* version 20, GNU Emacs:                 GNU Emacs 20.
+                                                              (line   6)
+* vector:                                Vector.              (line   6)
+* vector, bit:                           Bit Vector.          (line   6)
+* version 18, through:                   Through Version 18.  (line   6)
+* version 19, GNU Emacs:                 GNU Emacs 19.        (line   6)
+* version 20, GNU Emacs:                 GNU Emacs 20.        (line   6)
 * widget interface, generic:             Generic Widget Interface.
+                                                              (line   6)
 * widget library, Lucid:                 Lucid Widget Library.
-* widget-glyphs:                         Glyphs.
-* widget-glyphs in the MS-Windows environment: Glyphs.
-* widget-glyphs in the X environment:    Glyphs.
-* Win-Emacs:                             XEmacs.
+                                                              (line   6)
+* widget-glyphs:                         Glyphs.              (line 104)
+* widget-glyphs in the MS-Windows environment: Glyphs.        (line 107)
+* widget-glyphs in the X environment:    Glyphs.              (line 112)
+* Win-Emacs:                             XEmacs.              (line   6)
 * window (in Emacs):                     Modules for the Basic Displayable Lisp Objects.
-* window hierarchy:                      Window Hierarchy.
-* window object, the:                    The Window Object.
-* window point internals:                The Window Object.
+                                                              (line  63)
+* window hierarchy:                      Window Hierarchy.    (line   6)
+* window object, the:                    The Window Object.   (line   6)
+* window point internals:                The Window Object.   (line  22)
 * windows, consoles; devices; frames;:   Consoles; Devices; Frames; Windows.
+                                                              (line   6)
 * windows, introduction to consoles; devices; frames;: Introduction to Consoles; Devices; Frames; Windows.
-* Wing, Ben:                             XEmacs.
-* writer:                                Lstream Methods.
+                                                              (line   6)
+* Wing, Ben:                             XEmacs.              (line   6)
+* writer:                                Lstream Methods.     (line  26)
 * writing good comments:                 Writing Good Comments.
+                                                              (line   6)
 * writing Lisp primitives:               Writing Lisp Primitives.
+                                                              (line   6)
 * writing Mule-aware code, general guidelines for: General Guidelines for Writing Mule-Aware Code.
+                                                              (line   6)
 * writing new C code, rules when:        Rules When Writing New C Code.
-* X environment, widget-glyphs in the:   Glyphs.
+                                                              (line   6)
+* X environment, widget-glyphs in the:   Glyphs.              (line 112)
 * X Window System, interface to the:     Interface to the X Window System.
+                                                              (line   6)
 * X Windows, modules for interfacing with: Modules for Interfacing with X Windows.
-* XEmacs:                                XEmacs.
+                                                              (line   6)
+* XEmacs:                                XEmacs.              (line   6)
 * XEmacs from the inside:                XEmacs From the Inside.
+                                                              (line   6)
 * XEmacs from the outside:               XEmacs From the Outside.
+                                                              (line   6)
 * XEmacs from the perspective of building: XEmacs From the Perspective of Building.
-* XEmacs goes it alone:                  XEmacs.
+                                                              (line   6)
+* XEmacs goes it alone:                  XEmacs.              (line  45)
 * XEmacs object system (abstractly speaking), the: The XEmacs Object System (Abstractly Speaking).
-* Zawinski, Jamie:                       Lucid Emacs.
-* zero-length extents:                   Zero-Length Extents.
+                                                              (line   6)
+* Zawinski, Jamie:                       Lucid Emacs.         (line  28)
+* zero-length extents:                   Zero-Length Extents. (line   6)
 
 

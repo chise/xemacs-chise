@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.6 from
+This is ../info/xemacs.info, produced by makeinfo version 4.8 from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -401,6 +401,7 @@ Editing Programs
 * Change Log::          Maintaining a change history for your program.
 * Tags::                Go directly to any function in your program in one
                          command.  Tags remembers which file it is in.
+* CC Mode::             Modes for C, C++, Java and similar languages
 * Fortran::		Fortran mode and its special features.
 * Asm Mode::            Asm mode and its special features.
 
@@ -409,7 +410,6 @@ Indentation for Programs
 * Basic Indent::
 * Multi-line Indent::   Commands to reindent many lines at once.
 * Lisp Indent::		Specifying how each Lisp function should be indented.
-* C Indent::		Choosing an indentation style for C code.
 
 Tags Tables
 
@@ -551,10 +551,9 @@ GNU GENERAL PUBLIC LICENSE
 **************************
 
                        Version 1, February 1989
-
      Copyright (C) 1989 Free Software Foundation, Inc.
      675 Mass Ave, Cambridge, MA 02139, USA
-     
+
      Everyone is permitted to copy and distribute verbatim copies
      of this license document, but changing it is not allowed.
 
@@ -723,7 +722,6 @@ modification follow.
      and reuse of software generally.
 
                                 NO WARRANTY
-
  10. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO
      WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE
      LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
@@ -747,7 +745,6 @@ modification follow.
      ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
                       END OF TERMS AND CONDITIONS
-
 Appendix: How to Apply These Terms to Your New Programs
 =======================================================
 
@@ -763,17 +760,17 @@ convey the exclusion of warranty; and each file should have at least the
 
      ONE LINE TO GIVE THE PROGRAM'S NAME AND A BRIEF IDEA OF WHAT IT DOES.
      Copyright (C) 19YY  NAME OF AUTHOR
-     
+
      This program is free software; you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
      the Free Software Foundation; either version 1, or (at your option)
      any later version.
-     
+
      This program is distributed in the hope that it will be useful,
      but WITHOUT ANY WARRANTY; without even the implied warranty of
      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
      GNU General Public License for more details.
-     
+
      You should have received a copy of the GNU General Public License
      along with this program; if not, write to the Free Software
      Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
@@ -802,7 +799,7 @@ if necessary.  Here a sample; alter the names:
      Yoyodyne, Inc., hereby disclaims all copyright interest in the
      program `Gnomovision' (a program to direct compilers to make passes
      at assemblers) written by James Hacker.
-     
+
      SIGNATURE OF TY COON, 1 April 1989
      Ty Coon, President of Vice
 
@@ -905,8 +902,8 @@ anybody can use it afterward.
 
 File: xemacs.info,  Node: Frame,  Next: Keystrokes,  Prev: Concept Index,  Up: Top
 
-The XEmacs Frame
-****************
+1 The XEmacs Frame
+******************
 
 Frame
      In many environments, such as a tty terminal, an XEmacs frame
@@ -990,8 +987,8 @@ visible in all XEmacs windows containing that buffer.
 
 File: xemacs.info,  Node: Point,  Next: Echo Area,  Prev: Frame,  Up: Frame
 
-Point
-=====
+1.1 Point
+=========
 
 When XEmacs is running, the cursor shows the location at which editing
 commands will take effect.  This location is called "point".  You can
@@ -1032,8 +1029,8 @@ accessing the value now called `point'.
 
 File: xemacs.info,  Node: Echo Area,  Next: Mode Line,  Prev: Point,  Up: Frame
 
-The Echo Area
-=============
+1.2 The Echo Area
+=================
 
 The line at the bottom of the frame (below the mode line) is the "echo
 area".  XEmacs uses this area to communicate with the user:
@@ -1077,8 +1074,8 @@ area".  XEmacs uses this area to communicate with the user:
 
 File: xemacs.info,  Node: Mode Line,  Next: GUI Components,  Prev: Echo Area,  Up: Frame
 
-The Mode Line
-=============
+1.3 The Mode Line
+=================
 
 Each text window's last line is a "mode line" which describes what is
 going on in that window.  When there is only one text window, the mode
@@ -1169,8 +1166,8 @@ appropriately.
 
 File: xemacs.info,  Node: GUI Components,  Next: XEmacs under X,  Prev: Mode Line,  Up: Frame
 
-GUI Components
-==============
+1.4 GUI Components
+==================
 
 When executed in a graphical windowing environment such as the X Window
 System or Microsoft Windows, XEmacs displays several graphical user
@@ -1197,8 +1194,8 @@ function, and on a tab in the gutter to switch buffers.
 
 File: xemacs.info,  Node: Menubar Basics,  Next: Scrollbar Basics,  Up: GUI Components
 
-The XEmacs Menubar
-==================
+1.5 The XEmacs Menubar
+======================
 
 The XEmacs menubar is intended to be conformant to the usual conventions
 for menubars, although conformance is not yet perfect.  The menu at the
@@ -1233,8 +1230,8 @@ XEmacsen, the `Mule' menu will be moved under `Options'.)
 
 File: xemacs.info,  Node: Scrollbar Basics,  Next: Mode Line Basics,  Prev: Menubar Basics,  Up: GUI Components
 
-XEmacs Scrollbars
-=================
+1.6 XEmacs Scrollbars
+=====================
 
 XEmacs scrollbars provide the usual interface.  Arrow buttons at either
 end allow for line by line scrolling, including autorepeat.  Clicking in
@@ -1254,8 +1251,8 @@ horizontal scrollbar.
 
 File: xemacs.info,  Node: Mode Line Basics,  Next: Toolbar Basics,  Prev: Scrollbar Basics,  Up: GUI Components
 
-XEmacs Mode Lines
-=================
+1.7 XEmacs Mode Lines
+=====================
 
 When used in a windowing system, the XEmacs modelines can be dragged
 vertically. The effect is to resize the windows above and below the
@@ -1274,8 +1271,8 @@ the `Options' menu.
 
 File: xemacs.info,  Node: Toolbar Basics,  Next: Gutter Basics,  Prev: Mode Line Basics,  Up: GUI Components
 
-XEmacs Toolbars
-===============
+1.8 XEmacs Toolbars
+===================
 
 XEmacs has a default toolbar which provides shortcuts for some of the
 commonly used operations (such as opening files) and applications (such
@@ -1290,8 +1287,8 @@ mail-specific operations like sending, saving, and deleting messages.
 
 File: xemacs.info,  Node: Gutter Basics,  Next: Inhibiting,  Prev: Toolbar Basics,  Up: GUI Components
 
-XEmacs Gutters
-==============
+1.9 XEmacs Gutters
+==================
 
 Gutters are the most flexible of the GUI components described in this
 section.  In theory, the other GUI components could be implemented by
@@ -1336,8 +1333,8 @@ libraries.  These, and some more rarely customized options, are in the
 
 File: xemacs.info,  Node: Inhibiting,  Next: Customizing,  Prev: Gutter Basics,  Up: GUI Components
 
-Inhibiting Display of GUI Components
-====================================
+1.10 Inhibiting Display of GUI Components
+=========================================
 
 Use of GUI facilities is a personal thing.  Almost everyone agrees that
 drawing via keyboard-based "turtle graphics" is acceptable to hardly
@@ -1380,16 +1377,16 @@ customize `left-toolbar-visible-p'.
 
 File: xemacs.info,  Node: Customizing,  Prev: Inhibiting,  Up: GUI Components
 
-Changing the Position, Orientation, and Appearance of GUI Components
-====================================================================
+1.11 Changing the Position, Orientation, and Appearance of GUI Components
+=========================================================================
 
 #### Not documented yet.
 
 
 File: xemacs.info,  Node: XEmacs under X,  Next: XEmacs under MS Windows,  Prev: GUI Components,  Up: Frame
 
-Using XEmacs Under the X Window System
-======================================
+1.12 Using XEmacs Under the X Window System
+===========================================
 
 XEmacs can be used with the X Window System and a window manager like
 MWM or TWM.  In that case, the X window manager opens, closes, and
@@ -1460,8 +1457,8 @@ applies:
 
 File: xemacs.info,  Node: XEmacs under MS Windows,  Prev: XEmacs under X,  Up: Frame
 
-Using XEmacs Under Microsoft Windows
-====================================
+1.13 Using XEmacs Under Microsoft Windows
+=========================================
 
 Use of XEmacs under MS Windows is not separately documented here, but
 most operations available under the X Window System are also available
@@ -1473,8 +1470,8 @@ used in XEmacs.
 
 File: xemacs.info,  Node: Keystrokes,  Next: Pull-down Menus,  Prev: Frame,  Up: Top
 
-Keystrokes, Key Sequences, and Key Bindings
-*******************************************
+2 Keystrokes, Key Sequences, and Key Bindings
+*********************************************
 
 * Menu:
 
@@ -1492,8 +1489,8 @@ Keystrokes, Key Sequences, and Key Bindings
 
 File: xemacs.info,  Node: Intro to Keystrokes,  Next: Representing Keystrokes,  Prev: Keystrokes,  Up: Keystrokes
 
-Keystrokes as Building Blocks of Key Sequences
-==============================================
+2.1 Keystrokes as Building Blocks of Key Sequences
+==================================================
 
 Earlier versions of Emacs used only the ASCII character set, which
 defines 128 different character codes.  Some of these codes are
@@ -1554,8 +1551,8 @@ instead.
 
 File: xemacs.info,  Node: Representing Keystrokes,  Next: Key Sequences,  Prev: Intro to Keystrokes,  Up: Keystrokes
 
-Representing Keystrokes
------------------------
+2.1.1 Representing Keystrokes
+-----------------------------
 
 XEmacs represents keystrokes as lists. Each list consists of an
 arbitrary combination of modifiers followed by a single keysym at the
@@ -1591,8 +1588,8 @@ The correct forms are `A' and `+'.
 
 File: xemacs.info,  Node: Key Sequences,  Next: String Key Sequences,  Prev: Representing Keystrokes,  Up: Keystrokes
 
-Representing Key Sequences
---------------------------
+2.1.2 Representing Key Sequences
+--------------------------------
 
 A "complete key sequence" is a sequence of keystrokes that Emacs
 understands as a unit.  Key sequences are significant because you can
@@ -1663,8 +1660,8 @@ far less clear.
 
 File: xemacs.info,  Node: String Key Sequences,  Next: Meta Key,  Prev: Key Sequences,  Up: Keystrokes
 
-String Key Sequences
---------------------
+2.1.3 String Key Sequences
+--------------------------
 
 For backward compatibility, you may also represent a key sequence using
 strings.  For example, we have the following equivalent representations:
@@ -1678,8 +1675,8 @@ strings.  For example, we have the following equivalent representations:
 
 File: xemacs.info,  Node: Meta Key,  Next: Super and Hyper Keys,  Prev: String Key Sequences,  Up: Keystrokes
 
-Assignment of the <META> Key
-----------------------------
+2.1.4 Assignment of the <META> Key
+----------------------------------
 
 Not all terminals have the complete set of modifiers.  Terminals that
 have a <Meta> key allow you to type Meta characters by just holding
@@ -1710,8 +1707,8 @@ the `meta-flag' variable is irrelevant.
 
 File: xemacs.info,  Node: Super and Hyper Keys,  Next: Character Representation,  Prev: Meta Key,  Up: Keystrokes
 
-Assignment of the <SUPER> and <HYPER> Keys
-------------------------------------------
+2.1.5 Assignment of the <SUPER> and <HYPER> Keys
+------------------------------------------------
 
 Most keyboards do not, by default, have <SUPER> or <HYPER> modifier
 keys.  Under X, you can simulate the <SUPER> or <HYPER> key if you want
@@ -1842,8 +1839,8 @@ previously-unassigned modifier bit.
 
 File: xemacs.info,  Node: Character Representation,  Next: Commands,  Prev: Super and Hyper Keys,  Up: Keystrokes
 
-Representation of Characters
-============================
+2.2 Representation of Characters
+================================
 
 This section briefly discusses how characters are represented in Emacs
 buffers.  *Note Key Sequences::, for information on representing key
@@ -1865,8 +1862,8 @@ Display Vars::.
 
 File: xemacs.info,  Node: Commands,  Prev: Character Representation,  Up: Keystrokes
 
-Keys and Commands
-=================
+2.3 Keys and Commands
+=====================
 
 This manual is full of passages that tell you what particular keys do.
 But Emacs does not assign meanings to keys directly.  Instead, Emacs
@@ -1920,8 +1917,8 @@ Variables::.
 
 File: xemacs.info,  Node: Pull-down Menus,  Next: Entering Emacs,  Prev: Keystrokes,  Up: Top
 
-XEmacs Pull-down Menus
-======================
+2.4 XEmacs Pull-down Menus
+==========================
 
 If you are running XEmacs under X, a menu bar on top of the Emacs frame
 provides access to pull-down menus of file, edit, and help-related
@@ -1933,35 +1930,35 @@ keyboard as in previous versions of Emacs.
 File
      Perform file and buffer-related operations, such as opening and
      closing files, saving and printing buffers, as well as exiting
-     Emacs.
+     Emacs.  
 
 Edit
      Perform standard editing operations, such as cutting, copying,
-     pasting, and killing selected text.
+     pasting, and killing selected text.  
 
 Apps
      Access to sub-applications implemented within XEmacs, such as the
      mail reader, the World Wide Web browser, the spell-checker, and
-     the calendar program.
+     the calendar program.  
 
 Options
      Control various options regarding the way XEmacs works, such as
      controlling which elements of the frame are visible, selecting the
      fonts to be used for text, specifying whether searches are
-     case-sensitive, etc.
+     case-sensitive, etc.  
 
 Buffers
      Present a menu of buffers for selection as well as the option to
-     display a buffer list.
+     display a buffer list.  
 
 Tools
      Perform various actions designed to automate software development
      and similar technical work, such as searching through many files,
-     compiling a program, and comparing or merging two or three files.
+     compiling a program, and comparing or merging two or three files.  
 
 Help
-     Access to Emacs Info.
-
+     Access to Emacs Info.  
+   
    There are two ways of selecting an item from a pull-down menu:
 
    * Select an item in the menu bar by moving the cursor over it and
@@ -2006,8 +2003,8 @@ separate window, usually together with some documentation.
 
 File: xemacs.info,  Node: File Menu,  Next: Edit Menu,  Up: Pull-down Menus
 
-The File Menu
--------------
+2.4.1 The File Menu
+-------------------
 
 The File menu bar item contains the items New Frame, Open File..., Save
 Buffer, Save Buffer As..., Revert Buffer, Print Buffer, Delete Frame,
@@ -2097,8 +2094,8 @@ Exit Emacs
 
 File: xemacs.info,  Node: Edit Menu,  Next: Apps Menu,  Prev: File Menu,  Up: Pull-down Menus
 
-The Edit Menu
--------------
+2.4.2 The Edit Menu
+-------------------
 
 The Edit pull-down menu contains the Undo, Cut, Copy, Paste, and Clear
 menu items.  When you select a menu item, Emacs executes the equivalent
@@ -2154,8 +2151,8 @@ Execute Last Macro
 
 File: xemacs.info,  Node: Apps Menu,  Next: Options Menu,  Prev: Edit Menu,  Up: Pull-down Menus
 
-The Apps Menu
--------------
+2.4.3 The Apps Menu
+-------------------
 
 The Apps pull-down menu contains the Read Mail (VM)..., Read Mail
 (MH)..., Send Mail..., Usenet News, Browse the Web, Gopher, Spell-Check
@@ -2167,8 +2164,8 @@ select.
 
 File: xemacs.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Apps Menu,  Up: Pull-down Menus
 
-The Options Menu
-----------------
+2.4.4 The Options Menu
+----------------------
 
 The Options pull-down menu contains the Read Only, Case Sensitive
 Search, Overstrike, Auto Delete Selection, Teach Extended Commands,
@@ -2258,8 +2255,8 @@ Save Options
 
 File: xemacs.info,  Node: Buffers Menu,  Next: Tools Menu,  Prev: Options Menu,  Up: Pull-down Menus
 
-The Buffers Menu
-----------------
+2.4.5 The Buffers Menu
+----------------------
 
 The Buffers menu provides a selection of up to ten buffers and the item
 List All Buffers, which provides a Buffer List. *Note List Buffers::,
@@ -2268,8 +2265,8 @@ for more information.
 
 File: xemacs.info,  Node: Tools Menu,  Next: Help Menu,  Prev: Buffers Menu,  Up: Pull-down Menus
 
-The Tools Menu
---------------
+2.4.6 The Tools Menu
+--------------------
 
 The Tools pull-down menu contains the Grep..., Compile..., Shell
 Command..., Shell Command on Region..., Debug(GDB)...  and
@@ -2281,8 +2278,8 @@ will need to select.
 
 File: xemacs.info,  Node: Help Menu,  Next: Menu Customization,  Prev: Tools Menu,  Up: Pull-down Menus
 
-The Help Menu
--------------
+2.4.7 The Help Menu
+-------------------
 
 The Help Menu gives you access to Emacs Info and provides a menu
 equivalent for each of the choices you have when using `C-h'.  *Note
@@ -2294,8 +2291,8 @@ UNIX Manual Page option.
 
 File: xemacs.info,  Node: Menu Customization,  Prev: Help Menu,  Up: Pull-down Menus
 
-Customizing XEmacs Menus
-------------------------
+2.4.8 Customizing XEmacs Menus
+------------------------------
 
 You can customize any of the pull-down menus by adding or removing menu
 items and disabling or enabling existing menu items.
@@ -2402,8 +2399,8 @@ selectable again, use `enable-menu-item'.  `disable-menu-item' and
 
 File: xemacs.info,  Node: Entering Emacs,  Next: Exiting,  Prev: Pull-down Menus,  Up: Top
 
-Entering and Exiting Emacs
-**************************
+3 Entering and Exiting Emacs
+****************************
 
 The usual way to invoke XEmacs is to type `xemacs <RET>' at the shell.
 XEmacs clears the screen and then displays an initial advisory message
@@ -2460,8 +2457,8 @@ file.
 
 File: xemacs.info,  Node: Exiting,  Next: Command Switches,  Prev: Entering Emacs,  Up: Top
 
-Exiting Emacs
-=============
+3.1 Exiting Emacs
+=================
 
 There are two commands for exiting Emacs because there are two kinds of
 exiting: "suspending" Emacs and "killing" Emacs.
@@ -2551,8 +2548,8 @@ commands of your choice (*note Keymaps::).
 
 File: xemacs.info,  Node: Command Switches,  Next: Startup Paths,  Prev: Exiting,  Up: Top
 
-Command Line Switches and Arguments
-===================================
+3.2 Command Line Switches and Arguments
+=======================================
 
 XEmacs supports command line arguments you can use to request various
 actions when invoking Emacs.  The commands are for compatibility with
@@ -2596,8 +2593,8 @@ not true.)
    * Command line arguments that are only relevant if you are running
      XEmacs under X
 
-Command Line Arguments for Any Position
----------------------------------------
+3.2.1 Command Line Arguments for Any Position
+---------------------------------------------
 
 Command line arguments are processed in the order they appear on the
 command line; however, certain arguments (the ones in the second table)
@@ -2643,8 +2640,8 @@ must be at the front of the list if they are used.
 `-help'
      Prints a summary of command-line options and then exits.
 
-Command Line Arguments (Beginning of Line Only)
------------------------------------------------
+3.2.2 Command Line Arguments (Beginning of Line Only)
+-----------------------------------------------------
 
 The following arguments are recognized only at the beginning of the
 command line.  If more than one of them appears, they must appear in the
@@ -2763,8 +2760,8 @@ guarantees there will be no problem redirecting output to `log',
 because Emacs will not assume that it has a display terminal to work
 with.
 
-Command Line Arguments (for XEmacs Under X)
--------------------------------------------
+3.2.3 Command Line Arguments (for XEmacs Under X)
+-------------------------------------------------
 
 If you are running XEmacs under X, a number of options are available to
 control color, border, and window title and icon name:
@@ -2844,8 +2841,8 @@ command line arguments.
 
 File: xemacs.info,  Node: Startup Paths,  Next: Packages,  Prev: Command Switches,  Up: Top
 
-How XEmacs finds Directories and Files
-======================================
+3.3 How XEmacs finds Directories and Files
+==========================================
 
 XEmacs deals with a multitude of files during operation.  These files
 are spread over many directories, and XEmacs determines the location of
@@ -2854,8 +2851,8 @@ paths.  (A "path", for the purposes of this section, is simply a list
 of directories which XEmacs searches successively in order to locate a
 file.)
 
-XEmacs Directory Hierarchies
-----------------------------
+3.3.1 XEmacs Directory Hierarchies
+----------------------------------
 
 Many of the files XEmacs looks for are located within the XEmacs
 installation itself.  However, there are several views of what actually
@@ -2879,10 +2876,10 @@ hierarchy is called a "root".  Whenever this section refers to a
 directory using the shorthand `<root>', it means that XEmacs searches
 for it under all hierarchies XEmacs was able to scrounge up.  In a
 running XEmacs, the hierarchy roots are stored in the variable
-`emacs-roots'.
+`emacs-roots'.  
 
-Package Hierarchies
--------------------
+3.3.2 Package Hierarchies
+-------------------------
 
 Many relevant directories and files XEmacs uses are actually not part of
 the core installation.  They are part of any of the many packages
@@ -2890,11 +2887,10 @@ usually installed on top of an XEmacs installation.  (*Note Packages::.)
 Hence, they play a prominent role in the various paths XEmacs sets up.
 
    XEmacs locates packages in any of a number of package hierarchies.
-Package hierarchies fall into three groups: "early", "late", and "last",
-according to the relative location at which they show up in the various
-XEmacs paths.  Early package hierarchies are at the very front, late
-ones somewhere in the middle, and last hierarchies are (you guessed it)
-last.
+Package hierarchies fall into three groups: "early", "late", and "last", according
+to the relative location at which they show up in the various XEmacs
+paths.  Early package hierarchies are at the very front, late ones
+somewhere in the middle, and last hierarchies are (you guessed it) last.
 
    By default, XEmacs expects an early package hierarchy in the
 subdirectory `.xemacs/xemacs-packages' of the user's home directory.
@@ -2930,8 +2926,8 @@ various system-wide paths.
 
    There may be any number of package hierarchy directories.
 
-Directories and Paths
----------------------
+3.3.3 Directories and Paths
+---------------------------
 
 Here is a list of the various directories and paths XEmacs tries to
 locate during startup.  XEmacs distinguishes between directories and
@@ -2969,7 +2965,7 @@ aiding in debugging any problems which come up.
      `load-library'.  It contains the package lisp directories (see
      further down) and the version-specific core Lisp directories.  If
      the environment variable `EMACSLOADPATH' is set at startup, its
-     directories are prepended to `load-path'.
+     directories are prepended to `load-path'.  
 
 `Info-directory-list'
      Contains the location of info files.  (See *Note (info)::.)  It
@@ -2987,7 +2983,7 @@ aiding in debugging any problems which come up.
      Is the path for executables which XEmacs may want to start.  It
      contains the package executable paths as well as `exec-directory',
      and the directories of the environment variables `PATH' and
-     `EMACSPATH'.
+     `EMACSPATH'.  
 
 `doc-directory'
      Is the directory containing the architecture-specific `DOC' file
@@ -2995,8 +2991,8 @@ aiding in debugging any problems which come up.
 
 `data-directory'
      Is the version-specific directory that contains core data files
-     XEmacs uses.  It may be initialized from the `EMACSDATA'
-     environment variable.
+     XEmacs uses.  It may be initialized from the `EMACSDATA' environment
+     variable.
 
 `data-directory-list'
      Is the path where XEmacs looks for data files.  It contains
@@ -3006,8 +3002,8 @@ aiding in debugging any problems which come up.
 
 File: xemacs.info,  Node: Basic,  Next: Undo,  Prev: Packages,  Up: Top
 
-Basic Editing Commands
-**********************
+4 Basic Editing Commands
+************************
 
 We now give the basics of how to enter text, make corrections, and save
 the text in a file.  If this material is new to you, you might learn it
@@ -3040,8 +3036,8 @@ C-h t'.
 
 File: xemacs.info,  Node: Inserting Text,  Next: Moving Point,  Up: Basic
 
-Inserting Text
-==============
+4.1 Inserting Text
+==================
 
 To insert printing characters into the text you are editing, just type
 them.  This inserts the characters you type into the buffer at the
@@ -3101,8 +3097,8 @@ modes rebind <DEL> to other commands.
 
 File: xemacs.info,  Node: Moving Point,  Next: Erasing,  Prev: Inserting Text,  Up: Basic
 
-Changing the Location of Point
-==============================
+4.2 Changing the Location of Point
+==================================
 
 To do more than insert characters, you have to know how to move point
 (*note Point::).  The simplest way to do this is with arrow keys, or by
@@ -3215,8 +3211,8 @@ an error instead (like `C-p' on the first line).
 
 File: xemacs.info,  Node: Erasing,  Next: Basic Files,  Prev: Moving Point,  Up: Basic
 
-Erasing Text
-============
+4.3 Erasing Text
+================
 
 `<DEL>'
      Delete the character before or after point
@@ -3253,8 +3249,8 @@ line, it kills all the text up to the end of the line.  If you type
 
 File: xemacs.info,  Node: Basic Files,  Next: Basic Help,  Prev: Erasing,  Up: Basic
 
-Files
-=====
+4.4 Files
+=========
 
 The commands described above are sufficient for creating and altering
 text in an Emacs buffer; the more advanced Emacs commands just make
@@ -3298,8 +3294,8 @@ is created.
 
 File: xemacs.info,  Node: Basic Help,  Next: Blank Lines,  Prev: Basic Files,  Up: Basic
 
-Help
-====
+4.5 Help
+========
 
 If you forget what a key does, you can find out with the Help
 character, which is `C-h' (or <F1>, which is an alias for `C-h').  Type
@@ -3312,8 +3308,8 @@ twice to get a description of all the help facilities.  *Note Help::.
 
 File: xemacs.info,  Node: Blank Lines,  Next: Continuation Lines,  Prev: Basic Help,  Up: Basic
 
-Blank Lines
-===========
+4.6 Blank Lines
+===============
 
 Here are special commands and techniques for putting in and taking out
 blank lines.
@@ -3349,8 +3345,8 @@ deletes any blank lines following that nonblank line.
 
 File: xemacs.info,  Node: Continuation Lines,  Next: Position Info,  Prev: Blank Lines,  Up: Basic
 
-Continuation Lines
-==================
+4.7 Continuation Lines
+======================
 
 If you add too many characters to one line without breaking it with
 <RET>, the line will grow to occupy two (or more) lines on the screen,
@@ -3384,8 +3380,8 @@ is displayed.
 
 File: xemacs.info,  Node: Position Info,  Next: Arguments,  Prev: Continuation Lines,  Up: Basic
 
-Cursor Position Information
-===========================
+4.8 Cursor Position Information
+===============================
 
 If you are accustomed to other display editors, you may be surprised
 that Emacs does not always display the page number or line number of
@@ -3469,8 +3465,8 @@ output looks like
 
 File: xemacs.info,  Node: Arguments,  Prev: Position Info,  Up: Basic
 
-Numeric Arguments
-=================
+4.9 Numeric Arguments
+=====================
 
 In mathematics and computer usage, the word "argument" means "data
 provided to a function or operation."  Any Emacs command can be given a
@@ -3487,9 +3483,8 @@ Sun-type keyboards and labelled `Alt' on some other keyboards), the
 easiest way to specify a numeric argument is to type digits and/or a
 minus sign while holding down the <META> key.  For example,
      M-5 C-n
-
-would move down five lines.  The characters `Meta-1', `Meta-2', and so
-on, as well as `Meta--', do this because they are keys bound to
+   would move down five lines.  The characters `Meta-1', `Meta-2', and
+so on, as well as `Meta--', do this because they are keys bound to
 commands (`digit-argument' and `negative-argument') that are defined to
 contribute to an argument for the next command.  Digits and `-'
 modified with Control, or Control and Meta, also specify numeric
@@ -3548,8 +3543,8 @@ the command.
 
 File: xemacs.info,  Node: Undo,  Next: Minibuffer,  Prev: Basic,  Up: Top
 
-Undoing Changes
-***************
+5 Undoing Changes
+*****************
 
 Emacs allows you to undo all changes you make to the text of a buffer,
 up to a certain amount of change (8000 characters).  Each buffer records
@@ -3611,8 +3606,8 @@ is an alternative you can type in the same fashion on any terminal.
 
 File: xemacs.info,  Node: Minibuffer,  Next: M-x,  Prev: Undo,  Up: Top
 
-The Minibuffer
-**************
+6 The Minibuffer
+****************
 
 The "minibuffer" is the facility used by XEmacs commands to read
 arguments more complicated than a single number.  Minibuffer arguments
@@ -3668,8 +3663,8 @@ how XEmacs handles such conflicts:
 
 File: xemacs.info,  Node: Minibuffer File,  Next: Minibuffer Edit,  Prev: Minibuffer,  Up: Minibuffer
 
-Minibuffers for File Names
-==========================
+6.1 Minibuffers for File Names
+==============================
 
 Sometimes the minibuffer starts out with text in it.  For example, when
 you are supposed to give a file name, the minibuffer starts out
@@ -3708,8 +3703,8 @@ interpreted with respect to the same default directory.
 
 File: xemacs.info,  Node: Minibuffer Edit,  Next: Completion,  Prev: Minibuffer File,  Up: Minibuffer
 
-Editing in the Minibuffer
-=========================
+6.2 Editing in the Minibuffer
+=============================
 
 The minibuffer is an XEmacs buffer (albeit a peculiar one), and the
 usual XEmacs commands are available for editing the text of an argument
@@ -3767,8 +3762,8 @@ non-`nil', recursive use of the minibuffer is always allowed.
 
 File: xemacs.info,  Node: Completion,  Next: Minibuffer History,  Prev: Minibuffer Edit,  Up: Minibuffer
 
-Completion
-==========
+6.3 Completion
+==============
 
 For certain kinds of arguments, you can use "completion" to enter the
 argument value.  Completion means that you type part of the argument,
@@ -3812,8 +3807,8 @@ in and hit <RET>.
 
 File: xemacs.info,  Node: Completion Example,  Next: Completion Commands,  Prev: Completion,  Up: Completion
 
-Completion Example
-------------------
+6.3.1 Completion Example
+------------------------
 
 A concrete example may help here.  If you type `M-x au <TAB>', the
 <TAB> looks for alternatives (in this case, command names) that start
@@ -3836,8 +3831,8 @@ because in the minibuffer it is bound to the command
 
 File: xemacs.info,  Node: Completion Commands,  Next: Strict Completion,  Prev: Completion Example,  Up: Completion
 
-Completion Commands
--------------------
+6.3.2 Completion Commands
+-------------------------
 
 Here is a list of the completion commands defined in the minibuffer
 when completion is available.
@@ -3915,8 +3910,8 @@ window that displays a list of completions:
 
 File: xemacs.info,  Node: Strict Completion,  Next: Completion Options,  Prev: Completion Commands,  Up: Completion
 
-Strict Completion
------------------
+6.3.3 Strict Completion
+-----------------------
 
 There are three different ways that <RET> can work in completing
 minibuffers, depending on how the argument will be used.
@@ -3953,8 +3948,8 @@ Other Window::).
 
 File: xemacs.info,  Node: Completion Options,  Prev: Strict Completion,  Up: Completion
 
-Completion Options
-------------------
+6.3.4 Completion Options
+------------------------
 
 When completion is done on file names, certain file names are usually
 ignored.  The variable `completion-ignored-extensions' contains a list
@@ -3984,8 +3979,8 @@ command to enable or disable this minor mode is `M-x icomplete-mode'.
 
 File: xemacs.info,  Node: Minibuffer History,  Next: Repetition,  Prev: Completion,  Up: Minibuffer
 
-Minibuffer History
-==================
+6.4 Minibuffer History
+======================
 
 Every argument that you enter with the minibuffer is saved on a
 "minibuffer history list" so that you can use it again later in another
@@ -4054,8 +4049,8 @@ most minibuffer arguments use.
 
 File: xemacs.info,  Node: Repetition,  Prev: Minibuffer History,  Up: Minibuffer
 
-Repeating Minibuffer Commands
-=============================
+6.5 Repeating Minibuffer Commands
+=================================
 
 Every command that uses the minibuffer at least once is recorded on a
 special history list, together with the values of its arguments, so that
@@ -4117,8 +4112,8 @@ Lisp programs can reexecute a command by feeding the corresponding
 
 File: xemacs.info,  Node: M-x,  Next: Help,  Prev: Minibuffer,  Up: Top
 
-Running Commands by Name
-************************
+7 Running Commands by Name
+**************************
 
 The Emacs commands that are used often or that must be quick to type are
 bound to keys--short sequences of characters--for convenient use.  Other
@@ -4273,8 +4268,8 @@ invoking it.
 
 File: xemacs.info,  Node: Help,  Next: Mark,  Prev: M-x,  Up: Top
 
-Help
-****
+8 Help
+******
 
 XEmacs provides extensive help features accessible through a single
 character, `C-h'.  `C-h' is a prefix key that is used only for
@@ -4310,8 +4305,8 @@ scroll conveniently with <SPC> and <DEL> or <BS>.
 
 File: xemacs.info,  Node: Help Summary,  Next: Key Help,  Prev: Help,  Up: Help
 
-Help Summary
-============
+8.1 Help Summary
+================
 
    Here is a summary of the defined help commands.
 
@@ -4405,8 +4400,8 @@ Help Summary
 
 File: xemacs.info,  Node: Key Help,  Next: Name Help,  Prev: Help Summary,  Up: Help
 
-Documentation for a Key
-=======================
+8.2 Documentation for a Key
+===========================
 
 The most basic `C-h' options are `C-h c' (`describe-key-briefly') and
 `C-h k' (`describe-key').  `C-h c KEY' prints in the echo area the name
@@ -4427,8 +4422,8 @@ function keys and mouse events.
 
 File: xemacs.info,  Node: Name Help,  Next: Apropos,  Prev: Key Help,  Up: Help
 
-Help by Command or Variable Name
-================================
+8.3 Help by Command or Variable Name
+====================================
 
 `C-h f' (`describe-function') reads the name of a Lisp function using
 the minibuffer, then displays that function's documentation string in a
@@ -4481,8 +4476,8 @@ around or before point, if that is the name of a known Lisp variable.
 
 File: xemacs.info,  Node: Apropos,  Next: Library Keywords,  Prev: Name Help,  Up: Help
 
-Apropos
-=======
+8.4 Apropos
+===========
 
 `C-h A'
      Show only symbols that are names of commands (`command-apropos').
@@ -4547,8 +4542,8 @@ symbol property listed in the Apropos buffer, you can click on it with
 
 File: xemacs.info,  Node: Library Keywords,  Next: Help Mode,  Prev: Apropos,  Up: Help
 
-Keyword Search for Lisp Libraries
-=================================
+8.5 Keyword Search for Lisp Libraries
+=====================================
 
 The `C-h p' command lets you search the standard Emacs Lisp libraries
 by topic keywords.  Here is a partial list of keywords you can use:
@@ -4593,8 +4588,8 @@ by topic keywords.  Here is a partial list of keywords you can use:
 
 File: xemacs.info,  Node: Help Mode,  Next: Misc Help,  Prev: Library Keywords,  Up: Help
 
-Help Mode Commands
-==================
+8.6 Help Mode Commands
+======================
 
 Help buffers provide the commands of View mode (*note Misc File Ops::),
 plus a few special commands of their own.
@@ -4613,8 +4608,8 @@ normally appears inside paired single-quotes.
 
 File: xemacs.info,  Node: Misc Help,  Prev: Help Mode,  Up: Help
 
-Other Help Commands
-===================
+8.7 Other Help Commands
+=======================
 
 `C-h i' (`info') runs the Info program, which is used for browsing
 through structured documentation files.  The entire XEmacs manual is
@@ -4633,7 +4628,9 @@ documentation through Info.  `C-h C-f FUNCTION <RET>' enters Info and
 goes straight to the documentation of the XEmacs function FUNCTION.
 `C-h C-k KEY' enters Info and goes straight to the documentation of the
 key KEY.  These two keys run the commands `Info-elisp-ref' and
-`Info-goto-emacs-key-command-node'.
+`Info-goto-emacs-key-command-node'.  (GNU Emacs binds `C-h C-f' to
+`Info-goto-emacs-command-node', but this is less helpful to
+programmers.)
 
    If something surprising happens, and you are not sure what commands
 you typed, use `C-h l' (`view-lossage').  `C-h l' prints the last 100
@@ -4676,8 +4673,8 @@ latest version of XEmacs.
 
 File: xemacs.info,  Node: Mark,  Next: Mouse Selection,  Prev: Help,  Up: Top
 
-Selecting Text
-**************
+9 Selecting Text
+****************
 
 Many Emacs commands operate on an arbitrary contiguous part of the
 current buffer. You can select text in two ways:
@@ -4688,8 +4685,8 @@ current buffer. You can select text in two ways:
    * If you are running XEmacs under X, you can also select text with
      the mouse.
 
-The Mark and the Region
-=======================
+9.1 The Mark and the Region
+===========================
 
 To specify the text for a command to operate on, set "the mark" at one
 end of it, and move point to the other end.  The text between point and
@@ -4722,8 +4719,8 @@ Emacs remembers 16 previous locations of the mark in the `mark ring'.
 
 File: xemacs.info,  Node: Setting Mark,  Next: Using Region,  Prev: Mark,  Up: Mark
 
-Setting the Mark
-----------------
+9.1.1 Setting the Mark
+----------------------
 
 Here are some commands for setting the mark:
 
@@ -4792,8 +4789,8 @@ the mark at the new location with point back at its original location.
 
 File: xemacs.info,  Node: Using Region,  Next: Marking Objects,  Prev: Setting Mark,  Up: Mark
 
-Operating on the Region
------------------------
+9.1.2 Operating on the Region
+-----------------------------
 
 Once you have created an active region, you can do many things to the
 text in it:
@@ -4818,8 +4815,8 @@ text in it:
 
 File: xemacs.info,  Node: Marking Objects,  Next: Mark Ring,  Prev: Using Region,  Up: Mark
 
-Commands to Mark Textual Objects
---------------------------------
+9.1.3 Commands to Mark Textual Objects
+--------------------------------------
 
 There are commands for placing point and the mark around a textual
 object such as a word, list, paragraph or page.
@@ -4865,8 +4862,8 @@ and the mark at the end.
 
 File: xemacs.info,  Node: Mark Ring,  Prev: Marking Objects,  Up: Mark
 
-The Mark Ring
--------------
+9.1.4 The Mark Ring
+-------------------
 
 Aside from delimiting the region, the mark is also useful for marking a
 spot that you may want to go back to.  To make this feature more
@@ -4901,8 +4898,8 @@ in every buffer.
 
 File: xemacs.info,  Node: Mouse Selection,  Next: Additional Mouse Operations,  Prev: Mark,  Up: Top
 
-Selecting Text with the Mouse
-=============================
+9.2 Selecting Text with the Mouse
+=================================
 
 If you are using XEmacs under X, you can use the mouse pointer to
 select text. (The normal mouse pointer is an I-beam, the same pointer
@@ -4949,8 +4946,8 @@ use Emacs region commands on it.
 
 File: xemacs.info,  Node: Additional Mouse Operations,  Next: Killing,  Prev: Mouse Selection,  Up: Top
 
-Additional Mouse Operations
-===========================
+9.3 Additional Mouse Operations
+===============================
 
 XEmacs also provides the following mouse functions.  Most of these are
 not bound to mouse gestures by default, but they are provided for your
@@ -5060,8 +5057,8 @@ selection is immediately disowned afterwards.
 
 File: xemacs.info,  Node: Killing,  Next: Yanking,  Prev: Additional Mouse Operations,  Up: Top
 
-Deletion and Killing
-====================
+9.4 Deletion and Killing
+========================
 
 Most commands that erase text from the buffer save it. You can get the
 text back if you change your mind, or you can move or copy it to other
@@ -5078,8 +5075,8 @@ Undo::). The delete commands include `C-d' (`delete-char') and <DEL>
 and those commands that delete only spaces or newlines.  Commands that
 can destroy significant amounts of nontrivial data usually kill.
 
-Deletion
---------
+9.4.1 Deletion
+--------------
 
 `C-d'
      Delete next character (`delete-char').
@@ -5124,8 +5121,8 @@ the previous line, or, if given an argument, joins the current line and
 the next line by deleting a newline and all surrounding spaces, possibly
 leaving a single space.  *Note M-^: Indentation.
 
-Killing by Lines
-----------------
+9.4.2 Killing by Lines
+----------------------
 
 `C-k'
      Kill rest of line or one or more lines (`kill-line').
@@ -5154,8 +5151,8 @@ of a line kills the two previous lines.
    `C-k' with an argument of zero kills all the text before point on the
 current line.
 
-Other Kill Commands
--------------------
+9.4.3 Other Kill Commands
+-------------------------
 
 `C-w'
      Kill region (from point to the mark) (`kill-region').  *Note
@@ -5200,8 +5197,8 @@ with `C-x <DEL>' and `M-k' (*note Sentences::).
 
 File: xemacs.info,  Node: Yanking,  Next: Using X Selections,  Prev: Killing,  Up: Top
 
-Yanking
-=======
+9.5 Yanking
+===========
 
 "Yanking" means getting back text which was killed. Some systems call
 this "pasting".  The usual way to move or copy text is to kill it and
@@ -5230,8 +5227,8 @@ then yank it one or more times.
 
 File: xemacs.info,  Node: Kill Ring,  Next: Appending Kills,  Prev: Yanking,  Up: Yanking
 
-The Kill Ring
--------------
+9.5.1 The Kill Ring
+-------------------
 
 All killed text is recorded in the "kill ring", a list of blocks of
 text that have been killed.  There is only one kill ring, used in all
@@ -5266,8 +5263,8 @@ actually cut anything.
 
 File: xemacs.info,  Node: Appending Kills,  Next: Earlier Kills,  Prev: Kill Ring,  Up: Yanking
 
-Appending Kills
----------------
+9.5.2 Appending Kills
+---------------------
 
 Normally, each kill command pushes a new block onto the kill ring.
 However, two or more kill commands in a row combine their text into a
@@ -5308,8 +5305,8 @@ place.
 
 File: xemacs.info,  Node: Earlier Kills,  Prev: Appending Kills,  Up: Yanking
 
-Yanking Earlier Kills
----------------------
+9.5.3 Yanking Earlier Kills
+---------------------------
 
 To recover killed text that is no longer the most recent kill, you need
 the `Meta-y' (`yank-pop') command.  You can use `M-y' only after a
@@ -5359,8 +5356,8 @@ no more than that many blocks of killed text are saved.
 
 File: xemacs.info,  Node: Using X Selections,  Next: Accumulating Text,  Prev: Yanking,  Up: Top
 
-Using X Selections
-==================
+9.6 Using X Selections
+======================
 
 In the X window system, mouse selections provide a simple mechanism for
 text transfer between different applications.  In a typical X
@@ -5389,8 +5386,8 @@ also the Emacs selected region.
 
 File: xemacs.info,  Node: X Clipboard Selection,  Next: X Selection Commands,  Prev: Using X Selections,  Up: Using X Selections
 
-The Clipboard Selection
------------------------
+9.6.1 The Clipboard Selection
+-----------------------------
 
 There are other kinds of X selections besides the Primary selection; one
 common one is the Clipboard selection.  Some applications prefer to
@@ -5438,8 +5435,8 @@ tools) you must use this method instead:
 
 File: xemacs.info,  Node: X Selection Commands,  Next: X Cut Buffers,  Prev: X Clipboard Selection,  Up: Using X Selections
 
-Miscellaneous X Selection Commands
-----------------------------------
+9.6.2 Miscellaneous X Selection Commands
+----------------------------------------
 
 `M-x x-copy-primary-selection'
      Copy the primary selection to both the kill ring and the Clipboard.
@@ -5472,8 +5469,8 @@ Miscellaneous X Selection Commands
 
 File: xemacs.info,  Node: X Cut Buffers,  Next: Active Regions,  Prev: X Selection Commands,  Up: Using X Selections
 
-X Cut Buffers
--------------
+9.6.3 X Cut Buffers
+-------------------
 
 X cut buffers are a different, older way of transferring text between
 applications.  XEmacs supports cut buffers for compatibility with older
@@ -5502,8 +5499,8 @@ the X cut buffers.
 
 File: xemacs.info,  Node: Active Regions,  Prev: X Cut Buffers,  Up: Using X Selections
 
-Active Regions
---------------
+9.6.4 Active Regions
+--------------------
 
 By default, both the text you select in an Emacs buffer using the
 click-and-drag mechanism and text you select by setting point and the
@@ -5600,8 +5597,8 @@ when appropriate.
 
 File: xemacs.info,  Node: Accumulating Text,  Next: Rectangles,  Prev: Using X Selections,  Up: Top
 
-Accumulating Text
-=================
+9.7 Accumulating Text
+=====================
 
 Usually you copy or move text by killing it and yanking it, but there
 are other ways that are useful for copying one block of text in many
@@ -5667,8 +5664,8 @@ file itself changes.
 
 File: xemacs.info,  Node: Rectangles,  Next: Registers,  Prev: Accumulating Text,  Up: Top
 
-Rectangles
-==========
+9.8 Rectangles
+==============
 
 The rectangle commands affect rectangular areas of text: all characters
 between a certain pair of columns, in a certain range of lines.
@@ -5743,8 +5740,8 @@ Rectangle Registers: RegRect.
 
 File: xemacs.info,  Node: Registers,  Next: Display,  Prev: Rectangles,  Up: Top
 
-Registers
-*********
+10 Registers
+************
 
 XEmacs "registers" are places in which you can save text or positions
 for later use.  Once you save text or a rectangle in a register, you
@@ -5777,8 +5774,8 @@ displays the contents of the specified register.
 
 File: xemacs.info,  Node: RegPos,  Next: RegText,  Prev: Registers,  Up: Registers
 
-Saving Positions in Registers
-=============================
+10.1 Saving Positions in Registers
+==================================
 
 Saving a position records a place in a buffer so that you can move back
 there later.  Moving to a saved position switches to that buffer and
@@ -5807,8 +5804,8 @@ that were visiting files.
 
 File: xemacs.info,  Node: RegText,  Next: RegRect,  Prev: RegPos,  Up: Registers
 
-Saving Text in Registers
-========================
+10.2 Saving Text in Registers
+=============================
 
 When you want to insert a copy of the same piece of text many times, it
 can be impractical to use the kill ring, since each subsequent kill
@@ -5837,8 +5834,8 @@ mark before it.
 
 File: xemacs.info,  Node: RegRect,  Next: RegConfig,  Prev: RegText,  Up: Registers
 
-Saving Rectangles in Registers
-==============================
+10.3 Saving Rectangles in Registers
+===================================
 
 A register can contain a rectangle instead of lines of text.  The
 rectangle is represented as a list of strings.  *Note Rectangles::, for
@@ -5864,8 +5861,8 @@ sorting a rectangle.  *Note Sorting::.
 
 File: xemacs.info,  Node: RegConfig,  Next: RegNumbers,  Prev: RegRect,  Up: Registers
 
-Saving Window Configurations in Registers
-=========================================
+10.4 Saving Window Configurations in Registers
+==============================================
 
 You can save the window configuration of the selected frame in a
 register, or even the configuration of all windows in all frames, and
@@ -5888,8 +5885,8 @@ instead, use `C-u C-x r j R'.
 
 File: xemacs.info,  Node: RegNumbers,  Next: RegFiles,  Prev: RegConfig,  Up: Registers
 
-Keeping Numbers in Registers
-============================
+10.5 Keeping Numbers in Registers
+=================================
 
 There are commands to store a number in a register, to insert the
 number in the buffer in decimal, and to increment it.  These commands
@@ -5911,8 +5908,8 @@ register contents into the buffer.
 
 File: xemacs.info,  Node: RegFiles,  Next: Bookmarks,  Prev: RegNumbers,  Up: Registers
 
-Keeping File Names in Registers
-===============================
+10.6 Keeping File Names in Registers
+====================================
 
 If you visit certain file names frequently, you can visit them more
 conveniently if you put their names in registers.  Here's the Lisp code
@@ -5933,8 +5930,8 @@ configuration.)
 
 File: xemacs.info,  Node: Bookmarks,  Prev: RegFiles,  Up: Registers
 
-Bookmarks
-=========
+10.7 Bookmarks
+==============
 
 "Bookmarks" are somewhat like registers in that they record positions
 you can jump to.  Unlike registers, they have long names, and they
@@ -6017,8 +6014,8 @@ position.
 
 File: xemacs.info,  Node: Display,  Next: Search,  Prev: Registers,  Up: Top
 
-Controlling the Display
-***********************
+11 Controlling the Display
+**************************
 
 Since only part of a large buffer fits in the window, XEmacs tries to
 show the part that is likely to be interesting.  The display control
@@ -6069,8 +6066,8 @@ commands allow you to specify which part of the text you want to see.
 
 File: xemacs.info,  Node: Scrolling,  Next: Horizontal Scrolling,  Prev: Display,  Up: Display
 
-Scrolling
-=========
+11.1 Scrolling
+==============
 
 If a buffer contains text that is too large to fit entirely within the
 window that is displaying the buffer, XEmacs shows a contiguous section
@@ -6160,8 +6157,8 @@ overriding the redisplay preemption.
 
 File: xemacs.info,  Node: Horizontal Scrolling,  Prev: Scrolling,  Up: Display
 
-Horizontal Scrolling
-====================
+11.2 Horizontal Scrolling
+=========================
 
 `C-x <'
      Scroll text in current window to the left (`scroll-left').
@@ -6188,8 +6185,8 @@ attempting to do so has no effect.
 
 File: xemacs.info,  Node: Selective Display,  Next: Display Vars,  Prev: Display,  Up: Display
 
-Selective Display
-=================
+11.3 Selective Display
+======================
 
 XEmacs can hide lines indented more than a certain number of columns
 (you specify how many columns).  This allows you  to get an overview of
@@ -6217,8 +6214,8 @@ they were not there.
 
 File: xemacs.info,  Node: Display Vars,  Prev: Selective Display,  Up: Display
 
-Variables Controlling Display
-=============================
+11.4 Variables Controlling Display
+==================================
 
 This section contains information for customization only.  Beginning
 users should skip it.
@@ -6272,8 +6269,8 @@ variable becomes local automatically when set.
 
 File: xemacs.info,  Node: Search,  Next: Fixit,  Prev: Display,  Up: Top
 
-Searching and Replacement
-*************************
+12 Searching and Replacement
+****************************
 
 Like other editors, Emacs has commands for searching for occurrences of
 a string.  The principal search command is unusual in that it is
@@ -6300,8 +6297,8 @@ interactively which occurrences to replace.
 
 File: xemacs.info,  Node: Incremental Search,  Next: Non-Incremental Search,  Prev: Search,  Up: Search
 
-Incremental Search
-==================
+12.1 Incremental Search
+=======================
 
 An incremental search begins searching as soon as you type the first
 character of the search string.  As you type in the search string, Emacs
@@ -6472,8 +6469,8 @@ via the normal keybinding mechanism: simply add a binding to the
    Any other character which is normally inserted into a buffer when
 typed is automatically added to the search string in isearch-mode.
 
-Slow Terminal Incremental Search
---------------------------------
+12.1.1 Slow Terminal Incremental Search
+---------------------------------------
 
 Incremental search on a slow terminal uses a modified style of display
 that is designed to take less time.  Instead of redisplaying the buffer
@@ -6501,8 +6498,8 @@ value is 1.
 
 File: xemacs.info,  Node: Non-Incremental Search,  Next: Word Search,  Prev: Incremental Search,  Up: Search
 
-Non-Incremental Search
-======================
+12.2 Non-Incremental Search
+===========================
 
 Emacs also has conventional non-incremental search commands, which
 require you type the entire search string before searching begins.
@@ -6536,8 +6533,8 @@ characters used in Emacs to invoke non-incremental search.
 
 File: xemacs.info,  Node: Word Search,  Next: Regexp Search,  Prev: Non-Incremental Search,  Up: Search
 
-Word Search
-===========
+12.3 Word Search
+================
 
 Word search looks for a sequence of words without regard to how the
 words are separated.  More precisely, you type a string of many words,
@@ -6575,8 +6572,8 @@ sequence of keys for word search.
 
 File: xemacs.info,  Node: Regexp Search,  Next: Regexps,  Prev: Word Search,  Up: Search
 
-Regular Expression Search
-=========================
+12.4 Regular Expression Search
+==============================
 
 A "regular expression" ("regexp", for short) is a pattern that denotes
 a (possibly infinite) set of strings.  Searching for matches for a
@@ -6623,8 +6620,8 @@ way of incremental regexp search with `M-C-s <RET>'; similarly for
 
 File: xemacs.info,  Node: Regexps,  Next: Search Case,  Prev: Regexp Search,  Up: Search
 
-Syntax of Regular Expressions
-=============================
+12.5 Syntax of Regular Expressions
+==================================
 
 Regular expressions have a syntax in which a few characters are special
 constructs and the rest are "ordinary".  An ordinary character is a
@@ -6945,8 +6942,8 @@ matching whitespace characters, repeated any number of times.
 
 File: xemacs.info,  Node: Search Case,  Next: Replace,  Prev: Regexps,  Up: Search
 
-Searching and Case
-==================
+12.6 Searching and Case
+=======================
 
 All searches in Emacs normally ignore the case of the text they are
 searching through; if you specify searching for `FOO', `Foo' and `foo'
@@ -6963,8 +6960,8 @@ Sensitive Search from the Options menu on your screen.
 
 File: xemacs.info,  Node: Replace,  Next: Other Repeating Search,  Prev: Search Case,  Up: Search
 
-Replacement Commands
-====================
+12.7 Replacement Commands
+=========================
 
 Global search-and-replace operations are not needed as often in Emacs as
 they are in other editors, but they are available.  In addition to the
@@ -6983,57 +6980,4 @@ Abbrevs::.
 * Regexp Replace::         Replacing all matches for a regexp.
 * Replacement and Case::   How replacements preserve case of letters.
 * Query Replace::          How to use querying.
-
-
-File: xemacs.info,  Node: Unconditional Replace,  Next: Regexp Replace,  Prev: Replace,  Up: Replace
-
-Unconditional Replacement
--------------------------
-
-`M-x replace-string <RET> STRING <RET> NEWSTRING <RET>'
-     Replace every occurrence of STRING with NEWSTRING.
-
-`M-x replace-regexp <RET> REGEXP <RET> NEWSTRING <RET>'
-     Replace every match for REGEXP with NEWSTRING.
-
-   To replace every instance of `foo' after point with `bar', use the
-command `M-x replace-string' with the two arguments `foo' and `bar'.
-Replacement occurs only after point: if you want to cover the whole
-buffer you must go to the beginning first.  By default, all occurrences
-up to the end of the buffer are replaced.  To limit replacement to part
-of the buffer, narrow to that part of the buffer before doing the
-replacement (*note Narrowing::).
-
-   When `replace-string' exits, point is left at the last occurrence
-replaced.  The value of point when the `replace-string' command was
-issued is remembered on the mark ring; `C-u C-<SPC>' moves back there.
-
-   A numeric argument restricts replacement to matches that are
-surrounded by word boundaries.
-
-
-File: xemacs.info,  Node: Regexp Replace,  Next: Replacement and Case,  Prev: Unconditional Replace,  Up: Replace
-
-Regexp Replacement
-------------------
-
-`replace-string' replaces exact matches for a single string.  The
-similar command `replace-regexp' replaces any match for a specified
-pattern.
-
-   In `replace-regexp', the NEWSTRING need not be constant.  It can
-refer to all or part of what is matched by the REGEXP.  `\&' in
-NEWSTRING stands for the entire text being replaced.  `\D' in
-NEWSTRING, where D is a digit, stands for whatever matched the D'th
-parenthesized grouping in REGEXP.  For example,
-
-     M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
-
-would replace (for example) `cadr' with `cadr-safe' and `cddr' with
-`cddr-safe'.
-
-     M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
-
-would perform exactly the opposite replacements.  To include a `\' in
-the text to replace with, you must give `\\'.
 

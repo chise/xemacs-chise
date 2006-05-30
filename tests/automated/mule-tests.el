@@ -320,6 +320,27 @@ the Assert macro checks for correctness."
 	(Assert (equal (file-truename name1) name1)))
 
       (ignore-file-errors (delete-file name1) (delete-file name2))))
+  ;; Is a non-Latin-1 directory name preserved for call-process?
+  (when (and
+	 ;; The bug should manifest itself on Windows, but I've no access
+	 ;; to a Windows machine to verify that any test works.
+	 (eq directory-sep-char ?/)
+	 ;; file-name-coding-system on Darwin is _always_ UTF-8--the system
+	 ;; enforces this--which coding system we don't have available in
+	 ;; 21.4, outside of packages. I could jump through lots of hoops to
+	 ;; have the test work anyway, but I'm not really into that right
+	 ;; now.
+	 (not (eq system-type 'darwin)))
+    (let ((process-coding-system-alist '((".*" . iso-8859-1)))
+	  (file-name-coding-system 'iso-8859-1)
+	  default-directory)
+      (make-directory (concat (temp-directory) "/\260\354"))
+      (setq file-name-coding-system 'euc-jp)
+      (setq default-directory (format "%s/%c/" (temp-directory)
+				      (make-char 'japanese-jisx0208 48 108)))
+      (Assert (equal (shell-command-to-string "pwd") 
+		     (format "%s/\260\354\n" (temp-directory))))
+      (delete-directory default-directory)))
 
   ;; Add many more file operation tests here...
 

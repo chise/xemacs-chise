@@ -1,3 +1,48 @@
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-03  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* easymenu.el: Update copyright. 
+	* easymenu.el (easy-menu-all-popups):
+	Add a docstring. 
+	* easymenu.el (easy-menu-add):
+	Document a bug, rework the function to preserve any existing
+	non-default mode-popup-menu instead of overwriting it, and not to
+	bother normalising the menu title (nothing else does).
+	* easymenu.el (easy-menu-remove):
+	Restore the default mode-popup-menu instead of leaving an empty
+	one when we remove the last easy-menu popup. 
+
+2006-01-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add pt.xemacs.org,
+	as suggested by Rodrigo Ventura.
+	* package-get.el (package-get-pre-release-download-sites): Ditto,
+	with replacement of xemacs-21.5 by beta, which is the logical path
+	to our beta core and package pre-releases.
+
+2005-12-17  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add Hong Kong
+	download site.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2005-12-26  Vin Shelton  <acs@xemacs.org>
+
+	* find-paths.el:
+	* find-paths.el (paths-emacs-root-p): Add search for package root.
+	* find-paths.el (paths-find-emacs-root): Replaced with
+	paths-find-invocation-roots, which returns a list of roots.
+	* find-paths.el (paths-find-invocation-roots): New.
+	* find-paths.el (paths-find-emacs-roots): Call paths-find-invocation-roots.
+
+2005-12-05  Ville Skyttä  <scop@xemacs.org>
+
+	* minibuf.el (x-library-search-path): Add /usr(/local)/share/X11.
+	* font.el (font-lookup-rgb-components): Ditto, remove stale comment.
+
 2005-12-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.18 is released

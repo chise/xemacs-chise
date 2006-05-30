@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.6 from
+This is ../info/internals.info, produced by makeinfo version 4.8 from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -247,8 +247,8 @@ Extents
 
 File: internals.info,  Node: A History of Emacs,  Next: XEmacs From the Outside,  Prev: Top,  Up: Top
 
-A History of Emacs
-******************
+1 A History of Emacs
+********************
 
 XEmacs is a powerful, customizable text editor and development
 environment.  It began as Lucid Emacs, which was in turn derived from
@@ -278,8 +278,8 @@ language developed at MIT that underlies Emacs.)
 
 File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Up: A History of Emacs
 
-Through Version 18
-==================
+1.1 Through Version 18
+======================
 
 Although the history of the early versions of GNU Emacs is unclear, the
 history is well-known from the middle of 1985.  A time line is:
@@ -390,8 +390,8 @@ history is well-known from the middle of 1985.  A time line is:
 
 File: internals.info,  Node: Lucid Emacs,  Next: GNU Emacs 19,  Prev: Through Version 18,  Up: A History of Emacs
 
-Lucid Emacs
-===========
+1.2 Lucid Emacs
+===============
 
 Lucid Emacs was developed by the (now-defunct) Lucid Inc., a maker of
 C++ and Lisp development environments.  It began when Lucid decided they
@@ -503,8 +503,8 @@ Zawinski, who became "Mr. Lucid Emacs" for many releases.
 
 File: internals.info,  Node: GNU Emacs 19,  Next: GNU Emacs 20,  Prev: Lucid Emacs,  Up: A History of Emacs
 
-GNU Emacs 19
-============
+1.3 GNU Emacs 19
+================
 
 About a year after the initial release of Lucid Emacs, the FSF released
 a beta of their version of Emacs 19 (referred to here as "GNU Emacs").
@@ -577,8 +577,8 @@ working on and using GNU Emacs for a long time (back as far as version
 
 File: internals.info,  Node: GNU Emacs 20,  Next: XEmacs,  Prev: GNU Emacs 19,  Up: A History of Emacs
 
-GNU Emacs 20
-============
+1.4 GNU Emacs 20
+================
 
 On February 2, 1997 work began on GNU Emacs to integrate Mule.  The
 first release was made in September of that year.
@@ -594,8 +594,8 @@ first release was made in September of that year.
 
 File: internals.info,  Node: XEmacs,  Prev: GNU Emacs 20,  Up: A History of Emacs
 
-XEmacs
-======
+1.5 XEmacs
+==========
 
 Around the time that Lucid was developing Energize, Sun Microsystems
 was developing their own development environment (called "SPARCWorks")
@@ -800,8 +800,8 @@ have consistently failed.
 
 File: internals.info,  Node: XEmacs From the Outside,  Next: The Lisp Language,  Prev: A History of Emacs,  Up: Top
 
-XEmacs From the Outside
-***********************
+2 XEmacs From the Outside
+*************************
 
 XEmacs appears to the outside world as an editor, but it is really a
 Lisp environment.  At its heart is a Lisp interpreter; it also
@@ -838,8 +838,8 @@ have to write functions to do those operations in Lisp.
 
 File: internals.info,  Node: The Lisp Language,  Next: XEmacs From the Perspective of Building,  Prev: XEmacs From the Outside,  Up: Top
 
-The Lisp Language
-*****************
+3 The Lisp Language
+*******************
 
 Lisp is a general-purpose language that is higher-level than C and in
 many ways more powerful than C.  Powerful dialects of Lisp such as
@@ -1029,8 +1029,8 @@ inside the real OS.
 
 File: internals.info,  Node: XEmacs From the Perspective of Building,  Next: XEmacs From the Inside,  Prev: The Lisp Language,  Up: Top
 
-XEmacs From the Perspective of Building
-***************************************
+4 XEmacs From the Perspective of Building
+*****************************************
 
 The heart of XEmacs is the Lisp environment, which is written in C.
 This is contained in the `src/' subdirectory.  Underneath `src/' are
@@ -1138,8 +1138,8 @@ as allocation memory in one process, and freeing it in the next.
 
 File: internals.info,  Node: XEmacs From the Inside,  Next: The XEmacs Object System (Abstractly Speaking),  Prev: XEmacs From the Perspective of Building,  Up: Top
 
-XEmacs From the Inside
-**********************
+5 XEmacs From the Inside
+************************
 
 Internally, XEmacs is quite complex, and can be very confusing.  To
 simplify things, it can be useful to think of XEmacs as containing an
@@ -1290,8 +1290,8 @@ change the C code.
 
 File: internals.info,  Node: The XEmacs Object System (Abstractly Speaking),  Next: How Lisp Objects Are Represented in C,  Prev: XEmacs From the Inside,  Up: Top
 
-The XEmacs Object System (Abstractly Speaking)
-**********************************************
+6 The XEmacs Object System (Abstractly Speaking)
+************************************************
 
 At the heart of the Lisp interpreter is its management of objects.
 XEmacs Lisp contains many built-in objects, some of which are simple
@@ -1589,7 +1589,7 @@ character from the GB2312 character set.)
 looking up the string equivalent in the global variable `obarray',
 whose contents should be an obarray.  If no symbol is found, a new
 symbol with the name `"foobar"' is automatically created and added to
-`obarray'; this process is called "interning" the symbol.
+`obarray'; this process is called "interning" the symbol.  
 
      (foo . bar)
 
@@ -1644,8 +1644,8 @@ easily initialized through a read syntax.
 
 File: internals.info,  Node: How Lisp Objects Are Represented in C,  Next: Rules When Writing New C Code,  Prev: The XEmacs Object System (Abstractly Speaking),  Up: Top
 
-How Lisp Objects Are Represented in C
-*************************************
+7 How Lisp Objects Are Represented in C
+***************************************
 
 Lisp objects are represented in C using a 32-bit or 64-bit machine word
 (depending on the processor; i.e. DEC Alphas use 64-bit Lisp objects and
@@ -1654,7 +1654,7 @@ stuffs a pointer together with a tag, as follows:
 
       [ 3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 ]
       [ 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 ]
-     
+
         <---------------------------------------------------------> <->
                  a pointer to a structure, or an integer            tag
 
@@ -1752,8 +1752,8 @@ unless the corresponding configure error checking flag was specified.
 
 File: internals.info,  Node: Rules When Writing New C Code,  Next: Regression Testing XEmacs,  Prev: How Lisp Objects Are Represented in C,  Up: Top
 
-Rules When Writing New C Code
-*****************************
+8 Rules When Writing New C Code
+*******************************
 
 The XEmacs C Code is extremely complex and intricate, and there are many
 rules that are more or less consistently followed throughout the code.
@@ -1776,8 +1776,8 @@ situations, often in code far away from where the actual breakage is.
 
 File: internals.info,  Node: A Reader's Guide to XEmacs Coding Conventions,  Next: General Coding Rules,  Up: Rules When Writing New C Code
 
-A Reader's Guide to XEmacs Coding Conventions
-=============================================
+8.1 A Reader's Guide to XEmacs Coding Conventions
+=================================================
 
 Of course the low-level implementation language of XEmacs is C, but much
 of that uses the Lisp engine to do its work.  However, because the code
@@ -1863,8 +1863,8 @@ must be Lisp_Objects.  (This is hidden in the `DEFUN' macro.)
 
 File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Prev: A Reader's Guide to XEmacs Coding Conventions,  Up: Rules When Writing New C Code
 
-General Coding Rules
-====================
+8.2 General Coding Rules
+========================
 
 The C code is actually written in a dialect of C called "Clean C",
 meaning that it can be compiled, mostly warning-free, with either a C or
@@ -1974,8 +1974,8 @@ elements from a lisp list satisfying some predicate.
 
 File: internals.info,  Node: Writing Lisp Primitives,  Next: Writing Good Comments,  Prev: General Coding Rules,  Up: Rules When Writing New C Code
 
-Writing Lisp Primitives
-=======================
+8.3 Writing Lisp Primitives
+===========================
 
 Lisp primitives are Lisp functions implemented in C.  The details of
 interfacing the C function so that Lisp can call it are handled by a few
@@ -1997,14 +1997,14 @@ appearance.)
        /* This function can GC */
        REGISTER Lisp_Object val, form, tail;
        struct gcpro gcpro1;
-     
+
        val = Feval (XCAR (args));
-     
+
        GCPRO1 (val);
-     
+
        LIST_LOOP_3 (form, XCDR (args), tail)
          Feval (form);
-     
+
        UNGCPRO;
        return val;
      }
@@ -2205,8 +2205,8 @@ contains the definitions for important macros and functions.
 
 File: internals.info,  Node: Writing Good Comments,  Next: Adding Global Lisp Variables,  Prev: Writing Lisp Primitives,  Up: Rules When Writing New C Code
 
-Writing Good Comments
-=====================
+8.4 Writing Good Comments
+=========================
 
 Comments are a lifeline for programmers trying to understand tricky
 code.  In general, the less obvious it is what you are doing, the more
@@ -2268,8 +2268,8 @@ as incorrect.
 
 File: internals.info,  Node: Adding Global Lisp Variables,  Next: Proper Use of Unsigned Types,  Prev: Writing Good Comments,  Up: Rules When Writing New C Code
 
-Adding Global Lisp Variables
-============================
+8.5 Adding Global Lisp Variables
+================================
 
 Global variables whose names begin with `Q' are constants whose value
 is a symbol of a particular name.  The name of the variable should be
@@ -2336,8 +2336,8 @@ your variable got overwritten.
 
 File: internals.info,  Node: Proper Use of Unsigned Types,  Next: Coding for Mule,  Prev: Adding Global Lisp Variables,  Up: Rules When Writing New C Code
 
-Proper Use of Unsigned Types
-============================
+8.6 Proper Use of Unsigned Types
+================================
 
 Avoid using `unsigned int' and `unsigned long' whenever possible.
 Unsigned types are viral - any arithmetic or comparisons involving
@@ -2365,8 +2365,8 @@ representing non-quantities - e.g. bit-oriented flags and such.
 
 File: internals.info,  Node: Coding for Mule,  Next: Techniques for XEmacs Developers,  Prev: Proper Use of Unsigned Types,  Up: Rules When Writing New C Code
 
-Coding for Mule
-===============
+8.7 Coding for Mule
+===================
 
 Although Mule support is not compiled by default in XEmacs, many people
 are using it, and we consider it crucial that new code works correctly
@@ -2390,8 +2390,8 @@ of code generalization for future I18N work.
 
 File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Up: Coding for Mule
 
-Character-Related Data Types
-----------------------------
+8.7.1 Character-Related Data Types
+----------------------------------
 
 First, let's review the basic character-related datatypes used by
 XEmacs.  Note that the separate `typedef's are not mandatory in the
@@ -2461,8 +2461,8 @@ glance at the declaration can tell the intended use of the variable.
 
 File: internals.info,  Node: Working With Character and Byte Positions,  Next: Conversion to and from External Data,  Prev: Character-Related Data Types,  Up: Coding for Mule
 
-Working With Character and Byte Positions
------------------------------------------
+8.7.2 Working With Character and Byte Positions
+-----------------------------------------------
 
 Now that we have defined the basic character-related types, we can look
 at the macros and functions designed for work with them and for
@@ -2560,8 +2560,8 @@ about them.
 
 File: internals.info,  Node: Conversion to and from External Data,  Next: General Guidelines for Writing Mule-Aware Code,  Prev: Working With Character and Byte Positions,  Up: Coding for Mule
 
-Conversion to and from External Data
-------------------------------------
+8.7.3 Conversion to and from External Data
+------------------------------------------
 
 When an external function, such as a C library function, returns a
 `char' pointer, you should almost never treat it as `Bufbyte'.  This is
@@ -2703,8 +2703,8 @@ assertion failure if you try.
 
 File: internals.info,  Node: General Guidelines for Writing Mule-Aware Code,  Next: An Example of Mule-Aware Code,  Prev: Conversion to and from External Data,  Up: Coding for Mule
 
-General Guidelines for Writing Mule-Aware Code
-----------------------------------------------
+8.7.4 General Guidelines for Writing Mule-Aware Code
+----------------------------------------------------
 
 This section contains some general guidance on how to write Mule-aware
 code, as well as some pitfalls you should avoid.
@@ -2755,8 +2755,8 @@ _Always convert external data_
 
 File: internals.info,  Node: An Example of Mule-Aware Code,  Prev: General Guidelines for Writing Mule-Aware Code,  Up: Coding for Mule
 
-An Example of Mule-Aware Code
------------------------------
+8.7.5 An Example of Mule-Aware Code
+-----------------------------------
 
 As an example of Mule-aware code, we will analyze the `string'
 function, which conses up a Lisp string from the character arguments it
@@ -2769,7 +2769,7 @@ receives.  Here is the definition, pasted from `alloc.c':
      {
        Bufbyte *storage = alloca_array (Bufbyte, nargs * MAX_EMCHAR_LEN);
        Bufbyte *p = storage;
-     
+
        for (; nargs; nargs--, args++)
          {
            Lisp_Object lisp_char = *args;
@@ -2803,8 +2803,8 @@ writing new Mule-aware code.
 
 File: internals.info,  Node: Techniques for XEmacs Developers,  Prev: Coding for Mule,  Up: Rules When Writing New C Code
 
-Techniques for XEmacs Developers
-================================
+8.8 Techniques for XEmacs Developers
+====================================
 
 To make a purified XEmacs, do: `make puremacs'.  To make a quantified
 XEmacs, do: `make quantmacs'.
@@ -2852,7 +2852,7 @@ buffer fragmentation into extents).
 
    * Speed up syntax highlighting.  It was suggested that "maybe moving
      some of the syntax highlighting capabilities into C would make a
-     difference."  Wrong idea, I think.  When processing one large file
+     difference."  Wrong idea, I think.  When processing one 400kB file
      a particular low-level routine was being called 40 _million_ times
      simply for _one_ call to `newline-and-indent'.  Syntax
      highlighting needs to be rewritten to use a reliable, fast parser,
@@ -2984,6 +2984,9 @@ reliable, please improve the test suite in `tests/automated'.
      directory _at compile time_.  The non-obvious C rule is that
      `#include "..."' means to search for the included file in the same
      directory as the including file, _not_ in the current directory.
+     Normally this is not a problem but when building with `--srcdir',
+     `make' will search the `VPATH' for you, while the C compiler knows
+     nothing about it.
 
    * Header files should _not_ include `<config.h>' and `"lisp.h"'.  It
      is the responsibility of the `.c' files that use it to do so.
@@ -3013,8 +3016,8 @@ type named FOO:
 
 File: internals.info,  Node: Regression Testing XEmacs,  Next: A Summary of the Various XEmacs Modules,  Prev: Rules When Writing New C Code,  Up: Top
 
-Regression Testing XEmacs
-*************************
+9 Regression Testing XEmacs
+***************************
 
 The source directory `tests/automated' contains XEmacs' automated test
 suite.  The usual way of running all the tests is running `make check'
@@ -3057,7 +3060,7 @@ comparisons from `case-tests.el'.
          (Assert (eq (search-forward "Test buffer" nil t) 12))
          (goto-char (point-min))
          (Assert (eq (search-forward "Test Buffer" nil t) 12))
-     
+
          (setq case-fold-search nil)
          (goto-char (point-min))
          (Assert (not (search-forward "test buffer" nil t)))
@@ -3083,10 +3086,10 @@ hashtable.  Here's an example from `syntax-tests.el':
 
      ;; Test forward-comment at buffer boundaries
      (with-temp-buffer
-     
+
        ;; try to use exactly what you need: featurep, boundp, fboundp
        (if (not (fboundp 'c-mode))
-     
+
            ;; We should provide a standard function for this boilerplate,
            ;; probably called `Skip-Test' -- check for that API with C-h f
            (let* ((reason "c-mode unavailable")
@@ -3094,7 +3097,7 @@ hashtable.  Here's an example from `syntax-tests.el':
      	(puthash reason (if (null count) 1 (1+ count))
      		 skipped-test-reasons)
      	(Print-Skip "comment and parse-partial-sexp tests" reason))
-     
+
          ;; and here's the test code
          (c-mode)
          (insert "// comment\n")
@@ -3116,8 +3119,8 @@ silently omit the test.
 
 File: internals.info,  Node: A Summary of the Various XEmacs Modules,  Next: Allocation of Objects in XEmacs Lisp,  Prev: Regression Testing XEmacs,  Up: Top
 
-A Summary of the Various XEmacs Modules
-***************************************
+10 A Summary of the Various XEmacs Modules
+******************************************
 
 This is accurate as of XEmacs 20.0.
 
@@ -3140,8 +3143,8 @@ This is accurate as of XEmacs 20.0.
 
 File: internals.info,  Node: Low-Level Modules,  Next: Basic Lisp Modules,  Up: A Summary of the Various XEmacs Modules
 
-Low-Level Modules
-=================
+10.1 Low-Level Modules
+======================
 
      config.h
 
@@ -3315,8 +3318,8 @@ checks provided by the `--error-check-*' configuration options.
 
 File: internals.info,  Node: Basic Lisp Modules,  Next: Modules for Standard Editing Operations,  Prev: Low-Level Modules,  Up: A Summary of the Various XEmacs Modules
 
-Basic Lisp Modules
-==================
+10.2 Basic Lisp Modules
+=======================
 
      lisp-disunion.h
      lisp-union.h
@@ -3457,8 +3460,8 @@ structures.  Note that the byte-code _compiler_ is written in Lisp.
 
 File: internals.info,  Node: Modules for Standard Editing Operations,  Next: Editor-Level Control Flow Modules,  Prev: Basic Lisp Modules,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Standard Editing Operations
-=======================================
+10.3 Modules for Standard Editing Operations
+============================================
 
      buffer.c
      buffer.h
@@ -3594,8 +3597,8 @@ changes.  Most of this could be implemented in Lisp.
 
 File: internals.info,  Node: Editor-Level Control Flow Modules,  Next: Modules for the Basic Displayable Lisp Objects,  Prev: Modules for Standard Editing Operations,  Up: A Summary of the Various XEmacs Modules
 
-Editor-Level Control Flow Modules
-=================================
+10.4 Editor-Level Control Flow Modules
+======================================
 
      event-Xt.c
      event-msw.c
@@ -3678,8 +3681,8 @@ before the echo-area Lisp code is loaded).
 
 File: internals.info,  Node: Modules for the Basic Displayable Lisp Objects,  Next: Modules for other Display-Related Lisp Objects,  Prev: Editor-Level Control Flow Modules,  Up: A Summary of the Various XEmacs Modules
 
-Modules for the Basic Displayable Lisp Objects
-==============================================
+10.5 Modules for the Basic Displayable Lisp Objects
+===================================================
 
      console-msw.c
      console-msw.h
@@ -3754,8 +3757,8 @@ scrollbars.
 
 File: internals.info,  Node: Modules for other Display-Related Lisp Objects,  Next: Modules for the Redisplay Mechanism,  Prev: Modules for the Basic Displayable Lisp Objects,  Up: A Summary of the Various XEmacs Modules
 
-Modules for other Display-Related Lisp Objects
-==============================================
+10.6 Modules for other Display-Related Lisp Objects
+===================================================
 
      faces.c
      faces.h
@@ -3821,8 +3824,8 @@ These files were removed due to Unisys patent infringement concerns.
 
 File: internals.info,  Node: Modules for the Redisplay Mechanism,  Next: Modules for Interfacing with the File System,  Prev: Modules for other Display-Related Lisp Objects,  Up: A Summary of the Various XEmacs Modules
 
-Modules for the Redisplay Mechanism
-===================================
+10.7 Modules for the Redisplay Mechanism
+========================================
 
      redisplay-output.c
      redisplay-msw.c
@@ -3882,8 +3885,8 @@ should probably be merged into `redisplay-tty.c'.
 
 File: internals.info,  Node: Modules for Interfacing with the File System,  Next: Modules for Other Aspects of the Lisp Interpreter and Object System,  Prev: Modules for the Redisplay Mechanism,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Interfacing with the File System
-============================================
+10.8 Modules for Interfacing with the File System
+=================================================
 
      lstream.c
      lstream.h
@@ -3961,8 +3964,8 @@ a broken implementation.
 
 File: internals.info,  Node: Modules for Other Aspects of the Lisp Interpreter and Object System,  Next: Modules for Interfacing with the Operating System,  Prev: Modules for Interfacing with the File System,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Other Aspects of the Lisp Interpreter and Object System
-===================================================================
+10.9 Modules for Other Aspects of the Lisp Interpreter and Object System
+========================================================================
 
      elhash.c
      elhash.h
@@ -4040,6 +4043,33 @@ character of end sequence" _flag_.  The "comment-end" class allows the
 scanner to determine that no second character is needed to terminate
 the comment.
 
+   There used to be a syntax class `Sextword'.  A character of
+`Sextword' class is a word-constituent but a word boundary may exist
+between two such characters.  Ken'ichi HANDA <handa@etl.go.jp> explains
+the purpose of the Sextword syntax category:
+
+     Japanese words are not separated by spaces, which makes finding
+     word boundaries very difficult.  Theoretically it's impossible
+     without using natural language processing techniques.  But, by
+     defining pseudo-words as below (much simplified for letting you
+     understand it easily) for Japanese, we can have a convenient
+     forward-word function for Japanese.
+
+          A Japanese word is a sequence of characters that consists of
+          zero or more Kanji characters followed by zero or more
+          Hiragana characters.
+
+     Then, the problem is that now we can't say that a sequence of
+     word-constituents makes up a word.  For instance, both Hiragana "A"
+     and Kanji "KAN" are word-constituents but the sequence of these two
+     letters can't be a single word.
+
+     So, we introduced Sextword for Japanese letters.
+
+   There seems to have been some controversy about this category, as it
+has been removed, readded, and removed again.  Currently neither GNU
+Emacs (21.3.99) nor XEmacs (21.5.17) seems to use it.
+
      casefiddle.c
 
    This module implements various Lisp primitives for upcasing,
@@ -4103,8 +4133,8 @@ used for various security applications on the Internet.
 
 File: internals.info,  Node: Modules for Interfacing with the Operating System,  Next: Modules for Interfacing with X Windows,  Prev: Modules for Other Aspects of the Lisp Interpreter and Object System,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Interfacing with the Operating System
-=================================================
+10.10 Modules for Interfacing with the Operating System
+=======================================================
 
      callproc.c
      process.c
@@ -4285,8 +4315,8 @@ versions of AIX prior to 4.1.
 
 File: internals.info,  Node: Modules for Interfacing with X Windows,  Next: Modules for Internationalization,  Prev: Modules for Interfacing with the Operating System,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Interfacing with X Windows
-======================================
+10.11 Modules for Interfacing with X Windows
+============================================
 
      Emacs.ad.h
 
@@ -4392,8 +4422,8 @@ compiled into libraries that are then linked into your application.
 
 File: internals.info,  Node: Modules for Internationalization,  Next: Modules for Regression Testing,  Prev: Modules for Interfacing with X Windows,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Internationalization
-================================
+10.12 Modules for Internationalization
+======================================
 
      mule-canna.c
      mule-ccl.c
@@ -4442,8 +4472,8 @@ specify conversions of names of files and directories.  The standard C
 I/O functions like `open()' are wrapped so that conversion occurs
 automatically.
 
-   `mule.c' provides a few miscellaneous things that should probably be
-elsewhere.
+   `mule.c' contains a few miscellaneous things.  It currently seems to
+be unused and probably should be removed.
 
      intl.c
 
@@ -4459,8 +4489,8 @@ Asian-language support, and is not currently used.
 
 File: internals.info,  Node: Modules for Regression Testing,  Prev: Modules for Internationalization,  Up: A Summary of the Various XEmacs Modules
 
-Modules for Regression Testing
-==============================
+10.13 Modules for Regression Testing
+====================================
 
      test-harness.el
      base64-tests.el
@@ -4477,6 +4507,7 @@ Modules for Regression Testing
      regexp-tests.el
      symbol-tests.el
      syntax-tests.el
+     tag-tests.el
 
    `test-harness.el' defines the macros `Assert', `Check-Error',
 `Check-Error-Message', and `Check-Message'.  The other files are test
@@ -4485,8 +4516,8 @@ files, testing various XEmacs modules.
 
 File: internals.info,  Node: Allocation of Objects in XEmacs Lisp,  Next: Dumping,  Prev: A Summary of the Various XEmacs Modules,  Up: Top
 
-Allocation of Objects in XEmacs Lisp
-************************************
+11 Allocation of Objects in XEmacs Lisp
+***************************************
 
 * Menu:
 
@@ -4509,8 +4540,8 @@ Allocation of Objects in XEmacs Lisp
 
 File: internals.info,  Node: Introduction to Allocation,  Next: Garbage Collection,  Up: Allocation of Objects in XEmacs Lisp
 
-Introduction to Allocation
-==========================
+11.1 Introduction to Allocation
+===============================
 
 Emacs Lisp, like all Lisps, has garbage collection.  This means that
 the programmer never has to explicitly free (destroy) an object; it
@@ -4577,8 +4608,8 @@ directly-tagged fashion.
 
 File: internals.info,  Node: Garbage Collection,  Next: GCPROing,  Prev: Introduction to Allocation,  Up: Allocation of Objects in XEmacs Lisp
 
-Garbage Collection
-==================
+11.2 Garbage Collection
+=======================
 
 Garbage collection is simple in theory but tricky to implement.  Emacs
 Lisp uses the oldest garbage collection method, called "mark and
@@ -4600,8 +4631,8 @@ collection (according to `gc-cons-threshold').
 
 File: internals.info,  Node: GCPROing,  Next: Garbage Collection - Step by Step,  Prev: Garbage Collection,  Up: Allocation of Objects in XEmacs Lisp
 
-`GCPRO'ing
-==========
+11.3 `GCPRO'ing
+===============
 
 `GCPRO'ing is one of the ugliest and trickiest parts of Emacs
 internals.  The basic idea is that whenever garbage collection occurs,
@@ -4741,8 +4772,8 @@ happen at any point at all, such as during object allocation.
 
 File: internals.info,  Node: Garbage Collection - Step by Step,  Next: Integers and Characters,  Prev: GCPROing,  Up: Allocation of Objects in XEmacs Lisp
 
-Garbage Collection - Step by Step
-=================================
+11.4 Garbage Collection - Step by Step
+======================================
 
 * Menu:
 
@@ -4758,8 +4789,8 @@ Garbage Collection - Step by Step
 
 File: internals.info,  Node: Invocation,  Next: garbage_collect_1,  Up: Garbage Collection - Step by Step
 
-Invocation
-----------
+11.4.1 Invocation
+-----------------
 
 The first thing that anyone should know about garbage collection is:
 when and how the garbage collector is invoked. One might think that this
@@ -4814,8 +4845,8 @@ after pressing Ctrl-g.
 
 File: internals.info,  Node: garbage_collect_1,  Next: mark_object,  Prev: Invocation,  Up: Garbage Collection - Step by Step
 
-`garbage_collect_1'
--------------------
+11.4.2 `garbage_collect_1'
+--------------------------
 
 We can now describe exactly what happens after the invocation takes
 place.
@@ -4994,8 +5025,8 @@ place.
 
 File: internals.info,  Node: mark_object,  Next: gc_sweep,  Prev: garbage_collect_1,  Up: Garbage Collection - Step by Step
 
-`mark_object'
--------------
+11.4.3 `mark_object'
+--------------------
 
 The first thing that is checked while marking an object is whether the
 object is a real Lisp object `Lisp_Type_Record' or just an integer or a
@@ -5030,8 +5061,8 @@ object.
 
 File: internals.info,  Node: gc_sweep,  Next: sweep_lcrecords_1,  Prev: mark_object,  Up: Garbage Collection - Step by Step
 
-`gc_sweep'
-----------
+11.4.4 `gc_sweep'
+-----------------
 
 The job of this function is to free all unmarked records from memory. As
 we know, there are different types of objects implemented and managed,
@@ -5121,8 +5152,8 @@ set to the state it had before handling this block.
 
 File: internals.info,  Node: sweep_lcrecords_1,  Next: compact_string_chars,  Prev: gc_sweep,  Up: Garbage Collection - Step by Step
 
-`sweep_lcrecords_1'
--------------------
+11.4.5 `sweep_lcrecords_1'
+--------------------------
 
 After nullifying the complete lcrecord statistics, we go over all
 lcrecords two separate times. They are all chained together in a list
@@ -5143,8 +5174,8 @@ by calling `tick_lcrecord_stats' with the right arguments,
 
 File: internals.info,  Node: compact_string_chars,  Next: sweep_strings,  Prev: sweep_lcrecords_1,  Up: Garbage Collection - Step by Step
 
-`compact_string_chars'
-----------------------
+11.4.6 `compact_string_chars'
+-----------------------------
 
 The purpose of this function is to compact all the data parts of the
 strings that are held in so-called `string_chars_block', i.e. the
@@ -5187,8 +5218,8 @@ know that they just carry garbage) are explicitly `xfree'd.
 
 File: internals.info,  Node: sweep_strings,  Next: sweep_bit_vectors_1,  Prev: compact_string_chars,  Up: Garbage Collection - Step by Step
 
-`sweep_strings'
----------------
+11.4.7 `sweep_strings'
+----------------------
 
 The sweeping for the fixed sized string objects is essentially exactly
 the same as it is for all other fixed size types. As before, the freeing
@@ -5210,8 +5241,8 @@ explicitly.
 
 File: internals.info,  Node: sweep_bit_vectors_1,  Prev: sweep_strings,  Up: Garbage Collection - Step by Step
 
-`sweep_bit_vectors_1'
----------------------
+11.4.8 `sweep_bit_vectors_1'
+----------------------------
 
 Bit vectors are also one of the rare types that are `malloc'ed
 individually. Consequently, while sweeping, all further needless bit
@@ -5225,8 +5256,8 @@ garbage collector's output purposes is updated.
 
 File: internals.info,  Node: Integers and Characters,  Next: Allocation from Frob Blocks,  Prev: Garbage Collection - Step by Step,  Up: Allocation of Objects in XEmacs Lisp
 
-Integers and Characters
-=======================
+11.5 Integers and Characters
+============================
 
 Integer and character Lisp objects are created from integers using the
 macros `XSETINT()' and `XSETCHAR()' or the equivalent functions
@@ -5242,8 +5273,8 @@ will at least be correct.
 
 File: internals.info,  Node: Allocation from Frob Blocks,  Next: lrecords,  Prev: Integers and Characters,  Up: Allocation of Objects in XEmacs Lisp
 
-Allocation from Frob Blocks
-===========================
+11.6 Allocation from Frob Blocks
+================================
 
 The uninitialized memory required by a `Lisp_Object' of a particular
 type is allocated using `ALLOCATE_FIXED_TYPE()'.  This only occurs
@@ -5269,8 +5300,8 @@ more defensive but less efficient and is used for error-checking.)
 
 File: internals.info,  Node: lrecords,  Next: Low-level allocation,  Prev: Allocation from Frob Blocks,  Up: Allocation of Objects in XEmacs Lisp
 
-lrecords
-========
+11.7 lrecords
+=============
 
 [see `lrecord.h']
 
@@ -5501,8 +5532,8 @@ into the enum's code at compile-time.
 
 File: internals.info,  Node: Low-level allocation,  Next: Cons,  Prev: lrecords,  Up: Allocation of Objects in XEmacs Lisp
 
-Low-level allocation
-====================
+11.8 Low-level allocation
+=========================
 
 Memory that you want to allocate directly should be allocated using
 `xmalloc()' rather than `malloc()'.  This implements error-checking on
@@ -5573,8 +5604,8 @@ is reached.
 
 File: internals.info,  Node: Cons,  Next: Vector,  Prev: Low-level allocation,  Up: Allocation of Objects in XEmacs Lisp
 
-Cons
-====
+11.9 Cons
+=========
 
 Conses are allocated in standard frob blocks.  The only thing to note
 is that conses can be explicitly freed using `free_cons()' and
@@ -5589,8 +5620,8 @@ BADLY BURNED, and it has happened before.
 
 File: internals.info,  Node: Vector,  Next: Bit Vector,  Prev: Cons,  Up: Allocation of Objects in XEmacs Lisp
 
-Vector
-======
+11.10 Vector
+============
 
 As mentioned above, each vector is `malloc()'ed individually, and all
 are threaded through the variable `all_vectors'.  Vectors are marked
@@ -5603,8 +5634,8 @@ with the right size, however, and access to any element through the
 
 File: internals.info,  Node: Bit Vector,  Next: Symbol,  Prev: Vector,  Up: Allocation of Objects in XEmacs Lisp
 
-Bit Vector
-==========
+11.11 Bit Vector
+================
 
 Bit vectors work exactly like vectors, except for more complicated code
 to access an individual bit, and except for the fact that bit vectors
@@ -5615,8 +5646,8 @@ field in bit vector Lisp words is "lrecord" rather than "vector".)
 
 File: internals.info,  Node: Symbol,  Next: Marker,  Prev: Bit Vector,  Up: Allocation of Objects in XEmacs Lisp
 
-Symbol
-======
+11.12 Symbol
+============
 
 Symbols are also allocated in frob blocks.  Symbols in the awful
 horrible obarray structure are chained through their `next' field.
@@ -5627,8 +5658,8 @@ if necessary.
 
 File: internals.info,  Node: Marker,  Next: String,  Prev: Symbol,  Up: Allocation of Objects in XEmacs Lisp
 
-Marker
-======
+11.13 Marker
+============
 
 Markers are allocated in frob blocks, as usual.  They are kept in a
 buffer unordered, but in a doubly-linked list so that they can easily
@@ -5641,8 +5672,8 @@ removed from a buffer in the finalize stage, in
 
 File: internals.info,  Node: String,  Next: Compiled Function,  Prev: Marker,  Up: Allocation of Objects in XEmacs Lisp
 
-String
-======
+11.14 String
+============
 
 As mentioned above, strings are a special case.  A string is logically
 two parts, a fixed-size object (containing the length, property list,
@@ -5705,19 +5736,19 @@ handles it correctly.
 
 File: internals.info,  Node: Compiled Function,  Prev: String,  Up: Allocation of Objects in XEmacs Lisp
 
-Compiled Function
-=================
+11.15 Compiled Function
+=======================
 
 Not yet documented.
 
 
 File: internals.info,  Node: Dumping,  Next: Events and the Event Loop,  Prev: Allocation of Objects in XEmacs Lisp,  Up: Top
 
-Dumping
-*******
+12 Dumping
+**********
 
-What is dumping and its justification
-=====================================
+12.1 What is dumping and its justification
+==========================================
 
 The C code of XEmacs is just a Lisp engine with a lot of built-in
 primitives useful for writing an editor.  The editor itself is written
@@ -5763,8 +5794,8 @@ without any system-specific hacks.
 
 File: internals.info,  Node: Overview,  Next: Data descriptions,  Up: Dumping
 
-Overview
-========
+12.2 Overview
+=============
 
 The portable dumping system has to:
 
@@ -5779,8 +5810,8 @@ The portable dumping system has to:
 
 File: internals.info,  Node: Data descriptions,  Next: Dumping phase,  Prev: Overview,  Up: Dumping
 
-Data descriptions
-=================
+12.3 Data descriptions
+======================
 
 The more complex task of the dumper is to be able to write lisp objects
 (lrecords) and C structs to disk and reload them at a different address,
@@ -5820,8 +5851,8 @@ field and a pointer to an associated array of lrecord_description.
 
 File: internals.info,  Node: Dumping phase,  Next: Reloading phase,  Prev: Data descriptions,  Up: Dumping
 
-Dumping phase
-=============
+12.4 Dumping phase
+==================
 
 Dumping is done by calling the function pdump() (in dumper.c) which is
 invoked from Fdump_emacs (in emacs.c).  This function performs a number
@@ -5838,8 +5869,8 @@ of tasks.
 
 File: internals.info,  Node: Object inventory,  Next: Address allocation,  Up: Dumping phase
 
-Object inventory
-----------------
+12.4.1 Object inventory
+-----------------------
 
 The first task is to build the list of the objects to dump.  This
 includes:
@@ -5913,8 +5944,8 @@ not yet been a problem.
 
 File: internals.info,  Node: Address allocation,  Next: The header,  Prev: Object inventory,  Up: Dumping phase
 
-Address allocation
-------------------
+12.4.2 Address allocation
+-------------------------
 
 The next step is to allocate the offsets of each of the objects in the
 final dump file.  This is done by `pdump_allocate_offset()' which is
@@ -5947,8 +5978,8 @@ alignments happy).
 
 File: internals.info,  Node: The header,  Next: Data dumping,  Prev: Address allocation,  Up: Dumping phase
 
-The header
-----------
+12.4.3 The header
+-----------------
 
 The next step creates the file and writes a header with a signature and
 some random information in it.  The `reloc_address' field, which
@@ -5959,8 +5990,8 @@ offset for the objects).
 
 File: internals.info,  Node: Data dumping,  Next: Pointers dumping,  Prev: The header,  Up: Dumping phase
 
-Data dumping
-------------
+12.4.4 Data dumping
+-------------------
 
 The data is dumped in the same order as the addresses were allocated by
 `pdump_dump_data()', called from `pdump_scan_by_alignment()'.  This
@@ -5974,8 +6005,8 @@ in step Address Allocation.
 
 File: internals.info,  Node: Pointers dumping,  Prev: Data dumping,  Up: Dumping phase
 
-Pointers dumping
-----------------
+12.4.5 Pointers dumping
+-----------------------
 
 A bunch of tables needed to reassign properly the global pointers are
 then written.  They are:
@@ -6011,11 +6042,11 @@ enumeration.
 
 File: internals.info,  Node: Reloading phase,  Next: Remaining issues,  Prev: Dumping phase,  Up: Dumping
 
-Reloading phase
-===============
+12.5 Reloading phase
+====================
 
-File loading
-------------
+12.5.1 File loading
+-------------------
 
 The file is mmap'ed in memory (which ensures a PAGESIZE alignment, at
 least 4096), or if mmap is unavailable or fails, a 256-bytes aligned
@@ -6026,31 +6057,31 @@ malloc is done and the file is loaded.
    The difference between the actual loading address and the
 reloc_address is computed and will be used for all the relocations.
 
-Putting back the pdump_opaques
-------------------------------
+12.5.2 Putting back the pdump_opaques
+-------------------------------------
 
 The memory contents are restored in the obvious and trivial way.
 
-Putting back the pdump_root_struct_ptrs
----------------------------------------
+12.5.3 Putting back the pdump_root_struct_ptrs
+----------------------------------------------
 
 The variables pointed to by pdump_root_struct_ptrs in the dump phase are
 reset to the right relocated object addresses.
 
-Object relocation
------------------
+12.5.4 Object relocation
+------------------------
 
 All the objects are relocated using their description and their offset
 by `pdump_reloc_one'.  This step is unnecessary if the reloc_address is
 equal to the file loading address.
 
-Putting back the pdump_root_objects and pdump_weak_object_chains
-----------------------------------------------------------------
+12.5.5 Putting back the pdump_root_objects and pdump_weak_object_chains
+-----------------------------------------------------------------------
 
 Same as Putting back the pdump_root_struct_ptrs.
 
-Reorganize the hash tables
---------------------------
+12.5.6 Reorganize the hash tables
+---------------------------------
 
 Since some of the hash values in the lisp hash tables are
 address-dependent, their layout is now wrong.  So we go through each of
@@ -6059,8 +6090,8 @@ them and have them resorted by calling `pdump_reorganize_hash_table'.
 
 File: internals.info,  Node: Remaining issues,  Prev: Reloading phase,  Up: Dumping
 
-Remaining issues
-================
+12.6 Remaining issues
+=====================
 
 The build process will have to start a post-dump xemacs, ask it the
 loading address (which will, hopefully, be always the same between
@@ -6082,8 +6113,8 @@ comes to mind).
 
 File: internals.info,  Node: Events and the Event Loop,  Next: Evaluation; Stack Frames; Bindings,  Prev: Dumping,  Up: Top
 
-Events and the Event Loop
-*************************
+13 Events and the Event Loop
+****************************
 
 * Menu:
 
@@ -6099,8 +6130,8 @@ Events and the Event Loop
 
 File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Up: Events and the Event Loop
 
-Introduction to Events
-======================
+13.1 Introduction to Events
+===========================
 
 An event is an object that encapsulates information about an
 interesting occurrence in the operating system.  Events are generated
@@ -6138,8 +6169,8 @@ a one-to-one correspondence.
 
 File: internals.info,  Node: Main Loop,  Next: Specifics of the Event Gathering Mechanism,  Prev: Introduction to Events,  Up: Events and the Event Loop
 
-Main Loop
-=========
+13.2 Main Loop
+==============
 
 The "command loop" is the top-level loop that the editor is always
 running.  It loops endlessly, calling `next-event' to retrieve an event
@@ -6204,12 +6235,13 @@ like when it invokes `command_loop_2()'.
 
 File: internals.info,  Node: Specifics of the Event Gathering Mechanism,  Next: Specifics About the Emacs Event,  Prev: Main Loop,  Up: Events and the Event Loop
 
-Specifics of the Event Gathering Mechanism
-==========================================
+13.3 Specifics of the Event Gathering Mechanism
+===============================================
 
 Here is an approximate diagram of the collection processes at work in
 XEmacs, under TTY's (TTY's are simpler than X so we'll look at this
 first):
+
 
       asynch.      asynch.    asynch.   asynch.             [Collectors in
      kbd events  kbd events   process   process                the OS]
@@ -6441,20 +6473,20 @@ it's the same as the above diagram):
 
 File: internals.info,  Node: Specifics About the Emacs Event,  Next: The Event Stream Callback Routines,  Prev: Specifics of the Event Gathering Mechanism,  Up: Events and the Event Loop
 
-Specifics About the Emacs Event
-===============================
+13.4 Specifics About the Emacs Event
+====================================
 
 
 File: internals.info,  Node: The Event Stream Callback Routines,  Next: Other Event Loop Functions,  Prev: Specifics About the Emacs Event,  Up: Events and the Event Loop
 
-The Event Stream Callback Routines
-==================================
+13.5 The Event Stream Callback Routines
+=======================================
 
 
 File: internals.info,  Node: Other Event Loop Functions,  Next: Converting Events,  Prev: The Event Stream Callback Routines,  Up: Events and the Event Loop
 
-Other Event Loop Functions
-==========================
+13.6 Other Event Loop Functions
+===============================
 
 `detect_input_pending()' and `input-pending-p' look for input by
 calling `event_stream->event_pending_p' and looking in
@@ -6477,8 +6509,8 @@ With the right kind of input method support, it is possible for
 
 File: internals.info,  Node: Converting Events,  Next: Dispatching Events; The Command Builder,  Prev: Other Event Loop Functions,  Up: Events and the Event Loop
 
-Converting Events
-=================
+13.7 Converting Events
+======================
 
 `character_to_event()', `event_to_character()', `event-to-character',
 and `character-to-event' convert between characters and keypress events
@@ -6490,16 +6522,16 @@ the split-up event representation (keysym plus mod keys).
 
 File: internals.info,  Node: Dispatching Events; The Command Builder,  Prev: Converting Events,  Up: Events and the Event Loop
 
-Dispatching Events; The Command Builder
-=======================================
+13.8 Dispatching Events; The Command Builder
+============================================
 
 Not yet documented.
 
 
 File: internals.info,  Node: Evaluation; Stack Frames; Bindings,  Next: Symbols and Variables,  Prev: Events and the Event Loop,  Up: Top
 
-Evaluation; Stack Frames; Bindings
-**********************************
+14 Evaluation; Stack Frames; Bindings
+*************************************
 
 * Menu:
 
@@ -6511,8 +6543,8 @@ Evaluation; Stack Frames; Bindings
 
 File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Up: Evaluation; Stack Frames; Bindings
 
-Evaluation
-==========
+14.1 Evaluation
+===============
 
 `Feval()' evaluates the form (a Lisp object) that is passed to it.
 Note that evaluation is only non-trivial for two types of objects:
@@ -6637,8 +6669,8 @@ uses `Fapply()' while the others use `Ffuncall()' to do the real work.
 
 File: internals.info,  Node: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Next: Simple Special Forms,  Prev: Evaluation,  Up: Evaluation; Stack Frames; Bindings
 
-Dynamic Binding; The specbinding Stack; Unwind-Protects
-=======================================================
+14.2 Dynamic Binding; The specbinding Stack; Unwind-Protects
+============================================================
 
      struct specbinding
      {
@@ -6689,8 +6721,8 @@ three types:
 
 File: internals.info,  Node: Simple Special Forms,  Next: Catch and Throw,  Prev: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Up: Evaluation; Stack Frames; Bindings
 
-Simple Special Forms
-====================
+14.3 Simple Special Forms
+=========================
 
 `or', `and', `if', `cond', `progn', `prog1', `prog2', `setq', `quote',
 `function', `let*', `let', `while'
@@ -6704,73 +6736,4 @@ when finished.
 typically called in real life only in interpreted code, since the byte
 compiler knows how to convert calls to these functions directly into
 byte code.
-
-
-File: internals.info,  Node: Catch and Throw,  Prev: Simple Special Forms,  Up: Evaluation; Stack Frames; Bindings
-
-Catch and Throw
-===============
-
-     struct catchtag
-     {
-       Lisp_Object tag;
-       Lisp_Object val;
-       struct catchtag *next;
-       struct gcpro *gcpro;
-       jmp_buf jmp;
-       struct backtrace *backlist;
-       int lisp_eval_depth;
-       int pdlcount;
-     };
-
-   `catch' is a Lisp function that places a catch around a body of
-code.  A catch is a means of non-local exit from the code.  When a catch
-is created, a tag is specified, and executing a `throw' to this tag
-will exit from the body of code caught with this tag, and its value will
-be the value given in the call to `throw'.  If there is no such call,
-the code will be executed normally.
-
-   Information pertaining to a catch is held in a `struct catchtag',
-which is placed at the head of a linked list pointed to by `catchlist'.
-`internal_catch()' is passed a C function to call (`Fprogn()' when
-Lisp `catch' is called) and arguments to give it, and places a catch
-around the function.  Each `struct catchtag' is held in the stack frame
-of the `internal_catch()' instance that created the catch.
-
-   `internal_catch()' is fairly straightforward.  It stores into the
-`struct catchtag' the tag name and the current values of
-`backtrace_list', `lisp_eval_depth', `gcprolist', and the offset into
-the `specpdl' array, sets a jump point with `_setjmp()' (storing the
-jump point into the `struct catchtag'), and calls the function.
-Control will return to `internal_catch()' either when the function
-exits normally or through a `_longjmp()' to this jump point.  In the
-latter case, `throw' will store the value to be returned into the
-`struct catchtag' before jumping.  When it's done, `internal_catch()'
-removes the `struct catchtag' from the catchlist and returns the proper
-value.
-
-   `Fthrow()' goes up through the catchlist until it finds one with a
-matching tag.  It then calls `unbind_catch()' to restore everything to
-what it was when the appropriate catch was set, stores the return value
-in the `struct catchtag', and jumps (with `_longjmp()') to its jump
-point.
-
-   `unbind_catch()' removes all catches from the catchlist until it
-finds the correct one.  Some of the catches might have been placed for
-error-trapping, and if so, the appropriate entries on the handlerlist
-must be removed (see "errors").  `unbind_catch()' also restores the
-values of `gcprolist', `backtrace_list', and `lisp_eval', and calls
-`unbind_to()' to undo any specbindings created since the catch.
-
-
-File: internals.info,  Node: Symbols and Variables,  Next: Buffers and Textual Representation,  Prev: Evaluation; Stack Frames; Bindings,  Up: Top
-
-Symbols and Variables
-*********************
-
-* Menu:
-
-* Introduction to Symbols::
-* Obarrays::
-* Symbol Values::
 

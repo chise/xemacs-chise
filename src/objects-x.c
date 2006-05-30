@@ -681,7 +681,7 @@ truename_via_random_props (Display *dpy, XFontStruct *font)
 }
 
 /* Unbounded, for sufficiently small values of infinity... */
-#define MAX_FONT_COUNT 5000
+#define MAX_FONT_COUNT INT_MAX
 
 static Extbyte *
 truename_via_XListFonts (Display *dpy, Extbyte *font_name)

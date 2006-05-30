@@ -1,4 +1,4 @@
-This is ../info/emodules.info, produced by makeinfo version 4.6 from
+This is ../info/emodules.info, produced by makeinfo version 4.8 from
 emodules.texi.
 
    This file documents the module loading technology of XEmacs.
@@ -72,8 +72,8 @@ Defining Functions
 
 File: emodules.info,  Node: Introduction,  Next: Anatomy of a Module,  Prev: Top,  Up: Top
 
-Introduction
-************
+1 Introduction
+**************
 
 XEmacs is a powerful, extensible editor.  The traditional way of
 extending the functionality of XEmacs is to use its built-in Lisp
@@ -156,8 +156,8 @@ done.
 
 File: emodules.info,  Node: Anatomy of a Module,  Next: Using ellcc,  Prev: Introduction,  Up: Top
 
-Anatomy of a Module
-*******************
+2 Anatomy of a Module
+*********************
 
 Each dynamically loadable XEmacs extension (hereafter referred to as a
 module) has a certain compulsory format, and must contain several
@@ -176,8 +176,8 @@ sample.  The source for this sample can be found in the file
 
 File: emodules.info,  Node: Required Header File,  Next: Required Functions,  Prev: Anatomy of a Module,  Up: Anatomy of a Module
 
-Required Header File
-====================
+2.1 Required Header File
+========================
 
 Every module must include the file `<emodules.h>'.  This will include
 several other XEmacs internal header files, and will set up certain
@@ -225,8 +225,8 @@ files included are:
 
 File: emodules.info,  Node: Required Functions,  Next: Required Variables,  Prev: Required Header File,  Up: Anatomy of a Module
 
-Required Functions
-==================
+2.2 Required Functions
+======================
 
 Every module requires several initialization functions.  It is the
 responsibility of these functions to load in any dependent modules, and
@@ -277,8 +277,8 @@ place-holder, not an actual function name.
 
 File: emodules.info,  Node: Required Variables,  Next: Loading other Modules,  Prev: Required Functions,  Up: Anatomy of a Module
 
-Required Variables
-==================
+2.3 Required Variables
+======================
 
 Not only does a module need to declare the initialization functions
 mentioned above, it is also required to provide certain variables which
@@ -331,8 +331,8 @@ discussed here simply for the sake of completeness.
 
 File: emodules.info,  Node: Loading other Modules,  Prev: Required Variables,  Up: Anatomy of a Module
 
-Loading other Modules
-=====================
+2.4 Loading other Modules
+=========================
 
 During the loading of a module, it is the responsibility of the function
 `modules_of_module' to load in any modules which the current module
@@ -387,8 +387,8 @@ and Lisp variables accesses.
 
 File: emodules.info,  Node: Using ellcc,  Next: Defining Functions,  Prev: Anatomy of a Module,  Up: Top
 
-Using `ellcc'
-*************
+3 Using `ellcc'
+***************
 
 Before discussing the anatomy of a module in greater detail, you should
 be aware of the steps required in order to correctly compile and link a
@@ -425,8 +425,8 @@ messages to be displayed on the standard output.
 
 File: emodules.info,  Node: Compile Mode,  Next: Initialization Mode,  Prev: Using ellcc,  Up: Using ellcc
 
-Compile Mode
-============
+3.1 Compile Mode
+================
 
 By default, `ellcc' is in "compile" mode.  This means that it assumes
 that all of the command line arguments are C compiler arguments, and
@@ -446,7 +446,7 @@ and messages that your C compiler does.
 some appropriate place something similar to:
 
      CC=ellcc --mode=compile
-     
+
      .c.o:
          $(CC) $(CFLAGS) -c $<
 
@@ -459,8 +459,8 @@ below for details).
 
 File: emodules.info,  Node: Initialization Mode,  Next: Link Mode,  Prev: Compile Mode,  Up: Using ellcc
 
-Initialization Mode
-===================
+3.2 Initialization Mode
+=======================
 
 XEmacs uses a rather bizarre way of documenting variables and
 functions.  Rather than have the documentation for compiled functions
@@ -522,28 +522,28 @@ required to populate the `docs_of_module' function.  Below is a sample
      LD=ellcc --mode=link
      MODINIT=ellcc --mode=init
      CFLAGS=-O2 -DSOME_STUFF
-     
+
      .c.o:
          $(CC) $(CFLAGS) -c $<
-     
+
      MODNAME=sample
      MODVER=1.0.0
      MODTITLE="Small sample module"
-     
+
      SRCS=modfile1.c modfile2.c modfile3.c
      OBJS=$(SRCS:.c=.o)
-     
+
      all: sample.ell
      clean:
          rm -f $(OBJS) sample_init.o sample.ell
-     
+
      install: all
          mkdir `ellcc --mod-location`/mymods > /dev/null
          cp sample.ell `ellcc --mod-location`/mymods/sample.ell
-     
+
      sample.ell: $(OBJS) sample_init.o
          $(LD) --mod-output=$ $(OBJS) sample_init.o
-     
+
      sample_init.o: sample_init.c
      sample_init.c: $(SRCS)
          $(MODINIT) --mod-name=$(MODNAME) --mod-version=$(MODVER) \
@@ -567,8 +567,8 @@ of these extensions, although `.ell' is the preferred extension.
 
 File: emodules.info,  Node: Link Mode,  Next: Other ellcc options,  Prev: Initialization Mode,  Up: Using ellcc
 
-Link Mode
-=========
+3.3 Link Mode
+=============
 
 Once all of your source code files have been compiled (including the
 generated init file) you need to link them all together to create the
@@ -591,8 +591,8 @@ invoked the linker correctly.
 
 File: emodules.info,  Node: Other ellcc options,  Next: Environment Variables,  Prev: Link Mode,  Up: Using ellcc
 
-Other `ellcc' options
-=====================
+3.4 Other `ellcc' options
+=========================
 
 Aside from the three main `ellcc' modes described above, `ellcc' can
 accept several other options.  These are typically used in a `Makefile'
@@ -659,8 +659,8 @@ variables.  Here is the complete list of options that `ellcc' accepts.
 
 File: emodules.info,  Node: Environment Variables,  Prev: Other ellcc options,  Up: Using ellcc
 
-Environment Variables
-=====================
+3.5 Environment Variables
+=========================
 
 During its normal operation, `ellcc' uses the compiler and linker flags
 that were determined at the time XEmacs was configured.  In certain
@@ -706,8 +706,8 @@ recognizes.
 
 File: emodules.info,  Node: Defining Functions,  Next: Defining Variables,  Prev: Using ellcc,  Up: Top
 
-Defining Functions
-******************
+4 Defining Functions
+********************
 
 One of the main reasons you would ever write a module is to provide one
 or more "functions" for the user or the editor to use.  The term
@@ -746,8 +746,8 @@ It is all taken care of in the `docs_of_module' function created by
 
 File: emodules.info,  Node: Using DEFUN,  Next: Declaring Functions,  Prev: Defining Functions,  Up: Defining Functions
 
-Using `DEFUN'
-=============
+4.1 Using `DEFUN'
+=================
 
 Although the full syntax of a function declaration is discussed in the
 XEmacs internals manual in greater depth, what follows is a brief
@@ -756,16 +756,16 @@ module.  This is done using the `DEFUN' macro.  Here is a small example:
 
      DEFUN ("my-function", Fmy_function, 1, 1, "FFile name: ", /*
      Sample Emacs primitive function.
-     
+
      The specified FILE is frobnicated before it is fnozzled.
      */
          (file))
      {
        char *filename;
-     
+
        if (NILP(file))
          return Qnil;
-     
+
        filename = (char *)XSTRING_DATA(file);
        frob(filename);
        return Qt;
@@ -789,8 +789,8 @@ argument names, if any.
 
 File: emodules.info,  Node: Declaring Functions,  Prev: Using DEFUN,  Up: Defining Functions
 
-Declaring Functions
-===================
+4.2 Declaring Functions
+=======================
 
 Simply writing the code for a function is not enough to make it
 available to the Lisp reader.  You have to, during module
@@ -820,8 +820,8 @@ XEmacs internals manual for more details.
 
 File: emodules.info,  Node: Defining Variables,  Next: Index,  Prev: Defining Functions,  Up: Top
 
-Defining Variables
-******************
+5 Defining Variables
+********************
 
 Rarely will you write a module that only contains functions.  It is
 common to also provide variables which can be used to control the
@@ -856,20 +856,20 @@ a prudent thing to do.
 
      Lisp_Object Vsample_string;
      int sample_boolean;
-     
+
      void
      vars_of_module()
      {
        DEFVAR_LISP ("sample-string", &Vsample_string /*
      This is a sample string, declared in a module.
-     
+
      Nothing magical about it.
      */);
-     
+
        DEFVAR_BOOL("sample-boolean", &sample_boolean /*
      *Sample user-settable boolean.
      */);
-     
+
        sample_boolean = 0;
        Vsample_string = build_string("My string");
      }
@@ -880,93 +880,105 @@ File: emodules.info,  Node: Index,  Prev: Defining Variables,  Up: Top
 Index
 *****
 
+ [index ]
 * Menu:
 
-* anatomy:                               Anatomy of a Module.
-* compiler:                              Introduction.
-* compiling:                             Compile Mode.
-* config.h:                              Required Header File.
-* defining functions:                    Defining Functions.
-* defining objects:                      Defining Variables.
-* defining variables:                    Defining Variables.
-* DEFSUBR:                               Declaring Functions.
-* DEFUN:                                 Using DEFUN.
-* DEFVAR_BOOL:                           Defining Variables.
-* DEFVAR_INT:                            Defining Variables.
-* DEFVAR_LISP:                           Defining Variables.
+* anatomy:                               Anatomy of a Module.  (line  6)
+* compiler:                              Introduction.         (line 39)
+* compiling:                             Compile Mode.         (line  6)
+* config.h:                              Required Header File. (line  6)
+* defining functions:                    Defining Functions.   (line  6)
+* defining objects:                      Defining Variables.   (line  6)
+* defining variables:                    Defining Variables.   (line  6)
+* DEFSUBR:                               Declaring Functions.  (line  6)
+* DEFUN:                                 Using DEFUN.          (line  6)
+* DEFVAR_BOOL:                           Defining Variables.   (line  6)
+* DEFVAR_INT:                            Defining Variables.   (line  6)
+* DEFVAR_LISP:                           Defining Variables.   (line  6)
 * dependencies:                          Loading other Modules.
-* DLL:                                   Introduction.
-* docs_of_module:                        Required Functions.
-* documentation <1>:                     Initialization Mode.
-* documentation:                         Introduction.
-* DSO:                                   Introduction.
+                                                               (line  6)
+* DLL:                                   Introduction.         (line 25)
+* docs_of_module:                        Required Functions.   (line 47)
+* documentation <1>:                     Initialization Mode.  (line  6)
+* documentation:                         Introduction.         (line 69)
+* DSO:                                   Introduction.         (line 25)
 * ELLCC:                                 Environment Variables.
-* ellcc <1>:                             Using ellcc.
-* ellcc:                                 Introduction.
+                                                               (line 14)
+* ellcc <1>:                             Using ellcc.          (line  6)
+* ellcc:                                 Introduction.         (line 39)
 * ELLCFLAGS:                             Environment Variables.
+                                                               (line 22)
 * ELLDLLFLAGS:                           Environment Variables.
+                                                               (line 32)
 * ELLLD:                                 Environment Variables.
+                                                               (line 18)
 * ELLLDFLAGS:                            Environment Variables.
+                                                               (line 27)
 * ELLMAKEDOC:                            Environment Variables.
+                                                               (line 42)
 * ELLPICFLAGS:                           Environment Variables.
-* Emacs Modules:                         Introduction.
-* emodules.h:                            Required Header File.
+                                                               (line 36)
+* Emacs Modules:                         Introduction.         (line 25)
+* emodules.h:                            Required Header File. (line  6)
 * emodules_load:                         Loading other Modules.
+                                                               (line  6)
 * environment variables:                 Environment Variables.
-* format, module:                        Anatomy of a Module.
-* functions, declaring:                  Declaring Functions.
-* functions, defining:                   Using DEFUN.
-* functions, Lisp:                       Using DEFUN.
-* functions, required:                   Required Functions.
-* header files:                          Introduction.
-* help:                                  Introduction.
-* include files:                         Required Header File.
-* initialization <1>:                    Initialization Mode.
-* initialization <2>:                    Required Variables.
-* initialization:                        Required Functions.
-* linker:                                Introduction.
-* linking:                               Link Mode.
-* module compiler:                       Using ellcc.
-* module format:                         Anatomy of a Module.
-* module skeleton:                       Anatomy of a Module.
+                                                               (line  6)
+* format, module:                        Anatomy of a Module.  (line  6)
+* functions, declaring:                  Declaring Functions.  (line  6)
+* functions, defining:                   Using DEFUN.          (line  6)
+* functions, Lisp:                       Using DEFUN.          (line  6)
+* functions, required:                   Required Functions.   (line  6)
+* header files:                          Introduction.         (line 51)
+* help:                                  Introduction.         (line 69)
+* include files:                         Required Header File. (line  6)
+* initialization <1>:                    Initialization Mode.  (line  6)
+* initialization <2>:                    Required Variables.   (line  6)
+* initialization:                        Required Functions.   (line  6)
+* linker:                                Introduction.         (line 39)
+* linking:                               Link Mode.            (line  6)
+* module compiler:                       Using ellcc.          (line  6)
+* module format:                         Anatomy of a Module.  (line  6)
+* module skeleton:                       Anatomy of a Module.  (line  6)
 * modules_of_module <1>:                 Loading other Modules.
-* modules_of_module:                     Required Functions.
-* objects, defining:                     Defining Variables.
-* objects, Lisp:                         Defining Variables.
-* paths:                                 Other ellcc options.
-* required functions:                    Required Functions.
-* required header:                       Required Header File.
-* required variables:                    Required Variables.
-* samples:                               Introduction.
-* shared object:                         Introduction.
-* skeleton, module:                      Anatomy of a Module.
-* subrs:                                 Using DEFUN.
-* syms_of_module:                        Required Functions.
-* variables, defining:                   Defining Variables.
-* variables, Lisp:                       Defining Variables.
-* variables, required:                   Required Variables.
-* vars_of_module:                        Required Functions.
+                                                               (line  6)
+* modules_of_module:                     Required Functions.   (line 40)
+* objects, defining:                     Defining Variables.   (line  6)
+* objects, Lisp:                         Defining Variables.   (line  6)
+* paths:                                 Other ellcc options.  (line  6)
+* required functions:                    Required Functions.   (line  6)
+* required header:                       Required Header File. (line  6)
+* required variables:                    Required Variables.   (line  6)
+* samples:                               Introduction.         (line 61)
+* shared object:                         Introduction.         (line 25)
+* skeleton, module:                      Anatomy of a Module.  (line  6)
+* subrs:                                 Using DEFUN.          (line  6)
+* syms_of_module:                        Required Functions.   (line 20)
+* variables, defining:                   Defining Variables.   (line  6)
+* variables, Lisp:                       Defining Variables.   (line  6)
+* variables, required:                   Required Variables.   (line  6)
+* vars_of_module:                        Required Functions.   (line 26)
 
 
 
 Tag Table:
 Node: Top1536
 Node: Introduction2883
-Node: Anatomy of a Module7388
-Node: Required Header File8199
-Node: Required Functions10115
-Node: Required Variables12836
-Node: Loading other Modules15519
-Node: Using ellcc18432
-Node: Compile Mode20223
-Node: Initialization Mode21588
-Node: Link Mode26615
-Node: Other ellcc options27757
-Node: Environment Variables30333
-Node: Defining Functions32022
-Node: Using DEFUN34030
-Node: Declaring Functions35738
-Node: Defining Variables37078
-Node: Index39318
+Node: Anatomy of a Module7392
+Node: Required Header File8207
+Node: Required Functions10131
+Node: Required Variables12860
+Node: Loading other Modules15551
+Node: Using ellcc18472
+Node: Compile Mode20267
+Node: Initialization Mode21635
+Node: Link Mode26635
+Node: Other ellcc options27785
+Node: Environment Variables30369
+Node: Defining Functions32066
+Node: Using DEFUN34078
+Node: Declaring Functions35779
+Node: Defining Variables37127
+Node: Index39351
 
 End Tag Table

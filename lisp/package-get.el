@@ -220,6 +220,7 @@ directory."
     ("France (mirror.cict.fr)" "mirror.cict.fr" "xemacs/packages")
     ("France (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
     ("Germany (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages")
+    ("Hong Kong (hk.xemacs.org)" "ftp.hk.xemacs.org" "pub/xemacsftp/packages")
     ("Iceland (is.xemacs.org)" "ftp.is.xemacs.org" "pub/xemacs/packages")
     ("Ireland (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
     ("Ireland (heanet.ie)" "ftp.heanet.ie" "mirrors/ftp.xemacs.org/packages")
@@ -235,6 +236,7 @@ directory."
     ("New Zealand (nz.xemacs.org)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
     ("Norway (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/packages")
     ("Poland (pl.xemacs.org)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages")
+    ("Portugal (pt.xemacs.org)" "ftp.pt.xemacs.org" "pub/MIRRORS/ftp.xemacs.org/packages")
     ("Russia (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/emacs/xemacs/packages")
 ;   ("South Africa (za.xemacs.org)" "ftp.za.xemacs.org" "mirrorsites/ftp.xemacs.org/packages")
     ("Sweden (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages")
@@ -297,6 +299,8 @@ variable actually used to specify package download sites."
      "pub/computing/xemacs/beta/experimental/packages")
     ("Germany Pre-Releases (de.xemacs.org)" "ftp.de.xemacs.org"
      "pub/ftp.xemacs.org/tux/xemacs/beta/experimental/packages")
+    ("Hong Kong Pre-Releases (hk.xemacs.org)" "ftp.hk.xemacs.org"
+     "pub/xemacsftp/beta/experimental/packages")
     ("Iceland Pre-Releases (is.xemacs.org)" "ftp.is.xemacs.org"
      "pub/xemacs/beta/experimental/packages")
     ("Ireland Pre-Releases (ie.xemacs.org)" "ftp.ie.xemacs.org"
@@ -325,6 +329,8 @@ variable actually used to specify package download sites."
      "pub/xemacs/beta/experimental/packages")
     ("Poland Pre-Releases (pl.xemacs.org)" "ftp.pl.xemacs.org"
      "pub/unix/editors/xemacs/beta/experimental/packages")
+    ("Portugal Pre-Releases (pt.xemacs.org)" "ftp.pt.xemacs.org"
+     "pub/MIRRORS/ftp.xemacs.org/beta/experimental/packages")
     ("Russia Pre-Releases (ru.xemacs.org)" "ftp.ru.xemacs.org"
      "pub/emacs/xemacs/beta/experimental/packages")
 ;   ("South Africa Pre-Releases (za.xemacs.org)" "ftp.za.xemacs.org"

@@ -1,4 +1,4 @@
-This is ../info/lispref.info, produced by makeinfo version 4.6 from
+This is ../info/lispref.info, produced by makeinfo version 4.8 from
 lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -50,29 +50,1050 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Flow Control,  Next: Batch Mode,  Prev: Terminal Output,  Up: System Interface
+
+57.10 Flow Control
+==================
+
+This section attempts to answer the question "Why does XEmacs choose to
+use flow-control characters in its command character set?"  For a
+second view on this issue, read the comments on flow control in the
+`emacs/INSTALL' file from the distribution; for help with Termcap
+entries and DEC terminal concentrators, see `emacs/etc/TERMS'.
+
+   At one time, most terminals did not need flow control, and none used
+`C-s' and `C-q' for flow control.  Therefore, the choice of `C-s' and
+`C-q' as command characters was uncontroversial.  XEmacs, for economy
+of keystrokes and portability, used nearly all the ASCII control
+characters, with mnemonic meanings when possible; thus, `C-s' for
+search and `C-q' for quote.
+
+   Later, some terminals were introduced which required these characters
+for flow control.  They were not very good terminals for full-screen
+editing, so XEmacs maintainers did not pay attention.  In later years,
+flow control with `C-s' and `C-q' became widespread among terminals,
+but by this time it was usually an option.  And the majority of users,
+who can turn flow control off, were unwilling to switch to less
+mnemonic key bindings for the sake of flow control.
+
+   So which usage is "right", XEmacs's or that of some terminal and
+concentrator manufacturers?  This question has no simple answer.
+
+   One reason why we are reluctant to cater to the problems caused by
+`C-s' and `C-q' is that they are gratuitous.  There are other
+techniques (albeit less common in practice) for flow control that
+preserve transparency of the character stream.  Note also that their use
+for flow control is not an official standard.  Interestingly, on the
+model 33 teletype with a paper tape punch (which is very old), `C-s'
+and `C-q' were sent by the computer to turn the punch on and off!
+
+   As X servers and other window systems replace character-only
+terminals, this problem is gradually being cured.  For the mean time,
+XEmacs provides a convenient way of enabling flow control if you want
+it: call the function `enable-flow-control'.
+
+ -- Command: enable-flow-control &optional argument
+     This function enables use of `C-s' and `C-q' for output flow
+     control, and provides the characters `C-\' and `C-^' as aliases
+     for them using `keyboard-translate-table' (*note Translating
+     Input::).
+
+     With optional argument ARGUMENT (interactively the prefix
+     argument), enable flow control mode if ARGUMENT is positive; else
+     disable it.
+
+   You can use the function `enable-flow-control-on' in your `.emacs'
+file to enable flow control automatically on certain terminal types.
+
+ -- Function: enable-flow-control-on &rest termtypes
+     This function enables flow control, and the aliases `C-\' and
+     `C-^', if the terminal type is one of TERMTYPES.  For example:
+
+          (enable-flow-control-on "vt200" "vt300" "vt101" "vt131")
+
+   Here is how `enable-flow-control' does its job:
+
+  1. It sets CBREAK mode for terminal input, and tells the operating
+     system to handle flow control, with `(set-input-mode nil t)'.
+
+  2. It sets up `keyboard-translate-table' to translate `C-\' and `C-^'
+     into `C-s' and `C-q'.  Except at its very lowest level, XEmacs
+     never knows that the characters typed were anything but `C-s' and
+     `C-q', so you can in effect type them as `C-\' and `C-^' even when
+     they are input for other commands.  *Note Translating Input::.
+
+   If the terminal is the source of the flow control characters, then
+once you enable kernel flow control handling, you probably can make do
+with less padding than normal for that terminal.  You can reduce the
+amount of padding by customizing the Termcap entry.  You can also
+reduce it by setting `baud-rate' to a smaller value so that XEmacs uses
+a smaller speed when calculating the padding needed.  *Note Terminal
+Output::.
+
+
+File: lispref.info,  Node: Batch Mode,  Prev: Flow Control,  Up: System Interface
+
+57.11 Batch Mode
+================
+
+The command line option `-batch' causes XEmacs to run noninteractively.
+In this mode, XEmacs does not read commands from the terminal, it does
+not alter the terminal modes, and it does not expect to be outputting
+to an erasable screen.  The idea is that you specify Lisp programs to
+run; when they are finished, XEmacs should exit.  The way to specify
+the programs to run is with `-l FILE', which loads the library named
+FILE, and `-f FUNCTION', which calls FUNCTION with no arguments.
+
+   Any Lisp program output that would normally go to the echo area,
+either using `message' or using `prin1', etc., with `t' as the stream,
+goes instead to XEmacs's standard error descriptor when in batch mode.
+Thus, XEmacs behaves much like a noninteractive application program.
+(The echo area output that XEmacs itself normally generates, such as
+command echoing, is suppressed entirely.)
+
+ -- Function: noninteractive
+     This function returns non-`nil' when XEmacs is running in batch
+     mode.
+
+ -- Variable: noninteractive
+     This variable is non-`nil' when XEmacs is running in batch mode.
+     Setting this variable to `nil', however, will not change whether
+     XEmacs is running in batch mode, and will not change the return
+     value of the `noninteractive' function.
+
+
+File: lispref.info,  Node: X-Windows,  Next: ToolTalk Support,  Prev: System Interface,  Up: Top
+
+58 Functions Specific to the X Window System
+********************************************
+
+XEmacs provides the concept of "devices", which generalizes connections
+to an X server, a TTY device, etc.  Most information about an X server
+that XEmacs is connected to can be determined through general console
+and device functions.  *Note Consoles and Devices::.  However, there
+are some features of the X Window System that do not generalize well,
+and they are covered specially here.
+
+* Menu:
+
+* X Selections::                Transferring text to and from other X clients.
+* X Server::                    Information about the X server connected to
+                                  a particular device.
+* X Miscellaneous::             Other X-specific functions and variables.
+
+
+File: lispref.info,  Node: X Selections,  Next: X Server,  Up: X-Windows
+
+58.1 X Selections
+=================
+
+The X server records a set of "selections" which permit transfer of
+data between application programs.  The various selections are
+distinguished by "selection types", represented in XEmacs by symbols.
+X clients including XEmacs can read or set the selection for any given
+type.
+
+ -- Function: x-own-selection data &optional type
+     This function sets a "selection" in the X server.  It takes two
+     arguments: a value, DATA, and the selection type TYPE to assign it
+     to.  DATA may be a string, a cons of two markers, or an extent.
+     In the latter cases, the selection is considered to be the text
+     between the markers, or between the extent's endpoints.
+
+     Each possible TYPE has its own selection value, which changes
+     independently.  The usual values of TYPE are `PRIMARY' and
+     `SECONDARY'; these are symbols with upper-case names, in accord
+     with X Windows conventions.  The default is `PRIMARY'.
+
+     (In FSF Emacs, this function is called `x-set-selection' and takes
+     different arguments.)
+
+ -- Function: x-get-selection
+     This function accesses selections set up by XEmacs or by other X
+     clients.  It returns the value of the current primary selection.
+
+ -- Function: x-disown-selection &optional secondary-p
+     Assuming we own the selection, this function disowns it.  If
+     SECONDARY-P is non-`nil', the secondary selection instead of the
+     primary selection is discarded.
+
+   The X server also has a set of numbered "cut buffers" which can
+store text or other data being moved between applications.  Cut buffers
+are considered obsolete, but XEmacs supports them for the sake of X
+clients that still use them.
+
+ -- Function: x-get-cutbuffer &optional n
+     This function returns the contents of cut buffer number N. (This
+     function is called `x-get-cut-buffer' in FSF Emacs.)
+
+ -- Function: x-store-cutbuffer string &optional push
+     This function stores STRING into the first cut buffer (cut buffer
+     0).
+
+     Normally, the contents of the first cut buffer are simply replaced
+     by STRING.  However, if optional argument PUSH is non-`nil', the
+     cut buffers are rotated.  This means that the previous value of
+     the first cut buffer moves to the second cut buffer, and the
+     second to the third, and so on, moving the other values down
+     through the series of cut buffers, kill-ring-style.  There are 8
+     cut buffers altogether.
+
+     Cut buffers are considered obsolete; you should use selections
+     instead.
+
+     This function has no effect if support for cut buffers was not
+     compiled in.
+
+     This function is called `x-set-cut-buffer' in FSF Emacs.
+
+
+File: lispref.info,  Node: X Server,  Next: X Miscellaneous,  Prev: X Selections,  Up: X-Windows
+
+58.2 X Server
+=============
+
+This section describes how to access and change the overall status of
+the X server XEmacs is using.
+
+* Menu:
+
+* Resources::                   Getting resource values from the server.
+* Server Data::                 Getting info about the X server.
+* Grabs::                       Restricting access to the server by other apps.
+
+
+File: lispref.info,  Node: Resources,  Next: Server Data,  Up: X Server
+
+58.2.1 Resources
+----------------
+
+ -- Function: default-x-device
+     This function return the default X device for resourcing.  This is
+     the first-created X device that still exists.
+
+ -- Function: x-get-resource name class type &optional locale device
+          noerror
+     This function retrieves a resource value from the X resource
+     manager.
+
+        * The first arg is the name of the resource to retrieve, such as
+          `"font"'.
+
+        * The second arg is the class of the resource to retrieve, like
+          `"Font"'.
+
+        * The third arg should be one of the symbols `string',
+          `integer', `natnum', or `boolean', specifying the type of
+          object that the database is searched for.
+
+        * The fourth arg is the locale to search for the resources on,
+          and can currently be a buffer, a frame, a device, or the
+          symbol `global'.  If omitted, it defaults to `global'.
+
+        * The fifth arg is the device to search for the resources on.
+          (The resource database for a particular device is constructed
+          by combining non-device- specific resources such any
+          command-line resources specified and any app-defaults files
+          found [or the fallback resources supplied by XEmacs, if no
+          app-defaults file is found] with device-specific resources
+          such as those supplied using `xrdb'.) If omitted, it defaults
+          to the device of LOCALE, if a device can be derived (i.e. if
+          LOCALE is a frame or device), and otherwise defaults to the
+          value of `default-x-device'.
+
+        * The sixth arg NOERROR, if non-`nil', means do not signal an
+          error if a bogus resource specification was retrieved (e.g.
+          if a non-integer was given when an integer was requested).
+          In this case, a warning is issued instead.
+
+     The resource names passed to this function are looked up relative
+     to the locale.
+
+     If you want to search for a subresource, you just need to specify
+     the resource levels in NAME and CLASS.  For example, NAME could be
+     `"modeline.attributeFont"', and CLASS `"Face.AttributeFont"'.
+
+     Specifically,
+
+       1. If LOCALE is a buffer, a call
+
+                   `(x-get-resource "foreground" "Foreground" 'string SOME-BUFFER)'
+
+          is an interface to a C call something like
+
+                   `XrmGetResource (db, "xemacs.buffer.BUFFER-NAME.foreground",
+                                       "Emacs.EmacsLocaleType.EmacsBuffer.Foreground",
+                                       "String");'
+
+       2. If LOCALE is a frame, a call
+
+                   `(x-get-resource "foreground" "Foreground" 'string SOME-FRAME)'
+
+          is an interface to a C call something like
+
+                   `XrmGetResource (db, "xemacs.frame.FRAME-NAME.foreground",
+                                       "Emacs.EmacsLocaleType.EmacsFrame.Foreground",
+                                       "String");'
+
+       3. If LOCALE is a device, a call
+
+                   `(x-get-resource "foreground" "Foreground" 'string SOME-DEVICE)'
+
+          is an interface to a C call something like
+
+                   `XrmGetResource (db, "xemacs.device.DEVICE-NAME.foreground",
+                                       "Emacs.EmacsLocaleType.EmacsDevice.Foreground",
+                                       "String");'
+
+       4. If LOCALE is the symbol `global', a call
+
+                   `(x-get-resource "foreground" "Foreground" 'string 'global)'
+
+          is an interface to a C call something like
+
+                   `XrmGetResource (db, "xemacs.foreground",
+                                       "Emacs.Foreground",
+                                       "String");'
+
+     Note that for `global', no prefix is added other than that of the
+     application itself; thus, you can use this locale to retrieve
+     arbitrary application resources, if you really want to.
+
+     The returned value of this function is `nil' if the queried
+     resource is not found.  If TYPE is `string', a string is returned,
+     and if it is `integer', an integer is returned.  If TYPE is
+     `boolean', then the returned value is the list `(t)' for true,
+     `(nil)' for false, and is `nil' to mean "unspecified".
+
+ -- Function: x-put-resource resource-line &optional device
+     This function adds a resource to the resource database for DEVICE.
+     RESOURCE-LINE specifies the resource to add and should be a
+     standard resource specification.
+
+ -- Variable: x-emacs-application-class
+     This variable holds The X application class of the XEmacs process.
+     This controls, among other things, the name of the "app-defaults"
+     file that XEmacs will use.  For changes to this variable to take
+     effect, they must be made before the connection to the X server is
+     initialized, that is, this variable may only be changed before
+     XEmacs is dumped, or by setting it in the file
+     `lisp/term/x-win.el'.
+
+     By default, this variable is `nil' at startup.  When the connection
+     to the X server is first initialized, the X resource database will
+     be consulted and the value will be set according to whether any
+     resources are found for the application class "XEmacs".
+
+
+File: lispref.info,  Node: Server Data,  Next: Grabs,  Prev: Resources,  Up: X Server
+
+58.2.2 Data about the X Server
+------------------------------
+
+This section describes functions and a variable that you can use to get
+information about the capabilities and origin of the X server
+corresponding to a particular device.  The device argument is generally
+optional and defaults to the selected device.
+
+ -- Function: x-server-version &optional device
+     This function returns the list of version numbers of the X server
+     DEVICE is on.  The returned value is a list of three integers: the
+     major and minor version numbers of the X protocol in use, and the
+     vendor-specific release number.
+
+ -- Function: x-server-vendor &optional device
+     This function returns the vendor supporting the X server DEVICE is
+     on.
+
+ -- Function: x-display-visual-class &optional device
+     This function returns the visual class of the display DEVICE is
+     on.  The value is one of the symbols `static-gray', `gray-scale',
+     `static-color', `pseudo-color', `true-color', and `direct-color'.
+     (Note that this is different from previous versions of XEmacs,
+     which returned `StaticGray', `GrayScale', etc.)
+
+
+File: lispref.info,  Node: Grabs,  Prev: Server Data,  Up: X Server
+
+58.2.3 Restricting Access to the Server by Other Apps
+-----------------------------------------------------
+
+ -- Function: x-grab-keyboard &optional device
+     This function grabs the keyboard on the given device (defaulting
+     to the selected one).  So long as the keyboard is grabbed, all
+     keyboard events will be delivered to XEmacs--it is not possible
+     for other X clients to eavesdrop on them.  Ungrab the keyboard
+     with `x-ungrab-keyboard' (use an `unwind-protect').  Returns `t'
+     if the grab was successful; `nil' otherwise.
+
+ -- Function: x-ungrab-keyboard &optional device
+     This function releases a keyboard grab made with `x-grab-keyboard'.
+
+ -- Function: x-grab-pointer &optional device cursor ignore-keyboard
+     This function grabs the pointer and restricts it to its current
+     window.  If optional DEVICE argument is `nil', the selected device
+     will be used.  If optional CURSOR argument is non-`nil', change
+     the pointer shape to that until `x-ungrab-pointer' is called (it
+     should be an object returned by the `make-cursor' function).  If
+     the second optional argument IGNORE-KEYBOARD is non-`nil', ignore
+     all keyboard events during the grab.  Returns `t' if the grab is
+     successful, `nil' otherwise.
+
+ -- Function: x-ungrab-pointer &optional device
+     This function releases a pointer grab made with `x-grab-pointer'.
+     If optional first arg DEVICE is `nil' the selected device is used.
+     If it is `t' the pointer will be released on all X devices.
+
+
+File: lispref.info,  Node: X Miscellaneous,  Prev: X Server,  Up: X-Windows
+
+58.3 Miscellaneous X Functions and Variables
+============================================
+
+ -- Variable: x-bitmap-file-path
+     This variable holds a list of the directories in which X bitmap
+     files may be found.  If `nil', this is initialized from the
+     `"*bitmapFilePath"' resource.  This is used by the
+     `make-image-instance' function (however, note that if the
+     environment variable `XBMLANGPATH' is set, it is consulted first).
+
+ -- Variable: x-library-search-path
+     This variable holds the search path used by `read-color' to find
+     `rgb.txt'.
+
+ -- Function: x-valid-keysym-name-p keysym
+     This function returns true if KEYSYM names a keysym that the X
+     library knows about.  Valid keysyms are listed in the files
+     `/usr/include/X11/keysymdef.h' and in `/usr/lib/X11/XKeysymDB', or
+     whatever the equivalents are on your system.
+
+ -- Function: x-window-id &optional frame
+     This function returns the ID of the X11 window.  This gives us a
+     chance to manipulate the Emacs window from within a different
+     program.  Since the ID is an unsigned long, we return it as a
+     string.
+
+ -- Variable: x-allow-sendevents
+     If non-`nil', synthetic events are allowed.  `nil' means they are
+     ignored.  Beware: allowing XEmacs to process SendEvents opens a
+     big security hole.
+
+ -- Function: x-debug-mode arg &optional device
+     With a true arg, make the connection to the X server synchronous.
+     With false, make it asynchronous.  Synchronous connections are
+     much slower, but are useful for debugging. (If you get X errors,
+     make the connection synchronous, and use a debugger to set a
+     breakpoint on `x_error_handler'.  Your backtrace of the C stack
+     will now be useful.  In asynchronous mode, the stack above
+     `x_error_handler' isn't helpful because of buffering.)  If DEVICE
+     is not specified, the selected device is assumed.
+
+     Calling this function is the same as calling the C function
+     `XSynchronize', or starting the program with the `-sync' command
+     line argument.
+
+ -- Variable: x-debug-events
+     If non-zero, debug information about events that XEmacs sees is
+     displayed.  Information is displayed on stderr.  Currently defined
+     values are:
+
+        * 1 == non-verbose output
+
+        * 2 == verbose output
+
+
+File: lispref.info,  Node: ToolTalk Support,  Next: LDAP Support,  Prev: X-Windows,  Up: Top
+
+59 ToolTalk Support
+*******************
+
+* Menu:
+
+* XEmacs ToolTalk API Summary::
+* Sending Messages::
+* Receiving Messages::
+
+
+File: lispref.info,  Node: XEmacs ToolTalk API Summary,  Next: Sending Messages,  Up: ToolTalk Support
+
+59.1 XEmacs ToolTalk API Summary
+================================
+
+The XEmacs Lisp interface to ToolTalk is similar, at least in spirit,
+to the standard C ToolTalk API.  Only the message and pattern parts of
+the API are supported at present; more of the API could be added if
+needed.  The Lisp interface departs from the C API in a few ways:
+
+   * ToolTalk is initialized automatically at XEmacs startup-time.
+     Messages can only be sent other ToolTalk applications connected to
+     the same X11 server that XEmacs is running on.
+
+   * There are fewer entry points; polymorphic functions with keyword
+     arguments are used instead.
+
+   * The callback interface is simpler and marginally less functional.
+     A single callback may be associated with a message or a pattern;
+     the callback is specified with a Lisp symbol (the symbol should
+     have a function binding).
+
+   * The session attribute for messages and patterns is always
+     initialized to the default session.
+
+   * Anywhere a ToolTalk enum constant, e.g. `TT_SESSION', is valid, one
+     can substitute the corresponding symbol, e.g. `'TT_SESSION'.  This
+     simplifies building lists that represent messages and patterns.
+
+
+File: lispref.info,  Node: Sending Messages,  Next: Receiving Messages,  Prev: XEmacs ToolTalk API Summary,  Up: ToolTalk Support
+
+59.2 Sending Messages
+=====================
+
+* Menu:
+
+* Example of Sending Messages::
+* Elisp Interface for Sending Messages::
+
+
+File: lispref.info,  Node: Example of Sending Messages,  Next: Elisp Interface for Sending Messages,  Up: Sending Messages
+
+59.2.1 Example of Sending Messages
+----------------------------------
+
+Here's a simple example that sends a query to another application and
+then displays its reply.  Both the query and the reply are stored in
+the first argument of the message.
+
+     (defun tooltalk-random-query-handler (msg)
+       (let ((state (get-tooltalk-message-attribute msg 'state)))
+         (cond
+           ((eq state 'TT_HANDLED)
+            (message (get-tooltalk-message-attribute msg arg_val 0)))
+           ((memq state '(TT_FAILED TT_REJECTED))
+            (message "Random query turns up nothing")))))
+
+     (defvar random-query-message
+       '(   class TT_REQUEST
+            scope TT_SESSION
+          address TT_PROCEDURE
+               op "random-query"
+             args '((TT_INOUT "?" "string"))
+         callback tooltalk-random-query-handler))
+
+     (let ((m (make-tooltalk-message random-query-message)))
+       (send-tooltalk-message m))
+
+
+File: lispref.info,  Node: Elisp Interface for Sending Messages,  Prev: Example of Sending Messages,  Up: Sending Messages
+
+59.2.2 Elisp Interface for Sending Messages
+-------------------------------------------
+
+ -- Function: make-tooltalk-message attributes
+     Create a ToolTalk message and initialize its attributes.  The
+     value of ATTRIBUTES must be a list of alternating keyword/values,
+     where keywords are symbols that name valid message attributes.
+     For example:
+
+            (make-tooltalk-message
+              '(class TT_NOTICE
+                scope TT_SESSION
+                address TT_PROCEDURE
+                op "do-something"
+                args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
+
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants.  Attribute names are the same as those
+     supported by `set-tooltalk-message-attribute', plus `args'.
+
+     The value of `args' should be a list of message arguments where
+     each message argument has the following form:
+
+             `(mode [value [type]])' or just `value'
+
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk message arguments in chapter 4 of
+     the `ToolTalk Programmer's Guide'.
+
+
+ -- Function: send-tooltalk-message msg
+     Send the message on its way.  Once the message has been sent it's
+     almost always a good idea to get rid of it with
+     `destroy-tooltalk-message'.
+
+
+ -- Function: return-tooltalk-message msg &optional mode
+     Send a reply to this message.  The second argument can be `reply',
+     `reject' or `fail'; the default is `reply'.  Before sending a
+     reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
+     should have been filled in--see `set-tooltalk-message-attribute'.
+
+
+ -- Function: get-tooltalk-message-attribute msg attribute &optional
+          argn
+     Returns the indicated ToolTalk message attribute.  Attributes are
+     identified by symbols with the same name (underscores and all) as
+     the suffix of the ToolTalk `tt_message_<attribute>' function that
+     extracts the value.  String attribute values are copied and
+     enumerated type values (except disposition) are converted to
+     symbols; e.g. `TT_HANDLER' is `'TT_HANDLER', `uid' and `gid' are
+     represented by fixnums (small integers), `opnum' is converted to a
+     string, and `disposition' is converted to a fixnum.  We convert
+     `opnum' (a C int) to a string (e.g. `123' => `"123"') because
+     there's no guarantee that opnums will fit within the range of
+     XEmacs Lisp integers.
+
+     [TBD] Use the `plist' attribute instead of C API `user' attribute
+     for user-defined message data.  To retrieve the value of a message
+     property, specify the indicator for ARGN.  For example, to get the
+     value of a property called `rflag', use
+
+             (get-tooltalk-message-attribute msg 'plist 'rflag)
+
+     To get the value of a message argument use one of the `arg_val'
+     (strings), `arg_ival' (integers), or `arg_bval' (strings with
+     embedded nulls), attributes.  For example, to get the integer
+     value of the third argument:
+
+             (get-tooltalk-message-attribute msg 'arg_ival 2)
+
+     As you can see, argument numbers are zero-based.  The type of each
+     arguments can be retrieved with the `arg_type' attribute; however
+     ToolTalk doesn't define any semantics for the string value of
+     `arg_type'.  Conventionally `string' is used for strings and `int'
+     for 32 bit integers.  Note that XEmacs Lisp stores the lengths of
+     strings explicitly (unlike C) so treating the value returned by
+     `arg_bval' like a string is fine.
+
+
+ -- Function: set-tooltalk-message-attribute value msg attribute
+          &optional argn
+     Initialize one ToolTalk message attribute.
+
+     Attribute names and values are the same as for
+     `get-tooltalk-message-attribute'.  A property list is provided for
+     user data (instead of the `user' message attribute); see
+     `get-tooltalk-message-attribute'.
+
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the state of the message
+     changes.  This is usually used to notice when the message's state
+     has changed to `TT_HANDLED' (or `TT_FAILED'), so that reply
+     argument values can be used.
+
+     If one of the argument attributes is specified as `arg_val',
+     `arg_ival', or `arg_bval', then ARGN must be the number of an
+     already created argument.  Arguments can be added to a message
+     with `add-tooltalk-message-arg'.
+
+
+ -- Function: add-tooltalk-message-arg msg mode type &optional value
+     Append one new argument to the message.  MODE must be one of
+     `TT_IN', `TT_INOUT', or `TT_OUT', TYPE must be a string, and VALUE
+     can be a string or an integer.  ToolTalk doesn't define any
+     semantics for TYPE, so only the participants in the protocol
+     you're using need to agree what types mean (if anything).
+     Conventionally `string' is used for strings and `int' for 32 bit
+     integers.  Arguments can initialized by providing a value or with
+     `set-tooltalk-message-attribute'; the latter is necessary if you
+     want to initialize the argument with a string that can contain
+     embedded nulls (use `arg_bval').
+
+
+ -- Function: create-tooltalk-message &optional no-callback
+     Create a new ToolTalk message.  The message's session attribute is
+     initialized to the default session.  Other attributes can be
+     initialized with `set-tooltalk-message-attribute'.
+     `make-tooltalk-message' is the preferred way to create and
+     initialize a message.
+
+     Optional arg NO-CALLBACK says don't add a C-level callback at all.
+     Normally don't do that; just don't specify the Lisp callback when
+     calling `make-tooltalk-message'.
+
+
+ -- Function: destroy-tooltalk-message msg
+     Apply `tt_message_destroy' to the message.  It's not necessary to
+     destroy messages after they've been processed by a message or
+     pattern callback, the Lisp/ToolTalk callback machinery does this
+     for you.
+
+
+File: lispref.info,  Node: Receiving Messages,  Prev: Sending Messages,  Up: ToolTalk Support
+
+59.3 Receiving Messages
+=======================
+
+* Menu:
+
+* Example of Receiving Messages::
+* Elisp Interface for Receiving Messages::
+
+
+File: lispref.info,  Node: Example of Receiving Messages,  Next: Elisp Interface for Receiving Messages,  Up: Receiving Messages
+
+59.3.1 Example of Receiving Messages
+------------------------------------
+
+Here's a simple example of a handler for a message that tells XEmacs to
+display a string in the mini-buffer area.  The message operation is
+called `emacs-display-string'.  Its first (0th) argument is the string
+to display.
+
+     (defun tooltalk-display-string-handler (msg)
+       (message (get-tooltalk-message-attribute msg 'arg_val 0)))
+
+     (defvar display-string-pattern
+       '(category TT_HANDLE
+            scope TT_SESSION
+               op "emacs-display-string"
+         callback tooltalk-display-string-handler))
+
+     (let ((p (make-tooltalk-pattern display-string-pattern)))
+       (register-tooltalk-pattern p))
+
+
+File: lispref.info,  Node: Elisp Interface for Receiving Messages,  Prev: Example of Receiving Messages,  Up: Receiving Messages
+
+59.3.2 Elisp Interface for Receiving Messages
+---------------------------------------------
+
+ -- Function: make-tooltalk-pattern attributes
+     Create a ToolTalk pattern and initialize its attributes.  The
+     value of attributes must be a list of alternating keyword/values,
+     where keywords are symbols that name valid pattern attributes or
+     lists of valid attributes.  For example:
+
+            (make-tooltalk-pattern
+              '(category TT_OBSERVE
+                   scope TT_SESSION
+                      op ("operation1" "operation2")
+                    args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
+
+     Attribute names are the same as those supported by
+     `add-tooltalk-pattern-attribute', plus `'args'.
+
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants or lists of same.  When a list of values is
+     provided all of the list elements are added to the attribute.  In
+     the example above, messages whose `op' attribute is `"operation1"'
+     or `"operation2"' would match the pattern.
+
+     The value of ARGS should be a list of pattern arguments where each
+     pattern argument has the following form:
+
+             `(mode [value [type]])' or just `value'
+
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk pattern arguments in chapter 3 of
+     the `ToolTalk Programmer's Guide'.
+
+
+ -- Function: register-tooltalk-pattern pattern
+     XEmacs will begin receiving messages that match this pattern.
+
+ -- Function: unregister-tooltalk-pattern pattern
+     XEmacs will stop receiving messages that match this pattern.
+
+ -- Function: add-tooltalk-pattern-attribute value pattern indicator
+     Add one value to the indicated pattern attribute. The names of
+     attributes are the same as the ToolTalk accessors used to set them
+     less the `tooltalk_pattern_' prefix and the `_add' suffix.  For
+     example, the name of the attribute for the
+     `tt_pattern_disposition_add' attribute is `disposition'.  The
+     `category' attribute is handled specially, since a pattern can only
+     be a member of one category (`TT_OBSERVE' or `TT_HANDLE').
+
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the pattern matches an
+     incoming message.
+
+ -- Function: add-tooltalk-pattern-arg pattern mode vtype &optional
+          value
+     Add one fully-specified argument to a ToolTalk pattern.  MODE must
+     be one of `TT_IN', `TT_INOUT', or `TT_OUT'.  VTYPE must be a
+     string.  VALUE can be an integer, string or `nil'.  If VALUE is an
+     integer then an integer argument (`tt_pattern_iarg_add') is added;
+     otherwise a string argument is added.  At present there's no way
+     to add a binary data argument.
+
+
+ -- Function: create-tooltalk-pattern
+     Create a new ToolTalk pattern and initialize its session attribute
+     to be the default session.
+
+ -- Function: destroy-tooltalk-pattern pattern
+     Apply `tt_pattern_destroy' to the pattern.  This effectively
+     unregisters the pattern.
+
+ -- Function: describe-tooltalk-message msg &optional stream
+     Print the message's attributes and arguments to STREAM.  This is
+     often useful for debugging.
+
+
+File: lispref.info,  Node: LDAP Support,  Next: PostgreSQL Support,  Prev: ToolTalk Support,  Up: Top
+
+60 LDAP Support
+***************
+
+XEmacs can be linked with a LDAP client library to provide Elisp
+primitives to access directory servers using the Lightweight Directory
+Access Protocol.
+
+* Menu:
+
+* Building XEmacs with LDAP support::  How to add LDAP support to XEmacs
+* XEmacs LDAP API::             Lisp access to LDAP functions
+* Syntax of Search Filters::    A brief summary of RFC 1558
+
+
+File: lispref.info,  Node: Building XEmacs with LDAP support,  Next: XEmacs LDAP API,  Prev: LDAP Support,  Up: LDAP Support
+
+60.1 Building XEmacs with LDAP support
+======================================
+
+LDAP support must be added to XEmacs at build time since it requires
+linking to an external LDAP client library.  As of 21.2, XEmacs has been
+successfully built and tested with
+
+   * OpenLDAP 1.2 (`http://www.openldap.org/')
+
+   * University of Michigan's LDAP 3.3
+     (`http://www.umich.edu/~dirsvcs/ldap/')
+
+   * LDAP SDK 1.0 from Netscape Corp. (`http://developer.netscape.com/')
+
+   Other libraries conforming to RFC 1823 will probably work also but
+may require some minor tweaking at C level.
+
+   The standard XEmacs configure script auto-detects an installed LDAP
+library provided the library itself and the corresponding header files
+can be found in the library and include paths.  A successful detection
+will be signalled in the final output of the configure script.
+
+
+File: lispref.info,  Node: XEmacs LDAP API,  Next: Syntax of Search Filters,  Prev: Building XEmacs with LDAP support,  Up: LDAP Support
+
+60.2 XEmacs LDAP API
+====================
+
+XEmacs LDAP API consists of two layers:  a low-level layer which tries
+to stay as close as possible to the C API (where practical) and a
+higher-level layer which provides more convenient primitives to
+effectively use LDAP.
+
+   The low-level API should be used directly for very specific purposes
+(such as multiple operations on a connection) only.  The higher-level
+functions provide a more convenient way to access LDAP directories
+hiding the subtleties of handling the connection, translating arguments
+and ensuring compliance with LDAP internationalization rules and formats
+(currently partly implemented only).
+
+* Menu:
+
+* LDAP Variables::              Lisp variables related to LDAP
+* The High-Level LDAP API::     High-level LDAP lisp functions
+* The Low-Level LDAP API::      Low-level LDAP lisp primitives
+* LDAP Internationalization::   I18n variables and functions
+
+
+File: lispref.info,  Node: LDAP Variables,  Next: The High-Level LDAP API,  Prev: XEmacs LDAP API,  Up: XEmacs LDAP API
+
+60.2.1 LDAP Variables
+---------------------
+
+ -- Variable: ldap-default-host
+     The default LDAP server hostname.  A TCP port number can be
+     appended to that name using a colon as a separator.
+
+ -- Variable: ldap-default-port
+     Default TCP port for LDAP connections.  Initialized from the LDAP
+     library. Default value is 389.
+
+ -- Variable: ldap-default-base
+     Default base for LDAP searches.  This is a string using the syntax
+     of RFC 1779.  For instance, "o=ACME, c=US" limits the search to the
+     Acme organization in the United States.
+
+ -- Variable: ldap-host-parameters-alist
+     An alist of per host options for LDAP transactions.  The list
+     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)' HOST is the
+     name of an LDAP server. A TCP port number can be appended to that
+     name using a colon as a separator.  PROPN and VALN are
+     property/value pairs describing parameters for the server.  Valid
+     properties:
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `cn=Babs Jensen,o=ACME,c=US', see RFC 1779 for details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `base'
+          The base for the search. This may look like `cÿ, o¬me', see
+          RFC 1779 for syntax details.
+
+    `scope'
+          One of the symbols `base', `onelevel' or `subtree' indicating
+          the scope of the search limited to a base object, to a single
+          level or to the whole subtree.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ -- Variable: ldap-verbose
+     If non-`nil', LDAP operations will echo progress messages.
+     Defaults to `nil'.
+
+
+File: lispref.info,  Node: The High-Level LDAP API,  Next: The Low-Level LDAP API,  Prev: LDAP Variables,  Up: XEmacs LDAP API
+
+60.2.2 The High-Level LDAP API
+------------------------------
+
+The following functions provide the most convenient interface to perform
+LDAP operations.  All of them open a connection to a host, perform an
+operation (add/search/modify/delete) on one or several entries and
+cleanly close the connection thus insulating the user from all the
+details of the low-level interface such as LDAP Lisp objects *note The
+Low-Level LDAP API::.
+
+   Note that `ldap-search' which used to be the name of the high-level
+search function in XEmacs 21.1 is now obsolete.  For consistency  in the
+naming as well as backward compatibility, that function now acts as a
+wrapper that calls either `ldap-search-basic' (low-level search
+function) or `ldap-search-entries' (high-level search function)
+according to the actual parameters.  A direct call to one of these two
+functions is preferred since it is faster and unambiguous.
+
+ -- Command: ldap-search-entries filter &optional host attributes
+          attrsonly withdn
+     Perform an LDAP search.  FILTER is the search filter *note Syntax
+     of Search Filters:: HOST is the LDAP host on which to perform the
+     search.  ATTRIBUTES is the specific attributes to retrieve, `nil'
+     means retrieve all.  ATTRSONLY if non-`nil' retrieves the
+     attributes only without their associated values.  If WITHDN is
+     non-`nil' each entry in the result will be prepended with its
+     distinguished name DN.  Additional search parameters can be
+     specified through `ldap-host-parameters-alist'.  The function
+     returns a list of matching entries.  Each entry is itself an alist
+     of attribute/value pairs optionally preceded by the DN of the
+     entry according to the value of WITHDN.
+
+ -- Function: ldap-add-entries entries &optional host binddn passwd
+     Add entries to an LDAP directory.  ENTRIES is a list of entry
+     specifications of the form `(DN (ATTR . VALUE) (ATTR . VALUE) ...)'
+     where DN the distinguished name of an entry to add, the following
+     are cons cells containing attribute/value string pairs.  HOST is
+     the LDAP host, defaulting to `ldap-default-host'.  BINDDN is the
+     DN to bind as to the server.  PASSWD is the corresponding password.
+
+ -- Function: ldap-modify-entries entry-mods &optional host binddn
+          passwd
+     Modify entries of an LDAP directory.  ENTRY_MODS is a list of
+     entry modifications of the form `(DN MOD-SPEC1 MOD-SPEC2 ...)'
+     where DN is the distinguished name of the entry to modify, the
+     following are modification specifications.  A modification
+     specification is itself a list of the form `(MOD-OP ATTR VALUE1
+     VALUE2 ...)' MOD-OP and ATTR are mandatory, VALUES are optional
+     depending on MOD-OP.  MOD-OP is the type of modification, one of
+     the symbols `add', `delete' or `replace'. ATTR is the LDAP
+     attribute type to modify.  HOST is the LDAP host, defaulting to
+     `ldap-default-host'.  BINDDN is the DN to bind as to the server.
+     PASSWD is the corresponding password.
+
+ -- Function: ldap-delete-entries dn &optional host binddn passwd
+     Delete an entry from an LDAP directory.  DN is the distinguished
+     name of an entry to delete or a list of those.  HOST is the LDAP
+     host, defaulting to `ldap-default-host'.  BINDDN is the DN to bind
+     as to the server.  PASSWD is the corresponding password.
+
+
+File: lispref.info,  Node: The Low-Level LDAP API,  Next: LDAP Internationalization,  Prev: The High-Level LDAP API,  Up: XEmacs LDAP API
+
+60.2.3 The Low-Level LDAP API
+-----------------------------
+
+The low-level API should be used directly for very specific purposes
+(such as multiple operations on a connection) only.  The higher-level
+functions provide a more convenient way to access LDAP directories
+hiding the subtleties of handling the connection, translating arguments
+and ensuring compliance with LDAP internationalization rules and formats
+(currently partly implemented only). See *note The High-Level LDAP API::
+
+   Note that the former functions `ldap-*-internal' functions have been
+renamed in XEmacs 21.2
+
+* Menu:
+
+* The LDAP Lisp Object::
+* Opening and Closing a LDAP Connection::
+* Low-level Operations on a LDAP Server::
+
+
 File: lispref.info,  Node: The LDAP Lisp Object,  Next: Opening and Closing a LDAP Connection,  Prev: The Low-Level LDAP API,  Up: The Low-Level LDAP API
 
-The LDAP Lisp Object
-....................
+60.2.3.1 The LDAP Lisp Object
+.............................
 
 An internal built-in `ldap' lisp object represents a LDAP connection.
 
- - Function: ldapp object
+ -- Function: ldapp object
      This function returns non-`nil' if OBJECT is a `ldap' object.
 
- - Function: ldap-host ldap
+ -- Function: ldap-host ldap
      Return the server host of the connection represented by LDAP.
 
- - Function: ldap-live-p ldap
+ -- Function: ldap-live-p ldap
      Return non-`nil' if LDAP is an active LDAP connection.
 
 
 File: lispref.info,  Node: Opening and Closing a LDAP Connection,  Next: Low-level Operations on a LDAP Server,  Prev: The LDAP Lisp Object,  Up: The Low-Level LDAP API
 
-Opening and Closing a LDAP Connection
-.....................................
+60.2.3.2 Opening and Closing a LDAP Connection
+..............................................
 
- - Function: ldap-open host &optional plist
+ -- Function: ldap-open host &optional plist
      Open a LDAP connection to HOST.  PLIST is a property list
      containing additional parameters for the connection.  Valid keys
      in that list are:
@@ -118,14 +1139,14 @@ Opening and Closing a LDAP Connection
           The maximum number of matches to return for searches
           performed on this connection.
 
- - Function: ldap-close ldap
+ -- Function: ldap-close ldap
      Close the connection represented by LDAP.
 
 
 File: lispref.info,  Node: Low-level Operations on a LDAP Server,  Prev: Opening and Closing a LDAP Connection,  Up: The Low-Level LDAP API
 
-Low-level Operations on a LDAP Server
-.....................................
+60.2.3.3 Low-level Operations on a LDAP Server
+..............................................
 
 `ldap-search-basic' is the low-level primitive to perform a search on a
 LDAP server.  It works directly on an open LDAP connection thus
@@ -133,7 +1154,7 @@ requiring a preliminary call to `ldap-open'.  Multiple searches can be
 made on the same connection, then the session must be closed with
 `ldap-close'.
 
- - Function: ldap-search-basic ldap filter &optional base scope attrs
+ -- Function: ldap-search-basic ldap filter &optional base scope attrs
           attrsonly withdn verbose
      Perform a search on an open connection LDAP created with
      `ldap-open'.  FILTER is a filter string for the search *note
@@ -152,13 +1173,13 @@ made on the same connection, then the session must be closed with
      attribute/value pairs optionally preceded by the DN of the entry
      according to the value of WITHDN.
 
- - Function: ldap-add ldap dn entry
+ -- Function: ldap-add ldap dn entry
      Add ENTRY to a LDAP directory which a connection LDAP has been
      opened to with `ldap-open'.  DN is the distinguished name of the
      entry to add.  ENTRY is an entry specification, i.e., a list of
      cons cells containing attribute/value string pairs.
 
- - Function: ldap-modify ldap dn mods
+ -- Function: ldap-modify ldap dn mods
      Modify an entry in an LDAP directory.  LDAP is an LDAP connection
      object created with `ldap-open'.  DN is the distinguished name of
      the entry to modify.  MODS is a list of modifications to apply.  A
@@ -168,7 +1189,7 @@ made on the same connection, then the session must be closed with
      the symbols `add', `delete' or `replace'. ATTR is the LDAP
      attribute type to modify.
 
- - Function: ldap-delete ldap dn
+ -- Function: ldap-delete ldap dn
      Delete an entry to an LDAP directory.  LDAP is an LDAP connection
      object created with `ldap-open'.  DN is the distinguished name of
      the entry to delete.
@@ -176,8 +1197,8 @@ made on the same connection, then the session must be closed with
 
 File: lispref.info,  Node: LDAP Internationalization,  Prev: The Low-Level LDAP API,  Up: XEmacs LDAP API
 
-LDAP Internationalization
--------------------------
+60.2.4 LDAP Internationalization
+--------------------------------
 
 The XEmacs LDAP API provides basic internationalization features based
 on the LDAP v3 specification (essentially RFC2252 on "LDAP v3 Attribute
@@ -185,7 +1206,7 @@ Syntax Definitions").  Unfortunately since there is currently no free
 LDAP v3 server software, this part has not received much testing and
 should be considered experimental.  The framework is in place though.
 
- - Function: ldap-decode-attribute attr
+ -- Function: ldap-decode-attribute attr
      Decode the attribute/value pair ATTR according to LDAP rules.  The
      attribute name is looked up in `ldap-attribute-syntaxes-alist' and
      the corresponding decoder is then retrieved from
@@ -199,67 +1220,67 @@ should be considered experimental.  The framework is in place though.
 
 File: lispref.info,  Node: LDAP Internationalization Variables,  Next: Encoder/Decoder Functions,  Prev: LDAP Internationalization,  Up: LDAP Internationalization
 
-LDAP Internationalization Variables
-...................................
+60.2.4.1 LDAP Internationalization Variables
+............................................
 
- - Variable: ldap-ignore-attribute-codings
+ -- Variable: ldap-ignore-attribute-codings
      If non-`nil', no encoding/decoding will be performed LDAP
      attribute values
 
- - Variable: ldap-coding-system
+ -- Variable: ldap-coding-system
      Coding system of LDAP string values.  LDAP v3 specifies the coding
      system of strings to be UTF-8.  You need an XEmacs with Mule
      support for this.
 
- - Variable: ldap-default-attribute-decoder
+ -- Variable: ldap-default-attribute-decoder
      Decoder function to use for attributes whose syntax is unknown.
      Such a function receives an encoded attribute value as a string
      and should return the decoded value as a string.
 
- - Variable: ldap-attribute-syntax-encoders
+ -- Variable: ldap-attribute-syntax-encoders
      A vector of functions used to encode LDAP attribute values.  The
      sequence of functions corresponds to the sequence of LDAP
      attribute syntax object identifiers of the form
      1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
      As of this writing, only a few encoder functions are available.
 
- - Variable: ldap-attribute-syntax-decoders
+ -- Variable: ldap-attribute-syntax-decoders
      A vector of functions used to decode LDAP attribute values.  The
      sequence of functions corresponds to the sequence of LDAP
      attribute syntax object identifiers of the form
      1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
      As of this writing, only a few decoder functions are available.
 
- - Variable: ldap-attribute-syntaxes-alist
+ -- Variable: ldap-attribute-syntaxes-alist
      A map of LDAP attribute names to their type object id minor number.
      This table is built from RFC2252 Section 5 and RFC2256 Section 5.
 
 
 File: lispref.info,  Node: Encoder/Decoder Functions,  Prev: LDAP Internationalization Variables,  Up: LDAP Internationalization
 
-Encoder/Decoder Functions
-.........................
+60.2.4.2 Encoder/Decoder Functions
+..................................
 
- - Function: ldap-encode-boolean bool
+ -- Function: ldap-encode-boolean bool
      A function that encodes an elisp boolean BOOL into a LDAP boolean
      string representation.
 
- - Function: ldap-decode-boolean str
+ -- Function: ldap-decode-boolean str
      A function that decodes a LDAP boolean string representation STR
      into an elisp boolean.
 
- - Function: ldap-decode-string str
+ -- Function: ldap-decode-string str
      Decode a string STR according to `ldap-coding-system'.
 
- - Function: ldap-encode-string str
+ -- Function: ldap-encode-string str
      Encode a string STR according to `ldap-coding-system'.
 
- - Function: ldap-decode-address str
+ -- Function: ldap-decode-address str
      Decode an address STR according to `ldap-coding-system' and
      replacing $ signs with newlines as specified by LDAP encoding
      rules for addresses.
 
- - Function: ldap-encode-address str
+ -- Function: ldap-encode-address str
      Encode an address STR according to `ldap-coding-system' and
      replacing newlines with $ signs as specified by LDAP encoding
      rules for addresses.
@@ -267,8 +1288,8 @@ Encoder/Decoder Functions
 
 File: lispref.info,  Node: Syntax of Search Filters,  Prev: XEmacs LDAP API,  Up: LDAP Support
 
-Syntax of Search Filters
-========================
+60.3 Syntax of Search Filters
+=============================
 
 LDAP search functions use RFC1558 syntax to describe the search filter.
 In that syntax simple filters have the form:
@@ -302,8 +1323,8 @@ is `John'.
 
 File: lispref.info,  Node: PostgreSQL Support,  Next: Internationalization,  Prev: LDAP Support,  Up: Top
 
-PostgreSQL Support
-******************
+61 PostgreSQL Support
+*********************
 
 XEmacs can be linked with PostgreSQL libpq run-time support to provide
 relational database access from Emacs Lisp code.
@@ -317,15 +1338,15 @@ relational database access from Emacs Lisp code.
 
 File: lispref.info,  Node: Building XEmacs with PostgreSQL support,  Next: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
 
-Building XEmacs with PostgreSQL support
-=======================================
+61.1 Building XEmacs with PostgreSQL support
+============================================
 
 XEmacs PostgreSQL support requires linking to the PostgreSQL libpq
 library.  Describing how to build and install PostgreSQL is beyond the
 scope of this document.  See the PostgreSQL manual for details.
 
    If you have installed XEmacs from one of the binary kits on
-(<ftp://ftp.xemacs.org/>), or are using an XEmacs binary from a CD ROM,
+(`ftp://ftp.xemacs.org/'), or are using an XEmacs binary from a CD ROM,
 you may have XEmacs PostgreSQL support by default.  `M-x
 describe-installation' will tell you if you do.
 
@@ -345,8 +1366,8 @@ V6.5.  In particular, asynchronous queries are supported.
 
 File: lispref.info,  Node: XEmacs PostgreSQL libpq API,  Next: XEmacs PostgreSQL libpq Examples,  Prev: Building XEmacs with PostgreSQL support,  Up: PostgreSQL Support
 
-XEmacs PostgreSQL libpq API
-===========================
+61.2 XEmacs PostgreSQL libpq API
+================================
 
 The XEmacs PostgreSQL API is intended to be a policy-free, low-level
 binding to libpq.  The intent is to provide all the basic functionality
@@ -392,8 +1413,8 @@ original edition of this manual were run against Postgres 7.0beta1.
 
 File: lispref.info,  Node: libpq Lisp Variables,  Next: libpq Lisp Symbols and DataTypes,  Prev: XEmacs PostgreSQL libpq API,  Up: XEmacs PostgreSQL libpq API
 
-libpq Lisp Variables
---------------------
+61.2.1 libpq Lisp Variables
+---------------------------
 
 Various Unix environment variables are used by libpq to provide defaults
 to the many different parameters.  In the XEmacs Lisp API, these
@@ -402,38 +1423,38 @@ convenient access to Lisp Code.  These variables are passed to the
 backend database server during the establishment of a database
 connection and when the `pq-setenv' call is made.
 
- - Variable: pg:host
+ -- Variable: pg:host
      Initialized from the `PGHOST' environment variable.  The default
      host to connect to.
 
- - Variable: pg:user
+ -- Variable: pg:user
      Initialized from the `PGUSER' environment variable.  The default
      database user name.
 
- - Variable: pg:options
+ -- Variable: pg:options
      Initialized from the `PGOPTIONS' environment variable.  Default
      additional server options.
 
- - Variable: pg:port
+ -- Variable: pg:port
      Initialized from the `PGPORT' environment variable.  The default
      TCP port to connect to.
 
- - Variable: pg:tty
+ -- Variable: pg:tty
      Initialized from the `PGTTY' environment variable.  The default
      debugging TTY.
 
      Compatibility note:  Debugging TTYs are turned off in the XEmacs
      Lisp binding.
 
- - Variable: pg:database
+ -- Variable: pg:database
      Initialized from the `PGDATABASE' environment variable.  The
      default database to connect to.
 
- - Variable: pg:realm
+ -- Variable: pg:realm
      Initialized from the `PGREALM' environment variable.  The default
      Kerberos realm.
 
- - Variable: pg:client-encoding
+ -- Variable: pg:client-encoding
      Initialized from the `PGCLIENTENCODING' environment variable.  The
      default client encoding.
 
@@ -442,7 +1463,7 @@ connection and when the `pq-setenv' call is made.
      to 7.0.  In the current implementation, client encoding is
      equivalent to the `file-name-coding-system' format.
 
- - Variable: pg:authtype
+ -- Variable: pg:authtype
      Initialized from the `PGAUTHTYPE' environment variable.  The
      default authentication scheme used.
 
@@ -450,27 +1471,27 @@ connection and when the `pq-setenv' call is made.
      after 6.5.  It is not implemented at all in the XEmacs Lisp
      binding.
 
- - Variable: pg:geqo
+ -- Variable: pg:geqo
      Initialized from the `PGGEQO' environment variable.  Genetic
      optimizer options.
 
- - Variable: pg:cost-index
+ -- Variable: pg:cost-index
      Initialized from the `PGCOSTINDEX' environment variable.  Cost
      index options.
 
- - Variable: pg:cost-heap
+ -- Variable: pg:cost-heap
      Initialized from the `PGCOSTHEAP' environment variable.  Cost heap
      options.
 
- - Variable: pg:tz
+ -- Variable: pg:tz
      Initialized from the `PGTZ' environment variable.  Default
      timezone.
 
- - Variable: pg:date-style
+ -- Variable: pg:date-style
      Initialized from the `PGDATESTYLE' environment variable.  Default
      date style in returned date objects.
 
- - Variable: pg-coding-system
+ -- Variable: pg-coding-system
      This is a variable controlling which coding system is used to
      encode non-ASCII strings sent to the database.
 
@@ -479,32 +1500,32 @@ connection and when the `pq-setenv' call is made.
 
 File: lispref.info,  Node: libpq Lisp Symbols and DataTypes,  Next: Synchronous Interface Functions,  Prev: libpq Lisp Variables,  Up: XEmacs PostgreSQL libpq API
 
-libpq Lisp Symbols and Datatypes
---------------------------------
+61.2.2 libpq Lisp Symbols and Datatypes
+---------------------------------------
 
 The following set of symbols are used to represent the intermediate
 states involved in the asynchronous interface.
 
- - Symbol: pgres::polling-failed
+ -- Symbol: pgres::polling-failed
      Undocumented.  A fatal error has occurred during processing of an
      asynchronous operation.
 
- - Symbol: pgres::polling-reading
+ -- Symbol: pgres::polling-reading
      An intermediate status return during an asynchronous operation.  It
      indicates that one may use `select' before polling again.
 
- - Symbol: pgres::polling-writing
+ -- Symbol: pgres::polling-writing
      An intermediate status return during an asynchronous operation.  It
      indicates that one may use `select' before polling again.
 
- - Symbol: pgres::polling-ok
+ -- Symbol: pgres::polling-ok
      An asynchronous operation has successfully completed.
 
- - Symbol: pgres::polling-active
+ -- Symbol: pgres::polling-active
      An intermediate status return during an asynchronous operation.
      One can call the poll function again immediately.
 
- - Function: pq-pgconn conn field
+ -- Function: pq-pgconn conn field
      CONN A database connection object.  FIELD A symbol indicating
      which field of PGconn to fetch.  Possible values are shown in the
      following table.
@@ -605,7 +1626,7 @@ directly by `pq-clear' the printed representation will look like:
    The following set of functions are accessors to various data in the
 PGresult object.
 
- - Function: pq-result-status result
+ -- Function: pq-result-status result
      Return status of a query result.  RESULT is a PGresult object.
      The return value is one of the symbols in the following table.
     `pgres::empty-query'
@@ -637,7 +1658,7 @@ PGresult object.
           Undocumented.  An error has occurred in processing the query
           and the operation was not completed.
 
- - Function: pq-res-status result
+ -- Function: pq-res-status result
      Return the query result status as a string, not a symbol.  RESULT
      is a PGresult object.
 
@@ -646,7 +1667,7 @@ PGresult object.
           (pq-res-status R)
                => "PGRES_TUPLES_OK"
 
- - Function: pq-result-error-message result
+ -- Function: pq-result-error-message result
      Return an error message generated by the query, if any.  RESULT is
      a PGresult object.
 
@@ -656,7 +1677,7 @@ PGresult object.
                => "ERROR:  parser: parse error at or near \"-\"
           "
 
- - Function: pq-ntuples result
+ -- Function: pq-ntuples result
      Return the number of tuples in the query result.  RESULT is a
      PGresult object.
 
@@ -665,7 +1686,7 @@ PGresult object.
           (pq-ntuples R)
                => 5
 
- - Function: pq-nfields result
+ -- Function: pq-nfields result
      Return the number of fields in each tuple of the query result.
      RESULT is a PGresult object.
 
@@ -674,7 +1695,7 @@ PGresult object.
           (pq-nfields R)
                => 3
 
- - Function: pq-binary-tuples result
+ -- Function: pq-binary-tuples result
      Returns t if binary tuples are present in the results, nil
      otherwise.  RESULT is a PGresult object.
 
@@ -683,7 +1704,7 @@ PGresult object.
           (pq-binary-tuples R)
                => nil
 
- - Function: pq-fname result field-index
+ -- Function: pq-fname result field-index
      Returns the name of a specific field.  RESULT is a PGresult object.
      FIELD-INDEX is the number of the column to select from.  The first
      column is number zero.
@@ -696,7 +1717,7 @@ PGresult object.
             l)
                => ("id" "shikona" "rank")
 
- - Function: pq-fnumber result field-name
+ -- Function: pq-fnumber result field-name
      Return the field number corresponding to the given field name.  -1
      is returned on a bad field name.  RESULT is a PGresult object.
      FIELD-NAME is a string representing the field name to find.
@@ -707,7 +1728,7 @@ PGresult object.
           (pq-fnumber R "Not a field")
                => -1
 
- - Function: pq-ftype result field-num
+ -- Function: pq-ftype result field-num
      Return an integer code representing the data type of the specified
      column.  RESULT is a PGresult object.  FIELD-NUM is the field
      number.
@@ -716,12 +1737,12 @@ PGresult object.
      database of the type.  Further queries need to be made to various
      system tables in order to convert this value into something useful.
 
- - Function: pq-fmod result field-num
+ -- Function: pq-fmod result field-num
      Return the type modifier code associated with a field.  Field
      numbers start at zero.  RESULT is a PGresult object.  FIELD-INDEX
      selects which field to use.
 
- - Function: pq-fsize result field-index
+ -- Function: pq-fsize result field-index
      Return size of the given field.  RESULT is a PGresult object.
      FIELD-INDEX selects which field to use.
 
@@ -733,7 +1754,7 @@ PGresult object.
             l)
                => ((23 23) (25 25) (25 25))
 
- - Function: pq-get-value result tup-num field-num
+ -- Function: pq-get-value result tup-num field-num
      Retrieve a return value.  RESULT is a PGresult object.  TUP-NUM
      selects which tuple to fetch from.  FIELD-NUM selects which field
      to fetch from.
@@ -749,7 +1770,7 @@ PGresult object.
           (pq-get-value R 2 1)
                => "Musoyama"
 
- - Function: pq-get-length result tup-num field-num
+ -- Function: pq-get-length result tup-num field-num
      Return the length of a specific value.  RESULT is a PGresult
      object.  TUP-NUM selects which tuple to fetch from.  FIELD-NUM
      selects which field to fetch from.
@@ -763,12 +1784,12 @@ PGresult object.
           (pq-get-length R 2 1)
                => 8
 
- - Function: pq-get-is-null result tup-num field-num
+ -- Function: pq-get-is-null result tup-num field-num
      Return t if the specific value is the SQL `NULL'.  RESULT is a
      PGresult object.  TUP-NUM selects which tuple to fetch from.
      FIELD-NUM selects which field to fetch from.
 
- - Function: pq-cmd-status result
+ -- Function: pq-cmd-status result
      Return a summary string from the query.  RESULT is a PGresult
      object.
           (setq R (pq-exec P "INSERT INTO xemacs_test
@@ -787,7 +1808,7 @@ PGresult object.
      system to system since object ID numbers in Postgres must be unique
      across all databases.
 
- - Function: pq-cmd-tuples result
+ -- Function: pq-cmd-tuples result
      Return the number of tuples if the last command was an
      INSERT/UPDATE/DELETE.  If the last command was something else, the
      empty string is returned.  RESULT is a PGresult object.
@@ -807,7 +1828,7 @@ PGresult object.
           (pq-cmd-tuples R)
                => "2"
 
- - Function: pq-oid-value result
+ -- Function: pq-oid-value result
      Return the object id of the insertion if the last command was an
      INSERT.  0 is returned if the last command was not an insertion.
      RESULT is a PGresult object.
@@ -827,7 +1848,7 @@ PGresult object.
           (pq-oid-value R)
                => 0
 
- - Function: pq-make-empty-pgresult conn status
+ -- Function: pq-make-empty-pgresult conn status
      Create an empty pgresult with the given status.  CONN a database
      connection object STATUS a value that can be returned by
      `pq-result-status'.
@@ -838,10 +1859,10 @@ PGresult object.
 
 File: lispref.info,  Node: Synchronous Interface Functions,  Next: Asynchronous Interface Functions,  Prev: libpq Lisp Symbols and DataTypes,  Up: XEmacs PostgreSQL libpq API
 
-Synchronous Interface Functions
--------------------------------
+61.2.3 Synchronous Interface Functions
+--------------------------------------
 
- - Function: pq-connectdb conninfo
+ -- Function: pq-connectdb conninfo
      Establish a (synchronous) database connection.  CONNINFO A string
      of blank separated options.  Options are of the form "OPTION =
      VALUE".  If VALUE contains blanks, it must be single quoted.
@@ -912,7 +1933,7 @@ Synchronous Interface Functions
      A database connection object is returned regardless of whether a
      connection was established or not.
 
- - Function: pq-reset conn
+ -- Function: pq-reset conn
      Reestablish database connection.  CONN A database connection
      object.
 
@@ -920,7 +1941,7 @@ Synchronous Interface Functions
      original connection parameters.  This is useful if something has
      happened to the TCP link and it has become broken.
 
- - Function: pq-exec conn query
+ -- Function: pq-exec conn query
      Make a synchronous database query.  CONN A database connection
      object.  QUERY A string containing an SQL query.  A PGresult
      object is returned, which in turn may be queried by its many
@@ -932,7 +1953,7 @@ Synchronous Interface Functions
           DELETE FROM xemacs_test WHERE id=8;"))
                => #<PGresult PGRES_COMMAND_OK[1] - DELETE 1>
 
- - Function: pq-notifies conn
+ -- Function: pq-notifies conn
      Return the latest async notification that has not yet been handled.
      CONN A database connection object.  If there has been a
      notification, then a list of two elements will be returned.  The
@@ -940,7 +1961,7 @@ Synchronous Interface Functions
      element contains the backend process ID number.  nil is returned
      if there aren't any notifications to process.
 
- - Function: PQsetenv conn
+ -- Function: PQsetenv conn
      Synchronous transfer of environment variables to a backend CONN A
      database connection object.
 
@@ -953,42 +1974,42 @@ Synchronous Interface Functions
 
 File: lispref.info,  Node: Asynchronous Interface Functions,  Next: Large Object Support,  Prev: Synchronous Interface Functions,  Up: XEmacs PostgreSQL libpq API
 
-Asynchronous Interface Functions
---------------------------------
+61.2.4 Asynchronous Interface Functions
+---------------------------------------
 
 Making command by command examples is too complex with the asynchronous
 interface functions.  See the examples section for complete calling
 sequences.
 
- - Function: pq-connect-start conninfo
+ -- Function: pq-connect-start conninfo
      Begin establishing an asynchronous database connection.  CONNINFO
      A string containing the connection options.  See the documentation
      of `pq-connectdb' for a listing of all the available flags.
 
- - Function: pq-connect-poll conn
+ -- Function: pq-connect-poll conn
      An intermediate function to be called during an asynchronous
      database connection.  CONN A database connection object.  The
      result codes are documented in a previous section.
 
- - Function: pq-is-busy conn
+ -- Function: pq-is-busy conn
      Returns t if `pq-get-result' would block waiting for input.  CONN
      A database connection object.
 
- - Function: pq-consume-input conn
+ -- Function: pq-consume-input conn
      Consume any available input from the backend.  CONN A database
      connection object.
 
      Nil is returned if anything bad happens.
 
- - Function: pq-reset-start conn
+ -- Function: pq-reset-start conn
      Reset connection to the backend asynchronously.  CONN A database
      connection object.
 
- - Function: pq-reset-poll conn
+ -- Function: pq-reset-poll conn
      Poll an asynchronous reset for completion CONN A database
      connection object.
 
- - Function: pq-reset-cancel conn
+ -- Function: pq-reset-cancel conn
      Attempt to request cancellation of the current operation.  CONN A
      database connection object.
 
@@ -998,44 +2019,44 @@ sequences.
      effect at the backend.  The application must read the operation
      result as usual.
 
- - Function: pq-send-query conn query
+ -- Function: pq-send-query conn query
      Submit a query to Postgres and don't wait for the result.  CONN A
      database connection object.  Returns: t if successfully submitted
             nil if error (conn->errorMessage is set)
 
- - Function: pq-get-result conn
+ -- Function: pq-get-result conn
      Retrieve an asynchronous result from a query.  CONN A database
      connection object.
 
      `nil' is returned when no more query work remains.
 
- - Function: pq-set-nonblocking conn arg
+ -- Function: pq-set-nonblocking conn arg
      Sets the PGconn's database connection non-blocking if the arg is
      TRUE or makes it non-blocking if the arg is FALSE, this will not
      protect you from PQexec(), you'll only be safe when using the
      non-blocking API.  CONN A database connection object.
 
- - Function: pq-is-nonblocking conn
+ -- Function: pq-is-nonblocking conn
      Return the blocking status of the database connection CONN A
      database connection object.
 
- - Function: pq-flush conn
+ -- Function: pq-flush conn
      Force the write buffer to be written (or at least try) CONN A
      database connection object.
 
- - Function: PQsetenvStart conn
+ -- Function: PQsetenvStart conn
      Start asynchronously passing environment variables to a backend.
      CONN A database connection object.
 
      Compatibility note: this function is only available with libpq-7.0.
 
- - Function: PQsetenvPoll conn
+ -- Function: PQsetenvPoll conn
      Check an asynchronous environment variables transfer for
      completion.  CONN A database connection object.
 
      Compatibility note: this function is only available with libpq-7.0.
 
- - Function: PQsetenvAbort conn
+ -- Function: PQsetenvAbort conn
      Attempt to terminate an asynchronous environment variables
      transfer.  CONN A database connection object.
 
@@ -1044,16 +2065,16 @@ sequences.
 
 File: lispref.info,  Node: Large Object Support,  Next: Other libpq Functions,  Prev: Asynchronous Interface Functions,  Up: XEmacs PostgreSQL libpq API
 
-Large Object Support
---------------------
+61.2.5 Large Object Support
+---------------------------
 
- - Function: pq-lo-import conn filename
+ -- Function: pq-lo-import conn filename
      Import a file as a large object into the database.  CONN a
      database connection object FILENAME filename to import
 
      On success, the object id is returned.
 
- - Function: pq-lo-export conn oid filename
+ -- Function: pq-lo-export conn oid filename
      Copy a large object in the database into a file.  CONN a database
      connection object.  OID object id number of a large object.
      FILENAME filename to export to.
@@ -1061,10 +2082,10 @@ Large Object Support
 
 File: lispref.info,  Node: Other libpq Functions,  Next: Unimplemented libpq Functions,  Prev: Large Object Support,  Up: XEmacs PostgreSQL libpq API
 
-Other libpq Functions
----------------------
+61.2.6 Other libpq Functions
+----------------------------
 
- - Function: pq-finish conn
+ -- Function: pq-finish conn
      Destroy a database connection object by calling free on it.  CONN
      a database connection object
 
@@ -1078,7 +2099,7 @@ Other libpq Functions
      After calling this routine, the printed representation of the
      XEmacs wrapper object will contain the string "DEAD".
 
- - Function: pq-client-encoding conn
+ -- Function: pq-client-encoding conn
      Return the client encoding as an integer code.  CONN a database
      connection object
 
@@ -1088,7 +2109,7 @@ Other libpq Functions
      Compatibility note: This function did not exist prior to libpq-7.0
      and does not exist in a non-Mule XEmacs.
 
- - Function: pq-set-client-encoding conn encoding
+ -- Function: pq-set-client-encoding conn encoding
      Set client coding system.  CONN a database connection object
      ENCODING a string representing the desired coding system
 
@@ -1106,7 +2127,7 @@ Other libpq Functions
      Compatibility note: This function did not exist prior to libpq-7.0
      and does not exist in a non-Mule XEmacs.
 
- - Function: pq-env-2-encoding
+ -- Function: pq-env-2-encoding
      Return the integer code representing the coding system in
      `PGCLIENTENCODING'.
 
@@ -1115,7 +2136,7 @@ Other libpq Functions
      Compatibility note: This function did not exist prior to libpq-7.0
      and does not exist in a non-Mule XEmacs.
 
- - Function: pq-clear res
+ -- Function: pq-clear res
      Destroy a query result object by calling free() on it.  RES a
      query result object
 
@@ -1129,7 +2150,7 @@ Other libpq Functions
      string "DEAD" after this routine is called indicating that it is no
      longer useful for anything.
 
- - Function: pq-conn-defaults
+ -- Function: pq-conn-defaults
      Return a data structure that represents the connection defaults.
      The data is returned as a list of lists, where each sublist
      contains info regarding a single option.
@@ -1137,10 +2158,10 @@ Other libpq Functions
 
 File: lispref.info,  Node: Unimplemented libpq Functions,  Prev: Other libpq Functions,  Up: XEmacs PostgreSQL libpq API
 
-Unimplemented libpq Functions
------------------------------
+61.2.7 Unimplemented libpq Functions
+------------------------------------
 
- - Unimplemented Function: PGconn *PQsetdbLogin (char *pghost, char
+ -- Unimplemented Function: PGconn *PQsetdbLogin (char *pghost, char
           *pgport, char *pgoptions, char *pgtty, char *dbName, char
           *login, char *pwd)
      Synchronous database connection.  PGHOST is the hostname of the
@@ -1153,8 +2174,8 @@ Unimplemented libpq Functions
      This routine is deprecated as of libpq-7.0, and its functionality
      can be replaced by external Lisp code if needed.
 
- - Unimplemented Function: PGconn *PQsetdb (char *pghost, char *pgport,
-          char *pgoptions, char *pgtty, char *dbName)
+ -- Unimplemented Function: PGconn *PQsetdb (char *pghost, char
+          *pgport, char *pgoptions, char *pgtty, char *dbName)
      Synchronous database connection.  PGHOST is the hostname of the
      PostgreSQL backend to connect to.  PGPORT is the TCP port number
      to use.  PGOPTIONS specifies other backend options.  PGTTY
@@ -1163,11 +2184,11 @@ Unimplemented libpq Functions
 
      This routine was deprecated in libpq-6.5.
 
- - Unimplemented Function: int PQsocket (PGconn *conn)
+ -- Unimplemented Function: int PQsocket (PGconn *conn)
      Return socket file descriptor to a backend database process.  CONN
      database connection object.
 
- - Unimplemented Function: void PQprint (FILE *fout, PGresult *res,
+ -- Unimplemented Function: void PQprint (FILE *fout, PGresult *res,
           PGprintOpt *ps)
      Print out the results of a query to a designated C stream.  FOUT C
      stream to print to RES the query result object to print PS the
@@ -1176,7 +2197,7 @@ Unimplemented libpq Functions
      This routine is deprecated as of libpq-7.0 and cannot be sensibly
      exported to XEmacs Lisp.
 
- - Unimplemented Function: void PQdisplayTuples (PGresult *res, FILE
+ -- Unimplemented Function: void PQdisplayTuples (PGresult *res, FILE
           *fp, int fillAlign, char *fieldSep, int printHeader, int
           quiet)
      RES query result object to print FP C stream to print to FILLALIGN
@@ -1185,7 +2206,7 @@ Unimplemented libpq Functions
 
      This routine was deprecated in libpq-6.5.
 
- - Unimplemented Function: void PQprintTuples (PGresult *res, FILE
+ -- Unimplemented Function: void PQprintTuples (PGresult *res, FILE
           *fout, int printAttName, int terseOutput, int width)
      RES query result object to print FOUT C stream to print to
      PRINTATTNAME print attribute names TERSEOUTPUT delimiter bars
@@ -1193,20 +2214,21 @@ Unimplemented libpq Functions
 
      This routine was deprecated in libpq-6.5.
 
- - Unimplemented Function: int PQmblen (char *s, int encoding)
+ -- Unimplemented Function: int PQmblen (char *s, int encoding)
      Determine length of a multibyte encoded char at `*s'.  S encoded
      string ENCODING type of encoding
 
      Compatibility note:  This function was introduced in libpq-7.0.
 
- - Unimplemented Function: void PQtrace (PGconn *conn, FILE *debug_port)
+ -- Unimplemented Function: void PQtrace (PGconn *conn, FILE
+          *debug_port)
      Enable tracing on `debug_port'.  CONN database connection object.
      DEBUG_PORT C output stream to use.
 
- - Unimplemented Function: void PQuntrace (PGconn *conn)
+ -- Unimplemented Function: void PQuntrace (PGconn *conn)
      Disable tracing.  CONN database connection object.
 
- - Unimplemented Function: char *PQoidStatus (PGconn *conn)
+ -- Unimplemented Function: char *PQoidStatus (PGconn *conn)
      Return the object id as a string of the last tuple inserted.  CONN
      database connection object.
 
@@ -1214,7 +2236,7 @@ Unimplemented libpq Functions
      however it is used internally by the XEmacs binding code when
      linked against versions prior to 7.0.
 
- - Unimplemented Function: PGresult *PQfn (PGconn *conn, int fnid, int
+ -- Unimplemented Function: PGresult *PQfn (PGconn *conn, int fnid, int
           *result_buf, int *result_len, int result_is_int, PQArgBlock
           *args, int nargs)
      "Fast path" interface -- not really recommended for application use
@@ -1224,45 +2246,45 @@ Unimplemented libpq Functions
    The following set of very low level large object functions aren't
 appropriate to be exported to Lisp.
 
- - Unimplemented Function: int pq-lo-open (PGconn *conn, int lobjid,
+ -- Unimplemented Function: int pq-lo-open (PGconn *conn, int lobjid,
           int mode)
      CONN a database connection object.  LOBJID a large object ID.
      MODE opening modes.
 
- - Unimplemented Function: int pq-lo-close (PGconn *conn, int fd)
+ -- Unimplemented Function: int pq-lo-close (PGconn *conn, int fd)
      CONN a database connection object.  FD a large object file
      descriptor
 
- - Unimplemented Function: int pq-lo-read (PGconn *conn, int fd, char
+ -- Unimplemented Function: int pq-lo-read (PGconn *conn, int fd, char
           *buf, int len)
      CONN a database connection object.  FD a large object file
      descriptor.  BUF buffer to read into.  LEN size of buffer.
 
- - Unimplemented Function: int pq-lo-write (PGconn *conn, int fd, char
+ -- Unimplemented Function: int pq-lo-write (PGconn *conn, int fd, char
           *buf, size_t len)
      CONN a database connection object.  FD a large object file
      descriptor.  BUF buffer to write from.  LEN size of buffer.
 
- - Unimplemented Function: int pq-lo-lseek (PGconn *conn, int fd, int
+ -- Unimplemented Function: int pq-lo-lseek (PGconn *conn, int fd, int
           offset, int whence)
      CONN a database connection object.  FD a large object file
      descriptor.  OFFSET WHENCE
 
- - Unimplemented Function: int pq-lo-creat (PGconn *conn, int mode)
+ -- Unimplemented Function: int pq-lo-creat (PGconn *conn, int mode)
      CONN a database connection object.  MODE opening modes.
 
- - Unimplemented Function: int pq-lo-tell (PGconn *conn, int fd)
+ -- Unimplemented Function: int pq-lo-tell (PGconn *conn, int fd)
      CONN a database connection object.  FD a large object file
      descriptor.
 
- - Unimplemented Function: int pq-lo-unlink (PGconn *conn, int lobjid)
+ -- Unimplemented Function: int pq-lo-unlink (PGconn *conn, int lobjid)
      CONN a database connection object.  LBOJID a large object ID.
 
 
 File: lispref.info,  Node: XEmacs PostgreSQL libpq Examples,  Prev: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
 
-XEmacs PostgreSQL libpq Examples
-================================
+61.3 XEmacs PostgreSQL libpq Examples
+=====================================
 
 This is an example of one method of establishing an asynchronous
 connection.
@@ -1385,7 +2407,7 @@ query, including the field names.
      (let (data R)
        (setq R (pq-exec P "BEGIN;"))
        (setq R (pq-exec P "DECLARE k_cursor CURSOR FOR SELECT * FROM xemacs_test ORDER BY f1 DESC;"))
-     
+
        (setq R (pq-exec P "FETCH k_cursor;"))
        (while (eq (pq-ntuples R) 1)
          (push (list (pq-get-value R 0 0) (pq-get-value R 0 1)) data)
@@ -1424,8 +2446,8 @@ implement a mapping function over a table.
 
 File: lispref.info,  Node: Internationalization,  Next: MULE,  Prev: PostgreSQL Support,  Up: Top
 
-Internationalization
-********************
+62 Internationalization
+***********************
 
 * Menu:
 
@@ -1436,8 +2458,8 @@ Internationalization
 
 File: lispref.info,  Node: I18N Levels 1 and 2,  Next: I18N Level 3,  Up: Internationalization
 
-I18N Levels 1 and 2
-===================
+62.1 I18N Levels 1 and 2
+========================
 
 XEmacs is now compliant with I18N levels 1 and 2.  Specifically, this
 means that it is 8-bit clean and correctly handles time and date
@@ -1453,8 +2475,8 @@ display all valid completions and the character which would be produced.
 
 File: lispref.info,  Node: I18N Level 3,  Next: I18N Level 4,  Prev: I18N Levels 1 and 2,  Up: Internationalization
 
-I18N Level 3
-============
+62.2 I18N Level 3
+=================
 
 * Menu:
 
@@ -1467,8 +2489,8 @@ I18N Level 3
 
 File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
 
-Level 3 Basics
---------------
+62.2.1 Level 3 Basics
+---------------------
 
 XEmacs now provides alpha-level functionality for I18N Level 3.  This
 means that everything necessary for full messaging is available, but
@@ -1488,20 +2510,20 @@ variable's documentation.
 
 File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: Level 3 Basics,  Up: I18N Level 3
 
-Level 3 Primitives
-------------------
+62.2.2 Level 3 Primitives
+-------------------------
 
- - Function: gettext string
+ -- Function: gettext string
      This function looks up STRING in the default message domain and
      returns its translation.  If `I18N3' was not enabled when XEmacs
      was compiled, it just returns STRING.
 
- - Function: dgettext domain string
+ -- Function: dgettext domain string
      This function looks up STRING in the specified message domain and
      returns its translation.  If `I18N3' was not enabled when XEmacs
      was compiled, it just returns STRING.
 
- - Function: bind-text-domain domain pathname
+ -- Function: bind-text-domain domain pathname
      This function associates a pathname with a message domain.  Here's
      how the path to message file is constructed under SunOS 5.x:
 
@@ -1510,7 +2532,7 @@ Level 3 Primitives
      If `I18N3' was not enabled when XEmacs was compiled, this function
      does nothing.
 
- - Special Form: domain string
+ -- Special Form: domain string
      This function specifies the text domain used for translating
      documentation strings and interactive prompts of a function.  For
      example, write:
@@ -1521,7 +2543,7 @@ Level 3 Primitives
      The "call" to `domain' is actually a declaration rather than a
      function; when actually called, `domain' just returns `nil'.
 
- - Function: domain-of function
+ -- Function: domain-of function
      This function returns the text domain of FUNCTION; it returns
      `nil' if it is the default domain.  If `I18N3' was not enabled
      when XEmacs was compiled, it always returns `nil'.
@@ -1529,8 +2551,8 @@ Level 3 Primitives
 
 File: lispref.info,  Node: Dynamic Messaging,  Next: Domain Specification,  Prev: Level 3 Primitives,  Up: I18N Level 3
 
-Dynamic Messaging
------------------
+62.2.3 Dynamic Messaging
+------------------------
 
 The `format' function has been extended to permit you to change the
 order of parameter insertion.  For example, the conversion format
@@ -1541,8 +2563,8 @@ you to change the word order.
 
 File: lispref.info,  Node: Domain Specification,  Next: Documentation String Extraction,  Prev: Dynamic Messaging,  Up: I18N Level 3
 
-Domain Specification
---------------------
+62.2.4 Domain Specification
+---------------------------
 
 The default message domain of XEmacs is `emacs'.  For add-on packages,
 it is best to use a different domain.  For example, let us say we want
@@ -1568,24 +2590,24 @@ function body, before the `interactive' form.
    For variables and constants which have documentation strings,
 specify the domain after the documentation.
 
- - Special Form: defvar symbol [value [doc-string [domain]]]
+ -- Special Form: defvar symbol [value [doc-string [domain]]]
      Example:
           (defvar weight 250 "Weight of gorilla, in pounds." "emacs-gorilla")
 
- - Special Form: defconst symbol [value [doc-string [domain]]]
+ -- Special Form: defconst symbol [value [doc-string [domain]]]
      Example:
           (defconst limbs 4 "Number of limbs" "emacs-gorilla")
 
- - Function: autoload function filename &optional docstring interactive
-          type
+ -- Function: autoload function filename &optional docstring
+          interactive type
      This function defines FUNCTION to autoload from FILENAME Example:
           (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")
 
 
 File: lispref.info,  Node: Documentation String Extraction,  Prev: Domain Specification,  Up: I18N Level 3
 
-Documentation String Extraction
--------------------------------
+62.2.5 Documentation String Extraction
+--------------------------------------
 
 The utility `etc/make-po' scans the file `DOC' to extract documentation
 strings and creates a message file `doc.po'.  This file may then be
@@ -1605,16 +2627,16 @@ packages, the final carriage returns in the strings produced by
 
 File: lispref.info,  Node: I18N Level 4,  Prev: I18N Level 3,  Up: Internationalization
 
-I18N Level 4
-============
+62.3 I18N Level 4
+=================
 
 The Asian-language support in XEmacs is called "MULE".  *Note MULE::.
 
 
 File: lispref.info,  Node: MULE,  Next: Tips,  Prev: Internationalization,  Up: Top
 
-MULE
-****
+63 MULE
+*******
 
 "MULE" is the name originally given to the version of GNU Emacs
 extended for multi-lingual (and in particular Asian-language) support.
@@ -1638,8 +2660,8 @@ on "MULE".
 
 File: lispref.info,  Node: Internationalization Terminology,  Next: Charsets,  Up: MULE
 
-Internationalization Terminology
-================================
+63.1 Internationalization Terminology
+=====================================
 
 In internationalization terminology, a string of text is divided up
 into "characters", which are the printable units that make up the text.
@@ -1840,14 +2862,14 @@ others had 10-bit bytes, etc.
 
 File: lispref.info,  Node: Charsets,  Next: MULE Characters,  Prev: Internationalization Terminology,  Up: MULE
 
-Charsets
-========
+63.2 Charsets
+=============
 
 A "charset" in MULE is an object that encapsulates a particular
 character set as well as an ordering of those characters.  Charsets are
 permanent objects and are named using symbols, like faces.
 
- - Function: charsetp object
+ -- Function: charsetp object
      This function returns non-`nil' if OBJECT is a charset.
 
 * Menu:
@@ -1860,8 +2882,8 @@ permanent objects and are named using symbols, like faces.
 
 File: lispref.info,  Node: Charset Properties,  Next: Basic Charset Functions,  Up: Charsets
 
-Charset Properties
-------------------
+63.2.1 Charset Properties
+-------------------------
 
 Charsets have the following properties:
 
@@ -1960,25 +2982,25 @@ Functions::.
 
 File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Functions,  Prev: Charset Properties,  Up: Charsets
 
-Basic Charset Functions
------------------------
+63.2.2 Basic Charset Functions
+------------------------------
 
- - Function: find-charset charset-or-name
+ -- Function: find-charset charset-or-name
      This function retrieves the charset of the given name.  If
      CHARSET-OR-NAME is a charset object, it is simply returned.
      Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
      such charset, `nil' is returned.  Otherwise the associated charset
      object is returned.
 
- - Function: get-charset name
+ -- Function: get-charset name
      This function retrieves the charset of the given name.  Same as
      `find-charset' except an error is signalled if there is no such
      charset instead of returning `nil'.
 
- - Function: charset-list
+ -- Function: charset-list
      This function returns a list of the names of all defined charsets.
 
- - Function: make-charset name doc-string props
+ -- Function: make-charset name doc-string props
      This function defines a new character set.  This function is for
      use with MULE support.  NAME is a symbol, the name by which the
      character set is normally referred.  DOC-STRING is a string
@@ -1988,19 +3010,19 @@ Basic Charset Functions
      `chars', `final', `graphic', `direction', and `ccl-program', as
      previously described.
 
- - Function: make-reverse-direction-charset charset new-name
+ -- Function: make-reverse-direction-charset charset new-name
      This function makes a charset equivalent to CHARSET but which goes
      in the opposite direction.  NEW-NAME is the name of the new
      charset.  The new charset is returned.
 
- - Function: charset-from-attributes dimension chars final &optional
+ -- Function: charset-from-attributes dimension chars final &optional
           direction
      This function returns a charset with the given DIMENSION, CHARS,
      FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
      will be checked (left-to-right will be returned if character sets
      exist for both directions).
 
- - Function: charset-reverse-direction-charset charset
+ -- Function: charset-reverse-direction-charset charset
      This function returns the charset (if any) with the same dimension,
      number of characters, and final byte as CHARSET, but which is
      displayed in the opposite direction.
@@ -2008,70 +3030,70 @@ Basic Charset Functions
 
 File: lispref.info,  Node: Charset Property Functions,  Next: Predefined Charsets,  Prev: Basic Charset Functions,  Up: Charsets
 
-Charset Property Functions
---------------------------
+63.2.3 Charset Property Functions
+---------------------------------
 
 All of these functions accept either a charset name or charset object.
 
- - Function: charset-property charset prop
+ -- Function: charset-property charset prop
      This function returns property PROP of CHARSET.  *Note Charset
      Properties::.
 
    Convenience functions are also provided for retrieving individual
 properties of a charset.
 
- - Function: charset-name charset
+ -- Function: charset-name charset
      This function returns the name of CHARSET.  This will be a symbol.
 
- - Function: charset-description charset
+ -- Function: charset-description charset
      This function returns the documentation string of CHARSET.
 
- - Function: charset-registry charset
+ -- Function: charset-registry charset
      This function returns the registry of CHARSET.
 
- - Function: charset-dimension charset
+ -- Function: charset-dimension charset
      This function returns the dimension of CHARSET.
 
- - Function: charset-chars charset
+ -- Function: charset-chars charset
      This function returns the number of characters per dimension of
      CHARSET.
 
- - Function: charset-width charset
+ -- Function: charset-width charset
      This function returns the number of display columns per character
      (in TTY mode) of CHARSET.
 
- - Function: charset-direction charset
+ -- Function: charset-direction charset
      This function returns the display direction of CHARSET--either
      `l2r' or `r2l'.
 
- - Function: charset-iso-final-char charset
+ -- Function: charset-iso-final-char charset
      This function returns the final byte of the ISO 2022 escape
      sequence designating CHARSET.
 
- - Function: charset-iso-graphic-plane charset
+ -- Function: charset-iso-graphic-plane charset
      This function returns either 0 or 1, depending on whether the
      position codes of characters in CHARSET map to the left or right
      half of their font, respectively.
 
- - Function: charset-ccl-program charset
+ -- Function: charset-ccl-program charset
      This function returns the CCL program, if any, for converting
      position codes of characters in CHARSET into font indices.
 
    The two properties of a charset that can currently be set after the
 charset has been created are the CCL program and the font registry.
 
- - Function: set-charset-ccl-program charset ccl-program
+ -- Function: set-charset-ccl-program charset ccl-program
      This function sets the `ccl-program' property of CHARSET to
      CCL-PROGRAM.
 
- - Function: set-charset-registry charset registry
+ -- Function: set-charset-registry charset registry
      This function sets the `registry' property of CHARSET to REGISTRY.
 
 
 File: lispref.info,  Node: Predefined Charsets,  Prev: Charset Property Functions,  Up: Charsets
 
-Predefined Charsets
--------------------
+63.2.4 Predefined Charsets
+--------------------------
 
 The following charsets are predefined in the C code.
 
@@ -2131,51 +3153,51 @@ fields (e.g. the type) are not really accurate.
 
 File: lispref.info,  Node: MULE Characters,  Next: Composite Characters,  Prev: Charsets,  Up: MULE
 
-MULE Characters
-===============
+63.3 MULE Characters
+====================
 
- - Function: make-char charset arg1 &optional arg2
+ -- Function: make-char charset arg1 &optional arg2
      This function makes a multi-byte character from CHARSET and octets
      ARG1 and ARG2.
 
- - Function: char-charset character
+ -- Function: char-charset character
      This function returns the character set of char CHARACTER.
 
- - Function: char-octet character &optional n
+ -- Function: char-octet character &optional n
      This function returns the octet (i.e. position code) numbered N
      (should be 0 or 1) of char CHARACTER.  N defaults to 0 if omitted.
 
- - Function: find-charset-region start end &optional buffer
+ -- Function: find-charset-region start end &optional buffer
      This function returns a list of the charsets in the region between
      START and END.  BUFFER defaults to the current buffer if omitted.
 
- - Function: find-charset-string string
+ -- Function: find-charset-string string
      This function returns a list of the charsets in STRING.
 
 
 File: lispref.info,  Node: Composite Characters,  Next: Coding Systems,  Prev: MULE Characters,  Up: MULE
 
-Composite Characters
-====================
+63.4 Composite Characters
+=========================
 
 Composite characters are not yet completely implemented.
 
- - Function: make-composite-char string
+ -- Function: make-composite-char string
      This function converts a string into a single composite character.
      The character is the result of overstriking all the characters in
      the string.
 
- - Function: composite-char-string character
+ -- Function: composite-char-string character
      This function returns a string of the characters comprising a
      composite character.
 
- - Function: compose-region start end &optional buffer
+ -- Function: compose-region start end &optional buffer
      This function composes the characters in the region from START to
      END in BUFFER into one composite character.  The composite
      character replaces the composed characters.  BUFFER defaults to
      the current buffer if omitted.
 
- - Function: decompose-region start end &optional buffer
+ -- Function: decompose-region start end &optional buffer
      This function decomposes any composite characters in the region
      from START to END in BUFFER.  This converts each composite
      character into one or more characters, the individual characters
@@ -2186,8 +3208,8 @@ Composite characters are not yet completely implemented.
 
 File: lispref.info,  Node: Coding Systems,  Next: CCL,  Prev: Composite Characters,  Up: MULE
 
-Coding Systems
-==============
+63.5 Coding Systems
+===================
 
 A coding system is an object that defines how text containing multiple
 character sets is encoded into a stream of (typically 8-bit) bytes.  The
@@ -2208,7 +3230,7 @@ symbol is accepted in place of the actual coding system object whenever
 a coding system is called for. (This is similar to how faces and
 charsets work.)
 
- - Function: coding-system-p object
+ -- Function: coding-system-p object
      This function returns non-`nil' if OBJECT is a coding system.
 
 * Menu:
@@ -2230,8 +3252,8 @@ charsets work.)
 
 File: lispref.info,  Node: Coding System Types,  Next: ISO 2022,  Up: Coding Systems
 
-Coding System Types
--------------------
+63.5.1 Coding System Types
+--------------------------
 
 The coding system type determines the basic algorithm XEmacs will use to
 decode or encode a data stream.  Character encodings will be converted
@@ -2319,8 +3341,8 @@ Emacs 20.)
 
 File: lispref.info,  Node: ISO 2022,  Next: EOL Conversion,  Prev: Coding System Types,  Up: Coding Systems
 
-ISO 2022
-========
+63.6 ISO 2022
+=============
 
 This section briefly describes the ISO 2022 encoding standard.  A more
 thorough treatment is available in the original document of ISO 2022 as
@@ -2554,7 +3576,7 @@ attributes:
              6. No.
              7. Use ASCII
              8. Use JIS X 0208-1983
-     
+
      ctext -- X11 Compound Text
              1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used.
              2. No.
@@ -2564,7 +3586,7 @@ attributes:
              6. No.
              7. Use ASCII.
              8. Use JIS X 0208-1983.
-     
+
      euc-china -- Chinese EUC.  Often called the "GB encoding", but that is
      technically incorrect.
              1. G0 <- ASCII, G1 <- GB 2312, G2,3 <- never used.
@@ -2575,7 +3597,7 @@ attributes:
              6. No.
              7. Use ASCII.
              8. Use JIS X 0208-1983.
-     
+
      ISO-2022-KR -- Coding system used in Korean email.
              1. G0 <- ASCII, G1 <- KSC 5601, G2,3 <- never used.
              2. No.
@@ -2591,8 +3613,8 @@ attributes:
 
 File: lispref.info,  Node: EOL Conversion,  Next: Coding System Properties,  Prev: ISO 2022,  Up: Coding Systems
 
-EOL Conversion
---------------
+63.6.1 EOL Conversion
+---------------------
 
 `nil'
      Automatically detect the end-of-line type (LF, CRLF, or CR).  Also
@@ -2622,8 +3644,8 @@ EOL Conversion
 
 File: lispref.info,  Node: Coding System Properties,  Next: Basic Coding System Functions,  Prev: EOL Conversion,  Up: Coding Systems
 
-Coding System Properties
-------------------------
+63.6.2 Coding System Properties
+-------------------------------
 
 `mnemonic'
      String to be displayed in the modeline when this coding system is
@@ -2745,10 +3767,10 @@ EOL-LF, and BASE.
 
 File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System Property Functions,  Prev: Coding System Properties,  Up: Coding Systems
 
-Basic Coding System Functions
------------------------------
+63.6.3 Basic Coding System Functions
+------------------------------------
 
- - Function: find-coding-system coding-system-or-name
+ -- Function: find-coding-system coding-system-or-name
      This function retrieves the coding system of the given name.
 
      If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
@@ -2756,23 +3778,23 @@ Basic Coding System Functions
      If there is no such coding system, `nil' is returned.  Otherwise
      the associated coding system object is returned.
 
- - Function: get-coding-system name
+ -- Function: get-coding-system name
      This function retrieves the coding system of the given name.  Same
      as `find-coding-system' except an error is signalled if there is no
      such coding system instead of returning `nil'.
 
- - Function: coding-system-list
+ -- Function: coding-system-list
      This function returns a list of the names of all defined coding
      systems.
 
- - Function: coding-system-name coding-system
+ -- Function: coding-system-name coding-system
      This function returns the name of the given coding system.
 
- - Function: coding-system-base coding-system
+ -- Function: coding-system-base coding-system
      Returns the base coding system (undecided EOL convention) coding
      system.
 
- - Function: make-coding-system name type &optional doc-string props
+ -- Function: make-coding-system name type &optional doc-string props
      This function registers symbol NAME as a coding system.
 
      TYPE describes the conversion method used and should be one of the
@@ -2784,36 +3806,36 @@ Basic Coding System Functions
      character set.  Recognized properties are as in *Note Coding
      System Properties::.
 
- - Function: copy-coding-system old-coding-system new-name
+ -- Function: copy-coding-system old-coding-system new-name
      This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
      does not name an existing coding system, a new one will be created.
 
- - Function: subsidiary-coding-system coding-system eol-type
+ -- Function: subsidiary-coding-system coding-system eol-type
      This function returns the subsidiary coding system of
      CODING-SYSTEM with eol type EOL-TYPE.
 
 
 File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and Decoding Text,  Prev: Basic Coding System Functions,  Up: Coding Systems
 
-Coding System Property Functions
---------------------------------
+63.6.4 Coding System Property Functions
+---------------------------------------
 
- - Function: coding-system-doc-string coding-system
+ -- Function: coding-system-doc-string coding-system
      This function returns the doc string for CODING-SYSTEM.
 
- - Function: coding-system-type coding-system
+ -- Function: coding-system-type coding-system
      This function returns the type of CODING-SYSTEM.
 
- - Function: coding-system-property coding-system prop
+ -- Function: coding-system-property coding-system prop
      This function returns the PROP property of CODING-SYSTEM.
 
 
 File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textual Encoding,  Prev: Coding System Property Functions,  Up: Coding Systems
 
-Encoding and Decoding Text
---------------------------
+63.6.5 Encoding and Decoding Text
+---------------------------------
 
- - Function: decode-coding-region start end coding-system &optional
+ -- Function: decode-coding-region start end coding-system &optional
           buffer
      This function decodes the text between START and END which is
      encoded in CODING-SYSTEM.  This is useful if you've read in
@@ -2823,7 +3845,7 @@ Encoding and Decoding Text
      encoded text is returned.  BUFFER defaults to the current buffer
      if unspecified.
 
- - Function: encode-coding-region start end coding-system &optional
+ -- Function: encode-coding-region start end coding-system &optional
           buffer
      This function encodes the text between START and END using
      CODING-SYSTEM.  This will, for example, convert Japanese
@@ -2834,32 +3856,32 @@ Encoding and Decoding Text
 
 File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
 
-Detection of Textual Encoding
------------------------------
+63.6.6 Detection of Textual Encoding
+------------------------------------
 
- - Function: coding-category-list
+ -- Function: coding-category-list
      This function returns a list of all recognized coding categories.
 
- - Function: set-coding-priority-list list
+ -- Function: set-coding-priority-list list
      This function changes the priority order of the coding categories.
      LIST should be a list of coding categories, in descending order of
      priority.  Unspecified coding categories will be lower in priority
      than all specified ones, in the same relative order they were in
      previously.
 
- - Function: coding-priority-list
+ -- Function: coding-priority-list
      This function returns a list of coding categories in descending
      order of priority.
 
- - Function: set-coding-category-system coding-category coding-system
+ -- Function: set-coding-category-system coding-category coding-system
      This function changes the coding system associated with a coding
      category.
 
- - Function: coding-category-system coding-category
+ -- Function: coding-category-system coding-category
      This function returns the coding system associated with a coding
      category.
 
- - Function: detect-coding-region start end &optional buffer
+ -- Function: detect-coding-region start end &optional buffer
      This function detects coding system of the text in the region
      between START and END.  Returned value is a list of possible coding
      systems ordered by priority.  If only ASCII characters are found,
@@ -2870,28 +3892,28 @@ Detection of Textual Encoding
 
 File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Next: Predefined Coding Systems,  Prev: Detection of Textual Encoding,  Up: Coding Systems
 
-Big5 and Shift-JIS Functions
-----------------------------
+63.6.7 Big5 and Shift-JIS Functions
+-----------------------------------
 
 These are special functions for working with the non-standard Shift-JIS
 and Big5 encodings.
 
- - Function: decode-shift-jis-char code
+ -- Function: decode-shift-jis-char code
      This function decodes a JIS X 0208 character of Shift-JIS
      coding-system.  CODE is the character code in Shift-JIS as a cons
      of type bytes.  The corresponding character is returned.
 
- - Function: encode-shift-jis-char character
+ -- Function: encode-shift-jis-char character
      This function encodes a JIS X 0208 character CHARACTER to
      SHIFT-JIS coding-system.  The corresponding character code in
      SHIFT-JIS is returned as a cons of two bytes.
 
- - Function: decode-big5-char code
+ -- Function: decode-big5-char code
      This function decodes a Big5 character CODE of BIG5 coding-system.
      CODE is the character code in BIG5.  The corresponding character
      is returned.
 
- - Function: encode-big5-char character
+ -- Function: encode-big5-char character
      This function encodes the Big5 character CHARACTER to BIG5
      coding-system.  The corresponding character code in Big5 is
      returned.
@@ -2899,8 +3921,8 @@ and Big5 encodings.
 
 File: lispref.info,  Node: Predefined Coding Systems,  Prev: Big5 and Shift-JIS Functions,  Up: Coding Systems
 
-Coding Systems Implemented
---------------------------
+63.6.8 Coding Systems Implemented
+---------------------------------
 
 MULE initializes most of the commonly used coding systems at XEmacs's
 startup.  A few others are initialized only when the relevant language
@@ -3235,8 +4257,8 @@ as Lisp objects.
 
 File: lispref.info,  Node: CCL,  Next: Category Tables,  Prev: Coding Systems,  Up: MULE
 
-CCL
-===
+63.7 CCL
+========
 
 CCL (Code Conversion Language) is a simple structured programming
 language designed for character coding conversions.  A CCL program is
@@ -3293,13 +4315,13 @@ keyword).
 * CCL Statements::      Semantics of CCL statements.
 * CCL Expressions::     Operators and expressions in CCL.
 * Calling CCL::         Running CCL programs.
-* CCL Examples::        The encoding functions for Big5 and KOI-8.
+* CCL Example::         A trivial program to transform the Web's URL encoding.
 
 
 File: lispref.info,  Node: CCL Syntax,  Next: CCL Statements,  Up: CCL
 
-CCL Syntax
-----------
+63.7.1 CCL Syntax
+-----------------
 
 The full syntax of a CCL program in BNF notation:
 
@@ -3357,8 +4379,8 @@ ARRAY := '[' integer ... ']'
 
 File: lispref.info,  Node: CCL Statements,  Next: CCL Expressions,  Prev: CCL Syntax,  Up: CCL
 
-CCL Statements
---------------
+63.7.2 CCL Statements
+---------------------
 
 The Emacs Code Conversion Language provides the following statement
 types: "set", "if", "branch", "loop", "repeat", "break", "read",
@@ -3459,8 +4481,8 @@ does not alter the status of the registers.
 
 File: lispref.info,  Node: CCL Expressions,  Next: Calling CCL,  Prev: CCL Statements,  Up: CCL
 
-CCL Expressions
----------------
+63.7.3 CCL Expressions
+----------------------
 
 CCL, unlike Lisp, uses infix expressions.  The simplest CCL expressions
 consist of a single OPERAND, either a register (one of `r0', ..., `r0')
@@ -3508,10 +4530,10 @@ standard JIS encoding to Shift JIS.  CCL_DECODE_SJIS is its inverse.)
 It is somewhat odd to represent the SJIS operations in infix form.
 
 
-File: lispref.info,  Node: Calling CCL,  Next: CCL Examples,  Prev: CCL Expressions,  Up: CCL
+File: lispref.info,  Node: Calling CCL,  Next: CCL Example,  Prev: CCL Expressions,  Up: CCL
 
-Calling CCL
------------
+63.7.4 Calling CCL
+------------------
 
 CCL programs are called automatically during Emacs buffer I/O when the
 external representation has a coding system type of `shift-jis',
@@ -3519,7 +4541,7 @@ external representation has a coding system type of `shift-jis',
 Coding Systems::).  You can also call CCL programs from other CCL
 programs, and from Lisp using these functions:
 
- - Function: ccl-execute ccl-program status
+ -- Function: ccl-execute ccl-program status
      Execute CCL-PROGRAM with registers initialized by STATUS.
      CCL-PROGRAM is a vector of compiled CCL code created by
      `ccl-compile'.  It is an error for the program to try to execute a
@@ -3532,7 +4554,7 @@ programs, and from Lisp using these functions:
      side-effect) to contain the ending values for the corresponding
      registers and IC.
 
- - Function: ccl-execute-on-string ccl-program status string &optional
+ -- Function: ccl-execute-on-string ccl-program status string &optional
           continue
      Execute CCL-PROGRAM with initial STATUS on STRING.  CCL-PROGRAM is
      a vector of compiled CCL code created by `ccl-compile'.  STATUS
@@ -3551,7 +4573,7 @@ programs, and from Lisp using these functions:
    To call a CCL program from another CCL program, it must first be
 registered:
 
- - Function: register-ccl-program name ccl-program
+ -- Function: register-ccl-program name ccl-program
      Register NAME for CCL program CCL-PROGRAM in `ccl-program-table'.
      CCL-PROGRAM should be the compiled form of a CCL program, or
      `nil'.  Return index number of the registered CCL program.
@@ -3559,28 +4581,327 @@ registered:
    Information about the processor time used by the CCL interpreter can
 be obtained using these functions:
 
- - Function: ccl-elapsed-time
+ -- Function: ccl-elapsed-time
      Returns the elapsed processor time of the CCL interpreter as cons
      of user and system time, as floating point numbers measured in
      seconds.  If only one overall value can be determined, the return
      value will be a cons of that value and 0.
 
- - Function: ccl-reset-elapsed-time
+ -- Function: ccl-reset-elapsed-time
      Resets the CCL interpreter's internal elapsed time registers.
 
 
-File: lispref.info,  Node: CCL Examples,  Prev: Calling CCL,  Up: CCL
+File: lispref.info,  Node: CCL Example,  Prev: Calling CCL,  Up: CCL
 
-CCL Examples
-------------
+63.7.5 CCL Example
+------------------
 
-This section is not yet written.
+In this section, we describe the implementation of a trivial coding
+system to transform from the Web's URL encoding to XEmacs' internal
+coding.  Many people will have been first exposed to URL encoding when
+they saw "%20" where they expected a space in a file's name on their
+local hard disk; this can happen when a browser saves a file from the
+web and doesn't encode the name, as passed from the server, properly.
+
+   URL encoding itself is underspecified with regard to encodings beyond
+ASCII.  The relevant document, RFC 1738, explicitly doesn't give any
+information on how to encode non-ASCII characters, and the "obvious"
+way--use the %xx values for the octets of the eight bit MIME character
+set in which the page was served--breaks when a user types a character
+outside that character set.  Best practice for web development is to
+serve all pages as UTF-8 and treat incoming form data as using that
+coding system.  (Oh, and gamble that your clients won't ever want to
+type anything outside Unicode.  But that's not so much of a gamble with
+today's client operating systems.)  We don't treat non-ASCII in this
+example, as dealing with `(read-multibyte-character ...)' and errors
+therewith would make it much harder to understand.
+
+   Since CCL isn't a very rich language, we move much of the logic that
+would ordinarily be computed from operations like `(member ..)', `(and
+...)' and `(or ...)' into tables, from which register values are read
+and written, and on which `if' statements are predicated.  Much more of
+the implementation of this coding system is occupied with constructing
+these tables--in normal Emacs Lisp--than it is with actual CCL code.
+
+   All the `defvar' statements we deal with in the next few sections
+are surrounded by a `(eval-and-compile ...)', which means that the
+logic which initializes these variables executes at compile time, and if
+XEmacs loads the compiled version of the file, these variables are
+initialized as constants.
+
+* Menu:
+
+* Four bits to ASCII::  Two tables used for getting hex digits from ASCII.
+* URI Encoding constants::  Useful predefined characters.
+* Numeric to ASCII-hexadecimal conversion:: Trivial in Lisp, not so in CCL.
+* Characters to be preserved:: No transformation needed for these characters.
+* The program to decode to internal format:: .
+* The program to encode from internal format:: .
+* The actual coding system:: .
+
+
+File: lispref.info,  Node: Four bits to ASCII,  Next: URI Encoding constants,  Up: CCL Example
+
+63.7.5.1 Four bits to ASCII
+...........................
+
+The first `defvar' is for `url-coding-high-order-nybble-as-ascii', a
+256-entry table that maps from an octet's value to the ASCII encoding
+for the hex value of its most significant four bits.  That might sound
+complex, but it isn't; for decimal 65, hex value `#x41', the entry in
+the table is the ASCII encoding of `4'.  For decimal 122, ASCII `z',
+hex value `#x7a', `(elt url-coding-high-order-nybble-as-ascii #x7a)'
+after this file is loaded gives the ASCII encoding of 7.
+
+     (defvar url-coding-high-order-nybble-as-ascii
+       (let ((val (make-vector 256 0))
+     	(i 0))
+         (while (< i (length val))
+           (aset val i (char-to-int (aref (format "%02X" i) 0)))
+           (setq i (1+ i)))
+         val)
+       "Table to find an ASCII version of an octet's most significant 4 bits.")
+
+   The next table, `url-coding-low-order-nybble-as-ascii' is almost the
+same thing, but this time it has a map for the hex encoding of the
+low-order four bits.  So the sixty-fifth entry (offset `#x41') is the
+ASCII encoding of `1', the hundred-and-twenty-second (offset `#x7a') is
+the ASCII encoding of `A'.
+
+     (defvar url-coding-low-order-nybble-as-ascii
+       (let ((val (make-vector 256 0))
+     	(i 0))
+         (while (< i (length val))
+           (aset val i (char-to-int (aref (format "%02X" i) 1)))
+           (setq i (1+ i)))
+         val)
+       "Table to find an ASCII version of an octet's least significant 4 bits.")
+
+
+File: lispref.info,  Node: URI Encoding constants,  Next: Numeric to ASCII-hexadecimal conversion,  Prev: Four bits to ASCII,  Up: CCL Example
+
+63.7.5.2 URI Encoding constants
+...............................
+
+Next, we have a couple of variables that make the CCL code more
+readable.  The first is the ASCII encoding of the percentage sign; this
+character is used as an escape code, to start the encoding of a
+non-printable character.  For historical reasons, URL encoding allows
+the space character to be encoded as a plus sign-it does make typing
+URLs like `http://google.com/search?q=XEmacs+home+page' easier-and as
+such, we have to check when decoding for this value, and map it to the
+space character.  When doing this in CCL, we use the
+`url-coding-escaped-space-code' variable.
+
+     (defvar url-coding-escape-character-code (char-to-int ?%)
+       "The code point for the percentage sign, in ASCII.")
+
+     (defvar url-coding-escaped-space-code (char-to-int ?+)
+       "The URL-encoded value of the space character, that is, +.")
+
+
+File: lispref.info,  Node: Numeric to ASCII-hexadecimal conversion,  Next: Characters to be preserved,  Prev: URI Encoding constants,  Up: CCL Example
+
+63.7.5.3 Numeric to ASCII-hexadecimal conversion
+................................................
+
+Now, we have a couple of utility tables that wouldn't be necessary in a
+more expressive programming language than is CCL. The first is sixteen
+in length, and maps a hexadecimal number to the ASCII encoding of that
+number; so zero maps to ASCII `0', ten maps to ASCII `A.' The second
+does the reverse; that is, it maps an ASCII character to its value when
+interpreted as a hexadecimal digit. ('A' => 10, 'c' => 12, '2' => 2, as
+a few examples.)
+
+     (defvar url-coding-hex-digit-table
+       (let ((i 0)
+     	(val (make-vector 16 0)))
+         (while (< i 16)
+           (aset val i (char-to-int (aref (format "%X" i) 0)))
+           (setq i (1+ i)))
+         val)
+       "A map from a hexadecimal digit's numeric value to its encoding in ASCII.")
+
+     (defvar url-coding-latin-1-as-hex-table
+       (let ((val (make-vector 256 0))
+     	(i 0))
+         (while (< i (length val))
+           ;; Get a hex val for this ASCII character.
+           (aset val i (string-to-int (format "%c" i) 16))
+           (setq i (1+ i)))
+         val)
+       "A map from Latin 1 code points to their values as hexadecimal digits.")
+
+
+File: lispref.info,  Node: Characters to be preserved,  Next: The program to decode to internal format,  Prev: Numeric to ASCII-hexadecimal conversion,  Up: CCL Example
+
+63.7.5.4 Characters to be preserved
+...................................
+
+And finally, the last of these tables.  URL encoding says that
+alphanumeric characters, the underscore, hyphen and the full stop (1)
+retain their ASCII encoding, and don't undergo transformation.
+`url-coding-should-preserve-table' is an array in which the entries are
+one if the corresponding ASCII character should be left as-is, and zero
+if they should be transformed.  So the entries for all the control and
+most of the punctuation charcters are zero.  Lisp programmers will
+observe that this initialization is particularly inefficient, but
+they'll also be aware that this is a long way from an inner loop where
+every nanosecond counts.
+
+     (defvar url-coding-should-preserve-table
+       (let ((preserve
+     	 (list ?- ?_ ?. ?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?k ?l ?m ?n ?o
+     	       ?p ?q ?r ?s ?t ?u ?v ?w ?x ?y ?z ?A ?B ?C ?D ?E ?F ?G
+     	       ?H ?I ?J ?K ?L ?M ?N ?O ?P ?Q ?R ?S ?T ?U ?V ?W ?X ?Y
+     	       ?Z ?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9))
+     	(i 0)
+     	(res (make-vector 256 0)))
+         (while (< i 256)
+           (when (member (int-char i) preserve)
+     	(aset res i 1))
+           (setq i (1+ i)))
+         res)
+       "A 256-entry array of flags, indicating whether or not to preserve an
+     octet as its ASCII encoding.")
+
+   ---------- Footnotes ----------
+
+   (1) That's what the standards call it, though my North American
+readers will be more familiar with it as the period character.
+
+
+File: lispref.info,  Node: The program to decode to internal format,  Next: The program to encode from internal format,  Prev: Characters to be preserved,  Up: CCL Example
+
+63.7.5.5 The program to decode to internal format
+.................................................
+
+After the almost interminable tables, we get to the CCL.  The first CCL
+program, `ccl-decode-urlcoding' decodes from the URL coding to our
+internal format; since this version of CCL doesn't have support for
+error checking on the input, we don't do any verification on it.
+
+   The buffer magnification-approximate ratio of the size of the output
+buffer to the size of the input buffer-is declared as one, because
+fractional values aren't allowed. (Since all those %20's will map to `
+', the length of the output text will be less than that of the input
+text.)
+
+   So, first we read an octet from the input buffer into register `r0',
+to set up the loop.  Next, we start the loop, with a `(loop ...)'
+statement, and we check if the value in `r0' is a percentage sign.
+(Note the comma before `url-coding-escape-character-code'; since CCL is
+a Lisp macro language, we can break out of the macro evaluation with a
+comman, and as such, "`,url-coding-escape-character-code'" will be
+evaluated as a literal `37.')
+
+   If it is a percentage sign, we read the next two octets into `r2'
+and `r3', and convert them into their hexadecimal numeric values, using
+the `url-coding-latin-1-as-hex-table' array declared above.  (But
+again, it'll be interpreted as a literal array.)  We then left shift
+the first by four bits, mask the two together, and write the result to
+the output buffer.
+
+   If it isn't a percentage sign, and it is a `+' sign, we write a
+space-hexadecimal 20-to the output buffer.
+
+   If none of those things are true, we pass the octet to the output
+buffer untransformed.  (This could be a place to put error checking, in
+a more expressive language.)  We then read one more octet from the input
+buffer, and move to the next iteration of the loop.
+
+     (define-ccl-program ccl-decode-urlcoding
+       `(1
+         ((read r0)
+          (loop
+            (if (r0 == ,url-coding-escape-character-code)
+     	   ((read r2 r3)
+     	    ;; Assign the value at offset r2 in the url-coding-hex-digit-table
+     	    ;; to r3.
+     	    (r2 = r2 ,url-coding-latin-1-as-hex-table)
+     	    (r3 = r3 ,url-coding-latin-1-as-hex-table)
+     	    (r2 <<= 4)
+     	    (r3 |= r2)
+     	    (write r3))
+     	 (if (r0 == ,url-coding-escaped-space-code)
+     	     (write #x20)
+     	   (write r0)))
+            (read r0)
+            (repeat))))
+       "CCL program to take URI-encoded ASCII text and transform it to our
+     internal encoding. ")
+
+
+File: lispref.info,  Node: The program to encode from internal format,  Next: The actual coding system,  Prev: The program to decode to internal format,  Up: CCL Example
+
+63.7.5.6 The program to encode from internal format
+...................................................
+
+Next, we see the CCL program to encode ASCII text as URL coded text.
+Here, the buffer magnification is specified as three, to account for ` '
+mapping to %20, etc.  As before, we read an octet from the input into
+`r0', and move into the body of the loop.  Next, we check if we should
+preserve the value of this octet, by reading from offset `r0' in the
+`url-coding-should-preserve-table' into `r1'.  Then we have an `if'
+statement predicated on the value in `r1'; for the true branch, we
+write the input octet directly.  For the false branch, we write a
+percentage sign, the ASCII encoding of the high four bits in hex, and
+then the ASCII encoding of the low four bits in hex.
+
+   We then read an octet from the input into `r0', and repeat the loop.
+
+     (define-ccl-program ccl-encode-urlcoding
+       `(3
+         ((read r0)
+          (loop
+            (r1 = r0 ,url-coding-should-preserve-table)
+            ;; If we should preserve the value, just write the octet directly.
+            (if r1
+     	   (write r0)
+     	 ;; else, write a percentage sign, and the hex value of the octet, in
+     	 ;; an ASCII-friendly format.
+     	 ((write ,url-coding-escape-character-code)
+     	  (write r0 ,url-coding-high-order-nybble-as-ascii)
+     	  (write r0 ,url-coding-low-order-nybble-as-ascii)))
+            (read r0)
+            (repeat))))
+       "CCL program to encode octets (almost) according to RFC 1738")
+
+
+File: lispref.info,  Node: The actual coding system,  Prev: The program to encode from internal format,  Up: CCL Example
+
+63.7.5.7 The actual coding system
+.................................
+
+To actually create the coding system, we call `make-coding-system'.
+The first argument is the symbol that is to be the name of the coding
+system, in our case `url-coding'. The second specifies that the coding
+system is to be of type `ccl'--there are several other coding system
+types available, including, see the documentation for
+`make-coding-system' for the full list. Then there's a documentation
+string describing the wherefore and caveats of the coding system, and
+the final argument is a property list giving information about the CCL
+programs and the coding system's mnemonic.
+
+     (make-coding-system
+      'url-coding 'ccl
+      "The coding used by application/x-www-form-urlencoded HTTP applications.
+     This coding form doesn't specify anything about non-ASCII characters, so
+     make sure you've transformed to a seven-bit coding system first."
+      '(decode ccl-decode-urlcoding
+        encode ccl-encode-urlcoding
+        mnemonic "URLenc"))
+
+   If you're lucky, the `url-coding' coding system describe here should
+be available in the XEmacs package system. Otherwise, downloading it
+from `http://www.parhasard.net/url-coding.el' should work for the
+foreseeable future.
 
 
 File: lispref.info,  Node: Category Tables,  Prev: CCL,  Up: MULE
 
-Category Tables
-===============
+63.8 Category Tables
+====================
 
 A category table is a type of char table used for keeping track of
 categories.  Categories are used for classifying characters for use in
@@ -3604,38 +4925,38 @@ the character is in that category.
    Special Lisp functions are provided that abstract this, so you do not
 have to directly manipulate bit vectors.
 
- - Function: category-table-p object
+ -- Function: category-table-p object
      This function returns `t' if OBJECT is a category table.
 
- - Function: category-table &optional buffer
+ -- Function: category-table &optional buffer
      This function returns the current category table.  This is the one
      specified by the current buffer, or by BUFFER if it is non-`nil'.
 
- - Function: standard-category-table
+ -- Function: standard-category-table
      This function returns the standard category table.  This is the
      one used for new buffers.
 
- - Function: copy-category-table &optional category-table
+ -- Function: copy-category-table &optional category-table
      This function returns a new category table which is a copy of
      CATEGORY-TABLE, which defaults to the standard category table.
 
- - Function: set-category-table category-table &optional buffer
+ -- Function: set-category-table category-table &optional buffer
      This function selects CATEGORY-TABLE as the new category table for
      BUFFER.  BUFFER defaults to the current buffer if omitted.
 
- - Function: category-designator-p object
+ -- Function: category-designator-p object
      This function returns `t' if OBJECT is a category designator (a
      char in the range `' '' to `'~'').
 
- - Function: category-table-value-p object
+ -- Function: category-table-value-p object
      This function returns `t' if OBJECT is a category table value.
      Valid values are `nil' or a bit vector of size 95.
 
 
 File: lispref.info,  Node: Tips,  Next: Building XEmacs and Object Allocation,  Prev: MULE,  Up: Top
 
-Tips and Standards
-******************
+Appendix A Tips and Standards
+*****************************
 
 This chapter describes no additional features of XEmacs Lisp.  Instead
 it gives advice on making effective use of the features described in
@@ -3652,8 +4973,8 @@ the previous chapters.
 
 File: lispref.info,  Node: Style Tips,  Next: Compilation Tips,  Up: Tips
 
-Writing Clean Lisp Programs
-===========================
+A.1 Writing Clean Lisp Programs
+===============================
 
 Here are some tips for avoiding common errors in writing Lisp code
 intended for widespread use:
@@ -3866,8 +5187,8 @@ intended for widespread use:
 
 File: lispref.info,  Node: Compilation Tips,  Next: Documentation Tips,  Prev: Style Tips,  Up: Tips
 
-Tips for Making Compiled Code Fast
-==================================
+A.2 Tips for Making Compiled Code Fast
+======================================
 
 Here are ways of improving the execution speed of byte-compiled Lisp
 programs.
@@ -3897,7 +5218,7 @@ programs.
 
           (get 'aref 'byte-compile)
                => byte-compile-two-args
-          
+
           (get 'elt 'byte-compile)
                => nil
 
@@ -3911,8 +5232,8 @@ programs.
 
 File: lispref.info,  Node: Documentation Tips,  Next: Comment Tips,  Prev: Compilation Tips,  Up: Tips
 
-Tips for Documentation Strings
-==============================
+A.3 Tips for Documentation Strings
+==================================
 
 Here are some tips for the writing of documentation strings.
 
@@ -4020,8 +5341,8 @@ Here are some tips for the writing of documentation strings.
 
 File: lispref.info,  Node: Comment Tips,  Next: Library Headers,  Prev: Documentation Tips,  Up: Tips
 
-Tips on Writing Comments
-========================
+A.4 Tips on Writing Comments
+============================
 
 We recommend these conventions for where to put comments and how to
 indent them:
@@ -4094,23 +5415,23 @@ of semicolons.  *Note Manipulating Comments: (xemacs)Comments.
 
 File: lispref.info,  Node: Library Headers,  Prev: Comment Tips,  Up: Tips
 
-Conventional Headers for XEmacs Libraries
-=========================================
+A.5 Conventional Headers for XEmacs Libraries
+=============================================
 
 XEmacs has conventions for using special comments in Lisp libraries to
 divide them into sections and give information such as who wrote them.
 This section explains these conventions.  First, an example:
 
      ;;; lisp-mnt.el --- minor mode for Emacs Lisp maintainers
-     
+
      ;; Copyright (C) 1992 Free Software Foundation, Inc.
-     
+
      ;; Author: Eric S. Raymond <esr@snark.thyrsus.com>
      ;; Maintainer: Eric S. Raymond <esr@snark.thyrsus.com>
      ;; Created: 14 Jul 1992
      ;; Version: 1.2
      ;; Keywords: docs
-     
+
      ;; This file is part of XEmacs.
      COPYING PERMISSIONS...
 
@@ -4199,8 +5520,8 @@ library file.  Here is a table of them:
 
 File: lispref.info,  Node: Building XEmacs and Object Allocation,  Next: Standard Errors,  Prev: Tips,  Up: Top
 
-Building XEmacs; Allocation of Objects
-**************************************
+Appendix B Building XEmacs; Allocation of Objects
+*************************************************
 
 This chapter describes how the runnable XEmacs executable is dumped
 with the preloaded Lisp libraries in it and how storage is allocated.
@@ -4220,8 +5541,8 @@ aspects related to the internals of XEmacs.
 
 File: lispref.info,  Node: Building XEmacs,  Next: Pure Storage,  Up: Building XEmacs and Object Allocation
 
-Building XEmacs
-===============
+B.1 Building XEmacs
+===================
 
 This section explains the steps involved in building the XEmacs
 executable.  You don't have to know this material to build and install
@@ -4301,7 +5622,7 @@ variables) in the file where they are stored, by calling
 were moved out of the `xemacs' executable to make it smaller.  *Note
 Documentation Basics::.
 
- - Function: dump-emacs to-file from-file
+ -- Function: dump-emacs to-file from-file
      This function dumps the current state of XEmacs into an executable
      file TO-FILE.  It takes symbols from FROM-FILE (this is normally
      the executable file `temacs').
@@ -4310,13 +5631,13 @@ Documentation Basics::.
      must set `command-line-processed' to `nil' first for good results.
      *Note Command Line Arguments::.
 
- - Function: run-emacs-from-temacs &rest args
+ -- Function: run-emacs-from-temacs &rest args
      This is the function that implements the `run-temacs' command-line
      argument.  It is called from `loadup.el' as appropriate.  You
      should most emphatically _not_ call this yourself; it will
      reinitialize your XEmacs process and you'll be sorry.
 
- - Command: emacs-version &optional arg
+ -- Command: emacs-version &optional arg
      This function returns a string describing the version of XEmacs
      that is running.  It is useful to include this string in bug
      reports.
@@ -4333,14 +5654,14 @@ Documentation Basics::.
      Called interactively, the function prints the same information in
      the echo area.
 
- - Variable: emacs-build-time
+ -- Variable: emacs-build-time
      The value of this variable is the time at which XEmacs was built
      at the local site.
 
           emacs-build-time "Mon Apr  7 20:28:52 1997"
                =>
 
- - Variable: emacs-version
+ -- Variable: emacs-version
      The value of this variable is the version of Emacs being run.  It
      is a string, e.g. `"20.1 XEmacs Lucid"'.
 
@@ -4348,19 +5669,19 @@ Documentation Basics::.
 version 19.23 and XEmacs version 19.10, which reduces their usefulness
 at present, but we hope they will be convenient in the future.
 
- - Variable: emacs-major-version
+ -- Variable: emacs-major-version
      The major version number of Emacs, as an integer.  For XEmacs
      version 20.1, the value is 20.
 
- - Variable: emacs-minor-version
+ -- Variable: emacs-minor-version
      The minor version number of Emacs, as an integer.  For XEmacs
      version 20.1, the value is 1.
 
 
 File: lispref.info,  Node: Pure Storage,  Next: Garbage Collection,  Prev: Building XEmacs,  Up: Building XEmacs and Object Allocation
 
-Pure Storage
-============
+B.2 Pure Storage
+================
 
 XEmacs Lisp uses two kinds of storage for user-created Lisp objects:
 "normal storage" and "pure storage".  Normal storage is where all the
@@ -4381,7 +5702,7 @@ must increase the compilation parameter `PURESIZE' using the
 you try to preload additional libraries or add features to the standard
 ones.
 
- - Function: purecopy object
+ -- Function: purecopy object
      This function makes a copy of OBJECT in pure storage and returns
      it.  It copies strings by simply making a new string with the same
      characters in pure storage.  It recursively copies the contents of
@@ -4392,13 +5713,13 @@ ones.
      This function is a no-op in XEmacs, and its use in new code is
      deprecated.
 
- - Variable: pure-bytes-used
+ -- Variable: pure-bytes-used
      The value of this variable is the number of bytes of pure storage
      allocated so far.  Typically, in a dumped XEmacs, this number is
      very close to the total amount of pure storage available--if it
      were not, we would preallocate less.
 
- - Variable: purify-flag
+ -- Variable: purify-flag
      This variable determines whether `defun' should make a copy of the
      function definition in pure storage.  If it is non-`nil', then the
      function definition is copied into pure storage.
@@ -4414,8 +5735,8 @@ ones.
 
 File: lispref.info,  Node: Garbage Collection,  Prev: Pure Storage,  Up: Building XEmacs and Object Allocation
 
-Garbage Collection
-==================
+B.3 Garbage Collection
+======================
 
 When a program creates a list or the user defines a new function (such
 as by loading a library), that data is placed in normal storage.  If
@@ -4471,7 +5792,7 @@ using `malloc' and `free'.
      of the program does not use so much space as to force a second
      garbage collection).
 
- - Command: garbage-collect
+ -- Command: garbage-collect
      This command runs a garbage collection, and returns information on
      the amount of space in use.  (Garbage collection can also occur
      spontaneously if you use more than `gc-cons-threshold' bytes of
@@ -4486,7 +5807,7 @@ using `malloc' and `free'.
            USED-STRING-CHARS
            USED-VECTOR-SLOTS
            (PLIST))
-          
+
           => ((73362 . 8325) (13718 . 164)
           (5089 . 5098) 949121 118677
           (conses-used 73362 conses-free 8329 cons-storage 658168
@@ -4569,7 +5890,7 @@ using `malloc' and `free'.
           detailed information. (As you can see above, quite a lot of
           information is provided.)
 
- - User Option: gc-cons-threshold
+ -- User Option: gc-cons-threshold
      The value of this variable is the number of bytes of storage that
      must be allocated for Lisp objects after one garbage collection in
      order to trigger another garbage collection.  A cons cell counts
@@ -4592,20 +5913,20 @@ using `malloc' and `free'.
      not apply if XEmacs was configured with `--debug'.  Therefore, be
      careful when setting `gc-cons-threshold' in that case!)
 
- - Variable: pre-gc-hook
+ -- Variable: pre-gc-hook
      This is a normal hook to be run just before each garbage
      collection.  Interrupts, garbage collection, and errors are
      inhibited while this hook runs, so be extremely careful in what
      you add here.  In particular, avoid consing, and do not interact
      with the user.
 
- - Variable: post-gc-hook
+ -- Variable: post-gc-hook
      This is a normal hook to be run just after each garbage collection.
      Interrupts, garbage collection, and errors are inhibited while
      this hook runs, so be extremely careful in what you add here.  In
      particular, avoid consing, and do not interact with the user.
 
- - Variable: gc-message
+ -- Variable: gc-message
      This is a string to print to indicate that a garbage collection is
      in progress.  This is printed in the echo area.  If the selected
      frame is on a window system and `gc-pointer-glyph' specifies a
@@ -4613,7 +5934,7 @@ using `malloc' and `free'.
      selected frame, the mouse cursor will change instead of this
      message being printed.
 
- - Glyph: gc-pointer-glyph
+ -- Glyph: gc-pointer-glyph
      This holds the pointer glyph used to indicate that a garbage
      collection is in progress.  If the selected window is on a window
      system and this glyph specifies a value (i.e. a pointer image
@@ -4626,19 +5947,19 @@ using `malloc' and `free'.
 two variables to get direct information about all the allocation that
 is happening in a segment of Lisp code.
 
- - Variable: debug-allocation
+ -- Variable: debug-allocation
      If non-zero, print out information to stderr about all objects
      allocated.
 
- - Variable: debug-allocation-backtrace
+ -- Variable: debug-allocation-backtrace
      Length (in stack frames) of short backtrace printed out by
      `debug-allocation'.
 
 
 File: lispref.info,  Node: Standard Errors,  Next: Standard Buffer-Local Variables,  Prev: Building XEmacs and Object Allocation,  Up: Top
 
-Standard Errors
-***************
+Appendix C Standard Errors
+**************************
 
 Here is the complete list of the error symbols in standard Emacs,
 grouped by concept.  The list includes each symbol's message (on the
@@ -4805,8 +6126,8 @@ mathematical functions.
 
 File: lispref.info,  Node: Standard Buffer-Local Variables,  Next: Standard Keymaps,  Prev: Standard Errors,  Up: Top
 
-Buffer-Local Variables
-**********************
+Appendix D Buffer-Local Variables
+*********************************
 
 The table below lists the general-purpose Emacs variables that are
 automatically local (when set) in each buffer.  Many Lisp packages
@@ -4954,8 +6275,8 @@ define such variables for their internal use; we don't list them here.
 
 File: lispref.info,  Node: Standard Keymaps,  Next: Standard Hooks,  Prev: Standard Buffer-Local Variables,  Up: Top
 
-Standard Keymaps
-****************
+Appendix E Standard Keymaps
+***************************
 
 The following symbols are used as the names for various keymaps.  Some
 of these exist when XEmacs is first started, others are loaded only
@@ -5093,8 +6414,8 @@ the global keymap.
 
 File: lispref.info,  Node: Standard Hooks,  Next: Index,  Prev: Standard Keymaps,  Up: Top
 
-Standard Hooks
-**************
+Appendix F Standard Hooks
+*************************
 
 The following is a list of hook variables that let you provide
 functions to be called from within Emacs on suitable occasions.

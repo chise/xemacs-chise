@@ -1,4 +1,16 @@
-2005-12-03  Vin Shelton <acs@xemacs.org>
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2005-12-07  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.5): Updated the dates of my contributions.
+
+2005-12-06  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs-faq.texi: copied from 21.5.
+
+2005-12-03  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.18 is released
 
@@ -36,7 +48,7 @@
  	(Face Convenience Functions): Cross-reference glyph interface.
  	Background pixmap is an image specifier, not a glyph.
 
-2005-02-06  Vin Shelton <acs@xemacs.org>
+2005-02-06  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released
 
@@ -78,7 +90,7 @@
 
 	* lispref/help.texi: Document 3rd arg to `make-obsolete'.
 
-2004-12-05  Vin Shelton <acs@xemacs.org>
+2004-12-05  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.16 is released
 
@@ -133,7 +145,7 @@
 	run-hook-with-args-until-failure, and
 	run-hook-with-args-until-success.
 
-2004-02-02  Vin Shelton <acs@xemacs.org>
+2004-02-02  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.15 is released
 
@@ -274,7 +286,7 @@
 	* lispref/backups.texi (Reverting): Fix the PRINTED-MANUAL-TITLE
 	argument for a cross reference to  "The XEmacs User's Manual".
 
-2003-09-03  Vin Shelton <acs@xemacs.org>
+2003-09-03  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released
 

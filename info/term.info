@@ -1,4 +1,4 @@
-This is ../info/term.info, produced by makeinfo version 4.6 from
+This is ../info/term.info, produced by makeinfo version 4.8 from
 term.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -21,8 +21,8 @@ Terminal emulator mode
 
 File: term.info,  Node: term mode,  Prev: Top,  Up: Top
 
-Term Mode
-*********
+1 Term Mode
+***********
 
 * Menu:
 
@@ -47,8 +47,8 @@ shell and gud modes.
 
 File: term.info,  Node: Overview,  Next: Connecting to remote computers,  Up: term mode
 
-Overview
-========
+1.1 Overview
+============
 
 The `term' mode is used to control a program (an "inferior process").
 It sends most keyboard input characters to the program, and displays
@@ -69,8 +69,8 @@ somewhat differently.
 
 File: term.info,  Node: Output from the inferior,  Next: subbuffer,  Up: Overview
 
-Output from the inferior
-------------------------
+1.1.1 Output from the inferior
+------------------------------
 
 In typical usage, output from the inferior is added to the end of the
 buffer.  If needed, the window will be scrolled, just like a regular
@@ -101,8 +101,8 @@ the old shell mode doesn't handle terminal control codes at all.)
 
 File: term.info,  Node: subbuffer,  Next: altsubbuffer,  Prev: Output from the inferior,  Up: Overview
 
-The sub-buffer
---------------
+1.1.2 The sub-buffer
+--------------------
 
 A program that talks to terminal expects the terminal to have a fixed
 size.  If the program is talking a terminal emulator program such as
@@ -118,13 +118,13 @@ sub-buffer is the part of the buffer that is displayed in a window.
 
    The sub-buffer is defined in terms of three buffer-local-variable:
 
- - Variable: term-height
+ -- Variable: term-height
      The height of the sub-buffer, in screen lines.
 
- - Variable: term-width
+ -- Variable: term-width
      The width of the sub-buffer, in screen columns.
 
- - Variable: term-home-marker
+ -- Variable: term-home-marker
      The "home" position, that is the top left corner of the sub-buffer.
 
    The sub-buffer is assumed to be the end part of the buffer; the
@@ -134,15 +134,15 @@ from the end of the buffer.
 
 File: term.info,  Node: altsubbuffer,  Next: Input to the inferior,  Prev: subbuffer,  Up: Overview
 
-The alternate sub-buffer
-------------------------
+1.1.3 The alternate sub-buffer
+------------------------------
 
 When a "graphical" program finishes, it is nice to restore the screen
 state to what it was before the program started.  Many people are used
 to this behavior from `xterm', and its also offered by the `term'
 emulator.
 
- - Function: term-switch-to-alternate-sub-buffer set
+ -- Function: term-switch-to-alternate-sub-buffer set
      If SET is true, and we're not already using the alternate
      sub-buffer, switch to it.  What this means is that the
      `term-home-marker' is saved (in the variable
@@ -158,8 +158,8 @@ emulator.
 
 File: term.info,  Node: Input to the inferior,  Prev: altsubbuffer,  Up: Overview
 
-Input to the inferior
----------------------
+1.1.4 Input to the inferior
+---------------------------
 
 Characters typed by the user are sent to the inferior.  How this is
 done depends on whether the `term' buffer is in "character" mode or
@@ -191,8 +191,8 @@ the inferior can echo the input, if it wishes (which it normally does).
 
 File: term.info,  Node: Connecting to remote computers,  Next: Paging,  Prev: Overview,  Up: term mode
 
-Connecting to remote computers
-==============================
+1.2 Connecting to remote computers
+==================================
 
 If you want to login to a remove computer, you can do that just as you
 would expect, using whatever commands you would normally use.
@@ -230,8 +230,8 @@ files specified by gdb.
 
 File: term.info,  Node: Paging,  Next: Terminal escapes,  Prev: Connecting to remote computers,  Up: term mode
 
-Paging
-======
+1.3 Paging
+==========
 
 When the pager is enabled, Emacs will "pause" after each screenful of
 output (since the last input sent to the inferior).  It will enter
@@ -247,8 +247,8 @@ available pager mode commands.
 
 File: term.info,  Node: Terminal escapes,  Prev: Paging,  Up: term mode
 
-Terminal Escape sequences
-=========================
+1.4 Terminal Escape sequences
+=============================
 
 A program that does "graphics" on a terminal controls the terminal by
 sending strings called "terminal escape sequences" that the terminal
@@ -275,8 +275,8 @@ the `xterm' program and most modern terminal emulator software.
 
 File: term.info,  Node: Cursor motion,  Next: Erasing,  Up: Terminal escapes
 
-Escape sequences to move the cursor
------------------------------------
+1.4.1 Escape sequences to move the cursor
+-----------------------------------------
 
 `RETURN'
      Moves to the beginning of the current screen line.
@@ -303,8 +303,8 @@ Escape sequences to move the cursor
 
 File: term.info,  Node: Erasing,  Next: Inserting and deleting,  Prev: Cursor motion,  Up: Terminal escapes
 
-Escape commands for erasing text
---------------------------------
+1.4.2 Escape commands for erasing text
+--------------------------------------
 
 These commands "erase" part of the sub-buffer.  Erasing means replacing
 by white space; it is not the same as deleting.  The relative screen
@@ -338,8 +338,8 @@ other, as does the relative cursor position.
 
 File: term.info,  Node: Inserting and deleting,  Next: Scrolling,  Prev: Erasing,  Up: Terminal escapes
 
-Escape sequences to insert and delete text
-------------------------------------------
+1.4.3 Escape sequences to insert and delete text
+------------------------------------------------
 
 `Esc [ N L'
      Insert N (default 1) blank lines.
@@ -356,8 +356,8 @@ Escape sequences to insert and delete text
 
 File: term.info,  Node: Scrolling,  Next: Command hook,  Prev: Inserting and deleting,  Up: Terminal escapes
 
-Escape sequences to scroll part of the visible window
------------------------------------------------------
+1.4.4 Escape sequences to scroll part of the visible window
+-----------------------------------------------------------
 
 `Esc D'
      Scroll forward one screen line.
@@ -372,8 +372,8 @@ Escape sequences to scroll part of the visible window
 
 File: term.info,  Node: Command hook,  Next: Miscellaneous escapes,  Prev: Scrolling,  Up: Terminal escapes
 
-Command hook
-------------
+1.4.5 Command hook
+------------------
 
 If `C-z' is seen, any text up to a following <LF> is scanned.  The text
 in between (not counting the initial C-z or the final LF) is passed to
@@ -400,8 +400,8 @@ function `term-command-hook', which handles the following:
 
 File: term.info,  Node: Miscellaneous escapes,  Prev: Command hook,  Up: Terminal escapes
 
-Miscellaneous escapes
----------------------
+1.4.6 Miscellaneous escapes
+---------------------------
 
 `C-g (Bell)'
      Calls `(beep t)'.
@@ -423,19 +423,19 @@ Miscellaneous escapes
 Tag Table:
 Node: Top201
 Node: term mode367
-Node: Overview1190
-Node: Output from the inferior1937
-Node: subbuffer3514
-Node: altsubbuffer4834
-Node: Input to the inferior5856
-Node: Connecting to remote computers7377
-Node: Paging9279
-Node: Terminal escapes9945
-Node: Cursor motion10810
-Node: Erasing11470
-Node: Inserting and deleting12262
-Node: Scrolling12652
-Node: Command hook13098
-Node: Miscellaneous escapes14131
+Node: Overview1194
+Node: Output from the inferior1949
+Node: subbuffer3538
+Node: altsubbuffer4873
+Node: Input to the inferior5908
+Node: Connecting to remote computers7441
+Node: Paging9351
+Node: Terminal escapes10025
+Node: Cursor motion10898
+Node: Erasing11570
+Node: Inserting and deleting12374
+Node: Scrolling12776
+Node: Command hook13234
+Node: Miscellaneous escapes14279
 
 End Tag Table

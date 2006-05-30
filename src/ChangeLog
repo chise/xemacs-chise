@@ -1,3 +1,43 @@
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-20  Rick Rankin <rrankin1424-xemacs@yahoo.com>
+
+	* sysdir.h: Workaround missing d_ino field from 'struct dirent'.
+
+2005-12-24  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* objects-gtk.c (MAX_FONT_COUNT): Increase MAX_FONT_COUNT from
+	5000 to INT_MAX.
+
+2005-12-05  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+
+	* database.c: Suppress compiler warning under Cygwin.
+	* database.c: Removed __FreeBSD__ check, should be handled by
+        HAVE_U_xxx_T defines.
+
+2005-12-18  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* console.c (stuff_buffered_input): Compile body only if
+	HAVE_TTY.
+
+2005-05-10  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* callproc.c: #include sysdir.h, so that any appropriate Mule
+	magic happens with the chdir() call when calling a subprocess. 
+
+2005-12-06  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* mule-ccl.c (POSSIBLE_LEADING_BYTE_P): Add.
+	* mule-ccl.c: Check that a character set exists before using it
+	to create a character. 
+
+2005-12-06  Vin Shelton  <acs@xemacs.org>
+
+	* objects-x.c (MAX_FONT_COUNT): Increase MAX_FONT_COUNT from 5000
+	to INT_MAX.
+
 2005-12-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.18 is released

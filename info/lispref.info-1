@@ -1,4 +1,4 @@
-This is ../info/lispref.info, produced by makeinfo version 4.6 from
+This is ../info/lispref.info, produced by makeinfo version 4.8 from
 lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -74,8 +74,10 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Evaluation::              How Lisp expressions are evaluated.
 * Control Structures::      Conditionals, loops, nonlocal exits.
 * Variables::               Using symbols in programs to stand for values.
-* Functions::               A function is a Lisp program
-                              that can be invoked from other functions.
+
+* Functions and Commands::  A function is a Lisp program that can be
+                            invoked from other functions.
+
 * Macros::                  Macros are a way to extend the Lisp language.
 * Customization::           Writing customization declarations.
 
@@ -922,38 +924,56 @@ Colors
 
 Glyphs
 
-* Glyph Functions::	Functions for working with glyphs.
-* Images::		Graphical images displayed in a frame.
-* Glyph Types::         Each glyph has a particular type.
-* Mouse Pointer::	Controlling the mouse pointer.
-* Redisplay Glyphs::    Glyphs controlling various redisplay functions.
-* Subwindows::          Inserting an externally-controlled subwindow
-                          into a buffer.
-* Glyph Examples::      Examples of how to work with glyphs.
-
-Glyph Functions
-
-* Creating Glyphs::	Creating new glyphs.
-* Glyph Properties::	Accessing and modifying a glyph's properties.
-* Glyph Convenience Functions::
-			Convenience functions for accessing particular
-			  properties of a glyph.
-* Glyph Dimensions::    Determining the height, width, etc. of a glyph.
+* Glyph Intro::		Glyphs are abstract image specifications.
+* Images::		Specifying the appearance of glyphs.
+* Using Glyphs::	Creating and displaying glyphs.
+* Manipulating Glyphs::	Getting and setting glyph properties.
+* Glyph Examples::	Examples of how to work with glyphs.
 
 Images
 
-* Image Specifiers::		Specifying how an image will appear.
-* Image Instantiator Conversion::
-				Conversion is applied to image instantiators
-				  at the time they are added to an
-				  image specifier or at the time they
-				  are passed to `make-image-instance'.
-* Image Instances::		What an image specifier gets instanced as.
+* Image Specifiers::			Specifying an image's appearance.
+* Image Instantiator Conversion::	Lazy realization of graphics.
+* Image Instantiator Formats::		A catalog of image descriptors.
+* Image Instances::			Classes of graphical objects.
 
 Image Instances
 
 * Image Instance Types::         Each image instances has a particular type.
 * Image Instance Functions::	 Functions for working with image instances.
+
+Using Glyphs
+
+
+Image Instances
+
+* Image Instance Types::         Each image instances has a particular type.
+* Image Instance Functions::	 Functions for working with image instances.
+
+Using Glyphs
+
+* Creating Glyphs::	Creating new glyphs.
+* Buffer Glyphs::	Annotations are glyphs that appear in a buffer.
+* Redisplay Glyphs::	Glyphs controlling various redisplay functions.
+* Frame Glyphs::	Displaying glyphs in GUI components of the frame.
+* External Glyphs::	Icons and mouse pointers for the window system.
+* Native GUI Widgets::	Complex active elements treated as a single glyph.
+* Subwindows::		Externally-controlled subwindows in buffers.
+
+Native GUI Widgets
+
+* Introduction to Widgets::     Native widgets provide tight integration of
+                                GUI features with the platform GUI.
+* Lisp API to Native Widgets::  Native widgets are glyphs.
+* Layouts::                     Specifying composite widgets from Lisp.
+* Primitive Widgets::           Catalogue of available native widgets.
+
+Manipulating Glyphs
+
+* Glyph Properties::	Accessing and modifying a glyph's properties.
+* Glyph Convenience Functions::  Accessing particular properties of a glyph.
+* Glyph Dimensions::	Determining the height, width, etc. of a glyph.
+* Glyph Types::		Each glyph has a particular type.
 
 Annotations
 
@@ -1117,9 +1137,10 @@ GNU GENERAL PUBLIC LICENSE
 **************************
 
                          Version 2, June 1991
+
      Copyright (C) 1989, 1991 Free Software Foundation, Inc.
      675 Mass Ave, Cambridge, MA 02139, USA
-     
+
      Everyone is permitted to copy and distribute verbatim copies
      of this license document, but changing it is not allowed.
 
@@ -1381,7 +1402,6 @@ modification follow.
      and reuse of software generally.
 
                                 NO WARRANTY
-
  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO
      WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE
      LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
@@ -1405,7 +1425,6 @@ modification follow.
      ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
                       END OF TERMS AND CONDITIONS
-
 How to Apply These Terms to Your New Programs
 =============================================
 
@@ -1421,17 +1440,17 @@ the "copyright" line and a pointer to where the full notice is found.
 
      ONE LINE TO GIVE THE PROGRAM'S NAME AND AN IDEA OF WHAT IT DOES.
      Copyright (C) 19YY  NAME OF AUTHOR
-     
+
      This program is free software; you can redistribute it and/or
      modify it under the terms of the GNU General Public License
      as published by the Free Software Foundation; either version 2
      of the License, or (at your option) any later version.
-     
+
      This program is distributed in the hope that it will be useful,
      but WITHOUT ANY WARRANTY; without even the implied warranty of
      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
      GNU General Public License for more details.
-     
+
      You should have received a copy of the GNU General Public License
      along with this program; if not, write to the Free Software
      Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
@@ -1462,7 +1481,7 @@ if necessary.  Here is a sample; alter the names:
      interest in the program `Gnomovision'
      (which makes passes at compilers) written
      by James Hacker.
-     
+
      SIGNATURE OF TY COON, 1 April 1989
      Ty Coon, President of Vice
 
@@ -1475,8 +1494,8 @@ GNU Library General Public License instead of this License.
 
 File: lispref.info,  Node: Introduction,  Next: Packaging,  Prev: Copying,  Up: Top
 
-Introduction
-************
+1 Introduction
+**************
 
 Most of the XEmacs text editor is written in the programming language
 called XEmacs Lisp.  You can write new code in XEmacs Lisp and install
@@ -1511,8 +1530,8 @@ peculiar to XEmacs Lisp or relate specifically to editing.
 
 File: lispref.info,  Node: Caveats,  Next: Lisp History,  Up: Introduction
 
-Caveats
-=======
+1.1 Caveats
+===========
 
 This manual has gone through numerous drafts.  It is nearly complete
 but not flawless.  There are a few topics that are not covered, either
@@ -1545,13 +1564,14 @@ corrections relating to XEmacs-specific portions of this manual to
    or post to the newsgroup
      comp.emacs.xemacs
 
-      --Ben Wing
+
+      -Ben Wing
 
 
 File: lispref.info,  Node: Lisp History,  Next: Conventions,  Prev: Caveats,  Up: Introduction
 
-Lisp History
-============
+1.2 Lisp History
+================
 
 Lisp (LISt Processing language) was first developed in the late 1950's
 at the Massachusetts Institute of Technology for research in artificial
@@ -1576,8 +1596,8 @@ about it; this manual is self-contained.
 
 File: lispref.info,  Node: Conventions,  Next: Acknowledgements,  Prev: Lisp History,  Up: Introduction
 
-Conventions
-===========
+1.3 Conventions
+===============
 
 This section explains the notational conventions that are used in this
 manual.  You may want to skip this section and refer back to it later.
@@ -1595,8 +1615,8 @@ manual.  You may want to skip this section and refer back to it later.
 
 File: lispref.info,  Node: Some Terms,  Next: nil and t,  Up: Conventions
 
-Some Terms
-----------
+1.3.1 Some Terms
+----------------
 
 Throughout this manual, the phrases "the Lisp reader" and "the Lisp
 printer" are used to refer to those routines in Lisp that convert
@@ -1613,8 +1633,8 @@ this font or form: FIRST-NUMBER.
 
 File: lispref.info,  Node: nil and t,  Next: Evaluation Notation,  Prev: Some Terms,  Up: Conventions
 
-`nil' and `t'
--------------
+1.3.2 `nil' and `t'
+-------------------
 
 In Lisp, the symbol `nil' has three separate meanings: it is a symbol
 with the name `nil'; it is the logical truth value FALSE; and it is the
@@ -1651,8 +1671,8 @@ Variables::.
 
 File: lispref.info,  Node: Evaluation Notation,  Next: Printing Notation,  Prev: nil and t,  Up: Conventions
 
-Evaluation Notation
--------------------
+1.3.3 Evaluation Notation
+-------------------------
 
 A Lisp expression that you can evaluate is called a "form".  Evaluating
 a form always produces a result, which is a Lisp object.  In the
@@ -1680,8 +1700,8 @@ indicated with `=='.
 
 File: lispref.info,  Node: Printing Notation,  Next: Error Messages,  Prev: Evaluation Notation,  Up: Conventions
 
-Printing Notation
------------------
+1.3.4 Printing Notation
+-----------------------
 
 Many of the examples in this manual print text when they are evaluated.
 If you execute example code in a Lisp Interaction buffer (such as the
@@ -1703,8 +1723,8 @@ the form (here `bar') follows on a separate line.
 
 File: lispref.info,  Node: Error Messages,  Next: Buffer Text Notation,  Prev: Printing Notation,  Up: Conventions
 
-Error Messages
---------------
+1.3.5 Error Messages
+--------------------
 
 Some examples signal errors.  This normally displays an error message
 in the echo area.  We show the error message on a line starting with
@@ -1717,8 +1737,8 @@ area.
 
 File: lispref.info,  Node: Buffer Text Notation,  Next: Format of Descriptions,  Prev: Error Messages,  Up: Conventions
 
-Buffer Text Notation
---------------------
+1.3.6 Buffer Text Notation
+--------------------------
 
 Some examples show modifications to text in a buffer, with "before" and
 "after" versions of the text.  These examples show the contents of the
@@ -1730,7 +1750,7 @@ indicates the place _between_ two characters where point is located.)
      ---------- Buffer: foo ----------
      This is the -!-contents of foo.
      ---------- Buffer: foo ----------
-     
+
      (insert "changed ")
           => nil
      ---------- Buffer: foo ----------
@@ -1740,8 +1760,8 @@ indicates the place _between_ two characters where point is located.)
 
 File: lispref.info,  Node: Format of Descriptions,  Prev: Buffer Text Notation,  Up: Conventions
 
-Format of Descriptions
-----------------------
+1.3.7 Format of Descriptions
+----------------------------
 
 Functions, variables, macros, commands, user options, and special forms
 are described in this manual in a uniform format.  The first line of a
@@ -1761,8 +1781,8 @@ sometimes with examples.
 
 File: lispref.info,  Node: A Sample Function Description,  Next: A Sample Variable Description,  Up: Format of Descriptions
 
-A Sample Function Description
-.............................
+1.3.7.1 A Sample Function Description
+.....................................
 
 In a function description, the name of the function being described
 appears first.  It is followed on the same line by a list of parameters.
@@ -1781,7 +1801,7 @@ Do not write `&rest' when you call the function.
 
    Here is a description of an imaginary function `foo':
 
- - Function: foo integer1 &optional integer2 &rest integers
+ -- Function: foo integer1 &optional integer2 &rest integers
      The function `foo' subtracts INTEGER1 from INTEGER2, then adds all
      the rest of the arguments to the result.  If INTEGER2 is not
      supplied, then the number 19 is used by default.
@@ -1823,7 +1843,7 @@ list down into separate arguments in more complicated ways.
 used when several arguments are grouped into additional levels of list
 structure.  Here is an example:
 
- - Special Form: count-loop (VAR [FROM TO [INC]]) BODY...
+ -- Special Form: count-loop (VAR [FROM TO [INC]]) BODY...
      This imaginary special form implements a loop that executes the
      BODY forms and then increments the variable VAR on each iteration.
      On the first iteration, the variable has the value FROM; on
@@ -1853,8 +1873,8 @@ structure.  Here is an example:
 
 File: lispref.info,  Node: A Sample Variable Description,  Prev: A Sample Function Description,  Up: Format of Descriptions
 
-A Sample Variable Description
-.............................
+1.3.7.2 A Sample Variable Description
+.....................................
 
 A "variable" is a name that can hold a value.  Although any variable
 can be set by the user, certain variables that exist specifically so
@@ -1865,7 +1885,7 @@ functions except that there are no arguments.
    Here is a description of the imaginary `electric-future-map'
 variable.
 
- - Variable: electric-future-map
+ -- Variable: electric-future-map
      The value of this variable is a full keymap used by Electric
      Command Future mode.  The functions in this map allow you to edit
      commands you have not yet thought about executing.
@@ -1876,8 +1896,8 @@ replaced by `User Option'.
 
 File: lispref.info,  Node: Acknowledgements,  Prev: Conventions,  Up: Introduction
 
-Acknowledgements
-================
+1.4 Acknowledgements
+====================
 
 This manual was based on the GNU Emacs Lisp Reference Manual, version
 2.4, written by Robert Krawitz, Bil Lewis, Dan LaLiberte, Richard M.
@@ -1912,8 +1932,8 @@ Wilding, Carl Witty, Dale Worley, Rusty Wright, and David D. Zuhn.
 
 File: lispref.info,  Node: Packaging,  Next: Lisp Data Types,  Prev: Introduction,  Up: Top
 
-The XEmacs Packaging System
-***************************
+2 The XEmacs Packaging System
+*****************************
 
 The XEmacs distribution, starting with version 21, comes only with a
 very basic set of built-in modes and libraries.  Most of the libraries
@@ -1953,8 +1973,8 @@ Internals and Package Release Engineering:
 
 File: lispref.info,  Node: Package Overview,  Next: Package Terminology,  Up: Packaging
 
-An overview of the XEmacs Packaging System
-******************************************
+3 An overview of the XEmacs Packaging System
+********************************************
 
 The XEmacs Packaging System is a system for administering the
 installation, upgrade, and removal of Lisp libraries.  For the end
@@ -1997,8 +2017,8 @@ package satisfies them.
 
 File: lispref.info,  Node: The User View,  Next: The Library Maintainer View,  Up: Package Overview
 
-The User View
-=============
+3.1 The User View
+=================
 
 *N.B.*  Much of the discussion in this section undoubtedly belongs
 elsewhere, *Note Packages: (xemacs)Packages.
@@ -2124,8 +2144,8 @@ Lisp directories.
 
 File: lispref.info,  Node: The Library Maintainer View,  Next: The Package Release Engineer View,  Prev: The User View,  Up: Package Overview
 
-The Library Maintainer View
-===========================
+3.2 The Library Maintainer View
+===============================
 
 From the library maintainer's viewpoint, the advantages to the XEmacs
 Packaging System stem from the convenience to the user of installation
@@ -2161,8 +2181,8 @@ package's source tree and provide administrative information.
 
 File: lispref.info,  Node: Infrastructure,  Next: Control Files,  Up: The Library Maintainer View
 
-Infrastructure
---------------
+3.2.1 Infrastructure
+--------------------
 
 In order to get the greatest benefit from the XEmacs Packaging System,
 a library maintainer should place the package sources in an appropriate
@@ -2249,8 +2269,8 @@ in the next section, *Note Control Files::.
 
 File: lispref.info,  Node: Control Files,  Next: Obtaining,  Prev: Infrastructure,  Up: The Library Maintainer View
 
-Control Files
--------------
+3.2.2 Control Files
+-------------------
 
 Each package source must contain a number of control files in the
 top-level directory.  These files in general can be created and then
@@ -2299,8 +2319,8 @@ removing library source files can be handled by generic rules.
 
 File: lispref.info,  Node: Obtaining,  Prev: Control Files,  Up: The Library Maintainer View
 
-Obtaining the XEmacs Packaging System and Required Utilities
-------------------------------------------------------------
+3.2.3 Obtaining the XEmacs Packaging System and Required Utilities
+------------------------------------------------------------------
 
 Currently both the infrastructure for creating XEmacs packages and the
 package sources themselves are available only by CVS.  See
@@ -2312,8 +2332,8 @@ XEmacs, to build packages.
 
 File: lispref.info,  Node: The Package Release Engineer View,  Prev: The Library Maintainer View,  Up: Package Overview
 
-The Package Release Engineer View
----------------------------------
+3.2.4 The Package Release Engineer View
+---------------------------------------
 
 The XEmacs Package Release Engineer is responsible for keeping the
 system coherent.  The changes to `packages/package-compile.el' and
@@ -2331,16 +2351,16 @@ File: lispref.info,  Node: Package Terminology,  Next: Building Packages,  Prev:
 Package Terminology:
 ====================
 
-Libraries and Packages
-----------------------
+3.2.5 Libraries and Packages
+----------------------------
 
 A Lisp "library" is a single loadable file containing Lisp code.  It
 may be in source or byte-compiled form.  A Lisp "package" is a set of
 one or more libraries, usually related to each other in some way,
 bundled with administrative information for convenient distribution.
 
-Package Flavors
----------------
+3.2.6 Package Flavors
+---------------------
 
 There are two main flavors of packages.
 
@@ -2359,8 +2379,8 @@ There are two main flavors of packages.
      If it's really that big a deal, request that the maintainers
      split the package into smaller aggregations.
 
-Package Distributions
----------------------
+3.2.7 Package Distributions
+---------------------------
 
 XEmacs Lisp packages are distributed in two ways.  "Binary packages"
 are used by system administrators and end users.  They are packaged in a
@@ -2374,7 +2394,7 @@ tarballs (Unix Tar format files, gzipped for space savings).
 renamed to `file.upstream'.)
 
    Currently, source packages are only available via CVS.  See
-<http://www.xemacs.org/Develop/cvsaccess.html> for details.
+`http://www.xemacs.org/Develop/cvsaccess.html' for details.
 
    The package distributions are also split according to major features
 required in XEmacs to support them.  At present there are "generic"
@@ -2394,11 +2414,11 @@ Building Packages:
 ==================
 
 Currently, source packages are only available via anonymous CVS.  See
-<http://www.xemacs.org/Develop/cvsaccess.html> for details of checking
+`http://www.xemacs.org/Develop/cvsaccess.html' for details of checking
 out the `packages' module.
 
-Prerequisites for Building Source Packages
-------------------------------------------
+3.2.8 Prerequisites for Building Source Packages
+------------------------------------------------
 
 `GNU cp'
 
@@ -2422,8 +2442,8 @@ Prerequisites for Building Source Packages
 
    And of course, XEmacs, 21.0 or higher.
 
-What You Can Do With Source Packages
-====================================
+3.3 What You Can Do With Source Packages
+========================================
 
 The packages CVS sources are most useful for creating XEmacs package
 tarballs for installation into your own XEmacs installations or for
@@ -2437,8 +2457,8 @@ source tree.
 
 File: lispref.info,  Node: Makefile Targets,  Next: Local.rules File,  Prev: Building Packages,  Up: Packaging
 
-`Makefile' targets
-******************
+4 `Makefile' targets
+********************
 
 The following targets can be used when running `make' to build the
 packages:
@@ -2489,8 +2509,8 @@ packages:
 `compile'
      Does most of the work.  Builds the elcs, infos at a minimum.
 
-The targets that most people would be interested in would be:
--------------------------------------------------------------
+4.0.1 The targets that most people would be interested in would be:
+-------------------------------------------------------------------
 
    * `all'
 
@@ -2701,8 +2721,8 @@ Most people will probably only need to alter:
 
 File: lispref.info,  Node: Creating Packages,  Next: Documenting Packages,  Prev: Local.rules File,  Up: Packaging
 
-Creating Packages:
-******************
+5 Creating Packages:
+********************
 
 Creating a package from an existing Lisp library is not very difficult.
 
@@ -2718,8 +2738,8 @@ by `XEmacs.rules', part of the packaging system infrastructure.
 
 File: lispref.info,  Node: package-info.in,  Next: Makefile,  Up: Creating Packages
 
-package-info.in
-***************
+6 package-info.in
+*****************
 
 `package-info.in' contains information that gets injected into the
 `package-index' file when `make bindist' is run.  Here is a real world
@@ -2858,8 +2878,8 @@ variable, is auto-generated at build time, or is static.
 
 File: lispref.info,  Node: Makefile,  Prev: package-info.in,  Up: Creating Packages
 
-`Makefile'
-**********
+7 `Makefile'
+************
 
 The `Makefile' is quite stylized.  The idea is similar to an
 `Imakefile' or an `automake' file: the complexity is hidden in generic
@@ -2879,27 +2899,27 @@ example.
    Here is a real world example, from the `build' package:
 
      # Makefile for build lisp code
-     
+
      # This file is part of XEmacs.
-     
+
      # XEmacs is free software; you can redistribute it and/or modify it
      # under the terms of the GNU General Public License as published by the
      # Free Software Foundation; either version 2, or (at your option) any
      # later version.
-     
+
      # XEmacs is distributed in the hope that it will be useful, but WITHOUT
      # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
      # FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
      # for more details.
-     
+
      # You should have received a copy of the GNU General Public License
      # along with XEmacs; see the file COPYING.  If not, write to
      # the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
      # Boston, MA 02111-1307, USA.
-     
+
      # For the time being, remove MULE_ELCS from the all dependencies if
      # building without Mule.
-     
+
      VERSION = 1.10
      AUTHOR_VERSION = 2.02
      MAINTAINER = Adrian Aichner <adrian@xemacs.org>
@@ -2907,11 +2927,11 @@ example.
      PKG_TYPE = regular
      REQUIRES = xemacs-base pcl-cvs dired w3 prog-modes
      CATEGORY = standard
-     
+
      ELCS = build.elc build-report.elc
-     
+
      STANDARD_DOCS = t
-     
+
      include ../../XEmacs.rules
 
    Most packages don't need any more than what you see above.  It is
@@ -3144,8 +3164,8 @@ given in parentheses.
      any other `Makefile' variable.  You will need to write `Makefile'
      rules to build these files.
 
-`package-compile.el'
-====================
+7.1 `package-compile.el'
+========================
 
 The XEmacs Packaging System does not automatically become aware of your
 package simply because there is a new subtree.  If any package,
@@ -3223,16 +3243,16 @@ same information.
 
 File: lispref.info,  Node: Issues,  Prev: Documenting Packages,  Up: Packaging
 
-Issues
-======
+7.2 Issues
+==========
 
 To be completed.
 
 
 File: lispref.info,  Node: Lisp Data Types,  Next: Numbers,  Prev: Packaging,  Up: Top
 
-Lisp Data Types
-***************
+8 Lisp Data Types
+*****************
 
 A Lisp "object" is a piece of data used and manipulated by Lisp
 programs.  For our purposes, a "type" or "data type" is a set of
@@ -3285,8 +3305,8 @@ use these types can be found in later chapters.
 
 File: lispref.info,  Node: Printed Representation,  Next: Comments,  Up: Lisp Data Types
 
-Printed Representation and Read Syntax
-======================================
+8.1 Printed Representation and Read Syntax
+==========================================
 
 The "printed representation" of an object is the format of the output
 generated by the Lisp printer (the function `prin1') for that object.
@@ -3309,7 +3329,7 @@ a read syntax.  Objects of these types are printed in "hash notation":
 the characters `#<' followed by a descriptive string (typically the
 type name followed by the name of the object), and closed with a
 matching `>'.  Hash notation cannot be read at all, so the Lisp reader
-signals the error `invalid-read-syntax' whenever it encounters `#<'.
+signals the error `invalid-read-syntax' whenever it encounters `#<'.  
 
      (current-buffer)
           => #<buffer "objects.texi">
@@ -3325,8 +3345,8 @@ not be evaluated later.  *Note Input Functions::, for a description of
 
 File: lispref.info,  Node: Comments,  Next: Primitive Types,  Prev: Printed Representation,  Up: Lisp Data Types
 
-Comments
-========
+8.2 Comments
+============
 
 A "comment" is text that is written in a program only for the sake of
 humans that read the program, and that has no effect on the meaning of
@@ -3346,8 +3366,8 @@ Compilation::).  It isn't meant for source files, however.
 
 File: lispref.info,  Node: Primitive Types,  Next: Programming Types,  Prev: Comments,  Up: Lisp Data Types
 
-Primitive Types
-===============
+8.3 Primitive Types
+===================
 
 For reference, here is a list of all the primitive types that may exist
 in XEmacs.  Note that some of these types may not exist in some XEmacs
@@ -3470,8 +3490,8 @@ of these objects.
 
 File: lispref.info,  Node: Programming Types,  Next: Editing Types,  Prev: Primitive Types,  Up: Lisp Data Types
 
-Programming Types
-=================
+8.4 Programming Types
+=====================
 
 There are two general categories of types in XEmacs Lisp: those having
 to do with Lisp programming, and those having to do with editing.  The
@@ -3507,8 +3527,8 @@ latter are unique to XEmacs Lisp.
 
 File: lispref.info,  Node: Integer Type,  Next: Floating Point Type,  Up: Programming Types
 
-Integer Type
-------------
+8.4.1 Integer Type
+------------------
 
 The range of values for integers in XEmacs Lisp is -134217728 to
 134217727 (28 bits; i.e., -2**27 to 2**27 - 1) on most machines.  (Some
@@ -3532,8 +3552,8 @@ by the Lisp interpreter never has a leading `+'.)
 
 File: lispref.info,  Node: Floating Point Type,  Next: Character Type,  Prev: Integer Type,  Up: Programming Types
 
-Floating Point Type
--------------------
+8.4.2 Floating Point Type
+-------------------------
 
 XEmacs supports floating point numbers.  The precise range of floating
 point numbers is machine-specific.
@@ -3549,8 +3569,8 @@ They are all equivalent.
 
 File: lispref.info,  Node: Character Type,  Next: Symbol Type,  Prev: Floating Point Type,  Up: Programming Types
 
-Character Type
---------------
+8.4.3 Character Type
+--------------------
 
 In XEmacs version 19, and in all versions of FSF GNU Emacs, a
 "character" in XEmacs Lisp is nothing more than an integer.  This is
@@ -3709,8 +3729,8 @@ character such as a tab.
 
 File: lispref.info,  Node: Symbol Type,  Next: Sequence Type,  Prev: Character Type,  Up: Programming Types
 
-Symbol Type
------------
+8.4.4 Symbol Type
+-----------------
 
 A "symbol" in XEmacs Lisp is an object with a name.  The symbol name
 serves as the printed representation of the symbol.  In ordinary use,
@@ -3762,8 +3782,8 @@ makes it invalid as a number.
 
 File: lispref.info,  Node: Sequence Type,  Next: Cons Cell Type,  Prev: Symbol Type,  Up: Programming Types
 
-Sequence Types
---------------
+8.4.5 Sequence Types
+--------------------
 
 A "sequence" is a Lisp object that represents an ordered set of
 elements.  There are two kinds of sequence in XEmacs Lisp, lists and
@@ -3793,8 +3813,8 @@ exception: the empty list `()' always stands for the same object, `nil'.
 
 File: lispref.info,  Node: Cons Cell Type,  Next: Array Type,  Prev: Sequence Type,  Up: Programming Types
 
-Cons Cell and List Types
-------------------------
+8.4.6 Cons Cell and List Types
+------------------------------
 
 A "cons cell" is an object comprising two pointers named the CAR and
 the CDR.  Each of them can point to any Lisp object.
@@ -3891,8 +3911,8 @@ boxes and arrows:
 
 File: lispref.info,  Node: Dotted Pair Notation,  Next: Association List Type,  Up: Cons Cell Type
 
-Dotted Pair Notation
-....................
+8.4.6.1 Dotted Pair Notation
+............................
 
 "Dotted pair notation" is an alternative syntax for cons cells that
 represents the CAR and CDR explicitly.  In this syntax, `(A . B)'
@@ -3949,8 +3969,8 @@ equivalent to `(rose . (violet . (buttercup)))'.  It looks like this:
 
 File: lispref.info,  Node: Association List Type,  Prev: Dotted Pair Notation,  Up: Cons Cell Type
 
-Association List Type
-.....................
+8.4.6.2 Association List Type
+.............................
 
 An "association list" or "alist" is a specially-constructed list whose
 elements are cons cells.  In each element, the CAR is considered a
@@ -3973,8 +3993,8 @@ for functions that work on alists.
 
 File: lispref.info,  Node: Array Type,  Next: String Type,  Prev: Cons Cell Type,  Up: Programming Types
 
-Array Type
-----------
+8.4.7 Array Type
+----------------
 
 An "array" is composed of an arbitrary number of slots for referring to
 other Lisp objects, arranged in a contiguous block of memory.
@@ -4004,8 +4024,8 @@ string type, the vector type, and the bit vector type.
 
 File: lispref.info,  Node: String Type,  Next: Vector Type,  Prev: Array Type,  Up: Programming Types
 
-String Type
------------
+8.4.8 String Type
+-----------------
 
 A "string" is an array of characters.  Strings are used for many
 purposes in XEmacs, as can be expected in a text editor; for example, as
@@ -4033,7 +4053,7 @@ backslash, like this: `"this \" is an embedded quote"'.
 if you write a new line between the double-quotes, it becomes a
 character in the string.  But an escaped newline--one that is preceded
 by `\'--does not become part of the string; i.e., the Lisp reader
-ignores an escaped newline while reading a string.
+ignores an escaped newline while reading a string.  
 
      "It is useful to include newlines
      in documentation strings,
@@ -4060,8 +4080,8 @@ often counter-intuitive.
 
 File: lispref.info,  Node: Vector Type,  Next: Bit Vector Type,  Prev: String Type,  Up: Programming Types
 
-Vector Type
------------
+8.4.9 Vector Type
+-----------------
 
 A "vector" is a one-dimensional array of elements of any type.  It
 takes a constant amount of time to access any element of a vector.  (In
@@ -4081,8 +4101,8 @@ for evaluation.
 
 File: lispref.info,  Node: Bit Vector Type,  Next: Function Type,  Prev: Vector Type,  Up: Programming Types
 
-Bit Vector Type
----------------
+8.4.10 Bit Vector Type
+----------------------
 
 A "bit vector" is a one-dimensional array of 1's and 0's.  It takes a
 constant amount of time to access any element of a bit vector, as for
@@ -4103,8 +4123,8 @@ evaluation.
 
 File: lispref.info,  Node: Function Type,  Next: Macro Type,  Prev: Bit Vector Type,  Up: Programming Types
 
-Function Type
--------------
+8.4.11 Function Type
+--------------------
 
 Just as functions in other programming languages are executable, "Lisp
 function" objects are pieces of executable code.  However, functions in
@@ -4126,8 +4146,8 @@ functions `funcall' and `apply'.  *Note Calling Functions::.
 
 File: lispref.info,  Node: Macro Type,  Next: Primitive Function Type,  Prev: Function Type,  Up: Programming Types
 
-Macro Type
-----------
+8.4.12 Macro Type
+-----------------
 
 A "Lisp macro" is a user-defined construct that extends the Lisp
 language.  It is represented as an object much like a function, but with
@@ -4143,8 +4163,8 @@ write a macro.
 
 File: lispref.info,  Node: Primitive Function Type,  Next: Compiled-Function Type,  Prev: Macro Type,  Up: Programming Types
 
-Primitive Function Type
------------------------
+8.4.13 Primitive Function Type
+------------------------------
 
 A "primitive function" is a function callable from Lisp but written in
 the C programming language.  Primitive functions are also called
@@ -4176,8 +4196,8 @@ with the name of the subroutine.
 
 File: lispref.info,  Node: Compiled-Function Type,  Next: Autoload Type,  Prev: Primitive Function Type,  Up: Programming Types
 
-Compiled-Function Type
-----------------------
+8.4.14 Compiled-Function Type
+-----------------------------
 
 The byte compiler produces "compiled-function objects".  The evaluator
 handles this data type specially when it appears as a function to be
@@ -4191,8 +4211,8 @@ compiler.
 
 File: lispref.info,  Node: Autoload Type,  Next: Char Table Type,  Prev: Compiled-Function Type,  Up: Programming Types
 
-Autoload Type
--------------
+8.4.15 Autoload Type
+--------------------
 
 An "autoload object" is a list whose first element is the symbol
 `autoload'.  It is stored as the function definition of a symbol as a
@@ -4214,16 +4234,16 @@ Autoload::, for more details.
 
 File: lispref.info,  Node: Char Table Type,  Next: Hash Table Type,  Prev: Autoload Type,  Up: Programming Types
 
-Char Table Type
----------------
+8.4.16 Char Table Type
+----------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Hash Table Type,  Next: Range Table Type,  Prev: Char Table Type,  Up: Programming Types
 
-Hash Table Type
----------------
+8.4.17 Hash Table Type
+----------------------
 
 A "hash table" is a table providing an arbitrary mapping from one Lisp
 object to another, using an internal indexing method called "hashing".
@@ -4251,8 +4271,8 @@ hash tables.
 
 File: lispref.info,  Node: Range Table Type,  Next: Weak List Type,  Prev: Hash Table Type,  Up: Programming Types
 
-Range Table Type
-----------------
+8.4.18 Range Table Type
+-----------------------
 
 A "range table" is a table that maps from ranges of integers to
 arbitrary Lisp objects.  Range tables automatically combine overlapping
@@ -4275,16 +4295,16 @@ range tables.
 
 File: lispref.info,  Node: Weak List Type,  Prev: Range Table Type,  Up: Programming Types
 
-Weak List Type
---------------
+8.4.19 Weak List Type
+---------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Editing Types,  Next: Window-System Types,  Prev: Programming Types,  Up: Lisp Data Types
 
-Editing Types
-=============
+8.5 Editing Types
+=================
 
 The types in the previous section are common to many Lisp dialects.
 XEmacs Lisp provides several additional data types for purposes
@@ -4317,8 +4337,8 @@ connected with editing.
 
 File: lispref.info,  Node: Buffer Type,  Next: Marker Type,  Up: Editing Types
 
-Buffer Type
------------
+8.5.1 Buffer Type
+-----------------
 
 A "buffer" is an object that holds text that can be edited (*note
 Buffers::).  Most buffers hold the contents of a disk file (*note
@@ -4370,8 +4390,8 @@ the buffer name.
 
 File: lispref.info,  Node: Marker Type,  Next: Extent Type,  Prev: Buffer Type,  Up: Editing Types
 
-Marker Type
------------
+8.5.2 Marker Type
+-----------------
 
 A "marker" denotes a position in a specific buffer.  Markers therefore
 have two components: one for the buffer, and one for the position.
@@ -4391,8 +4411,8 @@ move markers.
 
 File: lispref.info,  Node: Extent Type,  Next: Window Type,  Prev: Marker Type,  Up: Editing Types
 
-Extent Type
------------
+8.5.3 Extent Type
+-----------------
 
 An "extent" specifies temporary alteration of the display appearance of
 a part of a buffer (or string).  It contains markers delimiting a range
@@ -4423,8 +4443,8 @@ Properties::.
 
 File: lispref.info,  Node: Window Type,  Next: Frame Type,  Prev: Extent Type,  Up: Editing Types
 
-Window Type
------------
+8.5.4 Window Type
+-----------------
 
 A "window" describes the portion of the frame that XEmacs uses to
 display a buffer. (In standard window-system usage, a "window" is what
@@ -4457,8 +4477,8 @@ windows.
 
 File: lispref.info,  Node: Frame Type,  Next: Device Type,  Prev: Window Type,  Up: Editing Types
 
-Frame Type
-----------
+8.5.5 Frame Type
+----------------
 
 A FRAME is a rectangle on the screen (a "window" in standard
 window-system terminology) that contains one or more non-overlapping
@@ -4480,8 +4500,8 @@ frames.
 
 File: lispref.info,  Node: Device Type,  Next: Console Type,  Prev: Frame Type,  Up: Editing Types
 
-Device Type
------------
+8.5.6 Device Type
+-----------------
 
 A "device" represents a single display on which frames exist.
 Normally, there is only one device object, but there may be more than
@@ -4503,8 +4523,8 @@ related to devices.
 
 File: lispref.info,  Node: Console Type,  Next: Window Configuration Type,  Prev: Device Type,  Up: Editing Types
 
-Console Type
-------------
+8.5.7 Console Type
+------------------
 
 A "console" represents a single keyboard to which devices (i.e.
 displays on which frames exist) are connected.  Normally, there is only
@@ -4531,8 +4551,8 @@ related to consoles.
 
 File: lispref.info,  Node: Window Configuration Type,  Next: Event Type,  Prev: Console Type,  Up: Editing Types
 
-Window Configuration Type
--------------------------
+8.5.8 Window Configuration Type
+-------------------------------
 
 A "window configuration" stores information about the positions, sizes,
 and contents of the windows in a frame, so you can recreate the same
@@ -4551,16 +4571,16 @@ related to window configurations.
 
 File: lispref.info,  Node: Event Type,  Next: Process Type,  Prev: Window Configuration Type,  Up: Editing Types
 
-Event Type
-----------
+8.5.9 Event Type
+----------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Process Type,  Next: Stream Type,  Prev: Event Type,  Up: Editing Types
 
-Process Type
-------------
+8.5.10 Process Type
+-------------------
 
 The word "process" usually means a running program.  XEmacs itself runs
 in a process of this sort.  However, in XEmacs Lisp, a process is a
@@ -4586,8 +4606,8 @@ output from processes.
 
 File: lispref.info,  Node: Stream Type,  Next: Keymap Type,  Prev: Process Type,  Up: Editing Types
 
-Stream Type
------------
+8.5.11 Stream Type
+------------------
 
 A "stream" is an object that can be used as a source or sink for
 characters--either to supply characters for input or to accept them as
@@ -4612,8 +4632,8 @@ streams, including parsing and printing functions.
 
 File: lispref.info,  Node: Keymap Type,  Next: Syntax Table Type,  Prev: Stream Type,  Up: Editing Types
 
-Keymap Type
------------
+8.5.12 Keymap Type
+------------------
 
 A "keymap" maps keys typed by the user to commands.  This mapping
 controls how the user's command input is executed.
@@ -4627,8 +4647,8 @@ prefix keys, local as well as global keymaps, and changing key bindings.
 
 File: lispref.info,  Node: Syntax Table Type,  Next: Display Table Type,  Prev: Keymap Type,  Up: Editing Types
 
-Syntax Table Type
------------------
+8.5.13 Syntax Table Type
+------------------------
 
 Under XEmacs 20, a "syntax table" is a particular type of char table.
 Under XEmacs 19, a syntax table a vector of 256 integers.  In both
@@ -4650,8 +4670,8 @@ make and modify syntax tables.
 
 File: lispref.info,  Node: Display Table Type,  Next: Database Type,  Prev: Syntax Table Type,  Up: Editing Types
 
-Display Table Type
-------------------
+8.5.14 Display Table Type
+-------------------------
 
 A "display table" specifies how to display each character code.  Each
 buffer and each window can have its own display table.  A display table
@@ -4661,48 +4681,48 @@ change to be a particular type of char table.  *Note Display Tables::.
 
 File: lispref.info,  Node: Database Type,  Next: Charset Type,  Prev: Display Table Type,  Up: Editing Types
 
-Database Type
--------------
+8.5.15 Database Type
+--------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Charset Type,  Next: Coding System Type,  Prev: Database Type,  Up: Editing Types
 
-Charset Type
-------------
+8.5.16 Charset Type
+-------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Coding System Type,  Next: ToolTalk Message Type,  Prev: Charset Type,  Up: Editing Types
 
-Coding System Type
-------------------
+8.5.17 Coding System Type
+-------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: ToolTalk Message Type,  Next: ToolTalk Pattern Type,  Prev: Coding System Type,  Up: Editing Types
 
-ToolTalk Message Type
----------------------
+8.5.18 ToolTalk Message Type
+----------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: ToolTalk Pattern Type,  Prev: ToolTalk Message Type,  Up: Editing Types
 
-ToolTalk Pattern Type
----------------------
+8.5.19 ToolTalk Pattern Type
+----------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Window-System Types,  Next: Type Predicates,  Prev: Editing Types,  Up: Lisp Data Types
 
-Window-System Types
-===================
+8.6 Window-System Types
+=======================
 
 XEmacs also has some types that represent objects such as faces
 (collections of display characters), fonts, and pixmaps that are
@@ -4726,80 +4746,80 @@ commonly found in windowing systems.
 
 File: lispref.info,  Node: Face Type,  Next: Glyph Type,  Up: Window-System Types
 
-Face Type
----------
+8.6.1 Face Type
+---------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Glyph Type,  Next: Specifier Type,  Prev: Face Type,  Up: Window-System Types
 
-Glyph Type
-----------
+8.6.2 Glyph Type
+----------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Specifier Type,  Next: Font Instance Type,  Prev: Glyph Type,  Up: Window-System Types
 
-Specifier Type
---------------
+8.6.3 Specifier Type
+--------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Font Instance Type,  Next: Color Instance Type,  Prev: Specifier Type,  Up: Window-System Types
 
-Font Instance Type
-------------------
+8.6.4 Font Instance Type
+------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Color Instance Type,  Next: Image Instance Type,  Prev: Font Instance Type,  Up: Window-System Types
 
-Color Instance Type
--------------------
+8.6.5 Color Instance Type
+-------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Image Instance Type,  Next: Toolbar Button Type,  Prev: Color Instance Type,  Up: Window-System Types
 
-Image Instance Type
--------------------
+8.6.6 Image Instance Type
+-------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Toolbar Button Type,  Next: Subwindow Type,  Prev: Image Instance Type,  Up: Window-System Types
 
-Toolbar Button Type
--------------------
+8.6.7 Toolbar Button Type
+-------------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Subwindow Type,  Next: X Resource Type,  Prev: Toolbar Button Type,  Up: Window-System Types
 
-Subwindow Type
---------------
+8.6.8 Subwindow Type
+--------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: X Resource Type,  Prev: Subwindow Type,  Up: Window-System Types
 
-X Resource Type
----------------
+8.6.9 X Resource Type
+---------------------
 
 (not yet documented)
 
 
 File: lispref.info,  Node: Type Predicates,  Next: Equality Predicates,  Prev: Window-System Types,  Up: Lisp Data Types
 
-Type Predicates
-===============
+8.7 Type Predicates
+===================
 
 The XEmacs Lisp interpreter itself does not perform type checking on
 the actual arguments passed to functions when they are called.  It could
@@ -5138,7 +5158,7 @@ one primitive type; `type-of' tells you which one (*note Lisp Data
 Types::).  But `type-of' knows nothing about non-primitive types.  In
 most cases, it is more convenient to use type predicates than `type-of'.
 
- - Function: type-of object
+ -- Function: type-of object
      This function returns a symbol naming the primitive type of
      OBJECT.  The value is one of `bit-vector', `buffer', `char-table',
      `character', `charset', `coding-system', `cons', `color-instance',
@@ -5162,15 +5182,15 @@ most cases, it is more convenient to use type predicates than `type-of'.
 
 File: lispref.info,  Node: Equality Predicates,  Prev: Type Predicates,  Up: Lisp Data Types
 
-Equality Predicates
-===================
+8.8 Equality Predicates
+=======================
 
 Here we describe two functions that test for equality between any two
 objects.  Other functions test equality between objects of specific
 types, e.g., strings.  For these predicates, see the appropriate chapter
 describing the data type.
 
- - Function: eq object1 object2
+ -- Function: eq object1 object2
      This function returns `t' if OBJECT1 and OBJECT2 are the same
      object, `nil' otherwise.  The "same object" means that a change in
      one will be reflected by the same change in the other.
@@ -5196,31 +5216,31 @@ describing the data type.
 
           (eq 'foo 'foo)
                => t
-          
+
           (eq 456 456)
                => t
-          
+
           (eq "asdf" "asdf")
                => nil
-          
+
           (eq '(1 (2 (3))) '(1 (2 (3))))
                => nil
-          
+
           (setq foo '(1 (2 (3))))
                => (1 (2 (3)))
           (eq foo foo)
                => t
           (eq foo '(1 (2 (3))))
                => nil
-          
+
           (eq [(1 2) 3] [(1 2) 3])
                => nil
-          
+
           (eq (point-marker) (point-marker))
                => nil
 
 
- - Function: old-eq object1 object2
+ -- Function: old-eq object1 object2
      This function exists under XEmacs 20 and is exactly like `eq'
      except that it suffers from the char-int confoundance disease.  In
      other words, it returns `t' if given a character and the
@@ -5241,7 +5261,7 @@ describing the data type.
           (eq ?A 65)
                => nil             ; We are still healthy.
 
- - Function: equal object1 object2
+ -- Function: equal object1 object2
      This function returns `t' if OBJECT1 and OBJECT2 have equal
      components, `nil' otherwise.  Whereas `eq' tests if its arguments
      are the same object, `equal' looks inside nonidentical arguments
@@ -5250,28 +5270,28 @@ describing the data type.
 
           (equal 'foo 'foo)
                => t
-          
+
           (equal 456 456)
                => t
-          
+
           (equal "asdf" "asdf")
                => t
           (eq "asdf" "asdf")
                => nil
-          
+
           (equal '(1 (2 (3))) '(1 (2 (3))))
                => t
           (eq '(1 (2 (3))) '(1 (2 (3))))
                => nil
-          
+
           (equal [(1 2) 3] [(1 2) 3])
                => t
           (eq [(1 2) 3] [(1 2) 3])
                => nil
-          
+
           (equal (point-marker) (point-marker))
                => t
-          
+
           (eq (point-marker) (point-marker))
                => nil
 
@@ -5295,8 +5315,8 @@ may therefore cause infinite recursion (leading to an error).
 
 File: lispref.info,  Node: Numbers,  Next: Strings and Characters,  Prev: Lisp Data Types,  Up: Top
 
-Numbers
-*******
+9 Numbers
+*********
 
 XEmacs supports two numeric data types: "integers" and "floating point
 numbers".  Integers are whole numbers such as -3, 0, #b0111, #xFEED,
@@ -5325,13 +5345,13 @@ of precision.
 
 File: lispref.info,  Node: Integer Basics,  Next: Float Basics,  Up: Numbers
 
-Integer Basics
-==============
+9.1 Integer Basics
+==================
 
 The range of values for an integer depends on the machine.  The minimum
 range is -134217728 to 134217727 (28 bits; i.e., -2**27 to 2**27 - 1),
 but some machines may provide a wider range.  Many examples in this
-chapter assume an integer has 28 bits.
+chapter assume an integer has 28 bits.  
 
    The Lisp reader reads an integer as a sequence of digits with
 optional initial sign and optional final period.
@@ -5389,8 +5409,8 @@ value is a marker, its position value is used and its buffer is ignored.
 
 File: lispref.info,  Node: Float Basics,  Next: Predicates on Numbers,  Prev: Integer Basics,  Up: Numbers
 
-Floating Point Basics
-=====================
+9.2 Floating Point Basics
+=========================
 
 XEmacs supports floating point numbers.  The precise range of floating
 point numbers is machine-specific; it is the same as the range of the C
@@ -5417,7 +5437,7 @@ NaNs or infinities; perhaps we should create a syntax in the future.
    You can use `logb' to extract the binary exponent of a floating
 point number (or estimate the logarithm of an integer):
 
- - Function: logb number
+ -- Function: logb number
      This function returns the binary exponent of NUMBER.  More
      precisely, the value is the logarithm of NUMBER base 2, rounded
      down to an integer.
@@ -5425,8 +5445,8 @@ point number (or estimate the logarithm of an integer):
 
 File: lispref.info,  Node: Predicates on Numbers,  Next: Comparison of Numbers,  Prev: Float Basics,  Up: Numbers
 
-Type Predicates for Numbers
-===========================
+9.3 Type Predicates for Numbers
+===============================
 
 The functions in this section test whether the argument is a number or
 whether it is a certain sort of number.  The functions `integerp' and
@@ -5436,27 +5456,27 @@ a number as its argument.  See also `integer-or-marker-p',
 `integer-char-or-marker-p', `number-or-marker-p' and
 `number-char-or-marker-p', in *Note Predicates on Markers::.
 
- - Function: floatp object
+ -- Function: floatp object
      This predicate tests whether its argument is a floating point
      number and returns `t' if so, `nil' otherwise.
 
      `floatp' does not exist in Emacs versions 18 and earlier.
 
- - Function: integerp object
+ -- Function: integerp object
      This predicate tests whether its argument is an integer, and
      returns `t' if so, `nil' otherwise.
 
- - Function: numberp object
+ -- Function: numberp object
      This predicate tests whether its argument is a number (either
      integer or floating point), and returns `t' if so, `nil' otherwise.
 
- - Function: natnump object
+ -- Function: natnump object
      The `natnump' predicate (whose name comes from the phrase
      "natural-number-p") tests to see whether its argument is a
      nonnegative integer, and returns `t' if so, `nil' otherwise.  0 is
      considered non-negative.
 
- - Function: zerop number
+ -- Function: zerop number
      This predicate tests whether its argument is zero, and returns `t'
      if so, `nil' otherwise.  The argument must be a number.
 
@@ -5465,8 +5485,8 @@ a number as its argument.  See also `integer-or-marker-p',
 
 File: lispref.info,  Node: Comparison of Numbers,  Next: Numeric Conversions,  Prev: Predicates on Numbers,  Up: Numbers
 
-Comparison of Numbers
-=====================
+9.4 Comparison of Numbers
+=========================
 
 To test numbers for numerical equality, you should normally use `=',
 not `eq'.  There can be many distinct floating point number objects
@@ -5506,7 +5526,7 @@ Here's a function to do this:
 characters and markers as arguments, and treat them as their number
 equivalents.
 
- - Function: = number &rest more-numbers
+ -- Function: = number &rest more-numbers
      This function returns `t' if all of its arguments are numerically
      equal, `nil' otherwise.
 
@@ -5519,7 +5539,7 @@ equivalents.
           (= 5 5 6)
                => nil
 
- - Function: /= number &rest more-numbers
+ -- Function: /= number &rest more-numbers
      This function returns `t' if no two arguments are numerically
      equal, `nil' otherwise.
 
@@ -5530,7 +5550,7 @@ equivalents.
           (/= 5 6 1)
                => t
 
- - Function: < number &rest more-numbers
+ -- Function: < number &rest more-numbers
      This function returns `t' if the sequence of its arguments is
      monotonically increasing, `nil' otherwise.
 
@@ -5541,7 +5561,7 @@ equivalents.
           (< 5 6 7)
                => t
 
- - Function: <= number &rest more-numbers
+ -- Function: <= number &rest more-numbers
      This function returns `t' if the sequence of its arguments is
      monotonically nondecreasing, `nil' otherwise.
 
@@ -5552,15 +5572,15 @@ equivalents.
           (<= 5 6 5)
                => nil
 
- - Function: > number &rest more-numbers
+ -- Function: > number &rest more-numbers
      This function returns `t' if the sequence of its arguments is
      monotonically decreasing, `nil' otherwise.
 
- - Function: >= number &rest more-numbers
+ -- Function: >= number &rest more-numbers
      This function returns `t' if the sequence of its arguments is
      monotonically nonincreasing, `nil' otherwise.
 
- - Function: max number &rest more-numbers
+ -- Function: max number &rest more-numbers
      This function returns the largest of its arguments.
 
           (max 20)
@@ -5570,7 +5590,7 @@ equivalents.
           (max 1 3 2.5)
                => 3
 
- - Function: min number &rest more-numbers
+ -- Function: min number &rest more-numbers
      This function returns the smallest of its arguments.
 
           (min -4 1)
@@ -5579,12 +5599,12 @@ equivalents.
 
 File: lispref.info,  Node: Numeric Conversions,  Next: Arithmetic Operations,  Prev: Comparison of Numbers,  Up: Numbers
 
-Numeric Conversions
-===================
+9.5 Numeric Conversions
+=======================
 
 To convert an integer to floating point, use the function `float'.
 
- - Function: float number
+ -- Function: float number
      This returns NUMBER converted to floating point.  If NUMBER is
      already a floating point number, `float' returns it unchanged.
 
@@ -5592,11 +5612,11 @@ To convert an integer to floating point, use the function `float'.
 integers; they differ in how they round.  These functions accept
 integer arguments also, and return such arguments unchanged.
 
- - Function: truncate number
+ -- Function: truncate number
      This returns NUMBER, converted to an integer by rounding towards
      zero.
 
- - Function: floor number &optional divisor
+ -- Function: floor number &optional divisor
      This returns NUMBER, converted to an integer by rounding downward
      (towards negative infinity).
 
@@ -5604,11 +5624,11 @@ integer arguments also, and return such arguments unchanged.
      floor is taken; this is the division operation that corresponds to
      `mod'.  An `arith-error' results if DIVISOR is 0.
 
- - Function: ceiling number
+ -- Function: ceiling number
      This returns NUMBER, converted to an integer by rounding upward
      (towards positive infinity).
 
- - Function: round number
+ -- Function: round number
      This returns NUMBER, converted to an integer by rounding towards
      the nearest integer.  Rounding a value equidistant between two
      integers may choose the integer closer to zero, or it may prefer
@@ -5617,8 +5637,8 @@ integer arguments also, and return such arguments unchanged.
 
 File: lispref.info,  Node: Arithmetic Operations,  Next: Rounding Operations,  Prev: Numeric Conversions,  Up: Numbers
 
-Arithmetic Operations
-=====================
+9.6 Arithmetic Operations
+=========================
 
 XEmacs Lisp provides the traditional four arithmetic operations:
 addition, subtraction, multiplication, and division.  Remainder and
@@ -5633,7 +5653,7 @@ any argument is floating.
 not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 -134217728, depending on your hardware.
 
- - Function: 1+ number
+ -- Function: 1+ number
      This function returns NUMBER plus one.  NUMBER may be a number,
      character or marker.  Markers and characters are converted to
      integers.
@@ -5662,15 +5682,15 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
      more convenient and natural way to increment a variable is
      `(incf foo)'.
 
- - Function: 1- number
+ -- Function: 1- number
      This function returns NUMBER minus one.  NUMBER may be a number,
      character or marker.  Markers and characters are converted to
      integers.
 
- - Function: abs number
+ -- Function: abs number
      This returns the absolute value of NUMBER.
 
- - Function: + &rest numbers
+ -- Function: + &rest numbers
      This function adds its arguments together.  When given no
      arguments, `+' returns 0.
 
@@ -5684,7 +5704,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (+ 1 2 3 4)
                => 10
 
- - Function: - &optional number &rest other-numbers
+ -- Function: - &optional number &rest other-numbers
      The `-' function serves two purposes: negation and subtraction.
      When `-' has a single argument, the value is the negative of the
      argument.  When there are multiple arguments, `-' subtracts each of
@@ -5701,7 +5721,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (-)
                => 0
 
- - Function: * &rest numbers
+ -- Function: * &rest numbers
      This function multiplies its arguments together, and returns the
      product.  When given no arguments, `*' returns 1.
 
@@ -5715,7 +5735,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (* 1 2 3 4)
                => 24
 
- - Function: / dividend &rest divisors
+ -- Function: / dividend &rest divisors
      The `/' function serves two purposes: inversion and division.  When
      `/' has a single argument, the value is the inverse of the
      argument.  When there are multiple arguments, `/' divides DIVIDEND
@@ -5750,7 +5770,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
      The result of `(/ -17 6)' could in principle be -3 on some
      machines.
 
- - Function: % dividend divisor
+ -- Function: % dividend divisor
      This function returns the integer remainder after division of
      DIVIDEND by DIVISOR.  The arguments must be integers or markers.
 
@@ -5776,7 +5796,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 
      always equals DIVIDEND.
 
- - Function: mod dividend divisor
+ -- Function: mod dividend divisor
      This function returns the value of DIVIDEND modulo DIVISOR; in
      other words, the remainder after division of DIVIDEND by DIVISOR,
      but with the same sign as DIVISOR.  The arguments must be numbers
@@ -5812,8 +5832,8 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 
 File: lispref.info,  Node: Rounding Operations,  Next: Bitwise Operations,  Prev: Arithmetic Operations,  Up: Numbers
 
-Rounding Operations
-===================
+9.7 Rounding Operations
+=======================
 
 The functions `ffloor', `fceiling', `fround' and `ftruncate' take a
 floating point argument and return a floating point result whose value
@@ -5821,27 +5841,27 @@ is a nearby integer.  `ffloor' returns the nearest integer below;
 `fceiling', the nearest integer above; `ftruncate', the nearest integer
 in the direction towards zero; `fround', the nearest integer.
 
- - Function: ffloor number
+ -- Function: ffloor number
      This function rounds NUMBER to the next lower integral value, and
      returns that value as a floating point number.
 
- - Function: fceiling number
+ -- Function: fceiling number
      This function rounds NUMBER to the next higher integral value, and
      returns that value as a floating point number.
 
- - Function: ftruncate number
+ -- Function: ftruncate number
      This function rounds NUMBER towards zero to an integral value, and
      returns that value as a floating point number.
 
- - Function: fround number
+ -- Function: fround number
      This function rounds NUMBER to the nearest integral value, and
      returns that value as a floating point number.
 
 
 File: lispref.info,  Node: Bitwise Operations,  Next: Math Functions,  Prev: Rounding Operations,  Up: Numbers
 
-Bitwise Operations on Integers
-==============================
+9.8 Bitwise Operations on Integers
+==================================
 
 In a computer, an integer is represented as a binary number, a sequence
 of "bits" (digits which are either zero or one).  A bitwise operation
@@ -5851,7 +5871,7 @@ reproducing the same pattern "moved over".
 
    The bitwise operations in XEmacs Lisp apply only to integers.
 
- - Function: lsh integer1 count
+ -- Function: lsh integer1 count
      `lsh', which is an abbreviation for "logical shift", shifts the
      bits in INTEGER1 to the left COUNT places, or to the right if
      COUNT is negative, bringing zeros into the vacated bits.  If COUNT
@@ -5867,7 +5887,7 @@ reproducing the same pattern "moved over".
                => 10
           ;; Decimal 5 becomes decimal 10.
           00000101 => 00001010
-          
+
           (lsh 7 1)
                => 14
           ;; Decimal 7 becomes decimal 14.
@@ -5891,7 +5911,7 @@ reproducing the same pattern "moved over".
                => 3
           ;; Decimal 6 becomes decimal 3.
           00000110 => 00000011
-          
+
           (lsh 5 -1)
                => 2
           ;; Decimal 5 becomes decimal 2.
@@ -5919,7 +5939,7 @@ reproducing the same pattern "moved over".
           ;; Decimal -2
           1111  1111 1111  1111 1111  1111 1110
 
- - Function: ash integer1 count
+ -- Function: ash integer1 count
      `ash' ("arithmetic shift") shifts the bits in INTEGER1 to the left
      COUNT places, or to the right if COUNT is negative.
 
@@ -5949,7 +5969,7 @@ reproducing the same pattern "moved over".
      Here are other examples:
 
                              ;               28-bit binary values
-          
+
           (lsh 5 2)          ;   5  =  0000  0000 0000  0000 0000  0000 0101
                => 20         ;      =  0000  0000 0000  0000 0000  0001 0100
           (ash 5 2)
@@ -5967,7 +5987,7 @@ reproducing the same pattern "moved over".
           (ash -5 -2)        ;  -5  =  1111  1111 1111  1111 1111  1111 1011
                => -2         ;      =  1111  1111 1111  1111 1111  1111 1110
 
- - Function: logand &rest ints-or-markers
+ -- Function: logand &rest ints-or-markers
      This function returns the "logical and" of the arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in
      all the arguments.  ("Set" means that the value of the bit is 1
@@ -5992,20 +6012,20 @@ reproducing the same pattern "moved over".
      just one argument, it returns that argument.
 
                              ;                28-bit binary values
-          
+
           (logand 14 13)     ; 14  =  0000  0000 0000  0000 0000  0000 1110
                              ; 13  =  0000  0000 0000  0000 0000  0000 1101
                => 12         ; 12  =  0000  0000 0000  0000 0000  0000 1100
-          
+
           (logand 14 13 4)   ; 14  =  0000  0000 0000  0000 0000  0000 1110
                              ; 13  =  0000  0000 0000  0000 0000  0000 1101
                              ;  4  =  0000  0000 0000  0000 0000  0000 0100
                => 4          ;  4  =  0000  0000 0000  0000 0000  0000 0100
-          
+
           (logand)
                => -1         ; -1  =  1111  1111 1111  1111 1111  1111 1111
 
- - Function: logior &rest ints-or-markers
+ -- Function: logior &rest ints-or-markers
      This function returns the "inclusive or" of its arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in at
      least one of the arguments.  If there are no arguments, the result
@@ -6013,17 +6033,17 @@ reproducing the same pattern "moved over".
      `logior' is passed just one argument, it returns that argument.
 
                              ;               28-bit binary values
-          
+
           (logior 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                => 13         ; 13  =  0000  0000 0000  0000 0000  0000 1101
-          
+
           (logior 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                              ;  7  =  0000  0000 0000  0000 0000  0000 0111
                => 15         ; 15  =  0000  0000 0000  0000 0000  0000 1111
 
- - Function: logxor &rest ints-or-markers
+ -- Function: logxor &rest ints-or-markers
      This function returns the "exclusive or" of its arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in an
      odd number of the arguments.  If there are no arguments, the
@@ -6031,17 +6051,17 @@ reproducing the same pattern "moved over".
      `logxor' is passed just one argument, it returns that argument.
 
                              ;               28-bit binary values
-          
+
           (logxor 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                => 9          ;  9  =  0000  0000 0000  0000 0000  0000 1001
-          
+
           (logxor 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                              ;  7  =  0000  0000 0000  0000 0000  0000 0111
                => 14         ; 14  =  0000  0000 0000  0000 0000  0000 1110
 
- - Function: lognot integer
+ -- Function: lognot integer
      This function returns the logical complement of its argument: the
      Nth bit is one in the result if, and only if, the Nth bit is zero
      in INTEGER, and vice-versa.
@@ -6055,78 +6075,78 @@ reproducing the same pattern "moved over".
 
 File: lispref.info,  Node: Math Functions,  Next: Random Numbers,  Prev: Bitwise Operations,  Up: Numbers
 
-Standard Mathematical Functions
-===============================
+9.9 Standard Mathematical Functions
+===================================
 
 These mathematical functions are available if floating point is
 supported (which is the normal state of affairs).  They allow integers
 as well as floating point numbers as arguments.
 
- - Function: sin number
- - Function: cos number
- - Function: tan number
+ -- Function: sin number
+ -- Function: cos number
+ -- Function: tan number
      These are the ordinary trigonometric functions, with argument
      measured in radians.
 
- - Function: asin number
+ -- Function: asin number
      The value of `(asin NUMBER)' is a number between -pi/2 and pi/2
      (inclusive) whose sine is NUMBER; if, however, NUMBER is out of
      range (outside [-1, 1]), then the result is a NaN.
 
- - Function: acos number
+ -- Function: acos number
      The value of `(acos NUMBER)' is a number between 0 and pi
      (inclusive) whose cosine is NUMBER; if, however, NUMBER is out of
      range (outside [-1, 1]), then the result is a NaN.
 
- - Function: atan number &optional number2
+ -- Function: atan number &optional number2
      The value of `(atan NUMBER)' is a number between -pi/2 and pi/2
      (exclusive) whose tangent is NUMBER.
 
      If optional argument NUMBER2 is supplied, the function returns
      `atan2(NUMBER,NUMBER2)'.
 
- - Function: sinh number
- - Function: cosh number
- - Function: tanh number
+ -- Function: sinh number
+ -- Function: cosh number
+ -- Function: tanh number
      These are the ordinary hyperbolic trigonometric functions.
 
- - Function: asinh number
- - Function: acosh number
- - Function: atanh number
+ -- Function: asinh number
+ -- Function: acosh number
+ -- Function: atanh number
      These are the inverse hyperbolic trigonometric functions.
 
- - Function: exp number
+ -- Function: exp number
      This is the exponential function; it returns e to the power
      NUMBER.  e is a fundamental mathematical constant also called the
      base of natural logarithms.
 
- - Function: log number &optional base
+ -- Function: log number &optional base
      This function returns the logarithm of NUMBER, with base BASE.  If
      you don't specify BASE, the base `e' is used.  If NUMBER is
      negative, the result is a NaN.
 
- - Function: log10 number
+ -- Function: log10 number
      This function returns the logarithm of NUMBER, with base 10.  If
      NUMBER is negative, the result is a NaN.  `(log10 X)' == `(log X
      10)', at least approximately.
 
- - Function: expt x y
+ -- Function: expt x y
      This function returns X raised to power Y.  If both arguments are
      integers and Y is positive, the result is an integer; in this
      case, it is truncated to fit the range of possible integer values.
 
- - Function: sqrt number
+ -- Function: sqrt number
      This returns the square root of NUMBER.  If NUMBER is negative,
      the value is a NaN.
 
- - Function: cube-root number
+ -- Function: cube-root number
      This returns the cube root of NUMBER.
 
 
 File: lispref.info,  Node: Random Numbers,  Prev: Math Functions,  Up: Numbers
 
-Random Numbers
-==============
+9.10 Random Numbers
+===================
 
 A deterministic computer program cannot generate true random numbers.
 For most purposes, "pseudo-random numbers" suffice.  A series of
@@ -6148,7 +6168,7 @@ debugging.
 t)'.  This chooses a new seed based on the current time of day and on
 XEmacs's process ID number.
 
- - Function: random &optional limit
+ -- Function: random &optional limit
      This function returns a pseudo-random integer.  Repeated calls
      return a series of pseudo-random integers.
 
@@ -6166,8 +6186,8 @@ XEmacs's process ID number.
 
 File: lispref.info,  Node: Strings and Characters,  Next: Lists,  Prev: Numbers,  Up: Top
 
-Strings and Characters
-**********************
+10 Strings and Characters
+*************************
 
 A string in XEmacs Lisp is an array that contains an ordered sequence
 of characters.  Strings are used as names of symbols, buffers, and
@@ -6195,8 +6215,8 @@ Lisp programs use strings more often than individual characters.
 
 File: lispref.info,  Node: String Basics,  Next: Predicates for Strings,  Up: Strings and Characters
 
-String and Character Basics
-===========================
+10.1 String and Character Basics
+================================
 
 Strings in XEmacs Lisp are arrays that contain an ordered sequence of
 characters.  Characters are their own primitive object type in XEmacs
@@ -6245,16 +6265,16 @@ Type::, for information about the syntax of characters and strings.
 
 File: lispref.info,  Node: Predicates for Strings,  Next: Creating Strings,  Prev: String Basics,  Up: Strings and Characters
 
-The Predicates for Strings
-==========================
+10.2 The Predicates for Strings
+===============================
 
 For more information about general sequence and array predicates, see
 *Note Sequences Arrays Vectors::, and *Note Arrays::.
 
- - Function: stringp object
+ -- Function: stringp object
      This function returns `t' if OBJECT is a string, `nil' otherwise.
 
- - Function: char-or-string-p object
+ -- Function: char-or-string-p object
      This function returns `t' if OBJECT is a string or a character,
      `nil' otherwise.
 
@@ -6266,13 +6286,13 @@ For more information about general sequence and array predicates, see
 
 File: lispref.info,  Node: Creating Strings,  Next: Predicates for Characters,  Prev: Predicates for Strings,  Up: Strings and Characters
 
-Creating Strings
-================
+10.3 Creating Strings
+=====================
 
 The following functions create strings, either from scratch, or by
 putting strings together, or by taking them apart.
 
- - Function: string &rest characters
+ -- Function: string &rest characters
      This function returns a new string made up of CHARACTERS.
 
           (string ?X ?E ?m ?a ?c ?s)
@@ -6285,7 +6305,7 @@ putting strings together, or by taking them apart.
      `bit-vector' (*note Bit Vectors::).  This function has not been
      available in XEmacs prior to 21.0 and FSF Emacs prior to 20.3.
 
- - Function: make-string length character
+ -- Function: make-string length character
      This function returns a new string consisting entirely of LENGTH
      successive copies of CHARACTER.  LENGTH must be a non-negative
      integer.
@@ -6299,7 +6319,7 @@ putting strings together, or by taking them apart.
      (*note String Conversion::), `make-vector' (*note Vectors::), and
      `make-list' (*note Building Lists::).
 
- - Function: substring string start &optional end
+ -- Function: substring string start &optional end
      This function returns a new string which consists of those
      characters from STRING in the range from (and including) the
      character at the index START up to (but excluding) the character
@@ -6355,7 +6375,7 @@ putting strings together, or by taking them apart.
      text in the current buffer.  The beginning of a string is at index
      0, but the beginning of a buffer is at index 1.
 
- - Function: concat &rest sequences
+ -- Function: concat &rest sequences
      This function returns a new string consisting of the characters in
      the arguments passed to it (along with their text properties, if
      any).  The arguments may be strings, lists of numbers, or vectors
@@ -6402,10 +6422,10 @@ putting strings together, or by taking them apart.
 
 File: lispref.info,  Node: Predicates for Characters,  Next: Character Codes,  Prev: Creating Strings,  Up: Strings and Characters
 
-The Predicates for Characters
-=============================
+10.4 The Predicates for Characters
+==================================
 
- - Function: characterp object
+ -- Function: characterp object
      This function returns `t' if OBJECT is a character.
 
      Some functions that work on integers (e.g. the comparison functions
@@ -6419,16 +6439,16 @@ The Predicates for Characters
      in the future; therefore, do not rely on them.  Instead, convert
      the characters explicitly using `char-int'.
 
- - Function: integer-or-char-p object
+ -- Function: integer-or-char-p object
      This function returns `t' if OBJECT is an integer or character.
 
 
 File: lispref.info,  Node: Character Codes,  Next: Text Comparison,  Prev: Predicates for Characters,  Up: Strings and Characters
 
-Character Codes
-===============
+10.5 Character Codes
+====================
 
- - Function: char-int character
+ -- Function: char-int character
      This function converts a character into an equivalent integer.
      The resulting integer will always be non-negative.  The integers in
      the range 0 - 255 map to characters as follows:
@@ -6451,27 +6471,27 @@ Character Codes
      XEmacs, the order in which character sets were loaded, etc., and
      you should not depend on them.
 
- - Function: int-char integer
+ -- Function: int-char integer
      This function converts an integer into the equivalent character.
      Not all integers correspond to valid characters; use `char-int-p'
      to determine whether this is the case.  If the integer cannot be
      converted, `nil' is returned.
 
- - Function: char-int-p object
+ -- Function: char-int-p object
      This function returns `t' if OBJECT is an integer that can be
      converted into a character.
 
- - Function: char-or-char-int-p object
+ -- Function: char-or-char-int-p object
      This function returns `t' if OBJECT is a character or an integer
      that can be converted into one.
 
 
 File: lispref.info,  Node: Text Comparison,  Next: String Conversion,  Prev: Character Codes,  Up: Strings and Characters
 
-Comparison of Characters and Strings
-====================================
+10.6 Comparison of Characters and Strings
+=========================================
 
- - Function: char-equal character1 character2 &optional buffer
+ -- Function: char-equal character1 character2 &optional buffer
      This function returns `t' if the arguments represent the same
      character, `nil' otherwise.  This function ignores differences in
      case if the value of `case-fold-search' is non-`nil' in BUFFER,
@@ -6486,7 +6506,7 @@ Comparison of Characters and Strings
             (char-equal ?x ?X))
                => nil
 
- - Function: char= character1 character2
+ -- Function: char= character1 character2
      This function returns `t' if the arguments represent the same
      character, `nil' otherwise.  Case is significant.
 
@@ -6501,7 +6521,7 @@ Comparison of Characters and Strings
             (char-equal ?x ?X))
                => nil
 
- - Function: string= string1 string2
+ -- Function: string= string1 string2
      This function returns `t' if the characters of the two strings
      match exactly; case is significant.
 
@@ -6513,10 +6533,10 @@ Comparison of Characters and Strings
                => nil
 
 
- - Function: string-equal string1 string2
+ -- Function: string-equal string1 string2
      `string-equal' is another name for `string='.
 
- - Function: string< string1 string2
+ -- Function: string< string1 string2
      This function compares two strings a character at a time.  First it
      scans both the strings at once to find the first pair of
      corresponding characters that do not match.  If the lesser
@@ -6555,7 +6575,7 @@ Comparison of Characters and Strings
           (string< "" "")
                => nil
 
- - Function: string-lessp string1 string2
+ -- Function: string-lessp string1 string2
      `string-lessp' is another name for `string<'.
 
    See also `compare-buffer-substrings' in *Note Comparing Text::, for
@@ -6566,8 +6586,8 @@ of string comparison; see *Note Regexp Search::.
 
 File: lispref.info,  Node: String Conversion,  Next: Modifying Strings,  Prev: Text Comparison,  Up: Strings and Characters
 
-Conversion of Characters and Strings
-====================================
+10.7 Conversion of Characters and Strings
+=========================================
 
 This section describes functions for conversions between characters,
 strings and integers.  `format' and `prin1-to-string' (*note Output
@@ -6580,7 +6600,7 @@ descriptions of text characters and general input events
 (`single-key-description' and `text-char-description').  These
 functions are used primarily for making help messages.
 
- - Function: char-to-string character
+ -- Function: char-to-string character
      This function returns a new string with a length of one character.
      The value of CHARACTER, modulo 256, is used to initialize the
      element of the string.
@@ -6597,7 +6617,7 @@ functions are used primarily for making help messages.
           (make-string 1 ?x)
                => "x"
 
- - Function: string-to-char string
+ -- Function: string-to-char string
      This function returns the first character in STRING.  If the
      string is empty, the function returns 0. (Under XEmacs 19, the
      value is also 0 when the first character of STRING is the null
@@ -6618,7 +6638,7 @@ functions are used primarily for making help messages.
      This function may be eliminated in the future if it does not seem
      useful enough to retain.
 
- - Function: number-to-string number
+ -- Function: number-to-string number
      This function returns a string consisting of the printed
      representation of NUMBER, which may be an integer or a floating
      point number.  The value starts with a sign if the argument is
@@ -6635,7 +6655,7 @@ functions are used primarily for making help messages.
 
      See also the function `format' in *Note Formatting Strings::.
 
- - Function: string-to-number string &optional base
+ -- Function: string-to-number string &optional base
      This function returns the numeric value represented by STRING,
      read in BASE.  It skips spaces and tabs at the beginning of
      STRING, then reads as much of STRING as it can interpret as a
@@ -6663,8 +6683,8 @@ functions are used primarily for making help messages.
 
 File: lispref.info,  Node: Modifying Strings,  Next: String Properties,  Prev: String Conversion,  Up: Strings and Characters
 
-Modifying Strings
-=================
+10.8 Modifying Strings
+======================
 
 You can modify a string using the general array-modifying primitives.
 *Note Arrays::.  The function `aset' modifies a single character; the
@@ -6675,14 +6695,14 @@ character.
 string is created) and is incremented each time a change is made to that
 string.
 
- - Function: string-modified-tick string
+ -- Function: string-modified-tick string
      This function returns the tick counter for `string'.
 
 
 File: lispref.info,  Node: String Properties,  Next: Formatting Strings,  Prev: Modifying Strings,  Up: Strings and Characters
 
-String Properties
-=================
+10.9 String Properties
+======================
 
 Just as with symbols, extents, faces, and glyphs, you can attach
 additional information to strings in the form of "string properties".
@@ -6697,8 +6717,8 @@ properties in a string.
 
 File: lispref.info,  Node: Formatting Strings,  Next: Character Case,  Prev: String Properties,  Up: Strings and Characters
 
-Formatting Strings
-==================
+10.10 Formatting Strings
+========================
 
 "Formatting" means constructing a string by substitution of computed
 values at various places in a constant string.  This string controls
@@ -6710,7 +6730,7 @@ In fact, the functions `message' and `error' provide the same
 formatting feature described here; they differ from `format' only in
 how they use the result of formatting.
 
- - Function: format string &rest objects
+ -- Function: format string &rest objects
      This function returns a new string that is made by copying STRING
      and then replacing any format specification in the copy with
      encodings of the corresponding OBJECTS.  The arguments OBJECTS are
@@ -6804,10 +6824,10 @@ error.
 
      (format "The name of this buffer is %s." (buffer-name))
           => "The name of this buffer is strings.texi."
-     
+
      (format "The buffer object prints as %s." (current-buffer))
           => "The buffer object prints as #<buffer strings.texi>."
-     
+
      (format "The octal value of %d is %o,
               and the hex value is %x." 18 18 18)
           => "The octal value of 18 is 22,
@@ -6843,11 +6863,11 @@ the N+1'th argument, etc.
      (format "Can't find file `%s' in directory `%s'."
              "ignatius.c" "loyola/")
           => "Can't find file `ignatius.c' in directory `loyola/'."
-     
+
      (format "In directory `%2$s', the file `%1$s' was not found."
              "ignatius.c" "loyola/")
           => "In directory `loyola/', the file `ignatius.c' was not found."
-     
+
      (format
          "The numbers %d and %d are %1$x and %x in hex and %1$o and %o in octal."
          37 12)
@@ -6874,7 +6894,7 @@ the `0' flag character is given, zeros are used for padding.
 
      (format "%06d is padded on the left with zeros" 123)
           => "000123 is padded on the left with zeros"
-     
+
      (format "%-6d is padded on the right" 123)
           => "123    is padded on the right"
 
@@ -6892,11 +6912,11 @@ truncated.  In the third case, the padding is on the right.
      (format "The word `%7s' actually has %d letters in it."
              "foo" (length "foo"))
           => "The word `    foo' actually has 3 letters in it."
-     
+
      (format "The word `%7s' actually has %d letters in it."
              "specification" (length "specification"))
           => "The word `specification' actually has 13 letters in it."
-     
+
      (format "The word `%-7s' actually has %d letters in it."
              "foo" (length "foo"))
           => "The word `foo    ' actually has 3 letters in it."
@@ -6926,8 +6946,8 @@ default precision for floating-point conversions is six.
 
 File: lispref.info,  Node: Character Case,  Next: Case Tables,  Prev: Formatting Strings,  Up: Strings and Characters
 
-Character Case
-==============
+10.11 Character Case
+====================
 
 The character case functions change the case of single characters or of
 the contents of strings.  The functions convert only alphabetic
@@ -6938,7 +6958,7 @@ that are passed to them as arguments.
    The examples below use the characters `X' and `x' which have ASCII
 codes 88 and 120 respectively.
 
- - Function: downcase string-or-char &optional buffer
+ -- Function: downcase string-or-char &optional buffer
      This function converts a character or a string to lower case.
 
      When the argument to `downcase' is a string, the function creates
@@ -6954,12 +6974,12 @@ codes 88 and 120 respectively.
 
           (downcase "The cat in the hat")
                => "the cat in the hat"
-          
+
           (downcase ?X)
                => ?x   ;; Under XEmacs 20.
                => 120  ;; Under XEmacs 19.
 
- - Function: upcase string-or-char &optional buffer
+ -- Function: upcase string-or-char &optional buffer
      This function converts a character or a string to upper case.
 
      When the argument to `upcase' is a string, the function creates
@@ -6977,12 +6997,12 @@ codes 88 and 120 respectively.
 
           (upcase "The cat in the hat")
                => "THE CAT IN THE HAT"
-          
+
           (upcase ?x)
                => ?X   ;; Under XEmacs 20.
                => 88   ;; Under XEmacs 19.
 
- - Function: capitalize string-or-char &optional buffer
+ -- Function: capitalize string-or-char &optional buffer
      This function capitalizes strings or characters.  If
      STRING-OR-CHAR is a string, the function creates and returns a new
      string, whose contents are a copy of STRING-OR-CHAR in which each
@@ -7002,10 +7022,10 @@ codes 88 and 120 respectively.
 
           (capitalize "The cat in the hat")
                => "The Cat In The Hat"
-          
+
           (capitalize "THE 77TH-HATTED CAT")
                => "The 77th-Hatted Cat"
-          
+
           (capitalize ?x)
                => ?X   ;; Under XEmacs 20.
                => 88   ;; Under XEmacs 19.
@@ -7013,8 +7033,8 @@ codes 88 and 120 respectively.
 
 File: lispref.info,  Node: Case Tables,  Next: Char Tables,  Prev: Character Case,  Up: Strings and Characters
 
-The Case Table
-==============
+10.12 The Case Table
+====================
 
 You can customize case conversion by installing a special "case table".
 A case table specifies the mapping between upper case and lower case
@@ -7061,21 +7081,21 @@ Changing the standard case table doesn't affect any existing buffers.
 
    Here are the functions for working with case tables:
 
- - Function: case-table-p object
+ -- Function: case-table-p object
      This predicate returns non-`nil' if OBJECT is a valid case table.
 
- - Function: set-standard-case-table case-table
+ -- Function: set-standard-case-table case-table
      This function makes CASE-TABLE the standard case table, so that it
      will apply to any buffers created subsequently.
 
- - Function: standard-case-table
+ -- Function: standard-case-table
      This returns the standard case table.
 
- - Function: current-case-table &optional buffer
+ -- Function: current-case-table &optional buffer
      This function returns the case table of BUFFER, which defaults to
      the current buffer.
 
- - Function: set-case-table case-table
+ -- Function: set-case-table case-table
      This sets the current buffer's case table to CASE-TABLE.
 
    The following three functions are convenient subroutines for packages
@@ -7084,18 +7104,18 @@ DOWNCASE-TABLE provided as an argument; this should be a string to be
 used as the DOWNCASE part of a case table.  They also modify the
 standard syntax table.  *Note Syntax Tables::.
 
- - Function: set-case-syntax-pair uc lc downcase-table
+ -- Function: set-case-syntax-pair uc lc downcase-table
      This function specifies a pair of corresponding letters, one upper
      case and one lower case.
 
- - Function: set-case-syntax-delims l r downcase-table
+ -- Function: set-case-syntax-delims l r downcase-table
      This function makes characters L and R a matching pair of
      case-invariant delimiters.
 
- - Function: set-case-syntax char syntax downcase-table
+ -- Function: set-case-syntax char syntax downcase-table
      This function makes CHAR case-invariant, with syntax SYNTAX.
 
- - Command: describe-buffer-case-table
+ -- Command: describe-buffer-case-table
      This command displays a description of the contents of the current
      buffer's case table.
 
@@ -7105,8 +7125,8 @@ table and define a case table for the 8-bit ISO Latin 1 character set.
 
 File: lispref.info,  Node: Char Tables,  Prev: Case Tables,  Up: Strings and Characters
 
-The Char Table
-==============
+10.13 The Char Table
+====================
 
 A char table is a table that maps characters (or ranges of characters)
 to values.  Char tables are specialized for characters, only allowing
@@ -7138,7 +7158,7 @@ assigned values are
 
    * a single character
 
- - Function: char-table-p object
+ -- Function: char-table-p object
      This function returns non-`nil' if OBJECT is a char table.
 
 * Menu:
@@ -7149,8 +7169,8 @@ assigned values are
 
 File: lispref.info,  Node: Char Table Types,  Next: Working With Char Tables,  Up: Char Tables
 
-Char Table Types
-----------------
+10.13.1 Char Table Types
+------------------------
 
 Each char table type is used for a different purpose and allows
 different sorts of values.  The different char table types are
@@ -7180,27 +7200,27 @@ different sorts of values.  The different char table types are
      character.  Higher-level Lisp functions are provided for working
      with syntax tables.  The valid values are integers.
 
- - Function: char-table-type char-table
+ -- Function: char-table-type char-table
      This function returns the type of char table CHAR-TABLE.
 
- - Function: char-table-type-list
+ -- Function: char-table-type-list
      This function returns a list of the recognized char table types.
 
- - Function: valid-char-table-type-p type
+ -- Function: valid-char-table-type-p type
      This function returns `t' if TYPE if a recognized char table type.
 
 
 File: lispref.info,  Node: Working With Char Tables,  Prev: Char Table Types,  Up: Char Tables
 
-Working With Char Tables
-------------------------
+10.13.2 Working With Char Tables
+--------------------------------
 
- - Function: make-char-table type
+ -- Function: make-char-table type
      This function makes a new, empty char table of type TYPE.  TYPE
      should be a symbol, one of `char', `category', `display',
      `generic', or `syntax'.
 
- - Function: put-char-table range value char-table
+ -- Function: put-char-table range value char-table
      This function sets the value for chars in RANGE to be VALUE in
      CHAR-TABLE.
 
@@ -7218,17 +7238,17 @@ Working With Char Tables
 
      VALUE must be a value appropriate for the type of CHAR-TABLE.
 
- - Function: get-char-table character char-table
+ -- Function: get-char-table character char-table
      This function finds the value for CHARACTER in CHAR-TABLE.
 
- - Function: get-range-char-table range char-table &optional multi
+ -- Function: get-range-char-table range char-table &optional multi
      This function finds the value for a range in CHAR-TABLE.  If there
      is more than one value, MULTI is returned (defaults to `nil').
 
- - Function: reset-char-table char-table
+ -- Function: reset-char-table char-table
      This function resets CHAR-TABLE to its default state.
 
- - Function: map-char-table function char-table &optional range
+ -- Function: map-char-table function char-table &optional range
      This function maps FUNCTION over entries in CHAR-TABLE, calling it
      with two args, each key and value in the table.
 
@@ -7236,19 +7256,19 @@ Working With Char Tables
      as the RANGE argument to `put-range-table'.  If omitted or `t', it
      defaults to the entire table.
 
- - Function: valid-char-table-value-p value char-table-type
+ -- Function: valid-char-table-value-p value char-table-type
      This function returns non-`nil' if VALUE is a valid value for
      CHAR-TABLE-TYPE.
 
- - Function: check-valid-char-table-value value char-table-type
+ -- Function: check-valid-char-table-value value char-table-type
      This function signals an error if VALUE is not a valid value for
      CHAR-TABLE-TYPE.
 
 
 File: lispref.info,  Node: Lists,  Next: Sequences Arrays Vectors,  Prev: Strings and Characters,  Up: Top
 
-Lists
-*****
+11 Lists
+********
 
 A "list" represents a sequence of zero or more elements (which may be
 any Lisp objects).  The important difference between lists and vectors
@@ -7272,8 +7292,8 @@ the whole list.
 
 File: lispref.info,  Node: Cons Cells,  Next: Lists as Boxes,  Up: Lists
 
-Lists and Cons Cells
-====================
+11.1 Lists and Cons Cells
+=========================
 
 Lists in Lisp are not a primitive data type; they are built up from
 "cons cells".  A cons cell is a data object that represents an ordered
@@ -7302,8 +7322,8 @@ of L except the first.
 
 File: lispref.info,  Node: Lists as Boxes,  Next: List-related Predicates,  Prev: Cons Cells,  Up: Lists
 
-Lists as Linked Pairs of Boxes
-==============================
+11.2 Lists as Linked Pairs of Boxes
+===================================
 
 A cons cell can be illustrated as a pair of boxes.  The first box
 represents the CAR and the second box represents the CDR.  Here is an
@@ -7369,26 +7389,26 @@ and lists, and for more "box and arrow" illustrations of lists.
 
 File: lispref.info,  Node: List-related Predicates,  Next: List Elements,  Prev: Lists as Boxes,  Up: Lists
 
-Predicates on Lists
-===================
+11.3 Predicates on Lists
+========================
 
 The following predicates test whether a Lisp object is an atom, is a
 cons cell or is a list, or whether it is the distinguished object
 `nil'.  (Many of these predicates can be defined in terms of the
 others, but they are used so often that it is worth having all of them.)
 
- - Function: consp object
+ -- Function: consp object
      This function returns `t' if OBJECT is a cons cell, `nil'
      otherwise.  `nil' is not a cons cell, although it _is_ a list.
 
- - Function: atom object
+ -- Function: atom object
      This function returns `t' if OBJECT is an atom, `nil' otherwise.
      All objects except cons cells are atoms.  The symbol `nil' is an
      atom and is also a list; it is the only Lisp object that is both.
 
           (atom OBJECT) == (not (consp OBJECT))
 
- - Function: listp object
+ -- Function: listp object
      This function returns `t' if OBJECT is a cons cell or `nil'.
      Otherwise, it returns `nil'.
 
@@ -7397,13 +7417,13 @@ others, but they are used so often that it is worth having all of them.)
           (listp '())
                => t
 
- - Function: nlistp object
+ -- Function: nlistp object
      This function is the opposite of `listp': it returns `t' if OBJECT
      is not a list.  Otherwise, it returns `nil'.
 
           (listp OBJECT) == (not (nlistp OBJECT))
 
- - Function: null object
+ -- Function: null object
      This function returns `t' if OBJECT is `nil', and returns `nil'
      otherwise.  This function is identical to `not', but as a matter
      of clarity we use `null' when OBJECT is considered a list and

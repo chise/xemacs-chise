@@ -1,4 +1,4 @@
-This is ../info/lispref.info, produced by makeinfo version 4.6 from
+This is ../info/lispref.info, produced by makeinfo version 4.8 from
 lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -52,8 +52,8 @@ Foundation instead of in the original English.
 
 File: lispref.info,  Node: Peeking and Discarding,  Prev: Quoted Character Input,  Up: Reading Input
 
-Miscellaneous Event Input Features
-----------------------------------
+25.6.5 Miscellaneous Event Input Features
+-----------------------------------------
 
 This section describes how to "peek ahead" at events without using them
 up, how to check for pending input, and how to discard pending input.
@@ -61,7 +61,7 @@ up, how to check for pending input, and how to discard pending input.
    See also the variables `last-command-event' and `last-command-char'
 (*Note Command Loop Info::).
 
- - Variable: unread-command-events
+ -- Variable: unread-command-events
      This variable holds a list of events waiting to be read as command
      input.  The events are used in the order they appear in the list,
      and removed one by one as they are used.
@@ -79,20 +79,20 @@ up, how to check for pending input, and how to discard pending input.
      events should exit the search and then execute normally.
 
 
- - Variable: unread-command-event
+ -- Variable: unread-command-event
      This variable holds a single event to be read as command input.
 
      This variable is mostly obsolete now that you can use
      `unread-command-events' instead; it exists only to support programs
      written for versions of XEmacs prior to 19.12.
 
- - Function: input-pending-p
+ -- Function: input-pending-p
      This function determines whether any command input is currently
      available to be read.  It returns immediately, with value `t' if
      there is available input, `nil' otherwise.  On rare occasions it
      may return `t' when no input is available.
 
- - Variable: last-input-event
+ -- Variable: last-input-event
      This variable is set to the last keyboard or mouse button event
      received.
 
@@ -116,7 +116,7 @@ up, how to check for pending input, and how to discard pending input.
                -| #<keypress-event control-E>
                => #<keypress-event 1>
 
- - Variable: last-input-char
+ -- Variable: last-input-char
      If the value of `last-input-event' is a keyboard event, then this
      is the nearest ASCII equivalent to it.  Remember that there is
      _not_ a 1:1 mapping between keyboard events and ASCII characters:
@@ -127,7 +127,7 @@ up, how to check for pending input, and how to discard pending input.
 
      This function exists for compatibility with Emacs version 18.
 
- - Function: discard-input
+ -- Function: discard-input
      This function discards the contents of the terminal input buffer
      and cancels any keyboard macro that might be in the process of
      definition.  It returns `nil'.
@@ -144,8 +144,8 @@ up, how to check for pending input, and how to discard pending input.
 
 File: lispref.info,  Node: Waiting,  Next: Quitting,  Prev: Reading Input,  Up: Command Loop
 
-Waiting for Elapsed Time or Input
-=================================
+25.7 Waiting for Elapsed Time or Input
+======================================
 
 The wait functions are designed to wait for a certain amount of time to
 pass or until there is input.  For example, you may wish to pause in
@@ -157,7 +157,7 @@ input comes in, while `sleep-for' pauses without updating the screen.
 two arguments to specify the time (one integer and one float value),
 instead of a single argument that can be either an integer or a float.
 
- - Function: sit-for seconds &optional nodisplay
+ -- Function: sit-for seconds &optional nodisplay
      This function performs redisplay (provided there is no pending
      input from the user), then waits SECONDS seconds, or until input is
      available.  The result is `t' if `sit-for' waited the full time
@@ -180,7 +180,7 @@ instead of a single argument that can be either an integer or a float.
      The usual purpose of `sit-for' is to give the user time to read
      text that you display.
 
- - Function: sleep-for seconds
+ -- Function: sleep-for seconds
      This function simply pauses for SECONDS seconds without updating
      the display.  This function pays no attention to available input.
      It returns `nil'.
@@ -195,8 +195,8 @@ instead of a single argument that can be either an integer or a float.
 
 File: lispref.info,  Node: Quitting,  Next: Prefix Command Arguments,  Prev: Waiting,  Up: Command Loop
 
-Quitting
-========
+25.8 Quitting
+=============
 
 Typing `C-g' while a Lisp function is running causes XEmacs to "quit"
 whatever it is doing.  This means that control returns to the innermost
@@ -266,17 +266,17 @@ that normal quitting is permitted after the first character of input.
            ...)
          (logand 255 code)))
 
- - Variable: quit-flag
+ -- Variable: quit-flag
      If this variable is non-`nil', then XEmacs quits immediately,
      unless `inhibit-quit' is non-`nil'.  Typing `C-g' ordinarily sets
      `quit-flag' non-`nil', regardless of `inhibit-quit'.
 
- - Variable: inhibit-quit
+ -- Variable: inhibit-quit
      This variable determines whether XEmacs should quit when
      `quit-flag' is set to a value other than `nil'.  If `inhibit-quit'
      is non-`nil', then `quit-flag' has no special effect.
 
- - Command: keyboard-quit
+ -- Command: keyboard-quit
      This function signals the `quit' condition with `(signal 'quit
      nil)'.  This is the same thing that quitting does.  (See `signal'
      in *Note Errors::.)
@@ -287,8 +287,8 @@ See the function `set-input-mode' in *Note Terminal Input::.
 
 File: lispref.info,  Node: Prefix Command Arguments,  Next: Recursive Editing,  Prev: Quitting,  Up: Command Loop
 
-Prefix Command Arguments
-========================
+25.9 Prefix Command Arguments
+=============================
 
 Most XEmacs commands can use a "prefix argument", a number specified
 before the command itself.  (Don't confuse prefix arguments with prefix
@@ -332,27 +332,27 @@ Here are the results of calling `display-prefix' with various raw
 prefix arguments:
 
              M-x display-prefix  -| nil
-     
+
      C-u     M-x display-prefix  -| (4)
-     
+
      C-u C-u M-x display-prefix  -| (16)
-     
+
      C-u 3   M-x display-prefix  -| 3
-     
+
      M-3     M-x display-prefix  -| 3      ; (Same as `C-u 3'.)
-     
+
      C-3     M-x display-prefix  -| 3      ; (Same as `C-u 3'.)
-     
+
      C-u -   M-x display-prefix  -| -
-     
+
      M--     M-x display-prefix  -| -      ; (Same as `C-u -'.)
-     
+
      C--     M-x display-prefix  -| -      ; (Same as `C-u -'.)
-     
+
      C-u - 7 M-x display-prefix  -| -7
-     
+
      M-- 7   M-x display-prefix  -| -7     ; (Same as `C-u -7'.)
-     
+
      C-- 7   M-x display-prefix  -| -7     ; (Same as `C-u -7'.)
 
    XEmacs uses two variables to store the prefix argument: `prefix-arg'
@@ -368,7 +368,7 @@ argument, either numeric or raw, in the `interactive' declaration.
 value of the prefix argument directly in the variable
 `current-prefix-arg', but this is less clean.
 
- - Function: prefix-numeric-value raw
+ -- Function: prefix-numeric-value raw
      This function returns the numeric meaning of a valid raw prefix
      argument value, RAW.  The argument may be a symbol, a number, or a
      list.  If it is `nil', the value 1 is returned; if it is `-', the
@@ -376,12 +376,12 @@ value of the prefix argument directly in the variable
      if it is a list, the CAR of that list (which should be a number) is
      returned.
 
- - Variable: current-prefix-arg
+ -- Variable: current-prefix-arg
      This variable holds the raw prefix argument for the _current_
      command.  Commands may examine it directly, but the usual way to
      access it is with `(interactive "P")'.
 
- - Variable: prefix-arg
+ -- Variable: prefix-arg
      The value of this variable is the raw prefix argument for the
      _next_ editing command.  Commands that specify prefix arguments for
      the following command work by setting this variable.
@@ -390,19 +390,19 @@ value of the prefix argument directly in the variable
 `negative-argument' unless you intend to let the user enter the prefix
 argument for the _next_ command.
 
- - Command: universal-argument
+ -- Command: universal-argument
      This command reads input and specifies a prefix argument for the
      following command.  Don't call this command yourself unless you
      know what you are doing.
 
- - Command: digit-argument arg
+ -- Command: digit-argument arg
      This command adds to the prefix argument for the following
      command.  The argument ARG is the raw prefix argument as it was
      before this command; it is used to compute the updated prefix
      argument.  Don't call this command yourself unless you know what
      you are doing.
 
- - Command: negative-argument arg
+ -- Command: negative-argument arg
      This command adds to the numeric argument for the next command.
      The argument ARG is the raw prefix argument as it was before this
      command; its value is negated to form the new prefix argument.
@@ -412,8 +412,8 @@ argument for the _next_ command.
 
 File: lispref.info,  Node: Recursive Editing,  Next: Disabling Commands,  Prev: Prefix Command Arguments,  Up: Command Loop
 
-Recursive Editing
-=================
+25.10 Recursive Editing
+=======================
 
 The XEmacs command loop is entered automatically when XEmacs starts up.
 This top-level invocation of the command loop never exits; it keeps
@@ -470,7 +470,7 @@ recursive edit but also provides the other features of the debugger.
    Recursive editing levels are also used when you type `C-r' in
 `query-replace' or use `C-x q' (`kbd-macro-query').
 
- - Command: recursive-edit
+ -- Command: recursive-edit
      This function invokes the editor command loop.  It is called
      automatically by the initialization of XEmacs, to let the user
      begin editing.  When called from a Lisp program, it enters a
@@ -491,31 +491,31 @@ recursive edit but also provides the other features of the debugger.
           (simple-rec)
                => nil
 
- - Command: exit-recursive-edit
+ -- Command: exit-recursive-edit
      This function exits from the innermost recursive edit (including
      minibuffer input).  Its definition is effectively `(throw 'exit
      nil)'.
 
- - Command: abort-recursive-edit
+ -- Command: abort-recursive-edit
      This function aborts the command that requested the innermost
      recursive edit (including minibuffer input), by signaling `quit'
      after exiting the recursive edit.  Its definition is effectively
      `(throw 'exit t)'.  *Note Quitting::.
 
- - Command: top-level
+ -- Command: top-level
      This function exits all recursive editing levels; it does not
      return a value, as it jumps completely out of any computation
      directly back to the main command loop.
 
- - Function: recursion-depth
+ -- Function: recursion-depth
      This function returns the current depth of recursive edits.  When
      no recursive edit is active, it returns 0.
 
 
 File: lispref.info,  Node: Disabling Commands,  Next: Command History,  Prev: Recursive Editing,  Up: Command Loop
 
-Disabling Commands
-==================
+25.11 Disabling Commands
+========================
 
 "Disabling a command" marks the command as requiring user confirmation
 before it can be executed.  Disabling is used for commands which might
@@ -542,17 +542,17 @@ saying the command is disabled includes that string.  For example:
 when a disabled command is invoked interactively.  Disabling a command
 has no effect on calling it as a function from Lisp programs.
 
- - Command: enable-command command
+ -- Command: enable-command command
      Allow COMMAND to be executed without special confirmation from now
      on, and (if the user confirms) alter the user's `.emacs' file so
      that this will apply to future sessions.
 
- - Command: disable-command command
+ -- Command: disable-command command
      Require special confirmation to execute COMMAND from now on, and
      (if the user confirms) alter the user's `.emacs' file so that this
      will apply to future sessions.
 
- - Variable: disabled-command-hook
+ -- Variable: disabled-command-hook
      This normal hook is run instead of a disabled command, when the
      user invokes the disabled command interactively.  The hook
      functions can use `this-command-keys' to determine what the user
@@ -565,8 +565,8 @@ has no effect on calling it as a function from Lisp programs.
 
 File: lispref.info,  Node: Command History,  Next: Keyboard Macros,  Prev: Disabling Commands,  Up: Command Loop
 
-Command History
-===============
+25.12 Command History
+=====================
 
 The command loop keeps a history of the complex commands that have been
 executed, to make it convenient to repeat these commands.  A "complex
@@ -576,7 +576,7 @@ any command whose `interactive' specification reads an argument from
 the minibuffer.  Explicit use of the minibuffer during the execution of
 the command itself does not cause the command to be considered complex.
 
- - Variable: command-history
+ -- Variable: command-history
      This variable's value is a list of recent complex commands, each
      represented as a form to evaluate.  It continues to accumulate all
      complex commands for the duration of the editing session, but all
@@ -602,8 +602,8 @@ commands used are the same ones available in any minibuffer.
 
 File: lispref.info,  Node: Keyboard Macros,  Prev: Command History,  Up: Command Loop
 
-Keyboard Macros
-===============
+25.13 Keyboard Macros
+=====================
 
 A "keyboard macro" is a canned sequence of input events that can be
 considered a command and made the definition of a key.  The Lisp
@@ -611,7 +611,7 @@ representation of a keyboard macro is a string or vector containing the
 events.  Don't confuse keyboard macros with Lisp macros (*note
 Macros::).
 
- - Function: execute-kbd-macro macro &optional count
+ -- Function: execute-kbd-macro macro &optional count
      This function executes MACRO as a sequence of events.  If MACRO is
      a string or vector, then the events in it are executed exactly as
      if they had been input by the user.  The sequence is _not_
@@ -628,20 +628,20 @@ Macros::).
      it is 0, MACRO is executed over and over until it encounters an
      error or a failing search.
 
- - Variable: executing-macro
+ -- Variable: executing-macro
      This variable contains the string or vector that defines the
      keyboard macro that is currently executing.  It is `nil' if no
      macro is currently executing.  A command can test this variable to
      behave differently when run from an executing macro.  Do not set
      this variable yourself.
 
- - Variable: defining-kbd-macro
+ -- Variable: defining-kbd-macro
      This variable indicates whether a keyboard macro is being defined.
      A command can test this variable to behave differently while a
      macro is being defined.  The commands `start-kbd-macro' and
      `end-kbd-macro' set this variable--do not set it yourself.
 
- - Variable: last-kbd-macro
+ -- Variable: last-kbd-macro
      This variable is the definition of the most recently defined
      keyboard macro.  Its value is a string or vector, or `nil'.
 
@@ -651,8 +651,8 @@ Macros: (xemacs)Keyboard Macros.).
 
 File: lispref.info,  Node: Keymaps,  Next: Menus,  Prev: Command Loop,  Up: Top
 
-Keymaps
-*******
+26 Keymaps
+**********
 
 The bindings between input events and commands are recorded in data
 structures called "keymaps".  Each binding in a keymap associates (or
@@ -683,8 +683,8 @@ The whole process is called "key lookup".
 
 File: lispref.info,  Node: Keymap Terminology,  Next: Format of Keymaps,  Up: Keymaps
 
-Keymap Terminology
-==================
+26.1 Keymap Terminology
+=======================
 
 A "keymap" is a table mapping event types to definitions (which can be
 any Lisp objects, though only certain types are meaningful for
@@ -739,25 +739,25 @@ both local and global keymaps.  *Note Active Keymaps::, for details.
 
 File: lispref.info,  Node: Format of Keymaps,  Next: Creating Keymaps,  Prev: Keymap Terminology,  Up: Keymaps
 
-Format of Keymaps
-=================
+26.2 Format of Keymaps
+======================
 
 A keymap is a primitive type that associates events with their
 bindings.  Note that this is different from Emacs 18 and FSF Emacs,
 where keymaps are lists.
 
- - Function: keymapp object
+ -- Function: keymapp object
      This function returns `t' if OBJECT is a keymap, `nil' otherwise.
 
 
 File: lispref.info,  Node: Creating Keymaps,  Next: Inheritance and Keymaps,  Prev: Format of Keymaps,  Up: Keymaps
 
-Creating Keymaps
-================
+26.3 Creating Keymaps
+=====================
 
 Here we describe the functions for creating keymaps.
 
- - Function: make-keymap &optional name
+ -- Function: make-keymap &optional name
      This function constructs and returns a new keymap object.  All
      entries in it are `nil', meaning "command undefined".
 
@@ -765,7 +765,7 @@ Here we describe the functions for creating keymaps.
      as in `set-keymap-name'.  This name is only a debugging
      convenience; it is not used except when printing the keymap.
 
- - Function: make-sparse-keymap &optional name
+ -- Function: make-sparse-keymap &optional name
      This function constructs and returns a new keymap object.  All
      entries in it are `nil', meaning "command undefined".  The only
      difference between this function and `make-keymap' is that this
@@ -777,16 +777,16 @@ Here we describe the functions for creating keymaps.
      as in `set-keymap-name'.  This name is only a debugging
      convenience; it is not used except when printing the keymap.
 
- - Function: set-keymap-name keymap new-name
+ -- Function: set-keymap-name keymap new-name
      This function assigns a "name" to a keymap.  The name is only a
      debugging convenience; it is not used except when printing the
      keymap.
 
- - Function: keymap-name keymap
+ -- Function: keymap-name keymap
      This function returns the "name" of a keymap, as assigned using
      `set-keymap-name'.
 
- - Function: copy-keymap keymap
+ -- Function: copy-keymap keymap
      This function returns a copy of KEYMAP.  Any keymaps that appear
      directly as bindings in KEYMAP are also copied recursively, and so
      on to any number of levels.  However, recursive copying does not
@@ -796,15 +796,15 @@ Here we describe the functions for creating keymaps.
 
           (setq map (copy-keymap (current-local-map)))
           => #<keymap 3 entries 0x21f80>
-          
+
           (eq map (current-local-map))
               => nil
 
 
 File: lispref.info,  Node: Inheritance and Keymaps,  Next: Key Sequences,  Prev: Creating Keymaps,  Up: Keymaps
 
-Inheritance and Keymaps
-=======================
+26.4 Inheritance and Keymaps
+============================
 
 A keymap can inherit the bindings of other keymaps.  The other keymaps
 are called the keymap's "parents", and are set with
@@ -820,7 +820,7 @@ depth-first search of all the ancestors of the keymap is conducted.
 
    `(current-global-map)' is the default parent of all keymaps.
 
- - Function: set-keymap-parents keymap parents
+ -- Function: set-keymap-parents keymap parents
      This function sets the parent keymaps of KEYMAP to the list
      PARENTS.
 
@@ -831,7 +831,7 @@ depth-first search of all the ancestors of the keymap is conducted.
      `define-key' to change KEYMAP, that affects the bindings in that
      map, but has no effect on any of the keymaps in PARENTS.
 
- - Function: keymap-parents keymap
+ -- Function: keymap-parents keymap
      This function returns the list of parent keymaps of KEYMAP, or
      `nil' if KEYMAP has no parents.
 
@@ -843,19 +843,19 @@ format.  Note that if you specify a default binding for a keymap,
 neither the keymap's parents nor the current global map are searched for
 key bindings.
 
- - Function: set-keymap-default-binding keymap command
+ -- Function: set-keymap-default-binding keymap command
      This function sets the default binding of KEYMAP to COMMAND, or
      `nil' if no default is desired.
 
- - Function: keymap-default-binding keymap
+ -- Function: keymap-default-binding keymap
      This function returns the default binding of KEYMAP, or `nil' if
      it has none.
 
 
 File: lispref.info,  Node: Key Sequences,  Next: Prefix Keys,  Prev: Inheritance and Keymaps,  Up: Keymaps
 
-Key Sequences
-=============
+26.5 Key Sequences
+==================
 
 Contrary to popular belief, the world is not ASCII.  When running under
 a window manager, XEmacs can tell the difference between, for example,
@@ -948,7 +948,7 @@ it is possible to redefine only one of those sequences like so:
 system.  If you're talking to XEmacs through a TTY connection, you
 don't get any of these features.
 
- - Function: event-matches-key-specifier-p event key-specifier
+ -- Function: event-matches-key-specifier-p event key-specifier
      This function returns non-`nil' if EVENT matches KEY-SPECIFIER,
      which can be any valid form representing a key sequence.  This can
      be useful, e.g., to determine if the user pressed `help-char' or
@@ -957,8 +957,8 @@ don't get any of these features.
 
 File: lispref.info,  Node: Prefix Keys,  Next: Active Keymaps,  Prev: Key Sequences,  Up: Keymaps
 
-Prefix Keys
-===========
+26.6 Prefix Keys
+================
 
 A "prefix key" has an associated keymap that defines what to do with
 key sequences that start with the prefix key.  For example, `C-x' is a
@@ -1019,11 +1019,11 @@ The key sequence `C-p 6' is not found in any active keymap.
          => nil
      (key-binding "\C-p\C-f")
          => find-file
-     
+
      (key-binding "\C-p6")
          => nil
 
- - Function: define-prefix-command symbol &optional mapvar
+ -- Function: define-prefix-command symbol &optional mapvar
      This function defines SYMBOL as a prefix command: it creates a
      keymap and stores it as SYMBOL's function definition.  Storing the
      symbol as the binding of a key makes the key a prefix key that has
@@ -1038,8 +1038,8 @@ The key sequence `C-p 6' is not found in any active keymap.
 
 File: lispref.info,  Node: Active Keymaps,  Next: Key Lookup,  Prev: Prefix Keys,  Up: Keymaps
 
-Active Keymaps
-==============
+26.7 Active Keymaps
+===================
 
 XEmacs normally contains many keymaps; at any given time, just a few of
 them are "active" in that they participate in the interpretation of
@@ -1126,7 +1126,7 @@ completion and exit commands.  *Note Intro to Minibuffers::.
 
    *Note Standard Keymaps::, for a list of standard keymaps.
 
- - Function: current-keymaps &optional event-or-keys
+ -- Function: current-keymaps &optional event-or-keys
      This function returns a list of the current keymaps that will be
      searched for bindings.  This lists keymaps such as the current
      local map and the minor-mode maps, but does not list the parents
@@ -1135,7 +1135,7 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      element is a mouse event), the keymaps for that mouse event will
      be listed.  Otherwise, the keymaps for key presses will be listed.
 
- - Variable: global-map
+ -- Variable: global-map
      This variable contains the default global keymap that maps XEmacs
      keyboard input to commands.  The global keymap is normally this
      keymap.  The default global keymap is a full keymap that binds
@@ -1145,14 +1145,14 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      but you should not assign this variable any value other than the
      keymap it starts out with.
 
- - Function: current-global-map
+ -- Function: current-global-map
      This function returns the current global keymap.  This is the same
      as the value of `global-map' unless you change one or the other.
 
           (current-global-map)
           => #<keymap global-map 639 entries 0x221>
 
- - Function: current-local-map &optional buffer
+ -- Function: current-local-map &optional buffer
      This function returns BUFFER's local keymap, or `nil' if it has
      none.  BUFFER defaults to the current buffer.
 
@@ -1176,26 +1176,26 @@ completion and exit commands.  *Note Intro to Minibuffers::.
           M-C-x           eval-defun
           Alt-backspace   backward-kill-sexp
           Alt-delete      kill-sexp
-          
+
           C-x x           edebug-defun
 
- - Function: current-minor-mode-maps
+ -- Function: current-minor-mode-maps
      This function returns a list of the keymaps of currently enabled
      minor modes.
 
- - Function: use-global-map keymap
+ -- Function: use-global-map keymap
      This function makes KEYMAP the new current global keymap.  It
      returns `nil'.
 
      It is very unusual to change the global keymap.
 
- - Function: use-local-map keymap &optional buffer
+ -- Function: use-local-map keymap &optional buffer
      This function makes KEYMAP the new local keymap of BUFFER.  BUFFER
      defaults to the current buffer.  If KEYMAP is `nil', then the
      buffer has no local keymap.  `use-local-map' returns `nil'.  Most
      major mode commands use this function.
 
- - Variable: minor-mode-map-alist
+ -- Variable: minor-mode-map-alist
      This variable is an alist describing keymaps that may or may not be
      active according to the values of certain variables.  Its elements
      look like this:
@@ -1223,17 +1223,17 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      See also `minor-mode-key-binding', above.  See *Note Keymaps and
      Minor Modes::, for more information about minor modes.
 
- - Variable: modeline-map
+ -- Variable: modeline-map
      This variable holds the keymap consulted for mouse-clicks on the
      modeline of a window.  This variable may be buffer-local; its
      value will be looked up in the buffer of the window whose modeline
      was clicked upon.
 
- - Variable: toolbar-map
+ -- Variable: toolbar-map
      This variable holds the keymap consulted for mouse-clicks over a
      toolbar.
 
- - Variable: mouse-grabbed-buffer
+ -- Variable: mouse-grabbed-buffer
      If non-`nil', a buffer which should be consulted first for all
      mouse activity.  When a mouse-click is processed, it will first be
      looked up in the local-map of this buffer, and then through the
@@ -1242,13 +1242,13 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      the `mode-motion-hook' of the buffer of the window under the mouse.
      You should _bind_ this, not set it.
 
- - Variable: overriding-local-map
+ -- Variable: overriding-local-map
      If non-`nil', this variable holds a keymap to use instead of the
      buffer's local keymap and instead of all the minor mode keymaps.
      This keymap, if any, overrides all other maps that would have been
      active, except for the current global map.
 
- - Variable: overriding-terminal-local-map
+ -- Variable: overriding-terminal-local-map
      If non-`nil', this variable holds a keymap to use instead of the
      buffer's local keymap and instead of all the minor mode keymaps,
      but for the selected console only. (In other words, this variable
@@ -1260,8 +1260,8 @@ completion and exit commands.  *Note Intro to Minibuffers::.
 
 File: lispref.info,  Node: Key Lookup,  Next: Functions for Key Lookup,  Prev: Active Keymaps,  Up: Keymaps
 
-Key Lookup
-==========
+26.8 Key Lookup
+===============
 
 "Key lookup" is the process of finding the binding of a key sequence
 from a given keymap.  Actual execution of the binding is not part of
@@ -1373,12 +1373,12 @@ macro, a symbol that leads to one of them, or an indirection or `nil'.
 
 File: lispref.info,  Node: Functions for Key Lookup,  Next: Changing Key Bindings,  Prev: Key Lookup,  Up: Keymaps
 
-Functions for Key Lookup
-========================
+26.9 Functions for Key Lookup
+=============================
 
 Here are the functions and variables pertaining to key lookup.
 
- - Function: lookup-key keymap key &optional accept-defaults
+ -- Function: lookup-key keymap key &optional accept-defaults
      This function returns the definition of KEY in KEYMAP.  If the
      string or vector KEY is not a valid key sequence according to the
      prefix keys specified in KEYMAP (which means it is "too long" and
@@ -1414,12 +1414,12 @@ Here are the functions and variables pertaining to key lookup.
      Sequence Input::).  In particular, it does not convert letters to
      lower case.
 
- - Command: undefined
+ -- Command: undefined
      Used in keymaps to undefine keys.  If a key sequence is defined to
      this, invoking this key sequence causes a "key undefined" error,
      just as if the key sequence had no binding.
 
- - Function: key-binding key &optional accept-defaults
+ -- Function: key-binding key &optional accept-defaults
      This function returns the binding for KEY in the current keymaps,
      trying all the active keymaps.  The result is `nil' if KEY is
      undefined in the keymaps.
@@ -1434,21 +1434,21 @@ Here are the functions and variables pertaining to key lookup.
           (key-binding [escape escape escape])
               => keyboard-escape-quit
 
- - Function: local-key-binding keys &optional accept-defaults
+ -- Function: local-key-binding keys &optional accept-defaults
      This function returns the binding for KEYS in the current local
      keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Function: global-key-binding keys &optional accept-defaults
+ -- Function: global-key-binding keys &optional accept-defaults
      This function returns the binding for command KEYS in the current
      global keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Function: minor-mode-key-binding key &optional accept-defaults
+ -- Function: minor-mode-key-binding key &optional accept-defaults
      This function returns a list of all the active minor mode bindings
      of KEY.  More precisely, it returns an alist of pairs `(MODENAME .
      BINDING)', where MODENAME is the variable that enables the minor
@@ -1463,7 +1463,7 @@ Here are the functions and variables pertaining to key lookup.
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Variable: meta-prefix-char
+ -- Variable: meta-prefix-char
      This variable is the meta-prefix character code.  It is used when
      translating a two-character sequence to a meta character so it can
      be looked up in a keymap.  For useful results, the value should be
@@ -1493,7 +1493,7 @@ Here are the functions and variables pertaining to key lookup.
           (key-binding "\C-xb")
                => backward-word            ; Now, typing `C-x b' is
                                               ;   like typing `M-b'.
-          
+
           (setq meta-prefix-char ?\e)          ; Avoid confusion!
                                                ; Restore the default value!
                => ?\^[   ; Under XEmacs 20.
@@ -1502,8 +1502,8 @@ Here are the functions and variables pertaining to key lookup.
 
 File: lispref.info,  Node: Changing Key Bindings,  Next: Key Binding Commands,  Prev: Functions for Key Lookup,  Up: Keymaps
 
-Changing Key Bindings
-=====================
+26.10 Changing Key Bindings
+===========================
 
 The way to rebind a key is to change its entry in a keymap.  If you
 change a binding in the global keymap, the change is effective in all
@@ -1523,7 +1523,7 @@ keymap or if KEY is not a string or vector representing a key sequence.
 You can use event types (symbols) as shorthand for events that are
 lists.
 
- - Function: define-key keymap key binding
+ -- Function: define-key keymap key binding
      This function sets the binding for KEY in KEYMAP.  (If KEY is more
      than one event long, the change is actually made in another keymap
      reached from KEYMAP.)  The argument BINDING can be any Lisp
@@ -1550,7 +1550,7 @@ bindings in it:
      (describe-bindings-internal map)
      =>   ; (Inserted in buffer)
      C-f             forward-char
-     
+
      ;; Build sparse submap for `C-x' and bind `f' in that.
      (define-key map "\C-xf" 'forward-word)
          => forward-word
@@ -1560,14 +1560,14 @@ bindings in it:
      =>   ; (Inserted in buffer)
      C-f             forward-char
      C-x             << Prefix Command >>
-     
+
      C-x f           forward-word
-     
+
      ;; Bind `C-p' to the `ctl-x-map'.
      (define-key map "\C-p" ctl-x-map)
      ;; `ctl-x-map'
      => #<keymap Control-X-prefix 77 entries 0x3bf>
-     
+
      ;; Bind `C-f' to `foo' in the `ctl-x-map'.
      (define-key map "\C-p\C-f" 'foo)
      => foo
@@ -1578,7 +1578,7 @@ bindings in it:
      C-f             forward-char
      C-p             << Prefix command Control-X-prefix >>
      C-x             << Prefix Command >>
-     
+
      C-p tab         indent-rigidly
      C-p $           set-selective-display
      C-p '           expand-abbrev
@@ -1589,19 +1589,19 @@ bindings in it:
      C-p C-z         suspend-or-iconify-emacs
      C-p M-escape    repeat-complex-command
      C-p M-C-[       repeat-complex-command
-     
+
      C-x f           forward-word
-     
+
      C-p 4 .         find-tag-other-window
         ...
      C-p 4 C-o       display-buffer
-     
+
      C-p 5 0         delete-frame
         ...
      C-p 5 C-f       find-file-other-frame
-     
+
         ...
-     
+
      C-p a i g       inverse-add-global-abbrev
      C-p a i l       inverse-add-mode-abbrev
 
@@ -1609,7 +1609,7 @@ Note that storing a new binding for `C-p C-f' actually works by
 changing an entry in `ctl-x-map', and this has the effect of changing
 the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
 
- - Function: substitute-key-definition olddef newdef keymap &optional
+ -- Function: substitute-key-definition olddef newdef keymap &optional
           oldmap prefix
      This function replaces OLDDEF with NEWDEF for any keys in KEYMAP
      that were bound to OLDDEF.  In other words, OLDDEF is replaced
@@ -1641,7 +1641,7 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
      PREFIX in KEYMAP are redefined.  See also `accessible-keymaps'.
 
 
- - Function: suppress-keymap keymap &optional nodigits
+ -- Function: suppress-keymap keymap &optional nodigits
      This function changes the contents of the full keymap KEYMAP by
      making all the printing characters undefined.  More precisely, it
      binds them to the command `undefined'.  This makes ordinary
@@ -1682,8 +1682,8 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
 
 File: lispref.info,  Node: Key Binding Commands,  Next: Scanning Keymaps,  Prev: Changing Key Bindings,  Up: Keymaps
 
-Commands for Binding Keys
-=========================
+26.11 Commands for Binding Keys
+===============================
 
 This section describes some convenient interactive interfaces for
 changing key bindings.  They work by calling `define-key'.
@@ -1708,7 +1708,7 @@ redefines `C-x C-\' to move down a line.
 redefines the first (leftmost) mouse button, typed with the Meta key, to
 set point where you click.
 
- - Command: global-set-key key definition
+ -- Command: global-set-key key definition
      This function sets the binding of KEY in the current global map to
      DEFINITION.
 
@@ -1716,7 +1716,7 @@ set point where you click.
           ==
           (define-key (current-global-map) KEY DEFINITION)
 
- - Command: global-unset-key key
+ -- Command: global-unset-key key
      This function removes the binding of KEY from the current global
      map.
 
@@ -1735,7 +1735,7 @@ set point where you click.
           ==
           (define-key (current-global-map) KEY nil)
 
- - Command: local-set-key key definition
+ -- Command: local-set-key key definition
      This function sets the binding of KEY in the current local keymap
      to DEFINITION.
 
@@ -1743,7 +1743,7 @@ set point where you click.
           ==
           (define-key (current-local-map) KEY DEFINITION)
 
- - Command: local-unset-key key
+ -- Command: local-unset-key key
      This function removes the binding of KEY from the current local
      map.
 
@@ -1754,13 +1754,13 @@ set point where you click.
 
 File: lispref.info,  Node: Scanning Keymaps,  Next: Other Keymap Functions,  Prev: Key Binding Commands,  Up: Keymaps
 
-Scanning Keymaps
-================
+26.12 Scanning Keymaps
+======================
 
 This section describes functions used to scan all the current keymaps,
 or all keys within a keymap, for the sake of printing help information.
 
- - Function: accessible-keymaps keymap &optional prefix
+ -- Function: accessible-keymaps keymap &optional prefix
      This function returns a list of all the keymaps that can be
      accessed (via prefix keys) from KEYMAP.  The value is an
      association list with elements of the form `(KEY . MAP)', where
@@ -1827,7 +1827,7 @@ or all keys within a keymap, for the sake of printing help information.
                                     8 entries 0x3ef>)
                         2 entries 0x3f5>))
 
- - Function: map-keymap function keymap &optional sort-first
+ -- Function: map-keymap function keymap &optional sort-first
      This function applies FUNCTION to each element of KEYMAP.
      FUNCTION will be called with two arguments: a key-description
      list, and the binding.  The order in which the elements of the
@@ -1847,10 +1847,10 @@ or all keys within a keymap, for the sake of printing help information.
      canonical order.  Otherwise, they will be passed in hash (that is,
      random) order, which is faster.
 
- - Function: keymap-fullness keymap
+ -- Function: keymap-fullness keymap
      This function returns the number of bindings in the keymap.
 
- - Function: where-is-internal definition &optional keymaps firstonly
+ -- Function: where-is-internal definition &optional keymaps firstonly
           noindirect event-or-keys
      This function returns a list of key sequences (of any length) that
      are bound to DEFINITION in a set of keymaps.
@@ -1883,8 +1883,8 @@ or all keys within a keymap, for the sake of printing help information.
           (where-is-internal 'describe-function)
               => ([(control h) d] [(control h) f] [f1 d] [f1 f])
 
- - Function: describe-bindings-internal map &optional all shadow prefix
-          mouse-only-p
+ -- Function: describe-bindings-internal map &optional all shadow
+          prefix mouse-only-p
      This function inserts (into the current buffer) a list of all
      defined keys and their definitions in MAP.  Optional second
      argument ALL says whether to include even "uninteresting"
@@ -1899,7 +1899,7 @@ or all keys within a keymap, for the sake of printing help information.
    `describe-bindings-internal' is used to implement the help command
 `describe-bindings'.
 
- - Command: describe-bindings &optional prefix mouse-only-p
+ -- Command: describe-bindings &optional prefix mouse-only-p
      This function creates a listing of all defined keys and their
      definitions.  It writes the listing in a buffer named `*Help*' and
      displays it in a window.
@@ -1924,16 +1924,16 @@ or all keys within a keymap, for the sake of printing help information.
 
 File: lispref.info,  Node: Other Keymap Functions,  Prev: Scanning Keymaps,  Up: Keymaps
 
-Other Keymap Functions
-======================
+26.13 Other Keymap Functions
+============================
 
- - Function: set-keymap-prompt keymap new-prompt
+ -- Function: set-keymap-prompt keymap new-prompt
      This function sets the "prompt" of KEYMAP to string NEW-PROMPT, or
      `nil' if no prompt is desired.  The prompt is shown in the
      echo-area when reading a key-sequence to be looked-up in this
      keymap.
 
- - Function: keymap-prompt keymap &optional use-inherited
+ -- Function: keymap-prompt keymap &optional use-inherited
      This function returns the "prompt" of the given keymap.  If
      USE-INHERITED is non-`nil', any parent keymaps will also be
      searched for a prompt.
@@ -1941,8 +1941,8 @@ Other Keymap Functions
 
 File: lispref.info,  Node: Menus,  Next: Dialog Boxes,  Prev: Keymaps,  Up: Top
 
-Menus
-*****
+27 Menus
+********
 
 * Menu:
 
@@ -1958,8 +1958,8 @@ Menus
 
 File: lispref.info,  Node: Menu Format,  Next: Menubar Format,  Up: Menus
 
-Format of Menus
-===============
+27.1 Format of Menus
+====================
 
 A menu is described using a "menu description", which is a list of menu
 items, keyword-value pairs, strings, and submenus.  The menu
@@ -2166,7 +2166,7 @@ to four keyword-value pairs, as follows:
      must be a char or the symbol name of a key.  *Note Menu
      Accelerators::.
 
- - Variable: menubar-configuration
+ -- Variable: menubar-configuration
      This variable holds a list of symbols, against which the value of
      the `:config' tag for each menubar item will be compared.  If a
      menubar item has a `:config' tag, then it is omitted from the
@@ -2187,8 +2187,8 @@ to four keyword-value pairs, as follows:
 
 File: lispref.info,  Node: Menubar Format,  Next: Menubar,  Prev: Menu Format,  Up: Menus
 
-Format of the Menubar
-=====================
+27.2 Format of the Menubar
+==========================
 
 A menubar is a list of menus, menu items, and strings.  The format is
 similar to that of a menu, except:
@@ -2205,21 +2205,21 @@ similar to that of a menu, except:
 
 File: lispref.info,  Node: Menubar,  Next: Modifying Menus,  Prev: Menubar Format,  Up: Menus
 
-Menubar
-=======
+27.3 Menubar
+============
 
- - Variable: current-menubar
+ -- Variable: current-menubar
      This variable holds the description of the current menubar.  This
      may be buffer-local.  When the menubar is changed, the function
      `set-menubar-dirty-flag' has to be called in order for the menubar
      to be updated on the screen.
 
- - Constant: default-menubar
+ -- Constant: default-menubar
      This variable holds the menubar description of the menubar that is
      visible at startup.  This is the value that `current-menubar' has
      at startup.
 
- - Function: set-menubar-dirty-flag
+ -- Function: set-menubar-dirty-flag
      This function tells XEmacs that the menubar widget has to be
      updated.  Changes to the menubar will generally not be visible
      until this function is called.
@@ -2229,23 +2229,23 @@ menubar.  They are equivalent to doing the appropriate action to change
 `current-menubar', and then calling `set-menubar-dirty-flag'.  Note
 that these functions copy their argument using `copy-sequence'.
 
- - Function: set-menubar menubar
+ -- Function: set-menubar menubar
      This function sets the default menubar to be MENUBAR (*note Menu
      Format::).  This is the menubar that will be visible in buffers
      that have not defined their own, buffer-local menubar.
 
- - Function: set-buffer-menubar menubar
+ -- Function: set-buffer-menubar menubar
      This function sets the buffer-local menubar to be MENUBAR.  This
      does not change the menubar in any buffers other than the current
      one.
 
    Miscellaneous:
 
- - Variable: menubar-show-keybindings
+ -- Variable: menubar-show-keybindings
      If true, the menubar will display keyboard equivalents.  If false,
      only the command names will be displayed.
 
- - Variable: activate-menubar-hook
+ -- Variable: activate-menubar-hook
      Function or functions called before a menubar menu is pulled down.
      These functions are called with no arguments, and should
      interrogate and modify the value of `current-menubar' as desired.
@@ -2268,15 +2268,15 @@ that these functions copy their argument using `copy-sequence'.
      more computation will be done, but redisplay of the menubar will
      still be performed optimally.
 
- - Variable: menu-no-selection-hook
+ -- Variable: menu-no-selection-hook
      Function or functions to call when a menu or dialog box is
      dismissed without a selection having been made.
 
 
 File: lispref.info,  Node: Modifying Menus,  Next: Pop-Up Menus,  Prev: Menubar,  Up: Menus
 
-Modifying Menus
-===============
+27.4 Modifying Menus
+====================
 
 The following functions are provided to modify the menubar of one of its
 submenus.  Note that these functions modify the menu in-place, rather
@@ -2293,7 +2293,7 @@ also specifies a particular item to be modified.  For example, `("File"
 menu.  `("Menu" "Foo" "Item")' means the menu item called "Item" under
 the "Foo" submenu of "Menu".
 
- - Function: add-submenu menu-path submenu &optional before in-menu
+ -- Function: add-submenu menu-path submenu &optional before in-menu
      This function adds a menu to the menubar or one of its submenus.
      If the named menu exists already, it is changed.
 
@@ -2310,7 +2310,7 @@ the "Foo" submenu of "Menu".
      If IN-MENU is present use that instead of `current-menubar' as the
      menu to change.
 
- - Function: add-menu-button menu-path menu-leaf &optional before
+ -- Function: add-menu-button menu-path menu-leaf &optional before
           in-menu
      This function adds a menu item to some menu, creating the menu
      first if necessary.  If the named item exists already, it is
@@ -2328,22 +2328,22 @@ the "Foo" submenu of "Menu".
      If IN-MENU is present use that instead of `current-menubar' as the
      menu to change.
 
- - Function: delete-menu-item menu-item-path &optional from-menu
+ -- Function: delete-menu-item menu-item-path &optional from-menu
      This function removes the menu item specified by MENU-ITEM-PATH
      from the menu hierarchy.
 
      If FROM-MENU is present use that instead of `current-menubar' as
      the menu to change.
 
- - Function: enable-menu-item menu-item-path
+ -- Function: enable-menu-item menu-item-path
      This function makes the menu item specified by MENU-ITEM-PATH be
      selectable.
 
- - Function: disable-menu-item menu-item-path
+ -- Function: disable-menu-item menu-item-path
      This function makes the menu item specified by MENU-ITEM-PATH be
      unselectable.
 
- - Function: relabel-menu-item menu-item-path new-name
+ -- Function: relabel-menu-item menu-item-path new-name
      This function changes the string of the menu item specified by
      MENU-ITEM-PATH.  NEW-NAME is the string that the menu item will be
      printed as from now on.
@@ -2351,7 +2351,7 @@ the "Foo" submenu of "Menu".
    The following function can be used to search for a particular item in
 a menubar specification, given a path to the item.
 
- - Function: find-menu-item menubar menu-item-path &optional parent
+ -- Function: find-menu-item menubar menu-item-path &optional parent
      This function searches MENUBAR for the item given by
      MENU-ITEM-PATH starting from PARENT (`nil' means start at the top
      of MENUBAR).  This function returns `(ITEM . PARENT)', where
@@ -2365,7 +2365,7 @@ a menubar specification, given a path to the item.
 existing code can be understood.  You should not use these functions in
 new code.
 
- - Function: add-menu menu-path menu-name menu-items &optional before
+ -- Function: add-menu menu-path menu-name menu-items &optional before
      This function adds a menu to the menubar or one of its submenus.
      If the named menu exists already, it is changed.  This is
      obsolete; use `add-submenu' instead.
@@ -2383,7 +2383,7 @@ new code.
      should be added, if this menu is not on its parent already.  If the
      menu is already present, it will not be moved.
 
- - Function: add-menu-item menu-path item-name function enabled-p
+ -- Function: add-menu-item menu-path item-name function enabled-p
           &optional before
      This function adds a menu item to some menu, creating the menu
      first if necessary.  If the named item exists already, it is
@@ -2401,14 +2401,14 @@ new code.
 
 File: lispref.info,  Node: Menu Filters,  Next: Menu Accelerators,  Prev: Pop-Up Menus,  Up: Menus
 
-Menu Filters
-============
+27.5 Menu Filters
+=================
 
 The following filter functions are provided for use in
 `default-menubar'.  You may want to use them in your own menubar
 description.
 
- - Function: file-menu-filter menu-items
+ -- Function: file-menu-filter menu-items
      This function changes the arguments and sensitivity of these File
      menu items:
 
@@ -2432,7 +2432,7 @@ description.
     `Delete Frame'
           Sensitive only when there is more than one visible frame.
 
- - Function: edit-menu-filter menu-items
+ -- Function: edit-menu-filter menu-items
      This function changes the arguments and sensitivity of these Edit
      menu items:
 
@@ -2455,25 +2455,25 @@ description.
           Sensitive only when there is undo information.  While in the
           midst of an undo, this is changed to `Undo More'.
 
- - Function: buffers-menu-filter menu-items
+ -- Function: buffers-menu-filter menu-items
      This function sets up the Buffers menu.  *Note Buffers Menu::, for
      more information.
 
 
 File: lispref.info,  Node: Pop-Up Menus,  Next: Menu Filters,  Prev: Modifying Menus,  Up: Menus
 
-Pop-Up Menus
-============
+27.6 Pop-Up Menus
+=================
 
- - Function: popup-menu menu-description &optional event
+ -- Function: popup-menu menu-description &optional event
      This function pops up a menu specified by MENU-DESCRIPTION, which
      is a menu description (*note Menu Format::).  The menu is
      displayed at the current mouse position.
 
- - Function: popup-menu-up-p
+ -- Function: popup-menu-up-p
      This function returns `t' if a pop-up menu is up, `nil' otherwise.
 
- - Variable: popup-menu-titles
+ -- Variable: popup-menu-titles
      If true (the default), pop-up menus will have title bars at the
      top.
 
@@ -2481,24 +2481,24 @@ Pop-Up Menus
 mechanism onto pop-up menus.  This only works if you do not redefine
 the binding for button3.
 
- - Command: popup-mode-menu
+ -- Command: popup-mode-menu
      This function pops up a menu of global and mode-specific commands.
      The menu is computed by combining `global-popup-menu' and
      `mode-popup-menu'.  This is the default binding for button3.  You
      should generally not change this binding.
 
- - Variable: global-popup-menu
+ -- Variable: global-popup-menu
      This holds the global popup menu.  This is present in all modes.
      (This is `nil' by default.)
 
- - Variable: mode-popup-menu
+ -- Variable: mode-popup-menu
      The mode-specific popup menu.  Automatically buffer local.  This
      is appended to the default items in `global-popup-menu'.
 
- - Constant: default-popup-menu
+ -- Constant: default-popup-menu
      This holds the default value of `mode-popup-menu'.
 
- - Variable: activate-popup-menu-hook
+ -- Variable: activate-popup-menu-hook
      Function or functions run before a mode-specific popup menu is made
      visible.  These functions are called with no arguments, and should
      interrogate and modify the value of `global-popup-menu' or
@@ -2510,20 +2510,20 @@ the binding for button3.
    The following convenience functions are provided for displaying
 pop-up menus.
 
- - Command: popup-buffer-menu event
+ -- Command: popup-buffer-menu event
      This function pops up a copy of the `Buffers' menu (from the
      menubar) where the mouse is clicked.  It should be bound to a
      mouse button event.
 
- - Command: popup-menubar-menu event
+ -- Command: popup-menubar-menu event
      This function pops up a copy of menu that also appears in the
      menubar.  It should be bound to a mouse button event.
 
 
 File: lispref.info,  Node: Menu Accelerators,  Next: Buffers Menu,  Prev: Menu Filters,  Up: Menus
 
-Menu Accelerators
-=================
+27.7 Menu Accelerators
+======================
 
 Menu accelerators are keyboard shortcuts for accessing the menubar.
 Accelerator keys can be specified for menus as well as for menu items.
@@ -2541,8 +2541,8 @@ item is used to activate that item.
 
 File: lispref.info,  Node: Creating Menu Accelerators,  Next: Keyboard Menu Traversal,  Up: Menu Accelerators
 
-Creating Menu Accelerators
---------------------------
+27.7.1 Creating Menu Accelerators
+---------------------------------
 
 Menu accelerators are specified as part of the menubar format using the
 :accelerator tag to specify a key or by placing "%_" in the menu or
@@ -2572,8 +2572,8 @@ accelerator keys.  *Note Menu Accelerator Functions::.
 
 File: lispref.info,  Node: Keyboard Menu Traversal,  Next: Menu Accelerator Functions,  Prev: Creating Menu Accelerators,  Up: Menu Accelerators
 
-Keyboard Menu Traversal
------------------------
+27.7.2 Keyboard Menu Traversal
+------------------------------
 
 In addition to immediately activating a menu or menu item, the keyboard
 can be used to traverse the menus without activating items.  The
@@ -2588,15 +2588,15 @@ for more information about how to modify the menu traversal keys.
 
 File: lispref.info,  Node: Menu Accelerator Functions,  Prev: Keyboard Menu Traversal,  Up: Menu Accelerators
 
-Menu Accelerator Functions
---------------------------
+27.7.3 Menu Accelerator Functions
+---------------------------------
 
- - Command: accelerate-menu
+ -- Command: accelerate-menu
      Make the menubar immediately active and place the cursor on the
      left most entry in the top level menu.  Menu items can be selected
      as usual.
 
- - Variable: menu-accelerator-enabled
+ -- Variable: menu-accelerator-enabled
      Whether menu accelerator keys can cause the menubar to become
      active.
 
@@ -2620,12 +2620,12 @@ Menu Accelerator Functions
      See also `menu-accelerator-modifiers' and
      `menu-accelerator-prefix'.
 
- - Variable: menu-accelerator-map
+ -- Variable: menu-accelerator-map
      Keymap consulted to determine the commands to run in response to
      keypresses occurring while the menubar is active.  *Note Keyboard
      Menu Traversal::.
 
- - Variable: menu-accelerator-modifiers
+ -- Variable: menu-accelerator-modifiers
      A list of modifier keys which must be pressed in addition to a
      valid menu accelerator in order for the top level menu to be
      activated in response to a keystroke.  The default value of
@@ -2639,7 +2639,7 @@ Menu Accelerator Functions
 
      See also `menu-accelerator-enabled' and `menu-accelerator-prefix'.
 
- - Variable: menu-accelerator-prefix
+ -- Variable: menu-accelerator-prefix
      Prefix key(s) that must be typed before menu accelerators will be
      activated.  Must be a valid key descriptor.
 
@@ -2661,31 +2661,31 @@ will pressing C-x followed by anything else.
 
 File: lispref.info,  Node: Buffers Menu,  Prev: Menu Accelerators,  Up: Menus
 
-Buffers Menu
-============
+27.8 Buffers Menu
+=================
 
 The following options control how the `Buffers' menu is displayed.
 This is a list of all (or a subset of) the buffers currently in
 existence, and is updated dynamically.
 
- - User Option: buffers-menu-max-size
+ -- User Option: buffers-menu-max-size
      This user option holds the maximum number of entries which may
      appear on the `Buffers' menu.  If this is 10, then only the ten
      most-recently-selected buffers will be shown.  If this is `nil',
      then all buffers will be shown.  Setting this to a large number or
      `nil' will slow down menu responsiveness.
 
- - Function: format-buffers-menu-line buffer
+ -- Function: format-buffers-menu-line buffer
      This function returns a string to represent BUFFER in the
      `Buffers' menu.  `nil' means the buffer shouldn't be listed.  You
      can redefine this.
 
- - User Option: complex-buffers-menu-p
+ -- User Option: complex-buffers-menu-p
      If true, the `Buffers' menu will contain several commands, as
      submenus of each buffer line.  If this is false, then there will
      be only one command: select that buffer.
 
- - User Option: buffers-menu-switch-to-buffer-function
+ -- User Option: buffers-menu-switch-to-buffer-function
      This user option holds the function to call to select a buffer
      from the `Buffers' menu.  `switch-to-buffer' is a good choice, as
      is `pop-to-buffer'.
@@ -2693,8 +2693,8 @@ existence, and is updated dynamically.
 
 File: lispref.info,  Node: Dialog Boxes,  Next: Toolbar,  Prev: Menus,  Up: Top
 
-Dialog Boxes
-************
+28 Dialog Boxes
+***************
 
 * Menu:
 
@@ -2704,8 +2704,8 @@ Dialog Boxes
 
 File: lispref.info,  Node: Dialog Box Format,  Next: Dialog Box Functions,  Up: Dialog Boxes
 
-Dialog Box Format
-=================
+28.1 Dialog Box Format
+======================
 
 A dialog box description is a list.
 
@@ -2743,10 +2743,10 @@ that all following buttons should be flushright instead of flushleft.
 
 File: lispref.info,  Node: Dialog Box Functions,  Prev: Dialog Box Format,  Up: Dialog Boxes
 
-Dialog Box Functions
-====================
+28.2 Dialog Box Functions
+=========================
 
- - Function: popup-dialog-box dbox-desc
+ -- Function: popup-dialog-box dbox-desc
      This function pops up a dialog box.  DBOX-DESC describes how the
      dialog box will appear (*note Dialog Box Format::).
 
@@ -2756,8 +2756,8 @@ using a dialog box.
 
 File: lispref.info,  Node: Toolbar,  Next: Gutter,  Prev: Dialog Boxes,  Up: Top
 
-Toolbar
-*******
+29 Toolbar
+**********
 
 * Menu:
 
@@ -2771,8 +2771,8 @@ Toolbar
 
 File: lispref.info,  Node: Toolbar Intro,  Next: Creating Toolbar,  Up: Toolbar
 
-Toolbar Intro
-=============
+29.1 Toolbar Intro
+==================
 
 A "toolbar" is a bar of icons displayed along one edge of a frame.  You
 can view a toolbar as a series of menu shortcuts--the most common menu
@@ -2815,10 +2815,10 @@ toolbar to the same position, it will just not be visible.
 
 File: lispref.info,  Node: Creating Toolbar,  Next: Toolbar Descriptor Format,  Prev: Toolbar Intro,  Up: Toolbar
 
-Creating Toolbar
-================
+29.2 Creating Toolbar
+=====================
 
- - Function: make-toolbar-specifier spec-list
+ -- Function: make-toolbar-specifier spec-list
      Return a new `toolbar' specifier object with the given
      specification list.  SPEC-LIST can be a list of specifications
      (each of which is a cons of a locale and a list of instantiators),
@@ -2837,8 +2837,8 @@ Creating Toolbar
 
 File: lispref.info,  Node: Toolbar Descriptor Format,  Next: Specifying the Toolbar,  Prev: Creating Toolbar,  Up: Toolbar
 
-Toolbar Descriptor Format
-=========================
+29.3 Toolbar Descriptor Format
+==============================
 
 The contents of a toolbar are specified using a "toolbar descriptor".
 The format of a toolbar descriptor is a list of "toolbar button
@@ -2919,15 +2919,15 @@ others specify blank areas in the toolbar.
      area.  If omitted, it defaults to a device-specific value (8
      pixels for X devices).
 
- - Function: toolbar-make-button-list up &optional down disabled cap-up
-          cap-down cap-disabled
+ -- Function: toolbar-make-button-list up &optional down disabled
+          cap-up cap-down cap-disabled
      This function calls `make-glyph' on each arg and returns a list of
      the results.  This is useful for setting the first argument of a
      toolbar button descriptor (typically, the result of this function
      is assigned to a symbol, which is specified as the first argument
      of the toolbar button descriptor).
 
- - Function: check-toolbar-button-syntax button &optional noerror
+ -- Function: check-toolbar-button-syntax button &optional noerror
      Verify the syntax of entry BUTTON in a toolbar description list.
      If you want to verify the syntax of a toolbar description list as a
      whole, use `check-valid-instantiator' with a specifier type of
@@ -2936,8 +2936,8 @@ others specify blank areas in the toolbar.
 
 File: lispref.info,  Node: Specifying the Toolbar,  Next: Other Toolbar Variables,  Prev: Toolbar Descriptor Format,  Up: Toolbar
 
-Specifying the Toolbar
-======================
+29.4 Specifying the Toolbar
+===========================
 
 In order to specify the contents of a toolbar, set one of the specifier
 variables `default-toolbar', `top-toolbar', `bottom-toolbar',
@@ -2951,7 +2951,7 @@ information.
    Most of the time, you will set `default-toolbar', which allows the
 user to choose where the toolbar should go.
 
- - Specifier: default-toolbar
+ -- Specifier: default-toolbar
      The position of this toolbar is specified in the function
      `default-toolbar-position'.  If the corresponding
      position-specific toolbar (e.g. `top-toolbar' if
@@ -2969,7 +2969,7 @@ specifiers `top-toolbar-visible-p', `bottom-toolbar-visible-p',
 `left-toolbar-visible-p', and `right-toolbar-visible-p' (*note Other
 Toolbar Variables::).
 
- - Function: set-default-toolbar-position position
+ -- Function: set-default-toolbar-position position
      This function sets the position that the `default-toolbar' will be
      displayed at.  Valid positions are the symbols `top', `bottom',
      `left' and `right'.  What this actually does is set the fallback
@@ -2981,7 +2981,7 @@ Toolbar Variables::).
      `default-toolbar-width', and from `default-toolbar-visible-p',
      respectively (*note Other Toolbar Variables::).
 
- - Function: default-toolbar-position
+ -- Function: default-toolbar-position
      This function returns the position that the `default-toolbar' will
      be displayed at.
 
@@ -2992,19 +2992,19 @@ toolbar.  If that does not yield a toolbar descriptor, the
 `default-toolbar' is consulted if `default-toolbar-position' indicates
 this position.
 
- - Specifier: top-toolbar
+ -- Specifier: top-toolbar
      Specifier for the toolbar at the top of the frame.
 
- - Specifier: bottom-toolbar
+ -- Specifier: bottom-toolbar
      Specifier for the toolbar at the bottom of the frame.
 
- - Specifier: left-toolbar
+ -- Specifier: left-toolbar
      Specifier for the toolbar at the left edge of the frame.
 
- - Specifier: right-toolbar
+ -- Specifier: right-toolbar
      Specifier for the toolbar at the right edge of the frame.
 
- - Function: toolbar-specifier-p object
+ -- Function: toolbar-specifier-p object
      This function returns non-`nil' if OBJECT is a toolbar specifier.
      Toolbar specifiers are the actual objects contained in the toolbar
      variables described above, and their valid instantiators are
@@ -3013,13 +3013,13 @@ this position.
 
 File: lispref.info,  Node: Other Toolbar Variables,  Prev: Specifying the Toolbar,  Up: Toolbar
 
-Other Toolbar Variables
-=======================
+29.5 Other Toolbar Variables
+============================
 
 The variables to control the toolbar thickness, visibility status, and
 captioned status are all specifiers.  *Note Specifiers::.
 
- - Specifier: default-toolbar-height
+ -- Specifier: default-toolbar-height
      This specifies the height of the default toolbar, if it's oriented
      horizontally.  The position of the default toolbar is specified by
      the function `set-default-toolbar-position'.  If the corresponding
@@ -3030,7 +3030,7 @@ captioned status are all specifiers.  *Note Specifiers::.
      `default-toolbar-width' (depending on the toolbar orientation) in
      that domain, if any, will be used instead.
 
- - Specifier: default-toolbar-width
+ -- Specifier: default-toolbar-width
      This specifies the width of the default toolbar, if it's oriented
      vertically.  This behaves like `default-toolbar-height'.
 
@@ -3039,16 +3039,16 @@ captioned status are all specifiers.  *Note Specifiers::.
 `default-toolbar-width' is only used when `default-toolbar-position' is
 `left' or `right'.
 
- - Specifier: top-toolbar-height
+ -- Specifier: top-toolbar-height
      This specifies the height of the top toolbar.
 
- - Specifier: bottom-toolbar-height
+ -- Specifier: bottom-toolbar-height
      This specifies the height of the bottom toolbar.
 
- - Specifier: left-toolbar-width
+ -- Specifier: left-toolbar-width
      This specifies the width of the left toolbar.
 
- - Specifier: right-toolbar-width
+ -- Specifier: right-toolbar-width
      This specifies the width of the right toolbar.
 
    Note that all of the position-specific toolbar thickness specifiers
@@ -3056,7 +3056,7 @@ have a fallback value of zero when they do not correspond to the
 default toolbar.  Therefore, you will have to set a non-zero thickness
 value if you want a position-specific toolbar to be displayed.
 
- - Specifier: default-toolbar-visible-p
+ -- Specifier: default-toolbar-visible-p
      This specifies whether the default toolbar is visible.  The
      position of the default toolbar is specified by the function
      `set-default-toolbar-position'.  If the corresponding
@@ -3066,16 +3066,16 @@ value if you want a position-specific toolbar to be displayed.
      window or a frame), then the value of `default-toolbar-visible-p'
      in that domain, if any, will be used instead.
 
- - Specifier: top-toolbar-visible-p
+ -- Specifier: top-toolbar-visible-p
      This specifies whether the top toolbar is visible.
 
- - Specifier: bottom-toolbar-visible-p
+ -- Specifier: bottom-toolbar-visible-p
      This specifies whether the bottom toolbar is visible.
 
- - Specifier: left-toolbar-visible-p
+ -- Specifier: left-toolbar-visible-p
      This specifies whether the left toolbar is visible.
 
- - Specifier: right-toolbar-visible-p
+ -- Specifier: right-toolbar-visible-p
      This specifies whether the right toolbar is visible.
 
    `default-toolbar-visible-p' and all of the position-specific toolbar
@@ -3099,22 +3099,22 @@ displayed in the selected window, the window will have a width of 86 or
 selected window specifies that the left toolbar is not visible, so it is
 expanded to take up the slack.
 
- - Specifier: toolbar-buttons-captioned-p
+ -- Specifier: toolbar-buttons-captioned-p
      Whether toolbar buttons are captioned.  This affects which glyphs
      from a toolbar button descriptor are chosen.  *Note Toolbar
      Descriptor Format::.
 
    You can also reset the toolbar to what it was when XEmacs started up.
 
- - Constant: initial-toolbar-spec
+ -- Constant: initial-toolbar-spec
      The toolbar descriptor used to initialize `default-toolbar' at
      startup.
 
 
 File: lispref.info,  Node: Gutter,  Next: Scrollbars,  Prev: Toolbar,  Up: Top
 
-Gutter
-******
+30 Gutter
+*********
 
 A gutter is a rectangle displayed along one edge of a frame.  It can
 contain arbitrary text or graphics.
@@ -3132,8 +3132,8 @@ contain arbitrary text or graphics.
 
 File: lispref.info,  Node: Gutter Intro,  Next: Creating Gutter,  Prev: Gutter,  Up: Gutter
 
-Gutter Intro
-============
+30.1 Gutter Intro
+=================
 
 A "gutter" is a rectangle displayed along one edge of a frame.  It can
 contain arbitrary text or graphics.  It could be considered a
@@ -3171,10 +3171,10 @@ gutter to the same position, it will just not be visible.
 
 File: lispref.info,  Node: Creating Gutter,  Next: Gutter Descriptor Format,  Prev: Gutter Intro,  Up: Gutter
 
-Creating Gutter
-===============
+30.2 Creating Gutter
+====================
 
- - Function: make-gutter-specifier spec-list
+ -- Function: make-gutter-specifier spec-list
      Return a new `gutter' specifier object with the given specification
      list.  SPEC-LIST can be a list of specifications (each of which is
      a cons of a locale and a list of instantiators), a single
@@ -3190,7 +3190,7 @@ Creating Gutter
      either strings or property-lists of strings.  See `default-gutter'
      for a description of the exact format.
 
- - Function: make-gutter-size-specifier spec-list
+ -- Function: make-gutter-size-specifier spec-list
      Return a new `gutter-size' specifier object with the given spec
      list.  SPEC-LIST can be a list of specifications (each of which is
      a cons of a locale and a list of instantiators), a single
@@ -3208,7 +3208,7 @@ Creating Gutter
      gutters contents. `autodetect' only works for top and bottom
      gutters.
 
- - Function: make-gutter-visible-specifier spec-list
+ -- Function: make-gutter-visible-specifier spec-list
      Return a new `gutter-visible' specifier object with the given spec
      list.  SPEC-LIST can be a list of specifications (each of which is
      a cons of a locale and a list of instantiators), a single
@@ -3231,8 +3231,8 @@ Creating Gutter
 
 File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Creating Gutter,  Up: Gutter
 
-Gutter Descriptor Format
-========================
+30.3 Gutter Descriptor Format
+=============================
 
 The contents of a gutter are specified using a "gutter descriptor".
 The format of a gutter descriptor is a list of "gutter button
@@ -3312,7 +3312,7 @@ others specify blank areas in the gutter.
      area.  If omitted, it defaults to a device-specific value (8
      pixels for X devices).
 
- - Function: gutter-make-button-list up &optional down disabled cap-up
+ -- Function: gutter-make-button-list up &optional down disabled cap-up
           cap-down cap-disabled
      This function calls `make-glyph' on each arg and returns a list of
      the results.  This is useful for setting the first argument of a
@@ -3320,7 +3320,7 @@ others specify blank areas in the gutter.
      is assigned to a symbol, which is specified as the first argument
      of the gutter button descriptor).
 
- - Function: check-gutter-button-syntax button &optional noerror
+ -- Function: check-gutter-button-syntax button &optional noerror
      Verify the syntax of entry BUTTON in a gutter description list.
      If you want to verify the syntax of a gutter description list as a
      whole, use `check-valid-instantiator' with a specifier type of
@@ -3329,8 +3329,8 @@ others specify blank areas in the gutter.
 
 File: lispref.info,  Node: Specifying a Gutter,  Next: Other Gutter Variables,  Prev: Gutter Descriptor Format,  Up: Gutter
 
-Specifying a Gutter
-===================
+30.4 Specifying a Gutter
+========================
 
 In order to specify the contents of a gutter, set one of the specifier
 variables `default-gutter', `top-gutter', `bottom-gutter',
@@ -3344,7 +3344,7 @@ information.
    Most of the time, you will set `default-gutter', which allows the
 user to choose where the gutter should go.
 
- - Specifier: default-gutter
+ -- Specifier: default-gutter
      The position of this gutter is specified in the function
      `default-gutter-position'.  If the corresponding position-specific
      gutter (e.g. `top-gutter' if `default-gutter-position' is `top')
@@ -3360,7 +3360,7 @@ status is controlled by the specifiers `top-gutter-visible-p',
 `bottom-gutter-visible-p', `left-gutter-visible-p', and
 `right-gutter-visible-p' (*note Other Gutter Variables::).
 
- - Function: set-default-gutter-position position
+ -- Function: set-default-gutter-position position
      This function sets the position that the `default-gutter' will be
      displayed at.  Valid positions are the symbols `top', `bottom',
      `left' and `right'.  What this actually does is set the fallback
@@ -3372,7 +3372,7 @@ status is controlled by the specifiers `top-gutter-visible-p',
      `default-gutter-width', and from `default-gutter-visible-p',
      respectively (*note Other Gutter Variables::).
 
- - Function: default-gutter-position
+ -- Function: default-gutter-position
      This function returns the position that the `default-gutter' will
      be displayed at.
 
@@ -3383,19 +3383,19 @@ gutter.  If that does not yield a gutter descriptor, the
 `default-gutter' is consulted if `default-gutter-position' indicates
 this position.
 
- - Specifier: top-gutter
+ -- Specifier: top-gutter
      Specifier for the gutter at the top of the frame.
 
- - Specifier: bottom-gutter
+ -- Specifier: bottom-gutter
      Specifier for the gutter at the bottom of the frame.
 
- - Specifier: left-gutter
+ -- Specifier: left-gutter
      Specifier for the gutter at the left edge of the frame.
 
- - Specifier: right-gutter
+ -- Specifier: right-gutter
      Specifier for the gutter at the right edge of the frame.
 
- - Function: gutter-specifier-p object
+ -- Function: gutter-specifier-p object
      This function returns non-`nil' if OBJECT is a gutter specifier.
      Gutter specifiers are the actual objects contained in the gutter
      variables described above, and their valid instantiators are
@@ -3404,13 +3404,13 @@ this position.
 
 File: lispref.info,  Node: Other Gutter Variables,  Next: Common Gutter Widgets,  Prev: Specifying a Gutter,  Up: Gutter
 
-Other Gutter Variables
-======================
+30.5 Other Gutter Variables
+===========================
 
 The variables to control the gutter thickness, visibility status, and
 captioned status are all specifiers.  *Note Specifiers::.
 
- - Specifier: default-gutter-height
+ -- Specifier: default-gutter-height
      This specifies the height of the default gutter, if it's oriented
      horizontally.  The position of the default gutter is specified by
      the function `set-default-gutter-position'.  If the corresponding
@@ -3421,7 +3421,7 @@ captioned status are all specifiers.  *Note Specifiers::.
      `default-gutter-width' (depending on the gutter orientation) in
      that domain, if any, will be used instead.
 
- - Specifier: default-gutter-width
+ -- Specifier: default-gutter-width
      This specifies the width of the default gutter, if it's oriented
      vertically.  This behaves like `default-gutter-height'.
 
@@ -3430,16 +3430,16 @@ captioned status are all specifiers.  *Note Specifiers::.
 `default-gutter-width' is only used when `default-gutter-position' is
 `left' or `right'.
 
- - Specifier: top-gutter-height
+ -- Specifier: top-gutter-height
      This specifies the height of the top gutter.
 
- - Specifier: bottom-gutter-height
+ -- Specifier: bottom-gutter-height
      This specifies the height of the bottom gutter.
 
- - Specifier: left-gutter-width
+ -- Specifier: left-gutter-width
      This specifies the width of the left gutter.
 
- - Specifier: right-gutter-width
+ -- Specifier: right-gutter-width
      This specifies the width of the right gutter.
 
    Note that all of the position-specific gutter thickness specifiers
@@ -3447,7 +3447,7 @@ have a fallback value of zero when they do not correspond to the
 default gutter.  Therefore, you will have to set a non-zero thickness
 value if you want a position-specific gutter to be displayed.
 
- - Specifier: default-gutter-visible-p
+ -- Specifier: default-gutter-visible-p
      This specifies whether the default gutter is visible.  The
      position of the default gutter is specified by the function
      `set-default-gutter-position'.  If the corresponding
@@ -3457,16 +3457,16 @@ value if you want a position-specific gutter to be displayed.
      a frame), then the value of `default-gutter-visible-p' in that
      domain, if any, will be used instead.
 
- - Specifier: top-gutter-visible-p
+ -- Specifier: top-gutter-visible-p
      This specifies whether the top gutter is visible.
 
- - Specifier: bottom-gutter-visible-p
+ -- Specifier: bottom-gutter-visible-p
      This specifies whether the bottom gutter is visible.
 
- - Specifier: left-gutter-visible-p
+ -- Specifier: left-gutter-visible-p
      This specifies whether the left gutter is visible.
 
- - Specifier: right-gutter-visible-p
+ -- Specifier: right-gutter-visible-p
      This specifies whether the right gutter is visible.
 
    `default-gutter-visible-p' and all of the position-specific gutter
@@ -3490,22 +3490,22 @@ displayed in the selected window, the window will have a width of 86 or
 selected window specifies that the left gutter is not visible, so it is
 expanded to take up the slack.
 
- - Specifier: gutter-buttons-captioned-p
+ -- Specifier: gutter-buttons-captioned-p
      Whether gutter buttons are captioned.  This affects which glyphs
      from a gutter button descriptor are chosen.  *Note Gutter
      Descriptor Format::.
 
    You can also reset the gutter to what it was when XEmacs started up.
 
- - Constant: initial-gutter-spec
+ -- Constant: initial-gutter-spec
      The gutter descriptor used to initialize `default-gutter' at
      startup.
 
 
 File: lispref.info,  Node: Common Gutter Widgets,  Prev: Other Gutter Variables,  Up: Gutter
 
-Common Gutter Widgets
-=====================
+30.6 Common Gutter Widgets
+==========================
 
 A gutter can contain arbitrary text.  So, for example, in an Info
 buffer you could put the title of the current node in the top gutter,
@@ -3528,32 +3528,32 @@ time-consuming operations like downloading.
 
 File: lispref.info,  Node: Buffer Tabs,  Next: Progress Bars,  Up: Common Gutter Widgets
 
-Buffer Tabs
------------
+30.6.1 Buffer Tabs
+------------------
 
 Not documented yet.
 
 
 File: lispref.info,  Node: Progress Bars,  Prev: Buffer Tabs,  Up: Common Gutter Widgets
 
-Progress Bars
--------------
+30.6.2 Progress Bars
+--------------------
 
 Not documented yet.
 
 
 File: lispref.info,  Node: Scrollbars,  Next: Drag and Drop,  Prev: Gutter,  Up: Top
 
-Scrollbars
-**********
+31 Scrollbars
+*************
 
 Not yet documented.
 
 
 File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: Top
 
-Drag and Drop
-*************
+32 Drag and Drop
+****************
 
 _WARNING_: the Drag'n'Drop API is still under development and the
 interface may change! The current implementation is considered
@@ -3579,8 +3579,8 @@ powerful interfaces to support these types of data (tm and w3).
 
 File: lispref.info,  Node: Supported Protocols,  Next: Drop Interface,  Up: Drag and Drop
 
-Supported Protocols
-===================
+32.1 Supported Protocols
+========================
 
 The current release of XEmacs only support a small set of Drag'n'drop
 protocols. Some of these only support limited options available in the
@@ -3596,8 +3596,8 @@ API.
 
 File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
 
-OffiX DND
----------
+32.1.1 OffiX DND
+----------------
 
 _WARNING_: If you compile in OffiX, you may not be able to use multiple
 X displays successfully.  If the two servers are from different
@@ -3623,8 +3623,8 @@ http://leb.net/~offix/
 
 File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
 
-CDE dt
-------
+32.1.2 CDE dt
+-------------
 
 CDE stands for Common Desktop Environment. It is based on the Motif
 widget library. It's drag'n'drop protocol is also an abstraction of the
@@ -3640,16 +3640,16 @@ file method URLs are passed through.
 
 File: lispref.info,  Node: MSWindows OLE,  Next: Loose ends,  Prev: CDE dt,  Up: Supported Protocols
 
-MSWindows OLE
--------------
+32.1.3 MSWindows OLE
+--------------------
 
 Only allows file drags and drops.
 
 
 File: lispref.info,  Node: Loose ends,  Prev: MSWindows OLE,  Up: Supported Protocols
 
-Loose ends
-----------
+32.1.4 Loose ends
+-----------------
 
 The following protocols will be supported soon: Xdnd, Motif, Xde (if I
 get some specs), KDE OffiX (if KDE can find XEmacs windows).
@@ -3660,8 +3660,8 @@ the XEmacs API, cause it also uses MIME types to encode dragged data.
 
 File: lispref.info,  Node: Drop Interface,  Next: Drag Interface,  Prev: Supported Protocols,  Up: Drag and Drop
 
-Drop Interface
-==============
+32.2 Drop Interface
+===================
 
 For each activated low-level protocol, an internal routine will catch
 incoming drops and convert them to a dragdrop-drop type misc-user-event.
@@ -3685,16 +3685,16 @@ interest.
 
 File: lispref.info,  Node: Drag Interface,  Prev: Drop Interface,  Up: Drag and Drop
 
-Drag Interface
-==============
+32.3 Drag Interface
+===================
 
 This describes the drag API (not implemented yet).
 
 
 File: lispref.info,  Node: Modes,  Next: Documentation,  Prev: Drag and Drop,  Up: Top
 
-Major and Minor Modes
-*********************
+33 Major and Minor Modes
+************************
 
 A "mode" is a set of definitions that customize XEmacs and can be
 turned on and off while you edit.  There are two varieties of modes:
@@ -3717,11 +3717,16 @@ Keymaps::, and *Note Syntax Tables::.
 
 File: lispref.info,  Node: Major Modes,  Next: Minor Modes,  Up: Modes
 
-Major Modes
-===========
+33.1 Major Modes
+================
 
 Major modes specialize XEmacs for editing particular kinds of text.
-Each buffer has only one major mode at a time.
+Each buffer has only one major mode at a time.  For each major mode
+there is a function to switch to that mode in the current buffer; its
+name should end in `-mode'.  These functions work by setting
+buffer-local variable bindings and other data associated with the
+buffer, such as a local keymap.  The effect lasts until you switch to
+another major mode in the same buffer.
 
    The least specialized major mode is called "Fundamental mode".  This
 mode has no mode-specific definitions or variable settings, so each
@@ -3744,6 +3749,11 @@ Derived Modes::).  For example, Rmail Edit mode, which is in
 `emacs/lisp/rmailedit.el', is a major mode that is very similar to Text
 mode except that it provides three additional commands.  Its definition
 is distinct from that of Text mode, but was derived from it.
+
+   Even if the new mode is not an obvious derivative of any other mode,
+it is convenient to use `define-derived-mode' with a `nil' parent
+argument, since it automatically enforces the most important coding
+conventions for you.
 
    Rmail Edit mode is an example of a case where one piece of text is
 put temporarily into a different major mode so it can be edited in a
@@ -3776,8 +3786,8 @@ complicated and specialized mode.
 
 File: lispref.info,  Node: Major Mode Conventions,  Next: Example Major Modes,  Up: Major Modes
 
-Major Mode Conventions
-----------------------
+33.1.1 Major Mode Conventions
+-----------------------------
 
 The code for existing major modes follows various coding conventions,
 including conventions for local keymap and syntax table initialization,
@@ -3860,6 +3870,15 @@ define a new major mode:
      immediately before the mode's own hook (that is, after everything
      else), or it may run them earlier.
 
+   * The major mode command may start by calling some other major mode
+     command (called the "parent mode") and then alter some of its
+     settings.  A mode that does this is called a "derived mode".  The
+     recommended way to define one is to use `define-derived-mode', but
+     this is not required.  Such a mode should use `delay-mode-hooks'
+     around its entire body, including the call to the parent mode
+     command and the final call to `run-mode-hooks'.  (Using
+     `define-derived-mode' does this automatically.)
+
    * If something special should be done if the user switches a buffer
      from this mode to any other major mode, the mode can set a local
      value for `change-major-mode-hook'.
@@ -3890,7 +3909,7 @@ define a new major mode:
      adverse consequences.  Even if you never load the file more than
      once, someone else will.
 
- - Variable: change-major-mode-hook
+ -- Variable: change-major-mode-hook
      This normal hook is run by `kill-all-local-variables' before it
      does anything else.  This gives major modes a way to arrange for
      something special to be done if the user switches to a different
@@ -3901,8 +3920,8 @@ define a new major mode:
 
 File: lispref.info,  Node: Example Major Modes,  Next: Auto Major Mode,  Prev: Major Mode Conventions,  Up: Major Modes
 
-Major Mode Examples
--------------------
+33.1.2 Major Mode Examples
+--------------------------
 
 Text mode is perhaps the simplest mode besides Fundamental mode.  Here
 are excerpts from  `text-mode.el' that illustrate many of the
@@ -3911,20 +3930,20 @@ conventions listed above:
      ;; Create mode-specific tables.
      (defvar text-mode-syntax-table nil
        "Syntax table used while in text mode.")
-     
+
      (if text-mode-syntax-table
          ()              ; Do not change the table if it is already set up.
        (setq text-mode-syntax-table (make-syntax-table))
        (modify-syntax-entry ?\" ".   " text-mode-syntax-table)
        (modify-syntax-entry ?\\ ".   " text-mode-syntax-table)
        (modify-syntax-entry ?' "w   " text-mode-syntax-table))
-     
+
      (defvar text-mode-abbrev-table nil
        "Abbrev table used while in text mode.")
      (define-abbrev-table 'text-mode-abbrev-table ())
-     
+
      (defvar text-mode-map nil)   ; Create a mode-specific keymap.
-     
+
      (if text-mode-map
          ()              ; Do not change the keymap if it is already set up.
        (setq text-mode-map (make-sparse-keymap))
@@ -3958,12 +3977,12 @@ correspondingly more complicated.  Here are excerpts from
      (defvar lisp-mode-syntax-table nil "")
      (defvar emacs-lisp-mode-syntax-table nil "")
      (defvar lisp-mode-abbrev-table nil "")
-     
+
      (if (not emacs-lisp-mode-syntax-table) ; Do not change the table
                                             ;   if it is already set.
          (let ((i 0))
            (setq emacs-lisp-mode-syntax-table (make-syntax-table))
-     
+
            ;; Set syntax of chars up to 0 to class of chars that are
            ;;   part of symbol names but not words.
            ;;   (The number 0 is `48' in the ASCII character set.)
@@ -4073,14 +4092,14 @@ Emacs Lisp mode.
 
 File: lispref.info,  Node: Auto Major Mode,  Next: Mode Help,  Prev: Example Major Modes,  Up: Major Modes
 
-How XEmacs Chooses a Major Mode
--------------------------------
+33.1.3 How XEmacs Chooses a Major Mode
+--------------------------------------
 
 Based on information in the file name or in the file itself, XEmacs
 automatically selects a major mode for the new buffer when a file is
 visited.
 
- - Command: fundamental-mode
+ -- Command: fundamental-mode
      Fundamental mode is a major mode that is not specialized for
      anything in particular.  Other major modes are defined in effect
      by comparison with this one--their definitions say what to change,
@@ -4089,7 +4108,7 @@ visited.
      (If you want Emacs to behave differently in Fundamental mode,
      change the _global_ state of Emacs.)
 
- - Command: normal-mode &optional find-file
+ -- Command: normal-mode &optional find-file
      This function establishes the proper major mode and local variable
      bindings for the current buffer.  First it calls `set-auto-mode',
      then it runs `hack-local-variables' to parse, and bind or evaluate
@@ -4111,13 +4130,13 @@ visited.
      mode function, so errors are caught and reported as a `File mode
      specification error',  followed by the original error message.
 
- - User Option: enable-local-variables
+ -- User Option: enable-local-variables
      This variable controls processing of local variables lists in files
      being visited.  A value of `t' means process the local variables
      lists unconditionally; `nil' means ignore them; anything else means
      ask the user what to do for each file.  The default value is `t'.
 
- - Variable: ignored-local-variables
+ -- Variable: ignored-local-variables
      This variable holds a list of variables that should not be set by
      a local variables list.  Any value specified for one of these
      variables is ignored.
@@ -4125,13 +4144,13 @@ visited.
    In addition to this list, any variable whose name has a non-`nil'
 `risky-local-variable' property is also ignored.
 
- - User Option: enable-local-eval
+ -- User Option: enable-local-eval
      This variable controls processing of `Eval:' in local variables
      lists in files being visited.  A value of `t' means process them
      unconditionally; `nil' means ignore them; anything else means ask
      the user what to do for each file.  The default value is `maybe'.
 
- - Function: set-auto-mode
+ -- Function: set-auto-mode
      This function selects the major mode that is appropriate for the
      current buffer.  It may base its decision on the value of the `-*-'
      line, on the visited file name (using `auto-mode-alist'), or on the
@@ -4140,7 +4159,7 @@ visited.
      `hack-local-variables' function does that.  *Note How Major Modes
      are Chosen: (xemacs)Choosing Modes.
 
- - User Option: default-major-mode
+ -- User Option: default-major-mode
      This variable holds the default major mode for new buffers.  The
      standard value is `fundamental-mode'.
 
@@ -4152,7 +4171,7 @@ visited.
      property are those such as Dired and Rmail that are useful only
      with text that has been specially prepared.
 
- - Function: set-buffer-major-mode buffer
+ -- Function: set-buffer-major-mode buffer
      This function sets the major mode of BUFFER to the value of
      `default-major-mode'.  If that variable is `nil', it uses the
      current buffer's major mode (if that is suitable).
@@ -4161,12 +4180,12 @@ visited.
      function, but medium-level commands such as `switch-to-buffer' and
      `find-file-noselect' use it whenever they create buffers.
 
- - Variable: initial-major-mode
+ -- Variable: initial-major-mode
      The value of this variable determines the major mode of the initial
      `*scratch*' buffer.  The value should be a symbol that is a major
      mode command name.  The default value is `lisp-interaction-mode'.
 
- - Variable: auto-mode-alist
+ -- Variable: auto-mode-alist
      This variable contains an association list of file name patterns
      (regular expressions; *note Regular Expressions::) and
      corresponding major mode functions.  Usually, the file name
@@ -4213,7 +4232,7 @@ visited.
                ("\\.C\\'" . c++-mode))
              auto-mode-alist))
 
- - Variable: interpreter-mode-alist
+ -- Variable: interpreter-mode-alist
      This variable specifies major modes to use for scripts that
      specify a command interpreter in an `#!' line.  Its value is a
      list of elements of the form `(INTERPRETER . MODE)'; for example,
@@ -4223,7 +4242,7 @@ visited.
      This variable is applicable only when the `auto-mode-alist' does
      not indicate which major mode to use.
 
- - Function: hack-local-variables &optional force
+ -- Function: hack-local-variables &optional force
      This function parses, and binds or evaluates as appropriate, any
      local variables for the current buffer.
 
@@ -4234,15 +4253,15 @@ visited.
 
 File: lispref.info,  Node: Mode Help,  Next: Derived Modes,  Prev: Auto Major Mode,  Up: Major Modes
 
-Getting Help about a Major Mode
--------------------------------
+33.1.4 Getting Help about a Major Mode
+--------------------------------------
 
 The `describe-mode' function is used to provide information about major
 modes.  It is normally called with `C-h m'.  The `describe-mode'
 function uses the value of `major-mode', which is why every major mode
 function needs to set the `major-mode' variable.
 
- - Command: describe-mode
+ -- Command: describe-mode
      This function displays the documentation of the current major mode.
 
      The `describe-mode' function calls the `documentation' function
@@ -4250,7 +4269,7 @@ function needs to set the `major-mode' variable.
      the documentation string of the major mode function.  (*Note
      Accessing Documentation::.)
 
- - Variable: major-mode
+ -- Variable: major-mode
      This variable holds the symbol for the current buffer's major mode.
      This symbol should have a function definition that is the command
      to switch to that major mode.  The `describe-mode' function uses
@@ -4260,13 +4279,13 @@ function needs to set the `major-mode' variable.
 
 File: lispref.info,  Node: Derived Modes,  Prev: Mode Help,  Up: Major Modes
 
-Defining Derived Modes
-----------------------
+33.1.5 Defining Derived Modes
+-----------------------------
 
 It's often useful to define a new major mode in terms of an existing
 one.  An easy way to do this is to use `define-derived-mode'.
 
- - Macro: define-derived-mode variant parent name docstring body...
+ -- Macro: define-derived-mode variant parent name docstring body...
      This construct defines VARIANT as a major mode command, using NAME
      as the string form of the mode name.
 
@@ -4308,15 +4327,18 @@ one.  An easy way to do this is to use `define-derived-mode'.
             "Major mode for hypertext.
           \\{hypertext-mode-map}"
             (setq case-fold-search nil))
-          
+
           (define-key hypertext-mode-map
             [down-mouse-3] 'do-hyper-link)
+
+     Do not write an `interactive' spec in the definition;
+     `define-derived-mode' does that automatically.
 
 
 File: lispref.info,  Node: Minor Modes,  Next: Modeline Format,  Prev: Major Modes,  Up: Modes
 
-Minor Modes
-===========
+33.2 Minor Modes
+================
 
 A "minor mode" provides features that users may enable or disable
 independently of the choice of major mode.  Minor modes can be enabled
@@ -4347,8 +4369,8 @@ keymaps make this easier than it used to be.
 
 File: lispref.info,  Node: Minor Mode Conventions,  Next: Keymaps and Minor Modes,  Up: Minor Modes
 
-Conventions for Writing Minor Modes
------------------------------------
+33.2.1 Conventions for Writing Minor Modes
+------------------------------------------
 
 There are conventions for writing minor modes just as there are for
 major modes.  Several of the major mode conventions apply to minor
@@ -4413,8 +4435,8 @@ minor modes.
 
 File: lispref.info,  Node: Keymaps and Minor Modes,  Prev: Minor Mode Conventions,  Up: Minor Modes
 
-Keymaps and Minor Modes
------------------------
+33.2.2 Keymaps and Minor Modes
+------------------------------
 
 Each minor mode can have its own keymap, which is active when the mode
 is enabled.  To set up a keymap for a minor mode, add an element to the
@@ -4431,8 +4453,8 @@ standard one.  The editor command loop handles this function specially.)
 
 File: lispref.info,  Node: Modeline Format,  Next: Hooks,  Prev: Minor Modes,  Up: Modes
 
-Modeline Format
-===============
+33.3 Modeline Format
+====================
 
 Each Emacs window (aside from minibuffer windows) includes a modeline,
 which displays status information about the buffer displayed in the
@@ -4457,7 +4479,7 @@ variables referenced by `modeline-format' (*note Modeline Variables::),
 you may want to force an update of the modeline so as to display the
 new information.
 
- - Function: redraw-modeline &optional all
+ -- Function: redraw-modeline &optional all
      Force redisplay of the current buffer's modeline.  If ALL is
      non-`nil', then force redisplay of all modelines.
 
@@ -4473,8 +4495,8 @@ controlled using the `modeline' face.  *Note Faces::.
 
 File: lispref.info,  Node: Modeline Data,  Next: Modeline Variables,  Up: Modeline Format
 
-The Data Structure of the Modeline
-----------------------------------
+33.3.1 The Data Structure of the Modeline
+-----------------------------------------
 
 The modeline contents are controlled by a data structure of lists,
 strings, symbols, and numbers kept in the buffer-local variable
@@ -4483,7 +4505,7 @@ construct", and it is built in recursive fashion out of simpler modeline
 constructs.  The same data structure is used for constructing frame
 titles (*note Frame Titles::).
 
- - Variable: modeline-format
+ -- Variable: modeline-format
      The value of this variable is a modeline construct with overall
      responsibility for the modeline format.  The value of this variable
      controls which other variables are used to form the modeline text,
@@ -4594,8 +4616,8 @@ changes to those variables remain effective.
 
 File: lispref.info,  Node: Modeline Variables,  Next: %-Constructs,  Prev: Modeline Data,  Up: Modeline Format
 
-Variables Used in the Modeline
-------------------------------
+33.3.2 Variables Used in the Modeline
+-------------------------------------
 
 This section describes variables incorporated by the standard value of
 `modeline-format' into the text of the mode line.  There is nothing
@@ -4603,7 +4625,7 @@ inherently special about these variables; any other variables could
 have the same effects on the modeline if `modeline-format' were changed
 to use them.
 
- - Variable: modeline-modified
+ -- Variable: modeline-modified
      This variable holds the value of the modeline construct that
      displays whether the current buffer is modified.
 
@@ -4615,7 +4637,7 @@ to use them.
 
      Changing this variable does not force an update of the modeline.
 
- - Variable: modeline-buffer-identification
+ -- Variable: modeline-buffer-identification
      This variable identifies the buffer being displayed in the window.
      Its default value is `("%F: %17b")', which means that it usually
      displays `Emacs:' followed by seventeen characters of the buffer
@@ -4624,7 +4646,7 @@ to use them.
      want to change this in modes such as Rmail that do not behave like
      a "normal" XEmacs.
 
- - Variable: global-mode-string
+ -- Variable: global-mode-string
      This variable holds a modeline spec that appears in the mode line
      by default, just after the buffer name.  The command `display-time'
      sets `global-mode-string' to refer to the variable
@@ -4635,12 +4657,12 @@ to use them.
      but this is obsolete, since the variable is included directly in
      the modeline.
 
- - Variable: mode-name
+ -- Variable: mode-name
      This buffer-local variable holds the "pretty" name of the current
      buffer's major mode.  Each major mode should set this variable so
      that the mode name will appear in the modeline.
 
- - Variable: minor-mode-alist
+ -- Variable: minor-mode-alist
      This variable holds an association list whose elements specify how
      the modeline should indicate that a minor mode is active.  Each
      element of the `minor-mode-alist' should be a two-element list:
@@ -4668,7 +4690,7 @@ to use them.
      in the alist should be buffer-local if the minor mode can be
      enabled separately in each buffer.
 
- - Variable: modeline-process
+ -- Variable: modeline-process
      This buffer-local variable contains the modeline information on
      process status in modes used for communicating with subprocesses.
      It is displayed immediately following the major mode name, with no
@@ -4677,7 +4699,7 @@ to use them.
      with the major mode as: `(Shell: run)'.  Normally this variable is
      `nil'.
 
- - Variable: default-modeline-format
+ -- Variable: default-modeline-format
      This variable holds the default `modeline-format' for buffers that
      do not override it.  This is the same as `(default-value
      'modeline-format)'.
@@ -4699,7 +4721,7 @@ to use them.
            (-3 . "%p")
            "-%-")
 
- - Variable: vc-mode
+ -- Variable: vc-mode
      The variable `vc-mode', local in each buffer, records whether the
      buffer's visited file is maintained with version control, and, if
      so, which kind.  Its value is `nil' for no version control, or a
@@ -4708,8 +4730,8 @@ to use them.
 
 File: lispref.info,  Node: %-Constructs,  Prev: Modeline Variables,  Up: Modeline Format
 
-`%'-Constructs in the ModeLine
-------------------------------
+33.3.3 `%'-Constructs in the ModeLine
+-------------------------------------
 
 The following table lists the recognized `%'-constructs and what they
 mean.  In any construct except `%%', you can add a decimal integer
@@ -4808,8 +4830,8 @@ obsolete, since you can get the same results with the variables
 
 File: lispref.info,  Node: Hooks,  Prev: Modeline Format,  Up: Modes
 
-Hooks
-=====
+33.4 Hooks
+==========
 
 A "hook" is a variable where you can store a function or functions to
 be called on a particular occasion by an existing program.  XEmacs
@@ -4862,7 +4884,7 @@ expression.
                          c-continued-statement-indent 0
                          c-brace-offset 0
                          comment-column 40))))
-     
+
      (setq c++-mode-hook c-mode-hook)
 
    The final example shows how the appearance of the modeline can be
@@ -4890,7 +4912,7 @@ modified for a particular class of buffers only.
 particular hooks.  This function calls the hook functions you have
 added with `add-hooks'.
 
- - Function: run-hooks &rest hookvar
+ -- Function: run-hooks &rest hookvar
      This function takes one or more hook variable names as arguments,
      and runs each hook in turn.  Each HOOKVAR argument should be a
      symbol that is a hook variable.  These arguments are processed in
@@ -4906,7 +4928,36 @@ added with `add-hooks'.
 
           (run-hooks 'emacs-lisp-mode-hook)
 
- - Function: add-hook hook function &optional append local
+ -- Function: run-mode-hooks &rest hookvars
+     Like `run-hooks', but is affected by the `delay-mode-hooks' macro.
+
+ -- Macro: delay-mode-hooks body...
+     This macro executes the BODY forms but defers all calls to
+     `run-mode-hooks' within them until the end of BODY.  This macro
+     enables a derived mode to arrange not to run its parent modes'
+     mode hooks until the end.
+
+ -- Function: run-hook-with-args hook &rest args
+     This function is the way to run an abnormal hook and always call
+     all of the hook functions.  It calls each of the hook functions
+     one by one, passing each of them the arguments ARGS.
+
+ -- Function: run-hook-with-args-until-failure hook &rest args
+     This function is the way to run an abnormal hook until one of the
+     hook functions fails.  It calls each of the hook functions,
+     passing each of them the arguments ARGS, until some hook function
+     returns `nil'.  It then stops and returns `nil'.  If none of the
+     hook functions return `nil', it returns a non-`nil' value.
+
+ -- Function: run-hook-with-args-until-success hook &rest args
+     This function is the way to run an abnormal hook until a hook
+     function succeeds.  It calls each of the hook functions, passing
+     each of them the arguments ARGS, until some hook function returns
+     non-`nil'.  Then it stops, and returns whatever was returned by
+     the last hook function that was called.  If all hook functions
+     return `nil', it returns `nil' as well.
+
+ -- Function: add-hook hook function &optional append local
      This function is the handy way to add function FUNCTION to hook
      variable HOOK.  The argument FUNCTION may be any valid Lisp
      function with the proper number of arguments.  For example,
@@ -4935,7 +4986,7 @@ added with `add-hooks'.
      buffer-local, then the value of LOCAL makes no difference--the
      hook function is always global.
 
- - Function: remove-hook hook function &optional local
+ -- Function: remove-hook hook function &optional local
      This function removes FUNCTION from the hook variable HOOK.
 
      If LOCAL is non-`nil', that says to remove FUNCTION from the local
@@ -4943,7 +4994,7 @@ added with `add-hooks'.
      itself is not buffer-local, then the value of LOCAL makes no
      difference.
 
- - Function: make-local-hook hook
+ -- Function: make-local-hook hook
      This function makes the hook variable HOOK local to the current
      buffer.  When a hook variable is local, it can have local and
      global hook functions, and `run-hooks' runs all of them.
@@ -4962,8 +5013,8 @@ added with `add-hooks'.
 
 File: lispref.info,  Node: Documentation,  Next: Files,  Prev: Modes,  Up: Top
 
-Documentation
-*************
+34 Documentation
+****************
 
 XEmacs Lisp has convenient on-line help facilities, most of which
 derive their information from the documentation strings associated with
@@ -4993,8 +5044,8 @@ topics of discussion.
 
 File: lispref.info,  Node: Documentation Basics,  Next: Accessing Documentation,  Up: Documentation
 
-Documentation Basics
-====================
+34.1 Documentation Basics
+=========================
 
 A documentation string is written using the Lisp syntax for strings,
 with double-quote characters surrounding the text of the string.  This
@@ -5055,10 +5106,10 @@ use to print nice-looking hardcopy for the file
 
 File: lispref.info,  Node: Accessing Documentation,  Next: Keys in Documentation,  Prev: Documentation Basics,  Up: Documentation
 
-Access to Documentation Strings
-===============================
+34.2 Access to Documentation Strings
+====================================
 
- - Function: documentation-property symbol property &optional verbatim
+ -- Function: documentation-property symbol property &optional verbatim
      This function returns the documentation string that is recorded in
      SYMBOL's property list under property PROPERTY.  It retrieves the
      text from a file if necessary, and runs `substitute-command-keys'
@@ -5072,7 +5123,7 @@ Access to Documentation Strings
           (symbol-plist 'command-line-processed)
                => (variable-documentation 188902)
 
- - Function: documentation function &optional verbatim
+ -- Function: documentation function &optional verbatim
      This function returns the documentation string of FUNCTION.  It
      reads the text from a file if necessary.  Then (unless VERBATIM is
      non-`nil') it calls `substitute-command-keys', to return a value
@@ -5110,7 +5161,7 @@ several symbols in a `*Help*' buffer.
                           "Function")
                         (or (documentation s)
                             "not documented"))))
-     
+
                  (if (boundp s)              ; It is a variable.
                      (princ
                       (format "%s\t%s\n%s\n\n" s
@@ -5120,13 +5171,13 @@ several symbols in a `*Help*' buffer.
                               s 'variable-documentation)
                             "not documented")))))))
              sym-list)
-     
+
          ;; Build a list of symbols that match pattern.
          (mapatoms (function
                     (lambda (sym)
                       (if (string-match pattern (symbol-name sym))
                           (setq sym-list (cons sym sym-list))))))
-     
+
          ;; Display the data.
          (with-output-to-temp-buffer "*Help*"
            (mapcar describe-func (sort sym-list 'string<))
@@ -5136,11 +5187,11 @@ several symbols in a `*Help*' buffer.
 more information.
 
      (describe-symbols "goal")
-     
+
      ---------- Buffer: *Help* ----------
      goal-column     Option
      *Semipermanent goal column for vertical motion, as set by C-x C-n, or nil.
-     
+
      set-goal-column Command: C-x C-n
      Set the current horizontal position as a goal for C-n and C-p.
      Those commands will move to this position in the line moved to
@@ -5148,7 +5199,7 @@ more information.
      With a non-`nil' argument, clears out the goal column
      so that C-n and C-p resume vertical motion.
      The goal column is stored in the variable `goal-column'.
-     
+
      temporary-goal-column   Variable
      Current goal column for vertical motion.
      It is the column where point was
@@ -5156,7 +5207,7 @@ more information.
      When the `track-eol' feature is doing its job, the value is 9999.
      ---------- Buffer: *Help* ----------
 
- - Function: Snarf-documentation filename
+ -- Function: Snarf-documentation filename
      This function is used only during XEmacs initialization, just
      before the runnable XEmacs is dumped.  It finds the file offsets
      of the documentation strings stored in the file FILENAME, and
@@ -5170,13 +5221,13 @@ more information.
      but this can be changed by modifying the variable
      `internal-doc-file-name'.
 
- - Variable: internal-doc-file-name
+ -- Variable: internal-doc-file-name
      This variable holds the name of the file containing documentation
      strings of built-in symbols, usually `DOC'.  The full pathname of
      the internal doc file is `(concat doc-directory
      internal-doc-file-name)'.
 
- - Variable: doc-directory
+ -- Variable: doc-directory
      This variable holds the name of the directory which contains the
      "internal doc file" that contains documentation strings for
      built-in and preloaded functions and variables.
@@ -5188,7 +5239,7 @@ more information.
 
      In older Emacs versions, `exec-directory' was used for this.
 
- - Variable: data-directory
+ -- Variable: data-directory
      This variable holds the name of the directory in which XEmacs finds
      certain system independent documentation and text files that come
      with XEmacs.  In older Emacs versions, `exec-directory' was used
@@ -5197,8 +5248,8 @@ more information.
 
 File: lispref.info,  Node: Keys in Documentation,  Next: Describing Characters,  Prev: Accessing Documentation,  Up: Documentation
 
-Substituting Key Bindings in Documentation
-==========================================
+34.3 Substituting Key Bindings in Documentation
+===============================================
 
 When documentation strings refer to key sequences, they should use the
 current, actual key bindings.  They can do so using certain special text
@@ -5229,7 +5280,7 @@ also call that function yourself.
    *Please note:* Each `\' must be doubled when written in a string in
 XEmacs Lisp.
 
- - Function: substitute-command-keys string
+ -- Function: substitute-command-keys string
      This function scans STRING for the above special sequences and
      replaces them by what they stand for, returning the result as a
      string.  This permits display of documentation that refers
@@ -5240,12 +5291,12 @@ XEmacs Lisp.
      (substitute-command-keys
         "To abort recursive edit, type: \\[abort-recursive-edit]")
      => "To abort recursive edit, type: C-]"
-     
+
      (substitute-command-keys
         "The keys that are defined for the minibuffer here are:
        \\{minibuffer-local-must-match-map}")
      => "The keys that are defined for the minibuffer here are:
-     
+
      ?               minibuffer-completion-help
      SPC             minibuffer-complete-word
      TAB             minibuffer-complete
@@ -5253,12 +5304,12 @@ XEmacs Lisp.
      RET             minibuffer-complete-and-exit
      C-g             abort-recursive-edit
      "
-     
+
      (substitute-command-keys
         "To abort a recursive edit from the minibuffer, type\
      \\<minibuffer-local-must-match-map>\\[abort-recursive-edit].")
      => "To abort a recursive edit from the minibuffer, type C-g."
-     
+
      (substitute-command-keys
        "Substrings of the form \\=\\{MAPVAR} are replaced by summaries
      \(made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
@@ -5278,8 +5329,8 @@ XEmacs Lisp.
 
 File: lispref.info,  Node: Describing Characters,  Next: Help Functions,  Prev: Keys in Documentation,  Up: Documentation
 
-Describing Characters for Help Messages
-=======================================
+34.4 Describing Characters for Help Messages
+============================================
 
 These functions convert events, key sequences or characters to textual
 descriptions.  These descriptions are useful for including arbitrary
@@ -5288,14 +5339,14 @@ non-printing and whitespace characters to sequences of printing
 characters.  The description of a non-whitespace printing character is
 the character itself.
 
- - Function: key-description sequence
+ -- Function: key-description sequence
      This function returns a string containing the XEmacs standard
      notation for the input events in SEQUENCE.  The argument SEQUENCE
      may be a string, vector or list.  *Note Events::, for more
      information about valid events.  See also the examples for
      `single-key-description', below.
 
- - Function: single-key-description key
+ -- Function: single-key-description key
      This function returns a string describing KEY in the standard
      XEmacs notation for keyboard input.  A normal printing character
      appears as itself, but a control character turns into a string
@@ -5313,7 +5364,7 @@ the character itself.
           (single-key-description '(shift button1))
                => "Sh-button1"
 
- - Function: text-char-description character
+ -- Function: text-char-description character
      This function returns a string describing CHARACTER in the
      standard XEmacs notation for characters that appear in text--like
      `single-key-description', except that control characters are
@@ -5330,15 +5381,15 @@ the character itself.
 
 File: lispref.info,  Node: Help Functions,  Next: Obsoleteness,  Prev: Describing Characters,  Up: Documentation
 
-Help Functions
-==============
+34.5 Help Functions
+===================
 
 XEmacs provides a variety of on-line help functions, all accessible to
 the user as subcommands of the prefix `C-h', or on some keyboards,
 `help'.  For more information about them, see *Note Help: (emacs)Help.
 Here we describe some program-level interfaces to the same information.
 
- - Command: apropos regexp &optional do-all predicate
+ -- Command: apropos regexp &optional do-all predicate
      This function finds all symbols whose names contain a match for the
      regular expression REGEXP, and returns a list of them (*note
      Regular Expressions::).  It also displays the symbols in a buffer
@@ -5360,7 +5411,7 @@ Here we describe some program-level interfaces to the same information.
                => (Buffer-menu-execute command-execute exec-directory
               exec-path execute-extended-command execute-kbd-macro
               executing-kbd-macro executing-macro)
-          
+
           (apropos "exec" nil 'commandp)
                => (Buffer-menu-execute execute-extended-command)
 
@@ -5373,11 +5424,11 @@ Here we describe some program-level interfaces to the same information.
 
           (apropos string t 'commandp)
 
- - Variable: help-map
+ -- Variable: help-map
      The value of this variable is a local keymap for characters
      following the Help key, `C-h'.
 
- - Prefix Command: help-command
+ -- Prefix Command: help-command
      This symbol is not a function; its function definition is actually
      the keymap known as `help-map'.  It is defined in `help.el' as
      follows:
@@ -5385,7 +5436,7 @@ Here we describe some program-level interfaces to the same information.
           (define-key global-map "\C-h" 'help-command)
           (fset 'help-command help-map)
 
- - Function: print-help-return-message &optional function
+ -- Function: print-help-return-message &optional function
      This function builds a string that explains how to restore the
      previous state of the windows after a help command.  After
      building the message, it applies FUNCTION to it if FUNCTION is
@@ -5398,7 +5449,7 @@ Here we describe some program-level interfaces to the same information.
      For an example of its use, see the long example in *Note Accessing
      Documentation::.
 
- - Variable: help-char
+ -- Variable: help-char
      The value of this variable is the help character--the character
      that XEmacs recognizes as meaning Help.  By default, it is the
      character `?\^H' (ASCII 8), which is `C-h'.  When XEmacs reads this
@@ -5420,7 +5471,7 @@ Here we describe some program-level interfaces to the same information.
      `describe-prefix-bindings', which displays a list of all the
      subcommands of the prefix key.
 
- - Variable: help-form
+ -- Variable: help-form
      If this variable is non-`nil', its value is a form to evaluate
      whenever the character `help-char' is read.  If evaluating the form
      produces a string, that string is displayed.
@@ -5434,14 +5485,14 @@ Here we describe some program-level interfaces to the same information.
      Entry to the minibuffer binds this variable to the value of
      `minibuffer-help-form' (*note Minibuffer Misc::).
 
- - Variable: prefix-help-command
+ -- Variable: prefix-help-command
      This variable holds a function to print help for a prefix
      character.  The function is called when the user types a prefix
      key followed by the help character, and the help character has no
      binding after that prefix.  The variable's default value is
      `describe-prefix-bindings'.
 
- - Command: describe-prefix-bindings
+ -- Command: describe-prefix-bindings
      This function calls `describe-bindings' to display a list of all
      the subcommands of the prefix key of the most recent key sequence.
      The prefix described consists of all but the last event of that
@@ -5453,12 +5504,12 @@ such as the "electric" modes.  You must load that library with
 `(require 'helper)' in order to use them.  Their names begin with
 `Helper' to distinguish them from the ordinary help functions.
 
- - Command: Helper-describe-bindings
+ -- Command: Helper-describe-bindings
      This command pops up a window displaying a help buffer containing a
      listing of all of the key bindings from both the local and global
      keymaps.  It works by calling `describe-bindings'.
 
- - Command: Helper-help
+ -- Command: Helper-help
      This command provides help for the current mode.  It prompts the
      user in the minibuffer with the message `Help (Type ? for further
      options)', and then provides assistance in finding out what the key
@@ -5469,8 +5520,8 @@ such as the "electric" modes.  You must load that library with
 
 File: lispref.info,  Node: Obsoleteness,  Prev: Help Functions,  Up: Documentation
 
-Obsoleteness
-============
+34.6 Obsoleteness
+=================
 
 As you add functionality to a package, you may at times want to replace
 an older function with a new one.  To preserve compatibility with
@@ -5479,7 +5530,7 @@ that function should be told to use the newer one instead.  XEmacs Lisp
 lets you mark a function or variable as "obsolete", and indicate what
 should be used instead.
 
- - Command: make-obsolete function new
+ -- Command: make-obsolete function new &optional when
      This function indicates that FUNCTION is an obsolete function, and
      the function NEW should be used instead.  The byte compiler will
      issue a warning to this effect when it encounters a usage of the
@@ -5487,18 +5538,20 @@ should be used instead.
      function's documentation.  NEW can also be a string (if there is
      not a single function with the same functionality any more), and
      should be a descriptive statement, such as "use FOO or BAR
-     instead" or "this function is unnecessary".
+     instead" or "this function is unnecessary".  If provided, WHEN
+     should be a string indicating when the function was first made
+     obsolete, for example a date or a release number.
 
- - Command: make-obsolete-variable variable new
+ -- Command: make-obsolete-variable variable new
      This is like `make-obsolete' but is for variables instead of
      functions.
 
- - Function: define-obsolete-function-alias oldfun newfun
+ -- Function: define-obsolete-function-alias oldfun newfun
      This function combines `make-obsolete' and `define-function',
      declaring OLDFUN to be an obsolete variant of NEWFUN and defining
      OLDFUN as an alias for NEWFUN.
 
- - Function: define-obsolete-variable-alias oldvar newvar
+ -- Function: define-obsolete-variable-alias oldvar newvar
      This is like `define-obsolete-function-alias' but for variables.
 
    Note that you should not normally put obsoleteness information
@@ -5514,13 +5567,13 @@ the user is told about the obsoleteness and is forced to look at the
 documentation of the new function, making it more likely that he will
 use the new function.
 
- - Function: function-obsoleteness-doc function
+ -- Function: function-obsoleteness-doc function
      If FUNCTION is obsolete, this function returns a string describing
      this.  This is the message that is printed out during byte
      compilation or in the function's documentation.  If FUNCTION is
      not obsolete, `nil' is returned.
 
- - Function: variable-obsoleteness-doc variable
+ -- Function: variable-obsoleteness-doc variable
      This is like `function-obsoleteness-doc' but for variables.
 
    The obsoleteness information is stored internally by putting a
@@ -5533,8 +5586,8 @@ implementation of `make-obsolete' and `make-obsolete-variable' in
 
 File: lispref.info,  Node: Files,  Next: Backups and Auto-Saving,  Prev: Documentation,  Up: Top
 
-Files
-*****
+35 Files
+********
 
 In XEmacs, you can find, create, view, save, and otherwise work with
 files and file directories.  This chapter describes most of the
@@ -5571,8 +5624,8 @@ functions don't recognize environment variable substitutions such as
 
 File: lispref.info,  Node: Visiting Files,  Next: Saving Buffers,  Up: Files
 
-Visiting Files
-==============
+35.1 Visiting Files
+===================
 
 Visiting a file means reading a file into a buffer.  Once this is done,
 we say that the buffer is "visiting" that file, and call the file "the
@@ -5604,8 +5657,8 @@ however, it is good to keep the distinction in mind.
 
 File: lispref.info,  Node: Visiting Functions,  Next: Subroutines of Visiting,  Up: Visiting Files
 
-Functions for Visiting Files
-----------------------------
+35.1.1 Functions for Visiting Files
+-----------------------------------
 
 This section describes the functions normally used to visit files.  For
 historical reasons, these functions have names starting with `find-'
@@ -5618,7 +5671,7 @@ not alter it, the fastest way is to use `insert-file-contents' in a
 temporary buffer.  Visiting the file is not necessary and takes longer.
 *Note Reading from Files::.
 
- - Command: find-file filename
+ -- Command: find-file filename
      This command selects a buffer visiting the file FILENAME, using an
      existing buffer if there is one, and otherwise creating a new
      buffer and reading the file into it.  It also returns that buffer.
@@ -5633,7 +5686,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
      When `find-file' is called interactively, it prompts for FILENAME
      in the minibuffer.
 
- - Function: find-file-noselect filename &optional nowarn
+ -- Function: find-file-noselect filename &optional nowarn
      This function is the guts of all the file-visiting functions.  It
      finds or creates a buffer visiting the file FILENAME, and returns
      it.  It uses an existing buffer if there is one, and otherwise
@@ -5669,21 +5722,21 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
           (find-file-noselect "/etc/fstab")
                => #<buffer fstab>
 
- - Command: find-file-other-window filename
+ -- Command: find-file-other-window filename
      This command selects a buffer visiting the file FILENAME, but does
      so in a window other than the selected window.  It may use another
      existing window or split a window; see *Note Displaying Buffers::.
 
      When this command is called interactively, it prompts for FILENAME.
 
- - Command: find-file-read-only filename
+ -- Command: find-file-read-only filename
      This command selects a buffer visiting the file FILENAME, like
      `find-file', but it marks the buffer as read-only.  *Note Read
      Only Buffers::, for related functions and variables.
 
      When this command is called interactively, it prompts for FILENAME.
 
- - Command: view-file filename &optional other-window-p
+ -- Command: view-file filename &optional other-window-p
      This command visits FILENAME in View mode, and displays it in a
      recursive edit, returning to the previous buffer when done.  View
      mode is a mode that allows you to skim rapidly through the file
@@ -5695,7 +5748,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
      With non-`nil' prefix arg OTHER-WINDOW-P, visit FILENAME in
      another window.
 
- - Variable: find-file-hooks
+ -- Variable: find-file-hooks
      The value of this variable is a list of functions to be called
      after a file is visited.  The file's local-variables specification
      (if any) will have been processed before the hooks are run.  The
@@ -5705,7 +5758,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
      This variable works just like a normal hook, but we think that
      renaming it would not be advisable.
 
- - Variable: find-file-not-found-hooks
+ -- Variable: find-file-not-found-hooks
      The value of this variable is a list of functions to be called when
      `find-file' or `find-file-noselect' is passed a nonexistent file
      name.  `find-file-noselect' calls these functions as soon as it
@@ -5719,14 +5772,14 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
 
 File: lispref.info,  Node: Subroutines of Visiting,  Prev: Visiting Functions,  Up: Visiting Files
 
-Subroutines of Visiting
------------------------
+35.1.2 Subroutines of Visiting
+------------------------------
 
 The `find-file-noselect' function uses the `create-file-buffer' and
 `after-find-file' functions as subroutines.  Sometimes it is useful to
 call them directly.
 
- - Function: create-file-buffer filename
+ -- Function: create-file-buffer filename
      This function creates a suitably named buffer for visiting
      FILENAME, and returns it.  It uses FILENAME (sans directory) as
      the name if that name is free; otherwise, it appends a string such
@@ -5746,7 +5799,7 @@ call them directly.
      This function is used by `find-file-noselect'.  It uses
      `generate-new-buffer' (*note Creating Buffers::).
 
- - Function: after-find-file &optional error warn noauto
+ -- Function: after-find-file &optional error warn noauto
      This function sets the buffer major mode, and parses local
      variables (*note Auto Major Mode::).  It is called by
      `find-file-noselect' and by the default revert function (*note
@@ -5770,8 +5823,8 @@ call them directly.
 
 File: lispref.info,  Node: Saving Buffers,  Next: Reading from Files,  Prev: Visiting Files,  Up: Files
 
-Saving Buffers
-==============
+35.2 Saving Buffers
+===================
 
 When you edit a file in XEmacs, you are actually working on a buffer
 that is visiting that file--that is, the contents of the file are
@@ -5779,7 +5832,7 @@ copied into the buffer and the copy is what you edit.  Changes to the
 buffer do not change the file until you "save" the buffer, which means
 copying the contents of the buffer into the file.
 
- - Command: save-buffer &optional backup-option
+ -- Command: save-buffer &optional backup-option
      This function saves the contents of the current buffer in its
      visited file if the buffer has been modified since it was last
      visited or saved.  Otherwise it does nothing.
@@ -5798,7 +5851,7 @@ copying the contents of the buffer into the file.
           `save-buffer' function unconditionally backs up the previous
           version of the file before saving it.
 
- - Command: save-some-buffers &optional save-silently-p exiting
+ -- Command: save-some-buffers &optional save-silently-p exiting
      This command saves some modified file-visiting buffers.  Normally
      it asks the user about each buffer.  But if SAVE-SILENTLY-P is
      non-`nil', it saves all the file-visiting buffers without querying
@@ -5812,20 +5865,20 @@ copying the contents of the buffer into the file.
      `save-buffers-kill-emacs' function passes a non-`nil' value for
      this argument.
 
- - Variable: buffer-offer-save
+ -- Variable: buffer-offer-save
      When this variable is non-`nil' in a buffer, XEmacs offers to save
      the buffer on exit even if the buffer is not visiting a file.  The
      variable is automatically local in all buffers.  Normally, Mail
      mode (used for editing outgoing mail) sets this to `t'.
 
- - Command: write-file filename
+ -- Command: write-file filename
      This function writes the current buffer into file FILENAME, makes
      the buffer visit that file, and marks it not modified.  Then it
      renames the buffer based on FILENAME, appending a string like `<2>'
      if necessary to make a unique buffer name.  It does most of this
      work by calling `set-visited-file-name' and `save-buffer'.
 
- - Variable: write-file-hooks
+ -- Variable: write-file-hooks
      The value of this variable is a list of functions to be called
      before writing out a buffer to its visited file.  If one of them
      returns non-`nil', the file is considered already written and the
@@ -5845,7 +5898,7 @@ copying the contents of the buffer into the file.
      Even though this is not a normal hook, you can use `add-hook' and
      `remove-hook' to manipulate the list.  *Note Hooks::.
 
- - Variable: local-write-file-hooks
+ -- Variable: local-write-file-hooks
      This works just like `write-file-hooks', but it is intended to be
      made local to particular buffers.  It's not a good idea to make
      `write-file-hooks' local to a buffer--use this variable instead.
@@ -5855,7 +5908,7 @@ copying the contents of the buffer into the file.
      convenient for packages that read "file" contents in special ways,
      and set up hooks to save the data in a corresponding way.
 
- - Variable: write-contents-hooks
+ -- Variable: write-contents-hooks
      This works just like `write-file-hooks', but it is intended for
      hooks that pertain to the contents of the file, as opposed to
      hooks that pertain to where the file came from.  Such hooks are
@@ -5863,11 +5916,11 @@ copying the contents of the buffer into the file.
      variable.  Switching to a new major mode always resets this
      variable.
 
- - Variable: after-save-hook
+ -- Variable: after-save-hook
      This normal hook runs after a buffer has been saved in its visited
      file.
 
- - Variable: file-precious-flag
+ -- Variable: file-precious-flag
      If this variable is non-`nil', then `save-buffer' protects against
      I/O errors while saving by writing the new file to a temporary
      name instead of the name it is supposed to have, and then renaming
@@ -5883,7 +5936,7 @@ copying the contents of the buffer into the file.
      Some modes set this variable non-`nil' locally in particular
      buffers.
 
- - User Option: require-final-newline
+ -- User Option: require-final-newline
      This variable determines whether files may be written out that do
      _not_ end with a newline.  If the value of the variable is `t',
      then `save-buffer' silently adds a newline at the end of the file
@@ -5899,14 +5952,14 @@ copying the contents of the buffer into the file.
 
 File: lispref.info,  Node: Reading from Files,  Next: Writing to Files,  Prev: Saving Buffers,  Up: Files
 
-Reading from Files
-==================
+35.3 Reading from Files
+=======================
 
 You can copy a file from the disk and insert it into a buffer using the
 `insert-file-contents' function.  Don't use the user-level command
 `insert-file' in a Lisp program, as that sets the mark.
 
- - Function: insert-file-contents filename &optional visit start end
+ -- Function: insert-file-contents filename &optional visit start end
           replace
      This function inserts the contents of file FILENAME into the
      current buffer after point.  It returns a list of the absolute
@@ -5947,15 +6000,15 @@ program can read the file, use the function `file-local-copy'; see
 
 File: lispref.info,  Node: Writing to Files,  Next: File Locks,  Prev: Reading from Files,  Up: Files
 
-Writing to Files
-================
+35.4 Writing to Files
+=====================
 
 You can write the contents of a buffer, or part of a buffer, directly
 to a file on disk using the `append-to-file' and `write-region'
 functions.  Don't use these functions to write to files that are being
 visited; that could cause confusion in the mechanisms for visiting.
 
- - Command: append-to-file start end filename
+ -- Command: append-to-file start end filename
      This function appends the contents of the region delimited by
      START and END in the current buffer to the end of file FILENAME.
      If that file does not exist, it is created.  If that file exists
@@ -5964,7 +6017,7 @@ visited; that could cause confusion in the mechanisms for visiting.
      An error is signaled if FILENAME specifies a nonwritable file, or
      a nonexistent file in a directory where files cannot be created.
 
- - Command: write-region start end filename &optional append visit
+ -- Command: write-region start end filename &optional append visit
      This function writes the region delimited by START and END in the
      current buffer into the file specified by FILENAME.
 
@@ -6003,8 +6056,8 @@ visited; that could cause confusion in the mechanisms for visiting.
 
 File: lispref.info,  Node: File Locks,  Next: Information about Files,  Prev: Writing to Files,  Up: Files
 
-File Locks
-==========
+35.5 File Locks
+===============
 
 When two users edit the same file at the same time, they are likely to
 interfere with each other.  XEmacs tries to prevent this situation from
@@ -6021,7 +6074,7 @@ still warn the user who saves second.  Also, the detection of
 modification of a buffer visiting a file changed on disk catches some
 cases of simultaneous editing; see *Note Modification Time::.
 
- - Function: file-locked-p &optional filename
+ -- Function: file-locked-p &optional filename
      This function returns `nil' if the file FILENAME is not locked by
      this XEmacs process.  It returns `t' if it is locked by this
      XEmacs, and it returns the name of the user who has locked it if it
@@ -6030,19 +6083,19 @@ cases of simultaneous editing; see *Note Modification Time::.
           (file-locked-p "foo")
                => nil
 
- - Function: lock-buffer &optional filename
+ -- Function: lock-buffer &optional filename
      This function locks the file FILENAME, if the current buffer is
      modified.  The argument FILENAME defaults to the current buffer's
      visited file.  Nothing is done if the current buffer is not
      visiting a file, or is not modified.
 
- - Function: unlock-buffer
+ -- Function: unlock-buffer
      This function unlocks the file being visited in the current buffer,
      if the buffer is modified.  If the buffer is not modified, then
      the file should not be locked, so this function does nothing.  It
      also does nothing if the current buffer is not visiting a file.
 
- - Function: ask-user-about-lock filename other-user
+ -- Function: ask-user-about-lock filename other-user
      This function is called when the user tries to modify FILENAME,
      but it is locked by another user named OTHER-USER.  The value it
      returns determines what happens next:
@@ -6072,8 +6125,8 @@ cases of simultaneous editing; see *Note Modification Time::.
 
 File: lispref.info,  Node: Information about Files,  Next: Changing File Attributes,  Prev: File Locks,  Up: Files
 
-Information about Files
-=======================
+35.6 Information about Files
+============================
 
 The functions described in this section all operate on strings that
 designate file names.  All the functions have names that begin with the
@@ -6091,12 +6144,12 @@ directories unless otherwise noted.
 
 File: lispref.info,  Node: Testing Accessibility,  Next: Kinds of Files,  Up: Information about Files
 
-Testing Accessibility
----------------------
+35.6.1 Testing Accessibility
+----------------------------
 
 These functions test for permission to access a file in specific ways.
 
- - Function: file-exists-p filename
+ -- Function: file-exists-p filename
      This function returns `t' if a file named FILENAME appears to
      exist.  This does not mean you can necessarily read the file, only
      that you can find out its attributes.  (On Unix, this is true if
@@ -6107,7 +6160,7 @@ These functions test for permission to access a file in specific ways.
      prevent you from finding the attributes of the file, this function
      returns `nil'.
 
- - Function: file-readable-p filename
+ -- Function: file-readable-p filename
      This function returns `t' if a file named FILENAME exists and you
      can read it.  It returns `nil' otherwise.
 
@@ -6118,14 +6171,14 @@ These functions test for permission to access a file in specific ways.
           (file-readable-p "/usr/spool/mqueue")
                => nil
 
- - Function: file-executable-p filename
+ -- Function: file-executable-p filename
      This function returns `t' if a file named FILENAME exists and you
      can execute it.  It returns `nil' otherwise.  If the file is a
      directory, execute permission means you can check the existence and
      attributes of files inside the directory, and open those files if
      their modes permit.
 
- - Function: file-writable-p filename
+ -- Function: file-writable-p filename
      This function returns `t' if the file FILENAME can be written or
      created by you, and `nil' otherwise.  A file is writable if the
      file exists and you can write it.  It is creatable if it does not
@@ -6143,7 +6196,7 @@ These functions test for permission to access a file in specific ways.
           (file-writable-p "~/no-such-dir/foo")
                => nil
 
- - Function: file-accessible-directory-p dirname
+ -- Function: file-accessible-directory-p dirname
      This function returns `t' if you have permission to open existing
      files in the directory whose name as a file is DIRNAME; otherwise
      (or if there is no such directory), it returns `nil'.  The value
@@ -6158,11 +6211,11 @@ These functions test for permission to access a file in specific ways.
      we can deduce that any attempt to read a file in `/foo/' will give
      an error.
 
- - Function: file-ownership-preserved-p filename
+ -- Function: file-ownership-preserved-p filename
      This function returns `t' if deleting the file FILENAME and then
      creating it anew would keep the file's owner unchanged.
 
- - Function: file-newer-than-file-p filename1 filename2
+ -- Function: file-newer-than-file-p filename1 filename2
      This function returns `t' if the file FILENAME1 is newer than file
      FILENAME2.  If FILENAME1 does not exist, it returns `nil'.  If
      FILENAME2 does not exist, it returns `t'.
@@ -6186,13 +6239,13 @@ These functions test for permission to access a file in specific ways.
 
 File: lispref.info,  Node: Kinds of Files,  Next: Truenames,  Prev: Testing Accessibility,  Up: Information about Files
 
-Distinguishing Kinds of Files
------------------------------
+35.6.2 Distinguishing Kinds of Files
+------------------------------------
 
 This section describes how to distinguish various kinds of files, such
 as directories, symbolic links, and ordinary files.
 
- - Function: file-symlink-p filename
+ -- Function: file-symlink-p filename
      If the file FILENAME is a symbolic link, the `file-symlink-p'
      function returns the file name to which it is linked.  This may be
      the name of a text file, a directory, or even another symbolic
@@ -6211,7 +6264,7 @@ as directories, symbolic links, and ordinary files.
                => "/pub/bin"
 
 
- - Function: file-directory-p filename
+ -- Function: file-directory-p filename
      This function returns `t' if FILENAME is the name of an existing
      directory, `nil' otherwise.
 
@@ -6227,7 +6280,7 @@ as directories, symbolic links, and ordinary files.
            (substitute-in-file-name "$HOME"))
                => t
 
- - Function: file-regular-p filename
+ -- Function: file-regular-p filename
      This function returns `t' if the file FILENAME exists and is a
      regular file (not a directory, symbolic link, named pipe,
      terminal, or other I/O device).
@@ -6235,8 +6288,8 @@ as directories, symbolic links, and ordinary files.
 
 File: lispref.info,  Node: Truenames,  Next: File Attributes,  Prev: Kinds of Files,  Up: Information about Files
 
-Truenames
----------
+35.6.3 Truenames
+----------------
 
 The "truename" of a file is the name that you get by following symbolic
 links until none remain, then expanding to get rid of `.' and `..' as
@@ -6245,7 +6298,7 @@ the number of distinct truenames a file has is equal to the number of
 hard links to the file.  However, truenames are useful because they
 eliminate symbolic links as a cause of name variation.
 
- - Function: file-truename filename &optional default
+ -- Function: file-truename filename &optional default
      The function `file-truename' returns the true name of the file
      FILENAME.  This is the name that you get by following symbolic
      links until none remain.
@@ -6259,8 +6312,8 @@ eliminate symbolic links as a cause of name variation.
 
 File: lispref.info,  Node: File Attributes,  Prev: Truenames,  Up: Information about Files
 
-Other Information about Files
------------------------------
+35.6.4 Other Information about Files
+------------------------------------
 
 This section describes the functions for getting detailed information
 about a file, other than its contents.  This information includes the
@@ -6268,7 +6321,7 @@ mode bits that control access permission, the owner and group numbers,
 the number of names, the inode number, the size, and the times of access
 and modification.
 
- - Function: file-modes filename
+ -- Function: file-modes filename
      This function returns the mode bits of FILENAME, as an integer.
      The mode bits are also called the file permissions, and they
      specify access control in the usual Unix fashion.  If the
@@ -6284,17 +6337,17 @@ and modification.
                => 492               ; Decimal integer.
           (format "%o" 492)
                => "754"             ; Convert to octal.
-          
+
           (set-file-modes "~/junk/diffs" 438)
                => nil
-          
+
           (format "%o" 438)
                => "666"             ; Convert to octal.
-          
+
           % ls -l diffs
             -rw-rw-rw-  1 lewis 0 3063 Oct 30 16:00 diffs
 
- - Function: file-nlinks filename
+ -- Function: file-nlinks filename
      This functions returns the number of names (i.e., hard links) that
      file FILENAME has.  If the file does not exist, then this function
      returns `nil'.  Note that symbolic links have no effect on this
@@ -6304,13 +6357,13 @@ and modification.
           % ls -l foo*
           -rw-rw-rw-  2 rms       4 Aug 19 01:27 foo
           -rw-rw-rw-  2 rms       4 Aug 19 01:27 foo1
-          
+
           (file-nlinks "foo")
                => 2
           (file-nlinks "doesnt-exist")
                => nil
 
- - Function: file-attributes filename
+ -- Function: file-attributes filename
      This function returns a list of attributes of file FILENAME.  If
      the specified file cannot be opened, it returns `nil'.
 
@@ -6416,8 +6469,8 @@ and modification.
 
 File: lispref.info,  Node: Changing File Attributes,  Next: File Names,  Prev: Information about Files,  Up: Files
 
-Changing File Names and Attributes
-==================================
+35.7 Changing File Names and Attributes
+=======================================
 
 The functions in this section rename, copy, delete, link, and set the
 modes of files.
@@ -6435,7 +6488,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
    * Replace the old file without confirmation if OK-IF-ALREADY-EXISTS
      is any other value.
 
- - Command: add-name-to-file filename newname &optional
+ -- Command: add-name-to-file filename newname &optional
           ok-if-already-exists
      This function gives the file named FILENAME the additional name
      NEWNAME.  This means that NEWNAME becomes a new "hard link" to
@@ -6454,7 +6507,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
 
           (add-name-to-file "~/lewis/foo1" "~/lewis/foo2")
                => nil
-          
+
           % ls -l fo*
           -rw-rw-rw-  2 rms       29 Aug 18 20:32 foo
           -rw-rw-rw-  2 rms       29 Aug 18 20:32 foo2
@@ -6469,7 +6522,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
 
           (add-name-to-file "~/lewis/foo1" "~/lewis/foo3")
                => nil
-          
+
           % ls -l fo*
           -rw-rw-rw-  3 rms       29 Aug 18 20:32 foo
           -rw-rw-rw-  3 rms       29 Aug 18 20:32 foo2
@@ -6480,7 +6533,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
 
      See also `file-nlinks' in *Note File Attributes::.
 
- - Command: rename-file filename newname &optional ok-if-already-exists
+ -- Command: rename-file filename newname &optional ok-if-already-exists
      This command renames the file FILENAME as NEWNAME.
 
      If FILENAME has additional names aside from FILENAME, it continues
@@ -6492,7 +6545,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Command: copy-file filename newname &optional ok-if-already-exists
+ -- Command: copy-file filename newname &optional ok-if-already-exists
           time
      This command copies the file FILENAME to NEWNAME.  An error is
      signaled if FILENAME does not exist.
@@ -6505,7 +6558,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Command: delete-file filename
+ -- Command: delete-file filename
      This command deletes the file FILENAME, like the shell command `rm
      FILENAME'.  If the file has multiple names, it continues to exist
      under the other names.
@@ -6516,7 +6569,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
 
      See also `delete-directory' in *Note Create/Delete Dirs::.
 
- - Command: make-symbolic-link filename newname &optional
+ -- Command: make-symbolic-link filename newname &optional
           ok-if-already-exists
      This command makes a symbolic link to FILENAME, named NEWNAME.
      This is like the shell command `ln -s FILENAME NEWNAME'.
@@ -6525,11 +6578,11 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Function: set-file-modes filename mode
+ -- Function: set-file-modes filename mode
      This function sets mode bits of FILENAME to MODE (which must be an
      integer).  Only the low 12 bits of MODE are used.
 
- - Function: set-default-file-modes mode
+ -- Function: set-default-file-modes mode
      This function sets the default file protection for new files
      created by XEmacs and its subprocesses.  Every file created with
      XEmacs initially has this protection.  On Unix, the default
@@ -6542,7 +6595,7 @@ the actions taken depend on the value of OK-IF-ALREADY-EXISTS:
      creating the file; it does not change the file's mode, and does
      not use the default file protection.
 
- - Function: default-file-modes
+ -- Function: default-file-modes
      This function returns the current default protection value.
 
    On MS-DOS, there is no such thing as an "executable" file mode bit.
@@ -6553,8 +6606,8 @@ and `file-attributes'.
 
 File: lispref.info,  Node: File Names,  Next: Contents of Directories,  Prev: Changing File Attributes,  Up: Files
 
-File Names
-==========
+35.8 File Names
+===============
 
 Files are generally referred to by their names, in XEmacs as elsewhere.
 File names in XEmacs are represented as strings.  The functions that
@@ -6588,8 +6641,8 @@ without change.  Similarly for other operating systems.
 
 File: lispref.info,  Node: File Name Components,  Next: Directory Names,  Up: File Names
 
-File Name Components
---------------------
+35.8.1 File Name Components
+---------------------------
 
 The operating system groups files into directories.  To specify a file,
 you must specify the directory and the file's name within that
@@ -6605,7 +6658,7 @@ last slash; the nondirectory part is the rest.
 the name proper and the "version number".  On Unix, only backup files
 have version numbers in their names.
 
- - Function: file-name-directory filename
+ -- Function: file-name-directory filename
      This function returns the directory part of FILENAME (or `nil' if
      FILENAME does not include a directory part).  On Unix, the
      function returns a string ending in a slash.
@@ -6615,7 +6668,7 @@ have version numbers in their names.
           (file-name-directory "foo")        ; Unix example
                => nil
 
- - Function: file-name-nondirectory filename
+ -- Function: file-name-nondirectory filename
      This function returns the nondirectory part of FILENAME.
 
           (file-name-nondirectory "lewis/foo")
@@ -6623,7 +6676,7 @@ have version numbers in their names.
           (file-name-nondirectory "foo")
                => "foo"
 
- - Function: file-name-sans-versions filename &optional
+ -- Function: file-name-sans-versions filename &optional
           keep-backup-version
      This function returns FILENAME without any file version numbers,
      backup version numbers, or trailing tildes.
@@ -6638,7 +6691,7 @@ have version numbers in their names.
           (file-name-sans-versions "~rms/foo")
                => "~rms/foo"
 
- - Function: file-name-sans-extension filename
+ -- Function: file-name-sans-extension filename
      This function returns FILENAME minus its "extension," if any.  The
      extension, in a file name, is the part that starts with the last
      `.' in the last name component.  For example,
@@ -6651,8 +6704,8 @@ have version numbers in their names.
 
 File: lispref.info,  Node: Directory Names,  Next: Relative File Names,  Prev: File Name Components,  Up: File Names
 
-Directory Names
----------------
+35.8.2 Directory Names
+----------------------
 
 A "directory name" is the name of a directory.  A directory is a kind
 of file, and it has a file name, which is related to the directory name
@@ -6671,7 +6724,7 @@ acceptable.
 names.  They do nothing special with environment variable substitutions
 such as `$HOME', and the constructs `~', and `..'.
 
- - Function: file-name-as-directory filename
+ -- Function: file-name-as-directory filename
      This function returns a string representing FILENAME in a form
      that the operating system will interpret as the name of a
      directory.  In Unix, this means appending a slash to the string.
@@ -6679,7 +6732,7 @@ such as `$HOME', and the constructs `~', and `..'.
           (file-name-as-directory "~rms/lewis")
                => "~rms/lewis/"
 
- - Function: directory-file-name dirname
+ -- Function: directory-file-name dirname
      This function returns a string representing DIRNAME in a form that
      the operating system will interpret as the name of a file.  On
      Unix, this means removing a final slash from the string.
@@ -6697,7 +6750,7 @@ abbreviation instead.
    If you wish to convert a directory name to its abbreviation, use this
 function:
 
- - Function: abbreviate-file-name filename &optional hack-homedir
+ -- Function: abbreviate-file-name filename &optional hack-homedir
      This function applies abbreviations from `directory-abbrev-alist'
      to its argument, and substitutes `~' for the user's home directory.
 
@@ -6705,7 +6758,7 @@ function:
      the user's home directory.
 
 
- - Variable: directory-abbrev-alist
+ -- Variable: directory-abbrev-alist
      The variable `directory-abbrev-alist' contains an alist of
      abbreviations to use for file directories.  Each element has the
      form `(FROM . TO)', and says to replace FROM with TO when it
@@ -6727,8 +6780,8 @@ function:
 
 File: lispref.info,  Node: Relative File Names,  Next: File Name Expansion,  Prev: Directory Names,  Up: File Names
 
-Absolute and Relative File Names
---------------------------------
+35.8.3 Absolute and Relative File Names
+---------------------------------------
 
 All the directories in the file system form a tree starting at the root
 directory.  A file name can specify all the directory names starting
@@ -6738,7 +6791,7 @@ default directory; then it is called a "relative" file name.  On Unix,
 an absolute file name starts with a slash or a tilde (`~'), and a
 relative one does not.
 
- - Function: file-name-absolute-p filename
+ -- Function: file-name-absolute-p filename
      This function returns `t' if file FILENAME is an absolute file
      name, `nil' otherwise.
 
@@ -6752,8 +6805,8 @@ relative one does not.
 
 File: lispref.info,  Node: File Name Expansion,  Next: Unique File Names,  Prev: Relative File Names,  Up: File Names
 
-Functions that Expand Filenames
--------------------------------
+35.8.4 Functions that Expand Filenames
+--------------------------------------
 
 "Expansion" of a file name means converting a relative file name to an
 absolute one.  Since this is done relative to a default directory, you
@@ -6761,7 +6814,7 @@ must specify the default directory name as well as the file name to be
 expanded.  Expansion also simplifies file names by eliminating
 redundancies such as `./' and `NAME/../'.
 
- - Function: expand-file-name filename &optional directory
+ -- Function: expand-file-name filename &optional directory
      This function converts FILENAME to an absolute file name.  If
      DIRECTORY is supplied, it is the directory to start with if
      FILENAME is relative.  (The value of DIRECTORY should itself be an
@@ -6790,7 +6843,7 @@ redundancies such as `./' and `NAME/../'.
      Note that `expand-file-name' does _not_ expand environment
      variables; only `substitute-in-file-name' does that.
 
- - Function: file-relative-name filename &optional directory
+ -- Function: file-relative-name filename &optional directory
      This function does the inverse of expansion--it tries to return a
      relative name that is equivalent to FILENAME when interpreted
      relative to DIRECTORY.
@@ -6803,7 +6856,7 @@ redundancies such as `./' and `NAME/../'.
           (file-relative-name "/foo/bar" "/hack/")
                => "../foo/bar")
 
- - Variable: default-directory
+ -- Variable: default-directory
      The value of this buffer-local variable is the default directory
      for the current buffer.  It should be an absolute directory name;
      it may start with `~'.  This variable is local in every buffer.
@@ -6816,7 +6869,7 @@ redundancies such as `./' and `NAME/../'.
           default-directory
                => "/user/lewis/manual/"
 
- - Function: substitute-in-file-name filename
+ -- Function: substitute-in-file-name filename
      This function replaces environment variable references in FILENAME
      with the environment variable values.  Following standard Unix
      shell syntax, `$' is the prefix to substitute an environment
@@ -6845,8 +6898,8 @@ redundancies such as `./' and `NAME/../'.
 
 File: lispref.info,  Node: Unique File Names,  Next: File Name Completion,  Prev: File Name Expansion,  Up: File Names
 
-Generating Unique File Names
-----------------------------
+35.8.5 Generating Unique File Names
+-----------------------------------
 
 Some programs need to write temporary files.  Here is the usual way to
 construct a name for such a file:
@@ -6858,7 +6911,7 @@ files--under Unix, it will normally evaluate to `"/tmp/"'.  The job of
 `make-temp-name' is to prevent two different users or two different
 processes from trying to use the same name.
 
- - Function: temp-directory
+ -- Function: temp-directory
      This function returns the name of the directory to use for
      temporary files.  Under Unix, this will be the value of `TMPDIR',
      defaulting to `/tmp'.  On Windows, this will be obtained from the
@@ -6867,7 +6920,7 @@ processes from trying to use the same name.
      Note that the `temp-directory' function does not exist under FSF
      Emacs.
 
- - Function: make-temp-name prefix
+ -- Function: make-temp-name prefix
      This function generates a temporary file name starting with
      PREFIX.  The Emacs process number forms part of the result, so
      there is no danger of generating a name being used by another
@@ -6886,13 +6939,13 @@ processes from trying to use the same name.
 
 File: lispref.info,  Node: File Name Completion,  Next: User Name Completion,  Prev: Unique File Names,  Up: File Names
 
-File Name Completion
---------------------
+35.8.6 File Name Completion
+---------------------------
 
 This section describes low-level subroutines for completing a file
 name.  For other completion functions, see *Note Completion::.
 
- - Function: file-name-all-completions partial-filename directory
+ -- Function: file-name-all-completions partial-filename directory
      This function returns a list of all possible completions for files
      whose name starts with PARTIAL-FILENAME in directory DIRECTORY.
      The order of the completions is the order of the files in the
@@ -6916,11 +6969,11 @@ name.  For other completion functions, see *Note Completion::.
           (file-name-all-completions "f" "")
                => ("foo" "file~" "file.c.~2~"
                           "file.c.~1~" "file.c")
-          
+
           (file-name-all-completions "fo" "")
                => ("foo")
 
- - Function: file-name-completion partial-filename directory
+ -- Function: file-name-completion partial-filename directory
      This function completes the file name PARTIAL-FILENAME in directory
      DIRECTORY.  It returns the longest prefix common to all file names
      in directory DIRECTORY that start with PARTIAL-FILENAME.
@@ -6941,17 +6994,17 @@ name.  For other completion functions, see *Note Completion::.
 
           (file-name-completion "fi" "")
                => "file"
-          
+
           (file-name-completion "file.c.~1" "")
                => "file.c.~1~"
-          
+
           (file-name-completion "file.c.~1~" "")
                => t
-          
+
           (file-name-completion "file.c.~3" "")
                => nil
 
- - User Option: completion-ignored-extensions
+ -- User Option: completion-ignored-extensions
      `file-name-completion' usually ignores file names that end in any
      string in this list.  It does not ignore them when all the possible
      completions end in one of these suffixes or when a buffer showing
@@ -6961,111 +7014,4 @@ name.  For other completion functions, see *Note Completion::.
 
           completion-ignored-extensions
                => (".o" ".elc" "~" ".dvi")
-
-
-File: lispref.info,  Node: User Name Completion,  Prev: File Name Completion,  Up: File Names
-
-User Name Completion
---------------------
-
-This section describes low-level subroutines for completing a user
-name.  For other completion functions, see *Note Completion::.
-
- - Function: user-name-all-completions partial-username
-     This function returns a list of all possible completions for a
-     user name starting with PARTIAL-USERNAME.  The order of the
-     completions is unpredictable and conveys no useful information.
-
-     The argument PARTIAL-USERNAME must be a partial user name
-     containing no tilde character and no slash.
-
- - Function: user-name-completion partial-username
-     This function completes a user name from PARTIAL-USERNAME.  It
-     returns the longest prefix common to all user names that start with
-     PARTIAL-USERNAME.
-
-     If only one match exists and PARTIAL-USERNAME matches it exactly,
-     the function returns `t'.  The function returns `nil' if no user
-     name starting with PARTIAL-USERNAME exists.
-
- - Function: user-name-completion-1 partial-username
-     This function completes the partial user name PARTIAL-USERNAME,
-     like `user-name-completion', differing only in the return value.
-     This function returns the cons of the completion returned by
-     `user-name-completion', and a boolean indicating whether that
-     completion was unique.
-
-
-File: lispref.info,  Node: Contents of Directories,  Next: Create/Delete Dirs,  Prev: File Names,  Up: Files
-
-Contents of Directories
-=======================
-
-A directory is a kind of file that contains other files entered under
-various names.  Directories are a feature of the file system.
-
-   XEmacs can list the names of the files in a directory as a Lisp list,
-or display the names in a buffer using the `ls' shell command.  In the
-latter case, it can optionally display information about each file,
-depending on the value of switches passed to the `ls' command.
-
- - Function: directory-files directory &optional full-name match-regexp
-          nosort files-only
-     This function returns a list of the names of the files in the
-     directory DIRECTORY.  By default, the list is in alphabetical
-     order.
-
-     If FULL-NAME is non-`nil', the function returns the files'
-     absolute file names.  Otherwise, it returns just the names
-     relative to the specified directory.
-
-     If MATCH-REGEXP is non-`nil', this function returns only those
-     file names that contain that regular expression--the other file
-     names are discarded from the list.
-
-     If NOSORT is non-`nil', `directory-files' does not sort the list,
-     so you get the file names in no particular order.  Use this if you
-     want the utmost possible speed and don't care what order the files
-     are processed in.  If the order of processing is visible to the
-     user, then the user will probably be happier if you do sort the
-     names.
-
-     If FILES-ONLY is the symbol `t', then only the "files" in the
-     directory will be returned; subdirectories will be excluded.  If
-     FILES-ONLY is not `nil' and not `t', then only the subdirectories
-     will be returned.  Otherwise, if FILES-ONLY is `nil' (the default)
-     then both files and subdirectories will be returned.
-
-          (directory-files "~lewis")
-               => ("#foo#" "#foo.el#" "." ".."
-                   "dired-mods.el" "files.texi"
-                   "files.texi.~1~")
-
-     An error is signaled if DIRECTORY is not the name of a directory
-     that can be read.
-
- - Function: insert-directory file switches &optional wildcard
-          full-directory-p
-     This function inserts (in the current buffer) a directory listing
-     for directory FILE, formatted with `ls' according to SWITCHES.  It
-     leaves point after the inserted text.
-
-     The argument FILE may be either a directory name or a file
-     specification including wildcard characters.  If WILDCARD is
-     non-`nil', that means treat FILE as a file specification with
-     wildcards.
-
-     If FULL-DIRECTORY-P is non-`nil', that means FILE is a directory
-     and switches do not contain `-d', so that the listing should show
-     the full contents of the directory.  (The `-d' option to `ls' says
-     to describe a directory itself rather than its contents.)
-
-     This function works by running a directory listing program whose
-     name is in the variable `insert-directory-program'.  If WILDCARD is
-     non-`nil', it also runs the shell specified by `shell-file-name',
-     to expand the wildcards.
-
- - Variable: insert-directory-program
-     This variable's value is the program to run to generate a
-     directory listing for the function `insert-directory'.
 

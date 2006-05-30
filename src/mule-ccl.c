@@ -833,6 +833,9 @@ static int stack_idx_of_map_multiple;
       }							\
   } while (0)
 
+#define POSSIBLE_LEADING_BYTE_P(leading_byte) \
+  ((leading_byte > MIN_LEADING_BYTE) && \
+   (leading_byte - MIN_LEADING_BYTE) < NUM_LEADING_BYTES)
 
 /* Set C to the character code made from CHARSET and CODE.  This is
    like MAKE_CHAR but check the validity of CHARSET and CODE.  If they
@@ -1296,6 +1299,16 @@ ccl_driver (struct ccl_program *ccl,
 		    reg[rrr] = i;
 		    reg[RRR] = LEADING_BYTE_ASCII;
 		  }
+		/* Previously, these next two elses were reversed in order,
+		   which should have worked fine, but is more fragile than
+		   this order. */
+		else if (LEADING_BYTE_CONTROL_1 == i)
+ 		  {
+ 		    if (src >= src_end)
+ 		      goto ccl_read_multibyte_character_suspend;
+ 		    reg[RRR] = i;
+		    reg[rrr] = (*src++ - 0xA0);
+		  }
 		else if (i <= MAX_LEADING_BYTE_OFFICIAL_1)
 		  {
 		    if (src >= src_end)
@@ -1357,15 +1370,29 @@ ccl_driver (struct ccl_program *ccl,
 
 	    case CCL_WriteMultibyteChar2:
 	      i = reg[RRR]; /* charset */
-	      if (i == LEADING_BYTE_ASCII || i == LEADING_BYTE_CONTROL_1)
+	      if (i == LEADING_BYTE_ASCII) 
 		i = reg[rrr] & 0xFF;
-	      else if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
-		i = (((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
-		     | (reg[rrr] & 0x7F));
-	      else if (i < MAX_LEADING_BYTE_OFFICIAL_2)
-		i = ((i - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | reg[rrr];
-	      else
-		i = ((i - FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | reg[rrr];
+	      else if (LEADING_BYTE_CONTROL_1 == i)
+		i = ((reg[rrr] & 0xFF) - 0xA0);
+	      else if (POSSIBLE_LEADING_BYTE_P(i) &&
+		       !NILP(CHARSET_BY_LEADING_BYTE(i)))
+		{
+		  if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
+		    i = (((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
+			 | (reg[rrr] & 0x7F));
+		  else if (i < MAX_LEADING_BYTE_OFFICIAL_2)
+		    i = ((i - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) 
+		      | reg[rrr];
+		  else
+		    i = ((i - FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | reg[rrr];
+		}
+	      else 
+		{
+		  /* No charset we know about; use U+3012 GETA MARK */
+		  i = MAKE_CHAR
+		    (CHARSET_BY_LEADING_BYTE(LEADING_BYTE_JAPANESE_JISX0208),
+		     34, 46);
+		}
 
 	      CCL_WRITE_CHAR (i);
 
@@ -1424,7 +1451,6 @@ ccl_driver (struct ccl_program *ccl,
 
 		for (;i < j;i++)
 		  {
-
 		    size = XVECTOR (Vcode_conversion_map_vector)->size;
 		    point = XINT (ccl_prog[ic++]);
 		    if (point >= size) continue;

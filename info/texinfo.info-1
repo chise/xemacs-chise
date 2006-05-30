@@ -1,4 +1,4 @@
-This is ../info/texinfo.info, produced by makeinfo version 4.6 from
+This is ../info/texinfo.info, produced by makeinfo version 4.8 from
 texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -553,8 +553,8 @@ Licenses that accompany them.
 
 File: texinfo.info,  Node: Overview,  Next: Texinfo Mode,  Prev: Copying,  Up: Top
 
-Overview of Texinfo
-*******************
+1 Overview of Texinfo
+*********************
 
 "Texinfo"(1) (*note Overview-Footnote-1::) is a documentation system
 that uses a single source file to produce both on-line information and
@@ -645,8 +645,8 @@ written.
 
 File: texinfo.info,  Node: Info Files,  Next: Printed Books,  Prev: Using Texinfo,  Up: Overview
 
-Info files
-==========
+1.1 Info files
+==============
 
 An Info file is a Texinfo file formatted so that the Info documentation
 reading program can operate on it.  (`makeinfo' and
@@ -730,8 +730,8 @@ higher level node as its `Next' pointer.
 
 File: texinfo.info,  Node: Printed Books,  Next: Formatting Commands,  Prev: Info Files,  Up: Overview
 
-Printed Books
-=============
+1.2 Printed Books
+=================
 
 A Texinfo file can be formatted and typeset as a printed book or manual.
 To do this, you need TeX, a powerful, sophisticated typesetting program
@@ -792,8 +792,8 @@ distribution.
 
 File: texinfo.info,  Node: Formatting Commands,  Next: Conventions,  Prev: Printed Books,  Up: Overview
 
-@-commands
-==========
+1.3 @-commands
+==============
 
 In a Texinfo file, the commands that tell TeX how to typeset the
 printed manual and tell `makeinfo' and `texinfo-format-buffer' how to
@@ -865,8 +865,8 @@ which led to the meaning of `argument' as a disputation.
 
 File: texinfo.info,  Node: Conventions,  Next: Comments,  Prev: Formatting Commands,  Up: Overview
 
-General Syntactic Conventions
-=============================
+1.4 General Syntactic Conventions
+=================================
 
 All printable ASCII characters except `@', `{' and `}' can appear in a
 Texinfo file and stand for themselves.  `@' is the escape character
@@ -918,8 +918,8 @@ you cannot use in TeX.  Similarly for `@ifhtml ... @end ifhtml',
 
 File: texinfo.info,  Node: Comments,  Next: Minimum,  Prev: Conventions,  Up: Overview
 
-Comments
-========
+1.5 Comments
+============
 
 You can write comments in a Texinfo file that will not appear in either
 the Info file or the printed manual by using the `@comment' command
@@ -931,7 +931,7 @@ the `@comment' or `@c' in the middle of a line, and only the text that
 follows after the `@comment' or `@c' command does not appear; but some
 commands, such as `@settitle' and `@setfilename', work on a whole line.
 You cannot use `@comment' or `@c' in a line beginning with such a
-command.)
+command.)  
 
   You can write long stretches of text that will not appear in either
 the Info file or the printed manual by using the `@ignore' and `@end
@@ -941,13 +941,13 @@ two commands does not appear in the processed output.  You can use
 `@ignore' and `@end ignore' for writing comments.  Often, `@ignore' and
 `@end ignore' is used to enclose a part of the copying permissions that
 applies to the Texinfo source file of a document, but not to the Info
-or printed version of the document.
+or printed version of the document.  
 
 
 File: texinfo.info,  Node: Minimum,  Next: Six Parts,  Prev: Comments,  Up: Overview
 
-What a Texinfo File Must Have
-=============================
+1.6 What a Texinfo File Must Have
+=================================
 
 By convention, the names of Texinfo files end with one of the
 extensions `.texinfo', `.texi', or `.tex'.  The longer extension is
@@ -1003,8 +1003,8 @@ line at the end.
 
 File: texinfo.info,  Node: Six Parts,  Next: Short Sample,  Prev: Minimum,  Up: Overview
 
-Six Parts of a Texinfo File
-===========================
+1.7 Six Parts of a Texinfo File
+===============================
 
 Generally, a Texinfo file contains more than the minimal beginning and
 end--it usually contains six parts:
@@ -1043,8 +1043,8 @@ end--it usually contains six parts:
 
 File: texinfo.info,  Node: Short Sample,  Next: Acknowledgements,  Prev: Six Parts,  Up: Overview
 
-A Short Sample Texinfo File
-===========================
+1.8 A Short Sample Texinfo File
+===============================
 
 Here is a complete but very short Texinfo file, in six parts.  The first
 three parts of the file, from `\input texinfo' through to `@end
@@ -1068,7 +1068,7 @@ file and the title used in the header.
      @setfilename sample.info
      @settitle Sample Document
      @c %**end of header
-     
+
      @setchapternewpage odd
 
 Part 2: Summary Description and Copyright
@@ -1079,7 +1079,7 @@ printed document.
 
      @ifinfo
      This is a short example of a complete Texinfo file.
-     
+
      Copyright @copyright{} 1990 Free Software Foundation, Inc.
      @end ifinfo
 
@@ -1092,7 +1092,7 @@ The titlepage segment does not appear in the Info file.
      @sp 10
      @comment The title is printed in a large font.
      @center @titlefont{Sample Title}
-     
+
      @c The following two commands start the copyright page.
      @page
      @vskip 0pt plus 1filll
@@ -1126,20 +1126,20 @@ chapter containing an enumerated list.
      @comment node-name,     next,          previous, up
      @chapter First Chapter
      @cindex Sample index entry
-     
+
      This is the contents of the first chapter.
      @cindex Another sample index entry
-     
+
      Here is a numbered list.
-     
+
      @enumerate
      @item
      This is the first item.
-     
+
      @item
      This is the second item.
      @end enumerate
-     
+
      The @code{makeinfo} and @code{texinfo-format-buffer}
      commands transform a Texinfo file such as this into
      an Info file; and @TeX{} typesets it for a printed
@@ -1156,9 +1156,9 @@ document.
      @node    Concept Index,    ,  First Chapter, Top
      @comment node-name,    next,  previous,      up
      @unnumbered Concept Index
-     
+
      @printindex cp
-     
+
      @contents
      @bye
 
@@ -1183,8 +1183,8 @@ Here is what the contents of the first chapter of the sample look like:
 
 File: texinfo.info,  Node: Acknowledgements,  Prev: Short Sample,  Up: Overview
 
-Acknowledgements
-================
+1.9 Acknowledgements
+====================
 
 Richard M. Stallman wrote Edition 1.0 of this manual.
 Robert J. Chassell revised and extended it, starting with Edition 1.1.
@@ -1208,8 +1208,8 @@ messages.
 
 File: texinfo.info,  Node: Texinfo Mode,  Next: Beginning a File,  Prev: Overview,  Up: Top
 
-Using Texinfo Mode
-******************
+2 Using Texinfo Mode
+********************
 
 You may edit a Texinfo file with any text editor you choose.  A Texinfo
 file is no different from any other ASCII file.  However, GNU Emacs
@@ -1265,8 +1265,8 @@ frequently used @-commands and for creating node pointers and menus.
 
 File: texinfo.info,  Node: Emacs Editing,  Next: Inserting,  Prev: Texinfo Mode Overview,  Up: Texinfo Mode
 
-The Usual GNU Emacs Editing Commands
-====================================
+2.1 The Usual GNU Emacs Editing Commands
+========================================
 
 In most cases, the usual Text mode commands work the same in Texinfo
 mode as they do in Text mode.  Texinfo mode adds new editing commands
@@ -1305,8 +1305,8 @@ ones.
 
 File: texinfo.info,  Node: Inserting,  Next: Showing the Structure,  Prev: Emacs Editing,  Up: Texinfo Mode
 
-Inserting Frequently Used Commands
-==================================
+2.2 Inserting Frequently Used Commands
+======================================
 
 Texinfo mode provides commands to insert various frequently used
 @-commands into the buffer.  You can use these commands to save
@@ -1419,8 +1419,8 @@ different words.
 
 File: texinfo.info,  Node: Showing the Structure,  Next: Updating Nodes and Menus,  Prev: Inserting,  Up: Texinfo Mode
 
-Showing the Section Structure of a File
-=======================================
+2.3 Showing the Section Structure of a File
+===========================================
 
 You can show the section structure of a Texinfo file by using the `C-c
 C-s' command (`texinfo-show-structure').  This command shows the
@@ -1470,8 +1470,8 @@ information about the page commands.
 
 File: texinfo.info,  Node: Updating Nodes and Menus,  Next: Info Formatting,  Prev: Showing the Structure,  Up: Texinfo Mode
 
-Updating Nodes and Menus
-========================
+2.4 Updating Nodes and Menus
+============================
 
 Texinfo mode provides commands for automatically creating or updating
 menus and node pointers.  The commands are called "update" commands
@@ -1638,8 +1638,8 @@ for more information.)
 
 File: texinfo.info,  Node: Updating Requirements,  Next: Other Updating Commands,  Prev: Updating Commands,  Up: Updating Nodes and Menus
 
-Updating Requirements
----------------------
+2.4.1 Updating Requirements
+---------------------------
 
 To use the updating commands, you must organize the Texinfo file
 hierarchically with chapters, sections, subsections, and the like.
@@ -1689,8 +1689,8 @@ information about `makeinfo'.)  However, both `makeinfo' and the
 
 File: texinfo.info,  Node: Other Updating Commands,  Prev: Updating Requirements,  Up: Updating Nodes and Menus
 
-Other Updating Commands
------------------------
+2.4.2 Other Updating Commands
+-----------------------------
 
 In addition to the five major updating commands, Texinfo mode possesses
 several less frequently used updating commands:
@@ -1755,8 +1755,8 @@ several less frequently used updating commands:
 
 File: texinfo.info,  Node: Info Formatting,  Next: Printing,  Prev: Updating Nodes and Menus,  Up: Texinfo Mode
 
-Formatting for Info
-===================
+2.5 Formatting for Info
+=======================
 
 Texinfo mode provides several commands for formatting part or all of a
 Texinfo file for Info.  Often, when you are writing a document, you
@@ -1801,8 +1801,8 @@ include a line that has `@setfilename' in its header.
 
 File: texinfo.info,  Node: Printing,  Next: Texinfo Mode Summary,  Prev: Info Formatting,  Up: Texinfo Mode
 
-Formatting and Printing
-=======================
+2.6 Formatting and Printing
+===========================
 
 Typesetting and printing a Texinfo file is a multi-step process in which
 you first create a file for printing (called a DVI file), and then
@@ -1855,8 +1855,8 @@ related commands, such as `tex-show-print-queue'.
 
 File: texinfo.info,  Node: Texinfo Mode Summary,  Prev: Printing,  Up: Texinfo Mode
 
-Texinfo Mode Summary
-====================
+2.7 Texinfo Mode Summary
+========================
 
 In Texinfo mode, each set of commands has default keybindings that
 begin with the same keys.  All the commands that are custom-created for
@@ -1880,7 +1880,7 @@ is quick to type.)
      C-c C-c {       Insert braces.
      C-c C-c ]
      C-c C-c }       Move out of enclosing braces.
-     
+
      C-c C-c C-d     Insert a node's section title
                      in the space for the description
                      in a menu entry line.
@@ -1902,7 +1902,7 @@ used to update every node and menu in a file as well.
      C-c C-u m
      M-x texinfo-master-menu
                      Create or update a master menu.
-     
+
      C-u C-c C-u m   With `C-u' as a prefix argument, first
                      create or update all nodes and regular
                      menus, and then create a master menu.
@@ -1926,10 +1926,10 @@ To update both nodes and menus at the same time, precede `C-c C-u C-a'
 with `C-u'.
 
      C-c C-u C-m     Make or update a menu.
-     
+
      C-c C-u C-a     Make or update all
                      menus in a buffer.
-     
+
      C-u C-c C-u C-a With `C-u' as a prefix argument,
                      first create or update all nodes and
                      then create or update all menus.
@@ -1984,24 +1984,24 @@ they are rarely used.
                      Insert missing `@node' lines in region.
                      With `C-u' as a prefix argument,
                      use section titles as node names.
-     
+
      M-x texinfo-multiple-files-update
                      Update a multi-file document.
                      With `C-u 2' as a prefix argument,
                      create or update all nodes and menus
                      in all included files first.
-     
+
      M-x texinfo-indent-menu-description
                      Indent descriptions.
-     
+
      M-x texinfo-sequential-node-update
                      Insert node pointers in strict sequence.
 
 
 File: texinfo.info,  Node: Beginning a File,  Next: Ending a File,  Prev: Texinfo Mode,  Up: Top
 
-Beginning a Texinfo File
-************************
+3 Beginning a Texinfo File
+**************************
 
 Certain pieces of information must be provided at the beginning of a
 Texinfo file, such as the name of the file and the title of the
@@ -2055,8 +2055,8 @@ this information must be given twice.
 
 File: texinfo.info,  Node: Sample Beginning,  Next: Header,  Prev: Four Parts,  Up: Beginning a File
 
-Sample Texinfo File Beginning
-=============================
+3.1 Sample Texinfo File Beginning
+=================================
 
 The following sample shows what is needed.
 
@@ -2066,44 +2066,44 @@ The following sample shows what is needed.
      @settitle NAME-OF-MANUAL
      @setchapternewpage odd
      @c %**end of header
-     
+
      @ifinfo
      This file documents ...
-     
+
      Copyright YEAR COPYRIGHT-OWNER
-     
+
      Permission is granted to ...
      @end ifinfo
-     
+
      @c  This title page illustrates only one of the
      @c  two methods of forming a title page.
-     
+
      @titlepage
      @title NAME-OF-MANUAL-WHEN-PRINTED
      @subtitle SUBTITLE-IF-ANY
      @subtitle SECOND-SUBTITLE
      @author AUTHOR
-     
+
      @c  The following two commands
      @c  start the copyright page.
      @page
      @vskip 0pt plus 1filll
      Copyright @copyright{} YEAR COPYRIGHT-OWNER
-     
+
      Published by ...
-     
+
      Permission is granted to ...
      @end titlepage
-     
+
      @node Top, Overview, , (dir)
-     
+
      @ifinfo
      This document describes ...
-     
+
      This document applies to version ...
      of the program named ...
      @end ifinfo
-     
+
      @menu
      * Copying::          Your rights and freedoms.
      * First Chapter::    Getting started ...
@@ -2111,7 +2111,7 @@ The following sample shows what is needed.
        ...
        ...
      @end menu
-     
+
      @node    First Chapter, Second Chapter, top,      top
      @comment node-name,     next,           previous, up
      @chapter First Chapter
@@ -2120,8 +2120,8 @@ The following sample shows what is needed.
 
 File: texinfo.info,  Node: Header,  Next: Info Summary and Permissions,  Prev: Sample Beginning,  Up: Beginning a File
 
-The Texinfo File Header
-=======================
+3.2 The Texinfo File Header
+===========================
 
 Texinfo files start with at least three lines that provide Info and TeX
 with necessary information.  These are the `\input texinfo' line, the
@@ -2156,8 +2156,8 @@ or else like this:
 
 File: texinfo.info,  Node: First Line,  Next: Start of Header,  Prev: Header,  Up: Header
 
-The First Line of a Texinfo File
---------------------------------
+3.2.1 The First Line of a Texinfo File
+--------------------------------------
 
 Every Texinfo file that is to be the top-level input to TeX must begin
 with a line that looks like this:
@@ -2181,8 +2181,8 @@ This line serves two functions:
 
 File: texinfo.info,  Node: Start of Header,  Next: setfilename,  Prev: First Line,  Up: Header
 
-Start of Header
----------------
+3.2.2 Start of Header
+---------------------
 
 Write a start-of-header line on the second line of a Texinfo file.
 Follow the start-of-header line with `@setfilename' and `@settitle'
@@ -2203,8 +2203,8 @@ comment is accidentally taken for a start-of-header line.
 
 File: texinfo.info,  Node: setfilename,  Next: settitle,  Prev: Start of Header,  Up: Header
 
-`@setfilename'
---------------
+3.2.3 `@setfilename'
+--------------------
 
 In order to serve as the primary input file for either `makeinfo' or
 TeX, a Texinfo file must contain a line that looks like this:
@@ -2245,8 +2245,8 @@ Preparing to Use TeX: Preparing for TeX.).
 
 File: texinfo.info,  Node: settitle,  Next: setchapternewpage,  Prev: setfilename,  Up: Header
 
-`@settitle'
------------
+3.2.4 `@settitle'
+-----------------
 
 In order to be made into a printed manual, a Texinfo file must contain
 a line that looks like this:
@@ -2291,8 +2291,8 @@ this process.
 
 File: texinfo.info,  Node: setchapternewpage,  Next: paragraphindent,  Prev: settitle,  Up: Header
 
-`@setchapternewpage'
---------------------
+3.2.5 `@setchapternewpage'
+--------------------------
 
 In a book or a manual, text is usually printed on both sides of the
 paper, chapters start on right-hand pages, and right-hand pages have
@@ -2357,8 +2357,8 @@ you write an `@setchapternewpage odd' command for double-sided printing.
 
 File: texinfo.info,  Node: paragraphindent,  Next: End of Header,  Prev: setchapternewpage,  Up: Header
 
-Paragraph Indenting
--------------------
+3.2.6 Paragraph Indenting
+-------------------------
 
 The Info formatting commands may insert spaces at the beginning of the
 first line of each paragraph, thereby indenting that paragraph.  You
@@ -2394,8 +2394,8 @@ Paragraphs::, for a detailed description of what goes on.
 
 File: texinfo.info,  Node: End of Header,  Prev: paragraphindent,  Up: Header
 
-End of Header
--------------
+3.2.7 End of Header
+-------------------
 
 Follow the header lines with an end-of-header line.  An end-of-header
 line looks like this:
@@ -2418,8 +2418,8 @@ variables that you can change.
 
 File: texinfo.info,  Node: Info Summary and Permissions,  Next: Titlepage & Copyright Page,  Prev: Header,  Up: Beginning a File
 
-Summary and Copying Permissions for Info
-========================================
+3.3 Summary and Copying Permissions for Info
+============================================
 
 The title page and the copyright page appear only in the printed copy of
 the manual; therefore, the same information must be inserted in a
@@ -2444,8 +2444,8 @@ using Info, except when using the advanced Info command `g *'.
 
 File: texinfo.info,  Node: Titlepage & Copyright Page,  Next: The Top Node,  Prev: Info Summary and Permissions,  Up: Beginning a File
 
-The Title and Copyright Pages
-=============================
+3.4 The Title and Copyright Pages
+=================================
 
 A manual's name and author are usually printed on a title page.
 Sometimes copyright information is printed on the title page as well;
@@ -2479,8 +2479,8 @@ standard text for the copyright permissions.
 
 File: texinfo.info,  Node: titlepage,  Next: titlefont center sp,  Prev: Titlepage & Copyright Page,  Up: Titlepage & Copyright Page
 
-`@titlepage'
-------------
+3.4.1 `@titlepage'
+------------------
 
 Start the material for the title page and following copyright page with
 `@titlepage' on a line by itself and end it with `@end titlepage' on a
@@ -2531,8 +2531,8 @@ to both the documentation and the software with the same words.
 
 File: texinfo.info,  Node: titlefont center sp,  Next: title subtitle author,  Prev: titlepage,  Up: Titlepage & Copyright Page
 
-`@titlefont', `@center', and `@sp'
-----------------------------------
+3.4.2 `@titlefont', `@center', and `@sp'
+----------------------------------------
 
 You can use the `@titlefont', `@sp', and `@center' commands to create a
 title page for a printed document.  (This is the first of the two
@@ -2577,8 +2577,8 @@ for more information about the `@sp' command.)
 
 File: texinfo.info,  Node: title subtitle author,  Next: Copyright & Permissions,  Prev: titlefont center sp,  Up: Titlepage & Copyright Page
 
-`@title', `@subtitle', and `@author'
-------------------------------------
+3.4.3 `@title', `@subtitle', and `@author'
+------------------------------------------
 
 You can use the `@title', `@subtitle', and `@author' commands to create
 a title page in which the vertical and horizontal spacing is done for
@@ -2647,8 +2647,8 @@ Contrast this form with the form of a title page written using the
 
 File: texinfo.info,  Node: Copyright & Permissions,  Next: end titlepage,  Prev: title subtitle author,  Up: Titlepage & Copyright Page
 
-Copyright Page and Permissions
-------------------------------
+3.4.4 Copyright Page and Permissions
+------------------------------------
 
 By international treaty, the copyright notice for a book should be
 either on the title page or on the back of the title page.  The
@@ -2693,8 +2693,8 @@ header since this text appears only in the printed manual and the
 
 File: texinfo.info,  Node: end titlepage,  Next: headings on off,  Prev: Copyright & Permissions,  Up: Titlepage & Copyright Page
 
-Heading Generation
-------------------
+3.4.5 Heading Generation
+------------------------
 
 An `@end titlepage' command on a line by itself not only marks the end
 of the title and copyright pages, but also causes TeX to start
@@ -2729,8 +2729,8 @@ printing and no `@setchapternewpage' command for single-sided printing.
 
 File: texinfo.info,  Node: headings on off,  Prev: end titlepage,  Up: Titlepage & Copyright Page
 
-The `@headings' Command
------------------------
+3.4.6 The `@headings' Command
+-----------------------------
 
 The `@headings' command is rarely used.  It specifies what kind of page
 headings and footings to print on each page.  Usually, this is
@@ -2785,8 +2785,8 @@ which would otherwise cause TeX to print page headings.
 
 File: texinfo.info,  Node: The Top Node,  Next: Software Copying Permissions,  Prev: Titlepage & Copyright Page,  Up: Beginning a File
 
-The `Top' Node and Master Menu
-==============================
+3.5 The `Top' Node and Master Menu
+==================================
 
 The `Top' node is the node from which you enter an Info file.
 
@@ -2817,7 +2817,7 @@ File: texinfo.info,  Node: Title of Top Node,  Next: Master Menu Parts,  Prev: T
 
   Sometimes, you will want to place an `@top' sectioning command line
 containing the title of the document immediately after the `@node Top'
-line (*note The `@top' Sectioning Command: makeinfo top command., for
+line (*note The `@top' Sectioning Command: makeinfo top command, for
 more information).
 
   For example, the beginning of the Top node of this manual contains an
@@ -2826,17 +2826,17 @@ information.  It looks like this:
 
      ...
      @end titlepage
-     
+
      @ifinfo
      @node Top, Copying, , (dir)
      @top Texinfo
-     
+
      Texinfo is a documentation system...
-     
+
      This is edition...
      ...
      @end ifinfo
-     
+
      @menu
      * Copying::                 Texinfo is freely
                                    redistributable.
@@ -2853,8 +2853,8 @@ chapter.
 
 File: texinfo.info,  Node: Master Menu Parts,  Prev: Title of Top Node,  Up: The Top Node
 
-Parts of a Master Menu
-----------------------
+3.5.1 Parts of a Master Menu
+----------------------------
 
 A "master menu" is a detailed main menu listing all the nodes in a file.
 
@@ -2895,20 +2895,20 @@ information.)
      * Command and Variable Index::
                              An entry for each @-command.
      * Concept Index::       An entry for each concept.
-     
+
      @detailmenu
       --- The Detailed Node Listing ---
-     
+
      Overview of Texinfo
-     
+
      * Info Files::          What is an Info file?
      * Printed Manuals::     Characteristics of
                                a printed manual.
      ...
      ...
-     
+
      Using Texinfo Mode
-     
+
      * Info on a Region::    Formatting part of a file
                                for Info.
      ...
@@ -2919,8 +2919,8 @@ information.)
 
 File: texinfo.info,  Node: Software Copying Permissions,  Prev: The Top Node,  Up: Beginning a File
 
-Software Copying Permissions
-============================
+3.6 Software Copying Permissions
+================================
 
 If the Texinfo file has a section containing the "General Public
 License" and the distribution information and a warranty disclaimer for
@@ -2943,8 +2943,8 @@ The `@unnumbered' and `@appendix' Commands: unnumbered & appendix.)
 
 File: texinfo.info,  Node: Ending a File,  Next: Structuring,  Prev: Beginning a File,  Up: Top
 
-Ending a Texinfo File
-*********************
+4 Ending a Texinfo File
+***********************
 
 The end of a Texinfo file should include the commands that create
 indices and generate detailed and summary tables of contents.  And it
@@ -2956,9 +2956,9 @@ TeX.
      @node    Concept Index,     , Variables Index, Top
      @c        node-name,    next, previous,        up
      @unnumbered Concept Index
-     
+
      @printindex cp
-     
+
      @contents
      @bye
 
@@ -2972,8 +2972,8 @@ TeX.
 
 File: texinfo.info,  Node: Printing Indices & Menus,  Next: Contents,  Prev: Ending a File,  Up: Ending a File
 
-Index Menus and Printing an Index
-=================================
+4.1 Index Menus and Printing an Index
+=====================================
 
 To print an index means to include it as part of a manual or Info file.
 This does not happen automatically just because you use `@cindex' or
@@ -3009,15 +3009,15 @@ Precede the `@unnumbered' command with an `@node' line.
      @node Variable Index, Concept Index, Function Index, Top
      @comment    node-name,         next,       previous, up
      @unnumbered Variable Index
-     
+
      @printindex vr
-     
+
      @node     Concept Index,     , Variable Index, Top
      @comment      node-name, next,       previous, up
      @unnumbered Concept Index
-     
+
      @printindex cp
-     
+
      @summarycontents
      @contents
      @bye
@@ -3028,8 +3028,8 @@ that makes it easiest to find.)
 
 File: texinfo.info,  Node: Contents,  Next: File End,  Prev: Printing Indices & Menus,  Up: Ending a File
 
-Generating a Table of Contents
-==============================
+4.2 Generating a Table of Contents
+==================================
 
 The `@chapter', `@section', and other structuring commands supply the
 information to make up a table of contents, but they do not cause an
@@ -3084,8 +3084,8 @@ commands.
 
 File: texinfo.info,  Node: File End,  Prev: Contents,  Up: Ending a File
 
-`@bye' File Ending
-==================
+4.3 `@bye' File Ending
+======================
 
 An `@bye' command terminates TeX or Info formatting.  None of the
 formatting commands see any of the file following `@bye'.  The `@bye'
@@ -3101,8 +3101,8 @@ Compile-Command, for more information.
 
 File: texinfo.info,  Node: Structuring,  Next: Nodes,  Prev: Ending a File,  Up: Top
 
-Chapter Structuring
-*******************
+5 Chapter Structuring
+*********************
 
 The "chapter structuring" commands divide a document into a hierarchy of
 chapters, sections, subsections, and subsubsections.  These commands
@@ -3140,8 +3140,8 @@ heading at the top of each node--but you don't need to.
 
 File: texinfo.info,  Node: Tree Structuring,  Next: Structuring Command Types,  Prev: Structuring,  Up: Structuring
 
-Tree Structure of Sections
-==========================
+5.1 Tree Structure of Sections
+==============================
 
 A Texinfo file is usually structured like a book with chapters,
 sections, subsections, and the like.  This structure can be visualized
@@ -3176,8 +3176,8 @@ chapters. (*Note Nodes::, and see *Note Menus::.)
 
 File: texinfo.info,  Node: Structuring Command Types,  Next: makeinfo top,  Prev: Tree Structuring,  Up: Structuring
 
-Types of Structuring Commands
-=============================
+5.2 Types of Structuring Commands
+=================================
 
 The chapter structuring commands fall into four groups or series, each
 of which contains structuring commands corresponding to the
@@ -3218,7 +3218,7 @@ that are listed in the table of contents of a printed book or manual.
                                                             No new pages
      Numbered       Unnumbered       Lettered and numbered  Unnumbered
      In contents    In contents          In contents        Not in contents
-     
+
                     @top                                    @majorheading
      @chapter       @unnumbered          @appendix          @chapheading
      @section       @unnumberedsec       @appendixsec       @heading
@@ -3228,8 +3228,8 @@ that are listed in the table of contents of a printed book or manual.
 
 File: texinfo.info,  Node: makeinfo top,  Next: chapter,  Prev: Structuring Command Types,  Up: Structuring
 
-`@top'
-======
+5.3 `@top'
+==========
 
 The `@top' command is a special sectioning command that you use only
 after an `@node Top' line at the beginning of a Texinfo file.  The
@@ -3241,8 +3241,8 @@ information, see *Note The `@top' Command: makeinfo top command.
 
 File: texinfo.info,  Node: chapter,  Next: unnumbered & appendix,  Prev: makeinfo top,  Up: Structuring
 
-`@chapter'
-==========
+5.4 `@chapter'
+==============
 
 `@chapter' identifies a chapter in the document.  Write the command at
 the beginning of a line and follow it on the same line by the title of
@@ -3270,8 +3270,8 @@ kind of stylistic choice is not usually offered by Texinfo.
 
 File: texinfo.info,  Node: unnumbered & appendix,  Next: majorheading & chapheading,  Prev: chapter,  Up: Structuring
 
-`@unnumbered', `@appendix'
-==========================
+5.5 `@unnumbered', `@appendix'
+==============================
 
 Use the `@unnumbered' command to create a chapter that appears in a
 printed manual without chapter numbers of any kind.  Use the
@@ -3289,8 +3289,8 @@ the same line by the title, as you would if you were creating a chapter.
 
 File: texinfo.info,  Node: majorheading & chapheading,  Next: section,  Prev: unnumbered & appendix,  Up: Structuring
 
-`@majorheading', `@chapheading'
-===============================
+5.6 `@majorheading', `@chapheading'
+===================================
 
 The `@majorheading' and `@chapheading' commands put chapter-like
 headings in the body of a document.
@@ -3310,8 +3310,8 @@ a line of asterisks underneath.  (*Note `@chapter': chapter.)
 
 File: texinfo.info,  Node: section,  Next: unnumberedsec appendixsec heading,  Prev: majorheading & chapheading,  Up: Structuring
 
-`@section'
-==========
+5.7 `@section'
+==============
 
 In a printed manual, an `@section' command identifies a numbered
 section within a chapter.  The section title appears in the table of
@@ -3340,8 +3340,8 @@ in Info.
 
 File: texinfo.info,  Node: unnumberedsec appendixsec heading,  Next: subsection,  Prev: section,  Up: Structuring
 
-`@unnumberedsec', `@appendixsec', `@heading'
-============================================
+5.8 `@unnumberedsec', `@appendixsec', `@heading'
+================================================
 
 The `@unnumberedsec', `@appendixsec', and `@heading' commands are,
 respectively, the unnumbered, appendix-like, and heading-like
@@ -3355,7 +3355,7 @@ equivalents of the `@section' command.  (*Note `@section': section.)
 `@appendixsec'
 `@appendixsection'
      `@appendixsection' is a longer spelling of the `@appendixsec'
-     command; the two are synonymous.
+     command; the two are synonymous.  
 
      Conventionally, the `@appendixsec' or `@appendixsection' command
      is used only within appendices.
@@ -3368,8 +3368,8 @@ equivalents of the `@section' command.  (*Note `@section': section.)
 
 File: texinfo.info,  Node: subsection,  Next: unnumberedsubsec appendixsubsec subheading,  Prev: unnumberedsec appendixsec heading,  Up: Structuring
 
-The `@subsection' Command
-=========================
+5.9 The `@subsection' Command
+=============================
 
 Subsections are to sections as sections are to chapters.  (*Note
 `@section': section.)  In Info, subsection titles are underlined with
@@ -3388,8 +3388,8 @@ and are numbered three levels deep.
 
 File: texinfo.info,  Node: unnumberedsubsec appendixsubsec subheading,  Next: subsubsection,  Prev: subsection,  Up: Structuring
 
-The `@subsection'-like Commands
-===============================
+5.10 The `@subsection'-like Commands
+====================================
 
 The `@unnumberedsubsec', `@appendixsubsec', and `@subheading' commands
 are, respectively, the unnumbered, appendix-like, and heading-like
@@ -3408,8 +3408,8 @@ these commands produce headings that appear in the table of contents.
 
 File: texinfo.info,  Node: subsubsection,  Next: Raise/lower sections,  Prev: unnumberedsubsec appendixsubsec subheading,  Up: Structuring
 
-The `subsub' Commands
-=====================
+5.11 The `subsub' Commands
+==========================
 
 The fourth and lowest level sectioning commands in Texinfo are the
 `subsub' commands.  They are:
@@ -3450,8 +3450,8 @@ produces
 
 File: texinfo.info,  Node: Raise/lower sections,  Prev: subsubsection,  Up: Structuring
 
-`@raisesections' and `@lowersections'
-=====================================
+5.12 `@raisesections' and `@lowersections'
+==========================================
 
 The `@raisesections' and `@lowersections' commands raise and lower the
 hierarchical level of chapters, sections, subsections and the like.
@@ -3470,7 +3470,7 @@ formatted as if they were `@subsection' commands, and so on.
 structuring hierarchy:
 
        Change           To
-     
+
      @subsection     @section,
      @section        @chapter,
      @heading        @chapheading,
@@ -3480,7 +3480,7 @@ structuring hierarchy:
 structuring hierarchy:
 
        Change           To
-     
+
      @chapter        @section,
      @subsection     @subsubsection,
      @heading        @subheading,
@@ -3511,8 +3511,8 @@ commands.
 
 File: texinfo.info,  Node: Nodes,  Next: Menus,  Prev: Structuring,  Up: Top
 
-Nodes
-*****
+6 Nodes
+*******
 
 "Nodes" are the primary segments of a Texinfo file.  They do not
 themselves impose a hierarchic or any other kind of structure on a file.
@@ -3565,8 +3565,8 @@ matching structure in the Info output.
 
 File: texinfo.info,  Node: Node Menu Illustration,  Next: node,  Prev: Two Paths,  Up: Nodes
 
-Node and Menu Illustration
-==========================
+6.1 Node and Menu Illustration
+==============================
 
 Here is a copy of the diagram shown earlier that illustrates a Texinfo
 file with three chapters, each of which contains two sections.
@@ -3649,8 +3649,8 @@ an `@chapter' line, and then by indexing lines.
 
 File: texinfo.info,  Node: node,  Next: makeinfo Pointer Creation,  Prev: Node Menu Illustration,  Up: Nodes
 
-The `@node' Command
-===================
+6.2 The `@node' Command
+=======================
 
 A "node" is a segment of text that begins at an `@node' command and
 continues until the next `@node' command.  The definition of node is
@@ -3728,8 +3728,8 @@ first node of a Texinfo file.
 
 File: texinfo.info,  Node: Writing a Node,  Next: Node Line Tips,  Prev: Node Names,  Up: node
 
-How to Write an `@node' Line
-----------------------------
+6.2.1 How to Write an `@node' Line
+----------------------------------
 
 The easiest way to write an `@node' line is to write `@node' at the
 beginning of a line and then the name of the node, like this:
@@ -3773,8 +3773,8 @@ for people to find the node.
 
 File: texinfo.info,  Node: Node Line Tips,  Next: Node Line Requirements,  Prev: Writing a Node,  Up: node
 
-`@node' Line Tips
------------------
+6.2.2 `@node' Line Tips
+-----------------------
 
 Here are three suggestions:
 
@@ -3795,8 +3795,8 @@ Here are three suggestions:
 
 File: texinfo.info,  Node: Node Line Requirements,  Next: First Node,  Prev: Node Line Tips,  Up: node
 
-`@node' Line Requirements
--------------------------
+6.2.3 `@node' Line Requirements
+-------------------------------
 
 Here are several requirements for `@node' lines:
 
@@ -3842,8 +3842,8 @@ Here are several requirements for `@node' lines:
 
 File: texinfo.info,  Node: First Node,  Next: makeinfo top command,  Prev: Node Line Requirements,  Up: node
 
-The First Node
---------------
+6.2.4 The First Node
+--------------------
 
 The first node of a Texinfo file is the "Top" node, except in an
 included file (*note Include Files::).  The Top node contains the main
@@ -3876,8 +3876,8 @@ an Info file in the `info' directory.
 
 File: texinfo.info,  Node: makeinfo top command,  Next: Top Node Summary,  Prev: First Node,  Up: node
 
-The `@top' Sectioning Command
------------------------------
+6.2.5 The `@top' Sectioning Command
+-----------------------------------
 
 A special sectioning command, `@top', has been created for use with the
 `@node Top' line.  The `@top' sectioning command tells `makeinfo' that
@@ -3901,8 +3901,8 @@ menus.
 
 File: texinfo.info,  Node: Top Node Summary,  Prev: makeinfo top command,  Up: node
 
-The `Top' Node Summary
-----------------------
+6.2.6 The `Top' Node Summary
+----------------------------
 
 You can help readers by writing a summary in the `Top' node, after the
 `@top' line, before the main or master menu.  The summary should
@@ -3930,8 +3930,8 @@ contain this information: see *Note `@titlepage': titlepage.)
 
 File: texinfo.info,  Node: makeinfo Pointer Creation,  Prev: node,  Up: Nodes
 
-Creating Pointers with `makeinfo'
-=================================
+6.3 Creating Pointers with `makeinfo'
+=====================================
 
 The `makeinfo' program has a feature for automatically creating node
 pointers for a hierarchically organized file that lacks them.
@@ -3959,8 +3959,8 @@ who do not use GNU Emacs for writing Texinfo documents.
 
 File: texinfo.info,  Node: Menus,  Next: Cross References,  Prev: Nodes,  Up: Top
 
-Menus
-*****
+7 Menus
+*******
 
 "Menus" contain pointers to subordinate nodes.(1) (*note
 Menus-Footnote-1::) In Info, you use menus to go to such nodes.  Menus
@@ -4021,7 +4021,7 @@ and title appear only in the Info file, not the printed document.
      * Other Info Files::          How to refer to a different
                                      Info file.
      @end menu
-     
+
      @node Menu Location, Writing a Menu, , Menus
      @ifinfo
      @heading Menus Need Short Nodes
@@ -4034,8 +4034,8 @@ another is at the beginning of the "Cross References" chapter.
 
 File: texinfo.info,  Node: Writing a Menu,  Next: Menu Parts,  Prev: Menu Location,  Up: Menus
 
-Writing a Menu
-==============
+7.1 Writing a Menu
+==================
 
 A menu consists of an `@menu' command on a line by itself followed by
 menu entry lines or menu comment lines and then by an `@end menu'
@@ -4045,7 +4045,7 @@ command on a line by itself.
 
      @menu
      Larger Units of Text
-     
+
      * Files::                       All about handling files.
      * Multiples: Buffers.           Multiple buffers; editing
                                        several files at once.
@@ -4061,8 +4061,8 @@ lines starting with `* ' are menu entries.
 
 File: texinfo.info,  Node: Menu Parts,  Next: Less Cluttered Menu Entry,  Prev: Writing a Menu,  Up: Menus
 
-The Parts of a Menu
-===================
+7.2 The Parts of a Menu
+=======================
 
 A menu entry has three parts, only the second of which is required:
 
@@ -4093,8 +4093,8 @@ with the first (and all others).  It's up to you.
 
 File: texinfo.info,  Node: Less Cluttered Menu Entry,  Next: Menu Example,  Prev: Menu Parts,  Up: Menus
 
-Less Cluttered Menu Entry
-=========================
+7.3 Less Cluttered Menu Entry
+=============================
 
 When the menu entry name and node name are the same, you can write the
 name immediately after the asterisk and space at the beginning of the
@@ -4114,8 +4114,8 @@ possible, since it reduces visual clutter in the menu.
 
 File: texinfo.info,  Node: Menu Example,  Next: Other Info Files,  Prev: Less Cluttered Menu Entry,  Up: Menus
 
-A Menu Example
-==============
+7.4 A Menu Example
+==================
 
 A menu looks like this in Texinfo:
 
@@ -4127,7 +4127,7 @@ A menu looks like this in Texinfo:
 This produces:
 
      * menu:
-     
+
      * menu entry name: Node name.   A short description.
      * Node name::                   This form is preferred.
 
@@ -4135,7 +4135,7 @@ This produces:
 
      @menu
      Larger Units of Text
-     
+
      * Files::                       All about handling files.
      * Multiples: Buffers.           Multiple buffers; editing
                                        several files at once.
@@ -4145,7 +4145,7 @@ This produces:
 
      * menu:
      Larger Units of Text
-     
+
      * Files::                       All about handling files.
      * Multiples: Buffers.           Multiple buffers; editing
                                        several files at once.
@@ -4163,8 +4163,8 @@ to Other Info Files: Other Info Files.).
 
 File: texinfo.info,  Node: Other Info Files,  Prev: Menu Example,  Up: Menus
 
-Referring to Other Info Files
-=============================
+7.5 Referring to Other Info Files
+=================================
 
 You can create a menu entry that enables a reader in Info to go to a
 node in another Info file by writing the file name in parentheses just
@@ -4211,8 +4211,8 @@ menus that refer to other files.  You must write such menus by hand.
 
 File: texinfo.info,  Node: Cross References,  Next: Marking Text,  Prev: Menus,  Up: Top
 
-Cross References
-****************
+8 Cross References
+******************
 
 "Cross references" are used to refer the reader to other parts of the
 same or different Texinfo files.  In Texinfo, nodes are the places to
@@ -4270,8 +4270,8 @@ cross references.
 
 File: texinfo.info,  Node: Cross Reference Commands,  Next: Cross Reference Parts,  Prev: References,  Up: Cross References
 
-Different Cross Reference Commands
-==================================
+8.1 Different Cross Reference Commands
+======================================
 
 There are four different cross reference commands:
 
@@ -4300,8 +4300,8 @@ to which to point.   *Note `@cite': cite.)
 
 File: texinfo.info,  Node: Cross Reference Parts,  Next: xref,  Prev: Cross Reference Commands,  Up: Cross References
 
-Parts of a Cross Reference
-==========================
+8.2 Parts of a Cross Reference
+==============================
 
 A cross reference command requires only one argument, which is the name
 of the node to which it refers.  But a cross reference command may
@@ -4381,8 +4381,8 @@ within parentheses, and so on.
 
 File: texinfo.info,  Node: xref,  Next: Top Node Naming,  Prev: Cross Reference Parts,  Up: Cross References
 
-`@xref'
-=======
+8.3 `@xref'
+===========
 
 The `@xref' command generates a cross reference for the beginning of a
 sentence.  The Info formatting commands convert it into an Info cross
@@ -4448,8 +4448,8 @@ cross reference that looks somewhat different.
 
 File: texinfo.info,  Node: One Argument,  Next: Two Arguments,  Prev: Reference Syntax,  Up: xref
 
-`@xref' with One Argument
--------------------------
+8.3.1 `@xref' with One Argument
+-------------------------------
 
 The simplest form of `@xref' takes one argument, the name of another
 node in the same Info file.    The Info formatters produce output that
@@ -4487,8 +4487,8 @@ comma, and then by the clause, which is followed by a period.)
 
 File: texinfo.info,  Node: Two Arguments,  Next: Three Arguments,  Prev: One Argument,  Up: xref
 
-`@xref' with Two Arguments
---------------------------
+8.3.2 `@xref' with Two Arguments
+--------------------------------
 
 With two arguments, the second is used as the name of the Info cross
 reference, while the first is still the name of the node to which the
@@ -4531,8 +4531,8 @@ comma, and then by the clause, which is followed by a period.)
 
 File: texinfo.info,  Node: Three Arguments,  Next: Four and Five Arguments,  Prev: Two Arguments,  Up: xref
 
-`@xref' with Three Arguments
-----------------------------
+8.3.3 `@xref' with Three Arguments
+----------------------------------
 
 A third argument replaces the node name in the TeX output.  The third
 argument should be the name of the section in the printed output, or
@@ -4601,8 +4601,8 @@ are different.
 
 File: texinfo.info,  Node: Four and Five Arguments,  Prev: Three Arguments,  Up: xref
 
-`@xref' with Four and Five Arguments
-------------------------------------
+8.3.4 `@xref' with Four and Five Arguments
+------------------------------------------
 
 In a cross reference, a fourth argument specifies the name of another
 Info file, different from the file in which the reference appears, and
@@ -4679,8 +4679,8 @@ fifth.
 
 File: texinfo.info,  Node: Top Node Naming,  Next: ref,  Prev: xref,  Up: Cross References
 
-Naming a `Top' Node
-===================
+8.4 Naming a `Top' Node
+=======================
 
 In a cross reference, you must always name a node.  This means that in
 order to refer to a whole manual, you must identify the `Top' node by
@@ -4709,8 +4709,8 @@ the name of the first section of the manual.
 
 File: texinfo.info,  Node: ref,  Next: pxref,  Prev: Top Node Naming,  Up: Cross References
 
-`@ref'
-======
+8.5 `@ref'
+==========
 
 `@ref' is nearly the same as `@xref' except that it does not generate a
 `See' in the printed output, just the reference itself.  This makes it
@@ -4755,8 +4755,8 @@ in a printed document, and the following in Info:
 
 File: texinfo.info,  Node: pxref,  Next: inforef,  Prev: ref,  Up: Cross References
 
-`@pxref'
-========
+8.6 `@pxref'
+============
 
 The parenthetical reference command, `@pxref', is nearly the same as
 `@xref', but you use it _only_ inside parentheses and you do _not_ type
@@ -4823,8 +4823,8 @@ and
 
 File: texinfo.info,  Node: inforef,  Next: uref,  Prev: pxref,  Up: Cross References
 
-`@inforef'
-==========
+8.7 `@inforef'
+==============
 
 `@inforef' is used for cross references to Info files for which there
 are no printed manuals.  Even in a printed manual, `@inforef' generates
@@ -4879,8 +4879,8 @@ printed works for which no Info form exists.  *Note `@cite': cite.
 
 File: texinfo.info,  Node: uref,  Prev: inforef,  Up: Cross References
 
-`@uref{URL[, DISPLAYED-TEXT]}'
-==============================
+8.8 `@uref{URL[, DISPLAYED-TEXT]}'
+==================================
 
 `@uref' produces a reference to a uniform resource locator (URL).  It
 takes one mandatory argument, the URL, and one optional argument, the
@@ -4912,8 +4912,8 @@ and (in HTML):
 
 File: texinfo.info,  Node: Marking Text,  Next: Quotations and Examples,  Prev: Cross References,  Up: Top
 
-Marking Words and Phrases
-*************************
+9 Marking Words and Phrases
+***************************
 
 In Texinfo, you can mark words and phrases in a variety of ways.  The
 Texinfo formatters use this information to determine how to highlight
@@ -4929,8 +4929,8 @@ program.  Also, you can emphasize text.
 
 File: texinfo.info,  Node: Indicating,  Next: Emphasis,  Prev: Marking Text,  Up: Marking Text
 
-Indicating Definitions, Commands, etc.
-======================================
+9.1 Indicating Definitions, Commands, etc.
+==========================================
 
 Texinfo has commands for indicating just what kind of object a piece of
 text refers to.  For example, metasyntactic variables are marked by
@@ -5013,8 +5013,8 @@ construct an index of functions if you had not already made the entries.
 
 File: texinfo.info,  Node: code,  Next: kbd,  Prev: Useful Highlighting,  Up: Indicating
 
-`@code'{SAMPLE-CODE}
---------------------
+9.1.1 `@code'{SAMPLE-CODE}
+--------------------------
 
 Use the `@code' command to indicate text that is a piece of a program
 and which consists of entire syntactic tokens.  Enclose the text in
@@ -5080,8 +5080,8 @@ produces this in the printed manual:
 
 File: texinfo.info,  Node: kbd,  Next: key,  Prev: code,  Up: Indicating
 
-`@kbd'{KEYBOARD-CHARACTERS}
----------------------------
+9.1.2 `@kbd'{KEYBOARD-CHARACTERS}
+---------------------------------
 
 Use the `@kbd' command for characters of input to be typed by users.
 For example, to refer to the characters `M-a', write
@@ -5101,7 +5101,7 @@ characters they are supposed to type from those the computer outputs.
 control the font switching with the `@kbdinputstyle' command.  This
 command has no effect on Info output.  Write this command at the
 beginning of a line with a single word as an argument, one of the
-following:
+following: 
 `code'
      Always use the same font for `@kbd' as `@code'.
 
@@ -5139,8 +5139,8 @@ input, write `@key{SPC}' for it.)
 
 File: texinfo.info,  Node: key,  Next: samp,  Prev: kbd,  Up: Indicating
 
-`@key'{KEY-NAME}
-----------------
+9.1.3 `@key'{KEY-NAME}
+----------------------
 
 Use the `@key' command for the conventional name for a key on a
 keyboard, as in:
@@ -5155,7 +5155,7 @@ more keys that are described by name.
 
      @kbd{C-x @key{ESC}}
 
-  Here is a list of the recommended names for keys:
+  Here is a list of the recommended names for keys: 
 
     SPC
           Space
@@ -5199,8 +5199,8 @@ modifier key in isolation, use the `@key' command.  For example, write
 
 File: texinfo.info,  Node: samp,  Next: var,  Prev: key,  Up: Indicating
 
-`@samp'{TEXT}
--------------
+9.1.4 `@samp'{TEXT}
+-------------------
 
 Use the `@samp' command to indicate text that is a literal example or
 `sample' of a sequence of characters in a file, string, pattern, etc.
@@ -5241,8 +5241,8 @@ This produces:
 
 File: texinfo.info,  Node: var,  Next: file,  Prev: samp,  Up: Indicating
 
-`@var'{METASYNTACTIC-VARIABLE}
-------------------------------
+9.1.5 `@var'{METASYNTACTIC-VARIABLE}
+------------------------------------
 
 Use the `@var' command to indicate metasyntactic variables.  A
 "metasyntactic variable" is something that stands for another piece of
@@ -5296,8 +5296,8 @@ the `<...>' format if you wish.)
 
 File: texinfo.info,  Node: file,  Next: dfn,  Prev: var,  Up: Indicating
 
-`@file'{FILE-NAME}
-------------------
+9.1.6 `@file'{FILE-NAME}
+------------------------
 
 Use the `@file' command to indicate text that is the name of a file,
 buffer, or directory, or is the name of a node in Info.  You can also
@@ -5317,8 +5317,8 @@ produces
 
 File: texinfo.info,  Node: dfn,  Next: cite,  Prev: file,  Up: Indicating
 
-`@dfn'{TERM}
-------------
+9.1.7 `@dfn'{TERM}
+------------------
 
 Use the `@dfn' command to identify the introductory or defining use of
 a technical term.  Use the command only in passages whose purpose is to
@@ -5341,8 +5341,8 @@ information of a definition--it should make the meaning clear.
 
 File: texinfo.info,  Node: cite,  Next: url,  Prev: dfn,  Up: Indicating
 
-`@cite'{REFERENCE}
-------------------
+9.1.8 `@cite'{REFERENCE}
+------------------------
 
 Use the `@cite' command for the name of a book that lacks a companion
 Info file. The command produces italics in the printed manual, and
@@ -5355,8 +5355,8 @@ Info.  *Note `@xref': xref.)
 
 File: texinfo.info,  Node: url,  Next: email,  Prev: cite,  Up: Indicating
 
-`@url'{UNIFORM-RESOURCE-LOCATOR}
---------------------------------
+9.1.9 `@url'{UNIFORM-RESOURCE-LOCATOR}
+--------------------------------------
 
 Use the `@url' to indicate a uniform resource locator on the World Wide
 Web.  This is analogous to `@file', `@var', etc., and is purely for
@@ -5370,8 +5370,8 @@ for example URL's which do not actually exist.  For example:
 
 File: texinfo.info,  Node: email,  Prev: url,  Up: Indicating
 
-`@email'{EMAIL-ADDRESS[, DISPLAYED-TEXT]}
------------------------------------------
+9.1.10 `@email'{EMAIL-ADDRESS[, DISPLAYED-TEXT]}
+------------------------------------------------
 
 Use the `@email' command to indicate an electronic mail address.  It
 takes one mandatory argument, the address, and one optional argument,
@@ -5384,16 +5384,15 @@ example:
 
      Send bug reports to @email{bug-texinfo@@gnu.org}.
      Send suggestions to the @email{bug-texinfo@@gnu.org, same place}.
-
-produces
+  produces
      Send bug reports to <bug-texinfo@gnu.org>.
      Send suggestions to the same place <bug-texinfo@gnu.org>.
 
 
 File: texinfo.info,  Node: Emphasis,  Prev: Indicating,  Up: Marking Text
 
-Emphasizing Text
-================
+9.2 Emphasizing Text
+====================
 
 Usually, Texinfo changes the font to mark words in the text according to
 what category the words belong to; an example is the `@code' command.
@@ -5414,8 +5413,8 @@ regular use.
 
 File: texinfo.info,  Node: emph & strong,  Next: Smallcaps,  Prev: Emphasis,  Up: Emphasis
 
-`@emph'{TEXT} and `@strong'{TEXT}
----------------------------------
+9.2.1 `@emph'{TEXT} and `@strong'{TEXT}
+---------------------------------------
 
 The `@emph' and `@strong' commands are for emphasis; `@strong' is
 stronger.  In printed output, `@emph' produces _italics_ and `@strong'
@@ -5447,8 +5446,8 @@ text.
 
 File: texinfo.info,  Node: Smallcaps,  Next: Fonts,  Prev: emph & strong,  Up: Emphasis
 
-`@sc'{TEXT}: The Small Caps Font
---------------------------------
+9.2.2 `@sc'{TEXT}: The Small Caps Font
+--------------------------------------
 
 Use the `@sc' command to set text in the printed output in a small caps
 font and set text in the Info file in upper case letters.
@@ -5481,8 +5480,8 @@ subsequent elements of a list (the CDR of the list), but you should use
 
 File: texinfo.info,  Node: Fonts,  Next: Customized Highlighting,  Prev: Smallcaps,  Up: Emphasis
 
-Fonts for Printing, Not Info
-----------------------------
+9.2.3 Fonts for Printing, Not Info
+----------------------------------
 
 Texinfo provides four font commands that specify font changes in the
 printed manual but have no effect in the Info file.  `@i' requests
@@ -5513,8 +5512,8 @@ language.
 
 File: texinfo.info,  Node: Customized Highlighting,  Prev: Fonts,  Up: Emphasis
 
-Customized Highlighting
------------------------
+9.2.4 Customized Highlighting
+-----------------------------
 
 You can use regular TeX commands inside of `@iftex' ...  `@end iftex'
 to create your own customized highlighting commands for Texinfo.  The
@@ -5598,8 +5597,8 @@ File: texinfo.info,  Node: Customized Highlighting-Footnotes,  Up: Customized Hi
 
 File: texinfo.info,  Node: Quotations and Examples,  Next: Lists and Tables,  Prev: Marking Text,  Up: Top
 
-Quotations and Examples
-***********************
+10 Quotations and Examples
+**************************
 
 Quotations and examples are blocks of text consisting of one or more
 whole paragraphs that are set off from the bulk of the text and treated
@@ -5610,7 +5609,7 @@ differently.  They are usually indented.
 an `@end' command that is also at the beginning of a line by itself.
 For instance, you begin an example by writing `@example' by itself at
 the beginning of a line and end the example by writing `@end example'
-on a line by itself, at the beginning of that line.
+on a line by itself, at the beginning of that line.  
 
 * Menu:
 
@@ -5631,8 +5630,8 @@ on a line by itself, at the beginning of that line.
 
 File: texinfo.info,  Node: Block Enclosing Commands,  Next: quotation,  Prev: Quotations and Examples,  Up: Quotations and Examples
 
-The Block Enclosing Commands
-============================
+10.1 The Block Enclosing Commands
+=================================
 
 Here are commands for quotations and examples:
 
@@ -5685,8 +5684,8 @@ Cartouches Around Examples: cartouche.)
 
 File: texinfo.info,  Node: quotation,  Next: example,  Prev: Block Enclosing Commands,  Up: Quotations and Examples
 
-`@quotation'
-============
+10.2 `@quotation'
+=================
 
 The text of a quotation is processed normally except that:
 
@@ -5721,8 +5720,8 @@ produces
 
 File: texinfo.info,  Node: example,  Next: noindent,  Prev: quotation,  Up: Quotations and Examples
 
-`@example'
-==========
+10.3 `@example'
+===============
 
 The `@example' command is used to indicate an example that is not part
 of the running text, such as computer input or output.
@@ -5731,7 +5730,7 @@ of the running text, such as computer input or output.
      `@example' command
      and an `@end example' command.
      The text is indented but not filled.
-     
+
      In the printed manual, the text is typeset in a
      fixed-width font, and extra spaces and blank lines are
      significant.  In the Info file, an analogous result is
@@ -5776,8 +5775,8 @@ within sentences, not set off from preceding and following text.  *Note
 
 File: texinfo.info,  Node: noindent,  Next: Lisp Example,  Prev: example,  Up: Quotations and Examples
 
-`@noindent'
-===========
+10.4 `@noindent'
+================
 
 An example or other inclusion can break a paragraph into segments.
 Ordinarily, the formatters indent text that follows an example as a new
@@ -5789,7 +5788,7 @@ beginning of a line by itself preceding the continuation text.
      @example
      This is an example
      @end example
-     
+
      @noindent
      This line is not indented.  As you can see, the
      beginning of the line is fully flush left with the line
@@ -5799,8 +5798,7 @@ beginning of a line by itself preceding the continuation text.
 produces
 
           This is an example
-     
-     
+
      This line is not indented.  As you can see, the
      beginning of the line is fully flush left with the line
      that follows after it.  (This whole example is between
@@ -5820,8 +5818,8 @@ necessary, since `@noindent' is a command used outside of paragraphs
 
 File: texinfo.info,  Node: Lisp Example,  Next: smallexample & smalllisp,  Prev: noindent,  Up: Quotations and Examples
 
-`@lisp'
-=======
+10.5 `@lisp'
+============
 
 The `@lisp' command is used for Lisp code.  It is synonymous with the
 `@example' command.
@@ -5846,8 +5844,8 @@ similar fashion for C, Fortran, or other languages.
 
 File: texinfo.info,  Node: smallexample & smalllisp,  Next: display,  Prev: Lisp Example,  Up: Quotations and Examples
 
-`@smallexample' and `@smalllisp'
-================================
+10.6 `@smallexample' and `@smalllisp'
+=====================================
 
 In addition to the regular `@example' and `@lisp' commands, Texinfo has
 two other "example-style" commands.  These are the `@smallexample' and
@@ -5889,8 +5887,8 @@ the `@smallbook' command.
 
 File: texinfo.info,  Node: display,  Next: format,  Prev: smallexample & smalllisp,  Up: Quotations and Examples
 
-`@display'
-==========
+10.7 `@display'
+===============
 
 The `@display' command begins a kind of example.  It is like the
 `@example' command except that, in a printed manual, `@display' does
@@ -5905,8 +5903,8 @@ appeared in without the `@display' command.
 
 File: texinfo.info,  Node: format,  Next: exdent,  Prev: display,  Up: Quotations and Examples
 
-`@format'
-=========
+10.8 `@format'
+==============
 
 The `@format' command is similar to `@example' except that, in the
 printed manual, `@format' does not select the fixed-width font and does
@@ -5920,8 +5918,8 @@ the `@format' command does not fill the text.
 
 File: texinfo.info,  Node: exdent,  Next: flushleft & flushright,  Prev: format,  Up: Quotations and Examples
 
-`@exdent': Undoing a Line's Indentation
-=======================================
+10.9 `@exdent': Undoing a Line's Indentation
+============================================
 
 The `@exdent' command removes any indentation a line might have.  The
 command is written at the beginning of a line and applies only to the
@@ -5952,8 +5950,8 @@ normal width.
 
 File: texinfo.info,  Node: flushleft & flushright,  Next: cartouche,  Prev: exdent,  Up: Quotations and Examples
 
-`@flushleft' and `@flushright'
-==============================
+10.10 `@flushleft' and `@flushright'
+====================================
 
 The `@flushleft' and `@flushright' commands line up the ends of lines
 on the left and right margins of a page, but do not fill the text.  The
@@ -5993,8 +5991,8 @@ produces
 
 File: texinfo.info,  Node: cartouche,  Prev: flushleft & flushright,  Up: Quotations and Examples
 
-Drawing Cartouches Around Examples
-==================================
+10.11 Drawing Cartouches Around Examples
+========================================
 
 In a printed manual, the `@cartouche' command draws a box with rounded
 corners around its contents.  You can use this command to further
@@ -6020,8 +6018,8 @@ printed manual.
 
 File: texinfo.info,  Node: Lists and Tables,  Next: Indices,  Prev: Quotations and Examples,  Up: Top
 
-Lists and Tables
-****************
+11 Lists and Tables
+*******************
 
 Texinfo has several ways of making lists and tables.  Lists can be
 bulleted or numbered; two-column tables can highlight the items in the
@@ -6055,7 +6053,7 @@ you write formatting information on the same line as the beginning
 and end the list with an `@end enumerate' command.  Begin an itemized
 list with an `@itemize' command, followed on the same line by a
 formatting command such as `@bullet', and end the list with an `@end
-itemize' command.
+itemize' command.  
 
   Precede each element of a list with an `@item' or `@itemx' command.
 
@@ -6094,8 +6092,8 @@ And here is a two-column table with the same items and their @-commands:
 
 File: texinfo.info,  Node: itemize,  Next: enumerate,  Prev: Introducing Lists,  Up: Lists and Tables
 
-Making an Itemized List
-=======================
+11.1 Making an Itemized List
+============================
 
 The `@itemize' command produces sequences of indented paragraphs, with
 a bullet or other mark inside the left margin at the beginning of each
@@ -6114,7 +6112,7 @@ command, you may omit the `{}'.)
 
   Before each paragraph for which a mark in the margin is desired, write
 a line that says just `@item'.  Do not write any other text on this
-line.
+line.  
 
   Usually, you should put a blank line before an `@item'.  This puts a
 blank line in the Info file. (TeX inserts the proper interline
@@ -6128,7 +6126,7 @@ dot in TeX.
      @itemize @bullet
      @item
      Some text for foo.
-     
+
      @item
      Some text
      for bar.
@@ -6146,15 +6144,15 @@ list marked with dashes embedded in a list marked with bullets:
      @itemize @bullet
      @item
      First item.
-     
+
      @itemize @minus
      @item
      Inner item.
-     
+
      @item
      Second inner item.
      @end itemize
-     
+
      @item
      Second outer item.
      @end itemize
@@ -6172,8 +6170,8 @@ This produces:
 
 File: texinfo.info,  Node: enumerate,  Next: Two-column Tables,  Prev: itemize,  Up: Lists and Tables
 
-Making a Numbered or Lettered List
-==================================
+11.2 Making a Numbered or Lettered List
+=======================================
 
 `@enumerate' is like `@itemize' (*note `@itemize': itemize.), except
 that the labels on the items are successive integers or letters instead
@@ -6199,7 +6197,7 @@ generally makes it easier to read the Info file.
      @enumerate
      @item
      Underlying causes.
-     
+
      @item
      Proximate causes.
      @end enumerate
@@ -6216,10 +6214,10 @@ This produces:
      @enumerate 3
      @item
      Predisposing causes.
-     
+
      @item
      Precipitating causes.
-     
+
      @item
      Perpetuating causes.
      @end enumerate
@@ -6262,8 +6260,8 @@ constructed using `@enumerate' with an argument of `a'.
 
 File: texinfo.info,  Node: Two-column Tables,  Next: Multi-column Tables,  Prev: enumerate,  Up: Lists and Tables
 
-Making a Two-column Table
-=========================
+11.3 Making a Two-column Table
+==============================
 
 `@table' is similar to `@itemize' (*note `@itemize': itemize.), but
 allows you to specify a name or heading line for each item.  The
@@ -6312,7 +6310,7 @@ command.  Write the second column text on the line following the
 anything for an empty second column entry.)  You may write as many
 lines of supporting text as you wish, even several paragraphs.  But
 only text on the same line as the `@item' will be placed in the first
-column.
+column.  
 
   Normally, you should put a blank line before an `@item' line.  This
 puts a blank like in the Info file.  Except when the entries are very
@@ -6325,7 +6323,7 @@ column with an `@samp' command:
      @item foo
      This is the text for
      @samp{foo}.
-     
+
      @item bar
      Text for @samp{bar}.
      @end table
@@ -6344,8 +6342,8 @@ text, use the `@itemx' command.  (*Note `@itemx': itemx.)
 
 File: texinfo.info,  Node: ftable vtable,  Next: itemx,  Prev: table,  Up: Two-column Tables
 
-`@ftable' and `@vtable'
------------------------
+11.3.1 `@ftable' and `@vtable'
+------------------------------
 
 The `@ftable' and `@vtable' commands are the same as the `@table'
 command except that `@ftable' automatically enters each of the items in
@@ -6368,8 +6366,8 @@ or `@end vtable' command on a line by itself.
 
 File: texinfo.info,  Node: itemx,  Prev: ftable vtable,  Up: Two-column Tables
 
-`@itemx'
---------
+11.3.2 `@itemx'
+---------------
 
 Use the `@itemx' command inside a table when you have two or more first
 column entries for the same item, each of which should appear on a line
@@ -6402,8 +6400,8 @@ a two-column table.)
 
 File: texinfo.info,  Node: Multi-column Tables,  Prev: Two-column Tables,  Up: Lists and Tables
 
-Multi-column Tables
-===================
+11.4 Multi-column Tables
+========================
 
 `@multitable' allows you to construct tables with any number of
 columns, with each column having any width you like.
@@ -6421,8 +6419,8 @@ completes the table.  Details in the sections below.
 
 File: texinfo.info,  Node: Multitable Column Widths,  Next: Multitable Rows,  Prev: Multi-column Tables,  Up: Multi-column Tables
 
-Multitable Column Widths
-------------------------
+11.4.1 Multitable Column Widths
+-------------------------------
 
 You can define the column widths for a multitable in two ways: as
 fractions of the line length; or with a prototype row.  Mixing the two
@@ -6458,8 +6456,8 @@ entirely on the same line as the `@multitable' command.
 
 File: texinfo.info,  Node: Multitable Rows,  Prev: Multitable Column Widths,  Up: Multi-column Tables
 
-Multitable Rows
----------------
+11.4.2 Multitable Rows
+----------------------
 
 After the `@multitable' command defining the column widths (see the
 previous section), you begin each row in the body of a multitable with
@@ -6503,8 +6501,8 @@ C-Mouse-2                                    In the mode line or scroll
 
 File: texinfo.info,  Node: Indices,  Next: Insertions,  Prev: Lists and Tables,  Up: Top
 
-Creating Indices
-****************
+12 Creating Indices
+*******************
 
 Using Texinfo, you can generate indices without having to sort and
 collate entries manually.  In an index, the entries are listed in
@@ -6530,8 +6528,8 @@ purpose.  If you wish, you can define your own indices.
 
 File: texinfo.info,  Node: Index Entries,  Next: Predefined Indices,  Prev: Indices,  Up: Indices
 
-Making Index Entries
-====================
+12.1 Making Index Entries
+=========================
 
 When you are making index entries, it is good practice to think of the
 different ways people may look for something.  Different people _do
@@ -6554,8 +6552,8 @@ index at the end of a book or creating an index menu in an Info file.
 
 File: texinfo.info,  Node: Predefined Indices,  Next: Indexing Commands,  Prev: Index Entries,  Up: Indices
 
-Predefined Indices
-==================
+12.2 Predefined Indices
+=======================
 
 Texinfo provides six predefined indices:
 
@@ -6584,8 +6582,8 @@ Combining Indices::.
 
 File: texinfo.info,  Node: Indexing Commands,  Next: Combining Indices,  Prev: Predefined Indices,  Up: Indices
 
-Defining the Entries of an Index
-================================
+12.3 Defining the Entries of an Index
+=====================================
 
 The data to make an index come from many individual indexing commands
 scattered throughout the Texinfo source file.  Each command says to add
@@ -6632,7 +6630,7 @@ case-sensitive, so use upper and lower case as required for them.
 font and entries for the other indices are printed in a small `@code'
 font.  You may change the way part of an entry is printed with the
 usual Texinfo commands, such as `@file' for file names and `@emph' for
-emphasis (*note Marking Text::).
+emphasis (*note Marking Text::).  
 
   The six indexing commands for predefined indices are:
 
@@ -6685,8 +6683,8 @@ Indices & Menus::.)
 
 File: texinfo.info,  Node: Combining Indices,  Next: New Indices,  Prev: Indexing Commands,  Up: Indices
 
-Combining Indices
-=================
+12.4 Combining Indices
+======================
 
 Sometimes you will want to combine two disparate indices such as
 functions and concepts, perhaps because you have few enough of one of
@@ -6714,13 +6712,13 @@ enclose every one of them between the braces of `@code'.
 
 File: texinfo.info,  Node: syncodeindex,  Next: synindex,  Prev: Combining Indices,  Up: Combining Indices
 
-`@syncodeindex'
----------------
+12.4.1 `@syncodeindex'
+----------------------
 
 When you want to combine functions and concepts into one index, you
 should index the functions with `@findex' and index the concepts with
 `@cindex', and use the `@syncodeindex' command to redirect the function
-index entries into the concept index.
+index entries into the concept index.  
 
   The `@syncodeindex' command takes two arguments; they are the name of
 the index to redirect, and the name of the index to redirect it to.
@@ -6773,8 +6771,8 @@ font as you would expect.
 
 File: texinfo.info,  Node: synindex,  Prev: syncodeindex,  Up: Combining Indices
 
-`@synindex'
------------
+12.4.2 `@synindex'
+------------------
 
 The `@synindex' command is nearly the same as the `@syncodeindex'
 command, except that it does not put the `from' index  entries into the
@@ -6787,8 +6785,8 @@ index at the end of a book or creating an index menu in an Info file.
 
 File: texinfo.info,  Node: New Indices,  Prev: Combining Indices,  Up: Indices
 
-Defining New Indices
-====================
+12.5 Defining New Indices
+=========================
 
 In addition to the predefined indices, you may use the `@defindex' and
 `@defcodeindex' commands to define new indices.  These commands create
@@ -6825,7 +6823,7 @@ predefined indices.  For example:
 
      @node Author Index, Subject Index, , Top
      @unnumbered Author Index
-     
+
      @printindex au
 
   The `@defcodeindex' is like the `@defindex' command, except that, in
@@ -6840,8 +6838,8 @@ commands (*note Header::).
 
 File: texinfo.info,  Node: Insertions,  Next: Breaks,  Prev: Indices,  Up: Top
 
-Special Insertions
-******************
+13 Special Insertions
+*********************
 
 Texinfo provides several commands for inserting characters that have
 special meaning in Texinfo, such as braces, and for other graphic
@@ -6866,8 +6864,8 @@ elements that do not correspond to simple characters you can type.
 
 File: texinfo.info,  Node: Braces Atsigns,  Next: Inserting Space,  Prev: Insertions,  Up: Insertions
 
-Inserting @ and Braces
-======================
+13.1 Inserting @ and Braces
+===========================
 
 `@' and curly braces are special characters in Texinfo.  To insert
 these characters so they appear in text, you must put an `@' in front
@@ -6883,8 +6881,8 @@ of these characters to prevent Texinfo from misinterpreting them.
 
 File: texinfo.info,  Node: Inserting An Atsign,  Next: Inserting Braces,  Prev: Braces Atsigns,  Up: Braces Atsigns
 
-Inserting `@' with @@
----------------------
+13.1.1 Inserting `@' with @@
+----------------------------
 
 `@@' stands for a single `@' in either printed or Info output.
 
@@ -6893,8 +6891,8 @@ Inserting `@' with @@
 
 File: texinfo.info,  Node: Inserting Braces,  Prev: Inserting An Atsign,  Up: Braces Atsigns
 
-Inserting `{' and `}'with @{ and @}
------------------------------------
+13.1.2 Inserting `{' and `}'with @{ and @}
+------------------------------------------
 
 `@{' stands for a single `{' in either printed or Info output.
 
@@ -6905,8 +6903,8 @@ Inserting `{' and `}'with @{ and @}
 
 File: texinfo.info,  Node: Inserting Space,  Next: Inserting Accents,  Prev: Braces Atsigns,  Up: Insertions
 
-Inserting Space
-===============
+13.2 Inserting Space
+====================
 
 The following sections describe commands that control spacing of various
 kinds within and after sentences.
@@ -6921,8 +6919,8 @@ kinds within and after sentences.
 
 File: texinfo.info,  Node: Not Ending a Sentence,  Next: Ending a Sentence,  Prev: Inserting Space,  Up: Inserting Space
 
-Not Ending a Sentence
----------------------
+13.2.1 Not Ending a Sentence
+----------------------------
 
 Depending on whether a period or exclamation point or question mark is
 inside or at the end of a sentence, less or more space is inserted after
@@ -6957,8 +6955,8 @@ Procedure".)
 
 File: texinfo.info,  Node: Ending a Sentence,  Next: Multiple Spaces,  Prev: Not Ending a Sentence,  Up: Inserting Space
 
-Ending a Sentence
------------------
+13.2.2 Ending a Sentence
+------------------------
 
 Use `@.' instead of a period, `@!' instead of an exclamation point, and
 `@?' instead of a question mark at the end of a sentence that ends with
@@ -6987,8 +6985,8 @@ incompatible with some other formatting systems that use @-commands.
 
 File: texinfo.info,  Node: Multiple Spaces,  Next: dmn,  Prev: Ending a Sentence,  Up: Inserting Space
 
-Multiple Spaces
----------------
+13.2.3 Multiple Spaces
+----------------------
 
 Ordinarily, TeX collapses multiple whitespace characters (space, tab,
 and newline) into a single space.  Info output, on the other hand,
@@ -7021,8 +7019,8 @@ produces
 
 File: texinfo.info,  Node: dmn,  Prev: Multiple Spaces,  Up: Inserting Space
 
-`@dmn'{DIMENSION}: Format a Dimension
--------------------------------------
+13.2.4 `@dmn'{DIMENSION}: Format a Dimension
+--------------------------------------------
 
 At times, you may want to write `12pt' or `8.5in' with little or no
 space between the number and the abbreviation for the dimension.  You
@@ -7052,8 +7050,8 @@ here.  *Note Inserting Space::.
 
 File: texinfo.info,  Node: Inserting Accents,  Next: Dots Bullets,  Prev: Inserting Space,  Up: Insertions
 
-Inserting Accents
-=================
+13.3 Inserting Accents
+======================
 
 Here is a table with the commands Texinfo provides for inserting
 floating accents.  The commands with non-alphabetic names do not take
@@ -7096,8 +7094,8 @@ commonly used in languages other than English.
 
 File: texinfo.info,  Node: Dots Bullets,  Next: TeX and copyright,  Prev: Inserting Accents,  Up: Insertions
 
-Inserting Ellipsis, Dots, and Bullets
-=====================================
+13.4 Inserting Ellipsis, Dots, and Bullets
+==========================================
 
 An "ellipsis" (a line of dots) is not typeset as a string of periods,
 so a special command is used for ellipsis in Texinfo.  The `@bullet'
@@ -7116,8 +7114,8 @@ information.)
 
 File: texinfo.info,  Node: dots,  Next: bullet,  Prev: Dots Bullets,  Up: Dots Bullets
 
-`@dots'{} (...)
----------------
+13.4.1 `@dots'{} (...)
+----------------------
 
 Use the `@dots{}' command to generate an ellipsis, which is three dots
 in a row, appropriately spaced, like this: `...'.  Do not simply write
@@ -7131,8 +7129,8 @@ ellipsis (four dots) ....
 
 File: texinfo.info,  Node: bullet,  Prev: dots,  Up: Dots Bullets
 
-`@bullet'{} (*)
----------------
+13.4.2 `@bullet'{} (*)
+----------------------
 
 Use the `@bullet{}' command to generate a large round dot, or the
 closest possible thing to one.  In Info, an asterisk is used.
@@ -7145,8 +7143,8 @@ braces, because `@itemize' supplies them.  (*Note `@itemize': itemize.)
 
 File: texinfo.info,  Node: TeX and copyright,  Next: pounds,  Prev: Dots Bullets,  Up: Insertions
 
-Inserting TeX and the Copyright Symbol
-======================================
+13.5 Inserting TeX and the Copyright Symbol
+===========================================
 
 The logo `TeX' is typeset in a special fashion and it needs an
 @-command.  The copyright symbol, `(C)', is also special.  Each of
@@ -7161,8 +7159,8 @@ whitespace between the name of the command and the braces.
 
 File: texinfo.info,  Node: tex,  Next: copyright symbol,  Prev: TeX and copyright,  Up: TeX and copyright
 
-`@TeX'{} (TeX)
---------------
+13.5.1 `@TeX'{} (TeX)
+---------------------
 
 Use the `@TeX{}' command to generate `TeX'.  In a printed manual, this
 is a special logo that is different from three ordinary letters.  In
@@ -7172,8 +7170,8 @@ Texinfo commands in that the `T' and the `X' are in upper case.
 
 File: texinfo.info,  Node: copyright symbol,  Prev: tex,  Up: TeX and copyright
 
-`@copyright'{} ((C))
---------------------
+13.5.2 `@copyright'{} ((C))
+---------------------------
 
 Use the `@copyright{}' command to generate `(C)'.  In a printed manual,
 this is a `c' inside a circle, and in Info, this is `(C)'.
@@ -7181,8 +7179,8 @@ this is a `c' inside a circle, and in Info, this is `(C)'.
 
 File: texinfo.info,  Node: pounds,  Next: minus,  Prev: TeX and copyright,  Up: Insertions
 
-`@pounds{}' (#): Pounds Sterling
-================================
+13.6 `@pounds{}' (#): Pounds Sterling
+=====================================
 
 Use the `@pounds{}' command to generate `#'.  In a printed manual, this
 is the symbol for the currency pounds sterling.  In Info, it is a `#'.
@@ -7191,8 +7189,8 @@ Other currency symbols are unfortunately not available.
 
 File: texinfo.info,  Node: minus,  Next: math,  Prev: pounds,  Up: Insertions
 
-`@minus'{} (-): Inserting a Minus Sign
-======================================
+13.7 `@minus'{} (-): Inserting a Minus Sign
+===========================================
 
 Use the `@minus{}' command to generate a minus sign.  In a fixed-width
 font, this is a single hyphen, but in a proportional font, the symbol
@@ -7200,10 +7198,10 @@ is the customary length for a minus sign--a little longer than a
 hyphen, shorter than an em-dash:
 
      `-' is a minus sign generated with `@minus{}',
-     
+
      `-' is a hyphen generated with the character `-',
-     
-     `---' is an em-dash for text.
+
+     `--' is an em-dash for text.
 
 In the fixed-width font used by Info, `@minus{}' is the same as a
 hyphen.
@@ -7213,13 +7211,13 @@ the width distinction is not made in the fixed-width font they use.
 
   When you use `@minus' to specify the mark beginning each entry in an
 itemized list, you do not need to type the braces (*note `@itemize':
-itemize..)
+itemize.)
 
 
 File: texinfo.info,  Node: math,  Next: Glyphs,  Prev: minus,  Up: Insertions
 
-`@math' - Inserting Mathematical Expressions
-============================================
+13.8 `@math' - Inserting Mathematical Expressions
+=================================================
 
 You can write a short mathematical expression with the `@math' command.
 Write the mathematical expression between braces, like this:
@@ -7240,8 +7238,8 @@ to write the mathematical expression between one or two `$'
 
 File: texinfo.info,  Node: Glyphs,  Next: Images,  Prev: math,  Up: Insertions
 
-Glyphs for Examples
-===================
+13.9 Glyphs for Examples
+========================
 
 In Texinfo, code is often illustrated in examples that are delimited by
 `@example' and `@end example', or by `@lisp' and `@end lisp'.  In such
@@ -7302,8 +7300,8 @@ error-->
 
 File: texinfo.info,  Node: result,  Next: expansion,  Prev: Glyphs Summary,  Up: Glyphs
 
-`@result{}' (=>): Indicating Evaluation
----------------------------------------
+13.9.1 `@result{}' (=>): Indicating Evaluation
+----------------------------------------------
 
 Use the `@result{}' command to indicate the result of evaluating an
 expression.
@@ -7321,8 +7319,8 @@ may be read as "`(cdr '(1 2 3))' evaluates to `(2 3)'".
 
 File: texinfo.info,  Node: expansion,  Next: Print Glyph,  Prev: result,  Up: Glyphs
 
-`@expansion{}' (==>): Indicating an Expansion
----------------------------------------------
+13.9.2 `@expansion{}' (==>): Indicating an Expansion
+----------------------------------------------------
 
 When an expression is a macro call, it expands into a new expression.
 You can indicate the result of the expansion with the `@expansion{}'
@@ -7356,8 +7354,8 @@ and `@result{}' commands are indented five spaces.
 
 File: texinfo.info,  Node: Print Glyph,  Next: Error Glyph,  Prev: expansion,  Up: Glyphs
 
-`@print{}' (-|): Indicating Printed Output
-------------------------------------------
+13.9.3 `@print{}' (-|): Indicating Printed Output
+-------------------------------------------------
 
 Sometimes an expression will print output during its execution.  You
 can indicate the printed output with the `@print{}' command.
@@ -7385,8 +7383,8 @@ In a Texinfo source file, this example is written as follows:
 
 File: texinfo.info,  Node: Error Glyph,  Next: Equivalence,  Prev: Print Glyph,  Up: Glyphs
 
-`@error{}' (error-->): Indicating an Error Message
---------------------------------------------------
+13.9.4 `@error{}' (error-->): Indicating an Error Message
+---------------------------------------------------------
 
 A piece of code may cause an error when you evaluate it.  You can
 designate the error message with the `@error{}' command.
@@ -7416,8 +7414,8 @@ evaluate the expression:
 
 File: texinfo.info,  Node: Equivalence,  Next: Point Glyph,  Prev: Error Glyph,  Up: Glyphs
 
-`@equiv{}' (==): Indicating Equivalence
----------------------------------------
+13.9.5 `@equiv{}' (==): Indicating Equivalence
+----------------------------------------------
 
 Sometimes two expressions produce identical results.  You can indicate
 the exact equivalence of two forms with the `@equiv{}' command.
@@ -7441,8 +7439,8 @@ identical results to evaluating `(list 'keymap)'.
 
 File: texinfo.info,  Node: Point Glyph,  Prev: Equivalence,  Up: Glyphs
 
-`@point{}' (-!-): Indicating Point in a Buffer
-----------------------------------------------
+13.9.6 `@point{}' (-!-): Indicating Point in a Buffer
+-----------------------------------------------------
 
 Sometimes you need to show an example of text in an Emacs buffer.  In
 such examples, the convention is to include the entire contents of the
@@ -7476,7 +7474,7 @@ after evaluating a Lisp command to insert the word `changed'.
      ---------- Buffer: foo ----------
      This is the @point{}contents of foo.
      ---------- Buffer: foo ----------
-     
+
      (insert "changed ")
           @result{} nil
      ---------- Buffer: foo ----------
@@ -7487,8 +7485,8 @@ after evaluating a Lisp command to insert the word `changed'.
 
 File: texinfo.info,  Node: Images,  Prev: Glyphs,  Up: Insertions
 
-Inserting Images
-================
+13.10 Inserting Images
+======================
 
 You can insert an image in an external file with the `@image' command:
 
@@ -7549,8 +7547,8 @@ distribution and is available from `ftp://ftp.tug.org/tex/epsf.tex'.
 
 File: texinfo.info,  Node: Breaks,  Next: Definition Commands,  Prev: Insertions,  Up: Top
 
-Making and Preventing Breaks
-****************************
+14 Making and Preventing Breaks
+*******************************
 
 Usually, a Texinfo file is processed both by TeX and by one of the Info
 formatting commands.  Line, paragraph, or page breaks sometimes occur
@@ -7616,8 +7614,8 @@ files do not have pages.
 
 File: texinfo.info,  Node: Line Breaks,  Next: - and hyphenation,  Prev: Break Commands,  Up: Breaks
 
-`@*': Generate Line Breaks
-==========================
+14.1 `@*': Generate Line Breaks
+===============================
 
 The `@*' command forces a line break in both the printed manual and in
 Info.
@@ -7654,8 +7652,8 @@ across the whole page in an ugly manner.
 
 File: texinfo.info,  Node: - and hyphenation,  Next: w,  Prev: Line Breaks,  Up: Breaks
 
-`@-' and `@hyphenation': Helping TeX hyphenate
-==============================================
+14.2 `@-' and `@hyphenation': Helping TeX hyphenate
+===================================================
 
 Although TeX's hyphenation algorithm is generally pretty good, it does
 miss useful hyphenation points from time to time.  (Or, far more
@@ -7674,7 +7672,6 @@ wish to help TeX out.  Texinfo supports two commands for this:
      Tell TeX how to hyphenate HY-PHEN-A-TED WORDS.  As shown, you put
      a `-' at each hyphenation point.  For example:
           @hyphenation{man-u-script man-u-scripts}
-
      TeX only uses the specified hyphenation points when the words
      match exactly, so give all necessary variants.
 
@@ -7683,8 +7680,8 @@ wish to help TeX out.  Texinfo supports two commands for this:
 
 File: texinfo.info,  Node: w,  Next: sp,  Prev: - and hyphenation,  Up: Breaks
 
-`@w'{TEXT}: Prevent Line Breaks
-===============================
+14.3 `@w'{TEXT}: Prevent Line Breaks
+====================================
 
 `@w{TEXT}' outputs TEXT and prohibits line breaks within TEXT.
 
@@ -7706,8 +7703,8 @@ produces
 
 File: texinfo.info,  Node: sp,  Next: page,  Prev: w,  Up: Breaks
 
-`@sp' N: Insert Blank Lines
-===========================
+14.4 `@sp' N: Insert Blank Lines
+================================
 
 A line beginning with and containing only `@sp N' generates N blank
 lines of space in both the printed manual and the Info file.  `@sp'
@@ -7722,8 +7719,8 @@ generates two blank lines.
 
 File: texinfo.info,  Node: page,  Next: group,  Prev: sp,  Up: Breaks
 
-`@page': Start a New Page
-=========================
+14.5 `@page': Start a New Page
+==============================
 
 A line containing only `@page' starts a new page in a printed manual.
 The command has no effect on Info files since they are not paginated.
@@ -7733,8 +7730,8 @@ Texinfo file to start the copyright page.
 
 File: texinfo.info,  Node: group,  Next: need,  Prev: page,  Up: Breaks
 
-`@group': Prevent Page Breaks
-=============================
+14.6 `@group': Prevent Page Breaks
+==================================
 
 The `@group' command (on a line by itself) is used inside an `@example'
 or similar construct to begin an unsplittable vertical group, which
@@ -7776,8 +7773,8 @@ get incomprehensible error messages in TeX.
 
 File: texinfo.info,  Node: need,  Prev: group,  Up: Breaks
 
-`@need MILS': Prevent Page Breaks
-=================================
+14.7 `@need MILS': Prevent Page Breaks
+======================================
 
 A line containing only `@need N' starts a new page in a printed manual
 if fewer than N mils (thousandths of an inch) remain on the current
@@ -7797,8 +7794,8 @@ the bottoms of printed pages).
 
 File: texinfo.info,  Node: Definition Commands,  Next: Footnotes,  Prev: Breaks,  Up: Top
 
-Definition Commands
-*******************
+15 Definition Commands
+**********************
 
 The `@deffn' command and the other "definition commands" enable you to
 describe functions, variables, macros, commands, user options, special
@@ -7828,87 +7825,4 @@ rather than the definition commands.
 * Def Cmds in Detail::          All the definition commands.
 * Def Cmd Conventions::         Conventions for writing definitions.
 * Sample Function Definition::
-
-
-File: texinfo.info,  Node: Def Cmd Template,  Next: Optional Arguments,  Prev: Definition Commands,  Up: Definition Commands
-
-The Template for a Definition
-=============================
-
-The `@deffn' command is used for definitions of entities that resemble
-functions.  To write a definition using the `@deffn' command, write the
-`@deffn' command at the beginning of a line and follow it on the same
-line by the category of the entity, the name of the entity itself, and
-its arguments (if any).  Then write the body of the definition on
-succeeding lines.  (You may embed examples in the body.)  Finally, end
-the definition with an `@end deffn' command written on a line of its
-own.  (The other definition commands follow the same format.)
-
-  The template for a definition looks like this:
-
-     @deffn CATEGORY NAME ARGUMENTS...
-     BODY-OF-DEFINITION
-     @end deffn
-
-For example,
-
-     @deffn Command forward-word count
-     This command moves point forward @var{count} words
-     (or backward if @var{count} is negative). ...
-     @end deffn
-
-produces
-
-      - Command: forward-word count
-          This function moves point forward COUNT words (or backward if
-          COUNT is negative). ...
-
-  Capitalize the category name like a title.  If the name of the
-category contains spaces, as in the phrase `Interactive Command', write
-braces around it.  For example:
-
-     @deffn {Interactive Command} isearch-forward
-     ...
-     @end deffn
-
-Otherwise, the second word will be mistaken for the name of the entity.
-
-  Some of the definition commands are more general than others.  The
-`@deffn' command, for example, is the general definition command for
-functions and the like--for entities that may take arguments.  When you
-use this command, you specify the category to which the entity belongs.
-The `@deffn' command possesses three predefined, specialized
-variations, `@defun', `@defmac', and `@defspec', that specify the
-category for you: "Function", "Macro", and "Special Form" respectively.
-(In Lisp, a special form is an entity much like a function.)  The
-`@defvr' command also is accompanied by several predefined, specialized
-variations for describing particular kinds of variables.
-
-  The template for a specialized definition, such as `@defun', is
-similar to the template for a generalized definition, except that you
-do not need to specify the category:
-
-     @defun NAME ARGUMENTS...
-     BODY-OF-DEFINITION
-     @end defun
-
-Thus,
-
-     @defun buffer-end flag
-     This function returns @code{(point-min)} if @var{flag}
-     is less than 1, @code{(point-max)} otherwise.
-     ...
-     @end defun
-
-produces
-
-      - Function: buffer-end flag
-          This function returns `(point-min)' if FLAG is less than 1,
-          `(point-max)' otherwise.  ...
-
-*Note Sample Function Definition: Sample Function Definition, for a
-more detailed example of a function definition, including the use of
-`@example' inside the definition.
-
-  The other specialized commands work like `@defun'.
 

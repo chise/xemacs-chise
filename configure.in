@@ -3215,6 +3215,7 @@ if test no != "$with_ldap";then
 	echo "Setting ldap_libs to $ldap_libs"],dnl
       [AC_CHECK_LIB(ldap, ldap_open,dnl
 	[with_ldap=yes],dnl
+dnl If logic of setting these vars change, change it the same way below.
 	[ldap_needs_lber=yes ldap_other_libs=-llber
 dnl This requires `AC_CACHE_VAL' (which is called by `AC_CHECK_LIB')
 dnl to be redefined to ignore cached (shell variable) value, as it is
@@ -3236,6 +3237,55 @@ dnl variable name depends on the macro OTHER-LIBRARIES argument.
 	      $ldap_other_libs)],dnl
 	    $ldap_other_libs)],dnl
 	  $ldap_other_libs)])
+      if test yes = "$with_ldap" -a yes != "$ldap_needs_lber";then
+dnl Need this check since `LDAP_OPT_ON' is (currently) used only with
+dnl `ldap_set_option', and the latter may not exist at all, for which
+dnl is testing later.  So `LDAP_OPT_ON' is not necessarily defined.
+	AC_CACHE_CHECK([for LDAP_OPT_ON definition],xe_cv_have_LDAP_OPT_ON,
+	  [AC_TRY_COMPILE(
+[#include <lber.h>
+#include <ldap.h>
+#ifdef LDAP_OPT_ON
+/* Relying on const defined by ac_c_const (upper case). */
+const void *const v = LDAP_OPT_ON;
+#else /* !defined (LDAP_OPT_ON) */
+choke me
+#endif /* !defined (LDAP_OPT_ON) */],[],
+	    [xe_cv_have_LDAP_OPT_ON=yes],
+	    [xe_cv_have_LDAP_OPT_ON=no])])
+	if test yes = "$xe_cv_have_LDAP_OPT_ON";then
+	  AC_CACHE_CHECK([LDAP_OPT_ON linking],
+	    xe_cv_LDAP_OPT_ON_links,
+	    [xe_save_LIBS="$LIBS"
+	    LIBS="-lldap $LIBS"
+AC_TRY_LINK(
+[#include <lber.h>
+#include <ldap.h>
+const void *const v = LDAP_OPT_ON;],[],
+	      xe_cv_LDAP_OPT_ON_links=yes,
+	      xe_cv_LDAP_OPT_ON_links=no)
+	    LIBS="$xe_save_LIBS"])
+dnl In some openldap installations other `ldap_*' functions link with
+dnl `-lldap' alone, but `LDAP_OPT_ON' requires `-llber'.
+	  if test yes != "$xe_cv_LDAP_OPT_ON_links";then
+	    ldap_needs_lber=yes ldap_other_libs=-llber
+	    AC_CACHE_CHECK([LDAP_OPT_ON linking with -llber],
+	      xe_cv_LDAP_OPT_ON_links_w_lber,
+	      [xe_save_LIBS="$LIBS"
+	      LIBS="-lldap $ldap_other_libs $LIBS"
+AC_TRY_LINK(
+[#include <lber.h>
+#include <ldap.h>
+const void *const v = LDAP_OPT_ON;],[],
+	      xe_cv_LDAP_OPT_ON_links_w_lber=yes,
+	      xe_cv_LDAP_OPT_ON_links_w_lber=no)
+	      LIBS="$xe_save_LIBS"])
+	    if test yes != "$xe_cv_LDAP_OPT_ON_links_w_lber";then
+	      with_ldap=no
+	    fi
+	  fi
+	fi
+      fi
       if test yes = "$with_ldap";then
 	if test yes = "$ldap_needs_des";then
 	  XE_PREPEND(-ldes, ldap_libs)
