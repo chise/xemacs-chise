@@ -1,3 +1,9 @@
+2006-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el: Add some mappings between CNS 11643-6 and
+	CJK Ext-B code points.
+	(M-34799): Map to U-00027808.
+
 2006-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U+4EFF): Move S1-0167 to JSP-3051.
