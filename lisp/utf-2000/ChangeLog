@@ -1,3 +1,12 @@
+2006-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-35209): Map to U-0002795E.
+	(M-35210): Map to U-0002795F.
+	(M-35355): Map to U-000279A0.
+	(M-35495): Don't map to U+46D6 and C3-445E.
+
 2006-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R147-See.el: Add some mappings between CNS 11643-6 and
