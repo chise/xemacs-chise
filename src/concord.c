@@ -779,6 +779,31 @@ Return the spec of OBJECT.
   return concord_object_spec_closure->spec;
 }
 
+DEFUN ("concord-define-object", Fconcord_define_object, 2, 3, 0, /*
+Define an object of which spec is a set of features SPEC.
+*/
+       (spec, genre, ds))
+{
+  Lisp_Object id = Fcdr (Fassq (Q_id, spec));
+  Lisp_Object obj;
+
+  if (!NILP (id))
+    {
+      Lisp_Object rest = spec;
+      Lisp_Object cell;
+
+      obj = Fconcord_make_object (genre, id, ds);
+      while (!NILP (rest))
+	{
+	  cell = Fcar (rest);
+	  Fconcord_object_put (obj, Fcar (cell), Fcdr (cell));
+	  rest = Fcdr (rest);
+	}
+      return obj;
+    }
+  return Qnil;
+}
+
 struct closure_for_each_object
 {
   Lisp_Object function;
@@ -990,6 +1015,7 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_decode_object);
   DEFSUBR (Fconcord_object_get);
   DEFSUBR (Fconcord_object_put);
+  DEFSUBR (Fconcord_define_object);
   DEFSUBR (Fconcord_object_spec);
   DEFSUBR (Fconcord_foreach_object_in_feature);
 }
