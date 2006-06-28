@@ -648,10 +648,9 @@ Return the value of OBJECT's FEATURE.
   return Qnil;
 }
 
-DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
-Store a VALUE of OBJECT's FEATURE.
-*/
-       (object, feature, value))
+static Lisp_Object
+concord_object_put (Lisp_Object object, Lisp_Object feature,
+		    Lisp_Object value)
 {
   struct gcpro gcpro1, gcpro2, gcpro3;
   int previous_print_readably;
@@ -664,7 +663,6 @@ Store a VALUE of OBJECT's FEATURE.
   Lisp_Object value_string;
   char* c_value;
 
-  CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
   previous_print_readably = print_readably;
@@ -700,7 +698,7 @@ Store a VALUE of OBJECT's FEATURE.
   status = chise_feature_sync (c_feature);
   if (status)
     return Qnil;
-  if (feature_name[0] == '=')
+  if (XSTRING_DATA(feature)[0] == '=')
     {
       CONCORD_INDEX c_index
 	= concord_genre_get_index (c_genre, feature_name);
@@ -708,6 +706,17 @@ Store a VALUE of OBJECT's FEATURE.
       concord_index_strid_put_obj (c_index, c_value, c_obj);
       concord_index_sync (c_index);
     }
+  return Qt;
+}
+
+DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
+Store a VALUE of OBJECT's FEATURE.
+*/
+       (object, feature, value))
+{
+  CHECK_CONCORD_OBJECT (object);
+  if ( NILP (concord_object_put (object, feature, value)) )
+    return Qnil;
   return Qt;
 }
 
