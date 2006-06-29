@@ -4699,6 +4699,12 @@ word_boundary_p (Emchar c1, Emchar c2)
 void
 syms_of_chartab (void)
 {
+#if defined(UTF2000) || defined(HAVE_CONCORD)
+  defsymbol (&Q_subsumptive,		"->subsumptive");
+  defsymbol (&Q_subsumptive_from,	"<-subsumptive");
+  defsymbol (&Q_denotational,		"->denotational");
+  defsymbol (&Q_denotational_from,	"<-denotational");
+#endif
 #ifdef UTF2000
   INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
@@ -4706,10 +4712,6 @@ syms_of_chartab (void)
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
-  defsymbol (&Q_subsumptive,		"->subsumptive");
-  defsymbol (&Q_subsumptive_from,	"<-subsumptive");
-  defsymbol (&Q_denotational,		"->denotational");
-  defsymbol (&Q_denotational_from,	"<-denotational");
   defsymbol (&Q_identical,		"->identical");
   defsymbol (&Q_identical_from,		"<-identical");
   defsymbol (&Q_component,		"->ideographic-component-forms");
