@@ -1,3 +1,14 @@
+2006-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (syms_of_chartab): Define
+	`{<-|->}{subsumptive|denotational}' when HAVE_CONCORD is defined.
+
+	* chartab.h (Q_denotational): New extern when UTF2000 or
+	HAVE_CONCORD is defined.
+	(Q_denotational_from): Likewise.
+	(Q_subsumptive): Likewise.
+	(Q_subsumptive_from): Likewise.
+
 2006-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (concord_object_put): New function.
