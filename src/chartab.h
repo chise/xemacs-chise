@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2006 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -54,6 +54,13 @@ extern Lisp_Object Qdowncase, Qflippedcase, Q_lowercase, Q_uppercase;
 extern CHISE_DS *default_chise_data_source;
 
 int open_chise_data_source_maybe (void);
+#endif
+
+#if defined(UTF2000) || defined(HAVE_CONCORD)
+extern Lisp_Object Q_denotational;
+extern Lisp_Object Q_denotational_from;
+extern Lisp_Object Q_subsumptive;
+extern Lisp_Object Q_subsumptive_from;
 #endif
 
 /************************************************************************/
