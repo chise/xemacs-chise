@@ -714,9 +714,77 @@ Store a VALUE of OBJECT's FEATURE.
 */
        (object, feature, value))
 {
+  Lisp_String* name;
+  Bufbyte *name_str;
+
   CHECK_CONCORD_OBJECT (object);
+  name = symbol_name (XSYMBOL (feature));
+  name_str = string_data (name);
   if ( NILP (concord_object_put (object, feature, value)) )
     return Qnil;
+  if ( EQ (feature, Q_subsumptive)		||
+       EQ (feature, Q_subsumptive_from)		||
+       EQ (feature, Q_denotational)		||
+       EQ (feature, Q_denotational_from)	||
+       ( ( ((name_str[0] == '-') && (name_str[1] == '>')) ||
+	   ((name_str[0] == '<') && (name_str[1] == '-')) )
+	 && (memchr (name_str, '*', name->size) == NULL) ) )
+    {
+      Lisp_Object rest = value;
+      Lisp_Object ret;
+      Lisp_Object rev_feature = Qnil;
+      struct gcpro gcpro1;
+
+      GCPRO1 (rev_feature);
+      if (EQ (feature, Q_subsumptive))
+	rev_feature = Q_subsumptive_from;
+      else if (EQ (feature, Q_subsumptive_from))
+	rev_feature = Q_subsumptive;
+      else if (EQ (feature, Q_denotational))
+	rev_feature = Q_denotational_from;
+      else if (EQ (feature, Q_denotational_from))
+	rev_feature = Q_denotational;
+      else
+	{
+	  Bytecount length = string_length (name);
+	  Bufbyte *rev_name_str = alloca (length + 1);
+
+	  memcpy (rev_name_str + 2, name_str + 2, length - 2);
+	  if (name_str[0] == '<')
+	    {
+	      rev_name_str[0] = '-';
+	      rev_name_str[1] = '>';
+	    }
+	  else
+	    {
+	      rev_name_str[0] = '<';
+	      rev_name_str[1] = '-';
+	    }
+	  rev_name_str[length] = 0;
+	  rev_feature = intern (rev_name_str);
+	}
+
+      while (CONSP (rest))
+	{
+	  ret = XCAR (rest);
+
+	  if ( CONCORD_OBJECT_P (ret) && !EQ (ret, object) )
+	    {
+	      Lisp_Object ffv;
+
+	      ffv = Fconcord_object_get (ret, rev_feature);
+	      if (!CONSP (ffv))
+		concord_object_put (ret, rev_feature, list1 (object));
+	      else if (NILP (Fmemq (object, ffv)))
+		concord_object_put
+		  (ret, rev_feature,
+		   nconc2 (Fcopy_sequence (ffv), list1 (object)));
+	      Fsetcar (rest, ret);
+	    }
+	  rest = XCDR (rest);
+	}
+      UNGCPRO;
+    }
   return Qt;
 }
 
