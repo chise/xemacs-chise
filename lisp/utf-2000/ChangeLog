@@ -1,3 +1,7 @@
+2006-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Add mappings for Big5 code points.
+
 2006-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el: Add some mappings between CNS 11643-6
