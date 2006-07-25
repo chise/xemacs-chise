@@ -1,3 +1,14 @@
+2006-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R153-Badger.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-36533): Unify U+475B.
+	(M-36534): Map to U-00027CBA.
+	(M-36535): Unify U-00027CBB.
+	(C6-5851): Unify U-00027CC3 and M-36545.
+	(U+475C): Use `->denotational' and `->subsumptive'.
+	(U-00027CD9): Use `->subsumptive'.
+
 2006-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el: Add mappings for Big5 code points.
