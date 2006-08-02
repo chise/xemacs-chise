@@ -1,3 +1,8 @@
+2006-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R155-Red.el: Add some mappings between CNS 11643-6 and
+	CJK Ext-B code points.
+
 2006-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R152-Pig.el: Add some mappings between CNS 11643-6 and
