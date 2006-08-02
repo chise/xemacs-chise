@@ -36120,12 +36120,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 210 12)
-    (=ucs		. #x27D70)	; 𧵰
-    (=hanziku-1		. #xD1AC)	; &I-HZK01-D1AC;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 218 8)
     (ideographic-structure
      (:cdp-combinator	4)
