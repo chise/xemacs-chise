@@ -1,5 +1,20 @@
 2006-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U+8CC5): Use `->subsumptive'.
+	(C6-5862): Unify U-00027D70 and H1-D1AC.
+	(U+8CD5): Use `->subsumptive'.
+	(U+8CE6): Use `ideographic-strokes@daikanwa' instead of
+	`ideographic-strokes'; use `ideographic-strokes@cns' instead of
+	`kangxi-strokes'; add `total-strokes@daikanwa'; use
+	`total-strokes@cns' instead of `total-strokes'.
+	(U+477E): Unify M-36801.
+	(U-00027D96): New character.
+
+	* Ideograph-R009-Man.el (U-00027D70): Moved into
+	Ideograph-R154-Shell.el.
+
 	* Ideograph-R155-Red.el: Add some mappings between CNS 11643-6 and
 	CJK Ext-B code points.
 
