@@ -1,3 +1,52 @@
+2006-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U-00027FBB): Use `->subsumptive'.
+	(M-37372): Unify U-00027FC0 and C6-345A.
+	(M-37373): Unify U-00027FBE.
+	(M-37374): Unify U-00027FBD.
+	(U+8DB4): Use `->subsumptive'.
+	(U+8DB5): Use `->denotational'.
+	(G0-7540): Use `<-denotational' for U+8DB5; unify JC3-80AA.
+	(C6-3C40): Unify U-00027FC4 and M-37382.
+	(U+47D5): Use `->subsumptive'.
+	(U+8DB9): Use `->denotational' and `->subsumptive'.
+	(U+47D8): Use `->subsumptive'.
+	(U+47D9): Likewise.
+	(U+47DC): Use `->denotational' and `->subsumptive'.
+	(U-00027FD7): Use `->subsumptive'.
+	(U+47DD): Use `->subsumptive'.
+	(U+47DE): Use `->subsumptive'.
+	(U-00027FDD): Use `->subsumptive'.
+	(U+8DC5): Use `->subsumptive'.
+	(U+47DF): Use `->subsumptive'.
+	(U+8DCE): Use `->subsumptive'; integrate JC3-66C9.
+	(U+47EA): Use `->subsumptive'.
+	(U+8DD0): Use `->subsumptive'.
+	(C6-5872): Unify U-00028022 and M-37519'.
+	(U+8DED): Use `->subsumptive'.
+	(U-00028027): Unify M-37531.
+	(U+8DFE): Use `->subsumptive'.
+	(C6-6322): Unify U-00028040 and H1-D34C.
+	(U+47F8): Use `->subsumptive'.
+	(U+8E06): Use `->denotational' and `->subsumptive'.
+	(U+47FD): Use `->subsumptive'.
+	(U+8E0C): Use `->subsumptive'.
+
+	* Ideograph-R158-Body.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U+4837): Use `->subsumptive'.
+	(U+4838): Likewise.
+	(U+8EB2): Use `->subsumptive'.
+	(U+4839): Use `->subsumptive'.
+	(U+8EB3): Use `->denotational'.
+	(U+8EB4): Use `->subsumptive'.
+	(U-0002824B): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U-00028040): Moved to
+	Ideograph-R157-Foot.el.
+
 2006-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el: Add some mappings between CNS 11643-6
