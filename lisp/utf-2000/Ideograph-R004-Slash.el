@@ -1546,22 +1546,6 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 39 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x592D)	; 夭
-      )
-     ((=big5-cdp	  . #x8B68)	; &CDP-8B68;
-      ))
-    (=ucs		. #x27E86)	; 𧺆
-    (=hanziku-1		. #xABF7)	; &I-HZK01-ABF7;
-    ))
-(define-char
-  '((ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
     (=gt		. 00206)	; &GT-00206;
     (=gt-pj-2		. #x3138)	; &GT-00206; [17-24]
     ))
