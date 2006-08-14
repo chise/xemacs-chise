@@ -1,5 +1,28 @@
 2006-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R156-Run.el: Add some mappings between CNS 11643-6 and
+	CJK Ext-B code points.
+	(C6-2E32): Unify U-00027E86 and H1-ABF7.
+	(U+4796): Use `->subsumptive'.
+	(M-37044): Unify U-00027E99.
+	(U+8D79): Use `->subsumptive'.
+	(U+8D7A): Use `->subsumptive'.
+	(U+479A): Use `->subsumptive'.
+	(U+8D7D): Use `->subsumptive'.
+	(U+8D87): Use `->subsumptive'.
+	(C6-626D): Map to U-00027EEC and M-37125.
+	(U-00027ED5): Use `->subsumptive'.
+	(C6-5869): Unify U-00027EDC and M-37140.
+	(M-37142): Unify U-00027EDE instead of U+8D93.
+	(U+8D93): Don't map to M-37142; use `->subsumptive'.
+	(U+47AD): Use `->denotational' and `->subsumptive'.
+	(U+47B1): Use `->subsumptive'.
+	(U+8D98): Use `->subsumptive'.
+	(U+8D99): Use `->denotational' and `->subsumptive'.
+	(U+8D9A): Use `->subsumptive'.
+
+2006-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R157-Foot.el: Add some mappings between CNS 11643-6
 	and CJK Ext-B code points.
 	(U-00027FBB): Use `->subsumptive'.
@@ -46,6 +69,9 @@
 
 	* Ideograph-R009-Man.el (U-00028040): Moved to
 	Ideograph-R157-Foot.el.
+
+	* Ideograph-R004-Slash.el (U-00027E86): Moved to
+	Ideograph-R156-Run.el.
 
 2006-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
