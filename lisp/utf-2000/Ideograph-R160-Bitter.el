@@ -82,8 +82,15 @@
   '((ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3C48)	; &M-38632; [28-40]
-    (=daikanwa		. 38632)	; &I-M-38632;
+    (=ucs		. #x2840D)	; 𨐍
+    (->subsumptive
+     ((=daikanwa	  . 38632)	; &M-38632;
+      )
+     ((hanyu-dazidian	  6 4036 4)
+      (=cns11643-6	  . #x3C48)	; &HZK10-F0FC; [28-40]
+      (=hanziku-10	  . #xF0FC)	; &I-HZK10-F0FC;
+      (=ucs@iso		  . #x2840D)	; &HZK10-F0FC;
+      ))
     ))
 (define-char
   '((=>ucs		. #x28410)	; 𨐐
@@ -177,14 +184,16 @@
   '((ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (=daikanwa		. 38635)	; &M-38635;
-    ))
-(define-char
-  '((morohashi-daikanwa	38635 0 1)
-    (ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (=cns11643-6	. #x454F)	; &C6-454F; [37-47]
+    (=ucs		. #x2840F)	; 𨐏
+    (->subsumptive
+     ((=daikanwa	  . 38635)	; &M-38635;
+      )
+     ((hanyu-dazidian	  6 4036 5)
+      (=hanziku-10	  . #xF0FD)	; &HZK10-F0FD;
+      (=ucs@iso		  . #x2840F)	; &HZK10-F0FD;
+      )
+     ((=cns11643-6	  . #x454F)	; &C6-454F; [37-47]
+      ))
     ))
 (define-char
   '((=>ucs		. #x8F9C)	; 辜
@@ -290,8 +299,15 @@
   '((ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x592A)	; &M-38640; [57-10]
-    (=daikanwa		. 38640)	; &I-M-38640;
+    (=ucs		. #x28415)	; 𨐕
+    (->subsumptive
+     ((=daikanwa	  . 38640)	; &M-38640;
+      )
+     ((hanyu-dazidian	  6 4037 7)
+      (=cns11643-6	  . #x592A)	; &HZK10-F160; [57-10]
+      (=hanziku-10	  . #xF160)	; &I-HZK10-F160;
+      (=ucs@iso		  . #x28415)	; &HZK10-F160;
+      ))
     ))
 (define-char
   '((=>ucs		. #x28418)	; 𨐘
@@ -945,33 +961,15 @@
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟
-    (hanyu-dazidian	6 4036 4)
-    (=ucs		. #x2840D)	; 𨐍
-    (=hanziku-10	. #xF0FC)	; &I-HZK10-F0FC;
-    ))
-(define-char
-  '((ideographic-radical . 160)	; ⾟
     (hanyu-dazidian	8 41 2)
     (=ucs		. #x2840E)	; 𨐎
     (=hanziku-12	. #xF0AE)	; &I-HZK12-F0AE;
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟
-    (hanyu-dazidian	6 4036 5)
-    (=ucs		. #x2840F)	; 𨐏
-    (=hanziku-10	. #xF0FD)	; &I-HZK10-F0FD;
-    ))
-(define-char
-  '((ideographic-radical . 160)	; ⾟
     (hanyu-dazidian	6 4037 1)
     (=ucs		. #x28413)	; 𨐓
     (=hanziku-10	. #xF15A)	; &I-HZK10-F15A;
-    ))
-(define-char
-  '((ideographic-radical . 160)	; ⾟
-    (hanyu-dazidian	6 4037 7)
-    (=ucs		. #x28415)	; 𨐕
-    (=hanziku-10	. #xF160)	; &I-HZK10-F160;
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟
