@@ -1,3 +1,30 @@
+2006-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JSP-4466): Separate H4-AC41; modify
+	`ideographic-structure'.
+
+	* Ideograph-R159-Cart.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U+4842): Use `->subsumptive'.
+	(U+8ED0): Likewise.
+	(U+4846): Likewise.
+	(U+8ED7): Likewise.
+	(U+4848): Likewise.
+	(U+4849): Likewise.
+	(U+484A): Use `->denotational'.
+	(U+8EDC): Use `->denotational' and `->subsumptive'.
+	(U+8EE1): Use `->subsumptive'.
+	(U+8EF1): Likewise; delete `japanese-strokes'.
+	(U+4850): Use `->subsumptive'.
+	(U+8F0E): Use `->denotational' and `->subsumptive'.
+	(U+8F0F): Use `->subsumptive'.
+	(U+4859): Likewise.
+
+2006-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
 2006-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R156-Run.el: Add some mappings between CNS 11643-6 and
