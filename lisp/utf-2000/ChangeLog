@@ -1,5 +1,7 @@
 2006-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4324.
+
 	* Ideograph-R075-Tree.el (JSP-4466): Separate H4-AC41; modify
 	`ideographic-structure'.
 
