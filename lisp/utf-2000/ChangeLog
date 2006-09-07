@@ -1,3 +1,15 @@
+2006-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
+	* Oracle-Bones.el:
+	- Add `ideographic-structure' for some characters.
+	- Add missing sources for some characters.
+	- Add new characters.
+	(ZOB-0018): Add `ideographic-structure'; use GT-K00118 instead of
+	<HIRAGANA LETTER KU> in `<-Oracle-Bones'.
+
 2006-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Add some mappings between CNS 11643-6
