@@ -1,3 +1,11 @@
+2006-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-0007): Fix `ideographic-structure'.
+	(ZOB-0025): Likewise.
+	(ZOB-0130): Likewise.
+	(ZOB-0244): Likewise.
+	(ZOB-{0321..0339}): New character.
+
 2006-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el: Add some mappings between CNS 11643-6
