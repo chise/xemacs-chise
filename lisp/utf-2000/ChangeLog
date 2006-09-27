@@ -1,3 +1,14 @@
+2006-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (M-37637): Add `<-formed' and `<-same'
+	for M-16311.
+	(U-000281B0): Add `<-formed' add `<-same' for U-0002397E.
+	(U+8E8C): Use `->subsumptive'.
+
+2006-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el: Add some character relations.
+
 2006-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el: Add some character relations.
