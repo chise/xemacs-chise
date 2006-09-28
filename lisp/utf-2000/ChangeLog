@@ -1,3 +1,16 @@
+2006-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for
+	J90-{475B|6E47|4371|3F5D|6E49|4D6F|3C72|3D37|6E4C}.
+
+2006-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U+9168): Copied from
+	Ideograph-R164-Wine.el.
+
 2006-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el (M-37637): Add `<-formed' and `<-same'
