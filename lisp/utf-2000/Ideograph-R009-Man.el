@@ -5253,19 +5253,6 @@
 	))
       (=cns11643-1	  . #x487D)	; &C1-487D; [40-93]
       )
-     ((ideographic-strokes . 5)
-      (total-strokes	   . 7)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=cns11643-1	    . #x4568)	; &C1-4568; [37-72]
-	))
-      (=cns11643-1	  . #x487D)	; &C1-487D; [40-93]
-      )
      ((ideographic-strokes . 4)
       (total-strokes	   . 6)
       (ideographic-structure
