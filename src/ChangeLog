@@ -1,3 +1,30 @@
+2006-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_object_put): Add reversed links when FEATURE
+	is a relation feature.
+
+2006-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (syms_of_chartab): Define
+	`{<-|->}{subsumptive|denotational}' when HAVE_CONCORD is defined.
+
+	* chartab.h (Q_denotational): New extern when UTF2000 or
+	HAVE_CONCORD is defined.
+	(Q_denotational_from): Likewise.
+	(Q_subsumptive): Likewise.
+	(Q_subsumptive_from): Likewise.
+
+2006-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (concord_object_put): New function.
+	(Fconcord_object_put): Use `concord_object_put'.
+
+2006-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_define_object): New function.
+	(syms_of_concord): Add new builtin function
+	`concord-define-object'.
+
 2006-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.23

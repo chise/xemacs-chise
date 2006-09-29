@@ -1287,6 +1287,27 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 164)	; ⾣
+    (ideographic-strokes@ucs . 6)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 62)	; ⼽
+    (ideographic-strokes@cns . 9)
+    (total-strokes	 . 13)
+    (=ucs		. #x9168)	; 酨
+    (->subsumptive
+     ((ideographic-radical . 164)	; ⾣
+      (ideographic-strokes . 6)
+      (=daikanwa	  . 39842)	; &M-39842;
+      )
+     ((ideographic-radical . 62)	; ⼽
+      (ideographic-strokes . 9)
+      (=cns11643-2	  . #x4279)	; &C2-4279; [34-89]
+      )
+     ((=ucs@unicode	  . #x9168)	; &UU+9168;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 10)
     (total-strokes	 . 14)

@@ -15318,6 +15318,19 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6728)	; 木
+	)
+       ((=cns11643-1	    . #x5849)	; &C1-5849; [56-41]
+	))
+      (=jis-x0212	  . #x4466)	; &M-15312; [36-70]
+      (=daikanwa	  . 15312)	; &I-M-15312;
+      (=cbeta		  . 02533)	; &I-CB02533;
+      (=ucs@unicode	  . #x69C8)	; &M-15312;
+      )
      ((hanyu-dazidian	  2 1263 1)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -15325,14 +15338,9 @@
 	)
        ((=ucs		    . #x6728)	; 木
 	)
-       ((=gb2312	    . #x4868)	; &C1-5849; [40-72]
-	(=cns11643-1	    . #x5849)	; &I-C1-5849; [56-41]
+       ((=gb2312	    . #x4868)	; &G0-4868; [40-72]
 	))
-      (=jis-x0212	  . #x4466)	; &M-15312; [36-70]
-      (=daikanwa	  . 15312)	; &I-M-15312;
-      (=hanziku-4	  . #xAC41)	; &I-HZK04-AC41;
-      (=cbeta		  . 02533)	; &I-CB02533;
-      (=ucs@unicode	  . #x69C8)	; &M-15312;
+      (=hanziku-4	  . #xAC41)	; &HZK04-AC41;
       )
      ((=cns11643-3	  . #x473C)	; &C3-473C; [39-28]
       ))

@@ -648,10 +648,9 @@ Return the value of OBJECT's FEATURE.
   return Qnil;
 }
 
-DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
-Store a VALUE of OBJECT's FEATURE.
-*/
-       (object, feature, value))
+static Lisp_Object
+concord_object_put (Lisp_Object object, Lisp_Object feature,
+		    Lisp_Object value)
 {
   struct gcpro gcpro1, gcpro2, gcpro3;
   int previous_print_readably;
@@ -664,7 +663,6 @@ Store a VALUE of OBJECT's FEATURE.
   Lisp_Object value_string;
   char* c_value;
 
-  CHECK_CONCORD_OBJECT (object);
   if ( !STRINGP(feature) )
     feature = Fsymbol_name (feature);
   previous_print_readably = print_readably;
@@ -700,13 +698,92 @@ Store a VALUE of OBJECT's FEATURE.
   status = chise_feature_sync (c_feature);
   if (status)
     return Qnil;
-  if (feature_name[0] == '=')
+  if (XSTRING_DATA(feature)[0] == '=')
     {
       CONCORD_INDEX c_index
 	= concord_genre_get_index (c_genre, feature_name);
 
       concord_index_strid_put_obj (c_index, c_value, c_obj);
       concord_index_sync (c_index);
+    }
+  return Qt;
+}
+
+DEFUN ("concord-object-put", Fconcord_object_put, 3, 3, 0, /*
+Store a VALUE of OBJECT's FEATURE.
+*/
+       (object, feature, value))
+{
+  Lisp_String* name;
+  Bufbyte *name_str;
+
+  CHECK_CONCORD_OBJECT (object);
+  name = symbol_name (XSYMBOL (feature));
+  name_str = string_data (name);
+  if ( NILP (concord_object_put (object, feature, value)) )
+    return Qnil;
+  if ( EQ (feature, Q_subsumptive)		||
+       EQ (feature, Q_subsumptive_from)		||
+       EQ (feature, Q_denotational)		||
+       EQ (feature, Q_denotational_from)	||
+       ( ( ((name_str[0] == '-') && (name_str[1] == '>')) ||
+	   ((name_str[0] == '<') && (name_str[1] == '-')) )
+	 && (memchr (name_str, '*', name->size) == NULL) ) )
+    {
+      Lisp_Object rest = value;
+      Lisp_Object ret;
+      Lisp_Object rev_feature = Qnil;
+      struct gcpro gcpro1;
+
+      GCPRO1 (rev_feature);
+      if (EQ (feature, Q_subsumptive))
+	rev_feature = Q_subsumptive_from;
+      else if (EQ (feature, Q_subsumptive_from))
+	rev_feature = Q_subsumptive;
+      else if (EQ (feature, Q_denotational))
+	rev_feature = Q_denotational_from;
+      else if (EQ (feature, Q_denotational_from))
+	rev_feature = Q_denotational;
+      else
+	{
+	  Bytecount length = string_length (name);
+	  Bufbyte *rev_name_str = alloca (length + 1);
+
+	  memcpy (rev_name_str + 2, name_str + 2, length - 2);
+	  if (name_str[0] == '<')
+	    {
+	      rev_name_str[0] = '-';
+	      rev_name_str[1] = '>';
+	    }
+	  else
+	    {
+	      rev_name_str[0] = '<';
+	      rev_name_str[1] = '-';
+	    }
+	  rev_name_str[length] = 0;
+	  rev_feature = intern (rev_name_str);
+	}
+
+      while (CONSP (rest))
+	{
+	  ret = XCAR (rest);
+
+	  if ( CONCORD_OBJECT_P (ret) && !EQ (ret, object) )
+	    {
+	      Lisp_Object ffv;
+
+	      ffv = Fconcord_object_get (ret, rev_feature);
+	      if (!CONSP (ffv))
+		concord_object_put (ret, rev_feature, list1 (object));
+	      else if (NILP (Fmemq (object, ffv)))
+		concord_object_put
+		  (ret, rev_feature,
+		   nconc2 (Fcopy_sequence (ffv), list1 (object)));
+	      Fsetcar (rest, ret);
+	    }
+	  rest = XCDR (rest);
+	}
+      UNGCPRO;
     }
   return Qt;
 }
@@ -777,6 +854,31 @@ Return the spec of OBJECT.
 				      add_feature_to_spec_mapper);
   UNGCPRO;
   return concord_object_spec_closure->spec;
+}
+
+DEFUN ("concord-define-object", Fconcord_define_object, 2, 3, 0, /*
+Define an object of which spec is a set of features SPEC.
+*/
+       (spec, genre, ds))
+{
+  Lisp_Object id = Fcdr (Fassq (Q_id, spec));
+  Lisp_Object obj;
+
+  if (!NILP (id))
+    {
+      Lisp_Object rest = spec;
+      Lisp_Object cell;
+
+      obj = Fconcord_make_object (genre, id, ds);
+      while (!NILP (rest))
+	{
+	  cell = Fcar (rest);
+	  Fconcord_object_put (obj, Fcar (cell), Fcdr (cell));
+	  rest = Fcdr (rest);
+	}
+      return obj;
+    }
+  return Qnil;
 }
 
 struct closure_for_each_object
@@ -990,6 +1092,7 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_decode_object);
   DEFSUBR (Fconcord_object_get);
   DEFSUBR (Fconcord_object_put);
+  DEFSUBR (Fconcord_define_object);
   DEFSUBR (Fconcord_object_spec);
   DEFSUBR (Fconcord_foreach_object_in_feature);
 }
