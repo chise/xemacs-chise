@@ -57,6 +57,8 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=gt-k		. 00153)	; &GT-K00153;
+    (=gt-pj-k2		. #x4069)	; &GT-K00153; [32-73]
     (mojikyo		. 070816)	; &MCS-600114A0;
     ))
 (define-char
