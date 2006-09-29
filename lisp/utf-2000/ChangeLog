@@ -26,6 +26,10 @@
 
 	* Ideograph-R076-Lack.el: Add some character relations.
 
+2006-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (M070816): Unify GT-K00153.
+
 2006-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-0007): Fix `ideographic-structure'.
