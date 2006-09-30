@@ -55,9 +55,17 @@
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=gt-k		. 00153)	; &GT-K00153;
+    (=gt-pj-k2		. #x4069)	; &GT-K00153; [32-73]
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=daikanwa		. 02776)	; &M-02776;
+    (=ucs		. #x209D2)	; 𠧒
+    (=daikanwa		. 02776)	; &I-M-02776;
     (=cbeta		. 00855)	; &I-CB00855;
     ))
 (define-char
