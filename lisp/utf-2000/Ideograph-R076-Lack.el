@@ -1788,7 +1788,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x6B3D)	; 欽
     (->subsumptive
-     ((shinjigen-2	  . 3928)
+     ((shinjigen-1	  . 3928)
+      (shinjigen-2	  . 3928)
       (=jis-x0208	  . #x3656)	; &GT-20698; [22-54]
       (=ks-x1001	  . #x7D63)	; &I-K0-7D63; [93-67]
       (=cns11643-1	  . #x6023)	; &I-C1-6023; [64-03]
@@ -1807,12 +1808,41 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=ucs		. #x238CC)	; 𣣌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x238CC)	; 𣣌
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=daikanwa		. 16106)	; &M-16106;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x238CC)	; 𣣌
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (->subsumptive
+     ((=ucs@iso		  . #x238CC)	; &U-000238CC;
+      )
+     ((=cns11643-5	  . #x3945)	; &C5-3945; [25-37]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=ucs		. #x6B3E)	; 款
     (->subsumptive
      ((=cns11643-1	  . #x6021)	; &M-16107; [64-01]
       (=daikanwa	  . 16107)	; &I-M-16107;
       )
-     ((shinjigen-2	  . 3922)
+     ((shinjigen-1	  . 3922)
+      (shinjigen-2	  . 3922)
       (=jis-x0208	  . #x343E)	; &GT-20691; [20-30]
       (=ks-x1001	  . #x4E33)	; &I-K0-4E33; [46-19]
       (=gt		  . 20691)	; &I-GT-20691;
@@ -1823,6 +1853,19 @@
      ((=gb2312		  . #x3F6E)	; &G0-3F6E; [31-78]
       (=big5		  . #xB4DA)	; &I-B-B4DA;
       (=ucs@unicode	  . #x6B3E)	; &G0-3F6E;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs		. #x238CD)	; 𣣍
+    (->subsumptive
+     ((=daikanwa	  . 16108)	; &M-16108;
+      )
+     ((=ucs@iso		  . #x238CD)	; &U-000238CD;
+      )
+     ((=cns11643-6	  . #x4A3C)	; &C6-4A3C; [42-28]
       ))
     ))
 (define-char
@@ -1947,20 +1990,6 @@
     (total-strokes	 . 12)
     (=ucs		. #x238C9)	; 𣣉
     (=cns11643-5	. #x3947)	; &I-C5-3947; [25-39]
-    ))
-(define-char
-  '((ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=ucs		. #x238CC)	; 𣣌
-    (=cns11643-5	. #x3945)	; &I-C5-3945; [25-37]
-    ))
-(define-char
-  '((ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=ucs		. #x238CD)	; 𣣍
-    (=cns11643-6	. #x4A3C)	; &I-C6-4A3C; [42-28]
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
