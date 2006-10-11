@@ -1,3 +1,19 @@
+2006-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (J0-3656): Add S1-3928.
+	(U-000238CC): Use `->denotational' and `->subsumptive'.
+	(M-16106): New character; use `<-denotational' for U-000238CC.
+	(J0-343E): Add S1-3922.
+	(U-000238CD): Use `->subsumptive'; integrate M-16108.
+
+	* Ideograph-R017-Open-Box.el (U+51F6): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U-0002054B): Use `->denotational'
+	instead of `->subsumptive'.
+	(BC-88AE): New character; use `<-denotational' for U-0002054B.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3B44.
+
 2006-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R025-Divination.el (GT-K00153): New character.
