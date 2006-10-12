@@ -666,8 +666,13 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x26552)	; 𦕒
-    (=cns11643-4	. #x3442)	; &I-C4-3442; [20-34]
-    (=daikanwa		. 29046)	; &I-M-29046;
+    (->subsumptive
+     ((=cns11643-4	  . #x3442)	; &M-29046; [20-34]
+      (=daikanwa	  . 29046)	; &I-M-29046;
+      (=ucs@iso		  . #x26552)	; &M-29046;
+      )
+     ((=hanziku-7	  . #xEBC9)	; &HZK07-EBC9;
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
