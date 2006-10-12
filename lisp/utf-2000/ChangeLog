@@ -1,3 +1,12 @@
+2006-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+843D): Use `->denotational'.
+	(C1-662F): Use `<-denotational' for U+843D; add `->formed' and
+	`->synonyms@s=die' for U-000239F3.
+
+	* Ideograph-R132-Self.el (U-0002691A): Add `<-formed' and `<-same'
+	for C5-2967.
+
 2006-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el (J0-3656): Add S1-3928.
