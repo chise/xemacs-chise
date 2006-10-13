@@ -1,5 +1,7 @@
 2006-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R078-Death.el: Add some character relations.
+
 	* Ideograph-R128-Ear.el (U-00026552): Use `->subsumptive';
 	integrate H7-EBC9.
 
