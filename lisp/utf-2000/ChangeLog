@@ -1,3 +1,13 @@
+2006-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (U-00026552): Use `->subsumptive';
+	integrate H7-EBC9.
+
+	* Ideograph-R104-Sickness.el (U+3F90): Use `->subsumptive';
+	integrate M-22165.
+	(U+75D4): Use `->denotational' and `->subsumptive'.
+	(U+75D5): Use `->subsumptive'.
+
 2006-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+843D): Use `->denotational'.
