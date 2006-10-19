@@ -1,3 +1,22 @@
+2006-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R166-Village.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-40142): Map to U-0002892B.
+
+	* Ideograph-R165-Distinguish.el: Add some mappings between CNS
+	11643-6 and CJK Ext-B code points.
+
+2006-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (U+9AB2): Use `->denotational' and
+	`->subsumptive'.
+	(U+4BCA): Likewise.
+	(U+4BCB): Likewise.
+	(U+4BCC): Likewise.
+	(U+9AB3): Likewise.
+	(U+9AB4): Likewise.
+
 2006-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R078-Death.el: Add some character relations.
