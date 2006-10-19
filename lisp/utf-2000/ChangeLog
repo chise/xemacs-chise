@@ -1,3 +1,20 @@
+2006-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R168-Long.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-41116): Unify U-00028C60.
+	(M-41117): Unify U-00028C61 and H10-F470.
+	(M-41118): Unify U-00028C63.
+	(U-00028C86): Use `->denotational'.
+	(U-00028C89): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U-00020B54): Use `->subsumptive';
+	integrate C6-3C67 and M-41563; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-{radical|strokes}@cns*sources'.
+
 2006-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R166-Village.el: Add some mappings between CNS 11643-6
