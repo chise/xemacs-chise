@@ -1,5 +1,31 @@
 2006-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R170-Mound.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-41554): Unify U-00028E19.
+	(C6-3C67): Use `<-subsumptive' for U-00020B54; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-{radical|strokes}@cns*sources'.
+	(M-41575): Unify U-00028E25.
+	(C6-457D): Unify U-00020072 and H1-AA59; don't map to M-41575; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add `<-unknown' for
+	U-00028E25.
+	(C6-457E): Unify U-000200C2 and H12-EB4A; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(C6-346F): Map to U-00028E55 and M-41641.
+	(C6-5023): Map to U-00028EA5 and M-41737.
+	(C7-3D33): Map to U-00028EEA.
+	(C6-5961): Map to U-00028ED8 and M-41803.
+
+	* Ideograph-R027-Cliff.el (U-00020A83): Add `ideographic-strokes'
+	and `total-strokes'; add `<-unknown' for M-00159.
+
 	* Ideograph-R169-Gate.el: Add some mappings between CNS 11643-6
 	and CJK Ext-B code points.
 	(C6-3C66): Map to U-00028CCF.
