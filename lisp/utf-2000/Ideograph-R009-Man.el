@@ -36120,43 +36120,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 169 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((=big5-cdp	  . #x88B9)	; &CDP-88B9;
-      )
-     ((name		  . "CJK RADICAL SMALL ONE")
-      (=ucs		  . #x2E8C)	; ⺌
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
-    (=ucs		. #x2893E)	; 𨤾
-    (=hanziku-1		. #xC950)	; &I-HZK01-C950;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 186 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((=ucs		  . #x4E37)	; 丷
-      )
-     ((=big5-cdp	  . #x884C)	; &CDP-884C;
-      ))
-    (=ucs		. #x28944)	; 𨥄
-    (=hanziku-1		. #xCCB6)	; &I-HZK01-CCB6;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 199 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
