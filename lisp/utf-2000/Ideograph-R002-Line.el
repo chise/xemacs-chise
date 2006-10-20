@@ -621,8 +621,10 @@
     (=daikanwa		. 48905)	; &I-M-48905;
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 10)
+  '((ideographic-radical@ucs . 2)	; ⼁
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@cns . 170)	; ⾩
+    (ideographic-strokes@cns . 4)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 30 8)
     (ideographic-structure
@@ -634,7 +636,11 @@
      ((=ucs		  . #x4E95)	; 井
       ))
     (=ucs		. #x20072)	; 𠁲
+    (=cns11643-6	. #x457D)	; &I-C6-457D; [37-93]
     (=hanziku-1		. #xAA59)	; &I-HZK01-AA59;
+    (<-unknown
+     ((=ucs		  . #x28E25)	; 𨸥
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
