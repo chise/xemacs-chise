@@ -1788,6 +1788,18 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (hanyu-dazidian	1 75 22)
+    (=ucs		. #x20A83)	; 𠪃
+    (=hanziku-1		. #xB3A4)	; &I-HZK01-B3A4;
+    (<-unknown
+     ((=gt		  . 00216)	; &GT-00216;
+      (=daikanwa	  . 00159)	; &I-M-00159;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (=cbeta		. 01395)	; &CB01395;
     ))
 (define-char
@@ -3415,12 +3427,6 @@
     (hanyu-dazidian	1 75 20)
     (=ucs		. #x20A82)	; 𠪂
     (=hanziku-1		. #xB3A2)	; &I-HZK01-B3A2;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 75 22)
-    (=ucs		. #x20A83)	; 𠪃
-    (=hanziku-1		. #xB3A4)	; &I-HZK01-B3A4;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
