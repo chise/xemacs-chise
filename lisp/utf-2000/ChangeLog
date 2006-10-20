@@ -1,5 +1,48 @@
 2006-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R169-Gate.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(C6-3C66): Map to U-00028CCF.
+	(U-00028CCF): Add `<-formed@shuowen-zhu' for M-41215 and
+	`<-formed@shuowen-zhu*sources'.
+	(M-41228): Map to U-00028CD5.
+	(U+4996): Use `->subsumptive' to integrate M-41291.
+
+	* Ideograph-R167-Gold.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(U+91DE): Use `->subsumptive'.
+	(U+91DF): Use `->subsumptive'.
+	(C6-3C64): Unify U-0002893E and H1-C950.
+	(M-49803): Separate C6-3C62.
+	(C6-3C62): Unify U-00028940; add `<-unknown' for M-49803.
+	(U+91E3): Use `->denotational'.
+	(C6-4577): Map to U-00028944; separate M-40194; use
+	`<-denotational' to integrate H1-CCB6.
+	(M-40194): Use `<-denotational' for U-00028944; unify H1-CCB6.
+	(U+491C): Use `->subsumptive'.
+	(U+91FE): Likewise.
+	(U+9204): Likewise.
+	(U+9206): Use `->subsumptive'.
+	(U+9220): Use `->subsumptive'.
+	(U+9268): Likewise.
+	(U+9269): Use `->denotational'.
+	(U-00028983): New character; unify M-40344.
+	(U+92A0): Use `->subsumptive'.
+	(U+92A4): Use `->subsumptive'.
+	(U+92A5): Use `->subsumptive'.
+	(U+92A8): Use `->subsumptive'.
+
+	* Ideograph-R004-Slash.el (U-000200C2): Unify C6-457E and M-41609;
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'.
+
+	* Ideograph-R002-Line.el (U-00020072): Unify C6-457D; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; add `<-unknown' for
+	U-00028E25.
+
 	* Ideograph-R168-Long.el: Add some mappings between CNS 11643-6
 	and CJK Ext-B code points.
 	(M-41116): Unify U-00028C60.
@@ -14,6 +57,10 @@
 	`ideographic-{radical|strokes}'; add
 	`ideographic-{radical|strokes}@cns' and
 	`ideographic-{radical|strokes}@cns*sources'.
+
+	* Ideograph-R009-Man.el (U-0002893E): Moved into
+	Ideograph-R167-Gold.el.
+	(U-00028944): Likewise.
 
 2006-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
