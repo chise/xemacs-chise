@@ -1,3 +1,16 @@
+2006-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el: Add some character relations.
+
+	* Ideograph-R171-Slave.el (U+96B6): Use `->subsumptive'.
+	(C6-596D): Map to U-00028F76.
+	(M-41925): Map to U-00028F77.
+	(U-00028F78): Use `->subsumptive'.
+
+	* Ideograph-R109-Eye.el (U+7762): Use `->subsumptive'.
+	(JX1-7877): Use `<-subsumptive' for U+7762; add J78i1-7033,
+	`<-error@jis/x0208' for J0-7033 and `<-error@jis/x0208*sources'.
+
 2006-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el: Add some mappings between CNS 11643-6
