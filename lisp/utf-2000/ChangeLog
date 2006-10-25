@@ -1,5 +1,25 @@
 2006-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R172-Short-Tailed-Bird.el: Add some mappings between
+	CNS 11643-6 and CJK Ext-B code points.
+	(U+49F1): Use `->subsumptive'.
+	(U+96BC): Use `->subsumptive'.
+	(U+96C2): Use `->subsumptive'.
+	(U+96CE): Use `->subsumptive'.
+	(M-42006): Map to U-00028FAC.
+	(M-42007): Map to U-00028FB0.
+	(M-42008): Map to U-00028FB1.
+	(U+96D0): Use `->subsumptive'.
+	(U-00028FC1): Use `->denotational' and `->subsumptive'.
+	(U-00028FC2): Use `->denotational'.
+	(M-42035): Map to U-00028FC7.
+
+	* Ideograph-R040-Roof.el (U+5BB0): Use `->subsumptive'.
+	(J0-3A4B): Use `<-subsumptive' for U+5BB0; add
+	`<-formed@synonymous' for M-16662.
+
+2006-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R079-Weapon.el: Add some character relations.
 
 	* Ideograph-R171-Slave.el (U+96B6): Use `->subsumptive'.
