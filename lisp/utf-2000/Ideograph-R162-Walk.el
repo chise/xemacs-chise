@@ -6283,7 +6283,8 @@
     (<-same*sources
      shuowen-tongxundingsheng daikanwa)
     (<-synonyms
-     ((=ucs		  . #x8C5A)	; 豚
+     ((=jis-x0208	  . #x465A)	; &GT-48771; [38-58]
+      (=ks-x1001	  . #x544A)	; &I-K0-544A; [52-42]
       (=daikanwa	  . 36352)	; &I-M-36352;
       ))
     (<-synonyms*sources
