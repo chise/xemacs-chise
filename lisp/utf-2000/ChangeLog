@@ -1,5 +1,7 @@
 2006-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R153-Badger.el: Add mappings for Big5 code points.
+
 	* Ideograph-R152-Pig.el: Add mappings for Big5 code points.
 
 2006-10-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
