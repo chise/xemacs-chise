@@ -573,6 +573,22 @@
     (=cns11643-6	. #x2E74)	; &I-C6-2E74; [14-84]
     ))
 (define-char
+  '((ideographic-radical@ucs . 17)	; ⼐
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 176)	; ⾯
+    (ideographic-strokes@cns . 0)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	7 4398 2)
+    (=ucs		. #x20691)	; 𠚑
+    (=cns11643-6	. #x347A)	; &I-C6-347A; [20-90]
+    (=daikanwa		. 42619)	; &I-M-42619;
+    (=hanziku-11	. #xE7C2)	; &I-HZK11-E7C2;
+    ))
+(define-char
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
@@ -804,12 +820,6 @@
     (hanyu-dazidian	1 309 6)
     (=ucs		. #x2068C)	; 𠚌
     (=hanziku-1		. #xE5C2)	; &I-HZK01-E5C2;
-    ))
-(define-char
-  '((ideographic-radical . 17)	; ⼐
-    (hanyu-dazidian	7 4398 2)
-    (=ucs		. #x20691)	; 𠚑
-    (=hanziku-11	. #xE7C2)	; &I-HZK11-E7C2;
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
