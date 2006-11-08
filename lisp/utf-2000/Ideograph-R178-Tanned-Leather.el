@@ -134,8 +134,26 @@
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
+    (=ucs		. #x29395)	; 𩎕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29395)	; 𩎕
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
     (=cns11643-6	. #x5A2C)	; &M-43114; [58-12]
     (=daikanwa		. 43114)	; &I-M-43114;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29395)	; 𩎕
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x29395)	; &U-00029395;
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
@@ -144,7 +162,8 @@
     (=ucs		. #x29397)	; 𩎗
     (->subsumptive
      ((=daikanwa	  . 43115)	; &M-43115;
-      (=ucs@iso		  . #x29397)	; &M-43115;
+      )
+     ((=ucs@iso		  . #x29397)	; &U-00029397;
       )
      ((=cns11643-5	  . #x442D)	; &C5-442D; [36-13]
       ))
@@ -165,8 +184,13 @@
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x642B)	; &M-43117; [68-11]
-    (=daikanwa		. 43117)	; &I-M-43117;
+    (=ucs		. #x29398)	; 𩎘
+    (->subsumptive
+     ((=daikanwa	  . 43117)	; &M-43117;
+      (=ucs@iso		  . #x29398)	; &M-43117;
+      )
+     ((=cns11643-6	  . #x642B)	; &C6-642B; [68-11]
+      ))
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
@@ -293,15 +317,24 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=ucs		. #x4A93)	; 䪓
-    (=cns11643-4	. #x4844)	; &I-C4-4844; [40-36]
-    (=daikanwa		. 43127)	; &I-M-43127;
+    (->subsumptive
+     ((=daikanwa	  . 43127)	; &M-43127;
+      (=ucs@unicode	  . #x4A93)	; &M-43127;
+      )
+     ((=cns11643-4	  . #x4844)	; &C4-4844; [40-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x642A)	; &M-43128; [68-10]
-    (=daikanwa		. 43128)	; &I-M-43128;
+    (=ucs		. #x2939D)	; 𩎝
+    (->subsumptive
+     ((=daikanwa	  . 43128)	; &M-43128;
+      (=ucs@iso		  . #x2939D)	; &M-43128;
+      )
+     ((=cns11643-6	  . #x642A)	; &C6-642A; [68-10]
+      ))
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
