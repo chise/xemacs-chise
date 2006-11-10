@@ -1,3 +1,13 @@
+2006-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(C6-5037): Map to U-000291F0; integrate H1-CF5B.
+	(M-42601): Map to U-000291F4; integrate H11-A5CB.
+
+	* Ideograph-R009-Man.el (U-000291F0): Moved to
+	Ideograph-R175-Wrong.el.
+
 2006-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R177-Leather.el: Add some mappings between CNS 11643-6
