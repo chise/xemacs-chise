@@ -36120,22 +36120,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 199 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=jis-x0208	  . #x5035)	; &GT-00376; [48-21]
-      )
-     ((=ucs		  . #x975E)	; 非
-      )
-     ((=ucs		  . #x4EBA)	; 人
-      ))
-    (=ucs		. #x291F0)	; 𩇰
-    (=hanziku-1		. #xCF5B)	; &I-HZK01-CF5B;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 169 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
