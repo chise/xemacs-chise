@@ -1,3 +1,13 @@
+2006-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R182-Wind.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-43790): Unify U-000295AD and H11-F8C3.
+
+2006-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R183-Fly.el (C6-3C75): Map to U-00029671.
+
 2006-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R175-Wrong.el: Add some mappings between CNS 11643-6
