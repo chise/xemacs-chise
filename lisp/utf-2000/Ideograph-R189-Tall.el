@@ -231,15 +231,31 @@
   '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x645A)	; &M-45322; [68-58]
-    (=daikanwa		. 45322)	; &I-M-45322;
+    (=ucs		. #x29AC3)	; 𩫃
+    (->subsumptive
+     ((=gt		  . 60983)	; &GT-60983;
+      (=gt-pj-8		  . #x536A)	; &GT-60983; [51-74]
+      (=daikanwa	  . 45322)	; &I-M-45322;
+      )
+     ((hanyu-dazidian	  1 292 1)
+      (=cns11643-6	  . #x645A)	; &HZK01-E252; [68-58]
+      (=hanziku-1	  . #xE252)	; &I-HZK01-E252;
+      (=ucs@iso		  . #x29AC3)	; &HZK01-E252;
+      ))
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x6459)	; &M-45323; [68-57]
-    (=daikanwa		. 45323)	; &I-M-45323;
+    (=ucs		. #x29AC9)	; 𩫉
+    (->subsumptive
+     ((=daikanwa	  . 45323)	; &M-45323;
+      )
+     ((hanyu-dazidian	  7 4594 11)
+      (=cns11643-6	  . #x6459)	; &HZK12-B9EC; [68-57]
+      (=hanziku-12	  . #xB9EC)	; &I-HZK12-B9EC;
+      (=ucs@iso		  . #x29AC9)	; &HZK12-B9EC;
+      ))
     ))
 (define-char
   '((=>ucs		. #x29AC7)	; 𩫇
@@ -877,38 +893,9 @@
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
-    (hanyu-dazidian	1 292 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=ucs		    . #x4EA0)	; 亠
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((=ucs		    . #x56DE)	; 回
-	))
-      )
-     ((=ucs		  . #x5B50)	; 子
-      ))
-    (=ucs		. #x29AC3)	; 𩫃
-    (=hanziku-1		. #xE252)	; &I-HZK01-E252;
-    ))
-(define-char
-  '((ideographic-radical . 189)	; ⾼
     (hanyu-dazidian	7 4594 6)
     (=ucs		. #x29AC8)	; 𩫈
     (=hanziku-12	. #xB9E7)	; &I-HZK12-B9E7;
-    ))
-(define-char
-  '((ideographic-radical . 189)	; ⾼
-    (hanyu-dazidian	7 4594 11)
-    (=ucs		. #x29AC9)	; 𩫉
-    (=hanziku-12	. #xB9EC)	; &I-HZK12-B9EC;
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
