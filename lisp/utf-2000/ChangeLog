@@ -1,3 +1,14 @@
+2006-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+
+	* Ideograph-R001-One.el (U-00029C0A): Moved to
+	Ideograph-R191-Fight.el; use `->subsumptive' to integrate C6-233D
+	and M-45633.
+	(U-00029C0B): Moved to Ideograph-R191-Fight.el; use
+	`->subsumptive' to integrate C6-233C and M-45634.
+
 2006-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el: Add some mappings between CNS 11643-6 and
