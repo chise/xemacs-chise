@@ -1291,22 +1291,6 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 14 2)
-    (=ucs		. #x29C0A)	; 𩰊
-    (=big5-cdp		. #x88D0)	; &I-CDP-88D0;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 15 2)
-    (=ucs		. #x29C0B)	; 𩰋
-    (=big5-cdp		. #x88D1)	; &I-CDP-88D1;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
     (=gt		. 00039)	; &GT-00039;
     (=gt-pj-9		. #x4228)	; &GT-00039; [34-08]
     ))
