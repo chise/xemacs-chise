@@ -1,5 +1,12 @@
 2006-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R194-Ghost.el: Add some mappings between CNS 11643-6
+	and CJK Ext-B code points.
+	(M-45768): Map to U-00029C89.
+	(C6-646C): Map to U-00029C9B and M-45792.
+
+2006-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R191-Fight.el: Add some mappings between CNS 11643-6
 	and CJK Ext-B code points.
 
