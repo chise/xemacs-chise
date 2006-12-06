@@ -17946,7 +17946,7 @@
 	)
        ((=ucs		    . #x6728)	; 木
 	)
-       ((=ucs@unicode	    . #x9E7F)	; &UU+9E7F;
+       ((=gb2312	    . #x4239)	; &G0-4239; [34-25]
 	))
       (=hanziku-4	  . #xB05B)	; &HZK04-B05B;
       (=ucs@unicode	  . #x6A1A)	; &HZK04-B05B;
