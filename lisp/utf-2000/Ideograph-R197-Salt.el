@@ -18,7 +18,8 @@
   '((ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3C7A)	; &M-47529; [28-90]
+    (=ucs		. #x209F8)	; 𠧸
+    (=cns11643-6	. #x3C7A)	; &I-C6-3C7A; [28-90]
     (=daikanwa		. 47529)	; &I-M-47529;
     ))
 (define-char
