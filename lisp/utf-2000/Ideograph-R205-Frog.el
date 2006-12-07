@@ -65,8 +65,14 @@
   '((ideographic-radical . 205)	; ⿌
     (ideographic-strokes . 1)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x6479)	; &M-48259; [68-89]
-    (=daikanwa		. 48259)	; &I-M-48259;
+    (=ucs		. #x2A4D1)	; 𪓑
+    (->subsumptive
+     ((=daikanwa	  . 48259)	; &M-48259;
+      )
+     ((=cns11643-6	  . #x6479)	; &C6-6479; [68-89]
+      )
+     ((=ucs@iso		  . #x2A4D1)	; &U-0002A4D1;
+      ))
     ))
 (define-char
   '((ideographic-radical . 205)	; ⿌
