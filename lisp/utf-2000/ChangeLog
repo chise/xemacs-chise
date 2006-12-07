@@ -1,5 +1,13 @@
 2006-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R207-Drum.el (C6-647A): Unify U-00021537.
+
+	* Ideograph-R206-Tripod.el (U+9F0E): Use `->subsumptive';
+	integrate JC3-8EB4.
+	(C6-504F): Unify U-0002A502.
+
+2006-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R198-Deer.el, Ideograph-R196-Bird.el: Add some
 	mappings between CNS 11643-6 and CJK Ext-B code points.
 
