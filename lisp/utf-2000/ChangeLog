@@ -1,5 +1,18 @@
 2006-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (U-0002398B): Copied from
+	Ideograph-R077-Stop.el.
+	(M-48584): Add `<-denotational' for U-0002398B.
+	(C6-5A61): Likewise.
+
+	* Ideograph-R077-Stop.el (U-0002398B): Use `->denotational'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-{radical|strokes}@cns*sources'.
+
+2006-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R209-Nose.el (U+9F3B): Add `<-denotational' for
 	J97-4921.
 	(J97-4921): New abstract character.
