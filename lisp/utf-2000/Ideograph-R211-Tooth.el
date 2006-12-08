@@ -15,13 +15,31 @@
     (=daikanwa		. 48583)	; &I-M-48583;
     ))
 (define-char
-  '((ideographic-radical . 211)	; ⿒
+  '((ideographic-radical@ucs . 77)	; ⽌
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 211)	; ⿒
+    (ideographic-strokes@cns . 0)
+    (total-strokes@cns	     . 13)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 12)
+    (=ucs		. #x2398B)	; 𣦋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2398B)	; 𣦋
+      ))
+    (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 0)
-    (total-strokes	 . 13)
+    (total-strokes	 . 12)
     (=daikanwa		. 48584)	; &M-48584;
     ))
 (define-char
-  '((morohashi-daikanwa	48584 0 8)
+  '((<-denotational
+     ((=ucs		  . #x2398B)	; 𣦋
+      ))
     (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
