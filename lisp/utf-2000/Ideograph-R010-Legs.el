@@ -304,10 +304,12 @@
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
-      (=gb2312		  . #x3364)	; &HZK01-DDA6; [19-68]
+      (=ucs		  . #x2F80D)	; 𠘺
+      (=gb2312		  . #x3364)	; &I-G0-3364; [19-68]
       (=cns11643-6	  . #x2352)	; &I-C6-2352; [03-50]
       (=hanziku-1	  . #xDDA6)	; &I-HZK01-DDA6;
-      (=ucs@unicode	  . #x5145)	; &HZK01-DDA6;
+      (=ucs@unicode	  . #x5145)	; 𠘺
+      (=ucs@cns		  . #x2F80D)	; 𠘺
       ))
     ))
 (define-char
@@ -1910,8 +1912,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=gb2312	    . #x3364)	; &HZK01-DDA6; [19-68]
-	(=cns11643-6	    . #x2352)	; &I-C6-2352; [03-50]
+       ((=ucs		    . #x2F80D)	; 𠘺
 	)
        ((=gb2312	    . #x3E29)	; &C1-4B6B; [30-09]
 	(=cns11643-1	    . #x4B6B)	; &I-C1-4B6B; [43-75]
