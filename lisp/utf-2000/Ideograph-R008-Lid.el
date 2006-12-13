@@ -251,6 +251,7 @@
     (sound@ja/kun	"inosisi" "i")
     (sound@ja/on	"gai")
     (=ucs		. #x4EA5)	; 亥
+    (=big5		. #xA5E8)	; &I-B-A5E8;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -283,12 +284,12 @@
       (shinjigen-2	  . 94)
       (=jis-x0208	  . #x3067)	; &GT-00387; [16-71]
       (=ks-x1001	  . #x7A24)	; &I-K0-7A24; [90-04]
-      (=big5		  . #xA5E8)	; &I-B-A5E8;
       (=gt		  . 00387)	; &I-GT-00387;
       (=gt-k		  . 01560)	; &I-GT-K01560;
       (=gt-pj-1		  . #x3067)	; &I-GT-00387; [16-71]
       (=ucs@jis		  . #x4EA5)	; &GT-00387;
-      (=ucs@big5	  . #x4EA5)	; &GT-00387;
+      )
+     ((=cns11643-1	  . #x472A)	; &C1-472A; [39-10]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -301,9 +302,8 @@
 	)
        ((=ucs		    . #x4EBA)	; 人
 	))
-      (=gb2312		  . #x3A25)	; &C1-472A; [26-05]
-      (=cns11643-1	  . #x472A)	; &I-C1-472A; [39-10]
-      (=ucs@unicode	  . #x4EA5)	; &C1-472A;
+      (=gb2312		  . #x3A25)	; &G0-3A25; [26-05]
+      (=ucs@unicode	  . #x4EA5)	; &G0-3A25;
       ))
     ))
 (define-char
