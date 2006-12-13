@@ -180,10 +180,12 @@
   '((<-denotational
      ((=ucs		  . #x5185)	; 内
       ))
+    (=>ucs*		. #x5167)	; 內
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=cns11643-6	. #x2150)	; &GT-01982; [01-48]
+    (=ucs		. #x2F814)	; 內
+    (=cns11643-6	. #x2150)	; &I-C6-2150; [01-48]
     (=gt		. 01982)	; &I-GT-01982;
     (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
     (=daikanwa		. 01512)	; &I-M-01512;
@@ -766,10 +768,12 @@
     (=ucs@unicode	. #x518D)	; &GT-02000;
     ))
 (define-char
-  '((ideographic-radical . 13)	; ⼌
+  '((=>ucs*		. #x2054B)	; 𠕋
+    (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=cns11643-6	. #x2359)	; &C6-2359; [03-57]
+    (=ucs		. #x2F816)	; 𠕋
+    (=cns11643-6	. #x2359)	; &I-C6-2359; [03-57]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
