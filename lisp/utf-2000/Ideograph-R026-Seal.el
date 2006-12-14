@@ -716,11 +716,21 @@
     (=jef-china3	. #x4BF2)	; &I-JC3-4BF2;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((=>ucs*		. #x5373)	; 即
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2A23)	; &M-02865; [10-03]
+    (=ucs		. #x2F82F)	; 即
+    (=cns11643-6	. #x2A23)	; &I-C6-2A23; [10-03]
     (=daikanwa		. 02865)	; &I-M-02865;
+    (<-same
+     ((=ks-x1001	  . #x716D)	; &M-02872; [81-77]
+      (=cns11643-3	  . #x2B4B)	; &I-C3-2B4B; [11-43]
+      (=jis-x0213-1-2000  . #x2E71)	; &I-JX1-2E71; [14-81]
+      (=daikanwa	  . 02872)	; &I-M-02872;
+      ))
+    (<-same*sources
+     yupian daikanwa)
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
@@ -899,7 +909,9 @@
       (<-formed*sources
        shinjigen-1)
       )
-     ((=cns11643-6	  . #x2F3D)	; &C6-2F3D; [15-29]
+     ((=>ucs*		  . #x537D)	; 卽
+      (=ucs		  . #x2F830)	; 卽
+      (=cns11643-6	  . #x2F3D)	; &I-C6-2F3D; [15-29]
       )
      ((hanyu-dazidian	  1 316 2)
       (=hanziku-1	  . #xE742)	; &HZK01-E742;
