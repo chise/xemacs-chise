@@ -224,10 +224,12 @@
     (=cns11643-6	. #x224A)	; &C6-224A; [02-42]
     ))
 (define-char
-  '((ideographic-radical . 21)	; ⼔
+  '((=>ucs*		. #x5317)	; 北
+    (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=cns11643-6	. #x2249)	; &M-48945; [02-41]
+    (=ucs		. #x2F82B)	; 北
+    (=cns11643-6	. #x2249)	; &I-C6-2249; [02-41]
     (=daikanwa		. 48945)	; &I-M-48945;
     ))
 (define-char
