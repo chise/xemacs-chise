@@ -157,9 +157,8 @@
        songyuan-yilai-suzipu daikanwa)
       (<-vulgar@shinjigen
        ((shinjigen-1	    . 590)
-	(=jis-x0208	    . #x3F4F)	; &GT-02407; [31-47]
-	(=cns11643-6	    . #x2138)	; &I-C6-2138; [01-24]
-	(=daikanwa	    . 01850)	; &I-M-01850;
+	(=ucs		    . #x2F81E)	; 刃
+	(=jis-x0208	    . #x3F4F)	; &I-J90-3F4F; [31-47]
 	))
       (<-vulgar@shinjigen*sources
        shinjigen-1)
@@ -180,18 +179,20 @@
   '((<-denotational
      ((=ucs		  . #x5203)	; 刃
       ))
+    (=>ucs*		. #x5203)	; 刃
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (shinjigen-1	. 590)
     (shinjigen-2	. 590)
-    (=jis-x0208		. #x3F4F)	; &GT-02407; [31-47]
+    (=ucs		. #x2F81E)	; 刃
+    (=jis-x0208		. #x3F4F)	; &I-J90-3F4F; [31-47]
     (=cns11643-6	. #x2138)	; &I-C6-2138; [01-24]
     (=gt		. 02407)	; &I-GT-02407;
     (=gt-k		. 00214)	; &I-GT-K00214;
     (=gt-pj-1		. #x3F4F)	; &I-GT-02407; [31-47]
     (=daikanwa		. 01850)	; &I-M-01850;
-    (=ucs@jis		. #x5203)	; &GT-02407;
+    (=ucs@jis		. #x5203)	; 刃
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2616,73 +2617,82 @@
     (=daikanwa		. 01969)	; &I-M-01969;
     ))
 (define-char
-  '((=>ucs		. #x523B)	; 刻
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 337 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x3067)	; &GT-00387; [16-71]
-      (=ks-x1001	  . #x7A24)	; &I-K0-7A24; [90-04]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (shinjigen-1	. 626)
-    (shinjigen-2	. 626)
-    (=jis-x0208		. #x396F)	; &GT-02532; [25-79]
-    (=ks-x1001		. #x4A3E)	; &I-K0-4A3E; [42-30]
-    (=big5		. #xA8E8)	; &I-B-A8E8;
-    (=gt		. 02532)	; &I-GT-02532;
-    (=gt-k		. 03707)	; &I-GT-K03707;
-    (=gt-pj-1		. #x396F)	; &I-GT-02532; [25-79]
-    (=daikanwa		. 01970)	; &I-M-01970;
-    (=ucs@jis		. #x523B)	; &GT-02532;
-    (=ucs@big5		. #x523B)	; &GT-02532;
-    ))
-(define-char
-  '((morohashi-daikanwa	1970 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EA5)	; 亥
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x523B)	; 刻
-    (=gb2312		. #x3F4C)	; &I-G0-3F4C; [31-44]
-    (=cns11643-1	. #x4C2B)	; &I-C1-4C2B; [44-11]
+    (->subsumptive
+     ((=big5		  . #xA8E8)	; &B-A8E8;
+      (=ucs@big5	  . #x523B)	; &B-A8E8;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=jis-x0208	      . #x3067)	; &GT-00387; [16-71]
+	  (=ks-x1001	      . #x7A24)	; &I-K0-7A24; [90-04]
+	  )
+	 ((=ucs		      . #x5202)	; 刂
+	  ))
+	(shinjigen-1	    . 626)
+	(shinjigen-2	    . 626)
+	(=jis-x0208	    . #x396F)	; &GT-02532; [25-79]
+	(=ks-x1001	    . #x4A3E)	; &I-K0-4A3E; [42-30]
+	(=gt		    . 02532)	; &I-GT-02532;
+	(=gt-k		    . 03707)	; &I-GT-K03707;
+	(=gt-pj-1	    . #x396F)	; &I-GT-02532; [25-79]
+	(=daikanwa	    . 01970)	; &I-M-01970;
+	(=ucs@jis	    . #x523B)	; &GT-02532;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=cns11643-1	      . #x472A)	; &C1-472A; [39-10]
+	  )
+	 ((=ucs		      . #x5202)	; 刂
+	  ))
+	(=cns11643-1	    . #x4C2B)	; &C1-4C2B; [44-11]
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=gb2312	      . #x3A25)	; &G0-3A25; [26-05]
+	  )
+	 ((=ucs		      . #x5202)	; 刂
+	  ))
+	(=gb2312	    . #x3F4C)	; &G0-3F4C; [31-44]
+	(=ucs@unicode	    . #x523B)	; &G0-3F4C;
+	))
+      )
+     ((=>ucs*		  . #x523B)	; 刻
+      (=ucs		  . #x2F820)	; 刻
+      (=cns11643-6	  . #x2963)	; &I-C6-2963; [09-67]
+      )
+     ((shinjigen-1	  . 627)
+      (shinjigen-2	  . 627)
+      (=jef-china3	  . #x44C1)	; &JC3-44C1;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x523B)	; 刻
-    (morohashi-daikanwa	1970 0 2)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2963)	; &C6-2963; [09-67]
-    ))
-(define-char
-  '((=>ucs		. #x523B)	; 刻
-    (morohashi-daikanwa	1970 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (shinjigen-1	. 627)
-    (shinjigen-2	. 627)
-    (=jef-china3	. #x44C1)	; &JC3-44C1;
-    ))
-(define-char
-  '((=>ucs		. #x523B)	; 刻
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=daikanwa		. 01971)	; &M-01971;
+    (=ucs		. #x206F3)	; 𠛳
+    (->subsumptive
+     ((=daikanwa	  . 01971)	; &M-01971;
+      (<-same
+       ((=jis-x0208	    . #x396F)	; &GT-02532; [25-79]
+	(=ks-x1001	    . #x4A3E)	; &I-K0-4A3E; [42-30]
+	(=daikanwa	    . 01970)	; &I-M-01970;
+	))
+      (<-same*sources
+       zihui-bu daikanwa)
+      )
+     ((=ucs@iso		  . #x206F3)	; &U-000206F3;
+      ))
     ))
 (define-char
   '((=>ucs		. #x20707)	; 𠜇
@@ -5606,9 +5616,7 @@
 	)
        ((=gt-k		    . 03992)	; &GT-K03992;
 	)
-       ((=jis-x0208	    . #x3F4F)	; &GT-02407; [31-47]
-	(=cns11643-6	    . #x2138)	; &I-C6-2138; [01-24]
-	(=daikanwa	    . 01850)	; &I-M-01850;
+       ((=ucs		    . #x2F81E)	; 刃
 	))
       (=gt		  . 02691)	; &GT-02691;
       (=gt-k		  . 08026)	; &I-GT-K08026;
