@@ -1,5 +1,24 @@
 2006-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el (C6-2161): Unify U-0002F836.
+	(C6-2643): Map to U-0002F837.
+
+	* Ideograph-R026-Seal.el (C6-2A23): Unify U-0002F82F; add `<-same'
+	for JX1-2E71.
+	(C6-2F3D): Unify U-0002F830.
+
+	* Ideograph-R021-Spoon.el (C6-2249): Unify U-0002F82B.
+
+	* Ideograph-R018-Knife.el (C6-2138): Unify U-0002F81E.
+	(U+523B): Use `->subsumptive'.
+	(C6-2963): Use `<-subsumptive' for U+523B; unify U-0002F820.
+	(M-01971): Map to U-000206F3 instead of U+523B; add `<-same' for
+	J0-396F.
+
+	* Ideograph-R016-Table.el (M-01754): Map to U-0002063A; integrate
+	H1-DF4E.
+	(M-01755): Unify U-0002063B and H1-DF50.
+
 	* Ideograph-R020-Wrap.el (U+5304): Use `->subsumptive'.
 	(U+5305): Use `->denotational'; add J97-4A71.
 	(C6-2246): Use `<-denotational' for U+5305; unify U-0002F829.
