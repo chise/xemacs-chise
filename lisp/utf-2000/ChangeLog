@@ -1,5 +1,22 @@
 2006-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R024-Ten.el (C6-2F38): Unify U-0002F82D.
+	(U+535A): Use `->denotational' and `->subsumptive'.
+	(C6-4674): Use `<-denotational' for U+535A; unify U-0002F82E.
+
+	* Ideograph-R015-Ice.el (C6-223C): Unify U-0002F81A.
+
+	* Ideograph-R009-Man.el (U+4F31): Unify GT-00640.
+	(JX1-2E2D): Unify GT-00641 and GT-K03475.
+	(C6-2572): Map to U-0002F804; unify GT-00642.
+	(UU+4FBB): Unify U-0002F806 and C6-2E61; add CU-0002F806.
+	(M-00923): Unify U-0002F808 and C6-3D35.
+	(C6-505B): Map to U-0002F809; integrate GT-01371.
+	(C3-403D): Unify GT-01372 and GT-K10411.
+	(C6-5A72): Map to U-0002F80B.
+
+2006-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R029-Again.el (C6-2161): Unify U-0002F836.
 	(C6-2643): Map to U-0002F837.
 
