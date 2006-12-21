@@ -1,3 +1,14 @@
+2006-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (C6-2F25): Unify U-0002F825.
+	(M-02363): Map to U-00020863.
+	(M-02364): Unify U-00020865 and H1-F2A9.
+	(M-02365): Map to U-00020864.
+	(U-00020871): Use `->denotational'.
+	(M-02383): Map to U-00020876.
+	(M-02384): Unify U-00020877 and H1-F2D3.
+	(C6-3558): Unify U-0002F826.
+
 2006-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R024-Ten.el (C6-2F38): Unify U-0002F82D.
@@ -64,6 +75,13 @@
 	(C6-2161): Unify U-0002F836.
 
 	* Ideograph-R003-Dot.el (C6-2131): Unify U-0002F801.
+
+2006-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add "C6-to-UCS.txt" to the check list.
+
+	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
+	`=cns11643-6'.
 
 2006-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
