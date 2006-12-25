@@ -578,7 +578,8 @@
      zhengzitong daikanwa shinjigen-1)
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
+  '((=>ucs*		. #x5349)	; 卉
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (shinjigen-1	. 818)
