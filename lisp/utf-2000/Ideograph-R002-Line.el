@@ -333,21 +333,20 @@
     (=ucs		. #x4E32)	; 串
     (=jis-x0208		. #x367A)	; &I-J90-367A; [22-90]
     (=gb2312		. #x342E)	; &I-G0-342E; [20-14]
-    (=ks-x1001		. #x4D7A)	; &I-K0-4D7A; [45-90]
     (=cns11643-1	. #x486B)	; &I-C1-486B; [40-75]
     (=big5		. #xA6EA)	; &I-B-A6EA;
     (=gt		. 00115)	; &I-GT-00115;
     (=gt-k		. 02530)	; &I-GT-K02530;
     (=gt-pj-1		. #x367A)	; &I-GT-00115; [22-90]
     (=daikanwa		. 00080)	; &I-M-00080;
-    ))
-(define-char
-  '((morohashi-daikanwa	80 0 0)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (=ucs		. #xF905)	; 串
-    (=ks-x1001		. #x4E2D)	; &I-K0-4E2D; [46-13]
+    (->subsumptive
+     ((=ks-x1001	  . #x4D7A)	; &K0-4D7A; [45-90]
+      (=ucs@ks		  . #x4E32)	; &K0-4D7A;
+      )
+     ((=>ucs*		  . #x4E32)	; 串
+      (=ucs		  . #xF905)	; 串
+      (=ks-x1001	  . #x4E2D)	; &I-K0-4E2D; [46-13]
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
