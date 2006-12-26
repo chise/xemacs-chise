@@ -532,7 +532,8 @@
     (=big5-cdp		. #x89B7)	; &I-CDP-89B7;
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((=>ucs*		. #x51B5)	; 况
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x2F81B)	; 况
