@@ -905,24 +905,28 @@
     (hanyu-dazidian	2 864 19)
     (=ucs		. #x5922)	; 夢
     (=big5		. #xB9DA)	; &I-B-B9DA;
+    (=jis-x0208@1997	. #x4C34)	; 夢 [44-20]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5922)	; 夢
       ))
+    (=>ucs*		. #x5922)	; 夢
     (morohashi-daikanwa	5801 1)
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (shinjigen-1	. 1549)
-    (=jis-x0208		. #x4C34)	; &GT-07332; [44-20]
+    (=ucs		. #x2F85E)	; 夢
+    (=jis-x0208		. #x4C34)	; &I-J90-4C34; [44-20]
     (=ks-x1001		. #x5953)	; &I-K0-5953; [57-51]
     (=cns11643-6	. #x515E)	; &I-C6-515E; [49-62]
-    (=gb12345		. #x434E)	; &GT-07332; [35-46]
+    (=gb12345		. #x434E)	; 夢 [35-46]
     (=gt		. 07332)	; &I-GT-07332;
     (=gt-k		. 10272)	; &I-GT-K10272;
     (=gt-pj-1		. #x4C34)	; &I-GT-07332; [44-20]
-    (=ucs@unicode	. #x5922)	; &GT-07332;
+    (=ucs@unicode	. #x5922)	; 夢
+    (=ucs@cns		. #x2F85E)	; 夢
     (<-simplified
      ((shinjigen-1	  . 1550)
       (=cns11643-1	  . #x6842)	; &M-05802; [72-34]
