@@ -705,12 +705,20 @@
     (=jef-china3	. #x44B8)	; &I-JC3-44B8;
     ))
 (define-char
-  '((ideographic-radical . 18)	; ⼑
+  '((=>ucs*		. #x5207)	; 切
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x2F850)	; 切
     (=cns11643-3	. #x217C)	; &I-C3-217C; [01-92]
     (=daikanwa		. 01878)	; &I-M-01878;
+    (<-vulgar
+     ((=jis-x0208	  . #x405A)	; &GT-02415; [32-58]
+      (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
+      (=daikanwa	  . 01858)	; &I-M-01858;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((morohashi-daikanwa	ho 48)
@@ -5765,6 +5773,7 @@
   '((<-denotational
      ((=ucs		  . #x5272)	; 割
       ))
+    (=>ucs*		. #x5272)	; 割
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
