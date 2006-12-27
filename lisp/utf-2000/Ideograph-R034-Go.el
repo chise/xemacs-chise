@@ -202,9 +202,18 @@
     (<-unknown
      ((=ucs		  . #x2F85C)	; 夆
       ))
+    (->mistakable
+     ((=daikanwa	  . 05695)	; &M-05695;
+      )
+     ((=ucs		  . #x5906)	; 夆
+      (=daikanwa	  . 05698)	; &I-M-05698;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     ))
 (define-char
-  '((=>daikanwa		. 05699)	; &M-05699;
+  '((=>ucs*		. #x5906)	; 夆
+    (=>daikanwa		. 05699)	; &M-05699;
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
