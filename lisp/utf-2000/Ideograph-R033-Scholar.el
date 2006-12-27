@@ -664,11 +664,26 @@
     (=daikanwa		. 05667)	; &I-M-05667;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
+  '((=>ucs*		. #x58F7)	; 壷
+    (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x5157)	; &M-05668; [49-55]
-    (=daikanwa		. 05668)	; &I-M-05668;
+    (=ucs		. #x2F85B)	; 壷
+    (->subsumptive
+     ((=cns11643-6	  . #x5157)	; &GT-07175; [49-55]
+      (=gt		  . 07175)	; &I-GT-07175;
+      (=gt-k		  . 10855)	; &I-GT-K10855;
+      (=gt-pj-2		  . #x6473)	; &I-GT-07175; [68-83]
+      (=daikanwa	  . 05668)	; &I-M-05668;
+      (<-same
+       ((=ucs		    . #x58FA)	; 壺
+	(=daikanwa	    . 05662)	; &I-M-05662;
+	))
+      (<-same*sources
+       pianhai-leibian daikanwa)
+      )
+     ((=ucs@iso		  . #x2F85B)	; &U-0002F85B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
