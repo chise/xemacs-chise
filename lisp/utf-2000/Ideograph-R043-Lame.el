@@ -673,7 +673,8 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 07577)	; &M-07577;
+  '((=>ucs*		. #x3781)	; 㞁
+    (=>daikanwa		. 07577)	; &M-07577;
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
