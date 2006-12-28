@@ -846,12 +846,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 29)	; ⼜
+  '((=>ucs*		. #x53DF)	; 叟
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x2F837)	; 叟
     (->subsumptive
      ((=daikanwa	  . 03151)	; &M-03151;
+      (<-vulgar
+       ((=ucs		    . #x53DF)	; 叟
+	(=daikanwa	    . 03176)	; &I-M-03176;
+	))
+      (<-vulgar*sources
+       zihui daikanwa)
       )
      ((=cns11643-6	  . #x2643)	; &C6-2643; [06-35]
       (=ucs@iso		  . #x2F837)	; &C6-2643;
@@ -861,6 +868,7 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (sound@ja/kun/name	"koto")
     (=ucs		. #x355D)	; 㕝
     (=jis-x0213-2-2000	. #x235D)	; &I-JX2-235D; [03-61]
     ))
@@ -1693,7 +1701,8 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 29)	; ⼜
+  '((=>ucs*		. #x20B63)	; 𠭣
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (=ucs		. #x2F838)	; 𠭣
