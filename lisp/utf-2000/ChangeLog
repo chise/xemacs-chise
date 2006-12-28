@@ -1,3 +1,25 @@
+2006-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (C6-2433): Unify U-0002F851; add
+	`<-simplified@misc' for J0-5463.
+	(M-05168): New character.
+	(U-00021339): Add `<-unknown' for M-05168.
+	(C6-3E2B): Unify U-0002F854; add `<-same' for U+580D.
+	(U+5817): Use `->subsumptive'.
+	(U+5832): Use `->denotational' and `->subsumptive'.
+	(C6-514A): Map to U-0002F857.
+	(U+586A): Use `->denotational'.
+
+	* Ideograph-R034-Go.el (M-05699): Add `->mistakable' for M-05695
+	and U+5906.
+	(U-0002F85C): Add `=>ucs*' for U+5906.
+
+	* Ideograph-R033-Scholar.el (C6-5157): Map to U-0002F85B.
+
+	* Ideograph-R018-Knife.el (U-0002F850): Add `=>ucs*' for U+5207;
+	add `<-vulgar' for J0-405A.
+	(U-0002F822): Add `=>ucs*' for U+5272.
+
 2006-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el (U-0002F80D): Add `=>ucs*' and
