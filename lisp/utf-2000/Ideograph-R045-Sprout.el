@@ -28,6 +28,7 @@
   '((<-denotational
      ((=ucs		  . #x5C6E)	; 屮
       ))
+    (=>ucs*		. #x5C6E)	; 屮
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
