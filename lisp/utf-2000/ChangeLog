@@ -1,4 +1,22 @@
+2006-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (C6-2721): Unify U-0002F872.
+
+2006-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (C3-347C): Unify CB03540.
+	(U+5960): Use `->denotational' and `->subsumptive'.
+	(U+369F): Use `->subsumptive'.
+	(U-00021647): Use `->denotational'.
+	(U+5962): Use `->denotational'.
+	(C6-4756): Use `<-denotational' for U+5962; unify U-0002F85F.
+	(U-00021648): Use `->subsumptive'.
+
 2006-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+50E7): Add J97-414E. (U+FA31): Add
+	`=>ucs*' for 50E7; add `=>ucs@{gb|cns|ks}' for U+50E7; add
+	`=>ucs@jisx0208-difference' for U+FA31.
 
 	* Ideograph-R032-Earth.el (C6-2433): Unify U-0002F851; add
 	`<-simplified@misc' for J0-5463.
@@ -9,6 +27,11 @@
 	(U+5832): Use `->denotational' and `->subsumptive'.
 	(C6-514A): Map to U-0002F857.
 	(U+586A): Use `->denotational'.
+
+	* Ideograph-R029-Again.el (U-0002F837): Use `=>ucs*' for U+53DF.
+	(M-03151): Add `<-vulgar' for U+53DF.
+	(U+355D): Add `sound@ja/kun/name'.
+	(U-0002F838): Add `=>ucs*' for U-00020B63.
 
 	* Ideograph-R034-Go.el (M-05699): Add `->mistakable' for M-05695
 	and U+5906.
