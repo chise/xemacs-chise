@@ -12374,8 +12374,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=gb2312	    . #x4A59)	; &C6-2721; [42-57]
-	(=cns11643-6	    . #x2721)	; &I-C6-2721; [07-01]
+       ((=ucs		    . #x2F872)	; 寿
 	))
       (shinjigen-1	  . 426)
       (shinjigen-2	  . 426)
@@ -25383,6 +25382,7 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (=ucs		. #x50E7)	; 僧
+    (=jis-x0208@1997	. #x414E)	; 僧 [33-46]
     ))
 (define-char
   '((<-denotational
@@ -26948,6 +26948,11 @@
   '((<-denotational
      ((=ucs		  . #x50E7)	; 僧
       ))
+    (=>ucs*		. #x50E7)	; 僧
+    (=>ucs@gb		. #x50E7)	; &C1-6772;
+    (=>ucs@cns		. #x50E7)	; &C1-6772;
+    (=>ucs@jis		. #xFA31)	; &M-01117;
+    (=>ucs@ks		. #x50E7)	; &M-01117;
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
@@ -26959,7 +26964,6 @@
   '((<-denotational
      ((=ucs		  . #xFA31)	; 僧
       ))
-    (=>ucs*		. #x50E7)	; 僧
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
@@ -31219,9 +31223,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=jis-x0208	  . #x4C34)	; &GT-07332; [44-20]
-      (=ks-x1001	  . #x5953)	; &I-K0-5953; [57-51]
-      (=cns11643-6	  . #x515E)	; &I-C6-515E; [49-62]
+     ((=ucs		  . #x2F85E)	; 夢
       ))
     (=jis-x0208		. #x5133)	; &GT-01556; [49-19]
     (=gt		. 01556)	; &I-GT-01556;
