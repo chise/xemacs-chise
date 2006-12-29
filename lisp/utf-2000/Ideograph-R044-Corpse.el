@@ -1623,23 +1623,26 @@
 (define-char
   '((ideographic-radical . 44)	; ⼫
     (=ucs		. #x5C60)	; 屠
+    (=big5		. #xB14F)	; &I-B-B14F;
     (=jis-x0208@1997	. #x454B)	; 屠 [37-43]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5C60)	; 屠
       ))
+    (=>ucs*		. #x5C60)	; 屠
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=ucs		. #x2F877)	; 屠
     (->subsumptive
      ((=jis-x0208@1978	  . #x454B)	; &M-07761; [37-43]
       (=ks-x1001	  . #x5375)	; &I-K0-5375; [51-85]
       (=daikanwa	  . 07761)	; &I-M-07761;
+      (=ucs@ks		  . #x5C60)	; &M-07761;
       )
      ((=cns11643-6	  . #x477B)	; &C6-477B; [39-91]
-      (=big5		  . #xB14F)	; &I-B-B14F;
-      (=ucs@big5	  . #x5C60)	; &C6-477B;
+      (=ucs@iso		  . #x2F877)	; &C6-477B;
       ))
     ))
 (define-char
