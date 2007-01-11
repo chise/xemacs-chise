@@ -1,4 +1,75 @@
+2007-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (C6-304E): Map to U-0002F87B.
+	(U+5CE2): Use `->subsumptive'.
+	(U+37CE): Use `->denotational' and `->subsumptive'.
+	(U-00021DE4): Use `->subsumptive'.
+	(U+5CFA): Use `->subsumptive'.
+	(U+5CFB): Use `->denotational' and `->subsumptive'.
+	(U-00021DE5): Use `->denotational'.
+	(U+5CFC): Use `->denotational' and `->subsumptive'.
+	(U+5CFF): Use `->subsumptive'.
+	(U+37D0): Use `->denotational' and `->subsumptive'.
+	(U+5D6E): Use `->denotational' and `->subsumptive'.
+	(U-00021ED7): Use `->subsumptive'.
+	(U+5D6F): Use `->denotational' and `->subsumptive'.
+	(U+5D7C): Use `->denotational' and `->subsumptive'; integrate
+	C6-5C3D and U-0002F880.
+	(U+37F9): Use `->subsumptive'.
+	(U+5D7D): Use `->subsumptive'.
+	(U-00021EDC): Use `->subsumptive'.
+
+	* Ideograph-R049-Oneself.el (U-00022044): Use `->subsumptive'.
+	(C6-4837): Unify U-0002F884.
+
+2007-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (U-00022001): Use `->subsumptive'.
+	(C6-5C49): Map to U-0002F882; add `<-original' for U+5DE2.
+
 2006-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5B86): Use `->subsumptive'.
+	(U+5B87): Likewise.
+	(U-000219C8): Likewise.
+	(C6-2448): Map to U-0002F86C.
+	(C6-5C22): Map to U-0002F86F.
+	(U+5BF3): Use `->subsumptive'.
+	(U-0002F870): Add `=>ucs*' for U+5BF3; use `=>daikanwa' instead of
+	`morohashi-daikanwa' for M-07366; add `<-unknown' for M-07366.
+	(U+5BF4): Use `->subsumptive'.
+	(U+5BF6): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (C6-225B): Map to U-0002F839.
+	(U-0002F83A): Add `=>ucs*' for U+53F1; add `<-same@ucs' for
+	U+53F1; add `->mistakable' for U+53F1.
+	(M-03248): Add `->mistakable' for U-00020B9F.
+	(M-03316): Unify U-00020BBD and H2-C94E.
+	(U-0002F83B): Add `=>ucs*' for U+5406; add `<-vulgar' for U+5406.
+	(U-00020BC1): Use `->subsumptive'.
+	(K0-7D65): Add `ideographic-structure'.
+	(C6-264E): Unify U-0002F83D.
+	(C6-2A3C): Unify U-0002F83F.
+	(U+54B4): Use `->subsumptive'.
+	(U-0002F841): Add `=>ucs*' for U+54F6.
+	(C6-357E): Map to U-0002F842.
+	(U+5559): Use `->subsumptive'.
+	(U+555A): Use `->denotational' and `->subsumptive'.
+	(CB04641): Unify U+5528.
+	(C6-3D7C): Unify U-0002F844.
+	(C6-472A): Unify U-0002F845.
+	(C6-4730): Map to U-0002F847.
+	(U-0002F848): Add `=>ucs*' for U+55AB.
+	(U+55AF): Use `->denotational' and `->subsumptive'; integrate
+	CB03499.
+	(U-00020DD6): Use `->subsumptive'.
+	(C6-4733): Map to U-0002F849.
+	(CB03762): Map to U+35D2.
+	(C6-472C): Unify U-0002F846.
+	(U-0002F84C): Add `=>ucs*' for U+5606.
+	(U-0002F84A): Use `->denotational'.
+
+	* Ideograph-R044-Corpse.el (C6-477B): Map to U-0002F877.
 
 	* Ideograph-R045-Sprout.el (U-0002F878): Add `=>ucs*' for U+5C6E.
 
