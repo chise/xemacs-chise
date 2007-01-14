@@ -805,12 +805,19 @@
     (=daikanwa		. 09957)	; &I-M-09957;
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
+  '((=>ucs*		. #x261DA)	; 𦇚
+    (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (=ucs		. #x2F898)	; 𦇚
     (->subsumptive
      ((=daikanwa	  . 09958)	; &M-09958;
+      (<-ancient
+       ((=ucs		    . #x5F5D)	; 彝
+	(=daikanwa	    . 09950)	; &I-M-09950;
+	))
+      (<-ancient*sources
+       shuowen daikanwa)
       )
      ((=cns11643-5	  . #x7340)	; &C5-7340; [83-32]
       (=ucs@iso		  . #x2F898)	; &C5-7340;
