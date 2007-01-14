@@ -1,3 +1,29 @@
+2007-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U-0002F898): Add `=>ucs*' for
+	U-000261DA.
+	(M-09958): Add `<-ancient' for U+5F5D.
+
+2007-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002F88A): Use `<-subsumptive'
+	for U+387C.
+	(M-09349): Integrate U-0002F88B and C6-3F46.
+	(C6-3F45): Unify U-0002F88C.
+	(U-0002A392): Copied from Ideograph-R200-Hemp.el.
+	(U-0002F88F): Add `<-denotational' for U-0002A392.
+
+	* Ideograph-R050-Turban.el (UU+5E28): Unify U-0002F885 and
+	C6-372C.
+	(U+3848): Use `->subsumptive'.
+	(C6-483C): Unify U-0002F886.
+	(U+3862): Use `->denotational'.
+	(U-0002F888): Add `=>ucs*' and `<-same@ucs' for U+3862.
+	(M-09107): Add `<-vulgar' for C1-685F.
+	(M-09159): Add `<-vulgar' for M-09151.
+	(U-0002F889): Add `=>ucs*' for U-00022183.
+	(M-09160): Add `<-wrong' for M-09151.
+
 2007-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (C6-304E): Map to U-0002F87B.
