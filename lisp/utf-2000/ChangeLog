@@ -1,3 +1,15 @@
+2007-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U-0002F89B): Add `=>ucs*' for U+38E3.
+	(U+38E3): New character.
+	(U-0002F89C): Add `=>ucs*' for U+5F9A.
+	(U+5F9A): Add `<-unknown' for U-0002F89C.
+
+2007-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U-0002F899): Use `->subsumptive'; add
+	`=>ucs*' for U+5F62.
+
 2007-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el (U-0002F898): Add `=>ucs*' for
