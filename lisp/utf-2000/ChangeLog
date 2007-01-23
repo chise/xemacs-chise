@@ -1,5 +1,17 @@
 2007-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R062-Halberd.el (U+6210): Separate JC3-4EEF; add
+	`<-simplified@misc' for U-0002F8B2.
+	(M-11543): Map to U-00022992.
+	(U-0002F8B2): Add `=>ucs*' for U+6210; unify JC3-4EEF.
+	(U+621C): Unify GT-14626 and GT-K07995.
+	(U-000229C1): Use `->subsumptive'; integrate GT-14618.
+	(U-000229C7): Use `->denotational' and `->subsumptive'; integrate
+	GT-14620.
+	(M-11602): Unify U-000229C5, GT-14621 and H4-CBF8.
+	(U+621D): Use `->subsumptive'.
+	(C6-4023): Map to U-0002F8B3.
+
 	* Ideograph-R061-Heart.el (C6-275F): Unify U-0002F89D.
 	(U+38FC): Use `->denotational' and `->subsumptive'.
 	(U+5FF9): Use `->denotational'.
