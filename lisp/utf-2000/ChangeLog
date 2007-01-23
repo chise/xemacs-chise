@@ -1,3 +1,57 @@
+2007-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (C6-275F): Unify U-0002F89D.
+	(U+38FC): Use `->denotational' and `->subsumptive'.
+	(U+5FF9): Use `->denotational'.
+	(M-10399): Separate C3-2623; use `<-denotational' for U+5FF9;
+	unify U-0002F89F and C5-2438.
+	(U+5FFA): Use `->subsumptive'.
+	(C6-3136): Map to U-0002F8A0.
+	(U+6071): Use `->subsumptive'.
+	(U+393A): Use `->denotational' and `->subsumptive'.
+	(U-0002F8A1): New character; add `<-denotational' for U+393A.
+	(C6-3130): Map to U-0002F8A1.
+	(U-00022647): Use `->subsumptive'.
+	(U-00022683): Use `->denotational'.
+	(U+3939): Use `->subsumptive'.
+	(U-00022684): Use `->subsumptive'.
+	(U+60C7): Use `->subsumptive'.
+	(U-000226D4): Add `sound@ja/on'.
+	(C6-487C): Unify U-0002F8A4; add `sound@ja/on'; add `<-same' for
+	J0-554F; add `<-same@ucs' for U-000226D4.
+	(C6-4878): Map to U-0002F8A5.
+	(U+6148): Add `<-simplified@misc' for C3-4670.
+	(U-0002273F): Use `->subsumptive'.
+	(U+6127): Use `->subsumptive'.
+	(U+6128): Use `->subsumptive'.
+	(C6-5266): Unify U-0002F8A8.
+	(U-000227DD): Use `->subsumptive'.
+	(U-0002279F): Use `->subsumptive'.
+	(U-0002F8A6): Use `->subsumptive'.
+	(U+6149): Use `->subsumptive'.
+	(U+3977): Use `->subsumptive'.
+	(U+614A): Use `->denotational'.
+	(U+526C): Map to U-0002F8A7.
+	(U+5D26): Map to U-0002F8A9.
+	(U+6187): Use `->subsumptive'.
+	(M-11188): Delete mapping for U-0002284C.
+	(C6-5D24): Map to U-0002F8AA; add `<-unknown' for M-11188.
+	(U+6188): Use `->denotational' and `->subsumptive'.
+	(U+398A): Use `->denotational'.
+	(U-0002284C): Use `<-unknown' for M-11188.
+	(U-0002F8AF): Add `=>ucs*' for U+61DE; add `<-unknown' for
+	M-11375.
+
+2007-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el (C6-274A): Unify U-0002F891.
+	(U-00022331): Add `<-ancient' for J0-6750.
+	(C6-2B2F): Unify U-0002F892.
+	(U-0002234A): Use `->denotational' instead of `->subsumptive'.
+	(U+8201): Copied from Ideograph-R134-Mortar.el.
+	(C6-3074): Unify U-0002F893, J0-674D, G0-7428, B-D370 and
+	GT-39043.
+
 2007-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el (U-0002F89B): Add `=>ucs*' for U+38E3.
