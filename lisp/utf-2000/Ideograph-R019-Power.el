@@ -2312,8 +2312,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=jis-x0208	  . #x4B41)	; &GT-29718; [43-33]
-      (=cns11643-6	  . #x316D)	; &I-C6-316D; [17-77]
+     ((=ucs		  . #x2F8D2)	; 冒
       )
      ((=ucs		  . #x529B)	; 力
       ))
