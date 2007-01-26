@@ -1,5 +1,35 @@
 2007-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (U+5195): Copied from
+	Ideograph-R013-Down-Box.el.
+	(C6-4057): Unify K0-5874; map to U-0002F8D3.
+	(U-0002F8D3): New character; use `->subsumptive' to integrate
+	J78-514B and C6-4057.
+
+	* Ideograph-R013-Down-Box.el (U+5195): Use
+	`ideographic-{radical|strokes}@jis' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@jis*sources',
+	`ideographic-{radical|strokes}@ucs/compat' and
+	`ideographic-radical@ucs/compat*sources'.
+	(G0-4361): Separate K0-5874.
+	(J78-1978): Use `<-subsumptive' for U-0002F8D3 instead of
+	`<-denotational' for U+5195.
+	(K0-5874): Separated from G0-4361; use `<-subsumptive' for
+	U-0002F8D3 instead of `<-denotational' for U+5195; unify C6-4057.
+
+	* Ideograph-R061-Heart.el (U+6011): Use `->denotational'.
+	(U+6012): Use `->subsumptive'.
+	(U-00022602): Use `->subsumptive'.
+	(U+6013): Use `->subsumptive'.
+	(U-00022613): Unify GT-13310 and GT-K05710.
+	(U-00022604): Use `->subsumptive'.
+	(U-00022833): Use `->denotational' and `->subsumptive'.
+	(U+618C): Use `->denotational' and `->subsumptive'.
+	(U+398B): Use `->denotational'.
+
+2007-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R072-Sun.el (C6-316D): Unify U-0002F8D2.
 	(U+6691): Use `->denotational'.
 	(C6-533C): Unify U-0002F8CF.
