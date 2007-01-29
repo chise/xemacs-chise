@@ -1,3 +1,17 @@
+2007-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (C6-2C23): Map to U-0002F8D6.
+	(U-0002F8D7): Add `=>ucs*' for U+43D9; add `sound@ja/on'; add
+	`<-same@ucs' for U+43D9; add `->mistakable' for U+43D9.
+	(U-0002F8D8): Add `=>ucs@cns' for U-0002F8D8; add `=>ucs@jis' for
+	U+F929; add `=>ucs@ks' for U+6717.
+	(U+F929): Add `=>ucs*' for U+6717.
+	(U+671B): Unify B-B1E6.
+	(M-14368): Use `<-denotational' for U+671B instead of
+	`<-subsumptive' for B-B1E6.
+	(C1-5B2C): Likewise.
+	(C6-4058): Map to U-0002F8D9.
+
 2007-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (U+5195): Copied from
