@@ -1019,7 +1019,8 @@
     (=daikanwa		. 16424)	; &I-M-16424;
     (=hanziku-4		. #xC4CC)	; &I-HZK04-C4CC;
     (<-ancient
-     ((=daikanwa	  . 45147)	; &I-M-45147;
+     ((=jis-x0212	  . #x695B)	; &M-45147; [73-59]
+      (=daikanwa	  . 45147)	; &I-M-45147;
       ))
     (<-ancient*sources
      yupian daikanwa)
@@ -1037,9 +1038,7 @@
 	)
        ((=ucs		    . #x6B79)	; 歹
 	)
-       ((=ks-x1001	    . #x544F)	; &M-01610; [52-47]
-	(=cns11643-6	    . #x223C)	; &I-C6-223C; [02-28]
-	(=daikanwa	    . 01610)	; &I-M-01610;
+       ((=ucs		    . #x2F81A)	; 冬
 	))
       (=daikanwa	  . 16425)	; &M-16425;
       (=hanziku-4	  . #xC4D1)	; &I-HZK04-C4D1;
@@ -2847,12 +2846,14 @@
   '((<-denotational
      ((=ucs		  . #x6B9F)	; 殟
       ))
+    (=>ucs*		. #x6B9F)	; 殟
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x2F8F4)	; 殟
     (=cns11643-6	. #x5377)	; &I-C6-5377; [51-87]
     (=ucs@unicode	. #x6B9F)	; 殟
+    (=ucs@cns		. #x2F8F4)	; 殟
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
