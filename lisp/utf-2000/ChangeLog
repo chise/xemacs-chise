@@ -1,3 +1,12 @@
+2007-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (M-16635): Add `<-formed' for M-49199.
+	(C6-4A4D): Map to U-0002F8F7.
+
+2007-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R078-Death.el (U-0002F8F4): Add `=>ucs*' for U+6B9F.
+
 2007-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el (C6-2C23): Map to U-0002F8D6.
