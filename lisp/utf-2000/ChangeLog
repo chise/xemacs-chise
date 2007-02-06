@@ -1,3 +1,16 @@
+2007-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R045-Sprout.el (U-00021D0B): Use `->denotational' and
+	`->subsumptive'; use `ideographic-{radical|strokes}@ucs' instead
+	of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs*sources',
+	`ideographic-{radical|strokes}@ucs/compat' and
+	`ideographic-{radical|strokes}@ucs/compat*sources'.
+
+	* Ideograph-R080-Do-Not.el (U-00021D0B): Copied from
+	Ideograph-R045-Sprout.el.
+	(C6-2C42): Map to U-0002F8F8.
+
 2007-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R079-Weapon.el (M-16635): Add `<-formed' for M-49199.
