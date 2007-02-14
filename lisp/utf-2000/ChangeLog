@@ -1,3 +1,88 @@
+2007-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+707C): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+707D): Use `->subsumptive'.
+	(U-0002418E): Use `->subsumptive'.
+	(U+707E): Use `->subsumptive'.
+	(C6-2C60): Map to U-0002F918.
+	(C6-2C5D): Map to U-0002F919.
+	(U+3DAA): Use `->subsumptive'.
+	(U+70D6): Use `->subsumptive'.
+	(M-19009): Unify U-000241F3 and H6-C4B4.
+	(U+7133): Use `->subsumptive'.
+	(U-00024263): Add `sound@ja/on'.
+	(M-19121): Add `<-same' for JSP-495D.
+	(U-000242C6): Use `->subsumptive'.
+	(U-00024301): Use `->denotational' and `->subsumptive'.
+	(U+716F): Use `->subsumptive'.
+	(C6-5459): Map to U-0002F91D.
+	(U+3DD8): Use `->subsumptive'.
+
+	* Ideograph-R085-Water.el (U+6C4D): Use `->subsumptive'; add
+	`sound@ja/on'.
+	(U+6C4E): Add `sound@ja/on/{s=faint-voice|s=float|s=prattle}'.
+	(C6-252E): Unify U-0002F8FA; add `sound@ja/on'; add `<-original'
+	for JSP-465A; add `<-same@ucs' for U+6C4E; add `->mistakable' for
+	U+6C4E.
+	(U+6CCD): Add `sound@ja/on'.
+	(U+6CF2): Use `->subsumptive'; add `sound@ja/on'.
+	(C6-2C51): Map to U-0002F8FD.
+	(U+3CD7): Use `->denotational' and `->subsumptive'; integrate
+	M-17365.
+	(U+6D0D): Use `->denotational'.
+	(U+6D23): Use `->subsumptive'.
+	(U-00023CE9): Use `->subsumptive'; integrate M-17394.
+	(U+6D24): Use `->denotational' and `->subsumptive'.
+	(C6-3242): Unify U-0002F900.
+	(U+3CDD): Use `->denotational'; integrate M-17439.
+	(C6-3239): Map to U-0002F8FF.
+	(U-00023D01): Use `->subsumptive'.
+	(U+6D56): Use `->denotational'.
+	(U+6D57): Use `->subsumptive'.
+	(C6-392D): Map to U-0002F903.
+	(U+6D78): Use `->denotational'.
+	(C6-3874): Unify U-0002F904; use `<-denotational' for U+6D78.
+	(U-00023D40): Unify C6-3921; add CU-0002F905; add `->subsumptive'
+	to integrate U-0002F905.
+	(U+6E2D): Use `->subsumptive'.
+	(U+6E2E): Add J97-5E51.
+	(U+6E2F): Add J97-3941.
+	(C6-4A65): Unify U-0002F908.
+	(U+3D1A): Use `->denotational' and `->subsumptive'.
+	(U+6E6E): Add J97-5E50.
+	(U+6E7B): Use `->subsumptive'.
+	(U-0002F909): Delete `=>ucs' for U+6E6E; add `<-vulgar' for
+	J78-5E50.
+	(U+6ECB): Add `<-denotational' for J97-3C22.
+	(J97-3C22): New abstract character.
+	(U-00023E68): Use `->subsumptive'; integrate M-17977.
+	(U+6EC6): Use `->denotational'.
+	(U+6EC7): Use `->denotational' and `->subsumptive'.
+	(C6-544F): Map to U-0002F90C.
+	(U+3D32): Use `->denotational' and `->subsumptive'.
+	(U-00023E6E): Use `->subsumptive'.
+	(U+3D33): Use `->denotational' and `->subsumptive'.
+	(U-0002F90A): Use `->subsumptive'; add `<-denotational' for
+	U+3D33; integrate UU+3D33.
+	(U+6EC8): Use `->subsumptive'.
+	(U-00023E6F): Likewise.
+	(U+3D34): Use `->denotational' and `->subsumptive'.
+	(C6-5449): Map to U-0002F90B.
+	(U-0002F90B): Add `<-denotational' for J97-3C22.
+	(U-00023E71): Use `->subsumptive'.
+	(U+6ED9): Use `->subsumptive'.
+	(U+6EDA): Use `->subsumptive'.
+	(U+6EDB): Use `->denotational'.
+	(M-18065): Use `<-denotational' for U+6EDB; unify CB08893.
+	(CB03020): Add `<-denotational' for U+6EDB.
+	(U+6EE6): Use `->subsumptive'.
+	(U+6F1A): Use `->denotational' instead of `->subsumptive'.
+	(U+6F1B): Use `->denotational' and `->subsumptive'.
+	(U+3D41): Use `->denotational'.
+	(C6-5E3E): Unify U-0002F90E.
+	(U-00023F1A): Use `->denotational' and `->subsumptive'.
+
 2007-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R045-Sprout.el (U-00021D0B): Use `->denotational' and
