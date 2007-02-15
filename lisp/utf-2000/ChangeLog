@@ -1,5 +1,31 @@
 2007-02-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R076-Lack.el (U+6B21): Add J97-3C21.
+	(C6-2523): Map to U-0002F8EF.
+	(U+6B29): Fix `ideographic-strokes'.
+	(U-000238A7): Add `sound@ja/on'.
+	(C6-3857): Add `<-formed' for M-20272; add `<-same@yupian' for
+	M-16020.
+	(U+3C32): Use `->subsumptive'; integrate M-16092.
+	(U+3C33): Use `->subsumptive'; integrate M-16094.
+	(U-000238C8): Use `->subsumptive'; integrate M-16095.
+	(U+3C34): Use `->subsumptive'; integrate M-16096.
+	(U-000238C9): Use `->subsumptive'; integrate M-16098.
+	(U+3C35): Use `->subsumptive'; integrate M-16100.
+	(U-000238CA): Use `{ideographic|total}-strokes@cns' instead of
+	`{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@ucs' and
+	`ideographic-strokes@ucs*sources'.
+	(U+3C36): Use `->denotational' and `->subsumptive'.
+	(U-000238CF): Use `->subsumptive'.
+	(U-000238D0): Use `->subsumptive'; integrate M-16112.
+	(U-000238D1): Use `->subsumptive'; integrate M-16113.
+	(U-000238D2): Use `->subsumptive'; integrate M-16114.
+	(U-000238D3): Use `->subsumptive'; integrate M-16115.
+	(U-000238D5): Use `->subsumptive'; integrate M-16119.
+	(U-000238D6): Use `->denotational' and `->subsumptive'.
+	(C6-4A3F): Map to U-0002F8F0.
+
 	* Ideograph-R091-Slice.el (C6-4161): Map to U-0002F922.
 	(U+7250): Use `->denotational'.
 	(U+7251): Use `->denotational' and `->subsumptive'.
