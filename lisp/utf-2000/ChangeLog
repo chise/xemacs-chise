@@ -1,3 +1,139 @@
+2007-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (U+3F18): Use `->subsumptive'; integrate
+	M-21443.
+	(U-00024B29): Use `->subsumptive'; integrate M-21445.
+	(U+74EA): Use `->subsumptive'.
+	(U+74EB): Likewise.
+	(U-00024B2C): Use `->subsumptive'; integrate M-21453.
+	(U+74EC): Use `->subsumptive'.
+	(U+3F1B): Unify M-21459.
+	(U+74EF): Use `->denotational'.
+	(U+74F0): Use `->subsumptive'.
+	(C6-4221): Map to U-0002F933.
+
+	* Ideograph-R075-Tree.el (U+6752): Use `->subsumptive'.
+	(U+6753): Use `->denotational' instead of `->subsumptive'.
+	(C6-282E): Use `<-denotational' instead of `<-subsumptive' for
+	U+6753; unify U-0002F8DC.
+	(U-0002F8DB): Add `=>ucs*' for U+675E; add `<-unknown' for U+675E.
+	(U-000233D8): Use `->subsumptive'.
+	(U+6785): Add `<-denotational' for J97-5B47; move B-CCD3 to
+	J97-5B47; add `<-vulgar' for U-0002F8E0.
+	(J97-5B47): New abstract character; unify B-CCD3.
+	(U+67FA): Add `<-denotational' for J97-5B4A.
+	(J97-5B4A): New abstract character.
+	(U-0002F8E1): Add `=>ucs*' for U+6852.
+	(U+67B4): Separate J97-5B4A; add `<-denotational' for J97-5B4A.
+	(U-0002F8DF): Use `<-denotational' for U+67FA instead of
+	`<-denotational' for U+67B4; use `=>ucs*' for U+67FA instead of
+	U+67B4; unify B-CF5E and UU+67FA.
+	(C6-384A): Unify U-0002F8E0 and M-14709; add `<-denotational' for
+	J97-5B47.
+	(U-0002343B): Use `->subsumptive'; integrate M-14746.
+	(U+683A): Use `->subsumptive'.
+	(U-00023478): Use `->subsumptive'; integrate M-14771.
+	(U-00023443): Use `->subsumptive'; integrate M-14788.
+	(U-00023444): Use `->subsumptive'; integrate M-14789.
+	(U-00023471): Use `->subsumptive'; integrate M-14795.
+	(C6-3850): Unify U-0002F8E3; add `<-same' for M-41305.
+	(U-0002346D): Add `<-same' for U+67F5.
+	(U-0002F8E4): Add `=>ucs*' for U+688E.
+	(U+68D2): Use `->subsumptive'.
+	(U+68D3): Likewise.
+	(U+68D5): Likewise.
+	(U-000234C3): Use `->subsumptive'; integrate M-14934.
+	(U-000234C4): Use `->subsumptive'; integrate M-14935.
+	(U+68D9): Use `->denotational'.
+	(U-000234C5): Use `->subsumptive'; integrate M-14940.
+	(U+68DA): Use `->denotational'.
+	(U+68DA): Use `->denotational' instead of `->subsumptive'.
+	(U-000234C6): Use `->denotational' and `->subsumptive'; integrate
+	M-14942.
+	(U-000234C7): Use `->subsumptive'.
+	(U+68DB): Use `->subsumptive'.
+	(U+68DC): Use `->subsumptive'.
+	(U-000234C8): Use `->subsumptive'; integrate M-14948.
+	(U-000234CD): Use `->denotational'; integrate M-14972.
+	(U+68EE): Use `->subsumptive'.
+	(U-000234CF): Use `->subsumptive'; integrate M-14975.
+	(U-000234D4): Use `->subsumptive'; integrate M-14989.
+	(U-000234D6): Use `->denotational' and `->subsumptive'; integrate
+	M-15000.
+	(U+6913): Use `->subsumptive'.
+	(U-000234DA): Use `->subsumptive'; integrate M-15032.
+	(U+6914): Add `<-vulgar' for U-0002F8E6.
+	(U-000234DD): Use `->subsumptive'; integrate M-15037.
+	(U+6915): Use `->subsumptive'.
+	(U-000234DE): Use `->subsumptive'; integrate M-15039.
+	(U-000234DF): Use `->subsumptive'; integrate M-15040.
+	(U-0002352D): Use `->subsumptive'.
+	(U-00023515): Use `->denotational' and `->subsumptive'; integrate
+	M-15053.
+	(U+6916): Use `->denotational'.
+	(U+6916): Use `->subsumptive'.
+	(U+6918): Likewise.
+	(U+6928): Use `->subsumptive'; add `sound@ja/kun/place'.
+	(U+6931): Use `->denotational' and `->subsumptive'.
+	(U+6932): Use `->subsumptive'.
+	(C6-535E): Unify U-0002F8E6 and M-15072.
+	(U-00023534): Use `->denotational'; integrate M-15077.
+	(U+6936): Use `->denotational' and `->subsumptive'.
+	(U+6942): Use `->denotational' and `->subsumptive'.
+	(U-0002F8E8): Add `<-denotational' for U+6942; use
+	`->subsumptive'.
+	(U-00023535): Use `->subsumptive'; integrate M-15095.
+	(U-00023539): Use `->subsumptive'; integrate M-15104.
+	(U+6951): Use `->subsumptive'.
+	(U-0002353D): Use `->subsumptive'; integrate M-15123 and GT-19256.
+	(U+6953): Use `->subsumptive'.
+	(U-0002353E): Use `->denotational' and `->subsumptive'; integrate
+	M-15128.
+	(U+6957): Use `->subsumptive'.
+	(U-00023541): Use `->subsumptive'.
+	(U+695E): Use `->subsumptive'.
+	(U-00023546): Use `->subsumptive'.
+	(U+695F): Use `->subsumptive'.
+	(U+6965): Use `->denotational'.
+	(U+6966): Use `->subsumptive'.
+	(U-00023547): Use `->denotational' and `->subsumptive'; integrate
+	M-15160.
+	(U+6967): Use `->denotational' and `->subsumptive'.
+	(U+6976): Use `->denotational' instead of `->subsumptive'.
+	(U-0002354B): Use `->subsumptive'; integrate M-15184.
+	(U+6977): Use `->subsumptive'.
+	(U+3B9D): Use `->denotational' and `->subsumptive'.
+	(U-0002F8E7): Use `<-denotational' for U+3B9D; use
+	`->subsumptive'.
+	(U-0002354D): Use `->subsumptive'; integrate M-15191.
+	(U-00023550): Use `->subsumptive'; integrate M-15195.
+	(U-00023551): Use `->denotational' and `->subsumptive'; integrate
+	M-15196.
+	(U-000235A5): Unify M-15201.
+	(U-0002357F): Use `->subsumptive'; integrate M-15208.
+	(U+699F): Use `->subsumptive'.
+	(U+69A0): Use `->subsumptive'.
+	(U+3BA6): Use `->subsumptive'; integrate M-15246.
+	(U+69A2): Use `->subsumptive'.
+	(U+69A3): Use `->denotational' and `->subsumptive'.
+	(U+3BA8): Use `->denotational' and `->subsumptive'; integrate
+	M-15253.
+	(U+3BAA): Use `->subsumptive'.
+	(U+3BAB): Use `->denotational' and `->subsumptive'; integrate
+	M-15263.
+	(U+69AB): Use `->subsumptive'.
+	(U+3BAC): Use `->denotational' and `->subsumptive'; integrate
+	M-15266.
+	(U+3BAD): Use `->subsumptive'; integrate M-15278.
+	(U+69B3): Use `->subsumptive'.
+	(C4-4423): Map to M-15344.
+	(U-00023605): Use `->subsumptive'.
+	(C6-5D68): Map to U-0002F8E9.
+	(U+699D): Use `->subsumptive'.
+	(U-0002F8EE): Add `=>ucs*' for U+3C18; add `<-same@ucs' for
+	U+3C18.
+	(U+3C18): Add `<-unknown' for M-15928.
+
 2007-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R094-Dog.el (U-00024739): Use `->subsumptive'; add
