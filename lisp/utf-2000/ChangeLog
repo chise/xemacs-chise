@@ -1,4 +1,69 @@
+2007-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (U-00024739): Use `->subsumptive'; add
+	`sound@ja/on'.
+	(U-00024746): Likewise.
+	(U+72BD): Use `->subsumptive'.
+	(U+72E8): Use `->subsumptive'.
+	(C6-3262): Map to U-0002F926.
+	(U+7328): Use `->denotational'; add `sound@ja/on'.
+	(C6-4B42): Unify U-0002F927; add `sound@ja/on'; add `<-vulgar' for
+	JSP-4B30.
+	(U-00024814): Add `sound@ja/on'; add `<-vulgar' for U+733F.
+
+	* Ideograph-R093-Cow.el (U+7260): Use `->subsumptive'.
+	(U+3E2A): Unify M-19932.
+	(U-0002461A): Use `->subsumptive'.
+	(U-0002461B): Likewise.
+	(U+7264): Likewise.
+	(U+7265): Likewise.
+	(U-0002461C): Likewise; integrate M-19940.
+	(U+7266): Use `->subsumptive'.
+	(U-0002461D): Likewise; integrate M-19945.
+	(U+3E2E): Use `->subsumptive'; integrate M-19946.
+	(U+3E2F): Use `->subsumptive'.
+	(U+7268): Likewise.
+	(U-00024624): Use `->subsumptive'; add `sound@ja/on'.
+	(U-00024625): New character.
+	(U-00024622): New character.
+	(U-0002462C): Likewise.
+	(U-00024633): Likewise.
+	(C6-416A): Unify U-0002F924; add `<-same' for J0-3A54.
+	(U+7294): Use `->subsumptive'.
+	(U+7295): Use `->denotational' and `->subsumptive'.
+	(C6-5E5E): Map to U-0002F925 and M-20122.
+	(U-0002F925): Use `<-denotational' for U+7295.
+	(U-000246BC): Use `->subsumptive'.
+	(U+7296): Use `->subsumptive'.
+
+2007-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (C6-2226): Map to U-0002F929.
+	(U-000248EA): Use `->subsumptive'; add `sound@ja/on'.
+	(U-000248FC): Use `->subsumptive'.
+	(C6-2D24): Map to U-0002F92B.
+	(U+3EB5): Use `->subsumptive'.
+	(U-0002490D): Likewise.
+	(C6-4B47): Map to U-0002F92E.
+	(U-000249A6): Use `->subsumptive'.
+
+	* Ideograph-R092-Fang.el (M-19912): Unify U-00024606.
+	(M-19913): Map to U-00024607 and H4-CEC3.
+	(U+3E27): Use `->subsumptive'.
+	(U-00024608): Use `->subsumptive'.
+	(U-00024609): Likewise.
+	(M-19917): Map to U-0002460A and H4-CEC6.
+	(C6-4163): Map to U-0002F923.
+	(U-0002460C): Use `->subsumptive'.
+	(U+725A): Use `->subsumptive'.
+	(U-0002460D): Use `->subsumptive'.
+	(U-00024610): Use `->subsumptive'.
+	(U-00024611): Likewise.
+
 2007-02-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R099-Sweet.el (U+751C): Use `->subsumptive'.
+	(U-00024BC7): Likewise.
 
 	* Ideograph-R076-Lack.el (U+6B21): Add J97-3C21.
 	(C6-2523): Map to U-0002F8EF.
