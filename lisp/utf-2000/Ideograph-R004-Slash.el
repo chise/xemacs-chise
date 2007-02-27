@@ -1455,10 +1455,26 @@
       ))
     ))
 (define-char
-  '((ideographic-	(:radical	101 ; ⽤
-			 :strokes	3)
-			(:radical	4 ; ⼃
-			 :strokes	7))
+  '((ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 101)	; ⽤
+    (ideographic-strokes@cns . 3)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 8)
+    (=ucs		. #x200B5)	; 𠂵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200B5)	; 𠂵
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@daikanwa . 101)	; ⽤
+    (ideographic-strokes@daikanwa . 3)
+    (ideographic-strokes@cns . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 38 17)
     (ideographic-structure
@@ -1476,9 +1492,9 @@
        ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
 	))
       ))
-    (=ucs		. #x200B5)	; 𠂵
-    (=daikanwa		. 21710)	; &I-M-21710;
+    (=daikanwa		. 21710)	; &M-21710;
     (=hanziku-1		. #xABE7)	; &I-HZK01-ABE7;
+    (=ucs@iso		. #x200B5)	; &M-21710;
     ))
 (define-char
   '((ideographic-radical@ucs . 4)	; ⼃
