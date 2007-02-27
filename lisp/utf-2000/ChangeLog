@@ -1,5 +1,14 @@
 2007-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R101-Use.el (U-000200B5): Use `->denotational'; use
+	`ideographic-{radical|strokes}@{cns|ucs}' instead of
+	`ideographic-'; add `ideographic-{radical|strokes}@cns*sources'.
+	(U-00021DA4): Unify H2-F044 and CB10475.
+
+	* Ideograph-R004-Slash.el (U-000200B5): Use `->denotational'; use
+	`ideographic-{radical|strokes}@{cns|ucs}' instead of
+	`ideographic-'; add `ideographic-{radical|strokes}@cns*sources'.
+
 	* Ideograph-R098-Tile.el (U+3F18): Use `->subsumptive'; integrate
 	M-21443.
 	(U-00024B29): Use `->subsumptive'; integrate M-21445.
