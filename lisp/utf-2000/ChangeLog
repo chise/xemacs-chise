@@ -1,3 +1,25 @@
+2007-03-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el (U-00020679): Use `->subsumptive';
+	add `sound@ja/on'.
+	(U-0002067E): Use `->subsumptive'.
+
+2007-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R100-Life.el (U+7524): Use `->subsumptive'.
+	(U-00024BE6): Use `->subsumptive'.
+	(U+7526): Use `->subsumptive'.
+	(U-00024BE7): Use `->subsumptive'.
+	(U-0002F934): Add `=>ucs*' for U+7524; delete
+	`morohashi-daikanwa'; add `<-unknown' for JX2-7132.
+	(U-00024BEC): Use `->subsumptive'.
+	(U-00024BEF): Use `->subsumptive'.
+	(U-00024BF2): Use `->subsumptive'.
+	(U-00024BF3): Use `->denotational'.
+	(M-21697): Add `<-denotational' for U-00024BF3.
+	(U+7527): Use `->subsumptive'.
+	(U-00024BF7): Use `->subsumptive'.
+
 2007-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R101-Use.el (U-000200B5): Use `->denotational'; use
