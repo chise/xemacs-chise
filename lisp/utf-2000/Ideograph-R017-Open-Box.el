@@ -151,18 +151,37 @@
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 308 1)
+    (sound@ja/on	"si")
     (=ucs		. #x20679)	; 𠙹
-    (=daikanwa		. 01808)	; &I-M-01808;
-    (=hanziku-1		. #xE57B)	; &I-HZK01-E57B;
-    ))
-(define-char
-  '((=>ucs		. #x20679)	; 𠙹
-    (morohashi-daikanwa	1808 0 1)
-    (ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=cns11643-6	. #x223F)	; &C6-223F; [02-31]
+    (->subsumptive
+     ((hanyu-dazidian	  1 308 1)
+      (=daikanwa	  . 01808)	; &M-01808;
+      (=hanziku-1	  . #xE57B)	; &I-HZK01-E57B;
+      (<-ancient
+       ((=ucs		    . #x753E)	; 甾
+	))
+      (->ancient
+       ((=daikanwa	    . 01814)	; &M-01814;
+	))
+      (->ancient*sources
+       shuowen daikanwa)
+      (->formed
+       ((=ucs		    . #x753E)	; 甾
+	(=daikanwa	    . 21742)	; &I-M-21742;
+	))
+      (->formed*sources
+       daikanwa)
+      (->mistakable
+       ((=ucs		    . #x2067A)	; 𠙺
+	(=daikanwa	    . 01812)	; &I-M-01812;
+	))
+      (->mistakable*sources
+       kangxi-biansi-2char daikanwa)
+      )
+     ((=ucs@iso		  . #x20679)	; &U-00020679;
+      )
+     ((=cns11643-6	  . #x223F)	; &C6-223F; [02-31]
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
@@ -266,18 +285,19 @@
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 308 6)
     (=ucs		. #x2067E)	; 𠙾
-    (=daikanwa		. 01814)	; &I-M-01814;
-    (=hanziku-1		. #xE5A2)	; &I-HZK01-E5A2;
-    ))
-(define-char
-  '((=>ucs		. #x2067E)	; 𠙾
-    (morohashi-daikanwa	1814 0 1)
-    (ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=cns11643-6	. #x2365)	; &C6-2365; [03-69]
+    (->subsumptive
+     ((=daikanwa	  . 01814)	; &M-01814;
+      (<-ancient
+       ((=daikanwa	    . 01808)	; &M-01808;
+	))
+      )
+     ((hanyu-dazidian	  1 308 6)
+      (=hanziku-1	  . #xE5A2)	; &HZK01-E5A2;
+      (=ucs@iso		  . #x2067E)	; &HZK01-E5A2;
+      )
+     ((=cns11643-6	  . #x2365)	; &C6-2365; [03-69]
+      ))
     ))
 (define-char
   '((=>ucs		. #x2067F)	; 𠙿
