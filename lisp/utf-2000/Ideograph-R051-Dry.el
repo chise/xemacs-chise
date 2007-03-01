@@ -322,6 +322,19 @@
     (=ucs		. #x2219F)	; 𢆟
     (=cns11643-6	. #x523F)	; &I-C6-523F; [50-31]
     (=daikanwa		. 09185)	; &I-M-09185;
+    (<-formed@s=rice-bag
+     ((=daikanwa	  . 21878)	; &M-21878;
+      ))
+    (<-same
+     ((=daikanwa	  . 21878)	; &M-21878;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->original@zhengzitong
+     ((=daikanwa	  . 21878)	; &M-21878;
+      ))
+    (->original@zhengzitong*sources
+     zhengzitong)
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
@@ -330,6 +343,15 @@
     (=ucs		. #x207F3)	; 𠟳
     (->subsumptive
      ((=daikanwa	  . 09186)	; &M-09186;
+      (<-formed@s=rice-bag
+       ((=daikanwa	    . 21878)	; &M-21878;
+	))
+      (<-original
+       ((=ucs		    . #x2219F)	; 𢆟
+	(=daikanwa	    . 09185)	; &I-M-09185;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
       )
      ((=cns11643-7	  . #x225A)	; &C7-225A; [02-58]
       (=ucs@iso		  . #x207F3)	; &C7-225A;
