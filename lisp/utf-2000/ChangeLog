@@ -1,5 +1,11 @@
 2007-03-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R051-Dry.el (U-0002219F): Add `<-formed@s=rice-bag'
+	for M-21878; add `<-same' for M-21878; add
+	`->original@zhengzitong' for M-21878.
+	(M-09186): Add `<-formed@s=rice-bag' for M-21878; add `<-original'
+	for U-0002219F.
+
 	* Ideograph-R017-Open-Box.el (U-00020679): Use `->subsumptive';
 	add `sound@ja/on'.
 	(U-0002067E): Use `->subsumptive'.
