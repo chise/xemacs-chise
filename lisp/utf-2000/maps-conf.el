@@ -10,6 +10,8 @@
 		"B-to-UCS.txt" "JC3-to-UCS.txt"))
   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
+(ucs-compat-read-file "../etc/char-data/UCS-compat.txt")
+
 (jp-jouyou-read-file "../etc/char-data/jp-jouyou.txt")
 
 (let ((ucs #xE000)
