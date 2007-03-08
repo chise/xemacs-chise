@@ -187,6 +187,22 @@ UCS-REGEXP is a regular expression to match against
 		(put-char-attribute chr ucs-ccs ucs)))))
 	(forward-line)))))
 
+;;;###autoload
+(defun ucs-compat-read-file (filename)
+  (interactive "fUCS-compat file : ")
+  (with-temp-buffer
+    (buffer-disable-undo)
+    (insert-file-contents filename)
+    (goto-char (point-min))
+    (let (ucs ucs*)
+      (while (re-search-forward
+	      "^ *U[---+]\\([0-9A-F]+\\)\t *U[---+]\\([0-9A-F]+\\)" nil t)
+	(setq ucs (string-to-int (match-string 1) 16)
+	      ucs* (string-to-int (match-string 2) 16))
+	(put-char-attribute (decode-char '=ucs ucs) '=>ucs* ucs*)
+	))))
+
+;;;###autoload
 (defun jp-jouyou-read-file (filename)
   (interactive "fjp-jouyou file : ")
   (with-temp-buffer
