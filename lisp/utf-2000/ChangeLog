@@ -1,3 +1,28 @@
+2007-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U+7533): Add `sound@ja/on'.
+	(U-00024C1D): Likewise.
+	(U+753E): Likewise; add `<-formed' for M-01808; add `<-wrong' for
+	U-0002F936; add `->ancient' for M-01808; add `->mistakable' for
+	U-0002F936.
+	(U-0002F936): Add `=>ucs*' for U+753E; add
+	`sound@ja/on/s=desolate' and `sound@ja/on/s=misfortune'; unify
+	M-21761; add `<-same@ucs' for U+753E.
+	(C6-3279): Unify U-0002F935; add `sound@ja/on'; add `<-ancient'
+	for U+7533; add `<-same@ucs' for U-00024C36; add `<-unknown' for
+	M-21819.
+	(U+7554): Use `->denotational'.
+	(U-00024C36): Add `sound@ja/on'; use `->subsumptive'.
+	(U-00024C92): Add `sound@ja/on'; use `->denotational'.
+	(U-0002F937): Add `=>ucs*' for U-00024C92; use `<-denotational'
+	for U-00024C92.
+	(U-0002F939): Use `->denotational'; integrate M-21879.
+	(U+7581): Use `->denotational' and `->subsumptive'.
+	(U-00024CCA): Add `sound@ja/on/s={basket|rice-bag}'; use
+	`->subsumptive'.
+	(U-00024CEB): Unify M-21965; add `sound@ja/on'; add
+	`<-formed@s=rice-bag' for M-21878; add `<-same' for C4-5146.
+
 2007-03-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R051-Dry.el (U-0002219F): Add `<-formed@s=rice-bag'
