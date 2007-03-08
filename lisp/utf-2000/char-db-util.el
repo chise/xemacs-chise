@@ -1,6 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
-;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko.
+;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
+;;   2007 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -82,7 +83,7 @@
 (defvar char-db-file-coding-system 'utf-8-mcs-er)
 
 (defvar char-db-feature-domains
-  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
+  '(ucs ucs/compat daikanwa cns gt jis jis/alt jis/a jis/b
 	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
 
 (defvar char-db-ignored-attributes '(ideographic-products))
