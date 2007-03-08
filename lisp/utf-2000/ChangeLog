@@ -577,6 +577,10 @@
 	* Ideograph-R059-Bristle.el (U-0002F899): Use `->subsumptive'; add
 	`=>ucs*' for U+5F62.
 
+2007-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-feature-domains): Add `ucs/compat'.
+
 2007-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el (U-0002F898): Add `=>ucs*' for
@@ -778,6 +782,13 @@
 	* Ideograph-R024-Ten.el (U-0002F82C): Add `=>ucs*' for U+5349.
 
 	* Ideograph-R005-Second.el (U+F91B): Add `=>ucs*' for U+4E82.
+
+2006-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Use `ucs-compat-read-file' to read
+	"../etc/char-data/UCS-compat.txt".
+
+	* read-maps.el (ucs-compat-read-file): New command.
 
 2006-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
