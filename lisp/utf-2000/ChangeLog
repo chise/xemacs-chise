@@ -1,5 +1,12 @@
 2007-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R108-Dish.el (U-00025044): Add `<-same' for U+76C2.
+	(C6-2D3A): Unify U-0002F93D; add `<-original' for U+76C2.
+	(U-00025046): Use `->subsumptive'.
+	(U+3FFC): Add `sound@ja/on'; add `<-vulgar' for U-0002F93E.
+	(U+3FFD): Add `sound@ja/on'; use `->subsumptive'.
+	(U-0002F93E): Add `=>ucs*' for U+3FFC; add `sound@ja/on'.
+
 	* Ideograph-R102-Field.el (U+7533): Add `sound@ja/on'.
 	(U-00024C1D): Likewise.
 	(U+753E): Likewise; add `<-formed' for M-01808; add `<-wrong' for
