@@ -1,5 +1,12 @@
 2007-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el (U+4096): Use `->subsumptive'.
+	(C6-253F): Map to U-0002F94C.
+	(U-0002541D): Use `->denotational'.
+	(U+788C): Use `->denotational' and `->subsumptive'.
+	(C6-556B): Map to U-0002F94F.
+	(U+788E): Use `->subsumptive'.
+
 	* Ideograph-R018-Knife.el (GT-K00089): New character.
 
 2007-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
