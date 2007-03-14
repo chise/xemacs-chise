@@ -1,3 +1,29 @@
+2007-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (GT-K00089): New character.
+
+2007-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el (U-00024D78): Use `->subsumptive';
+	integrate M-22147.
+	(U-00024D81): Use `->subsumptive'; integrate M-22170.
+	(U-00024D85): Use `->subsumptive'; integrate M-22172.
+	(U+3F92): Use `->subsumptive'; integrate M-22173.
+	(U-00024D8C): Use `->subsumptive'; integrate M-22182.
+	(C6-4232): Unify U-0002F93A; add `<-unknown' for M-22336.
+	(U+75D7): Use `->subsumptive'.
+	(U+75D8): Likewise.
+	(U+75D9): Likewise.
+	(U+75DA): Likewise.
+	(U+75DB): Likewise.
+	(U+75DC): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on'.
+	(U+75DD): Use `->denotational' instead of `->subsumptive'.
+	(U+75DE): Use `->subsumptive'.
+	(U+760E): Use `->denotational'.
+	(U+760F): Use `->denotational'.
+	(U+7610): Use `->denotational' and `->subsumptive'.
+
 2007-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R108-Dish.el (U-00025044): Add `<-same' for U+76C2.
