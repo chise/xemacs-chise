@@ -1,3 +1,27 @@
+2007-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U-000250F2): Use `<-original' and
+	`<-original*sources' instead of `original-ideograph-of'.
+	(U+4013): Use `->subsumptive'.
+	(U-000250F3): Add `<-same' for U+76F1.
+	(C6-2D3D): Unify U-0002F941; add `<-original' for U+76F1.
+	(U-000250F4): Use `->subsumptive'.
+	(U-0002F940): Add `=>ucs*' for U+76F4.
+	(U-00025117): Use `->subsumptive'.
+	(U-00025118): Use `->subsumptive'.
+	(U-00025119): Use `->subsumptive'.
+	(C6-3331): Unify U-0002F943.
+	(M-23201): Add `total-strokes'.
+	(U-00025113): Unify H7-A946.
+	(M-23203): Don't map to U-0002511B.
+	(U-0002511B): Add `<-unknown' for M-23203; don't use
+	`morohashi-daikanwa'.
+	(U-0002F944): Moved to parent.
+	(C6-3A2D): Map to U-0002F946.
+	(U-0002F947): Add `=>ucs*' for U+771F.
+	(C6-4248): Map to U-0002F948.
+	(U-0002516A): Use `->subsumptive'.
+
 2007-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R112-Stone.el (U+4096): Use `->subsumptive'.
