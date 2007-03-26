@@ -1,3 +1,23 @@
+2007-03-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (U+42A0): Use `->denotational'.
+	(U-0002F967): Add `<-denotational' for U+42A0; add `=>ucs*' for
+	U+42A0.
+
+	* Ideograph-R072-Sun.el (U+3B2D): Use `->denotational'.
+
+	* Ideograph-R030-Mouth.el (U-00021131): Use `->denotational'.
+	(G0-3D40): Use representational component in
+	`ideographic-structure'.
+
+2007-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el (U+7235): Use `->denotational'.
+	(K0-6D49): Use `<-denotational' for U+7235; delete BC-C0EF;
+	separate JC3-58AE.
+	(U-0002F921): Use `<-denotational' for U+7235.
+	(U-00024539): Use `->denotational'.
+
 2007-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el (U-000250F2): Use `<-original' and
@@ -63,6 +83,8 @@
 	(U+3FFC): Add `sound@ja/on'; add `<-vulgar' for U-0002F93E.
 	(U+3FFD): Add `sound@ja/on'; use `->subsumptive'.
 	(U-0002F93E): Add `=>ucs*' for U+3FFC; add `sound@ja/on'.
+
+	* char-db-util.el (shuowen-radicals): Add 5 radicals.
 
 	* Ideograph-R102-Field.el (U+7533): Add `sound@ja/on'.
 	(U-00024C1D): Likewise.
