@@ -8469,7 +8469,15 @@
     (=cns11643-7	. #x5821)	; &I-C7-5821; [56-01]
     ))
 (define-char
-  '((=>ucs		. #x3B2D)	; 㬭
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 18)
+    (total-strokes	 . 22)
+    (=ucs		. #x3B2D)	; 㬭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3B2D)	; 㬭
+      ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
@@ -8479,49 +8487,47 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ks-x1001	  . #x6D49)	; &CDP-C0EF; [77-41]
+     ((=ks-x1001	  . #x6D49)	; &M-19711; [77-41]
       (=daikanwa	  . 19711)	; &I-M-19711;
       ))
     (=daikanwa		. 14262)	; &M-14262;
     ))
 (define-char
-  '((=>ucs		. #x3B2D)	; 㬭
-    (morohashi-daikanwa	14262 0 1)
+  '((<-denotational
+     ((=ucs		  . #x3B2D)	; 㬭
+      ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=jis-x0208	  . #x3C5F)	; &GT-25313; [28-63]
+      (=gb2312		  . #x3E74)	; &I-G0-3E74; [30-84]
+      (=cns11643-1	  . #x743A)	; &I-C1-743A; [84-26]
+      ))
+    (=ucs@unicode	. #x3B2D)	; &UU+3B2D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3B2D)	; 㬭
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 17)
+    (total-strokes	 . 21)
     (=cbeta		. 05749)	; &CB05749;
     ))
 (define-char
-  '((=>ucs		. #x3B2D)	; 㬭
-    (morohashi-daikanwa	14262 0 2)
+  '((<-denotational
+     ((=ucs		  . #x3B2D)	; 㬭
+      ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x65E5)	; 日
-      )
-     ((=ucs		  . #x2F921)	; 爵
-      ))
     (=cns11643-3	. #x5F4D)	; &C3-5F4D; [63-45]
-    ))
-(define-char
-  '((morohashi-daikanwa	14262 0 3)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 18)
-    (total-strokes	 . 22)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x65E5)	; 日
-      )
-     ((=ucs		  . #x7235)	; 爵
-      ))
-    (=ucs		. #x3B2D)	; 㬭
     ))
 (define-char
   '((=>ucs		. #x23313)	; 𣌓
