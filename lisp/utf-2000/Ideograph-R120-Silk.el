@@ -218,9 +218,15 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
+    (sound@ja/on	"kIu")
     (=ucs		. #x25F86)	; 𥾆
     (->subsumptive
      ((=daikanwa	  . 27230)	; &M-27230;
+      (<-same
+       ((=daikanwa	    . 27227)	; &M-27227;
+	))
+      (<-same*sources
+       pianhai-leibian daikanwa)
       )
      ((=cns11643-6	  . #x2D52)	; &C6-2D52; [13-50]
       (=ucs@iso		  . #x25F86)	; &C6-2D52;
@@ -616,17 +622,23 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=daikanwa		. 27257)	; &M-27257;
-    ))
-(define-char
-  '((morohashi-daikanwa	27257 0 1)
+  '((=>ucs*		. #x25F86)	; 𥾆
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (=cns11643-6	. #x3366)	; &C6-3366; [19-70]
+    (sound@ja/on	"kIu")
+    (=ucs		. #x2F96B)	; 𥾆
+    (->subsumptive
+     ((=daikanwa	  . 27257)	; &M-27257;
+      (<-same
+       ((=daikanwa	    . 27227)	; &M-27227;
+	))
+      (<-same*sources
+       haipian daikanwa)
+      )
+     ((=cns11643-6	  . #x3366)	; &C6-3366; [19-70]
+      (=ucs@iso		  . #x2F96B)	; &C6-3366;
+      ))
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
@@ -14720,19 +14732,28 @@
 (define-char
   '((ideographic-radical . 120)	; ⽷
     (=ucs		. #x432D)	; 䌭
-    (->subsumptive
-     ((ideographic-strokes . 16)
-      (total-strokes	   . 22)
-      (=daikanwa	  . 28062)	; &M-28062;
-      )
-     ((ideographic-strokes . 16)
-      (total-strokes	   . 22)
-      (=cns11643-4	  . #x692B)	; &C4-692B; [73-11]
-      )
-     ((ideographic-strokes . 15)
-      (total-strokes	   . 21)
-      (=ucs@unicode	  . #x432D)	; &UU+432D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x432D)	; 䌭
       ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 16)
+    (total-strokes	 . 22)
+    (->subsumptive
+     ((=daikanwa	  . 28062)	; &M-28062;
+      )
+     ((=cns11643-4	  . #x692B)	; &C4-692B; [73-11]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x432D)	; 䌭
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 15)
+    (total-strokes	 . 21)
+    (=ucs@unicode	. #x432D)	; &UU+432D;
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
@@ -14741,6 +14762,12 @@
     (=ucs		. #x261DA)	; 𦇚
     (->subsumptive
      ((=daikanwa	  . 28063)	; &M-28063;
+      (<-ancient
+       ((=ucs		    . #x5F5D)	; 彝
+	(=daikanwa	    . 09950)	; &I-M-09950;
+	))
+      (<-ancient*sources
+       jiyun daikanwa)
       )
      ((=ucs@iso		  . #x261DA)	; &U-000261DA;
       )
