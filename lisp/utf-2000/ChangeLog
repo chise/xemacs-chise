@@ -1,4 +1,86 @@
+2007-03-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+412F): Use `->denotational';
+	integrate U-0002F958.
+	(U+79EB): Use `->denotational'.
+	(C6-3A43): Use `<-denotational' for U+79EB; unify U-0002F957.
+	(U+79EC): Use `->subsumptive'.
+	(U-00025799): Use `->denotational'; integrate M-25028.
+	(U-0002579A): Use `->subsumptive'; integrate M-25029.
+	(U+79F6): Use `->denotational' instead of `->subsumptive'.
+	(U+4146): Use `->denotational'; integrate M-25031.
+	(M-25032): New character.
+	(U-0002579C): Use `->subsumptive'; integrate M-25033.
+	(U+4141): Use `->subsumptive'; integrate M-25037.
+	(U+4143): Use `->denotational' and `->subsumptive'; integrate
+	M-25040.
+	(U-0002579D): Use `->subsumptive'; integrate M-25046.
+	(U+4147): Use `->subsumptive'; integrate M-25048.
+	(U+4148): Use `->denotational' instead of `->subsumptive'.
+	(U+414A): Use `->subsumptive'; integrate M-25050.
+	(C6-4267): Use `<-denotational' for U+412F; unify U-0002F958; add
+	`<-same' for M-09184.
+	(U-0002579B): Use `->subsumptive'; add `<-unknown' for M-25032.
+
+	* Ideograph-R113-Spirit.el (U-0002561F): Use `->denotational'.
+	(U-00025620): Likewise.
+	(U-00025621): Likewise.
+	(U-00025622): Likewise.
+	(U-00025624): Likewise.
+	(U-00025625): Likewise.
+	(U-00025627): Likewise.
+	(U-00025628): Likewise.
+	(U-00025629): Likewise.
+	(U+794F): Use `->denotational' instead of `->subsumptive'.
+	(U+7951): Likewise.
+	(U+7952): Likewise.
+	(U-0002562B): Use `->denotational'; integrate M-24656.
+	(U+7953): Use `->denotational' instead of `->subsumptive'.
+	(U-0002562C): Use `->denotational'; integrate M-24659.
+	(U-0002562D): Use `->denotational'; integrate M-24660.
+	(U-0002562E): Use `->denotational'; integrate M-24661.
+	(U+7954): Use `->denotational' instead of `->subsumptive'.
+	(U+7955): Likewise.
+	(U+795A): Likewise.
+	(U+4103): Use `->denotational' and `->subsumptive'; integrate
+	M-24669.
+	(U+795B): Use `->denotational' instead of `->subsumptive'.
+	(U+795C): Likewise.
+	(U+7960): Likewise.
+	(U+7961): Add `{ideographic|total}-strokes@{ucs|cns}' and
+	`ideographic-strokes@ucs*sources'.
+	(U-00025630): Use `->denotational' and `->subsumptive'; integrate
+	M-24678.
+	(U+7962): Use `->denotational'; add `sound@ja/on'.
+	(U-00025632): Use `->subsumptive'; integrate M-24681.
+	(C6-334A): Use `<-subsumptive'' for U-00025632; unify U-0002F953;
+	add `<-same@ucs' for U+7956.
+	(U-0002562F): Use `->denotational'.
+	(U-00025640): Likewise.
+	(U-00025641): Likewise.
+
+2007-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (U-00025F86): Add `sound@ja/on'.
+	(M-27230): Add `<-same' for M-27227.
+	(C6-3366): Map to U-0002F96B.
+	(U+432D): Use `->denotational'.
+	(M-28063): Add `<-ancient' for U+5F5D.
+
 2007-03-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (U-00025976): Use `->subsumptive';
+	integrate M-25509.
+	(U+41A2): Use `->subsumptive'; integrate M-25513.
+	(U+7A96): Use `->denotational' instead of `->subsumptive'.
+	(U+7A97): Use `->denotational' instead of `->subsumptive'.
+	(U-0002597C): Use `->subsumptive'; integrate M-25521.
+	(U-000259A2): Use `->subsumptive'; integrate M-25547'.
+	(U-0002599B): Use `->denotational' instead of `->subsumptive'.
+	(U-0002599C): Use `->denotational' instead of `->subsumptive'.
+	(U-000259BE): Use `->denotational' instead of `->subsumptive'.
+	(U-000259BF): Use `->denotational' instead of `->subsumptive'.
+	(C6-5F75): Map to U-0002F95C.
 
 	* Ideograph-R119-Rice.el (U+42A0): Use `->denotational'.
 	(U-0002F967): Add `<-denotational' for U+42A0; add `=>ucs*' for
