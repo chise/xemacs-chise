@@ -930,12 +930,21 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (sound@ja/on	"hei" "hyAu")
     (=ucs		. #x8060)	; 聠
     (->subsumptive
      ((=jis-x0212	  . #x5564)	; &M-29066; [53-68]
       (=cns11643-3	  . #x3E3B)	; &I-C3-3E3B; [30-27]
       (=daikanwa	  . 29066)	; &I-M-29066;
       (=ucs@jis		  . #x8060)	; &M-29066;
+      (<-formed
+       ((=daikanwa	    . 29107)	; &M-29107;
+	))
+      (->original
+       ((=daikanwa	    . 29107)	; &M-29107;
+	))
+      (->original*sources
+       daikanwa)
       )
      ((=ucs@unicode	  . #x8060)	; &UU+8060;
       ))
@@ -1570,17 +1579,30 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 128)	; ⽿
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (=daikanwa		. 29107)	; &M-29107;
-    ))
-(define-char
-  '((morohashi-daikanwa	29107 0 1)
+  '((=>ucs*		. #x8060)	; 聠
     (ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x605D)	; &C6-605D; [64-61]
+    (sound@ja/on	"hei" "hyAu")
+    (=ucs		. #x2F97D)	; 聠
+    (->subsumptive
+     ((=daikanwa	  . 29107)	; &M-29107;
+      (<-original
+       ((=jis-x0212	    . #x5564)	; &M-29066; [53-68]
+	(=cns11643-3	    . #x3E3B)	; &I-C3-3E3B; [30-27]
+	(=daikanwa	    . 29066)	; &I-M-29066;
+	))
+      (->formed
+       ((=jis-x0212	    . #x5564)	; &M-29066; [53-68]
+	(=cns11643-3	    . #x3E3B)	; &I-C3-3E3B; [30-27]
+	(=daikanwa	    . 29066)	; &I-M-29066;
+	))
+      (->formed*sources
+       daikanwa)
+      )
+     ((=cns11643-6	  . #x605D)	; &C6-605D; [64-61]
+      (=ucs@iso		  . #x2F97D)	; &C6-605D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
@@ -1624,10 +1646,16 @@
     (=daikanwa		. 29110)	; &I-M-29110;
     ))
 (define-char
-  '((ideographic-radical . 128)	; ⽿
+  '((=>ucs*		. #x265A8)	; 𦖨
+    (ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
+    (sound@ja/on	"si")
     (=ucs		. #x2F97E)	; 𦖨
+    (<-same@ucs
+     ((=ucs		  . #x265A8)	; 𦖨
+      ))
+    (<-same@ucs*notes	"similar meaning, but different pronunciations")
     (->subsumptive
      ((=daikanwa	  . 29111)	; &M-29111;
       )
@@ -1825,9 +1853,22 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (sound@ja/on	"ratu" "rati")
     (=ucs		. #x265A8)	; 𦖨
     (->subsumptive
      ((=daikanwa	  . 29125)	; &M-29125;
+      (<-formed
+       ((=cns11643-4	    . #x4C52)	; &M-29126; [44-50]
+	(=daikanwa	    . 29126)	; &I-M-29126;
+	))
+      (<-formed*sources
+       jiyun)
+      (<-same
+       ((=cns11643-4	    . #x4C52)	; &M-29126; [44-50]
+	(=daikanwa	    . 29126)	; &I-M-29126;
+	))
+      (<-same*sources
+       jiyun daikanwa)
       )
      ((=ucs@iso		  . #x265A8)	; &U-000265A8;
       )
@@ -1838,10 +1879,21 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (sound@ja/on	"ratu")
     (=ucs		. #x43C0)	; 䏀
     (->subsumptive
      ((=cns11643-4	  . #x4C52)	; &M-29126; [44-50]
       (=daikanwa	  . 29126)	; &I-M-29126;
+      (<-same
+       ((=daikanwa	    . 29125)	; &M-29125;
+	))
+      (<-same*sources
+       jiyun daikanwa)
+      (->formed
+       ((=daikanwa	    . 29125)	; &M-29125;
+	))
+      (->formed*sources
+       jiyun)
       )
      ((=ucs@unicode	  . #x43C0)	; &UU+43C0;
       ))
