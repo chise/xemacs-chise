@@ -1,4 +1,36 @@
+2007-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (U+8060): Add `sound@ja/on'.
+	(C6-605D): Map to U-0002F97D.
+	(U-0002F97E): Add `sound@ja/on'; add `=>ucs*' for U-000265A8; add
+	`<-same@ucs' for U-000265A8.
+	(U-000265A8): Add `sound@ja/on'.
+	(U+43C0): Add `sound@ja/on'.
+
+2007-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (U-0002635A): Use `->denotational'.
+	(U-0002635B): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on'.
+	(U+7F95): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-28449.
+	(U+7F96): Use `->subsumptive'.
+	(U+4370): Use `->subsumptive'.
+	(U-0002637B): Likewise.
+	(U-0002637C): Likewise.
+	(C6-4D23): Unify U-0002F978; add `sound@ja/on'; add `<-vulgar' for
+	M-28449.
+
+	* Ideograph-R124-Feather.el (U+4392): Use `->denotational'.
+	(U+7FE2): Likewise.
+	(J90-344D): Unify JC3-60B2.
+
+	* Ideograph-R105-Dotted-Tent.el (U-00024F37): Unify H7-E6F6.
+
 2007-03-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (U+FA5B): Add `=>ucs*' for U+8005.
+	(U-0002F97A): Likewise.
 
 	* Ideograph-R115-Grain.el (U+412F): Use `->denotational';
 	integrate U-0002F958.
