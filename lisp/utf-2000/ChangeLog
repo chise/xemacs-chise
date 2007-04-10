@@ -1,4 +1,37 @@
+2007-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el (M-49525): Add `<-formed' and
+	`<-same' for M-29258.
+
+	* Ideograph-R074-Moon.el (U-0002335F): Unify M-14334; add
+	`sound@ja/on'; add `->mistakable' for M-29258.
+	(U+440B): Add `sound@ja/on'.
+
 2007-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (C6-6023): Map to U-0002F961.
+	(U-00025BAB): Use `->subsumptive'; add `sound@ja/on'.
+	(U-00025C78): Use `->denotational'; integrate M-26401.
+	(U+7BF7): Use `->denotational' instead of `->subsumptive'.
+	(U-00025C7B): Use `->denotational'; integrate M-26406.
+	(U-00025C7F): Use `->subsumptive'; integrate M-26427.
+	(U-00025C80): Unify M-26429; add `sound@ja/on'.
+	(U+7C04): Use `->denotational'.
+	(U+7C05): Use `->denotational' instead of `->subsumptive'.
+	(U-00025C84): Use `->subsumptive'; integrate M-26439.
+	(U-00025C86): Use `->denotational'; integrate M-26441.
+	(U-00025C87): Use `->subsumptive'; integrate M-26442.
+	(U+7C09): Use `->denotational' instead of `->subsumptive'.
+	(U-00025C89): Use `->subsumptive'; integrate M-26446.
+	(U-00025C91): Use `->denotational'; integrate M-26463.
+	(U-00025C92): Use `->denotational'; integrate M-26464.
+	(U-00025C9A): Use `->subsumptive'; integrate M-26470.
+	(U-00025C9C): Use `->subsumptive'; integrate M-26472.
+	(U+7C10): Use `->subsumptive'.
+	(U-00025CA7): Use `->subsumptive'; integrate M-26485.
+	(U-00025CA8): Use `->subsumptive'; integrate M-26486.
+	(U-0002F965): Add `=>ucs*' for U-00025C80; add `sound@ja/on'; add
+	`<-same' for U-0002F882; add `<-same@ucs' for U-00025C80.
 
 	* Ideograph-R128-Ear.el (U+8060): Add `sound@ja/on'.
 	(C6-605D): Map to U-0002F97D.
