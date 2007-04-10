@@ -871,6 +871,14 @@
     (=ucs		. #x20554)	; 𠕔
     (->subsumptive
      ((=daikanwa	  . 49525)	; &M-49525;
+      (<-formed
+       ((=daikanwa	    . 29258)	; &M-29258;
+	))
+      (<-same
+       ((=daikanwa	    . 29258)	; &M-29258;
+	))
+      (<-same*sources
+       daikanwa)
       )
      ((hanyu-dazidian	  1 100 7)
       (=hanziku-1	  . #xB8A4)	; &HZK01-B8A4;
