@@ -17092,6 +17092,7 @@
   '((ideographic-radical . 30)	; ⼝
     (hanyu-dazidian	1 637 4)
     (=ucs		. #x558F)	; 喏
+    (=big5		. #xD86F)	; &I-B-D86F;
     ))
 (define-char
   '((<-denotational
@@ -17126,14 +17127,10 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=jis-x0208	  . #x3C63)	; &GT-39907; [28-67]
-      (=gb2312		  . #x4874)	; &I-G0-4874; [40-84]
-      (=ks-x1001	  . #x6534)	; &I-K0-6534; [69-20]
-      (=cns11643-6	  . #x2E24)	; &I-C6-2E24; [14-04]
+     ((=ucs		  . #x2F998)	; 若
       ))
     (=gb2312		. #x5F76)	; &JSP-356B; [63-86]
     (=jis-x0212		. #x356B)	; &I-JSP-356B; [21-75]
-    (=big5		. #xD86F)	; &I-B-D86F;
     (=ucs@unicode	. #x558F)	; &JSP-356B;
     ))
 (define-char
