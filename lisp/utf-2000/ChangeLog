@@ -1,3 +1,93 @@
+2007-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+828A): Use `->denotational'.
+	(U+828B): Likewise.
+	(J0-3072): Use `<-denotational' for U+828B; unify C6-2552 and
+	U-0002F990.
+	(U+828C): Use `->denotational'.
+	(U+8291): Use `->denotational'.
+	(U-0002F98F): Use `<-denotational' for U+8291; add `=>ucs*' for
+	U+8291; add `<-unknown' for C2-247D; use `->subsumptive'.
+	(U+8292): Use `->denotational' and `->subsumptive'.
+	(U+8293): Use `->denotational' instead of `->subsumptive'.
+	(C6-2927): Map to U-0002F991.
+	(U+82B1): Use `->denotational'.
+	(C6-2928): Map to U-0002F993.
+	(C6-2E24): Unify U-0002F998.
+	(U+82E6): Use `->denotational'.
+	(C6-2E23): Use `<-denotational' for U+82E6; unify U-0002F996.
+	(U+44B0): Use `->denotational'.
+	(U+831D): Use `->denotational' and `->subsumptive'.
+	(C6-3B52): Map to U-0002F999.
+	(C6-442B): Map to U-0002F99C.
+	(C6-4376): Map to U-0002F99E; add `<-unknown' for M-31202.
+	(U+83CA): Use `->denotational' and `->subsumptive'.
+	(C6-443E): Map to U-0002F9A1.
+	(U+83CB): Use `->denotational'.
+	(U+83CC): Use `->denotational' and `->subsumptive'.
+	(C6-443C): Use `<-denotational' for U+83CC; unify U-0002F9A2.
+	(U+83CD): Use `->denotational'.
+	(U+83CF): Use `->denotational'.
+	(C6-4E3B): Unify U-0002F9A4; unify M-31163; unify GT-41024; add
+	`<-same@ucs' for U-00026C36.
+	(U-00026C36): Separate M-31163; use `=>daikanwa' for M-31163.
+	(U+83DC): Use `->denotational'.
+	(C6-443D): Map to U-0002F9A3.
+	(U+83E7): Use `->denotational' and `->subsumptive'.
+	(U-00026C6D): Fix typo.
+	(C6-443B): Unify U-0002F99F; use `<-denotational' for U+8457;
+	don't use `->subsumptive' to integrate C1-6161.
+	(C6-613E): Map to U-0002F9A5.
+	(U-00026D6B): Use `->subsumptive'.
+	(C6-614F): Map to U-0002F9A6.
+	(U+84F1): Use `->denotational'.
+	(U-0002F9A8): Use `->subsumptive'; use `<-denotational' for
+	U+84F1.
+	(U-00026E02): Use `->subsumptive'.
+	(U+4510): Use `->subsumptive'.
+	(U+84F2): Use `->denotational'.
+	(U+4511): Use `->denotational' and `->subsumptive'.
+	(U+84F3): Use `->denotational'.
+
+2007-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+8201): Use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add
+	`ideographic-radical@ucs/compat' and
+	`ideographic-radical@{ucs|ucs/compat}*sources'; add J97-674D.
+	(J0-674D): Unify U-0002F893 and C6-3074; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs/compat' and
+	`ideographic-radical@ucs/compat*sources'.
+	(M-30205): Unify U-00026970 and H8-CC53.
+	(C6-4D5E): Map to U-0002F98C; add `<-same' for U+8204.
+
+	* Ideograph-R030-Mouth.el (B-D86F): Moved to parent.
+
+	* Ideograph-R009-Man.el (B-B0B4): Moved to parent.
+
+2007-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U+808E): Use `->subsumptive'; add
+	`sound@ja/on'.
+	(U-0002F980): Use `->subsumptive'; add `sound@ja/on'; add `=>ucs*'
+	and `<-same@ucs' for U-0002335F.
+	(U+80B2): Add B-A87C.
+	(M-49525): Add `<-formed' and `<-same' for M-29258.
+	(U+809F): Use `->subsumptive'.
+	(U+43D7): Use `->subsumptive'.
+	(U+43D8): Use `->denotational' and `->subsumptive'.
+	(C6-2D69): Map to U-0002F982.
+	(U+43D9): Use `->subsumptive'; add `sound@ja/on'.
+	(U-0002F983): Moved to parent.
+	(U+8104): Use `->subsumptive'.
+	(C6-4D48): Map to U-0002F985.
+	(U+813F): Use `->subsumptive'.
+	(U+43FF): Use `->denotational' and `->subsumptive'.
+	(U-0002F984): Add `=>ucs*' and `<-same@ucs' for U+440B; add
+	`sound@ja/on'.
+
 2007-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R013-Down-Box.el (M-49525): Add `<-formed' and
