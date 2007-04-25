@@ -2,6 +2,8 @@
 
 	* JX2-to-UCS.txt (JX2-7662): Don't map to U-0002F9A8.
 
+	* JSP-to-UCS.txt (JSP-5926): Delete mapping for U-0002F9A8.
+
 2007-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-58AE): Map to U+7235 instead of U-0002F921.
