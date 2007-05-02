@@ -1,3 +1,44 @@
+2007-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (C6-3C2D): Map to U-0002F9CC.
+	(J0-403F): Add `<-same' for M-35537.
+	(M-35537): Separate C6-6247; map to U+8AA0.
+	(C6-6247): Separate M-35537; unify U-0002F9CF.
+
+2007-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U-0002F9C5): Add `=>ucs*' for
+	U-00027667.
+	(U-00027643): Integrate GT-46110.
+	(U+88BF): Use `->subsumptive'.
+	(U-00027664): Use `->subsumptive'; integrate M-34256.
+	(U+88C0): Use `->subsumptive'.
+	(U+88C1): Use `->subsumptive'.
+	(U+88C9): Use `->subsumptive'.
+	(U-00027760): New character.
+	(C6-582E): Map to U-0002F9C6.
+	(U-00027689): Use `->denotational' and `->subsumptive'.
+
+2007-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (U-0002F9CB): Add `=>ucs*' and
+	`<-same@ucs' for U-000278AE.
+	(M-34999): Add `<-same' for M-34996.
+
+	* Ideograph-R142-Insect.el (C6-3B71): Map to U-0002F9B7.
+	(U+86E2): Add `<-vulgar' for M-33198.
+	(C6-4E46): Unify U-0002F9B9; add `<-unknown' for JX2-7752.
+	(U+86D6): Use `->denotational'.
+	(U+870F): Use `->subsumptive'.
+
+2007-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (C6-3447): Map to U-0002F9B3.
+	(U-0002719D): Use `->subsumptive'.
+	(U+4589): Use `->subsumptive'.
+	(U-0002719E): Use `->subsumptive'; integrate MH-0539 and GT-44184.
+	(U+8651): Use `->subsumptive'.
+
 2007-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+828A): Use `->denotational'.
