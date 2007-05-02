@@ -54,11 +54,24 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 152)	; ⾗
+  '((=>ucs*		. #x8C55)	; 豕
+    (ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (=cns11643-6	. #x292A)	; &M-36337; [09-10]
-    (=daikanwa		. 36337)	; &I-M-36337;
+    (=ucs		. #x2F9D2)	; 豕
+    (->subsumptive
+     ((=daikanwa	  . 36337)	; &M-36337;
+      (<-vulgar@component/connect-right
+       ((=ks-x1001	    . #x634E)	; &GT-48747; [67-46]
+	(=jis-x0208@1990    . #x6C35)	; &I-J90-6C35; [76-21]
+	(=daikanwa	    . 36334)	; &I-M-36334;
+	))
+      (<-vulgar@component/connect-right*sources
+       zihui daikanwa)
+      )
+     ((=cns11643-6	  . #x292A)	; &C6-292A; [09-10]
+      (=ucs@iso		  . #x2F9D2)	; &C6-292A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 152)	; ⾗
