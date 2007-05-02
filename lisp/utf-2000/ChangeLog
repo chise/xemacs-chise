@@ -1,3 +1,7 @@
+2007-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (C6-292A): Map to U-0002F9D2.
+
 2007-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el (C6-3C2D): Map to U-0002F9CC.
