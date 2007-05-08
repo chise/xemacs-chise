@@ -1,5 +1,7 @@
 2007-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R156-Run.el (U-0002F9D7): Add CU-0002F9D7.
+
 	* Ideograph-R154-Shell.el (C6-585C): Unify U-0002F9D5.
 	(U+8D1B): Use `->subsumptive'.
 	(M-36985): New character.
