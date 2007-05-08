@@ -228,6 +228,7 @@
     (=gt-pj-1		. #x352F)	; &I-GT-49591; [21-15]
     (=daikanwa		. 37048)	; &I-M-37048;
     (=ucs@unicode	. #x8D77)	; 起
+    (=ucs@cns		. #x2F9D7)	; 起
     ))
 (define-char
   '((<-denotational
