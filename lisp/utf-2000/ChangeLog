@@ -1,4 +1,29 @@
+2007-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (C6-345D): Unify U-0002F9DD; use
+	`<-subsumptive' for U-000208DE.
+
+	* Ideograph-R020-Wrap.el (U-000208DE): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs/compat',
+	`ideographic-radical@{ucs|ucs/compat}*sources' and
+	`ideographic-strokes@{ucs|ucs/compat}*sources'; add `sound@ja/on';
+	add `<-original' for U+8ECD; use `->subsumptive' to integrate
+	U-0002F9DD.
+
+2007-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (U+8C5C): Use `<-denotational' for B-D7CF;
+	add `<-vulgar' for JSP-5E73.
+	(B-D7CF): Changed to abstract character.
+	(U+8C63): Add `<-denotational' for B-D7CF; use `->subsumptive'.
+
 2007-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R153-Badger.el (U-00027CA8): Add `<-simplified@misc'
+	for M-36538.
+	(C6-5850): Map to U-0002F9D3.
 
 	* Ideograph-R156-Run.el (U-0002F9D7): Add CU-0002F9D7.
 
