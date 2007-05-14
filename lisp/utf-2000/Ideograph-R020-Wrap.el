@@ -794,12 +794,41 @@
     (=jef-china3	. #x45A7)	; &I-JC3-45A7;
     ))
 (define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 7)
+  '((ideographic-radical@ucs . 20)	; ⼓
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@ucs*sources
+     daikanwa=02526 cns11643-6=2F2A)
+    (ideographic-strokes@ucs*sources
+     daikanwa=02526)
+    (ideographic-radical@ucs/compat . 159)	; ⾞
+    (ideographic-strokes@ucs/compat . 2)
+    (ideographic-radical@ucs/compat*sources
+     daikanwa=38180 cns11643-6=345D)
+    (ideographic-strokes@ucs/compat*sources
+     daikanwa=38180)
     (total-strokes	 . 9)
+    (sound@ja/on	"guN")
     (=ucs		. #x208DE)	; 𠣞
-    (=cns11643-6	. #x2F2A)	; &I-C6-2F2A; [15-10]
-    (=daikanwa		. 02526)	; &I-M-02526;
+    (<-original
+     ((=ucs		  . #x8ECD)	; 軍
+      (=daikanwa	  . 38179)	; &I-M-38179;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((ideographic-radical . 20)	; ⼓
+      (ideographic-strokes . 7)
+      (=cns11643-6	  . #x2F2A)	; &M-02526; [15-10]
+      (=daikanwa	  . 02526)	; &I-M-02526;
+      (=ucs@cns		  . #x208DE)	; &M-02526;
+      )
+     ((=>ucs*		  . #x208DE)	; 𠣞
+      (ideographic-radical . 159)	; ⾞
+      (ideographic-strokes . 2)
+      (=ucs		  . #x2F9DD)	; 𠣞
+      (=cns11643-6	  . #x345D)	; &I-C6-345D; [20-61]
+      (=daikanwa	  . 38180)	; &I-M-38180;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
