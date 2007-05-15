@@ -1,3 +1,8 @@
+2007-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (C1-4F54): Add CU+8FD1.
+	(J90-4D5A): Unify JC3-70EB.
+
 2007-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R159-Cart.el (C6-345D): Unify U-0002F9DD; use
