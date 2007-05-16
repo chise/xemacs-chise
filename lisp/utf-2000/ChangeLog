@@ -1,5 +1,9 @@
 2007-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R164-Wine.el (U+91A4): Fix a typo [the self is
+	missing].
+	(J90-3E5F): Unify JC3-69A1.
+
 	* Ideograph-R162-Walk.el (C1-4F54): Add CU+8FD1.
 	(J90-4D5A): Unify JC3-70EB.
 
