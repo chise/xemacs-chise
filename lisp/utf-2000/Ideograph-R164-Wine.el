@@ -3551,6 +3551,7 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
+    (=ucs		. #x91A4)	; 醤
     (<-simplified
      ((=ucs		  . #x91AC)	; 醬
       ))
@@ -3559,6 +3560,7 @@
       (=jis-x0208@1990	  . #x3E5F)	; &I-J90-3E5F; [30-63]
       (=gt		  . 53761)	; &I-GT-53761;
       (=gt-pj-1		  . #x3E5F)	; &I-GT-53761; [30-63]
+      (=jef-china3	  . #x69A1)	; &I-JC3-69A1;
       (=ucs@jis		  . #x91A4)	; &GT-53761;
       )
      ((=ucs@unicode	  . #x91A4)	; &UU+91A4;
