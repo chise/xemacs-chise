@@ -1,3 +1,16 @@
+2007-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+9094): Use `->subsumptive'.
+	(C6-255B): Unify U-0002F9E2; use `<-unknown' for M-39276.
+	(U+909E): Use `->subsumptive'.
+	(U+909F): Use `->subsumptive'.
+	(U-0002872E): Add `sound@ja/on'.
+	(M-39541): Add `<-same' for U-0002F833.
+	(U+9111): Use `->denotational'.
+	(C6-5947): Use `<-denotational' for U+9111; unify U-0002F9E4.
+	(C6-594A): Unify U-0002F9E5; add `sound@ja/on'; add `<-same@ucs'
+	for U-0002872E; add `<-wrong' for K0-7A41.
+
 2007-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R164-Wine.el (U+91A4): Fix a typo [the self is
