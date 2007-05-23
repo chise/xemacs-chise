@@ -1,3 +1,11 @@
+2007-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (C6-6353): Map to U-0002F9E8.
+	(C6-634F): Map to U-0002F9E9.
+	(U+92D6): Use `->denotational' and `->subsumptive'.
+	(U+92D7): Use `->subsumptive'.
+	(U+92D8): Use `->denotational' and `->subsumptive'.
+
 2007-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el (U+9094): Use `->subsumptive'.
