@@ -3265,6 +3265,7 @@
   '((<-denotational
      ((=ucs		  . #x29145)	; 𩅅
       ))
+    (=>ucs*		. #x29145)	; 𩅅
     (ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
