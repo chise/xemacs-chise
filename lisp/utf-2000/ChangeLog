@@ -1,3 +1,18 @@
+2007-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (C6-6358): Map to U-0002F9EE.
+	(U+4997): Use `->subsumptive'.
+	(U+95DA): Use `->subsumptive'.
+	(U+95DB): Use `->subsumptive'.
+	(U+95DC): Use `->subsumptive'.
+
+	* Ideograph-R173-Rain.el (U-0002F9F6): Add `=>ucs*' for
+	U-00029145.
+
+	* Ideograph-R170-Mound.el (C6-5022): Unify U-0002F9F2; use
+	`<-same' for M-41843.
+	(U+49E6): Use `->denotational' and `->subsumptive'.
+
 2007-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (C6-6353): Map to U-0002F9E8.
