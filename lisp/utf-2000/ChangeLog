@@ -1,3 +1,27 @@
+2007-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el (M-45314): Unify GT-60969, GT-K08024 and
+	JC3-6EA4.
+
+	* Ideograph-R187-Horse.el (U-0002FA06): Add CU-0002FA06.
+
+2007-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U-0002F9FC): Use `<-subsumptive' for
+	U+4AB2.
+	(U+980B): Use `->denotational' instead of `->subsumptive'.
+	(C6-6430): Map to U-0002F9FF.
+	(U-0002F9FD): Add `=>ucs*' for U-00029496.
+	(U+9829): Add `<-same' for M-43561.
+	(U-0002FA00): Add `=>ucs*' for U+9829.
+
+2007-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96C3): Use
+	`->subsumptive'.
+	(U+96C4): Use `->subsumptive'.
+	(C6-636E): Map to U-0002F9F3.
+
 2007-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R169-Gate.el (C6-6358): Map to U-0002F9EE.
