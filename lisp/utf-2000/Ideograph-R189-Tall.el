@@ -39,7 +39,11 @@
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
      ((shinjigen-1	  . 9451)
-      (=daikanwa	  . 45314)	; &M-45314;
+      (=gt		  . 60969)	; &GT-60969;
+      (=gt-k		  . 08024)	; &I-GT-K08024;
+      (=gt-pj-8		  . #x5362)	; &GT-60969; [51-66]
+      (=daikanwa	  . 45314)	; &I-M-45314;
+      (=jef-china3	  . #x6EA4)	; &I-JC3-6EA4;
       (<-vulgar
        ((=jis-x0208	    . #x3962)	; &GT-60968; [25-66]
 	(=ks-x1001	    . #x4D54)	; &I-K0-4D54; [45-52]
