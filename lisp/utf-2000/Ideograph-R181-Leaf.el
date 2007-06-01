@@ -193,12 +193,15 @@
   '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (=ucs		. #x2F9FC)	; 䪲
+    (=ucs		. #x4AB2)	; 䪲
     (->subsumptive
      ((=daikanwa	  . 43345)	; &M-43345;
       )
-     ((=cns11643-5	  . #x3D47)	; &C5-3D47; [29-39]
-      (=ucs@cns		  . #x2F9FC)	; &C5-3D47;
+     ((=>ucs*		  . #x4AB2)	; 䪲
+      (=ucs		  . #x2F9FC)	; 䪲
+      (=cns11643-5	  . #x3D47)	; &I-C5-3D47; [29-39]
+      (=ucs@unicode	  . #x4AB2)	; 䪲
+      (=ucs@cns		  . #x2F9FC)	; 䪲
       ))
     ))
 (define-char
@@ -375,15 +378,34 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (=ucs		. #x980B)	; 頋
-    (->subsumptive
-     ((=daikanwa	  . 43359)	; &M-43359;
-      )
-     ((=cns11643-3	  . #x4552)	; &C3-4552; [37-50]
-      (=ucs@unicode	  . #x980B)	; &C3-4552;
-      )
-     ((=>ucs*		  . #x980B)	; 頋
-      (=ucs		  . #x2F9FE)	; 頋
-      (=cns11643-6	  . #x5A33)	; &I-C6-5A33; [58-19]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x980B)	; 頋
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
+    (sound@ja/on	"guWa")
+    (=cns11643-3	. #x4552)	; &GT-58224; [37-50]
+    (=gt		. 58224)	; &I-GT-58224;
+    (=gt-pj-8		. #x3F49)	; &I-GT-58224; [31-41]
+    (=daikanwa		. 43359)	; &I-M-43359;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x980B)	; 頋
+      ))
+    (=>ucs*		. #x980B)	; 頋
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
+    (=ucs		. #x2F9FE)	; 頋
+    (=cns11643-6	. #x5A33)	; &I-C6-5A33; [58-19]
+    (=ucs@unicode	. #x980B)	; 頋
+    (=ucs@cns		. #x2F9FE)	; 頋
+    (<-same
+     ((=daikanwa	  . 43411)	; &M-43411;
       ))
     ))
 (define-char
@@ -1032,17 +1054,25 @@
     (=daikanwa		. 43410)	; &I-M-43410;
     ))
 (define-char
-  '((ideographic-radical . 181)	; ⾴
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=daikanwa		. 43411)	; &M-43411;
-    ))
-(define-char
-  '((morohashi-daikanwa	43411 0 9)
+  '((=>ucs*		. #x980B)	; 頋
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x6430)	; &C6-6430; [68-16]
+    (sound@ja/on	"ko")
+    (=ucs		. #x2F9FF)	; 頋
+    (->subsumptive
+     ((=daikanwa	  . 43411)	; &M-43411;
+      (=ucs@iso		  . #x2F9FF)	; &M-43411;
+      (<-vulgar
+       ((=ks-x1001	    . #x4D53)	; &GT-58611; [45-51]
+	(=daikanwa	    . 43689)	; &I-M-43689;
+	))
+      (<-vulgar*sources
+       yupian daikanwa)
+      )
+     ((=cns11643-6	  . #x6430)	; &C6-6430; [68-16]
+      (=ucs@cns		  . #x2F9FF)	; &C6-6430;
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -1580,6 +1610,7 @@
   '((<-denotational
      ((=ucs		  . #x29496)	; 𩒖
       ))
+    (=>ucs*		. #x29496)	; 𩒖
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
@@ -1623,6 +1654,11 @@
     (=ucs		. #x9829)	; 頩
     (=cns11643-2	. #x5562)	; &I-C2-5562; [53-66]
     (=daikanwa		. 43461)	; &I-M-43461;
+    (<-same
+     ((=daikanwa	  . 43561)	; &M-43561;
+      ))
+    (<-same*sources
+     zhonghua-dazidian daikanwa)
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -2912,7 +2948,8 @@
     (=daikanwa		. 43560)	; &I-M-43560;
     ))
 (define-char
-  '((ideographic-radical . 181)	; ⾴
+  '((=>ucs*		. #x9829)	; 頩
+    (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
     (=ucs		. #x2FA00)	; 頩
