@@ -515,12 +515,27 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
     (=ucs		. #x2985D)	; 𩡝
-    (->subsumptive
-     ((=daikanwa	  . 44562)	; &M-44562;
-      )
-     ((=cns11643-5	  . #x722C)	; &C5-722C; [82-12]
-      (=ucs@iso		  . #x2985D)	; &C5-722C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2985D)	; 𩡝
       ))
+    (ideographic-radical . 186)	; ⾹
+    (ideographic-strokes . 12)
+    (total-strokes	 . 21)
+    (=gt		. 60037)	; &GT-60037;
+    (=gt-pj-8		. #x4B64)	; &GT-60037; [43-68]
+    (=daikanwa		. 44562)	; &I-M-44562;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2985D)	; 𩡝
+      ))
+    (ideographic-radical . 186)	; ⾹
+    (ideographic-strokes . 12)
+    (total-strokes	 . 21)
+    (=cns11643-5	. #x722C)	; &C5-722C; [82-12]
+    (=ucs@iso		. #x2985D)	; &C5-722C;
     ))
 (define-char
   '((ideographic-radical . 186)	; ⾹
