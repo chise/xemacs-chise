@@ -562,47 +562,48 @@
     (=cns11643-4	. #x4859)	; &C4-4859; [40-57]
     ))
 (define-char
-  '((=>ucs		. #x295B6)	; 𩖶
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=daikanwa		. 43797)	; &M-43797;
-    ))
-(define-char
-  '((morohashi-daikanwa	43797 0 1)
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=ucs		. #x295B6)	; 𩖶
-    (=cns11643-4	. #x4855)	; &I-C4-4855; [40-53]
-    ))
-(define-char
   '((ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=daikanwa		. 43798)	; &M-43798;
+    (=ucs		. #x295B6)	; 𩖶
+    (->subsumptive
+     ((=daikanwa	  . 43797)	; &M-43797;
+      )
+     ((=ucs@iso		  . #x295B6)	; &U-000295B6;
+      )
+     ((=cns11643-4	  . #x4855)	; &C4-4855; [40-53]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	43798 0 1)
+  '((=>ucs*		. #x295B6)	; 𩖶
     (ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x643A)	; &C6-643A; [68-26]
+    (=ucs		. #x2FA01)	; 𩖶
+    (->subsumptive
+     ((=daikanwa	  . 43798)	; &M-43798;
+      (<-vulgar
+       ((=daikanwa	    . 43797)	; &M-43797;
+	))
+      (<-vulgar*sources
+       zhengzitong daikanwa)
+      )
+     ((=cns11643-6	  . #x643A)	; &C6-643A; [68-26]
+      (=ucs@iso		  . #x2FA01)	; &C6-643A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=ucs		. #x4B01)	; 䬁
-    (=daikanwa		. 43799)	; &I-M-43799;
-    ))
-(define-char
-  '((=>ucs		. #x4B01)	; 䬁
-    (morohashi-daikanwa	43799 0 1)
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=cns11643-4	. #x4850)	; &C4-4850; [40-48]
+    (->subsumptive
+     ((=daikanwa	  . 43799)	; &M-43799;
+      )
+     ((=ucs@unicode	  . #x4B01)	; &UU+4B01;
+      )
+     ((=cns11643-4	  . #x4850)	; &C4-4850; [40-48]
+      ))
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
