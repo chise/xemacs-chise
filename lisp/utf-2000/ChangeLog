@@ -1,4 +1,20 @@
+2007-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (U+9CFD): Add `<-vulgar' for M-46863.
+	(U-0002FA0C): Use `->subsumptive'; add `=>ucs*' for U+9CFD.
+	(U-0002FA12): Add `=>ucs*' for U-0002A105.
+	(U-0002FA11): Add `=>ucs*' for U+4CF8.
+
+	* Ideograph-R184-Eat.el (C6-3C77): Map to U-0002FA02.
+
 2007-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R186-Fragrant.el (U-0002985D): Use `->denotational'
+	instead of `->subsumptive'.
+
+	* Ideograph-R182-Wind.el (U-000295B6): Use `->subsumptive'.
+	(C6-643A): Map to U-0002FA01.
+	(U+4B01): Use `->subsumptive'.
 
 	* Ideograph-R189-Tall.el (M-45314): Unify GT-60969, GT-K08024 and
 	JC3-6EA4.
