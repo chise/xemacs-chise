@@ -830,6 +830,11 @@
     (=ucs		. #x9CFD)	; 鳽
     (=cns11643-2	. #x5631)	; &I-C2-5631; [54-17]
     (=daikanwa		. 46706)	; &I-M-46706;
+    (<-vulgar
+     ((=daikanwa	  . 46863)	; &M-46863;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
@@ -2535,19 +2540,17 @@
     (=daikanwa		. 46862)	; &I-M-46862;
     ))
 (define-char
-  '((=>ucs		. #x2FA0C)	; 鳽
-    (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 6)
-    (total-strokes	 . 17)
-    (=daikanwa		. 46863)	; &M-46863;
-    ))
-(define-char
-  '((morohashi-daikanwa	46863 0 1)
+  '((=>ucs*		. #x9CFD)	; 鳽
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
     (=ucs		. #x2FA0C)	; 鳽
-    (=cns11643-4	. #x5A59)	; &I-C4-5A59; [58-57]
+    (->subsumptive
+     ((=daikanwa	  . 46863)	; &M-46863;
+      )
+     ((=cns11643-4	  . #x5A59)	; &C4-5A59; [58-57]
+      (=ucs@iso		  . #x2FA0C)	; &C4-5A59;
+      ))
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
@@ -6451,6 +6454,7 @@
   '((<-denotational
      ((=ucs		  . #x2A105)	; 𪄅
       ))
+    (=>ucs*		. #x2A105)	; 𪄅
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
@@ -7266,6 +7270,7 @@
   '((<-denotational
      ((=ucs		  . #x4CF8)	; 䳸
       ))
+    (=>ucs*		. #x4CF8)	; 䳸
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
