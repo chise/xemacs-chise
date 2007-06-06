@@ -1,3 +1,7 @@
+2007-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R204-Embroidery.el (C6-5A60): Unify U-0002FA17.
+
 2007-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (U+9CFD): Add `<-vulgar' for M-46863.
