@@ -34,10 +34,12 @@
     (=ucs@unicode	. #x9EF9)	; &G0-6D69;
     ))
 (define-char
-  '((ideographic-radical . 204)	; ⿋
+  '((=>ucs*		. #x9EF9)	; 黹
+    (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 1)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x5A60)	; &C6-5A60; [58-64]
+    (=ucs		. #x2FA17)	; 黹
+    (=cns11643-6	. #x5A60)	; &I-C6-5A60; [58-64]
     ))
 (define-char
   '((ideographic-radical . 204)	; ⿋
