@@ -557,17 +557,31 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 184)	; ⾷
-    (ideographic-strokes . 2)
-    (total-strokes	 . 11)
-    (=daikanwa		. 44028)	; &M-44028;
-    ))
-(define-char
-  '((morohashi-daikanwa	44028 0 1)
+  '((=>ucs*		. #x98E2)	; 飢
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 2)
-    (total-strokes	 . 10)
-    (=cns11643-6	. #x3C77)	; &C6-3C77; [28-87]
+    (sound@ja/on	"aku")
+    (=ucs		. #x2FA02)	; 飢
+    (<-same@ucs
+     ((=ucs		  . #x98E2)	; 飢
+      ))
+    (<-same@ucs*notes	"different char.")
+    (->mistakable
+     ((=ucs		  . #x98E2)	; 飢
+      ))
+    (->subsumptive
+     ((total-strokes	   . 11)
+      (=daikanwa	  . 44028)	; &M-44028;
+      (<-same
+       ((=daikanwa	    . 44059)	; &M-44059;
+	))
+      (<-same*sources
+       longkanshoujian daikanwa)
+      )
+     ((total-strokes	   . 10)
+      (=cns11643-6	  . #x3C77)	; &C6-3C77; [28-87]
+      (=ucs@iso		  . #x2FA02)	; &C6-3C77;
+      ))
     ))
 (define-char
   '((total-strokes	 . 11)
