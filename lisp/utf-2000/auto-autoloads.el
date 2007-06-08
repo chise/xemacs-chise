@@ -35,10 +35,14 @@
 
 ;;;***
 
-;;;### (autoloads (mapping-table-read-file) "read-maps" "utf-2000/read-maps.el")
+;;;### (autoloads (jp-jouyou-read-file ucs-compat-read-file mapping-table-read-file) "read-maps" "utf-2000/read-maps.el")
 
 (autoload 'mapping-table-read-file "read-maps" "\
 Read mapping table." t nil)
+
+(autoload 'ucs-compat-read-file "read-maps" nil t nil)
+
+(autoload 'jp-jouyou-read-file "read-maps" nil t nil)
 
 ;;;***
 

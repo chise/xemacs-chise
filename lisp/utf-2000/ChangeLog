@@ -1,5 +1,26 @@
 2007-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R206-Tripod.el (JSP-6D26): Unify JC3-6FE3.
+	(U-0002FA1A): Add `=>ucs*' and `<-same@ucs' for U+9F0F; integrate
+	GT-66020.
+	(C5-5351): Unify IU-0002FA1A; add `<-unknown' for M-48320.
+
+	* Ideograph-R200-Hemp.el (C6-463E): Unify U-0002FA15.
+	(U-0002A392): Use `->denotational' instead of `->subsumptive'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs*sources',
+	`ideographic-{radical|strokes}@ucs/compat' and
+	`ideographic-{radical|strokes}@ucs/compat*sources'.
+	(U-0002F88F): Copied from Ideograph-R053-Dotted-Cliff.el.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002A392): Fix
+	`ideographic-strokes@ucs/compat*sources'.
+	(U-0002F88F): Use `ideographic-{radical|strokes}@ucs/compat'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-{radical|strokes}@ucs/compat*sources'.
+
 	* Ideograph-R204-Embroidery.el (C6-5A60): Unify U-0002FA17.
 
 2007-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -389,6 +410,11 @@
 	(C6-3366): Map to U-0002F96B.
 	(U+432D): Use `->denotational'.
 	(M-28063): Add `<-ancient' for U+5F5D.
+
+2007-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?蓐, ?半, ?犛, ?癶, ?步,
+	and ?此.
 
 2007-03-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
