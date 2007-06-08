@@ -37,6 +37,7 @@
     (->subsumptive
      ((=jis-x0212	  . #x6D26)	; &M-48317; [77-06]
       (=daikanwa	  . 48317)	; &I-M-48317;
+      (=jef-china3	  . #x6FE3)	; &I-JC3-6FE3;
       (=ucs@unicode	  . #x9F0F)	; &M-48317;
       )
      ((=cns11643-2	  . #x563D)	; &C2-563D; [54-29]
@@ -71,10 +72,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 206)	; ⿍
+  '((=>ucs*		. #x9F0F)	; 鼏
+    (ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 2)
     (total-strokes	 . 15)
     (=ucs		. #x2FA1A)	; 鼏
+    (<-same@ucs
+     ((=ucs		  . #x9F0F)	; 鼏
+      ))
     (->subsumptive
      ((=daikanwa	  . 48320)	; &M-48320;
       (->mistakable
@@ -84,9 +89,14 @@
       (->mistakable*sources
        zihui daikanwa)
       )
-     ((=ucs@iso		  . #x2FA1A)	; &U-0002FA1A;
+     ((=gt		  . 66020)	; &GT-66020;
+      (=gt-pj-8		  . #x717A)	; &GT-66020; [81-90]
       )
      ((=cns11643-5	  . #x5351)	; &C5-5351; [51-49]
+      (=ucs@iso		  . #x2FA1A)	; &C5-5351;
+      (<-unknown
+       ((=daikanwa	    . 48320)	; &M-48320;
+	))
       ))
     ))
 (define-char
