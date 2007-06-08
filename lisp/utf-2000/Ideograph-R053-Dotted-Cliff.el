@@ -4075,7 +4075,7 @@
     (ideographic-radical@ucs/compat*sources
      daikanwa=09472 cns11643=455D)
     (ideographic-strokes@ucs/compat*sources
-     cns11643=455D)
+     daikanwa=09472)
     (total-strokes	 . 14)
     (=ucs		. #x2A392)	; 𪎒
     ))
@@ -4084,16 +4084,28 @@
      ((=ucs		  . #x2A392)	; 𪎒
       ))
     (=>ucs*		. #x2A392)	; 𪎒
-    (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 11)
+    (ideographic-radical@ucs . 200)	; ⿇
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs/compat . 53)	; ⼴
+    (ideographic-strokes@ucs/compat . 11)
+    (ideographic-radical@ucs/compat*sources
+     daikanwa cns11643)
+    (ideographic-strokes@ucs/compat*sources
+     daikanwa)
     (total-strokes	 . 14)
     (=ucs		. #x2F88F)	; 𪎒
     (->subsumptive
-     ((=daikanwa	  . 09472)	; &M-09472;
+     ((ideographic-radical . 53)	; ⼴
+      (ideographic-strokes . 11)
+      (=daikanwa	  . 09472)	; &M-09472;
       )
-     ((=ucs@iso		  . #x2A392)	; &U-0002A392;
+     ((ideographic-radical . 200)	; ⿇
+      (ideographic-strokes . 3)
+      (=ucs@iso		  . #x2A392)	; &U-0002A392;
       )
-     ((=cns11643-5	  . #x455D)	; &C5-455D; [37-61]
+     ((ideographic-radical . 53)	; ⼴
+      (ideographic-strokes . 11)
+      (=cns11643-5	  . #x455D)	; &C5-455D; [37-61]
       (=ucs@iso		  . #x2F88F)	; &C5-455D;
       ))
     ))
