@@ -6514,6 +6514,7 @@
     (total-strokes	 . 11)
     (=ks-x1001		. #x5432)	; &M-38882; [52-18]
     (=daikanwa		. 38882)	; &I-M-38882;
+    (=jef-china3	. #x67C4)	; &I-JC3-67C4;
     (->formed
      ((=daikanwa	  . 05511)	; &M-05511;
       ))
