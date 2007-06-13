@@ -6,7 +6,7 @@
 
 2007-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?$B@5(B, ?$B@'(B, ?$(Da3(B and ?$BWF(B.
+	* char-db-util.el (shuowen-radicals): Add ?正, ?是, ?辵 and ?彳.
 
 2007-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -430,8 +430,8 @@
 
 2007-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?$Bhl(B, ?$BH>(B, ?$(DJk(B, ?$Bb"(B, ?$(C\F(B,
-	and ?$B:!(B.
+	* char-db-util.el (shuowen-radicals): Add ?蓐, ?半, ?犛, ?癶, ?步,
+	and ?此.
 
 2007-03-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
