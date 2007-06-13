@@ -1,4 +1,21 @@
+2007-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E000): Add `<-unknown' for ZOB-00589.
+
+	* Ideograph-R162-Walk.el (K0-5432): Unify JC3-67C4.
+
+2007-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?正, ?是, ?辵 and ?彳.
+
+2007-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (GT-K00089): New character.
+
 2007-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R205-Frog.el (U+9F05): Use `->subsumptive'.
+	(U-0002FA19): Use `->subsumptive'.
 
 	* Ideograph-R206-Tripod.el (JSP-6D26): Unify JC3-6FE3.
 	(U-0002FA1A): Add `=>ucs*' and `<-same@ucs' for U+9F0F; integrate
