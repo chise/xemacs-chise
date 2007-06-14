@@ -1,3 +1,7 @@
+2007-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (CB05237): New character.
+
 2007-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el (RUI6-E000): Add `<-unknown' for ZOB-00589.
