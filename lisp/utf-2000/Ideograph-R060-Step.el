@@ -1794,6 +1794,12 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=cbeta		. 05237)	; &CB05237;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5FA5)	; 徥
