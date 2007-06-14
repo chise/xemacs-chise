@@ -2,6 +2,9 @@
 
 	* Ideograph-R060-Step.el (CB05237): New character.
 
+	* char-db-util.el (shuowen-radicals): Add ?廴, ?𢓊, ?行, ?齒, ?牙,
+	?足, ?疋, ?品, ?龠 and ?冊.
+
 2007-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el (RUI6-E000): Add `<-unknown' for ZOB-00589.
