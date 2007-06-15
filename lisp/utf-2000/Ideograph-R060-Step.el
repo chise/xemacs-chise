@@ -113,6 +113,12 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x38D5)	; 㣕
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5F76)	; 彶
