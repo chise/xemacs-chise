@@ -1,3 +1,30 @@
+2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el:
+	- Don't use `ideographic-combination' for a char-spec.
+	- Shift `shuowen-radical' after the 13th.
+	(ZOB-00002): Add `ideographic-structure'.
+	(ZOB-00126): Add `ideographic-structure'.
+	(ZOB-00136): Add `ideographic-structure'.
+	(ZOB-00159): Add `ideographic-structure'.
+	(ZOB-00160): Add `ideographic-structure'.
+	(ZOB-00334): Add `ø½Š´»ø½Š­' into `<-Oracle-Bones'.
+	(ZOB-00335): Add `ø½Š´»ø½ŠŸ„' into `<-Oracle-Bones'.
+	(ZOB-{00340 - 00732}): New characters.
+	(ZOB-{00909, 00936, 01024, 01030, 01129, 01244, 01252, 01296,
+	01313, 01349, 01397, 01678, 01758, 01791, 01824, 01857, 01890,
+	01951, 02040, 02203): New stubs.
+
+2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?ã—Š, ?ø½Š¤¢, ?å¹², ?è°·, ?åª,
+	?ó°‡ˆ, ?å¥, ?ø»¤„, ?å¤, ?  å, ?å…, ?ø½Š˜, ?ø»‹½², ?ø½Š”, ?ø»•›‘, ?ø»ŠºŸ, ?ø»‹µ›, ?ð ¬ž,
+	?ø½‹…Ÿ, ?å…±, ?ç•° and ?ð¯¢“.
+
+2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U+38D5): New character.
+
 2007-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el (CB05237): New character.
