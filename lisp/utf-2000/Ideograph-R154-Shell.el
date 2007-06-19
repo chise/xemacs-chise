@@ -103,6 +103,7 @@
     (total-strokes	 . 9)
     (=ks-x1001		. #x5D36)	; &M-36660; [61-22]
     (=daikanwa		. 36660)	; &I-M-36660;
+    (=jef-china3	. #x65F1)	; &I-JC3-65F1;
     ))
 (define-char
   '((<-denotational
