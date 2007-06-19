@@ -1,3 +1,21 @@
+2007-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00714): Add missing sources.
+	(ZOB-{00733 - 00908}): New characters.
+	(ZOB-00909): Add `shuowen-radical', `sources',
+	`zinbun-oracle-page' and `<-Oracle-Bones'.
+	(ZOB-{00910 - 00935}): New characters.
+	(ZOB-00936): Add `shuowen-radical', `sources',
+	`zinbun-oracle-page' and `<-Oracle-Bones'.
+	(ZOB-00937): New character.
+
+2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?ð¦¥‘, ?ó±‘», ?ø»‡¬¯, ?é©, ?ø½‹­ˆ,
+	?ä°œ, ?çˆª, ?ð ƒ¨, ?ø½‹­, ?ø½Š´», ?ð ‚‡, ?ø»•™±, ?  æ”¯, ?ð¦˜’, ?è¿, ?ç•«, ?ø½‹ª, ?å …,
+	?è‡£, ?ø½‹Ž¸, ?ø½Šœ, ?ð ˜§, ?å¯¸, ?çš® , ?ó°ª¿, ?  æ”´, ?æ•Ž, ?åœ, ?ç”¨, ?ø½‹’¨ and
+	?ã¸š.
+
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el:
