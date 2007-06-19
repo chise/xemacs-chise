@@ -22,8 +22,13 @@
     (=ucs		. #x26951)	; 𦥑
     (=cns11643-4	. #x2474)	; &I-C4-2474; [04-84]
     (=jis-x0213-2-2000	. #x755A)	; &I-JX2-755A; [85-58]
-    (=big5-cdp		. #x8AA3)	; &I-CDP-8AA3;
     (=daikanwa		. 30174)	; &I-M-30174;
+    (->subsumptive
+     ((=big5-cdp	  . #x8B56)	; &CDP-8B56;
+      (<-formed@component/connect-below
+       ((=ucs		    . #x26951)	; 𦥑
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
