@@ -93,6 +93,16 @@
       ))
     ))
 (define-char
+  '((=>ucs		. #x2E88)	; ⺈
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8B5B)	; &CDP-8B5B;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    ))
+(define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
