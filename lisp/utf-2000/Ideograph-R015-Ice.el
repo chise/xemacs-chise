@@ -1757,6 +1757,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 299 17)
+    (=ucs		. #x51D0)	; 凐
+    (=big5		. #xD468)	; &I-B-D468;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1778,9 +1780,7 @@
        ((=cns11643-2	    . #x2959)	; &C2-2959; [09-57]
 	))
       (=cns11643-2	  . #x336B)	; &C2-336B; [19-75]
-      (=big5		  . #xD468)	; &I-B-D468;
       (=ucs@cns		  . #x51D0)	; &C2-336B;
-      (=ucs@big5	  . #x51D0)	; &C2-336B;
       ))
     ))
 (define-char
