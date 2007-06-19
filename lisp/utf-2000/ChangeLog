@@ -1,3 +1,10 @@
+2007-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (K0-5D36): Unify JC3-65F1.
+
+	* Ideograph-R134-Mortar.el (U-00026951): Use `->subsumptive' for
+	BC-8B56.
+
 2007-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-00714): Add missing sources.
@@ -8,6 +15,20 @@
 	(ZOB-00936): Add `shuowen-radical', `sources',
 	`zinbun-oracle-page' and `<-Oracle-Bones'.
 	(ZOB-00937): New character.
+
+2007-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL KNIFE ONE>): Add
+	`<-identical@component/connect-below' for BC-8B5B.
+	(BC-8B5B): New character.
+
+	* Ideograph-R131-Minister.el (U+81E4): Unify BC-8C5C and CB07245.
+
+	* Ideograph-R018-Knife.el (BC-8B5B): New character.
+
+	* Ideograph-R015-Ice.el (U+51D0): Fixed typo.
+
+	* Ideograph-R009-Man.el (U+50D5): Fixed typo.
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
