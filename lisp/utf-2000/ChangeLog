@@ -1,4 +1,39 @@
+2007-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{00938 - 01008}): New characters.
+
+2007-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (U+3F39): Use `->denotational'; integrate
+	M-21566.
+	(U-00024B7C): Use `->denotational' and `->subsumptive'; integrate
+	M-21568.
+	(U-00024B7D): Use `->subsumptive'; integrate M-21569.
+	(U+7509): Use `->denotational'.
+	(U+3F3A): Use `->subsumptive'; integrate M-21572.
+	(U+4C1B): Use `->denotational'; use `ideographic-radical@cns'
+	instead of `ideographic-radical'; add `ideographic-radical@ucs'
+	and `ideographic-radical@ucs*sources'.
+	(U-00024B85): Use `->subsumptive'.
+
+	* Ideograph-R058-Snout.el (U+38C7): Use `->subsumptive'; integrate
+	BC-8950 and GT-12511.
+	(U-0002F896): Use `->subsumptive'; integrate GT-12512.
+
 2007-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (U-000288C6): Use `->denotational'
+	instead of `->subsumptive'.
+	(U-000288C7): Use `->subsumptive'.
+	(U+91B0): Use `->denotational' and `->subsumptive'.
+	(U+9197): Fixed typo.
+
+	* Ideograph-R193-Cauldron.el (U+4C1B): Copied from
+	Ideograph-R098-Tile.el.
+	(M-45679): Map to U+4C1B.
+	(U+9B33): Use `->denotational' and `->subsumptive'.
+	(M-45682): Map to U-00029C31.
+	(C7-3638): Likewise.
 
 	* Ideograph-R154-Shell.el (K0-5D36): Unify JC3-65F1.
 
