@@ -1,3 +1,26 @@
+2007-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (U-0002490A): New character.
+	(U-00024909): New character.
+	(M-20886): New character.
+	(U-00024904): New character.
+	(U-0002490B): New character.
+
+	* Oracle-Bones.el (ZOB-00132): Modify `ideographic-structure'.
+	(ZOB-00177): Modify `ideographic-structure'.
+	(ZOB-00510): Modify `ideographic-structure'.
+	(ZOB-00596): Add `ideographic-structure'.
+	(ZOB-00599): Add `ideographic-structure'.
+	(ZOB-00600): Add `ideographic-structure'.
+	(ZOB-00601): Add `ideographic-structure'.
+	(ZOB-{01009 - 01023}): New characters.
+	(ZOB-01024): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'.
+	(ZOB-{01025 - 01029}): New characters.
+	(ZOB-01030): Add `shuowen-radical', `zinbun-oracle-page'; add
+	`<-Oracle-Bones' for U+807F.
+	(ZOB-{01031 - 01055}): New characters.
+
 2007-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{00938 - 01008}): New characters.
