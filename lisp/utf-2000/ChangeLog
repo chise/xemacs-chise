@@ -1,3 +1,32 @@
+2007-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R209-Nose.el (U+9F3B): Unify JC3-6FF3.
+
+2007-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?ð¥„Ž, ?ç›®, ?ä€  , ?çœ‰, ?ç›¾,
+	?è‡ª, ?ç™½, ?ð¯¨œ, ?çš•, ?ø½ŠŸ, ?ø½Š¤, ?ø½‹ª, ?ø»‹‡š, ?ø»‹µª, ?ø»™¬†, ?è‹œ, ?ç¾Š, ?ø»‹°º,
+	?ø½‹–“, ?é›”, ?é›¥ and ?é³¥.
+
+2007-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00597): Add `ideographic-structure'.
+	(ZOB-01049): Add `<-Oracle-Bones' for U-00024904.
+	(ZOB-01050): Add `<-Oracle-Bones' for U-000278C7.
+	(ZOB-{01056 - 01128}): New characters.
+	(ZOB-01129): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+535C.
+	(ZOB-{01130 - 01153}): New characters.
+
+2007-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el (U-000278D0): Use `->subsumptive'.
+	(M-35035): Unify H10-D9DB; map to U-000278CC.
+	(M-35036): Map to U-000278CB.
+	(M-35037): Unify H10-D9D6; map to U-000278CA.
+	(U-000278CF): Use `->denotational' and `->subsumptive'.
+	(U-000278C7): New character.
+
 2007-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R096-Jade.el (U-0002490A): New character.
