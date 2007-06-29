@@ -13,6 +13,7 @@
     (=gt-k		. 11266)	; &I-GT-K11266;
     (=gt-pj-8		. #x736C)	; &I-GT-66224; [83-76]
     (=daikanwa		. 48498)	; &I-M-48498;
+    (=jef-china3	. #x6FF3)	; &I-JC3-6FF3;
     ))
 (define-char
   '((ideographic-radical . 209)	; ⿐
