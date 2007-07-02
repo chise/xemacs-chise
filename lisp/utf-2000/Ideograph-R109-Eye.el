@@ -871,6 +871,32 @@
     (=daikanwa		. 23172)	; &I-M-23172;
     ))
 (define-char
+  '((=>daikanwa		. 23172)	; 𥄎
+    (ideographic-radical . 109)	; ⽬
+    (=ucs		. #x21565)	; 𡕥
+    (<-unknown
+     ((=ucs		  . #x2510E)	; 𥄎
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21565)	; 𡕥
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs@iso		. #x21565)	; &U-00021565;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21565)	; 𡕥
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=big5-cdp		. #x88FD)	; &CDP-88FD;
+    ))
+(define-char
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
