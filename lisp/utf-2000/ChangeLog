@@ -1,5 +1,19 @@
 2007-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R066-Rap.el (M-13250): Unify GT-16772.
+	(C6-4955): Unify H4-D7BD.
+	(CB12039): New character.
+	(U+6560): Use `->subsumptive'; add `<-denotational' for B-D974.
+	(B-D974): Changed to abstract character.
+	(U+656A): Use `->subsumptive'; add `<-denotational' for B-D974.
+	(U+3A99): New character.
+
+	* Oracle-Bones.el (ZOB-01084): Use CB12039 instead of U-00022F5E
+	for `<-Oracle-Bones'.
+	(ZOB-{01154 - 01175}): New characters.
+
+	* Ideograph-R109-Eye.el (U-00021565): New character.
+
 	* Ideograph-R209-Nose.el (U+9F3B): Unify JC3-6FF3.
 
 2007-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
