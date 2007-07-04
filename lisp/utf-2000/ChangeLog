@@ -1,4 +1,26 @@
+2007-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
+	`ideographic-structure'.
+	(ZOB-00136): Likewise.
+	(ZOB-00247): Likewise.
+	(ZOB-00290): Add `ideographic-structure'.
+	(ZOB-00310): Likewise.
+	(ZOB-00401): Likewise.
+	(ZOB-01196): Use U+9F3B instead of U-0002FA1C for
+	`<-Oracle-Bones'.
+	(ZOB-{01216 - 01243}): New characters.
+	(ZOB-01244): Add `shuowen-radical', `sources',
+	`zinbun-oracle-page' and `<-Oracle-Bones'.
+	(ZOB-{01245 - 01251}): New characters.
+	(ZOB-01252): Add `shuowen-radical', `sources',
+	`zinbun-oracle-page' and `<-Oracle-Bones'.
+	(ZOB-{01253 - 01268}): New characters.
+
 2007-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JX2-7B74): Unify JC3-8EBC.
+	(U+96DE): Use `->denotational' instead of `->subsumptive'.
 
 	* Oracle-Bones.el (ZOB-00598): Add `ideographic-structure'.
 	(ZOB-01072): Add `<-Oracle-Bones' for U+3A99.
