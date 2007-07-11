@@ -1,4 +1,17 @@
+2007-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01269 - 01288}): New characters.
+
+	* Ideograph-R102-Field.el (M-21729): Unify U-00024C13 and H7-B4A6.
+	(U-00024C14): New character; unify BC-8DEE.
+
 2007-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el (JSP-672E): Unify JC3-6CB0.
+
+	* char-db-util.el (shuowen-radicals): Add ?ð ¦’, ?ø½Š½…, ?å¹º, ?ð¢†¶, ?ø»‹€,
+	?ø½Š˜‰, ?äºˆ, ?ø½Š³¥, ?ø»—¢°, ?ð£¦¼, ?æ­º, ?ø½Š‡, ?ø»Š¾ , ?ø½Šš§, ?è‚‰, ?ç­‹, ?åˆ€, ?ð¯ ž,
+	?ã“ž, ?ø»„§˜, ?ø½‹œ and ?ó±‹‡.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
