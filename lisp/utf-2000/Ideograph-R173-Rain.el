@@ -4561,6 +4561,7 @@
     (->subsumptive
      ((=jis-x0212	  . #x672E)	; &M-42525; [71-14]
       (=daikanwa	  . 42525)	; &I-M-42525;
+      (=jef-china3	  . #x6CB0)	; &I-JC3-6CB0;
       (=ucs@jis		  . #x9743)	; &M-42525;
       )
      ((=ucs@unicode	  . #x9743)	; &UU+9743;
