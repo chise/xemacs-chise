@@ -1,3 +1,8 @@
+2007-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U+53C0): Use `->subsumptive'.
+	(BC-8BD0): New character.
+
 2007-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01269 - 01288}): New characters.
