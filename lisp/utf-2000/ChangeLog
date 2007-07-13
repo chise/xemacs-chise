@@ -1,3 +1,10 @@
+2007-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01289 - 01295}): New characters.
+	(ZOB-01296): Add `shuowen-radical', `sources',
+	`zinbun-oracle-page' and `<-Oracle-Bones'.
+	(ZOB-{01297 - 01314}): New characters.
+
 2007-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R028-Private.el (U+53C0): Use `->subsumptive'.
