@@ -1,3 +1,11 @@
+2007-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01330 - 01348}): New characters.
+	(ZOB-01349): Add `shuowen-radical' and `zinbun-oracle-page'; add
+	`<-Oracle-Bones' for U+5200.
+	(ZOB-01350): New character.
+	(ZOB-01351): New character.
+
 2007-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01315 - 01329}): New characters.
