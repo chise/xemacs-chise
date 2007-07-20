@@ -391,6 +391,25 @@
     (=adobe-japan1-5	. 19140)	; 丌
     ))
 (define-char
+  '((=>daikanwa		. 00015)	; 丌
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
+    (=gt-k		. 00264)	; &GT-K00264;
+    (=gt-pj-k1		. #x3764)	; &GT-K00264; [23-68]
+    (<-formed@component/connect-above
+     ((=ucs		  . #x4E0C)	; 丌
+      ))
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
