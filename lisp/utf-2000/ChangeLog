@@ -1,3 +1,11 @@
+2007-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?ç«¹, ?ç®•, ?ä¸Œ, ?å·¦, ?å·¥,
+	?ø»•½‡, ?å·«, ?ç”˜, ?ø½‹‹, ?ä¹ƒ, ?ä¸‚, ?å¯, ?ø½Š¼½, ?å·, ?äº, ?ø½Š„, ?å–œ, ?å£´,
+	?é¼“, ?è±ˆ, ?è±†, ?è±Š, ?è±, ?ø¸‡¿, ?ø½‹ “, ?ø½Š˜¤, ?ø»‹¸¡, ?çš¿, ?ð ™´, ?åŽ» and ?è¡€.
+
+	* Oracle-Bones.el (ZOB-{01352 - 01384}): New characters.
+
 2007-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01330 - 01348}): New characters.
