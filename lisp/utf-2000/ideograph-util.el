@@ -1,6 +1,6 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2007 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -437,8 +437,8 @@
         (or ret
 	    (and (setq ret (get-char-attribute char '=>daikanwa))
 		 (if (numberp ret)
-		     (list ret 0)
-		   (append ret '(0))))
+		     (list ret 0 8)
+		   (append ret '(8))))
 	    (unless (memq char checked)
 	      (catch 'tag
 		(let ((rest
