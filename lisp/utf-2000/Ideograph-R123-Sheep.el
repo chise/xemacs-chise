@@ -528,15 +528,6 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 28449)	; &M-28449;
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 5)
-    (total-strokes	 . 11)
-    (=ucs		. #x7F95)	; 羕
-    (=cns11643-2	. #x3837)	; &I-C2-3837; [24-23]
-    (=big5		. #xD6F2)	; &I-B-D6F2;
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x2635B)	; 𦍛
       ))
@@ -550,6 +541,15 @@
       )
      ((=cns11643-6	  . #x3A73)	; &C6-3A73; [26-83]
       ))
+    ))
+(define-char
+  '((=>daikanwa		. 28449)	; &M-28449;
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (=ucs		. #x7F95)	; 羕
+    (=cns11643-2	. #x3837)	; &I-C2-3837; [24-23]
+    (=big5		. #xD6F2)	; &I-B-D6F2;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺

@@ -34650,16 +34650,6 @@
     (=daikanwa		. 04603)	; &I-M-04603;
     ))
 (define-char
-  '((=>daikanwa		. 04603)	; &M-04603;
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 19)
-    (total-strokes	 . 22)
-    (=cbeta		. 00771)	; &CB00771;
-    (<-unknown
-     ((=ucs		  . #x3615)	; 㘕
-      ))
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x3615)	; 㘕
       ))
@@ -34675,6 +34665,16 @@
      ((=gb12345		  . #x4036)	; 藍 [32-22]
       ))
     (=ucs@unicode	. #x3615)	; &UU+3615;
+    ))
+(define-char
+  '((=>daikanwa		. 04603)	; &M-04603;
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 19)
+    (total-strokes	 . 22)
+    (=cbeta		. 00771)	; &CB00771;
+    (<-unknown
+     ((=ucs		  . #x3615)	; 㘕
+      ))
     ))
 (define-char
   '((=>ucs		. #x21132)	; 𡄲

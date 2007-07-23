@@ -8312,6 +8312,15 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x26760)	; 𦝠
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=cbeta		. 12237)	; &CB12237;
+    ))
+(define-char
   '((=>daikanwa		. 29675)	; &M-29675;
     (ideographic-radical@ucs . 74)	; ⽉
     (ideographic-radical@misc . 130)	; ⾁
@@ -8321,15 +8330,6 @@
     (<-same
      ((=ucs		  . #x26760)	; 𦝠
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x26760)	; 𦝠
-      ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cbeta		. 12237)	; &CB12237;
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
