@@ -1,8 +1,37 @@
+2007-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+6563): Use `->subsumptive'.
+	(U+3A9A): Use `=>daikanwa' instead of `morohashi-daikanwa'; add
+	`<-unknown' for J0-3B36.
+	(U-00022F66): Use `->subsumptive'.
+	(U-00022FE8): Use `->denotational'; add `sound@ja/on'.
+	(U-00022FF1): New character; add `=>daikanwa' and `<-unknown' for
+	M-13390.
+
+	* Ideograph-R009-Man.el (BC-8AFC): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER SURROUND FROM ABOVE> instead of <IDEOGRAPHIC DESCRIPTION
+	CHARACTER ABOVE TO BELOW> in `ideographic-structure'.
+
+	* Ideograph-R048-Work.el (M-08735): Separate UU+382D; unify
+	GT-11013.
+	(C3-3B38): Unify UU+382D.
+	(CB11442): New character; use `<-subsumptive' for U+382D.
+
+	* ideograph-util.el (char-daikanwa): Return '(M d 8) instead of
+	'(M 0) or '(M d 0).
+
 2007-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (GT-K00264): Moved from
+	Ideograph-R012-Eight.el; add `=>daikanwa' for M-00015; add
+	`<-formed@component/connect-above' for U+4E0C.
 
 	* char-db-util.el (shuowen-radicals): Add ?ç«¹, ?ç®•, ?ä¸Œ, ?å·¦, ?å·¥,
 	?ø»•½‡, ?å·«, ?ç”˜, ?ø½‹‹, ?ä¹ƒ, ?ä¸‚, ?å¯, ?ø½Š¼½, ?å·, ?äº, ?ø½Š„, ?å–œ, ?å£´,
 	?é¼“, ?è±ˆ, ?è±†, ?è±Š, ?è±, ?ø¸‡¿, ?ø½‹ “, ?ø½Š˜¤, ?ø»‹¸¡, ?çš¿, ?ð ™´, ?åŽ» and ?è¡€.
+
+	* Ideograph-R012-Eight.el (GT-K00264): Moved to
+	Ideograph-R001-One.el.
 
 	* Oracle-Bones.el (ZOB-{01352 - 01384}): New characters.
 
