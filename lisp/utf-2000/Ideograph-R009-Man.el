@@ -133,6 +133,27 @@
     (=adobe-japan1-5	. 17247)	; 亼
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4EBC)	; 亼
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name*		  . "ideographic component person as roof")
+      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp		. #x8AFC)	; &CDP-8AFC;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x4EBC)	; 亼
+      ))
+    ))
+(define-char
   '((=>daikanwa		. 00345)	; 亼
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 1)
@@ -148,27 +169,6 @@
       ))
     (=ucs		. #x4EBD)	; 亽
     (=gb12345		. #x7D37)	; 亽 [93-23]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4EBC)	; 亼
-      ))
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
-    (=big5-cdp		. #x8AFC)	; &CDP-8AFC;
-    (<-formed@component/connect-below
-     ((=ucs		  . #x4EBC)	; 亼
-      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
