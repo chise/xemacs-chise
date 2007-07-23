@@ -1,3 +1,7 @@
+2007-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01385 - 01396}): New characters.
+
 2007-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (U+6563): Use `->subsumptive'.
