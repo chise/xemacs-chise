@@ -306,10 +306,14 @@
     (total-strokes	 . 12)
     (=ucs		. #x382D)	; 㠭
     (->subsumptive
-     ((=daikanwa	  . 08735)	; &M-08735;
-      (=ucs@unicode	  . #x382D)	; &M-08735;
+     ((=gt		  . 11013)	; &GT-11013;
+      (=gt-pj-3		  . #x3E51)	; &GT-11013; [30-49]
+      (=daikanwa	  . 08735)	; &I-M-08735;
       )
      ((=cns11643-3	  . #x3B38)	; &C3-3B38; [27-24]
+      (=ucs@unicode	  . #x382D)	; &C3-3B38;
+      )
+     ((=cbeta		  . 11442)	; &CB11442;
       ))
     ))
 (define-char
