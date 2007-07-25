@@ -1,3 +1,14 @@
+2007-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00510): Use ZOB-01397 instead of ZOB-01019
+	in `ideographic-structure'.
+	(ZOB-00586): Use ZOB-01019 instead of ZOB-01397 in
+	`ideographic-structure'.
+	(ZOB-00592): Likewise.
+	(ZOB-01397): Add `shuowen-radical' and `zinbun-oracle-page'; add
+	`<-Oracle-Bones' for U-00020087 and U+5DE6.
+	(ZOB-{01398 - 01407}): New characters.
+
 2007-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01385 - 01396}): New characters.
