@@ -1,3 +1,7 @@
+2007-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01408 - 01427}): New characters.
+
 2007-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-00510): Use ZOB-01397 instead of ZOB-01019
