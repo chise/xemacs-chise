@@ -169,8 +169,15 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x23327)	; 𣌧
-    (=cns11643-5	. #x2953)	; &I-C5-2953; [09-51]
-    (=daikanwa		. 14289)	; &I-M-14289;
+    (->subsumptive
+     ((=daikanwa	  . 14289)	; &M-14289;
+      )
+     ((=cns11643-5	  . #x2953)	; &GT-18087; [09-51]
+      (=gt		  . 18087)	; &I-GT-18087;
+      (=gt-pj-3		  . #x7345)	; &I-GT-18087; [83-37]
+      (=hanziku-4	  . #xDEF5)	; &I-HZK04-DEF5;
+      (=ucs@iso		  . #x23327)	; &GT-18087;
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
