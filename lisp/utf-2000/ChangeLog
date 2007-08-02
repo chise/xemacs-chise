@@ -1,5 +1,8 @@
 2007-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (U-00023327): Use `->subsumptive';
+	integrate H4-DEF5 and GT-18087.
+
 	* Oracle-Bones.el (ZOB-{01408 - 01427}): New characters.
 
 2007-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -630,6 +633,10 @@
 	(U-00025CA8): Use `->subsumptive'; integrate M-26486.
 	(U-0002F965): Add `=>ucs*' for U-00025C80; add `sound@ja/on'; add
 	`<-same' for U-0002F882; add `<-same@ucs' for U-00025C80.
+
+	* README.en (Character Reference): Add `zihui-biansi',
+	`zihui-biansi-2char', `wuyin-pianhai', `kangxi-biansi-2char',
+	`kangxi-biansi-3char', and `jigakushinan'.
 
 	* Ideograph-R128-Ear.el (U+8060): Add `sound@ja/on'.
 	(C6-605D): Map to U-0002F97D.
