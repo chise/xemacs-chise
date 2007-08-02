@@ -48,12 +48,17 @@ describes meaning of keys:
 		yunhai (inkai)				韻会
 		yunhai-bei (inkaiho)			韻会補
 		zihui (jii)				字彙
+		zihui-biansi				字彙-辨似
+		zihui-biansi-2char			字彙-辨似-二字相似
 		zihui-bu (zihui-bei, jiiho)		字彙補
 		cihai (jikai)				辞海
 		jiyun (shuuin)				集韻
 		wuyinjiyun (goon-shuuin)		五音集韻
+		wuyin-pianhai (goon-henkai)		五音篇海
 		haipian (kaihen)			海篇
 		kangxi					康煕字典
+		kangxi-biansi-2char			康煕字典-辨似-二字相似
+		kangxi-biansi-3char			康煕字典-辨似-三字相似
 		guangyun (kouin)			広韻
 		daikanwa (morohashi-daikanwa)		大漢和辞典
 		(goonruiju)				五音類聚
@@ -71,6 +76,8 @@ describes meaning of keys:
 		hanshu (kanjo)				漢書
 		lunheng (ronkou)			論衡
 		hougen
+		(jigakushinan)				字学指南
+
 
 ** Features
 
