@@ -1588,16 +1588,19 @@
      ((=ucs		  . #x52C7)	; 勇
       ))
     (script		JP Jouyou Ideograph)
+    (=>ucs*		. #x52C7)	; 勇
     (morohashi-daikanwa	2360 1)
     (shinjigen-1	. 730)
     (shinjigen-2	. 730)
-    (=jis-x0208		. #x4D26)	; &GT-03030; [45-06]
+    (=ucs		. #x2F825)	; 勇
+    (=jis-x0208		. #x4D26)	; &I-J90-4D26; [45-06]
     (=ks-x1001		. #x6938)	; &I-K0-6938; [73-24]
     (=cns11643-6	. #x2F25)	; &I-C6-2F25; [15-05]
     (=gt		. 03030)	; &I-GT-03030;
     (=gt-k		. 05197)	; &I-GT-K05197;
     (=gt-pj-1		. #x4D26)	; &I-GT-03030; [45-06]
-    (=ucs@jis		. #x52C7)	; &GT-03030;
+    (=ucs@jis		. #x52C7)	; 勇
+    (=ucs@ks		. #x52C7)	; 勇
     (mojikyo		. 050110)	; &MCS-6000C3BE;
     (<-vulgar
      ((shinjigen-1	  . 731)
@@ -1662,8 +1665,8 @@
     (=ucs@jis		. #xFA33)	; 勉
     (<-same
      ((shinjigen-1	  . 735)
-      (=jis-x0208	  . #x4A59)	; &GT-03050; [42-57]
-      (=cns11643-6	  . #x3558)	; &I-C6-3558; [21-56]
+      (=ucs		  . #x2F826)	; 勉
+      (=jis-x0208	  . #x4A59)	; &I-J90-4A59; [42-57]
       ))
     (<-same*sources
      shinjigen-1)
@@ -1672,19 +1675,31 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=daikanwa		. 02363)	; &M-02363;
+    (=ucs		. #x20863)	; 𠡣
+    (->subsumptive
+     ((=daikanwa	  . 02363)	; &M-02363;
+      )
+     ((=ucs@iso		  . #x20863)	; &U-00020863;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=daikanwa		. 02364)	; &M-02364;
+    (=ucs		. #x20865)	; 𠡥
+    (=daikanwa		. 02364)	; &I-M-02364;
+    (=hanziku-1		. #xF2A9)	; &I-HZK01-F2A9;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=daikanwa		. 02365)	; &M-02365;
+    (=ucs		. #x20864)	; 𠡤
+    (->subsumptive
+     ((=daikanwa	  . 02365)	; &M-02365;
+      )
+     ((=ucs@iso		  . #x20864)	; &U-00020864;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -2035,8 +2050,25 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x20871)	; 𠡱
-    (=cns11643-5	. #x2C2C)	; &I-C5-2C2C; [12-12]
-    (=daikanwa		. 02381)	; &I-M-02381;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20871)	; 𠡱
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=daikanwa		. 02381)	; &M-02381;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20871)	; 𠡱
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=cns11643-5	. #x2C2C)	; &C5-2C2C; [12-12]
+    (=ucs@iso		. #x20871)	; &C5-2C2C;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -2050,19 +2082,40 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=ucs		. #x20876)	; 𠡶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20876)	; 𠡶
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (=daikanwa		. 02383)	; &M-02383;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20876)	; 𠡶
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x20876)	; &U-00020876;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=daikanwa		. 02384)	; &M-02384;
+    (=ucs		. #x20877)	; 𠡷
+    (=daikanwa		. 02384)	; &I-M-02384;
+    (=hanziku-1		. #xF2D3)	; &I-HZK01-F2D3;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x52C9)	; 勉
       ))
     (script		JP Jouyou Ideograph)
+    (=>ucs*		. #x52C9)	; 勉
     (morohashi-daikanwa	2384 1)
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
@@ -2077,12 +2130,13 @@
       ))
     (shinjigen-1	. 735)
     (shinjigen-2	. 735)
-    (=jis-x0208		. #x4A59)	; &GT-03050; [42-57]
+    (=ucs		. #x2F826)	; 勉
+    (=jis-x0208		. #x4A59)	; &I-J90-4A59; [42-57]
     (=cns11643-6	. #x3558)	; &I-C6-3558; [21-56]
     (=gt		. 03050)	; &I-GT-03050;
     (=gt-k		. 06545)	; &I-GT-K06545;
     (=gt-pj-1		. #x4A59)	; &I-GT-03050; [42-57]
-    (=ucs@jis		. #x52C9)	; &GT-03050;
+    (=ucs@jis		. #x52C9)	; 勉
     (mojikyo		. 050111)	; &MCS-6000C3BF;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA33)	; 勉
@@ -2262,8 +2316,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=jis-x0208	  . #x4B41)	; &GT-29718; [43-33]
-      (=cns11643-6	  . #x316D)	; &I-C6-316D; [17-77]
+     ((=ucs		  . #x2F8D2)	; 冒
       )
      ((=ucs		  . #x529B)	; 力
       ))

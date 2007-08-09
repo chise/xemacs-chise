@@ -2563,8 +2563,13 @@
       )
      ((=ucs@unicode	  . #x4695)	; &UU+4695;
       )
-     ((=ucs		  . #x2F9CB)	; 𧢮
+     ((=>ucs*		  . #x278AE)	; 𧢮
+      (=ucs		  . #x2F9CB)	; 𧢮
       (=cns11643-5	  . #x7A38)	; &I-C5-7A38; [90-24]
+      (<-same@ucs
+       ((=ucs		    . #x278AE)	; 𧢮
+	))
+      (<-same@ucs*notes	  "maybe mapping bug")
       ))
     ))
 (define-char
@@ -2586,6 +2591,11 @@
     (=ucs		. #x278AE)	; 𧢮
     (->subsumptive
      ((=daikanwa	  . 34999)	; &M-34999;
+      (<-same
+       ((=daikanwa	    . 34996)	; &M-34996;
+	))
+      (<-same*sources
+       longkanshoujian daikanwa)
       )
      ((=cns11643-4	  . #x6E3B)	; &C4-6E3B; [78-27]
       (=ucs@iso		  . #x278AE)	; &C4-6E3B;

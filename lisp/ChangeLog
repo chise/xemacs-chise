@@ -1,3 +1,9 @@
+2007-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `gt-pj-*' to `chinese-cns11643-*', `=big5-cdp',
+	`chinese-big5-eten-*' and `chinese-big5'.
+
 2006-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs-bmp-cjk@unicode): Change `max-code' to

@@ -3,29 +3,30 @@
   '((ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
-    (shinjigen-2	. 9849)
     (=ucs		. #x9F0E)	; 鼎
-    (=jis-x0208		. #x4524)	; &I-J90-4524; [37-04]
-    (=gb2312		. #x3626)	; &I-G0-3626; [22-06]
-    (=ks-x1001		. #x7023)	; &I-K0-7023; [80-03]
-    (=gt		. 66019)	; &I-GT-66019;
-    (=gt-k		. 10252)	; &I-GT-K10252;
-    (=gt-pj-1		. #x4524)	; &I-GT-66019; [37-04]
-    (=daikanwa		. 48315)	; &I-M-48315;
-    ))
-(define-char
-  '((=>ucs		. #x9F0E)	; 鼎
-    (morohashi-daikanwa	48315 0 0)
-    (ideographic-radical . 206)	; ⿍
-    (ideographic-strokes . 0)
-    (total-strokes	 . 13)
-    (=cns11643-1	. #x676F)	; &C1-676F; [71-79]
+    (->subsumptive
+     ((shinjigen-2	  . 9849)
+      (=jis-x0208	  . #x4524)	; &GT-66019; [37-04]
+      (=ks-x1001	  . #x7023)	; &I-K0-7023; [80-03]
+      (=gt		  . 66019)	; &I-GT-66019;
+      (=gt-k		  . 10252)	; &I-GT-K10252;
+      (=gt-pj-1		  . #x4524)	; &I-GT-66019; [37-04]
+      (=daikanwa	  . 48315)	; &I-M-48315;
+      (=jef-china3	  . #x8EB4)	; &I-JC3-8EB4;
+      (=ucs@jis		  . #x9F0E)	; &GT-66019;
+      )
+     ((=gb2312		  . #x3626)	; &G0-3626; [22-06]
+      (=ucs@unicode	  . #x9F0E)	; &G0-3626;
+      )
+     ((=cns11643-1	  . #x676F)	; &C1-676F; [71-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
-    (=cns11643-6	. #x504F)	; &M-48316; [48-47]
+    (=ucs		. #x2A502)	; 𪔂
+    (=cns11643-6	. #x504F)	; &I-C6-504F; [48-47]
     (=daikanwa		. 48316)	; &I-M-48316;
     ))
 (define-char
@@ -36,6 +37,7 @@
     (->subsumptive
      ((=jis-x0212	  . #x6D26)	; &M-48317; [77-06]
       (=daikanwa	  . 48317)	; &I-M-48317;
+      (=jef-china3	  . #x6FE3)	; &I-JC3-6FE3;
       (=ucs@unicode	  . #x9F0F)	; &M-48317;
       )
      ((=cns11643-2	  . #x563D)	; &C2-563D; [54-29]
@@ -70,10 +72,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 206)	; ⿍
+  '((=>ucs*		. #x9F0F)	; 鼏
+    (ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 2)
     (total-strokes	 . 15)
     (=ucs		. #x2FA1A)	; 鼏
+    (<-same@ucs
+     ((=ucs		  . #x9F0F)	; 鼏
+      ))
     (->subsumptive
      ((=daikanwa	  . 48320)	; &M-48320;
       (->mistakable
@@ -83,9 +89,14 @@
       (->mistakable*sources
        zihui daikanwa)
       )
-     ((=ucs@iso		  . #x2FA1A)	; &U-0002FA1A;
+     ((=gt		  . 66020)	; &GT-66020;
+      (=gt-pj-8		  . #x717A)	; &GT-66020; [81-90]
       )
      ((=cns11643-5	  . #x5351)	; &C5-5351; [51-49]
+      (=ucs@iso		  . #x2FA1A)	; &C5-5351;
+      (<-unknown
+       ((=daikanwa	    . 48320)	; &M-48320;
+	))
       ))
     ))
 (define-char

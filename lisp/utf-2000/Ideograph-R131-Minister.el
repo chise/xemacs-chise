@@ -66,7 +66,9 @@
     (=jis-x0212		. #x5661)	; &I-JSP-5661; [54-65]
     (=cns11643-4	. #x276C)	; &I-C4-276C; [07-76]
     (=jis-x0213-2-2000	. #x7557)	; &I-JX2-7557; [85-55]
+    (=big5-cdp		. #x8C5C)	; &I-CDP-8C5C;
     (=daikanwa		. 30070)	; &I-M-30070;
+    (=cbeta		. 07245)	; &I-CB07245;
     (=jef-china3	. #x60DF)	; &I-JC3-60DF;
     ))
 (define-char

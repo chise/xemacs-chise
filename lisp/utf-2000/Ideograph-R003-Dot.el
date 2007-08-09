@@ -90,12 +90,14 @@
   '((<-denotational
      ((=ucs		  . #x4E38)	; 丸
       ))
+    (=>ucs*		. #x4E38)	; 丸
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (shinjigen-1	. 39)
     (shinjigen-2	. 39)
-    (=jis-x0208		. #x345D)	; &GT-00131; [20-61]
+    (=ucs		. #x2F801)	; 丸
+    (=jis-x0208		. #x345D)	; &I-J90-345D; [20-61]
     (=gb2312		. #x4D68)	; &I-G0-4D68; [45-72]
     (=ks-x1001		. #x7C2F)	; &I-K0-7C2F; [92-15]
     (=cns11643-6	. #x2131)	; &I-C6-2131; [01-17]
@@ -103,7 +105,8 @@
     (=gt-k		. 00161)	; &I-GT-K00161;
     (=gt-pj-1		. #x345D)	; &I-GT-00131; [20-61]
     (=daikanwa		. 00094)	; &I-M-00094;
-    (=ucs@unicode	. #x4E38)	; &GT-00131;
+    (=ucs@unicode	. #x4E38)	; 丸
+    (=ucs@cns		. #x2F801)	; 丸
     (mojikyo		. 000094)	; &MCS-6000005E;
     ))
 (define-char
@@ -137,10 +140,8 @@
     (mojikyo		. 000096)	; &MCS-60000060;
     (<-original
      ((shinjigen-1	  . 39)
-      (=jis-x0208	  . #x345D)	; &GT-00131; [20-61]
-      (=gb2312		  . #x4D68)	; &I-G0-4D68; [45-72]
-      (=ks-x1001	  . #x7C2F)	; &I-K0-7C2F; [92-15]
-      (=cns11643-6	  . #x2131)	; &I-C6-2131; [01-17]
+      (=ucs		  . #x2F801)	; 丸
+      (=jis-x0208	  . #x345D)	; &I-J90-345D; [20-61]
       (=daikanwa	  . 00094)	; &I-M-00094;
       ))
     (<-original*sources
@@ -232,8 +233,10 @@
     (mojikyo		. 000099)	; &MCS-60000063;
     (->subsumptive
      ((=ks-x1001	  . #x5321)	; &K0-5321; [51-01]
+      (=ucs@ks		  . #x4E39)	; &K0-5321;
       )
-     ((=ucs		  . #xF95E)	; 丹
+     ((=>ucs*		  . #x4E39)	; 丹
+      (=ucs		  . #xF95E)	; 丹
       (=ks-x1001	  . #x552E)	; &I-K0-552E; [53-14]
       ))
     ))
@@ -451,8 +454,7 @@
     (<-ancient*sources
      daikanwa)
     (<-same
-     ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
-      (=daikanwa	  . 00059)	; &I-M-00059;
+     ((=ucs		  . #x2F800)	; 丽
       ))
     ))
 (define-char

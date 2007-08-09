@@ -218,7 +218,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (->subsumptive
-     ((shinjigen-1	  . 6343)
+     ((=>ucs*		  . #x8005)	; 者
+      (shinjigen-1	  . 6343)
       (=ucs		  . #xFA5B)	; 者
       (=ks-x1001	  . #x6D3A)	; &I-K0-6D3A; [77-26]
       (=jis-x0213-1-2000  . #x7A44)	; &I-JX1-7A44; [90-36]
@@ -226,7 +227,8 @@
       (=jef-china3	  . #x60B5)	; &I-JC3-60B5;
       (=ucs@ks		  . #x8005)	; 者
       )
-     ((=ucs		  . #x2F97A)	; 者
+     ((=>ucs*		  . #x8005)	; 者
+      (=ucs		  . #x2F97A)	; 者
       (=cns11643-4	  . #x2B26)	; &I-C4-2B26; [11-06]
       ))
     ))

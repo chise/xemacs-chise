@@ -42,7 +42,8 @@
     (=ucs		. #x51AC)	; 冬
     (=big5		. #xA556)	; &I-B-A556;
     (->subsumptive
-     ((ideographic-structure
+     ((=>ucs*		  . #x51AC)	; 冬
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -52,10 +53,12 @@
 	))
       (shinjigen-1	  . 541)
       (shinjigen-2	  . 541)
-      (=ks-x1001	  . #x544F)	; &M-01610; [52-47]
+      (=ucs		  . #x2F81A)	; 冬
+      (=ks-x1001	  . #x544F)	; &I-K0-544F; [52-47]
       (=cns11643-6	  . #x223C)	; &I-C6-223C; [02-28]
       (=daikanwa	  . 01610)	; &I-M-01610;
       (=jef-china3	  . #x43F5)	; &I-JC3-43F5;
+      (=ucs@ks		  . #x51AC)	; 冬
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1493,9 +1496,7 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ks-x1001	  . #x7132)	; &M-03441; [81-18]
-      (=cns11643-6	  . #x2A3C)	; &I-C6-2A3C; [10-28]
-      (=daikanwa	  . 03441)	; &I-M-03441;
+     ((=ucs		  . #x2F83F)	; 周
       ))
     (shinjigen-1	. 553)
     (shinjigen-2	. 553)
@@ -1768,6 +1769,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 299 17)
+    (=ucs		. #x51D0)	; 凐
+    (=big5		. #xD468)	; &I-B-D468;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1789,9 +1792,7 @@
        ((=cns11643-2	    . #x2959)	; &C2-2959; [09-57]
 	))
       (=cns11643-2	  . #x336B)	; &C2-336B; [19-75]
-      (=big5		  . #xD468)	; &I-B-D468;
       (=ucs@cns		  . #x51D0)	; &C2-336B;
-      (=ucs@big5	  . #x51D0)	; &C2-336B;
       ))
     ))
 (define-char

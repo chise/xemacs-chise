@@ -419,6 +419,25 @@
     (mojikyo		. 000015)	; &MCS-6000000F;
     ))
 (define-char
+  '((=>daikanwa		. 00015)	; 丌
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
+    (=gt-k		. 00264)	; &GT-K00264;
+    (=gt-pj-k1		. #x3764)	; &GT-K00264; [23-68]
+    (<-formed@component/connect-above
+     ((=ucs		  . #x4E0C)	; 丌
+      ))
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
@@ -796,9 +815,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=jis-x0208	  . #x3F4F)	; &GT-02407; [31-47]
-      (=cns11643-6	  . #x2138)	; &I-C6-2138; [01-24]
-      (=daikanwa	  . 01850)	; &I-M-01850;
+     ((=ucs		  . #x2F81E)	; 刃
       )
      ((=ucs		  . #x4E00)	; 一
       ))
@@ -1340,22 +1357,6 @@
       ))
     (=ucs		. #x20015)	; 𠀕
     (=hanziku-1		. #xA7B1)	; &I-HZK01-A7B1;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 14 2)
-    (=ucs		. #x29C0A)	; 𩰊
-    (=big5-cdp		. #x88D0)	; &I-CDP-88D0;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 15 2)
-    (=ucs		. #x29C0B)	; 𩰋
-    (=big5-cdp		. #x88D1)	; &I-CDP-88D1;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -2161,6 +2162,7 @@
   '((<-denotational
      ((=ucs		  . #x4E3D)	; 丽
       ))
+    (=>ucs*		. #x4E3D)	; 丽
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
@@ -2172,7 +2174,8 @@
       )
      ((=gt-k		  . 00615)	; &GT-K00615;
       ))
-    (=cns11643-6	. #x2936)	; &GT-00087; [09-22]
+    (=ucs		. #x2F800)	; 丽
+    (=cns11643-6	. #x2936)	; &I-C6-2936; [09-22]
     (=gt		. 00087)	; &I-GT-00087;
     (=gt-pj-2		. #x304B)	; &I-GT-00087; [16-43]
     (=daikanwa		. 00059)	; &I-M-00059;
@@ -2254,8 +2257,7 @@
     (<-ancient*sources
      daikanwa)
     (<-same
-     ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
-      (=daikanwa	  . 00059)	; &I-M-00059;
+     ((=ucs		  . #x2F800)	; 丽
       ))
     ))
 (define-char

@@ -298,7 +298,8 @@
       (=ucs@jis		  . #x5145)	; &GT-01746;
       (mojikyo		  . 001345)	; &MCS-60000541;
       )
-     ((hanyu-dazidian	  1 269 2)
+     ((=>ucs*		  . #x2063A)	; 𠘺
+      (hanyu-dazidian	  1 269 2)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -315,10 +316,16 @@
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
-      (=gb2312		  . #x3364)	; &HZK01-DDA6; [19-68]
+      (=ucs		  . #x2F80D)	; 𠘺
+      (=gb2312		  . #x3364)	; &I-G0-3364; [19-68]
       (=cns11643-6	  . #x2352)	; &I-C6-2352; [03-50]
       (=hanziku-1	  . #xDDA6)	; &I-HZK01-DDA6;
-      (=ucs@unicode	  . #x5145)	; &HZK01-DDA6;
+      (=ucs@unicode	  . #x5145)	; 𠘺
+      (=ucs@cns		  . #x2F80D)	; 𠘺
+      (<-same@ucs
+       ((=ucs		    . #x2063A)	; 𠘺
+	))
+      (<-same@ucs*notes	  "mapping bug")
       ))
     ))
 (define-char
@@ -753,7 +760,8 @@
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
     (->subsumptive
-     ((shinjigen-1	  . 471)
+     ((=>ucs*		  . #x514D)	; 免
+      (shinjigen-1	  . 471)
       (shinjigen-2	  . 471)
       (=ucs		  . #xFA32)	; 免
       (=jis-x0213-1-2000  . #x2E50)	; &I-JX1-2E50; [14-48]
@@ -761,7 +769,8 @@
       (=jef-china3	  . #x43D5)	; &I-JC3-43D5;
       (mojikyo		  . 054447)	; &MCS-6000D4AF;
       )
-     ((=ucs		  . #x2F80E)	; 免
+     ((=>ucs*		  . #x514D)	; 免
+      (=ucs		  . #x2F80E)	; 免
       (=cns11643-3	  . #x2452)	; &I-C3-2452; [04-50]
       ))
     ))
@@ -1984,8 +1993,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=gb2312	    . #x3364)	; &HZK01-DDA6; [19-68]
-	(=cns11643-6	    . #x2352)	; &I-C6-2352; [03-50]
+       ((=ucs		    . #x2F80D)	; 𠘺
 	)
        ((=gb2312	    . #x3E29)	; &C1-4B6B; [30-09]
 	(=cns11643-1	    . #x4B6B)	; &I-C1-4B6B; [43-75]

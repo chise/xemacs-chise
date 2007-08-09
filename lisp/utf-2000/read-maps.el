@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004,2005 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004,2005,2006 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -63,6 +63,10 @@
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=cns11643-5
      "^C5-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-6
+     "^C6-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=big5     
@@ -183,6 +187,22 @@ UCS-REGEXP is a regular expression to match against
 		(put-char-attribute chr ucs-ccs ucs)))))
 	(forward-line)))))
 
+;;;###autoload
+(defun ucs-compat-read-file (filename)
+  (interactive "fUCS-compat file : ")
+  (with-temp-buffer
+    (buffer-disable-undo)
+    (insert-file-contents filename)
+    (goto-char (point-min))
+    (let (ucs ucs*)
+      (while (re-search-forward
+	      "^ *U[---+]\\([0-9A-F]+\\)\t *U[---+]\\([0-9A-F]+\\)" nil t)
+	(setq ucs (string-to-int (match-string 1) 16)
+	      ucs* (string-to-int (match-string 2) 16))
+	(put-char-attribute (decode-char '=ucs ucs) '=>ucs* ucs*)
+	))))
+
+;;;###autoload
 (defun jp-jouyou-read-file (filename)
   (interactive "fjp-jouyou file : ")
   (with-temp-buffer

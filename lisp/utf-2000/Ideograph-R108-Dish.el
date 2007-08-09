@@ -111,13 +111,27 @@
     (=ucs		. #x25044)	; 𥁄
     (=cns11643-6	. #x2D3B)	; &I-C6-2D3B; [13-27]
     (=daikanwa		. 22950)	; &I-M-22950;
+    (<-same
+     ((=ucs		  . #x76C2)	; 盂
+      (=daikanwa	  . 22949)	; &I-M-22949;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     ))
 (define-char
-  '((ideographic-radical . 108)	; ⽫
+  '((=>ucs*		. #x25044)	; 𥁄
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2D3A)	; &M-22951; [13-26]
+    (=ucs		. #x2F93D)	; 𥁄
+    (=cns11643-6	. #x2D3A)	; &I-C6-2D3A; [13-26]
     (=daikanwa		. 22951)	; &I-M-22951;
+    (<-original
+     ((=ucs		  . #x76C2)	; 盂
+      (=daikanwa	  . 22949)	; &I-M-22949;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -136,16 +150,28 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x25046)	; 𥁆
-    (=cns11643-5	. #x2A5E)	; &I-C5-2A5E; [10-62]
-    (=daikanwa		. 22953)	; &I-M-22953;
+    (->subsumptive
+     ((=daikanwa	  . 22953)	; &M-22953;
+      )
+     ((=ucs@iso		  . #x25046)	; &U-00025046;
+      )
+     ((=cns11643-5	  . #x2A5E)	; &C5-2A5E; [10-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (sound@ja/on	"geN")
     (=ucs		. #x3FFC)	; 㿼
     (=cns11643-4	. #x2A51)	; &I-C4-2A51; [10-49]
     (=daikanwa		. 22954)	; &I-M-22954;
+    (<-vulgar
+     ((=ucs		  . #x2F93E)	; 㿼
+      (=daikanwa	  . 22991)	; &I-M-22991;
+      ))
+    (<-vulgar*sources
+     kangxi daikanwa)
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -166,9 +192,15 @@
   '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (sound@ja/on	"kei" "gei")
     (=ucs		. #x3FFD)	; 㿽
-    (=cns11643-4	. #x2A50)	; &I-C4-2A50; [10-48]
-    (=daikanwa		. 22956)	; &I-M-22956;
+    (->subsumptive
+     ((=daikanwa	  . 22956)	; &M-22956;
+      )
+     ((=cns11643-4	  . #x2A50)	; &C4-2A50; [10-48]
+      )
+     ((=ucs@unicode	  . #x3FFD)	; &UU+3FFD;
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -626,9 +658,11 @@
     (=daikanwa		. 22990)	; &I-M-22990;
     ))
 (define-char
-  '((ideographic-radical . 108)	; ⽫
+  '((=>ucs*		. #x3FFC)	; 㿼
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (sound@ja/on	"geN")
     (=ucs		. #x2F93E)	; 㿼
     (=cns11643-5	. #x3371)	; &I-C5-3371; [19-81]
     (=daikanwa		. 22991)	; &I-M-22991;

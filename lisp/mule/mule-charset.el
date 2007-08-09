@@ -3,7 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
+;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2007 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -282,17 +282,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0208-1990
 	  japanese-jisx0212
 	  japanese-jisx0208-1978
-	  chinese-cns11643-1
-	  chinese-cns11643-2
-	  chinese-cns11643-3
-          chinese-cns11643-4
-	  chinese-cns11643-5
-	  chinese-cns11643-6
-	  chinese-cns11643-7
-	  =big5-cdp
-	  chinese-big5-eten-a
-	  chinese-big5-eten-b
-	  chinese-big5
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
@@ -305,6 +294,17 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-11
 	  =gt-pj-k1
 	  =gt-pj-k2
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+          chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
+	  =big5-cdp
+	  chinese-big5-eten-a
+	  chinese-big5-eten-b
+	  chinese-big5
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
 	  ;; chinese-gb12345

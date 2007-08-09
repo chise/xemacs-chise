@@ -1324,16 +1324,36 @@
     (mojikyo		. 049195)	; &MCS-6000C02B;
     ))
 (define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 8)
+  '((ideographic-radical@ucs . 77)	; ⽌
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 211)	; ⿒
+    (ideographic-strokes@cns . 0)
+    (total-strokes@cns	     . 13)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
     (total-strokes	 . 12)
     (=ucs		. #x2398B)	; 𣦋
-    (->subsumptive
-     ((=ucs@iso		  . #x2398B)	; &U-0002398B;
-      )
-     ((hanyu-dazidian	  2 1444 5)
-      (=hanziku-4	  . #xD3B4)	; &HZK04-D3B4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2398B)	; 𣦋
       ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x2398B)	; &U-0002398B;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2398B)	; 𣦋
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	2 1444 5)
+    (=hanziku-4		. #xD3B4)	; &HZK04-D3B4;
     ))
 (define-char
   '((ideographic-radical@ucs . 77)	; ⽌

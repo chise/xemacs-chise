@@ -44,8 +44,13 @@
   '((ideographic-radical . 183)	; ⾶
     (ideographic-strokes . 1)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3C75)	; &M-44001; [28-85]
-    (=daikanwa		. 44001)	; &I-M-44001;
+    (=ucs		. #x29671)	; 𩙱
+    (->subsumptive
+     ((=daikanwa	  . 44001)	; &M-44001;
+      )
+     ((=cns11643-6	  . #x3C75)	; &C6-3C75; [28-85]
+      (=ucs@iso		  . #x29671)	; &C6-3C75;
+      ))
     ))
 (define-char
   '((ideographic-radical . 183)	; ⾶

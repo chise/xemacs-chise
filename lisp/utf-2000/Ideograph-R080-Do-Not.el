@@ -194,17 +194,43 @@
     (=ucs@unicode	. #x6BD0)	; &UU+6BD0;
     ))
 (define-char
-  '((ideographic-radical . 80)	; ⽏
-    (ideographic-strokes . 3)
+  '((ideographic-radical@ucs . 45)	; ⼬
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     daikanwa=07842 cns11643-4)
+    (ideographic-strokes@ucs*sources
+     daikanwa=07842)
+    (ideographic-radical@ucs/compat . 80)	; ⽏
+    (ideographic-strokes@ucs/compat . 3)
+    (ideographic-radical@ucs/compat*sources
+     daikanwa=16728 cns11643-6)
+    (ideographic-strokes@ucs/compat*sources
+     daikanwa=16728)
     (total-strokes	 . 8)
-    (=daikanwa		. 16728)	; &M-16728;
+    (=ucs		. #x21D0B)	; 𡴋
     ))
 (define-char
-  '((morohashi-daikanwa	16728 0 0)
+  '((<-denotational
+     ((=ucs		  . #x21D0B)	; 𡴋
+      ))
+    (=>ucs*		. #x21D0B)	; 𡴋
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2C42)	; &C6-2C42; [12-34]
+    (=ucs		. #x2F8F8)	; 𡴋
+    (->subsumptive
+     ((=daikanwa	  . 16728)	; &M-16728;
+      (=ucs@iso		  . #x2F8F8)	; &M-16728;
+      (<-original
+       ((=ucs		    . #x6BCF)	; 每
+	(=daikanwa	    . 16725)	; &I-M-16725;
+	))
+      (<-original*sources
+       kangxi daikanwa)
+      )
+     ((=cns11643-6	  . #x2C42)	; &C6-2C42; [12-34]
+      (=ucs@cns		  . #x2F8F8)	; &C6-2C42;
+      ))
     ))
 (define-char
   '((ideographic-radical . 80)	; ⽏

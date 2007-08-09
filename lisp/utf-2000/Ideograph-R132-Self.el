@@ -387,6 +387,18 @@
     (=ucs		. #x2691A)	; 𦤚
     (=cns11643-5	. #x4F7E)	; &I-C5-4F7E; [47-94]
     (=daikanwa		. 30127)	; &I-M-30127;
+    (<-formed
+     ((=cns11643-5	  . #x2967)	; &M-16423; [09-71]
+      (=daikanwa	  . 16423)	; &I-M-16423;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=cns11643-5	  . #x2967)	; &M-16423; [09-71]
+      (=daikanwa	  . 16423)	; &I-M-16423;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃

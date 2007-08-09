@@ -174,8 +174,15 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x23327)	; 𣌧
-    (=cns11643-5	. #x2953)	; &I-C5-2953; [09-51]
-    (=daikanwa		. 14289)	; &I-M-14289;
+    (->subsumptive
+     ((=daikanwa	  . 14289)	; &M-14289;
+      )
+     ((=cns11643-5	  . #x2953)	; &GT-18087; [09-51]
+      (=gt		  . 18087)	; &I-GT-18087;
+      (=gt-pj-3		  . #x7345)	; &I-GT-18087; [83-37]
+      (=hanziku-4	  . #xDEF5)	; &I-HZK04-DEF5;
+      (=ucs@iso		  . #x23327)	; &GT-18087;
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -300,6 +307,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs/compat . 73)	; ⽈
+    (ideographic-strokes@ucs/compat . 7)
+    (ideographic-radical@ucs/compat*sources
+     cns11643-6)
+    (ideographic-radical@jis . 13)	; ⼌
+    (ideographic-strokes@jis . 9)
+    (ideographic-radical@jis*sources
+     daikanwa jis-x0208/1997 cns11643-1)
+    (ideographic-strokes@jis*sources
+     daikanwa)
+    (total-strokes	 . 11)
+    (=ucs		. #x5195)	; 冕
+    (=big5		. #xB0C3)	; &I-B-B0C3;
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x52D7)	; 勗
       ))
@@ -342,10 +364,37 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
-    (ideographic-strokes . 7)
+  '((<-denotational
+     ((=ucs		  . #x5195)	; 冕
+      ))
+    (=>ucs*		. #x5195)	; 冕
+    (=>ucs@ks		. #x5195)	; &C6-4057;
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-strokes@cns . 7)
+    (ideographic-radical@jis . 13)	; ⼌
+    (ideographic-strokes@jis . 9)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x4057)	; &C6-4057; [32-55]
+    (=ucs		. #x2F8D3)	; 冕
+    (->subsumptive
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 9)
+      (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=gb2312	    . #x4362)	; &C1-492D; [35-66]
+	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
+	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
+	))
+      (=ks-x1001	  . #x5874)	; &C6-4057; [56-84]
+      (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
+      (=ucs@iso		  . #x2F8D3)	; &C6-4057;
+      (=ucs@ks		  . #x5195)	; &C6-4057;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 73)	; ⽈

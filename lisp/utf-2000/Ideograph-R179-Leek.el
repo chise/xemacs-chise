@@ -57,8 +57,13 @@
   '((ideographic-radical . 179)	; ⾲
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x5A2D)	; &M-43240; [58-13]
-    (=daikanwa		. 43240)	; &I-M-43240;
+    (=ucs		. #x29402)	; 𩐂
+    (->subsumptive
+     ((=daikanwa	  . 43240)	; &M-43240;
+      (=ucs@iso		  . #x29402)	; &M-43240;
+      )
+     ((=cns11643-6	  . #x5A2D)	; &C6-5A2D; [58-13]
+      ))
     ))
 (define-char
   '((ideographic-radical . 179)	; ⾲

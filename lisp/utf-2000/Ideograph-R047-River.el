@@ -486,18 +486,32 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (hanyu-dazidian	2 1098 14)
     (=ucs		. #x22001)	; 𢀁
-    (=cns11643-5	. #x3776)	; &I-C5-3776; [23-86]
-    (=daikanwa		. 08699)	; &I-M-08699;
-    (=hanziku-3		. #xE05F)	; &I-HZK03-E05F;
+    (->subsumptive
+     ((=daikanwa	  . 08699)	; &M-08699;
+      )
+     ((=ucs@iso		  . #x22001)	; &U-00022001;
+      )
+     ((hanyu-dazidian	  2 1098 14)
+      (=hanziku-3	  . #xE05F)	; &HZK03-E05F;
+      )
+     ((=cns11643-5	  . #x3776)	; &C5-3776; [23-86]
+      ))
     ))
 (define-char
-  '((ideographic-radical . 47)	; ⼮
+  '((=>ucs*		. #x5DE2)	; 巢
+    (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x5C49)	; &M-08700; [60-41]
+    (=ucs		. #x2F882)	; 巢
+    (=cns11643-6	. #x5C49)	; &I-C6-5C49; [60-41]
     (=daikanwa		. 08700)	; &I-M-08700;
+    (<-original
+     ((=ucs		  . #x5DE2)	; 巢
+      (=daikanwa	  . 08696)	; &I-M-08696;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮

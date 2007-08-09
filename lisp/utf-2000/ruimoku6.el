@@ -3,6 +3,9 @@
   '((script		bones-carapaces Ideographs)
     (sources		bos=A016070-00002)
     (=ruimoku-v6	. #xE000)	; &RUI6-E000;
+    (<-unknown
+     ((=zinbun-oracle	  . 00589)	; &ZOB-0589;
+      ))
     ))
 (define-char
   '((script		bones-carapaces Ideographs)

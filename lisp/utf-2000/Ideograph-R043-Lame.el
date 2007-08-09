@@ -157,6 +157,22 @@
     ))
 (define-char
   '((<-denotational
+     ((=daikanwa	  . 07542)	; &M-07542;
+      ))
+    (name		. "CJK RADICAL LAME ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2E8E)	; ⺎
+    (<-formed@component
+     ((=ucs		  . #x5C22)	; 尢
+      ))
+    (<-identical@component
+     ((=daikanwa	  . 07542)	; &M-07542;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x5140)	; 兀
       ))
     (=>ucs*		. #x5140)	; 兀
@@ -169,22 +185,6 @@
     (=ucs		. #xFA0C)	; 兀
     (=big5		. #xC94A)	; &I-B-C94A;
     (<-unknown
-     ((=daikanwa	  . 07542)	; &M-07542;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=daikanwa	  . 07542)	; &M-07542;
-      ))
-    (name		. "CJK RADICAL LAME ONE")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2E8E)	; ⺎
-    (<-formed@component
-     ((=ucs		  . #x5C22)	; 尢
-      ))
-    (<-identical@component
      ((=daikanwa	  . 07542)	; &M-07542;
       ))
     ))
@@ -674,7 +674,8 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 07577)	; &M-07577;
+  '((=>ucs*		. #x3781)	; 㞁
+    (=>daikanwa		. 07577)	; &M-07577;
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 6)
     (total-strokes	 . 9)

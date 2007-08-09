@@ -1799,6 +1799,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=cns11643-1	. #x4F54)	; &C1-4F54; [47-52]
+    (=ucs@cns		. #x8FD1)	; &C1-4F54;
     ))
 (define-char
   '((<-denotational
@@ -6298,7 +6299,8 @@
     (<-same*sources
      shuowen-tongxundingsheng daikanwa)
     (<-synonyms
-     ((=ucs		  . #x8C5A)	; 豚
+     ((=jis-x0208	  . #x465A)	; &GT-48771; [38-58]
+      (=ks-x1001	  . #x544A)	; &I-K0-544A; [52-42]
       (=daikanwa	  . 36352)	; &I-M-36352;
       ))
     (<-synonyms*sources
@@ -6529,6 +6531,7 @@
     (total-strokes	 . 11)
     (=ks-x1001		. #x5432)	; &M-38882; [52-18]
     (=daikanwa		. 38882)	; &I-M-38882;
+    (=jef-china3	. #x67C4)	; &I-JC3-67C4;
     (->formed
      ((=daikanwa	  . 05511)	; &M-05511;
       ))
@@ -8508,8 +8511,7 @@
     (=ks-x1001		. #x714E)	; &M-38937; [81-46]
     (=daikanwa		. 38937)	; &I-M-38937;
     (<-vulgar
-     ((=ks-x1001	  . #x7132)	; &M-03441; [81-18]
-      (=cns11643-6	  . #x2A3C)	; &I-C6-2A3C; [10-28]
+     ((=ucs		  . #x2F83F)	; 周
       (=daikanwa	  . 03441)	; &I-M-03441;
       ))
     (<-vulgar*sources
@@ -12292,6 +12294,7 @@
     (=gt		. 52297)	; &I-GT-52297;
     (=gt-k		. 09156)	; &I-GT-K09156;
     (=gt-pj-1		. #x4D5A)	; &I-GT-52297; [45-58]
+    (=jef-china3	. #x70EB)	; &I-JC3-70EB;
     (=ucs@jis		. #x9065)	; &GT-52297;
     (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x4D5A)	; &GT-52486; [45-58]

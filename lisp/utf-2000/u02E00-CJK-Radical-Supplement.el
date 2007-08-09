@@ -122,6 +122,33 @@
     (<-formed@component/connect-below
      ((=ucs		  . #x5200)	; 刀
       ))
+    (<-identical@component/connect-below
+     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=gt-k		. 00089)	; &GT-K00089;
+    (=gt-pj-k1		. #x3D6E)	; &GT-K00089; [29-78]
+    (<-formed@component/connect-below
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    ))
+(define-char
+  '((=>ucs		. #x2E88)	; ⺈
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8B5B)	; &CDP-8B5B;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x5200)	; 刀
+      ))
     ))
 (define-char
   '((<-denotational

@@ -27,7 +27,8 @@
   '((ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 1)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x647A)	; &M-48332; [68-90]
+    (=ucs		. #x21537)	; 𡔷
+    (=cns11643-6	. #x647A)	; &I-C6-647A; [68-90]
     (=daikanwa		. 48332)	; &I-M-48332;
     ))
 (define-char

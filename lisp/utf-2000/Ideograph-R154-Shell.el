@@ -103,6 +103,7 @@
     (total-strokes	 . 9)
     (=ks-x1001		. #x5D36)	; &M-36660; [61-22]
     (=daikanwa		. 36660)	; &I-M-36660;
+    (=jef-china3	. #x65F1)	; &I-JC3-65F1;
     ))
 (define-char
   '((<-denotational
@@ -1370,10 +1371,12 @@
   '((<-denotational
      ((=jis-x0208@1997	  . #x6C4C)	; &J97-6C4C; [76-44]
       ))
+    (=>ucs*		. #x8CC1)	; 賁
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x585C)	; &M-36737; [56-60]
+    (=ucs		. #x2F9D5)	; 賁
+    (=cns11643-6	. #x585C)	; &I-C6-585C; [56-60]
     (=daikanwa		. 36737)	; &I-M-36737;
     ))
 (define-char
@@ -4832,11 +4835,29 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
     (=ucs		. #x8D1B)	; 贛
-    (=jis-x0212		. #x5F45)	; &I-JSP-5F45; [63-37]
-    (=cns11643-1	. #x7C6D)	; &I-C1-7C6D; [92-77]
-    (=jis-x0213-1-2000	. #x7C3F)	; &I-JX1-7C3F; [92-31]
-    (=gb12345		. #x3853)	; 贛 [24-51]
-    (=daikanwa		. 36984)	; &I-M-36984;
+    (->subsumptive
+     ((=jis-x0212	  . #x5F45)	; &M-36984; [63-37]
+      (=jis-x0213-1-2000  . #x7C3F)	; &I-JX1-7C3F; [92-31]
+      (=daikanwa	  . 36984)	; &I-M-36984;
+      (=ucs@jis		  . #x8D1B)	; &M-36984;
+      )
+     ((=cns11643-1	  . #x7C6D)	; &C1-7C6D; [92-77]
+      (=gb12345		  . #x3853)	; &C1-7C6D; [24-51]
+      (=ucs@unicode	  . #x8D1B)	; &C1-7C6D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 17)
+    (total-strokes	 . 24)
+    (=daikanwa		. 36985)	; &M-36985;
+    (<-original
+     ((=jis-x0212	  . #x5F45)	; &M-36984; [63-37]
+      (=jis-x0213-1-2000  . #x7C3F)	; &I-JX1-7C3F; [92-31]
+      (=daikanwa	  . 36984)	; &I-M-36984;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
@@ -4862,11 +4883,19 @@
     (=hanziku-9		. #xF7EB)	; &I-HZK09-F7EB;
     ))
 (define-char
-  '((ideographic-radical . 154)	; ⾙
+  '((=>ucs*		. #x8D1B)	; 贛
+    (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
     (=ucs		. #x2F9D6)	; 贛
-    (=cns11643-3	. #x607C)	; &I-C3-607C; [64-92]
+    (<-unknown
+     ((=daikanwa	  . 36985)	; &M-36985;
+      ))
+    (->subsumptive
+     ((=ucs@iso		  . #x2F9D6)	; &U-0002F9D6;
+      )
+     ((=cns11643-3	  . #x607C)	; &C3-607C; [64-92]
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙

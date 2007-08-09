@@ -27,10 +27,12 @@
   '((<-denotational
      ((=ucs		  . #x9EBB)	; 麻
       ))
+    (=>ucs*		. #x9EBB)	; 麻
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x463E)	; &C6-463E; [38-30]
+    (=ucs		. #x2FA15)	; 麻
+    (=cns11643-6	. #x463E)	; &I-C6-463E; [38-30]
     ))
 (define-char
   '((<-denotational
@@ -55,15 +57,63 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 200)	; ⿇
-    (ideographic-strokes . 3)
+  '((ideographic-radical@ucs . 200)	; ⿇
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs*sources
+     daikanwa=47890 cns11643=4B70)
+    (ideographic-strokes@ucs*sources
+     daikanwa=47890)
+    (ideographic-radical@ucs/compat . 53)	; ⼴
+    (ideographic-strokes@ucs/compat . 11)
+    (ideographic-radical@ucs/compat*sources
+     daikanwa=09472 cns11643=455D)
+    (ideographic-strokes@ucs/compat*sources
+     daikanwa=09472)
     (total-strokes	 . 14)
     (=ucs		. #x2A392)	; 𪎒
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A392)	; 𪎒
+      ))
+    (ideographic-radical . 200)	; ⿇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=daikanwa	  . 47890)	; &M-47890;
       )
      ((=cns11643-5	  . #x4B70)	; &C5-4B70; [43-80]
-      (=ucs@iso		  . #x2A392)	; &C5-4B70;
+      (=ucs@cns		  . #x2A392)	; &C5-4B70;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A392)	; 𪎒
+      ))
+    (=>ucs*		. #x2A392)	; 𪎒
+    (ideographic-radical@ucs . 200)	; ⿇
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs/compat . 53)	; ⼴
+    (ideographic-strokes@ucs/compat . 11)
+    (ideographic-radical@ucs/compat*sources
+     daikanwa cns11643)
+    (ideographic-strokes@ucs/compat*sources
+     daikanwa)
+    (total-strokes	 . 14)
+    (=ucs		. #x2F88F)	; 𪎒
+    (->subsumptive
+     ((ideographic-radical . 53)	; ⼴
+      (ideographic-strokes . 11)
+      (=daikanwa	  . 09472)	; &M-09472;
+      )
+     ((ideographic-radical . 200)	; ⿇
+      (ideographic-strokes . 3)
+      (=ucs@iso		  . #x2A392)	; &U-0002A392;
+      )
+     ((ideographic-radical . 53)	; ⼴
+      (ideographic-strokes . 11)
+      (=cns11643-5	  . #x455D)	; &C5-455D; [37-61]
+      (=ucs@iso		  . #x2F88F)	; &C5-455D;
       ))
     ))
 (define-char

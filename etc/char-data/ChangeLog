@@ -1,3 +1,36 @@
+2007-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX2-to-UCS.txt (JX2-7662): Don't map to U-0002F9A8.
+
+	* JSP-to-UCS.txt (JSP-5926): Delete mapping for U-0002F9A8.
+
+2007-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-58AE): Map to U+7235 instead of U-0002F921.
+
+2007-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-55F8): Map to U-0002F903 instead of U+6D69.
+	(JC3-56E1): Map to U-0002F90C instead of U+6EC7.
+	(JC3-70DD): Map to U-0002F909 instead of U+6E6E.
+
+2007-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4EEF): Map to U-0002F8B2 instead of U+6210.
+
+2006-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* UCS-compat.txt: New file.
+
+2006-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-43F5): Map to U-0002F81A instead of U+51AC.
+	(JC3-46A3): Map to U-0002F83F instead of U+5468.
+
+2006-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* C6-to-UCS.txt: New file.
+
 2006-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-9EB2): Map to U+8A0F instead of U+8A10.

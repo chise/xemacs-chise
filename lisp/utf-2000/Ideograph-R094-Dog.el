@@ -467,26 +467,69 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (sound@ja/on	"yu")
     (=ucs		. #x24739)	; 𤜹
-    (=cns11643-5	. #x272F)	; &I-C5-272F; [07-15]
-    (=daikanwa		. 20272)	; &I-M-20272;
+    (->subsumptive
+     ((=daikanwa	  . 20272)	; &M-20272;
+      (<-same
+       ((=cns11643-6	    . #x285D)	; &M-20273; [08-61]
+	(=daikanwa	    . 20273)	; &I-M-20273;
+	)
+       ((=cns11643-6	    . #x4A3F)	; &M-49193; [42-31]
+	(=daikanwa	    . 49193)	; &I-M-49193;
+	))
+      (<-same*sources
+       jiyun daikanwa)
+      (->formed
+       ((=cns11643-6	    . #x4A3F)	; &M-49193; [42-31]
+	(=daikanwa	    . 49193)	; &I-M-49193;
+	)
+       ((=cns11643-6	    . #x285D)	; &M-20273; [08-61]
+	(=daikanwa	    . 20273)	; &I-M-20273;
+	))
+      (->formed*sources
+       jiyun)
+      )
+     ((=cns11643-5	  . #x272F)	; &C5-272F; [07-15]
+      )
+     ((=ucs@iso		  . #x24739)	; &U-00024739;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"yu")
     (=ucs		. #x24746)	; 𤝆
-    (=cns11643-6	. #x285D)	; &I-C6-285D; [08-61]
-    (=daikanwa		. 20273)	; &I-M-20273;
+    (->subsumptive
+     ((=cns11643-6	  . #x285D)	; &M-20273; [08-61]
+      (=daikanwa	  . 20273)	; &I-M-20273;
+      (<-formed
+       ((=daikanwa	    . 20272)	; &M-20272;
+	))
+      (<-formed*sources
+       jiyun)
+      (<-same
+       ((=daikanwa	    . 20272)	; &M-20272;
+	))
+      (<-same*sources
+       jiyun daikanwa)
+      )
+     ((=ucs@iso		  . #x24746)	; &U-00024746;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x72BD)	; 犽
-    (=cns11643-2	. #x2462)	; &I-C2-2462; [04-66]
     (=big5		. #xCB62)	; &I-B-CB62;
-    (=daikanwa		. 20274)	; &I-M-20274;
+    (->subsumptive
+     ((=daikanwa	  . 20274)	; &M-20274;
+      (=ucs@unicode	  . #x72BD)	; &M-20274;
+      )
+     ((=cns11643-2	  . #x2462)	; &C2-2462; [04-66]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -1749,18 +1792,14 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x72E8)	; 狨
-    (=gb2312		. #x6175)	; &I-G0-6175; [65-85]
-    (=cns11643-2	. #x2C22)	; &I-C2-2C22; [12-02]
-    (=daikanwa		. 20384)	; &I-M-20384;
-    (mojikyo		. 020384)	; &MCS-60004FA0;
-    ))
-(define-char
-  '((=>ucs		. #x72E8)	; 狨
-    (morohashi-daikanwa	20384 0 0)
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=big5		. #xCFC0)	; &B-CFC0;
+    (=big5		. #xCFC0)	; &I-B-CFC0;
+    (->subsumptive
+     ((=gb2312		  . #x6175)	; &M-20384; [65-85]
+      (=cns11643-2	  . #x2C22)	; &I-C2-2C22; [12-02]
+      (=daikanwa	  . 20384)	; &I-M-20384;
+      (=ucs@unicode	  . #x72E8)	; &M-20384;
+      (mojikyo		  . 020384)	; &MCS-60004FA0;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -1771,11 +1810,23 @@
     (=daikanwa		. 20385)	; &I-M-20385;
     ))
 (define-char
-  '((ideographic-radical . 94)	; ⽝
+  '((=>ucs*		. #x24735)	; 𤜵
+    (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=cns11643-6	. #x3262)	; &M-20386; [18-66]
-    (=daikanwa		. 20386)	; &I-M-20386;
+    (=ucs		. #x2F926)	; 𤜵
+    (->subsumptive
+     ((=daikanwa	  . 20386)	; &M-20386;
+      (<-same
+       ((=ucs		    . #x24735)	; 𤜵
+	(=daikanwa	    . 20267)	; &I-M-20267;
+	))
+      (<-same*sources
+       zihui daikanwa)
+      )
+     ((=cns11643-6	  . #x3262)	; &C6-3262; [18-66]
+      (=ucs@iso		  . #x2F926)	; &C6-3262;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -3675,7 +3726,16 @@
     (=ucs@unicode	. #x7327)	; &UU+7327;
     ))
 (define-char
-  '((=>ucs		. #x7328)	; 猨
+  '((ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (sound@ja/on	"WeN" "WoN")
+    (=ucs		. #x7328)	; 猨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7328)	; 猨
+      ))
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -3684,21 +3744,53 @@
     (=daikanwa		. 20525)	; &I-M-20525;
     (=jef-china3	. #x58EE)	; &I-JC3-58EE;
     (=ucs@jis		. #x7328)	; &M-20525;
+    (<-formed
+     ((=jis-x0212	  . #x5B34)	; &M-33315; [59-20]
+      (=daikanwa	  . 33315)	; &I-M-33315;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same@s=gibbon
+     ((=jis-x0212	  . #x5B34)	; &M-33315; [59-20]
+      (=daikanwa	  . 33315)	; &I-M-33315;
+      ))
+    (<-same@s=gibbon*sources
+     jiyun daikanwa)
+    (<-same@s=monkey
+     ((=ucs		  . #x733F)	; 猿
+      (=daikanwa	  . 20584)	; &I-M-20584;
+      ))
+    (<-same@s=monkey*sources
+     zhengzitong daikanwa)
+    (<-vulgar
+     ((=ucs		  . #x733F)	; 猿
+      ))
+    (<-vulgar*sources
+     zhengzitong)
     ))
 (define-char
-  '((morohashi-daikanwa	20525 0 2)
+  '((<-denotational
+     ((=ucs		  . #x7328)	; 猨
+      ))
+    (=cns11643-3	. #x3D2E)	; &C3-3D2E; [29-14]
+    (=ucs@unicode	. #x7328)	; &C3-3D2E;
+    ))
+(define-char
+  '((=>ucs*		. #x24814)	; 𤠔
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x7328)	; 猨
-    (=cns11643-3	. #x3D2E)	; &I-C3-3D2E; [29-14]
-    ))
-(define-char
-  '((ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=cns11643-6	. #x4B42)	; &M-20526; [43-34]
+    (sound@ja/on	"WeN")
+    (=ucs		. #x2F927)	; 𤠔
+    (=cns11643-6	. #x4B42)	; &I-C6-4B42; [43-34]
     (=daikanwa		. 20526)	; &I-M-20526;
+    (<-vulgar
+     ((=jis-x0212	  . #x4B30)	; &M-20525; [43-16]
+      (=jis-x0213-1-2000  . #x776E)	; &I-JX1-776E; [87-78]
+      (=daikanwa	  . 20525)	; &I-M-20525;
+      ))
+    (<-vulgar*sources
+     zihui daikanwa)
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -4582,9 +4674,16 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (sound@ja/on	"WeN")
     (=ucs		. #x24814)	; 𤠔
     (=cns11643-6	. #x5524)	; &I-C6-5524; [53-04]
     (=daikanwa		. 20585)	; &I-M-20585;
+    (<-vulgar
+     ((=ucs		  . #x733F)	; 猿
+      (=daikanwa	  . 20584)	; &I-M-20584;
+      ))
+    (<-vulgar*sources
+     zihui daikanwa)
     ))
 (define-char
   '((=>ucs		. #x24815)	; 𤠕
