@@ -1584,17 +1584,20 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (hanyu-dazidian	2 1445 3)
     (=ucs		. #x23995)	; 𣦕
-    (=cns11643-7	. #x2425)	; &I-C7-2425; [04-05]
-    (=daikanwa		. 16337)	; &I-M-16337;
-    (=hanziku-4		. #xD3D2)	; &I-HZK04-D3D2;
-    (<-same
-     ((=ucs		  . #x230B8)	; 𣂸
-      (=daikanwa	  . 13583)	; &I-M-13583;
+    (->subsumptive
+     ((hanyu-dazidian	  2 1445 3)
+      (=cns11643-7	  . #x2425)	; &M-16337; [04-05]
+      (=daikanwa	  . 16337)	; &I-M-16337;
+      (=hanziku-4	  . #xD3D2)	; &I-HZK04-D3D2;
+      (=ucs@iso		  . #x23995)	; &M-16337;
+      (<-same
+       ((=ucs		    . #x230B8)	; 𣂸
+	(=daikanwa	    . 13583)	; &I-M-13583;
+	))
+      (<-same*sources
+       zihui-bu daikanwa)
       ))
-    (<-same*sources
-     zihui-bu daikanwa)
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
