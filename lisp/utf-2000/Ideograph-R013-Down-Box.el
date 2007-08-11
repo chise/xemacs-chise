@@ -773,7 +773,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x2F816)	; 𠕋
-    (=cns11643-6	. #x2359)	; &I-C6-2359; [03-57]
+    (->subsumptive
+     ((=cns11643-6	  . #x2359)	; &C6-2359; [03-57]
+      (=ucs@iso		  . #x2F816)	; &C6-2359;
+      ))
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
