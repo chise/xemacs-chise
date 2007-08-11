@@ -21271,6 +21271,15 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=cns11643-1	  . #x5552)	; &C1-5552; [53-50]
+      ))
     (=cns11643-4	. #x363C)	; &C4-363C; [22-28]
     (=ucs@cns		. #x5093)	; &C4-363C;
     ))
