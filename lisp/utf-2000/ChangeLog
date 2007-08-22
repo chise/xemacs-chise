@@ -1,3 +1,15 @@
+2007-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U+982C): Unify JC3-6CFD.
+
+2007-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+363C): Add `ideographic-structure'.
+
+	* Ideograph-R077-Stop.el (U-00023995): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U-0002F816): Use `->subsumptive'.
+
 2007-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (U-00023327): Use `->subsumptive';

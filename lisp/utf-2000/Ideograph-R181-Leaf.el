@@ -2118,6 +2118,7 @@
     (=jis-x0208@1990	. #x4B4B)	; &I-J90-4B4B; [43-43]
     (=gt		. 58319)	; &I-GT-58319;
     (=gt-pj-1		. #x4B4B)	; &I-GT-58319; [43-43]
+    (=jef-china3	. #x6CFD)	; &I-JC3-6CFD;
     (<-simplified@JP/jis
      ((=ucs		  . #x9830)	; 頰
       (=jis-x0208@1978	  . #x4B4B)	; &I-J78-4B4B; [43-43]
