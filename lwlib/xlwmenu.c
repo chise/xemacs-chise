@@ -3412,8 +3412,8 @@ xlw_map_menu (Time t)
   if (!mw->menu.pointer_grabbed)
     {
       XWindowAttributes ret;
-      Window parent,root;
-      Window *waste;
+      Window parent,root = 0UL;
+      Window *waste = NULL;
       unsigned int num_waste;
 
       lw_menu_active = True;

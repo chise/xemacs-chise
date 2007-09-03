@@ -1,5 +1,6 @@
 /* pop.h: Header file for the "pop.c" client POP3 protocol.
-   Copyright (c) 1991,1993 Free Software Foundation, Inc.
+   Copyright (C) 1991, 1993, 2002, 2003, 2004,
+                 2005, 2006 Free Software Foundation, Inc.
    Written by Jonathan Kamens, jik@security.ov.com.
 
 This file is part of GNU Emacs.
@@ -16,8 +17,10 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with GNU Emacs; see the file COPYING.  If not, write to
-the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-Boston, MA 02111-1307, USA.  */
+the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+Boston, MA 02110-1301, USA.  */
+
+/* Synched up with: FSF 22.0.50. */
 
 #include <stdio.h>
 
@@ -59,7 +62,8 @@ extern popserver pop_open _ARGS((char *host, char *username, char *password,
 extern int pop_stat _ARGS((popserver server, int *count, int *size));
 extern int pop_list _ARGS((popserver server, int message, int **IDs,
 			   int **size));
-extern char *pop_retrieve _ARGS((popserver server, int message, int markfrom));
+extern int pop_retrieve _ARGS((popserver server, int message, int markfrom,
+			       char **));
 extern int pop_retrieve_first _ARGS((popserver server, int message,
 				     char **response));
 extern int pop_retrieve_next _ARGS((popserver server, char **line));

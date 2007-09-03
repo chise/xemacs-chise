@@ -1,3 +1,26 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-08-11  Jerry James  <james@xemacs.org>
+
+	* gnuslib.c (disconnect_from_server): shutdown() has been fine on
+	Linux for a long time now; use it.  Also, don't use length to
+	access the buffer unless it is positive, not just nonzero.
+	* gnuclient.c (filename_expand): Initialize the last array element
+	to get a valid C string in case of overflow.  Use strncat to avoid
+	buffer overruns.
+	* gnuclient.c (main): Use strncpy to avoid buffer overruns.
+
+2006-08-11  Jerry James  <james@xemacs.org>
+
+	* pop.h: Sync with Emacs.
+	* pop.c: Ditto.
+
+2006-07-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etags.c: Xemacs -> XEmacs
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

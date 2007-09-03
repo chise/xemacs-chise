@@ -1624,7 +1624,7 @@ optimize_byte_code (/* in */
     int from;
     int to;
   };
-  struct jump * const jumps = alloca_array (struct jump, comfy_size);
+  struct jump * const jumps = xnew_array (struct jump, comfy_size);
   struct jump *jumps_ptr = jumps;
 
   Opbyte *program_ptr = program;
@@ -1868,6 +1868,7 @@ optimize_byte_code (/* in */
 
   /* *program_ptr++ = 0; */
   *program_length = program_ptr - program;
+  xfree(jumps);
 }
 
 /* Optimize the byte code and store the optimized program, only

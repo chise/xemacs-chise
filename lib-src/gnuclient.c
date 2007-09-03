@@ -198,7 +198,7 @@ filename_expand (char *fullpath, char *filename)
 #endif
 
   int len;
-  fullpath[0] = '\0';
+  fullpath[0] = fullpath[MAXPATHLEN] = '\0';
 
 #ifdef  CYGWIN
   /*
@@ -211,7 +211,7 @@ filename_expand (char *fullpath, char *filename)
   if (filename[0] && filename[0] == '/')
      {
        /* Absolute (unix-style) pathname.  Do nothing */
-       strcat (fullpath, filename);
+       strncat (fullpath, filename, MAXPATHLEN);
      }
   else
     {
@@ -219,15 +219,18 @@ filename_expand (char *fullpath, char *filename)
        and prepend it.  FIXME: need to fix the case of DOS paths like
        "\foo", where we need to get the current drive. */
 
-      strcat (fullpath, get_current_working_directory ());
+      strncat (fullpath, get_current_working_directory (), MAXPATHLEN);
       len = strlen (fullpath);
 
-      if (len > 0 && fullpath[len-1] == '/')	/* trailing slash already? */
-	;					/* yep */
-      else
-	strcat (fullpath, "/");		/* nope, append trailing slash */
+      /* If no trailing slash, add one */
+      if (len <= 0 || (fullpath[len - 1] != '/' && len < MAXPATHLEN))
+	{
+	  strcat (fullpath, "/");
+	  len++;
+	}
+
       /* Don't forget to add the filename! */
-      strcat (fullpath,filename);
+      strncat (fullpath, filename, MAXPATHLEN - len);
     }
 } /* filename_expand */
 
@@ -439,7 +442,7 @@ main (int argc, char *argv[])
 		  break;
 		case 'r':
 		  GET_ARGUMENT (remotearg, "-r");
-		  strcpy (remotepath, remotearg);
+		  strncpy (remotepath, remotearg, MAXPATHLEN);
 		  rflg = 1;
 		  break;
 #endif /* INTERNET_DOMAIN_SOCKETS */
@@ -594,7 +597,7 @@ main (int argc, char *argv[])
 					 * to this machine */
 	      if ((ptr = getenv ("GNU_NODE")) != NULL)
 		/* user specified a path */
-		strcpy (remotepath, ptr);
+		strncpy (remotepath, ptr, MAXPATHLEN);
 	    }
 #if 0  /* This is really bogus... re-enable it if you must have it! */
 #if defined (hp9000s300) || defined (hp9000s800)

@@ -699,7 +699,8 @@ further (recursive) error recovery.  TRYFILE is ??"
 		    Info-current-subfile nil
 		    Info-current-file-completions nil
 		    Info-index-alternatives nil
-		    buffer-file-name nil)
+		    buffer-file-name nil
+		    buffer-file-truename nil)
 	      (erase-buffer)
 	      (if (string= "dir" (file-name-nondirectory filename))
 		  (Info-insert-dir)
@@ -1034,7 +1035,8 @@ actually get any text from."
       (message "Composing main Info directory...done"))
     (setq Info-dir-contents (buffer-string)))
   (setq default-directory (file-name-as-directory Info-dir-contents-directory))
-  (setq buffer-file-name (caar Info-dir-file-attributes)))
+  (setq buffer-file-name (caar Info-dir-file-attributes)
+	buffer-file-truename (file-truename buffer-file-name)))
 
 (defmacro Info-directory-files (dir-file &optional all full nosort files-only)
   "Return a list of Info files living in the same directory as DIR-FILE.
@@ -1405,7 +1407,8 @@ invoke \"xemacs -batch -f Info-batch-rebuild-dir /usr/local/info\"."
 	    (throw 'foo t)))))
     (or (equal Info-current-subfile lastfilename)
 	(let ((buffer-read-only nil))
-	  (setq buffer-file-name nil)
+	  (setq buffer-file-name nil
+		buffer-file-truename nil)
 	  (widen)
 	  (erase-buffer)
 	  (Info-insert-file-contents (Info-suffixed-file
@@ -1513,7 +1516,8 @@ versions of NAME. Only the suffixes are tried."
 	  (call-process shell-file-name nil t nil shell-command-switch command)
 	  (message "")
 	  (when visit
-	    (setq buffer-file-name file)
+	    (setq buffer-file-name file
+		  buffer-file-truename (file-truename buffer-file-name))
 	    (set-buffer-modified-p nil)
 	    (clear-visited-file-modtime)))
       (insert-file-contents file visit))))
@@ -3035,7 +3039,7 @@ The locations are of the format used in Info-history, i.e.
 \(FILENAME NODENAME BUFFERPOS\)."
   (let ((where '())
 	(cmd-desc (concat "^\\* " (regexp-quote (symbol-name command))
-			  ":\\s *\\(.*\\)\\.$")))
+			  ":\\s *\\(.*\\)\\.")))
     (save-excursion
       (Info-find-node "XEmacs" "Command Index")
       ;; Take the index node off the Info history.

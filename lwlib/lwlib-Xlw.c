@@ -163,13 +163,13 @@ xlw_scrollbar_callback (Widget widget, XtPointer closure, XtPointer call_data)
   XlwScrollBarCallbackStruct *data =
     (XlwScrollBarCallbackStruct *) call_data;
   scroll_event event_data;
-  scrollbar_values *val =
-    (scrollbar_values *) instance->info->val->scrollbar_data;
+  scrollbar_values *val;
   double percent;
 
   if (!instance || widget->core.being_destroyed)
     return;
 
+  val = (scrollbar_values *) instance->info->val->scrollbar_data;
   id = instance->info->id;
 
   percent = (double) (data->value - 1) / (double) (INT_MAX - 1);

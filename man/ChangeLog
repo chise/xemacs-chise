@@ -1,3 +1,25 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-11-07  Robert Pluim  <rpluim@gmail.com>
+
+	* lispref/os.texi (User Identification): The code uses HOMEPATH,
+	not HOMEDIR.
+
+2006-07-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* new-users-guide/edit.texi (Insert): Document bogosity in
+	vendor labeling of DEL key.
+	(Numeric Argument): Remove spurious RETs from keystroke examples.
+	Thanks to Michael C. Wescott <wescott@sc.rr.com>.
+
+2006-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q2.2.3): New node.
+	(Q2.2.2, Q2.3.1): Fix navigation references.
+	(Top, Installation): Add to menus.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

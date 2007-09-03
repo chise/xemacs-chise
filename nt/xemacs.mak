@@ -108,17 +108,24 @@ INSTALL_DIR=c:\Program Files\XEmacs\XEmacs-$(XEMACS_VERSION_STRING)
 !if !defined(HAVE_MULE)
 HAVE_MULE=0
 !endif
+
+# If PACKAGE_PATH was defined, use it.  If PACKAGE_PATH was not defined,
+# but PACKAGE_PREFIX was, use PACKAGE_PREFIX to generate a package path.
+# If neither PACKAGE_PATH nor PACKAGE_PREFIX was defined,
+# do not define a package path.
 !if !defined(PACKAGE_PATH)
-! if !defined(PACKAGE_PREFIX)
-PACKAGE_PREFIX=c:\Program Files\XEmacs
-! endif
-! if $(HAVE_MULE)
+! if defined(PACKAGE_PREFIX)
+!  if $(HAVE_MULE)
 PACKAGE_PATH=~\.xemacs;;$(PACKAGE_PREFIX)\site-packages;$(PACKAGE_PREFIX)\mule-packages;$(PACKAGE_PREFIX)\xemacs-packages
-! else
+!  else
 PACKAGE_PATH=~\.xemacs;;$(PACKAGE_PREFIX)\site-packages;$(PACKAGE_PREFIX)\xemacs-packages
+!  endif
 ! endif
 !endif
+!if defined(PACKAGE_PATH)
 PATH_PACKAGEPATH="$(PACKAGE_PATH:\=\\)"
+!endif
+
 !if !defined(HAVE_MS_WINDOWS)
 HAVE_MS_WINDOWS=1
 !endif
@@ -541,8 +548,10 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 !endif
 !if [echo LISPDIR>>$(CONFIG_VALUES) && echo "$(MAKEDIR:\=\\)\\$(LISP:\=\\)">>$(CONFIG_VALUES)]
 !endif
+!if defined(PATH_PACKAGEPATH)
 # PATH_PACKAGEPATH is already a quoted string.
-!if [echo PACKAGE_PATH>>$(CONFIG_VALUES) && echo $(PATH_PACKAGEPATH)>>$(CONFIG_VALUES)]
+! if [echo PACKAGE_PATH>>$(CONFIG_VALUES) && echo $(PATH_PACKAGEPATH)>>$(CONFIG_VALUES)]
+! endif
 !endif
 
 # Inferred rule
@@ -875,8 +884,10 @@ TEMACS_CPP_FLAGS=-c \
  $(EMACS_BETA_VERSION) \
  $(EMACS_PATCH_LEVEL) \
  -DXEMACS_CODENAME=\"$(xemacs_codename:&=and)\" \
- -DEMACS_CONFIGURATION=\"$(EMACS_CONFIGURATION)\" \
- -DPATH_PACKAGEPATH=\"$(PATH_PACKAGEPATH)\"
+!if defined(PATH_PACKAGEPATH)
+ -DPATH_PACKAGEPATH=\"$(PATH_PACKAGEPATH)\" \
+!endif
+ -DEMACS_CONFIGURATION=\"$(EMACS_CONFIGURATION)\"
 
 !if $(HAVE_X_WINDOWS)
 TEMACS_X_OBJS=\
@@ -1363,7 +1374,11 @@ docfile :: $(DOC)
 
 $(DOC): $(LIB_SRC)\make-docfile.exe $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(DOC_SRC10) $(DOC_SRC11)
 	if exist $(DOC) del $(DOC)
+!if defined(PACKAGE_PATH)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+!else
+	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+!endif
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC1)
@@ -1379,7 +1394,11 @@ $(DOC): $(LIB_SRC)\make-docfile.exe $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SR
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC11)
 
 update-elc:
+!if defined(PACKAGE_PATH)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+!else
+	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+!endif
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\update-elc.el
 
@@ -1393,7 +1412,11 @@ $(TEMACS_DIR)\NEEDTODUMP :
 $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
+!if defined(PACKAGE_PATH)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+!else
+	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+!endif
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\loadup.el dump
 !if $(USE_PORTABLE_DUMPER)
@@ -1435,6 +1458,7 @@ install:	all
 	@xcopy /e /q $(XEMACS)\etc  "$(INSTALL_DIR)\etc\"
 	@xcopy /e /q $(XEMACS)\info "$(INSTALL_DIR)\info\"
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"
+!if defined(PACKAGE_PREFIX)
 	@echo Making skeleton package tree in $(PACKAGE_PREFIX) ...
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\site-packages\"
 	$(DEL) "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
@@ -1442,6 +1466,7 @@ install:	all
 	$(DEL) "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\xemacs-packages\"
 	$(DEL) "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
+!endif
 	$(DEL) PlaceHolder
 
 mostlyclean:
@@ -1525,7 +1550,9 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename) configured for `$(EMACS_CONFI
   Using compiler "$(CC) $(CFLAGS)".
 !endif
   Installing XEmacs in "$(INSTALL_DIR:\=\\)".
+!if defined(PATH_PACKAGEPATH)
   Package path is $(PATH_PACKAGEPATH).
+!endif
 !if $(INFODOCK)
   Building InfoDock.
 !endif

@@ -233,6 +233,7 @@ directory."
 ;   ("Japan (nucba.ac.jp)" "mirror.nucba.ac.jp" "mirror/xemacs/packages")
     ("Japan (sut.ac.jp)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages")
     ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages")
+    ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org" "pub/xemacs/ftp/packages")
     ("New Zealand (nz.xemacs.org)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
     ("Norway (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/packages")
     ("Poland (pl.xemacs.org)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages")
@@ -323,6 +324,8 @@ variable actually used to specify package download sites."
      "pub/archives/packages/xemacs/xemacs-21.5/experimental/packages")
     ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org"
      "pub/tools/emacs/xemacs/beta/experimental/packages")
+    ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org"
+     "pub/xemacs/ftp/beta/experimental/packages")
     ("New Zealand Pre-Releases (nz.xemacs.org)" "ftp.nz.xemacs.org"
      "mirror/ftp.xemacs.org/packages")
     ("Norway Pre-Releases (no.xemacs.org)" "ftp.no.xemacs.org"
