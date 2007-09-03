@@ -1899,9 +1899,9 @@ dnl We only cope with headers in mingw, not mingw32: no previous version of
 dnl XEmacs supported mingw and cygnus have made this incompatible change
 dnl so we just go with the flow.
 case "$opsys" in mingw* | cygwin*)
-  cygwin_include=`eval "gcc -print-file-name=libc.a"` ;
-  cygwin_include=`eval "dirname $cygwin_include"` ;
-  cygwin_include="-I$cygwin_include/../include" ;
+  cygwin_include=`eval gcc -print-search-dirs | sed -ne s'/install: //p'`
+  cygwin_include=`eval "cd $cygwin_include/../../../..; pwd"`
+  cygwin_include="-I$cygwin_include/include" ;
   extra_includes="$cygwin_include/mingw $cygwin_include" ;
   case "$opsys" in mingw*)
     XE_APPEND($extra_includes, c_switch_system) ;;
@@ -3363,17 +3363,18 @@ if test "$window_system" != "none"; then
   dnl   -- should only happen if CYGWIN && WITH_XPM && WITH_MSW && !WITH_X
   libpath_xpm=
   incpath_xpm=
+  libname_xpm="-lXpm"
   case "$opsys" in 
     cygwin*)
-      cygwin_top=`eval "gcc -print-file-name=libc.a"` ;
-      cygwin_top=`eval "dirname ${cygwin_top}"`;
-      cygwin_top="${cygwin_top}/..";
+      cygwin_top=`eval gcc -print-search-dirs | sed -ne s'/install: //p'`
+      cygwin_top=`eval "cd $cygwin_top/../../../..; pwd"`
       case "$window_system" in
         dnl use "standard" search pattern
         x11)  ;;
         dnl hardcode "standard" non-X11 xpm lib/inc dirs
         msw) libpath_xpm="-L${cygwin_top}/lib/noX"
              incpath_xpm="-I${cygwin_top}/include/noX"
+             libname_xpm="-lXpm-noX"
               ;;
         dnl not supported on cygwin (yet?)
         gtk)  ;;
@@ -3392,7 +3393,7 @@ if test "$window_system" != "none"; then
     XE_PREPEND("$incpath_xpm", CFLAGS)
     XE_PREPEND("$libpath_xpm", LDFLAGS)
     AC_MSG_CHECKING(for Xpm - no older than 3.4f)
-    xe_check_libs=-lXpm
+    xe_check_libs="$libname_xpm"
     AC_TRY_RUN([#define XPM_NUMBERS
 #include <X11/xpm.h>
     int main(int c, char **v) {
@@ -3427,10 +3428,10 @@ if test "$window_system" != "none"; then
     dnl #### but doesn't actually verify this assumption.
     AC_DEFINE(HAVE_XPM)
     XE_PREPEND("$libpath_xpm", LDFLAGS)
-    XE_PREPEND(-lXpm, libs_x)
+    XE_PREPEND("$libname_xpm", libs_x)
     XE_PREPEND("$incpath_xpm", CFLAGS)
     AC_MSG_CHECKING(for \"FOR_MSW\" xpm)
-    xe_check_libs=-lXpm
+    xe_check_libs="$libname_xpm"
     AC_TRY_LINK(, [XpmCreatePixmapFromData()],
     [xpm_for_msw=no],
     [xpm_for_msw=yes])

@@ -5897,6 +5897,107 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-12-08  Nelson Ferreira  <njsf@sxemacs.org>
+
+	* src/fns.c (XMALLOC_OR_ALLOCA,free_malloced_ptr,XMALLOC_UNBIND):
+	relocated the definitions to be used sooner in file.
+	(concat,plists_differ,mapcar1,Fmapconcat,Fmapcar): Use
+	XMALLOC_OR_ALLOCA macro instead of alloca to prevent stack
+	overflow.
+
+2006-11-29  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* sound.c (init_native_sound):
+	Only X11 and GTK devices can possibly not be on the console of the
+	associated machine. Fixes a crash when init_native_sound is called
+	on a msprinter device. 
+
+2006-11-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* buffer.c (buffer-file-name): Document invariant.
+	(buffer-file-truename): Sync wording to buffer-file-name.
+	Thanks to Nelson Ferreira <nelson.ferreira@ieee.org> for report
+	and discussion.
+
+2006-11-19  Benson Margulies  <benson@dchbk.us>
+
+	* fileio.c: Add code to use full Win32 API to check for write
+	access.  Win32 has the general design policy that you aren't
+	supposed to ask this question, since security checks change
+	depending on asynchronous processes.  Nonetheless, there is a way,
+	by acting as if we are a server doing interpretive access
+	control.
+
+2006-07-31  Aidan Kehoe <kehoea@parhasard.net>
+
+	* bytecode.c: Use xnew_array instead of alloca.
+
+2006-07-04  Vin Shelton  <acs@xemacs.org>
+
+	* redisplay-msw.c: Fix tiny, but crucial typo.
+
+2006-06-22  Jerry James  <james@xemacs.org>
+
+	* EmacsShell-sub.c (ChangeManaged):
+	* device-x.c (x_IO_error_handler): Do not dereference d if it is
+	NULL.
+	* dgif_lib.c (DGifCloseFile): Do not dereference GifFile before
+	checking if it is NULL.  Also fix a memory leak.
+	* dialog-x.c (dbox_selection_callback): Ensure f is non-NULL, then
+	dereference it, not the other way around.
+	* dumper.c (pdump_register_object): Fix off-by-one array bounds
+	overflow check.
+	* dumper.c (pdump_register_struct): Ditto.
+	* editfns.c (Ftemp_directory): Don't let a copy from (long) path
+	to (short) warnpath overflow warnpath.
+	* extents.c (detach_all_extents): Call extent_list_delete_all with
+	a non-NULL parameter only.
+	* glyphs-widget.c (widget_query_geometry): Guard against possibly
+	NULL width and height.
+	* input-method-xlib.c (XIM_SetGeometry): Do not dereference f or
+	xic before checking if they are NULL.
+	* keymap.c (where_is_recursive_mapper): Don't throw away the newly
+	allocated array.
+	* md5.c (Fmd5): Check whether Lstream_read encountered an error.
+	* nas.c (Err): Fix a memory leak.
+	* redisplay-gtk.c (gtk_output_display_block): Fix a Dynarr leak.
+	Don't create the buffer if there is nothing to do.
+	* redisplay-msw.c (mswindows_output_display_block): Ditto.
+	* redisplay-output.c (redisplay_output_layout): Ditto.
+	* redisplay-tty.c (tty_output_display_block): Ditto.
+	* redisplay-x.c (x_output_display_block): Ditto.
+	* scrollbar-gtk.c (gtk_free_scrollbar_instance): Do not
+	dereference instance->scrollbar_data if it is NULL.
+	* scrollbar-x.c (x_free_scrollbar_instance): Ditto.
+	* scrollbar-msw.c (mswindows_free_scrollbar_instance): Ditto, but
+	for sb->scrollbar_data.
+	* sound.c (init_native_sound): Avoid a buffer overflow by
+	allocating a buffer with the appropriate size.
+
+2006-05-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* EmacsShell-sub.c (RootGeometryManager):
+	Change garbage to useful messages under DEBUG_GEOMETRY_MANAGEMENT.
+	Based on a suggestion by Francois L'Archeveque.
+
+2006-03-21  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* regex.c: Bump INIT_FAILURE_ALLOC and re_max_failures to the
+	current values found in GNU Emacs.
+
+2006-03-17  Vin Shelton  <acs@xemacs.org>
+
+	* dialog-msw.c (handle_directory_dialog_box): Don't declare
+	Q_title here.  LOCAL_FILE_FORMAT_TO_TSTR requires an lvalue.
+
+	* glyphs-msw.c (read_bitmap_data): change 'initialized' to
+	'hex_initialized' because it conflicts with 'initialized' in
+	lisp.h.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released
@@ -6399,7 +6500,7 @@
 
 	* event-gtk.c: Recognise AltGr as a valid modifier.
 
-2005-01-12  Ville Skytt√§  <scop@xemacs.org>
+2005-01-12  Ville Skytt‰  <scop@xemacs.org>
 
 	* console-x.h: #include X11/keysym.h before xintrinsic.h.
 
@@ -6785,7 +6886,7 @@
 
 	* sysdll.c: configure sets HAVE_DLD_INIT, not HAVE_INIT_DLD.
 
-2003-07-31  Ren√© Kyllingstad  <listmailxemacs@kyllingstad.com>
+2003-07-31  RenÈ Kyllingstad  <listmailxemacs@kyllingstad.com>
 
 	* event-msw.c (mswindows_enqueue_mouse_button_event):
 	* event-msw.c (mswindows_wnd_proc):

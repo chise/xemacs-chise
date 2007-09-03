@@ -1363,6 +1363,38 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-10-14  Jeff Miller  <jmiller@xemacs.org>
+
+	* info.el (Info-find-emacs-command-nodes): fix regex for find command node.
+
+2006-11-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* info.el (Info-find-file-node, Info-insert-dir)
+	(Info-read-subfile, Info-insert-file-contents): Maintain invariant
+	`(equal buffer-file-truename (file-truename buffer-file-name))'.
+	Thanks to Nelson Ferreira <nelson.ferreira@ieee.org> for report
+	and discussion.
+
+2006-05-20  Ville Skyttä  <scop@xemacs.org>
+
+	* obsolete.el (line-beginning-position): New, from 21.5.x.
+	(line-end-position): Ditto.
+
+2006-06-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Welcome
+	nl.xemacs.org and Thanks!
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2004-01-19  Martin Buchholz  <martin@xemacs.org>
+
+	* font-lock.el: Add support for not-so recent changes in Java to
+	java-mode.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

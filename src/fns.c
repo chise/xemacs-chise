@@ -50,6 +50,42 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "opaque.h"
 
+
+
+static Lisp_Object free_malloced_ptr(Lisp_Object unwind_obj)
+{
+	void *ptr = (void *)get_opaque_ptr(unwind_obj);
+	xfree(ptr);
+	free_opaque_ptr(unwind_obj);
+	return Qnil;
+}
+
+/* Don't use alloca for regions larger than this, lest we overflow
+   the stack.  */
+#define MAX_ALLOCA 65536
+
+/* We need to setup proper unwinding, because there is a number of
+   ways these functions can blow up, and we don't want to have memory
+   leaks in those cases.  */
+#define XMALLOC_OR_ALLOCA(ptr, len, type) do {			        \
+  size_t XOA_len = (len);     	               	        		\
+  if (XOA_len > MAX_ALLOCA ) {                           		\
+	  ptr = xnew_array (type, XOA_len);				\
+	  record_unwind_protect (free_malloced_ptr,			\
+				 make_opaque_ptr ((void *)ptr));	\
+  }									\
+  else									\
+    ptr = alloca_array (type, XOA_len);					\
+} while (0)
+
+#define XMALLOC_UNBIND(ptr, len, speccount) do {			\
+   if ((len) > MAX_ALLOCA)                  				\
+           unbind_to (speccount, Qnil);                    		\
+} while (0)
+
+
+
+
 /* NOTE: This symbol is also used in lread.c */
 #define FEATUREP_SYNTAX
 
@@ -605,6 +641,8 @@ concat (int nargs, Lisp_Object *args,
   Bufbyte *string_result = 0;
   Bufbyte *string_result_ptr = 0;
   struct gcpro gcpro1;
+  int speccount = specpdl_depth();
+  Charcount total_length;
 
   /* The modus operandi in Emacs is "caller gc-protects args".
      However, concat is called many times in Emacs on freshly
@@ -622,7 +660,7 @@ concat (int nargs, Lisp_Object *args,
      the result in the returned string's `string-translatable' property. */
 #endif
   if (target_type == c_string)
-    args_mse = alloca_array (struct merge_string_extents_struct, nargs);
+    XMALLOC_OR_ALLOCA(args_mse, nargs, struct merge_string_extents_struct);
 
   /* In append, the last arg isn't treated like the others */
   if (last_special && nargs > 0)
@@ -671,7 +709,7 @@ concat (int nargs, Lisp_Object *args,
     /* Charcount is a misnomer here as we might be dealing with the
        length of a vector or list, but emphasizes that we're not dealing
        with Bytecounts in strings */
-    Charcount total_length;
+    /* Charcount total_length; */
 
     for (argnum = 0, total_length = 0; argnum < nargs; argnum++)
       {
@@ -687,8 +725,11 @@ concat (int nargs, Lisp_Object *args,
       {
       case c_cons:
         if (total_length == 0)
+          {
           /* In append, if all but last arg are nil, return last arg */
+            XMALLOC_UNBIND(args_mse, nargs, speccount);
           RETURN_UNGCPRO (last_tail);
+          }
         val = Fmake_list (make_int (total_length), Qnil);
         break;
       case c_vector:
@@ -708,7 +749,9 @@ concat (int nargs, Lisp_Object *args,
 	   realloc()ing in order to make the char fit properly.
 	   O(N^2) yuckage. */
         val = Qnil;
-	string_result = (Bufbyte *) alloca (total_length * MAX_EMCHAR_LEN);
+        XMALLOC_OR_ALLOCA( string_result, 
+                           total_length * MAX_EMCHAR_LEN,
+                           Bufbyte );
 	string_result_ptr = string_result;
         break;
       default:
@@ -821,6 +864,8 @@ concat (int nargs, Lisp_Object *args,
 				 args_mse[argnum].entry_offset, 0,
 				 args_mse[argnum].entry_length);
 	}
+      XMALLOC_UNBIND(string_result, total_length * MAX_EMCHAR_LEN, speccount);
+      XMALLOC_UNBIND(args_mse, nargs, speccount);
     }
 
   if (!NILP (prev))
@@ -1841,6 +1886,7 @@ plists_differ (Lisp_Object a, Lisp_Object b, int nil_means_not_present,
   Lisp_Object *keys, *vals;
   char *flags;
   Lisp_Object rest;
+  int speccount = specpdl_depth();
 
   if (NILP (a) && NILP (b))
     return 0;
@@ -1852,9 +1898,9 @@ plists_differ (Lisp_Object a, Lisp_Object b, int nil_means_not_present,
   lb = XINT (Flength (b));
   m = (la > lb ? la : lb);
   fill = 0;
-  keys  = alloca_array (Lisp_Object, m);
-  vals  = alloca_array (Lisp_Object, m);
-  flags = alloca_array (char, m);
+  XMALLOC_OR_ALLOCA(keys, m, Lisp_Object);
+  XMALLOC_OR_ALLOCA(vals, m, Lisp_Object);
+  XMALLOC_OR_ALLOCA(flags, m, char);
 
   /* First extract the pairs from A. */
   for (rest = a; !NILP (rest); rest = XCDR (XCDR (rest)))
@@ -1899,10 +1945,17 @@ plists_differ (Lisp_Object a, Lisp_Object b, int nil_means_not_present,
     if (flags [i] == 0)
       goto MISMATCH;
 
+
+  XMALLOC_UNBIND(flags, m, speccount);
+  XMALLOC_UNBIND(vals, m, speccount);
+  XMALLOC_UNBIND(keys, m, speccount);
   /* Ok. */
   return 0;
 
  MISMATCH:
+  XMALLOC_UNBIND(flags, m, speccount);
+  XMALLOC_UNBIND(vals, m, speccount);
+  XMALLOC_UNBIND(keys, m, speccount);
   return 1;
 }
 
@@ -2996,8 +3049,12 @@ mapcar1 (size_t leni, Lisp_Object *vals,
     {
       /* The string data of `sequence' might be relocated during GC. */
       Bytecount slen = XSTRING_LENGTH (sequence);
-      Bufbyte *p = alloca_array (Bufbyte, slen);
-      Bufbyte *end = p + slen;
+      Bufbyte *p = NULL;
+      Bufbyte *end = NULL;
+      int speccount = specpdl_depth();
+      
+      XMALLOC_OR_ALLOCA(p, slen, Bufbyte);
+      end = p + slen;
 
       memcpy (p, XSTRING_DATA (sequence), slen);
 
@@ -3008,6 +3065,7 @@ mapcar1 (size_t leni, Lisp_Object *vals,
 	  result = Ffuncall (2, args);
 	  if (vals) vals[gcpro1.nvars++] = result;
 	}
+      XMALLOC_UNBIND(p, slen, speccount);
     }
   else if (BIT_VECTORP (sequence))
     {
@@ -3039,12 +3097,14 @@ may be a list, a vector, a bit vector, or a string.
 {
   EMACS_INT len = XINT (Flength (sequence));
   Lisp_Object *args;
+  Lisp_Object result;
   EMACS_INT i;
   EMACS_INT nargs = len + len - 1;
+  int speccount = specpdl_depth();
 
   if (len == 0) return build_string ("");
 
-  args = alloca_array (Lisp_Object, nargs);
+  XMALLOC_OR_ALLOCA(args, nargs, Lisp_Object);
 
   mapcar1 (len, args, function, sequence);
 
@@ -3054,7 +3114,9 @@ may be a list, a vector, a bit vector, or a string.
   for (i = 1; i < nargs; i += 2)
     args[i] = separator;
 
-  return Fconcat (nargs, args);
+  result = Fconcat(nargs, args);
+  XMALLOC_UNBIND(args, nargs, speccount);
+  return result;
 }
 
 DEFUN ("mapcar", Fmapcar, 2, 2, 0, /*
@@ -3065,11 +3127,17 @@ SEQUENCE may be a list, a vector, a bit vector, or a string.
        (function, sequence))
 {
   size_t len = XINT (Flength (sequence));
-  Lisp_Object *args = alloca_array (Lisp_Object, len);
+  Lisp_Object *args = NULL;
+  Lisp_Object result;
+  int speccount = specpdl_depth();
+
+  XMALLOC_OR_ALLOCA(args, len, Lisp_Object);
 
   mapcar1 (len, args, function, sequence);
 
-  return Flist (len, args);
+  result = Flist(len, args);
+  XMALLOC_UNBIND(args, len, speccount);
+  return result;
 }
 
 DEFUN ("mapvector", Fmapvector, 2, 2, 0, /*
@@ -3572,38 +3640,6 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
 #undef ADVANCE_INPUT_IGNORE_NONBASE64
 #undef STORE_BYTE
 
-static Lisp_Object
-free_malloced_ptr (Lisp_Object unwind_obj)
-{
-  void *ptr = (void *)get_opaque_ptr (unwind_obj);
-  xfree (ptr);
-  free_opaque_ptr (unwind_obj);
-  return Qnil;
-}
-
-/* Don't use alloca for regions larger than this, lest we overflow
-   the stack.  */
-#define MAX_ALLOCA 65536
-
-/* We need to setup proper unwinding, because there is a number of
-   ways these functions can blow up, and we don't want to have memory
-   leaks in those cases.  */
-#define XMALLOC_OR_ALLOCA(ptr, len, type) do {			\
-  size_t XOA_len = (len);					\
-  if (XOA_len > MAX_ALLOCA)					\
-    {								\
-      ptr = xnew_array (type, XOA_len);				\
-      record_unwind_protect (free_malloced_ptr,			\
-			     make_opaque_ptr ((void *)ptr));	\
-    }								\
-  else								\
-    ptr = alloca_array (type, XOA_len);				\
-} while (0)
-
-#define XMALLOC_UNBIND(ptr, len, speccount) do {		\
-  if ((len) > MAX_ALLOCA)					\
-    unbind_to (speccount, Qnil);				\
-} while (0)
 
 DEFUN ("base64-encode-region", Fbase64_encode_region, 2, 3, "r", /*
 Base64-encode the region between START and END.
