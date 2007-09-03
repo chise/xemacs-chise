@@ -64,7 +64,7 @@ char pot_etags_version[] = "@(#) pot revision number is 14.15";
 # define _GNU_SOURCE 1		/* enables some compiler checks on GNU */
 #endif
 
-/* WIN32_NATIVE is for Xemacs.
+/* WIN32_NATIVE is for XEmacs.
    MSDOS, WINDOWSNT, DOS_NT are for Emacs. */
 #ifdef WIN32_NATIVE
 # undef MSDOS

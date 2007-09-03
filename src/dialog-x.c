@@ -105,7 +105,7 @@ dbox_selection_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
      ourselves. */
 #ifdef EXTERNAL_WIDGET
   /* #### Not sure if this special case is necessary. */
-  if (!FRAME_X_EXTERNAL_WINDOW_P (f) && f)
+  if (f && !FRAME_X_EXTERNAL_WINDOW_P (f))
 #else
   if (f)
 #endif

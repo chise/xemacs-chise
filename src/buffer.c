@@ -2821,6 +2821,8 @@ It may not be a list of functions.
   DEFVAR_BUFFER_LOCAL ("buffer-file-name", filename /*
 Name of file visited in current buffer, or nil if not visiting a file.
 Each buffer has its own value of this variable.
+Code that changes this variable must maintain the invariant
+`(equal buffer-file-truename (file-truename buffer-file-name))'.
 */ );
 
 #if 0 /* FSFmacs */
@@ -2833,12 +2835,11 @@ Each buffer has its own value of this variable.
 #endif /* FSFmacs */
 
   DEFVAR_BUFFER_LOCAL ("buffer-file-truename", file_truename /*
-The real name of the file visited in the current buffer,
-or nil if not visiting a file.  This is the result of passing
-buffer-file-name to the `file-truename' function.  Every buffer has
-its own value of this variable.  This variable is automatically
-maintained by the functions that change the file name associated
-with a buffer.
+The real name of the file visited in the current buffer, or nil if not
+visiting a file.  This is the result of passing `buffer-file-name' to the
+`file-truename' function.  Every buffer has its own value of this variable.
+Code that changes the file name associated with a buffer maintains the
+invariant `(equal buffer-file-truename (file-truename buffer-file-name))'.
 */ );
 
   DEFVAR_BUFFER_LOCAL ("buffer-auto-save-file-name", auto_save_file_name /*

@@ -1,3 +1,18 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-06-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/test-harness.el (Silence-Message): New macro.
+	* automated/mule-tests.el: Use it.
+	* automated/region-tests.el: Use it.
+	* automated/tag-tests.el: Use it.
+
+2006-06-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/test-harness.el: Improve handling of unexpected errors.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

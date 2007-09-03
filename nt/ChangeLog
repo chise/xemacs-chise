@@ -1,3 +1,17 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-03-04  Vin Shelton  <acs@xemacs.org>
+
+	* config.inc.samp: Comment out PACKAGE_PREFIX.
+	* xemacs.mak: Do not set a value for PACKAGE_PATH unless
+	PACKAGE_PATH or PACKAGE_PREFIX was specified in config.inc.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Erase old code.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

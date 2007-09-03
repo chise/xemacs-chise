@@ -335,11 +335,16 @@ RootGeometryManager (Widget gw,
 	  result == XtGeometryAlmost ? "XtGeometryAlmost" :
 	  "XtGeometryDone");
   if (reply->request_mode & CWWidth)
-    printf ("width returned;");
+    printf ("width returned was %d%s",
+	    reply->width,
+	    reply->request_mode & CWHeight ? "; " : ".\n");
   if (reply->request_mode & CWHeight)
-    printf ("height returned;");
-  printf ("\n");
-  printf ("  resulting shell size: %d %d\n", reply->width, reply->height);
+    printf ("height returned was %d.\n", reply->height);
+  /* #### does this also need to depend on the result?
+     With XtGeometryYes there doesn't seem to be a useful reply object. */
+  printf ("  resulting shell size: %d %d\n",
+	  reply->request_mode & CWWidth ? reply->width : w->core.width,
+	  reply->request_mode & CWHeight ? reply->height : w->core.height);
   printf ("----------\n");
   fflush (stdout);
 #endif
@@ -366,11 +371,11 @@ ChangeManaged (Widget wid)
       for (i = 0; i < w->composite.num_children; i++) {
 	if (XtIsManaged(w->composite.children[i])) {
 	  child = w->composite.children[i];
+	  update_size_hints_internal (w, child->core.width,
+				      child->core.height);
 	  break;
 	}
       }
-
-      update_size_hints_internal (w, child->core.width, child->core.height);
     }
 
   /* call the real ChangeManaged */

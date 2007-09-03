@@ -42,7 +42,9 @@ Lisp_Object Qdialog_box_error;
 static Lisp_Object Q_initial_directory;
 static Lisp_Object Q_initial_filename;
 static Lisp_Object Q_filter_list;
+/* Declared in general-slots.h
 static Lisp_Object Q_title;
+*/
 static Lisp_Object Q_allow_multi_select;
 static Lisp_Object Q_create_prompt_on_nonexistent;
 static Lisp_Object Q_overwrite_prompt;
@@ -400,7 +402,7 @@ handle_directory_dialog_box (struct frame *f, Lisp_Object keys)
   bi.lpfn = handle_directory_proc;
 
   LOCAL_FILE_FORMAT_TO_TSTR (Fexpand_file_name (build_string (""), Qnil),
-			     (char*)pd.fname);
+			     pd.fname);
 
   {
     EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)

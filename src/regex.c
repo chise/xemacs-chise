@@ -1145,7 +1145,7 @@ static const char *re_error_msgid[] =
    when matching.  If this number is exceeded, we allocate more
    space, so it is not a hard limit.  */
 #ifndef INIT_FAILURE_ALLOC
-#define INIT_FAILURE_ALLOC 5
+#define INIT_FAILURE_ALLOC 20
 #endif
 
 /* Roughly the maximum number of failure points on the stack.  Would be
@@ -1155,9 +1155,9 @@ static const char *re_error_msgid[] =
 #if defined (MATCH_MAY_ALLOCATE) || defined (REGEX_MALLOC)
 /* 4400 was enough to cause a crash on Alpha OSF/1,
    whose default stack limit is 2mb.  */
-int re_max_failures = 20000;
+int re_max_failures = 40000;
 #else
-int re_max_failures = 2000;
+int re_max_failures = 4000;
 #endif
 
 union fail_stack_elt

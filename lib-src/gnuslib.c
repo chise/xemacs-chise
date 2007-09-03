@@ -411,13 +411,11 @@ disconnect_from_server (int s, int echo)
 
   send_string(s,EOT_STR);		/* make sure server gets string */
 
-#if !defined (linux)  && !defined (_SCO_DS) 
+#if !defined (_SCO_DS) 
   /*
-   * shutdown is completely hozed under linux. If s is a unix domain socket,
-   * you'll get EOPNOTSUPP back from it. If s is an internet socket, you get
-   * a broken pipe when you try to read a bit later. The latter
-   * problem is fixed for linux versions >= 1.1.46, but the problem
-   * with unix sockets persists. Sigh.
+   * There used to be a comment here complaining about ancient Linux
+   * versions.  It is no longer relevant.  I don't know why _SCO_DS is
+   * verboten here, as the original comment did not say.
    */
 
   if (shutdown(s,1) == -1) {
@@ -436,7 +434,7 @@ disconnect_from_server (int s, int echo)
 #else
   while ((length = read(s,buffer,GSERV_BUFSZ)) > 0 ||
       (length == -1 && errno == EINTR)) {
-    if (length) {
+    if (length > 0) {
       buffer[length] = '\0';
       if (echo) {
 	fputs(buffer,stdout);

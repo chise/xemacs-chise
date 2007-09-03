@@ -751,7 +751,7 @@ SndOpenDataForReading (const char *data,
 /* Stuff taken from wave.c from NAS.  Just like snd files, NAS can't
    read wave data from memory, so these functions do that for us. */
 
-#define Err()		{ return NULL; }
+#define Err()		{ free (wi); return NULL; }
 #define readFourcc(_f)	dread(_f, sizeof(RIFF_FOURCC), 1)
 #define cmpID(_x, _y)							      \
     strncmp((char *) (_x), (char *) (_y), sizeof(RIFF_FOURCC))

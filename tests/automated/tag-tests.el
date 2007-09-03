@@ -68,20 +68,23 @@ If FILENAME is omitted, the printname of FEATURE is used as the file name.
   (let ((tags-always-exact t))
 
     ;; Search for the tag "mystruct"; this should succeed
-    (find-tag "mystruct")
+    (Silence-Message
+     (find-tag "mystruct"))
     (Assert (eq (point) 2))
 
     ;; Search again.  The search should fail, based on the patch that
     ;; Sven Grundmann submitted for 21.4.16.
     (Check-Error-Message error "No more entries matching mystruct"
-			 (tags-loop-continue)))
+			 (Silence-Message
+			  (tags-loop-continue))))
 
   (let ((tags-always-exact nil))
 
     ;; Search for the definition of "require". Until the etags.el upgrade
     ;; from 21.5 in 21.4.16, this test would fail.
     (condition-case nil
-	(find-tag "require")
+	(Silence-Message
+	 (find-tag "require"))
       (t t))
     (Assert (eq (point) 52)))
 

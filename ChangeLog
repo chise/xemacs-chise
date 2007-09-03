@@ -1,3 +1,23 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-12-07  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in: Find relocated xpm library under cygwin.
+	Patch lifted from Rick Rankin's 21.5 version of the patch.
+
+2006-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS: X11R7 loses x11/bitmaps/gray.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in: Simplify cygwin include and nox/Xpm handling.
+	As of cygwin-1.5.19, 'gcc -print-file-name=libc.a' (effectively)
+	returns '/lib' instead of '/usr/lib', so we'll use
+	'gcc -print-search-dirs' instead.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

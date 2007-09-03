@@ -644,14 +644,17 @@ On Unix it is obtained from TMPDIR, with /tmp as the default.
 	}
       else
 	{
-	  strcpy(path, getenv("HOME")); strncat(path, "/tmp/", _POSIX_PATH_MAX);
+	  path[5 + _POSIX_PATH_MAX] = '\0';
+	  strncpy(path, getenv("HOME"), 5 + _POSIX_PATH_MAX);
+	  strncat(path, "/tmp/", 5 + _POSIX_PATH_MAX);
 	  if (stat(path, &st) < 0 && errno == ENOENT)
 	    {
 	      int fd;
-	      char warnpath[1+_POSIX_PATH_MAX];
+	      char warnpath[6+_POSIX_PATH_MAX];
 	      mkdir(path, 0700);	/* ignore retvals */
-	      strcpy(warnpath, path);
-	      strncat(warnpath, ".created_by_xemacs", _POSIX_PATH_MAX);
+	      warnpath[_POSIX_PATH_MAX] = '\0';
+	      strncpy(warnpath, path, 5 + _POSIX_PATH_MAX);
+	      strncat(warnpath, ".created_by_xemacs", 5 + _POSIX_PATH_MAX);
 	      if ((fd = open(warnpath, O_WRONLY|O_CREAT, 0644)) > 0)
 		{
 		  write(fd, "XEmacs created this directory because /tmp/<yourname> was unavailable -- \nPlease check !\n", 89);

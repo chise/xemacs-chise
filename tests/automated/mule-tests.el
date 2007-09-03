@@ -301,8 +301,7 @@ the Assert macro checks for correctness."
 	 (name1 (make-temp-name prefix))
 	 (name2 (make-temp-name prefix))
 	 (file-name-coding-system 'iso-8859-2))
-    ;; This is how you suppress output from `message', called by `write-region'
-    (flet ((append-message (&rest args) ()))
+    (Silence-Message
       (Assert (not (equal name1 name2)))
       ;; Kludge to handle Mac OS X which groks only UTF-8.
       (cond ((eq system-type 'darwin)

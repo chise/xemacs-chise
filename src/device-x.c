@@ -1161,8 +1161,10 @@ x_IO_error_handler (Display *disp)
      Xlib might just decide to exit().  So we mark the offending
      console for deletion and throw to top level.  */
   if (d)
-    enqueue_magic_eval_event (io_error_delete_device, dev);
-  DEVICE_X_BEING_DELETED (d) = 1;
+    {
+      enqueue_magic_eval_event (io_error_delete_device, dev);
+      DEVICE_X_BEING_DELETED (d) = 1;
+    }
   Fthrow (Qtop_level, Qnil);
 
   return 0; /* not reached */

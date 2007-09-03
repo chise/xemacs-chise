@@ -1,3 +1,14 @@
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-06-22  Jerry James  <james@xemacs.org>
+
+	* lwlib-Xlw.c (xlw_scrollbar_callback): Do not dereference
+	instance before checking whether it is NULL.
+	* xlwmenu.c (xlw_map_menu): Prevent uninitialized access to root
+	and waste.
+
 2006-01-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.19 is released

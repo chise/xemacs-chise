@@ -558,20 +558,20 @@ widget_query_geometry (Lisp_Object image_instance,
 				     IMAGE_INSTANCE_WIDGET_FACE (ii),
 				     &w, &h, 0, domain);
 	      /* Adjust the size for borders. */
-	      if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
+	      if (width && IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
 		*width = w + 2 * widget_instance_border_width (ii);
-	      if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
+	      if (height && IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
 		*height = h +  2 * widget_instance_border_width (ii);
 	    }
 	}
       /* Finish off with dynamic sizing. */
-      if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
+      if (width && !NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
 	{
 	  dynamic_width = Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
 	  if (INTP (dynamic_width))
 	    *width = XINT (dynamic_width);
 	}
-      if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
+      if (height && !NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
 	{
 	  dynamic_height = Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
 	  if (INTP (dynamic_height))

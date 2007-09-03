@@ -1175,11 +1175,12 @@ detach_all_extents (Lisp_Object object)
 	      set_extent_start (e, -1);
 	      set_extent_end (e, -1);
 	    }
+
+	  /* But we need to clear all the lists containing extents or
+	     havoc will result. */
+	  extent_list_delete_all (data->extents);
 	}
 
-      /* But we need to clear all the lists containing extents or
-	 havoc will result. */
-      extent_list_delete_all (data->extents);
       soe_invalidate (object);
     }
 }

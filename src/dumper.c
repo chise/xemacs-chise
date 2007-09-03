@@ -566,7 +566,7 @@ pdump_register_object (Lisp_Object obj)
   if (imp->description)
     {
       int me = depth++;
-      if (me>65536)
+      if (me>=65536)
 	{
 	  stderr_out ("Backtrace overflow, loop ?\n");
 	  ABORT ();
@@ -601,7 +601,7 @@ pdump_register_struct (const void *data,
     {
       int me = depth++;
       int i;
-      if (me>65536)
+      if (me>=65536)
 	{
 	  stderr_out ("Backtrace overflow, loop ?\n");
 	  ABORT ();

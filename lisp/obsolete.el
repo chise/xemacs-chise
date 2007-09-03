@@ -269,6 +269,9 @@ set Info-directory-list.")
 (define-compatible-function-alias 'assq-delete-all
   'remassq) ;GNU 21.1
 
+(define-compatible-function-alias 'line-beginning-position 'point-at-bol)
+(define-compatible-function-alias 'line-end-position 'point-at-eol)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; modeline
 
 (define-compatible-function-alias 'redraw-mode-line 'redraw-modeline)
