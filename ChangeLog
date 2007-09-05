@@ -1,3 +1,7 @@
+2007-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/CHISE-VERSIONS: New file.
+
 2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Makefile.in.in (install-arch-indep): Modify code to make the
