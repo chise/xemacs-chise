@@ -1,4 +1,17 @@
+2007-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01449 - 01455}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Fixed.
+
 2007-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R151-Bean.el (U+4736): Use `->subsumptive'.
+	(U-00027BE6): Use `->denotational'.
+
+	* Ideograph-R055-Two-Hands.el (U-00022368): Use `->subsumptive'.
+	(U-0002236A): New character.
+	(U+5F0A): Use `->denotational' instead of `->subsumptive'.
 
 	* Oracle-Bones.el (ZOB-{01428 - 01448}): New characters.
 
