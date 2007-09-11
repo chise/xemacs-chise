@@ -8749,7 +8749,7 @@
     (=zinbun-oracle	. 00643)	; &ZOB-0643;
     ))
 (define-char
-  '((shuowen-radical	. 36)	; 𢓊
+  '((shuowen-radical	. 36)	; 㢟
     (sources		zob1968=1803 zob1968=1872 zob1968=1873 zob1968=1945
 			zob1968=2014 zob1968=2018)
     (zinbun-oracle-page . 31)
@@ -15643,6 +15643,71 @@
     (sources		zob1968=0281)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01448)	; &ZOB-1448;
+    ))
+(define-char
+  '((shuowen-radical	. 167)	; 虎
+    (sources		zob1968=1843 zob1968=1850)
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01449)	; &ZOB-1449;
+    (<-Oracle-Bones
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5E78)	; 幸
+	)
+       ((=ucs		    . #x864E)	; 虎
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 167)	; 虎
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01450)	; &ZOB-1450;
+    (<-Oracle-Bones
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs		    . #x864E)	; 虎
+	)
+       ((=ucs		    . #x7530)	; 田
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 167)	; 虎
+    (sources		zob1968=2127)
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01451)	; &ZOB-1451;
+    ))
+(define-char
+  '((shuowen-radical	. 167)	; 虎
+    (sources		zob1968=3027)
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01452)	; &ZOB-1452;
+    ))
+(define-char
+  '((shuowen-radical	. 167)	; 虎
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01453)	; &ZOB-1453;
+    ))
+(define-char
+  '((shuowen-radical	. 168)	; 虤
+    (sources		zob1968=2329)
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01454)	; &ZOB-1454;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8664)	; 虤
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 168)	; 虤
+    (zinbun-oracle-page . 69)
+    (=zinbun-oracle	. 01455)	; &ZOB-1455;
+    (<-Oracle-Bones
+     ((=ucs		  . #x459C)	; 䖜
+      ))
     ))
 (define-char
   '((=zinbun-oracle	. 01678)	; &ZOB-1678;
