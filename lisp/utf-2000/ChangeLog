@@ -1,5 +1,8 @@
 2007-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R141-Tiger.el (U+459C): Use `->denotational' and
+	`->subsumptive'; integrate H7-F4FC.
+
 	* Oracle-Bones.el (ZOB-{01449 - 01455}): New characters.
 
 	* char-db-util.el (shuowen-radicals): Fixed.
