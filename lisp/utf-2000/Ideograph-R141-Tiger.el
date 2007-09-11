@@ -1939,8 +1939,29 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (=ucs		. #x459C)	; 䖜
-    (=cns11643-4	. #x643A)	; &I-C4-643A; [68-26]
-    (=daikanwa		. 32790)	; &I-M-32790;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x459C)	; 䖜
+      ))
+    (ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (->subsumptive
+     ((=daikanwa	  . 32790)	; &M-32790;
+      )
+     ((=cns11643-4	  . #x643A)	; &C4-643A; [68-26]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x459C)	; 䖜
+      ))
+    (ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (=hanziku-7		. #xF4FC)	; &HZK07-F4FC;
+    (=ucs@unicode	. #x459C)	; &HZK07-F4FC;
     ))
 (define-char
   '((ideographic-radical . 141)	; ⾌
