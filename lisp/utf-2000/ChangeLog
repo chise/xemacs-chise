@@ -1,5 +1,9 @@
 2007-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (U+8D19): Use `->denotational' and
+	`->subsumptive'.
+	(U+478B): Use `->subsumptive'.
+
 	* Ideograph-R141-Tiger.el (U+459C): Use `->denotational' and
 	`->subsumptive'; integrate H7-F4FC.
 
