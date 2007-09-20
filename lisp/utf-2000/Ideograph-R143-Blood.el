@@ -22,6 +22,7 @@
     (=ucs		. #x275A7)	; 𧖧
     (=cns11643-5	. #x2765)	; &I-C5-2765; [07-69]
     (=daikanwa		. 33965)	; &I-M-33965;
+    (=hanziku-8		. #xCE6C)	; &I-HZK08-CE6C;
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
