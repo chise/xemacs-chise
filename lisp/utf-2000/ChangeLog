@@ -1,3 +1,15 @@
+2007-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R143-Blood.el (U-000275A7): Unify H8-CE6C.
+
+	* Ideograph-R073-Say.el (U-000231AA): New character.
+	(BC-8941): Likewise; add `<-denotational' for U-000231AA.
+
+	* char-db-util.el (shuowen-radicals): Add ?çƒ; add ?ä¸¶, ?ä¸¹, ?é’,
+	?äº•, ?çš€, ?é¬¯, ?é£Ÿ, ?äº¼, ?æœƒ, ?å€‰, ?å…¥, ?ç¼¶, ?çŸ¢, ?é«˜, ?å†‚, ?ð©«,
+	?äº¬, ?äº¯, ?ç•—, ?ð£†ª, ?ã­, ?ð ¾‚, ?ä¾†, ?éº¥, ?å¤Š, ?èˆ›, ?ä‘ž, ?éŸ‹, ?å¼Ÿ,
+	?å¤‚, ?ä¹… and ?æ¡€.
+
 2007-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01456 - 01492}): New characters.
@@ -89,8 +101,8 @@
 	`<-formed@component/connect-above' for U+4E0C.
 
 	* char-db-util.el (shuowen-radicals): Add ?ç«¹, ?ç®•, ?ä¸Œ, ?å·¦, ?å·¥,
-	?ø»•½‡, ?å·«, ?ç”˜, ?ø½‹‹, ?ä¹ƒ, ?ä¸‚, ?å¯, ?ø½Š¼½, ?å·, ?äº, ?ø½Š„, ?å–œ, ?å£´,
-	?é¼“, ?è±ˆ, ?è±†, ?è±Š, ?è±, ?ø¸‡¿, ?ø½‹ “, ?ø½Š˜¤, ?ø»‹¸¡, ?çš¿, ?ð ™´, ?åŽ» and ?è¡€.
+	?ã ­, ?å·«, ?ç”˜, ?æ›°, ?ä¹ƒ, ?ä¸‚, ?å¯, ?å…®, ?å·, ?äº, ?æ—¨, ?å–œ, ?å£´,
+	?é¼“, ?è±ˆ, ?è±†, ?è±Š, ?è±, ?ä–’, ?è™, ?è™Ž, ?è™¤, ?çš¿, ?ð ™´, ?åŽ» and ?è¡€.
 
 	* Ideograph-R012-Eight.el (GT-K00264): Moved to
 	Ideograph-R001-One.el.
@@ -132,9 +144,9 @@
 
 	* Ideograph-R173-Rain.el (JSP-672E): Unify JC3-6CB0.
 
-	* char-db-util.el (shuowen-radicals): Add ?ð ¦’, ?ø½Š½…, ?å¹º, ?ð¢†¶, ?ø»‹€,
-	?ø½Š˜‰, ?äºˆ, ?ø½Š³¥, ?ø»—¢°, ?ð£¦¼, ?æ­º, ?ø½Š‡, ?ø»Š¾ , ?ø½Šš§, ?è‚‰, ?ç­‹, ?åˆ€, ?ð¯ ž,
-	?ã“ž, ?ø»„§˜, ?ø½‹œ and ?ó±‹‡.
+	* char-db-util.el (shuowen-radicals): Add ?ð ¦’, ?å†“, ?å¹º, ?ð¢†¶, ?å€,
+	?çŽ„, ?äºˆ, ?æ”¾, ?ð ¬ª, ?ð£¦¼, ?æ­º, ?æ­», ?å†Ž, ?éª¨, ?è‚‰, ?ç­‹, ?åˆ€, ?åˆƒ,
+	?ã“ž, ?ä¸°, ?è€’ and ?ð§¢ž.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
@@ -190,8 +202,8 @@
 2007-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (shuowen-radicals): Add ?ð¥„Ž, ?ç›®, ?ä€  , ?çœ‰, ?ç›¾,
-	?è‡ª, ?ç™½, ?ð¯¨œ, ?çš•, ?ø½ŠŸ, ?ø½Š¤, ?ø½‹ª, ?ø»‹‡š, ?ø»‹µª, ?ø»™¬†, ?è‹œ, ?ç¾Š, ?ø»‹°º,
-	?ø½‹–“, ?é›”, ?é›¥ and ?é³¥.
+	?è‡ª, ?ç™½, ?é¼», ?çš•, ?ç¿’, ?ç¾½, ?éš¹, ?å¥ž, ?è‘, ?ð¦«³, ?è‹œ, ?ç¾Š, ?ç¾´,
+	?çž¿, ?é›”, ?é›¥ and ?é³¥.
 
 2007-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -304,9 +316,9 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?ð¦¥‘, ?ó±‘», ?ø»‡¬¯, ?é©, ?ø½‹­ˆ,
-	?ä°œ, ?çˆª, ?ð ƒ¨, ?ø½‹­, ?ø½Š´», ?ð ‚‡, ?ø»•™±, ?  æ”¯, ?ð¦˜’, ?è¿, ?ç•«, ?ø½‹ª, ?å …,
-	?è‡£, ?ø½‹Ž¸, ?ø½Šœ, ?ð ˜§, ?å¯¸, ?çš® , ?ó°ª¿, ?  æ”´, ?æ•Ž, ?åœ, ?ç”¨, ?ø½‹’¨ and
+	* char-db-util.el (shuowen-radicals): Add ?ð¦¥‘, ?ð¨‰‹, ?çˆ¨, ?é©, ?é¬²,
+	?ä°œ, ?çˆª, ?ð ƒ¨, ?é¬¥, ?åˆ, ?ð ‚‡, ?ã•œ, ?  æ”¯, ?ð¦˜’, ?è¿, ?ç•«, ?éš¶, ?å …,
+	?è‡£, ?æ®³, ?æ®º, ?ð ˜§, ?å¯¸, ?çš® , ?ç“ª, ?  æ”´, ?æ•Ž, ?åœ, ?ç”¨, ?çˆ» and
 	?ã¸š.
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -319,8 +331,8 @@
 	(ZOB-00136): Add `ideographic-structure'.
 	(ZOB-00159): Add `ideographic-structure'.
 	(ZOB-00160): Add `ideographic-structure'.
-	(ZOB-00334): Add `ø½Š´»ø½Š­' into `<-Oracle-Bones'.
-	(ZOB-00335): Add `ø½Š´»ø½ŠŸ„' into `<-Oracle-Bones'.
+	(ZOB-00334): Add `åˆç¤º' into `<-Oracle-Bones'.
+	(ZOB-00335): Add `åˆå®—' into `<-Oracle-Bones'.
 	(ZOB-{00340 - 00732}): New characters.
 	(ZOB-{00909, 00936, 01024, 01030, 01129, 01244, 01252, 01296,
 	01313, 01349, 01397, 01678, 01758, 01791, 01824, 01857, 01890,
@@ -328,9 +340,9 @@
 
 2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?ã—Š, ?ø½Š¤¢, ?å¹², ?è°·, ?åª,
-	?ó°‡ˆ, ?å¥, ?ø»¤„, ?å¤, ?  å, ?å…, ?ø½Š˜, ?ø»‹½², ?ø½Š”, ?ø»•›‘, ?ø»ŠºŸ, ?ø»‹µ›, ?ð ¬ž,
-	?ø½‹…Ÿ, ?å…±, ?ç•° and ?ð¯¢“.
+	* char-db-util.el (shuowen-radicals): Add ?ã—Š, ?èˆŒ, ?å¹², ?è°·, ?åª,
+	?ã•±, ?å¥, ?ä¸©, ?å¤, ?  å, ?å…, ?è¨€, ?èª©, ?éŸ³, ?ä‡‚, ?ä¸µ, ?è, ?ð ¬ž,
+	?å»¾, ?å…±, ?ç•° and ?èˆ.
 
 2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
