@@ -595,6 +595,12 @@
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 12)
+    (total-strokes	 . 18)
+    (=ucs		. #x275D3)	; 𧗓
+    ))
+(define-char
+  '((ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
     (=ucs		. #x275D5)	; 𧗕
