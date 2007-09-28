@@ -1,3 +1,7 @@
+2007-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01508 - 01516}): New characters.
+
 2007-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01289 - 01492}): Fix `shuowen-radicals'.
