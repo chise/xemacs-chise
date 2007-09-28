@@ -16098,6 +16098,86 @@
     (=zinbun-oracle	. 01507)	; &ZOB-1507;
     ))
 (define-char
+  '((shuowen-radical	. 174)	; 丶
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01508)	; &ZOB-1508;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4E3B)	; 主
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 175)	; 丹
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01509)	; &ZOB-1509;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 175)	; 丹
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01510)	; &ZOB-1510;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E39)	; 丹
+	)
+       ((=ucs		    . #x767D)	; 白
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (sources		zob1968=0278 zob1968=0460)
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01511)	; &ZOB-1511;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4E95)	; 井
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01512)	; &ZOB-1512;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=ucs		    . #x767D)	; 白
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01513)	; &ZOB-1513;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=ucs		    . #x65B9)	; 方
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (sources		zob1968=0293)
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01514)	; &ZOB-1514;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9631)	; 阱
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01515)	; &ZOB-1515;
+    ))
+(define-char
+  '((shuowen-radical	. 177)	; 井
+    (zinbun-oracle-page . 71)
+    (=zinbun-oracle	. 01516)	; &ZOB-1516;
+    ))
+(define-char
   '((=zinbun-oracle	. 01678)	; &ZOB-1678;
     ))
 (define-char
