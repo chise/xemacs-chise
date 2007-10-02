@@ -80,6 +80,7 @@
     (=ucs		. #x37A5)	; 㞥
     (->subsumptive
      ((=daikanwa	  . 07875)	; &M-07875;
+      (=hanziku-2	  . #xEEA3)	; &I-HZK02-EEA3;
       )
      ((=cns11643-3	  . #x2243)	; &C3-2243; [02-35]
       (=ucs@unicode	  . #x37A5)	; &C3-2243;
