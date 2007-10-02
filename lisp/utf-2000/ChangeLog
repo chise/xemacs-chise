@@ -1,3 +1,9 @@
+2007-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01553 - 01597}): New characters.
+
+	* Ideograph-R046-Mountain.el (M-07875): Unify H2-EEA3.
+
 2007-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01537 - 01552}): New characters.
