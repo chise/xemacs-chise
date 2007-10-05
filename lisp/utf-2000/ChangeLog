@@ -1,3 +1,10 @@
+2007-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?󰘾
+	based on the big brother's version.
+
+	* Oracle-Bones.el (ZOB-{01598 - 01621}): New characters.
+
 2007-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01553 - 01597}): New characters.
