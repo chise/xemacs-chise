@@ -1,6 +1,10 @@
+2007-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?嗇 instead of ?𠾂.
+
 2007-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?󰘾
+	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?𣆪
 	based on the big brother's version.
 
 	* Oracle-Bones.el (ZOB-{01598 - 01621}): New characters.
