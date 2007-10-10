@@ -1,3 +1,7 @@
+2007-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01622 - 01640}): New characters.
+
 2007-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (shuowen-radicals): Use ?嗇 instead of ?𠾂.
