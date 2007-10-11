@@ -25191,7 +25191,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x9EA5)	; &UU+9EA5;
+       ((=ucs@unicode	    . #x9EA5)	; &GT-64933;
 	))
       (=gb12345		  . #x5F69)	; &B-E14D; [63-73]
       (=big5		  . #xE14D)	; &B-E14D;
@@ -27584,11 +27584,34 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (hanyu-dazidian	1 682 5)
     (=ucs		. #x20F82)	; 𠾂
-    (=cns11643-7	. #x2149)	; &I-C7-2149; [01-41]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20F82)	; 𠾂
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=cns11643-7	. #x2149)	; &M-04313; [01-41]
     (=daikanwa		. 04313)	; &I-M-04313;
-    (=hanziku-2		. #xDEAF)	; &I-HZK02-DEAF;
+    (<-original
+     ((=ucs		  . #x55C7)	; 嗇
+      (=daikanwa	  . 04053)	; &I-M-04053;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20F82)	; 𠾂
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 682 5)
+    (=hanziku-2		. #xDEAF)	; &HZK02-DEAF;
+    (=ucs@iso		. #x20F82)	; &HZK02-DEAF;
     ))
 (define-char
   '((=>ucs		. #x20F83)	; 𠾃
