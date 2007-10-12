@@ -1,5 +1,9 @@
 2007-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U-00020F82): Use `->denotational'.
+	(C7-2149): Separate H2-DEAF; use `<-denotational' for U-00020F82;
+	add `<-original' for U+55C7.
+
 	* Oracle-Bones.el (ZOB-{01622 - 01640}): New characters.
 
 2007-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
