@@ -1,5 +1,8 @@
 2007-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R199-Wheat.el (K0-586A): Use `<-subsumptive'; separate
+	J0-734E and G1-4273.
+
 	* Oracle-Bones.el (ZOB-{01641 - 01655}): New characters.
 
 2007-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
