@@ -1,4 +1,14 @@
+2007-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01713 - 01726}): New characters.
+
 2007-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+67D0): Use `->subsumptive'.
+	(U-00023429): New character.
+	(U-00023441): Use `->denotational' and `->subsumptive'; integrate
+	M-14786.
+	(U-0002363B): Use `->subsumptive'; integrate GT-19765 and H4-AEA9.
 
 	* Oracle-Bones.el (ZOB-{01679 - 01712}): New characters.
 
