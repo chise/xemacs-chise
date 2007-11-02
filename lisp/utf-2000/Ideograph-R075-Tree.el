@@ -2940,6 +2940,12 @@
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=ucs		. #x233EE)	; 𣏮
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x67AE)	; 枮
