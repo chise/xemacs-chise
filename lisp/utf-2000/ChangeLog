@@ -1,3 +1,12 @@
+2007-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00733): Add `<-Oracle-Bones' for a sequence
+	U+5341 ZOB-01815.
+	(ZOB-{01806 - 01823}): New characters.
+	(ZOB-01824): Add `shuowen-radical' and `sources'; add
+	`<-Oracle-Bones' for U+8C9D.
+	(ZOB-{01825 - 01828}): New characters.
+
 2007-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-01791): Add `shuowen-radical', `sources'
