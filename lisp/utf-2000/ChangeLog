@@ -1,3 +1,7 @@
+2007-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01829 - 01844}): New characters.
+
 2007-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-00733): Add `<-Oracle-Bones' for a sequence
