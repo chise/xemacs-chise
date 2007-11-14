@@ -19036,6 +19036,99 @@
     (=zinbun-oracle	. 01844)	; &ZOB-1844;
     ))
 (define-char
+  '((shuowen-radical	. 229)	; 邑
+    (sources		zob1968=0136 zob1968=0455 zob1968=0625 zob1968=0626
+			zob1968=1156 zob1968=3035 zob1968=3238)
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01845)	; &ZOB-1845;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9091)	; 邑
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01846)	; &ZOB-1846;
+    (<-Oracle-Bones
+     ((=ucs		  . #x90A6)	; 邦
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01847)	; &ZOB-1847;
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01848)	; &ZOB-1848;
+    (<-Oracle-Bones
+     ((=ucs		  . #x555A)	; 啚
+      )
+     ((=ucs		  . #x9119)	; 鄙
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01849)	; &ZOB-1849;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8C50)	; 豐
+      )
+     ((=ucs		  . #x9146)	; 酆
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01850)	; &ZOB-1850;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5960)	; 奠
+      )
+     ((=ucs		  . #x912D)	; 鄭
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01851)	; &ZOB-1851;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4E95)	; 井
+      )
+     ((=ucs		  . #x28677)	; 𨙷
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01852)	; &ZOB-1852;
+    (<-Oracle-Bones
+     ((=ucs		  . #x767B)	; 登
+      )
+     ((=ucs		  . #x9127)	; 鄧
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 229)	; 邑
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01854)	; &ZOB-1854;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9014)	; 途
+      )
+     ((=ucs		  . #x48C4)	; 䣄
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 230)	; 𨛜
+    (zinbun-oracle-page . 88)
+    (=zinbun-oracle	. 01856)	; &ZOB-1856;
+    (<-Oracle-Bones
+     ((=ucs		  . #x537F)	; 卿
+      )
+     ((=ucs		  . #x90F7)	; 郷
+      ))
+    ))
+(define-char
   '((=zinbun-oracle	. 01857)	; &ZOB-1857;
     ))
 (define-char
