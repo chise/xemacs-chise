@@ -1,3 +1,19 @@
+2007-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00246): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00303): Use ZOB-01656 instead of U+6728 in
+	`ideographic-structure'.
+	(ZOB-00358): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00387): Use ZOB-01731 instead of U+6797 in
+	`ideographic-structure'.
+	(ZOB-00415): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00516): Add `ideographic-structure'.
+	(ZOB-00555): Use ZOB-01774 instead of U-000200A4 in
+	`ideographic-structure'.
+
 2007-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01845 - 01856}): New characters.
