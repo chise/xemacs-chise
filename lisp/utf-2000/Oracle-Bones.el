@@ -3582,7 +3582,7 @@
       )
      ((=zinbun-oracle	  . 00236)	; &ZOB-0236;
       )
-     ((=ucs		  . #x76EE)	; 目
+     ((=zinbun-oracle	  . 01155)	; &ZOB-1155;
       ))
     (sources		zob1968=2359)
     (zinbun-oracle-page . 13)
@@ -4683,7 +4683,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x6728)	; 木
+     ((=zinbun-oracle	  . 01656)	; &ZOB-1656;
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
@@ -5557,7 +5557,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x76EE)	; 目
+     ((=zinbun-oracle	  . 01155)	; &ZOB-1155;
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
@@ -5891,7 +5891,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x6797)	; 林
+     ((=zinbun-oracle	  . 01731)	; &ZOB-1731;
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
@@ -6064,7 +6064,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       )
-     ((=ucs		  . #x76EE)	; 目
+     ((=zinbun-oracle	  . 01155)	; &ZOB-1155;
       ))
     (zinbun-oracle-page . 21)
     (=zinbun-oracle	. 00415)	; &ZOB-0415;
@@ -7084,6 +7084,21 @@
     ))
 (define-char
   '((shuowen-radical	. 28)	; 癶
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=zinbun-oracle	    . 00456)	; &ZOB-0456;
+	)
+       ((=zinbun-oracle	    . 00456)	; &ZOB-0456;
+	))
+      )
+     ((=zinbun-oracle	  . 00027)	; &ZOB-0027;
+      ))
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00516)	; &ZOB-0516;
     ))
@@ -7601,7 +7616,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x200A4)	; 𠂤
+     ((=zinbun-oracle	  . 01774)	; &ZOB-1774;
       )
      ((=zinbun-oracle	  . 00456)	; &ZOB-0456;
       ))
