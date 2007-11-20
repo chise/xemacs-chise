@@ -1,5 +1,8 @@
 2007-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (shuowen-radicals): Add ?日, ?旦, ?倝, ?㫃, ?冥,
+	?晶, ?月, ?有, ?朙 and ?囧.
+
 	* Oracle-Bones.el (ZOB-00246): Use ZOB-01155 instead of U+76EE in
 	`ideographic-structure'.
 	(ZOB-00303): Use ZOB-01656 instead of U+6728 in
