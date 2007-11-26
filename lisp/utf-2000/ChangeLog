@@ -1,5 +1,10 @@
 2007-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el (U-00028677): Unify H10-B5B1.
+	(U+9137): Use `->subsumptive'; integrate JC3-68B3.
+	(U-0002879C): Use `->subsumptive'.
+	(U+9146): Use `->subsumptive'; integrate JC3-68B5.
+
 	* Oracle-Bones.el (ZOB-01857): Add `shuowen-radical', `sources'
 	and `zinbun-oracle-page'; add `<-Oracle-Bones' for U+65E5.
 
