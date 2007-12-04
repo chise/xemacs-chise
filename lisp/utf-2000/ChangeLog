@@ -1,3 +1,14 @@
+2007-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01908 - 01927}): New characters.
+
+	* ruimoku6.el: Use `Oracle-Bones' instead of `bones-carapaces' in
+	`script' feature.
+	(RUI6-E034): New character.
+
+	* char-db-util.el (shuowen-radicals): Add ?夕, ?多, ?毌, ?㔾, ?𣎺,
+	?𠧪, ?齊, ?朿, ?片 and ?鼎.
+
 2007-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01892 - 01907}): New characters.
