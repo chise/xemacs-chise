@@ -20101,6 +20101,23 @@
     (=zinbun-oracle	. 01945)	; &ZOB-1945;
     ))
 (define-char
+  '((shuowen-radical	. 243)	; 毌
+    (zinbun-oracle-page . 94)
+    (=zinbun-oracle	. 01946)	; &ZOB-1946;
+    (<-Oracle-Bones
+     ((=ucs		  . #x6BCC)	; 毌
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 244)	; 𢎘
+    (sources		zob1968=0274)
+    (zinbun-oracle-page . 94)
+    (=zinbun-oracle	. 01947)	; &ZOB-1947;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5705)	; 圅
+      ))
+    ))
+(define-char
   '((=zinbun-oracle	. 01951)	; &ZOB-1951;
     ))
 (define-char
