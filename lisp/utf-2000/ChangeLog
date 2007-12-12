@@ -1,3 +1,12 @@
+2007-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-01946): New character.
+	(ZOB-01947): New character.
+
+2007-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?𢎘 and ?𣐺.
+
 2007-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01928 - 01945}): New characters.
