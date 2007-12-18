@@ -490,8 +490,24 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x233BA)	; 𣎺
-    (=cns11643-5	. #x2274)	; &I-C5-2274; [02-84]
-    (=daikanwa		. 14446)	; &I-M-14446;
+    (->subsumptive
+     ((=daikanwa	  . 14446)	; &M-14446;
+      (<-original
+       ((=ucs		    . #x2343A)	; 𣐺
+	))
+      (<-original*sources
+       zhengzitong)
+      (<-same
+       ((=ucs		    . #x2343A)	; 𣐺
+	(=daikanwa	    . 14744)	; &I-M-14744;
+	))
+      (<-same*sources
+       zhengzitong daikanwa)
+      )
+     ((=ucs@iso		  . #x233BA)	; &U-000233BA;
+      )
+     ((=cns11643-5	  . #x2274)	; &C5-2274; [02-84]
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
@@ -5686,6 +5702,14 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (=ucs		. #x2343A)	; 𣐺
+    (=cns11643-6	. #x3846)	; &I-C6-3846; [24-38]
+    (=daikanwa		. 14744)	; &I-M-14744;
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (shinjigen-2	. 3606)
     (=ucs		. #x6839)	; 根
     (=jis-x0208		. #x3A2C)	; &I-J90-3A2C; [26-12]
@@ -6622,13 +6646,6 @@
     (total-strokes	 . 10)
     (=ucs		. #x23439)	; 𣐹
     (=cns11643-6	. #x384D)	; &I-C6-384D; [24-45]
-    ))
-(define-char
-  '((ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=ucs		. #x2343A)	; 𣐺
-    (=cns11643-6	. #x3846)	; &I-C6-3846; [24-38]
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
