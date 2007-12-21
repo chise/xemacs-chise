@@ -1,4 +1,14 @@
+2007-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01948 - 01950}): New characters.
+
+	* Ideograph-R178-Tanned-Leather.el (U+4A99): Use `->subsumptive'.
+	(C7-4B64): Map to U-000293CF.
+
 2007-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U-000233BA): Use `->subsumptive'.
+	(U-0002343A): Unify M-14744.
 
 	* Oracle-Bones.el (ZOB-01946): New character.
 	(ZOB-01947): New character.
