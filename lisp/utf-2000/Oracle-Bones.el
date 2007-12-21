@@ -20118,6 +20118,27 @@
       ))
     ))
 (define-char
+  '((shuowen-radical	. 245)	; 𣐺
+    (zinbun-oracle-page . 94)
+    (=zinbun-oracle	. 01948)	; &ZOB-1948;
+    (<-Oracle-Bones
+     ((=ucs		  . #x2343A)	; 𣐺
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 245)	; 𣐺
+    (zinbun-oracle-page . 94)
+    (=zinbun-oracle	. 01949)	; &ZOB-1949;
+    (<-Oracle-Bones
+     ((=ucs		  . #x293CF)	; 𩏏
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 245)	; 𣐺
+    (zinbun-oracle-page . 94)
+    (=zinbun-oracle	. 01950)	; &ZOB-1950;
+    ))
+(define-char
   '((=zinbun-oracle	. 01951)	; &ZOB-1951;
     ))
 (define-char
