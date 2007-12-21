@@ -998,15 +998,24 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
     (=ucs		. #x4A99)	; 䪙
-    (=cns11643-4	. #x617D)	; &I-C4-617D; [65-93]
-    (=daikanwa		. 43182)	; &I-M-43182;
+    (->subsumptive
+     ((=daikanwa	  . 43182)	; &M-43182;
+      (=ucs@unicode	  . #x4A99)	; &M-43182;
+      )
+     ((=cns11643-4	  . #x617D)	; &C4-617D; [65-93]
+      ))
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=cns11643-7	. #x4B64)	; &M-43183; [43-68]
-    (=daikanwa		. 43183)	; &I-M-43183;
+    (=ucs		. #x293CF)	; 𩏏
+    (->subsumptive
+     ((=daikanwa	  . 43183)	; &M-43183;
+      (=ucs@iso		  . #x293CF)	; &M-43183;
+      )
+     ((=cns11643-7	  . #x4B64)	; &C7-4B64; [43-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 178)	; ⾱
