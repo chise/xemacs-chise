@@ -1006,6 +1006,20 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=gt-k		. 00758)	; &GT-K00758;
+    (=gt-pj-k1		. #x362F)	; &GT-K00758; [22-15]
+    (<-formed@component
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=big5-cdp		. #x88F0)	; &CDP-88F0;
     (<-formed@component
      ((=ucs		  . #x8089)	; 肉
