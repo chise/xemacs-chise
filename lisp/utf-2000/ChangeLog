@@ -1,3 +1,17 @@
+2007-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el, Ideograph-R130-Meat.el
+	(GT-K00758): New character.
+
+2007-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?卣 instead of ?𠧪.
+
+	* Oracle-Bones.el (ZOB-01951): Add `shuowen-radical', `sources'
+	and `zinbun-oracle-page'; add `<-Oracle-Bones' for U+5EFC and
+	U+5363.
+	(ZOB-{01952 - 01968}): New characters.
+
 2007-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01948 - 01950}): New characters.
