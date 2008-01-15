@@ -711,8 +711,15 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x25109)	; 𥄉
-    (=cns11643-4	. #x2A5C)	; &I-C4-2A5C; [10-60]
-    (=daikanwa		. 23160)	; &I-M-23160;
+    (->subsumptive
+     ((=gt		  . 29659)	; &GT-29659;
+      (=gt-k		  . 05746)	; &I-GT-K05746;
+      (=gt-pj-5		  . #x406E)	; &GT-29659; [32-78]
+      (=daikanwa	  . 23160)	; &I-M-23160;
+      )
+     ((=cns11643-4	  . #x2A5C)	; &C4-2A5C; [10-60]
+      (=ucs@iso		  . #x25109)	; &C4-2A5C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
