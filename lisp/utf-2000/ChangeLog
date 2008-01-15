@@ -1,3 +1,22 @@
+2008-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?å…‹, ?ø»‹‘, ?ç¦¾, ?ç§, ?é»,
+	?é¦™, ?ø½Š²¯, ?æ¯‡, ?è‡¼ and ?ø½Š”¸.
+
+2008-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U-00025109): Use `->subsumptive';
+	integrate GT-29659 and GT-K05746.
+
+	* Ideograph-R087-Claw.el (U-00024532): Use `->denotational' and
+	`->subsumptive'.
+	(M-19709): Use `<-denotational' for U-00024532; unify GT-25311.
+	(IU-00024532): Unify GT-25312.
+
+	* Ideograph-R066-Rap.el (U-00022EF5): Unify GT-16617.
+	(U-00022F06): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-13128; add `<-unknown' for U-00022EF5.
+
 2007-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el, Ideograph-R130-Meat.el
