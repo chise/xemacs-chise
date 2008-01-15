@@ -305,16 +305,21 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x22EF5)	; 𢻵
+    (=gt		. 16617)	; &I-GT-16617;
+    (=gt-pj-3		. #x6844)	; &I-GT-16617; [72-36]
     (=daikanwa		. 13128)	; &I-M-13128;
     (=cbeta		. 03677)	; &I-CB03677;
     ))
 (define-char
-  '((morohashi-daikanwa	13128 0 5)
+  '((=>daikanwa		. 13128)	; 𢻵
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x22F06)	; 𢼆
     (=cns11643-5	. #x263F)	; &I-C5-263F; [06-31]
+    (<-unknown
+     ((=ucs		  . #x22EF5)	; 𢻵
+      ))
     ))
 (define-char
   '((=>ucs		. #x3A81)	; 㪁
