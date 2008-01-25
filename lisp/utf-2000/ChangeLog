@@ -1,3 +1,18 @@
+2008-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U-0002577E): Use `->subsumptive';
+	integrate M-24975.
+	(U-0002577F): Unify M-24976.
+	(U-00025786): Use `->subsumptive'; integrate M-25008.
+	(U-00025797): Unify M-25009.
+	(U-0002578F): New character.
+	(C6-3A42): Unify H7-C374.
+
+	* Ideograph-R109-Eye.el (GT-29659): Add `=ucs@JP' for U-00025109.
+
+	* Ideograph-R075-Tree.el (U-000237F8): Use `->denotational'
+	instead of `->subsumptive'; integrate GT-20454.
+
 2008-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{01992 - 02015}): New characters.
