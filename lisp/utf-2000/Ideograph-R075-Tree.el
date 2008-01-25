@@ -26176,8 +26176,27 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
     (=ucs		. #x237F8)	; 𣟸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x237F8)	; 𣟸
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 17)
+    (total-strokes	 . 21)
+    (=daikanwa		. 15899)	; &M-15899;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x237F8)	; 𣟸
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 17)
+    (total-strokes	 . 21)
     (->subsumptive
-     ((=daikanwa	  . 15899)	; &M-15899;
+     ((=gt		  . 20454)	; &GT-20454;
+      (=gt-pj-4		  . #x3D4C)	; &GT-20454; [29-44]
+      (=ucs@JP		  . #x237F8)	; &GT-20454;
       )
      ((=ucs@iso		  . #x237F8)	; &U-000237F8;
       )
