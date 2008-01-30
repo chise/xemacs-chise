@@ -1,3 +1,17 @@
+2008-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (GT-00160): Add `=ucs@JP' for U+4E49.
+
+2008-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (U+8DBC): Use `->denotational'.
+	(U-0002F9DB): Use `->subsumptive'; use `<-denotational' for
+	U+8DBC.
+	(JSP-5F6F): Use `<-subsumptive' for U-0002F9DB; add AJ1-22613.
+
+	* Ideograph-R097-Melon.el (M-21376): Unify GT-27391; add `=ucs@JP'
+	for U-00024AEB.
+
 2008-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (U-0002577E): Use `->subsumptive';
