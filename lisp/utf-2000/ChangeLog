@@ -1,5 +1,9 @@
 2008-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Oracle-Bones.el (ZOB-{02016 - 02024}): New characters.
+
+2008-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R004-Slash.el (GT-00160): Add `=ucs@JP' for U+4E49.
 
 2008-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
