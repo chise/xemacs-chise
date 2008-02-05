@@ -20697,6 +20697,41 @@
     (=zinbun-oracle	. 02024)	; &ZOB-2024;
     ))
 (define-char
+  '((shuowen-radical	. 259)	; 臼
+    (sources		zob1968=0342 zob1968=0343 zob1968=0424 zob1968=0895
+			zob1968=0931 zob1968=2146 zob1968=2265 zob1968=2519
+			zob1968=2523 zob1968=2530 zob1968=2535 zob1968=2546)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02026)	; &ZOB-2026;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8202)	; 舂
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=zinbun-oracle	  . 02026)	; &ZOB-2026;
+      ))
+    (shuowen-radical	. 259)	; 臼
+    (sources		zob1968=0940)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02027)	; &ZOB-2027;
+    ))
+(define-char
+  '((shuowen-radical	. 259)	; 臼
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02028)	; &ZOB-2028;
+    ))
+(define-char
+  '((shuowen-radical	. 259)	; 臼
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02029)	; &ZOB-2029;
+    ))
+(define-char
+  '((shuowen-radical	. 259)	; 臼
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02030)	; &ZOB-2030;
+    ))
+(define-char
   '((=zinbun-oracle	. 02040)	; &ZOB-2040;
     ))
 (define-char
