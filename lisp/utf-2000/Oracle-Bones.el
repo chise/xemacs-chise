@@ -20641,6 +20641,62 @@
     (=zinbun-oracle	. 02015)	; &ZOB-2015;
     ))
 (define-char
+  '((shuowen-radical	. 253)	; 禾
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02016)	; &ZOB-2016;
+    ))
+(define-char
+  '((shuowen-radical	. 253)	; 禾
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02017)	; &ZOB-2017;
+    ))
+(define-char
+  '((shuowen-radical	. 254)	; 秝
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02018)	; &ZOB-2018;
+    (<-Oracle-Bones
+     ((=ucs		  . #x79DD)	; 秝
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 254)	; 秝
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02019)	; &ZOB-2019;
+    ))
+(define-char
+  '((shuowen-radical	. 255)	; 黍
+    (sources		zob1968=0140 zob1968=0141 zob1968=0143 zob1968=0144
+			zob1968=0787 zob1968=0788 zob1968=0792 zob1968=2368)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02020)	; &ZOB-2020;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9ECD)	; 黍
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 256)	; 香
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02021)	; &ZOB-2021;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9999)	; 香
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 257)	; 米
+    (sources		zob1968=3131)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02023)	; &ZOB-2023;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 257)	; 米
+    (sources		zob1968=1593)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02024)	; &ZOB-2024;
+    ))
+(define-char
   '((=zinbun-oracle	. 02040)	; &ZOB-2040;
     ))
 (define-char
