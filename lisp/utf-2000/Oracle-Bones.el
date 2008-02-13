@@ -20732,7 +20732,88 @@
     (=zinbun-oracle	. 02030)	; &ZOB-2030;
     ))
 (define-char
-  '((=zinbun-oracle	. 02040)	; &ZOB-2040;
+  '((shuowen-radical	. 261)	; 𣎳
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02031)	; &ZOB-2031;
+    (<-Oracle-Bones
+     ((=ucs		  . #x233B3)	; 𣎳
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 265)	; 耑
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02032)	; &ZOB-2032;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8011)	; 耑
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 265)	; 耑
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02033)	; &ZOB-2033;
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02034)	; &ZOB-2034;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5B80)	; 宀
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02035)	; &ZOB-2035;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5BB6)	; 家
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02036)	; &ZOB-2036;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5B85)	; 宅
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (sources		zob1968=0765 zob1968=1272 zob1968=1361 zob1968=1794)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02037)	; &ZOB-2037;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5BA4)	; 室
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02038)	; &ZOB-2038;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5BA4)	; 室
+	)
+       ((=ucs		    . #x5357)	; 南
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02039)	; &ZOB-2039;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5BA3)	; 宣
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 269)	; 宀
+    (sources		zob1968=2027 zob1968=2030 zob1968=2033 zob1968=2034
+			zob1968=2044 zob1968=2133 zob1968=2493 zob1968=2503)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02040)	; &ZOB-2040;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5411)	; 向
+      ))
     ))
 (define-char
   '((=zinbun-oracle	. 02203)	; &ZOB-2203;
