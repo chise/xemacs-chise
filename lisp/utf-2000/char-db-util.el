@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007 MORIOKA Tomohiko.
+;;   2007, 2008 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -100,6 +100,7 @@
    ?日 ?旦 ?倝 ?㫃 ?冥 ?晶 ?月 ?有 ?明 ?囧 ; 240
    ?夕 ?多 ?毌 ?𢎘 ?𣐺 ?卣 ?齊 ?朿 ?片 ?鼎 ; 250
    ?克 ?彔 ?禾 ?秝 ?黍 ?香 ?米 ?毇 ?臼 ?凶 ; 260
+   ?𣎳 ?林 ?麻 ?尗 ?耑 ?韭 ?瓜 ?瓠 ?宀 ?宫 ; 270
    ])
 
 (defun shuowen-radical (number)
