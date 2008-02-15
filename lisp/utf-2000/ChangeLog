@@ -1,5 +1,7 @@
 2008-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R120-Silk.el (J90-3752): Unify JC3-5FDF.
+
 	* Oracle-Bones.el (ZOB-{02031 - 02039}): New characters.
 	(ZOB-02040): Add `shuowen-radical', `sources' and
 	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+5411.
