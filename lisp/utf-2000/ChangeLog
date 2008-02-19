@@ -1,3 +1,9 @@
+2008-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-01767): Use ZOB-01765 instead of ZOB-01766
+	as its parent.
+	(ZOB-{02041 - 02064}): New characters.
+
 2008-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el (J90-3752): Unify JC3-5FDF.
