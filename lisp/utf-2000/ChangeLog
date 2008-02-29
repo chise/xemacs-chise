@@ -1,5 +1,9 @@
 2008-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R170-Mound.el (U+F9DC): Unify JC3-68CC.
+
+2008-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Oracle-Bones.el (ZOB-{02089 - 02136}): New characters.
 
 2008-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
