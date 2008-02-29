@@ -1,3 +1,10 @@
+2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02137 - 02160}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Use ?宮 instead of ?宫; add
+	?呂, ?穴, ?㝱, ?𤕫, ?冖, ?𠔼, ?冃, ?㒳, ?网 and ?襾.
+
 2008-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (U+F9DC): Unify JC3-68CC.
@@ -26,8 +33,8 @@
 
 2008-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?�����, ?林, ?�����, ?尗, ?耑,
-	?韭, ?�����, ?�����, ?����� and ?宫.
+	* char-db-util.el (shuowen-radicals): Add ?𣎳, ?林, ?麻, ?尗, ?耑,
+	?韭, ?瓜, ?瓠, ?宀 and ?宫.
 
 	* Oracle-Bones.el (ZOB-{02026 - 02030}): New characters.
 
@@ -74,8 +81,8 @@
 
 2008-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?克, ?�����, ?禾, ?秝, ?黍,
-	?香, ?�����, ?毇, ?臼 and ?�����.
+	* char-db-util.el (shuowen-radicals): Add ?克, ?彔, ?禾, ?秝, ?黍,
+	?香, ?米, ?毇, ?臼 and ?凶.
 
 2008-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
