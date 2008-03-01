@@ -1,5 +1,9 @@
 2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5567.
+
+2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Oracle-Bones.el (ZOB-{02137 - 02160}): New characters.
 
 	* char-db-util.el (shuowen-radicals): Use ?宮 instead of ?宫; add
