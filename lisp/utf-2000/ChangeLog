@@ -1,3 +1,7 @@
+2008-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02161 - 02178}): New characters.
+
 2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-5567.
