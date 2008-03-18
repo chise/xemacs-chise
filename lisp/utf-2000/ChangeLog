@@ -1,3 +1,12 @@
+2008-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BAB): Add `=>daikanwa' for M-07156.
+	(U+5BAE): Use `->subsumptive'.
+	(U+5BD0): Use `->denotational' and `->subsumptive'; add J97-5567.
+	(U+3763): Use `->denotational' and `->subsumptive'.
+	(U+5BD1): Use `->denotational' and `->subsumptive'.
+	(U+5BD2): Use `->subsumptive'; add J97-3428.
+
 2008-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-{02161 - 02178}): New characters.
