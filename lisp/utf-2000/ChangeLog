@@ -1,3 +1,9 @@
+2008-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (JSP-6332): Add `sound@ja/on/go' and
+	`sound@ja/on/kan'; unify JC3-69C7.
+	(J0-6E5F): Add `morohashi-daikanwa'; add `sound@ja/on'.
+
 2008-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U+5BAB): Add `=>daikanwa' for M-07156.
