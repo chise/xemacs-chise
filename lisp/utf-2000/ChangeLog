@@ -1,3 +1,7 @@
+2008-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02179 - 02184}): New characters.
+
 2008-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (JSP-6332): Add `sound@ja/on/go' and
