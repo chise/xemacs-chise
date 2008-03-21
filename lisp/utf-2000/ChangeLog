@@ -1,5 +1,7 @@
 2008-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R013-Down-Box.el (GT-K00393): New character.
+
 	* Oracle-Bones.el (ZOB-{02179 - 02184}): New characters.
 
 2008-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
