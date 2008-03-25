@@ -21829,5 +21829,127 @@
     (=zinbun-oracle	. 02184)	; &ZOB-2184;
     ))
 (define-char
+  '((shuowen-radical	. 278)	; 㒳
+    (sources		zob1968=1868)
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02185)	; &ZOB-2185;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5169)	; 兩
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02186)	; &ZOB-2186;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7F51)	; 网
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02187)	; &ZOB-2187;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02188)	; &ZOB-2188;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7F85)	; 羅
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02189)	; &ZOB-2189;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4356)	; 䍖
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (sources		zob1968=0289)
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02190)	; &ZOB-2190;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7F5D)	; 罝
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (sources		zob1968=2138)
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02192)	; &ZOB-2192;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (sources		zob1968=0455 zob1968=2111 zob1968=2116)
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02193)	; &ZOB-2193;
+    (<-Oracle-Bones
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL NET TWO")
+	(=ucs		    . #x2EB2)	; ⺲
+	)
+       ((=ucs		    . #x76EE)	; 目
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02194)	; &ZOB-2194;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (sources		zob1968=0291 zob1968=0305 zob1968=0675 zob1968=0766)
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02195)	; &ZOB-2195;
+    (<-Oracle-Bones
+     ((=ucs		  . #x262BD)	; 𦊽
+      )
+     ((=ucs		  . #x7F89)	; 羉
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02196)	; &ZOB-2196;
+    (<-Oracle-Bones
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL NET TWO")
+	(=ucs		    . #x2EB2)	; ⺲
+	)
+       ((=ucs		    . #x555A)	; 啚
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02197)	; &ZOB-2197;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02198)	; &ZOB-2198;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02199)	; &ZOB-2199;
+    ))
+(define-char
+  '((shuowen-radical	. 279)	; 网
+    (zinbun-oracle-page . 104)
+    (=zinbun-oracle	. 02200)	; &ZOB-2200;
+    ))
+(define-char
   '((=zinbun-oracle	. 02203)	; &ZOB-2203;
     ))
