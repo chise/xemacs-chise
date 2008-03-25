@@ -1,3 +1,10 @@
+2008-03-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02185 - 02200}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Add ?å·¾, ?å·¿, ?å¸›, ?ç™½, ?ø»¤¨¥,
+	?ø½‹¯š, ?äºº, ?ý¢€ˆ®º, ?åŒ• and ?ä»Ž.
+
 2008-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R013-Down-Box.el (GT-K00393): New character.
