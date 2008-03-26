@@ -1,3 +1,11 @@
+2008-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-02201): New character.
+	(ZOB-02202): New character.
+	(ZOB-02203): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+5E1A.
+	(ZOB-{02204 - 02206}): New characters.
+
 2008-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U-00026B11): New character.
