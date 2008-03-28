@@ -1,5 +1,8 @@
 2008-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el (U+449A): Use `->denotational' and
+	`->subsumptive'.
+
 	* Oracle-Bones.el (ZOB-02201): New character.
 	(ZOB-02202): New character.
 	(ZOB-02203): Add `shuowen-radical', `sources' and
