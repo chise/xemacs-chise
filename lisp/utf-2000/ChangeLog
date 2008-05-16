@@ -1,3 +1,12 @@
+2008-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (JX1-7D54): Unify JC3-6BEC; add S1-8826.
+	(C7-3D2B): Map to U-00028D68.
+	(U-00028D68): Use `->subsumptive'.
+	(U+49AE): Use `->subsumptive'.
+	(U+95C6): Likewise.
+	(U+95C7): Use `->subsumptive'.
+
 2008-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+449A): Use `->denotational' and
@@ -17,8 +26,8 @@
 
 	* Oracle-Bones.el (ZOB-{02185 - 02200}): New characters.
 
-	* char-db-util.el (shuowen-radicals): Add ?巾, ?巿, ?帛, ?白, ?�����,
-	?�����, ?人, ?������, ?匕 and ?从.
+	* char-db-util.el (shuowen-radicals): Add ?巾, ?巿, ?帛, ?白, ?㡀,
+	?黹, ?人, ?𠤎, ?匕 and ?从.
 
 2008-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
