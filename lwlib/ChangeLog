@@ -1,3 +1,25 @@
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Gauge values are signed integers (ints).
+	(XawGaugeGetValue): Declare return value as int.
+	(XawGaugeSetValue): Declare value as int.
+	
+	* xlwgauge.h: Get rid of references to Cardinal in comment.
+
+	* xlwgauge.c (GaugeGetValue): Declare value as int.
+	(GaugeMercury): Declare val0 and val1 as int.  Remove redundant casts.
+	(XawGaugeGetValue): Declare return value as int.
+	(XawGaugeSetValue): Declare value as int.
+
+2007-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib-Xaw.c (wm_delete_window): Iterate over children of shell
+	(there may be more than one) to find our widget.
+
 2006-12-09  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.20 is released

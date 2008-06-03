@@ -1,3 +1,64 @@
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-08-14  Marcus Crestani  <crestani@xemacs.org>
+
+	* s/sol2.h: Fix for GCC lossage not needed with SunOS 5.10.
+
+2007-02-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* glyphs-eimage.c (png_instantiate_unwind): Avoid recursion.
+	(png_instantiate): Initialize setjmp_buffer early, and avoid
+	recursive entry to error handler.
+
+2007-06-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* linuxplay.c (linux_play_data_or_file): More 64-bit tweaking, and
+	a typo fix.
+
+2007-05-12  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* event-Xt.c (x_reset_modifier_mapping):
+	* event-gtk.c (gtk_reset_modifier_mapping):
+	Zero out the device's modifier map once we've freed it, to prevent
+	a double free on a re-entrant call. 
+
+2007-05-17  Vin Shelton  <acs@xemacs.org>
+
+	* linuxplay.c (linux_play_data_or_file): Fix playing sound on
+	64-bit linux.  Patch from Hans de Graaff.
+
+2007-05-02  Vin Shelton  <acs@xemacs.org>
+
+	* dumper.c (pdump): Don't close pdump_fd (already closed by
+	fclose() call.  Patch from Steve Higham.
+	* callproc.c (Fold_call_process_internal): Don't close fd1 if it's
+	already closed.  Patch inspired by Steve Higham.
+
+2007-05-01  Vin Shelton  <acs@xemacs.org>
+
+	* nt.c (mswindows_stat): Tie _S_IEXEC permission to read access.
+	(mswindows_fstat): Ditto.
+	* sysfile.h: Under Windows, define X_OK to be the same as R_OK.
+
+2007-02-08  Adrian Aichner  <adrian@xemacs.org>
+
+	* postgresql.c: Update Steve Baur's email address by his request.
+	* postgresql.h: Ditto.
+
+2007-01-04  Vin Shelton  <acs@xemacs.org>
+
+	* fileio.c (check_writable): Check old-style readonly bit only for
+	non-directories.
+
+2006-12-25  Benson I. Margulies  <benson@dchbk.us>
+
+	* src/fileio.c (check_writable): 
+        Cope with the fact that the read-only attribute trumps Windows NTFS
+        ACLS.
+
+
 2006-12-09  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.20 is released

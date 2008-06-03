@@ -670,8 +670,10 @@ If the only argument is nil, clear any existing progress gauge."
 
 (defun progress-feedback-with-label (label fmt &optional value &rest args)
   "Print a progress gauge and message in the bottom gutter area of the frame.
-First argument LABEL is an identifier for this progress gauge.  The rest of the
-arguments are the same as to `format'."
+LABEL is an identifier for this progress gauge.
+FMT is a format string to be passed to `format' along with ARGS.
+Optional VALUE is the current degree of progress, an integer 0-100.
+The remaining ARGS are passed with FMT `(apply #'format FMT ARGS)'."
   ;; #### sometimes the buffer gets changed temporarily. I don't know
   ;; why this is, so protect against it.
   (save-excursion

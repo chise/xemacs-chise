@@ -290,8 +290,9 @@ static int linux_play_data_or_file(int fd,unsigned char *data,
   fmtType        ffmt;
   int            fmt,speed,tracks;
   unsigned char *pptr,*optr,*cptr,*sptr;
-  int            wrtn,rrtn,crtn,prtn;
-  unsigned char         sndbuf[SNDBUFSZ];
+  int            wrtn, crtn;
+  size_t         prtn, rrtn;
+  unsigned char  sndbuf[SNDBUFSZ];
 
   /* We need to read at least the header information before we can start
      doing anything */
@@ -338,9 +339,9 @@ static int linux_play_data_or_file(int fd,unsigned char *data,
                device; repeat until all data has been processed */
   rrtn = length;
   do {
-    for (pptr = data; (prtn = parsesndfile((void **)&pptr,(size_t *)&rrtn,
+    for (pptr = data; (prtn = parsesndfile((void **)&pptr, &rrtn,
 					   (void **)&optr)) > 0; )
-      for (cptr = optr; (crtn = sndcnv((void **)&cptr,(size_t *) &prtn,
+      for (cptr = optr; (crtn = sndcnv((void **)&cptr, &prtn,
 				       (void **)&sptr)) > 0; ) {
 	for (;;) {
 	  if ((wrtn = write(audio_fd,sptr,crtn)) < 0) {

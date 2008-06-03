@@ -1067,7 +1067,8 @@ pdump (void)
   pdump_dump_root_objects ();
 
   fclose (pdump_out);
-  close (pdump_fd);
+  /* pdump_fd is already closed by the preceding fclose call
+  close (pdump_fd); */
 
   free (pdump_buf);
 

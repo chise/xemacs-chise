@@ -1,3 +1,60 @@
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-09-19  Didier Verna  <didier@xemacs.org>
+
+	Update my personal info.
+	* about.el (xemacs-hackers): Use 'didier instead of 'dv.
+	* about.el (about-other-current-hackers): Ditto.
+	* about.el (about-url-alist): Add my musical website.
+	* about.el (about-personal-info): Update my entry.
+	* about.el (about-hacker-contribution): Ditto.
+
+2007-08-21  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Update download
+	sites in Japan.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2007-08-18  Vin Shelton  <acs@xemacs.org>
+
+	* package-get.el (package-get-pre-release-download-sites): Sync
+	mirror sites with 21.5.  (Thanks, Adrian)
+
+2007-08-09  Mike Sperber  <mike@xemacs.org>
+
+	* startup.el (migrate-user-init-file): Create backup of
+	`user-init-file' before migrating.
+	* startup.el (maybe-migrate-user-init-file): Print
+	information about backup file.
+	(maybe-create-compatibility-dot-emacs): Follow above change.
+
+2006-11-02  Adrian Aichner  <adrian@xemacs.org>
+
+	* font-lock.el: Sync font-lock-add-keywords and
+	font-lock-remove-keywords from GNU Emacs.
+	* font-lock.el (font-lock-keywords-alist): New.
+	* font-lock.el (font-lock-removed-keywords-alist): New.
+	* font-lock.el (font-lock-add-keywords): New.
+	* font-lock.el (font-lock-update-removed-keyword-alist): New.
+	* font-lock.el (font-lock-remove-keywords): New.
+
+2007-08-16  Vin Shelton  <acs@xemacs.org>
+
+	* font-lock.el: Add defvar for font-lock-warning-face.  Original
+	patch from Hans de Graaff.
+
+2007-07-28  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Document Chile and
+	update Denmark download site.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2007-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gutter-items.el (progress-feedback-with-label): Clarify docstring.
+
 2006-12-09  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.20 is released

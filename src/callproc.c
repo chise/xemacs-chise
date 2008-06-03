@@ -399,9 +399,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	  }
 #endif
       }
-    /* Close STDERR into the parent process.  We no longer need it. */
-    if (fd_error >= 0)
-      close (fd_error);
 #else  /* not WIN32_NATIVE */
     pid = fork ();
 
@@ -420,17 +417,18 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	child_setup (filefd, fd1, fd_error, new_argv,
 		     (char *) XSTRING_DATA (current_dir));
       }
-    if (fd_error >= 0)
-      close (fd_error);
-
 #endif /* not WIN32_NATIVE */
 
     environ = save_environ;
 
+    /* Close STDERR into the parent process.  We no longer need it. */
+    if (fd_error >= 0)
+      close (fd_error);
+
     /* Close most of our fd's, but not fd[0]
        since we will use that to read input from.  */
     close (filefd);
-    if (fd1 >= 0)
+    if ((fd1 >= 0) && (fd1 != fd_error))
       close (fd1);
   }
 
