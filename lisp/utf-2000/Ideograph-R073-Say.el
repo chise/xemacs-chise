@@ -270,6 +270,30 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs		. #x231AA)	; 𣆪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x231AA)	; 𣆪
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x231AA)	; &U-000231AA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x231AA)	; 𣆪
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=big5-cdp		. #x8941)	; &CDP-8941;
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (shinjigen-2	. 3415)

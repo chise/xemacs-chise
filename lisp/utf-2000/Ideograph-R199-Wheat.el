@@ -12,16 +12,19 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (shinjigen-1	. 9792)
-    (shinjigen-2	. 9792)
-    (=jis-x0208		. #x734E)	; &GT-64933; [83-46]
-    (=ks-x1001		. #x586A)	; &I-K0-586A; [56-74]
-    (=gb12345		. #x4273)	; &GT-64933; [34-83]
-    (=gt		. 64933)	; &I-GT-64933;
-    (=gt-k		. 07988)	; &I-GT-K07988;
-    (=gt-pj-1		. #x734E)	; &I-GT-64933; [83-46]
-    (=daikanwa		. 47717)	; &I-M-47717;
-    (=ucs@jis		. #x9EA5)	; &GT-64933;
+    (->subsumptive
+     ((shinjigen-1	  . 9792)
+      (shinjigen-2	  . 9792)
+      (=ks-x1001	  . #x586A)	; &GT-64933; [56-74]
+      (=gt		  . 64933)	; &I-GT-64933;
+      (=gt-k		  . 07988)	; &I-GT-K07988;
+      (=gt-pj-1		  . #x734E)	; &I-GT-64933; [83-46]
+      (=daikanwa	  . 47717)	; &I-M-47717;
+      )
+     ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
+      (=gb12345		  . #x4273)	; &J90-734E; [34-83]
+      (=ucs@unicode	  . #x9EA5)	; &J90-734E;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -59,15 +62,11 @@
     (=daikanwa		. 47718)	; &I-M-47718;
     (=ucs@unicode	. #x9EA6)	; &GT-64905;
     (<-simplified@CN
-     ((=jis-x0208	  . #x734E)	; &GT-64933; [83-46]
-      (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
-      (=gb12345		  . #x4273)	; &GT-64933; [34-83]
-      (=daikanwa	  . 47717)	; &I-M-47717;
+     ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
+      (=gb12345		  . #x4273)	; &J90-734E; [34-83]
       ))
     (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x734E)	; &GT-64933; [83-46]
-      (=ks-x1001	  . #x586A)	; &I-K0-586A; [56-74]
-      (=daikanwa	  . 47717)	; &I-M-47717;
+     ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
       ))
     ))
 (define-char

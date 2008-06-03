@@ -1,3 +1,419 @@
+2008-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (JX1-7D54): Unify JC3-6BEC; add S1-8826.
+	(C7-3D2B): Map to U-00028D68.
+	(U-00028D68): Use `->subsumptive'.
+	(U+49AE): Use `->subsumptive'.
+	(U+95C6): Likewise.
+	(U+95C7): Use `->subsumptive'.
+
+2008-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+449A): Use `->denotational' and
+	`->subsumptive'.
+
+	* Oracle-Bones.el (ZOB-02201): New character.
+	(ZOB-02202): New character.
+	(ZOB-02203): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+5E1A.
+	(ZOB-{02204 - 02206}): New characters.
+
+2008-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U-00026B11): New character.
+
+2008-03-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02185 - 02200}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Add ?巾, ?巿, ?帛, ?白, ?㡀,
+	?黹, ?人, ?𠤎, ?匕 and ?从.
+
+2008-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el (GT-K00393): New character.
+
+	* Oracle-Bones.el (ZOB-{02179 - 02184}): New characters.
+
+2008-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (JSP-6332): Add `sound@ja/on/go' and
+	`sound@ja/on/kan'; unify JC3-69C7.
+	(J0-6E5F): Add `morohashi-daikanwa'; add `sound@ja/on'.
+
+2008-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BAB): Add `=>daikanwa' for M-07156.
+	(U+5BAE): Use `->subsumptive'.
+	(U+5BD0): Use `->denotational' and `->subsumptive'; add J97-5567.
+	(U+3763): Use `->denotational' and `->subsumptive'.
+	(U+5BD1): Use `->denotational' and `->subsumptive'.
+	(U+5BD2): Use `->subsumptive'; add J97-3428.
+
+2008-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02161 - 02178}): New characters.
+
+2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5567.
+
+2008-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02137 - 02160}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Use ?宮 instead of ?宫; add
+	?呂, ?穴, ?㝱, ?𤕫, ?冖, ?𠔼, ?冃, ?㒳, ?网 and ?襾.
+
+2008-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (U+F9DC): Unify JC3-68CC.
+
+2008-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02089 - 02136}): New characters.
+
+2008-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02065 - 02088}): New characters.
+
+2008-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-01767): Use ZOB-01765 instead of ZOB-01766
+	as its parent.
+	(ZOB-{02041 - 02064}): New characters.
+
+2008-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (J90-3752): Unify JC3-5FDF.
+
+	* Oracle-Bones.el (ZOB-{02031 - 02039}): New characters.
+	(ZOB-02040): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+5411.
+
+2008-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?𣎳, ?林, ?麻, ?尗, ?耑,
+	?韭, ?瓜, ?瓠, ?宀 and ?宫.
+
+	* Oracle-Bones.el (ZOB-{02026 - 02030}): New characters.
+
+2008-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{02016 - 02024}): New characters.
+
+2008-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (GT-00160): Add `=ucs@JP' for U+4E49.
+
+2008-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (U+8DBC): Use `->denotational'.
+	(U-0002F9DB): Use `->subsumptive'; use `<-denotational' for
+	U+8DBC.
+	(JSP-5F6F): Use `<-subsumptive' for U-0002F9DB; add AJ1-22613.
+
+	* Ideograph-R097-Melon.el (M-21376): Unify GT-27391; add `=ucs@JP'
+	for U-00024AEB.
+
+2008-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U-0002577E): Use `->subsumptive';
+	integrate M-24975.
+	(U-0002577F): Unify M-24976.
+	(U-00025786): Use `->subsumptive'; integrate M-25008.
+	(U-00025797): Unify M-25009.
+	(U-0002578F): New character.
+	(C6-3A42): Unify H7-C374.
+
+	* Ideograph-R109-Eye.el (GT-29659): Add `=ucs@JP' for U-00025109.
+
+	* Ideograph-R075-Tree.el (U-000237F8): Use `->denotational'
+	instead of `->subsumptive'; integrate GT-20454.
+
+2008-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01992 - 02015}): New characters.
+
+2008-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01969 - 01991}): New characters.
+
+2008-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?克, ?彔, ?禾, ?秝, ?黍,
+	?香, ?米, ?毇, ?臼 and ?凶.
+
+2008-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U-00025109): Use `->subsumptive';
+	integrate GT-29659 and GT-K05746.
+
+	* Ideograph-R087-Claw.el (U-00024532): Use `->denotational' and
+	`->subsumptive'.
+	(M-19709): Use `<-denotational' for U-00024532; unify GT-25311.
+	(IU-00024532): Unify GT-25312.
+
+	* Ideograph-R066-Rap.el (U-00022EF5): Unify GT-16617.
+	(U-00022F06): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-13128; add `<-unknown' for U-00022EF5.
+
+2007-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el, Ideograph-R130-Meat.el
+	(GT-K00758): New character.
+
+2007-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?卣 instead of ?𠧪.
+
+	* Oracle-Bones.el (ZOB-01951): Add `shuowen-radical', `sources'
+	and `zinbun-oracle-page'; add `<-Oracle-Bones' for U+5EFC and
+	U+5363.
+	(ZOB-{01952 - 01968}): New characters.
+
+2007-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01948 - 01950}): New characters.
+
+	* Ideograph-R178-Tanned-Leather.el (U+4A99): Use `->subsumptive'.
+	(C7-4B64): Map to U-000293CF.
+
+2007-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U-000233BA): Use `->subsumptive'.
+	(U-0002343A): Unify M-14744.
+
+	* Oracle-Bones.el (ZOB-01946): New character.
+	(ZOB-01947): New character.
+
+2007-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?𢎘 and ?𣐺.
+
+2007-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01928 - 01945}): New characters.
+
+2007-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01908 - 01927}): New characters.
+
+	* ruimoku6.el: Use `Oracle-Bones' instead of `bones-carapaces' in
+	`script' feature.
+	(RUI6-E034): New character.
+
+	* char-db-util.el (shuowen-radicals): Add ?夕, ?多, ?毌, ?㔾, ?𣎺,
+	?𠧪, ?齊, ?朿, ?片 and ?鼎.
+
+2007-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01892 - 01907}): New characters.
+
+2007-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01872 - 01889}): New characters.
+	(ZOB-01890): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+65CF.
+	(ZOB-01891): New character.
+
+2007-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01858 - 01871}): New characters.
+
+2007-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U-00028677): Unify H10-B5B1.
+	(U+9137): Use `->subsumptive'; integrate JC3-68B3.
+	(U-0002879C): Use `->subsumptive'.
+	(U+9146): Use `->subsumptive'; integrate JC3-68B5.
+
+	* Oracle-Bones.el (ZOB-01857): Add `shuowen-radical', `sources'
+	and `zinbun-oracle-page'; add `<-Oracle-Bones' for U+65E5.
+
+2007-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Add ?日, ?旦, ?倝, ?㫃, ?冥,
+	?晶, ?月, ?有, ?朙 and ?囧.
+
+	* Oracle-Bones.el (ZOB-00246): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00303): Use ZOB-01656 instead of U+6728 in
+	`ideographic-structure'.
+	(ZOB-00358): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00387): Use ZOB-01731 instead of U+6797 in
+	`ideographic-structure'.
+	(ZOB-00415): Use ZOB-01155 instead of U+76EE in
+	`ideographic-structure'.
+	(ZOB-00516): Add `ideographic-structure'.
+	(ZOB-00555): Use ZOB-01774 instead of U-000200A4 in
+	`ideographic-structure'.
+
+2007-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01845 - 01856}): New characters.
+
+2007-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01829 - 01844}): New characters.
+
+2007-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-00733): Add `<-Oracle-Bones' for a sequence
+	U+5341 ZOB-01815.
+	(ZOB-{01806 - 01823}): New characters.
+	(ZOB-01824): Add `shuowen-radical' and `sources'; add
+	`<-Oracle-Bones' for U+8C9D.
+	(ZOB-{01825 - 01828}): New characters.
+
+2007-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-01791): Add `shuowen-radical', `sources'
+	and `zinbun-oracle-page'; add `<-Oracle-Bones' for U+751F.
+	(ZOB-{01792 - 01805}): New characters.
+
+	* Ideograph-R075-Tree.el (U-000233EE): New character.
+
+2007-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01782 - 01790}): New characters.
+
+2007-10-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01751 - 01757}): New characters.
+	(ZOB-01758): Add `shuowen-radical', `zinbun-oracle-page'; add
+	`<-Oracle-Bones' for U+6851.
+	(ZOB-{01759 - 01781}): New characters.
+
+2007-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01727 - 01750}): New characters.
+
+2007-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01713 - 01726}): New characters.
+
+2007-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+67D0): Use `->subsumptive'.
+	(U-00023429): New character.
+	(U-00023441): Use `->denotational' and `->subsumptive'; integrate
+	M-14786.
+	(U-0002363B): Use `->subsumptive'; integrate GT-19765 and H4-AEA9.
+
+	* Oracle-Bones.el (ZOB-{01679 - 01712}): New characters.
+
+2007-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01656 - 01677}): New characters.
+	(ZOB-01678): Add `shuowen-radical', `sources' and
+	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+91C7.
+
+	* char-db-util.el (shuowen-radicals): Add ?木, ?東, ?林, ?才, ?叒,
+	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?桼,
+	?束, ?㯻, ?囗, ?員, ?貝, ?邑 and ?𨛜.
+
+2007-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+561C): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R199-Wheat.el (K0-586A): Use `<-subsumptive'; separate
+	J0-734E and G1-4273.
+
+	* Oracle-Bones.el (ZOB-{01641 - 01655}): New characters.
+
+2007-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-734E.
+
+2007-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020F82): Use `->denotational'.
+	(C7-2149): Separate H2-DEAF; use `<-denotational' for U-00020F82;
+	add `<-original' for U+55C7.
+
+	* Oracle-Bones.el (ZOB-{01622 - 01640}): New characters.
+
+2007-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Use ?嗇 instead of ?𠾂.
+
+2007-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?𣆪
+	based on the big brother's version.
+
+	* Oracle-Bones.el (ZOB-{01598 - 01621}): New characters.
+
+2007-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01553 - 01597}): New characters.
+
+	* Ideograph-R046-Mountain.el (M-07875): Unify H2-EEA3.
+
+2007-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01537 - 01552}): New characters.
+
+2007-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01517 - 01536}): New characters.
+
+2007-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01508 - 01516}): New characters.
+
+2007-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01289 - 01492}): Fix `shuowen-radicals'.
+	(ZOB-{01493 - 01507}): New characters.
+
+2007-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R143-Blood.el (U-000275D3): New character.
+
+2007-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R143-Blood.el (U-000275A7): Unify H8-CE6C.
+
+	* Ideograph-R073-Say.el (U-000231AA): New character.
+	(BC-8941): Likewise; add `<-denotational' for U-000231AA.
+
+	* char-db-util.el (shuowen-radicals): Add ?烏; add ?丶, ?丹, ?青,
+	?井, ?皀, ?鬯, ?食, ?亼, ?會, ?倉, ?入, ?缶, ?矢, ?高, ?冂, ?𩫏,
+	?京, ?亯, ?畗, ?𣆪, ?㐭, ?𠾂, ?來, ?麥, ?夊, ?舛, ?䑞, ?韋, ?弟,
+	?夂, ?久 and ?桀.
+
+2007-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01456 - 01492}): New characters.
+
+2007-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (U+8D19): Use `->denotational' and
+	`->subsumptive'.
+	(U+478B): Use `->subsumptive'.
+
+	* Ideograph-R141-Tiger.el (U+459C): Use `->denotational' and
+	`->subsumptive'; integrate H7-F4FC.
+
+	* Oracle-Bones.el (ZOB-{01449 - 01455}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Fixed.
+
+2007-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R151-Bean.el (U+4736): Use `->subsumptive'.
+	(U-00027BE6): Use `->denotational'.
+
+	* Ideograph-R055-Two-Hands.el (U-00022368): Use `->subsumptive'.
+	(U-0002236A): New character.
+	(U+5F0A): Use `->denotational' instead of `->subsumptive'.
+
+	* Oracle-Bones.el (ZOB-{01428 - 01448}): New characters.
+
 2007-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el (U+982C): Unify JC3-6CFD.
@@ -61,8 +477,8 @@
 	`<-formed@component/connect-above' for U+4E0C.
 
 	* char-db-util.el (shuowen-radicals): Add ?竹, ?箕, ?丌, ?左, ?工,
-	?�����, ?巫, ?甘, ?�����, ?乃, ?丂, ?可, ?�����, ?号, ?亏, ?�����, ?喜, ?壴,
-	?鼓, ?豈, ?豆, ?豊, ?豐, ?�����, ?�����, ?�����, ?�����, ?皿, ?𠙴, ?去 and ?血.
+	?㠭, ?巫, ?甘, ?曰, ?乃, ?丂, ?可, ?兮, ?号, ?亏, ?旨, ?喜, ?壴,
+	?鼓, ?豈, ?豆, ?豊, ?豐, ?䖒, ?虍, ?虎, ?虤, ?皿, ?𠙴, ?去 and ?血.
 
 	* Ideograph-R012-Eight.el (GT-K00264): Moved to
 	Ideograph-R001-One.el.
@@ -104,9 +520,9 @@
 
 	* Ideograph-R173-Rain.el (JSP-672E): Unify JC3-6CB0.
 
-	* char-db-util.el (shuowen-radicals): Add ?𠦒, ?�����, ?幺, ?𢆶, ?�����,
-	?�����, ?予, ?�����, ?�����, ?𣦼, ?歺, ?�����, ?�����, ?�����, ?肉, ?筋, ?刀, ?刃,
-	?㓞, ?�����, ?����� and ?󱋇.
+	* char-db-util.el (shuowen-radicals): Add ?𠦒, ?冓, ?幺, ?𢆶, ?叀,
+	?玄, ?予, ?放, ?𠬪, ?𣦼, ?歺, ?死, ?冎, ?骨, ?肉, ?筋, ?刀, ?刃,
+	?㓞, ?丰, ?耒 and ?𧢞.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
@@ -162,8 +578,8 @@
 2007-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (shuowen-radicals): Add ?𥄎, ?目, ?䀠 , ?眉, ?盾,
-	?自, ?白, ?鼻, ?皕, ?�����, ?�����, ?�����, ?�����, ?�����, ?�����, ?苜, ?羊, ?�����,
-	?�����, ?雔, ?雥 and ?鳥.
+	?自, ?白, ?鼻, ?皕, ?習, ?羽, ?隹, ?奞, ?萑, ?𦫳, ?苜, ?羊, ?羴,
+	?瞿, ?雔, ?雥 and ?鳥.
 
 2007-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -276,9 +692,9 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?󱑻, ?�����, ?革, ?�����,
-	?䰜, ?爪, ?𠃨, ?�����, ?�����, ?𠂇, ?�����, ?  支, ?𦘒, ?聿, ?畫, ?�����, ?堅,
-	?臣, ?�����, ?�����, ?𠘧, ?寸, ?皮 , ?󰪿, ?  攴, ?敎, ?卜, ?用, ?����� and
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?𨉋, ?爨, ?革, ?鬲,
+	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
+	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -291,8 +707,8 @@
 	(ZOB-00136): Add `ideographic-structure'.
 	(ZOB-00159): Add `ideographic-structure'.
 	(ZOB-00160): Add `ideographic-structure'.
-	(ZOB-00334): Add `����������' into `<-Oracle-Bones'.
-	(ZOB-00335): Add `����������' into `<-Oracle-Bones'.
+	(ZOB-00334): Add `又示' into `<-Oracle-Bones'.
+	(ZOB-00335): Add `又宗' into `<-Oracle-Bones'.
 	(ZOB-{00340 - 00732}): New characters.
 	(ZOB-{00909, 00936, 01024, 01030, 01129, 01244, 01252, 01296,
 	01313, 01349, 01397, 01678, 01758, 01791, 01824, 01857, 01890,
@@ -300,9 +716,9 @@
 
 2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?㗊, ?�����, ?干, ?谷, ?只,
-	?󰇈, ?句, ?�����, ?古, ?  十, ?卅, ?�����, ?�����, ?�����, ?�����, ?�����, ?�����, ?𠬞,
-	?�����, ?共, ?異 and ?舁.
+	* char-db-util.el (shuowen-radicals): Add ?㗊, ?舌, ?干, ?谷, ?只,
+	?㕱, ?句, ?丩, ?古, ?  十, ?卅, ?言, ?誩, ?音, ?䇂, ?丵, ?菐, ?𠬞,
+	?廾, ?共, ?異 and ?舁.
 
 2007-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 

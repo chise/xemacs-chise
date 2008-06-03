@@ -1,3 +1,8 @@
+2007-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.24
+	(Kasagi).
+
 2006-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Fconcord_object_put): Add reversed links when FEATURE

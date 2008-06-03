@@ -691,6 +691,7 @@
        kangxi daikanwa)
       )
      ((=gb2312		  . #x5456)	; &G0-5456; [52-54]
+      (=jef-china3	  . #x90AF)	; &I-JC3-90AF;
       (=ucs@unicode	  . #x707E)	; &G0-5456;
       )
      ((=cns11643-3	  . #x2660)	; &C3-2660; [06-64]

@@ -2820,6 +2820,7 @@
     (=cns11643-1	. #x626E)	; &I-C1-626E; [66-78]
     (=jis-x0213-1-2000	. #x7D5D)	; &I-JX1-7D5D; [93-61]
     (=daikanwa		. 41746)	; &I-M-41746;
+    (=jef-china3	. #x68CC)	; &I-JC3-68CC;
     (=ucs@unicode	. #x9686)	; 隆
     (=ucs@jis		. #xF9DC)	; 隆
     (->subsumptive

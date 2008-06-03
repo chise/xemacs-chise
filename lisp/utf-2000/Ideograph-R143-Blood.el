@@ -22,6 +22,7 @@
     (=ucs		. #x275A7)	; 𧖧
     (=cns11643-5	. #x2765)	; &I-C5-2765; [07-69]
     (=daikanwa		. 33965)	; &I-M-33965;
+    (=hanziku-8		. #xCE6C)	; &I-HZK08-CE6C;
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
@@ -596,6 +597,12 @@
     (total-strokes	 . 18)
     (=ucs		. #x275D4)	; 𧗔
     (=cns11643-7	. #x4272)	; &I-C7-4272; [34-82]
+    ))
+(define-char
+  '((ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 12)
+    (total-strokes	 . 18)
+    (=ucs		. #x275D3)	; 𧗓
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎

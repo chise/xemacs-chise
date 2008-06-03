@@ -64,6 +64,16 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=gt-k		. 00393)	; &GT-K00393;
+    (=gt-pj-k1		. #x6743)	; &GT-K00393; [71-35]
+    (<-formed@component/connect-below
+     ((=ucs		  . #x2053C)	; 𠔼
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 96 15)

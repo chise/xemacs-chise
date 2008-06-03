@@ -11656,6 +11656,7 @@
       (=jis-x0208@1990	  . #x3752)	; &I-J90-3752; [23-50]
       (=gt		  . 35822)	; &I-GT-35822;
       (=gt-pj-1		  . #x3752)	; &I-GT-35822; [23-50]
+      (=jef-china3	  . #x5FDF)	; &I-JC3-5FDF;
       (=ucs@jis		  . #x7E4B)	; &GT-35822;
       (mojikyo		  . 054094)	; &MCS-6000D34E;
       (<-simplified@JP/jis

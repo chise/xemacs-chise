@@ -382,6 +382,7 @@
     (=ucs		. #x28677)	; 𨙷
     (=cns11643-5	. #x2479)	; &I-C5-2479; [04-89]
     (=daikanwa		. 39297)	; &I-M-39297;
+    (=hanziku-10	. #xB5B1)	; &I-HZK10-B5B1;
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -5670,18 +5671,28 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x9137)	; 鄷
-    (=jis-x0212		. #x624E)	; &I-JSP-624E; [66-46]
-    (=cns11643-3	. #x532B)	; &I-C3-532B; [51-11]
-    (=jis-x0213-2-2000	. #x7A3B)	; &I-JX2-7A3B; [90-27]
-    (=daikanwa		. 39688)	; &I-M-39688;
+    (->subsumptive
+     ((=jis-x0212	  . #x624E)	; &M-39688; [66-46]
+      (=jis-x0213-2-2000  . #x7A3B)	; &I-JX2-7A3B; [90-27]
+      (=daikanwa	  . 39688)	; &I-M-39688;
+      (=ucs@jis		  . #x9137)	; &M-39688;
+      )
+     ((=cns11643-3	  . #x532B)	; &C3-532B; [51-11]
+      (=jef-china3	  . #x68B3)	; &I-JC3-68B3;
+      (=ucs@unicode	  . #x9137)	; &C3-532B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x2879C)	; 𨞜
-    (=cns11643-4	. #x5439)	; &I-C4-5439; [52-25]
-    (=daikanwa		. 39689)	; &I-M-39689;
+    (->subsumptive
+     ((=cns11643-4	  . #x5439)	; &M-39689; [52-25]
+      (=daikanwa	  . 39689)	; &I-M-39689;
+      )
+     ((=ucs@iso		  . #x2879C)	; &U-0002879C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -6422,11 +6433,18 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
     (=ucs		. #x9146)	; 酆
-    (=gb2312		. #x5B3A)	; &I-G0-5B3A; [59-26]
-    (=cns11643-2	. #x6C49)	; &I-C2-6C49; [76-41]
-    (=jis-x0213-2-2000	. #x7A3E)	; &I-JX2-7A3E; [90-30]
     (=big5		. #xF65A)	; &I-B-F65A;
-    (=daikanwa		. 39749)	; &I-M-39749;
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x7A3E)	; &M-39749; [90-30]
+      (=daikanwa	  . 39749)	; &I-M-39749;
+      (=ucs@jis		  . #x9146)	; &M-39749;
+      )
+     ((=jef-china3	  . #x68B5)	; &JC3-68B5;
+      )
+     ((=gb2312		  . #x5B3A)	; &C2-6C49; [59-26]
+      (=cns11643-2	  . #x6C49)	; &I-C2-6C49; [76-41]
+      (=ucs@unicode	  . #x9146)	; &C2-6C49;
+      ))
     ))
 (define-char
   '((=>ucs		. #x287E0)	; 𨟠

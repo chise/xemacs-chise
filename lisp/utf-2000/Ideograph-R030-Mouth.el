@@ -25368,20 +25368,17 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 674 4)
     (=ucs		. #x561C)	; 嘜
+    (=big5		. #xE14D)	; &I-B-E14D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x561C)	; 嘜
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (->subsumptive
      ((=daikanwa	  . 04231)	; &M-04231;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((=ucs@unicode	    . #x9EA5)	; &UU+9EA5;
-	))
-      (=gb12345		  . #x5F69)	; &B-E14D; [63-73]
-      (=big5		  . #xE14D)	; &B-E14D;
-      (=ucs@unicode	  . #x561C)	; &B-E14D;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -25394,6 +25391,24 @@
       (=cns11643-2	  . #x4934)	; &C2-4934; [41-20]
       (=ucs@cns		  . #x561C)	; &C2-4934;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x561C)	; 嘜
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
+      ))
+    (=gb12345		. #x5F69)	; &UU+561C; [63-73]
+    (=ucs@unicode	. #x561C)	; &UU+561C;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -27798,11 +27813,34 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (hanyu-dazidian	1 682 5)
     (=ucs		. #x20F82)	; 𠾂
-    (=cns11643-7	. #x2149)	; &I-C7-2149; [01-41]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20F82)	; 𠾂
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=cns11643-7	. #x2149)	; &M-04313; [01-41]
     (=daikanwa		. 04313)	; &I-M-04313;
-    (=hanziku-2		. #xDEAF)	; &I-HZK02-DEAF;
+    (<-original
+     ((=ucs		  . #x55C7)	; 嗇
+      (=daikanwa	  . 04053)	; &I-M-04053;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20F82)	; 𠾂
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 682 5)
+    (=hanziku-2		. #xDEAF)	; &HZK02-DEAF;
+    (=ucs@iso		. #x20F82)	; &HZK02-DEAF;
     ))
 (define-char
   '((=>ucs		. #x20F83)	; 𠾃

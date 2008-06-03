@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((script		bones-carapaces Ideographs)
+  '((script		Oracle-Bones Ideographs)
     (sources		bos=A016070-00002)
     (=ruimoku-v6	. #xE000)	; &RUI6-E000;
     (<-unknown
@@ -8,7 +8,7 @@
       ))
     ))
 (define-char
-  '((script		bones-carapaces Ideographs)
+  '((script		Oracle-Bones Ideographs)
     (sources		bos=A016070-00002)
     (=ruimoku-v6	. #xE001)	; &RUI6-E001;
     ))
@@ -354,4 +354,9 @@
 (define-char
   '((sources		bos=A2004-30015-00022)
     (=ruimoku-v6	. #xE024)	; &RUI6-E024;
+    ))
+(define-char
+  '((script		Oracle-Bones Ideographs)
+    (sources		bos=A2005-10815-00001)
+    (=ruimoku-v6	. #xE034)	; &RUI6-E034;
     ))

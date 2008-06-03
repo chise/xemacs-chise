@@ -545,10 +545,13 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
+    (sound@ja/on/go	"niti")
+    (sound@ja/on/kan	"zitu")
     (=jis-x0212		. #x6332)	; &GT-54031; [67-18]
     (=gt		. 54031)	; &I-GT-54031;
     (=gt-pj-7		. #x6431)	; &I-GT-54031; [68-17]
     (=daikanwa		. 40186)	; &I-M-40186;
+    (=jef-china3	. #x69C7)	; &I-JC3-69C7;
     (=ucs@unicode	. #x91F0)	; &GT-54031;
     ))
 (define-char
@@ -575,26 +578,6 @@
     (total-strokes	 . 11)
     (=gt		. 54023)	; &GT-54023;
     (=gt-pj-9		. #x3A55)	; &GT-54023; [26-53]
-    ))
-(define-char
-  '((<-denotational
-     ((=jis-x0208@1997	  . #x6E5F)	; &J97-6E5F; [78-63]
-      ))
-    (ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 3)
-    (total-strokes	 . 11)
-    (=ucs		. #x91FC)	; 釼
-    (<-simplified
-     ((=ucs		  . #x91F0)	; 釰
-      ))
-    (->subsumptive
-     ((=jis-x0208	  . #x6E5F)	; &GT-54022; [78-63]
-      (=gt		  . 54022)	; &I-GT-54022;
-      (=gt-pj-1		  . #x6E5F)	; &I-GT-54022; [78-63]
-      (=ucs@jis		  . #x91FC)	; &GT-54022;
-      )
-     ((=ucs@unicode	  . #x91FC)	; &UU+91FC;
-      ))
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
@@ -762,6 +745,40 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
     (=cns11643-2	. #x3A22)	; &C2-3A22; [26-02]
+    ))
+(define-char
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x6E5F)	; &J97-6E5F; [78-63]
+      ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 3)
+    (total-strokes	 . 11)
+    (=ucs		. #x91FC)	; 釼
+    (<-simplified
+     ((=ucs		  . #x91F0)	; 釰
+      ))
+    (->subsumptive
+     ((morohashi-daikanwa	ho 630)
+      (sound@ja/on	  "ken")
+      (=jis-x0208	  . #x6E5F)	; &GT-54022; [78-63]
+      (=gt		  . 54022)	; &I-GT-54022;
+      (=gt-pj-1		  . #x6E5F)	; &I-GT-54022; [78-63]
+      (=ucs@jis		  . #x91FC)	; &GT-54022;
+      (<-formed
+       ((=jis-x0212	    . #x6332)	; &GT-54031; [67-18]
+	(=daikanwa	    . 40186)	; &I-M-40186;
+	))
+      (<-formed*sources
+       daikanwa)
+      (<-vulgar
+       ((=ucs		    . #x528D)	; 劍
+	(=daikanwa	    . 02228)	; &I-M-02228;
+	))
+      (<-vulgar*sources
+       tongwen-tongkao/wrong daikanwa)
+      )
+     ((=ucs@unicode	  . #x91FC)	; &UU+91FC;
+      ))
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦

@@ -1373,11 +1373,36 @@
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x26B11)	; 𦬑
+    ))
+(define-char
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 4)
+    (=ucs		. #x449A)	; 䒚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x449A)	; 䒚
+      ))
+    (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs		. #x449A)	; 䒚
-    (=cns11643-3	. #x2A63)	; &I-C3-2A63; [10-67]
-    (=daikanwa		. 30692)	; &I-M-30692;
+    (->subsumptive
+     ((=daikanwa	  . 30692)	; &M-30692;
+      )
+     ((=cns11643-3	  . #x2A63)	; &C3-2A63; [10-67]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x449A)	; 䒚
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs@unicode	. #x449A)	; &UU+449A;
     ))
 (define-char
   '((=>ucs		. #x8298)	; 芘

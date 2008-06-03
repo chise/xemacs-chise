@@ -93,7 +93,10 @@
     (total-strokes	 . 9)
     (=ucs		. #x24AEB)	; 𤫫
     (->subsumptive
-     ((=daikanwa	  . 21376)	; &M-21376;
+     ((=gt		  . 27391)	; &GT-27391;
+      (=gt-pj-4		  . #x7349)	; &GT-27391; [83-41]
+      (=daikanwa	  . 21376)	; &I-M-21376;
+      (=ucs@JP		  . #x24AEB)	; &GT-27391;
       )
      ((=ucs@iso		  . #x24AEB)	; &U-00024AEB;
       )
