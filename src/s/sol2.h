@@ -11,7 +11,7 @@
 #endif
 
 /* Fix understandable GCC lossage on Solaris 2.6 */
-#if defined(__GNUC__) && OS_RELEASE >= 506 && !defined(NOT_C_CODE)
+#if defined(__GNUC__) && OS_RELEASE >= 506 && OS_RELEASE < 510 && !defined(NOT_C_CODE)
 
 /* GCC va_list munging is a little messed up */
 #define __GNUC_VA_LIST

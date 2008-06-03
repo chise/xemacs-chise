@@ -35,6 +35,13 @@ Boston, MA 02111-1307, USA.  */
 
 #include "eldap.h"
 #include <lber.h>
+/* #### NEEDS REWRITE!
+   Thanks to Mats Lidell <matsl@xemacs.org> for the report & patch:
+   <871wgnqunm.fsf@spencer.lidell.homelinux.net>
+   "See http://www.openldap.org/faq/data/cache/1278.html.
+   Temporary workaround would be use the deprecated interface. Long term
+   solution is a rewrite." */
+#define LDAP_DEPRECATED 1
 #include <ldap.h>
 
 #ifdef HAVE_NS_LDAP
