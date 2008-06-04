@@ -106,6 +106,16 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-08-18  Vin Shelton  <acs@xemacs.org>
+
+	* modules/ldap/eldap.c: Declare that we use deprecated API.
+	Thanks to Mats Lidell <matsl@xemacs.org> for the report & patch:
+	<871wgnqunm.fsf@spencer.lidell.homelinux.net>.
+
 2006-12-09  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.20 is released
