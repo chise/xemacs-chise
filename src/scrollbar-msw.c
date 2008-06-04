@@ -83,9 +83,11 @@ mswindows_create_scrollbar_instance (struct frame *f, int vertical,
 static void
 mswindows_free_scrollbar_instance (struct scrollbar_instance *sb)
 {
-  DestroyWindow (SCROLLBAR_MSW_HANDLE (sb));
   if (sb->scrollbar_data)
-    xfree (sb->scrollbar_data);
+    {
+      DestroyWindow (SCROLLBAR_MSW_HANDLE (sb));
+      xfree (sb->scrollbar_data);
+    }
 }
 
 static void

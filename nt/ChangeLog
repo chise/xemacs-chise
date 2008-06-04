@@ -1,3 +1,63 @@
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-09-27  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Don't set package-get-always-update.
+
+2007-09-25  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Put comment wrapper around site-start.el changes and
+	remove those changes on uninstall.  Enable ftp.xemacs.org for
+	package retrieval and set the ftp path.
+
+2007-09-19  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Various updates: Add support for 21.5; add easypg.
+
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-03-04  Vin Shelton  <acs@xemacs.org>
+
+	* config.inc.samp: Comment out PACKAGE_PREFIX.
+	* xemacs.mak: Do not set a value for PACKAGE_PATH unless
+	PACKAGE_PATH or PACKAGE_PREFIX was specified in config.inc.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Erase old code.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: 21.4.19 version.  No registry fiddling, please.
+	Package root is now found automatically.
+
+2005-12-27  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: 21.4.19-pre1 version
+		      Remove registry key for EMACSPACKAGEPATH.
+		      Install by default to c:\Program Files\XEmacs.
+
+2005-12-17  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Move packages out of version-specific location.
+		      Removed CRs.
+
+2005-12-15  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs.iss: Created for generating winoze setup kits.
+
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released

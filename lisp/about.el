@@ -1,6 +1,6 @@
 ;;; about.el --- the About The Authors page (shameless self promotion).
 
-;; Copyright (c) 1997 Free Software Foundation, Inc.
+;; Copyright (c) 1997, 2005 Free Software Foundation, Inc.
 ;; Copyright (C) 2001 Ben Wing.
 
 ;; Keywords: extensions
@@ -111,7 +111,7 @@
     (devin    "Matthieu Devin"    "devin@xemacs.org")
     (dkindred "Darrell Kindred"   "dkindred@xemacs.org")
     (dmoore   "David Moore"       "dmoore@xemacs.org")
-    (dv       "Didier Verna"      "didier@xemacs.org")
+    (didier   "Didier Verna"      "didier@xemacs.org")
     (eb       "Eric Benson"       "eb@xemacs.org")
     (fabrice  "Fabrice Popineau"  "fabrice@xemacs.org")
     (golubev  "Ilya Golubev"      "golubev@xemacs.org")
@@ -123,6 +123,7 @@
     (hobley   "David hobley"      "hobley@xemacs.org")
     (jan      "Jan Vroonhof"      "jan@xemacs.org")
     (jareth   "Jareth Hein"       "jareth@xemacs.org")
+    (jas      "Simon Josefsson"   "simon@xemacs.org")
     (jason    "Jason R. Mastaler" "jason@xemacs.org")
     (jens     "Jens Lautenbacher" "jens@xemacs.org")
     (jmiller  "Jeff Miller"       "jmiller@xemacs.org")
@@ -172,13 +173,13 @@
 (defvar about-other-current-hackers
   ;; to sort this list or the one below, use:
   ;; M-x sort-regexp-fields RET [a-z]+ RET \(.*\) RET
-  '(aj alastair cgw craig daiki dan dv fabrice golubev gunnar hisashi hniksic
+  '(aj alastair cgw craig daiki dan didier fabrice golubev gunnar hisashi hniksic
        jan jareth jmiller jason jonathan kazz kirill larsi morioka mta ograf
        olivier oscar pittman tomonori tuck wmperry yoshiki))
 
 (defvar about-once-and-future-hackers
   '(ajc baw bw chr cthomp darrylo devin dkindred dmoore eb hbs hmuller
-	hobley jens juhp jwz kyle marcpa mcook mly ograf pelegri pez
+	hobley jas jens juhp jwz kyle marcpa mcook mly ograf pelegri pez
 	rickc rose rossini slb stig stigb thiessel vladimir))
 
 ;; The CAR of alist elements is a valid argument to `about-url-link'.
@@ -198,9 +199,11 @@
     (daiki      . "http://deisui.bug.org/diary/servlet/view")
     (dkindred   . "http://www.cs.cmu.edu/People/dkindred/me.html")
     (dmoore     . "http://oj.egbt.org/dmoore/")
-    (dv         . "http://www.lrde.epita.fr/~didier/")
+    (didier     . "http://didier.lrde.org/")
+    (dvljazz    . "http://www.didierverna.com/")
     (fabrice    . "http://www.ese-metz.fr/~popineau/")
     (fptex      . "http://www.fptex.org/")
+    (jas	. "http://josefsson.org/")
     (jason      . "http://www.mastaler.com/")
     (juhp       . "http://www.01.246.ne.jp/~juhp/")
     (jwz        . "http://www.jwz.org/")
@@ -929,24 +932,30 @@ hours of the day.
 He has a page at ")
      (about-url-link 'dmoore nil "Visit David's home page")
      (widget-insert ".\n"))
-    (dv
+    (didier
      (widget-insert "\
-I graduated at ENST (an engineering school in Paris) and have a Ph.D.
-in computer science. I'm currently a teacher at EPITA (another
-engineering school, still in Paris) and a researcher at LRDE (EPITA's
-research and development laboratory). Our research topics include
-generic programming and distributed virtual reality.
+Didier has a Ph.D. in Computer Science and is currently working as an
+assistant professor for an engineering school in Paris).  He gives
+lectures on Operating Systems, Computer Graphics, Functional Programming
+and Typesetting.  His research interests include Genericity, Object
+Orientation and Functional Programming, all in one language:
 
-Apart from XEmacs, I'm also involved in other free software projects,
-including Gnus, BBDB, and the GNU \"autotools\". I also wrote some
-LaTeX packages (ugh :-).
+... Common Lisp.
 
-All of this, actually, is only 60% true. Two days per week, I'm also a
-semi-professional Jazz guitar player (and singer), which means that it
-is not the way I earn my crust, but things may very well reverse in
-the future ...\n\n")
-     (widget-insert "Visit Didier's home page: ")
-     (about-url-link 'dv nil "Visit Didier's home page")
+
+Apart from the world of XEmacs and Emacs Lisp, Didier is also the author
+of several LaTeX packages (FiNK, FiXme, QCM and CurVe) and an occasional
+contributor to other Free Software projects (the GNU Autotools most
+notably; he was one of the technical reviewers for the \"Goat Book\").
+
+But all of this is only 60% true... Two days per week, Didier is indeed
+a semi-professional Jazz guitar player (and singer), which means that he
+doesn't quite earn his crust with it, but things may very well reverse in
+the future...\n")
+     (widget-insert "\nVisit Didier's scientific website: ")
+     (about-url-link 'didier nil "Visit Didier's scientific website")
+     (widget-insert "\nVisit Didier's musical website: ")
+     (about-url-link 'dvljazz nil "Visit Didier's musical website")
      (widget-insert "\n"))
     (eb
      (widget-insert
@@ -1059,6 +1068,25 @@ portable, implements a language, includes a non-trivial bit of
 graphics and a garbage collector, but is multithreaded to boot!
 Unfortunately his XEmacs time is directly limited by the amount of
 traffic on the M40.\n"))
+    (jas
+     (widget-insert "\
+
+Simon lives in Stockholm where he has discovered that computers
+can be a powerful procrastinating tool.  Combined with a
+frustrating desire to see computers simply work, he spends most
+of his time complaining.  Occasionally he rises up to the task
+and produces something that others may complain about, which
+brings him increased satisfaction with every bug report.  Today
+he is pretending to be a network security guy, with a preference
+for standardization issues, while secretly longing to start a
+cafe or becoming a theoretical computer scientist.  His personal
+interest is literature, and to some extent traveling, but will
+try anything for fun, such as juggling, skiing, wine, and
+long-distance biking.
+
+See: ")
+     (about-url-link 'jas nil "Visit Simon's homepage")
+     (widget-insert ".\n"))
     (jareth
      (widget-insert "\
 Jareth Hein is a mountain boy who abandoned his home state of Colorado
@@ -1519,18 +1547,17 @@ annoy him.  He hopes he's spared you from a core dump or two.\n"))
     (dmoore
      (widget-insert "\
 David has contributed greatly to the quest to speed up XEmacs.\n"))
-    (dv
+    (didier
      (widget-insert "\
-I joined the development of XEmacs in 1996, and have been one of the
-core maintainers since 1998. Although I'm mostly interested in the
-GUI, ergonomics, redisplay and autoconf issues, it's probably simpler
-to describe what I'm *not* involved in: I've never touched the Lisp
-implementation, and I probably never will...
+Didier joined the development of XEmacs in 1996, and has been one of
+the core maintainers since 1998.  His very first contribution was the
+translation of the tutorial to French. Since then, he has contributed
+various bug fixes and enhancements in fields as diverse as the GUI,
+redisplay engine and autoconf support.
 
-I'm the author of the multicast support, I wrote and maintain some
-external Emacs Lisp packages (including mchat) and I'm also
-responsible for some of the core Lisp code (including the rectangle
-library which I rewrote for both XEmacs and GNU Emacs).\n"))
+Didier is the official maintainer of some core libraries (rect, cus-edit,
+wid-edit) and the author of the multicast support.  He is also the author
+of several packages, including mchat and Patcher.\n"))
     (eb
      (widget-insert "\
 Also part of the original Lucid Emacs development team.  Eric played a
@@ -1609,6 +1636,14 @@ of the XEmacs custom subsystem and gnuserv.\n"))
      (widget-insert "\
 Owner of cvs.xemacs.org, the machine that holds the XEmacs CVS
 repository, and author of some of the graphics code in XEmacs.\n"))
+    (jas
+     (widget-insert "\
+Wrote and/or integrated several packages for Gnus, such as
+support for IMAP, Sieve, format=flowed, GnuTLS, S/MIME, and PGP.
+Irregularly synchronizes lisp code between Emacs and XEmacs.  He
+maintains the mail-lib, sieve, sasl, pgg and ecrypto XEmacs
+packages.  Operates the secondary DNS and mail server for
+xemacs.org.\n"))
     (jason
      (widget-insert "\
 Beta tester, manager of the various XEmacs mailing lists and binary

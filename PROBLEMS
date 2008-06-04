@@ -44,6 +44,16 @@ General advice:
     Much general information is in INSTALL.  If it's covered in
     INSTALL, we don't repeat it here.
 
+*** X11/bitmaps/gray (or other X11-related file) not found.
+
+The X11R6 distribution was monolithic, but the X11R7 distribution is
+much more modular.  Many OS distributions omit these bitmaps (assuming
+nobody uses them, evidently).  Your OS distribution should have a
+developer's package containing these files, probably with a name
+containing the string "bitmap".  Known package names (you may need to
+add an extension such as .deb or .rpm) include x11/xbitmaps (Ubuntu)
+and xorg-x11-xbitmaps (Fedora Core 5).
+
 *** How do I configure to get the buffer tabs/progress bars?
 
 These features depend on support for "native widgets".  Use the

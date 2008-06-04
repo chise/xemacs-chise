@@ -48,9 +48,9 @@ Boston, MA 02111-1307, USA.  */
 
  Name			Class		RepType		Default Value
  ----			-----		-------		-------------
- value			Value		Cardinal	0
- minValue		MinValue	Cardinal	0
- maxValue		MaxValue	Cardinal	100
+ value			Value		Int	0
+ minValue		Int	Cardinal	0
+ maxValue		Int	Cardinal	100
  ntics			NTics		Cardinal	0	+
  nlabels		NLabels		Cardinal	0	++
  labels			Labels		String *	NULL	+++
@@ -100,7 +100,7 @@ Boston, MA 02111-1307, USA.  */
 		XtPointer client ;
 		XtPointer rval ;
 	{
-	  *(Cardinal *)rval = value ;
+	  *(int *)rval = value ;
 	}
 
 */
@@ -169,11 +169,11 @@ _XFUNCPROTOBEGIN
 extern	void	XawGaugeSetValue(
 #if NeedFunctionPrototypes
 	Widget	gauge,
-	Cardinal value
+	int value
 #endif
 );
 
-extern	Cardinal XawGaugeGetValue(
+extern	int XawGaugeGetValue(
 #if NeedFunctionPrototypes
 	Widget	gauge
 #endif

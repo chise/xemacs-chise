@@ -43,13 +43,21 @@ Boston, MA 02111-1307, USA.  */
 /* glibc 2.1 doesn't have this problem with DB 2.x */
 #if !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1)
 #ifdef HAVE_INTTYPES_H
+#ifndef __BIT_TYPES_DEFINED__
 #define __BIT_TYPES_DEFINED__
+#endif
 #include <inttypes.h>
-#ifndef __FreeBSD__
+#if !HAVE_U_INT8_T
 typedef uint8_t  u_int8_t;
+#endif
+#if !HAVE_U_INT16_T
 typedef uint16_t u_int16_t;
+#endif
+#if !HAVE_U_INT32_T
 typedef uint32_t u_int32_t;
+#endif
 #ifdef WE_DONT_NEED_QUADS
+#if !HAVE_U_INT64_T
 typedef uint64_t u_int64_t;
 #endif
 #endif /* WE_DONT_NEED_QUADS */

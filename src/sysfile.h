@@ -261,12 +261,18 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 /* The following definitions are needed under Windows, at least */
-#ifndef X_OK
-# define X_OK 1
-#endif
-
 #ifndef R_OK
 # define R_OK 4
+#endif
+
+/* Under native Windows, there is no concept of execute permission,
+   so redefine execute permissions to be the same as read permission */
+#ifndef X_OK
+# ifdef WIN32_NATIVE
+#  define X_OK R_OK
+# else
+#  define X_OK 1
+# endif
 #endif
 
 #ifndef W_OK

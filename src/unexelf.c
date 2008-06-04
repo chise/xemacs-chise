@@ -475,7 +475,7 @@ typedef struct {
 # include <sys/exec_elf.h>
 #endif
 
-#if defined(__FreeBSD__) && (defined(__alpha__) || defined(__amd64__))
+#if defined(__FreeBSD__) && (defined(__alpha__) || defined(_LP64))
 # ifdef __STDC__
 #  define ElfW(type)   Elf64_##type
 # else

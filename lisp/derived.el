@@ -421,20 +421,12 @@ Where the new table already has an entry, nothing is copied from the old one."
   ;; check for inheritance.
   (map-char-table
    #'(lambda (key value)
-       (let ((newval (get-range-char-table key new 'multi)))
-	 (cond ((eq newval 'multi)	; OK, dive into the class hierarchy
-		(map-char-table
-		 #'(lambda (key1 value1)
-		     (when (eq ?@ (char-syntax-from-code
-				   (get-range-char-table key new ?@)))
-		       (put-char-table key1 value new))
-		     nil)
-		 new
-		 key))
-	       ((eq ?@ (char-syntax-from-code newval)) ;; class at once
-		(put-char-table key value new))))
-       nil)
-   old))
+       (if (eq ?@ (char-syntax-from-code value))
+	   (map-char-table #'(lambda (key1 value1)
+			       (put-char-table key1 value1 new))
+			   old
+			   key)))
+   new))
 
 ;; Merge an old abbrev table into a new one.
 ;; This function requires internal knowledge of how abbrev tables work,

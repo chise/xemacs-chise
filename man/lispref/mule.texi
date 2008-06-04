@@ -1723,7 +1723,7 @@ depends on the keyword).
 * CCL Statements::      Semantics of CCL statements.
 * CCL Expressions::     Operators and expressions in CCL.
 * Calling CCL::         Running CCL programs.
-* CCL Examples::        The encoding functions for Big5 and KOI-8.
+* CCL Example::         A trivial program to transform the Web's URL encoding.
 @end menu
 
 @node    CCL Syntax, CCL Statements, , CCL
@@ -1942,7 +1942,7 @@ complicated transformation of the Japanese standard JIS encoding to
 Shift JIS.  CCL_DECODE_SJIS is its inverse.)  It is somewhat odd to
 represent the SJIS operations in infix form.
 
-@node    Calling CCL, CCL Examples, CCL Expressions, CCL
+@node    Calling CCL, CCL Example, CCL Expressions, CCL
 @comment Node,        Next,          Previous,        Up
 @subsection Calling CCL
 
@@ -2008,11 +2008,307 @@ value and 0.
 Resets the CCL interpreter's internal elapsed time registers.
 @end defun
 
-@node    CCL Examples, ,  Calling CCL, CCL
+@node    CCL Example, ,  Calling CCL, CCL
 @comment Node,         Next, Previous,    Up
-@subsection CCL Examples
+@subsection CCL Example
 
-  This section is not yet written.
+  In this section, we describe the implementation of a trivial coding
+system to transform from the Web's URL encoding to XEmacs' internal
+coding.  Many people will have been first exposed to URL encoding when
+they saw ``%20'' where they expected a space in a file's name on their
+local hard disk; this can happen when a browser saves a file from the
+web and doesn't encode the name, as passed from the server, properly.
+
+  URL encoding itself is underspecified with regard to encodings beyond
+ASCII.  The relevant document, RFC 1738, explicitly doesn't give any
+information on how to encode non-ASCII characters, and the ``obvious''
+way---use the %xx values for the octets of the eight bit MIME character
+set in which the page was served---breaks when a user types a character
+outside that character set.  Best practice for web development is to
+serve all pages as UTF-8 and treat incoming form data as using that
+coding system.  (Oh, and gamble that your clients won't ever want to
+type anything outside Unicode.  But that's not so much of a gamble with
+today's client operating systems.)  We don't treat non-ASCII in this
+example, as dealing with @samp{(read-multibyte-character ...)} and
+errors therewith would make it much harder to understand.
+
+  Since CCL isn't a very rich language, we move much of the logic that
+would ordinarily be computed from operations like @code{(member ..)},
+@code{(and ...)} and @code{(or ...)} into tables, from which register
+values are read and written, and on which @code{if} statements are
+predicated.  Much more of the implementation of this coding system is
+occupied with constructing these tables---in normal Emacs Lisp---than it
+is with actual CCL code.
+
+  All the @code{defvar} statements we deal with in the next few sections
+are surrounded by a @code{(eval-and-compile ...)}, which means that the
+logic which initializes these variables executes at compile time, and if
+XEmacs loads the compiled version of the file, these variables are
+initialized as constants.
+
+@menu
+* Four bits to ASCII::  Two tables used for getting hex digits from ASCII.
+* URI Encoding constants::  Useful predefined characters. 
+* Numeric to ASCII-hexadecimal conversion:: Trivial in Lisp, not so in CCL.
+* Characters to be preserved:: No transformation needed for these characters.
+* The program to decode to internal format:: .
+* The program to encode from internal format:: . 
+* The actual coding system:: .
+@end menu
+
+@node Four bits to ASCII, URI Encoding constants, , CCL Example
+@subsubsection Four bits to ASCII
+
+  The first @code{defvar} is for
+@code{url-coding-high-order-nybble-as-ascii}, a 256-entry table that
+maps from an octet's value to the ASCII encoding for the hex value of
+its most significant four bits.  That might sound complex, but it isn't;
+for decimal 65, hex value @samp{#x41}, the entry in the table is the
+ASCII encoding of `4'.  For decimal 122, ASCII `z', hex value
+@code{#x7a}, @code{(elt url-coding-high-order-nybble-as-ascii #x7a)}
+after this file is loaded gives the ASCII encoding of 7.
+
+@example
+(defvar url-coding-high-order-nybble-as-ascii
+  (let ((val (make-vector 256 0))
+	(i 0))
+    (while (< i (length val))
+      (aset val i (char-to-int (aref (format "%02X" i) 0)))
+      (setq i (1+ i)))
+    val)
+  "Table to find an ASCII version of an octet's most significant 4 bits.")
+@end example
+
+  The next table, @code{url-coding-low-order-nybble-as-ascii} is almost
+the same thing, but this time it has a map for the hex encoding of the
+low-order four bits.  So the sixty-fifth entry (offset @samp{#x41}) is
+the ASCII encoding of `1', the hundred-and-twenty-second (offset
+@samp{#x7a}) is the ASCII encoding of `A'.
+
+@example
+(defvar url-coding-low-order-nybble-as-ascii 
+  (let ((val (make-vector 256 0))
+	(i 0))
+    (while (< i (length val))
+      (aset val i (char-to-int (aref (format "%02X" i) 1)))
+      (setq i (1+ i)))
+    val)
+  "Table to find an ASCII version of an octet's least significant 4 bits.")
+@end example
+
+@node URI Encoding constants, Numeric to ASCII-hexadecimal conversion, Four bits to ASCII, CCL Example
+@subsubsection URI Encoding constants
+
+  Next, we have a couple of variables that make the CCL code more
+readable.  The first is the ASCII encoding of the percentage sign; this
+character is used as an escape code, to start the encoding of a
+non-printable character.  For historical reasons, URL encoding allows
+the space character to be encoded as a plus sign--it does make typing
+URLs like @samp{http://google.com/search?q=XEmacs+home+page} easier--and
+as such, we have to check when decoding for this value, and map it to
+the space character.  When doing this in CCL, we use the
+@code{url-coding-escaped-space-code} variable. 
+  
+@example
+(defvar url-coding-escape-character-code (char-to-int ?%)
+  "The code point for the percentage sign, in ASCII.")
+
+(defvar url-coding-escaped-space-code (char-to-int ?+)
+  "The URL-encoded value of the space character, that is, +.")
+@end example
+
+@node Numeric to ASCII-hexadecimal conversion, Characters to be preserved, URI Encoding constants, CCL Example
+@subsubsection Numeric to ASCII-hexadecimal conversion
+
+  Now, we have a couple of utility tables that wouldn't be necessary in
+a more expressive programming language than is CCL. The first is sixteen
+in length, and maps a hexadecimal number to the ASCII encoding of that
+number; so zero maps to ASCII `0', ten maps to ASCII `A.' The second
+does the reverse; that is, it maps an ASCII character to its value when
+interpreted as a hexadecimal digit. ('A' => 10, 'c' => 12, '2' => 2, as
+a few examples.)
+
+@example
+(defvar url-coding-hex-digit-table 
+  (let ((i 0)
+	(val (make-vector 16 0)))
+    (while (< i 16)
+      (aset val i (char-to-int (aref (format "%X" i) 0)))
+      (setq i (1+ i)))
+    val)
+  "A map from a hexadecimal digit's numeric value to its encoding in ASCII.")
+
+(defvar url-coding-latin-1-as-hex-table
+  (let ((val (make-vector 256 0))
+	(i 0))
+    (while (< i (length val))
+      ;; Get a hex val for this ASCII character.
+      (aset val i (string-to-int (format "%c" i) 16))
+      (setq i (1+ i)))
+    val)
+  "A map from Latin 1 code points to their values as hexadecimal digits.")
+@end example
+
+@node Characters to be preserved, The program to decode to internal format, Numeric to ASCII-hexadecimal conversion, CCL Example
+@subsubsection Characters to be preserved
+
+  And finally, the last of these tables.  URL encoding says that
+alphanumeric characters, the underscore, hyphen and the full stop
+@footnote{That's what the standards call it, though my North American
+readers will be more familiar with it as the period character.} retain
+their ASCII encoding, and don't undergo transformation.
+@code{url-coding-should-preserve-table} is an array in which the entries
+are one if the corresponding ASCII character should be left as-is, and
+zero if they should be transformed.  So the entries for all the control
+and most of the punctuation charcters are zero.  Lisp programmers will
+observe that this initialization is particularly inefficient, but
+they'll also be aware that this is a long way from an inner loop where
+every nanosecond counts.
+
+@example
+(defvar url-coding-should-preserve-table 
+  (let ((preserve 
+	 (list ?- ?_ ?. ?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?k ?l ?m ?n ?o 
+	       ?p ?q ?r ?s ?t ?u ?v ?w ?x ?y ?z ?A ?B ?C ?D ?E ?F ?G
+	       ?H ?I ?J ?K ?L ?M ?N ?O ?P ?Q ?R ?S ?T ?U ?V ?W ?X ?Y
+	       ?Z ?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9))
+	(i 0)
+	(res (make-vector 256 0)))
+    (while (< i 256)
+      (when (member (int-char i) preserve)
+	(aset res i 1))
+      (setq i (1+ i)))
+    res)
+  "A 256-entry array of flags, indicating whether or not to preserve an
+octet as its ASCII encoding.")
+@end example
+
+@node The program to decode to internal format, The program to encode from internal format, Characters to be preserved, CCL Example
+@subsubsection The program to decode to internal format
+
+  After the almost interminable tables, we get to the CCL.  The first
+CCL program, @code{ccl-decode-urlcoding} decodes from the URL coding to
+our internal format; since this version of CCL doesn't have support for
+error checking on the input, we don't do any verification on it.
+
+The buffer magnification--approximate ratio of the size of the output
+buffer to the size of the input buffer--is declared as one, because
+fractional values aren't allowed. (Since all those %20's will map to 
+` ', the length of the output text will be less than that of the input
+text.)  
+
+So, first we read an octet from the input buffer into register
+@samp{r0}, to set up the loop.  Next, we start the loop, with a
+@code{(loop ...)} statement, and we check if the value in @samp{r0} is a
+percentage sign.  (Note the comma before
+@code{url-coding-escape-character-code}; since CCL is a Lisp macro
+language, we can break out of the macro evaluation with a comman, and as
+such, ``@code{,url-coding-escape-character-code}'' will be evaluated as a
+literal `37.')  
+
+If it is a percentage sign, we read the next two octets into @samp{r2}
+and @samp{r3}, and convert them into their hexadecimal numeric values,
+using the @code{url-coding-latin-1-as-hex-table} array declared above.
+(But again, it'll be interpreted as a literal array.)  We then left
+shift the first by four bits, mask the two together, and write the
+result to the output buffer.
+
+If it isn't a percentage sign, and it is a `+' sign, we write a
+space--hexadecimal 20--to the output buffer. 
+
+If none of those things are true, we pass the octet to the output buffer
+untransformed.  (This could be a place to put error checking, in a more
+expressive language.)  We then read one more octet from the input
+buffer, and move to the next iteration of the loop. 
+
+@example
+(define-ccl-program ccl-decode-urlcoding
+  `(1	
+    ((read r0)
+     (loop
+       (if (r0 == ,url-coding-escape-character-code)
+	   ((read r2 r3)
+	    ;; Assign the value at offset r2 in the url-coding-hex-digit-table
+	    ;; to r3.
+	    (r2 = r2 ,url-coding-latin-1-as-hex-table)
+	    (r3 = r3 ,url-coding-latin-1-as-hex-table)
+	    (r2 <<= 4)
+	    (r3 |= r2)
+	    (write r3))
+	 (if (r0 == ,url-coding-escaped-space-code)
+	     (write #x20)
+	   (write r0)))
+       (read r0)
+       (repeat))))
+  "CCL program to take URI-encoded ASCII text and transform it to our
+internal encoding. ")
+@end example
+
+@node The program to encode from internal format, The actual coding system, The program to decode to internal format, CCL Example
+@subsubsection The program to encode from internal format
+
+  Next, we see the CCL program to encode ASCII text as URL coded text.
+Here, the buffer magnification is specified as three, to account for ` '
+mapping to %20, etc.  As before, we read an octet from the input into
+@samp{r0}, and move into the body of the loop.  Next, we check if we
+should preserve the value of this octet, by reading from offset
+@samp{r0} in the @code{url-coding-should-preserve-table} into @samp{r1}.
+Then we have an @samp{if} statement predicated on the value in
+@samp{r1}; for the true branch, we write the input octet directly.  For
+the false branch, we write a percentage sign, the ASCII encoding of the
+high four bits in hex, and then the ASCII encoding of the low four bits
+in hex. 
+
+We then read an octet from the input into @samp{r0}, and repeat the loop.
+
+@example
+(define-ccl-program ccl-encode-urlcoding
+  `(3
+    ((read r0)
+     (loop
+       (r1 = r0 ,url-coding-should-preserve-table)
+       ;; If we should preserve the value, just write the octet directly.
+       (if r1
+	   (write r0)
+	 ;; else, write a percentage sign, and the hex value of the octet, in
+	 ;; an ASCII-friendly format.
+	 ((write ,url-coding-escape-character-code)
+	  (write r0 ,url-coding-high-order-nybble-as-ascii)
+	  (write r0 ,url-coding-low-order-nybble-as-ascii)))
+       (read r0)
+       (repeat))))
+  "CCL program to encode octets (almost) according to RFC 1738")
+@end example
+
+@node The actual coding system, , The program to encode from internal format, CCL Example
+@subsubsection The actual coding system
+
+To actually create the coding system, we call
+@samp{make-coding-system}.  The first argument is the symbol that is to
+be the name of the coding system, in our case @samp{url-coding}. The
+second specifies that the coding system is to be of type
+@samp{ccl}---there are several other coding system types available,
+including, see the documentation for @samp{make-coding-system} for the
+full list. Then there's a documentation string describing the wherefore
+and caveats of the coding system, and the final argument is a property
+list giving information about the CCL programs and the coding system's
+mnemonic. 
+
+@example
+(make-coding-system 
+ 'url-coding 'ccl 
+ "The coding used by application/x-www-form-urlencoded HTTP applications.
+This coding form doesn't specify anything about non-ASCII characters, so
+make sure you've transformed to a seven-bit coding system first."
+ '(decode ccl-decode-urlcoding
+   encode ccl-encode-urlcoding
+   mnemonic "URLenc"))
+@end example
+
+If you're lucky, the @samp{url-coding} coding system describe here
+should be available in the XEmacs package system. Otherwise, downloading
+it from @samp{http://www.parhasard.net/url-coding.el} should work for
+the foreseeable future. 
 
 @node Category Tables, , CCL, MULE
 @section Category Tables

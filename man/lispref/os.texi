@@ -866,10 +866,10 @@ Under MS Windows, this is done:
 Return the value of ``@code{(getenv "HOME")}'', if set.
 
 @item
-If the environment variables @code{HOMEDRIVE} and @code{HOMEDIR} are
+If the environment variables @code{HOMEDRIVE} and @code{HOMEPATH} are
 both set, return the concatenation (the following description uses MS
 Windows environment variable substitution syntax):
-@code{%HOMEDRIVE%%HOMEDIR%}.
+@code{%HOMEDRIVE%%HOMEPATH%}.
 
 @item
 Return ``C:\'', as a fallback, but issue a warning.

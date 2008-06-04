@@ -5,11 +5,16 @@ shift
 
 tstr=""
 
-while [ $# -gt 0 ]
+while [[ $# -gt 0 ]]
 do
-  if [ -f $1.exe ]
+  if [[ -f $1.exe ]]
   then
-    tstr="$tstr$1.exe $2.exe"
+    if [[ "$2" == *.exe ]]
+    then
+      tstr="$tstr$1 $2"
+    else
+      tstr="$tstr$1.exe $2.exe"
+    fi
     shift 2
   else
     tstr="$tstr$1 "

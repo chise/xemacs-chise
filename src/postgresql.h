@@ -3,8 +3,8 @@
   Copyright (C) 2000 Electrotechnical Laboratory, JAPAN.
   Licensed to the Free Software Foundation.
 
-  Author:  SL Baur <steve@beopen.com>
-  Maintainer:  SL Baur <steve@beopen.com>
+  Author:  SL Baur <steve@xemacs.org>
+  Maintainer:  SL Baur <steve@xemacs.org>
 
 Please send patches to this file to me first before submitting them to
 xemacs-patches.

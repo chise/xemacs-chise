@@ -71,10 +71,20 @@ the cursor).  The cursor and all characters after it move backwards.
 Therefore, if you type a printing character and then type @key{DEL},
 they cancel out.
 
+  Unfortunately, computer and keyboard manufacturers differ over the
+name of the @key{DEL} key.  This is the key at the far right of the row
+of keys containing the digits, usually immediately above the @kbd{RET}
+key.  It is usually labelled ``Backspace'' or ``Delete'' or some
+abbreviation.  Modern keyboards will often have another key labelled
+``Del'' in the @emph{edit keypad} (along with an ``Ins'' key and perhaps
+some others).  This is not the @kbd{DEL} key referred to here.  It
+usually deletes @emph{forward} in Emacs.
+
 @kindex RET
 @cindex newline
 @findex auto-fill-mode
-   To end a line and start typing a new one, type @key{RET}.  This
+   To end a line and start typing a new one, type @key{RET}.  On some
+keyboards, this key is labelled ``Enter''.  This
 inserts a newline character in the buffer.  If point is in the middle of
 a line, @key{RET} splits the line.  Typing @key{DEL} when the cursor is
 at the beginning of a line rubs out the newline before the line, thus
@@ -241,24 +251,24 @@ forward one character). Negative arguments are also allowed. Often they tell
 a command to move or act backwards. For example, if you want to move
 down ten lines, type the following:
 @example
-C-u 10 C-n RET
+C-u 10 C-n
 @end example
 @noindent
-After you press @key{RET} key, the cursor will move ten lines
+After you press the @kbd{C-n} key, the cursor will move ten lines
 downward. You can also type:
 @example
-M-10 C-n RET
+M-10 C-n
 @end example
 @noindent
 Both @kbd{C-u} and @kbd{M-} allow you to give numeric arguments. If you
 want to move ten lines backward, you can also give negative arguments, like:
 @example
-C-u -10 C-n RET
+C-u -10 C-n
 @end example
 @noindent
 OR you could also type:
 @example
-M--10 C-n RET
+M--10 C-n
 @end example
 @noindent
 You can obviously use @kbd{C-b} to move backward rather than giving

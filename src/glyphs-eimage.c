@@ -847,7 +847,13 @@ png_instantiate_unwind (Lisp_Object unwind_obj)
 
   free_opaque_ptr (unwind_obj);
   if (data->png_ptr)
-    png_destroy_read_struct (&(data->png_ptr), &(data->info_ptr), (png_infopp)NULL);
+    {
+      /* ensure we can't get here again */
+      png_structp tmp = data->png_ptr;
+      data->png_ptr = NULL;
+      png_destroy_read_struct (&tmp, &(data->info_ptr), (png_infopp)NULL);
+    }
+
   if (data->instream)
     fclose (data->instream);
 
@@ -871,23 +877,35 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   png_structp png_ptr;
   png_infop info_ptr;
 
+  xzero (unwind);
+  record_unwind_protect (png_instantiate_unwind, make_opaque_ptr (&unwind));
+
+  if (setjmp (png_err_stct.setjmp_buffer))
+    {
+      /* Something blew up:
+	 just display the error (cleanup happens in the unwind) */
+      signal_image_error_2 ("Error decoding PNG",
+			     build_string(png_err_stct.err_str),
+			     instantiator);
+    }
+
   /* Initialize all PNG structures */
-  png_ptr = png_create_read_struct (PNG_LIBPNG_VER_STRING, (void*)&png_err_stct,
+  png_ptr = png_create_read_struct (PNG_LIBPNG_VER_STRING,
+				    (void *) &png_err_stct,
 				    png_error_func, png_warning_func);
   if (!png_ptr)
     signal_image_error ("Error obtaining memory for png_read", instantiator);
+  unwind.png_ptr = png_ptr;
+
   info_ptr = png_create_info_struct (png_ptr);
   if (!info_ptr)
     {
+      unwind.png_ptr = NULL;	/* avoid re-calling png_destroy_read_struct
+				   when unwinding */
       png_destroy_read_struct (&png_ptr, (png_infopp)NULL, (png_infopp)NULL);
       signal_image_error ("Error obtaining memory for png_read", instantiator);
     }
-
-  xzero (unwind);
-  unwind.png_ptr = png_ptr;
   unwind.info_ptr = info_ptr;
-
-  record_unwind_protect (png_instantiate_unwind, make_opaque_ptr (&unwind));
 
   /* This code is a mixture of stuff from Ben's GIF/JPEG stuff from
      this file, example.c from the libpng 0.81 distribution, and the
@@ -896,16 +914,6 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* It has been further modified to handle the API changes for 0.96,
      and is no longer usable for previous versions. jh
   */
-
-  /* Set the jmp_buf return context for png_error ... if this returns !0, then
-     we ran into a problem somewhere, and need to clean up after ourselves. */
-  if (setjmp (png_err_stct.setjmp_buffer))
-    {
-      /* Something blew up: just display the error (cleanup happens in the unwind) */
-      signal_image_error_2 ("Error decoding PNG",
-			     build_string(png_err_stct.err_str),
-			     instantiator);
-    }
 
   /* Initialize the IO layer and read in header information */
   {

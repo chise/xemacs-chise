@@ -5902,6 +5902,300 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-08-14  Marcus Crestani  <crestani@xemacs.org>
+
+	* s/sol2.h: Fix for GCC lossage not needed with SunOS 5.10.
+
+2007-02-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* glyphs-eimage.c (png_instantiate_unwind): Avoid recursion.
+	(png_instantiate): Initialize setjmp_buffer early, and avoid
+	recursive entry to error handler.
+
+2007-06-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* linuxplay.c (linux_play_data_or_file): More 64-bit tweaking, and
+	a typo fix.
+
+2007-05-12  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* event-Xt.c (x_reset_modifier_mapping):
+	* event-gtk.c (gtk_reset_modifier_mapping):
+	Zero out the device's modifier map once we've freed it, to prevent
+	a double free on a re-entrant call. 
+
+2007-05-17  Vin Shelton  <acs@xemacs.org>
+
+	* linuxplay.c (linux_play_data_or_file): Fix playing sound on
+	64-bit linux.  Patch from Hans de Graaff.
+
+2007-05-02  Vin Shelton  <acs@xemacs.org>
+
+	* dumper.c (pdump): Don't close pdump_fd (already closed by
+	fclose() call.  Patch from Steve Higham.
+	* callproc.c (Fold_call_process_internal): Don't close fd1 if it's
+	already closed.  Patch inspired by Steve Higham.
+
+2007-05-01  Vin Shelton  <acs@xemacs.org>
+
+	* nt.c (mswindows_stat): Tie _S_IEXEC permission to read access.
+	(mswindows_fstat): Ditto.
+	* sysfile.h: Under Windows, define X_OK to be the same as R_OK.
+
+2007-02-08  Adrian Aichner  <adrian@xemacs.org>
+
+	* postgresql.c: Update Steve Baur's email address by his request.
+	* postgresql.h: Ditto.
+
+2007-01-04  Vin Shelton  <acs@xemacs.org>
+
+	* fileio.c (check_writable): Check old-style readonly bit only for
+	non-directories.
+
+2006-12-25  Benson I. Margulies  <benson@dchbk.us>
+
+	* src/fileio.c (check_writable): 
+        Cope with the fact that the read-only attribute trumps Windows NTFS
+        ACLS.
+
+
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-12-08  Nelson Ferreira  <njsf@sxemacs.org>
+
+	* src/fns.c (XMALLOC_OR_ALLOCA,free_malloced_ptr,XMALLOC_UNBIND):
+	relocated the definitions to be used sooner in file.
+	(concat,plists_differ,mapcar1,Fmapconcat,Fmapcar): Use
+	XMALLOC_OR_ALLOCA macro instead of alloca to prevent stack
+	overflow.
+
+2006-11-29  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* sound.c (init_native_sound):
+	Only X11 and GTK devices can possibly not be on the console of the
+	associated machine. Fixes a crash when init_native_sound is called
+	on a msprinter device. 
+
+2006-11-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* buffer.c (buffer-file-name): Document invariant.
+	(buffer-file-truename): Sync wording to buffer-file-name.
+	Thanks to Nelson Ferreira <nelson.ferreira@ieee.org> for report
+	and discussion.
+
+2006-11-19  Benson Margulies  <benson@dchbk.us>
+
+	* fileio.c: Add code to use full Win32 API to check for write
+	access.  Win32 has the general design policy that you aren't
+	supposed to ask this question, since security checks change
+	depending on asynchronous processes.  Nonetheless, there is a way,
+	by acting as if we are a server doing interpretive access
+	control.
+
+2006-07-31  Aidan Kehoe <kehoea@parhasard.net>
+
+	* bytecode.c: Use xnew_array instead of alloca.
+
+2006-07-04  Vin Shelton  <acs@xemacs.org>
+
+	* redisplay-msw.c: Fix tiny, but crucial typo.
+
+2006-06-22  Jerry James  <james@xemacs.org>
+
+	* EmacsShell-sub.c (ChangeManaged):
+	* device-x.c (x_IO_error_handler): Do not dereference d if it is
+	NULL.
+	* dgif_lib.c (DGifCloseFile): Do not dereference GifFile before
+	checking if it is NULL.  Also fix a memory leak.
+	* dialog-x.c (dbox_selection_callback): Ensure f is non-NULL, then
+	dereference it, not the other way around.
+	* dumper.c (pdump_register_object): Fix off-by-one array bounds
+	overflow check.
+	* dumper.c (pdump_register_struct): Ditto.
+	* editfns.c (Ftemp_directory): Don't let a copy from (long) path
+	to (short) warnpath overflow warnpath.
+	* extents.c (detach_all_extents): Call extent_list_delete_all with
+	a non-NULL parameter only.
+	* glyphs-widget.c (widget_query_geometry): Guard against possibly
+	NULL width and height.
+	* input-method-xlib.c (XIM_SetGeometry): Do not dereference f or
+	xic before checking if they are NULL.
+	* keymap.c (where_is_recursive_mapper): Don't throw away the newly
+	allocated array.
+	* md5.c (Fmd5): Check whether Lstream_read encountered an error.
+	* nas.c (Err): Fix a memory leak.
+	* redisplay-gtk.c (gtk_output_display_block): Fix a Dynarr leak.
+	Don't create the buffer if there is nothing to do.
+	* redisplay-msw.c (mswindows_output_display_block): Ditto.
+	* redisplay-output.c (redisplay_output_layout): Ditto.
+	* redisplay-tty.c (tty_output_display_block): Ditto.
+	* redisplay-x.c (x_output_display_block): Ditto.
+	* scrollbar-gtk.c (gtk_free_scrollbar_instance): Do not
+	dereference instance->scrollbar_data if it is NULL.
+	* scrollbar-x.c (x_free_scrollbar_instance): Ditto.
+	* scrollbar-msw.c (mswindows_free_scrollbar_instance): Ditto, but
+	for sb->scrollbar_data.
+	* sound.c (init_native_sound): Avoid a buffer overflow by
+	allocating a buffer with the appropriate size.
+
+2006-05-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* EmacsShell-sub.c (RootGeometryManager):
+	Change garbage to useful messages under DEBUG_GEOMETRY_MANAGEMENT.
+	Based on a suggestion by Francois L'Archeveque.
+
+2006-03-21  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* regex.c: Bump INIT_FAILURE_ALLOC and re_max_failures to the
+	current values found in GNU Emacs.
+
+2006-03-17  Vin Shelton  <acs@xemacs.org>
+
+	* dialog-msw.c (handle_directory_dialog_box): Don't declare
+	Q_title here.  LOCAL_FILE_FORMAT_TO_TSTR requires an lvalue.
+
+	* glyphs-msw.c (read_bitmap_data): change 'initialized' to
+	'hex_initialized' because it conflicts with 'initialized' in
+	lisp.h.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-20  Rick Rankin <rrankin1424-xemacs@yahoo.com>
+
+	* sysdir.h: Workaround missing d_ino field from 'struct dirent'.
+
+2005-12-24  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* objects-gtk.c (MAX_FONT_COUNT): Increase MAX_FONT_COUNT from
+	5000 to INT_MAX.
+
+2005-12-05  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+
+	* database.c: Suppress compiler warning under Cygwin.
+	* database.c: Removed __FreeBSD__ check, should be handled by
+        HAVE_U_xxx_T defines.
+
+2005-12-18  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* console.c (stuff_buffered_input): Compile body only if
+	HAVE_TTY.
+
+2005-05-10  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* callproc.c: #include sysdir.h, so that any appropriate Mule
+	magic happens with the chdir() call when calling a subprocess. 
+
+2005-12-06  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* mule-ccl.c (POSSIBLE_LEADING_BYTE_P): Add.
+	* mule-ccl.c: Check that a character set exists before using it
+	to create a character. 
+
+2005-12-06  Vin Shelton  <acs@xemacs.org>
+
+	* objects-x.c (MAX_FONT_COUNT): Increase MAX_FONT_COUNT from 5000
+	to INT_MAX.
+
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
+2005-11-27  Kean Johnston <kean@armory.com>
+
+	* redisplay-tty.c (set_tty_modes):
+	(reset_tty_modes): disable auto-margins if the terminal supports
+	them.
+	(init_tty_for_redisplay): fix cursor shape.
+
+2005-04-05  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* mule-ccl.c (ccl_driver): Calculate the charset and position code
+	for control-1 characters properly, both when reading multibyte
+	characters and writing them. 
+
+2005-03-12  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* config.h.in: Make HAVE_XTREGISTERDRAWABLE available. 
+	* select-x.c (x_reply_selection_request): Use it; fix the bug we
+	were seeing with incremental selection transfer failing. 
+
+2005-11-26  Vin Shelton  <acs@xemacs.org>
+
+	* callproc.c (Fold_call_process_internal): Create the buffer if it
+	does not already exist.  The original patch came from Ben Wing in
+	http://list-archive.xemacs.org/xemacs-patches/200205/msg00117.html
+
+2002-05-13  Adrian Aichner  <adrian@xemacs.org>
+
+	* callproc.c: Process-related docstring improvements spurred by
+	Norbert Koch.
+
+2005-11-25  Vin Shelton  <acs@xemacs.org>
+
+	* depend: Regenerated.
+
+2005-07-11  Malcolm Purvis  <malcolmp@xemacs.org>
+
+	* glyphs-gtk.c:  Rename a local static variable because gcc 4.0
+	says it clashes with a global with the same name.
+
+2005-07-11  Atanu Ghosh <atanu@icsi.berkeley.edu>
+
+	* sysdll.c (dll_open): Under MacOS X return NULL under the
+	filename is NULL.  Fixes problems finding local symbols under 10.4
+	(Tiger)
+
+2005-11-15  Dr. Volker Zell  <Dr.Volker.Zell@oracle.com>
+	
+	* config.h.in: New HAVE_U_INT*_T defines.
+	
+	* database.c: Only use u_int*_t typedefs if not already
+	defined.
+
+2005-04-07 15:08  Enrico Scholz <enrico.scholz@informatik.tu-chemnitz.de>
+
+	* src/process-unix.c (unix_open_network_stream): moved
+	  'portbuf' buffer out of an inner block as it is used in the
+	  entire function. With gcc4, the stack may get corrupted
+	  after leaving this block. This patches adjusts the size of
+	  the used buffer also; static '128' bytes are far too much
+	  currently and might not suffice for future architectures
+	  (e.g. for 512 bit ones ;)). Instead of, use only the really
+	  required space (max octets * ln(256)/ln(10) chars + space
+	  for '\0' and the sign)
+
+2005-04-08  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* callproc.c: Include sysdir.h, so any necessary Mule processing
+	is done on the current directory name before starting a new
+	process.
+
+2005-04-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* chartab.c (Fchar_table_p):
+	(Fget_range_char_table):
+	(Fput_char_table):
+	(Fmap_char_table):
+	Describe range representation and fix typo.
+
+2005-02-12  Vin Shelton  <acs@xemacs.org>
+
+	* emacs.c (shut_down_emacs): Advise users to send email to the
+	xemacs-beta list instead of crashes@xemacs.org.
+
+2005-02-03  David Evers  <extsw@appliedgenerics.com>
+
+	* process-unix.c (unix_send_process): Flush the last chunk, even
+	when the pipe is blocked.
+
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released

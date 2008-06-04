@@ -426,13 +426,18 @@ XIM_init_frame (struct frame *f)
 void
 XIM_SetGeometry (struct frame *f)
 {
-  XIC      xic   = FRAME_X_XIC (f);
-  XIMStyle style = FRAME_X_XIC_STYLE (f);
+  XIC      xic;
+  XIMStyle style;
   XRectangle area;
 
-  if (!xic || !f)
+  if (!f)
     return;
 
+  xic = FRAME_X_XIC (f);
+  if (!xic)
+    return;
+
+  style = FRAME_X_XIC_STYLE (f);
   if (style & XIMStatusArea)
     {
       /* Place Status Area in bottom right corner */

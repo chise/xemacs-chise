@@ -71,7 +71,12 @@ If optional second arg NOT-THIS-WINDOW-P is non-nil, insist on finding
 another window even if BUFNAME is already visible in the selected window.
 If optional third arg is non-nil, it is the frame to pop to this
 buffer on.
-If `focus-follows-mouse' is non-nil, keyboard focus is left unchanged."
+If `focus-follows-mouse' is non-nil, keyboard focus is left unchanged.
+
+Buffers with names that are members of the `same-window-buffer-names'
+list, or that match an element of the `same-window-regexps' list are
+treated specially by this function--they are always selected in the
+same window rather than in a different one."
   ;; #ifdef I18N3
   ;; #### Doc string should indicate that the buffer name will get
   ;; translated.

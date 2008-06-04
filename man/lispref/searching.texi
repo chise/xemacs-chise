@@ -516,6 +516,19 @@ characters that stand for them.
 @item \S@var{code}
 @cindex @samp{\S} in regexp
 matches any character whose syntax is not @var{code}.
+
+@item \c@var{category}
+@cindex @samp{\c} in regexp
+matches any character in @var{category}. Only available under Mule,
+categories, and category tables, are further described in @ref{Category
+Tables}. They are a mechanism for constructing classes of characters
+that can be local to a buffer, and that do not require complicated []
+expressions every time they are referenced.
+
+@item \C@var{category}
+@cindex @samp{\C} in regexp
+matches any character outside @var{category}. @xref{Category Tables},
+again, and note that this is only available under Mule. 
 @end table
 
   The following regular expression constructs match the empty string---that is,

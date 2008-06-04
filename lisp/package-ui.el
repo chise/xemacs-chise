@@ -509,14 +509,15 @@ Designed to be called interactively (from a keypress)."
 (defun pui-display-maintainer (&optional no-error event)
   "Display a package's maintainer in the minibuffer."
   (interactive)
-  (let (extent pkg-sym info maintainer)
+  (let (extent ;pkg-sym
+	info maintainer)
     (save-excursion
       (beginning-of-line)
       (if (setq extent 	(extent-at (point) (current-buffer) 'pui))
 	  (progn
-	    (setq pkg-sym (extent-property extent 'pui-package)
-		  info (extent-property extent 'pui-info)
-		  maintainer (package-get-info-prop info 'maintainer))
+	    (setq ;pkg-sym (extent-property extent 'pui-package)
+	     info (extent-property extent 'pui-info)
+	     maintainer (package-get-info-prop info 'maintainer))
 	    (message (format "Maintainer: %s" maintainer)))
 	(if no-error
 	    (clear-message nil)
@@ -564,7 +565,7 @@ Useful keys:
   `\\[pui-toggle-package-delete-key]' to select/unselect the current package for removal.
   `\\[pui-add-required-packages]' to add any packages required by those selected.
   `\\[pui-install-selected-packages]' to install/delete selected packages.
-  `\\[pui-display-info]' to display additional information about the package in the modeline.
+  `\\[pui-display-info]' to display additional information about the package in the minibuffer.
   `\\[pui-display-maintainer]' to display the package's maintainer in the minibuffer
   `\\[pui-list-packages]' to refresh the package list.
   `\\[pui-toggle-verbosity-redisplay]' to toggle between a verbose and non-verbose display.
@@ -606,11 +607,11 @@ Warning: No download sites specified.  Package index may be out of date.
 "))
     
     (if pui-list-verbose
-	(insert "                 Latest Installed
-  Package name   Vers.  Vers.   Description
+	(insert "                       Latest Installed
+  Package name         Vers.  Vers.   Description
 ")
-      (insert "                 Latest
-  Package name   Vers.  Description
+      (insert "                       Latest
+  Package name         Vers.  Description
 "))
     (insert sep-string)
     (setq start (point))
@@ -639,13 +640,13 @@ Warning: No download sites specified.  Package index may be out of date.
 		  ((numberp current-vers)
 		   (setq current-vers (format "%.2f" current-vers))))
 		 (insert
-		  (format "%s %-15s %-5.2f  %-5s  %s\n"
+		  (format "%s %-20s %-5.2f  %-5s  %s\n"
 			  (car disp) pkg-sym 
 			  (if (stringp version)
 			      (string-to-number version)
 			    version)
 			  current-vers desc)))
-	     (insert (format "%s %-15s %-5s %s\n"
+	     (insert (format "%s %-20s %-5s %s\n"
 			     (car disp)
 			     pkg-sym version desc)))
 	   (save-excursion

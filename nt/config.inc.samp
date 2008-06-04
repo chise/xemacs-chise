@@ -4,7 +4,8 @@
 
 INSTALL_DIR=c:\Program Files\XEmacs\XEmacs-$(XEMACS_VERSION_STRING)
 
-PACKAGE_PREFIX=c:\Program Files\XEmacs
+# Set this if your packages are installed in an unusal place.
+#PACKAGE_PREFIX=c:\Program Files\XEmacs
 
 ############################################################################
 

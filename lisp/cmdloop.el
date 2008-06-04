@@ -70,8 +70,7 @@ If this character is typed at top-level, this simply beeps.
 If `zmacs-regions' is true, and the zmacs region is active in this buffer,
 then this key deactivates the region without beeping or signalling."
   (interactive)
-  (if (and (region-active-p)
-	   (eq (current-buffer) (zmacs-region-buffer)))
+  (if (region-active-p)
       ;; pseudo-zmacs compatibility: don't beep if this ^G is simply
       ;; deactivating the region.  If it is inactive, beep.
       nil

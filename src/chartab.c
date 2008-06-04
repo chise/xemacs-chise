@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2006 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1721,15 +1721,17 @@ once per character).
 When Mule support exists, the types of ranges that can be assigned
 values are
 
--- all characters
+-- all characters (represented by t)
 -- an entire charset
--- a single row in a two-octet charset
+-- a single row in a two-octet charset (represented by a vector of two
+   elements: a two-octet charset and a row number; the row must be an
+   integer, not a character)
 -- a single character
 
 When Mule support is not present, the types of ranges that can be
 assigned values are
 
--- all characters
+-- all characters (represented by t)
 -- a single character
 
 To create a char table, use `make-char-table'.
@@ -2231,8 +2233,11 @@ Find value for CHARACTER in CHAR-TABLE.
 }
 
 DEFUN ("get-range-char-table", Fget_range_char_table, 2, 3, 0, /*
-Find value for a range in CHAR-TABLE.
+Find value for RANGE in CHAR-TABLE.
 If there is more than one value, return MULTI (defaults to nil).
+
+Valid values for RANGE are single characters, charsets, a row in a
+two-octet charset, and all characters.  See `put-char-table'.
 */
        (range, char_table, multi))
 {
@@ -2627,8 +2632,9 @@ one of the following:
 
 -- t (all characters are affected)
 -- A charset (only allowed when Mule support is present)
--- A vector of two elements: a two-octet charset and a row number
-   (only allowed when Mule support is present)
+-- A vector of two elements: a two-octet charset and a row number; the row
+   must be an integer, not a character (only allowed when Mule support is
+   present)
 -- A single character
 
 VALUE must be a value appropriate for the type of CHAR-TABLE.
@@ -3103,8 +3109,8 @@ slow_map_char_table_fun (struct chartab_range *range,
 }
 
 DEFUN ("map-char-table", Fmap_char_table, 2, 3, 0, /*
-Map FUNCTION over entries in CHAR-TABLE, calling it with two args,
-each key and value in the table.
+Map FUNCTION over CHAR-TABLE until it returns non-nil; return that value.
+FUNCTION is called with two arguments, each key and entry in the table.
 
 RANGE specifies a subrange to map over and is in the same format as
 the RANGE argument to `put-range-table'.  If omitted or t, it defaults to
@@ -4170,12 +4176,18 @@ Load values of ATTRIBUTE into database file.
 #endif /* HAVE_CHISE */
 
 DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 3, 0, /*
-Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
-each key and value in the table.
+Map FUNCTION over ATTRIBUTE until it returns non-nil; return that value.
+FUNCTION is called with two arguments, each key and entry in the table.
 
-RANGE specifies a subrange to map over and is in the same format as
-the RANGE argument to `put-range-table'.  If omitted or t, it defaults to
+RANGE specifies a subrange to map over.  If omitted or t, it defaults to
 the entire table.
+
+Both RANGE and the keys passed to FUNCTION are in the same format as the
+RANGE argument to `put-char-table'.  N.B. This function does NOT map over
+all characters in RANGE, but over the subranges that have been assigned to.
+Thus this function is most suitable for searching a char-table, or for
+populating one char-table based on the contents of another.  The current
+implementation does not coalesce ranges all of whose values are the same.
 */
        (function, attribute, range))
 {

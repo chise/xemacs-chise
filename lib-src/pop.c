@@ -1,5 +1,7 @@
 /* pop.c: client routines for talking to a POP3-protocol post-office server
-   Copyright (c) 1991, 1993, 1996 Free Software Foundation, Inc.
+   Copyright (C) 1991, 1993, 1996, 1997, 1999, 2002, 2003, 2004,
+                 2005, 2006 Free Software Foundation, Inc.
+   Copyright (C) 2001 Ben Wing.
    Written by Jonathan Kamens, jik@security.ov.com.
 
 This file is part of GNU Emacs.
@@ -16,8 +18,10 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with GNU Emacs; see the file COPYING.  If not, write to
-the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-Boston, MA 02111-1307, USA.  */
+the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+Boston, MA 02110-1301, USA.  */
+
+/* Synched up with: FSF 22.0.50. */
 
 #ifdef HAVE_CONFIG_H
 #define NO_SHORTNAMES	/* Tell config not to load remap.h */
@@ -95,7 +99,7 @@ extern struct servent *hes_getservbyname (/* char *, char * */);
 #ifdef KERBEROS
 #ifndef KRB5
 extern int krb_sendauth (/* long, int, KTEXT, char *, char *, char *,
-			    unsigned long, MSG_DAT *, CREDENTIALS *, Key_schedule,
+			    u_long, MSG_DAT *, CREDENTIALS *, Key_schedule,
 			    struct sockaddr_in *, struct sockaddr_in *,
 			    char * */);
 extern char *krb_realmofhost (/* char * */);
@@ -109,7 +113,7 @@ extern int h_errno;
 #endif
 
 static int socket_connection (char *, int);
-static char *pop_getline (popserver);
+static int pop_getline (popserver, char **);
 static int sendline (popserver, char *);
 static int fullwrite (int, char *, int);
 static int getok (popserver);
@@ -117,9 +121,11 @@ static int getok (popserver);
 static int gettermination (popserver);
 #endif
 static void pop_trash (popserver);
-static char *find_crlf (char *);
+static char *find_crlf (char *, int);
 
-#define ERROR_MAX 80		/* a pretty arbitrary size */
+#define ERROR_MAX 160		/* a pretty arbitrary size, but needs
+				   to be bigger than the original
+				   value of 80 */
 #define POP_PORT 110
 #define KPOP_PORT 1109
 #if defined(WIN32_NATIVE) || defined(CYGWIN)
@@ -129,7 +135,7 @@ static char *find_crlf (char *);
 #endif
 #ifdef KERBEROS
 #ifdef KRB5
-#define KPOP_SERVICE "k5pop";
+#define KPOP_SERVICE "k5pop"
 #else
 #define KPOP_SERVICE "kpop"
 #endif
@@ -355,7 +361,7 @@ pop_stat (popserver server, int *count, int *size)
       return (-1);
     }
      
-  if (sendline (server, "STAT") || (! (fromserver = pop_getline (server))))
+  if (sendline (server, "STAT") || (pop_getline (server, &fromserver) < 0))
     return (-1);
 
   if (strncmp (fromserver, "+OK ", 4))
@@ -447,7 +453,7 @@ pop_list (popserver server, int message, int **IDs, int **sizes)
 	  free ((char *) *sizes);
 	  return (-1);
 	}
-      if (! (fromserver = pop_getline (server)))
+      if (pop_getline (server, &fromserver) < 0)
 	{
 	  free ((char *) *IDs);
 	  free ((char *) *sizes);
@@ -492,7 +498,7 @@ pop_list (popserver server, int message, int **IDs, int **sizes)
 	}
       for (i = 0; i < how_many; i++)
 	{
-	  if (pop_multi_next (server, &fromserver))
+	  if (pop_multi_next (server, &fromserver) <= 0)
 	    {
 	      free ((char *) *IDs);
 	      free ((char *) *sizes);
@@ -511,7 +517,7 @@ pop_list (popserver server, int message, int **IDs, int **sizes)
 	    }
 	  (*sizes)[i] = atoi (fromserver);
 	}
-      if (pop_multi_next (server, &fromserver))
+      if (pop_multi_next (server, &fromserver) < 0)
 	{
 	  free ((char *) *IDs);
 	  free ((char *) *sizes);
@@ -541,14 +547,17 @@ pop_list (popserver server, int message, int **IDs, int **sizes)
  *	markfrom
  * 		If true, then mark the string "From " at the beginning
  * 		of lines with '>'.
+ *	msg_buf	Output parameter to which a buffer containing the
+ * 		message is assigned.
  * 
- * Return value: A string pointing to the message, if successful, or
- * 	null with pop_error set if not.
+ * Return value: The number of bytes in msg_buf, which may contain
+ * 	embedded nulls, not including its final null, or -1 on error
+ * 	with pop_error set.
  *
  * Side effects: May kill connection on error.
  */
-char *
-pop_retrieve (popserver server, int message, int markfrom)
+int
+pop_retrieve (popserver server, int message, int markfrom, char **msg_buf)
 {
   int *IDs, *sizes, bufsize, fromcount = 0, cp = 0;
   char *ptr, *fromserver;
@@ -561,11 +570,11 @@ pop_retrieve (popserver server, int message, int markfrom)
     }
 
   if (pop_list (server, message, &IDs, &sizes))
-    return (0);
+    return (-1);
 
   if (pop_retrieve_first (server, message, &fromserver))
     {
-      return (0);
+      return (-1);
     }
 
   /*
@@ -583,17 +592,16 @@ pop_retrieve (popserver server, int message, int markfrom)
     {
       strcpy (pop_error, "Out of memory in pop_retrieve");
       pop_retrieve_flush (server);
-      return (0);
+      return (-1);
     }
 
-  while (! (ret = pop_retrieve_next (server, &fromserver)))
+  while ((ret = pop_retrieve_next (server, &fromserver)) >= 0)
     {
-      int linesize;
-
       if (! fromserver)
 	{
 	  ptr[cp] = '\0';
-	  return (ptr);
+	  *msg_buf = ptr;
+	  return (cp);
 	}
       if (markfrom && fromserver[0] == 'F' && fromserver[1] == 'r' &&
 	  fromserver[2] == 'o' && fromserver[3] == 'm' &&
@@ -607,25 +615,19 @@ pop_retrieve (popserver server, int message, int markfrom)
 		{
 		  strcpy (pop_error, "Out of memory in pop_retrieve");
 		  pop_retrieve_flush (server);
-		  return (0);
+		  return (-1);
 		}
 	      fromcount = 0;
 	    }
 	  ptr[cp++] = '>';
 	}
-      linesize = strlen (fromserver);
-      memcpy (&ptr[cp], fromserver, linesize);
-      cp += linesize;
+      memcpy (&ptr[cp], fromserver, ret);
+      cp += ret;
       ptr[cp++] = '\n';
     }
 
-  if (ret)
-    {
-      free (ptr);
-      /* return (0); */
-    }
-  /* This function used to fall off the end, but that doesn't make any sense */
-  return (0);
+  free (ptr);
+  return (-1);
 }     
 
 int
@@ -634,6 +636,14 @@ pop_retrieve_first (popserver server, int message, char **response)
   sprintf (pop_error, "RETR %d", message);
   return (pop_multi_first (server, pop_error, response));
 }
+
+/*
+  Returns a negative number on error, 0 to indicate that the data has
+  all been read (i.e., the server has returned a "." termination
+  line), or a positive number indicating the number of bytes in the
+  returned buffer (which is null-terminated and may contain embedded
+  nulls, but the returned bytecount doesn't include the final null).
+  */
 
 int
 pop_retrieve_next (popserver server, char **line)
@@ -653,6 +663,14 @@ pop_top_first (popserver server, int message, int lines, char **response)
   sprintf (pop_error, "TOP %d %d", message, lines);
   return (pop_multi_first (server, pop_error, response));
 }
+
+/*
+  Returns a negative number on error, 0 to indicate that the data has
+  all been read (i.e., the server has returned a "." termination
+  line), or a positive number indicating the number of bytes in the
+  returned buffer (which is null-terminated and may contain embedded
+  nulls, but the returned bytecount doesn't include the final null).
+  */
 
 int
 pop_top_next (popserver server, char **line)
@@ -676,7 +694,7 @@ pop_multi_first (popserver server, char *command, char **response)
       return (-1);
     }
 
-  if (sendline (server, command) || (! (*response = pop_getline (server))))
+  if (sendline (server, command) || (pop_getline (server, response) < 0))
     {
       return (-1);
     }
@@ -700,10 +718,20 @@ pop_multi_first (popserver server, char *command, char **response)
     }
 }
 
+/*
+  Read the next line of data from SERVER and place a pointer to it
+  into LINE.  Return -1 on error, 0 if there are no more lines to read
+  (i.e., the server has returned a line containing only "."), or a
+  positive number indicating the number of bytes in the LINE buffer
+  (not including the final null).  The data in that buffer may contain
+  embedded nulls, but does not contain the final CRLF. When returning
+  0, LINE is set to null. */
+
 int
 pop_multi_next (popserver server, char **line)
 {
   char *fromserver;
+  int ret;
 
   if (! server->in_multi)
     {
@@ -711,8 +739,7 @@ pop_multi_next (popserver server, char **line)
       return (-1);
     }
 
-  fromserver = pop_getline (server);
-  if (! fromserver)
+  if ((ret = pop_getline (server, &fromserver)) < 0)
     {
       return (-1);
     }
@@ -728,13 +755,13 @@ pop_multi_next (popserver server, char **line)
       else
 	{
 	  *line = fromserver + 1;
-	  return (0);
+	  return (ret - 1);
 	}
     }
   else
     {
       *line = fromserver;
-      return (0);
+      return (ret);
     }
 }
 
@@ -742,21 +769,22 @@ int
 pop_multi_flush (popserver server)
 {
   char *line;
+  int ret;
 
   if (! server->in_multi)
     {
       return (0);
     }
 
-  while (! pop_multi_next (server, &line))
+  while ((ret = pop_multi_next (server, &line)))
     {
-      if (! line)
+      if (ret < 0)
 	{
-	  return (0);
+	  return (-1);
 	}
     }
 
-  return (-1);
+  return (0);
 }
 
 /* Function: pop_delete
@@ -843,7 +871,7 @@ pop_last (popserver server)
   if (sendline (server, "LAST"))
     return (-1);
 
-  if (! (fromserver = pop_getline (server)))
+  if (pop_getline (server, &fromserver) < 0)
     return (-1);
 
   if (! strncmp (fromserver, "-ERR", 4))
@@ -961,6 +989,8 @@ socket_connection (char *host, int flags)
 #ifdef KERBEROS
 #ifdef KRB5
   krb5_error_code rem;
+  krb5_context kcontext = 0;
+  krb5_auth_context auth_context = 0;
   krb5_ccache ccdef;
   krb5_principal client, server;
   krb5_error *err_ret;
@@ -971,6 +1001,7 @@ socket_connection (char *host, int flags)
   CREDENTIALS cred;
   Key_schedule schedule;
   int rem;
+  char *realhost;
 #endif /* KRB5 */
 #endif /* KERBEROS */
 
@@ -983,21 +1014,6 @@ socket_connection (char *host, int flags)
       have_winsock = 1;
   }
 #endif
-
-  do
-    {
-      hostent = gethostbyname (host);
-      try_count++;
-      if ((! hostent) 
-#ifndef BROKEN_CYGWIN	  
-	  && ((h_errno != TRY_AGAIN) || (try_count == 5))
-#endif
-	  )
-	{
-	  strcpy (pop_error, "Could not determine POP server's address");
-	  return (-1);
-	}
-    } while (! hostent);
 
   memset (&addr, 0, sizeof (addr));
   addr.sin_family = AF_INET;
@@ -1037,17 +1053,32 @@ socket_connection (char *host, int flags)
 	}
     }
 
-#define SOCKET_ERROR "Could not create socket for POP connection: "
+#define POP_SOCKET_ERROR "Could not create socket for POP connection: "
 
   sock = socket (PF_INET, SOCK_STREAM, 0);
   if (sock < 0)
     {
-      strcpy (pop_error, SOCKET_ERROR);
+      strcpy (pop_error, POP_SOCKET_ERROR);
       strncat (pop_error, strerror (errno),
-	       ERROR_MAX - sizeof (SOCKET_ERROR));
+	       ERROR_MAX - sizeof (POP_SOCKET_ERROR));
       return (-1);
 	  
     }
+
+  do
+    {
+      hostent = gethostbyname (host);
+      try_count++;
+      if ((! hostent) 
+#ifndef BROKEN_CYGWIN	  
+	  && ((h_errno != TRY_AGAIN) || (try_count == 5))
+#endif
+	  )
+	{
+	  strcpy (pop_error, "Could not determine POP server's address");
+	  return (-1);
+	}
+    } while (! hostent);
 
   while (*hostent->h_addr_list)
     {
@@ -1074,11 +1105,13 @@ socket_connection (char *host, int flags)
   if (! (flags & POP_NO_KERBEROS))
     {
 #ifdef KRB5
-      krb5_init_ets ();
-
-      if (rem = krb5_cc_default (&ccdef))
+      if ((rem = krb5_init_context (&kcontext)))
 	{
 	krb5error:
+	  if (auth_context)
+	    krb5_auth_con_free (kcontext, auth_context);
+	  if (kcontext)
+	    krb5_free_context (kcontext);
 	  strcpy (pop_error, KRB_ERROR);
 	  strncat (pop_error, error_message (rem),
 		   ERROR_MAX - sizeof(KRB_ERROR));
@@ -1086,10 +1119,14 @@ socket_connection (char *host, int flags)
 	  return (-1);
 	}
 
-      if (rem = krb5_cc_get_principal (ccdef, &client))
-	{
-	  goto krb5error;
-	}
+      if ((rem = krb5_auth_con_init (kcontext, &auth_context)))
+	goto krb5error;
+
+      if (rem = krb5_cc_default (kcontext, &ccdef))
+	goto krb5error;
+
+      if (rem = krb5_cc_get_principal (kcontext, ccdef, &client))
+	goto krb5error;
 
       for (cp = hostent->h_name; *cp; cp++)
 	{
@@ -1099,22 +1136,20 @@ socket_connection (char *host, int flags)
 	    }
 	}
 
-      if (rem = krb5_sname_to_principal (hostent->h_name, POP_SERVICE,
-					 FALSE, &server))
-	{
-	  goto krb5error;
-	}
+      if (rem = krb5_sname_to_principal (kcontext, hostent->h_name,
+					 POP_SERVICE, FALSE, &server))
+	goto krb5error;
 
-      rem = krb5_sendauth ((krb5_pointer) &sock, "KPOPV1.0", client, server,
+      rem = krb5_sendauth (kcontext, &auth_context,
+			   (krb5_pointer) &sock, "KPOPV1.0", client, server,
 			  AP_OPTS_MUTUAL_REQUIRED,
 			  0,	/* no checksum */
 			  0,	/* no creds, use ccache instead */
 			  ccdef,
-			  0,	/* don't need seq # */
-			  0,	/* don't need subsession key */
 			  &err_ret,
+			  0,	/* don't need subsession key */
 			  0);	/* don't need reply */
-      krb5_free_principal (server);
+      krb5_free_principal (kcontext, server);
       if (rem)
 	{
 	  if (err_ret && err_ret->text.length)
@@ -1137,20 +1172,23 @@ socket_connection (char *host, int flags)
 		       ERROR_MAX - sizeof (KRB_ERROR));
 	    }
 	  if (err_ret)
-	    krb5_free_error (err_ret);
+	    krb5_free_error (kcontext, err_ret);
+	  krb5_auth_con_free (kcontext, auth_context);
+	  krb5_free_context (kcontext);
 
 	  CLOSESOCKET (sock);
 	  return (-1);
 	}
 #else  /* ! KRB5 */	  
       ticket = (KTEXT) malloc (sizeof (KTEXT_ST));
-      rem = krb_sendauth (0L, sock, ticket, "pop", hostent->h_name,
-			  (char *) krb_realmofhost (hostent->h_name),
+      rem = krb_sendauth (0L, sock, ticket, "pop", realhost,
+			  (char *) krb_realmofhost (realhost),
 			  (unsigned long) 0, &msg_data, &cred, schedule,
 			  (struct sockaddr_in *) 0,
 			  (struct sockaddr_in *) 0,
 			  "KPOPV0.1");
       free ((char *) ticket);
+      free (realhost);
       if (rem != KSUCCESS)
 	{
 	  strcpy (pop_error, KRB_ERROR);
@@ -1177,15 +1215,20 @@ socket_connection (char *host, int flags)
  * Arguments:
  * 	server	The server from which to get the line of text.
  *
- * Returns: A non-null pointer if successful, or a null pointer on any
- * 	error, with an error message copied into pop_error.
+ * Returns: The number of characters in the line, which is returned in
+ * 	LINE, not including the final null.  A return value of 0
+ * 	indicates a blank line.  A negative return value indicates an
+ * 	error (in which case the contents of LINE are undefined.  In
+ * 	case of error, an error message is copied into pop_error.
  *
  * Notes: The line returned is overwritten with each call to pop_getline.
  *
  * Side effects: Closes the connection on error.
+ *
+ * THE RETURNED LINE MAY CONTAIN EMBEDDED NULLS!
  */
-static char *
-pop_getline (popserver server)
+static int
+pop_getline (popserver server, char **line)
 {
 #define GETLINE_ERROR "Error reading from server: "
 
@@ -1194,7 +1237,8 @@ pop_getline (popserver server)
 
   if (server->data)
     {
-      char *cp = find_crlf (server->buffer + server->buffer_index);
+      char *cp = find_crlf (server->buffer + server->buffer_index,
+			    server->data);
       if (cp)
 	{
 	  int found;
@@ -1208,8 +1252,11 @@ pop_getline (popserver server)
 	  server->buffer_index += data_used;
 
 	  if (pop_debug)
+	    /* Embedded nulls will truncate this output prematurely,
+	       but that's OK because it's just for debugging anyway. */
 	    fprintf (stderr, "<<< %s\n", server->buffer + found);
-	  return (server->buffer + found);
+	  *line = server->buffer + found;
+	  return (data_used - 2);
 	}
       else
 	{
@@ -1245,7 +1292,7 @@ pop_getline (popserver server)
 	    {
 	      strcpy (pop_error, "Out of memory in pop_getline");
 	      pop_trash (server);
-	      return (0);
+	      return (-1);
 	    }
 	}
       ret = RECV (server->file, server->buffer + server->data,
@@ -1256,13 +1303,13 @@ pop_getline (popserver server)
 	  strncat (pop_error, strerror (errno),
 		   ERROR_MAX - sizeof (GETLINE_ERROR));
 	  pop_trash (server);
-	  return (0);
+	  return (-1);
 	}
       else if (ret == 0)
 	{
 	  strcpy (pop_error, "Unexpected EOF from server in pop_getline");
 	  pop_trash (server);
-	  return (0);
+	  return (-1);
 	}
       else
 	{
@@ -1270,7 +1317,8 @@ pop_getline (popserver server)
 	  server->data += ret;
 	  server->buffer[server->data] = '\0';
 	       
-	  cp = find_crlf (server->buffer + search_offset);
+	  cp = find_crlf (server->buffer + search_offset,
+			  server->data - search_offset);
 	  if (cp)
 	    {
 	      int data_used = (cp + 2) - server->buffer;
@@ -1280,9 +1328,12 @@ pop_getline (popserver server)
 
 	      if (pop_debug)
 		fprintf (stderr, "<<< %s\n", server->buffer);
-	      return (server->buffer);
+	      *line = server->buffer;
+	      return (data_used - 2);
 	    }
-	  search_offset += ret;
+	  /* As above, the "- 1" here is to account for the fact that
+	     we may have read a CR without its accompanying LF. */
+	  search_offset += ret - 1;
 	}
     }
 
@@ -1312,12 +1363,24 @@ sendline (popserver server, char *line)
 {
 #define SENDLINE_ERROR "Error writing to POP server: "
   int ret;
+  char *buf;
 
+  /* Combine the string and the CR-LF into one buffer.  Otherwise, two
+     reasonable network stack optimizations, Nagle's algorithm and
+     delayed acks, combine to delay us a fraction of a second on every
+     message we send.  (Movemail writes line without \r\n, client
+     kernel sends packet, server kernel delays the ack to see if it
+     can combine it with data, movemail writes \r\n, client kernel
+     waits because it has unacked data already in its outgoing queue,
+     client kernel eventually times out and sends.)
+
+     This can be something like 0.2s per command, which can add up
+     over a few dozen messages, and is a big chunk of the time we
+     spend fetching mail from a server close by.  */
+  buf = alloca (strlen (line) + 3);
+  strcpy (buf, line);
+  strcat (buf, "\r\n");
   ret = fullwrite (server->file, line, strlen (line));
-  if (ret >= 0)
-    {				/* 0 indicates that a blank line was written */
-      ret = fullwrite (server->file, "\r\n", 2);
-    }
 
   if (ret < 0)
     {
@@ -1346,10 +1409,10 @@ static int
 fullwrite (int fd, char *buf, int nbytes)
 {
   char *cp;
-  int ret;
+  int ret = 0;
 
   cp = buf;
-  while ((ret = SEND (fd, cp, nbytes, 0)) > 0)
+  while (nbytes && ((ret = SEND (fd, cp, nbytes, 0)) > 0))
     {
       cp += ret;
       nbytes -= ret;
@@ -1377,7 +1440,7 @@ getok (popserver server)
 {
   char *fromline;
 
-  if (! (fromline = pop_getline (server)))
+  if (pop_getline (server, &fromline) < 0)
     {
       return (-1);
     }
@@ -1415,8 +1478,7 @@ gettermination (popserver server)
 {
   char *fromserver;
 
-  fromserver = pop_getline (server);
-  if (! fromserver)
+  if (pop_getline (server, &fromserver) < 0)
     return (-1);
 
   if (strcmp (fromserver, "."))
@@ -1487,17 +1549,16 @@ pop_trash (popserver server)
 #endif
 }
 
-/* Return a pointer to the first CRLF in IN_STRING,
-   or 0 if it does not contain one.  */
+/* Return a pointer to the first CRLF in IN_STRING, which can contain
+   embedded nulls and has LEN characters in it not including the final
+   null, or 0 if it does not contain one.  */
 
 static char *
-find_crlf (char *in_string)
+find_crlf (char *in_string, int len)
 {
-  while (1)
+  while (len--)
     {
-      if (! *in_string)
-	return (0);
-      else if (*in_string == '\r')
+      if (*in_string == '\r')
 	{
 	  if (*++in_string == '\n')
 	    return (in_string - 1);
@@ -1505,7 +1566,7 @@ find_crlf (char *in_string)
       else
 	in_string++;
     }
-  /* NOTREACHED */
+  return (0);
 }
 
 #endif /* MAIL_USE_POP */

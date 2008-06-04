@@ -78,6 +78,35 @@ the Assert macro checks for correctness."
 ;; once compiled, for no good reason.
 (test-chars t)
 
+;;----------------------------------------------------------------
+;; Test that revert-buffer resets the modiff
+;; Bug reported 2007-06-20 <200706201902.32191.scop@xemacs.org>.
+;; Fixed 2007-06-22 <18043.2793.611745.734215@parhasard.net>.
+;;----------------------------------------------------------------
+
+;; #### need a temp file name but this will do for now
+(let ((test-file-name (expand-file-name "~/test-revert-buffer-resets-modiff"))
+      revert-buffer-function
+      kill-buffer-hook)		; paranoia
+  (find-file test-file-name)
+  (erase-buffer)
+  (insert "a string\n")
+  (save-buffer 0)
+  (insert "more text\n")
+  (revert-buffer t t)
+  ;; Just "find-file" with autodetect coding didn't fail for me, but it does
+  ;; fail under test harness.  Still we'll redo the test with an explicit
+  ;; coding system just in case.
+  (Assert (not (buffer-modified-p)))
+  (kill-buffer nil)
+  (when (find-coding-system 'utf-8)
+    (find-file test-file-name 'utf-8)
+    (insert "more text\n")
+    (revert-buffer t t)
+    (Assert (not (buffer-modified-p)))
+    (kill-buffer nil))
+  (delete-file test-file-name))
+
 ;;-----------------------------------------------------------------
 ;; Test string modification functions that modify the length of a char.
 ;;-----------------------------------------------------------------
@@ -301,8 +330,7 @@ the Assert macro checks for correctness."
 	 (name1 (make-temp-name prefix))
 	 (name2 (make-temp-name prefix))
 	 (file-name-coding-system 'iso-8859-2))
-    ;; This is how you suppress output from `message', called by `write-region'
-    (flet ((append-message (&rest args) ()))
+    (Silence-Message
       (Assert (not (equal name1 name2)))
       ;; Kludge to handle Mac OS X which groks only UTF-8.
       (cond ((eq system-type 'darwin)
@@ -320,6 +348,27 @@ the Assert macro checks for correctness."
 	(Assert (equal (file-truename name1) name1)))
 
       (ignore-file-errors (delete-file name1) (delete-file name2))))
+  ;; Is a non-Latin-1 directory name preserved for call-process?
+  (when (and
+	 ;; The bug should manifest itself on Windows, but I've no access
+	 ;; to a Windows machine to verify that any test works.
+	 (eq directory-sep-char ?/)
+	 ;; file-name-coding-system on Darwin is _always_ UTF-8--the system
+	 ;; enforces this--which coding system we don't have available in
+	 ;; 21.4, outside of packages. I could jump through lots of hoops to
+	 ;; have the test work anyway, but I'm not really into that right
+	 ;; now.
+	 (not (eq system-type 'darwin)))
+    (let ((process-coding-system-alist '((".*" . iso-8859-1)))
+	  (file-name-coding-system 'iso-8859-1)
+	  default-directory)
+      (make-directory (concat (temp-directory) "/\260\354"))
+      (setq file-name-coding-system 'euc-jp)
+      (setq default-directory (format "%s/%c/" (temp-directory)
+				      (make-char 'japanese-jisx0208 48 108)))
+      (Assert (equal (shell-command-to-string "pwd") 
+		     (format "%s/\260\354\n" (temp-directory))))
+      (delete-directory default-directory)))
 
   ;; Add many more file operation tests here...
 

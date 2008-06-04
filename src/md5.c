@@ -581,7 +581,7 @@ file-coding or Mule support.  Otherwise, they are ignored.
       Bufbyte tempbuf[1024];	/* some random amount */
       Lstream_data_count size_in_bytes =
 	Lstream_read (XLSTREAM (instream), tempbuf, sizeof (tempbuf));
-      if (!size_in_bytes)
+      if (size_in_bytes <= 0)
 	break;
 
       /* Process the bytes.  */

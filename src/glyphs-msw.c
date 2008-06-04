@@ -1460,7 +1460,7 @@ in this Software without prior written authorization from the X Consortium.
 
 /* shared data for the image read/parse logic */
 static short hexTable[256];		/* conversion value */
-static int initialized = FALSE;	/* easier to fill in at run time */
+static int hex_initialized = FALSE;	/* easier to fill in at run time */
 
 /*
  *	Table index for the hex values. Initialized once, first time.
@@ -1494,7 +1494,7 @@ initHexTable (void)
     hexTable['}'] = -1;	hexTable['\n'] = -1;
     hexTable['\t'] = -1;
 
-    initialized = TRUE;
+    hex_initialized = TRUE;
 }
 
 /*
@@ -1557,7 +1557,7 @@ int read_bitmap_data (FILE* fstream, unsigned int *width,
 #define Xmalloc(size) malloc(size)
 
     /* first time initialization */
-    if (initialized == FALSE) initHexTable();
+    if (hex_initialized == FALSE) initHexTable();
 
     /* error cleanup and return macro	*/
 #define	RETURN(code) { if (data) free (data); return code; }

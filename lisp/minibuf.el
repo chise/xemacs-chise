@@ -271,8 +271,7 @@ in `substitute-in-file-name'."
 If `zmacs-regions' is true, and the zmacs region is active in this buffer,
 then this key deactivates the region without beeping."
   (interactive)
-  (if (and (region-active-p)
-	   (eq (current-buffer) (zmacs-region-buffer)))
+  (if (region-active-p)
       ;; pseudo-zmacs compatibility: don't beep if this ^G is simply
       ;; deactivating the region.  If it is inactive, beep.
       nil
@@ -2197,7 +2196,9 @@ whether it is a file(/result) or a directory (/result/)."
 				"/usr/local/lib/X11R5/X11/"
 				"/usr/X11/lib/X11/"
 				"/usr/lib/X11/"
+				"/usr/share/X11/"
 				"/usr/local/lib/X11/"
+				"/usr/local/share/X11/"
 				"/usr/X386/lib/X11/"
 				"/usr/x386/lib/X11/"
 				"/usr/XFree86/lib/X11/"

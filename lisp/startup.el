@@ -715,43 +715,56 @@ perform the migration at any time with M-x migrate-user-init-file.")
 	      (yes-or-no-p-minibuf (concat "Migrate init file to "
 					   user-init-directory
 					   "? "))))
-	  (progn
-	    (migrate-user-init-file)
-	    (maybe-create-compatibility-dot-emacs))
-	(customize-save-variable 'load-home-init-file t))))
 
-(defun maybe-create-compatibility-dot-emacs ()
-  "Ask user if she wants to create a .emacs compatibility file."
-  (if (with-output-to-temp-buffer (help-buffer-name nil)
-	(progn
-	  (princ "The initialization code has now been migrated to the ")
-	  (princ user-init-directory)
-	  (princ "directory.
+	  (let ((backup (migrate-user-init-file)))
+	    (with-output-to-temp-buffer (help-buffer-name nil)
+	      (progn
+	      (princ "The initialization code has now been migrated to the ")
+	      (princ user-init-directory)
+	      (princ "directory.
 
 For backwards compatibility with, for example, older versions of XEmacs,
 XEmacs can create a special old-style .emacs file in your home
 directory which will load the relocated initialization code.")
-	  (show-temp-buffer-in-current-frame standard-output)
-	  (yes-or-no-p-minibuf "Create compatibility .emacs? ")))
+	      (if backup
+		  (progn
+		    (princ "\nMoreover, a backup of your old .emacs file was created as\n")
+		    (princ backup)
+		    (princ ".\n")))
+	      (show-temp-buffer-in-current-frame standard-output)
+	      (maybe-create-compatibility-dot-emacs))))
+	(customize-save-variable 'load-home-init-file t))))
+
+(defun maybe-create-compatibility-dot-emacs ()
+  "Ask user if she wants to create a .emacs compatibility file."
+  (if (yes-or-no-p-minibuf "Create compatibility .emacs? ")
       (create-compatibility-dot-emacs)))
 
 (defun migrate-user-init-file ()
-  "Migrate the init file from the home directory."
+  "Migrate the init file from the home directory.
+Return the name of backup file, if one was created."
   (interactive)
   (if (not (file-exists-p user-init-directory))
       (progn
 	(message "Creating %s directory..." user-init-directory)
 	(make-directory user-init-directory)))
   (message "Migrating custom file...")
-  (customize-set-value 'load-home-init-file nil)
-  (custom-migrate-custom-file (make-custom-file-name user-init-file
-						     'force-new))
-  (message "Moving init file...")
-  (let ((new-user-init-file (expand-file-name user-init-file-base
-					      user-init-directory)))
-    (rename-file user-init-file new-user-init-file)
-    (setq user-init-file new-user-init-file))
-  (message "Migration done."))
+  (let* ((backup (concat user-init-file ".backup"))
+	 (backup-p
+	  (and (not (file-exists-p backup))
+	       (progn
+		 (copy-file user-init-file backup)
+		 t))))
+    (customize-set-value 'load-home-init-file nil)
+    (custom-migrate-custom-file (make-custom-file-name user-init-file
+						       'force-new))
+    (message "Moving init file...")
+    (let ((new-user-init-file (expand-file-name user-init-file-base
+						user-init-directory)))
+      (rename-file user-init-file new-user-init-file)
+      (setq user-init-file new-user-init-file))
+    (message "Migration done.")
+    (and backup-p backup)))
 
 (defun create-compatibility-dot-emacs ()
   "Create .emacs compatibility file for migrated setup."

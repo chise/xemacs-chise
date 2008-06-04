@@ -82,6 +82,8 @@ struct tty_console
 					   character info */
     unsigned int flow_control :1;	/* Nonzero means use ^S/^Q as
 					   cretinous flow control.  */
+    unsigned int auto_margins :1;	/* Nonzero means terminal wraps when
+					   writing to the last column */
     int standout_width;		        /* # of spaces printed when
 				           change to standout mode */
     int underline_width;		/* # of spaces printed when
@@ -175,6 +177,9 @@ struct tty_console
     const char *keypad_off;		/* rmkx, ke */
 
     const char *orig_pair;		/* op, op */
+
+    const char *disable_auto_margins;	/* rmam, RA */
+    const char *enable_auto_margins;	/* smam, SA */
   } sd;
 
   /* costs of various operations */

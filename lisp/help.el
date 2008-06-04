@@ -736,7 +736,7 @@ of the key sequence that ran this command."
 (defun view-emacs-news ()
   "Display info on recent changes to XEmacs."
   (interactive)
-  (Help-find-file (locate-data-file "NEWS")))
+  (Help-find-file (expand-file-name "NEWS" data-directory)))
 
 (defun xemacs-www-page ()
   "Go to the XEmacs World Wide Web page."

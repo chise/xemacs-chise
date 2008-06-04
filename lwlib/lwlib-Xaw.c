@@ -597,11 +597,14 @@ wm_delete_window (Widget shell, XtPointer closure, XtPointer call_data)
     abort ();
   XtSetArg (al [0], XtNchildren, &kids);
   XtGetValues (shell, al, 1);
-  if (!kids || !*kids)
-    abort ();
-  widget = kids [0];
-  if (! XtIsSubclass (widget, dialogWidgetClass))
-    abort ();
+  if (!kids || !*kids) abort ();
+
+  for (widget = *kids;
+       widget && ! XtIsSubclass (widget, dialogWidgetClass);
+       widget = *++kids)
+    ;
+  if (!widget) abort ();
+
   id = lw_get_widget_id (widget);
   if (! id) abort ();
 

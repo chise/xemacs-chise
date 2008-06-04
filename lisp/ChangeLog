@@ -1363,6 +1363,228 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2007-10-07  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.21 is released
+
+2007-09-19  Didier Verna  <didier@xemacs.org>
+
+	Update my personal info.
+	* about.el (xemacs-hackers): Use 'didier instead of 'dv.
+	* about.el (about-other-current-hackers): Ditto.
+	* about.el (about-url-alist): Add my musical website.
+	* about.el (about-personal-info): Update my entry.
+	* about.el (about-hacker-contribution): Ditto.
+
+2007-08-21  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Update download
+	sites in Japan.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2007-08-18  Vin Shelton  <acs@xemacs.org>
+
+	* package-get.el (package-get-pre-release-download-sites): Sync
+	mirror sites with 21.5.  (Thanks, Adrian)
+
+2007-08-09  Mike Sperber  <mike@xemacs.org>
+
+	* startup.el (migrate-user-init-file): Create backup of
+	`user-init-file' before migrating.
+	* startup.el (maybe-migrate-user-init-file): Print
+	information about backup file.
+	(maybe-create-compatibility-dot-emacs): Follow above change.
+
+2006-11-02  Adrian Aichner  <adrian@xemacs.org>
+
+	* font-lock.el: Sync font-lock-add-keywords and
+	font-lock-remove-keywords from GNU Emacs.
+	* font-lock.el (font-lock-keywords-alist): New.
+	* font-lock.el (font-lock-removed-keywords-alist): New.
+	* font-lock.el (font-lock-add-keywords): New.
+	* font-lock.el (font-lock-update-removed-keyword-alist): New.
+	* font-lock.el (font-lock-remove-keywords): New.
+
+2007-08-16  Vin Shelton  <acs@xemacs.org>
+
+	* font-lock.el: Add defvar for font-lock-warning-face.  Original
+	patch from Hans de Graaff.
+
+2007-07-28  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Document Chile and
+	update Denmark download site.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2007-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gutter-items.el (progress-feedback-with-label): Clarify docstring.
+
+2006-12-09  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.20 is released
+
+2006-10-14  Jeff Miller  <jmiller@xemacs.org>
+
+	* info.el (Info-find-emacs-command-nodes): fix regex for find command node.
+
+2006-11-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* info.el (Info-find-file-node, Info-insert-dir)
+	(Info-read-subfile, Info-insert-file-contents): Maintain invariant
+	`(equal buffer-file-truename (file-truename buffer-file-name))'.
+	Thanks to Nelson Ferreira <nelson.ferreira@ieee.org> for report
+	and discussion.
+
+2006-05-20  Ville Skytt‰  <scop@xemacs.org>
+
+	* obsolete.el (line-beginning-position): New, from 21.5.x.
+	(line-end-position): Ditto.
+
+2006-06-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Welcome
+	nl.xemacs.org and Thanks!
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2004-01-19  Martin Buchholz  <martin@xemacs.org>
+
+	* font-lock.el: Add support for not-so recent changes in Java to
+	java-mode.
+
+2006-01-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.19 is released
+
+2006-01-03  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* easymenu.el: Update copyright. 
+	* easymenu.el (easy-menu-all-popups):
+	Add a docstring. 
+	* easymenu.el (easy-menu-add):
+	Document a bug, rework the function to preserve any existing
+	non-default mode-popup-menu instead of overwriting it, and not to
+	bother normalising the menu title (nothing else does).
+	* easymenu.el (easy-menu-remove):
+	Restore the default mode-popup-menu instead of leaving an empty
+	one when we remove the last easy-menu popup. 
+
+2006-01-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add pt.xemacs.org,
+	as suggested by Rodrigo Ventura.
+	* package-get.el (package-get-pre-release-download-sites): Ditto,
+	with replacement of xemacs-21.5 by beta, which is the logical path
+	to our beta core and package pre-releases.
+
+2005-12-17  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add Hong Kong
+	download site.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2005-12-26  Vin Shelton  <acs@xemacs.org>
+
+	* find-paths.el:
+	* find-paths.el (paths-emacs-root-p): Add search for package root.
+	* find-paths.el (paths-find-emacs-root): Replaced with
+	paths-find-invocation-roots, which returns a list of roots.
+	* find-paths.el (paths-find-invocation-roots): New.
+	* find-paths.el (paths-find-emacs-roots): Call paths-find-invocation-roots.
+
+2005-12-05  Ville Skytt‰  <scop@xemacs.org>
+
+	* minibuf.el (x-library-search-path): Add /usr(/local)/share/X11.
+	* font.el (font-lookup-rgb-components): Ditto, remove stale comment.
+
+2005-12-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.18 is released
+
+2005-10-28  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Update reflecting
+	latest http://www.xemacs.org/Releases/ information generated by
+	xemacs-builds/adrian/website/package-get-2-download-sites.el.
+	* package-get.el (package-get-pre-release-download-sites): Ditto.
+
+2005-02-28  Simon Josefsson  <jas@extundo.com>
+
+	* about.el (xemacs-hackers): Add jas.
+	(about-other-current-hackers): Likewise.
+	(about-url-alist): Add URL for jas.
+	(about-personal-info): Document jas.
+	(about-hacker-contribution): Describe jas contributions.
+
+2005-03-25  Ralf Angeli  <angeli@iwi.uni-sb.de> 
+
+	* easymenu.el (easy-menu-remove): As described in 
+	E1D4Nn5-0001lq-EU@neutrino.iwi.uni-sb.de; don't strip everything
+	except the "Command" menu from mode-popup-menu. 
+
+2005-03-25  Ralf Angeli  <angeli@iwi.uni-sb.de> 
+ 
+        * font.el (font-spatial-to-canonical): Correct calculation of 
+        return value for pixel-based input value. 
+ 
+2002-05-13  Adrian Aichner  <adrian@xemacs.org>
+
+	* code-process.el (call-process): Process-related docstring
+	improvements spurred by Norbert Koch.
+	* code-process.el (call-process-region): Ditto.
+	* code-process.el (start-process): Ditto.
+
+2005-10-09  Adrian Aichner  <adrian@xemacs.org>
+
+	* finder.el (finder-find-library): Return filename actually
+	searched for.
+
+2005-10-10  Steve Youngs  <steve@sxemacs.org>
+
+	* help.el (view-emacs-news): Use `expand-file-name' instead of
+	`locate-data-file' as the latter will find any "NEWS" files that
+	might exist in packages _before_ the one in core.
+
+2005-06-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* package-get.el (package-get-init-package):
+	package-get-init-package buglet (21.4.17) by Jeff Mincy
+	<mincy@rcn.com> fixing false temporary load-path shadows reported
+	after package installation and simplifying code.
+
+2005-10-18  Ville Skytt√§  <scop@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Sync mirrors list
+	with the XEmacs website.
+	(package-get-pre-release-download-sites): Ditto.
+
+2005-04-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* derived.el (derived-mode-merge-syntax-tables):
+	Revert my 21.5-only patch of 2003-07-18 which slipped in
+	through Jerry James's patch of 2004-06-07.
+
+2005-02-23  Adrian Aichner  <adrian@xemacs.org>
+
+	* cmdloop.el (keyboard-quit): Remove workaround for
+	`region-active-p' not making sure active region is in current
+	buffer now that it does.
+	* minibuf.el (minibuffer-keyboard-quit): Ditto.
+	* simple.el (region-active-p): `region-active-p' to only return t
+	when active region is in current buffer.
+
+2005-02-21  Norbert Koch  <viteno@xemacs.org>
+
+	* package-ui.el (pui-list-packages): MF21.5, adapt to longer
+	package names, quell a byte-compiler warning, doc fix.
+
+2005-02-16  Aidan Kehoe  <kehoea@parhasard.net>
+
+	* buffer.el (pop-to-buffer):
+	* window-xemacs.el (display-buffer):
+	Document use of `same-window-buffer-names,' `same-window-regexps'
+	by pop-to-buffer and display-buffer. 
+	
 2005-02-06  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.17 is released

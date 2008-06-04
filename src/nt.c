@@ -1449,9 +1449,9 @@ mswindows_fstat (int desc, struct stat * buf)
 
   /* determine rwx permissions */
   if (info.dwFileAttributes & FILE_ATTRIBUTE_READONLY)
-    permission = _S_IREAD;
+    permission = _S_IREAD | _S_IEXEC;
   else
-    permission = _S_IREAD | _S_IWRITE;
+    permission = _S_IREAD | _S_IEXEC |_S_IWRITE;
   
   if (info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
     permission |= _S_IEXEC;
@@ -1638,22 +1638,12 @@ mswindows_stat (const char * path, struct stat * buf)
 
   /* determine rwx permissions */
   if (wfd.dwFileAttributes & FILE_ATTRIBUTE_READONLY)
-    permission = _S_IREAD;
+    permission = _S_IREAD | _S_IEXEC;
   else
-    permission = _S_IREAD | _S_IWRITE;
+    permission = _S_IREAD | _S_IEXEC |_S_IWRITE;
   
   if (wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
     permission |= _S_IEXEC;
-  else
-    {
-      char * p = strrchr (name, '.');
-      if (p != NULL &&
-	  (stricmp (p, ".exe") == 0 ||
-	   stricmp (p, ".com") == 0 ||
-	   stricmp (p, ".bat") == 0 ||
-	   stricmp (p, ".cmd") == 0))
-	permission |= _S_IEXEC;
-    }
 
   buf->st_mode |= permission | (permission >> 3) | (permission >> 6);
 

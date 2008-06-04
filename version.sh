@@ -2,8 +2,8 @@
 emacs_is_beta=
 emacs_major_version=21
 emacs_minor_version=4
-emacs_beta_version=17
-xemacs_codename="Jumbo Shrimp"
+emacs_beta_version=21
+xemacs_codename="Educational Television"
 emacs_kit_version=
 infodock_major_version=4
 infodock_minor_version=0
