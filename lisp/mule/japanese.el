@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2004,2005 MORIOKA Tomohiko
 
 ;; Keywords: multilingual, Japanese
 
@@ -159,13 +159,21 @@
 (make-coding-system
  'iso-2022-jp 'iso2022
  "Coding-system used for communication with mail and news in Japan."
- '(charset-g0 ascii
-   short t
-   seven t
-   input-charset-conversion ((latin-jisx0201 ascii)
-			     (japanese-jisx0208-1978 japanese-jisx0208))
-   mnemonic "MULE/7bit"
-   ))
+ (let ((conf
+	'(charset-g0 ascii
+	  short t
+	  seven t
+	  mnemonic "MULE/7bit")))
+   (if (featurep 'utf-2000)
+       (list* 'ccs-priority-list
+	      '(ascii
+		=jis-x0208@1983 =jis-x0208@1978
+		latin-jisx0201)
+	      conf)
+     (list* 'input-charset-conversion
+	    '((latin-jisx0201 ascii)
+	      (japanese-jisx0208-1978 japanese-jisx0208))
+	    conf))))
 
 (define-coding-system-alias 'junet 'iso-2022-jp)
 
@@ -244,6 +252,18 @@
    short t
    mnemonic "Ja/EUC"
    ))
+
+;; [tomo] Moved to mule-conf.el.
+;; (make-coding-system
+;;  'euc-jisx0213 'iso2022
+;;  "Coding-system of Japanese EUC based on JIS X 0213."
+;;  '(charset-g0 ascii
+;;    charset-g1 japanese-jisx0213-1
+;;    charset-g2 katakana-jisx0201
+;;    charset-g3 japanese-jisx0213-2
+;;    short t
+;;    mnemonic "Ja/EUC0213"
+;;    ))
 
 ;; (define-coding-system-alias 'euc-japan-1990 'japanese-iso-8bit)
 ;; (define-coding-system-alias 'euc-japan 'japanese-iso-8bit)
