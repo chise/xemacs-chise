@@ -1,3 +1,8 @@
+2008-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h, chartab.c, fns.c, mule-charset.c: Rename Qmap_* to
+	Qrep_*.
+
 2007-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.24
@@ -6566,7 +6571,7 @@
 
 	* event-gtk.c: Recognise AltGr as a valid modifier.
 
-2005-01-12  Ville Skytt‰  <scop@xemacs.org>
+2005-01-12  Ville Skytt√§  <scop@xemacs.org>
 
 	* console-x.h: #include X11/keysym.h before xintrinsic.h.
 
@@ -6952,7 +6957,7 @@
 
 	* sysdll.c: configure sets HAVE_DLD_INIT, not HAVE_INIT_DLD.
 
-2003-07-31  RenÈ Kyllingstad  <listmailxemacs@kyllingstad.com>
+2003-07-31  Ren√© Kyllingstad  <listmailxemacs@kyllingstad.com>
 
 	* event-msw.c (mswindows_enqueue_mouse_button_event):
 	* event-msw.c (mswindows_wnd_proc):
