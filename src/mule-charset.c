@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -267,7 +267,7 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if ( !( EQ (XCHARSET_NAME (ccs), Qmap_ucs)
+  if ( !( EQ (XCHARSET_NAME (ccs), Qrep_ucs)
 	  && INTP (value) && (XINT (value) < 0xF0000)
 	  && XCHAR (character) == XINT (value) )
        || !INTP (value) )
@@ -386,17 +386,17 @@ Lisp_Object Qascii,
   Qlatin_jisx0201,
   Qcyrillic_iso8859_5,
   Qlatin_iso8859_9,
-  Qmap_jis_x0208_1978,
-  Qmap_gb2312,
-  Qmap_gb12345,
-  Qmap_jis_x0208_1983,
-  Qmap_ks_x1001,
-  Qmap_jis_x0212,
-  Qmap_cns11643_1,
-  Qmap_cns11643_2,
+  Qrep_jis_x0208_1978,
+  Qrep_gb2312,
+  Qrep_gb12345,
+  Qrep_jis_x0208_1983,
+  Qrep_ks_x1001,
+  Qrep_jis_x0212,
+  Qrep_cns11643_1,
+  Qrep_cns11643_2,
 #ifdef UTF2000
   Qsystem_char_id,
-  Qmap_ucs, Qucs,
+  Qrep_ucs, Qucs,
   Qucs_bmp,
   Qucs_smp,
   Qucs_sip,
@@ -406,9 +406,9 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
-  Qmap_jis_x0208,
-  Qmap_jis_x0208_1990,
-  Qmap_big5,
+  Qrep_jis_x0208,
+  Qrep_jis_x0208_1990,
+  Qrep_big5,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -3073,17 +3073,17 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_jisx0201,		"latin-jisx0201");
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
-  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208@1978");
-  defsymbol (&Qmap_gb2312,		"=gb2312");
-  defsymbol (&Qmap_gb12345,		"=gb12345");
-  defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208@1983");
-  defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
-  defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
-  defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
-  defsymbol (&Qmap_cns11643_2,		"=cns11643-2");
+  defsymbol (&Qrep_jis_x0208_1978,	"=jis-x0208@1978");
+  defsymbol (&Qrep_gb2312,		"=gb2312");
+  defsymbol (&Qrep_gb12345,		"=gb12345");
+  defsymbol (&Qrep_jis_x0208_1983, 	"=jis-x0208@1983");
+  defsymbol (&Qrep_ks_x1001,		"=ks-x1001");
+  defsymbol (&Qrep_jis_x0212,		"=jis-x0212");
+  defsymbol (&Qrep_cns11643_1,		"=cns11643-1");
+  defsymbol (&Qrep_cns11643_2,		"=cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qsystem_char_id,		"system-char-id");
-  defsymbol (&Qmap_ucs,			"=ucs");
+  defsymbol (&Qrep_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_smp,			"ucs-smp");
@@ -3094,9 +3094,9 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
-  defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
-  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208@1990");
-  defsymbol (&Qmap_big5,		"=big5");
+  defsymbol (&Qrep_jis_x0208, 		"=jis-x0208");
+  defsymbol (&Qrep_jis_x0208_1990, 	"=jis-x0208@1990");
+  defsymbol (&Qrep_big5,		"=big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -3189,7 +3189,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
-    make_charset (LEADING_BYTE_UCS, Qmap_ucs, 256, 4,
+    make_charset (LEADING_BYTE_UCS, Qrep_ucs, 256, 4,
 		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS"),
 		  build_string ("UCS"),
@@ -3367,7 +3367,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_jis_x0208);
   Vcharset_jis_x0208 =
     make_charset (LEADING_BYTE_JIS_X0208,
-		  Qmap_jis_x0208, 94, 2,
+		  Qrep_jis_x0208, 94, 2,
 		  2, 0, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JIS X0208"),
 		  build_string ("JIS X0208 Common"),
@@ -3381,7 +3381,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978,
-		  Qmap_jis_x0208_1978, 94, 2,
+		  Qrep_jis_x0208_1978, 94, 2,
 		  2, 0, '@', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JIS X0208:1978"),
 		  build_string ("JIS X0208:1978 (Japanese)"),
@@ -3397,7 +3397,7 @@ complex_vars_of_mule_charset (void)
 		  CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
-    make_charset (LEADING_BYTE_CHINESE_GB2312, Qmap_gb2312, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_GB2312, Qrep_gb2312, 94, 2,
 		  2, 0, 'A', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("GB2312"),
 		  build_string ("GB2312)"),
@@ -3406,7 +3406,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb12345);
   Vcharset_chinese_gb12345 =
-    make_charset (LEADING_BYTE_CHINESE_GB12345, Qmap_gb12345, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_GB12345, Qrep_gb12345, 94, 2,
 		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("G1"),
 		  build_string ("GB 12345)"),
@@ -3415,7 +3415,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_japanese_jisx0208);
   Vcharset_japanese_jisx0208 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qmap_jis_x0208_1983, 94, 2,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qrep_jis_x0208_1983, 94, 2,
 		  2, 0, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208"),
 		  build_string ("JIS X0208:1983 (Japanese)"),
@@ -3432,7 +3432,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
-		  Qmap_jis_x0208_1990, 94, 2,
+		  Qrep_jis_x0208_1990, 94, 2,
 		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208-1990"),
 		  build_string ("JIS X0208:1990 (Japanese)"),
@@ -3447,7 +3447,7 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
-    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qmap_ks_x1001, 94, 2,
+    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qrep_ks_x1001, 94, 2,
 		  2, 0, 'C', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("KSC5601"),
 		  build_string ("KSC5601 (Korean"),
@@ -3456,7 +3456,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_japanese_jisx0212);
   Vcharset_japanese_jisx0212 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qmap_jis_x0212, 94, 2,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qrep_jis_x0212, 94, 2,
 		  2, 0, 'D', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0212"),
 		  build_string ("JISX0212 (Japanese)"),
@@ -3467,7 +3467,7 @@ complex_vars_of_mule_charset (void)
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   staticpro (&Vcharset_chinese_cns11643_1);
   Vcharset_chinese_cns11643_1 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qmap_cns11643_1, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qrep_cns11643_1, 94, 2,
 		  2, 0, 'G', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-1"),
 		  build_string ("CNS11643-1 (Chinese traditional)"),
@@ -3477,7 +3477,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qmap_cns11643_2, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qrep_cns11643_2, 94, 2,
 		  2, 0, 'H', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-2"),
 		  build_string ("CNS11643-2 (Chinese traditional)"),
@@ -3524,7 +3524,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_big5);
   Vcharset_chinese_big5 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5, Qmap_big5, 256, 2,
+    make_charset (LEADING_BYTE_CHINESE_BIG5, Qrep_big5, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5"),

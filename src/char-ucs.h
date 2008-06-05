@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -49,7 +49,7 @@ extern Lisp_Object Vcharset_japanese_jisx0212;
 EXFUN (Fget_charset, 1);
 
 extern Lisp_Object Qsystem_char_id;
-extern Lisp_Object Qmap_ucs, Qucs;
+extern Lisp_Object Qrep_ucs, Qucs;
 extern Lisp_Object Q_subsumptive, Q_denotational;
 
 Lisp_Object put_char_ccs_code_point (Lisp_Object character,
