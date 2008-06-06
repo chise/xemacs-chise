@@ -1,3 +1,14 @@
+2008-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (J0-3F25): Add S1-6187.
+	(U+7E54): Integrate S2-6190.
+	(J0-4136): Add S1-6189; unify S2-6191 instead of S2-6189.
+	(U-00026142): Use `->denotational' instead of `->subsumptive'.
+
+2008-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (G0-5456): Unify JC3-90AF.
+
 2008-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R169-Gate.el (JX1-7D54): Unify JC3-6BEC; add S1-8826.
