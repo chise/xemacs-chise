@@ -1,3 +1,14 @@
+2008-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (JSP-5628): Add S1-6484 and S2-6484; add
+	`<-original' for J0-4048.
+	(J0-4048): Add S1-6483; delete bogus S2-0000.
+	(U+8106): Integrate S2-6483.
+
+2008-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-545A.
+
 2008-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el (J0-3F25): Add S1-6187.
