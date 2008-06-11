@@ -1,5 +1,11 @@
 2008-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R032-Earth.el (U+58D3): Use `->denotational' and
+	`->subsumptive'; delete bogus `shinjigen-2'; integrate
+	S{1|2}-1340.
+
+2008-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R199-Wheat.el (U+9EA9): Use `->denotational'.
 	(J0-734F): Delete bogus `shinjigen-2'.
 	(G1-746F): Add S{1|2}-9795.
