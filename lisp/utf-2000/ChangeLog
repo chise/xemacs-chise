@@ -1,5 +1,25 @@
 2008-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R199-Wheat.el (U+9EA9): Use `->denotational'.
+	(J0-734F): Delete bogus `shinjigen-2'.
+	(G1-746F): Add S{1|2}-9795.
+	(U+9EB8): Use `->denotational'.
+	(G0-746F): Use `<-denotational' for U+9EB8; add `<-simplified@CN'
+	for G1-746F.
+	(J0-7350): Use `<-denotational' for U+9EB8; add `<-simplified@JP'
+	for J0-734F.
+	(U+4D31): Use `->denotational' and `->subsumptive'.
+	(U+9EAD): Use `->denotational'; delete bogus `shinjigen-2'.
+	(UU+9EAD): Use `<-denotational' for U+9EAD; add S{1|2}-9799.
+
+	* Ideograph-R195-Fish.el (C7-3E46): Unify U-00029DAA.
+	(U+4C4A): Use `->subsumptive'.
+	(C7-3E4D): Unify U-00029DAB.
+	(U+9BA0): Use `->subsumptive'; delete bogus `shinjigen-2';
+	integrate S1-9555 and S2-9555.
+	(U+9BA1): Use `->subsumptive'.
+	(U+9BA3): Likewise.
+
 	* Ideograph-R130-Meat.el (JSP-5628): Add S1-6484 and S2-6484; add
 	`<-original' for J0-4048.
 	(J0-4048): Add S1-6483; delete bogus S2-0000.
