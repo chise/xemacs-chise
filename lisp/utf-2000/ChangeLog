@@ -1,3 +1,8 @@
+2008-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R067-Script.el (J83-4865): Use `shinjigen-2-p' instead
+	of `shinjigen-2' with value '(3207 1); add S1-3207.
+
 2008-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (U+58D3): Use `->denotational' and
