@@ -384,7 +384,8 @@
     (=ucs		. #x6590)	; 斐
     (=big5		. #xB4B4)	; &I-B-B4B4;
     (->subsumptive
-     ((shinjigen-2	  3207 1)
+     ((shinjigen-1	  . 3207)
+      (shinjigen-2-p	  . 3207)
       (=jis-x0208@1978	  . #x4865)	; &M-13469; [40-69]
       (=jis-x0208@1983	  . #x4865)	; &I-J83-4865; [40-69]
       (=daikanwa	  . 13469)	; &I-M-13469;
