@@ -1,3 +1,13 @@
+2008-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+708A): Use `->subsumptive'; integrate
+	S1-4567.
+	(U+3DA7): Use `->denotational' and `->subsumptive'.
+	(U+708B): Use `->subsumptive'.
+	(U+7092): Use `->subsumptive'.
+	(J0-5F56): Use `<-subsumptive' for U+7092; unify S2-4569 instead
+	of S2-4568; add S1-4568.
+
 2008-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R067-Script.el (J83-4865): Use `shinjigen-2-p' instead
