@@ -1,3 +1,19 @@
+2008-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (M-34094): Fix `shinjigen-1'; add
+	S2-0824; add `shinjigen-2' into `<-original*sources'.
+
+	* Ideograph-R013-Down-Box.el (J97-4662): Add B-A4BA.
+
+	* Ideograph-R011-Enter.el (K0-522E): Move B-A4BA to J97-4662.
+	(C1-4479): Delete S{1|2}-0482.
+	(J97-4662): Add B-A4BA.
+
+	* Ideograph-R009-Man.el (J97-4662): Add B-A4BA.
+
+	* Ideograph-R001-One.el (GT-00089): Fix `shinjigen-1'; add
+	S2-5734; add `<-formed' for U+4E26.
+
 2008-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R020-Wrap.el (JX1-2E6B): Fix `shinjigen-1'.
