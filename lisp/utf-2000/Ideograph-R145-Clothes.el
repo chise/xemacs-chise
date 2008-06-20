@@ -94,16 +94,18 @@
     (total-strokes	 . 8)
     (=ucs		. #x461A)	; 䘚
     (->subsumptive
-     ((shinjigen-1	  . 823)
+     ((shinjigen-1	  . 824)
+      (shinjigen-2	  . 824)
       (=daikanwa	  . 34094)	; &M-34094;
       (<-original
        ((shinjigen-1	    . 823)
+	(shinjigen-2	    . 823)
 	(=jis-x0208	    . #x4234)	; &GT-03504; [34-20]
 	(=ks-x1001	    . #x706F)	; &I-K0-706F; [80-79]
 	(=daikanwa	    . 02740)	; &I-M-02740;
 	))
       (<-original*sources
-       zhengzitong daikanwa shinjigen-1)
+       zhengzitong daikanwa shinjigen-1 shinjigen-2)
       )
      ((=cns11643-3	  . #x2A6E)	; &C3-2A6E; [10-78]
       (=ucs@unicode	  . #x461A)	; &C3-2A6E;
