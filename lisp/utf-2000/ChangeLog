@@ -1,3 +1,7 @@
+2008-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (JX1-2E6B): Fix `shinjigen-1'.
+
 2008-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+8473): Use `->denotational' and
