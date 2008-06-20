@@ -828,7 +828,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4662)	; &J97-4662; [38-66]
+     ((=big5		  . #xA4BA)	; &B-A4BA;
+      (=jis-x0208@1997	  . #x4662)	; &B-A4BA; [38-66]
       ))
     (ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
@@ -872,7 +873,9 @@
     (ideographic-radical@cns-3*sources
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
-    (=jis-x0208@1997	. #x4662)	; &J97-4662; [38-66]
+    (=big5		. #xA4BA)	; &B-A4BA;
+    (=jis-x0208@1997	. #x4662)	; &B-A4BA; [38-66]
+    (=ucs@big5		. #x5167)	; &B-A4BA;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
