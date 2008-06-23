@@ -1746,16 +1746,14 @@
     (->subsumptive
      ((=daikanwa	  . 09333)	; &M-09333;
       (<-vulgar
-       ((shinjigen-1	    . 879)
-	(=ucs		    . #x5396)	; 厖
-	(=jis-x0208	    . #x524D)	; &I-J90-524D; [50-45]
+       ((=jis-x0208	    . #x524D)	; &GT-03745; [50-45]
+	(=cns11643-2	    . #x2939)	; &I-C2-2939; [09-25]
 	(=daikanwa	    . 02942)	; &I-M-02942;
 	))
       (<-vulgar*sources
-       zhengzitong daikanwa shinjigen-1)
+       zhengzitong daikanwa)
       )
-     ((shinjigen-1	  . 879)
-      (=jis-x0212	  . #x3C4A)	; &JX2-2C25; [28-42]
+     ((=jis-x0212	  . #x3C4A)	; &JX2-2C25; [28-42]
       (=jis-x0213-2-2000  . #x2C25)	; &I-JX2-2C25; [12-05]
       (=ucs@jis		  . #x5EAC)	; &JX2-2C25;
       )
@@ -1773,10 +1771,13 @@
     (total-strokes	 . 10)
     (->subsumptive
      ((shinjigen-1	  . 880)
+      (shinjigen-2	  . 880)
       (<-formed
-       ((=jis-x0212	    . #x3C4A)	; &JX2-2C25; [28-42]
-	(=jis-x0213-2-2000  . #x2C25)	; &I-JX2-2C25; [12-05]
+       ((shinjigen-1	    . 879)
+	(shinjigen-2	    . 879)
 	))
+      (<-formed*sources
+       shinjigen-1 shinjigen-2)
       )
      ((=cns11643-2	  . #x2E7A)	; &C2-2E7A; [14-90]
       ))
