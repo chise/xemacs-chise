@@ -1,3 +1,10 @@
+2008-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (M-09333): Fix `shinjigen-1' in
+	`<-vulgar'.
+	(JX2-2C25): Delete S1-0879.
+	(S1-0880): Add S2-0880; fix `<-formed'.
+
 2008-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el (M-34094): Fix `shinjigen-1'; add
