@@ -430,6 +430,15 @@
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=cbeta		. 06935)	; &CB06935;
+    (<-unknown
+     ((=ucs		  . #x20971)	; 𠥱
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 85 11)
