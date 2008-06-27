@@ -1,3 +1,8 @@
+2008-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (CB06935): New character; add
+	`<-unknown' for U-00020971.
+
 2008-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (M-09333): Fix `shinjigen-1' in
