@@ -1,3 +1,23 @@
+2008-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (U-00020A3B): Use `->subsumptive'.
+	(M-02915): Unify U-00020A3E and H1-B257.
+	(M-02925): Map to U-00020A48.
+	(M-02926): Map to U-00020A46.
+	(M-02927): Unify U-00020A49.
+	(M-02940): Map to U-00020A54.
+	(U-00020A57): Use `->subsumptive'.
+	(U+5396): Use `->denotational' and `->subsumptive'; use
+	`hanyu-dazidian' instead of `hanyu-dazidian-{vol|page|char}'.
+	(M-02957): Map to U-00020A65.
+	(U-00020A66): Use `->subsumptive'.
+	(U-00020A46): Use `->subsumptive' to integrate M-02926.
+	(U-00020A48): Use `->denotational' to integrate M-02925.
+	(U-00020A49): Don't unify H1-B273; unify M-02927.
+	(U-00020A54): Use `->subsumptive' to integrate M-02940.
+	(U-00020A65): Use `->denotational' to integrate M-02957 and
+	GT-03749.
+
 2008-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R022-Right-Open-Box.el (CB06935): New character; add
