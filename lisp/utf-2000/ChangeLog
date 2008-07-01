@@ -1,5 +1,15 @@
 2008-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020971): Use
+	`->denotational' to integrate H1-B273.
+	(C6-2637): Use `<-denotational' for U-00020971; add `<-Zetian' and
+	`<-same' for GT-18141.
+	(U+3530): Use `->denotational'.
+	(U+533C): Use `->denotational' instead of `->subsumptive'; add
+	`ideographic-radical@{daikanwa|cns}'.
+
+2008-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R076-Lack.el (U-000238AD): Add `sound@ja/on'.
 	(M-16058): Modify for M-02941.
 
