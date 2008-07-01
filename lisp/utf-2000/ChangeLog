@@ -1,3 +1,8 @@
+2008-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U-000238AD): Add `sound@ja/on'.
+	(M-16058): Modify for M-02941.
+
 2008-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el (U-00020A3B): Use `->subsumptive'.
