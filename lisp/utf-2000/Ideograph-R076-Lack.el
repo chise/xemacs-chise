@@ -1124,11 +1124,12 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (sound@ja/on	"i")
     (=ucs		. #x238AD)	; 𣢭
     (->subsumptive
      ((=daikanwa	  . 16058)	; &M-16058;
       (<-same
-       ((=ucs		    . #x20A57)	; 𠩗
+       ((=cns11643-5	    . #x2839)	; &GT-03730; [08-25]
 	(=daikanwa	    . 02941)	; &I-M-02941;
 	))
       (<-same*sources
