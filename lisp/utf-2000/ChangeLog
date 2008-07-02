@@ -1,3 +1,20 @@
+2008-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+533C): Use `->denotational'
+	instead of `->subsumptive'; add
+	`ideographic-radical@{daikanwa|cns}'.
+	(M-02620): Unify U-0002093D.
+	(U+5327): Use `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (U-00026B01): Use `->denotational'.
+	(U+8283): Likewise.
+	(U+8284): Likewise.
+	(U+8285): Use `->denotational' and `->subsumptive'.
+	(U+4496): Likewise.
+	(U+8286): Likewise.
+	(U+8287): Use `->denotational'.
+	(U+8289): Use `->denotational' instead of `->subsumptive'.
+
 2008-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U-00020971): Use
