@@ -475,41 +475,6 @@
     (=hanziku-1		. #xB57E)	; &I-HZK01-B57E;
     ))
 (define-char
-  '((=>daikanwa		. 02683)	; &M-02683;
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=ucs		. #x533C)	; 匼
-    (->subsumptive
-     ((ideographic-radical . 23)	; ⼖
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x5338)	; 匸
-	)
-       ((=ucs		    . #x5408)	; 合
-	))
-      (=jis-x0212	  . #x3433)	; &M-02683; [20-19]
-      (=daikanwa	  . 02683)	; &I-M-02683;
-      (=ucs@jis		  . #x533C)	; &M-02683;
-      )
-     ((ideographic-radical . 22)	; ⼕
-      (hanyu-dazidian	  1 85 14)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((=ucs		    . #x5408)	; 合
-	))
-      (=cns11643-2	  . #x2558)	; &C2-2558; [05-56]
-      (=big5		  . #xCBD8)	; &I-B-CBD8;
-      (=jef-china3	  . #x45B6)	; &I-JC3-45B6;
-      (=ucs@unicode	  . #x533C)	; &C2-2558;
-      ))
-    ))
-(define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
@@ -534,6 +499,34 @@
     (=hanziku-1		. #xB57C)	; &I-HZK01-B57C;
     ))
 (define-char
+  '((ideographic-radical@daikanwa . 23)	; ⼖
+    (ideographic-radical@cns . 22)	; ⼕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs		. #x533C)	; 匼
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x533C)	; 匼
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 85 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x5408)	; 合
+      ))
+    (=cns11643-2	. #x2558)	; &C2-2558; [05-56]
+    (=big5		. #xCBD8)	; &I-B-CBD8;
+    (=jef-china3	. #x45B6)	; &I-JC3-45B6;
+    (=ucs@unicode	. #x533C)	; &C2-2558;
+    ))
+(define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -547,27 +540,35 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=daikanwa		. 02620)	; &M-02620;
+    (hanyu-dazidian	1 86 3)
+    (=ucs		. #x2093D)	; 𠤽
+    (=daikanwa		. 02620)	; &I-M-02620;
+    (=hanziku-1		. #xB5B7)	; &I-HZK01-B5B7;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 85 18)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-      (=ucs		  . #x2FF7)	; ⿷
-      )
-     ((=ucs		  . #x531A)	; 匚
-      )
-     ((=ucs		  . #x593E)	; 夾
-      ))
     (=ucs		. #x5327)	; 匧
-    (=jis-x0212		. #x342A)	; &I-JSP-342A; [20-10]
-    (=cns11643-3	. #x2B49)	; &I-C3-2B49; [11-41]
-    (=daikanwa		. 02621)	; &I-M-02621;
-    (=hanziku-1		. #xB5A6)	; &I-HZK01-B5A6;
-    (=jef-china3	. #x45B7)	; &I-JC3-45B7;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=ucs		    . #x531A)	; 匚
+	)
+       ((=ucs		    . #x593E)	; 夾
+	))
+      (=jis-x0212	  . #x342A)	; &M-02621; [20-10]
+      (=cns11643-3	  . #x2B49)	; &I-C3-2B49; [11-41]
+      (=daikanwa	  . 02621)	; &I-M-02621;
+      (=jef-china3	  . #x45B7)	; &I-JC3-45B7;
+      (=ucs@jis		  . #x5327)	; &M-02621;
+      )
+     ((hanyu-dazidian	  1 85 18)
+      (=hanziku-1	  . #xB5A6)	; &HZK01-B5A6;
+      (=ucs@unicode	  . #x5327)	; &HZK01-B5A6;
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
@@ -1660,12 +1661,6 @@
     (hanyu-dazidian	1 85 15)
     (=ucs		. #x2093B)	; 𠤻
     (=hanziku-1		. #xB5A3)	; &I-HZK01-B5A3;
-    ))
-(define-char
-  '((ideographic-radical . 22)	; ⼕
-    (hanyu-dazidian	1 86 3)
-    (=ucs		. #x2093D)	; 𠤽
-    (=hanziku-1		. #xB5B7)	; &I-HZK01-B5B7;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
