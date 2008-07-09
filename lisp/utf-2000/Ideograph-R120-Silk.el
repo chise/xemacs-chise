@@ -12003,7 +12003,7 @@
       (=gb12345		  . #x562F)	; &C1-767E; [54-15]
       (=ucs@unicode	  . #x7E54)	; &C1-767E;
       )
-     ((shinjigen-1	  . 6187)
+     ((shinjigen-1	  . 6188)
       (shinjigen-2	  . 6190)
       ))
     ))
