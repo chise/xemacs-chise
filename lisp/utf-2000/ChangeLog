@@ -6,6 +6,9 @@
 
 2008-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R064-Hand.el (U+649A): Use `->subsumptive'; fix
+	duplicated `shinjigen-2'.
+
 	* Ideograph-R120-Silk.el (S2-6190): Fix `shinjigen-1'.
 
 	* Ideograph-R083-Clan.el (J83-5D62): Delete S2-4040.
