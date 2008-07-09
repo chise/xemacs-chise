@@ -1,3 +1,19 @@
+2008-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (J90-3F26): Add S1-6406.
+	(J83-3F26): Delete S2-6406.
+	(JC3-60D2): Add S{1|2}-6407.
+
+2008-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (S2-6190): Fix `shinjigen-1'.
+
+	* Ideograph-R083-Clan.el (J83-5D62): Delete S2-4040.
+	(J90-5D62): Add S1-4040.
+
+	* Ideograph-R050-Turban.el (J0-3B54): Add S1-2082.
+	(G0-4A50): Delete S2-2082.
+
 2008-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R007-Two.el (U+4E9B): Use `->denotational'; use
