@@ -489,40 +489,46 @@
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=daikanwa		. 13571)	; &M-13571;
+    (=ucs		. #x230AC)	; 𣂬
+    (=daikanwa		. 13571)	; &I-M-13571;
     ))
 (define-char
-  '((=>ucs		. #x65B0)	; 新
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (shinjigen-2	. 3233)
-    (=jis-x0208		. #x3F37)	; &GT-17156; [31-23]
-    (=ks-x1001		. #x6366)	; &I-K0-6366; [67-70]
-    (=big5		. #xB773)	; &I-B-B773;
-    (=gt		. 17156)	; &I-GT-17156;
-    (=gt-k		. 10225)	; &I-GT-K10225;
-    (=gt-pj-1		. #x3F37)	; &I-GT-17156; [31-23]
-    (=daikanwa		. 13572)	; &I-M-13572;
-    (=ucs@jis		. #x65B0)	; &GT-17156;
-    (=ucs@big5		. #x65B0)	; &GT-17156;
-    ))
-(define-char
-  '((=>ucs		. #x65B0)	; 新
-    (morohashi-daikanwa	13572 0 0)
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (shinjigen-2	. 3233)
-    (=cns11643-1	. #x643B)	; &C1-643B; [68-27]
-    ))
-(define-char
-  '((morohashi-daikanwa	13572 0 1)
-    (ideographic-radical . 69)	; ⽄
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x65B0)	; 新
-    (=gb2312		. #x5042)	; &I-G0-5042; [48-34]
+    (=big5		. #xB773)	; &I-B-B773;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65B0)	; 新
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (->subsumptive
+     ((shinjigen-1	  . 3233)
+      (shinjigen-2	  . 3233)
+      (=jis-x0208	  . #x3F37)	; &GT-17156; [31-23]
+      (=ks-x1001	  . #x6366)	; &I-K0-6366; [67-70]
+      (=gt		  . 17156)	; &I-GT-17156;
+      (=gt-k		  . 10225)	; &I-GT-K10225;
+      (=gt-pj-1		  . #x3F37)	; &I-GT-17156; [31-23]
+      (=daikanwa	  . 13572)	; &I-M-13572;
+      (=ucs@jis		  . #x65B0)	; &GT-17156;
+      )
+     ((=cns11643-1	  . #x643B)	; &C1-643B; [68-27]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65B0)	; 新
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=gb2312		. #x5042)	; &G0-5042; [48-34]
+    (=ucs@unicode	. #x65B0)	; &G0-5042;
     ))
 (define-char
   '((=>ucs		. #x65B1)	; 斱
