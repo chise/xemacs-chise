@@ -1,4 +1,14 @@
+2008-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (J83-4A58): Unify S{1|2}-0270 instead of
+	S{1|2}-0269.
+	(U-000202B3): Use `->subsumptive' to integrate S{1|2}-0271.
+
 2008-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+68AB): Use `->denotational'.
+	(U+68AD): Use `->denotational' and `->subsumptive'; fix duplicated
+	`shinjigen-2'.
 
 	* Ideograph-R118-Bamboo.el (J90-4F36): Use `shinjigen-2-p' instead
 	of `shinjigen-2'; add `<-same' for J83-6446; add `<-vulgar' for
