@@ -1,3 +1,32 @@
+2008-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (C7-436C): Map to M-38139 instead of
+	M-38142; map to U-0002827A.
+	(U+483F): Use `->subsumptive' to integrate M-38142.
+	(U+8EC2): Use `->subsumptive'.
+	(C7-4A6C): Unify U-0002827F.
+	(U+8EC3): Use `->subsumptive'.
+	(C7-4A6D): Unify U-00028280.
+	(C7-4A6A): Map to U-00028281.
+	(C7-4A69): Map to U-0002828A.
+	(U+8EC4): Use `->subsumptive'; integrate CB04537 and H10-C142.
+
+2008-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03000-CJK-Symbols-and-Punctuation.el (<WAVE DASH>): Use
+	`->denotational' to separate Unicode representative form and JIS
+	X0208 form.
+
+	* Ideograph-R203-Black.el (U+9ED3): Use `->subsumptive'.
+	(U-0002A41F): Likewise.
+	(C7-2C35): Use `->subsumptive'.
+	(M-48055): Map to U-0002A423.
+	(U+9ED4): Use `->subsumptive'.
+	(U+9ED5): Use `->subsumptive'.
+	(C7-3669): Map to U-0002A428.
+	(U+9ED6): Use `->subsumptive'.
+	(C7-366A): Map to U-0002A424.
+
 2008-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el (U+87A0): Use `->denotational'.
