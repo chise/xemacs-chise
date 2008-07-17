@@ -1,5 +1,14 @@
 2008-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R142-Insect.el (U+87A0): Use `->denotational'.
+	(U+87A1): Use `->subsumptive'.
+	(C7-3324): Map to U-000273CE.
+	(U-000273CE): Use `->subsumptive'.
+	(J0-6A25): Fix `shinjigen-2'; use `shinjigen-2-p' for S2-7136a.
+
+	* Ideograph-R066-Rap.el (U-00022F0C): Use `->subsumptive'.
+	(U+3A85): Unify GT-16629 and GT-K05707; add `<-same' for J83-3939.
+
 	* Ideograph-R009-Man.el (J83-4A58): Unify S{1|2}-0270 instead of
 	S{1|2}-0269.
 	(U-000202B3): Use `->subsumptive' to integrate S{1|2}-0271.
