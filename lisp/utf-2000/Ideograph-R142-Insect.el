@@ -8440,7 +8440,15 @@
     (=ucs@unicode	. #x45DD)	; &UU+45DD;
     ))
 (define-char
-  '((=>ucs		. #x87A0)	; 螠
+  '((ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=ucs		. #x87A0)	; 螠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x87A0)	; 螠
+      ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
@@ -8450,27 +8458,40 @@
     (=ucs@jis		. #x87A0)	; &M-33431;
     ))
 (define-char
-  '((morohashi-daikanwa	33431 0 2)
+  '((<-denotational
+     ((=ucs		  . #x87A0)	; 螠
+      ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=ucs		. #x87A0)	; 螠
-    (=cns11643-4	. #x5339)	; &I-C4-5339; [51-25]
+    (=cns11643-4	. #x5339)	; &C4-5339; [51-25]
+    (=ucs@unicode	. #x87A0)	; &C4-5339;
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x87A1)	; 螡
-    (=cns11643-3	. #x525E)	; &I-C3-525E; [50-62]
-    (=daikanwa		. 33432)	; &I-M-33432;
+    (->subsumptive
+     ((=daikanwa	  . 33432)	; &M-33432;
+      )
+     ((=cns11643-3	  . #x525E)	; &C3-525E; [50-62]
+      (=ucs@unicode	  . #x87A1)	; &C3-525E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=cns11643-7	. #x3324)	; &M-33433; [19-04]
-    (=daikanwa		. 33433)	; &I-M-33433;
+    (=ucs		. #x273CE)	; 𧏎
+    (->subsumptive
+     ((=daikanwa	  . 33433)	; &M-33433;
+      )
+     ((=cns11643-7	  . #x3324)	; &C7-3324; [19-04]
+      )
+     ((=hanziku-8	  . #xA955)	; &HZK08-A955;
+      (=ucs@iso		  . #x273CE)	; &HZK08-A955;
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
@@ -8479,7 +8500,7 @@
     (=ucs		. #x87A2)	; 螢
     (->subsumptive
      ((shinjigen-1	  . 7239)
-      (shinjigen-2	  . 7136)
+      (shinjigen-2-p	  . 7136)
       (=jis-x0208	  . #x6A25)	; &GT-45046; [74-05]
       (=ks-x1001	  . #x7B2B)	; &I-K0-7B2B; [91-11]
       (=gb12345		  . #x5329)	; &GT-45046; [51-09]
