@@ -1,5 +1,15 @@
 2008-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R085-Water.el (U+3D1E): Use `->denotational'.
+	(U-00023E72): Use `->subsumptive'.
+	(U+3D38): Likewise.
+	(U+6ED1): Use `->subsumptive' and `->subsumptive'.
+	(U+6ED2): Use `->subsumptive'.
+	(U+6ED3): Use `->subsumptive'.
+	(U+6ED4): Use `->denotational'.
+	(U+6ED5): Use `->denotational'.
+	(U-00023E73): Use `->subsumptive'.
+
 	* Ideograph-R158-Body.el (C7-436C): Map to M-38139 instead of
 	M-38142; map to U-0002827A.
 	(U+483F): Use `->subsumptive' to integrate M-38142.
