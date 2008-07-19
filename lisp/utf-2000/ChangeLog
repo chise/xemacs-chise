@@ -1,5 +1,15 @@
 2008-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R145-Clothes.el (U-000276CF): Use `->subsumptive'.
+	(U+8905): Use `->subsumptive'.
+	(U-000276BB): New character; integrate GT-46376 and H8-D8F1.
+	(U+4644): Use `->denotational' and `->subsumptive'.
+	(C7-2854): Map to U-000276D0.
+	(U+8906): Use `->subsumptive'.
+	(U+8907): Use `->denotational' and `->subsumptive'.
+
+2008-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R085-Water.el (U+3D1E): Use `->denotational'.
 	(U-00023E72): Use `->subsumptive'.
 	(U+3D38): Likewise.
