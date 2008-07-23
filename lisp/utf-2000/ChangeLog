@@ -1,3 +1,12 @@
+2008-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+874E): Fix `shinjigen-1'.
+	(U-0002736F): Use `->subsumptive'.
+	(U-00027375): Likewise.
+	(B-E7BD): Moved to root.
+	(C7-282A): Map to U-00027371.
+	(B-BDBA): Moved to root.
+
 2008-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el (U-000276CF): Use `->subsumptive'.
