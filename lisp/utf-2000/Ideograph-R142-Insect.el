@@ -6028,7 +6028,7 @@
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (shinjigen-1	. 7223)
+    (shinjigen-1	. 7222)
     (shinjigen-2	. 7223)
     (=ucs		. #x874E)	; 蝎
     (=jis-x0208		. #x6979)	; &I-J90-6979; [73-89]
@@ -7026,19 +7026,16 @@
     (=daikanwa		. 33325)	; &I-M-33325;
     ))
 (define-char
-  '((=>ucs		. #x2736F)	; 𧍯
-    (ideographic-radical . 142)	; ⾍
-    (ideographic-strokes . 9)
-    (total-strokes	 . 15)
-    (=daikanwa		. 33326)	; &M-33326;
-    ))
-(define-char
-  '((morohashi-daikanwa	33326 0 0)
-    (ideographic-radical . 142)	; ⾍
+  '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x2736F)	; 𧍯
-    (=cns11643-5	. #x5059)	; &I-C5-5059; [48-57]
+    (->subsumptive
+     ((=daikanwa	  . 33326)	; &M-33326;
+      )
+     ((=cns11643-5	  . #x5059)	; &C5-5059; [48-57]
+      (=ucs@iso		  . #x2736F)	; &C5-5059;
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
@@ -7073,24 +7070,21 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x27375)	; 𧍵
-    (=daikanwa		. 33329)	; &I-M-33329;
-    ))
-(define-char
-  '((=>ucs		. #x27375)	; 𧍵
-    (morohashi-daikanwa	33329 0 0)
-    (ideographic-radical . 142)	; ⾍
-    (ideographic-strokes . 9)
-    (total-strokes	 . 15)
-    (=cns11643-5	. #x505E)	; &C5-505E; [48-62]
+    (->subsumptive
+     ((=daikanwa	  . 33329)	; &M-33329;
+      (=ucs@iso		  . #x27375)	; &M-33329;
+      )
+     ((=cns11643-5	  . #x505E)	; &C5-505E; [48-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x8775)	; 蝵
+    (=big5		. #xE7BD)	; &I-B-E7BD;
     (->subsumptive
-     ((=big5		  . #xE7BD)	; &M-33330;
-      (=daikanwa	  . 33330)	; &I-M-33330;
+     ((=daikanwa	  . 33330)	; &M-33330;
       (=ucs@unicode	  . #x8775)	; &M-33330;
       )
      ((=cns11643-2	  . #x5426)	; &C2-5426; [52-06]
@@ -7108,21 +7102,26 @@
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x282A)	; &M-33332; [08-10]
-    (=daikanwa		. 33332)	; &I-M-33332;
+    (=ucs		. #x27371)	; 𧍱
+    (->subsumptive
+     ((=daikanwa	  . 33332)	; &M-33332;
+      )
+     ((=cns11643-7	  . #x282A)	; &C7-282A; [08-10]
+      (=ucs@iso		  . #x27371)	; &C7-282A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x8776)	; 蝶
+    (=big5		. #xBDBA)	; &I-B-BDBA;
     (->subsumptive
      ((shinjigen-1	  . 7230)
       (shinjigen-2	  . 7231)
       (=jis-x0208	  . #x4433)	; &GT-44956; [36-19]
       (=gb2312		  . #x357B)	; &I-G0-357B; [21-91]
       (=ks-x1001	  . #x6F4A)	; &I-K0-6F4A; [79-42]
-      (=big5		  . #xBDBA)	; &I-B-BDBA;
       (=gt		  . 44956)	; &I-GT-44956;
       (=gt-pj-1		  . #x4433)	; &I-GT-44956; [36-19]
       (=daikanwa	  . 33333)	; &I-M-33333;
