@@ -1113,40 +1113,64 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (shinjigen-2	. 4568)
     (=ucs		. #x708A)	; 炊
-    (=jis-x0208		. #x3F66)	; &I-J90-3F66; [31-70]
-    (=gb2312		. #x3436)	; &I-G0-3436; [20-22]
-    (=ks-x1001		. #x7627)	; &I-K0-7627; [86-07]
     (=big5		. #xAAA4)	; &I-B-AAA4;
-    (=gt		. 24220)	; &I-GT-24220;
-    (=gt-k		. 03754)	; &I-GT-K03754;
-    (=gt-pj-1		. #x3F66)	; &I-GT-24220; [31-70]
-    (=daikanwa		. 18904)	; &I-M-18904;
-    ))
-(define-char
-  '((=>ucs		. #x708A)	; 炊
-    (morohashi-daikanwa	18904 0 0)
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=cns11643-1	. #x4E65)	; &C1-4E65; [46-69]
+    (->subsumptive
+     ((shinjigen-1	  . 4567)
+      (=gb2312		  . #x3436)	; &M-18904; [20-22]
+      (=daikanwa	  . 18904)	; &I-M-18904;
+      (=ucs@unicode	  . #x708A)	; &M-18904;
+      )
+     ((shinjigen-2	  . 4568)
+      (=jis-x0208	  . #x3F66)	; &GT-24220; [31-70]
+      (=ks-x1001	  . #x7627)	; &I-K0-7627; [86-07]
+      (=gt		  . 24220)	; &I-GT-24220;
+      (=gt-k		  . 03754)	; &I-GT-K03754;
+      (=gt-pj-1		  . #x3F66)	; &I-GT-24220; [31-70]
+      (=ucs@jis		  . #x708A)	; &GT-24220;
+      )
+     ((=cns11643-1	  . #x4E65)	; &C1-4E65; [46-69]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x3DA7)	; 㶧
-    (=cns11643-4	. #x2727)	; &I-C4-2727; [07-07]
-    (=daikanwa		. 18905)	; &I-M-18905;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3DA7)	; 㶧
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (->subsumptive
+     ((=daikanwa	  . 18905)	; &M-18905;
+      )
+     ((=cns11643-4	  . #x2727)	; &C4-2727; [07-07]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3DA7)	; 㶧
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=ucs@unicode	. #x3DA7)	; &UU+3DA7;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x708B)	; 炋
-    (=cns11643-3	. #x296F)	; &I-C3-296F; [09-79]
-    (=daikanwa		. 18906)	; &I-M-18906;
+    (->subsumptive
+     ((=daikanwa	  . 18906)	; &M-18906;
+      (=ucs@unicode	  . #x708B)	; &M-18906;
+      )
+     ((=cns11643-3	  . #x296F)	; &C3-296F; [09-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -1242,34 +1266,26 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x7092)	; 炒
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (shinjigen-2	. 4568)
-    (=jis-x0208		. #x5F56)	; &GT-24218; [63-54]
-    (=ks-x1001		. #x7524)	; &I-K0-7524; [85-04]
-    (=big5		. #xAAA3)	; &I-B-AAA3;
-    (=gt		. 24218)	; &I-GT-24218;
-    (=gt-pj-1		. #x5F56)	; &I-GT-24218; [63-54]
-    (=daikanwa		. 18915)	; &I-M-18915;
-    (=ucs@jis		. #x7092)	; &GT-24218;
-    ))
-(define-char
-  '((morohashi-daikanwa	18915 0 0)
-    (ideographic-radical . 86)	; ⽕
+  '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x7092)	; 炒
-    (=gb2312		. #x3334)	; &I-G0-3334; [19-20]
-    ))
-(define-char
-  '((=>ucs		. #x7092)	; 炒
-    (morohashi-daikanwa	18915 0 1)
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=cns11643-1	. #x4E64)	; &C1-4E64; [46-68]
+    (=big5		. #xAAA3)	; &I-B-AAA3;
+    (->subsumptive
+     ((shinjigen-1	  . 4568)
+      (shinjigen-2	  . 4569)
+      (=jis-x0208	  . #x5F56)	; &GT-24218; [63-54]
+      (=ks-x1001	  . #x7524)	; &I-K0-7524; [85-04]
+      (=gt		  . 24218)	; &I-GT-24218;
+      (=gt-pj-1		  . #x5F56)	; &I-GT-24218; [63-54]
+      (=daikanwa	  . 18915)	; &I-M-18915;
+      (=ucs@jis		  . #x7092)	; &GT-24218;
+      )
+     ((=gb2312		  . #x3334)	; &G0-3334; [19-20]
+      (=ucs@unicode	  . #x7092)	; &G0-3334;
+      )
+     ((=cns11643-1	  . #x4E64)	; &C1-4E64; [46-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕

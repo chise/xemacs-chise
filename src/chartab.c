@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2006 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1130,7 +1130,7 @@ make_char_id_table (Lisp_Object initval)
 
 
 Lisp_Object Qcomposition;
-Lisp_Object Qmap_decomposition;
+Lisp_Object Qrep_decomposition;
 Lisp_Object Qto_decomposition_at_superscript;
 Lisp_Object Qto_decomposition_at_circled;
 Lisp_Object Q_canonical;
@@ -3496,7 +3496,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	}
 #endif
     }
-  return Qmap_decomposition;
+  return Qrep_decomposition;
 }
 
 static Lisp_Object
@@ -3533,12 +3533,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
-  else if ( EQ (attribute, Qmap_decomposition) ||
+  else if ( EQ (attribute, Qrep_decomposition) ||
 	    EQ (attribute, Q_decomposition) )
     {
       value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
       attribute = put_char_composition (character, value);
-      if ( !EQ (attribute, Qmap_decomposition) &&
+      if ( !EQ (attribute, Qrep_decomposition) &&
 	   SYMBOLP (XCAR (value)) )
 	value = XCDR (value);
     }
@@ -4238,7 +4238,7 @@ Store character's ATTRIBUTES.
        (attributes))
 {
   Lisp_Object rest;
-  Lisp_Object code = Fcdr (Fassq (Qmap_ucs, attributes));
+  Lisp_Object code = Fcdr (Fassq (Qrep_ucs, attributes));
   Lisp_Object character;
 
   if (NILP (code))
@@ -4717,7 +4717,7 @@ syms_of_chartab (void)
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
-  defsymbol (&Qmap_decomposition,	"=decomposition");
+  defsymbol (&Qrep_decomposition,	"=decomposition");
   defsymbol (&Qto_decomposition_at_superscript,
 	     "=>decomposition@superscript");
   defsymbol (&Qto_decomposition_at_circled, "=>decomposition@circled");

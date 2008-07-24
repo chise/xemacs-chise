@@ -315,7 +315,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x301C)	; 〜
-    (=jis-x0208		. #x2141)	; &I-J90-2141; [01-33]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "WAVE DASH")
+      (=ucs		  . #x301C)	; 〜
+      ))
+    (=ucs@unicode	. #x301C)	; &UU+301C;
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "WAVE DASH")
+      (=ucs		  . #x301C)	; 〜
+      ))
+    (=jis-x0208		. #x2141)	; &J90-2141; [01-33]
+    (=ucs@jis		. #x301C)	; &J90-2141;
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME QUOTATION MARK")

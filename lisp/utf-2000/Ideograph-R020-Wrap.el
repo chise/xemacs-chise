@@ -125,7 +125,7 @@
     (total-strokes	 . 4)
     (=ucs		. #x5300)	; 匀
     (->subsumptive
-     ((shinjigen-1	  . 764)
+     ((shinjigen-1	  . 765)
       (shinjigen-2	  . 765)
       (=jis-x0212	  . #x337B)	; &M-02497; [19-91]
       (=jis-x0213-1-2000  . #x2E6B)	; &I-JX1-2E6B; [14-75]

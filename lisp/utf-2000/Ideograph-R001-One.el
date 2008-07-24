@@ -2015,13 +2015,22 @@
     (total-strokes@gt	    . 9)
     (=ucs		. #xFA70)	; 並
     (->subsumptive
-     ((shinjigen-1	  . 5733)
+     ((shinjigen-1	  . 5734)
+      (shinjigen-2	  . 5734)
       (=gt		  . 00089)	; &GT-00089;
       (=gt-k		  . 06059)	; &I-GT-K06059;
       (=gt-pj-2		  . #x3046)	; &GT-00089; [16-38]
       (=daikanwa	  . 00053)	; &I-M-00053;
       (=ucs@JP		  . #xFA70)	; &GT-00089;
       (mojikyo		  . 000053)	; &MCS-60000035;
+      (<-formed
+       ((shinjigen-1	    . 5732)
+	(shinjigen-2	    . 5732)
+	(=ucs		    . #x4E26)	; 並
+	(=jis-x0208	    . #x4A42)	; &I-J90-4A42; [42-34]
+	))
+      (<-formed*sources
+       shinjigen-1 shinjigen-2)
       )
      ((=ucs@unicode	  . #xFA70)	; &UU+FA70;
       ))

@@ -857,7 +857,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4662)	; &J97-4662; [38-66]
+     ((=big5		  . #xA4BA)	; &B-A4BA;
+      (=jis-x0208@1997	  . #x4662)	; &B-A4BA; [38-66]
       ))
     (ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
@@ -901,7 +902,9 @@
     (ideographic-radical@cns-3*sources
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
-    (=jis-x0208@1997	. #x4662)	; &J97-4662; [38-66]
+    (=big5		. #xA4BA)	; &B-A4BA;
+    (=jis-x0208@1997	. #x4662)	; &B-A4BA; [38-66]
+    (=ucs@big5		. #x5167)	; &B-A4BA;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -10892,8 +10895,8 @@
 	(=ks-x1001	    . #x4C5A)	; &I-K0-4C5A; [44-58]
 	(=daikanwa	    . 14283)	; &I-M-14283;
 	))
-      (shinjigen-1	  . 269)
-      (shinjigen-2	  . 269)
+      (shinjigen-1	  . 270)
+      (shinjigen-2	  . 270)
       (=jis-x0208@1978	  . #x4A58)	; &M-00659; [42-56]
       (=jis-x0208@1983	  . #x4A58)	; &I-J83-4A58; [42-56]
       (=ks-x1001	  . #x7835)	; &I-K0-7835; [88-21]
@@ -18995,20 +18998,44 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 187 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
-      )
-     ((=ucs		  . #x3A85)	; 㪅
-      ))
     (=ucs		. #x202B3)	; 𠊳
-    (=cns11643-6	. #x3D2E)	; &I-C6-3D2E; [29-14]
-    (=daikanwa		. 00878)	; &I-M-00878;
-    (=hanziku-1		. #xCCD5)	; &I-HZK01-CCD5;
+    (->subsumptive
+     ((hanyu-dazidian	  1 187 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((=ucs		    . #x3A85)	; 㪅
+	))
+      (=cns11643-6	  . #x3D2E)	; &M-00878; [29-14]
+      (=daikanwa	  . 00878)	; &I-M-00878;
+      (=hanziku-1	  . #xCCD5)	; &I-HZK01-CCD5;
+      (=ucs@iso		  . #x202B3)	; &M-00878;
+      (<-original
+       ((=jis-x0208@1978    . #x4A58)	; &M-00659; [42-56]
+	(=jis-x0208@1983    . #x4A58)	; &I-J83-4A58; [42-56]
+	(=ks-x1001	    . #x7835)	; &I-K0-7835; [88-21]
+	(=daikanwa	    . 00659)	; &I-M-00659;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
+      )
+     ((shinjigen-1	  . 271)
+      (shinjigen-2	  . 271)
+      (<-original
+       ((shinjigen-1	    . 270)
+	(shinjigen-2	    . 270)
+	(=jis-x0208@1978    . #x4A58)	; &M-00659; [42-56]
+	(=jis-x0208@1983    . #x4A58)	; &I-J83-4A58; [42-56]
+	(=ks-x1001	    . #x7835)	; &I-K0-7835; [88-21]
+	(=daikanwa	    . 00659)	; &I-M-00659;
+	))
+      (<-original*sources
+       shinjigen-1 shinjigen-2)
+      ))
     ))
 (define-char
   '((=>ucs		. #x202B3)	; 𠊳

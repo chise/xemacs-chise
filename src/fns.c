@@ -1,7 +1,7 @@
 /* Random utility Lisp functions.
    Copyright (C) 1985, 86, 87, 93, 94, 95 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
-   Copyright (C) 2002, 2003, 2004 MORIOKA Tomohiko
+   Copyright (C) 2002, 2003, 2004, 2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3810,7 +3810,7 @@ ids_format_unit (Lisp_Object ids_char)
   if (CHARP (ids_char))
     return Fchar_to_string (ids_char);
   else if (INTP (ids_char))
-    return Fchar_to_string (Fdecode_char (Qmap_ucs, ids_char, Qnil, Qnil));
+    return Fchar_to_string (Fdecode_char (Qrep_ucs, ids_char, Qnil, Qnil));
   else
     {
       Lisp_Object ret = Ffind_char (ids_char);
@@ -3867,7 +3867,7 @@ simplify_char_spec (Lisp_Object char_spec)
       return char_spec;
     }
   else if (INTP (char_spec))
-    return Fdecode_char (Qmap_ucs, char_spec, Qnil, Qnil);
+    return Fdecode_char (Qrep_ucs, char_spec, Qnil, Qnil);
   else
     {
 #if 0
