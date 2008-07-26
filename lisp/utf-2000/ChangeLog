@@ -1,3 +1,8 @@
+2008-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (C6-2568): Use G0-4D62 instead of U+5916
+	in `ideographic-structure'.
+
 2008-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el (U+874E): Fix `shinjigen-1'.
