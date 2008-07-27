@@ -469,7 +469,9 @@
 (defun char-db-insert-ccs-feature (name value line-breaking)
   (insert
    (format
-    (cond ((or (memq name '(=daikanwa
+    (cond ((memq name '(shinjigen-1 shinjigen-2))
+	   "(%-18s .  %04d)\t; %c")
+	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
 			    =gt =gt-k =cbeta =zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
