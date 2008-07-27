@@ -327,6 +327,25 @@
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
+  (make-charset 'shinjigen-1
+		"Kadokawa ShinJigen dictionary (the first edition)"
+		`(long-name	"Shinjigen-1"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-1"))
+  (make-charset 'shinjigen-2
+		"Kadokawa ShinJigen dictionary (the second edition)"
+		`(long-name	"Shinjigen-2"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-2"))
+
   (make-charset '=big5-pua
 		"Big5 with private used area"
 		'(long-name	"Big5-PUA"
