@@ -3,7 +3,6 @@
   '((ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
-    (shinjigen-2	. 9813)
     (=ucs		. #x9ECD)	; 黍
     (=jis-x0208		. #x3550)	; &I-J90-3550; [21-48]
     (=gb2312		. #x4A72)	; &I-G0-4A72; [42-82]
@@ -13,6 +12,7 @@
     (=gt-k		. 09027)	; &I-GT-K09027;
     (=gt-pj-1		. #x3550)	; &I-GT-65454; [21-48]
     (=daikanwa		. 47991)	; &I-M-47991;
+    (shinjigen-2	.  9813)	; 黍
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉
@@ -65,7 +65,6 @@
   '((ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 3)
     (total-strokes	 . 15)
-    (shinjigen-2	. 9814)
     (=ucs		. #x9ECE)	; 黎
     (=jis-x0208		. #x7355)	; &I-J90-7355; [83-53]
     (=gb2312		. #x4068)	; &I-G0-4068; [32-72]
@@ -74,6 +73,7 @@
     (=gt		. 65457)	; &I-GT-65457;
     (=gt-pj-1		. #x7355)	; &I-GT-65457; [83-53]
     (=daikanwa		. 47994)	; &I-M-47994;
+    (shinjigen-2	.  9814)	; 黎
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉
@@ -179,7 +179,6 @@
   '((ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (shinjigen-2	. 5910)
     (=ucs		. #x9ECF)	; 黏
     (=jis-x0208		. #x7356)	; &I-J90-7356; [83-54]
     (=gb2312		. #x7024)	; &I-G0-7024; [80-04]
@@ -187,6 +186,7 @@
     (=gt		. 65472)	; &I-GT-65472;
     (=gt-pj-1		. #x7356)	; &I-GT-65472; [83-54]
     (=daikanwa		. 48007)	; &I-M-48007;
+    (shinjigen-2	.  5910)	; 黏
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉

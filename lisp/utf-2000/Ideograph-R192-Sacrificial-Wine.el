@@ -3,7 +3,6 @@
   '((ideographic-radical . 192)	; ⾿
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
-    (shinjigen-2	. 9502)
     (=ucs		. #x9B2F)	; 鬯
     (=jis-x0208		. #x722E)	; &I-J90-722E; [82-14]
     (=gb2312		. #x5B4B)	; &I-G0-5B4B; [59-43]
@@ -12,6 +11,7 @@
     (=gt-k		. 06656)	; &I-GT-K06656;
     (=gt-pj-1		. #x722E)	; &I-GT-61419; [82-14]
     (=daikanwa		. 45661)	; &I-M-45661;
+    (shinjigen-2	.  9502)	; 鬯
     ))
 (define-char
   '((ideographic-radical . 192)	; ⾿

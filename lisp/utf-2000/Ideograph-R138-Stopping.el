@@ -3,7 +3,6 @@
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-2	. 6669)
     (=ucs		. #x826E)	; 艮
     (=jis-x0208		. #x3A31)	; &I-J90-3A31; [26-17]
     (=gb2312		. #x745E)	; &I-G0-745E; [84-62]
@@ -14,6 +13,7 @@
     (=gt-k		. 01615)	; &I-GT-K01615;
     (=gt-pj-1		. #x3A31)	; &I-GT-39585; [26-17]
     (=daikanwa		. 30596)	; &I-M-30596;
+    (shinjigen-2	.  6669)	; 艮
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
@@ -31,13 +31,13 @@
     (=ucs		. #x826F)	; 良
     (=big5		. #xA87D)	; &I-B-A87D;
     (->subsumptive
-     ((shinjigen-2	  . 6671)
-      (=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
+     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
       (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
       (=gt		  . 39586)	; &I-GT-39586;
       (=gt-k		  . 02672)	; &I-GT-K02672;
       (=gt-pj-1		  . #x4E49)	; &I-GT-39586; [46-41]
       (=daikanwa	  . 30597)	; &I-M-30597;
+      (shinjigen-2	  .  6671)	; &GT-39586;
       (=ucs@jis		  . #x826F)	; &GT-39586;
       )
      ((=gb2312		  . #x413C)	; &C1-4B40; [33-28]
@@ -121,7 +121,6 @@
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (shinjigen-2	. 6672)
     (=ucs		. #x8271)	; 艱
     (=jis-x0208		. #x6765)	; &I-J90-6765; [71-69]
     (=ks-x1001		. #x4A5E)	; &I-K0-4A5E; [42-62]
@@ -131,6 +130,7 @@
     (=gt		. 39590)	; &I-GT-39590;
     (=gt-pj-1		. #x6765)	; &I-GT-39590; [71-69]
     (=daikanwa		. 30600)	; &I-M-30600;
+    (shinjigen-2	.  6672)	; 艱
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉

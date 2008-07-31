@@ -3,7 +3,6 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (shinjigen-2	. 8563)
     (=ucs		. #x91CC)	; 里
     (=jis-x0208		. #x4E24)	; &I-J90-4E24; [46-04]
     (=gb2312		. #x406F)	; &I-G0-406F; [32-79]
@@ -13,12 +12,12 @@
     (=gt-k		. 02670)	; &I-GT-K02670;
     (=gt-pj-1		. #x4E24)	; &I-GT-53968; [46-04]
     (=daikanwa		. 40131)	; &I-M-40131;
+    (shinjigen-2	.  8563)	; 里
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
-    (shinjigen-2	. 8564)
     (=ucs		. #x91CD)	; 重
     (=jis-x0208		. #x3D45)	; &I-J90-3D45; [29-37]
     (=gb2312		. #x5658)	; &I-G0-5658; [54-56]
@@ -28,6 +27,7 @@
     (=gt-k		. 05101)	; &I-GT-K05101;
     (=gt-pj-1		. #x3D45)	; &I-GT-53969; [29-37]
     (=daikanwa		. 40132)	; &I-M-40132;
+    (shinjigen-2	.  8564)	; 重
     ))
 (define-char
   '((morohashi-daikanwa	40132 1)
@@ -65,7 +65,6 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (shinjigen-2	. 8565)
     (=ucs		. #x91CE)	; 野
     (=jis-x0208		. #x4C6E)	; &I-J90-4C6E; [44-78]
     (=gb2312		. #x5230)	; &I-G0-5230; [50-16]
@@ -75,6 +74,7 @@
     (=gt-k		. 07884)	; &I-GT-K07884;
     (=gt-pj-1		. #x4C6E)	; &I-GT-53973; [44-78]
     (=daikanwa		. 40133)	; &I-M-40133;
+    (shinjigen-2	.  8565)	; 野
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
@@ -112,7 +112,6 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
-    (shinjigen-2	. 8569)
     (=ucs		. #x91CF)	; 量
     (=jis-x0208		. #x4E4C)	; &I-J90-4E4C; [46-44]
     (=gb2312		. #x413F)	; &I-G0-413F; [33-31]
@@ -122,6 +121,7 @@
     (=gt-k		. 09160)	; &I-GT-K09160;
     (=gt-pj-1		. #x4E4C)	; &I-GT-53980; [46-44]
     (=daikanwa		. 40138)	; &I-M-40138;
+    (shinjigen-2	.  8569)	; 量
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
@@ -224,7 +224,6 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (shinjigen-2	. 8570)
     (=ucs		. #x91D0)	; 釐
     (=jis-x0208		. #x6E5A)	; &I-J90-6E5A; [78-58]
     (=ks-x1001		. #x576D)	; &I-K0-576D; [55-77]
@@ -232,6 +231,7 @@
     (=gt		. 53990)	; &I-GT-53990;
     (=gt-pj-1		. #x6E5A)	; &I-GT-53990; [78-58]
     (=daikanwa		. 40146)	; &I-M-40146;
+    (shinjigen-2	.  8570)	; 釐
     ))
 (define-char
   '((=>daikanwa		. 40148)	; &M-40148;

@@ -5,9 +5,7 @@
     (total-strokes	 . 6)
     (=ucs		. #x820C)	; 舌
     (->subsumptive
-     ((shinjigen-1	  . 6628)
-      (shinjigen-2	  . 6628)
-      (=jis-x0208	  . #x4065)	; &GT-39171; [32-69]
+     ((=jis-x0208	  . #x4065)	; &GT-39171; [32-69]
       (=gb2312		  . #x4960)	; &I-G0-4960; [41-64]
       (=ks-x1001	  . #x605F)	; &I-K0-605F; [64-63]
       (=big5		  . #xA6DE)	; &I-B-A6DE;
@@ -15,16 +13,18 @@
       (=gt-k		  . 01652)	; &I-GT-K01652;
       (=gt-pj-1		  . #x4065)	; &I-GT-39171; [32-69]
       (=daikanwa	  . 30277)	; &I-M-30277;
+      (shinjigen-1	  .  6628)	; &GT-39171;
+      (shinjigen-2	  .  6628)	; &GT-39171;
       (=ucs@unicode	  . #x820C)	; &GT-39171;
       )
-     ((shinjigen-1	  . 6629)
-      (=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
+     ((=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
+      (shinjigen-1	  .  6629)	; &C1-485F;
       (<-original
-       ((shinjigen-1	    . 6628)
-	(=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
+       ((=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
 	(=gb2312	    . #x4960)	; &I-G0-4960; [41-64]
 	(=ks-x1001	    . #x605F)	; &I-K0-605F; [64-63]
 	(=daikanwa	    . 30277)	; &I-M-30277;
+	(shinjigen-1	    .  6628)	; &GT-39171;
 	))
       (<-original*sources
        shinjigen-1)
@@ -43,7 +43,6 @@
       )
      ((=ucs		  . #x53E4)	; 古
       ))
-    (shinjigen-2	. 1030)
     (=ucs		. #x820D)	; 舍
     (=jis-x0208		. #x6752)	; &I-J90-6752; [71-50]
     (=gb2312		. #x4961)	; &I-G0-4961; [41-65]
@@ -54,6 +53,7 @@
     (=gt-k		. 03908)	; &I-GT-K03908;
     (=gt-pj-1		. #x6752)	; &I-GT-39174; [71-50]
     (=daikanwa		. 30278)	; &I-M-30278;
+    (shinjigen-2	.  1030)	; 舍
     ))
 (define-char
   '((morohashi-daikanwa	30278 1)
@@ -141,7 +141,6 @@
       )
      ((=ucs		  . #x6C0F)	; 氏
       ))
-    (shinjigen-2	. 6630)
     (=ucs		. #x8210)	; 舐
     (=jis-x0208		. #x6753)	; &I-J90-6753; [71-51]
     (=gb2312		. #x7342)	; &I-G0-7342; [83-34]
@@ -149,6 +148,7 @@
     (=gt		. 39185)	; &I-GT-39185;
     (=gt-pj-1		. #x6753)	; &I-GT-39185; [71-51]
     (=daikanwa		. 30283)	; &I-M-30283;
+    (shinjigen-2	.  6630)	; 舐
     ))
 (define-char
   '((=>ucs		. #x8210)	; 舐
@@ -811,11 +811,11 @@
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (shinjigen-2	. 9276)
     (=jis-x0208		. #x345C)	; &GT-39223; [20-60]
     (=gt		. 39223)	; &I-GT-39223;
     (=gt-pj-1		. #x345C)	; &I-GT-39223; [20-60]
     (=daikanwa		. 30326)	; &I-M-30326;
+    (shinjigen-2	.  9276)	; &GT-39223;
     (=ucs@jis		. #x8218)	; &GT-39223;
     ))
 (define-char

@@ -3,8 +3,6 @@
   '((ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (shinjigen-1	. 4043)
-    (shinjigen-2	. 4043)
     (=ucs		. #x6C14)	; 气
     (=jis-x0208		. #x5D63)	; &I-J90-5D63; [61-67]
     (=gb2312		. #x4678)	; &I-G0-4678; [38-88]
@@ -14,6 +12,8 @@
     (=gt-k		. 00540)	; &I-GT-K00540;
     (=gt-pj-1		. #x5D63)	; &I-GT-21827; [61-67]
     (=daikanwa		. 17043)	; &I-M-17043;
+    (shinjigen-1	.  4043)	; 气
+    (shinjigen-2	.  4043)	; 气
     ))
 (define-char
   '((<-denotational
@@ -112,12 +112,12 @@
     (total-strokes	 . 8)
     (=ucs		. #x6C1B)	; 氛
     (->subsumptive
-     ((shinjigen-2	  . 4045)
-      (=jis-x0208	  . #x5D64)	; &GT-21840; [61-68]
+     ((=jis-x0208	  . #x5D64)	; &GT-21840; [61-68]
       (=big5		  . #xAA5E)	; &I-B-AA5E;
       (=gt		  . 21840)	; &I-GT-21840;
       (=gt-pj-1		  . #x5D64)	; &I-GT-21840; [61-68]
       (=daikanwa	  . 17048)	; &I-M-17048;
+      (shinjigen-2	  .  4045)	; &GT-21840;
       (=ucs@jis		  . #x6C1B)	; &GT-21840;
       )
      ((=cns11643-1	  . #x4E41)	; &C1-4E41; [46-33]
@@ -254,8 +254,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x6C23)	; 氣
     (->subsumptive
-     ((shinjigen-2	  . 4042)
-      (=jis-x0208	  . #x5D66)	; &GT-21850; [61-70]
+     ((=jis-x0208	  . #x5D66)	; &GT-21850; [61-70]
       (=ks-x1001	  . #x5128)	; &I-K0-5128; [49-08]
       (=gb12345		  . #x4678)	; &GT-21850; [38-88]
       (=big5		  . #xAEF0)	; &I-B-AEF0;
@@ -263,6 +262,7 @@
       (=gt-k		  . 06607)	; &I-GT-K06607;
       (=gt-pj-1		  . #x5D66)	; &I-GT-21850; [61-70]
       (=daikanwa	  . 17059)	; &I-M-17059;
+      (shinjigen-2	  .  4042)	; &GT-21850;
       (=ucs@unicode	  . #x6C23)	; &GT-21850;
       )
      ((=cns11643-1	  . #x5634)	; &C1-5634; [54-20]
@@ -272,7 +272,6 @@
   '((ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (shinjigen-2	. 4047)
     (=ucs		. #x6C24)	; 氤
     (=jis-x0208		. #x5D65)	; &I-J90-5D65; [61-69]
     (=gb2312		. #x6B33)	; &I-G0-6B33; [75-19]
@@ -281,6 +280,7 @@
     (=gt		. 21848)	; &I-GT-21848;
     (=gt-pj-1		. #x5D65)	; &I-GT-21848; [61-69]
     (=daikanwa		. 17060)	; &I-M-17060;
+    (shinjigen-2	.  4047)	; 氤
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓

@@ -84,8 +84,6 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (shinjigen-1	. 39)
-    (shinjigen-2	. 39)
     (=ucs		. #x2F801)	; 丸
     (=jis-x0208		. #x345D)	; &I-J90-345D; [20-61]
     (=gb2312		. #x4D68)	; &I-G0-4D68; [45-72]
@@ -95,6 +93,8 @@
     (=gt-k		. 00161)	; &I-GT-K00161;
     (=gt-pj-1		. #x345D)	; &I-GT-00131; [20-61]
     (=daikanwa		. 00094)	; &I-M-00094;
+    (shinjigen-1	.  0039)	; 丸
+    (shinjigen-2	.  0039)	; 丸
     (=ucs@unicode	. #x4E38)	; 丸
     (=ucs@cns		. #x2F801)	; 丸
     ))
@@ -118,18 +118,18 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 276 4)
-    (shinjigen-1	. 40)
     (=ucs		. #x2007D)	; 𠁽
     (=cns11643-6	. #x2132)	; &I-C6-2132; [01-18]
     (=big5-cdp		. #x87B9)	; &I-CDP-87B9;
     (=gt		. 00133)	; &I-GT-00133;
     (=gt-pj-2		. #x306B)	; &I-GT-00133; [16-75]
     (=daikanwa		. 00096)	; &I-M-00096;
+    (shinjigen-1	.  0040)	; 𠁽
     (<-original
-     ((shinjigen-1	  . 39)
-      (=ucs		  . #x2F801)	; 丸
+     ((=ucs		  . #x2F801)	; 丸
       (=jis-x0208	  . #x345D)	; &I-J90-345D; [20-61]
       (=daikanwa	  . 00094)	; &I-M-00094;
+      (shinjigen-1	  .  0039)	; 丸
       ))
     (<-original*sources
      zhonghua-dazidian daikanwa shinjigen-1)
@@ -202,8 +202,6 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 44 1)
-    (shinjigen-1	. 41)
-    (shinjigen-2	. 41)
     (sound@ja/kun	"ni")
     (sound@ja/on	"tan")
     (=ucs		. #x4E39)	; 丹
@@ -215,6 +213,8 @@
     (=gt-k		. 00460)	; &I-GT-K00460;
     (=gt-pj-1		. #x4330)	; &I-GT-00136; [35-16]
     (=daikanwa		. 00099)	; &I-M-00099;
+    (shinjigen-1	.  0041)	; 丹
+    (shinjigen-2	.  0041)	; 丹
     (->subsumptive
      ((=ks-x1001	  . #x5321)	; &K0-5321; [51-01]
       (=ucs@ks		  . #x4E39)	; &K0-5321;
@@ -272,11 +272,11 @@
 	)
        ((=ucs		    . #x738B)	; 王
 	))
-      (shinjigen-1	  . 43)
       (=gt		  . 00137)	; &GT-00137;
       (=gt-k		  . 00948)	; &I-GT-K00948;
       (=gt-pj-2		  . #x306E)	; &GT-00137; [16-78]
       (=daikanwa	  . 00100)	; &I-M-00100;
+      (shinjigen-1	  .  0043)	; &GT-00137;
       (=jef-china3	  . #x41B3)	; &I-JC3-41B3;
       )
      ((hanyu-dazidian	  1 44 3)
@@ -288,8 +288,6 @@
 	)
        ((=ucs		    . #x738B)	; 王
 	))
-      (shinjigen-1	  . 42)
-      (shinjigen-2	  . 42)
       (=jis-x0208	  . #x3C67)	; &GT-00138; [28-71]
       (=gb2312		  . #x5677)	; &I-G0-5677; [54-87]
       (=ks-x1001	  . #x712B)	; &I-K0-712B; [81-11]
@@ -298,6 +296,8 @@
       (=gt		  . 00138)	; &I-GT-00138;
       (=gt-k		  . 00949)	; &I-GT-K00949;
       (=gt-pj-1		  . #x3C67)	; &I-GT-00138; [28-71]
+      (shinjigen-1	  .  0042)	; &GT-00138;
+      (shinjigen-2	  .  0042)	; &GT-00138;
       (=ucs@unicode	  . #x4E3B)	; &GT-00138;
       ))
     ))
@@ -314,8 +314,6 @@
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
-    (shinjigen-1	. 44)
-    (shinjigen-2	. 44)
     (sound@ja/kun	"donburi" "don")
     (sound@ja/on/go	"ton")
     (=ucs		. #x4E3C)	; 丼
@@ -326,6 +324,8 @@
     (=gt-k		. 01026)	; &I-GT-K01026;
     (=gt-pj-1		. #x5027)	; &I-GT-00139; [48-07]
     (=daikanwa		. 00101)	; &I-M-00101;
+    (shinjigen-1	.  0044)	; 丼
+    (shinjigen-2	.  0044)	; 丼
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂

@@ -8,14 +8,14 @@
     (total-strokes	 . 10)
     (=ucs		. #x9AD8)	; 高
     (->subsumptive
-     ((shinjigen-1	  . 9450)
-      (shinjigen-2	  . 9450)
-      (=jis-x0208	  . #x3962)	; &GT-60968; [25-66]
+     ((=jis-x0208	  . #x3962)	; &GT-60968; [25-66]
       (=ks-x1001	  . #x4D54)	; &I-K0-4D54; [45-52]
       (=gt		  . 60968)	; &I-GT-60968;
       (=gt-k		  . 06430)	; &I-GT-K06430;
       (=gt-pj-1		  . #x3962)	; &I-GT-60968; [25-66]
       (=daikanwa	  . 45313)	; &I-M-45313;
+      (shinjigen-1	  .  9450)	; &GT-60968;
+      (shinjigen-2	  .  9450)	; &GT-60968;
       (=ucs@jis		  . #x9AD8)	; &GT-60968;
       (=ucs@ks		  . #x9AD8)	; &GT-60968;
       )
@@ -38,11 +38,11 @@
     (total-strokes	 . 11)
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
-     ((shinjigen-1	  . 9451)
-      (=gt		  . 60969)	; &GT-60969;
+     ((=gt		  . 60969)	; &GT-60969;
       (=gt-k		  . 08024)	; &I-GT-K08024;
       (=gt-pj-8		  . #x5362)	; &GT-60969; [51-66]
       (=daikanwa	  . 45314)	; &I-M-45314;
+      (shinjigen-1	  .  9451)	; &GT-60969;
       (=jef-china3	  . #x6EA4)	; &I-JC3-6EA4;
       (<-vulgar
        ((=jis-x0208	    . #x3962)	; &GT-60968; [25-66]

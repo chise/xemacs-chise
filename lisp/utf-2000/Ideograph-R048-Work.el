@@ -3,7 +3,6 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (shinjigen-2	. 2059)
     (=ucs		. #x5DE5)	; 工
     (=jis-x0208		. #x3929)	; &I-J90-3929; [25-09]
     (=gb2312		. #x3924)	; &I-G0-3924; [25-04]
@@ -14,6 +13,7 @@
     (=gt-k		. 00172)	; &I-GT-K00172;
     (=gt-pj-1		. #x3929)	; &I-GT-10991; [25-09]
     (=daikanwa		. 08714)	; &I-M-08714;
+    (shinjigen-2	.  2059)	; 工
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -58,7 +58,6 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 2063)
     (=ucs		. #x5DE6)	; 左
     (=jis-x0208		. #x3A38)	; &I-J90-3A38; [26-24]
     (=gb2312		. #x5773)	; &I-G0-5773; [55-83]
@@ -69,12 +68,12 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
+    (shinjigen-2	.  2063)	; 左
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 2062)
     (=ucs		. #x5DE7)	; 巧
     (=jis-x0208		. #x392A)	; &I-J90-392A; [25-10]
     (=gb2312		. #x4749)	; &I-G0-4749; [39-41]
@@ -85,6 +84,7 @@
     (=gt-k		. 00927)	; &I-GT-K00927;
     (=gt-pj-1		. #x392A)	; &I-GT-10999; [25-10]
     (=daikanwa		. 08721)	; &I-M-08721;
+    (shinjigen-2	.  2062)	; 巧
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -188,7 +188,6 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 2066)
     (=ucs		. #x5DEB)	; 巫
     (=jis-x0208		. #x5660)	; &I-J90-5660; [54-64]
     (=gb2312		. #x4E57)	; &I-G0-4E57; [46-55]
@@ -199,6 +198,7 @@
     (=gt-k		. 02701)	; &I-GT-K02701;
     (=gt-pj-1		. #x5660)	; &I-GT-11008; [54-64]
     (=daikanwa		. 08728)	; &I-M-08728;
+    (shinjigen-2	.  2066)	; 巫
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -254,8 +254,6 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-1	. 2067)
-    (shinjigen-2	. 2067)
     (=jis-x0208		. #x3A39)	; &GT-11011; [26-25]
     (=ks-x1001		. #x732C)	; &I-K0-732C; [83-12]
     (=cns11643-1	. #x5538)	; &I-C1-5538; [53-24]
@@ -264,6 +262,8 @@
     (=gt-k		. 06433)	; &I-GT-K06433;
     (=gt-pj-1		. #x3A39)	; &I-GT-11011; [26-25]
     (=daikanwa		. 08732)	; &I-M-08732;
+    (shinjigen-1	.  2067)	; &GT-11011;
+    (shinjigen-2	.  2067)	; &GT-11011;
     (=ucs@jis		. #x5DEE)	; &GT-11011;
     (=ucs@big5		. #x5DEE)	; &GT-11011;
     ))

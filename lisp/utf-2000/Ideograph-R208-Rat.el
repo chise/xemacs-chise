@@ -3,7 +3,6 @@
   '((ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
-    (shinjigen-2	. 9866)
     (=ucs		. #x9F20)	; 鼠
     (=jis-x0208		. #x414D)	; &I-J90-414D; [33-45]
     (=gb2312		. #x4A73)	; &I-G0-4A73; [42-83]
@@ -12,6 +11,7 @@
     (=gt-k		. 10236)	; &I-GT-K10236;
     (=gt-pj-1		. #x414D)	; &I-GT-66099; [33-45]
     (=daikanwa		. 48390)	; &I-M-48390;
+    (shinjigen-2	.  9866)	; 鼠
     ))
 (define-char
   '((=>ucs		. #x9F20)	; 鼠
@@ -832,10 +832,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
     (->subsumptive
-     ((shinjigen-2	  . 9871)
-      (=jis-x0208	  . #x736C)	; &M-48427; [83-76]
+     ((=jis-x0208	  . #x736C)	; &M-48427; [83-76]
       (=cns11643-1	  . #x782A)	; &I-C1-782A; [88-10]
       (=daikanwa	  . 48427)	; &I-M-48427;
+      (shinjigen-2	  .  9871)	; &M-48427;
       (=ucs@jis		  . #x9F2C)	; &M-48427;
       )
      ((=gt		  . 66133)	; &GT-66133;

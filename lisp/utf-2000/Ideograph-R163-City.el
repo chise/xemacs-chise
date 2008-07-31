@@ -3,7 +3,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (shinjigen-2	. 8406)
     (=ucs		. #x9091)	; 邑
     (=jis-x0208		. #x4D38)	; &I-J90-4D38; [45-24]
     (=gb2312		. #x5258)	; &I-G0-5258; [50-56]
@@ -14,6 +13,7 @@
     (=gt-k		. 02661)	; &I-GT-K02661;
     (=gt-pj-1		. #x4D38)	; &I-GT-52935; [45-24]
     (=daikanwa		. 39269)	; &I-M-39269;
+    (shinjigen-2	.  8406)	; 邑
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -558,7 +558,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 8417)
     (=ucs		. #x90A6)	; 邦
     (=jis-x0208		. #x4B2E)	; &I-J90-4B2E; [43-14]
     (=gb2312		. #x306E)	; &I-G0-306E; [16-78]
@@ -566,6 +565,7 @@
     (=gt-k		. 02649)	; &I-GT-K02649;
     (=gt-pj-1		. #x4B2E)	; &I-GT-52932; [43-14]
     (=daikanwa		. 39310)	; &I-M-39310;
+    (shinjigen-2	.  8417)	; 邦
     ))
 (define-char
   '((=>ucs		. #x90A6)	; 邦
@@ -613,11 +613,11 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 3483)
     (=jis-x0208		. #x6E37)	; &GT-52921; [78-23]
     (=gt		. 52921)	; &I-GT-52921;
     (=gt-pj-1		. #x6E37)	; &I-GT-52921; [78-23]
     (=daikanwa		. 39313)	; &I-M-39313;
+    (shinjigen-2	.  3483)	; &GT-52921;
     (=ucs@jis		. #x90A8)	; &GT-52921;
     ))
 (define-char
@@ -820,7 +820,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 8419)
     (=ucs		. #x90AF)	; 邯
     (=jis-x0208		. #x6E38)	; &I-J90-6E38; [78-24]
     (=gb2312		. #x3A2A)	; &I-G0-3A2A; [26-10]
@@ -831,6 +830,7 @@
     (=gt-k		. 03921)	; &I-GT-K03921;
     (=gt-pj-1		. #x6E38)	; &I-GT-52938; [78-24]
     (=daikanwa		. 39330)	; &I-M-39330;
+    (shinjigen-2	.  8419)	; 邯
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -883,7 +883,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 8421)
     (=ucs		. #x90B1)	; 邱
     (=jis-x0208		. #x6E39)	; &I-J90-6E39; [78-25]
     (=gb2312		. #x4771)	; &I-G0-4771; [39-81]
@@ -893,6 +892,7 @@
     (=gt		. 52939)	; &I-GT-52939;
     (=gt-pj-1		. #x6E39)	; &I-GT-52939; [78-25]
     (=daikanwa		. 39335)	; &I-M-39335;
+    (shinjigen-2	.  8421)	; 邱
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -971,7 +971,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 8422)
     (=ucs		. #x90B5)	; 邵
     (=jis-x0208		. #x6E3A)	; &I-J90-6E3A; [78-26]
     (=gb2312		. #x495B)	; &I-G0-495B; [41-59]
@@ -982,6 +981,7 @@
     (=gt-k		. 03922)	; &I-GT-K03922;
     (=gt-pj-1		. #x6E3A)	; &I-GT-52951; [78-26]
     (=daikanwa		. 39343)	; &I-M-39343;
+    (shinjigen-2	.  8422)	; 邵
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -1016,7 +1016,6 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 8424)
     (=jis-x0208		. #x4521)	; &GT-52957; [37-01]
     (=ks-x1001		. #x6E50)	; &I-K0-6E50; [78-48]
     (=cns11643-1	. #x4F56)	; &I-C1-4F56; [47-54]
@@ -1024,6 +1023,7 @@
     (=gt		. 52957)	; &I-GT-52957;
     (=gt-pj-1		. #x4521)	; &I-GT-52957; [37-01]
     (=daikanwa		. 39347)	; &I-M-39347;
+    (shinjigen-2	.  8424)	; &GT-52957;
     (=ucs@jis		. #x90B8)	; &GT-52957;
     ))
 (define-char
@@ -1293,8 +1293,7 @@
     (total-strokes	 . 9)
     (=ucs		. #x90C1)	; 郁
     (->subsumptive
-     ((shinjigen-2	  . 8430)
-      (=jis-x0208	  . #x306A)	; &GT-52972; [16-74]
+     ((=jis-x0208	  . #x306A)	; &GT-52972; [16-74]
       (=gb2312		  . #x5374)	; &I-G0-5374; [51-84]
       (=ks-x1001	  . #x6974)	; &I-K0-6974; [73-84]
       (=big5		  . #xADA7)	; &I-B-ADA7;
@@ -1302,6 +1301,7 @@
       (=gt-k		  . 05021)	; &I-GT-K05021;
       (=gt-pj-1		  . #x306A)	; &I-GT-52972; [16-74]
       (=daikanwa	  . 39371)	; &I-M-39371;
+      (shinjigen-2	  .  8430)	; &GT-52972;
       (=ucs@unicode	  . #x90C1)	; &GT-52972;
       )
      ((=cns11643-1	  . #x5368)	; &C1-5368; [51-72]
@@ -1540,13 +1540,13 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (shinjigen-2	. 8431)
     (=jis-x0208		. #x3959)	; &GT-52991; [25-57]
     (=ks-x1001		. #x4E74)	; &I-K0-4E74; [46-84]
     (=big5		. #xADA5)	; &I-B-ADA5;
     (=gt		. 52991)	; &I-GT-52991;
     (=gt-pj-1		. #x3959)	; &I-GT-52991; [25-57]
     (=daikanwa		. 39392)	; &I-M-39392;
+    (shinjigen-2	.  8431)	; &GT-52991;
     (=ucs@jis		. #x90CA)	; &GT-52991;
     ))
 (define-char
@@ -2023,12 +2023,12 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-2	. 8447)
     (=jis-x0208		. #x6E3E)	; &GT-53054; [78-30]
     (=big5		. #xD3FA)	; &I-B-D3FA;
     (=gt		. 53054)	; &I-GT-53054;
     (=gt-pj-1		. #x6E3E)	; &I-GT-53054; [78-30]
     (=daikanwa		. 39428)	; &I-M-39428;
+    (shinjigen-2	.  8447)	; &GT-53054;
     (=ucs@jis		. #x90DB)	; &GT-53054;
     ))
 (define-char
@@ -2162,7 +2162,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-2	. 8441)
     (=ucs		. #x90E1)	; 郡
     (=jis-x0208		. #x3734)	; &I-J90-3734; [23-20]
     (=gb2312		. #x3F24)	; &I-G0-3F24; [31-04]
@@ -2173,6 +2172,7 @@
     (=gt-k		. 06411)	; &I-GT-K06411;
     (=gt-pj-1		. #x3734)	; &I-GT-53032; [23-20]
     (=daikanwa		. 39436)	; &I-M-39436;
+    (shinjigen-2	.  8441)	; 郡
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -2187,7 +2187,6 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-2	. 8439)
     (=jis-x0208		. #x6E3B)	; &GT-53020; [78-27]
     (=cns11643-1	. #x5857)	; &I-C1-5857; [56-55]
     (=big5		. #xB072)	; &I-B-B072;
@@ -2195,6 +2194,7 @@
     (=gt-k		. 06650)	; &I-GT-K06650;
     (=gt-pj-1		. #x6E3B)	; &I-GT-53020; [78-27]
     (=daikanwa		. 39438)	; &I-M-39438;
+    (shinjigen-2	.  8439)	; &GT-53020;
     (=ucs@jis		. #x90E2)	; &GT-53020;
     ))
 (define-char
@@ -2218,7 +2218,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-2	. 8442)
     (=ucs		. #x90E4)	; 郤
     (=jis-x0208		. #x6E3C)	; &I-J90-6E3C; [78-28]
     (=iso-ir165		. #x7E6F)	; &I-EGB-7E6F; [94-79]
@@ -2228,6 +2227,7 @@
     (=gt-k		. 06652)	; &I-GT-K06652;
     (=gt-pj-1		. #x6E3C)	; &I-GT-53035; [78-28]
     (=daikanwa		. 39440)	; &I-M-39440;
+    (shinjigen-2	.  8442)	; 郤
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -2491,7 +2491,6 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-2	. 8457)
     (=jis-x0208		. #x4974)	; &GT-53119; [41-84]
     (=ks-x1001		. #x5D3B)	; &I-K0-5D3B; [61-27]
     (=big5		. #xB3A1)	; &I-B-B3A1;
@@ -2499,6 +2498,7 @@
     (=gt-k		. 07869)	; &I-GT-K07869;
     (=gt-pj-1		. #x4974)	; &I-GT-53119; [41-84]
     (=daikanwa		. 39460)	; &I-M-39460;
+    (shinjigen-2	.  8457)	; &GT-53119;
     (=ucs@jis		. #x90E8)	; &GT-53119;
     ))
 (define-char
@@ -2707,14 +2707,14 @@
     (=ucs		. #x90ED)	; 郭
     (=big5		. #xB3A2)	; &I-B-B3A2;
     (->subsumptive
-     ((shinjigen-1	  . 8448)
-      (shinjigen-2	  . 8448)
-      (=jis-x0208	  . #x3354)	; &GT-53074; [19-52]
+     ((=jis-x0208	  . #x3354)	; &GT-53074; [19-52]
       (=ks-x1001	  . #x4E2C)	; &I-K0-4E2C; [46-12]
       (=gt		  . 53074)	; &I-GT-53074;
       (=gt-k		  . 07727)	; &I-GT-K07727;
       (=gt-pj-1		  . #x3354)	; &I-GT-53074; [19-52]
       (=daikanwa	  . 39474)	; &I-M-39474;
+      (shinjigen-1	  .  8448)	; &GT-53074;
+      (shinjigen-2	  .  8448)	; &GT-53074;
       (=ucs@jis		  . #x90ED)	; &GT-53074;
       )
      ((=gb2312		  . #x3979)	; &C1-5D66; [25-89]
@@ -2877,7 +2877,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-2	. 8459)
     (=ucs		. #x90F5)	; 郵
     (=jis-x0208		. #x4D39)	; &I-J90-4D39; [45-25]
     (=ks-x1001		. #x6968)	; &I-K0-6968; [73-72]
@@ -2887,6 +2886,7 @@
     (=gt-k		. 07887)	; &I-GT-K07887;
     (=gt-pj-1		. #x4D39)	; &I-GT-53124; [45-25]
     (=daikanwa		. 39485)	; &I-M-39485;
+    (shinjigen-2	.  8459)	; 郵
     ))
 (define-char
   '((=>ucs		. #x90F5)	; 郵
@@ -3067,7 +3067,6 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-1	. 8455)
     (=jis-x0208		. #x4554)	; &GT-53115; [37-52]
     (=gb2312		. #x363C)	; &I-G0-363C; [22-28]
     (=cns11643-1	. #x5D67)	; &I-C1-5D67; [61-71]
@@ -3075,6 +3074,7 @@
     (=gt		. 53115)	; &I-GT-53115;
     (=gt-k		. 07844)	; &I-GT-K07844;
     (=gt-pj-1		. #x4554)	; &I-GT-53115; [37-52]
+    (shinjigen-1	.  8455)	; &GT-53115;
     (=ucs@unicode	. #x90FD)	; &GT-53115;
     (<-simplified@JP/Jouyou
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA26")
@@ -3272,11 +3272,11 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (shinjigen-1	. 8456)
     (=ucs		. #xFA26)	; 都
     (=ks-x1001		. #x5434)	; &I-K0-5434; [52-20]
     (=jis-x0213-1-2000	. #x7C6A)	; &I-JX1-7C6A; [92-74]
     (=daikanwa		. 39509)	; &I-M-39509;
+    (shinjigen-1	.  8456)	; 都
     (=jef-china3	. #x68A8)	; &I-JC3-68A8;
     (=ucs@ks		. #x90FD)	; 都
     ))
@@ -3411,7 +3411,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (shinjigen-2	. 8462)
     (=ucs		. #x9102)	; 鄂
     (=jis-x0208		. #x6E3F)	; &I-J90-6E3F; [78-31]
     (=gb2312		. #x3675)	; &I-G0-3675; [22-85]
@@ -3421,6 +3420,7 @@
     (=gt		. 53136)	; &I-GT-53136;
     (=gt-pj-1		. #x6E3F)	; &I-GT-53136; [78-31]
     (=daikanwa		. 39520)	; &I-M-39520;
+    (shinjigen-2	.  8462)	; 鄂
     ))
 (define-char
   '((=>ucs		. #x28719)	; 𨜙
@@ -4016,7 +4016,6 @@
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (shinjigen-2	. 8467)
     (=ucs		. #x9112)	; 鄒
     (=jis-x0208		. #x6E40)	; &I-J90-6E40; [78-32]
     (=ks-x1001		. #x755B)	; &I-K0-755B; [85-59]
@@ -4026,6 +4025,7 @@
     (=gt		. 53218)	; &I-GT-53218;
     (=gt-pj-1		. #x6E40)	; &I-GT-53218; [78-32]
     (=daikanwa		. 39562)	; &I-M-39562;
+    (shinjigen-2	.  8467)	; 鄒
     ))
 (define-char
   '((=>ucs		. #x2873B)	; 𨜻
@@ -4508,13 +4508,13 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (shinjigen-2	. 8472)
     (=jis-x0208		. #x6E41)	; &GT-53278; [78-33]
     (=ks-x1001		. #x5E29)	; &I-K0-5E29; [62-09]
     (=big5		. #xBBC0)	; &I-B-BBC0;
     (=gt		. 53278)	; &I-GT-53278;
     (=gt-pj-1		. #x6E41)	; &I-GT-53278; [78-33]
     (=daikanwa		. 39597)	; &I-M-39597;
+    (shinjigen-2	.  8472)	; &GT-53278;
     (=ucs@jis		. #x9119)	; &GT-53278;
     ))
 (define-char
@@ -5314,13 +5314,13 @@
     (=ucs		. #x9130)	; 鄰
     (=big5		. #xBE46)	; &I-B-BE46;
     (->subsumptive
-     ((shinjigen-2	  . 8934)
-      (=jis-x0208@1978	  . #x6E43)	; &GT-53344; [78-35]
+     ((=jis-x0208@1978	  . #x6E43)	; &GT-53344; [78-35]
       (=jis-x0208@1983	  . #x6E43)	; &I-J83-6E43; [78-35]
       (=gb12345		  . #x415A)	; &GT-53344; [33-58]
       (=gt		  . 53344)	; &I-GT-53344;
       (=gt-pj-1		  . #x6E43)	; &I-GT-53344; [78-35]
       (=daikanwa	  . 39656)	; &I-M-39656;
+      (shinjigen-2	  .  8934)	; &GT-53344;
       (=ucs@unicode	  . #x9130)	; &GT-53344;
       )
      ((=jis-x0208@1990	  . #x6E43)	; &J90-6E43; [78-35]

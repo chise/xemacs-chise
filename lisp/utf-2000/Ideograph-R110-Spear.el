@@ -3,7 +3,6 @@
   '((ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (shinjigen-2	. 5384)
     (=ucs		. #x77DB)	; 矛
     (=jis-x0208		. #x4C37)	; &I-J90-4C37; [44-23]
     (=gb2312		. #x432C)	; &I-G0-432C; [35-12]
@@ -14,6 +13,7 @@
     (=gt-k		. 01009)	; &I-GT-K01009;
     (=gt-pj-1		. #x4C37)	; &I-GT-30525; [44-23]
     (=daikanwa		. 23846)	; &I-M-23846;
+    (shinjigen-2	.  5384)	; 矛
     ))
 (define-char
   '((=>ucs		. #x4086)	; 䂆
@@ -73,7 +73,6 @@
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (shinjigen-2	. 5387)
     (=jis-x0208		. #x6262)	; &GT-30529; [66-66]
     (=ks-x1001		. #x5068)	; &I-K0-5068; [48-72]
     (=cns11643-1	. #x5264)	; &I-C1-5264; [50-68]
@@ -81,6 +80,7 @@
     (=gt		. 30529)	; &I-GT-30529;
     (=gt-pj-1		. #x6262)	; &I-GT-30529; [66-66]
     (=daikanwa		. 23852)	; &I-M-23852;
+    (shinjigen-2	.  5387)	; &GT-30529;
     (=ucs@jis		. #x77DC)	; &GT-30529;
     ))
 (define-char

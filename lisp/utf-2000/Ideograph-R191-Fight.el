@@ -123,11 +123,11 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (shinjigen-2	. 9493)
     (=jis-x0208		. #x7229)	; &GT-61392; [82-09]
     (=ks-x1001		. #x5722)	; &I-K0-5722; [55-02]
     (=gt		. 61392)	; &I-GT-61392;
     (=gt-pj-1		. #x7229)	; &I-GT-61392; [82-09]
+    (shinjigen-2	.  9493)	; &GT-61392;
     (=ucs@jis		. #x9B27)	; &GT-61392;
     ))
 (define-char
@@ -165,11 +165,11 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (shinjigen-2	. 9495)
     (=ucs		. #x9B28)	; 鬨
     (=jis-x0208		. #x722A)	; &I-J90-722A; [82-10]
     (=gt		. 61393)	; &I-GT-61393;
     (=gt-pj-1		. #x722A)	; &I-GT-61393; [82-10]
+    (shinjigen-2	.  9495)	; 鬨
     ))
 (define-char
   '((=>ucs		. #x9B28)	; 鬨
@@ -205,12 +205,12 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (shinjigen-2	. 9496)
     (=ucs		. #x9B29)	; 鬩
     (=jis-x0208		. #x722B)	; &I-J90-722B; [82-11]
     (=gb12345		. #x6352)	; 鬩 [67-50]
     (=gt		. 61397)	; &I-GT-61397;
     (=gt-pj-1		. #x722B)	; &I-GT-61397; [82-11]
+    (shinjigen-2	.  9496)	; 鬩
     ))
 (define-char
   '((=>ucs		. #x9B29)	; 鬩
@@ -289,11 +289,11 @@
     (->subsumptive
      ((=daikanwa	  . 45649)	; &M-45649;
       )
-     ((shinjigen-2	  . 9498)
-      (=jis-x0208	  . #x722C)	; &GT-61402; [82-12]
+     ((=jis-x0208	  . #x722C)	; &GT-61402; [82-12]
       (=ks-x1001	  . #x7763)	; &I-K0-7763; [87-67]
       (=gt		  . 61402)	; &I-GT-61402;
       (=gt-pj-1		  . #x722C)	; &I-GT-61402; [82-12]
+      (shinjigen-2	  .  9498)	; &GT-61402;
       (=ucs@unicode	  . #x9B2A)	; &GT-61402;
       )
      ((=cns11643-3	  . #x5D62)	; &C3-5D62; [61-66]

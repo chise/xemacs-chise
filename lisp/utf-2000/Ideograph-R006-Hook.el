@@ -46,8 +46,6 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 48 6)
-    (shinjigen-1	. 66)
-    (shinjigen-2	. 66)
     (sound@ja/kun/name	"satoru")
     (sound@ja/on	"rEu")
     (=ucs		. #x4E86)	; 了
@@ -60,6 +58,8 @@
     (=gt-k		. 00066)	; &I-GT-K00066;
     (=gt-pj-1		. #x4E3B)	; &I-GT-00306; [46-27]
     (=daikanwa		. 00226)	; &I-M-00226;
+    (shinjigen-1	.  0066)	; 了
+    (shinjigen-2	.  0066)	; 了
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -167,8 +167,6 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 52 2)
-    (shinjigen-1	. 67)
-    (shinjigen-2	. 67)
     (sound@ja/kun	"arakazi-me" "kane-te")
     (sound@ja/on	"yo")
     (=ucs		. #x4E88)	; 予
@@ -181,6 +179,8 @@
     (=gt-k		. 00505)	; &I-GT-K00505;
     (=gt-pj-1		. #x4D3D)	; &I-GT-00312; [45-29]
     (=daikanwa		. 00231)	; &I-M-00231;
+    (shinjigen-1	.  0067)	; 予
+    (shinjigen-2	.  0067)	; 予
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
       (=ks-x1001	  . #x6763)	; &I-K0-6763; [71-67]
@@ -281,8 +281,6 @@
       )
      ((=big5-cdp	  . #x8BFE)	; &CDP-8BFE;
       ))
-    (shinjigen-1	. 4698)
-    (shinjigen-2	. 4698)
     (sound@ja/kun	"araso+H5" "araga+H5")
     (sound@ja/on/kan	"sAu")
     (=ucs		. #x4E89)	; 争
@@ -293,6 +291,8 @@
     (=gt-k		. 01662)	; &I-GT-K01662;
     (=gt-pj-1		. #x4168)	; &I-GT-00313; [33-72]
     (=daikanwa		. 00236)	; &I-M-00236;
+    (shinjigen-1	.  4698)	; 争
+    (shinjigen-2	.  4698)	; 争
     (=hanziku-1		. #xE8D1)	; &I-HZK01-E8D1;
     (<-simplified@CN
      ((=gb12345		  . #x5579)	; &C1-4E68; [53-89]
@@ -381,19 +381,19 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (shinjigen-1	. 71)
-    (shinjigen-2	. 71)
     (sound@ja/kun	"koto")
     (sound@ja/on/go	"zi")
     (=ucs		. #x4E8A)	; 亊
     (=jis-x0208		. #x502F)	; &I-J90-502F; [48-15]
     (=gt		. 00315)	; &I-GT-00315;
     (=gt-pj-1		. #x502F)	; &I-GT-00315; [48-15]
+    (shinjigen-1	.  0071)	; 亊
+    (shinjigen-2	.  0071)	; 亊
     (<-vulgar
-     ((shinjigen-1	  . 69)
-      (=ucs		  . #x4E8B)	; 事
+     ((=ucs		  . #x4E8B)	; 事
       (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
       (=daikanwa	  . 00241)	; &I-M-00241;
+      (shinjigen-1	  .  0069)	; 事
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa shinjigen-1)
@@ -422,8 +422,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 23 3)
-    (shinjigen-1	. 69)
-    (shinjigen-2	. 69)
     (sound@ja/kun	"koto")
     (sound@ja/on/go	"zi")
     (=ucs		. #x4E8B)	; 事
@@ -436,6 +434,8 @@
     (=gt-k		. 03726)	; &I-GT-K03726;
     (=gt-pj-1		. #x3B76)	; &I-GT-00319; [27-86]
     (=daikanwa		. 00241)	; &I-M-00241;
+    (shinjigen-1	.  0069)	; 事
+    (shinjigen-2	.  0069)	; 事
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅

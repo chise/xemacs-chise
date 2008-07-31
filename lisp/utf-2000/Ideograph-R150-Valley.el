@@ -3,7 +3,6 @@
   '((ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (shinjigen-2	. 7791)
     (=ucs		. #x8C37)	; 谷
     (=jis-x0208		. #x432B)	; &I-J90-432B; [35-11]
     (=gb2312		. #x3948)	; &I-G0-3948; [25-40]
@@ -14,6 +13,7 @@
     (=gt-k		. 02607)	; &I-GT-K02607;
     (=gt-pj-1		. #x432B)	; &I-GT-48553; [35-11]
     (=daikanwa		. 36182)	; &I-M-36182;
+    (shinjigen-2	.  7791)	; 谷
     ))
 (define-char
   '((ideographic-radical . 150)	; ⾕
@@ -427,12 +427,12 @@
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (shinjigen-2	. 7799)
     (=jis-x0208		. #x6C30)	; &GT-48604; [76-16]
     (=ks-x1001		. #x4D2C)	; &I-K0-4D2C; [45-12]
     (=gt		. 48604)	; &I-GT-48604;
     (=gt-pj-1		. #x6C30)	; &I-GT-48604; [76-16]
     (=daikanwa		. 36219)	; &I-M-36219;
+    (shinjigen-2	.  7799)	; &GT-48604;
     (=ucs@jis		. #x8C3F)	; &GT-48604;
     ))
 (define-char

@@ -3,8 +3,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-1	. 6268)
-    (shinjigen-2	. 6268)
     (=ucs		. #x7F8A)	; 羊
     (=jis-x0208		. #x4D53)	; &I-J90-4D53; [45-51]
     (=gb2312		. #x5172)	; &I-G0-5172; [49-82]
@@ -15,6 +13,8 @@
     (=gt-k		. 01700)	; &I-GT-K01700;
     (=gt-pj-1		. #x4D53)	; &I-GT-36600; [45-51]
     (=daikanwa		. 28425)	; &I-M-28425;
+    (shinjigen-1	.  6268)	; 羊
+    (shinjigen-2	.  6268)	; 羊
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
@@ -188,7 +188,6 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (shinjigen-2	. 6269)
     (=jis-x0208		. #x6635)	; &GT-36602; [70-21]
     (=ks-x1001		. #x4B36)	; &I-K0-4B36; [43-22]
     (=cns11643-1	. #x4F2D)	; &I-C1-4F2D; [47-13]
@@ -197,6 +196,7 @@
     (=gt-k		. 03906)	; &I-GT-K03906;
     (=gt-pj-1		. #x6635)	; &I-GT-36602; [70-21]
     (=daikanwa		. 28429)	; &I-M-28429;
+    (shinjigen-2	.  6269)	; &GT-36602;
     (=ucs@jis		. #x7F8C)	; &GT-36602;
     ))
 (define-char
@@ -269,7 +269,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (shinjigen-2	. 6271)
     (=ucs		. #x7F8E)	; 美
     (=jis-x0208		. #x487E)	; &I-J90-487E; [40-94]
     (=gb2312		. #x4340)	; &I-G0-4340; [35-32]
@@ -279,6 +278,7 @@
     (=gt-k		. 05166)	; &I-GT-K05166;
     (=gt-pj-1		. #x487E)	; &I-GT-36613; [40-94]
     (=daikanwa		. 28435)	; &I-M-28435;
+    (shinjigen-2	.  6271)	; 美
     ))
 (define-char
   '((=>ucs		. #x7F8E)	; 美
@@ -468,7 +468,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (shinjigen-2	. 6274)
     (=ucs		. #x7F94)	; 羔
     (=jis-x0208		. #x6636)	; &I-J90-6636; [70-22]
     (=gb2312		. #x3861)	; &I-G0-3861; [24-65]
@@ -479,6 +478,7 @@
     (=gt-k		. 06625)	; &I-GT-K06625;
     (=gt-pj-1		. #x6636)	; &I-GT-36620; [70-22]
     (=daikanwa		. 28447)	; &I-M-28447;
+    (shinjigen-2	.  6274)	; 羔
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
@@ -825,13 +825,13 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (shinjigen-2	. 6279)
     (=jis-x0208		. #x6639)	; &GT-36667; [70-25]
     (=ks-x1001		. #x563E)	; &I-K0-563E; [54-30]
     (=big5		. #xB2DC)	; &I-B-B2DC;
     (=gt		. 36667)	; &I-GT-36667;
     (=gt-pj-1		. #x6639)	; &I-GT-36667; [70-25]
     (=daikanwa		. 28463)	; &I-M-28463;
+    (shinjigen-2	.  6279)	; &GT-36667;
     (=ucs@jis		. #x7F9A)	; &GT-36667;
     ))
 (define-char
@@ -958,12 +958,12 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (shinjigen-2	. 6278)
     (=jis-x0208		. #x6638)	; &GT-36657; [70-24]
     (=big5		. #xD6F4)	; &I-B-D6F4;
     (=gt		. 36657)	; &I-GT-36657;
     (=gt-pj-1		. #x6638)	; &I-GT-36657; [70-24]
     (=daikanwa		. 28470)	; &I-M-28470;
+    (shinjigen-2	.  6278)	; &GT-36657;
     (=ucs@jis		. #x7F9D)	; &GT-36657;
     ))
 (define-char
@@ -987,7 +987,6 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (shinjigen-2	. 6276)
     (=jis-x0208		. #x6637)	; &GT-36650; [70-23]
     (=ks-x1001		. #x623A)	; &I-K0-623A; [66-26]
     (=cns11643-1	. #x5C60)	; &I-C1-5C60; [60-64]
@@ -996,6 +995,7 @@
     (=gt-k		. 07966)	; &I-GT-K07966;
     (=gt-pj-1		. #x6637)	; &I-GT-36650; [70-23]
     (=daikanwa		. 28471)	; &I-M-28471;
+    (shinjigen-2	.  6276)	; &GT-36650;
     (=ucs@jis		. #x7F9E)	; &GT-36650;
     ))
 (define-char
@@ -1330,7 +1330,6 @@
       )
      ((=ucs		  . #x7F8A)	; 羊
       ))
-    (shinjigen-2	. 6282)
     (=ucs		. #x7FA3)	; 羣
     (=jis-x0208		. #x663A)	; &I-J90-663A; [70-26]
     (=cns11643-3	. #x436E)	; &I-C3-436E; [35-78]
@@ -1338,13 +1337,13 @@
     (=gt-k		. 10338)	; &I-GT-K10338;
     (=gt-pj-1		. #x663A)	; &I-GT-36695; [70-26]
     (=daikanwa		. 28497)	; &I-M-28497;
+    (shinjigen-2	.  6282)	; 羣
     (=cbeta		. 00320)	; &I-CB00320;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (shinjigen-2	. 6281)
     (=ucs		. #x7FA4)	; 群
     (=jis-x0208		. #x3732)	; &I-J90-3732; [23-18]
     (=gb2312		. #x483A)	; &I-G0-483A; [40-26]
@@ -1355,6 +1354,7 @@
     (=gt-k		. 10202)	; &I-GT-K10202;
     (=gt-pj-1		. #x3732)	; &I-GT-36696; [23-18]
     (=daikanwa		. 28498)	; &I-M-28498;
+    (shinjigen-2	.  6281)	; 群
     ))
 (define-char
   '((=>ucs		. #x7FA5)	; 羥
@@ -1436,7 +1436,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (shinjigen-2	. 6283)
     (=ucs		. #x7FA8)	; 羨
     (=jis-x0208		. #x4122)	; &I-J90-4122; [33-02]
     (=ks-x1001		. #x604C)	; &I-K0-604C; [64-44]
@@ -1446,12 +1445,12 @@
     (=gt-k		. 10234)	; &I-GT-K10234;
     (=gt-pj-1		. #x4122)	; &I-GT-36700; [33-02]
     (=daikanwa		. 28503)	; &I-M-28503;
+    (shinjigen-2	.  6283)	; 羨
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (shinjigen-2	. 6280)
     (=ucs		. #x7FA9)	; 義
     (=jis-x0208		. #x3541)	; &I-J90-3541; [21-33]
     (=ks-x1001		. #x6B79)	; &I-K0-6B79; [75-89]
@@ -1462,6 +1461,7 @@
     (=gt-k		. 10189)	; &I-GT-K10189;
     (=gt-pj-1		. #x3541)	; &I-GT-36694; [21-33]
     (=daikanwa		. 28504)	; &I-M-28504;
+    (shinjigen-2	.  6280)	; 義
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
@@ -2100,7 +2100,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (shinjigen-2	. 6289)
     (=ucs		. #x7FAE)	; 羮
     (=jis-x0208		. #x663E)	; &I-J90-663E; [70-30]
     (=cns11643-3	. #x4E31)	; &I-C3-4E31; [46-17]
@@ -2108,18 +2107,19 @@
     (=gt-k		. 12000)	; &I-GT-K12000;
     (=gt-pj-1		. #x663E)	; &I-GT-36734; [70-30]
     (=daikanwa		. 28536)	; &I-M-28536;
+    (shinjigen-2	.  6289)	; 羮
     ))
 (define-char
   '((=>ucs		. #x7FAF)	; 羯
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (shinjigen-2	. 6284)
     (=jis-x0208		. #x663B)	; &GT-36730; [70-27]
     (=big5		. #xBD7E)	; &I-B-BD7E;
     (=gt		. 36730)	; &I-GT-36730;
     (=gt-pj-1		. #x663B)	; &I-GT-36730; [70-27]
     (=daikanwa		. 28537)	; &I-M-28537;
+    (shinjigen-2	.  6284)	; &GT-36730;
     (=ucs@jis		. #x7FAF)	; &GT-36730;
     ))
 (define-char
@@ -2303,7 +2303,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (shinjigen-2	. 6286)
     (=ucs		. #x7FB2)	; 羲
     (=jis-x0208		. #x663C)	; &I-J90-663C; [70-28]
     (=gb2312		. #x744B)	; &I-G0-744B; [84-43]
@@ -2313,6 +2312,7 @@
     (=gt		. 36748)	; &I-GT-36748;
     (=gt-pj-1		. #x663C)	; &I-GT-36748; [70-28]
     (=daikanwa		. 28552)	; &I-M-28552;
+    (shinjigen-2	.  6286)	; 羲
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
@@ -2757,12 +2757,12 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (shinjigen-2	. 6290)
     (=jis-x0208		. #x663F)	; &GT-36793; [70-31]
     (=big5		. #xC3BB)	; &I-B-C3BB;
     (=gt		. 36793)	; &I-GT-36793;
     (=gt-pj-1		. #x663F)	; &I-GT-36793; [70-31]
     (=daikanwa		. 28581)	; &I-M-28581;
+    (shinjigen-2	.  6290)	; &GT-36793;
     (=ucs@jis		. #x7FB6)	; &GT-36793;
     ))
 (define-char
@@ -2796,12 +2796,12 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (shinjigen-2	. 6292)
     (=jis-x0208		. #x6640)	; &GT-36797; [70-32]
     (=big5		. #xC3BD)	; &I-B-C3BD;
     (=gt		. 36797)	; &I-GT-36797;
     (=gt-pj-1		. #x6640)	; &I-GT-36797; [70-32]
     (=daikanwa		. 28583)	; &I-M-28583;
+    (shinjigen-2	.  6292)	; &GT-36797;
     (=ucs@jis		. #x7FB8)	; &GT-36797;
     ))
 (define-char
@@ -2832,7 +2832,6 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (shinjigen-2	. 6288)
     (=ucs		. #x7FB9)	; 羹
     (=jis-x0208		. #x663D)	; &I-J90-663D; [70-29]
     (=gb2312		. #x387E)	; &I-G0-387E; [24-94]
@@ -2841,6 +2840,7 @@
     (=gt		. 36792)	; &I-GT-36792;
     (=gt-pj-1		. #x663D)	; &I-GT-36792; [70-29]
     (=daikanwa		. 28584)	; &I-M-28584;
+    (shinjigen-2	.  6288)	; 羹
     ))
 (define-char
   '((=>ucs		. #x7FB9)	; 羹

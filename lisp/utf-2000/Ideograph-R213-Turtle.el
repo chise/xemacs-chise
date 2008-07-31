@@ -18,8 +18,6 @@
       )
      ((=big5-cdp	  . #x89BD)	; &CDP-89BD;
       ))
-    (shinjigen-1	. 9917)
-    (shinjigen-2	. 9916)
     (sound@ja/kun	"kame")
     (sound@ja/on	"ki")
     (=ucs		. #x4E80)	; 亀
@@ -29,6 +27,8 @@
     (=gt-k		. 07742)	; &I-GT-K07742;
     (=gt-pj-1		. #x3535)	; &I-GT-66701; [21-21]
     (=daikanwa		. 00210)	; &I-M-00210;
+    (shinjigen-1	.  9917)	; 亀
+    (shinjigen-2	.  9916)	; 亀
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     (<-vulgar
      ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
@@ -64,12 +64,12 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (->subsumptive
-     ((shinjigen-1	  . 9918)
-      (shinjigen-2	  . 9917)
-      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+     ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
+      (shinjigen-1	  .  9918)	; &M-48847;
+      (shinjigen-2	  .  9917)	; &M-48847;
       (=ucs@jis		  . #x9F9C)	; &M-48847;
       )
      ((=gt		  . 66712)	; &GT-66712;
@@ -110,15 +110,15 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (shinjigen-1	. 9919)
     (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
     (=daikanwa		. 48848)	; &I-M-48848;
+    (shinjigen-1	.  9919)	; &M-48848;
     (<-original
-     ((shinjigen-1	  . 9918)
-      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+     ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
+      (shinjigen-1	  .  9918)	; &M-48847;
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen-1)

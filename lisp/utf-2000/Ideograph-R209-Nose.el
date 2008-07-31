@@ -100,7 +100,6 @@
   '((ideographic-radical . 209)	; ⿐
     (ideographic-strokes . 3)
     (total-strokes	 . 17)
-    (shinjigen-2	. 9878)
     (=ucs		. #x9F3E)	; 鼾
     (=jis-x0208		. #x736D)	; &I-J90-736D; [83-77]
     (=gb2312		. #x777D)	; &I-G0-777D; [87-93]
@@ -108,6 +107,7 @@
     (=gt		. 66236)	; &I-GT-66236;
     (=gt-pj-1		. #x736D)	; &I-GT-66236; [83-77]
     (=daikanwa		. 48505)	; &I-M-48505;
+    (shinjigen-2	.  9878)	; 鼾
     ))
 (define-char
   '((ideographic-radical . 209)	; ⿐

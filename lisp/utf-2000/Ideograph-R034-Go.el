@@ -305,12 +305,12 @@
 	)
        ((=ucs		    . #x5902)	; 夂
 	))
-      (shinjigen-1	  . 3201)
-      (shinjigen-2	  . 3201)
       (=jis-x0208	  . #x4A51)	; &GT-07215; [42-49]
       (=gt		  . 07215)	; &I-GT-07215;
       (=gt-pj-1		  . #x4A51)	; &I-GT-07215; [42-49]
       (=daikanwa	  . 05703)	; &I-M-05703;
+      (shinjigen-1	  .  3201)	; &GT-07215;
+      (shinjigen-2	  .  3201)	; &GT-07215;
       (=ucs@jis		  . #x5909)	; &GT-07215;
       (<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]

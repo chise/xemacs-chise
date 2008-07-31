@@ -5,7 +5,6 @@
     (=ucs		. #x9B3C)	; 鬼
     (->subsumptive
      ((total-strokes	   . 10)
-      (shinjigen-2	  . 9516)
       (=jis-x0208	  . #x3534)	; &GT-61541; [21-20]
       (=ks-x1001	  . #x5021)	; &I-K0-5021; [48-01]
       (=cns11643-1	  . #x5870)	; &I-C1-5870; [56-80]
@@ -13,6 +12,7 @@
       (=gt-k		  . 06398)	; &I-GT-K06398;
       (=gt-pj-1		  . #x3534)	; &I-GT-61541; [21-20]
       (=daikanwa	  . 45758)	; &I-M-45758;
+      (shinjigen-2	  .  9516)	; &GT-61541;
       (=ucs@jis		  . #x9B3C)	; &GT-61541;
       )
      ((total-strokes	   . 9)
@@ -409,13 +409,13 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
-    (shinjigen-2	. 9517)
     (=jis-x0208		. #x3A32)	; &GT-61576; [26-18]
     (=ks-x1001		. #x7B6B)	; &I-K0-7B6B; [91-75]
     (=cns11643-1	. #x6B77)	; &I-C1-6B77; [75-87]
     (=gt		. 61576)	; &I-GT-61576;
     (=gt-pj-1		. #x3A32)	; &I-GT-61576; [26-18]
     (=daikanwa		. 45787)	; &I-M-45787;
+    (shinjigen-2	.  9517)	; &GT-61576;
     (=ucs@jis		. #x9B42)	; &GT-61576;
     ))
 (define-char
@@ -617,13 +617,13 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (shinjigen-2	. 9520)
     (=jis-x0208		. #x7231)	; &GT-61607; [82-17]
     (=ks-x1001		. #x5B26)	; &I-K0-5B26; [59-06]
     (=cns11643-2	. #x5624)	; &I-C2-5624; [54-04]
     (=gt		. 61607)	; &I-GT-61607;
     (=gt-pj-1		. #x7231)	; &I-GT-61607; [82-17]
     (=daikanwa		. 45806)	; &I-M-45806;
+    (shinjigen-2	.  9520)	; &GT-61607;
     (=ucs@jis		. #x9B43)	; &GT-61607;
     ))
 (define-char
@@ -673,13 +673,13 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (shinjigen-2	. 9519)
     (=jis-x0208		. #x7230)	; &GT-61606; [82-16]
     (=ks-x1001		. #x5B5E)	; &I-K0-5B5E; [59-62]
     (=cns11643-1	. #x7025)	; &I-C1-7025; [80-05]
     (=gt		. 61606)	; &I-GT-61606;
     (=gt-pj-1		. #x7230)	; &I-GT-61606; [82-16]
     (=daikanwa		. 45810)	; &I-M-45810;
+    (shinjigen-2	.  9519)	; &GT-61606;
     (=ucs@jis		. #x9B44)	; &GT-61606;
     ))
 (define-char
@@ -695,7 +695,6 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (shinjigen-2	. 9521)
     (=jis-x0208		. #x4C25)	; &GT-61609; [44-05]
     (=ks-x1001		. #x5865)	; &I-K0-5865; [56-69]
     (=cns11643-1	. #x7024)	; &I-C1-7024; [80-04]
@@ -703,6 +702,7 @@
     (=gt-k		. 11952)	; &I-GT-K11952;
     (=gt-pj-1		. #x4C25)	; &I-GT-61609; [44-05]
     (=daikanwa		. 45811)	; &I-M-45811;
+    (shinjigen-2	.  9521)	; &GT-61609;
     (=ucs@jis		. #x9B45)	; &GT-61609;
     ))
 (define-char
@@ -1293,9 +1293,9 @@
     (=ucs		. #x9B4D)	; 魍
     (->subsumptive
      ((total-strokes	   . 18)
-      (shinjigen-2	  . 9528)
       (=jis-x0208@1990	  . #x7233)	; &M-45869; [82-19]
       (=daikanwa	  . 45869)	; &I-M-45869;
+      (shinjigen-2	  .  9528)	; &M-45869;
       (=ucs@jis		  . #x9B4D)	; &M-45869;
       )
      ((total-strokes	   . 18)
@@ -1355,12 +1355,12 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (shinjigen-2	. 9526)
     (=jis-x0208		. #x7232)	; &GT-61659; [82-18]
     (=ks-x1001		. #x6A60)	; &I-K0-6A60; [74-64]
     (=gt		. 61659)	; &I-GT-61659;
     (=gt-pj-1		. #x7232)	; &I-GT-61659; [82-18]
     (=daikanwa		. 45872)	; &I-M-45872;
+    (shinjigen-2	.  9526)	; &GT-61659;
     (=ucs@jis		. #x9B4F)	; &GT-61659;
     ))
 (define-char

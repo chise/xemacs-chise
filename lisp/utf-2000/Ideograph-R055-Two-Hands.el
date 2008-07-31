@@ -93,8 +93,6 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-1	. 2244)
-    (shinjigen-2	. 2244)
     (=ucs		. #x5F01)	; 弁
     (=jis-x0208		. #x4A5B)	; &I-J90-4A5B; [42-59]
     (=gb2312		. #x5B4D)	; &I-G0-5B4D; [59-45]
@@ -105,6 +103,8 @@
     (=gt-k		. 00999)	; &I-GT-K00999;
     (=gt-pj-1		. #x4A5B)	; &I-GT-12084; [42-59]
     (=daikanwa		. 09588)	; &I-M-09588;
+    (shinjigen-1	.  2244)	; 弁
+    (shinjigen-2	.  2244)	; 弁
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x517E)	; &GT-51594; [49-94]
       (=daikanwa	  . 38657)	; &I-M-38657;
@@ -235,12 +235,12 @@
 	)
        ((=ucs		    . #x5F01)	; 弁
 	))
-      (shinjigen-2	  . 3710)
       (=jis-x0208	  . #x5731)	; &GT-12093; [55-17]
       (=gt		  . 12093)	; &I-GT-12093;
       (=gt-k		  . 02705)	; &I-GT-K02705;
       (=gt-pj-1		  . #x5731)	; &I-GT-12093; [55-17]
       (=daikanwa	  . 09594)	; &I-M-09594;
+      (shinjigen-2	  .  3710)	; &GT-12093;
       (=cbeta		  . 00020)	; &I-CB00020;
       (=ucs@jis		  . #x5F03)	; &GT-12093;
       )
@@ -270,7 +270,6 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 2250)
     (=ucs		. #x5F04)	; 弄
     (=jis-x0208		. #x4F2E)	; &I-J90-4F2E; [47-14]
     (=gb2312		. #x452A)	; &I-G0-452A; [37-10]
@@ -281,6 +280,7 @@
     (=gt-k		. 02677)	; &I-GT-K02677;
     (=gt-pj-1		. #x4F2E)	; &I-GT-12100; [47-14]
     (=daikanwa		. 09596)	; &I-M-09596;
+    (shinjigen-2	.  2250)	; 弄
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶

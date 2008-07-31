@@ -3,7 +3,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (shinjigen-2	. 2263)
     (=ucs		. #x5F13)	; 弓
     (=jis-x0208		. #x355D)	; &I-J90-355D; [21-61]
     (=gb2312		. #x392D)	; &I-G0-392D; [25-13]
@@ -14,6 +13,7 @@
     (=gt-k		. 00165)	; &I-GT-K00165;
     (=gt-pj-1		. #x355D)	; &I-GT-12214; [21-61]
     (=daikanwa		. 09692)	; &I-M-09692;
+    (shinjigen-2	.  2263)	; 弓
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -83,7 +83,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (shinjigen-2	. 2265)
     (=ucs		. #x5F14)	; 弔
     (=jis-x0208		. #x4424)	; &I-J90-4424; [36-04]
     (=ks-x1001		. #x7040)	; &I-K0-7040; [80-32]
@@ -93,12 +92,12 @@
     (=gt-k		. 00465)	; &I-GT-K00465;
     (=gt-pj-1		. #x4424)	; &I-GT-12225; [36-04]
     (=daikanwa		. 09698)	; &I-M-09698;
+    (shinjigen-2	.  2265)	; 弔
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (shinjigen-2	. 2264)
     (=ucs		. #x5F15)	; 引
     (=jis-x0208		. #x307A)	; &I-J90-307A; [16-90]
     (=gb2312		. #x527D)	; &I-G0-527D; [50-93]
@@ -109,6 +108,7 @@
     (=gt-k		. 00397)	; &I-GT-K00397;
     (=gt-pj-1		. #x307A)	; &I-GT-12216; [16-90]
     (=daikanwa		. 09699)	; &I-M-09699;
+    (shinjigen-2	.  2264)	; 引
     ))
 (define-char
   '((=>ucs		. #x2239C)	; 𢎜
@@ -166,13 +166,13 @@
       )
      ((=ucs		  . #x4E00)	; 一
       ))
-    (shinjigen-2	. 2266)
     (=ucs		. #x5F16)	; 弖
     (=jis-x0208		. #x5737)	; &I-J90-5737; [55-23]
     (=gt		. 12226)	; &I-GT-12226;
     (=gt-k		. 00526)	; &I-GT-K00526;
     (=gt-pj-1		. #x5737)	; &I-GT-12226; [55-23]
     (=daikanwa		. 09703)	; &I-M-09703;
+    (shinjigen-2	.  2266)	; 弖
     (=cbeta		. 01254)	; &I-CB01254;
     ))
 (define-char
@@ -233,7 +233,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 2268)
     (=ucs		. #x5F17)	; 弗
     (=jis-x0208		. #x4A26)	; &I-J90-4A26; [42-06]
     (=gb2312		. #x3825)	; &I-G0-3825; [24-05]
@@ -244,12 +243,12 @@
     (=gt-k		. 00996)	; &I-GT-K00996;
     (=gt-pj-1		. #x4A26)	; &I-GT-12238; [42-06]
     (=daikanwa		. 09708)	; &I-M-09708;
+    (shinjigen-2	.  2268)	; 弗
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 2267)
     (=ucs		. #x5F18)	; 弘
     (=jis-x0208		. #x3930)	; &I-J90-3930; [25-16]
     (=gb2312		. #x3A6B)	; &I-G0-3A6B; [26-75]
@@ -260,6 +259,7 @@
     (=gt-k		. 00929)	; &I-GT-K00929;
     (=gt-pj-1		. #x3930)	; &I-GT-12230; [25-16]
     (=daikanwa		. 09709)	; &I-M-09709;
+    (shinjigen-2	.  2267)	; 弘
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -419,7 +419,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (shinjigen-2	. 2269)
     (=ucs		. #x5F1B)	; 弛
     (=jis-x0208		. #x4350)	; &I-J90-4350; [35-48]
     (=gb2312		. #x335A)	; &I-G0-335A; [19-58]
@@ -429,6 +428,7 @@
     (=gt		. 12247)	; &I-GT-12247;
     (=gt-pj-1		. #x4350)	; &I-GT-12247; [35-48]
     (=daikanwa		. 09724)	; &I-M-09724;
+    (shinjigen-2	.  2269)	; 弛
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -569,7 +569,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 2271)
     (=ucs		. #x5F1F)	; 弟
     (=jis-x0208		. #x446F)	; &I-J90-446F; [36-79]
     (=gb2312		. #x355C)	; &I-G0-355C; [21-60]
@@ -580,6 +579,7 @@
     (=gt-k		. 02616)	; &I-GT-K02616;
     (=gt-pj-1		. #x446F)	; &I-GT-12265; [36-79]
     (=daikanwa		. 09737)	; &I-M-09737;
+    (shinjigen-2	.  2271)	; 弟
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -778,13 +778,13 @@
     (total-strokes	 . 8)
     (=ucs		. #x5F25)	; 弥
     (->subsumptive
-     ((shinjigen-2	  . 2276)
-      (=jis-x0208	  . #x4C6F)	; &GT-12292; [44-79]
+     ((=jis-x0208	  . #x4C6F)	; &GT-12292; [44-79]
       (=cns11643-3	  . #x2870)	; &I-C3-2870; [08-80]
       (=gt		  . 12292)	; &I-GT-12292;
       (=gt-k		  . 03844)	; &I-GT-K03844;
       (=gt-pj-1		  . #x4C6F)	; &I-GT-12292; [44-79]
       (=daikanwa	  . 09753)	; &I-M-09753;
+      (shinjigen-2	  .  2276)	; &GT-12292;
       (=ucs@jis		  . #x5F25)	; &GT-12292;
       )
      ((=cbeta		  . 07460)	; &CB07460;
@@ -801,13 +801,13 @@
     (=ucs		. #x5F26)	; 弦
     (=big5		. #xA9B6)	; &I-B-A9B6;
     (->subsumptive
-     ((shinjigen-2	  . 2273)
-      (=jis-x0208	  . #x3839)	; &GT-12277; [24-25]
+     ((=jis-x0208	  . #x3839)	; &GT-12277; [24-25]
       (=ks-x1001	  . #x7A57)	; &I-K0-7A57; [90-55]
       (=gt		  . 12277)	; &I-GT-12277;
       (=gt-k		  . 03691)	; &I-GT-K03691;
       (=gt-pj-1		  . #x3839)	; &I-GT-12277; [24-25]
       (=daikanwa	  . 09754)	; &I-M-09754;
+      (shinjigen-2	  .  2273)	; &GT-12277;
       (=ucs@jis		  . #x5F26)	; &GT-12277;
       )
      ((=gb2312		  . #x4F52)	; &C1-4D38; [47-50]
@@ -873,7 +873,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 2274)
     (=ucs		. #x5F29)	; 弩
     (=jis-x0208		. #x5738)	; &I-J90-5738; [55-24]
     (=gb2312		. #x6573)	; &I-G0-6573; [69-83]
@@ -884,6 +883,7 @@
     (=gt-k		. 03873)	; &I-GT-K03873;
     (=gt-pj-1		. #x5738)	; &I-GT-12287; [55-24]
     (=daikanwa		. 09760)	; &I-M-09760;
+    (shinjigen-2	.  2274)	; 弩
     ))
 (define-char
   '((=>ucs		. #x223D2)	; 𢏒
@@ -980,14 +980,14 @@
     (=ucs		. #x5F2D)	; 弭
     (=big5		. #xABDA)	; &I-B-ABDA;
     (->subsumptive
-     ((shinjigen-1	  . 2281)
-      (shinjigen-2	  . 2281)
-      (=jis-x0208@1978	  . #x5739)	; &GT-12319; [55-25]
+     ((=jis-x0208@1978	  . #x5739)	; &GT-12319; [55-25]
       (=jis-x0208@1983	  . #x5739)	; &I-J83-5739; [55-25]
       (=gt		  . 12319)	; &I-GT-12319;
       (=gt-k		  . 05237)	; &I-GT-K05237;
       (=gt-pj-1		  . #x5739)	; &I-GT-12319; [55-25]
       (=daikanwa	  . 09768)	; &I-M-09768;
+      (shinjigen-1	  .  2281)	; &GT-12319;
+      (shinjigen-2	  .  2281)	; &GT-12319;
       )
      ((=jis-x0208@1990	  . #x5739)	; &J90-5739; [55-25]
       (=ucs@jis		  . #x5F2D)	; &J90-5739;
@@ -1624,7 +1624,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-2	. 2289)
     (=ucs		. #x5F35)	; 張
     (=jis-x0208		. #x4425)	; &I-J90-4425; [36-05]
     (=ks-x1001		. #x6D65)	; &I-K0-6D65; [77-69]
@@ -1635,6 +1634,7 @@
     (=gt-k		. 07830)	; &I-GT-K07830;
     (=gt-pj-1		. #x4425)	; &I-GT-12360; [36-05]
     (=daikanwa		. 09812)	; &I-M-09812;
+    (shinjigen-2	.  2289)	; 張
     ))
 (define-char
   '((=>ucs		. #x5F36)	; 弶
@@ -1671,7 +1671,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-2	. 2287)
     (=ucs		. #x5F37)	; 強
     (=jis-x0208		. #x362F)	; &I-J90-362F; [22-15]
     (=cns11643-1	. #x5A30)	; &I-C1-5A30; [58-16]
@@ -1680,6 +1679,7 @@
     (=gt-k		. 07749)	; &I-GT-K07749;
     (=gt-pj-1		. #x362F)	; &I-GT-12348; [22-15]
     (=daikanwa		. 09815)	; &I-M-09815;
+    (shinjigen-2	.  2287)	; 強
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -1832,7 +1832,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (shinjigen-2	. 2292)
     (=ucs		. #x5F3C)	; 弼
     (=jis-x0208		. #x492B)	; &I-J90-492B; [41-11]
     (=gb2312		. #x6576)	; &I-G0-6576; [69-86]
@@ -1842,6 +1841,7 @@
     (=gt		. 12388)	; &I-GT-12388;
     (=gt-pj-1		. #x492B)	; &I-GT-12388; [41-11]
     (=daikanwa		. 09826)	; &I-M-09826;
+    (shinjigen-2	.  2292)	; 弼
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -2549,7 +2549,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (shinjigen-2	. 2291)
     (=ucs		. #x5F48)	; 彈
     (=jis-x0208		. #x573C)	; &I-J90-573C; [55-28]
     (=ks-x1001		. #x7725)	; &I-K0-7725; [87-05]
@@ -2559,6 +2558,7 @@
     (=gt		. 12432)	; &I-GT-12432;
     (=gt-pj-1		. #x573C)	; &I-GT-12432; [55-28]
     (=daikanwa		. 09865)	; &I-M-09865;
+    (shinjigen-2	.  2291)	; 彈
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -2630,7 +2630,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (shinjigen-2	. 2296)
     (=ucs		. #x5F4A)	; 彊
     (=jis-x0208		. #x3630)	; &I-J90-3630; [22-16]
     (=ks-x1001		. #x4B2E)	; &I-K0-4B2E; [43-14]
@@ -2639,6 +2638,7 @@
     (=gt		. 12440)	; &I-GT-12440;
     (=gt-pj-1		. #x3630)	; &I-GT-12440; [22-16]
     (=daikanwa		. 09872)	; &I-M-09872;
+    (shinjigen-2	.  2296)	; 彊
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -2697,7 +2697,6 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (shinjigen-2	. 2277)
     (=ucs		. #x5F4C)	; 彌
     (=jis-x0208		. #x573D)	; &I-J90-573D; [55-29]
     (=ks-x1001		. #x5A2F)	; &I-K0-5A2F; [58-15]
@@ -2707,6 +2706,7 @@
     (=gt		. 12458)	; &I-GT-12458;
     (=gt-pj-1		. #x573D)	; &I-GT-12458; [55-29]
     (=daikanwa		. 09877)	; &I-M-09877;
+    (shinjigen-2	.  2277)	; 彌
     ))
 (define-char
   '((=>ucs		. #x2242C)	; 𢐬
@@ -3212,12 +3212,12 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (shinjigen-2	. 2299)
     (=jis-x0208		. #x573E)	; &GT-12498; [55-30]
     (=ks-x1001		. #x5836)	; &I-K0-5836; [56-22]
     (=gt		. 12498)	; &I-GT-12498;
     (=gt-pj-1		. #x573E)	; &I-GT-12498; [55-30]
     (=daikanwa		. 09904)	; &I-M-09904;
+    (shinjigen-2	.  2299)	; &GT-12498;
     (=ucs@jis		. #x5F4E)	; &GT-12498;
     ))
 (define-char

@@ -6,13 +6,13 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
-    (shinjigen-1	. 9818)
     (=ucs		. #x9ED1)	; 黑
     (=gb2312		. #x3A5A)	; &I-G0-3A5A; [26-58]
     (=ks-x1001		. #x7D59)	; &I-K0-7D59; [93-57]
     (=cns11643-1	. #x6329)	; &I-C1-6329; [67-09]
     (=jis-x0213-1-2000	. #x7E72)	; &I-JX1-7E72; [94-82]
     (=daikanwa		. 48038)	; &I-M-48038;
+    (shinjigen-1	.  9818)	; 黑
     (=jef-china3	. #x6FD6)	; &I-JC3-6FD6;
     ))
 (define-char
@@ -38,14 +38,14 @@
     (ideographic-radical@daikanwa=19098 . 86)	; ⽕
     (ideographic-strokes@daikanwa=19098 . 7)
     (total-strokes	 . 11)
-    (shinjigen-1	. 9817)
-    (shinjigen-2	. 9817)
     (=ucs		. #x9ED2)	; 黒
     (=jis-x0208		. #x3975)	; &I-J90-3975; [25-85]
     (=cns11643-3	. #x396B)	; &I-C3-396B; [25-75]
     (=gt		. 65517)	; &I-GT-65517;
     (=gt-k		. 07761)	; &I-GT-K07761;
     (=gt-pj-1		. #x3975)	; &I-GT-65517; [25-85]
+    (shinjigen-1	.  9817)	; 黒
+    (shinjigen-2	.  9817)	; 黒
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x9ED1)	; 黑
       (=jis-x0213-1-2000  . #x7E72)	; &I-JX1-7E72; [94-82]
@@ -149,7 +149,6 @@
     (ideographic-strokes@cns . 3)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 487 3)
-    (shinjigen-1	. 1488)
     (=ucs		. #xFA3A)	; 墨
     (=gb2312		. #x442B)	; &I-G0-442B; [36-11]
     (=ks-x1001		. #x5978)	; &I-K0-5978; [57-88]
@@ -157,6 +156,7 @@
     (=jis-x0213-1-2000	. #x2F5E)	; &I-JX1-2F5E; [15-62]
     (=big5		. #xBEA5)	; &I-B-BEA5;
     (=daikanwa		. 05469)	; &I-M-05469;
+    (shinjigen-1	.  1488)	; 墨
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
     (=ucs@unicode	. #x58A8)	; 墨
     (=ucs@jis		. #xFA3A)	; 墨
@@ -281,9 +281,9 @@
     (total-strokes	 . 16)
     (=ucs		. #x9ED4)	; 黔
     (->subsumptive
-     ((shinjigen-1	  . 9820)
-      (shinjigen-2	  . 9820)
-      (=daikanwa	  . 48056)	; &M-48056;
+     ((=daikanwa	  . 48056)	; &M-48056;
+      (shinjigen-1	  .  9820)	; &M-48056;
+      (shinjigen-2	  .  9820)	; &M-48056;
       )
      ((=jis-x0208	  . #x7358)	; &GT-65575; [83-56]
       (=ks-x1001	  . #x4C23)	; &I-K0-4C23; [44-03]
@@ -556,16 +556,16 @@
     (total-strokes	 . 17)
     (=ucs		. #x9EDC)	; 黜
     (->subsumptive
-     ((shinjigen-1	  . 9824)
-      (=daikanwa	  . 48076)	; &M-48076;
+     ((=daikanwa	  . 48076)	; &M-48076;
+      (shinjigen-1	  .  9824)	; &M-48076;
       )
-     ((shinjigen-2	  . 9824)
-      (=jis-x0208	  . #x7359)	; &GT-65622; [83-57]
+     ((=jis-x0208	  . #x7359)	; &GT-65622; [83-57]
       (=gb2312		  . #x776D)	; &I-G0-776D; [87-77]
       (=ks-x1001	  . #x7575)	; &I-K0-7575; [85-85]
       (=cns11643-1	  . #x7636)	; &I-C1-7636; [86-22]
       (=gt		  . 65622)	; &I-GT-65622;
       (=gt-pj-1		  . #x7359)	; &I-GT-65622; [83-57]
+      (shinjigen-2	  .  9824)	; &GT-65622;
       (=ucs@unicode	  . #x9EDC)	; &GT-65622;
       ))
     ))
@@ -624,13 +624,13 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (shinjigen-2	. 9827)
     (=ucs		. #x9EDD)	; 黝
     (=jis-x0208		. #x735B)	; &I-J90-735B; [83-59]
     (=gb2312		. #x776E)	; &I-G0-776E; [87-78]
     (=cns11643-1	. #x7637)	; &I-C1-7637; [86-23]
     (=gt		. 65627)	; &I-GT-65627;
     (=gt-pj-1		. #x735B)	; &I-GT-65627; [83-59]
+    (shinjigen-2	.  9827)	; 黝
     ))
 (define-char
   '((=>ucs		. #x9EDE)	; 點
@@ -644,7 +644,6 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (shinjigen-2	. 9826)
     (=ucs		. #x9EDE)	; 點
     (=jis-x0208		. #x735A)	; &I-J90-735A; [83-58]
     (=ks-x1001		. #x6F47)	; &I-K0-6F47; [79-39]
@@ -652,6 +651,7 @@
     (=gb12345		. #x3563)	; 點 [21-67]
     (=gt		. 65623)	; &I-GT-65623;
     (=gt-pj-1		. #x735A)	; &I-GT-65623; [83-58]
+    (shinjigen-2	.  9826)	; 點
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -841,13 +841,13 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 6)
     (total-strokes	 . 18)
-    (shinjigen-2	. 9828)
     (=ucs		. #x9EE0)	; 黠
     (=jis-x0208		. #x735C)	; &I-J90-735C; [83-60]
     (=gb2312		. #x776F)	; &I-G0-776F; [87-79]
     (=cns11643-1	. #x7828)	; &I-C1-7828; [88-08]
     (=gt		. 65637)	; &I-GT-65637;
     (=gt-pj-1		. #x735C)	; &I-GT-65637; [83-60]
+    (shinjigen-2	.  9828)	; 黠
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -1145,10 +1145,10 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 8)
     (total-strokes	 . 20)
-    (shinjigen-2	. 9832)
     (=jis-x0208		. #x735D)	; &GT-65712; [83-61]
     (=gt		. 65712)	; &I-GT-65712;
     (=gt-pj-1		. #x735D)	; &I-GT-65712; [83-61]
+    (shinjigen-2	.  9832)	; &GT-65712;
     (=ucs@jis		. #x9EE5)	; &GT-65712;
     ))
 (define-char
@@ -1239,7 +1239,6 @@
   '((ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 8)
     (total-strokes	 . 20)
-    (shinjigen-2	. 475)
     (=ucs		. #x9EE8)	; 黨
     (=jis-x0208		. #x735E)	; &I-J90-735E; [83-62]
     (=ks-x1001		. #x535A)	; &I-K0-535A; [51-58]
@@ -1248,6 +1247,7 @@
     (=gt		. 65731)	; &I-GT-65731;
     (=gt-pj-1		. #x735E)	; &I-GT-65731; [83-62]
     (=daikanwa		. 48132)	; &I-M-48132;
+    (shinjigen-2	.  0475)	; 黨
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -1586,10 +1586,10 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 9)
     (total-strokes	 . 21)
-    (shinjigen-2	. 9834)
     (=jis-x0208		. #x735F)	; &GT-65757; [83-63]
     (=gt		. 65757)	; &I-GT-65757;
     (=gt-pj-1		. #x735F)	; &I-GT-65757; [83-63]
+    (shinjigen-2	.  9834)	; &GT-65757;
     (=ucs@jis		. #x9EEF)	; &GT-65757;
     ))
 (define-char
@@ -1938,13 +1938,13 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
-    (shinjigen-2	. 9836)
     (=jis-x0208		. #x7360)	; &GT-65857; [83-64]
     (=ks-x1001		. #x5A3D)	; &I-K0-5A3D; [58-29]
     (=cns11643-1	. #x7C5C)	; &I-C1-7C5C; [92-60]
     (=gt		. 65857)	; &I-GT-65857;
     (=gt-pj-1		. #x7360)	; &I-GT-65857; [83-64]
     (=daikanwa		. 48196)	; &I-M-48196;
+    (shinjigen-2	.  9836)	; 黴
     (=ucs@jis		. #x9EF4)	; &GT-65857;
     ))
 (define-char
@@ -1952,9 +1952,9 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
-    (shinjigen-2	. 9836)
     (=ucs		. #x9EF4)	; 黴
     (=gb12345		. #x7854)	; 黴 [88-52]
+    (shinjigen-2	.  9836)	; 黴
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -2430,8 +2430,8 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 15)
     (total-strokes	 . 27)
-    (shinjigen-2	. 9838)
     (=daikanwa		. 48234)	; &M-48234;
+    (shinjigen-2	.  9838)	; &M-48234;
     ))
 (define-char
   '((=>ucs		. #x9EF7)	; 黷

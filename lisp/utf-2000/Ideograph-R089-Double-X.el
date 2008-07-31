@@ -4,7 +4,6 @@
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (shinjigen-2	. 4713)
     (=jis-x0208		. #x602B)	; &GT-25355; [64-11]
     (=ks-x1001		. #x7D21)	; &I-K0-7D21; [93-01]
     (=big5		. #xA4F8)	; &I-B-A4F8;
@@ -12,6 +11,7 @@
     (=gt-k		. 00541)	; &I-GT-K00541;
     (=gt-pj-1		. #x602B)	; &I-GT-25355; [64-11]
     (=daikanwa		. 19737)	; &I-M-19737;
+    (shinjigen-2	.  4713)	; &GT-25355;
     (=ucs@jis		. #x723B)	; &GT-25355;
     ))
 (define-char
@@ -85,13 +85,13 @@
       )
      ((=ucs		  . #x4E14)	; 且
       ))
-    (shinjigen-2	. 260)
     (=ucs		. #x723C)	; 爼
     (=jis-x0208		. #x602C)	; &I-J90-602C; [64-12]
     (=cns11643-3	. #x2D6B)	; &I-C3-2D6B; [13-75]
     (=gt		. 25358)	; &I-GT-25358;
     (=gt-pj-1		. #x602C)	; &I-GT-25358; [64-12]
     (=daikanwa		. 19743)	; &I-M-19743;
+    (shinjigen-2	.  0260)	; 爼
     (=hanziku-1		. #xAC46)	; &I-HZK01-AC46;
     (=cbeta		. 01131)	; &I-CB01131;
     ))
@@ -114,7 +114,6 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (shinjigen-2	. 1587)
     (=ucs		. #x723D)	; 爽
     (=jis-x0208		. #x4156)	; &I-J90-4156; [33-54]
     (=gb2312		. #x4B2C)	; &I-G0-4B2C; [43-12]
@@ -125,6 +124,7 @@
     (=gt-k		. 07814)	; &I-GT-K07814;
     (=gt-pj-1		. #x4156)	; &I-GT-25362; [33-54]
     (=daikanwa		. 19746)	; &I-M-19746;
+    (shinjigen-2	.  1587)	; 爽
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
@@ -169,7 +169,6 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (shinjigen-2	. 4714)
     (=ucs		. #x723E)	; 爾
     (=jis-x0208		. #x3C24)	; &I-J90-3C24; [28-04]
     (=ks-x1001		. #x6C33)	; &I-K0-6C33; [76-19]
@@ -180,6 +179,7 @@
     (=gt-k		. 11127)	; &I-GT-K11127;
     (=gt-pj-1		. #x3C24)	; &I-GT-25366; [28-04]
     (=daikanwa		. 19750)	; &I-M-19750;
+    (shinjigen-2	.  4714)	; 爾
     ))
 (define-char
   '((=>ucs		. #x723E)	; 爾
