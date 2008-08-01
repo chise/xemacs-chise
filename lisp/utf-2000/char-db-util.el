@@ -469,7 +469,7 @@
 (defun char-db-insert-ccs-feature (name value line-breaking)
   (insert
    (format
-    (cond ((memq name '(shinjigen-1 shinjigen-2))
+    (cond ((memq name '(shinjigen-1 shinjigen-2 shinjigen-2-p))
 	   "(%-18s .  %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
