@@ -18116,8 +18116,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (->subsumptive
-     ((shinjigen-2-p	  . 6889)
-      (=daikanwa	  . 31458)	; &M-31458;
+     ((=daikanwa	  . 31458)	; &M-31458;
+      (shinjigen-2-p	  .  6889)	; &M-31458;
       )
      ((=cns11643-1	  . #x6631)	; &C1-6631; [70-17]
       (shinjigen-1	  .  6889)	; &C1-6631;
