@@ -23,8 +23,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 81 4)
-    (shinjigen-1	. 800)
-    (shinjigen-2	. 800)
     (=jis-x0208		. #x523E)	; &GT-03427; [50-30]
     (=cns11643-3	. #x2129)	; &I-C3-2129; [01-09]
     (=big5-cdp		. #x8A70)	; &I-CDP-8A70;
@@ -32,6 +30,8 @@
     (=gt-k		. 00096)	; &I-GT-K00096;
     (=gt-pj-1		. #x523E)	; &I-GT-03427; [50-30]
     (=daikanwa		. 02672)	; &I-M-02672;
+    (shinjigen-1	.  0800)	; &GT-03427;
+    (shinjigen-2	.  0800)	; &GT-03427;
     (=ucs@jis		. #x5338)	; &GT-03427;
     ))
 (define-char
@@ -55,10 +55,10 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (shinjigen-1	. 804)
-    (shinjigen-2	. 804)
     (=big5		. #xA4C7)	; &M-02673;
     (=daikanwa		. 02673)	; &I-M-02673;
+    (shinjigen-1	.  0804)	; &M-02673;
+    (shinjigen-2	.  0804)	; &M-02673;
     (=ucs@big5		. #x5339)	; &M-02673;
     ))
 (define-char
@@ -83,8 +83,6 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (shinjigen-1	. 803)
-    (shinjigen-2	. 803)
     (=ucs		. #x5339)	; 匹
     (=jis-x0208		. #x4924)	; &I-J90-4924; [41-04]
     (=gb2312		. #x4625)	; &I-G0-4625; [38-05]
@@ -92,6 +90,8 @@
     (=gt		. 03328)	; &I-GT-03328;
     (=gt-k		. 00479)	; &I-GT-K00479;
     (=gt-pj-1		. #x4924)	; &I-GT-03328; [41-04]
+    (shinjigen-1	.  0803)	; 匹
+    (shinjigen-2	.  0803)	; 匹
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
@@ -131,19 +131,19 @@
 	)
        ((=ucs		    . #x3405)	; 㐅
 	))
-      (shinjigen-1	  . 801)
-      (shinjigen-2	  . 801)
       (=jis-x0208	  . #x3668)	; &GT-03327; [22-72]
       (=gb2312		  . #x4778)	; &I-G0-4778; [39-88]
       (=gt		  . 03327)	; &I-GT-03327;
       (=gt-k		  . 00414)	; &I-GT-K00414;
       (=gt-pj-1		  . #x3668)	; &I-GT-03327; [22-72]
+      (shinjigen-1	  .  0801)	; &GT-03327;
+      (shinjigen-2	  .  0801)	; &GT-03327;
       (=hanziku-1	  . #xB4B6)	; &I-HZK01-B4B6;
       (=ucs@unicode	  . #x533A)	; &GT-03327;
       (<-simplified
-       ((shinjigen-1	    . 802)
-	(=cns11643-1	    . #x5934)	; &M-02691; [57-20]
+       ((=cns11643-1	    . #x5934)	; &M-02691; [57-20]
 	(=daikanwa	    . 02691)	; &I-M-02691;
+	(shinjigen-1	    .  0802)	; &M-02691;
 	))
       (<-simplified*sources
        shinjigen-1)
@@ -262,13 +262,13 @@
       )
      ((=gt-k		  . 01013)	; &GT-K01013;
       ))
-    (shinjigen-1	. 8537)
-    (shinjigen-2	. 8537)
     (=jis-x0208		. #x3065)	; &GT-03344; [16-69]
     (=gb2312		. #x523D)	; &I-G0-523D; [50-29]
     (=gt		. 03344)	; &I-GT-03344;
     (=gt-k		. 02502)	; &I-GT-K02502;
     (=gt-pj-1		. #x3065)	; &I-GT-03344; [16-69]
+    (shinjigen-1	.  8537)	; &GT-03344;
+    (shinjigen-2	.  8537)	; &GT-03344;
     (=ucs@unicode	. #x533B)	; &GT-03344;
     (<-simplified@CN
      ((=gb12345		  . #x523D)	; 醫 [50-29]
@@ -611,10 +611,10 @@
      ((=cns11643-1	  . #x533C)	; &GT-40124; [51-28]
       (=daikanwa	  . 30796)	; &I-M-30796;
       ))
-    (shinjigen-1	. 807)
-    (shinjigen-2	. 807)
     (=cns11643-1	. #x5933)	; &M-02690; [57-19]
     (=daikanwa		. 02690)	; &I-M-02690;
+    (shinjigen-1	.  0807)	; &M-02690;
+    (shinjigen-2	.  0807)	; &M-02690;
     (mojikyo		. 002690)	; &MCS-60000A82;
     ))
 (define-char
@@ -650,8 +650,6 @@
       )
      ((=ucs		  . #x82E5)	; 若
       ))
-    (shinjigen-1	. 806)
-    (shinjigen-2	. 806)
     (=ucs		. #x533F)	; 匿
     (=jis-x0208		. #x463F)	; &I-J90-463F; [38-31]
     (=gb2312		. #x4464)	; &I-G0-4464; [36-68]
@@ -659,6 +657,8 @@
     (=gt		. 03370)	; &I-GT-03370;
     (=gt-k		. 06521)	; &I-GT-K06521;
     (=gt-pj-1		. #x463F)	; &I-GT-03370; [38-31]
+    (shinjigen-1	.  0806)	; 匿
+    (shinjigen-2	.  0806)	; 匿
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
@@ -679,10 +679,10 @@
 	)
        ((=ucs		    . #x54C1)	; 品
 	))
-      (shinjigen-1	  . 802)
-      (shinjigen-2	  . 802)
       (=cns11643-1	  . #x5934)	; &M-02691; [57-20]
       (=daikanwa	  . 02691)	; &I-M-02691;
+      (shinjigen-1	  .  0802)	; &M-02691;
+      (shinjigen-2	  .  0802)	; &M-02691;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")

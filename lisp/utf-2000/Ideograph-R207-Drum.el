@@ -3,7 +3,6 @@
   '((ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
-    (shinjigen-2	. 9854)
     (=ucs		. #x9F13)	; 鼓
     (=jis-x0208		. #x385D)	; &I-J90-385D; [24-61]
     (=gb2312		. #x3944)	; &I-G0-3944; [25-36]
@@ -13,6 +12,7 @@
     (=gt-k		. 10207)	; &I-GT-K10207;
     (=gt-pj-1		. #x385D)	; &I-GT-66032; [24-61]
     (=daikanwa		. 48330)	; &I-M-48330;
+    (shinjigen-2	.  9854)	; 鼓
     ))
 (define-char
   '((ideographic-radical . 207)	; ⿎
@@ -102,11 +102,11 @@
     (ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
-    (shinjigen-2	. 9857)
     (=jis-x0208		. #x736A)	; &GT-66045; [83-74]
     (=gt		. 66045)	; &I-GT-66045;
     (=gt-pj-1		. #x736A)	; &I-GT-66045; [83-74]
     (=daikanwa		. 48341)	; &I-M-48341;
+    (shinjigen-2	.  9857)	; &GT-66045;
     (=ucs@jis		. #x9F15)	; &GT-66045;
     ))
 (define-char

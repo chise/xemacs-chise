@@ -5,13 +5,13 @@
     (total-strokes	 . 13)
     (=ucs		. #x9F0E)	; 鼎
     (->subsumptive
-     ((shinjigen-2	  . 9849)
-      (=jis-x0208	  . #x4524)	; &GT-66019; [37-04]
+     ((=jis-x0208	  . #x4524)	; &GT-66019; [37-04]
       (=ks-x1001	  . #x7023)	; &I-K0-7023; [80-03]
       (=gt		  . 66019)	; &I-GT-66019;
       (=gt-k		  . 10252)	; &I-GT-K10252;
       (=gt-pj-1		  . #x4524)	; &I-GT-66019; [37-04]
       (=daikanwa	  . 48315)	; &I-M-48315;
+      (shinjigen-2	  .  9849)	; &GT-66019;
       (=jef-china3	  . #x8EB4)	; &I-JC3-8EB4;
       (=ucs@jis		  . #x9F0E)	; &GT-66019;
       )

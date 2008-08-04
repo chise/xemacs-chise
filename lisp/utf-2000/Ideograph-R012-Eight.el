@@ -5,22 +5,22 @@
     (total-strokes	 . 2)
     (=ucs		. #x516B)	; 八
     (->subsumptive
-     ((shinjigen-1	  . 490)
-      (shinjigen-2	  . 490)
-      (=jis-x0208	  . #x482C)	; &GT-01888; [40-12]
+     ((=jis-x0208	  . #x482C)	; &GT-01888; [40-12]
       (=ks-x1001	  . #x7822)	; &I-K0-7822; [88-02]
       (=big5		  . #xA44B)	; &I-B-A44B;
       (=gt		  . 01888)	; &I-GT-01888;
       (=gt-k		  . 00056)	; &I-GT-K00056;
       (=gt-pj-1		  . #x482C)	; &I-GT-01888; [40-12]
       (=daikanwa	  . 01450)	; &I-M-01450;
+      (shinjigen-1	  .  0490)	; &GT-01888;
+      (shinjigen-2	  .  0490)	; &GT-01888;
       (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
       (=ucs@jis		  . #x516B)	; &GT-01888;
       (=ucs@big5	  . #x516B)	; &GT-01888;
       )
-     ((shinjigen-1	  . 489)
-      (shinjigen-2	  . 489)
-      (=cns11643-1	  . #x442C)	; &C1-442C; [36-12]
+     ((=cns11643-1	  . #x442C)	; &C1-442C; [36-12]
+      (shinjigen-1	  .  0489)	; &C1-442C;
+      (shinjigen-2	  .  0489)	; &C1-442C;
       (mojikyo		  . 001450)	; &MCS-600005AA;
       )
      ((hanyu-dazidian	  1 241 3)
@@ -73,8 +73,6 @@
 	)
        ((=ucs		    . #x53B6)	; 厶
 	))
-      (shinjigen-1	  . 494)
-      (shinjigen-2	  . 494)
       (=jis-x0208@1978	  . #x3878)	; &GT-01892; [24-88]
       (=jis-x0208@1983	  . #x3878)	; &I-J83-3878; [24-88]
       (=ks-x1001	  . #x4D6B)	; &I-K0-4D6B; [45-75]
@@ -83,6 +81,8 @@
       (=gt-k		  . 00431)	; &I-GT-K00431;
       (=gt-pj-2		  . #x3C58)	; &I-GT-01892; [28-56]
       (=daikanwa	  . 01452)	; &I-M-01452;
+      (shinjigen-1	  .  0494)	; &GT-01892;
+      (shinjigen-2	  .  0494)	; &GT-01892;
       (=jef-china3	  . #x43E5)	; &I-JC3-43E5;
       (=ucs@big5	  . #x516C)	; &GT-01892;
       )
@@ -105,12 +105,12 @@
 	)
        ((=ucs		    . #x53B6)	; 厶
 	))
-      (shinjigen-1	  . 493)
-      (shinjigen-2	  . 493)
       (=gb2312		  . #x392B)	; &GT-01893; [25-11]
       (=jis-x0208@1990	  . #x3878)	; &I-J90-3878; [24-88]
       (=gt		  . 01893)	; &I-GT-01893;
       (=gt-pj-1		  . #x3878)	; &I-GT-01893; [24-88]
+      (shinjigen-1	  .  0493)	; &GT-01893;
+      (shinjigen-2	  .  0493)	; &GT-01893;
       (=ucs@unicode	  . #x516C)	; &GT-01893;
       ))
     ))
@@ -130,14 +130,14 @@
 	)
        ((=gt-k		    . 00059)	; &GT-K00059;
 	))
-      (shinjigen-1	  . 495)
-      (shinjigen-2	  . 495)
       (=jis-x0208	  . #x4F3B)	; &GT-01896; [47-27]
       (=ks-x1001	  . #x573F)	; &I-K0-573F; [55-31]
       (=gt		  . 01896)	; &I-GT-01896;
       (=gt-k		  . 00506)	; &I-GT-K00506;
       (=gt-pj-1		  . #x4F3B)	; &I-GT-01896; [47-27]
       (=daikanwa	  . 01453)	; &I-M-01453;
+      (shinjigen-1	  .  0495)	; &GT-01896;
+      (shinjigen-2	  .  0495)	; &GT-01896;
       (=ucs@jis		  . #x516D)	; &GT-01896;
       )
      ((ideographic-structure
@@ -185,8 +185,6 @@
 	)
        ((=ucs		    . #x4E02)	; 丂
 	))
-      (shinjigen-1	  . 491)
-      (shinjigen-2	  . 491)
       (=jis-x0208	  . #x5142)	; &GT-01891; [49-34]
       (=ks-x1001	  . #x7B31)	; &I-K0-7B31; [91-17]
       (=big5		  . #xA4BC)	; &I-B-A4BC;
@@ -194,6 +192,8 @@
       (=gt-k		  . 00516)	; &I-GT-K00516;
       (=gt-pj-1		  . #x5142)	; &I-GT-01891; [49-34]
       (=daikanwa	  . 01455)	; &I-M-01455;
+      (shinjigen-1	  .  0491)	; &GT-01891;
+      (shinjigen-2	  .  0491)	; &GT-01891;
       (=ucs@jis		  . #x516E)	; &GT-01891;
       (=ucs@big5	  . #x516E)	; &GT-01891;
       )
@@ -262,16 +262,16 @@
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 241 5)
-    (shinjigen-1	. 492)
     (=ucs		. #x20503)	; 𠔃
     (=cns11643-6	. #x2141)	; &I-C6-2141; [01-33]
     (=daikanwa		. 48904)	; &I-M-48904;
+    (shinjigen-1	.  0492)	; 𠔃
     (=hanziku-1		. #xD7D7)	; &I-HZK01-D7D7;
     (<-vulgar
-     ((shinjigen-1	  . 491)
-      (=jis-x0208	  . #x5142)	; &GT-01891; [49-34]
+     ((=jis-x0208	  . #x5142)	; &GT-01891; [49-34]
       (=ks-x1001	  . #x7B31)	; &I-K0-7B31; [91-17]
       (=daikanwa	  . 01455)	; &I-M-01455;
+      (shinjigen-1	  .  0491)	; &GT-01891;
       ))
     (<-vulgar*sources
      daikanwa shinjigen-1)
@@ -393,8 +393,6 @@
       )
      ((=gt-k		  . 00059)	; &GT-K00059;
       ))
-    (shinjigen-1	. 496)
-    (shinjigen-2	. 496)
     (=ucs		. #x5171)	; 共
     (=jis-x0208		. #x3626)	; &I-J90-3626; [22-06]
     (=gb2312		. #x3932)	; &I-G0-3932; [25-18]
@@ -405,6 +403,8 @@
     (=gt-k		. 01591)	; &I-GT-K01591;
     (=gt-pj-1		. #x3626)	; &I-GT-01898; [22-06]
     (=daikanwa		. 01458)	; &I-M-01458;
+    (shinjigen-1	.  0496)	; 共
+    (shinjigen-2	.  0496)	; 共
     (mojikyo		. 001458)	; &MCS-600005B2;
     ))
 (define-char
@@ -579,8 +579,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 244 4)
-    (shinjigen-1	. 497)
-    (shinjigen-2	. 497)
     (=ucs		. #x5175)	; 兵
     (=jis-x0208		. #x4A3C)	; &I-J90-4A3C; [42-28]
     (=gb2312		. #x3178)	; &I-G0-3178; [17-88]
@@ -591,6 +589,8 @@
     (=gt-k		. 02644)	; &I-GT-K02644;
     (=gt-pj-1		. #x4A3C)	; &I-GT-01916; [42-28]
     (=daikanwa		. 01462)	; &I-M-01462;
+    (shinjigen-1	.  0497)	; 兵
+    (shinjigen-2	.  0497)	; 兵
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -728,8 +728,6 @@
       )
      ((=gt-k		  . 00059)	; &GT-K00059;
       ))
-    (shinjigen-1	. 498)
-    (shinjigen-2	. 498)
     (=ucs		. #x5176)	; 其
     (=jis-x0208		. #x4236)	; &I-J90-4236; [34-22]
     (=gb2312		. #x4664)	; &I-G0-4664; [38-68]
@@ -740,6 +738,8 @@
     (=gt-k		. 03764)	; &I-GT-K03764;
     (=gt-pj-1		. #x4236)	; &I-GT-01920; [34-22]
     (=daikanwa		. 01472)	; &I-M-01472;
+    (shinjigen-1	.  0498)	; 其
+    (shinjigen-2	.  0498)	; 其
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -763,8 +763,6 @@
       )
      ((=gt-k		  . 00264)	; &GT-K00264;
       ))
-    (shinjigen-1	. 499)
-    (shinjigen-2	. 499)
     (=ucs		. #x2F811)	; 具
     (=jis-x0208		. #x3671)	; &I-J90-3671; [22-81]
     (=cns11643-3	. #x2754)	; &I-C3-2754; [07-52]
@@ -772,6 +770,8 @@
     (=gt-k		. 03681)	; &I-GT-K03681;
     (=gt-pj-1		. #x3671)	; &I-GT-01922; [22-81]
     (=daikanwa		. 01473)	; &I-M-01473;
+    (shinjigen-1	.  0499)	; 具
+    (shinjigen-2	.  0499)	; 具
     (=ucs@jis		. #x5177)	; 具
     ))
 (define-char
@@ -790,12 +790,12 @@
       )
      ((=ucs		  . #x516B)	; 八
       ))
-    (shinjigen-1	. 500)
-    (shinjigen-2	. 500)
     (=gb2312		. #x3E5F)	; &C1-4C26; [30-63]
     (=ks-x1001		. #x4E7D)	; &I-K0-4E7D; [46-93]
     (=cns11643-1	. #x4C26)	; &I-C1-4C26; [44-06]
     (=big5		. #xA8E3)	; &I-B-A8E3;
+    (shinjigen-1	.  0500)	; &C1-4C26;
+    (shinjigen-2	.  0500)	; &C1-4C26;
     (=jef-china3	. #x43E8)	; &I-JC3-43E8;
     (=ucs@unicode	. #x5177)	; &C1-4C26;
     (mojikyo		. 050941)	; &MCS-6000C6FD;
@@ -813,8 +813,6 @@
       )
      ((=gt-k		  . 00059)	; &GT-K00059;
       ))
-    (shinjigen-1	. 501)
-    (shinjigen-2	. 501)
     (=ucs		. #x5178)	; 典
     (=jis-x0208		. #x4535)	; &I-J90-4535; [37-21]
     (=gb2312		. #x3564)	; &I-G0-3564; [21-68]
@@ -825,6 +823,8 @@
     (=gt-k		. 03782)	; &I-GT-K03782;
     (=gt-pj-1		. #x4535)	; &I-GT-01924; [37-21]
     (=daikanwa		. 01474)	; &I-M-01474;
+    (shinjigen-1	.  0501)	; 典
+    (shinjigen-2	.  0501)	; 典
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -1076,14 +1076,14 @@
       )
      ((=big5-cdp	  . #x8CDE)	; &CDP-8CDE;
       ))
-    (shinjigen-1	. 502)
-    (shinjigen-2	. 502)
     (=jis-x0208		. #x3773)	; &GT-01935; [23-83]
     (=gb2312		. #x3C66)	; &I-G0-3C66; [28-70]
     (=cns11643-1	. #x5440)	; &I-C1-5440; [52-32]
     (=gt		. 01935)	; &I-GT-01935;
     (=gt-k		. 06417)	; &I-GT-K06417;
     (=gt-pj-1		. #x3773)	; &I-GT-01935; [23-83]
+    (shinjigen-1	.  0502)	; &GT-01935;
+    (shinjigen-2	.  0502)	; &GT-01935;
     (=ucs@unicode	. #x517C)	; &GT-01935;
     (mojikyo		. 054100)	; &MCS-6000D354;
     ))
@@ -1094,11 +1094,11 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (shinjigen-1	. 503)
-    (shinjigen-2	. 503)
     (=gt		. 01936)	; &GT-01936;
     (=gt-k		. 06415)	; &I-GT-K06415;
     (=gt-pj-9		. #x4C41)	; &GT-01936; [44-33]
+    (shinjigen-1	.  0503)	; &GT-01936;
+    (shinjigen-2	.  0503)	; &GT-01936;
     (mojikyo		. 054445)	; &MCS-6000D4AD;
     ))
 (define-char
@@ -1483,8 +1483,6 @@
       )
      ((=ucs		  . #x7570)	; 異
       ))
-    (shinjigen-1	. 505)
-    (shinjigen-2	. 505)
     (=ucs		. #x5180)	; 冀
     (=jis-x0208		. #x5143)	; &I-J90-5143; [49-35]
     (=gb2312		. #x3C3D)	; &I-G0-3C3D; [28-29]
@@ -1493,6 +1491,8 @@
     (=gt		. 01965)	; &I-GT-01965;
     (=gt-pj-1		. #x5143)	; &I-GT-01965; [49-35]
     (=daikanwa		. 01500)	; &I-M-01500;
+    (shinjigen-1	.  0505)	; 冀
+    (shinjigen-2	.  0505)	; 冀
     ))
 (define-char
   '((=>ucs		. #x5180)	; 冀

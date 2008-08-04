@@ -14,9 +14,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (->subsumptive
-     ((shinjigen-1	  . 9805)
-      (=ks-x1001	  . #x582B)	; &M-47887; [56-11]
+     ((=ks-x1001	  . #x582B)	; &M-47887; [56-11]
       (=daikanwa	  . 47887)	; &I-M-47887;
+      (shinjigen-1	  .  9805)	; &M-47887;
       (=jef-china3	  . #x6FC6)	; &I-JC3-6FC6;
       )
      ((=cns11643-1	  . #x5E28)	; &C1-5E28; [62-08]
@@ -42,14 +42,14 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (->subsumptive
-     ((shinjigen-1	  . 9804)
-      (shinjigen-2	  . 9804)
-      (=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
+     ((=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
       (=big5-cdp	  . #x8A5F)	; &I-CDP-8A5F;
       (=gt		  . 65257)	; &I-GT-65257;
       (=gt-k		  . 07878)	; &I-GT-K07878;
       (=gt-pj-1		  . #x4B63)	; &I-GT-65257; [43-67]
       (=daikanwa	  . 47888)	; &I-M-47888;
+      (shinjigen-1	  .  9804)	; &GT-65257;
+      (shinjigen-2	  .  9804)	; &GT-65257;
       (=ucs@jis		  . #x9EBB)	; &GT-65257;
       )
      ((=gb2312		  . #x4269)	; &G0-4269; [34-73]

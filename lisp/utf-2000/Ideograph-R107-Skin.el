@@ -3,7 +3,6 @@
   '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (shinjigen-2	. 5223)
     (=ucs		. #x76AE)	; 皮
     (=jis-x0208		. #x4869)	; &I-J90-4869; [40-73]
     (=gb2312		. #x4624)	; &I-G0-4624; [38-04]
@@ -14,6 +13,7 @@
     (=gt-k		. 00989)	; &I-GT-K00989;
     (=gt-pj-1		. #x4869)	; &I-GT-29253; [40-73]
     (=daikanwa		. 22823)	; &I-M-22823;
+    (shinjigen-2	.  5223)	; 皮
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
@@ -199,13 +199,13 @@
   '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (shinjigen-2	. 5224)
     (=ucs		. #x76B0)	; 皰
     (=jis-x0208		. #x622E)	; &I-J90-622E; [66-14]
     (=big5		. #xAF70)	; &I-B-AF70;
     (=gt		. 29283)	; &I-GT-29283;
     (=gt-pj-1		. #x622E)	; &I-GT-29283; [66-14]
     (=daikanwa		. 22844)	; &I-M-22844;
+    (shinjigen-2	.  5224)	; 皰
     ))
 (define-char
   '((=>ucs		. #x76B0)	; 皰
@@ -463,12 +463,12 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (shinjigen-2	. 5226)
     (=jis-x0208		. #x622F)	; &GT-29302; [66-15]
     (=cns11643-1	. #x6078)	; &I-C1-6078; [64-88]
     (=gt		. 29302)	; &I-GT-29302;
     (=gt-pj-1		. #x622F)	; &I-GT-29302; [66-15]
     (=daikanwa		. 22866)	; &I-M-22866;
+    (shinjigen-2	.  5226)	; &GT-29302;
     (=ucs@jis		. #x76B4)	; &GT-29302;
     ))
 (define-char
@@ -618,7 +618,6 @@
   '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (shinjigen-2	. 9855)
     (=ucs		. #x76B7)	; 皷
     (=jis-x0208		. #x7369)	; &I-J90-7369; [83-73]
     (=cns11643-3	. #x4830)	; &I-C3-4830; [40-16]
@@ -626,12 +625,12 @@
     (=gt-k		. 11242)	; &I-GT-K11242;
     (=gt-pj-1		. #x7369)	; &I-GT-29326; [83-73]
     (=daikanwa		. 22887)	; &I-M-22887;
+    (shinjigen-2	.  9855)	; 皷
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (shinjigen-2	. 5227)
     (=ucs		. #x76B8)	; 皸
     (=jis-x0208		. #x6230)	; &I-J90-6230; [66-16]
     (=cns11643-2	. #x4C29)	; &I-C2-4C29; [44-09]
@@ -640,6 +639,7 @@
     (=gt		. 29324)	; &I-GT-29324;
     (=gt-pj-1		. #x6230)	; &I-GT-29324; [66-16]
     (=daikanwa		. 22888)	; &I-M-22888;
+    (shinjigen-2	.  5227)	; 皸
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
@@ -825,7 +825,6 @@
   '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (shinjigen-2	. 5229)
     (=ucs		. #x76BA)	; 皺
     (=jis-x0208		. #x6232)	; &I-J90-6232; [66-18]
     (=ks-x1001		. #x7554)	; &I-K0-7554; [85-52]
@@ -836,6 +835,7 @@
     (=gt-k		. 11991)	; &I-GT-K11991;
     (=gt-pj-1		. #x6232)	; &I-GT-29345; [66-18]
     (=daikanwa		. 22899)	; &I-M-22899;
+    (shinjigen-2	.  5229)	; 皺
     ))
 (define-char
   '((=>ucs		. #x2500F)	; 𥀏

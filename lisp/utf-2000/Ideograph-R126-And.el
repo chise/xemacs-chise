@@ -3,7 +3,6 @@
   '((ideographic-radical . 126)	; ⽽
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-2	. 6349)
     (=ucs		. #x800C)	; 而
     (=jis-x0208		. #x3C29)	; &I-J90-3C29; [28-09]
     (=gb2312		. #x3678)	; &I-G0-3678; [22-88]
@@ -14,6 +13,7 @@
     (=gt-k		. 01628)	; &I-GT-K01628;
     (=gt-pj-1		. #x3C29)	; &I-GT-37338; [28-09]
     (=daikanwa		. 28871)	; &I-M-28871;
+    (shinjigen-2	.  6349)	; 而
     ))
 (define-char
   '((ideographic-radical . 126)	; ⽽

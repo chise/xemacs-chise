@@ -3,7 +3,6 @@
   '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (shinjigen-2	. 2260)
     (=ucs		. #x5F0B)	; 弋
     (=jis-x0208		. #x5735)	; &I-J90-5735; [55-21]
     (=gb2312		. #x5F2E)	; &I-G0-5F2E; [63-14]
@@ -13,6 +12,7 @@
     (=gt-k		. 00232)	; &I-GT-K00232;
     (=gt-pj-1		. #x5735)	; &I-GT-12167; [55-21]
     (=daikanwa		. 09656)	; &I-M-09656;
+    (shinjigen-2	.  2260)	; 弋
     ))
 (define-char
   '((=>ucs		. #x5F0B)	; 弋
@@ -33,8 +33,6 @@
   '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (shinjigen-1	. 2)
-    (shinjigen-2	. 2)
     (=ucs		. #x5F0C)	; 弌
     (=jis-x0208		. #x5021)	; &I-J90-5021; [48-01]
     (=iso-ir165		. #x2E36)	; &I-EGB-2E36; [14-22]
@@ -42,6 +40,8 @@
     (=gt		. 12169)	; &I-GT-12169;
     (=gt-pj-1		. #x5021)	; &I-GT-12169; [48-01]
     (=daikanwa		. 09658)	; &I-M-09658;
+    (shinjigen-1	.  0002)	; 弌
+    (shinjigen-2	.  0002)	; 弌
     (=cbeta		. 05531)	; &I-CB05531;
     ))
 (define-char
@@ -69,7 +69,6 @@
   '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 74)
     (=ucs		. #x5F0D)	; 弍
     (=jis-x0208		. #x5031)	; &I-J90-5031; [48-17]
     (=iso-ir165		. #x2E37)	; &I-EGB-2E37; [14-23]
@@ -78,18 +77,19 @@
     (=gt-k		. 01027)	; &I-GT-K01027;
     (=gt-pj-1		. #x5031)	; &I-GT-12175; [48-17]
     (=daikanwa		. 09661)	; &I-M-09661;
+    (shinjigen-2	.  0074)	; 弍
     ))
 (define-char
   '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (shinjigen-1	. 7)
     (=ucs		. #x5F0E)	; 弎
     (=jis-x0212		. #x3C60)	; &I-JSP-3C60; [28-64]
     (=iso-ir165		. #x2E38)	; &I-EGB-2E38; [14-24]
     (=cns11643-3	. #x2362)	; &I-C3-2362; [03-66]
     (=jis-x0213-2-2000	. #x2C2E)	; &I-JX2-2C2E; [12-14]
     (=daikanwa		. 09662)	; &I-M-09662;
+    (shinjigen-1	.  0007)	; 弎
     ))
 (define-char
   '((=>ucs		. #x5F0E)	; 弎
@@ -299,14 +299,14 @@
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (shinjigen-1	. 2261)
-    (shinjigen-2	. 2261)
     (=jis-x0208		. #x5736)	; &GT-12198; [55-22]
     (=ks-x1001		. #x633D)	; &I-K0-633D; [67-29]
     (=cns11643-3	. #x3B42)	; &I-C3-3B42; [27-34]
     (=gt		. 12198)	; &I-GT-12198;
     (=gt-pj-1		. #x5736)	; &I-GT-12198; [55-22]
     (=daikanwa		. 09680)	; &I-M-09680;
+    (shinjigen-1	.  2261)	; &GT-12198;
+    (shinjigen-2	.  2261)	; &GT-12198;
     (=cbeta		. 06128)	; &I-CB06128;
     (=ucs@jis		. #x5F11)	; &GT-12198;
     ))

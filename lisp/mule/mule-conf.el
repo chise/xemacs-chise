@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005,2006 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -326,6 +326,33 @@
                   ;; code-offset	#xE00000
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
+
+  (make-charset 'shinjigen-1
+		"Kadokawa ShinJigen dictionary (the first edition)"
+		`(long-name	"Shinjigen-1"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-1"))
+  (make-charset 'shinjigen-2
+		"Kadokawa ShinJigen dictionary (the second edition)"
+		`(long-name	"Shinjigen-2"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-2"))
+  (make-charset 'shinjigen-2-p
+		"ShinJigen (the second edition) number with '"
+		`(long-name	"Shinjigen-2 with '"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r))
 
   (make-charset '=big5-pua
 		"Big5 with private used area"

@@ -69,14 +69,14 @@
     (total-strokes	 . 4)
     (=ucs		. #x5C6F)	; 屯
     (->subsumptive
-     ((shinjigen-1	  . 1953)
-      (shinjigen-2	  . 1953)
-      (=jis-x0208	  . #x4656)	; &GT-09854; [38-54]
+     ((=jis-x0208	  . #x4656)	; &GT-09854; [38-54]
       (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
       (=gt		  . 09854)	; &I-GT-09854;
       (=gt-k		  . 00470)	; &I-GT-K00470;
       (=gt-pj-1		  . #x4656)	; &I-GT-09854; [38-54]
       (=daikanwa	  . 07828)	; &I-M-07828;
+      (shinjigen-1	  .  1953)	; &GT-09854;
+      (shinjigen-2	  .  1953)	; &GT-09854;
       (=ucs@jis		  . #x5C6F)	; &GT-09854;
       )
      ((=gb2312		  . #x4D4D)	; &C1-453A; [45-45]

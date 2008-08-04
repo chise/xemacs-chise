@@ -3,7 +3,6 @@
   '((ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-2	. 7309)
     (=ucs		. #x8840)	; 血
     (=jis-x0208		. #x376C)	; &I-J90-376C; [23-76]
     (=gb2312		. #x512A)	; &I-G0-512A; [49-10]
@@ -14,6 +13,7 @@
     (=gt-k		. 01598)	; &I-GT-K01598;
     (=gt-pj-1		. #x376C)	; &I-GT-45816; [23-76]
     (=daikanwa		. 33964)	; &I-M-33964;
+    (shinjigen-2	.  7309)	; 血
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
@@ -121,13 +121,13 @@
     (total-strokes	 . 10)
     (=ucs		. #x8844)	; 衄
     (->subsumptive
-     ((shinjigen-2	  . 7311)
-      (=jis-x0208	  . #x6A48)	; &GT-45830; [74-40]
+     ((=jis-x0208	  . #x6A48)	; &GT-45830; [74-40]
       (=cns11643-2	  . #x3272)	; &I-C2-3272; [18-82]
       (=big5		  . #xD3D0)	; &I-B-D3D0;
       (=gt		  . 45830)	; &I-GT-45830;
       (=gt-pj-1		  . #x6A48)	; &I-GT-45830; [74-40]
       (=daikanwa	  . 33973)	; &I-M-33973;
+      (shinjigen-2	  .  7311)	; &GT-45830;
       (=ucs@jis		  . #x8844)	; &GT-45830;
       )
      ((=gb2312		  . #x742C)	; &G0-742C; [84-12]
@@ -219,12 +219,12 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (shinjigen-2	. 7316)
     (=jis-x0208		. #x3D30)	; &GT-45842; [29-16]
     (=gt		. 45842)	; &I-GT-45842;
     (=gt-k		. 09065)	; &I-GT-K09065;
     (=gt-pj-1		. #x3D30)	; &I-GT-45842; [29-16]
     (=daikanwa		. 33981)	; &I-M-33981;
+    (shinjigen-2	.  7316)	; &GT-45842;
     (=ucs@jis		. #x8846)	; &GT-45842;
     ))
 (define-char

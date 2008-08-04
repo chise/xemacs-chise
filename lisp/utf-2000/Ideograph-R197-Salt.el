@@ -3,7 +3,6 @@
   '((ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (shinjigen-2	. 9765)
     (=ucs		. #x9E75)	; 鹵
     (=jis-x0208		. #x7343)	; &I-J90-7343; [83-35]
     (=ks-x1001		. #x565D)	; &I-K0-565D; [54-61]
@@ -13,6 +12,7 @@
     (=gt-k		. 07987)	; &I-GT-K07987;
     (=gt-pj-1		. #x7343)	; &I-GT-64688; [83-35]
     (=daikanwa		. 47528)	; &I-M-47528;
+    (shinjigen-2	.  9765)	; 鹵
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄
@@ -251,7 +251,6 @@
   '((ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
-    (shinjigen-2	. 9766)
     (=ucs		. #x9E79)	; 鹹
     (=jis-x0208		. #x7344)	; &I-J90-7344; [83-36]
     (=ks-x1001		. #x7969)	; &I-K0-7969; [89-73]
@@ -260,6 +259,7 @@
     (=gt		. 64716)	; &I-GT-64716;
     (=gt-pj-1		. #x7344)	; &I-GT-64716; [83-36]
     (=daikanwa		. 47553)	; &I-M-47553;
+    (shinjigen-2	.  9766)	; 鹹
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄
@@ -563,7 +563,6 @@
   '((ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
-    (shinjigen-2	. 9770)
     (=ucs		. #x9E7D)	; 鹽
     (=jis-x0208		. #x7345)	; &I-J90-7345; [83-37]
     (=ks-x1001		. #x6724)	; &I-K0-6724; [71-04]
@@ -572,6 +571,7 @@
     (=gt		. 64743)	; &I-GT-64743;
     (=gt-pj-1		. #x7345)	; &I-GT-64743; [83-37]
     (=daikanwa		. 47579)	; &I-M-47579;
+    (shinjigen-2	.  9770)	; 鹽
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄

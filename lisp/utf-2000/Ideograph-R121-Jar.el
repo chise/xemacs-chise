@@ -3,8 +3,6 @@
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-1	. 6223)
-    (shinjigen-2	. 6223)
     (=ucs		. #x7F36)	; 缶
     (=jis-x0208		. #x344C)	; &I-J90-344C; [20-44]
     (=gb2312		. #x733E)	; &I-G0-733E; [83-30]
@@ -15,6 +13,8 @@
     (=gt-k		. 01582)	; &I-GT-K01582;
     (=gt-pj-1		. #x344C)	; &I-GT-36221; [20-44]
     (=daikanwa		. 28108)	; &I-M-28108;
+    (shinjigen-1	.  6223)	; 缶
+    (shinjigen-2	.  6223)	; 缶
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x6625)	; &GT-36314; [70-05]
       (=ks-x1001	  . #x4E38)	; &I-K0-4E38; [46-24]
@@ -38,11 +38,11 @@
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-1	. 6225)
     (=ucs		. #x26222)	; 𦈢
     (=cns11643-6	. #x2542)	; &I-C6-2542; [05-34]
     (=big5-cdp		. #x8DD6)	; &I-CDP-8DD6;
     (=daikanwa		. 28109)	; &I-M-28109;
+    (shinjigen-1	.  6225)	; 𦈢
     ))
 (define-char
   '((ideographic-radical@ucs . 121)	; ⽸
@@ -67,11 +67,11 @@
     (total-strokes	 . 9)
     (=ucs		. #x7F38)	; 缸
     (->subsumptive
-     ((shinjigen-2	  . 6228)
-      (=jis-x0208	  . #x657D)	; &M-28112; [69-93]
+     ((=jis-x0208	  . #x657D)	; &M-28112; [69-93]
       (=ks-x1001	  . #x797C)	; &I-K0-797C; [89-92]
       (=big5		  . #xACFB)	; &I-B-ACFB;
       (=daikanwa	  . 28112)	; &I-M-28112;
+      (shinjigen-2	  .  6228)	; &M-28112;
       (=ucs@jis		  . #x7F38)	; &M-28112;
       )
      ((=cns11643-1	  . #x527E)	; &GT-36227; [50-94]
@@ -217,11 +217,11 @@
     (total-strokes	 . 10)
     (=ucs		. #x7F3A)	; 缺
     (->subsumptive
-     ((shinjigen-2	  . 3906)
-      (=jis-x0208	  . #x657E)	; &M-28122; [69-94]
+     ((=jis-x0208	  . #x657E)	; &M-28122; [69-94]
       (=ks-x1001	  . #x4C40)	; &I-K0-4C40; [44-32]
       (=big5		  . #xAFCA)	; &I-B-AFCA;
       (=daikanwa	  . 28122)	; &I-M-28122;
+      (shinjigen-2	  .  3906)	; &M-28122;
       (=ucs@jis		  . #x7F3A)	; &M-28122;
       )
      ((=gt		  . 36233)	; &GT-36233;
@@ -759,10 +759,10 @@
     (total-strokes	 . 17)
     (=ucs		. #x7F45)	; 罅
     (->subsumptive
-     ((shinjigen-2	  . 6233)
-      (=jis-x0208	  . #x6621)	; &M-28169; [70-01]
+     ((=jis-x0208	  . #x6621)	; &M-28169; [70-01]
       (=big5		  . #xEDE1)	; &I-B-EDE1;
       (=daikanwa	  . 28169)	; &I-M-28169;
+      (shinjigen-2	  .  6233)	; &M-28169;
       (=ucs@jis		  . #x7F45)	; &M-28169;
       )
      ((=gt		  . 36286)	; &GT-36286;
@@ -950,7 +950,6 @@
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (shinjigen-2	. 6235)
     (=ucs		. #x7F4C)	; 罌
     (=jis-x0208		. #x6622)	; &I-J90-6622; [70-02]
     (=ks-x1001		. #x6522)	; &I-K0-6522; [69-02]
@@ -960,6 +959,7 @@
     (=gt		. 36305)	; &I-GT-36305;
     (=gt-pj-1		. #x6622)	; &I-GT-36305; [70-02]
     (=daikanwa		. 28185)	; &I-M-28185;
+    (shinjigen-2	.  6235)	; 罌
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -973,7 +973,6 @@
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
-    (shinjigen-2	. 6237)
     (=ucs		. #x7F4D)	; 罍
     (=jis-x0208		. #x6623)	; &I-J90-6623; [70-03]
     (=iso-ir165		. #x7E24)	; &I-EGB-7E24; [94-04]
@@ -982,6 +981,7 @@
     (=gt		. 36310)	; &I-GT-36310;
     (=gt-pj-1		. #x6623)	; &I-GT-36310; [70-03]
     (=daikanwa		. 28187)	; &I-M-28187;
+    (shinjigen-2	.  6237)	; 罍
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -997,11 +997,11 @@
     (total-strokes	 . 22)
     (=ucs		. #x7F4E)	; 罎
     (->subsumptive
-     ((shinjigen-2	  . 1519)
-      (=jis-x0208	  . #x6624)	; &GT-36312; [70-04]
+     ((=jis-x0208	  . #x6624)	; &GT-36312; [70-04]
       (=gt		  . 36312)	; &I-GT-36312;
       (=gt-pj-1		  . #x6624)	; &I-GT-36312; [70-04]
       (=daikanwa	  . 28189)	; &I-M-28189;
+      (shinjigen-2	  .  1519)	; &GT-36312;
       (=ucs@jis		  . #x7F4E)	; &GT-36312;
       )
      ((=gb12345		  . #x786E)	; &UU+7F4E; [88-78]

@@ -3,7 +3,6 @@
   '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-2	. 6593)
     (=ucs		. #x81E3)	; 臣
     (=jis-x0208		. #x3F43)	; &I-J90-3F43; [31-35]
     (=gb2312		. #x333C)	; &I-G0-333C; [19-28]
@@ -14,6 +13,7 @@
     (=gt-k		. 01647)	; &I-GT-K01647;
     (=gt-pj-1		. #x3F43)	; &I-GT-38908; [31-35]
     (=daikanwa		. 30068)	; &I-M-30068;
+    (shinjigen-2	.  6593)	; 臣
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
@@ -83,7 +83,6 @@
   '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (shinjigen-2	. 6594)
     (=ucs		. #x81E5)	; 臥
     (=jis-x0208		. #x3269)	; &I-J90-3269; [18-73]
     (=ks-x1001		. #x6842)	; &I-K0-6842; [72-34]
@@ -93,6 +92,7 @@
     (=gt-k		. 03655)	; &I-GT-K03655;
     (=gt-pj-1		. #x3269)	; &I-GT-38909; [18-73]
     (=daikanwa		. 30071)	; &I-M-30071;
+    (shinjigen-2	.  6594)	; 臥
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
@@ -210,8 +210,7 @@
     (total-strokes	 . 14)
     (=ucs		. #x81E7)	; 臧
     (->subsumptive
-     ((shinjigen-2	  . 6596)
-      (=jis-x0208	  . #x6749)	; &GT-38924; [71-41]
+     ((=jis-x0208	  . #x6749)	; &GT-38924; [71-41]
       (=gb2312		  . #x6A30)	; &I-G0-6A30; [74-16]
       (=ks-x1001	  . #x6D75)	; &I-K0-6D75; [77-85]
       (=big5		  . #xBB4E)	; &I-B-BB4E;
@@ -219,6 +218,7 @@
       (=gt-k		  . 11233)	; &I-GT-K11233;
       (=gt-pj-1		  . #x6749)	; &I-GT-38924; [71-41]
       (=daikanwa	  . 30083)	; &I-M-30083;
+      (shinjigen-2	  .  6596)	; &GT-38924;
       (=ucs@unicode	  . #x81E7)	; &GT-38924;
       )
      ((=cns11643-1	  . #x6A56)	; &C1-6A56; [74-54]
@@ -261,11 +261,11 @@
     (=ucs		. #x81E8)	; 臨
     (->subsumptive
      ((total-strokes	   . 18)
-      (shinjigen-2	  . 6597)
       (=jis-x0208	  . #x4E57)	; &M-30087; [46-55]
       (=ks-x1001	  . #x577C)	; &I-K0-577C; [55-92]
       (=big5		  . #xC17B)	; &I-B-C17B;
       (=daikanwa	  . 30087)	; &I-M-30087;
+      (shinjigen-2	  .  6597)	; &M-30087;
       (=ucs@jis		  . #x81E8)	; &M-30087;
       )
      ((total-strokes	   . 17)

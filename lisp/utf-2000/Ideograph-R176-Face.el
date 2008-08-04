@@ -3,7 +3,6 @@
   '((ideographic-radical . 176)	; ⾯
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
-    (shinjigen-2	. 9039)
     (=ucs		. #x9762)	; 面
     (=jis-x0208		. #x4C4C)	; &I-J90-4C4C; [44-44]
     (=gb2312		. #x4366)	; &I-G0-4366; [35-70]
@@ -13,6 +12,7 @@
     (=gt-k		. 05191)	; &I-GT-K05191;
     (=gt-pj-1		. #x4C4C)	; &I-GT-57213; [44-44]
     (=daikanwa		. 42618)	; &I-M-42618;
+    (shinjigen-2	.  9039)	; 面
     ))
 (define-char
   '((ideographic-radical@ucs . 17)	; ⼐
@@ -207,12 +207,12 @@
     (total-strokes	 . 14)
     (=ucs		. #x9764)	; 靤
     (->subsumptive
-     ((shinjigen-2	  . 5225)
-      (=jis-x0208	  . #x7052)	; &GT-57239; [80-50]
+     ((=jis-x0208	  . #x7052)	; &GT-57239; [80-50]
       (=cns11643-3	  . #x4A4E)	; &I-C3-4A4E; [42-46]
       (=gt		  . 57239)	; &I-GT-57239;
       (=gt-pj-1		  . #x7052)	; &I-GT-57239; [80-50]
       (=daikanwa	  . 42639)	; &I-M-42639;
+      (shinjigen-2	  .  5225)	; &GT-57239;
       (=ucs@unicode	  . #x9764)	; &GT-57239;
       )
      ((=gt		  . 57240)	; &GT-57240;
@@ -413,13 +413,13 @@
   '((ideographic-radical . 176)	; ⾯
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (shinjigen-2	. 9041)
     (=ucs		. #x9766)	; 靦
     (=jis-x0208		. #x7053)	; &I-J90-7053; [80-51]
     (=cns11643-1	. #x727C)	; &I-C1-727C; [82-92]
     (=gt		. 57257)	; &I-GT-57257;
     (=gt-pj-1		. #x7053)	; &I-GT-57257; [80-51]
     (=daikanwa		. 42660)	; &I-M-42660;
+    (shinjigen-2	.  9041)	; 靦
     ))
 (define-char
   '((ideographic-radical . 176)	; ⾯
@@ -767,12 +767,12 @@
     (total-strokes	 . 23)
     (=ucs		. #x9768)	; 靨
     (->subsumptive
-     ((shinjigen-2	  . 9043)
-      (=jis-x0208	  . #x7054)	; &GT-57308; [80-52]
+     ((=jis-x0208	  . #x7054)	; &GT-57308; [80-52]
       (=gb12345		  . #x584C)	; &GT-57308; [56-44]
       (=gt		  . 57308)	; &I-GT-57308;
       (=gt-pj-1		  . #x7054)	; &I-GT-57308; [80-52]
       (=daikanwa	  . 42698)	; &I-M-42698;
+      (shinjigen-2	  .  9043)	; &GT-57308;
       (=ucs@unicode	  . #x9768)	; &GT-57308;
       )
      ((=cns11643-1	  . #x7C4E)	; &C1-7C4E; [92-46]

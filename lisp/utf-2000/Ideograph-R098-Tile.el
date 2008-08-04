@@ -5,8 +5,6 @@
     (=ucs		. #x74E6)	; 瓦
     (->subsumptive
      ((total-strokes	   . 5)
-      (shinjigen-1	  . 4979)
-      (shinjigen-2	  . 4979)
       (=jis-x0208	  . #x3424)	; &GT-27544; [20-04]
       (=ks-x1001	  . #x683F)	; &I-K0-683F; [72-31]
       (=cns11643-1	  . #x466B)	; &I-C1-466B; [38-75]
@@ -15,6 +13,8 @@
       (=gt-k		  . 00906)	; &I-GT-K00906;
       (=gt-pj-1		  . #x3424)	; &I-GT-27544; [20-04]
       (=daikanwa	  . 21438)	; &I-M-21438;
+      (shinjigen-1	  .  4979)	; &GT-27544;
+      (shinjigen-2	  .  4979)	; &GT-27544;
       (=ucs@jis		  . #x74E6)	; &GT-27544;
       )
      ((total-strokes	   . 4)
@@ -84,7 +84,6 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (shinjigen-2	. 4981)
     (=ucs		. #x74E9)	; 瓩
     (=jis-x0208		. #x6124)	; &I-J90-6124; [65-04]
     (=cns11643-1	. #x2322)	; &I-C1-2322; [03-02]
@@ -92,6 +91,7 @@
     (=gt		. 27551)	; &I-GT-27551;
     (=gt-pj-1		. #x6124)	; &I-GT-27551; [65-04]
     (=daikanwa		. 21450)	; &I-M-21450;
+    (shinjigen-2	.  4981)	; 瓩
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
@@ -192,12 +192,12 @@
     (=big5		. #xCFD8)	; &I-B-CFD8;
     (->subsumptive
      ((total-strokes	   . 9)
-      (shinjigen-2	  . 4982)
       (=jis-x0208	  . #x6125)	; &GT-27559; [65-05]
       (=ks-x1001	  . #x6837)	; &I-K0-6837; [72-23]
       (=gt		  . 27559)	; &I-GT-27559;
       (=gt-pj-1		  . #x6125)	; &I-GT-27559; [65-05]
       (=daikanwa	  . 21461)	; &I-M-21461;
+      (shinjigen-2	  .  4982)	; &GT-27559;
       (=ucs@jis		  . #x74EE)	; &GT-27559;
       )
      ((total-strokes	   . 9)
@@ -257,23 +257,23 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (shinjigen-2	. 4984)
     (=ucs		. #x74F1)	; 瓱
     (=jis-x0208		. #x6128)	; &I-J90-6128; [65-08]
     (=gt		. 27579)	; &I-GT-27579;
     (=gt-pj-1		. #x6128)	; &I-GT-27579; [65-08]
     (=daikanwa		. 21466)	; &I-M-21466;
+    (shinjigen-2	.  4984)	; 瓱
     ))
 (define-char
   '((=>ucs		. #x74F2)	; 瓲
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (shinjigen-2	. 4983)
     (=jis-x0208		. #x6126)	; &GT-27571; [65-06]
     (=gt		. 27571)	; &I-GT-27571;
     (=gt-pj-1		. #x6126)	; &I-GT-27571; [65-06]
     (=daikanwa		. 21467)	; &I-M-21467;
+    (shinjigen-2	.  4983)	; &GT-27571;
     (=ucs@jis		. #x74F2)	; &GT-27571;
     ))
 (define-char
@@ -482,7 +482,6 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (shinjigen-2	. 4989)
     (=ucs		. #x74F6)	; 瓶
     (=jis-x0208		. #x4953)	; &I-J90-4953; [41-51]
     (=gb2312		. #x463F)	; &I-G0-463F; [38-31]
@@ -492,6 +491,7 @@
     (=gt-k		. 07865)	; &I-GT-K07865;
     (=gt-pj-1		. #x4953)	; &I-GT-27617; [41-51]
     (=daikanwa		. 21486)	; &I-M-21486;
+    (shinjigen-2	.  4989)	; 瓶
     (<-simplified@JP/Jouyou
      ((=ks-x1001	  . #x5C3A)	; &M-21537; [60-26]
       (=jis-x0213-1-2000  . #x7847)	; &I-JX1-7847; [88-39]
@@ -527,14 +527,14 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (shinjigen-1	. 4986)
-    (shinjigen-2	. 4986)
     (=jis-x0208		. #x612A)	; &GT-27608; [65-10]
     (=ks-x1001		. #x6D36)	; &I-K0-6D36; [77-22]
     (=big5		. #xB2A1)	; &I-B-B2A1;
     (=gt		. 27608)	; &I-GT-27608;
     (=gt-pj-1		. #x612A)	; &I-GT-27608; [65-10]
     (=daikanwa		. 21491)	; &I-M-21491;
+    (shinjigen-1	.  4986)	; &GT-27608;
+    (shinjigen-2	.  4986)	; &GT-27608;
     (=ucs@jis		. #x74F7)	; &GT-27608;
     ))
 (define-char
@@ -1236,13 +1236,13 @@
     (total-strokes	 . 14)
     (=ucs		. #x7503)	; 甃
     (->subsumptive
-     ((shinjigen-2	  . 4995)
-      (=jis-x0208	  . #x612C)	; &GT-27680; [65-12]
+     ((=jis-x0208	  . #x612C)	; &GT-27680; [65-12]
       (=iso-ir165	  . #x7C35)	; &I-EGB-7C35; [92-21]
       (=big5		  . #xE2D7)	; &I-B-E2D7;
       (=gt		  . 27680)	; &I-GT-27680;
       (=gt-pj-1		  . #x612C)	; &I-GT-27680; [65-12]
       (=daikanwa	  . 21554)	; &I-M-21554;
+      (shinjigen-2	  .  4995)	; &GT-27680;
       (=ucs@unicode	  . #x7503)	; &GT-27680;
       )
      ((=cns11643-2	  . #x4B7D)	; &C2-4B7D; [43-93]
@@ -1728,9 +1728,9 @@
 	(=ucs@jis	    . #x750C)	; &J90-612E;
 	))
       )
-     ((shinjigen-1	  . 4996)
-      (shinjigen-2	  . 4996)
-      (=cns11643-1	  . #x7148)	; &C1-7148; [81-40]
+     ((=cns11643-1	  . #x7148)	; &C1-7148; [81-40]
+      (shinjigen-1	  .  4996)	; &C1-7148;
+      (shinjigen-2	  .  4996)	; &C1-7148;
       (mojikyo		  . 021586)	; &MCS-60005452;
       ))
     ))
@@ -1763,13 +1763,13 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (shinjigen-2	. 4997)
     (=ucs		. #x750E)	; 甎
     (=jis-x0208		. #x612F)	; &I-J90-612F; [65-15]
     (=cns11643-3	. #x516E)	; &I-C3-516E; [49-78]
     (=gt		. 27723)	; &I-GT-27723;
     (=gt-pj-1		. #x612F)	; &I-GT-27723; [65-15]
     (=daikanwa		. 21589)	; &I-M-21589;
+    (shinjigen-2	.  4997)	; 甎
     ))
 (define-char
   '((=>ucs		. #x3F3E)	; 㼾
@@ -2023,12 +2023,12 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (shinjigen-2	. 5004)
     (=jis-x0208		. #x6132)	; &GT-27768; [65-18]
     (=big5		. #xF049)	; &I-B-F049;
     (=gt		. 27768)	; &I-GT-27768;
     (=gt-pj-1		. #x6132)	; &I-GT-27768; [65-18]
     (=daikanwa		. 21609)	; &I-M-21609;
+    (shinjigen-2	.  5004)	; &GT-27768;
     (=ucs@jis		. #x7513)	; &GT-27768;
     ))
 (define-char
@@ -2141,14 +2141,14 @@
     (=big5		. #xC27C)	; &I-B-C27C;
     (->subsumptive
      ((total-strokes	   . 18)
-      (shinjigen-1	  . 5002)
-      (shinjigen-2	  . 5002)
       (=jis-x0208@1983	  . #x6131)	; &GT-27757; [65-17]
       (=ks-x1001	  . #x6838)	; &I-K0-6838; [72-24]
       (=jis-x0208@1990	  . #x6131)	; &I-J90-6131; [65-17]
       (=gt		  . 27757)	; &I-GT-27757;
       (=gt-pj-1		  . #x6131)	; &I-GT-27757; [65-17]
       (=daikanwa	  . 21617)	; &I-M-21617;
+      (shinjigen-1	  .  5002)	; &GT-27757;
+      (shinjigen-2	  .  5002)	; &GT-27757;
       (=ucs@jis		  . #x7515)	; &GT-27757;
       )
      ((total-strokes	   . 18)

@@ -83,11 +83,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
     (->subsumptive
-     ((shinjigen-2	  . 9839)
-      (=jis-x0208	  . #x7364)	; &GT-65943; [83-68]
+     ((=jis-x0208	  . #x7364)	; &GT-65943; [83-68]
       (=gt		  . 65943)	; &I-GT-65943;
       (=gt-pj-1		  . #x7364)	; &I-GT-65943; [83-68]
       (=daikanwa	  . 48250)	; &I-M-48250;
+      (shinjigen-2	  .  9839)	; &GT-65943;
       (=ucs@jis		  . #x9EFB)	; &GT-65943;
       )
      ((=cns11643-2	  . #x613C)	; &C2-613C; [65-28]
@@ -115,12 +115,12 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 7)
     (total-strokes	 . 19)
-    (shinjigen-2	. 9840)
     (=jis-x0208		. #x7365)	; &GT-65945; [83-69]
     (=cns11643-2	. #x6862)	; &I-C2-6862; [72-66]
     (=gt		. 65945)	; &I-GT-65945;
     (=gt-pj-1		. #x7365)	; &I-GT-65945; [83-69]
     (=daikanwa		. 48252)	; &I-M-48252;
+    (shinjigen-2	.  9840)	; &GT-65945;
     (=ucs@jis		. #x9EFC)	; &GT-65945;
     ))
 (define-char

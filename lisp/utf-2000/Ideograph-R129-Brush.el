@@ -3,7 +3,6 @@
   '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-2	. 6411)
     (=ucs		. #x807F)	; 聿
     (=jis-x0208		. #x6666)	; &I-J90-6666; [70-70]
     (=gb2312		. #x6D32)	; &I-G0-6D32; [77-18]
@@ -14,6 +13,7 @@
     (=gt-k		. 01735)	; &I-GT-K01735;
     (=gt-pj-1		. #x6666)	; &I-GT-37829; [70-70]
     (=daikanwa		. 29215)	; &I-M-29215;
+    (shinjigen-2	.  6411)	; 聿
     ))
 (define-char
   '((<-denotational
@@ -159,14 +159,14 @@
     (total-strokes	 . 13)
     (=ucs		. #x8084)	; 肄
     (->subsumptive
-     ((shinjigen-2	  . 6415)
-      (=jis-x0208	  . #x6667)	; &GT-37842; [70-71]
+     ((=jis-x0208	  . #x6667)	; &GT-37842; [70-71]
       (=gb2312		  . #x525E)	; &I-G0-525E; [50-62]
       (=ks-x1001	  . #x6C3D)	; &I-K0-6C3D; [76-29]
       (=big5		  . #xB877)	; &I-B-B877;
       (=gt		  . 37842)	; &I-GT-37842;
       (=gt-pj-1		  . #x6667)	; &I-GT-37842; [70-71]
       (=daikanwa	  . 29224)	; &I-M-29224;
+      (shinjigen-2	  .  6415)	; &GT-37842;
       (=ucs@unicode	  . #x8084)	; &GT-37842;
       )
      ((=cns11643-1	  . #x657E)	; &C1-657E; [69-94]
@@ -176,7 +176,6 @@
   '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (shinjigen-2	. 6414)
     (=ucs		. #x8085)	; 肅
     (=jis-x0208		. #x6669)	; &I-J90-6669; [70-73]
     (=ks-x1001		. #x625C)	; &I-K0-625C; [66-60]
@@ -187,12 +186,12 @@
     (=gt-k		. 10340)	; &I-GT-K10340;
     (=gt-pj-1		. #x6669)	; &I-GT-37844; [70-73]
     (=daikanwa		. 29225)	; &I-M-29225;
+    (shinjigen-2	.  6414)	; 肅
     ))
 (define-char
   '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (shinjigen-2	. 6416)
     (=ucs		. #x8086)	; 肆
     (=jis-x0208		. #x6668)	; &I-J90-6668; [70-72]
     (=gb2312		. #x4B41)	; &I-G0-4B41; [43-33]
@@ -203,6 +202,7 @@
     (=gt-k		. 10339)	; &I-GT-K10339;
     (=gt-pj-1		. #x6668)	; &I-GT-37843; [70-72]
     (=daikanwa		. 29226)	; &I-M-29226;
+    (shinjigen-2	.  6416)	; 肆
     ))
 (define-char
   '((ideographic-radical . 129)	; ⾀

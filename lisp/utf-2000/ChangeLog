@@ -1,3 +1,13 @@
+2008-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`shinjigen-2-p'.
+
+2008-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`shinjigen-1' and `shinjigen-2'.
+
 2008-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R007-Two.el (C6-2568): Use G0-4D62 instead of U+5916

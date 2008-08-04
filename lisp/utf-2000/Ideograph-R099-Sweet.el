@@ -3,7 +3,6 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (shinjigen-2	. 5006)
     (=ucs		. #x7518)	; 甘
     (=jis-x0208		. #x3445)	; &I-J90-3445; [20-37]
     (=gb2312		. #x384A)	; &I-G0-384A; [24-42]
@@ -14,6 +13,7 @@
     (=gt-k		. 00908)	; &I-GT-K00908;
     (=gt-pj-1		. #x3445)	; &I-GT-27803; [20-37]
     (=daikanwa		. 21643)	; &I-M-21643;
+    (shinjigen-2	.  5006)	; 甘
     ))
 (define-char
   '((=>ucs		. #x24BBA)	; 𤮺
@@ -81,8 +81,6 @@
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (shinjigen-1	. 5007)
-    (shinjigen-2	. 5007)
     (=jis-x0208		. #x3F53)	; &GT-27811; [31-51]
     (=ks-x1001		. #x6424)	; &I-K0-6424; [68-04]
     (=big5		. #xACC6)	; &I-B-ACC6;
@@ -90,6 +88,8 @@
     (=gt-k		. 05114)	; &I-GT-K05114;
     (=gt-pj-1		. #x3F53)	; &I-GT-27811; [31-51]
     (=daikanwa		. 21648)	; &I-M-21648;
+    (shinjigen-1	.  5007)	; &GT-27811;
+    (shinjigen-2	.  5007)	; &GT-27811;
     (=ucs@jis		. #x751A)	; &GT-27811;
     ))
 (define-char
@@ -181,14 +181,14 @@
     (total-strokes	 . 11)
     (=ucs		. #x751C)	; 甜
     (->subsumptive
-     ((shinjigen-2	  . 6632)
-      (=jis-x0208	  . #x453C)	; &GT-27816; [37-28]
+     ((=jis-x0208	  . #x453C)	; &GT-27816; [37-28]
       (=gb2312		  . #x4C70)	; &I-G0-4C70; [44-80]
       (=big5		  . #xB2A2)	; &I-B-B2A2;
       (=gt		  . 27816)	; &I-GT-27816;
       (=gt-k		  . 07841)	; &I-GT-K07841;
       (=gt-pj-1		  . #x453C)	; &I-GT-27816; [37-28]
       (=daikanwa	  . 21656)	; &I-M-21656;
+      (shinjigen-2	  .  6632)	; &GT-27816;
       (=ucs@unicode	  . #x751C)	; &GT-27816;
       )
      ((=cns11643-1	  . #x5C27)	; &C1-5C27; [60-07]
@@ -240,7 +240,6 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (shinjigen-2	. 1217)
     (=ucs		. #x751E)	; 甞
     (=jis-x0208		. #x6133)	; &I-J90-6133; [65-19]
     (=cns11643-3	. #x4278)	; &I-C3-4278; [34-88]
@@ -248,6 +247,7 @@
     (=gt-k		. 10324)	; &I-GT-K10324;
     (=gt-pj-1		. #x6133)	; &I-GT-27820; [65-19]
     (=daikanwa		. 21659)	; &I-M-21659;
+    (shinjigen-2	.  1217)	; 甞
     ))
 (define-char
   '((=>ucs		. #x3F4E)	; 㽎

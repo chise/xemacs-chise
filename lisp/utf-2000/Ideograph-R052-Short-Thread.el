@@ -3,8 +3,6 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (shinjigen-1	. 2160)
-    (shinjigen-2	. 2160)
     (=ucs		. #x5E7A)	; 幺
     (=jis-x0208		. #x5676)	; &I-J90-5676; [54-86]
     (=gb2312		. #x675B)	; &I-G0-675B; [71-59]
@@ -14,6 +12,8 @@
     (=gt-k		. 00225)	; &I-GT-K00225;
     (=gt-pj-1		. #x5676)	; &I-GT-11582; [54-86]
     (=daikanwa		. 09189)	; &I-M-09189;
+    (shinjigen-1	.  2160)	; 幺
+    (shinjigen-2	.  2160)	; 幺
     ))
 (define-char
   '((<-denotational
@@ -42,8 +42,6 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (shinjigen-1	. 2161)
-    (shinjigen-2	. 2161)
     (=ucs		. #x5E7B)	; 幻
     (=jis-x0208		. #x3838)	; &I-J90-3838; [24-24]
     (=gb2312		. #x3B43)	; &I-G0-3B43; [27-35]
@@ -54,6 +52,8 @@
     (=gt-k		. 00425)	; &I-GT-K00425;
     (=gt-pj-1		. #x3838)	; &I-GT-11583; [24-24]
     (=daikanwa		. 09190)	; &I-M-09190;
+    (shinjigen-1	.  2161)	; 幻
+    (shinjigen-2	.  2161)	; 幻
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
@@ -227,7 +227,6 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (shinjigen-2	. 2162)
     (=ucs		. #x5E7D)	; 幽
     (=jis-x0208		. #x4D29)	; &I-J90-4D29; [45-09]
     (=gb2312		. #x5344)	; &I-G0-5344; [51-36]
@@ -238,6 +237,7 @@
     (=gt-k		. 05198)	; &I-GT-K05198;
     (=gt-pj-1		. #x4D29)	; &I-GT-11600; [45-09]
     (=daikanwa		. 09205)	; &I-M-09205;
+    (shinjigen-2	.  2162)	; 幽
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
@@ -267,10 +267,10 @@
     (=ucs		. #x5E7E)	; 幾
     (=big5		. #xB458)	; &I-B-B458;
     (->subsumptive
-     ((shinjigen-2	  . 2163)
-      (=jis-x0208	  . #x3476)	; &M-09208; [20-86]
+     ((=jis-x0208	  . #x3476)	; &M-09208; [20-86]
       (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
       (=daikanwa	  . 09208)	; &I-M-09208;
+      (shinjigen-2	  .  2163)	; &M-09208;
       (=ucs@jis		  . #x5E7E)	; &M-09208;
       )
      ((=cns11643-1	  . #x5E7D)	; &GT-11608; [62-93]
