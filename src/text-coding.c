@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3346,7 +3346,14 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 		? DECODE_CHAR (ccs, code, 0)
 		: decode_builtin_char (ccs, code);
 
-	      DECODE_ADD_UCS_CHAR (chr, dst);
+	      if ( chr >= 0 )
+		DECODE_ADD_UCS_CHAR (chr, dst);
+	      else
+		{
+		  Dynarr_add_many (dst, str->er_buf, str->er_counter);
+		  Dynarr_add (dst, ';');
+		}
+
 	      goto decoded;
 	    }
 	}
