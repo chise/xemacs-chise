@@ -12,7 +12,7 @@
     (=gt-k		. 07987)	; &I-GT-K07987;
     (=gt-pj-1		. #x7343)	; &I-GT-64688; [83-35]
     (=daikanwa		. 47528)	; &I-M-47528;
-    (shinjigen-2	.  9765)	; 鹵
+    (=shinjigen@rev	.  9765)	; 鹵
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄
@@ -258,7 +258,7 @@
     (=gt		. 64716)	; &I-GT-64716;
     (=gt-pj-1		. #x7344)	; &I-GT-64716; [83-36]
     (=daikanwa		. 47553)	; &I-M-47553;
-    (shinjigen-2	.  9766)	; 鹹
+    (=shinjigen@rev	.  9766)	; 鹹
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄
@@ -570,7 +570,7 @@
     (=gt		. 64743)	; &I-GT-64743;
     (=gt-pj-1		. #x7345)	; &I-GT-64743; [83-37]
     (=daikanwa		. 47579)	; &I-M-47579;
-    (shinjigen-2	.  9770)	; 鹽
+    (=shinjigen@rev	.  9770)	; 鹽
     ))
 (define-char
   '((ideographic-radical . 197)	; ⿄

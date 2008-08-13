@@ -93,8 +93,8 @@
     (=gt-k		. 00161)	; &I-GT-K00161;
     (=gt-pj-1		. #x345D)	; &I-GT-00131; [20-61]
     (=daikanwa		. 00094)	; &I-M-00094;
-    (shinjigen-1	.  0039)	; 丸
-    (shinjigen-2	.  0039)	; 丸
+    (=shinjigen@1ed	.  0039)	; 丸
+    (=shinjigen@rev	.  0039)	; 丸
     (=ucs@unicode	. #x4E38)	; 丸
     (=ucs@cns		. #x2F801)	; 丸
     ))
@@ -124,15 +124,15 @@
     (=gt		. 00133)	; &I-GT-00133;
     (=gt-pj-2		. #x306B)	; &I-GT-00133; [16-75]
     (=daikanwa		. 00096)	; &I-M-00096;
-    (shinjigen-1	.  0040)	; 𠁽
+    (=shinjigen@1ed	.  0040)	; 𠁽
     (<-original
      ((=ucs		  . #x2F801)	; 丸
       (=jis-x0208	  . #x345D)	; &I-J90-345D; [20-61]
       (=daikanwa	  . 00094)	; &I-M-00094;
-      (shinjigen-1	  .  0039)	; 丸
+      (=shinjigen@1ed	  .  0039)	; 丸
       ))
     (<-original*sources
-     zhonghua-dazidian daikanwa shinjigen-1)
+     zhonghua-dazidian daikanwa shinjigen@1ed)
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ITERATION MARK")
@@ -213,8 +213,8 @@
     (=gt-k		. 00460)	; &I-GT-K00460;
     (=gt-pj-1		. #x4330)	; &I-GT-00136; [35-16]
     (=daikanwa		. 00099)	; &I-M-00099;
-    (shinjigen-1	.  0041)	; 丹
-    (shinjigen-2	.  0041)	; 丹
+    (=shinjigen@1ed	.  0041)	; 丹
+    (=shinjigen@rev	.  0041)	; 丹
     (->subsumptive
      ((=ks-x1001	  . #x5321)	; &K0-5321; [51-01]
       (=ucs@ks		  . #x4E39)	; &K0-5321;
@@ -276,7 +276,7 @@
       (=gt-k		  . 00948)	; &I-GT-K00948;
       (=gt-pj-2		  . #x306E)	; &GT-00137; [16-78]
       (=daikanwa	  . 00100)	; &I-M-00100;
-      (shinjigen-1	  .  0043)	; &GT-00137;
+      (=shinjigen@1ed	  .  0043)	; &GT-00137;
       (=jef-china3	  . #x41B3)	; &I-JC3-41B3;
       )
      ((hanyu-dazidian	  1 44 3)
@@ -296,8 +296,8 @@
       (=gt		  . 00138)	; &I-GT-00138;
       (=gt-k		  . 00949)	; &I-GT-K00949;
       (=gt-pj-1		  . #x3C67)	; &I-GT-00138; [28-71]
-      (shinjigen-1	  .  0042)	; &GT-00138;
-      (shinjigen-2	  .  0042)	; &GT-00138;
+      (=shinjigen@1ed	  .  0042)	; &GT-00138;
+      (=shinjigen@rev	  .  0042)	; &GT-00138;
       (=ucs@unicode	  . #x4E3B)	; &GT-00138;
       ))
     ))
@@ -324,8 +324,8 @@
     (=gt-k		. 01026)	; &I-GT-K01026;
     (=gt-pj-1		. #x5027)	; &I-GT-00139; [48-07]
     (=daikanwa		. 00101)	; &I-M-00101;
-    (shinjigen-1	.  0044)	; 丼
-    (shinjigen-2	.  0044)	; 丼
+    (=shinjigen@1ed	.  0044)	; 丼
+    (=shinjigen@rev	.  0044)	; 丼
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂

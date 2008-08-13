@@ -12,7 +12,7 @@
     (=cns11643-1	. #x6329)	; &I-C1-6329; [67-09]
     (=jis-x0213-1-2000	. #x7E72)	; &I-JX1-7E72; [94-82]
     (=daikanwa		. 48038)	; &I-M-48038;
-    (shinjigen-1	.  9818)	; 黑
+    (=shinjigen@1ed	.  9818)	; 黑
     (=jef-china3	. #x6FD6)	; &I-JC3-6FD6;
     ))
 (define-char
@@ -44,8 +44,8 @@
     (=gt		. 65517)	; &I-GT-65517;
     (=gt-k		. 07761)	; &I-GT-K07761;
     (=gt-pj-1		. #x3975)	; &I-GT-65517; [25-85]
-    (shinjigen-1	.  9817)	; 黒
-    (shinjigen-2	.  9817)	; 黒
+    (=shinjigen@1ed	.  9817)	; 黒
+    (=shinjigen@rev	.  9817)	; 黒
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x9ED1)	; 黑
       (=jis-x0213-1-2000  . #x7E72)	; &I-JX1-7E72; [94-82]
@@ -156,7 +156,7 @@
     (=jis-x0213-1-2000	. #x2F5E)	; &I-JX1-2F5E; [15-62]
     (=big5		. #xBEA5)	; &I-B-BEA5;
     (=daikanwa		. 05469)	; &I-M-05469;
-    (shinjigen-1	.  1488)	; 墨
+    (=shinjigen@1ed	.  1488)	; 墨
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
     (=ucs@unicode	. #x58A8)	; 墨
     (=ucs@jis		. #xFA3A)	; 墨
@@ -282,8 +282,8 @@
     (=ucs		. #x9ED4)	; 黔
     (->subsumptive
      ((=daikanwa	  . 48056)	; &M-48056;
-      (shinjigen-1	  .  9820)	; &M-48056;
-      (shinjigen-2	  .  9820)	; &M-48056;
+      (=shinjigen@1ed	  .  9820)	; &M-48056;
+      (=shinjigen@rev	  .  9820)	; &M-48056;
       )
      ((=jis-x0208	  . #x7358)	; &GT-65575; [83-56]
       (=ks-x1001	  . #x4C23)	; &I-K0-4C23; [44-03]
@@ -557,7 +557,7 @@
     (=ucs		. #x9EDC)	; 黜
     (->subsumptive
      ((=daikanwa	  . 48076)	; &M-48076;
-      (shinjigen-1	  .  9824)	; &M-48076;
+      (=shinjigen@1ed	  .  9824)	; &M-48076;
       )
      ((=jis-x0208	  . #x7359)	; &GT-65622; [83-57]
       (=gb2312		  . #x776D)	; &I-G0-776D; [87-77]
@@ -565,7 +565,7 @@
       (=cns11643-1	  . #x7636)	; &I-C1-7636; [86-22]
       (=gt		  . 65622)	; &I-GT-65622;
       (=gt-pj-1		  . #x7359)	; &I-GT-65622; [83-57]
-      (shinjigen-2	  .  9824)	; &GT-65622;
+      (=shinjigen@rev	  .  9824)	; &GT-65622;
       (=ucs@unicode	  . #x9EDC)	; &GT-65622;
       ))
     ))
@@ -630,7 +630,7 @@
     (=cns11643-1	. #x7637)	; &I-C1-7637; [86-23]
     (=gt		. 65627)	; &I-GT-65627;
     (=gt-pj-1		. #x735B)	; &I-GT-65627; [83-59]
-    (shinjigen-2	.  9827)	; 黝
+    (=shinjigen@rev	.  9827)	; 黝
     ))
 (define-char
   '((=>ucs		. #x9EDE)	; 點
@@ -651,7 +651,7 @@
     (=gb12345		. #x3563)	; 點 [21-67]
     (=gt		. 65623)	; &I-GT-65623;
     (=gt-pj-1		. #x735A)	; &I-GT-65623; [83-58]
-    (shinjigen-2	.  9826)	; 點
+    (=shinjigen@rev	.  9826)	; 點
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -847,7 +847,7 @@
     (=cns11643-1	. #x7828)	; &I-C1-7828; [88-08]
     (=gt		. 65637)	; &I-GT-65637;
     (=gt-pj-1		. #x735C)	; &I-GT-65637; [83-60]
-    (shinjigen-2	.  9828)	; 黠
+    (=shinjigen@rev	.  9828)	; 黠
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -1148,7 +1148,7 @@
     (=jis-x0208		. #x735D)	; &GT-65712; [83-61]
     (=gt		. 65712)	; &I-GT-65712;
     (=gt-pj-1		. #x735D)	; &I-GT-65712; [83-61]
-    (shinjigen-2	.  9832)	; &GT-65712;
+    (=shinjigen@rev	.  9832)	; &GT-65712;
     (=ucs@jis		. #x9EE5)	; &GT-65712;
     ))
 (define-char
@@ -1247,7 +1247,7 @@
     (=gt		. 65731)	; &I-GT-65731;
     (=gt-pj-1		. #x735E)	; &I-GT-65731; [83-62]
     (=daikanwa		. 48132)	; &I-M-48132;
-    (shinjigen-2	.  0475)	; 黨
+    (=shinjigen@rev	.  0475)	; 黨
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -1589,7 +1589,7 @@
     (=jis-x0208		. #x735F)	; &GT-65757; [83-63]
     (=gt		. 65757)	; &I-GT-65757;
     (=gt-pj-1		. #x735F)	; &I-GT-65757; [83-63]
-    (shinjigen-2	.  9834)	; &GT-65757;
+    (=shinjigen@rev	.  9834)	; &GT-65757;
     (=ucs@jis		. #x9EEF)	; &GT-65757;
     ))
 (define-char
@@ -1944,7 +1944,7 @@
     (=gt		. 65857)	; &I-GT-65857;
     (=gt-pj-1		. #x7360)	; &I-GT-65857; [83-64]
     (=daikanwa		. 48196)	; &I-M-48196;
-    (shinjigen-2	.  9836)	; 黴
+    (=shinjigen@rev	.  9836)	; 黴
     (=ucs@jis		. #x9EF4)	; &GT-65857;
     ))
 (define-char
@@ -1954,7 +1954,7 @@
     (total-strokes	 . 23)
     (=ucs		. #x9EF4)	; 黴
     (=gb12345		. #x7854)	; 黴 [88-52]
-    (shinjigen-2	.  9836)	; 黴
+    (=shinjigen@rev	.  9836)	; 黴
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
@@ -2431,7 +2431,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 27)
     (=daikanwa		. 48234)	; &M-48234;
-    (shinjigen-2	.  9838)	; &M-48234;
+    (=shinjigen@rev	.  9838)	; &M-48234;
     ))
 (define-char
   '((=>ucs		. #x9EF7)	; 黷

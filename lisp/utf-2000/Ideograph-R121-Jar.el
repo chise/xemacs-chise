@@ -13,8 +13,8 @@
     (=gt-k		. 01582)	; &I-GT-K01582;
     (=gt-pj-1		. #x344C)	; &I-GT-36221; [20-44]
     (=daikanwa		. 28108)	; &I-M-28108;
-    (shinjigen-1	.  6223)	; 缶
-    (shinjigen-2	.  6223)	; 缶
+    (=shinjigen@1ed	.  6223)	; 缶
+    (=shinjigen@rev	.  6223)	; 缶
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x6625)	; &GT-36314; [70-05]
       (=ks-x1001	  . #x4E38)	; &I-K0-4E38; [46-24]
@@ -42,7 +42,7 @@
     (=cns11643-6	. #x2542)	; &I-C6-2542; [05-34]
     (=big5-cdp		. #x8DD6)	; &I-CDP-8DD6;
     (=daikanwa		. 28109)	; &I-M-28109;
-    (shinjigen-1	.  6225)	; 𦈢
+    (=shinjigen@1ed	.  6225)	; 𦈢
     ))
 (define-char
   '((ideographic-radical@ucs . 121)	; ⽸
@@ -71,7 +71,7 @@
       (=ks-x1001	  . #x797C)	; &I-K0-797C; [89-92]
       (=big5		  . #xACFB)	; &I-B-ACFB;
       (=daikanwa	  . 28112)	; &I-M-28112;
-      (shinjigen-2	  .  6228)	; &M-28112;
+      (=shinjigen@rev	  .  6228)	; &M-28112;
       (=ucs@jis		  . #x7F38)	; &M-28112;
       )
      ((=cns11643-1	  . #x527E)	; &GT-36227; [50-94]
@@ -221,7 +221,7 @@
       (=ks-x1001	  . #x4C40)	; &I-K0-4C40; [44-32]
       (=big5		  . #xAFCA)	; &I-B-AFCA;
       (=daikanwa	  . 28122)	; &I-M-28122;
-      (shinjigen-2	  .  3906)	; &M-28122;
+      (=shinjigen@rev	  .  3906)	; &M-28122;
       (=ucs@jis		  . #x7F3A)	; &M-28122;
       )
      ((=gt		  . 36233)	; &GT-36233;
@@ -745,7 +745,7 @@
      ((=jis-x0208	  . #x6621)	; &M-28169; [70-01]
       (=big5		  . #xEDE1)	; &I-B-EDE1;
       (=daikanwa	  . 28169)	; &I-M-28169;
-      (shinjigen-2	  .  6233)	; &M-28169;
+      (=shinjigen@rev	  .  6233)	; &M-28169;
       (=ucs@jis		  . #x7F45)	; &M-28169;
       )
      ((=gt		  . 36286)	; &GT-36286;
@@ -942,7 +942,7 @@
     (=gt		. 36305)	; &I-GT-36305;
     (=gt-pj-1		. #x6622)	; &I-GT-36305; [70-02]
     (=daikanwa		. 28185)	; &I-M-28185;
-    (shinjigen-2	.  6235)	; 罌
+    (=shinjigen@rev	.  6235)	; 罌
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -964,7 +964,7 @@
     (=gt		. 36310)	; &I-GT-36310;
     (=gt-pj-1		. #x6623)	; &I-GT-36310; [70-03]
     (=daikanwa		. 28187)	; &I-M-28187;
-    (shinjigen-2	.  6237)	; 罍
+    (=shinjigen@rev	.  6237)	; 罍
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -984,7 +984,7 @@
       (=gt		  . 36312)	; &I-GT-36312;
       (=gt-pj-1		  . #x6624)	; &I-GT-36312; [70-04]
       (=daikanwa	  . 28189)	; &I-M-28189;
-      (shinjigen-2	  .  1519)	; &GT-36312;
+      (=shinjigen@rev	  .  1519)	; &GT-36312;
       (=ucs@jis		  . #x7F4E)	; &GT-36312;
       )
      ((=gb12345		  . #x786E)	; &UU+7F4E; [88-78]

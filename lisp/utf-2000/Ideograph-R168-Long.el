@@ -12,8 +12,8 @@
     (=gt-k		. 03775)	; &I-GT-K03775;
     (=gt-pj-1		. #x4439)	; &I-GT-55291; [36-25]
     (=daikanwa		. 41100)	; &I-M-41100;
-    (shinjigen-1	.  8793)	; 長
-    (shinjigen-2	.  8793)	; 長
+    (=shinjigen@1ed	.  8793)	; 長
+    (=shinjigen@rev	.  8793)	; 長
     ))
 (define-char
   '((<-denotational
@@ -38,14 +38,14 @@
     (=jis-x0213-2-2000	. #x7B52)	; &I-JX2-7B52; [91-50]
     (=big5-cdp		. #x8D72)	; &I-CDP-8D72;
     (=daikanwa		. 41101)	; &I-M-41101;
-    (shinjigen-1	.  8794)	; 镸
+    (=shinjigen@1ed	.  8794)	; 镸
     (<-formed
      ((=ucs		  . #x9577)	; 長
       (=jis-x0208	  . #x4439)	; &I-J90-4439; [36-25]
-      (shinjigen-1	  .  8793)	; 長
+      (=shinjigen@1ed	  .  8793)	; 長
       ))
     (<-formed*sources
-     shinjigen-1)
+     shinjigen@1ed)
     ))
 (define-char
   '((<-denotational

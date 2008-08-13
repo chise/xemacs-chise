@@ -13,7 +13,7 @@
     (=gt-k		. 00989)	; &I-GT-K00989;
     (=gt-pj-1		. #x4869)	; &I-GT-29253; [40-73]
     (=daikanwa		. 22823)	; &I-M-22823;
-    (shinjigen-2	.  5223)	; 皮
+    (=shinjigen@rev	.  5223)	; 皮
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
@@ -203,7 +203,7 @@
     (=gt		. 29283)	; &I-GT-29283;
     (=gt-pj-1		. #x622E)	; &I-GT-29283; [66-14]
     (=daikanwa		. 22844)	; &I-M-22844;
-    (shinjigen-2	.  5224)	; 皰
+    (=shinjigen@rev	.  5224)	; 皰
     ))
 (define-char
   '((=>ucs		. #x76B0)	; 皰
@@ -450,7 +450,7 @@
     (=gt		. 29302)	; &I-GT-29302;
     (=gt-pj-1		. #x622F)	; &I-GT-29302; [66-15]
     (=daikanwa		. 22866)	; &I-M-22866;
-    (shinjigen-2	.  5226)	; &GT-29302;
+    (=shinjigen@rev	.  5226)	; &GT-29302;
     (=ucs@jis		. #x76B4)	; &GT-29302;
     ))
 (define-char
@@ -607,7 +607,7 @@
     (=gt-k		. 11242)	; &I-GT-K11242;
     (=gt-pj-1		. #x7369)	; &I-GT-29326; [83-73]
     (=daikanwa		. 22887)	; &I-M-22887;
-    (shinjigen-2	.  9855)	; 皷
+    (=shinjigen@rev	.  9855)	; 皷
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
@@ -621,7 +621,7 @@
     (=gt		. 29324)	; &I-GT-29324;
     (=gt-pj-1		. #x6230)	; &I-GT-29324; [66-16]
     (=daikanwa		. 22888)	; &I-M-22888;
-    (shinjigen-2	.  5227)	; 皸
+    (=shinjigen@rev	.  5227)	; 皸
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
@@ -777,7 +777,7 @@
     (=gt-k		. 11991)	; &I-GT-K11991;
     (=gt-pj-1		. #x6232)	; &I-GT-29345; [66-18]
     (=daikanwa		. 22899)	; &I-M-22899;
-    (shinjigen-2	.  5229)	; 皺
+    (=shinjigen@rev	.  5229)	; 皺
     ))
 (define-char
   '((=>ucs		. #x2500F)	; 𥀏

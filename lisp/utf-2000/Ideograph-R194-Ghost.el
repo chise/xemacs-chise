@@ -12,7 +12,7 @@
       (=gt-k		  . 06398)	; &I-GT-K06398;
       (=gt-pj-1		  . #x3534)	; &I-GT-61541; [21-20]
       (=daikanwa	  . 45758)	; &I-M-45758;
-      (shinjigen-2	  .  9516)	; &GT-61541;
+      (=shinjigen@rev	  .  9516)	; &GT-61541;
       (=ucs@jis		  . #x9B3C)	; &GT-61541;
       )
      ((total-strokes	   . 9)
@@ -415,7 +415,7 @@
     (=gt		. 61576)	; &I-GT-61576;
     (=gt-pj-1		. #x3A32)	; &I-GT-61576; [26-18]
     (=daikanwa		. 45787)	; &I-M-45787;
-    (shinjigen-2	.  9517)	; &GT-61576;
+    (=shinjigen@rev	.  9517)	; &GT-61576;
     (=ucs@jis		. #x9B42)	; &GT-61576;
     ))
 (define-char
@@ -623,7 +623,7 @@
     (=gt		. 61607)	; &I-GT-61607;
     (=gt-pj-1		. #x7231)	; &I-GT-61607; [82-17]
     (=daikanwa		. 45806)	; &I-M-45806;
-    (shinjigen-2	.  9520)	; &GT-61607;
+    (=shinjigen@rev	.  9520)	; &GT-61607;
     (=ucs@jis		. #x9B43)	; &GT-61607;
     ))
 (define-char
@@ -679,7 +679,7 @@
     (=gt		. 61606)	; &I-GT-61606;
     (=gt-pj-1		. #x7230)	; &I-GT-61606; [82-16]
     (=daikanwa		. 45810)	; &I-M-45810;
-    (shinjigen-2	.  9519)	; &GT-61606;
+    (=shinjigen@rev	.  9519)	; &GT-61606;
     (=ucs@jis		. #x9B44)	; &GT-61606;
     ))
 (define-char
@@ -702,7 +702,7 @@
     (=gt-k		. 11952)	; &I-GT-K11952;
     (=gt-pj-1		. #x4C25)	; &I-GT-61609; [44-05]
     (=daikanwa		. 45811)	; &I-M-45811;
-    (shinjigen-2	.  9521)	; &GT-61609;
+    (=shinjigen@rev	.  9521)	; &GT-61609;
     (=ucs@jis		. #x9B45)	; &GT-61609;
     ))
 (define-char
@@ -1295,7 +1295,7 @@
      ((total-strokes	   . 18)
       (=jis-x0208@1990	  . #x7233)	; &M-45869; [82-19]
       (=daikanwa	  . 45869)	; &I-M-45869;
-      (shinjigen-2	  .  9528)	; &M-45869;
+      (=shinjigen@rev	  .  9528)	; &M-45869;
       (=ucs@jis		  . #x9B4D)	; &M-45869;
       )
      ((total-strokes	   . 18)
@@ -1360,7 +1360,7 @@
     (=gt		. 61659)	; &I-GT-61659;
     (=gt-pj-1		. #x7232)	; &I-GT-61659; [82-18]
     (=daikanwa		. 45872)	; &I-M-45872;
-    (shinjigen-2	.  9526)	; &GT-61659;
+    (=shinjigen@rev	.  9526)	; &GT-61659;
     (=ucs@jis		. #x9B4F)	; &GT-61659;
     ))
 (define-char

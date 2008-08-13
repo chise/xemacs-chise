@@ -13,8 +13,8 @@
     (=gt-k		. 00441)	; &I-GT-K00441;
     (=gt-pj-1		. #x3B61)	; &I-GT-21801; [27-65]
     (=daikanwa		. 17026)	; &I-M-17026;
-    (shinjigen-1	.  4037)	; 氏
-    (shinjigen-2	.  4037)	; 氏
+    (=shinjigen@1ed	.  4037)	; 氏
+    (=shinjigen@rev	.  4037)	; 氏
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
@@ -48,7 +48,7 @@
     (=gt-k		. 01008)	; &I-GT-K01008;
     (=gt-pj-1		. #x4C31)	; &I-GT-21804; [44-17]
     (=daikanwa		. 17028)	; &I-M-17028;
-    (shinjigen-2	.  4039)	; 民
+    (=shinjigen@rev	.  4039)	; 民
     ))
 (define-char
   '((<-denotational
@@ -85,8 +85,8 @@
       (=daikanwa	  . 17030)	; &I-M-17030;
       )
      ((=jis-x0208@1990	  . #x5D62)	; &J90-5D62; [61-66]
-      (shinjigen-1	  .  4040)	; &J90-5D62;
-      (shinjigen-2	  .  4040)	; &J90-5D62;
+      (=shinjigen@1ed	  .  4040)	; &J90-5D62;
+      (=shinjigen@rev	  .  4040)	; &J90-5D62;
       (=ucs@jis		  . #x6C13)	; &J90-5D62;
       )
      ((=gt		  . 21808)	; &GT-21808;

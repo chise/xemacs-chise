@@ -12,7 +12,7 @@
     (=gt-k		. 05081)	; &I-GT-K05081;
     (=gt-pj-1		. #x3961)	; &I-GT-59986; [25-65]
     (=daikanwa		. 44518)	; &I-M-44518;
-    (shinjigen-2	.  9323)	; 香
+    (=shinjigen@rev	.  9323)	; 香
     ))
 (define-char
   '((ideographic-radical . 186)	; ⾹
@@ -315,7 +315,7 @@
     (=ks-x1001		. #x5C60)	; &I-K0-5C60; [60-64]
     (=gt		. 60022)	; &I-GT-60022;
     (=gt-pj-1		. #x7146)	; &I-GT-60022; [81-38]
-    (shinjigen-2	.  9324)	; 馥
+    (=shinjigen@rev	.  9324)	; 馥
     ))
 (define-char
   '((ideographic-radical . 186)	; ⾹
@@ -476,7 +476,7 @@
     (=gt		. 60035)	; &I-GT-60035;
     (=gt-pj-1		. #x333E)	; &I-GT-60035; [19-30]
     (=daikanwa		. 44559)	; &I-M-44559;
-    (shinjigen-2	.  9325)	; &GT-60035;
+    (=shinjigen@rev	.  9325)	; &GT-60035;
     (=ucs@jis		. #x99A8)	; &GT-60035;
     ))
 (define-char

@@ -77,7 +77,7 @@
     (=gt-k		. 00193)	; &I-GT-K00193;
     (=gt-pj-1		. #x406E)	; &I-GT-10945; [32-78]
     (=daikanwa		. 08673)	; &I-M-08673;
-    (shinjigen-2	.  2056)	; 川
+    (=shinjigen@rev	.  2056)	; 川
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
@@ -147,8 +147,8 @@
     (=gt-k		. 01635)	; &I-GT-K01635;
     (=gt-pj-1		. #x3D23)	; &I-GT-10952; [29-03]
     (=daikanwa		. 08678)	; &I-M-08678;
-    (shinjigen-1	.  2058)	; &GT-10952;
-    (shinjigen-2	.  2058)	; &GT-10952;
+    (=shinjigen@1ed	.  2058)	; &GT-10952;
+    (=shinjigen@rev	.  2058)	; &GT-10952;
     (=ucs@unicode	. #x5DDE)	; &GT-10952;
     ))
 (define-char

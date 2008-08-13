@@ -13,7 +13,7 @@
     (=gt-k		. 01647)	; &I-GT-K01647;
     (=gt-pj-1		. #x3F43)	; &I-GT-38908; [31-35]
     (=daikanwa		. 30068)	; &I-M-30068;
-    (shinjigen-2	.  6593)	; 臣
+    (=shinjigen@rev	.  6593)	; 臣
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
@@ -84,7 +84,7 @@
     (=gt-k		. 03655)	; &I-GT-K03655;
     (=gt-pj-1		. #x3269)	; &I-GT-38909; [18-73]
     (=daikanwa		. 30071)	; &I-M-30071;
-    (shinjigen-2	.  6594)	; 臥
+    (=shinjigen@rev	.  6594)	; 臥
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
@@ -208,7 +208,7 @@
       (=gt-k		  . 11233)	; &I-GT-K11233;
       (=gt-pj-1		  . #x6749)	; &I-GT-38924; [71-41]
       (=daikanwa	  . 30083)	; &I-M-30083;
-      (shinjigen-2	  .  6596)	; &GT-38924;
+      (=shinjigen@rev	  .  6596)	; &GT-38924;
       (=ucs@unicode	  . #x81E7)	; &GT-38924;
       )
      ((=cns11643-1	  . #x6A56)	; &C1-6A56; [74-54]
@@ -255,7 +255,7 @@
       (=ks-x1001	  . #x577C)	; &I-K0-577C; [55-92]
       (=big5		  . #xC17B)	; &I-B-C17B;
       (=daikanwa	  . 30087)	; &I-M-30087;
-      (shinjigen-2	  .  6597)	; &M-30087;
+      (=shinjigen@rev	  .  6597)	; &M-30087;
       (=ucs@jis		  . #x81E8)	; &M-30087;
       )
      ((total-strokes	   . 17)

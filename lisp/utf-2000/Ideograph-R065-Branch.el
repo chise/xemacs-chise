@@ -13,7 +13,7 @@
     (=gt-k		. 00437)	; &I-GT-K00437;
     (=gt-pj-1		. #x3B59)	; &I-GT-16520; [27-57]
     (=daikanwa		. 13061)	; &I-M-13061;
-    (shinjigen-2	.  3152)	; 支
+    (=shinjigen@rev	.  3152)	; 支
     ))
 (define-char
   '((=>ucs		. #x652F)	; 支

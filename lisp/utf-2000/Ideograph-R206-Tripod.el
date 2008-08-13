@@ -11,7 +11,7 @@
       (=gt-k		  . 10252)	; &I-GT-K10252;
       (=gt-pj-1		  . #x4524)	; &I-GT-66019; [37-04]
       (=daikanwa	  . 48315)	; &I-M-48315;
-      (shinjigen-2	  .  9849)	; &GT-66019;
+      (=shinjigen@rev	  .  9849)	; &GT-66019;
       (=jef-china3	  . #x8EB4)	; &I-JC3-8EB4;
       (=ucs@jis		  . #x9F0E)	; &GT-66019;
       )

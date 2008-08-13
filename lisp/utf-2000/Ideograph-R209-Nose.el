@@ -107,7 +107,7 @@
     (=gt		. 66236)	; &I-GT-66236;
     (=gt-pj-1		. #x736D)	; &I-GT-66236; [83-77]
     (=daikanwa		. 48505)	; &I-M-48505;
-    (shinjigen-2	.  9878)	; 鼾
+    (=shinjigen@rev	.  9878)	; 鼾
     ))
 (define-char
   '((ideographic-radical . 209)	; ⿐

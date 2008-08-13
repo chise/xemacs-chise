@@ -13,7 +13,7 @@
     (=gt-k		. 01646)	; &I-GT-K01646;
     (=gt-pj-1		. #x3F27)	; &I-GT-39592; [31-07]
     (=daikanwa		. 30602)	; &I-M-30602;
-    (shinjigen-2	.  6674)	; 色
+    (=shinjigen@rev	.  6674)	; 色
     ))
 (define-char
   '((ideographic-radical . 139)	; ⾊
@@ -369,7 +369,7 @@
     (=gt		. 39630)	; &I-GT-39630;
     (=gt-pj-1		. #x3170)	; &I-GT-39630; [17-80]
     (=daikanwa		. 30632)	; &I-M-30632;
-    (shinjigen-2	.  6679)	; 艶
+    (=shinjigen@rev	.  6679)	; 艶
     ))
 (define-char
   '((ideographic-radical . 139)	; ⾊
@@ -430,5 +430,5 @@
     (=gt		. 39638)	; &I-GT-39638;
     (=gt-pj-1		. #x6766)	; &I-GT-39638; [71-70]
     (=daikanwa		. 30637)	; &I-M-30637;
-    (shinjigen-2	.  6680)	; 艷
+    (=shinjigen@rev	.  6680)	; 艷
     ))

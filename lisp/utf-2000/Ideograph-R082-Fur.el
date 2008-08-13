@@ -13,8 +13,8 @@
       (=gt-k		  . 00492)	; &I-GT-K00492;
       (=gt-pj-1		  . #x4C53)	; &I-GT-21495; [44-51]
       (=daikanwa	  . 16772)	; &I-M-16772;
-      (shinjigen-1	  .  4018)	; &GT-21495;
-      (shinjigen-2	  .  4018)	; &GT-21495;
+      (=shinjigen@1ed	  .  4018)	; &GT-21495;
+      (=shinjigen@rev	  .  4018)	; &GT-21495;
       (=ucs@unicode	  . #x6BDB)	; &GT-21495;
       )
      ((=cns11643-1	  . #x4553)	; &C1-4553; [37-51]
@@ -309,7 +309,7 @@
     (=gt-k		. 03890)	; &I-GT-K03890;
     (=gt-pj-1		. #x5D5B)	; &I-GT-21512; [61-59]
     (=daikanwa		. 16790)	; &I-M-16790;
-    (shinjigen-2	.  4019)	; 毟
+    (=shinjigen@rev	.  4019)	; 毟
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
@@ -1002,7 +1002,7 @@
     (=gt-k		. 07949)	; &I-GT-K07949;
     (=gt-pj-1		. #x5D5D)	; &I-GT-21565; [61-61]
     (=daikanwa		. 16831)	; &I-M-16831;
-    (shinjigen-2	.  4023)	; &GT-21565;
+    (=shinjigen@rev	.  4023)	; &GT-21565;
     (=ucs@jis		. #x6BEB)	; &GT-21565;
     ))
 (define-char
@@ -1097,7 +1097,7 @@
     (=gt		. 21562)	; &I-GT-21562;
     (=gt-pj-1		. #x5D5C)	; &I-GT-21562; [61-60]
     (=daikanwa		. 16837)	; &I-M-16837;
-    (shinjigen-2	.  4022)	; 毬
+    (=shinjigen@rev	.  4022)	; 毬
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
@@ -1320,7 +1320,7 @@
     (=gt		. 21614)	; &I-GT-21614;
     (=gt-pj-1		. #x5D5F)	; &I-GT-21614; [61-63]
     (=daikanwa		. 16858)	; &I-M-16858;
-    (shinjigen-2	.  4025)	; 毯
+    (=shinjigen@rev	.  4025)	; 毯
     ))
 (define-char
   '((=>ucs		. #x6BEF)	; 毯
@@ -1405,7 +1405,7 @@
       (=gt-k		  . 09206)	; &I-GT-K09206;
       (=gt-pj-1		  . #x5D5E)	; &I-GT-21610; [61-62]
       (=daikanwa	  . 16872)	; &I-M-16872;
-      (shinjigen-2	  .  4024)	; &GT-21610;
+      (=shinjigen@rev	  .  4024)	; &GT-21610;
       (=ucs@jis		  . #x6BF3)	; &GT-21610;
       )
      ((=cns11643-2	  . #x3D2A)	; &C2-3D2A; [29-10]
@@ -2788,7 +2788,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ks-x1001		. #x6E7D)	; &K0-6E7D; [78-93]
-    (shinjigen-2	.  4033)	; &K0-6E7D;
+    (=shinjigen@rev	.  4033)	; &K0-6E7D;
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑

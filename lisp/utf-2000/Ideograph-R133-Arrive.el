@@ -13,7 +13,7 @@
     (=gt-k		. 01622)	; &I-GT-K01622;
     (=gt-pj-1		. #x3B6A)	; &I-GT-38993; [27-74]
     (=daikanwa		. 30142)	; &I-M-30142;
-    (shinjigen-2	.  6601)	; 至
+    (=shinjigen@rev	.  6601)	; 至
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -50,8 +50,8 @@
     (=gt-k		. 03787)	; &I-GT-K03787;
     (=gt-pj-1		. #x457E)	; &I-GT-02558; [37-94]
     (=daikanwa		. 01950)	; &I-M-01950;
-    (shinjigen-1	.  6602)	; 到
-    (shinjigen-2	.  6602)	; 到
+    (=shinjigen@1ed	.  6602)	; 到
+    (=shinjigen@rev	.  6602)	; 到
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -117,7 +117,7 @@
     (=gt-k		. 06736)	; &I-GT-K06736;
     (=gt-pj-1		. #x4357)	; &I-GT-39001; [35-55]
     (=daikanwa		. 30149)	; &I-M-30149;
-    (shinjigen-2	.  6603)	; &GT-39001;
+    (=shinjigen@rev	.  6603)	; &GT-39001;
     (=ucs@unicode	. #x81F4)	; &GT-39001;
     (=ucs@cns		. #x26936)	; &GT-39001;
     ))
@@ -216,15 +216,15 @@
     (=cns11643-3	. #x4424)	; &I-C3-4424; [36-04]
     (=jis-x0213-1-2000	. #x7A59)	; &I-JX1-7A59; [90-57]
     (=daikanwa		. 30158)	; &I-M-30158;
-    (shinjigen-1	.  0951)	; 䑓
+    (=shinjigen@1ed	.  0951)	; 䑓
     (=jef-china3	. #x60EA)	; &I-JC3-60EA;
     (<-vulgar
      ((=ucs		  . #x81FA)	; 臺
       (=jis-x0208	  . #x674A)	; &I-J90-674A; [71-42]
-      (shinjigen-1	  .  0950)	; 臺
+      (=shinjigen@1ed	  .  0950)	; 臺
       ))
     (<-vulgar*sources
-     shinjigen-1)
+     shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -258,8 +258,8 @@
     (=gt-k		. 11234)	; &I-GT-K11234;
     (=gt-pj-1		. #x674A)	; &I-GT-39019; [71-42]
     (=daikanwa		. 30161)	; &I-M-30161;
-    (shinjigen-1	.  0950)	; 臺
-    (shinjigen-2	.  0950)	; 臺
+    (=shinjigen@1ed	.  0950)	; 臺
+    (=shinjigen@rev	.  0950)	; 臺
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -312,7 +312,7 @@
       (=gt		  . 39026)	; &I-GT-39026;
       (=gt-pj-1		  . #x674B)	; &I-GT-39026; [71-43]
       (=daikanwa	  . 30165)	; &I-M-30165;
-      (shinjigen-2	  .  6606)	; &GT-39026;
+      (=shinjigen@rev	  .  6606)	; &GT-39026;
       (=ucs@jis		  . #x81FB)	; &GT-39026;
       )
      ((=gb2312		  . #x5569)	; &G0-5569; [53-73]

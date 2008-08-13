@@ -12,7 +12,7 @@
     (=gt-k		. 09027)	; &I-GT-K09027;
     (=gt-pj-1		. #x3550)	; &I-GT-65454; [21-48]
     (=daikanwa		. 47991)	; &I-M-47991;
-    (shinjigen-2	.  9813)	; 黍
+    (=shinjigen@rev	.  9813)	; 黍
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉
@@ -73,7 +73,7 @@
     (=gt		. 65457)	; &I-GT-65457;
     (=gt-pj-1		. #x7355)	; &I-GT-65457; [83-53]
     (=daikanwa		. 47994)	; &I-M-47994;
-    (shinjigen-2	.  9814)	; 黎
+    (=shinjigen@rev	.  9814)	; 黎
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉
@@ -186,7 +186,7 @@
     (=gt		. 65472)	; &I-GT-65472;
     (=gt-pj-1		. #x7356)	; &I-GT-65472; [83-54]
     (=daikanwa		. 48007)	; &I-M-48007;
-    (shinjigen-2	.  5910)	; 黏
+    (=shinjigen@rev	.  5910)	; 黏
     ))
 (define-char
   '((ideographic-radical . 202)	; ⿉

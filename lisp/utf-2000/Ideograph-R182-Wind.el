@@ -12,8 +12,8 @@
       (=gt-k		  . 05176)	; &I-GT-K05176;
       (=gt-pj-1		  . #x4977)	; &I-GT-58717; [41-87]
       (=daikanwa	  . 43756)	; &I-M-43756;
-      (shinjigen-1	  .  9211)	; &GT-58717;
-      (shinjigen-2	  .  9211)	; &GT-58717;
+      (=shinjigen@1ed	  .  9211)	; &GT-58717;
+      (=shinjigen@rev	  .  9211)	; &GT-58717;
       (=ucs@unicode	  . #x98A8)	; &GT-58717;
       )
      ((=cns11643-1	  . #x5378)	; &C1-5378; [51-88]
@@ -187,7 +187,7 @@
     (=gt		. 58721)	; &I-GT-58721;
     (=gt-pj-1		. #x7124)	; &I-GT-58721; [81-04]
     (=daikanwa		. 43769)	; &I-M-43769;
-    (shinjigen-2	.  9214)	; 颪
+    (=shinjigen@rev	.  9214)	; 颪
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
@@ -735,7 +735,7 @@
     (=gt		. 58762)	; &I-GT-58762;
     (=gt-pj-1		. #x7125)	; &I-GT-58762; [81-05]
     (=daikanwa		. 43808)	; &I-M-43808;
-    (shinjigen-2	.  9216)	; &GT-58762;
+    (=shinjigen@rev	.  9216)	; &GT-58762;
     (=ucs@jis		. #x98AF)	; &GT-58762;
     ))
 (define-char
@@ -873,7 +873,7 @@
     (=gt		. 58766)	; &I-GT-58766;
     (=gt-pj-1		. #x7126)	; &I-GT-58766; [81-06]
     (=daikanwa		. 43815)	; &I-M-43815;
-    (shinjigen-2	.  9218)	; 颱
+    (=shinjigen@rev	.  9218)	; 颱
     ))
 (define-char
   '((=>ucs		. #x98B1)	; 颱
@@ -2604,7 +2604,7 @@
      ((=jis-x0208@1978	  . #x7129)	; &M-43945; [81-09]
       (=jis-x0208@1983	  . #x7129)	; &I-J83-7129; [81-09]
       (=daikanwa	  . 43945)	; &I-M-43945;
-      (shinjigen-2	  .  9228)	; &M-43945;
+      (=shinjigen@rev	  .  9228)	; &M-43945;
       )
      ((=jis-x0208@1990	  . #x7129)	; &GT-58939; [81-09]
       (=gt		  . 58939)	; &I-GT-58939;
@@ -2632,7 +2632,7 @@
     (=gb12345		. #x462E)	; 飄 [38-14]
     (=gt		. 58940)	; &I-GT-58940;
     (=gt-pj-1		. #x7128)	; &I-GT-58940; [81-08]
-    (shinjigen-2	.  9227)	; 飄
+    (=shinjigen@rev	.  9227)	; 飄
     ))
 (define-char
   '((=>ucs		. #x98C4)	; 飄
@@ -2870,7 +2870,7 @@
     (total-strokes	 . 21)
     (=jis-x0208		. #x712A)	; &M-43963; [81-10]
     (=daikanwa		. 43963)	; &I-M-43963;
-    (shinjigen-2	.  9230)	; &M-43963;
+    (=shinjigen@rev	.  9230)	; &M-43963;
     (=ucs@jis		. #x98C6)	; &M-43963;
     ))
 (define-char

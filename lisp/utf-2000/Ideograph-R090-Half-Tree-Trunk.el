@@ -12,7 +12,7 @@
       (=gt-k		  . 00543)	; &I-GT-K00543;
       (=gt-pj-1		  . #x602D)	; &I-GT-25375; [64-13]
       (=daikanwa	  . 19758)	; &I-M-19758;
-      (shinjigen-2	  .  4717)	; &GT-25375;
+      (=shinjigen@rev	  .  4717)	; &GT-25375;
       (=ucs@unicode	  . #x723F)	; &GT-25375;
       )
      ((=cns11643-2	  . #x2142)	; &C2-2142; [01-34]
@@ -116,7 +116,7 @@
     (=gt-k		. 03901)	; &I-GT-K03901;
     (=gt-pj-1		. #x602E)	; &I-GT-25381; [64-14]
     (=daikanwa		. 19763)	; &I-M-19763;
-    (shinjigen-2	.  4718)	; 牀
+    (=shinjigen@rev	.  4718)	; 牀
     (=cbeta		. 00646)	; &I-CB00646;
     ))
 (define-char
@@ -761,7 +761,7 @@
     (=gt		. 25429)	; &I-GT-25429;
     (=gt-pj-1		. #x602F)	; &I-GT-25429; [64-15]
     (=daikanwa		. 19806)	; &I-M-19806;
-    (shinjigen-2	.  4719)	; 牆
+    (=shinjigen@rev	.  4719)	; 牆
     ))
 (define-char
   '((=>ucs		. #x7246)	; 牆

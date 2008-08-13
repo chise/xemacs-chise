@@ -12,8 +12,8 @@
     (=gt-k		. 00081)	; &I-GT-K00081;
     (=gt-pj-1		. #x5152)	; &I-GT-02124; [49-50]
     (=daikanwa		. 01607)	; &I-M-01607;
-    (shinjigen-1	.  0539)	; 冫
-    (shinjigen-2	.  0539)	; 冫
+    (=shinjigen@1ed	.  0539)	; 冫
+    (=shinjigen@rev	.  0539)	; 冫
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -55,8 +55,8 @@
       (=ks-x1001	  . #x544F)	; &I-K0-544F; [52-47]
       (=cns11643-6	  . #x223C)	; &I-C6-223C; [02-28]
       (=daikanwa	  . 01610)	; &I-M-01610;
-      (shinjigen-1	  .  0541)	; 冬
-      (shinjigen-2	  .  0541)	; 冬
+      (=shinjigen@1ed	  .  0541)	; 冬
+      (=shinjigen@rev	  .  0541)	; 冬
       (=jef-china3	  . #x43F5)	; &I-JC3-43F5;
       (=ucs@ks		  . #x51AC)	; 冬
       )
@@ -74,8 +74,8 @@
       (=gt		  . 07204)	; &I-GT-07204;
       (=gt-k		  . 01056)	; &I-GT-K01056;
       (=gt-pj-1		  . #x455F)	; &I-GT-07204; [37-63]
-      (shinjigen-1	  .  0540)	; &GT-07204;
-      (shinjigen-2	  .  0540)	; &GT-07204;
+      (=shinjigen@1ed	  .  0540)	; &GT-07204;
+      (=shinjigen@rev	  .  0540)	; &GT-07204;
       (=ucs@unicode	  . #x51AC)	; &GT-07204;
       ))
     ))
@@ -161,15 +161,15 @@
     (=gt-k		. 01713)	; &I-GT-K01713;
     (=gt-pj-1		. #x5156)	; &I-GT-02139; [49-54]
     (=daikanwa		. 01612)	; &I-M-01612;
-    (shinjigen-1	.  4052)	; 冰
-    (shinjigen-2	.  4052)	; 冰
+    (=shinjigen@1ed	.  4052)	; 冰
+    (=shinjigen@rev	.  4052)	; 冰
     (<-original
      ((=ucs		  . #x6C37)	; 氷
       (=jis-x0208	  . #x4939)	; &I-J90-4939; [41-25]
-      (shinjigen-1	  .  4051)	; 氷
+      (=shinjigen@1ed	  .  4051)	; 氷
       ))
     (<-original*sources
-     shinjigen-1)
+     shinjigen@1ed)
     (<-same
      ((=cns11643-3	  . #x214C)	; &M-00360; [01-44]
       (=daikanwa	  . 00360)	; &I-M-00360;
@@ -204,8 +204,8 @@
     (=gt		. 02135)	; &I-GT-02135;
     (=gt-pj-1		. #x5154)	; &I-GT-02135; [49-52]
     (=daikanwa		. 01613)	; &I-M-01613;
-    (shinjigen-1	.  0542)	; 冱
-    (shinjigen-2	.  0542)	; 冱
+    (=shinjigen@1ed	.  0542)	; 冱
+    (=shinjigen@rev	.  0542)	; 冱
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -215,16 +215,16 @@
     (=ucs		. #x205B1)	; 𠖱
     (=cns11643-6	. #x235C)	; &I-C6-235C; [03-60]
     (=daikanwa		. 01614)	; &I-M-01614;
-    (shinjigen-1	.  0543)	; 𠖱
+    (=shinjigen@1ed	.  0543)	; 𠖱
     (=hanziku-1		. #xE2D9)	; &I-HZK01-E2D9;
     (<-vulgar
      ((=ucs		  . #x51B1)	; 冱
       (=jis-x0208	  . #x5154)	; &I-J90-5154; [49-52]
       (=daikanwa	  . 01613)	; &I-M-01613;
-      (shinjigen-1	  .  0542)	; 冱
+      (=shinjigen@1ed	  .  0542)	; 冱
       ))
     (<-vulgar*sources
-     zhengzitong daikanwa shinjigen-1)
+     zhengzitong daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -243,17 +243,17 @@
 	 ((=gb2312	      . #x5140)	; &G0-5140; [49-32]
 	  ))
 	(=daikanwa	    . 01615)	; &M-01615;
-	(shinjigen-1	    .  0544)	; &M-01615;
-	(shinjigen-2	    .  0544)	; &M-01615;
+	(=shinjigen@1ed	    .  0544)	; &M-01615;
+	(=shinjigen@rev	    .  0544)	; &M-01615;
 	(=ucs@unicode	    . #x51B4)	; &M-01615;
 	(<-wrong
 	 ((=ucs		      . #x51B1)	; 冱
 	  (=jis-x0208	      . #x5154)	; &I-J90-5154; [49-52]
 	  (=daikanwa	      . 01613)	; &I-M-01613;
-	  (shinjigen-1	      .	 0542)	; 冱
+	  (=shinjigen@1ed     .	 0542)	; 冱
 	  ))
 	(<-wrong*sources
-	 daikanwa shinjigen-1)
+	 daikanwa shinjigen@1ed)
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -303,18 +303,18 @@
     (=gt		. 02138)	; &I-GT-02138;
     (=gt-pj-1		. #x5155)	; &I-GT-02138; [49-53]
     (=daikanwa		. 01616)	; &I-M-01616;
-    (shinjigen-1	.  4093)	; 冲
-    (shinjigen-2	.  4093)	; 冲
+    (=shinjigen@1ed	.  4093)	; 冲
+    (=shinjigen@rev	.  4093)	; 冲
     (=hanziku-1		. #xE2DB)	; &I-HZK01-E2DB;
     (=cbeta		. 00287)	; &I-CB00287;
     (<-vulgar
      ((=ucs		  . #x6C96)	; 沖
       (=jis-x0208	  . #x322D)	; &I-J90-322D; [18-13]
       (=daikanwa	  . 17209)	; &I-M-17209;
-      (shinjigen-1	  .  4092)	; 沖
+      (=shinjigen@1ed	  .  4092)	; 沖
       ))
     (<-vulgar*sources
-     yupian daikanwa shinjigen-1)
+     yupian daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -339,8 +339,8 @@
       (=gt-k		  . 01712)	; &I-GT-K01712;
       (=gt-pj-1		  . #x5153)	; &I-GT-02132; [49-51]
       (=daikanwa	  . 01617)	; &I-M-01617;
-      (shinjigen-1	  .  4081)	; &GT-02132;
-      (shinjigen-2	  .  4081)	; &GT-02132;
+      (=shinjigen@1ed	  .  4081)	; &GT-02132;
+      (=shinjigen@rev	  .  4081)	; &GT-02132;
       (=hanziku-1	  . #xE2DF)	; &I-HZK01-E2DF;
       (=cbeta		  . 00804)	; &I-CB00804;
       (=ucs@unicode	  . #x51B3)	; &GT-02132;
@@ -348,10 +348,10 @@
        ((=jis-x0208	    . #x3768)	; &GT-21966; [23-72]
 	(=ks-x1001	    . #x4C3D)	; &I-K0-4C3D; [44-29]
 	(=daikanwa	    . 17174)	; &I-M-17174;
-	(shinjigen-1	    .  4080)	; &GT-21966;
+	(=shinjigen@1ed	    .  4080)	; &GT-21966;
 	))
       (<-vulgar*sources
-       yupian daikanwa shinjigen-1)
+       yupian daikanwa shinjigen@1ed)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -412,17 +412,17 @@
     (=gt		. 02141)	; &I-GT-02141;
     (=gt-pj-1		. #x5157)	; &I-GT-02141; [49-55]
     (=daikanwa		. 01620)	; &I-M-01620;
-    (shinjigen-1	.  4123)	; 况
-    (shinjigen-2	.  4123)	; 况
+    (=shinjigen@1ed	.  4123)	; 况
+    (=shinjigen@rev	.  4123)	; 况
     (=hanziku-1		. #xE2E4)	; &I-HZK01-E2E4;
     (<-vulgar
      ((=ucs		  . #x6CC1)	; 況
       (=jis-x0208	  . #x3637)	; &I-J90-3637; [22-23]
       (=daikanwa	  . 17264)	; &I-M-17264;
-      (shinjigen-1	  .  4122)	; 況
+      (=shinjigen@1ed	  .  4122)	; 況
       ))
     (<-vulgar*sources
-     yupian kangxi daikanwa shinjigen-1)
+     yupian kangxi daikanwa shinjigen@1ed)
     ))
 (define-char
   '((=>ucs*		. #x51B5)	; 况
@@ -464,8 +464,8 @@
     (=gt-k		. 02659)	; &I-GT-K02659;
     (=gt-pj-1		. #x4C6A)	; &I-GT-02151; [44-74]
     (=daikanwa		. 01621)	; &I-M-01621;
-    (shinjigen-1	.  0546)	; 冶
-    (shinjigen-2	.  0546)	; 冶
+    (=shinjigen@1ed	.  0546)	; 冶
+    (=shinjigen@rev	.  0546)	; 冶
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -490,8 +490,8 @@
       (=gt		  . 02152)	; &I-GT-02152;
       (=gt-pj-1		  . #x4E64)	; &I-GT-02152; [46-68]
       (=daikanwa	  . 01622)	; &I-M-01622;
-      (shinjigen-1	  .  0547)	; &GT-02152;
-      (shinjigen-2	  .  0547)	; &GT-02152;
+      (=shinjigen@1ed	  .  0547)	; &GT-02152;
+      (=shinjigen@rev	  .  0547)	; &GT-02152;
       (=ucs@jis		  . #x51B7)	; &GT-02152;
       )
      ((ideographic-structure
@@ -793,8 +793,8 @@
     (=gt		. 02164)	; &I-GT-02164;
     (=gt-pj-1		. #x5158)	; &I-GT-02164; [49-56]
     (=daikanwa		. 01637)	; &I-M-01637;
-    (shinjigen-1	.  0548)	; 冽
-    (shinjigen-2	.  0548)	; 冽
+    (=shinjigen@1ed	.  0548)	; 冽
+    (=shinjigen@rev	.  0548)	; 冽
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -1109,8 +1109,8 @@
       (=gt		  . 02191)	; &I-GT-02191;
       (=gt-pj-1		  . #x4028)	; &I-GT-02191; [32-08]
       (=daikanwa	  . 01657)	; &I-M-01657;
-      (shinjigen-1	  .  0551)	; &GT-02191;
-      (shinjigen-2	  .  0551)	; &GT-02191;
+      (=shinjigen@1ed	  .  0551)	; &GT-02191;
+      (=shinjigen@rev	  .  0551)	; &GT-02191;
       (=ucs@unicode	  . #x51C4)	; &GT-02191;
       )
      ((ideographic-structure
@@ -1175,8 +1175,8 @@
     (=gt		. 02184)	; &I-GT-02184;
     (=gt-pj-1		. #x5159)	; &I-GT-02184; [49-57]
     (=daikanwa		. 01659)	; &I-M-01659;
-    (shinjigen-1	.  0549)	; 凅
-    (shinjigen-2	.  0549)	; 凅
+    (=shinjigen@1ed	.  0549)	; 凅
+    (=shinjigen@rev	.  0549)	; 凅
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -1211,8 +1211,8 @@
       (=gt-k		  . 06459)	; &I-GT-K06459;
       (=gt-pj-1		  . #x3D5A)	; &I-GT-02187; [29-58]
       (=daikanwa	  . 01661)	; &I-M-01661;
-      (shinjigen-1	  .  0550)	; &GT-02187;
-      (shinjigen-2	  .  0550)	; &GT-02187;
+      (=shinjigen@1ed	  .  0550)	; &GT-02187;
+      (=shinjigen@rev	  .  0550)	; &GT-02187;
       (=ucs@jis		  . #x51C6)	; &GT-02187;
       )
      ((ideographic-structure
@@ -1361,17 +1361,17 @@
       (=gt		  . 02201)	; &I-GT-02201;
       (=gt-pj-1		  . #x515A)	; &I-GT-02201; [49-58]
       (=daikanwa	  . 01665)	; &I-M-01665;
-      (shinjigen-1	  .  4309)	; &GT-02201;
-      (shinjigen-2	  .  4310)	; &GT-02201;
+      (=shinjigen@1ed	  .  4309)	; &GT-02201;
+      (=shinjigen@rev	  .  4310)	; &GT-02201;
       (=cbeta		  . 00289)	; &I-CB00289;
       (=ucs@jis		  . #x51C9)	; &GT-02201;
       (<-vulgar
        ((=jis-x0208	    . #x4E43)	; &GT-22670; [46-35]
 	(=daikanwa	    . 17606)	; &I-M-17606;
-	(shinjigen-1	    .  4308)	; &GT-22670;
+	(=shinjigen@1ed	    .  4308)	; &GT-22670;
 	))
       (<-vulgar*sources
-       shinjigen-1)
+       shinjigen@1ed)
       )
      ((hanyu-dazidian	  1 299 9)
       (ideographic-structure
@@ -1491,8 +1491,8 @@
     (=jis-x0208@1978	. #x437C)	; &M-01668; [35-92]
     (=ks-x1001		. #x703D)	; &I-K0-703D; [80-29]
     (=daikanwa		. 01668)	; &I-M-01668;
-    (shinjigen-1	.  0553)	; &M-01668;
-    (shinjigen-2	.  0553)	; &M-01668;
+    (=shinjigen@1ed	.  0553)	; &M-01668;
+    (=shinjigen@rev	.  0553)	; &M-01668;
     ))
 (define-char
   '((<-denotational
@@ -1596,8 +1596,8 @@
     (=big5		. #xADE2)	; &I-B-ADE2;
     (=gt		. 02202)	; &I-GT-02202;
     (=gt-pj-1		. #x4E3F)	; &I-GT-02202; [46-31]
-    (shinjigen-1	.  0555)	; &GT-02202;
-    (shinjigen-2	.  0555)	; &GT-02202;
+    (=shinjigen@1ed	.  0555)	; &GT-02202;
+    (=shinjigen@rev	.  0555)	; &GT-02202;
     (=ucs@jis		. #x51CC)	; &GT-02202;
     (=ucs@big5		. #x51CC)	; &GT-02202;
     ))
@@ -1623,8 +1623,8 @@
     (=gt		. 02199)	; &I-GT-02199;
     (=gt-pj-1		. #x4560)	; &I-GT-02199; [37-64]
     (=daikanwa		. 01670)	; &I-M-01670;
-    (shinjigen-1	.  0554)	; 凍
-    (shinjigen-2	.  0554)	; 凍
+    (=shinjigen@1ed	.  0554)	; 凍
+    (=shinjigen@rev	.  0554)	; 凍
     ))
 (define-char
   '((=>ucs		. #x205DB)	; 𠗛
@@ -2096,17 +2096,17 @@
       (=gt		  . 02216)	; &I-GT-02216;
       (=gt-pj-1		  . #x5245)	; &I-GT-02216; [50-37]
       (=daikanwa	  . 01695)	; &I-M-01695;
-      (shinjigen-1	  .  4379)	; &GT-02216;
-      (shinjigen-2	  .  4379)	; &GT-02216;
+      (=shinjigen@1ed	  .  4379)	; &GT-02216;
+      (=shinjigen@rev	  .  4379)	; &GT-02216;
       (=ucs@jis		  . #x51D6)	; &GT-02216;
       (<-vulgar
        ((=jis-x0208	    . #x3D60)	; &GT-22976; [29-64]
 	(=ks-x1001	    . #x715E)	; &I-K0-715E; [81-62]
 	(=daikanwa	    . 17934)	; &I-M-17934;
-	(shinjigen-1	    .  4378)	; 準
+	(=shinjigen@1ed	    .  4378)	; 準
 	))
       (<-vulgar*sources
-       zhengzitong daikanwa shinjigen-1)
+       zhengzitong daikanwa shinjigen@1ed)
       )
      ((hanyu-dazidian	  1 300 4)
       (ideographic-structure
@@ -2503,8 +2503,8 @@
       (=gt		  . 02256)	; &I-GT-02256;
       (=gt-pj-1		  . #x7425)	; &I-GT-02256; [84-05]
       (=daikanwa	  . 01717)	; &I-M-01717;
-      (shinjigen-1	  .  0561)	; &GT-02256;
-      (shinjigen-2	  .  0561)	; &GT-02256;
+      (=shinjigen@1ed	  .  0561)	; &GT-02256;
+      (=shinjigen@rev	  .  0561)	; &GT-02256;
       (=jef-china3	  . #x44A4)	; &I-JC3-44A4;
       (=ucs@jis		  . #x51DC)	; &GT-02256;
       )
@@ -2575,17 +2575,17 @@
       (=jis-x0208@1990	  . #x515B)	; &GT-02257; [49-59]
       (=gt		  . 02257)	; &I-GT-02257;
       (=gt-pj-1		  . #x515B)	; &I-GT-02257; [49-59]
-      (shinjigen-1	  .  0563)	; &GT-02257;
-      (shinjigen-2	  .  0563)	; &GT-02257;
+      (=shinjigen@1ed	  .  0563)	; &GT-02257;
+      (=shinjigen@rev	  .  0563)	; &GT-02257;
       (=ucs@jis		  . #x51DB)	; &GT-02257;
       (<-vulgar
        ((=ks-x1001	    . #x574F)	; &GT-02256; [55-47]
 	(=jis-x0208@1990    . #x7425)	; &I-J90-7425; [84-05]
 	(=daikanwa	    . 01717)	; &I-M-01717;
-	(shinjigen-1	    .  0561)	; &GT-02256;
+	(=shinjigen@1ed	    .  0561)	; &GT-02256;
 	))
       (<-vulgar*sources
-       shinjigen-1)
+       shinjigen@1ed)
       )
      ((hanyu-dazidian	  1 301 12)
       (ideographic-structure
@@ -2640,8 +2640,8 @@
       (=gt		  . 02261)	; &I-GT-02261;
       (=gt-pj-1		  . #x3645)	; &I-GT-02261; [22-37]
       (=daikanwa	  . 01720)	; &I-M-01720;
-      (shinjigen-1	  .  0564)	; &GT-02261;
-      (shinjigen-2	  .  0564)	; &GT-02261;
+      (=shinjigen@1ed	  .  0564)	; &GT-02261;
+      (=shinjigen@rev	  .  0564)	; &GT-02261;
       (=ucs@unicode	  . #x51DD)	; &GT-02261;
       )
      ((ideographic-structure

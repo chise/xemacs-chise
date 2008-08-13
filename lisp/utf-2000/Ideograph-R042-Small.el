@@ -13,7 +13,7 @@
     (=gt-k		. 00186)	; &I-GT-K00186;
     (=gt-pj-1		. #x3E2E)	; &I-GT-09423; [30-14]
     (=daikanwa		. 07473)	; &I-M-07473;
-    (shinjigen-2	.  1901)	; 小
+    (=shinjigen@rev	.  1901)	; 小
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
@@ -58,7 +58,7 @@
       (=gt-k		  . 00446)	; &I-GT-K00446;
       (=gt-pj-1		  . #x3E2F)	; &I-GT-09425; [30-15]
       (=daikanwa	  . 07475)	; &I-M-07475;
-      (shinjigen-2	  .  1902)	; &GT-09425;
+      (=shinjigen@rev	  .  1902)	; &GT-09425;
       (=ucs@jis		  . #x5C11)	; &GT-09425;
       (=ucs@big5	  . #x5C11)	; &GT-09425;
       )
@@ -85,7 +85,7 @@
       (=gt-k		  . 01236)	; &I-GT-K01236;
       (=gt-pj-3		  . #x317B)	; &GT-09427; [17-91]
       (=daikanwa	  . 07477)	; &I-M-07477;
-      (shinjigen-1	  .  4716)	; &GT-09427;
+      (=shinjigen@1ed	  .  4716)	; &GT-09427;
       )
      ((=cns11643-2	  . #x2155)	; &GT-09430; [01-53]
       (=jis-x0213-1-2000  . #x4F5B)	; &I-JX1-4F5B; [47-59]
@@ -111,8 +111,8 @@
       (=gt-pj-1		  . #x5575)	; &I-GT-09428; [53-85]
       (=daikanwa	  . 07478)	; &I-M-07478;
       )
-     ((shinjigen-1	  .  4715)	; &MCS-000F03D5;
-      (shinjigen-2	  .  4715)	; &MCS-000F03D5;
+     ((=shinjigen@1ed	  .  4715)	; &SJG2-4715;
+      (=shinjigen@rev	  .  4715)	; &SJG2-4715;
       )
      ((=jis-x0208	  . #x5575)	; &J90-5575; [53-85]
       (=ucs@unicode	  . #x5C13)	; &J90-5575;
@@ -196,8 +196,8 @@
       (=gt-k		  . 01656)	; &I-GT-K01656;
       (=gt-pj-1		  . #x406D)	; &I-GT-09435; [32-77]
       (=daikanwa	  . 07480)	; &I-M-07480;
-      (shinjigen-1	  .  1903)	; &GT-09435;
-      (shinjigen-2	  .  1903)	; &GT-09435;
+      (=shinjigen@1ed	  .  1903)	; &GT-09435;
+      (=shinjigen@rev	  .  1903)	; &GT-09435;
       (=ucs@jis		  . #x5C16)	; &GT-09435;
       )
      ((=gb2312		  . #x3C62)	; &C1-477A; [28-66]
@@ -749,7 +749,7 @@
     (=gt		. 09478)	; &I-GT-09478;
     (=gt-pj-1		. #x5576)	; &I-GT-09478; [53-86]
     (=daikanwa		. 07523)	; &I-M-07523;
-    (shinjigen-2	.  1906)	; &GT-09478;
+    (=shinjigen@rev	.  1906)	; &GT-09478;
     (=cbeta		. 00458)	; &I-CB00458;
     (=ucs@jis		. #x5C20)	; &GT-09478;
     ))

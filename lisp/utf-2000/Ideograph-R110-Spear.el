@@ -13,7 +13,7 @@
     (=gt-k		. 01009)	; &I-GT-K01009;
     (=gt-pj-1		. #x4C37)	; &I-GT-30525; [44-23]
     (=daikanwa		. 23846)	; &I-M-23846;
-    (shinjigen-2	.  5384)	; 矛
+    (=shinjigen@rev	.  5384)	; 矛
     ))
 (define-char
   '((=>ucs		. #x4086)	; 䂆
@@ -80,7 +80,7 @@
     (=gt		. 30529)	; &I-GT-30529;
     (=gt-pj-1		. #x6262)	; &I-GT-30529; [66-66]
     (=daikanwa		. 23852)	; &I-M-23852;
-    (shinjigen-2	.  5387)	; &GT-30529;
+    (=shinjigen@rev	.  5387)	; &GT-30529;
     (=ucs@jis		. #x77DC)	; &GT-30529;
     ))
 (define-char
