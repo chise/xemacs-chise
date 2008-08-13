@@ -109,3 +109,20 @@
 	 (put-char-attribute (decode-char ccs v) '=gt gt))
        nil)
      ccs)))
+
+(let (ret)
+  (dolist (feature
+	   (let (dest)
+	     (dolist (feature (char-attribute-list))
+	       (when (string-match "\\*sources\\($\\|@[^\\*]+$\\)"
+				   (symbol-name feature))
+		 (setq dest (cons feature dest))))
+	     dest))
+    (map-char-attribute
+     (lambda (c v)
+       (when (setq ret (memq 'shinjigen-1 v))
+	 (setcar ret 'shinjigen@1ed))
+       (when (setq ret (memq 'shinjigen-2 v))
+	 (setcar ret 'shinjigen@rev))
+       nil)
+     feature)))
