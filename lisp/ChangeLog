@@ -1,3 +1,18 @@
+2008-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=shinjigen@rev' and `=shinjigen@1ed'.
+
+2008-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=shinjigen@1ed): Renamed from `shinjigen-1';
+	define it as an alias.
+	(=shinjigen@1ed/24pr): New coded-charset for XEmacs CHISE.
+	(=shinjigen@rev): Renamed from `shinjigen-2'; define it as an
+	alias.
+	(=shinjigen/+p@rev): Renamed from `shinjigen-2-p'; define it as an
+	alias.
+
 2008-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (shinjigen-2-p): New coded-charset for XEmacs
