@@ -13,7 +13,7 @@
     (=gt-k		. 01016)	; &I-GT-K01016;
     (=gt-pj-1		. #x4D51)	; &I-GT-27874; [45-49]
     (=daikanwa		. 21703)	; &I-M-21703;
-    (shinjigen-2	.  5014)	; 用
+    (=shinjigen@rev	.  5014)	; 用
     ))
 (define-char
   '((=>ucs		. #x7529)	; 甩
@@ -76,7 +76,7 @@
     (=gt-k		. 02646)	; &I-GT-K02646;
     (=gt-pj-1		. #x4A63)	; &I-GT-27877; [42-67]
     (=daikanwa		. 21706)	; &I-M-21706;
-    (shinjigen-2	.  5015)	; 甫
+    (=shinjigen@rev	.  5015)	; 甫
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
@@ -92,7 +92,7 @@
     (=gt-k		. 02719)	; &I-GT-K02719;
     (=gt-pj-1		. #x6135)	; &I-GT-27879; [65-21]
     (=daikanwa		. 21707)	; &I-M-21707;
-    (shinjigen-2	.  5016)	; 甬
+    (=shinjigen@rev	.  5016)	; 甬
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤

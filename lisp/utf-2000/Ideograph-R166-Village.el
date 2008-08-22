@@ -12,7 +12,7 @@
     (=gt-k		. 02670)	; &I-GT-K02670;
     (=gt-pj-1		. #x4E24)	; &I-GT-53968; [46-04]
     (=daikanwa		. 40131)	; &I-M-40131;
-    (shinjigen-2	.  8563)	; 里
+    (=shinjigen@rev	.  8563)	; 里
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
@@ -27,7 +27,7 @@
     (=gt-k		. 05101)	; &I-GT-K05101;
     (=gt-pj-1		. #x3D45)	; &I-GT-53969; [29-37]
     (=daikanwa		. 40132)	; &I-M-40132;
-    (shinjigen-2	.  8564)	; 重
+    (=shinjigen@rev	.  8564)	; 重
     (mojikyo		. 040132)	; &MCS-60009CC4;
     ))
 (define-char
@@ -76,7 +76,7 @@
     (=gt-k		. 07884)	; &I-GT-K07884;
     (=gt-pj-1		. #x4C6E)	; &I-GT-53973; [44-78]
     (=daikanwa		. 40133)	; &I-M-40133;
-    (shinjigen-2	.  8565)	; 野
+    (=shinjigen@rev	.  8565)	; 野
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
@@ -124,7 +124,7 @@
     (=gt-k		. 09160)	; &I-GT-K09160;
     (=gt-pj-1		. #x4E4C)	; &I-GT-53980; [46-44]
     (=daikanwa		. 40138)	; &I-M-40138;
-    (shinjigen-2	.  8569)	; 量
+    (=shinjigen@rev	.  8569)	; 量
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
@@ -235,7 +235,7 @@
     (=gt		. 53990)	; &I-GT-53990;
     (=gt-pj-1		. #x6E5A)	; &I-GT-53990; [78-58]
     (=daikanwa		. 40146)	; &I-M-40146;
-    (shinjigen-2	.  8570)	; 釐
+    (=shinjigen@rev	.  8570)	; 釐
     ))
 (define-char
   '((=>daikanwa		. 40148)	; &M-40148;

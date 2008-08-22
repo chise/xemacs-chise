@@ -17,8 +17,8 @@
     (=gt-k		. 00092)	; &I-GT-K00092;
     (=gt-pj-1		. #x5238)	; &I-GT-03296; [50-24]
     (=daikanwa		. 02570)	; &I-M-02570;
-    (shinjigen-1	.  0783)	; 匕
-    (shinjigen-2	.  0783)	; 匕
+    (=shinjigen@1ed	.  0783)	; 匕
+    (=shinjigen@rev	.  0783)	; 匕
     ))
 (define-char
   '((=>ucs@jis		. #x5315)	; 匕
@@ -87,8 +87,8 @@
 	(=jis-x0208@1983    . #x5238)	; &I-J83-5238; [50-24]
 	))
       (=daikanwa	  . 02572)	; &M-02572;
-      (shinjigen-1	  .  0115)	; &M-02572;
-      (shinjigen-2	  .  0115)	; &M-02572;
+      (=shinjigen@1ed	  .  0115)	; &M-02572;
+      (=shinjigen@rev	  .  0115)	; &M-02572;
       (=jef-china3	  . #x41E4)	; &I-JC3-41E4;
       )
      ((ideographic-structure
@@ -127,8 +127,8 @@
       (=gt		  . 03297)	; &I-GT-03297;
       (=gt-k		  . 00403)	; &I-GT-K00403;
       (=gt-pj-1		  . #x323D)	; &I-GT-03297; [18-29]
-      (shinjigen-1	  .  0114)	; &GT-03297;
-      (shinjigen-2	  .  0114)	; &GT-03297;
+      (=shinjigen@1ed	  .  0114)	; &GT-03297;
+      (=shinjigen@rev	  .  0114)	; &GT-03297;
       (=ucs@jis		  . #x5316)	; &GT-03297;
       )
      ((=cns11643-1	  . #x4527)	; &C1-4527; [37-07]
@@ -200,8 +200,8 @@
       (=gt-k		  . 01003)	; &I-GT-K01003;
       (=gt-pj-1		  . #x4B4C)	; &I-GT-03302; [43-44]
       (=daikanwa	  . 02574)	; &I-M-02574;
-      (shinjigen-1	  .  0784)	; &GT-03302;
-      (shinjigen-2	  .  0784)	; &GT-03302;
+      (=shinjigen@1ed	  .  0784)	; &GT-03302;
+      (=shinjigen@rev	  .  0784)	; &GT-03302;
       (=ucs@unicode	  . #x5317)	; &GT-03302;
       )
      ((=cns11643-1	  . #x4621)	; &C1-4621; [38-01]
@@ -613,8 +613,8 @@
     (=gt		. 03318)	; &I-GT-03318;
     (=gt-pj-1		. #x3A7C)	; &I-GT-03318; [26-92]
     (=daikanwa		. 02590)	; &I-M-02590;
-    (shinjigen-1	.  0785)	; 匙
-    (shinjigen-2	.  0785)	; 匙
+    (=shinjigen@1ed	.  0785)	; 匙
+    (=shinjigen@rev	.  0785)	; 匙
     ))
 (define-char
   '((=>ucs		. #x352D)	; 㔭

@@ -13,7 +13,7 @@
     (=gt-k		. 00908)	; &I-GT-K00908;
     (=gt-pj-1		. #x3445)	; &I-GT-27803; [20-37]
     (=daikanwa		. 21643)	; &I-M-21643;
-    (shinjigen-2	.  5006)	; 甘
+    (=shinjigen@rev	.  5006)	; 甘
     ))
 (define-char
   '((=>ucs		. #x24BBA)	; 𤮺
@@ -88,8 +88,8 @@
     (=gt-k		. 05114)	; &I-GT-K05114;
     (=gt-pj-1		. #x3F53)	; &I-GT-27811; [31-51]
     (=daikanwa		. 21648)	; &I-M-21648;
-    (shinjigen-1	.  5007)	; &GT-27811;
-    (shinjigen-2	.  5007)	; &GT-27811;
+    (=shinjigen@1ed	.  5007)	; &GT-27811;
+    (=shinjigen@rev	.  5007)	; &GT-27811;
     (=ucs@jis		. #x751A)	; &GT-27811;
     ))
 (define-char
@@ -188,7 +188,7 @@
       (=gt-k		  . 07841)	; &I-GT-K07841;
       (=gt-pj-1		  . #x453C)	; &I-GT-27816; [37-28]
       (=daikanwa	  . 21656)	; &I-M-21656;
-      (shinjigen-2	  .  6632)	; &GT-27816;
+      (=shinjigen@rev	  .  6632)	; &GT-27816;
       (=ucs@unicode	  . #x751C)	; &GT-27816;
       )
      ((=cns11643-1	  . #x5C27)	; &C1-5C27; [60-07]
@@ -247,7 +247,7 @@
     (=gt-k		. 10324)	; &I-GT-K10324;
     (=gt-pj-1		. #x6133)	; &I-GT-27820; [65-19]
     (=daikanwa		. 21659)	; &I-M-21659;
-    (shinjigen-2	.  1217)	; 甞
+    (=shinjigen@rev	.  1217)	; 甞
     ))
 (define-char
   '((=>ucs		. #x3F4E)	; 㽎

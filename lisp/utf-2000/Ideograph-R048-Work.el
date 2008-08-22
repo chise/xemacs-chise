@@ -13,7 +13,7 @@
     (=gt-k		. 00172)	; &I-GT-K00172;
     (=gt-pj-1		. #x3929)	; &I-GT-10991; [25-09]
     (=daikanwa		. 08714)	; &I-M-08714;
-    (shinjigen-2	.  2059)	; 工
+    (=shinjigen@rev	.  2059)	; 工
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -68,7 +68,7 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
-    (shinjigen-2	.  2063)	; 左
+    (=shinjigen@rev	.  2063)	; 左
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -84,7 +84,7 @@
     (=gt-k		. 00927)	; &I-GT-K00927;
     (=gt-pj-1		. #x392A)	; &I-GT-10999; [25-10]
     (=daikanwa		. 08721)	; &I-M-08721;
-    (shinjigen-2	.  2062)	; 巧
+    (=shinjigen@rev	.  2062)	; 巧
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -200,7 +200,7 @@
     (=gt-k		. 02701)	; &I-GT-K02701;
     (=gt-pj-1		. #x5660)	; &I-GT-11008; [54-64]
     (=daikanwa		. 08728)	; &I-M-08728;
-    (shinjigen-2	.  2066)	; 巫
+    (=shinjigen@rev	.  2066)	; 巫
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -266,8 +266,8 @@
     (=gt-k		. 06433)	; &I-GT-K06433;
     (=gt-pj-1		. #x3A39)	; &I-GT-11011; [26-25]
     (=daikanwa		. 08732)	; &I-M-08732;
-    (shinjigen-1	.  2067)	; &GT-11011;
-    (shinjigen-2	.  2067)	; &GT-11011;
+    (=shinjigen@1ed	.  2067)	; &GT-11011;
+    (=shinjigen@rev	.  2067)	; &GT-11011;
     (=ucs@jis		. #x5DEE)	; &GT-11011;
     (=ucs@big5		. #x5DEE)	; &GT-11011;
     ))

@@ -11,7 +11,7 @@
     (=gt-k		. 06656)	; &I-GT-K06656;
     (=gt-pj-1		. #x722E)	; &I-GT-61419; [82-14]
     (=daikanwa		. 45661)	; &I-M-45661;
-    (shinjigen-2	.  9502)	; 鬯
+    (=shinjigen@rev	.  9502)	; 鬯
     ))
 (define-char
   '((ideographic-radical . 192)	; ⾿

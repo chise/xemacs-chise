@@ -13,8 +13,8 @@
     (=gt-k		. 00985)	; &I-GT-K00985;
     (=gt-pj-1		. #x4772)	; &I-GT-29070; [39-82]
     (=daikanwa		. 22678)	; &I-M-22678;
-    (shinjigen-1	.  5196)	; 白
-    (shinjigen-2	.  5196)	; 白
+    (=shinjigen@1ed	.  5196)	; 白
+    (=shinjigen@rev	.  5196)	; 白
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -30,7 +30,7 @@
     (=gt-k		. 01684)	; &I-GT-K01684;
     (=gt-pj-1		. #x4934)	; &I-GT-29074; [41-20]
     (=daikanwa		. 22679)	; &I-M-22679;
-    (shinjigen-2	.  0030)	; 百
+    (=shinjigen@rev	.  0030)	; 百
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -111,7 +111,7 @@
     (=gt-k		. 02721)	; &I-GT-K02721;
     (=gt-pj-1		. #x6226)	; &I-GT-29082; [66-06]
     (=daikanwa		. 22686)	; &I-M-22686;
-    (shinjigen-2	.  7846)	; 皃
+    (=shinjigen@rev	.  7846)	; 皃
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -163,7 +163,7 @@
     (=gt-k		. 03780)	; &I-GT-K03780;
     (=gt-pj-1		. #x452A)	; &I-GT-29087; [37-10]
     (=daikanwa		. 22692)	; &I-M-22692;
-    (shinjigen-2	.  5199)	; 的
+    (=shinjigen@rev	.  5199)	; 的
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -247,7 +247,7 @@
       (=gt-k		  . 05036)	; &I-GT-K05036;
       (=gt-pj-1		  . #x3327)	; &I-GT-29091; [19-07]
       (=daikanwa	  . 22699)	; &I-M-22699;
-      (shinjigen-2	  .  5202)	; &GT-29091;
+      (=shinjigen@rev	  .  5202)	; &GT-29091;
       (=ucs@unicode	  . #x7686)	; &GT-29091;
       )
      ((=cns11643-1	  . #x5255)	; &C1-5255; [50-53]
@@ -280,7 +280,7 @@
     (=gt-k		. 05078)	; &I-GT-K05078;
     (=gt-pj-1		. #x3944)	; &I-GT-29096; [25-36]
     (=daikanwa		. 22701)	; &I-M-22701;
-    (shinjigen-2	.  5203)	; 皇
+    (=shinjigen@rev	.  5203)	; 皇
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -314,16 +314,16 @@
       (=gt		  . 29093)	; &I-GT-29093;
       (=gt-pj-1		  . #x6227)	; &I-GT-29093; [66-07]
       (=daikanwa	  . 22705)	; &I-M-22705;
-      (shinjigen-1	  .  3962)	; &GT-29093;
-      (shinjigen-2	  .  3962)	; &GT-29093;
+      (=shinjigen@1ed	  .  3962)	; &GT-29093;
+      (=shinjigen@rev	  .  3962)	; &GT-29093;
       (=ucs@jis		  . #x7688)	; &GT-29093;
       (<-vulgar
        ((=cns11643-3	    . #x3C48)	; &M-16308; [28-40]
 	(=daikanwa	    . 16308)	; &I-M-16308;
-	(shinjigen-1	    .  3961)	; &M-16308;
+	(=shinjigen@1ed	    .  3961)	; &M-16308;
 	))
       (<-vulgar*sources
-       shinjigen-1)
+       shinjigen@1ed)
       )
      ((=gb2312		  . #x7027)	; &G0-7027; [80-07]
       (=ucs@unicode	  . #x7688)	; &G0-7027;
@@ -423,7 +423,7 @@
     (=gt-k		. 06613)	; &I-GT-K06613;
     (=gt-pj-1		. #x6228)	; &I-GT-29109; [66-08]
     (=daikanwa		. 22714)	; &I-M-22714;
-    (shinjigen-2	.  5204)	; 皋
+    (=shinjigen@rev	.  5204)	; 皋
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -531,7 +531,7 @@
       (=gt		  . 29121)	; &I-GT-29121;
       (=gt-pj-1		  . #x6229)	; &I-GT-29121; [66-09]
       (=daikanwa	  . 22724)	; &I-M-22724;
-      (shinjigen-2	  .  5207)	; &GT-29121;
+      (=shinjigen@rev	  .  5207)	; &GT-29121;
       (=ucs@jis		  . #x768E)	; &GT-29121;
       )
      ((=gb2312		  . #x7028)	; &C1-5C33; [80-08]
@@ -579,7 +579,7 @@
       (=gt-k		  . 07769)	; &I-GT-K07769;
       (=gt-pj-1		  . #x3B29)	; &I-GT-29122; [27-09]
       (=daikanwa	  . 22727)	; &I-M-22727;
-      (shinjigen-2	  .  5205)	; &GT-29122;
+      (=shinjigen@rev	  .  5205)	; &GT-29122;
       (=ucs@jis		  . #x7690)	; &GT-29122;
       )
      ((=ucs@unicode	  . #x7690)	; &UU+7690;
@@ -717,7 +717,7 @@
       (=gt		  . 29134)	; &I-GT-29134;
       (=gt-pj-1		  . #x622A)	; &I-GT-29134; [66-10]
       (=daikanwa	  . 22736)	; &I-M-22736;
-      (shinjigen-2	  .  5209)	; &GT-29134;
+      (=shinjigen@rev	  .  5209)	; &GT-29134;
       (=ucs@jis		  . #x7696)	; &GT-29134;
       )
      ((=gb2312		  . #x4D6E)	; &C1-6076; [45-78]
@@ -882,7 +882,7 @@
     (=gt		. 29148)	; &I-GT-29148;
     (=gt-pj-1		. #x622C)	; &I-GT-29148; [66-12]
     (=daikanwa		. 22748)	; &I-M-22748;
-    (shinjigen-2	.  5211)	; 皙
+    (=shinjigen@rev	.  5211)	; 皙
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -968,7 +968,7 @@
     (=gt		. 29177)	; &I-GT-29177;
     (=gt-pj-1		. #x622D)	; &I-GT-29177; [66-13]
     (=daikanwa		. 22765)	; &I-M-22765;
-    (shinjigen-2	.  5212)	; 皚
+    (=shinjigen@rev	.  5212)	; 皚
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩

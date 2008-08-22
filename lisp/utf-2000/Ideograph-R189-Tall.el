@@ -14,8 +14,8 @@
       (=gt-k		  . 06430)	; &I-GT-K06430;
       (=gt-pj-1		  . #x3962)	; &I-GT-60968; [25-66]
       (=daikanwa	  . 45313)	; &I-M-45313;
-      (shinjigen-1	  .  9450)	; &GT-60968;
-      (shinjigen-2	  .  9450)	; &GT-60968;
+      (=shinjigen@1ed	  .  9450)	; &GT-60968;
+      (=shinjigen@rev	  .  9450)	; &GT-60968;
       (=ucs@jis		  . #x9AD8)	; &GT-60968;
       (=ucs@ks		  . #x9AD8)	; &GT-60968;
       )
@@ -42,7 +42,7 @@
       (=gt-k		  . 08024)	; &I-GT-K08024;
       (=gt-pj-8		  . #x5362)	; &GT-60969; [51-66]
       (=daikanwa	  . 45314)	; &I-M-45314;
-      (shinjigen-1	  .  9451)	; &GT-60969;
+      (=shinjigen@1ed	  .  9451)	; &GT-60969;
       (=jef-china3	  . #x6EA4)	; &I-JC3-6EA4;
       (<-vulgar
        ((=jis-x0208	    . #x3962)	; &GT-60968; [25-66]

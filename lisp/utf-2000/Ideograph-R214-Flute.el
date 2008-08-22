@@ -10,7 +10,7 @@
     (=gt		. 66752)	; &I-GT-66752;
     (=gt-pj-1		. #x737E)	; &I-GT-66752; [83-94]
     (=daikanwa		. 48882)	; &I-M-48882;
-    (shinjigen-2	.  9919)	; 龠
+    (=shinjigen@rev	.  9919)	; 龠
     ))
 (define-char
   '((=>ucs		. #x4DB3)	; 䶳

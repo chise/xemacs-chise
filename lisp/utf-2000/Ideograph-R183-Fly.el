@@ -12,7 +12,7 @@
     (=gt-k		. 05163)	; &I-GT-K05163;
     (=gt-pj-1		. #x4874)	; &I-GT-59007; [40-84]
     (=daikanwa		. 44000)	; &I-M-44000;
-    (shinjigen-2	.  9232)	; 飛
+    (=shinjigen@rev	.  9232)	; 飛
     ))
 (define-char
   '((<-denotational
@@ -133,7 +133,7 @@
     (=gt		. 59018)	; &I-GT-59018;
     (=gt-pj-1		. #x664C)	; &I-GT-59018; [70-44]
     (=daikanwa		. 44009)	; &I-M-44009;
-    (shinjigen-2	.  6334)	; 飜
+    (=shinjigen@rev	.  6334)	; 飜
     ))
 (define-char
   '((ideographic-radical . 183)	; ⾶

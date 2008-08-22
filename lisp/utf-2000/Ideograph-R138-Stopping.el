@@ -13,7 +13,7 @@
     (=gt-k		. 01615)	; &I-GT-K01615;
     (=gt-pj-1		. #x3A31)	; &I-GT-39585; [26-17]
     (=daikanwa		. 30596)	; &I-M-30596;
-    (shinjigen-2	.  6669)	; 艮
+    (=shinjigen@rev	.  6669)	; 艮
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
@@ -37,7 +37,7 @@
       (=gt-k		  . 02672)	; &I-GT-K02672;
       (=gt-pj-1		  . #x4E49)	; &I-GT-39586; [46-41]
       (=daikanwa	  . 30597)	; &I-M-30597;
-      (shinjigen-2	  .  6671)	; &GT-39586;
+      (=shinjigen@rev	  .  6671)	; &GT-39586;
       (=ucs@jis		  . #x826F)	; &GT-39586;
       )
      ((=gb2312		  . #x413C)	; &C1-4B40; [33-28]
@@ -131,7 +131,7 @@
     (=gt		. 39590)	; &I-GT-39590;
     (=gt-pj-1		. #x6765)	; &I-GT-39590; [71-69]
     (=daikanwa		. 30600)	; &I-M-30600;
-    (shinjigen-2	.  6672)	; 艱
+    (=shinjigen@rev	.  6672)	; 艱
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉

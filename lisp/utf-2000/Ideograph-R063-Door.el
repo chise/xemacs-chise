@@ -198,8 +198,8 @@
     (=gt		. 14766)	; &I-GT-14766;
     (=gt-k		. 02658)	; &I-GT-K02658;
     (=gt-pj-1		. #x4C61)	; &I-GT-14766; [44-65]
-    (shinjigen-1	.  2795)	; &GT-14766;
-    (shinjigen-2	.  2795)	; &GT-14766;
+    (=shinjigen@1ed	.  2795)	; &GT-14766;
+    (=shinjigen@rev	.  2795)	; &GT-14766;
     (=ucs@jis		. #x623B)	; &GT-14766;
     (<-simplified@JP/Jouyou
      ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
@@ -228,15 +228,15 @@
     (=cns11643-3	. #x2629)	; &I-C3-2629; [06-09]
     (=big5-cdp		. #x89B5)	; &I-CDP-89B5;
     (=daikanwa		. 11708)	; &I-M-11708;
-    (shinjigen-1	.  0849)	; 戼
+    (=shinjigen@1ed	.  0849)	; 戼
     (<-original
      ((=ucs		  . #x536F)	; 卯
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
       (=daikanwa	  . 02847)	; &I-M-02847;
-      (shinjigen-1	  .  0848)	; 卯
+      (=shinjigen@1ed	  .  0848)	; 卯
       ))
     (<-original*sources
-     zhengzitong daikanwa shinjigen-1)
+     zhengzitong daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
@@ -320,7 +320,7 @@
       (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
       (=big5		  . #xA9D1)	; &I-B-A9D1;
       (=daikanwa	  . 11712)	; &I-M-11712;
-      (shinjigen-1	  .  2796)	; &M-11712;
+      (=shinjigen@1ed	  .  2796)	; &M-11712;
       (=jef-china3	  . #x4EFB)	; &I-JC3-4EFB;
       (=ucs@jis		  . #x623E)	; &M-11712;
       (=ucs@big5	  . #x623E)	; &M-11712;

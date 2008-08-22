@@ -13,7 +13,7 @@
     (=gt-k		. 02619)	; &I-GT-K02619;
     (=gt-pj-1		. #x4626)	; &I-GT-48635; [38-06]
     (=daikanwa		. 36245)	; &I-M-36245;
-    (shinjigen-2	.  7801)	; 豆
+    (=shinjigen@rev	.  7801)	; 豆
     ))
 (define-char
   '((<-denotational
@@ -83,7 +83,7 @@
     (=gt-k		. 06644)	; &I-GT-K06644;
     (=gt-pj-1		. #x6C31)	; &I-GT-48637; [76-17]
     (=daikanwa		. 36249)	; &I-M-36249;
-    (shinjigen-2	.  7802)	; 豈
+    (=shinjigen@rev	.  7802)	; 豈
     ))
 (define-char
   '((=>ucs		. #x27BDC)	; 𧯜
@@ -174,16 +174,16 @@
     (=ucs		. #x27BE1)	; 𧯡
     (=cns11643-5	. #x3C3E)	; &I-C5-3C3E; [28-30]
     (=daikanwa		. 36256)	; &I-M-36256;
-    (shinjigen-1	.  7810)	; 𧯡
+    (=shinjigen@1ed	.  7810)	; 𧯡
     (=cbeta		. 03349)	; &I-CB03349;
     (<-original
      ((=jis-x0208	  . #x6C32)	; &GT-48666; [76-18]
       (=ks-x1001	  . #x6855)	; &I-K0-6855; [72-53]
       (=daikanwa	  . 36273)	; &I-M-36273;
-      (shinjigen-1	  .  7809)	; &GT-48666;
+      (=shinjigen@1ed	  .  7809)	; &GT-48666;
       ))
     (<-original*sources
-     shinjigen-1)
+     shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
@@ -261,7 +261,7 @@
     (=gt-k		. 10269)	; &I-GT-K10269;
     (=gt-pj-1		. #x4B2D)	; &I-GT-48656; [43-13]
     (=daikanwa		. 36263)	; &I-M-36263;
-    (shinjigen-2	.  7807)	; 豊
+    (=shinjigen@rev	.  7807)	; 豊
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x8C50)	; 豐
       (=jis-x0208	  . #x6C34)	; &I-J90-6C34; [76-20]
@@ -364,8 +364,8 @@
       (=gt		  . 48666)	; &I-GT-48666;
       (=gt-pj-1		  . #x6C32)	; &I-GT-48666; [76-18]
       (=daikanwa	  . 36273)	; &I-M-36273;
-      (shinjigen-1	  .  7809)	; &GT-48666;
-      (shinjigen-2	  .  7809)	; &GT-48666;
+      (=shinjigen@1ed	  .  7809)	; &GT-48666;
+      (=shinjigen@rev	  .  7809)	; &GT-48666;
       (=ucs@jis		  . #x8C4C)	; &GT-48666;
       )
      ((=gb2312		  . #x4D63)	; &C1-6F27; [45-67]
@@ -447,8 +447,8 @@
     (=gt		. 48672)	; &I-GT-48672;
     (=gt-pj-1		. #x6C33)	; &I-GT-48672; [76-19]
     (=daikanwa		. 36280)	; &I-M-36280;
-    (shinjigen-1	.  7811)	; 豎
-    (shinjigen-2	.  7811)	; 豎
+    (=shinjigen@1ed	.  7811)	; 豎
+    (=shinjigen@rev	.  7811)	; 豎
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
@@ -713,7 +713,7 @@
     (=gt		. 48711)	; &I-GT-48711;
     (=gt-pj-1		. #x6C34)	; &I-GT-48711; [76-20]
     (=daikanwa		. 36304)	; &I-M-36304;
-    (shinjigen-2	.  7808)	; 豐
+    (=shinjigen@rev	.  7808)	; 豐
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖

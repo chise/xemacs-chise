@@ -11,8 +11,8 @@
       (=gt-k		  . 11243)	; &I-GT-K11243;
       (=gt-pj-1		  . #x736E)	; &I-GT-66354; [83-78]
       (=daikanwa	  . 48560)	; &I-M-48560;
-      (shinjigen-1	  .  9881)	; &GT-66354;
-      (shinjigen-2	  .  9881)	; &GT-66354;
+      (=shinjigen@1ed	  .  9881)	; &GT-66354;
+      (=shinjigen@rev	  .  9881)	; &GT-66354;
       (=ucs@jis		  . #x9F4A)	; &GT-66354;
       (=ucs@ks		  . #x9F4A)	; &GT-66354;
       )
@@ -300,7 +300,7 @@
     (=gt		. 66377)	; &I-GT-66377;
     (=gt-pj-1		. #x706D)	; &I-GT-66377; [80-77]
     (=daikanwa		. 48578)	; &I-M-48578;
-    (shinjigen-2	.  9128)	; &GT-66377;
+    (=shinjigen@rev	.  9128)	; &GT-66377;
     (=ucs@jis		. #x9F4F)	; &GT-66377;
     ))
 (define-char

@@ -11,7 +11,7 @@
     (=gt-k		. 00541)	; &I-GT-K00541;
     (=gt-pj-1		. #x602B)	; &I-GT-25355; [64-11]
     (=daikanwa		. 19737)	; &I-M-19737;
-    (shinjigen-2	.  4713)	; &GT-25355;
+    (=shinjigen@rev	.  4713)	; &GT-25355;
     (=ucs@jis		. #x723B)	; &GT-25355;
     ))
 (define-char
@@ -92,7 +92,7 @@
     (=gt		. 25358)	; &I-GT-25358;
     (=gt-pj-1		. #x602C)	; &I-GT-25358; [64-12]
     (=daikanwa		. 19743)	; &I-M-19743;
-    (shinjigen-2	.  0260)	; 爼
+    (=shinjigen@rev	.  0260)	; 爼
     (=hanziku-1		. #xAC46)	; &I-HZK01-AC46;
     (=cbeta		. 01131)	; &I-CB01131;
     ))
@@ -125,7 +125,7 @@
     (=gt-k		. 07814)	; &I-GT-K07814;
     (=gt-pj-1		. #x4156)	; &I-GT-25362; [33-54]
     (=daikanwa		. 19746)	; &I-M-19746;
-    (shinjigen-2	.  1587)	; 爽
+    (=shinjigen@rev	.  1587)	; 爽
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
@@ -180,7 +180,7 @@
     (=gt-k		. 11127)	; &I-GT-K11127;
     (=gt-pj-1		. #x3C24)	; &I-GT-25366; [28-04]
     (=daikanwa		. 19750)	; &I-M-19750;
-    (shinjigen-2	.  4714)	; 爾
+    (=shinjigen@rev	.  4714)	; 爾
     ))
 (define-char
   '((=>ucs		. #x723E)	; 爾

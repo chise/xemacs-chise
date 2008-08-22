@@ -189,7 +189,7 @@
     (=gt-k		. 01674)	; &I-GT-K01674;
     (=gt-pj-1		. #x4576)	; &I-GT-12509; [37-86]
     (=daikanwa		. 09913)	; &I-M-09913;
-    (shinjigen-2	.  5071)	; 当
+    (=shinjigen@rev	.  5071)	; 当
     (mojikyo		. 009913)	; &MCS-600026B9;
     (<-simplified@CN
      ((=ucs		  . #x7576)	; 當
@@ -346,8 +346,8 @@
       (=gt-k		  . 05239)	; &I-GT-K05239;
       (=gt-pj-1		  . #x5741)	; &I-GT-12518; [55-33]
       (=daikanwa	  . 09920)	; &I-M-09920;
-      (shinjigen-1	  .  2301)	; &GT-12518;
-      (shinjigen-2	  .  2301)	; &GT-12518;
+      (=shinjigen@1ed	  .  2301)	; &GT-12518;
+      (=shinjigen@rev	  .  2301)	; &GT-12518;
       (=ucs@jis		  . #x5F56)	; &GT-12518;
       )
      ((=gb2312		  . #x6568)	; &G0-6568; [69-72]
@@ -453,7 +453,7 @@
     (=gt-k		. 07930)	; &I-GT-K07930;
     (=gt-pj-1		. #x5742)	; &I-GT-12528; [55-34]
     (=daikanwa		. 09927)	; &I-M-09927;
-    (shinjigen-2	.  2303)	; 彗
+    (=shinjigen@rev	.  2303)	; 彗
     (=ucs@jis		. #x5F57)	; &GT-12528;
     (=ucs@big5		. #x5F57)	; &GT-12528;
     ))
@@ -464,7 +464,7 @@
     (total-strokes	 . 11)
     (=ucs		. #x5F57)	; 彗
     (=gb2312		. #x6567)	; &I-G0-6567; [69-71]
-    (shinjigen-2	.  2303)	; 彗
+    (=shinjigen@rev	.  2303)	; 彗
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
@@ -557,7 +557,7 @@
     (=gt		. 12534)	; &I-GT-12534;
     (=gt-pj-1		. #x5743)	; &I-GT-12534; [55-35]
     (=daikanwa		. 09936)	; &I-M-09936;
-    (shinjigen-2	.  2305)	; 彙
+    (=shinjigen@rev	.  2305)	; 彙
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹

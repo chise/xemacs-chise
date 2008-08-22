@@ -1,3 +1,18 @@
+2008-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add temporary setting to convert `shinjigen-1' and
+	`shinjigen-2' to `shinjigen@1ed' and `shinjigen@rev' in *sources
+	features.
+
+2008-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Rename
+	`shinjigen-1', `shinjigen-2' and `shinjigen-2-p' to
+	`=shinjigen@1ed', `=shinjigen@rev' and `=shinjigen/+p@rev'; add
+	setting for `=shinjigen@1ed/24pr'.
+	(char-db-insert-relation-feature): Rename `shinjigen-1' to
+	`=shinjigen@1ed'; add setting for `shinjigen@1ed'.
+
 2008-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for

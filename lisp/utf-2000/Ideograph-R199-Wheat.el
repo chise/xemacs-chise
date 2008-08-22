@@ -18,8 +18,8 @@
       (=gt-k		  . 07988)	; &I-GT-K07988;
       (=gt-pj-1		  . #x734E)	; &I-GT-64933; [83-46]
       (=daikanwa	  . 47717)	; &I-M-47717;
-      (shinjigen-1	  .  9792)	; &GT-64933;
-      (shinjigen-2	  .  9792)	; &GT-64933;
+      (=shinjigen@1ed	  .  9792)	; &GT-64933;
+      (=shinjigen@rev	  .  9792)	; &GT-64933;
       )
      ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
       (=gb12345		  . #x4273)	; &J90-734E; [34-83]
@@ -58,8 +58,8 @@
     (=gt-k		. 02633)	; &I-GT-K02633;
     (=gt-pj-1		. #x477E)	; &I-GT-64905; [39-94]
     (=daikanwa		. 47718)	; &I-M-47718;
-    (shinjigen-1	.  9791)	; &GT-64905;
-    (shinjigen-2	.  9791)	; &GT-64905;
+    (=shinjigen@1ed	.  9791)	; &GT-64905;
+    (=shinjigen@rev	.  9791)	; &GT-64905;
     (=ucs@unicode	. #x9EA6)	; &GT-64905;
     (<-simplified@CN
      ((=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
@@ -488,8 +488,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (=gb12345		. #x746F)	; &JC3-6FBF; [84-79]
-    (shinjigen-1	.  9795)	; &JC3-6FBF;
-    (shinjigen-2	.  9795)	; &JC3-6FBF;
+    (=shinjigen@1ed	.  9795)	; &JC3-6FBF;
+    (=shinjigen@rev	.  9795)	; &JC3-6FBF;
     (=jef-china3	. #x6FBF)	; &JC3-6FBF;
     (=ucs@unicode	. #x9EA9)	; &JC3-6FBF;
     ))
@@ -834,8 +834,8 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
-    (shinjigen-1	.  9799)	; &UU+9EAD;
-    (shinjigen-2	.  9799)	; &UU+9EAD;
+    (=shinjigen@1ed	.  9799)	; &UU+9EAD;
+    (=shinjigen@rev	.  9799)	; &UU+9EAD;
     (=ucs@unicode	. #x9EAD)	; &UU+9EAD;
     ))
 (define-char

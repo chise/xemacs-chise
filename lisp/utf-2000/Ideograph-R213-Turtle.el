@@ -7,7 +7,7 @@
     (ideographic-radical@cns . 213)	; ⿔
     (ideographic-strokes@cns . 0)
     (ideographic-radical@cns*sources
-     shinjigen-1 cns11643 gt)
+     shinjigen@1ed cns11643 gt)
     (total-strokes	 . 11)
     (hanyu-dazidian	8 10 19)
     (ideographic-structure
@@ -27,8 +27,8 @@
     (=gt-k		. 07742)	; &I-GT-K07742;
     (=gt-pj-1		. #x3535)	; &I-GT-66701; [21-21]
     (=daikanwa		. 00210)	; &I-M-00210;
-    (shinjigen-1	.  9917)	; 亀
-    (shinjigen-2	.  9916)	; 亀
+    (=shinjigen@1ed	.  9917)	; 亀
+    (=shinjigen@rev	.  9916)	; 亀
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     (mojikyo		. 000210)	; &MCS-600000D2;
     (<-vulgar
@@ -69,8 +69,8 @@
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
-      (shinjigen-1	  .  9918)	; &M-48847;
-      (shinjigen-2	  .  9917)	; &M-48847;
+      (=shinjigen@1ed	  .  9918)	; &M-48847;
+      (=shinjigen@rev	  .  9917)	; &M-48847;
       (=ucs@jis		  . #x9F9C)	; &M-48847;
       )
      ((=gt		  . 66712)	; &GT-66712;
@@ -113,16 +113,16 @@
     (total-strokes	 . 15)
     (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
     (=daikanwa		. 48848)	; &I-M-48848;
-    (shinjigen-1	.  9919)	; &M-48848;
+    (=shinjigen@1ed	.  9919)	; &M-48848;
     (<-original
      ((=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
-      (shinjigen-1	  .  9918)	; &M-48847;
+      (=shinjigen@1ed	  .  9918)	; &M-48847;
       ))
     (<-original*sources
-     zhengzitong daikanwa shinjigen-1)
+     zhengzitong daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔

@@ -61,8 +61,8 @@
     (=gt-k		. 00066)	; &I-GT-K00066;
     (=gt-pj-1		. #x4E3B)	; &I-GT-00306; [46-27]
     (=daikanwa		. 00226)	; &I-M-00226;
-    (shinjigen-1	.  0066)	; 了
-    (shinjigen-2	.  0066)	; 了
+    (=shinjigen@1ed	.  0066)	; 了
+    (=shinjigen@rev	.  0066)	; 了
     (mojikyo		. 000226)	; &MCS-600000E2;
     ))
 (define-char
@@ -188,8 +188,8 @@
     (=gt-k		. 00505)	; &I-GT-K00505;
     (=gt-pj-1		. #x4D3D)	; &I-GT-00312; [45-29]
     (=daikanwa		. 00231)	; &I-M-00231;
-    (shinjigen-1	.  0067)	; 予
-    (shinjigen-2	.  0067)	; 予
+    (=shinjigen@1ed	.  0067)	; 予
+    (=shinjigen@rev	.  0067)	; 予
     (mojikyo		. 000231)	; &MCS-600000E7;
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
@@ -321,8 +321,8 @@
     (=gt-k		. 01662)	; &I-GT-K01662;
     (=gt-pj-1		. #x4168)	; &I-GT-00313; [33-72]
     (=daikanwa		. 00236)	; &I-M-00236;
-    (shinjigen-1	.  4698)	; 争
-    (shinjigen-2	.  4698)	; 争
+    (=shinjigen@1ed	.  4698)	; 争
+    (=shinjigen@rev	.  4698)	; 争
     (=hanziku-1		. #xE8D1)	; &I-HZK01-E8D1;
     (mojikyo		. 000236)	; &MCS-600000EC;
     (<-simplified@CN
@@ -421,17 +421,17 @@
     (=jis-x0208		. #x502F)	; &I-J90-502F; [48-15]
     (=gt		. 00315)	; &I-GT-00315;
     (=gt-pj-1		. #x502F)	; &I-GT-00315; [48-15]
-    (shinjigen-1	.  0071)	; 亊
-    (shinjigen-2	.  0071)	; 亊
+    (=shinjigen@1ed	.  0071)	; 亊
+    (=shinjigen@rev	.  0071)	; 亊
     (mojikyo		. 054501)	; &MCS-6000D4E5;
     (<-vulgar
      ((=ucs		  . #x4E8B)	; 事
       (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
       (=daikanwa	  . 00241)	; &I-M-00241;
-      (shinjigen-1	  .  0069)	; 事
+      (=shinjigen@1ed	  .  0069)	; 事
       ))
     (<-vulgar*sources
-     songyuan-yilai-suzipu daikanwa shinjigen-1)
+     songyuan-yilai-suzipu daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -470,8 +470,8 @@
     (=gt-k		. 03726)	; &I-GT-K03726;
     (=gt-pj-1		. #x3B76)	; &I-GT-00319; [27-86]
     (=daikanwa		. 00241)	; &I-M-00241;
-    (shinjigen-1	.  0069)	; 事
-    (shinjigen-2	.  0069)	; 事
+    (=shinjigen@1ed	.  0069)	; 事
+    (=shinjigen@rev	.  0069)	; 事
     (mojikyo		. 000241)	; &MCS-600000F1;
     ))
 (define-char

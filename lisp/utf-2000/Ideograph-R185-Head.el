@@ -12,7 +12,7 @@
     (=gt-k		. 05093)	; &I-GT-K05093;
     (=gt-pj-1		. #x3C73)	; &I-GT-59948; [28-83]
     (=daikanwa		. 44489)	; &I-M-44489;
-    (shinjigen-2	.  9319)	; 首
+    (=shinjigen@rev	.  9319)	; 首
     ))
 (define-char
   '((ideographic-radical . 185)	; ⾸
@@ -54,7 +54,7 @@
     (=gt		. 59950)	; &I-GT-59950;
     (=gt-pj-1		. #x7144)	; &I-GT-59950; [81-36]
     (=daikanwa		. 44492)	; &I-M-44492;
-    (shinjigen-2	.  9320)	; 馗
+    (=shinjigen@rev	.  9320)	; 馗
     ))
 (define-char
   '((ideographic-radical . 185)	; ⾸
@@ -222,7 +222,7 @@
     (=gt		. 59972)	; &I-GT-59972;
     (=gt-pj-1		. #x7145)	; &I-GT-59972; [81-37]
     (=daikanwa		. 44507)	; &I-M-44507;
-    (shinjigen-2	.  9321)	; 馘
+    (=shinjigen@rev	.  9321)	; 馘
     ))
 (define-char
   '((ideographic-radical . 185)	; ⾸

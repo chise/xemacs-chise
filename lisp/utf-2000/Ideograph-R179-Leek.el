@@ -11,7 +11,7 @@
     (=gt-k		. 05301)	; &I-GT-K05301;
     (=gt-pj-1		. #x706C)	; &I-GT-58074; [80-76]
     (=daikanwa		. 43236)	; &I-M-43236;
-    (shinjigen-2	.  9123)	; 韭
+    (=shinjigen@rev	.  9123)	; 韭
     ))
 (define-char
   '((ideographic-radical . 179)	; ⾲
@@ -160,7 +160,7 @@
       (=gt		  . 58091)	; &I-GT-58091;
       (=gt-pj-1		  . #x706E)	; &I-GT-58091; [80-78]
       (=daikanwa	  . 43249)	; &I-M-43249;
-      (shinjigen-2	  .  9130)	; &GT-58091;
+      (=shinjigen@rev	  .  9130)	; &GT-58091;
       (=ucs@jis		  . #x97F2)	; &GT-58091;
       )
      ((=cns11643-3	  . #x5B61)	; &C3-5B61; [59-65]

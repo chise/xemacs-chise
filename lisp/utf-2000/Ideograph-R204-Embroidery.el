@@ -87,7 +87,7 @@
       (=gt		  . 65943)	; &I-GT-65943;
       (=gt-pj-1		  . #x7364)	; &I-GT-65943; [83-68]
       (=daikanwa	  . 48250)	; &I-M-48250;
-      (shinjigen-2	  .  9839)	; &GT-65943;
+      (=shinjigen@rev	  .  9839)	; &GT-65943;
       (=ucs@jis		  . #x9EFB)	; &GT-65943;
       )
      ((=cns11643-2	  . #x613C)	; &C2-613C; [65-28]
@@ -120,7 +120,7 @@
     (=gt		. 65945)	; &I-GT-65945;
     (=gt-pj-1		. #x7365)	; &I-GT-65945; [83-69]
     (=daikanwa		. 48252)	; &I-M-48252;
-    (shinjigen-2	.  9840)	; &GT-65945;
+    (=shinjigen@rev	.  9840)	; &GT-65945;
     (=ucs@jis		. #x9EFC)	; &GT-65945;
     ))
 (define-char

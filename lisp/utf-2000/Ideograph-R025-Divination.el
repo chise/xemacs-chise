@@ -14,8 +14,8 @@
     (=gt-k		. 00060)	; &I-GT-K00060;
     (=gt-pj-1		. #x4B4E)	; &I-GT-03543; [43-46]
     (=daikanwa		. 02774)	; &I-M-02774;
-    (shinjigen-1	.  0834)	; 卜
-    (shinjigen-2	.  0834)	; 卜
+    (=shinjigen@1ed	.  0834)	; 卜
+    (=shinjigen@rev	.  0834)	; 卜
     ))
 (define-char
   '((<-denotational
@@ -99,8 +99,8 @@
     (=gt-k		. 00519)	; &I-GT-K00519;
     (=gt-pj-1		. #x5246)	; &I-GT-03546; [50-38]
     (=daikanwa		. 02778)	; &I-M-02778;
-    (shinjigen-1	.  0835)	; &GT-03546;
-    (shinjigen-2	.  0835)	; &GT-03546;
+    (=shinjigen@1ed	.  0835)	; &GT-03546;
+    (=shinjigen@rev	.  0835)	; &GT-03546;
     (=ucs@jis		. #x535E)	; &GT-03546;
     ))
 (define-char
@@ -165,8 +165,8 @@
     (=gt-k		. 00968)	; &I-GT-K00968;
     (=gt-pj-1		. #x406A)	; &I-GT-03549; [32-74]
     (=daikanwa		. 02780)	; &I-M-02780;
-    (shinjigen-1	.  0837)	; 占
-    (shinjigen-2	.  0837)	; 占
+    (=shinjigen@1ed	.  0837)	; 占
+    (=shinjigen@rev	.  0837)	; 占
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -188,8 +188,8 @@
     (=jis-x0213-1-2000	. #x2E6F)	; &I-JX1-2E6F; [14-79]
     (=big5		. #xA564)	; &I-B-A564;
     (=daikanwa		. 02781)	; &I-M-02781;
-    (shinjigen-1	.  0838)	; 卡
-    (shinjigen-2	.  0838)	; 卡
+    (=shinjigen@1ed	.  0838)	; 卡
+    (=shinjigen@rev	.  0838)	; 卡
     (->subsumptive
      ((=jef-china3	  . #x45CB)	; &JC3-45CB;
       )
@@ -321,8 +321,8 @@
     (=jis-x0213-1-2000	. #x2E70)	; &I-JX1-2E70; [14-80]
     (=big5		. #xCA72)	; &I-B-CA72;
     (=daikanwa		. 02791)	; &I-M-02791;
-    (shinjigen-1	.  0839)	; 卣
-    (shinjigen-2	.  0839)	; 卣
+    (=shinjigen@1ed	.  0839)	; 卣
+    (=shinjigen@rev	.  0839)	; 卣
     (=jef-china3	. #x97D3)	; &I-JC3-97D3;
     (mojikyo		. 002791)	; &MCS-60000AE7;
     ))
@@ -490,8 +490,8 @@
     (=gt-k		. 03685)	; &I-GT-K03685;
     (=gt-pj-1		. #x3735)	; &I-GT-03564; [23-21]
     (=daikanwa		. 02798)	; &I-M-02798;
-    (shinjigen-1	.  0841)	; 卦
-    (shinjigen-2	.  0841)	; 卦
+    (=shinjigen@1ed	.  0841)	; 卦
+    (=shinjigen@rev	.  0841)	; 卦
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -627,16 +627,16 @@
     (=cns11643-4	. #x2851)	; &I-C4-2851; [08-49]
     (=big5-cdp		. #x8AA6)	; &I-CDP-8AA6;
     (=daikanwa		. 02810)	; &I-M-02810;
-    (shinjigen-1	.  0840)	; 𠧪
+    (=shinjigen@1ed	.  0840)	; 𠧪
     (<-ancient
      ((=ucs		  . #x5363)	; 卣
       (=jis-x0212	  . #x343C)	; &I-JSP-343C; [20-28]
       (=jis-x0213-1-2000  . #x2E70)	; &I-JX1-2E70; [14-80]
-      (shinjigen-1	  .  0839)	; 卣
+      (=shinjigen@1ed	  .  0839)	; 卣
       ))
     (<-ancient*denied	shuowen-tongxun-dingsheng daikanwa)
     (<-ancient*sources
-     shinjigen-1)
+     shinjigen@1ed)
     ))
 (define-char
   '((=>ucs		. #x209EB)	; 𠧫

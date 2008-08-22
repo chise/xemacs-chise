@@ -13,7 +13,7 @@
     (=gt-k		. 01598)	; &I-GT-K01598;
     (=gt-pj-1		. #x376C)	; &I-GT-45816; [23-76]
     (=daikanwa		. 33964)	; &I-M-33964;
-    (shinjigen-2	.  7309)	; 血
+    (=shinjigen@rev	.  7309)	; 血
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
@@ -127,7 +127,7 @@
       (=gt		  . 45830)	; &I-GT-45830;
       (=gt-pj-1		  . #x6A48)	; &I-GT-45830; [74-40]
       (=daikanwa	  . 33973)	; &I-M-33973;
-      (shinjigen-2	  .  7311)	; &GT-45830;
+      (=shinjigen@rev	  .  7311)	; &GT-45830;
       (=ucs@jis		  . #x8844)	; &GT-45830;
       )
      ((=gb2312		  . #x742C)	; &G0-742C; [84-12]
@@ -224,7 +224,7 @@
     (=gt-k		. 09065)	; &I-GT-K09065;
     (=gt-pj-1		. #x3D30)	; &I-GT-45842; [29-16]
     (=daikanwa		. 33981)	; &I-M-33981;
-    (shinjigen-2	.  7316)	; &GT-45842;
+    (=shinjigen@rev	.  7316)	; &GT-45842;
     (=ucs@jis		. #x8846)	; &GT-45842;
     ))
 (define-char

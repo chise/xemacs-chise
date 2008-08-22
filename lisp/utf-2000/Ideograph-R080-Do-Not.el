@@ -18,7 +18,7 @@
     (sound@ja/on/go/p2	"mu")
     (sound@ja/on/go/p3	"mu")
     (sound@ja/on/kan/p1 "bu")
-    (sound@ja/on/kan/p1*sources daikanwa shinjigen-1)
+    (sound@ja/on/kan/p1*sources daikanwa shinjigen@1ed)
     (sound@ja/on/kan/p2 "bou")
     (sound@ja/on/kan/p3 "bu")
     (=jis-x0208		. #x5D59)	; &GT-21437; [61-57]
@@ -27,8 +27,8 @@
     (=gt-k		. 00538)	; &I-GT-K00538;
     (=gt-pj-1		. #x5D59)	; &I-GT-21437; [61-57]
     (=daikanwa		. 16721)	; &I-M-16721;
-    (shinjigen-1	.  4007)	; &GT-21437;
-    (shinjigen-2	.  4007)	; &GT-21437;
+    (=shinjigen@1ed	.  4007)	; &GT-21437;
+    (=shinjigen@rev	.  4007)	; &GT-21437;
     (=ucs@jis		. #x6BCB)	; &GT-21437;
     ))
 (define-char
@@ -53,7 +53,7 @@
     (=cns11643-2	. #x2140)	; &I-C2-2140; [01-32]
     (=big5		. #xC960)	; &I-B-C960;
     (=daikanwa		. 16722)	; &I-M-16722;
-    (shinjigen-1	.  4006)	; 毌
+    (=shinjigen@1ed	.  4006)	; 毌
     ))
 (define-char
   '((ideographic-radical . 80)	; ⽏
@@ -65,7 +65,7 @@
     (sound@ja/on/go/p3	"mo")
     (sound@ja/on/go/p4	"mu")
     (sound@ja/on/kan/p1 "bou")
-    (sound@ja/on/kan/p1*sources shinjigen-1 daikanwa)
+    (sound@ja/on/kan/p1*sources shinjigen@1ed daikanwa)
     (sound@ja/on/kan/p2 "bo")
     (sound@ja/on/kan/p3 "bo")
     (sound@ja/on/kan/p4 "bou")
@@ -81,8 +81,8 @@
     (=gt-k		. 01051)	; &I-GT-K01051;
     (=gt-pj-1		. #x4A6C)	; &I-GT-21438; [42-76]
     (=daikanwa		. 16723)	; &I-M-16723;
-    (shinjigen-1	.  4008)	; 母
-    (shinjigen-2	.  4008)	; 母
+    (=shinjigen@1ed	.  4008)	; 母
+    (=shinjigen@rev	.  4008)	; 母
     ))
 (define-char
   '((<-denotational
@@ -269,7 +269,7 @@
     (=gt-k		. 03788)	; &I-GT-K03788;
     (=gt-pj-1		. #x4647)	; &I-GT-21446; [38-39]
     (=daikanwa		. 16730)	; &I-M-16730;
-    (shinjigen-2	.  4011)	; &GT-21446;
+    (=shinjigen@rev	.  4011)	; &GT-21446;
     (=ucs@jis		. #x6BD2)	; &GT-21446;
     ))
 (define-char

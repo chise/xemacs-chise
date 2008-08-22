@@ -12,8 +12,8 @@
       (=gt-k		  . 00532)	; &I-GT-K00532;
       (=gt-pj-1		  . #x5A5B)	; &I-GT-17330; [58-59]
       (=daikanwa	  . 13716)	; &I-M-13716;
-      (shinjigen-1	  .  3259)	; &GT-17330;
-      (shinjigen-2	  .  3259)	; &GT-17330;
+      (=shinjigen@1ed	  .  3259)	; &GT-17330;
+      (=shinjigen@rev	  .  3259)	; &GT-17330;
       (=cbeta		  . 07099)	; &I-CB07099;
       (=ucs@jis		  . #x65E0)	; &GT-17330;
       )
@@ -35,8 +35,8 @@
       (=gt-k		  . 00533)	; &I-GT-K00533;
       (=gt-pj-1		  . #x5A5C)	; &I-GT-17329; [58-60]
       (=daikanwa	  . 13717)	; &I-M-13717;
-      (shinjigen-1	  .  3258)	; &GT-17329;
-      (shinjigen-2	  .  3258)	; &GT-17329;
+      (=shinjigen@1ed	  .  3258)	; &GT-17329;
+      (=shinjigen@rev	  .  3258)	; &GT-17329;
       (=ucs@jis		  . #x65E1)	; &GT-17329;
       )
      ((=ucs@unicode	  . #x65E1)	; &UU+65E1;
@@ -96,7 +96,7 @@
       (=gt-k		  . 06394)	; &I-GT-K06394;
       (=gt-pj-1		  . #x347B)	; &I-GT-17338; [20-91]
       (=daikanwa	  . 13721)	; &I-M-13721;
-      (shinjigen-2	  .  3260)	; &GT-17338;
+      (=shinjigen@rev	  .  3260)	; &GT-17338;
       (=ucs@jis		  . #x65E2)	; &GT-17338;
       (<-simplified@JP/Jouyou
        ((=jis-x0213-1-2000  . #x752B)	; &JX1-752B; [85-11]

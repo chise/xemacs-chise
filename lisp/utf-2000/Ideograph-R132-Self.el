@@ -13,7 +13,7 @@
     (=gt-k		. 01630)	; &I-GT-K01630;
     (=gt-pj-1		. #x3C2B)	; &I-GT-38936; [28-11]
     (=daikanwa		. 30095)	; &I-M-30095;
-    (shinjigen-2	.  6598)	; 自
+    (=shinjigen@rev	.  6598)	; 自
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃

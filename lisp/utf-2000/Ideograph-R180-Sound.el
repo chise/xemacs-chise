@@ -9,7 +9,7 @@
       (=gt-k		  . 05028)	; &I-GT-K05028;
       (=gt-pj-8		  . #x3E52)	; &GT-58108; [30-50]
       (=daikanwa	  . 43265)	; &I-M-43265;
-      (shinjigen-1	  .  9133)	; &GT-58108;
+      (=shinjigen@1ed	  .  9133)	; &GT-58108;
       (=jef-china3	  . #x6CD8)	; &I-JC3-6CD8;
       (mojikyo		  . 055938)	; &MCS-6000DA82;
       )
@@ -22,8 +22,8 @@
       (=gt		  . 58109)	; &I-GT-58109;
       (=gt-k		  . 05029)	; &I-GT-K05029;
       (=gt-pj-1		  . #x323B)	; &I-GT-58109; [18-27]
-      (shinjigen-1	  .  9132)	; &GT-58109;
-      (shinjigen-2	  .  9132)	; &GT-58109;
+      (=shinjigen@1ed	  .  9132)	; &GT-58109;
+      (=shinjigen@rev	  .  9132)	; &GT-58109;
       (=ucs@jis		  . #x97F3)	; &GT-58109;
       (mojikyo		  . 043265)	; &MCS-6000A901;
       ))
@@ -105,7 +105,7 @@
       (=gt		  . 58113)	; &I-GT-58113;
       (=gt-pj-1		  . #x7071)	; &I-GT-58113; [80-81]
       (=daikanwa	  . 43271)	; &I-M-43271;
-      (shinjigen-2	  .  9138)	; &GT-58113;
+      (=shinjigen@rev	  .  9138)	; &GT-58113;
       (=ucs@jis		  . #x97F5)	; &GT-58113;
       )
      ((=gb2312		  . #x544F)	; &G0-544F; [52-47]
@@ -173,7 +173,7 @@
       (=gt		  . 58120)	; &I-GT-58120;
       (=gt-pj-1		  . #x7070)	; &I-GT-58120; [80-80]
       (=daikanwa	  . 43276)	; &I-M-43276;
-      (shinjigen-2	  .  9135)	; &GT-58120;
+      (=shinjigen@rev	  .  9135)	; &GT-58120;
       (=ucs@jis		  . #x97F6)	; &GT-58120;
       )
      ((=gb2312		  . #x4958)	; &C1-6B69; [41-56]
@@ -545,7 +545,7 @@
       (=gt		  . 58158)	; &I-GT-58158;
       (=gt-pj-1		  . #x3124)	; &I-GT-58158; [17-04]
       (=daikanwa	  . 43307)	; &I-M-43307;
-      (shinjigen-2	  .  9136)	; &GT-58158;
+      (=shinjigen@rev	  .  9136)	; &GT-58158;
       (=ucs@jis		  . #x97FB)	; &GT-58158;
       )
      ((=cns11643-1	  . #x794A)	; &C1-794A; [89-42]
@@ -689,7 +689,7 @@
     (=jis-x0208		. #x3641)	; &GT-58170; [22-33]
     (=gt		. 58170)	; &I-GT-58170;
     (=gt-pj-1		. #x3641)	; &I-GT-58170; [22-33]
-    (shinjigen-1	.  9139)	; &GT-58170;
+    (=shinjigen@1ed	.  9139)	; &GT-58170;
     (=ucs@jis		. #x97FF)	; &GT-58170;
     (mojikyo		. 050573)	; &MCS-6000C58D;
     (<-simplified@JP/Jouyou

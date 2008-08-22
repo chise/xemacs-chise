@@ -1,3 +1,8 @@
+2008-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_add_er_char): Fix problem when a character
+	represented by an entity-reference is not defined.
+
 2008-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h, chartab.c, fns.c, mule-charset.c: Rename Qmap_* to
