@@ -79,12 +79,26 @@ typedef EMACS_INT Lisp_Object;
 
 #define Lisp_Type_Int_Bit (Lisp_Type_Int_Even & Lisp_Type_Int_Odd)
 #define wrap_object(ptr) ((Lisp_Object) (ptr))
-#define make_int(x) ((Lisp_Object) (((x) << INT_GCBITS) | Lisp_Type_Int_Bit))
-#define make_char(x) ((Lisp_Object) (((x) << GCBITS) | Lisp_Type_Char))
+#define make_int(x) ((Lisp_Object) (((EMACS_INT)(x) << INT_GCBITS) | Lisp_Type_Int_Bit))
+#define make_char(x) ((Lisp_Object) (((EMACS_INT)(x) << GCBITS) | Lisp_Type_Char))
 #define VALMASK (((1UL << VALBITS) - 1UL) << GCTYPEBITS)
 #define XTYPE(x) ((enum Lisp_Type) (((EMACS_UINT)(x)) & ~VALMASK))
 #define XPNTRVAL(x) (x) /* This depends on Lisp_Type_Record == 0 */
-#define XCHARVAL(x) ((x) >> GCBITS)
+#if defined(UTF2000) && (SIZEOF_EMACS_INT == 4)
+INLINE_HEADER Emchar XCHARVAL (Lisp_Object chr);
+INLINE_HEADER Emchar
+XCHARVAL (Lisp_Object chr)
+{
+  int code = (EMACS_UINT)(chr) >> GCBITS;
+
+  if (code & 0x20000000)
+    return code | 0x40000000;
+  else
+    return code;
+}
+#else
+#define XCHARVAL(x) ((Emchar)((EMACS_UINT)(x) >> GCBITS))
+#endif
 #define XREALINT(x) ((x) >> INT_GCBITS)
 #define XUINT(x) ((EMACS_UINT)(x) >> INT_GCBITS)
 #define INTP(x) ((EMACS_UINT)(x) & Lisp_Type_Int_Bit)
