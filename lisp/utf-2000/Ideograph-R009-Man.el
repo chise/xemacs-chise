@@ -12676,7 +12676,7 @@
       (=jis-x0213-2-2000  . #x2157)	; &I-JX2-2157; [01-55]
       (=daikanwa	  . 00725)	; &I-M-00725;
       (=shinjigen@1ed	  .  0357)	; &M-00725;
-      (=shinjigen@rev	  .  0375)	; 債
+      (=shinjigen@rev	  .  0357)	; &M-00725;
       (=cbeta		  . 04885)	; &I-CB04885;
       (=jef-china3	  . #x42FE)	; &I-JC3-42FE;
       (=ucs@jis		  . #x4FF2)	; &M-00725;
@@ -12685,9 +12685,10 @@
        ((=jis-x0208	    . #x507B)	; &GT-01222; [48-91]
 	(=daikanwa	    . 00969)	; &I-M-00969;
 	(=shinjigen@1ed	    .  0356)	; &GT-01222;
+	(=shinjigen@rev	    .  0356)	; &GT-01222;
 	))
       (<-vulgar*sources
-       shinjigen@1ed)
+       shinjigen@1ed shinjigen@rev)
       )
      ((hanyu-dazidian	  1 183 1)
       (ideographic-structure
