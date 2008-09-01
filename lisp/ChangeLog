@@ -1,3 +1,10 @@
+2008-08-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=shinjigen): New coded-charset for XEmacs
+	CHISE.
+	(=shinjigen@1ed): Inherited from `=shinjigen'.
+	(=shinjigen@rev): Likewise.
+
 2008-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
