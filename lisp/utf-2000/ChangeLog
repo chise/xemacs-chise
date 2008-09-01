@@ -1,3 +1,20 @@
+2008-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (JX2-2157): Fix `=shinjigen@rev'; add
+	`shinjigen@rev' into `<-vulgar*sources'.
+
+2008-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6E8D): Use `->denotational'.
+	(U-00023E5D): Use `->denotational' and `->subsumptive'.
+	(U+6E8F): Use `->subsumptive'.
+	(U+6E91): Use `->denotational'.
+	(U+6E93): Use `->denotational'.
+	(U+3D25): Use `->denotational' and `->subsumptive'.
+	(U+6E95): Use `->subsumptive'.
+	(U-00023E5E): Use `->subsumptive'.
+	(U+6E96): Use `->subsumptive'.
+
 2008-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Add temporary setting to convert `shinjigen-1' and

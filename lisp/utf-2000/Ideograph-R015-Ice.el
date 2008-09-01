@@ -2116,7 +2116,7 @@
        ((=jis-x0208	    . #x3D60)	; &GT-22976; [29-64]
 	(=ks-x1001	    . #x715E)	; &I-K0-715E; [81-62]
 	(=daikanwa	    . 17934)	; &I-M-17934;
-	(=shinjigen@1ed	    .  4378)	; 準
+	(=shinjigen@1ed	    .  4378)	; &GT-22976;
 	))
       (<-vulgar*sources
        zhengzitong daikanwa shinjigen@1ed)
