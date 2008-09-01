@@ -327,6 +327,16 @@
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
+  (make-charset '=shinjigen
+		"Kadokawa ShinJigen dictionary (common parts)"
+		`(long-name	"Shinjigen common parts"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-*"))
+
   (make-charset '=shinjigen@1ed
 		"Kadokawa ShinJigen dictionary (the first edition)"
 		`(long-name	"Shinjigen-1"
@@ -335,6 +345,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  mother	=shinjigen
 		  registry	"Shinjigen\\(\\.[0-9]+\\)?-1"))
   (define-charset-alias 'shinjigen-1 '=shinjigen@1ed)
 
@@ -356,6 +367,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  mother	=shinjigen
 		  registry	"Shinjigen\\(\\.[0-9]+\\)?-2"))
   (define-charset-alias 'shinjigen-2 '=shinjigen@rev)
   (make-charset '=shinjigen/+p@rev
