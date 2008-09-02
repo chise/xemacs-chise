@@ -309,8 +309,7 @@
       (=gt-k		  . 06456)	; &I-GT-K06456;
       (=gt-pj-1		  . #x3D24)	; &I-GT-00982; [29-04]
       (=daikanwa	  . 00721)	; &I-M-00721;
-      (=shinjigen@1ed	  .  2315)	; &GT-00982;
-      (=shinjigen@rev	  .  2315)	; &GT-00982;
+      (=shinjigen	  .  2315)	; &GT-00982;
       (=ucs@jis		  . #x4FEE)	; &GT-00982;
       )
      ((ideographic-strokes . 7)

@@ -44,8 +44,7 @@
     (=gt		. 65517)	; &I-GT-65517;
     (=gt-k		. 07761)	; &I-GT-K07761;
     (=gt-pj-1		. #x3975)	; &I-GT-65517; [25-85]
-    (=shinjigen@1ed	.  9817)	; 黒
-    (=shinjigen@rev	.  9817)	; 黒
+    (=shinjigen		.  9817)	; 黒
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x9ED1)	; 黑
       (=jis-x0213-1-2000  . #x7E72)	; &I-JX1-7E72; [94-82]
@@ -282,8 +281,7 @@
     (=ucs		. #x9ED4)	; 黔
     (->subsumptive
      ((=daikanwa	  . 48056)	; &M-48056;
-      (=shinjigen@1ed	  .  9820)	; &M-48056;
-      (=shinjigen@rev	  .  9820)	; &M-48056;
+      (=shinjigen	  .  9820)	; &M-48056;
       )
      ((=jis-x0208	  . #x7358)	; &GT-65575; [83-56]
       (=ks-x1001	  . #x4C23)	; &I-K0-4C23; [44-03]

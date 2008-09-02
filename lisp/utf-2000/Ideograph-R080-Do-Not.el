@@ -27,8 +27,7 @@
     (=gt-k		. 00538)	; &I-GT-K00538;
     (=gt-pj-1		. #x5D59)	; &I-GT-21437; [61-57]
     (=daikanwa		. 16721)	; &I-M-16721;
-    (=shinjigen@1ed	.  4007)	; &GT-21437;
-    (=shinjigen@rev	.  4007)	; &GT-21437;
+    (=shinjigen		.  4007)	; &GT-21437;
     (=ucs@jis		. #x6BCB)	; &GT-21437;
     ))
 (define-char
@@ -81,8 +80,7 @@
     (=gt-k		. 01051)	; &I-GT-K01051;
     (=gt-pj-1		. #x4A6C)	; &I-GT-21438; [42-76]
     (=daikanwa		. 16723)	; &I-M-16723;
-    (=shinjigen@1ed	.  4008)	; 母
-    (=shinjigen@rev	.  4008)	; 母
+    (=shinjigen		.  4008)	; 母
     ))
 (define-char
   '((<-denotational

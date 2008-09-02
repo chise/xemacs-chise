@@ -13,8 +13,7 @@
     (=gt-k		. 01582)	; &I-GT-K01582;
     (=gt-pj-1		. #x344C)	; &I-GT-36221; [20-44]
     (=daikanwa		. 28108)	; &I-M-28108;
-    (=shinjigen@1ed	.  6223)	; 缶
-    (=shinjigen@rev	.  6223)	; 缶
+    (=shinjigen		.  6223)	; 缶
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x6625)	; &GT-36314; [70-05]
       (=ks-x1001	  . #x4E38)	; &I-K0-4E38; [46-24]

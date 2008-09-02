@@ -40,8 +40,7 @@
     (=gt		. 12169)	; &I-GT-12169;
     (=gt-pj-1		. #x5021)	; &I-GT-12169; [48-01]
     (=daikanwa		. 09658)	; &I-M-09658;
-    (=shinjigen@1ed	.  0002)	; 弌
-    (=shinjigen@rev	.  0002)	; 弌
+    (=shinjigen		.  0002)	; 弌
     (=cbeta		. 05531)	; &I-CB05531;
     ))
 (define-char
@@ -305,8 +304,7 @@
     (=gt		. 12198)	; &I-GT-12198;
     (=gt-pj-1		. #x5736)	; &I-GT-12198; [55-22]
     (=daikanwa		. 09680)	; &I-M-09680;
-    (=shinjigen@1ed	.  2261)	; &GT-12198;
-    (=shinjigen@rev	.  2261)	; &GT-12198;
+    (=shinjigen		.  2261)	; &GT-12198;
     (=cbeta		. 06128)	; &I-CB06128;
     (=ucs@jis		. #x5F11)	; &GT-12198;
     ))

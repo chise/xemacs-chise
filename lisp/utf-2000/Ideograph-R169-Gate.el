@@ -15,8 +15,7 @@
       (=gt		  . 55423)	; &I-GT-55423;
       (=gt-k		  . 03841)	; &I-GT-K03841;
       (=gt-pj-1		  . #x4C67)	; &I-GT-55423; [44-71]
-      (=shinjigen@1ed	  .  8795)	; &GT-55423;
-      (=shinjigen@rev	  .  8795)	; &GT-55423;
+      (=shinjigen	  .  8795)	; &GT-55423;
       (=ucs@unicode	  . #x9580)	; &GT-55423;
       ))
     ))
@@ -731,8 +730,7 @@
       )
      ((=jis-x0208	  . #x6F5C)	; &J90-6F5C; [79-60]
       (=ks-x1001	  . #x5A4A)	; &I-K0-5A4A; [58-42]
-      (=shinjigen@1ed	  .  8807)	; &J90-6F5C;
-      (=shinjigen@rev	  .  8807)	; &J90-6F5C;
+      (=shinjigen	  .  8807)	; &J90-6F5C;
       (=ucs@jis		  . #x9594)	; &J90-6F5C;
       )
      ((=gt		  . 55474)	; &GT-55474;
@@ -2495,8 +2493,7 @@
       (=ks-x1001	  . #x6722)	; &I-K0-6722; [71-02]
       (=gt		  . 55612)	; &I-GT-55612;
       (=gt-pj-1		  . #x6F65)	; &I-GT-55612; [79-69]
-      (=shinjigen@1ed	  .  8824)	; &GT-55612;
-      (=shinjigen@rev	  .  8824)	; &GT-55612;
+      (=shinjigen	  .  8824)	; &GT-55612;
       (=ucs@jis		  . #x95BB)	; &GT-55612;
       (=ucs@ks		  . #x95BB)	; &GT-55612;
       )
@@ -3141,8 +3138,7 @@
     (=gb12345		. #x402B)	; 闊 [32-11]
     (=gt		. 55664)	; &I-GT-55664;
     (=gt-pj-1		. #x6F68)	; &I-GT-55664; [79-72]
-    (=shinjigen@1ed	.  8831)	; 闊
-    (=shinjigen@rev	.  8831)	; 闊
+    (=shinjigen		.  8831)	; 闊
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
@@ -3193,8 +3189,7 @@
     (=jis-x0208		. #x6F6C)	; &GT-55697; [79-76]
     (=gt		. 55697)	; &I-GT-55697;
     (=gt-pj-1		. #x6F6C)	; &I-GT-55697; [79-76]
-    (=shinjigen@1ed	.  8836)	; &GT-55697;
-    (=shinjigen@rev	.  8836)	; &GT-55697;
+    (=shinjigen		.  8836)	; &GT-55697;
     (=ucs@jis		. #x95CC)	; &GT-55697;
     ))
 (define-char
@@ -3223,8 +3218,7 @@
      ((=jis-x0208	  . #x6F6B)	; &GT-55680; [79-75]
       (=gt		  . 55680)	; &I-GT-55680;
       (=gt-pj-1		  . #x6F6B)	; &I-GT-55680; [79-75]
-      (=shinjigen@1ed	  .  8835)	; &GT-55680;
-      (=shinjigen@rev	  .  8835)	; &GT-55680;
+      (=shinjigen	  .  8835)	; &GT-55680;
       (=ucs@jis		  . #x95CD)	; &GT-55680;
       ))
     ))

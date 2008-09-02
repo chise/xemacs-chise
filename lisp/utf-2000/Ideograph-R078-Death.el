@@ -1455,8 +1455,7 @@
     (=gt		. 21096)	; &I-GT-21096;
     (=gt-pj-1		. #x3C6C)	; &I-GT-21096; [28-76]
     (=daikanwa		. 16451)	; &I-M-16451;
-    (=shinjigen@1ed	.  3974)	; 殊
-    (=shinjigen@rev	.  3974)	; 殊
+    (=shinjigen		.  3974)	; 殊
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
@@ -1475,8 +1474,7 @@
     (->subsumptive
      ((=jis-x0208	  . #x3B44)	; &M-16459; [27-36]
       (=daikanwa	  . 16459)	; &I-M-16459;
-      (=shinjigen@1ed	  .  3972)	; &M-16459;
-      (=shinjigen@rev	  .  3972)	; &M-16459;
+      (=shinjigen	  .  3972)	; &M-16459;
       (=ucs@jis		  . #x6B8B)	; &M-16459;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #x6B98)	; 殘
@@ -2257,8 +2255,7 @@
     (=gt		. 21157)	; &I-GT-21157;
     (=gt-pj-1		. #x3F23)	; &I-GT-21157; [31-03]
     (=daikanwa		. 16502)	; &I-M-16502;
-    (=shinjigen@1ed	.  3977)	; &GT-21157;
-    (=shinjigen@rev	.  3977)	; &GT-21157;
+    (=shinjigen		.  3977)	; &GT-21157;
     (=ucs@jis		. #x6B96)	; &GT-21157;
     ))
 (define-char
@@ -2347,8 +2344,7 @@
     (=gt-k		. 09205)	; &I-GT-K09205;
     (=gt-pj-1		. #x5D4C)	; &I-GT-21155; [61-44]
     (=daikanwa		. 16506)	; &I-M-16506;
-    (=shinjigen@1ed	.  3973)	; 殘
-    (=shinjigen@rev	.  3973)	; 殘
+    (=shinjigen		.  3973)	; 殘
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍

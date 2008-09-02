@@ -13,8 +13,7 @@
       (=gt-k		  . 00492)	; &I-GT-K00492;
       (=gt-pj-1		  . #x4C53)	; &I-GT-21495; [44-51]
       (=daikanwa	  . 16772)	; &I-M-16772;
-      (=shinjigen@1ed	  .  4018)	; &GT-21495;
-      (=shinjigen@rev	  .  4018)	; &GT-21495;
+      (=shinjigen	  .  4018)	; &GT-21495;
       (=ucs@unicode	  . #x6BDB)	; &GT-21495;
       )
      ((=cns11643-1	  . #x4553)	; &C1-4553; [37-51]

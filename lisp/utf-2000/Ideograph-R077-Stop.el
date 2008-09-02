@@ -13,8 +13,7 @@
     (=gt-k		. 00438)	; &I-GT-K00438;
     (=gt-pj-1		. #x3B5F)	; &I-GT-20884; [27-63]
     (=daikanwa		. 16253)	; &I-M-16253;
-    (=shinjigen@1ed	.  3947)	; 止
-    (=shinjigen@rev	.  3947)	; 止
+    (=shinjigen		.  3947)	; 止
     ))
 (define-char
   '((=>ucs		. #x6B62)	; 止
@@ -89,8 +88,7 @@
     (=gt-k		. 00963)	; &I-GT-K00963;
     (=gt-pj-1		. #x4035)	; &I-GT-20886; [32-21]
     (=daikanwa		. 16255)	; &I-M-16255;
-    (=shinjigen@1ed	.  3948)	; 正
-    (=shinjigen@rev	.  3948)	; 正
+    (=shinjigen		.  3948)	; 正
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
@@ -546,8 +544,7 @@
       (=gt-k		  . 03986)	; &I-GT-K03986;
       (=gt-pj-1		  . #x4A62)	; &I-GT-20914; [42-66]
       (=daikanwa	  . 16284)	; &I-M-16284;
-      (=shinjigen@1ed	  .  3952)	; &GT-20914;
-      (=shinjigen@rev	  .  3952)	; &GT-20914;
+      (=shinjigen	  .  3952)	; &GT-20914;
       (=ucs@jis		  . #x6B69)	; &GT-20914;
       (<-simplified@JP/Jouyou
        ((=ks-x1001	    . #x5C46)	; &M-16264; [60-38]
@@ -946,7 +943,7 @@
       (=ks-x1001	  . #x4F7D)	; &I-K0-4F7D; [47-93]
       (=cns11643-1	  . #x7657)	; &I-C1-7657; [86-55]
       (=daikanwa	  . 16349)	; &I-M-16349;
-      (=shinjigen@1ed	  .  3960)	; &GT-20995;
+      (=shinjigen	  .  3960)	; &GT-20995;
       ))
     (<-original*sources
      shinjigen@1ed)
@@ -1256,8 +1253,7 @@
       (<-vulgar*sources
        songyuanyilai-suzipu daikanwa)
       )
-     ((=shinjigen@1ed	  .  9882)	; &SJG2-9882;
-      (=shinjigen@rev	  .  9882)	; &SJG2-9882;
+     ((=shinjigen	  .  9882)	; &SJG2-9882;
       )
      ((=cns11643-3	  . #x3C47)	; &C3-3C47; [28-39]
       ))
@@ -1394,8 +1390,7 @@
     (=gt		. 20964)	; &I-GT-20964;
     (=gt-k		. 10209)	; &I-GT-K10209;
     (=gt-pj-1		. #x3A50)	; &I-GT-20964; [26-48]
-    (=shinjigen@1ed	.  3955)	; 歳
-    (=shinjigen@rev	.  3955)	; 歳
+    (=shinjigen		.  3955)	; 歳
     (<-simplified@JP
      ((=cns11643-1	  . #x6459)	; &M-16326; [68-57]
       (=daikanwa	  . 16326)	; &I-M-16326;
@@ -1831,8 +1826,7 @@
     (=gt		. 20995)	; &I-GT-20995;
     (=gt-pj-1		. #x5D45)	; &I-GT-20995; [61-37]
     (=daikanwa		. 16349)	; &I-M-16349;
-    (=shinjigen@1ed	.  3960)	; &GT-20995;
-    (=shinjigen@rev	.  3960)	; &GT-20995;
+    (=shinjigen		.  3960)	; &GT-20995;
     (=ucs@jis		. #x6B78)	; &GT-20995;
     ))
 (define-char

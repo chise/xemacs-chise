@@ -11,8 +11,7 @@
       (=gt-k		  . 00537)	; &I-GT-K00537;
       (=gt-pj-1		  . #x5D55)	; &I-GT-21300; [61-53]
       (=daikanwa	  . 16613)	; &I-M-16613;
-      (=shinjigen@1ed	  .  3991)	; &GT-21300;
-      (=shinjigen@rev	  .  3991)	; &GT-21300;
+      (=shinjigen	  .  3991)	; &GT-21300;
       (=ucs@jis		  . #x6BB3)	; &GT-21300;
       )
      ((=gb2312		  . #x6C2F)	; &C2-213F; [76-15]
@@ -330,8 +329,7 @@
       (=gt-k		  . 06440)	; &I-GT-K06440;
       (=gt-pj-1		  . #x3B26)	; &I-GT-21319; [27-06]
       (=daikanwa	  . 16629)	; &I-M-16629;
-      (=shinjigen@1ed	  .  3996)	; &GT-21319;
-      (=shinjigen@rev	  .  3996)	; &GT-21319;
+      (=shinjigen	  .  3996)	; &GT-21319;
       (=ucs@jis		  . #x6BBA)	; &GT-21319;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #xF970)	; 殺
@@ -752,8 +750,7 @@
       (=gt		  . 21339)	; &I-GT-21339;
       (=gt-pj-1		  . #x5D57)	; &I-GT-21339; [61-55]
       (=daikanwa	  . 16646)	; &I-M-16646;
-      (=shinjigen@1ed	  .  4000)	; &GT-21339;
-      (=shinjigen@rev	  .  4000)	; &GT-21339;
+      (=shinjigen	  .  4000)	; &GT-21339;
       (=ucs@jis		  . #x6BBC)	; &GT-21339;
       )
      ((=cns11643-1	  . #x6026)	; &C1-6026; [64-06]

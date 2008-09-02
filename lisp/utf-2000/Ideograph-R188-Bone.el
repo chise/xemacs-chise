@@ -18,8 +18,7 @@
       (=gt-k		  . 06431)	; &I-GT-K06431;
       (=gt-pj-1		  . #x397C)	; &I-GT-60709; [25-92]
       (=daikanwa	  . 45098)	; &I-M-45098;
-      (=shinjigen@1ed	  .  9431)	; &GT-60709;
-      (=shinjigen@rev	  .  9431)	; &GT-60709;
+      (=shinjigen	  .  9431)	; &GT-60709;
       (=ucs@jis		  . #x9AA8)	; &GT-60709;
       )
      ((=cns11643-1	  . #x586C)	; &C1-586C; [56-76]

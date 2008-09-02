@@ -13,8 +13,7 @@
       (=gt-k		  . 01686)	; &I-GT-K01686;
       (=gt-pj-1		  . #x4A46)	; &I-GT-34594; [42-38]
       (=daikanwa	  . 26832)	; &I-M-26832;
-      (=shinjigen@1ed	  .  5898)	; &GT-34594;
-      (=shinjigen@rev	  .  5898)	; &GT-34594;
+      (=shinjigen	  .  5898)	; &GT-34594;
       (=ucs@unicode	  . #x7C73)	; &GT-34594;
       )
      ((=cns11643-1	  . #x484D)	; &C1-484D; [40-45]
@@ -473,8 +472,7 @@
       (=jis-x0208@1990	  . #x4A34)	; &I-J90-4A34; [42-20]
       (=gt		  . 34641)	; &I-GT-34641;
       (=gt-pj-1		  . #x4A34)	; &I-GT-34641; [42-20]
-      (=shinjigen@1ed	  .  5904)	; &GT-34641;
-      (=shinjigen@rev	  .  5904)	; &GT-34641;
+      (=shinjigen	  .  5904)	; &GT-34641;
       (=ucs@unicode	  . #x7C89)	; &GT-34641;
       ))
     ))
@@ -512,8 +510,7 @@
     (=gt		. 34630)	; &I-GT-34630;
     (=gt-pj-1		. #x3F68)	; &I-GT-34630; [31-72]
     (=daikanwa		. 26875)	; &I-M-26875;
-    (=shinjigen@1ed	.  5902)	; 粋
-    (=shinjigen@rev	.  5902)	; 粋
+    (=shinjigen		.  5902)	; 粋
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x646F)	; &GT-34787; [68-79]
       (=ks-x1001	  . #x6236)	; &I-K0-6236; [66-22]
@@ -1032,8 +1029,7 @@
       (=gt-k		  . 08990)	; &I-GT-K08990;
       (=gt-pj-1		  . #x3040)	; &I-GT-34709; [16-32]
       (=daikanwa	  . 26922)	; &I-M-26922;
-      (=shinjigen@1ed	  .  5918)	; &GT-34709;
-      (=shinjigen@rev	  .  5918)	; &GT-34709;
+      (=shinjigen	  .  5918)	; &GT-34709;
       (=ucs@unicode	  . #x7C9F)	; &GT-34709;
       )
      ((=cns11643-1	  . #x6135)	; &C1-6135; [65-21]
@@ -1142,8 +1138,7 @@
       (=gt		  . 34702)	; &I-GT-34702;
       (=gt-pj-1		  . #x6467)	; &I-GT-34702; [68-71]
       (=daikanwa	  . 26932)	; &I-M-26932;
-      (=shinjigen@1ed	  .  5914)	; &GT-34702;
-      (=shinjigen@rev	  .  5914)	; &GT-34702;
+      (=shinjigen	  .  5914)	; &GT-34702;
       (=ucs@jis		  . #x7CA2)	; &GT-34702;
       )
      ((=cns11643-2	  . #x3E6B)	; &C2-3E6B; [30-75]
@@ -1887,8 +1882,7 @@
       (=gt		  . 34787)	; &I-GT-34787;
       (=gt-pj-1		  . #x646F)	; &I-GT-34787; [68-79]
       (=daikanwa	  . 26987)	; &I-M-26987;
-      (=shinjigen@1ed	  .  5903)	; &GT-34787;
-      (=shinjigen@rev	  .  5903)	; &GT-34787;
+      (=shinjigen	  .  5903)	; &GT-34787;
       (=ucs@jis		  . #x7CB9)	; &GT-34787;
       )
      ((=gb2312		  . #x3462)	; &C1-6A32; [20-66]

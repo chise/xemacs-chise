@@ -13,8 +13,7 @@
     (=gt-k		. 00443)	; &I-GT-K00443;
     (=gt-pj-1		. #x3C6A)	; &I-GT-14889; [28-74]
     (=daikanwa		. 11768)	; &I-M-11768;
-    (=shinjigen@1ed	.  2807)	; 手
-    (=shinjigen@rev	.  2807)	; 手
+    (=shinjigen		.  2807)	; 手
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -36,8 +35,7 @@
     (=gt-k		. 00175)	; &I-GT-K00175;
     (=gt-pj-1		. #x3A4D)	; &I-GT-14886; [26-45]
     (=daikanwa		. 11769)	; &I-M-11769;
-    (=shinjigen@1ed	.  2806)	; &GT-14886;
-    (=shinjigen@rev	.  2806)	; &GT-14886;
+    (=shinjigen		.  2806)	; &GT-14886;
     (=ucs@jis		. #x624D)	; &GT-14886;
     (=ucs@big5		. #x624D)	; &GT-14886;
     ))
@@ -108,8 +106,7 @@
     (=gt-k		. 00528)	; &I-GT-K00528;
     (=gt-pj-1		. #x5929)	; &I-GT-14888; [57-09]
     (=daikanwa		. 11771)	; &I-M-11771;
-    (=shinjigen@1ed	.  2808)	; 扎
-    (=shinjigen@rev	.  2808)	; 扎
+    (=shinjigen		.  2808)	; 扎
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -978,8 +975,7 @@
     (=big5		. #xCAED)	; &I-B-CAED;
     (=gt		. 14934)	; &I-GT-14934;
     (=gt-pj-1		. #x3037)	; &I-GT-14934; [16-23]
-    (=shinjigen@1ed	.  2820)	; &GT-14934;
-    (=shinjigen@rev	.  2820)	; &GT-14934;
+    (=shinjigen		.  2820)	; &GT-14934;
     (=ucs@unicode	. #x6271)	; &GT-14934;
     ))
 (define-char
@@ -1041,7 +1037,7 @@
       (<-vulgar
        ((=jis-x0208	    . #x3177)	; &GT-17222; [17-87]
 	(=ks-x1001	    . #x655A)	; &I-K0-655A; [69-58]
-	(=shinjigen@1ed	    .  3237)	; &GT-17222;
+	(=shinjigen	    .  3237)	; &GT-17222;
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -2480,8 +2476,7 @@
     (=gt		. 15074)	; &I-GT-15074;
     (=gt-pj-1		. #x4334)	; &I-GT-15074; [35-20]
     (=daikanwa		. 11941)	; &I-M-11941;
-    (=shinjigen@1ed	.  2875)	; 担
-    (=shinjigen@rev	.  2875)	; 担
+    (=shinjigen		.  2875)	; 担
     (=cbeta		. 00797)	; &I-CB00797;
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x593F)	; &GT-16213; [57-31]
@@ -2526,8 +2521,7 @@
       (=gt		  . 15072)	; &I-GT-15072;
       (=gt-pj-1		  . #x593E)	; &I-GT-15072; [57-30]
       (=daikanwa	  . 11943)	; &I-M-11943;
-      (=shinjigen@1ed	  .  2874)	; &GT-15072;
-      (=shinjigen@rev	  .  2874)	; &GT-15072;
+      (=shinjigen	  .  2874)	; &GT-15072;
       (=ucs@unicode	  . #x62C6)	; &GT-15072;
       )
      ((=cns11643-1	  . #x4D70)	; &C1-4D70; [45-80]
@@ -2546,8 +2540,7 @@
     (=gt		. 15103)	; &I-GT-15103;
     (=gt-pj-1		. #x5945)	; &I-GT-15103; [57-37]
     (=daikanwa		. 11944)	; &I-M-11944;
-    (=shinjigen@1ed	.  2888)	; 拇
-    (=shinjigen@rev	.  2888)	; 拇
+    (=shinjigen		.  2888)	; 拇
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -2563,8 +2556,7 @@
     (=gt-k		. 03880)	; &I-GT-K03880;
     (=gt-pj-1		. #x5940)	; &I-GT-15081; [57-32]
     (=daikanwa		. 11945)	; &I-M-11945;
-    (=shinjigen@1ed	.  2880)	; 拈
-    (=shinjigen@rev	.  2880)	; 拈
+    (=shinjigen		.  2880)	; 拈
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -2718,8 +2710,7 @@
      ((=jis-x0208@1978	  . #x593C)	; &M-11954; [57-28]
       (=jis-x0208@1983	  . #x593C)	; &I-J83-593C; [57-28]
       (=daikanwa	  . 11954)	; &I-M-11954;
-      (=shinjigen@1ed	  .  2870)	; &M-11954;
-      (=shinjigen@rev	  .  2870)	; &M-11954;
+      (=shinjigen	  .  2870)	; &M-11954;
       )
      ((=cns11643-2	  . #x2A55)	; &C2-2A55; [10-53]
       (=ucs@cns		  . #x62CF)	; &C2-2A55;
@@ -2984,8 +2975,7 @@
     (=gt-k		. 03746)	; &I-GT-K03746;
     (=gt-pj-1		. #x3E37)	; &I-GT-15060; [30-23]
     (=daikanwa		. 11968)	; &I-M-11968;
-    (=shinjigen@1ed	.  2865)	; 招
-    (=shinjigen@rev	.  2865)	; 招
+    (=shinjigen		.  2865)	; 招
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -3000,8 +2990,7 @@
       (=gt-k		  . 05249)	; &I-GT-K05249;
       (=gt-pj-1		  . #x5941)	; &I-GT-15211; [57-33]
       (=daikanwa	  . 11969)	; &I-M-11969;
-      (=shinjigen@1ed	  .  2882)	; &GT-15211;
-      (=shinjigen@rev	  .  2882)	; &GT-15211;
+      (=shinjigen	  .  2882)	; &GT-15211;
       (=ucs@jis		  . #x62DC)	; &GT-15211;
       (=ucs@big5	  . #x62DC)	; &GT-15211;
       )
@@ -3199,8 +3188,7 @@
       (=gt		  . 15043)	; &I-GT-15043;
       (=gt-pj-1		  . #x3572)	; &I-GT-15043; [21-82]
       (=daikanwa	  . 11985)	; &I-M-11985;
-      (=shinjigen@1ed	  .  2860)	; &GT-15043;
-      (=shinjigen@rev	  .  2860)	; &GT-15043;
+      (=shinjigen	  .  2860)	; &GT-15043;
       (=ucs@unicode	  . #x62E0)	; &GT-15043;
       (<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x5A21)	; &GT-16169; [58-01]
@@ -3346,8 +3334,7 @@
     (=gt-k		. 05039)	; &I-GT-K05039;
     (=gt-pj-1		. #x3367)	; &I-GT-15137; [19-71]
     (=daikanwa		. 11988)	; &I-M-11988;
-    (=shinjigen@1ed	.  2899)	; 括
-    (=shinjigen@rev	.  2899)	; 括
+    (=shinjigen		.  2899)	; 括
     (<-formed
      ((=ks-x1001	  . #x4E41)	; &M-38844; [46-33]
       (=jis-x0212	  . #x614B)	; &I-JSP-614B; [65-43]
@@ -3384,8 +3371,7 @@
     (=gt		. 15139)	; &I-GT-15139;
     (=gt-pj-1		. #x5949)	; &I-GT-15139; [57-41]
     (=daikanwa		. 11990)	; &I-M-11990;
-    (=shinjigen@1ed	.  2900)	; 拮
-    (=shinjigen@rev	.  2900)	; 拮
+    (=shinjigen		.  2900)	; 拮
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -4044,8 +4030,7 @@
     (=gt		. 15122)	; &I-GT-15122;
     (=gt-pj-1		. #x3044)	; &I-GT-15122; [16-36]
     (=daikanwa		. 12038)	; &I-M-12038;
-    (=shinjigen@1ed	.  2897)	; 按
-    (=shinjigen@rev	.  2897)	; 按
+    (=shinjigen		.  2897)	; 按
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -15169,8 +15154,7 @@
       (=gt		  . 16122)	; &I-GT-16122;
       (=gt-pj-1		  . #x4732)	; &I-GT-16122; [39-18]
       (=daikanwa	  . 12713)	; &I-M-12713;
-      (=shinjigen@1ed	  .  3087)	; &GT-16122;
-      (=shinjigen@rev	  .  3087)	; &GT-16122;
+      (=shinjigen	  .  3087)	; &GT-16122;
       (=ucs@unicode	  . #x649A)	; &GT-16122;
       )
      ((=cns11643-1	  . #x6D29)	; &C1-6D29; [77-09]

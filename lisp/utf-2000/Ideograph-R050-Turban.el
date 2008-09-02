@@ -81,8 +81,7 @@
       (=gt-k		  . 00943)	; &I-GT-K00943;
       (=gt-pj-1		  . #x3B54)	; &I-GT-11066; [27-52]
       (=daikanwa	  . 08775)	; &I-M-08775;
-      (=shinjigen@1ed	  .  2082)	; &GT-11066;
-      (=shinjigen@rev	  .  2082)	; &GT-11066;
+      (=shinjigen	  .  2082)	; &GT-11066;
       (=ucs@jis		  . #x5E02)	; &GT-11066;
       )
      ((ideographic-structure
@@ -1090,8 +1089,7 @@
       (=gt-k		  . 03870)	; &I-GT-K03870;
       (=gt-pj-1		  . #x5664)	; &I-GT-11133; [54-68]
       (=daikanwa	  . 08854)	; &I-M-08854;
-      (=shinjigen@1ed	  .  2091)	; &GT-11133;
-      (=shinjigen@rev	  .  2091)	; &GT-11133;
+      (=shinjigen	  .  2091)	; &GT-11133;
       (=ucs@jis		  . #x5E1A)	; &GT-11133;
       (=ucs@big5	  . #x5E1A)	; &GT-11133;
       )
@@ -2202,8 +2200,7 @@
     (=gt-k		. 06496)	; &I-GT-K06496;
     (=gt-pj-1		. #x4253)	; &I-GT-11232; [34-51]
     (=daikanwa		. 08929)	; &I-M-08929;
-    (=shinjigen@1ed	.  2108)	; 帯
-    (=shinjigen@rev	.  2108)	; 帯
+    (=shinjigen		.  2108)	; 帯
     (=hanziku-2		. #xEA58)	; &I-HZK02-EA58;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x5E36)	; 帶
@@ -2231,8 +2228,7 @@
       (=gt-k		  . 06395)	; &I-GT-K06395;
       (=gt-pj-1		  . #x3522)	; &I-GT-11209; [21-02]
       (=daikanwa	  . 08930)	; &I-M-08930;
-      (=shinjigen@1ed	  .  3959)	; &GT-11209;
-      (=shinjigen@rev	  .  3959)	; &GT-11209;
+      (=shinjigen	  .  3959)	; &GT-11209;
       (=ucs@unicode	  . #x5E30)	; &GT-11209;
       )
      ((=jis-x0208@1990	  . #x3522)	; &J90-3522; [21-02]
@@ -2563,8 +2559,7 @@
     (=gt-k		. 07928)	; &I-GT-K07928;
     (=gt-pj-1		. #x5668)	; &I-GT-11273; [54-72]
     (=daikanwa		. 08950)	; &I-M-08950;
-    (=shinjigen@1ed	.  2109)	; 帶
-    (=shinjigen@rev	.  2109)	; 帶
+    (=shinjigen		.  2109)	; 帶
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱

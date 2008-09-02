@@ -13,8 +13,7 @@
       (=gt-k		  . 01708)	; &I-GT-K01708;
       (=gt-pj-1		  . #x4F37)	; &I-GT-37307; [47-23]
       (=daikanwa	  . 28842)	; &I-M-28842;
-      (=shinjigen@1ed	  .  6340)	; &GT-37307;
-      (=shinjigen@rev	  .  6340)	; &GT-37307;
+      (=shinjigen	  .  6340)	; &GT-37307;
       (=ucs@unicode	  . #x8001)	; &GT-37307;
       )
      ((=cns11643-1	  . #x4852)	; &C1-4852; [40-50]
@@ -66,8 +65,7 @@
       (=gt		  . 37305)	; &I-GT-37305;
       (=gt-k		  . 01611)	; &I-GT-K01611;
       (=gt-pj-1		  . #x394D)	; &I-GT-37305; [25-45]
-      (=shinjigen@1ed	  .  6339)	; &GT-37305;
-      (=shinjigen@rev	  .  6339)	; &GT-37305;
+      (=shinjigen	  .  6339)	; &GT-37305;
       (=ucs@jis		  . #x8003)	; &GT-37305;
       ))
     ))
@@ -198,8 +196,7 @@
     (=gt-k		. 03731)	; &I-GT-K03731;
     (=gt-pj-1		. #x3C54)	; &I-GT-37308; [28-52]
     (=daikanwa		. 28852)	; &I-M-28852;
-    (=shinjigen@1ed	.  6342)	; &GT-37308;
-    (=shinjigen@rev	.  6342)	; &GT-37308;
+    (=shinjigen		.  6342)	; &GT-37308;
     (=ucs@unicode	. #x8005)	; &GT-37308;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA5B)	; 者

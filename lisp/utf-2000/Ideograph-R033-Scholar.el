@@ -91,8 +91,7 @@
     (=gt-k		. 01660)	; &I-GT-K01660;
     (=gt-pj-1		. #x4154)	; &I-GT-07139; [33-52]
     (=daikanwa		. 05642)	; &I-M-05642;
-    (=shinjigen@1ed	.  1526)	; 壮
-    (=shinjigen@rev	.  1526)	; 壮
+    (=shinjigen		.  1526)	; 壮
     (=hanziku-2		. #xA6B0)	; &I-HZK02-A6B0;
     (<-simplified@CN
      ((=gb12345		  . #x5733)	; &GT-07142; [55-19]
@@ -131,8 +130,7 @@
       (=gt-k		  . 02691)	; &I-GT-K02691;
       (=gt-pj-1		  . #x5463)	; &I-GT-07142; [52-67]
       (=daikanwa	  . 05643)	; &I-M-05643;
-      (=shinjigen@1ed	  .  1527)	; &GT-07142;
-      (=shinjigen@rev	  .  1527)	; &GT-07142;
+      (=shinjigen	  .  1527)	; &GT-07142;
       (=ucs@unicode	  . #x58EF)	; &GT-07142;
       )
      ((ideographic-structure
@@ -177,8 +175,7 @@
     (=gt-k		. 02590)	; &I-GT-K02590;
     (=gt-pj-1		. #x403C)	; &I-GT-07143; [32-28]
     (=daikanwa		. 05645)	; &I-M-05645;
-    (=shinjigen@1ed	.  6398)	; 声
-    (=shinjigen@rev	.  6398)	; 声
+    (=shinjigen		.  6398)	; 声
     (<-simplified@CN
      ((=gb12345		  . #x4979)	; &UU+8072; [41-89]
       ))
@@ -238,8 +235,7 @@
     (=gt		. 07140)	; &I-GT-07140;
     (=gt-pj-1		. #x306D)	; &I-GT-07140; [16-77]
     (=daikanwa		. 05647)	; &I-M-05647;
-    (=shinjigen@1ed	.  1528)	; 壱
-    (=shinjigen@rev	.  1528)	; 壱
+    (=shinjigen		.  1528)	; 壱
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x58F9)	; 壹
       (=jis-x0208	  . #x5465)	; &I-J90-5465; [52-69]
@@ -264,8 +260,7 @@
     (=gt		. 07145)	; &I-GT-07145;
     (=gt-k		. 02771)	; &I-GT-K02771;
     (=gt-pj-1		. #x4764)	; &I-GT-07145; [39-68]
-    (=shinjigen@1ed	.  7905)	; 売
-    (=shinjigen@rev	.  7905)	; 売
+    (=shinjigen		.  7905)	; 売
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x8CE3)	; 賣
       (=jis-x0208	  . #x6C4E)	; &I-J90-6C4E; [76-46]
@@ -542,8 +537,7 @@
     (=gt-k		. 09176)	; &I-GT-K09176;
     (=gt-pj-1		. #x5465)	; &I-GT-07165; [52-69]
     (=daikanwa		. 05661)	; &I-M-05661;
-    (=shinjigen@1ed	.  1529)	; 壹
-    (=shinjigen@rev	.  1529)	; 壹
+    (=shinjigen		.  1529)	; 壹
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
@@ -603,8 +597,7 @@
       (=gt		  . 07170)	; &I-GT-07170;
       (=gt-pj-1		  . #x5466)	; &I-GT-07170; [52-70]
       (=daikanwa	  . 05664)	; &I-M-05664;
-      (=shinjigen@1ed	  .  1704)	; &GT-07170;
-      (=shinjigen@rev	  .  1704)	; &GT-07170;
+      (=shinjigen	  .  1704)	; &GT-07170;
       (=hanziku-2	  . #xB0AC)	; &I-HZK02-B0AC;
       (=ucs@unicode	  . #x58FB)	; &GT-07170;
       )

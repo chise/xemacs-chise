@@ -1876,8 +1876,7 @@
     (=jis-x0208@1978	. #x303B)	; &M-44080; [16-27]
     (=ks-x1001		. #x6C47)	; &I-K0-6C47; [76-39]
     (=daikanwa		. 44080)	; &I-M-44080;
-    (=shinjigen@1ed	.  9250)	; &M-44080;
-    (=shinjigen@rev	.  9250)	; &M-44080;
+    (=shinjigen		.  9250)	; &M-44080;
     ))
 (define-char
   '((<-denotational

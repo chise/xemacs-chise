@@ -176,8 +176,7 @@
       (=gt-k		  . 01624)	; &I-GT-K01624;
       (=gt-pj-1		  . #x3B7A)	; &I-GT-08734; [27-90]
       (=daikanwa	  . 06942)	; &I-M-06942;
-      (=shinjigen@1ed	  .  1777)	; &GT-08734;
-      (=shinjigen@rev	  .  1777)	; &GT-08734;
+      (=shinjigen	  .  1777)	; &GT-08734;
       (=ucs@jis		  . #x5B57)	; &GT-08734;
       )
      ((=gb2312		  . #x5756)	; &C1-4773; [55-54]
@@ -456,12 +455,11 @@
       )
      ((=gt		  . 17011)	; &GT-17011;
       (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
-      (=shinjigen@1ed	  .  1786)	; &GT-17011;
-      (=shinjigen@rev	  .  1786)	; &GT-17011;
+      (=shinjigen	  .  1786)	; &GT-17011;
       (<-vulgar
        ((=ucs		    . #x5B78)	; 學
 	(=jis-x0208	    . #x555C)	; &I-J90-555C; [53-60]
-	(=shinjigen@1ed	    .  1783)	; 學
+	(=shinjigen	    .  1783)	; 學
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -675,8 +673,7 @@
     (=gt-k		. 03657)	; &I-GT-K03657;
     (=gt-pj-1		. #x3358)	; &I-GT-08752; [19-56]
     (=daikanwa		. 06974)	; &I-M-06974;
-    (=shinjigen@1ed	.  1782)	; 学
-    (=shinjigen@rev	.  1782)	; 学
+    (=shinjigen		.  1782)	; 学
     (=hanziku-3		. #xCF41)	; &I-HZK03-CF41;
     (<-simplified@CN
      ((=ucs		  . #x5B78)	; 學
@@ -840,8 +837,7 @@
       (=gt-k		  . 06495)	; &I-GT-K06495;
       (=gt-pj-1		  . #x4239)	; &I-GT-08784; [34-25]
       (=daikanwa	  . 06987)	; &I-M-06987;
-      (=shinjigen@1ed	  .  1792)	; &GT-08784;
-      (=shinjigen@rev	  .  1792)	; &GT-08784;
+      (=shinjigen	  .  1792)	; &GT-08784;
       (=ucs@jis		  . #x5B6B)	; &GT-08784;
       (=ucs@big5	  . #x5B6B)	; &GT-08784;
       (<-formed
@@ -1410,8 +1406,7 @@
     (=gt		. 08840)	; &I-GT-08840;
     (=gt-pj-1		. #x555C)	; &I-GT-08840; [53-60]
     (=daikanwa		. 07033)	; &I-M-07033;
-    (=shinjigen@1ed	.  1783)	; 學
-    (=shinjigen@rev	.  1783)	; 學
+    (=shinjigen		.  1783)	; 學
     ))
 (define-char
   '((=>ucs		. #x2199F)	; 𡦟

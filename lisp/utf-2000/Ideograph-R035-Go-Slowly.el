@@ -10,8 +10,7 @@
       (=gt		  . 07225)	; &I-GT-07225;
       (=gt-pj-1		  . #x546A)	; &I-GT-07225; [52-74]
       (=daikanwa	  . 05708)	; &I-M-05708;
-      (=shinjigen@1ed	  .  1538)	; &GT-07225;
-      (=shinjigen@rev	  .  1538)	; &GT-07225;
+      (=shinjigen	  .  1538)	; &GT-07225;
       (=ucs@jis		  . #x590A)	; &GT-07225;
       )
      ((=cns11643-3	  . #x213A)	; &CDP-8A71; [01-26]
@@ -399,8 +398,7 @@
     (=gt		. 07217)	; &I-GT-07217;
     (=gt-k		. 06381)	; &I-GT-K06381;
     (=gt-pj-1		. #x3246)	; &I-GT-07217; [18-38]
-    (=shinjigen@1ed	.  1539)	; &GT-07217;
-    (=shinjigen@rev	.  1539)	; &GT-07217;
+    (=shinjigen		.  1539)	; &GT-07217;
     (=ucs@unicode	. #x590F)	; &GT-07217;
     ))
 (define-char

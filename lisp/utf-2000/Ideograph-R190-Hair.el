@@ -2787,8 +2787,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 25)
     (=jis-x0208		. #x7227)	; &J90-7227; [82-07]
-    (=shinjigen@1ed	.  9491)	; &J90-7227;
-    (=shinjigen@rev	.  9491)	; &J90-7227;
+    (=shinjigen		.  9491)	; &J90-7227;
     (=ucs@jis		. #x9B23)	; &J90-7227;
     ))
 (define-char

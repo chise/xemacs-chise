@@ -1358,8 +1358,7 @@
 	(=gt		    . 36431)	; &I-GT-36431;
 	(=gt-k		    . 10212)	; &I-GT-K10212;
 	(=gt-pj-1	    . #x3A61)	; &I-GT-36431; [26-65]
-	(=shinjigen@1ed	    .  6250)	; &GT-36431;
-	(=shinjigen@rev	    .  6250)	; &GT-36431;
+	(=shinjigen	    .  6250)	; &GT-36431;
 	(=ucs@jis	    . #x7F6A)	; &GT-36431;
 	))
       )

@@ -153,8 +153,7 @@
     (=gt		. 53953)	; &I-GT-53953;
     (=gt-pj-1		. #x6E58)	; &I-GT-53953; [78-56]
     (=daikanwa		. 40121)	; &I-M-40121;
-    (=shinjigen@1ed	.  8562)	; &GT-53953;
-    (=shinjigen@rev	.  8562)	; &GT-53953;
+    (=shinjigen		.  8562)	; &GT-53953;
     (=ucs@unicode	. #x91C9)	; &GT-53953;
     ))
 (define-char

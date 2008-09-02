@@ -13,8 +13,7 @@
     (=gt-k		. 00271)	; &I-GT-K00271;
     (=gt-pj-1		. #x3B33)	; &I-GT-09897; [27-19]
     (=daikanwa		. 07869)	; &I-M-07869;
-    (=shinjigen@1ed	.  1955)	; 山
-    (=shinjigen@rev	.  1955)	; 山
+    (=shinjigen		.  1955)	; 山
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -826,8 +825,7 @@
       (=gt-k		  . 02700)	; &I-GT-K02700;
       (=gt-pj-1		  . #x562A)	; &I-GT-09990; [54-10]
       (=daikanwa	  . 07937)	; &I-M-07937;
-      (=shinjigen@1ed	  .  1961)	; &GT-09990;
-      (=shinjigen@rev	  .  1961)	; &GT-09990;
+      (=shinjigen	  .  1961)	; &GT-09990;
       (=ucs@jis		  . #x5C91)	; &GT-09990;
       )
      ((=gb2312		  . #x612F)	; &G0-612F; [65-15]
@@ -1568,8 +1566,7 @@
     (=gt-k		. 03658)	; &I-GT-K03658;
     (=gt-pj-1		. #x3359)	; &I-GT-10017; [19-57]
     (=daikanwa		. 08001)	; &I-M-08001;
-    (=shinjigen@1ed	.  1962)	; 岳
-    (=shinjigen@rev	.  1962)	; 岳
+    (=shinjigen		.  1962)	; 岳
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x5656)	; &GT-10778; [54-54]
       (=ks-x1001	  . #x6440)	; &I-K0-6440; [68-32]
@@ -2346,8 +2343,7 @@
       (=gt		  . 10140)	; &I-GT-10140;
       (=gt-pj-1		  . #x463D)	; &I-GT-10140; [38-29]
       (=daikanwa	  . 08068)	; &I-M-08068;
-      (=shinjigen@1ed	  .  1980)	; &GT-10140;
-      (=shinjigen@rev	  .  1980)	; &GT-10140;
+      (=shinjigen	  .  1980)	; &GT-10140;
       (=cbeta		  . 05888)	; &I-CB05888;
       (=ucs@jis		  . #x5CE0)	; &GT-10140;
       )
@@ -3222,8 +3218,7 @@
       (=gt		  . 10173)	; &I-GT-10173;
       (=gt-pj-1		  . #x5637)	; &I-GT-10173; [54-23]
       (=daikanwa	  . 08122)	; &I-M-08122;
-      (=shinjigen@1ed	  .  1976)	; &GT-10173;
-      (=shinjigen@rev	  .  1976)	; &GT-10173;
+      (=shinjigen	  .  1976)	; &GT-10173;
       (=ucs@jis		  . #x5CFD)	; &GT-10173;
       )
      ((=gb12345		  . #x4F3F)	; &UU+5CFD; [47-31]
@@ -3965,8 +3960,7 @@
       (=gt-k		  . 07927)	; &I-GT-K07927;
       (=gt-pj-1		  . #x5643)	; &I-GT-10305; [54-35]
       (=daikanwa	  . 08178)	; &I-M-08178;
-      (=shinjigen@1ed	  .  2003)	; &GT-10305;
-      (=shinjigen@rev	  .  2003)	; &GT-10305;
+      (=shinjigen	  .  2003)	; &GT-10305;
       (=ucs@jis		  . #x5D14)	; &GT-10305;
       )
      ((=gb2312		  . #x345E)	; &C1-597E; [20-62]
@@ -3985,8 +3979,7 @@
       (=gt		  . 10265)	; &I-GT-10265;
       (=gt-pj-1		  . #x563D)	; &I-GT-10265; [54-29]
       (=daikanwa	  . 08179)	; &I-M-08179;
-      (=shinjigen@1ed	  .  1994)	; &GT-10265;
-      (=shinjigen@rev	  .  1994)	; &GT-10265;
+      (=shinjigen	  .  1994)	; &GT-10265;
       (=cbeta		  . 00114)	; &I-CB00114;
       (=ucs@jis		  . #x5D15)	; &GT-10265;
       (<-formed
@@ -4012,8 +4005,7 @@
     (=gt-k		. 07725)	; &I-GT-K07725;
     (=gt-pj-1		. #x3333)	; &I-GT-10266; [19-19]
     (=daikanwa		. 08180)	; &I-M-08180;
-    (=shinjigen@1ed	.  1993)	; 崖
-    (=shinjigen@rev	.  1993)	; 崖
+    (=shinjigen		.  1993)	; 崖
     ))
 (define-char
   '((=>ucs		. #x21E1E)	; 𡸞
@@ -6290,8 +6282,7 @@
       (=gt		  . 10519)	; &I-GT-10519;
       (=gt-pj-1		  . #x3F73)	; &I-GT-10519; [31-83]
       (=daikanwa	  . 08348)	; &I-M-08348;
-      (=shinjigen@1ed	  .  2024)	; &GT-10519;
-      (=shinjigen@rev	  .  2024)	; &GT-10519;
+      (=shinjigen	  .  2024)	; &GT-10519;
       (=ucs@jis		  . #x5D69)	; &GT-10519;
       )
      ((=gb2312		  . #x6154)	; &C1-6369; [65-52]
@@ -9544,8 +9535,7 @@
       (=gt		  . 10778)	; &I-GT-10778;
       (=gt-pj-1		  . #x5656)	; &I-GT-10778; [54-54]
       (=daikanwa	  . 08566)	; &I-M-08566;
-      (=shinjigen@1ed	  .  1963)	; &GT-10778;
-      (=shinjigen@rev	  .  1963)	; &GT-10778;
+      (=shinjigen	  .  1963)	; &GT-10778;
       (=ucs@jis		  . #x5DBD)	; &GT-10778;
       )
      ((=cns11643-1	  . #x7357)	; &C1-7357; [83-55]

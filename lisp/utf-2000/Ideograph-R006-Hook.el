@@ -58,8 +58,7 @@
     (=gt-k		. 00066)	; &I-GT-K00066;
     (=gt-pj-1		. #x4E3B)	; &I-GT-00306; [46-27]
     (=daikanwa		. 00226)	; &I-M-00226;
-    (=shinjigen@1ed	.  0066)	; 了
-    (=shinjigen@rev	.  0066)	; 了
+    (=shinjigen		.  0066)	; 了
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -179,8 +178,7 @@
     (=gt-k		. 00505)	; &I-GT-K00505;
     (=gt-pj-1		. #x4D3D)	; &I-GT-00312; [45-29]
     (=daikanwa		. 00231)	; &I-M-00231;
-    (=shinjigen@1ed	.  0067)	; 予
-    (=shinjigen@rev	.  0067)	; 予
+    (=shinjigen		.  0067)	; 予
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
       (=ks-x1001	  . #x6763)	; &I-K0-6763; [71-67]
@@ -291,8 +289,7 @@
     (=gt-k		. 01662)	; &I-GT-K01662;
     (=gt-pj-1		. #x4168)	; &I-GT-00313; [33-72]
     (=daikanwa		. 00236)	; &I-M-00236;
-    (=shinjigen@1ed	.  4698)	; 争
-    (=shinjigen@rev	.  4698)	; 争
+    (=shinjigen		.  4698)	; 争
     (=hanziku-1		. #xE8D1)	; &I-HZK01-E8D1;
     (<-simplified@CN
      ((=gb12345		  . #x5579)	; &C1-4E68; [53-89]
@@ -387,13 +384,12 @@
     (=jis-x0208		. #x502F)	; &I-J90-502F; [48-15]
     (=gt		. 00315)	; &I-GT-00315;
     (=gt-pj-1		. #x502F)	; &I-GT-00315; [48-15]
-    (=shinjigen@1ed	.  0071)	; 亊
-    (=shinjigen@rev	.  0071)	; 亊
+    (=shinjigen		.  0071)	; 亊
     (<-vulgar
      ((=ucs		  . #x4E8B)	; 事
       (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
       (=daikanwa	  . 00241)	; &I-M-00241;
-      (=shinjigen@1ed	  .  0069)	; 事
+      (=shinjigen	  .  0069)	; 事
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa shinjigen@1ed)
@@ -434,8 +430,7 @@
     (=gt-k		. 03726)	; &I-GT-K03726;
     (=gt-pj-1		. #x3B76)	; &I-GT-00319; [27-86]
     (=daikanwa		. 00241)	; &I-M-00241;
-    (=shinjigen@1ed	.  0069)	; 事
-    (=shinjigen@rev	.  0069)	; 事
+    (=shinjigen		.  0069)	; 事
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅

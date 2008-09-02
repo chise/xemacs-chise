@@ -13,8 +13,7 @@
     (=gt-k		. 00418)	; &I-GT-K00418;
     (=gt-pj-1		. #x3824)	; &I-GT-25948; [24-04]
     (=daikanwa		. 20234)	; &I-M-20234;
-    (=shinjigen@1ed	.  4759)	; 犬
-    (=shinjigen@rev	.  4759)	; 犬
+    (=shinjigen		.  4759)	; 犬
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -299,8 +298,7 @@
     (=gt-k		. 02580)	; &I-GT-K02580;
     (=gt-pj-1		. #x3E75)	; &I-GT-25994; [30-85]
     (=daikanwa		. 20257)	; &I-M-20257;
-    (=shinjigen@1ed	.  4762)	; 状
-    (=shinjigen@rev	.  4762)	; 状
+    (=shinjigen		.  4762)	; 状
     (<-simplified@CN
      ((=ks-x1001	  . #x5F52)	; &M-20280; [63-50]
       (=jis-x0213-1-2000  . #x776A)	; &I-JX1-776A; [87-74]
@@ -739,8 +737,7 @@
     (=gt-k		. 02717)	; &I-GT-K02717;
     (=gt-pj-1		. #x603D)	; &I-GT-25993; [64-29]
     (=daikanwa		. 20289)	; &I-M-20289;
-    (=shinjigen@1ed	.  4765)	; &GT-25993;
-    (=shinjigen@rev	.  4765)	; &GT-25993;
+    (=shinjigen		.  4765)	; &GT-25993;
     (=ucs@cns		. #x72C3)	; &GT-25993;
     (=ucs@jis		. #x72C3)	; &GT-25993;
     ))
@@ -768,8 +765,7 @@
       (=gt-k		  . 02718)	; &I-GT-K02718;
       (=gt-pj-1		  . #x603F)	; &I-GT-26001; [64-31]
       (=daikanwa	  . 20290)	; &I-M-20290;
-      (=shinjigen@1ed	  .  4767)	; &GT-26001;
-      (=shinjigen@rev	  .  4767)	; &GT-26001;
+      (=shinjigen	  .  4767)	; &GT-26001;
       (=ucs@unicode	  . #x72C4)	; &GT-26001;
       (<-formed
        ((=jis-x0208	    . #x6D78)	; &GT-52140; [77-88]
@@ -6176,7 +6172,7 @@
      ((=ucs		  . #x7378)	; 獸
       (=jis-x0208	  . #x6059)	; &I-J90-6059; [64-57]
       (=daikanwa	  . 20775)	; &I-M-20775;
-      (=shinjigen@1ed	  .  4843)	; 獸
+      (=shinjigen	  .  4843)	; 獸
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa shinjigen@1ed JP/Jouyou)
@@ -6263,7 +6259,7 @@
       (=ks-x1001	  . #x5337)	; &I-K0-5337; [51-23]
       (=cns11643-1	  . #x784C)	; &I-C1-784C; [88-44]
       (=daikanwa	  . 20782)	; &I-M-20782;
-      (=shinjigen@1ed	  .  4860)	; &GT-26607;
+      (=shinjigen	  .  4860)	; &GT-26607;
       ))
     (<-formed*sources
      shinjigen@1ed)
@@ -7163,8 +7159,7 @@
     (=gt		. 26605)	; &I-GT-26605;
     (=gt-pj-1		. #x6059)	; &I-GT-26605; [64-57]
     (=daikanwa		. 20775)	; &I-M-20775;
-    (=shinjigen@1ed	.  4843)	; 獸
-    (=shinjigen@rev	.  4843)	; 獸
+    (=shinjigen		.  4843)	; 獸
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -7274,8 +7269,7 @@
     (=gt		. 26607)	; &I-GT-26607;
     (=gt-pj-1		. #x605C)	; &I-GT-26607; [64-60]
     (=daikanwa		. 20782)	; &I-M-20782;
-    (=shinjigen@1ed	.  4860)	; &GT-26607;
-    (=shinjigen@rev	.  4860)	; &GT-26607;
+    (=shinjigen		.  4860)	; &GT-26607;
     (=ucs@jis		. #x737A)	; &GT-26607;
     ))
 (define-char

@@ -11,8 +11,7 @@
       (=gt-k		  . 11243)	; &I-GT-K11243;
       (=gt-pj-1		  . #x736E)	; &I-GT-66354; [83-78]
       (=daikanwa	  . 48560)	; &I-M-48560;
-      (=shinjigen@1ed	  .  9881)	; &GT-66354;
-      (=shinjigen@rev	  .  9881)	; &GT-66354;
+      (=shinjigen	  .  9881)	; &GT-66354;
       (=ucs@jis		  . #x9F4A)	; &GT-66354;
       (=ucs@ks		  . #x9F4A)	; &GT-66354;
       )

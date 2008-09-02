@@ -13,8 +13,7 @@
     (=gt-k		. 00084)	; &I-GT-K00084;
     (=gt-pj-1		. #x515C)	; &I-GT-02282; [49-60]
     (=daikanwa		. 01737)	; &I-M-01737;
-    (=shinjigen@1ed	.  0565)	; 几
-    (=shinjigen@rev	.  0565)	; 几
+    (=shinjigen		.  0565)	; 几
     ))
 (define-char
   '((<-denotational
@@ -89,8 +88,7 @@
       (=gt-k		  . 00203)	; &I-GT-K00203;
       (=gt-pj-1		  . #x4B5E)	; &I-GT-02286; [43-62]
       (=daikanwa	  . 01739)	; &I-M-01739;
-      (=shinjigen@1ed	  .  0566)	; &GT-02286;
-      (=shinjigen@rev	  .  0566)	; &GT-02286;
+      (=shinjigen	  .  0566)	; &GT-02286;
       (=ucs@unicode	  . #x51E1)	; &GT-02286;
       )
      ((ideographic-structure
@@ -101,8 +99,7 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	))
-      (=shinjigen@1ed	  .  0567)	; &SJG2-0567;
-      (=shinjigen@rev	  .  0567)	; &SJG2-0567;
+      (=shinjigen	  .  0567)	; &SJG2-0567;
       ))
     ))
 (define-char
@@ -338,8 +335,7 @@
     (=gt-k		. 00956)	; &I-GT-K00956;
     (=gt-pj-1		. #x3D68)	; &I-GT-02293; [29-72]
     (=daikanwa		. 01745)	; &I-M-01745;
-    (=shinjigen@1ed	.  0568)	; 処
-    (=shinjigen@rev	.  0568)	; 処
+    (=shinjigen		.  0568)	; 処
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x515D)	; &GT-44206; [49-61]
       (=ks-x1001	  . #x7425)	; &I-K0-7425; [84-05]
@@ -402,8 +398,7 @@
     (=gt-k		. 00974)	; &I-GT-K00974;
     (=gt-pj-1		. #x427C)	; &I-GT-02296; [34-92]
     (=daikanwa		. 01749)	; &I-M-01749;
-    (=shinjigen@1ed	.  0571)	; 凧
-    (=shinjigen@rev	.  0571)	; 凧
+    (=shinjigen		.  0571)	; 凧
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -527,8 +522,7 @@
     (=gt		. 02301)	; &I-GT-02301;
     (=gt-pj-1		. #x515E)	; &I-GT-02301; [49-62]
     (=daikanwa		. 01757)	; &I-M-01757;
-    (=shinjigen@1ed	.  0572)	; 凩
-    (=shinjigen@rev	.  0572)	; 凩
+    (=shinjigen		.  0572)	; 凩
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -548,8 +542,7 @@
     (=gt		. 02305)	; &I-GT-02305;
     (=gt-pj-1		. #x4664)	; &I-GT-02305; [38-68]
     (=daikanwa		. 01758)	; &I-M-01758;
-    (=shinjigen@1ed	.  0573)	; 凪
-    (=shinjigen@rev	.  0573)	; 凪
+    (=shinjigen		.  0573)	; 凪
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -644,7 +637,7 @@
      ((=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
       (=ks-x1001	  . #x7926)	; &I-K0-7926; [89-06]
       (=daikanwa	  . 43756)	; &I-M-43756;
-      (=shinjigen@1ed	  .  9211)	; &GT-58717;
+      (=shinjigen	  .  9211)	; &GT-58717;
       ))
     (<-ancient*sources
      shinjigen@1ed)
@@ -677,8 +670,7 @@
     (=gt		. 02321)	; &I-GT-02321;
     (=gt-pj-1		. #x515F)	; &I-GT-02321; [49-63]
     (=daikanwa		. 01766)	; &I-M-01766;
-    (=shinjigen@1ed	.  0574)	; 凭
-    (=shinjigen@rev	.  0574)	; 凭
+    (=shinjigen		.  0574)	; 凭
     (=hanziku-1		. #xDF5E)	; &I-HZK01-DF5E;
     (=cbeta		. 00285)	; &I-CB00285;
     (=jef-china3	. #x82B8)	; &I-JC3-82B8;
@@ -1027,8 +1019,7 @@
     (=gt-k		. 07908)	; &I-GT-K07908;
     (=gt-pj-1		. #x5160)	; &I-GT-02337; [49-64]
     (=daikanwa		. 01784)	; &I-M-01784;
-    (=shinjigen@1ed	.  0576)	; 凰
-    (=shinjigen@rev	.  0576)	; 凰
+    (=shinjigen		.  0576)	; 凰
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -1126,8 +1117,7 @@
     (=gt		. 02341)	; &I-GT-02341;
     (=gt-pj-1		. #x332E)	; &I-GT-02341; [19-14]
     (=daikanwa		. 01790)	; &I-M-01790;
-    (=shinjigen@1ed	.  0577)	; 凱
-    (=shinjigen@rev	.  0577)	; 凱
+    (=shinjigen		.  0577)	; 凱
     ))
 (define-char
   '((=>ucs		. #x2065F)	; 𠙟

@@ -12,8 +12,7 @@
     (=gt-k		. 00540)	; &I-GT-K00540;
     (=gt-pj-1		. #x5D63)	; &I-GT-21827; [61-67]
     (=daikanwa		. 17043)	; &I-M-17043;
-    (=shinjigen@1ed	.  4043)	; 气
-    (=shinjigen@rev	.  4043)	; 气
+    (=shinjigen		.  4043)	; 气
     ))
 (define-char
   '((<-denotational

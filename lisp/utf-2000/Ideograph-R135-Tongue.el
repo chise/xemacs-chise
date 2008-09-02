@@ -13,8 +13,7 @@
       (=gt-k		  . 01652)	; &I-GT-K01652;
       (=gt-pj-1		  . #x4065)	; &I-GT-39171; [32-69]
       (=daikanwa	  . 30277)	; &I-M-30277;
-      (=shinjigen@1ed	  .  6628)	; &GT-39171;
-      (=shinjigen@rev	  .  6628)	; &GT-39171;
+      (=shinjigen	  .  6628)	; &GT-39171;
       (=ucs@unicode	  . #x820C)	; &GT-39171;
       )
      ((=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
@@ -24,7 +23,7 @@
 	(=gb2312	    . #x4960)	; &I-G0-4960; [41-64]
 	(=ks-x1001	    . #x605F)	; &I-K0-605F; [64-63]
 	(=daikanwa	    . 30277)	; &I-M-30277;
-	(=shinjigen@1ed	    .  6628)	; &GT-39171;
+	(=shinjigen	    .  6628)	; &GT-39171;
 	))
       (<-original*sources
        shinjigen@1ed)

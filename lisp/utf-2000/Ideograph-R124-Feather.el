@@ -1807,8 +1807,7 @@
     (=gt		. 37000)	; &I-GT-37000;
     (=gt-pj-6		. #x3358)	; &I-GT-37000; [19-56]
     (=daikanwa		. 28689)	; &I-M-28689;
-    (=shinjigen@1ed	.  6310)	; &GT-37000;
-    (=shinjigen@rev	.  6310)	; &GT-37000;
+    (=shinjigen		.  6310)	; &GT-37000;
     ))
 (define-char
   '((<-denotational

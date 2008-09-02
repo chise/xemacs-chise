@@ -11,8 +11,7 @@
     (=gt		. 66387)	; &I-GT-66387;
     (=gt-pj-1		. #x736F)	; &I-GT-66387; [83-79]
     (=daikanwa		. 48583)	; &I-M-48583;
-    (=shinjigen@1ed	.  9883)	; 齒
-    (=shinjigen@rev	.  9883)	; 齒
+    (=shinjigen		.  9883)	; 齒
     ))
 (define-char
   '((ideographic-radical@ucs . 77)	; ⽌
@@ -116,8 +115,7 @@
     (=gt		. 66392)	; &I-GT-66392;
     (=gt-pj-1		. #x7370)	; &I-GT-66392; [83-80]
     (=daikanwa		. 48587)	; &I-M-48587;
-    (=shinjigen@1ed	.  9884)	; &GT-66392;
-    (=shinjigen@rev	.  9884)	; &GT-66392;
+    (=shinjigen		.  9884)	; &GT-66392;
     (=ucs@jis		. #x9F54)	; &GT-66392;
     ))
 (define-char
@@ -606,8 +604,7 @@
       (=gt		  . 66459)	; &I-GT-66459;
       (=gt-pj-1		  . #x7374)	; &I-GT-66459; [83-84]
       (=daikanwa	  . 48632)	; &I-M-48632;
-      (=shinjigen@1ed	  .  9897)	; &GT-66459;
-      (=shinjigen@rev	  .  9897)	; &GT-66459;
+      (=shinjigen	  .  9897)	; &GT-66459;
       (=ucs@jis		  . #x9F61)	; &GT-66459;
       )
      ((=cns11643-1	  . #x7A61)	; &C1-7A61; [90-65]

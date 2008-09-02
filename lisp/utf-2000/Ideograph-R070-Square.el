@@ -12,8 +12,7 @@
       (=gt-k		  . 00490)	; &I-GT-K00490;
       (=gt-pj-1		  . #x4A7D)	; &I-GT-17214; [42-93]
       (=daikanwa	  . 13620)	; &I-M-13620;
-      (=shinjigen@1ed	  .  3236)	; &GT-17214;
-      (=shinjigen@rev	  .  3236)	; &GT-17214;
+      (=shinjigen	  .  3236)	; &GT-17214;
       (=ucs@jis		  . #x65B9)	; &GT-17214;
       )
      ((=gb2312		  . #x373D)	; &C1-4549; [23-29]
@@ -150,8 +149,7 @@
       (=gt		  . 17222)	; &I-GT-17222;
       (=gt-k		  . 03641)	; &I-GT-K03641;
       (=gt-pj-1		  . #x3177)	; &I-GT-17222; [17-87]
-      (=shinjigen@1ed	  .  3237)	; &GT-17222;
-      (=shinjigen@rev	  .  3237)	; &GT-17222;
+      (=shinjigen	  .  3237)	; &GT-17222;
       (=ucs@jis		  . #x65BC)	; &GT-17222;
       )
      ((=gb2312		  . #x6C36)	; &G0-6C36; [76-22]
@@ -205,7 +203,7 @@
       (<-vulgar
        ((=jis-x0208	    . #x5A54)	; &GT-17240; [58-52]
 	(=daikanwa	    . 13646)	; &I-M-13646;
-	(=shinjigen@1ed	    .  3245)	; &GT-17240;
+	(=shinjigen	    .  3245)	; &GT-17240;
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -485,8 +483,7 @@
     (=gt		. 17248)	; &I-GT-17248;
     (=gt-k		. 06561)	; &I-GT-K06561;
     (=gt-pj-1		. #x4E39)	; &I-GT-17248; [46-25]
-    (=shinjigen@1ed	.  3250)	; &GT-17248;
-    (=shinjigen@rev	.  3250)	; &GT-17248;
+    (=shinjigen		.  3250)	; &GT-17248;
     (=ucs@jis		. #x65C5)	; &GT-17248;
     ))
 (define-char
@@ -520,8 +517,7 @@
       (=gt		  . 17240)	; &I-GT-17240;
       (=gt-pj-1		  . #x5A54)	; &I-GT-17240; [58-52]
       (=daikanwa	  . 13646)	; &I-M-13646;
-      (=shinjigen@1ed	  .  3245)	; &GT-17240;
-      (=shinjigen@rev	  .  3245)	; &GT-17240;
+      (=shinjigen	  .  3245)	; &GT-17240;
       (=ucs@jis		  . #x65C6)	; &GT-17240;
       )
      ((=gb2312		  . #x6C37)	; &C2-2F51; [76-23]
@@ -657,8 +653,7 @@
       (=gt-k		  . 07810)	; &I-GT-K07810;
       (=gt-pj-1		  . #x407B)	; &I-GT-17256; [32-91]
       (=daikanwa	  . 13656)	; &I-M-13656;
-      (=shinjigen@1ed	  .  5086)	; &GT-17256;
-      (=shinjigen@rev	  .  5086)	; &GT-17256;
+      (=shinjigen	  .  5086)	; &GT-17256;
       (=ucs@jis		  . #x65CB)	; &GT-17256;
       )
      ((=gb2312		  . #x507D)	; &C1-5B21; [48-93]
@@ -692,8 +687,7 @@
       (=gt-k		  . 07938)	; &I-GT-K07938;
       (=gt-pj-1		  . #x5A57)	; &I-GT-17253; [58-55]
       (=daikanwa	  . 13658)	; &I-M-13658;
-      (=shinjigen@1ed	  .  3252)	; &GT-17253;
-      (=shinjigen@rev	  .  3252)	; &GT-17253;
+      (=shinjigen	  .  3252)	; &GT-17253;
       (=ucs@jis		  . #x65CC)	; &GT-17253;
       )
      ((=gb2312		  . #x6C3A)	; &C1-5B22; [76-26]
