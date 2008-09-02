@@ -110,6 +110,33 @@
        nil)
      ccs)))
 
+;; (let (ret)
+;;   (dolist (feature
+;;            (let (dest)
+;;              (dolist (feature (char-attribute-list))
+;;                (when (string-match "\\*sources\\($\\|@[^\\*]+$\\)"
+;;                                    (symbol-name feature))
+;;                  (setq dest (cons feature dest))))
+;;              dest))
+;;     (map-char-attribute
+;;      (lambda (c v)
+;;        (when (setq ret (memq 'shinjigen-1 v))
+;;          (setcar ret 'shinjigen@1ed))
+;;        (when (setq ret (memq 'shinjigen-2 v))
+;;          (setcar ret 'shinjigen@rev))
+;;        nil)
+;;      feature)))
+
+(map-char-attribute
+ (lambda (c v)
+   (when (eq (encode-char c '=shinjigen@rev) v)
+     (put-char-attribute c '=shinjigen v)
+     (remove-char-attribute c '=shinjigen@1ed)
+     (remove-char-attribute c '=shinjigen@rev)
+     )
+   nil)
+ '=shinjigen@1ed)
+
 (let (ret)
   (dolist (feature
 	   (let (dest)
@@ -120,9 +147,15 @@
 	     dest))
     (map-char-attribute
      (lambda (c v)
-       (when (setq ret (memq 'shinjigen-1 v))
-	 (setcar ret 'shinjigen@1ed))
-       (when (setq ret (memq 'shinjigen-2 v))
-	 (setcar ret 'shinjigen@rev))
+       (cond ((setq ret (memq 'shinjigen@1ed v))
+	      (when (memq 'shinjigen@rev ret)
+		(setcar ret 'shinjigen)
+		(delq 'shinjigen@rev ret)
+		))
+	     ((setq ret (memq 'shinjigen@rev v))
+	      (when (memq 'shinjigen@1ed ret)
+		(setcar ret 'shinjigen)
+		(delq 'shinjigen@1ed ret)
+		)))
        nil)
      feature)))
