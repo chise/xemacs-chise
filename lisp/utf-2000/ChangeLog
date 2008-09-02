@@ -1,3 +1,18 @@
+2008-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=shinjigen'.
+	(char-db-insert-relation-feature): Add setting for `shinjigen'.
+
+	* maps-conf.el:
+	- Disable temporary setting to convert `shinjigen-1' and
+	  `shinjigen-2' to `shinjigen@1ed' and `shinjigen@rev' in *sources
+	  features.
+	- Add temporary setting to convert each pair of `=shinjigen@1ed'
+	  and `=shinjigen@rev' to the corresponding `=shinjigen'.
+	- Add temporary setting to convert each pair of `shinjigen@1ed'
+	  and `shinjigen@rev' to `shinjigen' in *sources features.
+
 2008-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (JX2-2157): Fix `=shinjigen@rev'; add
