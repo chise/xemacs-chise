@@ -12,8 +12,7 @@
     (=gt-k		. 03775)	; &I-GT-K03775;
     (=gt-pj-1		. #x4439)	; &I-GT-55291; [36-25]
     (=daikanwa		. 41100)	; &I-M-41100;
-    (=shinjigen@1ed	.  8793)	; 長
-    (=shinjigen@rev	.  8793)	; 長
+    (=shinjigen		.  8793)	; 長
     ))
 (define-char
   '((<-denotational
@@ -42,7 +41,7 @@
     (<-formed
      ((=ucs		  . #x9577)	; 長
       (=jis-x0208	  . #x4439)	; &I-J90-4439; [36-25]
-      (=shinjigen@1ed	  .  8793)	; 長
+      (=shinjigen	  .  8793)	; 長
       ))
     (<-formed*sources
      shinjigen@1ed)

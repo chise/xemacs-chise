@@ -753,8 +753,7 @@
       (=gt-k		  . 10342)	; &I-GT-K10342;
       (=gt-pj-1		  . #x6750)	; &I-GT-39084; [71-48]
       (=daikanwa	  . 30212)	; &I-M-30212;
-      (=shinjigen@1ed	  .  6626)	; &GT-39084;
-      (=shinjigen@rev	  .  6626)	; &GT-39084;
+      (=shinjigen	  .  6626)	; &GT-39084;
       (=ucs@unicode	  . #x8207)	; &GT-39084;
       )
      ((ideographic-structure

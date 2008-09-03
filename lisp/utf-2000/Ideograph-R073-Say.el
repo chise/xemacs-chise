@@ -463,7 +463,7 @@
       (=ks-x1001	  . #x754C)	; &I-K0-754C; [85-44]
       (=cns11643-6	  . #x4978)	; &I-C6-4978; [41-88]
       (=daikanwa	  . 14301)	; &I-M-14301;
-      (=shinjigen@1ed	  .  0925)	; &GT-18101;
+      (=shinjigen	  .  0925)	; &GT-18101;
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen@1ed)
@@ -488,8 +488,7 @@
     (=gt-k		. 09845)	; &I-GT-K09845;
     (=gt-pj-1		. #x413D)	; &I-GT-18103; [33-29]
     (=daikanwa		. 14299)	; &I-M-14299;
-    (=shinjigen@1ed	.  3417)	; &GT-18103;
-    (=shinjigen@rev	.  3417)	; &GT-18103;
+    (=shinjigen		.  3417)	; &GT-18103;
     (=ucs@jis		. #x66FE)	; &GT-18103;
     ))
 (define-char
@@ -523,8 +522,7 @@
       (=gt-k		  . 09093)	; &I-GT-K09093;
       (=gt-pj-1		  . #x4258)	; &I-GT-18106; [34-56]
       (=daikanwa	  . 14300)	; &I-M-14300;
-      (=shinjigen@1ed	  .  3419)	; &GT-18106;
-      (=shinjigen@rev	  .  3419)	; &GT-18106;
+      (=shinjigen	  .  3419)	; &GT-18106;
       (=ucs@unicode	  . #x66FF)	; &GT-18106;
       )
      ((=cns11643-1	  . #x5F65)	; &C1-5F65; [63-69]
@@ -556,8 +554,7 @@
       (=gt-k		  . 09052)	; &I-GT-K09052;
       (=gt-pj-1		  . #x3A47)	; &I-GT-18101; [26-39]
       (=daikanwa	  . 14301)	; &I-M-14301;
-      (=shinjigen@1ed	  .  0925)	; &GT-18101;
-      (=shinjigen@rev	  .  0925)	; &GT-18101;
+      (=shinjigen	  .  0925)	; &GT-18101;
       (=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
       (=ucs@ks		  . #x6700)	; &GT-18101;
@@ -808,7 +805,7 @@
 	(=gb2312	    . #x4C66)	; &I-G0-4C66; [44-70]
 	(=ks-x1001	    . #x7470)	; &I-K0-7470; [84-80]
 	(=daikanwa	    . 14300)	; &I-M-14300;
-	(=shinjigen@1ed	    .  3419)	; &GT-18106;
+	(=shinjigen	    .  3419)	; &GT-18106;
 	))
       (<-formed*sources
        shinjigen@1ed)

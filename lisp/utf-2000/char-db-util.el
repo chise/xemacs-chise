@@ -469,7 +469,8 @@
 (defun char-db-insert-ccs-feature (name value line-breaking)
   (insert
    (format
-    (cond ((memq name '(=shinjigen@1ed
+    (cond ((memq name '(=shinjigen
+			=shinjigen@1ed
 			=shinjigen@rev =shinjigen/+p@rev))
 	   "(%-18s .  %04d)\t; %c")
 	  ((eq name '=shinjigen@1ed/24pr)
@@ -537,7 +538,9 @@
 	(setq required-features nil)
 	(dolist (source sources)
 	  (cond
-	   ((memq source '(JP JP/Jouyou shinjigen@1ed shinjigen@rev))
+	   ((memq source '(JP
+			   JP/Jouyou
+			   shinjigen shinjigen@1ed shinjigen@rev))
 	    (setq required-features
 		  (union required-features
 			 '(=jis-x0208
@@ -546,7 +549,8 @@
 			   =jis-x0213-2-2000
 			   =jis-x0212
 			   =jis-x0208@1983
-			   =jis-x0208@1978))))
+			   =jis-x0208@1978
+			   =shinjigen))))
 	   ((eq source 'CN)
 	    (setq required-features
 		  (union required-features

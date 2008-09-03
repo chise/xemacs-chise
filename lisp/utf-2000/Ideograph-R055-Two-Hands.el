@@ -104,8 +104,7 @@
     (=gt-k		. 00999)	; &I-GT-K00999;
     (=gt-pj-1		. #x4A5B)	; &I-GT-12084; [42-59]
     (=daikanwa		. 09588)	; &I-M-09588;
-    (=shinjigen@1ed	.  2244)	; 弁
-    (=shinjigen@rev	.  2244)	; 弁
+    (=shinjigen		.  2244)	; 弁
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x517E)	; &GT-51594; [49-94]
       (=daikanwa	  . 38657)	; &I-M-38657;

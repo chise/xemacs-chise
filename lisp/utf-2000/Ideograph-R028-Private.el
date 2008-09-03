@@ -12,8 +12,7 @@
     (=gt		. 03875)	; &I-GT-03875;
     (=gt-pj-1		. #x5253)	; &I-GT-03875; [50-51]
     (=daikanwa		. 03057)	; &I-M-03057;
-    (=shinjigen@1ed	.  0889)	; 厶
-    (=shinjigen@rev	.  0889)	; 厶
+    (=shinjigen		.  0889)	; 厶
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -252,7 +251,7 @@
      ((=ucs		  . #x53BB)	; 去
       (=jis-x0208	  . #x356E)	; &I-J90-356E; [21-78]
       (=daikanwa	  . 03070)	; &I-M-03070;
-      (=shinjigen@1ed	  .  0890)	; 去
+      (=shinjigen	  .  0890)	; 去
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen@1ed)
@@ -280,8 +279,7 @@
     (=gt-k		. 00912)	; &I-GT-K00912;
     (=gt-pj-1		. #x356E)	; &I-GT-03890; [21-78]
     (=daikanwa		. 03070)	; &I-M-03070;
-    (=shinjigen@1ed	.  0890)	; 去
-    (=shinjigen@rev	.  0890)	; 去
+    (=shinjigen		.  0890)	; 去
     ))
 (define-char
   '((=>ucs		. #x20AD9)	; 𠫙
@@ -702,8 +700,7 @@
     (=gt-k		. 03720)	; &I-GT-K03720;
     (=gt-pj-1		. #x3B32)	; &I-GT-03909; [27-18]
     (=daikanwa		. 03090)	; &I-M-03090;
-    (=shinjigen@1ed	.  0892)	; 参
-    (=shinjigen@rev	.  0892)	; 参
+    (=shinjigen		.  0892)	; 参
     (=hanziku-1		. #xF579)	; &I-HZK01-F579;
     (<-simplified@CN
      ((=gb12345		  . #x324E)	; 參 [18-46]
@@ -712,7 +709,7 @@
      ((=ucs		  . #x53C3)	; 參
       (=jis-x0208	  . #x5254)	; &I-J90-5254; [50-52]
       (=daikanwa	  . 03098)	; &I-M-03098;
-      (=shinjigen@1ed	  .  0893)	; 參
+      (=shinjigen	  .  0893)	; 參
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa shinjigen@1ed JP/Jouyou)
@@ -876,8 +873,7 @@
     (=gt-k		. 07912)	; &I-GT-K07912;
     (=gt-pj-1		. #x5254)	; &I-GT-03922; [50-52]
     (=daikanwa		. 03098)	; &I-M-03098;
-    (=shinjigen@1ed	.  0893)	; 參
-    (=shinjigen@rev	.  0893)	; 參
+    (=shinjigen		.  0893)	; 參
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -930,7 +926,7 @@
      ((=ucs		  . #x53C3)	; 參
       (=jis-x0208	  . #x5254)	; &I-J90-5254; [50-52]
       (=daikanwa	  . 03098)	; &I-M-03098;
-      (=shinjigen@1ed	  .  0893)	; 參
+      (=shinjigen	  .  0893)	; 參
       ))
     (<-vulgar*sources
      guangyun daikanwa shinjigen@1ed)

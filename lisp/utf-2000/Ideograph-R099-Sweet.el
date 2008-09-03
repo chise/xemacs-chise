@@ -88,8 +88,7 @@
     (=gt-k		. 05114)	; &I-GT-K05114;
     (=gt-pj-1		. #x3F53)	; &I-GT-27811; [31-51]
     (=daikanwa		. 21648)	; &I-M-21648;
-    (=shinjigen@1ed	.  5007)	; &GT-27811;
-    (=shinjigen@rev	.  5007)	; &GT-27811;
+    (=shinjigen		.  5007)	; &GT-27811;
     (=ucs@jis		. #x751A)	; &GT-27811;
     ))
 (define-char

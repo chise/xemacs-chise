@@ -14,8 +14,7 @@
     (=gt-k		. 00206)	; &I-GT-K00206;
     (=gt-pj-1		. #x4D3C)	; &I-GT-07270; [45-28]
     (=daikanwa		. 05749)	; &I-M-05749;
-    (=shinjigen@1ed	.  1544)	; 夕
-    (=shinjigen@rev	.  1544)	; 夕
+    (=shinjigen		.  1544)	; 夕
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -30,8 +29,7 @@
       (=gt-k		  . 00901)	; &I-GT-K00901;
       (=gt-pj-1		  . #x3330)	; &I-GT-07274; [19-16]
       (=daikanwa	  . 05750)	; &I-M-05750;
-      (=shinjigen@1ed	  .  0836)	; &GT-07274;
-      (=shinjigen@rev	  .  0836)	; &GT-07274;
+      (=shinjigen	  .  0836)	; &GT-07274;
       (=ucs@jis		  . #x5916)	; &GT-07274;
       )
      ((hanyu-dazidian	  2 860 1)
@@ -81,8 +79,7 @@
     (=gt-k		. 01038)	; &I-GT-K01038;
     (=gt-pj-1		. #x5249)	; &I-GT-07272; [50-41]
     (=daikanwa		. 05753)	; &I-M-05753;
-    (=shinjigen@1ed	.  0850)	; 夘
-    (=shinjigen@rev	.  0850)	; 夘
+    (=shinjigen		.  0850)	; 夘
     (=hanziku-3		. #xAD64)	; &I-HZK03-AD64;
     (=cbeta		. 06470)	; &I-CB06470;
     (<-same
@@ -94,7 +91,7 @@
     (<-vulgar
      ((=ucs		  . #x536F)	; 卯
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
-      (=shinjigen@1ed	  .  0848)	; 卯
+      (=shinjigen	  .  0848)	; 卯
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -144,8 +141,7 @@
     (=gt-k		. 01641)	; &I-GT-K01641;
     (=gt-pj-1		. #x3D48)	; &I-GT-07277; [29-40]
     (=daikanwa		. 05755)	; &I-M-05755;
-    (=shinjigen@1ed	.  1545)	; 夙
-    (=shinjigen@rev	.  1545)	; 夙
+    (=shinjigen		.  1545)	; 夙
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -162,8 +158,7 @@
     (=gt-k		. 01664)	; &I-GT-K01664;
     (=gt-pj-1		. #x423F)	; &I-GT-07278; [34-31]
     (=daikanwa		. 05756)	; &I-M-05756;
-    (=shinjigen@1ed	.  1546)	; 多
-    (=shinjigen@rev	.  1546)	; 多
+    (=shinjigen		.  1546)	; 多
     ))
 (define-char
   '((<-denotational
@@ -324,8 +319,7 @@
       (=gt		  . 07291)	; &I-GT-07291;
       (=gt-k		  . 03842)	; &I-GT-K03842;
       (=gt-pj-1		  . #x4C6B)	; &I-GT-07291; [44-75]
-      (=shinjigen@1ed	  .  1548)	; &GT-07291;
-      (=shinjigen@rev	  .  1548)	; &GT-07291;
+      (=shinjigen	  .  1548)	; &GT-07291;
       (=ucs@jis		  . #x591C)	; &GT-07291;
       )
      ((hanyu-dazidian	  1 285 1)
@@ -703,8 +697,7 @@
     (=gt		. 07313)	; &I-GT-07313;
     (=gt-k		. 07919)	; &I-GT-K07919;
     (=gt-pj-1		. #x546D)	; &I-GT-07313; [52-77]
-    (=shinjigen@1ed	.  1552)	; 梦
-    (=shinjigen@rev	.  1552)	; 梦
+    (=shinjigen		.  1552)	; 梦
     (=hanziku-3		. #xADD4)	; &I-HZK03-ADD4;
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (<-vulgar

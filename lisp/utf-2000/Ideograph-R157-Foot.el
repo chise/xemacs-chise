@@ -12,8 +12,7 @@
     (=gt-k		. 02599)	; &I-GT-K02599;
     (=gt-pj-1		. #x422D)	; &I-GT-49967; [34-13]
     (=daikanwa		. 37365)	; &I-M-37365;
-    (=shinjigen@1ed	.  7971)	; 足
-    (=shinjigen@rev	.  7971)	; 足
+    (=shinjigen		.  7971)	; 足
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜
@@ -3317,8 +3316,7 @@
     (=gt		. 50258)	; &I-GT-50258;
     (=gt-pj-1		. #x6C76)	; &I-GT-50258; [76-86]
     (=daikanwa		. 37641)	; &I-M-37641;
-    (=shinjigen@1ed	.  8017)	; 踝
-    (=shinjigen@rev	.  8017)	; 踝
+    (=shinjigen		.  8017)	; 踝
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜
@@ -3332,8 +3330,7 @@
     (=gt		. 50262)	; &I-GT-50262;
     (=gt-pj-1		. #x6C77)	; &I-GT-50262; [76-87]
     (=daikanwa		. 37642)	; &I-M-37642;
-    (=shinjigen@1ed	.  8019)	; 踞
-    (=shinjigen@rev	.  8019)	; 踞
+    (=shinjigen		.  8019)	; 踞
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜
@@ -3386,8 +3383,7 @@
     (=gt		. 50303)	; &I-GT-50303;
     (=gt-pj-1		. #x6C79)	; &I-GT-50303; [76-89]
     (=daikanwa		. 37645)	; &I-M-37645;
-    (=shinjigen@1ed	.  8024)	; 踟
-    (=shinjigen@rev	.  8024)	; 踟
+    (=shinjigen		.  8024)	; 踟
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜

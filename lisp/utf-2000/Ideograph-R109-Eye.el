@@ -13,8 +13,7 @@
     (=gt-k		. 01011)	; &I-GT-K01011;
     (=gt-pj-1		. #x4C5C)	; &I-GT-29603; [44-60]
     (=daikanwa		. 23105)	; &I-M-23105;
-    (=shinjigen@1ed	.  5269)	; 目
-    (=shinjigen@rev	.  5269)	; 目
+    (=shinjigen		.  5269)	; 目
     ))
 (define-char
   '((<-denotational
@@ -416,8 +415,7 @@
     (=gt-k		. 03776)	; &I-GT-K03776;
     (=gt-pj-1		. #x443E)	; &I-GT-29635; [36-30]
     (=daikanwa		. 23136)	; &I-M-23136;
-    (=shinjigen@1ed	.  5273)	; 直
-    (=shinjigen@rev	.  5273)	; 直
+    (=shinjigen		.  5273)	; 直
     (=ucs@jis		. #x76F4)	; 直
     (=ucs@ks		. #x76F4)	; 直
     ))
@@ -1148,8 +1146,7 @@
       (=gt-k		  . 05269)	; &I-GT-K05269;
       (=gt-pj-1		  . #x623F)	; &I-GT-29705; [66-31]
       (=daikanwa	  . 23188)	; &I-M-23188;
-      (=shinjigen@1ed	  .  5284)	; &GT-29705;
-      (=shinjigen@rev	  .  5284)	; &GT-29705;
+      (=shinjigen	  .  5284)	; &GT-29705;
       (=ucs@jis		  . #x7707)	; &GT-29705;
       )
      ((=gb2312		  . #x6D70)	; &C1-5263; [77-80]
@@ -1170,8 +1167,7 @@
     (=gt		. 29692)	; &I-GT-29692;
     (=gt-pj-1		. #x623E)	; &I-GT-29692; [66-30]
     (=daikanwa		. 23189)	; &I-M-23189;
-    (=shinjigen@1ed	.  5281)	; 眈
-    (=shinjigen@rev	.  5281)	; 眈
+    (=shinjigen		.  5281)	; 眈
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -1187,8 +1183,7 @@
     (=gt-k		. 05165)	; &I-GT-K05165;
     (=gt-pj-1		. #x487D)	; &I-GT-29704; [40-93]
     (=daikanwa		. 23190)	; &I-M-23190;
-    (=shinjigen@1ed	.  5283)	; 眉
-    (=shinjigen@rev	.  5283)	; 眉
+    (=shinjigen		.  5283)	; 眉
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -5578,13 +5573,12 @@
     (=gt-k		. 11224)	; &I-GT-K11224;
     (=gt-pj-1		. #x624F)	; &I-GT-30057; [66-47]
     (=daikanwa		. 23536)	; &I-M-23536;
-    (=shinjigen@1ed	.  0929)	; 睿
-    (=shinjigen@rev	.  0929)	; 睿
+    (=shinjigen		.  0929)	; 睿
     (<-ancient
      ((=ucs		  . #x53E1)	; 叡
       (=jis-x0208	  . #x3143)	; &I-J90-3143; [17-35]
       (=daikanwa	  . 03214)	; &I-M-03214;
-      (=shinjigen@1ed	  .  0928)	; 叡
+      (=shinjigen	  .  0928)	; 叡
       ))
     (<-ancient*sources
      shuowen daikanwa shinjigen@1ed)

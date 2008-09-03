@@ -50,8 +50,7 @@
     (=gt-k		. 03787)	; &I-GT-K03787;
     (=gt-pj-1		. #x457E)	; &I-GT-02558; [37-94]
     (=daikanwa		. 01950)	; &I-M-01950;
-    (=shinjigen@1ed	.  6602)	; 到
-    (=shinjigen@rev	.  6602)	; 到
+    (=shinjigen		.  6602)	; 到
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -221,7 +220,7 @@
     (<-vulgar
      ((=ucs		  . #x81FA)	; 臺
       (=jis-x0208	  . #x674A)	; &I-J90-674A; [71-42]
-      (=shinjigen@1ed	  .  0950)	; 臺
+      (=shinjigen	  .  0950)	; 臺
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -258,8 +257,7 @@
     (=gt-k		. 11234)	; &I-GT-K11234;
     (=gt-pj-1		. #x674A)	; &I-GT-39019; [71-42]
     (=daikanwa		. 30161)	; &I-M-30161;
-    (=shinjigen@1ed	.  0950)	; 臺
-    (=shinjigen@rev	.  0950)	; 臺
+    (=shinjigen		.  0950)	; 臺
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄

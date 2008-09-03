@@ -4641,8 +4641,7 @@
     (=gt		. 31107)	; &I-GT-31107;
     (=gt-pj-1		. #x3C27)	; &I-GT-31107; [28-07]
     (=daikanwa		. 24364)	; &I-M-24364;
-    (=shinjigen@1ed	.  5455)	; 磁
-    (=shinjigen@rev	.  5455)	; 磁
+    (=shinjigen		.  5455)	; 磁
     ))
 (define-char
   '((<-denotational

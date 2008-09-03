@@ -1364,7 +1364,7 @@
        ((=ucs		    . #x5349)	; 卉
 	(=jis-x0208	    . #x5243)	; &I-J90-5243; [50-35]
 	(=daikanwa	    . 02706)	; &I-M-02706;
-	(=shinjigen@1ed	    .  0816)	; 卉
+	(=shinjigen	    .  0816)	; 卉
 	))
       (<-original*sources
        daikanwa shinjigen@1ed)
@@ -2011,8 +2011,7 @@
     (=jis-x0208		. #x3032)	; &GT-39829; [16-18]
     (=gt		. 39829)	; &I-GT-39829;
     (=gt-pj-1		. #x3032)	; &I-GT-39829; [16-18]
-    (=shinjigen@1ed	.  7065)	; &GT-39829;
-    (=shinjigen@rev	.  7065)	; &GT-39829;
+    (=shinjigen		.  7065)	; &GT-39829;
     (=ucs@jis		. #x82A6)	; &GT-39829;
     ))
 (define-char
@@ -5509,8 +5508,7 @@
     (=big5		. #xD37D)	; &I-B-D37D;
     (=gt		. 40150)	; &I-GT-40150;
     (=gt-pj-1		. #x302B)	; &I-GT-40150; [16-11]
-    (=shinjigen@1ed	.  6786)	; 茜
-    (=shinjigen@rev	.  6786)	; 茜
+    (=shinjigen		.  6786)	; 茜
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
@@ -10616,8 +10614,7 @@
     (=gt-k		. 06385)	; &I-GT-K06385;
     (=gt-pj-1		. #x325A)	; &I-GT-40272; [18-58]
     (=daikanwa		. 31119)	; &I-M-31119;
-    (=shinjigen@1ed	.  6806)	; &GT-40272;
-    (=shinjigen@rev	.  6806)	; &GT-40272;
+    (=shinjigen		.  6806)	; &GT-40272;
     (=ucs@unicode	. #x83EF)	; &GT-40272;
     (mojikyo		. 031119)	; &MCS-6000798F;
     ))
@@ -12817,8 +12814,7 @@
     (total-strokes	 . 12)
     (=cns11643-1	. #x615E)	; &M-31214; [65-62]
     (=daikanwa		. 31214)	; &I-M-31214;
-    (=shinjigen@1ed	.  6807)	; &M-31214;
-    (=shinjigen@rev	.  6807)	; &M-31214;
+    (=shinjigen		.  6807)	; &M-31214;
     ))
 (define-char
   '((<-denotational
@@ -14055,8 +14051,7 @@
     (=big5		. #xB5E4)	; &I-B-B5E4;
     (=gt		. 40567)	; &I-GT-40567;
     (=gt-pj-1		. #x3060)	; &I-GT-40567; [16-64]
-    (=shinjigen@1ed	.  6830)	; 萎
-    (=shinjigen@rev	.  6830)	; 萎
+    (=shinjigen		.  6830)	; 萎
     ))
 (define-char
   '((=>ucs		. #x840F)	; 萏
@@ -17713,8 +17708,7 @@
     (total-strokes	 . 13)
     (=cns11643-1	. #x6632)	; &M-31437; [70-18]
     (=daikanwa		. 31437)	; &I-M-31437;
-    (=shinjigen@1ed	.  6883)	; &M-31437;
-    (=shinjigen@rev	.  6883)	; &M-31437;
+    (=shinjigen		.  6883)	; &M-31437;
     ))
 (define-char
   '((morohashi-daikanwa	31437 0 1)

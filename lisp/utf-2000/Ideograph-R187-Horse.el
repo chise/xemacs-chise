@@ -12,8 +12,7 @@
     (=gt-k		. 06525)	; &I-GT-K06525;
     (=gt-pj-1		. #x474F)	; &I-GT-60049; [39-47]
     (=daikanwa		. 44572)	; &I-M-44572;
-    (=shinjigen@1ed	.  9326)	; 馬
-    (=shinjigen@rev	.  9326)	; 馬
+    (=shinjigen		.  9326)	; 馬
     ))
 (define-char
   '((<-denotational
@@ -1111,8 +1110,7 @@
     (=gb12345		. #x5724)	; 駐 [55-04]
     (=gt		. 60155)	; &I-GT-60155;
     (=gt-pj-1		. #x4373)	; &I-GT-60155; [35-83]
-    (=shinjigen@1ed	.  9353)	; 駐
-    (=shinjigen@rev	.  9353)	; 駐
+    (=shinjigen		.  9353)	; 駐
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺

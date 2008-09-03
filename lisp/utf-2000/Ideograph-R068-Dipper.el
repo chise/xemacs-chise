@@ -13,8 +13,7 @@
     (=gt-k		. 00469)	; &I-GT-K00469;
     (=gt-pj-1		. #x454D)	; &I-GT-17057; [37-45]
     (=daikanwa		. 13489)	; &I-M-13489;
-    (=shinjigen@1ed	.  3210)	; 斗
-    (=shinjigen@rev	.  3210)	; 斗
+    (=shinjigen		.  3210)	; 斗
     ))
 (define-char
   '((=>ucs		. #x2306C)	; 𣁬
@@ -406,8 +405,7 @@
     (=gt		. 17086)	; &I-GT-17086;
     (=gt-pj-1		. #x5A50)	; &I-GT-17086; [58-48]
     (=daikanwa		. 13517)	; &I-M-13517;
-    (=shinjigen@1ed	.  3216)	; &GT-17086;
-    (=shinjigen@rev	.  3216)	; &GT-17086;
+    (=shinjigen		.  3216)	; &GT-17086;
     (=ucs@jis		. #x659F)	; &GT-17086;
     ))
 (define-char
@@ -511,8 +509,7 @@
       (=gt		  . 17089)	; &I-GT-17089;
       (=gt-pj-1		  . #x3036)	; &I-GT-17089; [16-22]
       (=daikanwa	  . 13522)	; &I-M-13522;
-      (=shinjigen@1ed	  .  3217)	; &GT-17089;
-      (=shinjigen@rev	  .  3217)	; &GT-17089;
+      (=shinjigen	  .  3217)	; &GT-17089;
       (=ucs@unicode	  . #x65A1)	; &GT-17089;
       )
      ((=cns11643-1	  . #x687E)	; &C1-687E; [72-94]

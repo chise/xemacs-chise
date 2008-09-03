@@ -13,8 +13,7 @@
     (=gt-k		. 00410)	; &I-GT-K00410;
     (=gt-pj-1		. #x356D)	; &I-GT-25578; [21-77]
     (=daikanwa		. 19922)	; &I-M-19922;
-    (=shinjigen@1ed	.  4733)	; 牛
-    (=shinjigen@rev	.  4733)	; 牛
+    (=shinjigen		.  4733)	; 牛
     ))
 (define-char
   '((ideographic-radical . 93)	; ⽜

@@ -266,8 +266,7 @@
     (=gt-k		. 06433)	; &I-GT-K06433;
     (=gt-pj-1		. #x3A39)	; &I-GT-11011; [26-25]
     (=daikanwa		. 08732)	; &I-M-08732;
-    (=shinjigen@1ed	.  2067)	; &GT-11011;
-    (=shinjigen@rev	.  2067)	; &GT-11011;
+    (=shinjigen		.  2067)	; &GT-11011;
     (=ucs@jis		. #x5DEE)	; &GT-11011;
     (=ucs@big5		. #x5DEE)	; &GT-11011;
     ))

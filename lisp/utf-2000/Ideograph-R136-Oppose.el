@@ -12,8 +12,7 @@
       (=gt-k		  . 01657)	; &I-GT-K01657;
       (=gt-pj-1		  . #x4124)	; &I-GT-39240; [33-04]
       (=daikanwa	  . 30338)	; &I-M-30338;
-      (=shinjigen@1ed	  .  6636)	; &GT-39240;
-      (=shinjigen@rev	  .  6636)	; &GT-39240;
+      (=shinjigen	  .  6636)	; &GT-39240;
       (=ucs@unicode	  . #x821B)	; &GT-39240;
       )
      ((total-strokes	   . 6)

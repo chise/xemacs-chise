@@ -13,8 +13,7 @@
     (=gt-k		. 00898)	; &I-GT-K00898;
     (=gt-pj-1		. #x3253)	; &I-GT-32121; [18-51]
     (=daikanwa		. 24906)	; &I-M-24906;
-    (=shinjigen@1ed	.  5588)	; 禾
-    (=shinjigen@rev	.  5588)	; 禾
+    (=shinjigen		.  5588)	; 禾
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -1458,8 +1457,7 @@
     (=gt-k		. 07718)	; &I-GT-K07718;
     (=gt-pj-1		. #x305C)	; &I-GT-32257; [16-60]
     (=daikanwa		. 25045)	; &I-M-25045;
-    (=shinjigen@1ed	.  5618)	; 移
-    (=shinjigen@rev	.  5618)	; 移
+    (=shinjigen		.  5618)	; 移
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -4199,8 +4197,7 @@
       (=gt		  . 32559)	; &I-GT-32559;
       (=gt-pj-1		  . #x314F)	; &I-GT-32559; [17-47]
       (=daikanwa	  . 25267)	; &I-M-25267;
-      (=shinjigen@1ed	  .  5659)	; &GT-32559;
-      (=shinjigen@rev	  .  5659)	; &GT-32559;
+      (=shinjigen	  .  5659)	; &GT-32559;
       (=ucs@unicode	  . #x7A4E)	; &GT-32559;
       )
      ((=cns11643-1	  . #x7159)	; &C1-7159; [81-57]

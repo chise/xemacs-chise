@@ -652,8 +652,7 @@
       (=jef-china3	  . #x6CE3)	; &I-JC3-6CE3;
       )
      ((=cns11643-1	  . #x6763)	; &C1-6763; [71-67]
-      (=shinjigen@1ed	  .  9155)	; &C1-6763;
-      (=shinjigen@rev	  .  9155)	; &C1-6763;
+      (=shinjigen	  .  9155)	; &C1-6763;
       )
      ((=gb12345		  . #x3064)	; &UU+9812; [16-68]
       (=ucs@unicode	  . #x9812)	; &UU+9812;
@@ -1875,14 +1874,13 @@
      ((=jis-x0208	  . #x3150)	; &GT-31942; [17-48]
       (=gt		  . 31942)	; &I-GT-31942;
       (=gt-pj-1		  . #x3150)	; &I-GT-31942; [17-48]
-      (=shinjigen@1ed	  .  5660)	; &GT-31942;
-      (=shinjigen@rev	  .  5660)	; &GT-31942;
+      (=shinjigen	  .  5660)	; &GT-31942;
       (=ucs@unicode	  . #x9834)	; &GT-31942;
       (<-vulgar
        ((=jis-x0208	    . #x314F)	; &GT-32559; [17-47]
 	(=ks-x1001	    . #x6744)	; &I-K0-6744; [71-36]
 	(=daikanwa	    . 25267)	; &I-M-25267;
-	(=shinjigen@1ed	    .  5659)	; &GT-32559;
+	(=shinjigen	    .  5659)	; &GT-32559;
 	))
       (<-vulgar*sources
        shinjigen@1ed)

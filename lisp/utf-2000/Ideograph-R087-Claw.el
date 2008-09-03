@@ -13,8 +13,7 @@
     (=gt-k		. 00466)	; &I-GT-K00466;
     (=gt-pj-1		. #x445E)	; &I-GT-25224; [36-62]
     (=daikanwa		. 19653)	; &I-M-19653;
-    (=shinjigen@1ed	.  4696)	; 爪
-    (=shinjigen@rev	.  4696)	; 爪
+    (=shinjigen		.  4696)	; 爪
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
@@ -328,8 +327,7 @@
     (=gt-k		. 05358)	; &I-GT-K05358;
     (=gt-pj-1		. #x6029)	; &I-GT-25242; [64-09]
     (=daikanwa		. 19672)	; &I-M-19672;
-    (=shinjigen@1ed	.  4701)	; &GT-25242;
-    (=shinjigen@rev	.  4701)	; &GT-25242;
+    (=shinjigen		.  4701)	; &GT-25242;
     (=ucs@jis		. #x7230)	; &GT-25242;
     ))
 (define-char
@@ -494,8 +492,7 @@
     (=gt-k		. 09209)	; &I-GT-K09209;
     (=gt-pj-1		. #x602A)	; &I-GT-25270; [64-10]
     (=daikanwa		. 19686)	; &I-M-19686;
-    (=shinjigen@1ed	.  4703)	; &GT-25270;
-    (=shinjigen@rev	.  4703)	; &GT-25270;
+    (=shinjigen		.  4703)	; &GT-25270;
     (=ucs@jis		. #x7232)	; &GT-25270;
     ))
 (define-char

@@ -99,8 +99,7 @@
     (=gt-k		. 00209)	; &I-GT-K00209;
     (=gt-pj-1		. #x5024)	; &I-GT-00105; [48-04]
     (=daikanwa		. 00070)	; &I-M-00070;
-    (=shinjigen@1ed	.  0033)	; 个
-    (=shinjigen@rev	.  0033)	; 个
+    (=shinjigen		.  0033)	; 个
     (=cbeta		. 00286)	; &I-CB00286;
     (mojikyo		. 000070)	; &MCS-60000046;
     (<-simplified@CN
@@ -123,8 +122,7 @@
     (=gt-k		. 00359)	; &I-GT-K00359;
     (=gt-pj-2		. #x3056)	; &I-GT-00104; [16-54]
     (=daikanwa		. 00071)	; &I-M-00071;
-    (=shinjigen@1ed	.  0032)	; 丫
-    (=shinjigen@rev	.  0032)	; 丫
+    (=shinjigen		.  0032)	; 丫
     (mojikyo		. 000071)	; &MCS-60000047;
     ))
 (define-char
@@ -175,8 +173,7 @@
     (=gt-k		. 00464)	; &I-GT-K00464;
     (=gt-pj-1		. #x4366)	; &I-GT-00109; [35-70]
     (=daikanwa		. 00073)	; &I-M-00073;
-    (=shinjigen@1ed	.  0034)	; 中
-    (=shinjigen@rev	.  0034)	; 中
+    (=shinjigen		.  0034)	; 中
     (mojikyo		. 000073)	; &MCS-60000049;
     ))
 (define-char
@@ -234,8 +231,7 @@
       (=gt		  . 00110)	; &I-GT-00110;
       (=gt-pj-2		  . #x305A)	; &I-GT-00110; [16-58]
       (=daikanwa	  . 00076)	; &I-M-00076;
-      (=shinjigen@1ed	  .  0035)	; &GT-00110;
-      (=shinjigen@rev	  .  0035)	; &GT-00110;
+      (=shinjigen	  .  0035)	; &GT-00110;
       (=jef-china3	  . #x81FE)	; &I-JC3-81FE;
       (=ucs@unicode	  . #x4E30)	; &GT-00110;
       (mojikyo		  . 000076)	; &MCS-6000004C;
@@ -280,8 +276,7 @@
     (=gt-k		. 01122)	; &I-GT-K01122;
     (=gt-pj-1		. #x5025)	; &I-GT-00113; [48-05]
     (=daikanwa		. 00077)	; &I-M-00077;
-    (=shinjigen@1ed	.  0036)	; 丱
-    (=shinjigen@rev	.  0036)	; 丱
+    (=shinjigen		.  0036)	; 丱
     (mojikyo		. 000077)	; &MCS-6000004D;
     ))
 (define-char
@@ -350,8 +345,7 @@
     (=gt-k		. 02530)	; &I-GT-K02530;
     (=gt-pj-1		. #x367A)	; &I-GT-00115; [22-90]
     (=daikanwa		. 00080)	; &I-M-00080;
-    (=shinjigen@1ed	.  0038)	; 串
-    (=shinjigen@rev	.  0038)	; 串
+    (=shinjigen		.  0038)	; 串
     (mojikyo		. 000080)	; &MCS-60000050;
     (->subsumptive
      ((=ks-x1001	  . #x4D7A)	; &K0-4D7A; [45-90]

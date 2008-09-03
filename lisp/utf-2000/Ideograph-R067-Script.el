@@ -17,8 +17,7 @@
       (=gt		  . 17008)	; &I-GT-17008;
       (=gt-k		  . 00487)	; &I-GT-K00487;
       (=gt-pj-1		  . #x4A38)	; &I-GT-17008; [42-24]
-      (=shinjigen@1ed	  .  3203)	; &GT-17008;
-      (=shinjigen@rev	  .  3203)	; &GT-17008;
+      (=shinjigen	  .  3203)	; &GT-17008;
       (=ucs@jis		  . #x6587)	; &GT-17008;
       )
      ((=gb2312		  . #x4E44)	; &C1-4546; [46-36]
@@ -121,12 +120,11 @@
       )
      ((=gt		  . 17011)	; &GT-17011;
       (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
-      (=shinjigen@1ed	  .  1786)	; &GT-17011;
-      (=shinjigen@rev	  .  1786)	; &GT-17011;
+      (=shinjigen	  .  1786)	; &GT-17011;
       (<-vulgar
        ((=ucs		    . #x5B78)	; 學
 	(=jis-x0208	    . #x555C)	; &I-J90-555C; [53-60]
-	(=shinjigen@1ed	    .  1783)	; 學
+	(=shinjigen	    .  1783)	; 學
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -147,8 +145,7 @@
       (=gt		  . 17014)	; &I-GT-17014;
       (=gt-k		  . 03759)	; &I-GT-K03759;
       (=gt-pj-1		  . #x4046)	; &I-GT-17014; [32-38]
-      (=shinjigen@1ed	  .  9880)	; &GT-17014;
-      (=shinjigen@rev	  .  9880)	; &GT-17014;
+      (=shinjigen	  .  9880)	; &GT-17014;
       (=ucs@jis		  . #x6589)	; &GT-17014;
       (<-simplified@JP/Jouyou
        ((=jis-x0208	    . #x736E)	; &GT-66354; [83-78]

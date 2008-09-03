@@ -10,8 +10,7 @@
       (=gt		  . 66672)	; &I-GT-66672;
       (=gt-pj-1		  . #x4E36)	; &I-GT-66672; [46-22]
       (=daikanwa	  . 48818)	; &I-M-48818;
-      (=shinjigen@1ed	  .  9913)	; &GT-66672;
-      (=shinjigen@rev	  .  9913)	; &GT-66672;
+      (=shinjigen	  .  9913)	; &GT-66672;
       (=ucs@jis		  . #x9F8D)	; &GT-66672;
       (mojikyo		  . 048818)	; &MCS-6000BEB2;
       )

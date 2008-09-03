@@ -10,8 +10,7 @@
       (=jis-x0208@1983	  . #x376A)	; &I-J83-376A; [23-74]
       (=ks-x1001	  . #x7A6B)	; &I-K0-7A6B; [90-75]
       (=daikanwa	  . 25406)	; &I-M-25406;
-      (=shinjigen@1ed	  .  5678)	; &M-25406;
-      (=shinjigen@rev	  .  5678)	; &M-25406;
+      (=shinjigen	  .  5678)	; &M-25406;
       (=jef-china3	  . #x5DCB)	; &I-JC3-5DCB;
       )
      ((=cns11643-1	  . #x467E)	; &C1-467E; [38-94]

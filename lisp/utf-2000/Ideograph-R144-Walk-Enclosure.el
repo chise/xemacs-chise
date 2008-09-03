@@ -576,8 +576,7 @@
     (=gt		. 45950)	; &I-GT-45950;
     (=gt-pj-1		. #x6A4C)	; &I-GT-45950; [74-44]
     (=daikanwa		. 34074)	; &I-M-34074;
-    (=shinjigen@1ed	.  7332)	; 衞
-    (=shinjigen@rev	.  7332)	; 衞
+    (=shinjigen		.  7332)	; 衞
     ))
 (define-char
   '((ideographic-radical . 144)	; ⾏

@@ -38,8 +38,7 @@
       (=gt-k		  . 03697)	; &I-GT-K03697;
       (=gt-pj-1		  . #x3857)	; &I-GT-44178; [24-55]
       (=daikanwa	  . 32675)	; &I-M-32675;
-      (=shinjigen@1ed	  .  7080)	; &GT-44178;
-      (=shinjigen@rev	  .  7080)	; &GT-44178;
+      (=shinjigen	  .  7080)	; &GT-44178;
       (=ucs@jis		  . #x864E)	; &GT-44178;
       )
      ((=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]

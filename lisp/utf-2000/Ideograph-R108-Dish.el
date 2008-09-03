@@ -13,8 +13,7 @@
     (=gt-k		. 00936)	; &I-GT-K00936;
     (=gt-pj-1		. #x3B2E)	; &I-GT-29399; [27-14]
     (=daikanwa		. 22941)	; &I-M-22941;
-    (=shinjigen@1ed	.  5230)	; 皿
-    (=shinjigen@rev	.  5230)	; 皿
+    (=shinjigen		.  5230)	; 皿
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -498,8 +497,7 @@
     (=gt-k		. 07132)	; &I-GT-K07132;
     (=gt-pj-5		. #x3F25)	; &I-GT-29430; [31-05]
     (=daikanwa		. 22978)	; &I-M-22978;
-    (=shinjigen@1ed	.  5236)	; 𥁕
-    (=shinjigen@rev	.  5236)	; 𥁕
+    (=shinjigen		.  5236)	; 𥁕
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫

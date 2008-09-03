@@ -12,8 +12,7 @@
     (=gt-k		. 02564)	; &I-GT-K02564;
     (=gt-pj-1		. #x3C56)	; &I-GT-50982; [28-54]
     (=daikanwa		. 38172)	; &I-M-38172;
-    (=shinjigen@1ed	.  8108)	; 車
-    (=shinjigen@rev	.  8108)	; 車
+    (=shinjigen		.  8108)	; 車
     ))
 (define-char
   '((<-denotational
@@ -54,8 +53,7 @@
     (=gt-k		. 03918)	; &I-GT-K03918;
     (=gt-pj-1		. #x6D42)	; &I-GT-50983; [77-34]
     (=daikanwa		. 38173)	; &I-M-38173;
-    (=shinjigen@1ed	.  8109)	; 軋
-    (=shinjigen@rev	.  8109)	; 軋
+    (=shinjigen		.  8109)	; 軋
     ))
 (define-char
   '((ideographic-radical . 159)	; ⾞
@@ -1051,7 +1049,7 @@
       (<-vulgar
        ((=ks-x1001	    . #x5B54)	; &GT-51245; [59-52]
 	(=jis-x0208@1990    . #x475A)	; &I-J90-475A; [39-58]
-	(=shinjigen@1ed	    .  8154)	; &GT-51245;
+	(=shinjigen	    .  8154)	; &GT-51245;
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -2107,8 +2105,7 @@
       (=gt		  . 51187)	; &I-GT-51187;
       (=gt-pj-1		  . #x6D4E)	; &I-GT-51187; [77-46]
       (=daikanwa	  . 38337)	; &I-M-38337;
-      (=shinjigen@1ed	  .  8147)	; &GT-51187;
-      (=shinjigen@rev	  .  8147)	; &GT-51187;
+      (=shinjigen	  .  8147)	; &GT-51187;
       (=ucs@unicode	  . #x8F13)	; &GT-51187;
       )
      ((ideographic-strokes . 8)
@@ -2861,8 +2858,7 @@
       (=gt		  . 51245)	; &I-GT-51245;
       (=gt-k		  . 11935)	; &I-GT-K11935;
       (=gt-pj-1		  . #x475A)	; &I-GT-51245; [39-58]
-      (=shinjigen@1ed	  .  8154)	; &GT-51245;
-      (=shinjigen@rev	  .  8154)	; &GT-51245;
+      (=shinjigen	  .  8154)	; &GT-51245;
       (=ucs@jis		  . #x8F29)	; &GT-51245;
       )
      ((=cns11643-1	  . #x6F45)	; &C1-6F45; [79-37]
@@ -3165,8 +3161,7 @@
      ((=gt		  . 51290)	; &GT-51290;
       (=gt-pj-1		  . #x3D34)	; &GT-51290; [29-20]
       (=daikanwa	  . 38420)	; &I-M-38420;
-      (=shinjigen@1ed	  .  8163)	; &GT-51290;
-      (=shinjigen@rev	  .  8163)	; &GT-51290;
+      (=shinjigen	  .  8163)	; &GT-51290;
       )
      ((=jis-x0208@1990	  . #x3D34)	; &J90-3D34; [29-20]
       (=ucs@jis		  . #x8F2F)	; &J90-3D34;

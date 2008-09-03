@@ -114,8 +114,7 @@
       (=ucs@unicode	  . #x8FB2)	; &GT-51627;
       )
      ((=cns11643-1	  . #x6729)	; &C1-6729; [71-09]
-      (=shinjigen@1ed	  .  8206)	; &C1-6729;
-      (=shinjigen@rev	  .  8206)	; &C1-6729;
+      (=shinjigen	  .  8206)	; &C1-6729;
       ))
     ))
 (define-char

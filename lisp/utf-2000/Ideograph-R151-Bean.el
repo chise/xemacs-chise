@@ -180,7 +180,7 @@
      ((=jis-x0208	  . #x6C32)	; &GT-48666; [76-18]
       (=ks-x1001	  . #x6855)	; &I-K0-6855; [72-53]
       (=daikanwa	  . 36273)	; &I-M-36273;
-      (=shinjigen@1ed	  .  7809)	; &GT-48666;
+      (=shinjigen	  .  7809)	; &GT-48666;
       ))
     (<-original*sources
      shinjigen@1ed)
@@ -364,8 +364,7 @@
       (=gt		  . 48666)	; &I-GT-48666;
       (=gt-pj-1		  . #x6C32)	; &I-GT-48666; [76-18]
       (=daikanwa	  . 36273)	; &I-M-36273;
-      (=shinjigen@1ed	  .  7809)	; &GT-48666;
-      (=shinjigen@rev	  .  7809)	; &GT-48666;
+      (=shinjigen	  .  7809)	; &GT-48666;
       (=ucs@jis		  . #x8C4C)	; &GT-48666;
       )
      ((=gb2312		  . #x4D63)	; &C1-6F27; [45-67]
@@ -447,8 +446,7 @@
     (=gt		. 48672)	; &I-GT-48672;
     (=gt-pj-1		. #x6C33)	; &I-GT-48672; [76-19]
     (=daikanwa		. 36280)	; &I-M-36280;
-    (=shinjigen@1ed	.  7811)	; 豎
-    (=shinjigen@rev	.  7811)	; 豎
+    (=shinjigen		.  7811)	; 豎
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖

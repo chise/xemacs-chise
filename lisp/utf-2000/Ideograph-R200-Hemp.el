@@ -48,8 +48,7 @@
       (=gt-k		  . 07878)	; &I-GT-K07878;
       (=gt-pj-1		  . #x4B63)	; &I-GT-65257; [43-67]
       (=daikanwa	  . 47888)	; &I-M-47888;
-      (=shinjigen@1ed	  .  9804)	; &GT-65257;
-      (=shinjigen@rev	  .  9804)	; &GT-65257;
+      (=shinjigen	  .  9804)	; &GT-65257;
       (=ucs@jis		  . #x9EBB)	; &GT-65257;
       )
      ((=gb2312		  . #x4269)	; &G0-4269; [34-73]

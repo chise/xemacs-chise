@@ -13,8 +13,7 @@
     (=gt-k		. 01669)	; &I-GT-K01669;
     (=gt-pj-1		. #x435D)	; &I-GT-33341; [35-61]
     (=daikanwa		. 25841)	; &I-M-25841;
-    (=shinjigen@1ed	.  5747)	; 竹
-    (=shinjigen@rev	.  5747)	; 竹
+    (=shinjigen		.  5747)	; 竹
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
@@ -3355,8 +3354,7 @@
     (=gt-k		. 11229)	; &I-GT-K11229;
     (=gt-pj-1		. #x6436)	; &I-GT-33717; [68-22]
     (=daikanwa		. 26139)	; &I-M-26139;
-    (=shinjigen@1ed	.  5827)	; &GT-33717;
-    (=shinjigen@rev	.  5827)	; &GT-33717;
+    (=shinjigen		.  5827)	; &GT-33717;
     (=ucs@jis		. #x7B92)	; &GT-33717;
     ))
 (define-char
@@ -5968,7 +5966,7 @@
       (<-same*sources
        zihui-bu daikanwa)
       (<-vulgar
-       ((=shinjigen@rev	    .  5891)	; &SJG2-5891;
+       ((=shinjigen	    .  5891)	; &SJG2-5891;
 	))
       (<-vulgar*sources
        shinjigen@rev)
@@ -11008,8 +11006,7 @@
       )
      ((=cns11643-1	  . #x7B6C)	; &C1-7B6C; [91-76]
       )
-     ((=shinjigen@1ed	  .  5891)	; &SJG2-5891;
-      (=shinjigen@rev	  .  5891)	; &SJG2-5891;
+     ((=shinjigen	  .  5891)	; &SJG2-5891;
       ))
     ))
 (define-char

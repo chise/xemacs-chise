@@ -12,8 +12,7 @@
     (=gt-k		. 07834)	; &I-GT-K07834;
     (=gt-pj-1		. #x443B)	; &I-GT-63541; [36-27]
     (=daikanwa		. 46634)	; &I-M-46634;
-    (=shinjigen@1ed	.  9645)	; 鳥
-    (=shinjigen@rev	.  9645)	; 鳥
+    (=shinjigen		.  9645)	; 鳥
     ))
 (define-char
   '((<-denotational
@@ -4498,8 +4497,7 @@
     (=jis-x0208		. #x732C)	; &GT-64077; [83-12]
     (=gt		. 64077)	; &I-GT-64077;
     (=gt-pj-1		. #x732C)	; &I-GT-64077; [83-12]
-    (=shinjigen@1ed	.  9713)	; &GT-64077;
-    (=shinjigen@rev	.  9713)	; &GT-64077;
+    (=shinjigen		.  9713)	; &GT-64077;
     (=ucs@jis		. #x9D7A)	; &GT-64077;
     ))
 (define-char
@@ -8785,8 +8783,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (=cns11643-1	. #x7C7A)	; &C1-7C7A; [92-90]
-    (=shinjigen@1ed	.  9757)	; &C1-7C7A;
-    (=shinjigen@rev	.  9757)	; &C1-7C7A;
+    (=shinjigen		.  9757)	; &C1-7C7A;
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃

@@ -198,8 +198,7 @@
     (=gt		. 14766)	; &I-GT-14766;
     (=gt-k		. 02658)	; &I-GT-K02658;
     (=gt-pj-1		. #x4C61)	; &I-GT-14766; [44-65]
-    (=shinjigen@1ed	.  2795)	; &GT-14766;
-    (=shinjigen@rev	.  2795)	; &GT-14766;
+    (=shinjigen		.  2795)	; &GT-14766;
     (=ucs@jis		. #x623B)	; &GT-14766;
     (<-simplified@JP/Jouyou
      ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
@@ -233,7 +232,7 @@
      ((=ucs		  . #x536F)	; 卯
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
       (=daikanwa	  . 02847)	; &I-M-02847;
-      (=shinjigen@1ed	  .  0848)	; 卯
+      (=shinjigen	  .  0848)	; 卯
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen@1ed)

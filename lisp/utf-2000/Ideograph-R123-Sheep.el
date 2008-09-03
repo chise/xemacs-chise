@@ -13,8 +13,7 @@
     (=gt-k		. 01700)	; &I-GT-K01700;
     (=gt-pj-1		. #x4D53)	; &I-GT-36600; [45-51]
     (=daikanwa		. 28425)	; &I-M-28425;
-    (=shinjigen@1ed	.  6268)	; 羊
-    (=shinjigen@rev	.  6268)	; 羊
+    (=shinjigen		.  6268)	; 羊
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺

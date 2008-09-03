@@ -12,8 +12,7 @@
     (=gt-k		. 02510)	; &I-GT-K02510;
     (=gt-pj-1		. #x332D)	; &I-GT-49116; [19-13]
     (=daikanwa		. 36656)	; &I-M-36656;
-    (=shinjigen@1ed	.  7856)	; 貝
-    (=shinjigen@rev	.  7856)	; 貝
+    (=shinjigen		.  7856)	; 貝
     ))
 (define-char
   '((<-denotational
@@ -388,8 +387,7 @@
       (=gb12345		  . #x4636)	; &GT-49159; [38-22]
       (=gt		  . 49159)	; &I-GT-49159;
       (=gt-pj-1		  . #x494F)	; &I-GT-49159; [41-47]
-      (=shinjigen@1ed	  .  7867)	; &GT-49159;
-      (=shinjigen@rev	  .  7867)	; &GT-49159;
+      (=shinjigen	  .  7867)	; &GT-49159;
       (=ucs@unicode	  . #x8CA7)	; &GT-49159;
       ))
     ))
@@ -2649,8 +2647,7 @@
     (=gt		. 49320)	; &I-GT-49320;
     (=gt-pj-1		. #x6C4D)	; &I-GT-49320; [76-45]
     (=daikanwa		. 36826)	; &I-M-36826;
-    (=shinjigen@1ed	.  7903)	; 賤
-    (=shinjigen@rev	.  7903)	; 賤
+    (=shinjigen		.  7903)	; 賤
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
@@ -3791,8 +3788,7 @@
       (=gt		  . 49423)	; &I-GT-49423;
       (=gt-pj-1		  . #x6C54)	; &I-GT-49423; [76-52]
       (=daikanwa	  . 36908)	; &I-M-36908;
-      (=shinjigen@1ed	  .  7931)	; &GT-49423;
-      (=shinjigen@rev	  .  7931)	; &GT-49423;
+      (=shinjigen	  .  7931)	; &GT-49423;
       (=ucs@jis		  . #x8D05)	; &GT-49423;
       )
      ((ideographic-strokes . 11)

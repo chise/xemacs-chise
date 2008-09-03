@@ -220,8 +220,7 @@
       (=gt-k		  . 11111)	; &I-GT-K11111;
       (=gt-pj-1		  . #x353F)	; &I-GT-28247; [21-31]
       (=daikanwa	  . 22007)	; &I-M-22007;
-      (=shinjigen@1ed	  .  5088)	; &GT-28247;
-      (=shinjigen@rev	  .  5088)	; &GT-28247;
+      (=shinjigen	  .  5088)	; &GT-28247;
       (=ucs@unicode	  . #x7591)	; &GT-28247;
       )
      ((=cns11643-1	  . #x696A)	; &C1-696A; [73-74]
