@@ -2356,9 +2356,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x80CA)	; 胊
+    (=big5		. #xD061)	; &I-B-D061;
     (->subsumptive
      ((=jis-x0213-1-2000  . #x7A4A)	; &M-29360; [90-42]
-      (=big5		  . #xD061)	; &I-B-D061;
       (=daikanwa	  . 29360)	; &I-M-29360;
       (=ucs@jis		  . #x80CA)	; &M-29360;
       )
@@ -2386,15 +2386,12 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x80CB)	; 胋
-    (=daikanwa		. 29362)	; &I-M-29362;
-    ))
-(define-char
-  '((=>ucs		. #x80CB)	; 胋
-    (morohashi-daikanwa	29362 0 0)
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=cns11643-3	. #x2E60)	; &C3-2E60; [14-64]
+    (->subsumptive
+     ((=daikanwa	  . 29362)	; &M-29362;
+      (=ucs@unicode	  . #x80CB)	; &M-29362;
+      )
+     ((=cns11643-3	  . #x2E60)	; &C3-2E60; [14-64]
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
