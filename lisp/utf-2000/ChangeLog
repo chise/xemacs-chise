@@ -1,3 +1,17 @@
+2008-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (B-D24C): Moved to U+6D58.
+	(U+6D5A): Use `->denotational' and `->subsumptive'.
+	(U+6D5B): Use `->subsumptive'.
+
+2008-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (B-D061): Moved to U+80CA.
+	(U+80CB): Use `->subsumptive'.
+
+	* Ideograph-R075-Tree.el (U+69CF): Use `->denotational'.
+	(U+69D0): Use `->subsumptive'.
+
 2008-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
