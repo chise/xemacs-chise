@@ -100,8 +100,19 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x20AC)	; €
-    (=jis-x0213-1-2000	. #x2921)	; &I-JX1-2921; [09-01]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "EURO SIGN")
+      (=ucs		  . #x20AC)	; €
+      ))
+    (=jis-x0213-1-2000	. #x2921)	; &JX1-2921; [09-01]
     (=big5		. #xA3E1)	; &I-B-A3E1;
+    (=ucs@jis		. #x20AC)	; &JX1-2921;
+    (<-fullwidth
+     ((name		  . "EURO SIGN")
+      (=ucs		  . #x20AC)	; €
+      ))
     ))
 (define-char
   '((name		. "KIP SIGN")
