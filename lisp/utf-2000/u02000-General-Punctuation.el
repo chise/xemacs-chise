@@ -1114,7 +1114,18 @@
 (define-char
   '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
     (=ucs		. #x2051)	; ⁑
-    (=jis-x0213-1-2000	. #x2C7D)	; &I-JX1-2C7D; [12-93]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "TWO ASTERISKS ALIGNED VERTICALLY")
+      (=ucs		  . #x2051)	; ⁑
+      ))
+    (=jis-x0213-1-2000	. #x2C7D)	; &JX1-2C7D; [12-93]
+    (=ucs@jis		. #x2051)	; &JX1-2C7D;
+    (<-fullwidth
+     ((name		  . "TWO ASTERISKS ALIGNED VERTICALLY")
+      (=ucs		  . #x2051)	; ⁑
+      ))
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")

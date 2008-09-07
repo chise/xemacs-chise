@@ -1,3 +1,11 @@
+2008-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u020A0-Currency-Symbols.el (<EURO SIGN>): Use `->denotational'
+	to separate JX1-2921 and B-A3E1.
+
+	* u02000-General-Punctuation.el (<TWO ASTERISKS ALIGNED
+	VERTICALLY>): Use `->denotational' to separate JX1-2C7D.
+
 2008-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el (B-D24C): Moved to U+6D58.
