@@ -43,6 +43,7 @@
     (total-strokes	 . 11)
     (->subsumptive
      ((=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
+      (=jis-x0213-1	  . #x4B63)	; &I-JX1-4B63; [43-67]
       (=big5-cdp	  . #x8A5F)	; &I-CDP-8A5F;
       (=gt		  . 65257)	; &I-GT-65257;
       (=gt-k		  . 07878)	; &I-GT-K07878;
@@ -142,6 +143,7 @@
     (total-strokes	 . 14)
     (->subsumptive
      ((=jis-x0208	  . #x5677)	; &GT-65265; [54-87]
+      (=jis-x0213-1	  . #x5677)	; &I-JX1-5677; [54-87]
       (=gt		  . 65265)	; &I-GT-65265;
       (=gt-k		  . 11204)	; &I-GT-K11204;
       (=gt-pj-1		  . #x5677)	; &I-GT-65265; [54-87]
@@ -175,7 +177,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
     (->subsumptive
-     ((=jis-x0213-2-2000  . #x7E59)	; &M-47893; [94-57]
+     ((=jis-x0213-2	  . #x7E59)	; &M-47893; [94-57]
       (=daikanwa	  . 47893)	; &I-M-47893;
       (=ucs@jis		  . #x9EBD)	; &M-47893;
       )
@@ -295,6 +297,7 @@
     (->subsumptive
      ((=jis-x0208	  . #x5D60)	; &GT-65268; [61-64]
       (=ks-x1001	  . #x7D4B)	; &I-K0-7D4B; [93-43]
+      (=jis-x0213-1	  . #x5D60)	; &I-JX1-5D60; [61-64]
       (=gt		  . 65268)	; &I-GT-65268;
       (=gt-pj-1		  . #x5D60)	; &I-GT-65268; [61-64]
       (=daikanwa	  . 47899)	; &I-M-47899;
@@ -477,6 +480,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 18)
     (=jis-x0208		. #x4B7B)	; &GT-65290; [43-91]
+    (=jis-x0213-1	. #x4B7B)	; &I-JX1-4B7B; [43-91]
     (=gt		. 65290)	; &I-GT-65290;
     (=gt-pj-1		. #x4B7B)	; &I-GT-65290; [43-91]
     (=ucs@jis		. #x9EBF)	; &GT-65290;

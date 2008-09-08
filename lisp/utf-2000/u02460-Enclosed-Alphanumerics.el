@@ -10,7 +10,7 @@
     (=gb2312		. #x2259)	; &I-G0-2259; [02-57]
     (=ks-x1001		. #x2867)	; &I-K0-2867; [08-71]
     (=cns11643-1	. #x2621)	; &I-C1-2621; [06-01]
-    (=jis-x0213-1-2000	. #x2D21)	; &I-JX1-2D21; [13-01]
+    (=jis-x0213-1	. #x2D21)	; &I-JX1-2D21; [13-01]
     (=big5-eten		. #xC6A1)	; &B-C6A1;
     (=jef-china3	. #x77C9)	; &I-JC3-77C9;
     (<-circled
@@ -29,7 +29,7 @@
     (=gb2312		. #x225A)	; &I-G0-225A; [02-58]
     (=ks-x1001		. #x2868)	; &I-K0-2868; [08-72]
     (=cns11643-1	. #x2622)	; &I-C1-2622; [06-02]
-    (=jis-x0213-1-2000	. #x2D22)	; &I-JX1-2D22; [13-02]
+    (=jis-x0213-1	. #x2D22)	; &I-JX1-2D22; [13-02]
     (=big5-eten		. #xC6A2)	; &B-C6A2;
     (=jef-china3	. #x77CA)	; &I-JC3-77CA;
     (<-circled
@@ -48,7 +48,7 @@
     (=gb2312		. #x225B)	; &I-G0-225B; [02-59]
     (=ks-x1001		. #x2869)	; &I-K0-2869; [08-73]
     (=cns11643-1	. #x2623)	; &I-C1-2623; [06-03]
-    (=jis-x0213-1-2000	. #x2D23)	; &I-JX1-2D23; [13-03]
+    (=jis-x0213-1	. #x2D23)	; &I-JX1-2D23; [13-03]
     (=big5-eten		. #xC6A3)	; &B-C6A3;
     (=jef-china3	. #x77CB)	; &I-JC3-77CB;
     (<-circled
@@ -67,7 +67,7 @@
     (=gb2312		. #x225C)	; &I-G0-225C; [02-60]
     (=ks-x1001		. #x286A)	; &I-K0-286A; [08-74]
     (=cns11643-1	. #x2624)	; &I-C1-2624; [06-04]
-    (=jis-x0213-1-2000	. #x2D24)	; &I-JX1-2D24; [13-04]
+    (=jis-x0213-1	. #x2D24)	; &I-JX1-2D24; [13-04]
     (=big5-eten		. #xC6A4)	; &B-C6A4;
     (=jef-china3	. #x77CC)	; &I-JC3-77CC;
     (<-circled
@@ -86,7 +86,7 @@
     (=gb2312		. #x225D)	; &I-G0-225D; [02-61]
     (=ks-x1001		. #x286B)	; &I-K0-286B; [08-75]
     (=cns11643-1	. #x2625)	; &I-C1-2625; [06-05]
-    (=jis-x0213-1-2000	. #x2D25)	; &I-JX1-2D25; [13-05]
+    (=jis-x0213-1	. #x2D25)	; &I-JX1-2D25; [13-05]
     (=big5-eten		. #xC6A5)	; &B-C6A5;
     (=jef-china3	. #x77CD)	; &I-JC3-77CD;
     (<-circled
@@ -105,7 +105,7 @@
     (=gb2312		. #x225E)	; &I-G0-225E; [02-62]
     (=ks-x1001		. #x286C)	; &I-K0-286C; [08-76]
     (=cns11643-1	. #x2626)	; &I-C1-2626; [06-06]
-    (=jis-x0213-1-2000	. #x2D26)	; &I-JX1-2D26; [13-06]
+    (=jis-x0213-1	. #x2D26)	; &I-JX1-2D26; [13-06]
     (=big5-eten		. #xC6A6)	; &B-C6A6;
     (=jef-china3	. #x77CE)	; &I-JC3-77CE;
     (<-circled
@@ -124,7 +124,7 @@
     (=gb2312		. #x225F)	; &I-G0-225F; [02-63]
     (=ks-x1001		. #x286D)	; &I-K0-286D; [08-77]
     (=cns11643-1	. #x2627)	; &I-C1-2627; [06-07]
-    (=jis-x0213-1-2000	. #x2D27)	; &I-JX1-2D27; [13-07]
+    (=jis-x0213-1	. #x2D27)	; &I-JX1-2D27; [13-07]
     (=big5-eten		. #xC6A7)	; &B-C6A7;
     (=jef-china3	. #x77CF)	; &I-JC3-77CF;
     (<-circled
@@ -143,7 +143,7 @@
     (=gb2312		. #x2260)	; &I-G0-2260; [02-64]
     (=ks-x1001		. #x286E)	; &I-K0-286E; [08-78]
     (=cns11643-1	. #x2628)	; &I-C1-2628; [06-08]
-    (=jis-x0213-1-2000	. #x2D28)	; &I-JX1-2D28; [13-08]
+    (=jis-x0213-1	. #x2D28)	; &I-JX1-2D28; [13-08]
     (=big5-eten		. #xC6A8)	; &B-C6A8;
     (=jef-china3	. #x77D0)	; &I-JC3-77D0;
     (<-circled
@@ -162,7 +162,7 @@
     (=gb2312		. #x2261)	; &I-G0-2261; [02-65]
     (=ks-x1001		. #x286F)	; &I-K0-286F; [08-79]
     (=cns11643-1	. #x2629)	; &I-C1-2629; [06-09]
-    (=jis-x0213-1-2000	. #x2D29)	; &I-JX1-2D29; [13-09]
+    (=jis-x0213-1	. #x2D29)	; &I-JX1-2D29; [13-09]
     (=big5-eten		. #xC6A9)	; &B-C6A9;
     (=jef-china3	. #x77D1)	; &I-JC3-77D1;
     (<-circled
@@ -187,7 +187,7 @@
     (=gb2312		. #x2262)	; &I-G0-2262; [02-66]
     (=ks-x1001		. #x2870)	; &I-K0-2870; [08-80]
     (=cns11643-1	. #x262A)	; &I-C1-262A; [06-10]
-    (=jis-x0213-1-2000	. #x2D2A)	; &I-JX1-2D2A; [13-10]
+    (=jis-x0213-1	. #x2D2A)	; &I-JX1-2D2A; [13-10]
     (=big5-eten		. #xC6AA)	; &B-C6AA;
     (=jef-china3	. #x77D2)	; &I-JC3-77D2;
     ))
@@ -206,7 +206,7 @@
       ))
     (=ucs		. #x246A)	; ⑪
     (=ks-x1001		. #x2871)	; &I-K0-2871; [08-81]
-    (=jis-x0213-1-2000	. #x2D2B)	; &I-JX1-2D2B; [13-11]
+    (=jis-x0213-1	. #x2D2B)	; &I-JX1-2D2B; [13-11]
     (=jef-china3	. #x77D3)	; &I-JC3-77D3;
     ))
 (define-char
@@ -224,7 +224,7 @@
       ))
     (=ucs		. #x246B)	; ⑫
     (=ks-x1001		. #x2872)	; &I-K0-2872; [08-82]
-    (=jis-x0213-1-2000	. #x2D2C)	; &I-JX1-2D2C; [13-12]
+    (=jis-x0213-1	. #x2D2C)	; &I-JX1-2D2C; [13-12]
     (=jef-china3	. #x77D4)	; &I-JC3-77D4;
     ))
 (define-char
@@ -242,7 +242,7 @@
       ))
     (=ucs		. #x246C)	; ⑬
     (=ks-x1001		. #x2873)	; &I-K0-2873; [08-83]
-    (=jis-x0213-1-2000	. #x2D2D)	; &I-JX1-2D2D; [13-13]
+    (=jis-x0213-1	. #x2D2D)	; &I-JX1-2D2D; [13-13]
     (=jef-china3	. #x77D5)	; &I-JC3-77D5;
     ))
 (define-char
@@ -260,7 +260,7 @@
       ))
     (=ucs		. #x246D)	; ⑭
     (=ks-x1001		. #x2874)	; &I-K0-2874; [08-84]
-    (=jis-x0213-1-2000	. #x2D2E)	; &I-JX1-2D2E; [13-14]
+    (=jis-x0213-1	. #x2D2E)	; &I-JX1-2D2E; [13-14]
     (=jef-china3	. #x77D6)	; &I-JC3-77D6;
     ))
 (define-char
@@ -278,7 +278,7 @@
       ))
     (=ucs		. #x246E)	; ⑮
     (=ks-x1001		. #x2875)	; &I-K0-2875; [08-85]
-    (=jis-x0213-1-2000	. #x2D2F)	; &I-JX1-2D2F; [13-15]
+    (=jis-x0213-1	. #x2D2F)	; &I-JX1-2D2F; [13-15]
     (=jef-china3	. #x77D7)	; &I-JC3-77D7;
     ))
 (define-char
@@ -295,7 +295,7 @@
       (=ucs		  . #x0036)	; 6
       ))
     (=ucs		. #x246F)	; ⑯
-    (=jis-x0213-1-2000	. #x2D30)	; &I-JX1-2D30; [13-16]
+    (=jis-x0213-1	. #x2D30)	; &I-JX1-2D30; [13-16]
     (=jef-china3	. #x77D8)	; &I-JC3-77D8;
     ))
 (define-char
@@ -312,7 +312,7 @@
       (=ucs		  . #x0037)	; 7
       ))
     (=ucs		. #x2470)	; ⑰
-    (=jis-x0213-1-2000	. #x2D31)	; &I-JX1-2D31; [13-17]
+    (=jis-x0213-1	. #x2D31)	; &I-JX1-2D31; [13-17]
     (=jef-china3	. #x77D9)	; &I-JC3-77D9;
     ))
 (define-char
@@ -329,7 +329,7 @@
       (=ucs		  . #x0038)	; 8
       ))
     (=ucs		. #x2471)	; ⑱
-    (=jis-x0213-1-2000	. #x2D32)	; &I-JX1-2D32; [13-18]
+    (=jis-x0213-1	. #x2D32)	; &I-JX1-2D32; [13-18]
     (=jef-china3	. #x77DA)	; &I-JC3-77DA;
     ))
 (define-char
@@ -346,7 +346,7 @@
       (=ucs		  . #x0039)	; 9
       ))
     (=ucs		. #x2472)	; ⑲
-    (=jis-x0213-1-2000	. #x2D33)	; &I-JX1-2D33; [13-19]
+    (=jis-x0213-1	. #x2D33)	; &I-JX1-2D33; [13-19]
     (=jef-china3	. #x77DB)	; &I-JC3-77DB;
     ))
 (define-char
@@ -363,7 +363,7 @@
       (=ucs		  . #x0030)	; 0
       ))
     (=ucs		. #x2473)	; ⑳
-    (=jis-x0213-1-2000	. #x2D34)	; &I-JX1-2D34; [13-20]
+    (=jis-x0213-1	. #x2D34)	; &I-JX1-2D34; [13-20]
     (=jef-china3	. #x77DC)	; &I-JC3-77DC;
     ))
 (define-char
@@ -2376,7 +2376,7 @@
       (=ucs		  . #x24D0)	; ⓐ
       ))
     (=ks-x1001		. #x284D)	; &JX1-2C41; [08-45]
-    (=jis-x0213-1-2000	. #x2C41)	; &I-JX1-2C41; [12-33]
+    (=jis-x0213-1	. #x2C41)	; &I-JX1-2C41; [12-33]
     (=ucs@jis		. #x24D0)	; &JX1-2C41;
     (=ucs@ks		. #x24D0)	; &JX1-2C41;
     (<-fullwidth
@@ -2405,7 +2405,7 @@
       (=ucs		  . #x24D1)	; ⓑ
       ))
     (=ks-x1001		. #x284E)	; &JX1-2C42; [08-46]
-    (=jis-x0213-1-2000	. #x2C42)	; &I-JX1-2C42; [12-34]
+    (=jis-x0213-1	. #x2C42)	; &I-JX1-2C42; [12-34]
     (=ucs@jis		. #x24D1)	; &JX1-2C42;
     (=ucs@ks		. #x24D1)	; &JX1-2C42;
     (<-fullwidth
@@ -2434,7 +2434,7 @@
       (=ucs		  . #x24D2)	; ⓒ
       ))
     (=ks-x1001		. #x284F)	; &JX1-2C43; [08-47]
-    (=jis-x0213-1-2000	. #x2C43)	; &I-JX1-2C43; [12-35]
+    (=jis-x0213-1	. #x2C43)	; &I-JX1-2C43; [12-35]
     (=ucs@jis		. #x24D2)	; &JX1-2C43;
     (=ucs@ks		. #x24D2)	; &JX1-2C43;
     (<-fullwidth
@@ -2463,7 +2463,7 @@
       (=ucs		  . #x24D3)	; ⓓ
       ))
     (=ks-x1001		. #x2850)	; &JX1-2C44; [08-48]
-    (=jis-x0213-1-2000	. #x2C44)	; &I-JX1-2C44; [12-36]
+    (=jis-x0213-1	. #x2C44)	; &I-JX1-2C44; [12-36]
     (=ucs@jis		. #x24D3)	; &JX1-2C44;
     (=ucs@ks		. #x24D3)	; &JX1-2C44;
     (<-fullwidth
@@ -2492,7 +2492,7 @@
       (=ucs		  . #x24D4)	; ⓔ
       ))
     (=ks-x1001		. #x2851)	; &JX1-2C45; [08-49]
-    (=jis-x0213-1-2000	. #x2C45)	; &I-JX1-2C45; [12-37]
+    (=jis-x0213-1	. #x2C45)	; &I-JX1-2C45; [12-37]
     (=ucs@jis		. #x24D4)	; &JX1-2C45;
     (=ucs@ks		. #x24D4)	; &JX1-2C45;
     (<-fullwidth
@@ -2521,7 +2521,7 @@
       (=ucs		  . #x24D5)	; ⓕ
       ))
     (=ks-x1001		. #x2852)	; &JX1-2C46; [08-50]
-    (=jis-x0213-1-2000	. #x2C46)	; &I-JX1-2C46; [12-38]
+    (=jis-x0213-1	. #x2C46)	; &I-JX1-2C46; [12-38]
     (=ucs@jis		. #x24D5)	; &JX1-2C46;
     (=ucs@ks		. #x24D5)	; &JX1-2C46;
     (<-fullwidth
@@ -2550,7 +2550,7 @@
       (=ucs		  . #x24D6)	; ⓖ
       ))
     (=ks-x1001		. #x2853)	; &JX1-2C47; [08-51]
-    (=jis-x0213-1-2000	. #x2C47)	; &I-JX1-2C47; [12-39]
+    (=jis-x0213-1	. #x2C47)	; &I-JX1-2C47; [12-39]
     (=ucs@jis		. #x24D6)	; &JX1-2C47;
     (=ucs@ks		. #x24D6)	; &JX1-2C47;
     (<-fullwidth
@@ -2579,7 +2579,7 @@
       (=ucs		  . #x24D7)	; ⓗ
       ))
     (=ks-x1001		. #x2854)	; &JX1-2C48; [08-52]
-    (=jis-x0213-1-2000	. #x2C48)	; &I-JX1-2C48; [12-40]
+    (=jis-x0213-1	. #x2C48)	; &I-JX1-2C48; [12-40]
     (=ucs@jis		. #x24D7)	; &JX1-2C48;
     (=ucs@ks		. #x24D7)	; &JX1-2C48;
     (<-fullwidth
@@ -2608,7 +2608,7 @@
       (=ucs		  . #x24D8)	; ⓘ
       ))
     (=ks-x1001		. #x2855)	; &JX1-2C49; [08-53]
-    (=jis-x0213-1-2000	. #x2C49)	; &I-JX1-2C49; [12-41]
+    (=jis-x0213-1	. #x2C49)	; &I-JX1-2C49; [12-41]
     (=ucs@jis		. #x24D8)	; &JX1-2C49;
     (=ucs@ks		. #x24D8)	; &JX1-2C49;
     (<-fullwidth
@@ -2637,7 +2637,7 @@
       (=ucs		  . #x24D9)	; ⓙ
       ))
     (=ks-x1001		. #x2856)	; &JX1-2C4A; [08-54]
-    (=jis-x0213-1-2000	. #x2C4A)	; &I-JX1-2C4A; [12-42]
+    (=jis-x0213-1	. #x2C4A)	; &I-JX1-2C4A; [12-42]
     (=ucs@jis		. #x24D9)	; &JX1-2C4A;
     (=ucs@ks		. #x24D9)	; &JX1-2C4A;
     (<-fullwidth
@@ -2666,7 +2666,7 @@
       (=ucs		  . #x24DA)	; ⓚ
       ))
     (=ks-x1001		. #x2857)	; &JX1-2C4B; [08-55]
-    (=jis-x0213-1-2000	. #x2C4B)	; &I-JX1-2C4B; [12-43]
+    (=jis-x0213-1	. #x2C4B)	; &I-JX1-2C4B; [12-43]
     (=ucs@jis		. #x24DA)	; &JX1-2C4B;
     (=ucs@ks		. #x24DA)	; &JX1-2C4B;
     (<-fullwidth
@@ -2695,7 +2695,7 @@
       (=ucs		  . #x24DB)	; ⓛ
       ))
     (=ks-x1001		. #x2858)	; &JX1-2C4C; [08-56]
-    (=jis-x0213-1-2000	. #x2C4C)	; &I-JX1-2C4C; [12-44]
+    (=jis-x0213-1	. #x2C4C)	; &I-JX1-2C4C; [12-44]
     (=ucs@jis		. #x24DB)	; &JX1-2C4C;
     (=ucs@ks		. #x24DB)	; &JX1-2C4C;
     (<-fullwidth
@@ -2724,7 +2724,7 @@
       (=ucs		  . #x24DC)	; ⓜ
       ))
     (=ks-x1001		. #x2859)	; &JX1-2C4D; [08-57]
-    (=jis-x0213-1-2000	. #x2C4D)	; &I-JX1-2C4D; [12-45]
+    (=jis-x0213-1	. #x2C4D)	; &I-JX1-2C4D; [12-45]
     (=ucs@jis		. #x24DC)	; &JX1-2C4D;
     (=ucs@ks		. #x24DC)	; &JX1-2C4D;
     (<-fullwidth
@@ -2753,7 +2753,7 @@
       (=ucs		  . #x24DD)	; ⓝ
       ))
     (=ks-x1001		. #x285A)	; &JX1-2C4E; [08-58]
-    (=jis-x0213-1-2000	. #x2C4E)	; &I-JX1-2C4E; [12-46]
+    (=jis-x0213-1	. #x2C4E)	; &I-JX1-2C4E; [12-46]
     (=ucs@jis		. #x24DD)	; &JX1-2C4E;
     (=ucs@ks		. #x24DD)	; &JX1-2C4E;
     (<-fullwidth
@@ -2782,7 +2782,7 @@
       (=ucs		  . #x24DE)	; ⓞ
       ))
     (=ks-x1001		. #x285B)	; &JX1-2C4F; [08-59]
-    (=jis-x0213-1-2000	. #x2C4F)	; &I-JX1-2C4F; [12-47]
+    (=jis-x0213-1	. #x2C4F)	; &I-JX1-2C4F; [12-47]
     (=ucs@jis		. #x24DE)	; &JX1-2C4F;
     (=ucs@ks		. #x24DE)	; &JX1-2C4F;
     (<-fullwidth
@@ -2811,7 +2811,7 @@
       (=ucs		  . #x24DF)	; ⓟ
       ))
     (=ks-x1001		. #x285C)	; &JX1-2C50; [08-60]
-    (=jis-x0213-1-2000	. #x2C50)	; &I-JX1-2C50; [12-48]
+    (=jis-x0213-1	. #x2C50)	; &I-JX1-2C50; [12-48]
     (=ucs@jis		. #x24DF)	; &JX1-2C50;
     (=ucs@ks		. #x24DF)	; &JX1-2C50;
     (<-fullwidth
@@ -2840,7 +2840,7 @@
       (=ucs		  . #x24E0)	; ⓠ
       ))
     (=ks-x1001		. #x285D)	; &JX1-2C51; [08-61]
-    (=jis-x0213-1-2000	. #x2C51)	; &I-JX1-2C51; [12-49]
+    (=jis-x0213-1	. #x2C51)	; &I-JX1-2C51; [12-49]
     (=ucs@jis		. #x24E0)	; &JX1-2C51;
     (=ucs@ks		. #x24E0)	; &JX1-2C51;
     (<-fullwidth
@@ -2869,7 +2869,7 @@
       (=ucs		  . #x24E1)	; ⓡ
       ))
     (=ks-x1001		. #x285E)	; &JX1-2C52; [08-62]
-    (=jis-x0213-1-2000	. #x2C52)	; &I-JX1-2C52; [12-50]
+    (=jis-x0213-1	. #x2C52)	; &I-JX1-2C52; [12-50]
     (=ucs@jis		. #x24E1)	; &JX1-2C52;
     (=ucs@ks		. #x24E1)	; &JX1-2C52;
     (<-fullwidth
@@ -2898,7 +2898,7 @@
       (=ucs		  . #x24E2)	; ⓢ
       ))
     (=ks-x1001		. #x285F)	; &JX1-2C53; [08-63]
-    (=jis-x0213-1-2000	. #x2C53)	; &I-JX1-2C53; [12-51]
+    (=jis-x0213-1	. #x2C53)	; &I-JX1-2C53; [12-51]
     (=ucs@jis		. #x24E2)	; &JX1-2C53;
     (=ucs@ks		. #x24E2)	; &JX1-2C53;
     (<-fullwidth
@@ -2927,7 +2927,7 @@
       (=ucs		  . #x24E3)	; ⓣ
       ))
     (=ks-x1001		. #x2860)	; &JX1-2C54; [08-64]
-    (=jis-x0213-1-2000	. #x2C54)	; &I-JX1-2C54; [12-52]
+    (=jis-x0213-1	. #x2C54)	; &I-JX1-2C54; [12-52]
     (=ucs@jis		. #x24E3)	; &JX1-2C54;
     (=ucs@ks		. #x24E3)	; &JX1-2C54;
     (<-fullwidth
@@ -2956,7 +2956,7 @@
       (=ucs		  . #x24E4)	; ⓤ
       ))
     (=ks-x1001		. #x2861)	; &JX1-2C55; [08-65]
-    (=jis-x0213-1-2000	. #x2C55)	; &I-JX1-2C55; [12-53]
+    (=jis-x0213-1	. #x2C55)	; &I-JX1-2C55; [12-53]
     (=ucs@jis		. #x24E4)	; &JX1-2C55;
     (=ucs@ks		. #x24E4)	; &JX1-2C55;
     (<-fullwidth
@@ -2985,7 +2985,7 @@
       (=ucs		  . #x24E5)	; ⓥ
       ))
     (=ks-x1001		. #x2862)	; &JX1-2C56; [08-66]
-    (=jis-x0213-1-2000	. #x2C56)	; &I-JX1-2C56; [12-54]
+    (=jis-x0213-1	. #x2C56)	; &I-JX1-2C56; [12-54]
     (=ucs@jis		. #x24E5)	; &JX1-2C56;
     (=ucs@ks		. #x24E5)	; &JX1-2C56;
     (<-fullwidth
@@ -3014,7 +3014,7 @@
       (=ucs		  . #x24E6)	; ⓦ
       ))
     (=ks-x1001		. #x2863)	; &JX1-2C57; [08-67]
-    (=jis-x0213-1-2000	. #x2C57)	; &I-JX1-2C57; [12-55]
+    (=jis-x0213-1	. #x2C57)	; &I-JX1-2C57; [12-55]
     (=ucs@jis		. #x24E6)	; &JX1-2C57;
     (=ucs@ks		. #x24E6)	; &JX1-2C57;
     (<-fullwidth
@@ -3043,7 +3043,7 @@
       (=ucs		  . #x24E7)	; ⓧ
       ))
     (=ks-x1001		. #x2864)	; &JX1-2C58; [08-68]
-    (=jis-x0213-1-2000	. #x2C58)	; &I-JX1-2C58; [12-56]
+    (=jis-x0213-1	. #x2C58)	; &I-JX1-2C58; [12-56]
     (=ucs@jis		. #x24E7)	; &JX1-2C58;
     (=ucs@ks		. #x24E7)	; &JX1-2C58;
     (<-fullwidth
@@ -3072,7 +3072,7 @@
       (=ucs		  . #x24E8)	; ⓨ
       ))
     (=ks-x1001		. #x2865)	; &JX1-2C59; [08-69]
-    (=jis-x0213-1-2000	. #x2C59)	; &I-JX1-2C59; [12-57]
+    (=jis-x0213-1	. #x2C59)	; &I-JX1-2C59; [12-57]
     (=ucs@jis		. #x24E8)	; &JX1-2C59;
     (=ucs@ks		. #x24E8)	; &JX1-2C59;
     (<-fullwidth
@@ -3101,7 +3101,7 @@
       (=ucs		  . #x24E9)	; ⓩ
       ))
     (=ks-x1001		. #x2866)	; &JX1-2C5A; [08-70]
-    (=jis-x0213-1-2000	. #x2C5A)	; &I-JX1-2C5A; [12-58]
+    (=jis-x0213-1	. #x2C5A)	; &I-JX1-2C5A; [12-58]
     (=ucs@jis		. #x24E9)	; &JX1-2C5A;
     (=ucs@ks		. #x24E9)	; &JX1-2C5A;
     (<-fullwidth
@@ -3125,100 +3125,100 @@
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER ELEVEN")
     (=ucs		. #x24EB)	; ⓫
-    (=jis-x0213-1-2000	. #x2C2B)	; &I-JX1-2C2B; [12-11]
+    (=jis-x0213-1	. #x2C2B)	; &I-JX1-2C2B; [12-11]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWELVE")
     (=ucs		. #x24EC)	; ⓬
-    (=jis-x0213-1-2000	. #x2C2C)	; &I-JX1-2C2C; [12-12]
+    (=jis-x0213-1	. #x2C2C)	; &I-JX1-2C2C; [12-12]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER THIRTEEN")
     (=ucs		. #x24ED)	; ⓭
-    (=jis-x0213-1-2000	. #x2C2D)	; &I-JX1-2C2D; [12-13]
+    (=jis-x0213-1	. #x2C2D)	; &I-JX1-2C2D; [12-13]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FOURTEEN")
     (=ucs		. #x24EE)	; ⓮
-    (=jis-x0213-1-2000	. #x2C2E)	; &I-JX1-2C2E; [12-14]
+    (=jis-x0213-1	. #x2C2E)	; &I-JX1-2C2E; [12-14]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FIFTEEN")
     (=ucs		. #x24EF)	; ⓯
-    (=jis-x0213-1-2000	. #x2C2F)	; &I-JX1-2C2F; [12-15]
+    (=jis-x0213-1	. #x2C2F)	; &I-JX1-2C2F; [12-15]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SIXTEEN")
     (=ucs		. #x24F0)	; ⓰
-    (=jis-x0213-1-2000	. #x2C30)	; &I-JX1-2C30; [12-16]
+    (=jis-x0213-1	. #x2C30)	; &I-JX1-2C30; [12-16]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SEVENTEEN")
     (=ucs		. #x24F1)	; ⓱
-    (=jis-x0213-1-2000	. #x2C31)	; &I-JX1-2C31; [12-17]
+    (=jis-x0213-1	. #x2C31)	; &I-JX1-2C31; [12-17]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER EIGHTEEN")
     (=ucs		. #x24F2)	; ⓲
-    (=jis-x0213-1-2000	. #x2C32)	; &I-JX1-2C32; [12-18]
+    (=jis-x0213-1	. #x2C32)	; &I-JX1-2C32; [12-18]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER NINETEEN")
     (=ucs		. #x24F3)	; ⓳
-    (=jis-x0213-1-2000	. #x2C33)	; &I-JX1-2C33; [12-19]
+    (=jis-x0213-1	. #x2C33)	; &I-JX1-2C33; [12-19]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWENTY")
     (=ucs		. #x24F4)	; ⓴
-    (=jis-x0213-1-2000	. #x2C34)	; &I-JX1-2C34; [12-20]
+    (=jis-x0213-1	. #x2C34)	; &I-JX1-2C34; [12-20]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT ONE")
     (=ucs		. #x24F5)	; ⓵
-    (=jis-x0213-1-2000	. #x265A)	; &I-JX1-265A; [06-58]
+    (=jis-x0213-1	. #x265A)	; &I-JX1-265A; [06-58]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT TWO")
     (=ucs		. #x24F6)	; ⓶
-    (=jis-x0213-1-2000	. #x265B)	; &I-JX1-265B; [06-59]
+    (=jis-x0213-1	. #x265B)	; &I-JX1-265B; [06-59]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT THREE")
     (=ucs		. #x24F7)	; ⓷
-    (=jis-x0213-1-2000	. #x265C)	; &I-JX1-265C; [06-60]
+    (=jis-x0213-1	. #x265C)	; &I-JX1-265C; [06-60]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FOUR")
     (=ucs		. #x24F8)	; ⓸
-    (=jis-x0213-1-2000	. #x265D)	; &I-JX1-265D; [06-61]
+    (=jis-x0213-1	. #x265D)	; &I-JX1-265D; [06-61]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FIVE")
     (=ucs		. #x24F9)	; ⓹
-    (=jis-x0213-1-2000	. #x265E)	; &I-JX1-265E; [06-62]
+    (=jis-x0213-1	. #x265E)	; &I-JX1-265E; [06-62]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SIX")
     (=ucs		. #x24FA)	; ⓺
-    (=jis-x0213-1-2000	. #x265F)	; &I-JX1-265F; [06-63]
+    (=jis-x0213-1	. #x265F)	; &I-JX1-265F; [06-63]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SEVEN")
     (=ucs		. #x24FB)	; ⓻
-    (=jis-x0213-1-2000	. #x2660)	; &I-JX1-2660; [06-64]
+    (=jis-x0213-1	. #x2660)	; &I-JX1-2660; [06-64]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT EIGHT")
     (=ucs		. #x24FC)	; ⓼
-    (=jis-x0213-1-2000	. #x2661)	; &I-JX1-2661; [06-65]
+    (=jis-x0213-1	. #x2661)	; &I-JX1-2661; [06-65]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT NINE")
     (=ucs		. #x24FD)	; ⓽
-    (=jis-x0213-1-2000	. #x2662)	; &I-JX1-2662; [06-66]
+    (=jis-x0213-1	. #x2662)	; &I-JX1-2662; [06-66]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED NUMBER TEN")
     (=ucs		. #x24FE)	; ⓾
-    (=jis-x0213-1-2000	. #x2663)	; &I-JX1-2663; [06-67]
+    (=jis-x0213-1	. #x2663)	; &I-JX1-2663; [06-67]
     ))

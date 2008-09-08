@@ -863,7 +863,7 @@
       (=ucs		  . #x0029)	; )
       ))
     (=ucs		. #x3231)	; ㈱
-    (=jis-x0213-1-2000	. #x2D6A)	; &I-JX1-2D6A; [13-74]
+    (=jis-x0213-1	. #x2D6A)	; &I-JX1-2D6A; [13-74]
     (=big5-eten		. #xC8D1)	; &B-C8D1;
     (=jef-china3	. #x78D5)	; &I-JC3-78D5;
     ))
@@ -882,7 +882,7 @@
       (=ucs		  . #x0029)	; )
       ))
     (=ucs		. #x3232)	; ㈲
-    (=jis-x0213-1-2000	. #x2D6B)	; &I-JX1-2D6B; [13-75]
+    (=jis-x0213-1	. #x2D6B)	; &I-JX1-2D6B; [13-75]
     (=jef-china3	. #x78CF)	; &I-JC3-78CF;
     ))
 (define-char
@@ -1000,7 +1000,7 @@
       (=ucs		  . #x0029)	; )
       ))
     (=ucs		. #x3239)	; ㈹
-    (=jis-x0213-1-2000	. #x2D6C)	; &I-JX1-2D6C; [13-76]
+    (=jis-x0213-1	. #x2D6C)	; &I-JX1-2D6C; [13-76]
     (=jef-china3	. #x78CB)	; &I-JC3-78CB;
     ))
 (define-char
@@ -1182,7 +1182,7 @@
       (=ucs		  . #x0031)	; 1
       ))
     (=ucs		. #x3251)	; ㉑
-    (=jis-x0213-1-2000	. #x2841)	; &I-JX1-2841; [08-33]
+    (=jis-x0213-1	. #x2841)	; &I-JX1-2841; [08-33]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY TWO")
@@ -1194,7 +1194,7 @@
       (=ucs		  . #x0032)	; 2
       ))
     (=ucs		. #x3252)	; ㉒
-    (=jis-x0213-1-2000	. #x2842)	; &I-JX1-2842; [08-34]
+    (=jis-x0213-1	. #x2842)	; &I-JX1-2842; [08-34]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY THREE")
@@ -1206,7 +1206,7 @@
       (=ucs		  . #x0033)	; 3
       ))
     (=ucs		. #x3253)	; ㉓
-    (=jis-x0213-1-2000	. #x2843)	; &I-JX1-2843; [08-35]
+    (=jis-x0213-1	. #x2843)	; &I-JX1-2843; [08-35]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FOUR")
@@ -1218,7 +1218,7 @@
       (=ucs		  . #x0034)	; 4
       ))
     (=ucs		. #x3254)	; ㉔
-    (=jis-x0213-1-2000	. #x2844)	; &I-JX1-2844; [08-36]
+    (=jis-x0213-1	. #x2844)	; &I-JX1-2844; [08-36]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FIVE")
@@ -1230,7 +1230,7 @@
       (=ucs		  . #x0035)	; 5
       ))
     (=ucs		. #x3255)	; ㉕
-    (=jis-x0213-1-2000	. #x2845)	; &I-JX1-2845; [08-37]
+    (=jis-x0213-1	. #x2845)	; &I-JX1-2845; [08-37]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SIX")
@@ -1242,7 +1242,7 @@
       (=ucs		  . #x0036)	; 6
       ))
     (=ucs		. #x3256)	; ㉖
-    (=jis-x0213-1-2000	. #x2846)	; &I-JX1-2846; [08-38]
+    (=jis-x0213-1	. #x2846)	; &I-JX1-2846; [08-38]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SEVEN")
@@ -1254,7 +1254,7 @@
       (=ucs		  . #x0037)	; 7
       ))
     (=ucs		. #x3257)	; ㉗
-    (=jis-x0213-1-2000	. #x2847)	; &I-JX1-2847; [08-39]
+    (=jis-x0213-1	. #x2847)	; &I-JX1-2847; [08-39]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY EIGHT")
@@ -1266,7 +1266,7 @@
       (=ucs		  . #x0038)	; 8
       ))
     (=ucs		. #x3258)	; ㉘
-    (=jis-x0213-1-2000	. #x2848)	; &I-JX1-2848; [08-40]
+    (=jis-x0213-1	. #x2848)	; &I-JX1-2848; [08-40]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY NINE")
@@ -1278,7 +1278,7 @@
       (=ucs		  . #x0039)	; 9
       ))
     (=ucs		. #x3259)	; ㉙
-    (=jis-x0213-1-2000	. #x2849)	; &I-JX1-2849; [08-41]
+    (=jis-x0213-1	. #x2849)	; &I-JX1-2849; [08-41]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY")
@@ -1290,7 +1290,7 @@
       (=ucs		  . #x0030)	; 0
       ))
     (=ucs		. #x325A)	; ㉚
-    (=jis-x0213-1-2000	. #x284A)	; &I-JX1-284A; [08-42]
+    (=jis-x0213-1	. #x284A)	; &I-JX1-284A; [08-42]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY ONE")
@@ -1302,7 +1302,7 @@
       (=ucs		  . #x0031)	; 1
       ))
     (=ucs		. #x325B)	; ㉛
-    (=jis-x0213-1-2000	. #x284B)	; &I-JX1-284B; [08-43]
+    (=jis-x0213-1	. #x284B)	; &I-JX1-284B; [08-43]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY TWO")
@@ -1314,7 +1314,7 @@
       (=ucs		  . #x0032)	; 2
       ))
     (=ucs		. #x325C)	; ㉜
-    (=jis-x0213-1-2000	. #x284C)	; &I-JX1-284C; [08-44]
+    (=jis-x0213-1	. #x284C)	; &I-JX1-284C; [08-44]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY THREE")
@@ -1326,7 +1326,7 @@
       (=ucs		  . #x0033)	; 3
       ))
     (=ucs		. #x325D)	; ㉝
-    (=jis-x0213-1-2000	. #x284D)	; &I-JX1-284D; [08-45]
+    (=jis-x0213-1	. #x284D)	; &I-JX1-284D; [08-45]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FOUR")
@@ -1338,7 +1338,7 @@
       (=ucs		  . #x0034)	; 4
       ))
     (=ucs		. #x325E)	; ㉞
-    (=jis-x0213-1-2000	. #x284E)	; &I-JX1-284E; [08-46]
+    (=jis-x0213-1	. #x284E)	; &I-JX1-284E; [08-46]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FIVE")
@@ -1350,7 +1350,7 @@
       (=ucs		  . #x0035)	; 5
       ))
     (=ucs		. #x325F)	; ㉟
-    (=jis-x0213-1-2000	. #x284F)	; &I-JX1-284F; [08-47]
+    (=jis-x0213-1	. #x284F)	; &I-JX1-284F; [08-47]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK")
@@ -2122,7 +2122,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32A4)	; ㊤
-    (=jis-x0213-1-2000	. #x2D65)	; &I-JX1-2D65; [13-69]
+    (=jis-x0213-1	. #x2D65)	; &I-JX1-2D65; [13-69]
     (<-circled
      ((=ucs		  . #x4E0A)	; 上
       ))
@@ -2133,7 +2133,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32A5)	; ㊥
-    (=jis-x0213-1-2000	. #x2D66)	; &I-JX1-2D66; [13-70]
+    (=jis-x0213-1	. #x2D66)	; &I-JX1-2D66; [13-70]
     (<-circled
      ((=ucs		  . #x4E2D)	; 中
       ))
@@ -2144,7 +2144,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32A6)	; ㊦
-    (=jis-x0213-1-2000	. #x2D67)	; &I-JX1-2D67; [13-71]
+    (=jis-x0213-1	. #x2D67)	; &I-JX1-2D67; [13-71]
     (<-circled
      ((=ucs		  . #x4E0B)	; 下
       ))
@@ -2155,7 +2155,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32A7)	; ㊧
-    (=jis-x0213-1-2000	. #x2D68)	; &I-JX1-2D68; [13-72]
+    (=jis-x0213-1	. #x2D68)	; &I-JX1-2D68; [13-72]
     (<-circled
      ((=ucs		  . #x5DE6)	; 左
       ))
@@ -2166,7 +2166,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32A8)	; ㊨
-    (=jis-x0213-1-2000	. #x2D69)	; &I-JX1-2D69; [13-73]
+    (=jis-x0213-1	. #x2D69)	; &I-JX1-2D69; [13-73]
     (<-circled
      ((=ucs		  . #x53F3)	; 右
       ))
@@ -2269,7 +2269,7 @@
       (=ucs		  . #x0036)	; 6
       ))
     (=ucs		. #x32B1)	; ㊱
-    (=jis-x0213-1-2000	. #x2850)	; &I-JX1-2850; [08-48]
+    (=jis-x0213-1	. #x2850)	; &I-JX1-2850; [08-48]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SEVEN")
@@ -2281,7 +2281,7 @@
       (=ucs		  . #x0037)	; 7
       ))
     (=ucs		. #x32B2)	; ㊲
-    (=jis-x0213-1-2000	. #x2851)	; &I-JX1-2851; [08-49]
+    (=jis-x0213-1	. #x2851)	; &I-JX1-2851; [08-49]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY EIGHT")
@@ -2293,7 +2293,7 @@
       (=ucs		  . #x0038)	; 8
       ))
     (=ucs		. #x32B3)	; ㊳
-    (=jis-x0213-1-2000	. #x2852)	; &I-JX1-2852; [08-50]
+    (=jis-x0213-1	. #x2852)	; &I-JX1-2852; [08-50]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY NINE")
@@ -2305,7 +2305,7 @@
       (=ucs		  . #x0039)	; 9
       ))
     (=ucs		. #x32B4)	; ㊴
-    (=jis-x0213-1-2000	. #x2853)	; &I-JX1-2853; [08-51]
+    (=jis-x0213-1	. #x2853)	; &I-JX1-2853; [08-51]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY")
@@ -2317,7 +2317,7 @@
       (=ucs		  . #x0030)	; 0
       ))
     (=ucs		. #x32B5)	; ㊵
-    (=jis-x0213-1-2000	. #x2854)	; &I-JX1-2854; [08-52]
+    (=jis-x0213-1	. #x2854)	; &I-JX1-2854; [08-52]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY ONE")
@@ -2329,7 +2329,7 @@
       (=ucs		  . #x0031)	; 1
       ))
     (=ucs		. #x32B6)	; ㊶
-    (=jis-x0213-1-2000	. #x2855)	; &I-JX1-2855; [08-53]
+    (=jis-x0213-1	. #x2855)	; &I-JX1-2855; [08-53]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY TWO")
@@ -2341,7 +2341,7 @@
       (=ucs		  . #x0032)	; 2
       ))
     (=ucs		. #x32B7)	; ㊷
-    (=jis-x0213-1-2000	. #x2856)	; &I-JX1-2856; [08-54]
+    (=jis-x0213-1	. #x2856)	; &I-JX1-2856; [08-54]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY THREE")
@@ -2353,7 +2353,7 @@
       (=ucs		  . #x0033)	; 3
       ))
     (=ucs		. #x32B8)	; ㊸
-    (=jis-x0213-1-2000	. #x2857)	; &I-JX1-2857; [08-55]
+    (=jis-x0213-1	. #x2857)	; &I-JX1-2857; [08-55]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FOUR")
@@ -2365,7 +2365,7 @@
       (=ucs		  . #x0034)	; 4
       ))
     (=ucs		. #x32B9)	; ㊹
-    (=jis-x0213-1-2000	. #x2858)	; &I-JX1-2858; [08-56]
+    (=jis-x0213-1	. #x2858)	; &I-JX1-2858; [08-56]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FIVE")
@@ -2377,7 +2377,7 @@
       (=ucs		  . #x0035)	; 5
       ))
     (=ucs		. #x32BA)	; ㊺
-    (=jis-x0213-1-2000	. #x2859)	; &I-JX1-2859; [08-57]
+    (=jis-x0213-1	. #x2859)	; &I-JX1-2859; [08-57]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SIX")
@@ -2389,7 +2389,7 @@
       (=ucs		  . #x0036)	; 6
       ))
     (=ucs		. #x32BB)	; ㊻
-    (=jis-x0213-1-2000	. #x285A)	; &I-JX1-285A; [08-58]
+    (=jis-x0213-1	. #x285A)	; &I-JX1-285A; [08-58]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SEVEN")
@@ -2401,7 +2401,7 @@
       (=ucs		  . #x0037)	; 7
       ))
     (=ucs		. #x32BC)	; ㊼
-    (=jis-x0213-1-2000	. #x285B)	; &I-JX1-285B; [08-59]
+    (=jis-x0213-1	. #x285B)	; &I-JX1-285B; [08-59]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY EIGHT")
@@ -2413,7 +2413,7 @@
       (=ucs		  . #x0038)	; 8
       ))
     (=ucs		. #x32BD)	; ㊽
-    (=jis-x0213-1-2000	. #x285C)	; &I-JX1-285C; [08-60]
+    (=jis-x0213-1	. #x285C)	; &I-JX1-285C; [08-60]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY NINE")
@@ -2425,7 +2425,7 @@
       (=ucs		  . #x0039)	; 9
       ))
     (=ucs		. #x32BE)	; ㊾
-    (=jis-x0213-1-2000	. #x285D)	; &I-JX1-285D; [08-61]
+    (=jis-x0213-1	. #x285D)	; &I-JX1-285D; [08-61]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FIFTY")
@@ -2437,7 +2437,7 @@
       (=ucs		  . #x0030)	; 0
       ))
     (=ucs		. #x32BF)	; ㊿
-    (=jis-x0213-1-2000	. #x285E)	; &I-JX1-285E; [08-62]
+    (=jis-x0213-1	. #x285E)	; &I-JX1-285E; [08-62]
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY")
@@ -2610,7 +2610,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D0)	; ㋐
-    (=jis-x0213-1-2000	. #x2C5B)	; &I-JX1-2C5B; [12-59]
+    (=jis-x0213-1	. #x2C5B)	; &I-JX1-2C5B; [12-59]
     (<-circled
      ((name		  . "KATAKANA LETTER A")
       (=ucs		  . #x30A2)	; ア
@@ -2622,7 +2622,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D1)	; ㋑
-    (=jis-x0213-1-2000	. #x2C5C)	; &I-JX1-2C5C; [12-60]
+    (=jis-x0213-1	. #x2C5C)	; &I-JX1-2C5C; [12-60]
     (<-circled
      ((name		  . "KATAKANA LETTER I")
       (=ucs		  . #x30A4)	; イ
@@ -2634,7 +2634,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D2)	; ㋒
-    (=jis-x0213-1-2000	. #x2C5D)	; &I-JX1-2C5D; [12-61]
+    (=jis-x0213-1	. #x2C5D)	; &I-JX1-2C5D; [12-61]
     (<-circled
      ((name		  . "KATAKANA LETTER U")
       (=ucs		  . #x30A6)	; ウ
@@ -2646,7 +2646,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D3)	; ㋓
-    (=jis-x0213-1-2000	. #x2C5E)	; &I-JX1-2C5E; [12-62]
+    (=jis-x0213-1	. #x2C5E)	; &I-JX1-2C5E; [12-62]
     (<-circled
      ((name		  . "KATAKANA LETTER E")
       (=ucs		  . #x30A8)	; エ
@@ -2658,7 +2658,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D4)	; ㋔
-    (=jis-x0213-1-2000	. #x2C5F)	; &I-JX1-2C5F; [12-63]
+    (=jis-x0213-1	. #x2C5F)	; &I-JX1-2C5F; [12-63]
     (<-circled
      ((name		  . "KATAKANA LETTER O")
       (=ucs		  . #x30AA)	; オ
@@ -2670,7 +2670,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D5)	; ㋕
-    (=jis-x0213-1-2000	. #x2C60)	; &I-JX1-2C60; [12-64]
+    (=jis-x0213-1	. #x2C60)	; &I-JX1-2C60; [12-64]
     (<-circled
      ((name		  . "KATAKANA LETTER KA")
       (=ucs		  . #x30AB)	; カ
@@ -2682,7 +2682,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D6)	; ㋖
-    (=jis-x0213-1-2000	. #x2C61)	; &I-JX1-2C61; [12-65]
+    (=jis-x0213-1	. #x2C61)	; &I-JX1-2C61; [12-65]
     (<-circled
      ((name		  . "KATAKANA LETTER KI")
       (=ucs		  . #x30AD)	; キ
@@ -2694,7 +2694,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D7)	; ㋗
-    (=jis-x0213-1-2000	. #x2C62)	; &I-JX1-2C62; [12-66]
+    (=jis-x0213-1	. #x2C62)	; &I-JX1-2C62; [12-66]
     (<-circled
      ((name		  . "KATAKANA LETTER KU")
       (=ucs		  . #x30AF)	; ク
@@ -2706,7 +2706,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D8)	; ㋘
-    (=jis-x0213-1-2000	. #x2C63)	; &I-JX1-2C63; [12-67]
+    (=jis-x0213-1	. #x2C63)	; &I-JX1-2C63; [12-67]
     (<-circled
      ((name		  . "KATAKANA LETTER KE")
       (=ucs		  . #x30B1)	; ケ
@@ -2718,7 +2718,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32D9)	; ㋙
-    (=jis-x0213-1-2000	. #x2C64)	; &I-JX1-2C64; [12-68]
+    (=jis-x0213-1	. #x2C64)	; &I-JX1-2C64; [12-68]
     (<-circled
      ((name		  . "KATAKANA LETTER KO")
       (=ucs		  . #x30B3)	; コ
@@ -2730,7 +2730,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DA)	; ㋚
-    (=jis-x0213-1-2000	. #x2C65)	; &I-JX1-2C65; [12-69]
+    (=jis-x0213-1	. #x2C65)	; &I-JX1-2C65; [12-69]
     (<-circled
      ((name		  . "KATAKANA LETTER SA")
       (=ucs		  . #x30B5)	; サ
@@ -2742,7 +2742,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DB)	; ㋛
-    (=jis-x0213-1-2000	. #x2C66)	; &I-JX1-2C66; [12-70]
+    (=jis-x0213-1	. #x2C66)	; &I-JX1-2C66; [12-70]
     (<-circled
      ((name		  . "KATAKANA LETTER SI")
       (=ucs		  . #x30B7)	; シ
@@ -2754,7 +2754,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DC)	; ㋜
-    (=jis-x0213-1-2000	. #x2C67)	; &I-JX1-2C67; [12-71]
+    (=jis-x0213-1	. #x2C67)	; &I-JX1-2C67; [12-71]
     (<-circled
      ((name		  . "KATAKANA LETTER SU")
       (=ucs		  . #x30B9)	; ス
@@ -2766,7 +2766,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DD)	; ㋝
-    (=jis-x0213-1-2000	. #x2C68)	; &I-JX1-2C68; [12-72]
+    (=jis-x0213-1	. #x2C68)	; &I-JX1-2C68; [12-72]
     (<-circled
      ((name		  . "KATAKANA LETTER SE")
       (=ucs		  . #x30BB)	; セ
@@ -2778,7 +2778,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DE)	; ㋞
-    (=jis-x0213-1-2000	. #x2C69)	; &I-JX1-2C69; [12-73]
+    (=jis-x0213-1	. #x2C69)	; &I-JX1-2C69; [12-73]
     (<-circled
      ((name		  . "KATAKANA LETTER SO")
       (=ucs		  . #x30BD)	; ソ
@@ -2790,7 +2790,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32DF)	; ㋟
-    (=jis-x0213-1-2000	. #x2C6A)	; &I-JX1-2C6A; [12-74]
+    (=jis-x0213-1	. #x2C6A)	; &I-JX1-2C6A; [12-74]
     (<-circled
      ((name		  . "KATAKANA LETTER TA")
       (=ucs		  . #x30BF)	; タ
@@ -2802,7 +2802,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E0)	; ㋠
-    (=jis-x0213-1-2000	. #x2C6B)	; &I-JX1-2C6B; [12-75]
+    (=jis-x0213-1	. #x2C6B)	; &I-JX1-2C6B; [12-75]
     (<-circled
      ((name		  . "KATAKANA LETTER TI")
       (=ucs		  . #x30C1)	; チ
@@ -2814,7 +2814,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E1)	; ㋡
-    (=jis-x0213-1-2000	. #x2C6C)	; &I-JX1-2C6C; [12-76]
+    (=jis-x0213-1	. #x2C6C)	; &I-JX1-2C6C; [12-76]
     (<-circled
      ((name		  . "KATAKANA LETTER TU")
       (=ucs		  . #x30C4)	; ツ
@@ -2826,7 +2826,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E2)	; ㋢
-    (=jis-x0213-1-2000	. #x2C6D)	; &I-JX1-2C6D; [12-77]
+    (=jis-x0213-1	. #x2C6D)	; &I-JX1-2C6D; [12-77]
     (<-circled
      ((name		  . "KATAKANA LETTER TE")
       (=ucs		  . #x30C6)	; テ
@@ -2838,7 +2838,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E3)	; ㋣
-    (=jis-x0213-1-2000	. #x2C6E)	; &I-JX1-2C6E; [12-78]
+    (=jis-x0213-1	. #x2C6E)	; &I-JX1-2C6E; [12-78]
     (<-circled
      ((name		  . "KATAKANA LETTER TO")
       (=ucs		  . #x30C8)	; ト
@@ -2861,7 +2861,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E5)	; ㋥
-    (=jis-x0213-1-2000	. #x2C71)	; &I-JX1-2C71; [12-81]
+    (=jis-x0213-1	. #x2C71)	; &I-JX1-2C71; [12-81]
     (<-circled
      ((name		  . "KATAKANA LETTER NI")
       (=ucs		  . #x30CB)	; ニ
@@ -2906,7 +2906,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32E9)	; ㋩
-    (=jis-x0213-1-2000	. #x2C70)	; &I-JX1-2C70; [12-80]
+    (=jis-x0213-1	. #x2C70)	; &I-JX1-2C70; [12-80]
     (<-circled
      ((name		  . "KATAKANA LETTER HA")
       (=ucs		  . #x30CF)	; ハ
@@ -2940,7 +2940,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32EC)	; ㋬
-    (=jis-x0213-1-2000	. #x2C73)	; &I-JX1-2C73; [12-83]
+    (=jis-x0213-1	. #x2C73)	; &I-JX1-2C73; [12-83]
     (<-circled
      ((name		  . "KATAKANA LETTER HE")
       (=ucs		  . #x30D8)	; ヘ
@@ -2952,7 +2952,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32ED)	; ㋭
-    (=jis-x0213-1-2000	. #x2C72)	; &I-JX1-2C72; [12-82]
+    (=jis-x0213-1	. #x2C72)	; &I-JX1-2C72; [12-82]
     (<-circled
      ((name		  . "KATAKANA LETTER HO")
       (=ucs		  . #x30DB)	; ホ
@@ -3096,7 +3096,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x32FA)	; ㋺
-    (=jis-x0213-1-2000	. #x2C6F)	; &I-JX1-2C6F; [12-79]
+    (=jis-x0213-1	. #x2C6F)	; &I-JX1-2C6F; [12-79]
     (<-circled
      ((name		  . "KATAKANA LETTER RO")
       (=ucs		  . #x30ED)	; ロ

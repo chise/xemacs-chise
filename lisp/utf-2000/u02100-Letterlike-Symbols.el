@@ -74,6 +74,7 @@
     (=gb2312		. #x2166)	; &I-G0-2166; [01-70]
     (=ks-x1001		. #x2149)	; &I-K0-2149; [01-41]
     (=cns11643-1	. #x226A)	; &I-C1-226A; [02-74]
+    (=jis-x0213-1	. #x216E)	; &I-JX1-216E; [01-78]
     (=big5		. #xA24A)	; &I-B-A24A;
     (=ucs@gb		. #x2103)	; &J90-216E;
     (=ucs@jis		. #x2103)	; &J90-216E;
@@ -260,7 +261,7 @@
      ((name		  . "PLANCK CONSTANT OVER TWO PI")
       (=ucs		  . #x210F)	; ℏ
       ))
-    (=jis-x0213-1-2000	. #x235D)	; &JX1-235D; [03-61]
+    (=jis-x0213-1	. #x235D)	; &JX1-235D; [03-61]
     (=ucs@jis/fw	. #x210F)	; &JX1-235D;
     (<-fullwidth
      ((name		  . "PLANCK CONSTANT OVER TWO PI")
@@ -317,7 +318,7 @@
       (=ucs		  . #x2113)	; ℓ
       ))
     (=ks-x1001		. #x2724)	; &JX1-235F; [07-04]
-    (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F; [03-63]
+    (=jis-x0213-1	. #x235F)	; &I-JX1-235F; [03-63]
     (=ucs@jis/fw	. #x2113)	; &JX1-235F;
     (<-font/script
      ((name		  . "FULLWIDTH LATIN SMALL LETTER L")
@@ -369,7 +370,7 @@
     (=gb2312		. #x216D)	; &JX1-2D62; [01-77]
     (=ks-x1001		. #x2260)	; &I-K0-2260; [02-64]
     (=jis-x0212		. #x2271)	; &I-JSP-2271; [02-81]
-    (=jis-x0213-1-2000	. #x2D62)	; &I-JX1-2D62; [13-66]
+    (=jis-x0213-1	. #x2D62)	; &I-JX1-2D62; [13-66]
     (=big5-eten		. #xC8D2)	; &B-C8D2;
     (=ucs@unicode	. #x2116)	; &JX1-2D62;
     (<-fullwidth
@@ -497,7 +498,7 @@
       (=ucs		  . #x2121)	; ℡
       ))
     (=ks-x1001		. #x2265)	; &JX1-2D64; [02-69]
-    (=jis-x0213-1-2000	. #x2D64)	; &I-JX1-2D64; [13-68]
+    (=jis-x0213-1	. #x2D64)	; &I-JX1-2D64; [13-68]
     (=big5-eten		. #xC8D3)	; &B-C8D3;
     (=ucs@unicode	. #x2121)	; &JX1-2D64;
     (<-fullwidth
@@ -591,7 +592,7 @@
      ((name		  . "INVERTED OHM SIGN")
       (=ucs		  . #x2127)	; ℧
       ))
-    (=jis-x0213-1-2000	. #x2360)	; &JX1-2360; [03-64]
+    (=jis-x0213-1	. #x2360)	; &JX1-2360; [03-64]
     (=ucs@jis/fw	. #x2127)	; &JX1-2360;
     (<-fullwidth
      ((name		  . "INVERTED OHM SIGN")
@@ -646,6 +647,7 @@
     (=jis-x0208@1983	. #x2272)	; &J90-2272; [02-82]
     (=ks-x1001		. #x214A)	; &I-K0-214A; [01-42]
     (=jis-x0208@1990	. #x2272)	; &I-J90-2272; [02-82]
+    (=jis-x0213-1	. #x2272)	; &I-JX1-2272; [02-82]
     (=ucs@jis		. #x212B)	; &J90-2272;
     (<-fullwidth
      ((name		  . "ANGSTROM SIGN")
@@ -759,7 +761,7 @@
      ((name		  . "ALEF SYMBOL")
       (=ucs		  . #x2135)	; ℵ
       ))
-    (=jis-x0213-1-2000	. #x235C)	; &JX1-235C; [03-60]
+    (=jis-x0213-1	. #x235C)	; &JX1-235C; [03-60]
     (=ucs@jis		. #x2135)	; &JX1-235C;
     (<-fullwidth
      ((name		  . "ALEF SYMBOL")

@@ -218,7 +218,7 @@
     (=ks-x1001		. #x2227)	; &I-K0-2227; [02-07]
     (=jis-x0212		. #x2230)	; &I-JSP-2230; [02-16]
     (=cns11643-1	. #x256F)	; &I-C1-256F; [05-79]
-    (=jis-x0213-1-2000	. #x2A31)	; &I-JX1-2A31; [10-17]
+    (=jis-x0213-1	. #x2A31)	; &I-JX1-2A31; [10-17]
     (=big5		. #xA3BE)	; &I-B-A3BE;
     (=jef-china3	. #x81AB)	; &I-JC3-81AB;
     (=ucs@gb/fw		. #x02C7)	; &JX1-2A31;
@@ -241,7 +241,7 @@
      ((name		  . "MODIFIER LETTER VERTICAL LINE")
       (=ucs		  . #x02C8)	; ˈ
       ))
-    (=jis-x0213-1-2000	. #x2B53)	; &JX1-2B53; [11-51]
+    (=jis-x0213-1	. #x2B53)	; &JX1-2B53; [11-51]
     (=ucs@jis/fw	. #x02C8)	; &JX1-2B53;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER VERTICAL LINE")
@@ -323,7 +323,7 @@
      ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
       (=ucs		  . #x02CC)	; ˌ
       ))
-    (=jis-x0213-1-2000	. #x2B54)	; &JX1-2B54; [11-52]
+    (=jis-x0213-1	. #x2B54)	; &JX1-2B54; [11-52]
     (=ucs@jis/fw	. #x02CC)	; &JX1-2B54;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
@@ -374,7 +374,7 @@
       (=ucs		  . #x02D0)	; ː
       ))
     (=ks-x1001		. #x2230)	; &JX1-2B55; [02-16]
-    (=jis-x0213-1-2000	. #x2B55)	; &I-JX1-2B55; [11-53]
+    (=jis-x0213-1	. #x2B55)	; &I-JX1-2B55; [11-53]
     (=ucs@jis/fw	. #x02D0)	; &JX1-2B55;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER TRIANGULAR COLON")
@@ -393,7 +393,7 @@
      ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
       (=ucs		  . #x02D1)	; ˑ
       ))
-    (=jis-x0213-1-2000	. #x2B56)	; &JX1-2B56; [11-54]
+    (=jis-x0213-1	. #x2B56)	; &JX1-2B56; [11-54]
     (=ucs@jis/fw	. #x02D1)	; &JX1-2B56;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
@@ -465,7 +465,7 @@
       ))
     (=ks-x1001		. #x2228)	; &JX1-2A22; [02-08]
     (=jis-x0212		. #x222F)	; &I-JSP-222F; [02-15]
-    (=jis-x0213-1-2000	. #x2A22)	; &I-JX1-2A22; [10-02]
+    (=jis-x0213-1	. #x2A22)	; &I-JX1-2A22; [10-02]
     (=jef-china3	. #x81A8)	; &I-JC3-81A8;
     (=ucs@jis/fw	. #x02D8)	; &JX1-2A22;
     (<-fullwidth
@@ -499,7 +499,7 @@
     (=ks-x1001		. #x222B)	; &JX1-2A58; [02-11]
     (=jis-x0212		. #x2232)	; &I-JSP-2232; [02-18]
     (=cns11643-1	. #x256C)	; &I-C1-256C; [05-76]
-    (=jis-x0213-1-2000	. #x2A58)	; &I-JX1-2A58; [10-56]
+    (=jis-x0213-1	. #x2A58)	; &I-JX1-2A58; [10-56]
     (=big5		. #xA3BB)	; &I-B-A3BB;
     (=jef-china3	. #x81A9)	; &I-JC3-81A9;
     (=ucs@jis/fw	. #x02D9)	; &JX1-2A58;
@@ -559,7 +559,7 @@
       ))
     (=ks-x1001		. #x222D)	; &JX1-2A2D; [02-13]
     (=jis-x0212		. #x2235)	; &I-JSP-2235; [02-21]
-    (=jis-x0213-1-2000	. #x2A2D)	; &I-JX1-2A2D; [10-13]
+    (=jis-x0213-1	. #x2A2D)	; &I-JX1-2A2D; [10-13]
     (=jef-china3	. #x81B3)	; &I-JC3-81B3;
     (=ucs@jis/fw	. #x02DB)	; &JX1-2A2D;
     (<-fullwidth
@@ -603,7 +603,7 @@
       ))
     (=ks-x1001		. #x2229)	; &JX1-2A36; [02-09]
     (=jis-x0212		. #x2233)	; &I-JSP-2233; [02-19]
-    (=jis-x0213-1-2000	. #x2A36)	; &I-JX1-2A36; [10-22]
+    (=jis-x0213-1	. #x2A36)	; &I-JX1-2A36; [10-22]
     (=jef-china3	. #x81B0)	; &I-JC3-81B0;
     (=ucs@jis/fw	. #x02DD)	; &JX1-2A36;
     (<-fullwidth
@@ -623,7 +623,7 @@
      ((name		  . "MODIFIER LETTER RHOTIC HOOK")
       (=ucs		  . #x02DE)	; ˞
       ))
-    (=jis-x0213-1-2000	. #x2B71)	; &JX1-2B71; [11-81]
+    (=jis-x0213-1	. #x2B71)	; &JX1-2B71; [11-81]
     (=ucs@jis/fw	. #x02DE)	; &JX1-2B71;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER RHOTIC HOOK")
@@ -704,7 +704,7 @@
      ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
       (=ucs		  . #x02E5)	; ˥
       ))
-    (=jis-x0213-1-2000	. #x2B60)	; &JX1-2B60; [11-64]
+    (=jis-x0213-1	. #x2B60)	; &JX1-2B60; [11-64]
     (=ucs@jis/fw	. #x02E5)	; &JX1-2B60;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
@@ -723,7 +723,7 @@
      ((name		  . "MODIFIER LETTER HIGH TONE BAR")
       (=ucs		  . #x02E6)	; ˦
       ))
-    (=jis-x0213-1-2000	. #x2B61)	; &JX1-2B61; [11-65]
+    (=jis-x0213-1	. #x2B61)	; &JX1-2B61; [11-65]
     (=ucs@jis/fw	. #x02E6)	; &JX1-2B61;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER HIGH TONE BAR")
@@ -742,7 +742,7 @@
      ((name		  . "MODIFIER LETTER MID TONE BAR")
       (=ucs		  . #x02E7)	; ˧
       ))
-    (=jis-x0213-1-2000	. #x2B62)	; &JX1-2B62; [11-66]
+    (=jis-x0213-1	. #x2B62)	; &JX1-2B62; [11-66]
     (=ucs@jis/fw	. #x02E7)	; &JX1-2B62;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER MID TONE BAR")
@@ -761,7 +761,7 @@
      ((name		  . "MODIFIER LETTER LOW TONE BAR")
       (=ucs		  . #x02E8)	; ˨
       ))
-    (=jis-x0213-1-2000	. #x2B63)	; &JX1-2B63; [11-67]
+    (=jis-x0213-1	. #x2B63)	; &JX1-2B63; [11-67]
     (=ucs@jis/fw	. #x02E8)	; &JX1-2B63;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER LOW TONE BAR")
@@ -780,7 +780,7 @@
      ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")
       (=ucs		  . #x02E9)	; ˩
       ))
-    (=jis-x0213-1-2000	. #x2B64)	; &JX1-2B64; [11-68]
+    (=jis-x0213-1	. #x2B64)	; &JX1-2B64; [11-68]
     (=ucs@jis/fw	. #x02E9)	; &JX1-2B64;
     (<-fullwidth
      ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")

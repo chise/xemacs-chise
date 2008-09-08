@@ -14,6 +14,7 @@
     (total-strokes	 . 10)
     (->subsumptive
      ((=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+      (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
       (=daikanwa	  . 45672)	; &I-M-45672;
       (=shinjigen@rev	  .  9503)	; &M-45672;
       (=ucs@jis		  . #x9B32)	; &M-45672;
@@ -190,7 +191,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (=jis-x0212		. #x6A33)	; &M-45681; [74-19]
-    (=jis-x0213-2-2000	. #x7D3D)	; &I-JX2-7D3D; [93-29]
+    (=jis-x0213-2	. #x7D3D)	; &I-JX2-7D3D; [93-29]
     (=daikanwa		. 45681)	; &I-M-45681;
     (=ucs@jis		. #x9B33)	; &M-45681;
     ))
@@ -795,6 +796,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
     (=jis-x0208		. #x6478)	; &GT-61490; [68-88]
+    (=jis-x0213-1	. #x6478)	; &I-JX1-6478; [68-88]
     (=gt		. 61490)	; &I-GT-61490;
     (=gt-pj-1		. #x6478)	; &I-GT-61490; [68-88]
     (=daikanwa		. 45721)	; &I-M-45721;

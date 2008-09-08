@@ -274,12 +274,12 @@
 (define-char
   '((name		. "SESAME DOT")
     (=ucs		. #xFE45)	; ﹅
-    (=jis-x0213-1-2000	. #x233E)	; &I-JX1-233E; [03-30]
+    (=jis-x0213-1	. #x233E)	; &I-JX1-233E; [03-30]
     ))
 (define-char
   '((name		. "WHITE SESAME DOT")
     (=ucs		. #xFE46)	; ﹆
-    (=jis-x0213-1-2000	. #x233D)	; &I-JX1-233D; [03-29]
+    (=jis-x0213-1	. #x233D)	; &I-JX1-233D; [03-29]
     ))
 (define-char
   '((name		. "DASHED OVERLINE")
