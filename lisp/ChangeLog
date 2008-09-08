@@ -1,3 +1,14 @@
+2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0213-1): New coded-charset for XEmacs
+	CHISE.
+	(=jis-x0213-1@2000): Renamed from `=jis-x0213-1-2000'.
+	(=jis-x0213-2): Renamed from `=jis-x0213-2-2000'.
+	(=jis-x0213-1@2004): New coded-charset for XEmacs CHISE.
+	(=jis-x0213-1-2000): New alias for `=jis-x0213-1' in XEmacs CHISE
+	temporarily.
+	(=jis-x0213-2-2000): New alias for `=jis-x0213-2' in XEmacs CHISE.
+
 2008-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=shinjigen): New coded-charset for XEmacs
