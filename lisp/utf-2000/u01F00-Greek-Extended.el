@@ -1814,7 +1814,7 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=jis-x0213-1-2000	. #x2B46)	; &JX1-2B46; [11-38]
+    (=jis-x0213-1	. #x2B46)	; &JX1-2B46; [11-38]
     (=ucs@jis		. #x1F70)	; &JX1-2B46;
     ))
 (define-char
@@ -1845,7 +1845,7 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=jis-x0213-1-2000	. #x2B47)	; &JX1-2B47; [11-39]
+    (=jis-x0213-1	. #x2B47)	; &JX1-2B47; [11-39]
     (=ucs@jis		. #x1F71)	; &JX1-2B47;
     ))
 (define-char
@@ -1879,7 +1879,7 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=jis-x0213-1-2000	. #x2B50)	; &JX1-2B50; [11-48]
+    (=jis-x0213-1	. #x2B50)	; &JX1-2B50; [11-48]
     (=ucs@jis		. #x1F72)	; &JX1-2B50;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
@@ -1913,7 +1913,7 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=jis-x0213-1-2000	. #x2B51)	; &JX1-2B51; [11-49]
+    (=jis-x0213-1	. #x2B51)	; &JX1-2B51; [11-49]
     (=ucs@jis		. #x1F73)	; &JX1-2B51;
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")

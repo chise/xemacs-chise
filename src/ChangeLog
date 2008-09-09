@@ -1,3 +1,14 @@
+2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qpartial): New variable in XEmacs CHISE.
+	(make_charset): Add new argument `partial'.
+	(Fmake_charset): Add new property 'partial in XEmacs CHISE.
+	(Fmake_reverse_direction_charset): Modify for `make_charset'.
+	(syms_of_mule_charset): Add new builtin symbol `partial' in XEmacs
+	CHISE.
+	(complex_vars_of_mule_charset): Modify for `make_charset'; specify
+	`=jis-x0208' as a partial coded-charset.
+
 2008-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (decode_add_er_char): Fix problem when a character

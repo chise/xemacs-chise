@@ -368,6 +368,7 @@ Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 Lisp_Object Qiso_ir;
 #ifdef UTF2000
+Lisp_Object Qpartial;
 Lisp_Object Qmin_code, Qmax_code, Qcode_offset;
 Lisp_Object Qmother, Qconversion, Q94x60, Q94x94x60, Qbig5_1, Qbig5_2;
 #endif
@@ -823,7 +824,8 @@ make_charset (Charset_ID id, Lisp_Object name,
 	      Lisp_Object decoding_table,
 	      Emchar min_code, Emchar max_code,
 	      Emchar code_offset, unsigned char byte_offset,
-	      Lisp_Object mother, unsigned char conversion)
+	      Lisp_Object mother, unsigned char conversion,
+	      int partial)
 {
   Lisp_Object obj;
   Lisp_Charset *cs = alloc_lcrecord_type (Lisp_Charset, &lrecord_charset);
@@ -873,7 +875,7 @@ make_charset (Charset_ID id, Lisp_Object name,
       unsigned char iso2022_type
 	= (dimension == 1 ? 0 : 2) + (chars == 94 ? 0 : 1);
 #if UTF2000
-      if (code_offset == 0)
+      if ( ( !partial ) && ( code_offset == 0 ) )
 	{
 	  assert (NILP (chlook->charset_by_attributes[iso2022_type][final]));
 	  chlook->charset_by_attributes[iso2022_type][final] = obj;
@@ -1636,6 +1638,7 @@ character set.  Recognized properties are:
 		coded-charset.
 'conversion	[UTF-2000 only] Conversion for a code-point of a base
 		coded-charset (94x60, 94x94x60, big5-1 or big5-2).
+'partial	[UTF-2000 only] If t, specify as a partial coded-charset.
 */
        (name, doc_string, props))
 {
@@ -1646,6 +1649,7 @@ character set.  Recognized properties are:
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
   Lisp_Object mother = Qnil;
+  int partial = 0;
   int min_code = 0, max_code = 0, code_offset = 0;
   int byte_offset = -1;
   int conversion = 0;
@@ -1754,6 +1758,11 @@ character set.  Recognized properties are:
 	  }
 
 #ifdef UTF2000
+	else if (EQ (keyword, Qpartial))
+	  {
+	    partial = !NILP (value);
+	  }
+
 	else if (EQ (keyword, Qmother))
 	  {
 	    mother = Fget_charset (value);
@@ -1854,7 +1863,7 @@ character set.  Recognized properties are:
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
 			  Qnil, min_code, max_code, code_offset, byte_offset,
-			  mother, conversion);
+			  mother, conversion, partial);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -1913,7 +1922,7 @@ NEW-NAME is the name of the new charset.  Return the new charset.
 #else
 			      Qnil, 0, 0, 0, 0, Qnil, 0
 #endif
-);
+			      , 0);
 
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = new_charset;
   XCHARSET_REVERSE_DIRECTION_CHARSET (new_charset) = charset;
@@ -3043,6 +3052,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlong_name, "long-name");
   defsymbol (&Qiso_ir, "iso-ir");
 #ifdef UTF2000
+  defsymbol (&Qpartial, "partial");
   defsymbol (&Qmother, "mother");
   defsymbol (&Qmin_code, "min-code");
   defsymbol (&Qmax_code, "max-code");
@@ -3186,7 +3196,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("CHAR-ID"),
 		  build_string ("System char-id"),
 		  build_string (""),
-		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
     make_charset (LEADING_BYTE_UCS, Qrep_ucs, 256, 4,
@@ -3195,7 +3206,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS"),
 		  build_string ("ISO/IEC 10646"),
 		  build_string (""),
-		  Qnil, 0, 0xEFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0xEFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,
@@ -3205,7 +3217,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
 		  build_string
 		  ("\\(ISO10646\\(\\.[0-9]+\\)?-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
-		  Qnil, 0, 0xFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0xFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_ucs_smp);
   Vcharset_ucs_smp =
     make_charset (LEADING_BYTE_UCS_SMP, Qucs_smp, 256, 2,
@@ -3215,7 +3228,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO/IEC 10646 Group 0 Plane 1 (SMP)"),
 		  build_string ("UCS00-1"),
 		  Qnil, MIN_CHAR_SMP, MAX_CHAR_SMP,
-		  MIN_CHAR_SMP, 0, Qnil, CONVERSION_IDENTICAL);
+		  MIN_CHAR_SMP, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_ucs_sip);
   Vcharset_ucs_sip =
     make_charset (LEADING_BYTE_UCS_SIP, Qucs_sip, 256, 2,
@@ -3225,7 +3239,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO/IEC 10646 Group 0 Plane 2 (SIP)"),
 		  build_string ("\\(ISO10646.*-2\\|UCS00-2\\)"),
 		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP,
-		  MIN_CHAR_SIP, 0, Qnil, CONVERSION_IDENTICAL);
+		  MIN_CHAR_SIP, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
@@ -3242,7 +3257,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ASCII)"),
 		  build_string ("ASCII (ISO646 IRV)"),
 		  build_string ("\\(iso8859-[0-9]*\\|-ascii\\)"),
-		  Qnil, 0, 0x7F, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0x7F, 0, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_control_1);
   Vcharset_control_1 =
     make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1, 94, 1,
@@ -3251,7 +3267,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
 		  build_string (""),
-		  Qnil, 0x80, 0x9F, 0x80, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0x80, 0x9F, 0x80, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_iso8859_1);
   Vcharset_latin_iso8859_1 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1, 96, 1,
@@ -3260,7 +3277,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("iso8859-1"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_iso8859_2);
   Vcharset_latin_iso8859_2 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2, 96, 1,
@@ -3269,7 +3287,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("iso8859-2"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_iso8859_3);
   Vcharset_latin_iso8859_3 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3, 96, 1,
@@ -3278,7 +3297,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("iso8859-3"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_iso8859_4);
   Vcharset_latin_iso8859_4 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4, 96, 1,
@@ -3287,7 +3307,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("iso8859-4"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_thai_tis620);
   Vcharset_thai_tis620 =
     make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620, 96, 1,
@@ -3296,7 +3317,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 96, 1,
@@ -3305,7 +3327,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("iso8859-7"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_arabic_iso8859_6);
   Vcharset_arabic_iso8859_6 =
     make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6, 96, 1,
@@ -3314,7 +3337,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("iso8859-6"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_hebrew_iso8859_8);
   Vcharset_hebrew_iso8859_8 =
     make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8, 96, 1,
@@ -3326,7 +3350,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  0 /* MIN_CHAR_HEBREW */,
 		  0 /* MAX_CHAR_HEBREW */, 0, 32,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_katakana_jisx0201);
   Vcharset_katakana_jisx0201 =
     make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201, 94, 1,
@@ -3335,7 +3360,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
 		  build_string ("jisx0201\\.1976"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_jisx0201);
   Vcharset_latin_jisx0201 =
     make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201, 94, 1,
@@ -3344,7 +3370,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201.1976 (Japanese Roman)"),
 		  build_string ("JISX0201.1976 Japanese Roman"),
 		  build_string ("jisx0201\\.1976"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_cyrillic_iso8859_5);
   Vcharset_cyrillic_iso8859_5 =
     make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5, 96, 1,
@@ -3353,7 +3380,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("iso8859-5"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_iso8859_9);
   Vcharset_latin_iso8859_9 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9, 96, 1,
@@ -3362,7 +3390,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("iso8859-9"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
 #ifdef UTF2000
   staticpro (&Vcharset_jis_x0208);
   Vcharset_jis_x0208 =
@@ -3376,7 +3405,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  MIN_CHAR_JIS_X0208_1990,
 		  MAX_CHAR_JIS_X0208_1990, MIN_CHAR_JIS_X0208_1990, 33,
-		  Qnil, CONVERSION_94x94);
+		  Qnil, CONVERSION_94x94,
+		  1);
 #endif
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
@@ -3394,7 +3424,8 @@ complex_vars_of_mule_charset (void)
 #else
 		  Qnil,
 #endif
-		  CONVERSION_IDENTICAL);
+		  CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qrep_gb2312, 94, 2,
@@ -3403,7 +3434,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
 		  build_string ("gb2312"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_chinese_gb12345);
   Vcharset_chinese_gb12345 =
     make_charset (LEADING_BYTE_CHINESE_GB12345, Qrep_gb12345, 94, 2,
@@ -3412,7 +3444,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GB 12345)"),
 		  build_string ("GB 12345-1990"),
 		  build_string ("GB12345\\(\\.1990\\)?-0"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_japanese_jisx0208);
   Vcharset_japanese_jisx0208 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qrep_jis_x0208_1983, 94, 2,
@@ -3427,7 +3460,8 @@ complex_vars_of_mule_charset (void)
 #else
 		  Qnil,
 #endif
-		  CONVERSION_IDENTICAL);
+		  CONVERSION_IDENTICAL,
+		  0);
 #ifdef UTF2000
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
@@ -3443,7 +3477,8 @@ complex_vars_of_mule_charset (void)
 		  0x7426 /* MAX_CHAR_JIS_X0208_1990 */,
 		  0 /* MIN_CHAR_JIS_X0208_1990 */, 33,
 		  Vcharset_jis_x0208 /* Qnil */,
-		  CONVERSION_IDENTICAL /* CONVERSION_94x94 */);
+		  CONVERSION_IDENTICAL /* CONVERSION_94x94 */,
+		  0);
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
@@ -3453,7 +3488,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("KSC5601 (Korean"),
 		  build_string ("KSC5601 Korean Hangul and Hanja"),
 		  build_string ("ksc5601"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_japanese_jisx0212);
   Vcharset_japanese_jisx0212 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qrep_jis_x0212, 94, 2,
@@ -3462,7 +3498,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0212 (Japanese)"),
 		  build_string ("JISX0212 Japanese Supplement"),
 		  build_string ("jisx0212"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
 
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   staticpro (&Vcharset_chinese_cns11643_1);
@@ -3474,7 +3511,8 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 1 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("1")),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
     make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qrep_cns11643_2, 94, 2,
@@ -3484,7 +3522,8 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL,
+		  0);
 #ifdef UTF2000
   staticpro (&Vcharset_latin_tcvn5712);
   Vcharset_latin_tcvn5712 =
@@ -3494,7 +3533,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TCVN 5712 (VSCII-2)"),
 		  build_string ("Vietnamese TCVN 5712:1983 (VSCII-2)"),
 		  build_string ("tcvn5712\\(\\.1993\\)?-1"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower, 96, 1,
@@ -3503,7 +3543,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("MULEVISCII-LOWER"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_viscii_upper);
   Vcharset_latin_viscii_upper =
     make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper, 96, 1,
@@ -3512,7 +3553,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("MULEVISCII-UPPER"),
-		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_latin_viscii);
   Vcharset_latin_viscii =
     make_charset (LEADING_BYTE_LATIN_VISCII, Qlatin_viscii, 256, 1,
@@ -3521,7 +3563,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
   staticpro (&Vcharset_chinese_big5);
   Vcharset_chinese_big5 =
     make_charset (LEADING_BYTE_CHINESE_BIG5, Qrep_big5, 256, 2,
@@ -3532,7 +3575,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("big5-0"),
 		  Qnil,
 		  MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
-		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
+		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL,
+		  0);
 
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =
@@ -3543,7 +3587,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Ethiopic of UCS"),
 		  build_string ("Ethiopic-Unicode"),
 		  Qnil, 0x1200, 0x137F, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, CONVERSION_IDENTICAL,
+		  0);
 #endif
   staticpro (&Vcharset_chinese_big5_1);
   Vcharset_chinese_big5_1 =
@@ -3555,7 +3600,8 @@ complex_vars_of_mule_charset (void)
 		  ("Big5 Level-1 Chinese traditional"),
 		  build_string ("big5"),
 		  Qnil, 0, 0, 0, 33, /* Qnil, CONVERSION_IDENTICAL */
-		  Vcharset_chinese_big5, CONVERSION_BIG5_1);
+		  Vcharset_chinese_big5, CONVERSION_BIG5_1,
+		  0);
   staticpro (&Vcharset_chinese_big5_2);
   Vcharset_chinese_big5_2 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2, 94, 2,
@@ -3566,7 +3612,8 @@ complex_vars_of_mule_charset (void)
 		  ("Big5 Level-2 Chinese traditional"),
 		  build_string ("big5"),
 		  Qnil, 0, 0, 0, 33, /* Qnil, CONVERSION_IDENTICAL */
-		  Vcharset_chinese_big5, CONVERSION_BIG5_2);
+		  Vcharset_chinese_big5, CONVERSION_BIG5_2,
+		  0);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   /* #### For simplicity, we put composite chars into a 96x96 charset.

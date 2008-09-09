@@ -168,7 +168,18 @@
 	      t)
 	  (if (<= (charset-id kb) 1)
 	      nil
-	    (< (charset-id ka)(charset-id kb))))
+	    (cond
+	     ((and (charset-final ka)
+		   (>= (charset-final ka) ?@))
+	      (if (and (charset-final kb)
+		       (>= (charset-final kb) ?@))
+		  (< (charset-final ka)(charset-final kb))
+		t))
+	     ((and (charset-final kb)
+		   (>= (charset-final kb) ?@))
+	      nil)
+	     (t
+	      (< (charset-id ka)(charset-id kb))))))
       nil))
    ((find-charset kb)
     t)

@@ -373,7 +373,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
       ))
     (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
@@ -381,7 +381,7 @@
     (mirrored		. nil)
     (=ucs		. #x2E97)	; ⺗
     (<-identical@component/connect-above
-     ((=jis-x0213-2-2000  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
       ))
     ))
 (define-char
@@ -1049,7 +1049,7 @@
     (total-strokes	 . 3)
     (=ucs		. #x2EBE)	; ⺾
     (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
-    (=jis-x0213-2-2000	. #x7576)	; &I-JX2-7576; [85-86]
+    (=jis-x0213-2	. #x7576)	; &I-JX2-7576; [85-86]
     (=big5-cdp		. #x8957)	; &I-CDP-8957;
     (=gt		. 39639)	; &I-GT-39639;
     (=gt-k		. 00279)	; &I-GT-K00279;
@@ -1264,7 +1264,7 @@
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; ⻍
     (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
-    (=jis-x0213-2-2000	. #x796A)	; &I-JX2-796A; [89-74]
+    (=jis-x0213-2	. #x796A)	; &I-JX2-796A; [89-74]
     (=gt		. 51643)	; &I-GT-51643;
     (=gt-k		. 00580)	; &I-GT-K00580;
     (=gt-pj-7		. #x5530)	; &I-GT-51643; [53-16]

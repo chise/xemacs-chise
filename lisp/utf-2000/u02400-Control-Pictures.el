@@ -652,7 +652,7 @@
      ((name		  . "OPEN BOX")
       (=ucs		  . #x2423)	; ␣
       ))
-    (=jis-x0213-1-2000	. #x277D)	; &JX1-277D; [07-93]
+    (=jis-x0213-1	. #x277D)	; &JX1-277D; [07-93]
     (=ucs@jis		. #x2423)	; &JX1-277D;
     (<-fullwidth
      ((name		  . "OPEN BOX")

@@ -128,30 +128,56 @@
   )
 
 ;; JIS X 0213:2000
-(if (featurep 'utf-2000)
-    (progn
-      (make-charset
-       '=jis-x0213-1-2000
-       "JIS X 0213:2000 Plain 1"
-       '(iso-ir 228
-		registry "jisx0213\\(\\.2000\\)-1"
-		dimension 2
-		chars 94
-		mother =jis-x0208@1990
-		final ?O
-		graphic 0))
-      (make-charset
-       '=jis-x0213-2-2000
-       "JIS X 0213:2000 Plain 2"
-       '(iso-ir 229
-		registry "jisx0213\\(\\.2000\\)-2"
-		dimension 2
-		chars 94
-		final ?P
-		graphic 0))
-      (define-charset-alias 'japanese-jisx0213-1 '=jis-x0213-1-2000)
-      (define-charset-alias 'japanese-jisx0213-2 '=jis-x0213-2-2000)
-      )
+(cond
+ ((featurep 'utf-2000)
+  (make-charset
+   '=jis-x0213-1
+   "JIS X 0213 Plain 1 (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      final ?O
+	      graphic 0
+	      partial t))
+
+  (make-charset
+   '=jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1"
+   '(iso-ir 228
+	    registry "jisx0213\\(\\.2000\\)-1"
+	    dimension 2
+	    chars 94
+	    mother =jis-x0213-1
+	    final ?O
+	    graphic 0))
+  (make-charset
+   '=jis-x0213-2
+   "JIS X 0213 Plain 2"
+   '(iso-ir 229
+	    registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	    dimension 2
+	    chars 94
+	    final ?P
+	    graphic 0))
+
+  (make-charset
+   '=jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1"
+   '(iso-ir 233
+	    registry "jisx0213\\(\\.2004\\)-1"
+	    dimension 2
+	    chars 94
+	    mother =jis-x0213-1
+	    final ?Q
+	    graphic 0))
+
+  (define-charset-alias 'japanese-jisx0213-1 '=jis-x0213-1@2000)
+  (define-charset-alias 'japanese-jisx0213-2 '=jis-x0213-2)
+  ;; (define-charset-alias '=jis-x0213-1-2000 '=jis-x0213-1@2000)
+  (define-charset-alias '=jis-x0213-1-2000 '=jis-x0213-1)
+  (define-charset-alias '=jis-x0213-2-2000 '=jis-x0213-2)
+  )
+ (t
   (make-charset
    'japanese-jisx0213-1
    "JIS X 0213:2000 Plain 1"
@@ -168,7 +194,7 @@
 	      chars 94
 	      final ?P
 	      graphic 0))
-  )
+  ))
 
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)

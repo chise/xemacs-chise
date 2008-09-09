@@ -1,3 +1,19 @@
+2008-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Treat non-private final
+	byte.
+
+2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el:
+	- Delete temporary setting to convert each pair of
+	  `=shinjigen@1ed' and `=shinjigen@rev' to the corresponding
+	  `=shinjigen'.
+	- Delete temporary setting to convert each pair of `shinjigen@1ed'
+	  and `shinjigen@rev' to `shinjigen' in *sources features.
+	- Add temporary setting to add `=jis-x0213-1' for each character
+	  which has a code-point of JIS X 0208:1990.
+
 2008-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u020A0-Currency-Symbols.el (<EURO SIGN>): Use `->denotational'
