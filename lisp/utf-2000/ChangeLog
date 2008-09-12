@@ -7,6 +7,31 @@
 
 2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el (U+82A6): Use `->denotational'.
+	(GT-39829): Use `<-denotational' for U+82A6; use
+	`=jis-x0208@1978/i-4', `=jis-x0208@1983' and `=jis-x0208@1990'
+	instead of `=jis-x0208' for J90-3032; fix `jisx0208-difference';
+	add `=jis-x0208@1978*note'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-3032; unify JC3-61B3.
+	(K0-7B58): Use `<-denotational' for U+82A6; unify J78/4--3032 and
+	JX3-3032.
+	(U+8328): Use `->denotational' and `->subsumptive'.
+	(JC3-61B4): New character; use `<-denotational' for U+8328.
+	(K0-6D3C): Use `<-denotational' for U+8328; move B-AFFD to U+8328.
+	(JX3-3071): New character; use `<-denotational' for U+8328.
+	(J90-3071): Use `<-subsumptive' to separate G0-3444 and GT-40112;
+	use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for JX1-3071.
+	(U+8329): Use `->denotational'.
+	(U+832A): Likewise.
+
+	* Ideograph-R085-Water.el (U+6EA2): Add J97-306E.
+	(J78-306E): Use `<-subsumptive' to separate K0-6C6E and GT-22899.
+	(K0-6C6E): Use `<-subsumptive' to separate J78-306E and M-17951;
+	unify JX3-306E.
+	(J90-306E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-306E; separate `<-simplified@JP' into
+	`<-simplified@JP/jis/1978' and `<-simplified@JP/jis/2004'.
+
 	* Ideograph-R086-Fire.el (JX1-5F73): Use `=jis-x0208@1978/i4-',
 	`=jis-x0208@1983' and `=jis-x0208@1990 instead of `=jis-x0208' for
 	J90-5F73.
