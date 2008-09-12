@@ -1,3 +1,26 @@
+2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (JX1-7877): Add `=jis-x0208@1978*note';
+	use `jis-x0208/1978/errata' instead of `=jis-x0208/1978/errata' in
+	`<-error@jis/x0208*sources'; add `jis-x0208/1997' into
+	`<-error@jis/x0208*sources'.
+
+2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (JX1-5F73): Use `=jis-x0208@1978/i4-',
+	`=jis-x0208@1983' and `=jis-x0208@1990 instead of `=jis-x0208' for
+	J90-5F73.
+	(J78/-4-5F73): Add `=jis-x0208@1978*note'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3071.
+
+2008-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+98F4): Add J97-303B.
+	(J78-303B): Unify JX3-303B.
+	(J90-303B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-303B.
+
 2008-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-attribute-name<): Treat non-private final
