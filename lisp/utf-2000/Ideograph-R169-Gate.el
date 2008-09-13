@@ -601,17 +601,37 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 169)	; ⾨
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x313C)	; &J97-313C; [17-28]
+      ))
+    (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
+    (sound@ja/on/go/s=bolt "tyAu")
+    (sound@ja/on/kan/s=bolt "tei")
+    (sound@ja/on/kan/s=intercalary "zyuN")
     (=ucs		. #x28CDD)	; 𨳝
     (->subsumptive
      ((=daikanwa	  . 41243)	; &M-41243;
+      (<-wrong@s=intercalary
+       ((=daikanwa	    . 41244)	; &M-41244;
+	))
+      (<-wrong@s=intercalary*sources
+       zhengzitong daikanwa)
       )
-     ((=cns11643-3	  . #x3F6D)	; &GT-55472; [31-77]
+     ((=jis-x0208@1978*note . "ISO-IR-042 = 1978/i1")
+      (=cns11643-3	  . #x3F6D)	; &GT-55472; [31-77]
       (=jis-x0208@1978/i1 . #x313C)	; &GT-55472; [17-28]
       (=gt		  . 55472)	; &I-GT-55472;
       (=gt-pj-7		  . #x6E48)	; &I-GT-55472; [78-40]
+      (<-error@jis/x0208
+       ((=jis-x0208	    . #x313C)	; &GT-55468; [17-28]
+	(=ks-x1001	    . #x6B4E)	; &I-K0-6B4E; [75-46]
+	(=cns11643-1	    . #x6263)	; &I-C1-6263; [66-67]
+	(=jis-x0213-1	    . #x313C)	; &I-JX1-313C; [17-28]
+	))
+      (<-error@jis/x0208*sources
+       jis-x0208/1978/errata jis-x0208/1997)
       )
      ((=jef-china3	  . #x6BE0)	; &JC3-6BE0;
       )
@@ -622,6 +642,17 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
+    (=jis-x0208@1997	. #x313C)	; &J97-313C; [17-28]
+    ))
+(define-char
+  '((<-denotational
+     ((=jis-x0208@1997	  . #x313C)	; &J97-313C; [17-28]
+      ))
+    (ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 12)
+    (sound@ja/on/go	"niN")
+    (sound@ja/on/kan	"zyuN")
     (=ucs		. #x958F)	; 閏
     (->subsumptive
      ((=daikanwa	  . 41244)	; &M-41244;
@@ -2478,8 +2509,12 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
     (=ucs		. #x49A3)	; 䦣
-    (=cns11643-4	. #x544C)	; &I-C4-544C; [52-44]
-    (=daikanwa		. 41376)	; &I-M-41376;
+    (->subsumptive
+     ((=daikanwa	  . 41376)	; &M-41376;
+      )
+     ((=cns11643-4	  . #x544C)	; &C4-544C; [52-44]
+      (=ucs@unicode	  . #x49A3)	; &C4-544C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
@@ -2545,7 +2580,15 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
+    (=jis-x0208@1978*note . "ISO-IR-042 = 1978/i1")
     (=jis-x0208@1978/i1 . #x6F65)	; &J78i1-6F65; [79-69]
+    (<-error@jis/x0208
+     ((=jis-x0208	  . #x6F65)	; &GT-55612; [79-69]
+      (=ks-x1001	  . #x6722)	; &I-K0-6722; [71-02]
+      (=jis-x0213-1	  . #x6F65)	; &I-JX1-6F65; [79-69]
+      ))
+    (<-error@jis/x0208*sources
+     jis-x0208/1978/errata jis-x0208/1997)
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
