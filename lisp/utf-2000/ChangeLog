@@ -1,5 +1,20 @@
 2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R169-Gate.el (U-00028CDD): Add `<-denotational' for
+	J97-313C; add `sound@ja/on/{kan|go}/s=bolt' and
+	`sound@ja/on/kan/s=intercalary'.
+	(M-41243): Add `<-wrong@s=intercalary' for M-41244.
+	(C3-3F6D): Add `=jis-x0208@1978*note'; add `<-error@jis/x0208' for
+	J0-313C.
+	(J97-313C): New abstract character.
+	(U+958F): Add `<-denotational' for J97-313C; add
+	`sound@ja/on/{kan|go}'.
+	(U+49A3): Use `->subsumptive'.
+	(J78/i1-6F65): Add `=jis-x0208@1978*note'; add `<-error@jis/x0208'
+	for J0-6F65.
+
+	* Ideograph-R156-Run.el (C1-5844): Add S2-7959; unify JC3-66BA.
+
 	* Ideograph-R109-Eye.el (JX1-7877): Add `=jis-x0208@1978*note';
 	use `jis-x0208/1978/errata' instead of `=jis-x0208/1978/errata' in
 	`<-error@jis/x0208*sources'; add `jis-x0208/1997' into
