@@ -1,5 +1,21 @@
 2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (M-38724): Use `=jis-x0208@1978/i4-'
+	instead of `=jis-x0208@1978' for J78/4-i-4B78; unify JX3-4B78.
+	(J90-4B78): Use `=jis-x0208@1978/i-4' instead of
+	`=jis-x0208@1978/i1' for J78/-4i-4B78; use
+	`=jis-x0208@1978*sources' instead of `=jis-x0208@1978/i1*sources';
+	add `=jis-x0208@1978*note'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-4B78.
+	(U+9022): Add J97-3029.
+	(K0-5C71): Use `=jis-x0208@1978/i4-' instead of `=jis-x0208@1978'
+	for J78/4-i-3029; delete `jisx0208-type'; unify JX3-3029.
+	(J90-3029): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3029; add J78/-4i-3029.
+
+	* Ideograph-R086-Fire.el (K0-5C6C): Modify a char-spec in
+	`ideographic-structure' for JX3-3029.
+
 	* Ideograph-R169-Gate.el (U-00028CDD): Add `<-denotational' for
 	J97-313C; add `sound@ja/on/{kan|go}/s=bolt' and
 	`sound@ja/on/kan/s=intercalary'.
