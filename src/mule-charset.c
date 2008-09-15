@@ -57,7 +57,7 @@ Lisp_Object Vcharset_katakana_jisx0201;
 Lisp_Object Vcharset_latin_jisx0201;
 Lisp_Object Vcharset_cyrillic_iso8859_5;
 Lisp_Object Vcharset_latin_iso8859_9;
-Lisp_Object Vcharset_japanese_jisx0208_1978;
+/* Lisp_Object Vcharset_japanese_jisx0208_1978; */
 Lisp_Object Vcharset_chinese_gb2312;
 Lisp_Object Vcharset_chinese_gb12345;
 Lisp_Object Vcharset_japanese_jisx0208;
@@ -387,7 +387,7 @@ Lisp_Object Qascii,
   Qlatin_jisx0201,
   Qcyrillic_iso8859_5,
   Qlatin_iso8859_9,
-  Qrep_jis_x0208_1978,
+/*  Qrep_jis_x0208_1978, */
   Qrep_gb2312,
   Qrep_gb12345,
   Qrep_jis_x0208_1983,
@@ -3083,7 +3083,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_jisx0201,		"latin-jisx0201");
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
-  defsymbol (&Qrep_jis_x0208_1978,	"=jis-x0208@1978");
+  /* defsymbol (&Qrep_jis_x0208_1978,	"=jis-x0208@1978"); */
   defsymbol (&Qrep_gb2312,		"=gb2312");
   defsymbol (&Qrep_gb12345,		"=gb12345");
   defsymbol (&Qrep_jis_x0208_1983, 	"=jis-x0208@1983");
@@ -3408,6 +3408,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, CONVERSION_94x94,
 		  1);
 #endif
+#if 0
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978,
@@ -3426,6 +3427,7 @@ complex_vars_of_mule_charset (void)
 #endif
 		  CONVERSION_IDENTICAL,
 		  0);
+#endif
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qrep_gb2312, 94, 2,
