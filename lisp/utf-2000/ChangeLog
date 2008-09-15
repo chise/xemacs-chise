@@ -1,3 +1,9 @@
+2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Regard partial
+	coded-charset which has final-byte as ISO registered
+	coded-charset.
+
 2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (M-38724): Use `=jis-x0208@1978/i4-'
