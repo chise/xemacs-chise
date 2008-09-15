@@ -1,3 +1,16 @@
+2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1978): New coded-charset [moved
+	from src/mule-charset.c].
+	(=jis-x0208@1978/-4pr): Renamed from `=jis-x0208@1978/i-4';
+	specify `final'.
+	(=jis-x0208@1978/1pr): Renamed from `=jis-x0208@1978/i1'; specify
+	`iso-ir' and `final', namely now it is used as ISO-IR-42.
+	(=jis-x0208@1978/4-pr): Renamed from `=jis-x0208@1978/i4-'.
+	(=jis-x0208@1978/i1): New alias for `=jis-x0208@1978/1pr'.
+	(=jis-x0208@1978/i-4): New alias for `=jis-x0208@1978/-4pr'.
+	(=jis-x0208@1978/i4-): New alias for `=jis-x0208@1978/4-pr'.
+
 2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0213-1-2000): Changed to the alias of
