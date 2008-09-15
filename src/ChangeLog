@@ -1,3 +1,8 @@
+2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Move definition of `=jis-x0208@1978' to
+	lisp/mule/mule-conf.el.
+
 2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Qpartial): New variable in XEmacs CHISE.
