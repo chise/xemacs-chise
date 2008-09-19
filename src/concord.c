@@ -1,5 +1,5 @@
 /* XEmacs routines to deal with CONCORD.
-   Copyright (C) 2005,2006 MORIOKA Tomohiko
+   Copyright (C) 2005,2006,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -718,6 +718,7 @@ Store a VALUE of OBJECT's FEATURE.
   Bufbyte *name_str;
 
   CHECK_CONCORD_OBJECT (object);
+  CHECK_SYMBOL (feature);
   name = symbol_name (XSYMBOL (feature));
   name_str = string_data (name);
   if ( NILP (concord_object_put (object, feature, value)) )
