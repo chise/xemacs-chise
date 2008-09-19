@@ -1,3 +1,8 @@
+2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_object_put): Check argument FEATURE is a
+	symbol.
+
 2008-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (struct decoding_stream): Add new member
