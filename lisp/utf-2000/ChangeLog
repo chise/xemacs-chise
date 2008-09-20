@@ -1,3 +1,26 @@
+2008-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+82A7): Use `->denotational'.
+	(C2-2859): Use `<-denotational' for U+82A7; unify JC3-61C7.
+	(U-00026B18): Use `->subsumptive'.
+	(U+82A8): Use `->denotational'.
+	(C2-285F): Use `<-denotational' for U+82A8; unify JC3-61C8.
+	(U+449F): Use `->denotational' and `->subsumptive'.
+	(U+44A0): Use `->denotational' and `->subsumptive'.
+	(U+44A1): Use `->denotational'.
+	(U+82A9): Use `->denotational'.
+	(U+82AA): Use `->denotational'.
+	(U+82AB): Use `->denotational'.
+	(U+82AC): Use `->denotational' and `->subsumptive'.
+	(U+82AD): Use `->denotational'.
+	(U+82AE): Use `->denotational' and `->subsumptive'.
+	(M-30731): Use `<-subsumptive' and `<-denotational' for U+82AE;
+	unify JC3-61C9.
+	(U+82AF): Use `->denotational'.
+	(U+82B0): Use `->denotational'.
+	(C1-4F4A): Use `<-denotational' for U+82B0; unify M-30733 and
+	JC3-61CA.
+
 2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-attribute-name<): Regard partial
