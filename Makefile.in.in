@@ -240,8 +240,13 @@ INSTALL_ARCH_DEP_SUBDIR = @INSTALL_ARCH_DEP_SUBDIR@
 ## When installing the info files, we need to do special things to
 ## avoid nuking an existing dir file, so we don't do that here;
 ## instead, we have written out explicit code in the `install' targets.
+#ifdef HAVE_CHISE
 COPYDIR = ${srcdir}/etc ${srcdir}/lisp
 COPYDESTS = ${etcdir} ${lispdir}
+#else
+COPYDIR = ${srcdir}/etc ${srcdir}/lisp
+COPYDESTS = ${etcdir} ${lispdir}
+#endif
 GENERATED_HEADERS = src/paths.h src/Emacs.ad.h src/config.h lwlib/config.h src/sheap-adjust.h
 GENERATED_LISP = lisp/finder-inf.el
 
@@ -286,6 +291,10 @@ depend ${srcdir}/src/depend:
 all-elc all-elcs: ${PROGNAME} autoloads dump-elcs
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l update-elc-2.el -f batch-update-elc-2 lisp
+#ifdef UTF2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l update-elc-2.el -f batch-update-elc-2 lisp/utf-2000
+#endif
 
 ## Sub-target for all-elc.
 dump-elc dump-elcs: ${PROGNAME} ${GENERATED_HEADERS} FRC.dump-elcs
@@ -301,6 +310,22 @@ lisp/auto-autoloads.el:	${PROGNAME} FRC.lisp.auto.autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/auto-autoloads.el
 	@$(RM) lisp/auto-autoloads.el~
+#ifdef MULE
+	$(RM) lisp/mule/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/mule
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/mule/auto-autoloads.el
+	@$(RM) lisp/mule/auto-autoloads.el~
+#endif
+#ifdef UTF2000
+	$(RM) lisp/utf-2000/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/utf-2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/utf-2000/auto-autoloads.el
+	@$(RM) lisp/utf-2000/auto-autoloads.el~
+#endif
 
 FRC.lisp.custom.load.el:
 lisp/custom-load.el: ${PROGNAME} FRC.lisp.custom.load.el lisp/auto-autoloads.el
@@ -498,6 +523,31 @@ install-arch-indep: mkdir info
 	    ${INSTALL_DATA} ${srcdir}/etc/$${page}.1 ${mandir}/$${page}${manext} ; \
 	    chmod 0644 ${mandir}/$${page}${manext} ; \
 	  done
+#ifdef HAVE_LIBCHISE
+	${blddir}/src/${PROGNAME} -batch -vanilla -eval "\
+(let ((path (expand-file-name \"db\" chise-db-directory))\
+      (data-dir \"${etcdir}/chise-db\")\
+      (i 0)\
+      (default-directory chise-db-directory)\
+      len chise-dir pre)\
+  (if (file-exists-p chise-db-directory)\
+      (if (file-exists-p path)\
+	  (delete-file path))\
+    (make-directory chise-db-directory t))\
+  (setq len (min (length data-dir) (length path)))\
+  (while (and (< i len)\
+	      (eq (aref path i) (aref data-dir i)))\
+    (setq i (1+ i)))\
+  (setq data-dir (substring data-dir i))\
+  (setq chise-dir (substring path i))\
+  (setq i 0)\
+  (setq len (length chise-dir))\
+  (while (< i len)\
+    (if (eq (aref chise-dir i) ?/)\
+	(setq pre (concat pre \"../\")))\
+    (setq i (1+ i)))\
+  (make-symbolic-link (concat pre data-dir) path t))"
+#endif
 	@echo "If you would like to save approximately 2M of disk space, do"
 	@echo "make gzip-el"
 	@echo "or you may run "
