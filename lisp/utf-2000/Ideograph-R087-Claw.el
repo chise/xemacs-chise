@@ -665,18 +665,18 @@
      ((=ucs		  . #x24522)	; 𤔢
       ))
     (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=ucs@iso		. #x24522)	; &U-00024522;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=cns11643-6	. #x5E53)	; &C6-5E53; [62-51]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x24522)	; 𤔢
       ))
     (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=cns11643-6	. #x5E53)	; &C6-5E53; [62-51]
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x24522)	; &U-00024522;
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖

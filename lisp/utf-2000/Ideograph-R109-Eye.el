@@ -895,18 +895,18 @@
      ((=ucs		  . #x21565)	; 𡕥
       ))
     (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=ucs@iso		. #x21565)	; &U-00021565;
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=big5-cdp		. #x88FD)	; &CDP-88FD;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x21565)	; 𡕥
       ))
     (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=big5-cdp		. #x88FD)	; &CDP-88FD;
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs@iso		. #x21565)	; &U-00021565;
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬

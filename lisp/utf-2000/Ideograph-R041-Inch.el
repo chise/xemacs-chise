@@ -934,18 +934,18 @@
      ((=ucs		  . #x21B4E)	; 𡭎
       ))
     (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (=ucs@iso		. #x21B4E)	; &U-00021B4E;
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=cns11643-7	. #x375C)	; &C7-375C; [23-60]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x21B4E)	; 𡭎
       ))
     (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=cns11643-7	. #x375C)	; &C7-375C; [23-60]
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x21B4E)	; &U-00021B4E;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨

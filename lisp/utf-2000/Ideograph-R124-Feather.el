@@ -2229,19 +2229,19 @@
      ((=ucs		  . #x7FDB)	; 翛
       ))
     (ideographic-radical . 124)	; ⽻
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (=ucs@unicode	. #x7FDB)	; &UU+7FDB;
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (=cns11643-2	. #x4636)	; &C2-4636; [38-22]
+    (=ucs@cns		. #x7FDB)	; &C2-4636;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7FDB)	; 翛
       ))
     (ideographic-radical . 124)	; ⽻
-    (ideographic-strokes . 7)
-    (total-strokes	 . 13)
-    (=cns11643-2	. #x4636)	; &C2-4636; [38-22]
-    (=ucs@cns		. #x7FDB)	; &C2-4636;
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x7FDB)	; &UU+7FDB;
     ))
 (define-char
   '((=>ucs		. #x2643B)	; 𦐻

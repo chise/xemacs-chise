@@ -3587,18 +3587,18 @@
      ((=ucs		  . #x22285)	; 𢊅
       ))
     (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs@iso		. #x22285)	; &U-00022285;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=cns11643-5	. #x3F23)	; &C5-3F23; [31-03]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x22285)	; 𢊅
       ))
     (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-5	. #x3F23)	; &C5-3F23; [31-03]
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x22285)	; &U-00022285;
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴

@@ -5220,18 +5220,18 @@
      ((=ucs		  . #x78D3)	; 磓
       ))
     (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (=ucs@unicode	. #x78D3)	; &UU+78D3;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (=cns11643-3	. #x4D49)	; &C3-4D49; [45-41]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x78D3)	; 磓
       ))
     (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (=cns11643-3	. #x4D49)	; &C3-4D49; [45-41]
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (=ucs@unicode	. #x78D3)	; &UU+78D3;
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯

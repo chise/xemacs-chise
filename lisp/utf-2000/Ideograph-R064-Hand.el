@@ -11789,19 +11789,19 @@
      ((=ucs		  . #x6425)	; 搥
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs@unicode	. #x6425)	; &UU+6425;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=cns11643-2	. #x433A)	; &C2-433A; [35-26]
+    (=ucs@cns		. #x6425)	; &C2-433A;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x6425)	; 搥
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-2	. #x433A)	; &C2-433A; [35-26]
-    (=ucs@cns		. #x6425)	; &C2-433A;
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x6425)	; &UU+6425;
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -13338,19 +13338,19 @@
      ((=ucs		  . #x6459)	; 摙
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=ucs@unicode	. #x6459)	; &UU+6459;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=cns11643-2	. #x4A58)	; &C2-4A58; [42-56]
+    (=ucs@cns		. #x6459)	; &C2-4A58;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x6459)	; 摙
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (=cns11643-2	. #x4A58)	; &C2-4A58; [42-56]
-    (=ucs@cns		. #x6459)	; &C2-4A58;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x6459)	; &UU+6459;
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -18968,19 +18968,19 @@
      ((=ucs		  . #x64FF)	; 擿
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=ucs@unicode	. #x64FF)	; &UU+64FF;
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=cns11643-2	. #x615D)	; &C2-615D; [65-61]
+    (=ucs@cns		. #x64FF)	; &C2-615D;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x64FF)	; 擿
       ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=cns11643-2	. #x615D)	; &C2-615D; [65-61]
-    (=ucs@cns		. #x64FF)	; &C2-615D;
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=ucs@unicode	. #x64FF)	; &UU+64FF;
     ))
 (define-char
   '((=>ucs		. #x22DFF)	; 𢷿

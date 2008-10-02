@@ -3714,18 +3714,18 @@
      ((=ucs		  . #x70F5)	; 烵
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=ucs@unicode	. #x70F5)	; &UU+70F5;
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=cns11643-3	. #x372F)	; &C3-372F; [23-15]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x70F5)	; 烵
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (=cns11643-3	. #x372F)	; &C3-372F; [23-15]
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x70F5)	; &UU+70F5;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -9085,18 +9085,18 @@
      ((=ucs		  . #x3DED)	; 㷭
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=ucs@unicode	. #x3DED)	; &UU+3DED;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=cns11643-3	. #x4D2B)	; &C3-4D2B; [45-11]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x3DED)	; 㷭
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-3	. #x4D2B)	; &C3-4D2B; [45-11]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@unicode	. #x3DED)	; &UU+3DED;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -9140,6 +9140,23 @@
      ((=ucs		  . #x71A2)	; 熢
       ))
     (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=cns11643-1	  . #x4556)	; &C1-4556; [37-54]
+      )
+     ((=cns11643-1	  . #x5D61)	; &C1-5D61; [61-65]
+      ))
+    (=cns11643-3	. #x4D2A)	; &C3-4D2A; [45-10]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x71A2)	; 熢
+      ))
+    (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (ideographic-structure
@@ -9158,23 +9175,6 @@
       (=jis-x0213-1@2000  . #x3029)	; &I-JX1-3029; [16-09]
       ))
     (=ucs@unicode	. #x71A2)	; &UU+71A2;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x71A2)	; 熢
-      ))
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=cns11643-1	  . #x4556)	; &C1-4556; [37-54]
-      )
-     ((=cns11643-1	  . #x5D61)	; &C1-5D61; [61-65]
-      ))
-    (=cns11643-3	. #x4D2A)	; &C3-4D2A; [45-10]
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -9342,19 +9342,19 @@
      ((=ucs		  . #x71A5)	; 熥
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=ucs@unicode	. #x71A5)	; &UU+71A5;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=cns11643-2	. #x5173)	; &C2-5173; [49-83]
+    (=ucs@cns		. #x71A5)	; &C2-5173;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x71A5)	; 熥
       ))
     (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-2	. #x5173)	; &C2-5173; [49-83]
-    (=ucs@cns		. #x71A5)	; &C2-5173;
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@unicode	. #x71A5)	; &UU+71A5;
     ))
 (define-char
   '((=>ucs		. #x71A6)	; 熦
@@ -12256,6 +12256,16 @@
      ((=ucs		  . #x243FC)	; 𤏼
       ))
     (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (hanyu-dazidian	3 2241 10)
+    (=hanziku-6		. #xCFD3)	; &HZK06-CFD3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x243FC)	; 𤏼
+      ))
+    (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs@iso		. #x243FC)	; &U-000243FC;
@@ -12268,16 +12278,6 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=cns11643-7	. #x2F68)	; &C7-2F68; [15-72]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x243FC)	; 𤏼
-      ))
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 13)
-    (total-strokes	 . 17)
-    (hanyu-dazidian	3 2241 10)
-    (=hanziku-6		. #xCFD3)	; &HZK06-CFD3;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕

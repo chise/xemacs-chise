@@ -2634,17 +2634,17 @@
   '((<-denotational
      ((=ucs		  . #x5BC3)	; 寃
       ))
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=jis-x0208@1978	. #x5563)	; &J78-5563; [53-67]
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ks-x1001		. #x6A32)	; &K0-6A32; [74-18]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5BC3)	; 寃
       ))
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ks-x1001		. #x6A32)	; &K0-6A32; [74-18]
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=jis-x0208@1978	. #x5563)	; &J78-5563; [53-67]
     ))
 (define-char
   '((<-denotational

@@ -7838,18 +7838,18 @@
      ((=ucs		  . #x465C)	; 䙜
       ))
     (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 10)
-    (total-strokes	 . 16)
-    (=ucs@unicode	. #x465C)	; &UU+465C;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (=cns11643-4	. #x5865)	; &C4-5865; [56-69]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x465C)	; 䙜
       ))
     (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 11)
-    (total-strokes	 . 17)
-    (=cns11643-4	. #x5865)	; &C4-5865; [56-69]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=ucs@unicode	. #x465C)	; &UU+465C;
     ))
 (define-char
   '((ideographic-radical . 145)	; ⾐

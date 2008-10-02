@@ -1349,18 +1349,18 @@
      ((=ucs		  . #x2A2DD)	; 𪋝
       ))
     (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 10)
-    (total-strokes	 . 21)
-    (=ucs@iso		. #x2A2DD)	; &U-0002A2DD;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (=cns11643-4	. #x6A2E)	; &C4-6A2E; [74-14]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2A2DD)	; 𪋝
       ))
     (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 11)
-    (total-strokes	 . 22)
-    (=cns11643-4	. #x6A2E)	; &C4-6A2E; [74-14]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (=ucs@iso		. #x2A2DD)	; &U-0002A2DD;
     ))
 (define-char
   '((ideographic-radical . 198)	; ⿅

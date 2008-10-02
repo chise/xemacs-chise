@@ -2113,19 +2113,19 @@
      ((=ucs		  . #x90D2)	; 郒
       ))
     (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=ucs@unicode	. #x90D2)	; &UU+90D2;
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
+    (=jis-x0212		. #x622D)	; &JSP-622D; [66-13]
+    (=ucs@jis		. #x90D2)	; &JSP-622D;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x90D2)	; 郒
       ))
     (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 7)
-    (total-strokes	 . 14)
-    (=jis-x0212		. #x622D)	; &JSP-622D; [66-13]
-    (=ucs@jis		. #x90D2)	; &JSP-622D;
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x90D2)	; &UU+90D2;
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢

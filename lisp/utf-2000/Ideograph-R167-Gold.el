@@ -8657,6 +8657,15 @@
      ((=ucs		  . #x939A)	; 鎚
       ))
     (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (=cns11643-1	. #x775C)	; &C1-775C; [87-60]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x939A)	; 鎚
+      ))
+    (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
     (=jis-x0208@1983	. #x444A)	; &GT-54670; [36-42]
@@ -8671,15 +8680,6 @@
       (=ks-x1001	  . #x7560)	; &I-K0-7560; [85-64]
       (=daikanwa	  . 40715)	; &I-M-40715;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x939A)	; 鎚
-      ))
-    (ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (=cns11643-1	. #x775C)	; &C1-775C; [87-60]
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
