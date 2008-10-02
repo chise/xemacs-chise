@@ -2320,6 +2320,7 @@ struct decoding_stream
   unsigned char counter;
 #endif
 #ifdef UTF2000
+  char bom_flag;
   unsigned char er_counter;
   unsigned char er_buf[ER_BUF_SIZE];
 
@@ -2464,6 +2465,7 @@ reset_decoding_stream (struct decoding_stream *str)
   str->counter = 0;
 #endif /* MULE */
 #ifdef UTF2000
+  str->bom_flag = 0;
   str->er_counter = 0;
   str->combined_char_count = 0;
   str->combining_table = Qnil;
@@ -4504,6 +4506,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   eol_type_t eol_type	= str->eol_type;
   unsigned char counter	= str->counter;
 #ifdef UTF2000
+  int bom_flag = str->bom_flag;
   Lisp_Object ccs
     = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (DECODING_STREAM_DATA
 					     (decoding)->codesys, 0);
@@ -4519,11 +4522,20 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	      COMPOSE_FLUSH_CHARS (str, dst);
 	      decode_flush_er_chars (str, dst);
 	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+
+	      if ( bom_flag == 0 )
+		bom_flag = -1;
+
 	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
 	  else if ( c < 0xC0 )
-	    /* decode_add_er_char (str, c, dst); */
-	    COMPOSE_ADD_CHAR (str, c, dst);
+	    {	      
+	      if ( bom_flag == 0 )
+		bom_flag = -1;
+
+	      /* decode_add_er_char (str, c, dst); */
+	      COMPOSE_ADD_CHAR (str, c, dst);
+	    }
 	  else
 	    {
 	      /* decode_flush_er_chars (str, dst); */
@@ -4561,6 +4573,17 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	    {
 	      Emchar char_id;
 
+	      if ( bom_flag == 0 )
+		{
+		  if ( cpos == 0xFEFF )
+		    {
+		      bom_flag = 1;
+		      goto decoded;
+		    }
+		  else
+		    bom_flag = -1;
+		}
+
 	      if (!NILP (ccs))
 		{
 		  char_id = decode_defined_char (ccs, cpos, 0);
@@ -4571,6 +4594,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	      else
 		char_id = cpos;
 	      COMPOSE_ADD_CHAR (str, char_id, dst);
+	    decoded:
 	      cpos = 0;
 	      counter = 0;
 	    }
@@ -4603,6 +4627,9 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   str->flags	= flags;
   str->cpos	= cpos;
   str->counter	= counter;
+#ifdef UTF2000
+  str->bom_flag = bom_flag;
+#endif
 }
 
 void

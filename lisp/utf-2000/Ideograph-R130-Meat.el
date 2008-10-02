@@ -9762,6 +9762,7 @@
 (define-char
   '((ideographic-radical . 130)	; ⾁
     (=ucs		. #x817F)	; 腿
+    (=big5		. #xBB4C)	; &I-B-BB4C;
     ))
 (define-char
   '((<-denotational
@@ -9798,7 +9799,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=cns11643-1	. #x6A54)	; &C1-6A54; [74-52]
-    (=big5		. #xBB4C)	; &I-B-BB4C;
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁

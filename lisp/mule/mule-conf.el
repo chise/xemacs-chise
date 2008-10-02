@@ -25,6 +25,65 @@
 
 ;;; Code:
 
+(cond
+ ((featurep 'utf-2000)
+  (make-charset
+   '=jis-x0208@1978
+   "JIS X 0208:1978, unchanged part."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
+   '=jis-x0208@1978/-4pr
+   "JIS X 0208:1978, 1st - 3rd impressions."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+	      final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
+   '=jis-x0208@1978/1pr
+   "JIS X 0208:1978, 1st impression."
+   '(iso-ir 42
+	    registry "jisx0208\\.1978"
+	    dimension 2
+	    chars 94
+	    mother =jis-x0208@1978/-4pr
+	    final ?@
+	    graphic 0))
+  (make-charset
+   '=jis-x0208@1978/4-pr
+   "JIS X 0208:1978, 4th impression or later."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+              ;; final ?@
+	      graphic 0
+	      partial t))
+  (define-charset-alias '=jis-x0208@1978/i1 '=jis-x0208@1978/1pr)
+  (define-charset-alias '=jis-x0208@1978/i-4 '=jis-x0208@1978/-4pr)
+  (define-charset-alias '=jis-x0208@1978/i4- '=jis-x0208@1978/4-pr)
+  )
+ (t
+  (make-charset
+   '=jis-x0208@1978
+   "JIS X0208:1978 Japanese Kanji (so called \"old JIS\")."
+   '(iso-ir 42
+	    registry "jisx0208\\.1978"
+	    dimension 2
+	    chars 94
+	    mother =jis-x0208
+	    final ?@
+	    graphic 0))
+  ))
+
 (define-charset-alias '=jis-x0208-1978		'=jis-x0208@1978)
 (define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208@1978)
 (define-charset-alias 'chinese-gb2312		'=gb2312)
@@ -173,8 +232,7 @@
 
   (define-charset-alias 'japanese-jisx0213-1 '=jis-x0213-1@2000)
   (define-charset-alias 'japanese-jisx0213-2 '=jis-x0213-2)
-  ;; (define-charset-alias '=jis-x0213-1-2000 '=jis-x0213-1@2000)
-  (define-charset-alias '=jis-x0213-1-2000 '=jis-x0213-1)
+  (define-charset-alias '=jis-x0213-1-2000 '=jis-x0213-1@2000)
   (define-charset-alias '=jis-x0213-2-2000 '=jis-x0213-2)
   )
  (t
@@ -208,24 +266,6 @@
 	      chars 94
 	      mother =jis-x0208
 	      ;; final ?B
-	      graphic 0))
-  (make-charset
-   '=jis-x0208@1978/i1
-   "The first impression of JIS X 0208:1978."
-   '(registry "jisx0208\\.1978"
-	      dimension 2
-	      chars 94
-	      mother =jis-x0208@1978
-	      ;; final ?@
-	      graphic 0))
-  (make-charset
-   '=jis-x0208@1978/i-4
-   "The second and third impressions of JIS X 0208:1978."
-   '(registry "jisx0208\\.1978"
-	      dimension 2
-	      chars 94
-	      mother =jis-x0208@1978
-	      ;; final ?@
 	      graphic 0))
 
   (make-charset '=big5-cdp

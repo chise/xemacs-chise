@@ -6418,6 +6418,7 @@
 (define-char
   '((ideographic-radical . 72)	; ⽇
     (=ucs		. #x66B1)	; 暱
+    (=big5		. #xBCCA)	; &I-B-BCCA;
     ))
 (define-char
   '((<-denotational
@@ -6455,7 +6456,6 @@
     (total-strokes	 . 14)
     (=jis-x0212		. #x425A)	; &JX2-2E30; [34-58]
     (=jis-x0213-2	. #x2E30)	; &I-JX2-2E30; [14-16]
-    (=big5		. #xBCCA)	; &I-B-BCCA;
     (=ucs@unicode	. #x66B1)	; &JX2-2E30;
     ))
 (define-char

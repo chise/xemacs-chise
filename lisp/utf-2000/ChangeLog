@@ -1,3 +1,125 @@
+2008-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (B-BB4C): Moved to U+817F.
+
+2008-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (B-BCCA): Moved to U+66B1.
+
+2008-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (K0-5339): Unify JC3-67E0.
+	(U+905D): Use `->denotational'.
+	(K0-534F): Use `<-denotational' for U+905D; unify JC3-67E3.
+
+2008-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+82A7): Use `->denotational'.
+	(C2-2859): Use `<-denotational' for U+82A7; unify JC3-61C7.
+	(U-00026B18): Use `->subsumptive'.
+	(U+82A8): Use `->denotational'.
+	(C2-285F): Use `<-denotational' for U+82A8; unify JC3-61C8.
+	(U+449F): Use `->denotational' and `->subsumptive'.
+	(U+44A0): Use `->denotational' and `->subsumptive'.
+	(U+44A1): Use `->denotational'.
+	(U+82A9): Use `->denotational'.
+	(U+82AA): Use `->denotational'.
+	(U+82AB): Use `->denotational'.
+	(U+82AC): Use `->denotational' and `->subsumptive'.
+	(U+82AD): Use `->denotational'.
+	(U+82AE): Use `->denotational' and `->subsumptive'.
+	(M-30731): Use `<-subsumptive' and `<-denotational' for U+82AE;
+	unify JC3-61C9.
+	(U+82AF): Use `->denotational'.
+	(U+82B0): Use `->denotational'.
+	(C1-4F4A): Use `<-denotational' for U+82B0; unify M-30733 and
+	JC3-61CA.
+
+2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Regard partial
+	coded-charset which has final-byte as ISO registered
+	coded-charset.
+
+2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (M-38724): Use `=jis-x0208@1978/i4-'
+	instead of `=jis-x0208@1978' for J78/4-i-4B78; unify JX3-4B78.
+	(J90-4B78): Use `=jis-x0208@1978/i-4' instead of
+	`=jis-x0208@1978/i1' for J78/-4i-4B78; use
+	`=jis-x0208@1978*sources' instead of `=jis-x0208@1978/i1*sources';
+	add `=jis-x0208@1978*note'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-4B78.
+	(U+9022): Add J97-3029.
+	(K0-5C71): Use `=jis-x0208@1978/i4-' instead of `=jis-x0208@1978'
+	for J78/4-i-3029; delete `jisx0208-type'; unify JX3-3029.
+	(J90-3029): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3029; add J78/-4i-3029.
+
+	* Ideograph-R086-Fire.el (K0-5C6C): Modify a char-spec in
+	`ideographic-structure' for JX3-3029.
+
+	* Ideograph-R169-Gate.el (U-00028CDD): Add `<-denotational' for
+	J97-313C; add `sound@ja/on/{kan|go}/s=bolt' and
+	`sound@ja/on/kan/s=intercalary'.
+	(M-41243): Add `<-wrong@s=intercalary' for M-41244.
+	(C3-3F6D): Add `=jis-x0208@1978*note'; add `<-error@jis/x0208' for
+	J0-313C.
+	(J97-313C): New abstract character.
+	(U+958F): Add `<-denotational' for J97-313C; add
+	`sound@ja/on/{kan|go}'.
+	(U+49A3): Use `->subsumptive'.
+	(J78/i1-6F65): Add `=jis-x0208@1978*note'; add `<-error@jis/x0208'
+	for J0-6F65.
+
+	* Ideograph-R156-Run.el (C1-5844): Add S2-7959; unify JC3-66BA.
+
+	* Ideograph-R109-Eye.el (JX1-7877): Add `=jis-x0208@1978*note';
+	use `jis-x0208/1978/errata' instead of `=jis-x0208/1978/errata' in
+	`<-error@jis/x0208*sources'; add `jis-x0208/1997' into
+	`<-error@jis/x0208*sources'.
+
+2008-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+82A6): Use `->denotational'.
+	(GT-39829): Use `<-denotational' for U+82A6; use
+	`=jis-x0208@1978/i-4', `=jis-x0208@1983' and `=jis-x0208@1990'
+	instead of `=jis-x0208' for J90-3032; fix `jisx0208-difference';
+	add `=jis-x0208@1978*note'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-3032; unify JC3-61B3.
+	(K0-7B58): Use `<-denotational' for U+82A6; unify J78/4--3032 and
+	JX3-3032.
+	(U+8328): Use `->denotational' and `->subsumptive'.
+	(JC3-61B4): New character; use `<-denotational' for U+8328.
+	(K0-6D3C): Use `<-denotational' for U+8328; move B-AFFD to U+8328.
+	(JX3-3071): New character; use `<-denotational' for U+8328.
+	(J90-3071): Use `<-subsumptive' to separate G0-3444 and GT-40112;
+	use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for JX1-3071.
+	(U+8329): Use `->denotational'.
+	(U+832A): Likewise.
+
+	* Ideograph-R085-Water.el (U+6EA2): Add J97-306E.
+	(J78-306E): Use `<-subsumptive' to separate K0-6C6E and GT-22899.
+	(K0-6C6E): Use `<-subsumptive' to separate J78-306E and M-17951;
+	unify JX3-306E.
+	(J90-306E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-306E; separate `<-simplified@JP' into
+	`<-simplified@JP/jis/1978' and `<-simplified@JP/jis/2004'.
+
+	* Ideograph-R086-Fire.el (JX1-5F73): Use `=jis-x0208@1978/i4-',
+	`=jis-x0208@1983' and `=jis-x0208@1990 instead of `=jis-x0208' for
+	J90-5F73.
+	(J78/-4-5F73): Add `=jis-x0208@1978*note'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3071.
+
+2008-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+98F4): Add J97-303B.
+	(J78-303B): Unify JX3-303B.
+	(J90-303B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-303B.
+
 2008-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-attribute-name<): Treat non-private final

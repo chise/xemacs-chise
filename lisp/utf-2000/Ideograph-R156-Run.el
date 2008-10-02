@@ -248,6 +248,8 @@
     (=gt		. 49592)	; &I-GT-49592;
     (=gt-pj-7		. #x4441)	; &I-GT-49592; [36-33]
     (=shinjigen@1ed	.  7960)	; &GT-49592;
+    (=shinjigen@rev	.  7959)	; &GT-49592;
+    (=jef-china3	. #x66BA)	; &I-JC3-66BA;
     (=ucs@cns		. #x8D77)	; &GT-49592;
     ))
 (define-char

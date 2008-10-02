@@ -1,3 +1,24 @@
+2008-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (func_for_each_object): Fix bug about GC-protection.
+
+2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_object_put): Check argument FEATURE is a
+	symbol.
+
+2008-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (struct decoding_stream): Add new member
+	`bom_flag' in XEmacs CHISE.
+	(reset_decoding_stream): Ignore U+FEFF in the beginning of stream
+	in XEmacs CHISE.
+
+2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Move definition of `=jis-x0208@1978' to
+	lisp/mule/mule-conf.el.
+
 2008-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Qpartial): New variable in XEmacs CHISE.

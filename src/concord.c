@@ -1,5 +1,5 @@
 /* XEmacs routines to deal with CONCORD.
-   Copyright (C) 2005,2006 MORIOKA Tomohiko
+   Copyright (C) 2005,2006,2008 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -718,6 +718,7 @@ Store a VALUE of OBJECT's FEATURE.
   Bufbyte *name_str;
 
   CHECK_CONCORD_OBJECT (object);
+  CHECK_SYMBOL (feature);
   name = symbol_name (XSYMBOL (feature));
   name_str = string_data (name);
   if ( NILP (concord_object_put (object, feature, value)) )
@@ -894,7 +895,7 @@ func_for_each_object (CONCORD_String object_id,
 		      CONCORD_Feature feature,
 		      CONCORD_String value)
 {
-  struct gcpro gcpro1, gcpro2, gcpro3;
+  struct gcpro gcpro1, gcpro2;
   Lisp_Object obj, val, ret;
 
 #if 0
@@ -911,7 +912,6 @@ func_for_each_object (CONCORD_String object_id,
   obj = Fconcord_make_object (for_each_object_closure->genre,
 			      obj,
 			      for_each_object_closure->ds);
-  UNGCPRO;
 #if 0
   val = read_from_c_string (CONCORD_String_data (value),
 			    CONCORD_String_size (value) );
@@ -922,7 +922,8 @@ func_for_each_object (CONCORD_String object_id,
 				  Qfile_name),
 				 Qnil, Qnil));
 #endif
-  GCPRO3 (obj, val, ret);
+  UNGCPRO;
+  GCPRO2 (obj, val);
   ret = call2 (for_each_object_closure->function, obj, val);
   UNGCPRO;
   for_each_object_closure->ret = ret;
