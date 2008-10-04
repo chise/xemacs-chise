@@ -8548,18 +8548,18 @@
      ((=ucs		  . #x29F4E)	; 𩽎
       ))
     (ideographic-radical . 195)	; ⿂
-    (ideographic-strokes . 15)
-    (total-strokes	 . 26)
-    (=ucs@iso		. #x29F4E)	; &U-00029F4E;
+    (ideographic-strokes . 16)
+    (total-strokes	 . 27)
+    (=cns11643-5	. #x7B27)	; &C5-7B27; [91-07]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x29F4E)	; 𩽎
       ))
     (ideographic-radical . 195)	; ⿂
-    (ideographic-strokes . 16)
-    (total-strokes	 . 27)
-    (=cns11643-5	. #x7B27)	; &C5-7B27; [91-07]
+    (ideographic-strokes . 15)
+    (total-strokes	 . 26)
+    (=ucs@iso		. #x29F4E)	; &U-00029F4E;
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂

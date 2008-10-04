@@ -1865,18 +1865,18 @@
      ((=ucs		  . #x2A34C)	; 𪍌
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (=ucs@iso		. #x2A34C)	; &U-0002A34C;
+    (ideographic-strokes . 9)
+    (total-strokes	 . 20)
+    (=cns11643-5	. #x6F4B)	; &C5-6F4B; [79-43]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2A34C)	; 𪍌
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 9)
-    (total-strokes	 . 20)
-    (=cns11643-5	. #x6F4B)	; &C5-6F4B; [79-43]
+    (ideographic-strokes . 8)
+    (total-strokes	 . 19)
+    (=ucs@iso		. #x2A34C)	; &U-0002A34C;
     ))
 (define-char
   '((ideographic-radical . 199)	; ⿆
@@ -2473,18 +2473,18 @@
      ((=ucs		  . #x2A366)	; 𪍦
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 10)
-    (total-strokes	 . 21)
-    (=ucs@iso		. #x2A366)	; &U-0002A366;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (=cns11643-5	. #x7549)	; &C5-7549; [85-41]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2A366)	; 𪍦
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 11)
-    (total-strokes	 . 22)
-    (=cns11643-5	. #x7549)	; &C5-7549; [85-41]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (=ucs@iso		. #x2A366)	; &U-0002A366;
     ))
 (define-char
   '((ideographic-radical . 199)	; ⿆
@@ -2841,18 +2841,18 @@
      ((=ucs		  . #x4D43)	; 䵃
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 11)
-    (total-strokes	 . 22)
-    (=ucs@unicode	. #x4D43)	; &UU+4D43;
+    (ideographic-strokes . 12)
+    (total-strokes	 . 23)
+    (=cns11643-4	. #x6B4E)	; &C4-6B4E; [75-46]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x4D43)	; 䵃
       ))
     (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 12)
-    (total-strokes	 . 23)
-    (=cns11643-4	. #x6B4E)	; &C4-6B4E; [75-46]
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (=ucs@unicode	. #x4D43)	; &UU+4D43;
     ))
 (define-char
   '((ideographic-radical . 199)	; ⿆

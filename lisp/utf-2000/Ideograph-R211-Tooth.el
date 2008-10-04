@@ -2027,18 +2027,18 @@
      ((=ucs		  . #x2A65B)	; 𪙛
       ))
     (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 10)
-    (total-strokes	 . 25)
-    (=ucs@iso		. #x2A65B)	; &U-0002A65B;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 26)
+    (=cns11643-5	. #x7A60)	; &C5-7A60; [90-64]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2A65B)	; 𪙛
       ))
     (ideographic-radical . 211)	; ⿒
-    (ideographic-strokes . 11)
-    (total-strokes	 . 26)
-    (=cns11643-5	. #x7A60)	; &C5-7A60; [90-64]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 25)
+    (=ucs@iso		. #x2A65B)	; &U-0002A65B;
     ))
 (define-char
   '((ideographic-radical . 211)	; ⿒

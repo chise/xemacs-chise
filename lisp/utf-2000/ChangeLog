@@ -1,3 +1,10 @@
+2008-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-id): Add autoload cookie.
+	(char-ideographic-strokes-diff): New function.
+	(ideograph-char<): Add autoload cookie; use
+	`char-ideographic-strokes-diff'.
+
 2008-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R130-Meat.el (B-BB4C): Moved to U+817F.

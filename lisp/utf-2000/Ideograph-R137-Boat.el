@@ -2623,18 +2623,18 @@
      ((=ucs		  . #x26A8E)	; 𦪎
       ))
     (ideographic-radical . 137)	; ⾈
-    (ideographic-strokes . 10)
-    (total-strokes	 . 16)
-    (=ucs@iso		. #x26A8E)	; &U-00026A8E;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (=cns11643-5	. #x5D6B)	; &C5-5D6B; [61-75]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x26A8E)	; 𦪎
       ))
     (ideographic-radical . 137)	; ⾈
-    (ideographic-strokes . 11)
-    (total-strokes	 . 17)
-    (=cns11643-5	. #x5D6B)	; &C5-5D6B; [61-75]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x26A8E)	; &U-00026A8E;
     ))
 (define-char
   '((ideographic-radical . 137)	; ⾈

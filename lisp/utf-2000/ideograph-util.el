@@ -1,6 +1,6 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2007 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2007,2008 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -482,17 +482,29 @@
   (or (encode-char char '=ucs 'defined-only)
       (char-feature char '=>ucs)))
 
+;;;###autoload
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
 
+(defun char-ideographic-strokes-diff (char &optional radical)
+  (if (or (get-char-attribute char '<-subsumptive)
+	  (get-char-attribute char '<-denotational))
+      (let (s ds)
+	(when (and (setq s (char-ideographic-strokes char radical))
+		   (setq ds (char-daikanwa-strokes char radical)))
+	  (abs (- s ds))))
+    0))
+
+;;;###autoload
 (defun ideograph-char< (a b &optional radical)
   (let ((ideographic-radical (or radical
 				 ideographic-radical)))
     (char-attributes-poly<
      a b
-     '(char-daikanwa-strokes char-daikanwa char-ucs char-id)
-     '(< morohashi-daikanwa< < <)
-     '(> > > >))))
+     '(char-daikanwa-strokes char-daikanwa char-ucs
+			     char-ideographic-strokes-diff char-id)
+     '(< morohashi-daikanwa< < < <)
+     '(> > > > >))))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars

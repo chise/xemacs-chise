@@ -6963,18 +6963,18 @@
      ((=ucs		  . #x5A59)	; 婙
       ))
     (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ucs@unicode	. #x5A59)	; &UU+5A59;
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=cns11643-3	. #x3539)	; &C3-3539; [21-25]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5A59)	; 婙
       ))
     (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=cns11643-3	. #x3539)	; &C3-3539; [21-25]
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@unicode	. #x5A59)	; &UU+5A59;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥

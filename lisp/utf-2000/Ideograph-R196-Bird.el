@@ -5994,18 +5994,18 @@
      ((=ucs		  . #x9D90)	; 鶐
       ))
     (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (=ucs@unicode	. #x9D90)	; &UU+9D90;
+    (ideographic-strokes . 9)
+    (total-strokes	 . 20)
+    (=cns11643-2	. #x6B2D)	; &C2-6B2D; [75-13]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x9D90)	; 鶐
       ))
     (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 9)
-    (total-strokes	 . 20)
-    (=cns11643-2	. #x6B2D)	; &C2-6B2D; [75-13]
+    (ideographic-strokes . 8)
+    (total-strokes	 . 19)
+    (=ucs@unicode	. #x9D90)	; &UU+9D90;
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃

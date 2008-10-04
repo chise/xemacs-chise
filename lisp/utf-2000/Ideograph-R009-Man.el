@@ -26663,6 +26663,16 @@
      ((=ucs		  . #x20343)	; 𠍃
       ))
     (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 204 1)
+    (=hanziku-1		. #xD05C)	; &HZK01-D05C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20343)	; 𠍃
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -26675,16 +26685,6 @@
      ((=gb12345		  . #x783F)	; &UU+98E2; [88-31]
       ))
     (=ucs@iso		. #x20343)	; &U-00020343;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20343)	; 𠍃
-      ))
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (hanyu-dazidian	1 204 1)
-    (=hanziku-1		. #xD05C)	; &HZK01-D05C;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -32745,6 +32745,25 @@
      ((=ucs		  . #x5119)	; 儙
       ))
     (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=cns11643-1	  . #x6B42)	; &C1-6B42; [75-34]
+      ))
+    (=cns11643-4	. #x4F5A)	; &C4-4F5A; [47-58]
+    (=ucs@cns		. #x5119)	; &C4-4F5A;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5119)	; 儙
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -32759,25 +32778,6 @@
       (=jis-x0213-1	  . #x382F)	; &I-JX1-382F; [24-15]
       ))
     (=ucs@unicode	. #x5119)	; &UU+5119;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5119)	; 儙
-      ))
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
-      )
-     ((=cns11643-1	  . #x6B42)	; &C1-6B42; [75-34]
-      ))
-    (=cns11643-4	. #x4F5A)	; &C4-4F5A; [47-58]
-    (=ucs@cns		. #x5119)	; &C4-4F5A;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈

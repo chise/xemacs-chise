@@ -3483,18 +3483,18 @@
      ((=ucs		  . #x2390E)	; 𣤎
       ))
     (ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=ucs@iso		. #x2390E)	; &U-0002390E;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=cns11643-7	. #x2377)	; &C7-2377; [03-87]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2390E)	; 𣤎
       ))
     (ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-7	. #x2377)	; &C7-2377; [03-87]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x2390E)	; &U-0002390E;
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋

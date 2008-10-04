@@ -3107,18 +3107,18 @@
      ((=ucs		  . #x410F)	; 䄏
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (=ucs@unicode	. #x410F)	; &UU+410F;
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (=cns11643-3	. #x433E)	; &C3-433E; [35-30]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x410F)	; 䄏
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x433E)	; &C3-433E; [35-30]
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x410F)	; &UU+410F;
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
@@ -3582,18 +3582,18 @@
      ((=ucs		  . #x7987)	; 禇
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (=ucs@unicode	. #x7987)	; &UU+7987;
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (=cns11643-3	. #x4848)	; &C3-4848; [40-40]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7987)	; 禇
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (=cns11643-3	. #x4848)	; &C3-4848; [40-40]
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x7987)	; &UU+7987;
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
@@ -5127,18 +5127,18 @@
      ((=ucs		  . #x256DD)	; 𥛝
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (=ucs@iso		. #x256DD)	; &U-000256DD;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (=cns11643-5	. #x5639)	; &C5-5639; [54-25]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x256DD)	; 𥛝
       ))
     (ideographic-radical . 113)	; ⽰
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (=cns11643-5	. #x5639)	; &C5-5639; [54-25]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x256DD)	; &U-000256DD;
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰

@@ -7,7 +7,7 @@
 
 ;;;***
 
-;;;### (autoloads (chise-string< ideographic-structure-find-char char-ucs char-daikanwa char-representative-of-daikanwa update-ideograph-radical-table char-total-strokes char-total-strokes-from-domains char-ideographic-strokes char-ideographic-strokes-from-domains map-char-family expand-char-feature-name) "ideograph-util" "utf-2000/ideograph-util.el")
+;;;### (autoloads (chise-string< ideographic-structure-find-char ideograph-char< char-id char-ucs char-daikanwa char-representative-of-daikanwa update-ideograph-radical-table char-total-strokes char-total-strokes-from-domains char-ideographic-strokes char-ideographic-strokes-from-domains map-char-family expand-char-feature-name) "ideograph-util" "utf-2000/ideograph-util.el")
 
 (autoload 'expand-char-feature-name "ideograph-util" nil nil nil)
 
@@ -28,6 +28,10 @@
 (autoload 'char-daikanwa "ideograph-util" nil nil nil)
 
 (autoload 'char-ucs "ideograph-util" nil nil nil)
+
+(autoload 'char-id "ideograph-util" nil nil nil)
+
+(autoload 'ideograph-char< "ideograph-util" nil nil nil)
 
 (autoload 'ideographic-structure-find-char "ideograph-util" nil nil nil)
 

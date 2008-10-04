@@ -1323,19 +1323,19 @@
      ((=ucs		  . #x65DE)	; 旞
       ))
     (ideographic-radical . 70)	; ⽅
-    (ideographic-strokes . 14)
-    (total-strokes	 . 18)
-    (=ucs@unicode	. #x65DE)	; &UU+65DE;
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (=cns11643-2	. #x6554)	; &C2-6554; [69-52]
+    (=ucs@cns		. #x65DE)	; &C2-6554;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x65DE)	; 旞
       ))
     (ideographic-radical . 70)	; ⽅
-    (ideographic-strokes . 15)
-    (total-strokes	 . 19)
-    (=cns11643-2	. #x6554)	; &C2-6554; [69-52]
-    (=ucs@cns		. #x65DE)	; &C2-6554;
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (=ucs@unicode	. #x65DE)	; &UU+65DE;
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅

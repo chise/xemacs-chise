@@ -4811,18 +4811,18 @@
      ((=ucs		  . #x4BB1)	; 䮱
       ))
     (ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 10)
-    (total-strokes	 . 20)
-    (=ucs@unicode	. #x4BB1)	; &UU+4BB1;
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
+    (=cns11643-4	. #x6828)	; &C4-6828; [72-08]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x4BB1)	; 䮱
       ))
     (ideographic-radical . 187)	; ⾺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 21)
-    (=cns11643-4	. #x6828)	; &C4-6828; [72-08]
+    (ideographic-strokes . 10)
+    (total-strokes	 . 20)
+    (=ucs@unicode	. #x4BB1)	; &UU+4BB1;
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺

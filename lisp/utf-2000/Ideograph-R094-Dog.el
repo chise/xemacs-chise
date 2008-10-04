@@ -6411,18 +6411,18 @@
      ((=ucs		  . #x3E9A)	; 㺚
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (=ucs@unicode	. #x3E9A)	; &UU+3E9A;
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=cns11643-7	. #x2F74)	; &C7-2F74; [15-84]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x3E9A)	; 㺚
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (=cns11643-7	. #x2F74)	; &C7-2F74; [15-84]
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs@unicode	. #x3E9A)	; &UU+3E9A;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -6442,18 +6442,18 @@
      ((=ucs		  . #x2488D)	; 𤢍
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (=ucs@iso		. #x2488D)	; &U-0002488D;
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=cns11643-4	. #x5135)	; &C4-5135; [49-21]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x2488D)	; 𤢍
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (=cns11643-4	. #x5135)	; &C4-5135; [49-21]
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x2488D)	; &U-0002488D;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -7532,18 +7532,18 @@
      ((=ucs		  . #x248A9)	; 𤢩
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=ucs@iso		. #x248A9)	; &U-000248A9;
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (=cns11643-7	. #x4777)	; &C7-4777; [39-87]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x248A9)	; 𤢩
       ))
     (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (=cns11643-7	. #x4777)	; &C7-4777; [39-87]
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=ucs@iso		. #x248A9)	; &U-000248A9;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
