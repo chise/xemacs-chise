@@ -1,3 +1,9 @@
+2008-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (concord_id_validate): New function.
+	(structure_type_create_concord): Use `concord_id_validate' instead
+	of `concord_name_validate' to accept integer and character as =id.
+
 2008-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (func_for_each_object): Fix bug about GC-protection.
