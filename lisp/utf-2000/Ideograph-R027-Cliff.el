@@ -2311,25 +2311,35 @@
      ((=ucs		  . #x53A9)	; 厩
       ))
     (ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
+    (->subsumptive
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 13)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=daikanwa	    . 13725)	; &M-13725;
+	))
+      (=gt		  . 03811)	; &GT-03811;
+      (=gt-pj-11	  . #x3B44)	; &GT-03811; [27-36]
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 13)
+      (=shinjigen	  .  2208)	; &SJG2-2208;
+      (<-vulgar
+       ((=gt		    . 11902)	; &GT-11902;
+	(=shinjigen	    .  2207)	; &GT-11902;
+	))
+      (<-vulgar*sources
+       shinjigen)
       )
-     ((=daikanwa	  . 13725)	; &M-13725;
+     ((ideographic-strokes . 12)
+      (total-strokes	   . 14)
+      (=ucs@jis/2004	  . 21417)
+      (=jis-x0213-1@2004  . #x3139)	; &JX3-3139; [17-25]
       ))
-    (=gt		. 03811)	; &GT-03811;
-    (=gt-pj-11		. #x3B44)	; &GT-03811; [27-36]
-    (=shinjigen		.  2208)	; &GT-03811;
-    (<-vulgar
-     ((=gt		  . 11902)	; &GT-11902;
-      (=shinjigen@1ed	  .  2207)	; &GT-11902;
-      ))
-    (<-vulgar*sources
-     shinjigen@1ed)
     ))
 (define-char
   '((<-denotational
@@ -2355,11 +2365,12 @@
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
       (=jis-x0208@1990	  . #x3139)	; &GT-03790; [17-25]
-      (=jis-x0213-1	  . #x3139)	; &I-JX1-3139; [17-25]
+      (=jis-x0213-1@2000  . #x3139)	; &I-JX1-3139; [17-25]
       (=gt		  . 03790)	; &I-GT-03790;
       (=gt-pj-1		  . #x3139)	; &I-GT-03790; [17-25]
       (=jef-china3	  . #x45E4)	; &I-JC3-45E4;
-      (=ucs@jis		  . #x53A9)	; &GT-03790;
+      (=ucs@jis/1990	  . #x53A9)	; &GT-03790;
+      (=ucs@jis/2000	  . #x53A9)	; &GT-03790;
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
