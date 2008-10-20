@@ -1,3 +1,29 @@
+2008-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (J78-3228): Unify JX3-3228.
+	(J90-3228): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3228; Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+8956.
+
+	* Ideograph-R142-Insect.el (U+87F9): Unify B-C3C9.
+	(K0-7A2F): Use `<-subsumptive' to separate J0-332A, JX1-332A and
+	S-7274; unify JX3-332A.
+	(U+880F): Use `->denotational'.
+
+	* Ideograph-R085-Water.el (U+6DEB): Unify J97-307C.
+	(J78-307C): Unify JX3-307C.
+	(J90-307C): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1'.
+
+	* Ideograph-R072-Sun.el (J78-3322): Unify JX3-3322.
+	(J90-3322): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3322; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+6666.
+
+	* Ideograph-R054-Long-Stride.el (J0-3276): Use `=jis-x0213-1@2000'
+	instead of `=jis-x0213-1' for JX1-3276; use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis' for J00U+5EFB.
+	(C3-2C4C): Unify JX3-3276.
+
 2008-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* read-maps.el (mapping-table-ccs-setting-alist): Map
