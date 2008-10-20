@@ -4103,6 +4103,7 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 120 6)
     (=ucs		. #x4F22)	; 伢
+    (=big5		. #xC9B7)	; &I-B-C9B7;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4114,7 +4115,6 @@
        ((=gb2312	    . #x5140)	; &G0-5140; [49-32]
 	))
       (=gb2312		  . #x5873)	; &G0-5873; [56-83]
-      (=big5		  . #xC9B7)	; &I-B-C9B7;
       (=ucs@unicode	  . #x4F22)	; &G0-5873;
       )
      ((ideographic-structure
@@ -4124,8 +4124,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x455B)	; &M-19909; [37-59]
-	(=daikanwa	    . 19909)	; &I-M-19909;
+       ((=cns11643-1	    . #x455B)	; &C1-455B; [37-59]
 	))
       (=cns11643-2	  . #x2176)	; &C2-2176; [01-86]
       (=jef-china3	  . #x8DEC)	; &I-JC3-8DEC;
