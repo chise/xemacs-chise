@@ -3811,8 +3811,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x455B)	; &M-19909; [37-59]
-	(=daikanwa	    . 19909)	; &I-M-19909;
+       ((=cns11643-1	    . #x455B)	; &C1-455B; [37-59]
 	))
       (=cns11643-1	  . #x4954)	; &C1-4954; [41-52]
       ))
@@ -27028,7 +27027,8 @@
 	))
       (=daikanwa	  . 04286)	; &M-04286;
       )
-     ((ideographic-structure
+     ((=ucs@jis/2004	  . 22082)
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -27037,6 +27037,7 @@
        ((=ks-x1001	    . #x706E)	; &GT-09378; [80-78]
 	))
       (=jis-x0208@1978	  . #x313D)	; &GT-05417; [17-29]
+      (=jis-x0213-1@2004  . #x313D)	; &I-JX3-313D; [17-29]
       (=gt		  . 05417)	; &I-GT-05417;
       (=gt-pj-2		  . #x5751)	; &I-GT-05417; [55-49]
       ))
@@ -27071,10 +27072,11 @@
 	))
       (=jis-x0208@1983	  . #x313D)	; &GT-05418; [17-29]
       (=jis-x0208@1990	  . #x313D)	; &I-J90-313D; [17-29]
-      (=jis-x0213-1	  . #x313D)	; &I-JX1-313D; [17-29]
+      (=jis-x0213-1@2000  . #x313D)	; &I-JX1-313D; [17-29]
       (=gt		  . 05418)	; &I-GT-05418;
       (=gt-pj-1		  . #x313D)	; &I-GT-05418; [17-29]
-      (=ucs@jis		  . #x5642)	; &GT-05418;
+      (=ucs@jis/1990	  . #x5642)	; &GT-05418;
+      (=ucs@jis/2000	  . #x5642)	; &GT-05418;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
