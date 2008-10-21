@@ -1,4 +1,50 @@
+2008-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+8FC2): Add J97-312A.
+	(J78-312A): Unify JX3-312A.
+	(J90-312A): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-312A.
+	(U+8FE6): Add J97-3260.
+	(J78-3260): Unify JX3-3260.
+	(J90-3260): Use `=jis-x0213-1@2000' instead of =jis-x0213-1' for
+	JX1-3260.
+
+	* Ideograph-R092-Fang.el (U+7259): Add J97-3267; move B-A4FA from
+	UU+7259.
+	(M-19909): Separate C1-455B; integrate JX3-3267.
+	(J0-3267): Use `<-subsumptive' to separate K0-6433 and JC3-58C5;
+	use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for JX1-3267;
+	use `=ucs@jis/1990' and `=ucs@jis/2000' instead of `=ucs@jis' for
+	J00U+7259.
+
+	* Ideograph-R061-Heart.el (U+6062): Use `->denotational' instead
+	of `->subsumptive'; separate JX1-327A and JX3-327A.
+
+	* Ideograph-R059-Bristle.el (U+5F63): Use `->subsumptive'.
+	(U+5F64): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (J78-313D): Unify JX3-313D.
+	(J90-313D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-313D; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+5642.
+
+	* Ideograph-R009-Man.el (B-C9B7): Moved to U+4F22.
+
 2008-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9C2F): Add J97-3073.
+	(J78-3073): Unify JX3-3073.
+	(J90-3073): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3073.
+
+	* Ideograph-R190-Hair.el (U+9B1C): Use `->subsumptive'.
+	(U+9B1D): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+
+	* Ideograph-R184-Eat.el (U+990C): Add J97-3142.
+	(Mother of J78-3142): Integrate JX3-3142.
+	(J90-3142): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3142; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+990C.
 
 	* Ideograph-R145-Clothes.el (J78-3228): Unify JX3-3228.
 	(J90-3228): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
