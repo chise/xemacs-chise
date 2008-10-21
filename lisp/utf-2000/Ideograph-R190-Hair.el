@@ -2469,20 +2469,19 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
     (=ucs		. #x9B1C)	; 鬜
-    (=jis-x0212		. #x6A2E)	; &I-JSP-6A2E; [74-14]
-    (=jis-x0213-2	. #x7D3B)	; &I-JX2-7D3B; [93-27]
-    (=daikanwa		. 45587)	; &I-M-45587;
+    (->subsumptive
+     ((=daikanwa	  . 45587)	; &M-45587;
+      )
+     ((=jis-x0212	  . #x6A2E)	; &JX2-7D3B; [74-14]
+      (=jis-x0213-2	  . #x7D3B)	; &I-JX2-7D3B; [93-27]
+      (=ucs@unicode	  . #x9B1C)	; &JX2-7D3B;
+      (=ucs@jis/2000	  . #x9B1C)	; &JX2-7D3B;
+      )
+     ((=cns11643-4	  . #x6971)	; &C4-6971; [73-81]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9B1C)	; 鬜
-    (morohashi-daikanwa	45587 0 0)
-    (ideographic-radical . 190)	; ⾽
-    (ideographic-strokes . 12)
-    (total-strokes	 . 22)
-    (=cns11643-4	. #x6971)	; &C4-6971; [73-81]
-    ))
-(define-char
-  '((morohashi-daikanwa	45587 0 5)
+  '((=>daikanwa		. 45587)	; &M-45587;
     (ideographic-radical . 190)	; ⾽
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
