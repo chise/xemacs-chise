@@ -8706,7 +8706,6 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs@jis/2004	. 28139)
     (=jis-x0208@1978	. #x307C)	; &GT-22462; [16-92]
     (=ks-x1001		. #x6B62)	; &I-K0-6B62; [75-66]
     (=jis-x0213-1@2004	. #x307C)	; &I-JX3-307C; [16-92]
@@ -8714,6 +8713,7 @@
     (=gt-k		. 07719)	; &I-GT-K07719;
     (=gt-pj-4		. #x4E4D)	; &I-GT-22462; [46-45]
     (=daikanwa		. 17678)	; &I-M-17678;
+    (=ucs@jis/2004	. #x6DEB)	; &GT-22462;
     ))
 (define-char
   '((<-denotational

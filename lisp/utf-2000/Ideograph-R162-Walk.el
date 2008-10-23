@@ -840,11 +840,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs@jis/2004	. 36802)
     (=jis-x0208@1978	. #x312A)	; &M-38722; [17-10]
     (=ks-x1001		. #x6966)	; &I-K0-6966; [73-70]
     (=jis-x0213-1@2004	. #x312A)	; &I-JX3-312A; [17-10]
     (=daikanwa		. 38722)	; &I-M-38722;
+    (=ucs@jis/2004	. #x8FC2)	; &M-38722;
     (<-original
      ((=daikanwa	  . 38723)	; &M-38723;
       ))
@@ -3159,11 +3159,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@jis/2004	. 36838)
     (=jis-x0208@1978	. #x3260)	; &M-38789; [18-64]
     (=ks-x1001		. #x4A3C)	; &I-K0-4A3C; [42-28]
     (=jis-x0213-1@2004	. #x3260)	; &I-JX3-3260; [18-64]
     (=daikanwa		. 38789)	; &I-M-38789;
+    (=ucs@jis/2004	. #x8FE6)	; &M-38789;
     (<-formed
      ((=daikanwa	  . 38987)	; &M-38987;
       )

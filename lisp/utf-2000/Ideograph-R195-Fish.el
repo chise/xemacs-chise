@@ -6103,12 +6103,12 @@
     (ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=ucs@jis/2004	. 39983)
     (=jis-x0208@1978	. #x3073)	; &GT-62856; [16-83]
     (=jis-x0213-1@2004	. #x3073)	; &I-JX3-3073; [16-83]
     (=gt		. 62856)	; &I-GT-62856;
     (=gt-pj-8		. #x5E5B)	; &I-GT-62856; [62-59]
     (=daikanwa		. 46413)	; &I-M-46413;
+    (=ucs@jis/2004	. #x9C2F)	; &GT-62856;
     ))
 (define-char
   '((<-denotational
