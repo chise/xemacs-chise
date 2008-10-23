@@ -1,3 +1,13 @@
+2008-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=jis-x0213-{1|2}-2000' to `japanese-jisx0212'.
+
+	* mule/mule-conf.el (=ucs@jis/2004): New coded-charset for XEmacs
+	CHISE.
+	(=ucs@JP): Use `=ucs@jis/2004' instead of `=ucs@jis' as the
+	mother.
+
 2008-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0208@1978): New coded-charset [moved
