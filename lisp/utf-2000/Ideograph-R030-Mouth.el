@@ -27027,8 +27027,7 @@
 	))
       (=daikanwa	  . 04286)	; &M-04286;
       )
-     ((=ucs@jis/2004	  . 22082)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -27040,6 +27039,7 @@
       (=jis-x0213-1@2004  . #x313D)	; &I-JX3-313D; [17-29]
       (=gt		  . 05417)	; &I-GT-05417;
       (=gt-pj-2		  . #x5751)	; &I-GT-05417; [55-49]
+      (=ucs@jis/2004	  . #x5642)	; &GT-05417;
       ))
     ))
 (define-char

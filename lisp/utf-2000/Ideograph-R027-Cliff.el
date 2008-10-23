@@ -2337,8 +2337,8 @@
       )
      ((ideographic-strokes . 12)
       (total-strokes	   . 14)
-      (=ucs@jis/2004	  . 21417)
       (=jis-x0213-1@2004  . #x3139)	; &JX3-3139; [17-25]
+      (=ucs@jis/2004	  . #x53A9)	; &JX3-3139;
       ))
     ))
 (define-char
