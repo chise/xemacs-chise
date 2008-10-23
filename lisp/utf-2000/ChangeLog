@@ -1,3 +1,12 @@
+2008-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3892): Use `->subsumptive'.
+	(U+5ECF): Use `->denotational' and `->subsumptive'.
+	(GT-11902): Use `<-denotational' for U+5ECF; use `=shinjigen'
+	instead of `=shinjigen@1ed' for S1-2207.
+	(GT-11901): Separate S1-2209.
+	(S1-2209): Unify S2-2209.
+
 2008-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (U+8FC2): Add J97-312A.
