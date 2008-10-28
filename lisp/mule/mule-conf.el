@@ -703,6 +703,15 @@
 		  mother	ucs-jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
+  (make-charset '=ucs@jis/2004
+		"ISO/IEC 10646 for JIS X 0213:2004"
+		'(long-name	"UCS for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
 		'(long-name	"UCS for Japan"
@@ -711,7 +720,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@jis/2000))
+		  mother	=ucs@jis/2004))
   (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
 		"ISO/IEC 10646 for Korean Standards"

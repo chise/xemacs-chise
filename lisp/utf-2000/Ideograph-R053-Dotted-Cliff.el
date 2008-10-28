@@ -3778,39 +3778,51 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x3892)	; 㢒
-    (=cns11643-4	. #x4336)	; &I-C4-4336; [35-22]
-    (=daikanwa		. 09452)	; &I-M-09452;
-    (=cbeta		. 03027)	; &I-CB03027;
+    (->subsumptive
+     ((=daikanwa	  . 09452)	; &M-09452;
+      (=cbeta		  . 03027)	; &I-CB03027;
+      )
+     ((=ucs@unicode	  . #x3892)	; &UU+3892;
+      )
+     ((=cns11643-4	  . #x4336)	; &C4-4336; [35-22]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5ECF)	; 廏
-    (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (=jis-x0208		. #x567E)	; &GT-11899; [54-94]
-    (=jis-x0213-1	. #x567E)	; &I-JX1-567E; [54-94]
-    (=gt		. 11899)	; &I-GT-11899;
-    (=gt-pj-1		. #x567E)	; &I-GT-11899; [54-94]
-    (=daikanwa		. 09453)	; &I-M-09453;
-    (=ucs@jis		. #x5ECF)	; &GT-11899;
-    ))
-(define-char
-  '((morohashi-daikanwa	9453 0 0)
-    (ideographic-radical . 53)	; ⼴
+  '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x5ECF)	; 廏
-    (=cns11643-3	. #x4661)	; &I-C3-4661; [38-65]
     ))
 (define-char
-  '((=>ucs		. #x5ECF)	; 廏
-    (morohashi-daikanwa	9453 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5ECF)	; 廏
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (->subsumptive
+     ((=jis-x0208	  . #x567E)	; &GT-11899; [54-94]
+      (=jis-x0213-1	  . #x567E)	; &I-JX1-567E; [54-94]
+      (=gt		  . 11899)	; &I-GT-11899;
+      (=gt-pj-1		  . #x567E)	; &I-GT-11899; [54-94]
+      (=daikanwa	  . 09453)	; &I-M-09453;
+      (=ucs@jis		  . #x5ECF)	; &GT-11899;
+      )
+     ((=ucs@unicode	  . #x5ECF)	; &UU+5ECF;
+      )
+     ((=cns11643-3	  . #x4661)	; &C3-4661; [38-65]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5ECF)	; 廏
+      ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=gt		. 11902)	; &GT-11902;
     (=gt-pj-11		. #x3B54)	; &GT-11902; [27-52]
-    (=shinjigen@1ed	.  2207)	; &GT-11902;
+    (=shinjigen		.  2207)	; &GT-11902;
     (mojikyo		. 050989)	; &MCS-6000C72D;
     ))
 (define-char
@@ -3864,16 +3876,19 @@
       (total-strokes	   . 14)
       (=gt		  . 11901)	; &GT-11901;
       (=gt-pj-9		  . #x4C55)	; &GT-11901; [44-53]
-      (=shinjigen@1ed	  .  2209)	; &GT-11901;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (=shinjigen	  .  2209)	; &SJG2-2209;
       (<-vulgar
        ((=gt		    . 11902)	; &GT-11902;
-	(=shinjigen@1ed	    .  2207)	; &GT-11902;
+	(=shinjigen	    .  2207)	; &GT-11902;
 	))
       (<-vulgar*sources
-       shinjigen@1ed)
+       shinjigen)
       )
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 13)
+     ((ideographic-strokes . 12)
+      (total-strokes	   . 15)
       (=cbeta		  . 00636)	; &CB00636;
       ))
     ))

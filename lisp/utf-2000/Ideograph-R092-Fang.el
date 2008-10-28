@@ -3,6 +3,8 @@
   '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (=ucs		. #x7259)	; 牙
+    (=big5		. #xA4FA)	; &I-B-A4FA;
+    (=jis-x0208@1997	. #x3267)	; 牙 [18-71]
     ))
 (define-char
   '((<-denotational
@@ -12,11 +14,14 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (->subsumptive
-     ((=cns11643-1	  . #x455B)	; &M-19909; [37-59]
-      (=daikanwa	  . 19909)	; &I-M-19909;
+     ((=daikanwa	  . 19909)	; &M-19909;
+      )
+     ((=cns11643-1	  . #x455B)	; &C1-455B; [37-59]
+      )
+     ((=jis-x0213-1@2004  . #x3267)	; &JX3-3267; [18-71]
+      (=ucs@jis/2004	  . #x7259)	; &JX3-3267;
       )
      ((=gb2312		  . #x5140)	; &G0-5140; [49-32]
-      (=big5		  . #xA4FA)	; &I-B-A4FA;
       (=ucs@unicode	  . #x7259)	; &G0-5140;
       ))
     ))
@@ -27,14 +32,18 @@
     (ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (=jis-x0208		. #x3267)	; &GT-25560; [18-71]
-    (=ks-x1001		. #x6433)	; &I-K0-6433; [68-19]
-    (=jis-x0213-1	. #x3267)	; &I-JX1-3267; [18-71]
-    (=gt		. 25560)	; &I-GT-25560;
-    (=gt-k		. 00900)	; &I-GT-K00900;
-    (=gt-pj-1		. #x3267)	; &I-GT-25560; [18-71]
-    (=jef-china3	. #x58C5)	; &I-JC3-58C5;
-    (=ucs@jis		. #x7259)	; &GT-25560;
+    (->subsumptive
+     ((=jis-x0208	  . #x3267)	; &GT-25560; [18-71]
+      (=jis-x0213-1@2000  . #x3267)	; &I-JX1-3267; [18-71]
+      (=gt		  . 25560)	; &I-GT-25560;
+      (=gt-k		  . 00900)	; &I-GT-K00900;
+      (=gt-pj-1		  . #x3267)	; &I-GT-25560; [18-71]
+      (=ucs@jis/1990	  . #x7259)	; &GT-25560;
+      (=ucs@jis/2000	  . #x7259)	; &GT-25560;
+      )
+     ((=ks-x1001	  . #x6433)	; &K0-6433; [68-19]
+      (=jef-china3	  . #x58C5)	; &I-JC3-58C5;
+      ))
     ))
 (define-char
   '((=>ucs		. #x3E26)	; 㸦

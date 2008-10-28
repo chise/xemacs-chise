@@ -280,7 +280,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-gb2312
 	  japanese-jisx0208
 	  =jis-x0208-1990
-	  japanese-jisx0212
 	  japanese-jisx0208-1978
 	  =gt-pj-2
 	  =gt-pj-3
@@ -307,6 +306,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
+	  japanese-jisx0212
 	  ;; chinese-gb12345
 	  =gt-pj-1
 	  =jis-x0208@1997

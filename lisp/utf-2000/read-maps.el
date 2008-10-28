@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004,2005,2006 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -27,7 +27,7 @@
 (defvar mapping-table-ccs-setting-alist
   '((=jis-x0208@1990
      "^J90-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
-     =ucs@jis
+     =ucs@jis/1990
      "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=jis-x0212
      "^JSP-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16

@@ -112,45 +112,40 @@
     (=hanziku-3		. #xABBD)	; &I-HZK03-ABBD;
     ))
 (define-char
-  '((=>ucs		. #x5F63)	; 彣
-    (ideographic-radical . 59)	; ⼺
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=jis-x0212		. #x3C7C)	; &M-09971; [28-92]
-    (=jis-x0213-2	. #x2C33)	; &I-JX2-2C33; [12-19]
-    (=daikanwa		. 09971)	; &I-M-09971;
-    (=ucs@jis		. #x5F63)	; &M-09971;
-    ))
-(define-char
-  '((morohashi-daikanwa	9971 0 0)
-    (ideographic-radical . 59)	; ⼺
+  '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5F63)	; 彣
-    (=cns11643-3	. #x2572)	; &I-C3-2572; [05-82]
-    (=jef-china3	. #x4DA4)	; &I-JC3-4DA4;
+    (->subsumptive
+     ((=jis-x0212	  . #x3C7C)	; &CDP-894E; [28-92]
+      (=jis-x0213-2	  . #x2C33)	; &I-JX2-2C33; [12-19]
+      (=big5-cdp	  . #x894E)	; &I-CDP-894E;
+      (=daikanwa	  . 09971)	; &I-M-09971;
+      (=ucs@jis		  . #x5F63)	; &CDP-894E;
+      )
+     ((=jef-china3	  . #x4DA4)	; &JC3-4DA4;
+      )
+     ((=cns11643-3	  . #x2572)	; &C3-2572; [05-82]
+      (=ucs@unicode	  . #x5F63)	; &C3-2572;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5F64)	; 彤
-    (ideographic-radical . 59)	; ⼺
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=jis-x0212		. #x3C7D)	; &M-09972; [28-93]
-    (=cns11643-1	. #x4A2F)	; &I-C1-4A2F; [42-15]
-    (=jis-x0213-1	. #x743D)	; &I-JX1-743D; [84-29]
-    (=big5		. #xA7CD)	; &I-B-A7CD;
-    (=daikanwa		. 09972)	; &I-M-09972;
-    (=jef-china3	. #x4DA5)	; &I-JC3-4DA5;
-    (=ucs@jis		. #x5F64)	; &M-09972;
-    (=ucs@big5		. #x5F64)	; &M-09972;
-    ))
-(define-char
-  '((morohashi-daikanwa	9972 0 0)
-    (ideographic-radical . 59)	; ⼺
+  '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5F64)	; 彤
-    (=gb2312		. #x4D2E)	; &I-G0-4D2E; [45-14]
+    (=big5		. #xA7CD)	; &I-B-A7CD;
+    (->subsumptive
+     ((=jis-x0212	  . #x3C7D)	; &M-09972; [28-93]
+      (=cns11643-1	  . #x4A2F)	; &I-C1-4A2F; [42-15]
+      (=jis-x0213-1	  . #x743D)	; &I-JX1-743D; [84-29]
+      (=daikanwa	  . 09972)	; &I-M-09972;
+      (=jef-china3	  . #x4DA5)	; &I-JC3-4DA5;
+      (=ucs@jis		  . #x5F64)	; &M-09972;
+      )
+     ((=gb2312		  . #x4D2E)	; &G0-4D2E; [45-14]
+      (=ucs@unicode	  . #x5F64)	; &G0-4D2E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺

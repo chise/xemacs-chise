@@ -1001,6 +1001,23 @@ concord_name_validate (Lisp_Object keyword, Lisp_Object value,
 }
 
 static int
+concord_id_validate (Lisp_Object keyword, Lisp_Object value,
+		     Error_behavior errb)
+{
+  if (ERRB_EQ (errb, ERROR_ME))
+    {
+      /* CHECK_SYMBOL (value); */
+      if ( INTP (value) || CHARP (value) || SYMBOLP (value) )
+	;
+      else
+	dead_wrong_type_argument (Qsymbolp, value);
+      return 1;
+    }
+
+  return INTP (value) || CHARP (value) || SYMBOLP (value);
+}
+
+static int
 concord_object_validate (Lisp_Object data, Error_behavior errb)
 {
   struct gcpro gcpro1, gcpro2, gcpro3;
@@ -1108,7 +1125,7 @@ structure_type_create_concord (void)
 			      concord_object_instantiate);
 
   define_structure_type_keyword (st, Qgenre, concord_name_validate);
-  define_structure_type_keyword (st, Q_id, concord_name_validate);
+  define_structure_type_keyword (st, Q_id, concord_id_validate);
 }
 
 void
