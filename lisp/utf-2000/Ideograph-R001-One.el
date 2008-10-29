@@ -627,6 +627,7 @@
     (sound@ja/kun	"usi")
     (sound@ja/on/kan	"tIu")
     (=ucs		. #x4E11)	; 丑
+    (=big5		. #xA4A1)	; &I-B-A4A1;
     ))
 (define-char
   '((<-denotational
@@ -639,14 +640,12 @@
     (=ks-x1001		. #x7564)	; &I-K0-7564; [85-68]
     (=cns11643-1	. #x4460)	; &I-C1-4460; [36-64]
     (=jis-x0213-1	. #x312F)	; &I-JX1-312F; [17-15]
-    (=big5		. #xA4A1)	; &I-B-A4A1;
     (=gt		. 00033)	; &I-GT-00033;
     (=gt-k		. 00398)	; &I-GT-K00398;
     (=gt-pj-1		. #x312F)	; &I-GT-00033; [17-15]
     (=daikanwa		. 00023)	; &I-M-00023;
     (=shinjigen		.  0016)	; &GT-00033;
     (=ucs@jis		. #x4E11)	; &GT-00033;
-    (=ucs@big5		. #x4E11)	; &GT-00033;
     ))
 (define-char
   '((<-denotational
