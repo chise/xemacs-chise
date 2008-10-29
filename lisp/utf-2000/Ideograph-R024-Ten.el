@@ -398,10 +398,27 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=gt-k		. 00987)	; &GT-K00987;
+    (=gt-pj-k1		. #x3058)	; &GT-K00987; [16-56]
+    (<-formed@component/connect-right
+     ((=jis-x0208	  . #x483E)	; &GT-03470; [40-30]
+      (=gb2312		  . #x306B)	; &I-G0-306B; [16-75]
+      (=cns11643-1	  . #x4624)	; &I-C1-4624; [38-04]
+      (=jis-x0213-1	  . #x483E)	; &I-JX1-483E; [40-30]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x534A)	; 半
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (=gt-k		. 01097)	; &GT-K01097;
     (=gt-pj-k1		. #x3B21)	; &GT-K01097; [27-01]
     (<-formed@component/connect-right
-     ((=ucs		  . #x534A)	; 半
+     ((=ks-x1001	  . #x5A62)	; &GT-03469; [58-66]
+      (=daikanwa	  . 02707)	; &I-M-02707;
       ))
     ))
 (define-char
