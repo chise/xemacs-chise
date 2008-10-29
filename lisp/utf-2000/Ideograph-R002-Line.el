@@ -216,6 +216,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (=ucs		. #x4E30)	; 丰
+    (=big5		. #xA4A5)	; &I-B-A4A5;
     (->subsumptive
      ((=gb2312		  . #x3761)	; &GT-00110; [23-65]
       (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
@@ -234,9 +235,7 @@
       )
      ((hanyu-dazidian	  1 28 7)
       (=cns11643-1	  . #x4464)	; &C1-4464; [36-68]
-      (=big5		  . #xA4A5)	; &I-B-A4A5;
       (=ucs@cns		  . #x4E30)	; &C1-4464;
-      (=ucs@big5	  . #x4E30)	; &C1-4464;
       ))
     ))
 (define-char
