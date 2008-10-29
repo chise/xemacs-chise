@@ -4,11 +4,11 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=ucs		. #x516B)	; 八
+    (=big5		. #xA44B)	; &I-B-A44B;
     (->subsumptive
      ((=jis-x0208	  . #x482C)	; &GT-01888; [40-12]
       (=ks-x1001	  . #x7822)	; &I-K0-7822; [88-02]
       (=jis-x0213-1	  . #x482C)	; &I-JX1-482C; [40-12]
-      (=big5		  . #xA44B)	; &I-B-A44B;
       (=gt		  . 01888)	; &I-GT-01888;
       (=gt-k		  . 00056)	; &I-GT-K00056;
       (=gt-pj-1		  . #x482C)	; &I-GT-01888; [40-12]
@@ -16,7 +16,6 @@
       (=shinjigen	  .  0490)	; &GT-01888;
       (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
       (=ucs@jis		  . #x516B)	; &GT-01888;
-      (=ucs@big5	  . #x516B)	; &GT-01888;
       )
      ((=cns11643-1	  . #x442C)	; &C1-442C; [36-12]
       (=shinjigen	  .  0489)	; &C1-442C;
@@ -59,6 +58,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x516C)	; 公
+    (=big5		. #xA4BD)	; &I-B-A4BD;
     (=jis-x0208@1997	. #x3878)	; 公 [24-88]
     (->subsumptive
      ((ideographic-structure
@@ -75,14 +75,12 @@
       (=jis-x0208@1978	  . #x3878)	; &GT-01892; [24-88]
       (=jis-x0208@1983	  . #x3878)	; &I-J83-3878; [24-88]
       (=ks-x1001	  . #x4D6B)	; &I-K0-4D6B; [45-75]
-      (=big5		  . #xA4BD)	; &I-B-A4BD;
       (=gt		  . 01892)	; &I-GT-01892;
       (=gt-k		  . 00431)	; &I-GT-K00431;
       (=gt-pj-2		  . #x3C58)	; &I-GT-01892; [28-56]
       (=daikanwa	  . 01452)	; &I-M-01452;
       (=shinjigen	  .  0494)	; &GT-01892;
       (=jef-china3	  . #x43E5)	; &I-JC3-43E5;
-      (=ucs@big5	  . #x516C)	; &GT-01892;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -173,6 +171,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x516E)	; 兮
+    (=big5		. #xA4BC)	; &I-B-A4BC;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -188,14 +187,12 @@
       (=jis-x0208	  . #x5142)	; &GT-01891; [49-34]
       (=ks-x1001	  . #x7B31)	; &I-K0-7B31; [91-17]
       (=jis-x0213-1	  . #x5142)	; &I-JX1-5142; [49-34]
-      (=big5		  . #xA4BC)	; &I-B-A4BC;
       (=gt		  . 01891)	; &I-GT-01891;
       (=gt-k		  . 00516)	; &I-GT-K00516;
       (=gt-pj-1		  . #x5142)	; &I-GT-01891; [49-34]
       (=daikanwa	  . 01455)	; &I-M-01455;
       (=shinjigen	  .  0491)	; &GT-01891;
       (=ucs@jis		  . #x516E)	; &GT-01891;
-      (=ucs@big5	  . #x516E)	; &GT-01891;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
