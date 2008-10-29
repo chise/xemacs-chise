@@ -1,5 +1,10 @@
 2008-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el (B-A648): Moved to U+52A3.
+	(B-B0C9): Moved to U+52D8.
+	(U+FA34): Use `=ucs@unicode' instead of `=ucs@{gb|cns|ks|big5}'
+	for GU+52E4; add `=ucs@jis' for JU+FA34.
+
 	* Ideograph-R024-Ten.el (GT-K00987): New character; add
 	`<-formed@component/connect-right' for J0-483E.
 	(GT-01097): Use K0-5A62 instead of U+534A as the value of
