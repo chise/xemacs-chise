@@ -222,6 +222,7 @@
     (sound@ja/kun/name	"mituru" "mitu")
     (sound@ja/on	"zyuu")
     (=ucs		. #x5145)	; 充
+    (=big5		. #xA552)	; &I-B-A552;
     ))
 (define-char
   '((<-denotational
@@ -266,8 +267,6 @@
       ))
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=big5		. #xA552)	; &B-A552;
-    (=ucs@big5		. #x5145)	; &B-A552;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
