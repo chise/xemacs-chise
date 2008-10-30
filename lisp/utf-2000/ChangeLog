@@ -1,3 +1,42 @@
+2008-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+5284): Omit `ideographic-structure'.
+
+2008-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U-000208D1): Use `->denotational' and
+	`->subsumptive'.
+	(U+5309): Use `->denotational'.
+	(U-000208D6): Use `->subsumptive'; add `sound@ja/on/{go|kan}'.
+	(M-02519): Map to U-000208D5.
+	(U-000208D8): Use `->subsumptive'.
+
+	* Ideograph-R014-Cover.el (B-CBCD): Moved to U+519E.
+	(M-01578): Unify GT-02081; integrate U-00020586 and H1-E4A7.
+
+	* Ideograph-R013-Down-Box.el (U+5187): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; use `->subsumptive'.
+	(GT-K00710): New character.
+	(BC-8C58): New character.
+	(U+518F): Use `->denotational' instead of `->subsumptive'.
+	(B-CA6A): Moved to U+518F.
+	(U-00020551): Use `->subsumptive'; add `sound@ja/on'.
+
+	* Ideograph-R001-One.el (U+5187): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+2008-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el (J0-4E49): Use `=shinjigen' instead
+	of `=shinjigen@rev'.
+	(U+826F): Integrate GT-K02674.
+	(GT-K02673): New component; add `<-denotational' for U+826F; add
+	`<-identical@component/connect-right' for J0-4E49.
+	(U-00026ACB): Use `->subsumptive'.
+
 2008-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el (B-A648): Moved to U+52A3.
