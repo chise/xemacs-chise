@@ -320,6 +320,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x519E)	; 冞
+    (=big5		. #xCBCD)	; &I-B-CBCD;
     (->subsumptive
      ((hanyu-dazidian	  1 303 17)
       (ideographic-structure
@@ -330,8 +331,7 @@
 	)
        ((=ucs		    . #x7C73)	; 米
 	))
-      (=big5		  . #xCBCD)	; &M-01577;
-      (=daikanwa	  . 01577)	; &I-M-01577;
+      (=daikanwa	  . 01577)	; &M-01577;
       (=ucs@unicode	  . #x519E)	; &M-01577;
       )
      ((ideographic-structure
@@ -350,7 +350,17 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=daikanwa		. 01578)	; &M-01578;
+    (=ucs		. #x20586)	; 𠖆
+    (->subsumptive
+     ((=gt		  . 02081)	; &GT-02081;
+      (=gt-pj-2		  . #x3D66)	; &GT-02081; [29-70]
+      (=daikanwa	  . 01578)	; &I-M-01578;
+      )
+     ((=ucs@iso		  . #x20586)	; &U-00020586;
+      )
+     ((hanyu-dazidian	  1 303 14)
+      (=hanziku-1	  . #xE4A7)	; &HZK01-E4A7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
@@ -1218,12 +1228,6 @@
     (hanyu-dazidian	8 10 6)
     (=ucs		. #x20583)	; 𠖃
     (=hanziku-12	. #xEBB0)	; &I-HZK12-EBB0;
-    ))
-(define-char
-  '((ideographic-radical . 14)	; ⼍
-    (hanyu-dazidian	1 303 14)
-    (=ucs		. #x20586)	; 𠖆
-    (=hanziku-1		. #xE4A7)	; &I-HZK01-E4A7;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
