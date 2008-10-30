@@ -3987,14 +3987,6 @@
     (ideographic-radical@cns . 118)	; ⽵
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7B54)	; 答
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5284)	; 劄
     (=cns11643-2	. #x4C61)	; &I-C2-4C61; [44-65]
     (=jis-x0213-2	. #x233D)	; &I-JX2-233D; [03-29]
