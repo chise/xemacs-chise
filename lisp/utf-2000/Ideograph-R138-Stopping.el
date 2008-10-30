@@ -39,12 +39,31 @@
       (=gt-k		  . 02672)	; &I-GT-K02672;
       (=gt-pj-1		  . #x4E49)	; &I-GT-39586; [46-41]
       (=daikanwa	  . 30597)	; &I-M-30597;
-      (=shinjigen@rev	  .  6671)	; &GT-39586;
+      (=shinjigen	  .  6671)	; &GT-39586;
       (=ucs@jis		  . #x826F)	; &GT-39586;
       )
      ((=gb2312		  . #x413C)	; &C1-4B40; [33-28]
       (=cns11643-1	  . #x4B40)	; &I-C1-4B40; [43-32]
       (=ucs@unicode	  . #x826F)	; &C1-4B40;
+      )
+     ((=gt-k		  . 02674)	; &GT-K02674;
+      (=gt-pj-k1	  . #x3B7A)	; &GT-K02674; [27-90]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x826F)	; 良
+      ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 1)
+    (total-strokes	 . 7)
+    (=gt-k		. 02673)	; &GT-K02673;
+    (=gt-pj-k1		. #x374D)	; &GT-K02673; [23-45]
+    (<-identical@component/connect-right
+     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
+      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
+      (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
+      (=daikanwa	  . 30597)	; &I-M-30597;
       ))
     ))
 (define-char
@@ -67,35 +86,20 @@
     (=gb2312		. #x3C68)	; &I-G0-3C68; [28-72]
     ))
 (define-char
-  '((=>ucs		. #x26ACB)	; 𦫋
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=daikanwa		. 30598)	; &M-30598;
-    ))
-(define-char
-  '((=>ucs		. #x26ACB)	; 𦫋
-    (morohashi-daikanwa	30598 0 0)
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=gt		. 39587)	; &GT-39587;
-    (=gt-pj-6		. #x4640)	; &GT-39587; [38-32]
-    ))
-(define-char
-  '((=>ucs		. #x26ACB)	; 𦫋
-    (morohashi-daikanwa	30598 0 1)
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=cns11643-6	. #x3438)	; &C6-3438; [20-24]
-    ))
-(define-char
-  '((morohashi-daikanwa	30598 0 2)
-    (ideographic-radical . 138)	; ⾉
+  '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x26ACB)	; 𦫋
+    (->subsumptive
+     ((=daikanwa	  . 30598)	; &M-30598;
+      )
+     ((=gt		  . 39587)	; &GT-39587;
+      (=gt-pj-6		  . #x4640)	; &GT-39587; [38-32]
+      )
+     ((=cns11643-6	  . #x3438)	; &C6-3438; [20-24]
+      )
+     ((=ucs@iso		  . #x26ACB)	; &U-00026ACB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
