@@ -1,3 +1,22 @@
+2008-11-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+5230): Use
+	`ideographic-{radical|strokes}@{ucs|shinjigen}' and
+	`ideographic-{radical|strokes}@{ucs|shinjigen}*sources' instead of
+	`ideographic-'; omit `ideographic-structure'.
+
+2008-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el (GT-K00816): Add
+	`ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (B-A44A): Moved to U+5165.
+	(U-000204DF): Use `->subsumptive'.
+	(B-A5FE): Moved to U+5168.
+	(M-01434): Map to U-000204E6; unify H1-BE5B.
+	(U-000204E5): Use `->subsumptive'.
+	(B-A8E2): Moved to U+5169.
+
 2008-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-516A.
