@@ -1,4 +1,29 @@
+2008-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (B-C954): Moved to U+4EC8.
+	(U+3467): Use `->subsumptive'.
+	(M-00816): Unify U-0002028F and H1-CB51; add `sound@ja/on'.
+	(U-00020273): Omit `ideographic-structure'.
+	(B-B3C5): Moved to U+5085.
+	(J78-364F): Unify JX3-364F.
+	(J90-364F): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-364F; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+50C5.
+	(U+5132): Add J97-4C59.
+	(J78-4C59): Unify JX3-4C59 and GT-01660.
+	(J90-4C59): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4C59; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+5132.
+	(U-000204E6): Moved to Ideograph-R011-Enter.el.
+
+2008-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-476D.
+
 2008-11-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (U+3774): Add `sound@ja/on'; add S-0602;
+	add `<-formed' for JC3-44BC.
 
 	* Ideograph-R133-Arrive.el (U+5230): Use
 	`ideographic-{radical|strokes}@{ucs|shinjigen}' and
