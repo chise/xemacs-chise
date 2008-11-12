@@ -18,6 +18,10 @@
 
 2008-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R039-Child.el (U+5B63): Use `->subsumptive'.
+	(U+5B64): Use `->subsumptive'.
+	(U+5B65): Use `->subsumptive'.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-476D.
 
 2008-11-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
