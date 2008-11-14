@@ -1,5 +1,7 @@
 2008-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el (U+53A5): Use `->subsumptive'.
+
 	* Ideograph-R009-Man.el (B-C954): Moved to U+4EC8.
 	(U+3467): Use `->subsumptive'.
 	(M-00816): Unify U-0002028F and H1-CB51; add `sound@ja/on'.
