@@ -313,6 +313,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x5206)	; 分
+    (=big5		. #xA4C0)	; &I-B-A4C0;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -328,14 +329,12 @@
       (=jis-x0208@1978	  . #x4A2C)	; &GT-02420; [42-12]
       (=jis-x0208@1983	  . #x4A2C)	; &I-J83-4A2C; [42-12]
       (=ks-x1001	  . #x5D42)	; &I-K0-5D42; [61-34]
-      (=big5		  . #xA4C0)	; &I-B-A4C0;
       (=gt		  . 02420)	; &I-GT-02420;
       (=gt-k		  . 00485)	; &I-GT-K00485;
       (=gt-pj-2		  . #x4031)	; &I-GT-02420; [32-17]
       (=daikanwa	  . 01853)	; &I-M-01853;
       (=shinjigen	  .  0599)	; &GT-02420;
       (=jef-china3	  . #x44B5)	; &I-JC3-44B5;
-      (=ucs@big5	  . #x5206)	; &GT-02420;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -394,21 +393,19 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x206A8)	; 𠚨
-    (=daikanwa		. 01857)	; &I-M-01857;
-    ))
-(define-char
-  '((=>ucs		. #x206A8)	; 𠚨
-    (morohashi-daikanwa	1857 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=cns11643-5	. #x213B)	; &C5-213B; [01-27]
+    (->subsumptive
+     ((=daikanwa	  . 01857)	; &M-01857;
+      (=ucs@iso		  . #x206A8)	; &M-01857;
+      )
+     ((=cns11643-5	  . #x213B)	; &C5-213B; [01-27]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x5207)	; 切
+    (=big5		. #xA4C1)	; &I-B-A4C1;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -421,14 +418,12 @@
       (=jis-x0208	  . #x405A)	; &GT-02415; [32-58]
       (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
       (=jis-x0213-1	  . #x405A)	; &I-JX1-405A; [32-58]
-      (=big5		  . #xA4C1)	; &I-B-A4C1;
       (=gt		  . 02415)	; &I-GT-02415;
       (=gt-k		  . 00456)	; &I-GT-K00456;
       (=gt-pj-1		  . #x405A)	; &I-GT-02415; [32-58]
       (=daikanwa	  . 01858)	; &I-M-01858;
       (=shinjigen	  .  0596)	; &GT-02415;
       (=ucs@jis		  . #x5207)	; &GT-02415;
-      (=ucs@big5	  . #x5207)	; &GT-02415;
       )
      ((hanyu-dazidian	  1 320 5)
       (=gb2312		  . #x4750)	; &C1-4522; [39-48]
@@ -443,7 +438,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=shinjigen@1ed	.  0597)	; &SJG1-0597;
+    (=shinjigen		.  0597)	; &SJG2-0597;
     (<-wrong
      ((=jis-x0208	  . #x405A)	; &GT-02415; [32-58]
       (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
@@ -452,7 +447,7 @@
       (=shinjigen	  .  0596)	; &GT-02415;
       ))
     (<-wrong*sources
-     shinjigen@1ed)
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -465,7 +460,8 @@
       )
      ((=ucs		  . #x3405)	; 㐅
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5208)	; 刈
     (=jis-x0208		. #x3422)	; &I-J90-3422; [20-02]
@@ -530,7 +526,8 @@
       )
      ((=ucs		  . #x4E5E)	; 乞
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5209)	; 刉
     (=cns11643-2	. #x214C)	; &I-C2-214C; [01-44]
@@ -558,7 +555,8 @@
       )
      ((=ucs		  . #x5E72)	; 干
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x520A)	; 刊
     (=jis-x0208		. #x3429)	; &I-J90-3429; [20-09]
@@ -577,14 +575,6 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 324 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5343)	; 千
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x520B)	; 刋
     (=jis-x0208		. #x5164)	; &I-J90-5164; [49-68]
     (=cns11643-3	. #x217D)	; &I-C3-217D; [01-93]
@@ -596,19 +586,29 @@
     (=hanziku-1		. #xE8C9)	; &I-HZK01-E8C9;
     ))
 (define-char
-  '((=>ucs		. #x206AD)	; 𠚭
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=ucs		. #x206AD)	; 𠚭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x206AD)	; 𠚭
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=daikanwa		. 01867)	; &M-01867;
     ))
 (define-char
-  '((morohashi-daikanwa	1867 0 2)
+  '((<-denotational
+     ((=ucs		  . #x206AD)	; 𠚭
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=ucs		. #x206AD)	; 𠚭
-    (=cns11643-5	. #x2155)	; &I-C5-2155; [01-53]
+    (=cns11643-5	. #x2155)	; &C5-2155; [01-53]
+    (=ucs@iso		. #x206AD)	; &C5-2155;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -637,7 +637,8 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x520C)	; 刌
     (=cns11643-2	. #x214B)	; &I-C2-214B; [01-43]
@@ -645,20 +646,18 @@
     (=daikanwa		. 01870)	; &I-M-01870;
     ))
 (define-char
-  '((=>ucs		. #x206B0)	; 𠚰
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=daikanwa		. 01871)	; &M-01871;
-    (=cbeta		. 04739)	; &I-CB04739;
-    ))
-(define-char
-  '((morohashi-daikanwa	1871 0 1)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x206B0)	; 𠚰
-    (=cns11643-6	. #x2244)	; &I-C6-2244; [02-36]
+    (->subsumptive
+     ((=daikanwa	  . 01871)	; &M-01871;
+      (=cbeta		  . 04739)	; &I-CB04739;
+      )
+     ((=ucs@iso		  . #x206B0)	; &U-000206B0;
+      )
+     ((=cns11643-6	  . #x2244)	; &C6-2244; [02-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -795,7 +794,8 @@
       )
      ((=ucs		  . #x52FF)	; 勿
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x520E)	; 刎
     (=jis-x0208		. #x5166)	; &I-J90-5166; [49-70]
@@ -827,95 +827,87 @@
     (=daikanwa		. 01881)	; &I-M-01881;
     ))
 (define-char
-  '((=>ucs		. #x520F)	; 刏
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((name*		    . "ideographic component person for top")
-	(=ucs		    . #x20089)	; 𠂉
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((=ucs		    . #x4E59)	; 乙
-	))
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=cns11643-3	. #x2325)	; &M-01882; [03-05]
-    (=daikanwa		. 01882)	; &I-M-01882;
-    ))
-(define-char
-  '((morohashi-daikanwa	1882 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (hanyu-dazidian	1 326 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6C14)	; 气
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x520F)	; 刏
-    (=hanziku-1		. #xE94E)	; &I-HZK01-E94E;
-    ))
-(define-char
-  '((=>ucs		. #x206B9)	; 𠚹
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=daikanwa		. 01883)	; &M-01883;
-    ))
-(define-char
-  '((morohashi-daikanwa	1883 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=ucs		. #x206B9)	; 𠚹
-    (=cns11643-5	. #x222E)	; &I-C5-222E; [02-14]
-    ))
-(define-char
-  '((=>ucs		. #x206BA)	; 𠚺
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=daikanwa		. 01884)	; &M-01884;
-    ))
-(define-char
-  '((morohashi-daikanwa	1884 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=ucs		. #x206BA)	; 𠚺
-    (=cns11643-5	. #x222C)	; &I-C5-222C; [02-12]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00816)	; &GT-K00816;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-3	  . #x2325)	; &M-01882; [03-05]
+      (=daikanwa	  . 01882)	; &I-M-01882;
+      )
+     ((hanyu-dazidian	  1 326 8)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6C14)	; 气
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=hanziku-1	  . #xE94E)	; &HZK01-E94E;
+      (=ucs@unicode	  . #x520F)	; &HZK01-E94E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 326 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (=ucs		. #x206B9)	; 𠚹
+    (->subsumptive
+     ((=gt		  . 02456)	; &GT-02456;
+      (=gt-pj-2		  . #x404A)	; &GT-02456; [32-42]
+      (=daikanwa	  . 01883)	; &I-M-01883;
       )
-     ((=ucs		  . #x4E39)	; 丹
+     ((=ucs@iso		  . #x206B9)	; &U-000206B9;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((=cns11643-5	  . #x222E)	; &C5-222E; [02-14]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs		. #x206BA)	; 𠚺
+    (->subsumptive
+     ((=daikanwa	  . 01884)	; &M-01884;
+      )
+     ((=cns11643-5	  . #x222C)	; &C5-222C; [02-12]
+      (=ucs@iso		  . #x206BA)	; &C5-222C;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (sound@ja/on	"tan")
     (=ucs		. #x5210)	; 刐
-    (=cns11643-2	. #x217D)	; &I-C2-217D; [01-93]
-    (=big5		. #xC9BF)	; &I-B-C9BF;
-    (=daikanwa		. 01885)	; &I-M-01885;
+    (->subsumptive
+     ((=daikanwa	  . 01885)	; &M-01885;
+      )
+     ((hanyu-dazidian	  1 326 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E39)	; 丹
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-2	  . #x217D)	; &C2-217D; [01-93]
+      (=big5		  . #xC9BF)	; &I-B-C9BF;
+      (=ucs@unicode	  . #x5210)	; &C2-217D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -928,7 +920,8 @@
       )
      ((=ucs		  . #x5F00)	; 开
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5211)	; 刑
     (=jis-x0208		. #x373A)	; &I-J90-373A; [23-26]
@@ -1095,7 +1088,8 @@
       )
      ((=ucs		  . #x6208)	; 戈
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5212)	; 划
     (=gb2312		. #x3B2E)	; &I-G0-3B2E; [27-14]
@@ -1125,30 +1119,39 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 325 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5143)	; 元
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5213)	; 刓
-    (=jis-x0212		. #x3334)	; &I-JSP-3334; [19-20]
-    (=cns11643-2	. #x217C)	; &I-C2-217C; [01-92]
-    (=jis-x0213-1	. #x2E5C)	; &I-JX1-2E5C; [14-60]
-    (=big5		. #xC9BD)	; &I-B-C9BD;
-    (=daikanwa		. 01895)	; &I-M-01895;
-    (=shinjigen@rev	.  0601)	; 刓
-    (=jef-china3	. #x44BC)	; &I-JC3-44BC;
+    (->subsumptive
+     ((=jis-x0212	  . #x3334)	; &M-01895; [19-20]
+      (=cns11643-2	  . #x217C)	; &I-C2-217C; [01-92]
+      (=jis-x0213-1	  . #x2E5C)	; &I-JX1-2E5C; [14-60]
+      (=big5		  . #xC9BD)	; &I-B-C9BD;
+      (=daikanwa	  . 01895)	; &I-M-01895;
+      (=ucs@unicode	  . #x5213)	; &M-01895;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5143)	; 元
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=shinjigen	  .  0601)	; &JC3-44BC;
+      (=jef-china3	  . #x44BC)	; &JC3-44BC;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x206BF)	; 𠚿
-    (=cns11643-6	. #x2367)	; &I-C6-2367; [03-71]
-    (=daikanwa		. 01896)	; &I-M-01896;
+    (->subsumptive
+     ((=daikanwa	  . 01896)	; &M-01896;
+      (=ucs@iso		  . #x206BF)	; &M-01896;
+      )
+     ((=cns11643-6	  . #x2367)	; &C6-2367; [03-71]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -1210,9 +1213,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x6708)	; 月
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5216)	; 刖
     (=gb2312		. #x6B3E)	; &I-G0-6B3E; [75-30]
@@ -1235,7 +1240,8 @@
       )
      ((=ucs		  . #x6B79)	; 歹
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5217)	; 列
     (=jis-x0208		. #x4E73)	; &I-J90-4E73; [46-83]
@@ -1283,63 +1289,51 @@
     (=daikanwa		. 01905)	; &I-M-01905;
     ))
 (define-char
-  '((=>ucs		. #x206CD)	; 𠛍
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=daikanwa		. 01906)	; &M-01906;
-    ))
-(define-char
-  '((morohashi-daikanwa	1906 0 0)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x206CD)	; 𠛍
-    (=cns11643-6	. #x2366)	; &I-C6-2366; [03-70]
+    (->subsumptive
+     ((=daikanwa	  . 01906)	; &M-01906;
+      )
+     ((=cns11643-6	  . #x2366)	; &C6-2366; [03-70]
+      (=ucs@iso		  . #x206CD)	; &C6-2366;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=daikanwa		. 01907)	; &M-01907;
+    (=ucs		. #x206CA)	; 𠛊
+    (=daikanwa		. 01907)	; &I-M-01907;
+    (=hanziku-1		. #xE96E)	; &I-HZK01-E96E;
     ))
 (define-char
-  '((=>ucs		. #x5218)	; 刘
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x4A38)	; &GT-17008; [42-24]
-      (=jis-x0213-1	  . #x4A38)	; &I-JX1-4A38; [42-24]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=jis-x0212		. #x3337)	; &M-01908; [19-23]
-    (=daikanwa		. 01908)	; &I-M-01908;
-    (=jef-china3	. #x44BD)	; &I-JC3-44BD;
-    (=ucs@jis		. #x5218)	; &M-01908;
-    ))
-(define-char
-  '((morohashi-daikanwa	1908 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (hanyu-dazidian	1 327 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6587)	; 文
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5218)	; 刘
-    (=gb2312		. #x4175)	; &I-G0-4175; [33-85]
-    (=cns11643-3	. #x2327)	; &I-C3-2327; [03-07]
-    (=hanziku-1		. #xE973)	; &I-HZK01-E973;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00488)	; &GT-K00488;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x3337)	; &M-01908; [19-23]
+      (=daikanwa	  . 01908)	; &I-M-01908;
+      (=jef-china3	  . #x44BD)	; &I-JC3-44BD;
+      (=ucs@jis		  . #x5218)	; &M-01908;
+      )
+     ((hanyu-dazidian	  1 327 13)
+      (=gb2312		  . #x4175)	; &HZK01-E973; [33-85]
+      (=cns11643-3	  . #x2327)	; &I-C3-2327; [03-07]
+      (=hanziku-1	  . #xE973)	; &I-HZK01-E973;
+      (=ucs@unicode	  . #x5218)	; &HZK01-E973;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -1352,7 +1346,8 @@
       )
      ((=ucs		  . #x8D1D)	; 贝
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5219)	; 则
     (=gb2312		. #x5472)	; &I-G0-5472; [52-82]
@@ -1369,7 +1364,8 @@
       )
      ((=ucs		  . #x5188)	; 冈
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x521A)	; 刚
     (=gb2312		. #x3855)	; &I-G0-3855; [24-53]
@@ -1380,14 +1376,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 327 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4ED3)	; 仓
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x521B)	; 创
     (=gb2312		. #x3434)	; &I-G0-3434; [20-20]
     (=hanziku-1		. #xE96C)	; &I-HZK01-E96C;
@@ -1411,7 +1399,8 @@
       )
      ((=ucs		  . #x5F17)	; 弗
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x521C)	; 刜
     (=cns11643-2	. #x232E)	; &I-C2-232E; [03-14]
@@ -1419,8 +1408,7 @@
     (=daikanwa		. 01910)	; &I-M-01910;
     ))
 (define-char
-  '((=>daikanwa		. 01911)	; &GT-02490;
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes@ucs . 5)
     (total-strokes@ucs	     . 7)
     (ideographic-strokes@ucs*sources
@@ -1468,14 +1456,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 328 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E14)	; 且
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x521E)	; 刞
     (=cns11643-2	. #x232F)	; &I-C2-232F; [03-15]
     (=big5		. #xCA6D)	; &I-B-CA6D;
@@ -1519,7 +1499,8 @@
       )
      ((=ucs		  . #x53EC)	; 召
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x521F)	; 刟
     (=cns11643-3	. #x245F)	; &I-C3-245F; [04-63]
@@ -1537,7 +1518,8 @@
       )
      ((=ucs		  . #x518A)	; 冊
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x522A)	; 刪
     (=jis-x0208		. #x5168)	; &I-J90-5168; [49-72]
@@ -1562,7 +1544,8 @@
       )
      ((=ucs		  . #x6C11)	; 民
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5221)	; 刡
     (=cns11643-2	. #x2330)	; &I-C2-2330; [03-16]
@@ -1570,59 +1553,53 @@
     (=daikanwa		. 01918)	; &I-M-01918;
     ))
 (define-char
-  '((=>ucs		. #x5222)	; 刢
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x4E61)	; &GT-00521; [46-65]
-      (=ks-x1001	  . #x5635)	; &I-K0-5635; [54-21]
-      (=jis-x0213-1	  . #x4E61)	; &I-JX1-4E61; [46-65]
-      (=daikanwa	  . 00387)	; &I-M-00387;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=jis-x0212		. #x3338)	; &M-01919; [19-24]
-    (=daikanwa		. 01919)	; &I-M-01919;
-    (=cbeta		. 05262)	; &I-CB05262;
-    (=jef-china3	. #x44BE)	; &I-JC3-44BE;
-    (=ucs@jis		. #x5222)	; &M-01919;
-    ))
-(define-char
-  '((=>ucs		. #x5222)	; 刢
-    (morohashi-daikanwa	1919 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=cns11643-1	  . #x456F)	; &GT-K01023; [37-79]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=cns11643-4	. #x2340)	; &C4-2340; [03-32]
-    ))
-(define-char
-  '((morohashi-daikanwa	1919 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 330 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EE4)	; 令
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5222)	; 刢
-    (=hanziku-1		. #xE9EC)	; &I-HZK01-E9EC;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x4E61)	; &GT-00521; [46-65]
+	(=ks-x1001	    . #x5635)	; &I-K0-5635; [54-21]
+	(=jis-x0213-1	    . #x4E61)	; &I-JX1-4E61; [46-65]
+	(=daikanwa	    . 00387)	; &I-M-00387;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x3338)	; &M-01919; [19-24]
+      (=daikanwa	  . 01919)	; &I-M-01919;
+      (=cbeta		  . 05262)	; &I-CB05262;
+      (=jef-china3	  . #x44BE)	; &I-JC3-44BE;
+      (=ucs@jis		  . #x5222)	; &M-01919;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x456F)	; &GT-K01023; [37-79]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-4	  . #x2340)	; &C4-2340; [03-32]
+      )
+     ((hanyu-dazidian	  1 330 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gb2312	    . #x416E)	; &GT-K01022; [33-78]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=hanziku-1	  . #xE9EC)	; &HZK01-E9EC;
+      (=ucs@unicode	  . #x5222)	; &HZK01-E9EC;
+      ))
     ))
 (define-char
   '((=>ucs		. #x206D1)	; 𠛑
@@ -1666,7 +1643,8 @@
       )
      ((=ucs		  . #x53F0)	; 台
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5223)	; 刣
     (=cns11643-3	. #x245C)	; &I-C3-245C; [04-60]
@@ -1674,7 +1652,16 @@
     (=hanziku-1		. #xEA6C)	; &I-HZK01-EA6C;
     ))
 (define-char
-  '((=>ucs		. #x5224)	; 判
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=ucs		. #x5224)	; 判
+    (=big5		. #xA750)	; &I-B-A750;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5224)	; 判
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -1682,82 +1669,80 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ks-x1001	  . #x5A62)	; &GT-03469; [58-66]
-      (=daikanwa	  . 02707)	; &I-M-02707;
+     ((=gt-k		  . 01097)	; &GT-K01097;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ks-x1001		. #x7777)	; &M-01923; [87-87]
-    (=big5		. #xA750)	; &I-B-A750;
     (=daikanwa		. 01923)	; &I-M-01923;
     (=shinjigen		.  0614)	; &M-01923;
     (=jef-china3	. #x44BF)	; &I-JC3-44BF;
-    (=ucs@big5		. #x5224)	; &M-01923;
     ))
 (define-char
-  '((=>ucs		. #x5224)	; 判
-    (morohashi-daikanwa	1923 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5224)	; 判
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x483E)	; &GT-03470; [40-30]
+	(=gb2312	    . #x306B)	; &I-G0-306B; [16-75]
+	(=cns11643-1	    . #x4624)	; &I-C1-4624; [38-04]
+	(=jis-x0213-1	    . #x483E)	; &I-JX1-483E; [40-30]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0208	  . #x483D)	; &GT-02499; [40-29]
+      (=jis-x0213-1	  . #x483D)	; &I-JX1-483D; [40-29]
+      (=gt		  . 02499)	; &I-GT-02499;
+      (=gt-k		  . 02635)	; &I-GT-K02635;
+      (=gt-pj-1		  . #x483D)	; &I-GT-02499; [40-29]
+      (=shinjigen	  .  0613)	; &GT-02499;
+      (=ucs@jis		  . #x5224)	; &GT-02499;
       )
-     ((=ucs		  . #x534A)	; 半
-      )
-     ((=ucs		  . #x5202)	; 刂
+     ((hanyu-dazidian	  1 331 5)
+      (=gb2312		  . #x4550)	; &C1-4932; [37-48]
+      (=cns11643-1	  . #x4932)	; &I-C1-4932; [41-18]
+      (=ucs@unicode	  . #x5224)	; &C1-4932;
       ))
-    (=jis-x0208		. #x483D)	; &GT-02499; [40-29]
-    (=jis-x0213-1	. #x483D)	; &I-JX1-483D; [40-29]
-    (=gt		. 02499)	; &I-GT-02499;
-    (=gt-k		. 02635)	; &I-GT-K02635;
-    (=gt-pj-1		. #x483D)	; &I-GT-02499; [40-29]
-    (=shinjigen		.  0613)	; &GT-02499;
-    (=ucs@jis		. #x5224)	; &GT-02499;
-    ))
-(define-char
-  '((morohashi-daikanwa	1923 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 331 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x534A)	; 半
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=ucs		. #x5224)	; 判
-    (=gb2312		. #x4550)	; &I-G0-4550; [37-48]
-    (=cns11643-1	. #x4932)	; &I-C1-4932; [41-18]
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 328 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x20BA0)	; 𠮠
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5225)	; 別
-    (=jis-x0208		. #x4A4C)	; &I-J90-4A4C; [42-44]
-    (=ks-x1001		. #x5C2C)	; &I-K0-5C2C; [60-12]
-    (=cns11643-1	. #x4931)	; &I-C1-4931; [41-17]
-    (=jis-x0213-1	. #x4A4C)	; &I-JX1-4A4C; [42-44]
-    (=big5		. #xA74F)	; &I-B-A74F;
-    (=gt		. 02504)	; &I-GT-02504;
-    (=gt-k		. 02645)	; &I-GT-K02645;
-    (=gt-pj-1		. #x4A4C)	; &I-GT-02504; [42-44]
-    (=daikanwa		. 01924)	; &I-M-01924;
-    (=shinjigen		.  0615)	; 別
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x20BA0)	; 𠮠
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0208	  . #x4A4C)	; &GT-02504; [42-44]
+      (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
+      (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
+      (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
+      (=big5		  . #xA74F)	; &I-B-A74F;
+      (=gt		  . 02504)	; &I-GT-02504;
+      (=gt-k		  . 02645)	; &I-GT-K02645;
+      (=gt-pj-1		  . #x4A4C)	; &I-GT-02504; [42-44]
+      (=daikanwa	  . 01924)	; &I-M-01924;
+      (=shinjigen	  .  0615)	; &GT-02504;
+      (=ucs@jis		  . #x5225)	; &GT-02504;
+      )
+     ((=ucs@unicode	  . #x5225)	; &UU+5225;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -1769,12 +1754,22 @@
       )
      ((=ucs		  . #x53E6)	; 另
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x522B)	; 别
     (=gb2312		. #x3170)	; &I-G0-3170; [17-80]
     (=cns11643-3	. #x2460)	; &I-C3-2460; [04-64]
     (=daikanwa		. 01925)	; &I-M-01925;
+    (<-vulgar
+     ((=jis-x0208	  . #x4A4C)	; &GT-02504; [42-44]
+      (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
+      (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
+      (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
+      (=daikanwa	  . 01924)	; &I-M-01924;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -1787,7 +1782,8 @@
       )
      ((=ucs		  . #x53BB)	; 去
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5226)	; 刦
     (=cns11643-3	. #x245E)	; &I-C3-245E; [04-62]
@@ -1858,9 +1854,20 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (sound@ja/on	"kEHu")
     (=ucs		. #x206D7)	; 𠛗
-    (=cns11643-6	. #x2629)	; &I-C6-2629; [06-09]
-    (=daikanwa		. 01928)	; &I-M-01928;
+    (->subsumptive
+     ((=cns11643-6	  . #x2629)	; &M-01928; [06-09]
+      (=daikanwa	  . 01928)	; &I-M-01928;
+      (<-same
+       ((=ucs		    . #x5226)	; 刦
+	(=daikanwa	    . 01926)	; &I-M-01926;
+	))
+      (<-same*sources
+       zihui-bu daikanwa)
+      )
+     ((=ucs@iso		  . #x206D7)	; &U-000206D7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -1873,7 +1880,8 @@
       )
      ((=ucs		  . #x5305)	; 包
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5228)	; 刨
     (=gb2312		. #x4559)	; &I-G0-4559; [37-57]
@@ -1906,14 +1914,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 329 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x79BE)	; 禾
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5229)	; 利
     (=jis-x0208		. #x4D78)	; &I-J90-4D78; [45-88]
     (=gb2312		. #x407B)	; &I-G0-407B; [32-91]
@@ -1979,39 +1979,51 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x206DA)	; 𠛚
-    (=cns11643-5	. #x2341)	; &I-C5-2341; [03-33]
-    (=daikanwa		. 01938)	; &I-M-01938;
+    (->subsumptive
+     ((=cns11643-5	  . #x2341)	; &M-01938; [03-33]
+      (=daikanwa	  . 01938)	; &I-M-01938;
+      )
+     ((=ucs@iso		  . #x206DA)	; &U-000206DA;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x206DB)	; 𠛛
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=daikanwa		. 01939)	; &M-01939;
-    ))
-(define-char
-  '((morohashi-daikanwa	1939 0 1)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x206DB)	; 𠛛
-    (=cns11643-6	. #x262A)	; &I-C6-262A; [06-10]
+    (->subsumptive
+     ((=daikanwa	  . 01939)	; &M-01939;
+      )
+     ((=cns11643-6	  . #x262A)	; &C6-262A; [06-10]
+      (=ucs@iso		  . #x206DB)	; &C6-262A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x206E5)	; 𠛥
-    (=cns11643-5	. #x233E)	; &I-C5-233E; [03-30]
-    (=daikanwa		. 01940)	; &I-M-01940;
+    (->subsumptive
+     ((=gt		  . 02503)	; &GT-02503;
+      (=gt-pj-2		  . #x407B)	; &GT-02503; [32-91]
+      (=daikanwa	  . 01940)	; &I-M-01940;
+      )
+     ((=cns11643-5	  . #x233E)	; &C5-233E; [03-30]
+      (=ucs@iso		  . #x206E5)	; &C5-233E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (sound@ja/on	"ri")
     (=ucs		. #x206E6)	; 𠛦
-    (=cns11643-5	. #x2344)	; &I-C5-2344; [03-36]
-    (=daikanwa		. 01941)	; &I-M-01941;
+    (->subsumptive
+     ((=cns11643-5	  . #x2344)	; &M-01941; [03-36]
+      (=daikanwa	  . 01941)	; &I-M-01941;
+      )
+     ((=ucs@iso		  . #x206E6)	; &U-000206E6;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2022,30 +2034,40 @@
     (=daikanwa		. 01942)	; &I-M-01942;
     ))
 (define-char
-  '((=>ucs		. #x5220)	; 删
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=cns11643-3	. #x2461)	; &M-48937; [04-65]
-    (=daikanwa		. 48937)	; &I-M-48937;
-    ))
-(define-char
-  '((morohashi-daikanwa	48937 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 330 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x518C)	; 册
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5220)	; 删
-    (=gb2312		. #x493E)	; &I-G0-493E; [41-30]
-    (=hanziku-1		. #xE9EF)	; &I-HZK01-E9EF;
+    (->subsumptive
+     ((hanyu-dazidian	  1 330 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x5146)	; &GT-01989; [49-38]
+	(=gb2312	    . #x3261)	; &I-G0-3261; [18-65]
+	(=jis-x0213-1	    . #x5146)	; &I-JX1-5146; [49-38]
+	(=daikanwa	    . 01516)	; &I-M-01516;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=gb2312		  . #x493E)	; &M-48937; [41-30]
+      (=daikanwa	  . 48937)	; &I-M-48937;
+      (=hanziku-1	  . #xE9EF)	; &I-HZK01-E9EF;
+      (=ucs@unicode	  . #x5220)	; &M-48937;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-3	    . #x2179)	; &C3-2179; [01-89]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-3	  . #x2461)	; &C3-2461; [04-65]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2058,11 +2080,15 @@
       )
      ((=ucs		  . #x620B)	; 戋
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x522C)	; 刬
     (=iso-ir165		. #x7A3C)	; &I-EGB-7A3C; [90-28]
     (=hanziku-1		. #xE9AA)	; &I-HZK01-E9AA;
+    (<-simplified@CN
+     ((=ucs		  . #x5257)	; 剗
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2082,7 +2108,8 @@
        ((=ucs		    . #x5DE5)	; 工
 	))
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x522D)	; 刭
     (=gb2312		. #x5859)	; &I-G0-5859; [56-57]
@@ -2099,7 +2126,8 @@
       )
      ((=ucs		  . #x820C)	; 舌
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x522E)	; 刮
     (=jis-x0208		. #x5169)	; &I-J90-5169; [49-73]
@@ -2161,55 +2189,43 @@
     (=daikanwa		. 01948)	; &I-M-01948;
     ))
 (define-char
-  '((=>ucs		. #x522F)	; 刯
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E98)	; 亘
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=daikanwa		. 01949)	; &M-01949;
-    ))
-(define-char
-  '((morohashi-daikanwa	1949 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 333 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E98)	; 亘
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x522F)	; 刯
-    (=cns11643-3	. #x275B)	; &I-C3-275B; [07-59]
-    (=hanziku-1		. #xEAAC)	; &I-HZK01-EAAC;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E98)	; 亘
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=daikanwa	  . 01949)	; &M-01949;
+      )
+     ((hanyu-dazidian	  1 333 1)
+      (=cns11643-3	  . #x275B)	; &HZK01-EAAC; [07-59]
+      (=hanziku-1	  . #xEAAC)	; &I-HZK01-EAAC;
+      (=ucs@unicode	  . #x522F)	; &HZK01-EAAC;
+      ))
     ))
 (define-char
-  '((ideographic-	(:radical	18 ; ⼑
-			 :strokes	6
-			 :sources	(morohashi-daikanwa ucs))
-			(:radical	133 ; ⾄
-			 :strokes	2
-			 :sources	(shinjigen-1)))
+  '((ideographic-radical@ucs . 18)	; ⼑
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@shinjigen . 133)	; ⾄
+    (ideographic-strokes@shinjigen . 2)
+    (ideographic-radical@shinjigen*sources
+     shinjigen)
+    (ideographic-strokes@shinjigen*sources
+     shinjigen)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 334 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x81F3)	; 至
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5230)	; 到
     (=jis-x0208		. #x457E)	; &I-J90-457E; [37-94]
     (=gb2312		. #x353D)	; &I-G0-353D; [21-29]
@@ -2224,30 +2240,50 @@
     (=shinjigen		.  6602)	; 到
     ))
 (define-char
-  '((=>ucs		. #x206EC)	; 𠛬
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=daikanwa		. 01951)	; &M-01951;
-    (=shinjigen		.  0604)	; &M-01951;
-    ))
-(define-char
-  '((morohashi-daikanwa	1951 0 1)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x206EC)	; 𠛬
-    (=cns11643-3	. #x275C)	; &I-C3-275C; [07-60]
+    (->subsumptive
+     ((=gt		  . 02525)	; &GT-02525;
+      (=gt-k		  . 03929)	; &I-GT-K03929;
+      (=gt-pj-2		  . #x4127)	; &GT-02525; [33-07]
+      (=daikanwa	  . 01951)	; &I-M-01951;
+      (<-original
+       ((=ucs		    . #x5211)	; 刑
+	(=daikanwa	    . 01886)	; &I-M-01886;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
+      )
+     ((=shinjigen	  .  0604)	; &SJG2-0604;
+      (<-original
+       ((=ucs		    . #x5211)	; 刑
+	(=jis-x0208	    . #x373A)	; &I-J90-373A; [23-26]
+	(=shinjigen	    .  0603)	; 刑
+	))
+      (<-original*sources
+       shinjigen)
+      )
+     ((=cns11643-3	  . #x275C)	; &C3-275C; [07-60]
+      (=ucs@iso		  . #x206EC)	; &C3-275C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 335 2)
     (=ucs		. #x34E1)	; 㓡
-    (=cns11643-4	. #x254A)	; &I-C4-254A; [05-42]
-    (=daikanwa		. 01952)	; &I-M-01952;
-    (=hanziku-1		. #xEAED)	; &I-HZK01-EAED;
+    (->subsumptive
+     ((=cns11643-4	  . #x254A)	; &GT-02561; [05-42]
+      (=gt		  . 02561)	; &I-GT-02561;
+      (=gt-pj-2		  . #x4128)	; &I-GT-02561; [33-08]
+      (=daikanwa	  . 01952)	; &I-M-01952;
+      )
+     ((hanyu-dazidian	  1 335 2)
+      (=hanziku-1	  . #xEAED)	; &HZK01-EAED;
+      (=ucs@unicode	  . #x34E1)	; &HZK01-EAED;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2305,14 +2341,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 332 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x572D)	; 圭
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5232)	; 刲
     (=jis-x0212		. #x333B)	; &I-JSP-333B; [19-27]
     (=iso-ir165		. #x7A3D)	; &I-EGB-7A3D; [90-29]
@@ -2326,54 +2354,51 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 333 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5938)	; 夸
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5233)	; 刳
-    (=jis-x0208		. #x516A)	; &I-J90-516A; [49-74]
-    (=gb2312		. #x585A)	; &I-G0-585A; [56-58]
-    (=cns11643-2	. #x2552)	; &I-C2-2552; [05-50]
-    (=jis-x0213-1	. #x516A)	; &I-JX1-516A; [49-74]
-    (=big5		. #xCBD2)	; &I-B-CBD2;
-    (=gt		. 02529)	; &I-GT-02529;
-    (=gt-pj-1		. #x516A)	; &I-GT-02529; [49-74]
-    (=daikanwa		. 01956)	; &I-M-01956;
-    (=shinjigen		.  0625)	; 刳
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5938)	; 夸
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0208	  . #x516A)	; &M-01956; [49-74]
+      (=jis-x0213-1	  . #x516A)	; &I-JX1-516A; [49-74]
+      (=daikanwa	  . 01956)	; &I-M-01956;
+      (=shinjigen	  .  0625)	; &M-01956;
+      (=ucs@jis		  . #x5233)	; &M-01956;
+      )
+     ((=gb2312		  . #x585A)	; &GT-02529; [56-58]
+      (=cns11643-2	  . #x2552)	; &I-C2-2552; [05-50]
+      (=big5		  . #xCBD2)	; &I-B-CBD2;
+      (=gt		  . 02529)	; &I-GT-02529;
+      (=gt-pj-1		  . #x516A)	; &I-GT-02529; [49-74]
+      (=ucs@unicode	  . #x5233)	; &GT-02529;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (=ucs		. #x5234)	; 刴
+    (->subsumptive
+     ((=daikanwa	  . 01957)	; &M-01957;
+      (=ucs@unicode	  . #x5234)	; &M-01957;
       )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4E43)	; 乃
+       ((=cns11643-3	    . #x2378)	; &C3-2378; [03-88]
 	)
-       ((=ucs		    . #x6728)	; 木
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
-      )
-     ((=ucs		  . #x5202)	; 刂
+      (=cns11643-3	  . #x275E)	; &C3-275E; [07-62]
       ))
-    (=ucs		. #x5234)	; 刴
-    (=daikanwa		. 01957)	; &I-M-01957;
-    ))
-(define-char
-  '((=>ucs		. #x5234)	; 刴
-    (morohashi-daikanwa	1957 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=cns11643-3	. #x275E)	; &C3-275E; [07-62]
     ))
 (define-char
   '((=>ucs		. #x206EE)	; 𠛮
@@ -2405,19 +2430,36 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 332 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x8033)	; 耳
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5235)	; 刵
-    (=jis-x0212		. #x333C)	; &I-JSP-333C; [19-28]
-    (=cns11643-2	. #x2550)	; &I-C2-2550; [05-48]
     (=big5		. #xCBD0)	; &I-B-CBD0;
-    (=daikanwa		. 01960)	; &I-M-01960;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=daikanwa	    . 28999)	; &M-28999;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x333C)	; &M-01960; [19-28]
+      (=cns11643-2	  . #x2550)	; &I-C2-2550; [05-48]
+      (=daikanwa	  . 01960)	; &I-M-01960;
+      (=ucs@jis		  . #x5235)	; &M-01960;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x3C2A)	; &GT-37565; [28-10]
+	(=ks-x1001	    . #x6C3C)	; &I-K0-6C3C; [76-28]
+	(=jis-x0213-1	    . #x3C2A)	; &I-JX1-3C2A; [28-10]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=ucs@unicode	  . #x5235)	; &UU+5235;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2430,7 +2472,8 @@
       )
      ((=big5-cdp	  . #x89EC)	; &CDP-89EC;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5236)	; 制
     (=jis-x0208		. #x4029)	; &I-J90-4029; [32-09]
@@ -2475,7 +2518,8 @@
       )
      ((=ucs		  . #x21C2F)	; 𡰯
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5237)	; 刷
     (=jis-x0208		. #x3A7E)	; &I-J90-3A7E; [26-94]
@@ -2497,14 +2541,17 @@
     (=ucs		. #x206F0)	; 𠛰
     (=cns11643-6	. #x2965)	; &I-C6-2965; [09-69]
     (=daikanwa		. 01965)	; &I-M-01965;
-    (=shinjigen@1ed	.  0616)	; 𠛰
+    (=shinjigen		.  0616)	; 𠛰
     (<-original
-     ((=ucs		  . #x5225)	; 別
-      (=jis-x0208	  . #x4A4C)	; &I-J90-4A4C; [42-44]
-      (=shinjigen	  .  0615)	; 別
+     ((=jis-x0208	  . #x4A4C)	; &GT-02504; [42-44]
+      (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
+      (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
+      (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
+      (=daikanwa	  . 01924)	; &I-M-01924;
+      (=shinjigen	  .  0615)	; &GT-02504;
       ))
     (<-original*sources
-     shinjigen@1ed)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2577,25 +2624,9 @@
     (total-strokes	 . 8)
     (=ucs		. #x5239)	; 刹
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x3405)	; 㐅
-	  )
-	 ((=ucs		      . #x6728)	; 木
-	  ))
-	)
-       ((=ucs		    . #x5202)	; 刂
-	))
-      (=jis-x0208	  . #x516B)	; &GT-02537; [49-75]
+     ((=jis-x0208	  . #x516B)	; &GT-02537; [49-75]
       (=ks-x1001	  . #x734B)	; &I-K0-734B; [83-43]
       (=jis-x0213-1	  . #x516B)	; &I-JX1-516B; [49-75]
-      (=big5-cdp	  . #xAB62)	; &I-B-AB62;
       (=gt		  . 02537)	; &I-GT-02537;
       (=gt-k		  . 03860)	; &I-GT-K03860;
       (=gt-pj-1		  . #x516B)	; &I-GT-02537; [49-75]
@@ -2611,7 +2642,8 @@
 	)
        ((=ucs		    . #x6740)	; 杀
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=gb2312		  . #x4932)	; &G0-4932; [41-18]
       (=ucs@unicode	  . #x5239)	; &G0-4932;
@@ -2636,7 +2668,8 @@
       )
      ((=ucs		  . #x673F)	; 朿
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x523A)	; 刺
     (=jis-x0208		. #x3B49)	; &I-J90-3B49; [27-41]
@@ -2669,7 +2702,8 @@
 	  (=ks-x1001	      . #x7A24)	; &I-K0-7A24; [90-04]
 	  (=jis-x0213-1	      . #x3067)	; &I-JX1-3067; [16-71]
 	  )
-	 ((=ucs		      . #x5202)	; 刂
+	 ((name		      . "CJK RADICAL KNIFE TWO")
+	  (=ucs		      . #x2E89)	; ⺉
 	  ))
 	(=jis-x0208	    . #x396F)	; &GT-02532; [25-79]
 	(=ks-x1001	    . #x4A3E)	; &I-K0-4A3E; [42-30]
@@ -2687,7 +2721,8 @@
 	  )
 	 ((=cns11643-1	      . #x472A)	; &C1-472A; [39-10]
 	  )
-	 ((=ucs		      . #x5202)	; 刂
+	 ((name		      . "CJK RADICAL KNIFE TWO")
+	  (=ucs		      . #x2E89)	; ⺉
 	  ))
 	(=cns11643-1	    . #x4C2B)	; &C1-4C2B; [44-11]
 	)
@@ -2697,7 +2732,8 @@
 	  )
 	 ((=gb2312	      . #x3A25)	; &G0-3A25; [26-05]
 	  )
-	 ((=ucs		      . #x5202)	; 刂
+	 ((name		      . "CJK RADICAL KNIFE TWO")
+	  (=ucs		      . #x2E89)	; ⺉
 	  ))
 	(=gb2312	    . #x3F4C)	; &G0-3F4C; [31-44]
 	(=ucs@unicode	    . #x523B)	; &G0-3F4C;
@@ -2707,7 +2743,16 @@
       (=ucs		  . #x2F820)	; 刻
       (=cns11643-6	  . #x2963)	; &I-C6-2963; [09-67]
       )
-     ((=shinjigen	  .  0627)	; &JC3-44C1;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=daikanwa	    . 00292)	; &M-00292;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=shinjigen	  .  0627)	; &JC3-44C1;
       (=jef-china3	  . #x44C1)	; &JC3-44C1;
       ))
     ))
@@ -2976,7 +3021,8 @@
 	)
        ((=ucs		    . #x4F1A)	; 会
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 01988)	; &M-01988;
       )
@@ -3028,21 +3074,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 334 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5C71)	; 山
-	)
-       ((=ucs		    . #x5915)	; 夕
-	))
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x523F)	; 刿
     (=gb2312		. #x585B)	; &I-G0-585B; [56-59]
     (=hanziku-1		. #xEAD3)	; &I-HZK01-EAD3;
@@ -3052,21 +3083,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 334 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5C71)	; 山
-	)
-       ((=ucs		    . #x5DF1)	; 己
-	))
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5240)	; 剀
     (=gb2312		. #x585C)	; &I-G0-585C; [56-60]
     (=hanziku-1		. #xEAD4)	; &I-HZK01-EAD4;
@@ -3076,46 +3092,29 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 338 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6735)	; 朵
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5241)	; 剁
-    (=gb2312		. #x3667)	; &I-G0-3667; [22-71]
     (=big5		. #xA8EF)	; &I-B-A8EF;
-    ))
-(define-char
-  '((=>ucs		. #x5241)	; 剁
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((=gb2312		  . #x3667)	; &G0-3667; [22-71]
+      (=ucs@unicode	  . #x5241)	; &G0-3667;
       )
-     ((=cns11643-1	  . #x4838)	; &C1-4838; [40-24]
-      )
-     ((=ucs		  . #x5202)	; 刂
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x4838)	; &C1-4838; [40-24]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-1	  . #x4C32)	; &C1-4C32; [44-18]
       ))
-    (=cns11643-1	. #x4C32)	; &C1-4C32; [44-18]
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 336 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x9F50)	; 齐
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5242)	; 剂
     (=gb2312		. #x3C41)	; &I-G0-3C41; [28-33]
     (=hanziku-1		. #xEB5A)	; &I-HZK01-EB5A;
@@ -3151,7 +3150,8 @@
       )
      ((=ucs		  . #x5F1F)	; 弟
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5243)	; 剃
     (=jis-x0208		. #x4466)	; &I-J90-4466; [36-70]
@@ -3170,14 +3170,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 340 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5DE0)	; 巠
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5244)	; 剄
     (=jis-x0208		. #x516D)	; &I-J90-516D; [49-77]
     (=cns11643-2	. #x2932)	; &I-C2-2932; [09-18]
@@ -3193,102 +3185,98 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 340 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x8C46)	; 豆
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5245)	; 剅
-    (=jis-x0212		. #x333E)	; &I-JSP-333E; [19-30]
-    (=iso-ir165		. #x7E5B)	; &I-EGB-7E5B; [94-59]
-    (=cns11643-3	. #x2B3F)	; &I-C3-2B3F; [11-31]
-    (=daikanwa		. 01991)	; &I-M-01991;
-    (=hanziku-1		. #xEBEF)	; &I-HZK01-EBEF;
-    (=cbeta		. 03018)	; &I-CB03018;
+    (->subsumptive
+     ((hanyu-dazidian	  1 340 1)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 02620)	; &GT-K02620;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x333E)	; &M-01991; [19-30]
+      (=iso-ir165	  . #x7E5B)	; &I-EGB-7E5B; [94-59]
+      (=cns11643-3	  . #x2B3F)	; &I-C3-2B3F; [11-31]
+      (=daikanwa	  . 01991)	; &I-M-01991;
+      (=hanziku-1	  . #xEBEF)	; &I-HZK01-EBEF;
+      (=cbeta		  . 03018)	; &I-CB03018;
+      (=ucs@unicode	  . #x5245)	; &M-01991;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x2F821)	; 剆
+  '((ideographic-radical . 18)	; ⼑
+    (=ucs		. #x5246)	; 剆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5246)	; 剆
+      ))
     (=>ucs*		. #x5246)	; 剆
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
-      (=daikanwa	  . 30597)	; &I-M-30597;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=daikanwa		. 01992)	; &M-01992;
-    ))
-(define-char
-  '((=>ucs*		. #x5246)	; 剆
-    (morohashi-daikanwa	1992 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 342 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x826F)	; 良
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x2F821)	; 剆
-    (=cns11643-6	. #x2E76)	; &I-C6-2E76; [14-86]
-    (=hanziku-1		. #xECA1)	; &I-HZK01-ECA1;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 02673)	; &GT-K02673;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=daikanwa	  . 01992)	; &M-01992;
+      )
+     ((hanyu-dazidian	  1 342 16)
+      (=cns11643-6	  . #x2E76)	; &HZK01-ECA1; [14-86]
+      (=hanziku-1	  . #xECA1)	; &I-HZK01-ECA1;
+      (=ucs@iso		  . #x2F821)	; &HZK01-ECA1;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5246)	; 剆
-    (morohashi-daikanwa	1992 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5246)	; 剆
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8C42)	; &CDP-8C42;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=big5		. #xCBD3)	; &B-CBD3;
     (=ucs@big5		. #x5246)	; &B-CBD3;
-    ))
-(define-char
-  '((morohashi-daikanwa	1992 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8C42)	; &CDP-8C42;
-      )
-     ((=ucs		  . #x5202)	; 刂
+    (->subsumptive
+     ((=cns11643-2	  . #x2553)	; &C2-2553; [05-51]
+      (=ucs@unicode	  . #x5246)	; &C2-2553;
       ))
-    (=ucs		. #x5246)	; 剆
-    (=cns11643-2	. #x2553)	; &I-C2-2553; [05-51]
     ))
 (define-char
-  '((morohashi-daikanwa	1992 0 9)
+  '((=>daikanwa		. 01992)	; &M-01992;
+    (ideographic-radical . 18)	; ⼑
+    (=ucs		. #x34EA)	; 㓪
+    (<-unknown
+     ((=ucs		  . #x5246)	; 剆
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x34EA)	; 㓪
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 338 15)
-    (=ucs		. #x34EA)	; 㓪
-    (=hanziku-1		. #xEBBD)	; &I-HZK01-EBBD;
+    (=hanziku-1		. #xEBBD)	; &HZK01-EBBD;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x34EA)	; 㓪
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs@unicode	. #x34EA)	; &UU+34EA;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -3309,7 +3297,8 @@
       )
      ((=ucs		  . #x8C9D)	; 貝
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5247)	; 則
     (=jis-x0208		. #x4227)	; &I-J90-4227; [34-07]
@@ -3350,9 +3339,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 29269)	; &I-M-29269;
+       ((=jis-x0213-2	    . #x7530)	; &M-29269; [85-16]
+	(=daikanwa	    . 29269)	; &I-M-29269;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 01996)	; &M-01996;
       (=hanziku-1	  . #xEC50)	; &I-HZK01-EC50;
@@ -3364,58 +3355,79 @@
 	)
        ((=cns11643-2	    . #x2475)	; &C2-2475; [04-85]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-3	  . #x2B40)	; &C3-2B40; [11-32]
       ))
     ))
 (define-char
-  '((=>ucs		. #x2071F)	; 𠜟
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=daikanwa		. 01997)	; &M-01997;
-    ))
-(define-char
-  '((morohashi-daikanwa	1997 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
+    (sound@ja/on	"eN")
     (=ucs		. #x2071F)	; 𠜟
-    (=cns11643-6	. #x2E7D)	; &I-C6-2E7D; [14-93]
+    (->subsumptive
+     ((=daikanwa	  . 01997)	; &M-01997;
+      (<-ancient
+       ((=daikanwa	    . 01996)	; &M-01996;
+	))
+      (<-ancient*sources
+       jiyun daikanwa)
+      )
+     ((=cns11643-6	  . #x2E7D)	; &C6-2E7D; [14-93]
+      (=ucs@iso		  . #x2071F)	; &C6-2E7D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (sound@ja/on	"en")
     (=ucs		. #x20720)	; 𠜠
-    (=cns11643-6	. #x2E7C)	; &I-C6-2E7C; [14-92]
-    (=daikanwa		. 01998)	; &I-M-01998;
+    (->subsumptive
+     ((=daikanwa	  . 01998)	; &M-01998;
+      (<-same
+       ((=ucs		    . #x206ED)	; 𠛭
+	(=daikanwa	    . 01954)	; &I-M-01954;
+	))
+      (<-same*sources
+       pianhai-leibian daikanwa)
+      )
+     ((=cns11643-6	  . #x2E7C)	; &GT-02571; [14-92]
+      (=gt		  . 02571)	; &I-GT-02571;
+      (=gt-pj-2		  . #x414E)	; &I-GT-02571; [33-46]
+      (=ucs@iso		  . #x20720)	; &GT-02571;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 342 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5750)	; 坐
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5249)	; 剉
-    (=jis-x0212		. #x333F)	; &I-JSP-333F; [19-31]
-    (=cns11643-2	. #x2933)	; &I-C2-2933; [09-19]
-    (=jis-x0213-1	. #x2E5E)	; &I-JX1-2E5E; [14-62]
     (=big5		. #xCDF1)	; &I-B-CDF1;
-    (=daikanwa		. 01999)	; &I-M-01999;
-    (=shinjigen		.  0640)	; 剉
-    (=jef-china3	. #x44C2)	; &I-JC3-44C2;
+    (->subsumptive
+     ((=jis-x0212	  . #x333F)	; &M-01999; [19-31]
+      (=cns11643-2	  . #x2933)	; &I-C2-2933; [09-19]
+      (=jis-x0213-1	  . #x2E5E)	; &I-JX1-2E5E; [14-62]
+      (=daikanwa	  . 01999)	; &I-M-01999;
+      (=shinjigen	  .  0640)	; &M-01999;
+      (=jef-china3	  . #x44C2)	; &I-JC3-44C2;
+      (=ucs@unicode	  . #x5249)	; &M-01999;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x524A)	; 削
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (=ucs		. #x524A)	; 削
+    (=big5		. #xAB64)	; &I-B-AB64;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x524A)	; 削
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -3426,53 +3438,54 @@
      ((=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
       (=daikanwa	  . 29263)	; &I-M-29263;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ks-x1001		. #x5E7B)	; &M-02000; [62-91]
-    (=big5		. #xAB64)	; &I-B-AB64;
     (=daikanwa		. 02000)	; &I-M-02000;
     (=shinjigen		.  0642)	; &M-02000;
     (=jef-china3	. #x44C3)	; &I-JC3-44C3;
-    (=ucs@big5		. #x524A)	; &M-02000;
     ))
 (define-char
-  '((morohashi-daikanwa	2000 0 2)
+  '((<-denotational
+     ((=ucs		  . #x524A)	; 削
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x3E53)	; &GT-37891; [30-51]
+	(=gb2312	    . #x5024)	; &I-G0-5024; [48-04]
+	(=jis-x0213-1	    . #x3E53)	; &I-JX1-3E53; [30-51]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0208	  . #x3A6F)	; &GT-02587; [26-79]
+      (=gb2312		  . #x4F77)	; &I-G0-4F77; [47-87]
+      (=jis-x0213-1	  . #x3A6F)	; &I-JX1-3A6F; [26-79]
+      (=gt		  . 02587)	; &I-GT-02587;
+      (=gt-k		  . 05086)	; &I-GT-K05086;
+      (=gt-pj-1		  . #x3A6F)	; &I-GT-02587; [26-79]
+      (=shinjigen	  .  0641)	; &GT-02587;
+      (=ucs@unicode	  . #x524A)	; &GT-02587;
       )
-     ((=ucs		  . #x8096)	; 肖
-      )
-     ((=ucs		  . #x5202)	; 刂
+     ((hanyu-dazidian	  1 341 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x4B39)	; &C1-4B39; [43-25]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-1	  . #x5028)	; &C1-5028; [48-08]
       ))
-    (=ucs		. #x524A)	; 削
-    (=jis-x0208		. #x3A6F)	; &I-J90-3A6F; [26-79]
-    (=gb2312		. #x4F77)	; &I-G0-4F77; [47-87]
-    (=jis-x0213-1	. #x3A6F)	; &I-JX1-3A6F; [26-79]
-    (=gt		. 02587)	; &I-GT-02587;
-    (=gt-k		. 05086)	; &I-GT-K05086;
-    (=gt-pj-1		. #x3A6F)	; &I-GT-02587; [26-79]
-    (=shinjigen		.  0641)	; 削
-    ))
-(define-char
-  '((=>ucs		. #x524A)	; 削
-    (morohashi-daikanwa	2000 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 341 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=cns11643-1	  . #x4B39)	; &C1-4B39; [43-25]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=cns11643-1	. #x5028)	; &C1-5028; [48-08]
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -3566,7 +3579,8 @@
       )
      ((=ucs		  . #x514B)	; 克
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x524B)	; 剋
     (=jis-x0208		. #x516E)	; &I-J90-516E; [49-78]
@@ -3586,14 +3600,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 339 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x675F)	; 束
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x524C)	; 剌
     (=jis-x0208		. #x516F)	; &I-J90-516F; [49-79]
     (=gb2312		. #x585D)	; &I-G0-585D; [56-61]
@@ -3651,35 +3657,24 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x233C2)	; 𣏂
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=ucs		. #x524E)	; 剎
-    (=daikanwa		. 02012)	; &I-M-02012;
-    ))
-(define-char
-  '((=>ucs		. #x524E)	; 剎
-    (morohashi-daikanwa	2012 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
     (hanyu-dazidian	1 336 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8CBA)	; &CDP-8CBA;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=cns11643-1	. #x5026)	; &C1-5026; [48-06]
+    (sound@ja/on	"satu")
+    (=ucs		. #x524E)	; 剎
     (=big5		. #xAB62)	; &I-B-AB62;
-    (=ucs@big5		. #x524E)	; &C1-5026;
+    (->subsumptive
+     ((=daikanwa	  . 02012)	; &M-02012;
+      (=ucs@unicode	  . #x524E)	; &M-02012;
+      (<-original
+       ((=jis-x0208	    . #x516B)	; &GT-02537; [49-75]
+	(=ks-x1001	    . #x734B)	; &I-K0-734B; [83-43]
+	(=jis-x0213-1	    . #x516B)	; &I-JX1-516B; [49-75]
+	(=daikanwa	    . 01967)	; &I-M-01967;
+	))
+      (<-original*sources
+       daikanwa)
+      )
+     ((=cns11643-1	  . #x5026)	; &C1-5026; [48-06]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -3919,7 +3914,8 @@
       )
      ((=ucs		  . #x5459)	; 呙
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5250)	; 剐
     (=gb2312		. #x3950)	; &I-G0-3950; [25-48]
@@ -3930,14 +3926,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 342 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4F65)	; 佥
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5251)	; 剑
     (=gb2312		. #x3D23)	; &I-G0-3D23; [29-03]
     (=hanziku-1		. #xEC76)	; &I-HZK01-EC76;
@@ -3960,7 +3948,8 @@
       )
      ((=ucs		  . #x6614)	; 昔
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5252)	; 剒
     (=cns11643-2	. #x2E2B)	; &I-C2-2E2B; [14-11]
@@ -4027,7 +4016,8 @@
       )
      ((=ucs		  . #x6613)	; 易
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5254)	; 剔
     (=jis-x0208		. #x5171)	; &I-J90-5171; [49-81]
@@ -4055,88 +4045,125 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 344 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x975E)	; 非
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5255)	; 剕
-    (=jis-x0212		. #x3340)	; &I-JSP-3340; [19-32]
-    (=cns11643-2	. #x2E2E)	; &I-C2-2E2E; [14-14]
-    (=jis-x0213-2	. #x2339)	; &I-JX2-2339; [03-25]
     (=big5		. #xD0EB)	; &I-B-D0EB;
-    (=daikanwa		. 02033)	; &I-M-02033;
-    (=shinjigen@rev	.  0668)	; 剕
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x4873)	; &GT-57172; [40-83]
+	(=ks-x1001	    . #x5E2A)	; &I-K0-5E2A; [62-10]
+	(=jis-x0213-1	    . #x4873)	; &I-JX1-4873; [40-83]
+	(=daikanwa	    . 42585)	; &I-M-42585;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=daikanwa	  . 02033)	; &M-02033;
+      (=shinjigen	  .  0668)	; &M-02033;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x4F66)	; &C1-4F66; [47-70]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x3340)	; &JX2-2339; [19-32]
+      (=cns11643-2	  . #x2E2E)	; &I-C2-2E2E; [14-14]
+      (=jis-x0213-2	  . #x2339)	; &I-JX2-2339; [03-25]
+      (=ucs@jis/1990	  . #x5255)	; &JX2-2339;
+      (=ucs@jis/2000	  . #x5255)	; &JX2-2339;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gb2312	    . #x3747)	; &G0-3747; [23-39]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=ucs@unicode	  . #x5255)	; &UU+5255;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5256)	; 剖
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 345 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0212	  . #x3523)	; &CDP-8BCF; [21-03]
-      (=daikanwa	  . 03483)	; &I-M-03483;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=jis-x0208		. #x4B36)	; &GT-02669; [43-22]
-    (=ks-x1001		. #x5C78)	; &I-K0-5C78; [60-88]
-    (=jis-x0213-1	. #x4B36)	; &I-JX1-4B36; [43-22]
-    (=big5		. #xADE5)	; &I-B-ADE5;
-    (=gt		. 02669)	; &I-GT-02669;
-    (=gt-k		. 06548)	; &I-GT-K06548;
-    (=gt-pj-1		. #x4B36)	; &I-GT-02669; [43-22]
-    (=daikanwa		. 02034)	; &I-M-02034;
-    (=shinjigen		.  0669)	; &GT-02669;
-    (=ucs@jis		. #x5256)	; &GT-02669;
-    (=ucs@big5		. #x5256)	; &GT-02669;
-    ))
-(define-char
-  '((morohashi-daikanwa	2034 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5485)	; 咅
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5256)	; 剖
-    (=gb2312		. #x464A)	; &I-G0-464A; [38-42]
-    (=cns11643-1	. #x5448)	; &I-C1-5448; [52-40]
+    (=big5		. #xADE5)	; &I-B-ADE5;
+    (->subsumptive
+     ((hanyu-dazidian	  1 345 13)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0212	    . #x3523)	; &GT-04385; [21-03]
+	(=daikanwa	    . 03483)	; &I-M-03483;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0208	  . #x4B36)	; &GT-02669; [43-22]
+      (=ks-x1001	  . #x5C78)	; &I-K0-5C78; [60-88]
+      (=jis-x0213-1	  . #x4B36)	; &I-JX1-4B36; [43-22]
+      (=gt		  . 02669)	; &I-GT-02669;
+      (=gt-k		  . 06548)	; &I-GT-K06548;
+      (=gt-pj-1		  . #x4B36)	; &I-GT-02669; [43-22]
+      (=daikanwa	  . 02034)	; &I-M-02034;
+      (=shinjigen	  .  0669)	; &GT-02669;
+      (=ucs@jis		  . #x5256)	; &GT-02669;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-3	    . #x276C)	; &C3-276C; [07-76]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=gb2312		  . #x464A)	; &C1-5448; [38-42]
+      (=cns11643-1	  . #x5448)	; &I-C1-5448; [52-40]
+      (=ucs@unicode	  . #x5256)	; &C1-5448;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jef-china3	    . #x46A1)	; &JC3-46A1;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=shinjigen	  .  0670)	; &SJG2-0670;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5256)	; 剖
-    (morohashi-daikanwa	2034 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=shinjigen		.  0670)	; &SJG2-0670;
-    ))
-(define-char
-  '((=>ucs		. #x20752)	; 𠝒
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=daikanwa		. 02035)	; &M-02035;
-    ))
-(define-char
-  '((morohashi-daikanwa	2035 0 0)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x20752)	; 𠝒
-    (=cns11643-6	. #x354A)	; &I-C6-354A; [21-42]
+    (->subsumptive
+     ((=gt		  . 02667)	; &GT-02667;
+      (=gt-pj-2		  . #x416F)	; &GT-02667; [33-79]
+      (=daikanwa	  . 02035)	; &I-M-02035;
+      (<-original
+       ((=jis-x0208	    . #x4B36)	; &GT-02669; [43-22]
+	(=ks-x1001	    . #x5C78)	; &I-K0-5C78; [60-88]
+	(=jis-x0213-1	    . #x4B36)	; &I-JX1-4B36; [43-22]
+	(=daikanwa	    . 02034)	; &I-M-02034;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
+      )
+     ((=cns11643-6	  . #x354A)	; &C6-354A; [21-42]
+      (=ucs@iso		  . #x20752)	; &C6-354A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4149,7 +4176,8 @@
       )
      ((=ucs		  . #x6214)	; 戔
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5257)	; 剗
     (=jis-x0212		. #x3341)	; &I-JSP-3341; [19-33]
@@ -4172,7 +4200,8 @@
       )
      ((=ucs		  . #x5176)	; 其
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5258)	; 剘
     (=jis-x0212		. #x3342)	; &I-JSP-3342; [19-34]
@@ -4182,26 +4211,17 @@
     (=jef-china3	. #x44C5)	; &I-JC3-44C5;
     ))
 (define-char
-  '((=>ucs		. #x20735)	; 𠜵
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=daikanwa		. 02038)	; &M-02038;
-    ))
-(define-char
-  '((=>ucs		. #x20735)	; 𠜵
-    (morohashi-daikanwa	2038 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=cns11643-4	. #x2B6F)	; &C4-2B6F; [11-79]
-    ))
-(define-char
-  '((morohashi-daikanwa	2038 0 3)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x20735)	; 𠜵
+    (->subsumptive
+     ((=daikanwa	  . 02038)	; &M-02038;
+      )
+     ((=cns11643-4	  . #x2B6F)	; &C4-2B6F; [11-79]
+      )
+     ((=ucs@iso		  . #x20735)	; &U-00020735;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4284,7 +4304,8 @@
       )
      ((=ucs		  . #x4E8B)	; 事
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x525A)	; 剚
     (=jis-x0212		. #x3343)	; &I-JSP-3343; [19-35]
@@ -4303,7 +4324,8 @@
       )
      ((=ucs		  . #x5CA1)	; 岡
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x525B)	; 剛
     (=jis-x0208		. #x3964)	; &I-J90-3964; [25-68]
@@ -4318,100 +4340,91 @@
     (=shinjigen		.  0656)	; 剛
     ))
 (define-char
-  '((=>ucs		. #x34EC)	; 㓬
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (hanyu-dazidian	1 345 3)
-    (=daikanwa		. 02043)	; &M-02043;
-    (=hanziku-1		. #xECF4)	; &I-HZK01-ECF4;
-    ))
-(define-char
-  '((=>ucs		. #x34EC)	; 㓬
-    (morohashi-daikanwa	2043 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=cns11643-5	. #x2B7C)	; &C5-2B7C; [11-92]
-    ))
-(define-char
-  '((morohashi-daikanwa	2043 0 5)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x34EC)	; 㓬
     ))
 (define-char
-  '((=>ucs		. #x525C)	; 剜
+  '((<-denotational
+     ((=ucs		  . #x34EC)	; 㓬
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 346 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((=daikanwa	  . 02043)	; &M-02043;
       )
-     ((=jis-x0208	  . #x3038)	; &GT-08917; [16-24]
-      (=ks-x1001	  . #x6848)	; &I-K0-6848; [72-40]
-      (=jis-x0213-1	  . #x3038)	; &I-JX1-3038; [16-24]
-      (=daikanwa	  . 07110)	; &I-M-07110;
-      )
-     ((=ucs		  . #x5202)	; 刂
+     ((hanyu-dazidian	  1 345 3)
+      (=hanziku-1	  . #xECF4)	; &HZK01-ECF4;
       ))
-    (=jis-x0212		. #x3344)	; &M-02044; [19-36]
-    (=jis-x0213-2	. #x233A)	; &I-JX2-233A; [03-26]
-    (=big5		. #xADE6)	; &I-B-ADE6;
-    (=daikanwa		. 02044)	; &I-M-02044;
-    (=shinjigen@rev	.  0671)	; &M-02044;
-    (=ucs@jis		. #x525C)	; &M-02044;
-    (=ucs@big5		. #x525C)	; &M-02044;
     ))
 (define-char
-  '((=>ucs		. #x525C)	; 剜
-    (morohashi-daikanwa	2044 0 0)
+  '((<-denotational
+     ((=ucs		  . #x34EC)	; 㓬
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((=cns11643-5	  . #x2B7C)	; &C5-2B7C; [11-92]
       )
-     ((=ucs		  . #x5B9B)	; 宛
-      )
-     ((=ucs		  . #x5202)	; 刂
+     ((=ucs@unicode	  . #x34EC)	; &UU+34EC;
       ))
-    (=cns11643-1	. #x5449)	; &C1-5449; [52-41]
     ))
 (define-char
-  '((morohashi-daikanwa	2044 0 1)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5B9B)	; 宛
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x525C)	; 剜
-    (=gb2312		. #x5860)	; &I-G0-5860; [56-64]
+    (=big5		. #xADE6)	; &I-B-ADE6;
+    (->subsumptive
+     ((hanyu-dazidian	  1 346 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x3038)	; &GT-08917; [16-24]
+	(=ks-x1001	    . #x6848)	; &I-K0-6848; [72-40]
+	(=jis-x0213-1	    . #x3038)	; &I-JX1-3038; [16-24]
+	(=daikanwa	    . 07110)	; &I-M-07110;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x3344)	; &M-02044; [19-36]
+      (=jis-x0213-2	  . #x233A)	; &I-JX2-233A; [03-26]
+      (=daikanwa	  . 02044)	; &I-M-02044;
+      (=shinjigen@rev	  .  0671)	; &M-02044;
+      (=ucs@jis		  . #x525C)	; &M-02044;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gb2312	    . #x4D70)	; &C1-4C7D; [45-80]
+	(=cns11643-1	    . #x4C7D)	; &I-C1-4C7D; [44-93]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-1	  . #x5449)	; &C1-5449; [52-41]
+      )
+     ((=gb2312		  . #x5860)	; &G0-5860; [56-64]
+      (=ucs@unicode	  . #x525C)	; &G0-5860;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x20737)	; 𠜷
-    (=daikanwa		. 02045)	; &I-M-02045;
-    ))
-(define-char
-  '((=>ucs		. #x20737)	; 𠜷
-    (morohashi-daikanwa	2045 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=cns11643-6	. #x354E)	; &C6-354E; [21-46]
+    (->subsumptive
+     ((=daikanwa	  . 02045)	; &M-02045;
+      (=ucs@iso		  . #x20737)	; &M-02045;
+      )
+     ((=cns11643-6	  . #x354E)	; &C6-354E; [21-46]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4445,21 +4458,33 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 346 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5F54)	; 彔
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x525D)	; 剝
-    (=jis-x0208@1978	. #x476D)	; &I-J78-476D; [39-77]
-    (=ks-x1001		. #x5A4E)	; &I-K0-5A4E; [58-46]
-    (=cns11643-1	. #x544C)	; &I-C1-544C; [52-44]
     (=big5		. #xADE9)	; &I-B-ADE9;
-    (=daikanwa		. 02049)	; &I-M-02049;
-    (=shinjigen		.  0666)	; 剝
+    (->subsumptive
+     ((=jis-x0208@1978	  . #x476D)	; &M-02049; [39-77]
+      (=daikanwa	  . 02049)	; &I-M-02049;
+      (=shinjigen	  .  0666)	; &M-02049;
+      )
+     ((=gt		  . 02661)	; &GT-02661;
+      (=gt-k		  . 07286)	; &I-GT-K07286;
+      (=gt-pj-2		  . #x417C)	; &GT-02661; [33-92]
+      )
+     ((=ks-x1001	  . #x5A4E)	; &K0-5A4E; [58-46]
+      (=shinjigen	  .  0666)	; &M-02049;
+      )
+     ((=ucs@unicode	  . #x525D)	; &UU+525D;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-2	    . #x2655)	; &C2-2655; [06-53]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-1	  . #x544C)	; &C1-544C; [52-44]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4518,7 +4543,8 @@
       )
      ((=ucs		  . #x5947)	; 奇
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x525E)	; 剞
     (=jis-x0208		. #x5170)	; &I-J90-5170; [49-80]
@@ -4536,14 +4562,6 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 347 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53D5)	; 叕
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x525F)	; 剟
     (=jis-x0212		. #x3345)	; &I-JSP-3345; [19-37]
     (=cns11643-2	. #x2E2D)	; &I-C2-2E2D; [14-13]
@@ -4582,7 +4600,8 @@
 	(=jis-x0213-1	    . #x357E)	; &I-JX1-357E; [21-94]
 	(=daikanwa	    . 00299)	; &I-M-00299;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x3346)	; &M-02058; [19-38]
       (=daikanwa	  . 02058)	; &I-M-02058;
@@ -4598,7 +4617,8 @@
        ((=gb2312	    . #x3E29)	; &C1-4B6B; [30-09]
 	(=cns11643-1	    . #x4B6B)	; &I-C1-4B6B; [43-75]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-3	  . #x2F60)	; &HZK01-ECFD; [15-64]
       (=hanziku-1	  . #xECFD)	; &I-HZK01-ECFD;
@@ -4622,7 +4642,8 @@
 	(=jis-x0213-1	    . #x316A)	; &I-JX1-316A; [17-74]
 	(=daikanwa	    . 18910)	; &I-M-18910;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=gb2312		  . #x585F)	; &M-02059; [56-63]
       (=ks-x1001	  . #x6066)	; &I-K0-6066; [64-70]
@@ -4640,7 +4661,8 @@
 	)
        ((=cns11643-1	    . #x4E63)	; &C1-4E63; [46-67]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x2E29)	; &C2-2E29; [14-09]
       (=ucs@cns		  . #x5261)	; &C2-2E29;
@@ -4678,14 +4700,6 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 343 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x8C56)	; 豖
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5262)	; 剢
     (=cns11643-2	. #x2E2F)	; &I-C2-2E2F; [14-15]
     (=big5		. #xD0EC)	; &I-B-D0EC;
@@ -4870,7 +4884,8 @@
       )
      ((=gt-k		  . 03992)	; &GT-K03992;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5263)	; 剣
     (=jis-x0208		. #x3775)	; &I-J90-3775; [23-85]
@@ -4911,7 +4926,8 @@
        ((=jis-x0208	    . #x4046)	; &GT-17014; [32-38]
 	(=jis-x0213-1	    . #x4046)	; &I-JX1-4046; [32-38]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208	  . #x3A5E)	; &GT-02637; [26-62]
       (=jis-x0213-1	  . #x3A5E)	; &I-JX1-3A5E; [26-62]
@@ -4935,7 +4951,8 @@
 	)
        ((=cns11643-3	    . #x2939)	; &C3-2939; [09-25]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-3	  . #x2F61)	; &C3-2F61; [15-65]
       (=ucs@unicode	  . #x5264)	; &C3-2F61;
@@ -4948,38 +4965,44 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5F55)	; 录
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5265)	; 剥
-    (=gb2312		. #x307E)	; &I-G0-307E; [16-94]
-    (=jis-x0208@1983	. #x476D)	; &I-J83-476D; [39-77]
-    (=jis-x0208@1990	. #x476D)	; &I-J90-476D; [39-77]
-    (=cns11643-3	. #x2F63)	; &I-C3-2F63; [15-67]
-    (=jis-x0213-1	. #x476D)	; &I-JX1-476D; [39-77]
-    (=gt		. 02662)	; &I-GT-02662;
-    (=gt-pj-1		. #x476D)	; &I-GT-02662; [39-77]
-    (=daikanwa		. 48939)	; &I-M-48939;
-    (=shinjigen		.  0667)	; 剥
-    (=jef-china3	. #x44D0)	; &I-JC3-44D0;
-    (<-same
-     ((=ucs		  . #x525D)	; 剝
-      (=daikanwa	  . 02049)	; &I-M-02049;
+    (->subsumptive
+     ((=gb2312		  . #x307E)	; &M-48939; [16-94]
+      (=jis-x0208@1983	  . #x476D)	; &I-J83-476D; [39-77]
+      (=jis-x0208@1990	  . #x476D)	; &I-J90-476D; [39-77]
+      (=jis-x0213-1	  . #x476D)	; &I-JX1-476D; [39-77]
+      (=daikanwa	  . 48939)	; &I-M-48939;
+      (=shinjigen	  .  0667)	; &M-48939;
+      (=jef-china3	  . #x44D0)	; &I-JC3-44D0;
+      (=ucs@unicode	  . #x5265)	; &M-48939;
+      (<-same
+       ((=jis-x0208@1978    . #x476D)	; &M-02049; [39-77]
+	(=daikanwa	    . 02049)	; &I-M-02049;
+	))
+      (<-same*sources
+       daikanwa)
+      (<-vulgar
+       ((=jis-x0208@1978    . #x476D)	; &M-02049; [39-77]
+	(=daikanwa	    . 02049)	; &I-M-02049;
+	(=shinjigen	    .  0666)	; &M-02049;
+	))
+      (<-vulgar*sources
+       shinjigen)
+      )
+     ((=gt		  . 02662)	; &GT-02662;
+      (=gt-pj-1		  . #x476D)	; &GT-02662; [39-77]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-3	    . #x2871)	; &C3-2871; [08-81]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-3	  . #x2F63)	; &C3-2F63; [15-67]
       ))
-    (<-same*sources
-     daikanwa)
-    (<-vulgar
-     ((=ucs		  . #x525D)	; 剝
-      (=jis-x0208@1978	  . #x476D)	; &I-J78-476D; [39-77]
-      (=shinjigen	  .  0666)	; 剝
-      ))
-    (<-vulgar*sources
-     shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4998,7 +5021,8 @@
 	(=jis-x0213-1	    . #x3162)	; &I-JX1-3162; [17-66]
 	(=daikanwa	    . 05881)	; &I-M-05881;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x3348)	; &JSP-3348; [19-40]
       (=ucs@jis		  . #x5266)	; &JSP-3348;
@@ -5017,7 +5041,8 @@
       )
      ((=ucs		  . #x5C45)	; 居
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5267)	; 剧
     (=gb2312		. #x3E67)	; &I-G0-3E67; [30-71]
@@ -5070,7 +5095,8 @@
 	(=jis-x0213-2	    . #x7240)	; &I-JX2-7240; [82-32]
 	(=daikanwa	    . 24056)	; &I-M-24056;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 02078)	; &M-02078;
       )
@@ -5081,7 +5107,8 @@
 	)
        ((=cns11643-2	    . #x2C53)	; &C2-2C53; [12-51]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-3	  . #x3450)	; &HZK01-EDBD; [20-48]
       (=hanziku-1	  . #xEDBD)	; &I-HZK01-EDBD;
@@ -5092,7 +5119,8 @@
 	)
        ((=gb2312	    . #x6D39)	; &G0-6D39; [77-25]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=ucs@unicode	  . #x5268)	; &UU+5268;
       ))
@@ -5318,7 +5346,8 @@
        ((=gb2312	    . #x3648)	; &C1-5079; [22-40]
 	(=cns11643-1	    . #x5079)	; &I-C1-5079; [48-89]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x336C)	; &C2-336C; [19-76]
       (=ucs@unicode	  . #x526B)	; &C2-336C;
@@ -5335,7 +5364,8 @@
       )
      ((=ucs		  . #x8011)	; 耑
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x526C)	; 剬
     (=cns11643-2	. #x336E)	; &I-C2-336E; [19-78]
@@ -5354,7 +5384,8 @@
       )
      ((=ucs		  . #x5C4B)	; 屋
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x526D)	; 剭
     (=cns11643-2	. #x336D)	; &I-C2-336D; [19-77]
@@ -5397,7 +5428,8 @@
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=jis-x0212		. #x3349)	; &M-02094; [19-41]
     (=cns11643-2	. #x336F)	; &I-C2-336F; [19-79]
@@ -5420,7 +5452,8 @@
       )
      ((=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=gb12345		. #x3950)	; &UU+526E; [25-48]
     (=ucs@unicode	. #x526E)	; &UU+526E;
@@ -5470,7 +5503,8 @@
       )
      ((=ucs		  . #x7550)	; 畐
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x526F)	; 副
     (=jis-x0208		. #x497B)	; &I-J90-497B; [41-91]
@@ -5603,17 +5637,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=jis-x0208	    . #x3E68)	; &GT-00208; [30-72]
-	(=jis-x0213-1	    . #x3E68)	; &I-JX1-3E68; [30-72]
-	(=daikanwa	    . 00153)	; &I-M-00153;
-	)
-       ((=ucs		    . #x5202)	; 刂
-	))
-      (=jis-x0208	  . #x3E6A)	; &GT-02701; [30-74]
+     ((=jis-x0208	  . #x3E6A)	; &GT-02701; [30-74]
       (=jis-x0213-1	  . #x3E6A)	; &I-JX1-3E6A; [30-74]
       (=gt		  . 02701)	; &I-GT-02701;
       (=gt-pj-1		  . #x3E6A)	; &I-GT-02701; [30-74]
@@ -5748,14 +5772,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 350 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E58)	; 乘
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5269)	; 剩
     (=jis-x0208		. #x5174)	; &I-J90-5174; [49-84]
     (=gb2312		. #x4A23)	; &I-G0-4A23; [42-03]
@@ -5822,7 +5838,8 @@
 	)
        ((=daikanwa	    . 07165)	; &M-07165;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 02112)	; &M-02112;
       )
@@ -5842,7 +5859,8 @@
 	)
        ((=gb2312	    . #x3A26)	; &G0-3A26; [26-06]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=gb2312		  . #x386E)	; &G0-386E; [24-78]
       (=ucs@unicode	  . #x5272)	; &G0-386E;
@@ -5864,7 +5882,8 @@
        ((=jis-x0208	    . #x3332)	; &GT-08987; [19-18]
 	(=jis-x0213-1	    . #x3332)	; &I-JX1-3332; [19-18]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208	  . #x3364)	; &GT-02726; [19-68]
       (=jis-x0213-1	  . #x3364)	; &I-JX1-3364; [19-68]
@@ -5880,7 +5899,8 @@
 	)
        ((=cns11643-1	    . #x5524)	; &C1-5524; [53-04]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-1	  . #x5E34)	; &C1-5E34; [62-20]
       ))
@@ -5896,15 +5916,6 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=cns11643-2	  . #x3251)	; &M-30937; [18-49]
-      (=daikanwa	  . 30937)	; &I-M-30937;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=cns11643-3	. #x3A21)	; &M-02113; [26-01]
     (=daikanwa		. 02113)	; &I-M-02113;
     ))
@@ -5916,16 +5927,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 347 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x6829)	; &GT-40184; [72-09]
-      (=iso-ir165	  . #x7E3E)	; &I-EGB-7E3E; [94-30]
-      (=jis-x0213-1	  . #x6829)	; &I-JX1-6829; [72-09]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=jis-x0208		. #x5175)	; &GT-02713; [49-85]
     (=jis-x0213-1	. #x5175)	; &I-JX1-5175; [49-85]
     (=gt		. 02713)	; &I-GT-02713;
@@ -6050,14 +6051,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 350 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x8C48)	; 豈
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5274)	; 剴
     (=jis-x0208		. #x5173)	; &I-J90-5173; [49-83]
     (=cns11643-1	. #x5E35)	; &I-C1-5E35; [62-21]
@@ -6136,7 +6129,8 @@
 	(=jis-x0213-1	    . #x4152)	; &I-JX1-4152; [33-50]
 	(=daikanwa	    . 00756)	; &I-M-00756;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208@1983	  . #x414F)	; &GT-02749; [33-47]
       (=ks-x1001	  . #x735C)	; &I-K0-735C; [83-60]
@@ -6158,7 +6152,8 @@
 	)
        ((=gb12345	    . #x3256)	; &UU+5009; [18-54]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=gb12345		  . #x3434)	; &UU+5275; [20-20]
       (=ucs@unicode	  . #x5275)	; &UU+5275;
@@ -6309,30 +6304,24 @@
     (=daikanwa		. 02135)	; &I-M-02135;
     ))
 (define-char
-  '((=>ucs		. #x5276)	; 剶
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 10)
-    (total-strokes	 . 12)
-    (=daikanwa		. 02136)	; &M-02136;
-    ))
-(define-char
-  '((morohashi-daikanwa	2136 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	1 349 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5F56)	; 彖
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
+  '((ideographic-radical . 18)	; ⼑
     (=ucs		. #x5276)	; 剶
-    (=cns11643-3	. #x3451)	; &I-C3-3451; [20-49]
-    (=hanziku-1		. #xEDDE)	; &I-HZK01-EDDE;
-    (=cbeta		. 04951)	; &I-CB04951;
+    (->subsumptive
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 12)
+      (=daikanwa	  . 02136)	; &M-02136;
+      (=cbeta		  . 04951)	; &I-CB04951;
+      )
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 11)
+      (->subsumptive
+       ((=cns11643-3	    . #x3451)	; &C3-3451; [20-49]
+	(=ucs@unicode	    . #x5276)	; &C3-3451;
+	)
+       ((hanyu-dazidian	    1 349 10)
+	(=hanziku-1	    . #xEDDE)	; &HZK01-EDDE;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x20763)	; 𠝣
@@ -6406,6 +6395,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 354 11)
     (=ucs		. #x5277)	; 剷
+    (=big5		. #xB6D0)	; &I-B-B6D0;
     ))
 (define-char
   '((<-denotational
@@ -6414,8 +6404,6 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=big5		. #xB6D0)	; &B-B6D0;
-    (=ucs@big5		. #x5277)	; &B-B6D0;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6423,7 +6411,8 @@
 	)
        ((=daikanwa	    . 21684)	; &M-21684;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x334A)	; &GT-02776; [19-42]
       (=jis-x0213-2	  . #x233C)	; &I-JX2-233C; [03-28]
@@ -6439,7 +6428,8 @@
 	)
        ((=cns11643-1	    . #x5C28)	; &C1-5C28; [60-08]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-1	  . #x6337)	; &C1-6337; [67-23]
       (=ucs@cns		  . #x5277)	; &C1-6337;
@@ -6459,7 +6449,8 @@
       )
      ((=cns11643-3	  . #x3745)	; &C3-3745; [23-37]
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x2F823)	; 剷
     (=cns11643-3	. #x4043)	; &I-C3-4043; [32-35]
@@ -6530,7 +6521,8 @@
       )
      ((=ucs		  . #x5C08)	; 專
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5278)	; 剸
     (=jis-x0212		. #x334B)	; &I-JSP-334B; [19-43]
@@ -6540,74 +6532,91 @@
     (=jef-china3	. #x44C9)	; &I-JC3-44C9;
     ))
 (define-char
-  '((=>ucs		. #x5279)	; 剹
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0212	  . #x553A)	; &M-28665; [53-26]
-      (=jis-x0213-2	  . #x747B)	; &I-JX2-747B; [84-91]
-      (=daikanwa	  . 28665)	; &I-M-28665;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=jis-x0212		. #x334C)	; &M-02149; [19-44]
-    (=daikanwa		. 02149)	; &I-M-02149;
-    (=jef-china3	. #x44CA)	; &I-JC3-44CA;
-    (=ucs@jis		. #x5279)	; &M-02149;
-    ))
-(define-char
-  '((morohashi-daikanwa	2149 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (hanyu-dazidian	1 354 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7FCF)	; 翏
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5279)	; 剹
-    (=cns11643-3	. #x4041)	; &I-C3-4041; [32-33]
-    (=hanziku-1		. #xEEE6)	; &I-HZK01-EEE6;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0212	    . #x553A)	; &M-28665; [53-26]
+	(=jis-x0213-2	    . #x747B)	; &I-JX2-747B; [84-91]
+	(=daikanwa	    . 28665)	; &I-M-28665;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x334C)	; &M-02149; [19-44]
+      (=daikanwa	  . 02149)	; &I-M-02149;
+      (=jef-china3	  . #x44CA)	; &I-JC3-44CA;
+      (=ucs@jis		  . #x5279)	; &M-02149;
+      )
+     ((hanyu-dazidian	  1 354 15)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x7FCF)	; &UU+7FCF;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=hanziku-1	  . #xEEE6)	; &HZK01-EEE6;
+      (=ucs@unicode	  . #x5279)	; &HZK01-EEE6;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-2	    . #x3841)	; &C2-3841; [24-33]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-3	  . #x4041)	; &C3-4041; [32-33]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x34FD)	; 㓽
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=daikanwa		. 02150)	; &M-02150;
-    ))
-(define-char
-  '((morohashi-daikanwa	2150 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (hanyu-dazidian	1 354 5)
     (=ucs		. #x34FD)	; 㓽
-    (=cns11643-3	. #x4042)	; &I-C3-4042; [32-34]
-    (=hanziku-1		. #xEEDC)	; &I-HZK01-EEDC;
+    (->subsumptive
+     ((=daikanwa	  . 02150)	; &M-02150;
+      )
+     ((=cns11643-3	  . #x4042)	; &C3-4042; [32-34]
+      )
+     ((hanyu-dazidian	  1 354 5)
+      (=hanziku-1	  . #xEEDC)	; &HZK01-EEDC;
+      (=ucs@unicode	  . #x34FD)	; &HZK01-EEDC;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x207A8)	; 𠞨
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (=ucs		. #x207A8)	; 𠞨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x207A8)	; 𠞨
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (=daikanwa		. 02151)	; &M-02151;
     ))
 (define-char
-  '((morohashi-daikanwa	2151 0 1)
+  '((<-denotational
+     ((=ucs		  . #x207A8)	; 𠞨
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=ucs		. #x207A8)	; 𠞨
-    (=cns11643-6	. #x506D)	; &I-C6-506D; [48-77]
+    (=cns11643-6	. #x506D)	; &C6-506D; [48-77]
+    (=ucs@iso		. #x207A8)	; &C6-506D;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -6723,7 +6732,8 @@
       )
      ((=daikanwa	  . 08212)	; &M-08212;
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=daikanwa		. 02158)	; &M-02158;
     ))
@@ -6744,7 +6754,8 @@
       (=cns11643-1	  . #x597D)	; &I-C1-597D; [57-93]
       (=jis-x0213-1	  . #x4A78)	; &I-JX1-4A78; [42-88]
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=cns11643-2	. #x416D)	; &C2-416D; [33-77]
     (=big5		. #xDCC8)	; &I-B-DCC8;
@@ -6755,18 +6766,15 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 354 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53C3)	; 參
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x527C)	; 剼
-    (=cns11643-2	. #x416E)	; &I-C2-416E; [33-78]
     (=big5		. #xDCC9)	; &I-B-DCC9;
-    (=daikanwa		. 02159)	; &I-M-02159;
+    (->subsumptive
+     ((=daikanwa	  . 02159)	; &M-02159;
+      )
+     ((=cns11643-2	  . #x416E)	; &C2-416E; [33-78]
+      )
+     ((=ucs@unicode	  . #x527C)	; &UU+527C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -6782,7 +6790,8 @@
        ((=cns11643-1	    . #x5C41)	; &M-24694; [60-33]
 	(=daikanwa	    . 24694)	; &I-M-24694;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-1	  . #x6338)	; &M-02160; [67-24]
       (=daikanwa	  . 02160)	; &I-M-02160;
@@ -6796,7 +6805,8 @@
 	(=ks-x1001	    . #x7879)	; &I-K0-7879; [88-89]
 	(=jis-x0213-1	    . #x493C)	; &I-JX1-493C; [41-28]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208	  . #x5177)	; &GT-02792; [49-87]
       (=gb2312		  . #x5862)	; &I-G0-5862; [56-66]
@@ -6855,7 +6865,8 @@
 	(=jis-x0208@1990    . #x523F)	; &I-J90-523F; [50-31]
 	(=jis-x0213-1	    . #x523F)	; &I-JX1-523F; [50-31]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 02163)	; &M-02163;
       (=hanziku-1	  . #xEEBA)	; &I-HZK01-EEBA;
@@ -6868,7 +6879,8 @@
        ((=cns11643-1	    . #x5934)	; &M-02691; [57-20]
 	(=daikanwa	    . 02691)	; &I-M-02691;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-3	  . #x4040)	; &CB01780; [32-32]
       (=cbeta		  . 01780)	; &I-CB01780;
@@ -6888,14 +6900,6 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 354 18)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5DE2)	; 巢
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x527F)	; 剿
     (=jis-x0208		. #x5176)	; &I-J90-5176; [49-86]
     (=gb2312		. #x3D4B)	; &I-G0-3D4B; [29-43]
@@ -7148,7 +7152,8 @@
 	(=jis-x0213-2	    . #x7233)	; &I-JX2-7233; [82-19]
 	(=daikanwa	    . 23863)	; &I-M-23863;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x334D)	; &M-02180; [19-45]
       (=daikanwa	  . 02180)	; &I-M-02180;
@@ -7160,7 +7165,8 @@
 	)
        ((=cns11643-2	    . #x3E47)	; &C2-3E47; [30-39]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x4928)	; &C2-4928; [41-08]
       (=ucs@cns		  . #x5280)	; &C2-4928;
@@ -7179,7 +7185,8 @@
       )
      ((=iso-ir165	  . #x7D75)	; &EGB-7D75; [93-85]
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs@unicode	. #x5280)	; &UU+5280;
     ))
@@ -7209,7 +7216,8 @@
 	(=jis-x0213-1	    . #x3E47)	; &I-JX1-3E47; [30-39]
 	(=daikanwa	    . 19119)	; &I-M-19119;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 02182)	; &M-02182;
       )
@@ -7221,7 +7229,8 @@
        ((=gb2312	    . #x3D39)	; &C1-6050; [29-25]
 	(=cns11643-1	    . #x6050)	; &I-C1-6050; [64-48]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=gb2312		  . #x5864)	; &C2-4929; [56-68]
       (=cns11643-2	  . #x4929)	; &I-C2-4929; [41-09]
@@ -7338,22 +7347,35 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 355 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53A5)	; 厥
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5282)	; 劂
-    (=gb2312		. #x5863)	; &I-G0-5863; [56-67]
-    (=jis-x0212		. #x334E)	; &I-JSP-334E; [19-46]
-    (=cns11643-1	. #x6823)	; &I-C1-6823; [72-03]
-    (=jis-x0213-2	. #x233E)	; &I-JX2-233E; [03-30]
     (=big5		. #xB9BB)	; &I-B-B9BB;
-    (=daikanwa		. 02190)	; &I-M-02190;
-    (=jef-china3	. #x44CB)	; &I-JC3-44CB;
+    (->subsumptive
+     ((=jis-x0212	  . #x334E)	; &GT-02814; [19-46]
+      (=jis-x0213-2	  . #x233E)	; &I-JX2-233E; [03-30]
+      (=gt		  . 02814)	; &I-GT-02814;
+      (=gt-pj-2		  . #x4343)	; &I-GT-02814; [35-35]
+      (=daikanwa	  . 02190)	; &I-M-02190;
+      (=ucs@jis		  . #x5282)	; &GT-02814;
+      )
+     ((=gb2312		  . #x5863)	; &G0-5863; [56-67]
+      (=ucs@unicode	  . #x5282)	; &G0-5863;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x5250)	; &GT-03792; [50-48]
+	(=ks-x1001	    . #x4F70)	; &I-K0-4F70; [47-80]
+	(=cns11643-1	    . #x5E3C)	; &I-C1-5E3C; [62-28]
+	(=jis-x0213-1	    . #x5250)	; &I-JX1-5250; [50-48]
+	(=daikanwa	    . 02992)	; &I-M-02992;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-1	  . #x6823)	; &C1-6823; [72-03]
+      (=jef-china3	  . #x44CB)	; &I-JC3-44CB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -7385,25 +7407,21 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 356 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x756B)	; 畫
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5283)	; 劃
-    (=jis-x0208		. #x3344)	; &I-J90-3344; [19-36]
-    (=ks-x1001		. #x7C71)	; &I-K0-7C71; [92-81]
-    (=cns11643-1	. #x6822)	; &I-C1-6822; [72-02]
-    (=jis-x0213-1	. #x3344)	; &I-JX1-3344; [19-36]
-    (=gb12345		. #x3B2E)	; 劃 [27-14]
-    (=big5		. #xB9BA)	; &I-B-B9BA;
-    (=gt		. 02806)	; &I-GT-02806;
-    (=gt-pj-1		. #x3344)	; &I-GT-02806; [19-36]
-    (=daikanwa		. 02193)	; &I-M-02193;
-    (=shinjigen		.  0692)	; 劃
+    (->subsumptive
+     ((=jis-x0208	  . #x3344)	; &GT-02806; [19-36]
+      (=ks-x1001	  . #x7C71)	; &I-K0-7C71; [92-81]
+      (=cns11643-1	  . #x6822)	; &I-C1-6822; [72-02]
+      (=jis-x0213-1	  . #x3344)	; &I-JX1-3344; [19-36]
+      (=gb12345		  . #x3B2E)	; &GT-02806; [27-14]
+      (=big5		  . #xB9BA)	; &I-B-B9BA;
+      (=gt		  . 02806)	; &I-GT-02806;
+      (=gt-pj-1		  . #x3344)	; &I-GT-02806; [19-36]
+      (=daikanwa	  . 02193)	; &I-M-02193;
+      (=ucs@unicode	  . #x5283)	; &GT-02806;
+      )
+     ((=shinjigen	  .  0692)	; &SJG2-0692;
+      ))
     ))
 (define-char
   '((=>ucs		. #x207CA)	; 𠟊
@@ -7621,14 +7639,6 @@
     (ideographic-radical@cns . 118)	; ⽵
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7B54)	; 答
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5284)	; 劄
     (=cns11643-2	. #x4C61)	; &I-C2-4C61; [44-65]
     (=jis-x0213-2	. #x233D)	; &I-JX2-233D; [03-29]
@@ -7660,7 +7670,8 @@
       )
      ((=ucs		  . #x8700)	; 蜀
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5285)	; 劅
     (=jis-x0212		. #x334F)	; &I-JSP-334F; [19-47]
@@ -7726,7 +7737,8 @@
        ((=ks-x1001	    . #x562F)	; &M-09436; [54-15]
 	(=daikanwa	    . 09436)	; &I-M-09436;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=daikanwa	  . 02215)	; &M-02215;
       )
@@ -7741,15 +7753,6 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=gb2312		  . #x412E)	; &C1-636D; [33-14]
-      (=cns11643-1	  . #x636D)	; &I-C1-636D; [67-77]
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=cns11643-3	. #x4B31)	; &C3-4B31; [43-17]
     (=ucs@unicode	. #x5286)	; &C3-4B31;
     ))
@@ -7801,7 +7804,8 @@
 	)
        ((=cns11643-2	    . #x475D)	; &C2-475D; [39-61]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-1	  . #x6C2A)	; &C1-6C2A; [76-10]
       ))
@@ -7910,7 +7914,8 @@
 	)
        ((=big5-cdp	    . #x8D69)	; &CDP-8D69;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208	  . #x4E2D)	; &GT-02875; [46-13]
       (=ks-x1001	  . #x5731)	; &I-K0-5731; [55-17]
@@ -7930,20 +7935,15 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 359 1)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6703)	; 會
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x528A)	; 劊
-    (=jis-x0212		. #x3350)	; &I-JSP-3350; [19-48]
-    (=cns11643-1	. #x6C2E)	; &I-C1-6C2E; [76-14]
-    (=gb12345		. #x3974)	; 劊 [25-84]
     (=big5		. #xBC44)	; &I-B-BC44;
-    (=daikanwa		. 02225)	; &I-M-02225;
+    (->subsumptive
+     ((=jis-x0212	  . #x3350)	; &M-02225; [19-48]
+      (=cns11643-1	  . #x6C2E)	; &I-C1-6C2E; [76-14]
+      (=gb12345		  . #x3974)	; &M-02225; [25-84]
+      (=daikanwa	  . 02225)	; &I-M-02225;
+      (=ucs@unicode	  . #x528A)	; &M-02225;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -7952,17 +7952,7 @@
     (hanyu-dazidian	1 358 7)
     (=ucs		. #x528B)	; 劋
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=jis-x0212	    . #x3575)	; &M-04029; [21-85]
-	(=jis-x0213-2	    . #x2433)	; &I-JX2-2433; [04-19]
-	(=daikanwa	    . 04029)	; &I-M-04029;
-	)
-       ((=ucs		    . #x5202)	; 刂
-	))
-      (=big5		  . #xE4F2)	; &M-02226;
+     ((=big5		  . #xE4F2)	; &M-02226;
       (=daikanwa	  . 02226)	; &I-M-02226;
       (=shinjigen@1ed	  .  0688)	; &M-02226;
       (=ucs@unicode	  . #x528B)	; &M-02226;
@@ -7985,7 +7975,8 @@
 	)
        ((=cns11643-2	    . #x417A)	; &C2-417A; [33-90]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x4F5A)	; &C2-4F5A; [47-58]
       (=ucs@cns		  . #x528B)	; &C2-4F5A;
@@ -8004,7 +7995,8 @@
 	)
        ((=ks-x1001	    . #x6128)	; &K0-6128; [65-08]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x3351)	; &M-02227; [19-49]
       (=daikanwa	  . 02227)	; &I-M-02227;
@@ -8017,7 +8009,8 @@
        ((=cns11643-1	    . #x6459)	; &M-16326; [68-57]
 	(=daikanwa	    . 16326)	; &I-M-16326;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x4F5B)	; &C2-4F5B; [47-59]
       (=gb12345		  . #x585B)	; &C2-4F5B; [56-59]
@@ -8030,14 +8023,6 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 358 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x50C9)	; 僉
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x528D)	; 劍
     (=jis-x0208		. #x5178)	; &I-J90-5178; [49-88]
     (=ks-x1001		. #x4B7C)	; &I-K0-4B7C; [43-92]
@@ -8141,7 +8126,8 @@
       )
      ((=ucs		  . #x7576)	; 當
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x528F)	; 劏
     (=gb12345		. #x7C24)	; 劏 [92-04]
@@ -8180,45 +8166,33 @@
     (=hanziku-1		. #xF049)	; &I-HZK01-F049;
     ))
 (define-char
-  '((=>ucs		. #x5290)	; 劐
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8CB0)	; &GT-42188;
-      )
-     ((=ucs		  . #x5202)	; 刂
+  '((ideographic-radical . 18)	; ⼑
+    (=ucs		. #x5290)	; 劐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5290)	; 劐
       ))
-    (=daikanwa		. 02237)	; &M-02237;
-    ))
-(define-char
-  '((=>ucs		. #x5290)	; 劐
-    (morohashi-daikanwa	2237 0 1)
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (=cns11643-3	. #x5036)	; &C3-5036; [48-22]
+    (->subsumptive
+     ((=daikanwa	  . 02237)	; &M-02237;
+      )
+     ((=cns11643-3	  . #x5036)	; &C3-5036; [48-22]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	2237 0 3)
+  '((<-denotational
+     ((=ucs		  . #x5290)	; 劐
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 357 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x84A6)	; 蒦
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=ucs		. #x5290)	; 劐
-    (=gb2312		. #x5865)	; &I-G0-5865; [56-69]
+    (=gb2312		. #x5865)	; &HZK01-EFA1; [56-69]
     (=hanziku-1		. #xEFA1)	; &I-HZK01-EFA1;
+    (=ucs@unicode	. #x5290)	; &HZK01-EFA1;
     ))
 (define-char
   '((=>ucs		. #x350C)	; 㔌
@@ -8267,6 +8241,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (=ucs		. #x5291)	; 劑
+    (=big5		. #xBEAF)	; &I-B-BEAF;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -8277,18 +8252,17 @@
 	(=jis-x0213-1	    . #x736E)	; &I-JX1-736E; [83-78]
 	(=daikanwa	    . 48560)	; &I-M-48560;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0208	  . #x517D)	; &GT-02895; [49-93]
       (=ks-x1001	  . #x7025)	; &I-K0-7025; [80-05]
       (=jis-x0213-1	  . #x517D)	; &I-JX1-517D; [49-93]
-      (=big5		  . #xBEAF)	; &I-B-BEAF;
       (=gt		  . 02895)	; &I-GT-02895;
       (=gt-pj-1		  . #x517D)	; &I-GT-02895; [49-93]
       (=daikanwa	  . 02241)	; &I-M-02241;
       (=shinjigen	  .  0659)	; &GT-02895;
       (=ucs@jis		  . #x5291)	; &GT-02895;
-      (=ucs@big5	  . #x5291)	; &GT-02895;
       )
      ((hanyu-dazidian	  1 361 5)
       (ideographic-structure
@@ -8297,7 +8271,8 @@
 	)
        ((=cns11643-1	    . #x6B7D)	; &C1-6B7D; [75-93]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-1	  . #x7038)	; &C1-7038; [80-24]
       (=gb12345		  . #x3C41)	; &C1-7038; [28-33]
@@ -8473,7 +8448,8 @@
       )
      ((=ucs		  . #x9F3B)	; 鼻
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5293)	; 劓
     (=gb2312		. #x5866)	; &I-G0-5866; [56-70]
@@ -8488,9 +8464,14 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
+    (sound@ja/on	"san")
     (=ucs		. #x20800)	; 𠠀
-    (=cns11643-7	. #x2C4C)	; &I-C7-2C4C; [12-44]
-    (=daikanwa		. 02250)	; &I-M-02250;
+    (->subsumptive
+     ((=cns11643-7	  . #x2C4C)	; &M-02250; [12-44]
+      (=daikanwa	  . 02250)	; &I-M-02250;
+      )
+     ((=ucs@iso		  . #x20800)	; &U-00020800;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -8611,7 +8592,8 @@
       )
      ((=ucs		  . #x8CEA)	; 質
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5295)	; 劕
     (=jis-x0212		. #x3353)	; &I-JSP-3353; [19-51]
@@ -8810,19 +8792,41 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (hanyu-dazidian	1 362 18)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6BDA)	; 毚
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5296)	; 劖
-    (=jis-x0212		. #x3354)	; &I-JSP-3354; [19-52]
-    (=cns11643-2	. #x6539)	; &I-C2-6539; [69-25]
     (=big5		. #xF1ED)	; &I-B-F1ED;
-    (=daikanwa		. 02273)	; &I-M-02273;
+    (->subsumptive
+     ((=daikanwa	  . 02273)	; &M-02273;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0212	    . #x4639)	; &M-16767; [38-25]
+	(=iso-ir165	    . #x7A3B)	; &I-EGB-7A3B; [90-27]
+	(=jis-x0213-2	    . #x6E29)	; &I-JX2-6E29; [78-09]
+	(=daikanwa	    . 16767)	; &I-M-16767;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=ucs@unicode	  . #x5296)	; &UU+5296;
+      )
+     ((=jis-x0212	  . #x3354)	; &GT-02918; [19-52]
+      (=gt		  . 02918)	; &I-GT-02918;
+      (=gt-pj-2		  . #x4430)	; &I-GT-02918; [36-16]
+      (=ucs@jis		  . #x5296)	; &GT-02918;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x737E)	; &C1-737E; [83-94]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-2	  . #x6539)	; &C2-6539; [69-25]
+      ))
     ))
 (define-char
   '((=>ucs		. #x20823)	; 𠠣
@@ -8905,7 +8909,8 @@
       )
      ((=ucs		  . #x8D0A)	; 贊
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5297)	; 劗
     (=jis-x0212		. #x3355)	; &I-JSP-3355; [19-53]
@@ -8954,7 +8959,8 @@
 	(=jis-x0213-1	    . #x7353)	; &I-JX1-7353; [83-51]
 	(=daikanwa	    . 42612)	; &I-M-42612;
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=jis-x0212	  . #x3356)	; &M-02281; [19-54]
       (=jis-x0213-2	  . #x2340)	; &I-JX2-2340; [03-32]
@@ -8967,7 +8973,8 @@
 	)
        ((=cns11643-1	    . #x7948)	; &C1-7948; [89-40]
 	)
-       ((=ucs		    . #x5202)	; 刂
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=cns11643-2	  . #x6B50)	; &C2-6B50; [75-48]
       (=ucs@cns		  . #x5298)	; &C2-6B50;
@@ -8980,14 +8987,6 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs@unicode	  . #x9761)	; &G0-4352;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=iso-ir165		. #x7A3F)	; &EGB-7A3F; [90-31]
     (=ucs@unicode	. #x5298)	; &EGB-7A3F;
     ))
@@ -9004,57 +9003,61 @@
     (ideographic-strokes . 21)
     (total-strokes	 . 23)
     (hanyu-dazidian	1 363 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x8821)	; 蠡
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5299)	; 劙
-    (=cns11643-2	. #x6E7E)	; &I-C2-6E7E; [78-94]
     (=big5		. #xF7D1)	; &I-B-F7D1;
-    (=daikanwa		. 02283)	; &I-M-02283;
+    (->subsumptive
+     ((=daikanwa	  . 02283)	; &M-02283;
+      (=ucs@unicode	  . #x5299)	; &M-02283;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x7B26)	; &C1-7B26; [91-06]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-2	  . #x6E7E)	; &C2-6E7E; [78-94]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x529A)	; 劚
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 21)
     (total-strokes	 . 23)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x5624)	; &GT-09844; [54-04]
-      (=ks-x1001	  . #x6155)	; &I-K0-6155; [65-53]
-      (=jis-x0213-1	  . #x5624)	; &I-JX1-5624; [54-04]
-      (=daikanwa	  . 07821)	; &I-M-07821;
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
-    (=jis-x0212		. #x3357)	; &M-02284; [19-55]
-    (=daikanwa		. 02284)	; &I-M-02284;
-    (=jef-china3	. #x44CD)	; &I-JC3-44CD;
-    (=ucs@jis		. #x529A)	; &M-02284;
-    ))
-(define-char
-  '((morohashi-daikanwa	2284 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 21)
-    (total-strokes	 . 23)
-    (hanyu-dazidian	1 363 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5C6C)	; 屬
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x529A)	; 劚
-    (=cns11643-3	. #x602C)	; &I-C3-602C; [64-12]
-    (=hanziku-1		. #xF0C6)	; &I-HZK01-F0C6;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x5624)	; &GT-09844; [54-04]
+	(=ks-x1001	    . #x6155)	; &I-K0-6155; [65-53]
+	(=jis-x0213-1	    . #x5624)	; &I-JX1-5624; [54-04]
+	(=daikanwa	    . 07821)	; &I-M-07821;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=jis-x0212	  . #x3357)	; &M-02284; [19-55]
+      (=daikanwa	  . 02284)	; &I-M-02284;
+      (=jef-china3	  . #x44CD)	; &I-JC3-44CD;
+      (=ucs@jis		  . #x529A)	; &M-02284;
+      )
+     ((hanyu-dazidian	  1 363 9)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x7A68)	; &C1-7A68; [90-72]
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (=cns11643-3	  . #x602C)	; &HZK01-F0C6; [64-12]
+      (=hanziku-1	  . #xF0C6)	; &I-HZK01-F0C6;
+      (=ucs@unicode	  . #x529A)	; &HZK01-F0C6;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
