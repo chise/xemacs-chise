@@ -1,3 +1,20 @@
+2008-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+357B): Add `sound@ja/go/p{1|2}'.
+	(U+5485): Add `sound@ja/on'.
+	(JSP-3523): Unify GT-04385 and GT-K04392; add `<-same' for
+	M-03482; add `->mistakable' for M-03604.
+	(U-00020C6B): Use `->denotational' and `->subsumptive'.
+	(U-00020C6C): Use `->subsumptive'.
+	(U+54F4): Use `->subsumptive'.
+	(U+54F5): Use `->denotational' and `->subsumptive'.
+	(U+54F6): Use `->denotational'.
+	(JSP-3541): Use `<-denotational' for U+54F6; compact
+	`ideographic-structure'.
+	(H2-D0A1): Add `ideographic-structure'.
+	(U-0002F841): Use `<-denotational' for U+54F6; add `=>ucs*' for
+	U+54F6; add `ideographic-structure'.
+
 2008-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el (B-BA7E): Moved to parent.
