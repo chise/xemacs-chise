@@ -663,6 +663,7 @@
     (sound@ja/kun	"usi")
     (sound@ja/on/kan	"tIu")
     (=ucs		. #x4E11)	; 丑
+    (=big5		. #xA4A1)	; &I-B-A4A1;
     ))
 (define-char
   '((<-denotational
@@ -675,14 +676,12 @@
     (=ks-x1001		. #x7564)	; &I-K0-7564; [85-68]
     (=cns11643-1	. #x4460)	; &I-C1-4460; [36-64]
     (=jis-x0213-1	. #x312F)	; &I-JX1-312F; [17-15]
-    (=big5		. #xA4A1)	; &I-B-A4A1;
     (=gt		. 00033)	; &I-GT-00033;
     (=gt-k		. 00398)	; &I-GT-K00398;
     (=gt-pj-1		. #x312F)	; &I-GT-00033; [17-15]
     (=daikanwa		. 00023)	; &I-M-00023;
     (=shinjigen		.  0016)	; &GT-00033;
     (=ucs@jis		. #x4E11)	; &GT-00033;
-    (=ucs@big5		. #x4E11)	; &GT-00033;
     ))
 (define-char
   '((<-denotational
@@ -873,26 +872,43 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x5187)	; 冇
-    (ideographic-	(:radical	1 ; ⼀
-			 :strokes	3
-			 :sources	(cns-11643))
-			(:radical	13 ; ⼌
-			 :strokes	2
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@cns . 1)	; ⼀
+    (ideographic-strokes@cns . 3)
     (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
+    (hanyu-dazidian	1 96 17)
+    (=ucs		. #x5187)	; 冇
+    (=big5		. #xC94E)	; &I-B-C94E;
+    (->subsumptive
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x20087)	; 𠂇
+	)
+       ((name		    . "CJK RADICAL BOX")
+	(=ucs		    . #x2E86)	; ⺆
+	))
+      (=iso-ir165	  . #x7A29)	; &EGB-7A29; [90-09]
+      (=ucs@unicode	  . #x5187)	; &EGB-7A29;
       )
-     ((=ucs		  . #x20087)	; 𠂇
-      )
-     ((name		  . "CJK RADICAL BOX")
-      (=ucs		  . #x2E86)	; ⺆
+     ((ideographic-radical . 1)	; ⼀
+      (ideographic-strokes . 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x20087)	; 𠂇
+	)
+       ((=big5-cdp	    . #x8BF2)	; &CDP-8BF2;
+	))
+      (=cns11643-2	  . #x212E)	; &C2-212E; [01-14]
+      (=ucs@cns		  . #x5187)	; &C2-212E;
+      (mojikyo		  . 053001)	; &MCS-6000CF09;
       ))
-    (=cns11643-2	. #x212E)	; &C2-212E; [01-14]
-    (=ucs@cns		. #x5187)	; &C2-212E;
-    (mojikyo		. 053001)	; &MCS-6000CF09;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

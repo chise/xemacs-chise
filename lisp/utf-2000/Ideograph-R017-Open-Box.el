@@ -51,19 +51,18 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x51F6)	; 凶
+    (=big5		. #xA4BF)	; &I-B-A4BF;
     (->subsumptive
      ((=jis-x0208	  . #x3627)	; &GT-02360; [22-07]
       (=ks-x1001	  . #x7D55)	; &I-K0-7D55; [93-53]
       (=cns11643-1	  . #x447E)	; &I-C1-447E; [36-94]
       (=jis-x0213-1	  . #x3627)	; &I-JX1-3627; [22-07]
-      (=big5		  . #xA4BF)	; &I-B-A4BF;
       (=gt		  . 02360)	; &I-GT-02360;
       (=gt-k		  . 00412)	; &I-GT-K00412;
       (=gt-pj-1		  . #x3627)	; &I-GT-02360; [22-07]
       (=daikanwa	  . 01803)	; &I-M-01803;
       (=shinjigen	  .  0578)	; &GT-02360;
       (=ucs@jis		  . #x51F6)	; &GT-02360;
-      (=ucs@big5	  . #x51F6)	; &GT-02360;
       )
      ((hanyu-dazidian	  1 306 19)
       (=gb2312		  . #x5057)	; &G0-5057; [48-55]

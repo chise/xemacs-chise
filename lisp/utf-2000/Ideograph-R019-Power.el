@@ -244,6 +244,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x52A3)	; 劣
+    (=big5		. #xA648)	; &I-B-A648;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -259,21 +260,20 @@
       (=jis-x0208	  . #x4E74)	; &GT-02964; [46-84]
       (=ks-x1001	  . #x562B)	; &I-K0-562B; [54-11]
       (=jis-x0213-1	  . #x4E74)	; &I-JX1-4E74; [46-84]
-      (=big5		  . #xA648)	; &I-B-A648;
       (=gt		  . 02964)	; &I-GT-02964;
       (=gt-k		  . 01707)	; &I-GT-K01707;
       (=gt-pj-1		  . #x4E74)	; &I-GT-02964; [46-84]
       (=daikanwa	  . 02302)	; &I-M-02302;
       (=shinjigen	  .  0707)	; &GT-02964;
       (=ucs@jis		  . #x52A3)	; &GT-02964;
-      (=ucs@big5	  . #x52A3)	; &GT-02964;
       )
      ((hanyu-dazidian	  1 367 5)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x5C11)	; 少
+       ((=gb2312	    . #x4959)	; &C1-4537; [41-57]
+	(=cns11643-1	    . #x4537)	; &I-C1-4537; [37-23]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -1970,7 +1970,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0212	    . #x3523)	; &CDP-8BCF; [21-03]
+       ((=jis-x0212	    . #x3523)	; &GT-04385; [21-03]
 	(=daikanwa	    . 03483)	; &I-M-03483;
 	)
        ((=ucs		    . #x529B)	; 力
@@ -2402,6 +2402,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 373 18)
     (=ucs		. #x52D8)	; 勘
+    (=big5		. #xB0C9)	; &I-B-B0C9;
     ))
 (define-char
   '((<-denotational
@@ -2424,11 +2425,9 @@
     (=jis-x0208		. #x342A)	; &M-02393; [20-10]
     (=ks-x1001		. #x4A6B)	; &I-K0-4A6B; [42-75]
     (=jis-x0213-1	. #x342A)	; &I-JX1-342A; [20-10]
-    (=big5		. #xB0C9)	; &I-B-B0C9;
     (=daikanwa		. 02393)	; &I-M-02393;
     (=shinjigen		.  0738)	; &M-02393;
     (=ucs@jis		. #x52D8)	; &M-02393;
-    (=ucs@big5		. #x52D8)	; &M-02393;
     ))
 (define-char
   '((<-denotational
@@ -3201,10 +3200,8 @@
     (=daikanwa		. 02424)	; &I-M-02424;
     (=shinjigen		.  0744)	; 勤
     (=jef-china3	. #x44EF)	; &I-JC3-44EF;
-    (=ucs@gb		. #x52E4)	; 勤
-    (=ucs@cns		. #x52E4)	; 勤
-    (=ucs@ks		. #x52E4)	; 勤
-    (=ucs@big5		. #x52E4)	; 勤
+    (=ucs@unicode	. #x52E4)	; 勤
+    (=ucs@jis		. #xFA34)	; 勤
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒

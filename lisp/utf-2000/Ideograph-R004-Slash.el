@@ -326,6 +326,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x4E47)	; 乇
+    (=big5		. #xC947)	; &I-B-C947;
     (->subsumptive
      ((hanyu-dazidian	  1 32 1)
       (ideographic-structure
@@ -341,7 +342,6 @@
 	(=daikanwa	    . 00006)	; &I-M-00006;
 	))
       (=gb2312		  . #x5831)	; &GT-00167; [56-17]
-      (=big5		  . #xC947)	; &I-B-C947;
       (=gt		  . 00167)	; &I-GT-00167;
       (=gt-k		  . 00242)	; &I-GT-K00242;
       (=gt-pj-2		  . #x307D)	; &I-GT-00167; [16-93]

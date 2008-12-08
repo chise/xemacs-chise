@@ -1547,6 +1547,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x51CC)	; 凌
+    (=big5		. #xADE2)	; &I-B-ADE2;
     ))
 (define-char
   '((<-denotational
@@ -1615,12 +1616,10 @@
     (=jis-x0208		. #x4E3F)	; &GT-02202; [46-31]
     (=ks-x1001		. #x5750)	; &I-K0-5750; [55-48]
     (=jis-x0213-1	. #x4E3F)	; &I-JX1-4E3F; [46-31]
-    (=big5		. #xADE2)	; &I-B-ADE2;
     (=gt		. 02202)	; &I-GT-02202;
     (=gt-pj-1		. #x4E3F)	; &I-GT-02202; [46-31]
     (=shinjigen		.  0555)	; &GT-02202;
     (=ucs@jis		. #x51CC)	; &GT-02202;
-    (=ucs@big5		. #x51CC)	; &GT-02202;
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎

@@ -129,9 +129,17 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"gWaN")
     (=ucs		. #x3774)	; 㝴
     (=cns11643-4	. #x2371)	; &I-C4-2371; [03-81]
     (=daikanwa		. 07417)	; &I-M-07417;
+    (=shinjigen		.  0602)	; 㝴
+    (<-formed
+     ((=shinjigen	  .  0601)	; &JC3-44BC;
+      (=jef-china3	  . #x44BC)	; &JC3-44BC;
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨

@@ -1,3 +1,247 @@
+2008-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+357B): Add `sound@ja/go/p{1|2}'.
+	(U+5485): Add `sound@ja/on'.
+	(JSP-3523): Unify GT-04385 and GT-K04392; add `<-same' for
+	M-03482; add `->mistakable' for M-03604.
+	(U-00020C6B): Use `->denotational' and `->subsumptive'.
+	(U-00020C6C): Use `->subsumptive'.
+	(U+54F4): Use `->subsumptive'.
+	(U+54F5): Use `->denotational' and `->subsumptive'.
+	(U+54F6): Use `->denotational'.
+	(JSP-3541): Use `<-denotational' for U+54F6; compact
+	`ideographic-structure'.
+	(H2-D0A1): Add `ideographic-structure'.
+	(U-0002F841): Use `<-denotational' for U+54F6; add `=>ucs*' for
+	U+54F6; add `ideographic-structure'.
+
+2008-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (B-BA7E): Moved to parent.
+	(U+FA47): Unify GT-23116.
+
+	* Ideograph-R018-Knife.el:
+	- Move some Big-5 features to abstract UCS characters.
+	- Use <CJK RADICAL KNIFE TWO> instead of U+5202.
+	(U-000206A8): Use `->subsumptive'.
+	(S1-0597): Unify S2-0597; use `=shinjigen' instead of
+	`=shinjigen@1ed'.
+	(U+520B): Omit `ideographic-structure'.
+	(U-000206AD): Use `->denotational'.
+	(U-000206B0): Use `->subsumptive'.
+	(U+520F): Use `->subsumptive'.
+	(U-000206B9): Use `->subsumptive'.
+	(U-000206BA): Use `->subsumptive'.
+	(U+5210): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5213): Use `->subsumptive'.
+	(U-000206BF): Use `->subsumptive'.
+	(U+5216): Use <CJK RADICAL MEAT> instead of U+6708 in
+	`ideographic-structure'.
+	(U-000206CD): Use `->subsumptive'.
+	(M-01907): Unify U-000206CA and H1-E96E.
+	(U+5218): Use `->subsumptive'.
+	(U+521B): Omit `ideographic-structure'.
+	(U+521E): Omit `ideographic-structure'.
+	(U+5222): Use `->subsumptive'.
+	(U+5224): Use `->denotational' and `->subsumptive'.
+	(U+5225): Use `->subsumptive'.
+	(U+522B): Add `<-vulgar' for J0-4A4C.
+	(U-000206D7): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5229): Omit `ideographic-structure'.
+	(U-000206DA): Use `->subsumptive'.
+	(U-000206DB): Use `->subsumptive'.
+	(U-000206E5): Use `->subsumptive'.
+	(U-000206E6): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5220): Use `->subsumptive'.
+	(U+522C): Add `<-simplified@CN' for U+5257.
+	(U+522F): Use `->subsumptive'.
+	(U+5230): Use `ideographic-{radical|strokes}@{ucs|shinjigen}' and
+	`ideographic-{radical|strokes}@{ucs|shinjigen}*sources' instead of
+	`ideographic-'; omit `ideographic-structure'.
+	(U-000206EC): Use `->subsumptive'.
+	(U+34E1): Use `->subsumptive'.
+	(U+5232): Omit `ideographic-structure'.
+	(U+5233): Use `->subsumptive'.
+	(U+5234): Use `->subsumptive'.
+	(U+5235): Use `->subsumptive'.
+	(U-000206F0): Use `=shinjigen' instead of `=shinjigen@1ed'.
+	(J0-516B): Omit `ideographic-structure'; delete BC-AB62.
+	(JC3-44C1): Add `ideographic-structure'.
+	(U+523F): Omit `ideographic-structure'.
+	(U+5240): Omit `ideographic-structure'.
+	(U+5241): Use `->subsumptive'.
+	(U+5242): Omit `ideographic-structure'.
+	(U+5244): Omit `ideographic-structure'.
+	(U+5245): Use `->subsumptive'.
+	(U+5246): Use `->denotational' and `->subsumptive'.
+	(U-0002071F): Use `->subsumptive'; add `sound@ja/on'.
+	(U-00020720): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5249): Use `->subsumptive'.
+	(U+524A): Use `->denotational' and `->subsumptive'.
+	(U+524C): Omit `ideographic-structure'.
+	(U+524E): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5251): Omit `ideographic-structure'.
+	(U+5255): Use `->subsumptive'.
+	(U+5256): Use `->subsumptive'.
+	(U-00020752): Use `->subsumptive'.
+	(U-00020735): Use `->subsumptive'.
+	(U+34EC): Use `->denotational' and `->subsumptive'.
+	(U+525C): Use `->subsumptive'.
+	(U-00020737): Use `->subsumptive'.
+	(U+525D): Use `->subsumptive'.
+	(U+525F): Omit `ideographic-structure'.
+	(U+5262): Omit `ideographic-structure'.
+	(U+5265): Use `->subsumptive'.
+	(J0-3E6A): Omit `ideographic-structure'.
+	(U+5269): Omit `ideographic-structure'.
+	(C3-3A21): Omit `ideographic-structure'.
+	(J0-5175): Omit `ideographic-structure'.
+	(U+5274): Omit `ideographic-structure'.
+	(U+5276): Use `->subsumptive'.
+	(U+5279): Use `->subsumptive'.
+	(U+34FD): Use `->subsumptive'.
+	(U-000207A8): Use `->denotational'.
+	(U+527C): Use `->subsumptive'.
+	(U+527F): Omit `ideographic-structure'.
+	(U+5282): Use `->subsumptive'.
+	(U+5283): Use `->subsumptive'.
+	(U+5284): Omit `ideographic-structure'.
+	(C3-4B31): Omit `ideographic-structure'.
+	(U+528A): Use `->subsumptive'.
+	(B-E4F2): Omit `ideographic-structure'.
+	(U+528D): Omit `ideographic-structure'.
+	(U+5290): Use `->denotational' and `->subsumptive'.
+	(U-00020800): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5296): Use `->subsumptive'.
+	(EGB-7A3F): Omit `ideographic-structure'.
+	(U+5299): Use `->subsumptive'.
+	(U+529A): Use `->subsumptive'.
+
+2008-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (U+53A5): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (B-C954): Moved to U+4EC8.
+	(U+3467): Use `->subsumptive'.
+	(M-00816): Unify U-0002028F and H1-CB51; add `sound@ja/on'.
+	(U-00020273): Omit `ideographic-structure'.
+	(B-B3C5): Moved to U+5085.
+	(J78-364F): Unify JX3-364F.
+	(J90-364F): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-364F; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+50C5.
+	(U+5132): Add J97-4C59.
+	(J78-4C59): Unify JX3-4C59 and GT-01660.
+	(J90-4C59): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4C59; use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J00U+5132.
+	(U-000204E6): Moved to Ideograph-R011-Enter.el.
+
+2008-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U+5B63): Use `->subsumptive'.
+	(U+5B64): Use `->subsumptive'.
+	(U+5B65): Use `->subsumptive'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-476D.
+
+2008-11-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (U+3774): Add `sound@ja/on'; add S-0602;
+	add `<-formed' for JC3-44BC.
+
+	* Ideograph-R133-Arrive.el (U+5230): Use
+	`ideographic-{radical|strokes}@{ucs|shinjigen}' and
+	`ideographic-{radical|strokes}@{ucs|shinjigen}*sources' instead of
+	`ideographic-'; omit `ideographic-structure'.
+
+2008-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el (GT-K00816): Add
+	`ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (B-A44A): Moved to U+5165.
+	(U-000204DF): Use `->subsumptive'.
+	(B-A5FE): Moved to U+5168.
+	(M-01434): Map to U-000204E6; unify H1-BE5B.
+	(U-000204E5): Use `->subsumptive'.
+	(B-A8E2): Moved to U+5169.
+
+2008-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-516A.
+
+2008-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+5284): Omit `ideographic-structure'.
+
+2008-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U-000208D1): Use `->denotational' and
+	`->subsumptive'.
+	(U+5309): Use `->denotational'.
+	(U-000208D6): Use `->subsumptive'; add `sound@ja/on/{go|kan}'.
+	(M-02519): Map to U-000208D5.
+	(U-000208D8): Use `->subsumptive'.
+
+	* Ideograph-R014-Cover.el (B-CBCD): Moved to U+519E.
+	(M-01578): Unify GT-02081; integrate U-00020586 and H1-E4A7.
+
+	* Ideograph-R013-Down-Box.el (U+5187): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; use `->subsumptive'.
+	(GT-K00710): New character.
+	(BC-8C58): New character.
+	(U+518F): Use `->denotational' instead of `->subsumptive'.
+	(B-CA6A): Moved to U+518F.
+	(U-00020551): Use `->subsumptive'; add `sound@ja/on'.
+
+	* Ideograph-R001-One.el (U+5187): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+2008-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el (J0-4E49): Use `=shinjigen' instead
+	of `=shinjigen@rev'.
+	(U+826F): Integrate GT-K02674.
+	(GT-K02673): New component; add `<-denotational' for U+826F; add
+	`<-identical@component/connect-right' for J0-4E49.
+	(U-00026ACB): Use `->subsumptive'.
+
+2008-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (B-A648): Moved to U+52A3.
+	(B-B0C9): Moved to U+52D8.
+	(U+FA34): Use `=ucs@unicode' instead of `=ucs@{gb|cns|ks|big5}'
+	for GU+52E4; add `=ucs@jis' for JU+FA34.
+
+	* Ideograph-R024-Ten.el (GT-K00987): New character; add
+	`<-formed@component/connect-right' for J0-483E.
+	(GT-01097): Use K0-5A62 instead of U+534A as the value of
+	`<-formed@component/connect-right'.
+
+	* Ideograph-R017-Open-Box.el (B-A4BF): Moved to U+51F6.
+
+	* Ideograph-R015-Ice.el (B-ADE2): Moved to U+51CC.
+
+	* Ideograph-R012-Eight.el (B-A44B): Moved to U+516B.
+	(B-A4BD): Moved to U+516C.
+	(B-A4BC): Moved to U+516E.
+
+	* Ideograph-R010-Legs.el (B-A552): Moved to U+5145.
+
+	* Ideograph-R008-Lid.el (B-A5E7): Moved to U+4EA6.
+
+	* Ideograph-R005-Second.el (B-A45D): Moved to U+4E5F.
+
+	* Ideograph-R004-Slash.el (B-C947): Moved to U+4E47.
+
+	* Ideograph-R002-Line.el (B-A4A5): Moved to U+4E30.
+
+	* Ideograph-R001-One.el (B-A4A1): Moved to U+4E11.
+
 2008-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (U+3892): Use `->subsumptive'.

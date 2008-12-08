@@ -329,6 +329,7 @@
     (sound@ja/kun	"mata")
     (sound@ja/on/kan	"eki")
     (=ucs		. #x4EA6)	; 亦
+    (=big5		. #xA5E7)	; &I-B-A5E7;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -342,14 +343,12 @@
       (=jis-x0208	  . #x4B72)	; &GT-00384; [43-82]
       (=ks-x1001	  . #x6632)	; &I-K0-6632; [70-18]
       (=jis-x0213-1	  . #x4B72)	; &I-JX1-4B72; [43-82]
-      (=big5		  . #xA5E7)	; &I-B-A5E7;
       (=gt		  . 00384)	; &I-GT-00384;
       (=gt-k		  . 01690)	; &I-GT-K01690;
       (=gt-pj-1		  . #x4B72)	; &I-GT-00384; [43-82]
       (=daikanwa	  . 00293)	; &I-M-00293;
       (=shinjigen	  .  0093)	; &GT-00384;
       (=ucs@jis		  . #x4EA6)	; &GT-00384;
-      (=ucs@big5	  . #x4EA6)	; &GT-00384;
       (mojikyo		  . 000293)	; &MCS-60000125;
       )
      ((ideographic-structure

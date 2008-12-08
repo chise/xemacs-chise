@@ -25,22 +25,20 @@
     (=daikanwa		. 30143)	; &I-M-30143;
     ))
 (define-char
-  '((ideographic-	(:radical	18 ; ⼑
-			 :strokes	6
-			 :sources	(morohashi-daikanwa ucs))
-			(:radical	133 ; ⾄
-			 :strokes	2
-			 :sources	(shinjigen-1)))
+  '((ideographic-radical@ucs . 18)	; ⼑
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@shinjigen . 133)	; ⾄
+    (ideographic-strokes@shinjigen . 2)
+    (ideographic-radical@shinjigen*sources
+     shinjigen)
+    (ideographic-strokes@shinjigen*sources
+     shinjigen)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 334 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x81F3)	; 至
-      )
-     ((=ucs		  . #x5202)	; 刂
-      ))
     (=ucs		. #x5230)	; 到
     (=jis-x0208		. #x457E)	; &I-J90-457E; [37-94]
     (=gb2312		. #x353D)	; &I-G0-353D; [21-29]

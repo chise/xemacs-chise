@@ -297,12 +297,12 @@
     (sound@ja/kun	"na+r5" "nari")
     (sound@ja/on/kan	"ya")
     (=ucs		. #x4E5F)	; 也
+    (=big5		. #xA45D)	; &I-B-A45D;
     (->subsumptive
      ((=jis-x0208	  . #x4C69)	; &GT-00231; [44-73]
       (=gb2312		  . #x5232)	; &I-G0-5232; [50-18]
       (=ks-x1001	  . #x6525)	; &I-K0-6525; [69-05]
       (=jis-x0213-1	  . #x4C69)	; &I-JX1-4C69; [44-73]
-      (=big5		  . #xA45D)	; &I-B-A45D;
       (=gt		  . 00231)	; &I-GT-00231;
       (=gt-k		  . 00205)	; &I-GT-K00205;
       (=gt-pj-1		  . #x4C69)	; &I-GT-00231; [44-73]

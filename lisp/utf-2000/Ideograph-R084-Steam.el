@@ -22,6 +22,14 @@
     (ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x4E5E)	; 乞
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=gt-k		. 00816)	; &GT-K00816;
     (=gt-pj-k1		. #x3B3B)	; &GT-K00816; [27-27]
     ))

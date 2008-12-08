@@ -16734,13 +16734,15 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=big5		. #xBA7E)	; &B-BA7E;
     (->subsumptive
      ((=>ucs*		  . #x6F22)	; 漢
       (=ucs		  . #xFA47)	; 漢
       (=ks-x1001	  . #x7953)	; &I-K0-7953; [89-51]
       (=jis-x0213-1	  . #x7725)	; &I-JX1-7725; [87-05]
       (=gb12345		  . #x3A3A)	; 漢 [26-26]
-      (=big5		  . #xBA7E)	; &I-B-BA7E;
+      (=gt		  . 23116)	; &I-GT-23116;
+      (=gt-pj-4		  . #x5338)	; &I-GT-23116; [51-24]
       (=daikanwa	  . 18153)	; &I-M-18153;
       (=jef-china3	  . #x56E6)	; &I-JC3-56E6;
       (=ucs@unicode	  . #x6F22)	; 漢
