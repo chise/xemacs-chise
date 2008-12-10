@@ -1,3 +1,8 @@
+2008-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (G0-536B): Modify char-spec in
+	`->synonyms' to fix link.
+
 2008-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+357B): Add `sound@ja/go/p{1|2}'.
