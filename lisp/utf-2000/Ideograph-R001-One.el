@@ -557,7 +557,10 @@
        ((=gb12345	    . #x536B)	; &GT-39084; [51-75]
 	))
       (->synonyms
-       ((=daikanwa	    . 30212)	; &I-M-30212;
+       ((=jis-x0208	    . #x6750)	; &GT-39084; [71-48]
+	(=ks-x1001	    . #x6628)	; &I-K0-6628; [70-08]
+	(=jis-x0213-1	    . #x6750)	; &I-JX1-6750; [71-48]
+	(=daikanwa	    . 30212)	; &I-M-30212;
 	))
       (->synonyms*sources
        shuowen guangyun daikanwa)
