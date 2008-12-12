@@ -1,3 +1,8 @@
+2008-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (C3-2F4B): Modify a component in
+	`ideographic-structure' to fix link.
+
 2008-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R001-One.el (G0-536B): Modify char-spec in
