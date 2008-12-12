@@ -13402,7 +13402,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5E77)	; &C3-2863;
+       ((=cns11643-3	    . #x2863)	; &C3-2863; [08-67]
 	))
       (=cns11643-3	  . #x2F4B)	; &HZK01-CBD4; [15-43]
       (=jis-x0213-1	  . #x2E3C)	; &I-JX1-2E3C; [14-28]
