@@ -5374,6 +5374,12 @@
 (define-char
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x3CDF)	; 㳟
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6D46)	; 浆
     (=gb2312		. #x3D2C)	; &I-G0-3D2C; [29-12]
