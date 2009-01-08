@@ -349,7 +349,15 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (->subsumptive
-     ((=gt-k		  . 00710)	; &GT-K00710;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x5182)	; 冂
+	)
+       ((=ucs		    . #x513F)	; 儿
+	))
+      (=gt-k		  . 00710)	; &GT-K00710;
       (=gt-pj-k1	  . #x332F)	; &GT-K00710; [19-15]
       )
      ((=big5-cdp	  . #x8C58)	; &CDP-8C58;
