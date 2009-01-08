@@ -8411,15 +8411,15 @@
     (=big5		. #xAB73)	; &I-B-AB73;
     (->subsumptive
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
 	)
-       ((=jis-x0208	    . #x5035)	; &GT-00376; [48-21]
-	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
+       ((=jis-x0208	    . #x3061)	; &GT-45972; [16-65]
+	(=ks-x1001	    . #x6B7D)	; &I-K0-6B7D; [75-93]
+	(=jis-x0213-1	    . #x3061)	; &I-JX1-3061; [16-65]
+	(=daikanwa	    . 34091)	; &I-M-34091;
 	)
        ((=ucs		    . #x53E3)	; 口
-	)
-       ((=big5-cdp	    . #x8B67)	; &CDP-8B67;
 	))
       (=jis-x0208	  . #x3025)	; &GT-04416; [16-05]
       (=ks-x1001	  . #x646E)	; &I-K0-646E; [68-78]
@@ -8433,15 +8433,13 @@
       )
      ((hanyu-dazidian	  1 620 10)
       (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
 	)
-       ((=gb2312	    . #x596F)	; &GT-00375; [57-79]
-	(=daikanwa	    . 00286)	; &I-M-00286;
+       ((=gb2312	    . #x5242)	; &C1-4868; [50-34]
+	(=cns11643-1	    . #x4868)	; &I-C1-4868; [40-72]
 	)
        ((=ucs		    . #x53E3)	; 口
-	)
-       ((=big5-cdp	    . #x8B67)	; &CDP-8B67;
 	))
       (=gb2312		  . #x3027)	; &C1-5037; [16-07]
       (=cns11643-1	  . #x5037)	; &I-C1-5037; [48-23]
