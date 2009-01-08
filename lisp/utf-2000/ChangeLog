@@ -1,3 +1,32 @@
+2008-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R052-Short-Thread.el (U-000221C7): Add `sound@ja/on';
+	integrate BC-8BD8.
+
+2008-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96DA): Unify B-F171.
+
+	* Ideograph-R077-Stop.el (GT-K00455): New character.
+	(U+6B70): Use `->denotational' instead of `->subsumptive';
+	integrate BC-8AE1.
+
+	* Ideograph-R063-Door.el (U+6237): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'; add `<-simplified@CN' for U+6236.
+	(U+6238): Use `=>daikanwa' instead of `morohashi-daikanwa'; add
+	`<-simplified@JP' for U+6236.
+
+	* Ideograph-R030-Mouth.el (J0-3025): Modify
+	`ideographic-structure'.
+	(G0-3027): Likewise.
+
+	* Ideograph-R013-Down-Box.el (GT-K00710): Add
+	`ideographic-structure'.
+
+2008-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+3CDF): New character.
+
 2008-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (C3-2F4B): Modify a component in
