@@ -11,7 +11,20 @@
     (=jef-china3	. #x4EFA)	; &I-JC3-4EFA;
     ))
 (define-char
-  '((morohashi-daikanwa	11696 0 2)
+  '((=>daikanwa		. 11696)	; 戶
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x6237)	; 户
+    (=gb2312		. #x3B27)	; &I-G0-3B27; [27-07]
+    (=cns11643-3	. #x2165)	; &I-C3-2165; [01-69]
+    (=big5-cdp		. #x89A2)	; &I-CDP-89A2;
+    (<-simplified@CN
+     ((=ucs		  . #x6236)	; 戶
+      ))
+    ))
+(define-char
+  '((=>daikanwa		. 11696)	; 戶
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
@@ -22,16 +35,9 @@
     (=gt		. 14739)	; &I-GT-14739;
     (=gt-k		. 00426)	; &I-GT-K00426;
     (=gt-pj-1		. #x384D)	; &I-GT-14739; [24-45]
-    ))
-(define-char
-  '((morohashi-daikanwa	11696 0 4)
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x6237)	; 户
-    (=gb2312		. #x3B27)	; &I-G0-3B27; [27-07]
-    (=cns11643-3	. #x2165)	; &I-C3-2165; [01-69]
-    (=big5-cdp		. #x89A2)	; &I-CDP-89A2;
+    (<-simplified@JP
+     ((=ucs		  . #x6236)	; 戶
+      ))
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
