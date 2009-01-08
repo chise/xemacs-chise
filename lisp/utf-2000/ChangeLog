@@ -1,5 +1,11 @@
 2008-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el (M-07673): Separate C3-2853; add
+	`<-original' for U+5C3E.
+	(GT-K04055): New character.
+	(U-00021C49): New character.
+	(U-00021C45): New character.
+
 	* Ideograph-R052-Short-Thread.el (U-000221C7): Add `sound@ja/on';
 	integrate BC-8BD8.
 
