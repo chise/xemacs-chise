@@ -2851,6 +2851,7 @@
 (define-char
   '((ideographic-radical . 172)	; ⾫
     (=ucs		. #x96DA)	; 雚
+    (=big5		. #xF171)	; &I-B-F171;
     ))
 (define-char
   '((<-denotational
