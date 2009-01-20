@@ -1,3 +1,8 @@
+2009-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el (J0-6624): Use `=shinjigen' for S2-1519;
+	add `<-formed' for J0-5460; add `<-same' for J0-5460.
+
 2009-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el (U+9F8F): Use `->subsumptive'.
