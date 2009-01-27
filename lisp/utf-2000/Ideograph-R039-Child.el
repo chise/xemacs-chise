@@ -658,10 +658,12 @@
     (=daikanwa		. 06970)	; &I-M-06970;
     ))
 (define-char
-  '((ideographic-	(:radical	39 ; ⼦
-			 :strokes	5)
-			(:radical	5 ; ⼄
-			 :strokes	7))
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 39)	; ⼦
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 54 2)
     (ideographic-structure
