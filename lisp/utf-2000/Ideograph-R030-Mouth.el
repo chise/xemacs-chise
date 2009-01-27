@@ -10628,17 +10628,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=jis-x0212	    . #x4A48)	; &M-19655; [42-40]
-	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
-	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
-	(=daikanwa	    . 19655)	; &I-M-19655;
-	)
-       ((=ucs		    . #x5BF8)	; 寸
-	))
+     ((=jis-x0212	  . #x3A68)	; &M-07416; [26-72]
+      (=jis-x0213-2	  . #x282B)	; &I-JX2-282B; [08-11]
+      (=daikanwa	  . 07416)	; &I-M-07416;
       ))
     (=daikanwa		. 03673)	; &M-03673;
     ))
@@ -10656,15 +10648,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name		    . "CJK RADICAL PAW ONE")
-	(=ucs		    . #x2EA4)	; ⺤
-	)
-       ((=ucs		    . #x5BF8)	; 寸
-	))
+     ((=cns11643-3	  . #x255E)	; &C3-255E; [05-62]
       ))
     (=cns11643-2	. #x2E44)	; &C2-2E44; [14-36]
     (=ucs@unicode	. #x54F7)	; &C2-2E44;
