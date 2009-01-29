@@ -1260,6 +1260,12 @@
     (=cns11643-6	. #x3829)	; &I-C6-3829; [24-09]
     ))
 (define-char
+  '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs		. #x22F38)	; 𢼸
+    ))
+(define-char
   '((=>ucs		. #x22F4F)	; 𢽏
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
