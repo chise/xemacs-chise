@@ -1,4 +1,59 @@
+2009-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (GT-K00495): New character.
+	(U+67A1): Use `->subsumptive'.
+	(U+67FE): Likewise.
+	(U-0002342C): Likewise.
+	(U+6802): Likewise.
+	(U+6822): Likewise.
+	(U+6824): Use `->denotational'.
+	(U-0002343E): Unify M-14782, H3-F4F6 and CB08206.
+	(U-0002343F): Use `->subsumptive'; integrate M-14783; add
+	`sound@ja/on/go' and `sound@ja/on/kan'.
+	(U+6859): Use `->subsumptive'.
+	(U-00023440): Use `->denotational' and `->subsumptive'.
+	(U+3B7D): Use `->subsumptive'; integrate M-14988.
+	(U+3B7E): Unify M-15002, H4-A776 and CB05958.
+	(U+6919): Use `->subsumptive'.
+	(U+691A): Use `->subsumptive'.
+	(U+697E): Use `->subsumptive'.
+	(U+6993): Use `->subsumptive'.
+	(U+6A11): Use `->subsumptive'.
+	(U+6A12): Use `->subsumptive'.
+	(U+6A22): Likewise.
+	(U+6AC1): Use `->subsumptive'.
+	(U-00023755): Use `->subsumptive'; integrate M-15755.
+	(U+6AC2): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R086-Fire.el (GT-K00405): New character.
+	(U+70DF): Use `->subsumptive'.
+	(U+3BA1): Use `->subsumptive'.
+	(U+3DD0): Use `->subsumptive'; add `sound@ja/on'.
+	(U-000242B9): Use `->subsumptive'.
+	(U+7159): Use `->denotational' and `->subsumptive'.
+	(U+3DD1): Use `->denotational' and `->subsumptive'.
+
+2009-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U-00022F38): New character.
+
 2009-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (J0-3B7B): Use `=shinjigen' instead of
+	`=shinjigen@rev' for S-1879.
+	(U-00021B1E): New character.
+	(C3-255E): Use `<-subsumptive' to integrate H2-B7C4.
+
+	* Ideograph-R009-Man.el (M-00905): Add `ideographic-structure';
+	add `<-ancient' for J0-4A5D.
+	(H1-D04A): Use `=>ucs' for U-000202BB and `=>daikanwa' for M-00905
+	instead of `<-denotational' for U-000202BB; compact
+	`ideographic-structure'; add `<-unknown' for M-00905.
+
+	* Ideograph-R005-Second.el (U-000200ED): Use `->denotational' and
+	`->subsumptive'.
+	(U-000200F1): Use `ideographic-{radical|strokes}@{ucs|cns}'
+	instead of `ideographic-'.
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SECOND THREE>):
 	Add `<-formed@component' for U+4E59.
