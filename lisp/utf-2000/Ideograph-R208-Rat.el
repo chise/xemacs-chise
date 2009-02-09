@@ -1227,12 +1227,21 @@
   '((ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 7)
     (total-strokes	 . 20)
+    (=ucs		. #x2A566)	; 𪕦
+    (=daikanwa		. 48449)	; &I-M-48449;
+    ))
+(define-char
+  '((ideographic-radical . 208)	; ⿏
+    (ideographic-strokes . 7)
+    (total-strokes	 . 20)
     (=cns11643-7	. #x5265)	; &C7-5265; [50-69]
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 8)
     (total-strokes	 . 21)
+    (sound@ja/on/go	"ni")
+    (sound@ja/on/kan	"zi")
     (=ucs		. #x2A568)	; 𪕨
     ))
 (define-char
@@ -1242,8 +1251,10 @@
     (ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 8)
     (total-strokes	 . 21)
-    (=daikanwa		. 48450)	; &M-48450;
-    (=ucs@iso		. #x2A568)	; &M-48450;
+    (=gt		. 66164)	; &GT-66164;
+    (=gt-pj-8		. #x733B)	; &GT-66164; [83-27]
+    (=daikanwa		. 48450)	; &I-M-48450;
+    (=ucs@iso		. #x2A568)	; &GT-66164;
     ))
 (define-char
   '((<-denotational
