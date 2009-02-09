@@ -1,3 +1,26 @@
+2009-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3675.
+
+2009-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R208-Rat.el (U-0002A566): New character.
+	(U-0002A568): Add `sound@ja/on/go' and `sound@ja/on/kan'.
+	(M-48450): Unify GT-66164.
+
+	* Ideograph-R187-Horse.el (U-000298B8): Use `->subsumptive';
+	integrate GT-60222.
+
+	* Ideograph-R151-Bean.el (U-00027C18): Use `->denotational'.
+	(U-00027C19): Use `->subsumptive'; integrate H9-E55C and GT-48729.
+
+	* Ideograph-R104-Sickness.el (U-00024F08): Add
+	`ideographic-structure'.
+
+2009-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R106-White.el (M-22694): Unify H7-CED7.
+
 2009-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (GT-K00495): New character.
