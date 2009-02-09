@@ -1815,8 +1815,15 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (=ucs		. #x298B8)	; 𩢸
-    (=cns11643-5	. #x5A30)	; &I-C5-5A30; [58-16]
-    (=daikanwa		. 44717)	; &I-M-44717;
+    (->subsumptive
+     ((=gt		  . 60222)	; &GT-60222;
+      (=gt-pj-8		  . #x4D31)	; &GT-60222; [45-17]
+      (=daikanwa	  . 44717)	; &I-M-44717;
+      (=ucs@JP		  . #x298B8)	; &GT-60222;
+      )
+     ((=cns11643-5	  . #x5A30)	; &C5-5A30; [58-16]
+      (=ucs@iso		  . #x298B8)	; &C5-5A30;
+      ))
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
