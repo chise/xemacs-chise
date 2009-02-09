@@ -8217,6 +8217,14 @@
   '((ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs		  . #x8208)	; 興
+      ))
     (sources		bos=A2003-10051-00005)
     (=ucs		. #x24F08)	; 𤼈
     (=ruimoku-v6	. #xE016)	; &I-RUI6-E016;
