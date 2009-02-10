@@ -1,4 +1,63 @@
+2009-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U-00021252): Add `sound@ja/on'; add
+	`<-same' for M-04923.
+	(U+5737): Use `->subsumptive'.
+	(U-0002124E): New character.
+	(U-00021250): New character.
+	(U-00021259): Use `->subsumptive'; add `sound@ja/on'.
+	(U+5748): Use `->subsumptive'; add
+	`sound@ja/on/{kan|go}/s={a-place-name|hole}'.
+	(U+3628): Use `->denotational' and `->subsumptive'.
+	(U+5749): Use `->subsumptive'.
+	(U+574A): Use `->subsumptive'.
+	(U+574B): Use `->subsumptive'.
+	(U+574C): Use `->subsumptive'.
+	(U+574E): Use `->subsumptive'.
+	(U+575B): Add `<-simplified@CN' for G1-4C33; add `<-vulgar' for
+	J0-5460.
+	(U+577E): Use `->subsumptive'.
+	(U+577F): Use `->subsumptive'.
+	(U+5783): Use `->subsumptive'.
+	(U+5789): Use `->subsumptive'.
+	(U+5784): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`kangxi-{radical|strokes}'; add `<-simplified@CN' for G1-4222.
+	(U+57AA): Use `->subsumptive'.
+	(U+57CE): Use `->denotational'.
+	(J0-3E6B): Use `<-denotational' for U+57CE; separate JC3-47F9.
+	(U+57CC): Use `->subsumptive'.
+	(U-000212F2): Use `->subsumptive'.
+	(U+57CD): Use `->subsumptive'.
+	(U-0002F852): Use `<-denotational' for U+57CE; use `=shinjigen'
+	instead of `=shinjigen@1ed' for S1-1393; unify JC3-47F9.
+	(U+58DC): Use `->subsumptive'.
+	(U+58DF): Use `->subsumptive'.
+	(U+58E0): Use `->subsumptive'.
+
 2009-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U-00026958): Unify GT-39049 and
+	GT-K07698; add `<-wrong' for U-00021B2F.
+	(U+8200): `sound@ja/on'.
+	(JSP-566D): Add `<-same' for U-0002695D.
+
+	* Ideograph-R116-Cave.el (J0-3675): Separate GT-32804 and
+	GT-K03682.
+	(U-00025927): Use `->subsumptive'; integrate M-25416 and H7-DE58.
+	(J0-464D): Separate M-25424.
+	(U+FA55): Add S-5684.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024CA3): Use
+	`->denotational' instead of `->subsumptive'; omit `=>daikanwa';
+	add `ideographic-radical@{ucs|cns}'.
+
+	* Ideograph-R098-Tile.el (U+3F49): Use `->denotational'.
+	(U-00024BA2): Use `->subsumptive'.
+	(U-00024BA6): Use `->subsumptive'.
+	(U-00024BA7): Use `->subsumptive'.
+	(U+7517): Use `->denotational' and `->subsumptive'.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3675.
 
