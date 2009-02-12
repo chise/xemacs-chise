@@ -325,6 +325,12 @@
 			((setq ret (get-char-attribute char 'name*))
 			 (setq char-spec (cons (cons 'name* ret) char-spec))
 			 ))
+		  )
+		 ((setq ret (get-char-attribute
+			     char 'ideographic-combination))
+		  (setq char-spec
+			(cons (cons 'ideographic-combination ret)
+			      char-spec))
 		  ))
 	   char-spec)
 	  ((consp char)
