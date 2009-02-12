@@ -1,4 +1,19 @@
+2009-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (J0-5065): Use GT-32804 instead of J0-3675
+	in `ideographic-structure'.
+	(B-D463): Moved to U+5040.
+
 2009-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U-00022F38): Unify RUI6-E064.
+	(U-00022F4F): Use `=>daikanwa' instead of `morohashi-daikanwa';
+	add `<-unknown' for M-13203.
+
+	* Ideograph-R033-Scholar.el (U+58F4): Add `sound@ja/on'; unify
+	GT-07150 and GT-K05308.
+	(GT-K05309): New character; add `<-denotational' and
+	`<-formed@component/connect-right' for U+58F4.
 
 	* Ideograph-R032-Earth.el (U-00021252): Add `sound@ja/on'; add
 	`<-same' for M-04923.
