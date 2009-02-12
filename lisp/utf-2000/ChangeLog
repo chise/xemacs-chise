@@ -1,10 +1,73 @@
 2009-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-make-char-spec): Use
+	`ideographic-combination' if any CCS features are not found.
+
+2009-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U-0002849C): New character.
+	(U-0002849E): New character.
+	(U-00028491): New character.
+	(IU-000284A5): Unify GT-51869.
+	(GT-51974): New variant of U-000284A5.
+
+	* Ideograph-R087-Claw.el (JX2-702A): Separate C4-2151; unify
+	GT-25225 and GT-K00567.
+	(U+FA49): Add `<-simplified@component' for JX2-702A.
+	(U-000244F3): Use `->denotational'.
+	(U-000244F5): New character.
+	(U-000244F4): Use `->denotational'; integrate M-19660.
+	(GT-K03307): New character.
+	(BC-8CC5): Likewise.
+	(U-000244F6): Use `->denotational'; integrate M-19661.
+	(U+722D): Use `->denotational' instead of `->subsumptive'.
+	(U+3E12): Use `->denotational' instead of `->subsumptive'.
+	(U-000244F7): Use `->subsumptive'; integrate M-19665.
+	(U-000244F8): Use `->denotational'; integrate M-19666.
+	(M-19667): Add `<-ancient' for J0-5555; add `->mistakable' for
+	M-19681.
+	(H5-F8A7): New variant of U-000244FD.
+	(U-00024502): Use `->denotational'; integrate M-19669.
+	(U-00024500): Use `->denotational'.
+	(U-00024501): Likewise.
+	(U-0002450A): Use `->denotational'; integrate M-19675.
+	(M-19676): New character.
+	(U-00024507): Add `=>daikanwa' for M-19676; add `<-unknown' for
+	M-19676.
+	(U-00024508): New character.
+	(U-00024509): Likewise.
+	(U-0002450B): New character.
+	(U-0002450C): Use `->denotational'; integrate M-19680.
+	(U-0002450D): New character.
+
+	* Ideograph-R030-Mouth.el (J0-5333): Use GT-32804 instead of
+	J0-3675 in `ideographic-structure'.
+	(B-DCD8): Moved to U+55CF.
+	(U+5620): Omit `ideographic-structure'.
+
 	* Ideograph-R009-Man.el (J0-5065): Use GT-32804 instead of J0-3675
 	in `ideographic-structure'.
 	(B-D463): Moved to U+5040.
 
 2009-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (M-30757): Unify H8-E8BC; add
+	`<-unknown' for U-00026B20.
+	(U-00026B20): Copied from Ideograph-R055-Two-Hands.el.
+	(U+82DB): Use `->denotational'.
+	(C1-5339): Use `<-denotational' for U+82DB; unify GT-40031 and
+	GT-K05032.
+	(U+44A7): Use `->denotational'.
+	(U+82DF): Use `->denotational'.
+	(C1-5348): Use `<-denotational' for U+82DF; unify GT-40087 and
+	GT-K05281.
+	(GT-40070): New variant of U+82DF.
+	(B-AD5E): Moved to U+82F1.
+	(M-30808): Unify GT-40028 and GT-K05025.
+	(U+8336): Use `->denotational' and `->subsumptive'.
+	(GT-K05142): New variant of U+8336.
+	(U+85B6): Use `->denotational' and `->subsumptive'.
+	(U-00026FAB): Use `->denotational'; integrate M-32199.
 
 	* Ideograph-R066-Rap.el (U-00022F38): Unify RUI6-E064.
 	(U-00022F4F): Use `=>daikanwa' instead of `morohashi-daikanwa';
