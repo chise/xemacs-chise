@@ -1,3 +1,26 @@
+2009-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (C7-3B5D): Use `->subsumptive';
+	integrate M-34542 and H8-DB44.
+	(U+893F): Use `->subsumptive'.
+	(U+8940): Use `->subsumptive'.
+	(U+8941): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R108-Dish.el (U+4009): Unify M-23056 and H7-BD67.
+	(U-000250A6): Use `->subsumptive'; integrate M-23059.
+	(U-000250A8): Use `->denotational'; integrate M-23063.
+	(U-000250A9): Use `->denotational'; integrate M-23064.
+	(U-000250AA): New character.
+	(U-000250B5): Use `->subsumptive'; integrate M-23066.
+	(U-000250B7): Use `->denotational'; integrate M-23067.
+	(U-000250B4): New character.
+	(U+76EB): Use `->subsumptive'.
+	(U-000250B9): Use `->subsumptive'; integrate M-23075.
+
+	* Ideograph-R055-Two-Hands.el (U+5F05): Use `->subsumptive'.
+	(U-00026B20): Use `->denotational'; use `ideographic-radical@cns'
+	instead of `ideographic-radical'; add `ideographic-radical@ucs'.
+
 2009-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-make-char-spec): Use
