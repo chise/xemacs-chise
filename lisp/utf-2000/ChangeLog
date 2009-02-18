@@ -1,4 +1,21 @@
+2009-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el (M-28127): Add `<-formed' and `<-same' for
+	M-21876.
+
 2009-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (GT-K03318): Don't map to U+81FD; add
+	`ideographic-structure'; add `<-simplified@component' for U+81FD.
+	(GT-K03616): Likewise.
+	(U+668E): Use `->denotational' and `->subsumptive'.
+	(U+66C2): Use `->denotational'.
+	(U+66C3): Use `->denotational'.
+	(U+66C4): Use `->denotational'.
+	(U+66C5): Use `->denotational'; add `sound@ja/on'.
+	(U+66C6): Use `->subsumptive'.
+	(U+66C7): Use `->subsumptive'.
+	(U-000232A0): Use `->subsumptive'.
 
 	* Ideograph-R145-Clothes.el (C7-3B5D): Use `->subsumptive';
 	integrate M-34542 and H8-DB44.
