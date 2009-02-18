@@ -273,6 +273,16 @@
     (=ucs		. #x4346)	; 䍆
     (->subsumptive
      ((=daikanwa	  . 28127)	; &M-28127;
+      (<-formed
+       ((=daikanwa	    . 21876)	; &M-21876;
+	))
+      (<-formed*sources
+       jiyun)
+      (<-same
+       ((=daikanwa	    . 21876)	; &M-21876;
+	))
+      (<-same*sources
+       jiyun daikanwa)
       )
      ((=cns11643-5	  . #x3460)	; &C5-3460; [20-64]
       )
