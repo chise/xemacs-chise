@@ -1,5 +1,9 @@
 2009-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el (RUI6-E059): New character.
+
+	* Ideograph-R001-One.el (GT-K03084): New character.
+
 	* ruimoku6.el (RUI6-E013): Add `ideographic-structure'.
 	(RUI6-E015): Add `ideographic-structure'.
 	(U-00024F08): Add `ideographic-structure'.
