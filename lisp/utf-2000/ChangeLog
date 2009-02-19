@@ -1,3 +1,46 @@
+2009-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E013): Add `ideographic-structure'.
+	(RUI6-E015): Add `ideographic-structure'.
+	(U-00024F08): Add `ideographic-structure'.
+	(RUI6-{E025..E033}): New character.
+	(RUI6-{E035..E062}): New character.
+	(U-00024C9F): New character (copied from Ideograph-R102-Field.el).
+	(U-00022F38): New character (copied from Ideograph-R066-Rap.el).
+
+	* Ideograph-R102-Field.el (U-00024C91): Use `->subsumptive';
+	integrate M-21876.
+	(U-00024C93): Unify M-21880.
+	(U-00024C94): Use `->denotational'; integrate M-21881.
+	(U+3F61): Use `->subsumptive'; integrate M-21882.
+	(U+3F62): Use `->subsumptive'; integrate M-21883.
+	(U-00024C95): Unify M-21884.
+	(U-00024C96): Unify M-21885; add `sound@ja/on'; add
+	`<-formed@p=tian3' and `<-same@p=tian3' for U+753A.
+	(U+3F63): Unify M-21886 and H7-B7F4; add `<-ancient' for U+57DF;
+	add `sound@ja/on'.
+	(U-00024C97): Use `->subsumptive'; integrate M-21887; add
+	`sound@ja/on/{kan|go}'.
+	(U-00024C98): Unify M-21888.
+	(U-00024CA7): Use `->subsumptive'.
+	(U+6983): Add `ideographic-{radical|strokes}@{ucs|cns}'.
+	(U-00024CA8): Use `->denotational' and `->subsumptive'; integrate
+	M-21904.
+	(U-00024C9F): New character.
+	(U-00024CA3): Use `->denotational'; use
+	`ideographic-radical@{ucs|cns}'.
+	(C5-4057): Use `<-denotational' for U-00024CA3; moved to
+	Ideograph-R103-Bolt-Of-Cloth.el.
+	(U+757B): Use `->denotational'.
+
+	* Ideograph-R091-Slice.el (U+7247): Use `->denotational'.
+	(GT-25442): New variant of U+7247.
+	(M-19847): Unify U-000245C3 and H5-F546; add `sound@ja/on'.
+	(U-000245C4): Use `->denotational' and `->subsumptive'.
+	(U-000245C7): Use `->denotational'.
+	(U+7254): Use `->subsumptive'; add `sound@ja/on'; integrate
+	H5-F5C0.
+
 2009-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R121-Jar.el (M-28127): Add `<-formed' and `<-same' for
