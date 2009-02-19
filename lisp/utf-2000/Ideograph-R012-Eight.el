@@ -1408,6 +1408,20 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs		  . #x9B5A)	; 魚
+      ))
+    (=ruimoku-v6	. #xE059)	; &RUI6-E059;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (=ucs		. #x2052F)	; 𠔯
