@@ -1,3 +1,61 @@
+2009-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (B-BAE0): Moved to U+7B8B.
+	(M-26122): Separate J0-6435, K0-6F28, JX1-6435, B-BAE0, GT-33710
+	and GT-K11228; use `=shinjigen' instead of `=shinjigen@rev' for
+	S2-5824; add `<-same' and `->formed' for J0-6030; add `->ancient'
+	for JX2-2F2C.
+	(U+4205): Unify M-26123 and H8-BDAA; add
+	`sound@ja/on/{go|kan}/p=yu4' and `sound@ja/on/p=huo4'; add
+	`<-same@p=huo4' for M-26308.
+	(U-00025B91): Use `->denotational' and `->subsumptive'; integrate
+	M-26124 and H8-BEA8.
+
+	* Ideograph-R085-Water.el (GT-K02033): New character.
+	(U+3D9B): Use `->subsumptive'; integrate M-18791; add
+	`sound@ja/on'.
+	(U+705B): Use `->subsumptive'.
+	(U-0002414A): Use `->denotational' and `->subsumptive'; integrate
+	M-18794, GT-24083 and H5-C5BE.
+	(U-0002414B): Use `->denotational'; integrate M-18795.
+	(U-0002414C): Use `->subsumptive'; integrate M-18796.
+	(U-0002415B): Unify M-18797.
+	(U-0002414D): Use `->subsumptive'; integrate M-18798.
+	(U+3D9C): Unify M-18799.
+	(U-0002414E): Use `->subsumptive'; integrate M-18800; add
+	`sound@ja/on'.
+	(U-0002414F): New character.
+	(U-00024150): New character.
+	(U-00024151): Use `->subsumptive'; integrate M-18803.
+	(U-00024152): Use `->subsumptive'; integrate M-18804.
+	(U+705C): Use `->subsumptive'.
+
+	* Ideograph-R075-Tree.el (U-000233D4): Add `sound@ja/on'; use
+	`->subsumptive'; integrate GT-18463.
+	(U-00023455): New character.
+	(U+693D): Use `->subsumptive'.
+	(U+693E): Use `->denotational' and `->subsumptive'.
+	(U+693F): Use `->subsumptive'.
+	(U+6941): Use `->subsumptive'.
+	(U+3B8E): Use `->subsumptive'.
+	(U+3B96): Unify M-15129; add `sound@ja/on/{go|kan}'.
+	(U+3B97): Use `->subsumptive'; integrate M-15130.
+	(U-00023548): Unify M-15161 and H4-A7F9.
+	(U+3B9A): Use `->subsumptive'; integrate M-15166.
+	(U+3B9C): Use `->subsumptive'; integrate M-15180.
+	(U+6975): Use `->denotational' and `->subsumptive'.
+	(U+3B9E): Use `->denotational' and `->subsumptive'; integrate
+	M-15183 H4-AA6A.
+	(U-00023552): Unify M-15197; add `<-ancient' for U+6A39.
+	(U-00023553): Use `->subsumptive'; integrate M-15198.
+	(U+3B9F): Unify M-15199; add `sound@ja/on/{go|kan}'.
+	(U-000235A4): Unify M-15200 and H1-F5F3.
+	(U+3BA3): Use `->subsumptive'.
+	(U+6983): Add `ideographic-{radical|strokes}@{ucs|cns}'; move
+	B-DEC6 to U+6983.
+	(U+6986): Use `->subsumptive'.
+	(J90-432E): Unify JC3-70C3.
+
 2009-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R012-Eight.el (RUI6-E059): New character.
