@@ -354,11 +354,28 @@
       )
      ((=ucs		  . #x8C46)	; 豆
       ))
+    (sound@ja/on	"syu" "tyu")
     (=ucs		. #x58F4)	; 壴
     (=cns11643-2	. #x2960)	; &I-C2-2960; [09-64]
     (=jis-x0213-2	. #x2537)	; &I-JX2-2537; [05-23]
     (=big5		. #xCE5F)	; &I-B-CE5F;
+    (=gt		. 07150)	; &I-GT-07150;
+    (=gt-k		. 05308)	; &I-GT-K05308;
+    (=gt-pj-2		. #x6465)	; &I-GT-07150; [68-69]
     (=daikanwa		. 05649)	; &I-M-05649;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x58F4)	; 壴
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=gt-k		. 05309)	; &GT-K05309;
+    (=gt-pj-k1		. #x347E)	; &GT-K05309; [20-94]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x58F4)	; 壴
+      ))
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠

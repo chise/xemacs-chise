@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007, 2008 MORIOKA Tomohiko.
+;;   2007, 2008, 2009 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -325,6 +325,12 @@
 			((setq ret (get-char-attribute char 'name*))
 			 (setq char-spec (cons (cons 'name* ret) char-spec))
 			 ))
+		  )
+		 ((setq ret (get-char-attribute
+			     char 'ideographic-combination))
+		  (setq char-spec
+			(cons (cons 'ideographic-combination ret)
+			      char-spec))
 		  ))
 	   char-spec)
 	  ((consp char)

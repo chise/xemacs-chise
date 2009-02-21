@@ -1279,6 +1279,13 @@
     (=cns11643-6	. #x3829)	; &I-C6-3829; [24-09]
     ))
 (define-char
+  '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs		. #x22F38)	; 𢼸
+    (=ruimoku-v6	. #xE064)	; &I-RUI6-E064;
+    ))
+(define-char
   '((=>ucs		. #x22F4F)	; 𢽏
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
@@ -1286,12 +1293,15 @@
     (=daikanwa		. 13203)	; &M-13203;
     ))
 (define-char
-  '((morohashi-daikanwa	13203 0 5)
+  '((=>daikanwa		. 13203)	; &M-13203;
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x22F4F)	; 𢽏
     (=cns11643-4	. #x3229)	; &I-C4-3229; [18-09]
+    (<-unknown
+     ((=daikanwa	  . 13203)	; &M-13203;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁

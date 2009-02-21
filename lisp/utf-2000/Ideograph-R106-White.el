@@ -184,6 +184,7 @@
     (=ucs		. #x24F47)	; 𤽇
     (->subsumptive
      ((=daikanwa	  . 22694)	; &M-22694;
+      (=hanziku-7	  . #xCED7)	; &I-HZK07-CED7;
       (=ucs@iso		  . #x24F47)	; &M-22694;
       )
      ((=cns11643-5	  . #x273C)	; &C5-273C; [07-28]

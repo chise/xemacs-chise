@@ -591,7 +591,10 @@
        ((=gb12345	    . #x536B)	; &GT-39084; [51-75]
 	))
       (->synonyms
-       ((=daikanwa	    . 30212)	; &I-M-30212;
+       ((=jis-x0208	    . #x6750)	; &GT-39084; [71-48]
+	(=ks-x1001	    . #x6628)	; &I-K0-6628; [70-08]
+	(=jis-x0213-1	    . #x6750)	; &I-JX1-6750; [71-48]
+	(=daikanwa	    . 30212)	; &I-M-30212;
 	))
       (->synonyms*sources
        shuowen guangyun daikanwa)
@@ -2028,6 +2031,24 @@
     (total-strokes	 . 7)
     (=gt		. 00074)	; &GT-00074;
     (=gt-pj-9		. #x3B41)	; &GT-00074; [27-33]
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02033)	; &GT-K02033;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=gt-k		. 03084)	; &GT-K03084;
+    (=gt-pj-k2		. #x303D)	; &GT-K03084; [16-29]
+    (<-unknown
+     ((=ucs		  . #x4E1E)	; 丞
+      ))
     ))
 (define-char
   '((=>ucs*		. #x4E26)	; 並

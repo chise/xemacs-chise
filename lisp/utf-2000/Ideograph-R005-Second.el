@@ -1261,35 +1261,57 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 55 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=jis-x0212	    . #x4A48)	; &M-19655; [42-40]
-	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
-	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
-	(=daikanwa	    . 19655)	; &I-M-19655;
-	)
-       ((=ucs		    . #x53E3)	; 口
-	))
-      )
-     ((=ucs		  . #x4E5A)	; 乚
-      ))
     (=ucs		. #x200ED)	; 𠃭
-    (=cns11643-6	. #x293F)	; &I-C6-293F; [09-31]
-    (=gt		. 00253)	; &I-GT-00253;
-    (=gt-pj-2		. #x315C)	; &I-GT-00253; [17-60]
-    (=daikanwa		. 00193)	; &I-M-00193;
-    (=hanziku-1		. #xAF62)	; &I-HZK01-AF62;
-    (mojikyo		. 000193)	; &MCS-600000C1;
     ))
 (define-char
-  '((morohashi-daikanwa	193 0 2)
+  '((<-denotational
+     ((=ucs		  . #x200ED)	; 𠃭
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (->subsumptive
+     ((=cns11643-6	  . #x293F)	; &M-00193; [09-31]
+      (=daikanwa	  . 00193)	; &I-M-00193;
+      (=ucs@iso		  . #x200ED)	; &M-00193;
+      (<-ancient
+       ((=jis-x0208	    . #x3B4F)	; &GT-07748; [27-47]
+	(=gb2312	    . #x4A3C)	; &I-G0-4A3C; [42-28]
+	(=ks-x1001	    . #x6337)	; &I-K0-6337; [67-23]
+	(=jis-x0213-1	    . #x3B4F)	; &I-JX1-3B4F; [27-47]
+	(=daikanwa	    . 06166)	; &I-M-06166;
+	))
+      (<-ancient*sources
+       yupian daikanwa)
+      )
+     ((hanyu-dazidian	  1 55 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=jis-x0212	      . #x4A48)	; &GT-25225; [42-40]
+	  (=jis-x0213-2	      . #x702A)	; &I-JX2-702A; [80-10]
+	  (=daikanwa	      . 19655)	; &I-M-19655;
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  ))
+	)
+       ((=ucs		    . #x4E5A)	; 乚
+	))
+      (=gt		  . 00253)	; &GT-00253;
+      (=gt-pj-2		  . #x315C)	; &GT-00253; [17-60]
+      (=hanziku-1	  . #xAF62)	; &I-HZK01-AF62;
+      (mojikyo		  . 000193)	; &MCS-600000C1;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200ED)	; 𠃭
+      ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
@@ -1301,7 +1323,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x722B)	; 爫
+       ((name		    . "CJK RADICAL PAW ONE")
+	(=ucs		    . #x2EA4)	; ⺤
 	)
        ((=ucs		    . #x53E3)	; 口
 	))
@@ -1312,10 +1335,12 @@
     (=gt-pj-9		. #x507D)	; &GT-00254; [48-93]
     ))
 (define-char
-  '((ideographic-	(:radical	39 ; ⼦
-			 :strokes	5)
-			(:radical	5 ; ⼄
-			 :strokes	7))
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 39)	; ⼦
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 54 2)
     (ideographic-structure
@@ -1791,8 +1816,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=jis-x0212	    . #x4A48)	; &M-19655; [42-40]
-	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
+       ((=jis-x0212	    . #x4A48)	; &GT-25225; [42-40]
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
@@ -2127,8 +2151,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=jis-x0212	    . #x4A48)	; &M-19655; [42-40]
-	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
+       ((=jis-x0212	    . #x4A48)	; &GT-25225; [42-40]
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)

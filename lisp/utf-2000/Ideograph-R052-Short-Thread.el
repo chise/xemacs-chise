@@ -254,11 +254,13 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (sound@ja/on	"kWaN")
     (=ucs		. #x221C7)	; 𢇇
     (->subsumptive
-     ((=daikanwa	  . 09207)	; &M-09207;
+     ((=big5-cdp	  . #x8BD8)	; &CDP-8BD8;
+      (=daikanwa	  . 09207)	; &I-M-09207;
       (=cbeta		  . 05036)	; &I-CB05036;
-      (=ucs@iso		  . #x221C7)	; &M-09207;
+      (=ucs@iso		  . #x221C7)	; &CDP-8BD8;
       )
      ((=cns11643-4	  . #x314A)	; &C4-314A; [17-42]
       ))

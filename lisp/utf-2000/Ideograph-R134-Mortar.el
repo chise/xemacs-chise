@@ -166,7 +166,16 @@
     (total-strokes	 . 10)
     (=ucs		. #x26958)	; 𦥘
     (=cns11643-4	. #x2F4B)	; &I-C4-2F4B; [15-43]
+    (=gt		. 39049)	; &I-GT-39049;
+    (=gt-k		. 07698)	; &I-GT-K07698;
+    (=gt-pj-6		. #x422A)	; &I-GT-39049; [34-10]
     (=daikanwa		. 30181)	; &I-M-30181;
+    (<-wrong
+     ((=ucs		  . #x21B2F)	; 𡬯
+      (=daikanwa	  . 30186)	; &I-M-30186;
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
@@ -214,6 +223,7 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (sound@ja/on	"Eu")
     (=ucs		. #x8200)	; 舀
     (=big5		. #xAFE6)	; &I-B-AFE6;
     ))
@@ -228,8 +238,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=jis-x0212	  . #x4A48)	; &M-19655; [42-40]
-      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+     ((=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
       (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
       (=daikanwa	  . 19655)	; &I-M-19655;
       )
@@ -240,6 +249,12 @@
     (=jef-china3	. #x92D8)	; &I-JC3-92D8;
     (=ucs@jis		. #x8200)	; &M-30184;
     (mojikyo		. 030184)	; &MCS-600075E8;
+    (<-same
+     ((=ucs		  . #x2695D)	; 𦥝
+      (=daikanwa	  . 30183)	; &I-M-30183;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((<-denotational

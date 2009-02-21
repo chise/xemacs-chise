@@ -298,17 +298,55 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5F05)	; 弅
-    (=cns11643-2	. #x2372)	; &I-C2-2372; [03-82]
     (=big5		. #xCAD2)	; &I-B-CAD2;
-    (=daikanwa		. 09597)	; &I-M-09597;
+    (->subsumptive
+     ((=daikanwa	  . 09597)	; &M-09597;
+      )
+     ((=cns11643-2	  . #x2372)	; &C2-2372; [03-82]
+      )
+     ((=ucs@unicode	  . #x5F05)	; &UU+5F05;
+      ))
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
+  '((ideographic-radical@ucs . 140)	; ⾋
+    (ideographic-radical@ucs*sources
+     daikanwa=30757)
+    (ideographic-radical@cns . 55)	; ⼶
+    (ideographic-radical@cns*sources
+     daikanwa=09598 cns11643)
+    (=ucs		. #x26B20)	; 𦬠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26B20)	; 𦬠
+      ))
+    (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x26B20)	; 𦬠
-    (=cns11643-6	. #x274C)	; &I-C6-274C; [07-44]
+    (=cns11643-6	. #x274C)	; &M-09598; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;
+    (=ucs@iso		. #x26B20)	; &M-09598;
+    (<-ancient
+     ((=ucs		  . #x64E7)	; 擧
+      (=daikanwa	  . 12863)	; &I-M-12863;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (<-simplified@JP/buddhism
+     ((ideographic-combination
+       ((=ucs		    . #x83E9)	; 菩
+	)
+       ((=ucs		    . #x85A9)	; 薩
+	))
+      ))
+    (<-simplified@JP/buddhism*sources
+     touga-13-koku daikanwa)
+    (->mistakable
+     ((=ucs		  . #x26B07)	; 𦬇
+      (=daikanwa	  . 30687)	; &I-M-30687;
+      ))
+    (->mistakable*sources
+     daikanwa)
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶

@@ -51,12 +51,18 @@
     (=big5-cdp		. #x8D43)	; &I-CDP-8D43;
     (=gt-k		. 00008)	; &I-GT-K00008;
     (=gt-pj-k1		. #x302E)	; ⺄ [16-14]
+    (<-formed@component
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     ))
 (define-char
   '((=>ucs		. #x2E84)	; ⺄
     (total-strokes	 . 1)
     (=gt-k		. 00007)	; &GT-K00007;
     (=gt-pj-k1		. #x302D)	; &GT-K00007; [16-13]
+    (<-formed@component
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     ))
 (define-char
   '((<-denotational
