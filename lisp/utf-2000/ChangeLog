@@ -1,5 +1,7 @@
 2009-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el (JX1-7C67): Unify JC3-68A6.
+
 	* Ideograph-R118-Bamboo.el (B-BAE0): Moved to U+7B8B.
 	(M-26122): Separate J0-6435, K0-6F28, JX1-6435, B-BAE0, GT-33710
 	and GT-K11228; use `=shinjigen' instead of `=shinjigen@rev' for
