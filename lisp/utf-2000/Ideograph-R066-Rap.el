@@ -4659,7 +4659,10 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
     (=ucs		. #x6586)	; 斆
-    (=cbeta		. 01689)	; &I-CB01689;
+    (->subsumptive
+     ((=cbeta		  . 01689)	; &CB01689;
+      (=ucs@unicode	  . #x6586)	; &CB01689;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
