@@ -271,7 +271,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysdep.h"
 
 #include "wnn/commonhd.h"
-#include "mule-charset.h"
+#include "character.h"
 #include "wnn/jllib.h"
 #include "wnn/cplib.h"
 
