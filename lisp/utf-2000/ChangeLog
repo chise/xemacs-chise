@@ -1,3 +1,10 @@
+2009-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+6586): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U+5789): Use `->denotational' instead
+	of `->subsumptive'.
+
 2009-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el (JX1-7C67): Unify JC3-68A6.
