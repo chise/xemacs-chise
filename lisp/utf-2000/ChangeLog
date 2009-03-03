@@ -1,3 +1,8 @@
+2009-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+540F): Fix typo.
+	(J0-3862): Omit `ideographic-structure'.
+
 2009-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (U+6586): Use `->subsumptive'.
