@@ -328,6 +328,21 @@
     ))
 (define-char
   '((ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x38C7)	; 㣇
+      )
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (sources		bos=A021708-00010)
+    (=ruimoku-v6	. #xE019)	; &RUI6-E019;
+    ))
+(define-char
+  '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x26620)	; 𦘠
