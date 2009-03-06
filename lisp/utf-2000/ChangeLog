@@ -1,5 +1,13 @@
 2009-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ruimoku6.el (RUI6-E00A): Use `=ucs@iso' instead of
+	`=ucs@unicode' for IU-00029C2C.
+	(RUI6-E017): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E018): Likewise; add `<-unknown' for U+8C73 and U+71F9.
+	(RUI6-E019): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+
 	* Ideograph-R042-Small.el (GT-K02290): New character.
 
 2009-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
