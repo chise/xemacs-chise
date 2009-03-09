@@ -1,3 +1,8 @@
+2009-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (RUI6-E018): New character.
+	(U-000244A1): Use `->subsumptive'.
+
 2009-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el (RUI6-E00A): Use `=ucs@iso' instead of
