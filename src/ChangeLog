@@ -1,3 +1,8 @@
+2009-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_char): Fix problem when decoding GR
+	code-point by GL charset.
+
 2008-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (concord_id_validate): New function.
