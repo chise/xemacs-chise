@@ -369,27 +369,77 @@
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs		. #x43CE)	; 䏎
-    (=daikanwa		. 29253)	; &I-M-29253;
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00758)	; &GT-K00758;
+	)
+       ((=big5-cdp	    . #x8C4E)	; &CDP-8C4E;
+	))
+      (=gt-k		  . 02391)	; &GT-K02391;
+      (=gt-pj-k1	  . #x392A)	; &GT-K02391; [25-10]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x88F0)	; &CDP-88F0;
+	)
+       ((=big5-cdp	    . #x8C4E)	; &CDP-8C4E;
+	))
+      (=big5-cdp	  . #x8C4F)	; &CDP-8C4F;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x43CE)	; 䏎
-    (morohashi-daikanwa	29253 0 1)
+  '((ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (sound@ja/on/go/s=breast "bu")
+    (sound@ja/on/go/s=scratch "gWaN")
+    (sound@ja/on/kan/s=breast "huu")
+    (=ucs		. #x43CE)	; 䏎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x43CE)	; 䏎
+      ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-4	. #x246F)	; &C4-246F; [04-79]
+    (=gt		. 37898)	; &GT-37898;
+    (=gt-pj-6		. #x3929)	; &GT-37898; [25-09]
+    (=daikanwa		. 29253)	; &I-M-29253;
+    (<-original@s=scratch
+     ((=daikanwa	  . 29256)	; &M-29256;
+      ))
+    (<-original@s=scratch*sources
+     zhengzitong daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x43CE)	; 䏎
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (->subsumptive
+     ((=ucs@unicode	  . #x43CE)	; &UU+43CE;
+      )
+     ((=cns11643-4	  . #x246F)	; &C4-246F; [04-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x8090)	; 肐
+    (=big5		. #xCB76)	; &I-B-CB76;
     (->subsumptive
-     ((=big5		  . #xCB76)	; &M-29254;
-      (=daikanwa	  . 29254)	; &I-M-29254;
+     ((=daikanwa	  . 29254)	; &M-29254;
       (=ucs@unicode	  . #x8090)	; &M-29254;
       )
      ((=cns11643-2	  . #x2476)	; &C2-2476; [04-86]
@@ -428,9 +478,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x8092)	; 肒
+    (=big5		. #xCB77)	; &I-B-CB77;
     (->subsumptive
-     ((=big5		  . #xCB77)	; &M-29256;
-      (=daikanwa	  . 29256)	; &I-M-29256;
+     ((=daikanwa	  . 29256)	; &M-29256;
       (=ucs@unicode	  . #x8092)	; &M-29256;
       )
      ((=cns11643-2	  . #x2477)	; &C2-2477; [04-87]
