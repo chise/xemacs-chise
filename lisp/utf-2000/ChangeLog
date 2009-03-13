@@ -1,4 +1,36 @@
+2009-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R193-Cauldron.el (U-00029C2B): Use `->denotational'
+	and `->subsumptive'.
+	(U-00029C2C): Add `sound@ja/on/p={guo|wai1}'; use `->denotational'
+	instead of `->subsumptive'.
+	(U+4C19): Use `->denotational' and `->subsumptive'.
+
+2009-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+38C8): Add `sound@ja/on'; use
+	`->subsumptive'; integrate GT-12554 and H3-C1EC.
+	(U-0002246F): Use `->subsumptive'.
+	(U+5F5B): Use `->denotational' and `->subsumptive'.
+	(U+5F5C): Use `=>daikanwa' instead of `morohashi-daikanwa'; use
+	`->subsumptive'.
+
+2009-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5734.
+
 2009-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (GT-K02391): New character.
+	(BC-8C4F): New character.
+	(U+43CE): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on/{kan|go}/s=breast' and `sound@ja/on/go/s=scratch'.
+
+	* Ideograph-R029-Again.el (BC-8C4E): New character.
+	(M-03207): Unify U-00020B80 and H1-F8A5.
+	(M-03208): Map to U-00021A9E.
+	(U-00020B7E): Use `->subsumptive'.
+	(U-00020B87): Use `->subsumptive'.
 
 	* Ideograph-R086-Fire.el (RUI6-E018): New character.
 	(U-000244A1): Use `->subsumptive'.
