@@ -100,7 +100,7 @@
 (define-char
   '((sources		bos=A016374-00004)
     (=ruimoku-v6	. #xE00A)	; &RUI6-E00A;
-    (=ucs@unicode	. #x29C2C)	; &RUI6-E00A;
+    (=ucs@iso		. #x29C2C)	; &RUI6-E00A;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -244,17 +244,63 @@
     (=ruimoku-v6	. #xE016)	; &I-RUI6-E016;
     ))
 (define-char
-  '((sources		bos=A021003-00010 bos=A2003-10164-00008)
+  '((ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 16)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+	(=ucs		    . #x2FF6)	; ⿶
+	)
+       ((=big5-cdp	    . #x8B64)	; &CDP-8B64;
+	)
+       ((=ucs		    . #x540C)	; 同
+	))
+      )
+     ((=ucs		  . #x6614)	; 昔
+      ))
+    (sound@ja/on	"saku")
+    (sources		bos=A021003-00010 bos=A2003-10164-00008)
     (=ruimoku-v6	. #xE017)	; &RUI6-E017;
     ))
 (define-char
-  '((sources		bos=A2003-10320-00001 bos=A2003-10320-00002
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x38C8)	; 㣈
+      )
+     ((=cns11643-1	  . #x4556)	; &C1-4556; [37-54]
+      ))
+    (sources		bos=A2003-10320-00001 bos=A2003-10320-00002
 			bos=A2003-10320-00004 bos=A2003-10620-00005
 			bos=A2003-10693-00007 bos=A2003-11142-00007)
     (=ruimoku-v6	. #xE018)	; &RUI6-E018;
+    (<-unknown
+     ((=ucs		  . #x8C73)	; 豳
+      )
+     ((=ucs		  . #x71F9)	; 燹
+      ))
     ))
 (define-char
-  '((sources		bos=A021708-00010)
+  '((ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x38C7)	; 㣇
+      )
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (sources		bos=A021708-00010)
     (=ruimoku-v6	. #xE019)	; &RUI6-E019;
     ))
 (define-char

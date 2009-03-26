@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2008 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2008,2009 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -2703,7 +2703,8 @@ If corresponding character is not found, nil is returned.
   charset = Fget_charset (charset);
   CHECK_INT (code);
   c = XINT (code);
-  if (XCHARSET_GRAPHIC (charset) == 1)
+  if ( (XCHARSET_GRAPHIC (charset) == 0) ||
+       (XCHARSET_GRAPHIC (charset) == 1) )
     c &= 0x7F7F7F7F;
   if (NILP (defined_only))
     c = DECODE_CHAR (charset, c, !NILP (without_inheritance));

@@ -1630,8 +1630,6 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 18 3)
     (=ucs		. #x540F)	; 吏
-    (=jis-x0208		. #x4D79)	; &I-J90-4D79; [45-89]
-    (=jis-x0213-1	. #x4D79)	; &I-JX1-4D79; [45-89]
     (=big5		. #xA64F)	; &I-B-A64F;
     (->subsumptive
      ((=jis-x0208@1978	  . #x4D79)	; &M-03299; [45-89]
@@ -3196,23 +3194,6 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((=big5-cdp	    . #x89F5)	; &CDP-89F5;
-	))
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x516B)	; 八
-      ))
     (=jis-x0208		. #x3862)	; &GT-04233; [24-66]
     (=jis-x0213-1	. #x3862)	; &I-JX1-3862; [24-66]
     (=gt		. 04233)	; &I-GT-04233;

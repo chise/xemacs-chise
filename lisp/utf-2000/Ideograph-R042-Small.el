@@ -274,6 +274,27 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL SMALL TWO")
+      (=ucs		  . #x2E8D)	; ⺍
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=gt-k		. 02290)	; &GT-K02290;
+    (=gt-pj-k1		. #x3226)	; &GT-K02290; [18-06]
+    (<-simplified@component/connect-below
+     ((=ucs		  . #x8207)	; 與
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B5D)	; 𡭝
