@@ -2327,19 +2327,23 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((=jis-x0208	  . #x4C67)	; &GT-55423; [44-71]
-      (=ks-x1001	  . #x5A26)	; &I-K0-5A26; [58-06]
-      (=cns11643-1	  . #x4F5C)	; &I-C1-4F5C; [47-60]
-      (=jis-x0213-1	  . #x4C67)	; &I-JX1-4C67; [44-71]
-      )
-     ((=ucs		  . #x4E32)	; 串
+    (=ucs		. #x2B522)	; 𫔢
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=jis-x0208	    . #x4C67)	; &GT-55423; [44-71]
+	(=ks-x1001	    . #x5A26)	; &I-K0-5A26; [58-06]
+	(=cns11643-1	    . #x4F5C)	; &I-C1-4F5C; [47-60]
+	(=jis-x0213-1	    . #x4C67)	; &I-JX1-4C67; [44-71]
+	)
+       ((=ucs		    . #x4E32)	; 串
+	))
+      (sources		  bos=A2003-10922-00012)
+      (=ruimoku-v6	  . #xE01D)	; &RUI6-E01D;
+      (=ucs@iso		  . #x2B522)	; &RUI6-E01D;
       ))
-    (sources		bos=A2003-10922-00012)
-    (=ruimoku-v6	. #xE01D)	; &RUI6-E01D;
     ))
 (define-char
   '((=>ucs		. #x95B5)	; 閵
