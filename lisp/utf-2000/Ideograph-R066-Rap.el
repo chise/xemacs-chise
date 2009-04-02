@@ -243,10 +243,16 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x653C)	; 攼
-    (=jis-x0212		. #x4148)	; &I-JSP-4148; [33-40]
-    (=cns11643-4	. #x243E)	; &I-C4-243E; [04-30]
-    (=daikanwa		. 13122)	; &I-M-13122;
-    (=jef-china3	. #x50C5)	; &I-JC3-50C5;
+    (->subsumptive
+     ((=jis-x0212	  . #x4148)	; &M-13122; [33-40]
+      (=daikanwa	  . 13122)	; &I-M-13122;
+      (=ucs@unicode	  . #x653C)	; &M-13122;
+      )
+     ((=hanziku-4	  . #xD4B6)	; &HZK04-D4B6;
+      )
+     ((=cns11643-4	  . #x243E)	; &C4-243E; [04-30]
+      (=jef-china3	  . #x50C5)	; &I-JC3-50C5;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
