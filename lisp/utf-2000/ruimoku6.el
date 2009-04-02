@@ -340,10 +340,7 @@
     (=ruimoku-v6	. #xE01C)	; &I-RUI6-E01C;
     ))
 (define-char
-  '((ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 7)
-    (total-strokes	 . 15)
-    (ideographic-structure
+  '((ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
@@ -356,6 +353,7 @@
       ))
     (sources		bos=A2003-10922-00012)
     (=ruimoku-v6	. #xE01D)	; &RUI6-E01D;
+    (=ucs@iso		. #x2B522)	; &RUI6-E01D;
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
