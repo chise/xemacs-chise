@@ -1,3 +1,20 @@
+2009-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qto_iso_ir): New variable for XEmacs CHISE.
+	(make_charset): Add new argument `iso_ir'.
+	(Fmake_charset): Add new property `=>iso-ir' in XEmacs CHISE.
+	(Fmake_reverse_direction_charset): Copy CHARSET_ISO_IR(cs) in
+	XEmacs CHISE.
+	(Fcharset_property): Support `iso-ir' in XEmacs CHISE.
+	(syms_of_mule_charset): Add new builtin symbol `=>iso-ir' in
+	XEmacs CHISE.
+	(complex_vars_of_mule_charset): Specify argument `iso_ir' of
+	function `make_charset'.
+
+	* char-ucs.h (LEADING_BYTE_*): Enclose negative value with ( ).
+	(struct Lisp_Charset): Add new member `iso_ir'.
+	(CHARSET_ISO_IR): New macro.
+
 2009-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fdecode_char): Fix problem when decoding GR
