@@ -1634,6 +1634,8 @@ character set.  Recognized properties are:
 		is passed the octets of the character, with the high
 		bit cleared and set depending upon whether the value
 		of the 'graphic property is 0 or 1.
+'iso-ir		ISO-IR number (for representative coded-charset).
+'=>iso-ir	[UTF-2000 only] Corresponding ISO-IR number.
 'mother		[UTF-2000 only] Base coded-charset.
 'code-min	[UTF-2000 only] Minimum code-point of a base coded-charset.
 'code-max	[UTF-2000 only] Maximum code-point of a base coded-charset.
@@ -2086,7 +2088,8 @@ Recognized properties are those listed in `make-charset', as well as
       return CHARSETP (obj) ? XCHARSET_NAME (obj) : obj;
     }
 #ifdef UTF2000
-  if (EQ (prop, Qiso_ir))
+  if (EQ (prop, Qiso_ir)||
+      EQ (prop, Qto_iso_ir))
     {
       if ( CHARSET_ISO_IR (cs) > 0 )
 	return make_int (CHARSET_ISO_IR (cs));
