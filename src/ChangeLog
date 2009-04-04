@@ -1,3 +1,9 @@
+2009-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fmake_charset): Add DOC-string of 'iso-ir and
+	'=>iso-ir.
+	(Fcharset_property): Regard '=>iso-ir as same as `iso_ir.
+
 2009-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Qto_iso_ir): New variable for XEmacs CHISE.
