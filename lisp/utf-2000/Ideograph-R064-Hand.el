@@ -14831,7 +14831,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x655D)	; &G0-3156;
+     ((=gb2312		  . #x3156)	; &G0-3156; [17-54]
       )
      ((=ucs		  . #x624B)	; 手
       ))
