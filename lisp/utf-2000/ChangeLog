@@ -1,3 +1,7 @@
+2009-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (C2-4C51): Add `=ucs@cns' for CU+7AA8.
+
 2009-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el, Ideograph-R169-Gate.el (RUI6-E01D): Map to
