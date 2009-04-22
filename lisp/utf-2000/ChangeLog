@@ -1,3 +1,9 @@
+2009-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U-0002422B): Use `->subsumptive'.
+	(U+7103): Use `->subsumptive'.
+	(U+71D0): Add `sound@ja/on'.
+
 2009-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R116-Cave.el (C2-4C51): Add `=ucs@cns' for CU+7AA8.
