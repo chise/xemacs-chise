@@ -1,3 +1,27 @@
+2009-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+845B): J97-336B.
+	(J78-336B): Unify JX3-336B.
+	(J90-336B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' to
+	separate JX3-336B; unify JC3-61B5; add `=ucs@jis/1990' and
+	`=ucs@jis/2000' for J{90|00}U+845B.
+	(U+845C): Use `->denotational' and `->subsumptive'.
+	(U+845D): Use `->denotational'.
+	(U+85DD): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R076-Lack.el (C2-437B): Add `=ucs@cns' for CU+6B46.
+	(J0-5D3C): Separate S2-3932.
+	(G0-502A): Unify S-3932.
+	(S-3933): New variant of U+6B47.
+
+	* Ideograph-R075-Tree.el (U+67E9): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (M-05311): Map to U-00021394.
+	(U-00021395): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on'.
+	(U+5840): Use `->denotational' and `->subsumptive'.
+	(U+FA39): Use `<-denotational' for U+5840.
+
 2009-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el (U-0002422B): Use `->subsumptive'.
