@@ -4299,16 +4299,33 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x67E9)	; 柩
-    (=jis-x0208		. #x5B4D)	; &I-J90-5B4D; [59-45]
-    (=gb2312		. #x6851)	; &I-G0-6851; [72-49]
-    (=ks-x1001		. #x4F2F)	; &I-K0-4F2F; [47-15]
-    (=cns11643-1	. #x5161)	; &I-C1-5161; [49-65]
-    (=jis-x0213-1	. #x5B4D)	; &I-JX1-5B4D; [59-45]
-    (=big5		. #xAC5E)	; &I-B-AC5E;
-    (=gt		. 18571)	; &I-GT-18571;
-    (=gt-pj-1		. #x5B4D)	; &I-GT-18571; [59-45]
-    (=daikanwa		. 14650)	; &I-M-14650;
-    (=shinjigen@rev	.  3539)	; 柩
+    (->subsumptive
+     ((=jis-x0208	  . #x5B4D)	; &GT-18571; [59-45]
+      (=ks-x1001	  . #x4F2F)	; &I-K0-4F2F; [47-15]
+      (=cns11643-1	  . #x5161)	; &I-C1-5161; [49-65]
+      (=jis-x0213-1	  . #x5B4D)	; &I-JX1-5B4D; [59-45]
+      (=big5		  . #xAC5E)	; &I-B-AC5E;
+      (=gt		  . 18571)	; &I-GT-18571;
+      (=gt-pj-1		  . #x5B4D)	; &I-GT-18571; [59-45]
+      (=daikanwa	  . 14650)	; &I-M-14650;
+      (=shinjigen	  .  3539)	; &GT-18571;
+      (=ucs@jis		  . #x67E9)	; &GT-18571;
+      (<-same
+       ((=jis-x0212	    . #x3425)	; &M-02597; [20-05]
+	(=cns11643-4	    . #x2165)	; &I-C4-2165; [01-69]
+	(=daikanwa	    . 02597)	; &I-M-02597;
+	))
+      (<-same*sources
+       shuowen shuowen-zhu daikanwa)
+      (->Zhouwen
+       ((=daikanwa	    . 02671)	; &M-02671;
+	))
+      (->Zhouwen*sources
+       shuowen daikanwa)
+      )
+     ((=gb2312		  . #x6851)	; &G0-6851; [72-49]
+      (=ucs@unicode	  . #x67E9)	; &G0-6851;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
