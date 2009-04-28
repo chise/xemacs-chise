@@ -1,3 +1,8 @@
+2009-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-0002092C): Omit
+	`=>daikanwa'.
+
 2009-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U-00020F6B): Use `->subsumptive'.
