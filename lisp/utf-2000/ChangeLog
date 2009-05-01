@@ -1,3 +1,13 @@
+2009-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002092C): Omit
+	`=>daikanwa'.
+	(U+531B): Use `->subsumptive'.
+	(U-00020942): Use `->subsumptive'.
+	(U+532A): Use `->subsumptive'.
+	(U+3536): Use `->denotational' and `->subsumptive'.
+	(U-0002096C): Use `->denotational' and `->subsumptive'.
+
 2009-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U-0002092C): Omit
