@@ -1,3 +1,15 @@
+2009-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+77BD): Unify S1-5365.
+	(U+77BE): Use `->subsumptive'.
+	(U+77BF): Use `->subsumptive'.
+	(U-000252E0): Use `->subsumptive'.
+
+2009-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5337): Use `->subsumptive'.
+	(M-02667): Unify U-00020968 and H1-B6BB.
+
 2009-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R022-Right-Open-Box.el (U+531F): Use `->subsumptive'.
