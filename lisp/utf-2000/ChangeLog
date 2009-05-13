@@ -1,5 +1,14 @@
 2009-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R038-Woman.el (U+59FC): Use `->subsumptive'.
+	(U+59FD): Likewise.
+	(U+59FE): Likewise.
+	(U-0002170B): Use `->subsumptive'.
+	(U+5A4F): Use `->subsumptive'.
+	(U+5A50): Likewise.
+	(U+5A51): Likewise.
+	(U+5A52): Likewise.
+
 	* Ideograph-R109-Eye.el (U+77BD): Unify S1-5365.
 	(U+77BE): Use `->subsumptive'.
 	(U+77BF): Use `->subsumptive'.
