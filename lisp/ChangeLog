@@ -1,3 +1,27 @@
+2009-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1978): Specify `=>iso-ir' in
+	XEmacs CHISE.
+	(=jis-x0208@1978/-4pr): Likewise.
+	(=jis-x0208@1978/4-pr): Likewise.
+	(=jis-x0213-1): Likewise.
+	(=ucs@iso): Likewise.
+	(=ucs@unicode): Likewise.
+	(=ucs@gb): Likewise.
+	(=ucs@gb/fw): Likewise.
+	(=ucs@cns): Likewise.
+	(=ucs@cns/fw): Likewise.
+	(=ucs@jis): Likewise.
+	(=ucs@jis/fw): Likewise.
+	(=ucs@jis/1990): Likewise.
+	(=ucs@jis/2000): Likewise.
+	(=ucs@jis/2004): Likewise.
+	(=ucs@JP): Likewise.
+	(=ucs@ks): Likewise.
+	(=ucs@big5): Likewise.
+	(=ucs@big5/cns11643): Likewise.
+	(=ucs@cns11643): Likewise.
+
 2008-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
