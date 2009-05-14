@@ -2,7 +2,8 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000,2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
+;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
+;;   2009 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -34,6 +35,7 @@
 	      dimension 2
 	      chars 94
 	      mother =jis-x0208
+	      =>iso-ir 42
 	      final ?@
 	      graphic 0
 	      partial t))
@@ -44,6 +46,7 @@
 	      dimension 2
 	      chars 94
 	      mother =jis-x0208@1978
+	      =>iso-ir 42
 	      final ?@
 	      graphic 0
 	      partial t))
@@ -64,7 +67,8 @@
 	      dimension 2
 	      chars 94
 	      mother =jis-x0208@1978
-              ;; final ?@
+              =>iso-ir 42
+	      ;; final ?@
 	      graphic 0
 	      partial t))
   (define-charset-alias '=jis-x0208@1978/i1 '=jis-x0208@1978/1pr)
@@ -195,6 +199,7 @@
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
+	      =>iso-ir 228
 	      final ?O
 	      graphic 0
 	      partial t))
@@ -581,6 +586,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
@@ -590,6 +596,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@iso))
   (make-charset '=ucs@gb
 		"ISO/IEC 10646 for GB"
@@ -599,6 +606,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-gb '=ucs@gb)
   (make-charset '=ucs@gb/fw
@@ -609,6 +617,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@gb))
   (make-charset '=ucs-bmp@gb
 		"ISO/IEC 10646 BMP for GB"
@@ -629,6 +638,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset '=ucs@cns/fw
@@ -639,6 +649,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@cns))
   (make-charset '=ucs-bmp@cns
 		"ISO/IEC 10646 BMP for CNS"
@@ -659,6 +670,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
   (make-charset '=ucs@jis/fw
@@ -669,6 +681,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@jis))
   (make-charset '=ucs-bmp@jis
 		"ISO/IEC 10646 BMP for JIS"
@@ -689,6 +702,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	ucs-jis))
   (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
   (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
@@ -700,6 +714,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	ucs-jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
@@ -711,6 +726,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	ucs-jis))
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
@@ -720,6 +736,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@jis/2004))
   (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
@@ -730,6 +747,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs-bmp@ks
@@ -751,6 +769,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   (make-charset '=ucs@big5/cns11643
@@ -761,6 +780,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@big5))
   (make-charset '=ucs@cns11643
 		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
@@ -770,6 +790,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
+		  =>iso-ir	177
 		  mother	=ucs@cns))
   
   (make-charset
