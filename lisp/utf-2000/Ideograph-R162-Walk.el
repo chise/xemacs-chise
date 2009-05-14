@@ -935,9 +935,9 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=jis-x0208@1978*sources jis-x0208@1978/i4- jis-x0208@1997)
-    (=jis-x0213-1@2004	. #x4B78)	; &M-38724; [43-88]
+    (=jis-x0208@1978/4-pr*sources jis-x0208@1978/4-pr jis-x0208@1997)
     (=jis-x0208@1978/4-pr . #x4B78)	; &M-38724; [43-88]
+    (=jis-x0213-1@2004	. #x4B78)	; &M-38724; [43-88]
     (=daikanwa		. 38724)	; &I-M-38724;
     ))
 (define-char
@@ -7528,9 +7528,9 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=jis-x0208@1978/4-pr . #x3029)	; &M-38901; [16-09]
     (=ks-x1001		. #x5C71)	; &M-38901; [60-81]
     (=jis-x0213-1@2004	. #x3029)	; &I-JX3-3029; [16-09]
-    (=jis-x0208@1978/4-pr . #x3029)	; &M-38901; [16-09]
     (=daikanwa		. 38901)	; &I-M-38901;
     (=jef-china3	. #x67CA)	; &I-JC3-67CA;
     (<-synonyms
