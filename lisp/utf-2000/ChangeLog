@@ -1,3 +1,11 @@
+2009-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (JX3-4B78): Use
+	`=jis-x0208@1978/4-pr*sources' instead of
+	`=jis-x0208@1978*sources'.
+
+	* Ideograph-R086-Fire.el (J90-5F73): Omit `jisx0208-difference'.
+
 2009-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-attribute-name<): Use `iso-ir' property of
