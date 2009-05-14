@@ -2044,9 +2044,9 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=jis-x0208@1978/4-pr . #x3032)	; &JX3-3032; [16-18]
     (=ks-x1001		. #x7B58)	; &JX3-3032; [91-56]
     (=jis-x0213-1@2004	. #x3032)	; &I-JX3-3032; [16-18]
-    (=jis-x0208@1978/4-pr . #x3032)	; &JX3-3032; [16-18]
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
