@@ -1,3 +1,8 @@
+2009-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Use `iso-ir' property of
+	coded-charsets.
+
 2009-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+59FC): Use `->subsumptive'.
