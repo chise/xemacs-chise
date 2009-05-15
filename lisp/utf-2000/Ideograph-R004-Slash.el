@@ -524,6 +524,7 @@
     (sound@ja/kun/name	"yuki")
     (sound@ja/on	"si")
     (=ucs		. #x4E4B)	; 之
+    (=big5		. #xA4A7)	; &I-B-A4A7;
     (->subsumptive
      ((ideographic-strokes@daikanwa . 3)
       (total-strokes@daikanwa	    . 4)
@@ -534,7 +535,6 @@
       (=jis-x0208	  . #x4737)	; &GT-00166; [39-23]
       (=ks-x1001	  . #x717D)	; &I-K0-717D; [81-93]
       (=jis-x0213-1	  . #x4737)	; &I-JX1-4737; [39-23]
-      (=big5		  . #xA4A7)	; &I-B-A4A7;
       (=gt		  . 00166)	; &I-GT-00166;
       (=gt-k		  . 00200)	; &I-GT-K00200;
       (=gt-pj-1		  . #x4737)	; &I-GT-00166; [39-23]
@@ -542,7 +542,6 @@
       (=shinjigen	  .  0049)	; &GT-00166;
       (=ucs@jis		  . #x4E4B)	; &GT-00166;
       (=ucs@ks		  . #x4E4B)	; &GT-00166;
-      (=ucs@big5	  . #x4E4B)	; &GT-00166;
       )
      ((ideographic-strokes . 3)
       (total-strokes	   . 4)
