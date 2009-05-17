@@ -775,6 +775,7 @@
     (sound@ja/kun	"tobo+sii")
     (sound@ja/on/go	"bAHu")
     (=ucs		. #x4E4F)	; 乏
+    (=big5		. #xA546)	; &I-B-A546;
     (->subsumptive
      ((ideographic-strokes@gt . 3)
       (total-strokes@gt	      . 4)
@@ -794,7 +795,6 @@
       (=jis-x0208	  . #x4B33)	; &GT-00175; [43-19]
       (=ks-x1001	  . #x7939)	; &I-K0-7939; [89-25]
       (=jis-x0213-1	  . #x4B33)	; &I-JX1-4B33; [43-19]
-      (=big5		  . #xA546)	; &I-B-A546;
       (=gt		  . 00175)	; &I-GT-00175;
       (=gt-k		  . 00491)	; &I-GT-K00491;
       (=gt-pj-1		  . #x4B33)	; &I-GT-00175; [43-19]
@@ -803,7 +803,6 @@
       (=shinjigen@rev	  .  0050)	; &GT-00175;
       (=ucs@jis		  . #x4E4F)	; &GT-00175;
       (=ucs@ks		  . #x4E4F)	; &GT-00175;
-      (=ucs@big5	  . #x4E4F)	; &GT-00175;
       )
      ((hanyu-dazidian	  1 34 3)
       (ideographic-structure
@@ -812,7 +811,8 @@
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	)
-       ((=ucs		    . #x4E4B)	; 之
+       ((=gb2312	    . #x562E)	; &C1-4466; [54-14]
+	(=cns11643-1	    . #x4466)	; &I-C1-4466; [36-70]
 	))
       (=gb2312		  . #x3726)	; &C1-4566; [23-06]
       (=cns11643-1	  . #x4566)	; &I-C1-4566; [37-70]
