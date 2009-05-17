@@ -1,3 +1,7 @@
+2009-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (B-A546): Moved to U+4E4F.
+
 2009-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (B-A4A7): Moved to U+4E4B.
