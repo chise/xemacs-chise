@@ -1,3 +1,9 @@
+2009-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (J0-6348): Unify S1-5640.
+	(U-000257D4): Use `->subsumptive'; integrate M-25128.
+	(U-000257D5): Use `->subsumptive'; integrate M-25129.
+
 2009-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (B-A546): Moved to U+4E4F.
