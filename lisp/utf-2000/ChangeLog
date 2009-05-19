@@ -1,5 +1,7 @@
 2009-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R113-Spirit.el (J0-6349): Add `<-vulgar' for J0-6348.
+
 	* Ideograph-R115-Grain.el (J0-6348): Unify S1-5640.
 	(U-000257D4): Use `->subsumptive'; integrate M-25128.
 	(U-000257D5): Use `->subsumptive'; integrate M-25129.
