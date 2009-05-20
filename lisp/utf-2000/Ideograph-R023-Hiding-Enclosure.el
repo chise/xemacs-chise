@@ -1,7 +1,6 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>daikanwa		. 02596)	; &CDP-87D4;
-    (ideographic-radical@ucs . 22)	; ⼕
+  '((ideographic-radical@ucs . 22)	; ⼕
     (ideographic-radical@ucs*sources
      daikanwa ucs)
     (ideographic-radical@cns . 23)	; ⼖

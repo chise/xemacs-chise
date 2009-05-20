@@ -1412,7 +1412,7 @@
     (->subsumptive
      ((=daikanwa	  . 47690)	; &M-47690;
       (->synonyms@daikanwa
-       ((=daikanwa	    . 19417)	; &I-M-19417;
+       ((=daikanwa	    . 19417)	; &M-19417;
 	))
       (->synonyms@daikanwa*sources
        daikanwa)

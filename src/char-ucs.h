@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2008 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2008,2009 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -64,13 +64,13 @@ Lisp_Object remove_char_ccs (Lisp_Object character, Lisp_Object ccs);
 typedef short Charset_ID;
 
 /* ISO/IEC 10646 */
-#define LEADING_BYTE_UCS		-177
+#define LEADING_BYTE_UCS		(-177)
 
 /* represent normal 80-9F */
-#define LEADING_BYTE_CONTROL_1		-77
+#define LEADING_BYTE_CONTROL_1		(-77)
 
 /* ISO/IEC 10646 BMP */
-#define LEADING_BYTE_UCS_BMP		-176
+#define LEADING_BYTE_UCS_BMP		(-176)
 
 #define LEADING_BYTE_SYSTEM_CHAR_ID	0
 
@@ -110,75 +110,75 @@ typedef short Charset_ID;
 
 
 /* ISO 646 IRV */
-#define LEADING_BYTE_ASCII		  -6 /* (CHARSET_ID_OFFSET_94 + 'B') */
+#define LEADING_BYTE_ASCII		(  -6) /* (CHARSET_ID_OFFSET_94 + 'B') */
 
 /* Right half of JIS X0201-1976 */
-#define LEADING_BYTE_KATAKANA_JISX0201	 -13 /* (CHARSET_ID_OFFSET_94 + 'I') */
+#define LEADING_BYTE_KATAKANA_JISX0201	( -13) /* (CHARSET_ID_OFFSET_94 + 'I') */
 
 /* Left  half of JIS X0201-1976 */
-#define LEADING_BYTE_LATIN_JISX0201	 -14 /* (CHARSET_ID_OFFSET_94 + 'J') */
+#define LEADING_BYTE_LATIN_JISX0201	( -14) /* (CHARSET_ID_OFFSET_94 + 'J') */
 
 
 /* Right half of ISO 8859-1 */
-#define LEADING_BYTE_LATIN_ISO8859_1	-100 /* (CHARSET_ID_OFFSET_96 + 'A') */
+#define LEADING_BYTE_LATIN_ISO8859_1	(-100) /* (CHARSET_ID_OFFSET_96 + 'A') */
 
 /* Right half of ISO 8859-2 */
-#define LEADING_BYTE_LATIN_ISO8859_2	-101 /* (CHARSET_ID_OFFSET_96 + 'B') */
+#define LEADING_BYTE_LATIN_ISO8859_2	(-101) /* (CHARSET_ID_OFFSET_96 + 'B') */
 
 /* Right half of ISO 8859-3 */
-#define LEADING_BYTE_LATIN_ISO8859_3	-109 /* (CHARSET_ID_OFFSET_96 + 'C') */
+#define LEADING_BYTE_LATIN_ISO8859_3	(-109) /* (CHARSET_ID_OFFSET_96 + 'C') */
 
 /* Right half of ISO 8859-4 */
-#define LEADING_BYTE_LATIN_ISO8859_4	-110 /* (CHARSET_ID_OFFSET_96 + 'D') */
+#define LEADING_BYTE_LATIN_ISO8859_4	(-110) /* (CHARSET_ID_OFFSET_96 + 'D') */
 
 /* Right half of ISO 8859-7 */
-#define LEADING_BYTE_GREEK_ISO8859_7	-126 /* (CHARSET_ID_OFFSET_96 + 'F') */
+#define LEADING_BYTE_GREEK_ISO8859_7	(-126) /* (CHARSET_ID_OFFSET_96 + 'F') */
 
 /* Right half of ISO 8859-6 */
-#define LEADING_BYTE_ARABIC_ISO8859_6	-127 /* (CHARSET_ID_OFFSET_96 + 'G') */
+#define LEADING_BYTE_ARABIC_ISO8859_6	(-127) /* (CHARSET_ID_OFFSET_96 + 'G') */
 
 /* Right half of ISO 8859-8 */
-#define LEADING_BYTE_HEBREW_ISO8859_8	-138 /* (CHARSET_ID_OFFSET_96 + 'H') */
+#define LEADING_BYTE_HEBREW_ISO8859_8	(-138) /* (CHARSET_ID_OFFSET_96 + 'H') */
 
 /* Right half of ISO 8859-5 */
-#define LEADING_BYTE_CYRILLIC_ISO8859_5	-144 /* (CHARSET_ID_OFFSET_96 + 'L') */
+#define LEADING_BYTE_CYRILLIC_ISO8859_5	(-144) /* (CHARSET_ID_OFFSET_96 + 'L') */
 
 /* Right half of ISO 8859-9 */
-#define LEADING_BYTE_LATIN_ISO8859_9	-148 /* (CHARSET_ID_OFFSET_96 + 'M') */
+#define LEADING_BYTE_LATIN_ISO8859_9	(-148) /* (CHARSET_ID_OFFSET_96 + 'M') */
 
 /* TIS620-2533 */
-#define LEADING_BYTE_THAI_TIS620	-166 /* (CHARSET_ID_OFFSET_96 + 'T') */
+#define LEADING_BYTE_THAI_TIS620	(-166) /* (CHARSET_ID_OFFSET_96 + 'T') */
 
 /* Right-hand Part of the VSCII-2 (TCVN 5712:1983) */
-#define LEADING_BYTE_LATIN_TCVN5712	-180 /* F = 5/10 0x5A `Z' */
+#define LEADING_BYTE_LATIN_TCVN5712	(-180) /* F = 5/10 0x5A `Z' */
 
 
 /* Japanese JIS X0208-1978	2/4 2/{(8),9,10,11} 4/0 (@) */
-#define LEADING_BYTE_JAPANESE_JISX0208_1978	 -42
+#define LEADING_BYTE_JAPANESE_JISX0208_1978	( -42)
 
 /* Chinese Hanzi GB2312-1980	2/4 2/{(8),9,10,11} 4/1 (A) */
-#define LEADING_BYTE_CHINESE_GB2312		 -58
+#define LEADING_BYTE_CHINESE_GB2312		( -58)
 
 /* Japanese JIS X0208-1983	2/4 2/{(8),9,10,11} 4/2 (B) */
-#define LEADING_BYTE_JAPANESE_JISX0208		 -87
+#define LEADING_BYTE_JAPANESE_JISX0208		( -87)
 
 /* Japanese JIS X0208-1990	2/4 2/{(8),9,10,11} 4/2 (B) */
-#define LEADING_BYTE_JAPANESE_JISX0208_1990	-168
+#define LEADING_BYTE_JAPANESE_JISX0208_1990	(-168)
 
 /* Hangul KS C5601-1987		2/4 2/{8,9,10,11} 4/3 (C) */
-#define LEADING_BYTE_KOREAN_KSC5601		-149
+#define LEADING_BYTE_KOREAN_KSC5601		(-149)
 
 /* Japanese JIS X0212-1990	2/4 2/{8,9,10,11} 4/4 (D) */
-#define LEADING_BYTE_JAPANESE_JISX0212		-159
+#define LEADING_BYTE_JAPANESE_JISX0212		(-159)
 
 /* CCITT Extended GB		2/4 2/{8,9,10,11} 4/5 (E) */
-#define LEADING_BYTE_CHINESE_CCITT_GB		-165
+#define LEADING_BYTE_CHINESE_CCITT_GB		(-165)
 
 /* Chinese CNS11643 Set 1	2/4 2/{8,9,10,11} 4/7 (G) */
-#define LEADING_BYTE_CHINESE_CNS11643_1		-171
+#define LEADING_BYTE_CHINESE_CNS11643_1		(-171)
 
 /* Chinese CNS11643 Set 2	2/4 2/{8,9,10,11} 4/8 (H) */
-#define LEADING_BYTE_CHINESE_CNS11643_2		-172
+#define LEADING_BYTE_CHINESE_CNS11643_2		(-172)
 
 /* Chinese CNS11643 Set 3	2/4 2/{8,9,10,11} 4/9 (I) */
 #define LEADING_BYTE_CHINESE_CNS11643_3		-183
@@ -222,6 +222,8 @@ struct Lisp_Charset
   Lisp_Object reverse_direction_charset;
 
   Lisp_Object ccl_program;
+
+  int iso_ir;
 
   /* Final byte of this character set in ISO2022 designating escape sequence */
   Bufbyte final;
@@ -281,6 +283,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_COLUMNS(cs)	 ((cs)->columns)
 #define CHARSET_GRAPHIC(cs)	 ((cs)->graphic)
 #define CHARSET_DIRECTION(cs)	 ((cs)->direction)
+#define CHARSET_ISO_IR(cs)	 ((cs)->iso_ir)
 #define CHARSET_FINAL(cs)	 ((cs)->final)
 #define CHARSET_DOC_STRING(cs)	 ((cs)->doc_string)
 #define CHARSET_REGISTRY(cs)	 ((cs)->registry)

@@ -2544,7 +2544,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@unicode	    . #x7A1F)	; &B-B85B;
+       ((=ucs@unicode	    . #x7A1F)	; &UU+7A1F;
 	))
       (=ucs@unicode	  . #x51DC)	; &UU+51DC;
       )

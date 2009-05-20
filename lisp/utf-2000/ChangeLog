@@ -1,3 +1,119 @@
+2009-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (J0-6349): Add `<-vulgar' for J0-6348.
+
+	* Ideograph-R115-Grain.el (J0-6348): Unify S1-5640.
+	(U-000257D4): Use `->subsumptive'; integrate M-25128.
+	(U-000257D5): Use `->subsumptive'; integrate M-25129.
+
+2009-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (B-A546): Moved to U+4E4F.
+
+2009-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (B-A4A7): Moved to U+4E4B.
+
+2009-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (JX3-4B78): Use
+	`=jis-x0208@1978/4-pr*sources' instead of
+	`=jis-x0208@1978*sources'.
+
+	* Ideograph-R086-Fire.el (J90-5F73): Omit `jisx0208-difference'.
+
+2009-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Use `iso-ir' property of
+	coded-charsets.
+
+2009-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+59FC): Use `->subsumptive'.
+	(U+59FD): Likewise.
+	(U+59FE): Likewise.
+	(U-0002170B): Use `->subsumptive'.
+	(U+5A4F): Use `->subsumptive'.
+	(U+5A50): Likewise.
+	(U+5A51): Likewise.
+	(U+5A52): Likewise.
+
+	* Ideograph-R109-Eye.el (U+77BD): Unify S1-5365.
+	(U+77BE): Use `->subsumptive'.
+	(U+77BF): Use `->subsumptive'.
+	(U-000252E0): Use `->subsumptive'.
+
+2009-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5337): Use `->subsumptive'.
+	(M-02667): Unify U-00020968 and H1-B6BB.
+
+2009-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+531F): Use `->subsumptive'.
+
+2009-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002092C): Omit
+	`=>daikanwa'.
+	(U+531B): Use `->subsumptive'.
+	(U-00020942): Use `->subsumptive'.
+	(U+532A): Use `->subsumptive'.
+	(U+3536): Use `->denotational' and `->subsumptive'.
+	(U-0002096C): Use `->denotational' and `->subsumptive'.
+
+2009-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-0002092C): Omit
+	`=>daikanwa'.
+
+2009-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020F6B): Use `->subsumptive'.
+	(U+35FF): Use `->subsumptive'; add `sound@ja/on/{kan|go}'.
+	(U+5676): Use `->denotational' instead of `->subsumptive'.
+	(U+5677): Use `->subsumptive'; add `sound@ja/on'.
+	(U+567E): Use `->subsumptive'.
+	(U-00021043): Use `->subsumptive'.
+	(U+567F): Add `sound@ja/on'.
+	(U-00021157): Use `->denotational' and `->subsumptive'.
+	(U-00021158): Use `->denotational'.
+
+	* Ideograph-R140-Grass.el (U+845B): J97-336B.
+	(J78-336B): Unify JX3-336B.
+	(J90-336B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' to
+	separate JX3-336B; unify JC3-61B5; add `=ucs@jis/1990' and
+	`=ucs@jis/2000' for J{90|00}U+845B.
+	(U+845C): Use `->denotational' and `->subsumptive'.
+	(U+845D): Use `->denotational'.
+	(U+85DD): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R076-Lack.el (C2-437B): Add `=ucs@cns' for CU+6B46.
+	(J0-5D3C): Separate S2-3932.
+	(G0-502A): Unify S-3932.
+	(S-3933): New variant of U+6B47.
+
+	* Ideograph-R075-Tree.el (U+67E9): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (M-05311): Map to U-00021394.
+	(U-00021395): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on'.
+	(U+5840): Use `->denotational' and `->subsumptive'.
+	(U+FA39): Use `<-denotational' for U+5840.
+
+2009-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U-0002422B): Use `->subsumptive'.
+	(U+7103): Use `->subsumptive'.
+	(U+71D0): Add `sound@ja/on'.
+
+2009-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (C2-4C51): Add `=ucs@cns' for CU+7AA8.
+
+	* README.en (Character Reference): Add `shuowen-changjian' to
+	`:sources'.
+
 2009-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el, Ideograph-R169-Gate.el (RUI6-E01D): Map to

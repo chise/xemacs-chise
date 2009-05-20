@@ -561,6 +561,7 @@
     (sound@ja/kun/name	"yuki")
     (sound@ja/on	"si")
     (=ucs		. #x4E4B)	; 之
+    (=big5		. #xA4A7)	; &I-B-A4A7;
     (->subsumptive
      ((ideographic-strokes@daikanwa . 3)
       (total-strokes@daikanwa	    . 4)
@@ -571,7 +572,6 @@
       (=jis-x0208	  . #x4737)	; &GT-00166; [39-23]
       (=ks-x1001	  . #x717D)	; &I-K0-717D; [81-93]
       (=jis-x0213-1	  . #x4737)	; &I-JX1-4737; [39-23]
-      (=big5		  . #xA4A7)	; &I-B-A4A7;
       (=gt		  . 00166)	; &I-GT-00166;
       (=gt-k		  . 00200)	; &I-GT-K00200;
       (=gt-pj-1		  . #x4737)	; &I-GT-00166; [39-23]
@@ -579,7 +579,6 @@
       (=shinjigen	  .  0049)	; &GT-00166;
       (=ucs@jis		  . #x4E4B)	; &GT-00166;
       (=ucs@ks		  . #x4E4B)	; &GT-00166;
-      (=ucs@big5	  . #x4E4B)	; &GT-00166;
       )
      ((mojikyo		  . 000125)	; &MCS-6000007D;
       )
@@ -821,6 +820,7 @@
     (sound@ja/kun	"tobo+sii")
     (sound@ja/on/go	"bAHu")
     (=ucs		. #x4E4F)	; 乏
+    (=big5		. #xA546)	; &I-B-A546;
     (->subsumptive
      ((ideographic-strokes@gt . 3)
       (total-strokes@gt	      . 4)
@@ -840,7 +840,6 @@
       (=jis-x0208	  . #x4B33)	; &GT-00175; [43-19]
       (=ks-x1001	  . #x7939)	; &I-K0-7939; [89-25]
       (=jis-x0213-1	  . #x4B33)	; &I-JX1-4B33; [43-19]
-      (=big5		  . #xA546)	; &I-B-A546;
       (=gt		  . 00175)	; &I-GT-00175;
       (=gt-k		  . 00491)	; &I-GT-K00491;
       (=gt-pj-1		  . #x4B33)	; &I-GT-00175; [43-19]
@@ -849,7 +848,6 @@
       (=shinjigen@rev	  .  0050)	; &GT-00175;
       (=ucs@jis		  . #x4E4F)	; &GT-00175;
       (=ucs@ks		  . #x4E4F)	; &GT-00175;
-      (=ucs@big5	  . #x4E4F)	; &GT-00175;
       )
      ((mojikyo		  . 000133)	; &MCS-60000085;
       )
@@ -860,7 +858,8 @@
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	)
-       ((=ucs		    . #x4E4B)	; 之
+       ((=gb2312	    . #x562E)	; &C1-4466; [54-14]
+	(=cns11643-1	    . #x4466)	; &I-C1-4466; [36-70]
 	))
       (=gb2312		  . #x3726)	; &C1-4566; [23-06]
       (=cns11643-1	  . #x4566)	; &I-C1-4566; [37-70]
