@@ -1,3 +1,9 @@
+2009-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Prefer `=ucs@FOO' as
+	same as =ucs.
+	(char-db-make-char-spec): Add `=ucs@FOO'.
+
 2009-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R113-Spirit.el (J0-6349): Add `<-vulgar' for J0-6348.
