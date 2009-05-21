@@ -216,14 +216,15 @@
      ((name		  . "LATIN CAPITAL LETTER G WITH HOOK")
       (=ucs		  . #x0193)	; Ɠ
       ))
-    (=jis-x0213-1	. #x2B29)	; &JX1-2B29; [11-09]
     (=ucs@jis/fw	. #x0193)	; &JX1-2B29;
+    (=jis-x0213-1	. #x2B29)	; &JX1-2B29; [11-09]
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH HOOK")
       (=ucs		  . #x0193)	; Ɠ
       ))
     (->lowercase
-     ((=jis-x0213-1	  . #x2B28)	; &JX1-2B28; [11-08]
+     ((=ucs@jis/fw	  . #x0260)	; &JX1-2B28;
+      (=jis-x0213-1	  . #x2B28)	; &JX1-2B28; [11-08]
       ))
     ))
 (define-char
@@ -994,16 +995,18 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@jis/fw	. #x01CD)	; &JX1-286F;
     (=jis-x0212		. #x2A26)	; &JX1-286F; [10-06]
     (=jis-x0213-1	. #x286F)	; &I-JX1-286F; [08-79]
     (=jef-china3	. #x88DF)	; &I-JC3-88DF;
-    (=ucs@jis/fw	. #x01CD)	; &JX1-286F;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH CARON")
       (=ucs		  . #x01CD)	; Ǎ
       ))
     (->lowercase
-     ((=gb2312		  . #x2823)	; &JX1-2870; [08-03]
+     ((=ucs@gb/fw	  . #x01CE)	; &JX1-2870;
+      (=ucs@jis/fw	  . #x01CE)	; &JX1-2870;
+      (=gb2312		  . #x2823)	; &JX1-2870; [08-03]
       (=jis-x0212	  . #x2B26)	; &I-JSP-2B26; [11-06]
       (=jis-x0213-1	  . #x2870)	; &I-JX1-2870; [08-80]
       ))
@@ -1038,18 +1041,19 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@gb/fw		. #x01CE)	; &JX1-2870;
+    (=ucs@jis/fw	. #x01CE)	; &JX1-2870;
     (=gb2312		. #x2823)	; &JX1-2870; [08-03]
     (=jis-x0212		. #x2B26)	; &I-JSP-2B26; [11-06]
     (=jis-x0213-1	. #x2870)	; &I-JX1-2870; [08-80]
     (=jef-china3	. #x88EE)	; &I-JC3-88EE;
-    (=ucs@gb/fw		. #x01CE)	; &JX1-2870;
-    (=ucs@jis/fw	. #x01CE)	; &JX1-2870;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH CARON")
       (=ucs		  . #x01CE)	; ǎ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A26)	; &JX1-286F; [10-06]
+     ((=ucs@jis/fw	  . #x01CD)	; &JX1-286F;
+      (=jis-x0212	  . #x2A26)	; &JX1-286F; [10-06]
       (=jis-x0213-1	  . #x286F)	; &I-JX1-286F; [08-79]
       ))
     ))
@@ -1083,15 +1087,17 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@jis/fw	. #x01CF)	; &JSP-2A43;
     (=jis-x0212		. #x2A43)	; &JSP-2A43; [10-35]
     (=jef-china3	. #x88E4)	; &I-JC3-88E4;
-    (=ucs@jis/fw	. #x01CF)	; &JSP-2A43;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH CARON")
       (=ucs		  . #x01CF)	; Ǐ
       ))
     (->lowercase
-     ((=gb2312		  . #x282B)	; &JX1-2871; [08-11]
+     ((=ucs@gb/fw	  . #x01D0)	; &JX1-2871;
+      (=ucs@jis/fw	  . #x01D0)	; &JX1-2871;
+      (=gb2312		  . #x282B)	; &JX1-2871; [08-11]
       (=jis-x0212	  . #x2B43)	; &I-JSP-2B43; [11-35]
       (=jis-x0213-1	  . #x2871)	; &I-JX1-2871; [08-81]
       ))
@@ -1126,17 +1132,18 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@gb/fw		. #x01D0)	; &JX1-2871;
+    (=ucs@jis/fw	. #x01D0)	; &JX1-2871;
     (=gb2312		. #x282B)	; &JX1-2871; [08-11]
     (=jis-x0212		. #x2B43)	; &I-JSP-2B43; [11-35]
     (=jis-x0213-1	. #x2871)	; &I-JX1-2871; [08-81]
-    (=ucs@gb/fw		. #x01D0)	; &JX1-2871;
-    (=ucs@jis/fw	. #x01D0)	; &JX1-2871;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH CARON")
       (=ucs		  . #x01D0)	; ǐ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A43)	; &JSP-2A43; [10-35]
+     ((=ucs@jis/fw	  . #x01CF)	; &JSP-2A43;
+      (=jis-x0212	  . #x2A43)	; &JSP-2A43; [10-35]
       ))
     ))
 (define-char
@@ -1169,16 +1176,18 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@jis/fw	. #x01D1)	; &JX1-2876;
     (=jis-x0212		. #x2A55)	; &JX1-2876; [10-53]
     (=jis-x0213-1	. #x2876)	; &I-JX1-2876; [08-86]
     (=jef-china3	. #x88E8)	; &I-JC3-88E8;
-    (=ucs@jis/fw	. #x01D1)	; &JX1-2876;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH CARON")
       (=ucs		  . #x01D1)	; Ǒ
       ))
     (->lowercase
-     ((=gb2312		  . #x282F)	; &JX1-2877; [08-15]
+     ((=ucs@gb/fw	  . #x01D2)	; &JX1-2877;
+      (=ucs@jis/fw	  . #x01D2)	; &JX1-2877;
+      (=gb2312		  . #x282F)	; &JX1-2877; [08-15]
       (=jis-x0212	  . #x2B55)	; &I-JSP-2B55; [11-53]
       (=jis-x0213-1	  . #x2877)	; &I-JX1-2877; [08-87]
       ))
@@ -1213,18 +1222,19 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@gb/fw		. #x01D2)	; &JX1-2877;
+    (=ucs@jis/fw	. #x01D2)	; &JX1-2877;
     (=gb2312		. #x282F)	; &JX1-2877; [08-15]
     (=jis-x0212		. #x2B55)	; &I-JSP-2B55; [11-53]
     (=jis-x0213-1	. #x2877)	; &I-JX1-2877; [08-87]
     (=jef-china3	. #x88F7)	; &I-JC3-88F7;
-    (=ucs@gb/fw		. #x01D2)	; &JX1-2877;
-    (=ucs@jis/fw	. #x01D2)	; &JX1-2877;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH CARON")
       (=ucs		  . #x01D2)	; ǒ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A55)	; &JX1-2876; [10-53]
+     ((=ucs@jis/fw	  . #x01D1)	; &JX1-2876;
+      (=jis-x0212	  . #x2A55)	; &JX1-2876; [10-53]
       (=jis-x0213-1	  . #x2876)	; &I-JX1-2876; [08-86]
       ))
     ))
@@ -1258,15 +1268,17 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@jis/fw	. #x01D3)	; &JSP-2A67;
     (=jis-x0212		. #x2A67)	; &JSP-2A67; [10-71]
     (=jef-china3	. #x88EC)	; &I-JC3-88EC;
-    (=ucs@jis/fw	. #x01D3)	; &JSP-2A67;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH CARON")
       (=ucs		  . #x01D3)	; Ǔ
       ))
     (->lowercase
-     ((=gb2312		  . #x2833)	; &JX1-2878; [08-19]
+     ((=ucs@gb/fw	  . #x01D4)	; &JX1-2878;
+      (=ucs@jis/fw	  . #x01D4)	; &JX1-2878;
+      (=gb2312		  . #x2833)	; &JX1-2878; [08-19]
       (=jis-x0212	  . #x2B67)	; &I-JSP-2B67; [11-71]
       (=jis-x0213-1	  . #x2878)	; &I-JX1-2878; [08-88]
       ))
@@ -1301,18 +1313,19 @@
      ((name		  . "COMBINING CARON")
       (=ucs		  . #x030C)	; ̌
       ))
+    (=ucs@gb/fw		. #x01D4)	; &JX1-2878;
+    (=ucs@jis/fw	. #x01D4)	; &JX1-2878;
     (=gb2312		. #x2833)	; &JX1-2878; [08-19]
     (=jis-x0212		. #x2B67)	; &I-JSP-2B67; [11-71]
     (=jis-x0213-1	. #x2878)	; &I-JX1-2878; [08-88]
     (=jef-china3	. #x88FB)	; &I-JC3-88FB;
-    (=ucs@gb/fw		. #x01D4)	; &JX1-2878;
-    (=ucs@jis/fw	. #x01D4)	; &JX1-2878;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH CARON")
       (=ucs		  . #x01D4)	; ǔ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A67)	; &JSP-2A67; [10-71]
+     ((=ucs@jis/fw	  . #x01D3)	; &JSP-2A67;
+      (=jis-x0212	  . #x2A67)	; &JSP-2A67; [10-71]
       ))
     ))
 (define-char
@@ -1338,14 +1351,16 @@
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
       (=ucs		  . #x01D5)	; Ǖ
       ))
-    (=jis-x0212		. #x2A70)	; &JSP-2A70; [10-80]
     (=ucs@jis/fw	. #x01D5)	; &JSP-2A70;
+    (=jis-x0212		. #x2A70)	; &JSP-2A70; [10-80]
     (<-fullwidth
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
       (=ucs		  . #x01D5)	; Ǖ
       ))
     (->lowercase
-     ((=gb2312		  . #x2835)	; &JX1-2879; [08-21]
+     ((=ucs@gb/fw	  . #x01D6)	; &JX1-2879;
+      (=ucs@jis/fw	  . #x01D6)	; &JX1-2879;
+      (=gb2312		  . #x2835)	; &JX1-2879; [08-21]
       (=jis-x0212	  . #x2B70)	; &I-JSP-2B70; [11-80]
       (=jis-x0213-1	  . #x2879)	; &I-JX1-2879; [08-89]
       ))
@@ -1373,17 +1388,18 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
       (=ucs		  . #x01D6)	; ǖ
       ))
+    (=ucs@gb/fw		. #x01D6)	; &JX1-2879;
+    (=ucs@jis/fw	. #x01D6)	; &JX1-2879;
     (=gb2312		. #x2835)	; &JX1-2879; [08-21]
     (=jis-x0212		. #x2B70)	; &I-JSP-2B70; [11-80]
     (=jis-x0213-1	. #x2879)	; &I-JX1-2879; [08-89]
-    (=ucs@gb/fw		. #x01D6)	; &JX1-2879;
-    (=ucs@jis/fw	. #x01D6)	; &JX1-2879;
     (<-fullwidth
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
       (=ucs		  . #x01D6)	; ǖ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A70)	; &JSP-2A70; [10-80]
+     ((=ucs@jis/fw	  . #x01D5)	; &JSP-2A70;
+      (=jis-x0212	  . #x2A70)	; &JSP-2A70; [10-80]
       ))
     ))
 (define-char
@@ -1409,14 +1425,16 @@
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
       (=ucs		  . #x01D7)	; Ǘ
       ))
-    (=jis-x0212		. #x2A6D)	; &JSP-2A6D; [10-77]
     (=ucs@jis/fw	. #x01D7)	; &JSP-2A6D;
+    (=jis-x0212		. #x2A6D)	; &JSP-2A6D; [10-77]
     (<-fullwidth
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
       (=ucs		  . #x01D7)	; Ǘ
       ))
     (->lowercase
-     ((=gb2312		  . #x2836)	; &JX1-287A; [08-22]
+     ((=ucs@gb/fw	  . #x01D8)	; &JX1-287A;
+      (=ucs@jis/fw	  . #x01D8)	; &JX1-287A;
+      (=gb2312		  . #x2836)	; &JX1-287A; [08-22]
       (=jis-x0212	  . #x2B6D)	; &I-JSP-2B6D; [11-77]
       (=jis-x0213-1	  . #x287A)	; &I-JX1-287A; [08-90]
       ))
@@ -1444,17 +1462,18 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
       (=ucs		  . #x01D8)	; ǘ
       ))
+    (=ucs@gb/fw		. #x01D8)	; &JX1-287A;
+    (=ucs@jis/fw	. #x01D8)	; &JX1-287A;
     (=gb2312		. #x2836)	; &JX1-287A; [08-22]
     (=jis-x0212		. #x2B6D)	; &I-JSP-2B6D; [11-77]
     (=jis-x0213-1	. #x287A)	; &I-JX1-287A; [08-90]
-    (=ucs@gb/fw		. #x01D8)	; &JX1-287A;
-    (=ucs@jis/fw	. #x01D8)	; &JX1-287A;
     (<-fullwidth
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
       (=ucs		  . #x01D8)	; ǘ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A6D)	; &JSP-2A6D; [10-77]
+     ((=ucs@jis/fw	  . #x01D7)	; &JSP-2A6D;
+      (=jis-x0212	  . #x2A6D)	; &JSP-2A6D; [10-77]
       ))
     ))
 (define-char
@@ -1480,14 +1499,16 @@
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
       (=ucs		  . #x01D9)	; Ǚ
       ))
-    (=jis-x0212		. #x2A6F)	; &JSP-2A6F; [10-79]
     (=ucs@jis/fw	. #x01D9)	; &JSP-2A6F;
+    (=jis-x0212		. #x2A6F)	; &JSP-2A6F; [10-79]
     (<-fullwidth
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
       (=ucs		  . #x01D9)	; Ǚ
       ))
     (->lowercase
-     ((=gb2312		  . #x2837)	; &JX1-287B; [08-23]
+     ((=ucs@gb/fw	  . #x01DA)	; &JX1-287B;
+      (=ucs@jis/fw	  . #x01DA)	; &JX1-287B;
+      (=gb2312		  . #x2837)	; &JX1-287B; [08-23]
       (=jis-x0212	  . #x2B6F)	; &I-JSP-2B6F; [11-79]
       (=jis-x0213-1	  . #x287B)	; &I-JX1-287B; [08-91]
       ))
@@ -1515,17 +1536,18 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
       (=ucs		  . #x01DA)	; ǚ
       ))
+    (=ucs@gb/fw		. #x01DA)	; &JX1-287B;
+    (=ucs@jis/fw	. #x01DA)	; &JX1-287B;
     (=gb2312		. #x2837)	; &JX1-287B; [08-23]
     (=jis-x0212		. #x2B6F)	; &I-JSP-2B6F; [11-79]
     (=jis-x0213-1	. #x287B)	; &I-JX1-287B; [08-91]
-    (=ucs@gb/fw		. #x01DA)	; &JX1-287B;
-    (=ucs@jis/fw	. #x01DA)	; &JX1-287B;
     (<-fullwidth
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
       (=ucs		  . #x01DA)	; ǚ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A6F)	; &JSP-2A6F; [10-79]
+     ((=ucs@jis/fw	  . #x01D9)	; &JSP-2A6F;
+      (=jis-x0212	  . #x2A6F)	; &JSP-2A6F; [10-79]
       ))
     ))
 (define-char
@@ -1551,14 +1573,16 @@
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
       (=ucs		  . #x01DB)	; Ǜ
       ))
-    (=jis-x0212		. #x2A6E)	; &JSP-2A6E; [10-78]
     (=ucs@jis/fw	. #x01DB)	; &JSP-2A6E;
+    (=jis-x0212		. #x2A6E)	; &JSP-2A6E; [10-78]
     (<-fullwidth
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
       (=ucs		  . #x01DB)	; Ǜ
       ))
     (->lowercase
-     ((=gb2312		  . #x2838)	; &JX1-287C; [08-24]
+     ((=ucs@gb/fw	  . #x01DC)	; &JX1-287C;
+      (=ucs@jis/fw	  . #x01DC)	; &JX1-287C;
+      (=gb2312		  . #x2838)	; &JX1-287C; [08-24]
       (=jis-x0212	  . #x2B6E)	; &I-JSP-2B6E; [11-78]
       (=jis-x0213-1	  . #x287C)	; &I-JX1-287C; [08-92]
       ))
@@ -1586,17 +1610,18 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
       (=ucs		  . #x01DC)	; ǜ
       ))
+    (=ucs@gb/fw		. #x01DC)	; &JX1-287C;
+    (=ucs@jis/fw	. #x01DC)	; &JX1-287C;
     (=gb2312		. #x2838)	; &JX1-287C; [08-24]
     (=jis-x0212		. #x2B6E)	; &I-JSP-2B6E; [11-78]
     (=jis-x0213-1	. #x287C)	; &I-JX1-287C; [08-92]
-    (=ucs@gb/fw		. #x01DC)	; &JX1-287C;
-    (=ucs@jis/fw	. #x01DC)	; &JX1-287C;
     (<-fullwidth
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
       (=ucs		  . #x01DC)	; ǜ
       ))
     (->uppercase
-     ((=jis-x0212	  . #x2A6E)	; &JSP-2A6E; [10-78]
+     ((=ucs@jis/fw	  . #x01DB)	; &JSP-2A6E;
+      (=jis-x0212	  . #x2A6E)	; &JSP-2A6E; [10-78]
       ))
     ))
 (define-char
@@ -2038,7 +2063,8 @@
       (=ucs		  . #x01F4)	; Ǵ
       ))
     (->lowercase
-     ((=jis-x0212	  . #x2B39)	; &JSP-2B39; [11-25]
+     ((=ucs@jis/fw	  . #x01F5)	; &JSP-2B39;
+      (=jis-x0212	  . #x2B39)	; &JSP-2B39; [11-25]
       ))
     ))
 (define-char
@@ -2071,9 +2097,9 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
+    (=ucs@jis/fw	. #x01F5)	; &JSP-2B39;
     (=jis-x0212		. #x2B39)	; &JSP-2B39; [11-25]
     (=jef-china3	. #x85EF)	; &I-JC3-85EF;
-    (=ucs@jis/fw	. #x01F5)	; &JSP-2B39;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH ACUTE")
       (=ucs		  . #x01F5)	; ǵ
@@ -2134,15 +2160,16 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
+    (=ucs@jis/fw	. #x01F8)	; &JX1-2874;
     (=jis-x0213-1	. #x2874)	; &JX1-2874; [08-84]
     (=jef-china3	. #x85BC)	; &I-JC3-85BC;
-    (=ucs@jis/fw	. #x01F8)	; &JX1-2874;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH GRAVE")
       (=ucs		  . #x01F8)	; Ǹ
       ))
     (->lowercase
-     ((=jis-x0213-1	  . #x2875)	; &JX1-2875; [08-85]
+     ((=ucs@jis/fw	  . #x01F9)	; &JX1-2875;
+      (=jis-x0213-1	  . #x2875)	; &JX1-2875; [08-85]
       ))
     ))
 (define-char
@@ -2175,14 +2202,15 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=jis-x0213-1	. #x2875)	; &JX1-2875; [08-85]
     (=ucs@jis/fw	. #x01F9)	; &JX1-2875;
+    (=jis-x0213-1	. #x2875)	; &JX1-2875; [08-85]
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH GRAVE")
       (=ucs		  . #x01F9)	; ǹ
       ))
     (->uppercase
-     ((=jis-x0213-1	  . #x2874)	; &JX1-2874; [08-84]
+     ((=ucs@jis/fw	  . #x01F8)	; &JX1-2874;
+      (=jis-x0213-1	  . #x2874)	; &JX1-2874; [08-84]
       ))
     ))
 (define-char
@@ -2265,15 +2293,16 @@
       (=ucs		  . #x01FD)	; ǽ
       ))
     (=decomposition
-     ((=ks-x1001	  . #x2921)	; &JX1-295C; [09-01]
+     ((=ucs@jis/fw	  . #x00E6)	; &JX1-295C;
+      (=ks-x1001	  . #x2921)	; &JX1-295C; [09-01]
       (=jis-x0212	  . #x2941)	; &I-JSP-2941; [09-33]
       (=jis-x0213-1	  . #x295C)	; &I-JX1-295C; [09-60]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=jis-x0213-1	. #x2B45)	; &JX1-2B45; [11-37]
     (=ucs@jis/fw	. #x01FD)	; &JX1-2B45;
+    (=jis-x0213-1	. #x2B45)	; &JX1-2B45; [11-37]
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER AE WITH ACUTE")
       (=ucs		  . #x01FD)	; ǽ

@@ -74,6 +74,7 @@
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=ucs@jis		. #x77DC)	; &GT-30529;
     (=jis-x0208		. #x6262)	; &GT-30529; [66-66]
     (=ks-x1001		. #x5068)	; &I-K0-5068; [48-72]
     (=cns11643-1	. #x5264)	; &I-C1-5264; [50-68]
@@ -83,7 +84,6 @@
     (=gt-pj-1		. #x6262)	; &I-GT-30529; [66-66]
     (=daikanwa		. 23852)	; &I-M-23852;
     (=shinjigen@rev	.  5387)	; &GT-30529;
-    (=ucs@jis		. #x77DC)	; &GT-30529;
     ))
 (define-char
   '((morohashi-daikanwa	23852 0 1)
@@ -202,19 +202,19 @@
     (->subsumptive
      ((=big5		  . #xDAC3)	; &B-DAC3;
       (->subsumptive
-       ((=jis-x0212	    . #x4F42)	; &M-23863; [47-34]
+       ((=ucs@jis	    . #x77DE)	; &M-23863;
+	(=jis-x0212	    . #x4F42)	; &M-23863; [47-34]
 	(=jis-x0213-2	    . #x7233)	; &I-JX2-7233; [82-19]
 	(=daikanwa	    . 23863)	; &I-M-23863;
-	(=ucs@jis	    . #x77DE)	; &M-23863;
 	)
        ((=jef-china3	    . #x5BE5)	; &JC3-5BE5;
 	)
-       ((=cns11643-2	    . #x3E47)	; &C2-3E47; [30-39]
-	(=ucs@cns	    . #x77DE)	; &C2-3E47;
+       ((=ucs@cns	    . #x77DE)	; &C2-3E47;
+	(=cns11643-2	    . #x3E47)	; &C2-3E47; [30-39]
 	))
       )
-     ((=iso-ir165	  . #x7D75)	; &EGB-7D75; [93-85]
-      (=ucs@unicode	  . #x77DE)	; &EGB-7D75;
+     ((=ucs@unicode	  . #x77DE)	; &EGB-7D75;
+      (=iso-ir165	  . #x7D75)	; &EGB-7D75; [93-85]
       ))
     ))
 (define-char
@@ -260,10 +260,10 @@
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (=ucs@jis		. #x77DF)	; &M-23867;
     (=jis-x0212		. #x4F43)	; &M-23867; [47-35]
     (=jis-x0213-2	. #x7234)	; &I-JX2-7234; [82-20]
     (=daikanwa		. 23867)	; &I-M-23867;
-    (=ucs@jis		. #x77DF)	; &M-23867;
     ))
 (define-char
   '((morohashi-daikanwa	23867 0 2)
@@ -697,10 +697,10 @@
     (=ucs		. #x25390)	; 𥎐
     (->subsumptive
      ((hanyu-dazidian	  4 2768 16)
+      (=ucs@iso		  . #x25390)	; &M-01841;
       (=cns11643-5	  . #x5A75)	; &M-01841; [58-85]
       (=daikanwa	  . 01841)	; &I-M-01841;
       (=hanziku-7	  . #xE845)	; &I-HZK07-E845;
-      (=ucs@iso		  . #x25390)	; &M-01841;
       )
      ((=daikanwa	  . 23906)	; &M-23906;
       ))

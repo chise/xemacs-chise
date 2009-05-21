@@ -202,7 +202,8 @@
     (total-strokes	 . 14)
     (=ucs		. #x81E7)	; 臧
     (->subsumptive
-     ((=jis-x0208	  . #x6749)	; &GT-38924; [71-41]
+     ((=ucs@unicode	  . #x81E7)	; &GT-38924;
+      (=jis-x0208	  . #x6749)	; &GT-38924; [71-41]
       (=gb2312		  . #x6A30)	; &I-G0-6A30; [74-16]
       (=ks-x1001	  . #x6D75)	; &I-K0-6D75; [77-85]
       (=jis-x0213-1	  . #x6749)	; &I-JX1-6749; [71-41]
@@ -212,7 +213,6 @@
       (=gt-pj-1		  . #x6749)	; &I-GT-38924; [71-41]
       (=daikanwa	  . 30083)	; &I-M-30083;
       (=shinjigen@rev	  .  6596)	; &GT-38924;
-      (=ucs@unicode	  . #x81E7)	; &GT-38924;
       )
      ((=cns11643-1	  . #x6A56)	; &C1-6A56; [74-54]
       ))
@@ -223,8 +223,8 @@
     (total-strokes	 . 14)
     (=ucs		. #x268EE)	; 𦣮
     (->subsumptive
-     ((=daikanwa	  . 30084)	; &M-30084;
-      (=ucs@iso		  . #x268EE)	; &M-30084;
+     ((=ucs@iso		  . #x268EE)	; &M-30084;
+      (=daikanwa	  . 30084)	; &M-30084;
       )
      ((=cns11643-6	  . #x6073)	; &C6-6073; [64-83]
       ))
@@ -242,8 +242,8 @@
     (total-strokes	 . 16)
     (=ucs		. #x22A11)	; 𢨑
     (->subsumptive
-     ((=daikanwa	  . 30086)	; &M-30086;
-      (=ucs@iso		  . #x22A11)	; &M-30086;
+     ((=ucs@iso		  . #x22A11)	; &M-30086;
+      (=daikanwa	  . 30086)	; &M-30086;
       )
      ((=cns11643-7	  . #x3170)	; &C7-3170; [17-80]
       ))
@@ -254,20 +254,20 @@
     (=ucs		. #x81E8)	; 臨
     (->subsumptive
      ((total-strokes	   . 18)
+      (=ucs@jis		  . #x81E8)	; &M-30087;
       (=jis-x0208	  . #x4E57)	; &M-30087; [46-55]
       (=ks-x1001	  . #x577C)	; &I-K0-577C; [55-92]
       (=jis-x0213-1	  . #x4E57)	; &I-JX1-4E57; [46-55]
       (=big5		  . #xC17B)	; &I-B-C17B;
       (=daikanwa	  . 30087)	; &I-M-30087;
       (=shinjigen@rev	  .  6597)	; &M-30087;
-      (=ucs@jis		  . #x81E8)	; &M-30087;
       )
      ((total-strokes	   . 17)
+      (=ucs@unicode	  . #x81E8)	; &GT-38930;
       (=cns11643-1	  . #x7527)	; &GT-38930; [85-07]
       (=gb12345		  . #x4159)	; &GT-38930; [33-57]
       (=gt		  . 38930)	; &I-GT-38930;
       (=gt-pj-1		  . #x4E57)	; &I-GT-38930; [46-55]
-      (=ucs@unicode	  . #x81E8)	; &GT-38930;
       ))
     ))
 (define-char
@@ -285,8 +285,8 @@
     (total-strokes	 . 18)
     (=ucs		. #x4451)	; 䑑
     (->subsumptive
-     ((=daikanwa	  . 30090)	; &M-30090;
-      (=ucs@unicode	  . #x4451)	; &M-30090;
+     ((=ucs@unicode	  . #x4451)	; &M-30090;
+      (=daikanwa	  . 30090)	; &M-30090;
       )
      ((=cns11643-7	  . #x4224)	; &C7-4224; [34-04]
       ))

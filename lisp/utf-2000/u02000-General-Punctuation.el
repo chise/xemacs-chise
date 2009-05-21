@@ -168,9 +168,9 @@
      ((name		  . "HYPHEN")
       (=ucs		  . #x2010)	; ‐
       ))
+    (=ucs@jis		. #x2010)	; &J90-213E;
     (=jis-x0208		. #x213E)	; &J90-213E; [01-30]
     (=jis-x0213-1	. #x213E)	; &I-JX1-213E; [01-30]
-    (=ucs@jis		. #x2010)	; &J90-213E;
     (<-fullwidth
      ((name		  . "HYPHEN")
       (=ucs		  . #x2010)	; ‐
@@ -206,12 +206,12 @@
      ((name		  . "EN DASH")
       (=ucs		  . #x2013)	; –
       ))
-    (=cns11643-1	. #x2139)	; &JX1-237C; [01-25]
-    (=jis-x0213-1	. #x237C)	; &I-JX1-237C; [03-92]
-    (=big5		. #xA156)	; &I-B-A156;
     (=ucs@cns		. #x2013)	; &JX1-237C;
     (=ucs@jis		. #x2013)	; &JX1-237C;
     (=ucs@big5		. #x2013)	; &JX1-237C;
+    (=cns11643-1	. #x2139)	; &JX1-237C; [01-25]
+    (=jis-x0213-1	. #x237C)	; &I-JX1-237C; [03-92]
+    (=big5		. #xA156)	; &I-B-A156;
     (<-fullwidth
      ((name		  . "EN DASH")
       (=ucs		  . #x2013)	; –
@@ -229,13 +229,13 @@
      ((name		  . "EM DASH")
       (=ucs		  . #x2014)	; —
       ))
+    (=ucs@cns		. #x2014)	; &J90-213D;
+    (=ucs@jis		. #x2014)	; &J90-213D;
+    (=ucs@big5		. #x2014)	; &J90-213D;
     (=jis-x0208		. #x213D)	; &J90-213D; [01-29]
     (=cns11643-1	. #x2137)	; &I-C1-2137; [01-23]
     (=jis-x0213-1	. #x213D)	; &I-JX1-213D; [01-29]
     (=big5		. #xA158)	; &I-B-A158;
-    (=ucs@cns		. #x2014)	; &J90-213D;
-    (=ucs@jis		. #x2014)	; &J90-213D;
-    (=ucs@big5		. #x2014)	; &J90-213D;
     (<-fullwidth
      ((name		  . "EM DASH")
       (=ucs		  . #x2014)	; —
@@ -254,10 +254,10 @@
      ((name		  . "HORIZONTAL BAR")
       (=ucs		  . #x2015)	; ―
       ))
-    (=gb2312		. #x212A)	; &K0-212A; [01-10]
-    (=ks-x1001		. #x212A)	; &I-K0-212A; [01-10]
     (=ucs@gb		. #x2015)	; &K0-212A;
     (=ucs@ks		. #x2015)	; &K0-212A;
+    (=gb2312		. #x212A)	; &K0-212A; [01-10]
+    (=ks-x1001		. #x212A)	; &I-K0-212A; [01-10]
     (<-fullwidth
      ((name		  . "HORIZONTAL BAR")
       (=ucs		  . #x2015)	; ―
@@ -275,13 +275,13 @@
      ((name		  . "DOUBLE VERTICAL LINE")
       (=ucs		  . #x2016)	; ‖
       ))
+    (=ucs@gb		. #x2016)	; &J90-2142;
+    (=ucs@cns		. #x2016)	; &J90-2142;
+    (=ucs@jis		. #x2016)	; &J90-2142;
     (=jis-x0208		. #x2142)	; &J90-2142; [01-34]
     (=gb2312		. #x212C)	; &I-G0-212C; [01-12]
     (=cns11643-1	. #x225D)	; &I-C1-225D; [02-61]
     (=jis-x0213-1	. #x2142)	; &I-JX1-2142; [01-34]
-    (=ucs@gb		. #x2016)	; &J90-2142;
-    (=ucs@cns		. #x2016)	; &J90-2142;
-    (=ucs@jis		. #x2016)	; &J90-2142;
     (<-fullwidth
      ((name		  . "DOUBLE VERTICAL LINE")
       (=ucs		  . #x2016)	; ‖
@@ -314,17 +314,17 @@
      ((name		  . "LEFT SINGLE QUOTATION MARK")
       (=ucs		  . #x2018)	; ‘
       ))
+    (=ucs@gb		. #x2018)	; &J90-2146;
+    (=ucs@cns		. #x2018)	; &J90-2146;
+    (=ucs@jis		. #x2018)	; &J90-2146;
+    (=ucs@ks		. #x2018)	; &J90-2146;
+    (=ucs@big5		. #x2018)	; &J90-2146;
     (=jis-x0208		. #x2146)	; &J90-2146; [01-38]
     (=gb2312		. #x212E)	; &I-G0-212E; [01-14]
     (=ks-x1001		. #x212E)	; &I-K0-212E; [01-14]
     (=cns11643-1	. #x2164)	; &I-C1-2164; [01-68]
     (=jis-x0213-1	. #x2146)	; &I-JX1-2146; [01-38]
     (=big5		. #xA1A5)	; &I-B-A1A5;
-    (=ucs@gb		. #x2018)	; &J90-2146;
-    (=ucs@cns		. #x2018)	; &J90-2146;
-    (=ucs@jis		. #x2018)	; &J90-2146;
-    (=ucs@ks		. #x2018)	; &J90-2146;
-    (=ucs@big5		. #x2018)	; &J90-2146;
     (<-fullwidth
      ((name		  . "LEFT SINGLE QUOTATION MARK")
       (=ucs		  . #x2018)	; ‘
@@ -342,17 +342,17 @@
      ((name		  . "RIGHT SINGLE QUOTATION MARK")
       (=ucs		  . #x2019)	; ’
       ))
+    (=ucs@gb		. #x2019)	; &J90-2147;
+    (=ucs@cns		. #x2019)	; &J90-2147;
+    (=ucs@jis		. #x2019)	; &J90-2147;
+    (=ucs@ks		. #x2019)	; &J90-2147;
+    (=ucs@big5		. #x2019)	; &J90-2147;
     (=jis-x0208		. #x2147)	; &J90-2147; [01-39]
     (=gb2312		. #x212F)	; &I-G0-212F; [01-15]
     (=ks-x1001		. #x212F)	; &I-K0-212F; [01-15]
     (=cns11643-1	. #x2165)	; &I-C1-2165; [01-69]
     (=jis-x0213-1	. #x2147)	; &I-JX1-2147; [01-39]
     (=big5		. #xA1A6)	; &I-B-A1A6;
-    (=ucs@gb		. #x2019)	; &J90-2147;
-    (=ucs@cns		. #x2019)	; &J90-2147;
-    (=ucs@jis		. #x2019)	; &J90-2147;
-    (=ucs@ks		. #x2019)	; &J90-2147;
-    (=ucs@big5		. #x2019)	; &J90-2147;
     (<-fullwidth
      ((name		  . "RIGHT SINGLE QUOTATION MARK")
       (=ucs		  . #x2019)	; ’
@@ -384,17 +384,17 @@
      ((name		  . "LEFT DOUBLE QUOTATION MARK")
       (=ucs		  . #x201C)	; “
       ))
+    (=ucs@gb		. #x201C)	; &J90-2148;
+    (=ucs@cns		. #x201C)	; &J90-2148;
+    (=ucs@jis		. #x201C)	; &J90-2148;
+    (=ucs@ks		. #x201C)	; &J90-2148;
+    (=ucs@big5		. #x201C)	; &J90-2148;
     (=jis-x0208		. #x2148)	; &J90-2148; [01-40]
     (=gb2312		. #x2130)	; &I-G0-2130; [01-16]
     (=ks-x1001		. #x2130)	; &I-K0-2130; [01-16]
     (=cns11643-1	. #x2166)	; &I-C1-2166; [01-70]
     (=jis-x0213-1	. #x2148)	; &I-JX1-2148; [01-40]
     (=big5		. #xA1A7)	; &I-B-A1A7;
-    (=ucs@gb		. #x201C)	; &J90-2148;
-    (=ucs@cns		. #x201C)	; &J90-2148;
-    (=ucs@jis		. #x201C)	; &J90-2148;
-    (=ucs@ks		. #x201C)	; &J90-2148;
-    (=ucs@big5		. #x201C)	; &J90-2148;
     (<-fullwidth
      ((name		  . "LEFT DOUBLE QUOTATION MARK")
       (=ucs		  . #x201C)	; “
@@ -412,17 +412,17 @@
      ((name		  . "RIGHT DOUBLE QUOTATION MARK")
       (=ucs		  . #x201D)	; ”
       ))
+    (=ucs@gb		. #x201D)	; &J90-2149;
+    (=ucs@cns		. #x201D)	; &J90-2149;
+    (=ucs@jis		. #x201D)	; &J90-2149;
+    (=ucs@ks		. #x201D)	; &J90-2149;
+    (=ucs@big5		. #x201D)	; &J90-2149;
     (=jis-x0208		. #x2149)	; &J90-2149; [01-41]
     (=gb2312		. #x2131)	; &I-G0-2131; [01-17]
     (=ks-x1001		. #x2131)	; &I-K0-2131; [01-17]
     (=cns11643-1	. #x2167)	; &I-C1-2167; [01-71]
     (=jis-x0213-1	. #x2149)	; &I-JX1-2149; [01-41]
     (=big5		. #xA1A8)	; &I-B-A1A8;
-    (=ucs@gb		. #x201D)	; &J90-2149;
-    (=ucs@cns		. #x201D)	; &J90-2149;
-    (=ucs@jis		. #x201D)	; &J90-2149;
-    (=ucs@ks		. #x201D)	; &J90-2149;
-    (=ucs@big5		. #x201D)	; &J90-2149;
     (<-fullwidth
      ((name		  . "RIGHT DOUBLE QUOTATION MARK")
       (=ucs		  . #x201D)	; ”
@@ -454,12 +454,12 @@
      ((name		  . "DAGGER")
       (=ucs		  . #x2020)	; †
       ))
+    (=ucs@jis		. #x2020)	; &J90-2277;
+    (=ucs@ks		. #x2020)	; &J90-2277;
     (=jis-x0208@1983	. #x2277)	; &J90-2277; [02-87]
     (=ks-x1001		. #x2253)	; &I-K0-2253; [02-51]
     (=jis-x0208@1990	. #x2277)	; &I-J90-2277; [02-87]
     (=jis-x0213-1	. #x2277)	; &I-JX1-2277; [02-87]
-    (=ucs@jis		. #x2020)	; &J90-2277;
-    (=ucs@ks		. #x2020)	; &J90-2277;
     (<-fullwidth
      ((name		  . "DAGGER")
       (=ucs		  . #x2020)	; †
@@ -477,12 +477,12 @@
      ((name		  . "DOUBLE DAGGER")
       (=ucs		  . #x2021)	; ‡
       ))
+    (=ucs@jis		. #x2021)	; &J90-2278;
+    (=ucs@ks		. #x2021)	; &J90-2278;
     (=jis-x0208@1983	. #x2278)	; &J90-2278; [02-88]
     (=ks-x1001		. #x2254)	; &I-K0-2254; [02-52]
     (=jis-x0208@1990	. #x2278)	; &I-J90-2278; [02-88]
     (=jis-x0213-1	. #x2278)	; &I-JX1-2278; [02-88]
-    (=ucs@jis		. #x2021)	; &J90-2278;
-    (=ucs@ks		. #x2021)	; &J90-2278;
     (<-fullwidth
      ((name		  . "DOUBLE DAGGER")
       (=ucs		  . #x2021)	; ‡
@@ -500,8 +500,8 @@
      ((name		  . "BULLET")
       (=ucs		  . #x2022)	; •
       ))
-    (=jis-x0213-1	. #x2340)	; &JX1-2340; [03-32]
     (=ucs@jis/fw	. #x2022)	; &JX1-2340;
+    (=jis-x0213-1	. #x2340)	; &JX1-2340; [03-32]
     (<-fullwidth
      ((name		  . "BULLET")
       (=ucs		  . #x2022)	; •
@@ -544,15 +544,15 @@
      ((name		  . "TWO DOT LEADER")
       (=ucs		  . #x2025)	; ‥
       ))
+    (=ucs@cns		. #x2025)	; &J90-2145;
+    (=ucs@jis		. #x2025)	; &J90-2145;
+    (=ucs@ks		. #x2025)	; &J90-2145;
+    (=ucs@big5		. #x2025)	; &J90-2145;
     (=jis-x0208		. #x2145)	; &J90-2145; [01-37]
     (=ks-x1001		. #x2125)	; &I-K0-2125; [01-05]
     (=cns11643-1	. #x212D)	; &I-C1-212D; [01-13]
     (=jis-x0213-1	. #x2145)	; &I-JX1-2145; [01-37]
     (=big5		. #xA14C)	; &I-B-A14C;
-    (=ucs@cns		. #x2025)	; &J90-2145;
-    (=ucs@jis		. #x2025)	; &J90-2145;
-    (=ucs@ks		. #x2025)	; &J90-2145;
-    (=ucs@big5		. #x2025)	; &J90-2145;
     (<-fullwidth
      ((name		  . "TWO DOT LEADER")
       (=ucs		  . #x2025)	; ‥
@@ -580,17 +580,17 @@
      ((name		  . "HORIZONTAL ELLIPSIS")
       (=ucs		  . #x2026)	; …
       ))
+    (=ucs@gb		. #x2026)	; &J90-2144;
+    (=ucs@cns		. #x2026)	; &J90-2144;
+    (=ucs@jis		. #x2026)	; &J90-2144;
+    (=ucs@ks		. #x2026)	; &J90-2144;
+    (=ucs@big5		. #x2026)	; &J90-2144;
     (=jis-x0208		. #x2144)	; &J90-2144; [01-36]
     (=gb2312		. #x212D)	; &I-G0-212D; [01-13]
     (=ks-x1001		. #x2126)	; &I-K0-2126; [01-06]
     (=cns11643-1	. #x212C)	; &I-C1-212C; [01-12]
     (=jis-x0213-1	. #x2144)	; &I-JX1-2144; [01-36]
     (=big5		. #xA14B)	; &I-B-A14B;
-    (=ucs@gb		. #x2026)	; &J90-2144;
-    (=ucs@cns		. #x2026)	; &J90-2144;
-    (=ucs@jis		. #x2026)	; &J90-2144;
-    (=ucs@ks		. #x2026)	; &J90-2144;
-    (=ucs@big5		. #x2026)	; &J90-2144;
     (<-fullwidth
      ((name		  . "HORIZONTAL ELLIPSIS")
       (=ucs		  . #x2026)	; …
@@ -608,10 +608,10 @@
      ((name		  . "HYPHENATION POINT")
       (=ucs		  . #x2027)	; ‧
       ))
-    (=cns11643-1	. #x2126)	; &C1-2126; [01-06]
-    (=big5		. #xA145)	; &I-B-A145;
     (=ucs@cns		. #x2027)	; &C1-2126;
     (=ucs@big5		. #x2027)	; &C1-2126;
+    (=cns11643-1	. #x2126)	; &C1-2126; [01-06]
+    (=big5		. #xA145)	; &I-B-A145;
     (<-fullwidth
      ((name		  . "HYPHENATION POINT")
       (=ucs		  . #x2027)	; ‧
@@ -689,14 +689,14 @@
      ((name		  . "PER MILLE SIGN")
       (=ucs		  . #x2030)	; ‰
       ))
+    (=ucs@gb		. #x2030)	; &J90-2273;
+    (=ucs@jis		. #x2030)	; &J90-2273;
+    (=ucs@ks		. #x2030)	; &J90-2273;
     (=gb2312		. #x216B)	; &J90-2273; [01-75]
     (=jis-x0208@1983	. #x2273)	; &I-J83-2273; [02-83]
     (=ks-x1001		. #x2236)	; &I-K0-2236; [02-22]
     (=jis-x0208@1990	. #x2273)	; &I-J90-2273; [02-83]
     (=jis-x0213-1	. #x2273)	; &I-JX1-2273; [02-83]
-    (=ucs@gb		. #x2030)	; &J90-2273;
-    (=ucs@jis		. #x2030)	; &J90-2273;
-    (=ucs@ks		. #x2030)	; &J90-2273;
     (<-fullwidth
      ((name		  . "PER MILLE SIGN")
       (=ucs		  . #x2030)	; ‰
@@ -721,17 +721,17 @@
      ((name		  . "PRIME")
       (=ucs		  . #x2032)	; ′
       ))
+    (=ucs@gb		. #x2032)	; &J90-216C;
+    (=ucs@cns		. #x2032)	; &J90-216C;
+    (=ucs@jis		. #x2032)	; &J90-216C;
+    (=ucs@ks		. #x2032)	; &J90-216C;
+    (=ucs@big5		. #x2032)	; &J90-216C;
     (=jis-x0208		. #x216C)	; &J90-216C; [01-76]
     (=gb2312		. #x2164)	; &I-G0-2164; [01-68]
     (=ks-x1001		. #x2147)	; &I-K0-2147; [01-39]
     (=cns11643-1	. #x216B)	; &I-C1-216B; [01-75]
     (=jis-x0213-1	. #x216C)	; &I-JX1-216C; [01-76]
     (=big5		. #xA1AC)	; &I-B-A1AC;
-    (=ucs@gb		. #x2032)	; &J90-216C;
-    (=ucs@cns		. #x2032)	; &J90-216C;
-    (=ucs@jis		. #x2032)	; &J90-216C;
-    (=ucs@ks		. #x2032)	; &J90-216C;
-    (=ucs@big5		. #x2032)	; &J90-216C;
     (<-fullwidth
      ((name		  . "PRIME")
       (=ucs		  . #x2032)	; ′
@@ -756,13 +756,13 @@
      ((name		  . "DOUBLE PRIME")
       (=ucs		  . #x2033)	; ″
       ))
+    (=ucs@gb		. #x2033)	; &J90-216D;
+    (=ucs@jis		. #x2033)	; &J90-216D;
+    (=ucs@ks		. #x2033)	; &J90-216D;
     (=jis-x0208		. #x216D)	; &J90-216D; [01-77]
     (=gb2312		. #x2165)	; &I-G0-2165; [01-69]
     (=ks-x1001		. #x2148)	; &I-K0-2148; [01-40]
     (=jis-x0213-1	. #x216D)	; &I-JX1-216D; [01-77]
-    (=ucs@gb		. #x2033)	; &J90-216D;
-    (=ucs@jis		. #x2033)	; &J90-216D;
-    (=ucs@ks		. #x2033)	; &J90-216D;
     (<-fullwidth
      ((name		  . "DOUBLE PRIME")
       (=ucs		  . #x2033)	; ″
@@ -797,10 +797,10 @@
      ((name		  . "REVERSED PRIME")
       (=ucs		  . #x2035)	; ‵
       ))
-    (=cns11643-1	. #x216A)	; &C1-216A; [01-74]
-    (=big5		. #xA1AB)	; &I-B-A1AB;
     (=ucs@cns		. #x2035)	; &C1-216A;
     (=ucs@big5		. #x2035)	; &C1-216A;
+    (=cns11643-1	. #x216A)	; &C1-216A; [01-74]
+    (=big5		. #xA1AB)	; &I-B-A1AB;
     (<-fullwidth
      ((name		  . "REVERSED PRIME")
       (=ucs		  . #x2035)	; ‵
@@ -870,17 +870,17 @@
      ((name		  . "REFERENCE MARK")
       (=ucs		  . #x203B)	; ※
       ))
+    (=ucs@gb		. #x203B)	; &J90-2228;
+    (=ucs@cns		. #x203B)	; &J90-2228;
+    (=ucs@jis		. #x203B)	; &J90-2228;
+    (=ucs@ks		. #x203B)	; &J90-2228;
+    (=ucs@big5		. #x203B)	; &J90-2228;
     (=jis-x0208		. #x2228)	; &J90-2228; [02-08]
     (=gb2312		. #x2179)	; &I-G0-2179; [01-89]
     (=ks-x1001		. #x2158)	; &I-K0-2158; [01-56]
     (=cns11643-1	. #x216F)	; &I-C1-216F; [01-79]
     (=jis-x0213-1	. #x2228)	; &I-JX1-2228; [02-08]
     (=big5		. #xA1B0)	; &I-B-A1B0;
-    (=ucs@gb		. #x203B)	; &J90-2228;
-    (=ucs@cns		. #x203B)	; &J90-2228;
-    (=ucs@jis		. #x203B)	; &J90-2228;
-    (=ucs@ks		. #x203B)	; &J90-2228;
-    (=ucs@big5		. #x203B)	; &J90-2228;
     (<-fullwidth
      ((name		  . "REFERENCE MARK")
       (=ucs		  . #x203B)	; ※
@@ -905,8 +905,8 @@
      ((name		  . "DOUBLE EXCLAMATION MARK")
       (=ucs		  . #x203C)	; ‼
       ))
-    (=jis-x0213-1	. #x286B)	; &JX1-286B; [08-75]
     (=ucs@jis		. #x203C)	; &JX1-286B;
+    (=jis-x0213-1	. #x286B)	; &JX1-286B; [08-75]
     (<-fullwidth
      ((name		  . "DOUBLE EXCLAMATION MARK")
       (=ucs		  . #x203C)	; ‼
@@ -941,14 +941,14 @@
       (=ucs		  . #x203E)	; ‾
       ))
     (name		. "FULLWIDTH OVERLINE")
+    (=ucs@gb		. #xFFE3)	; &J90-2131;
+    (=ucs@jis		. #x203E)	; &J90-2131;
     (=jis-x0208		. #x2131)	; &J90-2131; [01-17]
     (=gb2312		. #x237E)	; &I-G0-237E; [03-94]
     (=ks-x1001		. #x237E)	; &I-K0-237E; [03-94]
     (=cns11643-1	. #x2223)	; &I-C1-2223; [02-03]
     (=jis-x0213-1	. #x2131)	; &I-JX1-2131; [01-17]
     (=big5		. #xA1C2)	; &I-B-A1C2;
-    (=ucs@gb		. #xFFE3)	; &J90-2131;
-    (=ucs@jis		. #x203E)	; &J90-2131;
     (<-fullwidth
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; ‾
@@ -988,8 +988,8 @@
      ((name		  . "ASTERISM")
       (=ucs		  . #x2042)	; ⁂
       ))
-    (=jis-x0213-1	. #x2C7E)	; &JX1-2C7E; [12-94]
     (=ucs@jis		. #x2042)	; &JX1-2C7E;
+    (=jis-x0213-1	. #x2C7E)	; &JX1-2C7E; [12-94]
     (<-fullwidth
      ((name		  . "ASTERISM")
       (=ucs		  . #x2042)	; ⁂
@@ -1040,8 +1040,8 @@
      ((name		  . "DOUBLE QUESTION MARK")
       (=ucs		  . #x2047)	; ⁇
       ))
-    (=jis-x0213-1	. #x286C)	; &JX1-286C; [08-76]
     (=ucs@jis		. #x2047)	; &JX1-286C;
+    (=jis-x0213-1	. #x286C)	; &JX1-286C; [08-76]
     (<-fullwidth
      ((name		  . "DOUBLE QUESTION MARK")
       (=ucs		  . #x2047)	; ⁇
@@ -1066,8 +1066,8 @@
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈
       ))
-    (=jis-x0213-1	. #x286D)	; &JX1-286D; [08-77]
     (=ucs@jis		. #x2048)	; &JX1-286D;
+    (=jis-x0213-1	. #x286D)	; &JX1-286D; [08-77]
     (<-fullwidth
      ((name		  . "QUESTION EXCLAMATION MARK")
       (=ucs		  . #x2048)	; ⁈
@@ -1092,8 +1092,8 @@
      ((name		  . "EXCLAMATION QUESTION MARK")
       (=ucs		  . #x2049)	; ⁉
       ))
-    (=jis-x0213-1	. #x286E)	; &JX1-286E; [08-78]
     (=ucs@jis		. #x2049)	; &JX1-286E;
+    (=jis-x0213-1	. #x286E)	; &JX1-286E; [08-78]
     (<-fullwidth
      ((name		  . "EXCLAMATION QUESTION MARK")
       (=ucs		  . #x2049)	; ⁉
@@ -1136,8 +1136,8 @@
      ((name		  . "TWO ASTERISKS ALIGNED VERTICALLY")
       (=ucs		  . #x2051)	; ⁑
       ))
-    (=jis-x0213-1	. #x2C7D)	; &JX1-2C7D; [12-93]
     (=ucs@jis		. #x2051)	; &JX1-2C7D;
+    (=jis-x0213-1	. #x2C7D)	; &JX1-2C7D; [12-93]
     (<-fullwidth
      ((name		  . "TWO ASTERISKS ALIGNED VERTICALLY")
       (=ucs		  . #x2051)	; ⁑

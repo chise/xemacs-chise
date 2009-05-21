@@ -158,8 +158,8 @@
     (->subsumptive
      ((=daikanwa	  . 45670)	; &M-45670;
       )
-     ((=cns11643-5	  . #x7B50)	; &C5-7B50; [91-48]
-      (=ucs@iso		  . #x29C2A)	; &C5-7B50;
+     ((=ucs@iso		  . #x29C2A)	; &C5-7B50;
+      (=cns11643-5	  . #x7B50)	; &C5-7B50; [91-48]
       ))
     ))
 (define-char

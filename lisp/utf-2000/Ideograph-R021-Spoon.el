@@ -49,10 +49,10 @@
     (hanyu-dazidian	1 262 1)
     (=ucs		. #x2090E)	; 𠤎
     (->subsumptive
-     ((=big5-cdp	  . #x8BBA)	; &CDP-8BBA;
+     ((=ucs@iso		  . #x2090E)	; &CDP-8BBA;
+      (=big5-cdp	  . #x8BBA)	; &CDP-8BBA;
       (=daikanwa	  . 02571)	; &I-M-02571;
       (=jef-china3	  . #x45AB)	; &I-JC3-45AB;
-      (=ucs@iso		  . #x2090E)	; &CDP-8BBA;
       )
      ((=jis-x0208@1978	  . #x5238)	; &J83-5238; [50-24]
       (=jis-x0208@1983	  . #x5238)	; &I-J83-5238; [50-24]
@@ -97,11 +97,12 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=big5-cdp	    . #x8BBA)	; &CDP-8BBA;
+       ((=ucs@iso	    . #x2090E)	; &CDP-8BBA;
+	(=big5-cdp	    . #x8BBA)	; &CDP-8BBA;
 	(=daikanwa	    . 02571)	; &I-M-02571;
 	))
-      (=gb2312		  . #x3B2F)	; &G0-3B2F; [27-15]
       (=ucs@unicode	  . #x5316)	; &G0-3B2F;
+      (=gb2312		  . #x3B2F)	; &G0-3B2F; [27-15]
       ))
     ))
 (define-char
@@ -121,14 +122,14 @@
      ((=ucs		  . #x5315)	; 匕
       ))
     (->subsumptive
-     ((=jis-x0208	  . #x323D)	; &GT-03297; [18-29]
+     ((=ucs@jis		  . #x5316)	; &GT-03297;
+      (=jis-x0208	  . #x323D)	; &GT-03297; [18-29]
       (=ks-x1001	  . #x7B79)	; &I-K0-7B79; [91-89]
       (=jis-x0213-1	  . #x323D)	; &I-JX1-323D; [18-29]
       (=gt		  . 03297)	; &I-GT-03297;
       (=gt-k		  . 00403)	; &I-GT-K00403;
       (=gt-pj-1		  . #x323D)	; &I-GT-03297; [18-29]
       (=shinjigen	  .  0114)	; &GT-03297;
-      (=ucs@jis		  . #x5316)	; &GT-03297;
       )
      ((=cns11643-1	  . #x4527)	; &C1-4527; [37-07]
       ))
@@ -190,6 +191,7 @@
 	)
        ((=ucs		    . #x5315)	; 匕
 	))
+      (=ucs@unicode	  . #x5317)	; &GT-03302;
       (=jis-x0208	  . #x4B4C)	; &GT-03302; [43-44]
       (=gb2312		  . #x3131)	; &I-G0-3131; [17-17]
       (=ks-x1001	  . #x5D41)	; &I-K0-5D41; [61-33]
@@ -200,7 +202,6 @@
       (=gt-pj-1		  . #x4B4C)	; &I-GT-03302; [43-44]
       (=daikanwa	  . 02574)	; &I-M-02574;
       (=shinjigen	  .  0784)	; &GT-03302;
-      (=ucs@unicode	  . #x5317)	; &GT-03302;
       )
      ((=cns11643-1	  . #x4621)	; &C1-4621; [38-01]
       ))
@@ -558,10 +559,10 @@
       )
      ((=big5-cdp	  . #x8CE8)	; &CDP-8CE8;
       ))
+    (=ucs@jis		. #x5318)	; &M-02589;
     (=jis-x0212		. #x3424)	; &M-02589; [20-04]
     (=daikanwa		. 02589)	; &I-M-02589;
     (=hanziku-1		. #xDC63)	; &I-HZK01-DC63;
-    (=ucs@jis		. #x5318)	; &M-02589;
     ))
 (define-char
   '((=>ucs		. #x5318)	; 匘

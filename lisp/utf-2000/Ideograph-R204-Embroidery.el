@@ -13,13 +13,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
     (->subsumptive
-     ((=jis-x0208	  . #x7363)	; &GT-65941; [83-67]
+     ((=ucs@jis		  . #x9EF9)	; &GT-65941;
+      (=jis-x0208	  . #x7363)	; &GT-65941; [83-67]
       (=jis-x0213-1	  . #x7363)	; &I-JX1-7363; [83-67]
       (=gt		  . 65941)	; &I-GT-65941;
       (=gt-k		  . 09243)	; &I-GT-K09243;
       (=gt-pj-1		  . #x7363)	; &I-GT-65941; [83-67]
       (=daikanwa	  . 48248)	; &I-M-48248;
-      (=ucs@jis		  . #x9EF9)	; &GT-65941;
       )
      ((=cns11643-2	  . #x4155)	; &C2-4155; [33-53]
       ))
@@ -31,8 +31,8 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
-    (=gb2312		. #x6D69)	; &G0-6D69; [77-73]
     (=ucs@unicode	. #x9EF9)	; &G0-6D69;
+    (=gb2312		. #x6D69)	; &G0-6D69; [77-73]
     ))
 (define-char
   '((=>ucs*		. #x9EF9)	; 黹
@@ -84,13 +84,13 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
     (->subsumptive
-     ((=jis-x0208	  . #x7364)	; &GT-65943; [83-68]
+     ((=ucs@jis		  . #x9EFB)	; &GT-65943;
+      (=jis-x0208	  . #x7364)	; &GT-65943; [83-68]
       (=jis-x0213-1	  . #x7364)	; &I-JX1-7364; [83-68]
       (=gt		  . 65943)	; &I-GT-65943;
       (=gt-pj-1		  . #x7364)	; &I-GT-65943; [83-68]
       (=daikanwa	  . 48250)	; &I-M-48250;
       (=shinjigen@rev	  .  9839)	; &GT-65943;
-      (=ucs@jis		  . #x9EFB)	; &GT-65943;
       )
      ((=cns11643-2	  . #x613C)	; &C2-613C; [65-28]
       ))
@@ -102,8 +102,8 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (=gb2312		. #x6D6A)	; &G0-6D6A; [77-74]
     (=ucs@unicode	. #x9EFB)	; &G0-6D6A;
+    (=gb2312		. #x6D6A)	; &G0-6D6A; [77-74]
     ))
 (define-char
   '((ideographic-radical . 204)	; ⿋
@@ -117,6 +117,7 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 7)
     (total-strokes	 . 19)
+    (=ucs@jis		. #x9EFC)	; &GT-65945;
     (=jis-x0208		. #x7365)	; &GT-65945; [83-69]
     (=cns11643-2	. #x6862)	; &I-C2-6862; [72-66]
     (=jis-x0213-1	. #x7365)	; &I-JX1-7365; [83-69]
@@ -124,7 +125,6 @@
     (=gt-pj-1		. #x7365)	; &I-GT-65945; [83-69]
     (=daikanwa		. 48252)	; &I-M-48252;
     (=shinjigen@rev	.  9840)	; &GT-65945;
-    (=ucs@jis		. #x9EFC)	; &GT-65945;
     ))
 (define-char
   '((morohashi-daikanwa	48252 0 2)

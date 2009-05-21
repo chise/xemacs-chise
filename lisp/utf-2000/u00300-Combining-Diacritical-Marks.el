@@ -6,8 +6,8 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Varia")
     (=ucs		. #x0300)	; ̀
-    (=jis-x0213-1	. #x2B5C)	; &I-JX1-2B5C; [11-60]
     (latin-tcvn5712	. #xB0)	; &I-VSCII2-30;
+    (=jis-x0213-1	. #x2B5C)	; &I-JX1-2B5C; [11-60]
     ))
 (define-char
   '((name		. "COMBINING ACUTE ACCENT")
@@ -16,8 +16,8 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Oxia")
     (=ucs		. #x0301)	; ́
-    (=jis-x0213-1	. #x2B5A)	; &I-JX1-2B5A; [11-58]
     (latin-tcvn5712	. #xB3)	; &I-VSCII2-33;
+    (=jis-x0213-1	. #x2B5A)	; &I-JX1-2B5A; [11-58]
     ))
 (define-char
   '((name		. "COMBINING CIRCUMFLEX ACCENT")
@@ -33,8 +33,8 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0303)	; ̃
-    (=jis-x0213-1	. #x2B7D)	; &I-JX1-2B7D; [11-93]
     (latin-tcvn5712	. #xB2)	; &I-VSCII2-32;
+    (=jis-x0213-1	. #x2B7D)	; &I-JX1-2B7D; [11-93]
     ))
 (define-char
   '((name		. "COMBINING MACRON")

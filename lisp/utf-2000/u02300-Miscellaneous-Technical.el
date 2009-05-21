@@ -46,8 +46,8 @@
      ((name		  . "PROJECTIVE")
       (=ucs		  . #x2305)	; ⌅
       ))
-    (=jis-x0213-1	. #x2248)	; &JX1-2248; [02-40]
     (=ucs@jis		. #x2305)	; &JX1-2248;
+    (=jis-x0213-1	. #x2248)	; &JX1-2248; [02-40]
     (<-fullwidth
      ((name		  . "PROJECTIVE")
       (=ucs		  . #x2305)	; ⌅
@@ -65,8 +65,8 @@
      ((name		  . "PERSPECTIVE")
       (=ucs		  . #x2306)	; ⌆
       ))
-    (=jis-x0213-1	. #x2249)	; &JX1-2249; [02-41]
     (=ucs@jis		. #x2306)	; &JX1-2249;
+    (=jis-x0213-1	. #x2249)	; &JX1-2249; [02-41]
     (<-fullwidth
      ((name		  . "PERSPECTIVE")
       (=ucs		  . #x2306)	; ⌆
@@ -161,14 +161,14 @@
      ((name		  . "ARC")
       (=ucs		  . #x2312)	; ⌒
       ))
+    (=ucs@gb		. #x2312)	; &J90-225E;
+    (=ucs@jis		. #x2312)	; &J90-225E;
+    (=ucs@ks		. #x2312)	; &J90-225E;
     (=gb2312		. #x2150)	; &J90-225E; [01-48]
     (=jis-x0208@1983	. #x225E)	; &I-J83-225E; [02-62]
     (=ks-x1001		. #x2152)	; &I-K0-2152; [01-50]
     (=jis-x0208@1990	. #x225E)	; &I-J90-225E; [02-62]
     (=jis-x0213-1	. #x225E)	; &I-JX1-225E; [02-62]
-    (=ucs@gb		. #x2312)	; &J90-225E;
-    (=ucs@jis		. #x2312)	; &J90-225E;
-    (=ucs@ks		. #x2312)	; &J90-225E;
     (<-fullwidth
      ((name		  . "ARC")
       (=ucs		  . #x2312)	; ⌒
@@ -221,8 +221,8 @@
      ((name		  . "PLACE OF INTEREST SIGN")
       (=ucs		  . #x2318)	; ⌘
       ))
-    (=jis-x0213-1	. #x277C)	; &JX1-277C; [07-92]
     (=ucs@jis		. #x2318)	; &JX1-277C;
+    (=jis-x0213-1	. #x277C)	; &JX1-277C; [07-92]
     (<-fullwidth
      ((name		  . "PLACE OF INTEREST SIGN")
       (=ucs		  . #x2318)	; ⌘
@@ -1157,8 +1157,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP RIGHT")
       (=ucs		  . #x23BE)	; ⎾
       ))
-    (=jis-x0213-1	. #x2742)	; &JX1-2742; [07-34]
     (=ucs@jis		. #x23BE)	; &JX1-2742;
+    (=jis-x0213-1	. #x2742)	; &JX1-2742; [07-34]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP RIGHT")
       (=ucs		  . #x23BE)	; ⎾
@@ -1174,8 +1174,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM RIGHT")
       (=ucs		  . #x23BF)	; ⎿
       ))
-    (=jis-x0213-1	. #x2743)	; &JX1-2743; [07-35]
     (=ucs@jis		. #x23BF)	; &JX1-2743;
+    (=jis-x0213-1	. #x2743)	; &JX1-2743; [07-35]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM RIGHT")
       (=ucs		  . #x23BF)	; ⎿
@@ -1191,8 +1191,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH CIRCLE")
       (=ucs		  . #x23C0)	; ⏀
       ))
-    (=jis-x0213-1	. #x2744)	; &JX1-2744; [07-36]
     (=ucs@jis		. #x23C0)	; &JX1-2744;
+    (=jis-x0213-1	. #x2744)	; &JX1-2744; [07-36]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH CIRCLE")
       (=ucs		  . #x23C0)	; ⏀
@@ -1208,8 +1208,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH CIRCLE")
       (=ucs		  . #x23C1)	; ⏁
       ))
-    (=jis-x0213-1	. #x2745)	; &JX1-2745; [07-37]
     (=ucs@jis		. #x23C1)	; &JX1-2745;
+    (=jis-x0213-1	. #x2745)	; &JX1-2745; [07-37]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH CIRCLE")
       (=ucs		  . #x23C1)	; ⏁
@@ -1225,8 +1225,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH CIRCLE")
       (=ucs		  . #x23C2)	; ⏂
       ))
-    (=jis-x0213-1	. #x2746)	; &JX1-2746; [07-38]
     (=ucs@jis		. #x23C2)	; &JX1-2746;
+    (=jis-x0213-1	. #x2746)	; &JX1-2746; [07-38]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH CIRCLE")
       (=ucs		  . #x23C2)	; ⏂
@@ -1242,8 +1242,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH TRIANGLE")
       (=ucs		  . #x23C3)	; ⏃
       ))
-    (=jis-x0213-1	. #x2747)	; &JX1-2747; [07-39]
     (=ucs@jis		. #x23C3)	; &JX1-2747;
+    (=jis-x0213-1	. #x2747)	; &JX1-2747; [07-39]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH TRIANGLE")
       (=ucs		  . #x23C3)	; ⏃
@@ -1259,8 +1259,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH TRIANGLE")
       (=ucs		  . #x23C4)	; ⏄
       ))
-    (=jis-x0213-1	. #x2748)	; &JX1-2748; [07-40]
     (=ucs@jis		. #x23C4)	; &JX1-2748;
+    (=jis-x0213-1	. #x2748)	; &JX1-2748; [07-40]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH TRIANGLE")
       (=ucs		  . #x23C4)	; ⏄
@@ -1276,8 +1276,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH TRIANGLE")
       (=ucs		  . #x23C5)	; ⏅
       ))
-    (=jis-x0213-1	. #x2749)	; &JX1-2749; [07-41]
     (=ucs@jis		. #x23C5)	; &JX1-2749;
+    (=jis-x0213-1	. #x2749)	; &JX1-2749; [07-41]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH TRIANGLE")
       (=ucs		  . #x23C5)	; ⏅
@@ -1293,8 +1293,8 @@
      ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
       ))
-    (=jis-x0213-1	. #x274A)	; &JX1-274A; [07-42]
     (=ucs@jis		. #x23C6)	; &JX1-274A;
+    (=jis-x0213-1	. #x274A)	; &JX1-274A; [07-42]
     (<-fullwidth
      ((name		  . "DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE")
       (=ucs		  . #x23C6)	; ⏆
@@ -1310,8 +1310,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH WAVE")
       (=ucs		  . #x23C7)	; ⏇
       ))
-    (=jis-x0213-1	. #x274B)	; &JX1-274B; [07-43]
     (=ucs@jis		. #x23C7)	; &JX1-274B;
+    (=jis-x0213-1	. #x274B)	; &JX1-274B; [07-43]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH WAVE")
       (=ucs		  . #x23C7)	; ⏇
@@ -1327,8 +1327,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH WAVE")
       (=ucs		  . #x23C8)	; ⏈
       ))
-    (=jis-x0213-1	. #x274C)	; &JX1-274C; [07-44]
     (=ucs@jis		. #x23C8)	; &JX1-274C;
+    (=jis-x0213-1	. #x274C)	; &JX1-274C; [07-44]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH WAVE")
       (=ucs		  . #x23C8)	; ⏈
@@ -1344,8 +1344,8 @@
      ((name		  . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL")
       (=ucs		  . #x23C9)	; ⏉
       ))
-    (=jis-x0213-1	. #x274D)	; &JX1-274D; [07-45]
     (=ucs@jis		. #x23C9)	; &JX1-274D;
+    (=jis-x0213-1	. #x274D)	; &JX1-274D; [07-45]
     (<-fullwidth
      ((name		  . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL")
       (=ucs		  . #x23C9)	; ⏉
@@ -1361,8 +1361,8 @@
      ((name		  . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL")
       (=ucs		  . #x23CA)	; ⏊
       ))
-    (=jis-x0213-1	. #x274E)	; &JX1-274E; [07-46]
     (=ucs@jis		. #x23CA)	; &JX1-274E;
+    (=jis-x0213-1	. #x274E)	; &JX1-274E; [07-46]
     (<-fullwidth
      ((name		  . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL")
       (=ucs		  . #x23CA)	; ⏊
@@ -1378,8 +1378,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP LEFT")
       (=ucs		  . #x23CB)	; ⏋
       ))
-    (=jis-x0213-1	. #x274F)	; &JX1-274F; [07-47]
     (=ucs@jis		. #x23CB)	; &JX1-274F;
+    (=jis-x0213-1	. #x274F)	; &JX1-274F; [07-47]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP LEFT")
       (=ucs		  . #x23CB)	; ⏋
@@ -1395,8 +1395,8 @@
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM LEFT")
       (=ucs		  . #x23CC)	; ⏌
       ))
-    (=jis-x0213-1	. #x2750)	; &JX1-2750; [07-48]
     (=ucs@jis		. #x23CC)	; &JX1-2750;
+    (=jis-x0213-1	. #x2750)	; &JX1-2750; [07-48]
     (<-fullwidth
      ((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM LEFT")
       (=ucs		  . #x23CC)	; ⏌
@@ -1417,8 +1417,8 @@
      ((name		  . "RETURN SYMBOL")
       (=ucs		  . #x23CE)	; ⏎
       ))
-    (=jis-x0213-1	. #x277E)	; &JX1-277E; [07-94]
     (=ucs@jis		. #x23CE)	; &JX1-277E;
+    (=jis-x0213-1	. #x277E)	; &JX1-277E; [07-94]
     (<-fullwidth
      ((name		  . "RETURN SYMBOL")
       (=ucs		  . #x23CE)	; ⏎

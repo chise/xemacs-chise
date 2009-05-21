@@ -348,9 +348,9 @@
      ((name		  . "WAVE DASH")
       (=ucs		  . #x301C)	; 〜
       ))
+    (=ucs@jis		. #x301C)	; &J90-2141;
     (=jis-x0208		. #x2141)	; &J90-2141; [01-33]
     (=jis-x0213-1	. #x2141)	; &I-JX1-2141; [01-33]
-    (=ucs@jis		. #x301C)	; &J90-2141;
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME QUOTATION MARK")
