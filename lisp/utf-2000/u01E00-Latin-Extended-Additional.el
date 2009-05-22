@@ -1187,15 +1187,16 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
+    (=ucs@jis/fw	. #x1E3E)	; &JX1-2872;
     (=jis-x0213-1	. #x2872)	; &JX1-2872; [08-82]
     (=jef-china3	. #x85DE)	; &I-JC3-85DE;
-    (=ucs@jis/fw	. #x1E3E)	; &JX1-2872;
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER M WITH ACUTE")
       (=ucs		  . #x1E3E)	; Ḿ
       ))
     (->lowercase
-     ((=jis-x0213-1	  . #x2873)	; &JX1-2873; [08-83]
+     ((=ucs@jis/fw	  . #x1E3F)	; &JX1-2873;
+      (=jis-x0213-1	  . #x2873)	; &JX1-2873; [08-83]
       ))
     ))
 (define-char
@@ -1228,15 +1229,16 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
+    (=ucs@jis/fw	. #x1E3F)	; &JX1-2873;
     (=jis-x0213-1	. #x2873)	; &JX1-2873; [08-83]
     (=jef-china3	. #x85F4)	; &I-JC3-85F4;
-    (=ucs@jis/fw	. #x1E3F)	; &JX1-2873;
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER M WITH ACUTE")
       (=ucs		  . #x1E3F)	; ḿ
       ))
     (->uppercase
-     ((=jis-x0213-1	  . #x2872)	; &JX1-2872; [08-82]
+     ((=ucs@jis/fw	  . #x1E3E)	; &JX1-2872;
+      (=jis-x0213-1	  . #x2872)	; &JX1-2872; [08-82]
       ))
     ))
 (define-char
@@ -3086,7 +3088,8 @@
       (=ucs		  . #x1EA4)	; Ấ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
+     ((=ucs@jis/fw	  . #x00C2)	; &JX1-2939;
+      (=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1	  . #x2939)	; &I-JX1-2939; [09-25]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
@@ -3128,7 +3131,8 @@
       (=ucs		  . #x1EA5)	; ấ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
+     ((=ucs@jis/fw	  . #x00E2)	; &JX1-2958;
+      (=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1	  . #x2958)	; &I-JX1-2958; [09-56]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
@@ -3170,7 +3174,8 @@
       (=ucs		  . #x1EA6)	; Ầ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
+     ((=ucs@jis/fw	  . #x00C2)	; &JX1-2939;
+      (=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
       (=jis-x0213-1	  . #x2939)	; &I-JX1-2939; [09-25]
       )
      ((name		  . "COMBINING GRAVE ACCENT")
@@ -3212,7 +3217,8 @@
       (=ucs		  . #x1EA7)	; ầ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
+     ((=ucs@jis/fw	  . #x00E2)	; &JX1-2958;
+      (=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
       (=jis-x0213-1	  . #x2958)	; &I-JX1-2958; [09-56]
       )
      ((name		  . "COMBINING GRAVE ACCENT")
@@ -3711,7 +3717,8 @@
       (=ucs		  . #x1EBE)	; Ế
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
+     ((=ucs@jis/fw	  . #x00CA)	; &JX1-2941;
+      (=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1	  . #x2941)	; &I-JX1-2941; [09-33]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
@@ -3753,7 +3760,9 @@
       (=ucs		  . #x1EBF)	; ế
       ))
     (=decomposition
-     ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
+     ((=ucs@gb/fw	  . #x00EA)	; &JX1-2960;
+      (=ucs@jis/fw	  . #x00EA)	; &JX1-2960;
+      (=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
       (=jis-x0213-1	  . #x2960)	; &I-JX1-2960; [09-64]
       )
@@ -3796,7 +3805,8 @@
       (=ucs		  . #x1EC0)	; Ề
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
+     ((=ucs@jis/fw	  . #x00CA)	; &JX1-2941;
+      (=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
       (=jis-x0213-1	  . #x2941)	; &I-JX1-2941; [09-33]
       )
      ((name		  . "COMBINING GRAVE ACCENT")
@@ -3838,7 +3848,9 @@
       (=ucs		  . #x1EC1)	; ề
       ))
     (=decomposition
-     ((=gb2312		  . #x283A)	; &JX1-2960; [08-26]
+     ((=ucs@gb/fw	  . #x00EA)	; &JX1-2960;
+      (=ucs@jis/fw	  . #x00EA)	; &JX1-2960;
+      (=gb2312		  . #x283A)	; &JX1-2960; [08-26]
       (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
       (=jis-x0213-1	  . #x2960)	; &I-JX1-2960; [09-64]
       )
@@ -4170,7 +4182,8 @@
       (=ucs		  . #x1ED0)	; Ố
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
+     ((=ucs@jis/fw	  . #x00D4)	; &JX1-294B;
+      (=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1	  . #x294B)	; &I-JX1-294B; [09-43]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
@@ -4212,7 +4225,8 @@
       (=ucs		  . #x1ED1)	; ố
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
+     ((=ucs@jis/fw	  . #x00F4)	; &JX1-296A;
+      (=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1	  . #x296A)	; &I-JX1-296A; [09-74]
       )
      ((name		  . "COMBINING ACUTE ACCENT")
@@ -4254,7 +4268,8 @@
       (=ucs		  . #x1ED2)	; Ồ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
+     ((=ucs@jis/fw	  . #x00D4)	; &JX1-294B;
+      (=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
       (=jis-x0213-1	  . #x294B)	; &I-JX1-294B; [09-43]
       )
      ((name		  . "COMBINING GRAVE ACCENT")
@@ -4296,7 +4311,8 @@
       (=ucs		  . #x1ED3)	; ồ
       ))
     (=decomposition
-     ((=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
+     ((=ucs@jis/fw	  . #x00F4)	; &JX1-296A;
+      (=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
       (=jis-x0213-1	  . #x296A)	; &I-JX1-296A; [09-74]
       )
      ((name		  . "COMBINING GRAVE ACCENT")

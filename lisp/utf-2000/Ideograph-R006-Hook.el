@@ -83,8 +83,8 @@
      ((=daikanwa	  . 00227)	; &M-00227;
       (mojikyo		  . 000227)	; &MCS-600000E3;
       )
-     ((=cns11643-5	  . #x2127)	; &C5-2127; [01-07]
-      (=ucs@cns		  . #x2010D)	; &C5-2127;
+     ((=ucs@cns		  . #x2010D)	; &C5-2127;
+      (=cns11643-5	  . #x2127)	; &C5-2127; [01-07]
       ))
     ))
 (define-char
@@ -95,8 +95,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 3)
-    (=hanziku-1		. #xAE40)	; &HZK01-AE40;
     (=ucs@iso		. #x2010D)	; &HZK01-AE40;
+    (=hanziku-1		. #xAE40)	; &HZK01-AE40;
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -153,9 +153,9 @@
     (->subsumptive
      ((ideographic-radical . 4)	; ⼃
       (ideographic-strokes . 2)
+      (=ucs@cns		  . #x4E87)	; &C3-212D;
       (=cns11643-3	  . #x212D)	; &C3-212D; [01-13]
       (=jef-china3	  . #x8FC2)	; &I-JC3-8FC2;
-      (=ucs@cns		  . #x4E87)	; &C3-212D;
       (mojikyo		  . 059024)	; &MCS-6000E690;
       )
      ((ideographic-radical . 6)	; ⼅
@@ -168,8 +168,8 @@
 	)
        ((=ucs		    . #x4E85)	; 亅
 	))
-      (=gb12345		  . #x7D3B)	; &UU+4E87; [93-27]
       (=ucs@unicode	  . #x4E87)	; &UU+4E87;
+      (=gb12345		  . #x7D3B)	; &UU+4E87; [93-27]
       ))
     ))
 (define-char
@@ -193,7 +193,8 @@
     (=shinjigen		.  0067)	; 予
     (mojikyo		. 000231)	; &MCS-600000E7;
     (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
+     ((=ucs@jis		  . #x8C6B)	; &GT-48859;
+      (=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
       (=ks-x1001	  . #x6763)	; &I-K0-6763; [71-67]
       (=jis-x0213-1	  . #x502E)	; &I-JX1-502E; [48-14]
       (=daikanwa	  . 36425)	; &I-M-36425;
@@ -212,12 +213,13 @@
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	)
-       ((=gb2312	    . #x3245)	; &C1-445F; [18-37]
+       ((=ucs@unicode	    . #x624D)	; &C1-445F;
+	(=gb2312	    . #x3245)	; &C1-445F; [18-37]
 	(=cns11643-1	    . #x445F)	; &I-C1-445F; [36-63]
 	))
+      (=ucs@iso		  . #x20112)	; &M-00232;
       (=daikanwa	  . 00232)	; &M-00232;
       (=hanziku-1	  . #xAAD7)	; &I-HZK01-AAD7;
-      (=ucs@iso		  . #x20112)	; &M-00232;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -241,7 +243,9 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       )
-     ((=jis-x0208	  . #x3A4D)	; &GT-14886; [26-45]
+     ((=ucs@jis		  . #x624D)	; &GT-14886;
+      (=ucs@big5	  . #x624D)	; &GT-14886;
+      (=jis-x0208	  . #x3A4D)	; &GT-14886; [26-45]
       (=ks-x1001	  . #x6E26)	; &I-K0-6E26; [78-06]
       (=jis-x0213-1	  . #x3A4D)	; &I-JX1-3A4D; [26-45]
       (=daikanwa	  . 11769)	; &I-M-11769;
@@ -332,7 +336,8 @@
      ((=gb12345		  . #x5579)	; &C1-4E68; [53-89]
       ))
     (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6027)	; &GT-25238; [64-07]
+     ((=ucs@jis		  . #x722D)	; &GT-25238;
+      (=jis-x0208	  . #x6027)	; &GT-25238; [64-07]
       (=ks-x1001	  . #x6E33)	; &I-K0-6E33; [78-19]
       (=jis-x0213-1	  . #x6027)	; &I-JX1-6027; [64-07]
       (=daikanwa	  . 19663)	; &I-M-19663;
@@ -352,7 +357,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0208	    . #x4E61)	; &GT-00521; [46-65]
+       ((=ucs@jis	    . #x4EE4)	; &GT-00521;
+	(=jis-x0208	    . #x4E61)	; &GT-00521; [46-65]
 	(=ks-x1001	    . #x5635)	; &I-K0-5635; [54-21]
 	(=jis-x0213-1	    . #x4E61)	; &I-JX1-4E61; [46-65]
 	(=daikanwa	    . 00387)	; &I-M-00387;
@@ -370,8 +376,8 @@
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
-      (=cns11643-5	  . #x2330)	; &C5-2330; [03-16]
       (=ucs@iso		  . #x20116)	; &C5-2330;
+      (=cns11643-5	  . #x2330)	; &C5-2330; [03-16]
       )
      ((hanyu-dazidian	  1 128 12)
       (ideographic-structure
@@ -406,9 +412,9 @@
     (total-strokes	 . 7)
     (=ucs		. #x20029)	; 𠀩
     (->subsumptive
-     ((=cns11643-6	  . #x2563)	; &M-00239; [05-67]
+     ((=ucs@iso		  . #x20029)	; &M-00239;
+      (=cns11643-6	  . #x2563)	; &M-00239; [05-67]
       (=daikanwa	  . 00239)	; &I-M-00239;
-      (=ucs@iso		  . #x20029)	; &M-00239;
       )
      ((hanyu-dazidian	  1 553 5)
       (=hanziku-2	  . #xC1C0)	; &HZK02-C1C0;

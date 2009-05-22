@@ -465,6 +465,7 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (=ucs@jis		. #x76B4)	; &GT-29302;
     (=jis-x0208		. #x622F)	; &GT-29302; [66-15]
     (=cns11643-1	. #x6078)	; &I-C1-6078; [64-88]
     (=jis-x0213-1	. #x622F)	; &I-JX1-622F; [66-15]
@@ -472,7 +473,6 @@
     (=gt-pj-1		. #x622F)	; &I-GT-29302; [66-15]
     (=daikanwa		. 22866)	; &I-M-22866;
     (=shinjigen@rev	.  5226)	; &GT-29302;
-    (=ucs@jis		. #x76B4)	; &GT-29302;
     ))
 (define-char
   '((=>ucs		. #x76B4)	; 皴
@@ -888,11 +888,11 @@
     (=ucs		. #x76BB)	; 皻
     (=big5		. #xEA74)	; &I-B-EA74;
     (->subsumptive
-     ((=daikanwa	  . 22903)	; &M-22903;
-      (=ucs@unicode	  . #x76BB)	; &M-22903;
+     ((=ucs@unicode	  . #x76BB)	; &M-22903;
+      (=daikanwa	  . 22903)	; &M-22903;
       )
-     ((=cns11643-2	  . #x5860)	; &C2-5860; [56-64]
-      (=ucs@cns		  . #x76BB)	; &C2-5860;
+     ((=ucs@cns		  . #x76BB)	; &C2-5860;
+      (=cns11643-2	  . #x5860)	; &C2-5860; [56-64]
       ))
     ))
 (define-char
@@ -1002,10 +1002,10 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (=ucs@jis		. #x76BD)	; &M-22921;
     (=jis-x0212		. #x4E48)	; &M-22921; [46-40]
     (=big5		. #xF052)	; &I-B-F052;
     (=daikanwa		. 22921)	; &I-M-22921;
-    (=ucs@jis		. #x76BD)	; &M-22921;
     ))
 (define-char
   '((morohashi-daikanwa	22921 0 0)

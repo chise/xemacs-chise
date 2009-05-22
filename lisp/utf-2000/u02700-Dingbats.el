@@ -116,8 +116,8 @@
      ((name		  . "CHECK MARK")
       (=ucs		  . #x2713)	; ✓
       ))
-    (=jis-x0213-1	. #x277B)	; &JX1-277B; [07-91]
     (=ucs@jis		. #x2713)	; &JX1-277B;
+    (=jis-x0213-1	. #x277B)	; &JX1-277B; [07-91]
     (<-fullwidth
      ((name		  . "CHECK MARK")
       (=ucs		  . #x2713)	; ✓
@@ -415,8 +415,8 @@
      ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
       (=ucs		  . #x273D)	; ✽
       ))
-    (=big5-eten		. #xC6E6)	; &B-C6E6;
     (=ucs@big5		. #x273D)	; &B-C6E6;
+    (=big5-eten		. #xC6E6)	; &B-C6E6;
     (<-fullwidth
      ((name		  . "HEAVY TEARDROP-SPOKED ASTERISK")
       (=ucs		  . #x273D)	; ✽
@@ -567,8 +567,8 @@
      ((name		  . "BLACK DIAMOND MINUS WHITE X")
       (=ucs		  . #x2756)	; ❖
       ))
-    (=jis-x0213-1	. #x2D7D)	; &JX1-2D7D; [13-93]
     (=ucs@jis		. #x2756)	; &JX1-2D7D;
+    (=jis-x0213-1	. #x2D7D)	; &JX1-2D7D; [13-93]
     (<-fullwidth
      ((name		  . "BLACK DIAMOND MINUS WHITE X")
       (=ucs		  . #x2756)	; ❖

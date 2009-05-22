@@ -341,8 +341,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x2E95)	; ⺕
-    (=gb2312		. #x6566)	; &I-G0-6566; [69-70]
     (=ucs@unicode	. #x5F50)	; ⺕
+    (=gb2312		. #x6566)	; &I-G0-6566; [69-70]
     ))
 (define-char
   '((<-denotational
@@ -379,7 +379,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
+      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
       ))
     (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
@@ -387,7 +388,8 @@
     (mirrored		. nil)
     (=ucs		. #x2E97)	; ⺗
     (<-identical@component/connect-above
-     ((=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
+      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
       ))
     ))
 (define-char
@@ -1054,6 +1056,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x2EBE)	; ⺾
+    (=ucs@unicode	. #x8279)	; ⺾
     (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
     (=jis-x0213-2	. #x7576)	; &I-JX2-7576; [85-86]
     (=big5-cdp		. #x8957)	; &I-CDP-8957;
@@ -1061,7 +1064,6 @@
     (=gt-k		. 00279)	; &I-GT-K00279;
     (=gt-pj-9		. #x4F47)	; &I-GT-39639; [47-39]
     (=jef-china3	. #x72FA)	; &I-JC3-72FA;
-    (=ucs@unicode	. #x8279)	; ⺾
     ))
 (define-char
   '((<-denotational
@@ -1269,13 +1271,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; ⻍
+    (=ucs@jis		. #x8FB6)	; ⻍
     (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
     (=jis-x0213-2	. #x796A)	; &I-JX2-796A; [89-74]
     (=gt		. 51643)	; &I-GT-51643;
     (=gt-k		. 00580)	; &I-GT-K00580;
     (=gt-pj-7		. #x5530)	; &I-GT-51643; [53-16]
     (=daikanwa		. 38702)	; &I-M-38702;
-    (=ucs@jis		. #x8FB6)	; ⻍
     (<-formed@component
      ((=ucs		  . #x8FB5)	; 辵
       (=daikanwa	  . 38700)	; &I-M-38700;
@@ -1295,9 +1297,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECE)	; ⻎
+    (=ucs@cns		. #x8FB6)	; ⻎
     (=cns11643-4	. #x2154)	; &I-C4-2154; [01-52]
     (=big5-cdp		. #x8AF7)	; &I-CDP-8AF7;
-    (=ucs@cns		. #x8FB6)	; ⻎
     (<-simplified@component
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
@@ -1419,9 +1421,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x2ED6)	; ⻖
+    (=ucs@unicode	. #x961D)	; ⻖
     (=gb2312		. #x5A62)	; &I-G0-5A62; [58-66]
     (=daikanwa		. 41536)	; &I-M-41536;
-    (=ucs@unicode	. #x961D)	; ⻖
     (<-formed@component/connect-right
      ((=ucs		  . #x961C)	; 阜
       ))

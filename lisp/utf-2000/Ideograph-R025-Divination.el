@@ -93,6 +93,7 @@
       )
      ((=ucs		  . #x4E0B)	; 下
       ))
+    (=ucs@jis		. #x535E)	; &GT-03546;
     (=jis-x0208		. #x5246)	; &GT-03546; [50-38]
     (=ks-x1001		. #x5C26)	; &I-K0-5C26; [60-06]
     (=jis-x0213-1	. #x5246)	; &I-JX1-5246; [50-38]
@@ -101,7 +102,6 @@
     (=gt-pj-1		. #x5246)	; &I-GT-03546; [50-38]
     (=daikanwa		. 02778)	; &I-M-02778;
     (=shinjigen		.  0835)	; &GT-03546;
-    (=ucs@jis		. #x535E)	; &GT-03546;
     ))
 (define-char
   '((morohashi-daikanwa	2778 0 1)
@@ -255,8 +255,8 @@
     (->subsumptive
      ((=daikanwa	  . 02785)	; &M-02785;
       )
-     ((=cns11643-6	  . #x2378)	; &C6-2378; [03-88]
-      (=ucs@iso		  . #x209D8)	; &C6-2378;
+     ((=ucs@iso		  . #x209D8)	; &C6-2378;
+      (=cns11643-6	  . #x2378)	; &C6-2378; [03-88]
       ))
     ))
 (define-char
@@ -338,10 +338,11 @@
     (total-strokes	 . 7)
     (=ucs		. #x209DC)	; 𠧜
     (->subsumptive
-     ((=daikanwa	  . 02793)	; &M-02793;
-      (=ucs@iso		  . #x209DC)	; &M-02793;
+     ((=ucs@iso		  . #x209DC)	; &M-02793;
+      (=daikanwa	  . 02793)	; &M-02793;
       (<-same
-       ((=jis-x0208	    . #x403E)	; &GT-46803; [32-30]
+       ((=ucs@jis	    . #x897F)	; &GT-46803;
+	(=jis-x0208	    . #x403E)	; &GT-46803; [32-30]
 	(=ks-x1001	    . #x6024)	; &I-K0-6024; [64-04]
 	(=jis-x0213-1	    . #x403E)	; &I-JX1-403E; [32-30]
 	(=daikanwa	    . 34763)	; &I-M-34763;
@@ -376,7 +377,8 @@
     (<-Zhouwen*sources
      shuowen daikanwa)
     (<-same
-     ((=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
+     ((=ucs@jis		  . #x897F)	; &GT-46803;
+      (=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
       (=ks-x1001	  . #x6024)	; &I-K0-6024; [64-04]
       (=jis-x0213-1	  . #x403E)	; &I-JX1-403E; [32-30]
       (=daikanwa	  . 34763)	; &I-M-34763;
@@ -776,7 +778,10 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=jis-x0208	  . #x5325)	; &GT-04428; [51-05]
+     ((=ucs@cns		  . #x54BC)	; &GT-04428;
+      (=ucs@jis		  . #x54BC)	; &GT-04428;
+      (=ucs@big5	  . #x54BC)	; &GT-04428;
+      (=jis-x0208	  . #x5325)	; &GT-04428; [51-05]
       (=cns11643-2	  . #x294B)	; &I-C2-294B; [09-43]
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
@@ -801,7 +806,8 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
+     ((=ucs@unicode	  . #x54BC)	; &UU+54BC;
+      (=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
       ))
     (=ucs@unicode	. #x5368)	; &UU+5368;
     ))

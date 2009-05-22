@@ -115,9 +115,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 29 2)
+    (=ucs@jis		. #x382F)	; &CDP-8BAD;
     (=jis-x0213-2	. #x286F)	; &CDP-8BAD; [08-79]
     (=big5-cdp		. #x8BAD)	; &I-CDP-8BAD;
-    (=ucs@jis		. #x382F)	; &CDP-8BAD;
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
@@ -197,6 +197,7 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs@unicode	. #x5DF7)	; &GT-11040;
     (=jis-x0208@1978	. #x392B)	; &GT-11040; [25-11]
     (=gb2312		. #x4F6F)	; &I-G0-4F6F; [47-79]
     (=ks-x1001		. #x7975)	; &I-K0-7975; [89-85]
@@ -205,7 +206,6 @@
     (=gt		. 11040)	; &I-GT-11040;
     (=gt-pj-3		. #x3E61)	; &I-GT-11040; [30-65]
     (=daikanwa		. 08756)	; &I-M-08756;
-    (=ucs@unicode	. #x5DF7)	; &GT-11040;
     ))
 (define-char
   '((<-denotational
@@ -214,6 +214,7 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs@jis		. #x5DF7)	; &GT-11041;
     (=jis-x0208@1983	. #x392B)	; &GT-11041; [25-11]
     (=jis-x0208@1990	. #x392B)	; &I-J90-392B; [25-11]
     (=jis-x0213-1	. #x392B)	; &I-JX1-392B; [25-11]
@@ -221,17 +222,16 @@
     (=gt-k		. 05074)	; &I-GT-K05074;
     (=gt-pj-1		. #x392B)	; &I-GT-11041; [25-11]
     (=jef-china3	. #x4BF4)	; &I-JC3-4BF4;
-    (=ucs@jis		. #x5DF7)	; &GT-11041;
     ))
 (define-char
   '((=>ucs		. #x5DF8)	; 巸
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs@jis		. #x5DF8)	; &M-08757;
     (=jis-x0212		. #x3C22)	; &M-08757; [28-02]
     (=daikanwa		. 08757)	; &I-M-08757;
     (=jef-china3	. #x4BF3)	; &I-JC3-4BF3;
-    (=ucs@jis		. #x5DF8)	; &M-08757;
     ))
 (define-char
   '((morohashi-daikanwa	8757 0 1)
@@ -267,14 +267,15 @@
     (=ucs		. #x5DFB)	; 巻
     (->subsumptive
      ((morohashi-daikanwa	8759 1)
+      (=ucs@jis		  . #x5DFB)	; &GT-11038;
       (=jis-x0208	  . #x342C)	; &GT-11038; [20-12]
       (=jis-x0213-1	  . #x342C)	; &I-JX1-342C; [20-12]
       (=gt		  . 11038)	; &I-GT-11038;
       (=gt-k		  . 05217)	; &I-GT-K05217;
       (=gt-pj-1		  . #x342C)	; &I-GT-11038; [20-12]
-      (=ucs@jis		  . #x5DFB)	; &GT-11038;
       (<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x524B)	; &GT-03636; [50-43]
+       ((=ucs@jis	    . #x5377)	; &GT-03636;
+	(=jis-x0208	    . #x524B)	; &GT-03636; [50-43]
 	(=ks-x1001	    . #x4F69)	; &I-K0-4F69; [47-73]
 	(=jis-x0213-1	    . #x524B)	; &I-JX1-524B; [50-43]
 	(=daikanwa	    . 02860)	; &I-M-02860;
@@ -282,8 +283,8 @@
       )
      ((mojikyo		  . 050162)	; &MCS-6000C3F2;
       )
-     ((=cns11643-3	  . #x2C44)	; &C3-2C44; [12-36]
-      (=ucs@unicode	  . #x5DFB)	; &C3-2C44;
+     ((=ucs@unicode	  . #x5DFB)	; &C3-2C44;
+      (=cns11643-3	  . #x2C44)	; &C3-2C44; [12-36]
       ))
     ))
 (define-char
@@ -366,8 +367,8 @@
     (->subsumptive
      ((=daikanwa	  . 49066)	; &M-49066;
       )
-     ((=cns11643-5	  . #x322C)	; &C5-322C; [18-12]
-      (=ucs@iso		  . #x22044)	; &C5-322C;
+     ((=ucs@iso		  . #x22044)	; &C5-322C;
+      (=cns11643-5	  . #x322C)	; &C5-322C; [18-12]
       ))
     ))
 (define-char
@@ -387,6 +388,8 @@
     (->subsumptive
      ((=>ucs*		  . #x5DFD)	; 巽
       (=ucs		  . #x2F884)	; 巽
+      (=ucs@unicode	  . #x5DFD)	; 巽
+      (=ucs@cns		  . #x2F884)	; 巽
       (=jis-x0208@1978	  . #x4327)	; &I-J78-4327; [35-07]
       (=gb2312		  . #x5963)	; &I-G0-5963; [57-67]
       (=ks-x1001	  . #x615E)	; &I-K0-615E; [65-62]
@@ -395,8 +398,6 @@
       (=gt		  . 11052)	; &I-GT-11052;
       (=gt-pj-3		  . #x3E6B)	; &I-GT-11052; [30-75]
       (=daikanwa	  . 08765)	; &I-M-08765;
-      (=ucs@unicode	  . #x5DFD)	; 巽
-      (=ucs@cns		  . #x2F884)	; 巽
       )
      ((=cns11643-1	  . #x5E78)	; &C1-5E78; [62-88]
       ))
@@ -408,6 +409,7 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=ucs@jis		. #x5DFD)	; &GT-11054;
     (=jis-x0208@1983	. #x4327)	; &GT-11054; [35-07]
     (=jis-x0208@1990	. #x4327)	; &I-J90-4327; [35-07]
     (=jis-x0213-1	. #x4327)	; &I-JX1-4327; [35-07]
@@ -415,7 +417,6 @@
     (=gt-k		. 09097)	; &I-GT-K09097;
     (=gt-pj-1		. #x4327)	; &I-GT-11054; [35-07]
     (=jef-china3	. #x4BF5)	; &I-JC3-4BF5;
-    (=ucs@jis		. #x5DFD)	; &GT-11054;
     (<-simplified@JP
      ((=ucs		  . #x2F884)	; 巽
       (=jis-x0208@1978	  . #x4327)	; &I-J78-4327; [35-07]

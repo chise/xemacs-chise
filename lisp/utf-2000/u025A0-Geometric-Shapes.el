@@ -11,17 +11,17 @@
      ((name		  . "BLACK SQUARE")
       (=ucs		  . #x25A0)	; ■
       ))
+    (=ucs@gb		. #x25A0)	; &J90-2223;
+    (=ucs@cns		. #x25A0)	; &J90-2223;
+    (=ucs@jis		. #x25A0)	; &J90-2223;
+    (=ucs@ks		. #x25A0)	; &J90-2223;
+    (=ucs@big5		. #x25A0)	; &J90-2223;
     (=jis-x0208		. #x2223)	; &J90-2223; [02-03]
     (=gb2312		. #x2176)	; &I-G0-2176; [01-86]
     (=ks-x1001		. #x2161)	; &I-K0-2161; [01-65]
     (=cns11643-1	. #x217C)	; &I-C1-217C; [01-92]
     (=jis-x0213-1	. #x2223)	; &I-JX1-2223; [02-03]
     (=big5		. #xA1BD)	; &I-B-A1BD;
-    (=ucs@gb		. #x25A0)	; &J90-2223;
-    (=ucs@cns		. #x25A0)	; &J90-2223;
-    (=ucs@jis		. #x25A0)	; &J90-2223;
-    (=ucs@ks		. #x25A0)	; &J90-2223;
-    (=ucs@big5		. #x25A0)	; &J90-2223;
     (<-fullwidth
      ((name		  . "BLACK SQUARE")
       (=ucs		  . #x25A0)	; ■
@@ -39,17 +39,17 @@
      ((name		  . "WHITE SQUARE")
       (=ucs		  . #x25A1)	; □
       ))
+    (=ucs@gb		. #x25A1)	; &J90-2222;
+    (=ucs@cns		. #x25A1)	; &J90-2222;
+    (=ucs@jis		. #x25A1)	; &J90-2222;
+    (=ucs@ks		. #x25A1)	; &J90-2222;
+    (=ucs@big5		. #x25A1)	; &J90-2222;
     (=jis-x0208		. #x2222)	; &J90-2222; [02-02]
     (=gb2312		. #x2175)	; &I-G0-2175; [01-85]
     (=ks-x1001		. #x2160)	; &I-K0-2160; [01-64]
     (=cns11643-1	. #x217B)	; &I-C1-217B; [01-91]
     (=jis-x0213-1	. #x2222)	; &I-JX1-2222; [02-02]
     (=big5		. #xA1BC)	; &I-B-A1BC;
-    (=ucs@gb		. #x25A1)	; &J90-2222;
-    (=ucs@cns		. #x25A1)	; &J90-2222;
-    (=ucs@jis		. #x25A1)	; &J90-2222;
-    (=ucs@ks		. #x25A1)	; &J90-2222;
-    (=ucs@big5		. #x25A1)	; &J90-2222;
     (<-fullwidth
      ((name		  . "WHITE SQUARE")
       (=ucs		  . #x25A1)	; □
@@ -74,8 +74,8 @@
      ((name		  . "WHITE SQUARE CONTAINING BLACK SMALL SQUARE")
       (=ucs		  . #x25A3)	; ▣
       ))
-    (=ks-x1001		. #x2243)	; &K0-2243; [02-35]
     (=ucs@ks		. #x25A3)	; &K0-2243;
+    (=ks-x1001		. #x2243)	; &K0-2243; [02-35]
     (<-fullwidth
      ((name		  . "WHITE SQUARE CONTAINING BLACK SMALL SQUARE")
       (=ucs		  . #x25A3)	; ▣
@@ -93,8 +93,8 @@
      ((name		  . "SQUARE WITH HORIZONTAL FILL")
       (=ucs		  . #x25A4)	; ▤
       ))
-    (=ks-x1001		. #x2247)	; &K0-2247; [02-39]
     (=ucs@ks		. #x25A4)	; &K0-2247;
+    (=ks-x1001		. #x2247)	; &K0-2247; [02-39]
     (<-fullwidth
      ((name		  . "SQUARE WITH HORIZONTAL FILL")
       (=ucs		  . #x25A4)	; ▤
@@ -112,8 +112,8 @@
      ((name		  . "SQUARE WITH VERTICAL FILL")
       (=ucs		  . #x25A5)	; ▥
       ))
-    (=ks-x1001		. #x2248)	; &K0-2248; [02-40]
     (=ucs@ks		. #x25A5)	; &K0-2248;
+    (=ks-x1001		. #x2248)	; &K0-2248; [02-40]
     (<-fullwidth
      ((name		  . "SQUARE WITH VERTICAL FILL")
       (=ucs		  . #x25A5)	; ▥
@@ -131,8 +131,8 @@
      ((name		  . "SQUARE WITH ORTHOGONAL CROSSHATCH FILL")
       (=ucs		  . #x25A6)	; ▦
       ))
-    (=ks-x1001		. #x224B)	; &K0-224B; [02-43]
     (=ucs@ks		. #x25A6)	; &K0-224B;
+    (=ks-x1001		. #x224B)	; &K0-224B; [02-43]
     (<-fullwidth
      ((name		  . "SQUARE WITH ORTHOGONAL CROSSHATCH FILL")
       (=ucs		  . #x25A6)	; ▦
@@ -150,8 +150,8 @@
      ((name		  . "SQUARE WITH UPPER LEFT TO LOWER RIGHT FILL")
       (=ucs		  . #x25A7)	; ▧
       ))
-    (=ks-x1001		. #x224A)	; &K0-224A; [02-42]
     (=ucs@ks		. #x25A7)	; &K0-224A;
+    (=ks-x1001		. #x224A)	; &K0-224A; [02-42]
     (<-fullwidth
      ((name		  . "SQUARE WITH UPPER LEFT TO LOWER RIGHT FILL")
       (=ucs		  . #x25A7)	; ▧
@@ -169,8 +169,8 @@
      ((name		  . "SQUARE WITH UPPER RIGHT TO LOWER LEFT FILL")
       (=ucs		  . #x25A8)	; ▨
       ))
-    (=ks-x1001		. #x2249)	; &K0-2249; [02-41]
     (=ucs@ks		. #x25A8)	; &K0-2249;
+    (=ks-x1001		. #x2249)	; &K0-2249; [02-41]
     (<-fullwidth
      ((name		  . "SQUARE WITH UPPER RIGHT TO LOWER LEFT FILL")
       (=ucs		  . #x25A8)	; ▨
@@ -188,8 +188,8 @@
      ((name		  . "SQUARE WITH DIAGONAL CROSSHATCH FILL")
       (=ucs		  . #x25A9)	; ▩
       ))
-    (=ks-x1001		. #x224C)	; &K0-224C; [02-44]
     (=ucs@ks		. #x25A9)	; &K0-224C;
+    (=ks-x1001		. #x224C)	; &K0-224C; [02-44]
     (<-fullwidth
      ((name		  . "SQUARE WITH DIAGONAL CROSSHATCH FILL")
       (=ucs		  . #x25A9)	; ▩
@@ -256,8 +256,8 @@
      ((name		  . "WHITE PARALLELOGRAM")
       (=ucs		  . #x25B1)	; ▱
       ))
-    (=jis-x0213-1	. #x266D)	; &JX1-266D; [06-77]
     (=ucs@jis		. #x25B1)	; &JX1-266D;
+    (=jis-x0213-1	. #x266D)	; &JX1-266D; [06-77]
     (<-fullwidth
      ((name		  . "WHITE PARALLELOGRAM")
       (=ucs		  . #x25B1)	; ▱
@@ -275,17 +275,17 @@
      ((name		  . "BLACK UP-POINTING TRIANGLE")
       (=ucs		  . #x25B2)	; ▲
       ))
+    (=ucs@gb		. #x25B2)	; &J90-2225;
+    (=ucs@cns		. #x25B2)	; &J90-2225;
+    (=ucs@jis		. #x25B2)	; &J90-2225;
+    (=ucs@ks		. #x25B2)	; &J90-2225;
+    (=ucs@big5		. #x25B2)	; &J90-2225;
     (=jis-x0208		. #x2225)	; &J90-2225; [02-05]
     (=gb2312		. #x2178)	; &I-G0-2178; [01-88]
     (=ks-x1001		. #x2163)	; &I-K0-2163; [01-67]
     (=cns11643-1	. #x2175)	; &I-C1-2175; [01-85]
     (=jis-x0213-1	. #x2225)	; &I-JX1-2225; [02-05]
     (=big5		. #xA1B6)	; &I-B-A1B6;
-    (=ucs@gb		. #x25B2)	; &J90-2225;
-    (=ucs@cns		. #x25B2)	; &J90-2225;
-    (=ucs@jis		. #x25B2)	; &J90-2225;
-    (=ucs@ks		. #x25B2)	; &J90-2225;
-    (=ucs@big5		. #x25B2)	; &J90-2225;
     (<-fullwidth
      ((name		  . "BLACK UP-POINTING TRIANGLE")
       (=ucs		  . #x25B2)	; ▲
@@ -303,17 +303,17 @@
      ((name		  . "WHITE UP-POINTING TRIANGLE")
       (=ucs		  . #x25B3)	; △
       ))
+    (=ucs@gb		. #x25B3)	; &J90-2224;
+    (=ucs@cns		. #x25B3)	; &J90-2224;
+    (=ucs@jis		. #x25B3)	; &J90-2224;
+    (=ucs@ks		. #x25B3)	; &J90-2224;
+    (=ucs@big5		. #x25B3)	; &J90-2224;
     (=jis-x0208		. #x2224)	; &J90-2224; [02-04]
     (=gb2312		. #x2177)	; &I-G0-2177; [01-87]
     (=ks-x1001		. #x2162)	; &I-K0-2162; [01-66]
     (=cns11643-1	. #x2174)	; &I-C1-2174; [01-84]
     (=jis-x0213-1	. #x2224)	; &I-JX1-2224; [02-04]
     (=big5		. #xA1B5)	; &I-B-A1B5;
-    (=ucs@gb		. #x25B3)	; &J90-2224;
-    (=ucs@cns		. #x25B3)	; &J90-2224;
-    (=ucs@jis		. #x25B3)	; &J90-2224;
-    (=ucs@ks		. #x25B3)	; &J90-2224;
-    (=ucs@big5		. #x25B3)	; &J90-2224;
     (<-fullwidth
      ((name		  . "WHITE UP-POINTING TRIANGLE")
       (=ucs		  . #x25B3)	; △
@@ -345,10 +345,10 @@
      ((name		  . "BLACK RIGHT-POINTING TRIANGLE")
       (=ucs		  . #x25B6)	; ▶
       ))
-    (=ks-x1001		. #x223A)	; &JX1-2322; [02-26]
-    (=jis-x0213-1	. #x2322)	; &I-JX1-2322; [03-02]
     (=ucs@jis		. #x25B6)	; &JX1-2322;
     (=ucs@ks		. #x25B6)	; &JX1-2322;
+    (=ks-x1001		. #x223A)	; &JX1-2322; [02-26]
+    (=jis-x0213-1	. #x2322)	; &I-JX1-2322; [03-02]
     (<-fullwidth
      ((name		  . "BLACK RIGHT-POINTING TRIANGLE")
       (=ucs		  . #x25B6)	; ▶
@@ -366,10 +366,10 @@
      ((name		  . "WHITE RIGHT-POINTING TRIANGLE")
       (=ucs		  . #x25B7)	; ▷
       ))
-    (=ks-x1001		. #x2239)	; &JX1-2321; [02-25]
-    (=jis-x0213-1	. #x2321)	; &I-JX1-2321; [03-01]
     (=ucs@jis		. #x25B7)	; &JX1-2321;
     (=ucs@ks		. #x25B7)	; &JX1-2321;
+    (=ks-x1001		. #x2239)	; &JX1-2321; [02-25]
+    (=jis-x0213-1	. #x2321)	; &I-JX1-2321; [03-01]
     (<-fullwidth
      ((name		  . "WHITE RIGHT-POINTING TRIANGLE")
       (=ucs		  . #x25B7)	; ▷
@@ -415,15 +415,15 @@
      ((name		  . "BLACK DOWN-POINTING TRIANGLE")
       (=ucs		  . #x25BC)	; ▼
       ))
+    (=ucs@cns		. #x25BC)	; &J90-2227;
+    (=ucs@jis		. #x25BC)	; &J90-2227;
+    (=ucs@ks		. #x25BC)	; &J90-2227;
+    (=ucs@big5		. #x25BC)	; &J90-2227;
     (=jis-x0208		. #x2227)	; &J90-2227; [02-07]
     (=ks-x1001		. #x2165)	; &I-K0-2165; [01-69]
     (=cns11643-1	. #x217E)	; &I-C1-217E; [01-94]
     (=jis-x0213-1	. #x2227)	; &I-JX1-2227; [02-07]
     (=big5		. #xA1BF)	; &I-B-A1BF;
-    (=ucs@cns		. #x25BC)	; &J90-2227;
-    (=ucs@jis		. #x25BC)	; &J90-2227;
-    (=ucs@ks		. #x25BC)	; &J90-2227;
-    (=ucs@big5		. #x25BC)	; &J90-2227;
     (<-fullwidth
      ((name		  . "BLACK DOWN-POINTING TRIANGLE")
       (=ucs		  . #x25BC)	; ▼
@@ -441,15 +441,15 @@
      ((name		  . "WHITE DOWN-POINTING TRIANGLE")
       (=ucs		  . #x25BD)	; ▽
       ))
+    (=ucs@cns		. #x25BD)	; &J90-2226;
+    (=ucs@jis		. #x25BD)	; &J90-2226;
+    (=ucs@ks		. #x25BD)	; &J90-2226;
+    (=ucs@big5		. #x25BD)	; &J90-2226;
     (=jis-x0208		. #x2226)	; &J90-2226; [02-06]
     (=ks-x1001		. #x2164)	; &I-K0-2164; [01-68]
     (=cns11643-1	. #x217D)	; &I-C1-217D; [01-93]
     (=jis-x0213-1	. #x2226)	; &I-JX1-2226; [02-06]
     (=big5		. #xA1BE)	; &I-B-A1BE;
-    (=ucs@cns		. #x25BD)	; &J90-2226;
-    (=ucs@jis		. #x25BD)	; &J90-2226;
-    (=ucs@ks		. #x25BD)	; &J90-2226;
-    (=ucs@big5		. #x25BD)	; &J90-2226;
     (<-fullwidth
      ((name		  . "WHITE DOWN-POINTING TRIANGLE")
       (=ucs		  . #x25BD)	; ▽
@@ -481,10 +481,10 @@
      ((name		  . "BLACK LEFT-POINTING TRIANGLE")
       (=ucs		  . #x25C0)	; ◀
       ))
-    (=ks-x1001		. #x2238)	; &JX1-2324; [02-24]
-    (=jis-x0213-1	. #x2324)	; &I-JX1-2324; [03-04]
     (=ucs@jis		. #x25C0)	; &JX1-2324;
     (=ucs@ks		. #x25C0)	; &JX1-2324;
+    (=ks-x1001		. #x2238)	; &JX1-2324; [02-24]
+    (=jis-x0213-1	. #x2324)	; &I-JX1-2324; [03-04]
     (<-fullwidth
      ((name		  . "BLACK LEFT-POINTING TRIANGLE")
       (=ucs		  . #x25C0)	; ◀
@@ -502,10 +502,10 @@
      ((name		  . "WHITE LEFT-POINTING TRIANGLE")
       (=ucs		  . #x25C1)	; ◁
       ))
-    (=ks-x1001		. #x2237)	; &JX1-2323; [02-23]
-    (=jis-x0213-1	. #x2323)	; &I-JX1-2323; [03-03]
     (=ucs@jis		. #x25C1)	; &JX1-2323;
     (=ucs@ks		. #x25C1)	; &JX1-2323;
+    (=ks-x1001		. #x2237)	; &JX1-2323; [02-23]
+    (=jis-x0213-1	. #x2323)	; &I-JX1-2323; [03-03]
     (<-fullwidth
      ((name		  . "WHITE LEFT-POINTING TRIANGLE")
       (=ucs		  . #x25C1)	; ◁
@@ -551,17 +551,17 @@
      ((name		  . "BLACK DIAMOND")
       (=ucs		  . #x25C6)	; ◆
       ))
+    (=ucs@gb		. #x25C6)	; &J90-2221;
+    (=ucs@cns		. #x25C6)	; &J90-2221;
+    (=ucs@jis		. #x25C6)	; &J90-2221;
+    (=ucs@ks		. #x25C6)	; &J90-2221;
+    (=ucs@big5		. #x25C6)	; &J90-2221;
     (=jis-x0208		. #x2221)	; &J90-2221; [02-01]
     (=gb2312		. #x2174)	; &I-G0-2174; [01-84]
     (=ks-x1001		. #x215F)	; &I-K0-215F; [01-63]
     (=cns11643-1	. #x217A)	; &I-C1-217A; [01-90]
     (=jis-x0213-1	. #x2221)	; &I-JX1-2221; [02-01]
     (=big5		. #xA1BB)	; &I-B-A1BB;
-    (=ucs@gb		. #x25C6)	; &J90-2221;
-    (=ucs@cns		. #x25C6)	; &J90-2221;
-    (=ucs@jis		. #x25C6)	; &J90-2221;
-    (=ucs@ks		. #x25C6)	; &J90-2221;
-    (=ucs@big5		. #x25C6)	; &J90-2221;
     (<-fullwidth
      ((name		  . "BLACK DIAMOND")
       (=ucs		  . #x25C6)	; ◆
@@ -579,17 +579,17 @@
      ((name		  . "WHITE DIAMOND")
       (=ucs		  . #x25C7)	; ◇
       ))
+    (=ucs@gb		. #x25C7)	; &J90-217E;
+    (=ucs@cns		. #x25C7)	; &J90-217E;
+    (=ucs@jis		. #x25C7)	; &J90-217E;
+    (=ucs@ks		. #x25C7)	; &J90-217E;
+    (=ucs@big5		. #x25C7)	; &J90-217E;
     (=jis-x0208		. #x217E)	; &J90-217E; [01-94]
     (=gb2312		. #x2173)	; &I-G0-2173; [01-83]
     (=ks-x1001		. #x215E)	; &I-K0-215E; [01-62]
     (=cns11643-1	. #x2179)	; &I-C1-2179; [01-89]
     (=jis-x0213-1	. #x217E)	; &I-JX1-217E; [01-94]
     (=big5		. #xA1BA)	; &I-B-A1BA;
-    (=ucs@gb		. #x25C7)	; &J90-217E;
-    (=ucs@cns		. #x25C7)	; &J90-217E;
-    (=ucs@jis		. #x25C7)	; &J90-217E;
-    (=ucs@ks		. #x25C7)	; &J90-217E;
-    (=ucs@big5		. #x25C7)	; &J90-217E;
     (<-fullwidth
      ((name		  . "WHITE DIAMOND")
       (=ucs		  . #x25C7)	; ◇
@@ -607,8 +607,8 @@
      ((name . "WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND")
       (=ucs		  . #x25C8)	; ◈
       ))
-    (=ks-x1001		. #x2242)	; &K0-2242; [02-34]
     (=ucs@ks		. #x25C8)	; &K0-2242;
+    (=ks-x1001		. #x2242)	; &K0-2242; [02-34]
     (<-fullwidth
      ((name . "WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND")
       (=ucs		  . #x25C8)	; ◈
@@ -626,8 +626,8 @@
      ((name		  . "FISHEYE")
       (=ucs		  . #x25C9)	; ◉
       ))
-    (=jis-x0213-1	. #x233B)	; &JX1-233B; [03-27]
     (=ucs@jis		. #x25C9)	; &JX1-233B;
+    (=jis-x0213-1	. #x233B)	; &JX1-233B; [03-27]
     (<-fullwidth
      ((name		  . "FISHEYE")
       (=ucs		  . #x25C9)	; ◉
@@ -652,17 +652,17 @@
      ((name		  . "WHITE CIRCLE")
       (=ucs		  . #x25CB)	; ○
       ))
+    (=ucs@gb		. #x25CB)	; &J90-217B;
+    (=ucs@cns		. #x25CB)	; &J90-217B;
+    (=ucs@jis		. #x25CB)	; &J90-217B;
+    (=ucs@ks		. #x25CB)	; &J90-217B;
+    (=ucs@big5		. #x25CB)	; &J90-217B;
     (=jis-x0208		. #x217B)	; &J90-217B; [01-91]
     (=gb2312		. #x2170)	; &I-G0-2170; [01-80]
     (=ks-x1001		. #x215B)	; &I-K0-215B; [01-59]
     (=cns11643-1	. #x2172)	; &I-C1-2172; [01-82]
     (=jis-x0213-1	. #x217B)	; &I-JX1-217B; [01-91]
     (=big5		. #xA1B3)	; &I-B-A1B3;
-    (=ucs@gb		. #x25CB)	; &J90-217B;
-    (=ucs@cns		. #x25CB)	; &J90-217B;
-    (=ucs@jis		. #x25CB)	; &J90-217B;
-    (=ucs@ks		. #x25CB)	; &J90-217B;
-    (=ucs@big5		. #x25CB)	; &J90-217B;
     (<-fullwidth
      ((name		  . "WHITE CIRCLE")
       (=ucs		  . #x25CB)	; ○
@@ -694,17 +694,17 @@
      ((name		  . "BULLSEYE")
       (=ucs		  . #x25CE)	; ◎
       ))
+    (=ucs@gb		. #x25CE)	; &J90-217D;
+    (=ucs@cns		. #x25CE)	; &J90-217D;
+    (=ucs@jis		. #x25CE)	; &J90-217D;
+    (=ucs@ks		. #x25CE)	; &J90-217D;
+    (=ucs@big5		. #x25CE)	; &J90-217D;
     (=jis-x0208		. #x217D)	; &J90-217D; [01-93]
     (=gb2312		. #x2172)	; &I-G0-2172; [01-82]
     (=ks-x1001		. #x215D)	; &I-K0-215D; [01-61]
     (=cns11643-1	. #x2176)	; &I-C1-2176; [01-86]
     (=jis-x0213-1	. #x217D)	; &I-JX1-217D; [01-93]
     (=big5		. #xA1B7)	; &I-B-A1B7;
-    (=ucs@gb		. #x25CE)	; &J90-217D;
-    (=ucs@cns		. #x25CE)	; &J90-217D;
-    (=ucs@jis		. #x25CE)	; &J90-217D;
-    (=ucs@ks		. #x25CE)	; &J90-217D;
-    (=ucs@big5		. #x25CE)	; &J90-217D;
     (<-fullwidth
      ((name		  . "BULLSEYE")
       (=ucs		  . #x25CE)	; ◎
@@ -722,17 +722,17 @@
      ((name		  . "BLACK CIRCLE")
       (=ucs		  . #x25CF)	; ●
       ))
+    (=ucs@gb		. #x25CF)	; &J90-217C;
+    (=ucs@cns		. #x25CF)	; &J90-217C;
+    (=ucs@jis		. #x25CF)	; &J90-217C;
+    (=ucs@ks		. #x25CF)	; &J90-217C;
+    (=ucs@big5		. #x25CF)	; &J90-217C;
     (=jis-x0208		. #x217C)	; &J90-217C; [01-92]
     (=gb2312		. #x2171)	; &I-G0-2171; [01-81]
     (=ks-x1001		. #x215C)	; &I-K0-215C; [01-60]
     (=cns11643-1	. #x2173)	; &I-C1-2173; [01-83]
     (=jis-x0213-1	. #x217C)	; &I-JX1-217C; [01-92]
     (=big5		. #xA1B4)	; &I-B-A1B4;
-    (=ucs@gb		. #x25CF)	; &J90-217C;
-    (=ucs@cns		. #x25CF)	; &J90-217C;
-    (=ucs@jis		. #x25CF)	; &J90-217C;
-    (=ucs@ks		. #x25CF)	; &J90-217C;
-    (=ucs@big5		. #x25CF)	; &J90-217C;
     (<-fullwidth
      ((name		  . "BLACK CIRCLE")
       (=ucs		  . #x25CF)	; ●
@@ -750,10 +750,10 @@
      ((name		  . "CIRCLE WITH LEFT HALF BLACK")
       (=ucs		  . #x25D0)	; ◐
       ))
-    (=ks-x1001		. #x2244)	; &JX1-2867; [02-36]
-    (=jis-x0213-1	. #x2867)	; &I-JX1-2867; [08-71]
     (=ucs@jis		. #x25D0)	; &JX1-2867;
     (=ucs@ks		. #x25D0)	; &JX1-2867;
+    (=ks-x1001		. #x2244)	; &JX1-2867; [02-36]
+    (=jis-x0213-1	. #x2867)	; &I-JX1-2867; [08-71]
     (<-fullwidth
      ((name		  . "CIRCLE WITH LEFT HALF BLACK")
       (=ucs		  . #x25D0)	; ◐
@@ -771,10 +771,10 @@
      ((name		  . "CIRCLE WITH RIGHT HALF BLACK")
       (=ucs		  . #x25D1)	; ◑
       ))
-    (=ks-x1001		. #x2245)	; &JX1-2868; [02-37]
-    (=jis-x0213-1	. #x2868)	; &I-JX1-2868; [08-72]
     (=ucs@jis		. #x25D1)	; &JX1-2868;
     (=ucs@ks		. #x25D1)	; &JX1-2868;
+    (=ks-x1001		. #x2245)	; &JX1-2868; [02-37]
+    (=jis-x0213-1	. #x2868)	; &I-JX1-2868; [08-72]
     (<-fullwidth
      ((name		  . "CIRCLE WITH RIGHT HALF BLACK")
       (=ucs		  . #x25D1)	; ◑
@@ -792,8 +792,8 @@
      ((name		  . "CIRCLE WITH LOWER HALF BLACK")
       (=ucs		  . #x25D2)	; ◒
       ))
-    (=jis-x0213-1	. #x2869)	; &JX1-2869; [08-73]
     (=ucs@jis		. #x25D2)	; &JX1-2869;
+    (=jis-x0213-1	. #x2869)	; &JX1-2869; [08-73]
     (<-fullwidth
      ((name		  . "CIRCLE WITH LOWER HALF BLACK")
       (=ucs		  . #x25D2)	; ◒
@@ -811,8 +811,8 @@
      ((name		  . "CIRCLE WITH UPPER HALF BLACK")
       (=ucs		  . #x25D3)	; ◓
       ))
-    (=jis-x0213-1	. #x286A)	; &JX1-286A; [08-74]
     (=ucs@jis		. #x25D3)	; &JX1-286A;
+    (=jis-x0213-1	. #x286A)	; &JX1-286A; [08-74]
     (<-fullwidth
      ((name		  . "CIRCLE WITH UPPER HALF BLACK")
       (=ucs		  . #x25D3)	; ◓
@@ -928,10 +928,10 @@
      ((name		  . "BLACK LOWER RIGHT TRIANGLE")
       (=ucs		  . #x25E2)	; ◢
       ))
-    (=cns11643-1	. #x2348)	; &C1-2348; [03-40]
-    (=big5		. #xA2A8)	; &I-B-A2A8;
     (=ucs@cns		. #x25E2)	; &C1-2348;
     (=ucs@big5		. #x25E2)	; &C1-2348;
+    (=cns11643-1	. #x2348)	; &C1-2348; [03-40]
+    (=big5		. #xA2A8)	; &I-B-A2A8;
     (<-fullwidth
      ((name		  . "BLACK LOWER RIGHT TRIANGLE")
       (=ucs		  . #x25E2)	; ◢
@@ -949,10 +949,10 @@
      ((name		  . "BLACK LOWER LEFT TRIANGLE")
       (=ucs		  . #x25E3)	; ◣
       ))
-    (=cns11643-1	. #x2349)	; &C1-2349; [03-41]
-    (=big5		. #xA2A9)	; &I-B-A2A9;
     (=ucs@cns		. #x25E3)	; &C1-2349;
     (=ucs@big5		. #x25E3)	; &C1-2349;
+    (=cns11643-1	. #x2349)	; &C1-2349; [03-41]
+    (=big5		. #xA2A9)	; &I-B-A2A9;
     (<-fullwidth
      ((name		  . "BLACK LOWER LEFT TRIANGLE")
       (=ucs		  . #x25E3)	; ◣
@@ -970,10 +970,10 @@
      ((name		  . "BLACK UPPER LEFT TRIANGLE")
       (=ucs		  . #x25E4)	; ◤
       ))
-    (=cns11643-1	. #x234B)	; &C1-234B; [03-43]
-    (=big5		. #xA2AB)	; &I-B-A2AB;
     (=ucs@cns		. #x25E4)	; &C1-234B;
     (=ucs@big5		. #x25E4)	; &C1-234B;
+    (=cns11643-1	. #x234B)	; &C1-234B; [03-43]
+    (=big5		. #xA2AB)	; &I-B-A2AB;
     (<-fullwidth
      ((name		  . "BLACK UPPER LEFT TRIANGLE")
       (=ucs		  . #x25E4)	; ◤
@@ -991,10 +991,10 @@
      ((name		  . "BLACK UPPER RIGHT TRIANGLE")
       (=ucs		  . #x25E5)	; ◥
       ))
-    (=cns11643-1	. #x234A)	; &C1-234A; [03-42]
-    (=big5		. #xA2AA)	; &I-B-A2AA;
     (=ucs@cns		. #x25E5)	; &C1-234A;
     (=ucs@big5		. #x25E5)	; &C1-234A;
+    (=cns11643-1	. #x234A)	; &C1-234A; [03-42]
+    (=big5		. #xA2AA)	; &I-B-A2AA;
     (<-fullwidth
      ((name		  . "BLACK UPPER RIGHT TRIANGLE")
       (=ucs		  . #x25E5)	; ◥
@@ -1012,8 +1012,8 @@
      ((name		  . "WHITE BULLET")
       (=ucs		  . #x25E6)	; ◦
       ))
-    (=jis-x0213-1	. #x233F)	; &JX1-233F; [03-31]
     (=ucs@jis		. #x25E6)	; &JX1-233F;
+    (=jis-x0213-1	. #x233F)	; &JX1-233F; [03-31]
     (<-fullwidth
      ((name		  . "WHITE BULLET")
       (=ucs		  . #x25E6)	; ◦
@@ -1087,10 +1087,10 @@
      ((name		  . "LARGE CIRCLE")
       (=ucs		  . #x25EF)	; ◯
       ))
+    (=ucs@jis		. #x25EF)	; &J90-227E;
     (=jis-x0208@1983	. #x227E)	; &J90-227E; [02-94]
     (=jis-x0208@1990	. #x227E)	; &I-J90-227E; [02-94]
     (=jis-x0213-1	. #x227E)	; &I-JX1-227E; [02-94]
-    (=ucs@jis		. #x25EF)	; &J90-227E;
     (<-fullwidth
      ((name		  . "LARGE CIRCLE")
       (=ucs		  . #x25EF)	; ◯

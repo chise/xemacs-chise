@@ -5,19 +5,19 @@
     (total-strokes	 . 7)
     (=ucs		. #x8FB0)	; 辰
     (->subsumptive
-     ((=jis-x0208	  . #x4324)	; &M-38682; [35-04]
+     ((=ucs@jis		  . #x8FB0)	; &M-38682;
+      (=jis-x0208	  . #x4324)	; &M-38682; [35-04]
       (=cns11643-1	  . #x4B51)	; &I-C1-4B51; [43-49]
       (=jis-x0213-1	  . #x4324)	; &I-JX1-4324; [35-04]
       (=daikanwa	  . 38682)	; &I-M-38682;
       (=shinjigen@rev	  .  8205)	; &M-38682;
-      (=ucs@jis		  . #x8FB0)	; &M-38682;
       )
-     ((=gb2312		  . #x333D)	; &GT-51621; [19-29]
+     ((=ucs@unicode	  . #x8FB0)	; &GT-51621;
+      (=gb2312		  . #x333D)	; &GT-51621; [19-29]
       (=ks-x1001	  . #x7263)	; &I-K0-7263; [82-67]
       (=gt		  . 51621)	; &I-GT-51621;
       (=gt-k		  . 02605)	; &I-GT-K02605;
       (=gt-pj-1		  . #x4324)	; &I-GT-51621; [35-04]
-      (=ucs@unicode	  . #x8FB0)	; &GT-51621;
       ))
     ))
 (define-char
@@ -26,8 +26,8 @@
     (total-strokes	 . 6)
     (=ucs		. #x200AE)	; 𠂮
     (->subsumptive
-     ((=daikanwa	  . 38683)	; &M-38683;
-      (=ucs@iso		  . #x200AE)	; &M-38683;
+     ((=ucs@iso		  . #x200AE)	; &M-38683;
+      (=daikanwa	  . 38683)	; &M-38683;
       )
      ((=cns11643-6	  . #x2556)	; &C6-2556; [05-54]
       ))
@@ -40,8 +40,8 @@
     (->subsumptive
      ((=daikanwa	  . 38684)	; &M-38684;
       )
-     ((=cns11643-6	  . #x292C)	; &C6-292C; [09-12]
-      (=ucs@iso		  . #x28443)	; &C6-292C;
+     ((=ucs@iso		  . #x28443)	; &C6-292C;
+      (=cns11643-6	  . #x292C)	; &C6-292C; [09-12]
       ))
     ))
 (define-char
@@ -65,6 +65,7 @@
     (ideographic-radical . 161)	; ⾠
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=ucs@jis		. #x8FB1)	; &GT-51624;
     (=jis-x0208		. #x3F2B)	; &GT-51624; [31-11]
     (=ks-x1001		. #x6934)	; &I-K0-6934; [73-20]
     (=jis-x0213-1	. #x3F2B)	; &I-JX1-3F2B; [31-11]
@@ -72,7 +73,6 @@
     (=gt-k		. 06472)	; &I-GT-K06472;
     (=gt-pj-1		. #x3F2B)	; &I-GT-51624; [31-11]
     (=daikanwa		. 38686)	; &I-M-38686;
-    (=ucs@jis		. #x8FB1)	; &GT-51624;
     ))
 (define-char
   '((<-denotational
@@ -82,8 +82,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (->subsumptive
-     ((=gb2312		  . #x4868)	; &G0-4868; [40-72]
-      (=ucs@unicode	  . #x8FB1)	; &G0-4868;
+     ((=ucs@unicode	  . #x8FB1)	; &G0-4868;
+      (=gb2312		  . #x4868)	; &G0-4868; [40-72]
       )
      ((=cns11643-1	  . #x5849)	; &C1-5849; [56-41]
       ))
@@ -94,8 +94,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x28445)	; 𨑅
     (->subsumptive
-     ((=daikanwa	  . 38687)	; &M-38687;
-      (=ucs@iso		  . #x28445)	; &M-38687;
+     ((=ucs@iso		  . #x28445)	; &M-38687;
+      (=daikanwa	  . 38687)	; &M-38687;
       )
      ((=cns11643-6	  . #x592D)	; &C6-592D; [57-13]
       ))
@@ -106,7 +106,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x8FB2)	; 農
     (->subsumptive
-     ((=jis-x0208	  . #x4740)	; &GT-51627; [39-32]
+     ((=ucs@unicode	  . #x8FB2)	; &GT-51627;
+      (=jis-x0208	  . #x4740)	; &GT-51627; [39-32]
       (=ks-x1001	  . #x525C)	; &I-K0-525C; [50-60]
       (=jis-x0213-1	  . #x4740)	; &I-JX1-4740; [39-32]
       (=gb12345		  . #x4529)	; &GT-51627; [37-09]
@@ -114,7 +115,6 @@
       (=gt-k		  . 10262)	; &I-GT-K10262;
       (=gt-pj-1		  . #x4740)	; &I-GT-51627; [39-32]
       (=daikanwa	  . 38688)	; &I-M-38688;
-      (=ucs@unicode	  . #x8FB2)	; &GT-51627;
       )
      ((=cns11643-1	  . #x6729)	; &C1-6729; [71-09]
       (=shinjigen	  .  8206)	; &C1-6729;
@@ -139,8 +139,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x28447)	; 𨑇
     (->subsumptive
-     ((=daikanwa	  . 38690)	; &M-38690;
-      (=ucs@iso		  . #x28447)	; &M-38690;
+     ((=ucs@iso		  . #x28447)	; &M-38690;
+      (=daikanwa	  . 38690)	; &M-38690;
       )
      ((=cns11643-6	  . #x592B)	; &C6-592B; [57-11]
       ))
@@ -210,8 +210,8 @@
     (total-strokes	 . 15)
     (=ucs		. #x8FB3)	; 辳
     (->subsumptive
-     ((=daikanwa	  . 38693)	; &M-38693;
-      (=ucs@unicode	  . #x8FB3)	; &M-38693;
+     ((=ucs@unicode	  . #x8FB3)	; &M-38693;
+      (=daikanwa	  . 38693)	; &M-38693;
       )
      ((=cns11643-3	  . #x4F39)	; &C3-4F39; [47-25]
       ))

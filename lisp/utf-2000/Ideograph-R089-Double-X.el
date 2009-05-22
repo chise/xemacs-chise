@@ -4,6 +4,7 @@
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=ucs@jis		. #x723B)	; &GT-25355;
     (=jis-x0208		. #x602B)	; &GT-25355; [64-11]
     (=ks-x1001		. #x7D21)	; &I-K0-7D21; [93-01]
     (=jis-x0213-1	. #x602B)	; &I-JX1-602B; [64-11]
@@ -13,7 +14,6 @@
     (=gt-pj-1		. #x602B)	; &I-GT-25355; [64-11]
     (=daikanwa		. 19737)	; &I-M-19737;
     (=shinjigen@rev	.  4713)	; &GT-25355;
-    (=ucs@jis		. #x723B)	; &GT-25355;
     ))
 (define-char
   '((morohashi-daikanwa	19737 0 0)
