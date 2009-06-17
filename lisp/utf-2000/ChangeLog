@@ -1,3 +1,17 @@
+2009-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9C60): Unify S1-6571; add `<-formed'
+	and `<-same@s=namasu' for J0-673A.
+	(U+9C62): Use `->subsumptive'.
+	(U+9C63): Likewise.
+
+	* Ideograph-R177-Leather.el (U+97B6): Use `->subsumptive'.
+
+2009-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (JX2-7C67): Unify S-6563; add `<-formed'
+	for J0-4137.
+
 2009-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-attribute-name<): Prefer `=ucs@FOO' as
