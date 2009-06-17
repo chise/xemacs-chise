@@ -2692,9 +2692,15 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
     (=ucs		. #x97B6)	; 鞶
-    (=jis-x0212		. #x6751)	; &I-JSP-6751; [71-49]
-    (=cns11643-2	. #x676E)	; &I-C2-676E; [71-78]
-    (=daikanwa		. 42977)	; &I-M-42977;
+    (->subsumptive
+     ((=ucs@jis		  . #x97B6)	; &M-42977;
+      (=jis-x0212	  . #x6751)	; &M-42977; [71-49]
+      (=daikanwa	  . 42977)	; &I-M-42977;
+      )
+     ((=cns11643-2	  . #x676E)	; &C2-676E; [71-78]
+      )
+     ((=ucs@unicode	  . #x97B6)	; &UU+97B6;
+      ))
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
