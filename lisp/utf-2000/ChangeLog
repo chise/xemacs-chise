@@ -1,4 +1,21 @@
+2009-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (B-C4DC): Moved to U+5914.
+	(U+8641): Copied from Ideograph-R140-Grass.el.
+	(M-05747): Use `<-denotational' for U+8641.
+	(JX1-2F68): Likewise; separate JC3-48D3.
+	(JC3-48D3): Use `<-denotational' for U+8641.
+	(C3-602F): Use `<-denotational' for U+8641.
+
 2009-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(M-30556): Map to U-00026AA3; integrate GT-39516, CB04151 and
+	H8-D1EA.
+
+	* Ideograph-R075-Tree.el (U+687C): Use `->subsumptive'.
+	(U+687D): Likewise.
 
 	* Ideograph-R195-Fish.el (U+9C60): Unify S1-6571; add `<-formed'
 	and `<-same@s=namasu' for J0-673A.
