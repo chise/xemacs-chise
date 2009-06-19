@@ -1,5 +1,13 @@
 2009-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R026-Seal.el (U-00020A1F): Use `->subsumptive'.
+	(U-00020A20): Use `->denotational'.
+	(U+5380): Use `->subsumptive'.
+	(U-00020A22): Use `->subsumptive'.
+	(M-02885): Unify U-00020A24.
+	(U-00020A23): Use `->subsumptive'.
+	(M-02888): Unify U-00020A26.
+
 	* Ideograph-R035-Go-Slowly.el (B-C4DC): Moved to U+5914.
 	(U+8641): Copied from Ideograph-R140-Grass.el.
 	(M-05747): Use `<-denotational' for U+8641.
