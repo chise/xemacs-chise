@@ -1,3 +1,20 @@
+2009-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`<=>gt'.
+
+	* Ideograph-R038-Woman.el (C7-4651): Map to U-0002F86B.
+	(U-000218FE): Use `->subsumptive'.
+	(U+5B3F): Use `->subsumptive'.
+	(U-00021908): Use `->subsumptive'.
+	(U+3734): Use `->denotational' and `->subsumptive'.
+	(U+3735): Use `->subsumptive'.
+	(U+3736): Likewise.
+	(U+5B40): Use `->subsumptive'.
+	(U+5B41): Use `->subsumptive'.
+	(U+3737): Use `->subsumptive'.
+	(U+5B42): Likewise.
+
 2009-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R026-Seal.el (U-00020A1F): Use `->subsumptive'.
