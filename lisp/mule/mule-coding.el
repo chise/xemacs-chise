@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997,1999,2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003,2004,2005,2006,2008,2009 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -239,6 +239,7 @@
 	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
 	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
 	  ( ideograph-gt   		          "GT-" 5 d)
+	  (<=>gt				 "aGT-" 5 d)
 	  ( =zinbun-oracle                       "ZOB-" 4 d)
 	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ( chinese-big5-cdp		         "CDP-" 4 X)
