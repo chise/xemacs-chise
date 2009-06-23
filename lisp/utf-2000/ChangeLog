@@ -1,5 +1,29 @@
 2009-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R173-Rain.el (U+9738): Use `->subsumptive'.
+
+	* Ideograph-R146-West.el (GT-46843): Unify S1-3454; add `<-vulgar'
+	for GT-57028.
+	(C3-5B2F): Unify S2-7480'.
+	(J0-4746): Unify S2-7480.
+
+	* Ideograph-R130-Meat.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+
+	* Ideograph-R086-Fire.el (U-00024443): Use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-radical@cns' and `ideographic-radical@cns*sources';
+	add `ideographic-strokes' and `total-strokes'; use
+	`->denotational' and `->subsumptive'; integrate M-29995, GT-38767,
+	GT-38769 and C7-4222.
+	(U+7204): Use `->denotational' instead of `->subsumptive'.
+	(U-000244D2): Use `->subsumptive'.
+	(U-000244CF): Use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-radical@cns' and
+	`ideographic-radical@cns*sources'; add `ideographic-strokes' and
+	`total-strokes'; use `->subsumptive'; integrate M-30061 and
+	C7-5C44.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
 	`<=>gt'.
 
