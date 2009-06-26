@@ -1,5 +1,68 @@
 2009-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R074-Moon.el (U-0002339B): Integrate M-14401; use
+	`->subsumptive'.
+	(U-0002339C): Use `ideographic-radical@{ucs|cns11643-4}' and
+	`ideographic-radical@{ucs|cns11643-4}@sources' instead of
+	`ideographic-'; use `->denotational'.
+	(M-14404): New character.
+	(U-000233A3): Integrate M-14405; use `->subsumptive'.
+	(U-000233A4): Integrate M-14406; use `->subsumptive'.
+	(U-00026856): New character [copied from Ideograph-R130-Meat.el].
+	(U-000233A9): Integrate M-14408; use `->subsumptive'.
+	(U+6726): Use `->denotational' and `->subsumptive'.
+	(U-000233AD): Unify M-14410.
+	(U+6727): Use `->subsumptive'.
+	(U-000233AE): Unify M-14412.
+	(U+9738): Use `->subsumptive'.
+	(U-000233B1): Integrate M-14413; use `->subsumptive'.
+	(U-000233B2): Unify M-14414.
+
+	* Ideograph-R061-Heart.el (U-000228A7): Integrate M-11346; use
+	`->subsumptive'.
+	(U+61B4): Use `->subsumptive'.
+	(U+61B5): Likewise.
+	(U+61B6): Use `->subsumptive'.
+	(M-11346): Map to U-000228A7.
+	(U-000228CA): Use `->subsumptive'.
+	(J0-327B): Unify S1-2708.
+	(U-0002292E): Integrate M-11457 and H6-E9A1; use `->subsumptive'.
+	(U-0002292A): Use `->denotational'.
+	(M-11448): Map to U-0002292B.
+	(U-0002292C): Use `->subsumptive'.
+	(U-0002292D): Likewise.
+	(U+61F5): Use `->denotational'.
+	(U+39A5): Use `->denotational' and `->subsumptive'.
+	(U+39A6): Use `->subsumptive'.
+	(C7-4728): Unify U-0002F8B1; add `<-denotational' for U+61F6;
+	modify hierarchy of `ideographic-structure'; add `sound@ja/on';
+	unify S-2740; add `<-vulgar@shinjigen' and `<-vulgar@zhengzitong'
+	for J0-554F.
+	(U+61F6): Use `->denotational'; add `sound@ja/on/s={hate|lazy}'.
+	(U+61F7): Use `->subsumptive'.
+	(M-11457): Map to U-0002292E.
+	(U+39A8): Use `->subsumptive'.
+	(U+61F9): Use `->subsumptive'.
+	(U-0002294D): Use `->subsumptive'; integrate GT-14503.
+	(U+61FA): Unify S1-2741.
+	(U-00022952): Use `->subsumptive'.
+	(U+39AA): Use `->subsumptive'.
+	(U-0002292B): Integrate M-11448; use `->subsumptive'.
+	(U+61FC): Use `->subsumptive'.
+	(M-11489): Map to U-00022957.
+	(U-00022958): Use `->subsumptive'.
+	(M-11495): Map to U-0002295D.
+	(U+61FF): Use `->denotational'.
+	(U-00022961): Use `->subsumptive'.
+	(U+6200): Use `->subsumptive'.
+	(U+6201): Likewise.
+	(U-00022957): Integrate M-11489 and CB12173; use `->subsumptive'.
+	(U-0002295D): Integrate M-11495; use `->denotational' and
+	`->subsumptive'; use `{ideographic|total}-strokes@cns' instead of
+	use `{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@daikanwa'.
+	(U-00022965): Use `->subsumptive'.
+
 	* Ideograph-R140-Grass.el: Add mappings between CJK Ext B and CNS
 	11643 plain 7.
 
