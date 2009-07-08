@@ -1,3 +1,7 @@
+2009-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R057-Bow.el (U+5F4E): Use `->subsumptive'.
+
 2009-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el (U-0002339B): Integrate M-14401; use
