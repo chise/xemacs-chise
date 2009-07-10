@@ -1,3 +1,59 @@
+2009-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+683C): Unify S1-3588.
+	(U+683D): Unify S1-3607.
+	(U+683E): Use `->subsumptive'.
+	(U+683F): Use `->subsumptive'.
+	(U+6B0E): Use `->denotational'.
+	(CB04776): Map to U-00023829.
+	(U-00023837): Integrate M-15934.
+	(U-00023838): Integrate M-15935.
+	(M-15936): New character.
+	(U+3C19): Integrate M-15937.
+	(U-0002383A): Unify M-15938.
+	(U-0002383B): Integrate M-15939.
+	(U+3C1A): Integrate M-15940.
+	(U+3C1B): Integrate M-15941.
+	(U+6B11): Use `->subsumptive'.
+	(U-0002383C): Integrate M-15944.
+	(U-0002383E): Integrate M-15946.
+	(J0-5D33): Unify S1-3893; add `<-vulgar' for JSP-372C.
+	(U-0002383F): Integrate M-15948.
+	(U-00023840): Integrate M-15949.
+	(U-0002384A): Integrate M-15950.
+	(U-00023849): Integrate M-15951.
+	(U-00023846): Integrate M-15952.
+	(U-00023843): Use `->subsumptive'.
+	(U+6B14): Use `->subsumptive'.
+	(U-0002384C): Integrate M-15956.
+	(U-0002384D): Integrate M-15957.
+	(U-0002384E): Integrate M-15958.
+	(U-00023865): Integrate M-15959.
+	(U-0002385B): Integrate M-15960.
+	(U-00025914): Integrate M-15961.
+	(U-00023855): New character.
+	(U-00023857): New character.
+	(U-00023839): Add `<-unknown' for M-15936.
+	(U+6B16): Use `->subsumptive'.
+	(U-0002385E): Integrate M-15965.
+	(U-0002385F): New character.
+	(U+6B1B): Use `->subsumptive'.
+	(U-00023860): Integrate M-15972.
+	(U-0002384F): Integrate M-15973.
+	(U-00023867): Unify M-15974.
+	(U-00023863): Integrate M-15975.
+	(U-00023869): Use `->subsumptive'.
+	(U-0002386A): Integrate M-15979.
+	(U-0002386B): Integrate M-15980.
+	(U-00023874): Unify M-15982.
+	(U-00023876): Unify M-15983.
+	(U-00023877): Integrate M-15984.
+	(U-0002387A): Unify M-15987.
+	(U-0002387C): Integrate M-15988.
+	(U-0002387D): New character.
+	(U-0002387E): New character.
+	(U-0002387F): New character.
+
 2009-07-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R031-Enclosure.el (U+571D): Use `->subsumptive';
