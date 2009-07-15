@@ -768,7 +768,7 @@ init_image_instance_from_gdk_image (struct Lisp_Image_Instance *ii,
     find_keyword_in_vector (instantiator, Q_file);
 
   IMAGE_INSTANCE_GTK_PIXMAP (ii) = pixmap;
-  IMAGE_INSTANCE_GTK_MASK (ii) = 0;
+  IMAGE_INSTANCE_PIXMAP_MASK (ii) = 0;
   IMAGE_INSTANCE_PIXMAP_WIDTH (ii) = gdk_image->width;
   IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) = gdk_image->height;
   IMAGE_INSTANCE_PIXMAP_DEPTH (ii) = gdk_image->depth;
@@ -3223,7 +3223,7 @@ gtk_colorize_image_instance (Lisp_Object image_instance,
       IMAGE_INSTANCE_TYPE (p) = IMAGE_COLOR_PIXMAP;
       /* Make sure there aren't two pointers to the same mask, causing
 	 it to get freed twice. */
-      IMAGE_INSTANCE_GTK_MASK (p) = 0;
+      IMAGE_INSTANCE_PIXMAP_MASK (p) = 0;
       break;
 
     default:

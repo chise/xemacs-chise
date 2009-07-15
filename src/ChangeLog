@@ -5978,6 +5978,32 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2008-12-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.22 is released
+
+2008-12-27  Vin Shelton  <acs@xemacs.org>
+
+	* syswindows.h: Don't define wide character interfaces for Cygwin
+	1.7 and up.
+
+2008-03-05  Dominique Quatravaux  <domq@cpan.org>
+
+	* glyphs-gtk.c: Fixed compilation under gcc 4.x.
+
+2008-11-01  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_search_2): Fix at_dot by changing charpos to bytepos.
+	From Julian Bradfield <18654.1143.304851.782755@krk.inf.ed.ac.uk>.
+
+2008-12-25  Vin Shelton  <acs@xemacs.org>
+
+	* mule-ccl.c (ccl_driver): Fix off-by-one error.
+	By Julian Bradfield in
+	<18691.16568.526264.972026@krk.inf.ed.ac.uk>.
+
+	* mule-ccl.c (ccl_driver): 
+
 2007-10-07  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.21 is released

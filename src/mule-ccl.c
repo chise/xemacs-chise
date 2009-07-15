@@ -1383,7 +1383,7 @@ ccl_driver (struct ccl_program *ccl,
 		  if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
 		    i = (((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
 			 | (reg[rrr] & 0x7F));
-		  else if (i < MAX_LEADING_BYTE_OFFICIAL_2)
+		  else if (i <= MAX_LEADING_BYTE_OFFICIAL_2)
 		    i = ((i - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) 
 		      | reg[rrr];
 		  else
