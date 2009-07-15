@@ -1391,12 +1391,12 @@ Stephen lives with his Japanese wife and children in Tsukuba, Japan,
 where he is a professor of economics at the University of Tsukuba.\n"))
     (vin
      (widget-insert "\
-I'm a software engineer and manager for Teradyne in Boston.  I used
-to play a lot of Ultimate - see ")
+I'm a software engineer and manager for Adaptive Optics Associates
+in Cambridge, Massachusetts.  I used to play a lot of Ultimate (see\n")
      (about-url-link 'vin nil "Visit the Ultimate Players Association homepage")
-     (widget-insert " for more details.
-Nowadays I'm a family man, so I spend a lot of time with my wife,
-Becky, and my son, Noah.\n"))
+     (widget-insert " for more details), but I don't have time to
+play much any more.  Nowadays I'm a family man, so I spend most of
+my time with my wife, Becky, and our sons, Noah and Francisco.\n"))
     (vladimir
      (widget-insert "\
 Former technical lead for XEmacs at Sun.  He is now writing a book on
