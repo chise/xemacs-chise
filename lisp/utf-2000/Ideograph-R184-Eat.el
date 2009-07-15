@@ -7626,6 +7626,18 @@
       (=jis-x0212	  . #x686D)	; &I-JSP-686D; [72-77]
       (=jis-x0213-2	  . #x7C67)	; &I-JX2-7C67; [92-71]
       (=daikanwa	  . 44390)	; &I-M-44390;
+      (=shinjigen	  .  6563)	; &M-44390;
+      (<-formed
+       ((=ucs@unicode	    . #x81B3)	; &GT-38667;
+	(=jis-x0208	    . #x4137)	; &GT-38667; [33-23]
+	(=gb2312	    . #x4945)	; &I-G0-4945; [41-37]
+	(=ks-x1001	    . #x604E)	; &I-K0-604E; [64-46]
+	(=jis-x0213-1	    . #x4137)	; &I-JX1-4137; [33-23]
+	(=daikanwa	    . 29891)	; &I-M-29891;
+	(=shinjigen	    .  6562)	; &GT-38667;
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((total-strokes	   . 20)
       (=ucs@unicode	  . #x994D)	; &UU+994D;

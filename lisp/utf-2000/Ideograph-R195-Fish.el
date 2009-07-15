@@ -7739,7 +7739,26 @@
     (=gt		. 63298)	; &I-GT-63298;
     (=gt-pj-1		. #x7266)	; &I-GT-63298; [82-70]
     (=daikanwa		. 46530)	; &I-M-46530;
-    (=shinjigen@rev	.  6571)	; 鱠
+    (=shinjigen		.  6571)	; 鱠
+    (<-formed
+     ((=ucs@unicode	  . #x81BE)	; &GT-38708;
+      (=jis-x0208	  . #x673A)	; &GT-38708; [71-26]
+      (=ks-x1001	  . #x7C6C)	; &I-K0-7C6C; [92-76]
+      (=jis-x0213-1	  . #x673A)	; &I-JX1-673A; [71-26]
+      (=daikanwa	  . 29937)	; &I-M-29937;
+      (=shinjigen	  .  6570)	; &GT-38708;
+      ))
+    (<-formed*sources
+     shinjigen)
+    (<-same@s=namasu
+     ((=ucs@unicode	  . #x81BE)	; &GT-38708;
+      (=jis-x0208	  . #x673A)	; &GT-38708; [71-26]
+      (=ks-x1001	  . #x7C6C)	; &I-K0-7C6C; [92-76]
+      (=jis-x0213-1	  . #x673A)	; &I-JX1-673A; [71-26]
+      (=daikanwa	  . 29937)	; &I-M-29937;
+      ))
+    (<-same@s=namasu*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂
@@ -7754,18 +7773,28 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (=ucs		. #x9C62)	; 鱢
-    (=cns11643-2	. #x7067)	; &I-C2-7067; [80-71]
-    (=daikanwa		. 46532)	; &I-M-46532;
+    (->subsumptive
+     ((=ucs@unicode	  . #x9C62)	; &M-46532;
+      (=daikanwa	  . 46532)	; &M-46532;
+      )
+     ((=cns11643-2	  . #x7067)	; &C2-7067; [80-71]
+      ))
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (=ucs		. #x9C63)	; 鱣
-    (=jis-x0212		. #x6B4D)	; &I-JSP-6B4D; [75-45]
-    (=cns11643-2	. #x7064)	; &I-C2-7064; [80-68]
-    (=jis-x0213-1	. #x7E55)	; &I-JX1-7E55; [94-53]
-    (=daikanwa		. 46533)	; &I-M-46533;
+    (->subsumptive
+     ((=ucs@jis		  . #x9C63)	; &M-46533;
+      (=jis-x0212	  . #x6B4D)	; &M-46533; [75-45]
+      (=jis-x0213-1	  . #x7E55)	; &I-JX1-7E55; [94-53]
+      (=daikanwa	  . 46533)	; &I-M-46533;
+      (=jef-china3	  . #x6EEA)	; &I-JC3-6EEA;
+      )
+     ((=ucs@unicode	  . #x9C63)	; &C2-7064;
+      (=cns11643-2	  . #x7064)	; &C2-7064; [80-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂

@@ -1,3 +1,10 @@
+2009-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `<=>gt'.
+
+	* mule/mule-conf.el (<=>gt): New coded-charset for XEmacs CHISE.
+
 2009-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0208@1978): Specify `=>iso-ir' in

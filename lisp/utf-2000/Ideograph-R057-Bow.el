@@ -3244,28 +3244,25 @@
     (=cns11643-7	. #x5335)	; &C7-5335; [51-21]
     ))
 (define-char
-  '((=>ucs		. #x5F4E)	; 彎
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 19)
-    (total-strokes	 . 22)
-    (=ucs@jis		. #x5F4E)	; &GT-12498;
-    (=jis-x0208		. #x573E)	; &GT-12498; [55-30]
-    (=ks-x1001		. #x5836)	; &I-K0-5836; [56-22]
-    (=jis-x0213-1	. #x573E)	; &I-JX1-573E; [55-30]
-    (=gt		. 12498)	; &I-GT-12498;
-    (=gt-pj-1		. #x573E)	; &I-GT-12498; [55-30]
-    (=daikanwa		. 09904)	; &I-M-09904;
-    (=shinjigen@rev	.  2299)	; &GT-12498;
-    ))
-(define-char
-  '((morohashi-daikanwa	9904 0 0)
-    (ideographic-radical . 57)	; ⼸
+  '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (=ucs		. #x5F4E)	; 彎
-    (=cns11643-1	. #x7B5F)	; &I-C1-7B5F; [91-63]
-    (=gb12345		. #x4D64)	; 彎 [45-68]
     (=big5		. #xC573)	; &I-B-C573;
+    (->subsumptive
+     ((=ucs@jis		  . #x5F4E)	; &GT-12498;
+      (=jis-x0208	  . #x573E)	; &GT-12498; [55-30]
+      (=ks-x1001	  . #x5836)	; &I-K0-5836; [56-22]
+      (=jis-x0213-1	  . #x573E)	; &I-JX1-573E; [55-30]
+      (=gt		  . 12498)	; &I-GT-12498;
+      (=gt-pj-1		  . #x573E)	; &I-GT-12498; [55-30]
+      (=daikanwa	  . 09904)	; &I-M-09904;
+      (=shinjigen	  .  2299)	; &GT-12498;
+      )
+     ((=ucs@unicode	  . #x5F4E)	; &C1-7B5F;
+      (=cns11643-1	  . #x7B5F)	; &C1-7B5F; [91-63]
+      (=gb12345		  . #x4D64)	; &C1-7B5F; [45-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸

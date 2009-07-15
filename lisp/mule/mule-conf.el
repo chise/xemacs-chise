@@ -300,6 +300,15 @@
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
   (define-charset-alias 'ideograph-gt '=gt)
+  (make-charset '<=>gt
+		"GT 2000 abstract characters"
+		`(long-name	"abstract GT"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=gt))
   (make-charset '=gt-k
 		"Ideographic components of GT"
 		`(long-name	"GT components"

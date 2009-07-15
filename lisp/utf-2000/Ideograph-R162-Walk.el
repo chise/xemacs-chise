@@ -7403,8 +7403,7 @@
      ((=ks-x1001	  . #x615C)	; &M-38897; [65-60]
       (=daikanwa	  . 38897)	; &I-M-38897;
       (<-synonyms@s10
-       ((=cns11643-2	    . #x5345)	; &M-31773; [51-37]
-	(=daikanwa	    . 31773)	; &I-M-31773;
+       ((=daikanwa	    . 31773)	; &M-31773;
 	))
       (<-synonyms@s10*sources
        kangxi daikanwa)
