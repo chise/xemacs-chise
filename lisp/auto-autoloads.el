@@ -963,92 +963,25 @@ Find packages matching a given keyword." t nil)
 
 ;;;***
 
-;;;### (autoloads (font-lock-set-defaults-1 font-lock-fontify-buffer turn-off-font-lock turn-on-font-lock font-lock-mode font-lock-mode font-lock-fontify-string-delimiters font-lock-maximum-size font-lock-maximum-decoration font-lock-use-fonts font-lock-use-colors font-lock-mode-disable-list font-lock-mode-enable-list font-lock-auto-fontify) "font-lock" "lisp/font-lock.el")
+;;;### (autoloads (font-lock-set-defaults-1 font-lock-fontify-buffer turn-off-font-lock turn-on-font-lock font-lock-mode) "font-lock" "lisp/font-lock.el")
 
-(defvar font-lock-auto-fontify t "\
-*Whether font-lock should automatically fontify files as they're loaded.
-This will only happen if font-lock has fontifying keywords for the major
-mode of the file.  You can get finer-grained control over auto-fontification
-by using this variable in combination with `font-lock-mode-enable-list' or
-`font-lock-mode-disable-list'.")
+(defcustom font-lock-auto-fontify t "*Whether font-lock should automatically fontify files as they're loaded.\nThis will only happen if font-lock has fontifying keywords for the major\nmode of the file.  You can get finer-grained control over auto-fontification\nby using this variable in combination with `font-lock-mode-enable-list' or\n`font-lock-mode-disable-list'." :type 'boolean :group 'font-lock)
 
-(defvar font-lock-mode-enable-list nil "\
-*List of modes to auto-fontify, if `font-lock-auto-fontify' is nil.")
+(defcustom font-lock-mode-enable-list nil "*List of modes to auto-fontify, if `font-lock-auto-fontify' is nil." :type '(repeat (symbol :tag "Mode")) :group 'font-lock)
 
-(defvar font-lock-mode-disable-list nil "\
-*List of modes not to auto-fontify, if `font-lock-auto-fontify' is t.")
+(defcustom font-lock-mode-disable-list nil "*List of modes not to auto-fontify, if `font-lock-auto-fontify' is t." :type '(repeat (symbol :tag "Mode")) :group 'font-lock)
 
-(defvar font-lock-use-colors '(color) "\
-*Specification for when Font Lock will set up color defaults.
-Normally this should be '(color), meaning that Font Lock will set up
-color defaults that are only used on color displays.  Set this to nil
-if you don't want Font Lock to set up color defaults at all.  This
-should be one of
+(defcustom font-lock-use-colors '(color) "*Specification for when Font Lock will set up color defaults.\nNormally this should be '(color), meaning that Font Lock will set up\ncolor defaults that are only used on color displays.  Set this to nil\nif you don't want Font Lock to set up color defaults at all.  This\nshould be one of\n\n-- a list of valid tags, meaning that the color defaults will be used\n   when all of the tags apply. (e.g. '(color x))\n-- a list whose first element is 'or and whose remaining elements are\n   lists of valid tags, meaning that the defaults will be used when\n   any of the tag lists apply.\n-- nil, meaning that the defaults should not be set up at all.\n\n(If you specify face values in your init file, they will override any\nthat Font Lock specifies, regardless of whether you specify the face\nvalues before or after loading Font Lock.)\n\nSee also `font-lock-use-fonts'.  If you want more control over the faces\nused for fontification, see the documentation of `font-lock-mode' for\nhow to do it." :type 'sexp :group 'font-lock)
 
--- a list of valid tags, meaning that the color defaults will be used
-   when all of the tags apply. (e.g. '(color x))
--- a list whose first element is 'or and whose remaining elements are
-   lists of valid tags, meaning that the defaults will be used when
-   any of the tag lists apply.
--- nil, meaning that the defaults should not be set up at all.
+(defcustom font-lock-use-fonts '(or (mono) (grayscale)) "*Specification for when Font Lock will set up non-color defaults.\n\nNormally this should be '(or (mono) (grayscale)), meaning that Font\nLock will set up non-color defaults that are only used on either mono\nor grayscale displays.  Set this to nil if you don't want Font Lock to\nset up non-color defaults at all.  This should be one of\n\n-- a list of valid tags, meaning that the non-color defaults will be used\n   when all of the tags apply. (e.g. '(grayscale x))\n-- a list whose first element is 'or and whose remaining elements are\n   lists of valid tags, meaning that the defaults will be used when\n   any of the tag lists apply.\n-- nil, meaning that the defaults should not be set up at all.\n\n(If you specify face values in your init file, they will override any\nthat Font Lock specifies, regardless of whether you specify the face\nvalues before or after loading Font Lock.)\n\nSee also `font-lock-use-colors'.  If you want more control over the faces\nused for fontification, see the documentation of `font-lock-mode' for\nhow to do it." :type 'sexp :group 'font-lock)
 
-\(If you specify face values in your init file, they will override any
-that Font Lock specifies, regardless of whether you specify the face
-values before or after loading Font Lock.)
-
-See also `font-lock-use-fonts'.  If you want more control over the faces
-used for fontification, see the documentation of `font-lock-mode' for
-how to do it.")
-
-(defvar font-lock-use-fonts '(or (mono) (grayscale)) "\
-*Specification for when Font Lock will set up non-color defaults.
-
-Normally this should be '(or (mono) (grayscale)), meaning that Font
-Lock will set up non-color defaults that are only used on either mono
-or grayscale displays.  Set this to nil if you don't want Font Lock to
-set up non-color defaults at all.  This should be one of
-
--- a list of valid tags, meaning that the non-color defaults will be used
-   when all of the tags apply. (e.g. '(grayscale x))
--- a list whose first element is 'or and whose remaining elements are
-   lists of valid tags, meaning that the defaults will be used when
-   any of the tag lists apply.
--- nil, meaning that the defaults should not be set up at all.
-
-\(If you specify face values in your init file, they will override any
-that Font Lock specifies, regardless of whether you specify the face
-values before or after loading Font Lock.)
-
-See also `font-lock-use-colors'.  If you want more control over the faces
-used for fontification, see the documentation of `font-lock-mode' for
-how to do it.")
-
-(defvar font-lock-maximum-decoration t "\
-*If non-nil, the maximum decoration level for fontifying.
-If nil, use the minimum decoration (equivalent to level 0).
-If t, use the maximum decoration available.
-If a number, use that level of decoration (or if not available the maximum).
-If a list, each element should be a cons pair of the form (MAJOR-MODE . LEVEL),
-where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c++-mode . 2) (c-mode . t) (t . 1))
-means use level 2 decoration for buffers in `c++-mode', the maximum decoration
-available for buffers in `c-mode', and level 1 decoration otherwise.")
+(defcustom font-lock-maximum-decoration t "*If non-nil, the maximum decoration level for fontifying.\nIf nil, use the minimum decoration (equivalent to level 0).\nIf t, use the maximum decoration available.\nIf a number, use that level of decoration (or if not available the maximum).\nIf a list, each element should be a cons pair of the form (MAJOR-MODE . LEVEL),\nwhere MAJOR-MODE is a symbol or t (meaning the default).  For example:\n ((c++-mode . 2) (c-mode . t) (t . 1))\nmeans use level 2 decoration for buffers in `c++-mode', the maximum decoration\navailable for buffers in `c-mode', and level 1 decoration otherwise." :type '(choice (const :tag "default" nil) (const :tag "maximum" t) (integer :tag "level" 1) (repeat :menu-tag "mode specific" :tag "mode specific" :value ((t . t)) (cons :tag "Instance" (radio :tag "Mode" (const :tag "all" t) (symbol :tag "name")) (radio :tag "Decoration" (const :tag "default" nil) (const :tag "maximum" t) (integer :tag "level" 1))))) :group 'font-lock)
 
 (define-obsolete-variable-alias 'font-lock-use-maximal-decoration 'font-lock-maximum-decoration)
 
-(defvar font-lock-maximum-size (* 250 1024) "\
-*If non-nil, the maximum size for buffers for fontifying.
-Only buffers less than this can be fontified when Font Lock mode is turned on.
-If nil, means size is irrelevant.
-If a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),
-where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c++-mode . 256000) (c-mode . 256000) (rmail-mode . 1048576))
-means that the maximum size is 250K for buffers in `c++-mode' or `c-mode', one
-megabyte for buffers in `rmail-mode', and size is irrelevant otherwise.")
+(defcustom font-lock-maximum-size (* 250 1024) "*If non-nil, the maximum size for buffers for fontifying.\nOnly buffers less than this can be fontified when Font Lock mode is turned on.\nIf nil, means size is irrelevant.\nIf a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),\nwhere MAJOR-MODE is a symbol or t (meaning the default).  For example:\n ((c++-mode . 256000) (c-mode . 256000) (rmail-mode . 1048576))\nmeans that the maximum size is 250K for buffers in `c++-mode' or `c-mode', one\nmegabyte for buffers in `rmail-mode', and size is irrelevant otherwise." :type '(choice (const :tag "none" nil) (integer :tag "size") (repeat :menu-tag "mode specific" :tag "mode specific" :value ((t)) (cons :tag "Instance" (radio :tag "Mode" (const :tag "all" t) (symbol :tag "name")) (radio :tag "Size" (const :tag "none" nil) (integer :tag "size"))))) :group 'font-lock)
 
-(defvar font-lock-fontify-string-delimiters nil "\
-*If non-nil, apply font-lock-string-face to string delimiters as well as
-string text when fontifying.")
+(defcustom font-lock-fontify-string-delimiters nil "*If non-nil, apply font-lock-string-face to string delimiters as well as\nstring text when fontifying." :type 'boolean :group 'font-lock)
 
 (defvar font-lock-keywords nil "\
 A list defining the keywords for `font-lock-mode' to highlight.
@@ -1208,7 +1141,7 @@ This is normally set via `font-lock-defaults'.")
 
 (make-variable-buffer-local 'font-lock-syntactic-keywords)
 
-(progn (defvar font-lock-mode nil "Non nil means `font-lock-mode' is on") (custom-add-to-group 'font-lock 'font-lock-mode 'custom-variable) (custom-add-load 'font-lock-mode 'font-lock))
+(defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set (function (lambda (var val) (font-lock-mode (or val 0)))))
 
 (defvar font-lock-mode-hook nil "\
 Function or functions to run on entry to font-lock-mode.")
@@ -1267,14 +1200,11 @@ This can take a while for large buffers." t nil)
 
 ;;;***
 
-;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus font-menu-this-frame-only-p font-menu-ignore-scaled-fonts) "font-menu" "lisp/font-menu.el")
+;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp/font-menu.el")
 
-(defvar font-menu-ignore-scaled-fonts nil "\
-*If non-nil, then the font menu will try to show only bitmap fonts.")
+(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
 
-(defvar font-menu-this-frame-only-p nil "\
-*If non-nil, then changing the default font from the font menu will only
-affect one frame instead of all frames.")
+(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
 
 (fset 'install-font-menus 'reset-device-font-menus)
 
@@ -1315,18 +1245,11 @@ Return a font descriptor object for FONTNAME, appropriate for DEVICE." nil nil)
 
 ;;;***
 
-;;;### (autoloads (gnuserv-start gnuserv-running-p gnuserv-frame gnuserv-mode-line-string) "gnuserv" "lisp/gnuserv.el")
+;;;### (autoloads (gnuserv-start gnuserv-running-p) "gnuserv" "lisp/gnuserv.el")
 
-(defvar gnuserv-mode-line-string " Server" "\
-*String to display in the modeline when Gnuserv is active.
-Set this to nil if you don't want a modeline indicator.")
+(defcustom gnuserv-mode-line-string " Server" "*String to display in the modeline when Gnuserv is active.\nSet this to nil if you don't want a modeline indicator." :type '(choice string (const :tag "none" nil)) :group 'gnuserv)
 
-(defvar gnuserv-frame nil "\
-*The frame to be used to display all edited files.
-If nil, then a new frame is created for each file edited.
-If t, then the currently selected frame will be used.
-If a function, then this will be called with a symbol `x' or `tty' as the
-only argument, and its return value will be interpreted as above.")
+(defcustom gnuserv-frame nil "*The frame to be used to display all edited files.\nIf nil, then a new frame is created for each file edited.\nIf t, then the currently selected frame will be used.\nIf a function, then this will be called with a symbol `x' or `tty' as the\nonly argument, and its return value will be interpreted as above." :tag "Gnuserv Frame" :type '(radio (const :tag "Create new frame each time" nil) (const :tag "Use selected frame" t) (function-item :tag "Use main Emacs frame" gnuserv-main-frame-function) (function-item :tag "Use visible frame, otherwise create new" gnuserv-visible-frame-function) (function-item :tag "Create special Gnuserv frame and use it" gnuserv-special-frame-function) (function :tag "Other")) :group 'gnuserv :group 'frames)
 
 (autoload 'gnuserv-running-p "gnuserv" "\
 Return non-nil if a gnuserv process is running from this XEmacs session." nil nil)
@@ -1341,7 +1264,7 @@ Prefix arg means just kill any existing server communications subprocess." t nil
 
 ;;;***
 
-;;;### (autoloads (gtk-font-menu-font-data gtk-reset-device-font-menus) "gtk-font-menu" "lisp/gtk-font-menu.el")
+;;;### (autoloads (gtk-reset-device-font-menus) "gtk-font-menu" "lisp/gtk-font-menu.el")
 
 (autoload 'gtk-reset-device-font-menus "gtk-font-menu" "\
 Generates the `Font', `Size', and `Weight' submenus for the Options menu.
@@ -1351,18 +1274,13 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(autoload 'gtk-font-menu-font-data "gtk-font-menu" nil nil nil)
+(defun* gtk-font-menu-font-data (face dcache) (defvar gtk-font-regexp) (defvar gtk-font-regexp-foundry-and-family) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match gtk-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match gtk-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from gtk-font-menu-font-data (make-vector 5 nil))) (when (string-match gtk-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match gtk-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 
-;;;### (autoloads (three-step-help) "help-macro" "lisp/help-macro.el")
+;;;### (autoloads nil "help-macro" "lisp/help-macro.el")
 
-(defvar three-step-help t "\
-*Non-nil means give more info about Help command in three steps.
-The three steps are simple prompt, prompt with all options,
-and window listing and describing the options.
-A value of nil means skip the middle step, so that
-\\[help-command] \\[help-command] gives the window that lists the options.")
+(defcustom three-step-help t "*Non-nil means give more info about Help command in three steps.\nThe three steps are simple prompt, prompt with all options,\nand window listing and describing the options.\nA value of nil means skip the middle step, so that\n\\[help-command] \\[help-command] gives the window that lists the options." :type 'boolean :group 'help-appearance)
 
 ;;;***
 
@@ -1508,7 +1426,7 @@ This command is designed to be used whether you are already in Info or not." t n
 
 ;;;***
 
-;;;### (autoloads (mswindows-font-menu-font-data mswindows-reset-device-font-menus) "msw-font-menu" "lisp/msw-font-menu.el")
+;;;### (autoloads (mswindows-reset-device-font-menus) "msw-font-menu" "lisp/msw-font-menu.el")
 
 (autoload 'mswindows-reset-device-font-menus "msw-font-menu" "\
 Generates the `Font', `Size', and `Weight' submenus for the Options menu.
@@ -1518,7 +1436,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(autoload 'mswindows-font-menu-font-data "msw-font-menu" nil nil nil)
+(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (or (match-string 4 name) "0")))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (or (match-string 4 truename) "0")))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
 
 ;;;***
 
@@ -1536,7 +1454,7 @@ Install a pre-bytecompiled XEmacs package into package hierarchy." t nil)
 
 ;;;***
 
-;;;### (autoloads (package-get-package-provider package-get package-get-list-packages-where package-get-info package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-save-base package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base package-get-site-release-download-sites package-get-pre-release-download-sites package-get-download-sites package-get-install-to-user-init-directory package-get-package-index-file-location) "package-get" "lisp/package-get.el")
+;;;### (autoloads (package-get-package-provider package-get package-get-list-packages-where package-get-info package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-save-base package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base) "package-get" "lisp/package-get.el")
 
 (defvar package-get-base nil "\
 List of packages that are installed at this site.
@@ -1584,38 +1502,15 @@ recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
 
-(defvar package-get-package-index-file-location (car (split-path (or (getenv "EMACSPACKAGEPATH") user-init-directory))) "\
-*The directory where the package-index file can be found.")
+(defcustom package-get-package-index-file-location (car (split-path (or (getenv "EMACSPACKAGEPATH") user-init-directory))) "*The directory where the package-index file can be found." :type 'directory :group 'package-get)
 
-(defvar package-get-install-to-user-init-directory nil "\
-*If non-nil install packages under `user-init-directory'.")
+(defcustom package-get-install-to-user-init-directory nil "*If non-nil install packages under `user-init-directory'." :type 'boolean :group 'package-get)
 
-(defvar package-get-download-sites '(("US (Main XEmacs Site)" "ftp.xemacs.org" "pub/xemacs/packages") ("Argentina (xmundo.net)" "xemacs.xmundo.net" "pub/mirrors/xemacs/packages") ("Australia (aarnet.edu.au)" "mirror.aarnet.edu.au" "pub/xemacs/packages") ("Australia (au.xemacs.org)" "ftp.au.xemacs.org" "pub/xemacs/packages") ("Austria (at.xemacs.org)" "ftp.at.xemacs.org" "editors/xemacs/packages") ("Belgium (be.xemacs.org)" "ftp.be.xemacs.org" "xemacs/packages") ("Brazil (br.xemacs.org)" "ftp.br.xemacs.org" "pub/xemacs/packages") ("Canada (ca.xemacs.org)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages") ("Canada (crc.ca)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("Canada (nrc.ca)" "ftp.nrc.ca" "pub/packages/editors/xemacs/packages") ("Czech Republic (cz.xemacs.org)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages") ("Denmark (dk.xemacs.org)" "ftp.dk.xemacs.org" "xemacs/packages") ("Finland (fi.xemacs.org)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("France (fr.xemacs.org)" "ftp.fr.xemacs.org" "pub/xemacs/packages") ("France (mirror.cict.fr)" "mirror.cict.fr" "xemacs/packages") ("France (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("Germany (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages") ("Greece (gr.xemacs.org)" "ftp.gr.xemacs.org" "mirrors/XEmacs/ftp/packages") ("Hong Kong (hk.xemacs.org)" "ftp.hk.xemacs.org" "pub/xemacsftp/packages") ("Ireland (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("Ireland (heanet.ie)" "ftp.heanet.ie" "mirrors/ftp.xemacs.org/packages") ("Italy (it.xemacs.org)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages") ("Japan (dti.ad.jp)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("Japan (jp.xemacs.org)" "ftp.jp.xemacs.org" "pub/text/xemacs/packages") ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages") ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org" "pub/xemacs/ftp/packages") ("Norway (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/packages") ("Portugal (pt.xemacs.org)" "ftp.pt.xemacs.org" "pub/MIRRORS/ftp.xemacs.org/packages") ("Russia (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/emacs/xemacs/packages") ("Saudi Arabia (sa.xemacs.org)" "ftp.sa.xemacs.org" "pub/xemacs.org/packages") ("Sweden (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages") ("Switzerland (ch.xemacs.org)" "ftp.ch.xemacs.org" "mirror/xemacs/packages") ("Taiwan (ftp.tw.xemacs.org)" "ftp.tw.xemacs.org" "Unix/Editors/XEmacs/packages") ("UK (uk.xemacs.org)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages") ("US (ibiblio.org)" "mirrors.ibiblio.org" "pub/mirrors/xemacs/packages") ("US (us.xemacs.org)" "ftp.us.xemacs.org" "pub/mirrors/xemacs/packages")) "\
-*List of remote sites available for downloading packages.
-List format is '(site-description site-name directory-on-site).
-SITE-DESCRIPTION is a textual description of the site.  SITE-NAME
-is the internet address of the download site.  DIRECTORY-ON-SITE
-is the directory on the site in which packages may be found.
-This variable is used to initialize `package-get-remote', the
-variable actually used to specify package download sites.")
+(defcustom package-get-download-sites '(("US (Main XEmacs Site)" "ftp.xemacs.org" "pub/xemacs/packages") ("Argentina (xmundo.net)" "xemacs.xmundo.net" "pub/mirrors/xemacs/packages") ("Australia (aarnet.edu.au)" "mirror.aarnet.edu.au" "pub/xemacs/packages") ("Australia (au.xemacs.org)" "ftp.au.xemacs.org" "pub/xemacs/packages") ("Austria (at.xemacs.org)" "ftp.at.xemacs.org" "editors/xemacs/packages") ("Belgium (be.xemacs.org)" "ftp.be.xemacs.org" "xemacs/packages") ("Brazil (br.xemacs.org)" "ftp.br.xemacs.org" "pub/xemacs/packages") ("Canada (ca.xemacs.org)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages") ("Canada (crc.ca)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("Canada (nrc.ca)" "ftp.nrc.ca" "pub/packages/editors/xemacs/packages") ("Czech Republic (cz.xemacs.org)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages") ("Denmark (dk.xemacs.org)" "ftp.dk.xemacs.org" "xemacs/packages") ("Finland (fi.xemacs.org)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("France (fr.xemacs.org)" "ftp.fr.xemacs.org" "pub/xemacs/packages") ("France (mirror.cict.fr)" "mirror.cict.fr" "xemacs/packages") ("France (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("Germany (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages") ("Greece (gr.xemacs.org)" "ftp.gr.xemacs.org" "mirrors/XEmacs/ftp/packages") ("Hong Kong (hk.xemacs.org)" "ftp.hk.xemacs.org" "pub/xemacsftp/packages") ("Ireland (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("Ireland (heanet.ie)" "ftp.heanet.ie" "mirrors/ftp.xemacs.org/packages") ("Italy (it.xemacs.org)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages") ("Japan (dti.ad.jp)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("Japan (jp.xemacs.org)" "ftp.jp.xemacs.org" "pub/text/xemacs/packages") ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages") ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org" "pub/xemacs/ftp/packages") ("Norway (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/packages") ("Portugal (pt.xemacs.org)" "ftp.pt.xemacs.org" "pub/MIRRORS/ftp.xemacs.org/packages") ("Russia (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/emacs/xemacs/packages") ("Saudi Arabia (sa.xemacs.org)" "ftp.sa.xemacs.org" "pub/xemacs.org/packages") ("Sweden (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages") ("Switzerland (ch.xemacs.org)" "ftp.ch.xemacs.org" "mirror/xemacs/packages") ("Taiwan (ftp.tw.xemacs.org)" "ftp.tw.xemacs.org" "Unix/Editors/XEmacs/packages") ("UK (uk.xemacs.org)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages") ("US (ibiblio.org)" "mirrors.ibiblio.org" "pub/mirrors/xemacs/packages") ("US (us.xemacs.org)" "ftp.us.xemacs.org" "pub/mirrors/xemacs/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
 
-(defvar package-get-pre-release-download-sites '(("US Pre-Releases (Main XEmacs Site)" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Argentina Pre-Releases (xmundo.net)" "xemacs.xmundo.net" "pub/mirrors/xemacs/beta/experimental/packages") ("Australia Pre-Releases (aarnet.edu.au)" "mirror.aarnet.edu.au" "pub/xemacs/beta/experimental/packages") ("Australia Pre-Releases (au.xemacs.org)" "ftp.au.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Austria Pre-Releases (at.xemacs.org)" "ftp.at.xemacs.org" "editors/xemacs/beta/experimental/packages") ("Belgium (be.xemacs.org)" "ftp.be.xemacs.org" "xemacs/beta/experimental/packages") ("Brazil Pre-Releases (br.xemacs.org)" "ftp.br.xemacs.org" "pub/xemacs/xemacs-21.5/experimental/packages") ("Canada Pre-Releases (ca.xemacs.org)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/beta/experimental/packages") ("Canada Pre-Releases (nrc.ca)" "ftp.nrc.ca" "pub/packages/editors/xemacs/beta/experimental/packages") ("Czech Republic Pre-Releases (cz.xemacs.org)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/xemacs-21.5/experimental/packages") ("Denmark Pre-Releases (dk.xemacs.org)" "ftp.dk.xemacs.org" "xemacs/beta/experimental/packages") ("Finland Pre-Releases (fi.xemacs.org)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/beta/experimental/packages") ("France Pre-Releases (fr.xemacs.org)" "ftp.fr.xemacs.org" "pub/xemacs/beta/experimental/packages") ("France Pre-Releases (mirror.cict.fr)" "mirror.cict.fr" "xemacs/beta/experimental/packages") ("France Pre-Releases (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/beta/experimental/packages") ("Germany Pre-Releases (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/beta/experimental/packages") ("Greece Pre-Releases (gr.xemacs.org)" "ftp.gr.xemacs.org" "mirrors/XEmacs/ftp/beta/experimental/packages") ("Hong Kong Pre-Releases (hk.xemacs.org)" "ftp.hk.xemacs.org" "pub/xemacsftp/beta/experimental/packages") ("Ireland Pre-Releases (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/beta/experimental/packages") ("Ireland Pre-Releases (heanet.ie)" "ftp.heanet.ie" "mirrors/ftp.xemacs.org/beta/experimental/packages") ("Italy Pre-Releases (it.xemacs.org)" "ftp.it.xemacs.org" "unix/packages/XEMACS/beta/experimental/packages") ("Japan Pre-Releases (dti.ad.jp)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/beta/experimental/packages") ("Japan Pre-Releases (jp.xemacs.org)" "ftp.jp.xemacs.org" "pub/text/xemacs/beta/experimental/packages") ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/beta/experimental/packages") ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org" "pub/xemacs/ftp/beta/experimental/packages") ("Norway Pre-Releases (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Portugal Pre-Releases (pt.xemacs.org)" "ftp.pt.xemacs.org" "pub/MIRRORS/ftp.xemacs.org/beta/experimental/packages") ("Russia Pre-Releases (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/emacs/xemacs/beta/experimental/packages") ("Saudi Arabia (sa.xemacs.org)" "ftp.sa.xemacs.org" "pub/xemacs.org/beta/experimental/packages") ("Sweden Pre-Releases (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/beta/experimental/packages") ("Switzerland Pre-Releases (ch.xemacs.org)" "ftp.ch.xemacs.org" "mirror/xemacs/beta/experimental/packages") ("Taiwan Pre-Releases (ftp.tw.xemacs.org)" "ftp.tw.xemacs.org" "Unix/Editors/XEmacs/beta/experimental/packages") ("UK Pre-Releases (uk.xemacs.org)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/beta/experimental/packages") ("US Pre-Releases (ibiblio.org)" "mirrors.ibiblio.org" "pub/mirrors/xemacs/beta/experimental/packages") ("US Pre-Releases (us.xemacs.org)" "ftp.us.xemacs.org" "pub/mirrors/xemacs/beta/experimental/packages")) "\
-*List of remote sites available for downloading \"Pre-Release\" packages.
-List format is '(site-description site-name directory-on-site).
-SITE-DESCRIPTION is a textual description of the site.  SITE-NAME
-is the internet address of the download site.  DIRECTORY-ON-SITE
-is the directory on the site in which packages may be found.
-This variable is used to initialize `package-get-remote', the
-variable actually used to specify package download sites.")
+(defcustom package-get-pre-release-download-sites '(("US Pre-Releases (Main XEmacs Site)" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Argentina Pre-Releases (xmundo.net)" "xemacs.xmundo.net" "pub/mirrors/xemacs/beta/experimental/packages") ("Australia Pre-Releases (aarnet.edu.au)" "mirror.aarnet.edu.au" "pub/xemacs/beta/experimental/packages") ("Australia Pre-Releases (au.xemacs.org)" "ftp.au.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Austria Pre-Releases (at.xemacs.org)" "ftp.at.xemacs.org" "editors/xemacs/beta/experimental/packages") ("Belgium (be.xemacs.org)" "ftp.be.xemacs.org" "xemacs/beta/experimental/packages") ("Brazil Pre-Releases (br.xemacs.org)" "ftp.br.xemacs.org" "pub/xemacs/xemacs-21.5/experimental/packages") ("Canada Pre-Releases (ca.xemacs.org)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/beta/experimental/packages") ("Canada Pre-Releases (nrc.ca)" "ftp.nrc.ca" "pub/packages/editors/xemacs/beta/experimental/packages") ("Czech Republic Pre-Releases (cz.xemacs.org)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/xemacs-21.5/experimental/packages") ("Denmark Pre-Releases (dk.xemacs.org)" "ftp.dk.xemacs.org" "xemacs/beta/experimental/packages") ("Finland Pre-Releases (fi.xemacs.org)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/beta/experimental/packages") ("France Pre-Releases (fr.xemacs.org)" "ftp.fr.xemacs.org" "pub/xemacs/beta/experimental/packages") ("France Pre-Releases (mirror.cict.fr)" "mirror.cict.fr" "xemacs/beta/experimental/packages") ("France Pre-Releases (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/beta/experimental/packages") ("Germany Pre-Releases (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/beta/experimental/packages") ("Greece Pre-Releases (gr.xemacs.org)" "ftp.gr.xemacs.org" "mirrors/XEmacs/ftp/beta/experimental/packages") ("Hong Kong Pre-Releases (hk.xemacs.org)" "ftp.hk.xemacs.org" "pub/xemacsftp/beta/experimental/packages") ("Ireland Pre-Releases (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/beta/experimental/packages") ("Ireland Pre-Releases (heanet.ie)" "ftp.heanet.ie" "mirrors/ftp.xemacs.org/beta/experimental/packages") ("Italy Pre-Releases (it.xemacs.org)" "ftp.it.xemacs.org" "unix/packages/XEMACS/beta/experimental/packages") ("Japan Pre-Releases (dti.ad.jp)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/beta/experimental/packages") ("Japan Pre-Releases (jp.xemacs.org)" "ftp.jp.xemacs.org" "pub/text/xemacs/beta/experimental/packages") ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/beta/experimental/packages") ("Netherlands (nl.xemacs.org)" "ftp.nl.xemacs.org" "pub/xemacs/ftp/beta/experimental/packages") ("Norway Pre-Releases (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/beta/experimental/packages") ("Portugal Pre-Releases (pt.xemacs.org)" "ftp.pt.xemacs.org" "pub/MIRRORS/ftp.xemacs.org/beta/experimental/packages") ("Russia Pre-Releases (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/emacs/xemacs/beta/experimental/packages") ("Saudi Arabia (sa.xemacs.org)" "ftp.sa.xemacs.org" "pub/xemacs.org/beta/experimental/packages") ("Sweden Pre-Releases (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/beta/experimental/packages") ("Switzerland Pre-Releases (ch.xemacs.org)" "ftp.ch.xemacs.org" "mirror/xemacs/beta/experimental/packages") ("Taiwan Pre-Releases (ftp.tw.xemacs.org)" "ftp.tw.xemacs.org" "Unix/Editors/XEmacs/beta/experimental/packages") ("UK Pre-Releases (uk.xemacs.org)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/beta/experimental/packages") ("US Pre-Releases (ibiblio.org)" "mirrors.ibiblio.org" "pub/mirrors/xemacs/beta/experimental/packages") ("US Pre-Releases (us.xemacs.org)" "ftp.us.xemacs.org" "pub/mirrors/xemacs/beta/experimental/packages")) "*List of remote sites available for downloading \"Pre-Release\" packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Pre-Release Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
 
-(defvar package-get-site-release-download-sites nil "\
-*List of remote sites available for downloading \"Site Release\" packages.
-List format is '(site-description site-name directory-on-site).
-SITE-DESCRIPTION is a textual description of the site.  SITE-NAME
-is the internet address of the download site.  DIRECTORY-ON-SITE
-is the directory on the site in which packages may be found.
-This variable is used to initialize `package-get-remote', the
-variable actually used to specify package download sites.")
+(defcustom package-get-site-release-download-sites nil "*List of remote sites available for downloading \"Site Release\" packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Site Release Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
 
 (autoload 'package-get-require-base "package-get" "\
 Require that a package-get database has been loaded.
@@ -2142,7 +2037,7 @@ Delete WIDGET." nil nil)
 
 ;;;***
 
-;;;### (autoloads (x-font-menu-font-data x-reset-device-font-menus) "x-font-menu" "lisp/x-font-menu.el")
+;;;### (autoloads (x-reset-device-font-menus) "x-font-menu" "lisp/x-font-menu.el")
 
 (autoload 'x-reset-device-font-menus "x-font-menu" "\
 Generates the `Font', `Size', and `Weight' submenus for the Options menu.
@@ -2152,7 +2047,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(autoload 'x-font-menu-font-data "x-font-menu" nil nil nil)
+(defun* x-font-menu-font-data (face dcache) (defvar x-font-regexp) (defvar x-font-regexp-foundry-and-family) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from x-font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 
