@@ -1,3 +1,33 @@
+2008-12-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.22 is released
+
+2008-12-30  Vin Shelton  <acs@xemacs.org>
+
+	* easy-mmode.el: Added easy-mmode.el so autoload.el will work
+	during building even if no packages are found.
+
+2008-05-13  Aidan Kehoe  <kehoea@parhasard.net>
+
+ 	* printer.el (generic-print-region): 
+ 	(generic-print-buffer): 
+ 	Use #'valid-device-type-p instead of #'valid-specifier-tag-p to
+ 	check if the msprinter device is available, now that msprinter is
+ 	always available as a specifier tag. 
+
+2008-12-24  Vin Shelton  <acs@xemacs.org>
+
+	* about.el: Add Francisco to my bio!
+
+2008-12-23  Vin Shelton  <acs@xemacs.org>
+
+	* autoload.el: Move operator definitions to autoload-operators.el
+	in the xemacs-base package.
+
+2007-11-22  Vin Shelton  <acs@xemacs.org>
+
+	* about.el (about-hacker-contribution): Updated my bio.
+
 2007-10-07  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.21 is released

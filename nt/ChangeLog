@@ -1,3 +1,11 @@
+2008-12-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.22 is released
+
+2008-01-18  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs.mak: Support Intel C compiler.
+
 2007-10-07  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.21 is released

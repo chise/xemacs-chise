@@ -98,3 +98,5 @@ DEPEND=0
 # routines, instead of the older "unexec" routines in unexnt.c.
 USE_PORTABLE_DUMPER=1
 
+# Set this to build XEmacs with the Intel C Compiler.
+USE_INTEL_COMPILER=0
