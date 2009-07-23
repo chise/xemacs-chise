@@ -1,3 +1,19 @@
+2009-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U-000298FD): Use `->subsumptive'.
+	(U+9A10): Use `->subsumptive'.
+	(U+4B9A): Use `->denotational' and `->subsumptive'.
+	(U+9A11): Use `->subsumptive'.
+	(U+9A5A): Use `->denotational'.
+	(U+9A57): Unify S1-9380.
+	(U+9A58): Use `->denotational' and `->subsumptive'.
+	(U+9A59): Use `->subsumptive'.
+	(U+4BB9): Use `->subsumptive'.
+	(U-000299A4): Use `->subsumptive'.
+	(U+9A5B): Use `->subsumptive'.
+	(U+9A5C): Use `->subsumptive'.
+	(U+4BBA): Use `->subsumptive'.
+
 2009-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el: Add mappings for Big5 code points.
