@@ -31489,6 +31489,7 @@
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (=ucs		. #x26EC4)	; 𦻄
     (->subsumptive
      ((=daikanwa	  . 32022)	; &M-32022;
       )
