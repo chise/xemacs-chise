@@ -249,6 +249,23 @@
     (=daikanwa		. 48012)	; &I-M-48012;
     ))
 (define-char
+  '((ideographic-radical@ucs . 142)	; ⾍
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@ucs*sources
+     cns11643)
+    (ideographic-radical@daikanwa . 202)	; ⿉
+    (ideographic-strokes@daikanwa . 6)
+    (total-strokes	 . 18)
+    (=ucs		. #x27481)	; 𧒁
+    (->subsumptive
+     ((=daikanwa	  . 49952)	; &M-49952;
+      )
+     ((=cns11643-7	  . #x4264)	; &C7-4264; [34-68]
+      )
+     ((=ucs@iso		  . #x27481)	; &U-00027481;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 8)
     (total-strokes	 . 20)
