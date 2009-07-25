@@ -14762,6 +14762,33 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 130)	; ⾁
+    (ideographic-strokes@ucs . 14)
+    (ideographic-radical@cns . 142)	; ⾍
+    (ideographic-strokes@cns . 12)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 18)
+    (=ucs		. #x26885)	; 𦢅
+    (->subsumptive
+     ((ideographic-radical . 142)	; ⾍
+      (ideographic-strokes . 12)
+      (=daikanwa	  . 49695)	; &M-49695;
+      )
+     ((ideographic-radical . 130)	; ⾁
+      (ideographic-strokes . 14)
+      (hanyu-dazidian	  3 2121 10)
+      (=ucs@iso		  . #x26885)	; &HZK06-B4CA;
+      (=hanziku-6	  . #xB4CA)	; &HZK06-B4CA;
+      )
+     ((ideographic-radical . 142)	; ⾍
+      (ideographic-strokes . 12)
+      (=cns11643-7	  . #x426D)	; &C7-426D; [34-77]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
@@ -16742,12 +16769,6 @@
     (hanyu-dazidian	3 2120 8)
     (=ucs		. #x26884)	; 𦢄
     (=hanziku-6		. #xB4A8)	; &I-HZK06-B4A8;
-    ))
-(define-char
-  '((ideographic-radical . 130)	; ⾁
-    (hanyu-dazidian	3 2121 10)
-    (=ucs		. #x26885)	; 𦢅
-    (=hanziku-6		. #xB4CA)	; &I-HZK06-B4CA;
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
