@@ -1,3 +1,14 @@
+2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U-00026885): Use `->subsumptive';
+	integrate M-49695 and C7-426D; use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add `ideographic-strokes@ucs',
+	`ideographic-{radical|strokes}@cns' and `total-strokes'.
+
+2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U-00026EC4): Fix typo.
+
 2009-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R187-Horse.el (U-000298FD): Use `->subsumptive'.
