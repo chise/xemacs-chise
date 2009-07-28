@@ -1,5 +1,10 @@
 2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el (U-00020ABF): Unify C7-3B4D and M-49694;
+	use `ideographic-radical@ucs' instead of `ideographic-radical';
+	add `ideographic-strokes@ucs', `ideographic-{radical|strokes}@cns'
+	and `total-strokes'.
+
 	* Ideograph-R202-Millet.el (U-00027481): Copied from
 	Ideograph-R142-Insect.el.
 
