@@ -3348,6 +3348,22 @@
     (=ucs@unicode	. #x53B3)	; &UU+53B3;
     ))
 (define-char
+  '((ideographic-radical@ucs . 27)	; ⼚
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@cns . 142)	; ⾍
+    (ideographic-strokes@cns . 11)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 17)
+    (hanyu-dazidian	8 7 24)
+    (=ucs		. #x20ABF)	; 𠪿
+    (=cns11643-7	. #x3B4D)	; &I-C7-3B4D; [27-45]
+    (=daikanwa		. 49694)	; &I-M-49694;
+    (=hanziku-12	. #xEB57)	; &I-HZK12-EB57;
+    ))
+(define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
@@ -3627,12 +3643,6 @@
     (hanyu-dazidian	8 7 22)
     (=ucs		. #x20AA9)	; 𠪩
     (=hanziku-12	. #xEB55)	; &I-HZK12-EB55;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	8 7 24)
-    (=ucs		. #x20ABF)	; 𠪿
-    (=hanziku-12	. #xEB57)	; &I-HZK12-EB57;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
