@@ -4394,25 +4394,18 @@
      ((name*		  . "ideographic component person as roof")
       (=big5-cdp	  . #x8B5D)	; &GT-00458;
       )
-     ((=big5-cdp	  . #x8CD9)	; &CDP-8CD9;
+     ((name		  . "CJK RADICAL HEART TWO")
+      (=ucs		  . #x2E97)	; ⺗
       ))
     (=ucs		. #x201CD)	; 𠇍
     (=hanziku-1		. #xBBE8)	; &I-HZK01-BBE8;
+    (=cbeta		. 04694)	; &I-CB04694;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 117 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
-      )
-     ((=ucs		  . #x535D)	; 卝
-      ))
     (=ucs		. #x201CE)	; 𠇎
     (=hanziku-1		. #xBBEA)	; &I-HZK01-BBEA;
     ))
