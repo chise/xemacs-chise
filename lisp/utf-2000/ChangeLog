@@ -1,5 +1,12 @@
 2009-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el (U-000201CD): Use <CJK RADICAL HEART TWO>
+	instead of BC-8CD9 in `ideographic-structure'; unify CB04694.
+	(U-000201CE): Omit `ideographic-structure'.
+
+	* Ideograph-R028-Private.el (U+53C5): Use `->subsumptive'; modify
+	hierarchy of `ideographic-structure'.
+
 	* Ideograph-R061-Heart.el (JX2-2C3B): Unify BC-8CD9.
 
 2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
