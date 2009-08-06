@@ -28,15 +28,6 @@
 
 ;;; Code:
 
-;; Ethiopic
-(make-charset 'ethiopic "Ethiopic"
-	      '(registry "Ethio"
-		dimension 2
-		chars 94
-		final ?3
-		graphic 0
-		))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ETHIOPIC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
