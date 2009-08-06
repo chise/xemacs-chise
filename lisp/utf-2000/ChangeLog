@@ -1,3 +1,55 @@
+2009-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+875C): Unify GT-44970.
+	(M-33285): Don't map to U+45CF.
+	(U-000273DC): New character.
+	(M-33352): New character.
+	(U-00027399): New character.
+	(U+45CF): Use `<-unknown' for M-33285; use `->subsumptive'.
+	(C7-283D): Unify U-00027382 and H8-A7E3; add `<-unknown' for
+	M-33352.
+	(C7-3266): Map to U-000273EA; integrate M-33462.
+	(U-000273E5): New character.
+	(U-000273E7): New character.
+	(U-000273EB): New character.
+	(U+87A5): New character.
+	(C7-3268): Map to U-000273DC; integrate M-33319.
+	(U-00027403): New character.
+	(U+87AB): Unify S1-7253.
+	(J0-6A29): Unify S1-7247.
+	(U-0002742C): New character.
+	(C7-3B4D): Unify U-00020ABF and H12-EB57; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00027475): New character.
+	(C7-426D): Map to U-00026885; integrate H6-B4CA; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-000274C2): New character.
+	(U-000274C1): New character.
+	(U-000274C0): New character.
+	(U-000274E8): New character.
+	(U-000274E9): New character.
+	(U-000274EA): New character.
+	(J0-6A42): Unify S1-7298.
+	(M-33810): New character.
+	(U-00027517): New character.
+	(U-00027516): New character.
+	(U-00027505): New character; add `<-unknown' for M-33810.
+	(U-0002752D): New character.
+	(U-0002753C): New character.
+	(U+8839): Unify S1-7306.
+	(M-33908): Map to U-00027569; integrate CB02552.
+	(U-00027581): New character.
+	(M-33939): Don't map to C7-636D; unify U-00027589.
+	(C7-636D): Unify U-0002758F.
+	(U-000275A2): New character.
+	(U-000275A3): New character.
+
 2009-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U-000201CD): Use <CJK RADICAL HEART TWO>
