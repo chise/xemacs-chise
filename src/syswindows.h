@@ -190,7 +190,7 @@ typedef NMHDR *LPNMHDR;
 
 #include <wchar.h>
 
-#ifdef CYGWIN
+#if defined (CYGWIN) && (CYGWIN_VERSION_DLL_COMBINED < 190)
 
 /* All but wcscmp and wcslen left out of Cygwin headers -- but present
    in /usr/include/mingw32/string.h! */

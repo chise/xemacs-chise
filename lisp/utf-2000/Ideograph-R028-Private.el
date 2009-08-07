@@ -911,31 +911,43 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (hanyu-dazidian	1 389 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=daikanwa	  . 03088)	; &M-03088;
-      )
-     ((=big5-cdp	  . #x8CD9)	; &CDP-8CD9;
-      ))
     (=ucs		. #x53C5)	; 叅
-    (=jis-x0212		. #x3458)	; &I-JSP-3458; [20-56]
-    (=cns11643-3	. #x3A29)	; &I-C3-3A29; [26-09]
-    (=daikanwa		. 03100)	; &I-M-03100;
-    (=shinjigen@1ed	.  0894)	; 叅
-    (=hanziku-1		. #xF5F1)	; &I-HZK01-F5F1;
-    (=cbeta		. 03744)	; &I-CB03744;
-    (=jef-china3	. #x45E9)	; &I-JC3-45E9;
-    (<-vulgar
-     ((=ucs		  . #x53C3)	; 參
-      (=jis-x0208	  . #x5254)	; &I-J90-5254; [50-52]
-      (=daikanwa	  . 03098)	; &I-M-03098;
-      (=shinjigen	  .  0893)	; 參
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x53BD)	; 厽
+	)
+       ((=ucs		    . #x201CD)	; 𠇍
+	))
+      (=cns11643-3	  . #x3A29)	; &M-03100; [26-09]
+      (=daikanwa	  . 03100)	; &I-M-03100;
+      (=shinjigen	  .  0894)	; &M-03100;
+      (=cbeta		  . 03744)	; &I-CB03744;
+      (<-vulgar
+       ((=ucs		    . #x53C3)	; 參
+	(=jis-x0208	    . #x5254)	; &I-J90-5254; [50-52]
+	(=daikanwa	    . 03098)	; &I-M-03098;
+	(=shinjigen	    .  0893)	; 參
+	))
+      (<-vulgar*sources
+       guangyun daikanwa shinjigen)
+      )
+     ((hanyu-dazidian	  1 389 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x53BD)	; 厽
+	)
+       ((=ucs		    . #x201CD)	; 𠇍
+	))
+      (=ucs@unicode	  . #x53C5)	; &HZK01-F5F1;
+      (=jis-x0212	  . #x3458)	; &HZK01-F5F1; [20-56]
+      (=hanziku-1	  . #xF5F1)	; &I-HZK01-F5F1;
+      (=jef-china3	  . #x45E9)	; &I-JC3-45E9;
       ))
-    (<-vulgar*sources
-     guangyun daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

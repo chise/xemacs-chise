@@ -353,6 +353,16 @@ DEPEND=0
 ! endif
 !endif
 
+!if $(USE_INTEL_COMPILER)
+CC=icl
+# Use static library if possible
+INTEL_LIBS=libircmt.lib libmmt.lib
+# Debugging requires DLL version of libm
+!if $(DEBUG_XEMACS)
+INTEL_LIBS=libircmt.lib libmmd.lib
+!endif
+!endif
+
 #
 # Compiler command echo control. Define VERBOSECC=1 to get verbose compilation.
 #
@@ -872,7 +882,8 @@ TEMACS_BROWSE=$(TEMACS_DIR)\temacs.bsc
 TEMACS_SRC=$(SRC)
 TEMACS_LIBS=$(LASTFILE) $(LWLIB) $(X_LIBS) $(MSW_LIBS) \
  oldnames.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib \
- shell32.lib wsock32.lib winmm.lib winspool.lib ole32.lib uuid.lib $(LIBC_LIB)
+ shell32.lib wsock32.lib winmm.lib winspool.lib ole32.lib uuid.lib \
+ $(INTEL_LIBS) $(LIBC_LIB)
 TEMACS_LFLAGS=-nologo $(LIBRARIES) $(DEBUG_FLAGS) -base:0x1000000\
  -stack:0x800000 $(TEMACS_ENTRYPOINT) -subsystem:windows\
  -pdb:$(TEMACS_DIR)\temacs.pdb -map:$(TEMACS_DIR)\temacs.map \

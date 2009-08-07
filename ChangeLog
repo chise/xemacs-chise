@@ -106,6 +106,15 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2008-12-28  Vin Shelton  <acs@xemacs.org>
+
+	* XEmacs 21.4.22 is released
+
+2007-11-22  Vin Shelton  <acs@xemacs.org>
+
+	* etc/photos/vin.png:
+	* etc/photos/vinm.png: Updated.
+
 2007-10-07  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.21 is released
@@ -169,7 +178,7 @@
 	* etc/NEWS: document motif deprecation and defaulting
 	--with-widgets to off.
 
-2005-12-04  Ville Skyttä  <scop@xemacs.org>
+2005-12-04  Ville SkyttÃ¤  <scop@xemacs.org>
 	* etc/PACKAGES: Fix description of xetla.
 
 2005-12-03  Vin Shelton <acs@xemacs.org>
@@ -689,7 +698,7 @@
 
 	* Emacs.ad: Add charsets to *menubar*FontSet and *popup*FontSet.
 
-2002-08-29  Ville Skyttä  <ville.skytta@xemacs.org>
+2002-08-29  Ville SkyttÃ¤  <ville.skytta@xemacs.org>
 
 	* Emacs.ad: Add *menubar*FontSet and *popup*FontSet entries,
 	(self-)obtained from Red Hat.
@@ -1332,7 +1341,7 @@
 
 	* XEmacs 21.2.38 is released.
 
-2000-11-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+2000-11-26  BjÃ¶rn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* configure.in: Only show message about DnD API if compiling with DnD
 
@@ -2677,7 +2686,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  BjÃ¶rn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 

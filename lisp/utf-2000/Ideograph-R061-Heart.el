@@ -91,16 +91,17 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=ucs@jis		. #x38FA)	; &JX2-2C3B;
-    (=jis-x0213-2	. #x2C3B)	; &JX2-2C3B; [12-27]
+    (=ucs@jis		. #x38FA)	; &CDP-8CD9;
+    (=jis-x0213-2	. #x2C3B)	; &CDP-8CD9; [12-27]
+    (=big5-cdp		. #x8CD9)	; &I-CDP-8CD9;
     (<-formed@component/connect-above
      ((=ucs		  . #x5FC3)	; 心
       ))
     ))
 (define-char
   '((<-denotational
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &CDP-8CD9;
+      (=jis-x0213-2	  . #x2C3B)	; &CDP-8CD9; [12-27]
       ))
     (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
@@ -108,8 +109,8 @@
     (mirrored		. nil)
     (=ucs		. #x2E97)	; ⺗
     (<-identical@component/connect-above
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &CDP-8CD9;
+      (=jis-x0213-2	  . #x2C3B)	; &CDP-8CD9; [12-27]
       ))
     ))
 (define-char

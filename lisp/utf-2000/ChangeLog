@@ -1,3 +1,116 @@
+2009-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+875C): Unify GT-44970.
+	(M-33285): Don't map to U+45CF.
+	(U-000273DC): New character.
+	(M-33352): New character.
+	(U-00027399): New character.
+	(U+45CF): Use `<-unknown' for M-33285; use `->subsumptive'.
+	(C7-283D): Unify U-00027382 and H8-A7E3; add `<-unknown' for
+	M-33352.
+	(C7-3266): Map to U-000273EA; integrate M-33462.
+	(U-000273E5): New character.
+	(U-000273E7): New character.
+	(U-000273EB): New character.
+	(U+87A5): New character.
+	(C7-3268): Map to U-000273DC; integrate M-33319.
+	(U-00027403): New character.
+	(U+87AB): Unify S1-7253.
+	(J0-6A29): Unify S1-7247.
+	(U-0002742C): New character.
+	(C7-3B4D): Unify U-00020ABF and H12-EB57; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00027475): New character.
+	(C7-426D): Map to U-00026885; integrate H6-B4CA; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-000274C2): New character.
+	(U-000274C1): New character.
+	(U-000274C0): New character.
+	(U-000274E8): New character.
+	(U-000274E9): New character.
+	(U-000274EA): New character.
+	(J0-6A42): Unify S1-7298.
+	(M-33810): New character.
+	(U-00027517): New character.
+	(U-00027516): New character.
+	(U-00027505): New character; add `<-unknown' for M-33810.
+	(U-0002752D): New character.
+	(U-0002753C): New character.
+	(U+8839): Unify S1-7306.
+	(M-33908): Map to U-00027569; integrate CB02552.
+	(U-00027581): New character.
+	(M-33939): Don't map to C7-636D; unify U-00027589.
+	(C7-636D): Unify U-0002758F.
+	(U-000275A2): New character.
+	(U-000275A3): New character.
+
+2009-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-000201CD): Use <CJK RADICAL HEART TWO>
+	instead of BC-8CD9 in `ideographic-structure'; unify CB04694.
+	(U-000201CE): Omit `ideographic-structure'.
+
+	* Ideograph-R028-Private.el (U+53C5): Use `->subsumptive'; modify
+	hierarchy of `ideographic-structure'.
+
+	* Ideograph-R061-Heart.el (JX2-2C3B): Unify BC-8CD9.
+
+2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (U-00020ABF): Unify C7-3B4D and M-49694;
+	use `ideographic-radical@ucs' instead of `ideographic-radical';
+	add `ideographic-strokes@ucs', `ideographic-{radical|strokes}@cns'
+	and `total-strokes'.
+
+	* Ideograph-R202-Millet.el (U-00027481): Copied from
+	Ideograph-R142-Insect.el.
+
+2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U-00026885): Use `->subsumptive';
+	integrate M-49695 and C7-426D; use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add `ideographic-strokes@ucs',
+	`ideographic-{radical|strokes}@cns' and `total-strokes'.
+
+2009-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U-00026EC4): Fix typo.
+
+2009-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U-000298FD): Use `->subsumptive'.
+	(U+9A10): Use `->subsumptive'.
+	(U+4B9A): Use `->denotational' and `->subsumptive'.
+	(U+9A11): Use `->subsumptive'.
+	(U+9A5A): Use `->denotational'.
+	(U+9A57): Unify S1-9380.
+	(U+9A58): Use `->denotational' and `->subsumptive'.
+	(U+9A59): Use `->subsumptive'.
+	(U+4BB9): Use `->subsumptive'.
+	(U-000299A4): Use `->subsumptive'.
+	(U+9A5B): Use `->subsumptive'.
+	(U+9A5C): Use `->subsumptive'.
+	(U+4BBA): Use `->subsumptive'.
+
+2009-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el: Add mappings for Big5 code points.
+
+2009-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44434): Map to U-000297CB; unify
+	S-7938; add `<-formed' and `<-same' for J0-6C58.
+	(C7-5649): Map to U-000297CB; integrate H11-F7BD and CB08923.
+	(U+9959): Use `->denotational' and `->subsumptive'.
+	(M-44435): Use `<-denotational' for U+9959; separate JSP-6871; fix
+	`total-strokes'.
+
 2009-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+683C): Unify S1-3588.
