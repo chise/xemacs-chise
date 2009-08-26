@@ -169,3 +169,10 @@
        (put-char-attribute c '=jis-x0213-1 v))
      nil)
    ccs))
+
+(map-char-attribute
+ (lambda (c v)
+   (unless (eq (encode-char c '<=>jis-x0213-1) v)
+     (put-char-attribute c '<=>jis-x0213-1 v))
+   nil)
+ '<=>jis-x0208)
