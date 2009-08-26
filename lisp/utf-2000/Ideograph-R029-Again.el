@@ -412,7 +412,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x53CE)	; 収
-    (=jis-x0208@1997	. #x3C7D)	; 収 [28-93]
+    (<=>jis-x0208	. #x3C7D)	; 収 [28-93]
+    (<=>jis-x0213-1	. #x3C7D)	; 収 [28-93]
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x6536)	; 收
       (=jis-x0208	  . #x5A40)	; &I-J90-5A40; [58-32]
@@ -674,7 +675,7 @@
        zhengzitong daikanwa)
       )
      ((hanyu-dazidian	  1 394 3)
-      (=shinjigen@1ed	  .  0945)	; &HZK01-F6F2;
+      (=shinjigen	  .  0945)	; &HZK01-F6F2;
       (=hanziku-1	  . #xF6F2)	; &HZK01-F6F2;
       (<-original
        ((=ucs@unicode	    . #x53F2)	; &GT-04122;
@@ -682,10 +683,10 @@
 	(=jis-x0208@1990    . #x3B4B)	; &I-J90-3B4B; [27-43]
 	(=cns11643-1	    . #x4638)	; &I-C1-4638; [38-24]
 	(=jis-x0213-1	    . #x3B4B)	; &I-JX1-3B4B; [27-43]
-	(=shinjigen@1ed	    .  0943)	; &GT-04122;
+	(=shinjigen	    .  0943)	; &GT-04122;
 	))
       (<-original*sources
-       shinjigen@1ed)
+       shinjigen)
       )
      ((=ucs@unicode	  . #x355C)	; &C3-2332;
       (=cns11643-3	  . #x2332)	; &C3-2332; [03-18]
