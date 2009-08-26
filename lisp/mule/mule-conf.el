@@ -264,15 +264,58 @@
   (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
   (make-charset
-   '=jis-x0208@1997
-   "JIS X 0208 based on the unification rule of 1997 edition."
+   '<=>jis-x0208
+   "JIS X 0208 based on the unchanged unification rules."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
 	      mother =jis-x0208
 	      ;; final ?B
 	      graphic 0))
-
+  (make-charset
+   '<=>jis-x0208@1997
+   "JIS X 0208 based on the unification rule of 1997 edition."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother <=>jis-x0208
+	      ;; final ?B
+	      graphic 0))
+  (define-charset-alias '=jis-x0208@1997 '<=>jis-x0208@1997)
+  (make-charset
+   '<=>jis-x0213-1
+   "JIS X 0213 Plain 1 abstract characters (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0213-1
+              ;; =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      partial t))
+  (make-charset
+   '<=>jis-x0213-1@2000
+   "JIS X 0213 Plain 1 abstract characters based on 2000 edition"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother <=>jis-x0213-1
+              ;; =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      partial t))
+  (make-charset
+   '<=>jis-x0213-1@2004
+   "JIS X 0213 Plain 1 abstract characters based on 2004 edition"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother <=>jis-x0213-1
+              ;; =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      partial t))
+  
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
 		'(long-name	"Big5-CDP"
