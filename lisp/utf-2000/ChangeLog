@@ -1,3 +1,43 @@
+2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (U+51B4): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R027-Cliff.el (U+53A9): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+52FA): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5305): Likewise.
+	(abstract J0-5232): Likewise.
+
+2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (U+53CE): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R026-Seal.el (U+537F): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J90-362A): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-362A.
+	(J78-362A): Unify JX3-362A.
+
+	* Ideograph-R014-Cover.el (U+51A4): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U-0002F818): Unify JX3-514D.
+	(J90-514D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-514D.
+
+	* Ideograph-R001-One.el (U+4E08): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add `<=>jis-x0213-1' for each object of
+	`<=>jis-x0208'.
+
 2009-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el: Add mappings between CJK Ext B and CNS
