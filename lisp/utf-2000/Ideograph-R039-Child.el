@@ -1196,7 +1196,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x555A)	; &J97-555A; [53-58]
+     ((<=>jis-x0208	  . #x555A)	; &J97-555A; [53-58]
       ))
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
@@ -1216,11 +1216,12 @@
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
-    (=jis-x0208@1997	. #x555A)	; &J97-555A; [53-58]
+    (<=>jis-x0208	. #x555A)	; &J97-555A; [53-58]
+    (<=>jis-x0213-1	. #x555A)	; &J97-555A; [53-58]
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x555A)	; &J97-555A; [53-58]
+     ((<=>jis-x0208	  . #x555A)	; &J97-555A; [53-58]
       ))
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 9)
