@@ -209,8 +209,10 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0213-1-2000
-    =jis-x0213-2-2000
+    =jis-x0213-1
+    =jis-x0213-1@2000
+    =jis-x0213-1@2004
+    =jis-x0213-2
     korean-ksc5601
     chinese-isoir165
     katakana-jisx0201
@@ -238,9 +240,13 @@
     =gt-k
     =ucs@iso
     =ucs@unicode
+    <=>jis-x0208
+    <=>jis-x0208@1997
+    <=>jis-x0213-1
+    <=>jis-x0213-1@2000
+    <=>jis-x0213-1@2004
     =big5
     =big5-eten
-    =jis-x0208@1997
     =zinbun-oracle
     =ruimoku-v6
     =jef-china3))
