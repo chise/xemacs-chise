@@ -1,5 +1,22 @@
 2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R039-Child.el (U+5B76): Use `<=>jis-x0208' instead of
+	`=jis-x0208@1997' in `<-denotational'.
+	(abstract J0-555A): Use `<=>jis-x0208' and `<=>jis-x0213-1'
+	instead of `=jis-x0208@1997'.
+	(U+5B73): Use `<=>jis-x0208' instead of `=jis-x0208@1997' in
+	`<-denotational'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-552D.
+
+	* char-db-util.el: (char-db-coded-charset-priority-list):
+	- Add `=jis-x0213-1' and `=jis-x0213-1@2004'.
+	- Use `=jis-x0213-1@2000' instead of `=jis-x0213-1-2000'.
+	- Use `=jis-x0213-2' instead of `=jis-x0213-2-2000'.
+	- Add `<=>jis-x0208'.
+	- Use `<=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	- Add `<=>jis-x0213-1' and `<=>jis-x0213-1@{2000|2004}'.
+
 	* Ideograph-R015-Ice.el (U+51B4): Use `<=>jis-x0208' and
 	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
 
