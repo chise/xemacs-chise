@@ -1,3 +1,28 @@
+2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Use `=jis-x0213-1@2000' instead of `japanese-jisx0213-1'
+	- Use `=jis-x0213-2' instead of `japanese-jisx0213-2'.
+	- Use `<=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	- Add settings for `<=>jis-x0213-1@2000' and
+	  `<=>jis-x0213-1@2004'.
+
+	* mule/mule-conf.el (=jis-x0208@1978/-4X): New coded-charset for
+	XEmacs CHISE.
+	(<==>jis-x0213-1): Likewise.
+	(<==>jis-x0213-1@2000): Likewise.
+	(<==>jis-x0213-1@2004): Likewise.
+	(<=>jis-x0208): Add property `=>iso-ir 168'.
+	(<=>jis-x0208@1997): Likewise.
+	(<=>jis-x0213-1): Use `<==>jis-x0213-1' instead of `=jis-x0213-1'
+	as the mother; add property `=>iso-ir 228'.
+	(<=>jis-x0213-1@2000): Modify DOC-string; fix `registry'; add
+	property `=>iso-ir 228'.
+	(<=>jis-x0213-1@2004): Modify DOC-string; fix `registry'; add
+	property `=>iso-ir 233'.
+	(<==>gt): Renamed from `<=>gt'.
+	(<=>gt): New alias for `<==>gt'.
+
 2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (<=>jis-x0208): New coded-charset for XEmacs
