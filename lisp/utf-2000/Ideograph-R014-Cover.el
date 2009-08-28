@@ -601,9 +601,9 @@
 (define-char
   '((ideographic-radical . 14)	; ⼍
     (=ucs		. #x51A4)	; 冤
+    (=>jis-x0208	. #x514D)	; 冤 [49-45]
+    (=>jis-x0213-1	. #x514D)	; 冤 [49-45]
     (=big5		. #xADDE)	; &I-B-ADDE;
-    (<=>jis-x0208	. #x514D)	; 冤 [49-45]
-    (<=>jis-x0213-1	. #x514D)	; 冤 [49-45]
     ))
 (define-char
   '((<-denotational

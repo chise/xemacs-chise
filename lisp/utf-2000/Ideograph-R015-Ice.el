@@ -229,8 +229,8 @@
 (define-char
   '((ideographic-radical . 15)	; ⼎
     (=ucs		. #x51B4)	; 冴
-    (<=>jis-x0208	. #x3A63)	; 冴 [26-67]
-    (<=>jis-x0213-1	. #x3A63)	; 冴 [26-67]
+    (=>jis-x0208	. #x3A63)	; 冴 [26-67]
+    (=>jis-x0213-1	. #x3A63)	; 冴 [26-67]
     (->subsumptive
      ((ideographic-strokes . 4)
       (total-strokes	   . 6)
