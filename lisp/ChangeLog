@@ -1,3 +1,22 @@
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0213-1): Renamed from
+	`<==>jis-x0213-1'.
+	(=>>jis-x0213-1@2000): Renamed from `<==>jis-x0213-1@2000'.
+	(=>>jis-x0213-1@2004): Renamed from `<==>jis-x0213-1@2004'.
+	(=>jis-x0208): Renamed from `<=>jis-x0208'.
+	(<=>jis-x0208): New alias for `=>jis-x0208'.
+	(=>jis-x0208@1997): Renamed from `<=>jis-x0208@1997'.
+	(<=>jis-x0208@1997): New alias for `=>jis-x0208@1997'.
+	(=>jis-x0213-1): Renamed from `<=>jis-x0213-1'.
+	(<=>jis-x0213-1): New alias for `=>jis-x0213-1'.
+	(=>jis-x0213-1@2000): Renamed from `<=>jis-x0213-1@2000'.
+	(<=>jis-x0213-1@2000): New alias for `=>jis-x0213-1@2000'.
+	(=>jis-x0213-1@2004): Renamed from `<=>jis-x0213-1@2004'.
+	(<=>jis-x0213-1@2004): New alias for `=>jis-x0213-1@2004'.
+	(=>>gt): Renamed from `<==>gt'.
+	(<==>gt): New alias for `=>>gt'.
+
 2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
