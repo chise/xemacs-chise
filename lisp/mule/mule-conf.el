@@ -276,7 +276,7 @@
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
 
   (make-charset
-   '<==>jis-x0213-1
+   '=>>jis-x0213-1
    "JIS X 0213 Plain 1 abstract glyphs (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
@@ -288,24 +288,24 @@
               ;; partial t
 	      ))
   (make-charset
-   '<==>jis-x0213-1@2000
+   '=>>jis-x0213-1@2000
    "JIS X 0213:2000 Plain 1 abstract glyphs"
    '(registry "jisx0213\\(\\.2000\\)-1"
 	      dimension 2
 	      chars 94
-	      mother <==>jis-x0213-1
+	      mother =>>jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
 	      ;; partial t
 	      ))
   (make-charset
-   '<==>jis-x0213-1@2004
+   '=>>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract glyphs"
    '(registry "jisx0213\\(\\.2004\\)-1"
 	      dimension 2
 	      chars 94
-	      mother <==>jis-x0213-1
+	      mother =>>jis-x0213-1
 	      =>iso-ir 233
               ;; final ?Q
 	      graphic 0
@@ -313,7 +313,7 @@
 	      ))
 
   (make-charset
-   '<=>jis-x0208
+   '=>jis-x0208
    "JIS X 0208 based on the unchanged unification rules."
    '(registry "jisx0208\\.1990"
 	      dimension 2
@@ -322,54 +322,59 @@
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
+  (define-charset-alias '<=>jis-x0208 '=>jis-x0208)
   (make-charset
-   '<=>jis-x0208@1997
+   '=>jis-x0208@1997
    "JIS X 0208 based on the unification rule of 1997 edition."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother <=>jis-x0208
+	      mother =>jis-x0208
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
-  (define-charset-alias '=jis-x0208@1997 '<=>jis-x0208@1997)
+  (define-charset-alias '<=>jis-x0208@1997 '=>jis-x0208@1997)
+  (define-charset-alias '  =jis-x0208@1997 '=>jis-x0208@1997)
 
   (make-charset
-   '<=>jis-x0213-1
+   '=>jis-x0213-1
    "JIS X 0213 Plain 1 abstract characters (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
-	      mother <==>jis-x0213-1
+	      mother =>>jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
               ;; partial t
 	      ))
+  (define-charset-alias '<=>jis-x0213-1 '=>jis-x0213-1)
   (make-charset
-   '<=>jis-x0213-1@2000
+   '=>jis-x0213-1@2000
    "JIS X 0213:2000 Plain 1 abstract characters"
    '(registry "jisx0213\\(\\.2000\\)-1"
 	      dimension 2
 	      chars 94
-	      mother <=>jis-x0213-1
+	      mother =>jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
 	      ;; partial t
 	      ))
+  (define-charset-alias '<=>jis-x0213-1@2000 '=>jis-x0213-1@2000)
   (make-charset
-   '<=>jis-x0213-1@2004
+   '=>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract characters"
    '(registry "jisx0213\\(\\.2004\\)-1"
 	      dimension 2
 	      chars 94
-	      mother <=>jis-x0213-1
+	      mother =>jis-x0213-1
 	      =>iso-ir 233
               ;; final ?Q
 	      graphic 0
               ;; partial t
 	      ))
+  (define-charset-alias '<=>jis-x0213-1@2004 '=>jis-x0213-1@2004)
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
@@ -398,7 +403,7 @@
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
   (define-charset-alias 'ideograph-gt '=gt)
-  (make-charset '<==>gt
+  (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
 		`(long-name	"abstract GT"
 		  chars		256
@@ -407,7 +412,8 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=gt))
-  (define-charset-alias '<=>gt '<==>gt)
+  (define-charset-alias '<=>gt '=>>gt)
+  (define-charset-alias '<==>gt '=>>gt)
   (make-charset '=gt-k
 		"Ideographic components of GT"
 		`(long-name	"GT components"
