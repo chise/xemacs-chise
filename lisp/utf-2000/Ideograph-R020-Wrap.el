@@ -20,9 +20,9 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs		. #x52FA)	; 勺
+    (=>jis-x0208	. #x3C5B)	; 勺 [28-59]
+    (=>jis-x0213-1	. #x3C5B)	; 勺 [28-59]
     (=big5		. #xA463)	; &I-B-A463;
-    (<=>jis-x0208	. #x3C5B)	; 勺 [28-59]
-    (<=>jis-x0213-1	. #x3C5B)	; 勺 [28-59]
     ))
 (define-char
   '((<-denotational
@@ -369,8 +369,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x5305)	; 包
-    (<=>jis-x0208	. #x4A71)	; 包 [42-81]
-    (<=>jis-x0213-1	. #x4A71)	; 包 [42-81]
+    (=>jis-x0208	. #x4A71)	; 包 [42-81]
+    (=>jis-x0213-1	. #x4A71)	; 包 [42-81]
     ))
 (define-char
   '((<-denotational
@@ -473,7 +473,7 @@
     ))
 (define-char
   '((<-denotational
-     ((<=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
+     ((=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
       ))
     (=>ucs*		. #x5306)	; 匆
     (ideographic-radical . 20)	; ⼓
@@ -503,12 +503,12 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
-    (<=>jis-x0213-1	. #x5232)	; &J97-5232; [50-18]
+    (=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
+    (=>jis-x0213-1	. #x5232)	; &J97-5232; [50-18]
     ))
 (define-char
   '((<-denotational
-     ((<=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
+     ((=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
