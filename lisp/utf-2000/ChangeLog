@@ -1,3 +1,43 @@
+2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* Ideograph-R021-Spoon.el (B-A450): Moved to J97-5238.
+	(J97-5238): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R020-Wrap.el, Ideograph-R015-Ice.el,
+	  Ideograph-R014-Cover.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* Ideograph-R013-Down-Box.el (J97-4662): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5189): Likewise.
+	(J97-5A70): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516C): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R011-Enter.el (abstract J0-4662): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(GT-K05210): New variant of U+516A.
+
+	* Ideograph-R008-Lid.el (U+4EA4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J83-3872): Unify GT-00389 and GT-K01602.
+	(abstract glyph of GT-00390): New object to subsume J90-3872 and
+	G0-3D3B.
+
+	* Ideograph-R001-One.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Use `=>gt' instead
+	of `<=>gt'; add setting for `=>>gt'.
+
 2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R039-Child.el (U+5B76): Use `<=>jis-x0208' instead of
