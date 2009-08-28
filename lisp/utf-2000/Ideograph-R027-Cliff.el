@@ -2294,8 +2294,8 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (=ucs		. #x53A9)	; 厩
-    (<=>jis-x0208	. #x3139)	; 厩 [17-25]
-    (<=>jis-x0213-1	. #x3139)	; 厩 [17-25]
+    (=>jis-x0208	. #x3139)	; 厩 [17-25]
+    (=>jis-x0213-1	. #x3139)	; 厩 [17-25]
     ))
 (define-char
   '((<-denotational

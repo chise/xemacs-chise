@@ -994,9 +994,9 @@
   '((ideographic-radical . 26)	; ⼙
     (hanyu-dazidian	1 318 3)
     (=ucs		. #x537F)	; 卿
+    (=>jis-x0208	. #x362A)	; 卿 [22-10]
+    (=>jis-x0213-1	. #x362A)	; 卿 [22-10]
     (=big5		. #xADEB)	; &I-B-ADEB;
-    (<=>jis-x0208	. #x362A)	; 卿 [22-10]
-    (<=>jis-x0213-1	. #x362A)	; 卿 [22-10]
     ))
 (define-char
   '((<-denotational
