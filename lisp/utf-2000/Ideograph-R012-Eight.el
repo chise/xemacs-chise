@@ -58,8 +58,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x516C)	; 公
+    (=>jis-x0208	. #x3878)	; 公 [24-88]
+    (=>jis-x0213-1	. #x3878)	; 公 [24-88]
     (=big5		. #xA4BD)	; &I-B-A4BD;
-    (=jis-x0208@1997	. #x3878)	; 公 [24-88]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
