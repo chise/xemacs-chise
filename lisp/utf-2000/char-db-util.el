@@ -240,8 +240,10 @@
     =gt-k
     =ucs@iso
     =ucs@unicode
+    =>>jis-x0208
     <=>jis-x0208
     <=>jis-x0208@1997
+    =>>jis-x0213-1
     <=>jis-x0213-1
     <=>jis-x0213-1@2000
     <=>jis-x0213-1@2004
