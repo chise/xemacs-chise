@@ -81,6 +81,13 @@
     (=shinjigen		.  0762)	; 勺
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=ucs@big5		. #x52FB)	; &B-A4C3;
+    (=big5		. #xA4C3)	; &B-A4C3;
+    ))
+(define-char
   '((<-denotational
      ((=ucs@big5	  . #x52FB)	; &B-A4C3;
       (=big5		  . #xA4C3)	; &B-A4C3;
@@ -108,13 +115,6 @@
      ((=ks-x1001	  . #x5032)	; &C1-4524; [48-18]
       (=cns11643-1	  . #x4524)	; &I-C1-4524; [37-04]
       ))
-    ))
-(define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=ucs@big5		. #x52FB)	; &B-A4C3;
-    (=big5		. #xA4C3)	; &B-A4C3;
     ))
 (define-char
   '((<-denotational
@@ -472,6 +472,13 @@
     (=cns11643-5	. #x213D)	; &I-C5-213D; [01-29]
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
+    (=>jis-x0213-1	. #x5232)	; &J97-5232; [50-18]
+    ))
+(define-char
   '((<-denotational
      ((=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
       ))
@@ -498,13 +505,6 @@
       ))
     (<-formed*sources
      shinjigen@1ed)
-    ))
-(define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
-    (=>jis-x0213-1	. #x5232)	; &J97-5232; [50-18]
     ))
 (define-char
   '((<-denotational
