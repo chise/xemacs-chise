@@ -1,5 +1,15 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
+  '((=>ucs@jis		. #x5315)	; 匕
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs@big5		. #x5315)	; &J97-5238;
+    (=>jis-x0208	. #x5238)	; &J97-5238; [50-24]
+    (=>jis-x0213-1	. #x5238)	; &J97-5238; [50-24]
+    (=big5		. #xA450)	; &J97-5238;
+    ))
+(define-char
   '((<-denotational
      ((=ucs@big5	  . #x5315)	; &J97-5238;
       (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
@@ -19,16 +29,6 @@
     (=gt-pj-1		. #x5238)	; &I-GT-03296; [50-24]
     (=daikanwa		. 02570)	; &I-M-02570;
     (=shinjigen		.  0783)	; 匕
-    ))
-(define-char
-  '((=>ucs@jis		. #x5315)	; 匕
-    (ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (=ucs@big5		. #x5315)	; &J97-5238;
-    (=>jis-x0208	. #x5238)	; &J97-5238; [50-24]
-    (=>jis-x0213-1	. #x5238)	; &J97-5238; [50-24]
-    (=big5		. #xA450)	; &I-B-A450;
     ))
 (define-char
   '((<-denotational
