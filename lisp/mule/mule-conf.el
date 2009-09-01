@@ -276,6 +276,17 @@
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
 
   (make-charset
+   '=>>jis-x0208
+   "JIS X 0208 abstract glyphs (unchanged part)."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+
+  (make-charset
    '=>>jis-x0213-1
    "JIS X 0213 Plain 1 abstract glyphs (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
@@ -318,7 +329,7 @@
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208
+	      mother =>>jis-x0208
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
