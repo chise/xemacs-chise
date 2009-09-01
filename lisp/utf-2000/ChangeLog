@@ -1,3 +1,8 @@
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>jis-x0208' and `=>>jis-x0213-1'.
+
 2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el:
