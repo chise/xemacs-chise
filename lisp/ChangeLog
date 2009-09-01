@@ -1,3 +1,15 @@
+2009-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>jis-x0208', `=>>jis-x0213-1', `=>jis-x0208' and
+	`=>jis-x0213-1'.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0208): New coded-charset for XEmacs
+	CHISE.
+	(=>jis-x0208): Use `=>>jis-x0208' as the mother.
+
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>>jis-x0213-1): Renamed from
