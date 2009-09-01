@@ -346,12 +346,16 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-1-column
 	  arabic-2-column
 	  =cbeta
-	  ucs-bmp
 	  =jef-china3
 	  chinese-isoir165
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
+	  =>>jis-x0208
+	  =>>jis-x0213-1
+	  =>jis-x0208
+	  =>jis-x0213-1
+	  ucs-bmp
 	  ;; ucs-sip
 	  )))
 
