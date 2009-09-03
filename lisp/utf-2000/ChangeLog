@@ -1,5 +1,15 @@
 2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Use
+	`->subsumptive'.
+	(U+5339): Use `->denotational' and `->subsumptive'.
+	(U+533A): Use `->denotational' instead of `->subsumptive'.
+	(U-00020976): Use `->denotational' and `->subsumptive'.
+	(U+533E): Likewise.
+	(U+533F): Use `->denotational'.
+	(U+5340): Use `->denotational' and `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
 	* Ideograph-R018-Knife.el (J97-476D): Unify abstract JX1-476D.
 	(U+525D): Add `ideographic-structure'; unify abstract JX3-2F7E.
 	(M-02049): Separate J78-476D; delete duplicated S-0666.
