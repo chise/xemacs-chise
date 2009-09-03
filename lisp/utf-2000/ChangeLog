@@ -1,3 +1,73 @@
+2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (J97-476D): Unify abstract JX1-476D.
+	(U+525D): Add `ideographic-structure'; unify abstract JX3-2F7E.
+	(M-02049): Separate J78-476D; delete duplicated S-0666.
+	(K0-5A4E): Unify J78-476D and JX3-2F7E.
+	(U+5265): Add `ideographic-structure'; unify abstract JX3-476D.
+	(U+5266): Add `ideographic-structure'.
+	(U+5275): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R010-Legs.el (U+5146): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+514C): Add `ideographic-structure'.
+	(U-0002047D): Likewise.
+	(U+514D): Unify J97-4C48.
+	(parent of JX1-2E50): Add `=>jis-x0213-1' for abstract JX1-2E50.
+	(abstract JX1-4C48): New variant of U+514D.
+	(G0-4362): Use `<-subsumptive' for abstract JX1-4C48.
+	(J0-4C48): Likewise.
+	(U+514E): Unify J97-4546 and abstract JX1-4546.
+	(C3-2454): Separate K0-774D, S-0469 and H1-DDC9; omit
+	`ideographic-structure'; add `<-vulgar' for U-0002F80F.
+	(GT-01764): New variant of U+514E.
+	(S-0469): Unify JX3-4546.
+	(J0-4546): Unify K0-774D; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-4546.
+	(U+5154): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R009-Man.el (abstract J0-4662): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+4ED7): Likewise.
+	(U+3431): Add `sound@ja/on'; unify GT-00504 and GT-K01404; add
+	`->formed' for JX2-7D39.
+	(J97-4A3B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+4F7F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(abstract J0-3666): Likewise; add `ideographic-structure'.
+	(U+4FF1): Modify a component in the `ideographic-structure'; use
+	`=jis-x0208@1978/-4X' instead of `jisx0208-1978/4X'; unify
+	JX3-2E21.
+	(U+5002): Add `=>jis-x0213-1' for abstract JX1-2E3C.
+	(U+5026): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3771): Unify JX3-3771.
+	(aJX1-3771): New abstract glyph of U+5026.
+	(J90-3771): Use `<-subsumptive' for aJX1-3771; modify a component
+	of the `ideographic-structure'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-3771.
+	(U+5049): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5065): Likewise.
+	(abstract J0-5079): Likewise.
+	(U+5078): Add `ideographic-structure'.
+	(U+5077): Likewise.
+	(U+5085): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5091): Likewise.
+	(U+50B4): Likewise; use `->denotational' instead of
+	`->subsumptive'.
+	(U+50C5): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+50E7): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U-0002F80A): Add `=>jis-x0213-1' for abstract glyph aJX1-414E.
+	(U+50CF): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5132): Likewise.
+	(U+5137): Likewise.
+
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
