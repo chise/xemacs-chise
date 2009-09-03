@@ -68,6 +68,13 @@
 	(U+5132): Likewise.
 	(U+5137): Likewise.
 
+	* ideograph-util.el (int-list<): Support minus values.
+	(morohashi-daikanwa<): Support notation for abstract characters
+	and their children.
+	(char-daikanwa): New optional argument `depth'; return
+	`(nnnnn - depth)', `(nnnnn d -depth)' or `(ho nnnnn -depth)' for
+	abstract object.
+
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
