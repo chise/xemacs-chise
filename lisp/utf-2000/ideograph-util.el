@@ -281,24 +281,31 @@
 	  (if (= (car a) (car b))
 	      (int-list< (cdr a)(cdr b))
 	    (< (car a) (car b)))
-	nil)
-    (numberp (car b))))
+	(if (= (car a) 0)
+	    nil
+	  (< (car a) 0)))
+    (if (numberp (car b))
+	(if (= (car b) 0)
+	    t
+	  (< 0 (car b)))
+      )))
 
 (defun morohashi-daikanwa< (a b)
   (if (integerp a)
       (setq a (list a)))
   (if (integerp b)
       (setq b (list b)))
-  (cond ((eq (car a) 'ho)
-	 (if (eq (car b) 'ho)
-	     (int-list< (cdr a)(cdr b))
+  (cond ((eq (car-safe a) 'ho)
+	 (if (eq (car-safe b) 'ho)
+	     (int-list< (cdr-safe a)(cdr-safe b))
 	   nil))
-	((numberp (car a))
+	((or (integerp a)
+	     (integerp (car a)))
 	 (if (eq (car b) 'ho)
 	     t
 	   (int-list< a b)))
 	(t
-	 (if (eq (car b) 'ho)
+	 (if (eq (car-safe b) 'ho)
 	     t
 	   (int-list< a b)))))
 
@@ -424,7 +431,7 @@
   (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
-(defun char-daikanwa (char &optional radical checked)
+(defun char-daikanwa (char &optional radical checked depth)
   (unless radical
     (setq radical ideographic-radical))
   (if (or (null radical)
@@ -434,22 +441,30 @@
       (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
                      (encode-char char '=daikanwa-rev2 'defined-only)
                      (get-char-attribute char 'morohashi-daikanwa))))
-        (or ret
+        (or (if ret
+		(if depth
+		    (if (integerp ret)
+			(list ret depth)
+		      (append ret (list depth)))
+		  ret))
 	    (and (setq ret (get-char-attribute char '=>daikanwa))
 		 (if (numberp ret)
 		     (list ret 0 8)
 		   (append ret '(8))))
 	    (unless (memq char checked)
+	      (unless depth
+		(setq depth 0))
 	      (catch 'tag
 		(let ((rest
 		       (append (get-char-attribute char '->subsumptive)
 			       (get-char-attribute char '->denotational)))
 		      (i 0)
-		      sc)
+		      sc lnum)
 		  (setq checked (cons char checked))
 		  (while rest
 		    (setq sc (car rest))
-		    (if (setq ret (char-daikanwa sc radical checked))
+		    (if (setq ret (char-daikanwa sc radical checked
+						 (1- depth)))
 			(throw 'tag ret))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)
@@ -457,7 +472,7 @@
 		  (setq rest (get-char-attribute char '->identical))
 		  (while rest
 		    (setq sc (car rest))
-		    (when (setq ret (char-daikanwa sc radical checked))
+		    (when (setq ret (char-daikanwa sc radical checked depth))
 		      (throw 'tag
 			     (if (numberp ret)
 				 (list ret 0)
@@ -469,11 +484,14 @@
 				(get-char-attribute char '<-denotational)))
 		  (while rest
 		    (setq sc (car rest))
-		    (when (setq ret (char-daikanwa sc radical checked))
+		    (when (setq ret (char-daikanwa sc radical checked depth))
 		      (throw 'tag
 			     (if (numberp ret)
 				 (list ret 0 i)
-			       (append ret (list i)))))
+			       (if (>= (setq lnum (car (last ret))) 0)
+				   (append ret (list i))
+				 (nconc (butlast ret)
+					(list 0 (- lnum) i))))))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest))))))))))
 
