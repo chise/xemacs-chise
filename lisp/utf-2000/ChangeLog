@@ -1,3 +1,8 @@
+2009-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>gt'.
+
 2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Use
@@ -92,6 +97,10 @@
 	(J0-546C): Move U+591B into the abstract node.
 	(U+5922): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
 	`=jis-x0208@1997'.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Check "../etc/char-data/JX3-JX1-rep-diff.txt".
 
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
