@@ -170,6 +170,25 @@
      nil)
    ccs))
 
+(with-temp-buffer
+  (buffer-disable-undo)
+  (insert-file-contents "../etc/char-data/JX3-JX1-rep-diff.txt")
+  (goto-char (point-min))
+  (let (ku ten char code)
+    (while (re-search-forward "^1-\\([0-9]+\\)-\\([0-9]+\\)[ \t]+" nil t)
+      (setq ku (string-to-number (match-string 1))
+	    ten (string-to-number (match-string 2)))
+      (setq char (make-char '=jis-x0213-1@2000 (+ ku 32)(+ ten 32)))
+      (setq code (encode-char char '=jis-x0213-1@2000))
+      (put-char-attribute char '=jis-x0213-1@2000 code)
+      (remove-char-attribute char '=jis-x0213-1)
+      (remove-char-attribute char '=jis-x0213-1@2004)
+
+      (when (setq char (decode-char '=>jis-x0208@1997 code 'defined-only))
+	(put-char-attribute char '=>jis-x0208 code)
+	(remove-char-attribute char '=>jis-x0208@1997))
+      )))
+
 (map-char-attribute
  (lambda (c v)
    (unless (eq (encode-char c '<=>jis-x0213-1) v)
