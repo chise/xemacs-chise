@@ -222,6 +222,7 @@
     ethiopic-ucs
     =big5-cdp
     =gt
+    =>>gt
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
