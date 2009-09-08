@@ -311,6 +311,16 @@
 	      ;; partial t
 	      ))
   (make-charset
+   '=>>jis-x0213-2
+   "JIS X 0213 Plain 2 abstract glyphs"
+   '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0213-2
+	      =>iso-ir 229
+              ;; final ?P
+	      graphic 0))
+  (make-charset
    '=>>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract glyphs"
    '(registry "jisx0213\\(\\.2004\\)-1"
@@ -386,6 +396,16 @@
               ;; partial t
 	      ))
   (define-charset-alias '<=>jis-x0213-1@2004 '=>jis-x0213-1@2004)
+  (make-charset
+   '=>jis-x0213-2
+   "JIS X 0213 Plain 2 abstract characters"
+   '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-2
+	      =>iso-ir 229
+              ;; final ?P
+	      graphic 0))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
