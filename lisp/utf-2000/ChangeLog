@@ -1,3 +1,12 @@
+2009-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (abstract J0-4B5B): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+5954.
+	(J0-4B5B): Move U+5954 to the abstract node.
+	(U-00021645): Use `->denotational'.
+	(U+5960): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
 2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (U+580B): Use `->denotational' instead
