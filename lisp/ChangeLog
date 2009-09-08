@@ -1,3 +1,9 @@
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0213-2): New coded-charset for XEmacs
+	CHISE.
+	(=>jis-x0213-2): Ditto.
+
 2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

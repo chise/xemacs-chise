@@ -1,3 +1,155 @@
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+580B): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+5835): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4548): Unify JX3-4548.
+	(J90-4548): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4548; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4548.
+	(B-D8AD): Moved to abstract node.
+	(U+5858): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+585A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+FA10): Unify abstract JX1-2F57.
+	(JX1-2F57): Add S2-1441.
+	(U+FA7C): Unify abstract JX1-444D.
+	(U+585D): Use `->subsumptive'.
+	(J0-3A49): Unify S1-1462.
+	(U+5860): Add `ideographic-structure'.
+	(GT-06747): Use representative component in
+	`ideographic-structure'.
+	(C3-405C): Likewise.
+	(GT-06654): Likewise.
+	(J97-4536): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5861): Unify abstract JX1-2F58.
+	(U+586B): Unify abstract JX1-4536.
+	(J90-4536): Add `<-simplified@JP/jis' for JX1-2F58.
+	(B-D8A7): Unify abstract JX2-252B.
+	(U+588D): Use `->denotational' instead of `->subsumptive';
+	integrate abstract glyph of JX2-252B.
+	(JC3-47D8): Use `<-denotational' for U+588D instead of B-D8A7;
+	omit `=>ucs' and `=>daikanwa'.
+	(U+58AB): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R030-Mouth.el (U+53F2): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-A75D): Unify J97-465D.
+	(U+541E): Unify abstract JX3-4F7E; use `->subsumptive'.
+	(G0-4D4C): Unify JX3-4F7E.
+	(U+541F): Add `ideographic-structure'.
+	(abstract J0-3862): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(B-A764): Moved to abstract node.
+	(J0-3862): Add `<-simplified@JP' for K0-676F.
+	(abstract J0-3970): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+544A): Add `<-simplified@JP' for U+543F.
+	(U+5451): Add `<-simplified@JP/extra' for JX3-4F7E; add `<-wrong'
+	for JX3-4F7E.
+	(U+54AC): Add `ideographic-structure'; unify abstract J0-527B.
+	(J0-527B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-527B.
+	(abstract glyph of JX3-527B): New variants of U+54AC; integrate
+	JX3-527B, G0-5227 and C1-5036.
+	(U+54D1): Omit `=>daikanwa' for M-03835; add `<-simplified@CN' for
+	U+555E.
+	(U+54E8): Add `ideographic-structure'; unify abstract J0-3E25.
+	(J78-3E25): Unify JX3-3E25.
+	(abstract glyph of GT-04609): New variant of U+54E8.
+	(J90-3E25): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3E25.
+	(J97-3022): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5533): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(B-B0E6): Moved to parent node.
+	(abstract glyph of JX1-533A): New variant of U+5533.
+	(J90-533A): Add `<-simplified@JP' for C1-594B; add
+	`<-simplified@JP/jis' for J78-533A.
+	(U+5539): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5544): Likewise.
+	(B-B0D6): Add `ideographic-structure'.
+	(J78-426F): Add S2-1094.
+	(parent of J0-426F): Add abstract glyph of JX1-426F; add
+	`ideographic-structure'.
+	(J0-426F): Add `ideographic-structure'.
+	(JC3-70B9): Likewise.
+	(U+556E): Omit `=>daikanwa' for M-04516; add `<-simplified@CN' for
+	U+5699.
+	(abstract J0-5348): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+55A9): Use `->denotational' instead of `->subsumptive'.
+	(U+55BB): Likewise.
+	(U+55B0): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3674): Unify JX3-3674.
+	(J90-3674): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3674.
+	(U+5632): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-535E): Unify JX3-535E.
+	(J90-535E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-535E.
+	(U+5642): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+564C): Unify abstract J0-4139.
+	(B-E4F8): Add `ideographic-structure'.
+	(J78-4139): Unify JX3-4139.
+	(J90-4139): Add `ideographic-structure'; use `=jis-x0213-1@2000'
+	instead of `=jis-x0213-1' for JX1-4139.
+	(J97-337A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5678): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J97-4739): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(abstract J0-536B): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+56A5): Use `->subsumptive' to separate representative nodes.
+	(U+56C0): Use `->denotational'.
+	(UU+56C0): Unify JX3-5373.
+	(J0-5373): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5373.
+	(U+56C1): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+56CA): Omit `ideographic-structure'; unify JC3-70BA.
+
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (abstract J0-546B): Use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5910): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U+53C9): Add abstract J0-3A35.
+	(J0-3A35): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3A35.
+	(G0-3266): Unify JX3-3A35.
+	(abstract glyph of J0-483F): New variants of U+53CD.
+	(J0-483F): Use `<-subsumptive' for the abstract glyph of J0-483F.
+	(G0-3734): Introduce abstract glyph layer.
+	(U+53CE): Use `=>jis-x0208' instead of `<=>jis-x0208'; use
+	`=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+	(C3-2160): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(U+53DB): Add abstract J0-4840; use `->denotational' instead of
+	`->subsumptive'.
+	(abstract glyph of JX3-4840): New variant of U+53DB.
+	(K0-5A64): Unify JX3-4840.
+	(abstract glyph of JX1-4840): New variant of U+53DB.
+	(J0-4840): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4840.
+	(C1-5035): Omit `ideographic-structure'.
+	(C0-4551): Likewise.
+	(U+53DC): Add `ideographic-structure'.
+	(M-03167): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(CB00008): Likewise; separate BC-8AC4.
+	(UU+53DC): Omit `ideographic-structure'.
+	(C3-2B4E): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(U+53DF): Use `->denotational' and `->subsumptive'.
+
 2009-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
