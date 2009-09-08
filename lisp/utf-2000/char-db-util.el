@@ -242,17 +242,20 @@
     =ucs@iso
     =ucs@unicode
     =>>jis-x0208
-    <=>jis-x0208
-    <=>jis-x0208@1997
+    =>jis-x0208
+    =>jis-x0208@1997
     =>>jis-x0213-1
-    <=>jis-x0213-1
-    <=>jis-x0213-1@2000
-    <=>jis-x0213-1@2004
+    =>jis-x0213-1
+    =>jis-x0213-1@2000
+    =>jis-x0213-1@2004
+    =>>jis-x0213-2
+    =>jis-x0213-2
     =big5
     =big5-eten
     =zinbun-oracle
     =ruimoku-v6
-    =jef-china3))
+    =jef-china3
+    =shinjigen))
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
