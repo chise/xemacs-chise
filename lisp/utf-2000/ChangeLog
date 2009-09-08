@@ -115,6 +115,10 @@
 	`=jis-x0208@1997'.
 	(U+56CA): Omit `ideographic-structure'; unify JC3-70BA.
 
+	* char-db-util.el: (char-db-coded-charset-priority-list):
+	- Use `=>FOO' instead of `<=>FOO'.
+	- Add `=>>jis-x0213-2', `=>jis-x0213-2' and `=shinjigen'.
+
 2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R035-Go-Slowly.el (abstract J0-546B): Use
