@@ -257,6 +257,18 @@
 
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el (U+5BC1): Use `->subsumptive' to separate
+	representative nodes.
+	(U+5BC2): Use `->subsumptive'.
+	(U-00021A24): Use `->subsumptive'.
+	(U+5BC3): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5BD0): Likewise.
+	(U+5BD2): Likewise.
+	(K0-794E): Unify GT-09091 and GT-K09013.
+	(abstract glyph of GT-09092): New variant of U+5BD2; use
+	`->subsumptive' to integrate J0-3428, G0-3A2E and C1-5E6D.
+
 	* Ideograph-R036-Evening.el (abstract J0-546C): Use `=>jis-x0208'
 	and `=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+591B.
 	(J0-546C): Move U+591B into the abstract node.
