@@ -1,3 +1,13 @@
+2009-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U-00021983): Use `->subsumptive' to
+	separate representative nodes.
+	(U-00021984): Use `->denotational'.
+	(U-00021985): Use `->subsumptive' to separate representative
+	nodes.
+	(abstract J0-555A): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `<=>jis-x0208' and `<=>jis-x0213-1'.
+
 2009-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el (abstract J0-4B5B): Use `=>jis-x0208' and
