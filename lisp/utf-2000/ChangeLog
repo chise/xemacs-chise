@@ -1,5 +1,18 @@
 2009-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R043-Lame.el (U+5C22): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R042-Small.el (U+5C12): Use `->denotational' instead
+	of `->subsumptive'.
+	(abstract J0-5575): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(C4-2173): Add `<-same' for GT-09427.
+	(S-4715): New variant of U+5C13.
+	(abstract J0-3E30): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+5C1A): Add `<-same' and `<-simplified@JP' for K0-5F46.
+
 	* Ideograph-R039-Child.el (U-00021983): Use `->subsumptive' to
 	separate representative nodes.
 	(U-00021984): Use `->denotational'.
@@ -266,6 +279,19 @@
 	abstract object.
 
 2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R049-Oneself.el (U+5DF7): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J78-392B): Unify JX3-392B.
+	(J90-392B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J90U+5DF7; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-392B; add `<-simplified@JP/jis' for
+	J78-392B.
+	(U+5DFD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(B-B453): Moved to the parent node.
+	(J90-4327): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4327.
 
 	* Ideograph-R040-Roof.el (U+5BC1): Use `->subsumptive' to separate
 	representative nodes.
