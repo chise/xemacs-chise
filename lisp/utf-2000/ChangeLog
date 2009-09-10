@@ -1,3 +1,11 @@
+2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-565A.
+
+	* Ideograph-R050-Turban.el (U+5E30): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5E6D): Add `ideographic-structure'.
+
 2009-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R043-Lame.el (U+5C22): Use `=>jis-x0208' and
