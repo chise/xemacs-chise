@@ -4,7 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5C22)	; 尢
-    (=jis-x0208@1997	. #x5577)	; 尢 [53-87]
+    (=>jis-x0208	. #x5577)	; 尢 [53-87]
+    (=>jis-x0213-1	. #x5577)	; 尢 [53-87]
     ))
 (define-char
   '((<-denotational
@@ -79,19 +80,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5C23)	; 尣
-      ))
-    (name		. "CJK RADICAL LAME TWO")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2E8F)	; ⺏
-    (<-identical@component
-     ((=ucs		  . #x5C23)	; 尣
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=ucs@unicode	  . #x5C23)	; &M-07540;
       (=jis-x0212	  . #x3A6D)	; &M-07540; [26-77]
       (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
@@ -111,6 +99,19 @@
       (=jis-x0212	  . #x3A6D)	; &M-07540; [26-77]
       (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
       (=daikanwa	  . 07540)	; &I-M-07540;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C23)	; 尣
+      ))
+    (name		. "CJK RADICAL LAME TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2E8F)	; ⺏
+    (<-identical@component
+     ((=ucs		  . #x5C23)	; 尣
       ))
     ))
 (define-char
