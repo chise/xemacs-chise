@@ -1,5 +1,42 @@
 2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el (abstract J0-5622): Use
+	`=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead of
+	`=jis-x0208@1997'.
+	(J90-5622): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP' for JX3-7E7B.
+	(U+5C51): Use `=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead
+	of `=jis-x0208@1997'.
+	(J78-367D): Unify JX3-367D.
+	(J90-367D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-367D; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-367D.
+	(U+5C5B): Unify abstract JX3-7E7B.
+	(J78-5622): Unify JX3-7E7B and S-1938.
+	(U+5C60): Use `=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead
+	of `=jis-x0208@1997'.
+	(J78-454B): Unify JX3-454B.
+	(J90-454B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-454B; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-454B.
+	(U-00021CA3): Use `->subsumptive' to separate glyphs.
+	(J97-3C48): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5C61): Unify abstract JX1-3C48.
+	(J90-3C48): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+5C62): Unify abstract JX3-4F60.
+	(J78-3C48): Move B-B9F0 to abstract UCS node; use `->subsumptive'
+	to separate JX1-4F60 and JX3-4F60.
+	(U+5C64): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(B-BC68): Use `->denotational' instead of `->subsumptive'; unify
+	abstract JX1-4F61.
+	(U+5C65): Use `->denotational' instead of `->subsumptive'.
+	(B-BC69): Moved to abstract node.
+	(U-00021CD0): Use `->denotational' instead of `->subsumptive'.
+	(U+379F): Likewise.
+
+2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-565A.
 
 	* Ideograph-R050-Turban.el (U+5E30): Use `=>jis-x0208' and
