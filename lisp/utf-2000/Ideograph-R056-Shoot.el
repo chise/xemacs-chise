@@ -288,8 +288,13 @@
     (=daikanwa		. 09679)	; &I-M-09679;
     ))
 (define-char
+  '((ideographic-radical . 56)	; ⼷
+    (=>jis-x0208	. #x5736)	; &J97-5736; [55-22]
+    (=>jis-x0213-1	. #x5736)	; &J97-5736; [55-22]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x5736)	; &J97-5736; [55-22]
+     ((=>jis-x0208	  . #x5736)	; &J97-5736; [55-22]
       ))
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 9)
@@ -313,10 +318,6 @@
     (=daikanwa		. 09680)	; &I-M-09680;
     (=shinjigen		.  2261)	; &GT-12198;
     (=cbeta		. 06128)	; &I-CB06128;
-    ))
-(define-char
-  '((ideographic-radical . 56)	; ⼷
-    (=jis-x0208@1997	. #x5736)	; &J97-5736; [55-22]
     ))
 (define-char
   '((<-denotational
@@ -389,7 +390,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x5736)	; &J97-5736; [55-22]
+     ((=>jis-x0208	  . #x5736)	; &J97-5736; [55-22]
       ))
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 10)
