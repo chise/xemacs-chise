@@ -1,3 +1,29 @@
+2009-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (GT-K01160): Use `<-original@component'
+	instead of `<-original' for U+5B50.
+	(GT-K01881): Use `<-original@component/connect-above' instead of
+	`<-original' for U+5B50.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E96): Unify abstract J0-4A79.
+	(J78-4A79): Unify JX3-4A79.
+	(J90-4A79): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4A79; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4A79.
+	(U+5EAD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J83-446D): Unify GT-11748 and GT-K06510.
+	(abstract glyph of GT-11749): New variant of U+5EAD to integrate
+	J90-446D, G0-4D25 and C1-553C.
+	(U+5EDD): Use `->subsumptive'.
+	(U+5EDE): Use `->subsumptive'.
+	(U+5EDF): Unify abstract J0-4940.
+	(J78-4940): Unify JX3-4940.
+	(B-BC71): Unify abstract glyph of JX1-4940.
+	(J90-4940): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4940; use `<-simplified@JP/extra' instead of `<-simplified@JP'
+	for J78-4940.
+
 2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R044-Corpse.el (abstract J0-5622): Use
