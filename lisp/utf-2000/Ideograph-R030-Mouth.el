@@ -1060,7 +1060,7 @@
       ))
     (=gt-k		. 01160)	; &GT-K01160;
     (=gt-pj-k1		. #x3850)	; &GT-K01160; [24-48]
-    (<-original
+    (<-original@component
      ((=ucs		  . #x5B50)	; 子
       ))
     ))
@@ -2010,7 +2010,7 @@
       ))
     (=gt-k		. 01881)	; &GT-K01881;
     (=gt-pj-k1		. #x3732)	; &GT-K01881; [23-18]
-    (<-original
+    (<-original@component/connect-above
      ((=ucs		  . #x5B50)	; 子
       ))
     ))
