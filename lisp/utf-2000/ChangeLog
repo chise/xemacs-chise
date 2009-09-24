@@ -1,4 +1,92 @@
+2009-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U+5F98): Unify abstract J0-5751.
+	(J83-5751): Unify JX1-5751.
+	(J90-5751): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5751.
+	(U+5FA7): Add `ideographic-structure'.
+	(J97-4427): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5FB4): Unify abstract JX1-4427.
+	(U+5FB5): Unify abstract JX1-7444.
+	(U+5FBD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'; add `sound@ja/on'.
+	(J78-352B): Move B-C0B2 to the parent node; unify JX3-352B; move
+	JC3-4DC1 to J90-352B.
+	(J90-352B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-352B; unify JC3-4DC1; use `<-simplified@JP/jis' instead of
+	`<-simplified@JP' for J78-352B.
+
+2009-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R054-Long-Stride.el (JX2-2C2B): Unify S-2240; add
+	`<-formed' for J0-3276.
+	(U+5EFB): Unify abstract J0-3276.
+	(JX2-2C2C): Unify S-2241; add `<-vulgar' for J0-3276.
+
 2009-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R056-Shoot.el (abstract J0-5736): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R038-Woman.el (U+5989): Add `ideographic-structure'.
+	(J97-552B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997';
+	unify abstract JX1-552B.
+	(U+598D): Unify abstract JX3-552B.
+	(J0-552B): Add `<-same' and `<-simplified@JP/jis' for JX3-7E7A.
+	(JSP-393D): Add `<-original' for J83-3B50.
+	(U+59C9): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+59D9): Add `sound@ja/on'; use `->subsumptive'.
+	(U-0002171F): Add `sound@ja/on'; use `->subsumptive'.
+	(U+59DA): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U-0002171D): Use `->subsumptive'.
+	(U+59F8): Unify abstract JX3-7E7A.
+	(K0-6641): Unify JX3-7E7A.
+	(U+59F9): Add `ideographic-structure'.
+	(abstract J0-3864): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U-00021735): Use `->subsumptive'.
+	(U+5A29): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4A5A): Unify JX3-4A5A.
+	(J90-4A5A): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4A5A; add `<-simplified@JP/extra' for J78-4A5A.
+	(U+5A2B): Use `->subsumptive'.
+	(U-00021736): Use `->subsumptive'.
+	(U-0002176A): Use `->subsumptive'.
+	(U+5A5B): Use `->subsumptive' to separate representative nodes.
+	(U+5A5C): Likewise.
+	(U+5A5D): Likewise.
+	(U+5A5E): Likewise.
+	(U+5A5F): Likewise; add `sound@ja/on/{kan|go}'.
+	(U+5A60): Use `->subsumptive'.
+	(U-0002176B): Use `->subsumptive'.
+	(U+5A61): Use `->subsumptive' to separate representative nodes.
+	(U+5A62): Likewise.
+	(U+5A63): Likewise.
+	(U+5A66): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+36EF): Use `->subsumptive'; add `sound@ja/on/pianhai' and
+	`sound@ja/on/zihui'.
+	(U+36F0): Use `->subsumptive'.
+	(U+5A88): Add `ideographic-structure'.
+	(U-0002179E): Use `->subsumptive'.
+	(U+5A8D): Use `->subsumptive'.
+	(U+5A8E): Use `->denotational' and `->subsumptive'.
+	(U+5A8F): Use `->subsumptive'; add `sound@ja/on'.
+	(U+36F6): Use `->subsumptive'; add `sound@ja/on'.
+	(U-0002179F): Use `->denotational' and `->subsumptive'.
+	(U+5A90): Use `->denotational' and `->subsumptive'.
+	(U+370E): Use `->denotational' instead of `->subsumptive'.
+	(U+5ACC): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3779): Add `<-simplified@JP/jis' for J78-3779.
+	(U+5AFE): Use `->subsumptive'.
+	(UU+5AAF): Add `<-simplified' for JX2-2571.
+	(U+5B2A): Use `->subsumptive' to separate representative nodes.
+	(U+5B2B): Use `->subsumptive'.
 
 	* Ideograph-R030-Mouth.el (GT-K01160): Use `<-original@component'
 	instead of `<-original' for U+5B50.
