@@ -152,8 +152,20 @@
       (=gt		  . 12059)	; &I-GT-12059;
       (=gt-pj-3		  . #x465C)	; &I-GT-12059; [38-60]
       (=daikanwa	  . 09573)	; &I-M-09573;
+      (=shinjigen	  .  2240)	; &GT-12059;
       (=jef-china3	  . #x4CD7)	; &I-JC3-4CD7;
       (=adobe-japan1-5	  . 17605)	; &GT-12059;
+      (<-formed
+       ((=ucs@jis/1990	    . #x5EFB)	; &GT-12063;
+	(=ucs@jis/2000	    . #x5EFB)	; &GT-12063;
+	(=jis-x0208	    . #x3276)	; &GT-12063; [18-86]
+	(=ks-x1001	    . #x7C5F)	; &I-K0-7C5F; [92-63]
+	(=jis-x0213-1@2000  . #x3276)	; &I-JX1-3276; [18-86]
+	(=daikanwa	    . 09575)	; &I-M-09575;
+	(=shinjigen	    .  2239)	; &GT-12063;
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((=ucs@iso		  . #x2231E)	; &C6-2B2E;
       (=cns11643-6	  . #x2B2E)	; &C6-2B2E; [11-14]
@@ -223,6 +235,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5EFB)	; 廻
+    (=>jis-x0208	. #x3276)	; 廻 [18-86]
+    (=>jis-x0213-1	. #x3276)	; 廻 [18-86]
     (->subsumptive
      ((=ucs@jis/1990	  . #x5EFB)	; &GT-12063;
       (=ucs@jis/2000	  . #x5EFB)	; &GT-12063;
@@ -232,7 +246,7 @@
       (=gt		  . 12063)	; &I-GT-12063;
       (=gt-pj-1		  . #x3276)	; &I-GT-12063; [18-86]
       (=daikanwa	  . 09575)	; &I-M-09575;
-      (=shinjigen@rev	  .  2239)	; &GT-12063;
+      (=shinjigen	  .  2239)	; &GT-12063;
       (=cbeta		  . 00327)	; &I-CB00327;
       )
      ((=ucs@unicode	  . #x5EFB)	; &JX3-3276;
@@ -268,6 +282,18 @@
      ((=ucs@jis		  . #x5EFD)	; &M-09577;
       (=jis-x0213-2	  . #x2C2C)	; &M-09577; [12-12]
       (=daikanwa	  . 09577)	; &I-M-09577;
+      (=shinjigen	  .  2241)	; &M-09577;
+      (<-vulgar
+       ((=ucs@jis/1990	    . #x5EFB)	; &GT-12063;
+	(=ucs@jis/2000	    . #x5EFB)	; &GT-12063;
+	(=jis-x0208	    . #x3276)	; &GT-12063; [18-86]
+	(=ks-x1001	    . #x7C5F)	; &I-K0-7C5F; [92-63]
+	(=jis-x0213-1@2000  . #x3276)	; &I-JX1-3276; [18-86]
+	(=daikanwa	    . 09575)	; &I-M-09575;
+	(=shinjigen	    .  2239)	; &GT-12063;
+	))
+      (<-vulgar*sources
+       shinjigen)
       )
      ((=ucs@unicode	  . #x5EFD)	; &C3-306E;
       (=cns11643-3	  . #x306E)	; &C3-306E; [16-78]
