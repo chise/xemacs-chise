@@ -126,6 +126,8 @@
 	(U+5B2A): Use `->subsumptive' to separate representative nodes.
 	(U+5B2B): Use `->subsumptive'.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-564B.
+
 	* Ideograph-R030-Mouth.el (GT-K01160): Use `<-original@component'
 	instead of `<-original' for U+5B50.
 	(GT-K01881): Use `<-original@component/connect-above' instead of
