@@ -1,5 +1,20 @@
 2009-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R063-Door.el (U+39C1): Use `->denotational' instead of
+	`->subsumptive'.
+	(U-00022A36): Likewise.
+	(U+6241): Likewise; unify abstract J0-5928.
+	(K0-7837): Unify JX3-5928; move B-ABF3 to U+6241.
+	(J0-5928): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5928; add `<-simplified@JP/extra' for JX3-5928.
+	(U+6249): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B476): Moved to U+6249.
+	(U+624A): Use `->denotational' instead of `->subsumptive'.
+	(B-D951): Moved to U+624A.
+
+2009-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R046-Mountain.el (U+5CFB): Use `=>jis-x0208' and
 	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
 	(U+5D46): Omit `ideographic-structure'; use `->subsumptive' to
