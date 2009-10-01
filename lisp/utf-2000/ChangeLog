@@ -1,3 +1,24 @@
+2009-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+6062): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+6108): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4C7C.
+	(J78-4C7C): Unify JX3-4C7C.
+	(J90-4C7C): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4C7C.
+	(U+6109): Use `->denotational' and `->subsumptive'.
+	(M-11180): Map to U-0002282B; integrate H6-E56E.
+	(M-11182): Map to U-0002282D; integrate H6-E5AC.
+	(U-0002282E): Use `->subsumptive' to separate representative
+	nodes.
+	(M-11184): Unify U-0002281B and H6-E3EF.
+	(U-00022821): Use `->subsumptive'.
+	(U-0002281E): Use `->subsumptive'.
+	(U+6187): Add `ideographic-structure'.
+	(U+618E): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(B-BCA8): Unify abstract JX1-745E.
+
 2009-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R063-Door.el (U+39C1): Use `->denotational' instead of
