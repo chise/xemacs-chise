@@ -1,3 +1,96 @@
+2009-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R069-Axe.el (M-13537): Unify U-00023092 and H5-F67A;
+	add `sound@ja/on'.
+	(U+65A7): Use `->subsumptive'; unify abstract J0-4960.
+	(J0-4960): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4960.
+	(G0-382B): Unify JX3-4960.
+	(U+65A8): Use `->subsumptive' to separate representative nodes.
+	(U-00023094): Use `->subsumptive'.
+	(U-00023095): Add `sound@ja/on'; add `<-ancient' for U+65AF.
+	(M-13543): Unify U-00023096 and H5-F67C; add `sound@ja/on'.
+	(M-13544): Unify U-00023097 and H5-F67D; add `sound@ja/on'.
+
+	* Ideograph-R064-Hand.el (U+62CE): Use `->subsumptive'.
+	(U+62D0): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U-00022AE6): Unify CB07882; add `<-original' for U+62CD.
+	(U+62F4): Use `->denotational' and `->subsumptive'.
+	(JC3-4FC0): Omit `=>daikanwa'.
+	(U+633A): Unify abstract J0-4472.
+	(J0-4472): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4472.
+	(G0-4D26): Unify JX3-4472.
+	(B-AEBE): Use `->subsumptive' to separate representative nodes.
+	(J78-4854): Unify JX3-4854; add `<-same' for JX1-6D4E.
+	(J90-4854): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4854; unify JC3-70BF; add `<-simplified@JP/extra/design' for
+	J78-4854.
+	(U+634A): Use `->denotational'.
+	(U+634B): Use `->denotational'.
+	(U+634C): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+6357): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-443D): Move B-D1CA to the parent node; unify JX3-443D.
+	(J90-443D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-443D; use `<-simplified@JP/jis' instead of `<-simplified@JP'.
+	(U+6369): Unify J97-5960.
+	(J90-5960): Add `<-simplified@JP/jis' for J78-5960.
+	(U-00022B87): Use `->denotational'.
+	(M-12202): Map to U-00022B87; unify H5-DBAC.
+	(U+636E): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6372): Likewise.
+	(B-B1B2): Use `->denotational' instead of `->subsumptive'.
+	(J78-377E): Unify JX3-377E.
+	(J90-377E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-377E.
+	(U+6383): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6385): Use `->denotational' and `->subsumptive'.
+	(U+6387): Use `->subsumptive'.
+	(U+6388): Unify M-12242 and S1-2968.
+	(U+63BD): Use `->denotational'.
+	(U+63BE): Use `->subsumptive' to separate representative nodes.
+	(U+63BF): Use `->denotational'.
+	(U+63C0): Add `<-formed' for U+67EC.
+	(U+63C2): Use `->denotational' and `->subsumptive'.
+	(U+63C3): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-12319): Unify JX3-4237.
+	(J0-4237): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4237; unify JC3-50BA; add `<-simplified@JP/extra/design' for
+	JX3-4237.
+	(U+640F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J97-415F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6414): Use `->denotational' instead of `->subsumptive'.
+	(U+63BB): Add `<-simplified@JP/extra' for JX1-7476.
+	(U+444F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+647A): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4022.
+	(J78-4022): Unify JX3-4022; separate K0-6F49, GT-15936 and
+	GT-K11156.
+	(J90-4022): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1'; add
+	`<-simplified@JP/jis' for J78-4022.
+	(U+64B0): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4071): Unify JX3-4071.
+	(J90-4071): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4071; add `<-simplified@JP/jis' for J78-4071.
+	(U+64E2): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'; use `->denotational' instead of
+	`->subsumptive'.
+	(J78-4527): Unify JX3-4527; separate K0-7677 and GT-16292.
+	(J90-4527): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4527; add `<-simplified@JP/jis' for J78-4527.
+	(J97-5A39): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-5A39): Add `<-simplified@JP/jis' for U+6522.
+	(U+651D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
 2009-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (U+6062): Use `=>jis-x0208' and
