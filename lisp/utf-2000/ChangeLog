@@ -1,3 +1,17 @@
+2009-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+6562): Use `->denotational' instead of
+	`->subsumptive'.
+	(M-13360): Map to U-00022FCE.
+	(M-13373): Map to U-00022FDA.
+	(U-00022FCE): Use `->subsumptive' to separate representative
+	nodes.
+	(U+657B): Omit `=>daikanwa' for M-13355.
+	(U-00022FD5): Use `->subsumptive' to separate representative
+	nodes.
+	(abstract J0-546B): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+
 2009-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R069-Axe.el (M-13537): Unify U-00023092 and H5-F67A;
