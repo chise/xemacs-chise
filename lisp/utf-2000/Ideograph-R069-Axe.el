@@ -52,7 +52,10 @@
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=daikanwa		. 13537)	; &M-13537;
+    (sound@ja/on	"roku")
+    (=ucs		. #x23092)	; 𣂒
+    (=daikanwa		. 13537)	; &I-M-13537;
+    (=hanziku-5		. #xF67A)	; &I-HZK05-F67A;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -74,75 +77,89 @@
     (=jef-china3	. #x50E1)	; &I-JC3-50E1;
     ))
 (define-char
-  '((=>ucs		. #x65A7)	; 斧
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=ucs@jis		. #x65A7)	; &GT-17117;
-    (=ucs@big5		. #x65A7)	; &GT-17117;
-    (=jis-x0208		. #x4960)	; &GT-17117; [41-64]
-    (=ks-x1001		. #x5D28)	; &I-K0-5D28; [61-08]
-    (=jis-x0213-1	. #x4960)	; &I-JX1-4960; [41-64]
-    (=big5		. #xA9F2)	; &I-B-A9F2;
-    (=gt		. 17117)	; &I-GT-17117;
-    (=gt-k		. 03809)	; &I-GT-K03809;
-    (=gt-pj-1		. #x4960)	; &I-GT-17117; [41-64]
-    (=daikanwa		. 13539)	; &I-M-13539;
-    (=shinjigen@rev	.  3225)	; &GT-17117;
-    ))
-(define-char
-  '((morohashi-daikanwa	13539 0 0)
-    (ideographic-radical . 69)	; ⽄
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x65A7)	; 斧
-    (=gb2312		. #x382B)	; &I-G0-382B; [24-11]
-    (=cns11643-1	. #x4D74)	; &I-C1-4D74; [45-84]
+    (=>jis-x0208	. #x4960)	; 斧 [41-64]
+    (=>jis-x0213-1	. #x4960)	; 斧 [41-64]
+    (=big5		. #xA9F2)	; &I-B-A9F2;
+    (->subsumptive
+     ((=ucs@jis/1990	  . #x65A7)	; &GT-17117;
+      (=ucs@jis/2000	  . #x65A7)	; &GT-17117;
+      (=jis-x0208	  . #x4960)	; &GT-17117; [41-64]
+      (=ks-x1001	  . #x5D28)	; &I-K0-5D28; [61-08]
+      (=jis-x0213-1@2000  . #x4960)	; &I-JX1-4960; [41-64]
+      (=gt		  . 17117)	; &I-GT-17117;
+      (=gt-k		  . 03809)	; &I-GT-K03809;
+      (=gt-pj-1		  . #x4960)	; &I-GT-17117; [41-64]
+      (=daikanwa	  . 13539)	; &I-M-13539;
+      (=shinjigen	  .  3225)	; &GT-17117;
+      )
+     ((=ucs@unicode	  . #x65A7)	; &JX3-4960;
+      (=gb2312		  . #x382B)	; &JX3-4960; [24-11]
+      (=cns11643-1	  . #x4D74)	; &I-C1-4D74; [45-84]
+      (=jis-x0213-1@2004  . #x4960)	; &I-JX3-4960; [41-64]
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x65A8)	; 斨
-    (=iso-ir165		. #x7B27)	; &I-EGB-7B27; [91-07]
-    (=cns11643-2	. #x2723)	; &I-C2-2723; [07-03]
     (=big5		. #xCCC2)	; &I-B-CCC2;
-    (=daikanwa		. 13540)	; &I-M-13540;
+    (->subsumptive
+     ((=ucs@unicode	  . #x65A8)	; &M-13540;
+      (=iso-ir165	  . #x7B27)	; &M-13540; [91-07]
+      (=daikanwa	  . 13540)	; &I-M-13540;
+      )
+     ((=cns11643-2	  . #x2723)	; &C2-2723; [07-03]
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x23094)	; 𣂔
-    (=daikanwa		. 13541)	; &I-M-13541;
-    ))
-(define-char
-  '((=>ucs		. #x23094)	; 𣂔
-    (morohashi-daikanwa	13541 0 2)
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=cns11643-6	. #x2B6F)	; &C6-2B6F; [11-79]
+    (->subsumptive
+     ((=ucs@iso		  . #x23094)	; &M-13541;
+      (=daikanwa	  . 13541)	; &M-13541;
+      )
+     ((=cns11643-6	  . #x2B6F)	; &C6-2B6F; [11-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (sound@ja/on	"si")
     (=ucs		. #x23095)	; 𣂕
     (=cns11643-6	. #x2B6E)	; &I-C6-2B6E; [11-78]
     (=daikanwa		. 13542)	; &I-M-13542;
+    (<-ancient
+     ((=ucs		  . #x65AF)	; 斯
+      (=daikanwa	  . 13563)	; &I-M-13563;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=daikanwa		. 13543)	; &M-13543;
+    (sound@ja/on	"si")
+    (=ucs		. #x23096)	; 𣂖
+    (=daikanwa		. 13543)	; &I-M-13543;
+    (=hanziku-5		. #xF67C)	; &I-HZK05-F67C;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=daikanwa		. 13544)	; &M-13544;
+    (sound@ja/on	"kiN")
+    (=ucs		. #x23097)	; 𣂗
+    (=daikanwa		. 13544)	; &I-M-13544;
+    (=hanziku-5		. #xF67D)	; &I-HZK05-F67D;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
