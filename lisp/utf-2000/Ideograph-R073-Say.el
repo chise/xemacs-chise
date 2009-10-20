@@ -81,7 +81,7 @@
     (=gt-k		. 01571)	; &I-GT-K01571;
     (=gt-pj-1		. #x3148)	; &I-GT-18073; [17-40]
     (=daikanwa		. 14282)	; &I-M-14282;
-    (=shinjigen@rev	.  3406)	; 曳
+    (=shinjigen		.  3406)	; 曳
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -94,8 +94,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x66F4)	; 更
+    (=>jis-x0208	. #x3939)	; 更 [25-25]
+    (=>jis-x0213-1	. #x3939)	; 更 [25-25]
     (=big5		. #xA7F3)	; &I-B-A7F3;
-    (=jis-x0208@1997	. #x3939)	; 更 [25-25]
     (->subsumptive
      ((=jis-x0208@1978	  . #x3939)	; &M-14283; [25-25]
       (=jis-x0208@1983	  . #x3939)	; &I-J83-3939; [25-25]
@@ -125,7 +126,14 @@
     (=gt		. 18076)	; &I-GT-18076;
     (=gt-pj-1		. #x5B2A)	; &I-GT-18076; [59-10]
     (=daikanwa		. 14284)	; &I-M-14284;
-    (=shinjigen@rev	.  3408)	; 曵
+    (=shinjigen		.  3408)	; 曵
+    (<-wrong
+     ((=ucs		  . #x66F3)	; 曳
+      (=jis-x0208	  . #x3148)	; &I-J90-3148; [17-40]
+      (=shinjigen	  .  3406)	; 曳
+      ))
+    (<-wrong*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
