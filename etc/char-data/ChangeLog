@@ -1,3 +1,7 @@
+2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-70BA): Map to U+56CA instead of U+56A2.
+
 2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JX3-JX1-rep-diff.txt: New file.
