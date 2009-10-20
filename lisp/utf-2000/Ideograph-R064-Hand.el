@@ -3879,7 +3879,15 @@
     (=jis-x0213-2	. #x2D25)	; &I-JX2-2D25; [13-05]
     (=big5		. #xABFB)	; &I-B-ABFB;
     (=daikanwa		. 12013)	; &I-M-12013;
+    (=shinjigen		.  3407)	; 拽
     (=jef-china3	. #x4FC1)	; &I-JC3-4FC1;
+    (<-formed
+     ((=ucs		  . #x66F3)	; 曳
+      (=jis-x0208	  . #x3148)	; &I-J90-3148; [17-40]
+      (=shinjigen	  .  3406)	; 曳
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
