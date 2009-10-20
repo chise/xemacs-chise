@@ -1,3 +1,8 @@
+2009-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+62FD): Unify S-3407; add `<-formed'
+	for U+66F3.
+
 2009-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el (U+670B): Use `=>jis-x0208' and
