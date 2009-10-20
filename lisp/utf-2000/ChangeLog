@@ -1,5 +1,31 @@
 2009-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R074-Moon.el (U+670B): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-4A7E): Add `<-same' for GT-18172.
+	(U+670D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J0-497E): Add `<-same' for M-14345.
+	(U+671C): Use `->subsumptive'.
+	(U+671D): Use `->denotational'; use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-442B): Add `<-same' for M-14374.
+	(U-00023379): Use `->denotational' and `->subsumptive'; integrate
+	M-14381.
+
+	* Ideograph-R072-Sun.el (abstract J0-3937): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B1DF): Unify J97-4855.
+	(U+665A): Use `->subsumptive' to separate representative nodes;
+	unify abstract JX1-753C.
+	(U-000231B6): Use `->denotational' instead of `->subsumptive'.
+	(abstract J0-5A70): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6666): Likewise.
+	(U+66D9): Likewise.
+	(J90-3D6C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3D6C.
+
 	* Ideograph-R073-Say.el (U+66F4): Use `=>jis-x0208' and
 	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
 	(U+66F5): Add `<-wrong' for U+66F3.
