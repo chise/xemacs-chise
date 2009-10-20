@@ -1,5 +1,9 @@
 2009-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (U+66F4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+66F5): Add `<-wrong' for U+66F3.
+
 	* Ideograph-R066-Rap.el (U+6562): Use `->denotational' instead of
 	`->subsumptive'.
 	(M-13360): Map to U-00022FCE.
