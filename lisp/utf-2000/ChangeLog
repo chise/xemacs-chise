@@ -1,4 +1,20 @@
+2009-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el (abstract J0-3A50): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5B79 and J90-5C74.
+
 2009-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U+6B21): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-3C21): Add `<-same' for K0-732D.
+	(U+6B4E): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(C1-6D45): Unify JX3-4337.
+	(J0-4337): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4337; add `<-simplified@JP/jis' for JX3-4337.
 
 	* Ideograph-R064-Hand.el (U+62FD): Unify S-3407; add `<-formed'
 	for U+66F3.
