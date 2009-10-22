@@ -1403,8 +1403,15 @@
     (=daikanwa		. 16325)	; &I-M-16325;
     ))
 (define-char
+  '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=>jis-x0208	. #x3A50)	; &J97-3A50; [26-48]
+    (=>jis-x0213-1	. #x3A50)	; &J97-3A50; [26-48]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
+     ((=>jis-x0208	  . #x3A50)	; &J97-3A50; [26-48]
       ))
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 9)
@@ -1418,19 +1425,13 @@
       (=daikanwa	  . 16326)	; &I-M-16326;
       )
      ((=ks-x1001	  . #x6128)	; &K0-6128; [65-08]
-      (=shinjigen@1ed	  .  3956)	; &K0-6128;
+      (=shinjigen	  .  3956)	; &K0-6128;
       (=jef-china3	  . #x54DD)	; &I-JC3-54DD;
       ))
     ))
 (define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=jis-x0208@1997	. #x3A50)	; &J97-3A50; [26-48]
-    ))
-(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
+     ((=>jis-x0208	  . #x3A50)	; &J97-3A50; [26-48]
       ))
     (morohashi-daikanwa	16326 1)
     (ideographic-radical . 77)	; ⽌
