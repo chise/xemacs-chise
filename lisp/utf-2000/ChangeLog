@@ -1,4 +1,11 @@
+2009-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5C27.
+
 2009-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el (J97-4B68): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
 
 	* Ideograph-R077-Stop.el (abstract J0-3A50): Use `=>jis-x0208' and
 	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
