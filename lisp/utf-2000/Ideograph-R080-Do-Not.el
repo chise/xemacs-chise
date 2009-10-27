@@ -109,8 +109,12 @@
     (=daikanwa		. 16724)	; &I-M-16724;
     ))
 (define-char
+  '((ideographic-radical . 80)	; ⽏
+    (=>jis-x0208@1997	. #x4B68)	; &J97-4B68; [43-72]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+     ((=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
       ))
     (morohashi-daikanwa	16724 1)
     (ideographic-radical . 80)	; ⽏
@@ -128,12 +132,8 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 80)	; ⽏
-    (=jis-x0208@1997	. #x4B68)	; &J97-4B68; [43-72]
-    ))
-(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+     ((=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
       ))
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 3)
