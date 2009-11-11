@@ -2164,11 +2164,39 @@
      ((=ucs		  . #x8C55)	; 豕
       ))
     (=ucs		. #x5702)	; 圂
-    (=jis-x0212		. #x3724)	; &I-JSP-3724; [23-04]
-    (=cns11643-2	. #x2E4B)	; &I-C2-2E4B; [14-43]
     (=big5		. #xD149)	; &I-B-D149;
-    (=daikanwa		. 04773)	; &I-M-04773;
-    (=jef-china3	. #x47C3)	; &I-JC3-47C3;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=ucs@jis	    . #x8C55)	; &GT-48747;
+	(=ks-x1001	    . #x634E)	; &GT-48747; [67-46]
+	(=jis-x0208@1990    . #x6C35)	; &I-J90-6C35; [76-21]
+	(=jis-x0213-1	    . #x6C35)	; &I-JX1-6C35; [76-21]
+	(=daikanwa	    . 36334)	; &I-M-36334;
+	))
+      (=ucs@jis		  . #x5702)	; &M-04773;
+      (=jis-x0212	  . #x3724)	; &M-04773; [23-04]
+      (=daikanwa	  . 04773)	; &I-M-04773;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=jis-x0208@1978    . #x6C35)	; &J83-6C35; [76-21]
+	(=jis-x0208@1983    . #x6C35)	; &I-J83-6C35; [76-21]
+	(=cns11643-1	    . #x4B49)	; &I-C1-4B49; [43-41]
+	))
+      (=cns11643-2	  . #x2E4B)	; &C2-2E4B; [14-43]
+      (=jef-china3	  . #x47C3)	; &I-JC3-47C3;
+      )
+     ((=ucs@unicode	  . #x5702)	; &UU+5702;
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -2193,15 +2221,13 @@
     (=gt		. 06011)	; &I-GT-06011;
     (=gt-pj-1		. #x4A60)	; &I-GT-06011; [42-64]
     (=daikanwa		. 04774)	; &I-M-04774;
-    (=shinjigen@rev	.  1326)	; 圃
+    (=shinjigen		.  1326)	; 圃
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 719)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 719 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
@@ -2221,7 +2247,7 @@
     (=gt-k		. 06582)	; &I-GT-K06582;
     (=gt-pj-1		. #x537D)	; &I-GT-05998; [51-93]
     (=daikanwa		. 04775)	; &I-M-04775;
-    (=shinjigen@rev	.  1324)	; 圄
+    (=shinjigen		.  1324)	; 圄
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
