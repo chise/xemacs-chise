@@ -1,4 +1,18 @@
+2009-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (U+5702): Use `->subsumptive' to
+	separate representative nodes.
+	(U+5704): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+2009-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5B5E.
+
 2009-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el (U+6C08): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-5C27.
 
