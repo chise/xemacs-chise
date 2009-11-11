@@ -9773,14 +9773,14 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
-    (=ucs@big5		. #x5848)	; &B-D8A7;
-    (=>jis-x0213-2	. #x252B)	; &B-D8A7; [05-11]
-    (=big5		. #xD8A7)	; &B-D8A7;
+    (=ucs@big5		. #x5848)	; &A-JX2-252B;
+    (=>jis-x0213-2	. #x252B)	; &A-JX2-252B; [05-11]
+    (=big5		. #xD8A7)	; &A-JX2-252B;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x5848)	; &B-D8A7;
-      (=>jis-x0213-2	  . #x252B)	; &B-D8A7; [05-11]
+     ((=ucs@big5	  . #x5848)	; &A-JX2-252B;
+      (=>jis-x0213-2	  . #x252B)	; &A-JX2-252B; [05-11]
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
@@ -9794,7 +9794,7 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>jis-x0213-2	. #x252B)	; &MCS-000F02E2; [05-11]
+    (=>>jis-x0213-2	. #x252B)	; &aJX2-252B; [05-11]
     (->subsumptive
      ((=ucs@jis		  . #x588D)	; &M-05423;
       (=jis-x0212	  . #x3842)	; &M-05423; [24-34]
@@ -9817,8 +9817,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x5848)	; &B-D8A7;
-      (=>jis-x0213-2	  . #x252B)	; &B-D8A7; [05-11]
+     ((=ucs@big5	  . #x5848)	; &A-JX2-252B;
+      (=>jis-x0213-2	  . #x252B)	; &A-JX2-252B; [05-11]
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
