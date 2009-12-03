@@ -1,3 +1,37 @@
+2009-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+7078): Unify abstract J0-3564.
+	(K0-4F36): Separate J0-3564 and JX1-3564; move B-A862 to U+7078.
+	(U+707C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3C5E): Unify JX3-3C5E.
+	(J90-3C5E): Use `=jis-x0213-1@2000' for JX1-3C5E.
+	(J97-316B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-316B): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+716E): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+7149): Unify abstract J0-4E7B.
+	(J78-4E7B): Unify JX3-4E7B; move B-B7D2 to the parent node.
+	(J90-4E7B): Use `=jis-x0213-1@2000' for JX1-4E7B; add
+	`<-simplified@JP/jis' for J78-4E7B.
+	(J78-4079): Unify JX3-4079.
+	(J90-4079): Use `=jis-x0213-1@2000' for JX1-4079; move B-B7CE to
+	the parent node; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/misc'.
+	(U+717D): Unify abstract J0-407A.
+	(K0-6043): Unify JX3-407A.
+	(J90-407A): Use `=jis-x0213-1@2000' for JX1-407A; use
+	`<-simplified@JP/extra/design' instead of `<-simplified@JP/misc'.
+	(abstract J0-5F73): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U-0002446B): Add `ideographic-structure'.
+	(IU-0002446B): Use GT-K00405 instead of J0-3250 in
+	`ideographic-structure'.
+	(abstract glyph of GT-38767): Use `=>>gt' instead of `<=>gt'.
+	(abstract glyph of GT-38769): Likewise.
+	(CB02412): Use GT-K00405 instead of U+706B in
+	`ideographic-structure'.
+
 2009-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3564.
