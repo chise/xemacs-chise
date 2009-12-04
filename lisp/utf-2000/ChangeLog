@@ -1,5 +1,16 @@
 2009-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3823.
+
+	* Ideograph-R092-Fang.el (U+7259): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R091-Slice.el (U+724C): Use `->denotational' instead
+	of `->subsumptive'.
+	(J78-4757): Unify JX3-4757; move B-B550 to the parent node.
+	(J90-4757): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4757.
+
 	* Ideograph-R086-Fire.el (U+7078): Unify abstract J0-3564.
 	(K0-4F36): Separate J0-3564 and JX1-3564; move B-A862 to U+7078.
 	(U+707C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
