@@ -1,4 +1,18 @@
+2009-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002039B): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-{radical|strokes}@cns*sources' instead of
+	`ideographic-'; omit `ideographic-structure'; add `<-same' for
+	U-00024564.
+
 2009-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R088-Father.el (M-19729): Unify S-4712; add
+	`<-ancient' for J0-4C6C.
+	(U+3E19): Use `->denotational' instead of `->subsumptive'.
+	(U+723A): Unify abstract J0-4C6C.
+	(J0-4C6C): Separate JX3-4C6C.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3823.
 
