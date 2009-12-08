@@ -1,4 +1,25 @@
+2009-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6131.
+
 2009-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (U+73E5): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R093-Cow.el (U+727D): Unify abstract J0-3823.
+	(K0-4C32): Separate J0-3823 and JX1-3823.
+
+	* Ideograph-R089-Double-X.el (JC3-41A4): Use `<-denotational' for
+	U+723E.
+	(U-0002039B): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-{radical|strokes}@cns*sources' instead of
+	`ideographic-'; omit `ideographic-structure'; add `<-same' for
+	U-00024564.
+	(U-0002458F): Integrate M-19793; moved to
+	Ideograph-R090-Half-Tree-Trunk.el.
+	(U-00024590): Integrate M-19794; moved to
+	Ideograph-R090-Half-Tree-Trunk.el.
 
 	* Ideograph-R009-Man.el (U-0002039B): Use
 	`ideographic-{radical|strokes}@{ucs|cns}' and
