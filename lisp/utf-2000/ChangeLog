@@ -1,5 +1,23 @@
 2009-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R098-Tile.el (B-ED70): Use `->denotational' instead of
+	`->subsumptive'.
+	(J78-3979): Use `<-subsumptive' to integrate JX3-3979.
+	(J90-3979): Separate JX3-3979.
+	(M-21617): Separate J83-6131, K0-6838, J90-6131, JX1-6131,
+	GT-27757 and S-5002.
+	(K0-6838): Unify JX3-6131, GT-27757 and S-5002.
+
+	* Ideograph-R094-Dog.el (U+72E1): Use `->subsumptive'; unify
+	abstract J0-6044.
+	(J0-6044): Separate JX3-6044.
+	(J78-4D32): Use `<-subsumptive' to integrate JX3-4D32.
+	(J90-4D32): Separate JX3-4D32.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002458F): Moved from
+	Ideograph-R089-Double-X.el.
+	(U-00024590): Likewise.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-6131.
 
 2009-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
