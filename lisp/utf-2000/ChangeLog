@@ -1,3 +1,14 @@
+2009-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R100-Life.el (abstract J0-3B3A): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-3B3A): Add `<-same' and `<-simplified@JP/misc' for M-21684.
+	(U+7526): Unify abstract J0-6134.
+	(J0-6134): Separate JX3-6134.
+	(EGB-2C75): Unify JX3-6134.
+	(M-21697): Add `<-same' for J0-6134.
+	(IU-00024BF3): Unify S-5013; add `<-formed' for J0-6134.
+
 2009-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R098-Tile.el (B-ED70): Use `->denotational' instead of
