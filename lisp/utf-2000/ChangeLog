@@ -1,4 +1,30 @@
+2009-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (JX3-4A5A): Unify J2004U+5A29.
+	(J90-4A5A): Use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
 2009-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (JX3-6131): Unify J2004U+7515.
+
+	* Ideograph-R076-Lack.el (JX3-4337): Unify J2004U+6B4E.
+
+	* Ideograph-R026-Seal.el (JX3-362A): Unify J2004U+537F.
+
+	* Ideograph-R044-Corpse.el (JX3-367D): Unify J2004U+5C51.
+	(JX3-454B): Unify J2004U+5C60.
+	(JX3-4F60): Unify J2004U+5C62.
+
+	* Ideograph-R032-Earth.el (JX3-4548): Unify J2004U+5835.
+
+	* maps-conf.el:
+	- Don't add `=gt-pj-1' for J90-4A4D.
+	- Remove `=ucs@jis' if JIS X0213:2000 and 2004 are different.
+	- Add `=ucs@jis/2004' to JIS X0213:2004 characters which are
+	  different from JIS X0213:2000.
+	- Use `=>jis-x0213-1' and `=>jis-x0208' instead of
+	  `<=>jis-x0213-1' and `<=>jis-x0208'.
 
 	* Ideograph-R100-Life.el (abstract J0-3B3A): Use `=>jis-x0208' and
 	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
