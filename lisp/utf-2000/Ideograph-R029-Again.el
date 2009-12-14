@@ -57,7 +57,8 @@
     (=>jis-x0213-1	. #x3A35)	; 叉 [26-21]
     (=big5		. #xA465)	; &I-B-A465;
     (->subsumptive
-     ((=ucs@jis		  . #x53C9)	; &GT-03947;
+     ((=ucs@jis/1990	  . #x53C9)	; &GT-03947;
+      (=ucs@jis/2000	  . #x53C9)	; &GT-03947;
       (=jis-x0208	  . #x3A35)	; &GT-03947; [26-21]
       (=ks-x1001	  . #x7329)	; &I-K0-7329; [83-09]
       (=jis-x0213-1@2000  . #x3A35)	; &I-JX1-3A35; [26-21]
@@ -914,7 +915,8 @@
     (->subsumptive
      ((=daikanwa	  . 03151)	; &M-03151;
       (<-vulgar
-       ((=cns11643-1	    . #x5451)	; &GT-04022; [52-49]
+       ((=ucs@jis/2004	    . #x53DF)	; &GT-04022;
+	(=cns11643-1	    . #x5451)	; &GT-04022; [52-49]
 	(=jis-x0213-1@2004  . #x5257)	; &I-JX3-5257; [50-55]
 	(=daikanwa	    . 03176)	; &I-M-03176;
 	))
@@ -1263,6 +1265,14 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x534A)	; 半
+      )
+     ((=ucs		  . #x53CD)	; 反
+      ))
     (=ucs		. #x53DB)	; 叛
     (=>jis-x0208	. #x4840)	; 叛 [40-32]
     (=>jis-x0213-1	. #x4840)	; 叛 [40-32]
@@ -1299,6 +1309,7 @@
 	(=jis-x0213-1	    . #x483F)	; &I-JX1-483F; [40-31]
 	(=daikanwa	    . 03127)	; &I-M-03127;
 	))
+      (=ucs@jis/2004	  . #x53DB)	; &M-03166;
       (=ks-x1001	  . #x5A64)	; &M-03166; [58-68]
       (=jis-x0213-1@2004  . #x4840)	; &I-JX3-4840; [40-32]
       (=daikanwa	  . 03166)	; &I-M-03166;
@@ -1338,7 +1349,8 @@
 	(=jis-x0213-1	    . #x483F)	; &I-JX1-483F; [40-31]
 	(=daikanwa	    . 03127)	; &I-M-03127;
 	))
-      (=ucs@jis		  . #x53DB)	; &GT-04013;
+      (=ucs@jis/1990	  . #x53DB)	; &GT-04013;
+      (=ucs@jis/2000	  . #x53DB)	; &GT-04013;
       (=jis-x0208	  . #x4840)	; &GT-04013; [40-32]
       (=jis-x0213-1@2000  . #x4840)	; &I-JX1-4840; [40-32]
       (=gt		  . 04013)	; &I-GT-04013;
@@ -1571,6 +1583,14 @@
 (define-char
   '((ideographic-radical . 29)	; ⼜
     (hanyu-dazidian	1 399 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x26954)	; 𦥔
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (=ucs		. #x53DF)	; 叟
     (=>jis-x0208	. #x5257)	; 叟 [50-55]
     (=>jis-x0213-1	. #x5257)	; 叟 [50-55]
@@ -1605,6 +1625,7 @@
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
 	))
+      (=ucs@jis/2004	  . #x53DF)	; &GT-04022;
       (=cns11643-1	  . #x5451)	; &GT-04022; [52-49]
       (=jis-x0213-1@2004  . #x5257)	; &I-JX3-5257; [50-55]
       (=gt		  . 04022)	; &I-GT-04022;
