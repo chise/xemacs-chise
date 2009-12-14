@@ -527,6 +527,7 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=ucs@jis/2004	. #x6241)	; &GT-14816;
     (=ks-x1001		. #x7837)	; &GT-14816; [88-23]
     (=cns11643-1	. #x5137)	; &I-C1-5137; [49-23]
     (=jis-x0213-1@2004	. #x5928)	; &I-JX3-5928; [57-08]
@@ -552,14 +553,16 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@jis		. #x6241)	; &GT-14817;
+    (=ucs@jis/1990	. #x6241)	; &GT-14817;
+    (=ucs@jis/2000	. #x6241)	; &GT-14817;
     (=jis-x0208		. #x5928)	; &GT-14817; [57-08]
     (=jis-x0213-1@2000	. #x5928)	; &I-JX1-5928; [57-08]
     (=gt		. 14817)	; &I-GT-14817;
     (=gt-k		. 05247)	; &I-GT-K05247;
     (=gt-pj-1		. #x5928)	; &I-GT-14817; [57-08]
-    (<-simplified@JP/extra
-     ((=ks-x1001	  . #x7837)	; &GT-14816; [88-23]
+    (<-simplified@JP/extra/design
+     ((=ucs@jis/2004	  . #x6241)	; &GT-14816;
+      (=ks-x1001	  . #x7837)	; &GT-14816; [88-23]
       (=cns11643-1	  . #x5137)	; &I-C1-5137; [49-23]
       (=jis-x0213-1@2004  . #x5928)	; &I-JX3-5928; [57-08]
       (=daikanwa	  . 11724)	; &I-M-11724;
