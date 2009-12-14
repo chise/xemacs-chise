@@ -1,5 +1,101 @@
 2009-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R109-Eye.el (U+773A): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+77A5): Use `->denotational' instead of `->subsumptive'.
+	(J78-4A4D): Use `<-subsumptive' to integrate JX3-4A4D.
+	(G0-4633): Separate J83-4A4D, J90-4A4D, JX1-4A4D and JC3-5BE3.
+
+	* Ideograph-R091-Slice.el (J90-4757): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+
+	* Ideograph-R086-Fire.el (JX3-3C5E): Add `=ucs@jis/2004' for
+	J2004U+707C.
+	(J90-3C5E): Add `<-simplified@JP/extra/design' for JX3-3C5E.
+	(J90-4E7B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4079): Add `=ucs@jis/2004' for J2004U+714E.
+	(JX3-407A): Add `=ucs@jis/2004' for J2004U+717D.
+	(J90-407A): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(U+71A2): Add `ideographic-structure'.
+	(K0-5C6C): Use GT-K00405 instead of J0-3250 in
+	`ideographic-structure'.
+	(UU+71A2): Likewise.
+
+	* Ideograph-R064-Hand.el (J0-4472): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+	(JX3-4854): Add `=ucs@jis/2004' for J2004U+633D.
+	(J90-4854): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-443D): Add `=ucs@jis/2004' for J2004U+6357.
+	(JX3-377E): Add `=ucs@jis/2004' for J2004U+6372.
+	(JX3-4237): Add `=ucs@jis/2004' for J2004U+63C3.
+	(JX3-4022): Add `=ucs@jis/2004' for J2004U+647A.
+	(J90-4022): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4527): Add `=ucs@jis/2004' for J2004U+64E2.
+
+	* Ideograph-R063-Door.el (JX3-5928): Add `=ucs@jis/2004' for
+	J2004U+6241.
+	(J0-5928): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
+	* Ideograph-R061-Heart.el (M-10709): Unify U-000226BB and C5-2D59.
+	(M-10710): Unify U-000226AE.
+	(M-10711): Unify U-000226A8 and H6-DBDB.
+	(U+60A8): Use `->subsumptive' to separate representative nodes.
+	(M-10713): Map to U-000226AD.
+	(M-10714): Map to U-000226AA.
+	(M-10715): Unify U-000226AB.
+	(U+60D4): Use `->subsumptive' to separate representative nodes.
+	(M-10802): Map to U-000226DA; fix `ideographic-strokes'; add
+	`ideographic-strokes@daikanwa'.
+	(M-10804): Unify U+60D6, C3-3B55 and H6-DDF6.
+	(U+3952): Use `->denotational'.
+	(U+60D7): Use `->subsumptive' to separate representative nodes.
+	(JX3-4C7C): Add `=ucs@jis/2004' for J2004U+6108.
+
+	* Ideograph-R060-Step.el (JX3-5751): Add `=ucs@jis/2004' for
+	J2004U+5F98.
+	(J90-5751): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-352B): Add `=ucs@jis/2004' for J2004U+5FBD.
+
+	* Ideograph-R053-Dotted-Cliff.el (JX3-4A79): Add `=ucs@jis/2004'
+	for J2004U+5E96.
+	(J90-4A79): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4940): Add `=ucs@jis/2004' for J2004U+5EDF.
+	(J90-4940): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
+	* Ideograph-R029-Again.el (J0-3A35): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+	(U+53DB): Add `ideographic-structure'.
+	(JX3-4840): Add `=ucs@jis/2004' for J2004U+53DB.
+	(J0-4840): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(U+53DF): Add `ideographic-structure'.
+	(JX3-5257): Add `=ucs@jis/2004' for J2004U+53DF.
+
+	* Ideograph-R010-Legs.el (JX3-4546): Add `=ucs@jis/2004' for
+	J2004U+514E.
+	(J0-4546): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+
+	* Ideograph-R009-Man.el (JX3-3771): Add `=ucs@jis/2004' for
+	J2004U+5026.
+	(J90-3771): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; add `<-simplified@JP/jis' for JX3-3771.
+	(U+504F): Add `ideographic-structure'.
+	(U-000202F1): Add `ideographic-structure'.
+	(U-000202F5): Likewise.
+	(U-00020422): Likewise.
+	(JX3-4C59): Add =ucs@jis/2004' for J2004U+5132.
+
 	* Ideograph-R038-Woman.el (JX3-4A5A): Unify J2004U+5A29.
 	(J90-4A5A): Use `<-simplified@JP/extra/design' instead of
 	`<-simplified@JP/extra'.
