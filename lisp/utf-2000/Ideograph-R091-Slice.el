@@ -829,7 +829,8 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x724C)	; &GT-25508;
+    (=ucs@jis/1990	. #x724C)	; &GT-25508;
+    (=ucs@jis/2000	. #x724C)	; &GT-25508;
     (=jis-x0208@1983	. #x4757)	; &GT-25508; [39-55]
     (=jis-x0208@1990	. #x4757)	; &I-J90-4757; [39-55]
     (=jis-x0213-1@2000	. #x4757)	; &I-JX1-4757; [39-55]
