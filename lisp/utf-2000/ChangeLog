@@ -1,3 +1,22 @@
+2009-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el (U+75B8): Use `->subsumptive'.
+	(U+75B9): Likewise.
+	(U+75BA): Likewise.
+	(U+75BB): Likewise.
+	(U+75BC): Likewise.
+	(K0-5459): Move B-AF6B to the abstract node; unify JX3-6156.
+	(J0-6156): Separate JX3-6156.
+	(G0-4C5B): Separate C1-566E.
+	(U+75BD): Use `->subsumptive'.
+	(abstract J0-4169): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(J90-4169): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R032-Earth.el (J0-5436): Separate S2-1384.
+	(S1-1384): Unify S2-1384.
+
 2009-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el:
