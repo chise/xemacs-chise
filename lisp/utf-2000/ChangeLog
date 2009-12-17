@@ -1,5 +1,12 @@
 2009-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-632E.
+
+	* Ideograph-R112-Stone.el (U+409B): Unify M-24058.
+	(J97-3826): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(M-24475): Use `<-denotational' for U+40E3 instead of U-0002F951.
+	(C7-396D): Unify U-0002F951 and UU+40E3.
+
 	* Ideograph-R104-Sickness.el (U+75B8): Use `->subsumptive'.
 	(U+75B9): Likewise.
 	(U+75BA): Likewise.
