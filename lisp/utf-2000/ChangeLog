@@ -1,3 +1,7 @@
+2009-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-635E.
+
 2009-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-632E.
