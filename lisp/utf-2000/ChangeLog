@@ -1,5 +1,23 @@
 2009-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el (U+79C6): Add `<-formed' and `<-same'
+	for U+7A08.
+	(U+79E4): Use `->denotational' instead of `->subsumptive'.
+	(J78-4769): Unify JX3-4769.
+	(J90-4769): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4769; add `<-simplified@JP/jis' for J78-4769.
+	(U+414E): Use `->subsumptive' to separate representative nodes.
+	(U+7A03): Use `->denotational' instead of `->subsumptive'.
+	(U+7A04): Use `->denotational' instead of `->subsumptive'.
+	(B-B57C): Unify abstract J0-4047.
+	(U+7A0E): Add `<-same' and `<-simplified@JP/misc' for K0-612A.
+	(U+7A06): Use `->denotational' instead of `->subsumptive'.
+	(U+7A07): Use `->subsumptive' to separate representative nodes.
+	(U+7A09): Likewise.
+	(J78-4923): Unify JX3-4923.
+	(J90-4923): Separate JX3-4923; add `<-simplified@JP/extra/design'
+	for J78-4923.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-635E.
 
 2009-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
