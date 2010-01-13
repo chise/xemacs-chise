@@ -1156,8 +1156,7 @@
     (=cns11643-3	. #x3C49)	; &I-C3-3C49; [28-41]
     (=daikanwa		. 16317)	; &I-M-16317;
     (<-same
-     ((=ucs		  . #x6F80)	; 澀
-      (=daikanwa	  . 18311)	; &I-M-18311;
+     ((=daikanwa	  . 18311)	; &M-18311;
       ))
     (<-same*sources
      zihui-bu daikanwa)
