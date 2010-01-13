@@ -1,3 +1,16 @@
+2010-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (U+7A7F): Unify abstract J0-407C;
+	integrate JX3-407C.
+	(J0-407C): Separate JX3-407C; separate K0-743E and JC3-5DD7.
+	(U-00025A36): Use `->subsumptive'; integrate M-25701.
+	(U-00025A37): Integrate M-25702.
+	(J90-635E): Separate JX3-635E and GT-33163.
+
+	* Ideograph-R086-Fire.el (U+7075): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX2-6F5A): Add `<-vulgar' for J90-635E.
+
 2009-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (U+79C6): Add `<-formed' and `<-same'
