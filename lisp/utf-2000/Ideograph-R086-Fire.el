@@ -404,10 +404,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x7074)	; 灴
+    (=big5		. #xCB5E)	; &I-B-CB5E;
     (->subsumptive
      ((=ucs@unicode	  . #x7074)	; &M-18867;
-      (=big5		  . #xCB5E)	; &M-18867;
-      (=daikanwa	  . 18867)	; &I-M-18867;
+      (=daikanwa	  . 18867)	; &M-18867;
       )
      ((=ucs@cns		  . #x7074)	; &C2-245E;
       (=cns11643-2	  . #x245E)	; &C2-245E; [04-62]
@@ -418,30 +418,59 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x7075)	; 灵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7075)	; 灵
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (->subsumptive
      ((=ucs@jis		  . #x7075)	; &M-18868;
       (=jis-x0212	  . #x4946)	; &M-18868; [41-38]
-      (=cns11643-3	  . #x2662)	; &I-C3-2662; [06-66]
       (=jis-x0213-1	  . #x7744)	; &I-JX1-7744; [87-36]
       (=daikanwa	  . 18868)	; &I-M-18868;
       )
-     ((=ucs@unicode	  . #x7075)	; &G0-4169;
-      (=gb2312		  . #x4169)	; &G0-4169; [33-73]
+     ((=cns11643-3	  . #x2662)	; &C3-2662; [06-66]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7075)	; 灵
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (=ucs@unicode	. #x7075)	; &G0-4169;
+    (=gb2312		. #x4169)	; &G0-4169; [33-73]
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x7076)	; 灶
+    (=big5		. #xA85F)	; &I-B-A85F;
     (->subsumptive
      ((=ucs@unicode	  . #x7076)	; &M-18869;
       (=gb2312		  . #x546E)	; &M-18869; [52-78]
       (=jis-x0212	  . #x4947)	; &I-JSP-4947; [41-39]
       (=jis-x0213-2	  . #x6F5A)	; &I-JX2-6F5A; [79-58]
-      (=big5		  . #xA85F)	; &I-B-A85F;
       (=daikanwa	  . 18869)	; &I-M-18869;
+      (=shinjigen	  .  5728)	; &M-18869;
       (=jef-china3	  . #x57D7)	; &I-JC3-57D7;
+      (<-vulgar
+       ((=ucs@jis/1990	    . #x7AC8)	; &M-25703;
+	(=ucs@jis/2000	    . #x7AC8)	; &M-25703;
+	(=jis-x0208@1978    . #x3376)	; &M-25703; [19-86]
+	(=jis-x0208@1983    . #x635E)	; &I-J83-635E; [67-62]
+	(=jis-x0208@1990    . #x635E)	; &I-J90-635E; [67-62]
+	(=jis-x0213-1@2000  . #x635E)	; &I-JX1-635E; [67-62]
+	(=daikanwa	    . 25703)	; &I-M-25703;
+	(=shinjigen	    .  5727)	; &M-25703;
+	))
+      (<-vulgar*sources
+       shinjigen)
       )
      ((=cns11643-1	  . #x4B22)	; &C1-4B22; [43-02]
       ))
