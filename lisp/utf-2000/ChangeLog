@@ -1,3 +1,68 @@
+2010-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (J0-633E): Unify S1-5600.
+
+	* Ideograph-R085-Water.el: - Add some mappings for Daikanwa.
+	(U+6C72): Unify abstract J0-3562.
+	(K0-5063): Unify JX3-3562.
+	(J0-3562): Separate JX3-3562; add `<-simplified@JP/extra/design'
+	for JX3-3562.
+	(U+6D69): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6D78): Likewise.
+	(U+6DEB): Likewise.
+	(J90-307C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for JX3-307C.
+	(abstract J0-4036): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6E2E): Likewise.
+	(U+6E2F): Likewise.
+	(U+6E6E): Unify abstract J0-5E50.
+	(abstract J0-3C22): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'; unify U+6ECB.
+	(J0-3C22): Move U+6ECB to the parent.
+	(U+6EA2): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(JX3-306E): Add `=ucs@jis/2004' for J2004U+6EA2.
+	(JX1-306E): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J{1990|2000}U+6EA2.
+	(J78-452E): Unify JX3-452E.
+	(J90-452E): Separate JX3-452E; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP' for J78-452E.
+	(U+6F23): Unify abstract J0-4E7A.
+	(J78-4E7A): Unify JX3-4E7A.
+	(J90-4E7A): Separate JX3-4E7A; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP'.
+	(U-00023F4A): Integrate M-18250 and S-4507.
+	(abstract J0-3442): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6F97): Use `<-simplified@JP/jis' instead of `<-simplified@JP'.
+	(U+6F98): Integrate CB02958.
+	(U+3D71): Use `->subsumptive'; modify hierarchy of
+	`ideographic-structure'.
+	(J90-4654): Separate JX3-4654; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+	(JSP-4927): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(J97-4642): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6D9C): Use `->denotational' instead of `->subsumptive'; unify
+	abstract JX1-4642.
+	(J90-4642): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for JX1-773D.
+	(JX1-7739): Add `=ucs@jis/2004' for J2004U+6FF9.
+	(U+7015): Unify abstract J0-494E.
+	(J78-494E): Unify JX3-494E.
+	(J90-494E): Separate JX3-494E; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+	(J78-4654): Unify JX3-4654.
+	(U+7026): Unify abstract J0-4375.
+	(J78-4375): Unify JX3-4375.
+	(J90-4375): Separate JX3-4375.
+	(U+7058): Unify abstract J0-4667.
+	(J78-4667): Unify JX3-4667.
+	(J90-4667): Separate JX1-4667; add `<-simplified@JP/jis' for
+	J78-4667.
+
 2010-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el (U+7C7E): Use `->denotational' instead of
