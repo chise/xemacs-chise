@@ -1,5 +1,16 @@
 2010-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R119-Rice.el (U+7C7E): Use `->denotational' instead of
+	`->subsumptive'.
+	(J90-4C62): Separate JX3-4C62; add `<-simplified@JP/jis/1978' for
+	J78-4C62; add `<-simplified@JP/jis/2004' for JX3-4C62.
+	(J78-4C62): Integrate JX3-4C62.
+	(U+7C82): Use `->subsumptive' to separate representative nodes;
+	unify abstract J0-3729.
+	(J0-3729): Separate JX3-3729; separate GT-34606.
+	(JX3-3729): Unify GT-34606.
+	(J0-6463): Add `<-vulgar' for J0-633E.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3729.
 
 2010-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
