@@ -1,5 +1,11 @@
 2010-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R120-Silk.el (U-0002604B): Integrate M-27553.
+	(U-0002604C): Integrate M-27561.
+	(U+7DAA): Use `->denotational' instead of `->subsumptive'.
+	(J97-3D6F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U-00026096): Integrate M-27632'.
+
 	* Ideograph-R113-Spirit.el:
 	- Add some mappings for Daikanwa.
 	(M-24626): Unify S-5507; add `<-ancient' for J0-6339.
