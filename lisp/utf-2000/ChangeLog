@@ -1,8 +1,62 @@
 2010-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R113-Spirit.el:
+	- Add some mappings for Daikanwa.
+	(M-24626): Unify S-5507; add `<-ancient' for J0-6339.
+	(J78-3737): Unify JX3-3737.
+	(J90-3737): Separate JX3-3737; add `<-simplified@JP/extra' for
+	J78-3737.
+	(U-0002560D): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002560F): Use `->denotational'.
+	(J78-3540): Unify JX3-3540.
+	(J90-3540): Separate JX3-3540; add `<-simplified@JP/extra' for
+	J78-3540.
+	(U+795F): Unify abstract J0-632E.
+	(G0-4B6E): Separate J0-632E; use `->subsumptive' to separate
+	J0-632E and JX3-632E.
+	(U-00021C07): Use `->subsumptive' to integrate M-24785; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns*sources' and
+	`ideographic-{radical|strokes}@ucs'.
+	(J0-4135): Unify S-5566.
+	(J78-4729): Unify JX3-4729.
+	(J90-4729): Separate JX3-4729; add `<-simplified@JP/extra' for
+	J78-4729.
+	(J97-4578): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4578): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R102-Field.el:
+	- Add some mappings for Daikanwa.
+	(U-00022341): Use `->denotational' to integrate M-49332.
+	(C4-2741): Use `<-denotational' for U-00022341; unify H7-B4EB.
+	(U-00024C2B): Unify M-21769; add `<-ancient' for J0-4B2E.
+	(U+754A): Add `<-formed' for C1-5755.
+	(U+7552): Use `->subsumptive' to separate representative nodes.
+	(M-49332): Add `<-denotational' for U-00022341; add `<-original'
+	for C4-2741.
+	(JSP-4D3A): Add `<-formed' and `<-same' for J0-5436.
+	(H7-B770): Separate U-00024C67; add `<-unknown' for U-00024C67;
+	unify M-21833.
+	(U+7564): Use `->denotational' instead of `->subsumptive'.
+	(U+7567): Add `<-vulgar' for U+7565.
+	(abstract J0-305B): Unify U+7570.
+	(J0-305B): Move U+7570 to the parent; add `<-simplified@JP/misc'
+	and `<-wrong' for U-0002F938.
+	(U+7569): Use `->subsumptive' to separate representative nodes.
+	(U-00024C67): Separate H7-B770; add `<-unknown' for M-21833; use
+	`->subsumptive'.
+	(U-00024C83): Unify S-5059; add `<-original' for S-5058.
+
+	* Ideograph-R043-Lame.el (U-00021C07): Copied from
+	Ideograph-R113-Spirit.el.
+
 	* Ideograph-R115-Grain.el (J0-633E): Unify S1-5600.
 
-	* Ideograph-R085-Water.el: - Add some mappings for Daikanwa.
+	* Ideograph-R085-Water.el:
+	- Add some mappings for Daikanwa.
 	(U+6C72): Unify abstract J0-3562.
 	(K0-5063): Unify JX3-3562.
 	(J0-3562): Separate JX3-3562; add `<-simplified@JP/extra/design'
