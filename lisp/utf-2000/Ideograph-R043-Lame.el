@@ -1145,6 +1145,26 @@
     (=ucs@unicode	. #x5C33)	; &UU+5C33;
     ))
 (define-char
+  '((ideographic-radical@ucs . 43)	; ⼪
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@cns . 113)	; ⽰
+    (ideographic-strokes@cns . 9)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 14)
+    (=ucs		. #x21C07)	; 𡰇
+    (->subsumptive
+     ((=ucs@iso		  . #x21C07)	; &M-24785;
+      (=daikanwa	  . 24785)	; &M-24785;
+      )
+     ((ideographic-radical . 113)	; ⽰
+      (ideographic-strokes . 9)
+      (=cns11643-5	  . #x4826)	; &C5-4826; [40-06]
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21C0A)	; 𡰊
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 10)
