@@ -1,3 +1,8 @@
+2010-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U+7F72): Use `=>jis-x0208@1997' instead
+	of `=jis-x0208@1997'.
+
 2010-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el (U-0002604B): Integrate M-27553.
