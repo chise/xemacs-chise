@@ -33588,17 +33588,6 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 235 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
-      )
-     ((=jis-x0208@1978	  . #x3465)	; &M-28766; [20-69]
-      (=ks-x1001	  . #x6851)	; &I-K0-6851; [72-49]
-      (=daikanwa	  . 28766)	; &I-M-28766;
-      ))
     (=daikanwa		. 01272)	; &M-01272;
     (=hanziku-1		. #xD6BF)	; &I-HZK01-D6BF;
     ))
@@ -33616,7 +33605,9 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=jis-x0208@1983	  . #x3465)	; &GT-37114; [20-69]
+     ((=ucs@jis/1990	  . #x7FEB)	; &GT-37114;
+      (=ucs@jis/2000	  . #x7FEB)	; &GT-37114;
+      (=jis-x0208@1983	  . #x3465)	; &GT-37114; [20-69]
       (=cns11643-2	  . #x527E)	; &I-C2-527E; [50-94]
       (=jis-x0213-1@2000  . #x3465)	; &I-JX1-3465; [20-69]
       ))
