@@ -1,4 +1,64 @@
+2010-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+7B08): Use `->denotational' instead
+	of `->subsumptive'; unify abstract J0-3568.
+	(C2-3166): Unify JX3-3568.
+	(J0-3568): Separate JX3-3568; add `<-simplified@JP/extra/design'
+	for JX3-3568.
+	(U+7B6D): Unify S-5822; add `<-original' for U+7B97.
+	(U+7B75): Unify abstract J0-6427.
+	(J0-6427): Separate JX3-6427.
+	(U-00025B6B): Integrate M-26091.
+	(U-00025B8D): Integrate M-26108.
+	(J0-4A4F): Add `<-vulgar' for J0-6444.
+	(U-00025B90): Integrate M-26115.
+	(U+4203): Unify M-26117.
+	(U+4204): Integrate M-26119.
+	(JSP-5235): Unify H8-BD47.
+	(U-00025B94): Integrate M-26134.
+	(U-00025B95): Integrate M-26138.
+	(U-00025B96): Integrate M-26141.
+	(U-00025B97): Integrate M-26144.
+	(U-00025B99): Integrate M-26155.
+	(U-00025B9A): Integrate M-26156.
+	(U+7B9F): Use `->subsumptive'.
+	(J0-6431): Add `<-ancient' for J0-6430; add `<-formed' for S-5815.
+	(U-00025B9B): Integrate M-26159.
+	(U-00025B9C): Integrate M-26160.
+	(U-00025B9E): Unify M-26166.
+	(U+420B): Integrate M-26167.
+	(U-00025BA2): Integrate M-26172.
+	(U+7BAD): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-407D.
+	(M-26193): Unify JX3-407D.
+	(J0-407D): Separate JX3-407D; add `<-simplified@JP/extra/design'
+	for JX3-407D.
+	(U+7BB8): Use `->denotational' instead of `->subsumptive'.
+	(J78-4824): Unify JX3-4824.
+	(J90-4824): Separate JX3-4824; add `<-simplified@JP/jis' for
+	J78-4824.
+	(U+7BC7): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4A53.
+	(K0-7839): Unify JX3-4A53.
+	(J0-4A53): Separate JX3-4A53; add `<-simplified@JP/extra/design'
+	for JX3-4A53.
+	(U-00025BEE): Integrate M-26269.
+	(U+7BDD): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-6440.
+	(GT-33916): Unify JX3-6440.
+	(J0-6440): Separate JX3-6440; add `<-simplified@JP/extra/design'
+	for JX3-6440.
+	(J97-433D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6440): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4E7C.
+	(GT-34334): Unify JX3-4E7C.
+	(J0-4E7C): Separate JX3-4E7C; add `<-simplified@JP/jis' for
+	JX3-4E7C.
+
 2010-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R127-Plow.el (C1-5755): Unify S-6357.
+	(J0-394C): Unify S-6356; add `<-same' for C1-5755.
 
 	* Ideograph-R009-Man.el (M-01272): Omit `ideographic-structure'.
 
