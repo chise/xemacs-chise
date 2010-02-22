@@ -4362,6 +4362,62 @@ Retrieve the character of the given ATTRIBUTES.
 
 
 /************************************************************************/
+/*                      Character Feature Property                      */
+/************************************************************************/
+
+#ifdef HAVE_LIBCHISE
+DEFUN ("char-feature-property", Fchar_feature_property, 2, 3, 0, /*
+Return the value of FEATURE's PROPERTY.
+Return DEFAULT-VALUE if the value is not exist.
+*/
+       (feature, property, default_value))
+{
+  unsigned char* feature_name;
+  unsigned char* property_name;
+  CHISE_Value value;
+  int status;
+
+  feature_name = XSTRING_DATA (Fsymbol_name (feature));
+  property_name = XSTRING_DATA (Fsymbol_name (property));
+  status
+    = chise_feature_load_property_value (chise_ds_get_feature
+					 (default_chise_data_source,
+					  feature_name),
+					 chise_ds_get_property
+					 (default_chise_data_source,
+					  property_name),
+					 &value);
+  if (!status)
+    return read_from_c_string (chise_value_data (&value),
+			       chise_value_size (&value) );
+  else
+    return default_value;
+}
+
+DEFUN ("put-char-feature-property", Fput_char_feature_property, 3, 3, 0, /*
+Store FEATURE's PROPERTY with VALUE.
+*/
+       (feature, property, value))
+{
+  unsigned char* feature_name;
+  unsigned char* property_name;
+  CHISE_Property prop;
+
+  feature_name = XSTRING_DATA (Fsymbol_name (feature));
+  property_name = XSTRING_DATA (Fsymbol_name (property));
+  prop = chise_ds_get_property (default_chise_data_source,
+				property_name);
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     prop, XSTRING_DATA (Fprin1_to_string
+			 (value, Qnil)));
+  chise_property_sync (prop);
+  return Qnil;
+}
+#endif
+
+
+/************************************************************************/
 /*                         Char table read syntax                       */
 /************************************************************************/
 
@@ -4772,6 +4828,10 @@ syms_of_chartab (void)
   DEFSUBR (Fchar_variants);
 
   DEFSUBR (Fget_composite_char);
+#ifdef HAVE_LIBCHISE
+  DEFSUBR (Fchar_feature_property);
+  DEFSUBR (Fput_char_feature_property);
+#endif /* HAVE_LIBCHISE */
 #endif
 
   INIT_LRECORD_IMPLEMENTATION (char_table);
