@@ -1,5 +1,19 @@
 2010-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R133-Arrive.el (U+81F4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R124-Feather.el (GT-36835): Map to U-000263F3; unify
+	H9-B3E8.
+	(M-28761): Map to U-00026461.
+	(U+7FE9): Use `->denotational'.
+	(U+7FEB): Add `ideographic-structure'.
+	(J78-3465): Unify JX3-3465.
+	(J90-3465): Separate JX3-3465; add `<-simplified@JP/jis' for
+	J78-3465.
+	(J78-344D): Unify JX3-344D.
+	(J90-344D): Separate JX3-344D.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3951.
 
 2010-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
