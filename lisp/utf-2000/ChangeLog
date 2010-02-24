@@ -1,5 +1,9 @@
 2010-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R134-Mortar.el (U+8201): Add `ideographic-structure';
+	use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
 	* Ideograph-R137-Boat.el (U+8258): Use `->denotational' instead of
 	`->subsumptive'; unify abstract J0-675B.
 	(M-30511): Separate J0-675B, C1-717C, JX1-675B and GT-39430.
