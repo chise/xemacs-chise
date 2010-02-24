@@ -1,3 +1,25 @@
+2010-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el (U+8258): Use `->denotational' instead of
+	`->subsumptive'; unify abstract J0-675B.
+	(M-30511): Separate J0-675B, C1-717C, JX1-675B and GT-39430.
+
+	* Ideograph-R130-Meat.el (abstract J0-6726): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B2E6): Unify abstract J0-4326.
+	(U+8171): Unify abstract J0-6727.
+	(J0-6727): Separate JX3-6727.
+	(G0-6B6C): Unify JX3-6727.
+	(J78-425C): Unify JX3-425C.
+	(J90-425C): Separate JX3-425C; add `<-simplified@JP/extra' for
+	J78-425C.
+	(U+818E): Use `->denotational' and `->subsumptive'.
+	(U-000267AD): Use `->subsumptive'.
+	(U+818F): Unify abstract J0-3951.
+	(K0-4D47): Separate J0-3951 and JX1-3951.
+	(abstract glyph of GT-38767): Use `=>>gt' instead of `<=>gt'.
+	(abstract glyph of GT-38769): Ditto.
+
 2010-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R133-Arrive.el (U+81F4): Use `=>jis-x0208' and
