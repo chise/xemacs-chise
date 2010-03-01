@@ -1,3 +1,15 @@
+2010-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>jis-x0213-1@{2000|2004}' and `=>>jis-x0208@1978'.
+
+	* Ideograph-R055-Two-Hands.el (U+8201): Add
+	`ideographic-structure'; use `=>jis-x0208' and `=>jis-x0213-1'
+	instead of `=jis-x0208@1997'.
+	(U-0002234D): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002234E): Use `->denotational' instead of `->subsumptive'.
+
 2010-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R134-Mortar.el (U+8201): Add `ideographic-structure';
