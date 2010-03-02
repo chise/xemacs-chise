@@ -833,7 +833,7 @@
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
-      (=>>jis-x0213-1@2004 . #x4546)	; &aJX3-4546; [37-38]
+      (=>>jis-x0213-1@2004 . #x4546)	; &G-JX3-4546; [37-38]
       (->subsumptive
        ((=cns11643-3	    . #x2454)	; &M-01359; [04-52]
 	(=daikanwa	    . 01359)	; &I-M-01359;
