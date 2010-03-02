@@ -1,5 +1,9 @@
 2010-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R141-Tiger.el (U+8654): Unify abstract J0-694A.
+	(J0-694A): Separate JX3-694A.
+	(GT-44188): Unify JX3-694A.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>>jis-x0213-1@{2000|2004}' and `=>>jis-x0208@1978'.
 
