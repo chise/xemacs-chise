@@ -1,4 +1,13 @@
+2010-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't rename `=>jis-x0208@1997' to `=>jis-x0208'
+	and add `=>jis-x0213-1' for J97-332A.
+
 2010-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R146-West.el (abstract J0-4D57): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+8981.
+	(M-34769): Map to U-000277E5.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-6967.
 
