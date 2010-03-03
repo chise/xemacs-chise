@@ -9794,7 +9794,7 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>jis-x0213-2	. #x252B)	; &aJX2-252B; [05-11]
+    (=>>jis-x0213-2	. #x252B)	; &G-JX2-252B; [05-11]
     (->subsumptive
      ((=ucs@jis		  . #x588D)	; &M-05423;
       (=jis-x0212	  . #x3842)	; &M-05423; [24-34]

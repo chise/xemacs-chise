@@ -3331,7 +3331,7 @@
       (=shinjigen	  .  0557)	; &GT-09091;
       (=jef-china3	  . #x4ABC)	; &I-JC3-4ABC;
       )
-     ((=>>gt		  . 09092)	; &aGT-09092;
+     ((=>>gt		  . 09092)	; &G-GT-09092;
       (->subsumptive
        ((=ucs@jis	    . #x5BD2)	; &GT-09092;
 	(=jis-x0208	    . #x3428)	; &GT-09092; [20-08]

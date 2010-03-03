@@ -61,9 +61,9 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (=ucs@big5		. #x5339)	; &aGT-03429;
-    (=big5		. #xA4C7)	; &aGT-03429;
-    (=>>gt		. 03429)	; &aGT-03429;
+    (=ucs@big5		. #x5339)	; &G-GT-03429;
+    (=big5		. #xA4C7)	; &G-GT-03429;
+    (=>>gt		. 03429)	; &G-GT-03429;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -144,7 +144,7 @@
       )
      ((=ucs		  . #x3405)	; 㐅
       ))
-    (=>>gt		. 03428)	; &aGT-03428;
+    (=>>gt		. 03428)	; &G-GT-03428;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -679,7 +679,7 @@
       (=jis-x0213-1@2004  . #x5928)	; &I-JX3-5928; [57-08]
       (=daikanwa	  . 11724)	; &I-M-11724;
       ))
-    (=>>gt		. 03448)	; &aGT-03448;
+    (=>>gt		. 03448)	; &G-GT-03448;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -796,12 +796,12 @@
       )
      ((=ucs		  . #x82E5)	; 若
       ))
-    (=>>jis-x0208	. #x463F)	; &aJX1-463F; [38-31]
-    (=>>jis-x0213-1	. #x463F)	; &aJX1-463F; [38-31]
+    (=>>jis-x0208	. #x463F)	; &G-JX1-463F; [38-31]
+    (=>>jis-x0213-1	. #x463F)	; &G-JX1-463F; [38-31]
     ))
 (define-char
   '((<-denotational
-     ((=>>jis-x0208	  . #x463F)	; &aJX1-463F; [38-31]
+     ((=>>jis-x0208	  . #x463F)	; &G-JX1-463F; [38-31]
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 8)

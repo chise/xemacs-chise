@@ -747,7 +747,7 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>jis-x0213-1@2004 . #x4A79)	; &aJX3-4A79; [42-89]
+    (=>>jis-x0213-1@2004 . #x4A79)	; &G-JX3-4A79; [42-89]
     (->subsumptive
      ((=ucs@jis/2004	  . #x5E96)	; &M-09266;
       (=jis-x0208@1978	  . #x4A79)	; &M-09266; [42-89]
@@ -1871,7 +1871,7 @@
       (=daikanwa	  . 09337)	; &I-M-09337;
       (=shinjigen	  .  2187)	; &GT-11748;
       )
-     ((=>>gt		  . 11749)	; &aGT-11749;
+     ((=>>gt		  . 11749)	; &G-GT-11749;
       (->subsumptive
        ((=ucs@jis	    . #x5EAD)	; &GT-11749;
 	(=jis-x0208@1990    . #x446D)	; &GT-11749; [36-77]
@@ -4476,8 +4476,8 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>>jis-x0213-1@2000 . #x4940)	; &aJX1-4940; [41-32]
-    (=big5		. #xBC71)	; &aJX1-4940;
+    (=>>jis-x0213-1@2000 . #x4940)	; &G-JX1-4940; [41-32]
+    (=big5		. #xBC71)	; &G-JX1-4940;
     (->subsumptive
      ((=ucs@jis/1990	  . #x5EDF)	; &GT-11956;
       (=ucs@jis/2000	  . #x5EDF)	; &GT-11956;

@@ -14701,7 +14701,7 @@
     (ideographic-radical@cns . 130)	; ⾁
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>gt		. 38767)	; &aGT-38767;
+    (=>>gt		. 38767)	; &G-GT-38767;
     (->subsumptive
      ((ideographic-radical . 130)	; ⾁
       (=gt		  . 38767)	; &GT-38767;
@@ -14721,7 +14721,7 @@
     (ideographic-radical@cns . 130)	; ⾁
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>gt		. 38769)	; &aGT-38769;
+    (=>>gt		. 38769)	; &G-GT-38769;
     (->subsumptive
      ((ideographic-radical . 86)	; ⽕
       (=ucs@iso		  . #x24443)	; &GT-38769;

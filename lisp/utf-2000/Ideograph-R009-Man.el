@@ -15283,7 +15283,7 @@
       )
      ((=ucs		  . #x5DFB)	; 巻
       ))
-    (=>>jis-x0213-1@2000 . #x3771)	; &aJX1-3771; [23-81]
+    (=>>jis-x0213-1@2000 . #x3771)	; &G-JX1-3771; [23-81]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

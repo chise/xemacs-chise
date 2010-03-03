@@ -382,7 +382,7 @@
     (=>jis-x0213-1	. #x407C)	; 穿 [32-92]
     (=big5		. #xACEF)	; &I-B-ACEF;
     (->subsumptive
-     ((=>>jis-x0213-1@2004 . #x407C)	; &aJX3-407C; [32-92]
+     ((=>>jis-x0213-1@2004 . #x407C)	; &G-JX3-407C; [32-92]
       (->subsumptive
        ((=daikanwa	    . 25436)	; &M-25436;
 	)

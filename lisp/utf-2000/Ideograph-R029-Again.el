@@ -385,8 +385,8 @@
 	)
        ((=ucs		    . #x53C8)	; 又
 	))
-      (=>>jis-x0208	  . #x483F)	; &aJX1-483F; [40-31]
-      (=>>jis-x0213-1	  . #x483F)	; &aJX1-483F; [40-31]
+      (=>>jis-x0208	  . #x483F)	; &G-JX1-483F; [40-31]
+      (=>>jis-x0213-1	  . #x483F)	; &G-JX1-483F; [40-31]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1294,7 +1294,7 @@
       )
      ((=ucs		  . #x53CD)	; 反
       ))
-    (=>>jis-x0213-1@2004 . #x4840)	; &aJX3-4840; [40-32]
+    (=>>jis-x0213-1@2004 . #x4840)	; &G-JX3-4840; [40-32]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1334,7 +1334,7 @@
       )
      ((=ucs		  . #x53CD)	; 反
       ))
-    (=>>jis-x0213-1@2000 . #x4840)	; &aJX1-4840; [40-32]
+    (=>>jis-x0213-1@2000 . #x4840)	; &G-JX1-4840; [40-32]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1611,7 +1611,7 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=>>jis-x0213-1@2004 . #x5257)	; &aJX3-5257; [50-55]
+    (=>>jis-x0213-1@2004 . #x5257)	; &G-JX3-5257; [50-55]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1641,7 +1641,7 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=>>jis-x0213-1@2000 . #x5257)	; &aJX1-5257; [50-55]
+    (=>>jis-x0213-1@2000 . #x5257)	; &G-JX1-5257; [50-55]
     (->subsumptive
      ((=ucs@jis/1990	  . #x53DF)	; &GT-04009;
       (=ucs@jis/2000	  . #x53DF)	; &GT-04009;

@@ -4562,7 +4562,7 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=>>jis-x0213-1@2000 . #x407D)	; &aJX1-407D; [32-93]
+    (=>>jis-x0213-1@2000 . #x407D)	; &G-JX1-407D; [32-93]
     (->subsumptive
      ((=ucs@unicode	  . #x7BAD)	; &GT-33833;
       (=jis-x0208	  . #x407D)	; &GT-33833; [32-93]

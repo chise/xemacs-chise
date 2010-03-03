@@ -642,7 +642,7 @@
      ((=ucs		  . #x51A4)	; 冤
       ))
     (ideographic-radical . 14)	; ⼍
-    (=>>jis-x0213-1@2000 . #x514D)	; &aJX1-514D; [49-45]
+    (=>>jis-x0213-1@2000 . #x514D)	; &G-JX1-514D; [49-45]
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 10)

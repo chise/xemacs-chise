@@ -2330,7 +2330,7 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>>gt		. 09824)	; &aGT-09824;
+    (=>>gt		. 09824)	; &G-GT-09824;
     (->subsumptive
      ((=gt		  . 09824)	; &GT-09824;
       (=gt-pj-3		  . #x3535)	; &GT-09824; [21-21]
@@ -2361,7 +2361,7 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>>gt		. 09822)	; &aGT-09822;
+    (=>>gt		. 09822)	; &G-GT-09822;
     (->subsumptive
      ((=cns11643-4	  . #x494A)	; &C4-494A; [41-42]
       )

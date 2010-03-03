@@ -7705,9 +7705,9 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=>>gt		    . 00390)	; &aGT-00390;
+       ((=>>gt		    . 00390)	; &G-GT-00390;
 	))
-      (=>>jis-x0213-1@2004 . #x527B)	; &aJX3-527B; [50-91]
+      (=>>jis-x0213-1@2004 . #x527B)	; &G-JX3-527B; [50-91]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -10131,7 +10131,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>gt		. 04609)	; &aGT-04609;
+    (=>>gt		. 04609)	; &G-GT-04609;
     (->subsumptive
      ((hanyu-dazidian	  1 628 1)
       (ideographic-structure
@@ -13269,11 +13269,11 @@
       )
      ((=ucs		  . #x623B)	; 戻
       ))
-    (=>>jis-x0213-1	. #x533A)	; &aJX1-533A; [51-26]
+    (=>>jis-x0213-1	. #x533A)	; &G-JX1-533A; [51-26]
     ))
 (define-char
   '((<-denotational
-     ((=>>jis-x0213-1	  . #x533A)	; &aJX1-533A; [51-26]
+     ((=>>jis-x0213-1	  . #x533A)	; &G-JX1-533A; [51-26]
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
@@ -14223,7 +14223,7 @@
       )
      ((=ucs		  . #x8C55)	; 豕
       ))
-    (=>>jis-x0213-1	. #x426F)	; &aJX1-426F; [34-79]
+    (=>>jis-x0213-1	. #x426F)	; &G-JX1-426F; [34-79]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
