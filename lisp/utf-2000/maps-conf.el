@@ -192,9 +192,10 @@
       (when (setq char (decode-char '=jis-x0213-1@2004 code))
 	(unless (eq (encode-char char '=ucs@jis/2004) ucs)
 	  (put-char-attribute char '=ucs@jis/2004 ucs)))
-      (when (setq char (decode-char '=>jis-x0208@1997 code 'defined-only))
-	(put-char-attribute char '=>jis-x0208 code)
-	(remove-char-attribute char '=>jis-x0208@1997))
+      (unless (eq code #x332A)
+	(when (setq char (decode-char '=>jis-x0208@1997 code 'defined-only))
+	  (put-char-attribute char '=>jis-x0208 code)
+	  (remove-char-attribute char '=>jis-x0208@1997)))
       )))
 
 (map-char-attribute
