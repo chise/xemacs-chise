@@ -139,15 +139,16 @@
     (=cns11643-5	. #x2B47)	; &I-C5-2B47; [11-39]
     ))
 (define-char
-  '((=>ucs		. #x8981)	; 要
-    (ideographic-radical . 146)	; ⾑
+  '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (=jis-x0208@1997	. #x4D57)	; &J97-4D57; [45-55]
+    (=ucs		. #x8981)	; 要
+    (=>jis-x0208	. #x4D57)	; 要 [45-55]
+    (=>jis-x0213-1	. #x4D57)	; 要 [45-55]
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4D57)	; &J97-4D57; [45-55]
+     ((=ucs		  . #x8981)	; 要
       ))
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
@@ -157,12 +158,15 @@
     ))
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x4D57)	; &J97-4D57; [45-55]
+     ((=ucs		  . #x8981)	; 要
       ))
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (=ucs		. #x8981)	; 要
+    (=>>jis-x0208	. #x4D57)	; &G-GT-46811; [45-55]
+    (=>>jis-x0213-1	. #x4D57)	; &G-GT-46811; [45-55]
+    (=big5		. #xAD6E)	; &G-GT-46811;
+    (=>>gt		. 46811)	; &G-GT-46811;
     (->subsumptive
      ((morohashi-daikanwa	34768 1)
       (=ucs@unicode	  . #x8981)	; &GT-46811;
@@ -170,7 +174,6 @@
       (=gb2312		  . #x522A)	; &I-G0-522A; [50-10]
       (=ks-x1001	  . #x6929)	; &I-K0-6929; [73-09]
       (=jis-x0213-1	  . #x4D57)	; &I-JX1-4D57; [45-55]
-      (=big5		  . #xAD6E)	; &I-B-AD6E;
       (=gt		  . 46811)	; &I-GT-46811;
       (=gt-k		  . 05360)	; &I-GT-K05360;
       (=gt-pj-1		  . #x4D57)	; &I-GT-46811; [45-55]
@@ -182,7 +185,25 @@
   '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
+    (=ucs		. #x277E5)	; 𧟥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x277E5)	; 𧟥
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
     (=daikanwa		. 34769)	; &M-34769;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x277E5)	; 𧟥
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x277E5)	; &U-000277E5;
     ))
 (define-char
   '((ideographic-radical . 146)	; ⾑
