@@ -40,6 +40,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x8C79)	; 豹
+    (=>jis-x0208	. #x493F)	; 豹 [41-31]
+    (=>jis-x0213-1	. #x493F)	; 豹 [41-31]
     (=big5		. #xB05C)	; &I-B-B05C;
     ))
 (define-char
@@ -49,7 +51,9 @@
     (ideographic-radical . 153)	; ⾘
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=ucs@jis/2004	. #x8C79)	; &GT-48933;
     (=ks-x1001		. #x787B)	; &GT-48933; [88-91]
+    (=jis-x0213-1@2004	. #x493F)	; &I-JX3-493F; [41-31]
     (=gt		. 48933)	; &I-GT-48933;
     (=gt-k		. 06540)	; &I-GT-K06540;
     (=gt-pj-7		. #x3F2B)	; &I-GT-48933; [31-11]
@@ -66,10 +70,16 @@
     (=jis-x0208		. #x493F)	; &GT-48934; [41-31]
     (=gb2312		. #x312A)	; &I-G0-312A; [17-10]
     (=cns11643-1	. #x5841)	; &I-C1-5841; [56-33]
-    (=jis-x0213-1	. #x493F)	; &I-JX1-493F; [41-31]
+    (=jis-x0213-1@2000	. #x493F)	; &I-JX1-493F; [41-31]
     (=gt		. 48934)	; &I-GT-48934;
     (=gt-k		. 06541)	; &I-GT-K06541;
     (=gt-pj-1		. #x493F)	; &I-GT-48934; [41-31]
+    (<-simplified@JP/extra/design
+     ((=ucs@jis/2004	  . #x8C79)	; &GT-48933;
+      (=ks-x1001	  . #x787B)	; &GT-48933; [88-91]
+      (=jis-x0213-1@2004  . #x493F)	; &I-JX3-493F; [41-31]
+      (=daikanwa	  . 36499)	; &I-M-36499;
+      ))
     ))
 (define-char
   '((ideographic-radical . 153)	; ⾘
