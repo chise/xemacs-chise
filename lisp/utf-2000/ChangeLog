@@ -1,4 +1,66 @@
+2010-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (U+8A0A): Unify abstract J0-3F56.
+	(k0-6372): Unify JX3-3F56.
+	(J0-3F56): Separate JX3-3F56.
+	(U+8A1D): Unify abstract J0-6B43.
+	(M-35260): Unify JX3-6B43.
+	(J90-6B43): Separate JX3-6B43.
+	(J78-4370): Unify JX3-4370.
+	(J90-4370): Separate JX3-4370; add `<-simplified@JP/extra/design'
+	for JX3-4370.
+	(J78-4127): Unify JX3-4127.
+	(J90-4127): Separate JX3-4127; add `<-simplified@JP/jis' for
+	J78-4127.
+	(abstract J0-4062): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(C7-2871): Map to U-00027A2B.
+	(U+8AB9): Unify abstract J0-4870.
+	(J90-4870): Separate JX3-4870.
+	(J83-4870): Unify JX3-4870.
+	(U+8ACD): Unify abstract J0-6B5A.
+	(J97-3D74): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997';
+	unify U+8AF8.
+	(C7-287A): Map to U-00027A60.
+	(C7-2872): Map to U-00027A58.
+	(C7-333D): Map to U-00027A75.
+	(U+8AFA): Unify abstract J0-3841.
+	(J78-3841): Unify JX3-3841.
+	(J90-3841): Separate JX3-3841.
+	(C7-334E): Map to U-00027A78; integrate H10-E9B2.
+	(J78-4666): Unify JX3-4666.
+	(J90-4666): Separate JX3-4666; add `<-simplified@JP/extra' for
+	JX3-4666.
+	(J78-4935): Unify JX3-4935.
+	(J90-4935): Separate JX3-4935.
+
 2010-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (B-DBB2): Unify U+86E2.
+	(J78-427D): Unify JX3-427D.
+	(J90-427D): Separate JX3-427D; add `<-simplified@JP/jis' for
+	J78-427D.
+	(B-B8C0): Unify abstract J0-6968.
+	(U+8703): Unify abstract J0-6967.
+	(J0-6967): Separate K0-6371, JX3-6967, GT-44663, S1-7181 and
+	S2-7182.
+	(J78-3F2A): Unify JX3-3F2A.
+	(J90-3F2A): Separate JX3-3F2A.
+	(U+877F): Add JX3-6A24 into `<-simplified@JP/jis'.
+	(J97-4066): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4066): Unify JC3-63B3.
+	(U-00027453): Use `->subsumptive' to separate representative
+	nodes.
+	(U+87F9): Unify abstract JX1-332A.
+	(parent of J0-332A): Unify abstract J0-332A.
+	(U+880F): Unify abstract JX1-6A37.
+	(J0-6A37): Add `<-original' for J0-332A; add `<-same' for
+	JX3-332A.
+	(J90-6A24): Separate JX3-6A24.
+	(M-33700): Add `<-formed' and `<-same' for U+86D3.
+	(J97-4F39): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4F39): Unify JC3-63B5; use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for JX3-7B67.
 
 	* maps-conf.el: Don't rename `=>jis-x0208@1997' to `=>jis-x0208'
 	and add `=>jis-x0213-1' for J97-332A.
