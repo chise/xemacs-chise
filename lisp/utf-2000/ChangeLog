@@ -1,5 +1,10 @@
 2010-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R153-Badger.el (U+8C79): Unify abstract J0-493F.
+	(K0-787B): Unify JX3-493F.
+	(J0-493F): Separate JX3-493F; add `<-simplified@JP/extra/design'
+	for JX3-493F.
+
 	* Ideograph-R149-Speech.el (U+8A0A): Unify abstract J0-3F56.
 	(k0-6372): Unify JX3-3F56.
 	(J0-3F56): Separate JX3-3F56.
