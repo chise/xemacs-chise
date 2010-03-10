@@ -1,3 +1,14 @@
+2010-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (C1-5752): Add `=ucs@cns' for CU+8006.
+
+	* Ideograph-R046-Mountain.el (U-00021EB8): Add
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+55DC): Use `->subsumptive' to
+	separate representative nodes.
+	(U-00020E55): Use `->denotational'.
+
 2010-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R153-Badger.el (U+8C79): Unify abstract J0-493F.
