@@ -1,3 +1,20 @@
+2010-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (J97-366D): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+8EC0): Unify abstract JX1-7C4A; use `->denotational' instead of
+	`->subsumptive'.
+	(U+8EAF): Unify abstract JX1-366D; use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R154-Shell.el (abstract J0-6C4C): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+8CC1.
+	(U+8CED): Unify abstract J0-4552.
+	(J78-4552): Unify JX3-4552.
+	(J90-4552): Separate JX3-4552.
+	(U+8D08): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(abstract JX1-7C3D): New abstract node of U+8D08.
+
 2010-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R125-Old.el (C1-5752): Add `=ucs@cns' for CU+8006.
