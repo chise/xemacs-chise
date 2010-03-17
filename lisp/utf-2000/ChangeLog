@@ -1,3 +1,9 @@
+2010-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+798F): Unify J97-4A21.
+
+	* Ideograph-R009-Man.el (U-000203BB): Add `ideographic-structure'.
+
 2010-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el (J97-366D): Use `=>jis-x0208@1997'
