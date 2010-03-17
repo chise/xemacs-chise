@@ -4038,6 +4038,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x798F)	; 福
+    (=>jis-x0208@1997	. #x4A21)	; 福 [42-01]
     (=big5		. #xBAD6)	; &I-B-BAD6;
     ))
 (define-char
@@ -4054,11 +4055,13 @@
     (=ks-x1001		. #x5C58)	; &I-K0-5C58; [60-56]
     (=jis-x0213-1	. #x7941)	; &I-JX1-7941; [89-33]
     (=daikanwa		. 24768)	; &I-M-24768;
-    (=shinjigen@1ed	.  5573)	; 福
+    (=shinjigen		.  5573)	; 福
     (=jef-china3	. #x5CE4)	; &I-JC3-5CE4;
     (<-formed
-     ((=jis-x0208@1978	  . #x492F)	; &M-38973; [41-15]
+     ((=ucs@jis/2004	  . #x903C)	; &M-38973;
+      (=jis-x0208@1978	  . #x492F)	; &M-38973; [41-15]
       (=ks-x1001	  . #x793A)	; &I-K0-793A; [89-26]
+      (=jis-x0213-1@2004  . #x492F)	; &I-JX3-492F; [41-15]
       (=daikanwa	  . 38973)	; &I-M-38973;
       ))
     ))
@@ -4069,6 +4072,9 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (=>>jis-x0208	. #x4A21)	; &G-GT-31825; [42-01]
+    (=>jis-x0213-1	. #x4A21)	; &G-GT-31825; [42-01]
+    (=>>gt		. 31825)	; &G-GT-31825;
     (->subsumptive
      ((morohashi-daikanwa	24768 1)
       (=ucs@jis		  . #x798F)	; &GT-31825;
@@ -4076,7 +4082,7 @@
       (=jis-x0213-1	  . #x4A21)	; &I-JX1-4A21; [42-01]
       (=gt		  . 31825)	; &I-GT-31825;
       (=gt-pj-1		  . #x4A21)	; &I-GT-31825; [42-01]
-      (=shinjigen@1ed	  .  5572)	; &GT-31825;
+      (=shinjigen	  .  5572)	; &GT-31825;
       (<-simplified@JP/Jouyou
        ((name		    . "CJK COMPATIBILITY IDEOGRAPH-FA1B")
 	(=ucs		    . #xFA1B)	; 福
