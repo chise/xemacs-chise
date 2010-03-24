@@ -1,3 +1,77 @@
+2010-03-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+8FBB): Unify abstract J0-4454.
+	(M-38711): Use `=jis-x0208@1978/4-pr' instead of `jisx0208-type'
+	and `=jis-x0208@1978' for J78-4454_4-pr; unify JX3-4454.
+	(J90-4454): Use `=jis-x0208@1978/-4pr' instead of
+	`jisx0208-difference' for J78-4454_-4pr; separate JX3-4454; add
+	`<-simplified@JP/extra' for JX3-4454.
+	(J78-4329): Unify JX3-4329.
+	(J90-4329): Separate JX3-4329; add `<-simplified@JP/extra' for
+	JX3-4329.
+	(U+8FC2): Unify abstract J0-312A.
+	(J90-312A): Add `<-simplified@JP/extra' for JX3-312A.
+	(J90-4B78): Modify `=jis-x0208@1978*note'; rename
+	`=jis-x0208@1978*{note|sources}' to
+	{=jis-x0208@1978/-4pr*{note|sources}'; add `<-simplified@JP/extra'
+	for JX3-4B78.
+	(U+8FDA): Use `->denotational' instead of `->subsumptive'.
+	(U+8FE6): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3260): Add `<-simplified@JP/extra' for JX3-3260.
+	(B-B06E): Unify abstract J0-6D7E.
+	(J78-3F60): Unify JX3-3F60.
+	(J90-3F60): Separate JX3-3F60; add `<-simplified@JP/extra' for
+	JX3-3F60.
+	(U+9019): Unify abstract J0-4767.
+	(J78-4767): Unify JX3-4767.
+	(J90-4767): Separate JX3-4767; add `<-simplified@JP/extra' for
+	JX3-4767.
+	(U+901F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-615C): Modify format of
+	`->Large-Seal*sources@daikanwa/fixed*note'.
+	(U+9022): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3029): Omit `jisx0208-difference'; add
+	`<-simplified@JP/extra' for JX3-3029.
+	(J78-492F): Unify JX3-492F.
+	(J90-492F): Separate JX3-492F; add `<-simplified@JP/extra' for
+	JX3-492F.
+	(J78-465B): Unify JX3-465B.
+	(J90-465B): Separate JX3-465B; add `<-simplified@JP/extra' for
+	JX3-465B.
+	(B-B94C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+9065): Delete `<-denotational' for J97-4D5A.
+	(U+9059): Delete `<-denotational' for J97-4D5A; unify abstract
+	J0-7423.
+	(J90-7423): Use `=shinjigen/+p@rev' instead of `=shinjigen@rev'
+	for S2-8352'.
+	(J97-4D5A): Abolished.
+	(J78-423D): Unify JX3-423D.
+	(J90-423D): Separate JX3-423D; add `<-simplified@JP/extra' for
+	JX3-423D.
+	(J78-414C): Unify JX3-414C.
+	(J90-414C): Separate JX3-414C; add `<-simplified@JP/extra' for
+	JX3-414C.
+	(M-39104): Map to U-000285A1.
+	(U+9082): Unify abstract JX1-6E30.
+	(M-39246): Map to U-00028646.
+
+	* Ideograph-R163-City.el (U+90A6): Use `->subsumptive'.
+	(J97-4F3A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+90CE): Unify abstract JX1-4F3A.
+	(U+90D2): Delete `=>daikanwa' for M-39431; add `<-unknown' for
+	M-39431.
+	(U+90DE): Unify abstract JX1-7C67.
+	(J97-363F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J78-4522): Unify JX3-4522.
+	(J90-4522): Separate JX3-4522.
+
+	* Ideograph-R039-Child.el (U+3743): Add `ideographic-structure'.
+	(M-06988): Separate UU+3743 and C3-3054.
+
 2010-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R113-Spirit.el (U+798F): Unify J97-4A21.
