@@ -1,4 +1,39 @@
+2010-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+91DC): Use `->subsumptive'; unify
+	abstract J0-3378.
+	(J0-3378): Separate JX3-3378.
+	(G0-382A): Unify JX3-3378.
+	(abstract J0-6E5F): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(J97-4F3F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9304): Unify abstract JX1-7D35.
+	(U+9332): Unify abstract JX1-4F3F.
+	(J78-3B2C): Unify JX3-3B2C.
+	(J90-3B2C): Separate JX3-3B2C.
+	(U+9375): Use `->subsumptive'; unify abstract J0-3830.
+	(J0-3830): Separate JX3-3830.
+	(C1-756F): Unify JX3-3830.
+	(J78-444A): Unify JX3-444A.
+	(J90-444A): Separate JX3-444A; use `<-simplified@JP/extra' for
+	JX3-444A.
+	(J78-4C7A): Unify JX3-4C7A.
+	(J90-4C7A): Separate JX3-4C7A; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/jis' for JX3-4C7A.
+
 2010-03-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (J78-3D36): Unify JX3-3D36.
+	(J90-3D36): Separate JX3-3D36; add `<-simplified@JP/jis' for
+	JX3-3D36.
+	(J97-3E5F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+91AC): Unify abstract JX1-7C79.
+	(U+91A4): Unify abstract JX1-3E5F.
+	(J90-3E5F): Add `<-simplified@JP/extra' for JX1-7C79.
+	(J97-4830): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+91B1): Unify abstract JX1-7C7A.
+	(U+9197): Unify abstract JX1-4830; unify JC3-69A2.
+	(J90-4830): Add `<-simplified@JP/jis' for JX1-7C7A.
 
 	* Ideograph-R162-Walk.el (U+8FBB): Unify abstract J0-4454.
 	(M-38711): Use `=jis-x0208@1978/4-pr' instead of `jisx0208-type'

@@ -1,3 +1,10 @@
+2010-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1978/1er-pr): New coded-charset
+	for XEmacs CHISE.
+	(=jis-x0208@1978/4-pr): Use `=jis-x0208@1978/1er-pr' instead of
+	`=jis-x0208@1978' as the mother.
+
 2010-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
