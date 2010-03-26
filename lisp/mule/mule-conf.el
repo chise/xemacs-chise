@@ -72,12 +72,23 @@
 	      graphic 0
 	      partial t))
   (make-charset
+   '=jis-x0208@1978/1er-pr
+   "JIS X 0208:1978, fixed by errata [Nov 1978]."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
    '=jis-x0208@1978/4-pr
    "JIS X 0208:1978, 4th impression or later."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208@1978
+	      mother =jis-x0208@1978/1er-pr
               =>iso-ir 42
 	      ;; final ?@
 	      graphic 0
