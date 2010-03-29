@@ -4,7 +4,8 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2008,
+     2010 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -354,7 +355,7 @@ save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
     {
       if (ct->property[i] == BT_UINT8_unloaded)
 	{
-	  c1 = c + unit;
+	  c += unit;
 	}
       else if (ct->property[i] != BT_UINT8_unbound)
 	{
@@ -678,7 +679,7 @@ save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
     {
       if (ct->property[i] == BT_UINT16_unloaded)
 	{
-	  c1 = c + unit;
+	  c += unit;
 	}
       else if (ct->property[i] != BT_UINT16_unbound)
 	{
