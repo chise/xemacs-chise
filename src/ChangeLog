@@ -1,3 +1,9 @@
+2010-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (save_uint8_byte_table): Fixed problem when a property
+	is unloaded.
+	(save_uint16_byte_table): Likewise.
+
 2010-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_feature_property): New function when LIBCHISE
