@@ -70,7 +70,9 @@
       (setq i (1+ i)))
     v))
 
+;;;###autoload
 (defun ideographic-radical (number)
+  "Return character corresponding with Kangxi-radical number."
   (aref ideographic-radicals number))
 
 (defconst shuowen-radicals
