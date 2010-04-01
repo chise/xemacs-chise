@@ -1,7 +1,10 @@
 ;;; DO NOT MODIFY THIS FILE
 (if (featurep 'utf-2000-autoloads) (error "Already loaded"))
 
-;;;### (autoloads (what-char-definition) "char-db-util" "utf-2000/char-db-util.el")
+;;;### (autoloads (what-char-definition ideographic-radical) "char-db-util" "utf-2000/char-db-util.el")
+
+(autoload 'ideographic-radical "char-db-util" "\
+Return character corresponding with Kangxi-radical number." nil nil)
 
 (autoload 'what-char-definition "char-db-util" nil t nil)
 
