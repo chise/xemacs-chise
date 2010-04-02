@@ -258,6 +258,7 @@
     =big5
     =big5-eten
     =zinbun-oracle
+    =>zinbun-oracle
     =ruimoku-v6
     =jef-china3
     =shinjigen))
@@ -505,7 +506,8 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =gt =>>gt =>gt =gt-k =cbeta =zinbun-oracle))
+			    =gt =>>gt =>gt =gt-k =cbeta
+			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
 	  ((eq name 'mojikyo)
