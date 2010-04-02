@@ -243,6 +243,7 @@
 	  (=>>gt				"G-GT-" 5 d)
 	  (=>>gt				 "aGT-" 5 d)
 	  ( =zinbun-oracle                       "ZOB-" 4 d)
+	  (=>zinbun-oracle                     "A-ZOB-" 4 d)
 	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ( chinese-big5-cdp		         "CDP-" 4 X)
 	  ( ideograph-daikanwa                     "M-" 5 d)
