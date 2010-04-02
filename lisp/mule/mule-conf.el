@@ -716,6 +716,17 @@
 		  columns	2
 		  direction	l2r))
 
+  (make-charset '=>zinbun-oracle
+		"Abstract Oracle Bones"
+		'(long-name	"Abstract characters of Zinbun Oracle Bones."
+		  chars		256
+		  dimension	2
+		  mother	=zinbun-oracle
+		  registry	"zob1968-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
   (make-charset '=jef-china3
 		"JEF + CHINA3 private characters"
 		'(long-name	"JEF + CHINA3"
