@@ -1,5 +1,16 @@
 2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R181-Leaf.el (J97-4B4B): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(J97-453F): Ditto.
+	(U+985A): Unify abstract JX1-7E23.
+	(GT-58556): Use U+985B instead of U+985A as the parent.
+
+	* Ideograph-R180-Sound.el (C7-514A): Map to U-0002943A.
+	(U+97FF): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(C7-562E): Map to U-0002943F.
+	(abstract JX1-7D76): New abstract character.
+
 	* Oracle-Bones.el:
 	- Introduce abstract character as root of variants.
 	(ZOB-{02207 - 02230}): New characters.
