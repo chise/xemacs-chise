@@ -1,3 +1,52 @@
+2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el:
+	- Introduce abstract character as root of variants.
+	(ZOB-{02207 - 02230}): New characters.
+
+2010-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (U+9771): Use `->denotational' instead
+	of `->subsumptive'.
+	(J90-7057): Separate JX3-7057.
+	(J83-7057): Unify JX3-7057.
+	(J78-3373): Unify JX3-3373.
+	(J90-3373): Separate JX3-3373; add `<-simplified@JP/jis' for
+	JX3-3373.
+	(J78-3E64): Unify JX3-3E64.
+	(J90-3E64): Separate JX3-3E64; add `<-simplified@JP/jis' for
+	JX3-3E64.
+	(U-000292EF): Use `->denotational' instead of `->subsumptive'.
+	(U+97AD): Unify abstract J0-4A5C.
+	(J0-4A5C): Separate JX3-4A5C.
+	(G0-315E): Unify JX3-4A5C.
+	(C7-4471): Map to U-000292F0.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>zinbun-oracle'.
+	(char-db-insert-ccs-feature): Format `=>zinbun-oracle' as decimal.
+
+	* Ideograph-R173-Rain.el (U+9744): Unify abstract J0-704B.
+	(K0-6477): Separate J0-704B and JX1-704B.
+
+	* Ideograph-R169-Gate.el (abstract J0-313C): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(C3-3F6D): Use `=jis-x0208@1978/1pr*note' instead of
+	`=jis-x0208@1978*note'.
+	(J90-313C): Separate J78-313C; unify J78-313C_1er-pr.
+	(abstract J0-6F65): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'; unify U+95BB.
+	(J90-6F65): Separate J78-6F65; unify J78-6F65_1er-pr; don't use
+	`jisx0208-difference'.
+	(J78-6F65_1pr): Use `=jis-x0208@1978/1pr*note' instead of
+	`=jis-x0208@1978*note'.
+	(U+95C9): Use `->subsumptive' to separate representative nodes.
+	(U+95CA): Use `->subsumptive'.
+	(U+95CB): Use `->subsumptive' to separate representative nodes.
+	(C7-3D2D): Map to U-00028D6D.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-704B.
+
 2010-03-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el: (ideographic-radical):
