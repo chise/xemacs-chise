@@ -242,6 +242,7 @@
 	  ( =gt					  "GT-" 5 d)
 	  (=>>gt				"G-GT-" 5 d)
 	  (=>>gt				 "aGT-" 5 d)
+	  (=>gt					"A-GT-" 5 d)
 	  ( =zinbun-oracle                       "ZOB-" 4 d)
 	  (=>zinbun-oracle                     "A-ZOB-" 4 d)
 	  ( =ruimoku-v6				"RUI6-" 4 X)
