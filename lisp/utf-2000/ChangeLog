@@ -1,5 +1,8 @@
 2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R189-Tall.el (abstract J0-3962): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
 	* Ideograph-R181-Leaf.el (J97-4B4B): Use `=>jis-x0208@1997'
 	instead of `=jis-x0208@1997'.
 	(J97-453F): Ditto.
