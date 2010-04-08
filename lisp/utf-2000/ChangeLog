@@ -1,5 +1,17 @@
 2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R190-Hair.el (U+4C09): Use `->subsumptive' to separate
+	representative nodes.
+	(U+9B12): Use `->denotational'.
+	(JX2-7D39): Unify GT-61265; add `<-formed' and `<-same' for
+	U+3431.
+	(abstract GT-61266): New variant of U+9B12.
+	(M-45544): Add `<-denotational' for abstract GT-61266; unify
+	GT-61266.
+	(C7-517A): Add `<-denotational' for abstract GT-61266; unify
+	U-0002FA0A.
+	(C7-5177): Map to U-00029BA1.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>gt'.
 
