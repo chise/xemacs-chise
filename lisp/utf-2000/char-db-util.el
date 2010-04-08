@@ -225,6 +225,7 @@
     =big5-cdp
     =gt
     =>>gt
+    =>gt
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
