@@ -1,3 +1,36 @@
+2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>gt'.
+
+	* Oracle-Bones.el (abstract ZOB-0353): New abstract character.
+	(abstract ZOB-0559): New abstract character.
+	(abstract ZOB-0644): New abstract character.
+	(abstract ZOB-0909): New abstract character.
+	(abstract ZOB-1019): New abstract character.
+	(abstract ZOB-1395): New abstract character.
+	(ZOB-1397): Use `<-denotational' for abstract ZOB-1019.
+	(ZOB-1416): Use `<-denotational' for abstract ZOB-0644.
+	(abstract ZOB-1418): New abstract character.
+	(abstract ZOB-1429): New abstract character.
+	(abstract ZOB-1441): New abstract character.
+	(abstract ZOB-1511): New abstract character.
+	(ZOB-1530): Use `<-denotational' for abstract ZOB-1429.
+	(abstract ZOB-1532): New abstract character.
+	(abstract ZOB-1627): New abstract character.
+	(abstract ZOB-1648): New abstract character.
+	(ZOB-1667): Use `<-denotational' for abstract ZOB-0353.
+	(ZOB-1733): Use `<-denotational' for abstract ZOB-1648.
+	(ZOB-1848): Use `<-denotational' for abstract ZOB-1627.
+	(ZOB-1849): Use `<-denotational' for abstract ZOB-1441.
+	(ZOB-1850): Use `<-denotational' for abstract ZOB-1395.
+	(ZOB-1851): Use `<-denotational' for abstract ZOB-1511.
+	(ZOB-1854): Use `<-denotational' for abstract ZOB-0559.
+	(ZOB-1856): Use `<-denotational' for abstract ZOB-1532.
+	(ZOB-1908): Use `<-denotational' for abstract ZOB-0909.
+	(ZOB-1951): Use `<-denotational' for abstract ZOB-0644.
+	(ZOB-2041): Use `<-denotational' for abstract ZOB-1418.
+
 2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R189-Tall.el (abstract J0-3962): Use `=>jis-x0208' and
