@@ -1,3 +1,102 @@
+2010-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9BAA): Use `->subsumptive'.
+	(U+9BAB): Use `->subsumptive'; unify abstract J0-3B2D.
+	(J0-3B2D): Separate JX3-3B2D.
+	(U+4C4D): Add `<-same' for U+4C6D.
+	(U+9BD6): Unify abstract J0-3B2A.
+	(J78-3B2A): Unify JX3-3B2A.
+	(J90-3B2A): Separate JX3-3B2A; add `<-simplified@JP/jis' for
+	JX3-3B2A.
+	(U+9C2F): Unify abstract J0-3073.
+	(JX1-3073): Add `<-simplified@JP/jis' for JX3-3073.
+	(M-46492): Separate J78-4B70 and GT-63238.
+	(J78-4B70): Unify JX3-4B70.
+	(J90-4B70): Separate JX3-4B70; add `<-simplified@JP/jis' for
+	JX3-4B70.
+	(C7-5D75): Map to U-00029EE1.
+	(U+4C8C): Use `->subsumptive'.
+
+	* Ideograph-R184-Eat.el (U+98EF): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+98F4): Likewise.
+	(JX3-303B): Add `=ucs@jis/2004' for J2004U+98F4.
+	(JX1-303B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J{1990|2000}U+98F4; unify JC3-6DC8; use
+	`<-simplified@JP/extra' instead of `<-simplified@JP/jis' for
+	JX3-303B.
+	(M-44108): Unify GT-59233 and S2-5617; add `<-original' for
+	U+79E3.
+	(S1-5617): New character.
+	(GT-59165): New character.
+	(U+98FD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-7869): Unify GT-59241.
+	(U+98FE): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-635E): Unify JC3-6DB6.
+	(U+9905): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4C5F): Unify JX3-4C5F; add `<-vulgar' for J0-7136.
+	(J90-4C5F): Separate JX3-4C5F; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/jis' for J78-4C5F.
+	(GT-59206): New character.
+	(U+9909): Use `->denotational'; integrate GT-59211.
+	(U+4B39): Use `->denotational' instead of `->subsumptive';
+	integrate GT-59217.
+	(U-000296CE): Use `->denotational' instead of `->subsumptive'.
+	(M-44142): Unify GT-59307.
+	(U+4B3A): Use `->denotational' instead of `->subsumptive';
+	integrate GT-59248.
+	(U+990A): Use `->subsumptive'.
+	(U+990B): Use `->denotational' and `->subsumptive'.
+	(U+990C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-44146): Unify GT-59281.
+	(JX1-3142): Add `<-simplified@JP/extra' for JX1-3142.
+	(M-44147): Unify GT-59280.
+	(U-000296CF): Integrate GT-59201.
+	(U+9910): Use `->subsumptive'; unify abstract J0-3B41.
+	(K0-7349): Unify JX3-3B41 and S-9268.
+	(C1-7327): Unify GT-59369.
+	(J0-3B41): Separate JX3-3B41; separate S1-9268.
+	(U+4B3D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+9957): Use `->denotational' and `->subsumptive'; unify abstract
+	J0-3642; unify JC3-6DCA.
+	(M-44431): Add `<-same@JP/extra/design' for JX3-3642.
+	(K0-7A44): Unify JX3-3642.
+	(J0-3642): Separate JX3-3642; add `<-simplified@JP/jis' for
+	JX3-3642.
+	(U-000297CA): Use `->denotational' instead of `->subsumptive'.
+	(U+9958): Use `->denotational' and `->subsumptive'.
+	(JX1-7E2A): Unify JC3-6DC7.
+
+	* Ideograph-R187-Horse.el (U+99C1): Use `->subsumptive'; unify
+	abstract J0-477D.
+	(J0-477D): Separate JX3-477D.
+	(C1-6B72): Unify JX3-477D.
+	(C7-4C2C): Unify U-0002991D.
+	(U+9A17): Use `->denotational'.
+	(U+9A19): Use `->denotational'; unify abstract J0-7159.
+	(C1-7952): Unify JX3-7159.
+	(J0-7159): Separate JX3-7159; add `<-simplified@JP/extra/design'
+	for JX3-7159.
+	(U+4B9E): Use `->subsumptive' to separate representative nodes.
+	(M-44851): Unify JC3-6DF0.
+	(U+9A1A): Use `->denotational' instead of `->subsumptive'.
+	(JX2-7C7D): Unify GT-60393.
+	(UU+9A1A): Unify GT-60396.
+	(C7-5A3B): Map to U-00029988.
+	(U-00029989): Use `->denotational'.
+	(M-44998): Unify GT-60594.
+	(IU-00029989): Separate C5-7233; unify GT-60595.
+	(M-44999): Unify GT-60559.
+	(M-45000): Unify GT-60582.
+	(C7-5A40): Map to U-0002998D; integrate GT-60583.
+	(J97-424D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-424D): Unify JC3-6DF8.
+
 2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R190-Hair.el (U+4C09): Use `->subsumptive' to separate
