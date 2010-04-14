@@ -1,5 +1,8 @@
 2010-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R086-Fire.el (J97-3975): Copied from
+	Ideograph-R203-Black.el.
+
 	* Ideograph-R203-Black.el (J97-3975): Use `=>jis-x0208@1997'
 	instead of `=jis-x0208@1997'; use
 	`ideographic-{radical|strokes}@jis/b' instead of
