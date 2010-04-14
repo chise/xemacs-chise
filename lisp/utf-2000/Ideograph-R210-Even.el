@@ -247,7 +247,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 21)
     (=ucs		. #x9F4E)	; 齎
-    (=jis-x0208@1997	. #x6C5A)	; 齎 [76-58]
+    (=>jis-x0208	. #x6C5A)	; 齎 [76-58]
+    (=>jis-x0213-1	. #x6C5A)	; 齎 [76-58]
     (->subsumptive
      ((=ucs@jis		  . #x9F4E)	; &GT-66374;
       (=jis-x0208@1990	  . #x6C5A)	; &GT-66374; [76-58]
