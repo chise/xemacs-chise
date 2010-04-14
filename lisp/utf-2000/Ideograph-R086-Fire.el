@@ -4581,6 +4581,12 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@jis/a . 86)	; ⽕
+    (ideographic-radical@jis/b . 203)	; ⿊
+    (ideographic-strokes@jis/b . 0)
+    (=>jis-x0208@1997	. #x3975)	; &J97-3975; [25-85]
+    ))
+(define-char
   '((<-denotational
      ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
       ))
