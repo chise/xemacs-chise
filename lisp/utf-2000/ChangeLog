@@ -1,5 +1,37 @@
 2010-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R209-Nose.el (abstract J0-4921): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+9F3B.
+
+	* Ideograph-R200-Hemp.el (U+9EBB): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(K0-582B): Unify GT-65256 and GT-K07879.
+	(J97-4B7B): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-47909): Unify JC3-6FC8.
+	(C7-4C7C): Map to U-0002A3A5.
+	(M-47910): Unify GT-65297.
+	(C7-4C7D): Map to U-0002A3A7.
+
+	* Ideograph-R196-Bird.el (U+9D08): Add `<-formed' for J0-3467.
+	(C7-2B71): Map to U-00029FD6.
+	(C7-2B7A): Map to U-00029FC4.
+	(U+9D09): Use `->denotational' and `->subsumptive'; unify abstract
+	J0-726D.
+	(M-46738): Separate C1-7029 and G1-513B; integrate GT-63596.
+	(G1-513B): Unify JX3-726D.
+	(J0-726D): Separate JX3-726D; add `<-simplified@JP/extra/design'
+	for JX3-726D; separate K0-643C.
+	(J78-3974): Unify JX3-3974.
+	(J90-3974): Separate JX3-3974; add `<-simplified@JP/extra/design'
+	for JX3-3974.
+	(U+9DD6): Use `->denotational' instead of `->subsumptive'.
+	(J97-322A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9D0E): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for JX1-7E65.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J0-3467): Unify S1-8943.
+
 	* Ideograph-R086-Fire.el (J97-3975): Copied from
 	Ideograph-R203-Black.el.
 
