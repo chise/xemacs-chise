@@ -4,7 +4,8 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
+;;   2010 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -124,12 +125,20 @@
 (make-coding-system
  'iso-2022-jp-2 'iso2022
  "ISO-2022 coding system using SS2 for 96-charset in 7-bit code."
- '(charset-g0 ascii
-   charset-g2 t ;; unspecified but can be used later.
-   seven t
-   short t
-   mnemonic "ISO7/SS"
-   eol-type nil))
+ (let ((conf
+	'(charset-g0 ascii
+          charset-g2 t ;; unspecified but can be used later.
+	  seven t
+	  short t
+	  mnemonic "ISO7/SS"
+	  eol-type nil)))
+   (if (featurep 'utf-2000)
+       (list* 'ccs-priority-list
+	      '(ascii
+		=jis-x0208@1983 =jis-x0208@1978
+		latin-jisx0201)
+	      conf)
+     conf)))
 
 (make-coding-system
  'iso-2022-7bit 'iso2022
@@ -171,22 +180,312 @@
    mnemonic "ISO7/Lock"
    ))
 
+(when (featurep 'utf-2000)
+  (setq coded-charset-entity-reference-alist
+	'(((=gt			. isolated)     "I-GT-" 5 d)
+	  ((=ruimoku-v6		. isolated)   "I-RUI6-" 4 X)
+	  ((chinese-big5-cdp	. isolated)    "I-CDP-" 4 X)
+	  ((=gt-k		. isolated)    "I-GT-K" 5 d)
+	  ((ideograph-cbeta	. isolated)      "I-CB" 5 d)
+	  ((ideograph-hanziku-1 . isolated)  "I-HZK01-" 4 X)
+	  ((ideograph-hanziku-2 . isolated)  "I-HZK02-" 4 X)
+	  ((ideograph-hanziku-3 . isolated)  "I-HZK03-" 4 X)
+	  ((ideograph-hanziku-4 . isolated)  "I-HZK04-" 4 X)
+	  ((ideograph-hanziku-5 . isolated)  "I-HZK05-" 4 X)
+	  ((ideograph-hanziku-6 . isolated)  "I-HZK06-" 4 X)
+	  ((ideograph-hanziku-7 . isolated)  "I-HZK07-" 4 X)
+	  ((ideograph-hanziku-8 . isolated)  "I-HZK08-" 4 X)
+	  ((ideograph-hanziku-9 . isolated)  "I-HZK09-" 4 X)
+	  ((ideograph-hanziku-10 . isolated) "I-HZK10-" 4 X)
+	  ((ideograph-hanziku-11 . isolated) "I-HZK11-" 4 X)
+	  ((ideograph-hanziku-12 . isolated) "I-HZK12-" 4 X)
+	  ((=jis-x0208@1990	. isolated)    "I-J90-" 4 X)
+	  ((=jis-x0208@1983	. isolated)    "I-J83-" 4 X)
+	  ((=jis-x0213-1@2000	. isolated)    "I-JX1-" 4 X)
+	  ((=jis-x0213-2	. isolated)    "I-JX2-" 4 X)
+	  ((=jis-x0213-1@2004	. isolated)    "I-JX3-" 4 X)
+	  ((=jis-x0212		. isolated)    "I-JSP-" 4 X)
+	  ((=jis-x0208@1978	. isolated)    "I-J78-" 4 X)
+	  ((chinese-gb2312	. isolated)    	"I-G0-" 4 X)
+	  ((chinese-cns11643-1	. isolated)     "I-C1-" 4 X)
+	  ((chinese-cns11643-2	. isolated)     "I-C2-" 4 X)
+	  ((chinese-cns11643-3	. isolated)     "I-C3-" 4 X)
+	  ((chinese-cns11643-4	. isolated)     "I-C4-" 4 X)
+	  ((chinese-cns11643-5	. isolated)     "I-C5-" 4 X)
+	  ((chinese-cns11643-6	. isolated)     "I-C6-" 4 X)
+	  ((chinese-cns11643-7	. isolated)     "I-C7-" 4 X)
+	  ((korean-ksc5601	. isolated)    	"I-K0-" 4 X)
+	  ((=iso-ir165		. isolated)    "I-EGB-" 4 X)
+	  ((ideograph-daikanwa	. isolated)      "I-M-" 5 d)
+	  ((chinese-big5	. isolated)    	 "I-B-" 4 X)
+	  ((latin-iso8859-1	. isolated) "I-LATIN1-" 2 X)
+	  ((latin-iso8859-2	. isolated) "I-LATIN2-" 2 X)
+	  ((latin-iso8859-3	. isolated) "I-LATIN3-" 2 X)
+	  ((latin-iso8859-4	. isolated) "I-LATIN4-" 2 X)
+	  ((cyrillic-iso8859-5	. isolated) "I-CYRILLIC-" 2 X)
+	  ((greek-iso8859-7	. isolated)  "I-GREEK-" 2 X)
+	  ((hebrew-iso8859-8	. isolated) "I-HEBREW-" 2 X)
+	  ((latin-iso8859-9	. isolated) "I-LATIN5-" 2 X)
+	  ((latin-jisx0201	. isolated) "I-LATINJ-" 2 X)
+	  ((katakana-jisx0201	. isolated) "I-KATAKANA-" 2 X)
+	  ((latin-tcvn5712	. isolated) "I-VSCII2-" 2 X)
+	  ;; ((latin-viscii	. isolated) "I-VISCII-" 2 X)
+	  ((latin-viscii-upper	. isolated) "I-MULE-VIET-U-" 2 X)
+	  ((latin-viscii-lower	. isolated) "I-MULE-VIET-L-" 2 X)
+	  ((thai-tis620		. isolated)   "I-THAI-" 2 X)
+	  ((lao			. isolated) "I-MULE-LAO-" 2 X)
+	  ((arabic-1-column	. isolated) "I-MULE-ARB1-" 2 X)
+	  ((arabic-2-column	. isolated) "I-MULE-ARB2-" 2 X)
+	  ((arabic-digit	. isolated) "I-MULE-ARBD-" 2 X)
+	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
+	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
+	  ( =gt					  "GT-" 5 d)
+	  (=>>gt				"G-GT-" 5 d)
+	  (=>>gt				 "aGT-" 5 d)
+	  (=>gt					"A-GT-" 5 d)
+	  ( =zinbun-oracle                       "ZOB-" 4 d)
+	  (=>zinbun-oracle                     "A-ZOB-" 4 d)
+	  ( =ruimoku-v6				"RUI6-" 4 X)
+	  ( chinese-big5-cdp		         "CDP-" 4 X)
+	  ( ideograph-daikanwa                     "M-" 5 d)
+	  ( =gt-k				 "GT-K" 5 d)
+	  ( ideograph-cbeta   		           "CB" 5 d)
+	  ( ideograph-hanziku-1                "HZK01-" 4 X)
+	  ( ideograph-hanziku-2                "HZK02-" 4 X)
+	  ( ideograph-hanziku-3                "HZK03-" 4 X)
+	  ( ideograph-hanziku-4                "HZK04-" 4 X)
+	  ( ideograph-hanziku-5                "HZK05-" 4 X)
+	  ( ideograph-hanziku-6                "HZK06-" 4 X)
+	  ( ideograph-hanziku-7                "HZK07-" 4 X)
+	  ( ideograph-hanziku-8                "HZK08-" 4 X)
+	  ( ideograph-hanziku-9                "HZK09-" 4 X)
+	  ( ideograph-hanziku-10               "HZK10-" 4 X)
+	  ( ideograph-hanziku-11               "HZK11-" 4 X)
+	  ( ideograph-hanziku-12               "HZK12-" 4 X)
+	  ((ideograph-hanziku-1 . isolated)   "I-HZK1-" 4 X)
+	  ( ideograph-hanziku-1                 "HZK1-" 4 X)
+	  ((ideograph-hanziku-2 . isolated)   "I-HZK2-" 4 X)
+	  ( ideograph-hanziku-2                 "HZK2-" 4 X)
+	  ( =jis-x0208@1990			 "J90-" 4 X)
+	  ( =jis-x0208@1983			 "J83-" 4 X)
+	  ( =jis-x0213-1@2000   		 "JX1-" 4 X)
+	  ( =jis-x0213-2	   		 "JX2-" 4 X)
+	  ( =jis-x0213-1@2004			 "JX3-" 4 X)
+	  ( =jis-x0212				 "JSP-" 4 X)
+	  ( =jis-x0208@1978			 "J78-" 4 X)
+	  (=>>jis-x0208@1990		       "G-J90-" 4 X)
+	  (=>>jis-x0213-1@2000		       "G-JX1-" 4 X)
+	  (=>>jis-x0213-2	   	       "G-JX2-" 4 X)
+	  (=>>jis-x0213-1@2004		       "G-JX3-" 4 X)
+	  (=>>jis-x0213-1@2000		        "aJX1-" 4 X)
+	  (=>>jis-x0213-2	   		"aJX2-" 4 X)
+	  (=>>jis-x0213-1@2004		        "aJX3-" 4 X)
+	  (=>>jis-x0208@1978		       "G-J78-" 4 X)
+	  ( =>jis-x0208@1997			 "J97-" 4 X)
+	  ( =>jis-x0208@1997			"A-J0-" 4 X)
+	  ( =>jis-x0213-1@2000		       "A-JX1-" 4 X)
+	  ( =>jis-x0213-2		       "A-JX2-" 4 X)
+	  ( =>jis-x0213-1@2004		       "A-JX3-" 4 X)
+	  ( chinese-cns11643-1                    "C1-" 4 X)
+	  ( chinese-cns11643-2                    "C2-" 4 X)
+	  ( chinese-cns11643-3                    "C3-" 4 X)
+	  ( chinese-cns11643-4                    "C4-" 4 X)
+	  ( chinese-cns11643-5                    "C5-" 4 X)
+	  ( chinese-cns11643-6                    "C6-" 4 X)
+	  ( chinese-cns11643-7                    "C7-" 4 X)
+	  ( korean-ksc5601                    	  "K0-" 4 X)
+	  ( chinese-gb2312		      	  "G0-" 4 X)
+	  ( =iso-ir165			         "EGB-" 4 X)
+	  ( latin-iso8859-1		      "LATIN1-" 2 X)
+	  ( latin-iso8859-2	    	      "LATIN2-" 2 X)
+	  ( latin-iso8859-3		      "LATIN3-" 2 X)
+	  ( latin-iso8859-4		      "LATIN4-" 2 X)
+	  ( cyrillic-iso8859-5              "CYRILLIC-" 2 X)
+	  ( greek-iso8859-7		       "GREEK-" 2 X)
+	  ( hebrew-iso8859-8		      "HEBREW-" 2 X)
+	  ( latin-iso8859-9		      "LATIN5-" 2 X)
+	  ( latin-jisx0201		      "LATINJ-" 2 X)
+	  ( katakana-jisx0201		    "KATAKANA-" 2 X)
+	  ( latin-tcvn5712                    "VSCII2-" 2 X)
+	  ( latin-viscii                      "VISCII-" 2 X)
+	  ( latin-viscii-upper		 "MULE-VIET-U-" 2 X)
+	  ( latin-viscii-lower		 "MULE-VIET-L-" 2 X)
+	  ( thai-tis620			        "THAI-" 2 X)
+	  ( lao				    "MULE-LAO-" 2 X)
+	  ( ethiopic		          "MULE-ETHIO-" 4 X)
+	  ( arabic-1-column                "MULE-ARB1-" 2 X)
+	  ( arabic-2-column                "MULE-ARB2-" 2 X)
+	  ( arabic-digit		   "MULE-ARBD-" 2 X)
+	  ( ipa                             "MULE-IPA-" 2 X)
+	  ( china3-jef                    	 "JC3-" 4 X)
+	  ( chinese-big5                    	   "B-" 4 X)
+	  ( chinese-big5                    	  "C0-" 4 X)
+	  ( =ucs@iso                    	   "U-" 8 X)
+	  ( =ucs@unicode                    	  "UU+" 4 X)
+	  ( =ucs@unicode                    	  "UU-" 8 X)
+	  ( =ucs@iso                    	   "U+" 4 X)
+	  ( =ucs@gb	                    	  "GU+" 4 X)
+	  ( =ucs@gb	                    	  "GU-" 8 X)
+	  ( =ucs@jis	                    	  "JU+" 4 X)
+	  ( =ucs@jis	                    	  "JU-" 8 X)
+	  ( =ucs@cns	                    	  "CU+" 4 X)
+	  ( =ucs@cns	                    	  "CU-" 8 X)
+	  ( =ucs@ks	                    	  "KU+" 4 X)
+	  ( =ucs@ks	                    	  "KU-" 8 X)
+	  ( =jis-x0208@1978/i1                 "J78i1-" 4 X)
+	  ( =shinjigen@rev                      "SJG2-" 4 d)
+	  ( =shinjigen@1ed                      "SJG1-" 4 d)
+	  ))
+
+  (make-coding-system
+   'utf-8-mcs-er 'utf-8
+   "Coding-system of UTF-8 with entity-reference."
+   '(mnemonic "MTF8r" use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-gb 'utf-8
+   "Coding-system of UTF-8 using GB mapping."
+   '(mnemonic "UTF8G"
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-gb-er 'utf-8
+   "Coding-system of UTF-8 using GB mapping with entity-reference."
+   '(mnemonic "UTF8Gr"
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-cns 'utf-8
+   "Coding-system of UTF-8 using CNS mapping."
+   '(mnemonic "UTF8C"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-cns-er 'utf-8
+   "Coding-system of UTF-8 using CNS mapping with entity-reference."
+   '(mnemonic "UTF8Cr"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-big5 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping."
+   '(mnemonic "UTF8B"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-big5-er 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping with entity-reference."
+   '(mnemonic "UTF8Br"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-jis 'utf-8
+   "Coding-system of UTF-8 using JIS mapping."
+   '(mnemonic "UTF8J"
+	      charset-g0 =ucs@jis-2000
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-jis-er 'utf-8
+   "Coding-system of UTF-8 using JIS mapping with entity-reference."
+   '(mnemonic "UTF8Jr"
+	      charset-g0 =ucs@jis-2000
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-jp 'utf-8
+   "Coding-system of UTF-8 for common glyphs used in Japan."
+   '(mnemonic "UTF8J"
+	      charset-g0 =ucs@jp
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-jp-er 'utf-8
+   "Coding-system of UTF-8 using =ucs@jp mapping with entity-reference."
+   '(mnemonic "UTF8Jr"
+	      charset-g0 =ucs@jp
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ks 'utf-8
+   "Coding-system of UTF-8 using KS mapping."
+   '(mnemonic "UTF8K"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ks-er 'utf-8
+   "Coding-system of UTF-8 using KS mapping with entity-reference."
+   '(mnemonic "UTF8Kr"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (define-coding-system-alias 'utf-8 'utf-8-mcs)
+  (define-coding-system-alias 'utf-8-er 'utf-8-mcs-er)
+  )
+
+(make-coding-system
+ 'euc-jisx0213 'iso2022
+ "Coding-system of Japanese EUC based on JIS X 0213."
+ '(charset-g0 ascii
+   charset-g1 japanese-jisx0213-1
+   charset-g2 katakana-jisx0201
+   charset-g3 japanese-jisx0213-2
+   short t
+   mnemonic "Ja/EUC0213"
+   ))
+
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
 ;; (They will be in ISO-7 format)
 ;; #### This list needs to be synched with the ones in mule-cmds.el.
 
-(set-coding-priority-list '(iso-7
-	    no-conversion
-	    ;; utf-8
-	    iso-8-1
-	    iso-8-2
-	    iso-8-designate
-	    iso-lock-shift
-	    shift-jis
-	    big5
-	    ;; ucs-4
-	    ))
+(if (featurep 'utf-2000)
+    (set-coding-priority-list '(iso-7
+				no-conversion
+				utf-8
+				iso-8-1
+				iso-8-2
+				iso-8-designate
+				iso-lock-shift
+				shift-jis
+				big5
+				ucs-4))
+  (set-coding-priority-list '(iso-7
+			      no-conversion
+			      ;; utf-8
+			      iso-8-1
+			      iso-8-2
+			      iso-8-designate
+			      iso-lock-shift
+			      shift-jis
+			      big5
+			      ;; ucs-4
+			      )))
 
 (set-coding-category-system 'iso-7 'iso-2022-7)
 (set-coding-category-system 'iso-8-designate 'ctext)

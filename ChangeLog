@@ -1,3 +1,116 @@
+2009-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Check libX11.dylib if libX11.a is not found in
+	each directory of X11 library path.
+
+2007-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/CHISE-VERSIONS: New file.
+
+2005-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (install-arch-indep): Modify code to make the
+	symbolic link for chise-db-directory/db to avoid error in
+	GNU/Linux.
+
+2005-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in:
+	- Add new option `--with-concord'.
+	- Add code to detect libconcord.
+	- define `HAVE_CONCORD' if the concord feature is enabled.
+
+2005-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (install-arch-indep): As the symbolic link for
+	chise-db-directory/db, use relative directory instead of absolute
+	directory of ${etcdir}/chise-db.
+
+2004-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (COPYDIR): Delete ${srcdir}/lib-src/chise-db.
+	(COPYDESTS): Delete ${archlibdir}/chise-db.
+	- Use ${etcdir}/chise-db instead of ${archlibdir}/char-db as the
+	  target to create symbolic link for chise-db-directory.
+
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in: Use chise-db/ instead of char-db/.
+
+2003-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in:
+	- Use HAVE_CHISE instead of HAVE_CHISE_CLIENT.
+	- Setup chise-db-directory [make symbolic link for
+	  ${archlibdir}/char-db].
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Delete HAVE_CHISE_CLIENT.
+
+2003-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Use HAVE_LIBCHISE instead of CHISE; add HAVE_CHISE
+	if HAVE_LIBCHISE or HAVE_CHISE_CLIENT is defined.
+
+2003-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in:
+	- Add new option `--with-chise'.
+	- define `CHISE' if --with-chise is specified and/or chise.h is
+	  found.
+	- Disable Wnn support if UTF2000 is enables.
+	- Display "Multiscriptization / Multilingualization /
+	  Internationalization:" instead of "Internationalization:".
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Makefile.in.in (COPYDIR): Add ${srcdir}/lib-src/char-db if
+	HAVE_CHISE_CLIENT is defined.
+	(COPYDESTS): Add ${archlibdir}/char-db if HAVE_CHISE_CLIENT is
+	defined.
+
+	* configure.in: Define HAVE_CHISE_CLIENT when HAVE_DATABASE and
+	UTF2000 are defined.
+
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Don't define `HAVE_GGC' in XEmacs UTF-2000.
+
+2001-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (all-elc all-elcs): Add lisp/utf-2000 as a target
+	to byte-compile if compiling with --utf-2000.
+	(lisp/auto-autoloads.el): Add setting for lisp/utf-2000 if
+	compiling with --utf-2000.
+
+2000-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Define `HAVE_GGC' if with-utf-2000 is specified.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-text-coding'; define
+	`TEXT_CODING' if it is specified.
+
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Delete `--with-ucs4' option.
+	- Display message about UTF-2000 if "$with_utf_2000" = yes.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Add new option `--with-ucs4'; define `CHAR_IS_UCS4' if it is
+	  specified.
+	- Define `CHAR_IS_UCS4' if `--with-utf-2000' is specified.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
+	if it is specified.
+
 2008-12-28  Vin Shelton  <acs@xemacs.org>
 
 	* XEmacs 21.4.22 is released
@@ -70,7 +183,7 @@
 	* etc/NEWS: document motif deprecation and defaulting
 	--with-widgets to off.
 
-2005-12-04  Ville Skytt�  <scop@xemacs.org>
+2005-12-04  Ville Skyttä  <scop@xemacs.org>
 	* etc/PACKAGES: Fix description of xetla.
 
 2005-12-03  Vin Shelton <acs@xemacs.org>
@@ -590,7 +703,7 @@
 
 	* Emacs.ad: Add charsets to *menubar*FontSet and *popup*FontSet.
 
-2002-08-29  Ville Skytt�  <ville.skytta@xemacs.org>
+2002-08-29  Ville Skyttä  <ville.skytta@xemacs.org>
 
 	* Emacs.ad: Add *menubar*FontSet and *popup*FontSet entries,
 	(self-)obtained from Red Hat.
@@ -1233,7 +1346,7 @@
 
 	* XEmacs 21.2.38 is released.
 
-2000-11-26  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
+2000-11-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* configure.in: Only show message about DnD API if compiling with DnD
 
@@ -2070,6 +2183,10 @@
 
 	* etc/HELLO (Thai): Modify for new font.
 
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
+
 1999-07-22  SL Baur  <steve@beopen.com>
 
 	* configure.in: add sco7 support
@@ -2574,7 +2691,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 
