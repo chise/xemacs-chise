@@ -1,3 +1,34 @@
+2010-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (J97-3975): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'; use
+	`ideographic-{radical|strokes}@jis/b' instead of
+	`ideographic-{radical|strokes}'; add `ideographic-radical@jis/a'.
+
+	* Ideograph-R201-Yellow.el (J97-322B): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+9EC3): Unify abstract JX1-7E71.
+	(C7-2C32): Map to U-0002A3B4.
+
+2010-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el (J97-396D): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+9EB4): Unify abstract JX1-7E6F.
+	(JX1-7E6F): Unify GT-65145.
+	(U+9EB9): Unify abstract JX1-396D.
+	(J90-396D): Unify JC3-6FC3.
+	(J97-4C4D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9EB5): Unify abstract JX1-7E70.
+	(JX1-7E70): Unify GT-65188.
+	(U+9EBA): Unify abstract JX1-4C4D.
+	(J90-4C4D): Unify JC3-6FC4.
+
+	* Ideograph-R197-Salt.el (J97-3834): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(J90-3834): Unify JC3-6FB5; use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for U+9E7C.
+
 2010-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el (U+9BAA): Use `->subsumptive'.
