@@ -1,3 +1,8 @@
+2010-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el (U+9F4E): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
 2010-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R209-Nose.el (abstract J0-4921): Use `=>jis-x0208' and
